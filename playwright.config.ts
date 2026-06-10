@@ -14,11 +14,11 @@ export default defineConfig({
   projects: [
     {
       name: 'iPhone SE',
-      use: { ...devices['iPhone SE'] },
+      use: { ...devices['iPhone SE'], defaultBrowserType: 'chromium' },
     },
     {
       name: 'iPad Pro',
-      use: { ...devices['iPad Pro'] },
+      use: { ...devices['iPad Pro'], defaultBrowserType: 'chromium' },
     },
     {
       name: 'Desktop Chrome',
