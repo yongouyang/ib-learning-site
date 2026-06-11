@@ -3,7 +3,7 @@ import { getSubjects, getSubject, getTopic } from '@/content/registry';
 import type { SubjectId } from '@/content/types';
 
 const EXPECTED_TOPIC_COUNTS: Record<SubjectId, number> = {
-  math: 31,
+  math: 37,
   biology: 5,
   chemistry: 5,
   english: 5,
@@ -108,7 +108,7 @@ describe('content-registry', () => {
     it('math should have DP topics', () => {
       const math = getSubject('math')!;
       const dpTopics = math.topics.filter(t => t.ibLevel === 'DP');
-      expect(dpTopics.length).toBeGreaterThanOrEqual(12);
+      expect(dpTopics.length).toBeGreaterThanOrEqual(18);
     });
 
     it('DP topics should be accessible via getTopic', () => {
