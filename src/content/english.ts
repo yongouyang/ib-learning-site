@@ -72,7 +72,55 @@ const engEssay: Topic = {
   ],
 };
 
+const engReadingComprehension: Topic = {
+  id: 'eng-reading-1', subjectId: 'english', title: 'Reading Comprehension',
+  description: 'Strategies for understanding, analysing, and responding to texts.', ibLevel: 'MYP',
+  notes: [
+    { id: 'read-n1', heading: 'Inference and Explicit Information', body: 'Explicit information is stated directly in the text — you don\'t need to guess. Implicit information (or inference) requires you to "read between the lines" by using clues in the text to work out something the author hasn\'t said outright. For example, if a character "slammed the door and didn\'t speak at dinner," the text never says they are angry, but you can infer it.' },
+    { id: 'read-n2', heading: "Author's Purpose and Tone", body: "An author's purpose is why they wrote: to inform (give facts), persuade (change your opinion), entertain (engage and amuse), or describe (create a picture). Tone is the author's attitude — formal, humorous, angry, sympathetic, or sarcastic. Identifying purpose and tone helps you understand what the author really wants you to think or feel." },
+    { id: 'read-n3', heading: 'Summarising and Main Idea', body: 'The main idea is the most important point — what the author says ABOUT the topic. A topic is just the subject; the main idea includes the claim. A good summary restates the main idea and key supporting details in your own words, is shorter than the original, accurate, and leaves out unimportant details.' },
+  ],
+  flashcards: [
+    { id: 'read-f1', term: 'Inference', definition: 'A conclusion drawn from evidence in the text rather than something the author states directly.', example: 'If a character wraps their coat tighter, you can infer it is cold outside.' },
+    { id: 'read-f2', term: 'Explicit information', definition: 'Information that is stated clearly and directly in the text.', example: '"The train arrived at 9 a.m." — stated outright.' },
+    { id: 'read-f3', term: "Author's purpose", definition: 'The reason an author writes: to inform, persuade, entertain, or describe.', example: undefined },
+    { id: 'read-f4', term: 'Tone', definition: "The author's attitude or feeling towards the subject or audience, expressed through word choice.", example: 'Formal tone uses precise language; humorous tone uses jokes or sarcasm.' },
+    { id: 'read-f5', term: 'Main idea', definition: 'The most important point an author makes about a topic in a text or paragraph.', example: undefined },
+  ],
+  questions: [
+    { id: 'read-q1', stem: 'A text says: "Maria glanced at her watch three times, tapped her foot, and kept looking at the door." What can you INFER?', choices: ['Maria is tired.', 'Maria is waiting anxiously for someone.', 'Maria is angry at someone in the room.', 'Maria wants to leave immediately.'], correctIndex: 1, explanation: 'Watch-checking, foot-tapping, and door-looking are all signs of nervous waiting — not directly stated, but inferred.' },
+    { id: 'read-q2', stem: 'Which is an example of EXPLICIT information?', choices: ['The character must be cold because she is shivering.', 'The story probably takes place in winter.', 'The temperature was -5°C according to the weather report.', 'The author seems to dislike the cold season.'], correctIndex: 2, explanation: 'Explicit information is directly stated in the text — like the specific temperature.' },
+    { id: 'read-q3', stem: "A newspaper article presents facts and statistics about climate change without opinion. What is the author's likely purpose?", choices: ['To entertain', 'To persuade', 'To inform', 'To describe'], correctIndex: 2, explanation: 'Presenting facts neutrally = purpose is to inform.' },
+    { id: 'read-q4', stem: "What is the difference between a 'topic' and a 'main idea'?", choices: ['They are the same thing.', 'The topic is the subject; the main idea is what the author says about that subject.', 'The main idea is the subject; the topic is the author\'s opinion.', 'The topic is found in the conclusion; the main idea in the introduction.'], correctIndex: 1, explanation: 'Topic = subject (e.g. "dogs"). Main idea = claim about that subject (e.g. "Dogs are better pets than cats").' },
+    { id: 'read-q5', stem: 'Which word best describes the tone of: "The council has, once again in its infinite wisdom, decided to close the only park"?', choices: ['Formal', 'Sarcastic', 'Sympathetic', 'Neutral'], correctIndex: 1, explanation: '"Infinite wisdom" is used ironically to criticise — this is sarcasm.' },
+  ],
+};
+
+const engPoetryAnalysis: Topic = {
+  id: 'eng-poetry-1', subjectId: 'english', title: 'Poetry Analysis',
+  description: 'Understanding how poets use language, structure, and sound to create meaning.', ibLevel: 'MYP',
+  notes: [
+    { id: 'poe-n1', heading: 'Imagery and Sensory Language', body: 'Imagery refers to language that creates a mental picture or appeals to the senses — sight, sound, smell, touch, and taste. Poets use imagery to make abstract feelings feel real. For example, "golden daffodils that flutter and dance" creates a visual image. Strong imagery is specific and unexpected. When analysing poetry, ask: what does this image make you see, hear, or feel?' },
+    { id: 'poe-n2', heading: 'Rhyme and Rhythm', body: 'Rhyme is when words end with the same sound ("moon/June"). A rhyme scheme is the pattern, labelled with letters (ABAB, AABB). Rhythm is the pattern of stressed and unstressed syllables — the "beat" of the poem. Regular rhythm can feel calm; irregular rhythm can feel chaotic. Together, rhyme and rhythm give poetry its musical quality.' },
+    { id: 'poe-n3', heading: 'Structure and Form', body: 'Structure includes how a poem is organised into stanzas (groups of lines), line lengths, and fixed forms. A sonnet has 14 lines; a haiku has 3 lines (5-7-5 syllables). Free verse has no fixed rhyme or meter. Line breaks create pauses and emphasis. Enjambment is when a sentence runs on from one line to the next without a pause.' },
+  ],
+  flashcards: [
+    { id: 'poe-f1', term: 'Imagery', definition: 'Descriptive language that appeals to the senses and creates vivid mental pictures.', example: '"The crimson sun melted into the horizon."' },
+    { id: 'poe-f2', term: 'Rhyme scheme', definition: 'The pattern of rhymes at the end of each line, identified by letters (e.g., ABAB).', example: 'Roses are red (A), violets are blue (B), sugar is sweet (A)... — AAB' },
+    { id: 'poe-f3', term: 'Stanza', definition: 'A group of lines in a poem, similar to a paragraph in prose.', example: 'A four-line stanza is called a quatrain.' },
+    { id: 'poe-f4', term: 'Enjambment', definition: 'When a sentence or phrase continues past the end of one line into the next without a pause.', example: undefined },
+    { id: 'poe-f5', term: 'Free verse', definition: 'Poetry that does not follow a regular rhyme scheme or metrical pattern.', example: undefined },
+  ],
+  questions: [
+    { id: 'poe-q1', stem: '"The moon hung like a lantern over the sleeping city." This line is an example of:', choices: ['Alliteration', 'Rhyme', 'Imagery', 'Enjambment'], correctIndex: 2, explanation: 'The line creates a vivid visual picture — this is imagery.' },
+    { id: 'poe-q2', stem: 'A poem has line 1 rhyming with line 3, and line 2 with line 4. What rhyme scheme?', choices: ['AABB', 'ABBA', 'ABAB', 'AAAA'], correctIndex: 2, explanation: 'ABAB = alternating rhyme scheme.' },
+    { id: 'poe-q3', stem: 'What is enjambment in poetry?', choices: ['A group of lines forming a section', 'A comparison using "like" or "as"', 'When a sentence runs from one line to the next without a full stop', 'A poem with exactly 14 lines'], correctIndex: 2, explanation: 'Enjambment = the sentence continues over the line break without a pause.' },
+    { id: 'poe-q4', stem: 'A poem with no set rhyme scheme or regular rhythm is written in:', choices: ['Sonnet form', 'Free verse', 'Haiku form', 'A quatrain'], correctIndex: 1, explanation: 'Free verse has no fixed rhyme scheme or meter.' },
+    { id: 'poe-q5', stem: 'Why is it important to comment on a poet\'s specific word choice?', choices: ['To show you have read the poem', 'Because all words in a poem are there by accident', 'Because word choice reveals the poet\'s intentions and creates specific effects', 'To count the syllables'], correctIndex: 2, explanation: 'Poets choose words deliberately for sound, meaning, and connotation. Analysing word choice reveals mood and meaning.' },
+  ],
+};
+
 export const englishSubject: Subject = {
   id: 'english', name: 'English', icon: 'book', accentColor: '#7B5EA7',
-  topics: [engNarrative, engFigurative, engEssay],
+  topics: [engNarrative, engFigurative, engEssay, engReadingComprehension, engPoetryAnalysis],
 };

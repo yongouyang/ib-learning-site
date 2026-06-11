@@ -72,7 +72,55 @@ const bioBody: Topic = {
   ],
 };
 
+const bioGenetics: Topic = {
+  id: 'bio-genetics-1', subjectId: 'biology', title: 'Genetics & Inheritance',
+  description: 'How traits are passed from parents to offspring through DNA and genes.', ibLevel: 'MYP',
+  notes: [
+    { id: 'gen-n1', heading: 'DNA, Genes, and Chromosomes', body: 'DNA (deoxyribonucleic acid) is a long molecule that carries genetic information in a code made of four bases: A, T, C, G. A gene is a short section of DNA that codes for a specific protein — and proteins determine our characteristics. Genes are found on chromosomes, which are coiled-up DNA found in the nucleus. Human cells contain 46 chromosomes (23 pairs). One chromosome from each pair came from each parent.' },
+    { id: 'gen-n2', heading: 'Dominant and Recessive Alleles', body: 'For each gene we have two alleles — one from each parent. A dominant allele (capital letter, e.g. B) will show its effect even if only one copy is present. A recessive allele (lowercase, e.g. b) will only show if two copies are present (bb). An organism with two identical alleles (BB or bb) is homozygous. Two different alleles (Bb) is heterozygous. The genetic make-up is the genotype; what you see is the phenotype.' },
+    { id: 'gen-n3', heading: 'Punnett Squares', body: 'A Punnett square is a grid used to predict the possible genotypes and phenotypes of offspring from a cross. Write one parent\'s alleles across the top, the other\'s down the side. Each box represents a 25% probability. For a Bb × Bb cross: BB (25%), Bb (50%), bb (25%).' },
+  ],
+  flashcards: [
+    { id: 'gen-f1', term: 'Gene', definition: 'A section of DNA that codes for a specific protein, determining a particular characteristic.', example: 'The gene for eye colour instructs cells to produce certain pigments.' },
+    { id: 'gen-f2', term: 'Allele', definition: 'A version of a gene. Two alleles for most genes — one on each chromosome of a pair.', example: 'B (brown eyes) and b (blue eyes) are alleles of the eye colour gene.' },
+    { id: 'gen-f3', term: 'Dominant allele', definition: 'An allele that is expressed even when only one copy is present.', example: 'If B = brown eyes is dominant, then BB and Bb both give brown eyes.' },
+    { id: 'gen-f4', term: 'Recessive allele', definition: 'An allele that is only expressed when two copies are present (homozygous recessive).', example: 'Blue eyes only appear with genotype bb.' },
+    { id: 'gen-f5', term: 'Punnett square', definition: 'A grid diagram used to predict the genotype ratios of offspring from a genetic cross.', example: undefined },
+  ],
+  questions: [
+    { id: 'gen-q1', stem: 'A dominant allele for tall plants (T) is crossed with a recessive allele for short plants (t). What is the phenotype of a plant with genotype Tt?', choices: ['Short', 'Tall', 'Medium height', 'Cannot be determined'], correctIndex: 1, explanation: 'Tt is heterozygous. Because T (tall) is dominant, even one copy causes the plant to be tall.' },
+    { id: 'gen-q2', stem: 'Where is DNA found in a eukaryotic cell?', choices: ['Mitochondria only', 'Cytoplasm', 'Nucleus', 'Cell membrane'], correctIndex: 2, explanation: 'In eukaryotic cells, most DNA is located in the nucleus, packaged into chromosomes.' },
+    { id: 'gen-q3', stem: 'Two heterozygous brown-eyed parents (Bb × Bb). What fraction of children expected to have blue eyes (bb)?', choices: ['1/4', '1/2', '3/4', '0'], correctIndex: 0, explanation: 'Punnett square: BB, Bb, Bb, bb. One of four = 1/4 (25%).' },
+    { id: 'gen-q4', stem: 'What is the term for an organism that has two identical alleles for a gene (e.g., BB or bb)?', choices: ['Heterozygous', 'Homozygous', 'Dominant', 'Recessive'], correctIndex: 1, explanation: 'Homozygous means both alleles for a gene are the same.' },
+    { id: 'gen-q5', stem: 'How many chromosomes does a typical human body cell contain?', choices: ['23', '46', '92', '12'], correctIndex: 1, explanation: 'Human body cells contain 46 chromosomes in 23 pairs.' },
+  ],
+};
+
+const bioEcology: Topic = {
+  id: 'bio-ecology-1', subjectId: 'biology', title: 'Ecology & Ecosystems',
+  description: 'How living organisms interact with each other and their environment.', ibLevel: 'MYP',
+  notes: [
+    { id: 'eco-n1', heading: 'Ecosystems and Food Chains', body: 'An ecosystem is all the living organisms (biotic factors) in an area together with the non-living environment (abiotic factors like temperature, light, and water). A food chain shows how energy flows from one organism to the next. It always starts with a producer (a green plant that photosynthesises). Herbivores (primary consumers) eat plants. Carnivores (secondary, tertiary consumers) eat animals. Each step is called a trophic level. Energy is lost at each level (mostly as heat), so chains rarely have more than 4–5 links.' },
+    { id: 'eco-n2', heading: 'Food Webs and Interdependence', body: 'A food web shows multiple food chains linked together. If one species is removed, it affects many others — this is called interdependence. For example, if rabbits in a meadow were removed, foxes would have less food and grass would grow more. Biodiversity (the variety of species) makes ecosystems more stable and resilient to change.' },
+    { id: 'eco-n3', heading: 'The Carbon and Nitrogen Cycles', body: 'Carbon cycles via photosynthesis (plants absorb CO₂), respiration (organisms release CO₂), feeding (carbon moves through food chains), decomposition (decomposers release CO₂), and combustion. Nitrogen cycles: nitrogen-fixing bacteria convert N₂ into nitrates; plants absorb nitrates; consumers eat plants; decomposers break down dead matter; nitrifying bacteria convert ammonium to nitrates; denitrifying bacteria convert nitrates back to N₂.' },
+  ],
+  flashcards: [
+    { id: 'eco-f1', term: 'Producer', definition: 'An organism that makes its own food through photosynthesis, forming the base of food chains.', example: 'Grass, trees, algae.' },
+    { id: 'eco-f2', term: 'Consumer', definition: 'An organism that obtains energy by eating other organisms.', example: 'A rabbit (primary consumer) eats grass; a fox (secondary consumer) eats rabbits.' },
+    { id: 'eco-f3', term: 'Food web', definition: 'A diagram showing the feeding relationships between all organisms in an ecosystem — multiple food chains linked together.', example: undefined },
+    { id: 'eco-f4', term: 'Decomposer', definition: 'An organism (like bacteria or fungi) that breaks down dead organic matter, recycling nutrients back into the soil.', example: undefined },
+    { id: 'eco-f5', term: 'Biodiversity', definition: 'The variety of different species living in an ecosystem. High biodiversity makes ecosystems more stable.', example: undefined },
+  ],
+  questions: [
+    { id: 'eco-q1', stem: 'In a food chain, which organism is always at the start (the producer)?', choices: ['A carnivore', 'A decomposer', 'A herbivore', 'A green plant'], correctIndex: 3, explanation: 'Producers (green plants) make their own food using photosynthesis. They form the energy base for all other organisms.' },
+    { id: 'eco-q2', stem: 'Why is energy lost at each step in a food chain?', choices: ['Energy is destroyed when organisms eat each other', 'Most energy is released as heat during respiration and not passed on', 'Organisms use energy to produce oxygen', 'Energy turns into matter at each trophic level'], correctIndex: 1, explanation: 'At each trophic level, organisms use much of the energy for their own respiration, releasing it as heat. Only about 10% is transferred to the next level.' },
+    { id: 'eco-q3', stem: 'If the population of rabbits in a food web suddenly crashed, what would most likely happen to the fox population?', choices: ['It would increase', 'It would stay the same', 'It would decrease', 'It would move to a different ecosystem'], correctIndex: 2, explanation: 'If rabbits (a food source for foxes) decrease, foxes will have less food and their population will decrease.' },
+    { id: 'eco-q4', stem: 'What role do decomposers play in nutrient cycles?', choices: ['They produce oxygen for other organisms', 'They convert sunlight into chemical energy', 'They break down dead organisms and return nutrients to the soil', 'They fix nitrogen directly from the atmosphere'], correctIndex: 2, explanation: 'Decomposers (bacteria and fungi) break down dead organic matter, releasing nutrients back into the soil.' },
+    { id: 'eco-q5', stem: 'What does "biodiversity" mean?', choices: ['The total mass of all living organisms in an area', 'The number of individuals in a single species', 'The variety of different species in an ecosystem', 'The amount of food energy available in an ecosystem'], correctIndex: 2, explanation: 'Biodiversity refers to the variety of species present. High biodiversity indicates a healthy ecosystem.' },
+  ],
+};
+
 export const biologySubject: Subject = {
   id: 'biology', name: 'Biology', icon: 'leaf', accentColor: '#22C55E',
-  topics: [bioCells, bioPhotosynthesis, bioBody],
+  topics: [bioCells, bioPhotosynthesis, bioBody, bioGenetics, bioEcology],
 };

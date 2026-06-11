@@ -72,7 +72,55 @@ const chemAcidsBases: Topic = {
   ],
 };
 
+const chemPeriodicTable: Topic = {
+  id: 'chem-periodic-1', subjectId: 'chemistry', title: 'The Periodic Table',
+  description: 'How elements are organised by atomic number, periods, and groups.', ibLevel: 'MYP',
+  notes: [
+    { id: 'per-n1', heading: 'Organisation of the Periodic Table', body: 'The periodic table arranges all known elements in order of increasing atomic number. Elements are arranged in rows called periods and columns called groups. There are 7 periods and 18 groups. Elements in the same group have the same number of electrons in their outer shell, which gives them similar chemical properties. The table is divided into metals (left and centre), non-metals (top right), and metalloids (between).' },
+    { id: 'per-n2', heading: 'Groups 1 and 7', body: 'Group 1 (alkali metals: Li, Na, K) have 1 outer electron and react vigorously with water and oxygen. Reactivity increases down Group 1 because the outer electron is further from the nucleus and easier to lose. Group 7 (halogens: F, Cl, Br, I) have 7 outer electrons and need just one more to fill their shell. Reactivity decreases down Group 7 because extra shells make it harder to attract electrons.' },
+    { id: 'per-n3', heading: 'Metals vs Non-metals', body: 'Most elements are metals: shiny, good conductors, malleable, ductile, high melting points. Non-metals are typically dull, poor conductors (except graphite), brittle when solid. The transition metals (Groups 3–12) form coloured compounds and act as catalysts.' },
+  ],
+  flashcards: [
+    { id: 'per-f1', term: 'Period', definition: 'A horizontal row in the periodic table. Elements in the same period have the same number of electron shells.', example: 'Sodium (Na) and chlorine (Cl) are both in Period 3.' },
+    { id: 'per-f2', term: 'Group', definition: 'A vertical column. Elements in the same group have the same number of outer electrons and similar properties.', example: 'Group 1 contains Li, Na, K (alkali metals).' },
+    { id: 'per-f3', term: 'Alkali metals', definition: 'Group 1 elements (Li, Na, K, Rb, Cs, Fr) — reactive metals with one outer electron.', example: 'Sodium reacts violently with water.' },
+    { id: 'per-f4', term: 'Halogens', definition: 'Group 7 non-metal elements (F, Cl, Br, I, At) that react to gain one electron.', example: 'Chlorine (Cl₂) is a green gas used to disinfect water.' },
+    { id: 'per-f5', term: 'Noble gases', definition: 'Group 0 (Group 18) elements with full outer shells, making them very unreactive (inert).', example: 'Helium, neon, argon — used in balloons and lights.' },
+  ],
+  questions: [
+    { id: 'per-q1', stem: 'Elements in the same GROUP have similar chemical properties because they have:', choices: ['The same mass number', 'The same number of protons', 'The same number of electrons in their outer shell', 'The same number of neutrons'], correctIndex: 2, explanation: 'Same outer electrons = similar reactivity.' },
+    { id: 'per-q2', stem: 'Down Group 1, how does the reactivity of alkali metals change?', choices: ['Decreases', 'Stays the same', 'First increases then decreases', 'Increases'], correctIndex: 3, explanation: 'Reactivity increases down Group 1 — the outer electron is further from the nucleus and easier to lose.' },
+    { id: 'per-q3', stem: 'Why are noble gases (Group 0) so unreactive?', choices: ['They have no protons', 'Their outer electron shell is completely full', 'They are liquids at room temperature', 'They have very large atomic radii'], correctIndex: 1, explanation: 'Full outer shell = no need to gain or lose electrons.' },
+    { id: 'per-q4', stem: 'How many electron shells does an element in Period 3 have?', choices: ['1', '2', '3', '4'], correctIndex: 2, explanation: 'The period number = number of electron shells.' },
+    { id: 'per-q5', stem: 'Which is a typical property of metals?', choices: ['Poor conductor of electricity', 'Brittle when solid', 'Low melting point', 'Good conductor of heat and electricity'], correctIndex: 3, explanation: 'Metals are good conductors due to free-moving electrons.' },
+  ],
+};
+
+const chemPhysicalChemicalChanges: Topic = {
+  id: 'chem-changes-1', subjectId: 'chemistry', title: 'Physical vs Chemical Changes',
+  description: 'How to distinguish between changes that make new substances and those that do not.', ibLevel: 'MYP',
+  notes: [
+    { id: 'chg-n1', heading: 'Physical Changes', body: 'A physical change alters the form or appearance of a substance without changing what it is made of — no new substances are produced. Usually reversible. Examples: melting ice (still H₂O), dissolving sugar in water, cutting paper. Changes of state (solid ↔ liquid ↔ gas) are always physical changes.' },
+    { id: 'chg-n2', heading: 'Chemical Changes', body: 'A chemical change produces one or more new substances with different chemical properties. Usually difficult or impossible to reverse. Signs: colour change, gas produced (bubbling), temperature change, light produced, new smell. Examples: burning wood, rusting iron, cooking an egg, photosynthesis, neutralisation.' },
+    { id: 'chg-n3', heading: 'Exothermic and Endothermic Reactions', body: 'Exothermic reactions release heat to the surroundings — the temperature rises. Examples: burning fuels, respiration, neutralisation. Endothermic reactions absorb heat — temperature drops. Examples: thermal decomposition, dissolving ammonium nitrate. In energy profile diagrams, exothermic reactions have products at lower energy than reactants; endothermic have products at higher energy.' },
+  ],
+  flashcards: [
+    { id: 'chg-f1', term: 'Physical change', definition: 'A change that alters the form of a substance but does not produce any new substances. Usually reversible.', example: 'Melting, boiling, dissolving, cutting.' },
+    { id: 'chg-f2', term: 'Chemical change', definition: 'A change that produces one or more new substances with different properties. Usually irreversible.', example: 'Burning, rusting, cooking, acid reactions.' },
+    { id: 'chg-f3', term: 'Exothermic reaction', definition: 'A chemical reaction that releases energy (as heat) to the surroundings, causing the temperature to rise.', example: 'Burning methane, hand warmers, respiration.' },
+    { id: 'chg-f4', term: 'Endothermic reaction', definition: 'A chemical reaction that absorbs energy from the surroundings, causing the temperature to fall.', example: 'Dissolving ammonium nitrate (used in cold packs).' },
+    { id: 'chg-f5', term: 'Conservation of mass', definition: 'The total mass of reactants equals the total mass of products in a chemical reaction.', example: undefined },
+  ],
+  questions: [
+    { id: 'chg-q1', stem: 'Which of the following is an example of a PHYSICAL change?', choices: ['Iron rusting in damp air', 'Wood burning in a fireplace', 'Ice melting in a glass', 'Eggs cooking in a pan'], correctIndex: 2, explanation: 'Melting ice is a physical change — still H₂O, just a different state.' },
+    { id: 'chg-q2', stem: 'Which observation is the BEST evidence that a chemical change has occurred?', choices: ['The shape of the material changes', 'The material melts', 'A new gas is produced and a colour change occurs', 'The material dissolves in water'], correctIndex: 2, explanation: 'Producing a new gas and a colour change both suggest new substances have formed.' },
+    { id: 'chg-q3', stem: 'In an exothermic reaction, what happens to the temperature of the surroundings?', choices: ['Temperature decreases', 'Temperature stays the same', 'Temperature increases', 'Temperature first increases then decreases'], correctIndex: 2, explanation: 'Exothermic reactions release heat → surroundings get hotter.' },
+    { id: 'chg-q4', stem: 'A student mixes two solutions and notices the temperature drops. What type of reaction is this?', choices: ['Exothermic', 'Physical change', 'Neutralisation', 'Endothermic'], correctIndex: 3, explanation: 'If temperature drops, the reaction is absorbing heat — endothermic.' },
+    { id: 'chg-q5', stem: 'According to conservation of mass, if 10 g of calcium carbonate reacts and 4.4 g of CO₂ escapes, what is the total mass of remaining products?', choices: ['4.4 g', '5.6 g', '10 g', '14.4 g'], correctIndex: 1, explanation: '10 – 4.4 = 5.6 g. Mass is conserved — it doesn\'t disappear with the gas.' },
+  ],
+};
+
 export const chemistrySubject: Subject = {
   id: 'chemistry', name: 'Chemistry', icon: 'flask', accentColor: '#F97316',
-  topics: [chemAtomic, chemBonding, chemAcidsBases],
+  topics: [chemAtomic, chemBonding, chemAcidsBases, chemPeriodicTable, chemPhysicalChemicalChanges],
 };

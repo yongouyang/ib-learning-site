@@ -72,7 +72,55 @@ const physElectricity: Topic = {
   ],
 };
 
+const physWaves: Topic = {
+  id: 'phys-waves-1', subjectId: 'physics', title: 'Waves (Sound & Light)',
+  description: 'Properties of transverse and longitudinal waves, the electromagnetic spectrum, and sound.', ibLevel: 'MYP',
+  notes: [
+    { id: 'wav-n1', heading: 'Wave Properties', body: 'All waves transfer energy without transferring matter. Key properties: Amplitude — maximum displacement from rest (related to intensity). Wavelength (λ) — distance between two adjacent peaks or troughs. Frequency (f) — number of complete waves per second, measured in Hertz (Hz). Period (T) — time for one complete wave (T = 1/f). Wave speed: v = fλ.' },
+    { id: 'wav-n2', heading: 'Transverse and Longitudinal Waves', body: 'Transverse: particles oscillate at right angles to wave direction. Examples: light, water waves, all EM waves. Longitudinal: particles oscillate parallel to direction of travel, creating compressions and rarefactions. Example: sound waves. Sound cannot travel through a vacuum (needs particles); light can (travels at 3 × 10⁸ m/s).' },
+    { id: 'wav-n3', heading: 'The Electromagnetic Spectrum', body: 'The EM spectrum is a family of transverse waves, all travelling at the speed of light in a vacuum. Order (increasing frequency): radio waves → microwaves → infrared → visible light → ultraviolet → X-rays → gamma rays. Applications: radio (communication), microwaves (cooking, satellites), infrared (heat sensors), visible light (sight), UV (sterilisation), X-rays (medical imaging), gamma rays (cancer treatment).' },
+  ],
+  flashcards: [
+    { id: 'wav-f1', term: 'Frequency', definition: 'Number of complete waves passing a point per second, measured in Hertz (Hz).', example: '50 complete cycles per second = 50 Hz.' },
+    { id: 'wav-f2', term: 'Wavelength', definition: 'Distance between two consecutive peaks (or troughs) of a wave.', example: undefined },
+    { id: 'wav-f3', term: 'Transverse wave', definition: 'Particles oscillate at right angles to the direction of wave travel.', example: 'Light waves, water waves.' },
+    { id: 'wav-f4', term: 'Longitudinal wave', definition: 'Particles oscillate parallel to direction of wave travel, creating compressions and rarefactions.', example: 'Sound waves.' },
+    { id: 'wav-f5', term: 'Electromagnetic spectrum', definition: 'Range of all EM waves ordered by frequency: radio, microwave, infrared, visible, UV, X-ray, gamma.', example: undefined },
+  ],
+  questions: [
+    { id: 'wav-q1', stem: 'A wave has frequency 200 Hz and wavelength 2 m. What is its speed?', choices: ['100 m/s', '200 m/s', '400 m/s', '2 m/s'], correctIndex: 2, explanation: 'v = fλ = 200 × 2 = 400 m/s.' },
+    { id: 'wav-q2', stem: 'In which type of wave do particles vibrate at right angles to the direction of wave travel?', choices: ['Longitudinal wave', 'Sound wave', 'Transverse wave', 'Compression wave'], correctIndex: 2, explanation: 'Transverse waves have perpendicular particle oscillation.' },
+    { id: 'wav-q3', stem: 'Why can light travel through space (a vacuum) but sound cannot?', choices: ['Sound is too slow', 'Light has higher frequency than sound', 'Sound needs particles to vibrate, but space has no particles', 'Light is longitudinal, sound is transverse'], correctIndex: 2, explanation: 'Sound is a mechanical wave needing a medium; a vacuum has no particles. Light is an EM wave.' },
+    { id: 'wav-q4', stem: 'Which part of the electromagnetic spectrum has the highest frequency?', choices: ['Radio waves', 'Visible light', 'Microwaves', 'Gamma rays'], correctIndex: 3, explanation: 'Gamma rays have the highest frequency and shortest wavelength.' },
+    { id: 'wav-q5', stem: 'Increasing the amplitude of a sound wave affects which property?', choices: ['Pitch', 'Speed', 'Loudness', 'Frequency'], correctIndex: 2, explanation: 'Amplitude relates to energy; larger amplitude = louder sound. Pitch is determined by frequency.' },
+  ],
+};
+
+const physMagnetism: Topic = {
+  id: 'phys-magnetism-1', subjectId: 'physics', title: 'Magnetism',
+  description: 'Magnetic fields, electromagnets, motors, and the links between electricity and magnetism.', ibLevel: 'MYP',
+  notes: [
+    { id: 'mag-n1', heading: 'Magnetic Fields and Poles', body: 'A magnet has two poles: north (N) and south (S). Like poles repel; unlike poles attract. The magnetic field is the region around a magnet where magnetic forces act. Field lines run from north to south outside the magnet, closer together where the field is stronger. Earth itself behaves like a giant bar magnet — its magnetic south pole is near the geographic North Pole, which is why compass needles point north.' },
+    { id: 'mag-n2', heading: 'Electromagnets', body: 'An electromagnet is a temporary magnet created by passing electric current through a coil of wire (solenoid) wrapped around an iron core. Unlike permanent magnets, electromagnets can be switched on and off and their strength varied. Strength increases with: more coil turns, larger current, and an iron core. Used in: electric bells, lifting cranes, MRI scanners, circuit breakers.' },
+    { id: 'mag-n3', heading: 'The Motor Effect', body: 'A current-carrying conductor in a magnetic field experiences a force — the motor effect. Fleming\'s Left-Hand Rule: index finger = magnetic field (N→S), middle finger = current, thumb = force (motion). This principle is used in electric motors: a coil of wire rotates in a magnetic field when current flows, converting electrical energy into kinetic energy.' },
+  ],
+  flashcards: [
+    { id: 'mag-f1', term: 'Magnetic field', definition: 'The region around a magnet where magnetic forces act. Shown by field lines running from N to S.', example: undefined },
+    { id: 'mag-f2', term: 'Electromagnet', definition: 'A temporary magnet created by passing electric current through a coil of wire around an iron core.', example: 'Used in cranes, electric bells, and MRI machines.' },
+    { id: 'mag-f3', term: 'Motor effect', definition: 'The force experienced by a current-carrying conductor placed in a magnetic field.', example: undefined },
+    { id: 'mag-f4', term: "Fleming's Left-Hand Rule", definition: 'Rule to find direction of force: thumb = force, index = field, middle = current.', example: undefined },
+    { id: 'mag-f5', term: 'Solenoid', definition: 'A coil of wire that acts as an electromagnet when current flows through it.', example: undefined },
+  ],
+  questions: [
+    { id: 'mag-q1', stem: 'Two bar magnets have north poles facing each other. What happens?', choices: ['They attract', 'They repel', 'Nothing', 'One magnet reverses its poles'], correctIndex: 1, explanation: 'Like poles (N–N) repel each other.' },
+    { id: 'mag-q2', stem: 'How can you increase the strength of an electromagnet?', choices: ['Use a copper core instead of iron', 'Reduce the number of coil turns', 'Increase the current flowing through the coil', 'Decrease the voltage'], correctIndex: 2, explanation: 'More current = stronger magnetic field.' },
+    { id: 'mag-q3', stem: 'What is the main advantage of an electromagnet over a permanent magnet?', choices: ['Always stronger', 'Can be switched on and off', 'Lighter', 'Does not need coils'], correctIndex: 1, explanation: 'Electromagnets can be turned on/off by controlling current — useful for temporary magnetism like cranes.' },
+    { id: 'mag-q4', stem: 'What energy transformation takes place in an electric motor?', choices: ['Kinetic → electrical', 'Electrical → light', 'Chemical → thermal', 'Electrical → kinetic'], correctIndex: 3, explanation: 'Electric motors convert electrical energy into kinetic (movement) energy via the motor effect.' },
+    { id: 'mag-q5', stem: 'Magnetic field lines outside a bar magnet run from:', choices: ['South to North', 'North to South', 'Both directions', 'They form closed circles'], correctIndex: 1, explanation: 'Field lines run from North to South outside the magnet (South to North inside, forming closed loops).' },
+  ],
+};
+
 export const physicsSubject: Subject = {
   id: 'physics', name: 'Physics', icon: 'atom', accentColor: '#EF4444',
-  topics: [physForces, physEnergy, physElectricity],
+  topics: [physForces, physEnergy, physElectricity, physWaves, physMagnetism],
 };
