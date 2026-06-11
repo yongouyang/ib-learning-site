@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { getTopic } from '@/content/registry';
 import type { SubjectId } from '@/content/types';
+import StudyNoteBody from '@/components/StudyNoteBody';
 
 export default function StudyPage() {
   const params = useParams();
@@ -23,7 +24,7 @@ export default function StudyPage() {
         {topic.notes.map((note) => (
           <div key={note.id} className="card p-5">
             <h2 className="font-semibold text-gray-900 mb-2">{note.heading}</h2>
-            <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">{note.body}</p>
+            <StudyNoteBody body={note.body} />
           </div>
         ))}
       </div>
