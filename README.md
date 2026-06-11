@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IBLearn
+
+A website for IB (International Baccalaureate) students to learn and practice subjects through study notes, flashcards, and quizzes. Built with Next.js 14 + TypeScript + Tailwind CSS.
+
+**Live URL:** [https://ib-learning-site.vercel.app](https://ib-learning-site.vercel.app)
+
+## Subjects
+
+| Subject | Topics | Levels |
+|---------|--------|--------|
+| Math | 31 | MYP · DP |
+| Biology | 5 | MYP |
+| Chemistry | 5 | MYP |
+| English | 5 | MYP |
+| Physics | 5 | MYP |
+
+### Math DP Topics
+
+Sequences & Series · Exponents & Logarithms · Binomial Theorem · Functions · Quadratic Functions & Equations · Exponential & Logarithmic Functions · Trigonometry · Vectors · Differentiation · Integration · Probability Distributions · Kinematics
+
+### Study Tools
+
+Each topic provides three modes:
+1. **Study notes** — concept explanations with headings and body text
+2. **Flashcards** — term/definition cards with worked examples
+3. **Quiz** — multiple-choice questions with scoring, explanations, and star ratings
+
+Progress is tracked locally via `localStorage` and displayed on the Progress page with day streaks and weak-point analysis.
+
+## Project Structure
+
+```
+src/
+├── app/                          # Next.js App Router pages
+│   ├── page.tsx                  # Home page with subject grid
+│   ├── layout.tsx                # Root layout with Nav
+│   ├── globals.css               # Tailwind imports + utility classes
+│   ├── progress/page.tsx         # Progress dashboard
+│   └── subjects/[subjectId]/
+│       ├── page.tsx              # Subject topics list
+│       └── [topicId]/
+│           ├── study/page.tsx    # Study notes
+│           ├── flashcards/page.tsx # Flashcard deck
+│           └── quiz/page.tsx     # Interactive quiz
+├── components/
+│   └── Nav.tsx                   # Top navigation bar
+├── content/                      # Static content (all subjects)
+│   ├── types.ts                  # TypeScript interfaces
+│   ├── registry.ts               # getSubject / getTopic helpers
+│   ├── math.ts                   # 31 topics (7 Y7 + 7 MYP + 5 new MYP + 12 DP)
+│   ├── biology.ts                # 5 topics
+│   ├── chemistry.ts              # 5 topics
+│   ├── english.ts                # 5 topics
+│   └── physics.ts                # 5 topics
+├── context/
+│   └── ProgressContext.tsx       # React context for quiz progress
+├── lib/
+│   ├── progress-store.ts         # localStorage persistence
+│   └── weak-point-analyzer.ts    # Identifies topics needing review
+└── hooks/
+```
+
+## Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript 5
+- **Styling:** Tailwind CSS 3
+- **Testing:** Vitest (unit) + Playwright (E2E)
+- **Deployment:** Vercel
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# → http://localhost:3000
+
+# Type check
+npx tsc --noEmit
+
+# Lint
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Testing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Unit tests (Vitest)
+npm test
+npm run test:watch     # watch mode
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# E2E tests (Playwright — requires dev server running)
+npm run test:e2e
 
-## Learn More
+# Or run E2E against a specific device
+npx playwright test --project="Desktop Chrome"
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Test coverage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Suite | Tests | Scope |
+|-------|-------|-------|
+| `content-registry` | 13 | Subject/topic counts, content integrity (non-empty fields, valid correctIndex), DP validation, unique IDs |
+| `progress-store` | 5 | Quiz attempt recording, star ratings, streak tracking, average scores |
+| `weak-point-analyzer` | 3 | Weak topic detection, score thresholds, result capping |
+| `app.e2e` | 24 | Full quiz flow, home page, subject pages, DP topic rendering, progress page — across iPhone SE, iPad Pro, Desktop Chrome |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Build & Deploy
 
-## Deploy on Vercel
+```bash
+# Production build
+npm run build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Start production server
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project deploys automatically to Vercel on push to `develop`.
