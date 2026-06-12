@@ -24,6 +24,16 @@
       "id": "math-yr7-equations-eq-n4",
       "heading": "Forming Equations from Word Problems",
       "body": "Steps: (1) Identify the unknown, give it a letter. (2) Translate the situation into an equation. (3) Solve. (4) Answer in context with units. Example: \"I think of a number, multiply by 4, add 7, get 35.\" Let n be the number: 4n+7=35 → 4n=28 → n=7."
+    },
+    {
+      "id": "math-yr7-equations-eq-n5",
+      "heading": "⚠️ Don't forget the equals sign balance",
+      "body": "If you subtract 4 from the left side, you must subtract 4 from the right side too. Writing each step on a new line helps you remember to do the same thing to both sides."
+    },
+    {
+      "id": "math-yr7-equations-eq-n6",
+      "heading": "✅ Check your answer",
+      "body": "After solving, substitute your answer back into the original equation. If both sides are equal, your solution is correct. Example: for 3x + 2 = 14, x = 4. Check: 3(4) + 2 = 14 ✓."
     }
   ],
   "flashcards": [
@@ -74,6 +84,18 @@
       "term": "Checking",
       "definition": "Substitute solution back into original equation.",
       "example": "If x=4, 2(4)+1=9 ✓."
+    },
+    {
+      "id": "math-yr7-equations-eq-f9",
+      "term": "Expression",
+      "definition": "A group of numbers, letters and operations without an equals sign.",
+      "example": "4x + 7 is an expression."
+    },
+    {
+      "id": "math-yr7-equations-eq-f10",
+      "term": "Unknown",
+      "definition": "The value you are trying to find in an equation.",
+      "example": "In 2x + 1 = 9, x is the unknown."
     }
   ],
   "questions": [
@@ -99,7 +121,7 @@
         "y=60"
       ],
       "correctIndex": 1,
-      "explanation": "Add 5: y=12+5=17."
+      "explanation": "To solve y − 5 = 12, add 5 to both sides: y = 12 + 5 = 17. Check: 17 − 5 = 12 ✓."
     },
     {
       "id": "math-yr7-equations-eq-q3",
@@ -196,6 +218,42 @@
       ],
       "correctIndex": 0,
       "explanation": "38=2×12+2w → 38=24+2w → 14=2w → w=7cm."
+    },
+    {
+      "id": "math-yr7-equations-eq-q11",
+      "stem": "A football team scores 3 goals in each of its first n games and has scored 21 goals in total. How many games has it played?",
+      "choices": [
+        "6 games",
+        "7 games",
+        "8 games",
+        "18 games"
+      ],
+      "correctIndex": 1,
+      "explanation": "3n = 21. Divide both sides by 3: n = 7. So the team has played 7 games."
+    },
+    {
+      "id": "math-yr7-equations-eq-q12",
+      "stem": "The equation ax = 10 has the solution x = 5. What number is a?",
+      "choices": [
+        "2",
+        "5",
+        "50",
+        "15"
+      ],
+      "correctIndex": 0,
+      "explanation": "Substitute x = 5 into ax = 10: a × 5 = 10. Divide both sides by 5: a = 2. Check: 2 × 5 = 10 ✓."
+    },
+    {
+      "id": "math-yr7-equations-eq-q13",
+      "stem": "A rectangle's length is (2x + 1) cm and its width is 5 cm. The perimeter is 28 cm. Find x.",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctIndex": 2,
+      "explanation": "Perimeter = 2(length + width): 2((2x+1)+5)=28. Simplify: 2(2x+6)=28 → 4x+12=28 → 4x=16 → x=4. Check: length=9, width=5, perimeter=28 ✓."
     }
   ]
 }

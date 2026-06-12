@@ -1,0 +1,230 @@
+{
+  "id": "math-yr7-sequences",
+  "subjectId": "math",
+  "title": "Sequences & Patterns",
+  "description": "Recognising, describing and continuing number sequences, finding term-to-term rules and simple position-to-term rules.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr7-sequences-seq-n1",
+      "heading": "What is a Sequence?",
+      "body": "A sequence is a list of numbers written in order. Each number in the list is called a term. The first number is the first term, the next is the second term, and so on. Sequences can follow a rule or pattern. For example, 2, 4, 6, 8, 10 is a sequence where the rule is 'add 2 each time'. Always look at how the terms change from one to the next."
+    },
+    {
+      "id": "math-yr7-sequences-seq-n2",
+      "heading": "Term-to-Term Rules",
+      "body": "The term-to-term rule tells you how to get from one term to the next. Look at the difference between neighbouring terms. In the sequence 5, 9, 13, 17, 21, the difference is +4 each time, so the rule is 'add 4'. If the difference is the same every time, the sequence is called an arithmetic sequence. Other term-to-term rules could be 'subtract 3', 'multiply by 2', or 'divide by 2'."
+    },
+    {
+      "id": "math-yr7-sequences-seq-n3",
+      "heading": "Continuing Sequences and Finding Missing Terms",
+      "body": "To continue a sequence, first find the rule, then keep applying it. To find a missing term, use the terms on either side to work out the rule. Example: 7, 12, __, 22, 27 has a rule of 'add 5', so the missing term is 17. Always check your answer by seeing whether it keeps the pattern going correctly. Common mistake: forgetting to check the whole sequence and only looking at the first two numbers."
+    },
+    {
+      "id": "math-yr7-sequences-seq-n4",
+      "heading": "Position-to-Term Rules (the nth Term)",
+      "body": "The position-to-term rule gives the term directly from its position in the sequence. For example, in the sequence 5, 8, 11, 14, 17, the rule can be written as '3n + 2'. To find the 10th term, calculate 3 times 10 plus 2, which gives 32. To find the rule, compare the sequence to the times table that matches the common difference. If the difference is 4, start with 4n and adjust. Example: sequence 7, 11, 15, 19 matches 4n + 3 because 4 times 1 plus 3 is 7."
+    },
+    {
+      "id": "math-yr7-sequences-seq-n5",
+      "heading": "Visual and Picture Patterns",
+      "body": "Sequences can also be shown with pictures, shapes, or dots. Count how many objects are in each picture to turn the pattern into a number sequence. Then find the term-to-term rule or position-to-term rule. For example, a pattern made of squares might have 1, 3, 5, 7 squares, which is the sequence of odd numbers with rule 'add 2'. Drawing the next picture can help you check whether your rule is correct."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-sequences-seq-f1",
+      "term": "Sequence",
+      "definition": "A list of numbers written in a special order.",
+      "example": "2, 5, 8, 11, 14 is a sequence."
+    },
+    {
+      "id": "math-yr7-sequences-seq-f2",
+      "term": "Term",
+      "definition": "One number in a sequence.",
+      "example": "In 3, 6, 9, 12, the third term is 9."
+    },
+    {
+      "id": "math-yr7-sequences-seq-f3",
+      "term": "Term-to-term rule",
+      "definition": "The rule that takes you from one term to the next.",
+      "example": "In 4, 7, 10, 13, the rule is 'add 3'."
+    },
+    {
+      "id": "math-yr7-sequences-seq-f4",
+      "term": "Arithmetic sequence",
+      "definition": "A sequence where the same amount is added or subtracted each time.",
+      "example": "10, 14, 18, 22 is arithmetic because you add 4 each time."
+    },
+    {
+      "id": "math-yr7-sequences-seq-f5",
+      "term": "Common difference",
+      "definition": "The number you add or subtract each time in an arithmetic sequence.",
+      "example": "In 5, 9, 13, 17, the common difference is 4."
+    },
+    {
+      "id": "math-yr7-sequences-seq-f6",
+      "term": "Position-to-term rule",
+      "definition": "A rule that gives any term from its position number.",
+      "example": "For 4n + 1, the 5th term is 4 times 5 plus 1, which equals 21."
+    },
+    {
+      "id": "math-yr7-sequences-seq-f7",
+      "term": "nth term",
+      "definition": "A way of writing the position-to-term rule using the letter n for the position.",
+      "example": "The nth term 2n + 3 gives the sequence 5, 7, 9, 11."
+    },
+    {
+      "id": "math-yr7-sequences-seq-f8",
+      "term": "Continue a sequence",
+      "definition": "Write more terms by following the same rule.",
+      "example": "Continuing 1, 4, 7, 10 gives 13, 16, 19."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-sequences-seq-q1",
+      "stem": "What is the next term in the sequence 3, 7, 11, 15, 19, ...?",
+      "choices": [
+        "20",
+        "23",
+        "22",
+        "24"
+      ],
+      "correctIndex": 1,
+      "explanation": "The rule is 'add 4' because 7 − 3 = 4, 11 − 7 = 4, and so on. Therefore, 19 + 4 = 23."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q2",
+      "stem": "Find the missing term in the sequence 6, 10, __, 18, 22.",
+      "choices": [
+        "12",
+        "14",
+        "16",
+        "15"
+      ],
+      "correctIndex": 1,
+      "explanation": "Each term is 4 more than the previous term, since 10 − 6 = 4 and 22 − 18 = 4. So 10 + 4 = 14, and checking, 14 + 4 = 18."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q3",
+      "stem": "What is the term-to-term rule for the sequence 50, 45, 40, 35, 30, ...?",
+      "choices": [
+        "Add 5",
+        "Subtract 10",
+        "Subtract 5",
+        "Divide by 5"
+      ],
+      "correctIndex": 2,
+      "explanation": "Each term is 5 less than the one before it, because 50 − 45 = 5, 45 − 40 = 5, and so on. The rule is 'subtract 5'."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q4",
+      "stem": "Which sequence follows the rule 'multiply by 2'?",
+      "choices": [
+        "2, 4, 8, 16, 32",
+        "2, 4, 6, 8, 10",
+        "2, 3, 5, 8, 12",
+        "2, 5, 11, 23, 47"
+      ],
+      "correctIndex": 0,
+      "explanation": "In the sequence 2, 4, 8, 16, 32, each term is double the previous term: 2 times 2 = 4, 4 times 2 = 8, and so on. That is 'multiply by 2'."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q5",
+      "stem": "What are the next two terms in the sequence 1, 5, 9, 13, 17, ...?",
+      "choices": [
+        "18, 19",
+        "21, 25",
+        "20, 23",
+        "22, 26"
+      ],
+      "correctIndex": 1,
+      "explanation": "The common difference is 4, since 5 − 1 = 4. Therefore, 17 + 4 = 21, and 21 + 4 = 25."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q6",
+      "stem": "The nth term of a sequence is 5n + 1. What is the 6th term?",
+      "choices": [
+        "30",
+        "31",
+        "26",
+        "36"
+      ],
+      "correctIndex": 1,
+      "explanation": "Replace n with 6 in the rule 5n + 1. First, 5 times 6 = 30, then add 1 to get 31."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q7",
+      "stem": "What is the nth term rule for the sequence 4, 7, 10, 13, 16, ...?",
+      "choices": [
+        "3n + 1",
+        "4n",
+        "3n + 4",
+        "n + 3"
+      ],
+      "correctIndex": 0,
+      "explanation": "The common difference is 3, so start with 3n. When n = 1, 3n = 3, but the first term is 4, so add 1. The rule is 3n + 1."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q8",
+      "stem": "Find the missing term in the sequence 24, 21, __, 15, 12.",
+      "choices": [
+        "20",
+        "18",
+        "17",
+        "19"
+      ],
+      "correctIndex": 1,
+      "explanation": "The rule is 'subtract 3' because 24 − 21 = 3 and 15 − 12 = 3. So 21 − 3 = 18, and checking, 18 − 3 = 15."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q9",
+      "stem": "Which of these is an arithmetic sequence?",
+      "choices": [
+        "1, 2, 4, 8, 16",
+        "3, 6, 9, 12, 15",
+        "2, 3, 5, 8, 13",
+        "1, 4, 9, 16, 25"
+      ],
+      "correctIndex": 1,
+      "explanation": "An arithmetic sequence has the same difference between each pair of terms. In 3, 6, 9, 12, 15, the difference is always 3, so it is arithmetic."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q10",
+      "stem": "A picture pattern has 1 dot, then 3 dots, then 5 dots, then 7 dots. How many dots are in the 5th picture?",
+      "choices": [
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "correctIndex": 1,
+      "explanation": "The number sequence is 1, 3, 5, 7. The rule is 'add 2', so the next term is 7 + 2 = 9."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q11",
+      "stem": "The nth term of a sequence is 4n − 2. What is the first term?",
+      "choices": [
+        "2",
+        "−2",
+        "6",
+        "4"
+      ],
+      "correctIndex": 0,
+      "explanation": "The first term uses n = 1. Calculate 4 times 1 minus 2, which is 4 − 2 = 2."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q12",
+      "stem": "What is the 7th term of the sequence that starts 2, 6, 10, 14, ...?",
+      "choices": [
+        "24",
+        "26",
+        "28",
+        "30"
+      ],
+      "correctIndex": 1,
+      "explanation": "The common difference is 4, so the nth term is 4n − 2. For the 7th term, calculate 4 times 7 minus 2, which is 28 − 2 = 26."
+    }
+  ]
+}

@@ -24,6 +24,16 @@
       "id": "math-yr7-data-data-n4",
       "heading": "Choosing the Right Average",
       "body": "Mean: uses every value, affected by outliers. Median: better with outliers (e.g., 2,3,4,4,100 → mean=22.6, median=4). Mode: best for non-numerical data or most common answer. Always report an average + range for a complete picture."
+    },
+    {
+      "id": "math-yr7-data-data-n5",
+      "heading": "⚠️ Mean vs median confusion",
+      "body": "The mean uses every value, so one very large or small value can pull it up or down. The median only cares about the middle value, so it is more reliable when data has extreme values. Always decide which average tells the story best."
+    },
+    {
+      "id": "math-yr7-data-data-n6",
+      "heading": "✅ Reading scales on charts",
+      "body": "Before reading a bar chart, check what each small square or grid line represents. If one square stands for 2 students, a bar halfway between 10 and 12 represents 11 students, not 10.5 unless the scale says so."
     }
   ],
   "flashcards": [
@@ -74,6 +84,18 @@
       "term": "Outlier",
       "definition": "A value far from most others — strongly affects mean, not median.",
       "example": "In 2,3,3,4,50: 50 is an outlier."
+    },
+    {
+      "id": "math-yr7-data-data-f9",
+      "term": "Class interval",
+      "definition": "A group or range that data is put into.",
+      "example": "Heights 140–149 cm and 150–159 cm are class intervals."
+    },
+    {
+      "id": "math-yr7-data-data-f10",
+      "term": "Relative frequency",
+      "definition": "Experimental probability found by dividing successes by total trials.",
+      "example": "30 blue sweets out of 100 → relative frequency = 0.30."
     }
   ],
   "questions": [
@@ -123,7 +145,7 @@
         "11"
       ],
       "correctIndex": 1,
-      "explanation": "19−3=16."
+      "explanation": "Range = maximum value − minimum value. The maximum is 19 and the minimum is 3, so 19 − 3 = 16."
     },
     {
       "id": "math-yr7-data-data-q5",
@@ -196,6 +218,42 @@
       ],
       "correctIndex": 2,
       "explanation": "Mean > median suggests outliers pulling the mean higher."
+    },
+    {
+      "id": "math-yr7-data-data-q11",
+      "stem": "Five students' quiz scores are 7, 9, 6, 8, and 10. What is their mean score?",
+      "choices": [
+        "8",
+        "7",
+        "9",
+        "8.5"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sum = 7+9+6+8+10 = 40. Count = 5. Mean = 40 ÷ 5 = 8."
+    },
+    {
+      "id": "math-yr7-data-data-q12",
+      "stem": "The median of a set of numbers is 8. If you add the number 50 to the set, will the median always stay at 8?",
+      "choices": [
+        "Yes, the median never changes",
+        "No, it depends on the size of the set and the order",
+        "Yes, because 50 is an outlier",
+        "No, it always becomes 29"
+      ],
+      "correctIndex": 1,
+      "explanation": "For an odd number of values, the median may stay the same if 50 is placed at one end. For an even number, adding one value changes the middle. So it depends on the original data."
+    },
+    {
+      "id": "math-yr7-data-data-q13",
+      "stem": "The mean of four test scores is 72. After a fifth test, the mean rises to 76. What was the fifth test score?",
+      "choices": [
+        "76",
+        "88",
+        "92",
+        "80"
+      ],
+      "correctIndex": 2,
+      "explanation": "Total of first four = 4 × 72 = 288. Total of five = 5 × 76 = 380. Fifth score = 380 − 288 = 92."
     }
   ]
 }

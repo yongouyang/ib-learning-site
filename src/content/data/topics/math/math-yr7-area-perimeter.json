@@ -1,0 +1,230 @@
+{
+  "id": "math-yr7-area-perimeter",
+  "subjectId": "math",
+  "title": "Area & Perimeter",
+  "description": "Finding the perimeter and area of rectangles, triangles and parallelograms, including compound shapes.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr7-area-perimeter-ap-n1",
+      "heading": "Perimeter",
+      "body": "Perimeter is the total distance around the outside of a 2D shape. To find it, add up the lengths of every side. Example: a rectangle with length 8 cm and width 3 cm has perimeter 8 + 3 + 8 + 3 = 22 cm. Common mistake: forgetting to add all four sides or using the wrong unit."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-n2",
+      "heading": "Area of a Rectangle",
+      "body": "Area of a rectangle = length × width. It measures the space inside the shape in square units. Example: a rectangle 6 cm by 4 cm has area 6 × 4 = 24 cm². Remember that area uses squared units (cm², m²), not the same unit as length."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-n3",
+      "heading": "Area of a Triangle",
+      "body": "Area of a triangle = 1/2 × base × perpendicular height. The height must be at right angles to the base, not the length of a slanted side. Example: a triangle with base 10 cm and height 4 cm has area 1/2 × 10 × 4 = 20 cm²."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-n4",
+      "heading": "Area of a Parallelogram",
+      "body": "Area of a parallelogram = base × perpendicular height. Like a triangle, the height must be measured straight up from the base, not along the slanted edge. Example: base 7 cm and height 5 cm gives area 7 × 5 = 35 cm². A rectangle is just a special parallelogram."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-n5",
+      "heading": "Compound Shapes and Units",
+      "body": "A compound shape is made by joining two or more simple shapes. Split it into rectangles, triangles or parallelograms, find each area, then add them. For perimeter, add every outside edge. Always check your units: cm or m for perimeter, cm² or m² for area."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-area-perimeter-ap-f1",
+      "term": "Perimeter",
+      "definition": "The total distance around the outside of a shape.",
+      "example": "A square with 4 cm sides has perimeter 16 cm."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-f2",
+      "term": "Area",
+      "definition": "The amount of space inside a 2D shape, measured in square units.",
+      "example": "A 5 cm by 5 cm square has area 25 cm²."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-f3",
+      "term": "Rectangle area formula",
+      "definition": "Area equals length multiplied by width.",
+      "example": "Length 8 cm and width 3 cm gives area 24 cm²."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-f4",
+      "term": "Triangle area formula",
+      "definition": "Area equals half of base multiplied by perpendicular height.",
+      "example": "Base 12 cm and height 5 cm gives area 30 cm²."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-f5",
+      "term": "Parallelogram area formula",
+      "definition": "Area equals base multiplied by perpendicular height.",
+      "example": "Base 9 cm and height 4 cm gives area 36 cm²."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-f6",
+      "term": "Perpendicular height",
+      "definition": "The straight-up distance from the base to the opposite point, at 90 degrees.",
+      "example": "In a triangle, the height is not the slanted side."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-f7",
+      "term": "Compound shape",
+      "definition": "A shape made by combining two or more simpler shapes.",
+      "example": "An L-shape can be split into two rectangles."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-f8",
+      "term": "Square units",
+      "definition": "Units used for area, written with a small 2 after the unit symbol.",
+      "example": "cm² means square centimetres and m² means square metres."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-area-perimeter-ap-q1",
+      "stem": "What is the perimeter of a rectangle with length 9 cm and width 4 cm?",
+      "choices": [
+        "13 cm",
+        "26 cm",
+        "36 cm",
+        "22 cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "Perimeter = 9 + 4 + 9 + 4 = 26 cm. You add all four sides of the rectangle."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-q2",
+      "stem": "What is the area of a rectangle 7 cm long and 6 cm wide?",
+      "choices": [
+        "13 cm²",
+        "26 cm²",
+        "42 cm²",
+        "21 cm²"
+      ],
+      "correctIndex": 2,
+      "explanation": "Area = length × width = 7 × 6 = 42 cm². Area is always in square units."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-q3",
+      "stem": "A triangle has base 8 cm and perpendicular height 5 cm. What is its area?",
+      "choices": [
+        "40 cm²",
+        "13 cm²",
+        "20 cm²",
+        "26 cm²"
+      ],
+      "correctIndex": 2,
+      "explanation": "Area of a triangle = 1/2 × base × height = 1/2 × 8 × 5 = 20 cm²."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-q4",
+      "stem": "What is the area of a parallelogram with base 10 cm and perpendicular height 3 cm?",
+      "choices": [
+        "30 cm²",
+        "13 cm²",
+        "26 cm²",
+        "60 cm²"
+      ],
+      "correctIndex": 0,
+      "explanation": "Area of a parallelogram = base × height = 10 × 3 = 30 cm²."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-q5",
+      "stem": "A triangle has an area of 24 cm² and a base of 8 cm. What is its perpendicular height?",
+      "choices": [
+        "3 cm",
+        "4 cm",
+        "6 cm",
+        "12 cm"
+      ],
+      "correctIndex": 2,
+      "explanation": "Using 1/2 × 8 × h = 24 gives 4h = 24, so h = 6 cm. The height must be perpendicular."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-q6",
+      "stem": "A square has a perimeter of 36 cm. What is the length of one side?",
+      "choices": [
+        "6 cm",
+        "9 cm",
+        "12 cm",
+        "18 cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "A square has four equal sides, so side length = 36 ÷ 4 = 9 cm."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-q7",
+      "stem": "Which unit is most suitable for the area of a classroom floor?",
+      "choices": [
+        "cm",
+        "cm²",
+        "m²",
+        "m"
+      ],
+      "correctIndex": 2,
+      "explanation": "Area is measured in square units. A classroom floor is large, so square metres (m²) are best."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-q8",
+      "stem": "An L-shaped compound figure is made from two rectangles: one 5 cm by 4 cm and another 3 cm by 2 cm. What is the total area?",
+      "choices": [
+        "14 cm²",
+        "20 cm²",
+        "26 cm²",
+        "30 cm²"
+      ],
+      "correctIndex": 2,
+      "explanation": "Area = (5 × 4) + (3 × 2) = 20 + 6 = 26 cm². Add the areas of the simple parts."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-q9",
+      "stem": "A rectangle has area 48 cm² and length 8 cm. What is its width?",
+      "choices": [
+        "5 cm",
+        "6 cm",
+        "7 cm",
+        "12 cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "Width = area ÷ length = 48 ÷ 8 = 6 cm. Check: 8 × 6 = 48 cm²."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-q10",
+      "stem": "A parallelogram has an area of 28 cm² and a base of 7 cm. What is its perpendicular height?",
+      "choices": [
+        "2 cm",
+        "3 cm",
+        "4 cm",
+        "5 cm"
+      ],
+      "correctIndex": 2,
+      "explanation": "Height = area ÷ base = 28 ÷ 7 = 4 cm. Remember to use perpendicular height."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-q11",
+      "stem": "What is the perimeter of a triangle with sides 7 cm, 10 cm and 12 cm?",
+      "choices": [
+        "19 cm",
+        "29 cm",
+        "30 cm",
+        "84 cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "Perimeter = 7 + 10 + 12 = 29 cm. Add every side once."
+    },
+    {
+      "id": "math-yr7-area-perimeter-ap-q12",
+      "stem": "A shape is made from a rectangle 8 cm by 5 cm with a triangle on top. The triangle has base 8 cm and height 3 cm. What is the total area?",
+      "choices": [
+        "40 cm²",
+        "52 cm²",
+        "64 cm²",
+        "44 cm²"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rectangle area = 8 × 5 = 40 cm². Triangle area = 1/2 × 8 × 3 = 12 cm². Total = 40 + 12 = 52 cm²."
+    }
+  ]
+}

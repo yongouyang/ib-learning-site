@@ -24,6 +24,16 @@
       "id": "math-yr7-calculations-calc-n4",
       "heading": "Order of Operations — BIDMAS",
       "body": "BIDMAS: Brackets first, Indices (powers), Division & Multiplication (left to right), Addition & Subtraction (left to right). Example: 3 + 4 × 5 = 3 + 20 = 23, NOT 7 × 5 = 35. With brackets: (3 + 4) × 5 = 35."
+    },
+    {
+      "id": "math-yr7-calculations-calc-n5",
+      "heading": "⚠️ Common BIDMAS misconception",
+      "body": "Never add before you multiply just because the addition appears first. Always do division and multiplication before addition and subtraction, working from left to right. Example: 8 + 2 × 5 = 8 + 10 = 18, NOT 10 × 5 = 50."
+    },
+    {
+      "id": "math-yr7-calculations-calc-n6",
+      "heading": "✅ Estimation checks",
+      "body": "Before you calculate, round the numbers to quickly estimate the answer. Example: 497 × 6 is about 500 × 6 = 3000. After working it out (2982), check it is close to your estimate. If it is not, you may have made a mistake."
     }
   ],
   "flashcards": [
@@ -74,6 +84,18 @@
       "term": "Product",
       "definition": "The result of multiplying two or more numbers.",
       "example": "The product of 7 and 8 is 56."
+    },
+    {
+      "id": "math-yr7-calculations-calc-f9",
+      "term": "Difference",
+      "definition": "The result of subtracting one number from another.",
+      "example": "The difference between 50 and 35 is 15."
+    },
+    {
+      "id": "math-yr7-calculations-calc-f10",
+      "term": "Estimate",
+      "definition": "A rough calculation used to check if an answer is sensible.",
+      "example": "497 × 6 ≈ 500 × 6 = 3000."
     }
   ],
   "questions": [
@@ -196,6 +218,42 @@
       ],
       "correctIndex": 0,
       "explanation": "15 × 24 = (15×20) + (15×4) = 300 + 60 = 360."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q11",
+      "stem": "A coach travels 215 km on Monday and 178 km on Tuesday. How far does it travel in total?",
+      "choices": [
+        "393 km",
+        "383 km",
+        "403 km",
+        "373 km"
+      ],
+      "correctIndex": 0,
+      "explanation": "Add 215 + 178 column by column: 5+8=13 (write 3 carry 1), 1+7+1=9, 2+1=3. The coach travels 393 km."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q12",
+      "stem": "Is it always, sometimes, or never true that multiplying two whole numbers gives a larger answer than adding them? For example, 2 × 2 = 4 and 2 + 2 = 4.",
+      "choices": [
+        "Always true",
+        "Sometimes true",
+        "Never true",
+        "Cannot tell"
+      ],
+      "correctIndex": 1,
+      "explanation": "It depends on the numbers. For 1 and 5, 1×5=5 but 1+5=6 (adding gives more). For 3 and 3, both give 6. For 4 and 5, multiplying gives more. So it is sometimes true."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q13",
+      "stem": "A shop sells notebooks in packs of 6 for £8 and single notebooks for £1.50 each. A class needs 50 notebooks. What is the cheapest way to buy them?",
+      "choices": [
+        "8 packs and 2 singles = £67",
+        "7 packs and 8 singles = £68",
+        "9 packs = £72",
+        "8 packs and 3 singles = £68.50"
+      ],
+      "correctIndex": 0,
+      "explanation": "8 packs give 48 notebooks for 8×£8=£64. Need 2 more singles: 2×£1.50=£3. Total £67. 7 packs = 42 notebooks (£56) + 8 singles (£12) = £68. 9 packs = 54 notebooks (£72). So 8 packs and 2 singles is cheapest."
     }
   ]
 }

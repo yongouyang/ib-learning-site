@@ -24,6 +24,16 @@
       "id": "math-yr7-substitution-sub-n4",
       "heading": "Expanding Brackets",
       "body": "Multiply the term outside by EVERY term inside: a(b+c) = ab+ac. Example: 3(x+4)=3x+12. 5(2y−3)=10y−15. Negative outside: −2(x−5)=−2x+10. Always expand before adding/subtracting other terms."
+    },
+    {
+      "id": "math-yr7-substitution-sub-n5",
+      "heading": "⚠️ Substitution and negative numbers",
+      "body": "When substituting a negative number, use brackets to keep the sign correct. If x = −3, then 2x = 2 × (−3) = −6. Without brackets it is easy to write 2 × −3 and get confused."
+    },
+    {
+      "id": "math-yr7-substitution-sub-n6",
+      "heading": "✅ Order matters",
+      "body": "In an expression like 2a + 3b, multiply before you add. If a=4 and b=2: 2×4 + 3×2 = 8 + 6 = 14. Do not add 4+2 first."
     }
   ],
   "flashcards": [
@@ -74,6 +84,18 @@
       "term": "Evaluate",
       "definition": "Work out the numerical value by substituting and calculating.",
       "example": "Evaluate 3y−4 when y=5: 3×5−4 = 11."
+    },
+    {
+      "id": "math-yr7-substitution-sub-f9",
+      "term": "Term",
+      "definition": "A single number, variable, or product in an expression.",
+      "example": "In 4x + 7y − 3, the terms are 4x, 7y and −3."
+    },
+    {
+      "id": "math-yr7-substitution-sub-f10",
+      "term": "Simplify",
+      "definition": "Collect like terms to make an expression shorter.",
+      "example": "3x + 5x = 8x."
     }
   ],
   "questions": [
@@ -99,7 +121,7 @@
         "21"
       ],
       "correctIndex": 2,
-      "explanation": "3×4+7 = 12+7 = 19."
+      "explanation": "Substitute x=4 into 3x+7. First multiply: 3×4=12. Then add 7: 12+7=19. So 3x+7=19."
     },
     {
       "id": "math-yr7-substitution-sub-q3",
@@ -123,7 +145,7 @@
         "64"
       ],
       "correctIndex": 2,
-      "explanation": "4²+3 = 16+3 = 19."
+      "explanation": "Substitute y=4 into y²+3. First work out 4²=16. Then add 3: 16+3=19. So y²+3=19."
     },
     {
       "id": "math-yr7-substitution-sub-q5",
@@ -196,6 +218,42 @@
       ],
       "correctIndex": 0,
       "explanation": "25h+40 with h=3: 25×3+40 = 75+40 = £115."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q11",
+      "stem": "A taxi charges £4 plus £3 per mile. How much does a 7-mile journey cost?",
+      "choices": [
+        "£21",
+        "£25",
+        "£28",
+        "£31"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cost = 3m + 4. Substitute m=7: 3×7 + 4 = 21 + 4 = £25."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q12",
+      "stem": "If a = 4 and b = 2, which expression gives the largest value?",
+      "choices": [
+        "a + b",
+        "2a + b",
+        "a² + b",
+        "a + b²"
+      ],
+      "correctIndex": 2,
+      "explanation": "Substitute a=4, b=2. a+b=6; 2a+b=8+2=10; a²+b=16+2=18; a+b²=4+4=8. The largest value is 18 from a² + b."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q13",
+      "stem": "The area of a triangle is A = 1/2 × base × height. Find the area when base = 8 cm and height = 5 cm.",
+      "choices": [
+        "20 cm²",
+        "40 cm²",
+        "13 cm²",
+        "26 cm²"
+      ],
+      "correctIndex": 0,
+      "explanation": "Substitute: A = 1/2 × 8 × 5. First, 1/2 × 8 = 4, then 4 × 5 = 20. The area is 20 cm²."
     }
   ]
 }

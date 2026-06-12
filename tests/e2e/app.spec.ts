@@ -56,8 +56,9 @@ test.describe('Quiz flow', () => {
     await page.goto('/subjects/math/math-yr7-calculations/quiz');
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
 
-    // Answer all questions (the topic has 10 questions)
-    for (let i = 0; i < 10; i++) {
+    // Answer all questions (the topic has 13 questions after enrichment)
+    const totalQuestions = 13;
+    for (let i = 0; i < totalQuestions; i++) {
       const choice = page.getByRole('button').filter({ hasText: /^A\./ }).first();
       await expect(choice).toBeVisible();
       await choice.click();
@@ -66,7 +67,7 @@ test.describe('Quiz flow', () => {
       await expect(nextBtn).toBeVisible();
       await nextBtn.click();
 
-      if (i < 9) {
+      if (i < totalQuestions - 1) {
         await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
       }
     }

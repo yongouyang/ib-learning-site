@@ -24,6 +24,16 @@
       "id": "math-yr7-decimals-dec-n4",
       "heading": "Converting Between Fractions, Decimals and Percentages",
       "body": "Fraction → decimal: divide numerator by denominator (3/4 = 0.75). Decimal → percentage: × 100 (0.75×100=75%). Percentage → decimal: ÷ 100 (35%=0.35). Memorise: 1/2=0.5=50%, 1/4=0.25=25%, 3/4=0.75=75%, 1/5=0.2=20%, 1/10=0.1=10%."
+    },
+    {
+      "id": "math-yr7-decimals-dec-n5",
+      "heading": "⚠️ Comparing decimals — watch the length",
+      "body": "A number with more digits is not always larger. 0.5 is the same as 0.50 and is bigger than 0.499. Add zeros to make the decimal places equal, then compare digit by digit from the left."
+    },
+    {
+      "id": "math-yr7-decimals-dec-n6",
+      "heading": "✅ Money and decimals",
+      "body": "When working with money, write amounts with two decimal places. £3.5 should be written as £3.50. When giving change, subtract the total cost from the amount paid and check your answer by adding back."
     }
   ],
   "flashcards": [
@@ -74,6 +84,18 @@
       "term": "Percentage → decimal",
       "definition": "Divide by 100.",
       "example": "75% = 75 ÷ 100 = 0.75."
+    },
+    {
+      "id": "math-yr7-decimals-dec-f9",
+      "term": "Thousandths",
+      "definition": "Third decimal place — one part out of one thousand.",
+      "example": "In 0.007, the 7 is in the thousandths place."
+    },
+    {
+      "id": "math-yr7-decimals-dec-f10",
+      "term": "Equivalent decimals",
+      "definition": "Decimals that have the same value even though they look different.",
+      "example": "0.6 = 0.60 = 0.600."
     }
   ],
   "questions": [
@@ -123,7 +145,7 @@
         "4.65"
       ],
       "correctIndex": 1,
-      "explanation": "3.75 + 1.80 = 5.55."
+      "explanation": "Write 3.75 + 1.80 with decimal points aligned. Hundredths: 5+0=5. Tenths: 7+8=15 (write 5, carry 1). Ones: 3+1+1=5. Answer: 5.55."
     },
     {
       "id": "math-yr7-decimals-dec-q5",
@@ -135,7 +157,7 @@
         "1.67"
       ],
       "correctIndex": 0,
-      "explanation": "5.20 − 3.87 = 1.33."
+      "explanation": "Write 5.20 − 3.87 with decimal points aligned. Hundredths: 0−7 borrows from tenths → 10−7=3. Tenths: 1−8 borrows from ones → 11−8=3. Ones: 4−3=1. Answer: 1.33."
     },
     {
       "id": "math-yr7-decimals-dec-q6",
@@ -183,7 +205,7 @@
         "850%"
       ],
       "correctIndex": 1,
-      "explanation": "0.85 × 100 = 85%."
+      "explanation": "To change a decimal to a percentage, multiply by 100. 0.85 × 100 = 85, so 0.85 = 85%."
     },
     {
       "id": "math-yr7-decimals-dec-q10",
@@ -196,6 +218,42 @@
       ],
       "correctIndex": 1,
       "explanation": "Total: £2.45 + £1.30 = £3.75. Change: £5 − £3.75 = £1.25."
+    },
+    {
+      "id": "math-yr7-decimals-dec-q11",
+      "stem": "A bus journey is 8.6 km. A train journey is 5.45 km. How much farther is the bus journey?",
+      "choices": [
+        "3.15 km",
+        "3.25 km",
+        "2.25 km",
+        "14.05 km"
+      ],
+      "correctIndex": 0,
+      "explanation": "8.60 − 5.45. Hundredths: 0−5 needs a borrow → 10−5=5. Tenths: 5−4=1. Ones: 8−5=3. The bus journey is 3.15 km farther."
+    },
+    {
+      "id": "math-yr7-decimals-dec-q12",
+      "stem": "If you multiply a number by 0.5, is the answer always smaller than the original number?",
+      "choices": [
+        "Always true",
+        "Sometimes true — for negative numbers it is larger",
+        "Never true",
+        "Only true for decimals"
+      ],
+      "correctIndex": 1,
+      "explanation": "For positive numbers, multiplying by 0.5 halves the number. But for negative numbers like −8, 0.5 × −8 = −4, and −4 is larger than −8. So it is sometimes true."
+    },
+    {
+      "id": "math-yr7-decimals-dec-q13",
+      "stem": "A phone costs £149.99. In a sale it is reduced by 15%. What is the sale price?",
+      "choices": [
+        "£127.49",
+        "£135.00",
+        "£22.50",
+        "£172.49"
+      ],
+      "correctIndex": 0,
+      "explanation": "15% of £149.99 = 0.15 × 149.99 = £22.4985 ≈ £22.50. Sale price = £149.99 − £22.50 = £127.49."
     }
   ]
 }

@@ -1,0 +1,230 @@
+{
+  "id": "math-yr7-angles",
+  "subjectId": "math",
+  "title": "Angles",
+  "description": "Understanding angle facts for points, lines, triangles and quadrilaterals, and using them to find missing angles.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr7-angles-ang-n1",
+      "heading": "Types of Angles",
+      "body": "Angles are measured in degrees. An acute angle is less than 90°. A right angle is exactly 90°. An obtuse angle is between 90° and 180°. A straight angle is exactly 180°. A reflex angle is between 180° and 360°. Common mistake: calling any angle bigger than 90° obtuse — it must also be smaller than 180°."
+    },
+    {
+      "id": "math-yr7-angles-ang-n2",
+      "heading": "Angles on a Straight Line and Around a Point",
+      "body": "Angles on a straight line add up to 180°. If you know one angle, subtract it from 180° to find the other. Angles around a point add up to 360°. Example: if two angles around a point are 110° and 95°, the third angle is 360° − 110° − 95° = 155°. Always check that your answer is sensible."
+    },
+    {
+      "id": "math-yr7-angles-ang-n3",
+      "heading": "Vertically Opposite Angles",
+      "body": "When two straight lines cross, the angles opposite each other are equal. They are called vertically opposite angles. For example, if one angle is 70°, the angle directly opposite it is also 70°. The other pair of opposite angles will also be equal to each other. Look for the X shape made by the crossing lines."
+    },
+    {
+      "id": "math-yr7-angles-ang-n4",
+      "heading": "Angles in a Triangle",
+      "body": "The three interior angles inside any triangle always add up to 180°. If you know two angles, add them and subtract from 180° to find the missing angle. Example: a triangle has angles 55° and 65°. The third angle is 180° − 55° − 65° = 60°. This works for every triangle, whether it is equilateral, isosceles or scalene."
+    },
+    {
+      "id": "math-yr7-angles-ang-n5",
+      "heading": "Angles in a Quadrilateral",
+      "body": "The four interior angles inside any four-sided shape add up to 360°. To find a missing angle, add the three known angles and subtract from 360°. Example: a quadrilateral has angles 90°, 100° and 80°. The missing angle is 360° − 90° − 100° − 80° = 90°. A rectangle uses this rule because 4 × 90° = 360°."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-angles-ang-f1",
+      "term": "Acute angle",
+      "definition": "An angle that is smaller than 90°.",
+      "example": "35° is an acute angle."
+    },
+    {
+      "id": "math-yr7-angles-ang-f2",
+      "term": "Right angle",
+      "definition": "An angle that is exactly 90°.",
+      "example": "The corner of a piece of paper is a right angle."
+    },
+    {
+      "id": "math-yr7-angles-ang-f3",
+      "term": "Obtuse angle",
+      "definition": "An angle between 90° and 180°.",
+      "example": "120° is an obtuse angle."
+    },
+    {
+      "id": "math-yr7-angles-ang-f4",
+      "term": "Reflex angle",
+      "definition": "An angle between 180° and 360°.",
+      "example": "270° is a reflex angle."
+    },
+    {
+      "id": "math-yr7-angles-ang-f5",
+      "term": "Straight angle",
+      "definition": "An angle that measures exactly 180°.",
+      "example": "Angles on a straight line add to 180°."
+    },
+    {
+      "id": "math-yr7-angles-ang-f6",
+      "term": "Vertically opposite angles",
+      "definition": "Angles opposite each other where two lines cross; they are equal.",
+      "example": "If one angle is 50°, the opposite angle is also 50°."
+    },
+    {
+      "id": "math-yr7-angles-ang-f7",
+      "term": "Angles in a triangle",
+      "definition": "The three interior angles of a triangle add up to 180°.",
+      "example": "60° + 70° + 50° = 180°."
+    },
+    {
+      "id": "math-yr7-angles-ang-f8",
+      "term": "Angles in a quadrilateral",
+      "definition": "The four interior angles of any quadrilateral add up to 360°.",
+      "example": "A rectangle has four 90° angles, and 4 × 90° = 360°."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-angles-ang-q1",
+      "stem": "Which of these angles is acute?",
+      "choices": [
+        "95°",
+        "45°",
+        "180°",
+        "200°"
+      ],
+      "correctIndex": 1,
+      "explanation": "An acute angle is less than 90°, so 45° is the only acute angle in the list."
+    },
+    {
+      "id": "math-yr7-angles-ang-q2",
+      "stem": "Two angles sit on a straight line. One angle is 70°. What is the other angle?",
+      "choices": [
+        "110°",
+        "90°",
+        "120°",
+        "70°"
+      ],
+      "correctIndex": 0,
+      "explanation": "Angles on a straight line add to 180°, so the missing angle is 180° − 70° = 110°."
+    },
+    {
+      "id": "math-yr7-angles-ang-q3",
+      "stem": "Three angles meet at a point. They are 90° and 120°. What is the third angle?",
+      "choices": [
+        "60°",
+        "150°",
+        "30°",
+        "90°"
+      ],
+      "correctIndex": 1,
+      "explanation": "Angles around a point add to 360°. Subtract: 360° − 90° − 120° = 150°."
+    },
+    {
+      "id": "math-yr7-angles-ang-q4",
+      "stem": "Two straight lines cross. One of the angles formed is 50°. What is the vertically opposite angle?",
+      "choices": [
+        "50°",
+        "130°",
+        "90°",
+        "40°"
+      ],
+      "correctIndex": 0,
+      "explanation": "Vertically opposite angles are equal, so the opposite angle is also 50°."
+    },
+    {
+      "id": "math-yr7-angles-ang-q5",
+      "stem": "A triangle has angles 60° and 70°. What is the missing angle?",
+      "choices": [
+        "50°",
+        "60°",
+        "40°",
+        "70°"
+      ],
+      "correctIndex": 0,
+      "explanation": "Angles in a triangle add to 180°. The missing angle is 180° − 60° − 70° = 50°."
+    },
+    {
+      "id": "math-yr7-angles-ang-q6",
+      "stem": "A quadrilateral has angles 80°, 90° and 100°. What is the missing angle?",
+      "choices": [
+        "90°",
+        "70°",
+        "110°",
+        "80°"
+      ],
+      "correctIndex": 0,
+      "explanation": "Angles in a quadrilateral add to 360°. The missing angle is 360° − 80° − 90° − 100° = 90°."
+    },
+    {
+      "id": "math-yr7-angles-ang-q7",
+      "stem": "Which of these is an obtuse angle?",
+      "choices": [
+        "80°",
+        "95°",
+        "180°",
+        "45°"
+      ],
+      "correctIndex": 1,
+      "explanation": "An obtuse angle is between 90° and 180°, so 95° is obtuse."
+    },
+    {
+      "id": "math-yr7-angles-ang-q8",
+      "stem": "A right angle and a 35° angle are next to each other on a straight line. What is the remaining angle?",
+      "choices": [
+        "55°",
+        "45°",
+        "65°",
+        "90°"
+      ],
+      "correctIndex": 0,
+      "explanation": "The three angles add to 180°. So the remaining angle is 180° − 90° − 35° = 55°."
+    },
+    {
+      "id": "math-yr7-angles-ang-q9",
+      "stem": "A triangle has angles 40°, x and x. What is the value of x?",
+      "choices": [
+        "70°",
+        "60°",
+        "50°",
+        "80°"
+      ],
+      "correctIndex": 0,
+      "explanation": "The angles add to 180°. The two equal angles total 180° − 40° = 140°, so each is 70°."
+    },
+    {
+      "id": "math-yr7-angles-ang-q10",
+      "stem": "A quadrilateral has angles 110°, 80°, 70° and x. What is x?",
+      "choices": [
+        "100°",
+        "90°",
+        "110°",
+        "120°"
+      ],
+      "correctIndex": 0,
+      "explanation": "Quadrilateral angles add to 360°. So x = 360° − 110° − 80° − 70° = 100°."
+    },
+    {
+      "id": "math-yr7-angles-ang-q11",
+      "stem": "Which of these angles is reflex?",
+      "choices": [
+        "150°",
+        "90°",
+        "200°",
+        "45°"
+      ],
+      "correctIndex": 2,
+      "explanation": "A reflex angle is between 180° and 360°, so 200° is reflex."
+    },
+    {
+      "id": "math-yr7-angles-ang-q12",
+      "stem": "Two angles around a point are 130° and 80°. What is the remaining angle?",
+      "choices": [
+        "150°",
+        "140°",
+        "160°",
+        "130°"
+      ],
+      "correctIndex": 0,
+      "explanation": "Angles around a point add to 360°. The remaining angle is 360° − 130° − 80° = 150°."
+    }
+  ]
+}

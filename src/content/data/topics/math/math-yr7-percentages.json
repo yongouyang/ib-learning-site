@@ -1,0 +1,230 @@
+{
+  "id": "math-yr7-percentages",
+  "subjectId": "math",
+  "title": "Percentages",
+  "description": "Working out percentages of amounts, percentage increase and decrease, and expressing one quantity as a percentage of another.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr7-percentages-pct-n1",
+      "heading": "What is a Percentage?",
+      "body": "Percentage means 'out of 100'. The symbol % stands for 'per cent', which means 'for every hundred'. So 50% means 50 out of 100, or one half. 100% means the whole amount, and 0% means none of it. Percentages can be written as fractions with denominator 100: 25% = 25/100 = 1/4."
+    },
+    {
+      "id": "math-yr7-percentages-pct-n2",
+      "heading": "Percentage of an Amount (Non-Calculator Methods)",
+      "body": "Break the percentage into easy pieces. To find 10% of an amount, divide by 10. To find 50%, divide by 2. To find 25%, divide by 4. To find 1%, divide by 100. Build other percentages from these. Example: find 30% of 80. 10% of 80 = 8, so 30% = 3 × 8 = 24. Example: find 15% of 60. 10% = 6 and 5% = 3, so 15% = 6 + 3 = 9."
+    },
+    {
+      "id": "math-yr7-percentages-pct-n3",
+      "heading": "Percentage Increase and Decrease",
+      "body": "To increase by a percentage, find the percentage of the amount and add it on. To decrease, find the percentage and subtract it. Example: increase 40 by 20%. 20% of 40 = 8, so new amount = 40 + 8 = 48. Example: decrease 90 by 10%. 10% of 90 = 9, so new amount = 90 − 9 = 81. Common mistake: do not just write the percentage; you must apply it to the original amount."
+    },
+    {
+      "id": "math-yr7-percentages-pct-n4",
+      "heading": "One Number as a Percentage of Another",
+      "body": "Write the first number as a fraction of the second, then multiply by 100. Formula: (part ÷ whole) × 100. Example: what is 12 out of 40 as a percentage? 12/40 = 0.3, then 0.3 × 100 = 30%. Make sure the denominator is the total amount you are comparing to, not the other way round. Example: if a test has 25 marks and you score 22, your percentage is 22/25 × 100 = 88%."
+    },
+    {
+      "id": "math-yr7-percentages-pct-n5",
+      "heading": "Real-World Percentages",
+      "body": "Percentages appear everywhere: discounts in shops, tax, tips, test scores, interest, and surveys. A 15% discount means you pay 85% of the original price. A 20% tip means you pay 120% of the meal cost. Always check whether the question asks for the amount saved or the final price, and read carefully."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-percentages-pct-f1",
+      "term": "Percentage",
+      "definition": "A number written as a fraction of 100, using the % symbol.",
+      "example": "47% means 47 out of 100."
+    },
+    {
+      "id": "math-yr7-percentages-pct-f2",
+      "term": "Percent",
+      "definition": "Means 'out of 100' or 'for every hundred'.",
+      "example": "100% means the whole amount."
+    },
+    {
+      "id": "math-yr7-percentages-pct-f3",
+      "term": "10% of an amount",
+      "definition": "Divide the amount by 10.",
+      "example": "10% of 70 = 7."
+    },
+    {
+      "id": "math-yr7-percentages-pct-f4",
+      "term": "50% of an amount",
+      "definition": "Divide the amount by 2.",
+      "example": "50% of 60 = 30."
+    },
+    {
+      "id": "math-yr7-percentages-pct-f5",
+      "term": "25% of an amount",
+      "definition": "Divide the amount by 4.",
+      "example": "25% of 80 = 20."
+    },
+    {
+      "id": "math-yr7-percentages-pct-f6",
+      "term": "Percentage increase",
+      "definition": "Find the percentage of the amount and add it on.",
+      "example": "Increase 50 by 10%: 50 + 5 = 55."
+    },
+    {
+      "id": "math-yr7-percentages-pct-f7",
+      "term": "Percentage decrease",
+      "definition": "Find the percentage of the amount and subtract it.",
+      "example": "Decrease 80 by 25%: 80 − 20 = 60."
+    },
+    {
+      "id": "math-yr7-percentages-pct-f8",
+      "term": "One number as a percentage of another",
+      "definition": "Divide the part by the whole and multiply by 100.",
+      "example": "9 out of 20 = 9/20 × 100 = 45%."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-percentages-pct-q1",
+      "stem": "What does 50% mean?",
+      "choices": [
+        "50 out of 100",
+        "50 times bigger",
+        "50 more than the whole",
+        "Half of one percent"
+      ],
+      "correctIndex": 0,
+      "explanation": "Percentage means 'out of 100', so 50% means 50 out of 100, which is one half."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q2",
+      "stem": "What is 10% of 120?",
+      "choices": [
+        "12",
+        "10",
+        "120",
+        "1.2"
+      ],
+      "correctIndex": 0,
+      "explanation": "To find 10% of a number, divide by 10. 120 ÷ 10 = 12."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q3",
+      "stem": "What is 25% of 80?",
+      "choices": [
+        "20",
+        "40",
+        "10",
+        "25"
+      ],
+      "correctIndex": 0,
+      "explanation": "25% is the same as one quarter, so divide 80 by 4 to get 20."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q4",
+      "stem": "Find 30% of 50.",
+      "choices": [
+        "15",
+        "30",
+        "150",
+        "20"
+      ],
+      "correctIndex": 0,
+      "explanation": "10% of 50 is 5, so 30% is 3 times 5, which equals 15."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q5",
+      "stem": "A jacket costs £80 and is reduced by 20%. How much is the discount?",
+      "choices": [
+        "£16",
+        "£20",
+        "£60",
+        "£8"
+      ],
+      "correctIndex": 0,
+      "explanation": "20% of £80 is found by 80 ÷ 5 = £16, so the discount is £16."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q6",
+      "stem": "What is the sale price of the £80 jacket after a 20% discount?",
+      "choices": [
+        "£64",
+        "£60",
+        "£76",
+        "£72"
+      ],
+      "correctIndex": 0,
+      "explanation": "The discount is £16, so subtract that from £80 to get the sale price of £64."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q7",
+      "stem": "Increase 70 by 10%.",
+      "choices": [
+        "77",
+        "80",
+        "63",
+        "71"
+      ],
+      "correctIndex": 0,
+      "explanation": "10% of 70 is 7, and adding this to 70 gives the increased value of 77."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q8",
+      "stem": "Decrease 120 by 25%.",
+      "choices": [
+        "90",
+        "95",
+        "100",
+        "105"
+      ],
+      "correctIndex": 0,
+      "explanation": "25% of 120 is 30, so subtract 30 from 120 to get the decreased value of 90."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q9",
+      "stem": "A student scores 18 out of 24 on a test. What is this as a percentage?",
+      "choices": [
+        "75%",
+        "72%",
+        "80%",
+        "60%"
+      ],
+      "correctIndex": 0,
+      "explanation": "Divide 18 by 24 to get 0.75, then multiply by 100 to change it to 75%."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q10",
+      "stem": "What is 12 out of 40 as a percentage?",
+      "choices": [
+        "30%",
+        "25%",
+        "40%",
+        "12%"
+      ],
+      "correctIndex": 0,
+      "explanation": "12 ÷ 40 = 0.3, and multiplying by 100 gives the percentage answer 30%."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q11",
+      "stem": "A meal costs £40. A 10% tip is added. How much is paid in total?",
+      "choices": [
+        "£44",
+        "£50",
+        "£42",
+        "£40"
+      ],
+      "correctIndex": 0,
+      "explanation": "10% of £40 is £4, so the total amount paid is £40 + £4 = £44."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q12",
+      "stem": "Find 5% of 300.",
+      "choices": [
+        "15",
+        "30",
+        "50",
+        "25"
+      ],
+      "correctIndex": 0,
+      "explanation": "10% of 300 is 30, so 5% is half of that, giving the final answer 15."
+    }
+  ]
+}

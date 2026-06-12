@@ -24,6 +24,16 @@
       "id": "math-yr7-probability-prob-n4",
       "heading": "Experimental vs Theoretical",
       "body": "Theoretical = what SHOULD happen (favourable ÷ total). Experimental (relative frequency) = what ACTUALLY happens (occurrences ÷ trials). Example: 100 coin flips, 47 heads → experimental P=0.47, theoretical P=0.5. More trials → experimental gets closer to theoretical (law of large numbers)."
+    },
+    {
+      "id": "math-yr7-probability-prob-n5",
+      "heading": "⚠️ Equally likely outcomes",
+      "body": "A probability calculation only works if every outcome is equally likely. A spinner with a bigger red section gives red a higher chance than blue. Always ask, 'Are all outcomes fair?' before using P = favourable ÷ total."
+    },
+    {
+      "id": "math-yr7-probability-prob-n6",
+      "heading": "✅ Listing without missing outcomes",
+      "body": "Use a table or tree diagram so you do not miss any outcomes. For two coins, listing HH, HT, TH, TT is better than just saying \"2 heads, 1 head, no heads\" because those groups are not equally likely."
     }
   ],
   "flashcards": [
@@ -74,6 +84,18 @@
       "term": "Mutually exclusive",
       "definition": "Events that cannot happen at the same time.",
       "example": "Cannot roll a 2 AND 5 on one die roll."
+    },
+    {
+      "id": "math-yr7-probability-prob-f9",
+      "term": "Complementary event",
+      "definition": "The opposite of an event; P(not A) = 1 − P(A).",
+      "example": "If P(rain)=0.2, then P(no rain)=0.8."
+    },
+    {
+      "id": "math-yr7-probability-prob-f10",
+      "term": "Fair",
+      "definition": "Each outcome has the same chance of happening.",
+      "example": "A fair six-sided die has P(roll a 3)=1/6."
     }
   ],
   "questions": [
@@ -196,6 +218,42 @@
       ],
       "correctIndex": 0,
       "explanation": "11 letters total, B appears twice. P=2/11."
+    },
+    {
+      "id": "math-yr7-probability-prob-q11",
+      "stem": "A class has 14 girls and 16 boys. One student is chosen at random. What is the probability it is a girl?",
+      "choices": [
+        "7/15",
+        "8/15",
+        "14/30",
+        "1/2"
+      ],
+      "correctIndex": 0,
+      "explanation": "Total students = 14 + 16 = 30. Number of girls = 14. P(girl) = 14/30 = 7/15 when simplified."
+    },
+    {
+      "id": "math-yr7-probability-prob-q12",
+      "stem": "A fair coin is tossed twice. Is getting two heads equally likely as getting one head and one tail?",
+      "choices": [
+        "Yes — both involve heads",
+        "No — one head and one tail has two ways to happen",
+        "No — two heads is more likely",
+        "Cannot tell"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sample space: HH, HT, TH, TT. P(two heads)=1/4. P(one head and one tail)=2/4=1/2 because HT and TH are different outcomes."
+    },
+    {
+      "id": "math-yr7-probability-prob-q13",
+      "stem": "Two dice are rolled and the scores are added. What is the probability of getting a total of 7?",
+      "choices": [
+        "1/12",
+        "1/6",
+        "1/8",
+        "1/36"
+      ],
+      "correctIndex": 1,
+      "explanation": "There are 36 equally likely outcomes. Totals of 7 can be made by (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) — 6 ways. P(7)=6/36=1/6."
     }
   ]
 }
