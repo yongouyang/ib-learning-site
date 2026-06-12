@@ -6,82 +6,82 @@
   "ibLevel": "DP",
   "notes": [
     {
-      "id": "ell-n1",
+      "id": "math-dp-explog-ell-n1",
       "heading": "Graphs of Exponential Functions",
       "body": "Exponential functions describe quantities that change by a constant percentage. They appear everywhere from population growth to radioactive decay.\n\n📌 Definition\nAn exponential function has the form:\n\n$$f(x) = k \\cdot a^x + c$$\n\nwhere $a > 0$, $a \\neq 1$, and $k \\neq 0$.\n\n🔑 Key Features\n• The graph always crosses the $y$-axis at $(0, k + c)$\n• The horizontal asymptote is $y = c$\n• If $a > 1$, the function shows growth (increasing)\n• If $0 < a < 1$, the function shows decay (decreasing)\n• The outputs are always positive when $c = 0$\n\nThe special function $y = e^x$ has a unique property: its gradient at any point equals its value. It passes through $(0, 1)$, $(1, e \\approx 2.718)$, and $(-1, \\frac{1}{e})$.\n\n💡 Worked Example 1\nFor $f(x) = 3^x + 2$, state the asymptote, $y$-intercept, and whether it is increasing or decreasing.\n\n  Step 1: Identify parameters\n    $k = 1$, $a = 3$, $c = 2$\n\n  Step 2: Find the asymptote\n    Horizontal asymptote: $y = 2$\n\n  Step 3: Find the $y$-intercept\n    $f(0) = 3^0 + 2 = 1 + 2 = 3$\n    $y$-intercept is $(0, 3)$\n\n  Step 4: Determine growth or decay\n    Since $a = 3 > 1$, the function is increasing\n\n💡 Worked Example 2\nThe temperature of a cup of coffee is modelled by $T(x) = 65(0.5)^x + 20$, where $x$ is time in minutes. Find the initial temperature and the long-term temperature.\n\n  Step 1: Initial temperature ($x = 0$)\n    $T(0) = 65(0.5)^0 + 20 = 65 + 20 = 85^\\circ$C\n\n  Step 2: Long-term temperature (as $x \\to \\infty$)\n    $(0.5)^x \\to 0$, so $T \\to 20^\\circ$C\n    This is the room temperature, also the horizontal asymptote\n\n📎 Key Points to Remember\n• The parameter $c$ sets the horizontal asymptote — the graph never crosses this line\n• The parameter $k$ controls the starting height relative to the asymptote\n• $y = e^{-x}$ is a reflection of $y = e^x$ in the $y$-axis\n• Exponential curves are always smooth and continuous\n\n⚠️ Common Mistake\nThinking the horizontal asymptote is where the graph touches the axis. An asymptote is a line the graph approaches but never reaches. For $y = 3e^x + 1$, the asymptote is $y = 1$, not $y = 0$."
     },
     {
-      "id": "ell-n2",
+      "id": "math-dp-explog-ell-n2",
       "heading": "Graphs of Logarithmic Functions",
       "body": "Logarithmic functions are the inverses of exponential functions. They turn questions about powers into questions about multiplication.\n\n📌 Definition\nA logarithm answers the question \"To what power must I raise the base?\"\n\n$$y = \\log_a(x) \\iff a^y = x$$\n\nwhere $a > 0$, $a \\neq 1$, and $x > 0$.\n\n🔑 Key Features of $y = \\log_a(x)$\n• Domain: $x > 0$ only\n• Passes through $(1, 0)$ because $a^0 = 1$\n• Passes through $(a, 1)$ because $a^1 = a$\n• Vertical asymptote: $x = 0$ (the $y$-axis)\n• If $a > 1$, the function is increasing\n• The function is undefined for $x \\leq 0$\n\nThe natural logarithm $y = \\ln(x)$ uses base $e$. It passes through $(1, 0)$ and $(e, 1)$.\n\n💡 Worked Example 1\nFind the domain and two key points for $f(x) = \\ln(x - 3)$.\n\n  Step 1: Find the domain\n    $x - 3 > 0 \\rightarrow x > 3$\n\n  Step 2: Find where the curve crosses the $x$-axis\n    $\\ln(x - 3) = 0 \\rightarrow x - 3 = e^0 = 1 \\rightarrow x = 4$\n    Point: $(4, 0)$\n\n  Step 3: Find the vertical asymptote\n    $x - 3 = 0 \\rightarrow x = 3$\n\n💡 Worked Example 2\nSolve $10^x = 12$, giving your answer to 3 significant figures.\n\n  Step 1: Convert to logarithmic form\n    $10^x = 12 \\rightarrow x = \\log_{10}(12)$\n\n  Step 2: Evaluate\n    $x \\approx 1.08$\n\n📎 Key Points to Remember\n• $\\log_a(x)$ and $a^x$ are inverse functions — their graphs are reflections in $y = x$\n• $\\ln(e^x) = x$ and $e^{\\ln x} = x$ for all valid $x$\n• You cannot take the logarithm of zero or a negative number\n• $\\log(1) = 0$ for any valid base\n\n⚠️ Common Mistake\nBelieving $\\ln(0) = 0$ or $\\ln(-5) = -\\ln(5)$. The logarithm is undefined for $x \\leq 0$. If your working produces a negative inside a log, that solution must be rejected."
     },
     {
-      "id": "ell-n3",
+      "id": "math-dp-explog-ell-n3",
       "heading": "Growth and Decay Models",
       "body": "Many real-world quantities change by a constant percentage over equal time intervals. Exponential models capture this perfectly.\n\n📌 Definition\nThe general exponential growth or decay model is:\n\n$$N(t) = N_0 \\cdot e^{kt}$$\n\nwhere:\n    $N_0 = $ initial amount at $t = 0$\n    $k = $ growth constant ($k > 0$ for growth, $k < 0$ for decay)\n    $t = $ time\n\n🔑 Key Formulas\nHalf-life (for decay):\n\n$$T_{1/2} = \\frac{\\ln(2)}{|k|}$$\n\nContinuous compound interest:\n\n$$A = P \\cdot e^{rt}$$\n\nwhere $P = $ principal, $r = $ annual rate (as a decimal), $t = $ time in years\n\nPercentage growth/decay model:\n\n$$N(t) = N_0 \\cdot \\left(1 \\pm \\frac{p}{100}\\right)^t$$\n\n💡 Worked Example 1\nThe number of bacteria in a culture is modelled by $N(t) = 200e^{0.15t}$, where $t$ is in hours. How many hours until the population reaches 800?\n\n  Step 1: Set up the equation\n    $200e^{0.15t} = 800$\n\n  Step 2: Isolate the exponential\n    $e^{0.15t} = 4$\n\n  Step 3: Take natural logs of both sides\n    $0.15t = \\ln(4) \\approx 1.386$\n\n  Step 4: Solve for $t$\n    $t \\approx \\frac{1.386}{0.15} \\approx 9.24$ hours\n\n💡 Worked Example 2\nA car worth $\\$25,000$ depreciates by $8\\%$ each year. Its value is $V(t) = 25000(0.92)^t$. How many years until it is worth half its original value?\n\n  Step 1: Set up the equation\n    $25000(0.92)^t = 12500$\n\n  Step 2: Simplify\n    $0.92^t = 0.5$\n\n  Step 3: Take logs\n    $t \\cdot \\ln(0.92) = \\ln(0.5)$\n\n  Step 4: Solve\n    $t = \\frac{\\ln(0.5)}{\\ln(0.92)} \\approx 8.31$ years\n\n📎 Key Points to Remember\n• In decay, the quantity approaches zero but never actually reaches it\n• Half-life is the time for a quantity to reduce to half its initial value\n• For percentage change per period, use the base $\\left(1 + \\frac{r}{100}\\right)$ or $\\left(1 - \\frac{r}{100}\\right)$\n• Always check whether a question asks for simple or compound interest\n\n⚠️ Common Mistake\nUsing a linear model for percentage change. A car losing $8\\%$ per year is NOT $V = 25000 - 0.08(25000)t$. The correct model is $V = 25000(0.92)^t$, because each year you lose $8\\%$ of the current value, not the original value."
     },
     {
-      "id": "ell-n4",
+      "id": "math-dp-explog-ell-n4",
       "heading": "Transformations and Solving",
       "body": "Transformations let us shift, stretch, and reflect exponential curves. Algebraic techniques let us solve for unknowns inside exponentials and logarithms.\n\n📌 Transformations of $y = e^x$\n    $y = e^x + k$       $\\rightarrow$ vertical shift up by $k$; asymptote becomes $y = k$\n    $y = e^{x - h}$     $\\rightarrow$ horizontal shift right by $h$\n    $y = A \\cdot e^x$   $\\rightarrow$ vertical stretch by factor $A$\n    $y = e^{kx}$        $\\rightarrow$ horizontal compression by factor $\\frac{1}{k}$\n\n🔑 Solving Exponential Equations\n1. Same base: if $a^x = a^y$, then $x = y$\n2. Different base: isolate the exponential, then take $\\ln$ of both sides\n\n🔑 Solving Logarithmic Equations\n1. Use log laws to combine multiple logs into one\n2. Convert to exponential form\n3. Solve the resulting equation\n4. Check every solution in the original equation — reject any that make the log argument zero or negative\n\n💡 Worked Example 1\nSolve $3 \\cdot 2^x = 48$.\n\n  Step 1: Isolate the exponential\n    $2^x = 16$\n\n  Step 2: Write 16 as a power of 2\n    $2^x = 2^4$\n\n  Step 3: Equate exponents\n    $x = 4$\n\n💡 Worked Example 2\nSolve $\\ln(2x - 1) = 3$.\n\n  Step 1: Convert to exponential form\n    $2x - 1 = e^3$\n\n  Step 2: Solve for $x$\n    $2x = e^3 + 1$\n    $x = \\frac{e^3 + 1}{2}$\n\n  Step 3: Check the domain\n    $2x - 1 = e^3 > 0$  ✓  (valid)\n\n📎 Key Points to Remember\n• Horizontal shifts affect the exponent: $e^{x-3}$ shifts right 3, not left\n• Vertical stretches multiply the whole function: $3e^x$ is taller than $e^x$\n• When solving log equations, the domain check is not optional\n• For equations like $3^x = 7$, the change of base gives $x = \\frac{\\ln(7)}{\\ln(3)}$\n\n⚠️ Common Mistake\nCreating extraneous solutions when solving log equations. For example, $\\log_2(x(x-2)) = 3$ leads to $x^2 - 2x - 8 = 0$, giving $x = 4$ or $x = -2$. But $x = -2$ makes the argument negative, so it must be rejected. Only $x = 4$ is valid."
     },
     {
-      "id": "ell-n5",
+      "id": "math-dp-explog-ell-n5",
       "heading": "Logarithm Laws and Change of Base",
       "body": "Logarithms turn difficult operations into easier ones. Multiplication becomes addition, division becomes subtraction, and powers become multiplication.\n\n📌 Definition Reminder\n\n$$\\log_a(b) = c \\iff a^c = b$$\n\nwhere $a > 0$, $a \\neq 1$, and $b > 0$.\n\n🔑 The Three Log Laws\nProduct law:\n\n$$\\log_a(xy) = \\log_a(x) + \\log_a(y)$$\n\nQuotient law:\n\n$$\\log_a\\left(\\frac{x}{y}\\right) = \\log_a(x) - \\log_a(y)$$\n\nPower law:\n\n$$\\log_a(x^n) = n \\cdot \\log_a(x)$$\n\n🔑 Change of Base Formula\n\n$$\\log_a(b) = \\frac{\\ln(b)}{\\ln(a)}$$\n\nThis works with any base, including $\\log_{10}$.\n\n🔑 Special Values\n\n$$\\log_a(1) = 0 \\quad \\text{(because } a^0 = 1\\text{)}$$\n$$\\log_a(a) = 1 \\quad \\text{(because } a^1 = a\\text{)}$$\n\n💡 Worked Example 1\nWrite $\\log(12)$ in terms of $\\log(2)$ and $\\log(3)$.\n\n  Step 1: Factorise 12\n    $12 = 2^2 \\times 3$\n\n  Step 2: Apply the product law\n    $\\log(12) = \\log(2^2) + \\log(3)$\n\n  Step 3: Apply the power law\n    $\\log(12) = 2\\log(2) + \\log(3)$\n\n💡 Worked Example 2\nEvaluate $\\log_3(7)$ correct to 3 significant figures.\n\n  Step 1: Use change of base\n    $\\log_3(7) = \\frac{\\ln(7)}{\\ln(3)}$\n\n  Step 2: Calculate\n    $\\ln(7) \\approx 1.946$,  $\\ln(3) \\approx 1.099$\n    $\\log_3(7) \\approx 1.771$\n\n📎 Key Points to Remember\n• The log laws only apply when all quantities are positive\n• Change of base is essential for evaluating logs on a calculator\n• $\\log_a(x) + \\log_a(y) = \\log_a(xy)$, NOT $\\log_a(x + y)$\n• $\\log_a(x) - \\log_a(y) = \\log_a\\left(\\frac{x}{y}\\right)$, NOT $\\frac{\\log_a(x)}{\\log_a(y)}$\n\n⚠️ Common Mistake\nBelieving $\\log(x + y) = \\log(x) + \\log(y)$. This is false. For example, $\\log(2 + 8) = \\log(10) = 1$, but $\\log(2) + \\log(8) \\approx 0.301 + 0.903 = 1.204$. The product law applies to multiplication inside the log, not addition."
     }
   ],
   "flashcards": [
     {
-      "id": "ell-f1",
+      "id": "math-dp-explog-ell-f1",
       "term": "$y=e^x$ features",
       "definition": "$(0,1)$; always positive; asymptote $y=0$; increasing.",
       "example": "$x=1 \\rightarrow y=e \\approx 2.718$"
     },
     {
-      "id": "ell-f2",
+      "id": "math-dp-explog-ell-f2",
       "term": "$y=\\ln x$ features",
       "definition": "Domain $x>0$; $(1,0)$, $(e,1)$; asymptote $x=0$; increasing.",
       "example": "$\\ln(e^2)=2$"
     },
     {
-      "id": "ell-f3",
+      "id": "math-dp-explog-ell-f3",
       "term": "Inverse relationship",
       "definition": "$y=e^x$ and $y=\\ln x$ are inverses.",
       "example": "$e^{\\ln 5}=5$; $\\ln(e^3)=3$"
     },
     {
-      "id": "ell-f4",
+      "id": "math-dp-explog-ell-f4",
       "term": "Exponential decay model",
       "definition": "$N(t)=N_0 e^{-kt}$; half-life $T_{1/2}=\\frac{\\ln 2}{k}$",
       "example": "$k=0.02 \\rightarrow T_{1/2} \\approx 34.7$ yr"
     },
     {
-      "id": "ell-f5",
+      "id": "math-dp-explog-ell-f5",
       "term": "Continuous compound interest",
       "definition": "$A=Pe^{rt}$",
       "example": "$P=\\$2000$, $r=3\\%$, $t=10 \\rightarrow \\approx \\$2699.72$"
     },
     {
-      "id": "ell-f6",
+      "id": "math-dp-explog-ell-f6",
       "term": "Logarithm laws",
       "definition": "$\\log_a(xy)=\\log_a(x)+\\log_a(y)$; $\\log_a\\left(\\frac{x}{y}\\right)=\\log_a(x)-\\log_a(y)$; $\\log_a(x^n)=n\\log_a(x)$",
       "example": "$\\log_2(8 \\times 4)=\\log_2 8 + \\log_2 4 = 3+2=5$"
     },
     {
-      "id": "ell-f7",
+      "id": "math-dp-explog-ell-f7",
       "term": "Change of base formula",
       "definition": "$\\log_a b = \\frac{\\ln b}{\\ln a}$",
       "example": "$\\log_3 7 = \\frac{\\ln 7}{\\ln 3} \\approx 1.771$"
     },
     {
-      "id": "ell-f8",
+      "id": "math-dp-explog-ell-f8",
       "term": "Logarithmic scale",
       "definition": "A scale where equal intervals represent multiplicative changes ($\\times 10$, $\\times 100$) rather than additive changes.",
       "example": "Richter scale: magnitude $6$ is $10\\times$ stronger than magnitude $5$."
     },
     {
-      "id": "ell-f9",
+      "id": "math-dp-explog-ell-f9",
       "term": "Linearising exponential data",
       "definition": "If $y=ab^x$, taking logs gives $\\ln y = \\ln a + x\\ln b$, which is linear in $x$.",
       "example": "Plotting $\\ln y$ against $x$ gives a straight line with gradient $\\ln b$ and $y$-intercept $\\ln a$."
@@ -89,7 +89,7 @@
   ],
   "questions": [
     {
-      "id": "ell-q1",
+      "id": "math-dp-explog-ell-q1",
       "stem": "Asymptote of $y=3e^x+2$?",
       "choices": [
         "$y=0$",
@@ -101,7 +101,7 @@
       "explanation": "As $x \\to -\\infty$, $e^x \\to 0 \\rightarrow y \\to 2$."
     },
     {
-      "id": "ell-q2",
+      "id": "math-dp-explog-ell-q2",
       "stem": "$y=\\ln x \\rightarrow y=\\ln(x-3)$: transformation?",
       "choices": [
         "Left 3",
@@ -113,7 +113,7 @@
       "explanation": "$x \\rightarrow x-3$ shifts right 3."
     },
     {
-      "id": "ell-q3",
+      "id": "math-dp-explog-ell-q3",
       "stem": "$e^x=7 \\rightarrow x \\approx$?",
       "choices": [
         "$1.95$",
@@ -125,7 +125,7 @@
       "explanation": "$\\ln 7 \\approx 1.946 \\approx 1.95$."
     },
     {
-      "id": "ell-q4",
+      "id": "math-dp-explog-ell-q4",
       "stem": "$P=1200e^{0.04t}$. Growth rate?",
       "choices": [
         "$4\\%$/yr",
@@ -137,7 +137,7 @@
       "explanation": "$k=0.04 = 4\\%$ continuous growth."
     },
     {
-      "id": "ell-q5",
+      "id": "math-dp-explog-ell-q5",
       "stem": "$\\ln(2x-1)=3 \\rightarrow x=?$",
       "choices": [
         "$\\frac{e^3+1}{2}$",
@@ -149,7 +149,7 @@
       "explanation": "$2x-1=e^3 \\rightarrow x=\\frac{e^3+1}{2}$."
     },
     {
-      "id": "ell-q6",
+      "id": "math-dp-explog-ell-q6",
       "stem": "$N=N_0 e^{-0.05t}$. Time to $10\\%$?",
       "choices": [
         "$36.1$ yr",
@@ -161,7 +161,7 @@
       "explanation": "$e^{-0.05t}=0.1 \\rightarrow t=\\frac{\\ln 10}{0.05} \\approx 46.1$."
     },
     {
-      "id": "ell-q7",
+      "id": "math-dp-explog-ell-q7",
       "stem": "A car worth $\\$25,000$ depreciates by $8\\%$ each year. Its value after $t$ years is $V(t)=25000(0.92)^t$. How many years until it is worth half its original value?",
       "choices": [
         "$4.2$ yr",
@@ -173,7 +173,7 @@
       "explanation": "Half of $\\$25,000$ is $\\$12,500$. Solve $25000(0.92)^t=12500 \\rightarrow 0.92^t=0.5 \\rightarrow t=\\frac{\\ln 0.5}{\\ln 0.92} \\approx 8.31$ years."
     },
     {
-      "id": "ell-q8",
+      "id": "math-dp-explog-ell-q8",
       "stem": "For $f(x)=k \\cdot a^x+c$ with $a>1$, which statement is always true?",
       "choices": [
         "The horizontal asymptote is $y=k$",
@@ -185,7 +185,7 @@
       "explanation": "As $x \\to -\\infty$, $a^x \\to 0$ so $f(x) \\to c$. Thus $y=c$ is the horizontal asymptote. The $y$-intercept is $(0, k+c)$, not $(0,k)$, and since $a>1$ the graph is increasing (not decreasing)."
     },
     {
-      "id": "ell-q9",
+      "id": "math-dp-explog-ell-q9",
       "stem": "Which expression is equivalent to $\\ln(6e^2) - \\ln 3$?",
       "choices": [
         "$\\ln 2 + 2$",
@@ -197,7 +197,7 @@
       "explanation": "$\\ln(6e^2)-\\ln 3 = \\ln\\left(\\frac{6e^2}{3}\\right) = \\ln(2e^2) = \\ln 2 + \\ln(e^2) = \\ln 2 + 2$."
     },
     {
-      "id": "ell-q10",
+      "id": "math-dp-explog-ell-q10",
       "stem": "The number of bacteria in a culture is modelled by $N(t)=200e^{0.15t}$, where $t$ is in hours. How many hours until the population reaches 800?",
       "choices": [
         "$4.6$ hr",
@@ -209,7 +209,7 @@
       "explanation": "Set $200e^{0.15t}=800 \\rightarrow e^{0.15t}=4 \\rightarrow 0.15t=\\ln 4 \\rightarrow t=\\frac{\\ln 4}{0.15} \\approx \\frac{1.386}{0.15} \\approx 9.24$ hours."
     },
     {
-      "id": "ell-q11",
+      "id": "math-dp-explog-ell-q11",
       "stem": "What is the domain of $f(x)=\\ln(5-2x)$?",
       "choices": [
         "$x<\\frac{5}{2}$",
@@ -221,7 +221,7 @@
       "explanation": "The argument of a logarithm must be positive: $5-2x>0 \\rightarrow 5>2x \\rightarrow x<\\frac{5}{2}$. Common mistake: solving $5-2x>0$ as $x>\\frac{5}{2}$ (forgetting to reverse the inequality when dividing by a negative number)."
     },
     {
-      "id": "ell-q12",
+      "id": "math-dp-explog-ell-q12",
       "stem": "Solve $3^x=20$, giving your answer to 2 decimal places.",
       "choices": [
         "$2.56$",

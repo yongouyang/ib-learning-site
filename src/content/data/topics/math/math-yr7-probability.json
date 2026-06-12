@@ -5,31 +5,197 @@
   "description": "The probability scale, calculating simple probabilities, sample spaces, and experimental vs theoretical probability.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "prob-n1", "heading": "The Probability Scale", "body": "Probability is a number between 0 (impossible) and 1 (certain). 0.5 = equally likely as not. Can be written as fraction, decimal, or percentage: 1/4 = 0.25 = 25%. The probability scale: 0 = impossible, 1 = certain, everything in between measures likelihood." },
-    { "id": "prob-n2", "heading": "Calculating Probability", "body": "P(event) = favourable outcomes ÷ total outcomes. Example: bag with 3 red, 5 blue, 2 green marbles: P(red)=3/10=0.3. All probabilities sum to 1. P(not event) = 1 − P(event). All probabilities must be between 0 and 1." },
-    { "id": "prob-n3", "heading": "Sample Spaces", "body": "The set of ALL possible outcomes. For a die: {1,2,3,4,5,6}. For two coins: {HH, HT, TH, TT} — 4 equally likely outcomes with P=1/4 each. Use a table for two dice (36 outcomes). Always check: do all outcomes sum to the total? Are they equally likely?" },
-    { "id": "prob-n4", "heading": "Experimental vs Theoretical", "body": "Theoretical = what SHOULD happen (favourable ÷ total). Experimental (relative frequency) = what ACTUALLY happens (occurrences ÷ trials). Example: 100 coin flips, 47 heads → experimental P=0.47, theoretical P=0.5. More trials → experimental gets closer to theoretical (law of large numbers)." }
+    {
+      "id": "math-yr7-probability-prob-n1",
+      "heading": "The Probability Scale",
+      "body": "Probability is a number between 0 (impossible) and 1 (certain). 0.5 = equally likely as not. Can be written as fraction, decimal, or percentage: 1/4 = 0.25 = 25%. The probability scale: 0 = impossible, 1 = certain, everything in between measures likelihood."
+    },
+    {
+      "id": "math-yr7-probability-prob-n2",
+      "heading": "Calculating Probability",
+      "body": "P(event) = favourable outcomes ÷ total outcomes. Example: bag with 3 red, 5 blue, 2 green marbles: P(red)=3/10=0.3. All probabilities sum to 1. P(not event) = 1 − P(event). All probabilities must be between 0 and 1."
+    },
+    {
+      "id": "math-yr7-probability-prob-n3",
+      "heading": "Sample Spaces",
+      "body": "The set of ALL possible outcomes. For a die: {1,2,3,4,5,6}. For two coins: {HH, HT, TH, TT} — 4 equally likely outcomes with P=1/4 each. Use a table for two dice (36 outcomes). Always check: do all outcomes sum to the total? Are they equally likely?"
+    },
+    {
+      "id": "math-yr7-probability-prob-n4",
+      "heading": "Experimental vs Theoretical",
+      "body": "Theoretical = what SHOULD happen (favourable ÷ total). Experimental (relative frequency) = what ACTUALLY happens (occurrences ÷ trials). Example: 100 coin flips, 47 heads → experimental P=0.47, theoretical P=0.5. More trials → experimental gets closer to theoretical (law of large numbers)."
+    }
   ],
   "flashcards": [
-    { "id": "prob-f1", "term": "Probability", "definition": "A number 0–1 describing how likely an event is.", "example": "P(rolling a 4 on a die) = 1/6." },
-    { "id": "prob-f2", "term": "Impossible", "definition": "Cannot happen; probability = 0.", "example": "Rolling a 12 on a normal die." },
-    { "id": "prob-f3", "term": "Certain", "definition": "Will definitely happen; probability = 1.", "example": "The sun rising tomorrow." },
-    { "id": "prob-f4", "term": "Even chance", "definition": "Equally likely to happen or not; P=0.5.", "example": "Heads on a fair coin flip." },
-    { "id": "prob-f5", "term": "Sample space", "definition": "ALL possible outcomes of an experiment.", "example": "For a die: {1,2,3,4,5,6}." },
-    { "id": "prob-f6", "term": "Theoretical probability", "definition": "P(event) = favourable ÷ total, assuming equally likely outcomes.", "example": "P(even on die) = 3/6 = 1/2." },
-    { "id": "prob-f7", "term": "Experimental probability", "definition": "Based on actual trials: successes ÷ total trials.", "example": "28 heads in 50 flips → P=28/50=0.56." },
-    { "id": "prob-f8", "term": "Mutually exclusive", "definition": "Events that cannot happen at the same time.", "example": "Cannot roll a 2 AND 5 on one die roll." }
+    {
+      "id": "math-yr7-probability-prob-f1",
+      "term": "Probability",
+      "definition": "A number 0–1 describing how likely an event is.",
+      "example": "P(rolling a 4 on a die) = 1/6."
+    },
+    {
+      "id": "math-yr7-probability-prob-f2",
+      "term": "Impossible",
+      "definition": "Cannot happen; probability = 0.",
+      "example": "Rolling a 12 on a normal die."
+    },
+    {
+      "id": "math-yr7-probability-prob-f3",
+      "term": "Certain",
+      "definition": "Will definitely happen; probability = 1.",
+      "example": "The sun rising tomorrow."
+    },
+    {
+      "id": "math-yr7-probability-prob-f4",
+      "term": "Even chance",
+      "definition": "Equally likely to happen or not; P=0.5.",
+      "example": "Heads on a fair coin flip."
+    },
+    {
+      "id": "math-yr7-probability-prob-f5",
+      "term": "Sample space",
+      "definition": "ALL possible outcomes of an experiment.",
+      "example": "For a die: {1,2,3,4,5,6}."
+    },
+    {
+      "id": "math-yr7-probability-prob-f6",
+      "term": "Theoretical probability",
+      "definition": "P(event) = favourable ÷ total, assuming equally likely outcomes.",
+      "example": "P(even on die) = 3/6 = 1/2."
+    },
+    {
+      "id": "math-yr7-probability-prob-f7",
+      "term": "Experimental probability",
+      "definition": "Based on actual trials: successes ÷ total trials.",
+      "example": "28 heads in 50 flips → P=28/50=0.56."
+    },
+    {
+      "id": "math-yr7-probability-prob-f8",
+      "term": "Mutually exclusive",
+      "definition": "Events that cannot happen at the same time.",
+      "example": "Cannot roll a 2 AND 5 on one die roll."
+    }
   ],
   "questions": [
-    { "id": "prob-q1", "stem": "Which probability means CERTAIN?", "choices": ["0", "0.5", "1", "0.9"], "correctIndex": 2, "explanation": "Probability 1 means the event is certain." },
-    { "id": "prob-q2", "stem": "Die roll: P(factor of 6)? Factors of 6 are 1,2,3,6.", "choices": ["1/6", "1/3", "1/2", "2/3"], "correctIndex": 3, "explanation": "4 favourable out of 6: P=4/6=2/3." },
-    { "id": "prob-q3", "stem": "Bag: 2 red, 3 blue, 5 green. P(blue)?", "choices": ["3/10", "3/7", "1/3", "3/5"], "correctIndex": 0, "explanation": "Total=10, blue=3. P=3/10." },
-    { "id": "prob-q4", "stem": "P(rain)=0.3. P(NOT rain)=?", "choices": ["0.3", "0.6", "0.7", "1"], "correctIndex": 2, "explanation": "P(not rain)=1−0.3=0.7." },
-    { "id": "prob-q5", "stem": "Two coins flipped. How many possible outcomes?", "choices": ["2", "3", "4", "8"], "correctIndex": 2, "explanation": "HH, HT, TH, TT — 4 outcomes." },
-    { "id": "prob-q6", "stem": "Two coins: P(at least one head)?", "choices": ["1/4", "1/2", "3/4", "1"], "correctIndex": 2, "explanation": "HH, HT, TH have at least one head: 3/4." },
-    { "id": "prob-q7", "stem": "Spinner: red, blue, green, yellow (equal). P(red or blue)?", "choices": ["1/4", "1/2", "3/4", "1/3"], "correctIndex": 1, "explanation": "P(red)+P(blue)=1/4+1/4=1/2." },
-    { "id": "prob-q8", "stem": "60 die rolls, six came up 13 times. Experimental P(six)?", "choices": ["1/6", "13/60", "6/60", "13/47"], "correctIndex": 1, "explanation": "Experimental = successes÷trials = 13/60." },
-    { "id": "prob-q9", "stem": "Which CANNOT be a probability?", "choices": ["0.5", "3/4", "1.2", "0%"], "correctIndex": 2, "explanation": "1.2 > 1, so cannot be a probability." },
-    { "id": "prob-q10", "stem": "Letter chosen from \"PROBABILITY\". P(choosing B)?", "choices": ["2/11", "1/11", "3/11", "2/9"], "correctIndex": 0, "explanation": "11 letters total, B appears twice. P=2/11." }
+    {
+      "id": "math-yr7-probability-prob-q1",
+      "stem": "Which probability means CERTAIN?",
+      "choices": [
+        "0",
+        "0.5",
+        "1",
+        "0.9"
+      ],
+      "correctIndex": 2,
+      "explanation": "Probability 1 means the event is certain."
+    },
+    {
+      "id": "math-yr7-probability-prob-q2",
+      "stem": "Die roll: P(factor of 6)? Factors of 6 are 1,2,3,6.",
+      "choices": [
+        "1/6",
+        "1/3",
+        "1/2",
+        "2/3"
+      ],
+      "correctIndex": 3,
+      "explanation": "4 favourable out of 6: P=4/6=2/3."
+    },
+    {
+      "id": "math-yr7-probability-prob-q3",
+      "stem": "Bag: 2 red, 3 blue, 5 green. P(blue)?",
+      "choices": [
+        "3/10",
+        "3/7",
+        "1/3",
+        "3/5"
+      ],
+      "correctIndex": 0,
+      "explanation": "Total=10, blue=3. P=3/10."
+    },
+    {
+      "id": "math-yr7-probability-prob-q4",
+      "stem": "P(rain)=0.3. P(NOT rain)=?",
+      "choices": [
+        "0.3",
+        "0.6",
+        "0.7",
+        "1"
+      ],
+      "correctIndex": 2,
+      "explanation": "P(not rain)=1−0.3=0.7."
+    },
+    {
+      "id": "math-yr7-probability-prob-q5",
+      "stem": "Two coins flipped. How many possible outcomes?",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "8"
+      ],
+      "correctIndex": 2,
+      "explanation": "HH, HT, TH, TT — 4 outcomes."
+    },
+    {
+      "id": "math-yr7-probability-prob-q6",
+      "stem": "Two coins: P(at least one head)?",
+      "choices": [
+        "1/4",
+        "1/2",
+        "3/4",
+        "1"
+      ],
+      "correctIndex": 2,
+      "explanation": "HH, HT, TH have at least one head: 3/4."
+    },
+    {
+      "id": "math-yr7-probability-prob-q7",
+      "stem": "Spinner: red, blue, green, yellow (equal). P(red or blue)?",
+      "choices": [
+        "1/4",
+        "1/2",
+        "3/4",
+        "1/3"
+      ],
+      "correctIndex": 1,
+      "explanation": "P(red)+P(blue)=1/4+1/4=1/2."
+    },
+    {
+      "id": "math-yr7-probability-prob-q8",
+      "stem": "60 die rolls, six came up 13 times. Experimental P(six)?",
+      "choices": [
+        "1/6",
+        "13/60",
+        "6/60",
+        "13/47"
+      ],
+      "correctIndex": 1,
+      "explanation": "Experimental = successes÷trials = 13/60."
+    },
+    {
+      "id": "math-yr7-probability-prob-q9",
+      "stem": "Which CANNOT be a probability?",
+      "choices": [
+        "0.5",
+        "3/4",
+        "1.2",
+        "0%"
+      ],
+      "correctIndex": 2,
+      "explanation": "1.2 > 1, so cannot be a probability."
+    },
+    {
+      "id": "math-yr7-probability-prob-q10",
+      "stem": "Letter chosen from \"PROBABILITY\". P(choosing B)?",
+      "choices": [
+        "2/11",
+        "1/11",
+        "3/11",
+        "2/9"
+      ],
+      "correctIndex": 0,
+      "explanation": "11 letters total, B appears twice. P=2/11."
+    }
   ]
 }

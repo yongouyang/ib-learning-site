@@ -6,93 +6,93 @@
   "ibLevel": "DP",
   "notes": [
     {
-      "id": "vec-n1",
+      "id": "math-dp-vectors-vec-n1",
       "heading": "Vector Notation and Basic Operations",
-      "body": "Vectors describe quantities that have both size and direction.\n\nScalars like speed or mass only have magnitude. Vectors like velocity or force also tell you which way something is pointing.\n\n📌 Definition\nA vector in 3D has three components. It can be written as a column vector or using base vectors $mathbf{i}$, $mathbf{j}$ and $mathbf{k}$.\n    $$\u000bec{v} = \begin{pmatrix} v_1 \\ v_2 \\ v_3 end{pmatrix} quad \text{or} quad \u000bec{v} = v_1mathbf{i} + v_2mathbf{j} + v_3mathbf{k}$$\n    where $v_1, v_2, v_3$ are the displacements in the $x$, $y$ and $z$ directions.\n\n🔑 Magnitude\nThe length of a vector is found using Pythagoras in 3D.\n    $$|\u000bec{v}| = sqrt{v_1^2 + v_2^2 + v_3^2}$$\n\n💡 Worked Example — Magnitude & Unit Vector\nFind the magnitude of $\u000bec{v} = (2, -3, 6)$ and the unit vector in the same direction.\n\n  Step 1: Calculate the magnitude\n    $$|\u000bec{v}| = sqrt{2^2 + (-3)^2 + 6^2}$$\n    $$|\u000bec{v}| = sqrt{4 + 9 + 36}$$\n    $$|\u000bec{v}| = sqrt{49} = 7$$\n\n  Step 2: Divide each component by the magnitude\n    $$hat{v} = left(\frac{2}{7}, -\frac{3}{7}, \frac{6}{7}\right)$$\n\n🔑 Unit Vector\nA unit vector has magnitude 1 and points in the same direction as the original.\n    $$hat{v} = \frac{\u000bec{v}}{|\u000bec{v}|}$$\n\n🔑 Vector Operations\n• Addition:     $$\u000bec{a} + \u000bec{b} = (a_1 + b_1, a_2 + b_2, a_3 + b_3)$$\n• Subtraction:  $$\u000bec{a} - \u000bec{b} = (a_1 - b_1, a_2 - b_2, a_3 - b_3)$$\n• Scalar multiplication:  $$k\u000bec{a} = (ka_1, ka_2, ka_3)$$\n\n💡 Worked Example — Vector AB & Midpoint\nGiven $A(1, 3, 2)$ and $B(5, 1, 4)$, find vector $overrightarrow{AB}$ and the midpoint $M$.\n\n  Step 1: Write the position vectors\n    $$\u000bec{a} = (1, 3, 2) quad \u000bec{b} = (5, 1, 4)$$\n\n  Step 2: Subtract to find $overrightarrow{AB}$\n    $$overrightarrow{AB} = \u000bec{b} - \u000bec{a} = (5-1, 1-3, 4-2) = (4, -2, 2)$$\n\n  Step 3: Use the midpoint formula\n    $$\u000bec{M} = \frac{\u000bec{a} + \u000bec{b}}{2}$$\n    $$\u000bec{M} = left(\frac{1+5}{2}, \frac{3+1}{2}, \frac{2+4}{2}\right) = (3, 2, 3)$$\n\n🔑 Position Vectors & Key Formulas\n• Position vector of point $P$:   $$overrightarrow{OP} = \u000bec{p}$$\n• Vector from $A$ to $B$:           $$overrightarrow{AB} = \u000bec{b} - \u000bec{a}$$\n• Midpoint of $AB$:               $$\u000bec{M} = \frac{\u000bec{a} + \u000bec{b}}{2}$$\n• Section formula — dividing $AB$ in the ratio $m : n$ from $A$:\n    $$\u000bec{P} = \frac{n\u000bec{a} + m\u000bec{b}}{m + n}$$\n\n📎 Key Points to Remember\n• Column vectors list $x$, then $y$, then $z$ from top to bottom.\n• $mathbf{i}$, $mathbf{j}$, $mathbf{k}$ are unit vectors along the positive $x$, $y$, $z$ axes.\n• Multiplying by a negative scalar reverses the direction but keeps the line of action.\n\n⚠️ Common Mistake\nMixing up the order in the section formula. When the ratio $m : n$ is measured from $A$, the point is closer to $A$ when $m$ is small. The formula pairs $\u000bec{a}$ with $n$ and $\u000bec{b}$ with $m$:\n    $$\u000bec{P} = \frac{n\u000bec{a} + m\u000bec{b}}{m + n}$$"
+      "body": "Vectors describe quantities that have both size and direction.\n\nScalars like speed or mass only have magnitude. Vectors like velocity or force also tell you which way something is pointing.\n\n📌 Definition\nA vector in 3D has three components. It can be written as a column vector or using base vectors $mathbf{i}$, $mathbf{j}$ and $mathbf{k}$.\n    $$\\vec{v} = \\begin{pmatrix} v_1 \\ v_2 \\ v_3 \\end{pmatrix} quad \\text{or} quad \\vec{v} = v_1mathbf{i} + v_2mathbf{j} + v_3mathbf{k}$$\n    where $v_1, v_2, v_3$ are the displacements in the $x$, $y$ and $z$ directions.\n\n🔑 Magnitude\nThe length of a vector is found using Pythagoras in 3D.\n    $$|\\vec{v}| = sqrt{v_1^2 + v_2^2 + v_3^2}$$\n\n💡 Worked Example — Magnitude & Unit Vector\nFind the magnitude of $\\vec{v} = (2, -3, 6)$ and the unit vector in the same direction.\n\n  Step 1: Calculate the magnitude\n    $$|\\vec{v}| = sqrt{2^2 + (-3)^2 + 6^2}$$\n    $$|\\vec{v}| = sqrt{4 + 9 + 36}$$\n    $$|\\vec{v}| = sqrt{49} = 7$$\n\n  Step 2: Divide each component by the magnitude\n    $$hat{v} = \\left(\\frac{2}{7}, -\\frac{3}{7}, \\frac{6}{7}\\right)$$\n\n🔑 Unit Vector\nA unit vector has magnitude 1 and points in the same direction as the original.\n    $$hat{v} = \\frac{\\vec{v}}{|\\vec{v}|}$$\n\n🔑 Vector Operations\n• Addition:     $$\\vec{a} + \\vec{b} = (a_1 + b_1, a_2 + b_2, a_3 + b_3)$$\n• Subtraction:  $$\\vec{a} - \\vec{b} = (a_1 - b_1, a_2 - b_2, a_3 - b_3)$$\n• Scalar multiplication:  $$k\\vec{a} = (ka_1, ka_2, ka_3)$$\n\n💡 Worked Example — Vector AB & Midpoint\nGiven $A(1, 3, 2)$ and $B(5, 1, 4)$, find vector $overrightarrow{AB}$ and the midpoint $M$.\n\n  Step 1: Write the position vectors\n    $$\\vec{a} = (1, 3, 2) quad \\vec{b} = (5, 1, 4)$$\n\n  Step 2: Subtract to find $overrightarrow{AB}$\n    $$overrightarrow{AB} = \\vec{b} - \\vec{a} = (5-1, 1-3, 4-2) = (4, -2, 2)$$\n\n  Step 3: Use the midpoint formula\n    $$\\vec{M} = \\frac{\\vec{a} + \\vec{b}}{2}$$\n    $$\\vec{M} = \\left(\\frac{1+5}{2}, \\frac{3+1}{2}, \\frac{2+4}{2}\\right) = (3, 2, 3)$$\n\n🔑 Position Vectors & Key Formulas\n• Position vector of point $P$:   $$overrightarrow{OP} = \\vec{p}$$\n• Vector from $A$ to $B$:           $$overrightarrow{AB} = \\vec{b} - \\vec{a}$$\n• Midpoint of $AB$:               $$\\vec{M} = \\frac{\\vec{a} + \\vec{b}}{2}$$\n• Section formula — dividing $AB$ in the ratio $m : n$ from $A$:\n    $$\\vec{P} = \\frac{n\\vec{a} + m\\vec{b}}{m + n}$$\n\n📎 Key Points to Remember\n• Column vectors list $x$, then $y$, then $z$ from top to bottom.\n• $mathbf{i}$, $mathbf{j}$, $mathbf{k}$ are unit vectors along the positive $x$, $y$, $z$ axes.\n• Multiplying by a negative scalar reverses the direction but keeps the line of action.\n\n⚠️ Common Mistake\nMixing up the order in the section formula. When the ratio $m : n$ is measured from $A$, the point is closer to $A$ when $m$ is small. The formula pairs $\\vec{a}$ with $n$ and $\\vec{b}$ with $m$:\n    $$\\vec{P} = \\frac{n\\vec{a} + m\\vec{b}}{m + n}$$"
     },
     {
-      "id": "vec-n2",
+      "id": "math-dp-vectors-vec-n2",
       "heading": "Scalar (Dot) Product",
-      "body": "The scalar product turns two vectors into a single number. That number reveals how much the vectors point in the same direction.\n\n📌 Definition\nFor vectors $\u000bec{a} = (a_1, a_2, a_3)$ and $\u000bec{b} = (b_1, b_2, b_3)$:\n    $$\u000bec{a} cdot \u000bec{b} = a_1b_1 + a_2b_2 + a_3b_3$$\n\n🔑 Geometric Formula\nThe scalar product also equals the product of the magnitudes times the cosine of the angle between them.\n    $$\u000bec{a} cdot \u000bec{b} = |\u000bec{a}| |\u000bec{b}| cos \theta$$\n    where $\theta$ is the angle between the vectors placed tail-to-tail.\n\n💡 Worked Example — Finding the Angle\nFind the angle between $\u000bec{a} = (1, 1, 0)$ and $\u000bec{b} = (0, 1, 1)$.\n\n  Step 1: Calculate the scalar product\n    $$\u000bec{a} cdot \u000bec{b} = (1)(0) + (1)(1) + (0)(1) = 1$$\n\n  Step 2: Find the magnitudes\n    $$|\u000bec{a}| = sqrt{1^2 + 1^2 + 0^2} = sqrt{2}$$\n    $$|\u000bec{b}| = sqrt{0^2 + 1^2 + 1^2} = sqrt{2}$$\n\n  Step 3: Use the geometric formula\n    $$cos \theta = \frac{\u000bec{a} cdot \u000bec{b}}{|\u000bec{a}| |\u000bec{b}|} = \frac{1}{sqrt{2} \times sqrt{2}} = \frac{1}{2}$$\n\n  Step 4: Find the angle\n    $$\theta = cos^{-1}left(\frac{1}{2}\right) = 60^circ$$\n\n🔑 Perpendicular Test\nTwo non-zero vectors are perpendicular exactly when their scalar product is zero.\n    $$\u000bec{a} cdot \u000bec{b} = 0 iff \u000bec{a} perp \u000bec{b}$$\n\n💡 Worked Example — Finding a Missing Component\nFind $t$ so that $\u000bec{v} = (2, t, 5)$ and $\u000bec{w} = (t - 1, -1, 1)$ are perpendicular.\n\n  Step 1: Set the scalar product equal to zero\n    $$\u000bec{v} cdot \u000bec{w} = 2(t - 1) + t(-1) + 5(1) = 0$$\n\n  Step 2: Expand and simplify\n    $$2t - 2 - t + 5 = 0$$\n    $$t + 3 = 0$$\n\n  Step 3: Solve\n    $$t = -3$$\n\n🔑 Scalar Projection\nThe scalar projection of $\u000bec{a}$ onto $\u000bec{b}$ is the \"shadow\" that $\u000bec{a}$ casts on $\u000bec{b}$.\n    $$operatorname{comp}_{\u000bec{b}}(\u000bec{a}) = \frac{\u000bec{a} cdot \u000bec{b}}{|\u000bec{b}|}$$\n\n📎 Key Points to Remember\n• The result of a dot product is a scalar, never a vector.\n• $\u000bec{a} cdot \u000bec{a} = |\u000bec{a}|^2$.\n• $\u000bec{a} cdot \u000bec{b} > 0$ means the angle is acute; $\u000bec{a} cdot \u000bec{b} < 0$ means it is obtuse.\n\n⚠️ Common Mistake\nTrying to use the dot product to find a perpendicular vector. The dot product only gives a number. To produce a perpendicular vector you need the cross product."
+      "body": "The scalar product turns two vectors into a single number. That number reveals how much the vectors point in the same direction.\n\n📌 Definition\nFor vectors $\\vec{a} = (a_1, a_2, a_3)$ and $\\vec{b} = (b_1, b_2, b_3)$:\n    $$\\vec{a} cdot \\vec{b} = a_1b_1 + a_2b_2 + a_3b_3$$\n\n🔑 Geometric Formula\nThe scalar product also equals the product of the magnitudes times the cosine of the angle between them.\n    $$\\vec{a} cdot \\vec{b} = |\\vec{a}| |\\vec{b}| cos \\theta$$\n    where $\\theta$ is the angle between the vectors placed tail-to-tail.\n\n💡 Worked Example — Finding the Angle\nFind the angle between $\\vec{a} = (1, 1, 0)$ and $\\vec{b} = (0, 1, 1)$.\n\n  Step 1: Calculate the scalar product\n    $$\\vec{a} cdot \\vec{b} = (1)(0) + (1)(1) + (0)(1) = 1$$\n\n  Step 2: Find the magnitudes\n    $$|\\vec{a}| = sqrt{1^2 + 1^2 + 0^2} = sqrt{2}$$\n    $$|\\vec{b}| = sqrt{0^2 + 1^2 + 1^2} = sqrt{2}$$\n\n  Step 3: Use the geometric formula\n    $$cos \\theta = \\frac{\\vec{a} cdot \\vec{b}}{|\\vec{a}| |\\vec{b}|} = \\frac{1}{sqrt{2} \\times sqrt{2}} = \\frac{1}{2}$$\n\n  Step 4: Find the angle\n    $$\\theta = cos^{-1}\\left(\\frac{1}{2}\\right) = 60^circ$$\n\n🔑 Perpendicular Test\nTwo non-zero vectors are perpendicular exactly when their scalar product is zero.\n    $$\\vec{a} cdot \\vec{b} = 0 iff \\vec{a} perp \\vec{b}$$\n\n💡 Worked Example — Finding a Missing Component\nFind $t$ so that $\\vec{v} = (2, t, 5)$ and $\\vec{w} = (t - 1, -1, 1)$ are perpendicular.\n\n  Step 1: Set the scalar product equal to zero\n    $$\\vec{v} cdot \\vec{w} = 2(t - 1) + t(-1) + 5(1) = 0$$\n\n  Step 2: Expand and simplify\n    $$2t - 2 - t + 5 = 0$$\n    $$t + 3 = 0$$\n\n  Step 3: Solve\n    $$t = -3$$\n\n🔑 Scalar Projection\nThe scalar projection of $\\vec{a}$ onto $\\vec{b}$ is the \"shadow\" that $\\vec{a}$ casts on $\\vec{b}$.\n    $$operatorname{comp}_{\\vec{b}}(\\vec{a}) = \\frac{\\vec{a} cdot \\vec{b}}{|\\vec{b}|}$$\n\n📎 Key Points to Remember\n• The result of a dot product is a scalar, never a vector.\n• $\\vec{a} cdot \\vec{a} = |\\vec{a}|^2$.\n• $\\vec{a} cdot \\vec{b} > 0$ means the angle is acute; $\\vec{a} cdot \\vec{b} < 0$ means it is obtuse.\n\n⚠️ Common Mistake\nTrying to use the dot product to find a perpendicular vector. The dot product only gives a number. To produce a perpendicular vector you need the cross product."
     },
     {
-      "id": "vec-n3",
+      "id": "math-dp-vectors-vec-n3",
       "heading": "Vector Equation of a Line",
-      "body": "A straight line in 2D or 3D is fully described by one point on the line and a direction to travel along it.\n\n📌 Definition\nThe vector equation of a line passes through a point with position vector $\u000bec{a}$ and runs parallel to direction vector $\u000bec{b}$.\n\n🔑 Vector Form\n    $$\u000bec{r} = \u000bec{a} + lambda \u000bec{b}$$\n    where:\n    • $\u000bec{r}$ is the position vector of any point on the line\n    • $\u000bec{a}$ is the position vector of a known point\n    • $\u000bec{b}$ is the direction vector\n    • $lambda$ is a real parameter\n\n🔑 Parametric Form\nSplitting into components gives three equations:\n    $$x = a_1 + lambda b_1$$\n    $$y = a_2 + lambda b_2$$\n    $$z = a_3 + lambda b_3$$\n\n🔑 Cartesian Form\nIf every direction component is non-zero, eliminate $lambda$:\n    $$\frac{x - a_1}{b_1} = \frac{y - a_2}{b_2} = \frac{z - a_3}{b_3}$$\n\n💡 Worked Example — Equation Through Two Points\nFind a vector equation of the line through $A(4, 0, -5)$ and $B(3, 0, -3)$.\n\n  Step 1: Choose a point on the line\n    $$\u000bec{a} = (4, 0, -5)$$\n\n  Step 2: Find the direction vector $overrightarrow{AB}$\n    $$\u000bec{b} = \u000bec{B} - \u000bec{A} = (3-4, 0-0, -3-(-5)) = (-1, 0, 2)$$\n\n  Step 3: Write the vector equation\n    $$\u000bec{r} = (4, 0, -5) + lambda(-1, 0, 2)$$\n\n💡 Worked Example — Does a Point Lie on the Line?\nDetermine whether $C(2, 0, -1)$ lies on the line $\u000bec{r} = (4, 0, -5) + lambda(-1, 0, 2)$.\n\n  Step 1: Set up the component equations\n    $$2 = 4 - lambda$$\n    $$0 = 0 + 0lambda$$\n    $$-1 = -5 + 2lambda$$\n\n  Step 2: Solve the first equation\n    $$lambda = 2$$\n\n  Step 3: Check the other equations\n    $$0 = 0 quad checkmark$$\n    $$-5 + 2(2) = -1 quad checkmark$$\n\nSince the same $lambda = 2$ satisfies all three equations, $C$ lies on the line.\n\n📎 Key Points to Remember\n• Any scalar multiple of the direction vector represents the same line.\n• A line has infinitely many valid vector equations because any point on it can be used for $\u000bec{a}$.\n• To test a point, solve for $lambda$ in one component and verify it works in the rest.\n\n⚠️ Common Mistake\nUsing the same parameter letter for two different lines. When looking for an intersection, use different parameters such as $lambda$ and $mu$ so you do not accidentally force the points to match."
+      "body": "A straight line in 2D or 3D is fully described by one point on the line and a direction to travel along it.\n\n📌 Definition\nThe vector equation of a line passes through a point with position vector $\\vec{a}$ and runs parallel to direction vector $\\vec{b}$.\n\n🔑 Vector Form\n    $$\\vec{r} = \\vec{a} + lambda \\vec{b}$$\n    where:\n    • $\\vec{r}$ is the position vector of any point on the line\n    • $\\vec{a}$ is the position vector of a known point\n    • $\\vec{b}$ is the direction vector\n    • $lambda$ is a real parameter\n\n🔑 Parametric Form\nSplitting into components gives three equations:\n    $$x = a_1 + lambda b_1$$\n    $$y = a_2 + lambda b_2$$\n    $$z = a_3 + lambda b_3$$\n\n🔑 Cartesian Form\nIf every direction component is non-zero, eliminate $lambda$:\n    $$\\frac{x - a_1}{b_1} = \\frac{y - a_2}{b_2} = \\frac{z - a_3}{b_3}$$\n\n💡 Worked Example — Equation Through Two Points\nFind a vector equation of the line through $A(4, 0, -5)$ and $B(3, 0, -3)$.\n\n  Step 1: Choose a point on the line\n    $$\\vec{a} = (4, 0, -5)$$\n\n  Step 2: Find the direction vector $overrightarrow{AB}$\n    $$\\vec{b} = \\vec{B} - \\vec{A} = (3-4, 0-0, -3-(-5)) = (-1, 0, 2)$$\n\n  Step 3: Write the vector equation\n    $$\\vec{r} = (4, 0, -5) + lambda(-1, 0, 2)$$\n\n💡 Worked Example — Does a Point Lie on the Line?\nDetermine whether $C(2, 0, -1)$ lies on the line $\\vec{r} = (4, 0, -5) + lambda(-1, 0, 2)$.\n\n  Step 1: Set up the component equations\n    $$2 = 4 - lambda$$\n    $$0 = 0 + 0lambda$$\n    $$-1 = -5 + 2lambda$$\n\n  Step 2: Solve the first equation\n    $$lambda = 2$$\n\n  Step 3: Check the other equations\n    $$0 = 0 quad checkmark$$\n    $$-5 + 2(2) = -1 quad checkmark$$\n\nSince the same $lambda = 2$ satisfies all three equations, $C$ lies on the line.\n\n📎 Key Points to Remember\n• Any scalar multiple of the direction vector represents the same line.\n• A line has infinitely many valid vector equations because any point on it can be used for $\\vec{a}$.\n• To test a point, solve for $lambda$ in one component and verify it works in the rest.\n\n⚠️ Common Mistake\nUsing the same parameter letter for two different lines. When looking for an intersection, use different parameters such as $lambda$ and $mu$ so you do not accidentally force the points to match."
     },
     {
-      "id": "vec-n4",
+      "id": "math-dp-vectors-vec-n4",
       "heading": "Line Classification in 3D",
-      "body": "In two dimensions, lines either meet or are parallel. In three dimensions there is a third possibility: they can miss each other without being parallel.\n\n📌 Definitions\n• Parallel — direction vectors are scalar multiples of each other.\n• Intersecting — the lines share exactly one point.\n• Skew — not parallel and do not intersect (unique to 3D and above).\n\n🔑 Parallel Test\nTwo lines with direction vectors $\u000bec{b}_1$ and $\u000bec{b}_2$ are parallel when:\n    $$\u000bec{b}_1 = k\u000bec{b}_2 quad \text{for some scalar } k$$\n\n🔑 Intersection Test\nWrite both lines in parametric form using different parameters ($lambda$ and $mu$). Solve the three component equations. If one pair $(lambda, mu)$ satisfies all three, the lines meet at that point.\n\n🔑 Skew Test\nIf the direction vectors are not parallel, attempt the intersection test. If the system of equations has no solution, the lines are skew.\n\n💡 Worked Example — Classify Two Lines\nLine $L_1$: $\u000bec{r} = (1, 0, 0) + lambda(0, 1, 0)$\nLine $L_2$: $\u000bec{r} = (0, 0, 1) + mu(1, 0, 0)$\n\n  Step 1: Check for parallelism\n    $(0, 1, 0)$ is not a scalar multiple of $(1, 0, 0)$.\n    The lines are not parallel.\n\n  Step 2: Set the parametric components equal\n    $$1 = 0 + mu quad Rightarrow quad mu = 1$$\n    $$0 + lambda = 0 quad Rightarrow quad lambda = 0$$\n    $$0 = 1 + 0 quad Rightarrow quad 0 = 1 quad \times$$\n\n  Step 3: Interpret the result\n    The third equation is impossible, so there is no intersection.\n\nConclusion: $L_1$ and $L_2$ are skew.\n\n📎 Key Points to Remember\n• Skew lines exist only when there are at least three dimensions.\n• Coincident lines are parallel lines that lie on top of each other.\n• Always check parallelism first — it is the fastest test.\n\n⚠️ Common Mistake\nAssuming that non-parallel lines in 3D must intersect. Most non-parallel lines in 3D are skew. You must solve the equations to be certain."
+      "body": "In two dimensions, lines either meet or are parallel. In three dimensions there is a third possibility: they can miss each other without being parallel.\n\n📌 Definitions\n• Parallel — direction vectors are scalar multiples of each other.\n• Intersecting — the lines share exactly one point.\n• Skew — not parallel and do not intersect (unique to 3D and above).\n\n🔑 Parallel Test\nTwo lines with direction vectors $\\vec{b}_1$ and $\\vec{b}_2$ are parallel when:\n    $$\\vec{b}_1 = k\\vec{b}_2 quad \\text{for some scalar } k$$\n\n🔑 Intersection Test\nWrite both lines in parametric form using different parameters ($lambda$ and $mu$). Solve the three component equations. If one pair $(lambda, mu)$ satisfies all three, the lines meet at that point.\n\n🔑 Skew Test\nIf the direction vectors are not parallel, attempt the intersection test. If the system of equations has no solution, the lines are skew.\n\n💡 Worked Example — Classify Two Lines\nLine $L_1$: $\\vec{r} = (1, 0, 0) + lambda(0, 1, 0)$\nLine $L_2$: $\\vec{r} = (0, 0, 1) + mu(1, 0, 0)$\n\n  Step 1: Check for parallelism\n    $(0, 1, 0)$ is not a scalar multiple of $(1, 0, 0)$.\n    The lines are not parallel.\n\n  Step 2: Set the parametric components equal\n    $$1 = 0 + mu quad Rightarrow quad mu = 1$$\n    $$0 + lambda = 0 quad Rightarrow quad lambda = 0$$\n    $$0 = 1 + 0 quad Rightarrow quad 0 = 1 quad \\times$$\n\n  Step 3: Interpret the result\n    The third equation is impossible, so there is no intersection.\n\nConclusion: $L_1$ and $L_2$ are skew.\n\n📎 Key Points to Remember\n• Skew lines exist only when there are at least three dimensions.\n• Coincident lines are parallel lines that lie on top of each other.\n• Always check parallelism first — it is the fastest test.\n\n⚠️ Common Mistake\nAssuming that non-parallel lines in 3D must intersect. Most non-parallel lines in 3D are skew. You must solve the equations to be certain."
     },
     {
-      "id": "vec-n5",
+      "id": "math-dp-vectors-vec-n5",
       "heading": "Vector (Cross) Product and Geometric Applications",
-      "body": "The cross product multiplies two vectors to produce a third vector that is perpendicular to both. It is the key to finding areas and shortest distances in 3D.\n\n📌 Definition\nFor $\u000bec{a} = (a_1, a_2, a_3)$ and $\u000bec{b} = (b_1, b_2, b_3)$:\n    $$\u000bec{a} \times \u000bec{b} = (a_2b_3 - a_3b_2, ; a_3b_1 - a_1b_3, ; a_1b_2 - a_2b_1)$$\n\n🔑 Magnitude of the Cross Product\n    $$|\u000bec{a} \times \u000bec{b}| = |\u000bec{a}| |\u000bec{b}| sin \theta$$\n    where $\theta$ is the angle between the vectors.\n\n💡 Worked Example — Triangle Area\nFind the area of the triangle with vertices $A(1, 0, 0)$, $B(3, 1, 2)$ and $C(2, -1, 4)$.\n\n  Step 1: Form two side vectors\n    $$overrightarrow{AB} = \u000bec{B} - \u000bec{A} = (2, 1, 2)$$\n    $$overrightarrow{AC} = \u000bec{C} - \u000bec{A} = (1, -1, 4)$$\n\n  Step 2: Compute the cross product $overrightarrow{AB} \times overrightarrow{AC}$\n    $$= ((1)(4) - (2)(-1), ; (2)(1) - (2)(4), ; (2)(-1) - (1)(1))$$\n    $$= (4 + 2, ; 2 - 8, ; -2 - 1)$$\n    $$= (6, -6, -3)$$\n\n  Step 3: Find the magnitude\n    $$|overrightarrow{AB} \times overrightarrow{AC}| = sqrt{6^2 + (-6)^2 + (-3)^2} = sqrt{81} = 9$$\n\n  Step 4: Halve it for the triangle\n    $$\text{Area} = \frac{1}{2} \times 9 = \frac{9}{2}$$\n\n🔑 Area Formulas\n• Parallelogram with adjacent sides $\u000bec{a}$ and $\u000bec{b}$:\n    $$\text{Area} = |\u000bec{a} \times \u000bec{b}|$$\n• Triangle with two sides $\u000bec{a}$ and $\u000bec{b}$:\n    $$\text{Area} = \frac{1}{2} |\u000bec{a} \times \u000bec{b}|$$\n\n🔑 Shortest Distance from a Point to a Line\nFor a line $\u000bec{r} = \u000bec{a} + lambda \u000bec{b}$ and a point $P$ not on the line, choose any point $A$ on the line and form vector $overrightarrow{AP}$.\n    $$d = \frac{|overrightarrow{AP} \times \u000bec{b}|}{|\u000bec{b}|}$$\n\n💡 Worked Example — Shortest Distance\nFind the shortest distance from $P(3, 1, -2)$ to the line $\u000bec{r} = (1, 0, 1) + lambda(2, -1, 2)$.\n\n  Step 1: Choose $A$ on the line and find $overrightarrow{AP}$\n    $$\u000bec{A} = (1, 0, 1)$$\n    $$overrightarrow{AP} = \u000bec{P} - \u000bec{A} = (2, 1, -3)$$\n\n  Step 2: Compute $overrightarrow{AP} \times \u000bec{b}$\n    $$= ((1)(2) - (-3)(-1), ; (-3)(2) - (2)(2), ; (2)(-1) - (1)(2))$$\n    $$= (2 - 3, ; -6 - 4, ; -2 - 2)$$\n    $$= (-1, -10, -4)$$\n\n  Step 3: Find the magnitudes\n    $$|overrightarrow{AP} \times \u000bec{b}| = sqrt{(-1)^2 + (-10)^2 + (-4)^2} = sqrt{117}$$\n    $$|\u000bec{b}| = sqrt{2^2 + (-1)^2 + 2^2} = 3$$\n\n  Step 4: Divide\n    $$d = \frac{sqrt{117}}{3} = sqrt{13}$$\n\n📎 Key Points to Remember\n• $\u000bec{a} \times \u000bec{b}$ is perpendicular to both $\u000bec{a}$ and $\u000bec{b}$. The right-hand rule gives the direction.\n• $\u000bec{a} \times \u000bec{b} = -(\u000bec{b} \times \u000bec{a})$. Reversing the order flips the sign of every component.\n• If $\u000bec{a} \times \u000bec{b} = \u000bec{0}$ (and neither vector is zero), the vectors are parallel.\n\n⚠️ Common Mistake\nUsing the dot product instead of the cross product when finding area. Area depends on $sin \theta$, which comes from the cross product, not $cos \theta$."
+      "body": "The cross product multiplies two vectors to produce a third vector that is perpendicular to both. It is the key to finding areas and shortest distances in 3D.\n\n📌 Definition\nFor $\\vec{a} = (a_1, a_2, a_3)$ and $\\vec{b} = (b_1, b_2, b_3)$:\n    $$\\vec{a} \\times \\vec{b} = (a_2b_3 - a_3b_2, ; a_3b_1 - a_1b_3, ; a_1b_2 - a_2b_1)$$\n\n🔑 Magnitude of the Cross Product\n    $$|\\vec{a} \\times \\vec{b}| = |\\vec{a}| |\\vec{b}| sin \\theta$$\n    where $\\theta$ is the angle between the vectors.\n\n💡 Worked Example — Triangle Area\nFind the area of the triangle with vertices $A(1, 0, 0)$, $B(3, 1, 2)$ and $C(2, -1, 4)$.\n\n  Step 1: Form two side vectors\n    $$overrightarrow{AB} = \\vec{B} - \\vec{A} = (2, 1, 2)$$\n    $$overrightarrow{AC} = \\vec{C} - \\vec{A} = (1, -1, 4)$$\n\n  Step 2: Compute the cross product $overrightarrow{AB} \\times overrightarrow{AC}$\n    $$= ((1)(4) - (2)(-1), ; (2)(1) - (2)(4), ; (2)(-1) - (1)(1))$$\n    $$= (4 + 2, ; 2 - 8, ; -2 - 1)$$\n    $$= (6, -6, -3)$$\n\n  Step 3: Find the magnitude\n    $$|overrightarrow{AB} \\times overrightarrow{AC}| = sqrt{6^2 + (-6)^2 + (-3)^2} = sqrt{81} = 9$$\n\n  Step 4: Halve it for the triangle\n    $$\\text{Area} = \\frac{1}{2} \\times 9 = \\frac{9}{2}$$\n\n🔑 Area Formulas\n• Parallelogram with adjacent sides $\\vec{a}$ and $\\vec{b}$:\n    $$\\text{Area} = |\\vec{a} \\times \\vec{b}|$$\n• Triangle with two sides $\\vec{a}$ and $\\vec{b}$:\n    $$\\text{Area} = \\frac{1}{2} |\\vec{a} \\times \\vec{b}|$$\n\n🔑 Shortest Distance from a Point to a Line\nFor a line $\\vec{r} = \\vec{a} + lambda \\vec{b}$ and a point $P$ not on the line, choose any point $A$ on the line and form vector $overrightarrow{AP}$.\n    $$d = \\frac{|overrightarrow{AP} \\times \\vec{b}|}{|\\vec{b}|}$$\n\n💡 Worked Example — Shortest Distance\nFind the shortest distance from $P(3, 1, -2)$ to the line $\\vec{r} = (1, 0, 1) + lambda(2, -1, 2)$.\n\n  Step 1: Choose $A$ on the line and find $overrightarrow{AP}$\n    $$\\vec{A} = (1, 0, 1)$$\n    $$overrightarrow{AP} = \\vec{P} - \\vec{A} = (2, 1, -3)$$\n\n  Step 2: Compute $overrightarrow{AP} \\times \\vec{b}$\n    $$= ((1)(2) - (-3)(-1), ; (-3)(2) - (2)(2), ; (2)(-1) - (1)(2))$$\n    $$= (2 - 3, ; -6 - 4, ; -2 - 2)$$\n    $$= (-1, -10, -4)$$\n\n  Step 3: Find the magnitudes\n    $$|overrightarrow{AP} \\times \\vec{b}| = sqrt{(-1)^2 + (-10)^2 + (-4)^2} = sqrt{117}$$\n    $$|\\vec{b}| = sqrt{2^2 + (-1)^2 + 2^2} = 3$$\n\n  Step 4: Divide\n    $$d = \\frac{sqrt{117}}{3} = sqrt{13}$$\n\n📎 Key Points to Remember\n• $\\vec{a} \\times \\vec{b}$ is perpendicular to both $\\vec{a}$ and $\\vec{b}$. The right-hand rule gives the direction.\n• $\\vec{a} \\times \\vec{b} = -(\\vec{b} \\times \\vec{a})$. Reversing the order flips the sign of every component.\n• If $\\vec{a} \\times \\vec{b} = \\vec{0}$ (and neither vector is zero), the vectors are parallel.\n\n⚠️ Common Mistake\nUsing the dot product instead of the cross product when finding area. Area depends on $sin \\theta$, which comes from the cross product, not $cos \\theta$."
     },
     {
-      "id": "vec-n6",
+      "id": "math-dp-vectors-vec-n6",
       "heading": "Shortest Distance Between Moving Objects",
-      "body": "When two objects move with constant velocity, their paths are straight lines. You can use vectors to find the time at which they are closest together and what that shortest distance is.\n\n📌 Setup\nLet the position vectors of two objects at time $t$ be:\n    $$\u000bec{r}_A = \u000bec{a} + t\u000bec{v}_A$$\n    $$\u000bec{r}_B = \u000bec{b} + t\u000bec{v}_B$$\n    where $\u000bec{a}$, $\u000bec{b}$ are initial positions and $\u000bec{v}_A$, $\u000bec{v}_B$ are constant velocity vectors.\n\nThe vector joining them at time $t$ is:\n    $$overrightarrow{AB} = \u000bec{r}_B - \u000bec{r}_A = (\u000bec{b} - \u000bec{a}) + t(\u000bec{v}_B - \u000bec{v}_A)$$\n\nThe distance between them is $|overrightarrow{AB}|$. To avoid square roots, minimise $|overrightarrow{AB}|^2$.\n\n💡 Worked Example — Closest Approach of Two Ships\nShip A starts at $(0, 0)$ with velocity $(3, 4)$ km/h.\nShip B starts at $(10, 0)$ with velocity $(0, 5)$ km/h.\nFind the time when they are closest and the shortest distance.\n\n  Step 1: Write position vectors at time $t$\n    $$\u000bec{r}_A = (0, 0) + t(3, 4) = (3t, 4t)$$\n    $$\u000bec{r}_B = (10, 0) + t(0, 5) = (10, 5t)$$\n\n  Step 2: Find the displacement vector from $A$ to $B$\n    $$overrightarrow{AB} = \u000bec{r}_B - \u000bec{r}_A = (10 - 3t, 5t - 4t) = (10 - 3t, t)$$\n\n  Step 3: Form an expression for the squared distance\n    $$|overrightarrow{AB}|^2 = (10 - 3t)^2 + t^2$$\n    $$|overrightarrow{AB}|^2 = 100 - 60t + 9t^2 + t^2$$\n    $$|overrightarrow{AB}|^2 = 10t^2 - 60t + 100$$\n\n  Step 4: Differentiate with respect to $t$ and set to zero\n    $$\frac{d}{dt}left(|overrightarrow{AB}|^2\right) = 20t - 60 = 0$$\n    $$t = 3$$\n\n  Step 5: Find the minimum distance\n    $$|overrightarrow{AB}|^2 \text{ at } t = 3: ; 10(9) - 60(3) + 100 = 90 - 180 + 100 = 10$$\n    $$\text{Shortest distance} = sqrt{10} \text{ km}$$\n\n🔑 Alternative Method (Calculus-free)\nIf you prefer not to differentiate, complete the square on the quadratic in $t$:\n    $$|overrightarrow{AB}|^2 = 10(t^2 - 6t) + 100$$\n    $$|overrightarrow{AB}|^2 = 10(t - 3)^2 + 10$$\nThe minimum occurs at $t = 3$ and equals $sqrt{10}$ km.\n\n📎 Key Points to Remember\n• Always minimise the squared distance — it avoids awkward square-root algebra.\n• The method works in both 2D and 3D.\n• If the objects are on a collision course, the minimum distance is zero.\n\n⚠️ Common Mistake\nDifferentiating the distance $|overrightarrow{AB}|$ directly instead of $|overrightarrow{AB}|^2$. This creates a messy chain-rule expression and is much harder to solve. Squaring first keeps everything simple."
+      "body": "When two objects move with constant velocity, their paths are straight lines. You can use vectors to find the time at which they are closest together and what that shortest distance is.\n\n📌 Setup\nLet the position vectors of two objects at time $t$ be:\n    $$\\vec{r}_A = \\vec{a} + t\\vec{v}_A$$\n    $$\\vec{r}_B = \\vec{b} + t\\vec{v}_B$$\n    where $\\vec{a}$, $\\vec{b}$ are initial positions and $\\vec{v}_A$, $\\vec{v}_B$ are constant velocity vectors.\n\nThe vector joining them at time $t$ is:\n    $$overrightarrow{AB} = \\vec{r}_B - \\vec{r}_A = (\\vec{b} - \\vec{a}) + t(\\vec{v}_B - \\vec{v}_A)$$\n\nThe distance between them is $|overrightarrow{AB}|$. To avoid square roots, minimise $|overrightarrow{AB}|^2$.\n\n💡 Worked Example — Closest Approach of Two Ships\nShip A starts at $(0, 0)$ with velocity $(3, 4)$ km/h.\nShip B starts at $(10, 0)$ with velocity $(0, 5)$ km/h.\nFind the time when they are closest and the shortest distance.\n\n  Step 1: Write position vectors at time $t$\n    $$\\vec{r}_A = (0, 0) + t(3, 4) = (3t, 4t)$$\n    $$\\vec{r}_B = (10, 0) + t(0, 5) = (10, 5t)$$\n\n  Step 2: Find the displacement vector from $A$ to $B$\n    $$overrightarrow{AB} = \\vec{r}_B - \\vec{r}_A = (10 - 3t, 5t - 4t) = (10 - 3t, t)$$\n\n  Step 3: Form an expression for the squared distance\n    $$|overrightarrow{AB}|^2 = (10 - 3t)^2 + t^2$$\n    $$|overrightarrow{AB}|^2 = 100 - 60t + 9t^2 + t^2$$\n    $$|overrightarrow{AB}|^2 = 10t^2 - 60t + 100$$\n\n  Step 4: Differentiate with respect to $t$ and set to zero\n    $$\\frac{d}{dt}\\left(|overrightarrow{AB}|^2\\right) = 20t - 60 = 0$$\n    $$t = 3$$\n\n  Step 5: Find the minimum distance\n    $$|overrightarrow{AB}|^2 \\text{ at } t = 3: ; 10(9) - 60(3) + 100 = 90 - 180 + 100 = 10$$\n    $$\\text{Shortest distance} = sqrt{10} \\text{ km}$$\n\n🔑 Alternative Method (Calculus-free)\nIf you prefer not to differentiate, complete the square on the quadratic in $t$:\n    $$|overrightarrow{AB}|^2 = 10(t^2 - 6t) + 100$$\n    $$|overrightarrow{AB}|^2 = 10(t - 3)^2 + 10$$\nThe minimum occurs at $t = 3$ and equals $sqrt{10}$ km.\n\n📎 Key Points to Remember\n• Always minimise the squared distance — it avoids awkward square-root algebra.\n• The method works in both 2D and 3D.\n• If the objects are on a collision course, the minimum distance is zero.\n\n⚠️ Common Mistake\nDifferentiating the distance $|overrightarrow{AB}|$ directly instead of $|overrightarrow{AB}|^2$. This creates a messy chain-rule expression and is much harder to solve. Squaring first keeps everything simple."
     }
   ],
   "flashcards": [
     {
-      "id": "vec-f1",
+      "id": "math-dp-vectors-vec-f1",
       "term": "Magnitude",
       "definition": "$|v| = \\sqrt{v_1^2+v_2^2+v_3^2}$",
       "example": "$(2,-3,6)$: $\\sqrt{4+9+36}=7$."
     },
     {
-      "id": "vec-f2",
+      "id": "math-dp-vectors-vec-f2",
       "term": "Unit Vector",
       "definition": "$\\hat{v} = \\frac{v}{|v|}$; magnitude 1.",
       "example": "$(3,4)$: $|v|=5$, $\\hat{v}=\\left(\\frac{3}{5},\\frac{4}{5}\\right)$."
     },
     {
-      "id": "vec-f3",
+      "id": "math-dp-vectors-vec-f3",
       "term": "Scalar Product",
       "definition": "$a\\cdot b = a_1b_1+a_2b_2+a_3b_3 = |a||b|\\cos\\theta$",
       "example": "$(1,2,3)\\cdot(4,-1,2)=4-2+6=8$."
     },
     {
-      "id": "vec-f4",
+      "id": "math-dp-vectors-vec-f4",
       "term": "Perpendicular test",
       "definition": "$a\\cdot b = 0 \\Rightarrow a\\perp b$",
       "example": "$(2,3)\\cdot(3,-2)=6-6=0$."
     },
     {
-      "id": "vec-f5",
+      "id": "math-dp-vectors-vec-f5",
       "term": "Vector equation of line",
       "definition": "$r = a + \\lambda b$",
       "example": "Through $(1,2,3)$, direction $(2,-1,4)$."
     },
     {
-      "id": "vec-f6",
+      "id": "math-dp-vectors-vec-f6",
       "term": "Skew lines",
       "definition": "3D lines that are neither parallel nor intersecting.",
       "example": "$L_1$: $r=(1,0,0)+\\lambda(0,1,0)$; $L_2$: $r=(0,0,1)+\\mu(1,0,0)$ are skew."
     },
     {
-      "id": "vec-f7",
+      "id": "math-dp-vectors-vec-f7",
       "term": "Parallel vectors",
       "definition": "Two vectors are parallel if one is a scalar multiple of the other.",
       "example": "$(2,-1,4)$ and $(6,-3,12)$ are parallel because $(6,-3,12)=3(2,-1,4)$."
     },
     {
-      "id": "vec-f8",
+      "id": "math-dp-vectors-vec-f8",
       "term": "Cross product magnitude",
       "definition": "$|a\\times b| = |a||b|\\sin\\theta$",
       "example": "$|a|=3$, $|b|=4$, $\\theta=90^\\circ$ $\\Rightarrow$ $|a\\times b|=12$."
     },
     {
-      "id": "vec-f9",
+      "id": "math-dp-vectors-vec-f9",
       "term": "Shortest distance from point to line",
       "definition": "$d = \\frac{|AP\\times b|}{|b|}$ where $A$ is on the line and $b$ is the direction vector.",
       "example": "$P(3,1,-2)$, line $r=(1,0,1)+\\lambda(2,-1,2)$ $\\Rightarrow$ $d=\\sqrt{13}$."
     },
     {
-      "id": "vec-f10",
+      "id": "math-dp-vectors-vec-f10",
       "term": "Area with cross product",
       "definition": "Parallelogram area $= |a\\times b|$; triangle area $= \\frac{1}{2}|a\\times b|$.",
       "example": "Triangle with adjacent sides $a=(2,1,2)$, $b=(1,-1,4)$ has area $\\frac{9}{2}$."
@@ -100,7 +100,7 @@
   ],
   "questions": [
     {
-      "id": "vec-q1",
+      "id": "math-dp-vectors-vec-q1",
       "stem": "$|v|$ where $v=(2,-3,6)$?",
       "choices": [
         "$5$",
@@ -112,7 +112,7 @@
       "explanation": "$\\sqrt{4+9+36}=\\sqrt{49}=7$."
     },
     {
-      "id": "vec-q2",
+      "id": "math-dp-vectors-vec-q2",
       "stem": "$a=(1,2,-1)$, $b=(3,0,2)$. $a\\cdot b=?$",
       "choices": [
         "$5$",
@@ -124,7 +124,7 @@
       "explanation": "$3+0-2=1$."
     },
     {
-      "id": "vec-q3",
+      "id": "math-dp-vectors-vec-q3",
       "stem": "Which pair is perpendicular?",
       "choices": [
         "$(1,2)$ and $(4,2)$",
@@ -136,7 +136,7 @@
       "explanation": "$12-12=0$ $\\Rightarrow$ perpendicular."
     },
     {
-      "id": "vec-q4",
+      "id": "math-dp-vectors-vec-q4",
       "stem": "Angle between $(1,1,0)$ and $(0,1,1)$?",
       "choices": [
         "$30^\\circ$",
@@ -148,7 +148,7 @@
       "explanation": "$\\cos\\theta=\\frac{1}{\\sqrt{2}\\cdot\\sqrt{2}}=\\frac{1}{2}$ $\\Rightarrow$ $\\theta=60^\\circ$."
     },
     {
-      "id": "vec-q5",
+      "id": "math-dp-vectors-vec-q5",
       "stem": "Midpoint of $A(1,3,2)$ and $B(5,1,4)$?",
       "choices": [
         "$(3,2,3)$",
@@ -160,7 +160,7 @@
       "explanation": "$\\left(\\frac{1+5}{2}, \\frac{3+1}{2}, \\frac{2+4}{2}\\right) = (3,2,3)$."
     },
     {
-      "id": "vec-q6",
+      "id": "math-dp-vectors-vec-q6",
       "stem": "$|a|=3$, $|b|=4$, $\\angle 60^\\circ$. $a\\cdot b=?$",
       "choices": [
         "$6$",
@@ -172,7 +172,7 @@
       "explanation": "$3\\times 4\\times \\cos 60^\\circ = 12\\times 0.5 = 6$."
     },
     {
-      "id": "vec-q7",
+      "id": "math-dp-vectors-vec-q7",
       "stem": "Which operation on two vectors produces another vector?",
       "choices": [
         "Dot product",
@@ -184,7 +184,7 @@
       "explanation": "The dot product (also called scalar product) and scalar projection both produce scalars. Only the cross product produces a vector perpendicular to both inputs."
     },
     {
-      "id": "vec-q8",
+      "id": "math-dp-vectors-vec-q8",
       "stem": "$v=(2,-1,4)$ and $w=(6,k,12)$. Find $k$ so that $v$ and $w$ are parallel.",
       "choices": [
         "$-2$",
@@ -196,7 +196,7 @@
       "explanation": "Parallel vectors are scalar multiples. $6\\div 2=3$ and $12\\div 4=3$, so $w=3v$. Thus $k=3\\times(-1)=-3$."
     },
     {
-      "id": "vec-q9",
+      "id": "math-dp-vectors-vec-q9",
       "stem": "What is the shortest distance from $P(3,1,-2)$ to the line $r=(1,0,1)+\\lambda(2,-1,2)$?",
       "choices": [
         "$\\sqrt{13}$",
@@ -208,7 +208,7 @@
       "explanation": "$A=(1,0,1)$ is on the line, $\\overrightarrow{AP}=(2,1,-3)$. $\\overrightarrow{AP}\\times b=(-1,-10,-4)$ with magnitude $\\sqrt{117}$. $|b|=\\sqrt{4+1+4}=3$. Distance $= \\frac{\\sqrt{117}}{3} = \\sqrt{13}$."
     },
     {
-      "id": "vec-q10",
+      "id": "math-dp-vectors-vec-q10",
       "stem": "Triangle with vertices $A(1,0,0)$, $B(3,1,2)$, $C(2,-1,4)$. What is its area?",
       "choices": [
         "$\\frac{9}{2}$",
@@ -220,7 +220,7 @@
       "explanation": "$\\overrightarrow{AB}=(2,1,2)$, $\\overrightarrow{AC}=(1,-1,4)$. $\\overrightarrow{AB}\\times\\overrightarrow{AC}=(6,-6,-3)$, magnitude $9$. Triangle area $= \\frac{1}{2}\\times 9 = \\frac{9}{2}$."
     },
     {
-      "id": "vec-q11",
+      "id": "math-dp-vectors-vec-q11",
       "stem": "Ship A starts at $(0,0)$ with velocity $(3,4)$ km/h. Ship B starts at $(10,0)$ with velocity $(0,5)$ km/h. After how many hours are they closest?",
       "choices": [
         "$t=2$",
@@ -232,7 +232,7 @@
       "explanation": "At time $t$, $\\overrightarrow{AB}=(10-3t, t)$. $|\\overrightarrow{AB}|^2=(10-3t)^2+t^2=10t^2-60t+100$. Differentiate: $20t-60=0$ $\\Rightarrow$ $t=3$. At $t=3$ the distance is $\\sqrt{10}$, the minimum."
     },
     {
-      "id": "vec-q12",
+      "id": "math-dp-vectors-vec-q12",
       "stem": "Two lines in 3D have direction vectors $d_1=(2,1,-1)$ and $d_2=(4,2,-2)$. What can you conclude?",
       "choices": [
         "They must intersect",

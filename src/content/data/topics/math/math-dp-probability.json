@@ -6,88 +6,88 @@
   "ibLevel": "DP",
   "notes": [
     {
-      "id": "prb-n1",
+      "id": "math-dp-probability-prb-n1",
       "heading": "Discrete Random Variables",
       "body": "A discrete random variable (DRV) counts outcomes that can only take certain separated values. Think of it as a numerical label we attach to each possible result of a random experiment.\n\n📌 Definition\nA discrete random variable $X$ takes countable values $x$ with probabilities $P(X = x)$ such that:\n• Each probability is non-negative: $P(X = x) \\geq 0$\n• All probabilities sum to 1: $\\sum P(X = x) = 1$\n\n🔑 Expected Value (Mean)\n$$E(X) = \\sum x \\cdot P(X = x)$$\n\nThis is the long-run average outcome. It does not need to be an actual value $X$ can take.\n\n🔑 Variance and Standard Deviation\n$$Var(X) = E(X^2) - [E(X)]^2$$\nwhere\n$$E(X^2) = \\sum x^2 \\cdot P(X = x)$$\n\nThen\n$$SD(X) = \\sqrt{Var(X)}$$\n\n💡 Worked Example — Finding $E(X)$ and $Var(X)$\nThe probability distribution of $X$ is:\n\n    $x$      | 1   | 2   | 3   | 4\n    $P(X=x)$ | 0.1 | 0.3 | 0.4 | 0.2\n\n  Step 1: Calculate $E(X)$\n    $E(X) = 1(0.1) + 2(0.3) + 3(0.4) + 4(0.2)$\n    $E(X) = 0.1 + 0.6 + 1.2 + 0.8 = 2.7$\n\n  Step 2: Calculate $E(X^2)$\n    $E(X^2) = 1^2(0.1) + 2^2(0.3) + 3^2(0.4) + 4^2(0.2)$\n    $E(X^2) = 0.1 + 1.2 + 3.6 + 3.2 = 8.1$\n\n  Step 3: Calculate $Var(X)$\n    $Var(X) = 8.1 - (2.7)^2 = 8.1 - 7.29 = 0.81$\n\n  Step 4: Calculate $SD(X)$\n    $SD(X) = \\sqrt{0.81} = 0.9$\n\n🔑 Linear Transformation Rules\nFor constants $a$ and $b$:\n$$E(aX + b) = a \\cdot E(X) + b$$\n$$Var(aX + b) = a^2 \\cdot Var(X)$$\n\nNotice: adding $b$ shifts the mean but does not affect spread. Multiplying by $a$ scales both mean and standard deviation by $a$, and variance by $a^2$.\n\n📎 Key Points to Remember\n• Always check that $\\sum P(X = x) = 1$ before calculating expectations\n• A fair game has expected gain equal to zero\n• $E(X)$ is a weighted average — the most likely value is the mode, not necessarily the mean\n\n⚠️ Common Mistake\nUsing $E(X)^2$ instead of $E(X^2)$ in the variance formula. $E(X^2)$ means square first, then multiply by probability and sum. $[E(X)]^2$ means find the mean first, then square it. These are different!"
     },
     {
-      "id": "prb-n2",
+      "id": "math-dp-probability-prb-n2",
       "heading": "Binomial Distribution",
       "body": "The binomial distribution models the number of successes in a fixed number of identical, independent trials.\n\n📌 Definition\nA discrete random variable $X$ follows a binomial distribution, written $X \\sim B(n, p)$, if these four conditions hold:\n\n1. Fixed number of trials ($n$)\n2. Independent trials\n3. Same probability of success ($p$) each trial\n4. Two outcomes per trial — success or failure\n\n🔑 Probability Mass Function\n$$P(X = r) = \\binom{n}{r} p^r (1 - p)^{n-r}$$\n\nwhere\n$$\\binom{n}{r} = \\frac{n!}{r!(n - r)!}$$\n\n🔑 Mean and Variance\n$$E(X) = np$$\n$$Var(X) = np(1 - p)$$\n\n💡 Worked Example — Setting Up a Binomial Model\nA factory produces light bulbs. It is known that 8% of bulbs are defective. A quality inspector tests a random sample of 20 bulbs.\n\n  Step 1: Identify the random variable\n    Let $X =$ number of defective bulbs in the sample\n\n  Step 2: Check the conditions\n    • Fixed $n = 20$\n    • Independent (sample is random and population is large)\n    • Two outcomes: defective or not defective\n    • Constant $p = 0.08$\n\n  Step 3: State the distribution\n    $X \\sim B(20, 0.08)$\n\n  Step 4: Calculate expected number of defectives\n    $E(X) = 20 \\times 0.08 = 1.6$\n\n💡 Worked Example — Calculating Binomial Probabilities\nFor $X \\sim B(10, 0.4)$, find:\n\n  (a) $P(X = 3)$\n    Use binompdf on GDC with $n = 10$, $p = 0.4$, $x = 3$\n    $P(X = 3) \\approx 0.215$\n\n  (b) $P(X \\leq 3)$\n    Use binomcdf on GDC with $n = 10$, $p = 0.4$, $x = 3$\n    $P(X \\leq 3) \\approx 0.382$\n\n  (c) $P(X \\geq 5)$\n    $P(X \\geq 5) = 1 - P(X \\leq 4)$\n    Use binomcdf on GDC with $x = 4$\n    $P(X \\geq 5) = 1 - 0.633 = 0.367$\n\n📎 Key Points to Remember\n• binompdf gives $P(X = r)$ — probability of exactly $r$ successes\n• binomcdf gives $P(X \\leq r)$ — cumulative probability up to $r$\n• For strict inequalities with discrete distributions, adjust by 1:\n  • $P(X < 5) = P(X \\leq 4)$\n  • $P(X > 5) = 1 - P(X \\leq 5)$\n  • $P(3 \\leq X \\leq 7) = P(X \\leq 7) - P(X \\leq 2)$\n\n⚠️ Common Mistake\nForgetting that the binomial distribution is discrete. $P(X < 5)$ is NOT the same as $P(X \\leq 5)$ — it equals $P(X \\leq 4)$. Always think about which integer values are included."
     },
     {
-      "id": "prb-n3",
+      "id": "math-dp-probability-prb-n3",
       "heading": "Normal Distribution",
       "body": "The normal distribution is the most important continuous probability distribution in statistics. It describes many natural phenomena where values cluster around a central mean.\n\n📌 Definition\nA continuous random variable $X$ follows a normal distribution, written $X \\sim N(\\mu, \\sigma^2)$, if its probability density function is a symmetric bell-shaped curve where:\n\n    $\\mu$ = mean (centre of the distribution)\n    $\\sigma^2$ = variance\n    $\\sigma$ = standard deviation\n\n🔑 The 68-95-99.7 Rule\nFor any normal distribution:\n• Approximately $68\\%$ of data lies within $\\mu \\pm \\sigma$\n• Approximately $95\\%$ of data lies within $\\mu \\pm 2\\sigma$\n• Approximately $99.7\\%$ of data lies within $\\mu \\pm 3\\sigma$\n\n💡 Worked Example — Using the Empirical Rule\nTest scores are normally distributed with $\\mu = 72$ and $\\sigma = 8$.\n\n  (a) What percentage of scores lie between 64 and 80?\n    $64 = 72 - 8 = \\mu - \\sigma$\n    $80 = 72 + 8 = \\mu + \\sigma$\n    Answer: approximately $68\\%$\n\n  (b) What percentage of scores are above 88?\n    $88 = 72 + 16 = \\mu + 2\\sigma$\n    $95\\%$ lie within $\\mu \\pm 2\\sigma$, so $5\\%$ lie in the two tails\n    Answer: approximately $2.5\\%$\n\n🔑 Standardisation (Z-Scores)\nAny normal variable can be converted to the standard normal $Z \\sim N(0, 1)$ using:\n\n    $$Z = \\frac{X - \\mu}{\\sigma}$$\n\nThis lets you compare values from different normal distributions.\n\n💡 Worked Example — Standardisation\nFor $X \\sim N(50, 25)$, find $P(X < 58)$.\n\n  Step 1: Identify $\\mu$ and $\\sigma$\n    $\\mu = 50$,  $\\sigma = \\sqrt{25} = 5$\n\n  Step 2: Standardise\n    $Z = \\frac{58 - 50}{5} = 1.6$\n\n  Step 3: Find probability\n    $P(X < 58) = P(Z < 1.6) \\approx 0.945$\n\n🔑 Using Your GDC\n• normalcdf(lower, upper, $\\mu$, $\\sigma$) — finds $P(a < X < b)$\n• invNorm(area, $\\mu$, $\\sigma$) — finds the value $k$ such that $P(X < k) = $ area\n\n💡 Worked Example — Inverse Normal\nFor $X \\sim N(100, 225)$, find $k$ such that $P(X < k) = 0.9$.\n\n  Step 1: Identify parameters\n    $\\mu = 100$,  $\\sigma = \\sqrt{225} = 15$\n\n  Step 2: Use invNorm on GDC\n    invNorm(0.9, 100, 15) $\\approx 119.2$\n\n📎 Key Points to Remember\n• For continuous distributions, $P(X = k) = 0$ for any specific value $k$\n• It does not matter whether you use strict ($<$) or weak ($\\leq$) inequalities\n• For $P(X > a)$, use a very large upper bound (like $10^{99}$) or use $1 - P(X < a)$\n• Always sketch the bell curve and shade the region you want\n\n⚠️ Common Mistake\nEntering variance instead of standard deviation into the GDC. The notation $X \\sim N(\\mu, \\sigma^2)$ gives variance as the second parameter, but your calculator needs $\\sigma$ (the standard deviation). If $\\sigma^2 = 25$, enter $\\sigma = 5$."
     },
     {
-      "id": "prb-n4",
+      "id": "math-dp-probability-prb-n4",
       "heading": "t-Distribution and Hypothesis Testing (AI HL)",
       "body": "When the population standard deviation is unknown and the sample size is small, we use the t-distribution instead of the normal distribution for inference about the mean.\n\n📌 The t-Distribution\nThe t-distribution is similar to the standard normal but has heavier tails. It is defined by degrees of freedom:\n\n    $$df = n - 1$$\n\nAs $df$ increases, the t-distribution approaches the standard normal $Z \\sim N(0, 1)$.\n\n🔑 One-Sample t-Test Statistic\n    $$t = \\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$$\n\nwhere\n    $\\bar{x}$ = sample mean\n    $\\mu_0$ = hypothesised population mean under $H_0$\n    $s$ = sample standard deviation\n    $n$ = sample size\n\n💡 Worked Example — t-Test\nA farmer claims his apples weigh 150 g on average. A random sample of 16 apples has mean weight 146 g and standard deviation 8 g. Test at the $5\\%$ significance level.\n\n  Step 1: State hypotheses\n    $H_0: \\mu = 150$\n    $H_1: \\mu \\neq 150$  (two-tailed test)\n\n  Step 2: Calculate test statistic\n    $t = \\frac{146 - 150}{8 / \\sqrt{16}}$\n    $t = \\frac{-4}{2} = -2.0$\n\n  Step 3: Find critical value\n    $df = 16 - 1 = 15$\n    $t_{\\text{crit}}$ for two-tailed test at $5\\%$: $\\pm 2.131$\n\n  Step 4: Compare and conclude\n    $|-2.0| = 2.0 < 2.131$\n    We do not reject $H_0$.\n    There is insufficient evidence at the $5\\%$ level to reject the farmer's claim.\n\n🔑 Chi-Squared Test for Independence (AI)\nUsed to test whether two categorical variables are independent.\n\n    $$\\chi^2 = \\sum \\frac{(O - E)^2}{E}$$\n\nwhere\n    $O$ = observed frequency\n    $E$ = expected frequency $= \\frac{\\text{row total} \\times \\text{column total}}{\\text{grand total}}$\n\nDegrees of freedom:\n    $$df = (rows - 1)(columns - 1)$$\n\n💡 Worked Example — Expected Frequency\nIn a contingency table, a cell has row total 80, column total 60, and grand total 200.\n\n    $$E = \\frac{80 \\times 60}{200} = 24$$\n\n📎 Key Points to Remember\n• Use the t-distribution when $\\sigma$ is unknown AND $n < 30$\n• For $n > 30$, the normal approximation is usually acceptable\n• Reject $H_0$ if $|t| > t_{\\text{crit}}$ OR if p-value $< \\alpha$\n• For $\\chi^2$ tests, all expected frequencies should be at least 5 for valid results\n• Write conclusions in context — never say \"prove\" or \"disprove\"\n\n⚠️ Common Mistake\nConfusing the t-test with the z-test. If the population standard deviation $\\sigma$ is given, use $z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$. If only the sample standard deviation $s$ is available and $n$ is small, use the t-test."
     },
     {
-      "id": "prb-n5",
+      "id": "math-dp-probability-prb-n5",
       "heading": "Linear Combinations and Sample Mean",
       "body": "When we combine random variables by adding, subtracting, or scaling them, we can find the mean and variance of the result using simple rules.\n\n📌 Expected Value of a Linear Combination\nFor independent random variables $X$ and $Y$, and constants $a$ and $b$:\n\n    $$E(aX \\pm bY) = a \\cdot E(X) \\pm b \\cdot E(Y)$$\n\n📌 Variance of a Linear Combination\nFor independent $X$ and $Y$:\n\n    $$Var(aX \\pm bY) = a^2 \\cdot Var(X) + b^2 \\cdot Var(Y)$$\n\nNotice: variances ALWAYS add, even when subtracting the variables. This is because $b^2$ is always positive.\n\n💡 Worked Example — Linear Combination\n$X$ and $Y$ are independent with $E(X) = 5$, $Var(X) = 3$, $E(Y) = -2$, $Var(Y) = 4$.\nFind $E(2X + 5Y)$ and $Var(2X + 5Y)$.\n\n  Step 1: Expected value\n    $E(2X + 5Y) = 2(5) + 5(-2) = 10 - 10 = 0$\n\n  Step 2: Variance\n    $Var(2X + 5Y) = 2^2(3) + 5^2(4)$\n    $Var(2X + 5Y) = 4(3) + 25(4) = 12 + 100 = 112$\n\n🔑 Critical Distinction: $2X$ versus $X + X$\nThese look similar but behave very differently:\n\n    $2X$ means one observation of $X$, then doubled\n    $X + X$ means two independent observations of $X$, then added\n\nExpected values are the same:\n    $$E(2X) = 2E(X)$$\n    $$E(X + X) = E(X) + E(X) = 2E(X)$$\n\nVariances are different:\n    $$Var(2X) = 4 \\cdot Var(X)$$\n    $$Var(X + X) = Var(X) + Var(X) = 2 \\cdot Var(X)$$\n\n💡 Worked Example — $2X$ vs $X + X$\nSuppose $X$ can only be 0 or 1 with equal probability.\n\n    $2X$ can be 0 or 2\n    $X + X$ can be 0, 1, or 2\n\nThe second variable has more spread because two independent observations add more variability than scaling one observation.\n\n🔑 Distribution of the Sample Mean\nIf $X \\sim N(\\mu, \\sigma^2)$, then the sample mean $\\bar{X}$ of $n$ independent observations is also normally distributed:\n\n    $$\\bar{X} \\sim N\\left(\\mu, \\frac{\\sigma^2}{n}\\right)$$\n\nThe mean stays the same, but the variance shrinks by a factor of $n$. This means larger samples give more precise estimates of $\\mu$.\n\n💡 Worked Example — Sample Mean Distribution\n$X \\sim N(80, 36)$. A random sample of $n = 9$ observations is taken.\n\n  Step 1: Identify population parameters\n    $\\mu = 80$,  $\\sigma^2 = 36$\n\n  Step 2: Apply the formula\n    $\\bar{X} \\sim N\\left(80, \\frac{36}{9}\\right)$\n    $\\bar{X} \\sim N(80, 4)$\n\n  Step 3: Find standard deviation of $\\bar{X}$\n    $SD(\\bar{X}) = \\sqrt{4} = 2$\n\nSo the sample mean has mean 80 and standard error 2.\n\n📎 Key Points to Remember\n• Expected value is linear — it distributes over addition and subtraction\n• Variance of a sum equals the sum of variances ONLY for independent variables\n• When scaling: $Var(aX) = a^2 \\cdot Var(X)$, not $a \\cdot Var(X)$\n• The sample mean is less spread out than individual observations\n• For normal populations, $\\bar{X}$ is exactly normal for any $n$\n\n⚠️ Common Mistake\nForgetting to square the constant when finding variance. $Var(3X - 2) = 9 \\cdot Var(X)$, not $3 \\cdot Var(X)$. The $-2$ disappears because adding a constant does not change spread."
     }
   ],
   "flashcards": [
     {
-      "id": "prb-f1",
+      "id": "math-dp-probability-prb-f1",
       "term": "Discrete RV",
       "definition": "$X$ takes countable values; $P(X=x)\\geq 0$, $\\sum P=1$.",
       "example": "$X=$ heads in 3 flips: $P(0)=\\frac{1}{8}$, $P(1)=\\frac{3}{8}$, $P(2)=\\frac{3}{8}$, $P(3)=\\frac{1}{8}$."
     },
     {
-      "id": "prb-f2",
+      "id": "math-dp-probability-prb-f2",
       "term": "Expected Value",
       "definition": "$E(X)=\\sum x\\cdot P(X=x)$",
       "example": "$P(X=1)=0.2$, $P(2)=0.5$, $P(3)=0.3 \\to E=1.9$."
     },
     {
-      "id": "prb-f3",
+      "id": "math-dp-probability-prb-f3",
       "term": "Binomial $B(n,p)$",
       "definition": "$P(X=r)=\\binom{n}{r}p^r(1-p)^{n-r}$; $E=np$, $Var=np(1-p)$",
       "example": "$B(10,0.4)$: $E=4$, $Var=2.4$."
     },
     {
-      "id": "prb-f4",
+      "id": "math-dp-probability-prb-f4",
       "term": "Normal $N(\\mu,\\sigma^2)$",
       "definition": "Bell curve; 68-95-99.7 rule.",
       "example": "$N(100,225)$: $\\mu=100$, $\\sigma=15$."
     },
     {
-      "id": "prb-f5",
+      "id": "math-dp-probability-prb-f5",
       "term": "Standardisation",
       "definition": "$Z=\\frac{X-\\mu}{\\sigma}$ converts to $N(0,1)$.",
       "example": "$N(20,9)$, $X=23 \\to Z=1 \\to P(Z>1)\\approx 0.159$."
     },
     {
-      "id": "prb-f6",
+      "id": "math-dp-probability-prb-f6",
       "term": "Inverse Normal",
       "definition": "Given $P(X<k)=p$, find $k$ via invNorm($p,\\mu,\\sigma$).",
       "example": "$N(50,16)$, $P(X<k)=0.9 \\to k\\approx 55.1$."
     },
     {
-      "id": "prb-f7",
+      "id": "math-dp-probability-prb-f7",
       "term": "Variance Formula",
       "definition": "$Var(X)=E(X^2)-[E(X)]^2$ where $E(X^2)=\\sum x^2 P(X=x)$.",
       "example": "If $E(X)=3$ and $E(X^2)=12$, then $Var(X)=12-9=3$."
     },
     {
-      "id": "prb-f8",
+      "id": "math-dp-probability-prb-f8",
       "term": "Linear Combinations",
       "definition": "For independent $X,Y$: $E(aX\\pm bY)=aE(X)\\pm bE(Y)$; $Var(aX\\pm bY)=a^2Var(X)+b^2Var(Y)$.",
       "example": "$E(X)=5$, $Var(X)=3$, $E(Y)=-2$, $Var(Y)=4 \\to E(2X+5Y)=0$, $Var(2X+5Y)=12+100=112$."
     },
     {
-      "id": "prb-f9",
+      "id": "math-dp-probability-prb-f9",
       "term": "Sample Mean Distribution",
       "definition": "If $X\\sim N(\\mu,\\sigma^2)$, then $\\bar{X}\\sim N(\\mu,\\sigma^2/n)$.",
       "example": "$X\\sim N(80,36)$, $n=9 \\to \\bar{X}\\sim N(80,4)$, so $SD(\\bar{X})=2$."
     },
     {
-      "id": "prb-f10",
+      "id": "math-dp-probability-prb-f10",
       "term": "Continuous RV Property",
       "definition": "For any continuous RV, $P(X=k)=0$ for a specific value $k$. We only find probabilities over intervals.",
       "example": "For $Y\\sim N(20,25)$, $P(Y=20)=0$, but $P(18\\leq Y<27)\\approx 0.579$."
@@ -95,7 +95,7 @@
   ],
   "questions": [
     {
-      "id": "prb-q1",
+      "id": "math-dp-probability-prb-q1",
       "stem": "Discrete RV: $P(X=1)=0.2$, $P(X=2)=0.5$, $P(X=3)=k$. Find $k$.",
       "choices": [
         "0.2",
@@ -107,7 +107,7 @@
       "explanation": "$0.2+0.5+k=1 \\to k=0.3$."
     },
     {
-      "id": "prb-q2",
+      "id": "math-dp-probability-prb-q2",
       "stem": "$E(X)$ for $P(1)=0.2$, $P(2)=0.5$, $P(3)=0.3$?",
       "choices": [
         "1.9",
@@ -119,7 +119,7 @@
       "explanation": "$0.2+1.0+0.9=2.1$."
     },
     {
-      "id": "prb-q3",
+      "id": "math-dp-probability-prb-q3",
       "stem": "$X\\sim B(8, 0.25)$. $E(X)=?$",
       "choices": [
         "0.25",
@@ -131,7 +131,7 @@
       "explanation": "$np=8\\times0.25=2$."
     },
     {
-      "id": "prb-q4",
+      "id": "math-dp-probability-prb-q4",
       "stem": "$X\\sim N(60, 25)$. $P(X<65)\\approx?$",
       "choices": [
         "0.841",
@@ -143,7 +143,7 @@
       "explanation": "$Z=\\frac{65-60}{5}=1$; $P(Z<1)\\approx 0.841$."
     },
     {
-      "id": "prb-q5",
+      "id": "math-dp-probability-prb-q5",
       "stem": "What % within $\\mu\\pm2\\sigma$?",
       "choices": [
         "68%",
@@ -155,7 +155,7 @@
       "explanation": "$68\\%$ within $\\pm1\\sigma$, $95\\%$ within $\\pm2\\sigma$."
     },
     {
-      "id": "prb-q6",
+      "id": "math-dp-probability-prb-q6",
       "stem": "$X\\sim B(n,0.2)$, $E=6$. Find $n$.",
       "choices": [
         "20",
@@ -167,7 +167,7 @@
       "explanation": "$n\\times0.2=6 \\to n=30$."
     },
     {
-      "id": "prb-q7",
+      "id": "math-dp-probability-prb-q7",
       "stem": "Which scenario CANNOT be modelled by a binomial distribution?",
       "choices": [
         "Number of heads in 20 fair coin flips",
@@ -179,7 +179,7 @@
       "explanation": "A binomial distribution requires a fixed number of trials. \"Number of rolls until the first six\" has no fixed $n$, so it follows a geometric distribution instead. All other options have fixed $n$ and constant $p$."
     },
     {
-      "id": "prb-q8",
+      "id": "math-dp-probability-prb-q8",
       "stem": "A game costs \\$4 to play. The prize $W$ has $P(W=0)=0.5$, $P(W=2)=0.3$, $P(W=10)=0.2$. What is the expected profit?",
       "choices": [
         "Gain \\$2.60",
@@ -191,7 +191,7 @@
       "explanation": "$E(W)=0\\times0.5+2\\times0.3+10\\times0.2=0+0.6+2.0=\\$2.60$. Expected profit $= E(W)-4.00 = 2.60-4.00 = -\\$1.40$ (a loss of \\$1.40)."
     },
     {
-      "id": "prb-q9",
+      "id": "math-dp-probability-prb-q9",
       "stem": "$X$ is a random variable with $E(X)=8$ and $Var(X)=5$. What is $Var(3X-2)$?",
       "choices": [
         "13",
@@ -203,7 +203,7 @@
       "explanation": "$Var(aX+b)=a^2Var(X)$. Here $a=3$, so $Var(3X-2)=9\\times5=45$. The constant $-2$ does not affect variance, and you must square the multiplier $3$, not just multiply by $3$."
     },
     {
-      "id": "prb-q10",
+      "id": "math-dp-probability-prb-q10",
       "stem": "$X\\sim N(50, 16)$. A random sample of $n=4$ observations is taken. Which distribution does the sample mean $\\bar{X}$ follow?",
       "choices": [
         "$N(50, 4)$",
@@ -215,7 +215,7 @@
       "explanation": "If $X\\sim N(\\mu,\\sigma^2)$, then $\\bar{X}\\sim N(\\mu,\\sigma^2/n)$. Here $\\mu=50$, $\\sigma^2=16$, $n=4$, so $\\bar{X}\\sim N(50, 4)$. Distractor B forgets to divide by $n$; C wrongly divides the mean; D multiplies instead of dividing."
     },
     {
-      "id": "prb-q11",
+      "id": "math-dp-probability-prb-q11",
       "stem": "$X\\sim B(10, 0.4)$. Which expression gives $P(X \\geq 3)$?",
       "choices": [
         "$1 - P(X \\leq 2)$",
@@ -227,7 +227,7 @@
       "explanation": "$P(X\\geq3)=1-P(X\\leq2)$. For a discrete distribution like binomial, $P(X\\geq3)$ excludes 0, 1, and 2, so we subtract $P(X\\leq2)$. Option B subtracts too much, C gives the wrong tail, and D calculates $P(X=3)$."
     },
     {
-      "id": "prb-q12",
+      "id": "math-dp-probability-prb-q12",
       "stem": "Battery life is normally distributed with mean $12$ hours and standard deviation $2$ hours. The company wants to set a guarantee time such that only $5\\%$ of batteries fail before it. What guarantee should they set?",
       "choices": [
         "8.7 hours",

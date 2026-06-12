@@ -5,29 +5,185 @@
   "description": "Solving two equations in two unknowns by elimination, substitution, and graphical methods.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "sim-n1", "heading": "Solving by Elimination", "body": "Add or subtract equations to remove one variable. If coefficients of one variable match (or are opposites), add/subtract directly. If not, multiply one or both equations first. Example: 2x+3y=12 and 4x−3y=6 → add to get 6x=18 → x=3. Substitute back: 2(3)+3y=12 → y=2. Always verify in both equations." },
-    { "id": "sim-n2", "heading": "Solving by Substitution", "body": "Rearrange one equation to express one variable in terms of the other, then substitute into the second. Example: x+2y=8 and 3x−y=3 → from first: x=8−2y. Substitute: 3(8−2y)−y=3 → 24−7y=3 → y=3 → x=2. Efficient when one variable has coefficient 1." },
-    { "id": "sim-n3", "heading": "Graphical Interpretation", "body": "Each linear equation is a straight line. The solution is the intersection point (x, y). If lines are parallel (same gradient) → no solution. If lines are identical → infinitely many solutions." },
-    { "id": "sim-n4", "heading": "Forming Equations from Word Problems", "body": "Identify two unknowns (x, y) and translate each piece of information into an equation. Example: \"Two apples and three bananas cost £1.60; one apple and five bananas cost £2.00.\" → 2x+3y=1.60, x+5y=2.00. Solve and interpret in context." }
+    {
+      "id": "math-simultaneous-myp-sim-n1",
+      "heading": "Solving by Elimination",
+      "body": "Add or subtract equations to remove one variable. If coefficients of one variable match (or are opposites), add/subtract directly. If not, multiply one or both equations first. Example: 2x+3y=12 and 4x−3y=6 → add to get 6x=18 → x=3. Substitute back: 2(3)+3y=12 → y=2. Always verify in both equations."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-n2",
+      "heading": "Solving by Substitution",
+      "body": "Rearrange one equation to express one variable in terms of the other, then substitute into the second. Example: x+2y=8 and 3x−y=3 → from first: x=8−2y. Substitute: 3(8−2y)−y=3 → 24−7y=3 → y=3 → x=2. Efficient when one variable has coefficient 1."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-n3",
+      "heading": "Graphical Interpretation",
+      "body": "Each linear equation is a straight line. The solution is the intersection point (x, y). If lines are parallel (same gradient) → no solution. If lines are identical → infinitely many solutions."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-n4",
+      "heading": "Forming Equations from Word Problems",
+      "body": "Identify two unknowns (x, y) and translate each piece of information into an equation. Example: \"Two apples and three bananas cost £1.60; one apple and five bananas cost £2.00.\" → 2x+3y=1.60, x+5y=2.00. Solve and interpret in context."
+    }
   ],
   "flashcards": [
-    { "id": "sim-f1", "term": "Simultaneous equations", "definition": "A set of two or more equations that share variables and must all be satisfied at the same time.", "example": "2x+y=7 and x−y=2; both true when x=3, y=1." },
-    { "id": "sim-f2", "term": "Elimination method", "definition": "Add or subtract equations to eliminate one variable, then solve for the other.", "example": "Add 3x+2y=11 and x−2y=1 → 4x=12 → x=3." },
-    { "id": "sim-f3", "term": "Substitution method", "definition": "Express one variable in terms of the other, then substitute into the second equation.", "example": "From y=3x−1, substitute into 2x+y=9." },
-    { "id": "sim-f4", "term": "Point of intersection", "definition": "The coordinates (x, y) where two lines cross — the solution to the simultaneous equations.", "example": "y=x+1 and y=3−x intersect at (1, 2)." },
-    { "id": "sim-f5", "term": "No solution", "definition": "When two lines are parallel (same gradient, different y-intercepts), there is no intersection.", "example": "y=2x+1 and y=2x+5 are parallel." },
-    { "id": "sim-f6", "term": "Checking a solution", "definition": "Substitute x and y into BOTH original equations to verify.", "example": "x=2, y=3: 2(2)+3=7 ✓ and 2−3=−1 ✓." }
+    {
+      "id": "math-simultaneous-myp-sim-f1",
+      "term": "Simultaneous equations",
+      "definition": "A set of two or more equations that share variables and must all be satisfied at the same time.",
+      "example": "2x+y=7 and x−y=2; both true when x=3, y=1."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-f2",
+      "term": "Elimination method",
+      "definition": "Add or subtract equations to eliminate one variable, then solve for the other.",
+      "example": "Add 3x+2y=11 and x−2y=1 → 4x=12 → x=3."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-f3",
+      "term": "Substitution method",
+      "definition": "Express one variable in terms of the other, then substitute into the second equation.",
+      "example": "From y=3x−1, substitute into 2x+y=9."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-f4",
+      "term": "Point of intersection",
+      "definition": "The coordinates (x, y) where two lines cross — the solution to the simultaneous equations.",
+      "example": "y=x+1 and y=3−x intersect at (1, 2)."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-f5",
+      "term": "No solution",
+      "definition": "When two lines are parallel (same gradient, different y-intercepts), there is no intersection.",
+      "example": "y=2x+1 and y=2x+5 are parallel."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-f6",
+      "term": "Checking a solution",
+      "definition": "Substitute x and y into BOTH original equations to verify.",
+      "example": "x=2, y=3: 2(2)+3=7 ✓ and 2−3=−1 ✓."
+    }
   ],
   "questions": [
-    { "id": "sim-q1", "stem": "Solve: x + y = 10 and x − y = 4.", "choices": ["x=6, y=4", "x=7, y=3", "x=4, y=6", "x=8, y=2"], "correctIndex": 1, "explanation": "Add: 2x=14 → x=7. Substitute: 7+y=10 → y=3." },
-    { "id": "sim-q2", "stem": "Solve by substitution: y = 2x − 1 and 3x + y = 14.", "choices": ["x=2, y=3", "x=3, y=5", "x=4, y=7", "x=5, y=9"], "correctIndex": 1, "explanation": "3x+2x−1=14 → 5x=15 → x=3 → y=5." },
-    { "id": "sim-q3", "stem": "Two lines: y=x+2 and y=−x+6. Intersection?", "choices": ["(2, 4)", "(4, 2)", "(3, 5)", "(1, 3)"], "correctIndex": 0, "explanation": "x+2=−x+6 → 2x=4 → x=2 → y=4." },
-    { "id": "sim-q4", "stem": "Solve: 3x + 2y = 16 and 5x − 2y = 8.", "choices": ["x=2, y=5", "x=3, y=3.5", "x=4, y=2", "x=1, y=6.5"], "correctIndex": 1, "explanation": "Add: 8x=24 → x=3 → 9+2y=16 → y=3.5." },
-    { "id": "sim-q5", "stem": "Sum of two numbers is 20, difference is 6. Larger number?", "choices": ["7", "10", "13", "14"], "correctIndex": 2, "explanation": "x+y=20, x−y=6 → 2x=26 → x=13 (larger)." },
-    { "id": "sim-q6", "stem": "Solve: 4x + y = 14 and 2x + y = 8.", "choices": ["x=2, y=6", "x=3, y=2", "x=4, y=−2", "x=1, y=10"], "correctIndex": 1, "explanation": "Subtract: 2x=6 → x=3 → 12+y=14 → y=2." },
-    { "id": "sim-q7", "stem": "y=3x−4 and y=3x+1. How many intersection points?", "choices": ["0", "1", "2", "Infinitely many"], "correctIndex": 0, "explanation": "Both have gradient 3 but different y-intercepts → parallel, no intersection." },
-    { "id": "sim-q8", "stem": "Rectangle perimeter 28cm, length is 4cm more than width. Length?", "choices": ["5 cm", "8 cm", "9 cm", "10 cm"], "correctIndex": 2, "explanation": "l+w=14, l=w+4 → 2w+4=14 → w=5 → l=9 cm." },
-    { "id": "sim-q9", "stem": "Solve by substitution: x = 3y and 2x + y = 35.", "choices": ["x=3, y=1", "x=15, y=5", "x=21, y=7", "x=10, y=15"], "correctIndex": 1, "explanation": "2(3y)+y=35 → 7y=35 → y=5 → x=15." },
-    { "id": "sim-q10", "stem": "A cinema: adult £9, child £5. 8 tickets total £56. How many adults?", "choices": ["2", "3", "4", "5"], "correctIndex": 2, "explanation": "a+c=8, 9a+5c=56 → c=8−a → 9a+40−5a=56 → 4a=16 → a=4." }
+    {
+      "id": "math-simultaneous-myp-sim-q1",
+      "stem": "Solve: x + y = 10 and x − y = 4.",
+      "choices": [
+        "x=6, y=4",
+        "x=7, y=3",
+        "x=4, y=6",
+        "x=8, y=2"
+      ],
+      "correctIndex": 1,
+      "explanation": "Add: 2x=14 → x=7. Substitute: 7+y=10 → y=3."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q2",
+      "stem": "Solve by substitution: y = 2x − 1 and 3x + y = 14.",
+      "choices": [
+        "x=2, y=3",
+        "x=3, y=5",
+        "x=4, y=7",
+        "x=5, y=9"
+      ],
+      "correctIndex": 1,
+      "explanation": "3x+2x−1=14 → 5x=15 → x=3 → y=5."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q3",
+      "stem": "Two lines: y=x+2 and y=−x+6. Intersection?",
+      "choices": [
+        "(2, 4)",
+        "(4, 2)",
+        "(3, 5)",
+        "(1, 3)"
+      ],
+      "correctIndex": 0,
+      "explanation": "x+2=−x+6 → 2x=4 → x=2 → y=4."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q4",
+      "stem": "Solve: 3x + 2y = 16 and 5x − 2y = 8.",
+      "choices": [
+        "x=2, y=5",
+        "x=3, y=3.5",
+        "x=4, y=2",
+        "x=1, y=6.5"
+      ],
+      "correctIndex": 1,
+      "explanation": "Add: 8x=24 → x=3 → 9+2y=16 → y=3.5."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q5",
+      "stem": "Sum of two numbers is 20, difference is 6. Larger number?",
+      "choices": [
+        "7",
+        "10",
+        "13",
+        "14"
+      ],
+      "correctIndex": 2,
+      "explanation": "x+y=20, x−y=6 → 2x=26 → x=13 (larger)."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q6",
+      "stem": "Solve: 4x + y = 14 and 2x + y = 8.",
+      "choices": [
+        "x=2, y=6",
+        "x=3, y=2",
+        "x=4, y=−2",
+        "x=1, y=10"
+      ],
+      "correctIndex": 1,
+      "explanation": "Subtract: 2x=6 → x=3 → 12+y=14 → y=2."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q7",
+      "stem": "y=3x−4 and y=3x+1. How many intersection points?",
+      "choices": [
+        "0",
+        "1",
+        "2",
+        "Infinitely many"
+      ],
+      "correctIndex": 0,
+      "explanation": "Both have gradient 3 but different y-intercepts → parallel, no intersection."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q8",
+      "stem": "Rectangle perimeter 28cm, length is 4cm more than width. Length?",
+      "choices": [
+        "5 cm",
+        "8 cm",
+        "9 cm",
+        "10 cm"
+      ],
+      "correctIndex": 2,
+      "explanation": "l+w=14, l=w+4 → 2w+4=14 → w=5 → l=9 cm."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q9",
+      "stem": "Solve by substitution: x = 3y and 2x + y = 35.",
+      "choices": [
+        "x=3, y=1",
+        "x=15, y=5",
+        "x=21, y=7",
+        "x=10, y=15"
+      ],
+      "correctIndex": 1,
+      "explanation": "2(3y)+y=35 → 7y=35 → y=5 → x=15."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q10",
+      "stem": "A cinema: adult £9, child £5. 8 tickets total £56. How many adults?",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctIndex": 2,
+      "explanation": "a+c=8, 9a+5c=56 → c=8−a → 9a+40−5a=56 → 4a=16 → a=4."
+    }
   ]
 }

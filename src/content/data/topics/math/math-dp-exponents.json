@@ -6,88 +6,88 @@
   "ibLevel": "DP",
   "notes": [
     {
-      "id": "eel-n1",
+      "id": "math-dp-exponents-eel-n1",
       "heading": "Laws of Indices",
       "body": "Exponents (also called indices or powers) give us a compact way to write repeated multiplication. The laws of indices let us simplify and manipulate these expressions quickly.\n\n📌 Definition\nIn the expression $a^n$, the number $a$ is called the base and $n$ is called the exponent (or index).\n    $$a^n = a \\times a \\times a \\times \\dots \\times a \\quad (n \\text{ times})$$\n\n🔑 Laws of Indices\nFor any positive base $a$ (with $a \\neq 0, 1$) and any real numbers $m$ and $n$:\n\n    Multiplication:  $a^m \\times a^n = a^{m+n}$\n    Division:        $a^m \\div a^n = a^{m-n}$\n    Power of power:  $(a^m)^n = a^{mn}$\n    Power of product: $(ab)^n = a^n b^n$\n    Power of quotient: $\\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$\n\n    Special values:\n    $a^0 = 1$   (for any $a \\neq 0$)\n    $a^{-n} = \\frac{1}{a^n}$\n    $a^{\\frac{1}{n}} = \\sqrt[n]{a}$\n    $a^{\\frac{m}{n}} = (\\sqrt[n]{a})^m$\n\n💡 Worked Example 1 — Simplify $\\frac{(3x^2)(2x^3y^2)}{6x^2y}$\n\n  Step 1: Multiply the numerators\n    $(3x^2)(2x^3y^2) = 6x^5y^2$\n\n  Step 2: Divide by the denominator\n    $6x^5y^2 \\div 6x^2y = x^{5-2} y^{2-1} = x^3y$\n\n  Answer: $x^3y$\n\n💡 Worked Example 2 — Evaluate $9^4 \\div 3^7$\n\n  Step 1: Rewrite with the same base\n    $9 = 3^2$, so $9^4 = (3^2)^4 = 3^8$\n\n  Step 2: Apply the division law\n    $3^8 \\div 3^7 = 3^{8-7} = 3^1 = 3$\n\n  Answer: $3$\n\n📎 Key Points to Remember\n• Index laws only work when the bases are the same — change the base first if needed\n• Take your time and apply one law at a time\n• Work with numbers first, then with algebraic terms\n• A negative exponent means reciprocal, not negative answer\n\n⚠️ Common Mistake\nConfusing $a^m \\times a^n$ with $(a^m)^n$. The first adds exponents; the second multiplies them.\n    $2^3 \\times 2^2 = 2^5 = 32$, but $(2^3)^2 = 2^6 = 64$"
     },
     {
-      "id": "eel-n2",
+      "id": "math-dp-exponents-eel-n2",
       "heading": "Definition and Laws of Logarithms",
       "body": "Logarithms are the inverse operation of exponentiation. They answer the question: 'To what power must I raise the base to get this number?'\n\n📌 Definition\nFor $a > 0$, $a \\neq 1$, and $b > 0$:\n    $$\\log_a(b) = c \\iff a^c = b$$\n\n    In words: the log of $b$ to base $a$ is the exponent you need on $a$ to produce $b$.\n\n🔑 Logarithm Laws\nFor any base $a > 0$, $a \\neq 1$, and any positive $x$, $y$:\n\n    Product law:   $\\log_a(xy) = \\log_a(x) + \\log_a(y)$\n    Quotient law:  $\\log_a\\left(\\frac{x}{y}\\right) = \\log_a(x) - \\log_a(y)$\n    Power law:     $\\log_a(x^n) = n \\cdot \\log_a(x)$\n\n    Special values:\n    $\\log_a(1) = 0$     (because $a^0 = 1$)\n    $\\log_a(a) = 1$     (because $a^1 = a$)\n\n🔑 Change of Base Formula\n    $$\\log_a(b) = \\frac{\\log(b)}{\\log(a)}$$\n\n    You can use any log on the right — common log (base $10$) or natural log (base $e$).\n    This is essential for calculator work when your base is not $10$ or $e$.\n\n💡 Worked Example 1 — Expand $\\log_2\\left(\\frac{8x^3}{y}\\right)$\n\n  Step 1: Apply the quotient law\n    $\\log_2\\left(\\frac{8x^3}{y}\\right) = \\log_2(8x^3) - \\log_2(y)$\n\n  Step 2: Apply the product law\n    $= \\log_2(8) + \\log_2(x^3) - \\log_2(y)$\n\n  Step 3: Apply the power law and evaluate\n    $= 3 + 3 \\cdot \\log_2(x) - \\log_2(y)$\n\n  Answer: $3 + 3 \\cdot \\log_2(x) - \\log_2(y)$\n\n💡 Worked Example 2 — Evaluate $\\log_5(20)$ to 3 s.f.\n\n  Step 1: Use change of base\n    $\\log_5(20) = \\frac{\\ln(20)}{\\ln(5)}$\n\n  Step 2: Calculate\n    $\\approx \\frac{2.996}{1.609} \\approx 1.86$\n\n  Answer: $1.86$ (3 s.f.)\n\n📎 Key Points to Remember\n• Logs turn multiplication into addition and division into subtraction\n• The power law lets you bring exponents down in front\n• Change of base is your best friend for calculator evaluation\n• Always check that arguments are positive — log of zero or negatives is undefined\n\n⚠️ Common Mistake\nThinking $\\log_a(x + y) = \\log_a(x) + \\log_a(y)$. This is FALSE.\n    $\\log(2 + 8) = \\log(10) = 1$\n    $\\log(2) + \\log(8) \\approx 0.301 + 0.903 = 1.204$\n    These are not equal! The product law only works for multiplication inside the log."
     },
     {
-      "id": "eel-n3",
+      "id": "math-dp-exponents-eel-n3",
       "heading": "Natural Logarithm and Solving Equations",
       "body": "The natural logarithm, $\\ln$, uses the special number $e \\approx 2.718$ as its base. Because $e^x$ and $\\ln(x)$ are inverse functions, they undo each other — a property that makes solving exponential and logarithmic equations straightforward.\n\n🔑 Natural Logarithm Properties\n    $\\ln(x) = \\log_e(x)$\n    $\\ln(e^x) = x$     for all real $x$\n    $e^{\\ln x} = x$   for $x > 0$\n\n💡 Worked Example 1 — Solve $3 \\cdot 2^x = 48$\n\n  Step 1: Isolate the exponential term\n    $2^x = 48 \\div 3 = 16$\n\n  Step 2: Express both sides with the same base (or take logs)\n    $16 = 2^4$, so $2^x = 2^4$\n\n  Step 3: Equate exponents\n    $x = 4$\n\n  Answer: $x = 4$\n\n💡 Worked Example 2 — Solve $3^x = 45$ (give answer to 2 d.p.)\n\n  Step 1: Take $\\ln$ of both sides\n    $\\ln(3^x) = \\ln(45)$\n\n  Step 2: Apply the power law\n    $x \\cdot \\ln(3) = \\ln(45)$\n\n  Step 3: Solve for $x$\n    $x = \\frac{\\ln(45)}{\\ln(3)} \\approx \\frac{3.81}{1.10} \\approx 3.47$\n\n  Answer: $x \\approx 3.47$\n\n💡 Worked Example 3 — Solve $\\log_2(x(x - 2)) = 3$\n\n  Step 1: Convert to exponential form\n    $x(x - 2) = 2^3 = 8$\n\n  Step 2: Expand and rearrange\n    $x^2 - 2x - 8 = 0$\n\n  Step 3: Factorise\n    $(x - 4)(x + 2) = 0$\n    $x = 4$ or $x = -2$\n\n  Step 4: Check the domain\n    For $\\log_2(x)$ we need $x > 0$. For $\\log_2(x - 2)$ we need $x > 2$.\n    $x = -2$ is rejected because it makes both arguments negative.\n\n  Answer: $x = 4$\n\n📎 Key Points to Remember\n• To solve $a^x = b$: take logs of both sides, then isolate $x$\n• To solve $\\log_a(\\text{expression}) = c$: rewrite as $a^c = \\text{expression}$, then solve\n• Always check your final answer against the domain of the original equation\n• Rejected solutions are called extraneous solutions — they are common in log equations\n\n⚠️ Common Mistake\nForgetting to check the domain after solving logarithmic equations.\n    A negative solution might satisfy the algebra but be invalid for the original log expression.\n    Always substitute back and verify every log argument is positive."
     },
     {
-      "id": "eel-n4",
+      "id": "math-dp-exponents-eel-n4",
       "heading": "Exponential Growth and Decay",
       "body": "Many real-world quantities grow or shrink by a fixed percentage over equal time intervals. These situations are modelled by exponential functions.\n\n📌 Definition\nA quantity changes exponentially when its rate of change is proportional to its current value.\n\n🔑 General Exponential Model\n    $$y = A \\cdot e^{kx}$$\n\n    $A$ = initial value (when $x = 0$)\n    $k$ = growth/decay constant\n    $x$ = time (or other independent variable)\n\n    If $k > 0$ → exponential growth\n    If $k < 0$ → exponential decay\n\n🔑 Half-Life Formula\n    $$T_{\\frac{1}{2}} = \\frac{\\ln(2)}{k}$$   (for decay models)\n\n🔑 Continuous Compound Interest\n    $$A = P \\cdot e^{rt}$$\n\n    $P$ = principal (initial investment)\n    $r$ = annual interest rate (as a decimal)\n    $t$ = time in years\n    $A$ = final amount\n\n💡 Worked Example 1 — Population Growth\nA bacteria population is modelled by $N(t) = 200 \\cdot e^{0.15t}$, where $t$ is in hours.\nHow many hours until the population reaches $800$?\n\n  Step 1: Set up the equation\n    $200 \\cdot e^{0.15t} = 800$\n\n  Step 2: Isolate the exponential\n    $e^{0.15t} = 4$\n\n  Step 3: Take natural logs\n    $0.15t = \\ln(4) \\approx 1.386$\n\n  Step 4: Solve for $t$\n    $t \\approx \\frac{1.386}{0.15} \\approx 9.24$\n\n  Answer: approximately $9.2$ hours\n\n💡 Worked Example 2 — Finding Half-Life\nA radioactive substance decays according to $N(t) = N_0 \\cdot e^{-0.05t}$. Find its half-life.\n\n  Step 1: Use the half-life formula\n    $T_{\\frac{1}{2}} = \\frac{\\ln(2)}{k} = \\frac{\\ln(2)}{0.05}$\n\n  Step 2: Calculate\n    $\\approx \\frac{0.693}{0.05} \\approx 13.9$\n\n  Answer: approximately $13.9$ years\n\n📎 Key Points to Remember\n• Growth: $k > 0$, the curve rises steeply to the right\n• Decay: $k < 0$, the curve falls and approaches the $x$-axis asymptotically\n• Half-life is constant — it does not depend on the initial amount\n• In compound interest, $e^{rt}$ gives the continuous compounding factor\n\n⚠️ Common Mistake\nUsing the wrong sign for $k$.\n    If a population is decreasing, $k$ must be negative.\n    A positive $k$ with 'decay' in the word problem is a contradiction — check your setup!"
     },
     {
-      "id": "eel-n5",
+      "id": "math-dp-exponents-eel-n5",
       "heading": "Logarithmic Scales and Real-World Models",
       "body": "Many natural phenomena span enormous ranges — earthquake energy, sound intensity, acidity. Linear scales become impractical, so scientists use logarithmic scales where equal steps represent equal ratios, not equal amounts.\n\n📌 Why Log Scales?\nOn a linear scale, the distance from 1 to 2 is the same as from 1000 to 1001.\nOn a log scale, the distance from 1 to 10 equals the distance from 10 to 100.\nThis compresses huge ranges into manageable numbers.\n\n🔑 Common Logarithmic Scales\n\n    Richter scale (earthquakes):\n        $R = \\log\\left(\\frac{A}{A_0}\\right)$\n        A difference of $1$ means $10\\times$ more wave amplitude\n        A difference of $2$ means $100\\times$ more wave amplitude\n\n    Decibel scale (sound):\n        $L = 10 \\cdot \\log\\left(\\frac{I}{I_0}\\right)$\n        Every $10$ dB increase means $10\\times$ more intensity\n\n    pH scale (acidity):\n        $\\text{pH} = -\\log[H^+]$\n        Lower pH means higher acidity\n        A difference of $1$ pH unit means $10\\times$ difference in $[H^+]$\n\n💡 Worked Example 1 — Richter Scale\nAn earthquake measures $6.0$ on the Richter scale. Another measures $4.0$.\nHow many times greater is the wave amplitude?\n\n  Step 1: Find the difference\n    $6.0 - 4.0 = 2$\n\n  Step 2: Convert to amplitude ratio\n    $\\text{Amplitude ratio} = 10^2 = 100$\n\n  Answer: $100$ times greater\n\n💡 Worked Example 2 — Sound Intensity\nA concert speaker produces $90$ dB. Normal conversation is $60$ dB.\nHow many times more intense is the concert sound?\n\n  Step 1: Find the decibel difference\n    $90 - 60 = 30$ dB\n\n  Step 2: Use the decibel formula\n    $30 = 10 \\cdot \\log\\left(\\frac{I_{\\text{concert}}}{I_{\\text{conversation}}}\\right)$\n    $3 = \\log\\left(\\frac{I_{\\text{concert}}}{I_{\\text{conversation}}}\\right)$\n\n  Step 3: Convert from log form\n    $\\frac{I_{\\text{concert}}}{I_{\\text{conversation}}} = 10^3 = 1000$\n\n  Answer: $1000$ times more intense\n\n📎 Key Points to Remember\n• On any log scale, equal differences mean equal ratios, not equal amounts\n• A change of $+1$ on a base-$10$ log scale always means $10\\times$\n• pH is reverse: lower numbers mean higher concentration\n• Log scales are used because human perception itself is often logarithmic\n\n⚠️ Common Mistake\nTreating log-scale differences as linear differences.\n    A magnitude $8$ earthquake is NOT 'twice as strong' as magnitude $4$.\n    The difference is $4$ units, so the amplitude ratio is $10^4 = 10\\,000\\times$."
     }
   ],
   "flashcards": [
     {
-      "id": "eel-f1",
+      "id": "math-dp-exponents-eel-f1",
       "term": "Definition of log",
       "definition": "$\\log_a(b) = c \\iff a^c = b$",
       "example": "$\\log_2(8) = 3$ because $2^3 = 8$"
     },
     {
-      "id": "eel-f2",
+      "id": "math-dp-exponents-eel-f2",
       "term": "Product law",
       "definition": "$\\log_a(xy) = \\log_a(x) + \\log_a(y)$",
       "example": "$\\log_3(9 \\times 27) = 2 + 3 = 5$"
     },
     {
-      "id": "eel-f3",
+      "id": "math-dp-exponents-eel-f3",
       "term": "Quotient law",
       "definition": "$\\log_a\\left(\\frac{x}{y}\\right) = \\log_a(x) - \\log_a(y)$",
       "example": "$\\log_2\\left(\\frac{32}{4}\\right) = 5 - 2 = 3$"
     },
     {
-      "id": "eel-f4",
+      "id": "math-dp-exponents-eel-f4",
       "term": "Power law",
       "definition": "$\\log_a(x^n) = n \\cdot \\log_a(x)$",
       "example": "$\\log_2(8^3) = 3 \\times 3 = 9$"
     },
     {
-      "id": "eel-f5",
+      "id": "math-dp-exponents-eel-f5",
       "term": "Change of base",
       "definition": "$\\log_a(b) = \\frac{\\log(b)}{\\log(a)}$",
       "example": "$\\log_5(20) = \\frac{\\ln(20)}{\\ln(5)} \\approx 1.861$"
     },
     {
-      "id": "eel-f6",
+      "id": "math-dp-exponents-eel-f6",
       "term": "Half-life",
       "definition": "$T_{\\frac{1}{2}} = \\frac{\\ln(2)}{k}$ for $N(t) = N_0 e^{-kt}$",
       "example": "$k = 0.1 \\rightarrow T_{\\frac{1}{2}} \\approx 6.93$ years"
     },
     {
-      "id": "eel-f7",
+      "id": "math-dp-exponents-eel-f7",
       "term": "Logarithmic scale",
       "definition": "A scale where equal steps represent equal ratios, not equal differences.",
       "example": "Richter scale: magnitude $6$ is $10\\times$ stronger than $5$ in wave amplitude."
     },
     {
-      "id": "eel-f8",
+      "id": "math-dp-exponents-eel-f8",
       "term": "Decibel level",
       "definition": "$L = 10 \\log\\left(\\frac{I}{I_0}\\right)$ where $I_0$ is the threshold of hearing.",
       "example": "$80$ dB is $10\\times$ more intense than $70$ dB."
     },
     {
-      "id": "eel-f9",
+      "id": "math-dp-exponents-eel-f9",
       "term": "Solving same-base exponentials",
       "definition": "If $a^x = a^y$ then $x = y$ (for $a > 0$, $a \\neq 1$).",
       "example": "$2^{3x-1} = 2^5 \\rightarrow 3x - 1 = 5 \\rightarrow x = 2$."
     },
     {
-      "id": "eel-f10",
+      "id": "math-dp-exponents-eel-f10",
       "term": "Common log misconception",
       "definition": "$\\log(x+y) \\neq \\log(x) + \\log(y)$. The product law only applies to multiplication inside the log.",
       "example": "$\\log(2+8) = \\log(10) = 1$, but $\\log(2) + \\log(8) \\approx 0.301 + 0.903 = 1.204$. Not equal!"
@@ -95,7 +95,7 @@
   ],
   "questions": [
     {
-      "id": "eel-q1",
+      "id": "math-dp-exponents-eel-q1",
       "stem": "$27^{\\frac{2}{3}} = ?$",
       "choices": [
         "3",
@@ -107,7 +107,7 @@
       "explanation": "$(\\sqrt[3]{27})^2 = 3^2 = 9$."
     },
     {
-      "id": "eel-q2",
+      "id": "math-dp-exponents-eel-q2",
       "stem": "$\\log_2(64) = ?$",
       "choices": [
         "4",
@@ -119,7 +119,7 @@
       "explanation": "$2^6 = 64$."
     },
     {
-      "id": "eel-q3",
+      "id": "math-dp-exponents-eel-q3",
       "stem": "$\\log(12)$ in terms of $\\log(2)$, $\\log(3)$:",
       "choices": [
         "$\\log(2) + \\log(3)$",
@@ -131,7 +131,7 @@
       "explanation": "$12 = 2^2 \\times 3 \\rightarrow 2\\log(2) + \\log(3)$."
     },
     {
-      "id": "eel-q4",
+      "id": "math-dp-exponents-eel-q4",
       "stem": "$3^x = 45 \\rightarrow x \\approx ?$",
       "choices": [
         "2.46",
@@ -143,7 +143,7 @@
       "explanation": "$\\frac{\\ln(45)}{\\ln(3)} \\approx 3.47$."
     },
     {
-      "id": "eel-q5",
+      "id": "math-dp-exponents-eel-q5",
       "stem": "$\\log_3(x) + \\log_3(x-6) = 3 \\rightarrow x = ?$",
       "choices": [
         "7",
@@ -155,7 +155,7 @@
       "explanation": "$x(x-6) = 27 \\rightarrow x^2 - 6x - 27 = 0 \\rightarrow x = 9$."
     },
     {
-      "id": "eel-q6",
+      "id": "math-dp-exponents-eel-q6",
       "stem": "$e^{\\ln 3} + \\ln(e^3) = ?$",
       "choices": [
         "0",
@@ -167,7 +167,7 @@
       "explanation": "$3 + 3 = 6$."
     },
     {
-      "id": "eel-q7",
+      "id": "math-dp-exponents-eel-q7",
       "stem": "A concert speaker produces sound at $90$ dB. A normal conversation is $60$ dB. How many times more intense is the concert sound?",
       "choices": [
         "3",
@@ -179,7 +179,7 @@
       "explanation": "Decibels use $L = 10 \\log\\left(\\frac{I}{I_0}\\right)$. A $30$ dB difference means $10^{30/10} = 10^3 = 1000\\times$ more intense. Each $10$ dB step is a $10\\times$ multiplier, so three steps = $10 \\times 10 \\times 10 = 1000$."
     },
     {
-      "id": "eel-q8",
+      "id": "math-dp-exponents-eel-q8",
       "stem": "Which of the following statements is ALWAYS true for $a > 0$, $a \\neq 1$ and $x, y > 0$?",
       "choices": [
         "$\\log_a(x+y) = \\log_a(x) + \\log_a(y)$",
@@ -191,7 +191,7 @@
       "explanation": "The quotient law states $\\log_a\\left(\\frac{x}{y}\\right) = \\log_a(x) - \\log_a(y)$. Choice A confuses sum with product; the product law says $\\log(xy) = \\log(x) + \\log(y)$. Choice B confuses log of a product with product of logs. Choice D confuses log of a power with power of a log."
     },
     {
-      "id": "eel-q9",
+      "id": "math-dp-exponents-eel-q9",
       "stem": "An earthquake measures $6.0$ on the Richter scale. Another measures $4.0$. How many times greater is the wave amplitude of the larger earthquake?",
       "choices": [
         "2",
@@ -203,7 +203,7 @@
       "explanation": "Richter scale: $R = \\log\\left(\\frac{A}{A_0}\\right)$. Difference $= 6 - 4 = 2$. Amplitude ratio $= 10^2 = 100$. Each whole number step on the Richter scale represents a $10$-fold increase in wave amplitude."
     },
     {
-      "id": "eel-q10",
+      "id": "math-dp-exponents-eel-q10",
       "stem": "Solve for $x$: $5^{2x-1} = 125$.",
       "choices": [
         "1",
@@ -215,7 +215,7 @@
       "explanation": "Write $125$ as $5^3$. Since the bases are equal: $2x - 1 = 3 \\rightarrow 2x = 4 \\rightarrow x = 2$."
     },
     {
-      "id": "eel-q11",
+      "id": "math-dp-exponents-eel-q11",
       "stem": "The $\\text{pH}$ of a solution is defined as $\\text{pH} = -\\log[H^+]$, where $[H^+]$ is hydrogen ion concentration. If lemon juice has $[H^+] = 1 \\times 10^{-2}$ and milk has $[H^+] = 1 \\times 10^{-6}$, how many times more acidic is the lemon juice?",
       "choices": [
         "4",
@@ -227,7 +227,7 @@
       "explanation": "$\\text{pH}$ of lemon juice $= -\\log(10^{-2}) = 2$. $\\text{pH}$ of milk $= -\\log(10^{-6}) = 6$. A difference of $4$ pH units means $10^4 = 10000\\times$ more acidic. Alternatively, ratio of $[H^+] = \\frac{10^{-2}}{10^{-6}} = 10^4 = 10000$."
     },
     {
-      "id": "eel-q12",
+      "id": "math-dp-exponents-eel-q12",
       "stem": "Simplify $(8x^6)^{\\frac{2}{3}}$.",
       "choices": [
         "$4x^4$",

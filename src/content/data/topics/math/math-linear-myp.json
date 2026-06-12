@@ -6,48 +6,48 @@
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "lin-n1",
+      "id": "math-linear-myp-lin-n1",
       "heading": "Gradient and y-Intercept",
       "body": "Gradient m = (y₂−y₁)÷(x₂−x₁) measures steepness. Positive = upward, negative = downward, zero = horizontal. y-intercept c is where the line crosses the y-axis (x=0)."
     },
     {
-      "id": "lin-n2",
+      "id": "math-linear-myp-lin-n2",
       "heading": "y = mx + c",
       "body": "Every straight line can be written as y=mx+c. Given gradient and one point, use y−y₁=m(x−x₁). Given two points, find m first, then substitute to find c. Example: (1,3) and (3,7): m=2, c=1 → y=2x+1."
     },
     {
-      "id": "lin-n3",
+      "id": "math-linear-myp-lin-n3",
       "heading": "Parallel and Perpendicular",
       "body": "Parallel: same gradient (m₁=m₂). Perpendicular: m₁×m₂=−1 (negative reciprocals). Example: gradient 2 is perpendicular to −1/2."
     }
   ],
   "flashcards": [
     {
-      "id": "lin-f1",
+      "id": "math-linear-myp-lin-f1",
       "term": "Gradient",
       "definition": "Measure of steepness: (change in y)÷(change in x).",
       "example": "(2,1)→(6,9): m=8÷4=2."
     },
     {
-      "id": "lin-f2",
+      "id": "math-linear-myp-lin-f2",
       "term": "y-intercept",
       "definition": "Where line crosses y-axis (x=0), the c in y=mx+c.",
       "example": "y=3x−5 → y-intercept = −5."
     },
     {
-      "id": "lin-f3",
+      "id": "math-linear-myp-lin-f3",
       "term": "y=mx+c",
       "definition": "Standard straight line equation: m=gradient, c=y-intercept.",
       "example": "y=−2x+7: m=−2, c=7."
     },
     {
-      "id": "lin-f4",
+      "id": "math-linear-myp-lin-f4",
       "term": "Parallel lines",
       "definition": "Same gradient, never intersect.",
       "example": "y=4x+1 ∥ y=4x−3 (both m=4)."
     },
     {
-      "id": "lin-f5",
+      "id": "math-linear-myp-lin-f5",
       "term": "Perpendicular lines",
       "definition": "m₁×m₂=−1 (negative reciprocals).",
       "example": "m=3 ⊥ m=−1/3."
@@ -55,7 +55,7 @@
   ],
   "questions": [
     {
-      "id": "lin-q1",
+      "id": "math-linear-myp-lin-q1",
       "stem": "Gradient of line through (1,2) and (5,10)?",
       "choices": [
         "1",
@@ -67,7 +67,7 @@
       "explanation": "(10−2)÷(5−1)=8÷4=2."
     },
     {
-      "id": "lin-q2",
+      "id": "math-linear-myp-lin-q2",
       "stem": "y-intercept of y=3x−4?",
       "choices": [
         "3",
@@ -79,7 +79,7 @@
       "explanation": "In y=mx+c, c=−4."
     },
     {
-      "id": "lin-q3",
+      "id": "math-linear-myp-lin-q3",
       "stem": "Which is parallel to y=2x+5?",
       "choices": [
         "y=−2x+5",
@@ -91,7 +91,7 @@
       "explanation": "Same gradient m=2."
     },
     {
-      "id": "lin-q4",
+      "id": "math-linear-myp-lin-q4",
       "stem": "Gradient perpendicular to y=4x+1?",
       "choices": [
         "4",
@@ -103,7 +103,7 @@
       "explanation": "Negative reciprocal: −1/4."
     },
     {
-      "id": "lin-q5",
+      "id": "math-linear-myp-lin-q5",
       "stem": "Line with gradient 3 through (0,−2)?",
       "choices": [
         "y=−2x+3",

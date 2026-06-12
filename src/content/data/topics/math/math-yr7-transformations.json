@@ -5,31 +5,197 @@
   "description": "Understanding reflection, rotation, translation, and enlargement of 2D shapes on a coordinate grid.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "trans-n1", "heading": "Reflection", "body": "A mirror image across a mirror line. Each point is the same perpendicular distance from the mirror line as its image. Common mirror lines: x-axis, y-axis, y=x, or vertical/horizontal lines like x=2. The shape stays the same size and shape (congruent)." },
-    { "id": "trans-n2", "heading": "Rotation", "body": "Turns a shape around a fixed centre of rotation. Describe with: (1) centre point, (2) angle (90°, 180°, 270°), (3) direction (clockwise/anticlockwise). Use tracing paper to rotate on a grid. The shape is congruent to the original — only orientation changes." },
-    { "id": "trans-n3", "heading": "Translation", "body": "Slides a shape without turning, flipping, or resizing. Described by a column vector: top number = horizontal (positive=right), bottom number = vertical (positive=up). Vector (3,−2) means move 3 right and 2 down. Every point moves by the same vector." },
-    { "id": "trans-n4", "heading": "Enlargement", "body": "Changes shape size by a scale factor about a centre of enlargement. Scale factor > 1 = bigger; between 0 and 1 = smaller. At Year 7, centre is usually (0,0): multiply each coordinate by the scale factor. The enlarged shape is similar (same shape, different size), not congruent." }
+    {
+      "id": "math-yr7-transformations-trans-n1",
+      "heading": "Reflection",
+      "body": "A mirror image across a mirror line. Each point is the same perpendicular distance from the mirror line as its image. Common mirror lines: x-axis, y-axis, y=x, or vertical/horizontal lines like x=2. The shape stays the same size and shape (congruent)."
+    },
+    {
+      "id": "math-yr7-transformations-trans-n2",
+      "heading": "Rotation",
+      "body": "Turns a shape around a fixed centre of rotation. Describe with: (1) centre point, (2) angle (90°, 180°, 270°), (3) direction (clockwise/anticlockwise). Use tracing paper to rotate on a grid. The shape is congruent to the original — only orientation changes."
+    },
+    {
+      "id": "math-yr7-transformations-trans-n3",
+      "heading": "Translation",
+      "body": "Slides a shape without turning, flipping, or resizing. Described by a column vector: top number = horizontal (positive=right), bottom number = vertical (positive=up). Vector (3,−2) means move 3 right and 2 down. Every point moves by the same vector."
+    },
+    {
+      "id": "math-yr7-transformations-trans-n4",
+      "heading": "Enlargement",
+      "body": "Changes shape size by a scale factor about a centre of enlargement. Scale factor > 1 = bigger; between 0 and 1 = smaller. At Year 7, centre is usually (0,0): multiply each coordinate by the scale factor. The enlarged shape is similar (same shape, different size), not congruent."
+    }
   ],
   "flashcards": [
-    { "id": "trans-f1", "term": "Reflection", "definition": "Mirror image across a line. Shape stays congruent.", "example": "Reflecting a triangle in the y-axis." },
-    { "id": "trans-f2", "term": "Mirror line", "definition": "The line across which reflection happens.", "example": "x-axis, y-axis, y=1, x=−2." },
-    { "id": "trans-f3", "term": "Rotation", "definition": "Turning a shape around a fixed point by an angle.", "example": "90° clockwise around (0,0)." },
-    { "id": "trans-f4", "term": "Centre of rotation", "definition": "Fixed point around which rotation happens.", "example": "Origin (0,0) or a shape vertex." },
-    { "id": "trans-f5", "term": "Translation", "definition": "Sliding a shape — every point moves same distance, same direction.", "example": "Vector (4,−2): 4 right, 2 down." },
-    { "id": "trans-f6", "term": "Translation vector", "definition": "Column showing horizontal (top) and vertical (bottom) movement.", "example": "(3,5) = 3 right, 5 up." },
-    { "id": "trans-f7", "term": "Enlargement", "definition": "Changing size by multiplying distances from a centre by a scale factor.", "example": "Scale factor 2 doubles all sides." },
-    { "id": "trans-f8", "term": "Scale factor", "definition": "The multiplier in enlargement. >1 = bigger, 0–1 = smaller.", "example": "Scale factor 3: sides triple." }
+    {
+      "id": "math-yr7-transformations-trans-f1",
+      "term": "Reflection",
+      "definition": "Mirror image across a line. Shape stays congruent.",
+      "example": "Reflecting a triangle in the y-axis."
+    },
+    {
+      "id": "math-yr7-transformations-trans-f2",
+      "term": "Mirror line",
+      "definition": "The line across which reflection happens.",
+      "example": "x-axis, y-axis, y=1, x=−2."
+    },
+    {
+      "id": "math-yr7-transformations-trans-f3",
+      "term": "Rotation",
+      "definition": "Turning a shape around a fixed point by an angle.",
+      "example": "90° clockwise around (0,0)."
+    },
+    {
+      "id": "math-yr7-transformations-trans-f4",
+      "term": "Centre of rotation",
+      "definition": "Fixed point around which rotation happens.",
+      "example": "Origin (0,0) or a shape vertex."
+    },
+    {
+      "id": "math-yr7-transformations-trans-f5",
+      "term": "Translation",
+      "definition": "Sliding a shape — every point moves same distance, same direction.",
+      "example": "Vector (4,−2): 4 right, 2 down."
+    },
+    {
+      "id": "math-yr7-transformations-trans-f6",
+      "term": "Translation vector",
+      "definition": "Column showing horizontal (top) and vertical (bottom) movement.",
+      "example": "(3,5) = 3 right, 5 up."
+    },
+    {
+      "id": "math-yr7-transformations-trans-f7",
+      "term": "Enlargement",
+      "definition": "Changing size by multiplying distances from a centre by a scale factor.",
+      "example": "Scale factor 2 doubles all sides."
+    },
+    {
+      "id": "math-yr7-transformations-trans-f8",
+      "term": "Scale factor",
+      "definition": "The multiplier in enlargement. >1 = bigger, 0–1 = smaller.",
+      "example": "Scale factor 3: sides triple."
+    }
   ],
   "questions": [
-    { "id": "trans-q1", "stem": "Which transformation creates a mirror image?", "choices": ["Rotation", "Translation", "Enlargement", "Reflection"], "correctIndex": 3, "explanation": "Reflection flips a shape across a mirror line." },
-    { "id": "trans-q2", "stem": "Point (3,4) reflected in x-axis. New coordinates?", "choices": ["(3,−4)", "(−3,4)", "(−3,−4)", "(4,3)"], "correctIndex": 0, "explanation": "Reflection in x-axis: (x,y)→(x,−y). So (3,4)→(3,−4)." },
-    { "id": "trans-q3", "stem": "Point (2,−5) reflected in y-axis. New coordinates?", "choices": ["(2,5)", "(−2,−5)", "(−2,5)", "(5,−2)"], "correctIndex": 1, "explanation": "Reflection in y-axis: (x,y)→(−x,y). So (2,−5)→(−2,−5)." },
-    { "id": "trans-q4", "stem": "Rotated 180° around (0,0). What happens to (3,2)?", "choices": ["(3,2)", "(−3,2)", "(3,−2)", "(−3,−2)"], "correctIndex": 3, "explanation": "180° rotation: (x,y)→(−x,−y). So (3,2)→(−3,−2)." },
-    { "id": "trans-q5", "stem": "Vector (4,−3) means:", "choices": ["4 right, 3 down", "4 left, 3 up", "4 right, 3 up", "4 left, 3 down"], "correctIndex": 0, "explanation": "+4 = right, −3 = down." },
-    { "id": "trans-q6", "stem": "Point (1,5) after translation (−2,3). New position?", "choices": ["(3,8)", "(−1,8)", "(−1,2)", "(3,2)"], "correctIndex": 1, "explanation": "1+(−2)=−1, 5+3=8. New point: (−1,8)." },
-    { "id": "trans-q7", "stem": "Square vertices (1,1),(3,1),(3,3),(1,3) enlarged by scale factor 2 around (0,0). New vertices?", "choices": ["(2,2),(6,2),(6,6),(2,6)", "(2,2),(4,2),(4,4),(2,4)", "(3,3),(5,3),(5,5),(3,5)", "(1,1),(6,1),(6,6),(1,6)"], "correctIndex": 0, "explanation": "Multiply each coordinate by 2." },
-    { "id": "trans-q8", "stem": "Scale factor 1 enlargement does what?", "choices": ["Gets bigger", "Gets smaller", "Stays same", "Disappears"], "correctIndex": 2, "explanation": "Multiplying by 1 changes nothing." },
-    { "id": "trans-q9", "stem": "Which transformation changes shape SIZE?", "choices": ["Reflection", "Translation", "Rotation", "Enlargement"], "correctIndex": 3, "explanation": "Only enlargement changes size. Others are congruent." },
-    { "id": "trans-q10", "stem": "Reflect (5,2) in x=1. New coordinates?", "choices": ["(−3,2)", "(−5,2)", "(1,2)", "(6,2)"], "correctIndex": 0, "explanation": "Distance from x=5 to x=1 is 4. Go 4 units other side: 1−4=−3. y stays 2." }
+    {
+      "id": "math-yr7-transformations-trans-q1",
+      "stem": "Which transformation creates a mirror image?",
+      "choices": [
+        "Rotation",
+        "Translation",
+        "Enlargement",
+        "Reflection"
+      ],
+      "correctIndex": 3,
+      "explanation": "Reflection flips a shape across a mirror line."
+    },
+    {
+      "id": "math-yr7-transformations-trans-q2",
+      "stem": "Point (3,4) reflected in x-axis. New coordinates?",
+      "choices": [
+        "(3,−4)",
+        "(−3,4)",
+        "(−3,−4)",
+        "(4,3)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Reflection in x-axis: (x,y)→(x,−y). So (3,4)→(3,−4)."
+    },
+    {
+      "id": "math-yr7-transformations-trans-q3",
+      "stem": "Point (2,−5) reflected in y-axis. New coordinates?",
+      "choices": [
+        "(2,5)",
+        "(−2,−5)",
+        "(−2,5)",
+        "(5,−2)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Reflection in y-axis: (x,y)→(−x,y). So (2,−5)→(−2,−5)."
+    },
+    {
+      "id": "math-yr7-transformations-trans-q4",
+      "stem": "Rotated 180° around (0,0). What happens to (3,2)?",
+      "choices": [
+        "(3,2)",
+        "(−3,2)",
+        "(3,−2)",
+        "(−3,−2)"
+      ],
+      "correctIndex": 3,
+      "explanation": "180° rotation: (x,y)→(−x,−y). So (3,2)→(−3,−2)."
+    },
+    {
+      "id": "math-yr7-transformations-trans-q5",
+      "stem": "Vector (4,−3) means:",
+      "choices": [
+        "4 right, 3 down",
+        "4 left, 3 up",
+        "4 right, 3 up",
+        "4 left, 3 down"
+      ],
+      "correctIndex": 0,
+      "explanation": "+4 = right, −3 = down."
+    },
+    {
+      "id": "math-yr7-transformations-trans-q6",
+      "stem": "Point (1,5) after translation (−2,3). New position?",
+      "choices": [
+        "(3,8)",
+        "(−1,8)",
+        "(−1,2)",
+        "(3,2)"
+      ],
+      "correctIndex": 1,
+      "explanation": "1+(−2)=−1, 5+3=8. New point: (−1,8)."
+    },
+    {
+      "id": "math-yr7-transformations-trans-q7",
+      "stem": "Square vertices (1,1),(3,1),(3,3),(1,3) enlarged by scale factor 2 around (0,0). New vertices?",
+      "choices": [
+        "(2,2),(6,2),(6,6),(2,6)",
+        "(2,2),(4,2),(4,4),(2,4)",
+        "(3,3),(5,3),(5,5),(3,5)",
+        "(1,1),(6,1),(6,6),(1,6)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply each coordinate by 2."
+    },
+    {
+      "id": "math-yr7-transformations-trans-q8",
+      "stem": "Scale factor 1 enlargement does what?",
+      "choices": [
+        "Gets bigger",
+        "Gets smaller",
+        "Stays same",
+        "Disappears"
+      ],
+      "correctIndex": 2,
+      "explanation": "Multiplying by 1 changes nothing."
+    },
+    {
+      "id": "math-yr7-transformations-trans-q9",
+      "stem": "Which transformation changes shape SIZE?",
+      "choices": [
+        "Reflection",
+        "Translation",
+        "Rotation",
+        "Enlargement"
+      ],
+      "correctIndex": 3,
+      "explanation": "Only enlargement changes size. Others are congruent."
+    },
+    {
+      "id": "math-yr7-transformations-trans-q10",
+      "stem": "Reflect (5,2) in x=1. New coordinates?",
+      "choices": [
+        "(−3,2)",
+        "(−5,2)",
+        "(1,2)",
+        "(6,2)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Distance from x=5 to x=1 is 4. Go 4 units other side: 1−4=−3. y stays 2."
+    }
   ]
 }

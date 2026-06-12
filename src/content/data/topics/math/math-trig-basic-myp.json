@@ -5,31 +5,197 @@
   "description": "Labelling triangle sides, using sin/cos/tan ratios, angles of elevation and depression, exact values, and bearings.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "tba-n1", "heading": "Labelling Sides and SOH CAH TOA", "body": "In a right-angled triangle, relative to angle θ: Hypotenuse (H) = opposite right angle, longest side. Opposite (O) = side across from θ. Adjacent (A) = side next to θ (not hypotenuse). Ratios: sin θ = O/H (SOH), cos θ = A/H (CAH), tan θ = O/A (TOA)." },
-    { "id": "tba-n2", "heading": "Finding Unknown Sides", "body": "Choose the ratio connecting known and unknown sides. Example: find O when H=10, θ=30°: sin 30° = O/10 → O = 10×0.5 = 5. To find A when O known: A = O÷tan θ. Always use degree mode on calculator." },
-    { "id": "tba-n3", "heading": "Finding Unknown Angles", "body": "Use inverse trig functions. Example: sin θ = 0.6 → θ = sin⁻¹(0.6) ≈ 36.9°. If tan θ = O/A = 7/4 = 1.75 → θ = tan⁻¹(1.75) ≈ 60.3°. Inverse functions: sin⁻¹, cos⁻¹, tan⁻¹ (also arcsin, arccos, arctan)." },
-    { "id": "tba-n4", "heading": "Exact Values, Elevation, Depression, and Bearings", "body": "Memorise: sin 30° = 1/2, cos 30° = √3/2, tan 30° = 1/√3; sin 45° = cos 45° = 1/√2, tan 45° = 1; sin 60° = √3/2, cos 60° = 1/2, tan 60° = √3. Angle of elevation: upward from horizontal. Angle of depression: downward from horizontal." }
+    {
+      "id": "math-trig-basic-myp-tba-n1",
+      "heading": "Labelling Sides and SOH CAH TOA",
+      "body": "In a right-angled triangle, relative to angle θ: Hypotenuse (H) = opposite right angle, longest side. Opposite (O) = side across from θ. Adjacent (A) = side next to θ (not hypotenuse). Ratios: sin θ = O/H (SOH), cos θ = A/H (CAH), tan θ = O/A (TOA)."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-n2",
+      "heading": "Finding Unknown Sides",
+      "body": "Choose the ratio connecting known and unknown sides. Example: find O when H=10, θ=30°: sin 30° = O/10 → O = 10×0.5 = 5. To find A when O known: A = O÷tan θ. Always use degree mode on calculator."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-n3",
+      "heading": "Finding Unknown Angles",
+      "body": "Use inverse trig functions. Example: sin θ = 0.6 → θ = sin⁻¹(0.6) ≈ 36.9°. If tan θ = O/A = 7/4 = 1.75 → θ = tan⁻¹(1.75) ≈ 60.3°. Inverse functions: sin⁻¹, cos⁻¹, tan⁻¹ (also arcsin, arccos, arctan)."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-n4",
+      "heading": "Exact Values, Elevation, Depression, and Bearings",
+      "body": "Memorise: sin 30° = 1/2, cos 30° = √3/2, tan 30° = 1/√3; sin 45° = cos 45° = 1/√2, tan 45° = 1; sin 60° = √3/2, cos 60° = 1/2, tan 60° = √3. Angle of elevation: upward from horizontal. Angle of depression: downward from horizontal."
+    }
   ],
   "flashcards": [
-    { "id": "tba-f1", "term": "Hypotenuse", "definition": "The longest side, opposite the right angle.", "example": "In a 3-4-5 triangle, 5 is the hypotenuse." },
-    { "id": "tba-f2", "term": "SOH", "definition": "sin θ = Opposite ÷ Hypotenuse.", "example": "sin 30° = 0.5; if H=10, O=5." },
-    { "id": "tba-f3", "term": "CAH", "definition": "cos θ = Adjacent ÷ Hypotenuse.", "example": "cos 60° = 0.5; if H=8, A=4." },
-    { "id": "tba-f4", "term": "TOA", "definition": "tan θ = Opposite ÷ Adjacent.", "example": "tan 45° = 1; if A=6, O=6." },
-    { "id": "tba-f5", "term": "Inverse trigonometry", "definition": "θ = sin⁻¹(O/H), θ = cos⁻¹(A/H), or θ = tan⁻¹(O/A).", "example": "tan θ = 1.5 → θ ≈ 56.3°." },
-    { "id": "tba-f6", "term": "Angle of elevation", "definition": "Angle measured upward from the horizontal to a line of sight.", "example": "Looking up at a building top." },
-    { "id": "tba-f7", "term": "Angle of depression", "definition": "Angle measured downward from the horizontal to a line of sight.", "example": "A bird looking down at a worm." },
-    { "id": "tba-f8", "term": "Exact trig values", "definition": "sin30=1/2, sin60=√3/2, sin45=1/√2; cos is complementary; tan = sin/cos.", "example": "tan 60° = √3." }
+    {
+      "id": "math-trig-basic-myp-tba-f1",
+      "term": "Hypotenuse",
+      "definition": "The longest side, opposite the right angle.",
+      "example": "In a 3-4-5 triangle, 5 is the hypotenuse."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-f2",
+      "term": "SOH",
+      "definition": "sin θ = Opposite ÷ Hypotenuse.",
+      "example": "sin 30° = 0.5; if H=10, O=5."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-f3",
+      "term": "CAH",
+      "definition": "cos θ = Adjacent ÷ Hypotenuse.",
+      "example": "cos 60° = 0.5; if H=8, A=4."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-f4",
+      "term": "TOA",
+      "definition": "tan θ = Opposite ÷ Adjacent.",
+      "example": "tan 45° = 1; if A=6, O=6."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-f5",
+      "term": "Inverse trigonometry",
+      "definition": "θ = sin⁻¹(O/H), θ = cos⁻¹(A/H), or θ = tan⁻¹(O/A).",
+      "example": "tan θ = 1.5 → θ ≈ 56.3°."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-f6",
+      "term": "Angle of elevation",
+      "definition": "Angle measured upward from the horizontal to a line of sight.",
+      "example": "Looking up at a building top."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-f7",
+      "term": "Angle of depression",
+      "definition": "Angle measured downward from the horizontal to a line of sight.",
+      "example": "A bird looking down at a worm."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-f8",
+      "term": "Exact trig values",
+      "definition": "sin30=1/2, sin60=√3/2, sin45=1/√2; cos is complementary; tan = sin/cos.",
+      "example": "tan 60° = √3."
+    }
   ],
   "questions": [
-    { "id": "tba-q1", "stem": "In a right-angled triangle, which side is always opposite the right angle?", "choices": ["Adjacent", "Opposite", "Hypotenuse", "Base"], "correctIndex": 2, "explanation": "The hypotenuse is always opposite the right angle, longest side." },
-    { "id": "tba-q2", "stem": "sin 30° =?", "choices": ["√3/2", "1/2", "1/√2", "1"], "correctIndex": 1, "explanation": "sin 30° = 1/2 (exact value to memorise)." },
-    { "id": "tba-q3", "stem": "tan 60° =?", "choices": ["1", "1/√3", "√3", "2"], "correctIndex": 2, "explanation": "tan 60° = √3 (exact value)." },
-    { "id": "tba-q4", "stem": "Triangle: hypotenuse 12, angle 40°, sin 40°≈0.643. Opposite side?", "choices": ["5.14 cm", "7.71 cm", "9.19 cm", "18.67 cm"], "correctIndex": 1, "explanation": "O = H×sinθ = 12×0.643 = 7.71." },
-    { "id": "tba-q5", "stem": "Opposite 7, adjacent 7. What is θ?", "choices": ["30°", "45°", "60°", "90°"], "correctIndex": 1, "explanation": "tan θ = 7/7 = 1 → θ = 45°." },
-    { "id": "tba-q6", "stem": "cos 45° =?", "choices": ["1/2", "√3/2", "1/√2", "√2"], "correctIndex": 2, "explanation": "cos 45° = 1/√2 = √2/2." },
-    { "id": "tba-q7", "stem": "Tree 15m tall, observer 20m from base. Angle of elevation? (tan⁻¹(0.75)≈36.9°)", "choices": ["30.0°", "36.9°", "41.4°", "53.1°"], "correctIndex": 1, "explanation": "tan θ = 15/20 = 0.75 → θ ≈ 36.9°." },
-    { "id": "tba-q8", "stem": "sin θ = 5/10 = 0.5. Find θ.", "choices": ["20°", "30°", "45°", "60°"], "correctIndex": 1, "explanation": "sin θ = 0.5 → θ = 30°." },
-    { "id": "tba-q9", "stem": "Ladder 6m makes 70° with ground. Height up wall? (sin 70°≈0.940)", "choices": ["2.05 m", "5.14 m", "5.64 m", "6.40 m"], "correctIndex": 2, "explanation": "H = 6 × 0.940 = 5.64 m." },
-    { "id": "tba-q10", "stem": "Which ratio to find hypotenuse when angle and adjacent are given?", "choices": ["sin θ = A/H", "cos θ = A/H", "tan θ = O/A", "sin θ = O/H"], "correctIndex": 1, "explanation": "CAH: cos θ = A/H → H = A/cos θ." }
+    {
+      "id": "math-trig-basic-myp-tba-q1",
+      "stem": "In a right-angled triangle, which side is always opposite the right angle?",
+      "choices": [
+        "Adjacent",
+        "Opposite",
+        "Hypotenuse",
+        "Base"
+      ],
+      "correctIndex": 2,
+      "explanation": "The hypotenuse is always opposite the right angle, longest side."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-q2",
+      "stem": "sin 30° =?",
+      "choices": [
+        "√3/2",
+        "1/2",
+        "1/√2",
+        "1"
+      ],
+      "correctIndex": 1,
+      "explanation": "sin 30° = 1/2 (exact value to memorise)."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-q3",
+      "stem": "tan 60° =?",
+      "choices": [
+        "1",
+        "1/√3",
+        "√3",
+        "2"
+      ],
+      "correctIndex": 2,
+      "explanation": "tan 60° = √3 (exact value)."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-q4",
+      "stem": "Triangle: hypotenuse 12, angle 40°, sin 40°≈0.643. Opposite side?",
+      "choices": [
+        "5.14 cm",
+        "7.71 cm",
+        "9.19 cm",
+        "18.67 cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "O = H×sinθ = 12×0.643 = 7.71."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-q5",
+      "stem": "Opposite 7, adjacent 7. What is θ?",
+      "choices": [
+        "30°",
+        "45°",
+        "60°",
+        "90°"
+      ],
+      "correctIndex": 1,
+      "explanation": "tan θ = 7/7 = 1 → θ = 45°."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-q6",
+      "stem": "cos 45° =?",
+      "choices": [
+        "1/2",
+        "√3/2",
+        "1/√2",
+        "√2"
+      ],
+      "correctIndex": 2,
+      "explanation": "cos 45° = 1/√2 = √2/2."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-q7",
+      "stem": "Tree 15m tall, observer 20m from base. Angle of elevation? (tan⁻¹(0.75)≈36.9°)",
+      "choices": [
+        "30.0°",
+        "36.9°",
+        "41.4°",
+        "53.1°"
+      ],
+      "correctIndex": 1,
+      "explanation": "tan θ = 15/20 = 0.75 → θ ≈ 36.9°."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-q8",
+      "stem": "sin θ = 5/10 = 0.5. Find θ.",
+      "choices": [
+        "20°",
+        "30°",
+        "45°",
+        "60°"
+      ],
+      "correctIndex": 1,
+      "explanation": "sin θ = 0.5 → θ = 30°."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-q9",
+      "stem": "Ladder 6m makes 70° with ground. Height up wall? (sin 70°≈0.940)",
+      "choices": [
+        "2.05 m",
+        "5.14 m",
+        "5.64 m",
+        "6.40 m"
+      ],
+      "correctIndex": 2,
+      "explanation": "H = 6 × 0.940 = 5.64 m."
+    },
+    {
+      "id": "math-trig-basic-myp-tba-q10",
+      "stem": "Which ratio to find hypotenuse when angle and adjacent are given?",
+      "choices": [
+        "sin θ = A/H",
+        "cos θ = A/H",
+        "tan θ = O/A",
+        "sin θ = O/H"
+      ],
+      "correctIndex": 1,
+      "explanation": "CAH: cos θ = A/H → H = A/cos θ."
+    }
   ]
 }

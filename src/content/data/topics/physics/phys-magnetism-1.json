@@ -5,22 +5,110 @@
   "description": "Magnetic fields, electromagnets, motors, and the links between electricity and magnetism.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "mag-n1", "heading": "Magnetic Fields and Poles", "body": "A magnet has two poles: north (N) and south (S). Like poles repel; unlike poles attract. The magnetic field is the region around a magnet where magnetic forces act. Field lines run from north to south outside the magnet, closer together where the field is stronger. Earth itself behaves like a giant bar magnet — its magnetic south pole is near the geographic North Pole, which is why compass needles point north." },
-    { "id": "mag-n2", "heading": "Electromagnets", "body": "An electromagnet is a temporary magnet created by passing electric current through a coil of wire (solenoid) wrapped around an iron core. Unlike permanent magnets, electromagnets can be switched on and off and their strength varied. Strength increases with: more coil turns, larger current, and an iron core. Used in: electric bells, lifting cranes, MRI scanners, circuit breakers." },
-    { "id": "mag-n3", "heading": "The Motor Effect", "body": "A current-carrying conductor in a magnetic field experiences a force — the motor effect. Fleming's Left-Hand Rule: index finger = magnetic field (N→S), middle finger = current, thumb = force (motion). This principle is used in electric motors: a coil of wire rotates in a magnetic field when current flows, converting electrical energy into kinetic energy." }
+    {
+      "id": "phys-magnetism-1-mag-n1",
+      "heading": "Magnetic Fields and Poles",
+      "body": "A magnet has two poles: north (N) and south (S). Like poles repel; unlike poles attract. The magnetic field is the region around a magnet where magnetic forces act. Field lines run from north to south outside the magnet, closer together where the field is stronger. Earth itself behaves like a giant bar magnet — its magnetic south pole is near the geographic North Pole, which is why compass needles point north."
+    },
+    {
+      "id": "phys-magnetism-1-mag-n2",
+      "heading": "Electromagnets",
+      "body": "An electromagnet is a temporary magnet created by passing electric current through a coil of wire (solenoid) wrapped around an iron core. Unlike permanent magnets, electromagnets can be switched on and off and their strength varied. Strength increases with: more coil turns, larger current, and an iron core. Used in: electric bells, lifting cranes, MRI scanners, circuit breakers."
+    },
+    {
+      "id": "phys-magnetism-1-mag-n3",
+      "heading": "The Motor Effect",
+      "body": "A current-carrying conductor in a magnetic field experiences a force — the motor effect. Fleming's Left-Hand Rule: index finger = magnetic field (N→S), middle finger = current, thumb = force (motion). This principle is used in electric motors: a coil of wire rotates in a magnetic field when current flows, converting electrical energy into kinetic energy."
+    }
   ],
   "flashcards": [
-    { "id": "mag-f1", "term": "Magnetic field", "definition": "The region around a magnet where magnetic forces act. Shown by field lines running from N to S." },
-    { "id": "mag-f2", "term": "Electromagnet", "definition": "A temporary magnet created by passing electric current through a coil of wire around an iron core.", "example": "Used in cranes, electric bells, and MRI machines." },
-    { "id": "mag-f3", "term": "Motor effect", "definition": "The force experienced by a current-carrying conductor placed in a magnetic field." },
-    { "id": "mag-f4", "term": "Fleming's Left-Hand Rule", "definition": "Rule to find direction of force: thumb = force, index = field, middle = current." },
-    { "id": "mag-f5", "term": "Solenoid", "definition": "A coil of wire that acts as an electromagnet when current flows through it." }
+    {
+      "id": "phys-magnetism-1-mag-f1",
+      "term": "Magnetic field",
+      "definition": "The region around a magnet where magnetic forces act. Shown by field lines running from N to S."
+    },
+    {
+      "id": "phys-magnetism-1-mag-f2",
+      "term": "Electromagnet",
+      "definition": "A temporary magnet created by passing electric current through a coil of wire around an iron core.",
+      "example": "Used in cranes, electric bells, and MRI machines."
+    },
+    {
+      "id": "phys-magnetism-1-mag-f3",
+      "term": "Motor effect",
+      "definition": "The force experienced by a current-carrying conductor placed in a magnetic field."
+    },
+    {
+      "id": "phys-magnetism-1-mag-f4",
+      "term": "Fleming's Left-Hand Rule",
+      "definition": "Rule to find direction of force: thumb = force, index = field, middle = current."
+    },
+    {
+      "id": "phys-magnetism-1-mag-f5",
+      "term": "Solenoid",
+      "definition": "A coil of wire that acts as an electromagnet when current flows through it."
+    }
   ],
   "questions": [
-    { "id": "mag-q1", "stem": "Two bar magnets have north poles facing each other. What happens?", "choices": ["They attract", "They repel", "Nothing", "One magnet reverses its poles"], "correctIndex": 1, "explanation": "Like poles (N–N) repel each other." },
-    { "id": "mag-q2", "stem": "How can you increase the strength of an electromagnet?", "choices": ["Use a copper core instead of iron", "Reduce the number of coil turns", "Increase the current flowing through the coil", "Decrease the voltage"], "correctIndex": 2, "explanation": "More current = stronger magnetic field." },
-    { "id": "mag-q3", "stem": "What is the main advantage of an electromagnet over a permanent magnet?", "choices": ["Always stronger", "Can be switched on and off", "Lighter", "Does not need coils"], "correctIndex": 1, "explanation": "Electromagnets can be turned on/off by controlling current — useful for temporary magnetism like cranes." },
-    { "id": "mag-q4", "stem": "What energy transformation takes place in an electric motor?", "choices": ["Kinetic → electrical", "Electrical → light", "Chemical → thermal", "Electrical → kinetic"], "correctIndex": 3, "explanation": "Electric motors convert electrical energy into kinetic (movement) energy via the motor effect." },
-    { "id": "mag-q5", "stem": "Magnetic field lines outside a bar magnet run from:", "choices": ["South to North", "North to South", "Both directions", "They form closed circles"], "correctIndex": 1, "explanation": "Field lines run from North to South outside the magnet (South to North inside, forming closed loops)." }
+    {
+      "id": "phys-magnetism-1-mag-q1",
+      "stem": "Two bar magnets have north poles facing each other. What happens?",
+      "choices": [
+        "They attract",
+        "They repel",
+        "Nothing",
+        "One magnet reverses its poles"
+      ],
+      "correctIndex": 1,
+      "explanation": "Like poles (N–N) repel each other."
+    },
+    {
+      "id": "phys-magnetism-1-mag-q2",
+      "stem": "How can you increase the strength of an electromagnet?",
+      "choices": [
+        "Use a copper core instead of iron",
+        "Reduce the number of coil turns",
+        "Increase the current flowing through the coil",
+        "Decrease the voltage"
+      ],
+      "correctIndex": 2,
+      "explanation": "More current = stronger magnetic field."
+    },
+    {
+      "id": "phys-magnetism-1-mag-q3",
+      "stem": "What is the main advantage of an electromagnet over a permanent magnet?",
+      "choices": [
+        "Always stronger",
+        "Can be switched on and off",
+        "Lighter",
+        "Does not need coils"
+      ],
+      "correctIndex": 1,
+      "explanation": "Electromagnets can be turned on/off by controlling current — useful for temporary magnetism like cranes."
+    },
+    {
+      "id": "phys-magnetism-1-mag-q4",
+      "stem": "What energy transformation takes place in an electric motor?",
+      "choices": [
+        "Kinetic → electrical",
+        "Electrical → light",
+        "Chemical → thermal",
+        "Electrical → kinetic"
+      ],
+      "correctIndex": 3,
+      "explanation": "Electric motors convert electrical energy into kinetic (movement) energy via the motor effect."
+    },
+    {
+      "id": "phys-magnetism-1-mag-q5",
+      "stem": "Magnetic field lines outside a bar magnet run from:",
+      "choices": [
+        "South to North",
+        "North to South",
+        "Both directions",
+        "They form closed circles"
+      ],
+      "correctIndex": 1,
+      "explanation": "Field lines run from North to South outside the magnet (South to North inside, forming closed loops)."
+    }
   ]
 }

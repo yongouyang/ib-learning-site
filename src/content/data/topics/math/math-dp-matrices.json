@@ -30,7 +30,7 @@
     {
       "id": "math-dp-matrices-f1",
       "term": "Order of a matrix",
-      "definition": "The number of rows $\times$ columns in a matrix.",
+      "definition": "The number of rows $\\times$ columns in a matrix.",
       "example": "A $3 \\times 2$ matrix has $3$ rows and $2$ columns."
     },
     {
@@ -49,7 +49,7 @@
       "id": "math-dp-matrices-f4",
       "term": "Matrix multiplication condition",
       "definition": "To multiply $AB$, the number of columns in $A$ must equal the number of rows in $B$.",
-      "example": "$A$ ($2 \\times 3$) $\times$ $B$ ($3 \\times 4$) is possible and gives a $2 \\times 4$ matrix."
+      "example": "$A$ ($2 \\times 3$) $\\times$ $B$ ($3 \\times 4$) is possible and gives a $2 \\times 4$ matrix."
     },
     {
       "id": "math-dp-matrices-f5",
@@ -87,7 +87,7 @@
         "7"
       ],
       "correctIndex": 1,
-      "explanation": "Order is rows $\times$ columns, so $4 \\times 3$."
+      "explanation": "Order is rows $\\times$ columns, so $4 \\times 3$."
     },
     {
       "id": "math-dp-matrices-q2",

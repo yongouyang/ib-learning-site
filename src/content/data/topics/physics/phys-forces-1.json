@@ -5,22 +5,114 @@
   "description": "Newton's laws, speed, velocity, acceleration, and balanced/unbalanced forces.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "n1", "heading": "Speed, Velocity, Acceleration", "body": "Speed = distance ÷ time (m/s). Velocity = speed with direction (vector). Acceleration = change in velocity ÷ time (m/s²). Distance-time graphs: slope = speed. Velocity-time graphs: slope = acceleration, area under = distance." },
-    { "id": "n2", "heading": "Newton's Three Laws", "body": "1st: Object stays at rest or constant velocity unless acted on by a net force. 2nd: F = ma (force = mass × acceleration). 3rd: For every action, equal and opposite reaction." },
-    { "id": "n3", "heading": "Balanced and Unbalanced Forces", "body": "Balanced forces → zero net force → object stays still or constant velocity. Unbalanced forces → net force → acceleration. Weight W = mg (g ≈ 10 m/s² on Earth). Friction, air resistance, and normal force are common forces." }
+    {
+      "id": "phys-forces-1-n1",
+      "heading": "Speed, Velocity, Acceleration",
+      "body": "Speed = distance ÷ time (m/s). Velocity = speed with direction (vector). Acceleration = change in velocity ÷ time (m/s²). Distance-time graphs: slope = speed. Velocity-time graphs: slope = acceleration, area under = distance."
+    },
+    {
+      "id": "phys-forces-1-n2",
+      "heading": "Newton's Three Laws",
+      "body": "1st: Object stays at rest or constant velocity unless acted on by a net force. 2nd: F = ma (force = mass × acceleration). 3rd: For every action, equal and opposite reaction."
+    },
+    {
+      "id": "phys-forces-1-n3",
+      "heading": "Balanced and Unbalanced Forces",
+      "body": "Balanced forces → zero net force → object stays still or constant velocity. Unbalanced forces → net force → acceleration. Weight W = mg (g ≈ 10 m/s² on Earth). Friction, air resistance, and normal force are common forces."
+    }
   ],
   "flashcards": [
-    { "id": "f1", "term": "Speed", "definition": "Distance per unit time: speed = distance ÷ time.", "example": "100 m in 5 s = 20 m/s." },
-    { "id": "f2", "term": "Acceleration", "definition": "Rate of change of velocity: a = Δv ÷ t (m/s²).", "example": "0→20 m/s in 4s: a=5 m/s²." },
-    { "id": "f3", "term": "Newton's 2nd Law", "definition": "F = ma. Force = mass × acceleration.", "example": "F = 10kg × 3m/s² = 30N." },
-    { "id": "f4", "term": "Resultant force", "definition": "The single force with the same effect as all individual forces combined.", "example": "10N + 10N same direction = 20N resultant." },
-    { "id": "f5", "term": "Weight", "definition": "Gravitational force: W = mg (Newtons).", "example": "5kg object: W = 5×10 = 50N." }
+    {
+      "id": "phys-forces-1-f1",
+      "term": "Speed",
+      "definition": "Distance per unit time: speed = distance ÷ time.",
+      "example": "100 m in 5 s = 20 m/s."
+    },
+    {
+      "id": "phys-forces-1-f2",
+      "term": "Acceleration",
+      "definition": "Rate of change of velocity: a = Δv ÷ t (m/s²).",
+      "example": "0→20 m/s in 4s: a=5 m/s²."
+    },
+    {
+      "id": "phys-forces-1-f3",
+      "term": "Newton's 2nd Law",
+      "definition": "F = ma. Force = mass × acceleration.",
+      "example": "F = 10kg × 3m/s² = 30N."
+    },
+    {
+      "id": "phys-forces-1-f4",
+      "term": "Resultant force",
+      "definition": "The single force with the same effect as all individual forces combined.",
+      "example": "10N + 10N same direction = 20N resultant."
+    },
+    {
+      "id": "phys-forces-1-f5",
+      "term": "Weight",
+      "definition": "Gravitational force: W = mg (Newtons).",
+      "example": "5kg object: W = 5×10 = 50N."
+    }
   ],
   "questions": [
-    { "id": "q1", "stem": "Car travels 150 m in 10 s. Average speed?", "choices": ["10 m/s", "1500 m/s", "15 m/s", "150 m/s"], "correctIndex": 2, "explanation": "Speed = 150÷10 = 15 m/s." },
-    { "id": "q2", "stem": "4kg object, net force 20N. Acceleration?", "choices": ["80 m/s²", "0.2 m/s²", "5 m/s²", "16 m/s²"], "correctIndex": 2, "explanation": "a = F÷m = 20÷4 = 5 m/s²." },
-    { "id": "q3", "stem": "Skydiver falling at constant speed. Forces are:", "choices": ["Gravity > air resistance", "No forces", "Air resistance > gravity", "Balanced"], "correctIndex": 3, "explanation": "Constant speed → zero acceleration → forces balanced (Newton's 1st law)." },
-    { "id": "q4", "stem": "Rocket expels gas downward. Rocket goes:", "choices": ["Nowhere", "Upward (equal and opposite)", "Slower", "Downward"], "correctIndex": 1, "explanation": "Newton's 3rd law: gas pushes down, rocket pushes up." },
-    { "id": "q5", "stem": "Weight of 12kg object? (g=10 m/s²)", "choices": ["1.2N", "12N", "120N", "22N"], "correctIndex": 2, "explanation": "W = mg = 12×10 = 120N." }
+    {
+      "id": "phys-forces-1-q1",
+      "stem": "Car travels 150 m in 10 s. Average speed?",
+      "choices": [
+        "10 m/s",
+        "1500 m/s",
+        "15 m/s",
+        "150 m/s"
+      ],
+      "correctIndex": 2,
+      "explanation": "Speed = 150÷10 = 15 m/s."
+    },
+    {
+      "id": "phys-forces-1-q2",
+      "stem": "4kg object, net force 20N. Acceleration?",
+      "choices": [
+        "80 m/s²",
+        "0.2 m/s²",
+        "5 m/s²",
+        "16 m/s²"
+      ],
+      "correctIndex": 2,
+      "explanation": "a = F÷m = 20÷4 = 5 m/s²."
+    },
+    {
+      "id": "phys-forces-1-q3",
+      "stem": "Skydiver falling at constant speed. Forces are:",
+      "choices": [
+        "Gravity > air resistance",
+        "No forces",
+        "Air resistance > gravity",
+        "Balanced"
+      ],
+      "correctIndex": 3,
+      "explanation": "Constant speed → zero acceleration → forces balanced (Newton's 1st law)."
+    },
+    {
+      "id": "phys-forces-1-q4",
+      "stem": "Rocket expels gas downward. Rocket goes:",
+      "choices": [
+        "Nowhere",
+        "Upward (equal and opposite)",
+        "Slower",
+        "Downward"
+      ],
+      "correctIndex": 1,
+      "explanation": "Newton's 3rd law: gas pushes down, rocket pushes up."
+    },
+    {
+      "id": "phys-forces-1-q5",
+      "stem": "Weight of 12kg object? (g=10 m/s²)",
+      "choices": [
+        "1.2N",
+        "12N",
+        "120N",
+        "22N"
+      ],
+      "correctIndex": 2,
+      "explanation": "W = mg = 12×10 = 120N."
+    }
   ]
 }

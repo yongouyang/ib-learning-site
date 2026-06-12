@@ -5,31 +5,197 @@
   "description": "Using column methods for addition, subtraction, multiplication and division, and understanding the order of operations (BIDMAS).",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "calc-n1", "heading": "Column Addition and Subtraction", "body": "When adding or subtracting large numbers, write them in columns with digits lined up by place value (ones under ones, tens under tens). Always start from the rightmost column. In addition, if a column sums to 10 or more, carry the extra digit to the next column. Example: 478 + 296 = 774 (8+6=14 carry 1; 7+9+1=17 carry 1; 4+2+1=7). In subtraction, if a digit is too small, borrow from the next column." },
-    { "id": "calc-n2", "heading": "Short and Long Multiplication", "body": "Short multiplication: multiply a number by a single digit, carrying extras. Example: 347 × 6 = 2082. Long multiplication: for multiplying by two or more digits, write each partial product on a new row shifted left, then add them. Example: 34 × 27 = 34×7 + 34×20 = 238 + 680 = 918." },
-    { "id": "calc-n3", "heading": "Short and Long Division", "body": "Short division (bus stop): divide by a single digit working left to right, carrying remainders. Example: 756 ÷ 3 = 252. Long division: for dividing by multi-digit numbers, use divide-multiply-subtract-bring down. Example: 672 ÷ 16 = 42." },
-    { "id": "calc-n4", "heading": "Order of Operations — BIDMAS", "body": "BIDMAS: Brackets first, Indices (powers), Division & Multiplication (left to right), Addition & Subtraction (left to right). Example: 3 + 4 × 5 = 3 + 20 = 23, NOT 7 × 5 = 35. With brackets: (3 + 4) × 5 = 35." }
+    {
+      "id": "math-yr7-calculations-calc-n1",
+      "heading": "Column Addition and Subtraction",
+      "body": "When adding or subtracting large numbers, write them in columns with digits lined up by place value (ones under ones, tens under tens). Always start from the rightmost column. In addition, if a column sums to 10 or more, carry the extra digit to the next column. Example: 478 + 296 = 774 (8+6=14 carry 1; 7+9+1=17 carry 1; 4+2+1=7). In subtraction, if a digit is too small, borrow from the next column."
+    },
+    {
+      "id": "math-yr7-calculations-calc-n2",
+      "heading": "Short and Long Multiplication",
+      "body": "Short multiplication: multiply a number by a single digit, carrying extras. Example: 347 × 6 = 2082. Long multiplication: for multiplying by two or more digits, write each partial product on a new row shifted left, then add them. Example: 34 × 27 = 34×7 + 34×20 = 238 + 680 = 918."
+    },
+    {
+      "id": "math-yr7-calculations-calc-n3",
+      "heading": "Short and Long Division",
+      "body": "Short division (bus stop): divide by a single digit working left to right, carrying remainders. Example: 756 ÷ 3 = 252. Long division: for dividing by multi-digit numbers, use divide-multiply-subtract-bring down. Example: 672 ÷ 16 = 42."
+    },
+    {
+      "id": "math-yr7-calculations-calc-n4",
+      "heading": "Order of Operations — BIDMAS",
+      "body": "BIDMAS: Brackets first, Indices (powers), Division & Multiplication (left to right), Addition & Subtraction (left to right). Example: 3 + 4 × 5 = 3 + 20 = 23, NOT 7 × 5 = 35. With brackets: (3 + 4) × 5 = 35."
+    }
   ],
   "flashcards": [
-    { "id": "calc-f1", "term": "Place value", "definition": "The value of a digit based on its position — ones, tens, hundreds, etc.", "example": "In 3 462, the 4 means 4 hundreds (400)." },
-    { "id": "calc-f2", "term": "Carrying", "definition": "When a column adds to 10+, write the ones digit and carry the tens to the next column.", "example": "58 + 27: 8+7=15, write 5, carry 1." },
-    { "id": "calc-f3", "term": "Borrowing", "definition": "When a digit is too small, borrow 1 from the next left column (reduce it by 1) and add 10 to current digit.", "example": "42 − 18: borrow from tens, 12−8=4." },
-    { "id": "calc-f4", "term": "Long multiplication", "definition": "Multiply by each digit of bottom number separately, write results shifted left, then add.", "example": "45 × 23 = 45×3 + 45×20 = 135 + 900 = 1035." },
-    { "id": "calc-f5", "term": "Short division", "definition": "Division by a single digit: work left to right, carrying remainders.", "example": "963 ÷ 3 = 321." },
-    { "id": "calc-f6", "term": "BIDMAS", "definition": "Order of operations: Brackets, Indices, Division & Multiplication (L→R), Addition & Subtraction (L→R).", "example": "2 + 3 × 4 = 2 + 12 = 14." },
-    { "id": "calc-f7", "term": "Remainder", "definition": "Amount left after division when numbers don't divide exactly.", "example": "17 ÷ 5 = 3 remainder 2." },
-    { "id": "calc-f8", "term": "Product", "definition": "The result of multiplying two or more numbers.", "example": "The product of 7 and 8 is 56." }
+    {
+      "id": "math-yr7-calculations-calc-f1",
+      "term": "Place value",
+      "definition": "The value of a digit based on its position — ones, tens, hundreds, etc.",
+      "example": "In 3 462, the 4 means 4 hundreds (400)."
+    },
+    {
+      "id": "math-yr7-calculations-calc-f2",
+      "term": "Carrying",
+      "definition": "When a column adds to 10+, write the ones digit and carry the tens to the next column.",
+      "example": "58 + 27: 8+7=15, write 5, carry 1."
+    },
+    {
+      "id": "math-yr7-calculations-calc-f3",
+      "term": "Borrowing",
+      "definition": "When a digit is too small, borrow 1 from the next left column (reduce it by 1) and add 10 to current digit.",
+      "example": "42 − 18: borrow from tens, 12−8=4."
+    },
+    {
+      "id": "math-yr7-calculations-calc-f4",
+      "term": "Long multiplication",
+      "definition": "Multiply by each digit of bottom number separately, write results shifted left, then add.",
+      "example": "45 × 23 = 45×3 + 45×20 = 135 + 900 = 1035."
+    },
+    {
+      "id": "math-yr7-calculations-calc-f5",
+      "term": "Short division",
+      "definition": "Division by a single digit: work left to right, carrying remainders.",
+      "example": "963 ÷ 3 = 321."
+    },
+    {
+      "id": "math-yr7-calculations-calc-f6",
+      "term": "BIDMAS",
+      "definition": "Order of operations: Brackets, Indices, Division & Multiplication (L→R), Addition & Subtraction (L→R).",
+      "example": "2 + 3 × 4 = 2 + 12 = 14."
+    },
+    {
+      "id": "math-yr7-calculations-calc-f7",
+      "term": "Remainder",
+      "definition": "Amount left after division when numbers don't divide exactly.",
+      "example": "17 ÷ 5 = 3 remainder 2."
+    },
+    {
+      "id": "math-yr7-calculations-calc-f8",
+      "term": "Product",
+      "definition": "The result of multiplying two or more numbers.",
+      "example": "The product of 7 and 8 is 56."
+    }
   ],
   "questions": [
-    { "id": "calc-q1", "stem": "What is 5 236 + 3 748?", "choices": ["8 984", "8 874", "8 974", "8 884"], "correctIndex": 0, "explanation": "Add column by column: 6+8=14 (write 4 carry 1), 3+4+1=8, 2+7=9, 5+3=8. Answer: 8 984." },
-    { "id": "calc-q2", "stem": "What is 6 205 − 2 478?", "choices": ["3 727", "4 727", "3 827", "3 737"], "correctIndex": 0, "explanation": "Subtract with borrowing: 5−8 → 15−8=7; 9−7=2; 11−4=7; 5−2=3. Answer: 3 727." },
-    { "id": "calc-q3", "stem": "Multiply 64 by 7.", "choices": ["428", "448", "468", "488"], "correctIndex": 1, "explanation": "64 × 7 = (60 × 7) + (4 × 7) = 420 + 28 = 448." },
-    { "id": "calc-q4", "stem": "What is 34 × 26?", "choices": ["884", "864", "904", "844"], "correctIndex": 0, "explanation": "34×6=204, 34×20=680. Add: 204+680=884." },
-    { "id": "calc-q5", "stem": "Divide 875 by 5.", "choices": ["165", "175", "155", "185"], "correctIndex": 1, "explanation": "875÷5: 8÷5=1 r3, 37÷5=7 r2, 25÷5=5. Answer: 175." },
-    { "id": "calc-q6", "stem": "What is 672 ÷ 16?", "choices": ["42", "44", "38", "48"], "correctIndex": 0, "explanation": "16×42=672, so 672÷16=42." },
-    { "id": "calc-q7", "stem": "Using BIDMAS, what is 5 + 3 × 6?", "choices": ["48", "23", "33", "28"], "correctIndex": 1, "explanation": "Multiplication before addition: 3×6=18, then 5+18=23." },
-    { "id": "calc-q8", "stem": "What is (8 + 4) × 3 − 5?", "choices": ["31", "25", "27", "41"], "correctIndex": 0, "explanation": "Brackets: 8+4=12. Multiply: 12×3=36. Subtract: 36−5=31." },
-    { "id": "calc-q9", "stem": "Calculate 24 ÷ 6 + 3 × 2.", "choices": ["7", "10", "14", "8"], "correctIndex": 1, "explanation": "Division and multiplication first (L→R): 24÷6=4, 3×2=6. Add: 4+6=10." },
-    { "id": "calc-q10", "stem": "A school orders 15 boxes of pencils. Each box has 24 pencils. How many pencils total?", "choices": ["360", "340", "380", "320"], "correctIndex": 0, "explanation": "15 × 24 = (15×20) + (15×4) = 300 + 60 = 360." }
+    {
+      "id": "math-yr7-calculations-calc-q1",
+      "stem": "What is 5 236 + 3 748?",
+      "choices": [
+        "8 984",
+        "8 874",
+        "8 974",
+        "8 884"
+      ],
+      "correctIndex": 0,
+      "explanation": "Add column by column: 6+8=14 (write 4 carry 1), 3+4+1=8, 2+7=9, 5+3=8. Answer: 8 984."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q2",
+      "stem": "What is 6 205 − 2 478?",
+      "choices": [
+        "3 727",
+        "4 727",
+        "3 827",
+        "3 737"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract with borrowing: 5−8 → 15−8=7; 9−7=2; 11−4=7; 5−2=3. Answer: 3 727."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q3",
+      "stem": "Multiply 64 by 7.",
+      "choices": [
+        "428",
+        "448",
+        "468",
+        "488"
+      ],
+      "correctIndex": 1,
+      "explanation": "64 × 7 = (60 × 7) + (4 × 7) = 420 + 28 = 448."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q4",
+      "stem": "What is 34 × 26?",
+      "choices": [
+        "884",
+        "864",
+        "904",
+        "844"
+      ],
+      "correctIndex": 0,
+      "explanation": "34×6=204, 34×20=680. Add: 204+680=884."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q5",
+      "stem": "Divide 875 by 5.",
+      "choices": [
+        "165",
+        "175",
+        "155",
+        "185"
+      ],
+      "correctIndex": 1,
+      "explanation": "875÷5: 8÷5=1 r3, 37÷5=7 r2, 25÷5=5. Answer: 175."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q6",
+      "stem": "What is 672 ÷ 16?",
+      "choices": [
+        "42",
+        "44",
+        "38",
+        "48"
+      ],
+      "correctIndex": 0,
+      "explanation": "16×42=672, so 672÷16=42."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q7",
+      "stem": "Using BIDMAS, what is 5 + 3 × 6?",
+      "choices": [
+        "48",
+        "23",
+        "33",
+        "28"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiplication before addition: 3×6=18, then 5+18=23."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q8",
+      "stem": "What is (8 + 4) × 3 − 5?",
+      "choices": [
+        "31",
+        "25",
+        "27",
+        "41"
+      ],
+      "correctIndex": 0,
+      "explanation": "Brackets: 8+4=12. Multiply: 12×3=36. Subtract: 36−5=31."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q9",
+      "stem": "Calculate 24 ÷ 6 + 3 × 2.",
+      "choices": [
+        "7",
+        "10",
+        "14",
+        "8"
+      ],
+      "correctIndex": 1,
+      "explanation": "Division and multiplication first (L→R): 24÷6=4, 3×2=6. Add: 4+6=10."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q10",
+      "stem": "A school orders 15 boxes of pencils. Each box has 24 pencils. How many pencils total?",
+      "choices": [
+        "360",
+        "340",
+        "380",
+        "320"
+      ],
+      "correctIndex": 0,
+      "explanation": "15 × 24 = (15×20) + (15×4) = 300 + 60 = 360."
+    }
   ]
 }

@@ -6,81 +6,106 @@
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "n1",
+      "id": "bio-cell-1-n1",
       "heading": "The Cell Theory",
       "body": "Three principles: (1) All living things are made of cells. (2) The cell is the basic unit of life. (3) All cells come from pre-existing cells. Eukaryotic cells have a nucleus; prokaryotic cells (bacteria) do not."
     },
     {
-      "id": "n2",
+      "id": "bio-cell-1-n2",
       "heading": "Animal Cell Organelles",
       "body": "Nucleus: control centre, contains DNA. Cell membrane: controls entry/exit. Cytoplasm: jelly-like fluid for reactions. Mitochondria: produce energy (ATP) — \"powerhouse\". Ribosomes: make proteins."
     },
     {
-      "id": "n3",
+      "id": "bio-cell-1-n3",
       "heading": "Plant Cell Extras",
       "body": "Plant cells have three extra structures: cell wall (cellulose, for support), large central vacuole (stores water), chloroplasts (contain chlorophyll for photosynthesis). Plant cells are more box-like and regular."
     }
   ],
   "flashcards": [
     {
-      "id": "f1",
+      "id": "bio-cell-1-f1",
       "term": "Nucleus",
       "definition": "Control centre; contains DNA."
     },
     {
-      "id": "f2",
+      "id": "bio-cell-1-f2",
       "term": "Mitochondria",
       "definition": "Produce energy (ATP) through respiration — \"powerhouse of the cell\"."
     },
     {
-      "id": "f3",
+      "id": "bio-cell-1-f3",
       "term": "Cell membrane",
       "definition": "Thin barrier controlling what enters and exits the cell."
     },
     {
-      "id": "f4",
+      "id": "bio-cell-1-f4",
       "term": "Chloroplast",
       "definition": "Found only in plant cells; contains chlorophyll; site of photosynthesis."
     },
     {
-      "id": "f5",
+      "id": "bio-cell-1-f5",
       "term": "Cell wall",
       "definition": "Rigid cellulose layer around plant cells for support."
     }
   ],
   "questions": [
     {
-      "id": "q1",
+      "id": "bio-cell-1-q1",
       "stem": "Which organelle produces energy?",
-      "choices": ["Nucleus", "Chloroplast", "Mitochondria", "Ribosome"],
+      "choices": [
+        "Nucleus",
+        "Chloroplast",
+        "Mitochondria",
+        "Ribosome"
+      ],
       "correctIndex": 2,
       "explanation": "Mitochondria carry out cellular respiration to produce ATP."
     },
     {
-      "id": "q2",
+      "id": "bio-cell-1-q2",
       "stem": "Which structure is in plant cells but NOT animal cells?",
-      "choices": ["Cell membrane", "Nucleus", "Mitochondria", "Cell wall"],
+      "choices": [
+        "Cell membrane",
+        "Nucleus",
+        "Mitochondria",
+        "Cell wall"
+      ],
       "correctIndex": 3,
       "explanation": "Plant cells have a cellulose cell wall for extra support."
     },
     {
-      "id": "q3",
+      "id": "bio-cell-1-q3",
       "stem": "Where do new cells come from according to cell theory?",
-      "choices": ["Nutrients", "Pre-existing cells", "Spontaneous generation", "DNA alone"],
+      "choices": [
+        "Nutrients",
+        "Pre-existing cells",
+        "Spontaneous generation",
+        "DNA alone"
+      ],
       "correctIndex": 1,
       "explanation": "All cells arise from pre-existing cells through division."
     },
     {
-      "id": "q4",
+      "id": "bio-cell-1-q4",
       "stem": "The cell membrane's function is to:",
-      "choices": ["Make proteins", "Produce energy", "Control what enters/exits", "Store DNA"],
+      "choices": [
+        "Make proteins",
+        "Produce energy",
+        "Control what enters/exits",
+        "Store DNA"
+      ],
       "correctIndex": 2,
       "explanation": "It is selectively permeable, controlling substance movement."
     },
     {
-      "id": "q5",
+      "id": "bio-cell-1-q5",
       "stem": "Key difference between prokaryotic and eukaryotic cells?",
-      "choices": ["Prokaryotes are larger", "Eukaryotes have no DNA", "Prokaryotes lack a membrane-bound nucleus", "Eukaryotes have no cell membrane"],
+      "choices": [
+        "Prokaryotes are larger",
+        "Eukaryotes have no DNA",
+        "Prokaryotes lack a membrane-bound nucleus",
+        "Eukaryotes have no cell membrane"
+      ],
       "correctIndex": 2,
       "explanation": "Prokaryotes have no membrane-bound nucleus — DNA floats freely in cytoplasm."
     }

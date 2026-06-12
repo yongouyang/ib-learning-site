@@ -5,22 +5,112 @@
   "description": "Types of energy, conservation of energy, and energy efficiency.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "n1", "heading": "Types of Energy", "body": "Kinetic (motion): KE=½mv². Gravitational potential (height): GPE=mgh. Elastic potential (stretched). Chemical (fuels, food). Thermal (heat). Nuclear, light, sound. Energy measured in joules (J)." },
-    { "id": "n2", "heading": "Conservation of Energy", "body": "Energy cannot be created or destroyed — only transferred or transformed. Total energy in a closed system stays constant. Example: falling ball converts GPE → KE. Light bulb: electrical → light + heat. Sankey diagrams show useful vs wasted energy." },
-    { "id": "n3", "heading": "Efficiency", "body": "Efficiency = (useful output ÷ total input) × 100%. Nothing is 100% efficient — some energy always wasted as heat. Example: motor takes 500J, outputs 400J → efficiency = 80%. To improve: insulation, better design, reduced friction." }
+    {
+      "id": "phys-energy-1-n1",
+      "heading": "Types of Energy",
+      "body": "Kinetic (motion): KE=½mv². Gravitational potential (height): GPE=mgh. Elastic potential (stretched). Chemical (fuels, food). Thermal (heat). Nuclear, light, sound. Energy measured in joules (J)."
+    },
+    {
+      "id": "phys-energy-1-n2",
+      "heading": "Conservation of Energy",
+      "body": "Energy cannot be created or destroyed — only transferred or transformed. Total energy in a closed system stays constant. Example: falling ball converts GPE → KE. Light bulb: electrical → light + heat. Sankey diagrams show useful vs wasted energy."
+    },
+    {
+      "id": "phys-energy-1-n3",
+      "heading": "Efficiency",
+      "body": "Efficiency = (useful output ÷ total input) × 100%. Nothing is 100% efficient — some energy always wasted as heat. Example: motor takes 500J, outputs 400J → efficiency = 80%. To improve: insulation, better design, reduced friction."
+    }
   ],
   "flashcards": [
-    { "id": "f1", "term": "Kinetic energy", "definition": "Energy of motion: KE = ½mv².", "example": "2kg ball at 3m/s: KE = ½×2×9 = 9J." },
-    { "id": "f2", "term": "GPE", "definition": "Energy due to height: GPE = mgh.", "example": "5kg on 2m shelf: GPE=5×10×2=100J." },
-    { "id": "f3", "term": "Conservation of energy", "definition": "Energy cannot be created or destroyed, only transferred/transformed." },
-    { "id": "f4", "term": "Efficiency", "definition": "(useful output ÷ total input) × 100%.", "example": "200J in, 150J out → 75% efficient." },
-    { "id": "f5", "term": "Wasted energy", "definition": "Energy transferred to non-useful forms (usually heat or sound)." }
+    {
+      "id": "phys-energy-1-f1",
+      "term": "Kinetic energy",
+      "definition": "Energy of motion: KE = ½mv².",
+      "example": "2kg ball at 3m/s: KE = ½×2×9 = 9J."
+    },
+    {
+      "id": "phys-energy-1-f2",
+      "term": "GPE",
+      "definition": "Energy due to height: GPE = mgh.",
+      "example": "5kg on 2m shelf: GPE=5×10×2=100J."
+    },
+    {
+      "id": "phys-energy-1-f3",
+      "term": "Conservation of energy",
+      "definition": "Energy cannot be created or destroyed, only transferred/transformed."
+    },
+    {
+      "id": "phys-energy-1-f4",
+      "term": "Efficiency",
+      "definition": "(useful output ÷ total input) × 100%.",
+      "example": "200J in, 150J out → 75% efficient."
+    },
+    {
+      "id": "phys-energy-1-f5",
+      "term": "Wasted energy",
+      "definition": "Energy transferred to non-useful forms (usually heat or sound)."
+    }
   ],
   "questions": [
-    { "id": "q1", "stem": "3kg ball at 4 m/s. Kinetic energy?", "choices": ["12J", "24J", "48J", "6J"], "correctIndex": 1, "explanation": "KE = ½mv² = ½×3×16 = 24J." },
-    { "id": "q2", "stem": "Lamp: 100J in, 20J light. Efficiency?", "choices": ["80%", "20%", "5%", "120%"], "correctIndex": 1, "explanation": "(20÷100)×100 = 20%." },
-    { "id": "q3", "stem": "Ball dropping: energy transformation?", "choices": ["KE → GPE", "Chemical → KE", "GPE → KE", "Thermal → KE"], "correctIndex": 2, "explanation": "Losing height: GPE is converted to kinetic energy." },
-    { "id": "q4", "stem": "Correct energy statement:", "choices": ["Energy destroyed when light off", "Energy created from force", "Energy cannot be created or destroyed, only transferred/transformed", "Total energy always decreases"], "correctIndex": 2, "explanation": "This is the law of conservation of energy — a fundamental physics principle." },
-    { "id": "q5", "stem": "10kg box lifted 3m. GPE? (g=10 m/s²)", "choices": ["30J", "130J", "300J", "1000J"], "correctIndex": 2, "explanation": "GPE = mgh = 10×10×3 = 300J." }
+    {
+      "id": "phys-energy-1-q1",
+      "stem": "3kg ball at 4 m/s. Kinetic energy?",
+      "choices": [
+        "12J",
+        "24J",
+        "48J",
+        "6J"
+      ],
+      "correctIndex": 1,
+      "explanation": "KE = ½mv² = ½×3×16 = 24J."
+    },
+    {
+      "id": "phys-energy-1-q2",
+      "stem": "Lamp: 100J in, 20J light. Efficiency?",
+      "choices": [
+        "80%",
+        "20%",
+        "5%",
+        "120%"
+      ],
+      "correctIndex": 1,
+      "explanation": "(20÷100)×100 = 20%."
+    },
+    {
+      "id": "phys-energy-1-q3",
+      "stem": "Ball dropping: energy transformation?",
+      "choices": [
+        "KE → GPE",
+        "Chemical → KE",
+        "GPE → KE",
+        "Thermal → KE"
+      ],
+      "correctIndex": 2,
+      "explanation": "Losing height: GPE is converted to kinetic energy."
+    },
+    {
+      "id": "phys-energy-1-q4",
+      "stem": "Correct energy statement:",
+      "choices": [
+        "Energy destroyed when light off",
+        "Energy created from force",
+        "Energy cannot be created or destroyed, only transferred/transformed",
+        "Total energy always decreases"
+      ],
+      "correctIndex": 2,
+      "explanation": "This is the law of conservation of energy — a fundamental physics principle."
+    },
+    {
+      "id": "phys-energy-1-q5",
+      "stem": "10kg box lifted 3m. GPE? (g=10 m/s²)",
+      "choices": [
+        "30J",
+        "130J",
+        "300J",
+        "1000J"
+      ],
+      "correctIndex": 2,
+      "explanation": "GPE = mgh = 10×10×3 = 300J."
+    }
   ]
 }

@@ -6,81 +6,106 @@
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "n1",
+      "id": "eng-essay-1-n1",
       "heading": "Essay Structure",
       "body": "Introduction → Body paragraphs → Conclusion. Introduction grabs attention, gives background, ends with thesis statement. Each body paragraph develops one point with evidence and analysis. Conclusion summarises and leaves a final thought."
     },
     {
-      "id": "n2",
+      "id": "eng-essay-1-n2",
       "heading": "The Thesis Statement",
       "body": "A single sentence at the end of your introduction stating your main argument. Must be specific and debatable. Example: \"In Macbeth, Shakespeare shows that unchecked ambition leads to self-destruction.\""
     },
     {
-      "id": "n3",
+      "id": "eng-essay-1-n3",
       "heading": "PEEL Paragraph Method",
       "body": "P=Point (main idea), E=Evidence (quote/fact), E=Explanation (how evidence proves your point), L=Link (connect back to thesis or to next paragraph)."
     }
   ],
   "flashcards": [
     {
-      "id": "f1",
+      "id": "eng-essay-1-f1",
       "term": "Thesis statement",
       "definition": "A clear, specific sentence stating the essay's main argument."
     },
     {
-      "id": "f2",
+      "id": "eng-essay-1-f2",
       "term": "PEEL",
       "definition": "Paragraph structure: Point, Evidence, Explanation, Link."
     },
     {
-      "id": "f3",
+      "id": "eng-essay-1-f3",
       "term": "Topic sentence",
       "definition": "Opening sentence of a body paragraph stating its main idea."
     },
     {
-      "id": "f4",
+      "id": "eng-essay-1-f4",
       "term": "Conclusion",
       "definition": "Final paragraph summarising the argument and providing a closing thought."
     },
     {
-      "id": "f5",
+      "id": "eng-essay-1-f5",
       "term": "Transition words",
       "definition": "Words linking ideas: Furthermore, however, in contrast, as a result."
     }
   ],
   "questions": [
     {
-      "id": "q1",
+      "id": "eng-essay-1-q1",
       "stem": "Where does the thesis statement typically appear?",
-      "choices": ["First body paragraph", "Start of introduction", "End of conclusion", "End of introduction"],
+      "choices": [
+        "First body paragraph",
+        "Start of introduction",
+        "End of conclusion",
+        "End of introduction"
+      ],
       "correctIndex": 3,
       "explanation": "Usually at the end of the introduction."
     },
     {
-      "id": "q2",
+      "id": "eng-essay-1-q2",
       "stem": "In PEEL, what does the second E stand for?",
-      "choices": ["Ending", "Example", "Explanation", "Evidence"],
+      "choices": [
+        "Ending",
+        "Example",
+        "Explanation",
+        "Evidence"
+      ],
       "correctIndex": 2,
       "explanation": "PEEL = Point, Evidence, Explanation, Link."
     },
     {
-      "id": "q3",
+      "id": "eng-essay-1-q3",
       "stem": "Which is the strongest thesis?",
-      "choices": ["This essay is about animals.", "Animals are interesting.", "\"Zoos should be banned because they prioritise entertainment over animal welfare.\"", "Some people think zoos are bad."],
+      "choices": [
+        "This essay is about animals.",
+        "Animals are interesting.",
+        "\"Zoos should be banned because they prioritise entertainment over animal welfare.\"",
+        "Some people think zoos are bad."
+      ],
       "correctIndex": 2,
       "explanation": "Specific and debatable — makes a clear claim with a reason."
     },
     {
-      "id": "q4",
+      "id": "eng-essay-1-q4",
       "stem": "A topic sentence's purpose is to:",
-      "choices": ["Provide a quote", "Summarise the whole essay", "State the paragraph's main idea", "Introduce the writer"],
+      "choices": [
+        "Provide a quote",
+        "Summarise the whole essay",
+        "State the paragraph's main idea",
+        "Introduce the writer"
+      ],
       "correctIndex": 2,
       "explanation": "Topic sentences focus the paragraph on one idea."
     },
     {
-      "id": "q5",
+      "id": "eng-essay-1-q5",
       "stem": "Which signals contrast?",
-      "choices": ["Furthermore", "In addition", "However", "As a result"],
+      "choices": [
+        "Furthermore",
+        "In addition",
+        "However",
+        "As a result"
+      ],
       "correctIndex": 2,
       "explanation": "\"However\" signals a contrast or shift in argument."
     }

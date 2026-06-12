@@ -38,8 +38,13 @@ export default function SubjectPage() {
             <div key={topic.id} className="card p-4">
               <div className="flex items-start justify-between mb-2">
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900">{topic.title}</h3>
-                  <p className="text-sm text-gray-500 mt-0.5">{topic.description}</p>
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <h3 className="font-semibold text-gray-900">{topic.title}</h3>
+                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wide ${topic.ibLevel === 'DP' ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'}`}>
+                      {topic.ibLevel}
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-500">{topic.description}</p>
                 </div>
                 {score >= 0 && (
                   <div className="flex gap-0.5 ml-2">

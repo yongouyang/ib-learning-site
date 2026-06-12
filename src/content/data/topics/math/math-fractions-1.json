@@ -5,22 +5,114 @@
   "description": "Working with parts of a whole and converting between fractions, decimals, and percentages.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "frac-n1", "heading": "Equivalent Fractions and Simplifying", "body": "Equivalent fractions represent the same amount: 1/2=2/4=4/8. To simplify, divide numerator and denominator by their HCF. Example: 12/18 → HCF=6 → 2/3." },
-    { "id": "frac-n2", "heading": "Adding and Multiplying Fractions", "body": "To add/subtract: find common denominator (LCM). Multiply fractions: multiply numerators together, denominators together. (2/3)×(4/5)=8/15. Always simplify." },
-    { "id": "frac-n3", "heading": "Percentages and Conversions", "body": "Percent = \"out of 100\". Fraction → percentage: numerator÷denominator×100. 3/4=75%. Percentage of amount: convert to decimal and multiply. 20% of 60 = 0.20×60 = 12." }
+    {
+      "id": "math-fractions-1-frac-n1",
+      "heading": "Equivalent Fractions and Simplifying",
+      "body": "Equivalent fractions represent the same amount: 1/2=2/4=4/8. To simplify, divide numerator and denominator by their HCF. Example: 12/18 → HCF=6 → 2/3."
+    },
+    {
+      "id": "math-fractions-1-frac-n2",
+      "heading": "Adding and Multiplying Fractions",
+      "body": "To add/subtract: find common denominator (LCM). Multiply fractions: multiply numerators together, denominators together. (2/3)×(4/5)=8/15. Always simplify."
+    },
+    {
+      "id": "math-fractions-1-frac-n3",
+      "heading": "Percentages and Conversions",
+      "body": "Percent = \"out of 100\". Fraction → percentage: numerator÷denominator×100. 3/4=75%. Percentage of amount: convert to decimal and multiply. 20% of 60 = 0.20×60 = 12."
+    }
   ],
   "flashcards": [
-    { "id": "frac-f1", "term": "Numerator", "definition": "The top number — how many parts you have.", "example": "In 3/5, numerator is 3." },
-    { "id": "frac-f2", "term": "Denominator", "definition": "The bottom number — how many equal parts the whole is divided into.", "example": "In 3/5, denominator is 5." },
-    { "id": "frac-f3", "term": "Equivalent fractions", "definition": "Different numerators/denominators but same value.", "example": "1/2=2/4=50/100" },
-    { "id": "frac-f4", "term": "Percentage", "definition": "A fraction of 100, shown with %.", "example": "45% = 45 out of 100." },
-    { "id": "frac-f5", "term": "Percentage increase", "definition": "(increase ÷ original) × 100.", "example": "£20→£25: (5÷20)×100=25%." }
+    {
+      "id": "math-fractions-1-frac-f1",
+      "term": "Numerator",
+      "definition": "The top number — how many parts you have.",
+      "example": "In 3/5, numerator is 3."
+    },
+    {
+      "id": "math-fractions-1-frac-f2",
+      "term": "Denominator",
+      "definition": "The bottom number — how many equal parts the whole is divided into.",
+      "example": "In 3/5, denominator is 5."
+    },
+    {
+      "id": "math-fractions-1-frac-f3",
+      "term": "Equivalent fractions",
+      "definition": "Different numerators/denominators but same value.",
+      "example": "1/2=2/4=50/100"
+    },
+    {
+      "id": "math-fractions-1-frac-f4",
+      "term": "Percentage",
+      "definition": "A fraction of 100, shown with %.",
+      "example": "45% = 45 out of 100."
+    },
+    {
+      "id": "math-fractions-1-frac-f5",
+      "term": "Percentage increase",
+      "definition": "(increase ÷ original) × 100.",
+      "example": "£20→£25: (5÷20)×100=25%."
+    }
   ],
   "questions": [
-    { "id": "frac-q1", "stem": "3/4 as a percentage?", "choices": ["34%", "43%", "75%", "25%"], "correctIndex": 2, "explanation": "3÷4=0.75, ×100=75%." },
-    { "id": "frac-q2", "stem": "1/3 + 1/6?", "choices": ["2/9", "2/6", "1/2", "1/3"], "correctIndex": 2, "explanation": "Common denominator 6: 2/6+1/6=3/6=1/2." },
-    { "id": "frac-q3", "stem": "20% of 150?", "choices": ["20", "25", "30", "35"], "correctIndex": 2, "explanation": "0.20×150=30." },
-    { "id": "frac-q4", "stem": "Simplify 18/24.", "choices": ["9/12", "3/4", "6/8", "2/3"], "correctIndex": 1, "explanation": "HCF=6: 18÷6=3, 24÷6=4 → 3/4." },
-    { "id": "frac-q5", "stem": "Jacket £80, 15% off. Sale price?", "choices": ["£12", "£65", "£68", "£72"], "correctIndex": 2, "explanation": "15% of £80=£12. £80−£12=£68." }
+    {
+      "id": "math-fractions-1-frac-q1",
+      "stem": "3/4 as a percentage?",
+      "choices": [
+        "34%",
+        "43%",
+        "75%",
+        "25%"
+      ],
+      "correctIndex": 2,
+      "explanation": "3÷4=0.75, ×100=75%."
+    },
+    {
+      "id": "math-fractions-1-frac-q2",
+      "stem": "1/3 + 1/6?",
+      "choices": [
+        "2/9",
+        "2/6",
+        "1/2",
+        "1/3"
+      ],
+      "correctIndex": 2,
+      "explanation": "Common denominator 6: 2/6+1/6=3/6=1/2."
+    },
+    {
+      "id": "math-fractions-1-frac-q3",
+      "stem": "20% of 150?",
+      "choices": [
+        "20",
+        "25",
+        "30",
+        "35"
+      ],
+      "correctIndex": 2,
+      "explanation": "0.20×150=30."
+    },
+    {
+      "id": "math-fractions-1-frac-q4",
+      "stem": "Simplify 18/24.",
+      "choices": [
+        "9/12",
+        "3/4",
+        "6/8",
+        "2/3"
+      ],
+      "correctIndex": 1,
+      "explanation": "HCF=6: 18÷6=3, 24÷6=4 → 3/4."
+    },
+    {
+      "id": "math-fractions-1-frac-q5",
+      "stem": "Jacket £80, 15% off. Sale price?",
+      "choices": [
+        "£12",
+        "£65",
+        "£68",
+        "£72"
+      ],
+      "correctIndex": 2,
+      "explanation": "15% of £80=£12. £80−£12=£68."
+    }
   ]
 }

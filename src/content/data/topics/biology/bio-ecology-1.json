@@ -6,83 +6,108 @@
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "eco-n1",
+      "id": "bio-ecology-1-eco-n1",
       "heading": "Ecosystems and Food Chains",
       "body": "An ecosystem is all the living organisms (biotic factors) in an area together with the non-living environment (abiotic factors like temperature, light, and water). A food chain shows how energy flows from one organism to the next. It always starts with a producer (a green plant that photosynthesises). Herbivores (primary consumers) eat plants. Carnivores (secondary, tertiary consumers) eat animals. Each step is called a trophic level. Energy is lost at each level (mostly as heat), so chains rarely have more than 4–5 links."
     },
     {
-      "id": "eco-n2",
+      "id": "bio-ecology-1-eco-n2",
       "heading": "Food Webs and Interdependence",
       "body": "A food web shows multiple food chains linked together. If one species is removed, it affects many others — this is called interdependence. For example, if rabbits in a meadow were removed, foxes would have less food and grass would grow more. Biodiversity (the variety of species) makes ecosystems more stable and resilient to change."
     },
     {
-      "id": "eco-n3",
+      "id": "bio-ecology-1-eco-n3",
       "heading": "The Carbon and Nitrogen Cycles",
       "body": "Carbon cycles via photosynthesis (plants absorb CO₂), respiration (organisms release CO₂), feeding (carbon moves through food chains), decomposition (decomposers release CO₂), and combustion. Nitrogen cycles: nitrogen-fixing bacteria convert N₂ into nitrates; plants absorb nitrates; consumers eat plants; decomposers break down dead matter; nitrifying bacteria convert ammonium to nitrates; denitrifying bacteria convert nitrates back to N₂."
     }
   ],
   "flashcards": [
     {
-      "id": "eco-f1",
+      "id": "bio-ecology-1-eco-f1",
       "term": "Producer",
       "definition": "An organism that makes its own food through photosynthesis, forming the base of food chains.",
       "example": "Grass, trees, algae."
     },
     {
-      "id": "eco-f2",
+      "id": "bio-ecology-1-eco-f2",
       "term": "Consumer",
       "definition": "An organism that obtains energy by eating other organisms.",
       "example": "A rabbit (primary consumer) eats grass; a fox (secondary consumer) eats rabbits."
     },
     {
-      "id": "eco-f3",
+      "id": "bio-ecology-1-eco-f3",
       "term": "Food web",
       "definition": "A diagram showing the feeding relationships between all organisms in an ecosystem — multiple food chains linked together."
     },
     {
-      "id": "eco-f4",
+      "id": "bio-ecology-1-eco-f4",
       "term": "Decomposer",
       "definition": "An organism (like bacteria or fungi) that breaks down dead organic matter, recycling nutrients back into the soil."
     },
     {
-      "id": "eco-f5",
+      "id": "bio-ecology-1-eco-f5",
       "term": "Biodiversity",
       "definition": "The variety of different species living in an ecosystem. High biodiversity makes ecosystems more stable."
     }
   ],
   "questions": [
     {
-      "id": "eco-q1",
+      "id": "bio-ecology-1-eco-q1",
       "stem": "In a food chain, which organism is always at the start (the producer)?",
-      "choices": ["A carnivore", "A decomposer", "A herbivore", "A green plant"],
+      "choices": [
+        "A carnivore",
+        "A decomposer",
+        "A herbivore",
+        "A green plant"
+      ],
       "correctIndex": 3,
       "explanation": "Producers (green plants) make their own food using photosynthesis. They form the energy base for all other organisms."
     },
     {
-      "id": "eco-q2",
+      "id": "bio-ecology-1-eco-q2",
       "stem": "Why is energy lost at each step in a food chain?",
-      "choices": ["Energy is destroyed when organisms eat each other", "Most energy is released as heat during respiration and not passed on", "Organisms use energy to produce oxygen", "Energy turns into matter at each trophic level"],
+      "choices": [
+        "Energy is destroyed when organisms eat each other",
+        "Most energy is released as heat during respiration and not passed on",
+        "Organisms use energy to produce oxygen",
+        "Energy turns into matter at each trophic level"
+      ],
       "correctIndex": 1,
       "explanation": "At each trophic level, organisms use much of the energy for their own respiration, releasing it as heat. Only about 10% is transferred to the next level."
     },
     {
-      "id": "eco-q3",
+      "id": "bio-ecology-1-eco-q3",
       "stem": "If the population of rabbits in a food web suddenly crashed, what would most likely happen to the fox population?",
-      "choices": ["It would increase", "It would stay the same", "It would decrease", "It would move to a different ecosystem"],
+      "choices": [
+        "It would increase",
+        "It would stay the same",
+        "It would decrease",
+        "It would move to a different ecosystem"
+      ],
       "correctIndex": 2,
       "explanation": "If rabbits (a food source for foxes) decrease, foxes will have less food and their population will decrease."
     },
     {
-      "id": "eco-q4",
+      "id": "bio-ecology-1-eco-q4",
       "stem": "What role do decomposers play in nutrient cycles?",
-      "choices": ["They produce oxygen for other organisms", "They convert sunlight into chemical energy", "They break down dead organisms and return nutrients to the soil", "They fix nitrogen directly from the atmosphere"],
+      "choices": [
+        "They produce oxygen for other organisms",
+        "They convert sunlight into chemical energy",
+        "They break down dead organisms and return nutrients to the soil",
+        "They fix nitrogen directly from the atmosphere"
+      ],
       "correctIndex": 2,
       "explanation": "Decomposers (bacteria and fungi) break down dead organic matter, releasing nutrients back into the soil."
     },
     {
-      "id": "eco-q5",
+      "id": "bio-ecology-1-eco-q5",
       "stem": "What does \"biodiversity\" mean?",
-      "choices": ["The total mass of all living organisms in an area", "The number of individuals in a single species", "The variety of different species in an ecosystem", "The amount of food energy available in an ecosystem"],
+      "choices": [
+        "The total mass of all living organisms in an area",
+        "The number of individuals in a single species",
+        "The variety of different species in an ecosystem",
+        "The amount of food energy available in an ecosystem"
+      ],
       "correctIndex": 2,
       "explanation": "Biodiversity refers to the variety of species present. High biodiversity indicates a healthy ecosystem."
     }

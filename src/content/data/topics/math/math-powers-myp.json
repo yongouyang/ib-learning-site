@@ -6,71 +6,71 @@
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "pow-n1",
+      "id": "math-powers-myp-pow-n1",
       "heading": "Index Notation and Laws",
       "body": "Index notation: 2⁵ = 2×2×2×2×2 = 32. The three fundamental index laws: (1) Multiplication law: aᵐ × aⁿ = aᵐ⁺ⁿ. (2) Division law: aᵐ ÷ aⁿ = aᵐ⁻ⁿ. (3) Power of a power: (aᵐ)ⁿ = aᵐⁿ. These laws only apply when the bases are identical."
     },
     {
-      "id": "pow-n2",
+      "id": "math-powers-myp-pow-n2",
       "heading": "Zero, Negative, and Fractional Indices",
       "body": "Zero index: a⁰ = 1 (any non-zero base). Negative index: a⁻ⁿ = 1/aⁿ (e.g., 3⁻² = 1/9). Fractional index: a^(1/n) = ⁿ√a (e.g., 64^(1/3) = ∛64 = 4). Combined: a^(m/n) = (ⁿ√a)ᵐ (e.g., 8^(2/3) = (∛8)² = 4)."
     },
     {
-      "id": "pow-n3",
+      "id": "math-powers-myp-pow-n3",
       "heading": "Standard Form (Scientific Notation)",
       "body": "Standard form writes numbers as A × 10ⁿ where 1 ≤ A < 10 and n is an integer. e.g., 45,000 = 4.5 × 10⁴; 0.0032 = 3.2 × 10⁻³. Multiply: multiply A values and add powers; divide: divide A values, subtract powers. Adjust if A falls outside [1, 10)."
     },
     {
-      "id": "pow-n4",
+      "id": "math-powers-myp-pow-n4",
       "heading": "Square Roots, Cube Roots, and Estimation",
       "body": "√x is the value that, when squared, gives x. ∛x is the value that, when cubed, gives x. To estimate non-perfect roots, identify the two perfect squares/cubes it lies between. e.g., √50 lies between √49=7 and √64=8, so √50 ≈ 7.1."
     }
   ],
   "flashcards": [
     {
-      "id": "pow-f1",
+      "id": "math-powers-myp-pow-f1",
       "term": "Index (exponent)",
       "definition": "The small raised number saying how many times to multiply the base by itself.",
       "example": "5³ = 5 × 5 × 5 = 125."
     },
     {
-      "id": "pow-f2",
+      "id": "math-powers-myp-pow-f2",
       "term": "Multiplication index law",
       "definition": "aᵐ × aⁿ = aᵐ⁺ⁿ",
       "example": "x⁴ × x³ = x⁷"
     },
     {
-      "id": "pow-f3",
+      "id": "math-powers-myp-pow-f3",
       "term": "Division index law",
       "definition": "aᵐ ÷ aⁿ = aᵐ⁻ⁿ",
       "example": "y⁶ ÷ y² = y⁴"
     },
     {
-      "id": "pow-f4",
+      "id": "math-powers-myp-pow-f4",
       "term": "Power of a power",
       "definition": "(aᵐ)ⁿ = aᵐⁿ",
       "example": "(x³)⁴ = x¹²"
     },
     {
-      "id": "pow-f5",
+      "id": "math-powers-myp-pow-f5",
       "term": "Zero index",
       "definition": "a⁰ = 1 (any non-zero base)",
       "example": "100⁰ = 1, (−7)⁰ = 1"
     },
     {
-      "id": "pow-f6",
+      "id": "math-powers-myp-pow-f6",
       "term": "Negative index",
       "definition": "a⁻ⁿ = 1/aⁿ",
       "example": "2⁻³ = 1/8"
     },
     {
-      "id": "pow-f7",
+      "id": "math-powers-myp-pow-f7",
       "term": "Fractional index",
       "definition": "a^(1/n) = ⁿ√a; a^(m/n) = (ⁿ√a)ᵐ",
       "example": "27^(2/3) = (∛27)² = 9"
     },
     {
-      "id": "pow-f8",
+      "id": "math-powers-myp-pow-f8",
       "term": "Standard form",
       "definition": "A × 10ⁿ where 1 ≤ A < 10 and n is an integer.",
       "example": "0.00047 = 4.7 × 10⁻⁴"
@@ -78,7 +78,7 @@
   ],
   "questions": [
     {
-      "id": "pow-q1",
+      "id": "math-powers-myp-pow-q1",
       "stem": "What is 3⁴?",
       "choices": [
         "12",
@@ -90,7 +90,7 @@
       "explanation": "3⁴ = 3×3×3×3 = 81."
     },
     {
-      "id": "pow-q2",
+      "id": "math-powers-myp-pow-q2",
       "stem": "Simplify x⁵ × x³.",
       "choices": [
         "x⁸",
@@ -102,7 +102,7 @@
       "explanation": "Add indices: x⁵⁺³ = x⁸."
     },
     {
-      "id": "pow-q3",
+      "id": "math-powers-myp-pow-q3",
       "stem": "What is 5⁰?",
       "choices": [
         "0",
@@ -114,7 +114,7 @@
       "explanation": "Any non-zero base to power 0 equals 1."
     },
     {
-      "id": "pow-q4",
+      "id": "math-powers-myp-pow-q4",
       "stem": "Express 2⁻⁴ as a fraction.",
       "choices": [
         "1/4",
@@ -126,7 +126,7 @@
       "explanation": "2⁻⁴ = 1/2⁴ = 1/16."
     },
     {
-      "id": "pow-q5",
+      "id": "math-powers-myp-pow-q5",
       "stem": "Evaluate 8^(2/3).",
       "choices": [
         "2",
@@ -138,7 +138,7 @@
       "explanation": "(∛8)² = 2² = 4."
     },
     {
-      "id": "pow-q6",
+      "id": "math-powers-myp-pow-q6",
       "stem": "Write 0.000052 in standard form.",
       "choices": [
         "52 × 10⁻⁶",
@@ -150,7 +150,7 @@
       "explanation": "Move decimal 5 places right → 5.2 × 10⁻⁵."
     },
     {
-      "id": "pow-q7",
+      "id": "math-powers-myp-pow-q7",
       "stem": "What is 64^(1/2)?",
       "choices": [
         "8",
@@ -162,7 +162,7 @@
       "explanation": "√64 = 8."
     },
     {
-      "id": "pow-q8",
+      "id": "math-powers-myp-pow-q8",
       "stem": "Simplify (2x²y³)³.",
       "choices": [
         "6x⁵y⁶",
@@ -174,7 +174,7 @@
       "explanation": "2³=8, (x²)³=x⁶, (y³)³=y⁹ → 8x⁶y⁹."
     },
     {
-      "id": "pow-q9",
+      "id": "math-powers-myp-pow-q9",
       "stem": "Simplify a⁸ × a⁻³.",
       "choices": [
         "a¹¹",
@@ -186,7 +186,7 @@
       "explanation": "a⁸ × a⁻³ = a⁸⁺⁽⁻³⁾ = a⁵."
     },
     {
-      "id": "pow-q10",
+      "id": "math-powers-myp-pow-q10",
       "stem": "(2 × 10³) × (4 × 10⁵) in standard form:",
       "choices": [
         "8 × 10⁸",

@@ -6,83 +6,108 @@
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "n1",
+      "id": "bio-body-1-n1",
       "heading": "Digestive System",
       "body": "Mouth (chewing + saliva) → oesophagus → stomach (acid + enzymes) → small intestine (absorption via villi) → large intestine (water absorption) → rectum. Enzymes: amylase (starch), protease (protein), lipase (fat)."
     },
     {
-      "id": "n2",
+      "id": "bio-body-1-n2",
       "heading": "Circulatory System",
       "body": "Heart is a double pump: right side → lungs (pulmonary), left side → body (systemic). Arteries carry blood away (high pressure). Veins carry blood back (low pressure, have valves). Capillaries: gas/nutrient exchange. Red blood cells carry oxygen via haemoglobin."
     },
     {
-      "id": "n3",
+      "id": "bio-body-1-n3",
       "heading": "Respiratory System",
       "body": "Air: nose/mouth → trachea → bronchi → bronchioles → alveoli. Alveoli: tiny air sacs with large surface area, thin walls, moist surface, rich blood supply — ideal for gas exchange. O₂ diffuses into blood; CO₂ diffuses out."
     }
   ],
   "flashcards": [
     {
-      "id": "f1",
+      "id": "bio-body-1-f1",
       "term": "Enzyme",
       "definition": "Biological catalyst that speeds up reactions without being used up.",
       "example": "Amylase breaks down starch in the mouth."
     },
     {
-      "id": "f2",
+      "id": "bio-body-1-f2",
       "term": "Villi",
       "definition": "Finger-like projections in small intestine increasing surface area for absorption."
     },
     {
-      "id": "f3",
+      "id": "bio-body-1-f3",
       "term": "Alveoli",
       "definition": "Tiny air sacs in lungs where gas exchange occurs."
     },
     {
-      "id": "f4",
+      "id": "bio-body-1-f4",
       "term": "Artery",
       "definition": "Blood vessel carrying blood away from the heart under high pressure.",
       "example": "Aorta — largest artery."
     },
     {
-      "id": "f5",
+      "id": "bio-body-1-f5",
       "term": "Haemoglobin",
       "definition": "Red pigment in RBCs that binds oxygen and carries it round the body."
     }
   ],
   "questions": [
     {
-      "id": "q1",
+      "id": "bio-body-1-q1",
       "stem": "Where does absorption of digested food mainly occur?",
-      "choices": ["Stomach", "Large intestine", "Small intestine", "Oesophagus"],
+      "choices": [
+        "Stomach",
+        "Large intestine",
+        "Small intestine",
+        "Oesophagus"
+      ],
       "correctIndex": 2,
       "explanation": "Small intestine has millions of villi for maximum absorption."
     },
     {
-      "id": "q2",
+      "id": "bio-body-1-q2",
       "stem": "Which enzyme digests starch in the mouth?",
-      "choices": ["Protease", "Lipase", "Amylase", "Insulin"],
+      "choices": [
+        "Protease",
+        "Lipase",
+        "Amylase",
+        "Insulin"
+      ],
       "correctIndex": 2,
       "explanation": "Amylase in saliva begins breaking down starch."
     },
     {
-      "id": "q3",
+      "id": "bio-body-1-q3",
       "stem": "What makes alveoli efficient at gas exchange?",
-      "choices": ["Thick walls", "Small surface area", "Large surface area, thin walls, good blood supply", "They produce enzymes"],
+      "choices": [
+        "Thick walls",
+        "Small surface area",
+        "Large surface area, thin walls, good blood supply",
+        "They produce enzymes"
+      ],
       "correctIndex": 2,
       "explanation": "Millions of alveoli with one-cell-thick walls and surrounded by capillaries."
     },
     {
-      "id": "q4",
+      "id": "bio-body-1-q4",
       "stem": "Where does the right side of the heart pump blood?",
-      "choices": ["To the body", "Back to the left side", "To the lungs", "To the brain only"],
+      "choices": [
+        "To the body",
+        "Back to the left side",
+        "To the lungs",
+        "To the brain only"
+      ],
       "correctIndex": 2,
       "explanation": "Right side pumps deoxygenated blood to the lungs to pick up oxygen."
     },
     {
-      "id": "q5",
+      "id": "bio-body-1-q5",
       "stem": "Which vessel carries blood back to the heart under low pressure?",
-      "choices": ["Artery", "Capillary", "Vein", "Aorta"],
+      "choices": [
+        "Artery",
+        "Capillary",
+        "Vein",
+        "Aorta"
+      ],
       "correctIndex": 2,
       "explanation": "Veins return blood to the heart; they have valves to prevent backflow."
     }

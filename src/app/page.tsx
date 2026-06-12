@@ -41,6 +41,12 @@ export default function HomePage() {
               );
             })}
           </div>
+          <div className="mt-3 pt-3 border-t border-orange-200/60">
+            <Link href="/mixed-review?mode=weak"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-700 hover:text-orange-800">
+              🎯 Practice all weak areas in mixed review →
+            </Link>
+          </div>
         </div>
       )}
 

@@ -5,31 +5,197 @@
   "description": "Writing algebraic expressions from words, substituting numbers for letters, and using simple formulas.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "sub-n1", "heading": "Writing Expressions from Words", "body": "Letters (variables) stand for unknown numbers. Translate: \"more than\" → +, \"less than\" → −, \"times/of\" → ×, \"shared between\" → ÷. For multiplication, write number first without ×: \"5 times n\" = 5n. \"A number plus 7\" = n+7. \"Twice a number minus 3\" = 2n−3." },
-    { "id": "sub-n2", "heading": "Substituting Values", "body": "Replace the letter with the given number and evaluate using BIDMAS. Example: If a=3, 4a+5 = 4×3+5 = 17. Watch exponents: 3x² means 3×(x²), not (3x)². If x=5, 3x² = 3×25 = 75." },
-    { "id": "sub-n3", "heading": "Using Simple Formulas", "body": "A formula is a rule connecting quantities. e.g., perimeter P=2(l+w). If l=8cm, w=5cm: P=2(8+5)=26cm. Common formulas: perimeter P=2l+2w, area A=lw, cost C=np. Write formula first, substitute, then calculate step by step." },
-    { "id": "sub-n4", "heading": "Expanding Brackets", "body": "Multiply the term outside by EVERY term inside: a(b+c) = ab+ac. Example: 3(x+4)=3x+12. 5(2y−3)=10y−15. Negative outside: −2(x−5)=−2x+10. Always expand before adding/subtracting other terms." }
+    {
+      "id": "math-yr7-substitution-sub-n1",
+      "heading": "Writing Expressions from Words",
+      "body": "Letters (variables) stand for unknown numbers. Translate: \"more than\" → +, \"less than\" → −, \"times/of\" → ×, \"shared between\" → ÷. For multiplication, write number first without ×: \"5 times n\" = 5n. \"A number plus 7\" = n+7. \"Twice a number minus 3\" = 2n−3."
+    },
+    {
+      "id": "math-yr7-substitution-sub-n2",
+      "heading": "Substituting Values",
+      "body": "Replace the letter with the given number and evaluate using BIDMAS. Example: If a=3, 4a+5 = 4×3+5 = 17. Watch exponents: 3x² means 3×(x²), not (3x)². If x=5, 3x² = 3×25 = 75."
+    },
+    {
+      "id": "math-yr7-substitution-sub-n3",
+      "heading": "Using Simple Formulas",
+      "body": "A formula is a rule connecting quantities. e.g., perimeter P=2(l+w). If l=8cm, w=5cm: P=2(8+5)=26cm. Common formulas: perimeter P=2l+2w, area A=lw, cost C=np. Write formula first, substitute, then calculate step by step."
+    },
+    {
+      "id": "math-yr7-substitution-sub-n4",
+      "heading": "Expanding Brackets",
+      "body": "Multiply the term outside by EVERY term inside: a(b+c) = ab+ac. Example: 3(x+4)=3x+12. 5(2y−3)=10y−15. Negative outside: −2(x−5)=−2x+10. Always expand before adding/subtracting other terms."
+    }
   ],
   "flashcards": [
-    { "id": "sub-f1", "term": "Variable", "definition": "A letter representing an unknown or changing number.", "example": "In 3x+2, x is the variable." },
-    { "id": "sub-f2", "term": "Expression", "definition": "Numbers, variables, and operations WITHOUT an equals sign.", "example": "4n+7 (not an equation)." },
-    { "id": "sub-f3", "term": "Substitution", "definition": "Replacing a variable with a number to evaluate an expression.", "example": "If a=6, 2a+3 = 2×6+3 = 15." },
-    { "id": "sub-f4", "term": "Formula", "definition": "A rule written with variables connecting quantities.", "example": "Area = l × w." },
-    { "id": "sub-f5", "term": "Coefficient", "definition": "The number multiplying a variable.", "example": "In 7x, 7 is the coefficient." },
-    { "id": "sub-f6", "term": "Like terms", "definition": "Terms with identical variable(s) to the same power(s).", "example": "3x and 5x are like; 3x and 3x² are not." },
-    { "id": "sub-f7", "term": "Expanding brackets", "definition": "a(b+c) = ab+ac.", "example": "4(2x+5) = 8x+20." },
-    { "id": "sub-f8", "term": "Evaluate", "definition": "Work out the numerical value by substituting and calculating.", "example": "Evaluate 3y−4 when y=5: 3×5−4 = 11." }
+    {
+      "id": "math-yr7-substitution-sub-f1",
+      "term": "Variable",
+      "definition": "A letter representing an unknown or changing number.",
+      "example": "In 3x+2, x is the variable."
+    },
+    {
+      "id": "math-yr7-substitution-sub-f2",
+      "term": "Expression",
+      "definition": "Numbers, variables, and operations WITHOUT an equals sign.",
+      "example": "4n+7 (not an equation)."
+    },
+    {
+      "id": "math-yr7-substitution-sub-f3",
+      "term": "Substitution",
+      "definition": "Replacing a variable with a number to evaluate an expression.",
+      "example": "If a=6, 2a+3 = 2×6+3 = 15."
+    },
+    {
+      "id": "math-yr7-substitution-sub-f4",
+      "term": "Formula",
+      "definition": "A rule written with variables connecting quantities.",
+      "example": "Area = l × w."
+    },
+    {
+      "id": "math-yr7-substitution-sub-f5",
+      "term": "Coefficient",
+      "definition": "The number multiplying a variable.",
+      "example": "In 7x, 7 is the coefficient."
+    },
+    {
+      "id": "math-yr7-substitution-sub-f6",
+      "term": "Like terms",
+      "definition": "Terms with identical variable(s) to the same power(s).",
+      "example": "3x and 5x are like; 3x and 3x² are not."
+    },
+    {
+      "id": "math-yr7-substitution-sub-f7",
+      "term": "Expanding brackets",
+      "definition": "a(b+c) = ab+ac.",
+      "example": "4(2x+5) = 8x+20."
+    },
+    {
+      "id": "math-yr7-substitution-sub-f8",
+      "term": "Evaluate",
+      "definition": "Work out the numerical value by substituting and calculating.",
+      "example": "Evaluate 3y−4 when y=5: 3×5−4 = 11."
+    }
   ],
   "questions": [
-    { "id": "sub-q1", "stem": "\"Five more than a number n\" — write the expression.", "choices": ["5n", "n+5", "n−5", "5−n"], "correctIndex": 1, "explanation": "\"More than\" = addition: n+5." },
-    { "id": "sub-q2", "stem": "If x=4, what is 3x+7?", "choices": ["14", "17", "19", "21"], "correctIndex": 2, "explanation": "3×4+7 = 12+7 = 19." },
-    { "id": "sub-q3", "stem": "If a=3 and b=5, what is 2a+4b?", "choices": ["23", "26", "21", "30"], "correctIndex": 1, "explanation": "2×3+4×5 = 6+20 = 26." },
-    { "id": "sub-q4", "stem": "What is y²+3 when y=4?", "choices": ["11", "16", "19", "64"], "correctIndex": 2, "explanation": "4²+3 = 16+3 = 19." },
-    { "id": "sub-q5", "stem": "Taxi: £3 plus £2 per mile. Expression for cost of m miles?", "choices": ["3m+2", "2m+3", "5m", "3+2+m"], "correctIndex": 1, "explanation": "£2 per mile = 2m, plus fixed £3: 2m+3." },
-    { "id": "sub-q6", "stem": "Find perimeter using P=2l+2w when l=6cm, w=4cm.", "choices": ["20 cm", "24 cm", "28 cm", "10 cm"], "correctIndex": 0, "explanation": "P = 2×6 + 2×4 = 12+8 = 20 cm." },
-    { "id": "sub-q7", "stem": "Expand 5(x+3).", "choices": ["5x+3", "5x+8", "5x+15", "x+15"], "correctIndex": 2, "explanation": "5×x=5x, 5×3=15 → 5x+15." },
-    { "id": "sub-q8", "stem": "Expand 3(2p−7).", "choices": ["6p−7", "6p−21", "5p−21", "6p−10"], "correctIndex": 1, "explanation": "3×2p=6p, 3×(−7)=−21 → 6p−21." },
-    { "id": "sub-q9", "stem": "If n=10, what is 2n²?", "choices": ["200", "400", "40", "100"], "correctIndex": 0, "explanation": "n²=10²=100, 2×100=200. Exponent only applies to n." },
-    { "id": "sub-q10", "stem": "Plumber: £40 call-out + £25/hour. Cost for 3 hours?", "choices": ["£115", "£75", "£95", "£105"], "correctIndex": 0, "explanation": "25h+40 with h=3: 25×3+40 = 75+40 = £115." }
+    {
+      "id": "math-yr7-substitution-sub-q1",
+      "stem": "\"Five more than a number n\" — write the expression.",
+      "choices": [
+        "5n",
+        "n+5",
+        "n−5",
+        "5−n"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"More than\" = addition: n+5."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q2",
+      "stem": "If x=4, what is 3x+7?",
+      "choices": [
+        "14",
+        "17",
+        "19",
+        "21"
+      ],
+      "correctIndex": 2,
+      "explanation": "3×4+7 = 12+7 = 19."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q3",
+      "stem": "If a=3 and b=5, what is 2a+4b?",
+      "choices": [
+        "23",
+        "26",
+        "21",
+        "30"
+      ],
+      "correctIndex": 1,
+      "explanation": "2×3+4×5 = 6+20 = 26."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q4",
+      "stem": "What is y²+3 when y=4?",
+      "choices": [
+        "11",
+        "16",
+        "19",
+        "64"
+      ],
+      "correctIndex": 2,
+      "explanation": "4²+3 = 16+3 = 19."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q5",
+      "stem": "Taxi: £3 plus £2 per mile. Expression for cost of m miles?",
+      "choices": [
+        "3m+2",
+        "2m+3",
+        "5m",
+        "3+2+m"
+      ],
+      "correctIndex": 1,
+      "explanation": "£2 per mile = 2m, plus fixed £3: 2m+3."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q6",
+      "stem": "Find perimeter using P=2l+2w when l=6cm, w=4cm.",
+      "choices": [
+        "20 cm",
+        "24 cm",
+        "28 cm",
+        "10 cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "P = 2×6 + 2×4 = 12+8 = 20 cm."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q7",
+      "stem": "Expand 5(x+3).",
+      "choices": [
+        "5x+3",
+        "5x+8",
+        "5x+15",
+        "x+15"
+      ],
+      "correctIndex": 2,
+      "explanation": "5×x=5x, 5×3=15 → 5x+15."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q8",
+      "stem": "Expand 3(2p−7).",
+      "choices": [
+        "6p−7",
+        "6p−21",
+        "5p−21",
+        "6p−10"
+      ],
+      "correctIndex": 1,
+      "explanation": "3×2p=6p, 3×(−7)=−21 → 6p−21."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q9",
+      "stem": "If n=10, what is 2n²?",
+      "choices": [
+        "200",
+        "400",
+        "40",
+        "100"
+      ],
+      "correctIndex": 0,
+      "explanation": "n²=10²=100, 2×100=200. Exponent only applies to n."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q10",
+      "stem": "Plumber: £40 call-out + £25/hour. Cost for 3 hours?",
+      "choices": [
+        "£115",
+        "£75",
+        "£95",
+        "£105"
+      ],
+      "correctIndex": 0,
+      "explanation": "25h+40 with h=3: 25×3+40 = 75+40 = £115."
+    }
   ]
 }

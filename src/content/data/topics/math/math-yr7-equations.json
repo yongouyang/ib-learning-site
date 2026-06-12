@@ -5,31 +5,197 @@
   "description": "Solving one-step and two-step linear equations using inverse operations and the balance method.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "eq-n1", "heading": "What is an Equation?", "body": "An equation has an equals sign and states two expressions are equal. Think of a balanced scale — left must equal right. The solution is the value that makes it true. x+3=10 has solution x=7. Equations differ from expressions: 2x+5 is an expression; 2x+5=13 is an equation." },
-    { "id": "eq-n2", "heading": "Solving One-Step Equations", "body": "Use the inverse operation to isolate the variable. Golden rule: whatever you do to one side, do EXACTLY the same to the other. Addition ↔ Subtraction, Multiplication ↔ Division. Examples: x+5=12 → x=7; y−3=8 → y=11; 4n=20 → n=5; m/3=7 → m=21. Always check by substituting back." },
-    { "id": "eq-n3", "heading": "Solving Two-Step Equations", "body": "Undo addition/subtraction first, then multiplication/division (SADMEP — reverse of PEMDAS). Example: 3x+4=19 → subtract 4: 3x=15 → divide by 3: x=5. Example: 2p−7=11 → add 7: 2p=18 → divide by 2: p=9." },
-    { "id": "eq-n4", "heading": "Forming Equations from Word Problems", "body": "Steps: (1) Identify the unknown, give it a letter. (2) Translate the situation into an equation. (3) Solve. (4) Answer in context with units. Example: \"I think of a number, multiply by 4, add 7, get 35.\" Let n be the number: 4n+7=35 → 4n=28 → n=7." }
+    {
+      "id": "math-yr7-equations-eq-n1",
+      "heading": "What is an Equation?",
+      "body": "An equation has an equals sign and states two expressions are equal. Think of a balanced scale — left must equal right. The solution is the value that makes it true. x+3=10 has solution x=7. Equations differ from expressions: 2x+5 is an expression; 2x+5=13 is an equation."
+    },
+    {
+      "id": "math-yr7-equations-eq-n2",
+      "heading": "Solving One-Step Equations",
+      "body": "Use the inverse operation to isolate the variable. Golden rule: whatever you do to one side, do EXACTLY the same to the other. Addition ↔ Subtraction, Multiplication ↔ Division. Examples: x+5=12 → x=7; y−3=8 → y=11; 4n=20 → n=5; m/3=7 → m=21. Always check by substituting back."
+    },
+    {
+      "id": "math-yr7-equations-eq-n3",
+      "heading": "Solving Two-Step Equations",
+      "body": "Undo addition/subtraction first, then multiplication/division (SADMEP — reverse of PEMDAS). Example: 3x+4=19 → subtract 4: 3x=15 → divide by 3: x=5. Example: 2p−7=11 → add 7: 2p=18 → divide by 2: p=9."
+    },
+    {
+      "id": "math-yr7-equations-eq-n4",
+      "heading": "Forming Equations from Word Problems",
+      "body": "Steps: (1) Identify the unknown, give it a letter. (2) Translate the situation into an equation. (3) Solve. (4) Answer in context with units. Example: \"I think of a number, multiply by 4, add 7, get 35.\" Let n be the number: 4n+7=35 → 4n=28 → n=7."
+    }
   ],
   "flashcards": [
-    { "id": "eq-f1", "term": "Equation", "definition": "A mathematical sentence with an equals sign.", "example": "2x+5=17." },
-    { "id": "eq-f2", "term": "Solution", "definition": "The value of the variable that makes the equation true.", "example": "x+4=10 → x=6." },
-    { "id": "eq-f3", "term": "Inverse operations", "definition": "Opposite operations: + ↔ −, × ↔ ÷.", "example": "To solve x+3=8: subtract 3." },
-    { "id": "eq-f4", "term": "Balance method", "definition": "Do the same operation to BOTH sides.", "example": "3x=15 → divide both sides by 3." },
-    { "id": "eq-f5", "term": "Isolate the variable", "definition": "Get the variable alone on one side.", "example": "2y−3=9 → add 3: 2y=12 → divide by 2: y=6." },
-    { "id": "eq-f6", "term": "One-step equation", "definition": "Solved with a single inverse operation.", "example": "x+5=13 → x=8." },
-    { "id": "eq-f7", "term": "Two-step equation", "definition": "Requires two inverse operations.", "example": "4x−7=13 → add 7 → divide by 4 → x=5." },
-    { "id": "eq-f8", "term": "Checking", "definition": "Substitute solution back into original equation.", "example": "If x=4, 2(4)+1=9 ✓." }
+    {
+      "id": "math-yr7-equations-eq-f1",
+      "term": "Equation",
+      "definition": "A mathematical sentence with an equals sign.",
+      "example": "2x+5=17."
+    },
+    {
+      "id": "math-yr7-equations-eq-f2",
+      "term": "Solution",
+      "definition": "The value of the variable that makes the equation true.",
+      "example": "x+4=10 → x=6."
+    },
+    {
+      "id": "math-yr7-equations-eq-f3",
+      "term": "Inverse operations",
+      "definition": "Opposite operations: + ↔ −, × ↔ ÷.",
+      "example": "To solve x+3=8: subtract 3."
+    },
+    {
+      "id": "math-yr7-equations-eq-f4",
+      "term": "Balance method",
+      "definition": "Do the same operation to BOTH sides.",
+      "example": "3x=15 → divide both sides by 3."
+    },
+    {
+      "id": "math-yr7-equations-eq-f5",
+      "term": "Isolate the variable",
+      "definition": "Get the variable alone on one side.",
+      "example": "2y−3=9 → add 3: 2y=12 → divide by 2: y=6."
+    },
+    {
+      "id": "math-yr7-equations-eq-f6",
+      "term": "One-step equation",
+      "definition": "Solved with a single inverse operation.",
+      "example": "x+5=13 → x=8."
+    },
+    {
+      "id": "math-yr7-equations-eq-f7",
+      "term": "Two-step equation",
+      "definition": "Requires two inverse operations.",
+      "example": "4x−7=13 → add 7 → divide by 4 → x=5."
+    },
+    {
+      "id": "math-yr7-equations-eq-f8",
+      "term": "Checking",
+      "definition": "Substitute solution back into original equation.",
+      "example": "If x=4, 2(4)+1=9 ✓."
+    }
   ],
   "questions": [
-    { "id": "eq-q1", "stem": "Solve: x+9=15", "choices": ["x=6", "x=24", "x=5", "x=−6"], "correctIndex": 0, "explanation": "Subtract 9: x=15−9=6." },
-    { "id": "eq-q2", "stem": "Solve: y−5=12", "choices": ["y=7", "y=17", "y=−7", "y=60"], "correctIndex": 1, "explanation": "Add 5: y=12+5=17." },
-    { "id": "eq-q3", "stem": "Solve: 6n=42", "choices": ["n=7", "n=6", "n=8", "n=36"], "correctIndex": 0, "explanation": "Divide by 6: n=42÷6=7." },
-    { "id": "eq-q4", "stem": "Solve: p/4=9", "choices": ["p=2.25", "p=13", "p=36", "p=5"], "correctIndex": 2, "explanation": "Multiply by 4: p=9×4=36." },
-    { "id": "eq-q5", "stem": "Solve: 2x+3=17", "choices": ["x=7", "x=10", "x=5", "x=8.5"], "correctIndex": 0, "explanation": "Subtract 3: 2x=14, divide by 2: x=7." },
-    { "id": "eq-q6", "stem": "Solve: 5y−8=22", "choices": ["y=2.8", "y=6", "y=14", "y=30"], "correctIndex": 1, "explanation": "Add 8: 5y=30, divide by 5: y=6." },
-    { "id": "eq-q7", "stem": "Solve: x/3+2=7", "choices": ["x=15", "x=27", "x=9", "x=3"], "correctIndex": 0, "explanation": "Subtract 2: x/3=5, multiply by 3: x=15." },
-    { "id": "eq-q8", "stem": "I think of a number, multiply by 3, subtract 4, get 20. Find the number.", "choices": ["6", "8", "7", "5"], "correctIndex": 1, "explanation": "3n−4=20 → 3n=24 → n=8." },
-    { "id": "eq-q9", "stem": "Solve: 4(x−2)=20", "choices": ["x=7", "x=5.5", "x=3", "x=6"], "correctIndex": 0, "explanation": "Expand: 4x−8=20 → 4x=28 → x=7." },
-    { "id": "eq-q10", "stem": "Perimeter of rectangle is 38cm, length 12cm. Find width. (P=2l+2w)", "choices": ["7 cm", "8 cm", "13 cm", "6 cm"], "correctIndex": 0, "explanation": "38=2×12+2w → 38=24+2w → 14=2w → w=7cm." }
+    {
+      "id": "math-yr7-equations-eq-q1",
+      "stem": "Solve: x+9=15",
+      "choices": [
+        "x=6",
+        "x=24",
+        "x=5",
+        "x=−6"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 9: x=15−9=6."
+    },
+    {
+      "id": "math-yr7-equations-eq-q2",
+      "stem": "Solve: y−5=12",
+      "choices": [
+        "y=7",
+        "y=17",
+        "y=−7",
+        "y=60"
+      ],
+      "correctIndex": 1,
+      "explanation": "Add 5: y=12+5=17."
+    },
+    {
+      "id": "math-yr7-equations-eq-q3",
+      "stem": "Solve: 6n=42",
+      "choices": [
+        "n=7",
+        "n=6",
+        "n=8",
+        "n=36"
+      ],
+      "correctIndex": 0,
+      "explanation": "Divide by 6: n=42÷6=7."
+    },
+    {
+      "id": "math-yr7-equations-eq-q4",
+      "stem": "Solve: p/4=9",
+      "choices": [
+        "p=2.25",
+        "p=13",
+        "p=36",
+        "p=5"
+      ],
+      "correctIndex": 2,
+      "explanation": "Multiply by 4: p=9×4=36."
+    },
+    {
+      "id": "math-yr7-equations-eq-q5",
+      "stem": "Solve: 2x+3=17",
+      "choices": [
+        "x=7",
+        "x=10",
+        "x=5",
+        "x=8.5"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 3: 2x=14, divide by 2: x=7."
+    },
+    {
+      "id": "math-yr7-equations-eq-q6",
+      "stem": "Solve: 5y−8=22",
+      "choices": [
+        "y=2.8",
+        "y=6",
+        "y=14",
+        "y=30"
+      ],
+      "correctIndex": 1,
+      "explanation": "Add 8: 5y=30, divide by 5: y=6."
+    },
+    {
+      "id": "math-yr7-equations-eq-q7",
+      "stem": "Solve: x/3+2=7",
+      "choices": [
+        "x=15",
+        "x=27",
+        "x=9",
+        "x=3"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 2: x/3=5, multiply by 3: x=15."
+    },
+    {
+      "id": "math-yr7-equations-eq-q8",
+      "stem": "I think of a number, multiply by 3, subtract 4, get 20. Find the number.",
+      "choices": [
+        "6",
+        "8",
+        "7",
+        "5"
+      ],
+      "correctIndex": 1,
+      "explanation": "3n−4=20 → 3n=24 → n=8."
+    },
+    {
+      "id": "math-yr7-equations-eq-q9",
+      "stem": "Solve: 4(x−2)=20",
+      "choices": [
+        "x=7",
+        "x=5.5",
+        "x=3",
+        "x=6"
+      ],
+      "correctIndex": 0,
+      "explanation": "Expand: 4x−8=20 → 4x=28 → x=7."
+    },
+    {
+      "id": "math-yr7-equations-eq-q10",
+      "stem": "Perimeter of rectangle is 38cm, length 12cm. Find width. (P=2l+2w)",
+      "choices": [
+        "7 cm",
+        "8 cm",
+        "13 cm",
+        "6 cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "38=2×12+2w → 38=24+2w → 14=2w → w=7cm."
+    }
   ]
 }

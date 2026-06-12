@@ -6,85 +6,110 @@
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "gen-n1",
+      "id": "bio-genetics-1-gen-n1",
       "heading": "DNA, Genes, and Chromosomes",
       "body": "DNA (deoxyribonucleic acid) is a long molecule that carries genetic information in a code made of four bases: A, T, C, G. A gene is a short section of DNA that codes for a specific protein — and proteins determine our characteristics. Genes are found on chromosomes, which are coiled-up DNA found in the nucleus. Human cells contain 46 chromosomes (23 pairs). One chromosome from each pair came from each parent."
     },
     {
-      "id": "gen-n2",
+      "id": "bio-genetics-1-gen-n2",
       "heading": "Dominant and Recessive Alleles",
       "body": "For each gene we have two alleles — one from each parent. A dominant allele (capital letter, e.g. B) will show its effect even if only one copy is present. A recessive allele (lowercase, e.g. b) will only show if two copies are present (bb). An organism with two identical alleles (BB or bb) is homozygous. Two different alleles (Bb) is heterozygous. The genetic make-up is the genotype; what you see is the phenotype."
     },
     {
-      "id": "gen-n3",
+      "id": "bio-genetics-1-gen-n3",
       "heading": "Punnett Squares",
       "body": "A Punnett square is a grid used to predict the possible genotypes and phenotypes of offspring from a cross. Write one parent's alleles across the top, the other's down the side. Each box represents a 25% probability. For a Bb × Bb cross: BB (25%), Bb (50%), bb (25%)."
     }
   ],
   "flashcards": [
     {
-      "id": "gen-f1",
+      "id": "bio-genetics-1-gen-f1",
       "term": "Gene",
       "definition": "A section of DNA that codes for a specific protein, determining a particular characteristic.",
       "example": "The gene for eye colour instructs cells to produce certain pigments."
     },
     {
-      "id": "gen-f2",
+      "id": "bio-genetics-1-gen-f2",
       "term": "Allele",
       "definition": "A version of a gene. Two alleles for most genes — one on each chromosome of a pair.",
       "example": "B (brown eyes) and b (blue eyes) are alleles of the eye colour gene."
     },
     {
-      "id": "gen-f3",
+      "id": "bio-genetics-1-gen-f3",
       "term": "Dominant allele",
       "definition": "An allele that is expressed even when only one copy is present.",
       "example": "If B = brown eyes is dominant, then BB and Bb both give brown eyes."
     },
     {
-      "id": "gen-f4",
+      "id": "bio-genetics-1-gen-f4",
       "term": "Recessive allele",
       "definition": "An allele that is only expressed when two copies are present (homozygous recessive).",
       "example": "Blue eyes only appear with genotype bb."
     },
     {
-      "id": "gen-f5",
+      "id": "bio-genetics-1-gen-f5",
       "term": "Punnett square",
       "definition": "A grid diagram used to predict the genotype ratios of offspring from a genetic cross."
     }
   ],
   "questions": [
     {
-      "id": "gen-q1",
+      "id": "bio-genetics-1-gen-q1",
       "stem": "A dominant allele for tall plants (T) is crossed with a recessive allele for short plants (t). What is the phenotype of a plant with genotype Tt?",
-      "choices": ["Short", "Tall", "Medium height", "Cannot be determined"],
+      "choices": [
+        "Short",
+        "Tall",
+        "Medium height",
+        "Cannot be determined"
+      ],
       "correctIndex": 1,
       "explanation": "Tt is heterozygous. Because T (tall) is dominant, even one copy causes the plant to be tall."
     },
     {
-      "id": "gen-q2",
+      "id": "bio-genetics-1-gen-q2",
       "stem": "Where is DNA found in a eukaryotic cell?",
-      "choices": ["Mitochondria only", "Cytoplasm", "Nucleus", "Cell membrane"],
+      "choices": [
+        "Mitochondria only",
+        "Cytoplasm",
+        "Nucleus",
+        "Cell membrane"
+      ],
       "correctIndex": 2,
       "explanation": "In eukaryotic cells, most DNA is located in the nucleus, packaged into chromosomes."
     },
     {
-      "id": "gen-q3",
+      "id": "bio-genetics-1-gen-q3",
       "stem": "Two heterozygous brown-eyed parents (Bb × Bb). What fraction of children expected to have blue eyes (bb)?",
-      "choices": ["1/4", "1/2", "3/4", "0"],
+      "choices": [
+        "1/4",
+        "1/2",
+        "3/4",
+        "0"
+      ],
       "correctIndex": 0,
       "explanation": "Punnett square: BB, Bb, Bb, bb. One of four = 1/4 (25%)."
     },
     {
-      "id": "gen-q4",
+      "id": "bio-genetics-1-gen-q4",
       "stem": "What is the term for an organism that has two identical alleles for a gene (e.g., BB or bb)?",
-      "choices": ["Heterozygous", "Homozygous", "Dominant", "Recessive"],
+      "choices": [
+        "Heterozygous",
+        "Homozygous",
+        "Dominant",
+        "Recessive"
+      ],
       "correctIndex": 1,
       "explanation": "Homozygous means both alleles for a gene are the same."
     },
     {
-      "id": "gen-q5",
+      "id": "bio-genetics-1-gen-q5",
       "stem": "How many chromosomes does a typical human body cell contain?",
-      "choices": ["23", "46", "92", "12"],
+      "choices": [
+        "23",
+        "46",
+        "92",
+        "12"
+      ],
       "correctIndex": 1,
       "explanation": "Human body cells contain 46 chromosomes in 23 pairs."
     }

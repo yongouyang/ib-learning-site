@@ -5,29 +5,185 @@
   "description": "Solving and representing linear inequalities, compound inequalities, and graphical inequalities on a coordinate plane.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "ine-n1", "heading": "Solving Linear Inequalities", "body": "Solve like equations, but with one critical exception: when multiplying or dividing both sides by a negative number, REVERSE the inequality sign. Example: −2x < 6 → x > −3." },
-    { "id": "ine-n2", "heading": "Number Line Representation", "body": "Open circle (○) = value NOT included (< or >). Filled circle (●) = value IS included (≤ or ≥). Arrow extends in the direction of all satisfying values. Compound inequality: −1 < x ≤ 5 shown with open circle at −1, filled at 5, segment shaded between." },
-    { "id": "ine-n3", "heading": "Compound Inequalities", "body": "Solve by applying operations to all three parts. Example: −2 ≤ 3x+1 < 10 → −3 ≤ 3x < 9 → −1 ≤ x < 3. Solutions include all values from −1 to 3 (including −1, excluding 3)." },
-    { "id": "ine-n4", "heading": "Graphical Inequalities", "body": "Draw the boundary line. Use solid if ≤ or ≥ (boundary included), dashed if < or > (boundary excluded). Test a point (e.g., (0,0)) to determine which side to shade. Multiple inequalities give a feasible region." }
+    {
+      "id": "math-inequalities-myp-ine-n1",
+      "heading": "Solving Linear Inequalities",
+      "body": "Solve like equations, but with one critical exception: when multiplying or dividing both sides by a negative number, REVERSE the inequality sign. Example: −2x < 6 → x > −3."
+    },
+    {
+      "id": "math-inequalities-myp-ine-n2",
+      "heading": "Number Line Representation",
+      "body": "Open circle (○) = value NOT included (< or >). Filled circle (●) = value IS included (≤ or ≥). Arrow extends in the direction of all satisfying values. Compound inequality: −1 < x ≤ 5 shown with open circle at −1, filled at 5, segment shaded between."
+    },
+    {
+      "id": "math-inequalities-myp-ine-n3",
+      "heading": "Compound Inequalities",
+      "body": "Solve by applying operations to all three parts. Example: −2 ≤ 3x+1 < 10 → −3 ≤ 3x < 9 → −1 ≤ x < 3. Solutions include all values from −1 to 3 (including −1, excluding 3)."
+    },
+    {
+      "id": "math-inequalities-myp-ine-n4",
+      "heading": "Graphical Inequalities",
+      "body": "Draw the boundary line. Use solid if ≤ or ≥ (boundary included), dashed if < or > (boundary excluded). Test a point (e.g., (0,0)) to determine which side to shade. Multiple inequalities give a feasible region."
+    }
   ],
   "flashcards": [
-    { "id": "ine-f1", "term": "Inequality", "definition": "A mathematical statement showing two expressions are not equal, using <, >, ≤, or ≥.", "example": "3x−1 > 8" },
-    { "id": "ine-f2", "term": "Reversing the sign", "definition": "When multiplying or dividing by a negative number, flip the inequality sign.", "example": "−3x < 12 → x > −4" },
-    { "id": "ine-f3", "term": "Open circle", "definition": "Used at an endpoint to indicate the value is NOT included (< or >).", "example": "x > 5: open circle at 5." },
-    { "id": "ine-f4", "term": "Filled circle", "definition": "Used at an endpoint to indicate the value IS included (≤ or ≥).", "example": "x ≤ −2: filled circle at −2." },
-    { "id": "ine-f5", "term": "Compound inequality", "definition": "An inequality with two conditions bounding a variable between two values.", "example": "−3 < x ≤ 7" },
-    { "id": "ine-f6", "term": "Boundary line", "definition": "The line forming the edge of a shaded region. Solid if included (≤, ≥); dashed if not (< or >).", "example": "y ≤ 2x+1 has a solid line." }
+    {
+      "id": "math-inequalities-myp-ine-f1",
+      "term": "Inequality",
+      "definition": "A mathematical statement showing two expressions are not equal, using <, >, ≤, or ≥.",
+      "example": "3x−1 > 8"
+    },
+    {
+      "id": "math-inequalities-myp-ine-f2",
+      "term": "Reversing the sign",
+      "definition": "When multiplying or dividing by a negative number, flip the inequality sign.",
+      "example": "−3x < 12 → x > −4"
+    },
+    {
+      "id": "math-inequalities-myp-ine-f3",
+      "term": "Open circle",
+      "definition": "Used at an endpoint to indicate the value is NOT included (< or >).",
+      "example": "x > 5: open circle at 5."
+    },
+    {
+      "id": "math-inequalities-myp-ine-f4",
+      "term": "Filled circle",
+      "definition": "Used at an endpoint to indicate the value IS included (≤ or ≥).",
+      "example": "x ≤ −2: filled circle at −2."
+    },
+    {
+      "id": "math-inequalities-myp-ine-f5",
+      "term": "Compound inequality",
+      "definition": "An inequality with two conditions bounding a variable between two values.",
+      "example": "−3 < x ≤ 7"
+    },
+    {
+      "id": "math-inequalities-myp-ine-f6",
+      "term": "Boundary line",
+      "definition": "The line forming the edge of a shaded region. Solid if included (≤, ≥); dashed if not (< or >).",
+      "example": "y ≤ 2x+1 has a solid line."
+    }
   ],
   "questions": [
-    { "id": "ine-q1", "stem": "Solve: x + 7 > 12.", "choices": ["x > 5", "x < 5", "x > 19", "x ≥ 5"], "correctIndex": 0, "explanation": "x > 12−7 = 5." },
-    { "id": "ine-q2", "stem": "Solve: −2x < 10.", "choices": ["x < −5", "x > −5", "x < 5", "x > 5"], "correctIndex": 1, "explanation": "Divide by −2; reverse sign: x > −5." },
-    { "id": "ine-q3", "stem": "x ≥ 3 on a number line:", "choices": ["Open circle at 3, arrow left", "Open circle at 3, arrow right", "Filled circle at 3, arrow left", "Filled circle at 3, arrow right"], "correctIndex": 3, "explanation": "≥ includes 3 (filled) and all values greater (arrow right)." },
-    { "id": "ine-q4", "stem": "Integer solutions of −2 < x ≤ 3:", "choices": ["−1, 0, 1, 2, 3", "−2, −1, 0, 1, 2, 3", "−1, 0, 1, 2", "0, 1, 2, 3"], "correctIndex": 0, "explanation": "Strict at −2 (excluded), ≤ at 3 (included). Integers: −1, 0, 1, 2, 3." },
-    { "id": "ine-q5", "stem": "Solve: 1 ≤ 2x − 3 < 9.", "choices": ["2 ≤ x < 6", "−1 ≤ x < 3", "2 < x ≤ 6", "4 ≤ x < 12"], "correctIndex": 0, "explanation": "Add 3: 4 ≤ 2x < 12 → 2 ≤ x < 6." },
-    { "id": "ine-q6", "stem": "Bag holds at most 12kg. Already 7.5kg packed, each extra item 0.5kg. Max items?", "choices": ["8", "9", "10", "12"], "correctIndex": 1, "explanation": "7.5+0.5n ≤ 12 → 0.5n ≤ 4.5 → n ≤ 9." },
-    { "id": "ine-q7", "stem": "Solve: 3 − 2x ≥ −7.", "choices": ["x ≤ 5", "x ≥ 5", "x ≤ −5", "x ≥ −5"], "correctIndex": 0, "explanation": "−2x ≥ −10 → x ≤ 5 (flip sign)." },
-    { "id": "ine-q8", "stem": "2x+3 < 2x−1 has how many solutions?", "choices": ["Infinitely many", "One", "Two", "No solution"], "correctIndex": 3, "explanation": "0x+3 < −1 → 3 < −1 is always false. No solution." },
-    { "id": "ine-q9", "stem": "Solve: 2(x − 3) < 4.", "choices": ["x < 1", "x < 5", "x > 1", "x > 5"], "correctIndex": 1, "explanation": "2x−6 < 4 → 2x < 10 → x < 5." },
-    { "id": "ine-q10", "stem": "For y > 3x − 2, which is correct?", "choices": ["Solid line, shade above", "Dashed line, shade above", "Dashed line, shade below", "Solid line, shade below"], "correctIndex": 1, "explanation": "Strict (>) → dashed boundary; y > = shade above the line." }
+    {
+      "id": "math-inequalities-myp-ine-q1",
+      "stem": "Solve: x + 7 > 12.",
+      "choices": [
+        "x > 5",
+        "x < 5",
+        "x > 19",
+        "x ≥ 5"
+      ],
+      "correctIndex": 0,
+      "explanation": "x > 12−7 = 5."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q2",
+      "stem": "Solve: −2x < 10.",
+      "choices": [
+        "x < −5",
+        "x > −5",
+        "x < 5",
+        "x > 5"
+      ],
+      "correctIndex": 1,
+      "explanation": "Divide by −2; reverse sign: x > −5."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q3",
+      "stem": "x ≥ 3 on a number line:",
+      "choices": [
+        "Open circle at 3, arrow left",
+        "Open circle at 3, arrow right",
+        "Filled circle at 3, arrow left",
+        "Filled circle at 3, arrow right"
+      ],
+      "correctIndex": 3,
+      "explanation": "≥ includes 3 (filled) and all values greater (arrow right)."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q4",
+      "stem": "Integer solutions of −2 < x ≤ 3:",
+      "choices": [
+        "−1, 0, 1, 2, 3",
+        "−2, −1, 0, 1, 2, 3",
+        "−1, 0, 1, 2",
+        "0, 1, 2, 3"
+      ],
+      "correctIndex": 0,
+      "explanation": "Strict at −2 (excluded), ≤ at 3 (included). Integers: −1, 0, 1, 2, 3."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q5",
+      "stem": "Solve: 1 ≤ 2x − 3 < 9.",
+      "choices": [
+        "2 ≤ x < 6",
+        "−1 ≤ x < 3",
+        "2 < x ≤ 6",
+        "4 ≤ x < 12"
+      ],
+      "correctIndex": 0,
+      "explanation": "Add 3: 4 ≤ 2x < 12 → 2 ≤ x < 6."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q6",
+      "stem": "Bag holds at most 12kg. Already 7.5kg packed, each extra item 0.5kg. Max items?",
+      "choices": [
+        "8",
+        "9",
+        "10",
+        "12"
+      ],
+      "correctIndex": 1,
+      "explanation": "7.5+0.5n ≤ 12 → 0.5n ≤ 4.5 → n ≤ 9."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q7",
+      "stem": "Solve: 3 − 2x ≥ −7.",
+      "choices": [
+        "x ≤ 5",
+        "x ≥ 5",
+        "x ≤ −5",
+        "x ≥ −5"
+      ],
+      "correctIndex": 0,
+      "explanation": "−2x ≥ −10 → x ≤ 5 (flip sign)."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q8",
+      "stem": "2x+3 < 2x−1 has how many solutions?",
+      "choices": [
+        "Infinitely many",
+        "One",
+        "Two",
+        "No solution"
+      ],
+      "correctIndex": 3,
+      "explanation": "0x+3 < −1 → 3 < −1 is always false. No solution."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q9",
+      "stem": "Solve: 2(x − 3) < 4.",
+      "choices": [
+        "x < 1",
+        "x < 5",
+        "x > 1",
+        "x > 5"
+      ],
+      "correctIndex": 1,
+      "explanation": "2x−6 < 4 → 2x < 10 → x < 5."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q10",
+      "stem": "For y > 3x − 2, which is correct?",
+      "choices": [
+        "Solid line, shade above",
+        "Dashed line, shade above",
+        "Dashed line, shade below",
+        "Solid line, shade below"
+      ],
+      "correctIndex": 1,
+      "explanation": "Strict (>) → dashed boundary; y > = shade above the line."
+    }
   ]
 }

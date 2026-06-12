@@ -34,6 +34,21 @@ export default function ProgressPage() {
         </div>
       </div>
 
+      {/* Mixed review actions */}
+      <div className="card p-4 mb-6">
+        <h2 className="text-sm font-semibold text-gray-900 mb-3">Practice</h2>
+        <div className="flex flex-col sm:flex-row gap-2">
+          <Link href="/mixed-review?mode=weak"
+            className="flex-1 text-center py-2.5 rounded-lg bg-orange-600 text-white font-medium text-sm hover:bg-orange-700 transition-colors">
+            🎯 Practice Weak Areas
+          </Link>
+          <Link href="/mixed-review"
+            className="flex-1 text-center py-2.5 rounded-lg bg-blue-50 text-blue-700 font-medium text-sm hover:bg-blue-100 transition-colors">
+            🎲 Mixed Review
+          </Link>
+        </div>
+      </div>
+
       {/* Per subject */}
       {subjects.map((subject) => {
         const subjectProgress = topicProgress.filter(tp => tp.subjectId === subject.id && tp.attempts.length > 0);

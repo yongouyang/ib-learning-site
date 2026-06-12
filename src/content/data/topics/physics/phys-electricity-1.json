@@ -5,22 +5,110 @@
   "description": "Circuits, current, voltage, resistance, and Ohm's Law.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "n1", "heading": "Current, Voltage, Resistance", "body": "Current (I): flow of charge, measured in amperes (A). Voltage (V): energy per unit charge (potential difference), measured in volts (V). Resistance (R): opposition to current, measured in ohms (Ω). Ohm's Law: V = IR." },
-    { "id": "n2", "heading": "Series and Parallel Circuits", "body": "Series: single loop, same current everywhere, voltages add up, if one component fails the circuit breaks. Parallel: separate branches, each gets full voltage, current splits, if one branch fails others keep working. Homes use parallel wiring." },
-    { "id": "n3", "heading": "Power and Energy", "body": "Electrical power P = VI (watts, W). Energy transferred E = Pt (joules, J). A 100W bulb transfers 100J every second. Kilowatt-hour (kWh): 1kWh = 1000W for 1 hour = 3,600,000J. Cost = power(kW)×time(h)×unit price." }
+    {
+      "id": "phys-electricity-1-n1",
+      "heading": "Current, Voltage, Resistance",
+      "body": "Current (I): flow of charge, measured in amperes (A). Voltage (V): energy per unit charge (potential difference), measured in volts (V). Resistance (R): opposition to current, measured in ohms (Ω). Ohm's Law: V = IR."
+    },
+    {
+      "id": "phys-electricity-1-n2",
+      "heading": "Series and Parallel Circuits",
+      "body": "Series: single loop, same current everywhere, voltages add up, if one component fails the circuit breaks. Parallel: separate branches, each gets full voltage, current splits, if one branch fails others keep working. Homes use parallel wiring."
+    },
+    {
+      "id": "phys-electricity-1-n3",
+      "heading": "Power and Energy",
+      "body": "Electrical power P = VI (watts, W). Energy transferred E = Pt (joules, J). A 100W bulb transfers 100J every second. Kilowatt-hour (kWh): 1kWh = 1000W for 1 hour = 3,600,000J. Cost = power(kW)×time(h)×unit price."
+    }
   ],
   "flashcards": [
-    { "id": "f1", "term": "Current", "definition": "Flow of electric charge, measured in amperes (A)." },
-    { "id": "f2", "term": "Voltage", "definition": "Energy per unit charge — the \"push\" driving current. Measured in volts (V)." },
-    { "id": "f3", "term": "Resistance", "definition": "Opposition to current flow, measured in ohms (Ω)." },
-    { "id": "f4", "term": "Ohm's Law", "definition": "V = IR. Voltage = current × resistance.", "example": "I=2A, R=5Ω → V=10V." },
-    { "id": "f5", "term": "Series circuit", "definition": "All components in one loop — same current throughout." }
+    {
+      "id": "phys-electricity-1-f1",
+      "term": "Current",
+      "definition": "Flow of electric charge, measured in amperes (A)."
+    },
+    {
+      "id": "phys-electricity-1-f2",
+      "term": "Voltage",
+      "definition": "Energy per unit charge — the \"push\" driving current. Measured in volts (V)."
+    },
+    {
+      "id": "phys-electricity-1-f3",
+      "term": "Resistance",
+      "definition": "Opposition to current flow, measured in ohms (Ω)."
+    },
+    {
+      "id": "phys-electricity-1-f4",
+      "term": "Ohm's Law",
+      "definition": "V = IR. Voltage = current × resistance.",
+      "example": "I=2A, R=5Ω → V=10V."
+    },
+    {
+      "id": "phys-electricity-1-f5",
+      "term": "Series circuit",
+      "definition": "All components in one loop — same current throughout."
+    }
   ],
   "questions": [
-    { "id": "q1", "stem": "Resistance 10Ω, current 3A. Voltage?", "choices": ["0.3V", "7V", "13V", "30V"], "correctIndex": 3, "explanation": "V = IR = 3×10 = 30V." },
-    { "id": "q2", "stem": "Two identical lamps in series. Current through each compared to total?", "choices": ["Each gets double", "Each gets same as total", "Each gets half", "They share equally, each getting half"], "correctIndex": 1, "explanation": "In series, same current flows through every component." },
-    { "id": "q3", "stem": "Why are homes wired in parallel?", "choices": ["Uses less energy", "Each appliance gets full voltage, independent switching", "Series is more dangerous", "Parallel has lower resistance"], "correctIndex": 1, "explanation": "Parallel: each appliance gets 230V and can be switched on/off independently." },
-    { "id": "q4", "stem": "Kettle: 2000W, used 0.5h. Energy in kWh?", "choices": ["0.5 kWh", "1 kWh", "2 kWh", "4000 kWh"], "correctIndex": 1, "explanation": "2kW × 0.5h = 1 kWh." },
-    { "id": "q5", "stem": "12V across 4Ω. Current?", "choices": ["48A", "8A", "3A", "0.33A"], "correctIndex": 2, "explanation": "I = V÷R = 12÷4 = 3A." }
+    {
+      "id": "phys-electricity-1-q1",
+      "stem": "Resistance 10Ω, current 3A. Voltage?",
+      "choices": [
+        "0.3V",
+        "7V",
+        "13V",
+        "30V"
+      ],
+      "correctIndex": 3,
+      "explanation": "V = IR = 3×10 = 30V."
+    },
+    {
+      "id": "phys-electricity-1-q2",
+      "stem": "Two identical lamps in series. Current through each compared to total?",
+      "choices": [
+        "Each gets double",
+        "Each gets same as total",
+        "Each gets half",
+        "They share equally, each getting half"
+      ],
+      "correctIndex": 1,
+      "explanation": "In series, same current flows through every component."
+    },
+    {
+      "id": "phys-electricity-1-q3",
+      "stem": "Why are homes wired in parallel?",
+      "choices": [
+        "Uses less energy",
+        "Each appliance gets full voltage, independent switching",
+        "Series is more dangerous",
+        "Parallel has lower resistance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Parallel: each appliance gets 230V and can be switched on/off independently."
+    },
+    {
+      "id": "phys-electricity-1-q4",
+      "stem": "Kettle: 2000W, used 0.5h. Energy in kWh?",
+      "choices": [
+        "0.5 kWh",
+        "1 kWh",
+        "2 kWh",
+        "4000 kWh"
+      ],
+      "correctIndex": 1,
+      "explanation": "2kW × 0.5h = 1 kWh."
+    },
+    {
+      "id": "phys-electricity-1-q5",
+      "stem": "12V across 4Ω. Current?",
+      "choices": [
+        "48A",
+        "8A",
+        "3A",
+        "0.33A"
+      ],
+      "correctIndex": 2,
+      "explanation": "I = V÷R = 12÷4 = 3A."
+    }
   ]
 }

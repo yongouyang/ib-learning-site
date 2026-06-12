@@ -5,22 +5,114 @@
   "description": "Using letters to represent unknown values and solving equations.",
   "ibLevel": "MYP",
   "notes": [
-    { "id": "alg-n1", "heading": "Variables and Expressions", "body": "Letters (variables) represent unknown numbers. An algebraic expression combines numbers, variables, and operations — like 2x+3 or 5y−7. No equals sign. The number in front is the coefficient (in 4x, the coefficient is 4)." },
-    { "id": "alg-n2", "heading": "Solving One-Step Equations", "body": "Use inverse operations to isolate the variable. Golden rule: whatever you do to one side, do to the other. If x+5=12, subtract 5: x=7. If 3x=18, divide by 3: x=6." },
-    { "id": "alg-n3", "heading": "Expanding and Simplifying", "body": "Expand brackets: multiply outside term by every inside term. 3(x+4)=3x+12. Simplify by collecting like terms: 5x+3+2x−1 = 7x+2. Cannot combine unlike terms like 3x and 3x²." }
+    {
+      "id": "math-algebra-1-alg-n1",
+      "heading": "Variables and Expressions",
+      "body": "Letters (variables) represent unknown numbers. An algebraic expression combines numbers, variables, and operations — like 2x+3 or 5y−7. No equals sign. The number in front is the coefficient (in 4x, the coefficient is 4)."
+    },
+    {
+      "id": "math-algebra-1-alg-n2",
+      "heading": "Solving One-Step Equations",
+      "body": "Use inverse operations to isolate the variable. Golden rule: whatever you do to one side, do to the other. If x+5=12, subtract 5: x=7. If 3x=18, divide by 3: x=6."
+    },
+    {
+      "id": "math-algebra-1-alg-n3",
+      "heading": "Expanding and Simplifying",
+      "body": "Expand brackets: multiply outside term by every inside term. 3(x+4)=3x+12. Simplify by collecting like terms: 5x+3+2x−1 = 7x+2. Cannot combine unlike terms like 3x and 3x²."
+    }
   ],
   "flashcards": [
-    { "id": "alg-f1", "term": "Variable", "definition": "A letter representing an unknown or changing number.", "example": "In 2x+3, x is the variable." },
-    { "id": "alg-f2", "term": "Coefficient", "definition": "The number multiplied by a variable.", "example": "In 7y, the coefficient is 7." },
-    { "id": "alg-f3", "term": "Equation", "definition": "A statement showing two expressions are equal, with an equals sign.", "example": "3x+2=11" },
-    { "id": "alg-f4", "term": "Like terms", "definition": "Terms with the same variable to the same power.", "example": "3x and 5x are like; 3x and 3x² are not." },
-    { "id": "alg-f5", "term": "Expanding brackets", "definition": "Multiply outside term by every inside term.", "example": "4(x+3)=4x+12" }
+    {
+      "id": "math-algebra-1-alg-f1",
+      "term": "Variable",
+      "definition": "A letter representing an unknown or changing number.",
+      "example": "In 2x+3, x is the variable."
+    },
+    {
+      "id": "math-algebra-1-alg-f2",
+      "term": "Coefficient",
+      "definition": "The number multiplied by a variable.",
+      "example": "In 7y, the coefficient is 7."
+    },
+    {
+      "id": "math-algebra-1-alg-f3",
+      "term": "Equation",
+      "definition": "A statement showing two expressions are equal, with an equals sign.",
+      "example": "3x+2=11"
+    },
+    {
+      "id": "math-algebra-1-alg-f4",
+      "term": "Like terms",
+      "definition": "Terms with the same variable to the same power.",
+      "example": "3x and 5x are like; 3x and 3x² are not."
+    },
+    {
+      "id": "math-algebra-1-alg-f5",
+      "term": "Expanding brackets",
+      "definition": "Multiply outside term by every inside term.",
+      "example": "4(x+3)=4x+12"
+    }
   ],
   "questions": [
-    { "id": "alg-q1", "stem": "If 2x+6=14, what is x?", "choices": ["3", "4", "7", "10"], "correctIndex": 1, "explanation": "2x=8, x=4." },
-    { "id": "alg-q2", "stem": "Simplify: 5a+3b−2a+b", "choices": ["3a+4b", "7a+4b", "3a+2b", "7a+2b"], "correctIndex": 0, "explanation": "(5a−2a)+(3b+b)=3a+4b." },
-    { "id": "alg-q3", "stem": "Coefficient of y in 9y−4?", "choices": ["−4", "4", "9", "−9"], "correctIndex": 2, "explanation": "The coefficient of y is 9." },
-    { "id": "alg-q4", "stem": "Expand: 3(2x−5)", "choices": ["6x−5", "6x−15", "5x−15", "6x+15"], "correctIndex": 1, "explanation": "3×2x=6x, 3×(−5)=−15 → 6x−15." },
-    { "id": "alg-q5", "stem": "Which is an expression (not an equation)?", "choices": ["x+4=10", "2y=8", "3x−7", "5+n=12"], "correctIndex": 2, "explanation": "3x−7 has no equals sign — it is an expression." }
+    {
+      "id": "math-algebra-1-alg-q1",
+      "stem": "If 2x+6=14, what is x?",
+      "choices": [
+        "3",
+        "4",
+        "7",
+        "10"
+      ],
+      "correctIndex": 1,
+      "explanation": "2x=8, x=4."
+    },
+    {
+      "id": "math-algebra-1-alg-q2",
+      "stem": "Simplify: 5a+3b−2a+b",
+      "choices": [
+        "3a+4b",
+        "7a+4b",
+        "3a+2b",
+        "7a+2b"
+      ],
+      "correctIndex": 0,
+      "explanation": "(5a−2a)+(3b+b)=3a+4b."
+    },
+    {
+      "id": "math-algebra-1-alg-q3",
+      "stem": "Coefficient of y in 9y−4?",
+      "choices": [
+        "−4",
+        "4",
+        "9",
+        "−9"
+      ],
+      "correctIndex": 2,
+      "explanation": "The coefficient of y is 9."
+    },
+    {
+      "id": "math-algebra-1-alg-q4",
+      "stem": "Expand: 3(2x−5)",
+      "choices": [
+        "6x−5",
+        "6x−15",
+        "5x−15",
+        "6x+15"
+      ],
+      "correctIndex": 1,
+      "explanation": "3×2x=6x, 3×(−5)=−15 → 6x−15."
+    },
+    {
+      "id": "math-algebra-1-alg-q5",
+      "stem": "Which is an expression (not an equation)?",
+      "choices": [
+        "x+4=10",
+        "2y=8",
+        "3x−7",
+        "5+n=12"
+      ],
+      "correctIndex": 2,
+      "explanation": "3x−7 has no equals sign — it is an expression."
+    }
   ]
 }
