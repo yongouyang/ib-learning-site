@@ -1,0 +1,26 @@
+{
+  "id": "math-geometry-1",
+  "subjectId": "math",
+  "title": "Geometry (Angles & Shapes)",
+  "description": "Properties of angles, triangles, quadrilaterals, and circles.",
+  "ibLevel": "MYP",
+  "notes": [
+    { "id": "geo-n1", "heading": "Angle Rules", "body": "Angles on a straight line = 180°. Angles around a point = 360°. Vertically opposite angles are equal. Triangle interior angles = 180°. Quadrilateral interior angles = 360°." },
+    { "id": "geo-n2", "heading": "Triangles and Quadrilaterals", "body": "Triangles: equilateral (all sides equal, 60° each), isosceles (two equal sides), scalene (no equal sides). Square: 4 equal sides, 4 right angles. Rectangle: 4 right angles. Parallelogram: 2 pairs parallel sides. Rhombus: 4 equal sides. Trapezium: exactly 1 pair parallel sides." },
+    { "id": "geo-n3", "heading": "Perimeter and Area", "body": "Perimeter = distance around. Area formulas: rectangle = l×w, triangle = (b×h)÷2, circle = πr². Circumference = 2πr. Use consistent units: cm gives cm² for area." }
+  ],
+  "flashcards": [
+    { "id": "geo-f1", "term": "Vertically opposite angles", "definition": "Angles across from each other when lines intersect — always equal." },
+    { "id": "geo-f2", "term": "Equilateral triangle", "definition": "All sides equal, all angles 60°." },
+    { "id": "geo-f3", "term": "Area of triangle", "definition": "Area = (base × height) ÷ 2", "example": "Base=8cm, h=5cm → 20cm²" },
+    { "id": "geo-f4", "term": "Circumference", "definition": "C = πd or C = 2πr", "example": "r=7cm → C≈43.98cm" },
+    { "id": "geo-f5", "term": "Parallelogram", "definition": "Quadrilateral with two pairs of parallel sides." }
+  ],
+  "questions": [
+    { "id": "geo-q1", "stem": "Two angles on a straight line: x and 55°. Find x.", "choices": ["55°", "125°", "135°", "115°"], "correctIndex": 1, "explanation": "180°−55°=125°." },
+    { "id": "geo-q2", "stem": "Triangle: 90° and 35°. Third angle?", "choices": ["45°", "65°", "55°", "70°"], "correctIndex": 2, "explanation": "180°−90°−35°=55°." },
+    { "id": "geo-q3", "stem": "Area of rectangle: l=12cm, w=5cm?", "choices": ["34 cm²", "60 cm²", "17 cm²", "55 cm²"], "correctIndex": 1, "explanation": "12×5=60 cm²." },
+    { "id": "geo-q4", "stem": "Which has exactly one pair of parallel sides?", "choices": ["Parallelogram", "Rectangle", "Trapezium", "Rhombus"], "correctIndex": 2, "explanation": "Trapezium has exactly one pair." },
+    { "id": "geo-q5", "stem": "Triangle: base 10cm, height 6cm. Area?", "choices": ["60 cm²", "16 cm²", "30 cm²", "20 cm²"], "correctIndex": 2, "explanation": "(10×6)÷2=30 cm²." }
+  ]
+}

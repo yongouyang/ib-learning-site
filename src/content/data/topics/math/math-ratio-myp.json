@@ -1,0 +1,118 @@
+{
+  "id": "math-ratio-myp",
+  "subjectId": "math",
+  "title": "Ratio & Proportion",
+  "description": "Simplifying ratios, dividing quantities, direct and inverse proportion, and real-world applications.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "ratio-n1",
+      "heading": "Simplifying Ratios",
+      "body": "A ratio compares quantities. Simplify by dividing all parts by their HCF. Example: 12:18 → HCF=6 → 2:3. To divide a quantity in a ratio, add the parts to find total shares, divide by total, then multiply each part."
+    },
+    {
+      "id": "ratio-n2",
+      "heading": "Direct and Inverse Proportion",
+      "body": "Direct proportion: y=kx (both increase together). Example: 5 pens cost £2.50 → 8 pens = (2.50÷5)×8 = £4.00. Inverse proportion: y=k/x (one increases as other decreases). Example: 4 workers take 6 days → 8 workers take 3 days."
+    },
+    {
+      "id": "ratio-n3",
+      "heading": "Map Scales and Best Value",
+      "body": "Map scale 1:50000 means 1cm = 500m. Best value: compare unit price (cost per gram or per item). Example: 400g for £1.60 = 0.4p/g; 600g for £2.10 = 0.35p/g → larger pack is better value."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ratio-f1",
+      "term": "Ratio",
+      "definition": "Comparison of quantities using colon notation.",
+      "example": "15:20 simplifies to 3:4."
+    },
+    {
+      "id": "ratio-f2",
+      "term": "Direct proportion",
+      "definition": "y=kx; quantities increase together.",
+      "example": "3m of fabric costs £12; 7m costs £28."
+    },
+    {
+      "id": "ratio-f3",
+      "term": "Inverse proportion",
+      "definition": "y=k/x; one increases as other decreases.",
+      "example": "6 workers→8 days; 12 workers→4 days."
+    },
+    {
+      "id": "ratio-f4",
+      "term": "Unitary method",
+      "definition": "Find the value of one unit first, then scale.",
+      "example": "5 tickets £35 → 1 ticket £7 → 9 tickets £63."
+    },
+    {
+      "id": "ratio-f5",
+      "term": "Map scale",
+      "definition": "Ratio relating map distance to real-world distance.",
+      "example": "1:25000 → 4cm on map = 1km real."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ratio-q1",
+      "stem": "Simplify 36:48.",
+      "choices": [
+        "9:12",
+        "4:3",
+        "3:4",
+        "6:8"
+      ],
+      "correctIndex": 2,
+      "explanation": "HCF=12. 36÷12=3, 48÷12=4 → 3:4."
+    },
+    {
+      "id": "ratio-q2",
+      "stem": "Divide £120 in ratio 2:3.",
+      "choices": [
+        "£48, £72",
+        "£40, £80",
+        "£60, £60",
+        "£24, £96"
+      ],
+      "correctIndex": 0,
+      "explanation": "5 shares, £24 per share: 2×£24=£48, 3×£24=£72."
+    },
+    {
+      "id": "ratio-q3",
+      "stem": "8 pens cost £5.60. How much for 5 pens?",
+      "choices": [
+        "£3.00",
+        "£3.50",
+        "£4.00",
+        "£2.80"
+      ],
+      "correctIndex": 1,
+      "explanation": "£5.60÷8=£0.70 per pen. 5×£0.70=£3.50."
+    },
+    {
+      "id": "ratio-q4",
+      "stem": "y∝x; x=4, y=20. Find y when x=7.",
+      "choices": [
+        "28",
+        "35",
+        "42",
+        "56"
+      ],
+      "correctIndex": 1,
+      "explanation": "k=5; y=5×7=35."
+    },
+    {
+      "id": "ratio-q5",
+      "stem": "y∝1/x; x=3, y=12. Find y when x=9.",
+      "choices": [
+        "36",
+        "6",
+        "4",
+        "2"
+      ],
+      "correctIndex": 2,
+      "explanation": "k=36; y=36÷9=4."
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "id": "chem-changes-1",
+  "subjectId": "chemistry",
+  "title": "Physical vs Chemical Changes",
+  "description": "How to distinguish between changes that make new substances and those that do not.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "chg-n1",
+      "heading": "Physical Changes",
+      "body": "A physical change alters the form or appearance of a substance without changing what it is made of — no new substances are produced. Usually reversible. Examples: melting ice (still H₂O), dissolving sugar in water, cutting paper. Changes of state (solid ↔ liquid ↔ gas) are always physical changes."
+    },
+    {
+      "id": "chg-n2",
+      "heading": "Chemical Changes",
+      "body": "A chemical change produces one or more new substances with different chemical properties. Usually difficult or impossible to reverse. Signs: colour change, gas produced (bubbling), temperature change, light produced, new smell. Examples: burning wood, rusting iron, cooking an egg, photosynthesis, neutralisation."
+    },
+    {
+      "id": "chg-n3",
+      "heading": "Exothermic and Endothermic Reactions",
+      "body": "Exothermic reactions release heat to the surroundings — the temperature rises. Examples: burning fuels, respiration, neutralisation. Endothermic reactions absorb heat — temperature drops. Examples: thermal decomposition, dissolving ammonium nitrate. In energy profile diagrams, exothermic reactions have products at lower energy than reactants; endothermic have products at higher energy."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chg-f1",
+      "term": "Physical change",
+      "definition": "A change that alters the form of a substance but does not produce any new substances. Usually reversible.",
+      "example": "Melting, boiling, dissolving, cutting."
+    },
+    {
+      "id": "chg-f2",
+      "term": "Chemical change",
+      "definition": "A change that produces one or more new substances with different properties. Usually irreversible.",
+      "example": "Burning, rusting, cooking, acid reactions."
+    },
+    {
+      "id": "chg-f3",
+      "term": "Exothermic reaction",
+      "definition": "A chemical reaction that releases energy (as heat) to the surroundings, causing the temperature to rise.",
+      "example": "Burning methane, hand warmers, respiration."
+    },
+    {
+      "id": "chg-f4",
+      "term": "Endothermic reaction",
+      "definition": "A chemical reaction that absorbs energy from the surroundings, causing the temperature to fall.",
+      "example": "Dissolving ammonium nitrate (used in cold packs)."
+    },
+    {
+      "id": "chg-f5",
+      "term": "Conservation of mass",
+      "definition": "The total mass of reactants equals the total mass of products in a chemical reaction."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chg-q1",
+      "stem": "Which of the following is an example of a PHYSICAL change?",
+      "choices": [
+        "Iron rusting in damp air",
+        "Wood burning in a fireplace",
+        "Ice melting in a glass",
+        "Eggs cooking in a pan"
+      ],
+      "correctIndex": 2,
+      "explanation": "Melting ice is a physical change — still H₂O, just a different state."
+    },
+    {
+      "id": "chg-q2",
+      "stem": "Which observation is the BEST evidence that a chemical change has occurred?",
+      "choices": [
+        "The shape of the material changes",
+        "The material melts",
+        "A new gas is produced and a colour change occurs",
+        "The material dissolves in water"
+      ],
+      "correctIndex": 2,
+      "explanation": "Producing a new gas and a colour change both suggest new substances have formed."
+    },
+    {
+      "id": "chg-q3",
+      "stem": "In an exothermic reaction, what happens to the temperature of the surroundings?",
+      "choices": [
+        "Temperature decreases",
+        "Temperature stays the same",
+        "Temperature increases",
+        "Temperature first increases then decreases"
+      ],
+      "correctIndex": 2,
+      "explanation": "Exothermic reactions release heat → surroundings get hotter."
+    },
+    {
+      "id": "chg-q4",
+      "stem": "A student mixes two solutions and notices the temperature drops. What type of reaction is this?",
+      "choices": [
+        "Exothermic",
+        "Physical change",
+        "Neutralisation",
+        "Endothermic"
+      ],
+      "correctIndex": 3,
+      "explanation": "If temperature drops, the reaction is absorbing heat — endothermic."
+    },
+    {
+      "id": "chg-q5",
+      "stem": "According to conservation of mass, if 10 g of calcium carbonate reacts and 4.4 g of CO₂ escapes, what is the total mass of remaining products?",
+      "choices": [
+        "4.4 g",
+        "5.6 g",
+        "10 g",
+        "14.4 g"
+      ],
+      "correctIndex": 1,
+      "explanation": "10 – 4.4 = 5.6 g. Mass is conserved — it doesn't disappear with the gas."
+    }
+  ]
+}

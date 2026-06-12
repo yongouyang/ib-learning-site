@@ -1,0 +1,118 @@
+{
+  "id": "chem-periodic-1",
+  "subjectId": "chemistry",
+  "title": "The Periodic Table",
+  "description": "How elements are organised by atomic number, periods, and groups.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "per-n1",
+      "heading": "Organisation of the Periodic Table",
+      "body": "The periodic table arranges all known elements in order of increasing atomic number. Elements are arranged in rows called periods and columns called groups. There are 7 periods and 18 groups. Elements in the same group have the same number of electrons in their outer shell, which gives them similar chemical properties. The table is divided into metals (left and centre), non-metals (top right), and metalloids (between)."
+    },
+    {
+      "id": "per-n2",
+      "heading": "Groups 1 and 7",
+      "body": "Group 1 (alkali metals: Li, Na, K) have 1 outer electron and react vigorously with water and oxygen. Reactivity increases down Group 1 because the outer electron is further from the nucleus and easier to lose. Group 7 (halogens: F, Cl, Br, I) have 7 outer electrons and need just one more to fill their shell. Reactivity decreases down Group 7 because extra shells make it harder to attract electrons."
+    },
+    {
+      "id": "per-n3",
+      "heading": "Metals vs Non-metals",
+      "body": "Most elements are metals: shiny, good conductors, malleable, ductile, high melting points. Non-metals are typically dull, poor conductors (except graphite), brittle when solid. The transition metals (Groups 3–12) form coloured compounds and act as catalysts."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "per-f1",
+      "term": "Period",
+      "definition": "A horizontal row in the periodic table. Elements in the same period have the same number of electron shells.",
+      "example": "Sodium (Na) and chlorine (Cl) are both in Period 3."
+    },
+    {
+      "id": "per-f2",
+      "term": "Group",
+      "definition": "A vertical column. Elements in the same group have the same number of outer electrons and similar properties.",
+      "example": "Group 1 contains Li, Na, K (alkali metals)."
+    },
+    {
+      "id": "per-f3",
+      "term": "Alkali metals",
+      "definition": "Group 1 elements (Li, Na, K, Rb, Cs, Fr) — reactive metals with one outer electron.",
+      "example": "Sodium reacts violently with water."
+    },
+    {
+      "id": "per-f4",
+      "term": "Halogens",
+      "definition": "Group 7 non-metal elements (F, Cl, Br, I, At) that react to gain one electron.",
+      "example": "Chlorine (Cl₂) is a green gas used to disinfect water."
+    },
+    {
+      "id": "per-f5",
+      "term": "Noble gases",
+      "definition": "Group 0 (Group 18) elements with full outer shells, making them very unreactive (inert).",
+      "example": "Helium, neon, argon — used in balloons and lights."
+    }
+  ],
+  "questions": [
+    {
+      "id": "per-q1",
+      "stem": "Elements in the same GROUP have similar chemical properties because they have:",
+      "choices": [
+        "The same mass number",
+        "The same number of protons",
+        "The same number of electrons in their outer shell",
+        "The same number of neutrons"
+      ],
+      "correctIndex": 2,
+      "explanation": "Same outer electrons = similar reactivity."
+    },
+    {
+      "id": "per-q2",
+      "stem": "Down Group 1, how does the reactivity of alkali metals change?",
+      "choices": [
+        "Decreases",
+        "Stays the same",
+        "First increases then decreases",
+        "Increases"
+      ],
+      "correctIndex": 3,
+      "explanation": "Reactivity increases down Group 1 — the outer electron is further from the nucleus and easier to lose."
+    },
+    {
+      "id": "per-q3",
+      "stem": "Why are noble gases (Group 0) so unreactive?",
+      "choices": [
+        "They have no protons",
+        "Their outer electron shell is completely full",
+        "They are liquids at room temperature",
+        "They have very large atomic radii"
+      ],
+      "correctIndex": 1,
+      "explanation": "Full outer shell = no need to gain or lose electrons."
+    },
+    {
+      "id": "per-q4",
+      "stem": "How many electron shells does an element in Period 3 have?",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctIndex": 2,
+      "explanation": "The period number = number of electron shells."
+    },
+    {
+      "id": "per-q5",
+      "stem": "Which is a typical property of metals?",
+      "choices": [
+        "Poor conductor of electricity",
+        "Brittle when solid",
+        "Low melting point",
+        "Good conductor of heat and electricity"
+      ],
+      "correctIndex": 3,
+      "explanation": "Metals are good conductors due to free-moving electrons."
+    }
+  ]
+}

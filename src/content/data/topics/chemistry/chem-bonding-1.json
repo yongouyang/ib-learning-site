@@ -1,0 +1,117 @@
+{
+  "id": "chem-bonding-1",
+  "subjectId": "chemistry",
+  "title": "Chemical Bonding",
+  "description": "Ionic, covalent, and metallic bonds — how and why atoms join together.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "n1",
+      "heading": "Ionic Bonding",
+      "body": "Electrons transfer from metal to non-metal. Metal loses electrons → positive ion (cation). Non-metal gains electrons → negative ion (anion). Opposite charges attract. Example: Na loses 1 electron to Cl → Na⁺Cl⁻ (sodium chloride). Forms giant lattice with high melting point."
+    },
+    {
+      "id": "n2",
+      "heading": "Covalent Bonding",
+      "body": "Atoms share pairs of electrons. Typically between two non-metals. One shared pair = single bond. Example: H₂O — each H shares one pair with O. O₂ has a double bond (two shared pairs). Simple molecular substances have low melting points."
+    },
+    {
+      "id": "n3",
+      "heading": "Metallic Bonding",
+      "body": "Metal atoms release outer electrons into a \"sea of electrons.\" Positive metal ions held by attraction to free-moving (delocalised) electrons. This explains: conductivity (electrons move), malleability (layers slide), high melting point (strong attractions)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "term": "Ionic bond",
+      "definition": "Electrostatic attraction between oppositely charged ions from electron transfer.",
+      "example": "Na⁺ and Cl⁻ in NaCl."
+    },
+    {
+      "id": "f2",
+      "term": "Covalent bond",
+      "definition": "Atoms sharing a pair of electrons.",
+      "example": "H₂O: H shares electrons with O."
+    },
+    {
+      "id": "f3",
+      "term": "Ion",
+      "definition": "Atom that has lost or gained electrons, giving it a charge.",
+      "example": "Na⁺ (lost 1e⁻), Cl⁻ (gained 1e⁻)."
+    },
+    {
+      "id": "f4",
+      "term": "Metallic bonding",
+      "definition": "Lattice of positive metal ions in a sea of delocalised electrons."
+    },
+    {
+      "id": "f5",
+      "term": "Delocalised electrons",
+      "definition": "Electrons not attached to a single atom — free to move throughout a metal.",
+      "example": "Why metals conduct electricity."
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "stem": "Electron transfer from metal to non-metal creates:",
+      "choices": [
+        "Covalent bond",
+        "Metallic bond",
+        "Ionic bond",
+        "Hydrogen bond"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ionic bonding involves electron transfer; the ions then attract."
+    },
+    {
+      "id": "q2",
+      "stem": "Bond type in H₂O?",
+      "choices": [
+        "Ionic",
+        "Metallic",
+        "Covalent",
+        "Nuclear"
+      ],
+      "correctIndex": 2,
+      "explanation": "Made of two non-metals (H and O), so they share electrons in covalent bonds."
+    },
+    {
+      "id": "q3",
+      "stem": "Sodium (1 outer electron) in ionic bonding will:",
+      "choices": [
+        "Gain 1 → Na⁻",
+        "Share 1 → covalent",
+        "Lose 1 → Na⁺",
+        "Lose 7 → Na⁷⁺"
+      ],
+      "correctIndex": 2,
+      "explanation": "Metals lose electrons; Na loses its 1 outer electron → Na⁺."
+    },
+    {
+      "id": "q4",
+      "stem": "Why can metals conduct electricity?",
+      "choices": [
+        "Ionic bonds carry charge",
+        "Free-moving delocalised electrons",
+        "Protons can move",
+        "Covalent bonds share electrons"
+      ],
+      "correctIndex": 1,
+      "explanation": "Delocalised electrons flow through the metal lattice as current."
+    },
+    {
+      "id": "q5",
+      "stem": "Ionic compounds:",
+      "choices": [
+        "Low melting points",
+        "Formed between non-metals",
+        "Giant lattice, high melting points",
+        "Never conduct electricity"
+      ],
+      "correctIndex": 2,
+      "explanation": "Strong electrostatic forces in giant lattice → high melting points."
+    }
+  ]
+}

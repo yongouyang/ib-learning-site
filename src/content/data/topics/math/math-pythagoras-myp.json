@@ -1,0 +1,33 @@
+{
+  "id": "math-pythagoras-myp",
+  "subjectId": "math",
+  "title": "Pythagoras' Theorem",
+  "description": "Using a² + b² = c² to find unknown sides in right-angled triangles, Pythagorean triples, and 2D and 3D applications.",
+  "ibLevel": "MYP",
+  "notes": [
+    { "id": "pyt-n1", "heading": "The Theorem and Finding the Hypotenuse", "body": "In any right-angled triangle: a² + b² = c², where c is the hypotenuse (side opposite the right angle, always longest). To find the hypotenuse: c = √(a²+b²). Example: legs 3 and 4 → c = √(9+16) = 5." },
+    { "id": "pyt-n2", "heading": "Finding a Shorter Side and Pythagorean Triples", "body": "To find a shorter side: a = √(c²−b²). Example: hypotenuse 13, leg 5 → a = √(169−25) = 12. Pythagorean triples: integer sets satisfying the theorem — 3-4-5, 5-12-13, 8-15-17, 7-24-25. Multiples also work (6-8-10 = 2× 3-4-5)." },
+    { "id": "pyt-n3", "heading": "Testing for Right Angles and Distance in 2D", "body": "To test if triangle is right-angled: check if a²+b²=c² (where c is the longest). If yes → right-angled; if a²+b²>c² → acute; if a²+b²<c² → obtuse. Distance between (x₁,y₁) and (x₂,y₂): d = √((x₂−x₁)² + (y₂−y₁)²) — a direct Pythagoras application." },
+    { "id": "pyt-n4", "heading": "3D Applications", "body": "Space diagonal of cuboid (l×w×h): first find base diagonal d₁=√(l²+w²), then space diagonal d=√(d₁²+h²) = √(l²+w²+h²). Example: 3×4×12: base=5, space=√(25+144)=13." }
+  ],
+  "flashcards": [
+    { "id": "pyt-f1", "term": "Pythagoras' theorem", "definition": "In a right-angled triangle: a² + b² = c².", "example": "Legs 5 and 12: c = √(25+144) = 13." },
+    { "id": "pyt-f2", "term": "Hypotenuse", "definition": "The longest side, opposite the right angle.", "example": "In a 3-4-5 triangle, the hypotenuse is 5." },
+    { "id": "pyt-f3", "term": "Pythagorean triple", "definition": "A set of three integers satisfying a² + b² = c².", "example": "3-4-5, 5-12-13, 8-15-17." },
+    { "id": "pyt-f4", "term": "Finding a shorter side", "definition": "a = √(c² − b²)", "example": "c=10, b=6 → a = √(100−36) = 8." },
+    { "id": "pyt-f5", "term": "Distance between two points", "definition": "d = √((x₂−x₁)² + (y₂−y₁)²)", "example": "(1,2) to (4,6) = √(9+16) = 5." },
+    { "id": "pyt-f6", "term": "Space diagonal", "definition": "d = √(l² + w² + h²) for a cuboid.", "example": "2×3×6 → d = √(4+9+36) = 7." }
+  ],
+  "questions": [
+    { "id": "pyt-q1", "stem": "Right triangle: legs 6 and 8. Hypotenuse?", "choices": ["10 cm", "12 cm", "14 cm", "√48 cm"], "correctIndex": 0, "explanation": "√(36+64) = √100 = 10." },
+    { "id": "pyt-q2", "stem": "Hypotenuse 15, leg 9. Other leg?", "choices": ["6 cm", "10 cm", "12 cm", "√306 cm"], "correctIndex": 2, "explanation": "√(225−81) = √144 = 12." },
+    { "id": "pyt-q3", "stem": "Which is a Pythagorean triple?", "choices": ["3, 5, 6", "5, 12, 13", "7, 10, 12", "4, 6, 8"], "correctIndex": 1, "explanation": "25+144=169=13² ✓." },
+    { "id": "pyt-q4", "stem": "Distance between (1, 1) and (4, 5)?", "choices": ["3", "4", "5", "7"], "correctIndex": 2, "explanation": "√((4−1)²+(5−1)²) = √(9+16) = 5." },
+    { "id": "pyt-q5", "stem": "Ladder 10m, base 6m from wall. Height up wall?", "choices": ["6 m", "7 m", "8 m", "9 m"], "correctIndex": 2, "explanation": "√(100−36) = √64 = 8." },
+    { "id": "pyt-q6", "stem": "Cuboid 3cm × 4cm × 12cm. Space diagonal?", "choices": ["13 cm", "√169 cm", "19 cm", "√153 cm"], "correctIndex": 0, "explanation": "√(9+16+144) = √169 = 13." },
+    { "id": "pyt-q7", "stem": "Triangle sides 7, 24, 25. Right-angled?", "choices": ["Yes, 7²+24²=25²", "No", "Cannot determine", "Only if isosceles"], "correctIndex": 0, "explanation": "49+576=625=25² ✓." },
+    { "id": "pyt-q8", "stem": "Rectangle 5cm × 12cm. Diagonal length?", "choices": ["13 cm", "17 cm", "√119 cm", "10 cm"], "correctIndex": 0, "explanation": "√(25+144) = √169 = 13." },
+    { "id": "pyt-q9", "stem": "Space diagonal of cube with side a:", "choices": ["a√2", "a√3", "a√4=2a", "2a√2"], "correctIndex": 1, "explanation": "√(a²+a²+a²) = √(3a²) = a√3." },
+    { "id": "pyt-q10", "stem": "Which does NOT form a right triangle?", "choices": ["6, 8, 10", "5, 12, 13", "8, 15, 17", "4, 5, 6"], "correctIndex": 3, "explanation": "16+25=41≠36. Not right-angled." }
+  ]
+}

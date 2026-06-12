@@ -1,0 +1,118 @@
+{
+  "id": "math-patterns-1",
+  "subjectId": "math",
+  "title": "Number Patterns",
+  "description": "Identifying sequences and finding rules using nth term formulas.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "pat-n1",
+      "heading": "Arithmetic Sequences",
+      "body": "A sequence where the difference between consecutive terms is constant (common difference d). Example: 3,7,11,15,... has d=4. nth term: a+(n−1)d, where a is the first term."
+    },
+    {
+      "id": "pat-n2",
+      "heading": "The nth Term Formula",
+      "body": "For arithmetic sequences: T(n)=dn+c where d=common difference. Example: 5,8,11,14,... → d=3, T(n)=3n+2. Check: n=2 gives 3(2)+2=8 ✓."
+    },
+    {
+      "id": "pat-n3",
+      "heading": "Other Patterns",
+      "body": "Geometric: multiply by a fixed ratio (2,6,18,54,... r=3). Square numbers: 1,4,9,16,25,... Triangular numbers: 1,3,6,10,15,... Check differences — if first differences constant = arithmetic; second differences constant = n² term."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "pat-f1",
+      "term": "Arithmetic sequence",
+      "definition": "Constant difference between consecutive terms.",
+      "example": "5,9,13,17,... (d=4)"
+    },
+    {
+      "id": "pat-f2",
+      "term": "Common difference",
+      "definition": "Fixed amount added each term in an arithmetic sequence.",
+      "example": "2,5,8,11,... d=3"
+    },
+    {
+      "id": "pat-f3",
+      "term": "nth term",
+      "definition": "Formula giving value of any term by its position n.",
+      "example": "4n−1: n=1→3, n=2→7, n=3→11"
+    },
+    {
+      "id": "pat-f4",
+      "term": "Geometric sequence",
+      "definition": "Each term multiplied by a fixed ratio.",
+      "example": "3,6,12,24,... (r=2)"
+    },
+    {
+      "id": "pat-f5",
+      "term": "Square numbers",
+      "definition": "Numbers from multiplying a whole number by itself: 1,4,9,16,25,...",
+      "example": "6²=36"
+    }
+  ],
+  "questions": [
+    {
+      "id": "pat-q1",
+      "stem": "Common difference of 7,11,15,19,...?",
+      "choices": [
+        "3",
+        "4",
+        "7",
+        "2"
+      ],
+      "correctIndex": 1,
+      "explanation": "11−7=4, 15−11=4, 19−15=4. d=4."
+    },
+    {
+      "id": "pat-q2",
+      "stem": "nth term = 3n+2. 5th term?",
+      "choices": [
+        "15",
+        "17",
+        "13",
+        "20"
+      ],
+      "correctIndex": 1,
+      "explanation": "3(5)+2=15+2=17."
+    },
+    {
+      "id": "pat-q3",
+      "stem": "Which is geometric?",
+      "choices": [
+        "2,5,8,11,...",
+        "1,4,9,16,...",
+        "3,6,12,24,...",
+        "10,8,6,4,..."
+      ],
+      "correctIndex": 2,
+      "explanation": "3×2=6, 6×2=12, 12×2=24. Common ratio=2."
+    },
+    {
+      "id": "pat-q4",
+      "stem": "nth term for 4,7,10,13,...?",
+      "choices": [
+        "2n+2",
+        "3n+1",
+        "4n",
+        "n+3"
+      ],
+      "correctIndex": 1,
+      "explanation": "d=3. n=1: 3(1)=3, but first=4, so +1. 3n+1."
+    },
+    {
+      "id": "pat-q5",
+      "stem": "Next term: 2,6,18,54,...?",
+      "choices": [
+        "72",
+        "108",
+        "162",
+        "108"
+      ],
+      "correctIndex": 2,
+      "explanation": "54×3=162."
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "id": "chem-atomic-1",
+  "subjectId": "chemistry",
+  "title": "Atomic Structure",
+  "description": "Protons, neutrons, electrons, and how atoms are built.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "n1",
+      "heading": "Sub-atomic Particles",
+      "body": "Protons: nucleus, +1 charge, mass 1. Neutrons: nucleus, 0 charge, mass 1. Electrons: shells orbiting nucleus, −1 charge, nearly 0 mass. In a neutral atom, protons = electrons."
+    },
+    {
+      "id": "n2",
+      "heading": "Atomic Number and Mass Number",
+      "body": "Atomic number = number of protons (defines the element). Mass number = protons + neutrons. Neutrons = mass number − atomic number. Example: carbon-12 has 6 protons + 6 neutrons."
+    },
+    {
+      "id": "n3",
+      "heading": "Electron Configuration",
+      "body": "Electrons occupy shells: 1st holds 2, 2nd holds 8, 3rd holds 8. Fill lowest shells first. Example: sodium (atomic number 11) = 2, 8, 1. Outer shell electrons determine chemical reactivity."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "f1",
+      "term": "Atomic number",
+      "definition": "Number of protons in the nucleus — uniquely identifies the element.",
+      "example": "Oxygen has atomic number 8."
+    },
+    {
+      "id": "f2",
+      "term": "Mass number",
+      "definition": "Total protons + neutrons in the nucleus.",
+      "example": "Carbon-12: 6 protons + 6 neutrons = 12."
+    },
+    {
+      "id": "f3",
+      "term": "Isotopes",
+      "definition": "Same element (same protons) but different number of neutrons.",
+      "example": "Carbon-12 vs Carbon-14 (2 extra neutrons)."
+    },
+    {
+      "id": "f4",
+      "term": "Electron configuration",
+      "definition": "Arrangement of electrons in shells.",
+      "example": "Sodium (Na): 2, 8, 1."
+    },
+    {
+      "id": "f5",
+      "term": "Nucleus",
+      "definition": "Dense central core containing protons and neutrons."
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "stem": "Atom: atomic number 8, mass number 16. How many neutrons?",
+      "choices": [
+        "8",
+        "16",
+        "24",
+        "6"
+      ],
+      "correctIndex": 0,
+      "explanation": "Neutrons = 16 − 8 = 8 (oxygen atom)."
+    },
+    {
+      "id": "q2",
+      "stem": "What determines which element an atom is?",
+      "choices": [
+        "Neutrons",
+        "Electrons",
+        "Protons",
+        "Mass number"
+      ],
+      "correctIndex": 2,
+      "explanation": "The number of protons (atomic number) is unique to each element."
+    },
+    {
+      "id": "q3",
+      "stem": "Electron configuration of aluminium (atomic number 13)?",
+      "choices": [
+        "2, 8, 3",
+        "2, 11",
+        "3, 8, 2",
+        "2, 8, 8"
+      ],
+      "correctIndex": 0,
+      "explanation": "Shell 1: 2, shell 2: 8, shell 3: 3 = 2, 8, 3."
+    },
+    {
+      "id": "q4",
+      "stem": "Isotopes have same protons but different:",
+      "choices": [
+        "Electrons",
+        "Protons",
+        "Neutrons",
+        "Shells"
+      ],
+      "correctIndex": 2,
+      "explanation": "Same element, different numbers of neutrons → different mass numbers."
+    },
+    {
+      "id": "q5",
+      "stem": "In a neutral atom:",
+      "choices": [
+        "protons = neutrons",
+        "protons = electrons",
+        "neutrons = electrons",
+        "mass = atomic number"
+      ],
+      "correctIndex": 1,
+      "explanation": "Equal positive and negative charges cancel out."
+    }
+  ]
+}

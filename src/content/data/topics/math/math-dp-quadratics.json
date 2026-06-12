@@ -1,0 +1,230 @@
+{
+  "id": "math-dp-quadratics",
+  "subjectId": "math",
+  "title": "Quadratic Functions & Equations",
+  "description": "Standard, vertex, and factored forms; completing the square; quadratic formula; discriminant; Vieta's formulas; inequalities; optimisation.",
+  "ibLevel": "DP",
+  "notes": [
+    {
+      "id": "qua-n1",
+      "heading": "Forms of a Quadratic",
+      "body": "A quadratic function is any function of the form $f(x) = ax^2 + bx + c$ where $a \\neq 0$. Its graph is a parabola. The way you write the equation reveals different features instantly.\\n\\n📌 Standard Form\\n    $$f(x) = ax^2 + bx + c$$\\n• The y-intercept is $(0, c)$ — just substitute $x = 0$.\\n• The axis of symmetry is $x = -\\frac{b}{2a}$.\\n• The vertex has x-coordinate $-\\frac{b}{2a}$.\\n\\n📌 Vertex Form\\n    $$f(x) = a(x - h)^2 + k$$\\n• The vertex is at the point $(h, k)$.\\n• The axis of symmetry is $x = h$.\\n• If $a > 0$, the parabola opens upward (∪ shape) and the vertex is a minimum.\\n• If $a < 0$, the parabola opens downward (∩ shape) and the vertex is a maximum.\\n\\n📌 Factored Form\\n    $$f(x) = a(x - p)(x - q)$$\\n• The x-intercepts (roots) are at $x = p$ and $x = q$.\\n• The axis of symmetry is exactly halfway between the roots: $x = \\frac{p + q}{2}$.\\n• Substitute $x = 0$ to find the y-intercept: $f(0) = apq$.\\n\\n💡 Worked Example — Finding the Vertex from Standard Form\\nFind the vertex of $f(x) = 2x^2 - 8x + 1$.\\n\\n  Step 1: Identify $a$ and $b$\\n    $a = 2$,  $b = -8$\\n\\n  Step 2: Find the axis of symmetry\\n    $$x = -\\frac{b}{2a} = -\\frac{(-8)}{2 \\times 2} = \\frac{8}{4} = 2$$\\n\\n  Step 3: Find the y-coordinate of the vertex\\n    $$f(2) = 2(2)^2 - 8(2) + 1 = 8 - 16 + 1 = -7$$\\n\\n  Answer: The vertex is $(2, -7)$.\\n\\n💡 Worked Example — Converting Factored to Standard Form\\nFind the y-intercept of $f(x) = -3(x - 2)(x + 5)$.\\n\\n  Step 1: Expand the brackets\\n    $$f(x) = -3(x^2 + 5x - 2x - 10) = -3(x^2 + 3x - 10)$$\\n\\n  Step 2: Distribute the $-3$\\n    $$f(x) = -3x^2 - 9x + 30$$\\n\\n  Answer: The y-intercept is $30$.\\n\\n📎 Key Points to Remember\\n• $a$ controls width and direction: $|a| > 1$ → narrower; $|a| < 1$ → wider.\\n• The three forms are equivalent — you can always expand or factorise to switch between them.\\n• Vertex form is best for graphing; factored form is best for finding roots.\\n\\n⚠️ Common Mistake\\nMixing up the sign in vertex form. In $f(x) = a(x - h)^2 + k$, the vertex is $(h, k)$, NOT $(-h, k)$. For example, $f(x) = 3(x + 2)^2 - 5$ has vertex $(-2, -5)$."
+    },
+    {
+      "id": "qua-n2",
+      "heading": "Solving Quadratics",
+      "body": "There are three main ways to solve a quadratic equation $ax^2 + bx + c = 0$: factorising, completing the square, and the quadratic formula. Each has its own best-use case.\\n\\n📌 Method 1: Factorising (Null Factor Law)\\nIf you can write $ax^2 + bx + c$ as a product of two linear factors, then:\\n    $$(px + q)(rx + s) = 0 \\quad \\Rightarrow \\quad px + q = 0 \\text{ or } rx + s = 0$$\\nThis is the fastest method when the quadratic factors neatly.\\n\\n📌 Method 2: Completing the Square\\nRewrite $ax^2 + bx + c$ in the form $a(x + h)^2 + k$.\\nWhen $a = 1$:\\n    $$x^2 + bx + c = \\left(x + \\frac{b}{2}\\right)^2 - \\frac{b^2}{4} + c$$\\nWhen $a \\neq 1$, factor $a$ out from the $x$-terms first.\\n\\n📌 Method 3: The Quadratic Formula\\nFor any quadratic $ax^2 + bx + c = 0$ with $a \\neq 0$:\\n    $$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\\n\\n🔑 The Discriminant\\nThe expression under the square root is called the discriminant:\\n    $$\\Delta = b^2 - 4ac$$\\n• $\\Delta > 0$  →  two distinct real roots\\n• $\\Delta = 0$  →  one repeated real root (the parabola touches the x-axis)\\n• $\\Delta < 0$  →  no real roots (the parabola does not cross the x-axis)\\n\\n💡 Worked Example — Using the Quadratic Formula\\nSolve $2x^2 - 5x - 3 = 0$.\\n\\n  Step 1: Identify $a$, $b$, $c$\\n    $a = 2$,  $b = -5$,  $c = -3$\\n\\n  Step 2: Calculate the discriminant\\n    $$\\Delta = (-5)^2 - 4(2)(-3) = 25 + 24 = 49$$\\n\\n  Step 3: Apply the formula\\n    $$x = \\frac{5 \\pm \\sqrt{49}}{4} = \\frac{5 \\pm 7}{4}$$\\n\\n  Step 4: Find both solutions\\n    $$x = \\frac{5 + 7}{4} = \\frac{12}{4} = 3$$\\n    $$x = \\frac{5 - 7}{4} = -\\frac{2}{4} = -\\frac{1}{2}$$\\n\\n  Answer: $x = 3$  or  $x = -\\frac{1}{2}$\\n\\n💡 Worked Example — Completing the Square\\nWrite $x^2 + 6x + 5$ in the form $(x + h)^2 + k$.\\n\\n  Step 1: Take half the coefficient of $x$ and square it\\n    $$\\left(\\frac{6}{2}\\right)^2 = 9$$\\n\\n  Step 2: Add and subtract this value inside the expression\\n    $$x^2 + 6x + 5 = (x^2 + 6x + 9) + 5 - 9$$\\n\\n  Step 3: Factor the perfect square\\n    $$= (x + 3)^2 - 4$$\\n\\n  Answer: $(x + 3)^2 - 4$, so the vertex is $(-3, -4)$.\\n\\n📎 Key Points to Remember\\n• Always try factorising first — it is the quickest method when it works.\\n• Completing the square is essential for deriving the quadratic formula and for graphing.\\n• The quadratic formula always works, even when factorising is difficult.\\n• If a quadratic has no real roots, you can still find complex roots using the same formula.\\n\\n⚠️ Common Mistake\\nDividing both sides of an equation by $x$. For example, solving $x^2 = 5x$ by dividing by $x$ gives $x = 5$ and loses the solution $x = 0$. Always rearrange to make the RHS zero before factorising."
+    },
+    {
+      "id": "qua-n3",
+      "heading": "Vieta's Formulas",
+      "body": "When a quadratic equation has roots, there is a beautiful relationship between the coefficients and the roots — even if you never find the roots explicitly.\\n\\n📌 Definition\\nFor the quadratic $ax^2 + bx + c = 0$ with roots $\\alpha$ and $\\beta$:\\n    $$\\text{Sum of roots:} \\quad \\alpha + \\beta = -\\frac{b}{a}$$\\n    $$\\text{Product of roots:} \\quad \\alpha\\beta = \\frac{c}{a}$$\\n\\nThese are called Vieta's formulas (or the sum-and-product of roots).\\n\\n🔑 Why They Matter\\n• Check your answers: if you solve a quadratic, the sum and product of your solutions should match $-\\frac{b}{a}$ and $\\frac{c}{a}$.\\n• Form a quadratic from its roots: if roots are $\\alpha$ and $\\beta$, the monic quadratic is $x^2 - (\\alpha + \\beta)x + \\alpha\\beta = 0$.\\n• Solve problems without finding roots: many symmetric expressions in $\\alpha$ and $\\beta$ can be evaluated directly.\\n\\n💡 Worked Example — Forming a Quadratic from Roots\\nFind a quadratic equation with roots $2$ and $-5$.\\n\\n  Step 1: Find the sum and product\\n    $\\text{Sum} = 2 + (-5) = -3$\\n    $\\text{Product} = 2 \\times (-5) = -10$\\n\\n  Step 2: Write the monic quadratic\\n    $$x^2 - (\\text{sum})x + (\\text{product}) = 0$$\\n    $$x^2 - (-3)x + (-10) = 0$$\\n\\n  Step 3: Simplify\\n    $$x^2 + 3x - 10 = 0$$\\n\\n  Answer: $x^2 + 3x - 10 = 0$\\n\\n💡 Worked Example — Evaluating without Finding Roots\\nIf $\\alpha$ and $\\beta$ are roots of $2x^2 - 7x + 3 = 0$, find $\\alpha^2 + \\beta^2$.\\n\\n  Step 1: Use Vieta's formulas\\n    $$\\alpha + \\beta = \\frac{-(-7)}{2} = \\frac{7}{2}$$\\n    $$\\alpha\\beta = \\frac{3}{2}$$\\n\\n  Step 2: Rewrite $\\alpha^2 + \\beta^2$ using the identity\\n    $$\\alpha^2 + \\beta^2 = (\\alpha + \\beta)^2 - 2\\alpha\\beta$$\\n\\n  Step 3: Substitute\\n    $$= \\left(\\frac{7}{2}\\right)^2 - 2\\left(\\frac{3}{2}\\right)$$\\n    $$= \\frac{49}{4} - 3$$\\n    $$= \\frac{49}{4} - \\frac{12}{4}$$\\n    $$= \\frac{37}{4}$$\\n\\n  Answer: $\\alpha^2 + \\beta^2 = \\frac{37}{4}$\\n\\n📎 Key Points to Remember\\n• Vieta\\'s formulas work for any quadratic, even when the roots are complex.\\n• For a monic quadratic ($a = 1$), the formulas simplify to: sum = $-b$, product = $c$.\\n• Common symmetric expressions: $\\alpha^2 + \\beta^2 = (\\alpha + \\beta)^2 - 2\\alpha\\beta$ and $\\frac{1}{\\alpha} + \\frac{1}{\\beta} = \\frac{\\alpha + \\beta}{\\alpha\\beta}$.\\n\\n⚠️ Common Mistake\\nForgetting the minus sign in the sum formula. The sum of roots equals $-\\frac{b}{a}$, not $\\frac{b}{a}$. If the quadratic is $x^2 - 5x + 6 = 0$, the sum of roots is $5$ (not $-5$) because $-\\frac{b}{a} = -\\frac{(-5)}{1} = 5$."
+    },
+    {
+      "id": "qua-n4",
+      "heading": "Inequalities and Optimisation",
+      "body": "Quadratic inequalities and optimisation problems appear constantly in IB exams. The key is understanding how the parabola shape determines where the expression is positive or negative.\\n\\n📌 Solving Quadratic Inequalities\\nTo solve $ax^2 + bx + c > 0$ (or $< 0$, $\\geq 0$, $\\leq 0$):\\n\\n  1. Find the roots by solving $ax^2 + bx + c = 0$.\\n  2. Sketch the parabola using the sign of $a$.\\n  3. Read the solution from the graph.\\n\\n🔑 The Sign Rule\\n• If $a > 0$ (parabola opens upward):\\n    $$ax^2 + bx + c > 0 \\quad \\rightarrow \\quad \\text{outside the roots } (x < \\text{smaller root} \\text{ or } x > \\text{larger root})$$\\n    $$ax^2 + bx + c < 0 \\quad \\rightarrow \\quad \\text{between the roots}$$\\n• If $a < 0$ (parabola opens downward), the inequalities reverse.\\n\\n📌 Optimisation with Quadratics\\nFor $f(x) = ax^2 + bx + c$, the vertex gives the extreme value:\\n• If $a > 0$, the minimum value occurs at $x = -\\frac{b}{2a}$.\\n• If $a < 0$, the maximum value occurs at $x = -\\frac{b}{2a}$.\\n\\n💡 Worked Example — Quadratic Inequality\\nSolve $x^2 - x - 12 < 0$.\\n\\n  Step 1: Find the roots\\n    $$x^2 - x - 12 = 0$$\\n    $$(x - 4)(x + 3) = 0$$\\n    $$x = 4 \\text{ or } x = -3$$\\n\\n  Step 2: Determine the shape\\n    $a = 1 > 0$, so the parabola opens upward.\\n\\n  Step 3: Read the solution\\n    We want where the parabola is below the x-axis — between the roots.\\n\\n  Answer: $-3 < x < 4$\\n\\n💡 Worked Example — Optimisation\\nA ball is thrown upward and its height after $t$ seconds is $h(t) = -5t^2 + 20t + 1$ metres. Find the maximum height and when it occurs.\\n\\n  Step 1: Identify $a$ and $b$\\n    $a = -5$,  $b = 20$\\n\\n  Step 2: Find the time at the vertex\\n    $$t = -\\frac{b}{2a} = -\\frac{20}{2 \\times -5} = -\\frac{20}{-10} = 2 \\text{ seconds}$$\\n\\n  Step 3: Find the maximum height\\n    $$h(2) = -5(2)^2 + 20(2) + 1 = -20 + 40 + 1 = 21 \\text{ metres}$$\\n\\n  Answer: Maximum height is $21$ m at $t = 2$ s.\\n\\n📎 Key Points to Remember\\n• Always make the RHS zero before solving an inequality.\\n• When multiplying or dividing an inequality by a negative number, flip the inequality sign.\\n• For optimisation, always check that your answer makes sense in the real-world context (e.g., time cannot be negative).\\n• The vertex formula $x = -\\frac{b}{2a}$ is faster than completing the square for finding maxima/minima.\\n\\n⚠️ Common Mistake\\nWriting the solution to $x^2 - x - 12 > 0$ as $x < -3$ and $x > 4$ (using \"and\" instead of \"or\"). These are two separate intervals that do not overlap, so the correct connective is \"or\". In interval notation: $(-\\infty, -3) \\cup (4, \\infty)$."
+    },
+    {
+      "id": "qua-n5",
+      "heading": "Positive and Negative Definite Quadratics",
+      "body": "Some quadratics are always positive or always negative — they never cross the x-axis. Recognising these quickly saves time and prevents sign errors.\\n\\n📌 Definitions\\n• A quadratic is positive definite when $ax^2 + bx + c > 0$ for ALL real $x$.\\n• A quadratic is negative definite when $ax^2 + bx + c < 0$ for ALL real $x$.\\n\\n🔑 Test for Definiteness\\n    $$\\text{Positive definite} \\iff a > 0 \\text{ AND } \\Delta < 0$$\\n    $$\\text{Negative definite} \\iff a < 0 \\text{ AND } \\Delta < 0$$\\n\\nWhy does this work? The discriminant $\\Delta < 0$ means there are no real roots, so the parabola never touches the x-axis. The sign of $a$ then tells you whether the entire graph is above ($a > 0$) or below ($a < 0$) the x-axis.\\n\\n💡 Worked Example — Testing for Positive Definite\\nShow that $x^2 + 2x + 3$ is positive definite.\\n\\n  Step 1: Check the coefficient of $x^2$\\n    $$a = 1 > 0 \\quad \\rightarrow \\quad \\text{parabola opens upward}$$\\n\\n  Step 2: Calculate the discriminant\\n    $$\\Delta = b^2 - 4ac = (2)^2 - 4(1)(3) = 4 - 12 = -8$$\\n\\n  Step 3: Apply the test\\n    $$a > 0 \\text{ and } \\Delta < 0 \\quad \\rightarrow \\quad \\text{positive definite}$$\\n\\n  Answer: $x^2 + 2x + 3 > 0$ for all real $x$.\\n\\n💡 Worked Example — Finding a Parameter for Definiteness\\nFor what values of $k$ is $x^2 - 4x + k$ positive definite?\\n\\n  Step 1: Identify $a$, $b$, $c$\\n    $a = 1$,  $b = -4$,  $c = k$\\n\\n  Step 2: Apply the positive definite condition\\n    Need $a > 0$ (true, since $a = 1$) AND $\\Delta < 0$\\n\\n  Step 3: Solve $\\Delta < 0$\\n    $$\\Delta = (-4)^2 - 4(1)(k) = 16 - 4k$$\\n    $$16 - 4k < 0$$\\n    $$16 < 4k$$\\n    $$k > 4$$\\n\\n  Answer: The quadratic is positive definite when $k > 4$.\\n\\n📎 Key Points to Remember\\n• The phrase \"definite\" means the quadratic has a definite sign — it never changes.\\n• If $\\Delta \\geq 0$, the quadratic is neither positive nor negative definite (it crosses or touches the x-axis).\\n• Positive definite quadratics are useful for proving inequalities and showing expressions are always positive.\\n• Negative definite quadratics are less common but appear in certain optimisation and proof problems.\\n\\n⚠️ Common Mistake\\nChecking only $\\Delta < 0$ without checking the sign of $a$. A quadratic with $a < 0$ and $\\Delta < 0$ is negative definite, not positive definite. Both conditions must be verified."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "qua-f1",
+      "term": "Standard form",
+      "definition": "$f(x)=ax^2+bx+c$",
+      "example": "$2x^2-4x+1$: y-int=$1$, axis $x=1$"
+    },
+    {
+      "id": "qua-f2",
+      "term": "Vertex form",
+      "definition": "$a(x-h)^2+k$; vertex $(h,k)$",
+      "example": "$3(x-2)^2-5$: vertex $(2,-5)$"
+    },
+    {
+      "id": "qua-f3",
+      "term": "Quadratic formula",
+      "definition": "$x=\\frac{-b\\pm\\sqrt{\\Delta}}{2a}$",
+      "example": "$x^2-5x+6 \\rightarrow x=2 \\text{ or } 3$"
+    },
+    {
+      "id": "qua-f4",
+      "term": "Discriminant",
+      "definition": "$\\Delta=b^2-4ac$ determines root nature",
+      "example": "$x^2-6x+9$: $\\Delta=0 \\rightarrow$ repeated root $x=3$"
+    },
+    {
+      "id": "qua-f5",
+      "term": "Completing the square",
+      "definition": "Rewrite $ax^2+bx+c$ as $a(x+h)^2+k$ to reveal the vertex and solve.",
+      "example": "$x^2+6x+5=(x+3)^2-4$; vertex $(-3,-4)$."
+    },
+    {
+      "id": "qua-f6",
+      "term": "Axis of symmetry",
+      "definition": "The vertical line through the vertex: $x=-\\frac{b}{2a}$.",
+      "example": "For $x^2-4x+3$, axis is $x=2$."
+    },
+    {
+      "id": "qua-f7",
+      "term": "Positive / Negative definite",
+      "definition": "Always positive ($a>0$, $\\Delta<0$) or always negative ($a<0$, $\\Delta<0$).",
+      "example": "$x^2+2x+3$ has $\\Delta=-8<0$, $a>0$ $\\rightarrow$ always positive."
+    },
+    {
+      "id": "qua-f8",
+      "term": "Vieta's sum and product",
+      "definition": "For roots $\\alpha$, $\\beta$ of $ax^2+bx+c=0$: $\\alpha+\\beta=-\\frac{b}{a}$ and $\\alpha\\beta=\\frac{c}{a}$.",
+      "example": "$x^2-7x+10=0$: sum=$7$, product=$10$ $\\rightarrow$ roots $2$ and $5$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "qua-q1",
+      "stem": "Solve $x^2-5x+6=0$.",
+      "choices": [
+        "$1,6$",
+        "$2,3$",
+        "$-2,-3$",
+        "$-1,6$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$(x-2)(x-3)=0$."
+    },
+    {
+      "id": "qua-q2",
+      "stem": "$\\Delta$ of $2x^2-3x+5=0$?",
+      "choices": [
+        "$31$, $2$ real",
+        "$-31$, no real",
+        "$49$, $2$ real",
+        "$-49$, no real"
+      ],
+      "correctIndex": 1,
+      "explanation": "$9-40=-31<0$."
+    },
+    {
+      "id": "qua-q3",
+      "stem": "Vertex form of $x^2-6x+7$:",
+      "choices": [
+        "$(x-3)^2-2$",
+        "$(x+3)^2-2$",
+        "$(x-3)^2+2$",
+        "$(x-3)^2-16$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$(x-3)^2-9+7=(x-3)^2-2$."
+    },
+    {
+      "id": "qua-q4",
+      "stem": "Max of $f(x)=-2x^2+8x-3$?",
+      "choices": [
+        "$5$ at $x=2$",
+        "$5$ at $x=-2$",
+        "$-3$ at $x=0$",
+        "$3$ at $x=2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$x=-\\frac{b}{2a}=2$. $f(2)=5$."
+    },
+    {
+      "id": "qua-q5",
+      "stem": "$x^2-x-12<0$ solution:",
+      "choices": [
+        "$x<-3 \\text{ or } x>4$",
+        "$-3<x<4$",
+        "$-4<x<3$",
+        "$x<-4 \\text{ or } x>3$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$(x-4)(x+3)<0 \\rightarrow$ between roots."
+    },
+    {
+      "id": "qua-q6",
+      "stem": "Rectangle perimeter $40$ m. Max area?",
+      "choices": [
+        "$100 \\text{ m}^2$",
+        "$200 \\text{ m}^2$",
+        "$80 \\text{ m}^2$",
+        "$150 \\text{ m}^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$A=x(20-x)$; max at $x=10$: $100 \\text{ m}^2$."
+    },
+    {
+      "id": "qua-q7",
+      "stem": "Which condition guarantees that $ax^2+bx+c$ is positive for all real $x$?",
+      "choices": [
+        "$a>0$",
+        "$\\Delta<0$",
+        "$a>0 \\text{ and } \\Delta<0$",
+        "$a<0 \\text{ and } \\Delta<0$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The parabola must open upward ($a>0$) AND never touch the x-axis ($\\Delta<0$). Together these make the quadratic positive definite."
+    },
+    {
+      "id": "qua-q8",
+      "stem": "By completing the square, write $2x^2-8x+5$ in the form $a(x-h)^2+k$.",
+      "choices": [
+        "$2(x-2)^2-3$",
+        "$2(x-4)^2-27$",
+        "$(x-2)^2-3$",
+        "$2(x-2)^2+5$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Factor out $2$: $2(x^2-4x)+5 = 2[(x-2)^2-4]+5 = 2(x-2)^2-8+5 = 2(x-2)^2-3$."
+    },
+    {
+      "id": "qua-q9",
+      "stem": "A ball is thrown upward. Its height after $t$ seconds is $h(t)=-4t^2+16t+3$ metres. What is the maximum height reached?",
+      "choices": [
+        "$16$ m",
+        "$19$ m",
+        "$20$ m",
+        "$23$ m"
+      ],
+      "correctIndex": 1,
+      "explanation": "The maximum occurs at $t=-\\frac{b}{2a}=-\\frac{16}{-8}=2$ s. Substituting: $h(2)=-4(4)+16(2)+3=-16+32+3=19$ m."
+    },
+    {
+      "id": "qua-q10",
+      "stem": "A quadratic has roots $3$ and $-2$, and its y-intercept is $-12$. Find its equation.",
+      "choices": [
+        "$y=2x^2-2x-12$",
+        "$y=x^2-x-6$",
+        "$y=2x^2+2x-12$",
+        "$y=x^2+x-6$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Factored form: $y=a(x-3)(x+2)$. At $x=0$, $y=a(-3)(2)=-6a=-12 \\rightarrow a=2$. Expanding: $y=2(x^2-x-6)=2x^2-2x-12$."
+    },
+    {
+      "id": "qua-q11",
+      "stem": "For what values of $k$ is $x^2-4x+k$ positive for all real $x$?",
+      "choices": [
+        "$k>4$",
+        "$k<4$",
+        "$k\\geq4$",
+        "$k\\leq4$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Need $\\Delta<0$. $\\Delta=(-4)^2-4(1)(k)=16-4k<0 \\rightarrow 4k>16 \\rightarrow k>4$. When $k>4$, the parabola opens upward and never touches the x-axis, so it is always positive."
+    },
+    {
+      "id": "qua-q12",
+      "stem": "The line $y=3x+c$ is tangent to the parabola $y=x^2+5x+2$. Find $c$.",
+      "choices": [
+        "$1$",
+        "$2$",
+        "$3$",
+        "$4$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Set equal: $x^2+5x+2=3x+c \\rightarrow x^2+2x+(2-c)=0$. For tangency, $\\Delta=0$. $\\Delta=4-4(2-c)=4c-4=0 \\rightarrow c=1$."
+    }
+  ]
+}
