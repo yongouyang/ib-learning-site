@@ -1,23 +1,23 @@
 import { Topic, Subject } from './types';
-import mathDpDescriptiveStatistics from './math-phase3-math-dp-descriptive-statistics';
-import mathDpComplexNumbers from './math-phase3-math-dp-complex-numbers';
-import mathDpMatrices from './math-phase3-math-dp-matrices';
-import mathDpCorrelationRegression from './math-phase3-math-dp-correlation-regression';
-import mathDpPoissonDistribution from './math-phase3-math-dp-poisson';
-import mathDpHypothesisTesting from './math-phase3-math-dp-hypothesis-testing';
+import mathDpDescriptiveStatistics from './math-phase4-math-dp-descriptive-statistics';
+import mathDpComplexNumbers from './math-phase4-math-dp-complex-numbers';
+import mathDpMatrices from './math-phase4-math-dp-matrices';
+import mathDpCorrelationRegression from './math-phase4-math-dp-correlation-regression';
+import mathDpPoissonDistribution from './math-phase4-math-dp-poisson';
+import mathDpHypothesisTesting from './math-phase4-math-dp-hypothesis-testing';
 
-import mathDPSequences from './math-phase3-math-dp-sequences';
-import mathDPExponents from './math-phase3-math-dp-exponents';
-import mathDPBinomial from './math-phase3-math-dp-binomial';
-import mathDPFunctions from './math-phase3-math-dp-functions';
-import mathDPQuadratics from './math-phase3-math-dp-quadratics';
-import mathDPExpLog from './math-phase3-math-dp-explog';
-import mathDPTrig from './math-phase3-math-dp-trig';
-import mathDPVectors from './math-phase3-math-dp-vectors';
-import mathDPDifferentiation from './math-phase3-math-dp-differentiation';
-import mathDPIntegration from './math-phase3-math-dp-integration';
-import mathDPProbability from './math-phase3-math-dp-probability';
-import mathDPKinematics from './math-phase3-math-dp-kinematics';
+import mathDPSequences from './math-phase4-math-dp-sequences';
+import mathDPExponents from './math-phase4-math-dp-exponents';
+import mathDPBinomial from './math-phase4-math-dp-binomial';
+import mathDPFunctions from './math-phase4-math-dp-functions';
+import mathDPQuadratics from './math-phase4-math-dp-quadratics';
+import mathDPExpLog from './math-phase4-math-dp-explog';
+import mathDPTrig from './math-phase4-math-dp-trig';
+import mathDPVectors from './math-phase4-math-dp-vectors';
+import mathDPDifferentiation from './math-phase4-math-dp-differentiation';
+import mathDPIntegration from './math-phase4-math-dp-integration';
+import mathDPProbability from './math-phase4-math-dp-probability';
+import mathDPKinematics from './math-phase4-math-dp-kinematics';
 
 // MARK: - Year 7 Topics (MYP 1–2, ages 11–12)
 

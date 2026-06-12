@@ -1,5 +1,17 @@
 'use client';
 
+import MathExpression from './MathExpression';
+
+function renderInlineMath(text: string): React.ReactNode[] {
+  const parts = text.split(/(\$[^$\n]+\$)/);
+  return parts.map((part, i) => {
+    if (part.startsWith('$') && part.endsWith('$') && part.length > 1) {
+      return <MathExpression key={i} latex={part.slice(1, -1)} />;
+    }
+    return <span key={i}>{part}</span>;
+  });
+}
+
 export default function StudyNoteBody({ body }: { body: string }) {
   const lines = body.split('\n');
   const elements: React.ReactNode[] = [];
@@ -14,7 +26,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
       elements.push(
         <ol key={`list-${key++}`} className={`${baseClass} list-decimal`}>
           {currentList.map((item, i) => (
-            <li key={i} className="leading-relaxed pl-1">{item}</li>
+            <li key={i} className="leading-relaxed pl-1">{renderInlineMath(item)}</li>
           ))}
         </ol>
       );
@@ -22,7 +34,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
       elements.push(
         <ul key={`list-${key++}`} className={`${baseClass} list-disc`}>
           {currentList.map((item, i) => (
-            <li key={i} className="leading-relaxed pl-1">{item}</li>
+            <li key={i} className="leading-relaxed pl-1">{renderInlineMath(item)}</li>
           ))}
         </ul>
       );
@@ -37,6 +49,19 @@ export default function StudyNoteBody({ body }: { body: string }) {
 
     if (trimmed === '') {
       flushList();
+      continue;
+    }
+
+    // Display math block: line is exactly $$...$$
+    if (trimmed.startsWith('$$') && trimmed.endsWith('$$') && trimmed.length > 4) {
+      flushList();
+      elements.push(
+        <MathExpression
+          key={`math-${key++}`}
+          latex={trimmed.slice(2, -2).trim()}
+          display
+        />
+      );
       continue;
     }
 
@@ -67,7 +92,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
           key={`code-${key++}`}
           className="font-mono text-sm text-gray-800 bg-gray-50 px-3 py-1.5 rounded-md my-1 border-l-4 border-blue-300"
         >
-          {trimmed}
+          {renderInlineMath(trimmed)}
         </div>
       );
       continue;
@@ -77,7 +102,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
     if (line.startsWith('  ')) {
       elements.push(
         <div key={`indent-${key++}`} className="text-sm text-gray-700 pl-4 leading-relaxed">
-          {trimmed}
+          {renderInlineMath(trimmed)}
         </div>
       );
       continue;
@@ -91,7 +116,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
           className="font-semibold text-gray-900 mt-4 mb-1 text-sm flex items-center gap-2"
         >
           <span>{trimmed.split(' ')[0]}</span>
-          <span>{trimmed.split(' ').slice(1).join(' ')}</span>
+          <span>{renderInlineMath(trimmed.split(' ').slice(1).join(' '))}</span>
         </div>
       );
       continue;
@@ -100,7 +125,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
     // Default paragraph
     elements.push(
       <p key={`p-${key++}`} className="text-sm text-gray-700 leading-relaxed">
-        {trimmed}
+        {renderInlineMath(trimmed)}
       </p>
     );
   }

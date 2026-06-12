@@ -1,0 +1,190 @@
+import { Topic } from './types';
+
+const mathDpCorrelationRegression: Topic = {
+  id: 'math-dp-correlation-regression',
+  subjectId: 'math',
+  title: 'Correlation & Regression',
+  description: 'Bivariate data, Pearson and Spearman correlation coefficients, linear and non-linear regression, residuals, coefficient of determination, and hypothesis testing for correlation.',
+  ibLevel: 'DP',
+  notes: [
+    {
+      id: 'math-dp-correlation-regression-n1',
+      heading: 'Bivariate Data & Scatter Diagrams',
+      body: 'Bivariate data consists of paired measurements on two variables. A scatter diagram helps us visualise the relationship between them.\n\n📌 Definition\nBivariate data is data collected in pairs, where each value from one variable is matched with a value from the other variable.\n\n🔑 Variables on a Scatter Diagram\n    Independent (explanatory) variable → plotted on the x-axis\n    Dependent (response) variable → plotted on the y-axis\n\n💡 Worked Example\nA teacher records the daily hours nine students spend on a phone and on a computer.\n\n  Hours on phone (x):    7.6, 7.0, 8.9, 3.0, 3.0, 7.5, 2.1, 1.3, 5.8\n  Hours on computer (y): 1.7, 1.1, 0.7, 5.8, 5.2, 1.7, 6.9, 7.1, 3.3\n\n  Step 1: Plot the scatter diagram\n    Place phone hours on the x-axis and computer hours on the y-axis.\n    Plot each pair as a single point.\n\n  Step 2: Describe the correlation\n    The points trend downward from left to right.\n    This shows negative correlation — more phone time is associated with less computer time.\n\n  Step 3: Draw the line of best fit\n    The line should pass through the mean point $(\\bar{x}, \\bar{y})$.\n    It should follow the general downward trend of the data.\n\n📎 Key Points to Remember\n• Describe correlation by type (positive, negative, or none) and strength (strong if points lie close to a line, weak if spread out)\n• A line of best fit drawn by eye must pass through the mean point $(\\bar{x}, \\bar{y})$\n• Outliers are points that do not follow the general trend and can distort analysis\n\n⚠️ Common Mistake\nAssuming correlation means causation. A third variable or coincidence may explain the pattern. Always consider the context before claiming one variable causes changes in the other.',
+    },
+    {
+      id: 'math-dp-correlation-regression-n2',
+      heading: "Pearson's PMCC and Spearman's Rank",
+      body: "Pearson's and Spearman's coefficients give numerical values to the relationship between two variables. Each is useful in different situations.\n\n📌 Pearson's Product-Moment Correlation Coefficient ($r$)\nPearson's $r$ measures the strength and direction of linear correlation.\n    $-1 \\le r \\le 1$\n\n    $r = 1$ → perfect positive linear correlation\n    $r = -1$ → perfect negative linear correlation\n    $r = 0$ → no linear correlation\n\nThe closer $|r|$ is to 1, the stronger the linear relationship.\n\n🔑 Critical Values\n    If $|r| >$ critical value → a linear model is appropriate\n    Critical values depend on sample size and are given in exams\n\n📌 Spearman's Rank Correlation Coefficient ($r_s$)\nSpearman's $r_s$ measures monotonic relationships using ranks rather than raw values.\n    $-1 \\le r_s \\le 1$\n\n    $r_s = 1$ → rankings are in complete agreement (always increasing)\n    $r_s = -1$ → rankings are in complete disagreement (always decreasing)\n\n🔑 Calculating Spearman's $r_s$\n    1. Rank each set of data independently (1 to $n$)\n    2. If values are tied, give each the average of the ranks they would occupy\n    3. Calculate the PMCC of the rankings using your GDC\n\n💡 Worked Example\nEight students sit a maths test and an English test.\n\n  Maths (x):    71, 83, 75, 26, 16, 87, 58, 2\n  English (y):  53, 91, 21, 74, 14, 94, 97, 9\n\n  Step 1: Find Pearson's $r$ using a GDC\n    Enter the raw data into lists.\n    $r \approx 0.794$ (strong positive linear correlation)\n\n  Step 2: Find Spearman's $r_s$ using a GDC\n    Rank each set of data independently.\n    Enter the ranks into lists.\n    $r_s \approx 0.810$\n\n  Step 3: Compare the coefficients\n    Both values are positive and close to 1.\n    The data shows strong agreement between maths and English performance.\n    Spearman's is slightly higher, suggesting the relationship is monotonic and mostly linear.\n\n📎 Choosing the Right Coefficient\n• Use Pearson's $r$ when you want to test for a linear relationship\n• Use Spearman's $r_s$ when data contains outliers or the relationship may be non-linear but monotonic\n• Pearson's is affected by outliers; Spearman's is robust against them\n\n⚠️ Common Mistake\nUsing Pearson's $r$ for exponential data. Exponential growth is monotonic (always increasing) but not linear. Pearson's $r$ would underestimate the relationship, while Spearman's $r_s$ would correctly detect the monotonic trend.",
+    },
+    {
+      id: 'math-dp-correlation-regression-n3',
+      heading: 'Linear Regression & Making Predictions',
+      body: 'When strong linear correlation exists, we can model the data with a straight line. The least squares regression line gives the best possible fit.\n\n📌 Definition\nThe regression line of y on x minimises the sum of squared vertical distances from each data point to the line.\n\n🔑 Equation of the Regression Line\n    $y = ax + b$\n\n    a = gradient (change in y for each 1-unit increase in x)\n    b = y-intercept (value of y when $x = 0$)\n\nThe line always passes through the mean point $(\\bar{x}, \\bar{y})$.\n\n💡 Worked Example\nA music teacher records weekly practice time (x hours) and test scores (y %) for 7 students.\n\n  Time (x):  2, 5, 6, 7, 10, 11, 12\n  Score (y): 11, 49, 55, 75, 63, 68, 82\n\n  Step 1: Find the regression line using a GDC\n    Enter the bivariate data.\n    Select the linear model $y = ax + b$.\n    $a \\approx 5.71$,  $b \\approx 20.4$\n    Equation: $y = 5.71x + 20.4$\n\n  Step 2: Interpret the gradient\n    $a = 5.71$ means each extra hour of practice is associated with a 5.71 percentage point increase in test score.\n\n  Step 3: Predict the score for 15 hours of practice\n    $y = 5.71(15) + 20.4$\n    $y \\approx 106$\n\n    This prediction is unreliable because $x = 15$ is outside the original data range (2 to 12). The relationship may not continue beyond the observed data.\n\n📎 Interpolation vs Extrapolation\n• Interpolation: predicting within the data range → usually reliable, especially when correlation is strong\n• Extrapolation: predicting outside the data range → unreliable because the relationship may change\n\n⚠️ Common Mistake\nUsing the regression line of y on x to predict x from y. This requires the regression line of x on y, which has a different equation. The two lines are only identical when correlation is perfect ($r = \\pm 1$).',
+    },
+    {
+      id: 'math-dp-correlation-regression-n4',
+      heading: 'Non-linear Regression, Residuals & $R^2$',
+      body: 'When data is not linear, curved models may provide a better fit. We compare models using residuals and the coefficient of determination.\n\n📌 Residuals\nA residual is the vertical difference between an observed y-value and the value predicted by the model.\n    residual $= y - \\hat{y}$\n\nThe sum of squared residuals is denoted $SS_{res}$.\n    Smaller $SS_{res}$ → better fit\n\n📌 Coefficient of Determination ($R^2$)\n$R^2$ tells you the proportion of variation in y explained by the model.\n    $0 \\le R^2 \\le 1$\n\n    $R^2 = 1$ → perfect fit\n    $R^2$ closer to $1$ → better fit\n\nFor linear models:\n    $R^2 = r^2$\n\n💡 Worked Example\nData on cheetah lengths (x metres) and running speeds (y m/s) is modelled with quadratic and exponential curves.\n\n  Length (x): 1.21, 1.33, 1.12, 1.45, 1.42, 1.39, 1.24, 1.19, 1.32\n  Speed (y):  24.3, 25.1, 22.2, 35.1, 35.1, 33.4, 27.1, 23.1, 24.8\n\n  Step 1: Fit a quadratic model $y = ax^2 + bx + c$\n    Using a GDC: $a \\approx -302$, $b \\approx 844$, $c \\approx -562$\n    $R^2 \\approx 0.972$\n\n  Step 2: Fit an exponential model $y = ab^x$\n    Using a GDC: $a \\approx 0.00307$, $b \\approx 25.1$\n    $R^2 \\approx 0.918$\n\n  Step 3: Choose the better model\n    The quadratic model has the higher $R^2$ ($0.972$ > $0.918$).\n    Based solely on $R^2$, the quadratic model is the better fit.\n\n📎 Comparing Models\n• Prefer the model with the higher $R^2$ when using the same data set\n• Check whether the model type makes sense in context\n• Be cautious with extrapolation — the model may behave wildly outside the data range\n• More parameters do not guarantee a better model if overfitting occurs\n\n⚠️ Common Mistake\nChoosing a model solely because $R^2$ is closest to 1. A cubic model fitted to only four points will always have $R^2 = 1$, but it may be terrible at predicting new data. Always consider sample size, context, and whether the model is plausible.',
+    },
+  ],
+  flashcards: [
+    {
+      id: 'math-dp-correlation-regression-f1',
+      term: 'Bivariate data',
+      definition: 'Data collected in pairs on two variables to investigate how one relates to the other.',
+      example: 'Height and weight measured for the same group of students.',
+    },
+    {
+      id: 'math-dp-correlation-regression-f2',
+      term: "Pearson's PMCC ($r$)",
+      definition: 'A numerical measure of the strength and direction of linear correlation between two variables.',
+      example: '$r = 0.85$ indicates strong positive linear correlation.',
+    },
+    {
+      id: 'math-dp-correlation-regression-f3',
+      term: "Spearman's rank correlation coefficient ($r_s$)",
+      definition: 'Measures the strength of a monotonic relationship using the ranks of data values rather than raw values.',
+      example: 'Useful when data contains outliers or the relationship is exponential.',
+    },
+    {
+      id: 'math-dp-correlation-regression-f4',
+      term: 'Correlation does not imply causation',
+      definition: 'A relationship between two variables does not mean one causes the other; a lurking variable may be involved.',
+      example: 'Ice cream sales and drowning incidents both increase in summer — heat is the common cause.',
+    },
+    {
+      id: 'math-dp-correlation-regression-f5',
+      term: 'Least squares regression line (y on x)',
+      definition: 'The straight line $y = ax + b$ that minimises the sum of squared vertical distances from the data points.',
+      example: 'If $a = 5$, y increases by 5 units for every 1-unit increase in x.',
+    },
+    {
+      id: 'math-dp-correlation-regression-f6',
+      term: 'Interpolation vs extrapolation',
+      definition: 'Interpolation predicts within the data range; extrapolation predicts outside it.',
+      example: 'Data spans $x = 10$ to $50$. Predicting at $x = 30$ is interpolation; at $x = 80$ is extrapolation.',
+    },
+    {
+      id: 'math-dp-correlation-regression-f7',
+      term: 'Residual',
+      definition: 'The vertical difference between an observed y-value and the value predicted by the model.',
+      example: 'Observed $y = 12$, predicted $\\hat{y} = 9.5$ → residual $= 2.5$.',
+    },
+    {
+      id: 'math-dp-correlation-regression-f8',
+      term: 'Coefficient of determination ($R^2$)',
+      definition: 'The proportion of variation in the dependent variable explained by the model.',
+      example: '$R^2 = 0.92$ means 92% of the variation in y is explained by the model.',
+    },
+  ],
+  questions: [
+    {
+      id: 'math-dp-correlation-regression-q1',
+      stem: 'A scatter diagram shows $r = -0.92$. Which statement is correct?',
+      choices: [
+        'Strong positive linear correlation',
+        'Strong negative linear correlation',
+        'Weak negative linear correlation',
+        'No linear correlation',
+      ],
+      correctIndex: 1,
+      explanation: 'The negative sign indicates negative correlation, and $|-0.92|$ is close to 1, so the correlation is strong.',
+    },
+    {
+      id: 'math-dp-correlation-regression-q2',
+      stem: 'A data set follows an exponential growth pattern with no outliers. Which correlation coefficient is more appropriate?',
+      choices: [
+        "Pearson's PMCC because it measures exact linear fit",
+        "Spearman's rank because it detects monotonic relationships",
+        'Both give the same value since there are no outliers',
+        'Neither; exponential data cannot be analysed statistically',
+      ],
+      correctIndex: 1,
+      explanation: "Exponential growth is monotonic (always increasing) but not linear. Spearman's rank tests for monotonicity, while Pearson's measures only linear correlation and would underestimate the relationship.",
+    },
+    {
+      id: 'math-dp-correlation-regression-q3',
+      stem: 'The regression line of y on x is $y = 4.2x + 7.5$. What is the interpretation of 4.2?',
+      choices: [
+        'When $x = 0$, $y = 4.2$',
+        'For every 1-unit increase in x, y increases by 4.2',
+        'The correlation coefficient is 4.2',
+        'The mean of x is 4.2',
+      ],
+      correctIndex: 1,
+      explanation: 'In $y = ax + b$, the gradient a represents the change in y for each 1-unit increase in x.',
+    },
+    {
+      id: 'math-dp-correlation-regression-q4',
+      stem: 'A regression line is fitted using data where x ranges from 5 to 25. Which prediction is least reliable?',
+      choices: [
+        '$x = 10$',
+        '$x = 18$',
+        '$x = 22$',
+        '$x = 40$',
+      ],
+      correctIndex: 3,
+      explanation: '$x = 40$ is far outside the original data range (5–25), making it extrapolation. The relationship may not hold beyond the observed range.',
+    },
+    {
+      id: 'math-dp-correlation-regression-q5',
+      stem: 'For a regression line $y = 2.5x + 8$, what is the predicted value of y when $x = 6$?',
+      choices: ['15', '23', '30', '48'],
+      correctIndex: 1,
+      explanation: 'Substitute $x = 6$: $y = 2.5(6) + 8 = 15 + 8 = 23$.',
+    },
+    {
+      id: 'math-dp-correlation-regression-q6',
+      stem: 'A study finds a strong positive correlation between chocolate consumption per capita and Nobel laureates per capita. What can be concluded?',
+      choices: [
+        'Eating chocolate causes people to win Nobel prizes',
+        'There is a causal relationship between the two variables',
+        'A third factor such as wealth may explain both',
+        'Nobel prizes cause people to eat more chocolate',
+      ],
+      correctIndex: 2,
+      explanation: 'Correlation does not imply causation. Wealthier countries may both consume more chocolate and invest more in research, creating a spurious correlation.',
+    },
+    {
+      id: 'math-dp-correlation-regression-q7',
+      stem: 'A linear model has $r = 0.7$. What is the coefficient of determination?',
+      choices: ['0.7', '0.49', '1.4', '0.3'],
+      correctIndex: 1,
+      explanation: 'For a linear model, $R^2 = r^2 = 0.7^2 = 0.49$. This means 49% of the variation in y is explained by the linear relationship with x.',
+    },
+    {
+      id: 'math-dp-correlation-regression-q8',
+      stem: 'A data point has $y = 15$. The regression model predicts $\\hat{y} = 12$. What is the residual?',
+      choices: ['-3', '3', '27', '1.25'],
+      correctIndex: 1,
+      explanation: 'residual $= 15 - 12 = 3$. A positive residual means the model underestimates the actual value.',
+    },
+    {
+      id: 'math-dp-correlation-regression-q9',
+      stem: 'A hypothesis test for correlation uses $H_0: \\rho = 0$ and $H_1: \\rho \\neq 0$ at the 5% level. The p-value is 0.03. What is the conclusion?',
+      choices: [
+        'Accept $H_0$; there is no correlation',
+        'Reject $H_0$; there is evidence of linear correlation',
+        'Accept $H_0$; the correlation is perfect',
+        'Reject $H_0$; the correlation is causal',
+      ],
+      correctIndex: 1,
+      explanation: 'Since p-value (0.03) < significance level (0.05), we reject $H_0$. There is sufficient evidence at the 5% level to suggest a linear correlation exists.',
+    },
+    {
+      id: 'math-dp-correlation-regression-q10',
+      stem: 'Which model is most appropriate for data that first increases, reaches a maximum, then decreases?',
+      choices: [
+        'Exponential model',
+        'Linear model',
+        'Quadratic model with negative leading coefficient',
+        'Cubic model with only positive coefficients',
+      ],
+      correctIndex: 2,
+      explanation: 'A quadratic with a negative leading coefficient produces a downward-opening parabola, which increases to a maximum then decreases — matching the described behaviour.',
+    },
+  ],
+};
+
+export default mathDpCorrelationRegression;
