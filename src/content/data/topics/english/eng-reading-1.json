@@ -1,0 +1,91 @@
+{
+  "id": "eng-reading-1",
+  "subjectId": "english",
+  "title": "Reading Comprehension",
+  "description": "Strategies for understanding, analysing, and responding to texts.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "read-n1",
+      "heading": "Inference and Explicit Information",
+      "body": "Explicit information is stated directly in the text — you don't need to guess. Implicit information (or inference) requires you to \"read between the lines\" by using clues in the text to work out something the author hasn't said outright. For example, if a character \"slammed the door and didn't speak at dinner,\" the text never says they are angry, but you can infer it."
+    },
+    {
+      "id": "read-n2",
+      "heading": "Author's Purpose and Tone",
+      "body": "An author's purpose is why they wrote: to inform (give facts), persuade (change your opinion), entertain (engage and amuse), or describe (create a picture). Tone is the author's attitude — formal, humorous, angry, sympathetic, or sarcastic. Identifying purpose and tone helps you understand what the author really wants you to think or feel."
+    },
+    {
+      "id": "read-n3",
+      "heading": "Summarising and Main Idea",
+      "body": "The main idea is the most important point — what the author says ABOUT the topic. A topic is just the subject; the main idea includes the claim. A good summary restates the main idea and key supporting details in your own words, is shorter than the original, accurate, and leaves out unimportant details."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "read-f1",
+      "term": "Inference",
+      "definition": "A conclusion drawn from evidence in the text rather than something the author states directly.",
+      "example": "If a character wraps their coat tighter, you can infer it is cold outside."
+    },
+    {
+      "id": "read-f2",
+      "term": "Explicit information",
+      "definition": "Information that is stated clearly and directly in the text.",
+      "example": "\"The train arrived at 9 a.m.\" — stated outright."
+    },
+    {
+      "id": "read-f3",
+      "term": "Author's purpose",
+      "definition": "The reason an author writes: to inform, persuade, entertain, or describe."
+    },
+    {
+      "id": "read-f4",
+      "term": "Tone",
+      "definition": "The author's attitude or feeling towards the subject or audience, expressed through word choice.",
+      "example": "Formal tone uses precise language; humorous tone uses jokes or sarcasm."
+    },
+    {
+      "id": "read-f5",
+      "term": "Main idea",
+      "definition": "The most important point an author makes about a topic in a text or paragraph."
+    }
+  ],
+  "questions": [
+    {
+      "id": "read-q1",
+      "stem": "A text says: \"Maria glanced at her watch three times, tapped her foot, and kept looking at the door.\" What can you INFER?",
+      "choices": ["Maria is tired.", "Maria is waiting anxiously for someone.", "Maria is angry at someone in the room.", "Maria wants to leave immediately."],
+      "correctIndex": 1,
+      "explanation": "Watch-checking, foot-tapping, and door-looking are all signs of nervous waiting — not directly stated, but inferred."
+    },
+    {
+      "id": "read-q2",
+      "stem": "Which is an example of EXPLICIT information?",
+      "choices": ["The character must be cold because she is shivering.", "The story probably takes place in winter.", "The temperature was -5°C according to the weather report.", "The author seems to dislike the cold season."],
+      "correctIndex": 2,
+      "explanation": "Explicit information is directly stated in the text — like the specific temperature."
+    },
+    {
+      "id": "read-q3",
+      "stem": "A newspaper article presents facts and statistics about climate change without opinion. What is the author's likely purpose?",
+      "choices": ["To entertain", "To persuade", "To inform", "To describe"],
+      "correctIndex": 2,
+      "explanation": "Presenting facts neutrally = purpose is to inform."
+    },
+    {
+      "id": "read-q4",
+      "stem": "What is the difference between a 'topic' and a 'main idea'?",
+      "choices": ["They are the same thing.", "The topic is the subject; the main idea is what the author says about that subject.", "The main idea is the subject; the topic is the author's opinion.", "The topic is found in the conclusion; the main idea in the introduction."],
+      "correctIndex": 1,
+      "explanation": "Topic = subject (e.g. \"dogs\"). Main idea = claim about that subject (e.g. \"Dogs are better pets than cats\")."
+    },
+    {
+      "id": "read-q5",
+      "stem": "Which word best describes the tone of: \"The council has, once again in its infinite wisdom, decided to close the only park\"?",
+      "choices": ["Formal", "Sarcastic", "Sympathetic", "Neutral"],
+      "correctIndex": 1,
+      "explanation": "\"Infinite wisdom\" is used ironically to criticise — this is sarcasm."
+    }
+  ]
+}

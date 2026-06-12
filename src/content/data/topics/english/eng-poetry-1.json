@@ -1,0 +1,91 @@
+{
+  "id": "eng-poetry-1",
+  "subjectId": "english",
+  "title": "Poetry Analysis",
+  "description": "Understanding how poets use language, structure, and sound to create meaning.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "poe-n1",
+      "heading": "Imagery and Sensory Language",
+      "body": "Imagery refers to language that creates a mental picture or appeals to the senses — sight, sound, smell, touch, and taste. Poets use imagery to make abstract feelings feel real. For example, \"golden daffodils that flutter and dance\" creates a visual image. Strong imagery is specific and unexpected. When analysing poetry, ask: what does this image make you see, hear, or feel?"
+    },
+    {
+      "id": "poe-n2",
+      "heading": "Rhyme and Rhythm",
+      "body": "Rhyme is when words end with the same sound (\"moon/June\"). A rhyme scheme is the pattern, labelled with letters (ABAB, AABB). Rhythm is the pattern of stressed and unstressed syllables — the \"beat\" of the poem. Regular rhythm can feel calm; irregular rhythm can feel chaotic. Together, rhyme and rhythm give poetry its musical quality."
+    },
+    {
+      "id": "poe-n3",
+      "heading": "Structure and Form",
+      "body": "Structure includes how a poem is organised into stanzas (groups of lines), line lengths, and fixed forms. A sonnet has 14 lines; a haiku has 3 lines (5-7-5 syllables). Free verse has no fixed rhyme or meter. Line breaks create pauses and emphasis. Enjambment is when a sentence runs on from one line to the next without a pause."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "poe-f1",
+      "term": "Imagery",
+      "definition": "Descriptive language that appeals to the senses and creates vivid mental pictures.",
+      "example": "\"The crimson sun melted into the horizon.\""
+    },
+    {
+      "id": "poe-f2",
+      "term": "Rhyme scheme",
+      "definition": "The pattern of rhymes at the end of each line, identified by letters (e.g., ABAB).",
+      "example": "Roses are red (A), violets are blue (B), sugar is sweet (A)... — AAB"
+    },
+    {
+      "id": "poe-f3",
+      "term": "Stanza",
+      "definition": "A group of lines in a poem, similar to a paragraph in prose.",
+      "example": "A four-line stanza is called a quatrain."
+    },
+    {
+      "id": "poe-f4",
+      "term": "Enjambment",
+      "definition": "When a sentence or phrase continues past the end of one line into the next without a pause."
+    },
+    {
+      "id": "poe-f5",
+      "term": "Free verse",
+      "definition": "Poetry that does not follow a regular rhyme scheme or metrical pattern."
+    }
+  ],
+  "questions": [
+    {
+      "id": "poe-q1",
+      "stem": "\"The moon hung like a lantern over the sleeping city.\" This line is an example of:",
+      "choices": ["Alliteration", "Rhyme", "Imagery", "Enjambment"],
+      "correctIndex": 2,
+      "explanation": "The line creates a vivid visual picture — this is imagery."
+    },
+    {
+      "id": "poe-q2",
+      "stem": "A poem has line 1 rhyming with line 3, and line 2 with line 4. What rhyme scheme?",
+      "choices": ["AABB", "ABBA", "ABAB", "AAAA"],
+      "correctIndex": 2,
+      "explanation": "ABAB = alternating rhyme scheme."
+    },
+    {
+      "id": "poe-q3",
+      "stem": "What is enjambment in poetry?",
+      "choices": ["A group of lines forming a section", "A comparison using \"like\" or \"as\"", "When a sentence runs from one line to the next without a full stop", "A poem with exactly 14 lines"],
+      "correctIndex": 2,
+      "explanation": "Enjambment = the sentence continues over the line break without a pause."
+    },
+    {
+      "id": "poe-q4",
+      "stem": "A poem with no set rhyme scheme or regular rhythm is written in:",
+      "choices": ["Sonnet form", "Free verse", "Haiku form", "A quatrain"],
+      "correctIndex": 1,
+      "explanation": "Free verse has no fixed rhyme scheme or meter."
+    },
+    {
+      "id": "poe-q5",
+      "stem": "Why is it important to comment on a poet's specific word choice?",
+      "choices": ["To show you have read the poem", "Because all words in a poem are there by accident", "Because word choice reveals the poet's intentions and creates specific effects", "To count the syllables"],
+      "correctIndex": 2,
+      "explanation": "Poets choose words deliberately for sound, meaning, and connotation. Analysing word choice reveals mood and meaning."
+    }
+  ]
+}
