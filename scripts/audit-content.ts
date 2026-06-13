@@ -501,9 +501,14 @@ export function main(): void {
 
   console.log(formatReport(result, unreadable));
 
-  const hasErrors =
-    result.issues.some((i) => i.severity === "error") || unreadable.length > 0;
-  process.exit(hasErrors ? 1 : 0);
+  const errorCount = result.issues.filter((i) => i.severity === "error").length;
+  const warningCount = result.issues.filter(
+    (i) => i.severity === "warning",
+  ).length;
+  if (errorCount > 0 || warningCount > 0 || unreadable.length > 0) {
+    process.exit(1);
+  }
+  process.exit(0);
 }
 
 if (require.main === module) {

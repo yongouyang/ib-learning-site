@@ -100,8 +100,11 @@ npm run lint
 npm run validate:content
 
 # Audit content quality (question counts, IDs, LaTeX issues)
+# This now exits with an error if any warnings are found.
 npm run audit:content
 ```
+
+Content conventions are documented in [`CONTENT_STYLE.md`](./CONTENT_STYLE.md).
 
 The app also respects the user's system dark-mode preference (`prefers-color-scheme`).
 

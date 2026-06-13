@@ -26,6 +26,9 @@ jobs:
       - name: Validate content
         run: npm run validate:content
 
+      - name: Audit content
+        run: npm run audit:content
+
       - name: Lint
         run: npm run lint
 

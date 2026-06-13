@@ -116,7 +116,7 @@
         "2.5"
       ],
       "correctIndex": 2,
-      "explanation": "$0.2+1.0+0.9=2.1$."
+      "explanation": "Expected value: $E(X)=1(0.2)+2(0.5)+3(0.3)=0.2+1.0+0.9=2.1$."
     },
     {
       "id": "math-dp-probability-prb-q3",
@@ -128,7 +128,7 @@
         "3"
       ],
       "correctIndex": 2,
-      "explanation": "$np=8\\times0.25=2$."
+      "explanation": "For a binomial distribution, $E(X)=np=8\\times0.25=2$."
     },
     {
       "id": "math-dp-probability-prb-q4",

@@ -104,7 +104,7 @@
         "13"
       ],
       "correctIndex": 2,
-      "explanation": "$f(g(2))=f(4)=10$."
+      "explanation": "First $g(2)=2^2=4$, then $f(4)=3(4)-2=10$."
     },
     {
       "id": "math-dp-functions-fun-q2",
@@ -140,7 +140,7 @@
         "$x^2+x$"
       ],
       "correctIndex": 1,
-      "explanation": "$f(-x)=x^2+1=f(x)$."
+      "explanation": "For $f(x)=x^2+1$, substituting $-x$ gives $(-x)^2+1=x^2+1=f(x)$, so it is even."
     },
     {
       "id": "math-dp-functions-fun-q5",

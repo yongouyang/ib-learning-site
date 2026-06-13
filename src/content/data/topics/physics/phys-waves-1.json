@@ -56,7 +56,7 @@
     { "id": "phys-waves-1-f12", "term": "Additive colour mixing", "definition": "Primary colours of light: Red + Green + Blue = White. Used in screens (RGB pixels).", "example": "Yellow on a screen = red + green pixels lit together." }
   ],
   "questions": [
-    { "id": "phys-waves-1-q1", "stem": "f=200 Hz, λ=2 m. Wave speed?", "choices": ["100 m/s", "200 m/s", "400 m/s", "2 m/s"], "correctIndex": 2, "explanation": "v=fλ=200×2=400 m/s." },
+    { "id": "phys-waves-1-q1", "stem": "f=200 Hz, λ=2 m. Wave speed?", "choices": ["100 m/s", "200 m/s", "400 m/s", "2 m/s"], "correctIndex": 2, "explanation": "Wave speed is frequency times wavelength: $v=f\\lambda=200\\times2=400\\text{ m/s}$." },
     { "id": "phys-waves-1-q2", "stem": "Which wave type has particles vibrating at right angles to wave direction?", "choices": ["Longitudinal", "Sound", "Transverse", "Compression"], "correctIndex": 2, "explanation": "Transverse waves oscillate perpendicular to travel direction." },
     { "id": "phys-waves-1-q3", "stem": "Why can light travel through space but sound cannot?", "choices": ["Sound is too slow", "Light has higher frequency", "Sound is mechanical — needs particles; space is a vacuum. Light is EM — no medium needed", "Light is longitudinal"], "correctIndex": 2, "explanation": "Sound requires particle vibration → no particles in space → no sound. EM waves self-propagate through electric/magnetic fields." },
     { "id": "phys-waves-1-q4", "stem": "Highest frequency EM wave?", "choices": ["Radio", "Visible light", "Microwave", "Gamma rays"], "correctIndex": 3, "explanation": "Gamma: shortest λ, highest f, most energetic. Radio: longest λ, lowest f." },
