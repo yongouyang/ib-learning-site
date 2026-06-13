@@ -1,117 +1,225 @@
 {
   "id": "bio-genetics-1",
   "subjectId": "biology",
-  "title": "Genetics & Inheritance",
-  "description": "How traits are passed from parents to offspring through DNA and genes.",
+  "title": "Genetics, Inheritance & Variation",
+  "description": "How traits are passed from parents to offspring through DNA — including variation, natural selection, genetic modification, and cloning.",
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "bio-genetics-1-gen-n1",
+      "id": "bio-genetics-1-n1",
       "heading": "DNA, Genes, and Chromosomes",
-      "body": "DNA (deoxyribonucleic acid) is a long molecule that carries genetic information in a code made of four bases: A, T, C, G. A gene is a short section of DNA that codes for a specific protein — and proteins determine our characteristics. Genes are found on chromosomes, which are coiled-up DNA found in the nucleus. Human cells contain 46 chromosomes (23 pairs). One chromosome from each pair came from each parent."
+      "body": "DNA (deoxyribonucleic acid) is the molecule that carries all genetic instructions for life. It has a double helix structure — like a twisted ladder. The 'rungs' are made of pairs of nitrogenous bases: Adenine (A) always pairs with Thymine (T), and Cytosine (C) always pairs with Guanine (G). This is called complementary base pairing. A gene is a specific sequence of DNA bases that codes for a particular protein. Proteins determine our characteristics (phenotype). Genes are located on chromosomes — tightly coiled DNA molecules found in the nucleus of eukaryotic cells. Human body cells contain 46 chromosomes arranged in 23 pairs. One chromosome from each pair comes from the mother, one from the father. The 23rd pair determines sex: XX = female, XY = male. Gametes (sperm and egg cells) contain only 23 single chromosomes each — this is haploid (n), while body cells are diploid (2n). This halving occurs through meiosis."
     },
     {
-      "id": "bio-genetics-1-gen-n2",
+      "id": "bio-genetics-1-n2",
       "heading": "Dominant and Recessive Alleles",
-      "body": "For each gene we have two alleles — one from each parent. A dominant allele (capital letter, e.g. B) will show its effect even if only one copy is present. A recessive allele (lowercase, e.g. b) will only show if two copies are present (bb). An organism with two identical alleles (BB or bb) is homozygous. Two different alleles (Bb) is heterozygous. The genetic make-up is the genotype; what you see is the phenotype."
+      "body": "For each gene, we have two alleles — alternative versions — one inherited from each parent. A dominant allele (represented by a capital letter, e.g., B for brown eyes) will be expressed in the phenotype even if only one copy is present. A recessive allele (lowercase, e.g., b for blue eyes) is only expressed when two copies are present (homozygous recessive, bb). Key terms: homozygous — both alleles identical (BB or bb); heterozygous — two different alleles (Bb). Genotype: the genetic makeup (the alleles present). Phenotype: the observable characteristic (what you see). Example: Genotype BB or Bb → phenotype brown eyes. Genotype bb → phenotype blue eyes. Important: a recessive allele is NOT 'weaker' or 'bad' — it is simply masked in the presence of a dominant allele. Codominance (beyond MYP but worth noting): both alleles are expressed equally (e.g., AB blood type, where both A and B alleles show)."
     },
     {
-      "id": "bio-genetics-1-gen-n3",
-      "heading": "Punnett Squares",
-      "body": "A Punnett square is a grid used to predict the possible genotypes and phenotypes of offspring from a cross. Write one parent's alleles across the top, the other's down the side. Each box represents a 25% probability. For a Bb × Bb cross: BB (25%), Bb (50%), bb (25%)."
+      "id": "bio-genetics-1-n3",
+      "heading": "Punnett Squares and Genetic Crosses",
+      "body": "A Punnett square predicts the probability of offspring genotypes from a genetic cross. Method: write one parent's possible gametes (alleles) across the top, the other parent's down the side. Each box represents one possible combination at fertilisation. For a Bb × Bb cross (two heterozygous parents): top: B, b; side: B, b. Offspring: BB (25%), Bb (50%), bb (25%). Phenotype ratio: 3 brown eyes : 1 blue eyes. For a BB × bb cross (homozygous dominant × homozygous recessive): all offspring are Bb (100% heterozygous) — the dominant phenotype. A test cross (breeding an organism of unknown genotype with a homozygous recessive) determines whether the unknown is BB or Bb. Common mistake: Punnett squares show probability, not certainty. In a real family of four, you might not get exactly a 3:1 ratio — the probabilities apply to each child independently."
+    },
+    {
+      "id": "bio-genetics-1-n4",
+      "heading": "Variation: Continuous and Discontinuous",
+      "body": "Variation refers to the differences between individuals within a species. There are two types: (1) Continuous variation — characteristics that can take any value within a range. Examples: height, weight, hand span, leaf length. These are controlled by multiple genes (polygenic) and are also influenced by the environment (e.g., nutrition affects height). When plotted on a graph, continuous data produces a bell-shaped normal distribution curve. (2) Discontinuous variation — characteristics that fall into distinct, separate categories with no intermediates. Examples: eye colour, blood type, tongue rolling ability, sex. These are usually controlled by a single gene (monogenic) and are NOT influenced by the environment. When plotted, discontinuous data produces a bar chart with separate columns. Key difference: you cannot be 'in between' tongue-roller and non-tongue-roller; but you can be any height within a range."
+    },
+    {
+      "id": "bio-genetics-1-n5",
+      "heading": "Natural Selection and Evolution",
+      "body": "Natural selection, proposed by Charles Darwin, is the mechanism by which evolution occurs. The process: (1) Within a population, there is genetic variation — individuals are not identical. (2) More offspring are produced than can survive (struggle for existence). (3) Individuals with characteristics better adapted to their environment are more likely to survive and reproduce (survival of the fittest). (4) These advantageous alleles are passed on to the next generation at a higher rate. Over many generations, the frequency of these alleles increases — the population evolves. Classic example: peppered moths in 19th-century England. Before the Industrial Revolution, pale moths were camouflaged on lichen-covered trees. As pollution killed lichens and darkened tree trunks, dark (melanic) moths had the survival advantage — birds ate the now-visible pale moths. The dark allele frequency increased dramatically. After clean air acts, the trend reversed. Key point: individuals do NOT evolve — populations evolve over generations. Mutations introduce new alleles, creating the variation upon which natural selection acts."
+    },
+    {
+      "id": "bio-genetics-1-n6",
+      "heading": "Selective Breeding (Artificial Selection)",
+      "body": "Selective breeding is when humans deliberately choose which organisms reproduce, based on desired characteristics. It has been used for thousands of years — long before we understood genetics. Process: (1) Choose parents with desirable traits (e.g., highest milk yield in cows, largest seeds in wheat). (2) Breed these selected individuals. (3) From the offspring, again select the best individuals. (4) Repeat over many generations. Examples: dairy cows (high milk production), seedless bananas, pedigree dogs (e.g., Labradors bred for retrieving), wheat varieties (high yield, disease resistance). Risks: selective breeding reduces genetic diversity (the gene pool shrinks), making populations vulnerable to disease. It can also amplify harmful recessive alleles — many pedigree dogs suffer from inherited disorders (e.g., hip dysplasia in German Shepherds, breathing problems in pugs). Inbreeding depression: closely related individuals breeding increases the chance of harmful recessive traits appearing."
+    },
+    {
+      "id": "bio-genetics-1-n7",
+      "heading": "Genetic Modification (GM) and Cloning",
+      "body": "Genetic modification (genetic engineering) involves directly altering an organism's DNA by inserting a gene from another species. This is much faster and more precise than selective breeding. Process: (1) Identify a desirable gene (e.g., the gene for insulin production in humans). (2) Cut out the gene using restriction enzymes. (3) Insert the gene into a vector (commonly a bacterial plasmid). (4) The modified bacterium multiplies and produces the desired protein. Applications: Human insulin produced by GM bacteria (replacing animal insulin for diabetics), GM crops resistant to herbicides or pests (e.g., Bt corn), Golden Rice (modified to produce beta-carotene to address vitamin A deficiency). Cloning produces genetically identical copies. Plant cloning (cuttings, tissue culture) is common and relatively simple. Animal cloning (e.g., Dolly the sheep, 1996) uses somatic cell nuclear transfer: nucleus from adult cell inserted into enucleated egg cell, then implanted into surrogate. Ethical concerns: GM — fears of unknown health effects, ecological impact of GM crops crossing with wild species; cloning — low success rate, health problems in clones, concerns about human cloning."
     }
   ],
   "flashcards": [
     {
-      "id": "bio-genetics-1-gen-f1",
+      "id": "bio-genetics-1-f1",
       "term": "Gene",
-      "definition": "A section of DNA that codes for a specific protein, determining a particular characteristic.",
-      "example": "The gene for eye colour instructs cells to produce certain pigments."
+      "definition": "A specific sequence of DNA bases that codes for a particular protein, determining a characteristic.",
+      "example": "The gene for haemoglobin codes for the protein that carries oxygen in red blood cells."
     },
     {
-      "id": "bio-genetics-1-gen-f2",
+      "id": "bio-genetics-1-f2",
       "term": "Allele",
-      "definition": "A version of a gene. Two alleles for most genes — one on each chromosome of a pair.",
-      "example": "B (brown eyes) and b (blue eyes) are alleles of the eye colour gene."
+      "definition": "An alternative version of a gene. Each individual has two alleles for most genes — one on each chromosome of a homologous pair.",
+      "example": "The eye colour gene has brown (B) and blue (b) alleles."
     },
     {
-      "id": "bio-genetics-1-gen-f3",
+      "id": "bio-genetics-1-f3",
       "term": "Dominant allele",
-      "definition": "An allele that is expressed even when only one copy is present.",
-      "example": "If B = brown eyes is dominant, then BB and Bb both give brown eyes."
+      "definition": "An allele that is always expressed in the phenotype when present, even if only one copy exists.",
+      "example": "B = brown eyes. Genotypes BB and Bb both produce brown eyes."
     },
     {
-      "id": "bio-genetics-1-gen-f4",
+      "id": "bio-genetics-1-f4",
       "term": "Recessive allele",
-      "definition": "An allele that is only expressed when two copies are present (homozygous recessive).",
-      "example": "Blue eyes only appear with genotype bb."
+      "definition": "An allele that is only expressed in the phenotype when two copies are present (homozygous recessive). It is masked by a dominant allele.",
+      "example": "b = blue eyes. Only genotype bb produces blue eyes."
     },
     {
-      "id": "bio-genetics-1-gen-f5",
+      "id": "bio-genetics-1-f5",
       "term": "Punnett square",
-      "definition": "A grid diagram used to predict the genotype ratios of offspring from a genetic cross."
+      "definition": "A grid diagram used to predict the probability of possible genotypes and phenotypes in offspring from a genetic cross.",
+      "example": "Bb × Bb → 1 BB : 2 Bb : 1 bb (genotype ratio); 3 brown : 1 blue (phenotype ratio)."
+    },
+    {
+      "id": "bio-genetics-1-f6",
+      "term": "Genotype",
+      "definition": "The genetic makeup of an organism — the combination of alleles it possesses (e.g., BB, Bb, or bb).",
+      "example": "A person with genotype Bb is heterozygous for the eye colour gene."
+    },
+    {
+      "id": "bio-genetics-1-f7",
+      "term": "Phenotype",
+      "definition": "The observable physical or biochemical characteristics of an organism, determined by genotype and environment.",
+      "example": "Having brown eyes is the phenotype; BB and Bb are two different genotypes that produce this same phenotype."
+    },
+    {
+      "id": "bio-genetics-1-f8",
+      "term": "Continuous variation",
+      "definition": "Characteristics that can take any value within a range; controlled by many genes and influenced by environment.",
+      "example": "Height in humans — you can be 162.3 cm, not just tall or short."
+    },
+    {
+      "id": "bio-genetics-1-f9",
+      "term": "Discontinuous variation",
+      "definition": "Characteristics that fall into distinct categories with no intermediates; controlled by one or a few genes.",
+      "example": "Blood type — you are A, B, AB, or O; there is no in-between."
+    },
+    {
+      "id": "bio-genetics-1-f10",
+      "term": "Natural selection",
+      "definition": "The mechanism of evolution: organisms with advantageous traits are more likely to survive, reproduce, and pass on those alleles.",
+      "example": "Peppered moths — dark individuals survived better on polluted trees, so the dark allele frequency increased."
+    },
+    {
+      "id": "bio-genetics-1-f11",
+      "term": "Selective breeding",
+      "definition": "Humans choosing which organisms to breed based on desired traits, repeated over many generations.",
+      "example": "All domestic dog breeds descend from wolves through thousands of years of selective breeding."
+    },
+    {
+      "id": "bio-genetics-1-f12",
+      "term": "Genetic modification (GM)",
+      "definition": "Directly altering an organism's DNA by inserting a gene from another species using laboratory techniques.",
+      "example": "GM bacteria produce human insulin — the human insulin gene is inserted into a bacterial plasmid."
     }
   ],
   "questions": [
     {
-      "id": "bio-genetics-1-gen-q1",
-      "stem": "A dominant allele for tall plants (T) is crossed with a recessive allele for short plants (t). What is the phenotype of a plant with genotype Tt?",
-      "choices": [
-        "Short",
-        "Tall",
-        "Medium height",
-        "Cannot be determined"
-      ],
+      "id": "bio-genetics-1-q1",
+      "stem": "A plant has genotype Tt where T = tall (dominant) and t = short (recessive). What is its phenotype?",
+      "choices": ["Short", "Tall", "Medium height", "Cannot be determined"],
       "correctIndex": 1,
-      "explanation": "Tt is heterozygous. Because T (tall) is dominant, even one copy causes the plant to be tall."
+      "explanation": "Tt is heterozygous. The dominant T allele masks the recessive t, so the plant is tall."
     },
     {
-      "id": "bio-genetics-1-gen-q2",
+      "id": "bio-genetics-1-q2",
       "stem": "Where is DNA found in a eukaryotic cell?",
-      "choices": [
-        "Mitochondria only",
-        "Cytoplasm",
-        "Nucleus",
-        "Cell membrane"
-      ],
+      "choices": ["Mitochondria only", "Cytoplasm", "Nucleus — coiled into chromosomes", "Cell membrane"],
       "correctIndex": 2,
-      "explanation": "In eukaryotic cells, most DNA is located in the nucleus, packaged into chromosomes."
+      "explanation": "In eukaryotic cells, DNA is located in the nucleus, organised into chromosomes. Small amounts are also found in mitochondria."
     },
     {
-      "id": "bio-genetics-1-gen-q3",
-      "stem": "Two heterozygous brown-eyed parents (Bb × Bb). What fraction of children expected to have blue eyes (bb)?",
-      "choices": [
-        "1/4",
-        "1/2",
-        "3/4",
-        "0"
-      ],
+      "id": "bio-genetics-1-q3",
+      "stem": "Two heterozygous brown-eyed parents (Bb × Bb). What fraction of children are expected to have blue eyes?",
+      "choices": ["1/4 (25%)", "1/2 (50%)", "3/4 (75%)", "0 (none)"],
       "correctIndex": 0,
-      "explanation": "Punnett square: BB, Bb, Bb, bb. One of four = 1/4 (25%)."
+      "explanation": "Punnett square for Bb × Bb: BB, Bb, Bb, bb. Only bb (1 out of 4 = 25%) produces blue eyes."
     },
     {
-      "id": "bio-genetics-1-gen-q4",
-      "stem": "What is the term for an organism that has two identical alleles for a gene (e.g., BB or bb)?",
-      "choices": [
-        "Heterozygous",
-        "Homozygous",
-        "Dominant",
-        "Recessive"
-      ],
+      "id": "bio-genetics-1-q4",
+      "stem": "An organism with two identical alleles for a gene (e.g., BB or bb) is called:",
+      "choices": ["Heterozygous", "Homozygous", "Dominant", "Recessive"],
       "correctIndex": 1,
-      "explanation": "Homozygous means both alleles for a gene are the same."
+      "explanation": "Homozygous means both alleles are the same. Heterozygous means they are different (Bb)."
     },
     {
-      "id": "bio-genetics-1-gen-q5",
-      "stem": "How many chromosomes does a typical human body cell contain?",
-      "choices": [
-        "23",
-        "46",
-        "92",
-        "12"
-      ],
+      "id": "bio-genetics-1-q5",
+      "stem": "How many chromosomes does a typical human body (somatic) cell contain?",
+      "choices": ["23 single chromosomes", "46 chromosomes in 23 pairs", "92 chromosomes in 46 pairs", "12 chromosomes"],
       "correctIndex": 1,
-      "explanation": "Human body cells contain 46 chromosomes in 23 pairs."
+      "explanation": "Human body cells are diploid (2n) with 46 chromosomes in 23 pairs. Gametes (sperm/egg) are haploid (n) with 23 single chromosomes."
+    },
+    {
+      "id": "bio-genetics-1-q6",
+      "stem": "Which of these is an example of continuous variation?",
+      "choices": ["Blood type (A, B, AB, O)", "Tongue rolling ability (can or cannot)", "Body mass (kg)", "Eye colour categories (brown, blue, green)"],
+      "correctIndex": 2,
+      "explanation": "Body mass can take any value within a range (e.g., 52.7 kg) and is influenced by both genes and environment — this is continuous variation."
+    },
+    {
+      "id": "bio-genetics-1-q7",
+      "stem": "In the peppered moth example, why did the frequency of dark moths increase during the Industrial Revolution?",
+      "choices": ["Dark moths produced more offspring regardless of environment", "Pollution darkened tree trunks, so pale moths were more visible to predators — dark moths survived and reproduced more", "Dark moths mutated to become darker in response to pollution", "Pale moths migrated away from industrial areas"],
+      "correctIndex": 1,
+      "explanation": "The environmental change (sooty trees) gave dark moths a camouflage advantage. They were eaten less, survived longer, and passed on their alleles — a classic example of natural selection."
+    },
+    {
+      "id": "bio-genetics-1-q8",
+      "stem": "What is a key difference between natural selection and selective breeding?",
+      "choices": ["Natural selection is faster", "Selective breeding occurs without any selection pressure", "In natural selection, the environment determines which traits are advantageous; in selective breeding, humans choose", "They are the same process with different names"],
+      "correctIndex": 2,
+      "explanation": "Natural selection is driven by environmental pressures. Selective breeding (artificial selection) is driven by human choice — we pick which organisms reproduce."
+    },
+    {
+      "id": "bio-genetics-1-q9",
+      "stem": "What is a risk of selective breeding for pedigree dogs?",
+      "choices": ["Dogs become too intelligent", "It increases genetic diversity, making breeds stronger", "It reduces genetic diversity and can increase the frequency of harmful recessive alleles, causing inherited disorders", "Dogs lose the ability to reproduce naturally"],
+      "correctIndex": 2,
+      "explanation": "Selective breeding narrows the gene pool. Harmful recessive alleles that were rare become more common through inbreeding, causing conditions like hip dysplasia and breathing problems."
+    },
+    {
+      "id": "bio-genetics-1-q10",
+      "stem": "How does a GM bacterium produce human insulin?",
+      "choices": ["The bacterium naturally produces insulin when fed sugar", "The human insulin gene is inserted into the bacterium's DNA, and the bacterium's ribosomes translate it into insulin protein", "Scientists extract insulin from the bacterium's own proteins", "The bacterium is fed human blood and converts it to insulin"],
+      "correctIndex": 1,
+      "explanation": "The human insulin gene is spliced into a bacterial plasmid. The bacterium's cellular machinery reads the gene and produces human insulin. This is how most medical insulin is made today."
+    },
+    {
+      "id": "bio-genetics-1-q11",
+      "stem": "In DNA, which bases always pair together?",
+      "choices": ["A with G, C with T", "A with C, G with T", "A with T, C with G", "A with A, T with T"],
+      "correctIndex": 2,
+      "explanation": "Complementary base pairing: Adenine (A) pairs with Thymine (T); Cytosine (C) pairs with Guanine (G). This is the basis of DNA replication."
+    },
+    {
+      "id": "bio-genetics-1-q12",
+      "stem": "A farmer crosses a homozygous dominant tall plant (TT) with a homozygous recessive short plant (tt). What will all the F1 offspring be?",
+      "choices": ["All tall (Tt)", "All short (tt)", "50% tall, 50% short", "All medium height"],
+      "correctIndex": 0,
+      "explanation": "TT parent gives only T gametes; tt gives only t gametes. All offspring are Tt — heterozygous, and since T (tall) is dominant, all F1 plants are tall."
+    },
+    {
+      "id": "bio-genetics-1-q13",
+      "stem": "Which statement about mutations is correct?",
+      "choices": ["Mutations are always harmful", "Mutations are always beneficial", "Mutations are random changes in DNA that can be harmful, neutral, or occasionally beneficial — they create genetic variation", "Mutations only occur in response to environmental needs"],
+      "correctIndex": 2,
+      "explanation": "Mutations are random changes in DNA sequence. Most are neutral or harmful, but occasionally a mutation produces a beneficial trait — these rare beneficial mutations are the raw material for evolution."
+    },
+    {
+      "id": "bio-genetics-1-q14",
+      "stem": "A characteristic that shows discontinuous variation would be best displayed using:",
+      "choices": ["A line graph", "A histogram", "A bar chart with separate categories", "A scatter plot"],
+      "correctIndex": 2,
+      "explanation": "Discontinuous data falls into distinct, separate categories with no intermediate values. A bar chart with gaps between bars is the correct way to display it."
+    },
+    {
+      "id": "bio-genetics-1-q15",
+      "stem": "Dolly the sheep was created by somatic cell nuclear transfer. What does this mean?",
+      "choices": ["Two egg cells were fused together", "An egg cell was fertilised by two sperm cells", "The nucleus from an adult body (somatic) cell was transferred into an egg cell that had its own nucleus removed, then implanted into a surrogate", "Dolly was born from a normal fertilisation but grew unusually fast"],
+      "correctIndex": 2,
+      "explanation": "Somatic cell nuclear transfer: the nucleus of a differentiated adult cell (containing the full genome) replaces the nucleus of an egg cell. The reprogrammed egg then develops into a clone of the original donor."
     }
   ]
 }

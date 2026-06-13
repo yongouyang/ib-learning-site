@@ -4,10 +4,10 @@ import type { SubjectId } from '@/content/types';
 
 const EXPECTED_TOPIC_COUNTS: Record<SubjectId, number> = {
   math: 43,
-  biology: 5,
-  chemistry: 5,
-  english: 5,
-  physics: 5,
+  biology: 11,
+  chemistry: 10,
+  english: 10,
+  physics: 10,
 };
 
 describe('content-registry', () => {

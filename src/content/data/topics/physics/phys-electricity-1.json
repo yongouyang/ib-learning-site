@@ -1,114 +1,75 @@
 {
   "id": "phys-electricity-1",
   "subjectId": "physics",
-  "title": "Electricity Basics",
-  "description": "Circuits, current, voltage, resistance, and Ohm's Law.",
+  "title": "Electricity & Circuits",
+  "description": "Current, voltage, resistance, Ohm's Law, series and parallel circuits, electrical power, and domestic electricity safety.",
   "ibLevel": "MYP",
   "notes": [
     {
       "id": "phys-electricity-1-n1",
-      "heading": "Current, Voltage, Resistance",
-      "body": "Current (I): flow of charge, measured in amperes (A). Voltage (V): energy per unit charge (potential difference), measured in volts (V). Resistance (R): opposition to current, measured in ohms (Ω). Ohm's Law: V = IR."
+      "heading": "Current, Voltage and Charge",
+      "body": "Electric current (I) is the rate of flow of electric charge. I = Q/t (amperes, A). 1 A = 1 coulomb per second. In a metal wire, current is carried by free (delocalised) electrons moving from negative to positive. Conventional current flows from positive to negative (historical convention). Charge (Q) is measured in coulombs (C). One electron carries −1.6×10⁻¹⁹ C. Voltage (potential difference, V) is the energy transferred per unit charge: V = E/Q (volts, V). 1 V = 1 J/C. The battery/power supply provides the 'push' (emf). Components convert electrical energy: resistors → heat, lamps → light + heat, motors → kinetic."
     },
     {
       "id": "phys-electricity-1-n2",
-      "heading": "Series and Parallel Circuits",
-      "body": "Series: single loop, same current everywhere, voltages add up, if one component fails the circuit breaks. Parallel: separate branches, each gets full voltage, current splits, if one branch fails others keep working. Homes use parallel wiring."
+      "heading": "Resistance and Ohm's Law",
+      "body": "Resistance (R) opposes current flow, measured in ohms (Ω). Ohm's Law: V = IR (at constant temperature). An ohmic conductor has a constant resistance — its I-V graph is a straight line through origin. Non-ohmic conductors: filament lamp — resistance increases as it heats up (I-V graph curves). Diode — only conducts in one direction (very high resistance in reverse). Factors affecting resistance: length (R ∝ length — longer wire = more resistance), cross-sectional area (R ∝ 1/area — thicker wire = less resistance), material (resistivity — copper low, nichrome high), temperature (higher temperature = higher resistance in metals — ions vibrate more, more electron collisions)."
     },
     {
       "id": "phys-electricity-1-n3",
-      "heading": "Power and Energy",
-      "body": "Electrical power P = VI (watts, W). Energy transferred E = Pt (joules, J). A 100W bulb transfers 100J every second. Kilowatt-hour (kWh): 1kWh = 1000W for 1 hour = 3,600,000J. Cost = power(kW)×time(h)×unit price."
+      "heading": "Series Circuits",
+      "body": "Series: components connected in a single loop. Rules: (1) Current is the SAME everywhere: I₁=I₂=I₃. (2) Total voltage is SHARED: V_total=V₁+V₂+V₃. (3) Total resistance ADDS: R_total=R₁+R₂+R₃. Adding more resistors in series increases total resistance → current decreases. If one component breaks, the circuit is broken → all components stop working (old Christmas tree lights). Ammeters are always connected in SERIES (to measure current through a component)."
+    },
+    {
+      "id": "phys-electricity-1-n4",
+      "heading": "Parallel Circuits",
+      "body": "Parallel: components connected on separate branches. Rules: (1) Total current SPLITS at junctions: I_total=I₁+I₂+I₃. (2) Voltage across each branch is the SAME as the source: V₁=V₂=V_total. (3) Total resistance DECREASES as more branches are added: 1/R_total=1/R₁+1/R₂+1/R₃. Adding a parallel branch provides an additional path → total resistance decreases → total current from battery increases. Each branch operates independently — if one breaks, others continue working. Domestic wiring is parallel: each appliance gets full mains voltage (~230 V in UK), can be switched independently, and a fault on one does not affect others. Voltmeters are connected in PARALLEL (to measure voltage across a component)."
+    },
+    {
+      "id": "phys-electricity-1-n5",
+      "heading": "Electrical Power and Energy",
+      "body": "Power: P = VI (watts). Also P = I²R and P = V²/R (from Ohm's Law substitution). Energy transferred: E = Pt = VIt (joules). For domestic electricity, energy is measured in kilowatt-hours (kWh): 1 kWh = 1000 W × 3600 s = 3,600,000 J. Cost = power (kW) × time (h) × price per kWh. Example: 2000 W (2 kW) heater used for 3 hours → energy = 6 kWh. At £0.30/kWh → cost = £1.80. This is why high-power appliances (heaters, kettles, ovens) cost more to run even for short periods. Energy-saving bulbs (LED) provide same light output at much lower wattage → lower running costs."
+    },
+    {
+      "id": "phys-electricity-1-n6",
+      "heading": "Domestic Electricity and Safety",
+      "body": "UK mains electricity: ~230 V AC, 50 Hz. Three wires in a plug: Live (brown) — carries alternating voltage. Neutral (blue) — completes the circuit, at ~0 V. Earth (green/yellow) — safety wire; connected to ground. If a fault causes the live wire to touch the metal case, current flows through earth wire to ground → large current → fuse blows or circuit breaker trips → disconnects. Fuse: thin wire that melts if current exceeds rated value (3A, 5A, 13A). Circuit breaker: electromagnetic switch that trips on overcurrent — reusable. Double insulation: appliances with plastic cases don't need earth wire. RCD (Residual Current Device): detects difference in live vs neutral current (leakage to earth/through a person) and cuts power in milliseconds. Safety rules: no wet hands, no damaged cables, proper fusing, don't overload sockets."
+    },
+    {
+      "id": "phys-electricity-1-n7",
+      "heading": "Static Electricity (Electrostatics)",
+      "body": "Static electricity is the buildup of electric charge on insulating materials. Caused by friction transferring electrons between surfaces. Rubbing a plastic rod with cloth → rod gains electrons → negatively charged; cloth loses electrons → positively charged. Like charges repel; unlike charges attract. This explains: hair standing up after removing a hat, dust sticking to TV screens, lightning (charge separation in clouds → discharge). Sparks occur when charge rapidly jumps across a gap (mini lightning). Dangers: sparks near flammable vapours (petrol stations), electrostatic discharge damaging electronics. Uses: photocopiers and laser printers (toner attracted to charged drum), electrostatic paint spraying (charged paint droplets attracted to earthed car body), precipitators (remove smoke particles from factory chimneys). Earthing: connecting an object to ground allows charge to flow away safely — fuel tankers have earthing straps."
     }
   ],
   "flashcards": [
-    {
-      "id": "phys-electricity-1-f1",
-      "term": "Current",
-      "definition": "Flow of electric charge, measured in amperes (A)."
-    },
-    {
-      "id": "phys-electricity-1-f2",
-      "term": "Voltage",
-      "definition": "Energy per unit charge — the \"push\" driving current. Measured in volts (V)."
-    },
-    {
-      "id": "phys-electricity-1-f3",
-      "term": "Resistance",
-      "definition": "Opposition to current flow, measured in ohms (Ω)."
-    },
-    {
-      "id": "phys-electricity-1-f4",
-      "term": "Ohm's Law",
-      "definition": "V = IR. Voltage = current × resistance.",
-      "example": "I=2A, R=5Ω → V=10V."
-    },
-    {
-      "id": "phys-electricity-1-f5",
-      "term": "Series circuit",
-      "definition": "All components in one loop — same current throughout."
-    }
+    { "id": "phys-electricity-1-f1", "term": "Current (I)", "definition": "Rate of flow of charge: I=Q/t. Measured in amperes (A). 1 A = 1 C/s.", "example": "12 C pass in 4 s → I = 3 A." },
+    { "id": "phys-electricity-1-f2", "term": "Voltage (V)", "definition": "Energy per unit charge: V=E/Q. The 'push' driving current. Measured in volts (V).", "example": "Battery provides 1.5 V → 1.5 J per coulomb of charge." },
+    { "id": "phys-electricity-1-f3", "term": "Resistance (R)", "definition": "Opposition to current: R=V/I. Measured in ohms (Ω).", "example": "3 V across component, 0.5 A current → R=6 Ω." },
+    { "id": "phys-electricity-1-f4", "term": "Ohm's Law", "definition": "V=IR at constant temperature. Ohmic conductor: I-V graph is straight line through origin.", "example": "I=2 A, R=5 Ω → V=10 V." },
+    { "id": "phys-electricity-1-f5", "term": "Series circuit", "definition": "Single loop. Same current everywhere. Voltages add. Resistances add. One break = all off.", "example": "Old Christmas lights — one bulb fails, all go out." },
+    { "id": "phys-electricity-1-f6", "term": "Parallel circuit", "definition": "Multiple branches. Current splits. Voltage same across branches. Total resistance < smallest branch. Independent operation.", "example": "Home wiring — each appliance gets 230 V; switching off the TV doesn't affect the fridge." },
+    { "id": "phys-electricity-1-f7", "term": "Electrical power", "definition": "P=VI (W). Also P=I²R, P=V²/R. 1 W = 1 J/s.", "example": "12 V, 2 A → P=24 W. Transfers 24 J every second." },
+    { "id": "phys-electricity-1-f8", "term": "Kilowatt-hour (kWh)", "definition": "Energy unit: 1 kWh = 1000 W × 3600 s = 3.6 million J. Used for electricity billing.", "example": "2 kW heater for 3 h = 6 kWh. At £0.30/kWh = £1.80." },
+    { "id": "phys-electricity-1-f9", "term": "Fuse", "definition": "Safety device: thin wire melts if current exceeds rating → breaks circuit. Rated 3A, 5A, 13A.", "example": "13 A fuse in a 2300 W kettle (I=P/V=10 A) — would blow if current exceeds 13 A." },
+    { "id": "phys-electricity-1-f10", "term": "Earth wire", "definition": "Green/yellow safety wire connecting metal case to ground. Prevents electric shock from fault.", "example": "If live wire touches metal case, current flows to earth → fuse blows → power disconnected." },
+    { "id": "phys-electricity-1-f11", "term": "Static electricity", "definition": "Buildup of charge on insulators by friction. Electrons transferred between surfaces.", "example": "Rubbing balloon on hair → hair repels (all strands become like-charged)." },
+    { "id": "phys-electricity-1-f12", "term": "AC vs DC", "definition": "DC: current flows one direction (batteries). AC: current alternates direction (mains — 50 Hz UK).", "example": "Phone charger converts AC mains (230 V) to DC (5 V) for the battery." }
   ],
   "questions": [
-    {
-      "id": "phys-electricity-1-q1",
-      "stem": "Resistance 10Ω, current 3A. Voltage?",
-      "choices": [
-        "0.3V",
-        "7V",
-        "13V",
-        "30V"
-      ],
-      "correctIndex": 3,
-      "explanation": "V = IR = 3×10 = 30V."
-    },
-    {
-      "id": "phys-electricity-1-q2",
-      "stem": "Two identical lamps in series. Current through each compared to total?",
-      "choices": [
-        "Each gets double",
-        "Each gets same as total",
-        "Each gets half",
-        "They share equally, each getting half"
-      ],
-      "correctIndex": 1,
-      "explanation": "In series, same current flows through every component."
-    },
-    {
-      "id": "phys-electricity-1-q3",
-      "stem": "Why are homes wired in parallel?",
-      "choices": [
-        "Uses less energy",
-        "Each appliance gets full voltage, independent switching",
-        "Series is more dangerous",
-        "Parallel has lower resistance"
-      ],
-      "correctIndex": 1,
-      "explanation": "Parallel: each appliance gets 230V and can be switched on/off independently."
-    },
-    {
-      "id": "phys-electricity-1-q4",
-      "stem": "Kettle: 2000W, used 0.5h. Energy in kWh?",
-      "choices": [
-        "0.5 kWh",
-        "1 kWh",
-        "2 kWh",
-        "4000 kWh"
-      ],
-      "correctIndex": 1,
-      "explanation": "2kW × 0.5h = 1 kWh."
-    },
-    {
-      "id": "phys-electricity-1-q5",
-      "stem": "12V across 4Ω. Current?",
-      "choices": [
-        "48A",
-        "8A",
-        "3A",
-        "0.33A"
-      ],
-      "correctIndex": 2,
-      "explanation": "I = V÷R = 12÷4 = 3A."
-    }
+    { "id": "phys-electricity-1-q1", "stem": "R=10 Ω, I=3 A. Voltage?", "choices": ["0.3 V", "7 V", "13 V", "30 V"], "correctIndex": 3, "explanation": "V=IR = 3×10 = 30 V." },
+    { "id": "phys-electricity-1-q2", "stem": "Two identical lamps in series. Current through each:", "choices": ["Each gets double", "Same as total — series current is everywhere equal", "Each gets half", "Divided by resistance"], "correctIndex": 1, "explanation": "In series, current is the same at all points. Ammeter readings would be identical." },
+    { "id": "phys-electricity-1-q3", "stem": "Why are homes wired in parallel?", "choices": ["Uses less energy", "Each appliance gets full voltage, can be switched independently", "Series is dangerous", "Lower resistance"], "correctIndex": 1, "explanation": "Parallel: 230 V to each appliance, independent switching, fault isolation." },
+    { "id": "phys-electricity-1-q4", "stem": "2000 W kettle used 0.5 h. Energy in kWh?", "choices": ["0.5 kWh", "1 kWh", "2 kWh", "4000 kWh"], "correctIndex": 1, "explanation": "2 kW × 0.5 h = 1 kWh." },
+    { "id": "phys-electricity-1-q5", "stem": "V=12 V, R=4 Ω. Current?", "choices": ["48 A", "8 A", "3 A", "0.33 A"], "correctIndex": 2, "explanation": "I=V/R = 12/4 = 3 A." },
+    { "id": "phys-electricity-1-q6", "stem": "Two 10 Ω resistors in parallel. Total resistance?", "choices": ["20 Ω", "10 Ω", "5 Ω", "0 Ω"], "correctIndex": 2, "explanation": "1/R=1/10+1/10=2/10. R=5 Ω. Parallel R < smallest individual R." },
+    { "id": "phys-electricity-1-q7", "stem": "Ammeters are connected in ___ ; voltmeters in ___ .", "choices": ["Parallel; series", "Series; parallel", "Both series", "Both parallel"], "correctIndex": 1, "explanation": "Ammeter: series (same current). Voltmeter: parallel (measures PD across component)." },
+    { "id": "phys-electricity-1-q8", "stem": "Why does a filament lamp's I-V graph curve?", "choices": ["It obeys Ohm's Law perfectly", "Resistance increases as filament heats up → current rises more slowly", "Voltage decreases over time", "Current is constant regardless of voltage"], "correctIndex": 1, "explanation": "As current flows, filament temperature rises. Metal ions vibrate more → more electron collisions → higher resistance → I-V curve flattens." },
+    { "id": "phys-electricity-1-q9", "stem": "Hair stands up after removing a hat due to:", "choices": ["Magnetism", "Static electricity — friction transfers electrons, hairs become like-charged and repel", "Gravity", "The hat containing glue"], "correctIndex": 1, "explanation": "Rubbing transfers electrons. Each hair gains same charge → mutual repulsion → hairs stand apart." },
+    { "id": "phys-electricity-1-q10", "stem": "A 2300 W heater at 230 V. What fuse rating is appropriate?", "choices": ["3 A", "5 A", "13 A (I = P/V = 2300/230 = 10 A, next standard fuse up)", "30 A"], "correctIndex": 2, "explanation": "I=2300/230=10 A → 13 A fuse (next standard rating above operating current)." },
+    { "id": "phys-electricity-1-q11", "stem": "Appliance is double-insulated. What does this mean for the earth wire?", "choices": ["Still needed", "Not needed — plastic case cannot become live", "Earth wire is doubled", "Insulation is not important"], "correctIndex": 1, "explanation": "Double insulation (symbol: square within square) means the appliance has two layers of insulation. Plastic case → no earth needed." },
+    { "id": "phys-electricity-1-q12", "stem": "Three 6 Ω resistors in series. Total R?", "choices": ["2 Ω", "6 Ω", "18 Ω", "36 Ω"], "correctIndex": 2, "explanation": "R_total = 6+6+6 = 18 Ω. Series: add resistances." },
+    { "id": "phys-electricity-1-q13", "stem": "Charge 30 C flows past a point in 5 s. Current?", "choices": ["150 A", "6 A", "0.17 A", "35 A"], "correctIndex": 1, "explanation": "I=Q/t = 30/5 = 6 A." },
+    { "id": "phys-electricity-1-q14", "stem": "What does an RCD (Residual Current Device) do?", "choices": ["Measures power consumption", "Detects current leakage (live≠neutral) and cuts power in milliseconds, preventing electrocution", "Regulates voltage to 230 V", "Increases current efficiency"], "correctIndex": 1, "explanation": "RCDs detect imbalances as small as 30 mA between live and neutral. If current is leaking (e.g., through a person to earth), it trips — saving lives." },
+    { "id": "phys-electricity-1-q15", "stem": "0.5 A flows through a 20 Ω resistor for 60 s. Energy transferred?", "choices": ["10 J", "300 J", "600 J", "30 J"], "correctIndex": 1, "explanation": "P=I²R=0.25×20=5 W. E=Pt=5×60=300 J. Or: V=IR=10 V, E=VIt=10×0.5×60=300 J." }
   ]
 }

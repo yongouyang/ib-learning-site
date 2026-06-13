@@ -2,117 +2,224 @@
   "id": "chem-periodic-1",
   "subjectId": "chemistry",
   "title": "The Periodic Table",
-  "description": "How elements are organised by atomic number, periods, and groups.",
+  "description": "How elements are organised — groups, periods, trends, alkali metals, halogens, noble gases, transition metals, and the genius of Mendeleev's predictions.",
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "chem-periodic-1-per-n1",
+      "id": "chem-periodic-1-n1",
       "heading": "Organisation of the Periodic Table",
-      "body": "The periodic table arranges all known elements in order of increasing atomic number. Elements are arranged in rows called periods and columns called groups. There are 7 periods and 18 groups. Elements in the same group have the same number of electrons in their outer shell, which gives them similar chemical properties. The table is divided into metals (left and centre), non-metals (top right), and metalloids (between)."
+      "body": "The periodic table arranges all known elements in order of increasing atomic number (protons). Elements are organised into periods (horizontal rows) and groups (vertical columns). The period number tells you how many electron shells an atom has. The group number (for Groups 1-2 and 13-18) tells you how many electrons are in the outer shell. The table is divided into metals (left and centre) and non-metals (right), separated by a zigzag line starting below boron. Elements in the same group have the same number of outer shell electrons, which gives them similar chemical properties. Example: all Group 1 elements (Li, Na, K, Rb, Cs) have 1 outer electron and are highly reactive metals. All Group 17 elements (F, Cl, Br, I) have 7 outer electrons and are reactive non-metals. Group 18 (He, Ne, Ar, Kr, Xe) have full outer shells — they are the noble gases and are extremely unreactive (inert)."
     },
     {
-      "id": "chem-periodic-1-per-n2",
-      "heading": "Groups 1 and 7",
-      "body": "Group 1 (alkali metals: Li, Na, K) have 1 outer electron and react vigorously with water and oxygen. Reactivity increases down Group 1 because the outer electron is further from the nucleus and easier to lose. Group 7 (halogens: F, Cl, Br, I) have 7 outer electrons and need just one more to fill their shell. Reactivity decreases down Group 7 because extra shells make it harder to attract electrons."
+      "id": "chem-periodic-1-n2",
+      "heading": "Group 1: The Alkali Metals",
+      "body": "Group 1 metals (lithium Li, sodium Na, potassium K, rubidium Rb, caesium Cs) are soft, silvery metals with low density. They all have 1 electron in their outer shell and are extremely reactive — they must be stored under oil to prevent reaction with oxygen and water vapour. Reactivity INCREASES down the group: lithium fizzes gently in water; sodium melts into a ball and fizzes vigorously; potassium reacts violently, igniting the hydrogen gas produced with a lilac flame. Reaction with water: 2Na + 2H₂O → 2NaOH + H₂. The metal hydroxide formed is alkaline (hence 'alkali metals'). Trend down the group: atoms get larger, the outer electron is further from the nucleus, the attraction is weaker, so the electron is lost MORE easily → reactivity increases. Physical trends down the group: melting/boiling points decrease, density generally increases. They form ionic compounds with non-metals (e.g., NaCl, KBr) and react with oxygen to form oxides (e.g., Na₂O)."
     },
     {
-      "id": "chem-periodic-1-per-n3",
-      "heading": "Metals vs Non-metals",
-      "body": "Most elements are metals: shiny, good conductors, malleable, ductile, high melting points. Non-metals are typically dull, poor conductors (except graphite), brittle when solid. The transition metals (Groups 3–12) form coloured compounds and act as catalysts."
+      "id": "chem-periodic-1-n3",
+      "heading": "Group 17: The Halogens",
+      "body": "Group 17 elements (fluorine F, chlorine Cl, bromine Br, iodine I, astatine At) are non-metals with 7 outer electrons. They exist as diatomic molecules (F₂, Cl₂, Br₂, I₂). Reactivity DECREASES down the group: fluorine is the most reactive (pale yellow gas), chlorine (green gas), bromine (red-brown liquid at room temperature), iodine (dark grey solid — sublimes to purple vapour). Halogens react with metals to form salts (halide ions): 2Na + Cl₂ → 2NaCl. A more reactive halogen can displace a less reactive one from its compound: Cl₂ + 2KBr → 2KCl + Br₂ (chlorine displaces bromine, seen by colour change to orange/brown). This is a displacement reaction. Trend down the group: atoms get larger, the outer shell is further from the nucleus, so it is harder to attract an additional electron → reactivity decreases. Halogens are toxic and corrosive — chlorine was used as a chemical weapon in WWI. Uses: chlorine for water purification and bleach, iodine as antiseptic, fluorine in toothpaste (as fluoride)."
+    },
+    {
+      "id": "chem-periodic-1-n4",
+      "heading": "Group 18: The Noble Gases",
+      "body": "Group 18 elements (helium He, neon Ne, argon Ar, krypton Kr, xenon Xe, radon Rn) have full outer electron shells (2 for helium, 8 for the others). This makes them extremely stable and unreactive — they were once called 'inert gases'. They are all colourless, odourless gases at room temperature. Boiling points increase down the group (increasing atomic mass → stronger intermolecular forces). Uses: Helium — lighter than air, used in balloons and airships (non-flammable, unlike hydrogen). Neon — red-orange glow in advertising signs when electricity passes through. Argon — fills light bulbs (prevents tungsten filament from oxidising at high temperatures). Krypton and xenon — used in high-intensity lamps and flash photography. Radon — radioactive, can accumulate in buildings from granite bedrock (health risk). In 1962, xenon was forced to react with fluorine (XeF₄), proving that noble gases are not completely inert — but their reactivity requires extreme conditions."
+    },
+    {
+      "id": "chem-periodic-1-n5",
+      "heading": "Mendeleev and the Development of the Periodic Table",
+      "body": "Dmitri Mendeleev (1869) created the first widely accepted periodic table. Unlike earlier attempts that ordered elements by atomic mass, Mendeleev's genius was: (1) He arranged elements by atomic mass but swapped some elements (e.g., tellurium and iodine) to fit chemical properties — arguing that atomic masses must have been measured incorrectly (he was right). (2) He left GAPS for undiscovered elements and PREDICTED their properties based on trends in the group. For example, he predicted 'eka-aluminium' (below aluminium) — when gallium was discovered in 1875, its properties matched Mendeleev's predictions almost exactly (density predicted: 6.0 g/cm³; actual: 5.9 g/cm³). This predictive power convinced the scientific community. (3) He grouped elements with similar chemical properties in the same columns. The modern periodic table is arranged by atomic number (not mass), thanks to Henry Moseley (1913), who used X-ray spectra to determine atomic numbers. Mendeleev's table is a perfect example of how scientific models make testable predictions and gain acceptance when verified."
+    },
+    {
+      "id": "chem-periodic-1-n6",
+      "heading": "Metals, Non-Metals and Metalloids",
+      "body": "About 80% of elements are metals. Metal properties: shiny (lustrous), good conductors of heat and electricity, malleable (can be hammered into sheets), ductile (can be drawn into wires), high melting and boiling points (except mercury — a liquid at room temperature), form positive ions (cations) by losing electrons. Non-metal properties: dull, poor conductors (often insulators — graphite/carbon is an exception), brittle when solid, lower melting/boiling points (many are gases at room temperature), form negative ions (anions). Metalloids (semi-metals) along the zigzag line (B, Si, Ge, As, Sb, Te) have properties intermediate between metals and non-metals. Silicon is a semiconductor — it conducts electricity only under certain conditions (when 'doped' with other elements), making it essential for transistors and computer chips. Oxides: metal oxides are typically basic (e.g., Na₂O + H₂O → 2NaOH); non-metal oxides are typically acidic (e.g., SO₂ + H₂O → H₂SO₃ — acid rain)."
+    },
+    {
+      "id": "chem-periodic-1-n7",
+      "heading": "Transition Metals vs Group Metals",
+      "body": "The transition metals (the large central block, Groups 3-12) differ from Group 1 and 2 metals: (1) Harder, stronger, denser — e.g., iron, copper, gold vs. soft sodium (cut with a knife). (2) Much higher melting points — tungsten (W) melts at 3422°C, the highest of any metal; sodium melts at 98°C. (3) Less reactive — they do not react vigorously with water (iron rusts slowly over time; gold does not react at all). (4) Form coloured compounds — CuSO₄ is blue, Fe₂O₃ is red-brown, KMnO₄ is purple. Group 1 and 2 compounds are typically white or colourless. (5) Variable valency — iron forms Fe²⁺ and Fe³⁺; copper forms Cu⁺ and Cu²⁺. Group 1 metals only form +1 ions. (6) Many transition metals and their compounds are good catalysts — iron in the Haber process (making ammonia), platinum/palladium in catalytic converters, nickel in hydrogenation. Key examples: iron (construction, haemoglobin), copper (electrical wiring, plumbing), zinc (galvanising steel to prevent rust), titanium (aircraft, hip replacements)."
     }
   ],
   "flashcards": [
     {
-      "id": "chem-periodic-1-per-f1",
+      "id": "chem-periodic-1-f1",
       "term": "Period",
-      "definition": "A horizontal row in the periodic table. Elements in the same period have the same number of electron shells.",
-      "example": "Sodium (Na) and chlorine (Cl) are both in Period 3."
+      "definition": "A horizontal row in the periodic table. The period number equals the number of electron shells in each atom.",
+      "example": "Sodium is in Period 3 — its atoms have 3 electron shells (2,8,1)."
     },
     {
-      "id": "chem-periodic-1-per-f2",
+      "id": "chem-periodic-1-f2",
       "term": "Group",
-      "definition": "A vertical column. Elements in the same group have the same number of outer electrons and similar properties.",
-      "example": "Group 1 contains Li, Na, K (alkali metals)."
+      "definition": "A vertical column. Elements in the same group have the same number of outer shell electrons and similar chemical properties.",
+      "example": "All Group 1 elements (Li, Na, K) have 1 outer electron and are highly reactive metals."
     },
     {
-      "id": "chem-periodic-1-per-f3",
-      "term": "Alkali metals",
-      "definition": "Group 1 elements (Li, Na, K, Rb, Cs, Fr) — reactive metals with one outer electron.",
-      "example": "Sodium reacts violently with water."
+      "id": "chem-periodic-1-f3",
+      "term": "Alkali metals (Group 1)",
+      "definition": "Soft, reactive metals with 1 outer electron. Reactivity INCREASES down the group. React vigorously with water to form alkaline hydroxides and H₂ gas.",
+      "example": "2Na + 2H₂O → 2NaOH + H₂. Potassium reaction is violent enough to ignite the hydrogen."
     },
     {
-      "id": "chem-periodic-1-per-f4",
-      "term": "Halogens",
-      "definition": "Group 7 non-metal elements (F, Cl, Br, I, At) that react to gain one electron.",
-      "example": "Chlorine (Cl₂) is a green gas used to disinfect water."
+      "id": "chem-periodic-1-f4",
+      "term": "Halogens (Group 17)",
+      "definition": "Reactive non-metals with 7 outer electrons. Exist as diatomic molecules. Reactivity DECREASES down the group. Form salts with metals.",
+      "example": "Cl₂ + 2KBr → 2KCl + Br₂ — chlorine (more reactive) displaces bromine, turning the solution orange/brown."
     },
     {
-      "id": "chem-periodic-1-per-f5",
-      "term": "Noble gases",
-      "definition": "Group 0 (Group 18) elements with full outer shells, making them very unreactive (inert).",
-      "example": "Helium, neon, argon — used in balloons and lights."
+      "id": "chem-periodic-1-f5",
+      "term": "Noble gases (Group 18)",
+      "definition": "Extremely unreactive gases with full outer electron shells. Helium (2), others (8). Used for inert atmospheres, balloons, and lighting.",
+      "example": "Argon fills incandescent light bulbs to prevent the tungsten filament from burning in oxygen."
+    },
+    {
+      "id": "chem-periodic-1-f6",
+      "term": "Mendeleev's periodic table",
+      "definition": "The first widely accepted periodic table (1869), arranged by atomic mass with gaps for undiscovered elements. He correctly predicted properties of gallium and germanium.",
+      "example": "Mendeleev predicted gallium's density as 6.0 g/cm³; actual value = 5.9 g/cm³ — remarkably accurate."
+    },
+    {
+      "id": "chem-periodic-1-f7",
+      "term": "Transition metals",
+      "definition": "Hard, dense metals in the central block (Groups 3-12). High melting points, form coloured compounds, good catalysts, variable valency.",
+      "example": "Iron (Fe²⁺/Fe³⁺) — red-brown rust; copper (Cu²⁺) — blue solutions; chromium (Cr³⁺) — green."
+    },
+    {
+      "id": "chem-periodic-1-f8",
+      "term": "Displacement reaction (halogens)",
+      "definition": "A more reactive halogen replaces a less reactive halogen from its salt solution.",
+      "example": "Cl₂ added to KBr → KCl + Br₂. Solution goes from colourless to orange-brown as bromine forms."
+    },
+    {
+      "id": "chem-periodic-1-f9",
+      "term": "Group 1 reactivity trend",
+      "definition": "Reactivity INCREASES down Group 1: atoms get larger → outer electron further from nucleus → lost MORE easily.",
+      "example": "Lithium fizzes gently; sodium fizzes vigorously; potassium ignites with a lilac flame."
+    },
+    {
+      "id": "chem-periodic-1-f10",
+      "term": "Group 17 reactivity trend",
+      "definition": "Reactivity DECREASES down Group 17: atoms get larger → outer shell further from nucleus → harder to ATTRACT an extra electron.",
+      "example": "Fluorine is the most reactive halogen; iodine is much less reactive."
+    },
+    {
+      "id": "chem-periodic-1-f11",
+      "term": "Metalloid (semi-metal)",
+      "definition": "An element with properties intermediate between metals and non-metals. Found along the zigzag line. Silicon is a semiconductor.",
+      "example": "Silicon (Si) conducts electricity only when 'doped' — essential for transistors and computer chips."
+    },
+    {
+      "id": "chem-periodic-1-f12",
+      "term": "Diatomic molecule",
+      "definition": "A molecule composed of two identical atoms bonded together. Halogens, hydrogen, nitrogen, and oxygen naturally exist as diatomic molecules.",
+      "example": "H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂ — 'Have No Fear Of Ice Cold Beer' is a common mnemonic."
     }
   ],
   "questions": [
     {
-      "id": "chem-periodic-1-per-q1",
-      "stem": "Elements in the same GROUP have similar chemical properties because they have:",
-      "choices": [
-        "The same mass number",
-        "The same number of protons",
-        "The same number of electrons in their outer shell",
-        "The same number of neutrons"
-      ],
-      "correctIndex": 2,
-      "explanation": "Same outer electrons = similar reactivity."
-    },
-    {
-      "id": "chem-periodic-1-per-q2",
-      "stem": "Down Group 1, how does the reactivity of alkali metals change?",
-      "choices": [
-        "Decreases",
-        "Stays the same",
-        "First increases then decreases",
-        "Increases"
-      ],
-      "correctIndex": 3,
-      "explanation": "Reactivity increases down Group 1 — the outer electron is further from the nucleus and easier to lose."
-    },
-    {
-      "id": "chem-periodic-1-per-q3",
-      "stem": "Why are noble gases (Group 0) so unreactive?",
-      "choices": [
-        "They have no protons",
-        "Their outer electron shell is completely full",
-        "They are liquids at room temperature",
-        "They have very large atomic radii"
-      ],
+      "id": "chem-periodic-1-q1",
+      "stem": "An element is in Group 2 and Period 3. What is its electron configuration?",
+      "choices": ["2, 2", "2, 8, 2", "2, 8, 8, 2", "2, 3"],
       "correctIndex": 1,
-      "explanation": "Full outer shell = no need to gain or lose electrons."
+      "explanation": "Period 3 = 3 shells. Group 2 = 2 outer electrons. Configuration: 2 + 8 + 2 = 12 electrons (magnesium)."
     },
     {
-      "id": "chem-periodic-1-per-q4",
-      "stem": "How many electron shells does an element in Period 3 have?",
-      "choices": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
+      "id": "chem-periodic-1-q2",
+      "stem": "Why do elements in the same group have similar chemical properties?",
+      "choices": ["They have the same number of protons", "They have the same number of electron shells", "They have the same number of electrons in their outer shell", "They have the same mass number"],
       "correctIndex": 2,
-      "explanation": "The period number = number of electron shells."
+      "explanation": "Outer shell electrons determine reactivity. Same group = same outer electron count = similar chemistry."
     },
     {
-      "id": "chem-periodic-1-per-q5",
-      "stem": "Which is a typical property of metals?",
-      "choices": [
-        "Poor conductor of electricity",
-        "Brittle when solid",
-        "Low melting point",
-        "Good conductor of heat and electricity"
-      ],
-      "correctIndex": 3,
-      "explanation": "Metals are good conductors due to free-moving electrons."
+      "id": "chem-periodic-1-q3",
+      "stem": "Sodium reacts more vigorously with water than lithium. Why?",
+      "choices": ["Sodium is lighter", "Sodium's outer electron is further from the nucleus and held less tightly, so it is lost more easily", "Sodium has more protons", "Sodium has fewer electron shells"],
+      "correctIndex": 1,
+      "explanation": "Down Group 1, atoms are larger. The outer electron is further from the attractive nucleus → weaker hold → easier to lose → more reactive."
+    },
+    {
+      "id": "chem-periodic-1-q4",
+      "stem": "Chlorine water is added to potassium bromide solution. It turns orange-brown. Why?",
+      "choices": ["Potassium displaced chlorine", "Chlorine (more reactive) displaced bromine: Cl₂ + 2KBr → 2KCl + Br₂", "The bromide ions evaporated", "No reaction — the colour is from chlorine"],
+      "correctIndex": 1,
+      "explanation": "A more reactive halogen displaces a less reactive one. Chlorine is above bromine in Group 17, so it displaces Br⁻, forming orange-brown Br₂."
+    },
+    {
+      "id": "chem-periodic-1-q5",
+      "stem": "Why was Mendeleev's periodic table more successful than earlier attempts?",
+      "choices": ["He used atomic number instead of atomic mass", "He left gaps for undiscovered elements and accurately predicted their properties", "He included only metals", "He discovered all the elements himself"],
+      "correctIndex": 1,
+      "explanation": "Mendeleev's gaps and predictions (verified when gallium and germanium were discovered) proved the table's validity. Predictive power = good science."
+    },
+    {
+      "id": "chem-periodic-1-q6",
+      "stem": "Why are noble gases unreactive?",
+      "choices": ["They have no protons", "They have full outer electron shells — no tendency to gain, lose, or share electrons", "They are gases", "They are too heavy"],
+      "correctIndex": 1,
+      "explanation": "Full outer shells = stable electron configuration. There is no energetic drive to react. They are already at maximum stability."
+    },
+    {
+      "id": "chem-periodic-1-q7",
+      "stem": "Copper forms Cu⁺ and Cu²⁺ but sodium only forms Na⁺. Why?",
+      "choices": ["Copper is a transition metal — variable valency; Group 1 only forms +1", "Copper has more protons", "Sodium is more reactive", "Copper has more electron shells"],
+      "correctIndex": 0,
+      "explanation": "Transition metals can lose different numbers of electrons (variable valency). Group 1 always loses exactly 1 outer electron."
+    },
+    {
+      "id": "chem-periodic-1-q8",
+      "stem": "A shiny solid conducts electricity and forms green-coloured compounds. It is most likely:",
+      "choices": ["Alkali metal (Group 1)", "Halogen (Group 17)", "Transition metal", "Noble gas (Group 18)"],
+      "correctIndex": 2,
+      "explanation": "Coloured compounds are a hallmark of transition metals. This could be chromium(III) (green), nickel(II) (green), or copper(II) (blue-green)."
+    },
+    {
+      "id": "chem-periodic-1-q9",
+      "stem": "Iodine is added to potassium chloride solution. Will a reaction occur?",
+      "choices": ["Yes — iodine is heavier", "No — iodine is LESS reactive than chlorine, so cannot displace Cl⁻", "Yes — all halogens displace each other", "Only if heated"],
+      "correctIndex": 1,
+      "explanation": "Down Group 17, reactivity decreases. Iodine is below chlorine → less reactive → cannot displace chloride ions. No reaction."
+    },
+    {
+      "id": "chem-periodic-1-q10",
+      "stem": "Silicon is a metalloid. What does this mean practically?",
+      "choices": ["It is magnetic", "It is a semiconductor — conducts electricity only under certain conditions, ideal for electronics", "It is the heaviest element", "It reacts with all other elements"],
+      "correctIndex": 1,
+      "explanation": "Metalloids like silicon have intermediate conductivity. Doping with other elements creates transistors — the foundation of all modern electronics."
+    },
+    {
+      "id": "chem-periodic-1-q11",
+      "stem": "Element X reacts violently with water, producing an alkaline solution and H₂. Stored under oil. It is:",
+      "choices": ["Iron (Fe)", "Copper (Cu)", "Potassium (K)", "Chlorine (Cl)"],
+      "correctIndex": 2,
+      "explanation": "Violent water reaction → H₂ + alkali (KOH) is characteristic of Group 1 metals. Storage under oil prevents air/water contact."
+    },
+    {
+      "id": "chem-periodic-1-q12",
+      "stem": "Who revised the periodic table to use atomic number instead of atomic mass?",
+      "choices": ["Dmitri Mendeleev", "Henry Moseley (1913, X-ray spectroscopy)", "John Dalton", "Niels Bohr"],
+      "correctIndex": 1,
+      "explanation": "Moseley determined atomic numbers via X-rays, allowing the table to be ordered by protons. This resolved remaining inconsistencies."
+    },
+    {
+      "id": "chem-periodic-1-q13",
+      "stem": "Why does reactivity DECREASE down Group 17?",
+      "choices": ["Atoms get larger → outer shell further from nucleus → harder to attract an extra electron", "The outer electron is lost more easily", "More protons make them less reactive", "Halogens become metallic down the group"],
+      "correctIndex": 0,
+      "explanation": "Larger atoms have outer shells further from nuclear attraction. Halogens react by GAINING electrons — the larger the atom, the harder it is to pull in an extra electron."
+    },
+    {
+      "id": "chem-periodic-1-q14",
+      "stem": "Which is a typical property of MOST non-metals?",
+      "choices": ["Good electrical conductor", "Shiny (lustrous)", "Brittle when solid", "Malleable"],
+      "correctIndex": 2,
+      "explanation": "Non-metals are mostly brittle solids or gases, poor conductors. Graphite is the unusual exception — it conducts electricity."
+    },
+    {
+      "id": "chem-periodic-1-q15",
+      "stem": "Mendeleev swapped Te and I positions despite Te having higher atomic mass. Why?",
+      "choices": ["Mistake — he later corrected it", "He trusted chemical properties: iodine is halogen-like (Group 17) and belonged there", "Te was undiscovered", "Mass measurements were wrong"],
+      "correctIndex": 1,
+      "explanation": "Mendeleev prioritised chemical behaviour over mass. He argued atomic masses must be wrong — confirmed later by Moseley's atomic number work."
     }
   ]
 }

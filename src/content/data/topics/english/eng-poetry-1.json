@@ -1,116 +1,299 @@
 {
   "id": "eng-poetry-1",
   "subjectId": "english",
-  "title": "Poetry Analysis",
-  "description": "Understanding how poets use language, structure, and sound to create meaning.",
+  "title": "Poetry Analysis & Appreciation",
+  "description": "Understanding how poets create meaning — form, structure, sound devices, imagery, diction, and how to write about poetry analytically.",
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "eng-poetry-1-poe-n1",
+      "id": "eng-poetry-1-n1",
+      "heading": "Poetic Forms and Structure",
+      "body": "Sonnet: 14 lines, traditionally iambic pentameter. Shakespearean (ABAB CDCD EFEF GG — ending in a rhyming couplet that 'turns' the argument). Petrarchan (ABBAABBA + sestet). Haiku: Japanese form — 3 lines, 5-7-5 syllable pattern, traditionally about nature/capture a moment. Limerick: 5 lines, AABBA rhyme, humorous. Free verse: no fixed rhyme or meter — freedom allows organic expression. Blank verse: unrhymed iambic pentameter (Shakespeare's plays). Ballad: narrative poem, often set to music, quatrains with ABCB rhyme. Ode: formal, elevated praise of a subject. Elegy: poem of mourning/reflection on death. Stanza: a group of lines — couplet (2), tercet (3), quatrain (4), sestet (6), octave (8)."
+    },
+    {
+      "id": "eng-poetry-1-n2",
+      "heading": "Rhyme, Rhythm and Meter",
+      "body": "Rhyme scheme: pattern of end rhymes, labelled with letters (ABAB, AABB, ABBA). Half-rhyme (slant rhyme): words that almost rhyme ('moon/mourn'). Internal rhyme: rhyme within a line. Eye rhyme: words that look like they rhyme but don't ('cough/bough'). Rhythm: pattern of stressed (/) and unstressed (˘) syllables. Meter is regular rhythm: iambic (˘/) — the most common English meter ('Shall I compare thee to a summer's day?'), trochaic (/˘), anapestic (˘˘/), dactylic (/˘˘). Caesura: a pause within a line (marked by punctuation). Enjambment: sentence runs over line break without pause — creates flow, urgency, or surprise."
+    },
+    {
+      "id": "eng-poetry-1-n3",
       "heading": "Imagery and Sensory Language",
-      "body": "Imagery refers to language that creates a mental picture or appeals to the senses — sight, sound, smell, touch, and taste. Poets use imagery to make abstract feelings feel real. For example, \"golden daffodils that flutter and dance\" creates a visual image. Strong imagery is specific and unexpected. When analysing poetry, ask: what does this image make you see, hear, or feel?"
+      "body": "Imagery: language creating mental pictures — appeals to all five senses, not just sight. Visual (sight), auditory (sound), tactile (touch), olfactory (smell), gustatory (taste). Strong imagery is SPECIFIC and unexpected — 'crimson petals' > 'red flowers.' Synaesthesia: mixing senses ('loud colours,' 'sweet music'). When analysing: what does this image make you see/hear/feel? Why this particular image? What connotations does it carry? How does it contribute to mood or theme? Imagery is not decoration — it embodies meaning."
     },
     {
-      "id": "eng-poetry-1-poe-n2",
-      "heading": "Rhyme and Rhythm",
-      "body": "Rhyme is when words end with the same sound (\"moon/June\"). A rhyme scheme is the pattern, labelled with letters (ABAB, AABB). Rhythm is the pattern of stressed and unstressed syllables — the \"beat\" of the poem. Regular rhythm can feel calm; irregular rhythm can feel chaotic. Together, rhyme and rhythm give poetry its musical quality."
+      "id": "eng-poetry-1-n4",
+      "heading": "Sound Devices in Poetry",
+      "body": "Alliteration: initial consonant repetition ('furious, fast, and fatal'). Sibilance: 's' sound repetition — creates hissing, sinister, or soothing effect. Assonance: vowel sound repetition ('the rain in Spain'). Consonance: consonant repetition anywhere. Onomatopoeia: words imitating sounds. Cacophony: harsh, discordant sounds (plosives — b, p, t, k) — creates aggression, chaos. Euphony: smooth, pleasant sounds (liquids and nasals — l, m, n, r) — creates calm, beauty. Poets choose sounds deliberately — read poems aloud to hear the sonic texture."
     },
     {
-      "id": "eng-poetry-1-poe-n3",
-      "heading": "Structure and Form",
-      "body": "Structure includes how a poem is organised into stanzas (groups of lines), line lengths, and fixed forms. A sonnet has 14 lines; a haiku has 3 lines (5-7-5 syllables). Free verse has no fixed rhyme or meter. Line breaks create pauses and emphasis. Enjambment is when a sentence runs on from one line to the next without a pause."
+      "id": "eng-poetry-1-n5",
+      "heading": "Diction and Connotation",
+      "body": "Diction: the poet's word choice. Every word is chosen — ask why this word and not a synonym? Denotation: literal dictionary meaning. Connotation: associations and emotions a word carries. 'Slim' vs 'skinny' — same denotation, very different connotations. Register: level of formality (formal, colloquial, slang). Archaic language: old-fashioned words ('thee,' 'thou'). Semantic field: group of words related to a theme (war imagery: 'bullet,' 'blood,' 'battle'). Analysing diction: note patterns, identify connotations, explain how word choice creates specific effects. A poet could use any word — why THIS one?"
+    },
+    {
+      "id": "eng-poetry-1-n6",
+      "heading": "Tone, Mood and Voice",
+      "body": "Tone: poet's attitude towards subject — ironic, reverent, angry, melancholic, playful, contemplative. Mood: the emotional atmosphere experienced by the reader. Voice: the speaker of the poem (NOT necessarily the poet — the persona). A poem might use a dramatic monologue (speaker is a distinct character). Shift (volta): a turn in the poem's argument or tone — often signalled by 'but,' 'yet,' 'however' or a stanza break. Identify shifts — they reveal the poem's movement of thought. Analysing tone: examine diction, imagery, sound devices, and structure together."
+    },
+    {
+      "id": "eng-poetry-1-n7",
+      "heading": "Writing About Poetry",
+      "body": "Never just identify techniques — always explain their effect. Weak: 'The poet uses alliteration.' Strong: 'The poet's sibilant alliteration ('silent, silver streams') creates a hushed, flowing quality that mirrors the river's gentle movement.' Structure for poetry analysis: (1) What is the poem about (surface meaning)? (2) What is it really about (deeper theme)? (3) How do form/structure reinforce meaning? (4) How do language and sound devices create effects? (5) What is the overall impact? Use quotations — even single words can carry enormous weight. Compare opening and closing — how has the poem developed? MYP assessment values: personal response supported by textual evidence."
     }
   ],
   "flashcards": [
     {
-      "id": "eng-poetry-1-poe-f1",
-      "term": "Imagery",
-      "definition": "Descriptive language that appeals to the senses and creates vivid mental pictures.",
-      "example": "\"The crimson sun melted into the horizon.\""
+      "id": "eng-poetry-1-f1",
+      "term": "Sonnet",
+      "definition": "14-line poem, iambic pentameter. Shakespearean: 3 quatrains + couplet. Petrarchan: octave + sestet.",
+      "example": "Shall I compare thee to a summer's day? (Shakespeare, Sonnet 18)."
     },
     {
-      "id": "eng-poetry-1-poe-f2",
-      "term": "Rhyme scheme",
-      "definition": "The pattern of rhymes at the end of each line, identified by letters (e.g., ABAB).",
-      "example": "Roses are red (A), violets are blue (B), sugar is sweet (A)... — AAB"
-    },
-    {
-      "id": "eng-poetry-1-poe-f3",
-      "term": "Stanza",
-      "definition": "A group of lines in a poem, similar to a paragraph in prose.",
-      "example": "A four-line stanza is called a quatrain."
-    },
-    {
-      "id": "eng-poetry-1-poe-f4",
+      "id": "eng-poetry-1-f2",
       "term": "Enjambment",
-      "definition": "When a sentence or phrase continues past the end of one line into the next without a pause."
+      "definition": "Sentence runs over line break without pause — creates flow, urgency, or surprise.",
+      "example": "'I wandered lonely as a cloud / That floats on high...' — no pause at line break."
     },
     {
-      "id": "eng-poetry-1-poe-f5",
+      "id": "eng-poetry-1-f3",
+      "term": "Caesura",
+      "definition": "A pause within a line, marked by punctuation. Breaks rhythm for emphasis.",
+      "example": "'To be, or not to be — that is the question.' (pause after 'be')."
+    },
+    {
+      "id": "eng-poetry-1-f4",
+      "term": "Stanza",
+      "definition": "A group of lines — like a paragraph. Couplet (2), tercet (3), quatrain (4), sestet (6), octave (8)."
+    },
+    {
+      "id": "eng-poetry-1-f5",
       "term": "Free verse",
-      "definition": "Poetry that does not follow a regular rhyme scheme or metrical pattern."
+      "definition": "No fixed rhyme or meter. Poet creates organic rhythm through line breaks and natural speech patterns.",
+      "example": "Most modern poetry. Walt Whitman, T.S. Eliot, contemporary poets."
+    },
+    {
+      "id": "eng-poetry-1-f6",
+      "term": "Imagery",
+      "definition": "Sensory language creating mental pictures. Appeals to sight, sound, smell, touch, taste.",
+      "example": "'The crimson sun melted into the horizon, bleeding orange across the darkening sea.'"
+    },
+    {
+      "id": "eng-poetry-1-f7",
+      "term": "Sibilance",
+      "definition": "'S' sound repetition. Creates hissing, sinister, or soothing effect.",
+      "example": "'The silent snake slithered slowly.' (sinister). 'Softly, sweetly, singing.' (soothing)."
+    },
+    {
+      "id": "eng-poetry-1-f8",
+      "term": "Volta (turn)",
+      "definition": "A shift in argument, tone, or perspective in a poem — often at the start of a sestet in a sonnet.",
+      "example": "Sonnet: 'But...' signals the turn. First 8 lines = problem; last 6 = resolution/new perspective."
+    },
+    {
+      "id": "eng-poetry-1-f9",
+      "term": "Connotation",
+      "definition": "The emotional/cultural associations of a word beyond its literal meaning.",
+      "example": "'Home' (warmth, safety) vs 'house' (building). 'Slim' (positive) vs 'skinny' (negative)."
+    },
+    {
+      "id": "eng-poetry-1-f10",
+      "term": "Semantic field",
+      "definition": "A group of words relating to the same theme or concept throughout a poem.",
+      "example": "War semantic field: 'bullet,' 'wound,' 'battlefield,' 'blood,' 'retreat.'"
+    },
+    {
+      "id": "eng-poetry-1-f11",
+      "term": "Iambic pentameter",
+      "definition": "10 syllables per line, alternating unstressed/stressed: ˘/ ˘/ ˘/ ˘/ ˘/. Natural English rhythm.",
+      "example": "'Shall I compare thee to a summer's day?' (5 iambs)."
+    },
+    {
+      "id": "eng-poetry-1-f12",
+      "term": "Persona",
+      "definition": "The speaker/voice of the poem — NOT necessarily the poet. A character created for the poem.",
+      "example": "Dramatic monologue: 'My Last Duchess' — speaker is a Duke, not Browning himself."
     }
   ],
   "questions": [
     {
-      "id": "eng-poetry-1-poe-q1",
-      "stem": "\"The moon hung like a lantern over the sleeping city.\" This line is an example of:",
+      "id": "eng-poetry-1-q1",
+      "stem": "'The moon hung like a lantern' is:",
       "choices": [
         "Alliteration",
         "Rhyme",
-        "Imagery",
+        "Imagery — vivid sensory description",
         "Enjambment"
       ],
       "correctIndex": 2,
-      "explanation": "The line creates a vivid visual picture — this is imagery."
+      "explanation": "The correct answer is 'Imagery — vivid sensory description'. 'The moon hung like a lantern' is:"
     },
     {
-      "id": "eng-poetry-1-poe-q2",
-      "stem": "A poem has line 1 rhyming with line 3, and line 2 with line 4. What rhyme scheme?",
+      "id": "eng-poetry-1-q2",
+      "stem": "ABAB rhyme scheme is called:",
       "choices": [
-        "AABB",
-        "ABBA",
-        "ABAB",
-        "AAAA"
-      ],
-      "correctIndex": 2,
-      "explanation": "ABAB = alternating rhyme scheme."
-    },
-    {
-      "id": "eng-poetry-1-poe-q3",
-      "stem": "What is enjambment in poetry?",
-      "choices": [
-        "A group of lines forming a section",
-        "A comparison using \"like\" or \"as\"",
-        "When a sentence runs from one line to the next without a full stop",
-        "A poem with exactly 14 lines"
-      ],
-      "correctIndex": 2,
-      "explanation": "Enjambment = the sentence continues over the line break without a pause."
-    },
-    {
-      "id": "eng-poetry-1-poe-q4",
-      "stem": "A poem with no set rhyme scheme or regular rhythm is written in:",
-      "choices": [
-        "Sonnet form",
-        "Free verse",
-        "Haiku form",
-        "A quatrain"
+        "Couplet",
+        "Alternating rhyme",
+        "Enclosed rhyme",
+        "Free verse"
       ],
       "correctIndex": 1,
-      "explanation": "Free verse has no fixed rhyme scheme or meter."
+      "explanation": "The correct answer is 'Alternating rhyme'. ABAB rhyme scheme is called:"
     },
     {
-      "id": "eng-poetry-1-poe-q5",
-      "stem": "Why is it important to comment on a poet's specific word choice?",
+      "id": "eng-poetry-1-q3",
+      "stem": "Enjambment is:",
       "choices": [
-        "To show you have read the poem",
-        "Because all words in a poem are there by accident",
-        "Because word choice reveals the poet's intentions and creates specific effects",
-        "To count the syllables"
+        "A stanza",
+        "A comparison",
+        "When a sentence runs from one line to the next without pause",
+        "A 14-line poem"
       ],
       "correctIndex": 2,
-      "explanation": "Poets choose words deliberately for sound, meaning, and connotation. Analysing word choice reveals mood and meaning."
+      "explanation": "The correct answer is 'When a sentence runs from one line to the next without pause'. Enjambment is:"
+    },
+    {
+      "id": "eng-poetry-1-q4",
+      "stem": "No set rhyme or meter:",
+      "choices": [
+        "Sonnet",
+        "Free verse",
+        "Haiku",
+        "Quatrain"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Free verse'. No set rhyme or meter:"
+    },
+    {
+      "id": "eng-poetry-1-q5",
+      "stem": "Analysing word choice is important because:",
+      "choices": [
+        "All words are accidental",
+        "Poets choose words deliberately for sound, meaning, and connotation",
+        "To count syllables",
+        "To fill space in an essay"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Poets choose words deliberately for sound, meaning, and connotation'. Analysing word choice is important because:"
+    },
+    {
+      "id": "eng-poetry-1-q6",
+      "stem": "A sonnet has:",
+      "choices": [
+        "3 lines",
+        "14 lines",
+        "Any number",
+        "5 lines"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is '14 lines'. A sonnet has:"
+    },
+    {
+      "id": "eng-poetry-1-q7",
+      "stem": "Sibilance is repetition of:",
+      "choices": [
+        "Vowel sounds",
+        "P and B sounds",
+        "S sounds — creates hissing/smooth effects",
+        "End rhymes"
+      ],
+      "correctIndex": 2,
+      "explanation": "The correct answer is 'S sounds — creates hissing/smooth effects'. Sibilance is repetition of:"
+    },
+    {
+      "id": "eng-poetry-1-q8",
+      "stem": "'Slim' vs 'skinny' — this is about:",
+      "choices": [
+        "Rhyme",
+        "Connotation — similar denotation but different associations",
+        "Meter",
+        "Structure"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Connotation — similar denotation but different associations'. 'Slim' vs 'skinny' — this is about:"
+    },
+    {
+      "id": "eng-poetry-1-q9",
+      "stem": "A volta in a sonnet:",
+      "choices": [
+        "The title",
+        "A turn/shift in argument or tone",
+        "The final couplet only",
+        "A type of rhyme"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'A turn/shift in argument or tone'. A volta in a sonnet:"
+    },
+    {
+      "id": "eng-poetry-1-q10",
+      "stem": "Caesura is:",
+      "choices": [
+        "End rhyme",
+        "A pause within a line of poetry",
+        "A stanza break",
+        "A metaphor"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'A pause within a line of poetry'. Caesura is:"
+    },
+    {
+      "id": "eng-poetry-1-q11",
+      "stem": "Haiku syllable pattern:",
+      "choices": [
+        "7-5-7",
+        "5-7-5",
+        "Any pattern",
+        "10-10-10"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is '5-7-5'. Haiku syllable pattern:"
+    },
+    {
+      "id": "eng-poetry-1-q12",
+      "stem": "Words like 'bullet,' 'blood,' 'battlefield' form a:",
+      "choices": [
+        "Rhyme scheme",
+        "Semantic field of war",
+        "Stanza",
+        "Volta"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Semantic field of war'. Words like 'bullet,' 'blood,' 'battlefield' form a:"
+    },
+    {
+      "id": "eng-poetry-1-q13",
+      "stem": "The speaker of a poem is the:",
+      "choices": [
+        "Always the poet",
+        "Persona — not necessarily the poet",
+        "The reader",
+        "The publisher"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Persona — not necessarily the poet'. The speaker of a poem is the:"
+    },
+    {
+      "id": "eng-poetry-1-q14",
+      "stem": "Iambic pentameter has:",
+      "choices": [
+        "5 syllables",
+        "10 syllables — 5 pairs of unstressed/stressed",
+        "14 syllables",
+        "Variable syllables"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is '10 syllables — 5 pairs of unstressed/stressed'. Iambic pentameter has:"
+    },
+    {
+      "id": "eng-poetry-1-q15",
+      "stem": "When writing about a poem, you should:",
+      "choices": [
+        "Only identify techniques",
+        "Explain the EFFECT of techniques — how they create meaning",
+        "Never use quotes",
+        "Only summarise the poem"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Explain the EFFECT of techniques — how they create meaning'. When writing about a poem, you should:"
     }
   ]
 }

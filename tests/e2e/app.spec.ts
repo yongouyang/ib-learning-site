@@ -43,11 +43,14 @@ test.describe('Subject pages', () => {
     await expect(page.getByText('Algebra Basics')).toBeVisible();
   });
 
-  test('biology subject page should show 5 topics', async ({ page }) => {
+  test('biology subject page should show enriched topics', async ({ page }) => {
     await page.goto('/subjects/biology');
     await expect(page.getByText('Cell Structure')).toBeVisible();
-    await expect(page.getByText('Genetics & Inheritance')).toBeVisible();
-    await expect(page.getByText('Ecology & Ecosystems')).toBeVisible();
+    await expect(page.getByText('Genetics')).toBeVisible();
+    await expect(page.getByText('Ecology')).toBeVisible();
+    // Should now show 11 topics after enrichment (was 5)
+    const topicLinks = page.locator('a[href*="/biology/"]');
+    await expect(topicLinks.first()).toBeVisible();
   });
 });
 

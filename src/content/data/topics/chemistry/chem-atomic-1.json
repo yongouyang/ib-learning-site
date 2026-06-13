@@ -2,116 +2,224 @@
   "id": "chem-atomic-1",
   "subjectId": "chemistry",
   "title": "Atomic Structure",
-  "description": "Protons, neutrons, electrons, and how atoms are built.",
+  "description": "The building blocks of matter — protons, neutrons, electrons, isotopes, ions, electron configuration, and how our understanding of the atom evolved.",
   "ibLevel": "MYP",
   "notes": [
     {
       "id": "chem-atomic-1-n1",
       "heading": "Sub-atomic Particles",
-      "body": "Protons: nucleus, +1 charge, mass 1. Neutrons: nucleus, 0 charge, mass 1. Electrons: shells orbiting nucleus, −1 charge, nearly 0 mass. In a neutral atom, protons = electrons."
+      "body": "Atoms are composed of three sub-atomic particles: (1) Protons — located in the nucleus, relative charge +1, relative mass 1. The number of protons (atomic number) defines which element an atom is. (2) Neutrons — located in the nucleus, relative charge 0, relative mass 1. Neutrons help stabilise the nucleus by counteracting the repulsion between positively charged protons. (3) Electrons — orbit the nucleus in shells (energy levels), relative charge −1, relative mass approximately 0 (1/1836 of a proton). In a neutral atom, the number of electrons equals the number of protons — the positives and negatives cancel. The nucleus is extremely small compared to the overall atom: if an atom were the size of a football stadium, the nucleus would be about the size of a pea. Most of the atom is empty space."
     },
     {
       "id": "chem-atomic-1-n2",
       "heading": "Atomic Number and Mass Number",
-      "body": "Atomic number = number of protons (defines the element). Mass number = protons + neutrons. Neutrons = mass number − atomic number. Example: carbon-12 has 6 protons + 6 neutrons."
+      "body": "Every element is defined by its atomic number (Z) — the number of protons in the nucleus. This never changes for a given element. The mass number (A) is the total number of protons + neutrons in the nucleus. Written in nuclide notation: the mass number is written as a superscript before the symbol, the atomic number as a subscript (e.g., ¹²₆C for carbon-12). To find the number of neutrons: neutrons = mass number − atomic number. Example: sodium ²³₁₁Na has 11 protons, 23 − 11 = 12 neutrons, and (in a neutral atom) 11 electrons. The periodic table lists elements by atomic number. The mass number shown on the periodic table is the relative atomic mass — a weighted average of all naturally occurring isotopes (which is why it is rarely a whole number, e.g., chlorine = 35.5)."
     },
     {
       "id": "chem-atomic-1-n3",
-      "heading": "Electron Configuration",
-      "body": "Electrons occupy shells: 1st holds 2, 2nd holds 8, 3rd holds 8. Fill lowest shells first. Example: sodium (atomic number 11) = 2, 8, 1. Outer shell electrons determine chemical reactivity."
+      "heading": "Isotopes and Relative Atomic Mass",
+      "body": "Isotopes are atoms of the same element (same number of protons) with different numbers of neutrons. They have the same chemical properties (same electron configuration) but different physical properties (different masses). Examples: carbon-12 (¹²C, 6p + 6n), carbon-13 (¹³C, 6p + 7n), carbon-14 (¹⁴C, 6p + 8n — radioactive, used in carbon dating). Chlorine has two main isotopes: ⁷⁵% ³⁵Cl and ²⁵% ³⁷Cl. The relative atomic mass (Aᵣ) is the weighted mean of all isotopes: Aᵣ(Cl) = (75 × 35 + 25 × 37) ÷ 100 = 35.5. This explains why many atomic masses on the periodic table are not whole numbers. Calculating Aᵣ: multiply each isotope's mass by its percentage abundance, sum these products, divide by 100. Note: the relative atomic mass is a ratio comparing the average mass of an atom to 1/12 the mass of a carbon-12 atom — hence 'relative' (no units)."
+    },
+    {
+      "id": "chem-atomic-1-n4",
+      "heading": "Electron Configuration and Shells",
+      "body": "Electrons occupy shells (energy levels) around the nucleus. The shells fill from the lowest energy level outward: 1st shell — maximum 2 electrons. 2nd shell — maximum 8 electrons. 3rd shell — maximum 8 electrons (in MYP; the full capacity is 18 but we use 8 for GCSE/Y7-9). 4th shell — maximum 2 (for the first 20 elements). Rule: fill the inner shells first before placing electrons in outer shells. Electron configuration is written as a sequence (e.g., sodium = 2,8,1). The group number of an element (for Groups 1, 2, 13-18) is equal to the number of electrons in the outer shell. The period (row) number equals the number of occupied electron shells. Example: magnesium (atomic number 12, Group 2, Period 3) = 2,8,2 — 3 shells, 2 outer electrons. The outer shell electrons determine chemical reactivity and bonding behaviour. Atoms are most stable with a full outer shell (8 electrons — the 'octet rule', or 2 for the first shell). This drives chemical reactions."
+    },
+    {
+      "id": "chem-atomic-1-n5",
+      "heading": "Ions: When Atoms Gain or Lose Electrons",
+      "body": "An ion is a charged particle formed when an atom gains or loses electrons (protons stay the same). Metals (Groups 1, 2, 3) lose electrons to form positive ions (cations): Na → Na⁺ + e⁻ (sodium loses 1 electron → 2,8,8, full outer shell). Mg → Mg²⁺ + 2e⁻. Non-metals (Groups 15, 16, 17) gain electrons to form negative ions (anions): Cl + e⁻ → Cl⁻ (chlorine gains 1 electron → 2,8,8). O + 2e⁻ → O²⁻. The charge on the ion equals: (number of protons) − (number of electrons). An atom is neutral because protons = electrons. Losing electrons makes it positive; gaining electrons makes it negative. Ions have the electron configuration of the nearest noble gas — this is why Group 1 forms +1 ions (loses 1 electron to become like neon), Group 2 forms +2, Group 17 forms −1 (gains 1 electron), Group 16 forms −2. Common misconception: ions are NOT atoms — atoms are neutral; ions are charged particles (can be single atoms or groups of atoms like SO₄²⁻)."
+    },
+    {
+      "id": "chem-atomic-1-n6",
+      "heading": "History of Atomic Models",
+      "body": "Our understanding of the atom has evolved through experimentation: (1) John Dalton (1803) — 'billiard ball' model: atoms are indivisible, solid spheres; every element has its own type of atom. (2) J.J. Thomson (1897) — discovered the electron; proposed the 'plum pudding' model: negatively charged electrons embedded in a positive sphere. (3) Ernest Rutherford (1911) — Gold foil experiment: fired alpha particles at thin gold foil. Most passed straight through, but a few were deflected strongly — sometimes bouncing back. Conclusion: most of the atom is empty space with a tiny, dense, positively charged nucleus. (4) Niels Bohr (1913) — proposed that electrons orbit the nucleus in fixed energy levels (shells), explaining why electrons do not spiral into the nucleus. (5) James Chadwick (1932) — discovered the neutron, explaining the missing mass in the nucleus. (6) Modern quantum model — electrons exist in orbitals (probability clouds), not fixed orbits. For MYP/Y7, the Bohr model (electrons in shells) is sufficient. Key point: scientific models change as new evidence emerges — this is how science works."
+    },
+    {
+      "id": "chem-atomic-1-n7",
+      "heading": "Radioactivity (Introduction)",
+      "body": "Some isotopes are unstable — their nuclei break down spontaneously, emitting radiation. This is radioactivity. Three types of radiation: (1) Alpha (α) — a helium nucleus (2p + 2n), large and heavy, can be stopped by paper or skin, highly ionising. (2) Beta (β) — a fast-moving electron emitted when a neutron turns into a proton, stopped by a few mm of aluminium, moderately ionising. (3) Gamma (γ) — electromagnetic wave (not a particle), highly penetrating, stopped by thick lead or concrete, weakly ionising. Radioactive decay is random — you cannot predict when an individual nucleus will decay, but you can predict the behaviour of large numbers (half-life). Uses: medical imaging and cancer treatment (gamma rays), smoke detectors (alpha — americium-241), carbon dating (beta from ¹⁴C), nuclear power (controlled fission). Risks: ionising radiation can damage DNA and cause mutations/cancer. Safety: limit exposure time, increase distance from source, use shielding. Background radiation comes from rocks (granite — radon gas), cosmic rays from space, and medical procedures."
     }
   ],
   "flashcards": [
     {
       "id": "chem-atomic-1-f1",
-      "term": "Atomic number",
-      "definition": "Number of protons in the nucleus — uniquely identifies the element.",
-      "example": "Oxygen has atomic number 8."
+      "term": "Atomic number (Z)",
+      "definition": "The number of protons in the nucleus of an atom — uniquely identifies the element.",
+      "example": "All carbon atoms have 6 protons; atomic number of carbon = 6."
     },
     {
       "id": "chem-atomic-1-f2",
-      "term": "Mass number",
-      "definition": "Total protons + neutrons in the nucleus.",
-      "example": "Carbon-12: 6 protons + 6 neutrons = 12."
+      "term": "Mass number (A)",
+      "definition": "The total number of protons + neutrons in the nucleus of an atom.",
+      "example": "Carbon-12: 6 protons + 6 neutrons = mass number 12. ²³Na: 11 protons + 12 neutrons = mass 23."
     },
     {
       "id": "chem-atomic-1-f3",
       "term": "Isotopes",
-      "definition": "Same element (same protons) but different number of neutrons.",
-      "example": "Carbon-12 vs Carbon-14 (2 extra neutrons)."
+      "definition": "Atoms of the same element (same number of protons) with different numbers of neutrons. Same chemical properties, different masses.",
+      "example": "¹²C (6p + 6n), ¹³C (6p + 7n), ¹⁴C (6p + 8n). ¹⁴C is radioactive and used in carbon dating."
     },
     {
       "id": "chem-atomic-1-f4",
-      "term": "Electron configuration",
-      "definition": "Arrangement of electrons in shells.",
-      "example": "Sodium (Na): 2, 8, 1."
+      "term": "Relative atomic mass (Aᵣ)",
+      "definition": "The weighted mean mass of all naturally occurring isotopes of an element compared to 1/12 the mass of a carbon-12 atom.",
+      "example": "Chlorine Aᵣ = 35.5 because it is 75% ³⁵Cl and 25% ³⁷Cl: (75×35 + 25×37) ÷ 100 = 35.5."
     },
     {
       "id": "chem-atomic-1-f5",
-      "term": "Nucleus",
-      "definition": "Dense central core containing protons and neutrons."
+      "term": "Electron configuration",
+      "definition": "The arrangement of electrons in shells around the nucleus. Written as a sequence: 2,8,1 for sodium (atomic number 11).",
+      "example": "Magnesium (12 electrons): 2,8,2. Chlorine (17): 2,8,7. Argon (18): 2,8,8."
+    },
+    {
+      "id": "chem-atomic-1-f6",
+      "term": "Ion",
+      "definition": "A charged particle formed when an atom gains or loses electrons. The number of protons remains unchanged.",
+      "example": "Na → Na⁺ + e⁻ (loses 1 electron → +1 ion). Cl + e⁻ → Cl⁻ (gains 1 electron → −1 ion)."
+    },
+    {
+      "id": "chem-atomic-1-f7",
+      "term": "Cation",
+      "definition": "A positively charged ion, formed when a metal atom loses electrons.",
+      "example": "Ca²⁺ (calcium loses 2 electrons), Al³⁺, K⁺. Cations are smaller than their parent atoms."
+    },
+    {
+      "id": "chem-atomic-1-f8",
+      "term": "Anion",
+      "definition": "A negatively charged ion, formed when a non-metal atom gains electrons.",
+      "example": "O²⁻ (oxygen gains 2 electrons), F⁻, S²⁻. Anions are larger than their parent atoms."
+    },
+    {
+      "id": "chem-atomic-1-f9",
+      "term": "Octet rule",
+      "definition": "Atoms tend to gain, lose, or share electrons to achieve a full outer shell of 8 electrons (or 2 for hydrogen and helium) — the electron configuration of a noble gas.",
+      "example": "Sodium (2,8,1) loses 1 electron to become Na⁺ (2,8) — same configuration as neon."
+    },
+    {
+      "id": "chem-atomic-1-f10",
+      "term": "Rutherford's gold foil experiment",
+      "definition": "Alpha particles fired at thin gold foil; most passed through, a few deflected. Proved the atom is mostly empty space with a tiny, dense, positively charged nucleus.",
+      "example": "Rutherford: 'It was as if you fired a 15-inch shell at tissue paper and it came back and hit you.'"
+    },
+    {
+      "id": "chem-atomic-1-f11",
+      "term": "Alpha radiation (α)",
+      "definition": "A helium nucleus (2 protons + 2 neutrons) emitted from an unstable nucleus. Low penetration (stopped by paper/skin), high ionisation.",
+      "example": "Americium-241 in smoke detectors emits alpha particles — smoke particles block the radiation, triggering the alarm."
+    },
+    {
+      "id": "chem-atomic-1-f12",
+      "term": "Half-life",
+      "definition": "The time taken for half the radioactive nuclei in a sample to decay. Each isotope has a characteristic half-life — from fractions of a second to billions of years.",
+      "example": "Carbon-14 half-life = 5,730 years — used to date organic material up to ~50,000 years old."
     }
   ],
   "questions": [
     {
       "id": "chem-atomic-1-q1",
-      "stem": "Atom: atomic number 8, mass number 16. How many neutrons?",
-      "choices": [
-        "8",
-        "16",
-        "24",
-        "6"
-      ],
+      "stem": "An atom has atomic number 8 and mass number 16. How many neutrons does it have?",
+      "choices": ["8", "16", "24", "6"],
       "correctIndex": 0,
-      "explanation": "Neutrons = 16 − 8 = 8 (oxygen atom)."
+      "explanation": "Neutrons = mass number − atomic number = 16 − 8 = 8. This is oxygen."
     },
     {
       "id": "chem-atomic-1-q2",
-      "stem": "What determines which element an atom is?",
-      "choices": [
-        "Neutrons",
-        "Electrons",
-        "Protons",
-        "Mass number"
-      ],
+      "stem": "What determines which element an atom belongs to?",
+      "choices": ["Number of neutrons", "Number of electrons", "Number of protons (atomic number)", "Mass number"],
       "correctIndex": 2,
-      "explanation": "The number of protons (atomic number) is unique to each element."
+      "explanation": "The number of protons (atomic number) is unique to each element. Change the number of protons, and you change the element."
     },
     {
       "id": "chem-atomic-1-q3",
-      "stem": "Electron configuration of aluminium (atomic number 13)?",
-      "choices": [
-        "2, 8, 3",
-        "2, 11",
-        "3, 8, 2",
-        "2, 8, 8"
-      ],
+      "stem": "What is the electron configuration of aluminium (atomic number 13)?",
+      "choices": ["2, 8, 3", "2, 11", "3, 8, 2", "2, 8, 8"],
       "correctIndex": 0,
-      "explanation": "Shell 1: 2, shell 2: 8, shell 3: 3 = 2, 8, 3."
+      "explanation": "Shell 1 = 2, Shell 2 = 8, Shell 3 = 3. Total = 2 + 8 + 3 = 13 electrons."
     },
     {
       "id": "chem-atomic-1-q4",
-      "stem": "Isotopes have same protons but different:",
-      "choices": [
-        "Electrons",
-        "Protons",
-        "Neutrons",
-        "Shells"
-      ],
+      "stem": "Isotopes of the same element have the same number of protons but different numbers of:",
+      "choices": ["Electrons", "Protons", "Neutrons", "Electron shells"],
       "correctIndex": 2,
-      "explanation": "Same element, different numbers of neutrons → different mass numbers."
+      "explanation": "Isotopes have the same atomic number (protons) but different mass numbers due to different numbers of neutrons."
     },
     {
       "id": "chem-atomic-1-q5",
-      "stem": "In a neutral atom:",
-      "choices": [
-        "protons = neutrons",
-        "protons = electrons",
-        "neutrons = electrons",
-        "mass = atomic number"
-      ],
+      "stem": "In a neutral atom, which relationship is always true?",
+      "choices": ["Protons = neutrons", "Protons = electrons", "Neutrons = electrons", "Mass number = atomic number"],
       "correctIndex": 1,
-      "explanation": "Equal positive and negative charges cancel out."
+      "explanation": "A neutral atom has equal numbers of positive protons and negative electrons, so the overall charge is zero."
+    },
+    {
+      "id": "chem-atomic-1-q6",
+      "stem": "Chlorine has two isotopes: 75% ³⁵Cl and 25% ³⁷Cl. What is its relative atomic mass?",
+      "choices": ["35", "36", "35.5", "37"],
+      "correctIndex": 2,
+      "explanation": "Aᵣ = (75 × 35 + 25 × 37) ÷ 100 = (2625 + 925) ÷ 100 = 35.5. This is why chlorine's atomic mass on the periodic table is not a whole number."
+    },
+    {
+      "id": "chem-atomic-1-q7",
+      "stem": "A magnesium ion Mg²⁺ has 12 protons and 10 electrons. What is its overall charge?",
+      "choices": ["−2", "0 (neutral)", "+2", "+10"],
+      "correctIndex": 2,
+      "explanation": "Charge = protons − electrons = 12 − 10 = +2. Magnesium lost 2 electrons to form a +2 cation."
+    },
+    {
+      "id": "chem-atomic-1-q8",
+      "stem": "What did Rutherford's gold foil experiment prove about the structure of the atom?",
+      "choices": ["Atoms are indivisible solid spheres", "Electrons are embedded in a positive sphere (plum pudding)", "The atom is mostly empty space with a tiny, dense, positively charged nucleus", "Electrons orbit in fixed shells at specific energy levels"],
+      "correctIndex": 2,
+      "explanation": "Most alpha particles passed straight through → atom is mostly empty space. A few bounced back → there must be a tiny, dense, positive centre (the nucleus)."
+    },
+    {
+      "id": "chem-atomic-1-q9",
+      "stem": "Why does sodium (Group 1, 2,8,1) form a +1 ion?",
+      "choices": ["It gains 1 electron to fill its outer shell", "It loses 1 electron to achieve the stable electron configuration of neon (2,8)", "It gains 7 electrons to fill its outer shell", "Sodium does not form ions"],
+      "correctIndex": 1,
+      "explanation": "Sodium has 1 electron in its outer shell. By losing that electron, it achieves the stable 2,8 configuration of neon — easier than gaining 7 electrons."
+    },
+    {
+      "id": "chem-atomic-1-q10",
+      "stem": "Which type of radiation can be stopped by a sheet of paper?",
+      "choices": ["Alpha (α)", "Beta (β)", "Gamma (γ)", "X-rays"],
+      "correctIndex": 0,
+      "explanation": "Alpha particles are large and heavy (helium nuclei). They are the least penetrating — stopped by a few cm of air or a sheet of paper — but the most ionising."
+    },
+    {
+      "id": "chem-atomic-1-q11",
+      "stem": "An atom of ³⁹₁₉K (potassium) has how many neutrons?",
+      "choices": ["19", "20", "39", "58"],
+      "correctIndex": 1,
+      "explanation": "Mass number (39) minus atomic number (19) = 20 neutrons. Protons = 19; electrons (neutral atom) = 19."
+    },
+    {
+      "id": "chem-atomic-1-q12",
+      "stem": "Which electron configuration represents a noble gas?",
+      "choices": ["2, 8, 1", "2, 8, 7", "2, 8, 8", "2, 8, 2"],
+      "correctIndex": 2,
+      "explanation": "Noble gases (Group 18) have full outer shells — 2,8,8 is argon. Full outer shells make noble gases extremely unreactive."
+    },
+    {
+      "id": "chem-atomic-1-q13",
+      "stem": "A chlorine atom gains 1 electron. What ion does it form, and what is its electron configuration?",
+      "choices": ["Cl⁺, configuration 2,8,6", "Cl⁻, configuration 2,8,8", "Cl²⁻, configuration 2,8,9", "Cl, configuration 2,8,7 — no ion formed"],
+      "correctIndex": 1,
+      "explanation": "Chlorine (2,8,7) gains 1 electron to become Cl⁻ with configuration 2,8,8 — the same as argon. It gains 1 electron, so the charge is −1."
+    },
+    {
+      "id": "chem-atomic-1-q14",
+      "stem": "Why is the plum pudding model no longer accepted?",
+      "choices": ["It was disproved by Rutherford's experiment — if the positive charge was spread out, alpha particles would not have been strongly deflected backwards", "Scientists decided to change it without evidence", "It did not include electrons", "It could not explain isotopes"],
+      "correctIndex": 0,
+      "explanation": "The plum pudding model predicted that alpha particles would pass through with only slight deflection — like bullets through pudding. Rutherford observed some bouncing back, which required a concentrated positive charge (the nucleus)."
+    },
+    {
+      "id": "chem-atomic-1-q15",
+      "stem": "The half-life of iodine-131 is 8 days. If you start with 100 g, how much remains after 24 days?",
+      "choices": ["0 g", "12.5 g", "25 g", "33.3 g"],
+      "correctIndex": 1,
+      "explanation": "24 days ÷ 8 days per half-life = 3 half-lives. After 1: 50 g. After 2: 25 g. After 3: 12.5 g remains."
     }
   ]
 }

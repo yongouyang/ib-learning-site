@@ -1,57 +1,124 @@
 {
   "id": "bio-cell-1",
   "subjectId": "biology",
-  "title": "Cell Structure",
-  "description": "The basic unit of life — comparing plant and animal cells and their organelles.",
+  "title": "Cell Structure & Microscopy",
+  "description": "The basic unit of life — cell theory, organelles, plant vs animal cells, microscopy, specialised cells, and how substances move across membranes.",
   "ibLevel": "MYP",
   "notes": [
     {
       "id": "bio-cell-1-n1",
       "heading": "The Cell Theory",
-      "body": "Three principles: (1) All living things are made of cells. (2) The cell is the basic unit of life. (3) All cells come from pre-existing cells. Eukaryotic cells have a nucleus; prokaryotic cells (bacteria) do not."
+      "body": "Three principles form the foundation of biology: (1) All living things are made of one or more cells. (2) The cell is the basic structural and functional unit of life — all life processes happen inside cells. (3) All cells arise from pre-existing cells through cell division. There are two main types of cells: eukaryotic cells have a membrane-bound nucleus (animals, plants, fungi, protists); prokaryotic cells (bacteria) have no nucleus — their DNA floats freely in the cytoplasm. Common misconception: viruses are NOT cells and do not fit the cell theory, as they cannot reproduce on their own."
     },
     {
       "id": "bio-cell-1-n2",
       "heading": "Animal Cell Organelles",
-      "body": "Nucleus: control centre, contains DNA. Cell membrane: controls entry/exit. Cytoplasm: jelly-like fluid for reactions. Mitochondria: produce energy (ATP) — \"powerhouse\". Ribosomes: make proteins."
+      "body": "Every animal cell contains: (1) Nucleus — control centre containing DNA, surrounded by a nuclear membrane. (2) Cell membrane — a selectively permeable barrier controlling what enters and exits the cell. (3) Cytoplasm — jelly-like fluid where most chemical reactions occur, containing dissolved enzymes and nutrients. (4) Mitochondria (singular: mitochondrion) — site of aerobic respiration, producing ATP (energy). Often called the 'powerhouse' of the cell. Cells with high energy demands (muscle cells, sperm cells) have many mitochondria. (5) Ribosomes — tiny structures that synthesise proteins by reading mRNA instructions. Found floating in cytoplasm or attached to rough endoplasmic reticulum."
     },
     {
       "id": "bio-cell-1-n3",
       "heading": "Plant Cell Extras",
-      "body": "Plant cells have three extra structures: cell wall (cellulose, for support), large central vacuole (stores water), chloroplasts (contain chlorophyll for photosynthesis). Plant cells are more box-like and regular."
+      "body": "Plant cells have all the organelles of animal cells plus three key extras: (1) Cell wall — a rigid outer layer made of cellulose. Provides structural support, prevents bursting when water enters. Makes plant cells appear more box-like and regular. (2) Large central vacuole — a membrane-bound sac filled with cell sap (water, sugars, salts). Maintains turgor pressure to keep the plant upright. When vacuoles are empty, plants wilt. (3) Chloroplasts — green organelles containing chlorophyll, the pigment that absorbs light energy for photosynthesis. Found mainly in leaf cells (palisade cells) and green stem cells, but not in root cells."
+    },
+    {
+      "id": "bio-cell-1-n4",
+      "heading": "Microscopy: Light vs Electron Microscopes",
+      "body": "Light microscopes use visible light and glass lenses to magnify specimens up to about ×1500. They can view living cells and are what you use in a school lab. Stain (like iodine or methylene blue) is often used to make structures visible. Electron microscopes use beams of electrons and can magnify up to ×2,000,000. They reveal ultrastructure — organelles like ribosomes and internal membranes. However, specimens must be dead and in a vacuum. The formula for magnification is: magnification = size of image ÷ size of real object. Always use the same units! Example: an image of a cell measures 50 mm and the real cell is 0.05 mm. Magnification = 50 ÷ 0.05 = ×1000."
+    },
+    {
+      "id": "bio-cell-1-n5",
+      "heading": "Specialised Animal Cells",
+      "body": "In multicellular organisms, cells differentiate (specialise) to perform specific functions. Key examples: (1) Red blood cells — no nucleus to maximise space for haemoglobin, biconcave disc shape for large surface area to absorb oxygen. (2) Sperm cells — streamlined head with acrosome (containing enzymes to penetrate egg), many mitochondria in the midpiece for energy, and a long tail (flagellum) for swimming. (3) Nerve cells (neurons) — long axon to carry electrical impulses over distances, branched dendrites to connect with many other neurons, myelin sheath for insulation. (4) Ciliated epithelial cells — have tiny hair-like cilia that sweep mucus and trapped particles away, found lining airways and oviducts."
+    },
+    {
+      "id": "bio-cell-1-n6",
+      "heading": "Specialised Plant Cells",
+      "body": "Plants also have highly specialised cells: (1) Root hair cell — long finger-like projection that massively increases surface area for absorbing water and mineral ions from soil. Has no chloroplasts (roots are underground). Has many mitochondria to power active transport of minerals. (2) Palisade cell — found in the upper layer of leaves, packed with chloroplasts for maximum light absorption. Regular column shape allows close packing. (3) Xylem vessel — dead, hollow tubes with lignin-strengthened walls that transport water and dissolved minerals upwards from roots. No cytoplasm or nucleus at maturity. (4) Guard cells — pair of kidney-shaped cells surrounding each stoma (pore). They swell or shrink to open/close stomata, controlling gas exchange and water loss."
+    },
+    {
+      "id": "bio-cell-1-n7",
+      "heading": "Movement Across Membranes: Diffusion and Osmosis",
+      "body": "Diffusion is the net movement of particles from a region of high concentration to low concentration (down a concentration gradient) until equilibrium is reached. It is a passive process — no energy required. Examples: oxygen diffusing from alveoli into blood, CO₂ diffusing into leaves through stomata. Factors affecting diffusion rate: temperature (faster when warmer — particles have more kinetic energy), concentration gradient (steeper gradient = faster), and surface area (larger surface area = faster — why alveoli and villi are adapted this way). Osmosis is a special case of diffusion: the movement of water molecules through a selectively permeable membrane from a dilute solution (high water potential) to a concentrated solution (low water potential). In animal cells — too much water causes bursting (lysis); too little causes shrivelling (crenation). In plant cells — too much water makes them turgid (healthy); too little causes plasmolysis (wilting)."
     }
   ],
   "flashcards": [
     {
       "id": "bio-cell-1-f1",
       "term": "Nucleus",
-      "definition": "Control centre; contains DNA."
+      "definition": "Control centre of the cell; contains genetic material (DNA) and controls all cell activities.",
+      "example": "Human cells each have a nucleus, except mature red blood cells."
     },
     {
       "id": "bio-cell-1-f2",
       "term": "Mitochondria",
-      "definition": "Produce energy (ATP) through respiration — \"powerhouse of the cell\"."
+      "definition": "Organelle where aerobic respiration occurs, producing ATP energy for the cell.",
+      "example": "Muscle cells have thousands of mitochondria because they need lots of energy."
     },
     {
       "id": "bio-cell-1-f3",
       "term": "Cell membrane",
-      "definition": "Thin barrier controlling what enters and exits the cell."
+      "definition": "A selectively permeable barrier surrounding all cells, controlling which substances enter and exit.",
+      "example": "Oxygen and glucose enter cells through the membrane; waste CO₂ leaves."
     },
     {
       "id": "bio-cell-1-f4",
       "term": "Chloroplast",
-      "definition": "Found only in plant cells; contains chlorophyll; site of photosynthesis."
+      "definition": "Organelle found only in plant cells and algae; contains chlorophyll and is the site of photosynthesis.",
+      "example": "Palisade cells in leaves are packed with chloroplasts."
     },
     {
       "id": "bio-cell-1-f5",
       "term": "Cell wall",
-      "definition": "Rigid cellulose layer around plant cells for support."
+      "definition": "Rigid outer layer of plant cells made of cellulose; provides structural support and prevents bursting.",
+      "example": "The box-like shape of plant cells in a microscope comes from the cell wall."
+    },
+    {
+      "id": "bio-cell-1-f6",
+      "term": "Ribosome",
+      "definition": "Tiny organelle that synthesises proteins by linking amino acids together following mRNA instructions.",
+      "example": "Cells producing digestive enzymes (like pancreatic cells) have many ribosomes."
+    },
+    {
+      "id": "bio-cell-1-f7",
+      "term": "Cytoplasm",
+      "definition": "Jelly-like fluid filling the cell where chemical reactions occur; contains dissolved enzymes and nutrients.",
+      "example": "Glycolysis (the first stage of respiration) takes place in the cytoplasm."
+    },
+    {
+      "id": "bio-cell-1-f8",
+      "term": "Vacuole",
+      "definition": "Membrane-bound sac in plant cells containing cell sap; maintains turgor pressure to support the plant.",
+      "example": "When a plant wilts, its vacuoles have lost water and the cells become flaccid."
+    },
+    {
+      "id": "bio-cell-1-f9",
+      "term": "Specialised cell",
+      "definition": "A cell whose structure is adapted to carry out a specific function in a multicellular organism.",
+      "example": "Sperm cells have a tail for swimming; root hair cells have a long projection for absorption."
+    },
+    {
+      "id": "bio-cell-1-f10",
+      "term": "Diffusion",
+      "definition": "Net movement of particles from high concentration to low concentration; passive process requiring no energy.",
+      "example": "Oxygen diffuses from the lungs into the blood where oxygen concentration is lower."
+    },
+    {
+      "id": "bio-cell-1-f11",
+      "term": "Osmosis",
+      "definition": "Diffusion of water through a selectively permeable membrane from a dilute to a concentrated solution.",
+      "example": "Plant roots absorb water from soil by osmosis because soil water is more dilute than cell contents."
+    },
+    {
+      "id": "bio-cell-1-f12",
+      "term": "Prokaryotic cell",
+      "definition": "A simple cell without a membrane-bound nucleus; DNA floats free in the cytoplasm. Bacteria are prokaryotic.",
+      "example": "E. coli bacteria are prokaryotic; their DNA is a single circular chromosome."
     }
   ],
   "questions": [
     {
       "id": "bio-cell-1-q1",
-      "stem": "Which organelle produces energy?",
+      "stem": "Which organelle produces energy through aerobic respiration?",
       "choices": [
         "Nucleus",
         "Chloroplast",
@@ -59,11 +126,11 @@
         "Ribosome"
       ],
       "correctIndex": 2,
-      "explanation": "Mitochondria carry out cellular respiration to produce ATP."
+      "explanation": "Mitochondria carry out aerobic respiration to produce ATP, the energy currency of the cell."
     },
     {
       "id": "bio-cell-1-q2",
-      "stem": "Which structure is in plant cells but NOT animal cells?",
+      "stem": "Which structure is found in plant cells but NOT in animal cells?",
       "choices": [
         "Cell membrane",
         "Nucleus",
@@ -71,43 +138,163 @@
         "Cell wall"
       ],
       "correctIndex": 3,
-      "explanation": "Plant cells have a cellulose cell wall for extra support."
+      "explanation": "Plant cells have a rigid cellulose cell wall outside the cell membrane for structural support. Animal cells only have a cell membrane."
     },
     {
       "id": "bio-cell-1-q3",
       "stem": "Where do new cells come from according to cell theory?",
       "choices": [
-        "Nutrients",
-        "Pre-existing cells",
-        "Spontaneous generation",
-        "DNA alone"
+        "Nutrients in the environment",
+        "Pre-existing cells through division",
+        "Spontaneous generation from non-living matter",
+        "DNA assembling itself in the cytoplasm"
       ],
       "correctIndex": 1,
-      "explanation": "All cells arise from pre-existing cells through division."
+      "explanation": "A core principle of cell theory: all cells arise from pre-existing cells through cell division."
     },
     {
       "id": "bio-cell-1-q4",
-      "stem": "The cell membrane's function is to:",
+      "stem": "What is the function of the cell membrane?",
       "choices": [
         "Make proteins",
         "Produce energy",
-        "Control what enters/exits",
-        "Store DNA"
+        "Control what substances enter and exit the cell",
+        "Store genetic information"
       ],
       "correctIndex": 2,
-      "explanation": "It is selectively permeable, controlling substance movement."
+      "explanation": "The cell membrane is selectively permeable — it controls the movement of substances into and out of the cell."
     },
     {
       "id": "bio-cell-1-q5",
-      "stem": "Key difference between prokaryotic and eukaryotic cells?",
+      "stem": "What is a key difference between prokaryotic and eukaryotic cells?",
       "choices": [
-        "Prokaryotes are larger",
-        "Eukaryotes have no DNA",
+        "Prokaryotes are always larger than eukaryotes",
+        "Eukaryotes have no genetic material",
         "Prokaryotes lack a membrane-bound nucleus",
-        "Eukaryotes have no cell membrane"
+        "Eukaryotes always have a cell wall"
       ],
       "correctIndex": 2,
-      "explanation": "Prokaryotes have no membrane-bound nucleus — DNA floats freely in cytoplasm."
+      "explanation": "Prokaryotic cells (bacteria) have no membrane-bound nucleus — their DNA floats freely in the cytoplasm."
+    },
+    {
+      "id": "bio-cell-1-q6",
+      "stem": "A student views a cell under a microscope. The image is 40 mm wide and the actual cell is 0.04 mm. What is the magnification?",
+      "choices": [
+        "×10",
+        "×100",
+        "×1000",
+        "×400"
+      ],
+      "correctIndex": 2,
+      "explanation": "Magnification = image size ÷ actual size = 40 ÷ 0.04 = ×1000. Make sure units match before dividing."
+    },
+    {
+      "id": "bio-cell-1-q7",
+      "stem": "Which of these is an adaptation of a sperm cell for its function?",
+      "choices": [
+        "Biconcave disc shape to absorb oxygen",
+        "Many chloroplasts for photosynthesis",
+        "A tail (flagellum) for swimming towards the egg",
+        "Rigid cell wall for protection"
+      ],
+      "correctIndex": 2,
+      "explanation": "The sperm cell has a long tail (flagellum) and many mitochondria in the midpiece to provide energy for swimming towards the egg."
+    },
+    {
+      "id": "bio-cell-1-q8",
+      "stem": "Why do root hair cells have no chloroplasts?",
+      "choices": [
+        "Roots are underground and receive no light for photosynthesis",
+        "Root hair cells are too small to fit chloroplasts",
+        "Chloroplasts would block water absorption",
+        "Root hair cells use mitochondria for photosynthesis instead"
+      ],
+      "correctIndex": 0,
+      "explanation": "Roots grow underground where there is no light, so there is no need for chloroplasts. Root hair cells have many mitochondria instead to power active transport of minerals."
+    },
+    {
+      "id": "bio-cell-1-q9",
+      "stem": "Perfume molecules spread from one corner of a room until you can smell them everywhere. Which process does this illustrate?",
+      "choices": [
+        "Osmosis",
+        "Active transport",
+        "Diffusion",
+        "Photosynthesis"
+      ],
+      "correctIndex": 2,
+      "explanation": "Diffusion is the net movement of particles from high to low concentration. Perfume molecules spread out through the air by diffusion."
+    },
+    {
+      "id": "bio-cell-1-q10",
+      "stem": "What would happen to an animal cell placed in pure (distilled) water?",
+      "choices": [
+        "It would shrink and shrivel",
+        "It would swell and possibly burst",
+        "Nothing — water cannot cross the membrane",
+        "It would become turgid like a plant cell"
+      ],
+      "correctIndex": 1,
+      "explanation": "Water moves into the cell by osmosis (from the dilute outside to the more concentrated cytoplasm). Without a cell wall, the animal cell may burst (lyse)."
+    },
+    {
+      "id": "bio-cell-1-q11",
+      "stem": "Which organelle synthesises (makes) proteins in a cell?",
+      "choices": [
+        "Mitochondria",
+        "Chloroplast",
+        "Ribosome",
+        "Vacuole"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ribosomes are the sites of protein synthesis, reading mRNA instructions and linking amino acids together."
+    },
+    {
+      "id": "bio-cell-1-q12",
+      "stem": "Why is the palisade cell well-suited for photosynthesis?",
+      "choices": [
+        "It has a large surface area for absorbing water",
+        "It is packed with chloroplasts and located near the top of the leaf to catch maximum light",
+        "It has a long tail for movement",
+        "It has no nucleus to make space for chlorophyll"
+      ],
+      "correctIndex": 1,
+      "explanation": "Palisade cells are tightly packed in the upper leaf layer and contain many chloroplasts, maximising light absorption for photosynthesis."
+    },
+    {
+      "id": "bio-cell-1-q13",
+      "stem": "A scientist wants to see the detailed internal structure of a mitochondrion. Which type of microscope should they use?",
+      "choices": [
+        "Light microscope",
+        "Hand lens",
+        "Electron microscope",
+        "Dissecting microscope"
+      ],
+      "correctIndex": 2,
+      "explanation": "Electron microscopes have much higher resolution and magnification (up to ×2,000,000), allowing scientists to see ultrastructure like the cristae inside mitochondria."
+    },
+    {
+      "id": "bio-cell-1-q14",
+      "stem": "Which of the following is a unicellular organism?",
+      "choices": [
+        "Mushroom",
+        "Amoeba",
+        "Oak tree",
+        "Earthworm"
+      ],
+      "correctIndex": 1,
+      "explanation": "An amoeba is a single-celled (unicellular) organism. All its life processes — feeding, respiration, reproduction — happen within one cell."
+    },
+    {
+      "id": "bio-cell-1-q15",
+      "stem": "A plant cell is placed in a concentrated salt solution. What will happen?",
+      "choices": [
+        "The cell will swell and become turgid",
+        "The cell membrane will pull away from the cell wall (plasmolysis)",
+        "Nothing — plant cells are unaffected by osmosis",
+        "The cell will divide rapidly"
+      ],
+      "correctIndex": 1,
+      "explanation": "Water leaves the cell by osmosis (moving towards the concentrated salt solution outside). The vacuole shrinks and the cell membrane pulls away from the cell wall — this is called plasmolysis."
     }
   ]
 }

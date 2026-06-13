@@ -1,116 +1,300 @@
 {
   "id": "eng-reading-1",
   "subjectId": "english",
-  "title": "Reading Comprehension",
-  "description": "Strategies for understanding, analysing, and responding to texts.",
+  "title": "Reading Comprehension & Text Analysis",
+  "description": "Strategies for deep reading — inference, analysis, evaluating author's purpose, identifying bias, summarising, and critical response.",
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "eng-reading-1-read-n1",
+      "id": "eng-reading-1-n1",
       "heading": "Inference and Explicit Information",
-      "body": "Explicit information is stated directly in the text — you don't need to guess. Implicit information (or inference) requires you to \"read between the lines\" by using clues in the text to work out something the author hasn't said outright. For example, if a character \"slammed the door and didn't speak at dinner,\" the text never says they are angry, but you can infer it."
+      "body": "Explicit information: stated directly ('The temperature was −5°C'). Implicit information (inference): 'reading between the lines' using textual clues + background knowledge. 'She wrapped her scarf tighter and pulled up her collar' — the text never says it's cold, but you infer it. Inference is evidence-based, not guessing. Strong inferences: cite specific textual evidence + logical reasoning. Inference questions often ask: what can you conclude? what is implied? what does the character probably feel? Practice: for any passage, list 3 things explicitly stated and 3 things you can infer with evidence."
     },
     {
-      "id": "eng-reading-1-read-n2",
-      "heading": "Author's Purpose and Tone",
-      "body": "An author's purpose is why they wrote: to inform (give facts), persuade (change your opinion), entertain (engage and amuse), or describe (create a picture). Tone is the author's attitude — formal, humorous, angry, sympathetic, or sarcastic. Identifying purpose and tone helps you understand what the author really wants you to think or feel."
+      "id": "eng-reading-1-n2",
+      "heading": "Author's Purpose, Tone and Bias",
+      "body": "Purpose: why the author wrote. PIE: Persuade, Inform, Entertain (+ Describe, Explain). Most texts have a primary purpose but may include elements of others. Tone: author's attitude — formal, sarcastic, sympathetic, outraged, neutral, humorous, condescending. Tone is conveyed through diction, sentence structure, and content choices. Bias: a preference or prejudice that prevents objective judgment. Detecting bias: (1) Is only one side presented? (2) Is language loaded/emotive? (3) Are facts selectively chosen? (4) Who benefits from this perspective? Critical reading means questioning, not just absorbing. In MYP, you're expected to evaluate texts, not just understand them."
     },
     {
-      "id": "eng-reading-1-read-n3",
-      "heading": "Summarising and Main Idea",
-      "body": "The main idea is the most important point — what the author says ABOUT the topic. A topic is just the subject; the main idea includes the claim. A good summary restates the main idea and key supporting details in your own words, is shorter than the original, accurate, and leaves out unimportant details."
+      "id": "eng-reading-1-n3",
+      "heading": "Main Idea, Topic and Summarising",
+      "body": "Topic: what the text is about (subject). Main idea: what the author says ABOUT the topic — a complete thought. 'The text is about space exploration' = topic. 'Space exploration has yielded technologies that benefit everyday life on Earth' = main idea. Summarising: restate main idea + key supporting details in your own words, shorter than original, accurate, objective (no personal opinion), leave out minor details. Strategies: (1) Identify main idea of each paragraph. (2) Distinguish essential from non-essential. (3) Combine paragraph main ideas into coherent summary. (4) Use your own words — avoid copying phrases."
+    },
+    {
+      "id": "eng-reading-1-n4",
+      "heading": "Text Structure and Organisation",
+      "body": "Authors organise texts intentionally. Common structures: Chronological (time order), Cause and effect, Compare and contrast, Problem and solution, Description/categorisation, Question and answer. Recognising structure helps you predict content, locate information, and understand relationships between ideas. Text features: headings/subheadings, introductions, conclusions, topic sentences, transition words, graphics/diagrams. In non-fiction, the first and last sentences of paragraphs often carry the most weight. Skim for structure first, then read deeply."
+    },
+    {
+      "id": "eng-reading-1-n5",
+      "heading": "Evaluating Arguments and Evidence",
+      "body": "When reading persuasive/argumentative texts, evaluate the quality of arguments: (1) Is the claim clear? (2) What evidence is provided? (3) Is the evidence relevant, sufficient, and credible? (4) Does the author acknowledge counter-arguments? (5) Are there logical fallacies? Common fallacies: Ad hominem (attacking person, not argument), Straw man (misrepresenting opposing view), False dichotomy (only two options when more exist), Appeal to emotion without logic. Strong arguments: claim + evidence + reasoning. Weak arguments: claim without support, emotional manipulation, sweeping generalisations."
+    },
+    {
+      "id": "eng-reading-1-n6",
+      "heading": "Comparing and Contrasting Texts",
+      "body": "Comparative analysis examines similarities and differences between texts. Start with surface features (topic, genre, audience, purpose), then analyse deeper (themes, perspectives, techniques, tone). Structure: point-by-point (alternate between texts on each point) OR block (discuss Text A fully, then Text B, then compare). The point-by-point method is generally stronger for MYP. Use comparative language: 'similarly,' 'in contrast,' 'both texts... however,' 'whereas Text A focuses on..., Text B emphasises...' MYP values synthesising multiple perspectives. Don't just list similarities/differences — evaluate their significance."
+    },
+    {
+      "id": "eng-reading-1-n7",
+      "heading": "Critical Response and Personal Engagement",
+      "body": "MYP values personal response informed by textual evidence. This means: you can (and should) have opinions about texts, but they must be grounded in evidence. 'I found the poem moving because...' must be followed by 'the imagery of... creates...' Avoid: purely subjective reaction ('I liked it'). Good: informed personal response ('The author's use of first-person narration created an intimacy that made the protagonist's struggle feel immediate and universal'). Questions for critical engagement: What surprised you? What questions does the text raise but not answer? Whose voice is missing? How might different readers interpret this differently?"
     }
   ],
   "flashcards": [
     {
-      "id": "eng-reading-1-read-f1",
+      "id": "eng-reading-1-f1",
       "term": "Inference",
-      "definition": "A conclusion drawn from evidence in the text rather than something the author states directly.",
-      "example": "If a character wraps their coat tighter, you can infer it is cold outside."
+      "definition": "Conclusion from textual evidence + reasoning — not directly stated but logically implied.",
+      "example": "'She wrapped her scarf tighter' → infer it is cold, even though never stated."
     },
     {
-      "id": "eng-reading-1-read-f2",
+      "id": "eng-reading-1-f2",
       "term": "Explicit information",
-      "definition": "Information that is stated clearly and directly in the text.",
-      "example": "\"The train arrived at 9 a.m.\" — stated outright."
+      "definition": "Information stated directly and clearly in the text — no interpretation needed.",
+      "example": "'The train arrived at 9 a.m.' No inference required."
     },
     {
-      "id": "eng-reading-1-read-f3",
-      "term": "Author's purpose",
-      "definition": "The reason an author writes: to inform, persuade, entertain, or describe."
+      "id": "eng-reading-1-f3",
+      "term": "Author's purpose (PIE)",
+      "definition": "Persuade, Inform, Entertain (+ Describe, Explain). Why did the author write this?",
+      "example": "News article = inform. Opinion column = persuade. Short story = entertain."
     },
     {
-      "id": "eng-reading-1-read-f4",
+      "id": "eng-reading-1-f4",
       "term": "Tone",
-      "definition": "The author's attitude or feeling towards the subject or audience, expressed through word choice.",
-      "example": "Formal tone uses precise language; humorous tone uses jokes or sarcasm."
+      "definition": "Author's attitude conveyed through word choice and style. Can be formal, sarcastic, sympathetic, etc.",
+      "example": "'The council, in its infinite wisdom, decided...' — sarcastic tone."
     },
     {
-      "id": "eng-reading-1-read-f5",
+      "id": "eng-reading-1-f5",
       "term": "Main idea",
-      "definition": "The most important point an author makes about a topic in a text or paragraph."
+      "definition": "What the author says ABOUT the topic — a complete thought, not just a subject.",
+      "example": "Topic: climate change. Main idea: climate change requires immediate international cooperation."
+    },
+    {
+      "id": "eng-reading-1-f6",
+      "term": "Bias",
+      "definition": "Preference/prejudice preventing objectivity. Detect by: loaded language, selective facts, one-sided presentation.",
+      "example": "A article only quoting one political party on an issue while ignoring others."
+    },
+    {
+      "id": "eng-reading-1-f7",
+      "term": "Summary",
+      "definition": "Restatement of main idea + key details in your own words, shorter than original, objective.",
+      "example": "Reduce a 500-word article to a 100-word summary capturing the essential argument."
+    },
+    {
+      "id": "eng-reading-1-f8",
+      "term": "Text structure",
+      "definition": "How a text is organised: chronological, cause-effect, compare-contrast, problem-solution.",
+      "example": "History textbook = chronological. Science article = cause-effect. Comparison essay = compare-contrast."
+    },
+    {
+      "id": "eng-reading-1-f9",
+      "term": "Logical fallacy",
+      "definition": "An error in reasoning that weakens an argument. Ad hominem, straw man, false dichotomy.",
+      "example": "'You can't trust her opinion on climate — she's not a scientist.' (ad hominem — attacks person, not argument)."
+    },
+    {
+      "id": "eng-reading-1-f10",
+      "term": "Ad hominem",
+      "definition": "Attacking the person making the argument rather than addressing the argument itself.",
+      "example": "'Of course he supports tax cuts — he's rich.' (attacks motive, not policy merits)."
+    },
+    {
+      "id": "eng-reading-1-f11",
+      "term": "Loaded language",
+      "definition": "Emotionally charged words used to influence readers rather than inform objectively.",
+      "example": "'Irresponsible politicians passed this disastrous law' vs 'The legislature approved the bill.'"
+    },
+    {
+      "id": "eng-reading-1-f12",
+      "term": "Comparative analysis",
+      "definition": "Examining similarities and differences between texts. Use 'similarly,' 'in contrast,' 'whereas.'",
+      "example": "Compare how two poets address the theme of loss — same theme, different techniques."
     }
   ],
   "questions": [
     {
-      "id": "eng-reading-1-read-q1",
-      "stem": "A text says: \"Maria glanced at her watch three times, tapped her foot, and kept looking at the door.\" What can you INFER?",
+      "id": "eng-reading-1-q1",
+      "stem": "'Maria glanced at her watch three times, tapped her foot, and kept looking at the door.' You can INFER:",
       "choices": [
-        "Maria is tired.",
-        "Maria is waiting anxiously for someone.",
-        "Maria is angry at someone in the room.",
-        "Maria wants to leave immediately."
+        "She's tired",
+        "She's waiting anxiously for someone",
+        "She's angry",
+        "She wants to leave"
       ],
       "correctIndex": 1,
-      "explanation": "Watch-checking, foot-tapping, and door-looking are all signs of nervous waiting — not directly stated, but inferred."
+      "explanation": "The correct answer is 'She's waiting anxiously for someone'. 'Maria glanced at her watch three times, tapped her foot, and kept looking at the door.' You can INFER:"
     },
     {
-      "id": "eng-reading-1-read-q2",
-      "stem": "Which is an example of EXPLICIT information?",
+      "id": "eng-reading-1-q2",
+      "stem": "Explicit information example:",
       "choices": [
-        "The character must be cold because she is shivering.",
-        "The story probably takes place in winter.",
-        "The temperature was -5°C according to the weather report.",
-        "The author seems to dislike the cold season."
+        "Character must be cold",
+        "Story takes place in winter",
+        "'The temperature was -5°C' — directly stated",
+        "Author dislikes winter"
       ],
       "correctIndex": 2,
-      "explanation": "Explicit information is directly stated in the text — like the specific temperature."
+      "explanation": "The correct answer is ''The temperature was -5°C' — directly stated'. Explicit information example:"
     },
     {
-      "id": "eng-reading-1-read-q3",
-      "stem": "A newspaper article presents facts and statistics about climate change without opinion. What is the author's likely purpose?",
+      "id": "eng-reading-1-q3",
+      "stem": "Neutral facts without opinion = purpose:",
       "choices": [
-        "To entertain",
-        "To persuade",
-        "To inform",
-        "To describe"
+        "Entertain",
+        "Persuade",
+        "Inform",
+        "Describe"
       ],
       "correctIndex": 2,
-      "explanation": "Presenting facts neutrally = purpose is to inform."
+      "explanation": "The correct answer is 'Inform'. Neutral facts without opinion = purpose:"
     },
     {
-      "id": "eng-reading-1-read-q4",
-      "stem": "What is the difference between a 'topic' and a 'main idea'?",
+      "id": "eng-reading-1-q4",
+      "stem": "Topic vs main idea:",
       "choices": [
-        "They are the same thing.",
-        "The topic is the subject; the main idea is what the author says about that subject.",
-        "The main idea is the subject; the topic is the author's opinion.",
-        "The topic is found in the conclusion; the main idea in the introduction."
+        "Same thing",
+        "Topic = subject; main idea = what author says about that subject",
+        "Main idea = subject",
+        "Topic is in conclusion"
       ],
       "correctIndex": 1,
-      "explanation": "Topic = subject (e.g. \"dogs\"). Main idea = claim about that subject (e.g. \"Dogs are better pets than cats\")."
+      "explanation": "The correct answer is 'Topic = subject; main idea = what author says about that subject'. Topic vs main idea:"
     },
     {
-      "id": "eng-reading-1-read-q5",
-      "stem": "Which word best describes the tone of: \"The council has, once again in its infinite wisdom, decided to close the only park\"?",
+      "id": "eng-reading-1-q5",
+      "stem": "'The council, in its infinite wisdom, closed the park.' Tone:",
       "choices": [
         "Formal",
-        "Sarcastic",
+        "Sarcastic — 'infinite wisdom' is ironic criticism",
         "Sympathetic",
         "Neutral"
       ],
       "correctIndex": 1,
-      "explanation": "\"Infinite wisdom\" is used ironically to criticise — this is sarcasm."
+      "explanation": "The correct answer is 'Sarcastic — 'infinite wisdom' is ironic criticism'. 'The council, in its infinite wisdom, closed the park.' Tone:"
+    },
+    {
+      "id": "eng-reading-1-q6",
+      "stem": "A news article only quoting one political party:",
+      "choices": [
+        "Good journalism",
+        "Shows bias — one-sided presentation",
+        "Is objective",
+        "Is entertaining"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Shows bias — one-sided presentation'. A news article only quoting one political party:"
+    },
+    {
+      "id": "eng-reading-1-q7",
+      "stem": "Ad hominem fallacy:",
+      "choices": [
+        "Using statistics",
+        "Attacking the person, not their argument",
+        "Using emotions",
+        "Comparing two things"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Attacking the person, not their argument'. Ad hominem fallacy:"
+    },
+    {
+      "id": "eng-reading-1-q8",
+      "stem": "A good summary:",
+      "choices": [
+        "Is longer than original",
+        "Captures main idea + key details in your own words, is shorter",
+        "Includes all minor details",
+        "Has your opinion"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Captures main idea + key details in your own words, is shorter'. A good summary:"
+    },
+    {
+      "id": "eng-reading-1-q9",
+      "stem": "Cause and effect structure:",
+      "choices": [
+        "Time order",
+        "Explains why something happened and what resulted",
+        "Compares two things",
+        "Lists categories"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Explains why something happened and what resulted'. Cause and effect structure:"
+    },
+    {
+      "id": "eng-reading-1-q10",
+      "stem": "'Irresponsible politicians passed this disastrous law' contains:",
+      "choices": [
+        "Facts",
+        "Loaded language — 'irresponsible,' 'disastrous' = emotionally charged",
+        "Statistics",
+        "Neutral reporting"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Loaded language — 'irresponsible,' 'disastrous' = emotionally charged'. 'Irresponsible politicians passed this disastrous law' contains:"
+    },
+    {
+      "id": "eng-reading-1-q11",
+      "stem": "MYP personal response should:",
+      "choices": [
+        "Just say 'I liked it'",
+        "Be grounded in textual evidence — opinion supported by analysis",
+        "Ignore the text",
+        "Only quote others"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Be grounded in textual evidence — opinion supported by analysis'. MYP personal response should:"
+    },
+    {
+      "id": "eng-reading-1-q12",
+      "stem": "Comparing texts: 'whereas Text A focuses on..., Text B emphasises...' This is:",
+      "choices": [
+        "Summarising",
+        "Comparative analysis",
+        "Inferencing",
+        "Describing"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Comparative analysis'. Comparing texts: 'whereas Text A focuses on..., Text B emphasises...' This is:"
+    },
+    {
+      "id": "eng-reading-1-q13",
+      "stem": "Skimming is:",
+      "choices": [
+        "Deep reading",
+        "Reading quickly for overall structure and main ideas",
+        "Memorising",
+        "Reading every word slowly"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Reading quickly for overall structure and main ideas'. Skimming is:"
+    },
+    {
+      "id": "eng-reading-1-q14",
+      "stem": "A straw man fallacy:",
+      "choices": [
+        "Attacking the person",
+        "Misrepresenting an opposing argument to make it easier to attack",
+        "Using false statistics",
+        "Appealing to authority"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Misrepresenting an opposing argument to make it easier to attack'. A straw man fallacy:"
+    },
+    {
+      "id": "eng-reading-1-q15",
+      "stem": "When a text says one thing but implies another, it uses:",
+      "choices": [
+        "Explicit meaning",
+        "Subtext/implicit meaning — meaning beneath the surface",
+        "Title",
+        "Conclusion"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Subtext/implicit meaning — meaning beneath the surface'. When a text says one thing but implies another, it uses:"
     }
   ]
 }

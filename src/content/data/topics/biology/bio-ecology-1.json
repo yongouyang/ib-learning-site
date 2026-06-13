@@ -2,114 +2,224 @@
   "id": "bio-ecology-1",
   "subjectId": "biology",
   "title": "Ecology & Ecosystems",
-  "description": "How living organisms interact with each other and their environment.",
+  "description": "How organisms interact with each other and their environment — food webs, biomes, adaptations, human impact, and conservation.",
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "bio-ecology-1-eco-n1",
+      "id": "bio-ecology-1-n1",
       "heading": "Ecosystems and Food Chains",
-      "body": "An ecosystem is all the living organisms (biotic factors) in an area together with the non-living environment (abiotic factors like temperature, light, and water). A food chain shows how energy flows from one organism to the next. It always starts with a producer (a green plant that photosynthesises). Herbivores (primary consumers) eat plants. Carnivores (secondary, tertiary consumers) eat animals. Each step is called a trophic level. Energy is lost at each level (mostly as heat), so chains rarely have more than 4–5 links."
+      "body": "An ecosystem consists of all the living organisms (biotic factors) in a defined area, together with the non-living environment (abiotic factors — temperature, light intensity, water availability, soil pH, oxygen levels). A food chain shows the linear flow of energy from one organism to the next. It always begins with a producer — a green plant or algae that photosynthesises, converting light energy into chemical energy. Primary consumers (herbivores) eat producers. Secondary consumers (carnivores) eat herbivores. Tertiary consumers eat secondary consumers. Each step in a food chain is a trophic level. At each trophic level, roughly 90% of energy is lost — mostly as heat from respiration, and partly in undigested material and waste. This means only about 10% of energy is transferred to the next level. This energy loss explains why food chains rarely exceed 4-5 trophic levels — there simply is not enough energy to support more. Pyramids of numbers, biomass, and energy visually represent these relationships."
     },
     {
-      "id": "bio-ecology-1-eco-n2",
+      "id": "bio-ecology-1-n2",
       "heading": "Food Webs and Interdependence",
-      "body": "A food web shows multiple food chains linked together. If one species is removed, it affects many others — this is called interdependence. For example, if rabbits in a meadow were removed, foxes would have less food and grass would grow more. Biodiversity (the variety of species) makes ecosystems more stable and resilient to change."
+      "body": "A food web is a network of interconnected food chains showing all the feeding relationships in an ecosystem. It is a more realistic model than a single chain because most organisms eat (or are eaten by) multiple species. Interdependence means all organisms in a food web depend on each other. If one species is removed or declines, it has knock-on effects throughout the web. Example: if aphids (which feed on rose plants) are killed by pesticide → ladybirds (which eat aphids) lose their food source → ladybird population crashes → birds that eat ladybirds may also decline. Meanwhile, rose plants may flourish without aphids feeding on them. A keystone species is one that has a disproportionately large effect on its ecosystem relative to its abundance — removing it can cause ecosystem collapse (e.g., sea otters controlling sea urchin populations in kelp forests). Biodiversity — the variety of different species and their genetic variation — makes ecosystems more stable and resilient to change. High biodiversity means if one food source disappears, organisms have alternatives."
     },
     {
-      "id": "bio-ecology-1-eco-n3",
+      "id": "bio-ecology-1-n3",
+      "heading": "Biomes: The World's Major Ecosystems",
+      "body": "A biome is a large-scale ecosystem defined by its climate and dominant vegetation. Major biomes: (1) Tropical rainforest — hot, wet year-round; highest biodiversity on Earth; multi-layered canopy; nutrient-poor soil (nutrients locked in biomass). (2) Desert — very low rainfall (<250 mm/year), extreme temperature swings; plants (cacti, succulents) store water and have spines instead of leaves; animals are often nocturnal. (3) Temperate deciduous forest — moderate rainfall, four distinct seasons; trees lose leaves in winter; typical of UK, eastern US, China. (4) Grassland (savanna) — seasonal rainfall, dominated by grasses; large grazing herbivores (zebra, wildebeest) and predators. (5) Tundra — extremely cold, permafrost (permanently frozen ground); low-growing plants (mosses, lichens); short growing season. (6) Taiga (boreal forest) — cold, coniferous forest; trees have needle-like leaves to reduce water loss. (7) Aquatic biomes — marine (oceans, coral reefs) and freshwater (rivers, lakes, wetlands). Each biome has characteristic adaptations in its organisms."
+    },
+    {
+      "id": "bio-ecology-1-n4",
+      "heading": "Adaptations to Environment",
+      "body": "An adaptation is a feature that enables an organism to survive and reproduce in its habitat. Adaptations can be structural (physical features), behavioural (actions), or physiological (internal processes). Desert examples: Camel — hump stores fat (not water!), can tolerate body temperature rise, long eyelashes and closable nostrils against sand, wide feet for sand walking. Cactus — thick waxy cuticle reduces water loss, spines instead of leaves (reduced surface area), shallow but extensive roots for quick water absorption, stem stores water and is green for photosynthesis. Arctic examples: Polar bear — thick white fur (camouflage + insulation), black skin absorbs heat, layer of blubber, large feet distribute weight on snow/ice. Arctic fox — coat changes colour (white in winter, brown in summer), small ears reduce heat loss, fur on foot pads. Plant adaptations to low water (xerophytes): small leaves/spines, stomata sunk in pits, thick cuticle, extensive root systems, water storage tissues. These adaptations arise through natural selection over many generations."
+    },
+    {
+      "id": "bio-ecology-1-n5",
+      "heading": "Sampling Techniques: Estimating Population Sizes",
+      "body": "Ecologists cannot count every organism in an ecosystem, so they use sampling techniques to estimate population sizes. Quadrat sampling (for plants and slow-moving animals): (1) A quadrat is a square frame (typically 0.5 m × 0.5 m = 0.25 m² or 1 m × 1 m = 1 m²). (2) Place quadrats randomly in the study area (use random number coordinates to avoid bias). (3) Count the number of the target organism inside each quadrat. (4) Repeat multiple times (minimum 10 quadrats for a reliable mean). (5) Estimate total population: mean count per quadrat × (total area ÷ quadrat area). Transect sampling (for studying distribution along an environmental gradient): a line (or belt) is laid across the habitat. Quadrats are placed at regular intervals along the line. This reveals how organisms are distributed in relation to factors like distance from water, light, or altitude. Capture-mark-recapture (for mobile animals): (1) Capture a sample, mark them harmlessly, release. (2) Later, capture a second sample. (3) Use the Lincoln Index: estimated population = (number in first sample × number in second sample) ÷ number of marked individuals recaptured. Assumptions: marks are not lost, population is closed (no births/deaths/migration), marking does not affect survival."
+    },
+    {
+      "id": "bio-ecology-1-n6",
       "heading": "The Carbon and Nitrogen Cycles",
-      "body": "Carbon cycles via photosynthesis (plants absorb CO₂), respiration (organisms release CO₂), feeding (carbon moves through food chains), decomposition (decomposers release CO₂), and combustion. Nitrogen cycles: nitrogen-fixing bacteria convert N₂ into nitrates; plants absorb nitrates; consumers eat plants; decomposers break down dead matter; nitrifying bacteria convert ammonium to nitrates; denitrifying bacteria convert nitrates back to N₂."
+      "body": "Elements are continuously recycled in ecosystems. The carbon cycle: Carbon enters the atmosphere as CO₂. Plants remove CO₂ through photosynthesis, converting it into organic carbon compounds. Carbon moves through food chains via feeding. It returns to the atmosphere through: respiration by all living organisms, decomposition by bacteria and fungi (releasing CO₂ from dead matter), and combustion of fossil fuels (coal, oil, gas — formed from ancient organisms). In oceans, CO₂ dissolves and is used by marine organisms for shells (calcium carbonate). The nitrogen cycle: Nitrogen gas (N₂) makes up 78% of the atmosphere but is unusable by most organisms. Key steps: (1) Nitrogen fixation — nitrogen-fixing bacteria (free-living in soil or symbiotic in root nodules of legumes like peas and beans) convert N₂ → ammonium/ammonia. Lightning can also fix small amounts. (2) Nitrification — nitrifying bacteria convert ammonium → nitrites → nitrates (NO₃⁻, the form plants can absorb). (3) Assimilation — plants absorb nitrates through roots and use them to make proteins. Animals obtain nitrogen by eating plants or other animals. (4) Ammonification — decomposers break down dead organisms and waste, returning ammonium to the soil. (5) Denitrification — denitrifying bacteria convert nitrates back into N₂ gas, returning it to the atmosphere. This completes the cycle."
+    },
+    {
+      "id": "bio-ecology-1-n7",
+      "heading": "Human Impact on Ecosystems and Conservation",
+      "body": "Human activities are causing rapid changes to ecosystems worldwide. Key impacts: (1) Deforestation — clearing forests for agriculture, timber, and urban development. Consequences: habitat loss and species extinction, reduced CO₂ absorption (worsening climate change), soil erosion, disruption of water cycles. (2) Climate change — burning fossil fuels releases CO₂ and methane (greenhouse gases), trapping heat. Effects: rising global temperatures, melting ice caps, sea level rise, more extreme weather, shifting biome boundaries, coral bleaching. (3) Pollution — air (SO₂ from factories causes acid rain, damaging forests and lakes), water (fertiliser runoff causes eutrophication — algal blooms that deplete oxygen, killing aquatic life), land (plastic waste, toxic chemicals). (4) Overfishing and overhunting — removing species faster than they can reproduce. (5) Introduction of invasive species — non-native species that outcompete or prey on native species (e.g., cane toads in Australia, grey squirrels in the UK). Conservation strategies: Protected areas (national parks, nature reserves), captive breeding and reintroduction programmes, sustainable resource management (quotas, replanting), laws and international agreements (CITES — regulating wildlife trade), reducing/reusing/recycling, habitat restoration. Biodiversity is valuable for ecosystem services (pollination, water purification, soil formation) and for future resources (potential medicines, crop wild relatives)."
     }
   ],
   "flashcards": [
     {
-      "id": "bio-ecology-1-eco-f1",
+      "id": "bio-ecology-1-f1",
       "term": "Producer",
-      "definition": "An organism that makes its own food through photosynthesis, forming the base of food chains.",
-      "example": "Grass, trees, algae."
+      "definition": "An organism that makes its own food through photosynthesis, converting light energy into chemical energy. Forms the base of every food chain.",
+      "example": "Grass, trees, algae, phytoplankton."
     },
     {
-      "id": "bio-ecology-1-eco-f2",
+      "id": "bio-ecology-1-f2",
       "term": "Consumer",
-      "definition": "An organism that obtains energy by eating other organisms.",
-      "example": "A rabbit (primary consumer) eats grass; a fox (secondary consumer) eats rabbits."
+      "definition": "An organism that obtains energy by eating other organisms. Primary consumers eat producers; secondary consumers eat primary consumers.",
+      "example": "Rabbit (primary consumer eating grass); fox (secondary consumer eating rabbit)."
     },
     {
-      "id": "bio-ecology-1-eco-f3",
+      "id": "bio-ecology-1-f3",
       "term": "Food web",
-      "definition": "A diagram showing the feeding relationships between all organisms in an ecosystem — multiple food chains linked together."
+      "definition": "A network of interconnected food chains showing all feeding relationships in an ecosystem — more realistic than a single chain.",
+      "example": "In a pond web: algae → mayfly → stickleback → heron; mayfly also eaten by frog; stickleback also eaten by kingfisher."
     },
     {
-      "id": "bio-ecology-1-eco-f4",
+      "id": "bio-ecology-1-f4",
       "term": "Decomposer",
-      "definition": "An organism (like bacteria or fungi) that breaks down dead organic matter, recycling nutrients back into the soil."
+      "definition": "An organism (bacteria or fungi) that breaks down dead organic matter and waste, recycling nutrients back into the ecosystem.",
+      "example": "Mushrooms (fungi) decomposing a fallen log, releasing minerals back into the soil."
     },
     {
-      "id": "bio-ecology-1-eco-f5",
+      "id": "bio-ecology-1-f5",
       "term": "Biodiversity",
-      "definition": "The variety of different species living in an ecosystem. High biodiversity makes ecosystems more stable."
+      "definition": "The variety of different species and their genetic variation within an ecosystem. High biodiversity increases ecosystem stability and resilience.",
+      "example": "A tropical rainforest has vastly higher biodiversity than a wheat field (monoculture)."
+    },
+    {
+      "id": "bio-ecology-1-f6",
+      "term": "Biome",
+      "definition": "A large-scale ecosystem defined by its climate, geography, and characteristic plant and animal communities.",
+      "example": "Tropical rainforests (hot, wet, high biodiversity); deserts (dry, extreme temperatures); tundra (cold, permafrost)."
+    },
+    {
+      "id": "bio-ecology-1-f7",
+      "term": "Adaptation",
+      "definition": "A structural, behavioural, or physiological feature that helps an organism survive and reproduce in its specific habitat.",
+      "example": "Camel's hump stores fat for energy; polar bear's white fur provides camouflage and insulation."
+    },
+    {
+      "id": "bio-ecology-1-f8",
+      "term": "Quadrat",
+      "definition": "A square frame (commonly 0.5 m × 0.5 m) used in sampling to estimate population size and distribution of organisms in a habitat.",
+      "example": "Placing 10 random quadrats in a field and counting dandelions in each to estimate the total dandelion population."
+    },
+    {
+      "id": "bio-ecology-1-f9",
+      "term": "Trophic level",
+      "definition": "Each feeding level in a food chain: level 1 = producers, level 2 = primary consumers, level 3 = secondary consumers, etc.",
+      "example": "Grass (trophic level 1) → Grasshopper (level 2) → Frog (level 3) → Hawk (level 4)."
+    },
+    {
+      "id": "bio-ecology-1-f10",
+      "term": "Eutrophication",
+      "definition": "The process where excess fertilisers in water cause algal blooms; when algae die and decompose, oxygen is depleted, killing aquatic life.",
+      "example": "Farm runoff carrying nitrates and phosphates into a lake can trigger eutrophication and create a dead zone."
+    },
+    {
+      "id": "bio-ecology-1-f11",
+      "term": "Nitrogen fixation",
+      "definition": "The conversion of atmospheric N₂ gas into ammonium/ammonia by nitrogen-fixing bacteria (free-living or in legume root nodules).",
+      "example": "Clover plants host Rhizobium bacteria in root nodules that fix nitrogen, enriching the soil naturally."
+    },
+    {
+      "id": "bio-ecology-1-f12",
+      "term": "Conservation",
+      "definition": "The protection, preservation, and sustainable management of ecosystems, species, and natural resources for future generations.",
+      "example": "National parks, captive breeding programmes (e.g., giant panda), and laws like CITES protect endangered species."
     }
   ],
   "questions": [
     {
-      "id": "bio-ecology-1-eco-q1",
-      "stem": "In a food chain, which organism is always at the start (the producer)?",
-      "choices": [
-        "A carnivore",
-        "A decomposer",
-        "A herbivore",
-        "A green plant"
-      ],
+      "id": "bio-ecology-1-q1",
+      "stem": "In a food chain, which organism always occupies the first trophic level?",
+      "choices": ["A carnivore", "A decomposer", "A herbivore", "A producer (green plant or alga)"],
       "correctIndex": 3,
-      "explanation": "Producers (green plants) make their own food using photosynthesis. They form the energy base for all other organisms."
+      "explanation": "Producers (green plants and algae) convert light energy into chemical energy through photosynthesis. They form the energy base that supports all other trophic levels."
     },
     {
-      "id": "bio-ecology-1-eco-q2",
-      "stem": "Why is energy lost at each step in a food chain?",
-      "choices": [
-        "Energy is destroyed when organisms eat each other",
-        "Most energy is released as heat during respiration and not passed on",
-        "Organisms use energy to produce oxygen",
-        "Energy turns into matter at each trophic level"
-      ],
+      "id": "bio-ecology-1-q2",
+      "stem": "Why is only about 10% of energy transferred between trophic levels?",
+      "choices": ["Energy is destroyed when organisms eat each other", "Most energy is lost as heat from respiration, and some is lost in undigested food and waste", "Organisms convert the remaining 90% into oxygen", "Energy turns into matter at each level"],
       "correctIndex": 1,
-      "explanation": "At each trophic level, organisms use much of the energy for their own respiration, releasing it as heat. Only about 10% is transferred to the next level."
+      "explanation": "At each trophic level, organisms use most of the consumed energy for their own respiration (releasing it as heat). Some energy is also lost in undigested material. Only about 10% becomes new biomass available to the next level."
     },
     {
-      "id": "bio-ecology-1-eco-q3",
-      "stem": "If the population of rabbits in a food web suddenly crashed, what would most likely happen to the fox population?",
-      "choices": [
-        "It would increase",
-        "It would stay the same",
-        "It would decrease",
-        "It would move to a different ecosystem"
-      ],
+      "id": "bio-ecology-1-q3",
+      "stem": "If a disease kills most rabbits in a woodland ecosystem, what is most likely to happen to the fox population?",
+      "choices": ["Foxes will increase because there is less competition", "Foxes will stay the same — they can eat other things", "Foxes will decrease because their main food source has declined", "Foxes will move to a new trophic level"],
       "correctIndex": 2,
-      "explanation": "If rabbits (a food source for foxes) decrease, foxes will have less food and their population will decrease."
+      "explanation": "Rabbits are a primary food source for foxes. With fewer rabbits available, foxes will struggle to find enough food, and their population will decline. This is interdependence in action."
     },
     {
-      "id": "bio-ecology-1-eco-q4",
+      "id": "bio-ecology-1-q4",
       "stem": "What role do decomposers play in nutrient cycles?",
-      "choices": [
-        "They produce oxygen for other organisms",
-        "They convert sunlight into chemical energy",
-        "They break down dead organisms and return nutrients to the soil",
-        "They fix nitrogen directly from the atmosphere"
-      ],
+      "choices": ["They produce oxygen for other organisms", "They convert sunlight into chemical energy", "They break down dead organisms and waste, returning nutrients like carbon and nitrogen to the soil for reuse", "They fix nitrogen directly from the atmosphere"],
       "correctIndex": 2,
-      "explanation": "Decomposers (bacteria and fungi) break down dead organic matter, releasing nutrients back into the soil."
+      "explanation": "Decomposers (bacteria and fungi) break down dead organic matter, releasing carbon (as CO₂) and nitrogen (as ammonium) back into the environment — recycling nutrients that producers can reuse."
     },
     {
-      "id": "bio-ecology-1-eco-q5",
-      "stem": "What does \"biodiversity\" mean?",
-      "choices": [
-        "The total mass of all living organisms in an area",
-        "The number of individuals in a single species",
-        "The variety of different species in an ecosystem",
-        "The amount of food energy available in an ecosystem"
-      ],
+      "id": "bio-ecology-1-q5",
+      "stem": "What does 'biodiversity' measure?",
+      "choices": ["The total mass of all organisms in an area", "The number of individuals in the most common species", "The variety of different species and their genetic variation in an ecosystem", "The amount of energy available at each trophic level"],
       "correctIndex": 2,
-      "explanation": "Biodiversity refers to the variety of species present. High biodiversity indicates a healthy ecosystem."
+      "explanation": "Biodiversity encompasses species richness (number of species), genetic diversity within species, and ecosystem diversity. High biodiversity makes ecosystems more resilient to change."
+    },
+    {
+      "id": "bio-ecology-1-q6",
+      "stem": "A camel has long eyelashes, closable nostrils, and wide feet. These are all adaptations to which biome?",
+      "choices": ["Tropical rainforest", "Tundra", "Desert", "Temperate deciduous forest"],
+      "correctIndex": 2,
+      "explanation": "These are desert adaptations. Long eyelashes and closable nostrils protect against blowing sand; wide feet prevent sinking into soft sand."
+    },
+    {
+      "id": "bio-ecology-1-q7",
+      "stem": "A student places a quadrat randomly 10 times in a field and counts an average of 4 dandelions per quadrat. The quadrat is 0.25 m² and the field is 100 m². What is the estimated total dandelion population?",
+      "choices": ["400", "1600", "1000", "40"],
+      "correctIndex": 1,
+      "explanation": "Number of quadrats that fit in the field = 100 ÷ 0.25 = 400. Mean per quadrat = 4. Estimated total = 400 × 4 = 1600 dandelions."
+    },
+    {
+      "id": "bio-ecology-1-q8",
+      "stem": "Eutrophication in a lake is most likely caused by:",
+      "choices": ["Oil spills from boats", "Fertiliser runoff from nearby farms, adding nitrates and phosphates to the water", "Acid rain from factories", "Plastic pollution"],
+      "correctIndex": 1,
+      "explanation": "Fertilisers rich in nitrates and phosphates wash into water bodies. These nutrients fuel explosive algal growth (algal bloom). When algae die and decompose, oxygen is consumed, suffocating fish and other aquatic life."
+    },
+    {
+      "id": "bio-ecology-1-q9",
+      "stem": "Which process in the nitrogen cycle converts ammonium into nitrates that plants can absorb?",
+      "choices": ["Nitrogen fixation", "Denitrification", "Nitrification", "Ammonification"],
+      "correctIndex": 2,
+      "explanation": "Nitrification is a two-step process carried out by nitrifying bacteria: ammonium (NH₄⁺) → nitrite (NO₂⁻) → nitrate (NO₃⁻). Plants absorb nitrates through their roots."
+    },
+    {
+      "id": "bio-ecology-1-q10",
+      "stem": "Fossil fuels (coal, oil, gas) are formed from:",
+      "choices": ["Minerals compressed underground for millions of years", "The remains of ancient living organisms buried and compressed over millions of years", "Volcanic activity trapping carbon dioxide", "Modern plant material that has been burned and compressed"],
+      "correctIndex": 1,
+      "explanation": "Fossil fuels are formed from ancient organisms (plants for coal; marine plankton for oil and gas) that were buried under sediment and subjected to heat and pressure over millions of years."
+    },
+    {
+      "id": "bio-ecology-1-q11",
+      "stem": "Why do food chains rarely have more than 4 or 5 trophic levels?",
+      "choices": ["Predators at the top are too large to be eaten", "There is not enough energy remaining at higher trophic levels to support another level", "Top predators deliberately limit the number of levels", "Producers cannot produce enough oxygen beyond 5 levels"],
+      "correctIndex": 1,
+      "explanation": "With only ~10% energy transfer between levels, the energy available becomes vanishingly small at higher trophic levels. By level 5 or 6, there is too little energy to support a viable population."
+    },
+    {
+      "id": "bio-ecology-1-q12",
+      "stem": "What is a key difference between a food chain and a food web?",
+      "choices": ["A food chain includes decomposers; a food web does not", "A food chain shows a single linear pathway of energy flow; a food web shows all interconnected feeding relationships", "A food web is simpler and less accurate", "A food chain shows energy, a food web shows matter cycling"],
+      "correctIndex": 1,
+      "explanation": "A food chain is a single linear sequence. A food web is a complex network of many interconnected food chains, giving a more realistic picture of an ecosystem's feeding relationships."
+    },
+    {
+      "id": "bio-ecology-1-q13",
+      "stem": "Why does deforestation contribute to climate change?",
+      "choices": ["Trees release CO₂ when they are cut down, and fewer trees means less CO₂ is removed from the atmosphere by photosynthesis", "Deforestation destroys the ozone layer", "Cut trees release methane, a greenhouse gas", "Forests generate heat, so removing them cools the planet"],
+      "correctIndex": 0,
+      "explanation": "Forests act as carbon sinks — they absorb and store CO₂ through photosynthesis. When forests are burned or decompose, stored carbon is released. Additionally, fewer trees mean less ongoing CO₂ absorption."
+    },
+    {
+      "id": "bio-ecology-1-q14",
+      "stem": "A farmer grows peas (a legume) in a field one year, then wheat the next year. Why does this crop rotation benefit the soil?",
+      "choices": ["Peas add oxygen to the soil that wheat needs", "Nitrogen-fixing bacteria in pea root nodules add nitrates to the soil, reducing the need for fertiliser for the next wheat crop", "Peas remove pests that would attack wheat", "Peas produce a natural pesticide"],
+      "correctIndex": 1,
+      "explanation": "Legumes (peas, beans, clover) host nitrogen-fixing bacteria (Rhizobium) in root nodules. These bacteria convert atmospheric N₂ into ammonium, enriching the soil with nitrates for the next crop."
+    },
+    {
+      "id": "bio-ecology-1-q15",
+      "stem": "An invasive species is introduced to an island. Which characteristic would make it MOST likely to become a serious problem?",
+      "choices": ["It is brightly coloured", "It has no natural predators on the island and reproduces rapidly, outcompeting native species for resources", "It is larger than the native species", "It only eats one specific type of plant"],
+      "correctIndex": 1,
+      "explanation": "Without natural predators, parasites, or competitors to control its population, an invasive species can reproduce exponentially, outcompete or prey on native species, and disrupt the entire ecosystem."
     }
   ]
 }

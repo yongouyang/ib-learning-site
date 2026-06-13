@@ -10,6 +10,12 @@ import bio_cell_1_json from './data/topics/biology/bio-cell-1.json';
 import bio_ecology_1_json from './data/topics/biology/bio-ecology-1.json';
 import bio_genetics_1_json from './data/topics/biology/bio-genetics-1.json';
 import bio_photosynthesis_1_json from './data/topics/biology/bio-photosynthesis-1.json';
+import bio_reproduction_1_json from './data/topics/biology/bio-reproduction-1.json';
+import bio_classification_1_json from './data/topics/biology/bio-classification-1.json';
+import bio_respiration_1_json from './data/topics/biology/bio-respiration-1.json';
+import bio_health_1_json from './data/topics/biology/bio-health-1.json';
+import bio_plants_1_json from './data/topics/biology/bio-plants-1.json';
+import bio_practical_1_json from './data/topics/biology/bio-practical-1.json';
 
 // Chemistry topics
 import chem_acids_1_json from './data/topics/chemistry/chem-acids-1.json';
@@ -17,6 +23,11 @@ import chem_atomic_1_json from './data/topics/chemistry/chem-atomic-1.json';
 import chem_bonding_1_json from './data/topics/chemistry/chem-bonding-1.json';
 import chem_changes_1_json from './data/topics/chemistry/chem-changes-1.json';
 import chem_periodic_1_json from './data/topics/chemistry/chem-periodic-1.json';
+import chem_states_1_json from './data/topics/chemistry/chem-states-1.json';
+import chem_mixtures_1_json from './data/topics/chemistry/chem-mixtures-1.json';
+import chem_metals_1_json from './data/topics/chemistry/chem-metals-1.json';
+import chem_rates_1_json from './data/topics/chemistry/chem-rates-1.json';
+import chem_earth_1_json from './data/topics/chemistry/chem-earth-1.json';
 
 // English topics
 import eng_essay_1_json from './data/topics/english/eng-essay-1.json';
@@ -24,6 +35,11 @@ import eng_figurative_1_json from './data/topics/english/eng-figurative-1.json';
 import eng_narrative_1_json from './data/topics/english/eng-narrative-1.json';
 import eng_poetry_1_json from './data/topics/english/eng-poetry-1.json';
 import eng_reading_1_json from './data/topics/english/eng-reading-1.json';
+import eng_grammar_1_json from './data/topics/english/eng-grammar-1.json';
+import eng_persuasive_1_json from './data/topics/english/eng-persuasive-1.json';
+import eng_nonfiction_1_json from './data/topics/english/eng-nonfiction-1.json';
+import eng_creative_1_json from './data/topics/english/eng-creative-1.json';
+import eng_speaking_1_json from './data/topics/english/eng-speaking-1.json';
 
 // Math topics
 import math_algebra_1_json from './data/topics/math/math-algebra-1.json';
@@ -76,6 +92,11 @@ import phys_energy_1_json from './data/topics/physics/phys-energy-1.json';
 import phys_forces_1_json from './data/topics/physics/phys-forces-1.json';
 import phys_magnetism_1_json from './data/topics/physics/phys-magnetism-1.json';
 import phys_waves_1_json from './data/topics/physics/phys-waves-1.json';
+import phys_space_1_json from './data/topics/physics/phys-space-1.json';
+import phys_light_1_json from './data/topics/physics/phys-light-1.json';
+import phys_pressure_1_json from './data/topics/physics/phys-pressure-1.json';
+import phys_particles_1_json from './data/topics/physics/phys-particles-1.json';
+import phys_radioactivity_1_json from './data/topics/physics/phys-radioactivity-1.json';
 
 // Validate all imported topics
 const bio_body_1: Topic = topicSchema.parse(bio_body_1_json);
@@ -83,16 +104,32 @@ const bio_cell_1: Topic = topicSchema.parse(bio_cell_1_json);
 const bio_ecology_1: Topic = topicSchema.parse(bio_ecology_1_json);
 const bio_genetics_1: Topic = topicSchema.parse(bio_genetics_1_json);
 const bio_photosynthesis_1: Topic = topicSchema.parse(bio_photosynthesis_1_json);
+const bio_reproduction_1: Topic = topicSchema.parse(bio_reproduction_1_json);
+const bio_classification_1: Topic = topicSchema.parse(bio_classification_1_json);
+const bio_respiration_1: Topic = topicSchema.parse(bio_respiration_1_json);
+const bio_health_1: Topic = topicSchema.parse(bio_health_1_json);
+const bio_plants_1: Topic = topicSchema.parse(bio_plants_1_json);
+const bio_practical_1: Topic = topicSchema.parse(bio_practical_1_json);
 const chem_acids_1: Topic = topicSchema.parse(chem_acids_1_json);
 const chem_atomic_1: Topic = topicSchema.parse(chem_atomic_1_json);
 const chem_bonding_1: Topic = topicSchema.parse(chem_bonding_1_json);
 const chem_changes_1: Topic = topicSchema.parse(chem_changes_1_json);
 const chem_periodic_1: Topic = topicSchema.parse(chem_periodic_1_json);
+const chem_states_1: Topic = topicSchema.parse(chem_states_1_json);
+const chem_mixtures_1: Topic = topicSchema.parse(chem_mixtures_1_json);
+const chem_metals_1: Topic = topicSchema.parse(chem_metals_1_json);
+const chem_rates_1: Topic = topicSchema.parse(chem_rates_1_json);
+const chem_earth_1: Topic = topicSchema.parse(chem_earth_1_json);
 const eng_essay_1: Topic = topicSchema.parse(eng_essay_1_json);
 const eng_figurative_1: Topic = topicSchema.parse(eng_figurative_1_json);
 const eng_narrative_1: Topic = topicSchema.parse(eng_narrative_1_json);
 const eng_poetry_1: Topic = topicSchema.parse(eng_poetry_1_json);
 const eng_reading_1: Topic = topicSchema.parse(eng_reading_1_json);
+const eng_grammar_1: Topic = topicSchema.parse(eng_grammar_1_json);
+const eng_persuasive_1: Topic = topicSchema.parse(eng_persuasive_1_json);
+const eng_nonfiction_1: Topic = topicSchema.parse(eng_nonfiction_1_json);
+const eng_creative_1: Topic = topicSchema.parse(eng_creative_1_json);
+const eng_speaking_1: Topic = topicSchema.parse(eng_speaking_1_json);
 const math_algebra_1: Topic = topicSchema.parse(math_algebra_1_json);
 const math_dp_binomial: Topic = topicSchema.parse(math_dp_binomial_json);
 const math_dp_complex_numbers: Topic = topicSchema.parse(math_dp_complex_numbers_json);
@@ -141,6 +178,11 @@ const phys_energy_1: Topic = topicSchema.parse(phys_energy_1_json);
 const phys_forces_1: Topic = topicSchema.parse(phys_forces_1_json);
 const phys_magnetism_1: Topic = topicSchema.parse(phys_magnetism_1_json);
 const phys_waves_1: Topic = topicSchema.parse(phys_waves_1_json);
+const phys_space_1: Topic = topicSchema.parse(phys_space_1_json);
+const phys_light_1: Topic = topicSchema.parse(phys_light_1_json);
+const phys_pressure_1: Topic = topicSchema.parse(phys_pressure_1_json);
+const phys_particles_1: Topic = topicSchema.parse(phys_particles_1_json);
+const phys_radioactivity_1: Topic = topicSchema.parse(phys_radioactivity_1_json);
 
 const validatedSubjectsMeta = subjectMetaSchema.array().parse(subjectsMeta);
 
@@ -155,7 +197,7 @@ const biologySubject: Subject = {
   name: biologyMeta.name,
   icon: biologyMeta.icon,
   accentColor: biologyMeta.accentColor,
-  topics: [bio_body_1, bio_cell_1, bio_ecology_1, bio_genetics_1, bio_photosynthesis_1],
+  topics: [bio_body_1, bio_cell_1, bio_ecology_1, bio_genetics_1, bio_photosynthesis_1, bio_reproduction_1, bio_classification_1, bio_respiration_1, bio_health_1, bio_plants_1, bio_practical_1],
 };
 
 const englishSubject: Subject = {
@@ -163,7 +205,7 @@ const englishSubject: Subject = {
   name: englishMeta.name,
   icon: englishMeta.icon,
   accentColor: englishMeta.accentColor,
-  topics: [eng_essay_1, eng_figurative_1, eng_narrative_1, eng_poetry_1, eng_reading_1],
+  topics: [eng_essay_1, eng_figurative_1, eng_narrative_1, eng_poetry_1, eng_reading_1, eng_grammar_1, eng_persuasive_1, eng_nonfiction_1, eng_creative_1, eng_speaking_1],
 };
 
 const chemistrySubject: Subject = {
@@ -171,7 +213,7 @@ const chemistrySubject: Subject = {
   name: chemistryMeta.name,
   icon: chemistryMeta.icon,
   accentColor: chemistryMeta.accentColor,
-  topics: [chem_acids_1, chem_atomic_1, chem_bonding_1, chem_changes_1, chem_periodic_1],
+  topics: [chem_acids_1, chem_atomic_1, chem_bonding_1, chem_changes_1, chem_periodic_1, chem_states_1, chem_mixtures_1, chem_metals_1, chem_rates_1, chem_earth_1],
 };
 
 const physicsSubject: Subject = {
@@ -179,7 +221,7 @@ const physicsSubject: Subject = {
   name: physicsMeta.name,
   icon: physicsMeta.icon,
   accentColor: physicsMeta.accentColor,
-  topics: [phys_electricity_1, phys_energy_1, phys_forces_1, phys_magnetism_1, phys_waves_1],
+  topics: [phys_electricity_1, phys_energy_1, phys_forces_1, phys_magnetism_1, phys_waves_1, phys_space_1, phys_light_1, phys_pressure_1, phys_particles_1, phys_radioactivity_1],
 };
 
 const mathSubject: Subject = {

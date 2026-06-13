@@ -1,60 +1,120 @@
 {
   "id": "eng-narrative-1",
   "subjectId": "english",
-  "title": "Narrative Techniques",
-  "description": "How authors craft stories using perspective, structure, and voice.",
+  "title": "Narrative Techniques & Storytelling",
+  "description": "How stories work — point of view, structure, characterisation, setting, pacing, tension, and narrative voice.",
   "ibLevel": "MYP",
   "notes": [
     {
       "id": "eng-narrative-1-n1",
-      "heading": "Point of View",
-      "body": "First person uses \"I/me\" — feels personal. Third person limited follows one character. Third person omniscient knows all characters' thoughts. POV shapes what the reader knows and how much they trust the narrator."
+      "heading": "Point of View (POV)",
+      "body": "First person ('I/me'): intimate, subjective — reader experiences events through one character's eyes. Unreliable narrator: first-person narrator who misleads readers (intentionally or not) — creates dramatic irony and demands critical reading. Second person ('you'): rare — directly addresses reader. Creates immediacy, used in choose-your-own-adventure and some literary fiction. Third person limited: follows ONE character's thoughts/feelings — 'he thought,' 'she felt.' More objective than first person but still filtered. Third person omniscient: all-knowing narrator can describe any character's thoughts and feelings, move freely through time and space. POV shapes everything: what reader knows, whose perspective is privileged, how much trust we place in narration."
     },
     {
       "id": "eng-narrative-1-n2",
       "heading": "Narrative Structure",
-      "body": "Most stories follow: exposition (setup) → rising action (conflict builds) → climax (peak tension) → falling action → resolution. This is Freytag's Pyramid. Some authors play with this order for suspense."
+      "body": "Classic Freytag's Pyramid: Exposition (characters, setting, situation introduced) → Rising action (conflicts develop, complications arise) → Climax (moment of highest tension, turning point) → Falling action (consequences unfold) → Resolution/Dénouement (conflicts resolved or deliberately left open). Non-linear structures: In medias res — starting in the middle of action, then revealing backstory. Frame narrative — a story within a story (Wuthering Heights, Frankenstein). Reverse chronology — told backwards. Circular narrative — ends where it begins. Episodic — separate stories linked by theme/character. Modern and postmodern works often deliberately disrupt conventional structure."
     },
     {
       "id": "eng-narrative-1-n3",
-      "heading": "Foreshadowing and Flashback",
-      "body": "Foreshadowing: hints early about later events. Flashback: jumps back in time to show earlier events. Both control what readers know and when."
+      "heading": "Foreshadowing, Flashback and Pacing",
+      "body": "Foreshadowing: hints planted early about later events. Can be subtle (symbolic imagery) or direct (prophecy). Creates anticipation and reread value. Flashback (analepsis): interrupts present to show past events — reveals backstory, motivation, or hidden information. Flash-forward (prolepsis): glimpses the future. Pacing: how quickly events unfold. Short sentences, rapid scene changes, and action sequences accelerate pacing. Long descriptive passages, internal monologue, and detailed setting slow pacing. Authors vary pacing to control tension and emphasise moments. Tension: created through conflict (internal/external), stakes (what's at risk), uncertainty (what might happen), and timing (delayed resolution)."
+    },
+    {
+      "id": "eng-narrative-1-n4",
+      "heading": "Characterisation: Direct and Indirect",
+      "body": "Direct characterisation: narrator explicitly describes character traits. 'She was a kind and patient woman.' Indirect characterisation: reveals character through — Speech (what they say, how they say it), Thoughts (internal monologue), Effect on others (how other characters react), Actions (what they do), Looks (appearance, clothing, body language). Mnemonic: STEAL. Round characters: complex, develop over time, have internal conflicts. Flat characters: one-dimensional, serve a specific function. Dynamic characters: undergo significant change. Static characters: remain unchanged. Foils: secondary characters whose contrast highlights protagonist's qualities."
+    },
+    {
+      "id": "eng-narrative-1-n5",
+      "heading": "Setting and Atmosphere",
+      "body": "Setting: time AND place of the narrative — historical period, geographical location, time of day, season, weather, social environment. Functions of setting: establishes mood/atmosphere, reflects characters' emotional states (pathetic fallacy), creates conflict/obstacles, symbolises themes, provides context. Atmosphere: the emotional tone pervading a scene — created through sensory details, word choice (diction), pacing, and imagery. Gothic atmosphere: darkness, decay, isolation, supernatural. Dystopian atmosphere: oppression, surveillance, despair, greyness. Setting is NOT neutral background — it actively shapes meaning. Ask: how would the story change if set elsewhere/when else?"
+    },
+    {
+      "id": "eng-narrative-1-n6",
+      "heading": "Dialogue and Voice",
+      "body": "Dialogue reveals character, advances plot, creates tension, and provides exposition (but avoid 'As you know, Bob...' — forced exposition). Good dialogue: sounds natural but is more purposeful than real speech, reveals subtext (what characters DON'T say), reflects character background/education/emotion, uses interruptions and silences. Dialogue tags: 'said' is usually best (invisible to reader). Overuse of alternatives ('exclaimed,' 'retorted,' 'opined') distracts. Vernacular/dialect: can establish authenticity and character, but avoid caricature. Internal monologue: reveals character's unspoken thoughts — creates intimacy between reader and character. Stream of consciousness: captures the chaotic, associative flow of thought."
+    },
+    {
+      "id": "eng-narrative-1-n7",
+      "heading": "Theme and Symbolism",
+      "body": "Theme: the central idea or message — what the story is really about beyond the plot. NOT a single word ('love') but a statement ('love can be both destructive and redemptive'). Stories can have multiple themes. Symbolism: concrete objects, characters, or events representing abstract ideas. A rose may symbolise love, a storm turmoil, a journey self-discovery. Symbols can be universal (cultural) or contextual (created within the work). Motif: a recurring element (image, phrase, situation) that reinforces theme. Identifying theme: (1) What does the protagonist learn? (2) What conflicts recur? (3) What is the title's significance? (4) How does the ending comment on the beginning?"
     }
   ],
   "flashcards": [
     {
       "id": "eng-narrative-1-f1",
       "term": "First-person narrator",
-      "definition": "Uses \"I/me\" — reader only knows what this character knows.",
-      "example": "\"I walked into the dark room...\""
+      "definition": "Uses 'I/me.' Reader experiences events through one character's subjective perspective.",
+      "example": "'I walked into the dark room, my heart pounding.' Unreliable if narrator misleads."
     },
     {
       "id": "eng-narrative-1-f2",
       "term": "Omniscient narrator",
-      "definition": "All-knowing narrator who can describe any character's thoughts and feelings."
+      "definition": "All-knowing — can describe any character's thoughts/feelings, move freely in time/space."
     },
     {
       "id": "eng-narrative-1-f3",
       "term": "Climax",
-      "definition": "Moment of highest tension — the turning point.",
-      "example": "In a detective story, when the murderer is revealed."
+      "definition": "Moment of highest tension — the turning point where the central conflict peaks."
     },
     {
       "id": "eng-narrative-1-f4",
       "term": "Foreshadowing",
-      "definition": "Hints given early about events that will happen later.",
-      "example": "A dark storm arriving as the hero sets off on a dangerous journey."
+      "definition": "Hints planted early about events to come. Creates anticipation and depth.",
+      "example": "A Dark storm approaching as hero sets out on a dangerous journey."
     },
     {
       "id": "eng-narrative-1-f5",
-      "term": "Flashback",
-      "definition": "A scene interrupting present action to show an earlier event."
+      "term": "Flashback (analepsis)",
+      "definition": "Interruption of present to show past events — reveals backstory or motivation."
+    },
+    {
+      "id": "eng-narrative-1-f6",
+      "term": "In medias res",
+      "definition": "Starting the story in the middle of action, then revealing earlier events later."
+    },
+    {
+      "id": "eng-narrative-1-f7",
+      "term": "Indirect characterisation (STEAL)",
+      "definition": "Revealing character through Speech, Thoughts, Effect on others, Actions, Looks.",
+      "example": "Character slams door, refuses to eat (actions) → angry, without narrator stating it."
+    },
+    {
+      "id": "eng-narrative-1-f8",
+      "term": "Pathetic fallacy",
+      "definition": "Nature/weather reflecting characters' emotions. A narrative technique linking setting to mood.",
+      "example": "Rain during a funeral. Sunshine at a wedding. Thunder during a confrontation."
+    },
+    {
+      "id": "eng-narrative-1-f9",
+      "term": "Theme",
+      "definition": "Central idea/message — what the story is really about beyond the plot. A statement, not a word.",
+      "example": "'Unchecked ambition leads to self-destruction' (Macbeth)."
+    },
+    {
+      "id": "eng-narrative-1-f10",
+      "term": "Symbol",
+      "definition": "Concrete object/character/event representing an abstract idea.",
+      "example": "Green light in Gatsby = unattainable dreams. Conch in Lord of the Flies = civilisation/order."
+    },
+    {
+      "id": "eng-narrative-1-f11",
+      "term": "Unreliable narrator",
+      "definition": "First-person narrator who misleads/distorts — readers must critically evaluate their account.",
+      "example": "Holden Caulfield (Catcher in the Rye) — his judgments may not reflect reality."
+    },
+    {
+      "id": "eng-narrative-1-f12",
+      "term": "Motif",
+      "definition": "A recurring element (image, phrase, situation) throughout a work that reinforces theme.",
+      "example": "Blood motif in Macbeth — recurring references to blood symbolise guilt that cannot be washed away."
     }
   ],
   "questions": [
     {
       "id": "eng-narrative-1-q1",
-      "stem": "Which POV uses \"I\" and limits the reader to one character's perspective?",
+      "stem": "Which POV uses 'I' and limits reader to one character?",
       "choices": [
         "Third person omniscient",
         "Second person",
@@ -62,11 +122,11 @@
         "Third person limited"
       ],
       "correctIndex": 2,
-      "explanation": "First person uses \"I\" and places the reader inside one character's mind."
+      "explanation": "The correct answer is 'First person'. Which POV uses 'I' and limits reader to one character?"
     },
     {
       "id": "eng-narrative-1-q2",
-      "stem": "The turning point of highest tension in a narrative is the:",
+      "stem": "The turning point of highest tension is:",
       "choices": [
         "Resolution",
         "Exposition",
@@ -74,11 +134,11 @@
         "Climax"
       ],
       "correctIndex": 3,
-      "explanation": "Climax is the peak of the story's tension."
+      "explanation": "The correct answer is 'Climax'. The turning point of highest tension is:"
     },
     {
       "id": "eng-narrative-1-q3",
-      "stem": "A childhood memory scene in the middle of a present-day story is a:",
+      "stem": "A childhood memory in a present-day story is:",
       "choices": [
         "Foreshadowing",
         "Flashback",
@@ -86,11 +146,11 @@
         "Resolution"
       ],
       "correctIndex": 1,
-      "explanation": "A flashback interrupts current timeline to show a past scene."
+      "explanation": "The correct answer is 'Flashback'. A childhood memory in a present-day story is:"
     },
     {
       "id": "eng-narrative-1-q4",
-      "stem": "A cracked bridge railing early in a story hinting at later collapse is:",
+      "stem": "A cracked railing early in a story hinting at later collapse is:",
       "choices": [
         "Flashback",
         "Resolution",
@@ -98,11 +158,11 @@
         "Exposition"
       ],
       "correctIndex": 2,
-      "explanation": "Foreshadowing plants hints about future events."
+      "explanation": "The correct answer is 'Foreshadowing'. A cracked railing early in a story hinting at later collapse is:"
     },
     {
       "id": "eng-narrative-1-q5",
-      "stem": "Which stage introduces characters, setting, and initial situation?",
+      "stem": "Which stage introduces characters and setting?",
       "choices": [
         "Climax",
         "Falling action",
@@ -110,7 +170,127 @@
         "Exposition"
       ],
       "correctIndex": 3,
-      "explanation": "Exposition sets the scene and introduces key characters."
+      "explanation": "The correct answer is 'Exposition'. Which stage introduces characters and setting?"
+    },
+    {
+      "id": "eng-narrative-1-q6",
+      "stem": "Starting in the middle of action:",
+      "choices": [
+        "Flashback",
+        "In medias res",
+        "Foreshadowing",
+        "Prologue"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'In medias res'. Starting in the middle of action:"
+    },
+    {
+      "id": "eng-narrative-1-q7",
+      "stem": "Revealing character through actions, not description, is:",
+      "choices": [
+        "Direct characterisation",
+        "Indirect characterisation",
+        "Theme",
+        "Pacing"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Indirect characterisation'. Revealing character through actions, not description, is:"
+    },
+    {
+      "id": "eng-narrative-1-q8",
+      "stem": "An unreliable narrator:",
+      "choices": [
+        "Is always lying",
+        "May distort or misrepresent events — reader must read critically",
+        "Is the author",
+        "Only appears in poetry"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'May distort or misrepresent events — reader must read critically'. An unreliable narrator:"
+    },
+    {
+      "id": "eng-narrative-1-q9",
+      "stem": "A recurring blood image reinforcing guilt is a:",
+      "choices": [
+        "Theme",
+        "Motif",
+        "Symbol",
+        "Climax"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Motif'. A recurring blood image reinforcing guilt is a:"
+    },
+    {
+      "id": "eng-narrative-1-q10",
+      "stem": "Short sentences in an action scene:",
+      "choices": [
+        "Slow the pacing",
+        "Accelerate pacing — create urgency",
+        "Have no effect",
+        "Are bad writing"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Accelerate pacing — create urgency'. Short sentences in an action scene:"
+    },
+    {
+      "id": "eng-narrative-1-q11",
+      "stem": "Storm during a character's emotional crisis:",
+      "choices": [
+        "Coincidence",
+        "Pathetic fallacy",
+        "Flashback",
+        "Foreshadowing"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Pathetic fallacy'. Storm during a character's emotional crisis:"
+    },
+    {
+      "id": "eng-narrative-1-q12",
+      "stem": "Theme is best described as:",
+      "choices": [
+        "One word like 'love'",
+        "A statement — what the story says about its subject",
+        "The plot summary",
+        "The title"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'A statement — what the story says about its subject'. Theme is best described as:"
+    },
+    {
+      "id": "eng-narrative-1-q13",
+      "stem": "Omniscient narrator can:",
+      "choices": [
+        "Only follow one character",
+        "Describe any character's thoughts and move freely through time/space",
+        "Only describe actions",
+        "Never reveal character thoughts"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Describe any character's thoughts and move freely through time/space'. Omniscient narrator can:"
+    },
+    {
+      "id": "eng-narrative-1-q14",
+      "stem": "A story within a story is:",
+      "choices": [
+        "Unreliable narration",
+        "Frame narrative",
+        "In medias res",
+        "Episodic structure"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Frame narrative'. A story within a story is:"
+    },
+    {
+      "id": "eng-narrative-1-q15",
+      "stem": "STEAL stands for:",
+      "choices": [
+        "Setting, Theme, Emotion, Action, Language",
+        "Speech, Thoughts, Effect on others, Actions, Looks — indirect characterisation",
+        "Style, Tone, Evidence, Analysis, Link",
+        "Structure, Theme, Emotion, Action, Language"
+      ],
+      "correctIndex": 1,
+      "explanation": "The correct answer is 'Speech, Thoughts, Effect on others, Actions, Looks — indirect characterisation'. STEAL stands for:"
     }
   ]
 }

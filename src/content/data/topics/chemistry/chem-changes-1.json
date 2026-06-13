@@ -1,117 +1,225 @@
 {
   "id": "chem-changes-1",
   "subjectId": "chemistry",
-  "title": "Physical vs Chemical Changes",
-  "description": "How to distinguish between changes that make new substances and those that do not.",
+  "title": "Chemical Reactions & Equations",
+  "description": "How to identify chemical vs physical changes, write word and symbol equations, balance equations, and understand energy changes in reactions.",
   "ibLevel": "MYP",
   "notes": [
     {
-      "id": "chem-changes-1-chg-n1",
-      "heading": "Physical Changes",
-      "body": "A physical change alters the form or appearance of a substance without changing what it is made of — no new substances are produced. Usually reversible. Examples: melting ice (still H₂O), dissolving sugar in water, cutting paper. Changes of state (solid ↔ liquid ↔ gas) are always physical changes."
+      "id": "chem-changes-1-n1",
+      "heading": "Physical vs Chemical Changes",
+      "body": "A physical change alters the form or state of a substance without changing its chemical identity — no new substance is made. Examples: melting, boiling, freezing, dissolving, cutting. All changes of state (solid ↔ liquid ↔ gas) are physical. Most physical changes are easily reversed (e.g., freezing melted water). A chemical change (chemical reaction) produces one or more NEW substances with different chemical properties from the reactants. Chemical bonds are broken and new bonds are formed. Signs of a chemical reaction: permanent colour change, gas produced (bubbles/fizzing — NOT boiling), temperature change (exothermic or endothermic), precipitate formed (solid appears when two solutions mix), light produced, new smell. Most chemical changes are difficult or impossible to reverse (e.g., you cannot 'un-burn' wood, 'un-cook' an egg, or 'un-rust' iron through simple physical means). Key test: if the original substance can be recovered by a simple physical process (filtering, evaporation, freezing), the change was physical."
     },
     {
-      "id": "chem-changes-1-chg-n2",
-      "heading": "Chemical Changes",
-      "body": "A chemical change produces one or more new substances with different chemical properties. Usually difficult or impossible to reverse. Signs: colour change, gas produced (bubbling), temperature change, light produced, new smell. Examples: burning wood, rusting iron, cooking an egg, photosynthesis, neutralisation."
+      "id": "chem-changes-1-n2",
+      "heading": "Writing Word Equations",
+      "body": "A word equation describes a chemical reaction using the names of the substances. Format: Reactant(s) → Product(s). The arrow (→) means 'reacts to form' or 'produces'. Multiple reactants or products are joined by '+' signs. Examples: Magnesium + Oxygen → Magnesium oxide. Hydrochloric acid + Sodium hydroxide → Sodium chloride + Water. Calcium carbonate → Calcium oxide + Carbon dioxide (thermal decomposition). Rules: reactants on the left, products on the right; the arrow always points right; state symbols can be added: (s) = solid, (l) = liquid, (g) = gas, (aq) = aqueous (dissolved in water). Example with states: Magnesium(s) + Oxygen(g) → Magnesium oxide(s). Word equations are the first step — they show WHAT reacts and WHAT is produced, but not how much. For that, we need balanced symbol equations."
     },
     {
-      "id": "chem-changes-1-chg-n3",
+      "id": "chem-changes-1-n3",
+      "heading": "Writing and Balancing Symbol Equations",
+      "body": "A symbol equation uses chemical formulae instead of names. It must be BALANCED — the number of atoms of each element must be the same on both sides of the arrow (Law of Conservation of Mass: atoms cannot be created or destroyed in a chemical reaction). Method for balancing: (1) Write the unbalanced equation using correct formulae. (2) Count atoms of each element on both sides. (3) Add coefficients (big numbers in front of formulae) to balance — NEVER change the subscripts in formulae (that changes the substance). (4) Check all elements. Example: H₂ + O₂ → H₂O (unbalanced: 2H, 2O → 2H, 1O). Balance: 2H₂ + O₂ → 2H₂O (4H, 2O → 4H, 2O ✓). Example: Mg + O₂ → MgO. Balance: 2Mg + O₂ → 2MgO. State symbols make it complete: 2Mg(s) + O₂(g) → 2MgO(s). Common tricky ones: combustion of hydrocarbons (CₓHᵧ + O₂ → CO₂ + H₂O — balance C first, then H, then O). Iron + chlorine: 2Fe + 3Cl₂ → 2FeCl₃."
+    },
+    {
+      "id": "chem-changes-1-n4",
+      "heading": "Conservation of Mass",
+      "body": "The Law of Conservation of Mass states that in a chemical reaction, the total mass of the products equals the total mass of the reactants. No atoms are created or destroyed — they are only rearranged. This is why equations must be balanced. Apparent mass changes can occur in open systems: if a gas is produced and escapes (e.g., CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂↑), the mass appears to decrease — but the total mass (including the escaped gas) is unchanged. If a gas from the air reacts (e.g., magnesium burning: 2Mg + O₂ → 2MgO), the mass appears to increase — oxygen from the air has been added. To verify conservation of mass experimentally, reactions producing gases should be done in a sealed container. Example problem: 24 g of magnesium burns in air. The magnesium oxide produced weighs 40 g. How much oxygen reacted? 40 − 24 = 16 g of O₂. This matches the balanced equation (2Mg + O₂ → 2MgO: 48 g Mg + 32 g O₂ → 80 g MgO, same ratio)."
+    },
+    {
+      "id": "chem-changes-1-n5",
       "heading": "Exothermic and Endothermic Reactions",
-      "body": "Exothermic reactions release heat to the surroundings — the temperature rises. Examples: burning fuels, respiration, neutralisation. Endothermic reactions absorb heat — temperature drops. Examples: thermal decomposition, dissolving ammonium nitrate. In energy profile diagrams, exothermic reactions have products at lower energy than reactants; endothermic have products at higher energy."
+      "body": "Reactions involve energy changes because bonds are broken (requires energy) and new bonds are formed (releases energy). Exothermic reactions: more energy is released when new bonds form THAN is absorbed to break old bonds → net release of energy to surroundings → temperature RISES. Examples: combustion (burning fuels), respiration, neutralisation (acid + alkali), displacement reactions (metal + salt solution), the thermite reaction (Al + Fe₂O₃). Uses: hand warmers, self-heating cans. Endothermic reactions: more energy is absorbed to break old bonds THAN is released forming new bonds → net absorption of energy from surroundings → temperature FALLS. Examples: thermal decomposition of carbonates (CaCO₃ → CaO + CO₂), dissolving ammonium nitrate in water, photosynthesis (absorbs light energy — endothermic overall). Uses: instant cold packs (ammonium nitrate + water). Energy profile diagrams: exothermic — products at lower energy level than reactants (ΔH negative). Endothermic — products at higher energy level (ΔH positive). Activation energy is the minimum energy needed to start any reaction — it is always positive."
+    },
+    {
+      "id": "chem-changes-1-n6",
+      "heading": "Types of Chemical Reactions",
+      "body": "Six common reaction types: (1) Combustion — substance burns in oxygen: fuel + O₂ → CO₂ + H₂O (complete). CH₄ + 2O₂ → CO₂ + 2H₂O. (2) Neutralisation — acid + base → salt + water. HCl + NaOH → NaCl + H₂O. (3) Displacement — more reactive element pushes out a less reactive one. Zn + CuSO₄ → ZnSO₄ + Cu (zinc displaces copper — blue solution fades, brown copper forms). (4) Thermal decomposition — one compound breaks down into simpler substances when heated. CaCO₃ → CaO + CO₂ (limestone → quicklime + carbon dioxide). 2HgO → 2Hg + O₂. (5) Oxidation — gain of oxygen (or loss of electrons in more advanced chemistry). 2Mg + O₂ → 2MgO. Rusting: 4Fe + 3O₂ + 2H₂O → 2Fe₂O₃·H₂O. (6) Precipitation — two solutions mix and an insoluble solid (precipitate) forms. AgNO₃(aq) + NaCl(aq) → AgCl(s)↓ + NaNO₃(aq) (white precipitate of silver chloride)."
+    },
+    {
+      "id": "chem-changes-1-n7",
+      "heading": "Reversible Reactions and Equilibrium",
+      "body": "Some reactions are REVERSIBLE — they can go forwards and backwards under different conditions. Indicated by the ⇌ symbol. Example: heating hydrated copper sulfate: CuSO₄·5H₂O(s) ⇌ CuSO₄(s) + 5H₂O(g). Blue hydrated crystals → white anhydrous powder when heated (endothermic, water driven off). Adding water to the white powder returns it to blue (exothermic) — this is the reverse reaction. Another example: ammonium chloride ⇌ ammonia + hydrogen chloride (NH₄Cl(s) ⇌ NH₃(g) + HCl(g)). Heated: decomposes into two gases. Cooled: gases recombine to form solid. At equilibrium (in a closed system), the forward and reverse reactions occur at the same rate — the concentrations of reactants and products remain constant (but NOT necessarily equal). This is a dynamic equilibrium — reactions haven't stopped; they are just balanced. Changing conditions (temperature, pressure, concentration) shifts the equilibrium position — this is described by Le Chatelier's Principle."
     }
   ],
   "flashcards": [
     {
-      "id": "chem-changes-1-chg-f1",
+      "id": "chem-changes-1-f1",
       "term": "Physical change",
-      "definition": "A change that alters the form of a substance but does not produce any new substances. Usually reversible.",
-      "example": "Melting, boiling, dissolving, cutting."
+      "definition": "A change that alters form/appearance without creating new substances. Usually reversible. Changes of state are always physical.",
+      "example": "Melting ice (still H₂O), dissolving salt, cutting paper, boiling water."
     },
     {
-      "id": "chem-changes-1-chg-f2",
-      "term": "Chemical change",
-      "definition": "A change that produces one or more new substances with different properties. Usually irreversible.",
-      "example": "Burning, rusting, cooking, acid reactions."
+      "id": "chem-changes-1-f2",
+      "term": "Chemical change (reaction)",
+      "definition": "A change producing one or more new substances with different properties. Bonds break and new bonds form. Usually irreversible.",
+      "example": "Burning wood, rusting iron, cooking an egg, acid + metal reaction."
     },
     {
-      "id": "chem-changes-1-chg-f3",
+      "id": "chem-changes-1-f3",
+      "term": "Law of Conservation of Mass",
+      "definition": "The total mass of reactants equals the total mass of products in a chemical reaction. Atoms are rearranged, not created or destroyed.",
+      "example": "24 g Mg + 16 g O₂ → 40 g MgO. Total mass before (40 g) = total mass after (40 g)."
+    },
+    {
+      "id": "chem-changes-1-f4",
       "term": "Exothermic reaction",
-      "definition": "A chemical reaction that releases energy (as heat) to the surroundings, causing the temperature to rise.",
-      "example": "Burning methane, hand warmers, respiration."
+      "definition": "A reaction that releases net energy to the surroundings — more energy is released making bonds than absorbed breaking them. Temperature RISES.",
+      "example": "Combustion (CH₄ + 2O₂ → CO₂ + 2H₂O + energy), neutralisation, respiration."
     },
     {
-      "id": "chem-changes-1-chg-f4",
+      "id": "chem-changes-1-f5",
       "term": "Endothermic reaction",
-      "definition": "A chemical reaction that absorbs energy from the surroundings, causing the temperature to fall.",
-      "example": "Dissolving ammonium nitrate (used in cold packs)."
+      "definition": "A reaction that absorbs net energy from the surroundings — more energy absorbed breaking bonds than released forming them. Temperature FALLS.",
+      "example": "Thermal decomposition of CaCO₃, photosynthesis, dissolving ammonium nitrate."
     },
     {
-      "id": "chem-changes-1-chg-f5",
-      "term": "Conservation of mass",
-      "definition": "The total mass of reactants equals the total mass of products in a chemical reaction."
+      "id": "chem-changes-1-f6",
+      "term": "Balanced equation",
+      "definition": "A symbol equation with equal numbers of each type of atom on both sides. Coefficients (big numbers) are used; subscripts are NEVER changed.",
+      "example": "2Mg + O₂ → 2MgO: 2 Mg atoms and 2 O atoms on each side."
+    },
+    {
+      "id": "chem-changes-1-f7",
+      "term": "Thermal decomposition",
+      "definition": "Breaking down a compound into simpler substances by heating. Usually endothermic.",
+      "example": "CaCO₃ → CaO + CO₂ (limestone decomposes on heating)."
+    },
+    {
+      "id": "chem-changes-1-f8",
+      "term": "Displacement reaction",
+      "definition": "A more reactive element pushes out a less reactive element from its compound.",
+      "example": "Zn + CuSO₄ → ZnSO₄ + Cu: zinc is more reactive than copper, so it displaces Cu²⁺ from solution."
+    },
+    {
+      "id": "chem-changes-1-f9",
+      "term": "Precipitate",
+      "definition": "An insoluble solid formed when two solutions are mixed. Indicated by (s)↓ in equations.",
+      "example": "AgNO₃(aq) + NaCl(aq) → AgCl(s)↓ + NaNO₃(aq) — white precipitate of silver chloride."
+    },
+    {
+      "id": "chem-changes-1-f10",
+      "term": "Activation energy",
+      "definition": "The minimum energy required for a reaction to start — the energy needed to break bonds in the reactants.",
+      "example": "A spark is needed to start the combustion of methane, even though the reaction is highly exothermic."
+    },
+    {
+      "id": "chem-changes-1-f11",
+      "term": "Reversible reaction",
+      "definition": "A reaction that can proceed in both forward and reverse directions, indicated by ⇌. At equilibrium, forward and reverse rates are equal.",
+      "example": "CuSO₄·5H₂O ⇌ CuSO₄ + 5H₂O. Hydrated (blue) ↔ anhydrous (white)."
+    },
+    {
+      "id": "chem-changes-1-f12",
+      "term": "State symbol",
+      "definition": "A notation showing the physical state: (s) solid, (l) liquid, (g) gas, (aq) aqueous (dissolved in water).",
+      "example": "2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g). Solid sodium + liquid water → aqueous sodium hydroxide + hydrogen gas."
     }
   ],
   "questions": [
     {
-      "id": "chem-changes-1-chg-q1",
-      "stem": "Which of the following is an example of a PHYSICAL change?",
-      "choices": [
-        "Iron rusting in damp air",
-        "Wood burning in a fireplace",
-        "Ice melting in a glass",
-        "Eggs cooking in a pan"
-      ],
+      "id": "chem-changes-1-q1",
+      "stem": "Which is a physical change?",
+      "choices": ["Iron rusting", "Wood burning", "Ice melting", "Egg cooking"],
       "correctIndex": 2,
-      "explanation": "Melting ice is a physical change — still H₂O, just a different state."
+      "explanation": "Melting is a change of state — still H₂O. No new substance is formed. All changes of state are physical."
     },
     {
-      "id": "chem-changes-1-chg-q2",
+      "id": "chem-changes-1-q2",
       "stem": "Which observation is the BEST evidence that a chemical change has occurred?",
-      "choices": [
-        "The shape of the material changes",
-        "The material melts",
-        "A new gas is produced and a colour change occurs",
-        "The material dissolves in water"
-      ],
+      "choices": ["The shape changed", "It melted", "A new gas was produced (bubbles) and a permanent colour change occurred", "It dissolved in water"],
       "correctIndex": 2,
-      "explanation": "Producing a new gas and a colour change both suggest new substances have formed."
+      "explanation": "Gas production (not boiling) and permanent colour changes indicate new substances forming — these are chemical changes."
     },
     {
-      "id": "chem-changes-1-chg-q3",
-      "stem": "In an exothermic reaction, what happens to the temperature of the surroundings?",
-      "choices": [
-        "Temperature decreases",
-        "Temperature stays the same",
-        "Temperature increases",
-        "Temperature first increases then decreases"
-      ],
+      "id": "chem-changes-1-q3",
+      "stem": "In an exothermic reaction, what happens to the temperature?",
+      "choices": ["Decreases", "Stays the same", "Increases — heat is released", "Increases then decreases"],
       "correctIndex": 2,
-      "explanation": "Exothermic reactions release heat → surroundings get hotter."
+      "explanation": "Exothermic = 'heat out.' Energy is released to surroundings → temperature rises."
     },
     {
-      "id": "chem-changes-1-chg-q4",
-      "stem": "A student mixes two solutions and notices the temperature drops. What type of reaction is this?",
-      "choices": [
-        "Exothermic",
-        "Physical change",
-        "Neutralisation",
-        "Endothermic"
-      ],
+      "id": "chem-changes-1-q4",
+      "stem": "Two solutions mix, temperature drops. What type?",
+      "choices": ["Exothermic", "Physical change", "Neutralisation", "Endothermic"],
       "correctIndex": 3,
-      "explanation": "If temperature drops, the reaction is absorbing heat — endothermic."
+      "explanation": "Temperature dropping = absorbing energy from surroundings = endothermic."
     },
     {
-      "id": "chem-changes-1-chg-q5",
-      "stem": "According to conservation of mass, if 10 g of calcium carbonate reacts and 4.4 g of CO₂ escapes, what is the total mass of remaining products?",
-      "choices": [
-        "4.4 g",
-        "5.6 g",
-        "10 g",
-        "14.4 g"
-      ],
+      "id": "chem-changes-1-q5",
+      "stem": "10 g CaCO₃ reacts and 4.4 g CO₂ escapes. Mass of remaining products?",
+      "choices": ["4.4 g", "5.6 g", "10 g", "14.4 g"],
       "correctIndex": 1,
-      "explanation": "10 – 4.4 = 5.6 g. Mass is conserved — it doesn't disappear with the gas."
+      "explanation": "Conservation of mass: 10 − 4.4 = 5.6 g. The gas is still mass — it just escaped. Total mass was 10 g."
+    },
+    {
+      "id": "chem-changes-1-q6",
+      "stem": "Balance: __Na + Cl₂ → __NaCl",
+      "choices": ["Na + Cl₂ → NaCl", "2Na + Cl₂ → 2NaCl", "Na + 2Cl₂ → NaCl₂", "2Na + Cl₂ → Na₂Cl"],
+      "correctIndex": 1,
+      "explanation": "Left: 2Na, 2Cl. Right: 2Na, 2Cl. Balanced. Never change NaCl to NaCl₂ — that would be a different compound."
+    },
+    {
+      "id": "chem-changes-1-q7",
+      "stem": "Magnesium burns in air and mass appears to increase from 24 g to 40 g. Why is this NOT a violation of conservation of mass?",
+      "choices": ["Mass is created during burning", "24 g Mg combined with 16 g O₂ from the air → 40 g MgO. Total mass unchanged", "The balance was broken", "Heat makes things heavier"],
+      "correctIndex": 1,
+      "explanation": "The 'extra' mass is oxygen from the air that combined with magnesium. In a sealed container, total mass would remain constant."
+    },
+    {
+      "id": "chem-changes-1-q8",
+      "stem": "Zn + CuSO₄ → ZnSO₄ + Cu. What type of reaction?",
+      "choices": ["Neutralisation", "Thermal decomposition", "Displacement", "Combustion"],
+      "correctIndex": 2,
+      "explanation": "Zinc is more reactive than copper. It displaces Cu from CuSO₄ solution. Copper metal appears; blue solution fades."
+    },
+    {
+      "id": "chem-changes-1-q9",
+      "stem": "Heating CaCO₃ produces CaO + CO₂. What type?",
+      "choices": ["Combustion", "Displacement", "Thermal decomposition", "Neutralisation"],
+      "correctIndex": 2,
+      "explanation": "One compound (CaCO₃) breaks down into simpler substances (CaO + CO₂) when heated — thermal decomposition."
+    },
+    {
+      "id": "chem-changes-1-q10",
+      "stem": "Why does a reaction need activation energy even if it is exothermic?",
+      "choices": ["Exothermic reactions don't need activation energy", "Bonds in reactants must be broken first — this always requires energy input, even if more energy is later released", "Activation energy is only for endothermic reactions", "It prevents the reaction from being too fast"],
+      "correctIndex": 1,
+      "explanation": "Breaking bonds ALWAYS takes energy. Even if the overall reaction releases energy (exothermic), you still need initial energy to break reactant bonds."
+    },
+    {
+      "id": "chem-changes-1-q11",
+      "stem": "Blue CuSO₄·5H₂O is heated → white powder. Adding water → turns blue again. This is:",
+      "choices": ["A chemical change followed by a physical change", "A reversible reaction: CuSO₄·5H₂O ⇌ CuSO₄ + 5H₂O", "A permanent chemical change", "A combustion reaction"],
+      "correctIndex": 1,
+      "explanation": "The reaction can go both ways: heat drives off water; adding water restores the hydrated form. This is a classic reversible reaction."
+    },
+    {
+      "id": "chem-changes-1-q12",
+      "stem": "Balance: CH₄ + __O₂ → CO₂ + __H₂O",
+      "choices": ["CH₄ + O₂ → CO₂ + H₂O", "CH₄ + 2O₂ → CO₂ + 2H₂O", "CH₄ + 3O₂ → CO₂ + 4H₂O", "2CH₄ + O₂ → 2CO₂ + H₂O"],
+      "correctIndex": 1,
+      "explanation": "C: balanced (1 each). H: 4 on left → need 2H₂O (4H on right). O: 2 from 2O₂ → 2+2=4 on right (1 in CO₂ + 1 in each H₂O). ✓"
+    },
+    {
+      "id": "chem-changes-1-q13",
+      "stem": "AgNO₃(aq) + KCl(aq) → AgCl(s) + KNO₃(aq). What does (s) indicate?",
+      "choices": ["Soluble", "A precipitate — an insoluble solid formed when two solutions react", "A gas", "Silver chloride is dissolved"],
+      "correctIndex": 1,
+      "explanation": "(s) = solid precipitate. AgCl is insoluble and appears as a white solid when the two clear solutions are mixed."
+    },
+    {
+      "id": "chem-changes-1-q14",
+      "stem": "Which correctly gives state symbols for the reaction 2Na + 2H₂O → 2NaOH + H₂?",
+      "choices": ["2Na(aq) + 2H₂O(l) → 2NaOH(aq) + H₂(l)", "2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g)", "2Na(g) + 2H₂O(g) → 2NaOH(s) + H₂(l)", "2Na(s) + 2H₂O(aq) → 2NaOH(l) + H₂(s)"],
+      "correctIndex": 1,
+      "explanation": "Sodium is a solid metal, water is liquid, NaOH dissolves (aq), and hydrogen is a gas that bubbles off."
+    },
+    {
+      "id": "chem-changes-1-q15",
+      "stem": "What is meant by 'dynamic equilibrium' in a reversible reaction?",
+      "choices": ["The reaction has stopped completely", "Forward and reverse reactions occur at the same rate — concentrations remain constant but reactions continue", "All reactants have become products", "The reaction is unbalanced"],
+      "correctIndex": 1,
+      "explanation": "Equilibrium is dynamic — reactions don't stop. The forward reaction rate = reverse reaction rate. Concentrations are constant (but not necessarily equal)."
     }
   ]
 }

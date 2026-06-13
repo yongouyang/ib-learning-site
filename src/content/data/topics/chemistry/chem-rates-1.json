@@ -1,0 +1,225 @@
+{
+  "id": "chem-rates-1",
+  "subjectId": "chemistry",
+  "title": "Rates of Reaction",
+  "description": "How to measure and change reaction rates — collision theory, factors affecting rate, catalysts, and interpreting rate graphs.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "chem-rates-1-n1",
+      "heading": "Collision Theory",
+      "body": "For a chemical reaction to occur, reactant particles must: (1) Collide with each other. (2) Collide with sufficient energy (the activation energy). (3) Collide with the correct orientation. Only successful collisions lead to a reaction. Collision theory explains why reaction rates vary: increasing the frequency of successful collisions increases the rate. Activation energy is the minimum energy needed to break bonds in the reactants and start the reaction. Even exothermic reactions require activation energy (e.g., a spark to ignite methane, even though burning is highly exothermic). Think of it like pushing a boulder over a hill — it takes energy to get it over the top, even though it will roll down with great force afterwards."
+    },
+    {
+      "id": "chem-rates-1-n2",
+      "heading": "Factors Affecting Reaction Rate",
+      "body": "Four main factors increase reaction rate by increasing collision frequency or the proportion of successful collisions: (1) Temperature — higher temperature = particles have more kinetic energy → move faster → collide more often AND with more energy → a higher proportion of collisions exceed the activation energy → faster rate. A 10°C rise typically doubles the rate. (2) Concentration (solutions) / Pressure (gases) — more particles per unit volume → more frequent collisions → faster rate. (3) Surface area (solids) — smaller pieces (powder vs large lumps) → greater surface area exposed → more particles available to collide → faster rate. (4) Catalysts — substances that increase reaction rate without being used up. They provide an alternative reaction pathway with LOWER activation energy, so a higher proportion of collisions are successful. Catalysts are NOT consumed — they can be reused. Enzymes are biological catalysts."
+    },
+    {
+      "id": "chem-rates-1-n3",
+      "heading": "Measuring Reaction Rates",
+      "body": "Rate of reaction = amount of reactant used OR product formed ÷ time. Common methods: (1) Measuring gas volume — collect gas in a gas syringe or inverted measuring cylinder; measure volume at regular intervals. (2) Measuring mass loss — if a gas is produced and escapes, the mass decreases; place the reaction on a balance. (3) Colour change/turbidity — time how long it takes for a cross to disappear under a reaction flask (sodium thiosulfate + HCl → sulfur precipitate forms, obscuring cross). (4) pH change — monitor pH with a probe (for reactions producing/consuming H⁺). (5) Temperature change — measure temperature rise/fall over time. The rate changes DURING a reaction — it is fastest at the start (highest concentration of reactants) and slows as reactants are used up. The average rate is total change ÷ total time. The instantaneous rate at a specific time is the gradient of the tangent to the curve at that point."
+    },
+    {
+      "id": "chem-rates-1-n4",
+      "heading": "Interpreting Rate Graphs",
+      "body": "Graphs of amount of product vs time show characteristic shapes: the curve rises steeply initially (fastest rate — highest reactant concentration), then gradually levels off to a plateau (reaction complete — limiting reactant used up). The steeper the initial gradient, the faster the reaction. Comparing graphs: higher temperature/concentration/surface area → steeper initial gradient → faster rate → reaches the same final amount but in less time. The plateau height is the same if the same amount of reactants is used — the final amount of product is determined by the limiting reactant, not the rate. Graphs of mass loss vs time slope downwards (mass decreases as gas escapes) and plateau when reaction is complete. To calculate rate from a graph: (1) Average rate = change in y ÷ change in x over the whole reaction. (2) Rate at a specific time = draw a tangent at that time, calculate its gradient."
+    },
+    {
+      "id": "chem-rates-1-n5",
+      "heading": "Catalysts in Detail",
+      "body": "A catalyst provides an alternative reaction pathway with lower activation energy. On an energy profile diagram, a catalysed reaction has a lower 'hump' (activation energy) but the same energy difference between reactants and products (ΔH is unchanged). Catalysts do NOT affect: the equilibrium position, the amount of product formed, or whether a reaction is endo/exothermic. They only affect the RATE. Industrial importance: many industrial processes use catalysts to run at lower temperatures and pressures, saving energy and money. Examples: Iron in the Haber process (N₂ + 3H₂ ⇌ 2NH₃ — making ammonia for fertilisers). Vanadium(V) oxide in the Contact process (SO₂ → SO₃ — making sulfuric acid). Platinum/palladium in catalytic converters (convert toxic CO and NOₓ into CO₂ and N₂). Nickel in hydrogenation of vegetable oils (making margarine). Biological catalysts (enzymes): highly specific, work at optimum temperature and pH. Catalase breaks down hydrogen peroxide (H₂O₂ → H₂O + O₂) — this can be demonstrated with liver or potato tissue."
+    },
+    {
+      "id": "chem-rates-1-n6",
+      "heading": "Practical: Investigating Rate Factors",
+      "body": "Classic rate experiments: (1) Effect of concentration on rate — magnesium ribbon + hydrochloric acid at different concentrations. Measure volume of H₂ gas produced over time. Controlled variables: mass/length of Mg ribbon, volume of acid, temperature. Expectation: higher [HCl] → steeper initial gradient → faster reaction. (2) Effect of surface area — marble chips (CaCO₃) vs powdered CaCO₃ + HCl. Measure mass loss (CO₂ escapes) or gas volume. Powder reacts faster (greater surface area). (3) Effect of temperature — sodium thiosulfate + HCl at different temperatures. Time how long for a cross drawn on paper to disappear (sulfur precipitate). Expectation: higher temperature → faster disappearance. (4) Catalysis — decomposition of H₂O₂ with manganese(IV) oxide (MnO₂) catalyst vs no catalyst. The catalyst dramatically speeds up oxygen production. Collect O₂ gas over time to measure rate."
+    },
+    {
+      "id": "chem-rates-1-n7",
+      "heading": "Explaining Rate Changes (Maxwell-Boltzmann)",
+      "body": "At a given temperature, not all particles have the same kinetic energy — there is a distribution of energies (Maxwell-Boltzmann distribution). Only particles with energy ≥ activation energy can react. Increasing temperature: (1) Shifts the distribution to higher energies. (2) A much larger proportion of particles now exceed the activation energy. (3) Particles also collide more frequently. This is why a small temperature increase can cause a large rate increase — the number of particles with sufficient energy increases exponentially, not linearly. A catalyst works by lowering the activation energy barrier — on the distribution curve, this means a larger proportion of particles can now react without changing the temperature. This is why catalysts are so effective — they enable previously 'inactive' particles to participate in reactions."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-rates-1-f1",
+      "term": "Collision theory",
+      "definition": "Reactions occur when particles collide with sufficient energy (≥ activation energy) AND correct orientation.",
+      "example": "Not every collision causes a reaction — only successful ones do."
+    },
+    {
+      "id": "chem-rates-1-f2",
+      "term": "Activation energy",
+      "definition": "Minimum energy required for a reaction to occur — energy to break bonds in reactants. Even exothermic reactions need it.",
+      "example": "Methane + oxygen is exothermic but needs a spark (activation energy) to start."
+    },
+    {
+      "id": "chem-rates-1-f3",
+      "term": "Catalyst",
+      "definition": "A substance that increases reaction rate by providing an alternative pathway with lower activation energy. NOT consumed in the reaction.",
+      "example": "MnO₂ catalyses H₂O₂ decomposition. Enzymes are biological catalysts."
+    },
+    {
+      "id": "chem-rates-1-f4",
+      "term": "Effect of temperature on rate",
+      "definition": "Higher temperature → particles move faster → more frequent collisions with more energy → higher proportion exceed activation energy → faster rate.",
+      "example": "A 10°C rise typically doubles the reaction rate."
+    },
+    {
+      "id": "chem-rates-1-f5",
+      "term": "Effect of concentration on rate",
+      "definition": "Higher concentration → more particles per unit volume → more frequent collisions → faster rate.",
+      "example": "Mg reacts faster with 2M HCl than with 0.5M HCl."
+    },
+    {
+      "id": "chem-rates-1-f6",
+      "term": "Effect of surface area on rate",
+      "definition": "Smaller pieces (powder) → greater surface area exposed → more particles available for collision → faster rate.",
+      "example": "Powdered CaCO₃ reacts faster with acid than large marble chips."
+    },
+    {
+      "id": "chem-rates-1-f7",
+      "term": "Rate of reaction (calculation)",
+      "definition": "Amount of reactant used or product formed ÷ time. Units: g/s, cm³/s, mol/s.",
+      "example": "If 60 cm³ of H₂ is produced in 30 seconds, average rate = 60 ÷ 30 = 2 cm³/s."
+    },
+    {
+      "id": "chem-rates-1-f8",
+      "term": "Tangent method (rate from graph)",
+      "definition": "Draw a tangent line touching the curve at a specific time. Gradient of tangent = instantaneous rate at that time.",
+      "example": "A tangent at t=20s on a product vs time graph gives the rate at exactly that moment."
+    },
+    {
+      "id": "chem-rates-1-f9",
+      "term": "Limiting reactant",
+      "definition": "The reactant that is completely used up first, stopping the reaction. Determines the maximum amount of product.",
+      "example": "If Mg runs out before all the HCl reacts, Mg is the limiting reactant. The graph plateaus."
+    },
+    {
+      "id": "chem-rates-1-f10",
+      "term": "Enzyme (biological catalyst)",
+      "definition": "A protein catalyst that speeds up a specific biochemical reaction. Works at optimum temperature and pH.",
+      "example": "Catalase (in liver) rapidly decomposes H₂O₂ into water and oxygen."
+    },
+    {
+      "id": "chem-rates-1-f11",
+      "term": "Haber process catalyst",
+      "definition": "Iron — catalyses N₂ + 3H₂ ⇌ 2NH₃. Without it, the reaction would be impractically slow even at high temperature.",
+      "example": "The Haber process produces ammonia for fertilisers that feed ~50% of the world's population."
+    },
+    {
+      "id": "chem-rates-1-f12",
+      "term": "Maxwell-Boltzmann distribution",
+      "definition": "Shows the spread of particle energies at a given temperature. Only particles with energy ≥ activation energy can react.",
+      "example": "Raising temperature shifts the curve right — a much larger proportion of particles exceed the activation energy."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-rates-1-q1",
+      "stem": "According to collision theory, why does increasing temperature increase reaction rate?",
+      "choices": ["Particles get bigger", "Particles move faster → more frequent collisions AND more collisions have energy ≥ activation energy", "Temperature creates more particles", "Activation energy decreases"],
+      "correctIndex": 1,
+      "explanation": "Higher temperature increases both collision frequency AND the proportion of particles exceeding the activation energy barrier."
+    },
+    {
+      "id": "chem-rates-1-q2",
+      "stem": "Why does powdered marble react faster with acid than the same mass of large marble chips?",
+      "choices": ["Powder is chemically different", "Greater surface area → more particles exposed to acid → more frequent collisions", "Powder is hotter", "Large chips are less pure"],
+      "correctIndex": 1,
+      "explanation": "Crushing increases surface area. More particles are available at the solid-liquid interface for collisions with acid particles."
+    },
+    {
+      "id": "chem-rates-1-q3",
+      "stem": "A catalyst increases rate by:",
+      "choices": ["Increasing the energy of reactant particles", "Providing an alternative pathway with lower activation energy", "Being consumed and releasing energy", "Increasing the concentration of reactants"],
+      "correctIndex": 1,
+      "explanation": "Catalysts lower the activation energy by offering an alternative mechanism. They are NOT consumed and do NOT change reactant energies."
+    },
+    {
+      "id": "chem-rates-1-q4",
+      "stem": "On a product vs time graph, what does the plateau represent?",
+      "choices": ["The reaction is speeding up", "The limiting reactant has been used up — the reaction is complete", "The catalyst is exhausted", "The temperature has dropped"],
+      "correctIndex": 1,
+      "explanation": "The plateau means no more product is being formed. The limiting reactant is completely consumed — the reaction has finished."
+    },
+    {
+      "id": "chem-rates-1-q5",
+      "stem": "A reaction produces 48 cm³ of gas in 20 seconds. What is the average rate?",
+      "choices": ["0.42 cm³/s", "2.4 cm³/s", "9.6 cm³/s", "68 cm³/s"],
+      "correctIndex": 1,
+      "explanation": "Rate = amount ÷ time = 48 ÷ 20 = 2.4 cm³/s."
+    },
+    {
+      "id": "chem-rates-1-q6",
+      "stem": "Two reactions use the same amounts of reactants but one is at 30°C, the other at 50°C. How will the graphs differ?",
+      "choices": ["The 50°C graph will be steeper initially but both reach the same final plateau", "Both graphs will be identical", "The 50°C graph will reach a higher plateau", "The 30°C graph will be steeper"],
+      "correctIndex": 0,
+      "explanation": "Higher temperature → faster rate → steeper initial gradient. But same amount of limiting reactant → same final amount of product → same plateau height."
+    },
+    {
+      "id": "chem-rates-1-q7",
+      "stem": "Which change will NOT increase the rate of a reaction between two solutions?",
+      "choices": ["Increase temperature", "Increase concentration of one reactant", "Add a catalyst", "Increase the volume of the container (diluting both solutions)"],
+      "correctIndex": 3,
+      "explanation": "Increasing container volume without adding more reactant DILUTES the solution → lower concentration → slower rate. All other options increase rate."
+    },
+    {
+      "id": "chem-rates-1-q8",
+      "stem": "Why does a catalyst NOT affect the amount of product formed?",
+      "choices": ["Catalysts are too weak", "Catalysts only lower activation energy — they do NOT change the energies of reactants or products. ΔH and equilibrium position are unchanged", "Catalysts stop working after a short time", "Catalysts are always completely consumed"],
+      "correctIndex": 1,
+      "explanation": "Catalysts change the PATHWAY (lowering activation energy) but not the starting point (reactants) or end point (products). Therefore the yield is unchanged."
+    },
+    {
+      "id": "chem-rates-1-q9",
+      "stem": "In the sodium thiosulfate + HCl reaction, why does the cross disappear faster at higher temperatures?",
+      "choices": ["The ink dissolves faster in warm solution", "Higher temperature → faster reaction → sulfur precipitate forms more quickly → cross obscured sooner", "The cross fades from the heat", "HCl evaporates faster, concentrating the acid"],
+      "correctIndex": 1,
+      "explanation": "The sulfur precipitate (solid S) makes the solution cloudy. Higher temperature → faster rate → precipitate appears sooner → cross disappears in less time."
+    },
+    {
+      "id": "chem-rates-1-q10",
+      "stem": "What does the steepness (gradient) of a product vs time curve tell you?",
+      "choices": ["The total amount of product", "The rate of reaction — steeper gradient = faster rate", "The activation energy", "The temperature of the reaction"],
+      "correctIndex": 1,
+      "explanation": "Gradient = Δy/Δx = amount of product formed per unit time = rate. The initial gradient is the steepest because reactant concentrations are highest."
+    },
+    {
+      "id": "chem-rates-1-q11",
+      "stem": "An enzyme-catalysed reaction stops working above 60°C. Why?",
+      "choices": ["The substrate runs out", "The enzyme denatures — its active site loses shape → it can no longer bind the substrate → no catalysis", "Enzymes evaporate at high temperatures", "The activation energy becomes infinite"],
+      "correctIndex": 1,
+      "explanation": "Enzymes are proteins. High temperatures break the bonds maintaining their 3D shape (denaturation). The active site is deformed → substrate no longer fits → no catalysis."
+    },
+    {
+      "id": "chem-rates-1-q12",
+      "stem": "Higher pressure increases the rate of gas-phase reactions because:",
+      "choices": ["Gas particles get larger", "More particles in the same volume → more frequent collisions", "Pressure heats up the gas", "The activation energy decreases"],
+      "correctIndex": 1,
+      "explanation": "Increasing pressure compresses the gas → particles are closer together → higher concentration → more frequent collisions per unit time."
+    },
+    {
+      "id": "chem-rates-1-q13",
+      "stem": "On a Maxwell-Boltzmann distribution, what effect does raising temperature have?",
+      "choices": ["The curve shifts left", "The curve flattens and shifts right — more particles have higher energy, and a larger proportion exceed the activation energy", "The activation energy line moves down", "The curve becomes narrower"],
+      "correctIndex": 1,
+      "explanation": "Higher temperature flattens and shifts the distribution to the right. The key point: the area under the curve beyond the activation energy line increases dramatically."
+    },
+    {
+      "id": "chem-rates-1-q14",
+      "stem": "Manganese(IV) oxide (MnO₂) catalyses H₂O₂ decomposition. After the reaction, the MnO₂:",
+      "choices": ["Is completely used up", "Remains chemically unchanged — it can be filtered out and reused", "Has become MnO", "Has dissolved in the water produced"],
+      "correctIndex": 1,
+      "explanation": "Catalysts are NOT consumed. MnO₂ remains at the end — it can be recovered by filtration and used again for another batch of H₂O₂."
+    },
+    {
+      "id": "chem-rates-1-q15",
+      "stem": "A student wants to find the rate at exactly t = 30 seconds from a curved product-time graph. They should:",
+      "choices": ["Read the y-value at t = 30s", "Draw a tangent at t = 30s and calculate its gradient", "Calculate the average rate over the whole reaction", "Draw a straight line from (0,0) to the endpoint"],
+      "correctIndex": 1,
+      "explanation": "For instantaneous rate at a specific time, draw a tangent touching the curve at that point. The tangent's gradient = rate at that instant."
+    }
+  ]
+}

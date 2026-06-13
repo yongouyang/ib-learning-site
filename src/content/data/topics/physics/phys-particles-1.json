@@ -1,0 +1,75 @@
+{
+  "id": "phys-particles-1",
+  "subjectId": "physics",
+  "title": "Particle Model & Density",
+  "description": "Density calculations, internal energy, specific latent heat, gas pressure and volume (Boyle's Law), and the particle model.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "phys-particles-1-n1",
+      "heading": "Density",
+      "body": "Density is mass per unit volume: ρ = m/V. Units: kg/m³ or g/cm³. 1 g/cm³ = 1000 kg/m³. Water: ρ = 1000 kg/m³ = 1 g/cm³. Density determines whether an object floats or sinks: object less dense than fluid → floats; more dense → sinks. The density of an object depends on: the material it's made of, how its particles are arranged (solids generally denser than liquids > gases). Measuring density: (1) Regular solid — measure mass (balance), measure dimensions, calculate volume, ρ=m/V. (2) Irregular solid — measure mass in air, then submerged in water (displacement — Eureka can or measuring cylinder). Volume = volume of water displaced. (3) Liquid — measure mass of empty measuring cylinder, add liquid, measure mass again. Mass difference ÷ known volume = density."
+    },
+    {
+      "id": "phys-particles-1-n2",
+      "heading": "Internal Energy and Changes of State",
+      "body": "Internal energy is the total kinetic and potential energy of all particles in a system. Heating increases internal energy (particles move faster/vibrate more). During a change of state (melting, boiling), temperature remains CONSTANT even though heating continues — energy goes into breaking intermolecular bonds (latent heat), not increasing kinetic energy. Specific latent heat of fusion (L_f): energy to change 1 kg from solid to liquid at melting point. E = mL_f. Specific latent heat of vaporisation (L_v): energy to change 1 kg from liquid to gas at boiling point. E = mL_v. L_v is always larger than L_f (completely separating particles takes more energy than just loosening them). Water: L_f = 334,000 J/kg, L_v = 2,260,000 J/kg. This is why steam burns are worse than boiling water burns — steam condensing on skin releases the latent heat of vaporisation."
+    },
+    {
+      "id": "phys-particles-1-n3",
+      "heading": "Gas Pressure and Boyle's Law",
+      "body": "Gas pressure is caused by particles colliding with container walls — billions of collisions per second. Increasing temperature (at constant volume): particles move faster → collide more often and with more force → pressure increases. Boyle's Law: for a fixed mass of gas at CONSTANT TEMPERATURE, pressure is inversely proportional to volume. P ∝ 1/V. P₁V₁ = P₂V₂. Halve the volume → double the pressure (particles hit walls twice as often). Double the volume → halve the pressure. Practical: use a syringe connected to a pressure gauge. Compress gas, measure pressure at different volumes. Plot P vs 1/V → straight line through origin (verifying P ∝ 1/V). The relationship only holds at constant temperature — if temperature changes, you must use the combined gas law: P₁V₁/T₁ = P₂V₂/T₂ (where T is in Kelvin)."
+    },
+    {
+      "id": "phys-particles-1-n4",
+      "heading": "Specific Heat Capacity (Review)",
+      "body": "Specific heat capacity (c): energy required to raise 1 kg of substance by 1°C (or 1 K). ΔE = mcΔθ. Units: J/(kg·°C). Water: c = 4200 J/(kg·°C) — exceptionally high. This is why water is an excellent coolant and why climate near coasts is moderate. Practical: use an electrical heater (measure P and t → E = Pt) to supply known energy to a metal block (aluminium, copper, steel). Measure temperature change. Calculate c = E/(mΔθ). Sources of error: heat loss to surroundings (use insulation/lagging), thermometer lag, incomplete mixing. Materials with low specific heat capacity heat up and cool down quickly (aluminium pans, desert sand). High specific heat capacity: heat up slowly, cool down slowly (water, brick storage heaters)."
+    },
+    {
+      "id": "phys-particles-1-n5",
+      "heading": "Brownian Motion and Evidence for Particles",
+      "body": "Brownian motion: the random, jerky movement of tiny visible particles (e.g., smoke particles, pollen grains) suspended in a fluid. Observed under a microscope, particles move in zigzag paths. Explanation: the visible particles are being bombarded unevenly by much smaller, invisible fluid particles (air or water molecules) moving rapidly. This provides evidence for: (1) the existence of particles too small to see, (2) their continuous random motion (kinetic theory). Robert Brown (1827) first observed this with pollen grains in water. Einstein (1905) provided the mathematical explanation, which was experimentally confirmed by Perrin — this was one of the key pieces of evidence that convinced the scientific community of the atomic theory."
+    },
+    {
+      "id": "phys-particles-1-n6",
+      "heading": "Kinetic Theory of Gases",
+      "body": "The kinetic theory explains gas behaviour in terms of particle motion. Assumptions: (1) Gas consists of large numbers of tiny particles in constant, random motion. (2) Particles are negligibly small compared to distances between them (mostly empty space). (3) Collisions between particles and with container walls are perfectly elastic (no kinetic energy lost). (4) No intermolecular forces between particles (except during collisions). (5) Average kinetic energy is proportional to absolute temperature (Kelvin). This theory explains: gas pressure (collisions with walls), why gases fill containers, why gases expand when heated, Boyle's Law (pressure-volume relationship), Charles' Law (volume-temperature relationship), diffusion. Real gases deviate from this ideal model at very high pressures (particle volume becomes significant) and very low temperatures (intermolecular forces become significant)."
+    },
+    {
+      "id": "phys-particles-1-n7",
+      "heading": "Absolute Zero and the Kelvin Scale",
+      "body": "Temperature measures the average kinetic energy of particles. The Kelvin scale is the absolute temperature scale: 0 K = −273.15°C = absolute zero — the temperature at which particles have minimum possible kinetic energy (they never stop completely due to quantum effects — zero-point energy). To convert: T(K) = θ(°C) + 273. A change of 1 K = a change of 1°C. In gas law calculations (Boyle's, Charles', combined gas law), temperature MUST be in Kelvin. If you use °C, the calculations will be wrong (e.g., doubling temperature from 10°C to 20°C is NOT doubling in Kelvin: 283 K → 293 K — only a 3.5% increase). Key point: at absolute zero, the pressure of an ideal gas would be zero (no particle motion = no collisions). Charles' Law: V ∝ T (at constant P). The volume of a gas extrapolates to zero at 0 K on a V-T graph."
+    }
+  ],
+  "flashcards": [
+    { "id": "phys-particles-1-f1", "term": "Density", "definition": "Mass per unit volume: ρ=m/V. Units: kg/m³ or g/cm³.", "example": "Water: 1000 kg/m³. Lead: 11,340 kg/m³ — very dense. Air: ~1.2 kg/m³." },
+    { "id": "phys-particles-1-f2", "term": "Internal energy", "definition": "Total kinetic + potential energy of particles. Increases when heated. Constant during change of state.", "example": "Ice at 0°C has less internal energy than water at 0°C (energy needed to break bonds)." },
+    { "id": "phys-particles-1-f3", "term": "Specific latent heat of fusion", "definition": "Energy to change 1 kg solid → liquid at melting point. E=mL_f. Water: 334,000 J/kg.", "example": "Melting 2 kg ice: E=2×334,000=668,000 J. Temperature stays 0°C!" },
+    { "id": "phys-particles-1-f4", "term": "Specific latent heat of vaporisation", "definition": "Energy to change 1 kg liquid → gas at boiling point. E=mL_v. Water: 2,260,000 J/kg.", "example": "L_v >> L_f — completely freeing particles requires much more energy than just loosening them." },
+    { "id": "phys-particles-1-f5", "term": "Boyle's Law", "definition": "P₁V₁=P₂V₂ at constant T. P∝1/V — inverse relationship.", "example": "Compress gas to half volume → pressure doubles. Expand to double volume → pressure halves." },
+    { "id": "phys-particles-1-f6", "term": "Specific heat capacity", "definition": "Energy to raise 1 kg by 1°C: ΔE=mcΔθ. Water: c=4200 J/(kg·°C).", "example": "Heating 2 kg water by 20°C: E=2×4200×20=168,000 J." },
+    { "id": "phys-particles-1-f7", "term": "Brownian motion", "definition": "Random jerky movement of visible particles in fluid caused by invisible molecules bombarding them unevenly.", "example": "Smoke particles viewed under microscope — zigzag paths from air molecule impacts." },
+    { "id": "phys-particles-1-f8", "term": "Kelvin scale", "definition": "Absolute temperature: 0 K = −273°C = absolute zero. T(K) = θ(°C) + 273.", "example": "Room temp 20°C = 293 K. Freezing 0°C = 273 K. Boiling 100°C = 373 K." },
+    { "id": "phys-particles-1-f9", "term": "Absolute zero", "definition": "0 K = −273.15°C. Minimum possible temperature. Particles have minimum kinetic energy.", "example": "At 0 K, an ideal gas would exert zero pressure — no particle motion." },
+    { "id": "phys-particles-1-f10", "term": "Kinetic theory (gases)", "definition": "Gas = tiny particles in constant random motion. Elastic collisions. No forces between particles.", "example": "Explains gas pressure as particle collisions with container walls." },
+    { "id": "phys-particles-1-f11", "term": "Archimedes and density", "definition": "Object floats if ρ_object < ρ_fluid. Sinks if ρ_object > ρ_fluid.", "example": "Wood (ρ≈600 kg/m³) floats on water (1000). Iron (7800) sinks. Ship floats due to hollow shape." },
+    { "id": "phys-particles-1-f12", "term": "Combined gas law", "definition": "P₁V₁/T₁ = P₂V₂/T₂. Uses Kelvin! Links P, V, T for a fixed mass of gas.", "example": "Heating a sealed container: V constant → P/T = constant → P ∝ T (in Kelvin)." }
+  ],
+  "questions": [
+    { "id": "phys-particles-1-q1", "stem": "Object: mass 200 g, volume 50 cm³. Density?", "choices": ["0.25 g/cm³", "4 g/cm³", "250 g/cm³", "10 g/cm³"], "correctIndex": 1, "explanation": "ρ=m/V=200/50=4 g/cm³ = 4000 kg/m³." },
+    { "id": "phys-particles-1-q2", "stem": "During melting, temperature stays constant. Where does the energy go?", "choices": ["Nowhere — energy is lost", "Breaking intermolecular bonds (latent heat) — not increasing kinetic energy", "Heating the container", "Creating more particles"], "correctIndex": 1, "explanation": "Latent heat: energy breaks bonds between particles, enabling state change without temperature rise." },
+    { "id": "phys-particles-1-q3", "stem": "Gas: V=100 cm³, P=200 kPa. Compressed to V=50 cm³ at constant T. New P?", "choices": ["100 kPa", "400 kPa", "200 kPa", "50 kPa"], "correctIndex": 1, "explanation": "Boyle's Law: P₁V₁=P₂V₂. 200×100=P₂×50 → P₂=400 kPa." },
+    { "id": "phys-particles-1-q4", "stem": "Why is steam at 100°C more dangerous than boiling water at 100°C?", "choices": ["Steam is hotter", "Steam releases latent heat of vaporisation (2,260,000 J/kg) when it condenses on skin", "Steam has more mass", "Water cannot burn"], "correctIndex": 1, "explanation": "Steam condensing on skin releases enormous latent heat. Water at 100°C only releases specific heat energy as it cools." },
+    { "id": "phys-particles-1-q5", "stem": "Heating 3 kg aluminium from 20°C to 50°C (c=900 J/kg°C). Energy?", "choices": ["27,000 J", "81,000 J", "13,500 J", "162,000 J"], "correctIndex": 1, "explanation": "ΔE=mcΔθ=3×900×30=81,000 J." },
+    { "id": "phys-particles-1-q6", "stem": "Brownian motion provides evidence for:", "choices": ["Gravity", "Particle nature of matter — invisible molecules bombarding visible particles", "Magnetic fields", "Electrical charge"], "correctIndex": 1, "explanation": "The jerky motion of visible particles can only be explained by impacts from much smaller, invisible particles." },
+    { "id": "phys-particles-1-q7", "stem": "50°C in Kelvin:", "choices": ["−223 K", "50 K", "323 K", "273 K"], "correctIndex": 2, "explanation": "T(K)=θ+273=50+273=323 K." },
+    { "id": "phys-particles-1-q8", "stem": "Why must Kelvin be used in gas law calculations?", "choices": ["It's bigger", "Temperature ratios are meaningless in Celsius — 200°C is not 'double' 100°C. Kelvin is absolute: 473 K IS double 236.5 K", "Kelvin is easier", "Celsius was invented later"], "correctIndex": 1, "explanation": "Kelvin starts at absolute zero. The Kelvin scale is proportional to kinetic energy — essential for gas law proportionality." },
+    { "id": "phys-particles-1-q9", "stem": "An irregular solid's volume is best measured by:", "choices": ["Ruler", "Calculating from formula", "Water displacement — volume of water displaced = volume of solid", "Approximating"], "correctIndex": 2, "explanation": "Eureka can or measuring cylinder: submerge solid, measure water level rise. Water displaced = solid's volume." },
+    { "id": "phys-particles-1-q10", "stem": "Why does a sealed aerosol can warn against heating?", "choices": ["Contents will spoil", "Temperature increase → pressure increase (at constant V). Can may explode", "Paint changes colour", "Can becomes heavier"], "correctIndex": 1, "explanation": "Heating increases particle kinetic energy → more forceful/frequent wall collisions → pressure rises. Can may rupture." },
+    { "id": "phys-particles-1-q11", "stem": "0.5 kg ice at 0°C melts to water at 0°C (L_f=334,000 J/kg). Energy?", "choices": ["0 J — temperature doesn't change", "167,000 J", "334,000 J", "668,000 J"], "correctIndex": 1, "explanation": "E=mL=0.5×334,000=167,000 J. Temperature stays 0°C — all energy breaks bonds." },
+    { "id": "phys-particles-1-q12", "stem": "Gas is cooled from 400 K to 200 K at constant volume. Pressure change?", "choices": ["Doubles", "Halves — P∝T at constant V", "Stays same", "Cannot determine"], "correctIndex": 1, "explanation": "At constant V: P₁/T₁=P₂/T₂. T halves → P halves." },
+    { "id": "phys-particles-1-q13", "stem": "Kinetic theory assumes gas particles have:", "choices": ["Strong forces between them", "Negligible volume and no forces except during elastic collisions", "Fixed positions", "Variable mass"], "correctIndex": 1, "explanation": "Ideal gas model: point particles, no intermolecular forces, elastic collisions. Real gases approximate this at low P, high T." },
+    { "id": "phys-particles-1-q14", "stem": "Ocean water moderates coastal climate because:", "choices": ["Water reflects sunlight", "High specific heat capacity — water absorbs/releases heat slowly, buffering temperature extremes", "Water is always cold", "Oceans produce heat"], "correctIndex": 1, "explanation": "Water's high c means large energy changes produce small temperature changes. Coast stays cooler in summer, warmer in winter." },
+    { "id": "phys-particles-1-q15", "stem": "Object mass 540 g, volume 200 cm³. Will it float in water (ρ=1 g/cm³)?", "choices": ["Yes — ρ=2.7 g/cm³ > water", "No — ρ=2.7 g/cm³ > 1, object sinks", "Yes — it displaces enough water", "Need more info"], "correctIndex": 1, "explanation": "ρ=540/200=2.7 g/cm³ > 1 g/cm³ (water). Object is denser than water → sinks." }
+  ]
+}
