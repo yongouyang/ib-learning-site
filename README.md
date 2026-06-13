@@ -25,7 +25,10 @@ Each topic provides three modes:
 2. **Flashcards** — term/definition cards with worked examples
 3. **Quiz** — multiple-choice questions with scoring, explanations, and star ratings
 
-Progress is tracked locally via `localStorage` and displayed on the Progress page with day streaks and weak-point analysis.
+Additional features:
+- **Topic search/filter** — search by title/description and filter by MYP/DP level on subject pages
+- **Dark mode** — manual light/dark/system toggle (stored in `localStorage`)
+- **Progress tracking** — day streaks, weak-point analysis, and mixed review via `localStorage`
 
 ## Project Structure
 
@@ -60,7 +63,8 @@ src/
 │           ├── english/
 │           └── physics/
 ├── context/
-│   └── ProgressContext.tsx       # React context for quiz progress
+│   ├── ProgressContext.tsx       # React context for quiz progress
+│   └── ThemeContext.tsx          # Light/dark/system theme with localStorage
 ├── lib/
 │   ├── mixed-review.ts           # Build mixed-review question sets
 │   ├── progress-store.ts         # localStorage persistence
@@ -131,7 +135,10 @@ npx playwright test --project="Desktop Chrome"
 | `mixed-review` | 3 | Building random/weak-area mixed review question sets |
 | `weak-point-analyzer` | 3 | Weak topic detection, score thresholds, result capping |
 | `content-schema` | 20 | Zod schema validation for topics and subjects |
-| `app.e2e` | 39 | Full quiz flow, flashcards, home page, subject pages, mixed review, DP topic rendering, progress page — across iPhone SE, iPad Pro, Desktop Chrome |
+| `audit-content` | 16 | Content quality audit (question counts, explanations, IDs, LaTeX) |
+| `topic-filter` | 7 | Subject-page topic search and MYP/DP level filtering |
+| `theme-context` | 5 | Light/dark/system theme resolution and localStorage persistence |
+| `app.e2e` | 51 | Full quiz flow, flashcards, home page, subject pages, search/filter, theme toggle, mixed review, DP topic rendering, progress page — across iPhone SE, iPad Pro, Desktop Chrome |
 
 ## Build & Deploy
 

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ThemeToggle } from './ThemeToggle';
 
 const navItems = [
   { href: '/', label: 'Learn', icon: '📚' },
@@ -29,6 +30,10 @@ export function Nav() {
             </Link>
           );
         })}
+        <div className="flex flex-col items-center justify-center flex-1 h-full">
+          <ThemeToggle />
+          <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 mt-0.5">Theme</span>
+        </div>
       </div>
     </nav>
   );

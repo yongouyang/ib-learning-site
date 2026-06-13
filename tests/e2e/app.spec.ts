@@ -52,6 +52,38 @@ test.describe('Subject pages', () => {
     const topicLinks = page.locator('a[href*="/biology/"]');
     await expect(topicLinks.first()).toBeVisible();
   });
+
+  test('math subject page filters topics by search query', async ({ page }) => {
+    await page.goto('/subjects/math');
+    const searchInput = page.getByRole('textbox', { name: /Search topics/i });
+    await expect(searchInput).toBeVisible();
+
+    // Search for a topic that exists
+    await searchInput.fill('Sequences');
+    await expect(page.getByText('Sequences & Series')).toBeVisible();
+    await expect(page.getByText('Algebra Basics')).not.toBeVisible();
+
+    // Clear search
+    await page.getByRole('button', { name: /Clear search/i }).click();
+    await expect(page.getByText('Algebra Basics')).toBeVisible();
+  });
+
+  test('math subject page filters topics by level', async ({ page }) => {
+    await page.goto('/subjects/math');
+
+    const dpButton = page.getByRole('button', { name: 'DP', exact: true });
+    const mypButton = page.getByRole('button', { name: 'MYP', exact: true });
+
+    // Filter to DP: DP badge should be visible, a known MYP topic should not
+    await dpButton.click();
+    await expect(page.getByText('Sequences & Series')).toBeVisible();
+    await expect(page.getByText('Written Calculations')).not.toBeVisible();
+
+    // Filter to MYP
+    await mypButton.click();
+    await expect(page.getByText('Written Calculations')).toBeVisible();
+    await expect(page.getByText('Sequences & Series')).not.toBeVisible();
+  });
 });
 
 test.describe('Quiz flow', () => {

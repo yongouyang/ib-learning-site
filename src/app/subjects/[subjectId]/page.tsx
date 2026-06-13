@@ -2,9 +2,12 @@
 
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { useState } from 'react';
 import { getSubject } from '@/content/registry';
 import { useProgress } from '@/context/ProgressContext';
 import { getRecentAverageScore } from '@/lib/progress-store';
+import { filterTopics, TopicFilterState } from '@/lib/topic-filter';
+import { TopicFilter } from '@/components/TopicFilter';
 import type { SubjectId } from '@/content/types';
 
 export default function SubjectPage() {
@@ -12,10 +15,12 @@ export default function SubjectPage() {
   const subjectId = params.subjectId as SubjectId;
   const subject = getSubject(subjectId);
   const { topicProgress } = useProgress();
+  const [filter, setFilter] = useState<TopicFilterState>({ query: '', level: 'all' });
 
   if (!subject) return <p className="p-6">Subject not found.</p>;
 
   const emoji = subjectId === 'math' ? '📐' : subjectId === 'english' ? '📖' : subjectId === 'biology' ? '🌿' : subjectId === 'chemistry' ? '🧪' : '⚛️';
+  const filteredTopics = filterTopics(subject.topics, filter);
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
@@ -28,8 +33,15 @@ export default function SubjectPage() {
         </div>
       </div>
 
+      <TopicFilter value={filter} onChange={setFilter} resultCount={filteredTopics.length} />
+
       <div className="space-y-3">
-        {subject.topics.map((topic) => {
+        {filteredTopics.length === 0 && (
+          <p className="text-center text-gray-500 dark:text-gray-400 py-8">
+            No topics match your search.
+          </p>
+        )}
+        {filteredTopics.map((topic) => {
           const tp = topicProgress.find(t => t.topicId === topic.id && t.subjectId === subjectId);
           const score = tp ? getRecentAverageScore(tp.attempts) : -1;
           const stars = score >= 0.9 ? 3 : score >= 0.7 ? 2 : score >= 0.4 ? 1 : 0;
