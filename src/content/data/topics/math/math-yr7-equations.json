@@ -8,252 +8,293 @@
     {
       "id": "math-yr7-equations-eq-n1",
       "heading": "What is an Equation?",
-      "body": "An equation has an equals sign and states two expressions are equal. Think of a balanced scale — left must equal right. The solution is the value that makes it true. x+3=10 has solution x=7. Equations differ from expressions: 2x+5 is an expression; 2x+5=13 is an equation."
+      "body": "An equation is a mathematical statement that two expressions are equal. Learning to solve equations is one of the most important skills in algebra because it lets you find unknown values from known information.\n\n📌 Definition\nAn equation is a sentence that contains an equals sign ($=$) and says that the expression on the left has exactly the same value as the expression on the right.\n\n    $$\\text{Left-hand side} = \\text{Right-hand side}$$\n\n🔑 Key Concept\nA solution of an equation is the value of the unknown that makes the equation true. For example, $x = 7$ is the solution of $x + 3 = 10$ because $7 + 3 = 10$.\n\nAn equation is different from an expression:\n• $4x + 5$ is an expression — it has no equals sign and cannot be \"solved\".\n• $4x + 5 = 21$ is an equation — it can be solved to find $x$.\n\n💡 Worked Example\nIs $x = 5$ a solution of $2x + 1 = 12$?\n\n  Step 1: Substitute $x = 5$ into the left-hand side\n    $2(5) + 1 = 10 + 1 = 11$\n\n  Step 2: Compare with the right-hand side\n    $11 \\neq 12$\n\n  Step 3: Conclude\n    $x = 5$ is NOT a solution. The actual solution is $x = 5.5$ because $2(5.5) + 1 = 12$.\n\n✅ Check\nAlways read the question carefully to see whether you must find the solution or just check whether a given value works."
     },
     {
       "id": "math-yr7-equations-eq-n2",
-      "heading": "Solving One-Step Equations",
-      "body": "Use the inverse operation to isolate the variable. Golden rule: whatever you do to one side, do EXACTLY the same to the other. Addition ↔ Subtraction, Multiplication ↔ Division. Examples: x+5=12 → x=7; y−3=8 → y=11; 4n=20 → n=5; m/3=7 → m=21. Always check by substituting back."
+      "heading": "One-Step Equations: Addition and Subtraction",
+      "body": "One-step equations can be solved using a single inverse operation. The key is to keep the equation balanced, like a set of scales.\n\n📌 Definition\nA one-step equation is an equation that requires only one inverse operation to isolate the variable.\n\n🔑 How it works\nTo undo addition, subtract the same number from both sides. To undo subtraction, add the same number to both sides.\n\n    $x + a = b$  →  $x = b - a$\n    $x - a = b$  →  $x = b + a$\n\n💡 Worked Example 1\nSolve $x + 8 = 15$.\n\n  Step 1: Subtract 8 from both sides\n    $x + 8 - 8 = 15 - 8$\n\n  Step 2: Simplify\n    $x = 7$\n\n  Step 3: Check\n    $7 + 8 = 15$ ✓\n\n💡 Worked Example 2\nSolve $y - 6 = 9$.\n\n  Step 1: Add 6 to both sides\n    $y - 6 + 6 = 9 + 6$\n\n  Step 2: Simplify\n    $y = 15$\n\n  Step 3: Check\n    $15 - 6 = 9$ ✓\n\n⚠️ Common Mistake\nForgetting to change the sign when moving a term across the equals sign. It is safer to write out the inverse operation on both sides rather than trying to \"move\" numbers mentally."
     },
     {
       "id": "math-yr7-equations-eq-n3",
-      "heading": "Solving Two-Step Equations",
-      "body": "Undo addition/subtraction first, then multiplication/division (SADMEP — reverse of PEMDAS). Example: 3x+4=19 → subtract 4: 3x=15 → divide by 3: x=5. Example: 2p−7=11 → add 7: 2p=18 → divide by 2: p=9."
+      "heading": "One-Step Equations: Multiplication and Division",
+      "body": "When the variable is multiplied or divided by a number, use the inverse operation to isolate it.\n\n📌 Definition\nA one-step equation involving multiplication or division is solved by dividing or multiplying both sides by the same non-zero number.\n\n🔑 How it works\nMultiplication and division undo each other.\n\n    $ax = b$  →  $x = \\frac{b}{a}$  (divide both sides by $a$)\n    $\\frac{x}{a} = b$  →  $x = ab$  (multiply both sides by $a$)\n\n💡 Worked Example 1\nSolve $5n = 35$.\n\n  Step 1: Divide both sides by 5\n    $\\frac{5n}{5} = \\frac{35}{5}$\n\n  Step 2: Simplify\n    $n = 7$\n\n  Step 3: Check\n    $5 \\times 7 = 35$ ✓\n\n💡 Worked Example 2\nSolve $\\frac{m}{4} = 6$.\n\n  Step 1: Multiply both sides by 4\n    $4 \\times \\frac{m}{4} = 4 \\times 6$\n\n  Step 2: Simplify\n    $m = 24$\n\n  Step 3: Check\n    $\\frac{24}{4} = 6$ ✓\n\n📎 Key Points to Remember\n• You can multiply or divide both sides by any non-zero number.\n• Never divide by zero — it is undefined.\n• When the variable is on the bottom of a fraction, such as $\\frac{12}{x} = 4$, multiply both sides by $x$ first."
     },
     {
       "id": "math-yr7-equations-eq-n4",
-      "heading": "Forming Equations from Word Problems",
-      "body": "Steps: (1) Identify the unknown, give it a letter. (2) Translate the situation into an equation. (3) Solve. (4) Answer in context with units. Example: \"I think of a number, multiply by 4, add 7, get 35.\" Let n be the number: 4n+7=35 → 4n=28 → n=7."
+      "heading": "Solving Two-Step Equations",
+      "body": "Two-step equations need two inverse operations. The strategy is to undo addition and subtraction first, then undo multiplication and division.\n\n📌 Definition\nA two-step equation is a linear equation that requires two inverse operations to solve.\n\n🔑 Key Concept\nThink of the order of operations (BIDMAS / PEMDAS) in reverse. The last operation done to the variable is the first one you undo.\n\n    $ax + b = c$\n\n  1. Subtract $b$ from both sides.\n  2. Divide both sides by $a$.\n\n💡 Worked Example 1\nSolve $3x + 4 = 19$.\n\n  Step 1: Undo $+4$ by subtracting 4\n    $3x + 4 - 4 = 19 - 4$\n    $3x = 15$\n\n  Step 2: Undo $\\times 3$ by dividing by 3\n    $\\frac{3x}{3} = \\frac{15}{3}$\n    $x = 5$\n\n  Step 3: Check\n    $3(5) + 4 = 15 + 4 = 19$ ✓\n\n💡 Worked Example 2\nSolve $\\frac{y}{2} - 7 = 3$.\n\n  Step 1: Undo $-7$ by adding 7\n    $\\frac{y}{2} - 7 + 7 = 3 + 7$\n    $\\frac{y}{2} = 10$\n\n  Step 2: Undo $\\div 2$ by multiplying by 2\n    $2 \\times \\frac{y}{2} = 2 \\times 10$\n    $y = 20$\n\n  Step 3: Check\n    $\\frac{20}{2} - 7 = 10 - 7 = 3$ ✓\n\n✅ Tip\nWrite each step on a new line. This makes it easier to spot mistakes and shows the examiner your method clearly."
     },
     {
       "id": "math-yr7-equations-eq-n5",
-      "heading": "⚠️ Don't forget the equals sign balance",
-      "body": "If you subtract 4 from the left side, you must subtract 4 from the right side too. Writing each step on a new line helps you remember to do the same thing to both sides."
+      "heading": "Equations with Brackets",
+      "body": "Equations that contain brackets can look harder, but expanding the brackets first turns them into ordinary one-step or two-step equations.\n\n📌 Definition\nTo solve an equation with brackets, expand first using the distributive law, then solve as usual.\n\n    $a(b + c) = ab + ac$\n\n🔑 How it works\nMultiply the term outside the bracket by every term inside the bracket. After expanding, collect like terms and use inverse operations.\n\n💡 Worked Example 1\nSolve $2(x + 5) = 18$.\n\n  Step 1: Expand the bracket\n    $2x + 10 = 18$\n\n  Step 2: Subtract 10\n    $2x = 8$\n\n  Step 3: Divide by 2\n    $x = 4$\n\n  Step 4: Check\n    $2(4 + 5) = 2 \\times 9 = 18$ ✓\n\n💡 Worked Example 2\nSolve $5(2x - 3) = 25$.\n\n  Step 1: Expand\n    $10x - 15 = 25$\n\n  Step 2: Add 15\n    $10x = 40$\n\n  Step 3: Divide by 10\n    $x = 4$\n\n  Step 4: Check\n    $5(2 \\times 4 - 3) = 5(5) = 25$ ✓\n\n⚠️ Common Misconception\nDividing by the number outside the bracket before expanding only works if every term is multiplied by that number. It is safer to expand first so you do not miss anything."
     },
     {
       "id": "math-yr7-equations-eq-n6",
-      "heading": "✅ Check your answer",
-      "body": "After solving, substitute your answer back into the original equation. If both sides are equal, your solution is correct. Example: for 3x + 2 = 14, x = 4. Check: 3(4) + 2 = 14 ✓."
+      "heading": "Forming Equations from Word Problems",
+      "body": "Many real-life problems can be turned into equations. Once you have the equation, you can use algebra to find the answer.\n\n📌 Definition\nForming an equation means translating a worded situation into a mathematical sentence with an unknown.\n\n🔑 Key Concept\nFollow these steps:\n1. Read the problem and identify the unknown.\n2. Choose a letter to represent the unknown.\n3. Translate the words into an equation.\n4. Solve the equation.\n5. Write the answer in context, including units if needed.\n\n💡 Worked Example\nAri thinks of a number. He multiplies it by 4 and then adds 7. The result is 35. What is the number?\n\n  Step 1: Let the number be $n$\n\n  Step 2: Translate into an equation\n    $4n + 7 = 35$\n\n  Step 3: Solve\n    $4n = 35 - 7$\n    $4n = 28$\n    $n = 7$\n\n  Step 4: Answer in context\n    The number is 7.\n\n  Step 5: Check\n    $4 \\times 7 + 7 = 28 + 7 = 35$ ✓\n\n📎 Key Points to Remember\n• \"More than\" or \"add\" usually means $+$.\n• \"Less than\" or \"subtract\" usually means $-$.\n• \"Times\" or \"product\" usually means $\\times$.\n• Always check that your final answer makes sense in the original problem."
+    },
+    {
+      "id": "math-yr7-equations-eq-n7",
+      "heading": "Checking Your Answer and Common Mistakes",
+      "body": "Checking is not optional — it catches sign errors and arithmetic slips. Knowing the common mistakes also helps you avoid them in the first place.\n\n📌 Definition\nTo check a solution, substitute it back into the original equation. If both sides are equal, the solution is correct.\n\n🔑 Key Concept\nA correct solution must satisfy the original equation exactly. Use brackets when substituting to keep signs clear.\n\n💡 Worked Example\nSolve and check $7 - 2x = 15$.\n\n  Step 1: Subtract 7 from both sides\n    $-2x = 8$\n\n  Step 2: Divide by $-2$\n    $x = -4$\n\n  Step 3: Check by substituting $x = -4$\n    $7 - 2(-4) = 7 + 8 = 15$ ✓\n\n⚠️ Common Mistake 1\nForgetting that subtracting a negative is the same as adding. When you see $-2(-4)$, the two negatives multiply to give a positive.\n\n⚠️ Common Mistake 2\nOnly checking one side of the equation. You must evaluate the left-hand side AND compare it with the right-hand side.\n\n✅ Check\nBefore moving on, ask yourself: \"Does my answer make the original equation true?\" If yes, you can be confident."
     }
   ],
   "flashcards": [
     {
       "id": "math-yr7-equations-eq-f1",
       "term": "Equation",
-      "definition": "A mathematical sentence with an equals sign.",
-      "example": "2x+5=17."
+      "definition": "A mathematical statement that two expressions are equal, containing an equals sign.",
+      "example": "$3x + 2 = 14$ is an equation."
     },
     {
       "id": "math-yr7-equations-eq-f2",
       "term": "Solution",
-      "definition": "The value of the variable that makes the equation true.",
-      "example": "x+4=10 → x=6."
+      "definition": "The value of the unknown that makes the equation true.",
+      "example": "$x = 4$ is the solution of $x + 5 = 9$."
     },
     {
       "id": "math-yr7-equations-eq-f3",
-      "term": "Inverse operations",
-      "definition": "Opposite operations: + ↔ −, × ↔ ÷.",
-      "example": "To solve x+3=8: subtract 3."
+      "term": "Inverse operation",
+      "definition": "An operation that undoes another operation: addition and subtraction are inverses; multiplication and division are inverses.",
+      "example": "To undo $+3$, subtract $3$. To undo $\\times 4$, divide by $4$."
     },
     {
       "id": "math-yr7-equations-eq-f4",
       "term": "Balance method",
-      "definition": "Do the same operation to BOTH sides.",
-      "example": "3x=15 → divide both sides by 3."
+      "definition": "Performing the same operation on both sides of an equation to keep it balanced.",
+      "example": "$x + 6 = 10$ → $x = 4$ after subtracting 6 from both sides."
     },
     {
       "id": "math-yr7-equations-eq-f5",
       "term": "Isolate the variable",
-      "definition": "Get the variable alone on one side.",
-      "example": "2y−3=9 → add 3: 2y=12 → divide by 2: y=6."
+      "definition": "Rearrange the equation so the unknown is alone on one side.",
+      "example": "$2x + 3 = 11$ becomes $x = 4$ after isolating $x$."
     },
     {
       "id": "math-yr7-equations-eq-f6",
       "term": "One-step equation",
-      "definition": "Solved with a single inverse operation.",
-      "example": "x+5=13 → x=8."
+      "definition": "An equation that can be solved with a single inverse operation.",
+      "example": "$x - 7 = 12$ is solved by adding 7."
     },
     {
       "id": "math-yr7-equations-eq-f7",
       "term": "Two-step equation",
-      "definition": "Requires two inverse operations.",
-      "example": "4x−7=13 → add 7 → divide by 4 → x=5."
+      "definition": "An equation that requires two inverse operations to solve.",
+      "example": "$3x + 5 = 20$ needs subtracting 5 then dividing by 3."
     },
     {
       "id": "math-yr7-equations-eq-f8",
-      "term": "Checking",
-      "definition": "Substitute solution back into original equation.",
-      "example": "If x=4, 2(4)+1=9 ✓."
+      "term": "Linear equation",
+      "definition": "An equation where the unknown has a highest power of 1 and its graph is a straight line.",
+      "example": "$2x + 1 = 7$ is linear; $x^2 = 9$ is not."
     },
     {
       "id": "math-yr7-equations-eq-f9",
-      "term": "Expression",
-      "definition": "A group of numbers, letters and operations without an equals sign.",
-      "example": "4x + 7 is an expression."
+      "term": "Coefficient",
+      "definition": "The number multiplied by a variable in a term.",
+      "example": "In $5x + 3 = 18$, the coefficient of $x$ is $5$."
     },
     {
       "id": "math-yr7-equations-eq-f10",
-      "term": "Unknown",
-      "definition": "The value you are trying to find in an equation.",
-      "example": "In 2x + 1 = 9, x is the unknown."
+      "term": "Constant term",
+      "definition": "A fixed number in an equation that does not change and has no variable attached.",
+      "example": "In $4x + 7 = 23$, the constant terms are $7$ and $23$."
+    },
+    {
+      "id": "math-yr7-equations-eq-f11",
+      "term": "Expand brackets",
+      "definition": "Multiply each term inside a bracket by the term outside the bracket.",
+      "example": "$3(x + 4) = 3x + 12$."
+    },
+    {
+      "id": "math-yr7-equations-eq-f12",
+      "term": "Check a solution",
+      "definition": "Substitute the found value back into the original equation to verify it is correct.",
+      "example": "For $2x + 1 = 9$, $x = 4$ checks because $2(4) + 1 = 9$."
     }
   ],
   "questions": [
     {
       "id": "math-yr7-equations-eq-q1",
-      "stem": "Solve: x+9=15",
+      "stem": "Solve $x + 9 = 15$.",
       "choices": [
-        "x=6",
-        "x=24",
-        "x=5",
-        "x=−6"
+        "$x = 6$",
+        "$x = 24$",
+        "$x = 5$",
+        "$x = -6$"
       ],
       "correctIndex": 0,
-      "explanation": "Subtract 9: x=15−9=6."
+      "explanation": "Subtract 9 from both sides: $x = 15 - 9 = 6$. Check: $6 + 9 = 15$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q2",
-      "stem": "Solve: y−5=12",
+      "stem": "Solve $y - 8 = 13$.",
       "choices": [
-        "y=7",
-        "y=17",
-        "y=−7",
-        "y=60"
+        "$y = 5$",
+        "$y = 21$",
+        "$y = -5$",
+        "$y = 104$"
       ],
       "correctIndex": 1,
-      "explanation": "To solve y − 5 = 12, add 5 to both sides: y = 12 + 5 = 17. Check: 17 − 5 = 12 ✓."
+      "explanation": "Add 8 to both sides: $y = 13 + 8 = 21$. Check: $21 - 8 = 13$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q3",
-      "stem": "Solve: 6n=42",
+      "stem": "Solve $6n = 42$.",
       "choices": [
-        "n=7",
-        "n=6",
-        "n=8",
-        "n=36"
+        "$n = 7$",
+        "$n = 6$",
+        "$n = 8$",
+        "$n = 36$"
       ],
       "correctIndex": 0,
-      "explanation": "Divide by 6: n=42÷6=7."
+      "explanation": "Divide both sides by 6: $n = 42 \\div 6 = 7$. Check: $6 \\times 7 = 42$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q4",
-      "stem": "Solve: p/4=9",
+      "stem": "Solve $\\frac{p}{5} = 6$.",
       "choices": [
-        "p=2.25",
-        "p=13",
-        "p=36",
-        "p=5"
+        "$p = 1.2$",
+        "$p = 11$",
+        "$p = 30$",
+        "$p = 25$"
       ],
       "correctIndex": 2,
-      "explanation": "Multiply by 4: p=9×4=36."
+      "explanation": "Multiply both sides by 5: $p = 6 \\times 5 = 30$. Check: $\\frac{30}{5} = 6$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q5",
-      "stem": "Solve: 2x+3=17",
+      "stem": "Solve $2x + 7 = 19$.",
       "choices": [
-        "x=7",
-        "x=10",
-        "x=5",
-        "x=8.5"
+        "$x = 13$",
+        "$x = 6$",
+        "$x = 5$",
+        "$x = 9.5$"
       ],
-      "correctIndex": 0,
-      "explanation": "Subtract 3: 2x=14, divide by 2: x=7."
+      "correctIndex": 1,
+      "explanation": "Subtract 7: $2x = 12$, then divide by 2: $x = 6$. Check: $2(6) + 7 = 19$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q6",
-      "stem": "Solve: 5y−8=22",
+      "stem": "Solve $5y - 9 = 26$.",
       "choices": [
-        "y=2.8",
-        "y=6",
-        "y=14",
-        "y=30"
+        "$y = 3.4$",
+        "$y = 7$",
+        "$y = 17$",
+        "$y = 35$"
       ],
       "correctIndex": 1,
-      "explanation": "Add 8: 5y=30, divide by 5: y=6."
+      "explanation": "Add 9: $5y = 35$, then divide by 5: $y = 7$. Check: $5(7) - 9 = 26$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q7",
-      "stem": "Solve: x/3+2=7",
+      "stem": "Solve $\\frac{x}{3} + 4 = 9$.",
       "choices": [
-        "x=15",
-        "x=27",
-        "x=9",
-        "x=3"
+        "$x = 15$",
+        "$x = 39$",
+        "$x = 9$",
+        "$x = 1.67$"
       ],
       "correctIndex": 0,
-      "explanation": "Subtract 2: x/3=5, multiply by 3: x=15."
+      "explanation": "Subtract 4: $\\frac{x}{3} = 5$, then multiply by 3: $x = 15$. Check: $\\frac{15}{3} + 4 = 9$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q8",
-      "stem": "I think of a number, multiply by 3, subtract 4, get 20. Find the number.",
+      "stem": "Solve $18 = 4 + 2x$.",
       "choices": [
-        "6",
-        "8",
-        "7",
-        "5"
+        "$x = 11$",
+        "$x = 7$",
+        "$x = 9$",
+        "$x = 14$"
       ],
       "correctIndex": 1,
-      "explanation": "3n−4=20 → 3n=24 → n=8."
+      "explanation": "Subtract 4: $14 = 2x$, then divide by 2: $x = 7$. Check: $4 + 2(7) = 18$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q9",
-      "stem": "Solve: 4(x−2)=20",
+      "stem": "Solve $3(x + 2) = 24$.",
       "choices": [
-        "x=7",
-        "x=5.5",
-        "x=3",
-        "x=6"
+        "$x = 10$",
+        "$x = 8$",
+        "$x = 6$",
+        "$x = 4$"
       ],
-      "correctIndex": 0,
-      "explanation": "Expand: 4x−8=20 → 4x=28 → x=7."
+      "correctIndex": 2,
+      "explanation": "Expand: $3x + 6 = 24$. Subtract 6: $3x = 18$, then divide by 3: $x = 6$. Check: $3(6 + 2) = 24$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q10",
-      "stem": "Perimeter of rectangle is 38cm, length 12cm. Find width. (P=2l+2w)",
+      "stem": "Solve $7 - 2x = 15$.",
       "choices": [
-        "7 cm",
-        "8 cm",
-        "13 cm",
-        "6 cm"
+        "$x = -4$",
+        "$x = 4$",
+        "$x = 11$",
+        "$x = -11$"
       ],
       "correctIndex": 0,
-      "explanation": "38=2×12+2w → 38=24+2w → 14=2w → w=7cm."
+      "explanation": "Subtract 7: $-2x = 8$, then divide by $-2$: $x = -4$. Check: $7 - 2(-4) = 7 + 8 = 15$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q11",
-      "stem": "A football team scores 3 goals in each of its first n games and has scored 21 goals in total. How many games has it played?",
+      "stem": "I think of a number, multiply it by 5 and then subtract 3. The answer is 32. What is the number?",
       "choices": [
-        "6 games",
-        "7 games",
-        "8 games",
-        "18 games"
+        "$5$",
+        "$6$",
+        "$7$",
+        "$8$"
       ],
-      "correctIndex": 1,
-      "explanation": "3n = 21. Divide both sides by 3: n = 7. So the team has played 7 games."
+      "correctIndex": 2,
+      "explanation": "Let the number be $n$. Then $5n - 3 = 32$. Add 3: $5n = 35$, then divide by 5: $n = 7$. Check: $5(7) - 3 = 32$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q12",
-      "stem": "The equation ax = 10 has the solution x = 5. What number is a?",
+      "stem": "The perimeter of a rectangle is $34$ cm. Its length is $11$ cm. Find the width using $P = 2l + 2w$.",
       "choices": [
-        "2",
-        "5",
-        "50",
-        "15"
+        "$6$ cm",
+        "$7$ cm",
+        "$12$ cm",
+        "$23$ cm"
       ],
       "correctIndex": 0,
-      "explanation": "Substitute x = 5 into ax = 10: a × 5 = 10. Divide both sides by 5: a = 2. Check: 2 × 5 = 10 ✓."
+      "explanation": "$34 = 2(11) + 2w$ → $34 = 22 + 2w$ → $12 = 2w$ → $w = 6$ cm. Check: $2(11) + 2(6) = 34$ ✓."
     },
     {
       "id": "math-yr7-equations-eq-q13",
-      "stem": "A rectangle's length is (2x + 1) cm and its width is 5 cm. The perimeter is 28 cm. Find x.",
+      "stem": "A cinema ticket costs $\\$8$ and a popcorn costs $\\$p$. Maya buys 3 tickets and 2 popcorns for $\\$38$. Which equation finds $p$?",
       "choices": [
-        "2",
-        "3",
-        "4",
-        "5"
+        "$3p + 2(8) = 38$",
+        "$3(8) + 2p = 38$",
+        "$8p + 3 = 38$",
+        "$3 + 2p = 38$"
       ],
-      "correctIndex": 2,
-      "explanation": "Perimeter = 2(length + width): 2((2x+1)+5)=28. Simplify: 2(2x+6)=28 → 4x+12=28 → 4x=16 → x=4. Check: length=9, width=5, perimeter=28 ✓."
+      "correctIndex": 1,
+      "explanation": "Three tickets cost $3 \\times 8$ and two popcorns cost $2p$, so $3(8) + 2p = 38$. Solving gives $24 + 2p = 38$ → $2p = 14$ → $p = 7$."
+    },
+    {
+      "id": "math-yr7-equations-eq-q14",
+      "stem": "The equation $ax = 30$ has solution $x = 6$. What is the value of $a$?",
+      "choices": [
+        "$5$",
+        "$6$",
+        "$24$",
+        "$180$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Substitute $x = 6$: $a \\times 6 = 30$. Divide by 6: $a = 5$. Check: $5 \\times 6 = 30$ ✓."
+    },
+    {
+      "id": "math-yr7-equations-eq-q15",
+      "stem": "A taxi charges a $\\$4$ fixed fee plus $\\$2$ per kilometre. Jaden's fare costs $\\$22$. How many kilometres did he travel?",
+      "choices": [
+        "$9$ km",
+        "$11$ km",
+        "$13$ km",
+        "$18$ km"
+      ],
+      "correctIndex": 0,
+      "explanation": "Let $d$ be the distance in km. Then $4 + 2d = 22$. Subtract 4: $2d = 18$, then divide by 2: $d = 9$ km. Check: $4 + 2(9) = 22$ ✓."
     }
   ]
 }

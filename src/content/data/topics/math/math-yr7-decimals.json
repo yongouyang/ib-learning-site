@@ -8,252 +8,293 @@
     {
       "id": "math-yr7-decimals-dec-n1",
       "heading": "Decimal Place Value",
-      "body": "Decimals extend place value to the right of the ones column: tenths (1/10), hundredths (1/100), thousandths (1/1000). In 3.47, 3 is ones, 4 is tenths (4/10), 7 is hundredths (7/100). Trailing zeros don't change a decimal's value: 0.6 = 0.60 = 0.600."
+      "body": "📌 Definition\nA decimal is a way of writing a number that is not a whole number. The decimal point separates the whole-number part from the fractional part.\n\n🔑 Key Concept\nEach digit to the right of the decimal point has a value ten times smaller than the one before it:\n\n$$0.1 = \\frac{1}{10}, \\quad 0.01 = \\frac{1}{100}, \\quad 0.001 = \\frac{1}{1000}$$\n\nIn the number $23.456$:\n• $2$ is in the tens place\n• $3$ is in the ones place\n• $4$ is in the tenths place ($4 \\times 0.1$)\n• $5$ is in the hundredths place ($5 \\times 0.01$)\n• $6$ is in the thousandths place ($6 \\times 0.001$)\n\n💡 Worked Example\nWhat is the value of the digit $7$ in $9.074$?\n\nStep 1: Locate the digit after the decimal point.\n$7$ is the second digit after the point.\n\nStep 2: Name the place value.\nSecond decimal place = hundredths.\n\nSo the value of $7$ is $7$ hundredths, or $\\frac{7}{100}$ or $0.07$.\n\n⚠️ Common Misconception\nThe digit furthest to the right is not automatically the smallest value — it depends on its place. In $0.123$, the $3$ is thousandths; in $0.23$, the $3$ is hundredths."
     },
     {
       "id": "math-yr7-decimals-dec-n2",
       "heading": "Comparing and Ordering Decimals",
-      "body": "Line up decimal points and compare digits left to right. Add trailing zeros to equalise decimal places. Example: compare 0.6, 0.58, 0.605 → write as 0.600, 0.580, 0.605 → order: 0.58, 0.6, 0.605."
+      "body": "📌 Definition\nTo compare two decimals, we decide which has the larger value by comparing digits in the same place-value columns.\n\n🔑 How it works\n1. Line up the decimal points.\n2. Add trailing zeros so every number has the same number of decimal places.\n3. Compare digits from left to right, starting with the largest place value.\n\n💡 Worked Example\nOrder these numbers from smallest to largest: $0.6$, $0.58$, $0.605$, $0.061$.\n\nStep 1: Write each number with three decimal places.\n$0.6 = 0.600$\n$0.58 = 0.580$\n$0.605 = 0.605$\n$0.061 = 0.061$\n\nStep 2: Compare digit by digit from the left.\n$0.061$ has 0 tenths, so it is smallest.\nThen $0.580 < 0.600 < 0.605$.\n\nFinal order: $0.061,\\ 0.58,\\ 0.6,\\ 0.605$.\n\n⚠️ Common Mistake\nThinking more digits always means a bigger number. For example, $0.5 > 0.499$ even though $0.499$ has more digits. Use trailing zeros to compare fairly."
     },
     {
       "id": "math-yr7-decimals-dec-n3",
-      "heading": "Adding, Subtracting and Multiplying Decimals",
-      "body": "For addition/subtraction: align decimal points and fill gaps with zeros. Example: 4.7 + 2.35 = 4.70 + 2.35 = 7.05. Multiply by 10/100/1000 by moving the decimal point right. Divide by moving it left. For multiplying two decimals: multiply as whole numbers, then count total decimal places in both factors."
+      "heading": "Adding and Subtracting Decimals",
+      "body": "🔑 Key Concept\nWhen adding or subtracting decimals, the decimal points must stay in a straight column. If the numbers have different lengths, fill the shorter one with trailing zeros so each column lines up.\n\n💡 Worked Example 1 — Addition\nFind $3.75 + 1.8$.\n\nStep 1: Write vertically with decimal points aligned.\n$$\\begin{array}{r} 3.75 \\\\ +\\ 1.80 \\\\ \\hline \\end{array}$$\n\nStep 2: Add from right to left.\nHundredths: $5 + 0 = 5$\nTenths: $7 + 8 = 15$ (write $5$, carry $1$)\nOnes: $3 + 1 + 1 = 5$\n\n$$3.75 + 1.8 = 5.55$$\n\n💡 Worked Example 2 — Subtraction\nFind $5.2 - 3.87$.\n\nStep 1: Write vertically with trailing zero.\n$$\\begin{array}{r} 5.20 \\\\ -\\ 3.87 \\\\ \\hline \\end{array}$$\n\nStep 2: Subtract from right to left, borrowing when needed.\nHundredths: $0 - 7$ needs a borrow → $10 - 7 = 3$\nTenths: $1 - 8$ needs a borrow → $11 - 8 = 3$\nOnes: $4 - 3 = 1$\n\n$$5.2 - 3.87 = 1.33$$\n\n📎 Key Points to Remember\n• Always align decimal points, not the last digits.\n• Use trailing zeros to make columns match; they do not change the value.\n• Check addition by subtracting one number from the answer.\n\n⚠️ Common Mistake\nAligning the last digits instead of the decimal points. For $3.75 + 1.8$, writing $3.75 + 18$ gives $21.75$, which is wrong."
     },
     {
       "id": "math-yr7-decimals-dec-n4",
-      "heading": "Converting Between Fractions, Decimals and Percentages",
-      "body": "Fraction → decimal: divide numerator by denominator (3/4 = 0.75). Decimal → percentage: × 100 (0.75×100=75%). Percentage → decimal: ÷ 100 (35%=0.35). Memorise: 1/2=0.5=50%, 1/4=0.25=25%, 3/4=0.75=75%, 1/5=0.2=20%, 1/10=0.1=10%."
+      "heading": "Multiplying and Dividing by Powers of 10",
+      "body": "🔑 Key Concept\nMultiplying by $10$, $100$ or $1000$ moves every digit one, two or three places to the left, so the decimal point appears to move to the right. Dividing moves digits the other way.\n\n$$\\times 10 \\rightarrow \\text{move decimal point 1 place right}$$\n$$\\times 100 \\rightarrow \\text{move decimal point 2 places right}$$\n$$\\times 1000 \\rightarrow \\text{move decimal point 3 places right}$$\n\nFor division, move the decimal point to the left the same number of places.\n\n💡 Worked Example\nCalculate:\n(a) $4.73 \\times 100$\n(b) $6.5 \\div 1000$\n\n(a) $4.73 \\times 100$: move the decimal point two places right.\n$$4.73 \\times 100 = 473$$\n\n(b) $6.5 \\div 1000$: move the decimal point three places left, adding zeros as needed.\n$$6.5 \\div 1000 = 0.0065$$\n\n✅ Check\nUse estimation to sense-check. $4.73 \\times 100$ should be a bit less than $5 \\times 100 = 500$, and $473$ fits. $6.5 \\div 1000$ should be much smaller than $6.5$, and $0.0065$ is.\n\n⚠️ Common Mistake\nCounting the wrong number of zeros. $100$ has two zeros, so move two places; $1000$ has three zeros, so move three places."
     },
     {
       "id": "math-yr7-decimals-dec-n5",
-      "heading": "⚠️ Comparing decimals — watch the length",
-      "body": "A number with more digits is not always larger. 0.5 is the same as 0.50 and is bigger than 0.499. Add zeros to make the decimal places equal, then compare digit by digit from the left."
+      "heading": "Multiplying Two Decimals",
+      "body": "🔑 How it works\nTo multiply two decimals, ignore the decimal points at first. Multiply the numbers as if they were whole numbers. Then count the total number of decimal places in the original factors and place the decimal point in the answer so it has the same total.\n\n💡 Worked Example\nFind $2.4 \\times 1.35$.\n\nStep 1: Ignore decimals and multiply as whole numbers.\n$$24 \\times 135 = 3240$$\n\nStep 2: Count decimal places in the original factors.\n$2.4$ has $1$ decimal place.\n$1.35$ has $2$ decimal places.\nTotal = $1 + 2 = 3$ decimal places.\n\nStep 3: Place the decimal point in $3240$ to give 3 decimal places.\n$$2.4 \\times 1.35 = 3.240 = 3.24$$\n\n📎 Key Points to Remember\n• Count decimal places in the question, not the digits.\n• Trailing zeros after the decimal point can be removed if they are not needed ($3.240 = 3.24$).\n• Estimate first: $2.4 \\times 1.35$ is about $2.5 \\times 1.3 = 3.25$, so $3.24$ looks right.\n\n⚠️ Common Mistake\nForgetting that $2.4 \\times 1.35$ must be smaller than $2.4 \\times 2 = 4.8$ but larger than $2.4 \\times 1 = 2.4$. A quick estimate catches many errors."
     },
     {
       "id": "math-yr7-decimals-dec-n6",
-      "heading": "✅ Money and decimals",
-      "body": "When working with money, write amounts with two decimal places. £3.5 should be written as £3.50. When giving change, subtract the total cost from the amount paid and check your answer by adding back."
+      "heading": "Dividing Decimals",
+      "body": "🔑 How it works\nThe easiest way to divide by a decimal is to turn the divisor into a whole number by multiplying both numbers by the same power of 10. Then divide as usual.\n\n💡 Worked Example 1 — Dividing by a decimal\nFind $7.2 \\div 0.9$.\n\nStep 1: Make the divisor a whole number.\nMultiply both numbers by $10$:\n$$7.2 \\times 10 = 72, \\qquad 0.9 \\times 10 = 9$$\n\nStep 2: Divide.\n$$72 \\div 9 = 8$$\n\nSo $7.2 \\div 0.9 = 8$.\n\n💡 Worked Example 2 — Decimal dividend and divisor\nFind $4.68 \\div 0.12$.\n\nStep 1: Multiply both by $100$ to make the divisor whole.\n$$4.68 \\times 100 = 468, \\qquad 0.12 \\times 100 = 12$$\n\nStep 2: Divide.\n$$468 \\div 12 = 39$$\n\nSo $4.68 \\div 0.12 = 39$.\n\n✅ Tip\nCheck your answer by multiplying back: $0.9 \\times 8 = 7.2$ ✓ and $0.12 \\times 39 = 4.68$ ✓.\n\n⚠️ Common Mistake\nOnly multiplying the divisor and forgetting to multiply the dividend by the same amount. If you change one number, you must change the other by the same factor to keep the answer the same."
+    },
+    {
+      "id": "math-yr7-decimals-dec-n7",
+      "heading": "Fractions, Decimals and Percentages",
+      "body": "📌 Definition\nFractions, decimals and percentages are three different ways to represent parts of a whole. They are interchangeable, and being able to convert between them is essential in everyday maths and science.\n\n🔑 Key Concept\n• Fraction → decimal: divide numerator by denominator.\n• Decimal → percentage: multiply by $100$ and write the % sign.\n• Percentage → decimal: divide by $100$ (or move decimal point two places left).\n• Decimal → fraction: write the digits over the correct power of 10, then simplify.\n\n💡 Worked Example 1 — Fraction to decimal\nConvert $\\frac{3}{8}$ to a decimal.\n\n$$3 \\div 8 = 0.375$$\n\nSo $\\frac{3}{8} = 0.375$.\n\n💡 Worked Example 2 — Decimal to percentage and fraction\nConvert $0.64$ to a percentage and a fraction.\n\nPercentage: $0.64 \\times 100 = 64\\%$\nFraction: $0.64 = \\frac{64}{100} = \\frac{16}{25}$\n\n💡 Worked Example 3 — Percentage to decimal\nConvert $7.5\\%$ to a decimal.\n\n$$7.5\\% = 7.5 \\div 100 = 0.075$$\n\n📎 Key Points to Remember\n• Common equivalences worth memorising:\n  $\\frac{1}{2} = 0.5 = 50\\%$\n  $\\frac{1}{4} = 0.25 = 25\\%$\n  $\\frac{3}{4} = 0.75 = 75\\%$\n  $\\frac{1}{5} = 0.2 = 20\\%$\n  $\\frac{1}{10} = 0.1 = 10\\%$\n  $\\frac{1}{100} = 0.01 = 1\\%$\n\n⚠️ Common Mistake\nMoving the decimal point the wrong way when converting percentages. To go from % to decimal, divide by 100, so $5\\% = 0.05$, not $0.5$."
     }
   ],
   "flashcards": [
     {
       "id": "math-yr7-decimals-dec-f1",
       "term": "Tenths",
-      "definition": "First decimal place — one part out of ten (1/10 = 0.1).",
-      "example": "In 2.7, the 7 is in the tenths place."
+      "definition": "The first decimal place; one part out of ten equal parts.",
+      "example": "In 0.4, the digit 4 represents 4 tenths, or 4/10."
     },
     {
       "id": "math-yr7-decimals-dec-f2",
       "term": "Hundredths",
-      "definition": "Second decimal place — one part out of one hundred (1/100 = 0.01).",
-      "example": "In 5.43, the 3 is in the hundredths place."
+      "definition": "The second decimal place; one part out of one hundred equal parts.",
+      "example": "In 0.07, the digit 7 represents 7 hundredths, or 7/100."
     },
     {
       "id": "math-yr7-decimals-dec-f3",
-      "term": "Decimal point",
-      "definition": "The dot separating whole numbers from the fractional part.",
-      "example": "In 14.28, the point separates 14 from 28 hundredths."
+      "term": "Thousandths",
+      "definition": "The third decimal place; one part out of one thousand equal parts.",
+      "example": "In 0.009, the digit 9 represents 9 thousandths, or 9/1000."
     },
     {
       "id": "math-yr7-decimals-dec-f4",
-      "term": "Comparing decimals",
-      "definition": "Line up decimal points, compare digits left to right.",
-      "example": "0.7 > 0.69 because 0.70 > 0.69."
+      "term": "Decimal point",
+      "definition": "The dot that separates the whole-number part of a number from its fractional part.",
+      "example": "In 12.34, the decimal point separates 12 ones from 34 hundredths."
     },
     {
       "id": "math-yr7-decimals-dec-f5",
-      "term": "× 10, × 100, × 1000",
-      "definition": "Move decimal point 1, 2, or 3 places right.",
-      "example": "3.47 × 10 = 34.7; 3.47 × 100 = 347."
+      "term": "Equivalent decimals",
+      "definition": "Decimals that represent the same value even though they look different.",
+      "example": "0.5 = 0.50 = 0.500."
     },
     {
       "id": "math-yr7-decimals-dec-f6",
-      "term": "Fraction → decimal",
-      "definition": "Divide numerator by denominator.",
-      "example": "7/8 = 7 ÷ 8 = 0.875."
+      "term": "Comparing decimals",
+      "definition": "Line up the decimal points, add trailing zeros, then compare digits from left to right.",
+      "example": "0.7 > 0.69 because 0.70 > 0.69."
     },
     {
       "id": "math-yr7-decimals-dec-f7",
-      "term": "Decimal → percentage",
-      "definition": "Multiply by 100 and add %.",
-      "example": "0.42 × 100 = 42%."
+      "term": "Multiplying by powers of 10",
+      "definition": "Move every digit left; the decimal point appears to move right by the number of zeros.",
+      "example": "5.62 × 1000 = 5620."
     },
     {
       "id": "math-yr7-decimals-dec-f8",
-      "term": "Percentage → decimal",
-      "definition": "Divide by 100.",
-      "example": "75% = 75 ÷ 100 = 0.75."
+      "term": "Dividing by powers of 10",
+      "definition": "Move every digit right; the decimal point appears to move left by the number of zeros.",
+      "example": "5.62 ÷ 1000 = 0.00562."
     },
     {
       "id": "math-yr7-decimals-dec-f9",
-      "term": "Thousandths",
-      "definition": "Third decimal place — one part out of one thousand.",
-      "example": "In 0.007, the 7 is in the thousandths place."
+      "term": "Adding and subtracting decimals",
+      "definition": "Align the decimal points and use trailing zeros so the columns match.",
+      "example": "4.3 + 2.75 is written as 4.30 + 2.75 = 7.05."
     },
     {
       "id": "math-yr7-decimals-dec-f10",
-      "term": "Equivalent decimals",
-      "definition": "Decimals that have the same value even though they look different.",
-      "example": "0.6 = 0.60 = 0.600."
+      "term": "Multiplying two decimals",
+      "definition": "Multiply as whole numbers, then count the total decimal places in the factors to place the point.",
+      "example": "0.3 × 0.4 = 12 with 2 decimal places = 0.12."
+    },
+    {
+      "id": "math-yr7-decimals-dec-f11",
+      "term": "Dividing by a decimal",
+      "definition": "Multiply both the dividend and divisor by the same power of 10 to make the divisor a whole number.",
+      "example": "1.44 ÷ 0.12 becomes 144 ÷ 12 = 12."
+    },
+    {
+      "id": "math-yr7-decimals-dec-f12",
+      "term": "Percentage to decimal",
+      "definition": "Divide by 100 (or move the decimal point two places left) and remove the % sign.",
+      "example": "8% = 0.08; 125% = 1.25."
     }
   ],
   "questions": [
     {
       "id": "math-yr7-decimals-dec-q1",
-      "stem": "In 5.38, what is the value of the digit 8?",
+      "stem": "In the number 6.295, what is the value of the digit 9?",
       "choices": [
-        "8 ones",
-        "8 tenths",
-        "8 hundredths",
-        "8 thousandths"
+        "9 tenths",
+        "9 hundredths",
+        "9 thousandths",
+        "9 ones"
       ],
-      "correctIndex": 2,
-      "explanation": "After the decimal: first digit = tenths (3), second = hundredths (8)."
+      "correctIndex": 1,
+      "explanation": "After the decimal point, the first digit is tenths, the second is hundredths and the third is thousandths. The 9 is the second digit, so it represents 9 hundredths."
     },
     {
       "id": "math-yr7-decimals-dec-q2",
-      "stem": "Which is larger: 0.7 or 0.69?",
+      "stem": "Which is larger: 0.4 or 0.39?",
       "choices": [
-        "0.7",
-        "0.69",
+        "0.4",
+        "0.39",
         "Equal",
         "Cannot tell"
       ],
       "correctIndex": 0,
-      "explanation": "0.70 > 0.69, so 0.7 is larger."
+      "explanation": "Write 0.4 as 0.40. Since 40 hundredths is greater than 39 hundredths, 0.4 > 0.39."
     },
     {
       "id": "math-yr7-decimals-dec-q3",
-      "stem": "Order smallest to largest: 0.45, 0.5, 0.09, 0.405.",
+      "stem": "Which list shows 0.7, 0.08, 0.15 and 0.603 in order from smallest to largest?",
       "choices": [
-        "0.09, 0.405, 0.45, 0.5",
-        "0.09, 0.45, 0.405, 0.5",
-        "0.405, 0.45, 0.5, 0.09",
-        "0.09, 0.45, 0.5, 0.405"
+        "0.08, 0.15, 0.603, 0.7",
+        "0.7, 0.603, 0.15, 0.08",
+        "0.08, 0.15, 0.7, 0.603",
+        "0.15, 0.08, 0.603, 0.7"
       ],
       "correctIndex": 0,
-      "explanation": "As 0.090, 0.405, 0.450, 0.500 → 0.09, 0.405, 0.45, 0.5."
+      "explanation": "With three decimal places the numbers are 0.700, 0.080, 0.150 and 0.603. Ordering gives 0.080, 0.150, 0.603, 0.700."
     },
     {
       "id": "math-yr7-decimals-dec-q4",
-      "stem": "What is 3.75 + 1.8?",
+      "stem": "Calculate 2.46 + 3.8.",
       "choices": [
-        "4.55",
-        "5.55",
-        "5.45",
-        "4.65"
+        "5.54",
+        "6.26",
+        "6.24",
+        "5.26"
       ],
       "correctIndex": 1,
-      "explanation": "Write 3.75 + 1.80 with decimal points aligned. Hundredths: 5+0=5. Tenths: 7+8=15 (write 5, carry 1). Ones: 3+1+1=5. Answer: 5.55."
+      "explanation": "Align the decimal points and add: 2.46 + 3.80 = 6.26."
     },
     {
       "id": "math-yr7-decimals-dec-q5",
-      "stem": "What is 5.2 − 3.87?",
+      "stem": "Calculate 9 − 4.37.",
       "choices": [
-        "1.33",
-        "2.33",
-        "1.43",
-        "1.67"
+        "5.37",
+        "4.63",
+        "5.63",
+        "4.37"
       ],
-      "correctIndex": 0,
-      "explanation": "Write 5.20 − 3.87 with decimal points aligned. Hundredths: 0−7 borrows from tenths → 10−7=3. Tenths: 1−8 borrows from ones → 11−8=3. Ones: 4−3=1. Answer: 1.33."
+      "correctIndex": 1,
+      "explanation": "Write 9 as 9.00 and subtract: 9.00 − 4.37 = 4.63."
     },
     {
       "id": "math-yr7-decimals-dec-q6",
-      "stem": "What is 2.6 × 10?",
+      "stem": "What is 0.058 × 1000?",
       "choices": [
-        "2.6",
-        "26",
-        "260",
-        "0.26"
+        "0.000058",
+        "0.58",
+        "5.8",
+        "58"
       ],
-      "correctIndex": 1,
-      "explanation": "Move decimal point one place right: 2.6 → 26."
+      "correctIndex": 3,
+      "explanation": "Multiplying by 1000 moves the decimal point three places to the right: 0.058 → 58."
     },
     {
       "id": "math-yr7-decimals-dec-q7",
-      "stem": "What is 47.3 ÷ 100?",
+      "stem": "What is 34 ÷ 1000?",
       "choices": [
-        "4.73",
-        "473",
-        "0.473",
-        "4730"
+        "34000",
+        "0.34",
+        "0.034",
+        "0.0034"
       ],
       "correctIndex": 2,
-      "explanation": "Move decimal point two places left: 47.3 → 0.473."
+      "explanation": "Dividing by 1000 moves the decimal point three places to the left: 34 → 0.034."
     },
     {
       "id": "math-yr7-decimals-dec-q8",
-      "stem": "Convert 3/5 to a decimal.",
+      "stem": "Calculate 0.6 × 0.15.",
       "choices": [
-        "0.35",
-        "0.53",
-        "0.6",
-        "0.8"
+        "0.09",
+        "0.9",
+        "0.009",
+        "9"
       ],
-      "correctIndex": 2,
-      "explanation": "3 ÷ 5 = 0.6, or 3/5 = 6/10 = 0.6."
+      "correctIndex": 0,
+      "explanation": "6 × 15 = 90. The factors have 1 + 2 = 3 decimal places in total, so the answer is 0.090 = 0.09."
     },
     {
       "id": "math-yr7-decimals-dec-q9",
-      "stem": "Convert 0.85 to a percentage.",
+      "stem": "Calculate 5.6 ÷ 0.7.",
       "choices": [
-        "8.5%",
-        "85%",
-        "0.85%",
-        "850%"
+        "0.8",
+        "8",
+        "80",
+        "0.08"
       ],
       "correctIndex": 1,
-      "explanation": "To change a decimal to a percentage, multiply by 100. 0.85 × 100 = 85, so 0.85 = 85%."
+      "explanation": "Multiply both numbers by 10 to get 56 ÷ 7 = 8."
     },
     {
       "id": "math-yr7-decimals-dec-q10",
-      "stem": "Emma buys a notebook for £2.45 and a pen for £1.30. She pays with £5. How much change?",
+      "stem": "Which decimal is equivalent to 7/20?",
       "choices": [
-        "£1.35",
-        "£1.25",
-        "£1.15",
-        "£2.25"
+        "0.27",
+        "0.35",
+        "0.72",
+        "0.4"
       ],
       "correctIndex": 1,
-      "explanation": "Total: £2.45 + £1.30 = £3.75. Change: £5 − £3.75 = £1.25."
+      "explanation": "7 ÷ 20 = 0.35, or multiply numerator and denominator by 5 to get 35/100 = 0.35."
     },
     {
       "id": "math-yr7-decimals-dec-q11",
-      "stem": "A bus journey is 8.6 km. A train journey is 5.45 km. How much farther is the bus journey?",
+      "stem": "Convert 0.065 to a percentage.",
       "choices": [
-        "3.15 km",
-        "3.25 km",
-        "2.25 km",
-        "14.05 km"
+        "0.065%",
+        "6.5%",
+        "65%",
+        "0.65%"
       ],
-      "correctIndex": 0,
-      "explanation": "8.60 − 5.45. Hundredths: 0−5 needs a borrow → 10−5=5. Tenths: 5−4=1. Ones: 8−5=3. The bus journey is 3.15 km farther."
+      "correctIndex": 1,
+      "explanation": "Multiply by 100 and attach a % sign: 0.065 × 100 = 6.5%."
     },
     {
       "id": "math-yr7-decimals-dec-q12",
-      "stem": "If you multiply a number by 0.5, is the answer always smaller than the original number?",
+      "stem": "A backpack costs £32. In a sale it is reduced by 25%. What is the sale price?",
       "choices": [
-        "Always true",
-        "Sometimes true — for negative numbers it is larger",
-        "Never true",
-        "Only true for decimals"
+        "£24",
+        "£8",
+        "£40",
+        "£30"
       ],
-      "correctIndex": 1,
-      "explanation": "For positive numbers, multiplying by 0.5 halves the number. But for negative numbers like −8, 0.5 × −8 = −4, and −4 is larger than −8. So it is sometimes true."
+      "correctIndex": 0,
+      "explanation": "25% of £32 = 0.25 × 32 = £8. Sale price = £32 − £8 = £24."
     },
     {
       "id": "math-yr7-decimals-dec-q13",
-      "stem": "A phone costs £149.99. In a sale it is reduced by 15%. What is the sale price?",
+      "stem": "Alex buys a drink for £1.85 and a snack for £2.45. He pays with a £10 note. How much change should he receive?",
       "choices": [
-        "£127.49",
-        "£135.00",
-        "£22.50",
-        "£172.49"
+        "£5.70",
+        "£6.30",
+        "£4.30",
+        "£5.30"
       ],
       "correctIndex": 0,
-      "explanation": "15% of £149.99 = 0.15 × 149.99 = £22.4985 ≈ £22.50. Sale price = £149.99 − £22.50 = £127.49."
+      "explanation": "Total cost = £1.85 + £2.45 = £4.30. Change = £10.00 − £4.30 = £5.70."
+    },
+    {
+      "id": "math-yr7-decimals-dec-q14",
+      "stem": "A relay team runs four legs of 1.25 km, 1.8 km, 0.95 km and 2.05 km. What is the total distance?",
+      "choices": [
+        "5.95 km",
+        "6.05 km",
+        "6.15 km",
+        "5.05 km"
+      ],
+      "correctIndex": 1,
+      "explanation": "Add the distances with decimal points aligned: 1.25 + 1.80 + 0.95 + 2.05 = 6.05 km."
+    },
+    {
+      "id": "math-yr7-decimals-dec-q15",
+      "stem": "A piece of ribbon 4.5 m long is cut into pieces each 0.75 m long. How many pieces are there?",
+      "choices": [
+        "5",
+        "6",
+        "7",
+        "60"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiply both numbers by 100 to make the divisor whole: 450 ÷ 75 = 6 pieces."
     }
   ]
 }

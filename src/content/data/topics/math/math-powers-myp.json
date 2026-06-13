@@ -7,195 +7,294 @@
   "notes": [
     {
       "id": "math-powers-myp-pow-n1",
-      "heading": "Index Notation and Laws",
-      "body": "Index notation: 2⁵ = 2×2×2×2×2 = 32. The three fundamental index laws: (1) Multiplication law: aᵐ × aⁿ = aᵐ⁺ⁿ. (2) Division law: aᵐ ÷ aⁿ = aᵐ⁻ⁿ. (3) Power of a power: (aᵐ)ⁿ = aᵐⁿ. These laws only apply when the bases are identical."
+      "heading": "Index Notation and the First Two Index Laws",
+      "body": "Index notation is a compact way to write repeated multiplication. The small number is called the index or exponent, and it tells you how many times the base is multiplied by itself.\n\n📌 Definition\nFor any base $a$ and positive integer $n$:\n$$a^n = a \\times a \\times a \\times \\cdots \\times a \\quad \\text{($n$ times)}$$\nIn $a^n$, $a$ is the base and $n$ is the index (or exponent).\n\n🔑 How it works — Multiplication Law\nWhen you multiply powers with the same base, keep the base and add the indices:\n$$a^m \\times a^n = a^{m+n}$$\n\n🔑 How it works — Division Law\nWhen you divide powers with the same base, keep the base and subtract the indices:\n$$a^m \\div a^n = a^{m-n}$$\n\n💡 Worked Example 1 — Multiplication law\nSimplify $x^5 \\times x^7$.\n\nStep 1: The bases are the same, so add the indices.\n$$x^5 \\times x^7 = x^{5+7} = x^{12}$$\n\n💡 Worked Example 2 — Division law\nSimplify $\\dfrac{y^9}{y^4}$.\n\nStep 1: The bases are the same, so subtract the indices.\n$$\\dfrac{y^9}{y^4} = y^{9-4} = y^5$$\n\n📎 Key Points to Remember\n• These laws only work when the bases are identical.\n• $a^m + a^n$ cannot be simplified using the index laws — addition is different from multiplication.\n• Always check whether the bases can be rewritten to match (e.g. $4 = 2^2$).\n\n⚠️ Common Mistake\nMultiplying the indices instead of adding them. For example, $x^3 \\times x^4 = x^7$, not $x^{12}$."
     },
     {
       "id": "math-powers-myp-pow-n2",
-      "heading": "Zero, Negative, and Fractional Indices",
-      "body": "Zero index: a⁰ = 1 (any non-zero base). Negative index: a⁻ⁿ = 1/aⁿ (e.g., 3⁻² = 1/9). Fractional index: a^(1/n) = ⁿ√a (e.g., 64^(1/3) = ∛64 = 4). Combined: a^(m/n) = (ⁿ√a)ᵐ (e.g., 8^(2/3) = (∛8)² = 4)."
+      "heading": "Power of a Power, Product and Quotient",
+      "body": "Powers can themselves be raised to powers. There are also rules for raising products and quotients to a power.\n\n📌 Definition — Power of a Power\nWhen a power is raised to another power, multiply the indices:\n$$(a^m)^n = a^{mn}$$\n\n📌 Definition — Power of a Product\nEvery factor inside the brackets is raised to the power outside:\n$$(ab)^n = a^n b^n$$\n\n📌 Definition — Power of a Quotient\nBoth the numerator and denominator are raised to the power outside:\n$$\\left(\\dfrac{a}{b}\\right)^n = \\dfrac{a^n}{b^n}$$\n\n💡 Worked Example 1 — Power of a power\nSimplify $(x^3)^4$.\n\nStep 1: Multiply the indices.\n$$(x^3)^4 = x^{3 \\times 4} = x^{12}$$\n\n💡 Worked Example 2 — Power of a product\nSimplify $(2x^2y)^3$.\n\nStep 1: Raise every factor to the power of $3$.\n$$(2x^2y)^3 = 2^3 \\times (x^2)^3 \\times y^3 = 8x^6y^3$$\n\n💡 Worked Example 3 — Power of a quotient\nSimplify $\\left(\\dfrac{3a^2}{b^3}\\right)^2$.\n\nStep 1: Square both numerator and denominator separately.\n$$\\left(\\dfrac{3a^2}{b^3}\\right)^2 = \\dfrac{(3a^2)^2}{(b^3)^2} = \\dfrac{9a^4}{b^6}$$\n\n⚠️ Common Misconception\nThinking $(a + b)^n = a^n + b^n$. This is false. The power-of-a-product rule applies to multiplication, not addition. For example, $(2 + 3)^2 = 25$, but $2^2 + 3^2 = 13$.\n\n✅ Check\nWhen simplifying, count the factors carefully: $(2x)^3$ means $2x \\times 2x \\times 2x = 8x^3$."
     },
     {
       "id": "math-powers-myp-pow-n3",
-      "heading": "Standard Form (Scientific Notation)",
-      "body": "Standard form writes numbers as A × 10ⁿ where 1 ≤ A < 10 and n is an integer. e.g., 45,000 = 4.5 × 10⁴; 0.0032 = 3.2 × 10⁻³. Multiply: multiply A values and add powers; divide: divide A values, subtract powers. Adjust if A falls outside [1, 10)."
+      "heading": "Zero and Negative Indices",
+      "body": "Two special index rules extend the laws beyond positive whole numbers. They are essential for algebra, calculus, and standard form.\n\n📌 Definition — Zero Index\nAny non-zero base raised to the power of zero equals $1$:\n$$a^0 = 1 \\quad (a \\neq 0)$$\n\n🔑 Why it works\nConsider $a^3 \\div a^3$. Using the division law:\n$$a^3 \\div a^3 = a^{3-3} = a^0$$\nBut any non-zero number divided by itself equals $1$, so $a^0 = 1$.\n\n📌 Definition — Negative Index\nA negative index means take the reciprocal:\n$$a^{-n} = \\dfrac{1}{a^n} \\quad (a \\neq 0)$$\nEquivalently, $\\dfrac{1}{a^{-n}} = a^n$.\n\n💡 Worked Example 1 — Zero index\nEvaluate $5^0$ and $(3x^2)^0$.\n\n$$5^0 = 1$$\n$$(3x^2)^0 = 1 \\quad \\text{(the entire bracket is raised to power 0)}$$\n\n💡 Worked Example 2 — Negative index\nWrite $2^{-4}$ as a fraction.\n\n$$2^{-4} = \\dfrac{1}{2^4} = \\dfrac{1}{16}$$\n\n💡 Worked Example 3 — Simplifying with negative indices\nSimplify $\\dfrac{2a^{-3}b^2}{c^{-1}}$.\n\nStep 1: Move terms with negative indices to the opposite part of the fraction.\n$$\\dfrac{2a^{-3}b^2}{c^{-1}} = \\dfrac{2b^2c}{a^3}$$\n\n📎 Key Points to Remember\n• $0^0$ is undefined.\n• A negative index never makes the answer negative; it creates a reciprocal.\n• Expressions should normally be written using only positive indices.\n\n⚠️ Common Mistake\nWriting $2^{-3} = -8$. The negative index changes position, not sign. The correct value is $\\dfrac{1}{8}$."
     },
     {
       "id": "math-powers-myp-pow-n4",
-      "heading": "Square Roots, Cube Roots, and Estimation",
-      "body": "√x is the value that, when squared, gives x. ∛x is the value that, when cubed, gives x. To estimate non-perfect roots, identify the two perfect squares/cubes it lies between. e.g., √50 lies between √49=7 and √64=8, so √50 ≈ 7.1."
+      "heading": "Fractional Indices",
+      "body": "Fractional indices connect powers with roots. They let you write roots as powers and apply the index laws to surds.\n\n📌 Definition\nFor $a > 0$ and positive integer $n$:\n$$a^{\\frac{1}{n}} = \\sqrt[n]{a}$$\nThe denominator of the fractional index is the root.\n\n🔑 General Fractional Index\nFor $a > 0$ and integers $m$, $n$ (with $n > 0$):\n$$a^{\\frac{m}{n}} = \\left(\\sqrt[n]{a}\\right)^m = \\sqrt[n]{a^m}$$\nThe numerator is the power; the denominator is the root.\n\n💡 Worked Example 1 — Unit fraction index\nEvaluate $27^{\\frac{1}{3}}$.\n\nStep 1: The denominator is $3$, so take the cube root.\n$$27^{\\frac{1}{3}} = \\sqrt[3]{27} = 3$$\n\n💡 Worked Example 2 — General fractional index\nEvaluate $16^{\\frac{3}{4}}$.\n\nStep 1: Take the fourth root first.\n$$16^{\\frac{3}{4}} = \\left(\\sqrt[4]{16}\\right)^3 = 2^3 = 8$$\n\n💡 Worked Example 3 — Converting between forms\nWrite $\\sqrt{x^5}$ using a fractional index.\n\n$$\\sqrt{x^5} = x^{\\frac{5}{2}}$$\n\n📎 Key Points to Remember\n• $a^{\\frac{1}{2}} = \\sqrt{a}$\n• $a^{\\frac{1}{3}} = \\sqrt[3]{a}$\n• Fractional indices follow all the usual index laws.\n\n⚠️ Common Misconception\nThinking $a^{\\frac{1}{n}}$ means $a \\times \\dfrac{1}{n}$. For example, $8^{\\frac{1}{3}} = 2$, not $\\dfrac{8}{3}$."
+    },
+    {
+      "id": "math-powers-myp-pow-n5",
+      "heading": "Simplifying Expressions with Indices",
+      "body": "Most MYP index problems require you to combine several laws in one expression. The strategy is to simplify coefficients and each variable separately, then combine the results using positive indices.\n\n🔑 How it works\n1. Simplify numerical coefficients using normal arithmetic.\n2. Apply the index laws to each variable base separately.\n3. Move any resulting negative indices by swapping numerator and denominator.\n4. Check your final answer uses only positive indices unless asked otherwise.\n\n💡 Worked Example 1 — Multiple laws\nSimplify $\\dfrac{6x^5y^3}{2x^2y^7}$.\n\nStep 1: Divide the coefficients.\n$$\\dfrac{6}{2} = 3$$\n\nStep 2: Simplify $x$-terms.\n$$\\dfrac{x^5}{x^2} = x^{5-2} = x^3$$\n\nStep 3: Simplify $y$-terms.\n$$\\dfrac{y^3}{y^7} = y^{3-7} = y^{-4} = \\dfrac{1}{y^4}$$\n\nStep 4: Combine.\n$$\\dfrac{6x^5y^3}{2x^2y^7} = \\dfrac{3x^3}{y^4}$$\n\n💡 Worked Example 2 — Power of a quotient with negatives\nSimplify $\\left(\\dfrac{2a^{-2}}{b^3}\\right)^{-3}$.\n\nStep 1: Raise each factor to the power $-3$.\n$$\\left(\\dfrac{2a^{-2}}{b^3}\\right)^{-3} = \\dfrac{2^{-3}a^6}{b^{-9}}$$\n\nStep 2: Move terms with negative indices.\n$$\\dfrac{2^{-3}a^6}{b^{-9}} = \\dfrac{a^6b^9}{2^3} = \\dfrac{a^6b^9}{8}$$\n\n✅ Tip\nWork one base at a time. Rushing and mixing up coefficients with indices is the main cause of errors.\n\n⚠️ Common Mistake\nForgetting to raise the coefficient to the outside power. In $(2x)^3$, the $2$ must also be cubed, giving $8x^3$, not $2x^3$."
+    },
+    {
+      "id": "math-powers-myp-pow-n6",
+      "heading": "Standard Form (Scientific Notation)",
+      "body": "Standard form is a way to write very large or very small numbers compactly. It is used throughout science, especially for measurements like distances in space or sizes of atoms.\n\n📌 Definition\nA number is in standard form when it is written as:\n$$A \\times 10^n$$\nwhere $1 \\leq A < 10$ and $n$ is an integer.\n\n🔑 How it works — Large numbers\nMove the decimal point to the left until $A$ is between $1$ and $10$. The number of places moved is $n$, which is positive.\n\n💡 Worked Example 1 — Large number\nWrite $56\\,700\\,000$ in standard form.\n\nStep 1: Place the decimal after the first non-zero digit: $5.67$.\nStep 2: Count how many places the decimal moved.\n$$56\\,700\\,000 = 5.67 \\times 10^7$$\n\n🔑 How it works — Small numbers\nMove the decimal point to the right until $A$ is between $1$ and $10$. The number of places moved is $n$, which is negative.\n\n💡 Worked Example 2 — Small number\nWrite $0.000083$ in standard form.\n\nStep 1: Move the decimal $5$ places to the right: $8.3$.\nStep 2: The power is negative because the original number is small.\n$$0.000083 = 8.3 \\times 10^{-5}$$\n\n🔑 Calculations in standard form\nMultiply or divide the $A$ values, then add or subtract the powers of $10$. Adjust the final answer if $A$ is not between $1$ and $10$.\n\n💡 Worked Example 3 — Multiplication\nCalculate $(4 \\times 10^5) \\times (2 \\times 10^3)$.\n\n$$(4 \\times 2) \\times 10^{5+3} = 8 \\times 10^8$$\n\n⚠️ Common Mistake\nWriting $45 \\times 10^4$ as standard form. The coefficient $45$ is not between $1$ and $10$; you must rewrite it as $4.5 \\times 10^5$."
+    },
+    {
+      "id": "math-powers-myp-pow-n7",
+      "heading": "Solving Index Equations and Applied Problems",
+      "body": "Index equations appear whenever unknown quantities are raised to powers. Many real-world situations — compound interest, population growth, radioactive decay, and pH — are modelled using powers.\n\n🔑 How to solve simple index equations\nIf both sides can be written with the same base, equate the indices.\n\n💡 Worked Example 1 — Same base\nSolve $2^x = 32$.\n\nStep 1: Rewrite $32$ as a power of $2$.\n$$32 = 2^5$$\n\nStep 2: Equate the indices.\n$$2^x = 2^5 \\quad \\Rightarrow \\quad x = 5$$\n\n💡 Worked Example 2 — Unknown in the index with algebra\nSolve $3^{2x} = 81$.\n\nStep 1: Rewrite $81$ as a power of $3$.\n$$81 = 3^4$$\n\nStep 2: Equate the indices and solve.\n$$2x = 4 \\quad \\Rightarrow \\quad x = 2$$\n\n🔑 Applied problem using standard form\n\n💡 Worked Example 3 — Scientific context\nA bacterium population doubles every hour. Starting with $5 \\times 10^3$ bacteria, how many are there after $4$ hours?\n\nStep 1: Use the growth model $P = P_0 \\times 2^t$.\n$$P = 5 \\times 10^3 \\times 2^4$$\n\nStep 2: Evaluate.\n$$P = 5 \\times 10^3 \\times 16 = 80 \\times 10^3 = 8 \\times 10^4$$\n\nThere are $80\\,000$ bacteria.\n\n📎 Key Points to Remember\n• Always try to express both sides with the same base before equating indices.\n• Standard form makes very large and very small numbers easier to compare and calculate.\n• Check whether your final answer is sensible by estimating.\n\n✅ Tip\nIf the bases cannot be made the same, you may need logarithms (DP topic). At MYP level, stick to problems where matching bases is possible."
     }
   ],
   "flashcards": [
     {
       "id": "math-powers-myp-pow-f1",
       "term": "Index (exponent)",
-      "definition": "The small raised number saying how many times to multiply the base by itself.",
-      "example": "5³ = 5 × 5 × 5 = 125."
+      "definition": "The small raised number that tells you how many times the base is multiplied by itself.",
+      "example": "$4^3 = 4 \\times 4 \\times 4 = 64$"
     },
     {
       "id": "math-powers-myp-pow-f2",
       "term": "Multiplication index law",
-      "definition": "aᵐ × aⁿ = aᵐ⁺ⁿ",
-      "example": "x⁴ × x³ = x⁷"
+      "definition": "When multiplying powers with the same base, add the indices: $a^m \\times a^n = a^{m+n}$.",
+      "example": "$x^4 \\times x^5 = x^9$"
     },
     {
       "id": "math-powers-myp-pow-f3",
       "term": "Division index law",
-      "definition": "aᵐ ÷ aⁿ = aᵐ⁻ⁿ",
-      "example": "y⁶ ÷ y² = y⁴"
+      "definition": "When dividing powers with the same base, subtract the indices: $a^m \\div a^n = a^{m-n}$.",
+      "example": "$\\dfrac{y^8}{y^3} = y^5$"
     },
     {
       "id": "math-powers-myp-pow-f4",
       "term": "Power of a power",
-      "definition": "(aᵐ)ⁿ = aᵐⁿ",
-      "example": "(x³)⁴ = x¹²"
+      "definition": "When a power is raised to another power, multiply the indices: $(a^m)^n = a^{mn}$.",
+      "example": "$(x^2)^5 = x^{10}$"
     },
     {
       "id": "math-powers-myp-pow-f5",
-      "term": "Zero index",
-      "definition": "a⁰ = 1 (any non-zero base)",
-      "example": "100⁰ = 1, (−7)⁰ = 1"
+      "term": "Power of a product",
+      "definition": "Every factor inside brackets is raised to the outside power: $(ab)^n = a^n b^n$.",
+      "example": "$(2x)^3 = 8x^3$"
     },
     {
       "id": "math-powers-myp-pow-f6",
-      "term": "Negative index",
-      "definition": "a⁻ⁿ = 1/aⁿ",
-      "example": "2⁻³ = 1/8"
+      "term": "Zero index",
+      "definition": "Any non-zero base to the power of zero equals $1$: $a^0 = 1$.",
+      "example": "$(7x^3)^0 = 1$"
     },
     {
       "id": "math-powers-myp-pow-f7",
-      "term": "Fractional index",
-      "definition": "a^(1/n) = ⁿ√a; a^(m/n) = (ⁿ√a)ᵐ",
-      "example": "27^(2/3) = (∛27)² = 9"
+      "term": "Negative index",
+      "definition": "A negative index means take the reciprocal: $a^{-n} = \\dfrac{1}{a^n}$.",
+      "example": "$3^{-2} = \\dfrac{1}{9}$"
     },
     {
       "id": "math-powers-myp-pow-f8",
+      "term": "Fractional index",
+      "definition": "The denominator gives the root and the numerator gives the power: $a^{\\frac{m}{n}} = (\\sqrt[n]{a})^m$.",
+      "example": "$8^{\\frac{2}{3}} = (\\sqrt[3]{8})^2 = 2^2 = 4$"
+    },
+    {
+      "id": "math-powers-myp-pow-f9",
       "term": "Standard form",
-      "definition": "A × 10ⁿ where 1 ≤ A < 10 and n is an integer.",
-      "example": "0.00047 = 4.7 × 10⁻⁴"
+      "definition": "A number written as $A \\times 10^n$ where $1 \\leq A < 10$ and $n$ is an integer.",
+      "example": "$0.00047 = 4.7 \\times 10^{-4}$"
+    },
+    {
+      "id": "math-powers-myp-pow-f10",
+      "term": "Square root as a fractional index",
+      "definition": "The square root of a number is the same as raising it to the power $\\frac{1}{2}$.",
+      "example": "$\\sqrt{25} = 25^{\\frac{1}{2}} = 5$"
+    },
+    {
+      "id": "math-powers-myp-pow-f11",
+      "term": "Solving same-base index equations",
+      "definition": "If $a^x = a^y$ and $a > 0$ with $a \\neq 1$, then $x = y$.",
+      "example": "$2^x = 16$ becomes $2^x = 2^4$, so $x = 4$."
+    },
+    {
+      "id": "math-powers-myp-pow-f12",
+      "term": "Index law for power of a quotient",
+      "definition": "Raise both numerator and denominator to the outside power: $\\left(\\dfrac{a}{b}\\right)^n = \\dfrac{a^n}{b^n}$.",
+      "example": "$\\left(\\dfrac{x}{2}\\right)^3 = \\dfrac{x^3}{8}$"
     }
   ],
   "questions": [
     {
       "id": "math-powers-myp-pow-q1",
-      "stem": "What is 3⁴?",
+      "stem": "What is the value of $2^6$?",
       "choices": [
-        "12",
-        "64",
-        "81",
-        "27"
+        "$12$",
+        "$32$",
+        "$64$",
+        "$128$"
       ],
       "correctIndex": 2,
-      "explanation": "3⁴ = 3×3×3×3 = 81."
+      "explanation": "$2^6 = 2 \\times 2 \\times 2 \\times 2 \\times 2 \\times 2 = 64$. Be careful not to multiply the base by the index."
     },
     {
       "id": "math-powers-myp-pow-q2",
-      "stem": "Simplify x⁵ × x³.",
+      "stem": "Simplify $x^4 \\times x^9$.",
       "choices": [
-        "x⁸",
-        "x¹⁵",
-        "x²",
-        "2x⁸"
+        "$x^{13}$",
+        "$x^{36}$",
+        "$2x^{13}$",
+        "$x^5$"
       ],
       "correctIndex": 0,
-      "explanation": "Add indices: x⁵⁺³ = x⁸."
+      "explanation": "When multiplying powers with the same base, add the indices: $x^4 \\times x^9 = x^{4+9} = x^{13}$."
     },
     {
       "id": "math-powers-myp-pow-q3",
-      "stem": "What is 5⁰?",
+      "stem": "Simplify $\\dfrac{a^{10}}{a^4}$.",
       "choices": [
-        "0",
-        "5",
-        "1",
-        "50"
+        "$a^{14}$",
+        "$a^{40}$",
+        "$a^6$",
+        "$a^{2.5}$"
       ],
       "correctIndex": 2,
-      "explanation": "Any non-zero base to power 0 equals 1."
+      "explanation": "When dividing powers with the same base, subtract the indices: $a^{10} \\div a^4 = a^{10-4} = a^6$."
     },
     {
       "id": "math-powers-myp-pow-q4",
-      "stem": "Express 2⁻⁴ as a fraction.",
+      "stem": "Simplify $(x^3)^5$.",
       "choices": [
-        "1/4",
-        "1/8",
-        "1/16",
-        "−16"
+        "$x^8$",
+        "$x^{15}$",
+        "$x^{243}$",
+        "$3x^5$"
       ],
-      "correctIndex": 2,
-      "explanation": "2⁻⁴ = 1/2⁴ = 1/16."
+      "correctIndex": 1,
+      "explanation": "When a power is raised to another power, multiply the indices: $(x^3)^5 = x^{3 \\times 5} = x^{15}$."
     },
     {
       "id": "math-powers-myp-pow-q5",
-      "stem": "Evaluate 8^(2/3).",
+      "stem": "Evaluate $(5x^2y)^0$.",
       "choices": [
-        "2",
-        "4",
-        "16",
-        "64"
+        "$0$",
+        "$1$",
+        "$5$",
+        "$5x^2y$"
       ],
       "correctIndex": 1,
-      "explanation": "(∛8)² = 2² = 4."
+      "explanation": "Any non-zero expression raised to the power of zero equals $1$. Here the whole bracket $(5x^2y)$ is raised to $0$, so the answer is $1$."
     },
     {
       "id": "math-powers-myp-pow-q6",
-      "stem": "Write 0.000052 in standard form.",
+      "stem": "Write $4^{-2}$ as a fraction in its simplest form.",
       "choices": [
-        "52 × 10⁻⁶",
-        "5.2 × 10⁻⁵",
-        "5.2 × 10⁵",
-        "0.52 × 10⁻⁴"
+        "$-\\dfrac{1}{16}$",
+        "$\\dfrac{1}{16}$",
+        "$\\dfrac{1}{8}$",
+        "$-16$"
       ],
       "correctIndex": 1,
-      "explanation": "Move decimal 5 places right → 5.2 × 10⁻⁵."
+      "explanation": "A negative index means take the reciprocal: $4^{-2} = \\dfrac{1}{4^2} = \\dfrac{1}{16}$. The sign of the base does not change."
     },
     {
       "id": "math-powers-myp-pow-q7",
-      "stem": "What is 64^(1/2)?",
+      "stem": "Simplify $3a^4 \\times 5a^7$.",
       "choices": [
-        "8",
-        "32",
-        "4",
-        "16"
+        "$8a^{11}$",
+        "$15a^{11}$",
+        "$15a^{28}$",
+        "$8a^{28}$"
       ],
-      "correctIndex": 0,
-      "explanation": "√64 = 8."
+      "correctIndex": 1,
+      "explanation": "Multiply the coefficients $3 \\times 5 = 15$, then add the indices of $a$: $a^4 \\times a^7 = a^{11}$. The answer is $15a^{11}$."
     },
     {
       "id": "math-powers-myp-pow-q8",
-      "stem": "Simplify (2x²y³)³.",
+      "stem": "Evaluate $16^{\\frac{3}{4}}$.",
       "choices": [
-        "6x⁵y⁶",
-        "8x⁵y⁶",
-        "8x⁶y⁹",
-        "6x⁶y⁹"
+        "$4$",
+        "$8$",
+        "$12$",
+        "$64$"
       ],
-      "correctIndex": 2,
-      "explanation": "2³=8, (x²)³=x⁶, (y³)³=y⁹ → 8x⁶y⁹."
+      "correctIndex": 1,
+      "explanation": "$16^{\\frac{3}{4}} = (\\sqrt[4]{16})^3 = 2^3 = 8$. Take the fourth root first, then cube the result."
     },
     {
       "id": "math-powers-myp-pow-q9",
-      "stem": "Simplify a⁸ × a⁻³.",
+      "stem": "Simplify $\\dfrac{8x^5y^2}{2x^3y^6}$, giving your answer with positive indices only.",
       "choices": [
-        "a¹¹",
-        "a⁵",
-        "a⁻²⁴",
-        "a²⁴"
+        "$\\dfrac{4x^2}{y^4}$",
+        "$\\dfrac{4x^8}{y^4}$",
+        "$4x^2y^4$",
+        "$\\dfrac{4y^4}{x^2}$"
       ],
-      "correctIndex": 1,
-      "explanation": "a⁸ × a⁻³ = a⁸⁺⁽⁻³⁾ = a⁵."
+      "correctIndex": 0,
+      "explanation": "Divide coefficients: $8 \\div 2 = 4$. For $x$: $x^{5-3} = x^2$. For $y$: $y^{2-6} = y^{-4} = \\dfrac{1}{y^4}$. So the simplified form is $\\dfrac{4x^2}{y^4}$."
     },
     {
       "id": "math-powers-myp-pow-q10",
-      "stem": "(2 × 10³) × (4 × 10⁵) in standard form:",
+      "stem": "Simplify $(2x^2y^3)^4$.",
       "choices": [
-        "8 × 10⁸",
-        "8 × 10¹⁵",
-        "6 × 10⁸",
-        "8 × 10⁷"
+        "$8x^6y^{12}$",
+        "$16x^8y^{12}$",
+        "$2x^8y^{12}$",
+        "$8x^8y^7$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Raise every factor inside the bracket to the power $4$: $2^4 = 16$, $(x^2)^4 = x^8$, and $(y^3)^4 = y^{12}$. The answer is $16x^8y^{12}$."
+    },
+    {
+      "id": "math-powers-myp-pow-q11",
+      "stem": "Write $0.0000058$ in standard form.",
+      "choices": [
+        "$5.8 \\times 10^6$",
+        "$5.8 \\times 10^{-6}$",
+        "$58 \\times 10^{-7}$",
+        "$0.58 \\times 10^{-7}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Move the decimal point $6$ places to the right to get $5.8$. Because the original number is small, the power is negative: $0.0000058 = 5.8 \\times 10^{-6}$."
+    },
+    {
+      "id": "math-powers-myp-pow-q12",
+      "stem": "Calculate $(3 \\times 10^4) \\times (2 \\times 10^6)$, giving your answer in standard form.",
+      "choices": [
+        "$6 \\times 10^{10}$",
+        "$6 \\times 10^{24}$",
+        "$5 \\times 10^{10}$",
+        "$6 \\times 10^2$"
       ],
       "correctIndex": 0,
-      "explanation": "2×4=8, 10³×10⁵=10⁸ → 8 × 10⁸."
+      "explanation": "Multiply the coefficients: $3 \\times 2 = 6$. Add the powers of $10$: $10^4 \\times 10^6 = 10^{10}$. The answer is $6 \\times 10^{10}$."
+    },
+    {
+      "id": "math-powers-myp-pow-q13",
+      "stem": "A population of bacteria doubles every hour. Starting with $2 \\times 10^4$ bacteria, how many are there after $3$ hours?",
+      "choices": [
+        "$6 \\times 10^4$",
+        "$8 \\times 10^4$",
+        "$1.6 \\times 10^5$",
+        "$2 \\times 10^{12}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "After $3$ hours the population is multiplied by $2^3 = 8$. So $2 \\times 10^4 \\times 8 = 16 \\times 10^4 = 1.6 \\times 10^5$ bacteria."
+    },
+    {
+      "id": "math-powers-myp-pow-q14",
+      "stem": "Solve $3^{2x} = 27$.",
+      "choices": [
+        "$x = 1$",
+        "$x = 1.5$",
+        "$x = 2$",
+        "$x = 3$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rewrite $27$ as $3^3$. Then $3^{2x} = 3^3$, so $2x = 3$ and therefore $x = \\dfrac{3}{2} = 1.5$."
+    },
+    {
+      "id": "math-powers-myp-pow-q15",
+      "stem": "Which expression is equal to $\\dfrac{2a^{-3}}{b^{-2}}$ written using only positive indices?",
+      "choices": [
+        "$\\dfrac{2b^2}{a^3}$",
+        "$\\dfrac{2a^3}{b^2}$",
+        "$2a^3b^2$",
+        "$\\dfrac{b^2}{2a^3}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$a^{-3}$ moves to the denominator as $a^3$, and $b^{-2}$ moves to the numerator as $b^2$. The coefficient $2$ stays in the numerator, giving $\\dfrac{2b^2}{a^3}$."
     }
   ]
 }

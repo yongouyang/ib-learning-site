@@ -7,33 +7,38 @@
   "notes": [
     {
       "id": "math-yr7-substitution-sub-n1",
-      "heading": "Writing Expressions from Words",
-      "body": "Letters (variables) stand for unknown numbers. Translate: \"more than\" → +, \"less than\" → −, \"times/of\" → ×, \"shared between\" → ÷. For multiplication, write number first without ×: \"5 times n\" = 5n. \"A number plus 7\" = n+7. \"Twice a number minus 3\" = 2n−3."
+      "heading": "Algebraic Expressions and Key Words",
+      "body": "📌 Definition\nAn algebraic expression is a mathematical phrase made up of numbers, variables (letters) and operation signs, but it does not contain an equals sign. A variable is a letter that stands for an unknown or changing number.\n\n🔑 Key Concept\nYou can translate many English phrases straight into algebra:\n• \"more than\" or \"sum\" → add ($+$)\n• \"less than\" or \"difference\" → subtract ($-$)\n• \"times\" or \"product\" → multiply ($\\times$), written as a coefficient next to the variable\n• \"divided by\" or \"shared between\" → divide ($\\div$)\n• \"squared\" → raise to the power $2$\n\n💡 Worked Example\nWrite \"three more than twice a number $n$\" as an expression.\nStep 1: \"twice a number $n$\" means $2n$.\nStep 2: \"three more than\" means add $3$.\nSo the expression is $2n + 3$.\n\n✅ Tip\nAlways write the number before the letter: $5n$, not $n5$."
     },
     {
       "id": "math-yr7-substitution-sub-n2",
-      "heading": "Substituting Values",
-      "body": "Replace the letter with the given number and evaluate using BIDMAS. Example: If a=3, 4a+5 = 4×3+5 = 17. Watch exponents: 3x² means 3×(x²), not (3x)². If x=5, 3x² = 3×25 = 75."
+      "heading": "How to Substitute",
+      "body": "📌 Definition\nSubstitution means replacing each variable in an expression with a given number and then evaluating the result.\n\n🔑 How it works\n1. Write down the expression.\n2. Replace each variable with its value, using brackets for negative numbers.\n3. Follow the order of operations (BIDMAS/BODMAS): Brackets, Indices, Division and Multiplication, Addition and Subtraction.\n\n💡 Worked Example\nIf $a = 4$, evaluate $3a + 7$.\nStep 1: Replace $a$ with $4$: $3(4) + 7$.\nStep 2: Multiply first: $12 + 7$.\nStep 3: Add: $19$.\n\n📎 Key Points to Remember\n• Multiplication can be written as $3a$ or $3(a)$.\n• Never add before you multiply.\n• Show each step clearly so mistakes are easy to spot."
     },
     {
       "id": "math-yr7-substitution-sub-n3",
-      "heading": "Using Simple Formulas",
-      "body": "A formula is a rule connecting quantities. e.g., perimeter P=2(l+w). If l=8cm, w=5cm: P=2(8+5)=26cm. Common formulas: perimeter P=2l+2w, area A=lw, cost C=np. Write formula first, substitute, then calculate step by step."
+      "heading": "Powers and Multiple Variables",
+      "body": "🔑 Key Concept\nWhen a variable has a power, the exponent belongs only to that variable. In $3x^2$, the $2$ applies to $x$, not the $3$.\n\\[\\begin{aligned} (3x)^2 &= 3x \\times 3x = 9x^2 \\\\ 3x^2 &= 3 \\times x \\times x \\end{aligned}\\]\n\n💡 Worked Example\nIf $x = 5$, find the value of $3x^2$.\nStep 1: Work out the power first: $x^2 = 5^2 = 25$.\nStep 2: Multiply by the coefficient: $3 \\times 25 = 75$.\n\n⚠️ Common Mistake\nSome students calculate $(3 \\times 5)^2 = 225$ instead of $3 \\times 5^2 = 75$. The exponent only applies to the variable $x$ unless brackets tell you otherwise.\n\n✅ Check\nRewrite the expression with brackets to make the order clear: $3x^2 = 3(x^2)$."
     },
     {
       "id": "math-yr7-substitution-sub-n4",
-      "heading": "Expanding Brackets",
-      "body": "Multiply the term outside by EVERY term inside: a(b+c) = ab+ac. Example: 3(x+4)=3x+12. 5(2y−3)=10y−15. Negative outside: −2(x−5)=−2x+10. Always expand before adding/subtracting other terms."
+      "heading": "Substituting Negative Numbers",
+      "body": "📌 Definition\nA negative value can be substituted just like a positive value, but you must use brackets to protect the sign.\n\n🔑 How it works\nIf $x = -2$, then:\n• $3x = 3(-2) = -6$\n• $x^2 = (-2)^2 = 4$\n• $-x = -(-2) = 2$\n\n💡 Worked Example\nEvaluate $2x - 5$ when $x = -3$.\nStep 1: Substitute using brackets: $2(-3) - 5$.\nStep 2: Multiply: $-6 - 5$.\nStep 3: Subtract: $-11$.\n\n⚠️ Common Misconception\nWriting $2 - 3 - 5$ instead of $2(-3) - 5$ loses the negative sign. Brackets make the substitution clear and help you avoid sign errors."
     },
     {
       "id": "math-yr7-substitution-sub-n5",
-      "heading": "⚠️ Substitution and negative numbers",
-      "body": "When substituting a negative number, use brackets to keep the sign correct. If x = −3, then 2x = 2 × (−3) = −6. Without brackets it is easy to write 2 × −3 and get confused."
+      "heading": "Expanding Brackets Before Substituting",
+      "body": "📌 Definition\nExpanding brackets means multiplying the term outside the bracket by every term inside the bracket.\n\n🔑 Key Concept\nIt is often easier to expand and simplify an expression before substituting numbers.\n\\[a(b + c) = ab + ac\\]\n\n💡 Worked Example\nEvaluate $4(2x + 3)$ when $x = 2$.\nStep 1: Expand first: $4(2x + 3) = 8x + 12$.\nStep 2: Substitute $x = 2$: $8(2) + 12 = 16 + 12 = 28$.\nYou can check by direct substitution: $4(2 \\times 2 + 3) = 4(7) = 28$ ✓.\n\n✅ Check\nWhen a negative term is outside the bracket, be careful with signs:\n$-2(x - 5) = -2x + 10$."
     },
     {
       "id": "math-yr7-substitution-sub-n6",
-      "heading": "✅ Order matters",
-      "body": "In an expression like 2a + 3b, multiply before you add. If a=4 and b=2: 2×4 + 3×2 = 8 + 6 = 14. Do not add 4+2 first."
+      "heading": "Using Simple Formulas",
+      "body": "📌 Definition\nA formula is a rule that connects quantities. It is usually written as an equation using variables.\n\n🔑 Key Concept\nTo use a formula:\n1. Write the formula.\n2. Substitute the known values.\n3. Calculate step by step, including units in the final answer.\n\n💡 Worked Example\nThe perimeter of a rectangle is given by $P = 2l + 2w$. Find $P$ when $l = 8\\text{ cm}$ and $w = 5\\text{ cm}$.\nStep 1: Write the formula: $P = 2l + 2w$.\nStep 2: Substitute: $P = 2(8) + 2(5)$.\nStep 3: Multiply: $P = 16 + 10$.\nStep 4: Add: $P = 26\\text{ cm}$.\n\n📎 Key Points to Remember\n• Area of a rectangle: $A = lw$\n• Cost of $n$ items at price $p$ each: $C = np$\n• Always state the units in the final answer."
+    },
+    {
+      "id": "math-yr7-substitution-sub-n7",
+      "heading": "Solving Worded Problems",
+      "body": "🔑 How it works\nMany real-world situations can be written as an expression or formula. Identify the variable, choose the correct operations, then substitute and evaluate.\n\n💡 Worked Example\nA plumber charges a £40 call-out fee plus £25 per hour. How much does she charge for a 3-hour job?\nStep 1: Write the formula: $C = 25h + 40$.\nStep 2: Substitute $h = 3$: $C = 25(3) + 40$.\nStep 3: Multiply: $C = 75 + 40$.\nStep 4: Add: $C = £115$.\n\n⚠️ Common Mistake\nConfusing a fixed fee with a rate. The £25 per hour must be multiplied by the number of hours, and the fixed £40 fee is added at the end.\n\n✅ Tip\nCheck your answer is reasonable: 3 hours at £25 is £75, plus £40 is £115."
     }
   ],
   "flashcards": [
@@ -41,79 +46,91 @@
       "id": "math-yr7-substitution-sub-f1",
       "term": "Variable",
       "definition": "A letter representing an unknown or changing number.",
-      "example": "In 3x+2, x is the variable."
+      "example": "In $3x + 2$, $x$ is the variable."
     },
     {
       "id": "math-yr7-substitution-sub-f2",
       "term": "Expression",
-      "definition": "Numbers, variables, and operations WITHOUT an equals sign.",
-      "example": "4n+7 (not an equation)."
+      "definition": "Numbers, variables and operations written together without an equals sign.",
+      "example": "$4n + 7$ is an expression, not an equation."
     },
     {
       "id": "math-yr7-substitution-sub-f3",
       "term": "Substitution",
-      "definition": "Replacing a variable with a number to evaluate an expression.",
-      "example": "If a=6, 2a+3 = 2×6+3 = 15."
+      "definition": "Replacing a variable with a number so the expression can be evaluated.",
+      "example": "If $a = 6$, then $2a + 3 = 2(6) + 3 = 15$."
     },
     {
       "id": "math-yr7-substitution-sub-f4",
       "term": "Formula",
-      "definition": "A rule written with variables connecting quantities.",
-      "example": "Area = l × w."
+      "definition": "A rule written with variables that connects different quantities.",
+      "example": "Perimeter of a rectangle: $P = 2l + 2w$."
     },
     {
       "id": "math-yr7-substitution-sub-f5",
       "term": "Coefficient",
-      "definition": "The number multiplying a variable.",
-      "example": "In 7x, 7 is the coefficient."
+      "definition": "The number that multiplies a variable.",
+      "example": "In $7x$, the coefficient is $7$."
     },
     {
       "id": "math-yr7-substitution-sub-f6",
-      "term": "Like terms",
-      "definition": "Terms with identical variable(s) to the same power(s).",
-      "example": "3x and 5x are like; 3x and 3x² are not."
+      "term": "Term",
+      "definition": "A single number, variable, or product in an expression.",
+      "example": "In $4x + 7y - 3$, the terms are $4x$, $7y$ and $-3$."
     },
     {
       "id": "math-yr7-substitution-sub-f7",
-      "term": "Expanding brackets",
-      "definition": "a(b+c) = ab+ac.",
-      "example": "4(2x+5) = 8x+20."
+      "term": "Like terms",
+      "definition": "Terms with exactly the same variable(s) raised to the same power(s).",
+      "example": "$3x$ and $5x$ are like terms; $3x$ and $3x^2$ are not."
     },
     {
       "id": "math-yr7-substitution-sub-f8",
       "term": "Evaluate",
-      "definition": "Work out the numerical value by substituting and calculating.",
-      "example": "Evaluate 3y−4 when y=5: 3×5−4 = 11."
+      "definition": "Work out the numerical value of an expression by substituting and calculating.",
+      "example": "Evaluate $3y - 4$ when $y = 5$: $3(5) - 4 = 11$."
     },
     {
       "id": "math-yr7-substitution-sub-f9",
-      "term": "Term",
-      "definition": "A single number, variable, or product in an expression.",
-      "example": "In 4x + 7y − 3, the terms are 4x, 7y and −3."
+      "term": "Expanding brackets",
+      "definition": "Multiply the term outside the bracket by every term inside the bracket.",
+      "example": "$4(2x + 5) = 8x + 20$."
     },
     {
       "id": "math-yr7-substitution-sub-f10",
       "term": "Simplify",
       "definition": "Collect like terms to make an expression shorter.",
-      "example": "3x + 5x = 8x."
+      "example": "$3x + 5x = 8x$."
+    },
+    {
+      "id": "math-yr7-substitution-sub-f11",
+      "term": "Order of operations",
+      "definition": "The agreed order for calculations, often remembered as BIDMAS or BODMAS.",
+      "example": "In $2 + 3 \\times 4$, multiply first: $2 + 12 = 14$."
+    },
+    {
+      "id": "math-yr7-substitution-sub-f12",
+      "term": "Substituting negatives",
+      "definition": "Use brackets when replacing a variable with a negative number to keep the sign correct.",
+      "example": "If $x = -3$, then $2x = 2(-3) = -6$."
     }
   ],
   "questions": [
     {
       "id": "math-yr7-substitution-sub-q1",
-      "stem": "\"Five more than a number n\" — write the expression.",
+      "stem": "\"Five more than a number $n$\" — write the expression.",
       "choices": [
-        "5n",
-        "n+5",
-        "n−5",
-        "5−n"
+        "$5n$",
+        "$n + 5$",
+        "$n - 5$",
+        "$5 - n$"
       ],
       "correctIndex": 1,
-      "explanation": "\"More than\" = addition: n+5."
+      "explanation": "\"More than\" means addition, so five more than $n$ is $n + 5$."
     },
     {
       "id": "math-yr7-substitution-sub-q2",
-      "stem": "If x=4, what is 3x+7?",
+      "stem": "If $x = 4$, what is $3x + 7$?",
       "choices": [
         "14",
         "17",
@@ -121,11 +138,11 @@
         "21"
       ],
       "correctIndex": 2,
-      "explanation": "Substitute x=4 into 3x+7. First multiply: 3×4=12. Then add 7: 12+7=19. So 3x+7=19."
+      "explanation": "Substitute $x = 4$: first multiply $3 \\times 4 = 12$, then add $7$ to get $19$."
     },
     {
       "id": "math-yr7-substitution-sub-q3",
-      "stem": "If a=3 and b=5, what is 2a+4b?",
+      "stem": "If $a = 3$ and $b = 5$, what is $2a + 4b$?",
       "choices": [
         "23",
         "26",
@@ -133,11 +150,11 @@
         "30"
       ],
       "correctIndex": 1,
-      "explanation": "2×3+4×5 = 6+20 = 26."
+      "explanation": "$2a + 4b = 2(3) + 4(5) = 6 + 20 = 26$."
     },
     {
       "id": "math-yr7-substitution-sub-q4",
-      "stem": "What is y²+3 when y=4?",
+      "stem": "What is $y^2 + 3$ when $y = 4$?",
       "choices": [
         "11",
         "16",
@@ -145,59 +162,59 @@
         "64"
       ],
       "correctIndex": 2,
-      "explanation": "Substitute y=4 into y²+3. First work out 4²=16. Then add 3: 16+3=19. So y²+3=19."
+      "explanation": "$4^2 = 16$, then add $3$ to get $19$. The exponent applies only to $y$."
     },
     {
       "id": "math-yr7-substitution-sub-q5",
-      "stem": "Taxi: £3 plus £2 per mile. Expression for cost of m miles?",
+      "stem": "A taxi charges £3 plus £2 per mile. Which expression gives the cost of $m$ miles?",
       "choices": [
-        "3m+2",
-        "2m+3",
-        "5m",
-        "3+2+m"
+        "$3m + 2$",
+        "$2m + 3$",
+        "$5m$",
+        "$3 + 2 + m$"
       ],
       "correctIndex": 1,
-      "explanation": "£2 per mile = 2m, plus fixed £3: 2m+3."
+      "explanation": "£2 per mile is $2m$, and the fixed £3 fee is added, giving $2m + 3$."
     },
     {
       "id": "math-yr7-substitution-sub-q6",
-      "stem": "Find perimeter using P=2l+2w when l=6cm, w=4cm.",
+      "stem": "Find the perimeter using $P = 2l + 2w$ when $l = 6\\text{ cm}$ and $w = 4\\text{ cm}$.",
       "choices": [
-        "20 cm",
-        "24 cm",
-        "28 cm",
-        "10 cm"
+        "$20\\text{ cm}$",
+        "$24\\text{ cm}$",
+        "$28\\text{ cm}$",
+        "$10\\text{ cm}$"
       ],
       "correctIndex": 0,
-      "explanation": "P = 2×6 + 2×4 = 12+8 = 20 cm."
+      "explanation": "$P = 2(6) + 2(4) = 12 + 8 = 20\\text{ cm}$."
     },
     {
       "id": "math-yr7-substitution-sub-q7",
-      "stem": "Expand 5(x+3).",
+      "stem": "Expand $5(x + 3)$.",
       "choices": [
-        "5x+3",
-        "5x+8",
-        "5x+15",
-        "x+15"
+        "$5x + 3$",
+        "$5x + 8$",
+        "$5x + 15$",
+        "$x + 15$"
       ],
       "correctIndex": 2,
-      "explanation": "5×x=5x, 5×3=15 → 5x+15."
+      "explanation": "$5 \\times x = 5x$ and $5 \\times 3 = 15$, so $5(x + 3) = 5x + 15$."
     },
     {
       "id": "math-yr7-substitution-sub-q8",
-      "stem": "Expand 3(2p−7).",
+      "stem": "Expand $3(2p - 7)$.",
       "choices": [
-        "6p−7",
-        "6p−21",
-        "5p−21",
-        "6p−10"
+        "$6p - 7$",
+        "$6p - 21$",
+        "$5p - 21$",
+        "$6p - 10$"
       ],
       "correctIndex": 1,
-      "explanation": "3×2p=6p, 3×(−7)=−21 → 6p−21."
+      "explanation": "$3 \\times 2p = 6p$ and $3 \\times (-7) = -21$, giving $6p - 21$."
     },
     {
       "id": "math-yr7-substitution-sub-q9",
-      "stem": "If n=10, what is 2n²?",
+      "stem": "If $n = 10$, what is $2n^2$?",
       "choices": [
         "200",
         "400",
@@ -205,11 +222,11 @@
         "100"
       ],
       "correctIndex": 0,
-      "explanation": "n²=10²=100, 2×100=200. Exponent only applies to n."
+      "explanation": "$n^2 = 10^2 = 100$, then $2 \\times 100 = 200$. The exponent only applies to $n$."
     },
     {
       "id": "math-yr7-substitution-sub-q10",
-      "stem": "Plumber: £40 call-out + £25/hour. Cost for 3 hours?",
+      "stem": "A plumber charges £40 call-out plus £25 per hour. What is the cost for 3 hours?",
       "choices": [
         "£115",
         "£75",
@@ -217,7 +234,7 @@
         "£105"
       ],
       "correctIndex": 0,
-      "explanation": "25h+40 with h=3: 25×3+40 = 75+40 = £115."
+      "explanation": "Using $C = 25h + 40$ with $h = 3$ gives $25(3) + 40 = 75 + 40 = £115$."
     },
     {
       "id": "math-yr7-substitution-sub-q11",
@@ -229,31 +246,55 @@
         "£31"
       ],
       "correctIndex": 1,
-      "explanation": "Cost = 3m + 4. Substitute m=7: 3×7 + 4 = 21 + 4 = £25."
+      "explanation": "Cost is $3m + 4$. Substituting $m = 7$ gives $3(7) + 4 = 21 + 4 = £25$."
     },
     {
       "id": "math-yr7-substitution-sub-q12",
-      "stem": "If a = 4 and b = 2, which expression gives the largest value?",
+      "stem": "If $a = 4$ and $b = 2$, which expression gives the largest value?",
       "choices": [
-        "a + b",
-        "2a + b",
-        "a² + b",
-        "a + b²"
+        "$a + b$",
+        "$2a + b$",
+        "$a^2 + b$",
+        "$a + b^2$"
       ],
       "correctIndex": 2,
-      "explanation": "Substitute a=4, b=2. a+b=6; 2a+b=8+2=10; a²+b=16+2=18; a+b²=4+4=8. The largest value is 18 from a² + b."
+      "explanation": "The values are $6$, $10$, $18$ and $8$ respectively, so $a^2 + b = 18$ is largest."
     },
     {
       "id": "math-yr7-substitution-sub-q13",
-      "stem": "The area of a triangle is A = 1/2 × base × height. Find the area when base = 8 cm and height = 5 cm.",
+      "stem": "The area of a triangle is $A = \\frac{1}{2} \\times \\text{base} \\times \\text{height}$. Find the area when base $= 8\\text{ cm}$ and height $= 5\\text{ cm}$.",
       "choices": [
-        "20 cm²",
-        "40 cm²",
-        "13 cm²",
-        "26 cm²"
+        "$20\\text{ cm}^2$",
+        "$40\\text{ cm}^2$",
+        "$13\\text{ cm}^2$",
+        "$26\\text{ cm}^2$"
       ],
       "correctIndex": 0,
-      "explanation": "Substitute: A = 1/2 × 8 × 5. First, 1/2 × 8 = 4, then 4 × 5 = 20. The area is 20 cm²."
+      "explanation": "$A = \\frac{1}{2} \\times 8 \\times 5 = 4 \\times 5 = 20\\text{ cm}^2$."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q14",
+      "stem": "If $x = -3$, what is $2x - 5$?",
+      "choices": [
+        "-11",
+        "-1",
+        "-6",
+        "1"
+      ],
+      "correctIndex": 0,
+      "explanation": "Substitute with brackets: $2(-3) - 5 = -6 - 5 = -11$."
+    },
+    {
+      "id": "math-yr7-substitution-sub-q15",
+      "stem": "A phone plan costs £15 per month plus £0.10 per text. What is the total cost for 200 texts in one month?",
+      "choices": [
+        "£15",
+        "£35",
+        "£215",
+        "£115"
+      ],
+      "correctIndex": 1,
+      "explanation": "Using $C = 15 + 0.1t$ with $t = 200$ gives $15 + 20 = £35$."
     }
   ]
 }

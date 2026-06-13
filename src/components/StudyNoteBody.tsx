@@ -21,7 +21,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
 
   const flushList = () => {
     if (currentList.length === 0) return;
-    const baseClass = 'my-2 pl-5 text-sm text-gray-700 space-y-1';
+    const baseClass = 'my-2 pl-5 text-sm text-gray-700 dark:text-gray-300 space-y-1';
     if (listType === 'ol') {
       elements.push(
         <ol key={`list-${key++}`} className={`${baseClass} list-decimal`}>
@@ -90,7 +90,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
       elements.push(
         <div
           key={`code-${key++}`}
-          className="font-mono text-sm text-gray-800 bg-gray-50 px-3 py-1.5 rounded-md my-1 border-l-4 border-blue-300"
+          className="font-mono text-sm text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-900 px-3 py-1.5 rounded-md my-1 border-l-4 border-blue-300 dark:border-blue-700"
         >
           {renderInlineMath(trimmed)}
         </div>
@@ -101,7 +101,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
     // Moderately indented (2 spaces) → sub-step / continuation
     if (line.startsWith('  ')) {
       elements.push(
-        <div key={`indent-${key++}`} className="text-sm text-gray-700 pl-4 leading-relaxed">
+        <div key={`indent-${key++}`} className="text-sm text-gray-700 dark:text-gray-300 pl-4 leading-relaxed">
           {renderInlineMath(trimmed)}
         </div>
       );
@@ -113,7 +113,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
       elements.push(
         <div
           key={`marker-${key++}`}
-          className="font-semibold text-gray-900 mt-4 mb-1 text-sm flex items-center gap-2"
+          className="font-semibold text-gray-900 dark:text-gray-100 mt-4 mb-1 text-sm flex items-center gap-2"
         >
           <span>{trimmed.split(' ')[0]}</span>
           <span>{renderInlineMath(trimmed.split(' ').slice(1).join(' '))}</span>
@@ -124,7 +124,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
 
     // Default paragraph
     elements.push(
-      <p key={`p-${key++}`} className="text-sm text-gray-700 leading-relaxed">
+      <p key={`p-${key++}`} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
         {renderInlineMath(trimmed)}
       </p>
     );

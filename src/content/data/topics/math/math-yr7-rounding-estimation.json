@@ -1,0 +1,300 @@
+{
+  "id": "math-yr7-rounding-estimation",
+  "subjectId": "math",
+  "title": "Rounding and Estimation",
+  "description": "Rounding whole numbers and decimals to a given accuracy, using significant figures, estimating calculations, and choosing whether to round up or down in real-world contexts.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr7-rounding-estimation-re-n1",
+      "heading": "Rounding Whole Numbers",
+      "body": "Rounding makes a number simpler while keeping it close to its original value. It is used whenever an exact value is unnecessary or when we want to check that a calculation is sensible.\n\n📌 Definition\nRounding means approximating a number to a given degree of accuracy by replacing it with the nearest value at that place.\n\n🔑 How it works — nearest 10, 100 or 1000\n1. Identify the place you are rounding to (e.g. tens, hundreds, thousands).\n2. Look at the digit immediately to its right.\n3. If that digit is $5$ or more, round up.\n4. If that digit is $4$ or less, round down.\n5. Change all digits to the right of the rounding place to zero.\n\n💡 Worked Example\nRound $4\\,638$ to the nearest $10$, $100$ and $1000$.\n\n• Nearest $10$: the digit to the right of the tens place is $8$, so round up. $$4\\,638 \\to 4\\,640$$\n• Nearest $100$: the digit to the right of the hundreds place is $3$, so round down. $$4\\,638 \\to 4\\,600$$\n• Nearest $1000$: the digit to the right of the thousands place is $6$, so round up. $$4\\,638 \\to 5\\,000$$\n\n⚠️ Common Mistake\nRounding in several stages, e.g. rounding $4\\,638$ to $4\\,640$ first and then rounding that to $4\\,600$. Always look at the original number and the target place only.\n\n✅ Check\nPlot the number on a number line between the two possible multiples. Choose the one that is closer."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-n2",
+      "heading": "Rounding to the Nearest Whole Number",
+      "body": "Whole numbers are the counting numbers and zero: $0, 1, 2, 3, \\dots$. Rounding a decimal to the nearest whole number gives the integer it is closest to.\n\n📌 Definition\nRounding to the nearest whole number means replacing a decimal with the integer that is closest to it on the number line.\n\n🔑 How it works\n1. Look at the digit in the tenths place (the first digit after the decimal point).\n2. If it is $5$ or more, round the units digit up by $1$.\n3. If it is $4$ or less, keep the units digit as it is.\n4. Drop every digit after the decimal point.\n\n💡 Worked Example\nRound these decimals to the nearest whole number.\n\n• $8.73$: tenths digit is $7$, so round up. $$8.73 \\to 9$$\n• $12.41$: tenths digit is $4$, so round down. $$12.41 \\to 12$$\n• $6.50$: tenths digit is $5$, so round up. $$6.50 \\to 7$$\n\n⚠️ Common Mistake\nForgetting that $0.5$ always rounds up. A number such as $6.5$ is exactly halfway between $6$ and $7$, but by convention we round up to $7$.\n\n📎 Key Points to Remember\n• The ones digit is the rounding place; the tenths digit tells you which way to go.\n• If the decimal part is less than $0.5$, round down; if it is $0.5$ or more, round up.\n• A negative number such as $-2.3$ rounds to $-2$ because it is closer to $-2$ than to $-3$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-n3",
+      "heading": "Rounding Decimal Places",
+      "body": "Decimal places tell you how many digits are written after the decimal point. This is different from significant figures, which count meaningful digits from the first non-zero digit.\n\n📌 Definition\nRounding to a given number of decimal places (d.p.) means keeping that many digits after the decimal point and deciding whether the last kept digit needs to increase.\n\n🔑 How it works\n1. Find the digit in the required decimal place.\n2. Look at the digit immediately to its right.\n3. If that digit is $5$ or more, increase the target digit by $1$.\n4. If it is $4$ or less, leave the target digit unchanged.\n5. Drop all digits after the target place. If the target place is the last digit, keep any zeros that are needed to show the accuracy.\n\n💡 Worked Example 1\nWrite $3.14159$ and $2.278$ correct to $2$ decimal places.\n\n• $3.14159$ to $2$ d.p.: the third decimal digit is $1$, so round down. $$3.14159 \\to 3.14$$\n• $2.278$ to $2$ d.p.: the third decimal digit is $8$, so round up. $$2.278 \\to 2.28$$\n\n💡 Worked Example 2 — Trailing zeros matter\nWrite $9.995$ correct to $2$ decimal places.\n\nThe third decimal digit is $5$, so the $9$ in the hundredths place rounds up to $10$. This carries over to the tenths and units places:\n$$9.995 \\to 10.00$$\n\nThe answer must be written as $10.00$, not $10$ or $10.0$, because the question asked for $2$ d.p.\n\n⚠️ Common Mistake\nDropping trailing zeros in the answer. $2.30$ shows accuracy to $2$ d.p., whereas $2.3$ only shows accuracy to $1$ d.p.\n\n✅ Tip\nWhen a $9$ rounds up, it becomes $10$. Write $0$ in that column and carry $1$ to the next column on the left."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-n4",
+      "heading": "Significant Figures",
+      "body": "Significant figures are the digits in a number that are needed to show its size with a chosen level of accuracy. They are especially useful for very large or very small measurements.\n\n📌 Definition\nA significant figure is any digit that gives meaningful information about the size of a number.\n\n🔑 Rules for significant figures\n1. All non-zero digits are significant.\n2. Zeros between non-zero digits are significant.\n3. Leading zeros (at the start of a decimal) are NOT significant.\n4. Trailing zeros in a whole number may or may not be significant; at MYP Year 7 we usually treat them as not significant unless stated otherwise.\n\n💡 Worked Example 1 — Counting significant figures\nHow many significant figures do these numbers have?\n\n• $0.00456$: the leading zeros are placeholders, so only $4$, $5$ and $6$ count. It has $3$ significant figures.\n• $3.040$: the zero between $3$ and $4$ is significant, and the final zero after the $4$ is also significant. It has $4$ significant figures.\n• $700$ (to $1$ sig fig): the $7$ is significant; the zeros are not. It has $1$ significant figure.\n\n💡 Worked Example 2 — Rounding to significant figures\nRound $47\\,382$ to $2$ significant figures.\n\nThe first two significant digits are $4$ and $7$. The next digit is $3$, which is less than $5$, so round down:\n$$47\\,382 \\to 47\\,000 \\text{ (2 sig figs)}$$\n\nRound $0.006718$ to $2$ significant figures.\n\nThe first two significant digits are $6$ and $7$. The next digit is $1$, so round down:\n$$0.006718 \\to 0.0067 \\text{ (2 sig figs)}$$\n\n⚠️ Common Misconception\nThinking that zeros are never significant. Zeros between non-zero digits and trailing zeros after a decimal point are always significant."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-n5",
+      "heading": "Estimating Calculations",
+      "body": "Estimation is a powerful skill. It helps you predict an answer, decide whether a written calculation is sensible, and do quick mental arithmetic in everyday life.\n\n📌 Definition\nAn estimate is a rough answer found by rounding numbers before calculating.\n\n🔑 How to estimate\n1. Round every number to one significant figure (or to a nearby easy number).\n2. Do the simplified calculation using the rounded numbers.\n3. Compare the estimate with the exact answer.\n\n💡 Worked Example 1 — Estimating a product\nEstimate $48 \\times 6.2$.\n\nRound each number to $1$ significant figure:\n$$48 \\to 50 \\quad \\text{and} \\quad 6.2 \\to 6$$\n\nNow multiply:\n$$50 \\times 6 = 300$$\n\nThe exact answer is $48 \\times 6.2 = 297.6$, so the estimate is very close.\n\n💡 Worked Example 2 — Estimating a quotient\nEstimate $198 \\div 4.1$.\n\nRound to easy numbers:\n$$198 \\to 200 \\quad \\text{and} \\quad 4.1 \\to 4$$\n\nDivide:\n$$200 \\div 4 = 50$$\n\nThe exact answer is about $48.3$, so $50$ is a sensible estimate.\n\n📎 Key Points to Remember\n• Use compatible numbers when you can. For example, $78 \\times 5$ is easier if you first think of it as $80 \\times 5 = 400$.\n• Estimation is not guessing; it is calculation with rounded values.\n• If your exact answer is very different from your estimate, check your working for a place-value or arithmetic error.\n\n✅ Check\nAlways ask: \"Is my exact answer close to my estimate?\" If it is not, something may have gone wrong."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-n6",
+      "heading": "Rounding Up and Down in Context",
+      "body": "In real life, rounding to the nearest value is not always the right choice. Sometimes you must round up, and sometimes you must round down, depending on what the problem is asking.\n\n📌 Definition\n• Round up when you need to make sure you have enough.\n• Round down when you cannot exceed a limit or when something must fit completely.\n\n🔑 How to decide\nAsk yourself what would happen if you rounded the wrong way:\n• If rounding down would leave someone without a seat, round up.\n• If rounding up would cost more money than you have, round down.\n\n💡 Worked Example 1 — Round up\nA minibus seats $8$ people. How many minibuses are needed for $23$ people?\n\n$$23 \\div 8 = 2.875$$\n\nTwo minibuses would only hold $16$ people, leaving $7$ people behind. You need a third minibus, so round up:\n$$23 \\div 8 = 2.875 \\to 3 \\text{ minibuses}$$\n\n💡 Worked Example 2 — Round down\nA book costs $£12$. How many books can you buy with $£50$?\n\n$$50 \\div 12 = 4.16\\ldots$$\n\nYou cannot buy $0.16$ of a book, and $5$ books would cost $£60$, which is too much. Round down:\n$$50 \\div 12 = 4.16\\ldots \\to 4 \\text{ books}$$\n\n💡 Worked Example 3 — Area and tiles\nA rectangular floor measures $4.2$ m by $3.8$ m. One tile covers $1$ m$^2$. How many tiles are needed?\n\nArea:\n$$4.2 \\times 3.8 = 15.96 \\text{ m}^2$$\n\nAlthough $15.96$ rounds to $16$ to the nearest whole number, the reason for rounding up is practical: $15$ tiles would leave a gap, so $16$ tiles are needed.\n\n⚠️ Common Mistake\nAlways rounding to the nearest whole number in word problems. The context tells you whether to round up or down.\n\n✅ Tip\nWhen you see words such as \"how many buses\", \"how many boxes\", \"how many tiles\", or \"how many full groups\", think carefully about whether a part-group is acceptable."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-n7",
+      "heading": "Checking Answers with Estimation",
+      "body": "One of the best uses of estimation is checking. A quick estimate can catch calculator mistakes, place-value errors, and wrong operations before they cause bigger problems.\n\n📌 Definition\nChecking with estimation means comparing your exact answer with a rough calculation to see whether the exact answer is reasonable.\n\n🔑 How it works\n1. Read the question and decide which operation is needed.\n2. Round the numbers to one significant figure or to easy values.\n3. Work out the estimate mentally.\n4. Compare the estimate with your exact answer.\n5. If the two are close, your answer is probably correct. If they are very different, check your working.\n\n💡 Worked Example 1 — Checking a multiplication\nCalculate $38 \\times 52$.\n\nEstimate:\n$$38 \\approx 40 \\quad \\text{and} \\quad 52 \\approx 50$$\n$$40 \\times 50 = 2\\,000$$\n\nExact calculation:\n$$38 \\times 52 = 1\\,976$$\n\n$1\\,976$ is close to $2\\,000$, so the answer is reasonable.\n\n💡 Worked Example 2 — Catching a mistake\nA student writes $123 + 489 = 512$. Use estimation to check.\n\nEstimate:\n$$123 \\approx 100 \\quad \\text{and} \\quad 489 \\approx 500$$\n$$100 + 500 = 600$$\n\nThe exact answer $512$ is much smaller than the estimate of $600$. Re-checking the addition shows that the correct total is $612$.\n\n📎 Key Points to Remember\n• Estimate before you calculate to predict the size of the answer.\n• Estimate after you calculate to check for sense.\n• Do not expect the estimate and exact answer to be identical; they should be in the same \"ballpark\".\n\n✅ Check\nIf your exact answer is more than about ten times larger or smaller than your estimate, look for a calculation or place-value error."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-rounding-estimation-re-f1",
+      "term": "Rounding",
+      "definition": "Replacing a number with a nearby, simpler value that has the required level of accuracy.",
+      "example": "$4\\,638$ rounded to the nearest $100$ is $4\\,600$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-f2",
+      "term": "Rounding to the nearest 10, 100 or 1000",
+      "definition": "Look at the digit to the right of the target place; round up if it is 5 or more, down if it is 4 or less.",
+      "example": "$7\\,256$ rounded to the nearest $100$ is $7\\,300$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-f3",
+      "term": "Rounding to the nearest whole number",
+      "definition": "Look at the tenths digit; round up if it is 5 or more, otherwise keep the units digit.",
+      "example": "$8.73$ rounds to $9$, but $12.41$ rounds to $12$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-f4",
+      "term": "Decimal places (d.p.)",
+      "definition": "The number of digits written after the decimal point.",
+      "example": "$3.14159$ to $2$ d.p. is $3.14$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-f5",
+      "term": "Significant figures (sig figs)",
+      "definition": "The digits in a number that carry meaning about its size.",
+      "example": "$0.00456$ has $3$ significant figures."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-f6",
+      "term": "Leading zero",
+      "definition": "A zero at the start of a decimal number that is only a placeholder and is not significant.",
+      "example": "$0.0072$ has $2$ significant figures: $7$ and $2$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-f7",
+      "term": "Estimate",
+      "definition": "A rough answer found by rounding numbers before calculating.",
+      "example": "$48 \\times 6.2 \\approx 50 \\times 6 = 300$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-f8",
+      "term": "Rounding up in context",
+      "definition": "Increasing to the next whole number when you need enough of something.",
+      "example": "$23$ people need $3$ minibuses that each seat $8$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-f9",
+      "term": "Rounding down in context",
+      "definition": "Keeping the lower whole number when you cannot exceed a limit.",
+      "example": "With $£50$ and books costing $£12$, you can buy $4$ books."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-f10",
+      "term": "Checking with estimation",
+      "definition": "Comparing an exact answer with a rough calculation to see if it is sensible.",
+      "example": "$38 \\times 52 = 1\\,976$ is close to the estimate $40 \\times 50 = 2\\,000$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-f11",
+      "term": "Compatible numbers",
+      "definition": "Numbers that are close to the original values and easy to calculate with mentally.",
+      "example": "$78 \\times 5 \\approx 80 \\times 5 = 400$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-f12",
+      "term": "Trailing zero in a decimal",
+      "definition": "A zero at the end of a decimal number that shows the level of accuracy.",
+      "example": "$9.995$ to $2$ d.p. is $10.00$, not $10$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-rounding-estimation-re-q1",
+      "stem": "Round $47$ to the nearest $10$.",
+      "choices": [
+        "$40$",
+        "$45$",
+        "$50$",
+        "$48$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The digit to the right of the tens place is $7$, which is $5$ or more, so round up from $40$ to $50$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q2",
+      "stem": "What is $3.74$ rounded to the nearest whole number?",
+      "choices": [
+        "$3$",
+        "$4$",
+        "$5$",
+        "$3.7$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The tenths digit is $7$, so round the units digit $3$ up to $4$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q3",
+      "stem": "Write $8.149$ correct to $2$ decimal places.",
+      "choices": [
+        "$8.14$",
+        "$8.15$",
+        "$8.1$",
+        "$8.2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The third decimal digit is $9$, so the hundredths digit $4$ rounds up to $5$, giving $8.15$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q4",
+      "stem": "Round $0.00562$ to $2$ significant figures.",
+      "choices": [
+        "$0.0056$",
+        "$0.006$",
+        "$0.0057$",
+        "$0.00562$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The first two significant digits are $5$ and $6$, and the next digit $2$ is less than $5$, so round down to $0.0056$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q5",
+      "stem": "Estimate $198 \\times 3.9$ by rounding each number to $1$ significant figure.",
+      "choices": [
+        "$800$",
+        "$750$",
+        "$780$",
+        "$8\\,000$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$198$ rounds to $200$ and $3.9$ rounds to $4$, so $200 \\times 4 = 800$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q6",
+      "stem": "A number rounded to the nearest $100$ is $3\\,700$. Which of these could be the original number?",
+      "choices": [
+        "$3\\,649$",
+        "$3\\,650$",
+        "$3\\,749$",
+        "$3\\,751$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Numbers from $3\\,650$ up to (but not including) $3\\,750$ round to $3\\,700$, so $3\\,749$ is the only valid choice."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q7",
+      "stem": "Round $12.5$ to the nearest whole number.",
+      "choices": [
+        "$12$",
+        "$12.0$",
+        "$13$",
+        "$13.0$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The tenths digit is $5$, so by convention we always round up to $13$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q8",
+      "stem": "Write $9.995$ correct to $2$ decimal places.",
+      "choices": [
+        "$10.00$",
+        "$9.99$",
+        "$10.0$",
+        "$10$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The third decimal digit is $5$, so rounding up causes a chain of carries; the answer must show two decimal places: $10.00$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q9",
+      "stem": "Estimate $412 \\div 7.9$ by rounding sensibly.",
+      "choices": [
+        "$50$",
+        "$52$",
+        "$40$",
+        "$60$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$412$ rounds to $400$ and $7.9$ rounds to $8$, giving $400 \\div 8 = 50$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q10",
+      "stem": "A minibus seats $8$ people. How many minibuses are needed for $23$ people?",
+      "choices": [
+        "$2$",
+        "$2.875$",
+        "$3$",
+        "$23$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$23 \\div 8 = 2.875$, but $2$ buses would leave $7$ people behind, so round up to $3$ buses."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q11",
+      "stem": "A book costs $£12$. What is the greatest number of books you can buy with $£50$?",
+      "choices": [
+        "$4$",
+        "$5$",
+        "$4.16$",
+        "$6$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$50 \\div 12 = 4.16\\ldots$; $5$ books would cost $£60$, which is too much, so round down to $4$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q12",
+      "stem": "A rectangular floor is $4.2$ m by $3.8$ m. One tile covers $1$ m$^2$. How many tiles are needed?",
+      "choices": [
+        "$15$",
+        "$16$",
+        "$15.96$",
+        "$20$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The area is $4.2 \\times 3.8 = 15.96$ m$^2$; $15$ tiles would leave a gap, so round up to $16$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q13",
+      "stem": "Estimate $1\\,247 \\times 8.5$ by rounding each number to $1$ significant figure.",
+      "choices": [
+        "$9\\,000$",
+        "$10\\,000$",
+        "$11\\,000$",
+        "$12\\,000$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$1\\,247$ rounds to $1\\,000$ and $8.5$ rounds to $9$, so $1\\,000 \\times 9 = 9\\,000$."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q14",
+      "stem": "A length is given as $4.6$ cm correct to $1$ decimal place. What is the smallest possible actual length?",
+      "choices": [
+        "$4.5$ cm",
+        "$4.55$ cm",
+        "$4.6$ cm",
+        "$4.65$ cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "Values from $4.55$ cm up to $4.65$ cm round to $4.6$ cm, so the smallest possible actual length is $4.55$ cm."
+    },
+    {
+      "id": "math-yr7-rounding-estimation-re-q15",
+      "stem": "Zara estimates $78 \\times 62$ by rounding each number to the nearest $10$. Which statement is true?",
+      "choices": [
+        "The exact answer is exactly $4\\,800$.",
+        "The exact answer is about $4\\,800$.",
+        "The estimate is larger than the exact answer.",
+        "The exact answer is about $3\\,600$."
+      ],
+      "correctIndex": 1,
+      "explanation": "Rounding gives $80 \\times 60 = 4\\,800$; the exact answer is $4\\,836$, which is about $4\\,800$."
+    }
+  ]
+}

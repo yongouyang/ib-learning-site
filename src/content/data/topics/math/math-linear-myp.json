@@ -7,112 +7,219 @@
   "notes": [
     {
       "id": "math-linear-myp-lin-n1",
-      "heading": "Gradient and y-Intercept",
-      "body": "Gradient m = (y₂−y₁)÷(x₂−x₁) measures steepness. Positive = upward, negative = downward, zero = horizontal. y-intercept c is where the line crosses the y-axis (x=0)."
+      "heading": "Plotting Points on the Cartesian Plane",
+      "body": "Every point on the Cartesian plane is located by an ordered pair $(x,y)$.\n\n📌 Definition\nThe Cartesian plane is formed by two perpendicular number lines called axes. The horizontal axis is the $x$-axis and the vertical axis is the $y$-axis. They cross at the origin $(0,0)$.\n\n🔑 Key Concept\nThe first coordinate tells you how far to move horizontally; the second tells you how far to move vertically. The plane is divided into four quadrants:\n1. Quadrant I: $x>0$, $y>0$\n2. Quadrant II: $x<0$, $y>0$\n3. Quadrant III: $x<0$, $y<0$\n4. Quadrant IV: $x>0$, $y<0$\n\n💡 Worked Example\nPlot the points $A(2,3)$, $B(-1,4)$, $C(-3,-2)$ and $D(4,-1)$.\n• $A$ is 2 right and 3 up → Quadrant I.\n• $B$ is 1 left and 4 up → Quadrant II.\n• $C$ is 3 left and 2 down → Quadrant III.\n• $D$ is 4 right and 1 down → Quadrant IV.\n\n📎 Key Points to Remember\n• Always write coordinates as $(x,y)$; order matters.\n• Points on the $x$-axis have $y=0$; points on the $y$-axis have $x=0$.\n• The origin $(0,0)$ is in no quadrant.\n\n✅ Check\nTo verify a plotted point, count from the origin along the $x$-axis first, then parallel to the $y$-axis."
     },
     {
       "id": "math-linear-myp-lin-n2",
-      "heading": "y = mx + c",
-      "body": "Every straight line can be written as y=mx+c. Given gradient and one point, use y−y₁=m(x−x₁). Given two points, find m first, then substitute to find c. Example: (1,3) and (3,7): m=2, c=1 → y=2x+1."
+      "heading": "Gradient of a Straight Line",
+      "body": "The gradient measures how steep a straight line is.\n\n📌 Definition\nThe gradient $m$ between two points $(x_1,y_1)$ and $(x_2,y_2)$ is:\n$$m=\\frac{y_2-y_1}{x_2-x_1}$$\n\n🔑 How it works\n• Positive gradient: the line rises as $x$ increases.\n• Negative gradient: the line falls as $x$ increases.\n• Zero gradient: the line is horizontal.\n• Undefined gradient: the line is vertical.\n\n💡 Worked Example\nFind the gradient of the line through $A(2,5)$ and $B(6,13)$.\nStep 1: Label $(x_1,y_1)=(2,5)$ and $(x_2,y_2)=(6,13)$.\nStep 2: Substitute:\n$$m=\\frac{13-5}{6-2}=\\frac{8}{4}=2$$\nSo the gradient is $2$: for every 1 unit right, the line rises 2 units.\n\n⚠️ Common Mistake\nMixing the order of the points. Use the same point order in the numerator and denominator:\n$$m=\\frac{y_2-y_1}{x_2-x_1}=\\frac{y_1-y_2}{x_1-x_2}$$\nBoth are correct if consistent."
     },
     {
       "id": "math-linear-myp-lin-n3",
-      "heading": "Parallel and Perpendicular",
-      "body": "Parallel: same gradient (m₁=m₂). Perpendicular: m₁×m₂=−1 (negative reciprocals). Example: gradient 2 is perpendicular to −1/2."
+      "heading": "The Equation $y=mx+c$",
+      "body": "Every non-vertical straight line can be written in slope-intercept form.\n\n📌 Definition\n$$y=mx+c$$\nwhere $m$ is the gradient and $c$ is the $y$-intercept, the value of $y$ where the line crosses the $y$-axis.\n\n🔑 How it works\nTo sketch a line from its equation:\n1. Mark the $y$-intercept $(0,c)$.\n2. Use the gradient to find another point: from $(0,c)$, move 1 unit right and $m$ units up (or down if $m$ is negative).\n3. Join the points with a straight line.\n\n💡 Worked Example\nSketch $y=2x+3$.\n• The $y$-intercept is $(0,3)$.\n• The gradient is $2$, so move 1 right and 2 up to $(1,5)$.\n• Draw the line through $(0,3)$ and $(1,5)$.\n\n📎 Key Points to Remember\n• $m$ controls steepness and direction.\n• $c$ controls where the line crosses the $y$-axis.\n• Lines with the same $c$ meet the $y$-axis at the same point.\n\n✅ Tip\nRewrite the equation with $y$ as the subject before reading $m$ and $c$."
+    },
+    {
+      "id": "math-linear-myp-lin-n4",
+      "heading": "Finding the Equation of a Line",
+      "body": "You can find the equation of a line from different pieces of information.\n\n📌 Key Concept\nIf you know the gradient $m$ and one point $(x_1,y_1)$, use point-slope form:\n$$y-y_1=m(x-x_1)$$\nThen rearrange to $y=mx+c$.\n\nIf you know two points, first find the gradient, then substitute one point to find $c$.\n\n💡 Worked Example 1 — Gradient and a point\nFind the equation of the line with gradient $3$ through $(2,7)$.\n$$y-7=3(x-2)$$\n$$y-7=3x-6$$\n$$y=3x+1$$\n\n💡 Worked Example 2 — Two points\nFind the equation of the line through $(1,4)$ and $(3,10)$.\nStep 1: Gradient:\n$$m=\\frac{10-4}{3-1}=\\frac{6}{2}=3$$\nStep 2: Substitute into $y=mx+c$ using $(1,4)$:\n$$4=3(1)+c \\Rightarrow c=1$$\nStep 3: Equation:\n$$y=3x+1$$\n\n📎 Key Points to Remember\n• The final answer is usually given as $y=mx+c$.\n• Either point can be used to find $c$.\n• Check by substituting the other point.\n\n⚠️ Common Misconception\nForgetting to add $y_1$ back when rearranging $y-y_1=m(x-x_1)$."
+    },
+    {
+      "id": "math-linear-myp-lin-n5",
+      "heading": "Parallel and Perpendicular Lines",
+      "body": "Parallel and perpendicular lines have special gradient relationships.\n\n📌 Definition\nTwo lines are parallel if they never meet. Parallel lines have the same gradient:\n$$m_1=m_2$$\nTwo lines are perpendicular if they meet at a right angle. Their gradients satisfy:\n$$m_1 \\times m_2=-1$$\nSo each gradient is the negative reciprocal of the other.\n\n🔑 How it works\nIf a line has gradient $m$:\n• A parallel line also has gradient $m$.\n• A perpendicular line has gradient $-\\frac{1}{m}$.\n\n💡 Worked Example 1\nFor $y=4x-5$:\n• A parallel line is $y=4x+2$ (gradient $4$).\n• A perpendicular line is $y=-\\frac{1}{4}x+3$ (gradient $-\\frac{1}{4}$).\n\n💡 Worked Example 2\nShow the line through $(0,2)$ and $(2,8)$ is perpendicular to the line through $(0,5)$ and $(3,4)$.\nGradient 1:\n$$m_1=\\frac{8-2}{2-0}=3$$\nGradient 2:\n$$m_2=\\frac{4-5}{3-0}=-\\frac{1}{3}$$\nProduct:\n$$m_1 \\times m_2=3 \\times \\left(-\\frac{1}{3}\\right)=-1$$\nTherefore the lines are perpendicular.\n\n📎 Key Points to Remember\n• Parallel lines share the same gradient but have different $y$-intercepts.\n• The negative reciprocal of $\\frac{a}{b}$ is $-\\frac{b}{a}$.\n• Horizontal lines are perpendicular to vertical lines.\n\n⚠️ Common Mistake\nThinking perpendicular gradients are just negatives of each other. They are negative reciprocals, so $m_2=-\\frac{1}{m_1}$, not $m_2=-m_1$."
+    },
+    {
+      "id": "math-linear-myp-lin-n6",
+      "heading": "Horizontal and Vertical Lines",
+      "body": "Some lines are not described by $y=mx+c$.\n\n📌 Definition\nA horizontal line has equation $y=c$ and gradient $0$.\nA vertical line has equation $x=a$ and an undefined gradient.\n\n🔑 How it works\nFor $y=c$, every point has the same $y$-coordinate, so:\n$$m=\\frac{0}{x_2-x_1}=0$$\nFor $x=a$, every point has the same $x$-coordinate, so:\n$$m=\\frac{y_2-y_1}{0} \\text{ (undefined)}$$\n\n💡 Worked Example\nWrite the equation of:\n1. The horizontal line through $(5,-2)$: $y=-2$.\n2. The vertical line through $(5,-2)$: $x=5$.\nThe two lines intersect at $(5,-2)$.\n\n📎 Key Points to Remember\n• Horizontal lines are parallel to the $x$-axis.\n• Vertical lines are parallel to the $y$-axis.\n• $y=mx+c$ cannot describe a vertical line.\n\n✅ Tip\nWhen reading a graph, look for perfectly flat or upright lines and state their equations carefully."
+    },
+    {
+      "id": "math-linear-myp-lin-n7",
+      "heading": "Modelling with Linear Relationships",
+      "body": "Many real-world situations change at a constant rate and can be modelled by a straight line.\n\n📌 Definition\nA linear model has the form $y=mx+c$, where:\n• $m$ is the rate of change.\n• $c$ is the initial value or fixed value when $x=0$.\n\n🔑 How it works\nIdentify the input variable ($x$) and output variable ($y$). The gradient tells you how much $y$ changes for each one-unit increase in $x$.\n\n💡 Worked Example\nA phone plan costs $£15$ per month plus $£2$ for each gigabyte of data used.\nLet $g$ be the number of GB used and $C$ be the total monthly cost.\n$$C=2g+15$$\n• The gradient $2$ means each extra GB costs $£2$.\n• The intercept $15$ is the fixed monthly charge.\nIf a customer uses $8$ GB:\n$$C=2(8)+15=16+15=31$$\nThe bill is $£31$.\n\n📎 Key Points to Remember\n• The gradient represents a rate such as cost per unit, distance per hour, or pay per hour.\n• The $y$-intercept represents a starting amount or fixed fee.\n• Test your model with simple values to check it makes sense.\n\n⚠️ Common Misconception\nConfusing the fixed value with the rate. In $C=2g+15$, the $£15$ is paid even if no data is used; the $£2$ is added per GB."
     }
   ],
   "flashcards": [
     {
       "id": "math-linear-myp-lin-f1",
       "term": "Gradient",
-      "definition": "Measure of steepness: (change in y)÷(change in x).",
-      "example": "(2,1)→(6,9): m=8÷4=2."
+      "definition": "A measure of the steepness of a straight line, equal to change in $y$ divided by change in $x$.",
+      "example": "For $(1,2)$ and $(5,10)$, $m=\\frac{10-2}{5-1}=2$."
     },
     {
       "id": "math-linear-myp-lin-f2",
       "term": "y-intercept",
-      "definition": "Where line crosses y-axis (x=0), the c in y=mx+c.",
-      "example": "y=3x−5 → y-intercept = −5."
+      "definition": "The value of $y$ where a line crosses the $y$-axis; the $c$ in $y=mx+c$.",
+      "example": "$y=3x-4$ has $y$-intercept $-4$."
     },
     {
       "id": "math-linear-myp-lin-f3",
-      "term": "y=mx+c",
-      "definition": "Standard straight line equation: m=gradient, c=y-intercept.",
-      "example": "y=−2x+7: m=−2, c=7."
+      "term": "Equation of a straight line",
+      "definition": "$y=mx+c$, where $m$ is the gradient and $c$ is the $y$-intercept.",
+      "example": "$y=-\\frac{1}{2}x+5$ has gradient $-\\frac{1}{2}$ and intercept $5$."
     },
     {
       "id": "math-linear-myp-lin-f4",
       "term": "Parallel lines",
-      "definition": "Same gradient, never intersect.",
-      "example": "y=4x+1 ∥ y=4x−3 (both m=4)."
+      "definition": "Lines that never meet; they have identical gradients.",
+      "example": "$y=2x+1$ is parallel to $y=2x-7$."
     },
     {
       "id": "math-linear-myp-lin-f5",
       "term": "Perpendicular lines",
-      "definition": "m₁×m₂=−1 (negative reciprocals).",
-      "example": "m=3 ⊥ m=−1/3."
+      "definition": "Lines that meet at $90^\\circ$; the product of their gradients is $-1$.",
+      "example": "A line with $m=3$ is perpendicular to a line with $m=-\\frac{1}{3}$."
+    },
+    {
+      "id": "math-linear-myp-lin-f6",
+      "term": "Point-slope form",
+      "definition": "$y-y_1=m(x-x_1)$, used when you know the gradient and one point on the line.",
+      "example": "Gradient $2$ through $(3,5)$ gives $y-5=2(x-3)$."
+    },
+    {
+      "id": "math-linear-myp-lin-f7",
+      "term": "Horizontal line",
+      "definition": "A line with equation $y=c$ and gradient $0$.",
+      "example": "$y=-3$."
+    },
+    {
+      "id": "math-linear-myp-lin-f8",
+      "term": "Vertical line",
+      "definition": "A line with equation $x=a$; its gradient is undefined.",
+      "example": "$x=4$."
+    },
+    {
+      "id": "math-linear-myp-lin-f9",
+      "term": "Origin",
+      "definition": "The point $(0,0)$ where the $x$-axis and $y$-axis intersect.",
+      "example": "The line $y=2x+3$ crosses the $y$-axis at $(0,3)$, not the origin."
+    },
+    {
+      "id": "math-linear-myp-lin-f10",
+      "term": "Rate of change",
+      "definition": "In a linear model, the gradient showing how much the output changes per unit increase in the input.",
+      "example": "In $C=2g+15$, the rate is $£2$ per GB."
+    },
+    {
+      "id": "math-linear-myp-lin-f11",
+      "term": "x-intercept",
+      "definition": "The value of $x$ where a line crosses the $x$-axis; found by setting $y=0$.",
+      "example": "For $y=2x-6$, $0=2x-6$ gives $x=3$, so the $x$-intercept is $(3,0)$."
+    },
+    {
+      "id": "math-linear-myp-lin-f12",
+      "term": "Negative reciprocal",
+      "definition": "The number $-\\frac{1}{m}$; two perpendicular gradients multiply to $-1$.",
+      "example": "The negative reciprocal of $4$ is $-\\frac{1}{4}$."
     }
   ],
   "questions": [
     {
       "id": "math-linear-myp-lin-q1",
-      "stem": "Gradient of line through (1,2) and (5,10)?",
-      "choices": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
+      "stem": "In which quadrant does the point $(-3,4)$ lie?",
+      "choices": ["I", "II", "III", "IV"],
       "correctIndex": 1,
-      "explanation": "(10−2)÷(5−1)=8÷4=2."
+      "explanation": "Negative $x$ and positive $y$ place a point in Quadrant II."
     },
     {
       "id": "math-linear-myp-lin-q2",
-      "stem": "y-intercept of y=3x−4?",
-      "choices": [
-        "3",
-        "4",
-        "−4",
-        "−3"
-      ],
-      "correctIndex": 2,
-      "explanation": "In y=mx+c, c=−4."
+      "stem": "What is the gradient of the line through $(1,2)$ and $(5,10)$?",
+      "choices": ["1", "2", "3", "4"],
+      "correctIndex": 1,
+      "explanation": "$m=\\frac{10-2}{5-1}=\\frac{8}{4}=2$."
     },
     {
       "id": "math-linear-myp-lin-q3",
-      "stem": "Which is parallel to y=2x+5?",
-      "choices": [
-        "y=−2x+5",
-        "y=2x−3",
-        "y=5x+2",
-        "y=3x+5"
-      ],
-      "correctIndex": 1,
-      "explanation": "Same gradient m=2."
+      "stem": "What is the $y$-intercept of $y=4x-7$?",
+      "choices": ["4", "7", "-7", "-4"],
+      "correctIndex": 2,
+      "explanation": "In $y=mx+c$, the $y$-intercept is $c=-7$."
     },
     {
       "id": "math-linear-myp-lin-q4",
-      "stem": "Gradient perpendicular to y=4x+1?",
-      "choices": [
-        "4",
-        "1/4",
-        "−4",
-        "−1/4"
-      ],
-      "correctIndex": 3,
-      "explanation": "Negative reciprocal: −1/4."
+      "stem": "A line has gradient $-2$ and passes through $(0,5)$. What is its equation?",
+      "choices": ["$y=5x-2$", "$y=-2x+5$", "$y=2x+5$", "$y=-2x-5$"],
+      "correctIndex": 1,
+      "explanation": "The $y$-intercept is $5$ and the gradient is $-2$, so $y=-2x+5$."
     },
     {
       "id": "math-linear-myp-lin-q5",
-      "stem": "Line with gradient 3 through (0,−2)?",
-      "choices": [
-        "y=−2x+3",
-        "y=3x−2",
-        "y=3x+2",
-        "y=2x−3"
-      ],
+      "stem": "Find the equation of the line through $(2,5)$ and $(4,11)$.",
+      "choices": ["$y=2x+1$", "$y=3x-1$", "$y=2x-1$", "$y=3x+1$"],
       "correctIndex": 1,
-      "explanation": "y-intercept=−2, gradient=3 → y=3x−2."
+      "explanation": "Gradient $m=\\frac{11-5}{4-2}=3$. Substituting $(2,5)$ gives $5=6+c$, so $c=-1$ and $y=3x-1$."
+    },
+    {
+      "id": "math-linear-myp-lin-q6",
+      "stem": "Which line is parallel to $y=\\frac{2}{3}x+4$?",
+      "choices": ["$y=-\\frac{2}{3}x+4$", "$y=\\frac{2}{3}x-1$", "$y=\\frac{3}{2}x+4$", "$y=2x+4$"],
+      "correctIndex": 1,
+      "explanation": "Parallel lines have the same gradient, so the answer must keep $m=\\frac{2}{3}$."
+    },
+    {
+      "id": "math-linear-myp-lin-q7",
+      "stem": "A line is perpendicular to $y=5x+2$. What is its gradient?",
+      "choices": ["5", "-5", "$\\frac{1}{5}$", "$-\\frac{1}{5}$"],
+      "correctIndex": 3,
+      "explanation": "Perpendicular gradients multiply to $-1$, so $m_2=-\\frac{1}{5}$."
+    },
+    {
+      "id": "math-linear-myp-lin-q8",
+      "stem": "What is the equation of the horizontal line through $(6,-2)$?",
+      "choices": ["$y=6$", "$y=-2$", "$x=6$", "$x=-2$"],
+      "correctIndex": 1,
+      "explanation": "A horizontal line has equation $y=c$, so through $(6,-2)$ it is $y=-2$."
+    },
+    {
+      "id": "math-linear-myp-lin-q9",
+      "stem": "Find the $x$-intercept of $y=3x-12$.",
+      "choices": ["4", "-4", "12", "-12"],
+      "correctIndex": 0,
+      "explanation": "Set $y=0$: $0=3x-12$ gives $3x=12$ and $x=4$."
+    },
+    {
+      "id": "math-linear-myp-lin-q10",
+      "stem": "The line through $(0,c)$ and $(4,14)$ has gradient $2$. Find $c$.",
+      "choices": ["6", "8", "10", "12"],
+      "correctIndex": 0,
+      "explanation": "$\\frac{14-c}{4}=2$, so $14-c=8$ and $c=6$."
+    },
+    {
+      "id": "math-linear-myp-lin-q11",
+      "stem": "A plumber charges a $£40$ call-out fee plus $£25$ per hour. Which equation gives the total cost $C$ for $h$ hours?",
+      "choices": ["$C=40h+25$", "$C=25h+40$", "$C=65h$", "$C=25(h+40)$"],
+      "correctIndex": 1,
+      "explanation": "The $£40$ is the fixed intercept and $£25$ is the rate per hour, so $C=25h+40$."
+    },
+    {
+      "id": "math-linear-myp-lin-q12",
+      "stem": "Which equation is perpendicular to $2y=6x+8$?",
+      "choices": ["$y=-\\frac{1}{3}x+2$", "$y=3x+2$", "$y=-3x+2$", "$y=\\frac{1}{3}x+2$"],
+      "correctIndex": 0,
+      "explanation": "Rearranging gives $y=3x+4$, gradient $3$; a perpendicular gradient is $-\\frac{1}{3}$."
+    },
+    {
+      "id": "math-linear-myp-lin-q13",
+      "stem": "Find the equation of the line through $(-1,5)$ that is parallel to $y=2x+3$.",
+      "choices": ["$y=2x+7$", "$y=2x-7$", "$y=-\\frac{1}{2}x+7$", "$y=-\\frac{1}{2}x+\\frac{9}{2}$"],
+      "correctIndex": 0,
+      "explanation": "Parallel means $m=2$. Substituting $(-1,5)$ gives $5=-2+c$, so $c=7$ and $y=2x+7$."
+    },
+    {
+      "id": "math-linear-myp-lin-q14",
+      "stem": "The points $(2,a)$ and $(6,1)$ lie on a line with gradient $-\\frac{3}{4}$. Find $a$.",
+      "choices": ["4", "-2", "1", "7"],
+      "correctIndex": 0,
+      "explanation": "$\\frac{1-a}{6-2}=-\\frac{3}{4}$, so $1-a=-3$ and $a=4$."
+    },
+    {
+      "id": "math-linear-myp-lin-q15",
+      "stem": "A car rental company charges $£30$ per day plus a one-off $£20$ insurance fee. What is the cost of a 7-day rental?",
+      "choices": ["£230", "£210", "£200", "£250"],
+      "correctIndex": 0,
+      "explanation": "Using $C=30d+20$ with $d=7$ gives $C=210+20=230$, so the cost is $£230$."
     }
   ]
 }

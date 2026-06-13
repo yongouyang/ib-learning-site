@@ -1,0 +1,300 @@
+{
+  "id": "math-yr7-volume-surface-area",
+  "subjectId": "math",
+  "title": "Volume and Surface Area",
+  "description": "Understanding and calculating the volume and surface area of cuboids, cubes, and triangular prisms, including units and real-world applications.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr7-volume-surface-area-vsa-n1",
+      "heading": "What Are Volume and Surface Area?",
+      "body": "Volume and surface area are two different ways to measure a three-dimensional (3D) shape. They answer different questions, so it is important not to confuse them.\n\n📌 Definition\nVolume is the amount of space inside a 3D object. It is measured in cubic units, such as cubic centimetres ($\\text{cm}^3$) or cubic metres ($\\text{m}^3$).\n\n$$\\text{Volume} = \\text{length} \\times \\text{width} \\times \\text{height}$$\n\n📌 Definition\nSurface area is the total area of all the faces (sides) of a 3D object. It is measured in square units, such as square centimetres ($\\text{cm}^2$) or square metres ($\\text{m}^2$).\n\n🔑 Key Concept\nImagine a closed box. The volume tells you how much it can hold inside. The surface area tells you how much cardboard you would need to make the box.\n\n💡 Worked Example\nA shoe box has length $30 \\text{ cm}$, width $20 \\text{ cm}$, and height $10 \\text{ cm}$.\n\nVolume: $30 \\times 20 \\times 10 = 6\\,000 \\text{ cm}^3$\n\nSurface area: you would need to add up the area of all six rectangular faces.\n\n📎 Key Points to Remember\n• Volume uses cubic units ($\\text{cm}^3$, $\\text{m}^3$) because it measures space in three dimensions.\n• Surface area uses square units ($\\text{cm}^2$, $\\text{m}^2$) because it measures flat areas.\n• A cube has six identical square faces.\n• A cuboid has six rectangular faces, with opposite faces matching in pairs.\n\n⚠️ Common Misconception\nVolume and surface area are not interchangeable. Doubling the edge length of a cube does not double both values — the volume becomes $8$ times larger, while the surface area becomes $4$ times larger."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-n2",
+      "heading": "Volume of Cuboids and Cubes",
+      "body": "Cuboids and cubes are the simplest 3D shapes to work with because every face is a rectangle or square. Their volume formulas are easy to remember and use.\n\n📌 Definition\nA cuboid is a 3D shape with six rectangular faces. A cube is a special cuboid where all edges are equal.\n\n🔑 How it works\nTo find the volume of a cuboid, multiply its three dimensions together.\n\n$$V = l \\times w \\times h$$\n\nFor a cube with edge length $s$:\n\n$$V = s \\times s \\times s = s^3$$\n\n💡 Worked Example 1 — Cuboid\nFind the volume of a cuboid with length $5 \\text{ cm}$, width $3 \\text{ cm}$, and height $4 \\text{ cm}$.\n\n$$V = 5 \\times 3 \\times 4 = 60 \\text{ cm}^3$$\n\n💡 Worked Example 2 — Cube\nFind the volume of a cube with edge length $6 \\text{ cm}$.\n\n$$V = 6^3 = 6 \\times 6 \\times 6 = 216 \\text{ cm}^3$$\n\n📎 Key Points to Remember\n• The order of multiplication does not matter: $l \\times w \\times h = w \\times h \\times l$.\n• Make sure all three lengths are in the same unit before multiplying.\n• The answer must always include a cubic unit.\n\n✅ Tip\nIf a question gives the volume and two dimensions, rearrange the formula to find the missing dimension:\n$$l = \\frac{V}{w \\times h}$$"
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-n3",
+      "heading": "Volume of Triangular Prisms",
+      "body": "A triangular prism is a 3D shape with two identical triangular ends connected by three rectangular faces. To find its volume, you first find the area of the triangular face and then multiply by the length of the prism.\n\n📌 Definition\nA prism is a 3D shape with a constant cross-section. The cross-section is the shape you see when you slice the prism parallel to its ends.\n\n🔑 How it works\nFor any prism, the volume is:\n\n$$V = \\text{area of cross-section} \\times \\text{length}$$\n\nFor a triangular prism, the cross-section is a triangle:\n\n$$V = \\frac{1}{2} \\times b \\times h \\times l$$\n\nwhere $b$ is the base of the triangle, $h$ is the perpendicular height of the triangle, and $l$ is the length of the prism.\n\n💡 Worked Example\nA triangular prism has a triangular face with base $8 \\text{ cm}$ and height $5 \\text{ cm}$. The prism is $12 \\text{ cm}$ long.\n\nStep 1: Area of triangle\n$$A = \\frac{1}{2} \\times 8 \\times 5 = 20 \\text{ cm}^2$$\n\nStep 2: Volume of prism\n$$V = 20 \\times 12 = 240 \\text{ cm}^3$$\n\n📎 Key Points to Remember\n• The height of the triangle must be perpendicular to the base. Do not use a slanted side.\n• The length of the prism is the distance between the two triangular faces.\n• This method works for any prism: find the cross-sectional area, then multiply by length.\n\n⚠️ Common Mistake\nUsing the slanted edge of the triangle as its height. The height must always be at right angles to the base."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-n4",
+      "heading": "Surface Area of Cuboids",
+      "body": "The surface area of a cuboid is the total area of all six faces. Because opposite faces are identical, you only need to calculate three different face areas and then double their sum.\n\n📌 Definition\nThe surface area of a 3D object is the sum of the areas of all its faces.\n\n🔑 How it works\nA cuboid has three pairs of identical rectangular faces:\n\n$$\\text{Surface area} = 2lw + 2lh + 2wh$$\n\nwhere $l$ is length, $w$ is width, and $h$ is height.\n\nFor a cube with edge length $s$:\n\n$$\\text{Surface area} = 6s^2$$\n\n💡 Worked Example 1 — Cuboid\nFind the surface area of a cuboid with length $5 \\text{ cm}$, width $3 \\text{ cm}$, and height $4 \\text{ cm}$.\n\n$$\\text{SA} = 2(5 \\times 3) + 2(5 \\times 4) + 2(3 \\times 4)$$\n$$\\text{SA} = 30 + 40 + 24 = 94 \\text{ cm}^2$$\n\n💡 Worked Example 2 — Cube\nFind the surface area of a cube with edge length $6 \\text{ cm}$.\n\n$$\\text{SA} = 6 \\times 6^2 = 6 \\times 36 = 216 \\text{ cm}^2$$\n\n📎 Key Points to Remember\n• Always count all six faces. A net diagram can help you see them clearly.\n• Opposite faces have equal area, so the formula uses $2$ for each pair.\n• Surface area uses square units, not cubic units.\n\n✅ Check\nEstimate the size of each face to check your answer is sensible. For the cuboid above, the largest face is $5 \\times 4 = 20 \\text{ cm}^2$, so six faces totalling $94 \\text{ cm}^2$ is reasonable."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-n5",
+      "heading": "Surface Area of Triangular Prisms",
+      "body": "A triangular prism has five faces: two triangular ends and three rectangular sides. To find the surface area, add the areas of all five faces.\n\n📌 Definition\nA net is a 2D pattern that can be folded to make a 3D shape. Drawing a net helps you see every face when calculating surface area.\n\n🔑 How it works\nFor a triangular prism with triangle base $b$, triangle height $h$, prism length $l$, and the two other triangle sides $a$ and $c$:\n\n$$\\text{Surface area} = bh + al + bl + cl$$\n\nThis formula comes from:\n\n• Two triangular ends: $2 \\times \\frac{1}{2}bh = bh$\n• Three rectangular sides: $al + bl + cl$\n\n💡 Worked Example\nA triangular prism has a triangular face with sides $3 \\text{ cm}$, $4 \\text{ cm}$, and $5 \\text{ cm}$. The height of the triangle (relative to the $4 \\text{ cm}$ base) is $3 \\text{ cm}$. The prism is $10 \\text{ cm}$ long.\n\nStep 1: Area of the two triangular ends\n$$2 \\times \\frac{1}{2} \\times 4 \\times 3 = 12 \\text{ cm}^2$$\n\nStep 2: Area of the three rectangular sides\n$$3 \\times 10 + 4 \\times 10 + 5 \\times 10 = 30 + 40 + 50 = 120 \\text{ cm}^2$$\n\nStep 3: Total surface area\n$$\\text{SA} = 12 + 120 = 132 \\text{ cm}^2$$\n\n📎 Key Points to Remember\n• A triangular prism always has two triangular faces and three rectangular faces.\n• The three rectangles have widths equal to the three sides of the triangle.\n• Draw a net if you are unsure which faces to include.\n\n⚠️ Common Mistake\nForgetting that there are two triangular ends. Some students only calculate one triangle and then add the rectangles, which gives only half the correct triangular area."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-n6",
+      "heading": "Units and Conversions",
+      "body": "Choosing and converting units correctly is essential when working with volume and surface area. A small unit mistake can make an answer thousands of times too big or too small.\n\n📌 Definition\nCubic units measure volume. Common cubic units are cubic millimetres ($\\text{mm}^3$), cubic centimetres ($\\text{cm}^3$), and cubic metres ($\\text{m}^3$).\n\n🔑 Key Concept\nWhen lengths are converted, volumes are converted by the cube of the length factor.\n\n$$1 \\text{ cm} = 10 \\text{ mm} \\quad \\Rightarrow \\quad 1 \\text{ cm}^3 = 10 \\times 10 \\times 10 = 1\\,000 \\text{ mm}^3$$\n\n$$1 \\text{ m} = 100 \\text{ cm} \\quad \\Rightarrow \\quad 1 \\text{ m}^3 = 100 \\times 100 \\times 100 = 1\\,000\\,000 \\text{ cm}^3$$\n\n💡 Worked Example 1 — Converting cubic centimetres to cubic millimetres\nConvert $5 \\text{ cm}^3$ to $\\text{mm}^3$.\n\n$$5 \\text{ cm}^3 = 5 \\times 1\\,000 = 5\\,000 \\text{ mm}^3$$\n\n💡 Worked Example 2 — Converting cubic metres to cubic centimetres\nConvert $2.5 \\text{ m}^3$ to $\\text{cm}^3$.\n\n$$2.5 \\text{ m}^3 = 2.5 \\times 1\\,000\\,000 = 2\\,500\\,000 \\text{ cm}^3$$\n\n📎 Key Points to Remember\n• To convert from a larger unit to a smaller unit, multiply.\n• To convert from a smaller unit to a larger unit, divide.\n• For surface area, the conversion factor is squared, not cubed. For example, $1 \\text{ m}^2 = 10\\,000 \\text{ cm}^2$.\n\n✅ Tip\nWhen calculating volume, first convert all lengths to the same unit, then multiply. This avoids mixing units in the final answer."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-n7",
+      "heading": "Real-World Problems and Common Mistakes",
+      "body": "Volume and surface area appear everywhere in everyday life, from packing boxes to painting walls to filling swimming pools. Reading the question carefully helps you decide which measurement is needed.\n\n🔑 Choosing the Right Measurement\n• Use volume when the question asks about space, capacity, or how much a container can hold.\n• Use surface area when the question asks about covering, wrapping, painting, or building the outside of an object.\n\n💡 Worked Example 1 — Real-world volume\nA fish tank measures $80 \\text{ cm}$ long, $40 \\text{ cm}$ wide, and $50 \\text{ cm}$ high. How many litres of water does it hold when full?\n\nStep 1: Find the volume in $\\text{cm}^3$\n$$V = 80 \\times 40 \\times 50 = 160\\,000 \\text{ cm}^3$$\n\nStep 2: Convert to litres\n$$1\\,000 \\text{ cm}^3 = 1 \\text{ litre}$$\n$$160\\,000 \\text{ cm}^3 = 160 \\text{ litres}$$\n\n💡 Worked Example 2 — Real-world surface area\nA storage box with no lid measures $50 \\text{ cm} \\times 40 \\text{ cm} \\times 30 \\text{ cm}$. How much plastic is needed to make it?\n\nA closed cuboid has six faces, but this box has no lid, so only five faces are needed.\n\n$$\\text{Base} = 50 \\times 40 = 2\\,000 \\text{ cm}^2$$\n$$\\text{Front and back} = 2 \\times (50 \\times 30) = 3\\,000 \\text{ cm}^2$$\n$$\\text{Sides} = 2 \\times (40 \\times 30) = 2\\,400 \\text{ cm}^2$$\n$$\\text{Total} = 2\\,000 + 3\\,000 + 2\\,400 = 7\\,400 \\text{ cm}^2$$\n\n⚠️ Common Mistakes\n• Using the wrong units: mixing centimetres and metres in the same calculation.\n• Confusing volume and surface area: painting a wall needs area, not volume.\n• Forgetting an open top or bottom: some objects do not have six faces.\n• Using a slanted height instead of the perpendicular height for triangles.\n\n✅ Check\nAfter solving, ask yourself: \"Does my unit match what the question is asking?\" Volume questions need cubic units; covering questions need square units."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f1",
+      "term": "Volume",
+      "definition": "The amount of space inside a three-dimensional object, measured in cubic units.",
+      "example": "A box with dimensions $5 \\text{ cm} \\times 3 \\text{ cm} \\times 4 \\text{ cm}$ has volume $60 \\text{ cm}^3$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f2",
+      "term": "Surface area",
+      "definition": "The total area of all the faces of a three-dimensional object, measured in square units.",
+      "example": "A cube with edge length $6 \\text{ cm}$ has surface area $216 \\text{ cm}^2$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f3",
+      "term": "Volume of a cuboid",
+      "definition": "The product of the length, width, and height of the cuboid.",
+      "example": "$V = l \\times w \\times h$. For $l=5$, $w=3$, $h=4$, $V=60 \\text{ cm}^3$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f4",
+      "term": "Volume of a cube",
+      "definition": "The edge length multiplied by itself three times.",
+      "example": "$V = s^3$. A cube with $s=6 \\text{ cm}$ has $V=216 \\text{ cm}^3$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f5",
+      "term": "Volume of a triangular prism",
+      "definition": "The area of the triangular cross-section multiplied by the length of the prism.",
+      "example": "$V = \\frac{1}{2}bh \\times l$. For $b=8$, $h=5$, $l=12$, $V=240 \\text{ cm}^3$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f6",
+      "term": "Surface area of a cuboid",
+      "definition": "The sum of the areas of all six rectangular faces.",
+      "example": "$\\text{SA} = 2lw + 2lh + 2wh$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f7",
+      "term": "Surface area of a triangular prism",
+      "definition": "The area of the two triangular ends plus the area of the three rectangular sides.",
+      "example": "$\\text{SA} = bh + al + bl + cl$ where $a$, $b$, $c$ are the triangle sides."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f8",
+      "term": "Cubic unit",
+      "definition": "A unit used to measure volume, such as cubic centimetres ($\\text{cm}^3$) or cubic metres ($\\text{m}^3$).",
+      "example": "$1 \\text{ cm}^3$ is the volume of a cube with $1 \\text{ cm}$ edges."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f9",
+      "term": "Prism",
+      "definition": "A 3D shape with a constant cross-section along its length.",
+      "example": "A Toblerone chocolate bar is shaped like a triangular prism."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f10",
+      "term": "Conversion: cubic centimetres to cubic millimetres",
+      "definition": "There are $1\\,000$ cubic millimetres in one cubic centimetre.",
+      "example": "$5 \\text{ cm}^3 = 5 \\,000 \\text{ mm}^3$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f11",
+      "term": "Conversion: cubic metres to cubic centimetres",
+      "definition": "There are $1\\,000\\,000$ cubic centimetres in one cubic metre.",
+      "example": "$2.5 \\text{ m}^3 = 2\\,500\\,000 \\text{ cm}^3$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-f12",
+      "term": "Perpendicular height of a triangle",
+      "definition": "The straight-line distance from the base of a triangle to the opposite vertex, measured at right angles to the base.",
+      "example": "For a triangle with base $8 \\text{ cm}$ and perpendicular height $5 \\text{ cm}$, the area is $20 \\text{ cm}^2$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q1",
+      "stem": "Which unit would be most appropriate to measure the volume of a classroom?",
+      "choices": [
+        "$\\text{cm}^2$",
+        "$\\text{m}^2$",
+        "$\\text{cm}^3$",
+        "$\\text{m}^3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Volume is measured in cubic units. A classroom is a large space, so cubic metres ($\\text{m}^3$) are the most appropriate unit."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q2",
+      "stem": "What is the volume of a cuboid with length $6 \\text{ cm}$, width $4 \\text{ cm}$, and height $3 \\text{ cm}$?",
+      "choices": [
+        "$13 \\text{ cm}^3$",
+        "$72 \\text{ cm}^3$",
+        "$72 \\text{ cm}^2$",
+        "$36 \\text{ cm}^3$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Volume of a cuboid is $l \\times w \\times h = 6 \\times 4 \\times 3 = 72 \\text{ cm}^3$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q3",
+      "stem": "A cube has an edge length of $5 \\text{ cm}$. What is its surface area?",
+      "choices": [
+        "$25 \\text{ cm}^2$",
+        "$100 \\text{ cm}^2$",
+        "$125 \\text{ cm}^2$",
+        "$150 \\text{ cm}^2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "A cube has six square faces. Each face has area $5 \\times 5 = 25 \\text{ cm}^2$, so total surface area is $6 \\times 25 = 150 \\text{ cm}^2$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q4",
+      "stem": "What is the volume of a triangular prism with triangle base $6 \\text{ cm}$, triangle height $4 \\text{ cm}$, and prism length $10 \\text{ cm}$?",
+      "choices": [
+        "$120 \\text{ cm}^3$",
+        "$240 \\text{ cm}^3$",
+        "$120 \\text{ cm}^2$",
+        "$24 \\text{ cm}^3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Area of triangle $= \\frac{1}{2} \\times 6 \\times 4 = 12 \\text{ cm}^2$. Volume $= 12 \\times 10 = 120 \\text{ cm}^3$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q5",
+      "stem": "A cuboid has dimensions $5 \\text{ cm} \\times 3 \\text{ cm} \\times 2 \\text{ cm}$. What is its surface area?",
+      "choices": [
+        "$30 \\text{ cm}^2$",
+        "$31 \\text{ cm}^2$",
+        "$62 \\text{ cm}^2$",
+        "$60 \\text{ cm}^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\text{SA} = 2lw + 2lh + 2wh = 2(15) + 2(10) + 2(6) = 30 + 20 + 12 = 62 \\text{ cm}^2$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q6",
+      "stem": "How many cubic centimetres are in $3 \\text{ m}^3$?",
+      "choices": [
+        "$300 \\text{ cm}^3$",
+        "$3\\,000 \\text{ cm}^3$",
+        "$30\\,000 \\text{ cm}^3$",
+        "$3\\,000\\,000 \\text{ cm}^3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$1 \\text{ m}^3 = 1\\,000\\,000 \\text{ cm}^3$, so $3 \\text{ m}^3 = 3 \\times 1\\,000\\,000 = 3\\,000\\,000 \\text{ cm}^3$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q7",
+      "stem": "A cube has a volume of $64 \\text{ cm}^3$. What is the length of one edge?",
+      "choices": [
+        "$4 \\text{ cm}$",
+        "$8 \\text{ cm}$",
+        "$16 \\text{ cm}$",
+        "$32 \\text{ cm}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "For a cube, $V = s^3$. Since $4^3 = 64$, the edge length is $4 \\text{ cm}$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q8",
+      "stem": "A storage box measures $40 \\text{ cm} \\times 30 \\text{ cm} \\times 25 \\text{ cm}$. What is its volume in litres?",
+      "choices": [
+        "$30 \\text{ litres}$",
+        "$300 \\text{ litres}$",
+        "$30\\,000 \\text{ litres}$",
+        "$3 \\text{ litres}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$V = 40 \\times 30 \\times 25 = 30\\,000 \\text{ cm}^3$. Since $1\\,000 \\text{ cm}^3 = 1 \\text{ litre}$, the volume is $30 \\text{ litres}$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q9",
+      "stem": "The surface area of a cube is $294 \\text{ cm}^2$. What is the edge length of the cube?",
+      "choices": [
+        "$6 \\text{ cm}$",
+        "$7 \\text{ cm}$",
+        "$8 \\text{ cm}$",
+        "$49 \\text{ cm}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "A cube has six equal faces, so each face has area $294 \\div 6 = 49 \\text{ cm}^2$. The edge length is $\\sqrt{49} = 7 \\text{ cm}$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q10",
+      "stem": "A triangular prism has a surface area of $220 \\text{ cm}^2$. The two triangular ends have a combined area of $40 \\text{ cm}^2$ and the prism is $10 \\text{ cm}$ long. What is the perimeter of the triangular cross-section?",
+      "choices": [
+        "$18 \\text{ cm}$",
+        "$22 \\text{ cm}$",
+        "$26 \\text{ cm}$",
+        "$16 \\text{ cm}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The three rectangular faces have total area $220 - 40 = 180 \\text{ cm}^2$. Since area $=$ perimeter $\\times$ length, the perimeter is $180 \\div 10 = 18 \\text{ cm}$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q11",
+      "stem": "A cuboid has a volume of $360 \\text{ cm}^3$, length $10 \\text{ cm}$, and width $6 \\text{ cm}$. What is its height?",
+      "choices": [
+        "$5 \\text{ cm}$",
+        "$6 \\text{ cm}$",
+        "$7 \\text{ cm}$",
+        "$8 \\text{ cm}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Using $V = lwh$, we get $360 = 10 \\times 6 \\times h = 60h$. Therefore $h = 360 \\div 60 = 6 \\text{ cm}$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q12",
+      "stem": "A water tank in the shape of a cuboid has a square base of side $50 \\text{ cm}$ and height $80 \\text{ cm}$. How many litres of water does it hold when full?",
+      "choices": [
+        "$20 \\text{ litres}$",
+        "$200 \\text{ litres}$",
+        "$2\\,000 \\text{ litres}$",
+        "$200\\,000 \\text{ litres}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$V = 50 \\times 50 \\times 80 = 200\\,000 \\text{ cm}^3$. Dividing by $1\\,000$ gives $200 \\text{ litres}$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q13",
+      "stem": "A room measuring $5 \\text{ m} \\times 4 \\text{ m} \\times 2.5 \\text{ m}$ needs to be painted on all four walls and the ceiling. What total area needs to be painted?",
+      "choices": [
+        "$32.5 \\text{ m}^2$",
+        "$50 \\text{ m}^2$",
+        "$65 \\text{ m}^2$",
+        "$85 \\text{ m}^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ceiling $= 5 \\times 4 = 20 \\text{ m}^2$. Two longer walls $= 2 \\times (5 \\times 2.5) = 25 \\text{ m}^2$. Two shorter walls $= 2 \\times (4 \\times 2.5) = 20 \\text{ m}^2$. Total $= 20 + 25 + 20 = 65 \\text{ m}^2$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q14",
+      "stem": "A solid metal cuboid with dimensions $12 \\text{ cm} \\times 6 \\text{ cm} \\times 5 \\text{ cm}$ is melted down and recast into a triangular prism with a cross-sectional area of $30 \\text{ cm}^2$. What is the length of the prism?",
+      "choices": [
+        "$6 \\text{ cm}$",
+        "$10 \\text{ cm}$",
+        "$12 \\text{ cm}$",
+        "$15 \\text{ cm}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Volume of cuboid $= 12 \\times 6 \\times 5 = 360 \\text{ cm}^3$. For the prism, $V = \\text{area} \\times \\text{length}$, so length $= 360 \\div 30 = 12 \\text{ cm}$."
+    },
+    {
+      "id": "math-yr7-volume-surface-area-vsa-q15",
+      "stem": "An open box (no lid) is made from a cuboid with dimensions $20 \\text{ cm} \\times 15 \\text{ cm} \\times 10 \\text{ cm}$. What is the minimum amount of card needed to make the box?",
+      "choices": [
+        "$900 \\text{ cm}^2$",
+        "$950 \\text{ cm}^2$",
+        "$1\\,000 \\text{ cm}^2$",
+        "$1\\,300 \\text{ cm}^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "With no lid, there are five faces: base $= 20 \\times 15 = 300 \\text{ cm}^2$, front and back $= 2 \\times (20 \\times 10) = 400 \\text{ cm}^2$, sides $= 2 \\times (15 \\times 10) = 300 \\text{ cm}^2$. Total $= 300 + 400 + 300 = 1\\,000 \\text{ cm}^2$."
+    }
+  ]
+}

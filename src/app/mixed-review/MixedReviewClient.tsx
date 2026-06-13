@@ -35,7 +35,7 @@ export default function MixedReviewClient() {
   return (
     <div className="max-w-lg mx-auto px-4 py-6">
       {mode === 'weak' && !usedWeakTopics && (
-        <div className="card p-3 mb-4 bg-yellow-50 border-yellow-200 text-sm text-yellow-800">
+        <div className="card p-3 mb-4 bg-yellow-50 dark:bg-yellow-950 border-yellow-200 dark:border-yellow-900 text-sm text-yellow-800 dark:text-yellow-300">
           {weakTopicCount === 0
             ? 'No weak areas found yet. Practising random questions instead.'
             : 'Could not build a weak-area review. Practising random questions instead.'}

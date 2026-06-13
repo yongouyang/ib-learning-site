@@ -7,112 +7,294 @@
   "notes": [
     {
       "id": "math-fractions-1-frac-n1",
-      "heading": "Equivalent Fractions and Simplifying",
-      "body": "Equivalent fractions represent the same amount: 1/2=2/4=4/8. To simplify, divide numerator and denominator by their HCF. Example: 12/18 → HCF=6 → 2/3."
+      "heading": "What is a Fraction?",
+      "body": "A fraction describes a part of a whole. It is one of the most important ways of representing numbers that are not whole numbers, and it appears in recipes, measurements, probability, and many real-world situations.\n\n📌 Definition\nA fraction is written as $\\frac{a}{b}$, where:\n\n• $a$ is the numerator — the number of equal parts you have.\n• $b$ is the denominator — the total number of equal parts the whole is divided into.\n• The denominator cannot be zero.\n\n🔑 Key Concept\nFractions can be classified by the size of the numerator and denominator:\n\n• A proper fraction has a numerator smaller than the denominator, so its value is less than $1$. Example: $\\frac{3}{5}$.\n• An improper fraction has a numerator equal to or larger than the denominator, so its value is $1$ or more. Example: $\\frac{7}{4}$.\n• A mixed number combines a whole number with a proper fraction. Example: $1\\frac{3}{4}$.\n\n💡 Worked Example\nWrite the fraction shown by a pizza cut into $8$ equal slices with $3$ slices eaten.\n\nThe whole pizza has $8$ equal parts, so the denominator is $8$. Three parts are eaten, so the numerator is $3$.\n$$\\text{fraction eaten} = \\frac{3}{8}$$\n\n📎 Key Points to Remember\n• The denominator tells you the size of each part; the numerator tells you how many of those parts you have.\n• Fractions are exact values, unlike rounded decimals.\n• Always read $\\frac{a}{b}$ as \"$a$ out of $b$ equal parts\".\n\n✅ Check\nIn $\\frac{5}{6}$, the numerator is $5$ and the denominator is $6$; this is a proper fraction because $5 < 6$."
     },
     {
       "id": "math-fractions-1-frac-n2",
-      "heading": "Adding and Multiplying Fractions",
-      "body": "To add/subtract: find common denominator (LCM). Multiply fractions: multiply numerators together, denominators together. (2/3)×(4/5)=8/15. Always simplify."
+      "heading": "Equivalent Fractions and Simplifying",
+      "body": "Equivalent fractions look different but represent exactly the same amount. Simplifying means writing a fraction using the smallest possible whole numbers.\n\n📌 Definition\nEquivalent fractions are fractions that have the same value but different numerators and denominators.\n\n$$\\frac{1}{2} = \\frac{2}{4} = \\frac{4}{8} = \\frac{50}{100}$$\n\n🔑 Key Concept\nYou can create an equivalent fraction by multiplying or dividing both the numerator and denominator by the same non-zero number.\n\n$$\\frac{a}{b} = \\frac{a \\times k}{b \\times k} = \\frac{a \\div k}{b \\div k}$$\n\nSimplifying uses division by the highest common factor (HCF) of the numerator and denominator.\n\n💡 Worked Example 1 — Finding equivalent fractions\nFind three fractions equivalent to $\\frac{2}{3}$.\n\nMultiply numerator and denominator by $2$, $3$, and $5$:\n$$\\frac{2 \\times 2}{3 \\times 2} = \\frac{4}{6}, \\quad \\frac{2 \\times 3}{3 \\times 3} = \\frac{6}{9}, \\quad \\frac{2 \\times 5}{3 \\times 5} = \\frac{10}{15}$$\n\n💡 Worked Example 2 — Simplifying a fraction\nSimplify $\\frac{18}{24}$.\n\nStep 1: Find the HCF of $18$ and $24$.\nFactors of $18$: $1, 2, 3, 6, 9, 18$\nFactors of $24$: $1, 2, 3, 4, 6, 8, 12, 24$\nThe HCF is $6$.\n\nStep 2: Divide numerator and denominator by $6$.\n$$\\frac{18 \\div 6}{24 \\div 6} = \\frac{3}{4}$$\n\nSo $\\frac{18}{24}$ simplifies to $\\frac{3}{4}$.\n\n⚠️ Common Mistake\nAdding or subtracting the same number to the numerator and denominator. This does NOT give an equivalent fraction. Only multiplication or division by the same number works.\n\n📎 Key Points to Remember\n• A fraction is in its simplest form when the HCF of the numerator and denominator is $1$.\n• Simplifying does not change the value of the fraction.\n• You can simplify in stages if you cannot spot the HCF immediately.\n\n✅ Tip\nTo check whether two fractions are equivalent, cross-multiply: if $\\frac{a}{b} = \\frac{c}{d}$, then $a \\times d = b \\times c$."
     },
     {
       "id": "math-fractions-1-frac-n3",
-      "heading": "Percentages and Conversions",
-      "body": "Percent = \"out of 100\". Fraction → percentage: numerator÷denominator×100. 3/4=75%. Percentage of amount: convert to decimal and multiply. 20% of 60 = 0.20×60 = 12."
+      "heading": "Mixed Numbers and Improper Fractions",
+      "body": "Mixed numbers and improper fractions are two ways of writing values larger than one whole. Being able to convert between them is essential for calculations and for comparing quantities.\n\n📌 Definitions\n• A mixed number has a whole-number part and a fraction part. Example: $2\\frac{1}{3}$.\n• An improper fraction has a numerator that is greater than or equal to its denominator. Example: $\\frac{7}{3}$.\n\n🔑 How it works\nTo convert a mixed number to an improper fraction:\n1. Multiply the whole number by the denominator.\n2. Add the numerator.\n3. Write the result over the original denominator.\n\n$$a\\frac{b}{c} = \\frac{a \\times c + b}{c}$$\n\nTo convert an improper fraction to a mixed number:\n1. Divide the numerator by the denominator.\n2. The quotient becomes the whole number.\n3. The remainder becomes the new numerator.\n\n💡 Worked Example 1 — Mixed to improper\nWrite $3\\frac{2}{5}$ as an improper fraction.\n\n$$3\\frac{2}{5} = \\frac{3 \\times 5 + 2}{5} = \\frac{15 + 2}{5} = \\frac{17}{5}$$\n\n💡 Worked Example 2 — Improper to mixed\nWrite $\\frac{23}{4}$ as a mixed number.\n\n$23 \\div 4 = 5$ remainder $3$, so:\n$$\\frac{23}{4} = 5\\frac{3}{4}$$\n\n⚠️ Common Misconception\nThinking that $3\\frac{2}{5}$ means $3 \\times \\frac{2}{5}$. It actually means $3 + \\frac{2}{5}$.\n\n📎 Key Points to Remember\n• Use mixed numbers for measurements and everyday descriptions.\n• Use improper fractions when multiplying or dividing.\n• Always check that the fraction part of a mixed number is proper.\n\n✅ Check\n$4\\frac{1}{2} = \\frac{9}{2}$ and $\\frac{11}{3} = 3\\frac{2}{3}$."
+    },
+    {
+      "id": "math-fractions-1-frac-n4",
+      "heading": "Comparing and Ordering Fractions",
+      "body": "To compare fractions, you need to express them using the same denominator or convert them to decimals. This skill is useful whenever you need to decide which quantity is larger.\n\n📌 Definition\nWhen two fractions have the same denominator, the one with the larger numerator is the larger fraction.\n\n🔑 Key Concept\nTo compare fractions with different denominators, find a common denominator — usually the lowest common multiple (LCM) of the denominators. Then rewrite each fraction with that denominator and compare numerators.\n\n💡 Worked Example 1 — Same denominator\nWhich is larger, $\\frac{5}{8}$ or $\\frac{3}{8}$?\n\nBoth have denominator $8$, and $5 > 3$, so:\n$$\\frac{5}{8} > \\frac{3}{8}$$\n\n💡 Worked Example 2 — Different denominators\nWhich is larger, $\\frac{2}{3}$ or $\\frac{3}{5}$?\n\nStep 1: Find the LCM of $3$ and $5$, which is $15$.\n\nStep 2: Rewrite each fraction.\n$$\\frac{2}{3} = \\frac{2 \\times 5}{3 \\times 5} = \\frac{10}{15}$$\n$$\\frac{3}{5} = \\frac{3 \\times 3}{5 \\times 3} = \\frac{9}{15}$$\n\nStep 3: Compare numerators.\n$$\\frac{10}{15} > \\frac{9}{15} \\quad \\text{so} \\quad \\frac{2}{3} > \\frac{3}{5}$$\n\n💡 Worked Example 3 — Using benchmarks\nIs $\\frac{7}{12}$ greater than $\\frac{1}{2}$?\n\n$$\\frac{1}{2} = \\frac{6}{12}$$\nSince $\\frac{7}{12} > \\frac{6}{12}$, the fraction is greater than one half.\n\n⚠️ Common Mistake\nComparing only the numerators or only the denominators when the denominators are different. $\\frac{2}{3}$ is larger than $\\frac{3}{5}$, even though $5 > 3$.\n\n✅ Tip\nWhen comparing a fraction to $\\frac{1}{2}$, double the numerator. If the result is greater than the denominator, the fraction is larger than $\\frac{1}{2}$."
+    },
+    {
+      "id": "math-fractions-1-frac-n5",
+      "heading": "Adding and Subtracting Fractions",
+      "body": "Adding and subtracting fractions requires the same denominator, just as you can only add things that are measured in the same unit.\n\n📌 Definition\nFractions can be added or subtracted directly only when they share a common denominator.\n\n🔑 How it works\n1. If the denominators are the same, add or subtract the numerators and keep the denominator.\n2. If the denominators are different, find a common denominator (preferably the LCM).\n3. Rewrite each fraction with the common denominator.\n4. Add or subtract the numerators.\n5. Simplify the answer if possible.\n\n$$\\frac{a}{c} + \\frac{b}{c} = \\frac{a + b}{c}$$\n\n💡 Worked Example 1 — Same denominator\nFind $\\frac{5}{9} + \\frac{2}{9}$.\n\n$$\\frac{5}{9} + \\frac{2}{9} = \\frac{5 + 2}{9} = \\frac{7}{9}$$\n\n💡 Worked Example 2 — Different denominators\nFind $\\frac{1}{4} + \\frac{1}{6}$.\n\nStep 1: The LCM of $4$ and $6$ is $12$.\n\nStep 2: Rewrite each fraction.\n$$\\frac{1}{4} = \\frac{3}{12}, \\quad \\frac{1}{6} = \\frac{2}{12}$$\n\nStep 3: Add.\n$$\\frac{3}{12} + \\frac{2}{12} = \\frac{5}{12}$$\n\n💡 Worked Example 3 — Subtraction with mixed numbers\nFind $2\\frac{3}{5} - 1\\frac{4}{5}$.\n\nStep 1: The fraction part $\\frac{3}{5} - \\frac{4}{5}$ is not possible, so borrow $1$ whole from the $2$.\n$$2\\frac{3}{5} = 1\\frac{8}{5}$$\n\nStep 2: Subtract.\n$$1\\frac{8}{5} - 1\\frac{4}{5} = \\frac{4}{5}$$\n\n⚠️ Common Mistake\nAdding the denominators together. The denominator stays the same once the fractions share a common denominator.\n\n📎 Key Points to Remember\n• Never add or subtract denominators.\n• Convert mixed numbers to improper fractions if it makes the calculation easier.\n• Always simplify your final answer.\n\n✅ Check\nEstimate: $\\frac{1}{4} + \\frac{1}{6}$ is about $0.25 + 0.17 = 0.42$, and $\\frac{5}{12} \\approx 0.42$."
+    },
+    {
+      "id": "math-fractions-1-frac-n6",
+      "heading": "Multiplying and Dividing Fractions",
+      "body": "Multiplication and division of fractions are often easier than addition and subtraction because you do not need a common denominator. These operations are used when scaling recipes, finding fractions of amounts, and sharing quantities.\n\n📌 Definition\nTo multiply two fractions, multiply the numerators together and multiply the denominators together.\n\n$$\\frac{a}{b} \\times \\frac{c}{d} = \\frac{a \\times c}{b \\times d}$$\n\n🔑 How Division Works\nDividing by a fraction is the same as multiplying by its reciprocal. The reciprocal of $\\frac{a}{b}$ is $\\frac{b}{a}$.\n\n$$\\frac{a}{b} \\div \\frac{c}{d} = \\frac{a}{b} \\times \\frac{d}{c}$$\n\n💡 Worked Example 1 — Multiplying fractions\nFind $\\frac{2}{3} \\times \\frac{5}{7}$.\n\n$$\\frac{2 \\times 5}{3 \\times 7} = \\frac{10}{21}$$\n\n💡 Worked Example 2 — Cancelling before multiplying\nFind $\\frac{3}{4} \\times \\frac{8}{9}$.\n\nCancel the $3$ with the $9$ and the $4$ with the $8$:\n$$\\frac{^{\\,1}\\cancel{3}}{_{\\,1}\\cancel{4}} \\times \\frac{^{\\,2}\\cancel{8}}{_{\\,3}\\cancel{9}} = \\frac{1 \\times 2}{1 \\times 3} = \\frac{2}{3}$$\n\n💡 Worked Example 3 — Dividing fractions\nFind $\\frac{5}{6} \\div \\frac{2}{3}$.\n\nStep 1: Multiply by the reciprocal of $\\frac{2}{3}$, which is $\\frac{3}{2}$.\n$$\\frac{5}{6} \\div \\frac{2}{3} = \\frac{5}{6} \\times \\frac{3}{2}$$\n\nStep 2: Multiply and simplify.\n$$\\frac{5 \\times 3}{6 \\times 2} = \\frac{15}{12} = \\frac{5}{4} = 1\\frac{1}{4}$$\n\n⚠️ Common Mistake\nTrying to find a common denominator before multiplying or dividing. That step is only needed for addition and subtraction.\n\n📎 Key Points to Remember\n• \"Of\" usually means multiply: $\\frac{1}{3}$ of $12$ means $\\frac{1}{3} \\times 12$.\n• Cancel common factors before multiplying to keep numbers small.\n• A whole number can be written as a fraction with denominator $1$.\n\n✅ Tip\nTo divide by a whole number, multiply by its reciprocal: $\\frac{a}{b} \\div 5 = \\frac{a}{b} \\times \\frac{1}{5} = \\frac{a}{5b}$."
+    },
+    {
+      "id": "math-fractions-1-frac-n7",
+      "heading": "Fractions, Decimals, and Percentages",
+      "body": "Fractions, decimals, and percentages are three ways of representing the same value. Being able to move between them helps you choose the most convenient form for a calculation. This note focuses on the fraction perspective; for a deeper focus on percentage applications, see the dedicated percentages topic.\n\n📌 Definitions\n• A fraction shows parts of a whole: $\\frac{3}{4}$.\n• A decimal uses place value based on tenths, hundredths, and so on: $0.75$.\n• A percentage is a fraction out of $100$: $75\\%$.\n\n🔑 How it works\nFraction to decimal: divide the numerator by the denominator.\n$$\\frac{3}{4} = 3 \\div 4 = 0.75$$\n\nDecimal to fraction: write the decimal over a power of ten and simplify.\n$$0.6 = \\frac{6}{10} = \\frac{3}{5}$$\n\nFraction to percentage: first convert to a decimal, then multiply by $100$.\n$$\\frac{3}{5} = 0.6 = 60\\%$$\n\n💡 Worked Example 1 — Fraction to decimal\nWrite $\\frac{7}{8}$ as a decimal.\n\n$$7 \\div 8 = 0.875$$\n\n💡 Worked Example 2 — Repeating decimal\nWrite $\\frac{1}{3}$ as a decimal.\n\n$$1 \\div 3 = 0.333\\ldots = 0.\\dot{3}$$\n\nThis is a recurring decimal because the digit $3$ repeats forever.\n\n💡 Worked Example 3 — Fraction of an amount\nFind $\\frac{3}{4}$ of £$28$.\n\nStep 1: Divide by the denominator.\n$$28 \\div 4 = 7$$\n\nStep 2: Multiply by the numerator.\n$$7 \\times 3 = 21$$\n\nSo $\\frac{3}{4}$ of £$28$ is £$21$.\n\n⚠️ Common Misconception\nThinking that $\\frac{1}{3}$ of an amount is the same as dividing by $3$ and then multiplying by $1$, which is true, but forgetting that $\\frac{2}{3}$ of the amount means dividing by $3$ and multiplying by $2$.\n\n📎 Key Points to Remember\n• Learn the common conversions: $\\frac{1}{2}=0.5=50\\%$, $\\frac{1}{4}=0.25=25\\%$, $\\frac{3}{4}=0.75=75\\%$, $\\frac{1}{5}=0.2=20\\%$, $\\frac{1}{10}=0.1=10\\%$.\n• A fraction is exact; a decimal may be rounded.\n• To find a fraction of an amount, divide by the denominator and multiply by the numerator.\n\n✅ Check\n$\\frac{2}{5} = 0.4 = 40\\%$, so $40\\%$ of £$30 = 0.4 \\times 30 = \\pounds 12$."
     }
   ],
   "flashcards": [
     {
       "id": "math-fractions-1-frac-f1",
       "term": "Numerator",
-      "definition": "The top number — how many parts you have.",
-      "example": "In 3/5, numerator is 3."
+      "definition": "The top number of a fraction; it tells you how many equal parts are being considered.",
+      "example": "In $\\frac{3}{5}$, the numerator is $3$."
     },
     {
       "id": "math-fractions-1-frac-f2",
       "term": "Denominator",
-      "definition": "The bottom number — how many equal parts the whole is divided into.",
-      "example": "In 3/5, denominator is 5."
+      "definition": "The bottom number of a fraction; it tells you how many equal parts the whole is divided into.",
+      "example": "In $\\frac{3}{5}$, the denominator is $5$."
     },
     {
       "id": "math-fractions-1-frac-f3",
-      "term": "Equivalent fractions",
-      "definition": "Different numerators/denominators but same value.",
-      "example": "1/2=2/4=50/100"
+      "term": "Proper fraction",
+      "definition": "A fraction whose numerator is smaller than its denominator, so its value is less than $1$.",
+      "example": "$\\frac{2}{7}$ is a proper fraction."
     },
     {
       "id": "math-fractions-1-frac-f4",
-      "term": "Percentage",
-      "definition": "A fraction of 100, shown with %.",
-      "example": "45% = 45 out of 100."
+      "term": "Improper fraction",
+      "definition": "A fraction whose numerator is greater than or equal to its denominator, so its value is $1$ or more.",
+      "example": "$\\frac{9}{4}$ is an improper fraction."
     },
     {
       "id": "math-fractions-1-frac-f5",
-      "term": "Percentage increase",
-      "definition": "(increase ÷ original) × 100.",
-      "example": "£20→£25: (5÷20)×100=25%."
+      "term": "Mixed number",
+      "definition": "A number made up of a whole number and a proper fraction.",
+      "example": "$2\\frac{1}{3}$ means $2 + \\frac{1}{3}$."
+    },
+    {
+      "id": "math-fractions-1-frac-f6",
+      "term": "Equivalent fractions",
+      "definition": "Fractions that represent the same value but have different numerators and denominators.",
+      "example": "$\\frac{1}{2} = \\frac{2}{4} = \\frac{50}{100}$."
+    },
+    {
+      "id": "math-fractions-1-frac-f7",
+      "term": "Simplifying fractions",
+      "definition": "Writing a fraction in its simplest form by dividing the numerator and denominator by their HCF.",
+      "example": "$\\frac{18}{24} = \\frac{3}{4}$ after dividing by $6$."
+    },
+    {
+      "id": "math-fractions-1-frac-f8",
+      "term": "Common denominator",
+      "definition": "A shared denominator that allows fractions to be added or subtracted directly.",
+      "example": "$\\frac{1}{4}$ and $\\frac{1}{6}$ both become twelfths: $\\frac{3}{12}$ and $\\frac{2}{12}$."
+    },
+    {
+      "id": "math-fractions-1-frac-f9",
+      "term": "Reciprocal",
+      "definition": "The fraction obtained by swapping the numerator and denominator.",
+      "example": "The reciprocal of $\\frac{2}{5}$ is $\\frac{5}{2}$."
+    },
+    {
+      "id": "math-fractions-1-frac-f10",
+      "term": "Multiplying fractions",
+      "definition": "Multiply the numerators together and the denominators together.",
+      "example": "$\\frac{2}{3} \\times \\frac{5}{7} = \\frac{10}{21}$."
+    },
+    {
+      "id": "math-fractions-1-frac-f11",
+      "term": "Dividing fractions",
+      "definition": "Multiply by the reciprocal of the divisor fraction.",
+      "example": "$\\frac{5}{6} \\div \\frac{2}{3} = \\frac{5}{6} \\times \\frac{3}{2} = \\frac{5}{4}$."
+    },
+    {
+      "id": "math-fractions-1-frac-f12",
+      "term": "Fraction of an amount",
+      "definition": "Divide the amount by the denominator, then multiply by the numerator.",
+      "example": "$\\frac{3}{4}$ of $28 = (28 \\div 4) \\times 3 = 21$."
     }
   ],
   "questions": [
     {
       "id": "math-fractions-1-frac-q1",
-      "stem": "3/4 as a percentage?",
+      "stem": "In the fraction $\\frac{7}{12}$, what is the denominator?",
       "choices": [
-        "34%",
-        "43%",
-        "75%",
-        "25%"
+        "$7$",
+        "$12$",
+        "$\\frac{7}{12}$",
+        "$19$"
       ],
-      "correctIndex": 2,
-      "explanation": "3÷4=0.75, ×100=75%."
+      "correctIndex": 1,
+      "explanation": "The denominator is the bottom number of a fraction; it tells you how many equal parts the whole is divided into. Here it is $12$."
     },
     {
       "id": "math-fractions-1-frac-q2",
-      "stem": "1/3 + 1/6?",
+      "stem": "Which of these is an improper fraction?",
       "choices": [
-        "2/9",
-        "2/6",
-        "1/2",
-        "1/3"
+        "$\\frac{2}{5}$",
+        "$\\frac{5}{7}$",
+        "$\\frac{7}{7}$",
+        "$\\frac{3}{8}$"
       ],
       "correctIndex": 2,
-      "explanation": "Common denominator 6: 2/6+1/6=3/6=1/2."
+      "explanation": "An improper fraction has a numerator that is greater than or equal to its denominator. Since $7 = 7$, $\\frac{7}{7}$ is improper."
     },
     {
       "id": "math-fractions-1-frac-q3",
-      "stem": "20% of 150?",
+      "stem": "Simplify $\\frac{15}{25}$ fully.",
       "choices": [
-        "20",
-        "25",
-        "30",
-        "35"
+        "$\\frac{3}{5}$",
+        "$\\frac{5}{15}$",
+        "$\\frac{2}{3}$",
+        "$\\frac{1}{2}$"
       ],
-      "correctIndex": 2,
-      "explanation": "0.20×150=30."
+      "correctIndex": 0,
+      "explanation": "The HCF of $15$ and $25$ is $5$. Dividing both numerator and denominator by $5$ gives $\\frac{3}{5}$."
     },
     {
       "id": "math-fractions-1-frac-q4",
-      "stem": "Simplify 18/24.",
+      "stem": "What is $\\frac{17}{5}$ as a mixed number?",
       "choices": [
-        "9/12",
-        "3/4",
-        "6/8",
-        "2/3"
+        "$3\\frac{2}{5}$",
+        "$2\\frac{7}{5}$",
+        "$3\\frac{1}{5}$",
+        "$5\\frac{2}{5}$"
       ],
-      "correctIndex": 1,
-      "explanation": "HCF=6: 18÷6=3, 24÷6=4 → 3/4."
+      "correctIndex": 0,
+      "explanation": "$17 \\div 5 = 3$ remainder $2$, so $\\frac{17}{5} = 3\\frac{2}{5}$."
     },
     {
       "id": "math-fractions-1-frac-q5",
-      "stem": "Jacket £80, 15% off. Sale price?",
+      "stem": "Which fraction is equivalent to $\\frac{3}{4}$?",
       "choices": [
-        "£12",
-        "£65",
-        "£68",
-        "£72"
+        "$\\frac{6}{10}$",
+        "$\\frac{9}{12}$",
+        "$\\frac{8}{12}$",
+        "$\\frac{3}{8}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiplying numerator and denominator of $\\frac{3}{4}$ by $3$ gives $\\frac{9}{12}$, so the two fractions are equivalent."
+    },
+    {
+      "id": "math-fractions-1-frac-q6",
+      "stem": "Which inequality is correct?",
+      "choices": [
+        "$\\frac{2}{3} < \\frac{3}{5}$",
+        "$\\frac{2}{3} = \\frac{3}{5}$",
+        "$\\frac{2}{3} > \\frac{3}{5}$",
+        "$\\frac{2}{3} > 1$"
       ],
       "correctIndex": 2,
-      "explanation": "15% of £80=£12. £80−£12=£68."
+      "explanation": "Using the common denominator $15$, $\\frac{2}{3} = \\frac{10}{15}$ and $\\frac{3}{5} = \\frac{9}{15}$. Since $\\frac{10}{15} > \\frac{9}{15}$, we have $\\frac{2}{3} > \\frac{3}{5}$."
+    },
+    {
+      "id": "math-fractions-1-frac-q7",
+      "stem": "Calculate $\\frac{3}{8} + \\frac{1}{8}$.",
+      "choices": [
+        "$\\frac{4}{16}$",
+        "$\\frac{3}{8}$",
+        "$\\frac{4}{8}$",
+        "$\\frac{1}{2}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "When denominators are the same, add the numerators and keep the denominator: $\\frac{3}{8} + \\frac{1}{8} = \\frac{4}{8}$. This can be simplified to $\\frac{1}{2}$, but $\\frac{4}{8}$ is the direct result."
+    },
+    {
+      "id": "math-fractions-1-frac-q8",
+      "stem": "Calculate $\\frac{5}{6} - \\frac{1}{4}$.",
+      "choices": [
+        "$\\frac{4}{2}$",
+        "$\\frac{7}{12}$",
+        "$\\frac{4}{10}$",
+        "$\\frac{1}{3}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The LCM of $6$ and $4$ is $12$. Rewriting gives $\\frac{10}{12} - \\frac{3}{12} = \\frac{7}{12}$."
+    },
+    {
+      "id": "math-fractions-1-frac-q9",
+      "stem": "Calculate $\\frac{2}{5} \\times \\frac{3}{4}$.",
+      "choices": [
+        "$\\frac{6}{20}$",
+        "$\\frac{3}{10}$",
+        "$\\frac{5}{9}$",
+        "$\\frac{8}{15}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiplying gives $\\frac{2 \\times 3}{5 \\times 4} = \\frac{6}{20}$. Simplifying by dividing numerator and denominator by $2$ gives $\\frac{3}{10}$."
+    },
+    {
+      "id": "math-fractions-1-frac-q10",
+      "stem": "Calculate $\\frac{4}{9} \\div \\frac{2}{3}$.",
+      "choices": [
+        "$\\frac{8}{27}$",
+        "$\\frac{6}{12}$",
+        "$\\frac{2}{3}$",
+        "$\\frac{12}{18}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Dividing by $\\frac{2}{3}$ is the same as multiplying by its reciprocal $\\frac{3}{2}$: $\\frac{4}{9} \\times \\frac{3}{2} = \\frac{12}{18} = \\frac{2}{3}$."
+    },
+    {
+      "id": "math-fractions-1-frac-q11",
+      "stem": "What is $\\frac{3}{8}$ of $64$?",
+      "choices": [
+        "$8$",
+        "$21$",
+        "$24$",
+        "$32$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Divide $64$ by $8$ to get $8$, then multiply by $3$ to get $24$. So $\\frac{3}{8}$ of $64 = 24$."
+    },
+    {
+      "id": "math-fractions-1-frac-q12",
+      "stem": "Write $\\frac{5}{8}$ as a decimal.",
+      "choices": [
+        "$0.58$",
+        "$0.625$",
+        "$0.75$",
+        "$0.85$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$5 \\div 8 = 0.625$. This is an exact decimal because the denominator $8$ is a power of $2$."
+    },
+    {
+      "id": "math-fractions-1-frac-q13",
+      "stem": "A recipe needs $\\frac{3}{4}$ cup of flour for one batch. How much flour is needed for $2\\frac{1}{2}$ batches?",
+      "choices": [
+        "$1\\frac{1}{2}$ cups",
+        "$1\\frac{7}{8}$ cups",
+        "$2\\frac{1}{4}$ cups",
+        "$3\\frac{1}{4}$ cups"
+      ],
+      "correctIndex": 1,
+      "explanation": "Convert $2\\frac{1}{2}$ to $\\frac{5}{2}$, then multiply: $\\frac{3}{4} \\times \\frac{5}{2} = \\frac{15}{8} = 1\\frac{7}{8}$ cups."
+    },
+    {
+      "id": "math-fractions-1-frac-q14",
+      "stem": "A piece of ribbon $2\\frac{1}{4}$ metres long is cut into pieces that are $\\frac{3}{4}$ metre each. How many pieces are there?",
+      "choices": [
+        "$2$",
+        "$3$",
+        "$4$",
+        "$5$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$2\\frac{1}{4} = \\frac{9}{4}$. Divide by $\\frac{3}{4}$: $\\frac{9}{4} \\div \\frac{3}{4} = \\frac{9}{4} \\times \\frac{4}{3} = \\frac{36}{12} = 3$ pieces."
+    },
+    {
+      "id": "math-fractions-1-frac-q15",
+      "stem": "A water tank is $\\frac{5}{6}$ full. After $30$ litres are used, it is $\\frac{2}{3}$ full. What is the total capacity of the tank?",
+      "choices": [
+        "$60$ litres",
+        "$90$ litres",
+        "$120$ litres",
+        "$180$ litres"
+      ],
+      "correctIndex": 3,
+      "explanation": "The fraction used is $\\frac{5}{6} - \\frac{2}{3} = \\frac{5}{6} - \\frac{4}{6} = \\frac{1}{6}$. This $\\frac{1}{6}$ of the tank equals $30$ litres, so the full capacity is $30 \\times 6 = 180$ litres."
     }
   ]
 }

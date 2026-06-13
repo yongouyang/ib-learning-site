@@ -8,100 +8,117 @@
     {
       "id": "math-yr7-data-data-n1",
       "heading": "Collecting and Organising Data",
-      "body": "Data is collected through surveys, measurements, or experiments. Organise into frequency tables (value + count). Use tally marks (groups of 5: four lines + diagonal). For many values, group into class intervals (0−9, 10−19, etc.). Always label tables clearly."
+      "body": "📌 Definition\nData is information that has been collected, counted, or measured. In mathematics we often collect data to answer a question, compare groups, or spot patterns.\n\n🔑 How it works\nFirst, decide what you want to find out and write a clear question. Then collect replies using a survey, measurement, or experiment. Record the results in a frequency table: a table that lists each value or category next to how many times it occurs. Tally marks make counting easier — every fifth mark crosses the previous four like a gate: $||||$ .\n\nWhen data has many different values, group it into class intervals such as $0-9$, $10-19$, $20-29$. Each interval must be the same width and must not overlap. Always include a title and clear column headings.\n\n💡 Worked Example\nThirty students were asked how many books they read last month. The raw results were: $3, 5, 2, 5, 7, 4, 3, 6, 5, 2, 4, 5, 6, 7, 5, 3, 4, 5, 6, 2, 4, 5, 7, 3, 4, 6, 5, 4, 3, 5$.\n\nStep 1: Count each value with tally marks.\nStep 2: Write the frequency table.\n\n| Books ($x$) | Tally | Frequency ($f$) |\n|---|---|---|\n| 2 | $|||$ | 3 |\n| 3 | $||||$ | 5 |\n| 4 | $|||| \\, |$ | 6 |\n| 5 | $|||| \\, ||||$ | 9 |\n| 6 | $||||$ | 4 |\n| 7 | $|||$ | 3 |\n\nTotal frequency $= 3 + 5 + 6 + 9 + 4 + 3 = 30$ ✓\n\n📎 Key Points to Remember\n• A frequency table turns raw data into a clear summary.\n• Class intervals must have equal width and no gaps.\n• Always check that the total frequency matches the number of values you started with.\n\n⚠️ Common Mistake\nForgetting to make class intervals the same width. Intervals like $0-10$, $10-20$, $20-30$ are fine, but $0-10$, $11-15$, $16-30$ are not because the widths are different and comparisons become misleading."
     },
     {
       "id": "math-yr7-data-data-n2",
-      "heading": "Bar Charts, Pictograms and Pie Charts",
-      "body": "Bar chart: bar height = frequency, equal bar widths, equal gaps, labelled axes. Pictogram: pictures represent values — always check the key (e.g., one star = 5 books). Pie chart: shows parts of a whole — each sector angle = (frequency ÷ total) × 360°."
+      "heading": "Bar Charts",
+      "body": "📌 Definition\nA bar chart displays categorical or discrete numerical data using rectangular bars. The height of each bar shows the frequency, and the labels on the horizontal axis show the categories.\n\n🔑 How it works\nEvery bar must have the same width and the same-sized gap between bars. The vertical axis must start at zero; otherwise the differences between bars look bigger or smaller than they really are. Bars can be drawn horizontally or vertically.\n\n💡 Worked Example\nA class recorded favourite fruits:\n\n| Fruit | Frequency |\n|---|---|\n| Apple | 8 |\n| Banana | 12 |\n| Grapes | 5 |\n| Orange | 7 |\n\nStep 1: Draw the axes and label them: horizontal axis = Fruit, vertical axis = Frequency.\nStep 2: Choose a sensible scale. Here the highest frequency is 12, so count up to 14 in steps of 2.\nStep 3: Draw bars of equal width with equal gaps. Apple rises to 8, Banana to 12, Grapes to 5, Orange to 7.\n\n📎 Key Points to Remember\n• Bar height = frequency.\n• Equal widths and equal gaps keep the chart fair.\n• The vertical axis should usually start at 0.\n• Always give the chart a title and label both axes.\n\n⚠️ Common Misconception\nStudents sometimes read the top of a bar correctly but forget to check the scale. If one small square represents 2 people, a bar reaching three small squares above 10 actually represents 16 people, not 13."
     },
     {
       "id": "math-yr7-data-data-n3",
-      "heading": "Mean, Median, Mode and Range",
-      "body": "Mean = sum ÷ count. Median = middle value when ordered (average two middle values if even count). Mode = most frequent value. Range = max − min. Example: 3,5,7,4,6 → mean=5, median=5, no single mode, range=4."
+      "heading": "Pictograms and Pie Charts",
+      "body": "📌 Definition\nA pictogram uses pictures or symbols to represent data. A pie chart uses sectors of a circle to show how a whole amount is divided into parts.\n\n🔑 How it works — Pictograms\nEach symbol stands for a fixed number of items, shown in the key. Always check the key before counting. If $★ = 4$ books, then $★★★½ = 3.5 \\times 4 = 14$ books.\n\n🔑 How it works — Pie Charts\nA full turn is $360°$. The angle for each sector is found by:\n$$\\text{sector angle} = \\frac{\\text{frequency}}{\\text{total frequency}} \\times 360°$$\n\n💡 Worked Example 1 — Pictogram\nA key says $🚲 = 10$ students. If the row for 'walk' shows $🚲🚲🚲½$, the number of students who walk is $3.5 \\times 10 = 35$.\n\n💡 Worked Example 2 — Pie Chart\nIn a survey of 40 students, 10 chose tennis. The tennis sector angle is:\n$$\\frac{10}{40} \\times 360° = 90°$$\n\n📎 Key Points to Remember\n• Pictograms: read the key first; half or quarter symbols are common.\n• Pie charts: each sector angle is proportional to the frequency.\n• Pie charts are best for showing proportions, not exact amounts.\n\n⚠️ Common Mistake\nDrawing a pie chart without checking that all the sector angles add up to $360°$. If they do not, a calculation error has been made."
     },
     {
       "id": "math-yr7-data-data-n4",
-      "heading": "Choosing the Right Average",
-      "body": "Mean: uses every value, affected by outliers. Median: better with outliers (e.g., 2,3,4,4,100 → mean=22.6, median=4). Mode: best for non-numerical data or most common answer. Always report an average + range for a complete picture."
+      "heading": "The Mean",
+      "body": "📌 Definition\nThe mean is the average found by sharing the total equally among all the values. It uses every value in the data set.\n\n🔑 How it works\nAdd all the values together, then divide by how many values there are:\n$$\\text{mean} = \\frac{\\text{sum of values}}{\\text{number of values}}$$\n\n💡 Worked Example 1\nFind the mean of $4, 7, 9, 12, 13$.\n\nStep 1: Add the values.\n$4 + 7 + 9 + 12 + 13 = 45$\n\nStep 2: Count the values.\nThere are 5 values.\n\nStep 3: Divide.\n$\\text{mean} = 45 \\div 5 = 9$\n\n💡 Worked Example 2 — Mean from a frequency table\n| Value ($x$) | Frequency ($f$) | $x \\times f$ |\n|---|---|---|\n| 2 | 3 | 6 |\n| 3 | 5 | 15 |\n| 4 | 2 | 8 |\n\nTotal frequency $= 3 + 5 + 2 = 10$\nTotal of $x \\times f = 6 + 15 + 8 = 29$\n$\\text{mean} = 29 \\div 10 = 2.9$\n\n📎 Key Points to Remember\n• The mean is sometimes just called the average.\n• It is affected by every value, including very large or very small ones.\n• When using a frequency table, multiply each value by its frequency before adding.\n\n⚠️ Common Mistake\nDividing by the number of different values instead of the total frequency. In Worked Example 2 there are three different values but ten values altogether, so we divide by 10."
     },
     {
       "id": "math-yr7-data-data-n5",
-      "heading": "⚠️ Mean vs median confusion",
-      "body": "The mean uses every value, so one very large or small value can pull it up or down. The median only cares about the middle value, so it is more reliable when data has extreme values. Always decide which average tells the story best."
+      "heading": "The Median and the Mode",
+      "body": "📌 Definition\nThe median is the middle value when the data is arranged in order. The mode is the value that appears most often.\n\n🔑 How it works — Median\n1. Arrange the values in order from smallest to largest.\n2. If there is an odd number of values, the median is the middle one.\n3. If there is an even number of values, the median is the mean of the two middle values.\n\n🔑 How it works — Mode\nCount how many times each value appears. The value with the highest frequency is the mode. A data set can have more than one mode or no mode at all.\n\n💡 Worked Example 1 — Median with odd count\nData: $8, 3, 7, 5, 9$\nIn order: $3, 5, 7, 8, 9$\nThe middle value is 7, so median $= 7$.\n\n💡 Worked Example 2 — Median with even count\nData: $6, 2, 9, 5$\nIn order: $2, 5, 6, 9$\nTwo middle values are 5 and 6.\n$\\text{median} = \\frac{5 + 6}{2} = 5.5$\n\n💡 Worked Example 3 — Mode\nData: $4, 7, 4, 9, 7, 4, 2$\n4 appears three times, 7 appears twice, 9 and 2 appear once.\nMode $= 4$.\n\n📎 Key Points to Remember\n• The median is not affected much by extreme values.\n• The mode is the only average that can be used with non-numerical data.\n• If two values tie for highest frequency, the data is bimodal.\n\n⚠️ Common Mistake\nPicking the median from the original unordered list. You must arrange the values in order first."
     },
     {
       "id": "math-yr7-data-data-n6",
-      "heading": "✅ Reading scales on charts",
-      "body": "Before reading a bar chart, check what each small square or grid line represents. If one square stands for 2 students, a bar halfway between 10 and 12 represents 11 students, not 10.5 unless the scale says so."
+      "heading": "The Range and Outliers",
+      "body": "📌 Definition\nThe range measures how spread out the data is. It is the largest value minus the smallest value:\n$$\\text{range} = \\text{maximum} - \\text{minimum}$$\n\n🔑 Key Concept\nA large range tells us the values are spread out. A small range tells us the values are close together. An outlier is a value that is very different from the rest of the data. Outliers can pull the mean up or down, but they usually have little effect on the median or mode.\n\n💡 Worked Example 1 — Range\nData: $12, 8, 15, 3, 10$\nMaximum $= 15$, minimum $= 3$\n$\\text{range} = 15 - 3 = 12$\n\n💡 Worked Example 2 — Effect of an outlier\nData without outlier: $5, 6, 6, 7, 8$\nMean $= 32 \\div 5 = 6.4$, median $= 6$, mode $= 6$.\n\nAdd an outlier of 50: $5, 6, 6, 7, 8, 50$\nMean $= 82 \\div 6 \\approx 13.7$ (much higher)\nMedian $= (6 + 7) \\div 2 = 6.5$ (hardly changed)\nMode $= 6$ (unchanged)\n\n📎 Key Points to Remember\n• Range only uses two values, so one outlier can make the range misleadingly large.\n• When data has outliers, the median often gives a better typical value than the mean.\n• Always report an average together with a measure of spread such as the range.\n\n⚠️ Common Misconception\nThinking the range is a type of average. It is not; it describes spread, not a typical value."
+    },
+    {
+      "id": "math-yr7-data-data-n7",
+      "heading": "Choosing the Right Average and Reading Charts",
+      "body": "📌 Definition\nAn average is a single value that represents a typical value in a data set. The best average depends on the data and the question you are trying to answer.\n\n🔑 How it works\nUse the mean when the data is fairly symmetrical and has no extreme values. Use the median when there are outliers or when the data is skewed. Use the mode for categorical data or when you want the most common answer. Always pair an average with the range or another measure of spread.\n\n💡 Worked Example — Choosing an average\nA small shop records daily takings for a week: $£120, £135, £128, £140, £132, £125, £800$.\n\nMean $= £1580 \\div 7 \\approx £225.71$\nMedian $= £132$ (middle value of ordered list)\nMode: no value repeats.\n\nThe £800 day is an outlier. The mean makes the shop look much busier than usual, so the median (£132) is a fairer typical daily taking.\n\n✅ Check — Reading charts\nBefore answering any chart question:\n1. Read the title.\n2. Check the labels on both axes.\n3. Look at the scale and what each unit represents.\n4. Read the key if it is a pictogram or pie chart.\n\n📎 Key Points to Remember\n• Mean: uses every value; affected by outliers.\n• Median: middle value; robust against outliers.\n• Mode: most common; useful for categories.\n• Range: shows spread; use alongside an average.\n\n⚠️ Common Mistake\nSaying 'the chart shows...' without quoting numbers. In mathematics you must back up statements with values from the data or chart."
     }
   ],
   "flashcards": [
     {
       "id": "math-yr7-data-data-f1",
-      "term": "Mean",
-      "definition": "Sum of all values ÷ number of values.",
-      "example": "4,6,8,10 → mean = 28÷4 = 7."
+      "term": "Data",
+      "definition": "Information that has been collected, counted, or measured.",
+      "example": "Heights of students, number of books read, or favourite colours."
     },
     {
       "id": "math-yr7-data-data-f2",
-      "term": "Median",
-      "definition": "Middle value when data is ordered.",
-      "example": "2,3,7,9,11 → median = 7."
+      "term": "Frequency table",
+      "definition": "A table showing each value or category with how often it occurs.",
+      "example": "Shoe size 5 appears 4 times, size 6 appears 7 times."
     },
     {
       "id": "math-yr7-data-data-f3",
-      "term": "Mode",
-      "definition": "The value that appears most often.",
-      "example": "3,3,5,7,7,7,9 → mode = 7."
+      "term": "Tally marks",
+      "definition": "A quick way to count in fives; four vertical lines crossed by a diagonal.",
+      "example": "$||||$ represents 5."
     },
     {
       "id": "math-yr7-data-data-f4",
-      "term": "Range",
-      "definition": "Maximum minus minimum.",
-      "example": "4,8,15,2,9 → range = 15−2 = 13."
+      "term": "Class interval",
+      "definition": "A group or range that data is placed into.",
+      "example": "Ages grouped as 10–19, 20–29, 30–39."
     },
     {
       "id": "math-yr7-data-data-f5",
-      "term": "Frequency table",
-      "definition": "Table showing values/categories with how often each occurs.",
-      "example": "Tally of students' favourite sports."
+      "term": "Bar chart",
+      "definition": "A chart using bars whose heights show frequencies.",
+      "example": "Bars showing the number of students who chose each sport."
     },
     {
       "id": "math-yr7-data-data-f6",
-      "term": "Bar chart",
-      "definition": "Rectangular bars where height = frequency. Equal widths and gaps.",
-      "example": "Number of pets owned by classmates."
+      "term": "Pictogram",
+      "definition": "A chart that uses pictures or symbols to represent amounts.",
+      "example": "One star symbol = 5 books sold."
     },
     {
       "id": "math-yr7-data-data-f7",
-      "term": "Pictogram",
-      "definition": "Pictures represent data values. Always check the key.",
-      "example": "★ = 5 books; 4★ = 20 books."
+      "term": "Pie chart",
+      "definition": "A circle divided into sectors to show proportions of a whole.",
+      "example": "A sector angle of 90° represents one quarter of the total."
     },
     {
       "id": "math-yr7-data-data-f8",
-      "term": "Outlier",
-      "definition": "A value far from most others — strongly affects mean, not median.",
-      "example": "In 2,3,3,4,50: 50 is an outlier."
+      "term": "Mean",
+      "definition": "The average found by dividing the sum of values by the number of values.",
+      "example": "$3, 5, 7$ → mean $= 15 \\div 3 = 5$."
     },
     {
       "id": "math-yr7-data-data-f9",
-      "term": "Class interval",
-      "definition": "A group or range that data is put into.",
-      "example": "Heights 140–149 cm and 150–159 cm are class intervals."
+      "term": "Median",
+      "definition": "The middle value when data is arranged in order.",
+      "example": "$4, 7, 9$ → median $= 7$."
     },
     {
       "id": "math-yr7-data-data-f10",
-      "term": "Relative frequency",
-      "definition": "Experimental probability found by dividing successes by total trials.",
-      "example": "30 blue sweets out of 100 → relative frequency = 0.30."
+      "term": "Mode",
+      "definition": "The value that appears most often.",
+      "example": "$2, 3, 3, 5$ → mode $= 3$."
+    },
+    {
+      "id": "math-yr7-data-data-f11",
+      "term": "Range",
+      "definition": "The difference between the largest and smallest values.",
+      "example": "$4, 8, 15$ → range $= 15 - 4 = 11$."
+    },
+    {
+      "id": "math-yr7-data-data-f12",
+      "term": "Outlier",
+      "definition": "A value that is very different from the rest of the data.",
+      "example": "In $12, 13, 14, 15, 95$, the value 95 is an outlier."
     }
   ],
   "questions": [
     {
       "id": "math-yr7-data-data-q1",
-      "stem": "Find the mean of: 6,8,10,12,14.",
+      "stem": "Find the mean of $6, 8, 10, 12, 14$.",
       "choices": [
         "8",
         "9",
@@ -109,11 +126,11 @@
         "12"
       ],
       "correctIndex": 2,
-      "explanation": "Sum=50, count=5. 50÷5=10."
+      "explanation": "The sum is $6 + 8 + 10 + 12 + 14 = 50$. There are 5 values, so the mean is $50 \\div 5 = 10$."
     },
     {
       "id": "math-yr7-data-data-q2",
-      "stem": "Find the median of: 3,9,1,7,5.",
+      "stem": "Find the median of $3, 9, 1, 7, 5$.",
       "choices": [
         "3",
         "5",
@@ -121,11 +138,11 @@
         "9"
       ],
       "correctIndex": 1,
-      "explanation": "Order: 1,3,5,7,9. Middle = 5."
+      "explanation": "Arrange in order: $1, 3, 5, 7, 9$. The middle value is 5, so the median is 5."
     },
     {
       "id": "math-yr7-data-data-q3",
-      "stem": "Find the mode of: 4,7,2,7,9,7,3.",
+      "stem": "Find the mode of $4, 7, 2, 7, 9, 7, 3$.",
       "choices": [
         "4",
         "7",
@@ -133,11 +150,11 @@
         "No mode"
       ],
       "correctIndex": 1,
-      "explanation": "7 appears three times — most frequent."
+      "explanation": "The value 7 appears three times, which is more often than any other value, so the mode is 7."
     },
     {
       "id": "math-yr7-data-data-q4",
-      "stem": "Find the range of: 12,5,19,8,3.",
+      "stem": "Find the range of $12, 5, 19, 8, 3$.",
       "choices": [
         "8",
         "16",
@@ -145,23 +162,11 @@
         "11"
       ],
       "correctIndex": 1,
-      "explanation": "Range = maximum value − minimum value. The maximum is 19 and the minimum is 3, so 19 − 3 = 16."
+      "explanation": "Range = maximum − minimum. The maximum is 19 and the minimum is 3, so $19 - 3 = 16$."
     },
     {
       "id": "math-yr7-data-data-q5",
-      "stem": "Heights: 120cm, 115cm, 130cm, 127cm. Mean height?",
-      "choices": [
-        "123 cm",
-        "125 cm",
-        "120 cm",
-        "122 cm"
-      ],
-      "correctIndex": 0,
-      "explanation": "120+115+130+127=492. 492÷4=123cm."
-    },
-    {
-      "id": "math-yr7-data-data-q6",
-      "stem": "Median of: 22,18,30,26,20,24.",
+      "stem": "Find the median of $22, 18, 30, 26, 20, 24$.",
       "choices": [
         "22",
         "23",
@@ -169,11 +174,47 @@
         "25"
       ],
       "correctIndex": 1,
-      "explanation": "Order: 18,20,22,24,26,30. Middle two: (22+24)÷2=23."
+      "explanation": "Arrange in order: $18, 20, 22, 24, 26, 30$. With an even number of values, the median is the mean of the two middle values: $(22 + 24) \\div 2 = 23$."
+    },
+    {
+      "id": "math-yr7-data-data-q6",
+      "stem": "The heights of four students are $120\\text{ cm}, 115\\text{ cm}, 130\\text{ cm}, 127\\text{ cm}$. What is the mean height?",
+      "choices": [
+        "$123\\text{ cm}$",
+        "$125\\text{ cm}$",
+        "$120\\text{ cm}$",
+        "$122\\text{ cm}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The sum is $120 + 115 + 130 + 127 = 492$. Divide by 4: $492 \\div 4 = 123\\text{ cm}$."
     },
     {
       "id": "math-yr7-data-data-q7",
-      "stem": "Scores: 8,7,9,6,10. Next test score is 2. Which average is most affected?",
+      "stem": "A survey of 30 students found 15 prefer blue, 9 prefer red, and 6 prefer green. What is the pie chart angle for blue?",
+      "choices": [
+        "$90°$",
+        "$120°$",
+        "$180°$",
+        "$360°$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The sector angle is $\\frac{15}{30} \\times 360° = 0.5 \\times 360° = 180°$."
+    },
+    {
+      "id": "math-yr7-data-data-q8",
+      "stem": "A pictogram uses $★ = 4$ books. How many books are represented by $★★★½$?",
+      "choices": [
+        "12",
+        "14",
+        "16",
+        "18"
+      ],
+      "correctIndex": 1,
+      "explanation": "Three full stars represent $3 \\times 4 = 12$ books. Half a star represents $4 \\div 2 = 2$ books. Total $= 12 + 2 = 14$ books."
+    },
+    {
+      "id": "math-yr7-data-data-q9",
+      "stem": "Scores: $8, 7, 9, 6, 10$. A new score of 2 is added. Which average is most affected?",
       "choices": [
         "Mode",
         "Median",
@@ -181,11 +222,11 @@
         "Range"
       ],
       "correctIndex": 2,
-      "explanation": "Mean drops significantly with the outlier of 2."
+      "explanation": "The mean uses every value, so adding the outlier 2 pulls the mean down significantly. The median changes only slightly and there is still no mode."
     },
     {
-      "id": "math-yr7-data-data-q8",
-      "stem": "Data: dogs=8, cats=5, fish=3, rabbits=4. Best chart for proportions?",
+      "id": "math-yr7-data-data-q10",
+      "stem": "Which type of chart is best for showing the proportions of a whole?",
       "choices": [
         "Bar chart",
         "Pictogram",
@@ -193,58 +234,10 @@
         "Line graph"
       ],
       "correctIndex": 2,
-      "explanation": "Pie chart best shows parts of a whole."
-    },
-    {
-      "id": "math-yr7-data-data-q9",
-      "stem": "Survey of 30: 15 blue, 9 red, 6 green. Pie chart angle for blue?",
-      "choices": [
-        "90°",
-        "120°",
-        "180°",
-        "360°"
-      ],
-      "correctIndex": 2,
-      "explanation": "(15÷30)×360° = 0.5×360° = 180°."
-    },
-    {
-      "id": "math-yr7-data-data-q10",
-      "stem": "Mean=8, median=6, mode=5. What's likely true?",
-      "choices": [
-        "All values equal",
-        "Data is symmetric",
-        "High value(s) pulling mean up",
-        "Median is wrong"
-      ],
-      "correctIndex": 2,
-      "explanation": "Mean > median suggests outliers pulling the mean higher."
+      "explanation": "A pie chart shows how a total is divided into parts, making proportions easy to compare at a glance."
     },
     {
       "id": "math-yr7-data-data-q11",
-      "stem": "Five students' quiz scores are 7, 9, 6, 8, and 10. What is their mean score?",
-      "choices": [
-        "8",
-        "7",
-        "9",
-        "8.5"
-      ],
-      "correctIndex": 0,
-      "explanation": "Sum = 7+9+6+8+10 = 40. Count = 5. Mean = 40 ÷ 5 = 8."
-    },
-    {
-      "id": "math-yr7-data-data-q12",
-      "stem": "The median of a set of numbers is 8. If you add the number 50 to the set, will the median always stay at 8?",
-      "choices": [
-        "Yes, the median never changes",
-        "No, it depends on the size of the set and the order",
-        "Yes, because 50 is an outlier",
-        "No, it always becomes 29"
-      ],
-      "correctIndex": 1,
-      "explanation": "For an odd number of values, the median may stay the same if 50 is placed at one end. For an even number, adding one value changes the middle. So it depends on the original data."
-    },
-    {
-      "id": "math-yr7-data-data-q13",
       "stem": "The mean of four test scores is 72. After a fifth test, the mean rises to 76. What was the fifth test score?",
       "choices": [
         "76",
@@ -253,7 +246,55 @@
         "80"
       ],
       "correctIndex": 2,
-      "explanation": "Total of first four = 4 × 72 = 288. Total of five = 5 × 76 = 380. Fifth score = 380 − 288 = 92."
+      "explanation": "Total of first four scores $= 4 \\times 72 = 288$. Total of five scores $= 5 \\times 76 = 380$. Fifth score $= 380 - 288 = 92$."
+    },
+    {
+      "id": "math-yr7-data-data-q12",
+      "stem": "For the data set $2, 3, 3, 5, 7, 8, 14$, which statement is true?",
+      "choices": [
+        "The mean is 6, the median is 5, and the mode is 3.",
+        "The mean is 5, the median is 3, and the mode is 7.",
+        "The mean is 6, the median is 3, and the mode is 5.",
+        "The mean is 5, the median is 5, and the mode is 3."
+      ],
+      "correctIndex": 0,
+      "explanation": "Mean $= (2 + 3 + 3 + 5 + 7 + 8 + 14) \\div 7 = 42 \\div 7 = 6$. Median $= 5$ (the middle value when ordered). Mode $= 3$ (appears twice)."
+    },
+    {
+      "id": "math-yr7-data-data-q13",
+      "stem": "A bar chart shows the number of pets owned by students. The scale goes up in steps of 5, and the bar for 'dog' reaches halfway between 15 and 20. How many dogs are there?",
+      "choices": [
+        "15",
+        "17",
+        "17.5",
+        "20"
+      ],
+      "correctIndex": 2,
+      "explanation": "Halfway between 15 and 20 on a scale going up in fives represents $17.5$. Since the scale step is 5, the half-way mark is $15 + 2.5 = 17.5$."
+    },
+    {
+      "id": "math-yr7-data-data-q14",
+      "stem": "Five students' quiz scores are $7, 9, 6, 8, 10$. What is their mean score?",
+      "choices": [
+        "8",
+        "7",
+        "9",
+        "8.5"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sum $= 7 + 9 + 6 + 8 + 10 = 40$. There are 5 scores, so mean $= 40 \\div 5 = 8$."
+    },
+    {
+      "id": "math-yr7-data-data-q15",
+      "stem": "A small café records daily customers for a week: $45, 48, 50, 47, 49, 46, 120$. Which average best represents a typical day?",
+      "choices": [
+        "Mean, because it uses every value",
+        "Median, because the 120 is an outlier",
+        "Mode, because 45 appears most often",
+        "Range, because it shows the spread"
+      ],
+      "correctIndex": 1,
+      "explanation": "The value 120 is much higher than the others, so it pulls the mean up. The median gives a fairer typical value because it is not strongly affected by the outlier. Range is a measure of spread, not an average."
     }
   ]
 }

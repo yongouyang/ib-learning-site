@@ -7,112 +7,294 @@
   "notes": [
     {
       "id": "math-patterns-1-pat-n1",
-      "heading": "Arithmetic Sequences",
-      "body": "A sequence where the difference between consecutive terms is constant (common difference d). Example: 3,7,11,15,... has d=4. nth term: a+(n−1)d, where a is the first term."
+      "heading": "What is a Sequence?",
+      "body": "A sequence is an ordered list of numbers that follow a rule or pattern. Each number in the sequence is called a term, and the terms are usually labelled $T_1$, $T_2$, $T_3$, … or $u_1$, $u_2$, $u_3$, …, where the subscript tells you the position of the term.\n\n📌 Definition\nA sequence is a set of numbers arranged in a definite order according to a rule.\n\n🔑 Key Concept\nSequences can be finite (they end) or infinite (they carry on forever). We write the terms with commas between them.\n\n💡 Worked Example\nThe sequence $5, 9, 13, 17, 21, …$ has first term $T_1 = 5$ and each term is $4$ more than the previous one. We can describe this pattern as “start at $5$ and add $4$ each time.”\n\n📎 Key Points to Remember\n• The position of a term is often called $n$, so the $n$th term is written $T_n$ or $u_n$.\n• A sequence must have a rule, even if the rule is not obvious at first.\n• Three dots $…$ at the end show the sequence continues indefinitely.\n\n✅ Check\nAlways write down at least the first four terms when you are asked to “list the sequence” — this shows you understand the pattern."
     },
     {
       "id": "math-patterns-1-pat-n2",
-      "heading": "The nth Term Formula",
-      "body": "For arithmetic sequences: T(n)=dn+c where d=common difference. Example: 5,8,11,14,... → d=3, T(n)=3n+2. Check: n=2 gives 3(2)+2=8 ✓."
+      "heading": "Arithmetic Sequences",
+      "body": "An arithmetic sequence is one of the most common types of number pattern. It is formed by adding or subtracting the same amount each time.\n\n📌 Definition\nAn arithmetic sequence is a sequence in which the difference between consecutive terms is constant. This constant value is called the common difference, written $d$.\n\n🔑 How it works\nIf the first term is $a$, then:\n\n$$T_1 = a, \\quad T_2 = a + d, \\quad T_3 = a + 2d, \\quad T_4 = a + 3d, \\quad …$$\n\nThe common difference is found by subtracting any term from the term that follows it:\n\n$$d = T_{n+1} - T_n$$\n\n💡 Worked Example\nConsider the sequence $7, 12, 17, 22, 27, …$\n\nStep 1: Find the common difference.\n$$12 - 7 = 5, \\quad 17 - 12 = 5, \\quad 22 - 17 = 5$$\nSo $d = 5$.\n\nStep 2: Identify the first term.\n$$a = 7$$\n\nStep 3: Describe the sequence.\nThe sequence starts at $7$ and increases by $5$ each time.\n\n⚠️ Common Mistake\nForgetting that $d$ can be negative. The sequence $20, 16, 12, 8, …$ is still arithmetic, but $d = -4$ because each term decreases by $4$."
     },
     {
       "id": "math-patterns-1-pat-n3",
-      "heading": "Other Patterns",
-      "body": "Geometric: multiply by a fixed ratio (2,6,18,54,... r=3). Square numbers: 1,4,9,16,25,... Triangular numbers: 1,3,6,10,15,... Check differences — if first differences constant = arithmetic; second differences constant = n² term."
+      "heading": "The nth Term of an Arithmetic Sequence",
+      "body": "The $n$th term formula lets you find any term of an arithmetic sequence without listing every term. It is one of the most useful tools in this topic.\n\n📌 Definition\nFor an arithmetic sequence with first term $a$ and common difference $d$, the $n$th term is:\n\n$$T_n = a + (n - 1)d$$\n\n🔑 How it works\nThe formula tells you how many “jumps” of size $d$ you make from the first term to reach term $n$. To get from $T_1$ to $T_n$ you need $(n - 1)$ jumps.\n\n💡 Worked Example 1 — Finding a specific term\nFind the $20$th term of the sequence $4, 10, 16, 22, …$\n\nStep 1: Identify $a$ and $d$.\n$$a = 4, \\quad d = 10 - 4 = 6$$\n\nStep 2: Substitute into the formula.\n$$T_{20} = 4 + (20 - 1) \\times 6 = 4 + 19 \\times 6 = 4 + 114 = 118$$\n\nSo the $20$th term is $118$.\n\n💡 Worked Example 2 — Finding the rule from terms\nFind the $n$th term of the sequence $9, 13, 17, 21, …$\n\nStep 1: Find $d$.\n$$d = 13 - 9 = 4$$\n\nStep 2: Use $T_n = dn + c$ and find $c$.\n$$T_n = 4n + c$$\nSubstitute $n = 1$, $T_1 = 9$:\n$$9 = 4(1) + c \\Rightarrow c = 5$$\n\nStep 3: Write the formula.\n$$T_n = 4n + 5$$\n\nCheck: $T_3 = 4(3) + 5 = 17$ ✓\n\n📎 Key Points to Remember\n• When the terms increase, $d$ is positive.\n• When the terms decrease, $d$ is negative.\n• A quick way to find the rule is $T_n = dn + c$; solve for $c$ using the first term.\n\n⚠️ Common Misconception\nConfusing $a + (n - 1)d$ with $a + nd$. The first term uses zero jumps, not one, so the multiplier is $(n - 1)$, not $n$."
+    },
+    {
+      "id": "math-patterns-1-pat-n4",
+      "heading": "Geometric Sequences",
+      "body": "A geometric sequence is a pattern where each term is found by multiplying the previous term by the same fixed number.\n\n📌 Definition\nA geometric sequence is a sequence in which each term is multiplied by a constant called the common ratio, written $r$.\n\n🔑 How it works\nIf the first term is $a$, then:\n\n$$T_1 = a, \\quad T_2 = ar, \\quad T_3 = ar^2, \\quad T_4 = ar^3, \\quad …$$\n\nThe common ratio is found by dividing any term by the term before it:\n\n$$r = \\frac{T_{n+1}}{T_n}$$\n\n💡 Worked Example 1\nFind the next term of $2, 6, 18, 54, …$\n\nStep 1: Find the common ratio.\n$$r = \\frac{6}{2} = 3, \\quad \\frac{18}{6} = 3, \\quad \\frac{54}{18} = 3$$\nSo $r = 3$.\n\nStep 2: Multiply the last term by $r$.\n$$54 \\times 3 = 162$$\n\nThe next term is $162$.\n\n💡 Worked Example 2\nA geometric sequence has first term $a = 5$ and common ratio $r = 2$. Find the first four terms.\n\n$$T_1 = 5$$\n$$T_2 = 5 \\times 2 = 10$$\n$$T_3 = 10 \\times 2 = 20$$\n$$T_4 = 20 \\times 2 = 40$$\n\nThe sequence is $5, 10, 20, 40, …$\n\n📎 Key Points to Remember\n• In a geometric sequence you multiply, not add.\n• If $r > 1$, the terms grow quickly.\n• If $0 < r < 1$, the terms get smaller.\n• If $r$ is negative, the terms alternate in sign.\n\n⚠️ Common Mistake\nMixing up arithmetic and geometric sequences. If the difference between terms is constant, the sequence is arithmetic; if the ratio is constant, it is geometric."
+    },
+    {
+      "id": "math-patterns-1-pat-n5",
+      "heading": "Special Sequences",
+      "body": "Not every sequence is arithmetic or geometric. Some important sequences appear often enough to learn by name.\n\n📌 Square numbers\nThe sequence of square numbers comes from multiplying a whole number by itself:\n\n$$1, 4, 9, 16, 25, 36, … \\quad \\text{where } T_n = n^2$$\n\n📌 Cube numbers\nCube numbers come from multiplying a whole number by itself three times:\n\n$$1, 8, 27, 64, 125, … \\quad \\text{where } T_n = n^3$$\n\n📌 Triangular numbers\nTriangular numbers can be arranged as dots in the shape of a triangle. They are formed by adding one more row each time:\n\n$$1, 3, 6, 10, 15, 21, … \\quad \\text{where } T_n = \\frac{n(n+1)}{2}$$\n\n📌 Fibonacci sequence\nEach term is the sum of the two previous terms, starting from $1, 1$ (or sometimes $0, 1$):\n\n$$1, 1, 2, 3, 5, 8, 13, 21, …$$\n\n💡 Worked Example\nFind the $6$th triangular number.\n\nStep 1: Use the formula.\n$$T_6 = \\frac{6(6+1)}{2} = \\frac{6 \\times 7}{2} = \\frac{42}{2} = 21$$\n\nSo the $6$th triangular number is $21$.\n\n📎 Key Points to Remember\n• $n^2$ produces square numbers; $n^3$ produces cube numbers.\n• Triangular numbers appear in problems about handshakes, bowling pins, and stacked objects.\n• The Fibonacci sequence appears in nature, art, and architecture.\n\n✅ Tip\nWhen a sequence is neither arithmetic nor geometric, check whether it could be square numbers, cube numbers, triangular numbers, powers of $2$, or Fibonacci."
+    },
+    {
+      "id": "math-patterns-1-pat-n6",
+      "heading": "Using Differences to Find the Rule",
+      "body": "When you are given a sequence and cannot see the rule straight away, looking at the differences between terms can help you identify what kind of pattern it is.\n\n📌 Definition\nThe method of differences compares each term with the one before it. The pattern in these differences reveals the type of rule.\n\n🔑 How it works\n1. Write down the sequence.\n2. Find the first differences by subtracting each term from the next.\n3. If the first differences are constant, the rule is linear: $T_n = an + b$.\n4. If the first differences are not constant, find the second differences.\n5. If the second differences are constant, the rule contains an $n^2$ term: $T_n = an^2 + bn + c$.\n\n💡 Worked Example 1 — Linear sequence\nFind the rule for $5, 8, 11, 14, …$\n\nSequence:     $5 \\quad 8 \\quad 11 \\quad 14$\nFirst differences:   $3 \\quad 3 \\quad 3$\n\nThe first differences are constant, so the rule is linear.\n$$T_n = 3n + c$$\nUsing $T_1 = 5$:\n$$5 = 3(1) + c \\Rightarrow c = 2$$\n$$T_n = 3n + 2$$\n\n💡 Worked Example 2 — Quadratic sequence\nFind the rule for $2, 5, 10, 17, 26, …$\n\nSequence:          $2 \\quad 5 \\quad 10 \\quad 17 \\quad 26$\nFirst differences:      $3 \\quad 5 \\quad 7 \\quad 9$\nSecond differences:        $2 \\quad 2 \\quad 2$\n\nThe second differences are constant, so the rule includes $n^2$. In fact, this sequence is $T_n = n^2 + 1$ because:\n\n$$1^2 + 1 = 2, \\quad 2^2 + 1 = 5, \\quad 3^2 + 1 = 10, \\quad 4^2 + 1 = 17$$\n\n⚠️ Common Mistake\nAssuming every sequence is arithmetic. If the first differences are not constant, do not give up — try the second differences or look for square, cube, or Fibonacci patterns."
+    },
+    {
+      "id": "math-patterns-1-pat-n7",
+      "heading": "Applying Number Patterns",
+      "body": "Number patterns appear in real-life situations such as saving money, arranging seats, stacking objects, and growth over time. Identifying the correct pattern helps you predict future values.\n\n📌 Definition\nA mathematical model for a pattern is a rule or formula that describes how a quantity changes from one step to the next.\n\n🔑 How it works\n1. Read the problem carefully and list the quantities you know.\n2. Find the first few terms of the sequence.\n3. Decide whether the sequence is arithmetic, geometric, or another type.\n4. Write the rule and use it to answer the question.\n\n💡 Worked Example 1 — Saving money\nMia saves $£15$ in the first week and increases her savings by $£8$ each week. How much does she save in week $10$?\n\nStep 1: Identify the sequence type.\nThis is arithmetic with $a = 15$ and $d = 8$.\n\nStep 2: Use the $n$th term formula.\n$$T_{10} = 15 + (10 - 1) \\times 8 = 15 + 72 = 87$$\n\nMia saves $£87$ in week $10$.\n\n💡 Worked Example 2 — Seats in rows\nA theatre has $22$ seats in the first row, $26$ in the second, $30$ in the third, and so on. How many seats are in the $12$th row?\n\nStep 1: Identify the sequence.\n$$22, 26, 30, … \\quad \\text{with } a = 22 \\text{ and } d = 4$$\n\nStep 2: Find the $12$th term.\n$$T_{12} = 22 + (12 - 1) \\times 4 = 22 + 44 = 66$$\n\nThere are $66$ seats in the $12$th row.\n\n📎 Key Points to Remember\n• Look for the words “each,” “every,” “per,” or “increases by” — these often signal a sequence.\n• Check that your answer is reasonable by estimating or listing a few extra terms.\n• Always state the units in your final answer.\n\n✅ Check\nAfter finding a rule, test it on the first two terms. If it does not work, go back and check your common difference or ratio."
     }
   ],
   "flashcards": [
     {
       "id": "math-patterns-1-pat-f1",
-      "term": "Arithmetic sequence",
-      "definition": "Constant difference between consecutive terms.",
-      "example": "5,9,13,17,... (d=4)"
+      "term": "Sequence",
+      "definition": "An ordered list of numbers that follow a rule or pattern.",
+      "example": "$5, 9, 13, 17, …$ is a sequence with first term $5$."
     },
     {
       "id": "math-patterns-1-pat-f2",
-      "term": "Common difference",
-      "definition": "Fixed amount added each term in an arithmetic sequence.",
-      "example": "2,5,8,11,... d=3"
+      "term": "Term",
+      "definition": "One of the numbers in a sequence, identified by its position.",
+      "example": "In $3, 6, 9, 12, …$, the $4$th term is $12$."
     },
     {
       "id": "math-patterns-1-pat-f3",
-      "term": "nth term",
-      "definition": "Formula giving value of any term by its position n.",
-      "example": "4n−1: n=1→3, n=2→7, n=3→11"
+      "term": "Arithmetic sequence",
+      "definition": "A sequence with a constant difference between consecutive terms.",
+      "example": "$7, 12, 17, 22, …$ has common difference $d = 5$."
     },
     {
       "id": "math-patterns-1-pat-f4",
-      "term": "Geometric sequence",
-      "definition": "Each term multiplied by a fixed ratio.",
-      "example": "3,6,12,24,... (r=2)"
+      "term": "Common difference",
+      "definition": "The fixed amount added or subtracted between terms in an arithmetic sequence.",
+      "example": "For $20, 16, 12, 8, …$, the common difference is $-4$."
     },
     {
       "id": "math-patterns-1-pat-f5",
+      "term": "nth term of an arithmetic sequence",
+      "definition": "The formula $T_n = a + (n - 1)d$ that gives any term from its position.",
+      "example": "For $4, 10, 16, …$, $T_n = 6n - 2$ so $T_{20} = 118$."
+    },
+    {
+      "id": "math-patterns-1-pat-f6",
+      "term": "Geometric sequence",
+      "definition": "A sequence in which each term is multiplied by a fixed number to get the next term.",
+      "example": "$2, 6, 18, 54, …$ has common ratio $r = 3$."
+    },
+    {
+      "id": "math-patterns-1-pat-f7",
+      "term": "Common ratio",
+      "definition": "The fixed multiplier between consecutive terms of a geometric sequence.",
+      "example": "For $40, 20, 10, 5, …$, the common ratio is $r = \\frac{1}{2}$."
+    },
+    {
+      "id": "math-patterns-1-pat-f8",
       "term": "Square numbers",
-      "definition": "Numbers from multiplying a whole number by itself: 1,4,9,16,25,...",
-      "example": "6²=36"
+      "definition": "Numbers obtained by squaring a whole number.",
+      "example": "$1, 4, 9, 16, 25, …$ where $T_n = n^2$."
+    },
+    {
+      "id": "math-patterns-1-pat-f9",
+      "term": "Triangular numbers",
+      "definition": "Numbers that can form an equilateral triangle of dots.",
+      "example": "$1, 3, 6, 10, 15, …$ where $T_n = \\frac{n(n+1)}{2}$."
+    },
+    {
+      "id": "math-patterns-1-pat-f10",
+      "term": "Fibonacci sequence",
+      "definition": "A sequence where each term is the sum of the two previous terms.",
+      "example": "$1, 1, 2, 3, 5, 8, 13, …$"
+    },
+    {
+      "id": "math-patterns-1-pat-f11",
+      "term": "Method of differences",
+      "definition": "A technique of subtracting consecutive terms to discover the type of rule.",
+      "example": "Constant first differences mean a linear rule; constant second differences mean a quadratic rule."
+    },
+    {
+      "id": "math-patterns-1-pat-f12",
+      "term": "Linear rule",
+      "definition": "A sequence rule of the form $T_n = an + b$ that produces constant first differences.",
+      "example": "$T_n = 3n + 2$ gives $5, 8, 11, 14, …$"
     }
   ],
   "questions": [
     {
       "id": "math-patterns-1-pat-q1",
-      "stem": "Common difference of 7,11,15,19,...?",
+      "stem": "What is the common difference of the sequence $7, 11, 15, 19, …$?",
       "choices": [
-        "3",
-        "4",
-        "7",
-        "2"
+        "$3$",
+        "$4$",
+        "$5$",
+        "$7$"
       ],
       "correctIndex": 1,
-      "explanation": "11−7=4, 15−11=4, 19−15=4. d=4."
+      "explanation": "Subtract consecutive terms: $11 - 7 = 4$, $15 - 11 = 4$, $19 - 15 = 4$. The common difference is $4$."
     },
     {
       "id": "math-patterns-1-pat-q2",
-      "stem": "nth term = 3n+2. 5th term?",
+      "stem": "What are the next two terms of the sequence $3, 8, 13, 18, …$?",
       "choices": [
-        "15",
-        "17",
-        "13",
-        "20"
+        "$22, 26$",
+        "$23, 28$",
+        "$23, 27$",
+        "$24, 29$"
       ],
       "correctIndex": 1,
-      "explanation": "3(5)+2=15+2=17."
+      "explanation": "The sequence increases by $5$ each time. After $18$, the next terms are $18 + 5 = 23$ and $23 + 5 = 28$."
     },
     {
       "id": "math-patterns-1-pat-q3",
-      "stem": "Which is geometric?",
+      "stem": "Which of these sequences is geometric?",
       "choices": [
-        "2,5,8,11,...",
-        "1,4,9,16,...",
-        "3,6,12,24,...",
-        "10,8,6,4,..."
+        "$2, 5, 8, 11, …$",
+        "$1, 4, 9, 16, …$",
+        "$4, 8, 16, 32, …$",
+        "$20, 16, 12, 8, …$"
       ],
       "correctIndex": 2,
-      "explanation": "3×2=6, 6×2=12, 12×2=24. Common ratio=2."
+      "explanation": "$4, 8, 16, 32, …$ has common ratio $r = 2$ because each term is multiplied by $2$ to get the next. The others are arithmetic or square numbers."
     },
     {
       "id": "math-patterns-1-pat-q4",
-      "stem": "nth term for 4,7,10,13,...?",
+      "stem": "Find the $n$th term of the arithmetic sequence $5, 9, 13, 17, …$",
       "choices": [
-        "2n+2",
-        "3n+1",
-        "4n",
-        "n+3"
+        "$T_n = 4n + 1$",
+        "$T_n = 4n - 1$",
+        "$T_n = 5n - 1$",
+        "$T_n = 4n + 5$"
       ],
-      "correctIndex": 1,
-      "explanation": "d=3. n=1: 3(1)=3, but first=4, so +1. 3n+1."
+      "correctIndex": 0,
+      "explanation": "The common difference is $d = 4$. Using $T_n = dn + c$ and $T_1 = 5$, we get $5 = 4 + c$, so $c = 1$. Therefore $T_n = 4n + 1$."
     },
     {
       "id": "math-patterns-1-pat-q5",
-      "stem": "Next term: 2,6,18,54,...?",
+      "stem": "The $n$th term of a sequence is $T_n = 5n - 3$. What is the $8$th term?",
       "choices": [
-        "72",
-        "108",
-        "162",
-        "108"
+        "$35$",
+        "$37$",
+        "$40$",
+        "$42$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Substitute $n = 8$ into the formula: $T_8 = 5(8) - 3 = 40 - 3 = 37$."
+    },
+    {
+      "id": "math-patterns-1-pat-q6",
+      "stem": "What is the $15$th term of the sequence $6, 10, 14, 18, …$?",
+      "choices": [
+        "$58$",
+        "$60$",
+        "$62$",
+        "$64$"
       ],
       "correctIndex": 2,
-      "explanation": "54×3=162."
+      "explanation": "This is arithmetic with $a = 6$ and $d = 4$. Using $T_n = a + (n - 1)d$, we get $T_{15} = 6 + 14 \\times 4 = 6 + 56 = 62$."
+    },
+    {
+      "id": "math-patterns-1-pat-q7",
+      "stem": "What is the common ratio of the sequence $54, 18, 6, 2, …$?",
+      "choices": [
+        "$3$",
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{3}$",
+        "$\\frac{2}{3}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Divide consecutive terms: $18 \\div 54 = \\frac{1}{3}$, $6 \\div 18 = \\frac{1}{3}$, $2 \\div 6 = \\frac{1}{3}$. The common ratio is $\\frac{1}{3}$."
+    },
+    {
+      "id": "math-patterns-1-pat-q8",
+      "stem": "A geometric sequence starts $3, 12, 48, …$. What is the next term?",
+      "choices": [
+        "$60$",
+        "$96$",
+        "$144$",
+        "$192$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The common ratio is $r = 12 \\div 3 = 4$. Multiply the last term by $4$: $48 \\times 4 = 192$."
+    },
+    {
+      "id": "math-patterns-1-pat-q9",
+      "stem": "Which formula gives the sequence $2, 5, 10, 17, 26, …$?",
+      "choices": [
+        "$T_n = n^2 + 1$",
+        "$T_n = n^2 - 1$",
+        "$T_n = 2n + 1$",
+        "$T_n = n^2 + n$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Testing $n = 1, 2, 3, 4, 5$ in $T_n = n^2 + 1$ gives $2, 5, 10, 17, 26$. The second differences are also constant, confirming a quadratic rule."
+    },
+    {
+      "id": "math-patterns-1-pat-q10",
+      "stem": "The first three triangular numbers are $1, 3, 6$. What is the $8$th triangular number?",
+      "choices": [
+        "$28$",
+        "$32$",
+        "$36$",
+        "$40$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Triangular numbers use $T_n = \\frac{n(n+1)}{2}$. For $n = 8$: $T_8 = \\frac{8 \\times 9}{2} = \\frac{72}{2} = 36$."
+    },
+    {
+      "id": "math-patterns-1-pat-q11",
+      "stem": "A plant grows $3$ cm in week $1$ and increases its growth by $2$ cm each week. How much does it grow in week $8$?",
+      "choices": [
+        "$15$ cm",
+        "$17$ cm",
+        "$19$ cm",
+        "$21$ cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "The growth forms an arithmetic sequence with $a = 3$ and $d = 2$. In week $8$, $T_8 = 3 + (8 - 1) \\times 2 = 3 + 14 = 17$ cm."
+    },
+    {
+      "id": "math-patterns-1-pat-q12",
+      "stem": "Use the method of differences to find the rule for $2, 6, 12, 20, 30, …$",
+      "choices": [
+        "$T_n = n^2 + 1$",
+        "$T_n = n^2 + n$",
+        "$T_n = 2n^2$",
+        "$T_n = n(n + 2)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "First differences are $4, 6, 8, 10$ and second differences are $2, 2, 2$. Testing $T_n = n^2 + n$ gives $1^2 + 1 = 2$, $2^2 + 2 = 6$, $3^2 + 3 = 12$, which matches."
+    },
+    {
+      "id": "math-patterns-1-pat-q13",
+      "stem": "In a theatre, row $1$ has $18$ seats and each row has $4$ more seats than the row in front. How many seats are in row $12$?",
+      "choices": [
+        "$58$",
+        "$60$",
+        "$62$",
+        "$64$"
+      ],
+      "correctIndex": 2,
+      "explanation": "This is arithmetic with $a = 18$ and $d = 4$. The $12$th term is $T_{12} = 18 + (12 - 1) \\times 4 = 18 + 44 = 62$ seats."
+    },
+    {
+      "id": "math-patterns-1-pat-q14",
+      "stem": "A ball is dropped from $80$ cm and bounces back to $\\frac{3}{4}$ of its previous height each time. What height does it reach after the third bounce?",
+      "choices": [
+        "$33.75$ cm",
+        "$35$ cm",
+        "$40$ cm",
+        "$45$ cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "After each bounce the height is multiplied by $\\frac{3}{4}$. After the first bounce: $80 \\times \\frac{3}{4} = 60$ cm. After the second: $60 \\times \\frac{3}{4} = 45$ cm. After the third: $45 \\times \\frac{3}{4} = 33.75$ cm."
+    },
+    {
+      "id": "math-patterns-1-pat-q15",
+      "stem": "A sequence has $n$th term $T_n = 2n^2 - 3$. Which term has value $95$?",
+      "choices": [
+        "$6$",
+        "$7$",
+        "$8$",
+        "$9$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Set $2n^2 - 3 = 95$. Then $2n^2 = 98$, so $n^2 = 49$ and $n = 7$ (since $n$ must be positive). You can also verify by substituting $n = 7$: $T_7 = 2(7)^2 - 3 = 98 - 3 = 95$."
     }
   ]
 }

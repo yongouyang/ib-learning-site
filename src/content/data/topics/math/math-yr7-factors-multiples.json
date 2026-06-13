@@ -8,27 +8,37 @@
     {
       "id": "math-yr7-factors-multiples-n1",
       "heading": "Factors and Multiples",
-      "body": "A factor is a whole number that divides exactly into another number. For example, factors of 24 are 1, 2, 3, 4, 6, 8, 12 and 24. A multiple is the result of multiplying a number by a whole number. Multiples of 5 are 5, 10, 15, 20, 25, ... A common mistake is mixing them up: factors are small or equal to the number, multiples are larger or equal."
+      "body": "Factors and multiples are two sides of the same multiplication coin. Getting them straight makes everything else in this topic easier.\n\n📌 Definition\nA factor of a whole number is another whole number that divides into it exactly, with no remainder.\nA multiple of a whole number is the result of multiplying it by another whole number.\n\n🔑 Key Concept\nIf $a \\times b = c$, then:\n\n• $a$ and $b$ are factors of $c$\n• $c$ is a multiple of $a$ and also a multiple of $b$\n\n💡 Worked Example\nFor $6 \\times 7 = 42$:\n\n  Factors of 42 include 6 and 7.\n  Multiples of 6 include 42, and multiples of 7 include 42.\n\nList all factors of 24.\n\n  Step 1: Find factor pairs\n    $1 \\times 24 = 24$\n    $2 \\times 12 = 24$\n    $3 \\times 8 = 24$\n    $4 \\times 6 = 24$\n\n  Step 2: List in order\n    Factors of 24: $1, 2, 3, 4, 6, 8, 12, 24$\n\n⚠️ Common Mistake\nMixing up factors and multiples. Remember: factors are the numbers that go in (they are usually smaller or equal to the original number), while multiples are the answers you get out (they are usually larger or equal). Every number has itself and 1 as factors."
     },
     {
       "id": "math-yr7-factors-multiples-n2",
       "heading": "Prime Numbers",
-      "body": "A prime number has exactly two factors: 1 and itself. The first few primes are 2, 3, 5, 7, 11, 13, 17 and 19. Note: 1 is NOT prime because it only has one factor. 2 is the only even prime number. To check if a number is prime, try dividing it by primes up to its square root."
+      "body": "Prime numbers are the building blocks of all whole numbers. They appear everywhere in number theory and in real-world codes.\n\n📌 Definition\nA prime number is a whole number greater than 1 that has exactly two factors: 1 and itself.\n\n🔑 Key Concept\nTo test whether a number is prime, try dividing it by prime numbers starting from 2. You only need to test up to the square root of the number.\n\n💡 Worked Example 1\nIs 29 prime?\n\n  Step 1: Find $\\sqrt{29}$. Since $\\sqrt{29} \\approx 5.39$, test primes $\\leq 5$.\n  Step 2: Check divisibility by 2, 3 and 5.\n    $29 \\div 2 = 14.5$ (not whole)\n    $29 \\div 3 \\approx 9.67$ (not whole)\n    $29 \\div 5 = 5.8$ (not whole)\n  Step 3: Conclude\n    29 has no factors other than 1 and 29, so it is prime.\n\n💡 Worked Example 2\nIs 51 prime?\n\n  Step 1: $\\sqrt{51} \\approx 7.14$, so test primes up to 7.\n  Step 2: $51 \\div 3 = 17$ exactly.\n  Step 3: Since 51 has factors 1, 3, 17 and 51, it is not prime.\n\n📎 Key Points to Remember\n• 2 is the only even prime number\n• 1 is NOT prime (it only has one factor)\n• The first few primes are $2, 3, 5, 7, 11, 13, 17, 19, 23, 29$\n• Every whole number greater than 1 is either prime or can be written as a product of primes\n\n⚠️ Common Misconception\nThinking that all odd numbers are prime. 9, 15, 21, 25, 27 and 33 are odd but not prime."
     },
     {
       "id": "math-yr7-factors-multiples-n3",
-      "heading": "Prime Factor Trees",
-      "body": "Prime factorisation breaks a number into a product of prime numbers. Use a factor tree: split the number into two factors, then split again until every branch ends in a prime. Example: 60 = 6 × 10 = (2 × 3) × (2 × 5) = 2 × 2 × 3 × 5 = 2² × 3 × 5. Write the same primes together using powers."
+      "heading": "Prime Factorisation",
+      "body": "Prime factorisation breaks a number into a product of prime numbers. It is the key tool for finding HCF and LCM quickly.\n\n📌 Definition\nPrime factorisation means writing a number as a product of prime numbers only. We usually use index (power) notation to group repeated primes.\n\n🔑 How it works\nUse a factor tree: split the number into any two factors, then split each factor again until every branch ends in a prime. Finally, collect the same primes together using powers.\n\n💡 Worked Example\nWrite 72 as a product of prime factors.\n\n  Step 1: Split 72 into $8 \\times 9$\n    $$72 = 8 \\times 9$$\n\n  Step 2: Split 8 and 9 further\n    $8 = 2 \\times 4 = 2 \\times 2 \\times 2 = 2^3$\n    $9 = 3 \\times 3 = 3^2$\n\n  Step 3: Combine\n    $$72 = 2^3 \\times 3^2$$\n\n✅ Check\nMultiply back: $2^3 \\times 3^2 = 8 \\times 9 = 72$ ✓\n\n📎 Key Points to Remember\n• Every whole number greater than 1 has exactly one prime factorisation (apart from the order of the factors)\n• Always write the primes in ascending order with powers\n• A factor tree can start with any pair of factors; the final prime factorisation will always be the same\n\n⚠️ Common Mistake\nStopping before every factor is prime. For example, writing $20 = 4 \\times 5$ is not finished because 4 is not prime. The correct factorisation is $20 = 2^2 \\times 5$."
     },
     {
       "id": "math-yr7-factors-multiples-n4",
       "heading": "Divisibility Rules",
-      "body": "Quick checks: A number is divisible by 2 if it is even; by 3 if the digit sum is divisible by 3 (e.g., 126: 1+2+6=9, so divisible by 3); by 4 if the last two digits form a number divisible by 4; by 5 if it ends in 0 or 5; by 9 if the digit sum is divisible by 9; by 10 if it ends in 0. These help find factors quickly without a calculator."
+      "body": "Divisibility rules let you decide quickly whether one number divides exactly into another. They save time and help spot factors without a calculator.\n\n📌 Definition\nA number is divisible by another if the division has no remainder. A divisibility rule is a quick test based on the digits of the number.\n\n🔑 Key Rules\n\n• Divisible by 2: the last digit is even ($0, 2, 4, 6, 8$)\n• Divisible by 3: the sum of the digits is divisible by 3\n• Divisible by 4: the last two digits form a number divisible by 4\n• Divisible by 5: the last digit is 0 or 5\n• Divisible by 6: the number is divisible by both 2 and 3\n• Divisible by 8: the last three digits form a number divisible by 8\n• Divisible by 9: the sum of the digits is divisible by 9\n• Divisible by 10: the last digit is 0\n\n💡 Worked Example\nIs 4,536 divisible by 2, 3, 4, 6 and 9?\n\n  By 2: last digit 6 is even ✓\n  By 3: $4 + 5 + 3 + 6 = 18$, and 18 is divisible by 3 ✓\n  By 4: last two digits are 36, and $36 \\div 4 = 9$ ✓\n  By 6: divisible by 2 and 3 ✓\n  By 9: digit sum 18 is divisible by 9 ✓\n\n📎 Key Points to Remember\n• A number divisible by 4 is also divisible by 2, but not every number divisible by 2 is divisible by 4\n• For 6, you must check BOTH 2 and 3\n• Divisibility by 9 implies divisibility by 3, but not the other way around\n\n✅ Tip\nWhen a rule gives a large digit sum, repeat it. For 9,999: $9 + 9 + 9 + 9 = 36$, then $3 + 6 = 9$, so it is divisible by 9."
     },
     {
       "id": "math-yr7-factors-multiples-n5",
-      "heading": "HCF and LCM",
-      "body": "HCF (Highest Common Factor) is the largest factor shared by two numbers. LCM (Lowest Common Multiple) is the smallest multiple shared. Method 1: list factors or multiples. Method 2: use prime factors. For HCF, multiply the lowest power of each common prime. For LCM, multiply the highest power of every prime that appears. Example: 36 = 2² × 3² and 60 = 2² × 3 × 5. HCF = 2² × 3 = 12. LCM = 2² × 3² × 5 = 180."
+      "heading": "Square and Cube Numbers",
+      "body": "Squares and cubes are special multiples that come up in area, volume, powers and patterns. Knowing them helps with estimation and mental calculation.\n\n📌 Definition\nA square number is the result of multiplying a whole number by itself.\nA cube number is the result of multiplying a whole number by itself three times.\n\n🔑 Key Concept\nIf $n$ is a whole number:\n\n$$n^2 = n \\times n$$\n$$n^3 = n \\times n \\times n$$\n\n💡 Worked Example 1\nThe first six square numbers are:\n\n  $1^2 = 1$\n  $2^2 = 4$\n  $3^2 = 9$\n  $4^2 = 16$\n  $5^2 = 25$\n  $6^2 = 36$\n\n💡 Worked Example 2\nThe first five cube numbers are:\n\n  $1^3 = 1$\n  $2^3 = 8$\n  $3^3 = 27$\n  $4^3 = 64$\n  $5^3 = 125$\n\n📎 Key Points to Remember\n• The square root of $n^2$ is $n$: $\\sqrt{n^2} = n$\n• The cube root of $n^3$ is $n$: $\\sqrt[3]{n^3} = n$\n• Square numbers have an odd number of factors. For example, 36 has factors $1, 2, 3, 4, 6, 9, 12, 18, 36$ — nine factors\n\n⚠️ Common Mistake\nConfusing $2n$ with $n^2$. For $n = 5$, $2n = 10$ but $n^2 = 25$. Squaring means multiplying the number by itself, not doubling it."
+    },
+    {
+      "id": "math-yr7-factors-multiples-n6",
+      "heading": "Highest Common Factor (HCF)",
+      "body": "The HCF is the largest number that divides exactly into two or more numbers. It is useful for simplifying fractions, ratios and sharing problems.\n\n📌 Definition\nThe Highest Common Factor (HCF) of two or more numbers is the largest factor that all of them share. It is also called the Greatest Common Divisor (GCD).\n\n🔑 Two Methods\n\nMethod 1: List factors\n1. List all factors of each number.\n2. Identify the largest factor that appears in every list.\n\nMethod 2: Prime factors\n1. Write each number as a product of prime factors.\n2. For each prime that appears in ALL numbers, take the lowest power.\n3. Multiply these together.\n\n💡 Worked Example\nFind the HCF of 36 and 60.\n\n  Method 1: Listing\n    Factors of 36: $1, 2, 3, 4, 6, 9, 12, 18, 36$\n    Factors of 60: $1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60$\n    Common factors: $1, 2, 3, 4, 6, 12$\n    HCF = $12$\n\n  Method 2: Prime factors\n    $36 = 2^2 \\times 3^2$\n    $60 = 2^2 \\times 3 \\times 5$\n    Common primes: $2^2$ and $3^1$\n    HCF = $2^2 \\times 3 = 4 \\times 3 = 12$\n\n✅ Check\nBoth methods give 12, and $36 \\div 12 = 3$ and $60 \\div 12 = 5$ are both whole.\n\n⚠️ Common Mistake\nUsing the highest power of a common prime. For 36 and 60, both contain $3^2$ and $3^1$; you must pick $3^1$ (the lower power), not $3^2$."
+    },
+    {
+      "id": "math-yr7-factors-multiples-n7",
+      "heading": "Lowest Common Multiple (LCM)",
+      "body": "The LCM is the smallest number that is a multiple of two or more numbers. It is useful for repeating events, adding fractions and scheduling problems.\n\n📌 Definition\nThe Lowest Common Multiple (LCM) of two or more numbers is the smallest positive number that is a multiple of each of them.\n\n🔑 Two Methods\n\nMethod 1: List multiples\n1. List the first few multiples of each number.\n2. Find the smallest multiple that appears in every list.\n\nMethod 2: Prime factors\n1. Write each number as a product of prime factors.\n2. For every prime that appears in any number, take the highest power.\n3. Multiply these together.\n\n💡 Worked Example\nFind the LCM of 18 and 24.\n\n  Method 1: Listing\n    Multiples of 18: $18, 36, 54, 72, 90, \\dots$\n    Multiples of 24: $24, 48, 72, 96, \\dots$\n    LCM = $72$\n\n  Method 2: Prime factors\n    $18 = 2 \\times 3^2$\n    $24 = 2^3 \\times 3$\n    Highest powers: $2^3$ and $3^2$\n    LCM = $2^3 \\times 3^2 = 8 \\times 9 = 72$\n\n✅ Check\n$72 \\div 18 = 4$ and $72 \\div 24 = 3$, both whole, and no smaller positive number works.\n\n⚠️ Common Mistake\nMultiplying the two numbers together. $18 \\times 24 = 432$, which is a common multiple but not the lowest. Always pick the highest power of each prime, not every factor from both numbers."
     }
   ],
   "flashcards": [
@@ -36,75 +46,99 @@
       "id": "math-yr7-factors-multiples-f1",
       "term": "Factor",
       "definition": "A whole number that divides exactly into another number with no remainder.",
-      "example": "Factors of 12 are 1, 2, 3, 4, 6 and 12."
+      "example": "Factors of 30 are 1, 2, 3, 5, 6, 10, 15 and 30."
     },
     {
       "id": "math-yr7-factors-multiples-f2",
       "term": "Multiple",
-      "definition": "The result of multiplying a number by a whole number.",
-      "example": "Multiples of 4 are 4, 8, 12, 16, 20, ..."
+      "definition": "The result of multiplying a whole number by another whole number.",
+      "example": "Multiples of 7 are 7, 14, 21, 28, 35, ..."
     },
     {
       "id": "math-yr7-factors-multiples-f3",
       "term": "Prime number",
-      "definition": "A number with exactly two factors: 1 and itself.",
-      "example": "7 is prime because its only factors are 1 and 7."
+      "definition": "A whole number greater than 1 with exactly two factors: 1 and itself.",
+      "example": "13 is prime because its only factors are 1 and 13."
     },
     {
       "id": "math-yr7-factors-multiples-f4",
-      "term": "Prime factorisation",
-      "definition": "Writing a number as a product of prime numbers.",
-      "example": "20 = 2 × 2 × 5 = 2² × 5."
+      "term": "Composite number",
+      "definition": "A whole number greater than 1 that is not prime; it has more than two factors.",
+      "example": "20 is composite because $20 = 2 \\times 10 = 4 \\times 5$."
     },
     {
       "id": "math-yr7-factors-multiples-f5",
-      "term": "HCF",
-      "definition": "Highest Common Factor: the largest factor shared by two or more numbers.",
-      "example": "HCF of 18 and 24 is 6."
+      "term": "Prime factorisation",
+      "definition": "Writing a number as a product of prime numbers, usually using index notation.",
+      "example": "$60 = 2^2 \\times 3 \\times 5$."
     },
     {
       "id": "math-yr7-factors-multiples-f6",
-      "term": "LCM",
-      "definition": "Lowest Common Multiple: the smallest multiple shared by two or more numbers.",
-      "example": "LCM of 6 and 8 is 24."
+      "term": "Index notation",
+      "definition": "A shorthand for repeated multiplication where a small number (index) shows how many times the base is multiplied.",
+      "example": "$2^4 = 2 \\times 2 \\times 2 \\times 2 = 16$."
     },
     {
       "id": "math-yr7-factors-multiples-f7",
-      "term": "Square number",
-      "definition": "A number made by multiplying a whole number by itself.",
-      "example": "25 is square because 5 × 5 = 25."
+      "term": "Divisibility rule",
+      "definition": "A quick test to decide whether one number divides exactly into another.",
+      "example": "A number is divisible by 3 if the sum of its digits is divisible by 3."
     },
     {
       "id": "math-yr7-factors-multiples-f8",
-      "term": "Divisibility rule",
-      "definition": "A quick way to decide if one number divides exactly into another.",
-      "example": "A number is divisible by 3 if the sum of its digits is divisible by 3."
+      "term": "Square number",
+      "definition": "A number made by multiplying a whole number by itself.",
+      "example": "$49 = 7 \\times 7 = 7^2$ is a square number."
+    },
+    {
+      "id": "math-yr7-factors-multiples-f9",
+      "term": "Cube number",
+      "definition": "A number made by multiplying a whole number by itself three times.",
+      "example": "$64 = 4 \\times 4 \\times 4 = 4^3$ is a cube number."
+    },
+    {
+      "id": "math-yr7-factors-multiples-f10",
+      "term": "Highest Common Factor (HCF)",
+      "definition": "The largest factor shared by two or more numbers.",
+      "example": "HCF of 36 and 48 is 12."
+    },
+    {
+      "id": "math-yr7-factors-multiples-f11",
+      "term": "Lowest Common Multiple (LCM)",
+      "definition": "The smallest positive number that is a multiple of two or more numbers.",
+      "example": "LCM of 6 and 9 is 18."
+    },
+    {
+      "id": "math-yr7-factors-multiples-f12",
+      "term": "Square root",
+      "definition": "The value that, when multiplied by itself, gives the original number.",
+      "example": "$\\sqrt{81} = 9$ because $9 \\times 9 = 81$."
     }
   ],
   "questions": [
     {
       "id": "math-yr7-factors-multiples-q1",
-      "stem": "Which of these is a factor of 36?",
+      "stem": "Which of these is a factor of 42?",
       "choices": [
         "5",
+        "8",
         "7",
-        "9",
         "11"
       ],
       "correctIndex": 2,
-      "explanation": "36 ÷ 9 = 4 exactly, so 9 is a factor. The other options leave a remainder."
+      "explanation": "$42 \\div 7 = 6$ exactly, so 7 is a factor. The other choices leave a remainder."
     },
     {
       "id": "math-yr7-factors-multiples-q2",
-      "stem": "Which list shows all the factors of 18?",
+      "stem": "Which list shows all the factors of 20?",
       "choices": [
-        "1, 2, 3, 6, 9, 18",
-        "1, 2, 3, 4, 9, 18",
-        "2, 3, 6, 9, 18",
-        "1, 18, 36, 54"
+        "1, 2, 4, 5, 10, 20",
+        "1, 2, 3, 4, 5, 10, 20",
+        "2, 4, 5, 10, 20",
+        "1, 20, 40, 60"
       ],
       "correctIndex": 0,
-      "explanation": "18 = 1×18, 2×9 and 3×6, giving factors 1, 2, 3, 6, 9 and 18."
+      "explanation": "$20 = 1 \\times 20 = 2 \\times 10 = 4 \\times 5$, so the factors are 1, 2, 4, 5, 10 and 20."
     },
     {
       "id": "math-yr7-factors-multiples-q3",
@@ -116,83 +150,59 @@
         "3"
       ],
       "correctIndex": 2,
-      "explanation": "2 is prime because its only factors are 1 and 2, and it is the smallest prime."
+      "explanation": "2 is prime because its only factors are 1 and 2. It is also the only even prime number."
     },
     {
       "id": "math-yr7-factors-multiples-q4",
-      "stem": "Which of these is NOT a prime number?",
+      "stem": "Which of these numbers is NOT prime?",
       "choices": [
         "11",
-        "13",
-        "15",
-        "17"
+        "17",
+        "21",
+        "23"
       ],
       "correctIndex": 2,
-      "explanation": "15 = 3 × 5, so it has more than two factors and is not prime."
+      "explanation": "$21 = 3 \\times 7$, so it has more than two factors and is not prime."
     },
     {
       "id": "math-yr7-factors-multiples-q5",
-      "stem": "What is the first multiple of 6 that is greater than 20?",
+      "stem": "What is the first multiple of 8 that is greater than 50?",
       "choices": [
-        "24",
-        "26",
-        "30",
-        "36"
+        "54",
+        "56",
+        "64",
+        "72"
       ],
-      "correctIndex": 0,
-      "explanation": "Multiples of 6 are 6, 12, 18, 24, 30, ... The first one after 20 is 24."
+      "correctIndex": 1,
+      "explanation": "Multiples of 8 are 8, 16, 24, 32, 40, 48, 56, 64, ... The first one greater than 50 is 56."
     },
     {
       "id": "math-yr7-factors-multiples-q6",
-      "stem": "Which number is divisible by both 2 and 3?",
+      "stem": "What is the prime factorisation of 48?",
       "choices": [
-        "14",
-        "21",
-        "24",
-        "35"
+        "$2 \\times 24$",
+        "$2^3 \\times 3$",
+        "$2^4 \\times 3$",
+        "$3 \\times 16$"
       ],
       "correctIndex": 2,
-      "explanation": "24 is even so divisible by 2, and 2+4=6 which is divisible by 3."
+      "explanation": "$48 = 16 \\times 3 = 2^4 \\times 3$. All factors must be prime, and 24 and 16 are not prime."
     },
     {
       "id": "math-yr7-factors-multiples-q7",
-      "stem": "What is the HCF of 24 and 36?",
+      "stem": "Which number is divisible by both 3 and 4?",
       "choices": [
-        "6",
-        "12",
         "18",
-        "24"
+        "24",
+        "32",
+        "42"
       ],
       "correctIndex": 1,
-      "explanation": "Factors of 24: 1,2,3,4,6,8,12,24. Factors of 36: 1,2,3,4,6,9,12,18,36. The highest common is 12."
+      "explanation": "24 is divisible by 4 (last two digits 24) and by 3 (digit sum $2 + 4 = 6$)."
     },
     {
       "id": "math-yr7-factors-multiples-q8",
-      "stem": "What is the LCM of 6 and 8?",
-      "choices": [
-        "2",
-        "14",
-        "24",
-        "48"
-      ],
-      "correctIndex": 2,
-      "explanation": "Multiples of 6: 6,12,18,24,30,... Multiples of 8: 8,16,24,32,... The lowest common multiple is 24."
-    },
-    {
-      "id": "math-yr7-factors-multiples-q9",
-      "stem": "What is the prime factorisation of 30?",
-      "choices": [
-        "2 × 15",
-        "2 × 3 × 5",
-        "3 × 10",
-        "1 × 2 × 3 × 5"
-      ],
-      "correctIndex": 1,
-      "explanation": "30 = 2 × 15 = 2 × 3 × 5. All factors must be prime, and 1 is not prime."
-    },
-    {
-      "id": "math-yr7-factors-multiples-q10",
-      "stem": "Which number is a square number?",
+      "stem": "Which of these is a square number?",
       "choices": [
         "18",
         "27",
@@ -200,31 +210,91 @@
         "45"
       ],
       "correctIndex": 2,
-      "explanation": "36 = 6 × 6, so 36 is a square number. The others are not products of a whole number times itself."
+      "explanation": "$36 = 6 \\times 6 = 6^2$, so 36 is a square number."
+    },
+    {
+      "id": "math-yr7-factors-multiples-q9",
+      "stem": "What is the value of $\\sqrt{144}$?",
+      "choices": [
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "correctIndex": 1,
+      "explanation": "$12 \\times 12 = 144$, so $\\sqrt{144} = 12$."
+    },
+    {
+      "id": "math-yr7-factors-multiples-q10",
+      "stem": "What is the HCF of 18 and 30?",
+      "choices": [
+        "3",
+        "6",
+        "9",
+        "15"
+      ],
+      "correctIndex": 1,
+      "explanation": "Factors of 18 are 1, 2, 3, 6, 9, 18. Factors of 30 are 1, 2, 3, 5, 6, 10, 15, 30. The highest common factor is 6."
     },
     {
       "id": "math-yr7-factors-multiples-q11",
-      "stem": "Using divisibility rules, which number is divisible by 9?",
+      "stem": "What is the LCM of 6 and 10?",
       "choices": [
-        "234",
-        "235",
-        "236",
-        "238"
+        "2",
+        "30",
+        "60",
+        "16"
       ],
-      "correctIndex": 0,
-      "explanation": "For 234, digit sum is 2+3+4=9, which is divisible by 9, so 234 is divisible by 9."
+      "correctIndex": 1,
+      "explanation": "Multiples of 6 are 6, 12, 18, 24, 30, ... Multiples of 10 are 10, 20, 30, ... The lowest common multiple is 30."
     },
     {
       "id": "math-yr7-factors-multiples-q12",
-      "stem": "Find the HCF of 30 and 45 using prime factors.",
+      "stem": "Find the HCF of 36 and 60 using prime factors.",
       "choices": [
-        "5",
-        "15",
-        "30",
-        "90"
+        "6",
+        "12",
+        "18",
+        "24"
       ],
       "correctIndex": 1,
-      "explanation": "30 = 2 × 3 × 5 and 45 = 3 × 3 × 5. Common primes are 3 and 5, so HCF = 3 × 5 = 15."
+      "explanation": "$36 = 2^2 \\times 3^2$ and $60 = 2^2 \\times 3 \\times 5$. Take the lowest power of each common prime: $2^2 \\times 3 = 12$."
+    },
+    {
+      "id": "math-yr7-factors-multiples-q13",
+      "stem": "Find the LCM of 12 and 18 using prime factors.",
+      "choices": [
+        "6",
+        "24",
+        "36",
+        "72"
+      ],
+      "correctIndex": 2,
+      "explanation": "$12 = 2^2 \\times 3$ and $18 = 2 \\times 3^2$. Take the highest power of each prime: $2^2 \\times 3^2 = 4 \\times 9 = 36$."
+    },
+    {
+      "id": "math-yr7-factors-multiples-q14",
+      "stem": "A bus leaves the station every 8 minutes and a tram leaves every 12 minutes. If they both leave at 9:00 am, when is the next time they leave together?",
+      "choices": [
+        "9:08 am",
+        "9:12 am",
+        "9:20 am",
+        "9:24 am"
+      ],
+      "correctIndex": 3,
+      "explanation": "This asks for the LCM of 8 and 12. Multiples of 8 are 8, 16, 24, ... and multiples of 12 are 12, 24, ... The LCM is 24, so they next leave together 24 minutes after 9:00 am."
+    },
+    {
+      "id": "math-yr7-factors-multiples-q15",
+      "stem": "A rectangular garden measures 24 m by 30 m. It is to be divided into identical square plots using the largest possible square size. What is the side length of each square plot?",
+      "choices": [
+        "4 m",
+        "5 m",
+        "6 m",
+        "8 m"
+      ],
+      "correctIndex": 2,
+      "explanation": "The largest square that divides both 24 and 30 exactly has side length equal to the HCF of 24 and 30. Factors of 24 are 1, 2, 3, 4, 6, 8, 12, 24; factors of 30 are 1, 2, 3, 5, 6, 10, 15, 30. The HCF is 6 m."
     }
   ]
 }

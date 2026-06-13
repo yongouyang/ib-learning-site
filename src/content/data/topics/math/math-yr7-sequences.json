@@ -8,83 +8,117 @@
     {
       "id": "math-yr7-sequences-seq-n1",
       "heading": "What is a Sequence?",
-      "body": "A sequence is a list of numbers written in order. Each number in the list is called a term. The first number is the first term, the next is the second term, and so on. Sequences can follow a rule or pattern. For example, 2, 4, 6, 8, 10 is a sequence where the rule is 'add 2 each time'. Always look at how the terms change from one to the next."
+      "body": "A sequence is a list of numbers written in a definite order. Each number in the list is called a term. Sequences appear everywhere — in timetables, music rhythms, and nature.\n\n📌 Definition\nA sequence is an ordered list of numbers called terms.\n\n    $$2, 4, 6, 8, 10, \\dots$$\n\n    $2$ is the first term, $4$ is the second term, and so on. The three dots ($\\dots$) mean the sequence continues in the same way.\n\n🔑 Key Concept\nEvery sequence follows a rule or pattern. To describe a sequence you need to know:\n1. The first term\n2. How each term is related to the one before it, or how each term is related to its position number\n\n💡 Worked Example\nWrite the first five terms of the sequence that starts at $5$ and adds $3$ each time.\n\n  Step 1: Start with the first term\n    First term $= 5$\n\n  Step 2: Add $3$ repeatedly\n    $5 + 3 = 8$\n    $8 + 3 = 11$\n    $11 + 3 = 14$\n    $14 + 3 = 17$\n\n  Step 3: Write the sequence\n    $$5, 8, 11, 14, 17$$\n\n📎 Key Points to Remember\n• A sequence must have an order — $1, 3, 5$ is different from $5, 3, 1$\n• Terms are often written as $u_1, u_2, u_3, \\dots$ or $a_1, a_2, a_3, \\dots$\n• The position of a term tells you where it sits in the list\n\n⚠️ Common Misconception\nA sequence is not the same as a set. In a set, order does not matter; in a sequence, order is everything."
     },
     {
       "id": "math-yr7-sequences-seq-n2",
       "heading": "Term-to-Term Rules",
-      "body": "The term-to-term rule tells you how to get from one term to the next. Look at the difference between neighbouring terms. In the sequence 5, 9, 13, 17, 21, the difference is +4 each time, so the rule is 'add 4'. If the difference is the same every time, the sequence is called an arithmetic sequence. Other term-to-term rules could be 'subtract 3', 'multiply by 2', or 'divide by 2'."
+      "body": "The term-to-term rule tells you how to move from one term to the next. Finding this rule is the first step in understanding almost any sequence.\n\n📌 Definition\nA term-to-term rule is an instruction that takes you from one term to the next term.\n\n    Examples:\n    • 'add $4$'\n    • 'subtract $3$'\n    • 'multiply by $2$'\n    • 'divide by $2$'\n\n🔑 How it Works\nLook at the difference or ratio between neighbouring terms. If the same amount is added or subtracted each time, the sequence is called an arithmetic sequence.\n\n💡 Worked Example 1 — Adding each time\nFind the term-to-term rule for $7, 12, 17, 22, 27$.\n\n  Step 1: Work out the differences\n    $12 - 7 = 5$\n    $17 - 12 = 5$\n    $22 - 17 = 5$\n    $27 - 22 = 5$\n\n  Step 2: State the rule\n    The rule is 'add $5$'.\n\n💡 Worked Example 2 — Subtracting each time\nFind the term-to-term rule for $40, 34, 28, 22, 16$.\n\n  Step 1: Work out the differences\n    $34 - 40 = -6$\n    $28 - 34 = -6$\n    $22 - 28 = -6$\n    $16 - 22 = -6$\n\n  Step 2: State the rule\n    The rule is 'subtract $6$' (or 'add $-6$').\n\n⚠️ Common Mistake\nOnly checking the first two terms. Always check at least three differences before deciding the rule is correct."
     },
     {
       "id": "math-yr7-sequences-seq-n3",
       "heading": "Continuing Sequences and Finding Missing Terms",
-      "body": "To continue a sequence, first find the rule, then keep applying it. To find a missing term, use the terms on either side to work out the rule. Example: 7, 12, __, 22, 27 has a rule of 'add 5', so the missing term is 17. Always check your answer by seeing whether it keeps the pattern going correctly. Common mistake: forgetting to check the whole sequence and only looking at the first two numbers."
+      "body": "Once you know the term-to-term rule, you can continue a sequence or fill in a missing value.\n\n🔑 Key Concept\nTo continue a sequence, keep applying the rule. To find a missing term, use the terms on either side to find the rule and then check it works.\n\n💡 Worked Example 1 — Continuing a sequence\nContinue the sequence $9, 14, 19, 24, 29$ for two more terms.\n\n  Step 1: Find the common difference\n    $14 - 9 = 5$\n    $19 - 14 = 5$\n    Rule: add $5$\n\n  Step 2: Continue the pattern\n    $29 + 5 = 34$\n    $34 + 5 = 39$\n\n  ✅ Check: The differences are still $5$, so the answer is correct.\n\n💡 Worked Example 2 — Finding a missing term\nFind the missing term in $11, \\underline{\\quad}, 25, 32, 39$.\n\n  Step 1: Use the known terms to find the rule\n    $32 - 25 = 7$\n    $39 - 32 = 7$\n    Rule: add $7$\n\n  Step 2: Fill in the missing term\n    $11 + 7 = 18$\n\n  Step 3: Check the next step\n    $18 + 7 = 25$ ✓\n\n📎 Key Points to Remember\n• Look at the differences between terms first\n• If the difference is constant, the sequence is arithmetic\n• Always check your answer by continuing the pattern\n\n⚠️ Common Mistake\nForgetting to check that the missing term fits on both sides. A term must work with the term before it AND the term after it."
     },
     {
       "id": "math-yr7-sequences-seq-n4",
       "heading": "Position-to-Term Rules (the nth Term)",
-      "body": "The position-to-term rule gives the term directly from its position in the sequence. For example, in the sequence 5, 8, 11, 14, 17, the rule can be written as '3n + 2'. To find the 10th term, calculate 3 times 10 plus 2, which gives 32. To find the rule, compare the sequence to the times table that matches the common difference. If the difference is 4, start with 4n and adjust. Example: sequence 7, 11, 15, 19 matches 4n + 3 because 4 times 1 plus 3 is 7."
+      "body": "A position-to-term rule lets you find any term without writing out the whole sequence. In IB and MYP, this is often written using the letter $n$ for the position number.\n\n📌 Definition\nThe $n$th term rule is a formula that gives the value of the term in position $n$.\n\n    For an arithmetic sequence with first term $a$ and common difference $d$:\n\n    $$n\\text{th term} = a + (n - 1)d$$\n\n🔑 How it Works\nIf the common difference is $d$, the rule will contain $dn$ (a multiple of $n$). Adjust the constant so the first term is correct.\n\n💡 Worked Example 1 — Finding a term from the rule\nThe $n$th term of a sequence is $4n + 3$. Find the $6$th term.\n\n  Step 1: Substitute $n = 6$\n    $4(6) + 3$\n\n  Step 2: Calculate\n    $24 + 3 = 27$\n\n  ✅ Check: The sequence begins $7, 11, 15, 19, 23, 27$, so the $6$th term is $27$.\n\n💡 Worked Example 2 — Finding the rule from a sequence\nFind the $n$th term rule for $6, 10, 14, 18, 22$.\n\n  Step 1: Find the common difference\n    $10 - 6 = 4$\n    Start with $4n$\n\n  Step 2: Find the adjustment\n    When $n = 1$, $4n = 4$, but the first term is $6$\n    $6 - 4 = 2$\n\n  Step 3: Write the rule\n    $$n\\text{th term} = 4n + 2$$\n\n  ✅ Check: For $n = 3$, $4(3) + 2 = 14$ ✓\n\n📎 Key Points to Remember\n• The coefficient of $n$ is the common difference for arithmetic sequences\n• The constant adjusts the formula to give the correct first term\n• You can use the rule to find ANY term, no matter how far along\n\n⚠️ Common Mistake\nWriting $4n + 6$ instead of $4n + 2$ because you forget to compare with $n = 1$. Always test your rule on the first term."
     },
     {
       "id": "math-yr7-sequences-seq-n5",
+      "heading": "Special Sequences",
+      "body": "Not every sequence adds or subtracts the same amount. Some important sequences appear again and again in mathematics.\n\n🔑 Key Concept\nRecognising special patterns helps you predict terms quickly.\n\n💡 Worked Example 1 — Square numbers\nThe sequence of square numbers is:\n\n    $$1, 4, 9, 16, 25, 36, \\dots$$\n\n    The $n$th square number is $n^2$.\n    $1^2 = 1$, $2^2 = 4$, $3^2 = 9$, and so on.\n\n💡 Worked Example 2 — Triangular numbers\nThe sequence of triangular numbers is:\n\n    $$1, 3, 6, 10, 15, 21, \\dots$$\n\n    These can be drawn as triangles of dots. Each term adds one more row than the previous term.\n    $1 = 1$\n    $3 = 1 + 2$\n    $6 = 1 + 2 + 3$\n    $10 = 1 + 2 + 3 + 4$\n\n💡 Worked Example 3 — Powers of 2\nThe sequence $2, 4, 8, 16, 32, 64, \\dots$ is made by multiplying by $2$ each time.\n\n    The $n$th term is $2^n$.\n    $2^1 = 2$, $2^2 = 4$, $2^3 = 8$, and so on.\n\n📎 Key Points to Remember\n• Square numbers: $1, 4, 9, 16, 25, \\dots$ — $n$th term is $n^2$\n• Triangular numbers: $1, 3, 6, 10, 15, \\dots$ — add $2, 3, 4, 5, \\dots$ each time\n• Powers of 2: $2, 4, 8, 16, 32, \\dots$ — $n$th term is $2^n$\n\n⚠️ Common Misconception\nThinking all sequences are arithmetic. Some sequences multiply, some square, and some change in more complicated ways. Always look at the pattern before choosing a rule."
+    },
+    {
+      "id": "math-yr7-sequences-seq-n6",
       "heading": "Visual and Picture Patterns",
-      "body": "Sequences can also be shown with pictures, shapes, or dots. Count how many objects are in each picture to turn the pattern into a number sequence. Then find the term-to-term rule or position-to-term rule. For example, a pattern made of squares might have 1, 3, 5, 7 squares, which is the sequence of odd numbers with rule 'add 2'. Drawing the next picture can help you check whether your rule is correct."
+      "body": "Sequences can be shown with pictures, shapes, or dots. The same rules apply — you just need to turn the pictures into numbers first.\n\n🔑 Key Concept\nCount the objects in each picture to create a number sequence. Then find the term-to-term rule or the $n$th term rule.\n\n💡 Worked Example\nA pattern is made from squares.\n\n  Picture 1: $1$ square\n  Picture 2: $4$ squares\n  Picture 3: $7$ squares\n  Picture 4: $10$ squares\n\nFind the number of squares in Picture 5 and write the $n$th term rule.\n\n  Step 1: Write the number sequence\n    $$1, 4, 7, 10, \\dots$$\n\n  Step 2: Find the common difference\n    $4 - 1 = 3$\n    $7 - 4 = 3$\n    Rule: add $3$\n\n  Step 3: Continue to Picture 5\n    $10 + 3 = 13$\n\n  Step 4: Find the $n$th term rule\n    Common difference $= 3$, so start with $3n$\n    When $n = 1$, $3n = 3$, but the first term is $1$\n    $1 - 3 = -2$\n    $$n\\text{th term} = 3n - 2$$\n\n  ✅ Check: For $n = 4$, $3(4) - 2 = 10$ ✓\n\n📎 Key Points to Remember\n• Draw a table of picture number vs. count to organise the information\n• The same methods work for number sequences and picture sequences\n• Sketching the next picture can help you check your answer\n\n✅ Tip\nIf a picture sequence grows by adding the same number each time, it has an arithmetic rule and the $n$th term will be $dn + c$."
+    },
+    {
+      "id": "math-yr7-sequences-seq-n7",
+      "heading": "Solving Sequence Problems",
+      "body": "Many real-life problems can be modelled with sequences. Knowing how to find a rule and use it is a powerful problem-solving tool.\n\n🔑 Key Concept\nWord problems often describe an arithmetic pattern. Identify the first term and the common difference, then use the $n$th term rule.\n\n💡 Worked Example — Word problem\nA theatre has rows of seats. Row 1 has $12$ seats, Row 2 has $15$ seats, Row 3 has $18$ seats, and the pattern continues. How many seats are in Row 10?\n\n  Step 1: Identify the sequence\n    $$12, 15, 18, 21, \\dots$$\n\n  Step 2: Find the common difference\n    $15 - 12 = 3$\n    Common difference $d = 3$\n\n  Step 3: Find the $n$th term rule\n    Start with $3n$\n    When $n = 1$, $3n = 3$, but the first term is $12$\n    $12 - 3 = 9$\n    $$n\\text{th term} = 3n + 9$$\n\n  Step 4: Substitute $n = 10$\n    $3(10) + 9 = 30 + 9 = 39$\n\n  ✅ Check: The sequence is $12, 15, 18, 21, 24, 27, 30, 33, 36, 39$. Row 10 has $39$ seats.\n\n📎 Key Points to Remember\n• Read the problem carefully to find the first term and the common difference\n• Write the $n$th term rule before substituting\n• Check whether the question asks for a specific term, a rule, or a missing term\n\n⚠️ Common Mistake\nUsing the wrong value of $n$. Row 1 corresponds to $n = 1$, not $n = 0$. Always match the position to the question."
     }
   ],
   "flashcards": [
     {
       "id": "math-yr7-sequences-seq-f1",
       "term": "Sequence",
-      "definition": "A list of numbers written in a special order.",
-      "example": "2, 5, 8, 11, 14 is a sequence."
+      "definition": "An ordered list of numbers called terms.",
+      "example": "$2, 5, 8, 11, 14$ is a sequence."
     },
     {
       "id": "math-yr7-sequences-seq-f2",
       "term": "Term",
       "definition": "One number in a sequence.",
-      "example": "In 3, 6, 9, 12, the third term is 9."
+      "example": "In $3, 6, 9, 12$, the third term is $9$."
     },
     {
       "id": "math-yr7-sequences-seq-f3",
       "term": "Term-to-term rule",
-      "definition": "The rule that takes you from one term to the next.",
-      "example": "In 4, 7, 10, 13, the rule is 'add 3'."
+      "definition": "The instruction that takes you from one term to the next.",
+      "example": "In $4, 7, 10, 13$, the rule is 'add $3$'."
     },
     {
       "id": "math-yr7-sequences-seq-f4",
       "term": "Arithmetic sequence",
       "definition": "A sequence where the same amount is added or subtracted each time.",
-      "example": "10, 14, 18, 22 is arithmetic because you add 4 each time."
+      "example": "$10, 14, 18, 22$ is arithmetic because you add $4$ each time."
     },
     {
       "id": "math-yr7-sequences-seq-f5",
       "term": "Common difference",
-      "definition": "The number you add or subtract each time in an arithmetic sequence.",
-      "example": "In 5, 9, 13, 17, the common difference is 4."
+      "definition": "The fixed amount added or subtracted between consecutive terms in an arithmetic sequence.",
+      "example": "In $5, 9, 13, 17$, the common difference is $4$."
     },
     {
       "id": "math-yr7-sequences-seq-f6",
       "term": "Position-to-term rule",
-      "definition": "A rule that gives any term from its position number.",
-      "example": "For 4n + 1, the 5th term is 4 times 5 plus 1, which equals 21."
+      "definition": "A rule that gives any term directly from its position number.",
+      "example": "For $4n + 1$, the $5$th term is $4(5) + 1 = 21$."
     },
     {
       "id": "math-yr7-sequences-seq-f7",
       "term": "nth term",
-      "definition": "A way of writing the position-to-term rule using the letter n for the position.",
-      "example": "The nth term 2n + 3 gives the sequence 5, 7, 9, 11."
+      "definition": "A formula for the position-to-term rule using $n$ for the position number.",
+      "example": "The $n$th term $2n + 3$ gives the sequence $5, 7, 9, 11$."
     },
     {
       "id": "math-yr7-sequences-seq-f8",
       "term": "Continue a sequence",
       "definition": "Write more terms by following the same rule.",
-      "example": "Continuing 1, 4, 7, 10 gives 13, 16, 19."
+      "example": "Continuing $1, 4, 7, 10$ gives $13, 16, 19$."
+    },
+    {
+      "id": "math-yr7-sequences-seq-f9",
+      "term": "Square numbers",
+      "definition": "The sequence formed by squaring the natural numbers.",
+      "example": "$1, 4, 9, 16, 25, \\dots$ because $1^2, 2^2, 3^2, 4^2, 5^2$."
+    },
+    {
+      "id": "math-yr7-sequences-seq-f10",
+      "term": "Triangular numbers",
+      "definition": "The sequence formed by adding one more each time: $1, 1+2, 1+2+3, \\dots$.",
+      "example": "$1, 3, 6, 10, 15, \\dots$."
+    },
+    {
+      "id": "math-yr7-sequences-seq-f11",
+      "term": "Powers of 2",
+      "definition": "The sequence formed by multiplying by $2$ each time, or $2^n$.",
+      "example": "$2, 4, 8, 16, 32, \\dots$ because $2^1, 2^2, 2^3, 2^4, 2^5$."
+    },
+    {
+      "id": "math-yr7-sequences-seq-f12",
+      "term": "Visual pattern",
+      "definition": "A sequence shown with pictures, shapes, or dots that can be converted into a number sequence.",
+      "example": "A row of $1$, then $3$, then $5$ dots gives the odd-number sequence."
     }
   ],
   "questions": [
     {
       "id": "math-yr7-sequences-seq-q1",
-      "stem": "What is the next term in the sequence 3, 7, 11, 15, 19, ...?",
+      "stem": "What is the next term in the sequence $3, 7, 11, 15, 19, \\dots$?",
       "choices": [
         "20",
         "23",
@@ -92,11 +126,11 @@
         "24"
       ],
       "correctIndex": 1,
-      "explanation": "The rule is 'add 4' because 7 − 3 = 4, 11 − 7 = 4, and so on. Therefore, 19 + 4 = 23."
+      "explanation": "The rule is 'add $4$' because $7 - 3 = 4$, $11 - 7 = 4$, and so on. Therefore, $19 + 4 = 23$."
     },
     {
       "id": "math-yr7-sequences-seq-q2",
-      "stem": "Find the missing term in the sequence 6, 10, __, 18, 22.",
+      "stem": "Find the missing term in the sequence $6, 10, \\underline{\\quad}, 18, 22$.",
       "choices": [
         "12",
         "14",
@@ -104,127 +138,163 @@
         "15"
       ],
       "correctIndex": 1,
-      "explanation": "Each term is 4 more than the previous term, since 10 − 6 = 4 and 22 − 18 = 4. So 10 + 4 = 14, and checking, 14 + 4 = 18."
+      "explanation": "Each term is $4$ more than the previous term, since $10 - 6 = 4$ and $22 - 18 = 4$. So $10 + 4 = 14$, and checking, $14 + 4 = 18$."
     },
     {
       "id": "math-yr7-sequences-seq-q3",
-      "stem": "What is the term-to-term rule for the sequence 50, 45, 40, 35, 30, ...?",
+      "stem": "What is the term-to-term rule for the sequence $50, 45, 40, 35, 30, \\dots$?",
       "choices": [
-        "Add 5",
-        "Subtract 10",
-        "Subtract 5",
-        "Divide by 5"
+        "Add $5$",
+        "Subtract $10$",
+        "Subtract $5$",
+        "Divide by $5$"
       ],
       "correctIndex": 2,
-      "explanation": "Each term is 5 less than the one before it, because 50 − 45 = 5, 45 − 40 = 5, and so on. The rule is 'subtract 5'."
+      "explanation": "Each term is $5$ less than the one before it, because $50 - 45 = 5$, $45 - 40 = 5$, and so on. The rule is 'subtract $5$'."
     },
     {
       "id": "math-yr7-sequences-seq-q4",
-      "stem": "Which sequence follows the rule 'multiply by 2'?",
+      "stem": "Which sequence follows the rule 'multiply by $2$'?",
       "choices": [
-        "2, 4, 8, 16, 32",
-        "2, 4, 6, 8, 10",
-        "2, 3, 5, 8, 12",
-        "2, 5, 11, 23, 47"
+        "$2, 4, 8, 16, 32$",
+        "$2, 4, 6, 8, 10$",
+        "$2, 3, 5, 8, 12$",
+        "$2, 5, 11, 23, 47$"
       ],
       "correctIndex": 0,
-      "explanation": "In the sequence 2, 4, 8, 16, 32, each term is double the previous term: 2 times 2 = 4, 4 times 2 = 8, and so on. That is 'multiply by 2'."
+      "explanation": "In the sequence $2, 4, 8, 16, 32$, each term is double the previous term: $2 \\times 2 = 4$, $4 \\times 2 = 8$, and so on. That is 'multiply by $2$'."
     },
     {
       "id": "math-yr7-sequences-seq-q5",
-      "stem": "What are the next two terms in the sequence 1, 5, 9, 13, 17, ...?",
+      "stem": "What are the next two terms in the sequence $1, 5, 9, 13, 17, \\dots$?",
       "choices": [
-        "18, 19",
-        "21, 25",
-        "20, 23",
-        "22, 26"
+        "$18, 19$",
+        "$21, 25$",
+        "$20, 23$",
+        "$22, 26$"
       ],
       "correctIndex": 1,
-      "explanation": "The common difference is 4, since 5 − 1 = 4. Therefore, 17 + 4 = 21, and 21 + 4 = 25."
+      "explanation": "The common difference is $4$, since $5 - 1 = 4$. Therefore, $17 + 4 = 21$, and $21 + 4 = 25$."
     },
     {
       "id": "math-yr7-sequences-seq-q6",
-      "stem": "The nth term of a sequence is 5n + 1. What is the 6th term?",
+      "stem": "The $n$th term of a sequence is $5n + 1$. What is the $6$th term?",
       "choices": [
-        "30",
-        "31",
-        "26",
-        "36"
+        "$30$",
+        "$31$",
+        "$26$",
+        "$36$"
       ],
       "correctIndex": 1,
-      "explanation": "Replace n with 6 in the rule 5n + 1. First, 5 times 6 = 30, then add 1 to get 31."
+      "explanation": "Replace $n$ with $6$ in the rule $5n + 1$. First, $5 \\times 6 = 30$, then add $1$ to get $31$."
     },
     {
       "id": "math-yr7-sequences-seq-q7",
-      "stem": "What is the nth term rule for the sequence 4, 7, 10, 13, 16, ...?",
+      "stem": "What is the $n$th term rule for the sequence $4, 7, 10, 13, 16, \\dots$?",
       "choices": [
-        "3n + 1",
-        "4n",
-        "3n + 4",
-        "n + 3"
+        "$3n + 1$",
+        "$4n$",
+        "$3n + 4$",
+        "$n + 3$"
       ],
       "correctIndex": 0,
-      "explanation": "The common difference is 3, so start with 3n. When n = 1, 3n = 3, but the first term is 4, so add 1. The rule is 3n + 1."
+      "explanation": "The common difference is $3$, so start with $3n$. When $n = 1$, $3n = 3$, but the first term is $4$, so add $1$. The rule is $3n + 1$."
     },
     {
       "id": "math-yr7-sequences-seq-q8",
-      "stem": "Find the missing term in the sequence 24, 21, __, 15, 12.",
+      "stem": "Find the missing term in the sequence $24, 21, \\underline{\\quad}, 15, 12$.",
       "choices": [
-        "20",
-        "18",
-        "17",
-        "19"
+        "$20$",
+        "$18$",
+        "$17$",
+        "$19$"
       ],
       "correctIndex": 1,
-      "explanation": "The rule is 'subtract 3' because 24 − 21 = 3 and 15 − 12 = 3. So 21 − 3 = 18, and checking, 18 − 3 = 15."
+      "explanation": "The rule is 'subtract $3$' because $24 - 21 = 3$ and $15 - 12 = 3$. So $21 - 3 = 18$, and checking, $18 - 3 = 15$."
     },
     {
       "id": "math-yr7-sequences-seq-q9",
       "stem": "Which of these is an arithmetic sequence?",
       "choices": [
-        "1, 2, 4, 8, 16",
-        "3, 6, 9, 12, 15",
-        "2, 3, 5, 8, 13",
-        "1, 4, 9, 16, 25"
+        "$1, 2, 4, 8, 16$",
+        "$3, 6, 9, 12, 15$",
+        "$2, 3, 5, 8, 13$",
+        "$1, 4, 9, 16, 25$"
       ],
       "correctIndex": 1,
-      "explanation": "An arithmetic sequence has the same difference between each pair of terms. In 3, 6, 9, 12, 15, the difference is always 3, so it is arithmetic."
+      "explanation": "An arithmetic sequence has the same difference between each pair of terms. In $3, 6, 9, 12, 15$, the difference is always $3$, so it is arithmetic."
     },
     {
       "id": "math-yr7-sequences-seq-q10",
-      "stem": "A picture pattern has 1 dot, then 3 dots, then 5 dots, then 7 dots. How many dots are in the 5th picture?",
+      "stem": "A picture pattern has $1$ dot, then $3$ dots, then $5$ dots, then $7$ dots. How many dots are in the $5$th picture?",
       "choices": [
-        "8",
-        "9",
-        "10",
-        "11"
+        "$8$",
+        "$9$",
+        "$10$",
+        "$11$"
       ],
       "correctIndex": 1,
-      "explanation": "The number sequence is 1, 3, 5, 7. The rule is 'add 2', so the next term is 7 + 2 = 9."
+      "explanation": "The number sequence is $1, 3, 5, 7$. The rule is 'add $2$', so the next term is $7 + 2 = 9$."
     },
     {
       "id": "math-yr7-sequences-seq-q11",
-      "stem": "The nth term of a sequence is 4n − 2. What is the first term?",
+      "stem": "The $n$th term of a sequence is $4n - 2$. What is the first term?",
       "choices": [
-        "2",
-        "−2",
-        "6",
-        "4"
+        "$2$",
+        "$-2$",
+        "$6$",
+        "$4$"
       ],
       "correctIndex": 0,
-      "explanation": "The first term uses n = 1. Calculate 4 times 1 minus 2, which is 4 − 2 = 2."
+      "explanation": "The first term uses $n = 1$. Calculate $4 \\times 1 - 2$, which is $4 - 2 = 2$."
     },
     {
       "id": "math-yr7-sequences-seq-q12",
-      "stem": "What is the 7th term of the sequence that starts 2, 6, 10, 14, ...?",
+      "stem": "What is the $7$th term of the sequence that starts $2, 6, 10, 14, \\dots$?",
       "choices": [
-        "24",
-        "26",
-        "28",
-        "30"
+        "$24$",
+        "$26$",
+        "$28$",
+        "$30$"
       ],
       "correctIndex": 1,
-      "explanation": "The common difference is 4, so the nth term is 4n − 2. For the 7th term, calculate 4 times 7 minus 2, which is 28 − 2 = 26."
+      "explanation": "The common difference is $4$, so the $n$th term is $4n - 2$. For the $7$th term, calculate $4 \\times 7 - 2 = 28 - 2 = 26$."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q13",
+      "stem": "A theatre has rows of seats. Row $1$ has $14$ seats, Row $2$ has $18$ seats, Row $3$ has $22$ seats, and the pattern continues. How many seats are in Row $8$?",
+      "choices": [
+        "$40$",
+        "$42$",
+        "$44$",
+        "$46$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The sequence is $14, 18, 22, \\dots$ with common difference $4$. The $n$th term is $4n + 10$. Substituting $n = 8$ gives $4(8) + 10 = 32 + 10 = 44$."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q14",
+      "stem": "The $n$th term of a sequence is $3n + 7$. Which term equals $40$?",
+      "choices": [
+        "$10$",
+        "$11$",
+        "$12$",
+        "$13$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Set $3n + 7 = 40$. Subtract $7$ to get $3n = 33$, then divide by $3$ to get $n = 11$. So the $11$th term is $40$."
+    },
+    {
+      "id": "math-yr7-sequences-seq-q15",
+      "stem": "A pattern made from squares has $1$ square in Picture $1$, $5$ squares in Picture $2$, $9$ squares in Picture $3$, and $13$ squares in Picture $4$. How many squares are in Picture $7$?",
+      "choices": [
+        "$21$",
+        "$23$",
+        "$25$",
+        "$27$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The number sequence is $1, 5, 9, 13$, with common difference $4$. The $n$th term is $4n - 3$. For Picture $7$, $4(7) - 3 = 28 - 3 = 25$."
     }
   ]
 }

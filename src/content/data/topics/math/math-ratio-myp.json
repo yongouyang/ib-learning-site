@@ -8,111 +8,293 @@
     {
       "id": "math-ratio-myp-ratio-n1",
       "heading": "Simplifying Ratios",
-      "body": "A ratio compares quantities. Simplify by dividing all parts by their HCF. Example: 12:18 → HCF=6 → 2:3. To divide a quantity in a ratio, add the parts to find total shares, divide by total, then multiply each part."
+      "body": "A ratio compares two or more quantities. It shows the relative size of each part, not the actual amounts.\n\n📌 Definition\nA ratio of $a$ to $b$ is written $a:b$ or as the fraction $\\frac{a}{b}$. It is in simplest form when the highest common factor (HCF) of all terms is $1$.\n\n🔑 How it works\nTo simplify a ratio:\n1. Make sure all quantities are in the same units.\n2. Divide every term by their HCF.\n3. Write the final ratio using whole numbers only.\n\n💡 Worked Example 1 — Simplifying a two-part ratio\nSimplify $56:84$.\n\nThe HCF of $56$ and $84$ is $28$.\n$$56:84 = \\frac{56}{28}:\\frac{84}{28} = 2:3$$\n\n💡 Worked Example 2 — Same units first\nSimplify $750\\text{ g}:1.5\\text{ kg}$.\n\nFirst convert to grams: $1.5\\text{ kg} = 1500\\text{ g}$.\nThe ratio becomes $750:1500$. The HCF is $750$.\n$$750:1500 = 1:2$$\n\n⚠️ Common Mistake\nTrying to simplify before converting units. $750\\text{ g}:1.5\\text{ kg}$ is NOT $750:1.5$; the units must match first.\n\n✅ Tip\nIf the HCF is not obvious, simplify in stages: divide by $2$, then by $3$, etc., until no common factor remains."
     },
     {
       "id": "math-ratio-myp-ratio-n2",
-      "heading": "Direct and Inverse Proportion",
-      "body": "Direct proportion: y=kx (both increase together). Example: 5 pens cost £2.50 → 8 pens = (2.50÷5)×8 = £4.00. Inverse proportion: y=k/x (one increases as other decreases). Example: 4 workers take 6 days → 8 workers take 3 days."
+      "heading": "Dividing a Quantity in a Given Ratio",
+      "body": "When a total amount is shared in a given ratio, each part receives a fraction of the whole equal to its share of the total parts.\n\n📌 Definition\nIf a quantity $Q$ is divided in the ratio $a:b$, then:\n$$\\text{first share} = \\frac{a}{a+b} \\times Q, \\quad \\text{second share} = \\frac{b}{a+b} \\times Q$$\nFor three parts $a:b:c$, the denominator is $a+b+c$.\n\n🔑 Step-by-Step Method\n1. Add the parts of the ratio to find the total number of shares.\n2. Divide the quantity by the total shares to find the value of one share.\n3. Multiply each part of the ratio by the value of one share.\n\n💡 Worked Example 1 — Sharing money\nDivide £$450$ in the ratio $4:5$.\n\nTotal shares $= 4 + 5 = 9$.\nValue of one share $= 450 \\div 9 = 50$.\nFirst share $= 4 \\times 50 = 200$.\nSecond share $= 5 \\times 50 = 250$.\nSo the amounts are £$200$ and £$250$.\n\n💡 Worked Example 2 — Given one share, find the total\nThe ratio of red to blue sweets is $3:7$. If there are $42$ blue sweets, how many sweets are there altogether?\n\nBlue sweets represent $7$ shares, so $7$ shares $= 42$.\nOne share $= 42 \\div 7 = 6$.\nTotal shares $= 3 + 7 = 10$.\nTotal sweets $= 10 \\times 6 = 60$.\n\n📎 Key Points to Remember\n• The order of the ratio matters: $4:5$ is not the same as $5:4$.\n• Always check that the shares add up to the original total.\n• If a ratio is not in simplest form, simplify it first or work with the given numbers — both methods give the same final shares."
     },
     {
       "id": "math-ratio-myp-ratio-n3",
-      "heading": "Map Scales and Best Value",
-      "body": "Map scale 1:50000 means 1cm = 500m. Best value: compare unit price (cost per gram or per item). Example: 400g for £1.60 = 0.4p/g; 600g for £2.10 = 0.35p/g → larger pack is better value."
+      "heading": "Equivalent Ratios and the Unitary Method",
+      "body": "Equivalent ratios describe the same relationship using different numbers. The unitary method uses this idea by first finding the value of one unit.\n\n📌 Definition\nTwo ratios are equivalent if one can be obtained from the other by multiplying or dividing every term by the same non-zero number.\n$$a:b = ka:kb \\quad \\text{for any } k \\neq 0$$\n\n🔑 The Unitary Method\n1. Find the value of one unit by division.\n2. Multiply by the number of units you need.\n\n💡 Worked Example 1 — Cost scaling\nIf $7$ notebooks cost £$22.40$, how much do $11$ notebooks cost?\n\nCost of one notebook $= 22.40 \\div 7 = 3.20$.\nCost of $11$ notebooks $= 11 \\times 3.20 = 35.20$.\nSo $11$ notebooks cost £$35.20$.\n\n💡 Worked Example 2 — Ratio from a total\nA fruit drink is made by mixing orange juice and water in the ratio $2:5$. How much orange juice is needed for $3.5$ litres of drink?\n\nTotal parts $= 2 + 5 = 7$.\nOne part $= 3.5 \\div 7 = 0.5$ litres.\nOrange juice $= 2 \\times 0.5 = 1$ litre.\n\n✅ Check\n$1$ litre of orange juice and $2.5$ litres of water give $3.5$ litres in total, and $1:2.5 = 2:5$ after multiplying by $2$. ✓\n\n⚠️ Common Misconception\nThinking that $2:5$ means orange juice is $\\frac{2}{5}$ of the drink. It is actually $\\frac{2}{7}$ of the drink because the total parts are $7$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-n4",
+      "heading": "Direct Proportion",
+      "body": "Two quantities are in direct proportion when they increase or decrease at the same rate. Their graph is a straight line through the origin.\n\n📌 Definition\n$y$ is directly proportional to $x$ if:\n$$y = kx \\quad \\text{or} \\quad \\frac{y}{x} = k$$\nwhere $k$ is the constant of proportionality.\n\n🔑 How it works\n• If $x$ doubles, $y$ doubles.\n• If $x$ triples, $y$ triples.\n• The ratio $\\frac{y}{x}$ is always the same.\n\n💡 Worked Example 1 — Finding the constant\n$y$ is directly proportional to $x$. When $x = 6$, $y = 15$. Find $y$ when $x = 14$.\n\nStep 1: Find $k$.\n$$k = \\frac{y}{x} = \\frac{15}{6} = 2.5$$\n\nStep 2: Write the equation.\n$$y = 2.5x$$\n\nStep 3: Substitute $x = 14$.\n$$y = 2.5 \\times 14 = 35$$\n\n💡 Worked Example 2 — Real-world direct proportion\nA car travels $240$ km on $20$ litres of fuel. How far will it travel on $35$ litres at the same rate?\n\nDistance per litre $= 240 \\div 20 = 12$ km/litre.\nDistance on $35$ litres $= 12 \\times 35 = 420$ km.\n\n📎 Key Points to Remember\n• Direct proportion always passes through $(0,0)$.\n• Use $k$ to write a formula and then substitute.\n• The symbol $\\propto$ means \"is proportional to\": $y \\propto x$.\n\n⚠️ Common Mistake\nUsing addition instead of multiplication. If $x$ increases by a factor, multiply $y$ by the same factor; do not add the same amount."
+    },
+    {
+      "id": "math-ratio-myp-ratio-n5",
+      "heading": "Inverse Proportion",
+      "body": "Two quantities are in inverse proportion when one increases as the other decreases. Their product is constant.\n\n📌 Definition\n$y$ is inversely proportional to $x$ if:\n$$y = \\frac{k}{x} \\quad \\text{or} \\quad xy = k$$\nwhere $k$ is the constant of proportionality.\n\n🔑 How it works\n• If $x$ doubles, $y$ halves.\n• If $x$ triples, $y$ becomes one third.\n• The product $xy$ never changes.\n\n💡 Worked Example 1 — Finding the constant\n$y$ is inversely proportional to $x$. When $x = 8$, $y = 6$. Find $y$ when $x = 12$.\n\nStep 1: Find $k$.\n$$k = xy = 8 \\times 6 = 48$$\n\nStep 2: Write the equation.\n$$y = \\frac{48}{x}$$\n\nStep 3: Substitute $x = 12$.\n$$y = \\frac{48}{12} = 4$$\n\n💡 Worked Example 2 — Workers and time\n$5$ workers take $12$ days to build a wall. How long would $8$ workers take at the same rate?\n\nTotal work $= 5 \\times 12 = 60$ worker-days.\nTime for $8$ workers $= 60 \\div 8 = 7.5$ days.\n\n📎 Key Points to Remember\n• Inverse proportion gives a curved graph that never touches either axis.\n• Always check whether the product $xy$ stays constant.\n• Inverse proportion appears in speed–time problems for a fixed distance: $s \\times t = d$.\n\n⚠️ Common Misconception\nTreating inverse proportion like direct proportion. If the number of workers increases, the time decreases, so dividing is correct, not multiplying."
+    },
+    {
+      "id": "math-ratio-myp-ratio-n6",
+      "heading": "Map Scales and Scale Factors",
+      "body": "A scale compares a measurement on a map, plan, or model to the corresponding real measurement. Scales are usually written as ratios.\n\n📌 Definition\nA scale of $1:n$ means $1$ unit on the map represents $n$ units in reality.\n$$\\text{real distance} = \\text{map distance} \\times n$$\n\n🔑 Length, Area, and Volume Scale Factors\nFor a scale ratio $1:n$:\n• Length scale factor $= n$\n• Area scale factor $= n^2$\n• Volume scale factor $= n^3$\n\n💡 Worked Example 1 — Map distance to real distance\nA map has scale $1:25\\,000$. Two towns are $8$ cm apart on the map. What is the real distance in km?\n\nReal distance $= 8 \\times 25\\,000 = 200\\,000$ cm.\nConvert to km: $200\\,000$ cm $= 2$ km.\n\n💡 Worked Example 2 — Scale model area\nA model car is built to a scale of $1:18$. The area of the model's windscreen is $12$ cm$^2$. What is the real windscreen area?\n\nArea scale factor $= 18^2 = 324$.\nReal area $= 12 \\times 324 = 3\\,888$ cm$^2$.\n\n✅ Check\n$3\\,888$ cm$^2 = 0.3888$ m$^2$, which is sensible for a car windscreen.\n\n⚠️ Common Mistake\nUsing the length scale factor for area or volume. Area scales by $n^2$ and volume by $n^3$, so never forget to square or cube the scale factor."
+    },
+    {
+      "id": "math-ratio-myp-ratio-n7",
+      "heading": "Best Value, Exchange Rates, and Mixed Ratio Problems",
+      "body": "Ratios and proportions appear everywhere in everyday decisions, from choosing the cheapest pack size to converting currencies.\n\n📌 Definition\nBest value means getting the most product for the least money. Compare unit prices:\n$$\\text{unit price} = \\frac{\\text{total cost}}{\\text{number of units or mass}}$$\n\n🔑 Exchange Rates\nAn exchange rate is a ratio between two currencies. To convert:\n$$\\text{amount in new currency} = \\text{amount in original currency} \\times \\text{exchange rate}$$\n\n💡 Worked Example 1 — Best buy\nA $400$ g bag of rice costs £$1.60$ and a $750$ g bag costs £$2.70$. Which is better value?\n\nSmall bag unit price: $1.60 \\div 400 = £0.0040$ per gram.\nLarge bag unit price: $2.70 \\div 750 = £0.0036$ per gram.\nThe $750$ g bag is better value because each gram costs less.\n\n💡 Worked Example 2 — Currency conversion\nThe exchange rate is £$1 = \\$1.25$. Convert £$80$ to dollars.\n\n$$80 \\times 1.25 = 100$$\nSo £$80 = \\$100$.\n\n💡 Worked Example 3 — Recipe scaling\nA recipe for $6$ people uses $300$ g of flour. How much flour is needed for $10$ people?\n\nFlour per person $= 300 \\div 6 = 50$ g.\nFor $10$ people: $10 \\times 50 = 500$ g.\n\n📎 Key Points to Remember\n• Always use the same units when comparing ratios or unit prices.\n• Write the exchange rate as a ratio, e.g. $1:1.25$, and multiply or divide consistently.\n• Scaling recipes, maps, and models all use the same proportional reasoning.\n\n✅ Tip\nA quick sanity check: the larger pack is not always cheaper per unit. Always calculate the unit price before deciding."
     }
   ],
   "flashcards": [
     {
       "id": "math-ratio-myp-ratio-f1",
       "term": "Ratio",
-      "definition": "Comparison of quantities using colon notation.",
-      "example": "15:20 simplifies to 3:4."
+      "definition": "A comparison of two or more quantities using colon notation.",
+      "example": "$24:36$ simplifies to $2:3$."
     },
     {
       "id": "math-ratio-myp-ratio-f2",
-      "term": "Direct proportion",
-      "definition": "y=kx; quantities increase together.",
-      "example": "3m of fabric costs £12; 7m costs £28."
+      "term": "Simplest form of a ratio",
+      "definition": "A ratio whose terms have no common factor other than $1$.",
+      "example": "$14:21$ simplifies to $2:3$."
     },
     {
       "id": "math-ratio-myp-ratio-f3",
-      "term": "Inverse proportion",
-      "definition": "y=k/x; one increases as other decreases.",
-      "example": "6 workers→8 days; 12 workers→4 days."
+      "term": "Equivalent ratios",
+      "definition": "Ratios that represent the same relationship after multiplying or dividing every term by the same non-zero number.",
+      "example": "$3:5 = 12:20$."
     },
     {
       "id": "math-ratio-myp-ratio-f4",
-      "term": "Unitary method",
-      "definition": "Find the value of one unit first, then scale.",
-      "example": "5 tickets £35 → 1 ticket £7 → 9 tickets £63."
+      "term": "Dividing in a ratio",
+      "definition": "Splitting a total quantity into shares according to the parts of the ratio.",
+      "example": "£$180$ in the ratio $2:7$ gives £$40$ and £$140$."
     },
     {
       "id": "math-ratio-myp-ratio-f5",
+      "term": "Unitary method",
+      "definition": "Finding the value of one unit first, then scaling to any number of units.",
+      "example": "$5$ tickets cost £$60$, so $1$ ticket costs £$12$ and $8$ tickets cost £$96$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-f6",
+      "term": "Direct proportion",
+      "definition": "Two quantities increase or decrease together at a constant rate; $y = kx$.",
+      "example": "If $y = 4x$, then when $x = 5$, $y = 20$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-f7",
+      "term": "Constant of proportionality",
+      "definition": "The fixed value $k$ that links two proportional quantities.",
+      "example": "$y \\propto x$ and $x = 3$, $y = 18$ gives $k = 6$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-f8",
+      "term": "Inverse proportion",
+      "definition": "One quantity increases as the other decreases; their product is constant, $xy = k$ or $y = \\frac{k}{x}$.",
+      "example": "$y \\propto \\frac{1}{x}$, $x = 4$, $y = 9$ gives $k = 36$; when $x = 12$, $y = 3$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-f9",
       "term": "Map scale",
-      "definition": "Ratio relating map distance to real-world distance.",
-      "example": "1:25000 → 4cm on map = 1km real."
+      "definition": "A ratio comparing a distance on a map to the corresponding real-world distance.",
+      "example": "$1:50\\,000$ means $2$ cm on the map represents $1$ km in reality."
+    },
+    {
+      "id": "math-ratio-myp-ratio-f10",
+      "term": "Area scale factor",
+      "definition": "For a scale $1:n$, area scales by $n^2$.",
+      "example": "A model scale of $1:10$ gives an area scale factor of $100$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-f11",
+      "term": "Best value",
+      "definition": "The option with the lowest cost per unit of measurement.",
+      "example": "$500$ g for £$2$ is £$0.004$/g; $750$ g for £$2.70$ is £$0.0036$/g, so the $750$ g pack is better value."
+    },
+    {
+      "id": "math-ratio-myp-ratio-f12",
+      "term": "Exchange rate",
+      "definition": "A ratio that converts an amount from one currency to another.",
+      "example": "£$1 = \\$1.25$, so £$40 = \\$50$."
     }
   ],
   "questions": [
     {
       "id": "math-ratio-myp-ratio-q1",
-      "stem": "Simplify 36:48.",
+      "stem": "Simplify $72:90$.",
       "choices": [
-        "9:12",
-        "4:3",
-        "3:4",
-        "6:8"
+        "8:10",
+        "7:9",
+        "4:5",
+        "6:7"
       ],
       "correctIndex": 2,
-      "explanation": "HCF=12. 36÷12=3, 48÷12=4 → 3:4."
+      "explanation": "The HCF of $72$ and $90$ is $18$. Dividing both terms by $18$ gives $4:5$."
     },
     {
       "id": "math-ratio-myp-ratio-q2",
-      "stem": "Divide £120 in ratio 2:3.",
+      "stem": "Divide £$168$ in the ratio $3:4$.",
       "choices": [
-        "£48, £72",
-        "£40, £80",
-        "£60, £60",
-        "£24, £96"
+        "£63 and £105",
+        "£56 and £112",
+        "£72 and £96",
+        "£48 and £120"
       ],
-      "correctIndex": 0,
-      "explanation": "5 shares, £24 per share: 2×£24=£48, 3×£24=£72."
+      "correctIndex": 2,
+      "explanation": "There are $3 + 4 = 7$ shares, so one share is £$168 \\div 7 = £24$. The shares are $3 \\times 24 = £72$ and $4 \\times 24 = £96$."
     },
     {
       "id": "math-ratio-myp-ratio-q3",
-      "stem": "8 pens cost £5.60. How much for 5 pens?",
+      "stem": "If $9$ books cost £$54$, how much do $13$ books cost?",
       "choices": [
-        "£3.00",
-        "£3.50",
-        "£4.00",
-        "£2.80"
+        "£72",
+        "£78",
+        "£84",
+        "£90"
       ],
       "correctIndex": 1,
-      "explanation": "£5.60÷8=£0.70 per pen. 5×£0.70=£3.50."
+      "explanation": "One book costs £$54 \\div 9 = £6$. Therefore $13$ books cost $13 \\times 6 = £78$."
     },
     {
       "id": "math-ratio-myp-ratio-q4",
-      "stem": "y∝x; x=4, y=20. Find y when x=7.",
+      "stem": "A recipe for $4$ people needs $600$ g of pasta. How much pasta is needed for $9$ people?",
       "choices": [
-        "28",
-        "35",
-        "42",
-        "56"
+        "1200 g",
+        "1350 g",
+        "1500 g",
+        "1600 g"
       ],
       "correctIndex": 1,
-      "explanation": "k=5; y=5×7=35."
+      "explanation": "Pasta per person is $600 \\div 4 = 150$ g. For $9$ people, $9 \\times 150 = 1350$ g."
     },
     {
       "id": "math-ratio-myp-ratio-q5",
-      "stem": "y∝1/x; x=3, y=12. Find y when x=9.",
+      "stem": "$y$ is directly proportional to $x$. When $x = 8$, $y = 28$. Find $y$ when $x = 14$.",
       "choices": [
-        "36",
-        "6",
-        "4",
-        "2"
+        "42",
+        "49",
+        "56",
+        "63"
+      ],
+      "correctIndex": 1,
+      "explanation": "$k = y \\div x = 28 \\div 8 = 3.5$. Then $y = 3.5 \\times 14 = 49$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-q6",
+      "stem": "$y$ is inversely proportional to $x$. When $x = 5$, $y = 16$. Find $y$ when $x = 10$.",
+      "choices": [
+        "32",
+        "16",
+        "8",
+        "4"
       ],
       "correctIndex": 2,
-      "explanation": "k=36; y=36÷9=4."
+      "explanation": "$k = xy = 5 \\times 16 = 80$. When $x = 10$, $y = 80 \\div 10 = 8$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-q7",
+      "stem": "A map has scale $1:40\\,000$. A road is $6$ cm long on the map. What is the real distance in km?",
+      "choices": [
+        "0.24 km",
+        "2.4 km",
+        "24 km",
+        "240 km"
+      ],
+      "correctIndex": 1,
+      "explanation": "Real distance $= 6 \\times 40\\,000 = 240\\,000$ cm. Converting to km gives $240\\,000 \\div 100\\,000 = 2.4$ km."
+    },
+    {
+      "id": "math-ratio-myp-ratio-q8",
+      "stem": "A model boat is built to a scale of $1:25$. The real deck area is $1250$ m$^2$. What is the model deck area in m$^2$?",
+      "choices": [
+        "0.5",
+        "2",
+        "5",
+        "25"
+      ],
+      "correctIndex": 1,
+      "explanation": "Area scale factor is $25^2 = 625$. Model area $= 1250 \\div 625 = 2$ m$^2$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-q9",
+      "stem": "Which is better value: $300$ g for £$1.80$ or $500$ g for £$2.70$?",
+      "choices": [
+        "300 g because the total cost is lower",
+        "500 g because the price per gram is lower",
+        "They are the same value",
+        "You cannot tell without more information"
+      ],
+      "correctIndex": 1,
+      "explanation": "Unit prices are £$1.80 \\div 300 = £0.006$/g and £$2.70 \\div 500 = £0.0054$/g. The $500$ g pack is cheaper per gram."
+    },
+    {
+      "id": "math-ratio-myp-ratio-q10",
+      "stem": "The ratio of boys to girls in a club is $5:6$. If there are $45$ boys, how many girls are there?",
+      "choices": [
+        "36",
+        "48",
+        "54",
+        "60"
+      ],
+      "correctIndex": 2,
+      "explanation": "$5$ shares represent $45$ boys, so one share is $45 \\div 5 = 9$. Girls are $6 \\times 9 = 54$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-q11",
+      "stem": "The exchange rate is £$1 = \\$1.28$. Convert £$120$ to dollars.",
+      "choices": [
+        "134.40 dollars",
+        "144.00 dollars",
+        "153.60 dollars",
+        "156.00 dollars"
+      ],
+      "correctIndex": 2,
+      "explanation": "$120 \\times 1.28 = 153.60$, so £$120 = \\$153.60$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-q12",
+      "stem": "Two numbers are in the ratio $7:3$ and their difference is $36$. Find the larger number.",
+      "choices": [
+        "42",
+        "49",
+        "56",
+        "63"
+      ],
+      "correctIndex": 3,
+      "explanation": "The difference between the parts is $7 - 3 = 4$ shares, so $4$ shares $= 36$ and one share $= 9$. The larger number is $7 \\times 9 = 63$."
+    },
+    {
+      "id": "math-ratio-myp-ratio-q13",
+      "stem": "A car uses $18$ litres of petrol for $270$ km. How many litres are needed for $450$ km at the same rate?",
+      "choices": [
+        "24",
+        "27",
+        "30",
+        "33"
+      ],
+      "correctIndex": 2,
+      "explanation": "Litres per km $= 18 \\div 270 = \\frac{1}{15}$. For $450$ km, $450 \\times \\frac{1}{15} = 30$ litres."
+    },
+    {
+      "id": "math-ratio-myp-ratio-q14",
+      "stem": "A factory order is completed by $6$ machines in $8$ hours. How long would $4$ machines take, assuming inverse proportion?",
+      "choices": [
+        "10 hours",
+        "12 hours",
+        "16 hours",
+        "18 hours"
+      ],
+      "correctIndex": 1,
+      "explanation": "Total machine-hours $= 6 \\times 8 = 48$. With $4$ machines, time $= 48 \\div 4 = 12$ hours."
+    },
+    {
+      "id": "math-ratio-myp-ratio-q15",
+      "stem": "A paint mixture uses blue and yellow in the ratio $2:5$. A second batch uses $3$ times as much blue as the first batch. If the first batch contained $700$ ml of yellow, how much yellow is needed for the second batch?",
+      "choices": [
+        "1400 ml",
+        "1750 ml",
+        "2100 ml",
+        "2450 ml"
+      ],
+      "correctIndex": 2,
+      "explanation": "First batch: $5$ shares $= 700$ ml, so one share is $140$ ml and blue is $2 \\times 140 = 280$ ml. Second batch blue $= 3 \\times 280 = 840$ ml. Since blue is $2$ shares, one share is $420$ ml, so yellow is $5 \\times 420 = 2100$ ml."
     }
   ]
 }

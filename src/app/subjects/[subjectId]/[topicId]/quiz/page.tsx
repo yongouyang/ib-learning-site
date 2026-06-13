@@ -13,7 +13,7 @@ export default function QuizPage() {
   const topic = getTopic(subjectId, topicId);
   const { recordAttempt } = useProgress();
 
-  if (!topic) return <div className="p-6 text-center text-gray-500">Topic not found.</div>;
+  if (!topic) return <div className="p-6 text-center text-gray-500 dark:text-gray-400">Topic not found.</div>;
 
   return (
     <QuizGame

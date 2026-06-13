@@ -8,27 +8,37 @@
     {
       "id": "math-yr7-percentages-pct-n1",
       "heading": "What is a Percentage?",
-      "body": "Percentage means 'out of 100'. The symbol % stands for 'per cent', which means 'for every hundred'. So 50% means 50 out of 100, or one half. 100% means the whole amount, and 0% means none of it. Percentages can be written as fractions with denominator 100: 25% = 25/100 = 1/4."
+      "body": "A percentage is a way of writing a number as parts per hundred. The symbol % means 'per cent', or 'out of 100'. So $50\\%$ means $50$ out of $100$, which is exactly one half.\n\n📌 Definition\nA percentage is a number expressed as a fraction of 100, using the symbol %.\n\n🔑 Key Concept\nPercentages, fractions and decimals are different ways of describing the same value. Because $100\\%$ represents the whole amount, every percentage can be rewritten as a fraction with denominator $100$ and as a decimal by dividing by $100$.\n\n💡 Worked Example\nWrite $40\\%$ as a fraction and as a decimal.\n\nAs a fraction: $40\\% = \\frac{40}{100} = \\frac{2}{5}$\n\nAs a decimal: $40\\% = 40 \\div 100 = 0.40$\n\n📎 Key Points to Remember\n• $100\\%$ is the whole; $0\\%$ is nothing.\n• To convert a percentage to a decimal, divide by $100$.\n• To convert a percentage to a fraction, write it over $100$ and simplify.\n\n✅ Check\n$75\\% = \\frac{75}{100} = \\frac{3}{4} = 0.75$."
     },
     {
       "id": "math-yr7-percentages-pct-n2",
-      "heading": "Percentage of an Amount (Non-Calculator Methods)",
-      "body": "Break the percentage into easy pieces. To find 10% of an amount, divide by 10. To find 50%, divide by 2. To find 25%, divide by 4. To find 1%, divide by 100. Build other percentages from these. Example: find 30% of 80. 10% of 80 = 8, so 30% = 3 × 8 = 24. Example: find 15% of 60. 10% = 6 and 5% = 3, so 15% = 6 + 3 = 9."
+      "heading": "Converting Between Percentages, Fractions and Decimals",
+      "body": "📌 Definition\nConverting means changing the form of a number without changing its value.\n\n🔑 How it works\nUse these three facts:\n1. Percentage to decimal: divide by $100$.\n2. Decimal to percentage: multiply by $100$.\n3. Fraction to percentage: first write the fraction as a decimal, then multiply by $100$.\n\n💡 Worked Example 1 — Percentage to decimal\nWrite $6\\%$ as a decimal.\n\n$6\\% = 6 \\div 100 = 0.06$\n\n💡 Worked Example 2 — Decimal to percentage\nWrite $0.35$ as a percentage.\n\n$0.35 \\times 100 = 35\\%$\n\n💡 Worked Example 3 — Fraction to percentage\nWrite $\\frac{3}{8}$ as a percentage.\n\n$\\frac{3}{8} = 3 \\div 8 = 0.375$\n\n$0.375 \\times 100 = 37.5\\%$\n\n⚠️ Common Mistake\nDo not drop the % sign and forget to multiply or divide by $100$. For example, $0.08$ is $8\\%$, not $80\\%$, and $8\\%$ is $0.08$, not $0.8$.\n\n✅ Tip\nWhen converting a percentage to a decimal, move the digits two places to the right: $12\\% \\to 0.12$."
     },
     {
       "id": "math-yr7-percentages-pct-n3",
-      "heading": "Percentage Increase and Decrease",
-      "body": "To increase by a percentage, find the percentage of the amount and add it on. To decrease, find the percentage and subtract it. Example: increase 40 by 20%. 20% of 40 = 8, so new amount = 40 + 8 = 48. Example: decrease 90 by 10%. 10% of 90 = 9, so new amount = 90 − 9 = 81. Common mistake: do not just write the percentage; you must apply it to the original amount."
+      "heading": "Finding a Percentage of an Amount",
+      "body": "📌 Definition\n'Find $p\\%$ of an amount' means calculate $\\frac{p}{100} \\times \\text{amount}$.\n\n🔑 Key Concept\nBreak the percentage into friendly building blocks: $1\\%$, $10\\%$, $25\\%$, $50\\%$ and $75\\%$. Then add or subtract pieces.\n\n💡 Worked Example 1 — Building from 10%\nFind $30\\%$ of $120$.\n\n$10\\%$ of $120 = 12$\n\n$30\\% = 3 \\times 10\\% = 3 \\times 12 = 36$\n\n💡 Worked Example 2 — Combining percentages\nFind $15\\%$ of $80$.\n\n$10\\%$ of $80 = 8$\n\n$5\\%$ of $80 = 4$ (half of $10\\%$)\n\n$15\\% = 10\\% + 5\\% = 8 + 4 = 12$\n\n💡 Worked Example 3 — Using 1%\nFind $3\\%$ of $250$.\n\n$1\\%$ of $250 = 2.5$\n\n$3\\% = 3 \\times 2.5 = 7.5$\n\n📎 Key Points to Remember\n• $50\\% = \\frac{1}{2}$, $25\\% = \\frac{1}{4}$, $75\\% = \\frac{3}{4}$, $10\\% = \\frac{1}{10}$.\n• To find $5\\%$, find $10\\%$ and halve it.\n• To find $1\\%$, divide the amount by $100$.\n\n✅ Check\n$20\\%$ of $90 = 18$ because $10\\% = 9$ and $20\\% = 18$."
     },
     {
       "id": "math-yr7-percentages-pct-n4",
-      "heading": "One Number as a Percentage of Another",
-      "body": "Write the first number as a fraction of the second, then multiply by 100. Formula: (part ÷ whole) × 100. Example: what is 12 out of 40 as a percentage? 12/40 = 0.3, then 0.3 × 100 = 30%. Make sure the denominator is the total amount you are comparing to, not the other way round. Example: if a test has 25 marks and you score 22, your percentage is 22/25 × 100 = 88%."
+      "heading": "The Multiplier Method",
+      "body": "📌 Definition\nA multiplier is a single number you can multiply by the original amount to find a percentage of it.\n\n🔑 How it works\nTo find $p\\%$ of an amount, use the multiplier $\\frac{p}{100}$.\n\n$$\\text{percentage of amount} = \\text{amount} \\times \\frac{p}{100}$$\n\n💡 Worked Example 1\nFind $24\\%$ of $150$.\n\n$24\\% = \\frac{24}{100} = 0.24$\n\n$150 \\times 0.24 = 36$\n\n💡 Worked Example 2\nFind $7.5\\%$ of $320$.\n\n$7.5\\% = 0.075$\n\n$320 \\times 0.075 = 24$\n\n⚠️ Common Mistake\nUsing $24$ instead of $0.24$ as the multiplier. Remember that $24\\%$ is less than one whole, so the multiplier must be smaller than $1$.\n\n📎 Key Points to Remember\n• Convert the percentage to a decimal first.\n• The multiplier method is especially useful for percentages that are not easy to build from $10\\%$ and $1\\%$, such as $17\\%$ or $3.5\\%$.\n• You can use a calculator for the final multiplication.\n\n✅ Tip\nIf your answer is larger than the original amount, check — you are finding a percentage less than $100\\%$, so the result should be smaller."
     },
     {
       "id": "math-yr7-percentages-pct-n5",
+      "heading": "Percentage Increase and Decrease",
+      "body": "📌 Definition\nA percentage increase makes an amount larger; a percentage decrease makes it smaller.\n\n🔑 Key Concept\nThere are two ways to find the new amount:\n1. Find the percentage of the original amount, then add (increase) or subtract (decrease).\n2. Use a single multiplier:\n   - Increase by $p\\%$: multiply by $1 + \\frac{p}{100}$\n   - Decrease by $p\\%$: multiply by $1 - \\frac{p}{100}$\n\n💡 Worked Example 1 — Increase\nIncrease $60$ by $25\\%$.\n\nMethod 1: $25\\%$ of $60 = 15$, so new amount $= 60 + 15 = 75$.\n\nMethod 2: multiplier $= 1 + 0.25 = 1.25$, so $60 \\times 1.25 = 75$.\n\n💡 Worked Example 2 — Decrease\nDecrease $90$ by $20\\%$.\n\nMethod 1: $20\\%$ of $90 = 18$, so new amount $= 90 - 18 = 72$.\n\nMethod 2: multiplier $= 1 - 0.20 = 0.80$, so $90 \\times 0.80 = 72$.\n\n⚠️ Common Misconception\nA $20\\%$ decrease followed by a $20\\%$ increase does NOT return you to the original amount. The second increase is calculated on a smaller number. Example: $100 \\to 80$ (decrease $20\\%$) $\\to 96$ (increase $20\\%$ of $80$).\n\n📎 Key Points to Remember\n• Increasing by $p\\%$ uses multiplier $1 + \\frac{p}{100}$.\n• Decreasing by $p\\%$ uses multiplier $1 - \\frac{p}{100}$.\n• Always apply the percentage to the original amount for a single change.\n\n✅ Check\nIncrease $40$ by $10\\%$: $40 \\times 1.10 = 44$. Decrease $40$ by $10\\%$: $40 \\times 0.90 = 36$."
+    },
+    {
+      "id": "math-yr7-percentages-pct-n6",
+      "heading": "Expressing One Quantity as a Percentage of Another",
+      "body": "📌 Definition\nThis tells you how large a part is compared to the whole, using a percentage.\n\n🔑 Key Concept\nUse the formula:\n\n$$\\text{percentage} = \\frac{\\text{part}}{\\text{whole}} \\times 100$$\n\nMake sure both quantities are in the same units before you divide.\n\n💡 Worked Example 1 — Test score\nA student scores $17$ out of $25$. What percentage is this?\n\n$\\frac{17}{25} \\times 100 = 0.68 \\times 100 = 68\\%$\n\n💡 Worked Example 2 — With units\nWhat is $45$ minutes as a percentage of $2$ hours?\n\nFirst convert: $2$ hours $= 120$ minutes.\n\n$\\frac{45}{120} \\times 100 = 37.5\\%$\n\n⚠️ Common Mistake\nPutting the numbers the wrong way round. $\\frac{\\text{whole}}{\\text{part}}$ gives a value bigger than $100\\%$ and is not what you want.\n\n📎 Key Points to Remember\n• The 'part' is the amount you are describing.\n• The 'whole' is the total you are comparing to.\n• If the part is bigger than the whole, the percentage will be greater than $100\\%$.\n\n✅ Tip\nAlways ask: 'Is the answer reasonable?' A score of $17/25$ should be a bit more than $50\\%$ ($12.5/25$) and less than $100\\%$, so $68\\%$ looks right."
+    },
+    {
+      "id": "math-yr7-percentages-pct-n7",
       "heading": "Real-World Percentages",
-      "body": "Percentages appear everywhere: discounts in shops, tax, tips, test scores, interest, and surveys. A 15% discount means you pay 85% of the original price. A 20% tip means you pay 120% of the meal cost. Always check whether the question asks for the amount saved or the final price, and read carefully."
+      "body": "📌 Definition\nPercentages are used to describe discounts, tax, tips, profit, loss, interest, and survey results.\n\n🔑 Key Concept\nRead every question carefully to decide whether you need the amount of change or the final amount.\n\n💡 Worked Example 1 — Discount\nA pair of shoes costs £80 with a $25\\%$ discount. What is the sale price?\n\nDiscount amount: $25\\%$ of £80 = 20.\n\nSale price: £80 - 20 = 60.\n\nOr use multiplier: £80 \\times 0.75 = 60.\n\nThe sale price is £60.\n\n💡 Worked Example 2 — Tip\nA meal costs £50 and a $15\\%$ tip is added. How much is paid in total?\n\nTip: $15\\%$ of £50 = 7.50.\n\nTotal: £50 + 7.50 = 57.50.\n\nOr use multiplier: £50 \\times 1.15 = 57.50.\n\nThe total paid is £57.50.\n\n💡 Worked Example 3 — Percentage profit\nA shop buys a book for £12 and sells it for £15. What is the percentage profit?\n\n$\\text{profit} = 15 - 12 = 3$\n\n$\\frac{3}{12} \\times 100 = 25\\%$\n\n⚠️ Common Mistake\nForgetting to use the original cost (not the selling price) as the denominator when calculating profit or loss percentage.\n\n📎 Key Points to Remember\n• Discount: pay $100\\% - \\text{discount}\\%$ of the original price.\n• Tip or tax: pay $100\\% + \\text{percentage}\\%$ of the original price.\n• Percentage profit/loss $= \\frac{\\text{profit or loss}}{\\text{original cost}} \\times 100$.\n\n✅ Check\nA $10\\%$ discount on £200 means paying $90\\%$ of £200: £200 \\times 0.90 = 180."
     }
   ],
   "flashcards": [
@@ -36,7 +46,7 @@
       "id": "math-yr7-percentages-pct-f1",
       "term": "Percentage",
       "definition": "A number written as a fraction of 100, using the % symbol.",
-      "example": "47% means 47 out of 100."
+      "example": "35% means 35 out of 100."
     },
     {
       "id": "math-yr7-percentages-pct-f2",
@@ -46,185 +56,245 @@
     },
     {
       "id": "math-yr7-percentages-pct-f3",
-      "term": "10% of an amount",
-      "definition": "Divide the amount by 10.",
-      "example": "10% of 70 = 7."
+      "term": "Percentage to decimal",
+      "definition": "Divide the percentage by 100.",
+      "example": "8% = 0.08."
     },
     {
       "id": "math-yr7-percentages-pct-f4",
-      "term": "50% of an amount",
-      "definition": "Divide the amount by 2.",
-      "example": "50% of 60 = 30."
+      "term": "Decimal to percentage",
+      "definition": "Multiply the decimal by 100.",
+      "example": "0.65 = 65%."
     },
     {
       "id": "math-yr7-percentages-pct-f5",
-      "term": "25% of an amount",
-      "definition": "Divide the amount by 4.",
-      "example": "25% of 80 = 20."
+      "term": "Fraction to percentage",
+      "definition": "Convert the fraction to a decimal, then multiply by 100.",
+      "example": "3/5 = 0.6 = 60%."
     },
     {
       "id": "math-yr7-percentages-pct-f6",
-      "term": "Percentage increase",
-      "definition": "Find the percentage of the amount and add it on.",
-      "example": "Increase 50 by 10%: 50 + 5 = 55."
+      "term": "10% of an amount",
+      "definition": "Divide the amount by 10.",
+      "example": "10% of 90 = 9."
     },
     {
       "id": "math-yr7-percentages-pct-f7",
-      "term": "Percentage decrease",
-      "definition": "Find the percentage of the amount and subtract it.",
-      "example": "Decrease 80 by 25%: 80 − 20 = 60."
+      "term": "1% of an amount",
+      "definition": "Divide the amount by 100.",
+      "example": "1% of 400 = 4."
     },
     {
       "id": "math-yr7-percentages-pct-f8",
-      "term": "One number as a percentage of another",
+      "term": "Multiplier method",
+      "definition": "To find p% of an amount, multiply the amount by p/100.",
+      "example": "24% of 150 = 150 x 0.24 = 36."
+    },
+    {
+      "id": "math-yr7-percentages-pct-f9",
+      "term": "Percentage increase",
+      "definition": "Add p% of the original amount, or multiply by 1 + p/100.",
+      "example": "Increase 60 by 25%: 60 x 1.25 = 75."
+    },
+    {
+      "id": "math-yr7-percentages-pct-f10",
+      "term": "Percentage decrease",
+      "definition": "Subtract p% of the original amount, or multiply by 1 - p/100.",
+      "example": "Decrease 90 by 20%: 90 x 0.80 = 72."
+    },
+    {
+      "id": "math-yr7-percentages-pct-f11",
+      "term": "One quantity as a percentage of another",
       "definition": "Divide the part by the whole and multiply by 100.",
-      "example": "9 out of 20 = 9/20 × 100 = 45%."
+      "example": "17 out of 25 = (17/25) x 100 = 68%."
+    },
+    {
+      "id": "math-yr7-percentages-pct-f12",
+      "term": "Percentage profit",
+      "definition": "Profit divided by the original cost, multiplied by 100.",
+      "example": "Cost £12, sell £15: profit £3, so (3/12) x 100 = 25%."
     }
   ],
   "questions": [
     {
       "id": "math-yr7-percentages-pct-q1",
-      "stem": "What does 50% mean?",
+      "stem": "What does 25% mean?",
       "choices": [
-        "50 out of 100",
-        "50 times bigger",
-        "50 more than the whole",
-        "Half of one percent"
+        "25 out of 100",
+        "25 times the whole",
+        "25 more than the whole",
+        "1/25 of the whole"
       ],
       "correctIndex": 0,
-      "explanation": "Percentage means 'out of 100', so 50% means 50 out of 100, which is one half."
+      "explanation": "Percentage means 'out of 100', so 25% means 25 out of 100, which is one quarter."
     },
     {
       "id": "math-yr7-percentages-pct-q2",
-      "stem": "What is 10% of 120?",
+      "stem": "Write 0.08 as a percentage.",
       "choices": [
-        "12",
-        "10",
-        "120",
-        "1.2"
+        "8%",
+        "0.8%",
+        "80%",
+        "0.08%"
       ],
       "correctIndex": 0,
-      "explanation": "To find 10% of a number, divide by 10. 120 ÷ 10 = 12."
+      "explanation": "To convert a decimal to a percentage, multiply by 100: 0.08 x 100 = 8%."
     },
     {
       "id": "math-yr7-percentages-pct-q3",
-      "stem": "What is 25% of 80?",
-      "choices": [
-        "20",
-        "40",
-        "10",
-        "25"
-      ],
-      "correctIndex": 0,
-      "explanation": "25% is the same as one quarter, so divide 80 by 4 to get 20."
-    },
-    {
-      "id": "math-yr7-percentages-pct-q4",
-      "stem": "Find 30% of 50.",
-      "choices": [
-        "15",
-        "30",
-        "150",
-        "20"
-      ],
-      "correctIndex": 0,
-      "explanation": "10% of 50 is 5, so 30% is 3 times 5, which equals 15."
-    },
-    {
-      "id": "math-yr7-percentages-pct-q5",
-      "stem": "A jacket costs £80 and is reduced by 20%. How much is the discount?",
-      "choices": [
-        "£16",
-        "£20",
-        "£60",
-        "£8"
-      ],
-      "correctIndex": 0,
-      "explanation": "20% of £80 is found by 80 ÷ 5 = £16, so the discount is £16."
-    },
-    {
-      "id": "math-yr7-percentages-pct-q6",
-      "stem": "What is the sale price of the £80 jacket after a 20% discount?",
-      "choices": [
-        "£64",
-        "£60",
-        "£76",
-        "£72"
-      ],
-      "correctIndex": 0,
-      "explanation": "The discount is £16, so subtract that from £80 to get the sale price of £64."
-    },
-    {
-      "id": "math-yr7-percentages-pct-q7",
-      "stem": "Increase 70 by 10%.",
-      "choices": [
-        "77",
-        "80",
-        "63",
-        "71"
-      ],
-      "correctIndex": 0,
-      "explanation": "10% of 70 is 7, and adding this to 70 gives the increased value of 77."
-    },
-    {
-      "id": "math-yr7-percentages-pct-q8",
-      "stem": "Decrease 120 by 25%.",
-      "choices": [
-        "90",
-        "95",
-        "100",
-        "105"
-      ],
-      "correctIndex": 0,
-      "explanation": "25% of 120 is 30, so subtract 30 from 120 to get the decreased value of 90."
-    },
-    {
-      "id": "math-yr7-percentages-pct-q9",
-      "stem": "A student scores 18 out of 24 on a test. What is this as a percentage?",
+      "stem": "What is $\\frac{3}{4}$ as a percentage?",
       "choices": [
         "75%",
-        "72%",
-        "80%",
+        "25%",
+        "34%",
         "60%"
       ],
       "correctIndex": 0,
-      "explanation": "Divide 18 by 24 to get 0.75, then multiply by 100 to change it to 75%."
+      "explanation": "3 divided by 4 equals 0.75, and 0.75 x 100 = 75%."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q4",
+      "stem": "Find 10% of 180.",
+      "choices": [
+        "18",
+        "1.8",
+        "180",
+        "90"
+      ],
+      "correctIndex": 0,
+      "explanation": "To find 10% of a number, divide by 10: 180 / 10 = 18."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q5",
+      "stem": "Find 35% of 80.",
+      "choices": [
+        "28",
+        "24",
+        "32",
+        "36"
+      ],
+      "correctIndex": 0,
+      "explanation": "10% of 80 is 8, so 30% is 24 and 5% is 4. Adding gives 24 + 4 = 28."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q6",
+      "stem": "Find 7% of 300.",
+      "choices": [
+        "21",
+        "210",
+        "30",
+        "2.1"
+      ],
+      "correctIndex": 0,
+      "explanation": "1% of 300 is 3, so 7% is 7 x 3 = 21."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q7",
+      "stem": "Increase 50 by 18%.",
+      "choices": [
+        "59",
+        "58",
+        "68",
+        "60"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use the multiplier 1.18: 50 x 1.18 = 59. Alternatively, 18% of 50 is 9, and 50 + 9 = 59."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q8",
+      "stem": "Decrease 120 by 15%.",
+      "choices": [
+        "102",
+        "105",
+        "108",
+        "98"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use the multiplier 0.85: 120 x 0.85 = 102. Alternatively, 15% of 120 is 18, and 120 - 18 = 102."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q9",
+      "stem": "A student scores 21 out of 30 on a test. What is this as a percentage?",
+      "choices": [
+        "70%",
+        "75%",
+        "72%",
+        "80%"
+      ],
+      "correctIndex": 0,
+      "explanation": "Divide the part by the whole and multiply by 100: (21 / 30) x 100 = 0.7 x 100 = 70%."
     },
     {
       "id": "math-yr7-percentages-pct-q10",
-      "stem": "What is 12 out of 40 as a percentage?",
+      "stem": "What is 45 minutes as a percentage of 1 hour?",
       "choices": [
-        "30%",
-        "25%",
-        "40%",
-        "12%"
+        "75%",
+        "45%",
+        "60%",
+        "90%"
       ],
       "correctIndex": 0,
-      "explanation": "12 ÷ 40 = 0.3, and multiplying by 100 gives the percentage answer 30%."
+      "explanation": "1 hour is 60 minutes. (45 / 60) x 100 = 0.75 x 100 = 75%."
     },
     {
       "id": "math-yr7-percentages-pct-q11",
-      "stem": "A meal costs £40. A 10% tip is added. How much is paid in total?",
+      "stem": "After a 20% discount, a jacket costs £64. What was the original price?",
       "choices": [
-        "£44",
-        "£50",
-        "£42",
-        "£40"
+        "£80",
+        "£76.80",
+        "£60",
+        "£84"
       ],
       "correctIndex": 0,
-      "explanation": "10% of £40 is £4, so the total amount paid is £40 + £4 = £44."
+      "explanation": "The sale price is 80% of the original. Divide by 0.80: 64 / 0.80 = 80, so the original price was £80."
     },
     {
       "id": "math-yr7-percentages-pct-q12",
-      "stem": "Find 5% of 300.",
+      "stem": "A shop buys a radio for £40 and sells it for £52. What is the percentage profit?",
       "choices": [
-        "15",
-        "30",
-        "50",
-        "25"
+        "30%",
+        "25%",
+        "12%",
+        "20%"
       ],
       "correctIndex": 0,
-      "explanation": "10% of 300 is 30, so 5% is half of that, giving the final answer 15."
+      "explanation": "Profit = 52 - 40 = 12. Percentage profit = (12 / 40) x 100 = 0.3 x 100 = 30%."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q13",
+      "stem": "A meal costs £48. A 15% tip is added. How much is paid in total?",
+      "choices": [
+        "£55.20",
+        "£52",
+        "£60",
+        "£50"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use the multiplier 1.15: 48 x 1.15 = 55.20. The total paid is £55.20."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q14",
+      "stem": "In a survey of 80 students, 20 prefer maths. What percentage prefer maths?",
+      "choices": [
+        "25%",
+        "20%",
+        "30%",
+        "16%"
+      ],
+      "correctIndex": 0,
+      "explanation": "Divide the part by the whole and multiply by 100: (20 / 80) x 100 = 0.25 x 100 = 25%."
+    },
+    {
+      "id": "math-yr7-percentages-pct-q15",
+      "stem": "A population increases by 10% one year and then by 20% the next year. What is the total percentage increase from the start?",
+      "choices": [
+        "32%",
+        "30%",
+        "22%",
+        "2%"
+      ],
+      "correctIndex": 0,
+      "explanation": "The combined multiplier is 1.10 x 1.20 = 1.32, which is a 32% increase. You cannot simply add 10% and 20%."
     }
   ]
 }

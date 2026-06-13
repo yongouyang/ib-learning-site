@@ -7,253 +7,294 @@
   "notes": [
     {
       "id": "math-yr7-calculations-calc-n1",
-      "heading": "Column Addition and Subtraction",
-      "body": "When adding or subtracting large numbers, write them in columns with digits lined up by place value (ones under ones, tens under tens). Always start from the rightmost column. In addition, if a column sums to 10 or more, carry the extra digit to the next column. Example: 478 + 296 = 774 (8+6=14 carry 1; 7+9+1=17 carry 1; 4+2+1=7). In subtraction, if a digit is too small, borrow from the next column."
+      "heading": "Place Value and Column Addition",
+      "body": "Every digit in a number has a value that depends on its position. Understanding place value is the foundation for every written calculation.\n\n📌 Definition\nPlace value is the value of a digit based on where it sits in a number. In the number $3\\,462$:\n$$3\\,462 = 3\\,000 + 400 + 60 + 2$$\nThe $3$ is in the thousands column, the $4$ is in the hundreds column, the $6$ is in the tens column, and the $2$ is in the ones column.\n\n🔑 How Column Addition Works\n1. Write the numbers one above the other with digits lined up by place value.\n2. Start adding from the right-hand (ones) column.\n3. If a column totals $10$ or more, write down the ones digit and carry the tens digit to the next column on the left.\n4. Repeat for each column, remembering to include any carried digits.\n\n💡 Worked Example\nFind $478 + 296$.\n\nStep 1: Ones column\n$$8 + 6 = 14$$\nWrite $4$, carry $1$.\n\nStep 2: Tens column\n$$7 + 9 + 1 = 17$$\nWrite $7$, carry $1$.\n\nStep 3: Hundreds column\n$$4 + 2 + 1 = 7$$\n\nSo $478 + 296 = 774$.\n\n📎 Key Points to Remember\n• Always line up digits by place value, not by the left-hand edge.\n• A carry happens whenever a column sum is $10$ or more.\n• Addition is commutative: $a + b = b + a$.\n\n✅ Check\nEstimate first: $478 + 296 \\approx 500 + 300 = 800$. The exact answer $774$ is close to $800$, so it is sensible."
     },
     {
       "id": "math-yr7-calculations-calc-n2",
-      "heading": "Short and Long Multiplication",
-      "body": "Short multiplication: multiply a number by a single digit, carrying extras. Example: 347 × 6 = 2082. Long multiplication: for multiplying by two or more digits, write each partial product on a new row shifted left, then add them. Example: 34 × 27 = 34×7 + 34×20 = 238 + 680 = 918."
+      "heading": "Column Subtraction and Borrowing",
+      "body": "Subtraction finds the difference between two numbers. When the top digit in a column is smaller than the bottom digit, we borrow from the next column to the left.\n\n📌 Definition\nThe difference between two numbers is what you get when you subtract the smaller from the larger:\n$$\\text{difference} = \\text{larger number} - \\text{smaller number}$$\n\n🔑 How Borrowing Works\n1. Start from the right-hand (ones) column.\n2. If the top digit is too small, borrow $1$ from the next column on the left. That left digit decreases by $1$, and the current top digit increases by $10$.\n3. Subtract in each column.\n4. Sometimes you need to borrow across a zero — this is called exchanging through zero.\n\n💡 Worked Example\nFind $6\\,205 - 2\\,478$.\n\nStep 1: Ones column\n$5 - 8$ is not possible, so borrow from the tens column. The $0$ tens cannot lend, so we must exchange through zero from the hundreds column.\n\n$6\\,205$ becomes:\n• Hundreds: $2 \\to 1$\n• Tens: $0 \\to 10$, then lend $1$ to the ones column, so tens become $9$ and ones become $15$.\n\nNow subtract:\n• Ones: $15 - 8 = 7$\n• Tens: $9 - 7 = 2$\n• Hundreds: $1 - 4$ is not possible, so borrow from thousands:\n  - Thousands: $6 \\to 5$\n  - Hundreds: $1 \\to 11$\n• Hundreds: $11 - 4 = 7$\n• Thousands: $5 - 2 = 3$\n\nSo $6\\,205 - 2\\,478 = 3\\,727$.\n\n⚠️ Common Mistake\nForgetting to reduce the digit you borrowed from. If you borrow $1$ from the tens column, you must reduce that tens digit by $1$ before subtracting.\n\n✅ Tip\nYou can check a subtraction by adding the answer back to the number you subtracted:\n$$3\\,727 + 2\\,478 = 6\\,205 \\quad \\checkmark$$"
     },
     {
       "id": "math-yr7-calculations-calc-n3",
-      "heading": "Short and Long Division",
-      "body": "Short division (bus stop): divide by a single digit working left to right, carrying remainders. Example: 756 ÷ 3 = 252. Long division: for dividing by multi-digit numbers, use divide-multiply-subtract-bring down. Example: 672 ÷ 16 = 42."
+      "heading": "Short and Long Multiplication",
+      "body": "Multiplication is repeated addition. Written methods let us multiply large numbers quickly and accurately.\n\n📌 Definition\nThe product of two numbers is the result of multiplying them:\n$$\\text{product} = a \\times b$$\n\n🔑 Short Multiplication\nUse short multiplication when multiplying by a single digit.\n1. Multiply each digit of the top number by the single digit.\n2. Work from right to left.\n3. Carry any tens to the next column.\n\n💡 Worked Example 1 — Short multiplication\nFind $347 \\times 6$.\n\n• $6 \\times 7 = 42$: write $2$, carry $4$\n• $6 \\times 4 = 24$, plus $4$ carried $= 28$: write $8$, carry $2$\n• $6 \\times 3 = 18$, plus $2$ carried $= 20$\n\nSo $347 \\times 6 = 2\\,082$.\n\n🔑 Long Multiplication\nUse long multiplication when multiplying by a number with two or more digits.\n1. Multiply by the ones digit of the bottom number to get the first partial product.\n2. Multiply by the tens digit and write this second partial product one place to the left (or add a zero in the units column as a placeholder).\n3. Continue for each digit.\n4. Add the partial products together.\n\n💡 Worked Example 2 — Long multiplication\nFind $34 \\times 27$.\n\nFirst multiply by $7$:\n$$34 \\times 7 = 238$$\n\nThen multiply by $20$:\n$$34 \\times 20 = 680$$\n\nAdd the partial products:\n$$238 + 680 = 918$$\n\nSo $34 \\times 27 = 918$.\n\n⚠️ Common Misconception\nWhen multiplying by the tens digit, remember you are really multiplying by $20$, not by $2$. The second partial product must be shifted one place to the left.\n\n📎 Key Points to Remember\n• Multiplication is commutative: $a \\times b = b \\times a$.\n• Multiplication is associative: $(a \\times b) \\times c = a \\times (b \\times c)$.\n• Always estimate to check: $34 \\times 27 \\approx 30 \\times 30 = 900$, and $918$ is close."
     },
     {
       "id": "math-yr7-calculations-calc-n4",
-      "heading": "Order of Operations — BIDMAS",
-      "body": "BIDMAS: Brackets first, Indices (powers), Division & Multiplication (left to right), Addition & Subtraction (left to right). Example: 3 + 4 × 5 = 3 + 20 = 23, NOT 7 × 5 = 35. With brackets: (3 + 4) × 5 = 35."
+      "heading": "Short and Long Division",
+      "body": "Division splits a number into equal parts. The two main written methods are short division (the bus-stop method) and long division.\n\n📌 Definition\n$$\\text{quotient} = \\text{dividend} \\div \\text{divisor}$$\nWhen numbers do not divide exactly, the amount left over is called the remainder:\n$$\\text{dividend} = (\\text{divisor} \\times \\text{quotient}) + \\text{remainder}$$\n\n🔑 Short Division (Bus-Stop Method)\nUse short division when dividing by a single digit.\n1. Work from left to right.\n2. Divide each digit (including any carried remainder).\n3. Write the quotient digit above and carry any remainder to the next column.\n\n💡 Worked Example 1 — Short division\nFind $875 \\div 5$.\n\n• $8 \\div 5 = 1$ remainder $3$: write $1$, carry $3$\n• $37 \\div 5 = 7$ remainder $2$: write $7$, carry $2$\n• $25 \\div 5 = 5$: write $5$\n\nSo $875 \\div 5 = 175$.\n\n🔑 Long Division\nUse long division when dividing by a number with two or more digits. Follow the sequence: divide, multiply, subtract, bring down.\n\n💡 Worked Example 2 — Long division\nFind $672 \\div 16$.\n\nStep 1: $67 \\div 16 = 4$ (since $16 \\times 4 = 64$). Write $4$ above.\nStep 2: Subtract $64$ from $67$: $67 - 64 = 3$.\nStep 3: Bring down the $2$ to make $32$.\nStep 4: $32 \\div 16 = 2$. Write $2$ above.\n\nSo $672 \\div 16 = 42$.\n\n📎 Key Points to Remember\n• A remainder can be written as:\n  - \"r\" followed by the number, e.g. $17 \\div 5 = 3$ r $2$\n  - a fraction, e.g. $17 \\div 5 = 3\\frac{2}{5}$\n  - a decimal, e.g. $17 \\div 5 = 3.4$\n• Check division by multiplying back: $175 \\times 5 = 875$.\n\n✅ Tip\nIf a division does not look right, estimate first. $672 \\div 16 \\approx 700 \\div 20 = 35$, so $42$ is reasonable."
     },
     {
       "id": "math-yr7-calculations-calc-n5",
-      "heading": "⚠️ Common BIDMAS misconception",
-      "body": "Never add before you multiply just because the addition appears first. Always do division and multiplication before addition and subtraction, working from left to right. Example: 8 + 2 × 5 = 8 + 10 = 18, NOT 10 × 5 = 50."
+      "heading": "Order of Operations — BIDMAS",
+      "body": "When a calculation contains more than one operation, the order in which you work matters. BIDMAS tells you the correct order.\n\n📌 Definition\nBIDMAS is an acronym for the order of operations:\n\\begin{aligned}\n&\\text{B} && \\text{Brackets} \\\\\n&\\text{I} && \\text{Indices (powers and roots)} \\\\\n&\\text{D} && \\text{Division} \\\\\n&\\text{M} && \\text{Multiplication} \\\\\n&\\text{A} && \\text{Addition} \\\\\n&\\text{S} && \\text{Subtraction}\n\\end{aligned}\nDivision and multiplication have equal priority and are done left to right. Addition and subtraction also have equal priority and are done left to right.\n\n💡 Worked Example 1\nCalculate $3 + 4 \\times 5$.\n\nMultiplication comes before addition:\n$$4 \\times 5 = 20$$\n$$3 + 20 = 23$$\n\nSo $3 + 4 \\times 5 = 23$.\n\n⚠️ Common Mistake\nWorking from left to right regardless of operation:\n$$3 + 4 = 7 \\text{, then } 7 \\times 5 = 35 \\quad \\text{(WRONG)}$$\nThe correct answer is $23$.\n\n💡 Worked Example 2\nCalculate $(3 + 4) \\times 5$.\n\nBrackets come first:\n$$3 + 4 = 7$$\n$$7 \\times 5 = 35$$\n\nSo $(3 + 4) \\times 5 = 35$. The brackets change the answer completely.\n\n💡 Worked Example 3\nCalculate $24 \\div 6 + 3 \\times 2$.\n\nDivision and multiplication before addition, working left to right:\n$$24 \\div 6 = 4$$\n$$3 \\times 2 = 6$$\n$$4 + 6 = 10$$\n\nSo $24 \\div 6 + 3 \\times 2 = 10$.\n\n📎 Key Points to Remember\n• Always do brackets first.\n• Indices (powers) are next.\n• Then division and multiplication, left to right.\n• Finally addition and subtraction, left to right.\n• Brackets can be nested; do the innermost brackets first."
     },
     {
       "id": "math-yr7-calculations-calc-n6",
-      "heading": "✅ Estimation checks",
-      "body": "Before you calculate, round the numbers to quickly estimate the answer. Example: 497 × 6 is about 500 × 6 = 3000. After working it out (2982), check it is close to your estimate. If it is not, you may have made a mistake."
+      "heading": "Working with Powers and Roots",
+      "body": "Powers, also called indices, are a quick way to write repeated multiplication. They appear in the \"I\" of BIDMAS, so they must be calculated before multiplication, division, addition, and subtraction.\n\n📌 Definition\nA power tells you how many times a number is multiplied by itself:\n$$a^n = a \\times a \\times a \\times \\cdots \\times a \\quad \\text{($n$ times)}$$\nHere $a$ is called the base and $n$ is called the index or exponent.\n\n💡 Worked Example 1 — Evaluating powers\nCalculate $2^5$.\n\n$$2^5 = 2 \\times 2 \\times 2 \\times 2 \\times 2 = 32$$\n\nCalculate $5^3$.\n\n$$5^3 = 5 \\times 5 \\times 5 = 125$$\n\n🔑 Squares and Cubes\nSquaring a number means multiplying it by itself:\n$$4^2 = 4 \\times 4 = 16$$\n\nCubing a number means multiplying it by itself three times:\n$$4^3 = 4 \\times 4 \\times 4 = 64$$\n\n🔑 Square Roots\nThe square root of a number is the value that, when multiplied by itself, gives the original number:\n$$\\sqrt{36} = 6 \\text{ because } 6 \\times 6 = 36$$\n\n💡 Worked Example 2 — BIDMAS with powers\nCalculate $3 + 2^3 \\times 4$.\n\nStep 1: Indices\n$$2^3 = 8$$\n\nStep 2: Multiplication\n$$8 \\times 4 = 32$$\n\nStep 3: Addition\n$$3 + 32 = 35$$\n\nSo $3 + 2^3 \\times 4 = 35$.\n\n⚠️ Common Mistake\nMultiplying the base by the exponent. For example:\n$$2^5 \\neq 2 \\times 5 = 10 \\quad \\text{(WRONG)}$$\nThe correct value is $2^5 = 32$.\n\n📎 Key Points to Remember\n• $a^2$ is read as \"$a$ squared\".\n• $a^3$ is read as \"$a$ cubed\".\n• $\\sqrt{a}$ is the positive square root of $a$.\n• Any non-zero number to the power of $0$ equals $1$, e.g. $7^0 = 1$."
+    },
+    {
+      "id": "math-yr7-calculations-calc-n7",
+      "heading": "Estimation, Word Problems and Checking",
+      "body": "Estimation means finding an approximate answer quickly. It is one of the best ways to check whether a calculated answer is sensible.\n\n📌 Definition\nAn estimate is a rough calculation, usually found by rounding numbers to one significant figure or to a convenient value.\n\n🔑 How to Estimate\n1. Round each number to one significant figure (or a nearby easy number).\n2. Do the simplified calculation.\n3. Compare the estimate with your exact answer.\n\n💡 Worked Example 1 — Estimating a product\nEstimate $497 \\times 6$.\n\nRound $497$ to $500$:\n$$497 \\times 6 \\approx 500 \\times 6 = 3\\,000$$\n\nThe exact answer is $497 \\times 6 = 2\\,982$, which is very close to the estimate.\n\n🔑 Choosing the Correct Operation\nIn word problems, look for keywords:\n• Addition: total, altogether, combined, sum, increase\n• Subtraction: difference, remaining, decrease, how many more, how much less\n• Multiplication: product, each, groups of, total when there are equal groups\n• Division: shared equally, per, how many in each group, quotient\n\n💡 Worked Example 2 — Word problem\nA school orders $15$ boxes of pencils. Each box contains $24$ pencils. How many pencils are there in total?\n\nThere are $15$ equal groups of $24$, so multiply:\n$$15 \\times 24 = 360$$\n\nThe school receives $360$ pencils.\n\n✅ Check\nEstimate: $15 \\times 24 \\approx 20 \\times 20 = 400$. The exact answer $360$ is close to $400$, so it is reasonable.\n\n📎 Key Points to Remember\n• Always read word problems twice: once for the story, once for the numbers.\n• Estimate before you calculate to predict the answer.\n• Check afterwards by reversing the operation or rounding.\n• If your exact answer is very different from your estimate, check your working for a place-value or arithmetic error."
     }
   ],
   "flashcards": [
     {
       "id": "math-yr7-calculations-calc-f1",
       "term": "Place value",
-      "definition": "The value of a digit based on its position — ones, tens, hundreds, etc.",
-      "example": "In 3 462, the 4 means 4 hundreds (400)."
+      "definition": "The value of a digit based on its position in a number — ones, tens, hundreds, thousands, etc.",
+      "example": "In $3\\,462$, the digit $4$ has a place value of $400$."
     },
     {
       "id": "math-yr7-calculations-calc-f2",
       "term": "Carrying",
-      "definition": "When a column adds to 10+, write the ones digit and carry the tens to the next column.",
-      "example": "58 + 27: 8+7=15, write 5, carry 1."
+      "definition": "When a column adds to $10$ or more, write the ones digit and carry the tens digit to the next column on the left.",
+      "example": "$58 + 27$: $8 + 7 = 15$, write $5$ and carry $1$ to the tens column."
     },
     {
       "id": "math-yr7-calculations-calc-f3",
-      "term": "Borrowing",
-      "definition": "When a digit is too small, borrow 1 from the next left column (reduce it by 1) and add 10 to current digit.",
-      "example": "42 − 18: borrow from tens, 12−8=4."
+      "term": "Borrowing (regrouping)",
+      "definition": "When the top digit in a column is too small, take $1$ from the next left column, reduce that column by $1$, and add $10$ to the current digit.",
+      "example": "$42 - 18$: borrow $1$ ten to make $12 - 8 = 4$."
     },
     {
       "id": "math-yr7-calculations-calc-f4",
-      "term": "Long multiplication",
-      "definition": "Multiply by each digit of bottom number separately, write results shifted left, then add.",
-      "example": "45 × 23 = 45×3 + 45×20 = 135 + 900 = 1035."
+      "term": "Product",
+      "definition": "The result of multiplying two or more numbers together.",
+      "example": "The product of $7$ and $8$ is $56$."
     },
     {
       "id": "math-yr7-calculations-calc-f5",
-      "term": "Short division",
-      "definition": "Division by a single digit: work left to right, carrying remainders.",
-      "example": "963 ÷ 3 = 321."
+      "term": "Difference",
+      "definition": "The result of subtracting one number from another.",
+      "example": "The difference between $50$ and $35$ is $15$."
     },
     {
       "id": "math-yr7-calculations-calc-f6",
-      "term": "BIDMAS",
-      "definition": "Order of operations: Brackets, Indices, Division & Multiplication (L→R), Addition & Subtraction (L→R).",
-      "example": "2 + 3 × 4 = 2 + 12 = 14."
+      "term": "Quotient",
+      "definition": "The result of dividing one number by another.",
+      "example": "In $42 \\div 6 = 7$, the quotient is $7$."
     },
     {
       "id": "math-yr7-calculations-calc-f7",
       "term": "Remainder",
-      "definition": "Amount left after division when numbers don't divide exactly.",
-      "example": "17 ÷ 5 = 3 remainder 2."
+      "definition": "The amount left over when one number cannot be divided exactly by another.",
+      "example": "$17 \\div 5 = 3$ remainder $2$, or $3\\frac{2}{5}$, or $3.4$."
     },
     {
       "id": "math-yr7-calculations-calc-f8",
-      "term": "Product",
-      "definition": "The result of multiplying two or more numbers.",
-      "example": "The product of 7 and 8 is 56."
+      "term": "Long multiplication",
+      "definition": "A written method for multiplying by a number with two or more digits by finding partial products and adding them.",
+      "example": "$34 \\times 27 = (34 \\times 7) + (34 \\times 20) = 238 + 680 = 918$."
     },
     {
       "id": "math-yr7-calculations-calc-f9",
-      "term": "Difference",
-      "definition": "The result of subtracting one number from another.",
-      "example": "The difference between 50 and 35 is 15."
+      "term": "Long division",
+      "definition": "A written method for dividing by a number with two or more digits using divide, multiply, subtract, bring down.",
+      "example": "$672 \\div 16 = 42$ because $16 \\times 42 = 672$."
     },
     {
       "id": "math-yr7-calculations-calc-f10",
+      "term": "BIDMAS",
+      "definition": "The order of operations: Brackets, Indices, Division and Multiplication (left to right), Addition and Subtraction (left to right).",
+      "example": "$2 + 3 \\times 4 = 2 + 12 = 14$."
+    },
+    {
+      "id": "math-yr7-calculations-calc-f11",
+      "term": "Power (index)",
+      "definition": "A shorthand for repeated multiplication. The small number tells you how many times the base is multiplied by itself.",
+      "example": "$2^5 = 2 \\times 2 \\times 2 \\times 2 \\times 2 = 32$."
+    },
+    {
+      "id": "math-yr7-calculations-calc-f12",
       "term": "Estimate",
-      "definition": "A rough calculation used to check if an answer is sensible.",
-      "example": "497 × 6 ≈ 500 × 6 = 3000."
+      "definition": "A rough calculation used to check whether an exact answer is sensible.",
+      "example": "$497 \\times 6 \\approx 500 \\times 6 = 3\\,000$; the exact answer is $2\\,982$."
     }
   ],
   "questions": [
     {
       "id": "math-yr7-calculations-calc-q1",
-      "stem": "What is 5 236 + 3 748?",
+      "stem": "What is the value of the digit $7$ in the number $5\\,748$?",
       "choices": [
-        "8 984",
-        "8 874",
-        "8 974",
-        "8 884"
+        "$7$",
+        "$70$",
+        "$700$",
+        "$7\\,000$"
       ],
-      "correctIndex": 0,
-      "explanation": "Add column by column: 6+8=14 (write 4 carry 1), 3+4+1=8, 2+7=9, 5+3=8. Answer: 8 984."
+      "correctIndex": 2,
+      "explanation": "The digit $7$ is in the hundreds column, so its value is $700$."
     },
     {
       "id": "math-yr7-calculations-calc-q2",
-      "stem": "What is 6 205 − 2 478?",
+      "stem": "Calculate $5\\,236 + 3\\,748$.",
       "choices": [
-        "3 727",
-        "4 727",
-        "3 827",
-        "3 737"
+        "$8\\,984$",
+        "$8\\,874$",
+        "$8\\,974$",
+        "$8\\,884$"
       ],
       "correctIndex": 0,
-      "explanation": "Subtract with borrowing: 5−8 → 15−8=7; 9−7=2; 11−4=7; 5−2=3. Answer: 3 727."
+      "explanation": "Add column by column: $6 + 8 = 14$ (write $4$, carry $1$), $3 + 4 + 1 = 8$, $2 + 7 = 9$, $5 + 3 = 8$. Answer: $8\\,984$."
     },
     {
       "id": "math-yr7-calculations-calc-q3",
-      "stem": "Multiply 64 by 7.",
+      "stem": "Calculate $6\\,205 - 2\\,478$.",
       "choices": [
-        "428",
-        "448",
-        "468",
-        "488"
+        "$3\\,727$",
+        "$4\\,727$",
+        "$3\\,827$",
+        "$3\\,737$"
       ],
-      "correctIndex": 1,
-      "explanation": "64 × 7 = (60 × 7) + (4 × 7) = 420 + 28 = 448."
+      "correctIndex": 0,
+      "explanation": "Subtract with borrowing, including exchanging through zero: ones become $15$, tens become $9$, hundreds become $11$ after borrowing. Answer: $3\\,727$."
     },
     {
       "id": "math-yr7-calculations-calc-q4",
-      "stem": "What is 34 × 26?",
+      "stem": "Multiply $64$ by $7$.",
       "choices": [
-        "884",
-        "864",
-        "904",
-        "844"
+        "$428$",
+        "$448$",
+        "$468$",
+        "$488$"
       ],
-      "correctIndex": 0,
-      "explanation": "34×6=204, 34×20=680. Add: 204+680=884."
+      "correctIndex": 1,
+      "explanation": "$64 \\times 7 = (60 \\times 7) + (4 \\times 7) = 420 + 28 = 448$."
     },
     {
       "id": "math-yr7-calculations-calc-q5",
-      "stem": "Divide 875 by 5.",
+      "stem": "Calculate $34 \\times 26$.",
       "choices": [
-        "165",
-        "175",
-        "155",
-        "185"
+        "$884$",
+        "$864$",
+        "$904$",
+        "$844$"
       ],
-      "correctIndex": 1,
-      "explanation": "875÷5: 8÷5=1 r3, 37÷5=7 r2, 25÷5=5. Answer: 175."
+      "correctIndex": 0,
+      "explanation": "$34 \\times 6 = 204$ and $34 \\times 20 = 680$. Adding gives $204 + 680 = 884$."
     },
     {
       "id": "math-yr7-calculations-calc-q6",
-      "stem": "What is 672 ÷ 16?",
+      "stem": "Divide $875$ by $5$.",
       "choices": [
-        "42",
-        "44",
-        "38",
-        "48"
+        "$165$",
+        "$175$",
+        "$155$",
+        "$185$"
       ],
-      "correctIndex": 0,
-      "explanation": "16×42=672, so 672÷16=42."
+      "correctIndex": 1,
+      "explanation": "$875 \\div 5$: $8 \\div 5 = 1$ r $3$, $37 \\div 5 = 7$ r $2$, $25 \\div 5 = 5$. Answer: $175$."
     },
     {
       "id": "math-yr7-calculations-calc-q7",
-      "stem": "Using BIDMAS, what is 5 + 3 × 6?",
+      "stem": "Calculate $672 \\div 16$.",
       "choices": [
-        "48",
-        "23",
-        "33",
-        "28"
+        "$42$",
+        "$44$",
+        "$38$",
+        "$48$"
       ],
-      "correctIndex": 1,
-      "explanation": "Multiplication before addition: 3×6=18, then 5+18=23."
+      "correctIndex": 0,
+      "explanation": "Long division: $67 \\div 16 = 4$ remainder $3$, bring down $2$ to make $32$, then $32 \\div 16 = 2$. Answer: $42$."
     },
     {
       "id": "math-yr7-calculations-calc-q8",
-      "stem": "What is (8 + 4) × 3 − 5?",
+      "stem": "Using BIDMAS, calculate $5 + 3 \\times 6$.",
       "choices": [
-        "31",
-        "25",
-        "27",
-        "41"
+        "$48$",
+        "$23$",
+        "$33$",
+        "$28$"
       ],
-      "correctIndex": 0,
-      "explanation": "Brackets: 8+4=12. Multiply: 12×3=36. Subtract: 36−5=31."
+      "correctIndex": 1,
+      "explanation": "Multiplication has higher priority than addition: $3 \\times 6 = 18$, then $5 + 18 = 23$."
     },
     {
       "id": "math-yr7-calculations-calc-q9",
-      "stem": "Calculate 24 ÷ 6 + 3 × 2.",
+      "stem": "Calculate $(8 + 4) \\times 3 - 5$.",
       "choices": [
-        "7",
-        "10",
-        "14",
-        "8"
+        "$31$",
+        "$25$",
+        "$27$",
+        "$41$"
       ],
-      "correctIndex": 1,
-      "explanation": "Division and multiplication first (L→R): 24÷6=4, 3×2=6. Add: 4+6=10."
+      "correctIndex": 0,
+      "explanation": "Brackets first: $8 + 4 = 12$. Then multiply: $12 \\times 3 = 36$. Finally subtract: $36 - 5 = 31$."
     },
     {
       "id": "math-yr7-calculations-calc-q10",
-      "stem": "A school orders 15 boxes of pencils. Each box has 24 pencils. How many pencils total?",
+      "stem": "Calculate $24 \\div 6 + 3 \\times 2$.",
       "choices": [
-        "360",
-        "340",
-        "380",
-        "320"
+        "$7$",
+        "$10$",
+        "$14$",
+        "$8$"
       ],
-      "correctIndex": 0,
-      "explanation": "15 × 24 = (15×20) + (15×4) = 300 + 60 = 360."
+      "correctIndex": 1,
+      "explanation": "Division and multiplication before addition, working left to right: $24 \\div 6 = 4$ and $3 \\times 2 = 6$. Then $4 + 6 = 10$."
     },
     {
       "id": "math-yr7-calculations-calc-q11",
-      "stem": "A coach travels 215 km on Monday and 178 km on Tuesday. How far does it travel in total?",
+      "stem": "Calculate $3 + 2^3 \\times 4$.",
       "choices": [
-        "393 km",
-        "383 km",
-        "403 km",
-        "373 km"
+        "$44$",
+        "$35$",
+        "$20$",
+        "$96$"
       ],
-      "correctIndex": 0,
-      "explanation": "Add 215 + 178 column by column: 5+8=13 (write 3 carry 1), 1+7+1=9, 2+1=3. The coach travels 393 km."
+      "correctIndex": 1,
+      "explanation": "Indices first: $2^3 = 8$. Then multiply: $8 \\times 4 = 32$. Finally add: $3 + 32 = 35$."
     },
     {
       "id": "math-yr7-calculations-calc-q12",
-      "stem": "Is it always, sometimes, or never true that multiplying two whole numbers gives a larger answer than adding them? For example, 2 × 2 = 4 and 2 + 2 = 4.",
+      "stem": "Which expression is equal to $25$?",
       "choices": [
-        "Always true",
-        "Sometimes true",
-        "Never true",
-        "Cannot tell"
+        "$3 + 4 \\times 5$",
+        "$(3 + 4) \\times 5$",
+        "$20 + 10 \\div 2$",
+        "$5^2 + 5$"
       ],
-      "correctIndex": 1,
-      "explanation": "It depends on the numbers. For 1 and 5, 1×5=5 but 1+5=6 (adding gives more). For 3 and 3, both give 6. For 4 and 5, multiplying gives more. So it is sometimes true."
+      "correctIndex": 2,
+      "explanation": "$20 + 10 \\div 2 = 20 + 5 = 25$. The other options give $23$, $35$, and $30$ respectively."
     },
     {
       "id": "math-yr7-calculations-calc-q13",
-      "stem": "A shop sells notebooks in packs of 6 for £8 and single notebooks for £1.50 each. A class needs 50 notebooks. What is the cheapest way to buy them?",
+      "stem": "A school orders $15$ boxes of pencils. Each box has $24$ pencils. How many pencils are there in total?",
       "choices": [
-        "8 packs and 2 singles = £67",
-        "7 packs and 8 singles = £68",
-        "9 packs = £72",
-        "8 packs and 3 singles = £68.50"
+        "$360$",
+        "$340$",
+        "$380$",
+        "$320$"
       ],
       "correctIndex": 0,
-      "explanation": "8 packs give 48 notebooks for 8×£8=£64. Need 2 more singles: 2×£1.50=£3. Total £67. 7 packs = 42 notebooks (£56) + 8 singles (£12) = £68. 9 packs = 54 notebooks (£72). So 8 packs and 2 singles is cheapest."
+      "explanation": "There are $15$ equal groups of $24$, so multiply: $15 \\times 24 = (15 \\times 20) + (15 \\times 4) = 300 + 60 = 360$."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q14",
+      "stem": "A shop sells notebooks in packs of $6$ for £$8$ and single notebooks for £$1.50$ each. A class needs $50$ notebooks. What is the cheapest way to buy them?",
+      "choices": [
+        "$8$ packs and $2$ singles = £$67$",
+        "$7$ packs and $8$ singles = £$68$",
+        "$9$ packs = £$72$",
+        "$8$ packs and $3$ singles = £$68.50$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$8$ packs give $48$ notebooks for $8 \\times £8 = £64$. Two more singles cost $2 \\times £1.50 = £3$, giving a total of £$67$, which is cheaper than the other options."
+    },
+    {
+      "id": "math-yr7-calculations-calc-q15",
+      "stem": "A rectangular hall is $18$ m long and $12$ m wide. It is divided into $8$ equal sections. What is the area of each section?",
+      "choices": [
+        "$27$ m$^2$",
+        "$30$ m$^2$",
+        "$36$ m$^2$",
+        "$216$ m$^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "First find the total area: $18 \\times 12 = 216$ m$^2$. Then divide by $8$ equal sections: $216 \\div 8 = 27$ m$^2$ per section. The distractor $216$ m$^2$ is the total area, not the area of one section."
     }
   ]
 }
