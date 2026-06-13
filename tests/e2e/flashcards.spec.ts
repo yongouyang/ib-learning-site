@@ -16,7 +16,7 @@ test.describe('Flashcards page', () => {
     await expect(page.getByText('Control centre of the cell; contains genetic material (DNA) and controls all cell activities.')).toBeVisible();
 
     // Navigate forward through several cards
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
       const navButton = page.getByRole('button', { name: 'Next →' });
       await expect(navButton).toBeVisible();
       await navButton.click();

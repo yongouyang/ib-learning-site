@@ -59,8 +59,8 @@ test.describe('Quiz flow', () => {
     await page.goto('/subjects/math/math-yr7-calculations/quiz');
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
 
-    // Answer all questions (the topic has 13 questions after enrichment)
-    const totalQuestions = 13;
+    // Answer all questions (the topic has 15 questions after enrichment)
+    const totalQuestions = 15;
     for (let i = 0; i < totalQuestions; i++) {
       const choice = page.getByRole('button').filter({ hasText: /^A\./ }).first();
       await expect(choice).toBeVisible();
