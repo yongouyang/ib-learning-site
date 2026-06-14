@@ -1,14 +1,15 @@
 'use client';
 
+import { Sun, Moon, Monitor } from 'lucide-react';
 import { useTheme } from '@/context/ThemeContext';
 
-const icons: Record<string, string> = {
-  light: '☀️',
-  dark: '🌙',
-  system: '🖥️',
+const icons = {
+  light: Sun,
+  dark: Moon,
+  system: Monitor,
 };
 
-const labels: Record<string, string> = {
+const labels = {
   light: 'Light',
   dark: 'Dark',
   system: 'System',
@@ -26,16 +27,18 @@ export function ThemeToggle() {
         className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-500 dark:text-gray-400 opacity-0"
         disabled
       >
-        ☀️
+        <Sun className="w-5 h-5" />
       </button>
     );
   }
 
-  const next: Record<string, 'light' | 'dark' | 'system'> = {
-    light: 'dark',
-    dark: 'system',
-    system: 'light',
+  const next = {
+    light: 'dark' as const,
+    dark: 'system' as const,
+    system: 'light' as const,
   };
+
+  const Icon = icons[theme];
 
   return (
     <button
@@ -45,7 +48,7 @@ export function ThemeToggle() {
       title={`Theme: ${labels[theme]} (click to switch)`}
       className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
     >
-      <span className="text-lg">{icons[theme]}</span>
+      <Icon className="w-5 h-5" />
     </button>
   );
 }

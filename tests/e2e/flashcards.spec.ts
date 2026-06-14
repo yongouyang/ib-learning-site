@@ -17,7 +17,7 @@ test.describe('Flashcards page', () => {
 
     // Navigate forward through several cards
     for (let i = 0; i < 5; i++) {
-      const navButton = page.getByRole('button', { name: 'Next →' });
+      const navButton = page.getByRole('button', { name: 'Next' });
       await expect(navButton).toBeVisible();
       await navButton.click();
     }

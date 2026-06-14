@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Star, Flame, CheckCircle2, Target, Dices } from 'lucide-react';
 import { useProgress } from '@/context/ProgressContext';
 import { getSubjects } from '@/content/registry';
 import { getRecentAverageScore } from '@/lib/progress-store';
@@ -18,17 +20,17 @@ export default function ProgressPage() {
       {/* Overall stats */}
       <div className="grid grid-cols-3 gap-3 mb-6">
         <div className="card p-4 text-center">
-          <div className="text-2xl mb-1">⭐</div>
+          <Star className="w-6 h-6 mx-auto mb-1 text-yellow-500" />
           <div className="text-xl font-black text-gray-900 dark:text-gray-50">{userProgress.totalStars}</div>
           <div className="text-xs text-gray-500 dark:text-gray-400">Total Stars</div>
         </div>
         <div className="card p-4 text-center">
-          <div className="text-2xl mb-1">🔥</div>
+          <Flame className="w-6 h-6 mx-auto mb-1 text-orange-500" />
           <div className="text-xl font-black text-gray-900 dark:text-gray-50">{userProgress.currentStreakDays}</div>
           <div className="text-xs text-gray-500 dark:text-gray-400">Day Streak</div>
         </div>
         <div className="card p-4 text-center">
-          <div className="text-2xl mb-1">✅</div>
+          <CheckCircle2 className="w-6 h-6 mx-auto mb-1 text-green-500" />
           <div className="text-xl font-black text-gray-900 dark:text-gray-50">{attemptedTopics}</div>
           <div className="text-xs text-gray-500 dark:text-gray-400">Topics Done</div>
         </div>
@@ -39,12 +41,12 @@ export default function ProgressPage() {
         <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-50 mb-3">Practice</h2>
         <div className="flex flex-col sm:flex-row gap-2">
           <Link href="/mixed-review?mode=weak"
-            className="flex-1 text-center py-2.5 rounded-lg bg-orange-600 text-white font-medium text-sm hover:bg-orange-700 transition-colors">
-            🎯 Practice Weak Areas
+            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-orange-600 text-white font-medium text-sm hover:bg-orange-700 transition-colors">
+            <Target className="w-4 h-4" /> Practice Weak Areas
           </Link>
           <Link href="/mixed-review"
-            className="flex-1 text-center py-2.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
-            🎲 Mixed Review
+            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
+            <Dices className="w-4 h-4" /> Mixed Review
           </Link>
         </div>
       </div>
@@ -58,7 +60,7 @@ export default function ProgressPage() {
           : 0;
 
         return (
-          <div key={subject.id} className="card p-4 mb-3">
+          <div key={subject.id} className="card p-4 mb-3 border-l-4" style={{ borderLeftColor: subject.accentColor }}>
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <span>{subject.id === 'math' ? '📐' : subject.id === 'english' ? '📖' : subject.id === 'biology' ? '🌿' : subject.id === 'chemistry' ? '🧪' : '⚛️'}</span>
@@ -68,7 +70,13 @@ export default function ProgressPage() {
             </div>
             {/* Progress bar */}
             <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden mb-3">
-              <div className="h-full rounded-full transition-all" style={{ width: `${avgScore * 100}%`, backgroundColor: subject.accentColor }} />
+              <motion.div
+                className="h-full rounded-full"
+                initial={{ width: 0 }}
+                animate={{ width: `${avgScore * 100}%` }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                style={{ backgroundColor: subject.accentColor }}
+              />
             </div>
             <div className="space-y-1">
               {subject.topics.map((topic) => {

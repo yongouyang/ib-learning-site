@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { BookOpen, BarChart3 } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 
 const navItems = [
-  { href: '/', label: 'Learn', icon: '📚' },
-  { href: '/progress', label: 'Progress', icon: '📊' },
+  { href: '/', label: 'Learn', icon: BookOpen },
+  { href: '/progress', label: 'Progress', icon: BarChart3 },
 ];
 
 export function Nav() {
@@ -16,6 +17,7 @@ export function Nav() {
     <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 z-50 safe-area-bottom">
       <div className="flex justify-around items-center h-16">
         {navItems.map((item) => {
+          const Icon = item.icon;
           const active = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
           return (
             <Link
@@ -25,7 +27,7 @@ export function Nav() {
                 active ? 'text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400'
               }`}
             >
-              <span className="text-xl mb-0.5">{item.icon}</span>
+              <Icon className="w-5 h-5 mb-0.5" aria-hidden="true" />
               {item.label}
             </Link>
           );

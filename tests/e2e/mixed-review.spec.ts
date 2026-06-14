@@ -5,7 +5,7 @@ test.describe('Mixed review', () => {
     await page.goto('/mixed-review');
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
     await expect(page.getByRole('button').filter({ hasText: /^A\./ }).first()).toBeVisible();
-    await expect(page.getByText('← Back')).toBeVisible();
+    await expect(page.getByRole('link', { name: /Back/i })).toBeVisible();
   });
 
   test('loads weak-area mixed review from progress page', async ({ page }) => {

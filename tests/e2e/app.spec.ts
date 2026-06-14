@@ -31,6 +31,15 @@ test.describe('Home page', () => {
     await expect(page.getByRole('heading', { name: 'My Progress' })).toBeVisible();
     await expect(page.getByText('Total Stars')).toBeVisible();
   });
+
+  test('subject cards use subject accent colour on top border', async ({ page }) => {
+    await page.goto('/');
+    const mathCard = page.getByRole('link').filter({ has: page.getByRole('heading', { name: 'Math' }) });
+    await expect(mathCard).toBeVisible();
+    const borderTopColor = await mathCard.evaluate((el) => getComputedStyle(el).borderTopColor);
+    // Tailwind blue-500 / #3B82F6 in rgb
+    expect(borderTopColor).toBe('rgb(59, 130, 246)');
+  });
 });
 
 test.describe('Subject pages', () => {
@@ -84,6 +93,14 @@ test.describe('Subject pages', () => {
     await expect(page.getByText('Written Calculations')).toBeVisible();
     await expect(page.getByText('Sequences & Series')).not.toBeVisible();
   });
+
+  test('topic cards use subject accent colour on left border', async ({ page }) => {
+    await page.goto('/subjects/math');
+    const topicCard = page.locator('.card').filter({ has: page.locator('a[href*="/math/"]') }).first();
+    await expect(topicCard).toBeVisible();
+    const borderLeftColor = await topicCard.evaluate((el) => getComputedStyle(el).borderLeftColor);
+    expect(borderLeftColor).toBe('rgb(59, 130, 246)');
+  });
 });
 
 test.describe('Quiz flow', () => {
@@ -127,7 +144,7 @@ test.describe('Quiz flow', () => {
     // Should have choice buttons with A., B., etc.
     await expect(page.getByRole('button').filter({ hasText: /^A\./ }).first()).toBeVisible();
     // Should have a back link
-    await expect(page.getByText('← Back')).toBeVisible();
+    await expect(page.getByRole('link', { name: /Back/i })).toBeVisible();
   });
 });
 

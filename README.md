@@ -29,6 +29,10 @@ Additional features:
 - **Topic search/filter** — search by title/description and filter by MYP/DP level on subject pages
 - **Dark mode** — manual light/dark/system toggle (stored in `localStorage`)
 - **Progress tracking** — day streaks, weak-point analysis, and mixed review via `localStorage`
+- **Subject accent colours** — each subject has a distinct colour used on cards, badges, and progress bars
+- **Lucide icons** — consistent SVG iconography across navigation, quizzes, flashcards, and progress
+- **Motion** — animated progress bars, question transitions, flashcard flips, and page entrances via Framer Motion
+- **Geist font** — modern sans-serif body text and monospace for code/math blocks
 
 ## Project Structure
 
@@ -36,20 +40,26 @@ Additional features:
 src/
 ├── app/                          # Next.js App Router pages
 │   ├── page.tsx                  # Home page with subject grid
-│   ├── layout.tsx                # Root layout with Nav
+│   ├── layout.tsx                # Root layout with Geist font + providers
 │   ├── globals.css               # Tailwind imports + dark-mode support
 │   ├── progress/page.tsx         # Progress dashboard
 │   └── subjects/[subjectId]/
-│       ├── page.tsx              # Subject topics list
+│       ├── page.tsx              # Static subject page (server)
+│       ├── SubjectPageClient.tsx # Interactive subject page UI
 │       └── [topicId]/
-│           ├── study/page.tsx    # Study notes
-│           ├── flashcards/page.tsx # Flashcard deck
-│           └── quiz/page.tsx     # Interactive quiz
+│           ├── study/page.tsx    # Static study notes (server)
+│           ├── study/StudyPageClient.tsx
+│           ├── flashcards/page.tsx # Static flashcard deck (server)
+│           ├── flashcards/FlashcardsPageClient.tsx
+│           ├── quiz/page.tsx     # Static interactive quiz (server)
+│           └── quiz/QuizPageClient.tsx
 ├── components/
 │   ├── Nav.tsx                   # Bottom navigation bar (mobile)
 │   ├── QuizGame.tsx              # Shared quiz component
 │   ├── StudyNoteBody.tsx         # Renders study note body text + KaTeX
-│   └── MathExpression.tsx        # KaTeX math renderer
+│   ├── MathExpression.tsx        # KaTeX math renderer
+│   ├── ThemeToggle.tsx           # Light/dark/system theme toggle
+│   └── TopicFilter.tsx           # Subject-page search + MYP/DP filter
 ├── content/                      # Static content (all subjects)
 │   ├── types.ts                  # TypeScript interfaces
 │   ├── schema.ts                 # Zod validators for content
@@ -80,7 +90,10 @@ scripts/
 
 - **Framework:** Next.js 14 (App Router)
 - **Language:** TypeScript 5
-- **Styling:** Tailwind CSS 3
+- **Styling:** Tailwind CSS 3 + `tailwindcss-animate`
+- **Icons:** Lucide React
+- **Motion:** Framer Motion
+- **Font:** Geist (Sans + Mono) via `next/font/local`
 - **Testing:** Vitest (unit) + Playwright (E2E)
 - **Deployment:** Vercel
 
@@ -137,8 +150,11 @@ npx playwright test --project="Desktop Chrome"
 | `content-schema` | 20 | Zod schema validation for topics and subjects |
 | `audit-content` | 16 | Content quality audit (question counts, explanations, IDs, LaTeX) |
 | `topic-filter` | 7 | Subject-page topic search and MYP/DP level filtering |
+| `topic-filter-component` | 3 | `TopicFilter` UI rendering, clear/search icons, and level switching |
 | `theme-context` | 5 | Light/dark/system theme resolution and localStorage persistence |
-| `app.e2e` | 51 | Full quiz flow, flashcards, home page, subject pages, search/filter, theme toggle, mixed review, DP topic rendering, progress page — across iPhone SE, iPad Pro, Desktop Chrome |
+| `nav` | 2 | Bottom navigation rendering with Lucide icons and active state |
+| `quiz-game` | 4 | Quiz rendering, Lucide icons, timer, answer selection, and completion |
+| `app.e2e` | 57 | Full quiz flow, flashcards, home page, subject pages, search/filter, theme toggle, mixed review, DP topic rendering, progress page, accent-colour styling — across iPhone SE, iPad Pro, Desktop Chrome |
 
 ## Build & Deploy
 

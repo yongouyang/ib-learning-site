@@ -1,5 +1,6 @@
 'use client';
 
+import { Search, X } from 'lucide-react';
 import {
   LevelFilter,
   TopicFilterState,
@@ -25,9 +26,7 @@ export function TopicFilter({ value, onChange, resultCount }: TopicFilterProps) 
   return (
     <div className="space-y-3 mb-4">
       <div className="relative">
-        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-          🔍
-        </span>
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" aria-hidden="true" />
         <input
           type="text"
           value={value.query}
@@ -43,7 +42,7 @@ export function TopicFilter({ value, onChange, resultCount }: TopicFilterProps) 
             aria-label="Clear search"
             className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
           >
-            ✕
+            <X className="w-4 h-4" />
           </button>
         )}
       </div>
