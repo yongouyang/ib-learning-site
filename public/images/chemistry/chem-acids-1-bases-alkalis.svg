@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Bases, Alkalis and Neutralisation</title>
+  <desc id="desc">Bases neutralise acids; alkalis are soluble bases that release hydroxide ions. The essential neutralisation reaction is H⁺ + OH⁻ → H₂O.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .ion-h { fill: #ef4444; }
+      .ion-oh { fill: #3b82f6; }
+      .ion-na { fill: #a855f7; }
+      .ion-cl { fill: #22c55e; }
+      .water { fill: #06b6d4; }
+      .beaker { fill: #e0f2fe; stroke: #475569; stroke-width: 3; }
+      .liquid { fill: #bae6fd; opacity: 0.7; }
+    </style>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="38" text-anchor="middle" class="title">Bases, Alkalis and Neutralisation</text>
+
+  <!-- Definitions -->
+  <rect x="50" y="60" width="330" height="55" rx="8" class="box"/>
+  <text x="215" y="82" text-anchor="middle" class="label">Base</text>
+  <text x="215" y="100" text-anchor="middle" class="sublabel">Neutralises an acid; often a metal oxide or hydroxide</text>
+
+  <rect x="420" y="60" width="330" height="55" rx="8" class="box"/>
+  <text x="585" y="82" text-anchor="middle" class="label">Alkali</text>
+  <text x="585" y="100" text-anchor="middle" class="sublabel">A soluble base that releases OH⁻ ions in water</text>
+
+  <!-- Common alkalis -->
+  <g transform="translate(60, 150)">
+    <text x="0" y="0" class="label">Common alkalis</text>
+    <text x="0" y="22" class="sublabel">NaOH — sodium hydroxide</text>
+    <text x="0" y="40" class="sublabel">KOH — potassium hydroxide</text>
+    <text x="0" y="58" class="sublabel">Ca(OH)₂ — calcium hydroxide</text>
+    <text x="0" y="76" class="sublabel">NH₃(aq) — ammonia solution</text>
+  </g>
+
+  <!-- Alkali beaker -->
+  <g transform="translate(320, 160)">
+    <path d="M0,0 L0,110 Q0,140 35,140 L85,140 Q120,140 120,110 L120,0" class="beaker"/>
+    <rect x="5" y="55" width="110" height="80" rx="32" class="liquid"/>
+    <text x="60" y="25" text-anchor="middle" class="label">NaOH(aq)</text>
+
+    <circle cx="35" cy="80" r="9" class="ion-na"/><text x="35" y="83" text-anchor="middle" class="sublabel" fill="white">Na⁺</text>
+    <circle cx="85" cy="110" r="9" class="ion-oh"/><text x="85" y="113" text-anchor="middle" class="sublabel" fill="white">OH⁻</text>
+    <circle cx="75" cy="60" r="9" class="ion-na"/><text x="75" y="63" text-anchor="middle" class="sublabel" fill="white">Na⁺</text>
+    <circle cx="50" cy="120" r="9" class="ion-oh"/><text x="50" y="123" text-anchor="middle" class="sublabel" fill="white">OH⁻</text>
+
+    <text x="60" y="165" text-anchor="middle" class="sublabel">NaOH → Na⁺ + OH⁻</text>
+  </g>
+
+  <!-- Neutralisation reaction -->
+  <g transform="translate(520, 160)">
+    <rect x="0" y="0" width="220" height="150" rx="10" class="box"/>
+    <text x="110" y="25" text-anchor="middle" class="label">Neutralisation</text>
+
+    <!-- H+ and OH- approaching -->
+    <circle cx="55" cy="80" r="14" class="ion-h"/>
+    <text x="55" y="84" text-anchor="middle" class="label" fill="white">H⁺</text>
+
+    <circle cx="165" cy="80" r="14" class="ion-oh"/>
+    <text x="165" y="84" text-anchor="middle" class="label" fill="white">OH⁻</text>
+
+    <!-- arrow -->
+    <line x1="75" y1="80" x2="145" y2="80" class="line" marker-end="url(#arrow-grey)"/>
+
+    <!-- water molecule -->
+    <circle cx="110" cy="120" r="14" class="water"/>
+    <text x="110" y="124" text-anchor="middle" class="label" fill="white">H₂O</text>
+
+    <text x="110" y="55" text-anchor="middle" class="sublabel">H⁺ + OH⁻ → H₂O</text>
+  </g>
+
+  <!-- Spectator ions -->
+  <g transform="translate(180, 360)">
+    <rect x="0" y="0" width="440" height="95" rx="8" class="box"/>
+    <text x="220" y="25" text-anchor="middle" class="label">Spectator ions stay unchanged</text>
+    <circle cx="80" cy="52" r="12" class="ion-na"/>
+    <text x="80" y="56" text-anchor="middle" class="sublabel" fill="white">Na⁺</text>
+    <circle cx="360" cy="52" r="12" class="ion-cl"/>
+    <text x="360" y="56" text-anchor="middle" class="sublabel" fill="white">Cl⁻</text>
+    <text x="220" y="85" text-anchor="middle" class="sublabel">Present before and after; they do not take part in H⁺ + OH⁻ → H₂O</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-grey" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Types of Radioactive Radiation</title>
+  <desc id="desc">Diagram comparing alpha, beta and gamma radiation by their composition and penetration, showing what material stops each type and giving examples of their uses.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .alpha { fill: #f97316; }
+      .beta { fill: #3b82f6; }
+      .gamma { fill: #22c55e; }
+      .barrier { fill: #e5e7eb; stroke: #6b7280; stroke-width: 1.5; }
+      .source { fill: #f97316; }
+    </style>
+  </defs>
+
+  <rect width="900" height="520" fill="#f9fafb" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" class="title">Radioactivity: Alpha, Beta and Gamma</text>
+
+  <!-- Source -->
+  <g transform="translate(80, 180)">
+    <circle cx="0" cy="0" r="30" class="source"/>
+    <text x="0" y="5" text-anchor="middle" class="label" fill="white">Radio-</text>
+    <text x="0" y="20" text-anchor="middle" class="label" fill="white">active</text>
+    <text x="0" y="-45" text-anchor="middle" class="label">Source</text>
+    <text x="0" y="55" text-anchor="middle" class="sublabel">unstable nucleus</text>
+  </g>
+
+  <!-- Alpha -->
+  <g transform="translate(220, 130)">
+    <text x="100" y="-25" text-anchor="middle" class="label">Alpha (α)</text>
+    <text x="100" y="-8" text-anchor="middle" class="sublabel">helium nucleus: 2p + 2n</text>
+
+    <!-- Alpha particle -->
+    <g transform="translate(40, 30)">
+      <circle cx="0" cy="0" r="14" class="alpha"/>
+      <text x="0" y="5" text-anchor="middle" class="sublabel" fill="white" font-weight="700">α</text>
+    </g>
+
+    <!-- Barriers -->
+    <rect x="100" y="0" width="12" height="90" class="barrier"/>
+    <text x="106" y="105" text-anchor="middle" class="sublabel">paper</text>
+
+    <rect x="160" y="0" width="12" height="90" class="barrier"/>
+    <text x="166" y="105" text-anchor="middle" class="sublabel">aluminium</text>
+
+    <rect x="220" y="0" width="12" height="90" class="barrier"/>
+    <text x="226" y="105" text-anchor="middle" class="sublabel">lead</text>
+
+    <!-- Stopped by paper -->
+    <line x1="54" y1="45" x2="100" y2="45" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+    <text x="130" y="42" text-anchor="middle" class="sublabel" fill="#dc2626">stopped</text>
+  </g>
+
+  <!-- Beta -->
+  <g transform="translate(220, 260)">
+    <text x="100" y="-25" text-anchor="middle" class="label">Beta (β)</text>
+    <text x="100" y="-8" text-anchor="middle" class="sublabel">fast electron (n → p + e⁻)</text>
+
+    <!-- Beta particle -->
+    <g transform="translate(40, 30)">
+      <circle cx="0" cy="0" r="8" class="beta"/>
+      <text x="0" y="3" text-anchor="middle" class="sublabel" fill="white" font-weight="700">β</text>
+    </g>
+
+    <!-- Barriers -->
+    <rect x="100" y="0" width="12" height="90" class="barrier"/>
+    <text x="106" y="105" text-anchor="middle" class="sublabel">paper</text>
+
+    <rect x="160" y="0" width="12" height="90" class="barrier"/>
+    <text x="166" y="105" text-anchor="middle" class="sublabel">aluminium</text>
+
+    <rect x="220" y="0" width="12" height="90" class="barrier"/>
+    <text x="226" y="105" text-anchor="middle" class="sublabel">lead</text>
+
+    <!-- Passes paper, stopped by aluminium -->
+    <line x1="48" y1="45" x2="160" y2="45" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4,3"/>
+    <text x="190" y="42" text-anchor="middle" class="sublabel" fill="#dc2626">stopped</text>
+  </g>
+
+  <!-- Gamma -->
+  <g transform="translate(220, 390)">
+    <text x="100" y="-25" text-anchor="middle" class="label">Gamma (γ)</text>
+    <text x="100" y="-8" text-anchor="middle" class="sublabel">electromagnetic wave</text>
+
+    <!-- Gamma waves -->
+    <g transform="translate(40, 45)">
+      <path d="M0,0 Q10,-15 20,0 Q30,15 40,0" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round"/>
+      <text x="55" y="5" text-anchor="middle" class="sublabel" fill="#15803d">γ</text>
+    </g>
+
+    <!-- Barriers -->
+    <rect x="100" y="0" width="12" height="90" class="barrier"/>
+    <text x="106" y="105" text-anchor="middle" class="sublabel">paper</text>
+
+    <rect x="160" y="0" width="12" height="90" class="barrier"/>
+    <text x="166" y="105" text-anchor="middle" class="sublabel">aluminium</text>
+
+    <rect x="220" y="0" width="12" height="90" class="barrier"/>
+    <text x="226" y="105" text-anchor="middle" class="sublabel">lead</text>
+
+    <!-- Passes paper and aluminium, reduced by lead -->
+    <line x1="80" y1="45" x2="232" y2="45" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+    <line x1="232" y1="45" x2="270" y2="45" stroke="#22c55e" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+    <text x="260" y="42" text-anchor="middle" class="sublabel" fill="#dc2626">reduced</text>
+  </g>
+
+  <!-- Properties summary -->
+  <g transform="translate(560, 110)">
+    <rect x="0" y="0" width="300" height="220" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="150" y="28" text-anchor="middle" class="label">Penetration and ionisation</text>
+
+    <text x="20" y="60" class="label" fill="#f97316">α</text>
+    <text x="40" y="60" class="sublabel">low penetration, high ionisation</text>
+
+    <text x="20" y="92" class="label" fill="#3b82f6">β</text>
+    <text x="40" y="92" class="sublabel">moderate penetration and ionisation</text>
+
+    <text x="20" y="124" class="label" fill="#22c55e">γ</text>
+    <text x="40" y="124" class="sublabel">high penetration, low ionisation</text>
+
+    <text x="20" y="160" class="label">Stopping materials</text>
+    <text x="20" y="180" class="sublabel">α = paper / skin</text>
+    <text x="20" y="198" class="sublabel">β = a few mm aluminium</text>
+    <text x="20" y="216" class="sublabel">γ = thick lead or concrete</text>
+  </g>
+
+  <!-- Uses -->
+  <g transform="translate(560, 350)">
+    <rect x="0" y="0" width="300" height="130" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="150" y="28" text-anchor="middle" class="label">Uses and safety</text>
+    <text x="20" y="56" class="sublabel">Smoke detectors (α), carbon dating (β),</text>
+    <text x="20" y="76" class="sublabel">medical imaging / cancer therapy (γ),</text>
+    <text x="20" y="96" class="sublabel">nuclear power (fission).</text>
+    <text x="20" y="120" class="label" style="font-size:12px">Safety: time, distance, shielding.</text>
+  </g>
+</svg>

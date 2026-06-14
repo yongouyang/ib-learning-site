@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc">
+  <title id="title">Seed Germination Stages</title>
+  <desc id="desc">Four stages of seed germination showing water uptake, radicle and plumule emergence, and photosynthesis.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="460" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Germination Conditions and Stages</text>
+
+  <!-- Conditions box -->
+  <rect x="250" y="55" width="300" height="48" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="8"/>
+  <text x="400" y="75" text-anchor="middle" class="label">Three conditions required</text>
+  <text x="400" y="92" text-anchor="middle" class="sublabel">Water • Oxygen • Warmth (light is NOT needed)</text>
+
+  <!-- Stage 1: dry seed -->
+  <text x="115" y="130" text-anchor="middle" class="label">1. Dry seed</text>
+  <ellipse cx="115" cy="220" rx="35" ry="22" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <path d="M105,215 Q115,205 125,215 Q115,230 105,215" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+  <text x="115" y="260" text-anchor="middle" class="sublabel">Testa (seed coat)</text>
+
+  <!-- Stage 2: water uptake -->
+  <text x="275" y="130" text-anchor="middle" class="label">2. Absorbs water</text>
+  <ellipse cx="275" cy="220" rx="40" ry="26" fill="#fef08a" stroke="#d97706" stroke-width="2"/>
+  <path d="M110,240 L210,240" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <text x="160" y="235" text-anchor="middle" class="sublabel">water</text>
+  <path d="M265,212 Q275,202 285,212 Q275,227 265,212" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+  <text x="275" y="260" text-anchor="middle" class="sublabel">Seed swells</text>
+
+  <!-- Stage 3: radicle emerges -->
+  <text x="435" y="130" text-anchor="middle" class="label">3. Radicle emerges</text>
+  <ellipse cx="435" cy="210" rx="38" ry="24" fill="#fef08a" stroke="#d97706" stroke-width="2"/>
+  <path d="M425,228 Q435,260 435,285 Q435,310 435,330" fill="none" stroke="#16a34a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M435,330 Q425,340 440,345" fill="none" stroke="#16a34a" stroke-width="2"/>
+  <text x="475" y="285" class="label">Radicle</text>
+  <text x="475" y="300" class="sublabel">(embryonic root)</text>
+  <line x1="470" y1="280" x2="455" y2="280" class="line"/>
+
+  <!-- Stage 4: plumule and leaves -->
+  <text x="630" y="130" text-anchor="middle" class="label">4. Seedling photosynthesises</text>
+  <ellipse cx="620" cy="210" rx="30" ry="18" fill="#fef08a" stroke="#d97706" stroke-width="2"/>
+  <path d="M610,225 Q615,260 615,290" fill="none" stroke="#16a34a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M615,250 Q600,230 590,210 Q600,200 615,220" fill="#22c55e" stroke="#15803d" stroke-width="2"/>
+  <path d="M615,260 Q640,235 650,215 Q640,205 615,230" fill="#22c55e" stroke="#15803d" stroke-width="2"/>
+  <text x="665" y="200" class="label">Plumule</text>
+  <line x1="655" y1="205" x2="640" y2="215" class="line"/>
+  <text x="665" y="280" class="label">Leaves</text>
+  <line x1="655" y1="275" x2="625" y2="240" class="line"/>
+
+  <!-- Sun -->
+  <circle cx="720" cy="100" r="18" fill="#facc15" stroke="#ca8a04" stroke-width="2"/>
+  <path d="M720,75 L720,85 M720,115 L720,125 M695,100 L705,100 M735,100 L745,100" stroke="#ca8a04" stroke-width="2"/>
+  <text x="720" y="150" text-anchor="middle" class="sublabel">Light needed</text>
+  <text x="720" y="165" text-anchor="middle" class="sublabel">only after plumule</text>
+  <text x="720" y="180" text-anchor="middle" class="sublabel">emerges</text>
+</svg>

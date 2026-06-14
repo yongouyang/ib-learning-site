@@ -11,6 +11,8 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "validate:content": "tsx scripts/validate-content.ts",
+    "validate:illustrations": "tsx scripts/validate-illustrations.ts",
+    "validate:illustration-layout": "node scripts/diagnose-illustrations.mjs",
     "audit:content": "tsx scripts/audit-content.ts"
   },
   "dependencies": {

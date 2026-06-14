@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc">
+  <title id="title">Stomata and Guard Cells</title>
+  <desc id="desc">Comparison of an open stoma during the day with potassium ions and water entering guard cells, and a closed stoma at night.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#9333ea"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="460" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Stomata and Guard Cells</text>
+
+  <!-- Open stoma panel -->
+  <rect x="40" y="55" width="350" height="380" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="215" y="82" text-anchor="middle" class="panel-title">Day: Stoma open</text>
+
+  <!-- Epidermis background -->
+  <rect x="60" y="100" width="310" height="200" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5" rx="6"/>
+
+  <!-- Open stoma pore -->
+  <ellipse cx="215" cy="200" rx="35" ry="22" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+
+  <!-- Guard cells open -->
+  <path d="M180,200 Q190,165 215,165 Q240,165 250,200" fill="none" stroke="#16a34a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M180,200 Q190,235 215,235 Q240,235 250,200" fill="none" stroke="#16a34a" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- K+ ions moving in -->
+  <circle cx="120" cy="150" r="7" fill="#a855f7" stroke="#7e22ce" stroke-width="1.5"/>
+  <text x="120" y="154" text-anchor="middle" class="label" fill="#fff" font-size="10">K⁺</text>
+  <circle cx="145" cy="170" r="7" fill="#a855f7" stroke="#7e22ce" stroke-width="1.5"/>
+  <text x="145" y="174" text-anchor="middle" class="label" fill="#fff" font-size="10">K⁺</text>
+
+  <line x1="155" y1="160" x2="185" y2="185" class="arrow" stroke="#9333ea" marker-end="url(#arrow-purple)"/>
+  <line x1="135" y1="145" x2="175" y2="175" class="arrow" stroke="#9333ea" marker-end="url(#arrow-purple)"/>
+
+  <!-- Water moving in -->
+  <circle cx="120" cy="250" r="6" fill="#3b82f6"/>
+  <circle cx="145" cy="270" r="6" fill="#3b82f6"/>
+  <line x1="130" y1="250" x2="180" y2="215" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="155" y1="270" x2="190" y2="225" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+
+  <!-- Closed stoma panel -->
+  <rect x="410" y="55" width="350" height="380" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="585" y="82" text-anchor="middle" class="panel-title">Night: Stoma closed</text>
+
+  <!-- Epidermis background -->
+  <rect x="430" y="100" width="310" height="200" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5" rx="6"/>
+
+  <!-- Closed stoma pore -->
+  <line x1="560" y1="200" x2="610" y2="200" stroke="#e0f2fe" stroke-width="4"/>
+
+  <!-- Guard cells closed -->
+  <path d="M560,200 Q570,170 585,170 Q600,170 610,200" fill="none" stroke="#16a34a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M560,200 Q570,230 585,230 Q600,230 610,200" fill="none" stroke="#16a34a" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- K+ out -->
+  <circle cx="660" cy="160" r="7" fill="#a855f7" stroke="#7e22ce" stroke-width="1.5"/>
+  <text x="660" y="164" text-anchor="middle" class="label" fill="#fff" font-size="10">K⁺</text>
+  <line x1="630" y1="180" x2="650" y2="165" class="arrow" stroke="#9333ea" marker-end="url(#arrow-purple)"/>
+
+  <!-- Water out -->
+  <circle cx="660" cy="250" r="6" fill="#3b82f6"/>
+  <line x1="620" y1="220" x2="650" y2="245" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+
+  <!-- Labels -->
+  <line x1="215" y1="245" x2="215" y2="280" class="line"/>
+  <rect x="150" y="281" width="130" height="18" rx="4" class="label-bg"/>
+  <text x="154" y="293" class="label">Open pore for CO₂</text>
+
+  <line x1="585" y1="245" x2="585" y2="280" class="line"/>
+  <rect x="525" y="281" width="120" height="18" rx="4" class="label-bg"/>
+  <text x="529" y="293" class="label">Closed to save water</text>
+
+  <line x1="120" y1="150" x2="80" y2="120" class="line"/>
+  <rect x="25" y="95" width="50" height="18" rx="4" class="label-bg"/>
+  <text x="29" y="107" class="label">K⁺ in</text>
+
+  <line x1="120" y1="250" x2="80" y2="280" class="line"/>
+  <rect x="20" y="281" width="55" height="18" rx="4" class="label-bg"/>
+  <text x="24" y="293" class="label">H₂O in</text>
+
+  <text x="215" y="345" text-anchor="middle" class="sublabel">Guard cells become turgid and curve,</text>
+  <text x="215" y="363" text-anchor="middle" class="sublabel">opening the stoma.</text>
+  <text x="585" y="345" text-anchor="middle" class="sublabel">Guard cells lose turgor and become</text>
+  <text x="585" y="363" text-anchor="middle" class="sublabel">flaccid, closing the stoma.</text>
+</svg>

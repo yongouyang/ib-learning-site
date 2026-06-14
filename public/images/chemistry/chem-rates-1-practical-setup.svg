@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Practical setups for investigating rate factors</title>
+  <desc id="desc">Four classic school experiments for investigating concentration, surface area, temperature and catalyst effects on reaction rate.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .glass { fill: #e0f2fe; stroke: #3b82f6; stroke-width: 2; }
+      .liquid { fill: #93c5fd; fill-opacity: 0.5; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="960" height="560" fill="#f9fafb" rx="12"/>
+  <text x="480" y="38" text-anchor="middle" class="title">Practical: Investigating Rate Factors</text>
+
+  <!-- Concentration panel -->
+  <rect x="60" y="70" width="370" height="230" rx="12" class="panel"/>
+  <text x="245" y="100" text-anchor="middle" class="label">Concentration</text>
+
+  <!-- flask -->
+  <path d="M120 140 L110 210 L210 210 L200 140 Z" class="glass"/>
+  <path d="M120 185 L200 185 L196 207 L124 207 Z" class="liquid"/>
+  <!-- magnesium ribbon -->
+  <rect x="150" y="150" width="40" height="12" rx="2" fill="#9ca3af" stroke="#4b5563" stroke-width="1.5"/>
+  <text x="170" y="165" text-anchor="middle" class="sublabel" fill="#1f2937" font-size="9">Mg</text>
+  <!-- gas syringe -->
+  <path d="M190 165 L250 165 L250 145" class="line"/>
+  <rect x="240" y="125" width="70" height="22" rx="2" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+  <rect x="265" y="129" width="35" height="14" fill="#f97316"/>
+
+  <rect x="120" y="250" width="250" height="18" rx="4" fill="#f9fafb"/>
+  <text x="245" y="263" text-anchor="middle" class="sublabel">Mg + HCl at different concentrations</text>
+
+  <!-- Surface area panel -->
+  <rect x="490" y="70" width="370" height="230" rx="12" class="panel"/>
+  <text x="675" y="100" text-anchor="middle" class="label">Surface Area</text>
+
+  <!-- balance -->
+  <rect x="550" y="190" width="100" height="14" rx="2" fill="#d1d5db" stroke="#6b7280" stroke-width="2"/>
+  <rect x="585" y="170" width="30" height="20" rx="2" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+  <!-- flask on balance -->
+  <path d="M575 125 L570 170 L630 170 L625 125 Z" class="glass"/>
+  <path d="M575 160 L625 160 L622 168 L578 168 Z" class="liquid"/>
+  <!-- marble chips -->
+  <rect x="580" y="145" width="16" height="16" rx="3" fill="#9ca3af" stroke="#4b5563" stroke-width="1.5"/>
+  <rect x="600" y="150" width="10" height="10" rx="2" fill="#d1d5db" stroke="#4b5563" stroke-width="1.5"/>
+  <!-- escaping gas -->
+  <path d="M600 120 Q600 110 615 105" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <rect x="540" y="250" width="270" height="18" rx="4" fill="#f9fafb"/>
+  <text x="675" y="263" text-anchor="middle" class="sublabel">Marble chips vs powdered CaCO₃ + acid</text>
+
+  <!-- Temperature panel -->
+  <rect x="60" y="320" width="370" height="230" rx="12" class="panel"/>
+  <text x="245" y="350" text-anchor="middle" class="label">Temperature</text>
+
+  <!-- beaker water bath -->
+  <path d="M110 400 L110 480 L290 480 L290 400" class="glass"/>
+  <path d="M110 450 L290 450 L290 478 L110 478 Z" class="liquid"/>
+  <!-- conical flask in bath -->
+  <path d="M160 390 L150 460 L250 460 L240 390 Z" class="glass"/>
+  <path d="M160 430 L240 430 L236 455 L164 455 Z" class="liquid" fill="#fde68a" fill-opacity="0.5"/>
+  <!-- cross under flask -->
+  <line x1="175" y1="470" x2="225" y2="470" stroke="#111827" stroke-width="3"/>
+  <line x1="200" y1="455" x2="200" y2="485" stroke="#111827" stroke-width="3"/>
+  <!-- thermometer -->
+  <line x1="130" y1="385" x2="130" y2="455" stroke="#ef4444" stroke-width="3"/>
+  <circle cx="130" cy="465" r="7" fill="#ef4444"/>
+
+  <rect x="120" y="500" width="250" height="18" rx="4" fill="#f9fafb"/>
+  <text x="245" y="513" text-anchor="middle" class="sublabel">Thiosulfate + HCl at different temperatures</text>
+
+  <!-- Catalyst panel -->
+  <rect x="490" y="320" width="370" height="230" rx="12" class="panel"/>
+  <text x="675" y="350" text-anchor="middle" class="label">Catalyst</text>
+
+  <!-- flask with H2O2 -->
+  <path d="M550 400 L540 480 L640 480 L630 400 Z" class="glass"/>
+  <path d="M550 450 L630 450 L626 475 L554 475 Z" class="liquid"/>
+  <!-- MnO2 powder -->
+  <circle cx="580" cy="430" r="4" fill="#4b5563"/>
+  <circle cx="595" cy="435" r="4" fill="#4b5563"/>
+  <circle cx="610" cy="430" r="4" fill="#4b5563"/>
+  <text x="595" y="445" text-anchor="middle" class="sublabel" fill="#f9fafb" font-size="9">MnO₂</text>
+  <!-- delivery tube to cylinder -->
+  <path d="M600 405 L600 380 L720 380 L720 420" class="line"/>
+  <!-- trough and cylinder -->
+  <path d="M700 460 L740 460 L740 490 L700 490 Z" class="liquid"/>
+  <rect x="700" y="420" width="40" height="70" rx="2" fill="none" stroke="#6b7280" stroke-width="2"/>
+
+  <rect x="540" y="500" width="270" height="18" rx="4" fill="#f9fafb"/>
+  <text x="675" y="513" text-anchor="middle" class="sublabel">H₂O₂ decomposition with and without MnO₂</text>
+</svg>

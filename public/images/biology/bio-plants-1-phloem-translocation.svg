@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" role="img" aria-labelledby="title desc">
+  <title id="title">Phloem Structure and Translocation</title>
+  <desc id="desc">Diagram showing sieve tube elements, companion cells, sieve plates, and pressure-flow movement of sugars from source to sink.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="480" fill="#f9fafb" rx="12"/>
+  <text x="410" y="34" text-anchor="middle" class="title">Phloem: Structure and Translocation</text>
+
+  <!-- Source leaf -->
+  <path d="M120,110 Q180,70 240,110 Q180,150 120,110" fill="#4ade80" stroke="#16a34a" stroke-width="2"/>
+  <text x="180" y="114" text-anchor="middle" class="label" fill="#064e3b">Source</text>
+
+  <!-- Sink root -->
+  <path d="M120,340 Q150,380 180,420 Q200,380 240,340 Q180,360 120,340" fill="#d6c0a1" stroke="#a89078" stroke-width="2"/>
+  <text x="180" y="375" text-anchor="middle" class="label" fill="#5c4a3a">Sink</text>
+
+  <!-- Phloem tube -->
+  <rect x="170" y="120" width="20" height="220" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
+
+  <!-- Sieve tube elements -->
+  <rect x="170" y="120" width="20" height="55" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="170" y="175" width="20" height="55" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="170" y="230" width="20" height="55" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+  <rect x="170" y="285" width="20" height="55" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+
+  <!-- Sieve plates -->
+  <line x1="170" y1="175" x2="190" y2="175" stroke="#15803d" stroke-width="2"/>
+  <line x1="170" y1="230" x2="190" y2="230" stroke="#15803d" stroke-width="2"/>
+  <line x1="170" y1="285" x2="190" y2="285" stroke="#15803d" stroke-width="2"/>
+
+  <!-- Companion cells -->
+  <rect x="200" y="130" width="30" height="45" rx="4" fill="#fde047" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="200" y="200" width="30" height="45" rx="4" fill="#fde047" stroke="#ca8a04" stroke-width="1.5"/>
+  <rect x="200" y="270" width="30" height="45" rx="4" fill="#fde047" stroke="#ca8a04" stroke-width="1.5"/>
+
+  <!-- Plasmodesmata connections -->
+  <line x1="190" y1="152" x2="200" y2="152" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="190" y1="222" x2="200" y2="222" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="190" y1="292" x2="200" y2="292" stroke="#6b7280" stroke-width="1.5"/>
+
+  <!-- Sugar molecules -->
+  <circle cx="180" cy="145" r="5" fill="#f97316"/>
+  <circle cx="175" cy="205" r="5" fill="#f97316"/>
+  <circle cx="182" cy="255" r="5" fill="#f97316"/>
+  <circle cx="178" cy="315" r="5" fill="#f97316"/>
+
+  <!-- Zoomed inset -->
+  <rect x="400" y="80" width="380" height="320" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="590" y="105" text-anchor="middle" class="label">Phloem cells (cross-section view)</text>
+
+  <!-- Large sieve tube element -->
+  <rect x="440" y="140" width="120" height="240" fill="#bbf7d0" stroke="#16a34a" stroke-width="2" rx="6"/>
+  <text x="500" y="125" text-anchor="middle" class="label" fill="#064e3b">Sieve tube element</text>
+  <text x="500" y="138" text-anchor="middle" class="sublabel" fill="#064e3b">(no nucleus)</text>
+
+  <!-- Companion cell in zoom -->
+  <rect x="580" y="160" width="80" height="90" fill="#fde047" stroke="#ca8a04" stroke-width="1.5" rx="6"/>
+  <text x="620" y="185" text-anchor="middle" class="label">Companion</text>
+  <text x="620" y="200" text-anchor="middle" class="label">cell</text>
+  <text x="620" y="220" text-anchor="middle" class="sublabel">(mitochondria</text>
+  <text x="620" y="235" text-anchor="middle" class="sublabel">provide ATP)</text>
+
+  <!-- Sieve plate in zoom -->
+  <rect x="440" y="240" width="120" height="14" fill="#86efac" stroke="#15803d" stroke-width="2"/>
+  <circle cx="470" cy="247" r="4" fill="#ffffff"/>
+  <circle cx="500" cy="247" r="4" fill="#ffffff"/>
+  <circle cx="530" cy="247" r="4" fill="#ffffff"/>
+  <text x="500" y="275" text-anchor="middle" class="label">Sieve plate</text>
+
+  <!-- Flow arrows -->
+  <line x1="180" y1="130" x2="180" y2="100" class="arrow" stroke="#16a34a" marker-end="url(#arrow-green)"/>
+  <line x1="180" y1="360" x2="180" y2="330" class="arrow" stroke="#16a34a" marker-end="url(#arrow-green)"/>
+
+  <line x1="500" y1="140" x2="500" y2="110" class="arrow" stroke="#16a34a" marker-end="url(#arrow-green)"/>
+  <line x1="500" y1="380" x2="500" y2="350" class="arrow" stroke="#16a34a" marker-end="url(#arrow-green)"/>
+
+  <!-- Labels with leader lines -->
+  <line x1="250" y1="152" x2="360" y2="152" class="line"/>
+  <rect x="362" y="143" width="130" height="18" rx="4" class="label-bg"/>
+  <text x="366" y="155" class="label">Companion cells</text>
+
+  <line x1="250" y1="202" x2="360" y2="202" class="line"/>
+  <rect x="362" y="193" width="120" height="18" rx="4" class="label-bg"/>
+  <text x="366" y="205" class="label">Sieve tube element</text>
+
+  <line x1="250" y1="247" x2="360" y2="247" class="line"/>
+  <rect x="362" y="238" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="366" y="250" class="label">Sieve plate</text>
+
+  <line x1="250" y1="297" x2="360" y2="297" class="line"/>
+  <rect x="362" y="288" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="366" y="300" class="label">Sugar molecules</text>
+
+  <text x="410" y="440" text-anchor="middle" class="sublabel">Pressure-flow hypothesis: sugars loaded at source → water enters → high pressure pushes sap to sink.</text>
+</svg>

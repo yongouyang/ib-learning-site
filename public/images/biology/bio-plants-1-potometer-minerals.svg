@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Potometer and Mineral Deficiency Investigation</title>
+  <desc id="desc">Diagram of a potometer measuring water uptake by a leafy shoot, and water-culture tubes for testing mineral deficiencies.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="500" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Potometer and Mineral Deficiencies</text>
+
+  <!-- Potometer panel -->
+  <rect x="30" y="55" width="480" height="420" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="270" y="82" text-anchor="middle" class="panel-title">Potometer: measuring water uptake</text>
+
+  <!-- Capillary tube -->
+  <rect x="100" y="180" width="340" height="20" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2" rx="4"/>
+
+  <!-- Scale -->
+  <line x1="120" y1="210" x2="120" y2="215" stroke="#374151" stroke-width="1.5"/>
+  <line x1="170" y1="210" x2="170" y2="215" stroke="#374151" stroke-width="1.5"/>
+  <line x1="220" y1="210" x2="220" y2="215" stroke="#374151" stroke-width="1.5"/>
+  <line x1="270" y1="210" x2="270" y2="215" stroke="#374151" stroke-width="1.5"/>
+  <line x1="320" y1="210" x2="320" y2="215" stroke="#374151" stroke-width="1.5"/>
+  <line x1="370" y1="210" x2="370" y2="215" stroke="#374151" stroke-width="1.5"/>
+  <line x1="120" y1="215" x2="370" y2="215" stroke="#374151" stroke-width="1.5"/>
+
+  <!-- Air bubble -->
+  <ellipse cx="200" cy="190" rx="22" ry="8" fill="#ffffff" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="200" y="240" text-anchor="middle" class="label">Air bubble</text>
+
+  <!-- Reservoir -->
+  <rect x="90" y="250" width="40" height="70" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="4"/>
+  <line x1="90" y1="270" x2="130" y2="270" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="110" y="340" text-anchor="middle" class="sublabel">Reservoir</text>
+  <text x="110" y="355" text-anchor="middle" class="sublabel">tap</text>
+
+  <!-- Shoot holder -->
+  <rect x="400" y="170" width="40" height="40" fill="#d1d5db" stroke="#6b7280" stroke-width="2" rx="4"/>
+  <text x="420" y="225" text-anchor="middle" class="sublabel">Bung</text>
+
+  <!-- Shoot -->
+  <line x1="420" y1="170" x2="420" y2="100" stroke="#16a34a" stroke-width="6"/>
+  <path d="M420,140 Q380,110 360,130 Q380,150 420,140" fill="#4ade80" stroke="#16a34a" stroke-width="1.5"/>
+  <path d="M420,120 Q460,90 480,110 Q460,130 420,120" fill="#4ade80" stroke="#16a34a" stroke-width="1.5"/>
+
+  <!-- Arrow showing bubble movement -->
+  <line x1="222" y1="190" x2="280" y2="190" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <text x="260" y="175" text-anchor="middle" class="sublabel">Bubble moves as</text>
+  <text x="260" y="162" text-anchor="middle" class="sublabel">water is taken up</text>
+
+  <!-- Formula -->
+  <rect x="240" y="290" width="200" height="40" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <text x="340" y="315" text-anchor="middle" class="label">Rate = distance ÷ time</text>
+
+  <!-- Labels -->
+  <line x1="440" y1="120" x2="500" y2="100" class="line"/>
+  <rect x="502" y="91" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="506" y="103" class="label">Leafy shoot</text>
+
+  <line x1="440" y1="190" x2="500" y2="190" class="line"/>
+  <rect x="502" y="181" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="506" y="193" class="label">Airtight seal</text>
+
+  <!-- Mineral deficiency panel -->
+  <rect x="530" y="55" width="250" height="420" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="655" y="82" text-anchor="middle" class="panel-title">Mineral deficiency test</text>
+
+  <!-- Test tubes -->
+  <g transform="translate(560, 110)">
+    <rect x="0" y="0" width="30" height="120" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" rx="3"/>
+    <ellipse cx="15" cy="120" rx="15" ry="5" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+    <path d="M15,60 L5,80 L25,80 Z" fill="#4ade80"/>
+    <line x1="15" y1="80" x2="15" y2="110" stroke="#16a34a" stroke-width="2"/>
+    <text x="15" y="140" text-anchor="middle" class="sublabel">Complete</text>
+    <text x="15" y="153" text-anchor="middle" class="sublabel">(control)</text>
+  </g>
+
+  <g transform="translate(610, 110)">
+    <rect x="0" y="0" width="30" height="120" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" rx="3"/>
+    <ellipse cx="15" cy="120" rx="15" ry="5" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+    <path d="M15,70 L5,90 L25,90 Z" fill="#facc15"/>
+    <line x1="15" y1="90" x2="15" y2="110" stroke="#16a34a" stroke-width="2"/>
+    <text x="15" y="140" text-anchor="middle" class="sublabel">No</text>
+    <text x="15" y="153" text-anchor="middle" class="sublabel">nitrate</text>
+  </g>
+
+  <g transform="translate(660, 110)">
+    <rect x="0" y="0" width="30" height="120" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" rx="3"/>
+    <ellipse cx="15" cy="120" rx="15" ry="5" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+    <path d="M15,75 L5,95 L25,95 Z" fill="#86efac"/>
+    <line x1="15" y1="95" x2="15" y2="110" stroke="#16a34a" stroke-width="2"/>
+    <text x="15" y="140" text-anchor="middle" class="sublabel">No Mg</text>
+  </g>
+
+  <g transform="translate(710, 110)">
+    <rect x="0" y="0" width="30" height="120" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" rx="3"/>
+    <ellipse cx="15" cy="120" rx="15" ry="5" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+    <path d="M15,80 L5,100 L25,100 Z" fill="#a16207"/>
+    <line x="15" y1="100" x2="15" y2="110" stroke="#16a34a" stroke-width="2"/>
+    <text x="15" y="140" text-anchor="middle" class="sublabel">No K</text>
+  </g>
+
+  <text x="655" y="290" text-anchor="middle" class="sublabel">Seedlings grown in water culture</text>
+  <text x="655" y="308" text-anchor="middle" class="sublabel">solutions missing one mineral.</text>
+  <text x="655" y="335" text-anchor="middle" class="sublabel">Compare growth and symptoms</text>
+  <text x="655" y="353" text-anchor="middle" class="sublabel">after several weeks.</text>
+</svg>

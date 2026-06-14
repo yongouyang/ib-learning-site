@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 480" role="img" aria-labelledby="title desc">
+  <title id="title">Simple and Fractional Distillation</title>
+  <desc id="desc">Diagrams comparing simple distillation for separating a liquid from a solution and fractional distillation for separating miscible liquids with different boiling points.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke: #3b82f6; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="1040" height="480" fill="#f9fafb" rx="12"/>
+  <text x="520" y="34" text-anchor="middle" class="title">Simple and Fractional Distillation</text>
+
+  <!-- Simple distillation panel -->
+  <rect x="30" y="55" width="475" height="410" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="267" y="82" text-anchor="middle" class="panel-title">Simple Distillation</text>
+
+  <!-- Flask -->
+  <path d="M110,250 L110,300 Q110,340 150,340 L220,340 Q260,340 260,300 L260,250 L230,200 L140,200 Z" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <!-- Liquid -->
+  <path d="M120,300 Q120,330 150,330 L220,330 Q250,330 250,300 L250,290 L120,290 Z" fill="#bae6fd" opacity="0.8"/>
+  <!-- Salt crystals -->
+  <g fill="#9ca3af">
+    <circle cx="160" cy="320" r="4"/>
+    <circle cx="190" cy="315" r="4"/>
+    <circle cx="210" cy="322" r="4"/>
+    <circle cx="175" cy="325" r="4"/>
+  </g>
+  <text x="185" y="365" text-anchor="middle" class="sublabel">Salt remains</text>
+
+  <!-- Heat source -->
+  <path d="M160,345 L170,365 L180,345" fill="#f97316" opacity="0.8"/>
+  <text x="170" y="385" text-anchor="middle" class="sublabel">Heat</text>
+
+  <!-- Connecting tube -->
+  <path d="M230,200 L290,200 L290,240" fill="none" stroke="#94a3b8" stroke-width="8"/>
+  <path d="M230,200 L290,200 L290,240" fill="none" stroke="#e0f2fe" stroke-width="4"/>
+
+  <!-- Condenser -->
+  <rect x="270" y="240" width="40" height="120" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="290" y1="240" x2="290" y2="360" stroke="#94a3b8" stroke-width="4"/>
+  <line x1="280" y1="250" x2="280" y2="350" stroke="#bae6fd" stroke-width="2"/>
+  <line x1="300" y1="250" x2="300" y2="350" stroke="#bae6fd" stroke-width="2"/>
+  <!-- Water flow arrows -->
+  <line x1="265" y1="340" x2="245" y2="340" class="arrow" marker-end="url(#arrow-blue)"/>
+  <text x="235" y="344" text-anchor="end" class="sublabel">in</text>
+  <line x1="315" y1="260" x2="335" y2="260" class="arrow" marker-end="url(#arrow-blue)"/>
+  <text x="345" y="264" class="sublabel">out</text>
+
+  <!-- Collection beaker -->
+  <path d="M340,340 L340,390 L400,390 L400,340" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="338" y1="340" x2="402" y2="340" stroke="#60a5fa" stroke-width="2"/>
+  <path d="M345,360 L395,360" fill="#bae6fd" opacity="0.8"/>
+  <text x="370" y="380" text-anchor="middle" class="sublabel" fill="#1e3a8a">Distillate</text>
+
+  <!-- Labels -->
+  <line x1="185" y1="200" x2="185" y2="160" class="line"/>
+  <rect x="140" y="142" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="144" y="154" class="label">Round-bottom</text>
+
+  <line x1="310" y1="300" x2="370" y2="300" class="line"/>
+  <rect x="372" y="291" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="376" y="303" class="label">Condenser</text>
+
+  <line x1="370" y1="375" x2="440" y2="395" class="line"/>
+  <rect x="442" y="386" width="55" height="18" rx="4" class="label-bg"/>
+  <text x="446" y="398" class="label">Pure H₂O</text>
+
+  <!-- Fractional distillation panel -->
+  <rect x="535" y="55" width="475" height="410" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="772" y="82" text-anchor="middle" class="panel-title">Fractional Distillation</text>
+
+  <!-- Flask -->
+  <path d="M610,340 L610,370 Q610,400 640,400 L700,400 Q730,400 730,370 L730,340 L710,300 L630,300 Z" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <!-- Liquid -->
+  <path d="M620,370 Q620,390 640,390 L700,390 Q720,390 720,370 L720,360 L620,360 Z" fill="#bae6fd" opacity="0.8"/>
+
+  <!-- Fractionating column -->
+  <rect x="650" y="150" width="40" height="150" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <!-- Packing beads -->
+  <g fill="#94a3b8">
+    <circle cx="660" cy="170" r="4"/>
+    <circle cx="680" cy="175" r="4"/>
+    <circle cx="670" cy="190" r="4"/>
+    <circle cx="660" cy="210" r="4"/>
+    <circle cx="680" cy="220" r="4"/>
+    <circle cx="670" cy="240" r="4"/>
+    <circle cx="660" cy="260" r="4"/>
+    <circle cx="680" cy="270" r="4"/>
+  </g>
+
+  <!-- Connecting tube -->
+  <path d="M690,150 L740,150 L740,180" fill="none" stroke="#94a3b8" stroke-width="8"/>
+  <path d="M690,150 L740,150 L740,180" fill="none" stroke="#e0f2fe" stroke-width="4"/>
+
+  <!-- Condenser -->
+  <rect x="720" y="180" width="40" height="100" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="740" y1="180" x2="740" y2="280" stroke="#94a3b8" stroke-width="4"/>
+
+  <!-- Collection beaker -->
+  <path d="M790,280 L790,320 L840,320 L840,280" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="788" y1="280" x2="842" y2="280" stroke="#60a5fa" stroke-width="2"/>
+
+  <!-- Heat -->
+  <path d="M650,405 L660,425 L670,405" fill="#f97316" opacity="0.8"/>
+
+  <!-- Labels -->
+  <line x1="670" y1="150" x2="620" y2="130" class="line"/>
+  <rect x="500" y="121" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="504" y="133" class="label">Fractionating column</text>
+
+  <line x1="760" y1="230" x2="820" y2="230" class="line"/>
+  <rect x="822" y="221" width="70" height="18" rx="4" class="label-bg"/>
+  <text x="826" y="233" class="label">Condenser</text>
+
+  <line x1="815" y1="310" x2="880" y2="330" class="line"/>
+  <rect x="882" y="321" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="886" y="333" class="label">Lower BP collected</text>
+
+  <text x="772" y="120" text-anchor="middle" class="sublabel">Repeated condensation</text>
+  <text x="772" y="138" text-anchor="middle" class="sublabel">and vaporisation</text>
+</svg>

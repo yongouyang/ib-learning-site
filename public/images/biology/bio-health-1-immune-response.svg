@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Specific Immune Response</title>
+  <desc id="desc">Diagram showing phagocytosis and the specific antibody response produced by lymphocytes.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="900" height="440" fill="#f9fafb" rx="12"/>
+  <text x="450" y="34" text-anchor="middle" class="title">Specific Immune Response</text>
+
+  <!-- Phagocytosis panel -->
+  <rect x="30" y="55" width="410" height="360" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="235" y="82" text-anchor="middle" class="panel-title">Phagocytosis (non-specific)</text>
+
+  <!-- Phagocyte cell -->
+  <path d="M100,240 Q80,200 120,180 Q160,160 200,180 Q240,170 260,210 Q290,250 260,290 Q230,330 180,320 Q130,330 100,290 Q70,270 100,240 Z" fill="#99f6e4" stroke="#0d9488" stroke-width="2.5"/>
+
+  <!-- Pseudopods / phagosome -->
+  <path d="M140,250 Q170,220 210,250 Q240,270 210,290 Q170,310 140,280 Q130,265 140,250 Z" fill="#ccfbf1" stroke="#0d9488" stroke-width="2" stroke-dasharray="4 3"/>
+
+  <!-- Pathogen being engulfed -->
+  <ellipse cx="180" cy="265" rx="22" ry="12" fill="#86efac" stroke="#16a34a" stroke-width="2" transform="rotate(-15 180 265)"/>
+
+  <!-- Labels -->
+  <line x1="270" y1="210" x2="370" y2="190" class="line"/>
+  <rect x="372" y="178" width="60" height="18" rx="4" class="label-bg"/>
+  <text x="376" y="190" class="label">Phagocyte</text>
+
+  <line x1="210" y1="260" x2="340" y2="260" class="line"/>
+  <rect x="342" y="248" width="68" height="18" rx="4" class="label-bg"/>
+  <text x="346" y="260" class="label">Pathogen</text>
+
+  <line x1="180" y1="300" x2="180" y2="340" class="line"/>
+  <rect x="140" y="341" width="82" height="18" rx="4" class="label-bg"/>
+  <text x="144" y="353" class="label">Phagosome</text>
+
+  <line x1="115" y1="180" x2="50" y2="150" class="line"/>
+  <rect x="10" y="132" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="14" y="144" class="label">Pseudopodia</text>
+
+  <text x="235" y="400" text-anchor="middle" class="sublabel">Phagocytes engulf and digest any foreign cell.</text>
+
+  <!-- Specific defence panel -->
+  <rect x="460" y="55" width="410" height="360" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="665" y="82" text-anchor="middle" class="panel-title">Lymphocyte specific defence</text>
+
+  <!-- Pathogen with antigens -->
+  <circle cx="610" cy="190" r="35" fill="#fca5a5" stroke="#dc2626" stroke-width="2"/>
+  <polygon points="610,145 615,155 605,155" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5"/>
+  <polygon points="650,185 640,190 640,180" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5"/>
+  <polygon points="610,235 605,225 615,225" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5"/>
+  <polygon points="570,185 580,190 580,180" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5"/>
+  <polygon points="640,160 632,168 628,158" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5"/>
+  <polygon points="640,220 632,212 628,222" fill="#ef4444" stroke="#b91c1c" stroke-width="1.5"/>
+
+  <!-- Antibody -->
+  <path d="M665,170 L665,200 L650,220 M665,200 L680,220 M665,200 L680,180" fill="none" stroke="#7c3aed" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- B lymphocyte -->
+  <circle cx="760" cy="160" r="28" fill="#c4b5fd" stroke="#7c3aed" stroke-width="2"/>
+  <text x="760" y="165" text-anchor="middle" class="label" fill="#4c1d95">B cell</text>
+
+  <!-- Memory lymphocytes -->
+  <circle cx="790" cy="240" r="18" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="790" y="245" text-anchor="middle" class="sublabel" fill="#4c1d95">Memory</text>
+  <circle cx="740" cy="280" r="18" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="740" y="285" text-anchor="middle" class="sublabel" fill="#4c1d95">Memory</text>
+
+  <!-- Labels -->
+  <line x1="650" y1="190" x2="720" y2="210" class="line"/>
+  <rect x="722" y="200" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="726" y="212" class="label">Antibody (Y shape)</text>
+
+  <line x1="640" y1="160" x2="570" y2="120" class="line"/>
+  <rect x="510" y="108" width="58" height="18" rx="4" class="label-bg"/>
+  <text x="514" y="120" class="label">Antigen</text>
+
+  <line x1="760" y1="132" x2="760" y2="90" class="line"/>
+  <rect x="720" y="72" width="82" height="18" rx="4" class="label-bg"/>
+  <text x="724" y="84" class="label">B lymphocyte</text>
+
+  <line x1="780" y1="255" x2="785" y2="290" class="line"/>
+  <rect x="755" y="292" width="134" height="18" rx="4" class="label-bg"/>
+  <text x="759" y="304" class="label">Memory lymphocytes</text>
+
+  <text x="665" y="400" text-anchor="middle" class="sublabel">Each antibody binds one specific antigen; memory cells enable immunity.</text>
+</svg>

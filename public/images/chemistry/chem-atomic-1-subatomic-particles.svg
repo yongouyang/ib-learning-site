@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Sub-atomic Particles in an Atom</title>
+  <desc id="desc">A labelled diagram of a Bohr-model atom showing the tiny nucleus containing protons and neutrons, electron shells around it, and a table summarising charge and relative mass.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .shell { fill: none; stroke: #93c5fd; stroke-width: 2; }
+      .nucleus { fill: #f97316; }
+      .proton { fill: #f97316; }
+      .neutron { fill: #64748b; }
+      .electron { fill: #3b82f6; }
+      .label-bg { fill: #f9fafb; }
+      .table-header { fill: #e5e7eb; }
+      .table-cell { fill: #ffffff; stroke: #d1d5db; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="900" height="520" fill="#f9fafb" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" class="title">Sub-atomic Particles</text>
+
+  <!-- Atom diagram -->
+  <g transform="translate(260, 270)">
+    <!-- Electron shells -->
+    <circle cx="0" cy="0" r="180" class="shell"/>
+    <circle cx="0" cy="0" r="120" class="shell"/>
+    <circle cx="0" cy="0" r="60" class="shell"/>
+
+    <!-- Electrons on shells -->
+    <g class="electron">
+      <circle cx="60" cy="0" r="8"/>
+      <circle cx="-60" cy="0" r="8"/>
+      <circle cx="0" cy="60" r="8"/>
+      <circle cx="0" cy="-60" r="8"/>
+
+      <circle cx="120" cy="0" r="8"/>
+      <circle cx="-120" cy="0" r="8"/>
+      <circle cx="0" cy="120" r="8"/>
+      <circle cx="0" cy="-120" r="8"/>
+      <circle cx="85" cy="85" r="8"/>
+      <circle cx="-85" cy="-85" r="8"/>
+
+      <circle cx="180" cy="0" r="8"/>
+      <circle cx="-180" cy="0" r="8"/>
+      <circle cx="0" cy="180" r="8"/>
+      <circle cx="0" cy="-180" r="8"/>
+      <circle cx="127" cy="127" r="8"/>
+      <circle cx="-127" cy="-127" r="8"/>
+      <circle cx="127" cy="-127" r="8"/>
+      <circle cx="-127" cy="127" r="8"/>
+    </g>
+
+    <!-- Nucleus -->
+    <circle cx="0" cy="0" r="28" class="nucleus"/>
+    <g>
+      <circle cx="-12" cy="-8" r="9" class="proton"/>
+      <text x="-12" y="-4" text-anchor="middle" class="sublabel" fill="white" font-weight="700">+</text>
+      <circle cx="12" cy="-8" r="9" class="neutron"/>
+      <text x="12" y="-4" text-anchor="middle" class="sublabel" fill="white" font-weight="700">0</text>
+      <circle cx="0" cy="12" r="9" class="proton"/>
+      <text x="0" y="16" text-anchor="middle" class="sublabel" fill="white" font-weight="700">+</text>
+    </g>
+  </g>
+
+  <!-- Labels -->
+  <line x1="290" y1="270" x2="150" y2="270" class="line"/>
+  <rect x="45" y="257" width="100" height="28" rx="4" class="label-bg"/>
+  <text x="95" y="275" text-anchor="middle" class="label">Nucleus</text>
+
+  <line x1="395" y1="145" x2="480" y2="90" class="line"/>
+  <rect x="485" y="76" width="130" height="28" rx="4" class="label-bg"/>
+  <text x="550" y="94" text-anchor="middle" class="label">Electron shells</text>
+
+  <line x1="360" y1="330" x2="460" y2="410" class="line"/>
+  <rect x="410" y="416" width="130" height="42" rx="4" class="label-bg"/>
+  <text x="475" y="434" text-anchor="middle" class="label">Electron</text>
+  <text x="475" y="449" text-anchor="middle" class="sublabel">charge −1, mass ≈ 0</text>
+
+  <!-- Summary table -->
+  <g transform="translate(560, 130)">
+    <rect x="0" y="0" width="280" height="130" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="0" y="0" width="280" height="28" rx="8" class="table-header"/>
+    <rect x="0" y="14" width="280" height="14" class="table-header"/>
+    <text x="140" y="19" text-anchor="middle" class="label" style="font-size:12px">Particle</text>
+    <text x="140" y="19" text-anchor="middle" class="label" style="font-size:12px">Charge</text>
+    <text x="230" y="19" text-anchor="middle" class="label" style="font-size:12px">Relative mass</text>
+
+    <line x1="0" y1="28" x2="280" y2="28" stroke="#9ca3af" stroke-width="1"/>
+    <line x1="100" y1="0" x2="100" y2="130" stroke="#d1d5db" stroke-width="1"/>
+    <line x1="190" y1="0" x2="190" y2="130" stroke="#d1d5db" stroke-width="1"/>
+
+    <rect x="0" y="28" width="280" height="34" class="table-cell" style="fill:none"/>
+    <text x="50" y="50" text-anchor="middle" class="label">Proton</text>
+    <text x="145" y="50" text-anchor="middle" class="label" fill="#dc2626">+1</text>
+    <text x="235" y="50" text-anchor="middle" class="label">1</text>
+
+    <rect x="0" y="62" width="280" height="34" class="table-cell" style="fill:none"/>
+    <text x="50" y="84" text-anchor="middle" class="label">Neutron</text>
+    <text x="145" y="84" text-anchor="middle" class="label">0</text>
+    <text x="235" y="84" text-anchor="middle" class="label">1</text>
+
+    <rect x="0" y="96" width="280" height="34" class="table-cell" style="fill:none"/>
+    <text x="50" y="118" text-anchor="middle" class="label">Electron</text>
+    <text x="145" y="118" text-anchor="middle" class="label" fill="#2563eb">−1</text>
+    <text x="235" y="118" text-anchor="middle" class="sublabel">≈ 1/1836</text>
+  </g>
+
+  <!-- Key fact -->
+  <rect x="560" y="280" width="280" height="90" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="700" y="305" text-anchor="middle" class="label">If an atom were a stadium...</text>
+  <text x="700" y="330" text-anchor="middle" class="sublabel">the nucleus would be</text>
+  <text x="700" y="350" text-anchor="middle" class="sublabel">about the size of a pea.</text>
+</svg>

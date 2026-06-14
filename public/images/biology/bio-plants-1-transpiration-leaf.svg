@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc">
+  <title id="title">Transpiration Water Loss from a Leaf</title>
+  <desc id="desc">Cross-section of a leaf showing water evaporating from mesophyll cells, moving through air spaces, and diffusing out through a stoma.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="460" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Transpiration: Water Loss from Leaves</text>
+
+  <!-- Leaf outline cross-section -->
+  <path d="M100,120 Q400,60 700,120 L700,320 Q400,380 100,320 Z" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+
+  <!-- Upper epidermis -->
+  <path d="M100,120 Q400,60 700,120 L700,150 Q400,90 100,150 Z" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5"/>
+
+  <!-- Lower epidermis -->
+  <path d="M100,320 Q400,380 700,320 L700,290 Q400,350 100,290 Z" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5"/>
+
+  <!-- Palisade mesophyll -->
+  <rect x="130" y="160" width="540" height="60" fill="#4ade80" stroke="#16a34a" stroke-width="1"/>
+
+  <!-- Spongy mesophyll -->
+  <g fill="#86efac" stroke="#16a34a" stroke-width="1">
+    <ellipse cx="180" cy="250" rx="35" ry="25"/>
+    <ellipse cx="260" cy="260" rx="40" ry="28"/>
+    <ellipse cx="350" cy="240" rx="38" ry="24"/>
+    <ellipse cx="440" cy="265" rx="36" ry="26"/>
+    <ellipse cx="530" cy="245" rx="40" ry="25"/>
+    <ellipse cx="620" cy="260" rx="35" ry="28"/>
+  </g>
+
+  <!-- Air spaces -->
+  <ellipse cx="220" cy="250" rx="12" ry="8" fill="#e0f2fe"/>
+  <ellipse cx="310" cy="255" rx="14" ry="9" fill="#e0f2fe"/>
+  <ellipse cx="400" cy="250" rx="13" ry="8" fill="#e0f2fe"/>
+  <ellipse cx="490" cy="258" rx="12" ry="8" fill="#e0f2fe"/>
+  <ellipse cx="580" cy="252" rx="14" ry="9" fill="#e0f2fe"/>
+
+  <!-- Xylem vein -->
+  <path d="M400,150 L400,290" stroke="#3b82f6" stroke-width="8" stroke-linecap="round"/>
+  <path d="M395,150 L395,290" stroke="#93c5fd" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Stoma -->
+  <ellipse cx="400" cy="335" rx="30" ry="12" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+
+  <!-- Guard cells -->
+  <path d="M375,335 Q385,315 400,315 Q415,315 425,335" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M375,335 Q385,355 400,355 Q415,355 425,335" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Water molecules in cells -->
+  <circle cx="180" cy="250" r="5" fill="#3b82f6"/>
+  <circle cx="260" cy="260" r="5" fill="#3b82f6"/>
+  <circle cx="350" cy="240" r="5" fill="#3b82f6"/>
+  <circle cx="440" cy="265" r="5" fill="#3b82f6"/>
+  <circle cx="530" cy="245" r="5" fill="#3b82f6"/>
+  <circle cx="620" cy="260" r="5" fill="#3b82f6"/>
+
+  <!-- Evaporation arrows -->
+  <line x1="190" y1="235" x2="210" y2="215" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="270" y1="245" x2="290" y2="225" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="360" y1="225" x2="380" y2="205" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="450" y1="250" x2="470" y2="230" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="540" y1="230" x2="560" y2="210" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+
+  <!-- Diffusion out of stoma -->
+  <line x1="400" y1="335" x2="400" y2="385" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="380" y1="335" x2="360" y2="375" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="420" y1="335" x2="440" y2="375" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+
+  <!-- Labels -->
+  <line x1="400" y1="150" x2="400" y2="80" class="line"/>
+  <rect x="355" y="55" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="359" y="67" class="label">Xylem vein</text>
+
+  <line x1="130" y1="190" x2="70" y2="190" class="line"/>
+  <rect x="10" y="181" width="58" height="18" rx="4" class="label-bg"/>
+  <text x="14" y="193" class="label">Palisade</text>
+
+  <line x1="620" y1="260" x2="700" y2="260" class="line"/>
+  <rect x="702" y="251" width="70" height="18" rx="4" class="label-bg"/>
+  <text x="706" y="263" class="label">Spongy</text>
+
+  <line x1="455" y1="335" x2="550" y2="335" class="line"/>
+  <rect x="552" y="326" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="556" y="338" class="label">Stoma (pore)</text>
+
+  <line x1="425" y1="345" x2="500" y2="365" class="line"/>
+  <rect x="502" y="356" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="506" y="368" class="label">Guard cells</text>
+
+  <text x="400" y="430" text-anchor="middle" class="sublabel">Water evaporates from moist mesophyll cell walls → diffuses through air spaces → exits via stomata.</text>
+</svg>

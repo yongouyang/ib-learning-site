@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 480" role="img" aria-labelledby="title desc">
+  <title id="title">The Nephron</title>
+  <desc id="desc">A simplified diagram of a nephron showing the glomerulus, Bowman's capsule, tubule, and blood vessels, with labels for ultrafiltration and reabsorption.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .vessel { fill: none; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+      .tubule { fill: none; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect width="740" height="480" fill="#f9fafb" rx="12"/>
+  <text x="370" y="34" text-anchor="middle" class="title">The Nephron</text>
+
+  <!-- Tubule -->
+  <path d="M250,100 C250,220 480,220 480,340 C480,420 380,420 320,380 C280,350 280,290 320,260" class="tubule" stroke="#c084fc"/>
+
+  <!-- Bowman's capsule -->
+  <ellipse cx="250" cy="120" rx="45" ry="35" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+  <!-- Glomerulus -->
+  <circle cx="250" cy="120" r="18" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+
+  <!-- Afferent arteriole -->
+  <path d="M120,120 C170,120 190,100 230,110" class="vessel" stroke="#ef4444"/>
+  <path d="M170,112 L185,110 L170,106" fill="none" stroke="#ef4444" stroke-width="2"/>
+  <text x="100" y="115" text-anchor="end" class="label">Blood in</text>
+
+  <!-- Efferent arteriole -->
+  <path d="M270,125 C310,140 340,180 360,220" class="vessel" stroke="#3b82f6"/>
+  <path d="M310,160 L320,170 L318,155" fill="none" stroke="#3b82f6" stroke-width="2"/>
+  <text x="375" y="235" class="label">Blood out</text>
+
+  <!-- Labels -->
+  <line x1="250" y1="85" x2="250" y2="55" class="line"/>
+  <rect x="198" y="37" width="104" height="18" rx="4" class="label-bg"/>
+  <text x="202" y="49" class="label">Bowman's capsule</text>
+
+  <line x1="230" y1="110" x2="150" y2="80" class="line"/>
+  <rect x="80" y="62" width="68" height="18" rx="4" class="label-bg"/>
+  <text x="84" y="74" class="label">Glomerulus</text>
+
+  <line x1="480" y1="340" x2="560" y2="360" class="line"/>
+  <rect x="562" y="351" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="566" y="363" class="label">Tubule</text>
+
+  <line x1="320" y1="380" x2="240" y2="410" class="line"/>
+  <rect x="140" y="401" width="98" height="18" rx="4" class="label-bg"/>
+  <text x="144" y="413" class="label">Urine to bladder</text>
+
+  <!-- Process annotations -->
+  <text x="250" y="165" text-anchor="middle" class="sublabel">Ultrafiltration</text>
+  <text x="250" y="180" text-anchor="middle" class="sublabel">(water, glucose, salts, urea)</text>
+
+  <text x="380" y="270" text-anchor="middle" class="sublabel">Selective reabsorption</text>
+  <text x="380" y="285" text-anchor="middle" class="sublabel">(glucose, water, salts back to blood)</text>
+
+  <!-- Arrows for reabsorption -->
+  <line x1="360" y1="300" x2="400" y2="280" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="420" y1="350" x2="470" y2="320" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+
+  <!-- Waste arrow -->
+  <line x1="350" y1="390" x2="310" y2="420" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <text x="360" y="430" class="sublabel">Urea + excess substances</text>
+</svg>

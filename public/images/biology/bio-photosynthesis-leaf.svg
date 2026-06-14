@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Leaf Cross-Section</title>
+  <desc id="desc">A diagram of a leaf cross-section showing the waxy cuticle, upper and lower epidermis, palisade mesophyll, spongy mesophyll, stomata, guard cells, xylem and phloem in a vein.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#f97316"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="520" fill="#f9fafb" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" class="title">Leaf Structure and Gas Exchange</text>
+
+  <!-- Sun -->
+  <g transform="translate(120, 80)">
+    <circle cx="0" cy="0" r="22" fill="#fbbf24"/>
+    <g stroke="#fbbf24" stroke-width="3" stroke-linecap="round">
+      <line x1="0" y1="-32" x2="0" y2="-40"/>
+      <line x1="0" y1="32" x2="0" y2="40"/>
+      <line x1="-32" y1="0" x2="-40" y2="0"/>
+      <line x1="32" y1="0" x2="40" y2="0"/>
+      <line x1="23" y1="23" x2="29" y2="29"/>
+      <line x1="-23" y1="23" x2="-29" y2="29"/>
+      <line x1="23" y1="-23" x2="29" y2="-29"/>
+      <line x1="-23" y1="-23" x2="-29" y2="-29"/>
+    </g>
+  </g>
+
+  <!-- Light arrow -->
+  <line x1="120" y1="120" x2="120" y2="180" class="arrow" stroke="#fbbf24" marker-end="url(#arrow-orange)"/>
+  <text x="120" y="165" text-anchor="middle" class="sublabel">light</text>
+
+  <!-- Leaf body -->
+  <g transform="translate(180, 120)">
+    <!-- Outer leaf shape -->
+    <path d="M0,60 Q220,-40 460,60 Q220,160 0,60 Z" fill="#dcfce7" stroke="#10b981" stroke-width="3"/>
+
+    <!-- Waxy cuticle -->
+    <path d="M4,60 Q220,-35 456,60" fill="none" stroke="#86efac" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Upper epidermis -->
+    <path d="M8,62 Q220,-28 452,62" fill="none" stroke="#34d399" stroke-width="10" stroke-linecap="round"/>
+
+    <!-- Palisade mesophyll -->
+    <path d="M30,68 Q220,-10 430,68 L415,95 Q220,25 45,95 Z" fill="#86efac" stroke="#22c55e" stroke-width="1.5"/>
+    <!-- Palisade cells -->
+    <g fill="#10b981" opacity="0.35">
+      <ellipse cx="80" cy="68" rx="10" ry="22"/>
+      <ellipse cx="120" cy="65" rx="10" ry="23"/>
+      <ellipse cx="160" cy="62" rx="10" ry="24"/>
+      <ellipse cx="200" cy="60" rx="10" ry="25"/>
+      <ellipse cx="240" cy="58" rx="10" ry="25"/>
+      <ellipse cx="280" cy="60" rx="10" ry="25"/>
+      <ellipse cx="320" cy="62" rx="10" ry="24"/>
+      <ellipse cx="360" cy="65" rx="10" ry="23"/>
+      <ellipse cx="400" cy="68" rx="10" ry="22"/>
+    </g>
+
+    <!-- Spongy mesophyll -->
+    <path d="M45,98 Q220,28 415,98 L390,130 Q220,70 70,130 Z" fill="#bbf7d0" stroke="#22c55e" stroke-width="1.5"/>
+    <!-- Air spaces -->
+    <g fill="#f0fdf4">
+      <ellipse cx="130" cy="105" rx="18" ry="10"/>
+      <ellipse cx="200" cy="98" rx="22" ry="12"/>
+      <ellipse cx="270" cy="105" rx="20" ry="11"/>
+      <ellipse cx="340" cy="100" rx="18" ry="10"/>
+    </g>
+
+    <!-- Vein -->
+    <g transform="translate(230, 120)">
+      <path d="M-40,0 L40,0 L30,35 L-30,35 Z" fill="#e5e7eb" stroke="#9ca3af" stroke-width="2"/>
+      <circle cx="-12" cy="17" r="10" fill="#3b82f6"/>
+      <circle cx="12" cy="17" r="10" fill="#f97316"/>
+    </g>
+
+    <!-- Lower epidermis + stoma -->
+    <path d="M8,58 Q220,148 452,58" fill="none" stroke="#34d399" stroke-width="10" stroke-linecap="round"/>
+    <g transform="translate(360, 128)">
+      <ellipse cx="0" cy="0" rx="22" ry="10" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+      <ellipse cx="-26" cy="-2" rx="14" ry="8" fill="#4ade80" stroke="#16a34a" stroke-width="2"/>
+      <ellipse cx="26" cy="-2" rx="14" ry="8" fill="#4ade80" stroke="#16a34a" stroke-width="2"/>
+    </g>
+
+    <!-- Labels with leader lines -->
+    <!-- Waxy cuticle -->
+    <line x1="360" y1="22" x2="420" y2="-5" class="line"/>
+    <rect x="422" y="-13" width="86" height="18" rx="4" class="label-bg"/>
+    <text x="426" y="-1" text-anchor="start" class="label">Waxy cuticle</text>
+
+    <!-- Upper epidermis -->
+    <line x1="380" y1="42" x2="430" y2="30" class="line"/>
+    <rect x="432" y="22" width="102" height="18" rx="4" class="label-bg"/>
+    <text x="436" y="34" text-anchor="start" class="label">Upper epidermis</text>
+
+    <!-- Palisade mesophyll -->
+    <line x1="160" y1="45" x2="80" y2="10" class="line"/>
+    <rect x="-46" y="2" width="120" height="18" rx="4" class="label-bg"/>
+    <text x="74" y="14" text-anchor="end" class="label">Palisade mesophyll</text>
+
+    <!-- Spongy mesophyll -->
+    <line x1="340" y1="95" x2="480" y2="80" class="line"/>
+    <rect x="482" y="72" width="122" height="18" rx="4" class="label-bg"/>
+    <text x="486" y="84" text-anchor="start" class="label">Spongy mesophyll</text>
+
+    <!-- Vein labels -->
+    <line x1="230" y1="155" x2="230" y2="185" class="line"/>
+    <rect x="185" y="188" width="90" height="30" rx="4" class="label-bg"/>
+    <text x="230" y="204" text-anchor="middle" class="label">Vein</text>
+    <text x="230" y="218" text-anchor="middle" class="sublabel">xylem + phloem</text>
+
+    <!-- Stoma + guard cells -->
+    <line x1="395" y1="130" x2="480" y2="165" class="line"/>
+    <rect x="482" y="157" width="144" height="18" rx="4" class="label-bg"/>
+    <text x="486" y="169" text-anchor="start" class="label">Stoma + guard cells</text>
+
+    <!-- Gas arrows -->
+    <line x1="380" y1="-30" x2="340" y2="20" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+    <rect x="388" y="-33" width="48" height="16" rx="4" class="label-bg"/>
+    <text x="392" y="-21" text-anchor="start" class="sublabel">CO₂ in</text>
+
+    <line x1="470" y1="145" x2="520" y2="115" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)"/>
+    <rect x="524" y="107" width="44" height="16" rx="4" class="label-bg"/>
+    <text x="528" y="119" text-anchor="start" class="sublabel">O₂ out</text>
+  </g>
+
+  <!-- Bottom caption -->
+  <text x="450" y="490" text-anchor="middle" class="sublabel" style="font-size:12px">
+    CO₂ enters through stomata → used in photosynthesis → O₂ and glucose produced
+  </text>
+</svg>

@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Reversible Reactions and Dynamic Equilibrium</title>
+  <desc id="desc">A diagram showing the reversible reaction of hydrated copper sulfate turning white when heated and returning to blue when water is added, plus a dynamic equilibrium explanation.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .reversible-arrow { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .beaker { fill: #e0f2fe; stroke: #38bdf8; stroke-width: 1.5; fill-opacity: 0.3; }
+    </style>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#f97316"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="480" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Reversible Reactions and Equilibrium</text>
+
+  <!-- Equation -->
+  <rect x="100" y="50" width="600" height="50" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5" rx="8"/>
+  <text x="400" y="82" text-anchor="middle" class="label">
+    CuSO₄·5H₂O(s) <tspan fill="#f97316">⇌</tspan> CuSO₄(s) + 5H₂O(g)
+  </text>
+
+  <!-- Blue hydrated crystals -->
+  <g transform="translate(100, 130)">
+    <rect x="0" y="0" width="180" height="180" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5" rx="10"/>
+    <text x="90" y="24" text-anchor="middle" class="label" fill="#1e3a8a">Hydrated (blue)</text>
+    <!-- Crystals -->
+    <g fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5">
+      <polygon points="50,80 70,60 90,80 70,100"/>
+      <polygon points="95,100 115,80 135,100 115,120"/>
+      <polygon points="70,130 90,110 110,130 90,150"/>
+      <polygon points="120,60 140,40 160,60 140,80"/>
+    </g>
+    <text x="90" y="165" text-anchor="middle" class="sublabel" fill="#1e3a8a">CuSO₄·5H₂O</text>
+  </g>
+
+  <!-- Heat arrow forward -->
+  <line x1="300" y1="220" x2="380" y2="220" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)"/>
+  <rect x="310" y="190" width="60" height="18" rx="4" class="label-bg"/>
+  <text x="314" y="203" class="sublabel" fill="#7c2d12">heat</text>
+
+  <!-- White anhydrous powder -->
+  <g transform="translate(400, 130)">
+    <rect x="0" y="0" width="180" height="180" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5" rx="10"/>
+    <text x="90" y="24" text-anchor="middle" class="label" fill="#6b7280">Anhydrous (white)</text>
+    <!-- Powder -->
+    <g fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5">
+      <circle cx="60" cy="80" r="6"/>
+      <circle cx="80" cy="95" r="7"/>
+      <circle cx="100" cy="75" r="6"/>
+      <circle cx="120" cy="100" r="7"/>
+      <circle cx="75" cy="120" r="6"/>
+      <circle cx="110" cy="125" r="6"/>
+      <circle cx="135" cy="80" r="5"/>
+      <circle cx="55" cy="110" r="5"/>
+    </g>
+    <!-- Water vapour -->
+    <g transform="translate(130, 45)">
+      <circle cx="0" cy="0" r="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+      <circle cx="15" cy="-8" r="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+      <circle cx="28" cy="3" r="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+      <text x="15" y="20" text-anchor="middle" class="sublabel" fill="#1e3a8a">H₂O(g)</text>
+    </g>
+    <text x="90" y="165" text-anchor="middle" class="sublabel" fill="#4b5563">CuSO₄</text>
+  </g>
+
+  <!-- Water arrow reverse -->
+  <line x1="380" y1="250" x2="300" y2="250" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <rect x="310" y="255" width="60" height="18" rx="4" class="label-bg"/>
+  <text x="314" y="268" class="sublabel" fill="#1d4ed8">+ water</text>
+
+  <!-- Dynamic equilibrium box -->
+  <g transform="translate(100, 340)">
+    <rect x="0" y="0" width="600" height="120" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5" rx="10"/>
+    <text x="300" y="28" text-anchor="middle" class="label">Dynamic Equilibrium</text>
+
+    <!-- Container -->
+    <rect x="80" y="45" width="440" height="55" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5" rx="6"/>
+
+    <!-- Forward arrow -->
+    <line x1="120" y1="72" x2="260" y2="72" class="reversible-arrow" stroke="#f97316" marker-end="url(#arrow-orange)"/>
+    <rect x="150" y="48" width="80" height="18" rx="4" class="label-bg"/>
+    <text x="154" y="61" class="sublabel" fill="#7c2d12">forward reaction</text>
+
+    <!-- Reverse arrow -->
+    <line x1="480" y1="72" x2="340" y2="72" class="reversible-arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+    <rect x="370" y="78" width="80" height="18" rx="4" class="label-bg"/>
+    <text x="374" y="91" class="sublabel" fill="#1d4ed8">reverse reaction</text>
+
+    <text x="300" y="105" text-anchor="middle" class="sublabel">Rates are equal; concentrations stay constant.</text>
+  </g>
+</svg>

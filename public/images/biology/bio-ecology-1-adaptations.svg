@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" role="img" aria-labelledby="title desc">
+  <title id="title">Adaptations to Environment</title>
+  <desc id="desc">Two panels showing desert adaptations (camel and cactus) and Arctic adaptations (polar bear and arctic fox).</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="820" height="500" fill="#f9fafb" rx="12"/>
+  <text x="410" y="34" text-anchor="middle" class="title">Adaptations to Environment</text>
+
+  <!-- Desert panel -->
+  <rect x="30" y="55" width="365" height="425" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="212" y="82" text-anchor="middle" class="panel-title">Desert adaptations</text>
+
+  <!-- Sun -->
+  <circle cx="80" cy="110" r="20" fill="#facc15"/>
+  <line x1="80" y1="80" x2="80" y2="70" stroke="#facc15" stroke-width="3"/>
+  <line x1="80" y1="140" x2="80" y2="150" stroke="#facc15" stroke-width="3"/>
+  <line x1="50" y1="110" x2="40" y2="110" stroke="#facc15" stroke-width="3"/>
+  <line x1="110" y1="110" x2="120" y2="110" stroke="#facc15" stroke-width="3"/>
+
+  <!-- Camel -->
+  <ellipse cx="190" cy="260" rx="70" ry="40" fill="#d97706"/>
+  <ellipse cx="160" cy="220" r="28" fill="#d97706"/>
+  <ellipse cx="160" cy="215" rx="20" ry="14" fill="#fcd34d"/>
+  <circle cx="152" cy="212" r="3" fill="#1f2937"/>
+  <circle cx="168" cy="212" r="3" fill="#1f2937"/>
+  <rect x="135" y="245" width="10" height="45" rx="5" fill="#d97706"/>
+  <rect x="235" y="245" width="10" height="45" rx="5" fill="#d97706"/>
+  <path d="M175,240 Q205,205 235,240" fill="#b45309"/>
+  <text x="190" y="330" text-anchor="middle" class="label">Camel</text>
+
+  <!-- Cactus -->
+  <ellipse cx="310" cy="280" rx="22" ry="50" fill="#16a34a" stroke="#15803d" stroke-width="2"/>
+  <ellipse cx="285" cy="260" rx="14" ry="28" fill="#16a34a" stroke="#15803d" stroke-width="2"/>
+  <ellipse cx="335" cy="250" rx="14" ry="28" fill="#16a34a" stroke="#15803d" stroke-width="2"/>
+  <line x1="270" y1="240" x2="260" y2="240" stroke="#1f2937" stroke-width="2"/>
+  <line x1="270" y1="260" x2="260" y2="260" stroke="#1f2937" stroke-width="2"/>
+  <line x1="350" y1="230" x2="360" y2="230" stroke="#1f2937" stroke-width="2"/>
+  <line x1="350" y1="250" x2="360" y2="250" stroke="#1f2937" stroke-width="2"/>
+  <text x="310" y="350" text-anchor="middle" class="label">Cactus</text>
+
+  <!-- Ground -->
+  <rect x="45" y="365" width="335" height="12" fill="#fde68a"/>
+
+  <!-- Camel labels -->
+  <line x1="240" y1="245" x2="310" y2="220" class="line"/>
+  <rect x="312" y="211" width="75" height="18" rx="4" class="label-bg"/>
+  <text x="316" y="223" class="label">Hump stores fat</text>
+
+  <line x1="155" y1="190" x2="80" y2="170" class="line"/>
+  <rect x="20" y="151" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="24" y="163" class="label">Long eyelashes</text>
+
+  <line x1="175" y1="300" x2="120" y2="330" class="line"/>
+  <rect x="20" y="331" width="95" height="18" rx="4" class="label-bg"/>
+  <text x="24" y="343" class="label">Wide feet</text>
+
+  <!-- Cactus labels -->
+  <line x1="290" y1="220" x2="260" y2="200" class="line"/>
+  <rect x="145" y="191" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="149" y="203" class="label">Spines reduce water loss</text>
+
+  <line x1="335" y1="280" x2="370" y2="310" class="line"/>
+  <rect x="280" y="311" width="130" height="18" rx="4" class="label-bg"/>
+  <text x="284" y="323" class="label">Thick waxy cuticle</text>
+
+  <!-- Arctic panel -->
+  <rect x="425" y="55" width="365" height="425" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="607" y="82" text-anchor="middle" class="panel-title">Arctic adaptations</text>
+
+  <!-- Snow / ice -->
+  <rect x="440" y="365" width="335" height="12" fill="#e0f2fe"/>
+  <path d="M440,365 Q490,345 540,365 T640,365 T740,365" fill="none" stroke="#bae6fd" stroke-width="2"/>
+
+  <!-- Polar bear -->
+  <ellipse cx="550" cy="260" rx="80" ry="50" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <ellipse cx="490" cy="225" r="32" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <circle cx="480" cy="220" r="3" fill="#1f2937"/>
+  <circle cx="500" cy="220" r="3" fill="#1f2937"/>
+  <ellipse cx="475" cy="235" rx="8" ry="5" fill="#1f2937"/>
+  <rect x="510" y="300" width="14" height="50" rx="7" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <rect x="605" y="300" width="14" height="50" rx="7" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <text x="550" y="370" text-anchor="middle" class="label">Polar bear</text>
+
+  <!-- Arctic fox -->
+  <ellipse cx="710" cy="300" rx="38" ry="24" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <ellipse cx="680" cy="285" r="18" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <circle cx="675" cy="282" r="2.5" fill="#1f2937"/>
+  <circle cx="688" cy="282" r="2.5" fill="#1f2937"/>
+  <ellipse cx="675" cy="292" rx="4" ry="2.5" fill="#1f2937"/>
+  <text x="710" y="345" text-anchor="middle" class="label">Arctic fox</text>
+
+  <!-- Polar bear labels -->
+  <line x1="560" y1="215" x2="650" y2="180" class="line"/>
+  <rect x="652" y="171" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="656" y="183" class="label">Thick fur + blubber</text>
+
+  <line x1="495" y1="240" x2="450" y2="210" class="line"/>
+  <rect x="335" y="191" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="339" y="203" class="label">White fur camouflage</text>
+
+  <line x1="620" y1="310" x2="670" y2="340" class="line"/>
+  <rect x="600" y="341" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="604" y="353" class="label">Large padded feet</text>
+
+  <!-- Arctic fox labels -->
+  <line x1="700" y1="285" x2="760" y2="260" class="line"/>
+  <rect x="685" y="241" width="95" height="18" rx="4" class="label-bg"/>
+  <text x="689" y="253" class="label">Small ears</text>
+
+  <line x1="745" y1="300" x2="790" y2="300" class="line"/>
+  <rect x="700" y="281" width="95" height="18" rx="4" class="label-bg"/>
+  <text x="704" y="293" class="label">Seasonal coat</text>
+</svg>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" role="img" aria-labelledby="title desc">
+  <title id="title">Gas Exchange and the Role of Blood</title>
+  <desc id="desc">A schematic diagram showing oxygen, carbon dioxide, glucose and lactic acid transport between the lungs, blood, body cells, small intestine and liver.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .label-bg { fill: #f9fafb; }
+      .vessel-outer { stroke-linecap: round; fill: none; }
+      .vessel-inner { stroke-linecap: round; fill: none; }
+    </style>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#f97316"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="480" fill="#f9fafb" rx="12"/>
+  <text x="460" y="34" text-anchor="middle" class="title">Gas Exchange and the Role of Blood</text>
+
+  <!-- Lungs -->
+  <ellipse cx="165" cy="195" rx="48" ry="78" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+  <ellipse cx="255" cy="195" rx="48" ry="78" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+  <line x1="215" y1="85" x2="210" y2="120" class="line"/>
+  <rect x="160" y="65" width="110" height="20" rx="4" class="label-bg"/>
+  <text x="167" y="79" class="label">Lungs (alveoli)</text>
+
+  <!-- Body cells -->
+  <rect x="640" y="160" width="220" height="200" rx="14" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+  <text x="750" y="185" text-anchor="middle" class="label">Body cells</text>
+
+  <!-- Mitochondrion inside cell -->
+  <ellipse cx="750" cy="245" rx="55" ry="30" fill="#f87171" stroke="#b91c1c" stroke-width="2"/>
+  <path d="M710,245 Q725,230 740,245 Q755,260 770,245 Q785,230 795,245" fill="none" stroke="#7f1d1d" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="750" y="250" text-anchor="middle" class="sublabel" fill="#fff">Mitochondria</text>
+
+  <!-- Artery: lungs to body cells -->
+  <path d="M320,195 Q480,195 640,195" class="vessel-outer" stroke="#ef4444" stroke-width="24"/>
+  <path d="M320,195 Q480,195 640,195" class="vessel-inner" stroke="#fecaca" stroke-width="16"/>
+  <line x1="360" y1="195" x2="600" y2="195" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <ellipse cx="420" cy="195" rx="16" ry="10" fill="#ef4444" opacity="0.9" transform="rotate(-10 420 195)"/>
+  <ellipse cx="540" cy="195" rx="16" ry="10" fill="#ef4444" opacity="0.9" transform="rotate(10 540 195)"/>
+
+  <!-- Vein: body cells to lungs -->
+  <path d="M640,305 Q480,305 320,305" class="vessel-outer" stroke="#3b82f6" stroke-width="24"/>
+  <path d="M640,305 Q480,305 320,305" class="vessel-inner" stroke="#93c5fd" stroke-width="16"/>
+  <line x1="600" y1="305" x2="360" y2="305" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <ellipse cx="540" cy="305" rx="16" ry="10" fill="#ef4444" opacity="0.8" transform="rotate(-10 540 305)"/>
+  <ellipse cx="420" cy="305" rx="16" ry="10" fill="#ef4444" opacity="0.8" transform="rotate(10 420 305)"/>
+
+  <!-- Vessel labels -->
+  <line x1="460" y1="155" x2="460" y2="172" class="line"/>
+  <rect x="375" y="132" width="170" height="20" rx="4" class="label-bg"/>
+  <text x="382" y="146" class="label">Oxygen (O₂) to body cells</text>
+
+  <line x1="460" y1="328" x2="460" y2="345" class="line"/>
+  <rect x="360" y="348" width="200" height="20" rx="4" class="label-bg"/>
+  <text x="367" y="362" class="label">Carbon dioxide (CO₂) to lungs</text>
+
+  <!-- Small intestine and glucose -->
+  <rect x="140" y="375" width="190" height="60" rx="12" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <text x="235" y="400" text-anchor="middle" class="label">Small intestine</text>
+  <text x="235" y="417" text-anchor="middle" class="sublabel">glucose absorbed into blood</text>
+
+  <path d="M330,375 L330,345 L640,345" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+  <line x1="460" y1="345" x2="460" y2="330" class="line"/>
+  <rect x="370" y="310" width="180" height="20" rx="4" class="label-bg"/>
+  <text x="377" y="324" class="label">Glucose to cells</text>
+
+  <!-- Liver and lactic acid -->
+  <rect x="630" y="375" width="190" height="60" rx="12" fill="#c4b5fd" stroke="#7c3aed" stroke-width="2"/>
+  <text x="725" y="400" text-anchor="middle" class="label">Liver</text>
+  <text x="725" y="417" text-anchor="middle" class="sublabel">lactic acid → glucose</text>
+
+  <line x1="750" y1="360" x2="725" y2="375" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)"/>
+
+  <!-- Red blood cell label -->
+  <line x1="750" y1="160" x2="750" y2="148" class="line"/>
+  <rect x="660" y="128" width="180" height="20" rx="4" class="label-bg"/>
+  <text x="750" y="142" text-anchor="middle" class="label">Red blood cells carry gases</text>
+
+  <!-- Medulla summary -->
+  <rect x="210" y="450" width="500" height="24" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5" rx="6"/>
+  <text x="460" y="467" text-anchor="middle" class="sublabel">The brain (medulla) increases breathing and heart rate during exercise</text>
+</svg>

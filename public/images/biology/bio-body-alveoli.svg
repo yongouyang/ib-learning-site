@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" role="img" aria-labelledby="title desc">
+  <title id="title">Gas Exchange in the Alveoli</title>
+  <desc id="desc">A diagram showing an alveolus surrounded by capillaries, with oxygen diffusing into the blood and carbon dioxide diffusing out.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="700" height="420" fill="#f9fafb" rx="12"/>
+  <text x="350" y="34" text-anchor="middle" class="title">Gas Exchange in the Alveoli</text>
+
+  <!-- Alveolus -->
+  <circle cx="350" cy="220" r="110" fill="#fecaca" stroke="#ef4444" stroke-width="3"/>
+  <text x="350" y="225" text-anchor="middle" class="label" fill="#7f1d1d">Alveolus</text>
+  <text x="350" y="245" text-anchor="middle" class="sublabel" fill="#7f1d1d">air space</text>
+
+  <!-- Capillary wrapping around -->
+  <path d="M210,220 C210,140 490,140 490,220 C490,300 210,300 210,220" fill="none" stroke="#3b82f6" stroke-width="24" stroke-linecap="round"/>
+  <path d="M210,220 C210,140 490,140 490,220 C490,300 210,300 210,220" fill="none" stroke="#93c5fd" stroke-width="18" stroke-linecap="round"/>
+
+  <!-- Blood flow direction -->
+  <line x1="180" y1="160" x2="220" y2="160" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <text x="200" y="145" text-anchor="middle" class="sublabel">blood flow</text>
+
+  <!-- RBC in capillary -->
+  <ellipse cx="280" cy="170" rx="16" ry="10" fill="#ef4444" opacity="0.9" transform="rotate(-20 280 170)"/>
+  <ellipse cx="350" cy="155" rx="16" ry="10" fill="#ef4444" opacity="0.9"/>
+  <ellipse cx="420" cy="170" rx="16" ry="10" fill="#ef4444" opacity="0.9" transform="rotate(20 420 170)"/>
+
+  <!-- O2 arrows into blood -->
+  <line x1="320" y1="170" x2="320" y2="140" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <line x1="380" y1="170" x2="380" y2="140" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <text x="350" y="125" text-anchor="middle" class="label" fill="#b91c1c">O₂ in</text>
+
+  <!-- CO2 arrows out -->
+  <line x1="320" y1="270" x2="320" y2="300" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="380" y1="270" x2="380" y2="300" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <text x="350" y="320" text-anchor="middle" class="label" fill="#1d4ed8">CO₂ out</text>
+
+  <!-- Adaptation labels -->
+  <line x1="460" y1="220" x2="560" y2="220" class="line"/>
+  <rect x="562" y="211" width="120" height="18" rx="4" class="label-bg"/>
+  <text x="566" y="223" class="label">Thin wall (one cell)</text>
+
+  <line x1="240" y1="220" x2="140" y2="220" class="line"/>
+  <rect x="20" y="211" width="118" height="18" rx="4" class="label-bg"/>
+  <text x="24" y="223" class="label">Large surface area</text>
+
+  <line x1="350" y1="330" x2="350" y2="360" class="line"/>
+  <rect x="275" y="361" width="150" height="18" rx="4" class="label-bg"/>
+  <text x="280" y="373" class="label">Moist surface + rich blood supply</text>
+</svg>

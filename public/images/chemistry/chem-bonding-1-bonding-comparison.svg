@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Comparison of Ionic, Covalent, and Metallic Bonding</title>
+  <desc id="desc">A summary table comparing ionic, simple molecular, giant covalent, and metallic substances across melting point, conductivity, solubility, and mechanical properties.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; fill: #4b5563; }
+      .header { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 700; fill: #ffffff; }
+      .cell { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #374151; }
+      .line { stroke: #d1d5db; stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="960" height="520" fill="#f9fafb" rx="12"/>
+  <text x="480" y="38" text-anchor="middle" class="title">Comparing Bonding Types</text>
+
+  <!-- Table background -->
+  <rect x="40" y="70" width="880" height="340" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+
+  <!-- Header row -->
+  <rect x="40" y="70" width="880" height="40" rx="10" fill="#374151"/>
+  <path d="M40,110 L920,110" stroke="#4b5563" stroke-width="1"/>
+
+  <text x="60" y="95" class="header">Bonding type</text>
+  <text x="230" y="95" class="header">Melting/boiling point</text>
+  <text x="400" y="95" class="header">Conductivity</text>
+  <text x="570" y="95" class="header">Solubility in water</text>
+  <text x="740" y="95" class="header">Other properties</text>
+
+  <!-- Row 1: Ionic -->
+  <rect x="40" y="110" width="880" height="75" fill="#eff6ff"/>
+  <text x="60" y="140" class="label" fill="#1e40af">Ionic</text>
+  <text x="60" y="158" class="sublabel">e.g. NaCl, MgO</text>
+  <text x="230" y="149" class="cell">High</text>
+  <text x="400" y="140" class="cell">Solid: no</text>
+  <text x="400" y="158" class="cell">Molten/aqueous: yes</text>
+  <text x="570" y="149" class="cell">Often soluble</text>
+  <text x="740" y="140" class="cell">Brittle</text>
+  <text x="740" y="158" class="cell">Giant ionic lattice</text>
+
+  <!-- Row 2: Simple molecular -->
+  <rect x="40" y="185" width="880" height="75" fill="#f0fdf4"/>
+  <text x="60" y="215" class="label" fill="#166534">Simple molecular</text>
+  <text x="60" y="233" class="sublabel">e.g. H₂O, CO₂, O₂</text>
+  <text x="230" y="224" class="cell">Low</text>
+  <text x="400" y="224" class="cell">Never conducts</text>
+  <text x="570" y="215" class="cell">Mostly insoluble</text>
+  <text x="570" y="233" class="sublabel">(sugar is an exception)</text>
+  <text x="740" y="215" class="cell">Gases/liquids at room temp</text>
+  <text x="740" y="233" class="cell">Weak intermolecular forces</text>
+
+  <!-- Row 3: Giant covalent -->
+  <rect x="40" y="260" width="880" height="75" fill="#fff7ed"/>
+  <text x="60" y="290" class="label" fill="#9a3412">Giant covalent</text>
+  <text x="60" y="308" class="sublabel">e.g. diamond, graphite, SiO₂</text>
+  <text x="230" y="299" class="cell">Very high</text>
+  <text x="400" y="290" class="cell">Does not conduct</text>
+  <text x="400" y="308" class="sublabel">(except graphite)</text>
+  <text x="570" y="299" class="cell">Insoluble</text>
+  <text x="740" y="290" class="cell">Hard</text>
+  <text x="740" y="308" class="cell">3D network of covalent bonds</text>
+
+  <!-- Row 4: Metallic -->
+  <rect x="40" y="335" width="880" height="75" fill="#fef2f2"/>
+  <text x="60" y="365" class="label" fill="#991b1b">Metallic</text>
+  <text x="60" y="383" class="sublabel">e.g. Cu, Fe, Na</text>
+  <text x="230" y="374" class="cell">High (variable)</text>
+  <text x="400" y="365" class="cell">Always conducts as solid</text>
+  <text x="400" y="383" class="sublabel">(delocalised e⁻)</text>
+  <text x="570" y="374" class="cell">Insoluble</text>
+  <text x="740" y="365" class="cell">Malleable / ductile</text>
+  <text x="740" y="383" class="cell">Shiny, high thermal conductivity</text>
+
+  <!-- Vertical grid lines -->
+  <line x1="210" y1="70" x2="210" y2="410" class="line"/>
+  <line x1="380" y1="70" x2="380" y2="410" class="line"/>
+  <line x1="550" y1="70" x2="550" y2="410" class="line"/>
+  <line x1="720" y1="70" x2="720" y2="410" class="line"/>
+
+  <!-- Horizontal grid lines -->
+  <line x1="40" y1="185" x2="920" y2="185" class="line"/>
+  <line x1="40" y1="260" x2="920" y2="260" class="line"/>
+  <line x1="40" y1="335" x2="920" y2="335" class="line"/>
+
+  <!-- Key questions / summary -->
+  <rect x="40" y="430" width="880" height="70" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="480" y="455" text-anchor="middle" class="label">Key exam ideas</text>
+  <text x="480" y="480" text-anchor="middle" class="sublabel">NaCl conducts when molten because ions become free to move · Diamond is hard due to its 3D covalent network · Graphite is soft because layers slide</text>
+</svg>

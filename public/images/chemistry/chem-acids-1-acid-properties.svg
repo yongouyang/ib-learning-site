@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Acids: Properties and Ionisation</title>
+  <desc id="desc">Common acids, the difference between strong and weak acids, and the characteristic properties of acidic solutions.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .beaker { fill: #e0f2fe; stroke: #475569; stroke-width: 3; }
+      .liquid { fill: #bae6fd; opacity: 0.7; }
+      .ion-h { fill: #ef4444; }
+      .ion-cl { fill: #22c55e; }
+      .molecule { fill: #9ca3af; }
+      .ion-acetate { fill: #14b8a6; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="38" text-anchor="middle" class="title">Acids: Properties and Ionisation</text>
+
+  <!-- Common acids -->
+  <rect x="120" y="55" width="560" height="42" rx="8" class="box"/>
+  <text x="400" y="72" text-anchor="middle" class="label">Common acids</text>
+  <text x="400" y="88" text-anchor="middle" class="sublabel">HCl • H₂SO₄ • HNO₃ • citric acid • ethanoic acid • carbonic acid</text>
+
+  <!-- Strong acid beaker -->
+  <g transform="translate(170, 170)">
+    <path d="M0,0 L0,110 Q0,140 35,140 L85,140 Q120,140 120,110 L120,0" class="beaker"/>
+    <rect x="5" y="55" width="110" height="80" rx="32" class="liquid"/>
+    <text x="60" y="25" text-anchor="middle" class="label">Strong acid</text>
+    <text x="60" y="42" text-anchor="middle" class="sublabel">HCl(aq)</text>
+
+    <!-- ions -->
+    <circle cx="30" cy="75" r="7" class="ion-h"/><text x="30" y="78" text-anchor="middle" class="sublabel" fill="white">H⁺</text>
+    <circle cx="80" cy="90" r="9" class="ion-cl"/><text x="80" y="93" text-anchor="middle" class="sublabel" fill="white">Cl⁻</text>
+    <circle cx="60" cy="65" r="7" class="ion-h"/><text x="60" y="68" text-anchor="middle" class="sublabel" fill="white">H⁺</text>
+    <circle cx="40" cy="115" r="9" class="ion-cl"/><text x="40" y="118" text-anchor="middle" class="sublabel" fill="white">Cl⁻</text>
+    <circle cx="95" cy="70" r="7" class="ion-h"/><text x="95" y="73" text-anchor="middle" class="sublabel" fill="white">H⁺</text>
+    <circle cx="75" cy="120" r="9" class="ion-cl"/><text x="75" y="123" text-anchor="middle" class="sublabel" fill="white">Cl⁻</text>
+
+    <text x="60" y="165" text-anchor="middle" class="sublabel">Fully ionised — every molecule releases H⁺</text>
+  </g>
+
+  <!-- Weak acid beaker -->
+  <g transform="translate(490, 170)">
+    <path d="M0,0 L0,110 Q0,140 35,140 L85,140 Q120,140 120,110 L120,0" class="beaker"/>
+    <rect x="5" y="55" width="110" height="80" rx="32" class="liquid"/>
+    <text x="60" y="25" text-anchor="middle" class="label">Weak acid</text>
+    <text x="60" y="42" text-anchor="middle" class="sublabel">CH₃COOH(aq)</text>
+
+    <!-- mostly intact molecules -->
+    <circle cx="35" cy="80" r="11" class="molecule"/>
+    <circle cx="90" cy="100" r="11" class="molecule"/>
+    <circle cx="70" cy="60" r="11" class="molecule"/>
+    <circle cx="55" cy="120" r="11" class="molecule"/>
+    <!-- few ions -->
+    <circle cx="100" cy="70" r="6" class="ion-h"/><text x="100" y="73" text-anchor="middle" class="sublabel" fill="white">H⁺</text>
+    <circle cx="25" cy="110" r="9" class="ion-acetate"/><text x="25" y="113" text-anchor="middle" class="sublabel" fill="white">CH₃COO⁻</text>
+
+    <text x="60" y="165" text-anchor="middle" class="sublabel">Partially ionised — most molecules stay intact</text>
+  </g>
+
+  <!-- Properties -->
+  <g transform="translate(40, 360)">
+    <rect x="0" y="0" width="135" height="55" rx="8" class="box"/>
+    <text x="67" y="22" text-anchor="middle" class="label">Sour taste</text>
+    <text x="67" y="40" text-anchor="middle" class="sublabel">(do NOT taste lab acids)</text>
+
+    <rect x="155" y="0" width="135" height="55" rx="8" class="box"/>
+    <text x="222" y="22" text-anchor="middle" class="label">Corrosive</text>
+    <text x="222" y="40" text-anchor="middle" class="sublabel">burn skin / damage materials</text>
+
+    <rect x="310" y="0" width="135" height="55" rx="8" class="box"/>
+    <text x="377" y="22" text-anchor="middle" class="label">Litmus red</text>
+    <text x="377" y="40" text-anchor="middle" class="sublabel">pH below 7</text>
+
+    <rect x="465" y="0" width="135" height="55" rx="8" class="box"/>
+    <text x="532" y="22" text-anchor="middle" class="label">+ metal → H₂</text>
+    <text x="532" y="40" text-anchor="middle" class="sublabel">above H in reactivity</text>
+
+    <rect x="620" y="0" width="135" height="55" rx="8" class="box"/>
+    <text x="687" y="22" text-anchor="middle" class="label">+ carbonate → CO₂</text>
+    <text x="687" y="40" text-anchor="middle" class="sublabel">salt + water + gas</text>
+  </g>
+
+  <text x="400" y="460" text-anchor="middle" class="sublabel">Concentration and strength are different: a dilute strong acid can have a higher pH than a concentrated weak acid.</text>
+</svg>

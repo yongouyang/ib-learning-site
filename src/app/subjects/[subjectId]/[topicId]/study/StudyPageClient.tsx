@@ -6,6 +6,7 @@ import { ArrowLeft, Layers, Pencil } from 'lucide-react';
 import { getTopic } from '@/content/registry';
 import type { SubjectId } from '@/content/types';
 import StudyNoteBody from '@/components/StudyNoteBody';
+import StudyNoteIllustration from '@/components/StudyNoteIllustration';
 
 interface StudyPageClientProps {
   subjectId: string;
@@ -35,6 +36,13 @@ export default function StudyPageClient({ subjectId, topicId }: StudyPageClientP
             className="card p-5"
           >
             <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-2">{note.heading}</h2>
+            {note.illustration && (
+              <StudyNoteIllustration
+                src={note.illustration.src}
+                alt={note.illustration.alt}
+                caption={note.illustration.caption}
+              />
+            )}
             <StudyNoteBody body={note.body} />
           </motion.div>
         ))}

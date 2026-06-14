@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" role="img" aria-labelledby="title desc">
+  <title id="title">Human Male Reproductive System</title>
+  <desc id="desc">A labelled diagram of the male reproductive system including the testes, sperm duct, glands, urethra and penis, with a sperm cell inset.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="760" height="480" fill="#f9fafb" rx="12"/>
+  <text x="380" y="34" text-anchor="middle" class="title">Human Male Reproductive System</text>
+
+  <!-- Body outline silhouette -->
+  <path d="M360,80 Q300,80 280,140 L280,420 Q280,440 300,440 L460,440 Q480,440 480,420 L480,140 Q460,80 400,80 Z" fill="#fee2e2" stroke="#f87171" stroke-width="2" opacity="0.4"/>
+
+  <!-- Penis -->
+  <rect x="355" y="120" width="50" height="180" rx="10" fill="#fca5a5" stroke="#ef4444" stroke-width="2"/>
+  <path d="M355,300 L405,300 L405,420 Q380,440 355,420 Z" fill="#fca5a5" stroke="#ef4444" stroke-width="2"/>
+
+  <!-- Urethra -->
+  <line x1="380" y1="140" x2="380" y2="420" stroke="#1f2937" stroke-width="3" stroke-dasharray="4 2"/>
+  <line x1="410" y1="280" x2="480" y2="280" class="line"/>
+  <rect x="485" y="271" width="70" height="18" rx="4" class="label-bg"/>
+  <text x="490" y="283" class="label">Urethra</text>
+
+  <!-- Penis label -->
+  <line x1="410" y1="200" x2="500" y2="200" class="line"/>
+  <rect x="505" y="191" width="60" height="18" rx="4" class="label-bg"/>
+  <text x="510" y="203" class="label">Penis</text>
+
+  <!-- Scrotum -->
+  <path d="M325,360 Q325,420 365,420 Q380,420 380,400 Q380,420 395,420 Q435,420 435,360 Z" fill="#fdba74" stroke="#ea580c" stroke-width="2"/>
+  <text x="380" y="405" text-anchor="middle" class="sublabel">Scrotum</text>
+
+  <!-- Testes -->
+  <ellipse cx="355" cy="390" rx="20" ry="16" fill="#f87171" stroke="#b91c1c" stroke-width="2"/>
+  <ellipse cx="405" cy="390" rx="20" ry="16" fill="#f87171" stroke="#b91c1c" stroke-width="2"/>
+  <line x1="325" y1="390" x2="260" y2="390" class="line"/>
+  <rect x="170" y="381" width="85" height="18" rx="4" class="label-bg"/>
+  <text x="175" y="393" class="label">Testes</text>
+  <text x="175" y="410" class="sublabel">Sperm production;</text>
+  <text x="175" y="425" class="sublabel">~2-3 °C cooler</text>
+
+  <!-- Sperm ducts -->
+  <path d="M355,374 Q340,330 380,310" fill="none" stroke="#94a3b8" stroke-width="5"/>
+  <path d="M405,374 Q420,330 380,310" fill="none" stroke="#94a3b8" stroke-width="5"/>
+  <line x1="340" y1="330" x2="260" y2="330" class="line"/>
+  <rect x="170" y="321" width="85" height="18" rx="4" class="label-bg"/>
+  <text x="175" y="333" class="label">Sperm duct</text>
+
+  <!-- Glands -->
+  <circle cx="420" cy="300" r="16" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
+  <circle cx="405" cy="285" r="14" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
+  <line x1="435" y1="300" x2="500" y2="320" class="line"/>
+  <rect x="505" y="311" width="120" height="18" rx="4" class="label-bg"/>
+  <text x="510" y="323" class="label">Glands add fluid → semen</text>
+
+  <!-- Sperm cell inset -->
+  <rect x="50" y="130" width="180" height="130" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="8"/>
+  <text x="140" y="155" text-anchor="middle" class="label">Sperm cell</text>
+  <ellipse cx="90" cy="210" rx="16" ry="10" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+  <path d="M80,205 Q90,198 100,205" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
+  <line x1="106" y1="210" x2="190" y2="210" stroke="#3b82f6" stroke-width="2"/>
+  <path d="M190,210 Q200,205 210,210 Q200,215 190,210" fill="#3b82f6" stroke="#1d4ed8" stroke-width="1.5"/>
+  <line x1="70" y1="200" x2="50" y2="170" class="line"/>
+  <rect x="10" y="151" width="75" height="18" rx="4" class="label-bg"/>
+  <text x="15" y="163" class="label">Head + nucleus</text>
+  <line x1="95" y1="215" x2="75" y2="245" class="line"/>
+  <rect x="20" y="246" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="25" y="258" class="label">Midpiece (mitochondria)</text>
+  <line x1="170" y1="210" x2="210" y2="210" class="line"/>
+  <rect x="215" y="201" width="50" height="18" rx="4" class="label-bg"/>
+  <text x="220" y="213" class="label">Tail</text>
+</svg>

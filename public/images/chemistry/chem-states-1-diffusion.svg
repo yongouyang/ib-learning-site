@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" role="img" aria-labelledby="title desc">
+  <title id="title">Diffusion of Particles</title>
+  <desc id="desc">A diagram showing gas particles spreading from an area of high concentration to low concentration through random motion.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .container { fill: #eff6ff; stroke: #93c5fd; stroke-width: 2; }
+      .arrow { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+    <marker id="arrow-gray" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 L1.5,3 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="880" height="440" fill="#f9fafb" rx="12"/>
+  <text x="440" y="38" text-anchor="middle" class="title">Diffusion: Particles Spread Out</text>
+
+  <!-- Before panel -->
+  <rect x="40" y="55" width="390" height="360" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="235" y="82" text-anchor="middle" class="panel-title">Before: High concentration on left</text>
+
+  <rect x="70" y="105" width="330" height="220" class="container" rx="6"/>
+  <!-- High concentration left -->
+  <g fill="#f97316">
+    <circle cx="100" cy="140" r="9"/><circle cx="130" cy="130" r="9"/><circle cx="150" cy="160" r="9"/><circle cx="115" cy="185" r="9"/>
+    <circle cx="145" cy="205" r="9"/><circle cx="175" cy="145" r="9"/><circle cx="165" cy="180" r="9"/><circle cx="190" cy="200" r="9"/>
+    <circle cx="135" cy="240" r="9"/><circle cx="170" cy="250" r="9"/><circle cx="100" cy="265" r="9"/>
+  </g>
+  <!-- Low concentration right (fewer particles) -->
+  <g fill="#f97316" opacity="0.5">
+    <circle cx="300" cy="150" r="9"/><circle cx="350" cy="200" r="9"/><circle cx="320" cy="260" r="9"/>
+  </g>
+
+  <rect x="105" y="290" width="120" height="18" rx="4" class="label-bg"/>
+  <text x="111" y="302" class="label">High concentration</text>
+  <line x1="165" y1="288" x2="165" y2="270" class="line"/>
+
+  <rect x="305" y="290" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="311" y="302" class="label">Low concentration</text>
+  <line x1="360" y1="288" x2="360" y2="265" class="line"/>
+
+  <!-- After panel -->
+  <rect x="450" y="55" width="390" height="360" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="645" y="82" text-anchor="middle" class="panel-title">After: Evenly spread (equilibrium)</text>
+
+  <rect x="480" y="105" width="330" height="220" class="container" rx="6"/>
+  <g fill="#f97316">
+    <circle cx="515" cy="140" r="9"/><circle cx="560" cy="130" r="9"/><circle cx="605" cy="150" r="9"/><circle cx="650" cy="140" r="9"/>
+    <circle cx="700" cy="130" r="9"/><circle cx="745" cy="150" r="9"/><circle cx="780" cy="140" r="9"/>
+    <circle cx="535" cy="190" r="9"/><circle cx="585" cy="200" r="9"/><circle cx="635" cy="190" r="9"/><circle cx="685" cy="200" r="9"/><circle cx="730" cy="185" r="9"/>
+    <circle cx="510" cy="250" r="9"/><circle cx="560" cy="260" r="9"/><circle cx="615" cy="250" r="9"/><circle cx="670" cy="265" r="9"/><circle cx="720" cy="250" r="9"/><circle cx="765" cy="260" r="9"/>
+  </g>
+
+  <rect x="580" y="290" width="130" height="18" rx="4" class="label-bg"/>
+  <text x="586" y="302" class="label">Uniform concentration</text>
+  <line x1="645" y1="288" x2="645" y2="270" class="line"/>
+
+  <!-- Central arrow -->
+  <line x1="430" y1="215" x2="450" y2="215" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <text x="440" y="240" text-anchor="middle" class="sublabel">Net movement</text>
+  <text x="440" y="255" text-anchor="middle" class="sublabel">high → low</text>
+
+  <!-- Bottom note -->
+  <rect x="260" y="380" width="360" height="24" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="440" y="396" text-anchor="middle" class="sublabel">Caused by random particle motion. Faster in gases than liquids; faster at higher temperatures.</text>
+</svg>

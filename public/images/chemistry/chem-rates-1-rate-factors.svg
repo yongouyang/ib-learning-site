@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" role="img" aria-labelledby="title desc">
+  <title id="title">Factors that increase reaction rate</title>
+  <desc id="desc">Four panels showing how temperature, concentration or pressure, surface area and catalysts increase reaction rate.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .arrow { fill: none; stroke: #6b7280; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .particle { fill: #3b82f6; }
+      .accent { fill: #f97316; }
+      .grey { fill: #9ca3af; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L1.5,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="560" fill="#f9fafb" rx="12"/>
+  <text x="460" y="38" text-anchor="middle" class="title">Factors Affecting Reaction Rate</text>
+
+  <!-- Temperature panel -->
+  <rect x="60" y="70" width="370" height="230" rx="12" class="panel"/>
+  <text x="245" y="100" text-anchor="middle" class="label">Temperature</text>
+
+  <!-- thermometer -->
+  <rect x="110" y="120" width="14" height="90" rx="7" fill="#e5e7eb" stroke="#6b7280" stroke-width="1.5"/>
+  <circle cx="117" cy="215" r="12" class="accent"/>
+  <rect x="112" y="155" width="10" height="55" class="accent"/>
+  <line x1="131" y1="130" x2="145" y2="130" class="line"/>
+  <line x1="131" y1="150" x2="145" y2="150" class="line"/>
+  <line x1="131" y1="170" x2="145" y2="170" class="line"/>
+
+  <!-- fast particles -->
+  <circle cx="230" cy="160" r="10" class="particle"/>
+  <line x1="230" y1="160" x2="255" y2="145" class="arrow" marker-end="url(#arrowhead)"/>
+  <circle cx="300" cy="190" r="10" class="particle"/>
+  <line x1="300" y1="190" x2="330" y2="180" class="arrow" marker-end="url(#arrowhead)"/>
+  <circle cx="260" cy="240" r="10" class="particle"/>
+  <line x1="260" y1="240" x2="290" y2="255" class="arrow" marker-end="url(#arrowhead)"/>
+
+  <rect x="165" y="265" width="160" height="20" rx="4" fill="#f9fafb"/>
+  <text x="245" y="279" text-anchor="middle" class="sublabel">More particles exceed Eₐ</text>
+
+  <!-- Concentration / pressure panel -->
+  <rect x="490" y="70" width="370" height="230" rx="12" class="panel"/>
+  <text x="675" y="100" text-anchor="middle" class="label">Concentration / Pressure</text>
+
+  <rect x="540" y="125" width="120" height="120" rx="6" fill="none" stroke="#6b7280" stroke-width="2"/>
+  <circle cx="565" cy="150" r="9" class="particle"/>
+  <circle cx="600" cy="145" r="9" class="particle"/>
+  <circle cx="635" cy="155" r="9" class="particle"/>
+  <circle cx="580" cy="180" r="9" class="particle"/>
+  <circle cx="620" cy="185" r="9" class="particle"/>
+  <circle cx="560" cy="215" r="9" class="particle"/>
+  <circle cx="605" cy="220" r="9" class="particle"/>
+  <circle cx="640" cy="210" r="9" class="particle"/>
+
+  <rect x="700" y="125" width="120" height="120" rx="6" fill="none" stroke="#6b7280" stroke-width="2"/>
+  <circle cx="730" cy="160" r="9" class="grey"/>
+  <circle cx="780" cy="180" r="9" class="grey"/>
+  <circle cx="740" cy="220" r="9" class="grey"/>
+
+  <rect x="590" y="265" width="170" height="20" rx="4" fill="#f9fafb"/>
+  <text x="675" y="279" text-anchor="middle" class="sublabel">More particles per unit volume</text>
+
+  <!-- Surface area panel -->
+  <rect x="60" y="320" width="370" height="230" rx="12" class="panel"/>
+  <text x="245" y="350" text-anchor="middle" class="label">Surface Area</text>
+
+  <!-- large lump -->
+  <rect x="100" y="380" width="70" height="70" rx="6" class="grey" fill-opacity="0.6" stroke="#6b7280" stroke-width="2"/>
+  <text x="135" y="475" text-anchor="middle" class="sublabel">Large lump</text>
+
+  <!-- powder pieces -->
+  <g transform="translate(230,380)">
+    <rect x="0" y="0" width="22" height="22" rx="3" class="grey" fill-opacity="0.6" stroke="#6b7280" stroke-width="1.5"/>
+    <rect x="28" y="5" width="22" height="22" rx="3" class="grey" fill-opacity="0.6" stroke="#6b7280" stroke-width="1.5"/>
+    <rect x="56" y="0" width="22" height="22" rx="3" class="grey" fill-opacity="0.6" stroke="#6b7280" stroke-width="1.5"/>
+    <rect x="10" y="30" width="22" height="22" rx="3" class="grey" fill-opacity="0.6" stroke="#6b7280" stroke-width="1.5"/>
+    <rect x="40" y="34" width="22" height="22" rx="3" class="grey" fill-opacity="0.6" stroke="#6b7280" stroke-width="1.5"/>
+    <rect x="70" y="28" width="22" height="22" rx="3" class="grey" fill-opacity="0.6" stroke="#6b7280" stroke-width="1.5"/>
+    <rect x="25" y="62" width="22" height="22" rx="3" class="grey" fill-opacity="0.6" stroke="#6b7280" stroke-width="1.5"/>
+    <rect x="55" y="60" width="22" height="22" rx="3" class="grey" fill-opacity="0.6" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+  <text x="280" y="475" text-anchor="middle" class="sublabel">Powder — much greater surface area</text>
+
+  <!-- acid droplets -->
+  <circle cx="145" cy="420" r="5" fill="#60a5fa"/>
+  <circle cx="175" cy="405" r="5" fill="#60a5fa"/>
+  <circle cx="250" cy="430" r="5" fill="#60a5fa"/>
+  <circle cx="300" cy="410" r="5" fill="#60a5fa"/>
+  <circle cx="330" cy="435" r="5" fill="#60a5fa"/>
+
+  <!-- Catalyst panel -->
+  <rect x="490" y="320" width="370" height="230" rx="12" class="panel"/>
+  <text x="675" y="350" text-anchor="middle" class="label">Catalyst</text>
+
+  <!-- energy profile -->
+  <line x1="530" y1="520" x2="820" y2="520" class="line"/>
+  <line x1="530" y1="520" x2="530" y2="360" class="line"/>
+  <text x="675" y="545" text-anchor="middle" class="sublabel">Reaction progress</text>
+  <text x="510" y="440" text-anchor="middle" class="sublabel" transform="rotate(-90 510 440)">Energy</text>
+
+  <line x1="540" y1="500" x2="810" y2="500" stroke="#374151" stroke-width="2"/>
+  <text x="520" y="505" text-anchor="end" class="sublabel">Reactants</text>
+  <line x1="540" y1="420" x2="810" y2="420" stroke="#374151" stroke-width="2"/>
+  <text x="820" y="425" text-anchor="start" class="sublabel">Products</text>
+
+  <!-- uncatalysed hump -->
+  <path d="M540 500 Q600 500 660 380 Q720 260 810 420" fill="none" stroke="#9ca3af" stroke-width="3"/>
+  <!-- catalysed hump -->
+  <path d="M540 500 Q600 500 660 440 Q720 380 810 420" fill="none" stroke="#f97316" stroke-width="4"/>
+
+  <line x1="660" y1="380" x2="660" y2="300" class="line"/>
+  <rect x="620" y="275" width="80" height="18" rx="4" fill="#f9fafb"/>
+  <text x="660" y="288" text-anchor="middle" class="sublabel">Eₐ (uncat)</text>
+
+  <line x1="700" y1="420" x2="700" y2="340" class="line"/>
+  <rect x="665" y="318" width="70" height="18" rx="4" fill="#f9fafb"/>
+  <text x="700" y="331" text-anchor="middle" class="sublabel" fill="#c2410c">Eₐ (cat)</text>
+</svg>

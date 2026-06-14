@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Magnetism, Decanting, and Separating Funnel</title>
+  <desc id="desc">Three separation methods: a magnet removing iron filings, decanting a liquid from a sediment, and a separating funnel separating immiscible liquids.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke: #6b7280; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="420" fill="#f9fafb" rx="12"/>
+  <text x="450" y="34" text-anchor="middle" class="title">Magnetism, Decanting, and Separating Funnel</text>
+
+  <!-- Magnetic separation panel -->
+  <rect x="25" y="55" width="270" height="350" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="160" y="82" text-anchor="middle" class="panel-title">Magnetic Separation</text>
+
+  <!-- Mixture -->
+  <rect x="60" y="130" width="120" height="100" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2" rx="6"/>
+  <!-- Sulfur powder -->
+  <g fill="#facc15">
+    <circle cx="90" cy="160" r="6"/>
+    <circle cx="115" cy="175" r="6"/>
+    <circle cx="135" cy="155" r="6"/>
+    <circle cx="105" cy="190" r="6"/>
+    <circle cx="145" cy="185" r="6"/>
+  </g>
+  <!-- Iron filings -->
+  <g fill="#374151">
+    <rect x="85" y="205" width="14" height="4" transform="rotate(20 85 205)"/>
+    <rect x="110" y="210" width="14" height="4" transform="rotate(-10 110 210)"/>
+    <rect x="135" y="208" width="14" height="4" transform="rotate(45 135 208)"/>
+  </g>
+
+  <!-- Magnet -->
+  <rect x="170" y="160" width="75" height="22" fill="#ef4444" rx="3"/>
+  <text x="207" y="176" text-anchor="middle" class="label" fill="white" font-size="10">N</text>
+  <rect x="245" y="160" width="30" height="22" fill="#3b82f6" rx="3"/>
+  <text x="260" y="176" text-anchor="middle" class="label" fill="white" font-size="10">S</text>
+
+  <!-- Iron filings attracted -->
+  <g fill="#374151">
+    <rect x="170" y="155" width="10" height="3" transform="rotate(-30 170 155)"/>
+    <rect x="185" y="150" width="10" height="3" transform="rotate(15 185 150)"/>
+    <rect x="200" y="152" width="10" height="3" transform="rotate(-45 200 152)"/>
+  </g>
+
+  <line x1="210" y1="185" x2="250" y2="220" class="line"/>
+  <rect x="200" y="221" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="204" y="233" class="label">Magnet removes</text>
+  <text x="200" y="251" class="sublabel">iron, cobalt, nickel</text>
+
+  <!-- Decanting panel -->
+  <rect x="315" y="55" width="270" height="350" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="450" y="82" text-anchor="middle" class="panel-title">Decanting</text>
+
+  <!-- Beaker with sediment -->
+  <path d="M350,150 L350,280 L450,280 L450,150" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="348" y1="150" x2="452" y2="150" stroke="#60a5fa" stroke-width="2"/>
+  <!-- Sediment -->
+  <path d="M350,260 Q400,245 450,260 L450,280 L350,280 Z" fill="#92400e"/>
+  <!-- Liquid -->
+  <path d="M350,170 Q400,165 450,170 L450,260 Q400,245 350,260 Z" fill="#bae6fd" opacity="0.7"/>
+
+  <!-- Pouring liquid -->
+  <path d="M450,160 L490,140 L490,220" fill="none" stroke="#bae6fd" stroke-width="12" stroke-linecap="round"/>
+  <path d="M450,160 L490,140 L490,220" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Receiving beaker -->
+  <path d="M520,220 L520,290 L590,290 L590,220" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="518" y1="220" x2="592" y2="220" stroke="#60a5fa" stroke-width="2"/>
+  <path d="M525,250 L585,250" fill="#bae6fd" opacity="0.7"/>
+
+  <line x1="555" y1="270" x2="555" y2="305" class="line"/>
+  <rect x="515" y="306" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="519" y="318" class="label">Liquid poured off</text>
+
+  <line x1="400" y1="270" x2="400" y2="305" class="line"/>
+  <rect x="360" y="306" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="364" y="318" class="label">Sediment left</text>
+
+  <!-- Separating funnel panel -->
+  <rect x="605" y="55" width="270" height="350" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="740" y="82" text-anchor="middle" class="panel-title">Separating Funnel</text>
+
+  <!-- Funnel -->
+  <path d="M700,120 L740,120 L722,240 L718,240 Z" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="718" y1="240" x2="718" y2="290" stroke="#60a5fa" stroke-width="2"/>
+  <!-- Tap -->
+  <path d="M705,285 L731,285 L731,295 L705,295 Z" fill="#4b5563"/>
+  <rect x="718" y="280" width="8" height="20" fill="#6b7280"/>
+
+  <!-- Upper layer (oil) -->
+  <path d="M702,140 L738,140 L726,185 L714,185 Z" fill="#facc15" opacity="0.6"/>
+  <text x="720" y="166" text-anchor="middle" class="sublabel" fill="#713f12">Oil (less dense)</text>
+
+  <!-- Lower layer (water) -->
+  <path d="M702,185 L738,185 L726,230 L714,230 Z" fill="#3b82f6" opacity="0.5"/>
+  <text x="720" y="210" text-anchor="middle" class="sublabel" fill="#1e3a8a">Water (denser)</text>
+
+  <!-- Labels -->
+  <line x1="690" y1="180" x2="640" y2="200" class="line"/>
+  <rect x="560" y="191" width="70" height="18" rx="4" class="label-bg"/>
+  <text x="564" y="203" class="label">Immiscible</text>
+
+  <line x1="718" y1="290" x2="718" y2="330" class="line"/>
+  <rect x="670" y="331" width="95" height="18" rx="4" class="label-bg"/>
+  <text x="674" y="343" class="label">Drain denser layer</text>
+</svg>

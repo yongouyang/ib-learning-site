@@ -1,4 +1,36 @@
+import { execSync } from 'child_process';
 import { defineConfig, devices } from '@playwright/test';
+import path from 'path';
+
+// Resolve an available port once and cache it in an environment variable so the
+// main Playwright process and any worker processes all use the same port.
+function resolvePort(): number {
+  const cached = process.env.PLAYWRIGHT_PORT;
+  if (cached) {
+    const parsed = parseInt(cached, 10);
+    if (!Number.isNaN(parsed)) {
+      return parsed;
+    }
+  }
+
+  const portScript = path.join(__dirname, 'scripts', 'find-port.cjs');
+  const portOutput = execSync(`node "${portScript}"`, {
+    env: { ...process.env, FORCE_COLOR: '0', NO_COLOR: '1' },
+  })
+    .toString()
+    .trim();
+  const port = parseInt(portOutput, 10);
+  if (Number.isNaN(port)) {
+    throw new Error(`Failed to resolve an available port. Script output: "${portOutput}"`);
+  }
+  process.env.PLAYWRIGHT_PORT = String(port);
+  return port;
+}
+
+const port = resolvePort();
+const baseURL = `http://localhost:${port}`;
+
+console.log(`[playwright] Using baseURL: ${baseURL}`);
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -8,7 +40,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL,
     trace: 'on-first-retry',
   },
   projects: [
@@ -26,8 +58,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3000',
+    command: `npm run dev -- --port ${port}`,
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
   },
 });

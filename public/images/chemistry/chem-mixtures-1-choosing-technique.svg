@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Choosing a Separation Technique</title>
+  <desc id="desc">A decision flowchart for selecting the right separation technique based on the type of mixture and the physical property being exploited.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #d1d5db; stroke-width: 2; }
+      .method { fill: #dbeafe; stroke: #3b82f6; stroke-width: 2; }
+      .decision { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+      .arrow { fill: none; stroke: #6b7280; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="520" fill="#f9fafb" rx="12"/>
+  <text x="450" y="34" text-anchor="middle" class="title">Choosing the Right Separation Technique</text>
+
+  <!-- Start -->
+  <rect x="350" y="55" width="200" height="45" rx="25" class="decision"/>
+  <text x="450" y="83" text-anchor="middle" class="label">What are you separating?</text>
+
+  <!-- Branches -->
+  <line x1="450" y1="100" x2="450" y2="130" class="arrow" marker-end="url(#arrow-gray)"/>
+  <line x1="450" y1="130" x2="120" y2="130" class="arrow"/>
+  <line x1="450" y1="130" x2="780" y2="130" class="arrow"/>
+
+  <!-- Insoluble solid + liquid -->
+  <rect x="25" y="145" width="150" height="45" rx="8" class="box"/>
+  <text x="100" y="165" text-anchor="middle" class="sublabel">Insoluble solid</text>
+  <text x="100" y="180" text-anchor="middle" class="sublabel">+ liquid</text>
+  <line x1="100" y1="190" x2="100" y2="220" class="arrow" marker-end="url(#arrow-gray)"/>
+  <rect x="25" y="225" width="150" height="35" rx="8" class="method"/>
+  <text x="100" y="247" text-anchor="middle" class="label">Filtration</text>
+
+  <!-- Dissolved solid -->
+  <rect x="205" y="145" width="150" height="45" rx="8" class="box"/>
+  <text x="280" y="165" text-anchor="middle" class="sublabel">Dissolved solid</text>
+  <text x="280" y="180" text-anchor="middle" class="sublabel">in liquid</text>
+  <line x1="280" y1="190" x2="280" y2="220" class="arrow" marker-end="url(#arrow-gray)"/>
+  <rect x="205" y="225" width="150" height="35" rx="8" class="method"/>
+  <text x="280" y="247" text-anchor="middle" class="label">Crystallisation</text>
+
+  <!-- Liquid from solution -->
+  <rect x="385" y="145" width="150" height="45" rx="8" class="box"/>
+  <text x="460" y="165" text-anchor="middle" class="sublabel">Liquid from</text>
+  <text x="460" y="180" text-anchor="middle" class="sublabel">a solution</text>
+  <line x1="460" y1="190" x2="460" y2="220" class="arrow" marker-end="url(#arrow-gray)"/>
+  <rect x="385" y="225" width="150" height="35" rx="8" class="method"/>
+  <text x="460" y="247" text-anchor="middle" class="label">Simple distillation</text>
+
+  <!-- Two miscible liquids -->
+  <rect x="565" y="145" width="150" height="45" rx="8" class="box"/>
+  <text x="640" y="165" text-anchor="middle" class="sublabel">Two miscible</text>
+  <text x="640" y="180" text-anchor="middle" class="sublabel">liquids</text>
+  <line x1="640" y1="190" x2="640" y2="220" class="arrow" marker-end="url(#arrow-gray)"/>
+  <rect x="565" y="225" width="150" height="35" rx="8" class="method"/>
+  <text x="640" y="247" text-anchor="middle" class="label">Fractional distillation</text>
+
+  <!-- Coloured dissolved substances -->
+  <rect x="745" y="145" width="140" height="45" rx="8" class="box"/>
+  <text x="815" y="165" text-anchor="middle" class="sublabel">Coloured dissolved</text>
+  <text x="815" y="180" text-anchor="middle" class="sublabel">substances</text>
+  <line x1="815" y1="190" x2="815" y2="220" class="arrow" marker-end="url(#arrow-gray)"/>
+  <rect x="745" y="225" width="140" height="35" rx="8" class="method"/>
+  <text x="815" y="247" text-anchor="middle" class="label">Chromatography</text>
+
+  <!-- Lower row -->
+  <line x1="100" y1="260" x2="100" y2="290" class="arrow"/>
+  <line x1="100" y1="290" x2="640" y2="290" class="arrow"/>
+  <line x1="280" y1="260" x2="280" y2="290" class="arrow"/>
+  <line x1="460" y1="260" x2="460" y2="290" class="arrow"/>
+  <line x1="640" y1="260" x2="640" y2="290" class="arrow"/>
+  <line x1="815" y1="260" x2="815" y2="360" class="arrow" marker-end="url(#arrow-gray)"/>
+
+  <!-- Second decision -->
+  <rect x="300" y="300" width="300" height="45" rx="25" class="decision"/>
+  <text x="450" y="328" text-anchor="middle" class="label">Other mixture types?</text>
+
+  <line x1="450" y1="345" x2="450" y2="375" class="arrow" marker-end="url(#arrow-gray)"/>
+  <line x1="450" y1="375" x2="220" y2="375" class="arrow"/>
+  <line x1="450" y1="375" x2="680" y2="375" class="arrow"/>
+
+  <!-- Magnetic -->
+  <rect x="130" y="390" width="160" height="45" rx="8" class="box"/>
+  <text x="210" y="410" text-anchor="middle" class="sublabel">Magnetic +</text>
+  <text x="210" y="425" text-anchor="middle" class="sublabel">non-magnetic solid</text>
+  <line x1="210" y1="435" x2="210" y2="465" class="arrow" marker-end="url(#arrow-gray)"/>
+  <rect x="130" y="470" width="160" height="35" rx="8" class="method"/>
+  <text x="210" y="492" text-anchor="middle" class="label">Magnetic separation</text>
+
+  <!-- Immiscible liquids -->
+  <rect x="370" y="390" width="160" height="45" rx="8" class="box"/>
+  <text x="450" y="410" text-anchor="middle" class="sublabel">Two immiscible</text>
+  <text x="450" y="425" text-anchor="middle" class="sublabel">liquids</text>
+  <line x1="450" y1="435" x2="450" y2="465" class="arrow" marker-end="url(#arrow-gray)"/>
+  <rect x="370" y="470" width="160" height="35" rx="8" class="method"/>
+  <text x="450" y="492" text-anchor="middle" class="label">Separating funnel</text>
+
+  <!-- Sediment -->
+  <rect x="610" y="390" width="160" height="45" rx="8" class="box"/>
+  <text x="690" y="410" text-anchor="middle" class="sublabel">Liquid +</text>
+  <text x="690" y="425" text-anchor="middle" class="sublabel">settled sediment</text>
+  <line x1="690" y1="435" x2="690" y2="465" class="arrow" marker-end="url(#arrow-gray)"/>
+  <rect x="610" y="470" width="160" height="35" rx="8" class="method"/>
+  <text x="690" y="492" text-anchor="middle" class="label">Decanting</text>
+</svg>

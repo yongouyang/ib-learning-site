@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+  <title id="title">Investigating Respiration with a Respirometer</title>
+  <desc id="desc">A simple respirometer showing germinating seeds consuming oxygen and a coloured liquid drop moving along a capillary tube.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .tube { fill: none; stroke: #9ca3af; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .seed { fill: #84cc16; stroke: #4d7c0f; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="420" fill="#f9fafb" rx="12"/>
+  <text x="380" y="34" text-anchor="middle" class="title">Investigating Respiration with a Respirometer</text>
+
+  <!-- Chamber -->
+  <rect x="120" y="150" width="140" height="160" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="3" rx="8"/>
+  <text x="190" y="140" text-anchor="middle" class="label">Sealed flask</text>
+
+  <!-- Seeds -->
+  <ellipse cx="160" cy="240" rx="14" ry="9" class="seed" transform="rotate(-20 160 240)"/>
+  <ellipse cx="200" cy="255" rx="14" ry="9" class="seed" transform="rotate(15 200 255)"/>
+  <ellipse cx="175" cy="275" rx="14" ry="9" class="seed"/>
+  <text x="190" y="210" text-anchor="middle" class="sublabel">Germinating seeds</text>
+
+  <!-- Soda lime -->
+  <rect x="120" y="270" width="140" height="40" fill="#fed7aa" stroke="#f97316" stroke-width="2" opacity="0.8"/>
+  <text x="190" y="295" text-anchor="middle" class="label">Soda lime</text>
+  <text x="190" y="315" text-anchor="middle" class="sublabel">absorbs CO₂</text>
+
+  <!-- Tubing -->
+  <path d="M260,170 C320,170 320,210 360,210 L500,210" class="tube"/>
+
+  <!-- Capillary -->
+  <rect x="500" y="200" width="180" height="20" fill="#f3f4f6" stroke="#6b7280" stroke-width="2" rx="4"/>
+  <circle cx="560" cy="210" r="6" fill="#ef4444"/>
+  <circle cx="580" cy="210" r="6" fill="#ef4444"/>
+  <text x="590" y="240" text-anchor="middle" class="label">Coloured liquid drop</text>
+
+  <!-- Direction arrow -->
+  <line x1="540" y1="180" x2="580" y2="180" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <text x="560" y="168" text-anchor="middle" class="sublabel" fill="#b91c1c">drop moves this way</text>
+
+  <!-- Oxygen in label -->
+  <line x1="130" y1="150" x2="90" y2="110" class="line"/>
+  <rect x="25" y="92" width="62" height="18" rx="4" class="label-bg"/>
+  <text x="29" y="104" class="label">O₂ used</text>
+
+  <!-- Volume decrease -->
+  <line x1="260" y1="230" x2="360" y2="280" class="line"/>
+  <rect x="300" y="282" width="150" height="18" rx="4" class="label-bg"/>
+  <text x="304" y="294" class="label">Gas volume decreases</text>
+
+  <!-- Explanation box -->
+  <rect x="130" y="350" width="500" height="48" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <text x="380" y="370" text-anchor="middle" class="sublabel">Seeds consume O₂. CO₂ is absorbed by soda lime, so pressure drops</text>
+  <text x="380" y="388" text-anchor="middle" class="sublabel">and the coloured drop is pulled towards the seeds.</text>
+</svg>

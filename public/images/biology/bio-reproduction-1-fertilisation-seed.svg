@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 520" role="img" aria-labelledby="title desc">
+  <title id="title">Fertilisation, Seed and Fruit Formation</title>
+  <desc id="desc">Diagram showing a pollen tube delivering the male gamete to an ovule, and the resulting seed and fruit plus dispersal methods.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="840" height="520" fill="#f9fafb" rx="12"/>
+  <text x="420" y="34" text-anchor="middle" class="title">Fertilisation, Seed Formation and Dispersal</text>
+
+  <!-- Top-left: flower carpel with pollen tube -->
+  <rect x="30" y="55" width="380" height="240" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="220" y="82" text-anchor="middle" class="panel-title">Fertilisation</text>
+
+  <!-- Stigma/style/ovary -->
+  <ellipse cx="220" cy="110" rx="30" ry="12" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+  <path d="M220,122 L220,190 Q220,220 180,220 L160,220" fill="none" stroke="#16a34a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M220,122 L220,190 Q220,220 260,220 L280,220" fill="none" stroke="#16a34a" stroke-width="18" stroke-linecap="round"/>
+  <rect x="135" y="205" width="170" height="38" rx="14" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+
+  <!-- Pollen grain and tube -->
+  <circle cx="250" cy="105" r="10" fill="#facc15" stroke="#ca8a04" stroke-width="2"/>
+  <path d="M250,115 Q250,150 220,150 L195,150" fill="none" stroke="#facc15" stroke-width="5"/>
+  <circle cx="190" cy="150" r="5" fill="#1f2937"/>
+  <line x1="250" y1="95" x2="300" y2="80" class="line"/>
+  <rect x="305" y="71" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="310" y="83" class="label">Pollen grain</text>
+
+  <line x1="195" y1="150" x2="120" y2="150" class="line"/>
+  <rect x="30" y="141" width="85" height="18" rx="4" class="label-bg"/>
+  <text x="35" y="153" class="label">Pollen tube</text>
+
+  <!-- Ovule and fertilisation -->
+  <ellipse cx="195" cy="235" rx="28" ry="18" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+  <circle cx="195" cy="235" r="5" fill="#ef4444"/>
+  <line x1="170" y1="220" x2="110" y2="200" class="line"/>
+  <rect x="25" y="191" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="30" y="203" class="label">Ovule</text>
+
+  <line x1="280" y1="235" x2="340" y2="235" class="line"/>
+  <rect x="345" y="226" width="55" height="18" rx="4" class="label-bg"/>
+  <text x="350" y="238" class="label">Zygote</text>
+
+  <!-- Top-right: seed and fruit -->
+  <rect x="430" y="55" width="380" height="240" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="620" y="82" text-anchor="middle" class="panel-title">Seed and Fruit</text>
+
+  <!-- Fruit -->
+  <circle cx="620" cy="170" r="65" fill="#fca5a5" stroke="#dc2626" stroke-width="2"/>
+  <!-- Seed inside -->
+  <ellipse cx="620" cy="170" rx="28" ry="18" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <path d="M610,165 Q620,155 630,165 Q620,180 610,165" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+  <circle cx="618" cy="168" r="3" fill="#1f2937"/>
+  <line x1="590" y1="170" x2="540" y2="170" class="line"/>
+  <rect x="450" y="161" width="85" height="18" rx="4" class="label-bg"/>
+  <text x="455" y="173" class="label">Seed coat</text>
+
+  <line x1="648" y1="165" x2="720" y2="150" class="line"/>
+  <rect x="725" y="141" width="70" height="18" rx="4" class="label-bg"/>
+  <text x="730" y="153" class="label">Embryo</text>
+
+  <line x1="650" y1="180" x2="720" y2="195" class="line"/>
+  <rect x="725" y="186" width="75" height="18" rx="4" class="label-bg"/>
+  <text x="730" y="198" class="label">Food store</text>
+
+  <line x1="685" y1="170" x2="755" y2="170" class="line"/>
+  <rect x="760" y="161" width="40" height="18" rx="4" class="label-bg"/>
+  <text x="765" y="173" class="label">Fruit</text>
+
+  <!-- Bottom: dispersal methods -->
+  <text x="420" y="325" text-anchor="middle" class="panel-title">Seed Dispersal Methods</text>
+
+  <!-- Wind -->
+  <circle cx="110" cy="380" r="8" fill="#1f2937"/>
+  <path d="M110,380 Q140,360 150,380 Q140,400 110,380 M110,380 Q125,370 135,380" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+  <line x1="110" y1="360" x2="110" y2="345" class="line"/>
+  <rect x="75" y="326" width="70" height="18" rx="4" class="label-bg"/>
+  <text x="80" y="338" class="label">Wind (wing)</text>
+
+  <!-- Animal internal -->
+  <circle cx="260" cy="380" r="20" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+  <circle cx="260" cy="380" r="4" fill="#7f1d1d"/>
+  <line x1="260" y1="355" x2="260" y2="345" class="line"/>
+  <rect x="210" y="326" width="100" height="18" rx="4" class="label-bg"/>
+  <text x="215" y="338" class="label">Animal (fruit)</text>
+
+  <!-- Hooks -->
+  <ellipse cx="410" cy="380" rx="18" ry="10" fill="#854d0e" stroke="#451a03" stroke-width="2"/>
+  <path d="M425,375 L440,365 M428,382 L445,380" stroke="#451a03" stroke-width="2" fill="none"/>
+  <line x1="410" y1="365" x2="410" y2="345" class="line"/>
+  <rect x="365" y="326" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="370" y="338" class="label">Hooks / burrs</text>
+
+  <!-- Water -->
+  <ellipse cx="560" cy="380" rx="22" ry="14" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <path d="M560,366 Q570,360 575,370 Q570,380 560,380 Q550,380 545,370 Q550,360 560,366" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.5"/>
+  <line x1="560" y1="363" x2="560" y2="345" class="line"/>
+  <rect x="525" y="326" width="70" height="18" rx="4" class="label-bg"/>
+  <text x="530" y="338" class="label">Water float</text>
+
+  <!-- Explosive -->
+  <path d="M690,370 Q670,360 660,380 Q670,400 690,390 Q710,400 720,380 Q710,360 690,370 Z" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+  <circle cx="675" cy="375" r="4" fill="#1f2937"/>
+  <circle cx="705" cy="385" r="4" fill="#1f2937"/>
+  <line x1="720" y1="370" x2="750" y2="350" class="arrow" stroke="#16a34a" marker-end="url(#arrow-green)"/>
+  <line x1="660" y1="390" x2="630" y2="410" class="arrow" stroke="#16a34a" marker-end="url(#arrow-green)"/>
+  <line x1="690" y1="365" x2="690" y2="345" class="line"/>
+  <rect x="635" y="326" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="640" y="338" class="label">Explosive pod split</text>
+
+  <text x="420" y="460" text-anchor="middle" class="sublabel">Dispersal reduces competition between parent plant and offspring for light, water and nutrients.</text>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Major World Biomes</title>
+  <desc id="desc">Diagram showing the major biomes: tropical rainforest, desert, temperate deciduous forest, grassland, tundra, taiga, and aquatic.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Major World Biomes</text>
+
+  <!-- Tropical rainforest -->
+  <rect x="40" y="70" width="150" height="120" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <path d="M60,170 L75,120 L90,170 Z" fill="#16a34a"/>
+  <path d="M85,170 L105,105 L125,170 Z" fill="#16a34a"/>
+  <path d="M120,170 L135,125 L150,170 Z" fill="#16a34a"/>
+  <text x="115" y="95" text-anchor="middle" class="label">Tropical rainforest</text>
+  <text x="115" y="112" text-anchor="middle" class="sublabel">Hot, wet</text>
+
+  <!-- Desert -->
+  <rect x="220" y="70" width="150" height="120" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <path d="M240,170 Q270,120 300,170 Z" fill="#f59e0b" opacity="0.7"/>
+  <path d="M290,170 Q315,135 340,170 Z" fill="#f59e0b" opacity="0.7"/>
+  <circle cx="310" cy="110" r="18" fill="#fcd34d"/>
+  <text x="295" y="95" text-anchor="middle" class="label">Desert</text>
+  <text x="295" y="112" text-anchor="middle" class="sublabel">Dry, extreme temps</text>
+
+  <!-- Temperate deciduous forest -->
+  <rect x="400" y="70" width="170" height="120" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <path d="M425,170 L445,110 L465,170 Z" fill="#16a34a"/>
+  <path d="M465,170 L485,100 L505,170 Z" fill="#16a34a"/>
+  <path d="M505,170 L525,115 L545,170 Z" fill="#16a34a"/>
+  <text x="485" y="95" text-anchor="middle" class="label">Temperate forest</text>
+  <text x="485" y="112" text-anchor="middle" class="sublabel">Four seasons</text>
+
+  <!-- Grassland / savanna -->
+  <rect x="600" y="70" width="160" height="120" rx="10" fill="#ecfccb" stroke="#84cc16" stroke-width="2"/>
+  <line x1="630" y1="170" x2="630" y2="140" stroke="#65a30d" stroke-width="3"/>
+  <line x1="650" y1="170" x2="650" y2="130" stroke="#65a30d" stroke-width="3"/>
+  <line x1="670" y1="170" x2="670" y2="145" stroke="#65a30d" stroke-width="3"/>
+  <line x1="690" y1="170" x2="690" y2="125" stroke="#65a30d" stroke-width="3"/>
+  <line x1="710" y1="170" x2="710" y2="140" stroke="#65a30d" stroke-width="3"/>
+  <line x1="730" y1="170" x2="730" y2="135" stroke="#65a30d" stroke-width="3"/>
+  <text x="680" y="95" text-anchor="middle" class="label">Grassland / Savanna</text>
+  <text x="680" y="112" text-anchor="middle" class="sublabel">Seasonal rainfall</text>
+
+  <!-- Tundra -->
+  <rect x="40" y="220" width="150" height="120" rx="10" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="2"/>
+  <ellipse cx="80" cy="310" rx="20" ry="6" fill="#cbd5e1"/>
+  <ellipse cx="120" cy="305" rx="18" ry="5" fill="#cbd5e1"/>
+  <path d="M90,310 L95,280 L100,310 Z" fill="#16a34a"/>
+  <path d="M110,305 L115,285 L120,305 Z" fill="#16a34a"/>
+  <text x="115" y="250" text-anchor="middle" class="label">Tundra</text>
+  <text x="115" y="267" text-anchor="middle" class="sublabel">Cold, permafrost</text>
+
+  <!-- Taiga -->
+  <rect x="220" y="220" width="150" height="120" rx="10" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+  <path d="M250,320 L270,240 L290,320 Z" fill="#065f46"/>
+  <path d="M285,320 L305,245 L325,320 Z" fill="#065f46"/>
+  <path d="M320,320 L340,250 L360,320 Z" fill="#065f46"/>
+  <text x="295" y="250" text-anchor="middle" class="label">Taiga (boreal forest)</text>
+  <text x="295" y="267" text-anchor="middle" class="sublabel">Coniferous trees</text>
+
+  <!-- Aquatic -->
+  <rect x="400" y="220" width="170" height="120" rx="10" fill="#cffafe" stroke="#06b6d4" stroke-width="2"/>
+  <path d="M420,290 Q440,270 460,290 T500,290 T540,290" fill="none" stroke="#0ea5e9" stroke-width="3"/>
+  <path d="M420,310 Q440,290 460,310 T500,310 T540,310" fill="none" stroke="#0ea5e9" stroke-width="3"/>
+  <path d="M520,280 L540,270 L535,285 Z" fill="#f97316"/>
+  <text x="485" y="250" text-anchor="middle" class="label">Aquatic</text>
+  <text x="485" y="267" text-anchor="middle" class="sublabel">Marine &amp; freshwater</text>
+
+  <!-- Climate axis labels -->
+  <text x="400" y="390" text-anchor="middle" class="label">Biomes are defined by climate and dominant vegetation</text>
+  <text x="400" y="410" text-anchor="middle" class="sublabel">Each biome has characteristic plant and animal adaptations.</text>
+
+  <!-- Key examples -->
+  <rect x="40" y="440" width="300" height="55" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="190" y="460" text-anchor="middle" class="label">Examples of adaptations</text>
+  <text x="190" y="478" text-anchor="middle" class="sublabel">Cactus spines reduce water loss; tundra plants stay low to avoid wind.</text>
+  <text x="190" y="492" text-anchor="middle" class="sublabel">Rainforest canopy layers capture light; taiga needles reduce water loss.</text>
+</svg>

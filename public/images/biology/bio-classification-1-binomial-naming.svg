@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-labelledby="title desc">
+  <title id="title">Binomial Naming System</title>
+  <desc id="desc">A diagram explaining the two-part scientific name format with examples showing genus and species.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .binomial { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; font-weight: 700; fill: #111827; font-style: italic; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="760" height="440" fill="#f9fafb" rx="12"/>
+  <text x="380" y="36" text-anchor="middle" class="title">Binomial Naming System</text>
+
+  <!-- Format box -->
+  <rect x="80" y="65" width="600" height="90" fill="#ffffff" stroke="#16a34a" stroke-width="2" rx="10"/>
+  <text x="380" y="95" text-anchor="middle" class="label">Every species has a unique two-part scientific name</text>
+  <text x="270" y="130" text-anchor="middle" class="binomial">Panthera</text>
+  <text x="380" y="130" text-anchor="middle" class="binomial">leo</text>
+  <text x="490" y="130" text-anchor="middle" class="binomial">(Lion)</text>
+  <line x1="220" y1="140" x2="320" y2="140" class="line"/>
+  <line x1="330" y1="140" x2="430" y2="140" class="line"/>
+
+  <!-- Labels -->
+  <rect x="190" y="155" width="120" height="22" fill="#dcfce7" rx="4"/>
+  <text x="250" y="170" text-anchor="middle" class="label">Genus (capitalised)</text>
+  <rect x="330" y="155" width="120" height="22" fill="#dbeafe" rx="4"/>
+  <text x="390" y="170" text-anchor="middle" class="label">Species (lowercase)</text>
+
+  <!-- Examples -->
+  <rect x="50" y="180" width="660" height="180" fill="#ffffff" stroke="#d1d5db" stroke-width="2" rx="8"/>
+  <text x="380" y="210" text-anchor="middle" class="label">Examples of binomial names</text>
+
+  <text x="120" y="255" text-anchor="start" class="binomial">Homo sapiens</text>
+  <text x="280" y="255" text-anchor="start" class="sublabel">— human</text>
+
+  <text x="120" y="285" text-anchor="start" class="binomial">Panthera leo</text>
+  <text x="280" y="285" text-anchor="start" class="sublabel">— lion</text>
+
+  <text x="120" y="315" text-anchor="start" class="binomial">Canis lupus</text>
+  <text x="280" y="315" text-anchor="start" class="sublabel">— grey wolf</text>
+
+  <text x="400" y="255" text-anchor="start" class="binomial">Panthera tigris</text>
+  <text x="560" y="255" text-anchor="start" class="sublabel">— tiger (same genus as lion)</text>
+
+  <text x="400" y="285" text-anchor="start" class="binomial">Erithacus rubecula</text>
+  <text x="560" y="285" text-anchor="start" class="sublabel">— European robin</text>
+
+  <text x="400" y="315" text-anchor="start" class="binomial">Turdus migratorius</text>
+  <text x="560" y="315" text-anchor="start" class="sublabel">— American robin</text>
+
+  <!-- Common name warning -->
+  <rect x="50" y="380" width="660" height="45" fill="#fee2e2" stroke="#ef4444" stroke-width="2" rx="6"/>
+  <text x="380" y="400" text-anchor="middle" class="sublabel">Common names can be confusing: "robin" means different birds in the UK and North America.</text>
+  <text x="380" y="418" text-anchor="middle" class="sublabel">Scientific names are universal and understood by biologists everywhere.</text>
+</svg>

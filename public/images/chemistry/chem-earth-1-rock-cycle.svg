@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">The Rock Cycle</title>
+  <desc id="desc">A diagram showing the three rock types — igneous, sedimentary, and metamorphic — and the processes that convert one into another.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="520" fill="#f9fafb" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" class="title">The Rock Cycle</text>
+
+  <!-- Rock type boxes -->
+  <!-- Igneous -->
+  <g transform="translate(120, 120)">
+    <rect x="0" y="0" width="200" height="120" rx="12" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+    <text x="100" y="35" text-anchor="middle" class="label">Igneous</text>
+    <text x="100" y="58" text-anchor="middle" class="sublabel">from cooled magma/lava</text>
+    <text x="100" y="80" text-anchor="middle" class="sublabel">Intrusive: large crystals</text>
+    <text x="100" y="100" text-anchor="middle" class="sublabel">Extrusive: small crystals</text>
+  </g>
+
+  <!-- Sedimentary -->
+  <g transform="translate(350, 320)">
+    <rect x="0" y="0" width="200" height="120" rx="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="100" y="35" text-anchor="middle" class="label">Sedimentary</text>
+    <text x="100" y="58" text-anchor="middle" class="sublabel">compressed sediment layers</text>
+    <text x="100" y="80" text-anchor="middle" class="sublabel">often contains fossils</text>
+    <text x="100" y="100" text-anchor="middle" class="sublabel">e.g. limestone, sandstone</text>
+  </g>
+
+  <!-- Metamorphic -->
+  <g transform="translate(580, 120)">
+    <rect x="0" y="0" width="200" height="120" rx="12" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    <text x="100" y="35" text-anchor="middle" class="label">Metamorphic</text>
+    <text x="100" y="58" text-anchor="middle" class="sublabel">changed by heat / pressure</text>
+    <text x="100" y="80" text-anchor="middle" class="sublabel">no melting</text>
+    <text x="100" y="100" text-anchor="middle" class="sublabel">e.g. marble, slate, gneiss</text>
+  </g>
+
+  <!-- Arrows and process labels -->
+  <!-- Igneous to Sedimentary: weathering &amp; erosion, compaction -->
+  <path d="M220,240 C260,290 320,330 350,360" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <rect x="235" y="285" width="110" height="30" rx="4" class="label-bg"/>
+  <text x="240" y="301" class="label">Weathering &amp;</text>
+  <text x="240" y="317" class="label">compaction</text>
+
+  <!-- Sedimentary to Metamorphic: heat &amp; pressure -->
+  <path d="M550,360 C590,330 640,290 680,240" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <rect x="575" y="290" width="100" height="18" rx="4" class="label-bg"/>
+  <text x="580" y="303" class="label">Heat &amp; pressure</text>
+
+  <!-- Metamorphic to Igneous: melting then cooling -->
+  <path d="M600,120 C500,80 400,80 300,120" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <rect x="395" y="72" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="400" y="85" class="label">Melting &amp; cooling</text>
+
+  <!-- Direct Sedimentary to Igneous: melting -->
+  <path d="M450,320 C450,270 350,220 280,210" class="arrow" stroke="#9ca3af" stroke-dasharray="5,4" marker-end="url(#arrow-gray)"/>
+  <rect x="320" y="250" width="55" height="18" rx="4" class="label-bg"/>
+  <text x="325" y="263" class="sublabel">melting</text>
+
+  <!-- Direct Metamorphic to Sedimentary: weathering -->
+  <path d="M680,180 C620,230 580,310 550,350" class="arrow" stroke="#9ca3af" stroke-dasharray="5,4" marker-end="url(#arrow-gray)"/>
+  <rect x="625" y="245" width="75" height="18" rx="4" class="label-bg"/>
+  <text x="630" y="258" class="sublabel">weathering</text>
+
+  <!-- Examples panel -->
+  <rect x="80" y="400" width="740" height="90" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="120" y="435" class="label">Examples:</text>
+  <text x="120" y="460" class="sublabel">Limestone → marble&#160;•&#160;Shale → slate&#160;•&#160;Granite → gneiss</text>
+  <text x="120" y="485" class="sublabel">Weathering: physical (freeze-thaw), chemical (acid rain), biological (roots)</text>
+</svg>

@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Metallic Bonding: Positive Ions in a Sea of Electrons</title>
+  <desc id="desc">A diagram of metallic bonding showing positive metal ions arranged in a lattice, surrounded by delocalised electrons that move freely through the structure.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .metal-bg { fill: #e2e8f0; }
+      .ion { fill: #64748b; }
+      .electron { fill: #f97316; }
+      .bond { stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray="4,3"; }
+    </style>
+  </defs>
+
+  <rect width="900" height="520" fill="#f9fafb" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" class="title">Metallic Bonding: Positive Ions + Sea of Electrons</text>
+
+  <!-- Metallic lattice -->
+  <rect x="80" y="80" width="520" height="340" rx="10" class="metal-bg" stroke="#94a3b8" stroke-width="2"/>
+  <text x="340" y="105" text-anchor="middle" class="label">Metal lattice</text>
+
+  <g transform="translate(130, 140)">
+    <!-- rows of positive ions -->
+    <g>
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(100, 0)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(200, 0)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(300, 0)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(400, 0)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+
+    <g transform="translate(50, 70)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(150, 70)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(250, 70)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(350, 70)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+
+    <g transform="translate(0, 140)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(100, 140)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(200, 140)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(300, 140)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(400, 140)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+
+    <g transform="translate(50, 210)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(150, 210)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(250, 210)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+    <g transform="translate(350, 210)">
+      <circle cx="0" cy="0" r="22" class="ion"/>
+      <text x="0" y="5" text-anchor="middle" class="label" fill="white">M⁺</text>
+    </g>
+
+    <!-- Delocalised electrons -->
+    <circle cx="50" cy="35" r="6" class="electron"/>
+    <circle cx="150" cy="35" r="6" class="electron"/>
+    <circle cx="250" cy="35" r="6" class="electron"/>
+    <circle cx="350" cy="35" r="6" class="electron"/>
+    <circle cx="25" cy="105" r="6" class="electron"/>
+    <circle cx="125" cy="105" r="6" class="electron"/>
+    <circle cx="225" cy="105" r="6" class="electron"/>
+    <circle cx="325" cy="105" r="6" class="electron"/>
+    <circle cx="75" cy="175" r="6" class="electron"/>
+    <circle cx="175" cy="175" r="6" class="electron"/>
+    <circle cx="275" cy="175" r="6" class="electron"/>
+    <circle cx="375" cy="175" r="6" class="electron"/>
+  </g>
+
+  <!-- Labels -->
+  <line x1="250" y1="200" x2="180" y2="250" class="line"/>
+  <rect x="90" y="251" width="140" height="18" rx="4" class="label-bg"/>
+  <text x="95" y="263" class="label">Positive metal ions (M⁺)</text>
+
+  <line x1="320" y1="160" x2="420" y2="120" class="line"/>
+  <rect x="422" y="111" width="130" height="18" rx="4" class="label-bg"/>
+  <text x="427" y="123" class="label">Delocalised electrons</text>
+
+  <!-- Properties panel -->
+  <rect x="640" y="80" width="240" height="340" rx="10" class="box"/>
+  <text x="760" y="105" text-anchor="middle" class="label">Explained by the model</text>
+
+  <rect x="660" y="125" width="200" height="50" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="760" y="145" text-anchor="middle" class="sublabel">Conduct electricity</text>
+  <text x="760" y="162" text-anchor="middle" class="sublabel">delocalised e⁻ flow</text>
+
+  <rect x="660" y="185" width="200" height="50" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="760" y="205" text-anchor="middle" class="sublabel">Malleable / ductile</text>
+  <text x="760" y="222" text-anchor="middle" class="sublabel">layers slide, sea adapts</text>
+
+  <rect x="660" y="245" width="200" height="50" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="760" y="265" text-anchor="middle" class="sublabel">High melting point</text>
+  <text x="760" y="282" text-anchor="middle" class="sublabel">strong ion–electron attraction</text>
+
+  <rect x="660" y="305" width="200" height="50" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="760" y="325" text-anchor="middle" class="sublabel">Shiny / lustrous</text>
+  <text x="760" y="342" text-anchor="middle" class="sublabel">delocalised e⁻ reflect light</text>
+
+  <!-- Bottom summary -->
+  <rect x="80" y="440" width="800" height="60" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="480" y="465" text-anchor="middle" class="label">Metallic bond = electrostatic attraction between M⁺ ions and the electron sea</text>
+  <text x="480" y="485" text-anchor="middle" class="sublabel">More delocalised electrons per atom → stronger metallic bonding → higher melting point</text>
+</svg>

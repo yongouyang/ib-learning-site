@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 520" role="img" aria-labelledby="title desc">
+  <title id="title">Uses of Glucose in Plants</title>
+  <desc id="desc">Diagram showing the five main uses of glucose produced by photosynthesis: respiration, starch storage, cellulose cell walls, proteins, and lipids.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="840" height="520" fill="#f9fafb" rx="12"/>
+  <text x="420" y="38" text-anchor="middle" class="title">Uses of Glucose in Plants</text>
+
+  <!-- Central glucose -->
+  <rect x="360" y="230" width="120" height="54" rx="10" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+  <text x="420" y="254" text-anchor="middle" class="label">Glucose</text>
+  <text x="420" y="271" text-anchor="middle" class="sublabel">C₆H₁₂O₆</text>
+
+  <!-- Use 1: Respiration -->
+  <g transform="translate(120, 90)">
+    <rect x="0" y="0" width="140" height="70" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="70" y="24" text-anchor="middle" class="label">Respiration</text>
+    <text x="70" y="40" text-anchor="middle" class="sublabel">Broken down in</text>
+    <text x="70" y="55" text-anchor="middle" class="sublabel">mitochondria for ATP</text>
+  </g>
+  <line x1="360" y1="240" x2="260" y2="160" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+
+  <!-- Use 2: Starch -->
+  <g transform="translate(580, 90)">
+    <rect x="0" y="0" width="140" height="70" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+    <text x="70" y="24" text-anchor="middle" class="label">Starch</text>
+    <text x="70" y="40" text-anchor="middle" class="sublabel">Insoluble storage</text>
+    <text x="70" y="55" text-anchor="middle" class="sublabel">polysaccharide</text>
+  </g>
+  <line x1="480" y1="240" x2="580" y2="160" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+
+  <!-- Use 3: Cellulose -->
+  <g transform="translate(60, 240)">
+    <rect x="0" y="0" width="140" height="70" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    <text x="70" y="24" text-anchor="middle" class="label">Cellulose</text>
+    <text x="70" y="40" text-anchor="middle" class="sublabel">Cell wall fibres</text>
+    <text x="70" y="55" text-anchor="middle" class="sublabel">for support</text>
+  </g>
+  <line x1="360" y1="257" x2="200" y2="275" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+
+  <!-- Use 4: Proteins -->
+  <g transform="translate(640, 240)">
+    <rect x="0" y="0" width="140" height="70" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+    <text x="70" y="24" text-anchor="middle" class="label">Proteins</text>
+    <text x="70" y="40" text-anchor="middle" class="sublabel">Glucose + nitrate</text>
+    <text x="70" y="55" text-anchor="middle" class="sublabel">→ amino acids</text>
+  </g>
+  <line x1="480" y1="257" x2="640" y2="275" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+
+  <!-- Use 5: Lipids -->
+  <g transform="translate(350, 390)">
+    <rect x="0" y="0" width="140" height="70" rx="8" fill="#f3e8ff" stroke="#a855f7" stroke-width="2"/>
+    <text x="70" y="24" text-anchor="middle" class="label">Lipids</text>
+    <text x="70" y="40" text-anchor="middle" class="sublabel">Fats and oils in</text>
+    <text x="70" y="55" text-anchor="middle" class="sublabel">seeds and membranes</text>
+  </g>
+  <line x1="420" y1="284" x2="420" y2="390" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+
+  <!-- Nitrate / magnesium note -->
+  <rect x="580" y="390" width="190" height="40" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="675" y="408" text-anchor="middle" class="sublabel">Nitrates and magnesium</text>
+  <text x="675" y="423" text-anchor="middle" class="sublabel">are essential inputs</text>
+</svg>

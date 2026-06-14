@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" role="img" aria-labelledby="title desc">
+  <title id="title">The Five Kingdoms of Life</title>
+  <desc id="desc">A diagram showing the five kingdoms of classification: animals, plants, fungi, protists, and bacteria, with key features.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .kingdom-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #111827; }
+      .box { stroke-width: 2; rx: 8; }
+    </style>
+  </defs>
+
+  <rect width="820" height="500" fill="#f9fafb" rx="12"/>
+  <text x="410" y="36" text-anchor="middle" class="title">The Five Kingdoms of Life</text>
+
+  <!-- Animalia -->
+  <rect x="40" y="70" width="220" height="180" fill="#fee2e2" stroke="#ef4444" class="box"/>
+  <text x="150" y="96" text-anchor="middle" class="kingdom-title">Animals</text>
+  <circle cx="110" cy="130" r="18" fill="#fca5a5"/>
+  <circle cx="150" cy="130" r="14" fill="#fca5a5"/>
+  <circle cx="185" cy="130" r="10" fill="#fca5a5"/>
+  <text x="150" y="168" text-anchor="middle" class="sublabel">Multicellular, no cell wall</text>
+  <text x="150" y="186" text-anchor="middle" class="sublabel">Heterotrophic</text>
+  <text x="150" y="204" text-anchor="middle" class="sublabel">Often able to move</text>
+
+  <!-- Plantae -->
+  <rect x="300" y="70" width="220" height="180" fill="#dcfce7" stroke="#16a34a" class="box"/>
+  <text x="410" y="96" text-anchor="middle" class="kingdom-title">Plants</text>
+  <path d="M410,165 L410,135" stroke="#16a34a" stroke-width="4"/>
+  <ellipse cx="395" cy="140" rx="18" ry="10" fill="#4ade80" transform="rotate(-30 395 140)"/>
+  <ellipse cx="425" cy="140" rx="18" ry="10" fill="#4ade80" transform="rotate(30 425 140)"/>
+  <ellipse cx="410" cy="125" rx="14" ry="8" fill="#4ade80"/>
+  <text x="410" y="182" text-anchor="middle" class="sublabel">Cellulose cell wall</text>
+  <text x="410" y="200" text-anchor="middle" class="sublabel">Photosynthetic</text>
+  <text x="410" y="218" text-anchor="middle" class="sublabel">Cannot move</text>
+
+  <!-- Fungi -->
+  <rect x="560" y="70" width="220" height="180" fill="#f3e8ff" stroke="#9333ea" class="box"/>
+  <text x="670" y="96" text-anchor="middle" class="kingdom-title">Fungi</text>
+  <ellipse cx="660" cy="160" rx="35" ry="10" fill="#d8b4fe"/>
+  <rect x="655" y="130" width="10" height="30" fill="#c084fc"/>
+  <ellipse cx="680" cy="145" rx="12" ry="6" fill="#d8b4fe"/>
+  <text x="670" y="182" text-anchor="middle" class="sublabel">Chitin cell wall</text>
+  <text x="670" y="200" text-anchor="middle" class="sublabel">Saprophytic</text>
+  <text x="670" y="218" text-anchor="middle" class="sublabel">Digest externally</text>
+
+  <!-- Protists -->
+  <rect x="170" y="280" width="220" height="180" fill="#fef3c7" stroke="#f59e0b" class="box"/>
+  <text x="280" y="306" text-anchor="middle" class="kingdom-title">Protists</text>
+  <ellipse cx="280" cy="350" rx="35" ry="20" fill="#fde68a"/>
+  <circle cx="265" cy="345" r="4" fill="#1f2937"/>
+  <circle cx="290" cy="345" r="4" fill="#1f2937"/>
+  <path d="M245,360 Q280,380 315,360" fill="none" stroke="#1f2937" stroke-width="2"/>
+  <text x="280" y="402" text-anchor="middle" class="sublabel">Mostly unicellular</text>
+  <text x="280" y="420" text-anchor="middle" class="sublabel">Eukaryotic</text>
+  <text x="280" y="438" text-anchor="middle" class="sublabel">Diverse nutrition</text>
+
+  <!-- Bacteria -->
+  <rect x="430" y="280" width="220" height="180" fill="#e0f2fe" stroke="#0ea5e9" class="box"/>
+  <text x="540" y="306" text-anchor="middle" class="kingdom-title">Bacteria</text>
+  <ellipse cx="540" cy="355" rx="45" ry="22" fill="#7dd3fc"/>
+  <path d="M520,355 Q540,345 560,355" fill="none" stroke="#0369a1" stroke-width="1.5"/>
+  <circle cx="525" cy="350" r="2" fill="#0369a1"/>
+  <circle cx="555" cy="350" r="2" fill="#0369a1"/>
+  <text x="540" y="402" text-anchor="middle" class="sublabel">Prokaryotic</text>
+  <text x="540" y="420" text-anchor="middle" class="sublabel">Cell wall</text>
+  <text x="540" y="438" text-anchor="middle" class="sublabel">No membrane-bound nucleus</text>
+
+  <!-- Note -->
+  <rect x="280" y="470" width="260" height="22" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <text x="410" y="485" text-anchor="middle" class="sublabel">Viruses are not in any kingdom — they are not considered alive.</text>
+</svg>

@@ -2,10 +2,17 @@ export type SubjectId = 'english' | 'math' | 'biology' | 'chemistry' | 'physics'
 
 export type IBLevel = 'MYP' | 'DP';
 
+export interface Illustration {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface ConceptNote {
   id: string;
   heading: string;
   body: string;
+  illustration?: Illustration;
 }
 
 export interface Flashcard {

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+  <title id="title">Aerobic vs Anaerobic Respiration</title>
+  <desc id="desc">A side-by-side comparison of aerobic and anaerobic respiration showing oxygen use, products, ATP yield, and duration.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .cell { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+      .header { fill: #f3f4f6; stroke: #d1d5db; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect width="760" height="420" fill="#f9fafb" rx="12"/>
+  <text x="380" y="34" text-anchor="middle" class="title">Aerobic vs Anaerobic Respiration</text>
+
+  <!-- Table -->
+  <!-- Row 0 header -->
+  <rect x="50" y="55" width="220" height="36" class="header" rx="4"/>
+  <rect x="270" y="55" width="220" height="36" class="header" rx="4"/>
+  <rect x="490" y="55" width="220" height="36" class="header" rx="4"/>
+  <text x="160" y="78" text-anchor="middle" class="panel-title">Feature</text>
+  <text x="380" y="78" text-anchor="middle" class="panel-title" fill="#15803d">Aerobic</text>
+  <text x="600" y="78" text-anchor="middle" class="panel-title" fill="#b91c1c">Anaerobic</text>
+
+  <!-- Row 1 oxygen -->
+  <rect x="50" y="91" width="220" height="48" class="cell" rx="4"/>
+  <rect x="270" y="91" width="220" height="48" class="cell" rx="4"/>
+  <rect x="490" y="91" width="220" height="48" class="cell" rx="4"/>
+  <text x="160" y="120" text-anchor="middle" class="label">Oxygen needed?</text>
+  <text x="380" y="120" text-anchor="middle" class="sublabel">Yes</text>
+  <text x="600" y="120" text-anchor="middle" class="sublabel">No</text>
+
+  <!-- Row 2 site -->
+  <rect x="50" y="139" width="220" height="48" class="cell" rx="4"/>
+  <rect x="270" y="139" width="220" height="48" class="cell" rx="4"/>
+  <rect x="490" y="139" width="220" height="48" class="cell" rx="4"/>
+  <text x="160" y="168" text-anchor="middle" class="label">Where?</text>
+  <text x="380" y="168" text-anchor="middle" class="sublabel">Mitochondria</text>
+  <text x="600" y="168" text-anchor="middle" class="sublabel">Cytoplasm</text>
+
+  <!-- Row 3 products -->
+  <rect x="50" y="187" width="220" height="60" class="cell" rx="4"/>
+  <rect x="270" y="187" width="220" height="60" class="cell" rx="4"/>
+  <rect x="490" y="187" width="220" height="60" class="cell" rx="4"/>
+  <text x="160" y="220" text-anchor="middle" class="label">Products</text>
+  <text x="380" y="215" text-anchor="middle" class="sublabel">CO₂ + H₂O</text>
+  <text x="380" y="232" text-anchor="middle" class="sublabel">(complete breakdown)</text>
+  <text x="600" y="215" text-anchor="middle" class="sublabel">Lactic acid (animals)</text>
+  <text x="600" y="232" text-anchor="middle" class="sublabel">Ethanol + CO₂ (yeast)</text>
+
+  <!-- Row 4 ATP -->
+  <rect x="50" y="247" width="220" height="48" class="cell" rx="4"/>
+  <rect x="270" y="247" width="220" height="48" class="cell" rx="4"/>
+  <rect x="490" y="247" width="220" height="48" class="cell" rx="4"/>
+  <text x="160" y="276" text-anchor="middle" class="label">ATP yield</text>
+  <text x="380" y="276" text-anchor="middle" class="sublabel">~38 ATP per glucose</text>
+  <text x="600" y="276" text-anchor="middle" class="sublabel">~2 ATP per glucose</text>
+
+  <!-- Row 5 duration -->
+  <rect x="50" y="295" width="220" height="48" class="cell" rx="4"/>
+  <rect x="270" y="295" width="220" height="48" class="cell" rx="4"/>
+  <rect x="490" y="295" width="220" height="48" class="cell" rx="4"/>
+  <text x="160" y="324" text-anchor="middle" class="label">Duration</text>
+  <text x="380" y="324" text-anchor="middle" class="sublabel">Can continue indefinitely</text>
+  <text x="600" y="324" text-anchor="middle" class="sublabel">Short-term only</text>
+
+  <!-- Summary -->
+  <rect x="90" y="360" width="580" height="40" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5" rx="6"/>
+  <text x="380" y="385" text-anchor="middle" class="sublabel">Anaerobic is faster but inefficient, leaving energy stored in lactic acid or ethanol.</text>
+</svg>

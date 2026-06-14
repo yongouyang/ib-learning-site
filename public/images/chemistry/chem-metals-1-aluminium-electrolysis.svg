@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" role="img" aria-labelledby="title desc">
+  <title id="title">Electrolysis of Aluminium Oxide</title>
+  <desc id="desc">A labelled electrolytic cell for aluminium extraction, showing the carbon anode, cathode, molten cryolite-alumina mixture, and molten aluminium collected at the bottom.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-head" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="560" fill="#f9fafb" rx="12"/>
+  <text x="380" y="38" text-anchor="middle" class="title">Extraction of Aluminium by Electrolysis</text>
+
+  <!-- Cell container -->
+  <g transform="translate(230, 90)">
+    <!-- Steel lining -->
+    <rect x="0" y="50" width="300" height="320" rx="8" fill="none" stroke="#374151" stroke-width="4"/>
+    <!-- Molten electrolyte -->
+    <rect x="10" y="110" width="280" height="200" fill="#fed7aa" opacity="0.35" stroke="#f97316" stroke-width="1.5"/>
+    <!-- Molten aluminium at bottom -->
+    <rect x="12" y="300" width="276" height="55" fill="#f97316" opacity="0.85"/>
+    
+    <!-- Carbon anodes (positive) -->
+    <g transform="translate(60, 50)">
+      <rect x="0" y="0" width="40" height="90" fill="#1f2937" rx="3"/>
+      <rect x="80" y="0" width="40" height="90" fill="#1f2937" rx="3"/>
+      <rect x="160" y="0" width="40" height="90" fill="#1f2937" rx="3"/>
+    </g>
+
+    <!-- Cathode (negative) at bottom -->
+    <rect x="20" y="310" width="260" height="15" fill="#4b5563" rx="2"/>
+
+    <!-- Bubbles at anodes -->
+    <g fill="none" stroke="#9ca3af" stroke-width="1.5">
+      <circle cx="90" cy="150" r="5"/>
+      <circle cx="110" cy="170" r="4"/>
+      <circle cx="190" cy="155" r="5"/>
+      <circle cx="210" cy="175" r="4"/>
+      <circle cx="270" cy="160" r="5"/>
+    </g>
+
+    <!-- Power supply -->
+    <g transform="translate(120, -60)">
+      <rect x="0" y="0" width="60" height="40" rx="4" fill="#f3f4f6" stroke="#374151" stroke-width="2"/>
+      <text x="30" y="18" text-anchor="middle" class="sublabel" font-weight="600">DC</text>
+      <text x="30" y="32" text-anchor="middle" class="sublabel">supply</text>
+      <!-- Wires -->
+      <line x1="10" y1="40" x2="10" y2="110" stroke="#dc2626" stroke-width="2.5"/>
+      <line x1="50" y1="40" x2="50" y2="110" stroke="#2563eb" stroke-width="2.5"/>
+    </g>
+  </g>
+
+  <!-- Labels -->
+  <line x1="240" y1="130" x2="160" y2="120" class="line"/>
+  <rect x="40" y="105" width="115" height="34" rx="4" class="label-bg"/>
+  <text x="44" y="123" class="label">Carbon anodes</text>
+  <text x="44" y="137" class="sublabel">(positive electrode)</text>
+
+  <line x1="380" y1="460" x2="380" y2="500" class="line"/>
+  <rect x="305" y="502" width="150" height="34" rx="4" class="label-bg"/>
+  <text x="309" y="520" class="label">Cathode (negative)</text>
+  <text x="309" y="534" class="sublabel">molten Al collects here</text>
+
+  <line x1="540" y1="210" x2="620" y2="190" class="line"/>
+  <rect x="622" y="172" width="105" height="48" rx="4" class="label-bg"/>
+  <text x="626" y="190" class="label">Molten electrolyte</text>
+  <text x="626" y="204" class="sublabel">Al₂O₃ dissolved</text>
+  <text x="626" y="218" class="sublabel">in cryolite (~950°C)</text>
+
+  <line x1="530" y1="400" x2="610" y2="430" class="line"/>
+  <rect x="612" y="415" width="105" height="34" rx="4" class="label-bg"/>
+  <text x="616" y="433" class="label">Molten aluminium</text>
+  <text x="616" y="447" class="sublabel">sinks to bottom</text>
+
+  <!-- Reactions -->
+  <line x1="160" y1="180" x2="220" y2="180" class="line"/>
+  <rect x="20" y="158" width="135" height="48" rx="4" class="label-bg"/>
+  <text x="24" y="176" class="label" fill="#dc2626">Anode reaction</text>
+  <text x="24" y="192" class="sublabel">2O²⁻ → O₂ + 4e⁻</text>
+  <text x="24" y="204" class="sublabel">(anodes burn to CO₂)</text>
+
+  <line x1="160" y1="430" x2="220" y2="430" class="line"/>
+  <rect x="20" y="408" width="135" height="48" rx="4" class="label-bg"/>
+  <text x="24" y="426" class="label" fill="#2563eb">Cathode reaction</text>
+  <text x="24" y="442" class="sublabel">Al³⁺ + 3e⁻ → Al</text>
+  <text x="24" y="454" class="sublabel">(reduction)</text>
+
+  <!-- Overall equation -->
+  <rect x="150" y="515" width="460" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <text x="380" y="536" text-anchor="middle" class="sublabel">Overall: 2Al₂O₃ → 4Al + 3O₂ (huge electrical energy needed)</text>
+</svg>

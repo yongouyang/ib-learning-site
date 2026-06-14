@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc">
+  <title id="title">Xylem Vessel Structure</title>
+  <desc id="desc">Longitudinal view of a xylem vessel showing dead cells with no end walls, lignin thickening, pits, and water moving upward by transpiration pull.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="460" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Xylem: Structure and Function</text>
+
+  <!-- Xylem vessel wall with lignin rings -->
+  <rect x="300" y="80" width="200" height="320" fill="#f3f4f6" stroke="#4b5563" stroke-width="2" rx="4"/>
+
+  <!-- Lignin rings -->
+  <rect x="300" y="100" width="200" height="18" fill="#d97706" opacity="0.7"/>
+  <rect x="300" y="150" width="200" height="18" fill="#d97706" opacity="0.7"/>
+  <rect x="300" y="200" width="200" height="18" fill="#d97706" opacity="0.7"/>
+  <rect x="300" y="250" width="200" height="18" fill="#d97706" opacity="0.7"/>
+  <rect x="300" y="300" width="200" height="18" fill="#d97706" opacity="0.7"/>
+  <rect x="300" y="350" width="200" height="18" fill="#d97706" opacity="0.7"/>
+
+  <!-- Hollow lumen -->
+  <rect x="330" y="80" width="140" height="320" fill="#dbeafe" opacity="0.5"/>
+
+  <!-- Pits (gaps in lignin) -->
+  <circle cx="320" cy="141" r="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <circle cx="480" cy="191" r="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <circle cx="320" cy="241" r="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <circle cx="480" cy="291" r="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <circle cx="320" cy="341" r="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+
+  <!-- Water molecules -->
+  <circle cx="360" cy="130" r="6" fill="#3b82f6"/>
+  <circle cx="400" cy="160" r="6" fill="#3b82f6"/>
+  <circle cx="440" cy="140" r="6" fill="#3b82f6"/>
+  <circle cx="380" cy="210" r="6" fill="#3b82f6"/>
+  <circle cx="420" cy="240" r="6" fill="#3b82f6"/>
+  <circle cx="360" cy="280" r="6" fill="#3b82f6"/>
+  <circle cx="430" cy="310" r="6" fill="#3b82f6"/>
+  <circle cx="390" cy="350" r="6" fill="#3b82f6"/>
+
+  <!-- Upward transpiration pull arrows -->
+  <line x1="400" y1="360" x2="400" y2="300" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="400" y1="250" x2="400" y2="190" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="400" y1="140" x2="400" y2="100" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+
+  <!-- Labels -->
+  <line x1="500" y1="109" x2="610" y2="80" class="line"/>
+  <rect x="612" y="71" width="120" height="18" rx="4" class="label-bg"/>
+  <text x="616" y="83" class="label">Lignin thickening</text>
+
+  <line x1="500" y1="191" x2="610" y2="191" class="line"/>
+  <rect x="612" y="182" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="616" y="194" class="label">Pit (gap)</text>
+
+  <line x1="300" y1="240" x2="160" y2="240" class="line"/>
+  <rect x="20" y="231" width="138" height="18" rx="4" class="label-bg"/>
+  <text x="24" y="243" class="label">Hollow lumen</text>
+
+  <line x1="400" y1="80" x2="400" y2="55" class="line"/>
+  <rect x="330" y="32" width="140" height="18" rx="4" class="label-bg"/>
+  <text x="334" y="44" class="label">No end walls</text>
+
+  <line x1="330" y1="360" x2="160" y2="390" class="line"/>
+  <rect x="40" y="391" width="118" height="18" rx="4" class="label-bg"/>
+  <text x="44" y="403" class="label">Dead, empty cells</text>
+
+  <text x="400" y="440" text-anchor="middle" class="sublabel">Cohesion-tension: water molecules cohere and are pulled upward by transpiration.</text>
+</svg>

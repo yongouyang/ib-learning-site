@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="title desc">
+  <title id="title">Group 1 Alkali Metals</title>
+  <desc id="desc">Atomic models of lithium, sodium, and potassium showing increasing atomic size down Group 1, plus a diagram of an alkali metal reacting with water.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .nucleus { fill: #f97316; stroke: #c2410c; stroke-width: 2; }
+      .shell { fill: none; stroke: #9ca3af; stroke-width: 2; }
+      .electron { fill: #3b82f6; stroke: #1d4ed8; stroke-width: 1; }
+      .arrow { fill: none; stroke: #ef4444; stroke-width: 2.5; stroke-linecap: round; marker-end: url(#arrow-red); }
+      .beaker { fill: #e0f2fe; stroke: #6b7280; stroke-width: 2.5; fill-opacity: 0.4; }
+      .gas { fill: #fde68a; stroke: #f59e0b; stroke-width: 1.5; }
+      .metal { fill: #d1d5db; stroke: #4b5563; stroke-width: 1.5; }
+      .liquid { fill: #bfdbfe; fill-opacity: 0.5; }
+    </style>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="460" fill="#f9fafb" rx="12"/>
+  <text x="450" y="36" text-anchor="middle" class="title">Group 1: The Alkali Metals</text>
+
+  <!-- Left panel: atoms down the group -->
+  <rect x="25" y="55" width="430" height="290" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="240" y="82" text-anchor="middle" class="panel-title">Atomic size increases down the group</text>
+
+  <!-- Lithium -->
+  <g transform="translate(100, 180)">
+    <circle cx="0" cy="0" r="55" class="shell"/>
+    <circle cx="0" cy="0" r="25" class="shell"/>
+    <circle cx="0" cy="0" r="12" class="nucleus"/>
+    <text x="0" y="4" text-anchor="middle" class="sublabel" fill="white">Li</text>
+    <circle cx="0" cy="-38" r="5" class="electron"/>
+    <circle cx="33" cy="19" r="5" class="electron"/>
+    <circle cx="-33" cy="19" r="5" class="electron"/>
+    <circle cx="0" cy="-18" r="5" class="electron"/>
+    <circle cx="18" cy="0" r="5" class="electron"/>
+  </g>
+  <text x="100" y="270" text-anchor="middle" class="label">Lithium (Li)</text>
+  <text x="100" y="284" text-anchor="middle" class="sublabel">2,1</text>
+
+  <!-- Sodium -->
+  <g transform="translate(240, 180)">
+    <circle cx="0" cy="0" r="75" class="shell"/>
+    <circle cx="0" cy="0" r="48" class="shell"/>
+    <circle cx="0" cy="0" r="22" class="shell"/>
+    <circle cx="0" cy="0" r="12" class="nucleus"/>
+    <text x="0" y="4" text-anchor="middle" class="sublabel" fill="white">Na</text>
+    <!-- outer electron -->
+    <circle cx="0" cy="-60" r="5" class="electron"/>
+    <!-- inner electrons simplified -->
+    <circle cx="0" cy="-33" r="4" class="electron"/>
+    <circle cx="28" cy="16" r="4" class="electron"/>
+    <circle cx="-28" cy="16" r="4" class="electron"/>
+    <circle cx="0" cy="-16" r="4" class="electron"/>
+    <circle cx="16" cy="0" r="4" class="electron"/>
+    <circle cx="-16" cy="0" r="4" class="electron"/>
+    <circle cx="0" cy="16" r="4" class="electron"/>
+    <circle cx="-20" cy="-10" r="4" class="electron"/>
+    <circle cx="20" cy="-10" r="4" class="electron"/>
+    <circle cx="-36" cy="0" r="4" class="electron"/>
+    <circle cx="36" cy="0" r="4" class="electron"/>
+  </g>
+  <text x="240" y="290" text-anchor="middle" class="label">Sodium (Na)</text>
+  <text x="240" y="304" text-anchor="middle" class="sublabel">2,8,1</text>
+
+  <!-- Potassium -->
+  <g transform="translate(380, 180)">
+    <circle cx="0" cy="0" r="90" class="shell"/>
+    <circle cx="0" cy="0" r="62" class="shell"/>
+    <circle cx="0" cy="0" r="38" class="shell"/>
+    <circle cx="0" cy="0" r="16" class="shell"/>
+    <circle cx="0" cy="0" r="12" class="nucleus"/>
+    <text x="0" y="4" text-anchor="middle" class="sublabel" fill="white">K</text>
+    <circle cx="0" cy="-75" r="5" class="electron"/>
+  </g>
+  <text x="380" y="310" text-anchor="middle" class="label">Potassium (K)</text>
+  <text x="380" y="324" text-anchor="middle" class="sublabel">2,8,8,1</text>
+
+  <!-- Reactivity arrow -->
+  <line x1="100" y1="110" x2="380" y2="110" class="arrow"/>
+  <rect x="175" y="92" width="130" height="22" rx="4" class="label-bg"/>
+  <text x="240" y="108" text-anchor="middle" class="label">Reactivity increases</text>
+
+  <!-- Right panel: reaction with water -->
+  <rect x="475" y="55" width="400" height="290" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="675" y="82" text-anchor="middle" class="panel-title">Reaction with water</text>
+
+  <!-- Beaker -->
+  <path d="M560,120 L560,280 Q560,300 580,300 L770,300 Q790,300 790,280 L790,120" class="beaker"/>
+  <line x1="555" y1="120" x2="795" y2="120" stroke="#6b7280" stroke-width="2"/>
+  <rect x="560" y="220" width="230" height="75" class="liquid"/>
+
+  <!-- Metal chunk -->
+  <rect x="650" y="185" width="50" height="35" rx="6" class="metal"/>
+  <text x="675" y="208" text-anchor="middle" class="label">Na</text>
+
+  <!-- Bubbles -->
+  <g class="gas">
+    <circle cx="665" cy="170" r="6"/>
+    <circle cx="685" cy="155" r="8"/>
+    <circle cx="705" cy="175" r="5"/>
+    <circle cx="640" cy="160" r="5"/>
+    <circle cx="720" cy="150" r="6"/>
+  </g>
+  <text x="700" y="145" text-anchor="middle" class="label">H₂ gas</text>
+
+  <!-- Flame -->
+  <path d="M665,150 Q675,120 685,150 Q695,120 705,150" fill="#fca5a5" stroke="#ef4444" stroke-width="2"/>
+  <text x="685" y="110" text-anchor="middle" class="label">Lilac flame</text>
+
+  <!-- Equation -->
+  <rect x="520" y="330" width="310" height="36" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="675" y="352" text-anchor="middle" class="sublabel">2Na + 2H₂O → 2NaOH + H₂</text>
+
+  <!-- Key idea -->
+  <rect x="25" y="360" width="850" height="80" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="8"/>
+  <text x="450" y="385" text-anchor="middle" class="label">Why does reactivity increase?</text>
+  <text x="450" y="405" text-anchor="middle" class="sublabel">Atoms get larger down the group → the outer electron is further from the nucleus</text>
+  <text x="450" y="422" text-anchor="middle" class="sublabel">→ attraction is weaker → electron is lost more easily.</text>
+</svg>

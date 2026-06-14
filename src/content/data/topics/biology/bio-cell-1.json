@@ -8,37 +8,72 @@
     {
       "id": "bio-cell-1-n1",
       "heading": "The Cell Theory",
-      "body": "Three principles form the foundation of biology: (1) All living things are made of one or more cells. (2) The cell is the basic structural and functional unit of life — all life processes happen inside cells. (3) All cells arise from pre-existing cells through cell division. There are two main types of cells: eukaryotic cells have a membrane-bound nucleus (animals, plants, fungi, protists); prokaryotic cells (bacteria) have no nucleus — their DNA floats freely in the cytoplasm. Common misconception: viruses are NOT cells and do not fit the cell theory, as they cannot reproduce on their own."
+      "body": "Three principles form the foundation of biology: (1) All living things are made of one or more cells. (2) The cell is the basic structural and functional unit of life — all life processes happen inside cells. (3) All cells arise from pre-existing cells through cell division. There are two main types of cells: eukaryotic cells have a membrane-bound nucleus (animals, plants, fungi, protists); prokaryotic cells (bacteria) have no nucleus — their DNA floats freely in the cytoplasm. Common misconception: viruses are NOT cells and do not fit the cell theory, as they cannot reproduce on their own.",
+      "illustration": {
+        "src": "/images/biology/bio-cell-1-cell-theory.svg",
+        "alt": "Diagram comparing a prokaryotic cell and a eukaryotic cell, with the three principles of cell theory summarised below.",
+        "caption": "All living things are made of cells; eukaryotic cells have a membrane-bound nucleus, while prokaryotic cells do not."
+      }
     },
     {
       "id": "bio-cell-1-n2",
       "heading": "Animal Cell Organelles",
-      "body": "Every animal cell contains: (1) Nucleus — control centre containing DNA, surrounded by a nuclear membrane. (2) Cell membrane — a selectively permeable barrier controlling what enters and exits the cell. (3) Cytoplasm — jelly-like fluid where most chemical reactions occur, containing dissolved enzymes and nutrients. (4) Mitochondria (singular: mitochondrion) — site of aerobic respiration, producing ATP (energy). Often called the 'powerhouse' of the cell. Cells with high energy demands (muscle cells, sperm cells) have many mitochondria. (5) Ribosomes — tiny structures that synthesise proteins by reading mRNA instructions. Found floating in cytoplasm or attached to rough endoplasmic reticulum."
+      "body": "Every animal cell contains: (1) Nucleus — control centre containing DNA, surrounded by a nuclear membrane. (2) Cell membrane — a selectively permeable barrier controlling what enters and exits the cell. (3) Cytoplasm — jelly-like fluid where most chemical reactions occur, containing dissolved enzymes and nutrients. (4) Mitochondria (singular: mitochondrion) — site of aerobic respiration, producing ATP (energy). Often called the 'powerhouse' of the cell. Cells with high energy demands (muscle cells, sperm cells) have many mitochondria. (5) Ribosomes — tiny structures that synthesise proteins by reading mRNA instructions. Found floating in cytoplasm or attached to rough endoplasmic reticulum.",
+      "illustration": {
+        "src": "/images/biology/bio-cell-1-animal-organelles.svg",
+        "alt": "Labelled diagram of an animal cell showing the nucleus, mitochondria, ribosomes, cytoplasm, and cell membrane.",
+        "caption": "Animal cells contain a nucleus, mitochondria, ribosomes, cytoplasm, and a cell membrane."
+      }
     },
     {
       "id": "bio-cell-1-n3",
       "heading": "Plant Cell Extras",
-      "body": "Plant cells have all the organelles of animal cells plus three key extras: (1) Cell wall — a rigid outer layer made of cellulose. Provides structural support, prevents bursting when water enters. Makes plant cells appear more box-like and regular. (2) Large central vacuole — a membrane-bound sac filled with cell sap (water, sugars, salts). Maintains turgor pressure to keep the plant upright. When vacuoles are empty, plants wilt. (3) Chloroplasts — green organelles containing chlorophyll, the pigment that absorbs light energy for photosynthesis. Found mainly in leaf cells (palisade cells) and green stem cells, but not in root cells."
+      "body": "Plant cells have all the organelles of animal cells plus three key extras: (1) Cell wall — a rigid outer layer made of cellulose. Provides structural support, prevents bursting when water enters. Makes plant cells appear more box-like and regular. (2) Large central vacuole — a membrane-bound sac filled with cell sap (water, sugars, salts). Maintains turgor pressure to keep the plant upright. When vacuoles are empty, plants wilt. (3) Chloroplasts — green organelles containing chlorophyll, the pigment that absorbs light energy for photosynthesis. Found mainly in leaf cells (palisade cells) and green stem cells, but not in root cells.",
+      "illustration": {
+        "src": "/images/biology/bio-cell-animal-plant.svg",
+        "alt": "Labelled comparison of an animal cell and a plant cell showing organelles and plant-only structures.",
+        "caption": "Plant cells have a cell wall, chloroplasts, and a large central vacuole that animal cells lack."
+      }
     },
     {
       "id": "bio-cell-1-n4",
       "heading": "Microscopy: Light vs Electron Microscopes",
-      "body": "Light microscopes use visible light and glass lenses to magnify specimens up to about ×1500. They can view living cells and are what you use in a school lab. Stain (like iodine or methylene blue) is often used to make structures visible. Electron microscopes use beams of electrons and can magnify up to ×2,000,000. They reveal ultrastructure — organelles like ribosomes and internal membranes. However, specimens must be dead and in a vacuum. The formula for magnification is: magnification = size of image ÷ size of real object. Always use the same units! Example: an image of a cell measures 50 mm and the real cell is 0.05 mm. Magnification = 50 ÷ 0.05 = ×1000."
+      "body": "Light microscopes use visible light and glass lenses to magnify specimens up to about ×1500. They can view living cells and are what you use in a school lab. Stain (like iodine or methylene blue) is often used to make structures visible. Electron microscopes use beams of electrons and can magnify up to ×2,000,000. They reveal ultrastructure — organelles like ribosomes and internal membranes. However, specimens must be dead and in a vacuum. The formula for magnification is: magnification = size of image ÷ size of real object. Always use the same units! Example: an image of a cell measures 50 mm and the real cell is 0.05 mm. Magnification = 50 ÷ 0.05 = ×1000.",
+      "illustration": {
+        "src": "/images/biology/bio-cell-1-microscopes.svg",
+        "alt": "Comparison of a light microscope and an electron microscope, including magnification limits and the magnification formula.",
+        "caption": "Light microscopes view living cells at up to ×1500; electron microscopes reveal ultrastructure at up to ×2 000 000."
+      }
     },
     {
       "id": "bio-cell-1-n5",
       "heading": "Specialised Animal Cells",
-      "body": "In multicellular organisms, cells differentiate (specialise) to perform specific functions. Key examples: (1) Red blood cells — no nucleus to maximise space for haemoglobin, biconcave disc shape for large surface area to absorb oxygen. (2) Sperm cells — streamlined head with acrosome (containing enzymes to penetrate egg), many mitochondria in the midpiece for energy, and a long tail (flagellum) for swimming. (3) Nerve cells (neurons) — long axon to carry electrical impulses over distances, branched dendrites to connect with many other neurons, myelin sheath for insulation. (4) Ciliated epithelial cells — have tiny hair-like cilia that sweep mucus and trapped particles away, found lining airways and oviducts."
+      "body": "In multicellular organisms, cells differentiate (specialise) to perform specific functions. Key examples: (1) Red blood cells — no nucleus to maximise space for haemoglobin, biconcave disc shape for large surface area to absorb oxygen. (2) Sperm cells — streamlined head with acrosome (containing enzymes to penetrate egg), many mitochondria in the midpiece for energy, and a long tail (flagellum) for swimming. (3) Nerve cells (neurons) — long axon to carry electrical impulses over distances, branched dendrites to connect with many other neurons, myelin sheath for insulation. (4) Ciliated epithelial cells — have tiny hair-like cilia that sweep mucus and trapped particles away, found lining airways and oviducts.",
+      "illustration": {
+        "src": "/images/biology/bio-cell-specialised.svg",
+        "alt": "Diagrams of specialised cells: red blood cell, sperm cell, root hair cell, and palisade cell.",
+        "caption": "Specialised cells have structural adaptations that match their function."
+      }
     },
     {
       "id": "bio-cell-1-n6",
       "heading": "Specialised Plant Cells",
-      "body": "Plants also have highly specialised cells: (1) Root hair cell — long finger-like projection that massively increases surface area for absorbing water and mineral ions from soil. Has no chloroplasts (roots are underground). Has many mitochondria to power active transport of minerals. (2) Palisade cell — found in the upper layer of leaves, packed with chloroplasts for maximum light absorption. Regular column shape allows close packing. (3) Xylem vessel — dead, hollow tubes with lignin-strengthened walls that transport water and dissolved minerals upwards from roots. No cytoplasm or nucleus at maturity. (4) Guard cells — pair of kidney-shaped cells surrounding each stoma (pore). They swell or shrink to open/close stomata, controlling gas exchange and water loss."
+      "body": "Plants also have highly specialised cells: (1) Root hair cell — long finger-like projection that massively increases surface area for absorbing water and mineral ions from soil. Has no chloroplasts (roots are underground). Has many mitochondria to power active transport of minerals. (2) Palisade cell — found in the upper layer of leaves, packed with chloroplasts for maximum light absorption. Regular column shape allows close packing. (3) Xylem vessel — dead, hollow tubes with lignin-strengthened walls that transport water and dissolved minerals upwards from roots. No cytoplasm or nucleus at maturity. (4) Guard cells — pair of kidney-shaped cells surrounding each stoma (pore). They swell or shrink to open/close stomata, controlling gas exchange and water loss.",
+      "illustration": {
+        "src": "/images/biology/bio-cell-1-plant-specialised.svg",
+        "alt": "Diagrams of four specialised plant cells: root hair cell, palisade cell, xylem vessel, and guard cells.",
+        "caption": "Root hair, palisade, xylem, and guard cells each have structures adapted to their function."
+      }
     },
     {
       "id": "bio-cell-1-n7",
       "heading": "Movement Across Membranes: Diffusion and Osmosis",
-      "body": "Diffusion is the net movement of particles from a region of high concentration to low concentration (down a concentration gradient) until equilibrium is reached. It is a passive process — no energy required. Examples: oxygen diffusing from alveoli into blood, CO₂ diffusing into leaves through stomata. Factors affecting diffusion rate: temperature (faster when warmer — particles have more kinetic energy), concentration gradient (steeper gradient = faster), and surface area (larger surface area = faster — why alveoli and villi are adapted this way). Osmosis is a special case of diffusion: the movement of water molecules through a selectively permeable membrane from a dilute solution (high water potential) to a concentrated solution (low water potential). In animal cells — too much water causes bursting (lysis); too little causes shrivelling (crenation). In plant cells — too much water makes them turgid (healthy); too little causes plasmolysis (wilting)."
+      "body": "Diffusion is the net movement of particles from a region of high concentration to low concentration (down a concentration gradient) until equilibrium is reached. It is a passive process — no energy required. Examples: oxygen diffusing from alveoli into blood, CO₂ diffusing into leaves through stomata. Factors affecting diffusion rate: temperature (faster when warmer — particles have more kinetic energy), concentration gradient (steeper gradient = faster), and surface area (larger surface area = faster — why alveoli and villi are adapted this way). Osmosis is a special case of diffusion: the movement of water molecules through a selectively permeable membrane from a dilute solution (high water potential) to a concentrated solution (low water potential). In animal cells — too much water causes bursting (lysis); too little causes shrivelling (crenation). In plant cells — too much water makes them turgid (healthy); too little causes plasmolysis (wilting).",
+      "illustration": {
+        "src": "/images/biology/bio-cell-diffusion-osmosis.svg",
+        "alt": "Diagrams comparing diffusion of particles and osmosis of water through a membrane.",
+        "caption": "Both diffusion and osmosis are passive, moving down a concentration gradient."
+      }
     }
   ],
   "flashcards": [

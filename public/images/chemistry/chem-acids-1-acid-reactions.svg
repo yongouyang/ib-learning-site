@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title desc">
+  <title id="title">Reactions of Acids</title>
+  <desc id="desc">Summary of the five characteristic reactions of acids with metals, metal oxides, metal hydroxides, metal carbonates and metal hydrogencarbonates.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .beaker { fill: #e0f2fe; stroke: #475569; stroke-width: 2.5; }
+      .liquid { fill: #bae6fd; opacity: 0.7; }
+      .metal { fill: #64748b; }
+      .gas { fill: #e5e7eb; stroke: #6b7280; stroke-width: 1; }
+      .oxide { fill: #a16207; }
+      .hydroxide { fill: #f97316; }
+      .carbonate { fill: #78716c; }
+    </style>
+  </defs>
+
+  <rect width="800" height="560" fill="#f9fafb" rx="12"/>
+  <text x="400" y="38" text-anchor="middle" class="title">Reactions of Acids</text>
+
+  <!-- Card 1: acid + metal -->
+  <g transform="translate(40, 70)">
+    <rect x="0" y="0" width="230" height="210" rx="10" class="box"/>
+    <text x="115" y="25" text-anchor="middle" class="label">Acid + Metal</text>
+    <text x="115" y="42" text-anchor="middle" class="sublabel">→ salt + H₂</text>
+
+    <path d="M55,70 L55,150 Q55,170 75,170 L115,170 Q135,170 135,150 L135,70" class="beaker"/>
+    <rect x="60" y="105" width="70" height="60" rx="25" class="liquid"/>
+    <rect x="80" y="75" width="30" height="40" rx="3" class="metal"/>
+    <text x="95" y="98" text-anchor="middle" class="sublabel" fill="white">Mg</text>
+
+    <circle cx="70" cy="62" r="5" class="gas"/>
+    <circle cx="95" cy="55" r="6" class="gas"/>
+    <circle cx="120" cy="62" r="5" class="gas"/>
+    <text x="145" y="62" class="sublabel">H₂ gas</text>
+
+    <rect x="20" y="185" width="190" height="18" rx="4" class="label-bg"/>
+    <text x="115" y="197" text-anchor="middle" class="sublabel">2HCl + Mg → MgCl₂ + H₂</text>
+
+    <text x="115" y="150" text-anchor="middle" class="sublabel">Lighted splint → squeaky pop</text>
+  </g>
+
+  <!-- Card 2: acid + metal oxide -->
+  <g transform="translate(285, 70)">
+    <rect x="0" y="0" width="230" height="210" rx="10" class="box"/>
+    <text x="115" y="25" text-anchor="middle" class="label">Acid + Metal oxide</text>
+    <text x="115" y="42" text-anchor="middle" class="sublabel">→ salt + H₂O</text>
+
+    <path d="M55,70 L55,150 Q55,170 75,170 L115,170 Q135,170 135,150 L135,70" class="beaker"/>
+    <rect x="60" y="105" width="70" height="60" rx="25" class="liquid"/>
+    <circle cx="95" cy="90" r="14" class="oxide"/>
+    <text x="95" y="94" text-anchor="middle" class="sublabel" fill="white">CuO</text>
+
+    <rect x="20" y="185" width="190" height="18" rx="4" class="label-bg"/>
+    <text x="115" y="197" text-anchor="middle" class="sublabel">H₂SO₄ + CuO → CuSO₄ + H₂O</text>
+  </g>
+
+  <!-- Card 3: acid + metal hydroxide -->
+  <g transform="translate(530, 70)">
+    <rect x="0" y="0" width="230" height="210" rx="10" class="box"/>
+    <text x="115" y="25" text-anchor="middle" class="label">Acid + Metal hydroxide</text>
+    <text x="115" y="42" text-anchor="middle" class="sublabel">→ salt + H₂O</text>
+
+    <path d="M55,70 L55,150 Q55,170 75,170 L115,170 Q135,170 135,150 L135,70" class="beaker"/>
+    <rect x="60" y="105" width="70" height="60" rx="25" class="liquid"/>
+    <circle cx="95" cy="90" r="14" class="hydroxide"/>
+    <text x="95" y="94" text-anchor="middle" class="sublabel" fill="white">NaOH</text>
+
+    <rect x="20" y="185" width="190" height="18" rx="4" class="label-bg"/>
+    <text x="115" y="197" text-anchor="middle" class="sublabel">HCl + NaOH → NaCl + H₂O</text>
+  </g>
+
+  <!-- Card 4: acid + metal carbonate -->
+  <g transform="translate(140, 310)">
+    <rect x="0" y="0" width="250" height="210" rx="10" class="box"/>
+    <text x="125" y="25" text-anchor="middle" class="label">Acid + Metal carbonate</text>
+    <text x="125" y="42" text-anchor="middle" class="sublabel">→ salt + H₂O + CO₂</text>
+
+    <path d="M55,70 L55,150 Q55,170 75,170 L115,170 Q135,170 135,150 L135,70" class="beaker"/>
+    <rect x="60" y="105" width="70" height="60" rx="25" class="liquid"/>
+    <circle cx="85" cy="90" r="10" class="carbonate"/>
+    <text x="85" y="93" text-anchor="middle" class="sublabel" fill="white">CaCO₃</text>
+    <circle cx="110" cy="85" r="10" class="carbonate"/>
+
+    <circle cx="70" cy="58" r="5" class="gas"/>
+    <circle cx="95" cy="50" r="6" class="gas"/>
+    <circle cx="120" cy="58" r="5" class="gas"/>
+    <text x="145" y="58" class="sublabel">CO₂ gas</text>
+
+    <rect x="15" y="185" width="220" height="18" rx="4" class="label-bg"/>
+    <text x="125" y="197" text-anchor="middle" class="sublabel">2HCl + CaCO₃ → CaCl₂ + H₂O + CO₂</text>
+
+    <text x="125" y="150" text-anchor="middle" class="sublabel">Limewater turns milky</text>
+  </g>
+
+  <!-- Card 5: acid + metal hydrogencarbonate -->
+  <g transform="translate(410, 310)">
+    <rect x="0" y="0" width="250" height="210" rx="10" class="box"/>
+    <text x="125" y="25" text-anchor="middle" class="label">Acid + Metal hydrogencarbonate</text>
+    <text x="125" y="42" text-anchor="middle" class="sublabel">→ salt + H₂O + CO₂</text>
+
+    <path d="M55,70 L55,150 Q55,170 75,170 L115,170 Q135,170 135,150 L135,70" class="beaker"/>
+    <rect x="60" y="105" width="70" height="60" rx="25" class="liquid"/>
+    <rect x="80" y="75" width="30" height="25" rx="4" class="carbonate"/>
+    <text x="95" y="91" text-anchor="middle" class="sublabel" fill="white">NaHCO₃</text>
+
+    <circle cx="70" cy="58" r="5" class="gas"/>
+    <circle cx="95" cy="50" r="6" class="gas"/>
+    <circle cx="120" cy="58" r="5" class="gas"/>
+    <text x="145" y="58" class="sublabel">CO₂ gas</text>
+
+    <rect x="15" y="185" width="220" height="18" rx="4" class="label-bg"/>
+    <text x="125" y="197" text-anchor="middle" class="sublabel">HCl + NaHCO₃ → NaCl + H₂O + CO₂</text>
+  </g>
+</svg>

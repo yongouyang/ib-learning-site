@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">Ionic Bonding: Electron Transfer and Ionic Lattice</title>
+  <desc id="desc">A diagram showing a sodium atom transferring one electron to a chlorine atom, forming Na+ and Cl- ions that arrange into a giant ionic lattice.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .electron { fill: #3b82f6; }
+      .nucleus { fill: #f97316; }
+      .shell { fill: none; stroke: #9ca3af; stroke-width: 2; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .cation { fill: #f97316; opacity: 0.85; }
+      .anion { fill: #3b82f6; opacity: 0.85; }
+    </style>
+  </defs>
+
+  <rect width="920" height="520" fill="#f9fafb" rx="12"/>
+  <text x="460" y="38" text-anchor="middle" class="title">Ionic Bonding: Na + Cl → NaCl</text>
+
+  <!-- Sodium atom -->
+  <g transform="translate(160, 180)">
+    <circle cx="0" cy="0" r="28" class="nucleus"/>
+    <text x="0" y="5" text-anchor="middle" class="label" fill="white">Na</text>
+    <circle cx="0" cy="0" r="52" class="shell"/>
+    <circle cx="0" cy="0" r="82" class="shell"/>
+    <circle cx="52" cy="0" r="5" class="electron"/>
+    <circle cx="-52" cy="0" r="5" class="electron"/>
+    <circle cx="0" cy="52" r="5" class="electron"/>
+    <circle cx="0" cy="-52" r="5" class="electron"/>
+    <circle cx="37" cy="-37" r="5" class="electron"/>
+    <circle cx="-37" cy="37" r="5" class="electron"/>
+    <circle cx="37" cy="37" r="5" class="electron"/>
+    <circle cx="-37" cy="-37" r="5" class="electron"/>
+    <circle cx="82" cy="0" r="5" class="electron"/>
+    <text x="95" y="5" text-anchor="start" class="sublabel" fill="#dc2626" font-weight="600">1 outer e⁻</text>
+  </g>
+
+  <!-- Electron transfer arrow -->
+  <line x1="300" y1="180" x2="440" y2="180" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <text x="370" y="165" text-anchor="middle" class="label" fill="#dc2626">Electron transfer</text>
+
+  <!-- Chlorine atom -->
+  <g transform="translate(580, 180)">
+    <circle cx="0" cy="0" r="28" class="nucleus"/>
+    <text x="0" y="5" text-anchor="middle" class="label" fill="white">Cl</text>
+    <circle cx="0" cy="0" r="52" class="shell"/>
+    <circle cx="0" cy="0" r="82" class="shell"/>
+    <circle cx="52" cy="0" r="5" class="electron"/>
+    <circle cx="-52" cy="0" r="5" class="electron"/>
+    <circle cx="0" cy="52" r="5" class="electron"/>
+    <circle cx="0" cy="-52" r="5" class="electron"/>
+    <circle cx="37" cy="-37" r="5" class="electron"/>
+    <circle cx="-37" cy="37" r="5" class="electron"/>
+    <circle cx="37" cy="37" r="5" class="electron"/>
+    <circle cx="-37" cy="-37" r="5" class="electron"/>
+    <circle cx="82" cy="0" r="5" class="electron"/>
+    <circle cx="-82" cy="0" r="5" class="electron"/>
+    <circle cx="0" cy="-82" r="5" class="electron"/>
+    <circle cx="58" cy="-58" r="5" class="electron"/>
+    <circle cx="-58" cy="58" r="5" class="electron"/>
+    <circle cx="58" cy="58" r="5" class="electron"/>
+    <circle cx="-58" cy="-58" r="5" class="electron"/>
+    <text x="95" y="5" text-anchor="start" class="sublabel" fill="#16a34a" font-weight="600">7 outer e⁻</text>
+  </g>
+
+  <!-- Resulting ions -->
+  <rect x="120" y="310" width="300" height="190" rx="10" class="box"/>
+  <text x="270" y="335" text-anchor="middle" class="label">Ions form</text>
+  <g transform="translate(210, 395)">
+    <circle cx="0" cy="0" r="35" class="cation"/>
+    <text x="0" y="5" text-anchor="middle" class="label" fill="white">Na⁺</text>
+    <text x="0" y="60" text-anchor="middle" class="sublabel">2,8</text>
+  </g>
+  <g transform="translate(330, 395)">
+    <circle cx="0" cy="0" r="45" class="anion"/>
+    <text x="0" y="5" text-anchor="middle" class="label" fill="white">Cl⁻</text>
+    <text x="0" y="65" text-anchor="middle" class="sublabel">2,8,8</text>
+  </g>
+  <line x1="210" y1="395" x2="330" y2="395" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="270" y="490" text-anchor="middle" class="sublabel">Strong electrostatic attraction</text>
+
+  <!-- Ionic lattice -->
+  <rect x="470" y="310" width="360" height="190" rx="10" class="box"/>
+  <text x="650" y="335" text-anchor="middle" class="label">Giant ionic lattice</text>
+  <g transform="translate(530, 360)">
+    <circle cx="0" cy="0" r="16" class="cation"/>
+    <circle cx="50" cy="0" r="22" class="anion"/>
+    <circle cx="100" cy="0" r="16" class="cation"/>
+    <circle cx="25" cy="40" r="22" class="anion"/>
+    <circle cx="75" cy="40" r="16" class="cation"/>
+    <circle cx="0" cy="80" r="22" class="anion"/>
+    <circle cx="50" cy="80" r="16" class="cation"/>
+    <circle cx="100" cy="80" r="22" class="anion"/>
+    <circle cx="125" cy="40" r="22" class="anion"/>
+    <text x="60" y="120" text-anchor="middle" class="sublabel">Each Na⁺ surrounded by 6 Cl⁻</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+  </defs>
+</svg>

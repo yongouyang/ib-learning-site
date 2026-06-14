@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 660" role="img" aria-labelledby="title desc">
+  <title id="title">Conservation of Mass in Reactions</title>
+  <desc id="desc">A sealed flask showing that total mass stays the same before and after a reaction, and an open flask showing that escaped gas still has mass.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .flask { fill: #e0f2fe; stroke: #38bdf8; stroke-width: 2; fill-opacity: 0.35; }
+      .liquid { fill: #bae6fd; fill-opacity: 0.7; }
+      .gas { fill: none; stroke: #9ca3af; stroke-width: 1.5; stroke-dasharray: 3 3; }
+      .scale { fill: none; stroke: #4b5563; stroke-width: 2; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="820" height="660" fill="#f9fafb" rx="12"/>
+  <text x="410" y="34" text-anchor="middle" class="title">Conservation of Mass</text>
+
+  <!-- Sealed flask -->
+  <g transform="translate(80, 80)">
+    <text x="150" y="0" text-anchor="middle" class="label">Sealed system</text>
+
+    <!-- Scale -->
+    <line x1="60" y1="40" x2="240" y2="40" class="scale"/>
+    <line x1="150" y1="40" x2="150" y2="70" class="scale"/>
+    <rect x="80" y="25" width="140" height="20" fill="#ffffff" stroke="#6b7280" stroke-width="1.5" rx="4"/>
+    <text x="150" y="40" text-anchor="middle" class="sublabel">Balance</text>
+
+    <!-- Flask before -->
+    <path d="M100,80 L200,80 L200,160 Q200,220 150,220 Q100,220 100,160 Z" class="flask"/>
+    <path d="M105,140 L195,140 L195,160 Q195,210 150,210 Q105,210 105,160 Z" class="liquid"/>
+    <circle cx="130" cy="175" r="8" fill="#f97316"/>
+    <circle cx="170" cy="185" r="8" fill="#f97316"/>
+    <text x="150" y="130" text-anchor="middle" class="sublabel">Reactants</text>
+    <rect x="100" y="235" width="100" height="18" rx="4" class="label-bg"/>
+    <text x="106" y="248" class="sublabel">Mass = 50.0 g</text>
+
+    <!-- Arrow -->
+    <line x1="270" y1="150" x2="330" y2="150" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+    <text x="300" y="140" text-anchor="middle" class="sublabel">reaction</text>
+
+    <!-- Flask after -->
+    <path d="M360,80 L460,80 L460,160 Q460,220 410,220 Q360,220 360,160 Z" class="flask"/>
+    <path d="M365,140 L455,140 L455,160 Q455,210 410,210 Q365,210 365,160 Z" class="liquid"/>
+    <circle cx="390" cy="175" r="6" fill="#22c55e"/>
+    <circle cx="410" cy="185" r="6" fill="#22c55e"/>
+    <circle cx="430" cy="170" r="6" fill="#22c55e"/>
+    <path d="M380,100 Q410,90 440,100 Q410,80 380,100" class="gas"/>
+    <text x="410" y="130" text-anchor="middle" class="sublabel">Products</text>
+    <rect x="370" y="235" width="100" height="18" rx="4" class="label-bg"/>
+    <text x="376" y="248" class="sublabel">Mass = 50.0 g</text>
+  </g>
+
+  <!-- Equal sign -->
+  <text x="410" y="385" text-anchor="middle" class="title" fill="#15803d">Total mass unchanged</text>
+
+  <!-- Open flask -->
+  <g transform="translate(80, 400)">
+    <text x="150" y="0" text-anchor="middle" class="label">Open system</text>
+
+    <!-- Flask before -->
+    <path d="M100,20 L200,20 L200,100 Q200,160 150,160 Q100,160 100,100 Z" class="flask"/>
+    <path d="M105,80 L195,80 L195,100 Q195,150 150,150 Q105,150 105,100 Z" class="liquid"/>
+    <circle cx="130" cy="115" r="8" fill="#f97316"/>
+    <circle cx="170" cy="125" r="8" fill="#f97316"/>
+    <rect x="100" y="170" width="100" height="18" rx="4" class="label-bg"/>
+    <text x="106" y="183" class="sublabel">Mass = 50.0 g</text>
+
+    <!-- Arrow -->
+    <line x1="270" y1="90" x2="330" y2="90" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+    <text x="300" y="80" text-anchor="middle" class="sublabel">reaction</text>
+
+    <!-- Flask after (open) -->
+    <path d="M360,20 L460,20 L460,100 Q460,160 410,160 Q360,160 360,100 Z" class="flask"/>
+    <path d="M365,100 L455,100 L455,100 Q455,150 410,150 Q365,150 365,100 Z" class="liquid"/>
+    <circle cx="390" cy="125" r="6" fill="#22c55e"/>
+    <circle cx="430" cy="125" r="6" fill="#22c55e"/>
+
+    <!-- Escaped gas -->
+    <g transform="translate(380, -10)">
+      <circle cx="10" cy="0" r="5" fill="#d1d5db"/>
+      <circle cx="30" cy="-12" r="5" fill="#d1d5db"/>
+      <circle cx="50" cy="-5" r="5" fill="#d1d5db"/>
+      <path d="M15,10 L10,-5 M35,10 L30,-7 M55,10 L50,0" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+    </g>
+    <rect x="360" y="170" width="110" height="18" rx="4" class="label-bg"/>
+    <text x="366" y="183" class="sublabel">Mass = 45.5 g</text>
+
+    <rect x="360" y="195" width="120" height="18" rx="4" class="label-bg"/>
+    <text x="366" y="208" class="sublabel">Escaped gas = 4.5 g</text>
+  </g>
+
+  <text x="410" y="640" text-anchor="middle" class="sublabel" fill="#7c2d12">Mass only appears to change in open systems because gases enter or leave.</text>
+</svg>

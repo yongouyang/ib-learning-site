@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-labelledby="title desc">
+  <title id="title">Group 17 Halogens</title>
+  <desc id="desc">The halogens fluorine, chlorine, bromine, and iodine shown as diatomic molecules with their room-temperature states, and a displacement reaction between chlorine and potassium bromide.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .atom-f { fill: #fef08a; stroke: #eab308; stroke-width: 2; }
+      .atom-cl { fill: #86efac; stroke: #22c55e; stroke-width: 2; }
+      .atom-br { fill: #fdba74; stroke: #f97316; stroke-width: 2; }
+      .atom-i { fill: #d1d5db; stroke: #4b5563; stroke-width: 2; }
+      .bond { stroke: #6b7280; stroke-width: 3; }
+      .arrow { fill: none; stroke: #22c55e; stroke-width: 2.5; stroke-linecap: round; marker-end: url(#arrow-green); }
+      .tube { fill: #e0f2fe; stroke: #6b7280; stroke-width: 2.5; fill-opacity: 0.3; }
+      .solution { fill: #fed7aa; fill-opacity: 0.6; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#22c55e"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="480" fill="#f9fafb" rx="12"/>
+  <text x="450" y="36" text-anchor="middle" class="title">Group 17: The Halogens</text>
+
+  <!-- Top panel: diatomic molecules and states -->
+  <rect x="25" y="55" width="850" height="180" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="450" y="82" text-anchor="middle" class="panel-title">Diatomic molecules and room-temperature states</text>
+
+  <!-- Reactivity arrow -->
+  <line x1="120" y1="150" x2="780" y2="150" class="arrow"/>
+  <rect x="330" y="132" width="240" height="22" rx="4" class="label-bg"/>
+  <text x="450" y="148" text-anchor="middle" class="label">Reactivity decreases down the group</text>
+
+  <!-- Fluorine -->
+  <g transform="translate(120, 190)">
+    <circle cx="-14" cy="0" r="16" class="atom-f"/>
+    <circle cx="14" cy="0" r="16" class="atom-f"/>
+    <line x1="-6" y1="0" x2="6" y2="0" class="bond"/>
+    <text x="0" y="36" text-anchor="middle" class="label">F₂</text>
+    <text x="0" y="52" text-anchor="middle" class="sublabel">pale yellow gas</text>
+  </g>
+
+  <!-- Chlorine -->
+  <g transform="translate(300, 190)">
+    <circle cx="-16" cy="0" r="18" class="atom-cl"/>
+    <circle cx="16" cy="0" r="18" class="atom-cl"/>
+    <line x1="-6" y1="0" x2="6" y2="0" class="bond"/>
+    <text x="0" y="38" text-anchor="middle" class="label">Cl₂</text>
+    <text x="0" y="54" text-anchor="middle" class="sublabel">green gas</text>
+  </g>
+
+  <!-- Bromine -->
+  <g transform="translate(480, 190)">
+    <circle cx="-18" cy="0" r="20" class="atom-br"/>
+    <circle cx="18" cy="0" r="20" class="atom-br"/>
+    <line x1="-6" y1="0" x2="6" y2="0" class="bond"/>
+    <text x="0" y="40" text-anchor="middle" class="label">Br₂</text>
+    <text x="0" y="56" text-anchor="middle" class="sublabel">red-brown liquid</text>
+  </g>
+
+  <!-- Iodine -->
+  <g transform="translate(660, 190)">
+    <circle cx="-20" cy="0" r="22" class="atom-i"/>
+    <circle cx="20" cy="0" r="22" class="atom-i"/>
+    <line x1="-6" y1="0" x2="6" y2="0" class="bond"/>
+    <text x="0" y="42" text-anchor="middle" class="label">I₂</text>
+    <text x="0" y="58" text-anchor="middle" class="sublabel">dark grey solid</text>
+  </g>
+
+  <!-- Bottom panel: displacement reaction -->
+  <rect x="25" y="250" width="850" height="210" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="450" y="277" text-anchor="middle" class="panel-title">Halogen displacement: chlorine displaces bromine</text>
+
+  <!-- Before test tube -->
+  <g transform="translate(220, 340)">
+    <rect x="-30" y="-60" width="60" height="120" rx="6" class="tube"/>
+    <rect x="-26" y="0" width="52" height="56" class="solution" style="fill:#e0f2fe;"/>
+    <text x="0" y="36" text-anchor="middle" class="sublabel">KBr(aq)</text>
+    <text x="0" y="50" text-anchor="middle" class="sublabel">colourless</text>
+  </g>
+
+  <!-- Plus -->
+  <text x="320" y="355" text-anchor="middle" class="label" style="font-size:18px">+</text>
+
+  <!-- Chlorine added -->
+  <g transform="translate(420, 340)">
+    <rect x="-30" y="-60" width="60" height="120" rx="6" class="tube"/>
+    <rect x="-26" y="0" width="52" height="56" class="solution" style="fill:#e0f2fe;"/>
+    <text x="0" y="36" text-anchor="middle" class="sublabel">Cl₂(aq)</text>
+    <text x="0" y="50" text-anchor="middle" class="sublabel">added</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="470" y1="340" x2="560" y2="340" class="arrow" style="stroke:#6b7280;" marker-end="url(#arrow-grey)"/>
+  <marker id="arrow-grey" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+    <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+  </marker>
+
+  <!-- After test tube -->
+  <g transform="translate(660, 340)">
+    <rect x="-30" y="-60" width="60" height="120" rx="6" class="tube"/>
+    <rect x="-26" y="0" width="52" height="56" class="solution"/>
+    <text x="0" y="36" text-anchor="middle" class="sublabel">KCl(aq) + Br₂</text>
+    <text x="0" y="50" text-anchor="middle" class="sublabel">orange-brown</text>
+  </g>
+
+  <!-- Equation -->
+  <rect x="220" y="410" width="460" height="34" rx="6" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="450" y="431" text-anchor="middle" class="sublabel">Cl₂ + 2KBr → 2KCl + Br₂</text>
+</svg>

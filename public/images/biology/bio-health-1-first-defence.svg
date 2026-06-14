@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 540" role="img" aria-labelledby="title desc">
+  <title id="title">The Body's First Line of Defence</title>
+  <desc id="desc">Diagram of the human body showing non-specific physical and chemical barriers that stop pathogens entering.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="840" height="540" fill="#f9fafb" rx="12"/>
+  <text x="420" y="34" text-anchor="middle" class="title">The Body's First Line of Defence</text>
+
+  <!-- Human body silhouette -->
+  <g id="body">
+    <circle cx="420" cy="115" r="42" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+    <rect x="360" y="155" width="120" height="170" rx="36" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+    <rect x="375" y="315" width="38" height="130" rx="14" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+    <rect x="427" y="315" width="38" height="130" rx="14" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+    <!-- Eye -->
+    <circle cx="405" cy="108" r="4" fill="#1f2937"/>
+    <circle cx="435" cy="108" r="4" fill="#1f2937"/>
+    <!-- Mouth -->
+    <path d="M410,138 Q420,145 430,138" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+    <!-- Nose -->
+    <path d="M420,118 L416,128 L424,128 Z" fill="#f59e0b" opacity="0.4"/>
+  </g>
+
+  <!-- Stomach inside torso -->
+  <path d="M395,245 Q375,265 385,290 Q400,305 420,300 Q440,305 455,290 Q465,265 445,245 Q420,230 395,245 Z" fill="#fdba74" stroke="#ea580c" stroke-width="2"/>
+
+  <!-- Inflammation on right leg -->
+  <circle cx="465" cy="360" r="22" fill="#fecaca" stroke="#ef4444" stroke-width="2" opacity="0.8"/>
+  <text x="465" y="365" text-anchor="middle" class="sublabel" fill="#991b1b">swelling</text>
+
+  <!-- Cut / clot on left leg -->
+  <path d="M375,360 L395,365 L375,370 Z" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+  <circle cx="385" cy="365" r="8" fill="#e5e7eb" stroke="#6b7280" stroke-width="1.5"/>
+  <circle cx="378" cy="362" r="4" fill="#e5e7eb" stroke="#6b7280" stroke-width="1"/>
+  <circle cx="392" cy="368" r="4" fill="#e5e7eb" stroke="#6b7280" stroke-width="1"/>
+
+  <!-- Tear -->
+  <path d="M390,120 Q385,135 392,140 Q400,135 395,120 Z" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+
+  <!-- Skin cross-section inset -->
+  <rect x="55" y="70" width="150" height="100" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="8"/>
+  <text x="130" y="90" text-anchor="middle" class="label">Skin cross-section</text>
+  <rect x="70" y="100" width="120" height="20" fill="#d4a373" stroke="#a16207" stroke-width="1.5"/>
+  <rect x="70" y="120" width="120" height="15" fill="#e9c46a" stroke="#a16207" stroke-width="1.5"/>
+  <rect x="70" y="135" width="120" height="20" fill="#fde68a" stroke="#a16207" stroke-width="1.5"/>
+  <text x="130" y="114" text-anchor="middle" class="sublabel" fill="#fff">Dead keratinised cells</text>
+
+  <!-- Ciliated airway inset -->
+  <rect x="635" y="70" width="150" height="100" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="8"/>
+  <text x="710" y="90" text-anchor="middle" class="label">Ciliated airway</text>
+  <rect x="650" y="100" width="120" height="50" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <line x1="650" y1="100" x2="770" y2="100" stroke="#93c5fd" stroke-width="4"/>
+  <line x1="660" y1="100" x2="660" y2="85" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="675" y1="100" x2="675" y2="82" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="690" y1="100" x2="690" y2="85" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="705" y1="100" x2="705" y2="83" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="720" y1="100" x2="720" y2="86" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="735" y1="100" x2="735" y2="84" stroke="#1f2937" stroke-width="1.5"/>
+  <line x1="750" y1="100" x2="750" y2="85" stroke="#1f2937" stroke-width="1.5"/>
+  <text x="710" y="150" text-anchor="middle" class="sublabel">Mucus traps pathogens</text>
+
+  <!-- Labels -->
+  <!-- Skin label -->
+  <line x1="220" y1="145" x2="358" y2="175" class="line"/>
+  <rect x="60" y="130" width="155" height="34" rx="4" class="label-bg"/>
+  <text x="68" y="147" class="label">Skin</text>
+  <text x="68" y="159" class="sublabel">Tough, keratinised barrier</text>
+
+  <!-- Stomach acid label -->
+  <line x1="220" y1="280" x2="390" y2="275" class="line"/>
+  <rect x="60" y="265" width="155" height="34" rx="4" class="label-bg"/>
+  <text x="68" y="282" class="label">Stomach acid</text>
+  <text x="68" y="294" class="sublabel">pH ~1-2 kills ingested pathogens</text>
+
+  <!-- Blood clotting label -->
+  <line x1="220" y1="420" x2="375" y2="370" class="line"/>
+  <rect x="60" y="405" width="155" height="34" rx="4" class="label-bg"/>
+  <text x="68" y="422" class="label">Blood clotting</text>
+  <text x="68" y="434" class="sublabel">Platelets seal broken skin</text>
+
+  <!-- Tears label -->
+  <line x1="620" y1="130" x2="400" y2="125" class="line"/>
+  <rect x="565" y="130" width="150" height="40" rx="4" class="label-bg"/>
+  <text x="573" y="147" class="label">Tears</text>
+  <text x="573" y="164" class="sublabel">Lysozyme breaks bacterial walls</text>
+
+  <!-- Mucus & cilia label -->
+  <line x1="620" y1="200" x2="440" y2="150" class="line"/>
+  <rect x="565" y="185" width="150" height="34" rx="4" class="label-bg"/>
+  <text x="573" y="202" class="label">Mucus and cilia</text>
+  <text x="573" y="214" class="sublabel">Trap and sweep pathogens up</text>
+
+  <!-- Inflammation label -->
+  <line x1="620" y1="420" x2="475" y2="370" class="line"/>
+  <rect x="565" y="405" width="150" height="34" rx="4" class="label-bg"/>
+  <text x="573" y="422" class="label">Inflammation</text>
+  <text x="573" y="434" class="sublabel">Histamine brings white blood cells</text>
+</svg>

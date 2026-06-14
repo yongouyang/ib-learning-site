@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Balancing Symbol Equations</title>
+  <desc id="desc">Diagram showing how to balance a chemical equation using hydrogen and oxygen forming water, with atom counts before and after balancing.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .equation { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .number { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 700; fill: #f97316; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #d1d5db; stroke-width: 1.5; }
+      .atom-h { fill: #3b82f6; }
+      .atom-o { fill: #ef4444; }
+      .molecule { fill: none; stroke-width: 2; }
+      .arrow { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-gray" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 L2,4.5 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="500" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Balancing Symbol Equations</text>
+
+  <!-- Law reminder -->
+  <rect x="150" y="52" width="500" height="34" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5" rx="6"/>
+  <text x="400" y="74" text-anchor="middle" class="sublabel" fill="#7c2d12">Atoms are not created or destroyed — they are just rearranged.</text>
+
+  <!-- Unbalanced equation -->
+  <rect x="50" y="100" width="700" height="170" class="box" rx="10"/>
+  <text x="400" y="125" text-anchor="middle" class="sublabel">Step 1 — Unbalanced equation</text>
+
+  <text x="400" y="160" text-anchor="middle" class="equation">H₂ + O₂ → H₂O</text>
+
+  <!-- Atom counts unbalanced -->
+  <g transform="translate(120, 190)">
+    <rect x="0" y="0" width="200" height="60" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5" rx="6"/>
+    <text x="100" y="20" text-anchor="middle" class="sublabel" fill="#7f1d1d">Before balancing</text>
+    <text x="60" y="45" text-anchor="middle" class="label" fill="#7f1d1d">H: 2</text>
+    <text x="140" y="45" text-anchor="middle" class="label" fill="#7f1d1d">O: 2</text>
+  </g>
+
+  <g transform="translate(480, 190)">
+    <rect x="0" y="0" width="200" height="60" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5" rx="6"/>
+    <text x="100" y="20" text-anchor="middle" class="sublabel" fill="#7f1d1d">After reaction</text>
+    <text x="60" y="45" text-anchor="middle" class="label" fill="#7f1d1d">H: 2</text>
+    <text x="140" y="45" text-anchor="middle" class="label" fill="#7f1d1d">O: 1</text>
+  </g>
+
+  <text x="400" y="270" text-anchor="middle" class="sublabel" fill="#b91c1c">Oxygen is unbalanced (2 on left, 1 on right).</text>
+
+  <!-- Balanced equation -->
+  <rect x="50" y="290" width="700" height="190" class="box" rx="10"/>
+  <text x="400" y="315" text-anchor="middle" class="sublabel">Step 2 — Balanced equation</text>
+
+  <text x="318" y="355" text-anchor="start" class="equation number">2</text>
+  <text x="334" y="355" text-anchor="start" class="equation">H₂ + O₂ → </text>
+  <text x="430" y="355" text-anchor="start" class="equation number">2</text>
+  <text x="446" y="355" text-anchor="start" class="equation">H₂O</text>
+
+  <g transform="translate(120, 385)">
+    <rect x="0" y="0" width="200" height="60" fill="#dcfce7" stroke="#86efac" stroke-width="1.5" rx="6"/>
+    <text x="100" y="20" text-anchor="middle" class="sublabel" fill="#14532d">Reactants</text>
+    <text x="60" y="45" text-anchor="middle" class="label" fill="#14532d">H: 4</text>
+    <text x="140" y="45" text-anchor="middle" class="label" fill="#14532d">O: 2</text>
+  </g>
+
+  <g transform="translate(480, 385)">
+    <rect x="0" y="0" width="200" height="60" fill="#dcfce7" stroke="#86efac" stroke-width="1.5" rx="6"/>
+    <text x="100" y="20" text-anchor="middle" class="sublabel" fill="#14532d">Products</text>
+    <text x="60" y="45" text-anchor="middle" class="label" fill="#14532d">H: 4</text>
+    <text x="140" y="45" text-anchor="middle" class="label" fill="#14532d">O: 2</text>
+  </g>
+
+  <text x="400" y="470" text-anchor="middle" class="sublabel" fill="#15803d">Coefficients (big numbers) balance atoms without changing formulae.</text>
+</svg>

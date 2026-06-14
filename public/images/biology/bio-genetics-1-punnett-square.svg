@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 460" role="img" aria-labelledby="title desc">
+  <title id="title">Punnett Square for a Bb × Bb Cross</title>
+  <desc id="desc">A 2x2 Punnett square showing the predicted offspring genotypes and phenotypes from a cross between two heterozygous brown-eyed parents (Bb × Bb).</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="780" height="460" fill="#f9fafb" rx="12"/>
+  <text x="390" y="34" text-anchor="middle" class="title">Punnett Square: Bb × Bb</text>
+
+  <!-- Parent labels -->
+  <text x="390" y="62" text-anchor="middle" class="sublabel">Both parents are heterozygous for eye colour</text>
+
+  <!-- Gamete labels top -->
+  <text x="300" y="95" text-anchor="middle" class="label">Parent 1 gametes</text>
+  <circle cx="300" cy="115" r="16" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+  <text x="300" y="120" text-anchor="middle" class="label">B</text>
+  <circle cx="420" cy="115" r="16" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="420" y="120" text-anchor="middle" class="label">b</text>
+
+  <!-- Gamete labels left -->
+  <text x="160" y="190" text-anchor="middle" class="label" transform="rotate(-90 160 190)">Parent 2 gametes</text>
+  <circle cx="180" cy="170" r="16" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+  <text x="180" y="175" text-anchor="middle" class="label">B</text>
+  <circle cx="180" cy="290" r="16" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="180" y="295" text-anchor="middle" class="label">b</text>
+
+  <!-- Punnett square grid -->
+  <rect x="240" y="140" width="240" height="240" fill="#ffffff" stroke="#374151" stroke-width="2"/>
+  <line x1="240" y1="260" x2="480" y2="260" stroke="#374151" stroke-width="2"/>
+  <line x1="360" y1="140" x2="360" y2="380" stroke="#374151" stroke-width="2"/>
+
+  <!-- Genotypes in boxes -->
+  <text x="300" y="210" text-anchor="middle" class="label" fill="#7c3aed" style="font-size:18px">BB</text>
+  <text x="420" y="210" text-anchor="middle" class="label" fill="#7c3aed" style="font-size:18px">Bb</text>
+  <text x="300" y="330" text-anchor="middle" class="label" fill="#7c3aed" style="font-size:18px">Bb</text>
+  <text x="420" y="330" text-anchor="middle" class="label" fill="#3b82f6" style="font-size:18px">bb</text>
+
+  <!-- Phenotype mini icons in boxes -->
+  <circle cx="300" cy="235" r="12" fill="#92400e"/>
+  <circle cx="420" cy="235" r="12" fill="#92400e"/>
+  <circle cx="300" cy="355" r="12" fill="#92400e"/>
+  <circle cx="420" cy="355" r="12" fill="#60a5fa"/>
+
+  <!-- Summary -->
+  <rect x="520" y="140" width="220" height="160" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="630" y="165" text-anchor="middle" class="label">Offspring predictions</text>
+
+  <text x="540" y="195" class="sublabel">Genotype ratio:</text>
+  <text x="540" y="215" class="label">1 BB : 2 Bb : 1 bb</text>
+  <text x="540" y="235" class="sublabel">(25% : 50% : 25%)</text>
+
+  <text x="540" y="265" class="sublabel">Phenotype ratio:</text>
+  <text x="540" y="285" class="label">3 brown eyes : 1 blue eye</text>
+
+  <!-- Probability reminder -->
+  <rect x="120" y="400" width="540" height="40" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="390" y="424" text-anchor="middle" class="sublabel">Punnett squares show probability for each child, not guaranteed family ratios.</text>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+  <title id="title">Crystallisation Process</title>
+  <desc id="desc">A diagram showing the steps of crystallisation: heating to saturation, slow cooling, crystal formation, and filtering and drying the purified crystals.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke: #6b7280; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="420" fill="#f9fafb" rx="12"/>
+  <text x="380" y="34" text-anchor="middle" class="title">Crystallisation Process</text>
+
+  <!-- Step 1: Heat solution -->
+  <rect x="30" y="60" width="210" height="160" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="135" y="85" text-anchor="middle" class="label">1. Heat solution</text>
+  <!-- Beaker -->
+  <path d="M70,170 L70,210 L180,210 L180,170" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="68" y1="170" x2="182" y2="170" stroke="#60a5fa" stroke-width="2"/>
+  <ellipse cx="125" cy="200" rx="48" ry="8" fill="#bae6fd" opacity="0.8"/>
+  <text x="125" y="203" text-anchor="middle" class="sublabel" fill="#1e3a8a">Solution</text>
+  <!-- Flame -->
+  <path d="M110,215 L125,245 L140,215" fill="#f97316" opacity="0.8"/>
+  <text x="125" y="265" text-anchor="middle" class="sublabel">Evaporate some solvent</text>
+
+  <!-- Arrow -->
+  <line x1="255" y1="140" x2="285" y2="140" class="arrow" marker-end="url(#arrow-gray)"/>
+
+  <!-- Step 2: Cool slowly -->
+  <rect x="300" y="60" width="210" height="160" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="405" y="85" text-anchor="middle" class="label">2. Cool slowly</text>
+  <!-- Beaker with crystals -->
+  <path d="M340,170 L340,210 L450,210 L450,170" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <line x1="338" y1="170" x2="452" y2="170" stroke="#60a5fa" stroke-width="2"/>
+  <ellipse cx="395" cy="200" rx="48" ry="8" fill="#bae6fd" opacity="0.6"/>
+  <!-- Crystals -->
+  <g fill="#f97316" stroke="#c2410c" stroke-width="1">
+    <path d="M375,185 L380,175 L385,185 L380,195 Z"/>
+    <path d="M400,180 L405,170 L410,180 L405,190 Z"/>
+    <path d="M420,188 L425,178 L430,188 L425,198 Z"/>
+    <path d="M385,198 L390,188 L395,198 L390,208 Z"/>
+  </g>
+  <text x="405" y="265" text-anchor="middle" class="sublabel">Crystals form at edges</text>
+
+  <!-- Arrow -->
+  <line x1="525" y1="140" x2="555" y2="140" class="arrow" marker-end="url(#arrow-gray)"/>
+
+  <!-- Step 3: Filter and dry -->
+  <rect x="570" y="60" width="180" height="160" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="660" y="85" text-anchor="middle" class="label">3. Filter &amp; dry</text>
+  <!-- Funnel -->
+  <path d="M630,165 L670,165 L655,205 L645,205 Z" fill="#e0f2fe" stroke="#60a5fa" stroke-width="2"/>
+  <path d="M634,168 L666,168 L656,202 L644,202 Z" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <!-- Crystals on paper -->
+  <g fill="#f97316" stroke="#c2410c" stroke-width="1">
+    <path d="M642,178 L647,168 L652,178 L647,188 Z"/>
+    <path d="M655,182 L660,172 L665,182 L660,192 Z"/>
+  </g>
+  <text x="660" y="260" text-anchor="middle" class="sublabel">Wash with cold water</text>
+  <text x="660" y="278" text-anchor="middle" class="sublabel">and dry</text>
+
+  <!-- Key benefit box -->
+  <rect x="110" y="260" width="540" height="130" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="380" y="290" text-anchor="middle" class="label">Why crystallisation?</text>
+
+  <circle cx="170" cy="325" r="22" fill="#dbeafe"/>
+  <text x="170" y="330" text-anchor="middle" class="sublabel">Pure</text>
+  <text x="170" y="342" text-anchor="middle" class="sublabel">crystals</text>
+
+  <circle cx="330" cy="325" r="22" fill="#dbeafe"/>
+  <text x="330" y="330" text-anchor="middle" class="sublabel">Solvent</text>
+  <text x="330" y="342" text-anchor="middle" class="sublabel">kept</text>
+
+  <circle cx="490" cy="325" r="22" fill="#dbeafe"/>
+  <text x="490" y="330" text-anchor="middle" class="sublabel">No</text>
+  <text x="490" y="342" text-anchor="middle" class="sublabel">overheating</text>
+
+  <circle cx="630" cy="325" r="22" fill="#dbeafe"/>
+  <text x="630" y="330" text-anchor="middle" class="sublabel">Slow cool</text>
+  <text x="630" y="342" text-anchor="middle" class="sublabel">= larger</text>
+</svg>

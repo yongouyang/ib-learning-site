@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" role="img" aria-labelledby="title desc">
+  <title id="title">Atmospheric Pollution from Burning Fossil Fuels</title>
+  <desc id="desc">A diagram showing pollutants produced by burning fossil fuels and their effects, including catalytic converter reactions that reduce some pollutants.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="920" height="560" fill="#f9fafb" rx="12"/>
+  <text x="460" y="38" text-anchor="middle" class="title">Atmospheric Pollution</text>
+
+  <!-- Factory / power station -->
+  <g transform="translate(80, 120)">
+    <rect x="0" y="120" width="120" height="80" fill="#9ca3af" stroke="#4b5563" stroke-width="2"/>
+    <rect x="20" y="80" width="20" height="50" fill="#6b7280"/>
+    <rect x="70" y="60" width="25" height="70" fill="#6b7280"/>
+    <text x="60" y="160" text-anchor="middle" class="sublabel" fill="white">Power station</text>
+
+    <!-- Smoke -->
+    <circle cx="30" cy="60" r="14" fill="#6b7280" opacity="0.8"/>
+    <circle cx="82" cy="35" r="18" fill="#4b5563" opacity="0.8"/>
+    <circle cx="110" cy="15" r="14" fill="#6b7280" opacity="0.8"/>
+  </g>
+
+  <!-- Car -->
+  <g transform="translate(250, 240)">
+    <rect x="0" y="20" width="110" height="40" rx="10" fill="#f97316" stroke="#c2410c" stroke-width="2"/>
+    <circle cx="25" cy="65" r="14" fill="#374151"/>
+    <circle cx="85" cy="65" r="14" fill="#374151"/>
+    <rect x="80" y="30" width="20" height="18" fill="#93c5fd"/>
+    <text x="55" y="45" text-anchor="middle" class="label" fill="white">Car</text>
+
+    <!-- Exhaust -->
+    <circle cx="120" cy="65" r="8" fill="#6b7280" opacity="0.8"/>
+    <circle cx="135" cy="55" r="10" fill="#4b5563" opacity="0.8"/>
+  </g>
+
+  <!-- Pollutant labels from factory -->
+  <line x1="200" y1="80" x2="300" y2="80" class="line"/>
+  <rect x="306" y="66" width="90" height="30" rx="4" class="label-bg"/>
+  <text x="310" y="82" class="label">CO₂ — climate change</text>
+  <text x="310" y="98" class="sublabel">greenhouse gas</text>
+
+  <line x1="180" y1="100" x2="300" y2="140" class="line"/>
+  <rect x="306" y="126" width="90" height="30" rx="4" class="label-bg"/>
+  <text x="310" y="142" class="label">SO₂ — acid rain</text>
+  <text x="310" y="158" class="sublabel">from sulfur in coal/oil</text>
+
+  <!-- Pollutant labels from car -->
+  <line x1="360" y1="250" x2="450" y2="230" class="line"/>
+  <rect x="456" y="216" width="100" height="30" rx="4" class="label-bg"/>
+  <text x="460" y="232" class="label">CO — toxic</text>
+  <text x="460" y="248" class="sublabel">incomplete combustion</text>
+
+  <line x1="360" y1="280" x2="450" y2="310" class="line"/>
+  <rect x="456" y="296" width="100" height="30" rx="4" class="label-bg"/>
+  <text x="460" y="312" class="label">NOₓ — acid rain &amp; smog</text>
+  <text x="460" y="328" class="sublabel">high engine temperatures</text>
+
+  <!-- Particulates label -->
+  <line x1="230" y1="320" x2="180" y2="380" class="line"/>
+  <rect x="70" y="366" width="100" height="30" rx="4" class="label-bg"/>
+  <text x="74" y="382" class="label">Particulates (PM2.5)</text>
+  <text x="74" y="398" class="sublabel">respiratory problems</text>
+
+  <!-- Catalytic converter -->
+  <g transform="translate(620, 120)">
+    <rect x="0" y="0" width="240" height="200" rx="12" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
+    <text x="120" y="35" text-anchor="middle" class="label">Catalytic converter</text>
+    <text x="120" y="55" text-anchor="middle" class="sublabel">platinum / palladium / rhodium</text>
+
+    <!-- In/out pipes -->
+    <rect x="-30" y="110" width="40" height="25" fill="#6b7280"/>
+    <rect x="230" y="110" width="40" height="25" fill="#6b7280"/>
+
+    <!-- Reaction -->
+    <rect x="30" y="90" width="180" height="70" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+    <text x="120" y="120" text-anchor="middle" class="label">2CO + 2NO →</text>
+    <text x="120" y="145" text-anchor="middle" class="label">2CO₂ + N₂</text>
+
+    <text x="120" y="180" text-anchor="middle" class="sublabel">Converts toxic CO and NO</text>
+  </g>
+
+  <!-- Effects / solutions panel -->
+  <rect x="80" y="420" width="780" height="110" rx="12" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="120" y="450" class="label">Effects &amp; solutions</text>
+  <text x="120" y="480" class="sublabel">Acid rain damages forests, lakes and stone buildings.</text>
+  <text x="120" y="505" class="sublabel">Solutions: catalytic converters, flue-gas desulfurisation, renewable energy, electric vehicles.</text>
+</svg>

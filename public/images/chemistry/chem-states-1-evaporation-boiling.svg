@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-labelledby="title desc">
+  <title id="title">Evaporation vs Boiling</title>
+  <desc id="desc">A comparison diagram showing evaporation occurring only at the liquid surface at any temperature, and boiling occurring throughout the liquid at a fixed boiling point.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .liquid { fill: #dbeafe; stroke: #3b82f6; stroke-width: 2; }
+      .container { fill: none; stroke: #4b5563; stroke-width: 2; }
+      .arrow { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+    <marker id="arrow-blue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 L1.5,3 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 L1.5,3 Z" fill="#f97316"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="480" fill="#f9fafb" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" class="title">Evaporation vs Boiling</text>
+
+  <!-- Evaporation panel -->
+  <rect x="50" y="55" width="390" height="400" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="245" y="82" text-anchor="middle" class="panel-title">Evaporation</text>
+
+  <!-- Beaker -->
+  <path d="M100 150 L100 350 L330 350 L330 150" class="container"/>
+  <path d="M95 150 L335 150" stroke="#4b5563" stroke-width="2"/>
+  <path d="M100 230 Q215 220 330 230 L330 350 L100 350 Z" class="liquid"/>
+
+  <!-- Surface particles escaping -->
+  <g fill="#f97316">
+    <circle cx="150" cy="225" r="9"/><circle cx="190" cy="220" r="9"/><circle cx="230" cy="225" r="9"/><circle cx="270" cy="220" r="9"/>
+  </g>
+  <line x1="150" y1="215" x2="150" y2="170" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)"/>
+  <line x1="230" y1="215" x2="230" y2="170" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)"/>
+  <line x1="270" y1="215" x2="270" y2="170" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)"/>
+
+  <!-- Remaining liquid particles -->
+  <g fill="#3b82f6">
+    <circle cx="130" cy="270" r="9"/><circle cx="175" cy="290" r="9"/><circle cx="215" cy="270" r="9"/><circle cx="255" cy="300" r="9"/><circle cx="295" cy="280" r="9"/>
+    <circle cx="150" cy="320" r="9"/><circle cx="200" cy="330" r="9"/><circle cx="250" cy="320" r="9"/><circle cx="300" cy="330" r="9"/>
+  </g>
+
+  <rect x="125" y="110" width="180" height="18" rx="4" class="label-bg"/>
+  <text x="130" y="122" class="label">Only at the surface</text>
+
+  <rect x="105" y="375" width="180" height="18" rx="4" class="label-bg"/>
+  <text x="110" y="387" class="label">Occurs at any temperature</text>
+
+  <rect x="300" y="375" width="120" height="18" rx="4" class="label-bg"/>
+  <text x="305" y="387" class="label">Cools the liquid</text>
+
+  <line x1="360" y1="250" x2="400" y2="250" class="line"/>
+  <rect x="405" y="241" width="150" height="18" rx="4" class="label-bg"/>
+  <text x="410" y="253" class="sublabel">Fastest surface particles escape</text>
+
+  <!-- Boiling panel -->
+  <rect x="460" y="55" width="390" height="400" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="655" y="82" text-anchor="middle" class="panel-title">Boiling</text>
+
+  <!-- Beaker with heat -->
+  <path d="M510 150 L510 350 L740 350 L740 150" class="container"/>
+  <path d="M505 150 L745 150" stroke="#4b5563" stroke-width="2"/>
+  <path d="M510 230 Q625 220 740 230 L740 350 L510 350 Z" class="liquid"/>
+
+  <!-- Heat source -->
+  <path d="M580 390 Q590 370 600 390 Q610 370 620 390 Q630 370 640 390 Q650 370 660 390" fill="none" stroke="#ef4444" stroke-width="3"/>
+  <text x="620" y="415" text-anchor="middle" class="sublabel" fill="#b91c1c">Heat source</text>
+
+  <!-- Bubbles throughout -->
+  <circle cx="560" cy="280" r="12" fill="none" stroke="#f97316" stroke-width="2"/>
+  <circle cx="640" cy="300" r="15" fill="none" stroke="#f97316" stroke-width="2"/>
+  <circle cx="700" cy="270" r="10" fill="none" stroke="#f97316" stroke-width="2"/>
+  <circle cx="600" cy="330" r="11" fill="none" stroke="#f97316" stroke-width="2"/>
+  <circle cx="680" cy="340" r="13" fill="none" stroke="#f97316" stroke-width="2"/>
+
+  <!-- Bubbles rising -->
+  <line x1="560" y1="268" x2="560" y2="230" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)"/>
+  <line x1="640" y1="285" x2="640" y2="230" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)"/>
+  <line x1="700" y1="260" x2="700" y2="230" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)"/>
+
+  <!-- Liquid particles -->
+  <g fill="#3b82f6">
+    <circle cx="540" cy="250" r="9"/><circle cx="590" cy="250" r="9"/><circle cx="660" cy="250" r="9"/><circle cx="720" cy="250" r="9"/>
+    <circle cx="570" cy="320" r="9"/><circle cx="630" cy="330" r="9"/><circle cx="710" cy="320" r="9"/>
+  </g>
+
+  <rect x="555" y="110" width="180" height="18" rx="4" class="label-bg"/>
+  <text x="560" y="122" class="label">Throughout the liquid</text>
+
+  <rect x="555" y="375" width="200" height="18" rx="4" class="label-bg"/>
+  <text x="560" y="387" class="label">Occurs at boiling point only</text>
+
+  <rect x="470" y="240" width="185" height="18" rx="4" class="label-bg"/>
+  <text x="475" y="253" class="sublabel">Temperature stays constant during boiling</text>
+</svg>

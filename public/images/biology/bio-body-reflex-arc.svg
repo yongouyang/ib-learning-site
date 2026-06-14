@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 380" role="img" aria-labelledby="title desc">
+  <title id="title">The Reflex Arc</title>
+  <desc id="desc">A diagram of a reflex arc showing stimulus, receptor, sensory neuron, relay neuron, motor neuron, and effector.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .neuron { fill: none; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .impulse { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 4,4; }
+    </style>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect width="780" height="380" fill="#f9fafb" rx="12"/>
+  <text x="390" y="34" text-anchor="middle" class="title">The Reflex Arc</text>
+
+  <!-- Skin / receptor -->
+  <path d="M60,130 L60,310" stroke="#a855f7" stroke-width="4" fill="none"/>
+  <path d="M45,130 Q60,115 75,130 Q60,145 45,130" fill="#c084fc"/>
+  <text x="60" y="100" text-anchor="middle" class="label">Receptor</text>
+  <text x="60" y="116" text-anchor="middle" class="sublabel">in skin</text>
+
+  <!-- Stimulus label -->
+  <line x1="60" y1="80" x2="60" y2="60" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <text x="60" y="50" text-anchor="middle" class="label" fill="#b91c1c">Stimulus</text>
+
+  <!-- Sensory neuron -->
+  <path d="M75,150 C160,150 160,260 230,260" class="neuron" stroke="#3b82f6"/>
+  <path d="M100,158 L115,150 L100,142" fill="none" stroke="#3b82f6" stroke-width="2"/>
+  <path d="M150,178 L165,170 L150,162" fill="none" stroke="#3b82f6" stroke-width="2"/>
+  <text x="145" y="130" text-anchor="middle" class="label">Sensory neuron</text>
+
+  <!-- Spinal cord -->
+  <ellipse cx="300" cy="260" rx="55" ry="80" fill="#fde047" stroke="#eab308" stroke-width="3"/>
+  <text x="300" y="255" text-anchor="middle" class="label">Spinal cord</text>
+  <text x="300" y="272" text-anchor="middle" class="sublabel">relay neuron</text>
+
+  <!-- Relay neuron -->
+  <path d="M300,210 L300,190" class="neuron" stroke="#f97316"/>
+  <circle cx="300" cy="185" r="10" fill="#f97316"/>
+  <text x="300" y="160" text-anchor="middle" class="label">Relay neuron</text>
+
+  <!-- Motor neuron -->
+  <path d="M370,260 C440,260 440,150 525,150" class="neuron" stroke="#22c55e"/>
+  <path d="M400,238 L415,246 L400,254" fill="none" stroke="#22c55e" stroke-width="2"/>
+  <path d="M460,178 L475,186 L460,194" fill="none" stroke="#22c55e" stroke-width="2"/>
+  <text x="455" y="130" text-anchor="middle" class="label">Motor neuron</text>
+
+  <!-- Effector muscle -->
+  <ellipse cx="580" cy="150" rx="50" ry="30" fill="#fca5a5" stroke="#ef4444" stroke-width="3"/>
+  <text x="580" y="155" text-anchor="middle" class="label">Effector</text>
+  <text x="580" y="170" text-anchor="middle" class="sublabel">muscle / gland</text>
+
+  <!-- Response -->
+  <line x1="640" y1="150" x2="700" y2="150" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <text x="735" y="155" text-anchor="middle" class="label" fill="#b91c1c">Response</text>
+
+  <!-- Direction arrows -->
+  <path d="M230,260 L290,260" class="impulse" stroke="#6b7280" marker-end="url(#arrow-red)"/>
+  <path d="M310,260 L370,260" class="impulse" stroke="#6b7280" marker-end="url(#arrow-red)"/>
+
+  <!-- Sequence box -->
+  <rect x="180" y="320" width="420" height="38" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <text x="390" y="344" text-anchor="middle" class="sublabel">Stimulus → Receptor → Sensory neuron → Relay neuron → Motor neuron → Effector → Response</text>
+</svg>

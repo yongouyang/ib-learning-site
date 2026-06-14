@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" role="img" aria-labelledby="title desc">
+  <title id="title">Continuous and Discontinuous Variation</title>
+  <desc id="desc">Two graphs comparing continuous variation, shown as a bell-shaped normal distribution curve for height, and discontinuous variation, shown as separated bars for blood type categories.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .axis { stroke: #374151; stroke-width: 2; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="860" height="460" fill="#f9fafb" rx="12"/>
+  <text x="430" y="34" text-anchor="middle" class="title">Continuous and Discontinuous Variation</text>
+
+  <!-- Continuous panel -->
+  <rect x="40" y="55" width="385" height="370" rx="12" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="232" y="82" text-anchor="middle" class="panel-title">Continuous variation</text>
+  <text x="232" y="100" text-anchor="middle" class="sublabel">Any value within a range</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="330" x2="360" y2="330" class="axis"/>
+  <line x1="80" y1="330" x2="80" y2="140" class="axis"/>
+  <polygon points="360,330 350,325 350,335" fill="#374151"/>
+  <polygon points="80,140 75,150 85,150" fill="#374151"/>
+
+  <!-- Bell curve -->
+  <path d="M90,330 Q120,330 140,290 Q160,250 220,160 Q280,250 300,290 Q320,330 350,330" fill="#dcfce7" stroke="#16a34a" stroke-width="3" fill-opacity="0.5"/>
+
+  <!-- X-axis labels -->
+  <text x="90" y="350" text-anchor="middle" class="sublabel">short</text>
+  <text x="220" y="350" text-anchor="middle" class="sublabel">average</text>
+  <text x="350" y="350" text-anchor="middle" class="sublabel">tall</text>
+  <text x="220" y="375" text-anchor="middle" class="label">Height (cm)</text>
+
+  <!-- Y-axis label -->
+  <text x="55" y="235" text-anchor="middle" class="sublabel" transform="rotate(-90 55 235)">Number of people</text>
+
+  <!-- Features -->
+  <line x1="220" y1="160" x2="290" y2="115" class="line"/>
+  <rect x="266" y="115" width="208" height="18" rx="4" class="label-bg"/>
+  <text x="270" y="128" class="label">Bell-shaped normal distribution</text>
+
+  <rect x="75" y="395" width="315" height="20" rx="4" class="label-bg"/>
+  <text x="79" y="409" class="sublabel">Controlled by many genes + influenced by environment</text>
+
+  <!-- Discontinuous panel -->
+  <rect x="435" y="55" width="385" height="370" rx="12" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="627" y="82" text-anchor="middle" class="panel-title">Discontinuous variation</text>
+  <text x="627" y="100" text-anchor="middle" class="sublabel">Distinct categories only</text>
+
+  <!-- Axes -->
+  <line x1="475" y1="330" x2="755" y2="330" class="axis"/>
+  <line x1="475" y1="330" x2="475" y2="140" class="axis"/>
+  <polygon points="755,330 745,325 745,335" fill="#374151"/>
+  <polygon points="475,140 470,150 480,150" fill="#374151"/>
+
+  <!-- Bars with gaps -->
+  <rect x="500" y="190" width="50" height="140" fill="#fca5a5" stroke="#dc2626" stroke-width="2"/>
+  <rect x="575" y="150" width="50" height="180" fill="#93c5fd" stroke="#2563eb" stroke-width="2"/>
+  <rect x="650" y="240" width="50" height="90" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+  <rect x="725" y="210" width="50" height="120" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+
+  <!-- X-axis labels -->
+  <text x="525" y="350" text-anchor="middle" class="sublabel">A</text>
+  <text x="600" y="350" text-anchor="middle" class="sublabel">B</text>
+  <text x="675" y="350" text-anchor="middle" class="sublabel">AB</text>
+  <text x="750" y="350" text-anchor="middle" class="sublabel">O</text>
+  <text x="615" y="375" text-anchor="middle" class="label">Blood type</text>
+
+  <!-- Y-axis label -->
+  <text x="450" y="235" text-anchor="middle" class="sublabel" transform="rotate(-90 450 235)">Number of people</text>
+
+  <!-- Features -->
+  <line x1="650" y1="240" x2="700" y2="115" class="line"/>
+  <rect x="650" y="115" width="208" height="18" rx="4" class="label-bg"/>
+  <text x="654" y="128" class="label">Separate bars, no intermediates</text>
+
+  <rect x="470" y="395" width="315" height="20" rx="4" class="label-bg"/>
+  <text x="474" y="409" class="sublabel">Usually controlled by one gene; not influenced by environment</text>
+</svg>

@@ -8,37 +8,72 @@
     {
       "id": "bio-genetics-1-n1",
       "heading": "DNA, Genes, and Chromosomes",
-      "body": "DNA (deoxyribonucleic acid) is the molecule that carries all genetic instructions for life. It has a double helix structure — like a twisted ladder. The 'rungs' are made of pairs of nitrogenous bases: Adenine (A) always pairs with Thymine (T), and Cytosine (C) always pairs with Guanine (G). This is called complementary base pairing. A gene is a specific sequence of DNA bases that codes for a particular protein. Proteins determine our characteristics (phenotype). Genes are located on chromosomes — tightly coiled DNA molecules found in the nucleus of eukaryotic cells. Human body cells contain 46 chromosomes arranged in 23 pairs. One chromosome from each pair comes from the mother, one from the father. The 23rd pair determines sex: XX = female, XY = male. Gametes (sperm and egg cells) contain only 23 single chromosomes each — this is haploid (n), while body cells are diploid (2n). This halving occurs through meiosis."
+      "body": "DNA (deoxyribonucleic acid) is the molecule that carries all genetic instructions for life. It has a double helix structure — like a twisted ladder. The 'rungs' are made of pairs of nitrogenous bases: Adenine (A) always pairs with Thymine (T), and Cytosine (C) always pairs with Guanine (G). This is called complementary base pairing. A gene is a specific sequence of DNA bases that codes for a particular protein. Proteins determine our characteristics (phenotype). Genes are located on chromosomes — tightly coiled DNA molecules found in the nucleus of eukaryotic cells. Human body cells contain 46 chromosomes arranged in 23 pairs. One chromosome from each pair comes from the mother, one from the father. The 23rd pair determines sex: XX = female, XY = male. Gametes (sperm and egg cells) contain only 23 single chromosomes each — this is haploid (n), while body cells are diploid (2n). This halving occurs through meiosis.",
+      "illustration": {
+        "src": "/images/biology/bio-genetics-1-dna-chromosome.svg",
+        "alt": "Diagram of a cell nucleus containing chromosomes, with a zoomed-in chromosome and DNA double helix showing A-T and C-G base pairing.",
+        "caption": "DNA is coiled into chromosomes inside the nucleus; genes are segments of DNA that code for proteins."
+      }
     },
     {
       "id": "bio-genetics-1-n2",
       "heading": "Dominant and Recessive Alleles",
-      "body": "For each gene, we have two alleles — alternative versions — one inherited from each parent. A dominant allele (represented by a capital letter, e.g., B for brown eyes) will be expressed in the phenotype even if only one copy is present. A recessive allele (lowercase, e.g., b for blue eyes) is only expressed when two copies are present (homozygous recessive, bb). Key terms: homozygous — both alleles identical (BB or bb); heterozygous — two different alleles (Bb). Genotype: the genetic makeup (the alleles present). Phenotype: the observable characteristic (what you see). Example: Genotype BB or Bb → phenotype brown eyes. Genotype bb → phenotype blue eyes. Important: a recessive allele is NOT 'weaker' or 'bad' — it is simply masked in the presence of a dominant allele. Codominance (beyond MYP but worth noting): both alleles are expressed equally (e.g., AB blood type, where both A and B alleles show)."
+      "body": "For each gene, we have two alleles — alternative versions — one inherited from each parent. A dominant allele (represented by a capital letter, e.g., B for brown eyes) will be expressed in the phenotype even if only one copy is present. A recessive allele (lowercase, e.g., b for blue eyes) is only expressed when two copies are present (homozygous recessive, bb). Key terms: homozygous — both alleles identical (BB or bb); heterozygous — two different alleles (Bb). Genotype: the genetic makeup (the alleles present). Phenotype: the observable characteristic (what you see). Example: Genotype BB or Bb → phenotype brown eyes. Genotype bb → phenotype blue eyes. Important: a recessive allele is NOT 'weaker' or 'bad' — it is simply masked in the presence of a dominant allele. Codominance (beyond MYP but worth noting): both alleles are expressed equally (e.g., AB blood type, where both A and B alleles show).",
+      "illustration": {
+        "src": "/images/biology/bio-genetics-1-dominant-recessive.svg",
+        "alt": "Diagram showing homologous chromosome pairs with dominant B and recessive b alleles, and the resulting brown or blue eye phenotypes.",
+        "caption": "A dominant allele is expressed even in heterozygotes; a recessive allele is only expressed when homozygous."
+      }
     },
     {
       "id": "bio-genetics-1-n3",
       "heading": "Punnett Squares and Genetic Crosses",
-      "body": "A Punnett square predicts the probability of offspring genotypes from a genetic cross. Method: write one parent's possible gametes (alleles) across the top, the other parent's down the side. Each box represents one possible combination at fertilisation. For a Bb × Bb cross (two heterozygous parents): top: B, b; side: B, b. Offspring: BB (25%), Bb (50%), bb (25%). Phenotype ratio: 3 brown eyes : 1 blue eyes. For a BB × bb cross (homozygous dominant × homozygous recessive): all offspring are Bb (100% heterozygous) — the dominant phenotype. A test cross (breeding an organism of unknown genotype with a homozygous recessive) determines whether the unknown is BB or Bb. Common mistake: Punnett squares show probability, not certainty. In a real family of four, you might not get exactly a 3:1 ratio — the probabilities apply to each child independently."
+      "body": "A Punnett square predicts the probability of offspring genotypes from a genetic cross. Method: write one parent's possible gametes (alleles) across the top, the other parent's down the side. Each box represents one possible combination at fertilisation. For a Bb × Bb cross (two heterozygous parents): top: B, b; side: B, b. Offspring: BB (25%), Bb (50%), bb (25%). Phenotype ratio: 3 brown eyes : 1 blue eyes. For a BB × bb cross (homozygous dominant × homozygous recessive): all offspring are Bb (100% heterozygous) — the dominant phenotype. A test cross (breeding an organism of unknown genotype with a homozygous recessive) determines whether the unknown is BB or Bb. Common mistake: Punnett squares show probability, not certainty. In a real family of four, you might not get exactly a 3:1 ratio — the probabilities apply to each child independently.",
+      "illustration": {
+        "src": "/images/biology/bio-genetics-1-punnett-square.svg",
+        "alt": "A 2x2 Punnett square for a Bb × Bb genetic cross showing predicted offspring genotypes and phenotypes.",
+        "caption": "Punnett squares predict the probability of offspring genotypes and phenotypes from a genetic cross."
+      }
     },
     {
       "id": "bio-genetics-1-n4",
       "heading": "Variation: Continuous and Discontinuous",
-      "body": "Variation refers to the differences between individuals within a species. There are two types: (1) Continuous variation — characteristics that can take any value within a range. Examples: height, weight, hand span, leaf length. These are controlled by multiple genes (polygenic) and are also influenced by the environment (e.g., nutrition affects height). When plotted on a graph, continuous data produces a bell-shaped normal distribution curve. (2) Discontinuous variation — characteristics that fall into distinct, separate categories with no intermediates. Examples: eye colour, blood type, tongue rolling ability, sex. These are usually controlled by a single gene (monogenic) and are NOT influenced by the environment. When plotted, discontinuous data produces a bar chart with separate columns. Key difference: you cannot be 'in between' tongue-roller and non-tongue-roller; but you can be any height within a range."
+      "body": "Variation refers to the differences between individuals within a species. There are two types: (1) Continuous variation — characteristics that can take any value within a range. Examples: height, weight, hand span, leaf length. These are controlled by multiple genes (polygenic) and are also influenced by the environment (e.g., nutrition affects height). When plotted on a graph, continuous data produces a bell-shaped normal distribution curve. (2) Discontinuous variation — characteristics that fall into distinct, separate categories with no intermediates. Examples: eye colour, blood type, tongue rolling ability, sex. These are usually controlled by a single gene (monogenic) and are NOT influenced by the environment. When plotted, discontinuous data produces a bar chart with separate columns. Key difference: you cannot be 'in between' tongue-roller and non-tongue-roller; but you can be any height within a range.",
+      "illustration": {
+        "src": "/images/biology/bio-genetics-1-variation-graphs.svg",
+        "alt": "Two graphs comparing continuous variation as a bell curve for height and discontinuous variation as separate bars for blood type.",
+        "caption": "Continuous variation shows a range of values; discontinuous variation has distinct categories with no intermediates."
+      }
     },
     {
       "id": "bio-genetics-1-n5",
       "heading": "Natural Selection and Evolution",
-      "body": "Natural selection, proposed by Charles Darwin, is the mechanism by which evolution occurs. The process: (1) Within a population, there is genetic variation — individuals are not identical. (2) More offspring are produced than can survive (struggle for existence). (3) Individuals with characteristics better adapted to their environment are more likely to survive and reproduce (survival of the fittest). (4) These advantageous alleles are passed on to the next generation at a higher rate. Over many generations, the frequency of these alleles increases — the population evolves. Classic example: peppered moths in 19th-century England. Before the Industrial Revolution, pale moths were camouflaged on lichen-covered trees. As pollution killed lichens and darkened tree trunks, dark (melanic) moths had the survival advantage — birds ate the now-visible pale moths. The dark allele frequency increased dramatically. After clean air acts, the trend reversed. Key point: individuals do NOT evolve — populations evolve over generations. Mutations introduce new alleles, creating the variation upon which natural selection acts."
+      "body": "Natural selection, proposed by Charles Darwin, is the mechanism by which evolution occurs. The process: (1) Within a population, there is genetic variation — individuals are not identical. (2) More offspring are produced than can survive (struggle for existence). (3) Individuals with characteristics better adapted to their environment are more likely to survive and reproduce (survival of the fittest). (4) These advantageous alleles are passed on to the next generation at a higher rate. Over many generations, the frequency of these alleles increases — the population evolves. Classic example: peppered moths in 19th-century England. Before the Industrial Revolution, pale moths were camouflaged on lichen-covered trees. As pollution killed lichens and darkened tree trunks, dark (melanic) moths had the survival advantage — birds ate the now-visible pale moths. The dark allele frequency increased dramatically. After clean air acts, the trend reversed. Key point: individuals do NOT evolve — populations evolve over generations. Mutations introduce new alleles, creating the variation upon which natural selection acts.",
+      "illustration": {
+        "src": "/images/biology/bio-genetics-1-natural-selection.svg",
+        "alt": "Diagram showing pale peppered moths camouflaged on clean trees and dark moths camouflaged on soot-darkened trees, with birds preying on visible moths.",
+        "caption": "Natural selection favours individuals with traits that help them survive and reproduce in their environment."
+      }
     },
     {
       "id": "bio-genetics-1-n6",
       "heading": "Selective Breeding (Artificial Selection)",
-      "body": "Selective breeding is when humans deliberately choose which organisms reproduce, based on desired characteristics. It has been used for thousands of years — long before we understood genetics. Process: (1) Choose parents with desirable traits (e.g., highest milk yield in cows, largest seeds in wheat). (2) Breed these selected individuals. (3) From the offspring, again select the best individuals. (4) Repeat over many generations. Examples: dairy cows (high milk production), seedless bananas, pedigree dogs (e.g., Labradors bred for retrieving), wheat varieties (high yield, disease resistance). Risks: selective breeding reduces genetic diversity (the gene pool shrinks), making populations vulnerable to disease. It can also amplify harmful recessive alleles — many pedigree dogs suffer from inherited disorders (e.g., hip dysplasia in German Shepherds, breathing problems in pugs). Inbreeding depression: closely related individuals breeding increases the chance of harmful recessive traits appearing."
+      "body": "Selective breeding is when humans deliberately choose which organisms reproduce, based on desired characteristics. It has been used for thousands of years — long before we understood genetics. Process: (1) Choose parents with desirable traits (e.g., highest milk yield in cows, largest seeds in wheat). (2) Breed these selected individuals. (3) From the offspring, again select the best individuals. (4) Repeat over many generations. Examples: dairy cows (high milk production), seedless bananas, pedigree dogs (e.g., Labradors bred for retrieving), wheat varieties (high yield, disease resistance). Risks: selective breeding reduces genetic diversity (the gene pool shrinks), making populations vulnerable to disease. It can also amplify harmful recessive alleles — many pedigree dogs suffer from inherited disorders (e.g., hip dysplasia in German Shepherds, breathing problems in pugs). Inbreeding depression: closely related individuals breeding increases the chance of harmful recessive traits appearing.",
+      "illustration": {
+        "src": "/images/biology/bio-genetics-1-selective-breeding.svg",
+        "alt": "Flow diagram showing humans choosing cows with high milk yield, breeding them, selecting the best offspring, and repeating over generations.",
+        "caption": "Selective breeding uses human choice to increase desired traits, but can reduce genetic diversity."
+      }
     },
     {
       "id": "bio-genetics-1-n7",
       "heading": "Genetic Modification (GM) and Cloning",
-      "body": "Genetic modification (genetic engineering) involves directly altering an organism's DNA by inserting a gene from another species. This is much faster and more precise than selective breeding. Process: (1) Identify a desirable gene (e.g., the gene for insulin production in humans). (2) Cut out the gene using restriction enzymes. (3) Insert the gene into a vector (commonly a bacterial plasmid). (4) The modified bacterium multiplies and produces the desired protein. Applications: Human insulin produced by GM bacteria (replacing animal insulin for diabetics), GM crops resistant to herbicides or pests (e.g., Bt corn), Golden Rice (modified to produce beta-carotene to address vitamin A deficiency). Cloning produces genetically identical copies. Plant cloning (cuttings, tissue culture) is common and relatively simple. Animal cloning (e.g., Dolly the sheep, 1996) uses somatic cell nuclear transfer: nucleus from adult cell inserted into enucleated egg cell, then implanted into surrogate. Ethical concerns: GM — fears of unknown health effects, ecological impact of GM crops crossing with wild species; cloning — low success rate, health problems in clones, concerns about human cloning."
+      "body": "Genetic modification (genetic engineering) involves directly altering an organism's DNA by inserting a gene from another species. This is much faster and more precise than selective breeding. Process: (1) Identify a desirable gene (e.g., the gene for insulin production in humans). (2) Cut out the gene using restriction enzymes. (3) Insert the gene into a vector (commonly a bacterial plasmid). (4) The modified bacterium multiplies and produces the desired protein. Applications: Human insulin produced by GM bacteria (replacing animal insulin for diabetics), GM crops resistant to herbicides or pests (e.g., Bt corn), Golden Rice (modified to produce beta-carotene to address vitamin A deficiency). Cloning produces genetically identical copies. Plant cloning (cuttings, tissue culture) is common and relatively simple. Animal cloning (e.g., Dolly the sheep, 1996) uses somatic cell nuclear transfer: nucleus from adult cell inserted into enucleated egg cell, then implanted into surrogate. Ethical concerns: GM — fears of unknown health effects, ecological impact of GM crops crossing with wild species; cloning — low success rate, health problems in clones, concerns about human cloning.",
+      "illustration": {
+        "src": "/images/biology/bio-genetics-1-gm-cloning.svg",
+        "alt": "Diagram showing the human insulin gene inserted into a bacterial plasmid and somatic cell nuclear transfer used to clone an animal.",
+        "caption": "Genetic modification inserts genes from one species into another; cloning produces genetically identical copies."
+      }
     }
   ],
   "flashcards": [
@@ -119,105 +154,180 @@
     {
       "id": "bio-genetics-1-q1",
       "stem": "A plant has genotype Tt where T = tall (dominant) and t = short (recessive). What is its phenotype?",
-      "choices": ["Short", "Tall", "Medium height", "Cannot be determined"],
+      "choices": [
+        "Short",
+        "Tall",
+        "Medium height",
+        "Cannot be determined"
+      ],
       "correctIndex": 1,
       "explanation": "Tt is heterozygous. The dominant T allele masks the recessive t, so the plant is tall."
     },
     {
       "id": "bio-genetics-1-q2",
       "stem": "Where is DNA found in a eukaryotic cell?",
-      "choices": ["Mitochondria only", "Cytoplasm", "Nucleus — coiled into chromosomes", "Cell membrane"],
+      "choices": [
+        "Mitochondria only",
+        "Cytoplasm",
+        "Nucleus — coiled into chromosomes",
+        "Cell membrane"
+      ],
       "correctIndex": 2,
       "explanation": "In eukaryotic cells, DNA is located in the nucleus, organised into chromosomes. Small amounts are also found in mitochondria."
     },
     {
       "id": "bio-genetics-1-q3",
       "stem": "Two heterozygous brown-eyed parents (Bb × Bb). What fraction of children are expected to have blue eyes?",
-      "choices": ["1/4 (25%)", "1/2 (50%)", "3/4 (75%)", "0 (none)"],
+      "choices": [
+        "1/4 (25%)",
+        "1/2 (50%)",
+        "3/4 (75%)",
+        "0 (none)"
+      ],
       "correctIndex": 0,
       "explanation": "Punnett square for Bb × Bb: BB, Bb, Bb, bb. Only bb (1 out of 4 = 25%) produces blue eyes."
     },
     {
       "id": "bio-genetics-1-q4",
       "stem": "An organism with two identical alleles for a gene (e.g., BB or bb) is called:",
-      "choices": ["Heterozygous", "Homozygous", "Dominant", "Recessive"],
+      "choices": [
+        "Heterozygous",
+        "Homozygous",
+        "Dominant",
+        "Recessive"
+      ],
       "correctIndex": 1,
       "explanation": "Homozygous means both alleles are the same. Heterozygous means they are different (Bb)."
     },
     {
       "id": "bio-genetics-1-q5",
       "stem": "How many chromosomes does a typical human body (somatic) cell contain?",
-      "choices": ["23 single chromosomes", "46 chromosomes in 23 pairs", "92 chromosomes in 46 pairs", "12 chromosomes"],
+      "choices": [
+        "23 single chromosomes",
+        "46 chromosomes in 23 pairs",
+        "92 chromosomes in 46 pairs",
+        "12 chromosomes"
+      ],
       "correctIndex": 1,
       "explanation": "Human body cells are diploid (2n) with 46 chromosomes in 23 pairs. Gametes (sperm/egg) are haploid (n) with 23 single chromosomes."
     },
     {
       "id": "bio-genetics-1-q6",
       "stem": "Which of these is an example of continuous variation?",
-      "choices": ["Blood type (A, B, AB, O)", "Tongue rolling ability (can or cannot)", "Body mass (kg)", "Eye colour categories (brown, blue, green)"],
+      "choices": [
+        "Blood type (A, B, AB, O)",
+        "Tongue rolling ability (can or cannot)",
+        "Body mass (kg)",
+        "Eye colour categories (brown, blue, green)"
+      ],
       "correctIndex": 2,
       "explanation": "Body mass can take any value within a range (e.g., 52.7 kg) and is influenced by both genes and environment — this is continuous variation."
     },
     {
       "id": "bio-genetics-1-q7",
       "stem": "In the peppered moth example, why did the frequency of dark moths increase during the Industrial Revolution?",
-      "choices": ["Dark moths produced more offspring regardless of environment", "Pollution darkened tree trunks, so pale moths were more visible to predators — dark moths survived and reproduced more", "Dark moths mutated to become darker in response to pollution", "Pale moths migrated away from industrial areas"],
+      "choices": [
+        "Dark moths produced more offspring regardless of environment",
+        "Pollution darkened tree trunks, so pale moths were more visible to predators — dark moths survived and reproduced more",
+        "Dark moths mutated to become darker in response to pollution",
+        "Pale moths migrated away from industrial areas"
+      ],
       "correctIndex": 1,
       "explanation": "The environmental change (sooty trees) gave dark moths a camouflage advantage. They were eaten less, survived longer, and passed on their alleles — a classic example of natural selection."
     },
     {
       "id": "bio-genetics-1-q8",
       "stem": "What is a key difference between natural selection and selective breeding?",
-      "choices": ["Natural selection is faster", "Selective breeding occurs without any selection pressure", "In natural selection, the environment determines which traits are advantageous; in selective breeding, humans choose", "They are the same process with different names"],
+      "choices": [
+        "Natural selection is faster",
+        "Selective breeding occurs without any selection pressure",
+        "In natural selection, the environment determines which traits are advantageous; in selective breeding, humans choose",
+        "They are the same process with different names"
+      ],
       "correctIndex": 2,
       "explanation": "Natural selection is driven by environmental pressures. Selective breeding (artificial selection) is driven by human choice — we pick which organisms reproduce."
     },
     {
       "id": "bio-genetics-1-q9",
       "stem": "What is a risk of selective breeding for pedigree dogs?",
-      "choices": ["Dogs become too intelligent", "It increases genetic diversity, making breeds stronger", "It reduces genetic diversity and can increase the frequency of harmful recessive alleles, causing inherited disorders", "Dogs lose the ability to reproduce naturally"],
+      "choices": [
+        "Dogs become too intelligent",
+        "It increases genetic diversity, making breeds stronger",
+        "It reduces genetic diversity and can increase the frequency of harmful recessive alleles, causing inherited disorders",
+        "Dogs lose the ability to reproduce naturally"
+      ],
       "correctIndex": 2,
       "explanation": "Selective breeding narrows the gene pool. Harmful recessive alleles that were rare become more common through inbreeding, causing conditions like hip dysplasia and breathing problems."
     },
     {
       "id": "bio-genetics-1-q10",
       "stem": "How does a GM bacterium produce human insulin?",
-      "choices": ["The bacterium naturally produces insulin when fed sugar", "The human insulin gene is inserted into the bacterium's DNA, and the bacterium's ribosomes translate it into insulin protein", "Scientists extract insulin from the bacterium's own proteins", "The bacterium is fed human blood and converts it to insulin"],
+      "choices": [
+        "The bacterium naturally produces insulin when fed sugar",
+        "The human insulin gene is inserted into the bacterium's DNA, and the bacterium's ribosomes translate it into insulin protein",
+        "Scientists extract insulin from the bacterium's own proteins",
+        "The bacterium is fed human blood and converts it to insulin"
+      ],
       "correctIndex": 1,
       "explanation": "The human insulin gene is spliced into a bacterial plasmid. The bacterium's cellular machinery reads the gene and produces human insulin. This is how most medical insulin is made today."
     },
     {
       "id": "bio-genetics-1-q11",
       "stem": "In DNA, which bases always pair together?",
-      "choices": ["A with G, C with T", "A with C, G with T", "A with T, C with G", "A with A, T with T"],
+      "choices": [
+        "A with G, C with T",
+        "A with C, G with T",
+        "A with T, C with G",
+        "A with A, T with T"
+      ],
       "correctIndex": 2,
       "explanation": "Complementary base pairing: Adenine (A) pairs with Thymine (T); Cytosine (C) pairs with Guanine (G). This is the basis of DNA replication."
     },
     {
       "id": "bio-genetics-1-q12",
       "stem": "A farmer crosses a homozygous dominant tall plant (TT) with a homozygous recessive short plant (tt). What will all the F1 offspring be?",
-      "choices": ["All tall (Tt)", "All short (tt)", "50% tall, 50% short", "All medium height"],
+      "choices": [
+        "All tall (Tt)",
+        "All short (tt)",
+        "50% tall, 50% short",
+        "All medium height"
+      ],
       "correctIndex": 0,
       "explanation": "TT parent gives only T gametes; tt gives only t gametes. All offspring are Tt — heterozygous, and since T (tall) is dominant, all F1 plants are tall."
     },
     {
       "id": "bio-genetics-1-q13",
       "stem": "Which statement about mutations is correct?",
-      "choices": ["Mutations are always harmful", "Mutations are always beneficial", "Mutations are random changes in DNA that can be harmful, neutral, or occasionally beneficial — they create genetic variation", "Mutations only occur in response to environmental needs"],
+      "choices": [
+        "Mutations are always harmful",
+        "Mutations are always beneficial",
+        "Mutations are random changes in DNA that can be harmful, neutral, or occasionally beneficial — they create genetic variation",
+        "Mutations only occur in response to environmental needs"
+      ],
       "correctIndex": 2,
       "explanation": "Mutations are random changes in DNA sequence. Most are neutral or harmful, but occasionally a mutation produces a beneficial trait — these rare beneficial mutations are the raw material for evolution."
     },
     {
       "id": "bio-genetics-1-q14",
       "stem": "A characteristic that shows discontinuous variation would be best displayed using:",
-      "choices": ["A line graph", "A histogram", "A bar chart with separate categories", "A scatter plot"],
+      "choices": [
+        "A line graph",
+        "A histogram",
+        "A bar chart with separate categories",
+        "A scatter plot"
+      ],
       "correctIndex": 2,
       "explanation": "Discontinuous data falls into distinct, separate categories with no intermediate values. A bar chart with gaps between bars is the correct way to display it."
     },
     {
       "id": "bio-genetics-1-q15",
       "stem": "Dolly the sheep was created by somatic cell nuclear transfer. What does this mean?",
-      "choices": ["Two egg cells were fused together", "An egg cell was fertilised by two sperm cells", "The nucleus from an adult body (somatic) cell was transferred into an egg cell that had its own nucleus removed, then implanted into a surrogate", "Dolly was born from a normal fertilisation but grew unusually fast"],
+      "choices": [
+        "Two egg cells were fused together",
+        "An egg cell was fertilised by two sperm cells",
+        "The nucleus from an adult body (somatic) cell was transferred into an egg cell that had its own nucleus removed, then implanted into a surrogate",
+        "Dolly was born from a normal fertilisation but grew unusually fast"
+      ],
       "correctIndex": 2,
       "explanation": "Somatic cell nuclear transfer: the nucleus of a differentiated adult cell (containing the full genome) replaces the nucleus of an egg cell. The reprogrammed egg then develops into a clone of the original donor."
     }

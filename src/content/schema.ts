@@ -4,10 +4,17 @@ export const subjectIdSchema = z.enum(['english', 'math', 'biology', 'chemistry'
 
 export const ibLevelSchema = z.enum(['MYP', 'DP']);
 
+export const illustrationSchema = z.object({
+  src: z.string().regex(/^\/images\//, 'illustration src must start with /images/'),
+  alt: z.string().min(1),
+  caption: z.string().optional(),
+});
+
 export const conceptNoteSchema = z.object({
   id: z.string().min(1),
   heading: z.string().min(1),
   body: z.string().min(1),
+  illustration: illustrationSchema.optional(),
 });
 
 export const flashcardSchema = z.object({

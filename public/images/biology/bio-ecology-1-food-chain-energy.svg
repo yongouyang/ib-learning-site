@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 460" role="img" aria-labelledby="title desc">
+  <title id="title">Ecosystems and Food Chains</title>
+  <desc id="desc">A food chain from grass producer to hawk, plus a pyramid showing energy loss at each trophic level.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="780" height="460" fill="#f9fafb" rx="12"/>
+  <text x="390" y="34" text-anchor="middle" class="title">Ecosystems and Food Chains</text>
+
+  <!-- Food chain boxes -->
+  <rect x="40" y="70" width="130" height="70" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="105" y="100" text-anchor="middle" class="label">Producer</text>
+  <text x="105" y="120" text-anchor="middle" class="sublabel">Grass / plant</text>
+  <text x="105" y="135" text-anchor="middle" class="sublabel">Trophic level 1</text>
+
+  <rect x="210" y="70" width="130" height="70" rx="10" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+  <text x="275" y="100" text-anchor="middle" class="label">Primary consumer</text>
+  <text x="275" y="120" text-anchor="middle" class="sublabel">Rabbit</text>
+  <text x="275" y="135" text-anchor="middle" class="sublabel">Trophic level 2</text>
+
+  <rect x="380" y="70" width="130" height="70" rx="10" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+  <text x="445" y="100" text-anchor="middle" class="label">Secondary consumer</text>
+  <text x="445" y="120" text-anchor="middle" class="sublabel">Fox</text>
+  <text x="445" y="135" text-anchor="middle" class="sublabel">Trophic level 3</text>
+
+  <rect x="550" y="70" width="130" height="70" rx="10" fill="#fecaca" stroke="#dc2626" stroke-width="2"/>
+  <text x="615" y="100" text-anchor="middle" class="label">Tertiary consumer</text>
+  <text x="615" y="120" text-anchor="middle" class="sublabel">Hawk</text>
+  <text x="615" y="135" text-anchor="middle" class="sublabel">Trophic level 4</text>
+
+  <!-- Chain arrows -->
+  <line x1="170" y1="105" x2="210" y2="105" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+  <line x1="340" y1="105" x2="380" y2="105" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+  <line x1="510" y1="105" x2="550" y2="105" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+
+  <!-- Energy pyramid -->
+  <polygon points="390,400 250,400 320,200 460,200" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="250" y1="400" x2="390" y2="400" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="270" y1="350" x2="510" y2="350" stroke="#3b82f6" stroke-width="1.5"/>
+  <line x1="295" y1="290" x2="485" y2="290" stroke="#3b82f6" stroke-width="1.5"/>
+  <line x1="320" y1="230" x2="460" y2="230" stroke="#3b82f6" stroke-width="1.5"/>
+  <line x1="320" y1="200" x2="460" y2="200" stroke="#3b82f6" stroke-width="2"/>
+
+  <text x="390" y="382" text-anchor="middle" class="label">Producers</text>
+  <text x="390" y="332" text-anchor="middle" class="label">Primary consumers</text>
+  <text x="390" y="272" text-anchor="middle" class="label">Secondary consumers</text>
+  <text x="390" y="218" text-anchor="middle" class="label">Tertiary consumers</text>
+
+  <!-- Energy labels -->
+  <line x1="500" y1="370" x2="570" y2="370" class="line"/>
+  <rect x="572" y="361" width="100" height="18" rx="4" class="label-bg"/>
+  <text x="576" y="373" class="label">~100% energy</text>
+
+  <line x1="510" y1="320" x2="600" y2="320" class="line"/>
+  <rect x="602" y="311" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="606" y="323" class="label">~10% energy</text>
+
+  <line x1="500" y1="260" x2="600" y2="260" class="line"/>
+  <rect x="602" y="251" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="606" y="263" class="label">~1% energy</text>
+
+  <line x1="470" y1="215" x2="600" y2="200" class="line"/>
+  <rect x="602" y="191" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="606" y="203" class="label">~0.1% energy</text>
+
+  <!-- Lost energy annotation -->
+  <text x="105" y="260" text-anchor="middle" class="label">Energy loss</text>
+  <text x="105" y="278" text-anchor="middle" class="sublabel">~90% lost at each</text>
+  <text x="105" y="293" text-anchor="middle" class="sublabel">trophic level</text>
+
+  <line x1="140" y1="250" x2="210" y2="250" class="line"/>
+  <line x1="210" y1="250" x2="250" y2="320" class="line"/>
+  <line x1="250" y1="320" x2="270" y2="320" class="line"/>
+</svg>

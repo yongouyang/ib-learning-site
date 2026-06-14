@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Testing a Leaf for Starch</title>
+  <desc id="desc">Four-step practical method for testing a leaf for starch: boiling water, ethanol water bath, rinsing, and adding iodine solution.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="520" fill="#f9fafb" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" class="title">Testing a Leaf for Starch</text>
+
+  <!-- Step 1: Boiling water -->
+  <g transform="translate(60, 80)">
+    <rect x="0" y="0" width="180" height="220" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+    <text x="90" y="28" text-anchor="middle" class="label">1. Boil in water</text>
+    <text x="90" y="44" text-anchor="middle" class="sublabel">1-2 minutes</text>
+    
+    <!-- Beaker -->
+    <path d="M40,70 L40,170 Q40,185 55,185 L125,185 Q140,185 140,170 L140,70" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" fill-opacity="0.4"/>
+    <rect x="40" y="130" width="100" height="55" fill="#dbeafe" opacity="0.7"/>
+    
+    <!-- Leaf -->
+    <path d="M70,150 Q90,130 110,150 Q90,170 70,150 Z" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+    
+    <!-- Steam -->
+    <path d="M70,60 Q80,50 75,40" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/>
+    <path d="M90,55 Q100,45 95,35" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/>
+    <path d="M110,60 Q120,50 115,40" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/>
+    
+    <text x="90" y="205" text-anchor="middle" class="sublabel">Kills leaf and</text>
+    <text x="90" y="220" text-anchor="middle" class="sublabel">stops reactions</text>
+  </g>
+
+  <!-- Step 2: Ethanol bath -->
+  <g transform="translate(260, 80)">
+    <rect x="0" y="0" width="180" height="220" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+    <text x="90" y="28" text-anchor="middle" class="label">2. Ethanol bath</text>
+    <text x="90" y="44" text-anchor="middle" class="sublabel">Turn off Bunsen!</text>
+    
+    <!-- Water bath beaker -->
+    <path d="M30,80 L30,170 Q30,185 45,185 L135,185 Q150,185 150,170 L150,80" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" fill-opacity="0.3"/>
+    <rect x="30" y="140" width="120" height="45" fill="#fde68a" opacity="0.5"/>
+    
+    <!-- Test tube -->
+    <path d="M70,60 L70,155 Q70,170 90,170 Q110,170 110,155 L110,60" fill="#ffffff" stroke="#6b7280" stroke-width="2"/>
+    <rect x="71" y="125" width="38" height="43" fill="#e5e7eb" opacity="0.5"/>
+    
+    <!-- Leaf in tube -->
+    <path d="M80,145 Q90,135 100,145 Q90,155 80,145 Z" fill="#86efac" stroke="#16a34a" stroke-width="1.5"/>
+    
+    <!-- Flame below -->
+    <path d="M80,190 Q90,175 100,190" fill="#f97316" stroke="#c2410c" stroke-width="1.5"/>
+    <text x="90" y="205" text-anchor="middle" class="sublabel">Removes</text>
+    <text x="90" y="220" text-anchor="middle" class="sublabel">chlorophyll</text>
+  </g>
+
+  <!-- Step 3: Rinse -->
+  <g transform="translate(460, 80)">
+    <rect x="0" y="0" width="180" height="220" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+    <text x="90" y="28" text-anchor="middle" class="label">3. Rinse</text>
+    <text x="90" y="44" text-anchor="middle" class="sublabel">Cold water</text>
+    
+    <!-- Petri dish -->
+    <ellipse cx="90" cy="145" rx="60" ry="25" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <ellipse cx="90" cy="145" rx="50" ry="18" fill="#dbeafe" opacity="0.5"/>
+    
+    <!-- Leaf -->
+    <path d="M65,145 Q90,125 115,145 Q90,165 65,145 Z" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+    
+    <text x="90" y="205" text-anchor="middle" class="sublabel">Softens leaf</text>
+    <text x="90" y="220" text-anchor="middle" class="sublabel">and removes ethanol</text>
+  </g>
+
+  <!-- Step 4: Iodine test -->
+  <g transform="translate(660, 80)">
+    <rect x="0" y="0" width="180" height="220" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+    <text x="90" y="28" text-anchor="middle" class="label">4. Iodine test</text>
+    <text x="90" y="44" text-anchor="middle" class="sublabel">Blue-black = starch</text>
+    
+    <!-- Tile -->
+    <rect x="35" y="125" width="110" height="50" fill="#ffffff" stroke="#d1d5db" stroke-width="2" rx="4"/>
+    
+    <!-- Leaf -->
+    <path d="M60,150 Q90,130 120,150 Q90,170 60,150 Z" fill="#1e3a8a" stroke="#1e40af" stroke-width="1.5"/>
+    
+    <!-- Dropper -->
+    <path d="M90,80 L90,130" stroke="#6b7280" stroke-width="4" stroke-linecap="round"/>
+    <path d="M85,80 L95,80 L100,65 L80,65 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="1.5"/>
+    <path d="M87,135 L93,135 L90,142 Z" fill="#fde047"/>
+    
+    <text x="90" y="205" text-anchor="middle" class="sublabel">Yellow-brown</text>
+    <text x="90" y="220" text-anchor="middle" class="sublabel">= no starch</text>
+  </g>
+
+  <!-- Arrows between steps -->
+  <line x1="240" y1="190" x2="260" y2="190" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <line x1="440" y1="190" x2="460" y2="190" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <line x1="640" y1="190" x2="660" y2="190" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+
+  <!-- Safety warning -->
+  <rect x="250" y="330" width="400" height="50" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" rx="6"/>
+  <text x="450" y="355" text-anchor="middle" class="label" fill="#b91c1c">Safety: Ethanol is flammable — always use a water bath, never heat directly.</text>
+  <text x="450" y="372" text-anchor="middle" class="sublabel" fill="#b91c1c">Turn off the Bunsen burner before using ethanol.</text>
+</svg>

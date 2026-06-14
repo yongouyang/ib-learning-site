@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 560" role="img" aria-labelledby="title desc">
+  <title id="title">Animal and Plant Cell Comparison</title>
+  <desc id="desc">A labelled diagram showing an animal cell and a plant cell side by side, highlighting organelles and the three plant-only structures: cell wall, chloroplasts, and large vacuole.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .cell-membrane { fill: none; stroke: #f472b6; stroke-width: 4; }
+      .cell-wall { fill: none; stroke: #10b981; stroke-width: 6; }
+      .cytoplasm { fill: #e0f2fe; }
+      .nucleus { fill: #a78bfa; }
+      .mitochondrion { fill: #fb923c; }
+      .chloroplast { fill: #34d399; }
+      .vacuole { fill: #93c5fd; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1040" height="560" fill="#f9fafb" rx="12"/>
+  <text x="520" y="38" text-anchor="middle" class="title">Animal Cell vs Plant Cell</text>
+
+  <!-- Animal Cell -->
+  <rect x="80" y="70" width="320" height="420" rx="16" class="box"/>
+  <text x="240" y="100" text-anchor="middle" class="title" style="font-size:15px">Animal Cell</text>
+
+  <g transform="translate(120, 130)">
+    <rect x="0" y="0" width="240" height="320" rx="80" class="cytoplasm"/>
+    <rect x="0" y="0" width="240" height="320" rx="80" class="cell-membrane"/>
+
+    <!-- Nucleus -->
+    <circle cx="120" cy="140" r="42" class="nucleus"/>
+    <circle cx="120" cy="140" r="42" fill="none" stroke="#7c3aed" stroke-width="2"/>
+    <text x="120" y="145" text-anchor="middle" class="sublabel" fill="white">Nucleus</text>
+
+    <!-- Mitochondria -->
+    <ellipse cx="65" cy="70" rx="28" ry="16" class="mitochondrion" transform="rotate(-20 65 70)"/>
+    <path d="M52 66 Q65 78 78 66" fill="none" stroke="#c2410c" stroke-width="2" transform="rotate(-20 65 70)"/>
+    <ellipse cx="175" cy="210" rx="28" ry="16" class="mitochondrion" transform="rotate(15 175 210)"/>
+    <path d="M162 206 Q175 218 188 206" fill="none" stroke="#c2410c" stroke-width="2" transform="rotate(15 175 210)"/>
+
+    <!-- Ribosomes as small dots -->
+    <g fill="#64748b">
+      <circle cx="45" cy="220" r="3"/>
+      <circle cx="55" cy="230" r="3"/>
+      <circle cx="190" cy="90" r="3"/>
+      <circle cx="205" cy="105" r="3"/>
+      <circle cx="85" cy="250" r="3"/>
+    </g>
+  </g>
+
+  <!-- Plant Cell -->
+  <rect x="560" y="70" width="320" height="420" rx="16" class="box"/>
+  <text x="720" y="100" text-anchor="middle" class="title" style="font-size:15px">Plant Cell</text>
+
+  <g transform="translate(600, 130)">
+    <!-- Cell wall -->
+    <rect x="-8" y="-8" width="256" height="336" rx="12" class="cell-wall"/>
+    <!-- Cell membrane -->
+    <rect x="0" y="0" width="240" height="320" rx="8" class="cytoplasm"/>
+    <rect x="0" y="0" width="240" height="320" rx="8" class="cell-membrane"/>
+
+    <!-- Large vacuole -->
+    <rect x="45" y="45" width="150" height="130" rx="60" class="vacuole"/>
+    <text x="120" y="115" text-anchor="middle" class="label" fill="#1e40af">Large vacuole</text>
+
+    <!-- Nucleus -->
+    <circle cx="160" cy="230" r="36" class="nucleus"/>
+    <circle cx="160" cy="230" r="36" fill="none" stroke="#7c3aed" stroke-width="2"/>
+    <text x="160" y="235" text-anchor="middle" class="sublabel" fill="white">Nucleus</text>
+
+    <!-- Chloroplasts -->
+    <ellipse cx="55" cy="220" rx="22" ry="12" class="chloroplast" transform="rotate(-15 55 220)"/>
+    <line x1="45" y1="220" x2="65" y2="220" stroke="#065f46" stroke-width="2" transform="rotate(-15 55 220)"/>
+    <ellipse cx="200" cy="110" rx="22" ry="12" class="chloroplast" transform="rotate(20 200 110)"/>
+    <line x1="190" y1="110" x2="210" y2="110" stroke="#065f46" stroke-width="2" transform="rotate(20 200 110)"/>
+    <ellipse cx="80" cy="290" rx="22" ry="12" class="chloroplast" transform="rotate(10 80 290)"/>
+    <line x1="70" y1="290" x2="90" y2="290" stroke="#065f46" stroke-width="2" transform="rotate(10 80 290)"/>
+
+    <!-- Mitochondria -->
+    <ellipse cx="200" cy="280" rx="24" ry="13" class="mitochondrion" transform="rotate(-25 200 280)"/>
+    <path d="M189 276 Q200 287 211 276" fill="none" stroke="#c2410c" stroke-width="2" transform="rotate(-25 200 280)"/>
+  </g>
+
+  <!-- Labels layer (drawn last so they sit on top of everything) -->
+  <g transform="translate(120, 130)">
+    <!-- Animal cell labels -->
+    <line x1="240" y1="90" x2="290" y2="90" class="line"/>
+    <text x="296" y="94" text-anchor="start" class="label">Cell membrane</text>
+
+    <line x1="65" y1="70" x2="290" y2="65" class="line"/>
+    <text x="296" y="69" text-anchor="start" class="label">Mitochondrion</text>
+
+    <line x1="198" y1="98" x2="290" y2="130" class="line"/>
+    <text x="296" y="134" text-anchor="start" class="label">Ribosomes</text>
+  </g>
+
+  <g transform="translate(600, 130)">
+    <!-- Plant cell labels -->
+    <line x1="248" y1="-8" x2="300" y2="-30" class="line"/>
+    <text x="306" y="-26" text-anchor="start" class="label">Cell wall</text>
+
+    <line x1="240" y1="320" x2="300" y2="350" class="line"/>
+    <text x="306" y="354" text-anchor="start" class="label">Cell membrane</text>
+
+    <line x1="222" y1="110" x2="300" y2="80" class="line"/>
+    <text x="306" y="84" text-anchor="start" class="label">Chloroplast</text>
+
+    <line x1="40" y1="220" x2="-30" y2="205" class="line"/>
+    <text x="-36" y="209" text-anchor="end" class="label">Chloroplast</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(120, 504)">
+    <rect x="0" y="0" width="800" height="36" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="400" y="23" text-anchor="middle" class="sublabel" style="font-size:12px">
+      Plant cell only: cell wall, chloroplasts, large central vacuole
+    </text>
+  </g>
+</svg>

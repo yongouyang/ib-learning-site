@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Naming Compounds and Writing Formulae</title>
+  <desc id="desc">A diagram showing how to name ionic and covalent compounds and how to write formulae using the swap-and-drop method with examples CaCl₂ and Al₂O₃.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .metal { fill: #f97316; }
+      .nonmetal { fill: #3b82f6; }
+      .rule-box { fill: #fff7ed; stroke: #fdba74; stroke-width: 1.5; }
+      .formula-box { fill: #eff6ff; stroke: #93c5fd; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect width="900" height="520" fill="#f9fafb" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" class="title">Naming Compounds and Writing Formulae</text>
+
+  <!-- Naming rules panel -->
+  <rect x="40" y="70" width="420" height="270" rx="10" class="box"/>
+  <text x="250" y="95" text-anchor="middle" class="label">Naming rules</text>
+
+  <rect x="60" y="110" width="380" height="50" rx="8" class="rule-box"/>
+  <text x="70" y="130" class="label" fill="#9a3412">Metal + non-metal</text>
+  <text x="70" y="148" class="sublabel">Name ends in -ide · e.g. sodium chloride, magnesium oxide</text>
+
+  <rect x="60" y="170" width="380" height="50" rx="8" class="rule-box"/>
+  <text x="70" y="190" class="label" fill="#9a3412">Contains oxygen + another non-metal</text>
+  <text x="70" y="208" class="sublabel">Name ends in -ate · e.g. copper sulfate, calcium carbonate</text>
+
+  <rect x="60" y="230" width="380" height="50" rx="8" class="rule-box"/>
+  <text x="70" y="250" class="label" fill="#9a3412">Two non-metals</text>
+  <text x="70" y="268" class="sublabel">Use prefixes: mono-, di-, tri-, tetra- · e.g. CO₂ = carbon dioxide</text>
+
+  <rect x="60" y="290" width="380" height="40" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="70" y="308" class="label" fill="#166534">State symbols:</text>
+  <text x="180" y="308" class="sublabel">(s) solid · (l) liquid · (g) gas · (aq) aqueous</text>
+
+  <!-- Periodic table snippet -->
+  <rect x="40" y="355" width="420" height="145" rx="10" class="box"/>
+  <text x="250" y="380" text-anchor="middle" class="label">Where metals and non-metals meet</text>
+
+  <g transform="translate(90, 405)">
+    <rect x="0" y="0" width="40" height="40" rx="4" class="metal"/>
+    <text x="20" y="25" text-anchor="middle" class="label" fill="white">Ca</text>
+    <text x="20" y="55" text-anchor="middle" class="sublabel">metal</text>
+  </g>
+  <g transform="translate(150, 405)">
+    <rect x="0" y="0" width="40" height="40" rx="4" class="nonmetal"/>
+    <text x="20" y="25" text-anchor="middle" class="label" fill="white">Cl</text>
+    <text x="20" y="55" text-anchor="middle" class="sublabel">non-metal</text>
+  </g>
+  <text x="210" y="430" class="sublabel">→</text>
+  <g transform="translate(235, 405)">
+    <rect x="0" y="0" width="80" height="40" rx="4" fill="#8b5cf6"/>
+    <text x="40" y="25" text-anchor="middle" class="label" fill="white">CaCl₂</text>
+    <text x="40" y="55" text-anchor="middle" class="sublabel">calcium chloride</text>
+  </g>
+  <text x="360" y="430" class="sublabel">(-ide ending)</text>
+
+  <!-- Swap-and-drop examples -->
+  <rect x="480" y="70" width="380" height="430" rx="10" class="box"/>
+  <text x="670" y="95" text-anchor="middle" class="label">Swap-and-drop method</text>
+
+  <text x="500" y="125" class="sublabel">Write symbols with charges, then swap down as subscripts.</text>
+
+  <!-- Example 1: CaCl2 -->
+  <rect x="500" y="145" width="340" height="115" rx="8" class="formula-box"/>
+  <text x="670" y="165" text-anchor="middle" class="label">Calcium chloride</text>
+  <text x="520" y="195" style="font-size:16px; font-weight:700; fill:#1f2937;">Ca</text>
+  <text x="545" y="188" style="font-size:11px; font-weight:700; fill:#1f2937;">2+</text>
+  <text x="565" y="195" style="font-size:16px; font-weight:700; fill:#1f2937;">Cl</text>
+  <text x="590" y="188" style="font-size:11px; font-weight:700; fill:#1f2937;">−</text>
+  <text x="610" y="195" class="sublabel">swap charges</text>
+  <text x="520" y="230" style="font-size:18px; font-weight:700; fill:#1d4ed8;">CaCl₂</text>
+  <text x="600" y="230" class="sublabel">(no need to cancel)</text>
+
+  <!-- Example 2: Al2O3 -->
+  <rect x="500" y="275" width="340" height="115" rx="8" class="formula-box"/>
+  <text x="670" y="295" text-anchor="middle" class="label">Aluminium oxide</text>
+  <text x="520" y="325" style="font-size:16px; font-weight:700; fill:#1f2937;">Al</text>
+  <text x="542" y="318" style="font-size:11px; font-weight:700; fill:#1f2937;">3+</text>
+  <text x="563" y="325" style="font-size:16px; font-weight:700; fill:#1f2937;">O</text>
+  <text x="586" y="318" style="font-size:11px; font-weight:700; fill:#1f2937;">2−</text>
+  <text x="610" y="325" class="sublabel">swap charges</text>
+  <text x="520" y="360" style="font-size:18px; font-weight:700; fill:#1d4ed8;">Al₂O₃</text>
+  <text x="600" y="360" class="sublabel">(total +6 = −6)</text>
+
+  <!-- Example 3: Covalent prefixes -->
+  <rect x="500" y="405" width="340" height="80" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="670" y="425" text-anchor="middle" class="label" fill="#166534">Covalent prefixes</text>
+  <text x="520" y="450" class="sublabel">carbon dioxide = 1 C + 2 O =</text>
+  <text x="720" y="453" style="font-size:16px; font-weight:700; fill:#166534;">CO₂</text>
+  <text x="520" y="472" class="sublabel">dinitrogen tetroxide = 2 N + 4 O =</text>
+  <text x="770" y="475" style="font-size:16px; font-weight:700; fill:#166534;">N₂O₄</text>
+</svg>

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc">
+  <title id="title">What is Respiration?</title>
+  <desc id="desc">Diagram contrasting breathing (ventilation) with cellular respiration, showing that respiration is a chemical reaction inside cells that releases ATP.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="460" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Respiration is Not the Same as Breathing</text>
+
+  <!-- Breathing panel -->
+  <rect x="30" y="55" width="360" height="380" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="210" y="82" text-anchor="middle" class="panel-title">Breathing (Ventilation)</text>
+
+  <!-- Lungs -->
+  <ellipse cx="175" cy="205" rx="52" ry="82" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+  <ellipse cx="265" cy="205" rx="52" ry="82" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+  <rect x="210" y="100" width="20" height="55" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+  <line x1="220" y1="155" x2="190" y2="135" class="line" stroke="#ef4444"/>
+  <line x1="220" y1="155" x2="250" y2="135" class="line" stroke="#ef4444"/>
+
+  <!-- Airflow labels -->
+  <line x1="170" y1="105" x2="120" y2="95" class="line"/>
+  <rect x="55" y="84" width="110" height="20" rx="4" class="label-bg"/>
+  <text x="62" y="98" class="label">O₂ inhaled</text>
+
+  <line x1="270" y1="105" x2="320" y2="95" class="line"/>
+  <rect x="300" y="84" width="120" height="20" rx="4" class="label-bg"/>
+  <text x="307" y="98" class="label">CO₂ exhaled</text>
+
+  <line x1="220" y1="80" x2="220" y2="100" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <line x1="250" y1="125" x2="280" y2="90" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+
+  <text x="210" y="330" text-anchor="middle" class="sublabel">Physical movement of air</text>
+  <text x="210" y="350" text-anchor="middle" class="sublabel">into and out of the lungs</text>
+
+  <!-- Respiration panel -->
+  <rect x="410" y="55" width="360" height="380" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="590" y="82" text-anchor="middle" class="panel-title">Respiration (Chemical Reaction)</text>
+
+  <!-- Cell -->
+  <circle cx="590" cy="205" r="95" fill="#dbeafe" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
+
+  <!-- Mitochondrion -->
+  <ellipse cx="590" cy="205" rx="62" ry="34" fill="#f87171" stroke="#b91c1c" stroke-width="2"/>
+  <path d="M545,205 Q560,188 575,205 Q590,222 605,205 Q620,188 635,205" fill="none" stroke="#7f1d1d" stroke-width="3" stroke-linecap="round"/>
+  <text x="590" y="210" text-anchor="middle" class="label" fill="#fff">Mitochondrion</text>
+
+  <!-- Inputs -->
+  <rect x="425" y="165" width="85" height="36" rx="8" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+  <text x="467" y="182" text-anchor="middle" class="label">Glucose</text>
+  <text x="467" y="195" text-anchor="middle" class="sublabel">C₆H₁₂O₆</text>
+
+  <rect x="425" y="220" width="85" height="36" rx="8" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="467" y="237" text-anchor="middle" class="label">Oxygen</text>
+  <text x="467" y="250" text-anchor="middle" class="sublabel">O₂</text>
+
+  <line x1="510" y1="183" x2="535" y2="195" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+  <line x1="510" y1="238" x2="535" y2="215" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+
+  <!-- Outputs -->
+  <rect x="670" y="150" width="90" height="34" rx="8" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+  <text x="715" y="167" text-anchor="middle" class="label">CO₂</text>
+  <text x="715" y="178" text-anchor="middle" class="sublabel">Carbon dioxide</text>
+
+  <rect x="670" y="200" width="90" height="34" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="715" y="217" text-anchor="middle" class="label">H₂O</text>
+  <text x="715" y="228" text-anchor="middle" class="sublabel">Water</text>
+
+  <line x1="652" y1="195" x2="670" y2="167" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+  <line x1="652" y1="215" x2="670" y2="217" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+
+  <!-- ATP energy -->
+  <path d="M600,125 L610,100 L620,125 L645,115 L625,135 L640,155 L615,145 L605,170 L595,145 L570,155 L585,135 L565,115 L590,125 Z" fill="#facc15" stroke="#ca8a04" stroke-width="1.5"/>
+  <line x1="605" y1="68" x2="605" y2="100" class="line"/>
+  <text x="605" y="62" text-anchor="middle" class="label" fill="#a16207">ATP energy</text>
+
+  <!-- Summary text -->
+  <rect x="440" y="320" width="300" height="50" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5" rx="6"/>
+  <text x="590" y="342" text-anchor="middle" class="sublabel">All living cells respire 24/7 — plants,</text>
+  <text x="590" y="360" text-anchor="middle" class="sublabel">animals, fungi and bacteria.</text>
+
+  <!-- Word equation -->
+  <rect x="150" y="410" width="500" height="34" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <text x="400" y="431" text-anchor="middle" class="sublabel">Glucose + Oxygen → Carbon dioxide + Water + ATP energy</text>
+</svg>

@@ -8,37 +8,72 @@
     {
       "id": "chem-metals-1-n1",
       "heading": "The Reactivity Series",
-      "body": "The reactivity series ranks metals by how vigorously they react. From most to least reactive: Potassium (K), Sodium (Na), Lithium (Li), Calcium (Ca), Magnesium (Mg), Aluminium (Al), Carbon (C — non-metal, included as reference), Zinc (Zn), Iron (Fe), Tin (Sn), Lead (Pb), Hydrogen (H — reference), Copper (Cu), Silver (Ag), Gold (Au), Platinum (Pt). Key trends: the most reactive metals (K, Na) react violently with cold water; Mg reacts slowly with cold water but vigorously with steam; Zn and Fe react with acid but not water; Cu, Ag, Au do NOT react with acids (they are below hydrogen). Metals above carbon must be extracted by electrolysis. Metals below carbon can be extracted by reduction with carbon (heating with coke/charcoal). Displacement: a more reactive metal will displace a less reactive metal from its compound. Zn + CuSO₄ → ZnSO₄ + Cu (zinc is more reactive than copper). This is a redox reaction."
+      "body": "The reactivity series ranks metals by how vigorously they react. From most to least reactive: Potassium (K), Sodium (Na), Lithium (Li), Calcium (Ca), Magnesium (Mg), Aluminium (Al), Carbon (C — non-metal, included as reference), Zinc (Zn), Iron (Fe), Tin (Sn), Lead (Pb), Hydrogen (H — reference), Copper (Cu), Silver (Ag), Gold (Au), Platinum (Pt). Key trends: the most reactive metals (K, Na) react violently with cold water; Mg reacts slowly with cold water but vigorously with steam; Zn and Fe react with acid but not water; Cu, Ag, Au do NOT react with acids (they are below hydrogen). Metals above carbon must be extracted by electrolysis. Metals below carbon can be extracted by reduction with carbon (heating with coke/charcoal). Displacement: a more reactive metal will displace a less reactive metal from its compound. Zn + CuSO₄ → ZnSO₄ + Cu (zinc is more reactive than copper). This is a redox reaction.",
+      "illustration": {
+        "src": "/images/chemistry/chem-metals-1-reactivity-series.svg",
+        "alt": "The reactivity series ladder ranking metals from potassium at the top to platinum at the bottom.",
+        "caption": "Metals at the top are most reactive; metals below carbon can be extracted by reduction."
+      }
     },
     {
       "id": "chem-metals-1-n2",
       "heading": "Reactions of Metals with Water and Acid",
-      "body": "Metal + Water → Metal hydroxide + Hydrogen (for reactive metals K-Ca). 2K + 2H₂O → 2KOH + H₂. Very vigorous, often ignites hydrogen. Mg + 2H₂O → Mg(OH)₂ + H₂ (slow with cold water, vigorous with steam). Metal + Acid → Salt + Hydrogen (for metals above hydrogen in series). Mg + 2HCl → MgCl₂ + H₂. Zn + H₂SO₄ → ZnSO₄ + H₂. Observations: fizzing/bubbling (H₂ gas), metal dissolves, solution may get warm (exothermic). The rate of bubbling indicates reactivity — faster bubbling = more reactive. To compare reactivity fairly: control the surface area (use same mass and form — powder vs ribbon), concentration of acid, and temperature. Collect the hydrogen gas and measure volume over time to quantify rate."
+      "body": "Metal + Water → Metal hydroxide + Hydrogen (for reactive metals K-Ca). 2K + 2H₂O → 2KOH + H₂. Very vigorous, often ignites hydrogen. Mg + 2H₂O → Mg(OH)₂ + H₂ (slow with cold water, vigorous with steam). Metal + Acid → Salt + Hydrogen (for metals above hydrogen in series). Mg + 2HCl → MgCl₂ + H₂. Zn + H₂SO₄ → ZnSO₄ + H₂. Observations: fizzing/bubbling (H₂ gas), metal dissolves, solution may get warm (exothermic). The rate of bubbling indicates reactivity — faster bubbling = more reactive. To compare reactivity fairly: control the surface area (use same mass and form — powder vs ribbon), concentration of acid, and temperature. Collect the hydrogen gas and measure volume over time to quantify rate.",
+      "illustration": {
+        "src": "/images/chemistry/chem-metals-1-metal-acid-reaction.svg",
+        "alt": "A conical flask containing a metal strip reacting with acid, with hydrogen gas collected over water in a measuring cylinder.",
+        "caption": "Faster bubbling means a more reactive metal; the gas produced is hydrogen."
+      }
     },
     {
       "id": "chem-metals-1-n3",
       "heading": "Metal Extraction: Reduction with Carbon",
-      "body": "Most metals exist naturally as compounds in rocks called ores — often oxides or sulfides. Extraction is the process of obtaining the pure metal from its ore. For metals BELOW carbon in the reactivity series, heating the ore with carbon (or carbon monoxide) reduces the metal oxide: Metal oxide + Carbon → Metal + Carbon dioxide. This is a redox reaction — the metal oxide is reduced (loses oxygen), carbon is oxidised (gains oxygen). Example: iron extraction in blast furnace: 2Fe₂O₃ + 3C → 4Fe + 3CO₂. Alternatively using CO: Fe₂O₃ + 3CO → 2Fe + 3CO₂. For zinc: 2ZnO + C → 2Zn + CO₂. For metals ABOVE carbon (K, Na, Ca, Mg, Al), reduction with carbon does NOT work — these metals hold onto oxygen too tightly. They must be extracted by electrolysis of their molten ores, which requires huge amounts of electricity. This is why aluminium (electrolysis) is more expensive to produce than iron (blast furnace)."
+      "body": "Most metals exist naturally as compounds in rocks called ores — often oxides or sulfides. Extraction is the process of obtaining the pure metal from its ore. For metals BELOW carbon in the reactivity series, heating the ore with carbon (or carbon monoxide) reduces the metal oxide: Metal oxide + Carbon → Metal + Carbon dioxide. This is a redox reaction — the metal oxide is reduced (loses oxygen), carbon is oxidised (gains oxygen). Example: iron extraction in blast furnace: 2Fe₂O₃ + 3C → 4Fe + 3CO₂. Alternatively using CO: Fe₂O₃ + 3CO → 2Fe + 3CO₂. For zinc: 2ZnO + C → 2Zn + CO₂. For metals ABOVE carbon (K, Na, Ca, Mg, Al), reduction with carbon does NOT work — these metals hold onto oxygen too tightly. They must be extracted by electrolysis of their molten ores, which requires huge amounts of electricity. This is why aluminium (electrolysis) is more expensive to produce than iron (blast furnace).",
+      "illustration": {
+        "src": "/images/chemistry/chem-metals-1-blast-furnace.svg",
+        "alt": "A labelled blast furnace showing iron ore, coke and limestone entering at the top, hot air blasted in near the bottom, and molten iron and slag tapped off.",
+        "caption": "Carbon monoxide reduces iron oxide to iron; this only works for metals below carbon in the series."
+      }
     },
     {
       "id": "chem-metals-1-n4",
       "heading": "Extraction by Electrolysis",
-      "body": "For the most reactive metals (Al and above), electrolysis is the only viable extraction method. Aluminium is extracted from bauxite (Al₂O₃) by the Hall-Héroult process: (1) Al₂O₃ is dissolved in molten cryolite (Na₃AlF₆) — cryolite lowers the melting point from ~2050°C to ~950°C, saving enormous energy. (2) The molten mixture is electrolysed — Al³⁺ ions are reduced at the cathode (negative electrode): Al³⁺ + 3e⁻ → Al (molten aluminium collects at the bottom). (3) Oxide ions are oxidised at the anode (positive electrode): 2O²⁻ → O₂ + 4e⁻. The oxygen reacts with the graphite (carbon) anodes, producing CO₂ — the anodes are gradually consumed and must be replaced. Overall: 2Al₂O₃ → 4Al + 3O₂. This process consumes massive amounts of electricity — aluminium smelters are often located near hydroelectric dams. Recycling aluminium uses only 5% of the energy of primary production."
+      "body": "For the most reactive metals (Al and above), electrolysis is the only viable extraction method. Aluminium is extracted from bauxite (Al₂O₃) by the Hall-Héroult process: (1) Al₂O₃ is dissolved in molten cryolite (Na₃AlF₆) — cryolite lowers the melting point from ~2050°C to ~950°C, saving enormous energy. (2) The molten mixture is electrolysed — Al³⁺ ions are reduced at the cathode (negative electrode): Al³⁺ + 3e⁻ → Al (molten aluminium collects at the bottom). (3) Oxide ions are oxidised at the anode (positive electrode): 2O²⁻ → O₂ + 4e⁻. The oxygen reacts with the graphite (carbon) anodes, producing CO₂ — the anodes are gradually consumed and must be replaced. Overall: 2Al₂O₃ → 4Al + 3O₂. This process consumes massive amounts of electricity — aluminium smelters are often located near hydroelectric dams. Recycling aluminium uses only 5% of the energy of primary production.",
+      "illustration": {
+        "src": "/images/chemistry/chem-metals-1-aluminium-electrolysis.svg",
+        "alt": "An electrolytic cell for aluminium extraction showing carbon anodes, a cathode, molten cryolite-alumina mixture, and molten aluminium collected at the bottom.",
+        "caption": "Aluminium is extracted by electrolysis because it is above carbon in the reactivity series."
+      }
     },
     {
       "id": "chem-metals-1-n5",
       "heading": "Alloys: Improving Metal Properties",
-      "body": "Pure metals are often too soft or too reactive for practical use. An alloy is a mixture of a metal with one or more other elements (metals or non-metals). Alloys are harder and stronger than pure metals because the different-sized atoms disrupt the regular layers in the metal lattice — layers can no longer slide easily. Examples: Steel — iron + carbon (and other elements). Mild steel (~0.25% C) — used for car bodies, girders. Stainless steel (Fe + Cr + Ni) — resists corrosion, used for cutlery and surgical instruments. Brass — copper + zinc (harder than pure copper, used for musical instruments, plumbing). Bronze — copper + tin (historical significance — the Bronze Age). Solder — lead + tin (low melting point, used for joining electrical components). Duralumin — aluminium + copper + magnesium (strong but lightweight — aircraft). Gold alloys — pure gold (24 carat) is too soft for jewellery; 18 carat gold is an alloy with copper/silver. Amalgam — mercury alloyed with other metals (used historically in dental fillings)."
+      "body": "Pure metals are often too soft or too reactive for practical use. An alloy is a mixture of a metal with one or more other elements (metals or non-metals). Alloys are harder and stronger than pure metals because the different-sized atoms disrupt the regular layers in the metal lattice — layers can no longer slide easily. Examples: Steel — iron + carbon (and other elements). Mild steel (~0.25% C) — used for car bodies, girders. Stainless steel (Fe + Cr + Ni) — resists corrosion, used for cutlery and surgical instruments. Brass — copper + zinc (harder than pure copper, used for musical instruments, plumbing). Bronze — copper + tin (historical significance — the Bronze Age). Solder — lead + tin (low melting point, used for joining electrical components). Duralumin — aluminium + copper + magnesium (strong but lightweight — aircraft). Gold alloys — pure gold (24 carat) is too soft for jewellery; 18 carat gold is an alloy with copper/silver. Amalgam — mercury alloyed with other metals (used historically in dental fillings).",
+      "illustration": {
+        "src": "/images/chemistry/chem-metals-1-alloy-structure.svg",
+        "alt": "A comparison of pure metal layers sliding easily versus alloy layers blocked by different-sized atoms.",
+        "caption": "Different-sized atoms in an alloy disrupt the regular lattice, making it harder and stronger."
+      }
     },
     {
       "id": "chem-metals-1-n6",
       "heading": "Corrosion and Rusting",
-      "body": "Corrosion is the destruction of materials by chemical reactions with their environment. Rusting is the specific corrosion of IRON (and steel) requiring BOTH oxygen AND water: 4Fe + 3O₂ + 2H₂O → 2Fe₂O₃·H₂O (hydrated iron(III) oxide — rust). Rust is flaky and porous — it does NOT protect the iron underneath, unlike some other metal oxides. Preventing rust: (1) Barrier methods — paint, oil, grease, plastic coating (prevent O₂ and H₂O contact). (2) Sacrificial protection — attaching a MORE reactive metal (Zn, Mg) which corrodes instead of iron. Zinc (galvanising) works even if scratched because zinc is more reactive — it acts as a sacrificial anode. (3) Alloying — stainless steel (Cr forms a protective Cr₂O₃ layer). (4) Electroplating — coating with a thin layer of another metal (e.g., chromium plating). Other metals also corrode: aluminium forms Al₂O₃ — a thin, tough, transparent layer that ADHERES and protects the metal beneath (unlike rust). Copper forms a green patina (verdigris) of copper carbonate — this also protects beneath. Silver tarnishes (Ag₂S). Gold and platinum are so unreactive they do not corrode at all."
+      "body": "Corrosion is the destruction of materials by chemical reactions with their environment. Rusting is the specific corrosion of IRON (and steel) requiring BOTH oxygen AND water: 4Fe + 3O₂ + 2H₂O → 2Fe₂O₃·H₂O (hydrated iron(III) oxide — rust). Rust is flaky and porous — it does NOT protect the iron underneath, unlike some other metal oxides. Preventing rust: (1) Barrier methods — paint, oil, grease, plastic coating (prevent O₂ and H₂O contact). (2) Sacrificial protection — attaching a MORE reactive metal (Zn, Mg) which corrodes instead of iron. Zinc (galvanising) works even if scratched because zinc is more reactive — it acts as a sacrificial anode. (3) Alloying — stainless steel (Cr forms a protective Cr₂O₃ layer). (4) Electroplating — coating with a thin layer of another metal (e.g., chromium plating). Other metals also corrode: aluminium forms Al₂O₃ — a thin, tough, transparent layer that ADHERES and protects the metal beneath (unlike rust). Copper forms a green patina (verdigris) of copper carbonate — this also protects beneath. Silver tarnishes (Ag₂S). Gold and platinum are so unreactive they do not corrode at all.",
+      "illustration": {
+        "src": "/images/chemistry/chem-metals-1-corrosion-rusting.svg",
+        "alt": "An iron nail rusting where oxygen and water meet, plus prevention methods including paint, galvanising and alloying.",
+        "caption": "Rusting needs both oxygen and water; sacrificial zinc can protect iron even when scratched."
+      }
     },
     {
       "id": "chem-metals-1-n7",
       "heading": "Recycling and Sustainability",
-      "body": "Recycling metals is increasingly important for environmental and economic reasons: (1) Energy savings — recycling aluminium uses 95% less energy than extracting from ore. (2) Resource conservation — metal ores are finite (non-renewable). (3) Reduced landfill — metals do not biodegrade; they persist indefinitely. (4) Reduced mining impact — mining destroys habitats, produces waste (tailings), and can cause pollution. Challenges: sorting different metals and alloys (magnetic separation for iron/steel, eddy current separation for aluminium, manual/hand-sorting for others). Some products are complex mixtures that are hard to separate (e.g., electronic waste). Life cycle assessment (LCA) considers the total environmental impact of a product from raw material extraction, through manufacturing and use, to disposal/recycling. For metals, the high energy cost of extraction means that recycling almost always has a lower environmental impact. The economic value of scrap metal provides a financial incentive for recycling."
+      "body": "Recycling metals is increasingly important for environmental and economic reasons: (1) Energy savings — recycling aluminium uses 95% less energy than extracting from ore. (2) Resource conservation — metal ores are finite (non-renewable). (3) Reduced landfill — metals do not biodegrade; they persist indefinitely. (4) Reduced mining impact — mining destroys habitats, produces waste (tailings), and can cause pollution. Challenges: sorting different metals and alloys (magnetic separation for iron/steel, eddy current separation for aluminium, manual/hand-sorting for others). Some products are complex mixtures that are hard to separate (e.g., electronic waste). Life cycle assessment (LCA) considers the total environmental impact of a product from raw material extraction, through manufacturing and use, to disposal/recycling. For metals, the high energy cost of extraction means that recycling almost always has a lower environmental impact. The economic value of scrap metal provides a financial incentive for recycling.",
+      "illustration": {
+        "src": "/images/chemistry/chem-metals-1-recycling-sustainability.svg",
+        "alt": "A metal recycling loop from collection to reuse, with an energy comparison showing recycling aluminium uses far less energy than primary extraction.",
+        "caption": "Recycling metals saves energy, conserves ores, and reduces mining and landfill impacts."
+      }
     }
   ],
   "flashcards": [
@@ -119,105 +154,180 @@
     {
       "id": "chem-metals-1-q1",
       "stem": "Zn + CuSO₄ → ZnSO₄ + Cu. Why does this reaction occur?",
-      "choices": ["Copper is more reactive than zinc", "Zinc is above copper in the reactivity series, so it displaces Cu²⁺ ions", "Sulfate ions react with zinc", "Copper is larger than zinc"],
+      "choices": [
+        "Copper is more reactive than zinc",
+        "Zinc is above copper in the reactivity series, so it displaces Cu²⁺ ions",
+        "Sulfate ions react with zinc",
+        "Copper is larger than zinc"
+      ],
       "correctIndex": 1,
       "explanation": "Displacement: a more reactive metal (Zn) replaces a less reactive metal (Cu) from its compound."
     },
     {
       "id": "chem-metals-1-q2",
       "stem": "Which metals must be extracted by electrolysis rather than carbon reduction?",
-      "choices": ["Iron and copper", "Zinc and lead", "Potassium, sodium, calcium, magnesium, aluminium (above carbon)", "Gold and silver"],
+      "choices": [
+        "Iron and copper",
+        "Zinc and lead",
+        "Potassium, sodium, calcium, magnesium, aluminium (above carbon)",
+        "Gold and silver"
+      ],
       "correctIndex": 2,
       "explanation": "Metals above carbon in the reactivity series hold onto oxygen too strongly. Carbon cannot reduce them — electrolysis is required."
     },
     {
       "id": "chem-metals-1-q3",
       "stem": "Why is cryolite used in aluminium extraction?",
-      "choices": ["To make aluminium stronger", "To lower the melting point of Al₂O₃ from ~2050°C to ~950°C — saving massive energy costs", "To increase the conductivity of aluminium", "To prevent aluminium from oxidising"],
+      "choices": [
+        "To make aluminium stronger",
+        "To lower the melting point of Al₂O₃ from ~2050°C to ~950°C — saving massive energy costs",
+        "To increase the conductivity of aluminium",
+        "To prevent aluminium from oxidising"
+      ],
       "correctIndex": 1,
       "explanation": "Without cryolite, the extreme temperature needed would make extraction economically unviable. Cryolite is a flux."
     },
     {
       "id": "chem-metals-1-q4",
       "stem": "An iron nail wrapped in zinc does not rust even when scratched. Why?",
-      "choices": ["Zinc is a barrier only", "Zinc is more reactive than iron — it acts as a sacrificial anode, corroding instead of the iron even where exposed", "Zinc and iron form an alloy", "Zinc neutralises acid rain"],
+      "choices": [
+        "Zinc is a barrier only",
+        "Zinc is more reactive than iron — it acts as a sacrificial anode, corroding instead of the iron even where exposed",
+        "Zinc and iron form an alloy",
+        "Zinc neutralises acid rain"
+      ],
       "correctIndex": 1,
       "explanation": "Galvanising provides both barrier AND sacrificial protection. If scratched, zinc still corrodes preferentially."
     },
     {
       "id": "chem-metals-1-q5",
       "stem": "Why are alloys harder than pure metals?",
-      "choices": ["Different-sized atoms disrupt the regular layers in the lattice — layers cannot slide past each other easily", "Alloys have stronger metallic bonds", "Alloy atoms are larger", "Pure metals are always soft"],
+      "choices": [
+        "Different-sized atoms disrupt the regular layers in the lattice — layers cannot slide past each other easily",
+        "Alloys have stronger metallic bonds",
+        "Alloy atoms are larger",
+        "Pure metals are always soft"
+      ],
       "correctIndex": 0,
       "explanation": "Alloying introduces atoms of different sizes into the lattice. This disrupts the sliding planes — when force is applied, layers cannot glide smoothly."
     },
     {
       "id": "chem-metals-1-q6",
       "stem": "Which metal could be used for sacrificial protection of iron?",
-      "choices": ["Copper (below iron in series)", "Magnesium (above iron — more reactive)", "Silver (below iron)", "Gold (unreactive)"],
+      "choices": [
+        "Copper (below iron in series)",
+        "Magnesium (above iron — more reactive)",
+        "Silver (below iron)",
+        "Gold (unreactive)"
+      ],
       "correctIndex": 1,
       "explanation": "Sacrificial metal must be MORE reactive than iron. Magnesium is above iron in the reactivity series → it corrodes preferentially."
     },
     {
       "id": "chem-metals-1-q7",
       "stem": "Why does aluminium NOT rust away like iron?",
-      "choices": ["Aluminium is more reactive", "Al₂O₃ forms a thin, tough, adhesive layer that protects the metal beneath; iron's rust (Fe₂O₃·H₂O) is flaky and exposes fresh iron", "Aluminium does not react with oxygen", "Aluminium is always painted"],
+      "choices": [
+        "Aluminium is more reactive",
+        "Al₂O₃ forms a thin, tough, adhesive layer that protects the metal beneath; iron's rust (Fe₂O₃·H₂O) is flaky and exposes fresh iron",
+        "Aluminium does not react with oxygen",
+        "Aluminium is always painted"
+      ],
       "correctIndex": 1,
       "explanation": "Aluminium's oxide layer is non-porous and tightly bound. Rust is porous and flakes off, constantly exposing fresh iron to attack."
     },
     {
       "id": "chem-metals-1-q8",
       "stem": "In a blast furnace: Fe₂O₃ + 3CO → 2Fe + 3CO₂. Which substance is reduced?",
-      "choices": ["CO — it gains oxygen", "Fe₂O₃ — it loses oxygen (Fe³⁺ gains electrons)", "CO₂ — it contains oxygen", "C — it is the reducing agent"],
+      "choices": [
+        "CO — it gains oxygen",
+        "Fe₂O₃ — it loses oxygen (Fe³⁺ gains electrons)",
+        "CO₂ — it contains oxygen",
+        "C — it is the reducing agent"
+      ],
       "correctIndex": 1,
       "explanation": "Fe₂O₃ loses oxygen → reduced to Fe. CO gains oxygen → oxidised to CO₂. OIL RIG: Oxidation Is Loss (of electrons); Reduction Is Gain."
     },
     {
       "id": "chem-metals-1-q9",
       "stem": "Gold is found as a native metal. What does this tell you about its reactivity?",
-      "choices": ["It is very reactive — it reacts to form native deposits", "It is extremely unreactive — it does not form compounds in nature, so it exists as pure elemental gold", "It reacts only with water", "All metals are found native"],
+      "choices": [
+        "It is very reactive — it reacts to form native deposits",
+        "It is extremely unreactive — it does not form compounds in nature, so it exists as pure elemental gold",
+        "It reacts only with water",
+        "All metals are found native"
+      ],
       "correctIndex": 1,
       "explanation": "Gold's extreme unreactivity means it does not form ores (compounds). It is found as pure metal nuggets — no chemical extraction needed."
     },
     {
       "id": "chem-metals-1-q10",
       "stem": "Which pair of conditions is essential for rusting?",
-      "choices": ["Oxygen only", "Water only", "Oxygen AND water — both must be present", "Carbon dioxide and oxygen"],
+      "choices": [
+        "Oxygen only",
+        "Water only",
+        "Oxygen AND water — both must be present",
+        "Carbon dioxide and oxygen"
+      ],
       "correctIndex": 2,
       "explanation": "Rusting requires BOTH O₂ and H₂O. Experiments show: iron in dry air (O₂ but no water) → no rust. Iron in boiled water with oil layer (water but no O₂) → no rust."
     },
     {
       "id": "chem-metals-1-q11",
       "stem": "Recycling aluminium uses ~5% of the energy of primary extraction. Why is primary extraction so energy-intensive?",
-      "choices": ["Aluminium ore is very rare", "Al₂O₃ must be melted at very high temperature and electrolysed — both require enormous electricity", "Aluminium is very dense", "Mining bauxite requires explosives"],
+      "choices": [
+        "Aluminium ore is very rare",
+        "Al₂O₃ must be melted at very high temperature and electrolysed — both require enormous electricity",
+        "Aluminium is very dense",
+        "Mining bauxite requires explosives"
+      ],
       "correctIndex": 1,
       "explanation": "Electrolysis of molten Al₂O₃ requires temperatures of ~950°C (even with cryolite) and massive electrical current to reduce Al³⁺ to Al."
     },
     {
       "id": "chem-metals-1-q12",
       "stem": "Cu + FeSO₄ → no reaction. Why?",
-      "choices": ["Iron sulfate is unreactive", "Copper is BELOW iron in the reactivity series — it cannot displace Fe²⁺ ions", "The sulfate ion blocks the reaction", "Copper is above iron"],
+      "choices": [
+        "Iron sulfate is unreactive",
+        "Copper is BELOW iron in the reactivity series — it cannot displace Fe²⁺ ions",
+        "The sulfate ion blocks the reaction",
+        "Copper is above iron"
+      ],
       "correctIndex": 1,
       "explanation": "Only a more reactive metal can displace a less reactive one. Cu is less reactive than Fe → no displacement."
     },
     {
       "id": "chem-metals-1-q13",
       "stem": "Which is a typical property of transition metals but NOT Group 1 metals?",
-      "choices": ["React vigorously with water", "Form coloured compounds and act as catalysts", "Are soft and can be cut with a knife", "Have low densities"],
+      "choices": [
+        "React vigorously with water",
+        "Form coloured compounds and act as catalysts",
+        "Are soft and can be cut with a knife",
+        "Have low densities"
+      ],
       "correctIndex": 1,
       "explanation": "Transition metals form coloured ions (Cu²⁺ blue, Fe²⁺ green, Fe³⁺ brown) and are excellent catalysts. Group 1 compounds are white/colourless."
     },
     {
       "id": "chem-metals-1-q14",
       "stem": "Why does salt spread on roads in winter accelerate car rusting?",
-      "choices": ["Salt reacts with iron to form rust directly", "Dissolved salt increases the conductivity of water, speeding up the electrochemical reactions of rusting", "Salt prevents protective coatings from working", "Salt dries out the metal"],
+      "choices": [
+        "Salt reacts with iron to form rust directly",
+        "Dissolved salt increases the conductivity of water, speeding up the electrochemical reactions of rusting",
+        "Salt prevents protective coatings from working",
+        "Salt dries out the metal"
+      ],
       "correctIndex": 1,
       "explanation": "Salt water is an electrolyte — it facilitates the flow of electrons in the electrochemical rusting process, dramatically accelerating corrosion."
     },
     {
       "id": "chem-metals-1-q15",
       "stem": "Bronze is an alloy of copper and tin. Which statement explains why bronze is harder than pure copper?",
-      "choices": ["Tin is harder than copper", "Tin atoms (different size) disrupt the copper lattice, preventing layers from sliding — this is solid solution strengthening", "Bronze has a different colour", "Bronze contains fewer atoms per volume"],
+      "choices": [
+        "Tin is harder than copper",
+        "Tin atoms (different size) disrupt the copper lattice, preventing layers from sliding — this is solid solution strengthening",
+        "Bronze has a different colour",
+        "Bronze contains fewer atoms per volume"
+      ],
       "correctIndex": 1,
       "explanation": "Alloying introduces atoms of different radii. These disrupt the regular planes of atoms, increasing resistance to deformation (hardness)."
     }

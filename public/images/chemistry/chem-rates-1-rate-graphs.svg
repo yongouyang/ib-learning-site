@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Interpreting a product vs time graph</title>
+  <desc id="desc">A product versus time graph showing a steep initial rate, a curve that gradually levels off, and a tangent used to find the instantaneous rate.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .axis { stroke: #374151; stroke-width: 2; }
+      .grid { stroke: #e5e7eb; stroke-width: 1; }
+      .curve { fill: none; stroke: #f97316; stroke-width: 3; }
+      .tangent { fill: none; stroke: #6b7280; stroke-width: 2; stroke-dasharray: 6,4; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="38" text-anchor="middle" class="title">Interpreting Rate Graphs: Product vs Time</text>
+
+  <!-- Axes -->
+  <line x1="100" y1="440" x2="700" y2="440" class="axis"/>
+  <line x1="100" y1="440" x2="100" y2="80" class="axis"/>
+
+  <!-- Axis labels -->
+  <text x="400" y="475" text-anchor="middle" class="label">Time (s)</text>
+  <text x="50" y="260" text-anchor="middle" class="label" transform="rotate(-90 50 260)">Product formed (cm³)</text>
+
+  <!-- Gridlines -->
+  <line x1="100" y1="380" x2="700" y2="380" class="grid"/>
+  <line x1="100" y1="320" x2="700" y2="320" class="grid"/>
+  <line x1="100" y1="260" x2="700" y2="260" class="grid"/>
+  <line x1="100" y1="200" x2="700" y2="200" class="grid"/>
+  <line x1="100" y1="140" x2="700" y2="140" class="grid"/>
+
+  <line x1="250" y1="440" x2="250" y2="80" class="grid"/>
+  <line x1="400" y1="440" x2="400" y2="80" class="grid"/>
+  <line x1="550" y1="440" x2="550" y2="80" class="grid"/>
+
+  <!-- Product curve -->
+  <path d="M100 440 C140 440 200 380 280 260 C360 140 500 110 700 110" class="curve"/>
+
+  <!-- Plateau -->
+  <line x1="650" y1="80" x2="650" y2="130" class="line"/>
+  <rect x="560" y="55" width="180" height="18" rx="4" fill="#f9fafb"/>
+  <text x="650" y="68" text-anchor="middle" class="sublabel">Plateau: reaction complete</text>
+
+  <!-- Initial steep gradient label -->
+  <line x1="140" y1="420" x2="220" y2="340" class="line"/>
+  <rect x="100" y="340" width="120" height="18" rx="4" fill="#f9fafb"/>
+  <text x="160" y="353" text-anchor="middle" class="sublabel">Fast initial rate</text>
+
+  <!-- Tangent at t = 40 s -->
+  <line x1="180" y1="460" x2="360" y2="180" class="tangent"/>
+  <circle cx="270" cy="320" r="5" fill="#6b7280"/>
+
+  <!-- Tangent gradient triangle -->
+  <line x1="270" y1="320" x2="360" y2="320" class="line"/>
+  <line x1="360" y1="320" x2="360" y2="180" class="line"/>
+  <rect x="300" y="295" width="60" height="18" rx="4" fill="#f9fafb"/>
+  <text x="330" y="308" text-anchor="middle" class="sublabel">Δy</text>
+  <rect x="365" y="240" width="40" height="18" rx="4" fill="#f9fafb"/>
+  <text x="385" y="253" text-anchor="middle" class="sublabel">Δx</text>
+
+  <line x1="360" y1="180" x2="720" y2="140" class="line"/>
+  <rect x="600" y="120" width="160" height="18" rx="4" fill="#f9fafb"/>
+  <text x="680" y="133" text-anchor="middle" class="sublabel">Instantaneous rate = gradient</text>
+</svg>

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" role="img" aria-labelledby="title desc">
+  <title id="title">Specialised Plant Cells</title>
+  <desc id="desc">Diagrams showing four specialised plant cells: root hair cell, palisade cell, xylem vessel, and guard cells.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="860" height="520" fill="#f9fafb" rx="12"/>
+  <text x="430" y="34" text-anchor="middle" class="title">Specialised Plant Cells</text>
+
+  <!-- Root hair cell panel -->
+  <rect x="30" y="60" width="400" height="220" class="box" rx="10"/>
+  <text x="230" y="84" text-anchor="middle" class="panel-title">Root Hair Cell</text>
+
+  <!-- Cell body -->
+  <rect x="180" y="110" width="60" height="120" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="6"/>
+  <!-- Root hair projection -->
+  <path d="M205,230 L205,300 C205,308 215,308 215,300 L215,230" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <!-- Mitochondria -->
+  <circle cx="195" cy="140" r="5" fill="#fb923c"/>
+  <circle cx="220" cy="165" r="5" fill="#fb923c"/>
+  <circle cx="200" cy="190" r="5" fill="#fb923c"/>
+  <!-- Soil -->
+  <rect x="70" y="305" width="290" height="10" fill="#92400e" opacity="0.25" rx="2"/>
+
+  <line x1="210" y1="304" x2="120" y2="320" class="line"/>
+  <rect x="10" y="311" width="88" height="18" rx="4" class="label-bg"/>
+  <text x="14" y="323" class="label">Root hair</text>
+
+  <line x1="180" y1="150" x2="120" y2="130" class="line"/>
+  <rect x="10" y="121" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="14" y="133" class="label">Large surface area</text>
+
+  <line x1="215" y1="165" x2="300" y2="130" class="line"/>
+  <rect x="302" y="121" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="306" y="133" class="label">Many mitochondria</text>
+
+  <line x1="210" y1="210" x2="300" y2="210" class="line"/>
+  <rect x="302" y="201" width="95" height="18" rx="4" class="label-bg"/>
+  <text x="306" y="213" class="label">No chloroplasts</text>
+
+  <!-- Palisade cell panel -->
+  <rect x="430" y="60" width="400" height="220" class="box" rx="10"/>
+  <text x="630" y="84" text-anchor="middle" class="panel-title">Palisade Cell</text>
+
+  <rect x="540" y="110" width="35" height="130" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="4"/>
+  <rect x="590" y="110" width="35" height="130" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="4"/>
+  <circle cx="557" cy="135" r="7" fill="#84cc16"/>
+  <circle cx="557" cy="170" r="7" fill="#84cc16"/>
+  <circle cx="557" cy="205" r="7" fill="#84cc16"/>
+  <circle cx="607" cy="150" r="7" fill="#84cc16"/>
+  <circle cx="607" cy="190" r="7" fill="#84cc16"/>
+  <circle cx="607" cy="225" r="7" fill="#84cc16"/>
+
+  <line x1="540" y1="120" x2="446" y2="130" class="line"/>
+  <rect x="440" y="121" width="78" height="18" rx="4" class="label-bg"/>
+  <text x="444" y="133" class="label">Column shape</text>
+
+  <line x1="625" y1="150" x2="700" y2="130" class="line"/>
+  <rect x="702" y="121" width="100" height="18" rx="4" class="label-bg"/>
+  <text x="706" y="133" class="label">Many chloroplasts</text>
+
+  <line x1="582" y1="240" x2="660" y2="255" class="line"/>
+  <rect x="615" y="256" width="130" height="18" rx="4" class="label-bg"/>
+  <text x="619" y="268" class="label">Packed near leaf surface</text>
+
+  <!-- Xylem vessel panel -->
+  <rect x="30" y="290" width="400" height="220" class="box" rx="10"/>
+  <text x="230" y="314" text-anchor="middle" class="panel-title">Xylem Vessel</text>
+
+  <!-- Vessel walls -->
+  <rect x="190" y="340" width="80" height="130" fill="#fffbeb" stroke="#92400e" stroke-width="6"/>
+  <!-- Lignin rings -->
+  <line x1="190" y1="370" x2="270" y2="370" stroke="#92400e" stroke-width="4"/>
+  <line x1="190" y1="410" x2="270" y2="410" stroke="#92400e" stroke-width="4"/>
+  <line x1="190" y1="450" x2="270" y2="450" stroke="#92400e" stroke-width="4"/>
+  <!-- Water movement arrow -->
+  <line x1="150" y1="450" x2="150" y2="360" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <line x1="230" y1="340" x2="300" y2="330" class="line"/>
+  <rect x="302" y="321" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="306" y="333" class="label">Dead, hollow tube</text>
+
+  <line x1="270" y1="400" x2="330" y2="410" class="line"/>
+  <rect x="332" y="401" width="120" height="18" rx="4" class="label-bg"/>
+  <text x="336" y="413" class="label">Lignin-strengthened walls</text>
+
+  <line x1="230" y1="420" x2="150" y2="430" class="line"/>
+  <rect x="10" y="421" width="120" height="18" rx="4" class="label-bg"/>
+  <text x="14" y="433" class="label">No cytoplasm / nucleus</text>
+
+  <!-- Guard cells panel -->
+  <rect x="430" y="290" width="400" height="220" class="box" rx="10"/>
+  <text x="630" y="314" text-anchor="middle" class="panel-title">Guard Cells</text>
+
+  <!-- Left guard cell -->
+  <path d="M610,350 C580,340 555,350 550,375 C555,400 580,410 610,400 C600,375 600,375 610,350 Z" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+  <!-- Right guard cell -->
+  <path d="M610,350 C640,340 665,350 670,375 C665,400 640,410 610,400 C620,375 620,375 610,350 Z" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+
+  <line x1="610" y1="345" x2="700" y2="330" class="line"/>
+  <rect x="702" y="321" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="706" y="333" class="label">Guard cells</text>
+
+  <line x1="610" y1="375" x2="700" y2="390" class="line"/>
+  <rect x="702" y="381" width="70" height="18" rx="4" class="label-bg"/>
+  <text x="706" y="393" class="label">Stoma (pore)</text>
+
+  <line x1="560" y1="350" x2="480" y2="330" class="line"/>
+  <rect x="350" y="321" width="128" height="18" rx="4" class="label-bg"/>
+  <text x="354" y="333" class="label">Control stomatal opening</text>
+</svg>

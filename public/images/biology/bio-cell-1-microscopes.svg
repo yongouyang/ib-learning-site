@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" role="img" aria-labelledby="title desc">
+  <title id="title">Light vs Electron Microscopes</title>
+  <desc id="desc">Comparison of a light microscope and an electron microscope, including magnification limits, specimen requirements, and the magnification formula.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="820" height="460" fill="#f9fafb" rx="12"/>
+  <text x="410" y="34" text-anchor="middle" class="title">Light vs Electron Microscopes</text>
+
+  <!-- Light microscope panel -->
+  <rect x="30" y="55" width="370" height="330" class="box" rx="10"/>
+  <text x="215" y="82" text-anchor="middle" class="panel-title">Light Microscope</text>
+
+  <!-- Base -->
+  <path d="M160,350 L270,350 L260,375 L170,375 Z" fill="#93c5fd" stroke="#3b82f6" stroke-width="2"/>
+  <!-- Arm -->
+  <path d="M180,360 Q155,260 180,150" fill="none" stroke="#3b82f6" stroke-width="8" stroke-linecap="round"/>
+  <!-- Stage -->
+  <rect x="150" y="250" width="130" height="10" rx="2" fill="#3b82f6"/>
+  <!-- Body tube -->
+  <line x1="165" y1="150" x2="245" y2="255" stroke="#60a5fa" stroke-width="14" stroke-linecap="round"/>
+  <!-- Eyepiece -->
+  <rect x="125" y="138" width="45" height="18" rx="4" fill="#2563eb"/>
+  <!-- Objective lenses -->
+  <circle cx="248" cy="258" r="6" fill="#1d4ed8"/>
+  <circle cx="258" cy="263" r="5" fill="#1d4ed8"/>
+  <circle cx="238" cy="263" r="5" fill="#1d4ed8"/>
+  <!-- Light source -->
+  <rect x="190" y="330" width="50" height="14" rx="3" fill="#facc15" stroke="#d97706" stroke-width="1.5"/>
+
+  <!-- Light microscope labels -->
+  <line x1="125" y1="147" x2="75" y2="125" class="line"/>
+  <rect x="5" y="112" width="108" height="18" rx="4" class="label-bg"/>
+  <text x="9" y="124" class="label">Eyepiece &amp; glass lenses</text>
+
+  <line x1="255" y1="265" x2="315" y2="260" class="line"/>
+  <rect x="317" y="251" width="78" height="18" rx="4" class="label-bg"/>
+  <text x="321" y="263" class="label">Objective lenses</text>
+
+  <line x1="215" y1="344" x2="215" y2="375" class="line"/>
+  <rect x="150" y="376" width="98" height="18" rx="4" class="label-bg"/>
+  <text x="154" y="388" class="label">Stage &amp; light source</text>
+
+  <line x1="180" y1="155" x2="310" y2="130" class="line"/>
+  <rect x="312" y="121" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="316" y="133" class="label">Max magnification ×1500</text>
+
+  <line x1="235" y1="350" x2="315" y2="360" class="line"/>
+  <rect x="317" y="351" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="321" y="363" class="label">Can view living cells</text>
+
+  <!-- Electron microscope panel -->
+  <rect x="420" y="55" width="370" height="330" class="box" rx="10"/>
+  <text x="605" y="82" text-anchor="middle" class="panel-title">Electron Microscope</text>
+
+  <!-- Column -->
+  <rect x="560" y="120" width="90" height="200" rx="10" fill="#e5e7eb" stroke="#4b5563" stroke-width="2"/>
+  <!-- Electron beam -->
+  <line x1="605" y1="135" x2="605" y2="300" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- Sample chamber -->
+  <rect x="575" y="300" width="60" height="45" rx="5" fill="#9ca3af" stroke="#4b5563" stroke-width="2"/>
+  <!-- Monitor -->
+  <rect x="665" y="175" width="85" height="55" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <polyline points="680,210 690,200 705,215 720,195 735,205" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Electron microscope labels -->
+  <line x1="605" y1="120" x2="540" y2="100" class="line"/>
+  <rect x="455" y="91" width="82" height="18" rx="4" class="label-bg"/>
+  <text x="459" y="103" class="label">Electron beam</text>
+
+  <line x1="650" y1="200" x2="725" y2="190" class="line"/>
+  <rect x="650" y="169" width="148" height="30" rx="4" class="label-bg"/>
+  <text x="654" y="185" class="label">Maximum magnification</text>
+  <text x="654" y="196" class="label">×2 000 000</text>
+
+  <line x1="750" y1="203" x2="725" y2="240" class="line"/>
+  <rect x="650" y="239" width="95" height="18" rx="4" class="label-bg"/>
+  <text x="654" y="251" class="label">Image on screen</text>
+
+  <line x1="605" y1="345" x2="650" y2="370" class="line"/>
+  <rect x="652" y="361" width="126" height="18" rx="4" class="label-bg"/>
+  <text x="656" y="373" class="label">Dead specimen in vacuum</text>
+
+  <!-- Magnification formula -->
+  <rect x="150" y="405" width="520" height="40" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <text x="410" y="430" text-anchor="middle" class="sublabel">Magnification = size of image ÷ size of real object (use the same units)</text>
+</svg>

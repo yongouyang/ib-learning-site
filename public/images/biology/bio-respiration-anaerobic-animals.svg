@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="title desc">
+  <title id="title">Anaerobic Respiration in Animals</title>
+  <desc id="desc">Diagram showing a muscle cell during intense exercise producing lactic acid and the oxygen debt repaid by heavy breathing.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .muscle { fill: #fca5a5; stroke: #ef4444; stroke-width: 2; }
+    </style>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="720" height="400" fill="#f9fafb" rx="12"/>
+  <text x="360" y="34" text-anchor="middle" class="title">Anaerobic Respiration in Animals</text>
+
+  <!-- Muscle fibre -->
+  <rect x="280" y="110" width="160" height="180" rx="16" class="muscle"/>
+  <text x="360" y="205" text-anchor="middle" class="label" fill="#7f1d1d">Muscle cell</text>
+
+  <!-- Low O2 label -->
+  <line x1="360" y1="110" x2="360" y2="70" class="line"/>
+  <rect x="295" y="52" width="130" height="18" rx="4" class="label-bg"/>
+  <text x="300" y="64" class="label" fill="#b91c1c">Low oxygen during sprint</text>
+
+  <!-- Glucose in -->
+  <rect x="70" y="150" width="90" height="38" rx="8" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+  <text x="115" y="167" text-anchor="middle" class="label">Glucose</text>
+  <text x="115" y="180" text-anchor="middle" class="sublabel">C₆H₁₂O₆</text>
+  <line x1="160" y1="169" x2="260" y2="185" class="arrow" stroke="#6b7280" marker-end="url(#arrow-red)"/>
+
+  <!-- Lactic acid out -->
+  <rect x="540" y="150" width="110" height="38" rx="8" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+  <text x="595" y="167" text-anchor="middle" class="label">Lactic acid</text>
+  <text x="595" y="180" text-anchor="middle" class="sublabel">builds up</text>
+  <line x1="440" y1="185" x2="540" y2="169" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+
+  <!-- Energy -->
+  <path d="M370,140 L380,115 L390,140 L415,130 L395,150 L410,170 L385,160 L375,185 L365,160 L340,170 L355,150 L330,130 L355,140 Z" fill="#facc15" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="385" y="108" text-anchor="middle" class="label" fill="#a16207">Only 2 ATP</text>
+
+  <!-- Oxygen debt arrow -->
+  <line x1="160" y1="260" x2="260" y2="250" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <rect x="40" y="245" width="115" height="30" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="97" y="260" text-anchor="middle" class="label">Extra O₂</text>
+  <text x="97" y="273" text-anchor="middle" class="sublabel">after exercise</text>
+
+  <!-- Liver -->
+  <ellipse cx="595" cy="270" rx="70" ry="40" fill="#fb923c" stroke="#f97316" stroke-width="2"/>
+  <text x="595" y="275" text-anchor="middle" class="label">Liver</text>
+  <line x1="440" y1="240" x2="530" y2="260" class="arrow" stroke="#6b7280" marker-end="url(#arrow-red)"/>
+  <text x="485" y="250" text-anchor="middle" class="sublabel">lactic acid → glucose</text>
+
+  <!-- Equation -->
+  <rect x="135" y="340" width="450" height="38" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <text x="360" y="363" text-anchor="middle" class="sublabel">Glucose → Lactic acid + small amount of ATP</text>
+</svg>

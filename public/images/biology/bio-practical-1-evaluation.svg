@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+  <title id="title">Evaluation and conclusion writing</title>
+  <desc id="desc">Flow diagram showing the stages of writing a conclusion and evaluation for a biology investigation.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .box { stroke-width: 2; rx: 8; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="420" fill="#f9fafb" rx="12"/>
+  <text x="380" y="34" text-anchor="middle" class="title">Evaluation and Conclusion Writing</text>
+
+  <!-- Row 1: Conclusion flow -->
+  <rect x="50" y="80" width="150" height="75" class="box" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="125" y="108" text-anchor="middle" class="label">Describe the trend</text>
+  <text x="125" y="126" text-anchor="middle" class="sublabel">Refer to data points</text>
+  <text x="125" y="142" text-anchor="middle" class="sublabel">from the graph</text>
+
+  <rect x="250" y="80" width="150" height="75" class="box" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="325" y="108" text-anchor="middle" class="label">Support or refute</text>
+  <text x="325" y="126" text-anchor="middle" class="sublabel">Use "support",</text>
+  <text x="325" y="142" text-anchor="middle" class="sublabel">not "prove"</text>
+
+  <rect x="450" y="80" width="150" height="75" class="box" fill="#fef9c3" stroke="#ca8a04"/>
+  <text x="525" y="108" text-anchor="middle" class="label">Scientific explanation</text>
+  <text x="525" y="126" text-anchor="middle" class="sublabel">Link results to</text>
+  <text x="525" y="142" text-anchor="middle" class="sublabel">biology theory</text>
+
+  <rect x="650" y="80" width="90" height="75" class="box" fill="#f3f4f6" stroke="#6b7280"/>
+  <text x="695" y="114" text-anchor="middle" class="label">Conclusion</text>
+  <text x="695" y="132" text-anchor="middle" class="sublabel">clear &amp;</text>
+  <text x="695" y="148" text-anchor="middle" class="sublabel">specific</text>
+
+  <line x1="200" y1="117" x2="250" y2="117" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+  <line x1="400" y1="117" x2="450" y2="117" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+  <line x1="600" y1="117" x2="650" y2="117" class="arrow" stroke="#6b7280" marker-end="url(#arrow-green)"/>
+
+  <!-- Row 2: Evaluation -->
+  <text x="380" y="205" text-anchor="middle" class="label">Evaluation</text>
+
+  <rect x="80" y="230" width="170" height="60" class="box" fill="#fee2e2" stroke="#ef4444"/>
+  <text x="165" y="255" text-anchor="middle" class="label">Identify errors</text>
+  <text x="165" y="273" text-anchor="middle" class="sublabel">systematic vs random</text>
+
+  <rect x="295" y="230" width="170" height="60" class="box" fill="#fee2e2" stroke="#ef4444"/>
+  <text x="380" y="255" text-anchor="middle" class="label">Identify limitations</text>
+  <text x="380" y="273" text-anchor="middle" class="sublabel">weaknesses of method</text>
+
+  <rect x="510" y="230" width="170" height="60" class="box" fill="#fee2e2" stroke="#ef4444"/>
+  <text x="595" y="255" text-anchor="middle" class="label">Suggest improvements</text>
+  <text x="595" y="273" text-anchor="middle" class="sublabel">realistic and specific</text>
+
+  <!-- Connecting arrows from conclusion to evaluation -->
+  <line x1="695" y1="155" x2="695" y2="200" class="line"/>
+  <line x1="695" y1="200" x2="595" y2="200" class="line"/>
+  <line x1="595" y1="200" x2="595" y2="230" class="line"/>
+
+  <line x1="380" y1="200" x2="380" y2="230" class="line"/>
+  <line x1="165" y1="200" x2="165" y2="230" class="line"/>
+
+  <!-- Bottom rules -->
+  <rect x="80" y="320" width="600" height="60" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="380" y="345" text-anchor="middle" class="label">Also discuss reliability, validity, and possible extensions</text>
+  <text x="380" y="368" text-anchor="middle" class="sublabel">Reliability = repeats agree • Validity = fair test measures what was intended</text>
+</svg>

@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Six Common Types of Chemical Reactions</title>
+  <desc id="desc">A grid showing combustion, neutralisation, displacement, thermal decomposition, oxidation, and precipitation reactions with simple icons.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .card-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .card { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+      .flame { fill: #f97316; }
+      .beaker { fill: #e0f2fe; stroke: #38bdf8; stroke-width: 1.5; fill-opacity: 0.4; }
+      .liquid { fill-opacity: 0.6; }
+      .arrow { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-gray" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 L1.5,3.5 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Six Common Types of Chemical Reactions</text>
+
+  <!-- Card 1: Combustion -->
+  <g transform="translate(40, 60)">
+    <rect x="0" y="0" width="230" height="140" class="card" rx="10"/>
+    <text x="115" y="24" text-anchor="middle" class="card-title">1. Combustion</text>
+    <text x="115" y="40" text-anchor="middle" class="sublabel">fuel + O₂ → CO₂ + H₂O</text>
+    <!-- Flame -->
+    <path d="M90,110 Q105,70 115,90 Q125,70 140,110 Q115,130 90,110" class="flame"/>
+    <text x="115" y="122" text-anchor="middle" class="sublabel" fill="#7c2d12">Burning fuel</text>
+    <!-- O2 bubbles -->
+    <circle cx="70" cy="100" r="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="70" y="104" text-anchor="middle" class="sublabel" fill="#1e3a8a">O₂</text>
+    <circle cx="160" cy="100" r="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="160" y="104" text-anchor="middle" class="sublabel" fill="#1e3a8a">O₂</text>
+  </g>
+
+  <!-- Card 2: Neutralisation -->
+  <g transform="translate(285, 60)">
+    <rect x="0" y="0" width="230" height="140" class="card" rx="10"/>
+    <text x="115" y="24" text-anchor="middle" class="card-title">2. Neutralisation</text>
+    <text x="115" y="40" text-anchor="middle" class="sublabel">acid + base → salt + water</text>
+    <!-- Beaker -->
+    <path d="M75,60 L75,110 Q115,120 155,110 L155,60" class="beaker"/>
+    <path d="M80,85 L150,85 L150,110 Q115,118 80,110 Z" fill="#ffedd5" stroke="#fdba74" stroke-width="1.5"/>
+    <text x="115" y="102" text-anchor="middle" class="sublabel" fill="#7c2d12">salt + H₂O</text>
+    <!-- Acid/base labels -->
+    <rect x="78" y="62" width="38" height="14" rx="3" fill="#fee2e2"/>
+    <text x="97" y="73" text-anchor="middle" class="sublabel" fill="#991b1b">acid</text>
+    <rect x="114" y="62" width="36" height="14" rx="3" fill="#dbeafe"/>
+    <text x="132" y="73" text-anchor="middle" class="sublabel" fill="#1e3a8a">base</text>
+  </g>
+
+  <!-- Card 3: Displacement -->
+  <g transform="translate(530, 60)">
+    <rect x="0" y="0" width="230" height="140" class="card" rx="10"/>
+    <text x="115" y="24" text-anchor="middle" class="card-title">3. Displacement</text>
+    <text x="115" y="40" text-anchor="middle" class="sublabel">more reactive metal displaces another</text>
+    <!-- Beaker -->
+    <path d="M75,60 L75,110 Q115,120 155,110 L155,60" class="beaker"/>
+    <path d="M80,85 L150,85 L150,110 Q115,118 80,110 Z" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" opacity="0.5"/>
+    <!-- Zinc strip -->
+    <rect x="88" y="50" width="12" height="55" fill="#9ca3af" stroke="#4b5563" stroke-width="1.5"/>
+    <text x="94" y="120" text-anchor="middle" class="sublabel">Zn</text>
+    <!-- Copper deposit -->
+    <circle cx="130" cy="100" r="10" fill="#b45309" stroke="#78350f" stroke-width="1.5"/>
+    <text x="130" y="104" text-anchor="middle" class="sublabel" fill="#ffffff">Cu</text>
+  </g>
+
+  <!-- Card 4: Thermal decomposition -->
+  <g transform="translate(40, 220)">
+    <rect x="0" y="0" width="230" height="140" class="card" rx="10"/>
+    <text x="115" y="24" text-anchor="middle" class="card-title">4. Thermal Decomposition</text>
+    <text x="115" y="40" text-anchor="middle" class="sublabel">one compound breaks down on heating</text>
+    <!-- Test tube -->
+    <path d="M90,50 L90,95 Q90,105 115,105 Q140,105 140,95 L140,50" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5"/>
+    <path d="M95,80 L135,80 L135,95 Q135,100 115,100 Q95,100 95,95 Z" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="115" y="94" text-anchor="middle" class="sublabel" fill="#78350f">CaCO₃</text>
+    <!-- Bunsen flame -->
+    <path d="M105,115 L115,130 L125,115" fill="#f97316"/>
+    <text x="115" y="140" text-anchor="middle" class="sublabel" fill="#7c2d12">heat</text>
+    <!-- Gas escaping -->
+    <circle cx="150" cy="70" r="6" fill="#d1d5db"/>
+    <text x="160" y="74" class="sublabel">CO₂</text>
+  </g>
+
+  <!-- Card 5: Oxidation -->
+  <g transform="translate(285, 220)">
+    <rect x="0" y="0" width="230" height="140" class="card" rx="10"/>
+    <text x="115" y="24" text-anchor="middle" class="card-title">5. Oxidation</text>
+    <text x="115" y="40" text-anchor="middle" class="sublabel">gain of oxygen (or loss of electrons)</text>
+    <!-- Iron nails -->
+    <rect x="80" y="80" width="14" height="40" rx="3" fill="#9ca3af" stroke="#4b5563" stroke-width="1.5"/>
+    <rect x="105" y="80" width="14" height="40" rx="3" fill="#9ca3af" stroke="#4b5563" stroke-width="1.5"/>
+    <rect x="130" y="80" width="14" height="40" rx="3" fill="#7c2d12" stroke="#451a03" stroke-width="1.5"/>
+    <text x="115" y="137" text-anchor="middle" class="sublabel" fill="#7c2d12">rust (iron oxide)</text>
+    <!-- O2 -->
+    <circle cx="95" cy="65" r="7" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="95" y="69" text-anchor="middle" class="sublabel" fill="#1e3a8a">O₂</text>
+    <circle cx="130" cy="65" r="7" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="130" y="69" text-anchor="middle" class="sublabel" fill="#1e3a8a">O₂</text>
+  </g>
+
+  <!-- Card 6: Precipitation -->
+  <g transform="translate(530, 220)">
+    <rect x="0" y="0" width="230" height="140" class="card" rx="10"/>
+    <text x="115" y="24" text-anchor="middle" class="card-title">6. Precipitation</text>
+    <text x="115" y="40" text-anchor="middle" class="sublabel">two solutions form an insoluble solid</text>
+    <!-- Beaker -->
+    <path d="M75,60 L75,110 Q115,120 155,110 L155,60" class="beaker"/>
+    <path d="M80,85 L150,85 L150,110 Q115,118 80,110 Z" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" opacity="0.4"/>
+    <!-- Precipitate particles -->
+    <circle cx="95" cy="100" r="7" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+    <circle cx="120" cy="105" r="7" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+    <circle cx="140" cy="98" r="7" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+    <text x="115" y="78" text-anchor="middle" class="sublabel" fill="#1e3a8a">clear solutions</text>
+    <text x="115" y="130" text-anchor="middle" class="sublabel">white precipitate</text>
+  </g>
+
+  <!-- Bottom note -->
+  <rect x="100" y="390" width="600" height="110" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5" rx="10"/>
+  <text x="400" y="415" text-anchor="middle" class="label">Examples to remember</text>
+  <text x="400" y="440" text-anchor="middle" class="sublabel">Combustion: CH₄ + 2O₂ → CO₂ + 2H₂O</text>
+  <text x="400" y="458" text-anchor="middle" class="sublabel">Neutralisation: HCl + NaOH → NaCl + H₂O</text>
+  <text x="400" y="476" text-anchor="middle" class="sublabel">Displacement: Zn + CuSO₄ → ZnSO₄ + Cu</text>
+  <text x="400" y="494" text-anchor="middle" class="sublabel">Thermal decomposition: CaCO₃ → CaO + CO₂</text>
+</svg>

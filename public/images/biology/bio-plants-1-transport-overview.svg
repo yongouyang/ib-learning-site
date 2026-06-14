@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc">
+  <title id="title">Plant Transport Systems Overview</title>
+  <desc id="desc">Diagram of a plant showing xylem transporting water upward and phloem transporting sugars between sources and sinks.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="460" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Plant Transport Systems</text>
+
+  <!-- Soil -->
+  <rect x="250" y="360" width="300" height="80" fill="#d6c0a1" stroke="#a89078" stroke-width="2" rx="8"/>
+  <text x="400" y="405" text-anchor="middle" class="label" fill="#5c4a3a">Soil water and minerals</text>
+
+  <!-- Root -->
+  <path d="M400,360 L400,330 Q380,340 360,360 Q350,380 340,400 Q360,395 380,380 Q390,370 400,360" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+  <path d="M400,360 L420,375 Q440,385 460,380 Q450,365 430,355 Q415,350 400,360" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+
+  <!-- Stem -->
+  <rect x="385" y="160" width="30" height="200" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+
+  <!-- Leaves -->
+  <path d="M400,160 Q320,110 260,150 Q300,190 400,170" fill="#4ade80" stroke="#16a34a" stroke-width="2"/>
+  <path d="M400,200 Q500,150 560,190 Q520,230 400,210" fill="#4ade80" stroke="#16a34a" stroke-width="2"/>
+
+  <!-- Xylem -->
+  <rect x="391" y="160" width="8" height="200" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="401" y="160" width="8" height="200" fill="#93c5fd" stroke="#3b82f6" stroke-width="1.5"/>
+
+  <!-- Phloem -->
+  <rect x="410" y="160" width="5" height="200" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.5"/>
+
+  <!-- Water uptake arrow -->
+  <line x1="400" y1="350" x2="400" y2="310" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="400" y1="270" x2="400" y2="230" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="400" y1="200" x2="400" y2="180" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+
+  <!-- Transpiration arrows from leaf -->
+  <line x1="320" y1="135" x2="320" y2="105" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="340" y1="125" x2="330" y2="95" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <line x1="300" y1="125" x2="290" y2="95" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+
+  <!-- Phloem flow arrows -->
+  <path d="M425,180 Q470,180 470,220 Q470,260 425,260" fill="none" class="arrow" stroke="#16a34a" marker-end="url(#arrow-green)"/>
+  <path d="M425,340 Q470,340 470,300 Q470,260 425,260" fill="none" class="arrow" stroke="#16a34a" marker-end="url(#arrow-green)"/>
+
+  <!-- Labels -->
+  <line x1="420" y1="220" x2="520" y2="220" class="line"/>
+  <rect x="522" y="211" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="526" y="223" class="label">Phloem (sugars)</text>
+
+  <line x1="350" y1="200" x2="220" y2="200" class="line"/>
+  <rect x="100" y="191" width="118" height="18" rx="4" class="label-bg"/>
+  <text x="104" y="203" class="label">Xylem (water)</text>
+
+  <line x1="430" y1="125" x2="550" y2="100" class="line"/>
+  <rect x="552" y="91" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="556" y="103" class="label">Source: leaves</text>
+
+  <line x1="440" y1="375" x2="560" y2="395" class="line"/>
+  <rect x="562" y="386" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="566" y="398" class="label">Sink: roots</text>
+
+  <text x="140" y="310" text-anchor="middle" class="sublabel">Xylem: dead tubes, one-way</text>
+  <text x="140" y="328" text-anchor="middle" class="sublabel">flow from roots to leaves.</text>
+  <text x="660" y="310" text-anchor="middle" class="sublabel">Phloem: living cells, two-way</text>
+  <text x="660" y="328" text-anchor="middle" class="sublabel">flow from source to sink.</text>
+</svg>

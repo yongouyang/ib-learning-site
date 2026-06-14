@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Testing Antimicrobials on Agar</title>
+  <desc id="desc">Diagram of a Petri dish with bacterial lawn and antimicrobial discs, showing zones of inhibition used to compare effectiveness.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="800" height="420" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Testing Antimicrobials on Agar</text>
+
+  <!-- Petri dish -->
+  <circle cx="400" cy="210" r="150" fill="#ffffff" stroke="#9ca3af" stroke-width="3"/>
+  <circle cx="400" cy="210" r="145" fill="#fef9c3" stroke="none"/>
+
+  <!-- Bacterial lawn dots (sparse representation) -->
+  <g fill="#fde047" opacity="0.5">
+    <circle cx="340" cy="170" r="2"/>
+    <circle cx="360" cy="150" r="2"/>
+    <circle cx="440" cy="150" r="2"/>
+    <circle cx="460" cy="170" r="2"/>
+    <circle cx="330" cy="210" r="2"/>
+    <circle cx="470" cy="210" r="2"/>
+    <circle cx="350" cy="250" r="2"/>
+    <circle cx="450" cy="250" r="2"/>
+    <circle cx="400" cy="280" r="2"/>
+    <circle cx="400" cy="140" r="2"/>
+  </g>
+
+  <!-- Discs and zones -->
+  <!-- Effective disc -->
+  <circle cx="320" cy="210" r="55" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="320" cy="210" r="10" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <text x="320" y="214" text-anchor="middle" class="sublabel" fill="#14532d">A</text>
+
+  <!-- Medium disc -->
+  <circle cx="460" cy="160" r="38" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="460" cy="160" r="10" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <text x="460" y="164" text-anchor="middle" class="sublabel" fill="#14532d">B</text>
+
+  <!-- Small disc -->
+  <circle cx="460" cy="260" r="25" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="460" cy="260" r="10" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <text x="460" y="264" text-anchor="middle" class="sublabel" fill="#14532d">C</text>
+
+  <!-- Control disc -->
+  <circle cx="360" cy="270" r="10" fill="#ffffff" stroke="#6b7280" stroke-width="2"/>
+  <text x="360" y="274" text-anchor="middle" class="sublabel">H₂O</text>
+
+  <!-- Measurement lines -->
+  <line x1="265" y1="210" x2="330" y2="210" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <line x1="265" y1="205" x2="265" y2="215" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="330" y1="205" x2="330" y2="215" stroke="#ef4444" stroke-width="1.5"/>
+
+  <!-- Labels -->
+  <line x1="320" y1="155" x2="180" y2="120" class="line"/>
+  <rect x="50" y="105" width="130" height="32" rx="4" class="label-bg"/>
+  <text x="58" y="122" class="label">Zone of inhibition</text>
+  <text x="58" y="134" class="sublabel">clear area = effective</text>
+
+  <line x1="460" y1="122" x2="560" y2="90" class="line"/>
+  <rect x="520" y="72" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="525" y="84" class="label">Antimicrobial disc</text>
+
+  <line x1="360" y1="290" x2="360" y2="330" class="line"/>
+  <rect x="300" y="331" width="120" height="18" rx="4" class="label-bg"/>
+  <text x="305" y="343" class="label">Control (sterile water)</text>
+
+  <line x1="540" y1="260" x2="620" y2="300" class="line"/>
+  <rect x="540" y="301" width="150" height="32" rx="4" class="label-bg"/>
+  <text x="545" y="318" class="label">Bacterial lawn</text>
+  <text x="545" y="330" class="sublabel">evenly spread across agar</text>
+
+  <!-- Safety / method note -->
+  <rect x="160" y="370" width="480" height="28" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="4"/>
+  <text x="400" y="388" text-anchor="middle" class="sublabel">Aseptic technique · Incubate upside down at 25°C · Do not open plates</text>
+</svg>

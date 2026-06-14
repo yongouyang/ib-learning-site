@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">Genetic Modification and Cloning</title>
+  <desc id="desc">Two diagrams: one showing the human insulin gene inserted into a bacterial plasmid to produce GM insulin, and another showing somatic cell nuclear transfer used to create a clone.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="500" fill="#f9fafb" rx="12"/>
+  <text x="480" y="34" text-anchor="middle" class="title">Genetic Modification and Cloning</text>
+
+  <!-- GM panel -->
+  <rect x="30" y="55" width="440" height="410" rx="12" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="250" y="80" text-anchor="middle" class="panel-title">Genetic modification</text>
+  <text x="250" y="98" text-anchor="middle" class="sublabel">Human insulin produced by GM bacteria</text>
+
+  <!-- Human DNA with insulin gene -->
+  <rect x="60" y="120" width="160" height="80" rx="8" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+  <text x="140" y="145" text-anchor="middle" class="label">Human DNA</text>
+  <rect x="90" y="158" width="100" height="22" rx="4" fill="#f97316" opacity="0.8"/>
+  <text x="140" y="174" text-anchor="middle" class="label" fill="#fff">Insulin gene</text>
+
+  <!-- Scissors / restriction enzyme -->
+  <g transform="translate(260, 145)">
+    <path d="M0,0 L15,25" stroke="#374151" stroke-width="3" stroke-linecap="round"/>
+    <path d="M30,0 L15,25" stroke="#374151" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="4" fill="#ef4444"/>
+    <circle cx="30" cy="0" r="4" fill="#ef4444"/>
+  </g>
+  <text x="275" y="195" text-anchor="middle" class="sublabel">Restriction enzyme</text>
+  <text x="275" y="210" text-anchor="middle" class="sublabel">cuts gene out</text>
+
+  <!-- Arrow -->
+  <line x1="240" y1="160" x2="320" y2="160" class="arrow" stroke="#6b7280" marker-end="url(#arrow)"/>
+
+  <!-- Bacterial plasmid -->
+  <ellipse cx="400" cy="160" rx="45" ry="30" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
+  <text x="400" y="150" text-anchor="middle" class="sublabel" fill="#1e40af">Bacterial</text>
+  <text x="400" y="164" text-anchor="middle" class="sublabel" fill="#1e40af">plasmid</text>
+  <!-- Insulin gene inserted -->
+  <rect x="385" y="138" width="30" height="12" rx="3" fill="#f97316" opacity="0.9"/>
+  <text x="400" y="148" text-anchor="middle" class="label" fill="#fff" style="font-size:8px">gene</text>
+
+  <!-- Modified bacterium -->
+  <g transform="translate(360, 260)">
+    <ellipse cx="40" cy="35" rx="55" ry="35" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <circle cx="25" cy="25" r="6" fill="#16a34a"/>
+    <circle cx="55" cy="25" r="6" fill="#16a34a"/>
+    <circle cx="40" cy="50" r="8" fill="#16a34a"/>
+    <line x1="85" y1="20" x2="115" y2="5" class="line"/>
+    <rect x="120" y="-8" width="95" height="28" rx="4" class="label-bg"/>
+    <text x="124" y="9" class="label">GM bacterium</text>
+  </g>
+
+  <!-- Arrow from plasmid to bacterium -->
+  <line x1="400" y1="200" x2="400" y2="245" class="arrow" stroke="#6b7280" marker-end="url(#arrow)"/>
+
+  <!-- Insulin output -->
+  <rect x="340" y="360" width="120" height="45" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="400" y="380" text-anchor="middle" class="label">Human insulin</text>
+  <text x="400" y="396" text-anchor="middle" class="sublabel">protein produced</text>
+  <line x1="400" y1="330" x2="400" y2="355" class="arrow" stroke="#6b7280" marker-end="url(#arrow)"/>
+
+  <!-- Cloning panel -->
+  <rect x="490" y="55" width="440" height="410" rx="12" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="710" y="80" text-anchor="middle" class="panel-title">Cloning</text>
+  <text x="710" y="98" text-anchor="middle" class="sublabel">Somatic cell nuclear transfer</text>
+
+  <!-- Donor sheep (adult) -->
+  <g transform="translate(520, 120)">
+    <ellipse cx="35" cy="25" rx="32" ry="20" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+    <circle cx="60" cy="18" r="12" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+    <circle cx="64" cy="15" r="2" fill="#111827"/>
+    <rect x="22" y="42" width="8" height="18" rx="2" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+    <rect x="48" y="42" width="8" height="18" rx="2" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+  </g>
+  <text x="555" y="180" text-anchor="middle" class="sublabel">Donor sheep</text>
+  <text x="555" y="195" text-anchor="middle" class="sublabel">(adult body cell)</text>
+
+  <!-- Nucleus extracted -->
+  <circle cx="555" cy="230" r="18" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+  <text x="555" y="235" text-anchor="middle" class="label" style="font-size:10px">Nucleus</text>
+  <line x1="555" y1="170" x2="555" y2="210" class="arrow" stroke="#6b7280" marker-end="url(#arrow)"/>
+
+  <!-- Egg cell -->
+  <ellipse cx="690" cy="230" rx="45" ry="35" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+  <circle cx="690" cy="230" r="12" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="690" y="235" text-anchor="middle" class="label" style="font-size:10px">Nucleus</text>
+  <text x="690" y="285" text-anchor="middle" class="sublabel">Egg cell</text>
+  <text x="690" y="300" text-anchor="middle" class="sublabel">(nucleus removed)</text>
+
+  <!-- Arrow nucleus to egg -->
+  <line x1="575" y1="230" x2="640" y2="230" class="arrow" stroke="#6b7280" marker-end="url(#arrow)"/>
+
+  <!-- Surrogate -->
+  <g transform="translate(775, 120)">
+    <ellipse cx="35" cy="25" rx="32" ry="20" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+    <circle cx="60" cy="18" r="12" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+    <circle cx="64" cy="15" r="2" fill="#111827"/>
+    <rect x="22" y="42" width="8" height="18" rx="2" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+    <rect x="48" y="42" width="8" height="18" rx="2" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+  </g>
+  <text x="810" y="180" text-anchor="middle" class="sublabel">Surrogate</text>
+  <text x="810" y="195" text-anchor="middle" class="sublabel">mother</text>
+
+  <!-- Egg implanted -->
+  <line x1="735" y1="230" x2="775" y2="170" class="arrow" stroke="#6b7280" marker-end="url(#arrow)"/>
+  <text x="790" y="225" text-anchor="middle" class="sublabel">Implanted embryo</text>
+
+  <!-- Clone lamb -->
+  <g transform="translate(775, 260)">
+    <ellipse cx="35" cy="25" rx="28" ry="18" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+    <circle cx="55" cy="20" r="10" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+    <circle cx="58" cy="17" r="1.5" fill="#111827"/>
+    <rect x="25" y="40" width="6" height="14" rx="2" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+    <rect x="45" y="40" width="6" height="14" rx="2" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+  </g>
+  <text x="810" y="330" text-anchor="middle" class="label">Clone</text>
+  <text x="810" y="345" text-anchor="middle" class="sublabel">Genetically identical</text>
+  <text x="810" y="360" text-anchor="middle" class="sublabel">to donor sheep</text>
+  <line x1="810" y1="200" x2="810" y2="250" class="arrow" stroke="#6b7280" marker-end="url(#arrow)"/>
+
+  <!-- Ethical concerns box -->
+  <rect x="490" y="375" width="440" height="70" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+  <text x="710" y="398" text-anchor="middle" class="label" fill="#b91c1c">Ethical concerns</text>
+  <text x="710" y="418" text-anchor="middle" class="sublabel">GM: unknown health effects, ecological risks from GM crops</text>
+  <text x="710" y="435" text-anchor="middle" class="sublabel">Cloning: low success rate, health problems in clones, human cloning debates</text>
+</svg>

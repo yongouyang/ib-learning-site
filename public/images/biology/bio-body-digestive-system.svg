@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-labelledby="title desc">
+  <title id="title">Human Digestive System</title>
+  <desc id="desc">A simplified diagram of the human digestive system showing the major organs from mouth to anus.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .organ { fill: #fca5a5; stroke: #ef4444; stroke-width: 2; }
+      .tube { fill: none; stroke: #f472b6; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .arrow { fill: none; stroke: #10b981; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <rect width="600" height="520" fill="#f9fafb" rx="12"/>
+  <text x="300" y="34" text-anchor="middle" class="title">Human Digestive System</text>
+
+  <!-- Digestive tract -->
+  <path d="M300,70 L300,110 C300,130 280,140 280,160 L280,240 C280,270 300,280 300,300 C300,320 270,330 270,350 L270,420 C270,440 290,450 300,450" class="tube"/>
+
+  <!-- Mouth -->
+  <ellipse cx="300" cy="70" rx="18" ry="12" class="organ"/>
+  <line x1="318" y1="60" x2="360" y2="50" class="line"/>
+  <rect x="362" y="41" width="44" height="18" rx="4" class="label-bg"/>
+  <text x="366" y="53" class="label">Mouth</text>
+
+  <!-- Oesophagus -->
+  <line x1="300" y1="110" x2="340" y2="120" class="line"/>
+  <rect x="342" y="111" width="68" height="18" rx="4" class="label-bg"/>
+  <text x="346" y="123" class="label">Oesophagus</text>
+
+  <!-- Stomach -->
+  <path d="M265,165 C245,165 240,190 250,210 C260,230 290,220 295,200 C300,180 285,165 265,165 Z" class="organ"/>
+  <line x1="250" y1="180" x2="180" y2="170" class="line"/>
+  <rect x="122" y="161" width="56" height="18" rx="4" class="label-bg"/>
+  <text x="126" y="173" class="label">Stomach</text>
+
+  <!-- Liver -->
+  <path d="M330,175 C350,165 390,170 400,195 C405,210 390,225 370,220 C350,215 340,200 330,195 Z" fill="#fb923c" stroke="#f97316" stroke-width="2"/>
+  <line x1="400" y1="185" x2="440" y2="170" class="line"/>
+  <rect x="442" y="161" width="38" height="18" rx="4" class="label-bg"/>
+  <text x="446" y="173" class="label">Liver</text>
+
+  <!-- Gall bladder -->
+  <ellipse cx="345" cy="215" rx="12" ry="16" fill="#fde047" stroke="#eab308" stroke-width="2"/>
+  <line x1="357" y1="215" x2="420" y2="220" class="line"/>
+  <rect x="422" y="211" width="68" height="18" rx="4" class="label-bg"/>
+  <text x="426" y="223" class="label">Gall bladder</text>
+
+  <!-- Pancreas -->
+  <ellipse cx="310" cy="260" rx="35" ry="14" fill="#c084fc" stroke="#a855f7" stroke-width="2" transform="rotate(-10 310 260)"/>
+  <line x1="340" y1="265" x2="420" y2="270" class="line"/>
+  <rect x="422" y="261" width="56" height="18" rx="4" class="label-bg"/>
+  <text x="426" y="273" class="label">Pancreas</text>
+
+  <!-- Small intestine -->
+  <path d="M275,330 C290,330 300,340 315,335 C330,330 340,345 325,355 C310,365 295,350 285,360 C275,370 290,385 305,380 C320,375 330,390 315,400 C300,410 285,400 275,410" fill="none" stroke="#f472b6" stroke-width="5" stroke-linecap="round"/>
+  <line x1="330" y1="360" x2="420" y2="360" class="line"/>
+  <rect x="422" y="351" width="92" height="18" rx="4" class="label-bg"/>
+  <text x="426" y="363" class="label">Small intestine</text>
+
+  <!-- Large intestine -->
+  <path d="M260,310 C240,310 230,330 230,360 C230,420 250,440 300,440 C350,440 370,420 370,380 C370,350 360,330 340,320" fill="none" stroke="#86efac" stroke-width="8" stroke-linecap="round"/>
+  <line x1="230" y1="360" x2="150" y2="360" class="line"/>
+  <rect x="68" y="351" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="72" y="363" class="label">Large intestine</text>
+
+  <!-- Direction arrow -->
+  <line x1="300" y1="470" x2="300" y2="495" class="arrow" marker-end="url(#arrow-green)"/>
+  <text x="300" y="510" text-anchor="middle" class="sublabel">direction of food</text>
+</svg>

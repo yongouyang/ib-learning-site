@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">The Carbon Cycle</title>
+  <desc id="desc">A diagram showing how carbon moves between the atmosphere, plants, animals, oceans, rocks, and human activities such as burning fossil fuels.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="560" fill="#f9fafb" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" class="title">The Carbon Cycle</text>
+
+  <!-- Atmosphere -->
+  <rect x="350" y="80" width="200" height="100" rx="12" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="450" y="115" text-anchor="middle" class="label">Atmosphere</text>
+  <text x="450" y="135" text-anchor="middle" class="sublabel">CO₂</text>
+  <g transform="translate(410, 150)">
+    <circle cx="0" cy="0" r="8" fill="#f97316"/>
+    <circle cx="14" cy="-4" r="8" fill="#9ca3af"/>
+    <circle cx="14" cy="10" r="8" fill="#9ca3af"/>
+  </g>
+  <text x="445" y="158" class="sublabel">CO₂</text>
+
+  <!-- Plants / producers -->
+  <g transform="translate(120, 240)">
+    <rect x="0" y="0" width="160" height="120" rx="12" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    <text x="80" y="30" text-anchor="middle" class="label">Plants</text>
+    <!-- Tree -->
+    <rect x="70" y="70" width="14" height="40" fill="#78350f"/>
+    <circle cx="77" cy="60" r="28" fill="#22c55e"/>
+    <text x="80" y="110" text-anchor="middle" class="sublabel">photosynthesis</text>
+  </g>
+
+  <!-- Animals -->
+  <g transform="translate(620, 240)">
+    <rect x="0" y="0" width="160" height="120" rx="12" fill="#fef9c3" stroke="#eab308" stroke-width="2"/>
+    <text x="80" y="30" text-anchor="middle" class="label">Animals</text>
+    <!-- Cow silhouette simplified -->
+    <ellipse cx="60" cy="75" rx="22" ry="14" fill="#ca8a04"/>
+    <circle cx="80" cy="65" r="10" fill="#ca8a04"/>
+    <rect x="50" y="86" width="6" height="16" fill="#ca8a04"/>
+    <rect x="68" y="86" width="6" height="16" fill="#ca8a04"/>
+    <text x="80" y="110" text-anchor="middle" class="sublabel">respiration</text>
+  </g>
+
+  <!-- Oceans -->
+  <g transform="translate(120, 420)">
+    <rect x="0" y="0" width="160" height="100" rx="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="80" y="30" text-anchor="middle" class="label">Oceans</text>
+    <text x="80" y="55" text-anchor="middle" class="sublabel">CO₂ dissolves</text>
+    <text x="80" y="75" text-anchor="middle" class="sublabel">Shells → limestone</text>
+  </g>
+
+  <!-- Fossil fuels / combustion -->
+  <g transform="translate(620, 420)">
+    <rect x="0" y="0" width="160" height="100" rx="12" fill="#e5e7eb" stroke="#4b5563" stroke-width="2"/>
+    <text x="80" y="30" text-anchor="middle" class="label">Fossil fuels</text>
+    <text x="80" y="55" text-anchor="middle" class="sublabel">combustion</text>
+    <text x="80" y="75" text-anchor="middle" class="sublabel">releases CO₂</text>
+  </g>
+
+  <!-- Arrows -->
+  <!-- Atmosphere to plants (photosynthesis) -->
+  <path d="M360,150 C300,170 240,220 200,250" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <rect x="230" y="175" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="235" y="188" class="sublabel">Photosynthesis</text>
+
+  <!-- Plants to animals (feeding) -->
+  <path d="M280,300 C380,300 520,300 620,300" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <rect x="385" y="278" width="60" height="18" rx="4" class="label-bg"/>
+  <text x="390" y="291" class="sublabel">Feeding</text>
+
+  <!-- Animals to atmosphere (respiration) -->
+  <path d="M620,260 C560,220 500,170 470,150" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <rect x="520" y="185" width="70" height="18" rx="4" class="label-bg"/>
+  <text x="525" y="198" class="sublabel">Respiration</text>
+
+  <!-- Plants to atmosphere (respiration/decomposition) -->
+  <path d="M200,290 C240,240 300,200 350,170" class="arrow" stroke="#9ca3af" stroke-dasharray="5,4" marker-end="url(#arrow-gray)"/>
+  <rect x="230" y="235" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="235" y="248" class="sublabel">Respiration &amp; decay</text>
+
+  <!-- Atmosphere to oceans -->
+  <path d="M360,160 C300,220 240,360 200,430" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <rect x="240" y="300" width="60" height="18" rx="4" class="label-bg"/>
+  <text x="245" y="313" class="sublabel">Dissolving</text>
+
+  <!-- Fossil fuels to atmosphere -->
+  <path d="M700,420 C700,360 650,240 600,180" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <rect x="665" y="300" width="75" height="18" rx="4" class="label-bg"/>
+  <text x="670" y="313" class="sublabel">Combustion</text>
+
+  <!-- Oceans to rocks -->
+  <path d="M280,470 C420,470 500,470 620,470" class="arrow" stroke="#9ca3af" stroke-dasharray="5,4" marker-end="url(#arrow-gray)"/>
+  <rect x="410" y="448" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="415" y="461" class="sublabel">Sedimentation</text>
+
+  <!-- Carbon footprint box -->
+  <rect x="320" y="420" width="260" height="100" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="450" y="450" text-anchor="middle" class="label" fill="#c2410c">Carbon footprint</text>
+  <text x="450" y="475" text-anchor="middle" class="sublabel" fill="#c2410c">Total greenhouse gas</text>
+  <text x="450" y="495" text-anchor="middle" class="sublabel" fill="#c2410c">emissions caused by an</text>
+  <text x="450" y="515" text-anchor="middle" class="sublabel" fill="#c2410c">individual or product</text>
+</svg>

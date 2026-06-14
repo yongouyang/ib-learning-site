@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" role="img" aria-labelledby="title desc">
+  <title id="title">Human Heart and Double Circulation</title>
+  <desc id="desc">A simplified diagram showing the four chambers of the heart, pulmonary circulation to the lungs, and systemic circulation to the body.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .arrow { fill: none; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+    <marker id="arrow-red" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 L2,4.5 Z" fill="#ef4444"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 L2,4.5 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="680" fill="#f9fafb" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" class="title">Double Circulation in the Human Heart</text>
+
+  <!-- Body silhouette -->
+  <g transform="translate(40, 240)">
+    <path d="M60,0 C60,-25 90,-25 90,0 C90,-10 110,-10 110,0 L110,100 C110,130 100,150 85,160 L85,210 L75,210 L75,160 C60,150 50,130 50,100 L50,0 Z" fill="#fca5a5" stroke="#ef4444" stroke-width="2"/>
+    <rect x="62" y="98" width="46" height="34" rx="4" class="label-bg"/>
+    <text x="85" y="110" text-anchor="middle" class="label" fill="#7f1d1d">Body</text>
+    <text x="85" y="130" text-anchor="middle" class="sublabel" fill="#7f1d1d">(systemic)</text>
+  </g>
+
+  <!-- Lungs -->
+  <g transform="translate(760, 210)">
+    <ellipse cx="35" cy="55" rx="38" ry="55" fill="#93c5fd" stroke="#3b82f6" stroke-width="2"/>
+    <ellipse cx="95" cy="55" rx="38" ry="55" fill="#93c5fd" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="42" y="48" width="46" height="34" rx="4" class="label-bg"/>
+    <text x="65" y="60" text-anchor="middle" class="label" fill="#1e3a8a">Lungs</text>
+    <text x="65" y="78" text-anchor="middle" class="sublabel" fill="#1e3a8a">(pulmonary)</text>
+  </g>
+
+  <!-- Heart -->
+  <g transform="translate(370, 220)">
+    <!-- Heart outline -->
+    <path d="M80,20 C40,-20 0,20 0,60 C0,110 80,160 80,160 C80,160 160,110 160,60 C160,20 120,-20 80,20 Z" fill="#fecaca" stroke="#ef4444" stroke-width="3"/>
+
+    <!-- Septum -->
+    <line x1="80" y1="15" x2="80" y2="140" stroke="#ef4444" stroke-width="3"/>
+
+    <!-- Right atrium -->
+    <path d="M10,55 Q40,20 78,30 L78,75 Q40,80 10,55 Z" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+
+    <!-- Right ventricle -->
+    <path d="M12,62 Q40,88 78,82 L78,135 Q40,125 12,62 Z" fill="#93c5fd" stroke="#3b82f6" stroke-width="2"/>
+
+    <!-- Left atrium -->
+    <path d="M82,30 Q120,20 150,55 Q120,80 82,75 Z" fill="#fca5a5" stroke="#ef4444" stroke-width="2"/>
+
+    <!-- Left ventricle -->
+    <path d="M82,82 Q120,88 148,62 Q120,125 82,135 Z" fill="#f87171" stroke="#ef4444" stroke-width="2"/>
+  </g>
+
+  <!-- Side labels -->
+  <line x1="370" y1="240" x2="100" y2="100" class="line"/>
+  <rect x="62" y="87" width="64" height="30" rx="4" class="label-bg"/>
+  <text x="124" y="104" text-anchor="end" class="label">Right side</text>
+  <text x="124" y="118" text-anchor="end" class="sublabel">pumps to lungs</text>
+
+  <line x1="530" y1="240" x2="800" y2="100" class="line"/>
+  <rect x="806" y="87" width="58" height="30" rx="4" class="label-bg"/>
+  <text x="808" y="104" text-anchor="start" class="label">Left side</text>
+  <text x="808" y="118" text-anchor="start" class="sublabel">pumps to body</text>
+
+  <!-- Chamber labels -->
+  <line x1="414" y1="272" x2="360" y2="130" class="line"/>
+  <rect x="292" y="117" width="68" height="18" rx="4" class="label-bg"/>
+  <text x="358" y="129" text-anchor="end" class="sublabel" fill="#1e3a8a">Right atrium</text>
+
+  <line x1="415" y1="320" x2="100" y2="500" class="line"/>
+  <rect x="62" y="491" width="70" height="18" rx="4" class="label-bg"/>
+  <text x="128" y="503" text-anchor="end" class="sublabel" fill="#1e3a8a">Right ventricle</text>
+
+  <line x1="486" y1="272" x2="540" y2="130" class="line"/>
+  <rect x="548" y="117" width="60" height="18" rx="4" class="label-bg"/>
+  <text x="554" y="129" text-anchor="start" class="sublabel" fill="#7f1d1d">Left atrium</text>
+
+  <line x1="485" y1="320" x2="800" y2="500" class="line"/>
+  <rect x="806" y="491" width="64" height="18" rx="4" class="label-bg"/>
+  <text x="812" y="503" text-anchor="start" class="sublabel" fill="#7f1d1d">Left ventricle</text>
+
+  <!-- Arrows: Body to heart (deoxygenated, blue) -->
+  <path d="M150,340 C230,340 290,310 370,300" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <rect x="170" y="354" width="120" height="16" rx="4" class="label-bg"/>
+  <text x="177" y="366" class="sublabel">deoxygenated blood</text>
+
+  <!-- Heart to lungs (blue) -->
+  <path d="M530,310 C610,295 670,280 760,270" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <rect x="762" y="344" width="62" height="16" rx="4" class="label-bg"/>
+  <text x="765" y="356" class="sublabel">to lungs</text>
+
+  <!-- Lungs to heart (oxygenated, red) -->
+  <path d="M760,240 C670,235 610,245 530,250" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <rect x="642" y="196" width="106" height="16" rx="4" class="label-bg"/>
+  <text x="648" y="208" class="sublabel">oxygenated blood</text>
+
+  <!-- Heart to body (red) -->
+  <path d="M370,270 C290,260 230,270 150,290" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <rect x="200" y="224" width="60" height="16" rx="4" class="label-bg"/>
+  <text x="206" y="236" class="sublabel">to body</text>
+
+  <!-- Legend -->
+  <g transform="translate(300, 620)">
+    <rect x="0" y="0" width="300" height="36" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <line x1="30" y1="18" x2="60" y2="18" class="arrow" stroke="#3b82f6"/>
+    <text x="70" y="22" class="sublabel">deoxygenated</text>
+    <line x1="170" y1="18" x2="200" y2="18" class="arrow" stroke="#ef4444"/>
+    <text x="210" y="22" class="sublabel">oxygenated</text>
+  </g>
+</svg>

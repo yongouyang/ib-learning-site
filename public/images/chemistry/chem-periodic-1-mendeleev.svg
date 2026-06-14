@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-labelledby="title desc">
+  <title id="title">Mendeleev and the Development of the Periodic Table</title>
+  <desc id="desc">A simplified Mendeleev-style periodic table showing gaps for undiscovered elements, and a comparison between his predicted eka-aluminium and the discovered element gallium.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .cell { stroke: #d1d5db; stroke-width: 1.5; fill: #ffffff; }
+      .known { fill: #bfdbfe; stroke: #3b82f6; stroke-width: 2; }
+      .gap { fill: #fed7aa; stroke: #f97316; stroke-width: 2; }
+      .prediction { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+      .actual { fill: #bbf7d0; stroke: #22c55e; stroke-width: 2; }
+      .header { fill: #e5e7eb; stroke: #9ca3af; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect width="900" height="480" fill="#f9fafb" rx="12"/>
+  <text x="450" y="36" text-anchor="middle" class="title">Mendeleev and the Development of the Periodic Table</text>
+
+  <!-- Left panel: Mendeleev's table -->
+  <rect x="25" y="55" width="430" height="420" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="240" y="82" text-anchor="middle" class="panel-title">Mendeleev's 1869 periodic table</text>
+
+  <g transform="translate(60, 110)">
+    <!-- Table header -->
+    <rect x="0" y="0" width="70" height="30" class="header"/>
+    <text x="35" y="14" text-anchor="middle" class="label">Group I</text>
+    <rect x="75" y="0" width="70" height="30" class="header"/>
+    <text x="110" y="14" text-anchor="middle" class="label">Group II</text>
+    <rect x="150" y="0" width="70" height="30" class="header"/>
+    <text x="185" y="14" text-anchor="middle" class="label">Group III</text>
+    <rect x="225" y="0" width="70" height="30" class="header"/>
+    <text x="260" y="14" text-anchor="middle" class="label">Group IV</text>
+
+    <!-- Row 1 -->
+    <rect x="0" y="35" width="70" height="40" class="known"/>
+    <text x="35" y="55" text-anchor="middle" class="label">H</text>
+    <text x="35" y="68" text-anchor="middle" class="sublabel">1</text>
+
+    <!-- Row 2 -->
+    <rect x="0" y="85" width="70" height="40" class="known"/>
+    <text x="35" y="105" text-anchor="middle" class="label">Li</text>
+    <text x="35" y="118" text-anchor="middle" class="sublabel">7</text>
+    <rect x="75" y="85" width="70" height="40" class="known"/>
+    <text x="110" y="105" text-anchor="middle" class="label">Be</text>
+    <text x="110" y="118" text-anchor="middle" class="sublabel">9</text>
+    <rect x="150" y="85" width="70" height="40" class="known"/>
+    <text x="185" y="105" text-anchor="middle" class="label">B</text>
+    <text x="185" y="118" text-anchor="middle" class="sublabel">11</text>
+    <rect x="225" y="85" width="70" height="40" class="known"/>
+    <text x="260" y="105" text-anchor="middle" class="label">C</text>
+    <text x="260" y="118" text-anchor="middle" class="sublabel">12</text>
+
+    <!-- Row 3 -->
+    <rect x="0" y="135" width="70" height="40" class="known"/>
+    <text x="35" y="155" text-anchor="middle" class="label">Na</text>
+    <text x="35" y="168" text-anchor="middle" class="sublabel">23</text>
+    <rect x="75" y="135" width="70" height="40" class="known"/>
+    <text x="110" y="155" text-anchor="middle" class="label">Mg</text>
+    <text x="110" y="168" text-anchor="middle" class="sublabel">24</text>
+    <rect x="150" y="135" width="70" height="40" class="known"/>
+    <text x="185" y="155" text-anchor="middle" class="label">Al</text>
+    <text x="185" y="168" text-anchor="middle" class="sublabel">27</text>
+    <rect x="225" y="135" width="70" height="40" class="known"/>
+    <text x="260" y="155" text-anchor="middle" class="label">Si</text>
+    <text x="260" y="168" text-anchor="middle" class="sublabel">28</text>
+
+    <!-- Row 4 with gap -->
+    <rect x="0" y="185" width="70" height="40" class="known"/>
+    <text x="35" y="205" text-anchor="middle" class="label">K</text>
+    <text x="35" y="218" text-anchor="middle" class="sublabel">39</text>
+    <rect x="75" y="185" width="70" height="40" class="known"/>
+    <text x="110" y="205" text-anchor="middle" class="label">Ca</text>
+    <text x="110" y="218" text-anchor="middle" class="sublabel">40</text>
+    <rect x="150" y="185" width="70" height="40" class="gap"/>
+    <text x="185" y="205" text-anchor="middle" class="label">?</text>
+    <text x="185" y="218" text-anchor="middle" class="sublabel">68</text>
+    <rect x="225" y="185" width="70" height="40" class="known"/>
+    <text x="260" y="205" text-anchor="middle" class="label">Ti</text>
+    <text x="260" y="218" text-anchor="middle" class="sublabel">48</text>
+
+    <!-- Swap note -->
+    <rect x="0" y="230" width="295" height="50" rx="6" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+    <text x="147" y="250" text-anchor="middle" class="label">Mendeleev swapped Te and I</text>
+    <text x="147" y="268" text-anchor="middle" class="sublabel">to fit chemical properties, not atomic mass</text>
+
+    <!-- Key insight -->
+    <rect x="0" y="295" width="295" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="147" y="318" text-anchor="middle" class="label">Gaps = undiscovered elements</text>
+    <text x="147" y="336" text-anchor="middle" class="sublabel">Mendeleev predicted their properties</text>
+    <text x="147" y="350" text-anchor="middle" class="sublabel">before they were discovered</text>
+  </g>
+
+  <!-- Right panel: eka-aluminium vs gallium -->
+  <rect x="475" y="55" width="400" height="420" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="675" y="82" text-anchor="middle" class="panel-title">Prediction verified: eka-aluminium → gallium</text>
+
+  <g transform="translate(510, 110)">
+    <!-- Prediction box -->
+    <rect x="0" y="0" width="160" height="110" rx="8" class="prediction"/>
+    <text x="80" y="28" text-anchor="middle" class="label">Eka-aluminium</text>
+    <text x="80" y="46" text-anchor="middle" class="sublabel">Mendeleev's prediction</text>
+    <line x1="20" y1="60" x2="140" y2="60" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="20" y="80" class="sublabel">Atomic mass:</text>
+    <text x="140" y="80" text-anchor="end" class="label">~68</text>
+    <text x="20" y="98" class="sublabel">Density:</text>
+    <text x="140" y="98" text-anchor="end" class="label">~6.0 g/cm³</text>
+
+    <!-- Arrow down -->
+    <path d="M80,120 L80,170" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="6 4"/>
+
+    <!-- Actual box -->
+    <rect x="0" y="170" width="160" height="110" rx="8" class="actual"/>
+    <text x="80" y="198" text-anchor="middle" class="label">Gallium (Ga)</text>
+    <text x="80" y="216" text-anchor="middle" class="sublabel">Discovered 1875</text>
+    <line x1="20" y1="230" x2="140" y2="230" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="20" y="250" class="sublabel">Atomic mass:</text>
+    <text x="140" y="250" text-anchor="end" class="label">69.7</text>
+    <text x="20" y="268" class="sublabel">Density:</text>
+    <text x="140" y="268" text-anchor="end" class="label">5.9 g/cm³</text>
+
+    <!-- Result -->
+    <rect x="0" y="300" width="330" height="60" rx="6" fill="#e0f2fe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="165" y="325" text-anchor="middle" class="label">Predictions matched reality</text>
+    <text x="165" y="345" text-anchor="middle" class="sublabel">This convinced scientists that Mendeleev's table was correct.</text>
+  </g>
+
+  <!-- Timeline note -->
+  <line x1="670" y1="250" x2="670" y2="280" class="line"/>
+  <rect x="520" y="280" width="300" height="36" rx="4" class="label-bg"/>
+  <text x="670" y="298" text-anchor="middle" class="label">Henry Moseley (1913): ordered by atomic number</text>
+  <text x="670" y="310" text-anchor="middle" class="sublabel">resolved the final inconsistencies</text>
+</svg>

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc">
+  <title id="title">Physical and Chemical Changes</title>
+  <desc id="desc">Two-panel diagram comparing a reversible physical change (ice melting into water) with a chemical change (burning) that produces new substances.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="460" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Physical vs Chemical Changes</text>
+
+  <!-- Physical change panel -->
+  <rect x="30" y="55" width="355" height="380" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="207" y="82" text-anchor="middle" class="panel-title">Physical Change</text>
+
+  <!-- Ice cube -->
+  <path d="M120,140 L180,120 L240,140 L240,200 L180,220 L120,200 Z" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+  <path d="M120,140 L180,160 L240,140" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
+  <path d="M180,160 L180,220" fill="none" stroke="#38bdf8" stroke-width="1.5"/>
+  <text x="180" y="177" text-anchor="middle" class="sublabel" fill="#0369a1">H₂O</text>
+
+  <rect x="132" y="120" width="76" height="18" rx="4" class="label-bg"/>
+  <text x="136" y="132" class="label" fill="#0369a1">Ice (solid)</text>
+
+  <!-- Arrow down -->
+  <line x1="180" y1="235" x2="180" y2="280" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <text x="210" y="262" class="sublabel">Melting</text>
+
+  <!-- Water puddle -->
+  <ellipse cx="180" cy="310" rx="70" ry="22" fill="#bae6fd" stroke="#38bdf8" stroke-width="2"/>
+  <text x="180" y="316" text-anchor="middle" class="sublabel" fill="#0369a1">H₂O</text>
+
+  <rect x="116" y="340" width="100" height="18" rx="4" class="label-bg"/>
+  <text x="120" y="352" class="label" fill="#0369a1">Water (liquid)</text>
+
+  <!-- Reversible arrow -->
+  <path d="M250,280 C290,260 290,320 250,300" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)" fill="none" stroke-dasharray="4 2"/>
+  <rect x="254" y="280" width="78" height="18" rx="4" class="label-bg"/>
+  <text x="258" y="292" class="sublabel">Reversible</text>
+
+  <text x="207" y="405" text-anchor="middle" class="sublabel">Same substance (H₂O); only state changes.</text>
+
+  <!-- Chemical change panel -->
+  <rect x="415" y="55" width="355" height="380" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="592" y="82" text-anchor="middle" class="panel-title">Chemical Change</text>
+
+  <!-- Log / fuel -->
+  <g transform="translate(500, 130)">
+    <rect x="0" y="0" width="120" height="50" rx="8" fill="#78350f" stroke="#451a03" stroke-width="2"/>
+    <path d="M20,0 L20,50 M50,0 L50,50 M80,0 L80,50" stroke="#92400e" stroke-width="2"/>
+  </g>
+  <rect x="500" y="100" width="100" height="18" rx="4" class="label-bg"/>
+  <text x="504" y="112" class="label">Fuel (wood)</text>
+
+  <!-- Oxygen -->
+  <g transform="translate(640, 145)">
+    <circle cx="15" cy="15" r="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="15" y="20" text-anchor="middle" class="sublabel" fill="#1e3a8a">O₂</text>
+    <circle cx="45" cy="15" r="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="45" y="20" text-anchor="middle" class="sublabel" fill="#1e3a8a">O₂</text>
+  </g>
+  <rect x="650" y="180" width="72" height="18" rx="4" class="label-bg"/>
+  <text x="654" y="192" class="label">Oxygen</text>
+
+  <!-- Reaction arrow -->
+  <line x1="560" y1="205" x2="560" y2="250" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
+  <rect x="570" y="220" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="574" y="232" class="sublabel">Burning</text>
+
+  <!-- Products -->
+  <g transform="translate(500, 270)">
+    <circle cx="25" cy="25" r="18" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
+    <text x="25" y="30" text-anchor="middle" class="sublabel">CO₂</text>
+    <circle cx="75" cy="25" r="18" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
+    <text x="75" y="30" text-anchor="middle" class="sublabel">H₂O</text>
+    <circle cx="125" cy="25" r="18" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
+    <text x="125" y="30" text-anchor="middle" class="sublabel">ash</text>
+  </g>
+  <rect x="500" y="310" width="112" height="18" rx="4" class="label-bg"/>
+  <text x="504" y="322" class="label">New substances</text>
+
+  <!-- Signs of reaction -->
+  <g transform="translate(460, 350)">
+    <rect x="0" y="0" width="270" height="60" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5" rx="6"/>
+    <text x="135" y="22" text-anchor="middle" class="sublabel" fill="#7c2d12">Signs: colour change, gas, heat, light</text>
+    <text x="135" y="42" text-anchor="middle" class="sublabel" fill="#7c2d12">Most chemical changes are hard to reverse.</text>
+  </g>
+</svg>

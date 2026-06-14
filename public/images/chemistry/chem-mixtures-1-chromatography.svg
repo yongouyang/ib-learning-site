@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" role="img" aria-labelledby="title desc">
+  <title id="title">Paper Chromatography</title>
+  <desc id="desc">A diagram of paper chromatography showing a baseline with sample spots, a solvent front, separated coloured spots, and how to calculate the Rf value.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke: #6b7280; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="460" fill="#f9fafb" rx="12"/>
+  <text x="380" y="34" text-anchor="middle" class="title">Paper Chromatography</text>
+
+  <!-- Tank -->
+  <rect x="230" y="70" width="180" height="350" fill="#ffffff" stroke="#94a3b8" stroke-width="3" rx="4"/>
+  <rect x="235" y="340" width="170" height="75" fill="#bae6fd" opacity="0.6"/>
+
+  <!-- Paper -->
+  <rect x="270" y="90" width="100" height="310" fill="#ffffff" stroke="#d1d5db" stroke-width="2"/>
+
+  <!-- Solvent level -->
+  <line x1="272" y1="340" x2="368" y2="340" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="390" y="344" class="sublabel">Solvent level</text>
+
+  <!-- Baseline -->
+  <line x1="272" y1="300" x2="368" y2="300" stroke="#374151" stroke-width="2"/>
+  <text x="205" y="304" text-anchor="end" class="sublabel">Baseline</text>
+  <text x="205" y="318" text-anchor="end" class="sublabel">(pencil)</text>
+
+  <!-- Spots at baseline -->
+  <circle cx="300" cy="300" r="5" fill="#8b5cf6"/>
+  <circle cx="320" cy="300" r="5" fill="#ef4444"/>
+  <circle cx="340" cy="300" r="5" fill="#10b981"/>
+
+  <!-- Separated spots -->
+  <circle cx="295" cy="140" r="5" fill="#8b5cf6"/>
+  <circle cx="315" cy="170" r="5" fill="#ef4444"/>
+  <circle cx="335" cy="210" r="5" fill="#10b981"/>
+
+  <!-- Solvent front -->
+  <line x1="272" y1="120" x2="368" y2="120" stroke="#f97316" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="375" y="124" class="sublabel">Solvent front</text>
+
+  <!-- Mobile phase arrow -->
+  <line x1="320" y1="320" x2="320" y2="130" class="arrow" marker-end="url(#arrow-gray)"/>
+  <text x="340" y="230" class="label">Mobile phase</text>
+  <text x="340" y="248" class="sublabel">(solvent)</text>
+
+  <!-- Stationary phase label -->
+  <line x1="250" y1="220" x2="205" y2="220" class="line"/>
+  <rect x="105" y="211" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="109" y="223" class="label">Stationary phase</text>
+  <text x="105" y="241" class="sublabel">(chromatography paper)</text>
+
+  <!-- Rf calculation -->
+  <rect x="450" y="100" width="270" height="150" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="585" y="130" text-anchor="middle" class="label">Calculating Rf</text>
+  <text x="585" y="160" text-anchor="middle" class="sublabel">Rf = distance moved by substance</text>
+  <text x="585" y="180" text-anchor="middle" class="sublabel">÷ distance moved by solvent front</text>
+  <!-- Example -->
+  <circle cx="500" cy="220" r="5" fill="#ef4444"/>
+  <line x1="500" y1="220" x2="540" y2="220" class="line"/>
+  <text x="545" y="224" class="sublabel">4 cm</text>
+  <line x1="500" y1="120" x2="500" y2="220" class="line" stroke-dasharray="3,3"/>
+  <text x="470" y="175" class="sublabel" transform="rotate(-90 470 175)">solvent front 10 cm</text>
+  <text x="585" y="250" text-anchor="middle" class="label" fill="#f97316">Rf = 4 ÷ 10 = 0.4</text>
+
+  <!-- Key rule -->
+  <rect x="450" y="270" width="270" height="60" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="585" y="295" text-anchor="middle" class="label">Important rule</text>
+  <text x="585" y="315" text-anchor="middle" class="sublabel">Baseline must be ABOVE the solvent level</text>
+</svg>

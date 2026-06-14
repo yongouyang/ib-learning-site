@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" role="img" aria-labelledby="title desc">
+  <title id="title">Limiting Factors of Photosynthesis</title>
+  <desc id="desc">A graph showing how the rate of photosynthesis increases with light intensity until it plateaus when another factor becomes limiting.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .axis { stroke: #374151; stroke-width: 2.5; fill: none; }
+      .grid { stroke: #e5e7eb; stroke-width: 1; fill: none; }
+      .curve { fill: none; stroke: #16a34a; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+      .plateau { fill: none; stroke: #dc2626; stroke-width: 2; stroke-dasharray: 6,4; }
+      .arrow { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-head" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <rect width="680" height="440" fill="#f9fafb" rx="12"/>
+  <text x="340" y="34" text-anchor="middle" class="title">Limiting Factors of Photosynthesis</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="380" x2="620" y2="380" class="axis" marker-end="url(#arrow-head)"/>
+  <line x1="80" y1="380" x2="80" y2="70" class="axis" marker-end="url(#arrow-head)"/>
+
+  <text x="340" y="415" text-anchor="middle" class="label">Light intensity (or CO₂ / temperature)</text>
+  <text x="28" y="235" text-anchor="middle" class="label" transform="rotate(-90 28 235)">Rate of photosynthesis</text>
+
+  <!-- Gridlines -->
+  <line x1="80" y1="320" x2="620" y2="320" class="grid"/>
+  <line x1="80" y1="260" x2="620" y2="260" class="grid"/>
+  <line x1="80" y1="200" x2="620" y2="200" class="grid"/>
+  <line x1="80" y1="140" x2="620" y2="140" class="grid"/>
+  <line x1="80" y1="80" x2="620" y2="80" class="grid"/>
+
+  <!-- Curve -->
+  <path d="M80,360 Q160,340 240,260 T400,140 T560,140" class="curve"/>
+
+  <!-- Plateau line -->
+  <line x1="400" y1="80" x2="600" y2="80" class="plateau"/>
+
+  <!-- Plateau annotation -->
+  <line x1="500" y1="140" x2="550" y2="100" class="arrow" stroke="#dc2626"/>
+  <rect x="440" y="75" width="170" height="18" rx="4" fill="#f9fafb"/>
+  <text x="444" y="87" class="label" fill="#b91c1c">Plateau — another factor limits rate</text>
+
+  <!-- Increasing annotation -->
+  <line x1="200" y1="310" x2="280" y2="240" class="arrow" stroke="#16a34a"/>
+  <rect x="160" y="315" width="130" height="18" rx="4" fill="#f9fafb"/>
+  <text x="164" y="327" class="label" fill="#15803d">Rate increases</text>
+
+  <!-- Factor labels -->
+  <text x="90" y="400" class="sublabel">Low</text>
+  <text x="580" y="400" class="sublabel">High</text>
+  <text x="60" y="385" class="sublabel">0</text>
+</svg>

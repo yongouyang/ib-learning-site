@@ -8,37 +8,72 @@
     {
       "id": "chem-acids-1-n1",
       "heading": "The pH Scale and Indicators",
-      "body": "The pH scale (0-14) measures the acidity or alkalinity of a solution: pH 7 = neutral (pure water). pH below 7 = acidic (lower = stronger acid). pH above 7 = alkaline (higher = stronger alkali). The scale is logarithmic — each step of 1 represents a 10× change in H⁺ concentration. pH 3 is 10× more acidic than pH 4, and 100× more acidic than pH 5. Indicators are substances that change colour depending on pH: Litmus — red in acid, blue in alkali. Universal indicator — a mixture of indicators giving a full spectrum: red (pH 0-3 strong acid), orange (4-5 weak acid), green (pH 7 neutral), blue (8-10 weak alkali), purple (11-14 strong alkali). Phenolphthalein — colourless in acid, pink in alkali (used in titrations). Methyl orange — red in acid, yellow in alkali. pH can be measured with universal indicator paper/solution, a pH meter (more precise), or data loggers. Natural indicators: red cabbage juice turns red in acid, green/blue in neutral, yellow in alkali."
+      "body": "The pH scale (0-14) measures the acidity or alkalinity of a solution: pH 7 = neutral (pure water). pH below 7 = acidic (lower = stronger acid). pH above 7 = alkaline (higher = stronger alkali). The scale is logarithmic — each step of 1 represents a 10× change in H⁺ concentration. pH 3 is 10× more acidic than pH 4, and 100× more acidic than pH 5. Indicators are substances that change colour depending on pH: Litmus — red in acid, blue in alkali. Universal indicator — a mixture of indicators giving a full spectrum: red (pH 0-3 strong acid), orange (4-5 weak acid), green (pH 7 neutral), blue (8-10 weak alkali), purple (11-14 strong alkali). Phenolphthalein — colourless in acid, pink in alkali (used in titrations). Methyl orange — red in acid, yellow in alkali. pH can be measured with universal indicator paper/solution, a pH meter (more precise), or data loggers. Natural indicators: red cabbage juice turns red in acid, green/blue in neutral, yellow in alkali.",
+      "illustration": {
+        "src": "/images/chemistry/chem-acids-1-ph-scale.svg",
+        "alt": "The pH scale from 0 to 14 with colour zones and indicator colour changes.",
+        "caption": "The pH scale is logarithmic; universal indicator gives a full colour range from red (strong acid) to purple (strong alkali)."
+      }
     },
     {
       "id": "chem-acids-1-n2",
       "heading": "Acids: Properties and Examples",
-      "body": "An acid is a substance that releases hydrogen ions (H⁺) when dissolved in water. Common laboratory acids: Hydrochloric acid (HCl), Sulfuric acid (H₂SO₄), Nitric acid (HNO₃). Common household acids: citric acid (lemons, oranges), ethanoic acid (vinegar), carbonic acid (fizzy drinks — CO₂ dissolved in water). Properties of acids: sour taste (do NOT taste lab acids!), corrosive (can burn skin and damage materials), turn litmus red, react with metals to produce hydrogen gas (metal + acid → salt + hydrogen), react with metal oxides/hydroxides (neutralisation), react with carbonates to produce CO₂ (acid + carbonate → salt + water + carbon dioxide). Strong acids (HCl, H₂SO₄, HNO₃) fully ionise in water — every molecule releases its H⁺. Weak acids (ethanoic, citric, carbonic) only partially ionise — most molecules keep their H⁺. This means a dilute solution of a strong acid may have a higher pH than a concentrated solution of a weak acid — concentration and strength are different concepts."
+      "body": "An acid is a substance that releases hydrogen ions (H⁺) when dissolved in water. Common laboratory acids: Hydrochloric acid (HCl), Sulfuric acid (H₂SO₄), Nitric acid (HNO₃). Common household acids: citric acid (lemons, oranges), ethanoic acid (vinegar), carbonic acid (fizzy drinks — CO₂ dissolved in water). Properties of acids: sour taste (do NOT taste lab acids!), corrosive (can burn skin and damage materials), turn litmus red, react with metals to produce hydrogen gas (metal + acid → salt + hydrogen), react with metal oxides/hydroxides (neutralisation), react with carbonates to produce CO₂ (acid + carbonate → salt + water + carbon dioxide). Strong acids (HCl, H₂SO₄, HNO₃) fully ionise in water — every molecule releases its H⁺. Weak acids (ethanoic, citric, carbonic) only partially ionise — most molecules keep their H⁺. This means a dilute solution of a strong acid may have a higher pH than a concentrated solution of a weak acid — concentration and strength are different concepts.",
+      "illustration": {
+        "src": "/images/chemistry/chem-acids-1-acid-properties.svg",
+        "alt": "Diagram showing strong and weak acid ionisation and the properties of acids.",
+        "caption": "Strong acids fully ionise in water, while weak acids only partially ionise."
+      }
     },
     {
       "id": "chem-acids-1-n3",
       "heading": "Bases and Alkalis",
-      "body": "A base is a substance that neutralises an acid to form a salt and water. Metal oxides (e.g., CuO, MgO) and metal hydroxides (e.g., NaOH, Ca(OH)₂) are bases. An ALKALI is a soluble base — it dissolves in water to release hydroxide ions (OH⁻). Common alkalis: Sodium hydroxide (NaOH — 'caustic soda'), Potassium hydroxide (KOH), Calcium hydroxide (Ca(OH)₂ — 'lime water'), Ammonia solution (NH₃(aq)). Properties of alkalis: bitter taste (do NOT taste!), soapy feel, corrosive, turn litmus blue, neutralise acids. Strong alkalis (NaOH, KOH) fully ionise in water. Neutralisation occurs when H⁺ (from acid) reacts with OH⁻ (from alkali) to form water: H⁺ + OH⁻ → H₂O. This is the fundamental reaction of neutralisation. The other ions (from the acid's anion and the base's cation) form the salt. Example: HCl + NaOH → NaCl + H₂O. Ionic equation: H⁺ + Cl⁻ + Na⁺ + OH⁻ → Na⁺ + Cl⁻ + H₂O. The Na⁺ and Cl⁻ are spectator ions (they don't change); the essential reaction is H⁺ + OH⁻ → H₂O."
+      "body": "A base is a substance that neutralises an acid to form a salt and water. Metal oxides (e.g., CuO, MgO) and metal hydroxides (e.g., NaOH, Ca(OH)₂) are bases. An ALKALI is a soluble base — it dissolves in water to release hydroxide ions (OH⁻). Common alkalis: Sodium hydroxide (NaOH — 'caustic soda'), Potassium hydroxide (KOH), Calcium hydroxide (Ca(OH)₂ — 'lime water'), Ammonia solution (NH₃(aq)). Properties of alkalis: bitter taste (do NOT taste!), soapy feel, corrosive, turn litmus blue, neutralise acids. Strong alkalis (NaOH, KOH) fully ionise in water. Neutralisation occurs when H⁺ (from acid) reacts with OH⁻ (from alkali) to form water: H⁺ + OH⁻ → H₂O. This is the fundamental reaction of neutralisation. The other ions (from the acid's anion and the base's cation) form the salt. Example: HCl + NaOH → NaCl + H₂O. Ionic equation: H⁺ + Cl⁻ + Na⁺ + OH⁻ → Na⁺ + Cl⁻ + H₂O. The Na⁺ and Cl⁻ are spectator ions (they don't change); the essential reaction is H⁺ + OH⁻ → H₂O.",
+      "illustration": {
+        "src": "/images/chemistry/chem-acids-1-bases-alkalis.svg",
+        "alt": "Diagram distinguishing bases and alkalis and showing neutralisation as H⁺ + OH⁻ → H₂O.",
+        "caption": "Alkalis release OH⁻ ions in water; neutralisation forms water from H⁺ and OH⁻."
+      }
     },
     {
       "id": "chem-acids-1-n4",
       "heading": "Making Salts",
-      "body": "A salt is an ionic compound formed when the H⁺ in an acid is replaced by a metal ion or ammonium ion. The name of the salt comes from the acid used: Hydrochloric acid → chloride salts (NaCl, KCl, CaCl₂). Sulfuric acid → sulfate salts (Na₂SO₄, CuSO₄, MgSO₄). Nitric acid → nitrate salts (KNO₃, NaNO₃, AgNO₃). Methods for making soluble salts: (1) Acid + insoluble base (metal oxide/hydroxide/carbonate) — add excess solid to acid, warm gently, filter off excess, evaporate filtrate to crystallisation point, leave to crystallise. Example: CuO(s) + H₂SO₄(aq) → CuSO₄(aq) + H₂O(l). The blue solution yields blue CuSO₄·5H₂O crystals. (2) Acid + alkali (titration) — used when both reactants are soluble (no filtration possible). An indicator shows the exact neutralisation point. Repeat without indicator to get pure salt solution, then crystallise. (3) Acid + metal (for reactive metals like Mg, Zn, Fe) — metal + acid → salt + hydrogen. Example: Mg + 2HCl → MgCl₂ + H₂↑. Method for insoluble salts: precipitation — mix two soluble salts containing the required ions. The insoluble salt precipitates out. Filter, wash with distilled water, dry. Example: BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s)↓ + 2NaCl(aq)."
+      "body": "A salt is an ionic compound formed when the H⁺ in an acid is replaced by a metal ion or ammonium ion. The name of the salt comes from the acid used: Hydrochloric acid → chloride salts (NaCl, KCl, CaCl₂). Sulfuric acid → sulfate salts (Na₂SO₄, CuSO₄, MgSO₄). Nitric acid → nitrate salts (KNO₃, NaNO₃, AgNO₃). Methods for making soluble salts: (1) Acid + insoluble base (metal oxide/hydroxide/carbonate) — add excess solid to acid, warm gently, filter off excess, evaporate filtrate to crystallisation point, leave to crystallise. Example: CuO(s) + H₂SO₄(aq) → CuSO₄(aq) + H₂O(l). The blue solution yields blue CuSO₄·5H₂O crystals. (2) Acid + alkali (titration) — used when both reactants are soluble (no filtration possible). An indicator shows the exact neutralisation point. Repeat without indicator to get pure salt solution, then crystallise. (3) Acid + metal (for reactive metals like Mg, Zn, Fe) — metal + acid → salt + hydrogen. Example: Mg + 2HCl → MgCl₂ + H₂↑. Method for insoluble salts: precipitation — mix two soluble salts containing the required ions. The insoluble salt precipitates out. Filter, wash with distilled water, dry. Example: BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s)↓ + 2NaCl(aq).",
+      "illustration": {
+        "src": "/images/chemistry/chem-acids-1-making-salts.svg",
+        "alt": "Methods for making soluble salts and precipitation for insoluble salts.",
+        "caption": "The parent acid determines the salt name, and the method depends on whether the base is soluble."
+      }
     },
     {
       "id": "chem-acids-1-n5",
       "heading": "Reactions of Acids (Summary)",
-      "body": "Acids undergo characteristic reactions: (1) Acid + Metal → Salt + Hydrogen. Example: 2HCl + Mg → MgCl₂ + H₂↑. Test for H₂: lighted splint gives a 'squeaky pop'. NOT all metals react — only those above hydrogen in the reactivity series (Mg, Al, Zn, Fe). Copper and silver do NOT react with acids. (2) Acid + Metal oxide → Salt + Water. Example: H₂SO₄ + CuO → CuSO₄ + H₂O. (3) Acid + Metal hydroxide → Salt + Water. Example: HCl + NaOH → NaCl + H₂O. (4) Acid + Metal carbonate → Salt + Water + Carbon dioxide. Example: 2HCl + CaCO₃ → CaCl₂ + H₂O + CO₂↑. Test for CO₂: bubble through limewater → turns milky/cloudy. (5) Acid + Metal hydrogencarbonate → Salt + Water + CO₂. Example: HCl + NaHCO₃ → NaCl + H₂O + CO₂. Important: the gas produced depends on what the acid reacts with. Metals → H₂. Carbonates → CO₂. Oxides/hydroxides → no gas, just salt + water."
+      "body": "Acids undergo characteristic reactions: (1) Acid + Metal → Salt + Hydrogen. Example: 2HCl + Mg → MgCl₂ + H₂↑. Test for H₂: lighted splint gives a 'squeaky pop'. NOT all metals react — only those above hydrogen in the reactivity series (Mg, Al, Zn, Fe). Copper and silver do NOT react with acids. (2) Acid + Metal oxide → Salt + Water. Example: H₂SO₄ + CuO → CuSO₄ + H₂O. (3) Acid + Metal hydroxide → Salt + Water. Example: HCl + NaOH → NaCl + H₂O. (4) Acid + Metal carbonate → Salt + Water + Carbon dioxide. Example: 2HCl + CaCO₃ → CaCl₂ + H₂O + CO₂↑. Test for CO₂: bubble through limewater → turns milky/cloudy. (5) Acid + Metal hydrogencarbonate → Salt + Water + CO₂. Example: HCl + NaHCO₃ → NaCl + H₂O + CO₂. Important: the gas produced depends on what the acid reacts with. Metals → H₂. Carbonates → CO₂. Oxides/hydroxides → no gas, just salt + water.",
+      "illustration": {
+        "src": "/images/chemistry/chem-acids-1-acid-reactions.svg",
+        "alt": "Summary cards of the five characteristic reactions of acids.",
+        "caption": "Acids react with metals, oxides, hydroxides, carbonates and hydrogencarbonates, each giving a characteristic product set."
+      }
     },
     {
       "id": "chem-acids-1-n6",
       "heading": "Everyday Acids, Bases and Neutralisation",
-      "body": "Neutralisation has many practical applications: (1) Agriculture — lime (calcium oxide, CaO, or calcium hydroxide, Ca(OH)₂) is spread on acidic soil to raise pH. Most crops grow best at pH 6-7. (2) Medicine — antacid tablets (containing CaCO₃, Mg(OH)₂, or Al(OH)₃) neutralise excess stomach acid (HCl), relieving indigestion and heartburn. Mg(OH)₂ + 2HCl → MgCl₂ + 2H₂O. (3) Industry — acidic industrial waste is treated with slaked lime before release into rivers. Flue gas desulfurisation: SO₂ (from power stations, causes acid rain) is removed by reacting with CaO or CaCO₃. (4) Personal care — shampoo is slightly acidic (pH ~5.5) to match the scalp's natural pH; soap is alkaline. Bee stings are acidic (treated with baking soda — a base). Wasp stings are alkaline (treated with vinegar — an acid). (5) Food — baking powder contains NaHCO₃ (sodium hydrogencarbonate), which releases CO₂ when heated or mixed with acidic ingredients (like buttermilk), making cakes rise. Tooth decay: bacteria in the mouth produce acid from sugar, which dissolves tooth enamel. Fluoride toothpaste helps remineralise enamel and resist acid."
+      "body": "Neutralisation has many practical applications: (1) Agriculture — lime (calcium oxide, CaO, or calcium hydroxide, Ca(OH)₂) is spread on acidic soil to raise pH. Most crops grow best at pH 6-7. (2) Medicine — antacid tablets (containing CaCO₃, Mg(OH)₂, or Al(OH)₃) neutralise excess stomach acid (HCl), relieving indigestion and heartburn. Mg(OH)₂ + 2HCl → MgCl₂ + 2H₂O. (3) Industry — acidic industrial waste is treated with slaked lime before release into rivers. Flue gas desulfurisation: SO₂ (from power stations, causes acid rain) is removed by reacting with CaO or CaCO₃. (4) Personal care — shampoo is slightly acidic (pH ~5.5) to match the scalp's natural pH; soap is alkaline. Bee stings are acidic (treated with baking soda — a base). Wasp stings are alkaline (treated with vinegar — an acid). (5) Food — baking powder contains NaHCO₃ (sodium hydrogencarbonate), which releases CO₂ when heated or mixed with acidic ingredients (like buttermilk), making cakes rise. Tooth decay: bacteria in the mouth produce acid from sugar, which dissolves tooth enamel. Fluoride toothpaste helps remineralise enamel and resist acid.",
+      "illustration": {
+        "src": "/images/chemistry/chem-acids-1-everyday-neutralisation.svg",
+        "alt": "Everyday examples of neutralisation in agriculture, medicine, industry, food and personal care.",
+        "caption": "Neutralisation is used to treat acidic soil, stomach acid, industrial waste and insect stings."
+      }
     },
     {
       "id": "chem-acids-1-n7",
       "heading": "pH Practical Skills and Titration",
-      "body": "Measuring pH accurately: (1) Use a clean glass rod to transfer a drop of solution to universal indicator paper — do NOT dip the paper into the test tube (contaminates the solution). (2) Compare the colour to the chart immediately. (3) A pH meter (probe connected to a data logger) gives precise numerical values. Titration is a technique to find the exact volume of acid needed to neutralise a given volume of alkali (or vice versa). Steps: (1) Pipette a known volume of alkali into a conical flask. (2) Add a few drops of indicator (phenolphthalein — pink in alkali, colourless in acid). (3) Fill a burette with acid of known concentration. (4) Slowly add acid, swirling the flask constantly. (5) As the endpoint approaches, add drop by drop until the indicator just changes colour (pink → colourless). (6) Record the volume of acid used (titre). (7) Repeat to get concordant results (within 0.1 cm³). Use the titre to calculate the concentration of the unknown solution. Titration is a fundamental analytical technique used in quality control, water testing, and pharmaceutical manufacturing."
+      "body": "Measuring pH accurately: (1) Use a clean glass rod to transfer a drop of solution to universal indicator paper — do NOT dip the paper into the test tube (contaminates the solution). (2) Compare the colour to the chart immediately. (3) A pH meter (probe connected to a data logger) gives precise numerical values. Titration is a technique to find the exact volume of acid needed to neutralise a given volume of alkali (or vice versa). Steps: (1) Pipette a known volume of alkali into a conical flask. (2) Add a few drops of indicator (phenolphthalein — pink in alkali, colourless in acid). (3) Fill a burette with acid of known concentration. (4) Slowly add acid, swirling the flask constantly. (5) As the endpoint approaches, add drop by drop until the indicator just changes colour (pink → colourless). (6) Record the volume of acid used (titre). (7) Repeat to get concordant results (within 0.1 cm³). Use the titre to calculate the concentration of the unknown solution. Titration is a fundamental analytical technique used in quality control, water testing, and pharmaceutical manufacturing.",
+      "illustration": {
+        "src": "/images/chemistry/chem-acids-1-titration.svg",
+        "alt": "Correct pH measurement technique and a labelled titration apparatus.",
+        "caption": "Use a clean glass rod for indicator paper and add acid from a burette dropwise near the endpoint."
+      }
     }
   ],
   "flashcards": [
@@ -119,105 +154,180 @@
     {
       "id": "chem-acids-1-q1",
       "stem": "pH 2 means:",
-      "choices": ["Neutral", "Strong alkali", "Strong acid", "Weak acid"],
+      "choices": [
+        "Neutral",
+        "Strong alkali",
+        "Strong acid",
+        "Weak acid"
+      ],
       "correctIndex": 2,
       "explanation": "pH 2 is far below 7 — strongly acidic. Compare: stomach acid is pH 1-3."
     },
     {
       "id": "chem-acids-1-q2",
       "stem": "Litmus paper turns blue in which type of solution?",
-      "choices": ["Acidic", "Neutral", "Alkaline", "Pure water"],
+      "choices": [
+        "Acidic",
+        "Neutral",
+        "Alkaline",
+        "Pure water"
+      ],
       "correctIndex": 2,
       "explanation": "Litmus is red in acid, blue in alkali. 'Blue base' is a useful memory aid."
     },
     {
       "id": "chem-acids-1-q3",
       "stem": "HCl + NaOH → ?",
-      "choices": ["Na + Cl + water", "NaCl + H₂O", "NaCl + H₂", "NaOH + HCl — no reaction"],
+      "choices": [
+        "Na + Cl + water",
+        "NaCl + H₂O",
+        "NaCl + H₂",
+        "NaOH + HCl — no reaction"
+      ],
       "correctIndex": 1,
       "explanation": "Neutralisation: acid + alkali → salt + water. HCl + NaOH → NaCl + H₂O."
     },
     {
       "id": "chem-acids-1-q4",
       "stem": "Soil pH 5. What should a farmer add?",
-      "choices": ["More acid", "Lime (an alkali like CaO or Ca(OH)₂)", "Pure water", "Table salt"],
+      "choices": [
+        "More acid",
+        "Lime (an alkali like CaO or Ca(OH)₂)",
+        "Pure water",
+        "Table salt"
+      ],
       "correctIndex": 1,
       "explanation": "Acidic soil needs an alkali to neutralise it and raise the pH towards neutral (~6.5-7), which most crops prefer."
     },
     {
       "id": "chem-acids-1-q5",
       "stem": "Acid + metal carbonate produces:",
-      "choices": ["Hydrogen only", "O₂ and H₂", "Salt + water + carbon dioxide", "CO₂ only"],
+      "choices": [
+        "Hydrogen only",
+        "O₂ and H₂",
+        "Salt + water + carbon dioxide",
+        "CO₂ only"
+      ],
       "correctIndex": 2,
       "explanation": "2HCl + CaCO₃ → CaCl₂ + H₂O + CO₂. The CO₂ turns limewater milky — this is the test for carbonates."
     },
     {
       "id": "chem-acids-1-q6",
       "stem": "A solution has pH 6. Another has pH 4. How many times more acidic is pH 4?",
-      "choices": ["2×", "10×", "100×", "1000×"],
+      "choices": [
+        "2×",
+        "10×",
+        "100×",
+        "1000×"
+      ],
       "correctIndex": 2,
       "explanation": "Each pH step = 10×. From pH 6 to pH 4 is 2 steps → 10 × 10 = 100× more acidic at pH 4."
     },
     {
       "id": "chem-acids-1-q7",
       "stem": "Which gas is produced when magnesium reacts with hydrochloric acid?",
-      "choices": ["Oxygen", "Carbon dioxide", "Hydrogen — test with a lighted splint for a 'squeaky pop'", "Nitrogen"],
+      "choices": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Hydrogen — test with a lighted splint for a 'squeaky pop'",
+        "Nitrogen"
+      ],
       "correctIndex": 2,
       "explanation": "Metal + acid → salt + hydrogen. Mg + 2HCl → MgCl₂ + H₂↑."
     },
     {
       "id": "chem-acids-1-q8",
       "stem": "Why does copper NOT react with dilute hydrochloric acid?",
-      "choices": ["Copper is a non-metal", "Copper is below hydrogen in the reactivity series — it cannot displace H⁺ ions", "Copper is too heavy", "HCl is too weak"],
+      "choices": [
+        "Copper is a non-metal",
+        "Copper is below hydrogen in the reactivity series — it cannot displace H⁺ ions",
+        "Copper is too heavy",
+        "HCl is too weak"
+      ],
       "correctIndex": 1,
       "explanation": "Only metals above hydrogen in the reactivity series (Mg, Al, Zn, Fe) react with acids. Copper, silver, and gold are below hydrogen → no reaction."
     },
     {
       "id": "chem-acids-1-q9",
       "stem": "In the reaction HCl + NaOH → NaCl + H₂O, which ions are spectator ions?",
-      "choices": ["H⁺ and OH⁻", "Na⁺ and Cl⁻ — they remain unchanged in solution", "H⁺ and Na⁺", "No spectator ions — all ions react"],
+      "choices": [
+        "H⁺ and OH⁻",
+        "Na⁺ and Cl⁻ — they remain unchanged in solution",
+        "H⁺ and Na⁺",
+        "No spectator ions — all ions react"
+      ],
       "correctIndex": 1,
       "explanation": "Na⁺ and Cl⁻ are present before and after the reaction unchanged. The net ionic equation is H⁺ + OH⁻ → H₂O."
     },
     {
       "id": "chem-acids-1-q10",
       "stem": "What salt is produced when sulfuric acid neutralises potassium hydroxide?",
-      "choices": ["Potassium chloride", "Potassium sulfate (K₂SO₄)", "Potassium nitrate", "Potassium oxide"],
+      "choices": [
+        "Potassium chloride",
+        "Potassium sulfate (K₂SO₄)",
+        "Potassium nitrate",
+        "Potassium oxide"
+      ],
       "correctIndex": 1,
       "explanation": "H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O. Sulfuric acid → sulfate salts."
     },
     {
       "id": "chem-acids-1-q11",
       "stem": "A bee sting is acidic. Which household substance would neutralise it?",
-      "choices": ["Vinegar (acid)", "Lemon juice (acid)", "Baking soda (sodium hydrogencarbonate — an alkali)", "Table salt (neutral)"],
+      "choices": [
+        "Vinegar (acid)",
+        "Lemon juice (acid)",
+        "Baking soda (sodium hydrogencarbonate — an alkali)",
+        "Table salt (neutral)"
+      ],
       "correctIndex": 2,
       "explanation": "Acid + alkali → neutralisation. Baking soda (NaHCO₃) is a mild alkali that neutralises the acidic bee venom. Wasp stings are alkaline — treated with vinegar."
     },
     {
       "id": "chem-acids-1-q12",
       "stem": "In a titration, why is a conical flask preferred over a beaker?",
-      "choices": ["It looks more professional", "The narrow neck reduces splashing and the swirling motion mixes solutions effectively without spilling", "Conical flasks are cheaper", "It prevents the indicator from changing colour"],
+      "choices": [
+        "It looks more professional",
+        "The narrow neck reduces splashing and the swirling motion mixes solutions effectively without spilling",
+        "Conical flasks are cheaper",
+        "It prevents the indicator from changing colour"
+      ],
       "correctIndex": 1,
       "explanation": "The conical shape allows vigorous swirling for mixing while the narrow neck minimises splashing. This ensures accurate mixing as the endpoint is approached."
     },
     {
       "id": "chem-acids-1-q13",
       "stem": "Antacid tablets often contain calcium carbonate (CaCO₃). How do they work?",
-      "choices": ["They kill bacteria in the stomach", "CaCO₃ neutralises excess HCl in the stomach: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂", "They absorb water in the stomach", "They increase acid production"],
+      "choices": [
+        "They kill bacteria in the stomach",
+        "CaCO₃ neutralises excess HCl in the stomach: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂",
+        "They absorb water in the stomach",
+        "They increase acid production"
+      ],
       "correctIndex": 1,
       "explanation": "Antacids provide a mild base that neutralises stomach acid (HCl), raising pH and relieving the burning sensation of indigestion."
     },
     {
       "id": "chem-acids-1-q14",
       "stem": "Which statement about strong and weak acids is correct?",
-      "choices": ["Strong acids are always more concentrated than weak acids", "A strong acid has a lower pH than a weak acid at the same concentration", "Weak acids cannot neutralise alkalis", "All acids have the same pH"],
+      "choices": [
+        "Strong acids are always more concentrated than weak acids",
+        "A strong acid has a lower pH than a weak acid at the same concentration",
+        "Weak acids cannot neutralise alkalis",
+        "All acids have the same pH"
+      ],
       "correctIndex": 1,
       "explanation": "HCl (strong) at 0.1 mol/dm³ has a lower pH (~1) than ethanoic acid (weak) at 0.1 mol/dm³ (~3), because HCl fully ionises, releasing more H⁺."
     },
     {
       "id": "chem-acids-1-q15",
       "stem": "Baking powder contains NaHCO₃. Why does it make cakes rise?",
-      "choices": ["NaHCO₃ absorbs water and expands", "When heated or mixed with acidic ingredients, NaHCO₃ decomposes releasing CO₂ gas bubbles that expand in the hot batter", "NaHCO₃ creates steam", "It reacts with oxygen to form a foam"],
+      "choices": [
+        "NaHCO₃ absorbs water and expands",
+        "When heated or mixed with acidic ingredients, NaHCO₃ decomposes releasing CO₂ gas bubbles that expand in the hot batter",
+        "NaHCO₃ creates steam",
+        "It reacts with oxygen to form a foam"
+      ],
       "correctIndex": 1,
       "explanation": "Sodium hydrogencarbonate releases CO₂ when heated (thermal decomposition) or when reacted with acid. The gas bubbles become trapped in the batter, causing it to rise."
     }

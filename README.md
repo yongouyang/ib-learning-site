@@ -21,7 +21,7 @@ Sequences & Series · Exponents & Logarithms · Binomial Theorem · Functions ·
 ### Study Tools
 
 Each topic provides three modes:
-1. **Study notes** — concept explanations with headings and body text
+1. **Study notes** — concept explanations with headings, body text, and **SVG illustrations** for every note
 2. **Flashcards** — term/definition cards with worked examples
 3. **Quiz** — multiple-choice questions with scoring, explanations, and star ratings
 
@@ -83,7 +83,9 @@ src/
 
 scripts/
 ├── validate-content.ts           # Validate subjects.json and all topic JSON files
-└── audit-content.ts              # Audit content quality (question counts, IDs, LaTeX)
+├── validate-illustrations.ts     # Validate SVG metadata, paths, and referenced files
+├── audit-content.ts              # Audit content quality (question counts, IDs, LaTeX)
+└── diagnose-illustrations.mjs    # Detect label overlaps / out-of-bounds text in SVGs
 ```
 
 ## Tech Stack
@@ -116,12 +118,19 @@ npm run lint
 # Validate all content JSON files
 npm run validate:content
 
+# Validate SVG illustrations
+npm run validate:illustrations
+
+# Detect SVG layout issues (overlapping / out-of-bounds labels)
+npm run validate:illustration-layout
+
 # Audit content quality (question counts, IDs, LaTeX issues)
 # This now exits with an error if any warnings are found.
 npm run audit:content
 ```
 
-Content conventions are documented in [`CONTENT_STYLE.md`](./CONTENT_STYLE.md).
+Content conventions are documented in [`CONTENT_STYLE.md`](./CONTENT_STYLE.md).  
+Illustration design rules are documented in [`ILLUSTRATION_GUIDELINES.md`](./ILLUSTRATION_GUIDELINES.md).
 
 The app also respects the user's system dark-mode preference (`prefers-color-scheme`).
 
@@ -132,7 +141,7 @@ The app also respects the user's system dark-mode preference (`prefers-color-sch
 npm test
 npm run test:watch     # watch mode
 
-# E2E tests (Playwright — requires dev server running)
+# E2E tests (Playwright — auto-starts dev server on an available port)
 npm run test:e2e
 
 # Or run E2E against a specific device
@@ -155,6 +164,7 @@ npx playwright test --project="Desktop Chrome"
 | `nav` | 2 | Bottom navigation rendering with Lucide icons and active state |
 | `quiz-game` | 4 | Quiz rendering, Lucide icons, timer, answer selection, and completion |
 | `app.e2e` | 57 | Full quiz flow, flashcards, home page, subject pages, search/filter, theme toggle, mixed review, DP topic rendering, progress page, accent-colour styling — across iPhone SE, iPad Pro, Desktop Chrome |
+| `illustrations.e2e` | 63 | Every study page with illustrations renders images correctly, loads them successfully, and keeps them within the viewport on iPhone SE, iPad Pro, and Desktop Chrome |
 
 ## Build & Deploy
 

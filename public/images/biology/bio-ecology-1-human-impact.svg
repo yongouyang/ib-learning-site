@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Human Impact on Ecosystems and Conservation</title>
+  <desc id="desc">Diagram showing major human impacts on ecosystems and conservation strategies that protect biodiversity.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Human Impact and Conservation</text>
+
+  <!-- Central Earth/biodiversity -->
+  <circle cx="400" cy="260" r="70" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+  <path d="M360,240 Q380,220 400,240 T440,240" fill="none" stroke="#16a34a" stroke-width="4"/>
+  <path d="M360,280 Q380,300 400,280 T440,280" fill="none" stroke="#16a34a" stroke-width="4"/>
+  <text x="400" y="255" text-anchor="middle" class="label">Biodiversity</text>
+  <text x="400" y="275" text-anchor="middle" class="sublabel">&amp; ecosystems</text>
+
+  <!-- Threats around the circle -->
+  <!-- Deforestation -->
+  <rect x="50" y="110" width="150" height="75" rx="10" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+  <path d="M70,170 L90,125 L110,170 Z" fill="#16a34a"/>
+  <path d="M95,170 L115,130 L135,170 Z" fill="#16a34a"/>
+  <path d="M120,170 L140,135 L160,170 Z" fill="#16a34a"/>
+  <line x1="75" y1="140" x2="145" y2="140" stroke="#ef4444" stroke-width="3"/>
+  <text x="125" y="130" text-anchor="middle" class="label">Deforestation</text>
+  <line x1="180" y1="155" x2="330" y2="220" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+
+  <!-- Climate change -->
+  <rect x="600" y="110" width="150" height="75" rx="10" fill="#fed7aa" stroke="#f97316" stroke-width="2"/>
+  <circle cx="650" cy="145" r="14" fill="#facc15"/>
+  <path d="M680,170 L695,125 L710,170 Z" fill="#16a34a"/>
+  <path d="M705,170 L720,135 L735,170 Z" fill="#16a34a"/>
+  <text x="675" y="130" text-anchor="middle" class="label">Climate change</text>
+  <line x1="620" y1="155" x2="470" y2="220" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+
+  <!-- Pollution -->
+  <rect x="50" y="335" width="150" height="75" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="70" y="355" width="30" height="30" fill="#6b7280"/>
+  <circle cx="115" cy="380" r="8" fill="#ef4444"/>
+  <circle cx="140" cy="370" r="8" fill="#ef4444"/>
+  <circle cx="155" cy="385" r="8" fill="#ef4444"/>
+  <text x="125" y="350" text-anchor="middle" class="label">Pollution</text>
+  <line x1="180" y1="365" x2="330" y2="300" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+
+  <!-- Overfishing / invasive -->
+  <rect x="600" y="335" width="150" height="75" rx="10" fill="#e9d5ff" stroke="#a855f7" stroke-width="2"/>
+  <ellipse cx="650" cy="380" rx="22" ry="12" fill="#60a5fa" stroke="#1d4ed8" stroke-width="2"/>
+  <ellipse cx="705" cy="370" rx="18" ry="10" fill="#f97316" stroke="#c2410c" stroke-width="2"/>
+  <text x="675" y="350" text-anchor="middle" class="label">Overfishing / invasive</text>
+  <line x1="620" y1="365" x2="470" y2="300" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+
+  <!-- Conservation strategies banner -->
+  <rect x="80" y="440" width="640" height="60" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="400" y="465" text-anchor="middle" class="label">Conservation strategies</text>
+  <text x="400" y="485" text-anchor="middle" class="sublabel">Protected areas · Captive breeding · Sustainable management · Laws (CITES) · Reduce, reuse, recycle</text>
+
+  <!-- Ecosystem services -->
+  <rect x="300" y="80" width="200" height="55" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="400" y="105" text-anchor="middle" class="label">Ecosystem services</text>
+  <text x="400" y="122" text-anchor="middle" class="sublabel">Pollination · Water purification · Soil formation</text>
+  <line x1="400" y1="135" x2="400" y2="190" class="line"/>
+</svg>

@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="title desc">
+  <title id="title">Organisation of the Periodic Table</title>
+  <desc id="desc">A simplified periodic table showing periods as rows, groups as columns, and the division between metals, non-metals, and the zigzag metalloid line.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .metal { fill: #bfdbfe; stroke: #3b82f6; stroke-width: 2; }
+      .nonmetal { fill: #fed7aa; stroke: #f97316; stroke-width: 2; }
+      .metalloid { fill: #e9d5ff; stroke: #a855f7; stroke-width: 2; }
+      .noble { fill: #fde68a; stroke: #f59e0b; stroke-width: 2; }
+      .alkali { fill: #fca5a5; stroke: #ef4444; stroke-width: 2; }
+      .halogen { fill: #bbf7d0; stroke: #22c55e; stroke-width: 2; }
+      .cell { stroke: #d1d5db; stroke-width: 1.5; fill: #ffffff; }
+      .axis { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #374151; }
+    </style>
+  </defs>
+
+  <rect width="900" height="460" fill="#f9fafb" rx="12"/>
+  <text x="450" y="18" text-anchor="middle" class="title">Organisation of the Periodic Table</text>
+
+  <!-- Grid of representative cells -->
+  <g transform="translate(180, 70)">
+    <!-- Row labels: Periods -->
+    <text x="-40" y="30" text-anchor="middle" class="axis">1</text>
+    <text x="-40" y="80" text-anchor="middle" class="axis">2</text>
+    <text x="-40" y="130" text-anchor="middle" class="axis">3</text>
+    <text x="-40" y="180" text-anchor="middle" class="axis">4</text>
+
+    <!-- Column labels: Groups -->
+    <text x="25" y="-15" text-anchor="middle" class="axis">1</text>
+    <text x="75" y="-15" text-anchor="middle" class="axis">2</text>
+    <text x="125" y="-15" text-anchor="middle" class="axis">13</text>
+    <text x="175" y="-15" text-anchor="middle" class="axis">14</text>
+    <text x="225" y="-15" text-anchor="middle" class="axis">15</text>
+    <text x="275" y="-15" text-anchor="middle" class="axis">16</text>
+    <text x="325" y="-15" text-anchor="middle" class="axis">17</text>
+    <text x="375" y="-15" text-anchor="middle" class="axis">18</text>
+
+    <!-- Period 1 -->
+    <rect x="0" y="0" width="50" height="50" class="alkali"/>
+    <text x="25" y="30" text-anchor="middle" class="label">H</text>
+    <rect x="350" y="0" width="50" height="50" class="noble"/>
+    <text x="375" y="30" text-anchor="middle" class="label">He</text>
+
+    <!-- Period 2 -->
+    <rect x="0" y="50" width="50" height="50" class="alkali"/>
+    <text x="25" y="80" text-anchor="middle" class="label">Li</text>
+    <rect x="50" y="50" width="50" height="50" class="metal"/>
+    <text x="75" y="80" text-anchor="middle" class="label">Be</text>
+    <rect x="250" y="50" width="50" height="50" class="metalloid"/>
+    <text x="275" y="80" text-anchor="middle" class="label">B</text>
+    <rect x="300" y="50" width="50" height="50" class="nonmetal"/>
+    <text x="325" y="80" text-anchor="middle" class="label">C</text>
+    <rect x="350" y="50" width="50" height="50" class="nonmetal"/>
+    <text x="375" y="80" text-anchor="middle" class="label">N</text>
+    <rect x="400" y="50" width="50" height="50" class="nonmetal"/>
+    <text x="425" y="80" text-anchor="middle" class="label">O</text>
+    <rect x="450" y="50" width="50" height="50" class="halogen"/>
+    <text x="475" y="80" text-anchor="middle" class="label">F</text>
+    <rect x="500" y="50" width="50" height="50" class="noble"/>
+    <text x="525" y="80" text-anchor="middle" class="label">Ne</text>
+
+    <!-- Period 3 -->
+    <rect x="0" y="100" width="50" height="50" class="alkali"/>
+    <text x="25" y="130" text-anchor="middle" class="label">Na</text>
+    <rect x="50" y="100" width="50" height="50" class="metal"/>
+    <text x="75" y="130" text-anchor="middle" class="label">Mg</text>
+    <rect x="250" y="100" width="50" height="50" class="metal"/>
+    <text x="275" y="130" text-anchor="middle" class="label">Al</text>
+    <rect x="300" y="100" width="50" height="50" class="metalloid"/>
+    <text x="325" y="130" text-anchor="middle" class="label">Si</text>
+    <rect x="350" y="100" width="50" height="50" class="nonmetal"/>
+    <text x="375" y="130" text-anchor="middle" class="label">P</text>
+    <rect x="400" y="100" width="50" height="50" class="nonmetal"/>
+    <text x="425" y="130" text-anchor="middle" class="label">S</text>
+    <rect x="450" y="100" width="50" height="50" class="halogen"/>
+    <text x="475" y="130" text-anchor="middle" class="label">Cl</text>
+    <rect x="500" y="100" width="50" height="50" class="noble"/>
+    <text x="525" y="130" text-anchor="middle" class="label">Ar</text>
+
+    <!-- Period 4 (representative only) -->
+    <rect x="0" y="150" width="50" height="50" class="alkali"/>
+    <text x="25" y="180" text-anchor="middle" class="label">K</text>
+    <rect x="50" y="150" width="50" height="50" class="metal"/>
+    <text x="75" y="180" text-anchor="middle" class="label">Ca</text>
+    <rect x="450" y="150" width="50" height="50" class="halogen"/>
+    <text x="475" y="180" text-anchor="middle" class="label">Br</text>
+    <rect x="500" y="150" width="50" height="50" class="noble"/>
+    <text x="525" y="180" text-anchor="middle" class="label">Kr</text>
+
+    <!-- Transition metal block hint -->
+    <rect x="100" y="150" width="130" height="50" rx="6" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="165" y="180" text-anchor="middle" class="label">Transition metals</text>
+
+    <!-- Zigzag line -->
+    <polyline points="275,50 325,100 375,100 425,150" fill="none" stroke="#7c3aed" stroke-width="3" stroke-dasharray="6 4"/>
+  </g>
+
+  <!-- Axis labels -->
+  <rect x="50" y="70" width="90" height="22" rx="4" class="label-bg"/>
+  <text x="95" y="85" text-anchor="middle" class="label">Periods (rows)</text>
+  <rect x="250" y="20" width="90" height="22" rx="4" class="label-bg"/>
+  <text x="295" y="35" text-anchor="middle" class="label">Groups (columns)</text>
+
+  <!-- Legend -->
+  <g transform="translate(150, 340)">
+    <rect x="0" y="0" width="600" height="90" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+    <g transform="translate(20, 18)">
+      <rect x="0" y="0" width="18" height="18" class="metal"/>
+      <text x="26" y="14" class="label">Metals</text>
+
+      <rect x="130" y="0" width="18" height="18" class="nonmetal"/>
+      <text x="156" y="14" class="label">Non-metals</text>
+
+      <rect x="290" y="0" width="18" height="18" class="metalloid"/>
+      <text x="316" y="14" class="label">Metalloids</text>
+
+      <rect x="460" y="0" width="18" height="18" class="alkali"/>
+      <text x="486" y="14" class="label">Group 1 alkali metals</text>
+    </g>
+    <g transform="translate(20, 52)">
+      <rect x="0" y="0" width="18" height="18" class="halogen"/>
+      <text x="26" y="14" class="label">Group 17 halogens</text>
+
+      <rect x="220" y="0" width="18" height="18" class="noble"/>
+      <text x="246" y="14" class="label">Group 18 noble gases</text>
+
+      <rect x="450" y="0" width="18" height="18" class="metal"/>
+      <text x="476" y="14" class="label">Transition metals</text>
+    </g>
+  </g>
+
+  <!-- Labels with leader lines -->
+  <line x1="455" y1="200" x2="530" y2="170" class="line"/>
+  <rect x="532" y="152" width="130" height="36" rx="4" class="label-bg"/>
+  <text x="540" y="168" class="label">Zigzag line</text>
+  <text x="540" y="182" class="sublabel">metals / non-metals</text>
+</svg>

@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-labelledby="title desc">
+  <title id="title">Transition Metals vs Group Metals</title>
+  <desc id="desc">A comparison of transition metals and Group 1 metals, plus examples of variable valency and coloured transition-metal compounds.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .beaker { fill: #e0f2fe; stroke: #6b7280; stroke-width: 2.5; fill-opacity: 0.3; }
+      .liquid-blue { fill: #3b82f6; fill-opacity: 0.6; }
+      .liquid-brown { fill: #9a3412; fill-opacity: 0.7; }
+      .liquid-purple { fill: #7e22ce; fill-opacity: 0.6; }
+      .atom { fill: #d1d5db; stroke: #4b5563; stroke-width: 2; }
+      .electron { fill: #f97316; stroke: #c2410c; stroke-width: 1; }
+      .shell { fill: none; stroke: #9ca3af; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="900" height="480" fill="#f9fafb" rx="12"/>
+  <text x="450" y="36" text-anchor="middle" class="title">Transition Metals vs Group Metals</text>
+
+  <!-- Left panel: comparison -->
+  <rect x="25" y="55" width="430" height="280" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="240" y="82" text-anchor="middle" class="panel-title">Transition metals vs Group 1 metals</text>
+
+  <g transform="translate(50, 110)">
+    <!-- Header -->
+    <rect x="0" y="0" width="160" height="30" fill="#e5e7eb" stroke="#9ca3af" stroke-width="1.5"/>
+    <text x="80" y="20" text-anchor="middle" class="label">Property</text>
+    <rect x="160" y="0" width="110" height="30" fill="#fed7aa" stroke="#f97316" stroke-width="1.5"/>
+    <text x="215" y="20" text-anchor="middle" class="label">Transition</text>
+    <rect x="270" y="0" width="110" height="30" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="325" y="20" text-anchor="middle" class="label">Group 1</text>
+
+    <!-- Rows -->
+    <rect x="0" y="30" width="160" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="10" y="50" class="sublabel">Hardness / strength</text>
+    <rect x="160" y="30" width="110" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="215" y="50" text-anchor="middle" class="sublabel">hard, strong</text>
+    <rect x="270" y="30" width="110" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="325" y="50" text-anchor="middle" class="sublabel">soft, low density</text>
+
+    <rect x="0" y="62" width="160" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="10" y="82" class="sublabel">Melting point</text>
+    <rect x="160" y="62" width="110" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="215" y="82" text-anchor="middle" class="sublabel">very high</text>
+    <rect x="270" y="62" width="110" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="325" y="82" text-anchor="middle" class="sublabel">low</text>
+
+    <rect x="0" y="94" width="160" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="10" y="114" class="sublabel">Reactivity with water</text>
+    <rect x="160" y="94" width="110" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="215" y="114" text-anchor="middle" class="sublabel">low / slow</text>
+    <rect x="270" y="94" width="110" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="325" y="114" text-anchor="middle" class="sublabel">vigorous</text>
+
+    <rect x="0" y="126" width="160" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="10" y="146" class="sublabel">Compound colour</text>
+    <rect x="160" y="126" width="110" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="215" y="146" text-anchor="middle" class="sublabel">often coloured</text>
+    <rect x="270" y="126" width="110" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="325" y="146" text-anchor="middle" class="sublabel">usually white</text>
+
+    <rect x="0" y="158" width="160" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="10" y="178" class="sublabel">Valency</text>
+    <rect x="160" y="158" width="110" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="215" y="178" text-anchor="middle" class="sublabel">variable</text>
+    <rect x="270" y="158" width="110" height="32" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+    <text x="325" y="178" text-anchor="middle" class="sublabel">fixed (+1)</text>
+  </g>
+
+  <!-- Right panel: coloured compounds and variable valency -->
+  <rect x="475" y="55" width="400" height="280" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="675" y="82" text-anchor="middle" class="panel-title">Coloured compounds and variable valency</text>
+
+  <!-- Beakers -->
+  <g transform="translate(555, 180)">
+    <path d="M-25,-40 L-25,50 Q-25,65 -10,65 L40,65 Q55,65 55,50 L55,-40" class="beaker"/>
+    <rect x="-21" y="0" width="72" height="55" class="liquid-blue"/>
+    <text x="15" y="35" text-anchor="middle" class="label" fill="white">CuSO₄</text>
+    <text x="15" y="92" text-anchor="middle" class="sublabel">blue</text>
+  </g>
+
+  <g transform="translate(675, 180)">
+    <path d="M-25,-40 L-25,50 Q-25,65 -10,65 L40,65 Q55,65 55,50 L55,-40" class="beaker"/>
+    <rect x="-21" y="10" width="72" height="45" class="liquid-brown"/>
+    <text x="15" y="35" text-anchor="middle" class="label" fill="white">Fe₂O₃</text>
+    <text x="15" y="92" text-anchor="middle" class="sublabel">red-brown</text>
+  </g>
+
+  <g transform="translate(795, 180)">
+    <path d="M-25,-40 L-25,50 Q-25,65 -10,65 L40,65 Q55,65 55,50 L55,-40" class="beaker"/>
+    <rect x="-21" y="5" width="72" height="50" class="liquid-purple"/>
+    <text x="15" y="35" text-anchor="middle" class="label" fill="white">KMnO₄</text>
+    <text x="15" y="92" text-anchor="middle" class="sublabel">purple</text>
+  </g>
+
+  <!-- Variable valency example -->
+  <g transform="translate(620, 120)">
+    <circle cx="0" cy="0" r="12" class="atom"/>
+    <text x="0" y="4" text-anchor="middle" class="sublabel" fill="white">Fe</text>
+    <text x="20" y="-5" class="label">Fe²⁺</text>
+    <text x="20" y="15" class="label">Fe³⁺</text>
+  </g>
+  <g transform="translate(740, 120)">
+    <circle cx="0" cy="0" r="12" class="atom"/>
+    <text x="0" y="4" text-anchor="middle" class="sublabel" fill="white">Cu</text>
+    <text x="20" y="-5" class="label">Cu⁺</text>
+    <text x="20" y="15" class="label">Cu²⁺</text>
+  </g>
+
+  <!-- Bottom panel: uses and catalysts -->
+  <rect x="25" y="345" width="850" height="115" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="8"/>
+  <text x="450" y="370" text-anchor="middle" class="label">Uses and catalysis</text>
+
+  <g transform="translate(50, 390)">
+    <rect x="0" y="0" width="140" height="50" rx="6" fill="#e0f2fe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="70" y="22" text-anchor="middle" class="label">Iron (Fe)</text>
+    <text x="70" y="40" text-anchor="middle" class="sublabel">construction, haemoglobin</text>
+  </g>
+  <g transform="translate(210, 390)">
+    <rect x="0" y="0" width="140" height="50" rx="6" fill="#e0f2fe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="70" y="22" text-anchor="middle" class="label">Copper (Cu)</text>
+    <text x="70" y="40" text-anchor="middle" class="sublabel">wiring, plumbing</text>
+  </g>
+  <g transform="translate(370, 390)">
+    <rect x="0" y="0" width="140" height="50" rx="6" fill="#e0f2fe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="70" y="22" text-anchor="middle" class="label">Zinc (Zn)</text>
+    <text x="70" y="40" text-anchor="middle" class="sublabel">galvanising steel</text>
+  </g>
+  <g transform="translate(530, 390)">
+    <rect x="0" y="0" width="140" height="50" rx="6" fill="#fed7aa" stroke="#f97316" stroke-width="1.5"/>
+    <text x="70" y="22" text-anchor="middle" class="label">Iron catalyst</text>
+    <text x="70" y="40" text-anchor="middle" class="sublabel">Haber process</text>
+  </g>
+  <g transform="translate(690, 390)">
+    <rect x="0" y="0" width="140" height="50" rx="6" fill="#fed7aa" stroke="#f97316" stroke-width="1.5"/>
+    <text x="70" y="22" text-anchor="middle" class="label">Platinum / palladium</text>
+    <text x="70" y="40" text-anchor="middle" class="sublabel">catalytic converters</text>
+  </g>
+</svg>

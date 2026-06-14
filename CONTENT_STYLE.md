@@ -73,7 +73,24 @@ Run these commands locally before committing:
 
 ```bash
 npm run validate:content
+npm run validate:illustrations
 npm run audit:content
 ```
 
 The CI pipeline runs both commands and treats any audit warning or validation error as a failure.
+
+## Illustrations
+
+Notes may include an optional `illustration` object:
+
+```json
+{
+  "illustration": {
+    "src": "/images/biology/bio-cell-1-animal-plant.svg",
+    "alt": "Labelled comparison of an animal cell and a plant cell.",
+    "caption": "Plant cells have a cell wall, chloroplasts, and a large central vacuole."
+  }
+}
+```
+
+See [ILLUSTRATION_GUIDELINES.md](./ILLUSTRATION_GUIDELINES.md) for design standards, file naming, and validation rules.

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Pure Substances vs Mixtures</title>
+  <desc id="desc">A diagram comparing a pure substance made of identical particles with a mixture made of different particles, and showing sharp versus range melting points.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="420" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Pure Substances vs Mixtures</text>
+
+  <!-- Pure substance panel -->
+  <rect x="30" y="55" width="355" height="350" rx="10" class="box"/>
+  <text x="207" y="82" text-anchor="middle" class="panel-title">Pure Substance</text>
+
+  <!-- Container of identical particles -->
+  <rect x="80" y="100" width="255" height="130" fill="#eff6ff" stroke="#93c5fd" stroke-width="2" rx="6"/>
+  <g fill="#3b82f6">
+    <circle cx="110" cy="130" r="9"/>
+    <circle cx="150" cy="150" r="9"/>
+    <circle cx="190" cy="125" r="9"/>
+    <circle cx="230" cy="155" r="9"/>
+    <circle cx="270" cy="135" r="9"/>
+    <circle cx="130" cy="180" r="9"/>
+    <circle cx="170" cy="195" r="9"/>
+    <circle cx="210" cy="185" r="9"/>
+    <circle cx="250" cy="200" r="9"/>
+    <circle cx="300" cy="170" r="9"/>
+  </g>
+  <text x="207" y="250" text-anchor="middle" class="label">Only one type of particle</text>
+  <text x="207" y="268" text-anchor="middle" class="sublabel">Fixed composition</text>
+
+  <!-- Sharp melting point graph -->
+  <polyline points="80,330 120,330 160,330 200,180 240,330 280,330 320,330" fill="none" stroke="#f97316" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="80" y1="340" x2="320" y2="340" stroke="#374151" stroke-width="2"/>
+  <line x1="80" y1="340" x2="80" y2="270" stroke="#374151" stroke-width="2"/>
+  <text x="330" y="344" class="sublabel">Temperature</text>
+  <text x="80" y="260" text-anchor="middle" class="sublabel">Heat</text>
+  <rect x="130" y="285" width="130" height="18" rx="4" class="label-bg"/>
+  <text x="135" y="298" class="label">Sharp melting point</text>
+
+  <!-- Mixture panel -->
+  <rect x="415" y="55" width="355" height="350" rx="10" class="box"/>
+  <text x="592" y="82" text-anchor="middle" class="panel-title">Mixture</text>
+
+  <!-- Container of mixed particles -->
+  <rect x="465" y="100" width="255" height="130" fill="#eff6ff" stroke="#93c5fd" stroke-width="2" rx="6"/>
+  <g>
+    <circle cx="500" cy="130" r="9" fill="#3b82f6"/>
+    <circle cx="540" cy="150" r="9" fill="#ef4444"/>
+    <circle cx="580" cy="125" r="9" fill="#3b82f6"/>
+    <circle cx="620" cy="155" r="9" fill="#10b981"/>
+    <circle cx="660" cy="135" r="9" fill="#3b82f6"/>
+    <circle cx="520" cy="180" r="9" fill="#10b981"/>
+    <circle cx="560" cy="195" r="9" fill="#3b82f6"/>
+    <circle cx="600" cy="185" r="9" fill="#ef4444"/>
+    <circle cx="640" cy="200" r="9" fill="#10b981"/>
+    <circle cx="690" cy="170" r="9" fill="#ef4444"/>
+  </g>
+  <text x="592" y="250" text-anchor="middle" class="label">Two or more substances mixed</text>
+  <text x="592" y="268" text-anchor="middle" class="sublabel">Variable composition</text>
+
+  <!-- Range melting point graph -->
+  <polyline points="465,330 505,330 545,300 585,230 625,300 665,330 705,330" fill="none" stroke="#f97316" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="465" y1="340" x2="705" y2="340" stroke="#374151" stroke-width="2"/>
+  <line x1="465" y1="340" x2="465" y2="270" stroke="#374151" stroke-width="2"/>
+  <text x="715" y="344" class="sublabel">Temperature</text>
+  <text x="465" y="260" text-anchor="middle" class="sublabel">Heat</text>
+  <rect x="490" y="285" width="150" height="18" rx="4" class="label-bg"/>
+  <text x="495" y="298" class="label">Melting over a range</text>
+</svg>

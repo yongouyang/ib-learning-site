@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">Evolution of Earth's Atmosphere</title>
+  <desc id="desc">A three-phase timeline showing how Earth's atmosphere changed from volcanic gases, to oceans forming and CO2 dissolving, to oxygen rising from photosynthesis.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="920" height="520" fill="#f9fafb" rx="12"/>
+  <text x="460" y="38" text-anchor="middle" class="title">Evolution of Earth's Atmosphere</text>
+
+  <!-- Timeline base -->
+  <line x1="80" y1="430" x2="840" y2="430" class="line" stroke-width="3"/>
+  <polygon points="850,430 840,424 840,436" fill="#6b7280"/>
+  <text x="840" y="455" text-anchor="end" class="sublabel">Present day</text>
+  <text x="80" y="455" text-anchor="start" class="sublabel">4.6 billion years ago</text>
+
+  <!-- Phase 1 panel -->
+  <g transform="translate(80, 90)">
+    <rect x="0" y="0" width="240" height="300" rx="12" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="120" y="35" text-anchor="middle" class="label">Phase 1</text>
+    <text x="120" y="55" text-anchor="middle" class="sublabel">First billion years</text>
+
+    <!-- Volcano -->
+    <path d="M70,220 L120,140 L170,220 Z" fill="#9ca3af" stroke="#4b5563" stroke-width="2"/>
+    <path d="M105,150 L110,135 L115,150" fill="#f97316"/>
+    <circle cx="110" cy="125" r="5" fill="#9ca3af" opacity="0.7"/>
+    <circle cx="125" cy="115" r="7" fill="#9ca3af" opacity="0.7"/>
+    <circle cx="95" cy="110" r="6" fill="#9ca3af" opacity="0.7"/>
+
+    <text x="120" y="255" text-anchor="middle" class="sublabel">Volcanic activity</text>
+    <text x="120" y="275" text-anchor="middle" class="sublabel">releases CO₂, H₂O, N₂</text>
+    <text x="120" y="295" text-anchor="middle" class="sublabel">Virtually no O₂</text>
+  </g>
+
+  <!-- Phase 2 panel -->
+  <g transform="translate(340, 90)">
+    <rect x="0" y="0" width="240" height="300" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="120" y="35" text-anchor="middle" class="label">Phase 2</text>
+    <text x="120" y="55" text-anchor="middle" class="sublabel">Cooling oceans form</text>
+
+    <!-- Ocean -->
+    <rect x="30" y="180" width="180" height="50" rx="8" fill="#93c5fd" stroke="#3b82f6" stroke-width="2"/>
+    <text x="120" y="210" text-anchor="middle" class="sublabel" fill="#1e3a8a">Oceans</text>
+
+    <!-- Algae -->
+    <ellipse cx="70" cy="160" rx="18" ry="8" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+    <ellipse cx="120" cy="155" rx="20" ry="9" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+    <ellipse cx="170" cy="162" rx="16" ry="7" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/>
+
+    <text x="120" y="255" text-anchor="middle" class="sublabel">CO₂ dissolves →</text>
+    <text x="120" y="275" text-anchor="middle" class="sublabel">carbonate rocks</text>
+    <text x="120" y="295" text-anchor="middle" class="sublabel">Photosynthesis begins</text>
+  </g>
+
+  <!-- Phase 3 panel -->
+  <g transform="translate(600, 90)">
+    <rect x="0" y="0" width="240" height="300" rx="12" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+    <text x="120" y="35" text-anchor="middle" class="label">Phase 3</text>
+    <text x="120" y="55" text-anchor="middle" class="sublabel">Last ~400 million years</text>
+
+    <!-- Ozone layer -->
+    <path d="M40,110 Q120,90 200,110" fill="none" stroke="#a855f7" stroke-width="3" stroke-dasharray="6,4"/>
+    <text x="120" y="100" text-anchor="middle" class="sublabel" fill="#6b21a8">Ozone layer (O₃)</text>
+
+    <!-- Oxygen level graph -->
+    <polyline points="40,240 70,220 100,210 130,180 160,150 200,130" fill="none" stroke="#22c55e" stroke-width="3"/>
+    <text x="120" y="260" text-anchor="middle" class="sublabel">Oxygen rises</text>
+    <text x="120" y="280" text-anchor="middle" class="sublabel">Complex life thrives</text>
+    <text x="120" y="300" text-anchor="middle" class="sublabel">UV blocked by O₃</text>
+  </g>
+
+  <!-- Today's atmosphere panel -->
+  <rect x="300" y="390" width="320" height="90" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="460" y="418" text-anchor="middle" class="label">Today's atmosphere</text>
+  <text x="460" y="445" text-anchor="middle" class="sublabel">N₂ ~78%&#160;•&#160;O₂ ~21%&#160;•&#160;Ar ~0.9%&#160;•&#160;CO₂ ~0.04%</text>
+  <text x="460" y="468" text-anchor="middle" class="sublabel">Evidence: ancient rocks, fossils, gas in ice cores</text>
+</svg>

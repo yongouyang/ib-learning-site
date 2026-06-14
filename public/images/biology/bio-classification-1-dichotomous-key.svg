@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 520" role="img" aria-labelledby="title desc">
+  <title id="title">Dichotomous Key Example</title>
+  <desc id="desc">A branching dichotomous key showing how paired choices narrow down to identifying an organism as a bird, bat, or beetle.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .branch { fill: none; stroke: #6b7280; stroke-width: 2; }
+      .box { stroke-width: 2; rx: 6; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="780" height="520" fill="#f9fafb" rx="12"/>
+  <text x="390" y="36" text-anchor="middle" class="title">Using a Dichotomous Key</text>
+
+  <!-- Start -->
+  <rect x="330" y="70" width="120" height="40" fill="#ffffff" stroke="#16a34a" class="box"/>
+  <text x="390" y="96" text-anchor="middle" class="label">Start: unknown organism</text>
+
+  <!-- First question -->
+  <rect x="200" y="160" width="160" height="50" fill="#dcfce7" stroke="#16a34a" class="box"/>
+  <text x="280" y="182" text-anchor="middle" class="label">1a. Has wings</text>
+  <text x="280" y="200" text-anchor="middle" class="sublabel">→ go to 2</text>
+
+  <rect x="420" y="160" width="160" height="50" fill="#fee2e2" stroke="#ef4444" class="box"/>
+  <text x="500" y="182" text-anchor="middle" class="label">1b. No wings</text>
+  <text x="500" y="200" text-anchor="middle" class="sublabel">→ not in this key</text>
+
+  <line x1="390" y1="110" x2="280" y2="160" class="branch"/>
+  <line x1="390" y1="110" x2="500" y2="160" class="branch"/>
+
+  <!-- Second question -->
+  <rect x="90" y="270" width="160" height="50" fill="#dcfce7" stroke="#16a34a" class="box"/>
+  <text x="170" y="292" text-anchor="middle" class="label">2a. Has feathers</text>
+  <text x="170" y="310" text-anchor="middle" class="sublabel">→ go to 3</text>
+
+  <rect x="300" y="270" width="160" height="50" fill="#fee2e2" stroke="#ef4444" class="box"/>
+  <text x="380" y="292" text-anchor="middle" class="label">2b. No feathers</text>
+  <text x="380" y="310" text-anchor="middle" class="sublabel">→ Bat</text>
+
+  <line x1="280" y1="210" x2="170" y2="270" class="branch"/>
+  <line x1="280" y1="210" x2="380" y2="270" class="branch"/>
+
+  <!-- Third question / result -->
+  <rect x="30" y="390" width="140" height="50" fill="#dcfce7" stroke="#16a34a" class="box"/>
+  <text x="100" y="412" text-anchor="middle" class="label">3a. Can fly</text>
+  <text x="100" y="430" text-anchor="middle" class="sublabel">→ Sparrow</text>
+
+  <rect x="200" y="390" width="140" height="50" fill="#fee2e2" stroke="#ef4444" class="box"/>
+  <text x="270" y="412" text-anchor="middle" class="label">3b. Cannot fly</text>
+  <text x="270" y="430" text-anchor="middle" class="sublabel">→ Penguin</text>
+
+  <line x1="170" y1="320" x2="100" y2="390" class="branch"/>
+  <line x1="170" y1="320" x2="270" y2="390" class="branch"/>
+
+  <!-- Organism icons -->
+  <rect x="520" y="270" width="230" height="210" fill="#ffffff" stroke="#d1d5db" stroke-width="2" rx="8"/>
+  <text x="635" y="300" text-anchor="middle" class="label">Possible outcomes</text>
+
+  <!-- Bird icon -->
+  <ellipse cx="575" cy="350" rx="25" ry="18" fill="#fca5a5" stroke="#b91c1c" stroke-width="2"/>
+  <path d="M555,340 L540,330 L555,345" fill="#fca5a5" stroke="#b91c1c" stroke-width="2"/>
+  <text x="575" y="385" text-anchor="middle" class="sublabel">Bird</text>
+  <text x="575" y="402" text-anchor="middle" class="sublabel">(feathers)</text>
+
+  <!-- Bat icon -->
+  <ellipse cx="685" cy="350" rx="20" ry="14" fill="#d8b4fe" stroke="#7e22ce" stroke-width="2"/>
+  <path d="M665,345 L640,330 L665,355" fill="#d8b4fe" stroke="#7e22ce" stroke-width="2"/>
+  <path d="M705,345 L730,330 L705,355" fill="#d8b4fe" stroke="#7e22ce" stroke-width="2"/>
+  <text x="685" y="385" text-anchor="middle" class="sublabel">Bat</text>
+  <text x="685" y="402" text-anchor="middle" class="sublabel">(membrane wings)</text>
+
+  <!-- Rules box -->
+  <rect x="30" y="460" width="480" height="45" fill="#ffffff" stroke="#d1d5db" stroke-width="2" rx="6"/>
+  <text x="270" y="480" text-anchor="middle" class="sublabel">Rules: choices are mutually exclusive, use observable traits, each branch ends at one identification.</text>
+  <text x="270" y="498" text-anchor="middle" class="sublabel">Answer one pair at a time to narrow down the organism.</text>
+</svg>

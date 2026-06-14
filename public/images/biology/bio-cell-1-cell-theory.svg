@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">The Cell Theory</title>
+  <desc id="desc">Diagram comparing a prokaryotic cell and a eukaryotic cell, summarising the three principles of cell theory.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .cell-membrane { fill: none; stroke: #f472b6; stroke-width: 4; }
+      .cytoplasm { fill: #e0f2fe; }
+      .nucleus { fill: #a78bfa; }
+      .dna { fill: none; stroke: #7c3aed; stroke-width: 3; }
+      .mitochondrion { fill: #fb923c; }
+    </style>
+  </defs>
+
+  <rect width="800" height="420" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">The Cell Theory</text>
+
+  <!-- Prokaryotic cell panel -->
+  <rect x="30" y="55" width="360" height="300" class="box" rx="10"/>
+  <text x="210" y="82" text-anchor="middle" class="panel-title">Prokaryotic Cell (e.g. bacterium)</text>
+
+  <g transform="translate(90, 100)">
+    <rect x="0" y="0" width="150" height="220" rx="75" class="cytoplasm"/>
+    <rect x="0" y="0" width="150" height="220" rx="75" class="cell-membrane"/>
+
+    <!-- Circular DNA -->
+    <circle cx="75" cy="90" r="35" class="dna"/>
+
+    <!-- Ribosomes -->
+    <g fill="#64748b">
+      <circle cx="45" cy="160" r="3"/>
+      <circle cx="60" cy="175" r="3"/>
+      <circle cx="95" cy="165" r="3"/>
+      <circle cx="110" cy="150" r="3"/>
+      <circle cx="35" cy="55" r="3"/>
+      <circle cx="120" cy="60" r="3"/>
+    </g>
+  </g>
+
+  <line x1="165" y1="190" x2="220" y2="180" class="line"/>
+  <rect x="222" y="171" width="140" height="18" rx="4" class="label-bg"/>
+  <text x="226" y="183" class="label">Circular DNA (free in cytoplasm)</text>
+
+  <line x1="125" y1="155" x2="80" y2="130" class="line"/>
+  <rect x="20" y="113" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="24" y="125" class="label">Ribosomes</text>
+
+  <rect x="60" y="220" width="120" height="20" rx="4" class="label-bg"/>
+  <text x="70" y="233" class="sublabel">No membrane-bound nucleus</text>
+
+  <!-- Eukaryotic cell panel -->
+  <rect x="410" y="55" width="360" height="300" class="box" rx="10"/>
+  <text x="590" y="82" text-anchor="middle" class="panel-title">Eukaryotic Cell (e.g. animal)</text>
+
+  <g transform="translate(470, 100)">
+    <rect x="0" y="0" width="150" height="220" rx="75" class="cytoplasm"/>
+    <rect x="0" y="0" width="150" height="220" rx="75" class="cell-membrane"/>
+
+    <!-- Nucleus -->
+    <circle cx="75" cy="90" r="38" class="nucleus"/>
+    <circle cx="75" cy="90" r="38" fill="none" stroke="#7c3aed" stroke-width="2"/>
+
+    <!-- Mitochondria -->
+    <ellipse cx="45" cy="160" rx="24" ry="14" class="mitochondrion" transform="rotate(-20 45 160)"/>
+    <path d="M33 156 Q45 168 57 156" fill="none" stroke="#c2410c" stroke-width="2" transform="rotate(-20 45 160)"/>
+    <ellipse cx="110" cy="55" rx="24" ry="14" class="mitochondrion" transform="rotate(15 110 55)"/>
+    <path d="M98 51 Q110 63 122 51" fill="none" stroke="#c2410c" stroke-width="2" transform="rotate(15 110 55)"/>
+
+    <!-- Ribosomes -->
+    <g fill="#64748b">
+      <circle cx="115" cy="145" r="3"/>
+      <circle cx="125" cy="160" r="3"/>
+      <circle cx="40" cy="55" r="3"/>
+      <circle cx="35" cy="125" r="3"/>
+    </g>
+  </g>
+
+  <line x1="545" y1="190" x2="620" y2="180" class="line"/>
+  <rect x="622" y="171" width="120" height="18" rx="4" class="label-bg"/>
+  <text x="626" y="183" class="label">Membrane-bound nucleus</text>
+
+  <line x1="500" y1="155" x2="440" y2="140" class="line"/>
+  <rect x="355" y="131" width="82" height="18" rx="4" class="label-bg"/>
+  <text x="359" y="143" class="label">Mitochondria</text>
+
+  <line x1="515" y1="120" x2="440" y2="115" class="line"/>
+  <rect x="335" y="106" width="72" height="18" rx="4" class="label-bg"/>
+  <text x="339" y="118" class="label">Ribosomes</text>
+
+  <!-- Summary of the three principles -->
+  <rect x="80" y="370" width="640" height="38" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <text x="400" y="393" text-anchor="middle" class="sublabel">1. All living things are made of cells · 2. The cell is the basic unit of life · 3. All cells come from pre-existing cells</text>
+</svg>

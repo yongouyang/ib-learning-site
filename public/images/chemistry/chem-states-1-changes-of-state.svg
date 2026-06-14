@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Changes of State</title>
+  <desc id="desc">A diagram showing the six changes of state between solid, liquid, and gas, with arrows indicating melting, freezing, boiling, condensation, sublimation, and deposition.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .state-label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; font-weight: 700; fill: #374151; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#f97316"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="520" fill="#f9fafb" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" class="title">Changes of State</text>
+
+  <!-- Solid -->
+  <g transform="translate(130, 160)">
+    <rect x="0" y="0" width="150" height="150" fill="#ffffff" stroke="#93c5fd" stroke-width="2" rx="8"/>
+    <g fill="#3b82f6">
+      <circle cx="30" cy="30" r="10"/><circle cx="60" cy="30" r="10"/><circle cx="90" cy="30" r="10"/><circle cx="120" cy="30" r="10"/>
+      <circle cx="30" cy="60" r="10"/><circle cx="60" cy="60" r="10"/><circle cx="90" cy="60" r="10"/><circle cx="120" cy="60" r="10"/>
+      <circle cx="30" cy="90" r="10"/><circle cx="60" cy="90" r="10"/><circle cx="90" cy="90" r="10"/><circle cx="120" cy="90" r="10"/>
+      <circle cx="30" cy="120" r="10"/><circle cx="60" cy="120" r="10"/><circle cx="90" cy="120" r="10"/><circle cx="120" cy="120" r="10"/>
+    </g>
+  </g>
+  <text x="205" y="345" text-anchor="middle" class="state-label">Solid</text>
+
+  <!-- Liquid -->
+  <g transform="translate(375, 160)">
+    <rect x="0" y="0" width="150" height="150" fill="#ffffff" stroke="#93c5fd" stroke-width="2" rx="8"/>
+    <path d="M0 90 Q25 80 50 90 T100 88 T150 92" fill="#dbeafe" stroke="#93c5fd" stroke-width="2"/>
+    <g fill="#3b82f6">
+      <circle cx="35" cy="105" r="10"/><circle cx="75" cy="100" r="10"/><circle cx="115" cy="110" r="10"/>
+      <circle cx="50" cy="130" r="10"/><circle cx="95" cy="135" r="10"/><circle cx="130" cy="125" r="10"/>
+      <circle cx="20" cy="130" r="10"/><circle cx="140" cy="140" r="10"/>
+    </g>
+  </g>
+  <text x="450" y="345" text-anchor="middle" class="state-label">Liquid</text>
+
+  <!-- Gas -->
+  <g transform="translate(620, 160)">
+    <rect x="0" y="0" width="150" height="150" fill="#ffffff" stroke="#93c5fd" stroke-width="2" rx="8"/>
+    <g fill="#f97316">
+      <circle cx="35" cy="40" r="9"/><circle cx="110" cy="35" r="9"/><circle cx="75" cy="75" r="9"/>
+      <circle cx="125" cy="100" r="9"/><circle cx="50" cy="110" r="9"/><circle cx="100" cy="130" r="9"/>
+      <circle cx="25" cy="130" r="9"/><circle cx="135" cy="60" r="9"/>
+    </g>
+  </g>
+  <text x="695" y="345" text-anchor="middle" class="state-label">Gas</text>
+
+  <!-- Melting arrow -->
+  <path d="M290 235 Q335 200 375 235" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <rect x="295" y="200" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="305" y="212" class="label">Melting</text>
+
+  <!-- Freezing arrow -->
+  <path d="M375 265 Q335 300 290 265" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <rect x="300" y="282" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="310" y="294" class="label">Freezing</text>
+
+  <!-- Boiling arrow -->
+  <path d="M535 235 Q580 200 620 235" class="arrow" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <rect x="545" y="200" width="70" height="18" rx="4" class="label-bg"/>
+  <text x="555" y="212" class="label">Boiling</text>
+
+  <!-- Condensation arrow -->
+  <path d="M620 265 Q580 300 535 265" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
+  <rect x="545" y="282" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="555" y="294" class="label">Condensation</text>
+
+  <!-- Sublimation arrow -->
+  <path d="M230 170 Q230 110 450 110 Q670 110 670 170" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)" fill="none"/>
+  <rect x="420" y="95" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="430" y="107" class="label">Sublimation</text>
+
+  <!-- Deposition arrow -->
+  <path d="M670 300 Q670 360 450 360 Q230 360 230 300" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)" fill="none"/>
+  <rect x="420" y="370" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="430" y="382" class="label">Deposition</text>
+
+  <!-- Key -->
+  <g transform="translate(300, 440)">
+    <rect x="0" y="0" width="300" height="50" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5" rx="8"/>
+    <line x1="20" y1="18" x2="50" y2="18" class="arrow" stroke="#ef4444"/>
+    <text x="55" y="22" class="sublabel">Heating / energy added</text>
+    <line x1="20" y1="36" x2="50" y2="36" class="arrow" stroke="#3b82f6"/>
+    <text x="55" y="40" class="sublabel">Cooling / energy removed</text>
+    <line x1="190" y1="27" x2="220" y2="27" class="arrow" stroke="#f97316"/>
+    <text x="225" y="31" class="sublabel">Direct solid ⇄ gas</text>
+  </g>
+</svg>

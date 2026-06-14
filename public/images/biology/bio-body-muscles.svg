@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-labelledby="title desc">
+  <title id="title">Antagonistic Muscle Pair</title>
+  <desc id="desc">A diagram of the biceps and triceps at the elbow joint, showing how one contracts while the other relaxes to flex or extend the arm.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .muscle-relax { fill: #fca5a5; stroke: #ef4444; stroke-width: 2; }
+      .muscle-contract { fill: #f87171; stroke: #b91c1c; stroke-width: 2; }
+      .bone { fill: #fde68a; stroke: #d97706; stroke-width: 3; }
+      .joint { fill: #c084fc; stroke: #7e22ce; stroke-width: 2; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#22c55e"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect width="720" height="420" fill="#f9fafb" rx="12"/>
+  <text x="360" y="34" text-anchor="middle" class="title">Antagonistic Muscle Pair at the Elbow</text>
+
+  <!-- Flex panel -->
+  <rect x="25" y="55" width="330" height="350" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="190" y="82" text-anchor="middle" class="panel-title">Flexing (bending)</text>
+
+  <!-- Upper arm bone -->
+  <rect x="145" y="95" width="30" height="120" class="bone" rx="6"/>
+  <!-- Lower arm bone -->
+  <rect x="160" y="215" width="20" height="120" class="bone" rx="4" transform="rotate(30 170 215)"/>
+  <!-- Joint -->
+  <circle cx="170" cy="210" r="18" class="joint"/>
+
+  <!-- Biceps contracted -->
+  <path d="M120,115 C120,95 190,95 190,115 L190,180 C190,200 120,200 120,180 Z" class="muscle-contract"/>
+  <line x1="105" y1="150" x2="55" y2="130" class="line"/>
+  <rect x="10" y="121" width="42" height="18" rx="4" class="label-bg"/>
+  <text x="14" y="133" class="label">Biceps</text>
+  <text x="55" y="115" class="sublabel">contracts</text>
+
+  <!-- Triceps relaxed -->
+  <path d="M125,200 C125,185 185,185 185,200 L185,245 C185,258 125,258 125,245 Z" class="muscle-relax"/>
+  <line x1="105" y1="225" x2="55" y2="245" class="line"/>
+  <rect x="10" y="236" width="42" height="18" rx="4" class="label-bg"/>
+  <text x="14" y="248" class="label">Triceps</text>
+  <text x="55" y="270" class="sublabel">relaxes</text>
+
+  <!-- Extend panel -->
+  <rect x="365" y="55" width="330" height="350" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="530" y="82" text-anchor="middle" class="panel-title">Extending (straightening)</text>
+
+  <!-- Upper arm bone -->
+  <rect x="485" y="95" width="30" height="120" class="bone" rx="6"/>
+  <!-- Lower arm bone -->
+  <rect x="500" y="215" width="20" height="120" class="bone" rx="4"/>
+  <!-- Joint -->
+  <circle cx="510" cy="210" r="18" class="joint"/>
+
+  <!-- Biceps relaxed -->
+  <path d="M460,115 C460,100 520,100 520,115 L520,165 C520,180 460,180 460,165 Z" class="muscle-relax"/>
+  <line x1="445" y1="140" x2="395" y2="120" class="line"/>
+  <rect x="350" y="111" width="42" height="18" rx="4" class="label-bg"/>
+  <text x="354" y="123" class="label">Biceps</text>
+  <text x="395" y="105" class="sublabel">relaxes</text>
+
+  <!-- Triceps contracted -->
+  <path d="M460,195 C460,175 520,175 520,195 L520,245 C520,260 460,260 460,245 Z" class="muscle-contract"/>
+  <line x1="445" y1="225" x2="395" y2="245" class="line"/>
+  <rect x="350" y="236" width="42" height="18" rx="4" class="label-bg"/>
+  <text x="354" y="248" class="label">Triceps</text>
+  <text x="395" y="270" class="sublabel">contracts</text>
+
+  <!-- Key principle -->
+  <rect x="180" y="370" width="360" height="30" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <text x="360" y="388" text-anchor="middle" class="sublabel">Muscles can only pull. One contracts while its partner relaxes.</text>
+</svg>

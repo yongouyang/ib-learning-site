@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">The Reactivity Series of Metals</title>
+  <desc id="desc">A vertical reactivity ladder ranking metals from potassium (most reactive) at the top down to platinum (least reactive) at the bottom.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-head" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#f97316"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="38" text-anchor="middle" class="title">The Reactivity Series</text>
+
+  <!-- Ladder rail -->
+  <line x1="360" y1="70" x2="360" y2="450" stroke="#d1d5db" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Rungs from top to bottom -->
+  <!-- Most reactive -->
+  <g>
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#ffedd5" stroke="#f97316" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#c2410c">K — Potassium (most reactive)</text>
+  </g>
+  <g transform="translate(0, 26)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#9a3412">Na — Sodium</text>
+  </g>
+  <g transform="translate(0, 52)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#9a3412">Li — Lithium</text>
+  </g>
+  <g transform="translate(0, 78)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#9a3412">Ca — Calcium</text>
+  </g>
+  <g transform="translate(0, 104)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#9a3412">Mg — Magnesium</text>
+  </g>
+  <g transform="translate(0, 130)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#9a3412">Al — Aluminium</text>
+  </g>
+  <g transform="translate(0, 156)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4,2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#374151">C — Carbon (reference)</text>
+  </g>
+  <g transform="translate(0, 182)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#374151">Zn — Zinc</text>
+  </g>
+  <g transform="translate(0, 208)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#374151">Fe — Iron</text>
+  </g>
+  <g transform="translate(0, 234)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#374151">Sn — Tin</text>
+  </g>
+  <g transform="translate(0, 260)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#374151">Pb — Lead</text>
+  </g>
+  <g transform="translate(0, 286)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4,2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#374151">H — Hydrogen (reference)</text>
+  </g>
+  <g transform="translate(0, 312)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#374151">Cu — Copper</text>
+  </g>
+  <g transform="translate(0, 338)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#374151">Ag — Silver</text>
+  </g>
+  <g transform="translate(0, 364)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#92400e">Au — Gold</text>
+  </g>
+  <g transform="translate(0, 390)">
+    <rect x="250" y="65" width="220" height="24" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+    <text x="360" y="82" text-anchor="middle" class="label" fill="#92400e">Pt — Platinum (least reactive)</text>
+  </g>
+
+  <!-- Arrow showing direction -->
+  <line x1="490" y1="77" x2="490" y2="443" class="arrow" stroke="#f97316" marker-end="url(#arrow-head)"/>
+  <rect x="460" y="45" width="72" height="18" rx="4" class="label-bg"/>
+  <text x="496" y="57" text-anchor="middle" class="sublabel" fill="#f97316" font-weight="600">Decreasing</text>
+  <rect x="454" y="452" width="82" height="18" rx="4" class="label-bg"/>
+  <text x="495" y="464" text-anchor="middle" class="sublabel" fill="#f97316" font-weight="600">reactivity</text>
+
+  <!-- Side annotations -->
+  <line x1="230" y1="82" x2="140" y2="110" class="line"/>
+  <rect x="40" y="96" width="95" height="34" rx="4" class="label-bg"/>
+  <text x="44" y="112" class="label" fill="#f97316">React with</text>
+  <text x="44" y="126" class="sublabel">cold water</text>
+
+  <line x1="230" y1="238" x2="150" y2="260" class="line"/>
+  <rect x="40" y="244" width="100" height="34" rx="4" class="label-bg"/>
+  <text x="44" y="260" class="label" fill="#4b5563">Extracted with</text>
+  <text x="44" y="274" class="sublabel">carbon reduction</text>
+
+  <line x1="230" y1="404" x2="150" y2="390" class="line"/>
+  <rect x="55" y="372" width="80" height="32" rx="4" class="label-bg"/>
+  <text x="59" y="388" class="label" fill="#b45309">Found native</text>
+  <text x="59" y="400" class="sublabel">(unreactive)</text>
+
+  <!-- Bottom note -->
+  <rect x="120" y="480" width="560" height="28" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <text x="400" y="498" text-anchor="middle" class="sublabel">Metals above carbon → electrolysis; below carbon → carbon reduction.</text>
+</svg>

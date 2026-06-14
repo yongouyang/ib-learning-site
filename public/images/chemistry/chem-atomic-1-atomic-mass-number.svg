@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 480" role="img" aria-labelledby="title desc">
+  <title id="title">Atomic Number and Mass Number</title>
+  <desc id="desc">Diagram showing the nuclide notation for carbon-12, with labels explaining that the mass number (A) is protons plus neutrons and the atomic number (Z) is the number of protons.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .atom { fill: #e0f2fe; stroke: #3b82f6; stroke-width: 2; }
+      .nucleus { fill: #f97316; }
+      .neutron { fill: #64748b; }
+      .electron { fill: #3b82f6; }
+    </style>
+  </defs>
+
+  <rect width="820" height="480" fill="#f9fafb" rx="12"/>
+  <text x="410" y="38" text-anchor="middle" class="title">Atomic Number (Z) and Mass Number (A)</text>
+
+  <!-- Nuclide notation -->
+  <g transform="translate(410, 160)">
+    <text x="0" y="25" text-anchor="middle" class="title" style="font-size:64px">C</text>
+    <text x="-42" y="-18" text-anchor="middle" class="title" style="font-size:28px">12</text>
+    <text x="-42" y="52" text-anchor="middle" class="title" style="font-size:28px">6</text>
+
+    <!-- Labels for superscript/subscript -->
+    <line x1="-90" y1="-28" x2="-160" y2="-60" class="line"/>
+    <rect x="-235" y="-78" width="72" height="42" rx="4" class="label-bg"/>
+    <text x="-199" y="-58" text-anchor="middle" class="label">Mass number</text>
+    <text x="-199" y="-43" text-anchor="middle" class="sublabel">A = p + n</text>
+
+    <line x1="-90" y1="62" x2="-160" y2="100" class="line"/>
+    <rect x="-240" y="90" width="75" height="42" rx="4" class="label-bg"/>
+    <text x="-202" y="110" text-anchor="middle" class="label">Atomic number</text>
+    <text x="-202" y="125" text-anchor="middle" class="sublabel">Z = protons</text>
+  </g>
+
+  <!-- Carbon atom -->
+  <g transform="translate(220, 320)">
+    <circle cx="0" cy="0" r="70" class="atom" fill="none"/>
+    <circle cx="0" cy="0" r="70" class="atom" fill-opacity="0.15"/>
+    <circle cx="0" cy="0" r="28" class="nucleus"/>
+    <!-- Protons (orange) and neutrons (grey) -->
+    <g>
+      <circle cx="-8" cy="-6" r="9" class="nucleus"/>
+      <circle cx="8" cy="-6" r="9" class="neutron"/>
+      <circle cx="0" cy="8" r="9" class="nucleus"/>
+      <circle cx="-8" cy="-18" r="9" class="nucleus"/>
+      <circle cx="8" cy="18" r="9" class="neutron"/>
+      <circle cx="18" cy="0" r="9" class="neutron"/>
+    </g>
+
+    <!-- 6 electrons -->
+    <circle cx="70" cy="0" r="7" class="electron"/>
+    <circle cx="-70" cy="0" r="7" class="electron"/>
+    <circle cx="0" cy="70" r="7" class="electron"/>
+    <circle cx="0" cy="-70" r="7" class="electron"/>
+    <circle cx="49" cy="49" r="7" class="electron"/>
+    <circle cx="-49" cy="-49" r="7" class="electron"/>
+  </g>
+
+  <!-- Labels for atom -->
+  <line x1="220" y1="250" x2="220" y2="190" class="line"/>
+  <rect x="155" y="162" width="130" height="28" rx="4" class="label-bg"/>
+  <text x="220" y="180" text-anchor="middle" class="label">Carbon-12 atom</text>
+
+  <line x1="290" y1="320" x2="370" y2="320" class="line"/>
+  <rect x="375" y="307" width="140" height="26" rx="4" class="label-bg"/>
+  <text x="445" y="324" text-anchor="middle" class="label">6 protons + 6 neutrons</text>
+
+  <!-- Neutron calculation -->
+  <g transform="translate(560, 280)">
+    <rect x="0" y="0" width="220" height="120" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="110" y="30" text-anchor="middle" class="label">Neutrons = A − Z</text>
+    <text x="110" y="58" text-anchor="middle" class="sublabel">For sodium ²³₁₁Na:</text>
+    <text x="110" y="82" text-anchor="middle" class="label">23 − 11 = 12 neutrons</text>
+    <text x="110" y="104" text-anchor="middle" class="sublabel">(11 protons, 11 electrons)</text>
+  </g>
+
+  <!-- Note about relative atomic mass -->
+  <rect x="80" y="420" width="660" height="40" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="410" y="445" text-anchor="middle" class="sublabel">Periodic-table values are relative atomic masses — weighted averages of all isotopes.</text>
+</svg>

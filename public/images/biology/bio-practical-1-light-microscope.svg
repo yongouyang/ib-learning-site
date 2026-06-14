@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-labelledby="title desc">
+  <title id="title">Parts of a light microscope</title>
+  <desc id="desc">Labelled side-view diagram of a light microscope showing the eyepiece, objective lenses, stage, focus knobs, and light source.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .scope { fill: none; stroke: #4b5563; stroke-width: 4; stroke-linecap: round; }
+      .stage { fill: #e5e7eb; stroke: #4b5563; stroke-width: 3; }
+    </style>
+  </defs>
+
+  <rect width="600" height="520" fill="#f9fafb" rx="12"/>
+  <text x="300" y="34" text-anchor="middle" class="title">Using a Light Microscope</text>
+
+  <!-- Base -->
+  <rect x="220" y="460" width="160" height="35" rx="6" fill="#d1d5db" stroke="#4b5563" stroke-width="3"/>
+
+  <!-- Arm -->
+  <path d="M300,460 C300,380 220,380 220,280 L220,120" class="scope"/>
+  <line x1="220" y1="120" x2="220" y2="90" class="scope"/>
+
+  <!-- Body tube -->
+  <rect x="205" y="90" width="30" height="120" rx="4" fill="#e5e7eb" stroke="#4b5563" stroke-width="3"/>
+
+  <!-- Eyepiece -->
+  <rect x="210" y="60" width="20" height="35" rx="3" fill="#1f2937" stroke="#111827" stroke-width="2"/>
+  <line x1="200" y1="60" x2="240" y2="60" class="scope"/>
+
+  <!-- Nosepiece -->
+  <path d="M205,210 L180,225 L180,240 L205,230 Z" fill="#9ca3af" stroke="#4b5563" stroke-width="2"/>
+
+  <!-- Objectives -->
+  <rect x="175" y="240" width="16" height="45" rx="3" fill="#cbd5e1" stroke="#4b5563" stroke-width="2"/>
+  <text x="183" y="253" text-anchor="middle" class="sublabel" fill="#1f2937">×4</text>
+  <rect x="195" y="235" width="16" height="50" rx="3" fill="#cbd5e1" stroke="#4b5563" stroke-width="2"/>
+  <text x="203" y="268" text-anchor="middle" class="sublabel" fill="#1f2937">×10</text>
+  <rect x="215" y="230" width="16" height="55" rx="3" fill="#cbd5e1" stroke="#4b5563" stroke-width="2"/>
+  <text x="223" y="283" text-anchor="middle" class="sublabel" fill="#1f2937">×40</text>
+
+  <!-- Stage -->
+  <rect x="150" y="300" width="150" height="14" rx="3" class="stage"/>
+  <rect x="215" y="300" width="20" height="14" fill="#6b7280" opacity="0.3"/>
+
+  <!-- Slide clips -->
+  <rect x="170" y="295" width="8" height="10" fill="#6b7280"/>
+  <rect x="260" y="295" width="8" height="10" fill="#6b7280"/>
+
+  <!-- Slide -->
+  <rect x="185" y="292" width="80" height="5" fill="#93c5fd" stroke="#3b82f6" stroke-width="1"/>
+
+  <!-- Light / mirror -->
+  <path d="M285,435 L255,410 L255,460 Z" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
+  <line x1="280" y1="450" x2="300" y2="460" class="scope"/>
+
+  <!-- Coarse focus knob -->
+  <rect x="228" y="170" width="16" height="40" rx="4" fill="#9ca3af" stroke="#4b5563" stroke-width="2"/>
+  <line x1="236" y1="170" x2="236" y2="210" stroke="#4b5563" stroke-width="1.5"/>
+
+  <!-- Fine focus knob -->
+  <rect x="228" y="240" width="14" height="30" rx="4" fill="#9ca3af" stroke="#4b5563" stroke-width="2"/>
+
+  <!-- Labels -->
+  <line x1="230" y1="70" x2="310" y2="50" class="line"/>
+  <rect x="314" y="40" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="318" y="53" class="label">Eyepiece lens</text>
+
+  <line x1="191" y1="257" x2="120" y2="265" class="line"/>
+  <rect x="20" y="255" width="96" height="18" rx="4" class="label-bg"/>
+  <text x="24" y="268" class="label">Objectives</text>
+
+  <line x1="300" y1="307" x2="340" y2="307" class="line"/>
+  <rect x="344" y="297" width="50" height="18" rx="4" class="label-bg"/>
+  <text x="348" y="310" class="label">Stage</text>
+
+  <line x1="244" y1="190" x2="330" y2="180" class="line"/>
+  <rect x="334" y="170" width="135" height="18" rx="4" class="label-bg"/>
+  <text x="338" y="183" class="label">Coarse focus knob</text>
+
+  <line x1="242" y1="255" x2="330" y2="250" class="line"/>
+  <rect x="334" y="240" width="115" height="18" rx="4" class="label-bg"/>
+  <text x="338" y="253" class="label">Fine focus knob</text>
+
+  <line x1="270" y1="425" x2="350" y2="410" class="line"/>
+  <rect x="354" y="400" width="115" height="18" rx="4" class="label-bg"/>
+  <text x="358" y="413" class="label">Mirror / lamp</text>
+
+  <line x1="240" y1="100" x2="120" y2="100" class="line"/>
+  <rect x="20" y="90" width="96" height="18" rx="4" class="label-bg"/>
+  <text x="24" y="103" class="label">Body tube</text>
+
+  <text x="300" y="495" text-anchor="middle" class="sublabel">Total magnification = eyepiece × objective</text>
+</svg>

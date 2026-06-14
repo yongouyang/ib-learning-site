@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Classification Hierarchy</title>
+  <desc id="desc">A diagram showing the classification hierarchy from kingdom to species, with the mnemonic King Philip Came Over For Good Soup.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="800" height="480" fill="#f9fafb" rx="12"/>
+  <text x="400" y="36" text-anchor="middle" class="title">Classification Hierarchy</text>
+
+  <!-- Pyramid levels -->
+  <polygon points="400,70 120,430 680,430" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+
+  <!-- Level lines -->
+  <line x1="248" y1="310" x2="552" y2="310" stroke="#16a34a" stroke-width="2"/>
+  <line x1="296" y1="250" x2="504" y2="250" stroke="#16a34a" stroke-width="2"/>
+  <line x1="344" y1="190" x2="456" y2="190" stroke="#16a34a" stroke-width="2"/>
+  <line x1="372" y1="130" x2="428" y2="130" stroke="#16a34a" stroke-width="2"/>
+
+  <!-- Labels -->
+  <text x="400" y="110" text-anchor="middle" class="label">Kingdom</text>
+  <text x="400" y="170" text-anchor="middle" class="label">Phylum</text>
+  <text x="400" y="230" text-anchor="middle" class="label">Class</text>
+  <text x="400" y="290" text-anchor="middle" class="label">Order</text>
+  <text x="400" y="350" text-anchor="middle" class="label">Family</text>
+  <text x="400" y="405" text-anchor="middle" class="label">Genus → Species</text>
+
+  <!-- Mnemonic -->
+  <rect x="560" y="120" width="220" height="180" fill="#ffffff" stroke="#d1d5db" stroke-width="2" rx="8"/>
+  <text x="670" y="148" text-anchor="middle" class="label">Mnemonic</text>
+  <text x="670" y="175" text-anchor="middle" class="sublabel">King Philip</text>
+  <text x="670" y="195" text-anchor="middle" class="sublabel">Came Over</text>
+  <text x="670" y="215" text-anchor="middle" class="sublabel">For Good</text>
+  <text x="670" y="235" text-anchor="middle" class="sublabel">Soup</text>
+  <text x="670" y="270" text-anchor="middle" class="sublabel">K-Kingdom, P-Phylum,</text>
+  <text x="670" y="288" text-anchor="middle" class="sublabel">C-Class, O-Order,</text>
+  <text x="670" y="306" text-anchor="middle" class="sublabel">F-Family, G-Genus,</text>
+  <text x="670" y="324" text-anchor="middle" class="sublabel">S-Species</text>
+
+  <!-- Arrow and note -->
+  <line x1="620" y1="310" x2="560" y2="310" class="line" marker-end="url(#arrow-none)"/>
+  <text x="90" y="360" text-anchor="middle" class="sublabel">Broadest</text>
+  <text x="90" y="378" text-anchor="middle" class="sublabel">group</text>
+  <text x="90" y="412" text-anchor="middle" class="sublabel">Most specific</text>
+  <line x1="110" y1="345" x2="145" y2="345" class="line"/>
+  <line x1="110" y1="400" x2="145" y2="400" class="line"/>
+</svg>

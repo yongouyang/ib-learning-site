@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" role="img" aria-labelledby="title desc">
+  <title id="title">Maxwell-Boltzmann distribution of particle energies</title>
+  <desc id="desc">Distribution curves showing that raising temperature shifts particle energies to the right, so a larger proportion exceeds the activation energy.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .axis { stroke: #374151; stroke-width: 2; }
+      .grid { stroke: #e5e7eb; stroke-width: 1; }
+      .low-t { fill: none; stroke: #3b82f6; stroke-width: 3; }
+      .high-t { fill: none; stroke: #f97316; stroke-width: 3; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="880" height="520" fill="#f9fafb" rx="12"/>
+  <text x="440" y="38" text-anchor="middle" class="title">Maxwell-Boltzmann Distribution</text>
+
+  <!-- Axes -->
+  <line x1="120" y1="440" x2="760" y2="440" class="axis"/>
+  <line x1="120" y1="440" x2="120" y2="80" class="axis"/>
+
+  <text x="440" y="475" text-anchor="middle" class="label">Kinetic energy</text>
+  <text x="75" y="260" text-anchor="middle" class="label" transform="rotate(-90 75 260)">Number of particles</text>
+
+  <!-- Gridlines -->
+  <line x1="120" y1="380" x2="760" y2="380" class="grid"/>
+  <line x1="120" y1="320" x2="760" y2="320" class="grid"/>
+  <line x1="120" y1="260" x2="760" y2="260" class="grid"/>
+  <line x1="120" y1="200" x2="760" y2="200" class="grid"/>
+  <line x1="120" y1="140" x2="760" y2="140" class="grid"/>
+
+  <!-- Activation energy line -->
+  <line x1="520" y1="440" x2="520" y2="100" class="line" stroke-dasharray="6,4"/>
+  <rect x="550" y="85" width="130" height="18" rx="4" fill="#f9fafb"/>
+  <text x="615" y="98" text-anchor="middle" class="sublabel">Activation energy (Eₐ)</text>
+
+  <!-- Low temperature curve -->
+  <path d="M120 440 C180 440 240 380 300 220 C340 100 400 80 500 120 C560 150 600 240 760 420" class="low-t"/>
+  <rect x="180" y="340" width="120" height="18" rx="4" fill="#f9fafb"/>
+  <text x="240" y="353" text-anchor="middle" class="sublabel" fill="#1d4ed8">Lower temperature</text>
+
+  <!-- High temperature curve -->
+  <path d="M120 440 C200 440 260 400 320 300 C360 220 420 160 520 140 C600 120 680 180 760 280" class="high-t"/>
+  <rect x="520" y="340" width="130" height="18" rx="4" fill="#f9fafb"/>
+  <text x="585" y="353" text-anchor="middle" class="sublabel" fill="#c2410c">Higher temperature</text>
+
+  <!-- Shaded area beyond Ea for high T -->
+  <path d="M520 440 L520 142 Q600 124 760 280 L760 440 Z" fill="#f97316" fill-opacity="0.12"/>
+  <rect x="550" y="420" width="180" height="18" rx="4" fill="#f9fafb"/>
+  <text x="640" y="433" text-anchor="middle" class="sublabel">More particles can react</text>
+</svg>

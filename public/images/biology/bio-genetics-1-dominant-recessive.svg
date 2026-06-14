@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="title desc">
+  <title id="title">Dominant and Recessive Alleles</title>
+  <desc id="desc">Diagram showing homologous chromosome pairs carrying alleles B and b for eye colour, with the resulting phenotypes for homozygous dominant, heterozygous, and homozygous recessive genotypes.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="900" height="460" fill="#f9fafb" rx="12"/>
+  <text x="450" y="34" text-anchor="middle" class="title">Dominant and Recessive Alleles</text>
+
+  <!-- Homologous pair key -->
+  <rect x="60" y="55" width="780" height="55" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="80" y="75" class="label">Key:</text>
+  <g transform="translate(140, 70)" stroke="#7c3aed" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M0,15 Q15,-5 30,15"/>
+  </g>
+  <text x="180" y="78" class="sublabel">= one chromosome from one parent</text>
+  <g transform="translate(420, 70)" stroke="#a855f7" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="6,4">
+    <path d="M0,15 Q15,-5 30,15"/>
+  </g>
+  <text x="460" y="78" class="sublabel">= homologous chromosome from other parent</text>
+  <text x="80" y="98" class="sublabel">B = brown-eye allele (dominant); b = blue-eye allele (recessive)</text>
+
+  <!-- Genotype 1: BB -->
+  <rect x="60" y="130" width="250" height="280" rx="12" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="185" y="155" text-anchor="middle" class="label">Homozygous dominant</text>
+  <text x="185" y="175" text-anchor="middle" class="sublabel">Genotype BB</text>
+
+  <g transform="translate(95, 200)">
+    <path d="M0,30 Q25,-10 50,30" fill="none" stroke="#7c3aed" stroke-width="7" stroke-linecap="round"/>
+    <path d="M70,30 Q95,-10 120,30" fill="none" stroke="#a855f7" stroke-width="7" stroke-linecap="round" stroke-dasharray="6,4"/>
+    <circle cx="25" cy="10" r="14" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+    <text x="25" y="15" text-anchor="middle" class="label">B</text>
+    <circle cx="95" cy="10" r="14" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+    <text x="95" y="15" text-anchor="middle" class="label">B</text>
+  </g>
+
+  <!-- Brown eye phenotype -->
+  <circle cx="185" cy="310" r="40" fill="#92400e" stroke="#78350f" stroke-width="2"/>
+  <circle cx="185" cy="310" r="16" fill="#451a03"/>
+  <circle cx="195" cy="300" r="6" fill="#ffffff" opacity="0.4"/>
+  <text x="185" y="370" text-anchor="middle" class="label">Phenotype: brown eyes</text>
+  <text x="185" y="388" text-anchor="middle" class="sublabel">Dominant allele expressed</text>
+
+  <!-- Genotype 2: Bb -->
+  <rect x="325" y="130" width="250" height="280" rx="12" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="450" y="155" text-anchor="middle" class="label">Heterozygous</text>
+  <text x="450" y="175" text-anchor="middle" class="sublabel">Genotype Bb</text>
+
+  <g transform="translate(360, 200)">
+    <path d="M0,30 Q25,-10 50,30" fill="none" stroke="#7c3aed" stroke-width="7" stroke-linecap="round"/>
+    <path d="M70,30 Q95,-10 120,30" fill="none" stroke="#a855f7" stroke-width="7" stroke-linecap="round" stroke-dasharray="6,4"/>
+    <circle cx="25" cy="10" r="14" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+    <text x="25" y="15" text-anchor="middle" class="label">B</text>
+    <circle cx="95" cy="10" r="14" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="95" y="15" text-anchor="middle" class="label">b</text>
+  </g>
+
+  <!-- Brown eye phenotype -->
+  <circle cx="450" cy="310" r="40" fill="#92400e" stroke="#78350f" stroke-width="2"/>
+  <circle cx="450" cy="310" r="16" fill="#451a03"/>
+  <circle cx="460" cy="300" r="6" fill="#ffffff" opacity="0.4"/>
+  <text x="450" y="370" text-anchor="middle" class="label">Phenotype: brown eyes</text>
+  <text x="450" y="388" text-anchor="middle" class="sublabel">Dominant B masks recessive b</text>
+
+  <!-- Genotype 3: bb -->
+  <rect x="590" y="130" width="250" height="280" rx="12" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="715" y="155" text-anchor="middle" class="label">Homozygous recessive</text>
+  <text x="715" y="175" text-anchor="middle" class="sublabel">Genotype bb</text>
+
+  <g transform="translate(625, 200)">
+    <path d="M0,30 Q25,-10 50,30" fill="none" stroke="#7c3aed" stroke-width="7" stroke-linecap="round"/>
+    <path d="M70,30 Q95,-10 120,30" fill="none" stroke="#a855f7" stroke-width="7" stroke-linecap="round" stroke-dasharray="6,4"/>
+    <circle cx="25" cy="10" r="14" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="25" y="15" text-anchor="middle" class="label">b</text>
+    <circle cx="95" cy="10" r="14" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="95" y="15" text-anchor="middle" class="label">b</text>
+  </g>
+
+  <!-- Blue eye phenotype -->
+  <circle cx="715" cy="310" r="40" fill="#60a5fa" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="715" cy="310" r="16" fill="#1e3a8a"/>
+  <circle cx="725" cy="300" r="6" fill="#ffffff" opacity="0.4"/>
+  <text x="715" y="370" text-anchor="middle" class="label">Phenotype: blue eyes</text>
+  <text x="715" y="388" text-anchor="middle" class="sublabel">Recessive allele only expressed when homozygous</text>
+</svg>

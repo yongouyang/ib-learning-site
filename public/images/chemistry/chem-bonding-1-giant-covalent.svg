@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 520" role="img" aria-labelledby="title desc">
+  <title id="title">Giant Covalent Structures: Diamond and Graphite</title>
+  <desc id="desc">A comparison of diamond and graphite, both made of carbon. Diamond has a 3D tetrahedral network, while graphite has flat hexagonal layers with delocalised electrons between them.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .carbon { fill: #374151; }
+      .bond { stroke: #6b7280; stroke-width: 3; }
+      .deloc { fill: #f97316; opacity: 0.6; }
+    </style>
+  </defs>
+
+  <rect width="940" height="520" fill="#f9fafb" rx="12"/>
+  <text x="470" y="38" text-anchor="middle" class="title">Giant Covalent Structures: Diamond vs Graphite</text>
+
+  <!-- Diamond panel -->
+  <rect x="40" y="70" width="420" height="410" rx="10" class="box"/>
+  <text x="250" y="95" text-anchor="middle" class="label">Diamond — 3D tetrahedral network</text>
+
+  <g transform="translate(150, 180)">
+    <!-- Top layer triangle -->
+    <circle cx="0" cy="0" r="16" class="carbon"/>
+    <circle cx="100" cy="0" r="16" class="carbon"/>
+    <circle cx="50" cy="86" r="16" class="carbon"/>
+    <line x1="0" y1="0" x2="100" y2="0" class="bond"/>
+    <line x1="0" y1="0" x2="50" y2="86" class="bond"/>
+    <line x1="100" y1="0" x2="50" y2="86" class="bond"/>
+    <!-- Middle atom -->
+    <circle cx="50" cy="43" r="16" class="carbon"/>
+    <line x1="50" y1="43" x2="0" y2="0" class="bond"/>
+    <line x1="50" y1="43" x2="100" y2="0" class="bond"/>
+    <line x1="50" y1="43" x2="50" y2="86" class="bond"/>
+    <!-- Bottom atoms -->
+    <circle cx="50" cy="150" r="16" class="carbon"/>
+    <circle cx="-20" cy="110" r="16" class="carbon"/>
+    <circle cx="120" cy="110" r="16" class="carbon"/>
+    <line x1="50" y1="86" x2="50" y2="150" class="bond"/>
+    <line x1="50" y1="86" x2="-20" y2="110" class="bond"/>
+    <line x1="50" y1="86" x2="120" y2="110" class="bond"/>
+  </g>
+
+  <line x1="120" y1="270" x2="80" y2="300" class="line"/>
+  <rect x="20" y="301" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="25" y="313" class="label">Each C bonded to 4 others</text>
+
+  <rect x="80" y="380" width="340" height="78" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="250" y="405" text-anchor="middle" class="label" fill="#9a3412">Properties of diamond</text>
+  <text x="250" y="425" text-anchor="middle" class="sublabel">Very hard · very high melting point</text>
+  <text x="250" y="445" text-anchor="middle" class="sublabel">Does NOT conduct electricity</text>
+
+  <!-- Graphite panel -->
+  <rect x="480" y="70" width="420" height="410" rx="10" class="box"/>
+  <text x="690" y="95" text-anchor="middle" class="label">Graphite — flat hexagonal layers</text>
+
+  <g transform="translate(560, 180)">
+    <!-- Layer 1 -->
+    <circle cx="0" cy="0" r="14" class="carbon"/>
+    <circle cx="50" cy="0" r="14" class="carbon"/>
+    <circle cx="100" cy="0" r="14" class="carbon"/>
+    <line x1="0" y1="0" x2="50" y2="0" class="bond"/>
+    <line x1="50" y1="0" x2="100" y2="0" class="bond"/>
+    <circle cx="25" cy="43" r="14" class="carbon"/>
+    <circle cx="75" cy="43" r="14" class="carbon"/>
+    <line x1="0" y1="0" x2="25" y2="43" class="bond"/>
+    <line x1="50" y1="0" x2="25" y2="43" class="bond"/>
+    <line x1="50" y1="0" x2="75" y2="43" class="bond"/>
+    <line x1="100" y1="0" x2="75" y2="43" class="bond"/>
+    <circle cx="50" cy="86" r="14" class="carbon"/>
+    <line x1="25" y1="43" x2="50" y2="86" class="bond"/>
+    <line x1="75" y1="43" x2="50" y2="86" class="bond"/>
+    <!-- Layer 2 above -->
+    <circle cx="25" cy="-50" r="14" class="carbon"/>
+    <circle cx="75" cy="-50" r="14" class="carbon"/>
+    <line x1="0" y1="0" x2="25" y2="-50" class="bond" stroke="#9ca3af"/>
+    <line x1="50" y1="0" x2="25" y2="-50" class="bond" stroke="#9ca3af"/>
+    <line x1="50" y1="0" x2="75" y2="-50" class="bond" stroke="#9ca3af"/>
+    <line x1="100" y1="0" x2="75" y2="-50" class="bond" stroke="#9ca3af"/>
+    <!-- Delocalised electrons between layers -->
+    <circle cx="50" cy="-25" r="5" class="deloc"/>
+    <circle cx="30" cy="-25" r="5" class="deloc"/>
+    <circle cx="70" cy="-25" r="5" class="deloc"/>
+    <circle cx="50" cy="-10" r="5" class="deloc"/>
+    <circle cx="20" cy="-35" r="5" class="deloc"/>
+    <circle cx="80" cy="-35" r="5" class="deloc"/>
+  </g>
+
+  <line x1="720" y1="160" x2="780" y2="130" class="line"/>
+  <rect x="782" y="121" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="787" y="133" class="label">Delocalised e⁻</text>
+
+  <line x1="700" y1="280" x2="665" y2="310" class="line"/>
+  <rect x="665" y="301" width="190" height="18" rx="4" class="label-bg"/>
+  <text x="670" y="313" class="label">Weak forces between layers</text>
+
+  <rect x="520" y="380" width="340" height="78" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="690" y="405" text-anchor="middle" class="label" fill="#9a3412">Properties of graphite</text>
+  <text x="690" y="425" text-anchor="middle" class="sublabel">Soft/slippery · layers slide · conducts electricity</text>
+  <text x="690" y="445" text-anchor="middle" class="sublabel">High melting point</text>
+</svg>

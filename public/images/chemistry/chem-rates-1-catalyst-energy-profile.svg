@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Energy profile for a catalysed reaction</title>
+  <desc id="desc">Energy profile showing that a catalyst lowers the activation energy but does not change the overall energy change or amount of product.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .axis { stroke: #374151; stroke-width: 2; }
+      .uncat { fill: none; stroke: #9ca3af; stroke-width: 3; }
+      .cat { fill: none; stroke: #f97316; stroke-width: 4; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="38" text-anchor="middle" class="title">Catalysts Lower Activation Energy</text>
+
+  <!-- Axes -->
+  <line x1="120" y1="440" x2="680" y2="440" class="axis"/>
+  <line x1="120" y1="440" x2="120" y2="80" class="axis"/>
+
+  <text x="400" y="475" text-anchor="middle" class="label">Reaction progress</text>
+  <text x="75" y="260" text-anchor="middle" class="label" transform="rotate(-90 75 260)">Energy</text>
+
+  <!-- Reactants and products levels -->
+  <line x1="130" y1="360" x2="670" y2="360" stroke="#374151" stroke-width="2"/>
+  <text x="100" y="365" text-anchor="end" class="sublabel">Reactants</text>
+
+  <line x1="130" y1="240" x2="670" y2="240" stroke="#374151" stroke-width="2"/>
+  <text x="690" y="245" text-anchor="start" class="sublabel">Products</text>
+
+  <!-- Uncatalysed path -->
+  <path d="M130 360 Q260 360 340 140 Q420 -20 670 240" class="uncat"/>
+
+  <!-- Catalysed path -->
+  <path d="M130 360 Q240 360 300 260 Q360 160 670 240" class="cat"/>
+
+  <!-- Activation energy labels -->
+  <line x1="340" y1="140" x2="340" y2="60" class="line"/>
+  <rect x="270" y="40" width="140" height="18" rx="4" fill="#f9fafb"/>
+  <text x="340" y="53" text-anchor="middle" class="sublabel">Eₐ without catalyst</text>
+
+  <line x1="300" y1="260" x2="300" y2="180" class="line"/>
+  <rect x="230" y="160" width="140" height="18" rx="4" fill="#f9fafb"/>
+  <text x="300" y="173" text-anchor="middle" class="sublabel" fill="#c2410c">Eₐ with catalyst</text>
+
+  <!-- Delta H -->
+  <line x1="620" y1="240" x2="620" y2="360" class="line"/>
+  <polygon points="620,240 616,250 624,250" fill="#6b7280"/>
+  <polygon points="620,360 616,350 624,350" fill="#6b7280"/>
+  <rect x="635" y="290" width="70" height="18" rx="4" fill="#f9fafb"/>
+  <text x="670" y="303" text-anchor="middle" class="sublabel">ΔH unchanged</text>
+
+  <!-- Legend -->
+  <g transform="translate(220, 500)">
+    <line x1="0" y1="0" x2="30" y2="0" class="uncat"/>
+    <text x="40" y="4" class="sublabel">Uncatalysed</text>
+    <line x1="150" y1="0" x2="180" y2="0" class="cat"/>
+    <text x="190" y="4" class="sublabel">Catalysed</text>
+  </g>
+</svg>

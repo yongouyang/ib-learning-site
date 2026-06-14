@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="title desc">
+  <title id="title">Specialised Animal and Plant Cells</title>
+  <desc id="desc">Diagrams showing adaptations of four specialised cells: a red blood cell, a sperm cell, a root hair cell, and a palisade cell.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 10px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="800" height="460" fill="#f9fafb" rx="12"/>
+  <text x="400" y="32" text-anchor="middle" class="title">Specialised Animal and Plant Cells</text>
+
+  <!-- Red blood cell -->
+  <rect x="25" y="50" width="370" height="190" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="210" y="74" text-anchor="middle" class="panel-title">Red Blood Cell</text>
+  <ellipse cx="140" cy="145" rx="60" ry="28" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+  <ellipse cx="140" cy="145" rx="24" ry="10" fill="#fca5a5"/>
+  <line x1="200" y1="145" x2="260" y2="130" class="line"/>
+  <rect x="262" y="121" width="110" height="18" rx="4" class="label-bg"/>
+  <text x="266" y="133" class="label">Biconcave shape</text>
+  <line x1="110" y1="173" x2="100" y2="200" class="line"/>
+  <rect x="50" y="201" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="54" y="213" class="label">No nucleus</text>
+  <text x="210" y="172" text-anchor="middle" class="sublabel">Maximises surface area to absorb O₂</text>
+
+  <!-- Sperm cell -->
+  <rect x="405" y="50" width="370" height="190" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="590" y="74" text-anchor="middle" class="panel-title">Sperm Cell</text>
+  <ellipse cx="520" cy="135" rx="20" ry="14" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+  <ellipse cx="540" cy="135" rx="12" ry="8" fill="#f97316"/>
+  <path d="M552,135 Q580,120 600,135 Q620,150 640,135 L650,130" fill="none" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/>
+  <line x1="470" y1="120" x2="430" y2="90" class="line"/>
+  <rect x="375" y="81" width="52" height="18" rx="4" class="label-bg"/>
+  <text x="379" y="93" class="label">Nucleus</text>
+  <line x1="560" y1="135" x2="600" y2="170" class="line"/>
+  <rect x="550" y="171" width="100" height="18" rx="4" class="label-bg"/>
+  <text x="554" y="183" class="label">Many mitochondria</text>
+  <line x1="620" y1="135" x2="670" y2="120" class="line"/>
+  <rect x="672" y="111" width="80" height="18" rx="4" class="label-bg"/>
+  <text x="676" y="123" class="label">Tail (flagellum)</text>
+  <text x="590" y="160" text-anchor="middle" class="sublabel">Streamlined for swimming to the egg</text>
+
+  <!-- Root hair cell -->
+  <rect x="25" y="250" width="370" height="195" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="210" y="274" text-anchor="middle" class="panel-title">Root Hair Cell</text>
+  <rect x="120" y="290" width="70" height="120" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="6"/>
+  <path d="M155,410 L155,440 C155,445 150,445 150,440 L150,410" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <circle cx="140" cy="330" r="5" fill="#86efac"/>
+  <circle cx="165" cy="360" r="5" fill="#86efac"/>
+  <circle cx="138" cy="390" r="5" fill="#86efac"/>
+  <line x1="205" y1="310" x2="260" y2="290" class="line"/>
+  <rect x="262" y="281" width="105" height="18" rx="4" class="label-bg"/>
+  <text x="266" y="293" class="label">Large surface area</text>
+  <line x1="205" y1="360" x2="260" y2="370" class="line"/>
+  <rect x="262" y="361" width="90" height="18" rx="4" class="label-bg"/>
+  <text x="266" y="373" class="label">Many mitochondria</text>
+  <line x1="145" y1="440" x2="100" y2="430" class="line"/>
+  <rect x="10" y="421" width="88" height="18" rx="4" class="label-bg"/>
+  <text x="14" y="433" class="label">Root hair</text>
+
+  <!-- Palisade cell -->
+  <rect x="405" y="250" width="370" height="195" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="590" y="274" text-anchor="middle" class="panel-title">Palisade Cell</text>
+  <rect x="500" y="295" width="35" height="110" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="4"/>
+  <rect x="545" y="295" width="35" height="110" fill="#dcfce7" stroke="#22c55e" stroke-width="2" rx="4"/>
+  <circle cx="517" cy="320" r="7" fill="#84cc16"/>
+  <circle cx="562" cy="340" r="7" fill="#84cc16"/>
+  <circle cx="517" cy="360" r="7" fill="#84cc16"/>
+  <circle cx="562" cy="380" r="7" fill="#84cc16"/>
+  <circle cx="517" cy="390" r="7" fill="#84cc16"/>
+  <line x1="475" y1="310" x2="430" y2="320" class="line"/>
+  <rect x="350" y="311" width="78" height="18" rx="4" class="label-bg"/>
+  <text x="354" y="323" class="label">Column shape</text>
+  <line x1="585" y1="350" x2="640" y2="360" class="line"/>
+  <rect x="642" y="351" width="100" height="18" rx="4" class="label-bg"/>
+  <text x="646" y="363" class="label">Many chloroplasts</text>
+  <line x1="590" y1="390" x2="650" y2="410" class="line"/>
+  <rect x="615" y="411" width="130" height="18" rx="4" class="label-bg"/>
+  <text x="619" y="423" class="label">Packed near leaf surface</text>
+</svg>

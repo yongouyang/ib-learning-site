@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Homeostasis and Body Systems Working Together</title>
+  <desc id="desc">A diagram showing body systems collaborating to maintain a stable internal environment, plus a negative feedback loop.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .arrow { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .body-fill { fill: #d1fae5; stroke: #10b981; stroke-width: 3; }
+      .system-icon { stroke-width: 2; }
+    </style>
+    <marker id="arrow-grey" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="440" fill="#f9fafb" rx="12"/>
+  <text x="480" y="34" text-anchor="middle" class="title">Homeostasis: Body Systems Working Together</text>
+
+  <!-- Left panel: systems work together -->
+  <rect x="25" y="55" width="430" height="370" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="240" y="82" text-anchor="middle" class="panel-title">Systems work together</text>
+
+  <!-- Human body silhouette -->
+  <circle cx="240" cy="155" r="28" class="body-fill"/>
+  <ellipse cx="240" cy="275" rx="58" ry="105" class="body-fill"/>
+  <rect x="173" y="250" width="134" height="40" rx="6" class="label-bg"/>
+  <text x="240" y="268" text-anchor="middle" class="label">Stable internal</text>
+  <text x="240" y="282" text-anchor="middle" class="label">environment</text>
+
+  <!-- Nervous system -->
+  <path d="M108,135 C108,120 132,120 132,135 C132,148 120,152 108,148 C100,144 100,140 108,135 Z" fill="#fbcfe8" stroke="#db2777" class="system-icon"/>
+  <path d="M120,125 Q125,140 120,150" fill="none" stroke="#db2777" stroke-width="1.5"/>
+  <line x1="105" y1="135" x2="102" y2="135" class="line"/>
+  <rect x="20" y="116" width="82" height="30" rx="4" class="label-bg"/>
+  <text x="28" y="130" class="label">Nervous system</text>
+  <text x="28" y="142" class="sublabel">brain &amp; nerves</text>
+
+  <!-- Endocrine system -->
+  <ellipse cx="370" cy="135" rx="22" ry="14" fill="#fde68a" stroke="#d97706" class="system-icon"/>
+  <circle cx="370" cy="120" r="7" fill="#fde68a" stroke="#d97706" class="system-icon"/>
+  <line x1="392" y1="135" x2="392" y2="135" class="line"/>
+  <rect x="392" y="116" width="98" height="30" rx="4" class="label-bg"/>
+  <text x="400" y="130" class="label">Endocrine system</text>
+  <text x="400" y="142" class="sublabel">glands &amp; hormones</text>
+
+  <!-- Circulatory system -->
+  <path d="M80,258 C80,258 62,242 62,228 C62,218 72,214 80,222 C88,214 98,218 98,228 C98,242 80,258 80,258 Z" fill="#fca5a5" stroke="#ef4444" class="system-icon"/>
+  <line x1="70" y1="250" x2="100" y2="250" class="line"/>
+  <rect x="20" y="231" width="80" height="30" rx="4" class="label-bg"/>
+  <text x="28" y="245" class="label">Circulatory</text>
+  <text x="28" y="257" class="sublabel">heart &amp; blood</text>
+
+  <!-- Respiratory system -->
+  <ellipse cx="390" cy="250" rx="14" ry="22" fill="#bfdbfe" stroke="#3b82f6" class="system-icon"/>
+  <ellipse cx="410" cy="250" rx="14" ry="22" fill="#bfdbfe" stroke="#3b82f6" class="system-icon"/>
+  <line x1="400" y1="235" x2="400" y2="265" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="420" y1="250" x2="425" y2="250" class="line"/>
+  <rect x="425" y="231" width="90" height="30" rx="4" class="label-bg"/>
+  <text x="433" y="245" class="label">Respiratory</text>
+  <text x="433" y="257" class="sublabel">lungs &amp; gas exchange</text>
+
+  <!-- Digestive system -->
+  <path d="M105,365 C105,345 140,345 140,365 C140,380 120,390 105,380 C95,375 95,370 105,365 Z" fill="#fdba74" stroke="#f97316" class="system-icon"/>
+  <line x1="105" y1="365" x2="110" y2="365" class="line"/>
+  <rect x="20" y="346" width="90" height="30" rx="4" class="label-bg"/>
+  <text x="28" y="360" class="label">Digestive</text>
+  <text x="28" y="372" class="sublabel">breaks down food</text>
+
+  <!-- Excretory system -->
+  <path d="M375,355 C355,355 350,365 355,380 C360,390 375,385 380,375 C385,365 375,355 375,355 Z" fill="#c4b5fd" stroke="#7c3aed" class="system-icon"/>
+  <line x1="390" y1="365" x2="405" y2="365" class="line"/>
+  <rect x="405" y="346" width="90" height="30" rx="4" class="label-bg"/>
+  <text x="413" y="360" class="label">Excretory</text>
+  <text x="413" y="372" class="sublabel">kidneys &amp; skin</text>
+
+  <!-- Muscular system -->
+  <path d="M215,385 Q240,375 265,385 Q275,390 265,400 Q240,410 215,400 Q205,390 215,385 Z" fill="#fca5a5" stroke="#ef4444" class="system-icon"/>
+  <line x1="240" y1="375" x2="240" y2="370" class="line"/>
+  <rect x="180" y="350" width="120" height="20" rx="4" class="label-bg"/>
+  <text x="240" y="364" text-anchor="middle" class="label">Muscular system</text>
+
+  <!-- Right panel: negative feedback loop -->
+  <rect x="475" y="55" width="400" height="370" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+  <text x="675" y="82" text-anchor="middle" class="panel-title">Negative feedback loop</text>
+
+  <!-- Diamond nodes -->
+  <circle cx="675" cy="120" r="22" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="675" y="125" text-anchor="middle" class="label">Receptor</text>
+
+  <circle cx="790" cy="225" r="22" fill="#fde047" stroke="#eab308" stroke-width="2"/>
+  <text x="790" y="230" text-anchor="middle" class="label">Control</text>
+
+  <circle cx="675" cy="330" r="22" fill="#fca5a5" stroke="#ef4444" stroke-width="2"/>
+  <text x="675" y="335" text-anchor="middle" class="label">Effector</text>
+
+  <circle cx="560" cy="225" r="22" fill="#c4b5fd" stroke="#7c3aed" stroke-width="2"/>
+  <text x="560" y="230" text-anchor="middle" class="label">Response</text>
+
+  <!-- Arrows around diamond -->
+  <line x1="675" y1="142" x2="774" y2="211" class="arrow" stroke="#6b7280" marker-end="url(#arrow-grey)"/>
+  <line x1="790" y1="247" x2="675" y2="308" class="arrow" stroke="#6b7280" marker-end="url(#arrow-grey)"/>
+  <line x1="653" y1="330" x2="578" y2="243" class="arrow" stroke="#6b7280" marker-end="url(#arrow-grey)"/>
+  <line x1="560" y1="203" x2="675" y2="142" class="arrow" stroke="#6b7280" marker-end="url(#arrow-grey)"/>
+
+  <!-- Central feedback label -->
+  <rect x="615" y="218" width="120" height="34" rx="6" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="675" y="235" text-anchor="middle" class="label">Negative feedback</text>
+  <text x="675" y="247" text-anchor="middle" class="sublabel">reverses the change</text>
+
+  <!-- Labels with leader lines -->
+  <line x1="675" y1="98" x2="675" y2="80" class="line"/>
+  <rect x="595" y="62" width="160" height="20" rx="4" class="label-bg"/>
+  <text x="675" y="76" text-anchor="middle" class="label">Receptor detects change</text>
+
+  <line x1="812" y1="225" x2="830" y2="225" class="line"/>
+  <rect x="830" y="207" width="120" height="28" rx="4" class="label-bg"/>
+  <text x="838" y="221" class="label">Control centre</text>
+  <text x="838" y="232" class="sublabel">(brain / glands)</text>
+
+  <line x1="675" y1="352" x2="675" y2="370" class="line"/>
+  <rect x="595" y="370" width="160" height="20" rx="4" class="label-bg"/>
+  <text x="675" y="384" text-anchor="middle" class="label">Effector carries out response</text>
+
+  <line x1="538" y1="225" x2="520" y2="225" class="line"/>
+  <rect x="400" y="207" width="120" height="28" rx="4" class="label-bg"/>
+  <text x="518" y="221" text-anchor="end" class="label">Response reverses</text>
+  <text x="518" y="232" text-anchor="end" class="sublabel">the original change</text>
+</svg>
