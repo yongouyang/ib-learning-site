@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="title desc">
+  <title id="title">Refraction and Snell's Law</title>
+  <desc id="desc">Ray diagram showing light bending as it passes from air into glass and back, with angles of incidence and refraction labelled.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .formula { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; font-weight: 700; fill: #dc2626; }
+      .ray { fill: none; stroke-width: 2.5; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="380" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Refraction and Snell's Law</text>
+
+  <!-- Refraction diagram -->
+  <rect x="20" y="55" width="480" height="210" rx="10" class="box"/>
+  <text x="260" y="78" text-anchor="middle" class="label">Light Passing from Air to Glass</text>
+
+  <g transform="translate(30, 92)">
+    <!-- Glass block -->
+    <rect x="180" y="30" width="100" height="140" rx="4" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
+    <text x="230" y="105" text-anchor="middle" class="label" fill="#3b82f6">Glass</text>
+
+    <!-- Normal -->
+    <line x1="230" y1="0" x2="230" y2="180" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+    <!-- Incident ray (in air) -->
+    <line x1="50" y1="120" x2="230" y2="60" stroke="#ef4444" stroke-width="2.5"/>
+    <polygon points="55,115 45,105 58,112" fill="#ef4444"/>
+
+    <!-- Angle i -->
+    <path d="M200,78 A30,30 0 0,0 215,48" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="215" y="58" class="sublabel" fill="#dc2626">i</text>
+
+    <!-- Refracted ray (in glass — bends TOWARDS normal) -->
+    <line x1="230" y1="60" x2="300" y2="100" stroke="#f97316" stroke-width="2.5"/>
+    <polygon points="295,95 305,102 298,88" fill="#f97316"/>
+
+    <!-- Angle r -->
+    <path d="M245,68 A30,30 0 0,1 260,82" fill="none" stroke="#f97316" stroke-width="1.5"/>
+    <text x="260" y="72" class="sublabel" fill="#f97316">r</text>
+
+    <!-- Emergent ray (bends AWAY from normal) -->
+    <line x1="300" y1="100" x2="380" y2="60" stroke="#ef4444" stroke-width="2.5"/>
+    <polygon points="375,55 385,57 378,68" fill="#ef4444"/>
+
+    <text x="130" y="88" class="sublabel" fill="#dc2626">Air (faster)</text>
+    <text x="330" y="48" class="sublabel" fill="#dc2626">Air (faster)</text>
+    <text x="310" y="170" class="sublabel" fill="#f97316">Light bends towards the normal in denser media</text>
+  </g>
+
+  <!-- Snell's Law panel -->
+  <rect x="520" y="55" width="260" height="210" rx="10" class="box"/>
+  <text x="650" y="78" text-anchor="middle" class="label">Snell's Law</text>
+  <g transform="translate(540, 95)">
+    <rect x="0" y="0" width="220" height="40" rx="6" fill="#fef2f2"/>
+    <text x="110" y="18" text-anchor="middle" class="formula">n = sin i / sin r</text>
+    <text x="110" y="34" text-anchor="middle" class="sublabel">Refractive index n = sini ÷ sinr</text>
+
+    <rect x="0" y="48" width="220" height="55" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="66" class="label">Key Concept</text>
+    <text x="10" y="82" class="sublabel">• Light slows down in denser medium</text>
+    <text x="10" y="98" class="sublabel">• n_air ≈ 1.0, n_glass ≈ 1.5</text>
+
+    <rect x="0" y="110" width="220" height="80" rx="6" fill="#eff6ff"/>
+    <text x="10" y="128" class="label" fill="#3b82f6">Rules</text>
+    <text x="10" y="146" class="sublabel">Air → Glass: bends TOWARDS normal</text>
+    <text x="10" y="162" class="sublabel">Glass → Air: bends AWAY from normal</text>
+    <text x="10" y="178" class="sublabel">i = 0 → no bending (straight through)</text>
+  </g>
+
+  <rect x="20" y="285" width="760" height="40" rx="8" class="box"/>
+  <text x="400" y="305" text-anchor="middle" class="label">Refraction occurs because light changes speed in different media</text>
+  <text x="400" y="320" text-anchor="middle" class="sublabel">Slower in glass/water → bends towards normal. Faster in air → bends away from normal. Explains why objects appear bent in water!</text>
+</svg>

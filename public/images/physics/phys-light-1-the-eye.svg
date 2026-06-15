@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="title desc">
+  <title id="title">The Human Eye and Vision Defects</title>
+  <desc id="desc">Cross-section of the human eye showing cornea, lens, retina, pupil, and optic nerve, with diagrams of short-sightedness and long-sightedness correction.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">The Human Eye and Vision Defects</text>
+
+  <!-- Eye cross section -->
+  <rect x="20" y="50" width="450" height="230" rx="10" class="box"/>
+  <text x="245" y="75" text-anchor="middle" class="label">Cross-Section of the Human Eye</text>
+
+  <g transform="translate(40, 95)">
+    <!-- Eyeball outline -->
+    <ellipse cx="200" cy="80" rx="140" ry="75" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+
+    <!-- Cornea (front bulge) -->
+    <path d="M340,45 Q370,80 340,115" fill="none" stroke="#3b82f6" stroke-width="3"/>
+
+    <!-- Lens (biconvex) -->
+    <path d="M290,45 Q310,80 290,115" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2" opacity="0.8"/>
+    <path d="M310,45 Q330,80 310,115" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2" opacity="0.8"/>
+
+    <!-- Iris/pupil -->
+    <path d="M275,60 L275,100" stroke="#6b7280" stroke-width="8" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Retina (back of eye) -->
+    <path d="M120,20 Q60,80 120,140" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+
+    <!-- Optic nerve -->
+    <line x1="110" y1="80" x2="60" y2="80" stroke="#fbbf24" stroke-width="3"/>
+    <line x1="60" y1="80" x2="30" y2="80" stroke="#fbbf24" stroke-width="2"/>
+
+    <!-- Light rays entering -->
+    <line x1="420" y1="50" x2="350" y2="65" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="420" y1="80" x2="350" y2="80" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="420" y1="110" x2="350" y2="95" stroke="#fbbf24" stroke-width="1.5"/>
+
+    <!-- Labels -->
+    <line x1="365" y1="60" x2="395" y2="40" class="line"/>
+    <rect x="360" y="28" width="60" height="14" rx="3" class="label-bg"/>
+    <text x="363" y="37" class="sublabel">Cornea</text>
+
+    <line x1="300" y1="50" x2="265" y2="25" class="line"/>
+    <rect x="230" y="13" width="45" height="14" rx="3" class="label-bg"/>
+    <text x="233" y="22" class="sublabel">Lens</text>
+
+    <line x1="270" y1="80" x2="245" y2="60" class="line"/>
+    <rect x="210" y="48" width="45" height="14" rx="3" class="label-bg"/>
+    <text x="213" y="57" class="sublabel">Pupil</text>
+
+    <line x1="150" y1="40" x2="120" y2="20" class="line"/>
+    <rect x="85" y="8" width="50" height="14" rx="3" class="label-bg"/>
+    <text x="88" y="17" class="sublabel">Retina</text>
+
+    <line x1="80" y1="80" x2="50" y2="110" class="line"/>
+    <rect x="18" y="104" width="85" height="14" rx="3" class="label-bg"/>
+    <text x="21" y="113" class="sublabel">Optic nerve</text>
+  </g>
+
+  <!-- Vision defects -->
+  <rect x="490" y="50" width="290" height="230" rx="10" class="box"/>
+  <text x="635" y="75" text-anchor="middle" class="label">Vision Defects and Correction</text>
+
+  <g transform="translate(510, 92)">
+    <rect x="0" y="0" width="250" height="65" rx="6" fill="#fef2f2"/>
+    <text x="10" y="18" class="label" fill="#dc2626">Short-sightedness (Myopia)</text>
+    <text x="10" y="36" class="sublabel">• Image focused IN FRONT of retina</text>
+    <text x="10" y="52" class="sublabel">• Corrected with: CONCAVE lens (diverging)</text>
+    <text x="10" y="66" class="sublabel">• Can see near, can't see far</text>
+
+    <rect x="0" y="72" width="250" height="65" rx="6" fill="#eff6ff"/>
+    <text x="10" y="90" class="label" fill="#3b82f6">Long-sightedness (Hyperopia)</text>
+    <text x="10" y="108" class="sublabel">• Image focused BEHIND retina</text>
+    <text x="10" y="124" class="sublabel">• Corrected with: CONVEX lens (converging)</text>
+    <text x="10" y="140" class="sublabel">• Can see far, can't see near</text>
+
+    <rect x="0" y="145" width="250" height="35" rx="6" fill="#f3f4f6"/>
+    <text x="125" y="163" text-anchor="middle" class="label">Eye adjusts focus</text>
+    <text x="125" y="178" text-anchor="middle" class="sublabel">Ciliary muscles change lens shape (accommodation)</text>
+  </g>
+
+  <rect x="20" y="300" width="760" height="45" rx="10" class="box"/>
+  <text x="400" y="320" text-anchor="middle" class="sublabel">Light enters through cornea → passes through pupil (size controlled by iris) → lens focuses → image formed on retina (inverted!) → brain flips it</text>
+  <text x="400" y="338" text-anchor="middle" class="sublabel">Retina contains rods (light/dark) and cones (colour). Optic nerve carries signals to the brain.</text>
+</svg>

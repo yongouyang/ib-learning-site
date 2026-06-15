@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-labelledby="title desc">
+  <title id="title">Moments</title>
+  <desc id="desc">See-saw diagram showing moment = force × perpendicular distance, with balanced and unbalanced examples.</desc>
+  <defs><style>
+    .t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}
+    .l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}
+    .s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}
+    .f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}
+    .b{fill:#fff;stroke:#e5e7eb;stroke-width:2}
+  </style></defs>
+  <rect width="800" height="340" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="t">Moments</text>
+  <g transform="translate(0,55)"><rect x="20" y="0" width="460" height="240" rx="10" class="b"/><text x="250" y="25" text-anchor="middle" class="l">Moments on a See-Saw</text>
+    <g transform="translate(40,38)"><polygon points="200,0 220,80 180,80" fill="#9ca3af"/><rect x="0" y="78" width="400" height="8" rx="4" fill="#6b7280"/>
+    <rect x="20" y="48" width="30" height="30" rx="4" fill="#ef4444"/><text x="35" y="68" text-anchor="middle" class="s" fill="white">2N</text>
+    <line x1="35" y1="88" x2="35" y2="105" stroke="#ef4444" stroke-width="1.5"/>
+    <rect x="350" y="58" width="30" height="20" rx="4" fill="#3b82f6"/><text x="365" y="72" text-anchor="middle" class="s" fill="white">4N</text>
+    <line x1="365" y1="88" x2="365" y2="100" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="35" y="120" text-anchor="middle" class="s">1.5 m from pivot</text><text x="365" y="115" text-anchor="middle" class="s">0.75 m from pivot</text>
+    <rect x="100" y="130" width="200" height="30" rx="6" fill="#fef2f2"/>
+    <text x="200" y="148" text-anchor="middle" class="s">Anti-clockwise: 2×1.5=3 Nm = Clockwise: 4×0.75=3 Nm → BALANCED!</text></g>
+    <rect x="500" y="0" width="280" height="240" rx="10" class="b"/><text x="640" y="25" text-anchor="middle" class="l">Moment Equation</text>
+    <g transform="translate(520,38)"><rect x="0" y="0" width="240" height="45" rx="6" fill="#fef2f2"/>
+    <text x="120" y="20" text-anchor="middle" class="f">M = F × d</text><text x="120" y="38" text-anchor="middle" class="s">Moment (Nm) = Force (N) × distance (m)</text>
+    <rect x="0" y="52" width="240" height="55" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="70" class="l">Principle of Moments</text>
+    <text x="10" y="88" class="s">Sum of clockwise moments =</text><text x="10" y="104" class="s">Sum of anti-clockwise moments</text>
+    <text x="120" y="130" text-anchor="middle" class="s">d = perpendicular distance from pivot!</text></g>
+    <rect x="20" y="258" width="760" height="35" rx="8" class="b"/><text x="400" y="280" text-anchor="middle" class="s">If the see-saw is balanced, total clockwise moment = total anti-clockwise moment. Pushing further from the pivot gives a larger moment (same force, bigger effect).</text></g>
+</svg>

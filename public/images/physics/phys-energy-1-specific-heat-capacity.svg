@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" role="img" aria-labelledby="title desc">
+  <title id="title">Specific Heat Capacity</title>
+  <desc id="desc">Experimental setup for measuring specific heat capacity with a metal block, heater, thermometer, and the formula ΔE = mcΔθ with a worked example.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .formula { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; font-weight: 700; fill: #dc2626; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="430" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Specific Heat Capacity</text>
+
+  <!-- Formula panel -->
+  <rect x="20" y="50" width="360" height="150" rx="10" class="box"/>
+  <text x="200" y="75" text-anchor="middle" class="label">The Equation</text>
+
+  <g transform="translate(40, 92)">
+    <rect x="0" y="0" width="320" height="50" rx="6" fill="#fef2f2"/>
+    <text x="160" y="20" text-anchor="middle" class="formula">ΔE = m × c × Δθ</text>
+    <text x="160" y="40" text-anchor="middle" class="sublabel">Energy (J) = mass (kg) × SHC (J/kg°C) × temperature change (°C)</text>
+
+    <rect x="0" y="60" width="320" height="65" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="78" class="label">What is SHC?</text>
+    <text x="10" y="94" class="sublabel">The energy needed to raise 1 kg of a substance</text>
+    <text x="10" y="110" class="sublabel">by 1°C (Joules per kilogram per degree Celsius)</text>
+  </g>
+
+  <!-- Practical setup -->
+  <rect x="400" y="50" width="380" height="150" rx="10" class="box"/>
+  <text x="590" y="75" text-anchor="middle" class="label">Measuring SHC — Practical Setup</text>
+
+  <g transform="translate(420, 90)">
+    <!-- Metal block -->
+    <rect x="80" y="0" width="120" height="80" rx="4" fill="#9ca3af" stroke="#6b7280" stroke-width="2"/>
+    
+    <!-- Hole for heater -->
+    <circle cx="120" cy="30" r="10" fill="#374151"/>
+    <rect x="115" y="30" width="10" height="25" fill="#374151"/>
+    
+    <!-- Heater -->
+    <rect x="110" y="0" width="20" height="15" rx="2" fill="#ef4444"/>
+    <line x1="100" y1="7" x2="110" y2="7" stroke="#ef4444" stroke-width="2"/>
+    <line x1="120" y1="15" x2="120" y2="30" stroke="#ef4444" stroke-width="2"/>
+    
+    <!-- Thermometer -->
+    <line x1="162" y1="80" x2="162" y2="5" stroke="#374151" stroke-width="2"/>
+    <circle cx="162" cy="80" r="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+
+    <!-- Insulation -->
+    <rect x="70" y="-5" width="140" height="90" rx="8" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="4,2"/>
+    <text x="140" y="105" text-anchor="middle" class="sublabel" fill="#92400e">Insulation (reduces heat loss)</text>
+
+    <text x="80" y="10" text-anchor="middle" class="sublabel" fill="#dc2626">Heater</text>
+    <text x="180" y="50" text-anchor="middle" class="sublabel" fill="#dc2626">Thermometer</text>
+
+    <text x="55" y="40" text-anchor="middle" class="sublabel">Ammeter →</text>
+    <text x="55" y="55" text-anchor="middle" class="sublabel">Voltmeter →</text>
+    <text x="55" y="70" text-anchor="middle" class="sublabel">E = VIt</text>
+  </g>
+
+  <!-- Worked example -->
+  <rect x="20" y="220" width="370" height="115" rx="10" class="box"/>
+  <text x="205" y="245" text-anchor="middle" class="label">Worked Example</text>
+  
+  <g transform="translate(40, 260)">
+    <text x="0" y="14" class="sublabel">2 kg of water heated from 20°C to 100°C.</text>
+    <text x="0" y="30" class="sublabel">SHC of water = 4200 J/kg°C</text>
+
+    <rect x="0" y="40" width="310" height="24" rx="4" fill="#fef2f2"/>
+    <text x="155" y="57" text-anchor="middle" class="sublabel" fill="#dc2626">ΔE = 2 × 4200 × (100 − 20) = 672,000 J (672 kJ)</text>
+  </g>
+
+  <!-- SHC values -->
+  <rect x="410" y="220" width="370" height="115" rx="10" class="box"/>
+  <text x="595" y="245" text-anchor="middle" class="label">Specific Heat Capacities (J/kg°C)</text>
+
+  <g transform="translate(430, 260)">
+    <rect x="0" y="0" width="330" height="18" rx="3" fill="#eff6ff"/>
+    <text x="5" y="13" class="sublabel">Water</text><text x="250" y="13" class="sublabel" fill="#dc2626">4,200 (very high)</text>
+
+    <rect x="0" y="22" width="330" height="18" rx="3" fill="#f3f4f6"/>
+    <text x="5" y="35" class="sublabel">Aluminium</text><text x="250" y="35" class="sublabel" fill="#dc2626">900</text>
+
+    <rect x="0" y="44" width="330" height="18" rx="3" fill="#f3f4f6"/>
+    <text x="5" y="57" class="sublabel">Iron/Steel</text><text x="250" y="57" class="sublabel" fill="#dc2626">450</text>
+
+    <rect x="0" y="66" width="330" height="18" rx="3" fill="#f3f4f6"/>
+    <text x="5" y="79" class="sublabel">Copper</text><text x="250" y="79" class="sublabel" fill="#dc2626">385</text>
+  </g>
+
+  <!-- Bottom note -->
+  <rect x="20" y="350" width="760" height="35" rx="10" class="box"/>
+  <text x="400" y="372" text-anchor="middle" class="sublabel">Water's high SHC makes it excellent for cooling (car radiators) and heating (central heating) — it absorbs lots of energy with little temperature rise</text>
+</svg>

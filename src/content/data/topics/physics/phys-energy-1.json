@@ -8,68 +8,327 @@
     {
       "id": "phys-energy-1-n1",
       "heading": "Energy Stores and Transfers",
-      "body": "Energy exists in different stores: Kinetic (motion, KE=½mv²), Gravitational potential (height, GPE=mgh), Elastic potential (stretched/compressed), Chemical (fuels, food, batteries), Thermal (internal energy of particles), Nuclear (atomic nucleus), Magnetic, Electrostatic. Energy is transferred between stores by four pathways: Mechanical work (forces moving objects), Electrical work (current transferring energy), Heating (temperature difference), Radiation (light, sound waves). Energy is measured in joules (J). 1 kJ = 1000 J. A system is an object or group of objects. In a closed system, no energy enters or leaves — total energy is constant. Open systems exchange energy with surroundings."
+      "body": "Energy exists in different stores: Kinetic (motion, KE=½mv²), Gravitational potential (height, GPE=mgh), Elastic potential (stretched/compressed), Chemical (fuels, food, batteries), Thermal (internal energy of particles), Nuclear (atomic nucleus), Magnetic, Electrostatic. Energy is transferred between stores by four pathways: Mechanical work (forces moving objects), Electrical work (current transferring energy), Heating (temperature difference), Radiation (light, sound waves). Energy is measured in joules (J). 1 kJ = 1000 J. A system is an object or group of objects. In a closed system, no energy enters or leaves — total energy is constant. Open systems exchange energy with surroundings.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-1-energy-stores.svg",
+        "alt": "Energy stores diagram and a Sankey diagram showing energy transfer in a light bulb.",
+        "caption": "Energy is transferred between stores; it is never created or destroyed."
+      }
     },
     {
       "id": "phys-energy-1-n2",
       "heading": "Conservation of Energy and Sankey Diagrams",
-      "body": "The Law of Conservation of Energy: energy cannot be created or destroyed — only transferred between stores or dissipated (spread out) to the surroundings. Total energy in a closed system remains constant. Sankey diagrams show energy transfers visually: arrow width represents energy amount. The input arrow splits into useful output(s) and wasted output(s). Wasted energy is usually transferred as thermal energy to the surroundings (dissipated). Examples: Light bulb — electrical → light (useful) + heat (wasted). Car engine — chemical (fuel) → kinetic (useful, ~25%) + heat + sound (wasted, ~75%). Dissipated energy is NOT destroyed — it spreads into the surroundings, becoming less useful (lower temperature, more spread out)."
+      "body": "The Law of Conservation of Energy: energy cannot be created or destroyed — only transferred between stores or dissipated (spread out) to the surroundings. Total energy in a closed system remains constant. Sankey diagrams show energy transfers visually: arrow width represents energy amount. The input arrow splits into useful output(s) and wasted output(s). Wasted energy is usually transferred as thermal energy to the surroundings (dissipated). Examples: Light bulb — electrical → light (useful) + heat (wasted). Car engine — chemical (fuel) → kinetic (useful, ~25%) + heat + sound (wasted, ~75%). Dissipated energy is NOT destroyed — it spreads into the surroundings, becoming less useful (lower temperature, more spread out).",
+      "illustration": {
+        "src": "/images/physics/phys-energy-1-energy-stores.svg",
+        "alt": "Energy stores diagram and a Sankey diagram showing energy transfer in a light bulb.",
+        "caption": "A Sankey diagram shows useful energy output vs wasted energy — width of arrows is proportional to energy."
+      }
     },
     {
       "id": "phys-energy-1-n3",
       "heading": "Work Done and Power",
-      "body": "Work is done when a force moves an object through a distance. Work done (J) = Force (N) × Distance moved in direction of force (m). W = Fd. If the force and movement are in different directions, only the component of force in the direction of movement does work. 1 joule = work done when 1 N force moves through 1 m. Power is the rate of energy transfer (or rate of doing work). P = E/t = W/t (watts, W). 1 W = 1 J/s. A 100 W bulb transfers 100 J of energy every second. P = Fv for constant velocity (power = force × velocity). Example: car engine produces 20,000 W at 25 m/s → driving force = P/v = 800 N."
+      "body": "Work is done when a force moves an object through a distance. Work done (J) = Force (N) × Distance moved in direction of force (m). W = Fd. If the force and movement are in different directions, only the component of force in the direction of movement does work. 1 joule = work done when 1 N force moves through 1 m. Power is the rate of energy transfer (or rate of doing work). P = E/t = W/t (watts, W). 1 W = 1 J/s. A 100 W bulb transfers 100 J of energy every second. P = Fv for constant velocity (power = force × velocity). Example: car engine produces 20,000 W at 25 m/s → driving force = P/v = 800 N.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-1-work-power.svg",
+        "alt": "Diagram of a person pushing a box, illustrating work done = force × distance, and the power formula.",
+        "caption": "Work done equals the energy transferred when a force moves an object."
+      }
     },
     {
       "id": "phys-energy-1-n4",
       "heading": "Efficiency",
-      "body": "Efficiency = (useful output energy ÷ total input energy) × 100%. Nothing is 100% efficient — some energy is always transferred to the thermal store of the surroundings. Efficiency can be expressed as a ratio (0-1) or percentage (0-100%). Ways to improve efficiency: lubrication (reduce friction), thermal insulation (reduce heat loss), streamlining (reduce air resistance), using more efficient designs (LED vs incandescent bulbs). Sankey diagrams visually show efficiency — the useful energy arrow as a proportion of total input. Example: motor takes 500 J electrical, outputs 400 J kinetic. Efficiency = 400/500 = 0.8 = 80%. 100 J is wasted as heat/sound."
+      "body": "Efficiency = (useful output energy ÷ total input energy) × 100%. Nothing is 100% efficient — some energy is always transferred to the thermal store of the surroundings. Efficiency can be expressed as a ratio (0-1) or percentage (0-100%). Ways to improve efficiency: lubrication (reduce friction), thermal insulation (reduce heat loss), streamlining (reduce air resistance), using more efficient designs (LED vs incandescent bulbs). Sankey diagrams visually show efficiency — the useful energy arrow as a proportion of total input. Example: motor takes 500 J electrical, outputs 400 J kinetic. Efficiency = 400/500 = 0.8 = 80%. 100 J is wasted as heat/sound.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-1-efficiency.svg",
+        "alt": "Energy input, useful output, and wasted energy for an electric motor, with efficiency calculation.",
+        "caption": "Efficiency is the ratio of useful output to total input. No device is 100 percent efficient."
+      }
     },
     {
       "id": "phys-energy-1-n5",
       "heading": "Energy Resources: Renewable vs Non-Renewable",
-      "body": "Non-renewable resources are finite — they will run out. (1) Fossil fuels — coal, oil, natural gas. Formed from ancient organisms over millions of years. Burned to release chemical energy → thermal → kinetic (turbines) → electrical. Advantages: reliable, high energy density, existing infrastructure. Disadvantages: CO₂ emissions (climate change), SO₂ (acid rain), finite, environmental damage from extraction. (2) Nuclear — uranium/plutonium fission releases enormous energy. Advantages: no CO₂, very high energy density, reliable baseload. Disadvantages: radioactive waste (storage for thousands of years), risk of catastrophic accidents, expensive decommissioning. Renewable resources are replenished on a human timescale: Solar (photovoltaic cells, solar heating), Wind (turbines), Hydroelectric (dams), Tidal/Wave, Geothermal, Biomass. Advantages: no CO₂ during operation, renewable, energy security. Disadvantages: intermittent (solar — night/clouds; wind — calm days), visual/noise impact, habitat disruption, high initial costs."
+      "body": "Non-renewable resources are finite — they will run out. (1) Fossil fuels — coal, oil, natural gas. Formed from ancient organisms over millions of years. Burned to release chemical energy → thermal → kinetic (turbines) → electrical. Advantages: reliable, high energy density, existing infrastructure. Disadvantages: CO₂ emissions (climate change), SO₂ (acid rain), finite, environmental damage from extraction. (2) Nuclear — uranium/plutonium fission releases enormous energy. Advantages: no CO₂, very high energy density, reliable baseload. Disadvantages: radioactive waste (storage for thousands of years), risk of catastrophic accidents, expensive decommissioning. Renewable resources are replenished on a human timescale: Solar (photovoltaic cells, solar heating), Wind (turbines), Hydroelectric (dams), Tidal/Wave, Geothermal, Biomass. Advantages: no CO₂ during operation, renewable, energy security. Disadvantages: intermittent (solar — night/clouds; wind — calm days), visual/noise impact, habitat disruption, high initial costs.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-1-energy-resources.svg",
+        "alt": "Comparison of renewable and non-renewable energy resources, including fossil fuels, nuclear, wind, solar, hydro, and tidal.",
+        "caption": "Renewable resources will not run out but may be weather-dependent; non-renewable resources are finite."
+      }
     },
     {
       "id": "phys-energy-1-n6",
       "heading": "Thermal Energy Transfer: Conduction, Convection, Radiation",
-      "body": "Thermal energy transfers from hot to cold regions by three mechanisms: (1) Conduction — transfer through a solid by vibrating particles passing energy along. Metals conduct well (free electrons aid transfer). Non-metals/poor conductors (insulators — wood, plastic, air). (2) Convection — transfer in fluids (liquids/gases). Heated fluid expands → less dense → rises. Cooler, denser fluid sinks → convection current. Examples: sea breezes, radiator heating rooms, mantle convection (plate tectonics). (3) Radiation — transfer by infrared electromagnetic waves. Does NOT need particles — can travel through a vacuum (Sun's energy reaches Earth). All hot objects emit infrared. Dark, matt surfaces absorb and emit radiation well. Light, shiny surfaces reflect radiation (poor absorbers/emitters). Applications: vacuum flasks (minimise all three), clothing choices (white in summer reflects; black in winter absorbs), building insulation (loft insulation traps air — poor conductor)."
+      "body": "Thermal energy transfers from hot to cold regions by three mechanisms: (1) Conduction — transfer through a solid by vibrating particles passing energy along. Metals conduct well (free electrons aid transfer). Non-metals/poor conductors (insulators — wood, plastic, air). (2) Convection — transfer in fluids (liquids/gases). Heated fluid expands → less dense → rises. Cooler, denser fluid sinks → convection current. Examples: sea breezes, radiator heating rooms, mantle convection (plate tectonics). (3) Radiation — transfer by infrared electromagnetic waves. Does NOT need particles — can travel through a vacuum (Sun's energy reaches Earth). All hot objects emit infrared. Dark, matt surfaces absorb and emit radiation well. Light, shiny surfaces reflect radiation (poor absorbers/emitters). Applications: vacuum flasks (minimise all three), clothing choices (white in summer reflects; black in winter absorbs), building insulation (loft insulation traps air — poor conductor).",
+      "illustration": {
+        "src": "/images/physics/phys-energy-1-thermal-transfer.svg",
+        "alt": "Three methods of thermal energy transfer: conduction in solids, convection in fluids, and radiation through electromagnetic waves.",
+        "caption": "Conduction requires a medium; convection occurs in fluids; radiation can travel through a vacuum."
+      }
     },
     {
       "id": "phys-energy-1-n7",
       "heading": "Specific Heat Capacity",
-      "body": "Specific heat capacity (c) is the energy required to raise 1 kg of a substance by 1°C. ΔE = mcΔθ. Units: J/(kg·°C). Water: c = 4200 J/(kg·°C) — very high; it heats up and cools down slowly. This is why coastal climates are moderate (sea acts as thermal buffer) and water is used in central heating and car cooling systems. Practical: use a joulemeter or electrical heater (measure P and t → E = Pt) to supply known energy to a metal block. Measure temperature rise. Calculate c = E/(m×Δθ). Compare with accepted values. Sources of error: heat loss to surroundings (use insulation), thermometer lag, incomplete mixing. The high specific heat capacity of water is crucial for life — oceans absorb/release heat slowly, moderating Earth's climate."
+      "body": "Specific heat capacity (c) is the energy required to raise 1 kg of a substance by 1°C. ΔE = mcΔθ. Units: J/(kg·°C). Water: c = 4200 J/(kg·°C) — very high; it heats up and cools down slowly. This is why coastal climates are moderate (sea acts as thermal buffer) and water is used in central heating and car cooling systems. Practical: use a joulemeter or electrical heater (measure P and t → E = Pt) to supply known energy to a metal block. Measure temperature rise. Calculate c = E/(m×Δθ). Compare with accepted values. Sources of error: heat loss to surroundings (use insulation), thermometer lag, incomplete mixing. The high specific heat capacity of water is crucial for life — oceans absorb/release heat slowly, moderating Earth's climate.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-1-specific-heat-capacity.svg",
+        "alt": "Experimental setup for measuring specific heat capacity with a metal block, heater, and thermometer, plus the formula ΔE = mcΔθ.",
+        "caption": "Specific heat capacity is the energy needed to raise 1 kg of a substance by one degree Celsius."
+      }
     }
   ],
   "flashcards": [
-    { "id": "phys-energy-1-f1", "term": "Kinetic energy", "definition": "Energy of motion: KE = ½mv². Doubling speed quadruples KE.", "example": "2 kg ball at 3 m/s: KE = ½×2×9 = 9 J." },
-    { "id": "phys-energy-1-f2", "term": "Gravitational potential energy", "definition": "Energy due to height in gravitational field: GPE = mgh.", "example": "5 kg on 2 m shelf: GPE = 5×10×2 = 100 J." },
-    { "id": "phys-energy-1-f3", "term": "Conservation of energy", "definition": "Energy cannot be created or destroyed — only transferred between stores. Total energy in a closed system is constant." },
-    { "id": "phys-energy-1-f4", "term": "Efficiency", "definition": "(Useful output energy ÷ total input energy) × 100%. Always <100% — some energy always dissipated.", "example": "500 J in, 400 J useful out: efficiency = 80%." },
-    { "id": "phys-energy-1-f5", "term": "Work done", "definition": "W = Fd. Energy transferred when a force moves an object through a distance. Measured in joules (J).", "example": "10 N force moves object 3 m: W = 30 J." },
-    { "id": "phys-energy-1-f6", "term": "Power", "definition": "Rate of energy transfer: P = E/t = W/t (watts, W). 1 W = 1 J/s.", "example": "Motor transfers 500 J in 5 s: P = 100 W." },
-    { "id": "phys-energy-1-f7", "term": "Specific heat capacity", "definition": "Energy to raise 1 kg by 1°C. ΔE = mcΔθ. Water: c = 4200 J/(kg·°C).", "example": "Heating 2 kg water by 10°C: E = 2×4200×10 = 84,000 J." },
-    { "id": "phys-energy-1-f8", "term": "Conduction", "definition": "Heat transfer through solids by particle vibration. Metals conduct well (free electrons).", "example": "Metal spoon in hot soup — handle becomes hot by conduction." },
-    { "id": "phys-energy-1-f9", "term": "Convection", "definition": "Heat transfer in fluids by movement of heated (less dense) fluid rising and cooler fluid sinking.", "example": "Radiator heats air → warm air rises → circulates room — convection current." },
-    { "id": "phys-energy-1-f10", "term": "Infrared radiation", "definition": "Electromagnetic wave heat transfer. No medium needed. Dark matt surfaces = best absorbers/emitters.", "example": "Solar panels are black to maximise absorption of Sun's infrared radiation." },
-    { "id": "phys-energy-1-f11", "term": "Renewable energy", "definition": "Energy from sources replenished on a human timescale: solar, wind, hydro, tidal, geothermal, biomass.", "example": "Wind turbines convert kinetic energy of moving air into electrical energy." },
-    { "id": "phys-energy-1-f12", "term": "Dissipated energy", "definition": "Energy spread out to surroundings, usually as thermal energy — not destroyed, but no longer useful.", "example": "Friction dissipates kinetic energy as heat — rubbing hands together warms them." }
+    {
+      "id": "phys-energy-1-f1",
+      "term": "Kinetic energy",
+      "definition": "Energy of motion: KE = ½mv². Doubling speed quadruples KE.",
+      "example": "2 kg ball at 3 m/s: KE = ½×2×9 = 9 J."
+    },
+    {
+      "id": "phys-energy-1-f2",
+      "term": "Gravitational potential energy",
+      "definition": "Energy due to height in gravitational field: GPE = mgh.",
+      "example": "5 kg on 2 m shelf: GPE = 5×10×2 = 100 J."
+    },
+    {
+      "id": "phys-energy-1-f3",
+      "term": "Conservation of energy",
+      "definition": "Energy cannot be created or destroyed — only transferred between stores. Total energy in a closed system is constant."
+    },
+    {
+      "id": "phys-energy-1-f4",
+      "term": "Efficiency",
+      "definition": "(Useful output energy ÷ total input energy) × 100%. Always <100% — some energy always dissipated.",
+      "example": "500 J in, 400 J useful out: efficiency = 80%."
+    },
+    {
+      "id": "phys-energy-1-f5",
+      "term": "Work done",
+      "definition": "W = Fd. Energy transferred when a force moves an object through a distance. Measured in joules (J).",
+      "example": "10 N force moves object 3 m: W = 30 J."
+    },
+    {
+      "id": "phys-energy-1-f6",
+      "term": "Power",
+      "definition": "Rate of energy transfer: P = E/t = W/t (watts, W). 1 W = 1 J/s.",
+      "example": "Motor transfers 500 J in 5 s: P = 100 W."
+    },
+    {
+      "id": "phys-energy-1-f7",
+      "term": "Specific heat capacity",
+      "definition": "Energy to raise 1 kg by 1°C. ΔE = mcΔθ. Water: c = 4200 J/(kg·°C).",
+      "example": "Heating 2 kg water by 10°C: E = 2×4200×10 = 84,000 J."
+    },
+    {
+      "id": "phys-energy-1-f8",
+      "term": "Conduction",
+      "definition": "Heat transfer through solids by particle vibration. Metals conduct well (free electrons).",
+      "example": "Metal spoon in hot soup — handle becomes hot by conduction."
+    },
+    {
+      "id": "phys-energy-1-f9",
+      "term": "Convection",
+      "definition": "Heat transfer in fluids by movement of heated (less dense) fluid rising and cooler fluid sinking.",
+      "example": "Radiator heats air → warm air rises → circulates room — convection current."
+    },
+    {
+      "id": "phys-energy-1-f10",
+      "term": "Infrared radiation",
+      "definition": "Electromagnetic wave heat transfer. No medium needed. Dark matt surfaces = best absorbers/emitters.",
+      "example": "Solar panels are black to maximise absorption of Sun's infrared radiation."
+    },
+    {
+      "id": "phys-energy-1-f11",
+      "term": "Renewable energy",
+      "definition": "Energy from sources replenished on a human timescale: solar, wind, hydro, tidal, geothermal, biomass.",
+      "example": "Wind turbines convert kinetic energy of moving air into electrical energy."
+    },
+    {
+      "id": "phys-energy-1-f12",
+      "term": "Dissipated energy",
+      "definition": "Energy spread out to surroundings, usually as thermal energy — not destroyed, but no longer useful.",
+      "example": "Friction dissipates kinetic energy as heat — rubbing hands together warms them."
+    }
   ],
   "questions": [
-    { "id": "phys-energy-1-q1", "stem": "3 kg ball at 4 m/s. KE?", "choices": ["12 J", "24 J", "48 J", "6 J"], "correctIndex": 1, "explanation": "KE = ½mv² = ½×3×16 = 24 J." },
-    { "id": "phys-energy-1-q2", "stem": "Lamp: 100 J in, 20 J light out. Efficiency?", "choices": ["80%", "20%", "5%", "120%"], "correctIndex": 1, "explanation": "20/100 × 100 = 20%. 80 J is wasted as heat." },
-    { "id": "phys-energy-1-q3", "stem": "Falling ball: energy transformation?", "choices": ["KE → GPE", "Chemical → KE", "GPE → KE (lost height = gained speed)", "Thermal → KE"], "correctIndex": 2, "explanation": "Gravitational potential → kinetic as height decreases and speed increases." },
-    { "id": "phys-energy-1-q4", "stem": "Correct energy statement:", "choices": ["Energy is destroyed when used", "Energy is created from force", "Energy cannot be created or destroyed, only transferred/dissipated", "Total energy always decreases"], "correctIndex": 2, "explanation": "Law of conservation of energy." },
-    { "id": "phys-energy-1-q5", "stem": "10 kg box lifted 3 m. GPE? (g=10)", "choices": ["30 J", "130 J", "300 J", "1000 J"], "correctIndex": 2, "explanation": "GPE = mgh = 10×10×3 = 300 J." },
-    { "id": "phys-energy-1-q6", "stem": "Motor lifts 200 N weight 5 m in 10 s. Power?", "choices": ["100 W", "200 W", "40 W", "1000 W"], "correctIndex": 0, "explanation": "W = Fd = 200×5 = 1000 J. P = W/t = 1000/10 = 100 W." },
-    { "id": "phys-energy-1-q7", "stem": "500 g water heated from 20°C to 50°C. Energy? (c=4200)", "choices": ["21,000 J", "63,000 J", "126,000 J", "4200 J"], "correctIndex": 1, "explanation": "m=0.5 kg. ΔE=mcΔθ=0.5×4200×30=63,000 J." },
-    { "id": "phys-energy-1-q8", "stem": "Why does a metal spoon feel colder than a wooden one at same temperature?", "choices": ["Metal is at lower temperature", "Metal conducts heat away from your hand faster (better conductor)", "Wood generates heat", "Metal has lower specific heat capacity"], "correctIndex": 1, "explanation": "Both are at room temp. Metal's high thermal conductivity rapidly transfers heat from your warm hand → feels cold." },
-    { "id": "phys-energy-1-q9", "stem": "Which surface is the best ABSORBER of infrared radiation?", "choices": ["Shiny white", "Shiny silver", "Dark and matt (absorbs most; also best emitter)", "Transparent"], "correctIndex": 2, "explanation": "Dark, matt surfaces absorb well AND emit well. Shiny, light surfaces reflect radiation." },
-    { "id": "phys-energy-1-q10", "stem": "Advantage of renewable over non-renewable?", "choices": ["Always cheaper", "Will not run out — replenished naturally", "Always more powerful", "Requires no technology"], "correctIndex": 1, "explanation": "Renewables are replenished. Non-renewables (fossil fuels, nuclear) are finite." },
-    { "id": "phys-energy-1-q11", "stem": "Convection occurs in:", "choices": ["Solids only", "Fluids (liquids and gases) — heated fluid rises, cooler fluid sinks", "Vacuum only", "All materials equally"], "correctIndex": 1, "explanation": "Convection requires fluid movement (density changes with temperature). Solids cannot convect — particles are fixed." },
-    { "id": "phys-energy-1-q12", "stem": "Sankey diagram: input 800 J, useful 200 J. Width of wasted arrow?", "choices": ["200 J equivalent", "600 J equivalent (800−200)", "800 J equivalent", "Cannot determine"], "correctIndex": 1, "explanation": "Input = useful + wasted. 800 = 200 + wasted → wasted = 600 J." },
-    { "id": "phys-energy-1-q13", "stem": "A 2 kg mass moving at 6 m/s. Speed doubles to 12 m/s. KE increases by:", "choices": ["×2", "×4 — KE ∝ v². 6²=36; 12²=144. 144/36=4.", "×6", "×8"], "correctIndex": 1, "explanation": "KE = ½mv². When v doubles, KE quadruples (2²=4). This is why high-speed crashes are so destructive." },
-    { "id": "phys-energy-1-q14", "stem": "Why is water used as a coolant in car engines?", "choices": ["Water is cheap", "Water has a high specific heat capacity — absorbs lots of heat with small temperature rise", "Water boils at 100°C", "Water is a good electrical conductor"], "correctIndex": 1, "explanation": "High c means water can absorb large amounts of waste heat from the engine without its temperature rising dangerously." },
-    { "id": "phys-energy-1-q15", "stem": "Which is NOT a way to reduce heat loss from a house?", "choices": ["Loft insulation (traps air)", "Double glazing (air gap)", "Opening all windows — increases convection heat loss", "Cavity wall insulation"], "correctIndex": 2, "explanation": "Opening windows increases heat loss by convection (warm air escapes). All other options reduce heat transfer." }
+    {
+      "id": "phys-energy-1-q1",
+      "stem": "3 kg ball at 4 m/s. KE?",
+      "choices": [
+        "12 J",
+        "24 J",
+        "48 J",
+        "6 J"
+      ],
+      "correctIndex": 1,
+      "explanation": "KE = ½mv² = ½×3×16 = 24 J."
+    },
+    {
+      "id": "phys-energy-1-q2",
+      "stem": "Lamp: 100 J in, 20 J light out. Efficiency?",
+      "choices": [
+        "80%",
+        "20%",
+        "5%",
+        "120%"
+      ],
+      "correctIndex": 1,
+      "explanation": "20/100 × 100 = 20%. 80 J is wasted as heat."
+    },
+    {
+      "id": "phys-energy-1-q3",
+      "stem": "Falling ball: energy transformation?",
+      "choices": [
+        "KE → GPE",
+        "Chemical → KE",
+        "GPE → KE (lost height = gained speed)",
+        "Thermal → KE"
+      ],
+      "correctIndex": 2,
+      "explanation": "Gravitational potential → kinetic as height decreases and speed increases."
+    },
+    {
+      "id": "phys-energy-1-q4",
+      "stem": "Correct energy statement:",
+      "choices": [
+        "Energy is destroyed when used",
+        "Energy is created from force",
+        "Energy cannot be created or destroyed, only transferred/dissipated",
+        "Total energy always decreases"
+      ],
+      "correctIndex": 2,
+      "explanation": "Law of conservation of energy."
+    },
+    {
+      "id": "phys-energy-1-q5",
+      "stem": "10 kg box lifted 3 m. GPE? (g=10)",
+      "choices": [
+        "30 J",
+        "130 J",
+        "300 J",
+        "1000 J"
+      ],
+      "correctIndex": 2,
+      "explanation": "GPE = mgh = 10×10×3 = 300 J."
+    },
+    {
+      "id": "phys-energy-1-q6",
+      "stem": "Motor lifts 200 N weight 5 m in 10 s. Power?",
+      "choices": [
+        "100 W",
+        "200 W",
+        "40 W",
+        "1000 W"
+      ],
+      "correctIndex": 0,
+      "explanation": "W = Fd = 200×5 = 1000 J. P = W/t = 1000/10 = 100 W."
+    },
+    {
+      "id": "phys-energy-1-q7",
+      "stem": "500 g water heated from 20°C to 50°C. Energy? (c=4200)",
+      "choices": [
+        "21,000 J",
+        "63,000 J",
+        "126,000 J",
+        "4200 J"
+      ],
+      "correctIndex": 1,
+      "explanation": "m=0.5 kg. ΔE=mcΔθ=0.5×4200×30=63,000 J."
+    },
+    {
+      "id": "phys-energy-1-q8",
+      "stem": "Why does a metal spoon feel colder than a wooden one at same temperature?",
+      "choices": [
+        "Metal is at lower temperature",
+        "Metal conducts heat away from your hand faster (better conductor)",
+        "Wood generates heat",
+        "Metal has lower specific heat capacity"
+      ],
+      "correctIndex": 1,
+      "explanation": "Both are at room temp. Metal's high thermal conductivity rapidly transfers heat from your warm hand → feels cold."
+    },
+    {
+      "id": "phys-energy-1-q9",
+      "stem": "Which surface is the best ABSORBER of infrared radiation?",
+      "choices": [
+        "Shiny white",
+        "Shiny silver",
+        "Dark and matt (absorbs most; also best emitter)",
+        "Transparent"
+      ],
+      "correctIndex": 2,
+      "explanation": "Dark, matt surfaces absorb well AND emit well. Shiny, light surfaces reflect radiation."
+    },
+    {
+      "id": "phys-energy-1-q10",
+      "stem": "Advantage of renewable over non-renewable?",
+      "choices": [
+        "Always cheaper",
+        "Will not run out — replenished naturally",
+        "Always more powerful",
+        "Requires no technology"
+      ],
+      "correctIndex": 1,
+      "explanation": "Renewables are replenished. Non-renewables (fossil fuels, nuclear) are finite."
+    },
+    {
+      "id": "phys-energy-1-q11",
+      "stem": "Convection occurs in:",
+      "choices": [
+        "Solids only",
+        "Fluids (liquids and gases) — heated fluid rises, cooler fluid sinks",
+        "Vacuum only",
+        "All materials equally"
+      ],
+      "correctIndex": 1,
+      "explanation": "Convection requires fluid movement (density changes with temperature). Solids cannot convect — particles are fixed."
+    },
+    {
+      "id": "phys-energy-1-q12",
+      "stem": "Sankey diagram: input 800 J, useful 200 J. Width of wasted arrow?",
+      "choices": [
+        "200 J equivalent",
+        "600 J equivalent (800−200)",
+        "800 J equivalent",
+        "Cannot determine"
+      ],
+      "correctIndex": 1,
+      "explanation": "Input = useful + wasted. 800 = 200 + wasted → wasted = 600 J."
+    },
+    {
+      "id": "phys-energy-1-q13",
+      "stem": "A 2 kg mass moving at 6 m/s. Speed doubles to 12 m/s. KE increases by:",
+      "choices": [
+        "×2",
+        "×4 — KE ∝ v². 6²=36; 12²=144. 144/36=4.",
+        "×6",
+        "×8"
+      ],
+      "correctIndex": 1,
+      "explanation": "KE = ½mv². When v doubles, KE quadruples (2²=4). This is why high-speed crashes are so destructive."
+    },
+    {
+      "id": "phys-energy-1-q14",
+      "stem": "Why is water used as a coolant in car engines?",
+      "choices": [
+        "Water is cheap",
+        "Water has a high specific heat capacity — absorbs lots of heat with small temperature rise",
+        "Water boils at 100°C",
+        "Water is a good electrical conductor"
+      ],
+      "correctIndex": 1,
+      "explanation": "High c means water can absorb large amounts of waste heat from the engine without its temperature rising dangerously."
+    },
+    {
+      "id": "phys-energy-1-q15",
+      "stem": "Which is NOT a way to reduce heat loss from a house?",
+      "choices": [
+        "Loft insulation (traps air)",
+        "Double glazing (air gap)",
+        "Opening all windows — increases convection heat loss",
+        "Cavity wall insulation"
+      ],
+      "correctIndex": 2,
+      "explanation": "Opening windows increases heat loss by convection (warm air escapes). All other options reduce heat transfer."
+    }
   ]
 }

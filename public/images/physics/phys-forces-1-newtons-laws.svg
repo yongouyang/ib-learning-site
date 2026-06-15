@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="title desc">
+  <title id="title">Newton's Three Laws of Motion</title>
+  <desc id="desc">Illustrated examples of Newton's three laws: seatbelt inertia, F=ma rocket, and action-reaction in swimming.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .formula { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; font-weight: 700; fill: #dc2626; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="450" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Newton's Three Laws of Motion</text>
+
+  <!-- 1st Law -->
+  <rect x="20" y="50" width="240" height="210" rx="10" class="box"/>
+  <text x="140" y="75" text-anchor="middle" class="label" fill="#dc2626">1st Law: Inertia</text>
+
+  <g transform="translate(35, 88)">
+    <!-- Car -->
+    <rect x="20" y="30" width="100" height="45" rx="6" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="40" cy="80" r="8" fill="#374151"/>
+    <circle cx="100" cy="80" r="8" fill="#374151"/>
+    
+    <!-- Person -->
+    <circle cx="70" cy="50" r="8" fill="none" stroke="#374151" stroke-width="1.5"/>
+
+    <!-- Arrow forward -->
+    <line x1="125" y1="52" x2="155" y2="52" stroke="#ef4444" stroke-width="2" marker-end="url(#arrR)"/>
+    <text x="140" y="48" text-anchor="middle" class="sublabel" fill="#dc2626">Car stops</text>
+
+    <!-- Ghost person moving forward -->
+    <circle cx="175" cy="40" r="8" fill="#fca5a5" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <line x1="145" y1="42" x2="165" y2="40" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrR)"/>
+
+    <text x="100" y="105" text-anchor="middle" class="sublabel">Object remains at rest or</text>
+    <text x="100" y="120" text-anchor="middle" class="sublabel">moves at constant velocity,</text>
+    <text x="100" y="135" text-anchor="middle" class="sublabel">unless resultant force acts</text>
+    <text x="100" y="155" text-anchor="middle" class="sublabel" fill="#dc2626">Why seatbelts are needed!</text>
+  </g>
+
+  <!-- 2nd Law -->
+  <rect x="280" y="50" width="240" height="210" rx="10" class="box"/>
+  <text x="400" y="75" text-anchor="middle" class="label" fill="#dc2626">2nd Law: F = ma</text>
+
+  <g transform="translate(295, 88)">
+    <!-- Rocket -->
+    <rect x="30" y="10" width="30" height="60" rx="8" fill="#d1d5db" stroke="#9ca3af" stroke-width="2"/>
+    <polygon points="30,70 45,95 60,70" fill="#ef4444" stroke="#dc2626" stroke-width="1.5"/>
+
+    <!-- Flame -->
+    <ellipse cx="45" cy="110" rx="8" ry="14" fill="#fbbf24"/>
+    <ellipse cx="45" cy="105" rx="5" ry="10" fill="#fef08a"/>
+
+    <!-- Thrust arrow up -->
+    <line x1="45" y1="115" x2="45" y2="135" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrD)"/>
+    <text x="55" y="130" class="sublabel" fill="#dc2626">Thrust</text>
+
+    <!-- Weight arrow down -->
+    <line x1="65" y1="70" x2="65" y2="100" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrD)"/>
+    <text x="75" y="90" class="sublabel" fill="#3b82f6">Weight</text>
+
+    <text x="90" y="148" text-anchor="middle" class="formula">F = ma</text>
+    <text x="90" y="165" text-anchor="middle" class="sublabel">Acceleration ∝ Force</text>
+    <text x="90" y="180" text-anchor="middle" class="sublabel">Acceleration ∝ 1/mass</text>
+    <text x="90" y="195" text-anchor="middle" class="sublabel">1 N = 1 kg × 1 m/s²</text>
+  </g>
+
+  <!-- 3rd Law -->
+  <rect x="540" y="50" width="240" height="210" rx="10" class="box"/>
+  <text x="660" y="75" text-anchor="middle" class="label" fill="#dc2626">3rd Law: Action-Reaction</text>
+
+  <g transform="translate(555, 88)">
+    <!-- Swimmer -->
+    <text x="90" y="12" text-anchor="middle" class="sublabel">Swimming</text>
+    
+    <!-- Water pushed back -->
+    <line x1="50" y1="50" x2="20" y2="50" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrL)"/>
+    <text x="30" y="44" text-anchor="middle" class="sublabel" fill="#3b82f6">Push water BACK</text>
+
+    <!-- Swimmer moves forward -->
+    <line x1="70" y1="30" x2="170" y2="30" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrR)"/>
+    <text x="120" y="24" text-anchor="middle" class="sublabel" fill="#dc2626">Swimmer moves FORWARD</text>
+
+    <text x="100" y="80" text-anchor="middle" class="sublabel">Every action has an</text>
+    <text x="100" y="95" text-anchor="middle" class="sublabel">equal and opposite reaction</text>
+    
+    <rect x="0" y="110" width="200" height="45" rx="6" fill="#fef3c7"/>
+    <text x="100" y="128" text-anchor="middle" class="sublabel">Forces act on DIFFERENT</text>
+    <text x="100" y="144" text-anchor="middle" class="sublabel">objects! (key point)</text>
+  </g>
+
+  <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,1 L8,5 L0,9" fill="#ef4444"/></marker>
+  <marker id="arrL" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M8,1 L0,5 L8,9" fill="#3b82f6"/></marker>
+  <marker id="arrD" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,2 L5,8 L9,2" fill="#ef4444"/></marker>
+
+  <!-- Summary -->
+  <rect x="20" y="280" width="760" height="155" rx="10" class="box"/>
+  <text x="400" y="305" text-anchor="middle" class="label">Summary</text>
+  <g transform="translate(40, 318)">
+    <rect x="0" y="0" width="230" height="100" rx="6" fill="#fef2f2"/>
+    <text x="115" y="20" text-anchor="middle" class="label" fill="#dc2626">1st: Inertia</text>
+    <text x="115" y="42" text-anchor="middle" class="sublabel">No resultant force →</text>
+    <text x="115" y="57" text-anchor="middle" class="sublabel">constant velocity or rest</text>
+    <text x="115" y="80" text-anchor="middle" class="sublabel" fill="#dc2626">F_res = 0 → a = 0</text>
+
+    <rect x="250" y="0" width="230" height="100" rx="6" fill="#fef2f2"/>
+    <text x="365" y="20" text-anchor="middle" class="label" fill="#dc2626">2nd: F = ma</text>
+    <text x="365" y="42" text-anchor="middle" class="sublabel">Resultant force causes</text>
+    <text x="365" y="57" text-anchor="middle" class="sublabel">acceleration in its direction</text>
+    <text x="365" y="80" text-anchor="middle" class="sublabel" fill="#dc2626">a = F/m</text>
+
+    <rect x="500" y="0" width="230" height="100" rx="6" fill="#fef2f2"/>
+    <text x="615" y="20" text-anchor="middle" class="label" fill="#dc2626">3rd: Action-Reaction</text>
+    <text x="615" y="42" text-anchor="middle" class="sublabel">Equal and opposite forces</text>
+    <text x="615" y="57" text-anchor="middle" class="sublabel">acting on DIFFERENT objects</text>
+    <text x="615" y="80" text-anchor="middle" class="sublabel" fill="#dc2626">F_AB = −F_BA</text>
+  </g>
+</svg>

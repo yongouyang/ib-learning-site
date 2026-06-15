@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Current, Voltage and Charge</title>
+  <desc id="desc">Diagram showing electron flow through a wire, the relationship between current, charge and time, and a battery providing potential difference.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .formula { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; font-weight: 700; fill: #dc2626; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .wire { fill: none; stroke: #fbbf24; stroke-width: 6; stroke-linecap: round; }
+      .electron { fill: #ef4444; }
+      .arrow { fill: none; stroke: #ef4444; stroke-width: 2.5; marker-end: url(#arrowRed); }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,1 L8,5 L0,9" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="420" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Current, Voltage and Charge</text>
+
+  <!-- Wire with electrons -->
+  <g transform="translate(30, 70)">
+    <rect x="0" y="55" width="340" height="20" rx="10" fill="#fef3c7"/>
+    <path d="M0,65 L340,65" class="wire"/>
+    
+    <!-- Electrons -->
+    <circle cx="30" cy="65" r="6" class="electron"/>
+    <circle cx="75" cy="65" r="6" class="electron"/>
+    <circle cx="120" cy="65" r="6" class="electron"/>
+    <circle cx="165" cy="65" r="6" class="electron"/>
+    <circle cx="210" cy="65" r="6" class="electron"/>
+    <circle cx="255" cy="65" r="6" class="electron"/>
+    <circle cx="300" cy="65" r="6" class="electron"/>
+
+    <!-- Flow arrow -->
+    <line x1="10" y1="80" x2="330" y2="80" class="arrow"/>
+    <text x="170" y="98" text-anchor="middle" class="sublabel">Electron flow (negative → positive)</text>
+  </g>
+
+  <!-- Battery source -->
+  <g transform="translate(30, 140)">
+    <rect x="0" y="0" width="340" height="95" rx="10" class="box"/>
+    <text x="170" y="22" text-anchor="middle" class="label">Battery (source)</text>
+    
+    <!-- Simple battery drawing -->
+    <rect x="130" y="35" width="30" height="45" rx="4" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+    <rect x="145" y="28" width="5" height="8" rx="1" fill="#475569"/>
+    <rect x="135" y="75" width="25" height="5" rx="1" fill="#475569"/>
+
+    <text x="80" y="62" text-anchor="middle" class="sublabel">+ terminal</text>
+    <text x="225" y="62" text-anchor="middle" class="sublabel">− terminal</text>
+    <line x1="185" y1="57" x2="155" y2="57" class="line"/>
+    <line x1="105" y1="57" x2="80" y2="57" class="line"/>
+  </g>
+
+  <!-- Formula panel -->
+  <rect x="400" y="55" width="370" height="190" rx="10" class="box"/>
+  <text x="585" y="80" text-anchor="middle" class="label">Key Relationships</text>
+
+  <g transform="translate(420, 100)">
+    <text x="165" y="20" text-anchor="middle" class="formula">I = Q / t</text>
+    <text x="165" y="42" text-anchor="middle" class="sublabel">Current = Charge ÷ time</text>
+    <text x="165" y="58" text-anchor="middle" class="sublabel">Amperes (A) = Coulombs (C) ÷ seconds (s)</text>
+    
+    <text x="165" y="90" text-anchor="middle" class="formula">V = E / Q</text>
+    <text x="165" y="112" text-anchor="middle" class="sublabel">Voltage = Energy ÷ charge</text>
+    <text x="165" y="128" text-anchor="middle" class="sublabel">Volts (V) = Joules (J) ÷ Coulombs (C)</text>
+    
+    <rect x="30" y="140" width="270" height="30" rx="6" fill="#fef2f2"/>
+    <text x="165" y="160" text-anchor="middle" class="sublabel" fill="#dc2626">e⁻ charge = −1.6 × 10⁻¹⁹ C</text>
+  </g>
+
+  <!-- Bottom note -->
+  <rect x="400" y="260" width="370" height="55" rx="10" class="box"/>
+  <text x="585" y="282" text-anchor="middle" class="label">Conventional Current vs Electron Flow</text>
+  <text x="585" y="302" text-anchor="middle" class="sublabel">Conventional current: positive → negative (historical)</text>
+  <text x="585" y="317" text-anchor="middle" class="sublabel">Electron flow: negative → positive (physical reality)</text>
+</svg>

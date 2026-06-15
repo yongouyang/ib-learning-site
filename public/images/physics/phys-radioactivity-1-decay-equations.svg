@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-labelledby="title desc">
+  <title id="title">Nuclear Decay Equations</title>
+  <desc id="desc">Alpha decay reduces atomic number by 2 and mass by 4. Beta decay increases atomic number by 1.</desc>
+  <defs><style>
+    .t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}
+    .l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}
+    .s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}
+    .f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}
+    .b{fill:#fff;stroke:#e5e7eb;stroke-width:2}
+  </style></defs>
+  <rect width="800" height="340" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="t">Nuclear Decay Equations</text>
+  <g transform="translate(0,55)"><rect x="20" y="0" width="380" height="240" rx="10" class="b"/><text x="210" y="25" text-anchor="middle" class="l">Alpha Decay</text>
+  <g transform="translate(40,38)"><text x="160" y="20" text-anchor="middle" class="f">²³⁸₉₂U → ²³⁴₉₀Th + ⁴₂He</text>
+  <text x="160" y="50" text-anchor="middle" class="s">Mass number: 238 = 234 + 4 ✓</text><text x="160" y="66" text-anchor="middle" class="s">Atomic number: 92 = 90 + 2 ✓</text>
+  <rect x="0" y="85" width="320" height="40" rx="6" fill="#fef2f2"/>
+  <text x="160" y="103" text-anchor="middle" class="s">Alpha decay: nucleus loses 2 protons + 2 neutrons → element changes!</text></g>
+  <rect x="420" y="0" width="360" height="240" rx="10" class="b"/><text x="600" y="25" text-anchor="middle" class="l">Beta Decay</text>
+  <g transform="translate(440,38)"><text x="160" y="20" text-anchor="middle" class="f">¹⁴₆C → ¹⁴₇N + ⁰₋₁e</text>
+  <text x="160" y="50" text-anchor="middle" class="s">Mass number: 14 = 14 + 0 ✓</text><text x="160" y="66" text-anchor="middle" class="s">Atomic number: 6 = 7 + (−1) ✓</text>
+  <rect x="0" y="85" width="320" height="40" rx="6" fill="#eff6ff"/>
+  <text x="160" y="103" text-anchor="middle" class="s">Beta decay: neutron → proton + electron (emitted) → atomic number ↑ by 1</text></g>
+  <rect x="20" y="258" width="760" height="35" rx="8" class="b"/><text x="400" y="280" text-anchor="middle" class="s">In nuclear equations, mass numbers and atomic numbers must balance on both sides. Gamma emission has no change to mass or atomic numbers — the nucleus just loses energy.</text></g>
+</svg>

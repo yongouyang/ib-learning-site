@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="title desc">
+  <title id="title">The Motor Effect</title>
+  <desc id="desc">Fleming's left-hand rule diagram showing the thumb (force), first finger (field), and second finger (current) for a current-carrying wire in a magnetic field.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .formula { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; font-weight: 700; fill: #dc2626; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="380" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">The Motor Effect</text>
+
+  <!-- Motor effect diagram -->
+  <rect x="20" y="50" width="450" height="230" rx="10" class="box"/>
+  <text x="245" y="75" text-anchor="middle" class="label">Fleming's Left-Hand Rule</text>
+
+  <g transform="translate(40, 92)">
+    <!-- Left hand diagram -->
+    <text x="180" y="20" text-anchor="middle" class="label" fill="#dc2626">Left Hand</text>
+
+    <!-- Hand (simplified) -->
+    <rect x="120" y="30" width="40" height="60" rx="10" fill="#fecaca" stroke="#ef4444" stroke-width="1.5"/>
+    
+    <!-- Thumb (up) = Force/Motion -->
+    <line x1="160" y1="30" x2="160" y2="5" stroke="#ef4444" stroke-width="3"/>
+    <text x="170" y="12" class="sublabel" fill="#dc2626">Thumb = Force (Motion)</text>
+
+    <!-- First finger (right) = Field -->
+    <line x1="160" y1="45" x2="210" y2="45" stroke="#3b82f6" stroke-width="3"/>
+    <text x="215" y="48" class="sublabel" fill="#3b82f6">1st finger = Field (N→S)</text>
+
+    <!-- Second finger (out of page) = Current -->
+    <circle cx="160" cy="60" r="4" fill="#22c55e"/>
+    <circle cx="160" cy="60" r="2" fill="white"/>
+    <text x="170" y="85" class="sublabel" fill="#22c55e">2nd finger = Current (+→−)</text>
+
+    <!-- Remember -->
+    <rect x="0" y="100" width="280" height="30" rx="6" fill="#fef3c7"/>
+    <text x="140" y="120" text-anchor="middle" class="sublabel">FBI: Force · (magnetic) field · current</text>
+
+    <!-- Wire in field diagram -->
+    <text x="180" y="150" text-anchor="middle" class="label">Wire in a Magnetic Field</text>
+    
+    <!-- N/S magnets -->
+    <rect x="30" y="160" width="15" height="40" rx="3" fill="#ef4444"/>
+    <text x="37" y="185" text-anchor="middle" class="sublabel" fill="white" font-size="9">N</text>
+    <rect x="230" y="160" width="15" height="40" rx="3" fill="#3b82f6"/>
+    <text x="237" y="185" text-anchor="middle" class="sublabel" fill="white" font-size="9">S</text>
+
+    <!-- Wire -->
+    <circle cx="140" cy="180" r="10" fill="#f3f4f6" stroke="#374151" stroke-width="2"/>
+    <text x="140" y="184" text-anchor="middle" class="sublabel">I</text>
+
+    <!-- Force arrow -->
+    <line x1="140" y1="160" x2="140" y2="135" stroke="#ef4444" stroke-width="2.5" marker-end="url(#aU2)"/>
+    <text x="140" y="130" text-anchor="middle" class="sublabel" fill="#dc2626">Force</text>
+  </g>
+
+  <marker id="aU2" viewBox="0 0 10 10" refX="5" refY="2" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,8 L5,2 L9,8" fill="#ef4444"/></marker>
+
+  <!-- Explanation -->
+  <rect x="490" y="50" width="290" height="230" rx="10" class="box"/>
+  <text x="635" y="75" text-anchor="middle" class="label">Motor Effect Explained</text>
+  <g transform="translate(510, 92)">
+    <rect x="0" y="0" width="250" height="65" rx="6" fill="#fef2f2"/>
+    <text x="10" y="18" class="label" fill="#dc2626">When a current-carrying wire</text>
+    <text x="10" y="36" class="sublabel">is placed in a magnetic field,</text>
+    <text x="10" y="54" class="sublabel">it experiences a FORCE</text>
+
+    <rect x="0" y="72" width="250" height="50" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="90" class="label">Force depends on:</text>
+    <text x="10" y="108" class="sublabel">• Magnetic field strength (B)</text>
+    <text x="10" y="124" class="sublabel">• Current (I) · Length of wire (L)</text>
+
+    <rect x="0" y="130" width="250" height="50" rx="6" fill="#eff6ff"/>
+    <text x="10" y="148" class="formula">F = BIL</text>
+    <text x="10" y="168" class="sublabel">Force = field strength × current × length</text>
+  </g>
+
+  <rect x="20" y="298" width="760" height="35" rx="8" class="box"/>
+  <text x="400" y="320" text-anchor="middle" class="sublabel">DC motor: current direction swaps every half-turn (split-ring commutator) → keeps the coil rotating continuously. Used in: fans, drills, electric cars.</text>
+</svg>

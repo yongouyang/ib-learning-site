@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-labelledby="title desc"><title id="title">The Electromagnetic Spectrum</title><desc id="desc">Full EM spectrum from radio to gamma rays, showing wavelength decreasing and frequency/energy increasing.</desc><defs><style>.t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}.l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}.s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}.f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}.b{fill:#fff;stroke:#e5e7eb;stroke-width:2}</style></defs><rect width="800" height="340" fill="#f9fafb" rx="12"/><text x="400" y="34" text-anchor="middle" class="t">The Electromagnetic Spectrum</text><g transform="translate(0,55)"><rect x="20" y="0" width="760" height="200" rx="10" class="b"/><text x="400" y="25" text-anchor="middle" class="l">The Electromagnetic Spectrum</text>
+  <g transform="translate(40,45)">
+  <rect x="0" y="0" width="100" height="30" rx="6" fill="#ef4444"/><text x="50" y="20" text-anchor="middle" class="s" fill="white">Radio</text>
+  <rect x="105" y="0" width="90" height="30" rx="6" fill="#f97316"/><text x="150" y="20" text-anchor="middle" class="s" fill="white">Microwave</text>
+  <rect x="200" y="0" width="80" height="30" rx="6" fill="#fbbf24"/><text x="240" y="20" text-anchor="middle" class="s">Infrared</text>
+  <rect x="285" y="0" width="60" height="30" rx="6" fill="#22c55e"/><text x="315" y="20" text-anchor="middle" class="s">Visible</text>
+  <rect x="350" y="0" width="70" height="30" rx="6" fill="#3b82f6"/><text x="385" y="20" text-anchor="middle" class="s" fill="white">UV</text>
+  <rect x="425" y="0" width="70" height="30" rx="6" fill="#6366f1"/><text x="460" y="20" text-anchor="middle" class="s" fill="white">X-ray</text>
+  <rect x="500" y="0" width="80" height="30" rx="6" fill="#a855f7"/><text x="540" y="20" text-anchor="middle" class="s" fill="white">Gamma</text>
+
+  <line x1="0" y1="55" x2="580" y2="55" stroke="#ef4444" stroke-width="3" marker-end="url(#aR2)"/>
+  <text x="290" y="72" text-anchor="middle" class="s">← Long wavelength (low f, low E) · Short wavelength (high f, high E) →</text>
+
+  <rect x="0" y="85" width="580" height="70" rx="6" fill="#f3f4f6"/>
+  <text x="290" y="105" text-anchor="middle" class="l">All EM waves: travel at speed of light (c = 3×10⁸ m/s in vacuum), are transverse, don't need a medium</text>
+  <text x="290" y="125" text-anchor="middle" class="s">Uses: Radio (broadcasting), Microwave (cooking, WiFi, radar), IR (thermal cameras, remote controls), UV (sunbeds, sterilisation), X-ray (medical imaging), Gamma (cancer treatment)</text>
+  </g>
+  <marker id="aR2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,1 L8,5 L0,9" fill="#ef4444"/></marker>
+  <rect x="20" y="218" width="760" height="40" rx="8" class="b"/><text x="400" y="238" text-anchor="middle" class="s">Energy of EM radiation: E = hf (higher frequency = higher energy, more dangerous!). Gamma rays have enough energy to ionise atoms — hence the danger.</text></g></svg>

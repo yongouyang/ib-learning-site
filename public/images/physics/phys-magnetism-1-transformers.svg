@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc"><title id="title">Transformers</title><desc id="desc">Step-up and step-down transformer diagrams with primary and secondary coils, iron core, and the turns ratio equation Vp/Vs = Np/Ns.</desc><defs><style>.title{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}.label{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}.sub{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}.formula{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}.box{fill:#fff;stroke:#e5e7eb;stroke-width:2}</style></defs><rect width="800" height="420" fill="#f9fafb" rx="12"/><text x="400" y="34" text-anchor="middle" class="title">Transformers</text>
+
+<rect x="20" y="50" width="370" height="180" rx="10" class="box"/><text x="205" y="75" text-anchor="middle" class="label">Step-Up Transformer (N_s &gt; N_p)</text>
+<g transform="translate(40,92)">
+  <rect x="80" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <path d="M120,140 L110,20 L120,140 L130,20 L120,140" fill="none" stroke="#fbbf24" stroke-width="2"/>
+  <path d="M120,140 L90,20 L120,140 L150,20 L120,140" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="120" y="155" text-anchor="middle" class="sub">Primary (5 turns)</text>
+  
+  <rect x="220" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <path d="M260,140 L250,20 L260,140 L270,20 L260,140" fill="none" stroke="#f97316" stroke-width="2"/>
+  <path d="M260,140 L230,20 L260,140 L290,20 L260,140" fill="none" stroke="#f97316" stroke-width="1.5"/>
+  <text x="260" y="155" text-anchor="middle" class="sub">Secondary (15 turns)</text>
+  
+  <text x="170" y="90" text-anchor="middle" class="label" fill="#dc2626">V_s = 3 × V_p</text>
+</g>
+
+<rect x="410" y="50" width="370" height="180" rx="10" class="box"/><text x="595" y="75" text-anchor="middle" class="label">Step-Down Transformer (N_s &lt; N_p)</text>
+<g transform="translate(430,92)">
+  <rect x="80" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <path d="M120,140 L110,20 L120,140 L130,20 L120,140" fill="none" stroke="#fbbf24" stroke-width="2"/>
+  <path d="M120,140 L90,20 L120,140 L150,20 L120,140" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="120" y="155" text-anchor="middle" class="sub">Primary (15 turns)</text>
+  <rect x="220" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <path d="M260,140 L255,20 L260,140 L265,20 L260,140" fill="none" stroke="#f97316" stroke-width="2"/>
+  <text x="260" y="155" text-anchor="middle" class="sub">Secondary (5 turns)</text>
+  <text x="170" y="90" text-anchor="middle" class="label" fill="#dc2626">V_s = V_p / 3</text>
+</g>
+
+<rect x="20" y="248" width="370" height="85" rx="10" class="box"/><text x="205" y="272" text-anchor="middle" class="label">Transformer Equation</text>
+<g transform="translate(40,288)"><text x="160" y="12" text-anchor="middle" class="formula">V_p / V_s = N_p / N_s</text><text x="160" y="32" text-anchor="middle" class="sub">Voltage ratio = turns ratio (only works with AC!)</text></g>
+
+<rect x="410" y="248" width="370" height="85" rx="10" class="box"/><text x="595" y="272" text-anchor="middle" class="label">Power In ≈ Power Out (ideal)</text>
+<g transform="translate(430,288)"><text x="160" y="12" text-anchor="middle" class="formula">V_p × I_p = V_s × I_s</text><text x="160" y="32" text-anchor="middle" class="sub">Step-up: V ↑, I ↓ · Step-down: V ↓, I ↑ · Efficiency &gt; 99%</text></g>
+
+<rect x="20" y="348" width="760" height="35" rx="8" class="box"/><text x="400" y="370" text-anchor="middle" class="sub">Transformers only work with AC (alternating current) — DC does not produce the changing magnetic field needed to induce voltage in the secondary coil</text></svg>

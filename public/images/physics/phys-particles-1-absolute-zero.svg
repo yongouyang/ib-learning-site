@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-labelledby="title desc">
+  <title id="title">Absolute Zero and the Kelvin Scale</title>
+  <desc id="desc">Temperature scale comparison showing Celsius and Kelvin scales with absolute zero at -273°C = 0 K.</desc>
+  <defs><style>
+    .t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}
+    .l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}
+    .s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}
+    .f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}
+    .b{fill:#fff;stroke:#e5e7eb;stroke-width:2}
+    .g{stroke:#e5e7eb;stroke-width:.5}
+    .a{stroke:#374151;stroke-width:2}
+    .p{fill:none;stroke:#ef4444;stroke-width:3}
+  </style></defs>
+  <rect width="800" height="340" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="t">Absolute Zero and the Kelvin Scale</text>
+  <rect x="20" y="55" width="380" height="220" rx="10" class="b"/><text x="210" y="78" text-anchor="middle" class="l">Temperature Scales</text>
+    <g transform="translate(60,95)">
+    <rect x="0" y="0" width="10" height="160" fill="#ef4444" rx="2"/>
+    <text x="25" y="14" class="l" fill="#dc2626">100°C (373 K)</text><text x="25" y="26" class="s">Water boils</text>
+    <line x1="10" y1="10" x2="25" y2="10" stroke="#ef4444" stroke-width="1"/>
+    <text x="25" y="94" class="l" fill="#3b82f6">0°C (273 K)</text><text x="25" y="106" class="s">Water freezes</text>
+    <line x1="10" y1="90" x2="25" y2="90" stroke="#3b82f6" stroke-width="1"/>
+    <text x="25" y="174" class="l" fill="#dc2626">-273°C (0 K)</text><text x="25" y="186" class="s">Absolute zero — particles have minimum possible energy</text>
+    <line x1="10" y1="160" x2="25" y2="160" stroke="#dc2626" stroke-width="1"/>
+    <rect x="200" y="0" width="10" height="160" fill="#3b82f6" rx="2"/>
+    <text x="225" y="14" class="l" fill="#3b82f6">373 K</text><line x1="210" y1="10" x2="225" y2="10" stroke="#3b82f6" stroke-width="1"/>
+    <text x="225" y="94" class="l" fill="#3b82f6">273 K</text><line x1="210" y1="90" x2="225" y2="90" stroke="#3b82f6" stroke-width="1"/>
+    <text x="225" y="174" class="l" fill="#3b82f6">0 K</text><line x1="210" y1="160" x2="225" y2="160" stroke="#3b82f6" stroke-width="1"/></g>
+    <rect x="420" y="55" width="360" height="220" rx="10" class="b"/><text x="600" y="78" text-anchor="middle" class="l">Key Facts</text>
+    <g transform="translate(440,95)">
+    <rect x="0" y="0" width="320" height="55" rx="6" fill="#fef2f2"/>
+    <text x="160" y="20" text-anchor="middle" class="f">T(K) = T(°C) + 273</text>
+    <text x="160" y="40" text-anchor="middle" class="s">Always use Kelvin for gas law calculations!</text>
+    <rect x="0" y="62" width="320" height="130" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="82" class="l">At absolute zero (0 K):</text>
+    <text x="10" y="100" class="s">• Particles have minimum possible internal energy</text>
+    <text x="10" y="118" class="s">• Particles still have some energy (zero-point energy)</text>
+    <text x="10" y="136" class="s">• Cannot be reached in practice — can only approach it</text>
+    <text x="10" y="154" class="s">• At 0 K, pressure and volume of an ideal gas would be zero</text>
+    <text x="10" y="178" class="s">• All gas law calculations use Kelvin (never Celsius!)</text></g>
+</svg>

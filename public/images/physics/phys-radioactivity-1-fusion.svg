@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-labelledby="title desc">
+  <title id="title">Nuclear Fusion</title>
+  <desc id="desc">Hydrogen isotopes fusing to form helium in stars, releasing enormous energy — the process powering the Sun.</desc>
+  <defs><style>
+    .t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}
+    .l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}
+    .s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}
+    .f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}
+    .b{fill:#fff;stroke:#e5e7eb;stroke-width:2}
+  </style></defs>
+  <rect width="800" height="340" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="t">Nuclear Fusion</text>
+  <g transform="translate(0,55)"><rect x="20" y="0" width="520" height="260" rx="10" class="b"/><text x="280" y="25" text-anchor="middle" class="l">Nuclear Fusion in Stars</text>
+  <g transform="translate(50,40)"><circle cx="70" cy="60" r="20" fill="#fecaca" stroke="#ef4444" stroke-width="2"/><text x="70" y="55" text-anchor="middle" class="s" fill="#dc2626">²H</text>
+  <text x="70" y="90" text-anchor="middle" class="s">Deuterium</text>
+  <circle cx="200" cy="60" r="20" fill="#fecaca" stroke="#ef4444" stroke-width="2"/><text x="200" y="55" text-anchor="middle" class="s" fill="#dc2626">³H</text>
+  <text x="200" y="90" text-anchor="middle" class="s">Tritium</text>
+  <line x1="90" y1="60" x2="178" y2="60" stroke="#dc2626" stroke-width="2"/>
+  <text x="135" y="55" text-anchor="middle" class="s" fill="#dc2626">High temp + pressure → fuse!</text>
+  <circle cx="135" cy="105" r="5" fill="#fbbf24"/>
+  <circle cx="290" cy="60" r="25" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/><text x="290" y="55" text-anchor="middle" class="s" fill="#22c55e">⁴He</text>
+  <line x1="215" y1="55" x2="265" y2="55" stroke="#22c55e" stroke-width="2"/>
+  <line x1="155" y1="110" x2="290" y2="80" stroke="#3b82f6" stroke-width="2"/><text x="230" y="110" class="s" fill="#3b82f6">n (neutron)</text>
+  <line x1="155" y1="115" x2="155" y2="155" stroke="#fbbf24" stroke-width="2" stroke-dasharray="2,2"/>
+  <text x="155" y="170" text-anchor="middle" class="s" fill="#eab308">γ (energy)</text>
+  <text x="250" y="145" text-anchor="middle" class="l" fill="#dc2626">E = mc²!</text></g>
+  <rect x="560" y="0" width="220" height="260" rx="10" class="b"/><text x="670" y="25" text-anchor="middle" class="l">Fusion vs Fission</text>
+  <g transform="translate(580,40)"><text x="0" y="18" class="l">Fusion joins small nuclei</text>
+  <text x="0" y="42" class="l">Fission splits large nuclei</text>
+  <rect x="0" y="55" width="180" height="50" rx="6" fill="#f0fdf4"/>
+  <text x="90" y="73" text-anchor="middle" class="s">Fusion: powers the Sun</text><text x="90" y="90" text-anchor="middle" class="s">(not yet viable on Earth for power)</text>
+  <rect x="0" y="112" width="180" height="40" rx="6" fill="#fef3c7"/>
+  <text x="90" y="130" text-anchor="middle" class="s">Requires extreme temperature and pressure to overcome electrostatic repulsion!</text></g>
+  <rect x="20" y="278" width="760" height="35" rx="8" class="b"/><text x="400" y="300" text-anchor="middle" class="s">Fusion releases more energy than fission per unit mass and produces little radioactive waste — but it's extremely difficult to sustain on Earth. The Sun's core is ~15 million °C!</text></g>
+</svg>

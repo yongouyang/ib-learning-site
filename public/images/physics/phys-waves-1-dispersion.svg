@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-labelledby="title desc"><title id="title">Dispersion and Colour</title><desc id="desc">Prism splitting white light into colours. Different frequencies refract by different amounts.</desc><defs><style>.t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}.l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}.s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}.f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}.b{fill:#fff;stroke:#e5e7eb;stroke-width:2}</style></defs><rect width="800" height="340" fill="#f9fafb" rx="12"/><text x="400" y="34" text-anchor="middle" class="t">Dispersion and Colour</text><g transform="translate(0,55)"><rect x="20" y="0" width="520" height="240" rx="10" class="b"/><text x="280" y="25" text-anchor="middle" class="l">Dispersion of White Light</text>
+  <g transform="translate(50,42)"><line x1="0" y1="70" x2="80" y2="55" stroke="#9ca3af" stroke-width="4"/><text x="30" y="70" class="s">White</text>
+  <polygon points="80,120 80,0 130,60" fill="#e0f2fe" stroke="#3b82f6" stroke-width="1.5" opacity="0.5"/>
+  <line x1="130" y1="60" x2="290" y2="15" stroke="#ef4444" stroke-width="3"/><text x="300" y="15" class="s" fill="#dc2626">Red</text>
+  <line x1="130" y1="60" x2="285" y2="35" stroke="#f97316" stroke-width="3"/><text x="295" y="35" class="s" fill="#f97316">Orange</text>
+  <line x1="130" y1="60" x2="275" y2="55" stroke="#fbbf24" stroke-width="3"/><text x="285" y="55" class="s" fill="#eab308">Yellow</text>
+  <line x1="130" y1="60" x2="265" y2="75" stroke="#22c55e" stroke-width="3"/><text x="275" y="75" class="s" fill="#22c55e">Green</text>
+  <line x1="130" y1="60" x2="255" y2="95" stroke="#3b82f6" stroke-width="3"/><text x="265" y="95" class="s" fill="#3b82f6">Blue</text>
+  <line x1="130" y1="60" x2="245" y2="115" stroke="#a855f7" stroke-width="3"/><text x="255" y="115" class="s" fill="#a855f7">Violet</text>
+  <text x="210" y="140" text-anchor="middle" class="s">White light is a mixture of all colours!</text></g>
+  <rect x="560" y="0" width="220" height="240" rx="10" class="b"/><text x="670" y="25" text-anchor="middle" class="l">Why Dispersion?</text>
+  <g transform="translate(580,42)"><rect x="0" y="0" width="180" height="100" rx="6" fill="#f3f4f6"/>
+  <text x="10" y="20" class="l">Each frequency:</text><text x="10" y="40" class="s">• Travels at slightly different speed in glass</text>
+  <text x="10" y="60" class="s">• Has slightly different refractive index</text>
+  <text x="10" y="80" class="s">• Refracts by different amounts</text>
+  <text x="10" y="100" class="s">Violet refracts most, red least</text>
+  <text x="90" y="130" text-anchor="middle" class="s">Rainbows = natural dispersion!</text></g>
+  <rect x="20" y="258" width="760" height="35" rx="8" class="b"/><text x="400" y="280" text-anchor="middle" class="s">Dispersion happens because the speed of light in a material depends on its frequency/wavelength. This is why prisms create rainbows and why lenses suffer from chromatic aberration.</text></g></svg>

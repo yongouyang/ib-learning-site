@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-labelledby="title desc">
+  <title id="title">Atmospheric Pressure</title>
+  <desc id="desc">Mercury barometer diagram and altitude effect on atmospheric pressure, plus the atmosphere column concept.</desc>
+  <defs><style>
+    .t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}
+    .l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}
+    .s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}
+    .f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}
+    .b{fill:#fff;stroke:#e5e7eb;stroke-width:2}
+  </style></defs>
+  <rect width="800" height="340" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="t">Atmospheric Pressure</text>
+  <g transform="translate(0,55)"><rect x="20" y="0" width="400" height="230" rx="10" class="b"/><text x="220" y="25" text-anchor="middle" class="l">Mercury Barometer</text>
+    <g transform="translate(40,38)"><rect x="10" y="0" width="20" height="180" rx="3" fill="#d1d5db" stroke="#6b7280" stroke-width="1.5"/>
+    <rect x="15" y="20" width="10" height="140" fill="#9ca3af"/><text x="40" y="35" class="s">Vacuum</text>
+    <text x="40" y="90" class="l" fill="#dc2626">760 mm</text><text x="40" y="105" class="s">= 1 atm</text>
+    <rect x="0" y="180" width="60" height="14" rx="3" fill="#9ca3af"/><text x="70" y="55" class="s" fill="#dc2626">Atmospheric pressure pushes mercury up the tube</text></g>
+    <rect x="440" y="0" width="340" height="230" rx="10" class="b"/><text x="610" y="25" text-anchor="middle" class="l">Altitude Effect</text>
+    <g transform="translate(460,38)"><text x="150" y="20" text-anchor="middle" class="s">Sea level: 101,325 Pa (1 atm)</text>
+    <text x="150" y="50" text-anchor="middle" class="s">Mt Everest top: ~33,000 Pa (~0.33 atm)</text>
+    <rect x="0" y="65" width="300" height="20" rx="4" fill="#fef2f2"/>
+    <text x="150" y="79" text-anchor="middle" class="s">Higher altitude → less air above → lower pressure</text>
+    <rect x="0" y="100" width="300" height="80" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="120" class="l">Effects of low atmospheric pressure:</text>
+    <text x="10" y="138" class="s">• Water boils at lower temperature (below 100°C on mountains)</text>
+    <text x="10" y="158" class="s">• Aircraft cabins must be pressurised</text></g>
+    <rect x="20" y="248" width="760" height="45" rx="8" class="b"/><text x="400" y="270" text-anchor="middle" class="s">The atmosphere is a deep ocean of air weighing down on us. At sea level, the weight of a 1 m² column of air is ~100,000 N — that's about 10 tonnes!</text></g>
+</svg>

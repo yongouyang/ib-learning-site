@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-labelledby="title desc">
+  <title id="title">Hydraulic Systems</title>
+  <desc id="desc">Simple hydraulic press diagram using Pascal's principle showing force multiplication with different piston areas.</desc>
+  <defs><style>
+    .t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}
+    .l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}
+    .s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}
+    .f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}
+    .b{fill:#fff;stroke:#e5e7eb;stroke-width:2}
+  </style></defs>
+  <rect width="800" height="340" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="t">Hydraulic Systems</text>
+  <g transform="translate(0,55)"><rect x="20" y="0" width="500" height="240" rx="10" class="b"/><text x="270" y="25" text-anchor="middle" class="l">Hydraulic Press (Pascal's Principle)</text>
+    <g transform="translate(40,38)"><rect x="0" y="40" width="400" height="50" rx="6" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="5" y="60" width="10" height="40" rx="3" fill="#ef4444"/><text x="10" y="115" text-anchor="middle" class="s">A₁=1cm²</text>
+    <rect x="380" y="30" width="20" height="70" rx="3" fill="#ef4444"/><text x="390" y="115" text-anchor="middle" class="s">A₂=10cm²</text>
+    <text x="200" y="75" text-anchor="middle" class="s" fill="#3b82f6">Hydraulic fluid (incompressible)</text>
+    <text x="10" y="140" text-anchor="middle" class="l" fill="#dc2626">F₁ = 10 N</text><text x="390" y="140" text-anchor="middle" class="l" fill="#22c55e">F₂ = 100 N!</text>
+    <rect x="60" y="155" width="280" height="30" rx="6" fill="#fef2f2"/>
+    <text x="200" y="173" text-anchor="middle" class="s">P₁ = F₁/A₁ = P₂ = F₂/A₂ → Force is multiplied by area ratio!</text></g>
+    <rect x="540" y="0" width="240" height="240" rx="10" class="b"/><text x="660" y="25" text-anchor="middle" class="l">Applications</text>
+    <g transform="translate(560,38)"><text x="0" y="20" class="s">• Car brakes (foot → huge force on pads)</text>
+    <text x="0" y="45" class="s">• Hydraulic jacks (lift cars with little effort)</text>
+    <text x="0" y="70" class="s">• Excavators/diggers</text>
+    <text x="0" y="95" class="s">• Aircraft control systems</text></g>
+    <rect x="20" y="258" width="760" height="35" rx="8" class="b"/><text x="400" y="280" text-anchor="middle" class="s">Pascal's Principle: pressure applied to an enclosed fluid is transmitted equally throughout the entire fluid. Force output = input force × (A_output/A_input).</text></g>
+</svg>

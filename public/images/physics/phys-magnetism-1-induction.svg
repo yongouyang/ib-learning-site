@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="title desc">
+  <title id="title">Electromagnetic Induction</title>
+  <desc id="desc">A magnet moving through a coil generates an electric current, showing the generator effect and factors affecting induced voltage.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="380" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Electromagnetic Induction (Generator Effect)</text>
+
+  <!-- Setup diagram -->
+  <rect x="20" y="50" width="500" height="220" rx="10" class="box"/>
+  <text x="270" y="75" text-anchor="middle" class="label">Moving Magnet in a Coil</text>
+
+  <g transform="translate(50, 95)">
+    <!-- Coil -->
+    <path d="M100,20 Q120,60 100,100" fill="none" stroke="#fbbf24" stroke-width="3"/>
+    <path d="M140,20 Q120,60 140,100" fill="none" stroke="#fbbf24" stroke-width="3"/>
+    <path d="M100,20 L140,20" stroke="#fbbf24" stroke-width="3"/>
+    <path d="M100,100 L140,100" stroke="#fbbf24" stroke-width="3"/>
+
+    <!-- Magnet (going in) -->
+    <rect x="30" y="45" width="30" height="30" rx="3" fill="#ef4444"/>
+    <rect x="60" y="45" width="30" height="30" rx="0" fill="#3b82f6"/>
+    <text x="45" y="65" text-anchor="middle" class="sublabel" fill="white">N</text>
+    <text x="75" y="65" text-anchor="middle" class="sublabel" fill="white">S</text>
+
+    <!-- Motion arrow -->
+    <line x1="75" y1="75" x2="130" y2="75" stroke="#dc2626" stroke-width="2.5" marker-end="url(#aR)"/>
+    <text x="100" y="70" text-anchor="middle" class="sublabel" fill="#dc2626">motion</text>
+
+    <!-- Galvanometer -->
+    <circle cx="260" cy="60" r="25" fill="white" stroke="#374151" stroke-width="2"/>
+    <line x1="260" y1="60" x2="260" y2="40" stroke="#ef4444" stroke-width="2"/>
+    <text x="260" y="100" text-anchor="middle" class="sublabel">G (measures current)</text>
+
+    <!-- Wires -->
+    <line x1="140" y1="40" x2="230" y2="40" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="230" y1="40" x2="230" y2="60" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="140" y1="80" x2="240" y2="80" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="240" y1="80" x2="240" y2="60" stroke="#fbbf24" stroke-width="1.5"/>
+
+    <text x="200" y="150" text-anchor="middle" class="label" fill="#dc2626">Key: Magnet must MOVE to induce voltage</text>
+    <text x="200" y="166" text-anchor="middle" class="sublabel">No movement = no induced current</text>
+  </g>
+
+  <marker id="aR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,1 L8,5 L0,9" fill="#dc2626"/></marker>
+
+  <!-- Factors -->
+  <rect x="540" y="50" width="240" height="220" rx="10" class="box"/>
+  <text x="660" y="75" text-anchor="middle" class="label">Factors Affecting Induced Voltage</text>
+  <g transform="translate(560, 96)">
+    <text x="0" y="14" class="sublabel">• Speed of movement (faster = more)</text>
+    <text x="0" y="32" class="sublabel">• Magnetic field strength (stronger = more)</text>
+    <text x="0" y="50" class="sublabel">• Number of coil turns (more = more)</text>
+    <text x="0" y="68" class="sublabel">• Area of coil (larger = more)</text>
+
+    <rect x="0" y="82" width="200" height="55" rx="6" fill="#eff6ff"/>
+    <text x="10" y="100" class="label" fill="#3b82f6">Applications</text>
+    <text x="10" y="118" class="sublabel">• Generators (power stations)</text>
+    <text x="10" y="134" class="sublabel">• Dynamos (bicycle lights)</text>
+
+    <rect x="0" y="142" width="200" height="55" rx="6" fill="#fef3c7"/>
+    <text x="100" y="160" text-anchor="middle" class="sublabel">AC generator: slip rings</text>
+    <text x="100" y="176" text-anchor="middle" class="sublabel">DC dynamo: split-ring commutator</text>
+  </g>
+
+  <rect x="20" y="288" width="760" height="45" rx="8" class="box"/>
+  <text x="400" y="308" text-anchor="middle" class="sublabel">Electromagnetic induction: a changing magnetic field through a conductor induces a voltage (potential difference), driving a current if circuit is complete</text>
+  <text x="400" y="326" text-anchor="middle" class="sublabel">Motor effect (electricity → motion) is the opposite of the generator effect (motion → electricity). Reversing the magnet direction reverses the current.</text>
+</svg>

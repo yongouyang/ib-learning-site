@@ -8,68 +8,328 @@
     {
       "id": "phys-light-1-n1",
       "heading": "Light as a Wave",
-      "body": "Light is a transverse electromagnetic wave that travels at 3×10⁸ m/s in a vacuum. It does not need a medium — it can travel through empty space. Light travels in straight lines (rays). When light hits an object, it can be: reflected (bounces off), refracted (bends entering new medium), absorbed (energy taken in), or transmitted (passes through). Opaque objects absorb/reflect light — you cannot see through them. Transparent objects transmit light — you can see through clearly (glass, clear plastic). Translucent objects transmit light but scatter it — you see light but not a clear image (frosted glass, wax paper). Shadows form when light is blocked by an opaque object. A point source creates a sharp shadow (umbra); an extended source creates a fuzzy edge (penumbra)."
+      "body": "Light is a transverse electromagnetic wave that travels at 3×10⁸ m/s in a vacuum. It does not need a medium — it can travel through empty space. Light travels in straight lines (rays). When light hits an object, it can be: reflected (bounces off), refracted (bends entering new medium), absorbed (energy taken in), or transmitted (passes through). Opaque objects absorb/reflect light — you cannot see through them. Transparent objects transmit light — you can see through clearly (glass, clear plastic). Translucent objects transmit light but scatter it — you see light but not a clear image (frosted glass, wax paper). Shadows form when light is blocked by an opaque object. A point source creates a sharp shadow (umbra); an extended source creates a fuzzy edge (penumbra).",
+      "illustration": {
+        "src": "/images/physics/phys-light-1-wave-properties.svg",
+        "alt": "Labelled diagram of a transverse wave showing wavelength, amplitude, crest, trough, and the wave equation.",
+        "caption": "Light is a transverse electromagnetic wave that does not need a medium to travel."
+      }
     },
     {
       "id": "phys-light-1-n2",
       "heading": "Reflection and Mirrors",
-      "body": "Law of reflection: angle of incidence = angle of reflection, both measured from the NORMAL (a line perpendicular to the surface at the point of incidence). Specular reflection: smooth surface → parallel incident rays reflected as parallel rays → clear image (mirror, calm water). Diffuse reflection: rough surface → parallel rays scattered in all directions → no image, just brightness (paper, wall — this is how we see non-shiny objects). Plane mirror: image is virtual (cannot be projected on screen), upright, same size as object, laterally inverted (left-right swapped), same distance behind mirror as object is in front. Ray diagrams: draw at least two rays from object to locate image. Incident ray hits mirror → reflected at equal angle. Extend reflected rays back behind mirror (dashed lines for virtual rays) — they meet at the image location."
+      "body": "Law of reflection: angle of incidence = angle of reflection, both measured from the NORMAL (a line perpendicular to the surface at the point of incidence). Specular reflection: smooth surface → parallel incident rays reflected as parallel rays → clear image (mirror, calm water). Diffuse reflection: rough surface → parallel rays scattered in all directions → no image, just brightness (paper, wall — this is how we see non-shiny objects). Plane mirror: image is virtual (cannot be projected on screen), upright, same size as object, laterally inverted (left-right swapped), same distance behind mirror as object is in front. Ray diagrams: draw at least two rays from object to locate image. Incident ray hits mirror → reflected at equal angle. Extend reflected rays back behind mirror (dashed lines for virtual rays) — they meet at the image location.",
+      "illustration": {
+        "src": "/images/physics/phys-light-1-reflection.svg",
+        "alt": "Ray diagram showing the law of reflection with incident ray, reflected ray, normal, and equal angles.",
+        "caption": "The angle of incidence equals the angle of reflection (i equals r)."
+      }
     },
     {
       "id": "phys-light-1-n3",
       "heading": "Refraction and Snell's Law",
-      "body": "Refraction: light bends when crossing a boundary between media of different optical densities at an angle. This happens because light changes speed. Entering a denser medium (air → glass/water): light slows down → bends TOWARDS the normal. Entering a less dense medium (glass → air): speeds up → bends AWAY from the normal. Along the normal (0° angle): no change in direction, only speed. Snell's Law: n₁sinθ₁ = n₂sinθ₂, where n is the refractive index. Refractive index = speed of light in vacuum ÷ speed in medium. Diamond: n≈2.42 (light slows dramatically → lots of refraction → sparkle). Water: n≈1.33. Total internal reflection: when light in a denser medium hits the boundary at an angle greater than the critical angle, it reflects entirely back — no transmission. This is how optical fibres work (communications, endoscopes). Critical angle equation: sin c = 1/n. Applications: fibre optic internet, medical imaging (endoscopy), diamond brilliance."
+      "body": "Refraction: light bends when crossing a boundary between media of different optical densities at an angle. This happens because light changes speed. Entering a denser medium (air → glass/water): light slows down → bends TOWARDS the normal. Entering a less dense medium (glass → air): speeds up → bends AWAY from the normal. Along the normal (0° angle): no change in direction, only speed. Snell's Law: n₁sinθ₁ = n₂sinθ₂, where n is the refractive index. Refractive index = speed of light in vacuum ÷ speed in medium. Diamond: n≈2.42 (light slows dramatically → lots of refraction → sparkle). Water: n≈1.33. Total internal reflection: when light in a denser medium hits the boundary at an angle greater than the critical angle, it reflects entirely back — no transmission. This is how optical fibres work (communications, endoscopes). Critical angle equation: sin c = 1/n. Applications: fibre optic internet, medical imaging (endoscopy), diamond brilliance.",
+      "illustration": {
+        "src": "/images/physics/phys-light-1-refraction.svg",
+        "alt": "Ray diagram showing light bending as it passes from air into a glass block and back, with Snell Law.",
+        "caption": "Light bends towards the normal when entering a denser medium because it slows down."
+      }
     },
     {
       "id": "phys-light-1-n4",
       "heading": "Convex and Concave Lenses",
-      "body": "Lenses refract light to form images. Convex lens (converging): thicker in middle. Parallel rays converge at the focal point (F). Focal length (f): distance from lens centre to focal point. Ray diagram rules: (1) Ray parallel to axis → passes through F on other side. (2) Ray through centre of lens → continues straight. (3) Ray through F on the way in → emerges parallel to axis. Image properties depend on object distance: Object beyond 2F → real, inverted, diminished (camera). Object at 2F → real, inverted, same size. Object between F and 2F → real, inverted, magnified (projector). Object at F → no image (rays parallel, image at infinity). Object inside F → virtual, upright, magnified (magnifying glass). Real images can be projected on screen; virtual images cannot. Concave lens (diverging): thinner in middle. Always produces virtual, upright, diminished image. Used for correcting short-sightedness (myopia)."
+      "body": "Lenses refract light to form images. Convex lens (converging): thicker in middle. Parallel rays converge at the focal point (F). Focal length (f): distance from lens centre to focal point. Ray diagram rules: (1) Ray parallel to axis → passes through F on other side. (2) Ray through centre of lens → continues straight. (3) Ray through F on the way in → emerges parallel to axis. Image properties depend on object distance: Object beyond 2F → real, inverted, diminished (camera). Object at 2F → real, inverted, same size. Object between F and 2F → real, inverted, magnified (projector). Object at F → no image (rays parallel, image at infinity). Object inside F → virtual, upright, magnified (magnifying glass). Real images can be projected on screen; virtual images cannot. Concave lens (diverging): thinner in middle. Always produces virtual, upright, diminished image. Used for correcting short-sightedness (myopia).",
+      "illustration": {
+        "src": "/images/physics/phys-light-1-lenses.svg",
+        "alt": "Ray diagrams for a convex converging lens and a concave diverging lens, showing focal points.",
+        "caption": "Convex lenses converge light rays; concave lenses diverge them."
+      }
     },
     {
       "id": "phys-light-1-n5",
       "heading": "The Human Eye and Vision Defects",
-      "body": "The eye is a biological optical system: Cornea — transparent front, does most of the focusing. Pupil — hole letting light in; iris controls size. Lens — fine-tunes focus by changing shape (accommodation). Retina — light-sensitive layer (rods — dim light; cones — colour). Optic nerve — carries signals to brain. Short-sightedness (myopia): image focuses in FRONT of retina. Cannot see distant objects clearly. Caused by eyeball too long or cornea too curved. Corrected with concave (diverging) lens. Long-sightedness (hyperopia): image focuses BEHIND retina. Cannot see near objects clearly. Caused by eyeball too short or lens loses flexibility (age). Corrected with convex (converging) lens. The near point of a normal eye is ~25 cm. The far point is infinity. Power of a lens (dioptres, D) = 1/f (f in metres). Concave lens: negative power. Convex lens: positive power."
+      "body": "The eye is a biological optical system: Cornea — transparent front, does most of the focusing. Pupil — hole letting light in; iris controls size. Lens — fine-tunes focus by changing shape (accommodation). Retina — light-sensitive layer (rods — dim light; cones — colour). Optic nerve — carries signals to brain. Short-sightedness (myopia): image focuses in FRONT of retina. Cannot see distant objects clearly. Caused by eyeball too long or cornea too curved. Corrected with concave (diverging) lens. Long-sightedness (hyperopia): image focuses BEHIND retina. Cannot see near objects clearly. Caused by eyeball too short or lens loses flexibility (age). Corrected with convex (converging) lens. The near point of a normal eye is ~25 cm. The far point is infinity. Power of a lens (dioptres, D) = 1/f (f in metres). Concave lens: negative power. Convex lens: positive power.",
+      "illustration": {
+        "src": "/images/physics/phys-light-1-the-eye.svg",
+        "alt": "Cross-section of the human eye showing cornea, lens, retina, pupil, and optic nerve, with vision defects.",
+        "caption": "The lens focuses light onto the retina; short-sightedness is corrected with concave lenses."
+      }
     },
     {
       "id": "phys-light-1-n6",
       "heading": "Colour, Dispersion and Filters",
-      "body": "White light is a mixture of all visible wavelengths (~400-700 nm). Dispersion: splitting white light into ROYGBIV spectrum using a prism. Violet refracts most (shortest λ, slowest in glass); red refracts least (longest λ, fastest). Additive colour mixing (light): primary = Red, Green, Blue. R+G=Yellow, R+B=Magenta, G+B=Cyan, R+G+B=White. Used in screens (RGB pixels). Subtractive colour mixing (pigments/paints): primary = Cyan, Magenta, Yellow. C+M+Y = Black (K). Used in printing (CMYK). Why a red apple looks red: (1) White light shines on apple. (2) Apple surface absorbs all colours EXCEPT red. (3) Red light is reflected to your eyes. A white object reflects ALL colours; a black object absorbs ALL colours (heats up most). Filters: red filter transmits ONLY red, absorbs green and blue. Shine white light through red filter → only red passes. Shine blue light through red filter → nothing (blue absorbed, red filter blocks it). Colour perception is about which wavelengths reach your eye."
+      "body": "White light is a mixture of all visible wavelengths (~400-700 nm). Dispersion: splitting white light into ROYGBIV spectrum using a prism. Violet refracts most (shortest λ, slowest in glass); red refracts least (longest λ, fastest). Additive colour mixing (light): primary = Red, Green, Blue. R+G=Yellow, R+B=Magenta, G+B=Cyan, R+G+B=White. Used in screens (RGB pixels). Subtractive colour mixing (pigments/paints): primary = Cyan, Magenta, Yellow. C+M+Y = Black (K). Used in printing (CMYK). Why a red apple looks red: (1) White light shines on apple. (2) Apple surface absorbs all colours EXCEPT red. (3) Red light is reflected to your eyes. A white object reflects ALL colours; a black object absorbs ALL colours (heats up most). Filters: red filter transmits ONLY red, absorbs green and blue. Shine white light through red filter → only red passes. Shine blue light through red filter → nothing (blue absorbed, red filter blocks it). Colour perception is about which wavelengths reach your eye.",
+      "illustration": {
+        "src": "/images/physics/phys-light-1-colour-dispersion.svg",
+        "alt": "White light passing through a prism and splitting into the visible spectrum, plus colour filter diagrams.",
+        "caption": "White light is a mixture of all colours; different colours refract by different amounts."
+      }
     },
     {
       "id": "phys-light-1-n7",
       "heading": "Practical Optics and Visible Light",
-      "body": "Visible light is just a tiny slice of the EM spectrum. Applications of lenses and mirrors: Periscopes (two mirrors at 45° → see over obstacles), telescopes (refracting: lenses; reflecting: mirrors — gather faint light from distant objects), microscopes (two convex lenses in series → high magnification), cameras (lens focuses image onto sensor/film — aperture controls light; shutter controls time). Magnification: M = image height ÷ object height. Also M = image distance ÷ object distance. The pinhole camera: simple model — tiny hole projects inverted, real image. Smaller hole = sharper but dimmer image (diffraction limits). Larger hole = brighter but blurrier. Optical fibres: thin glass/plastic strands using total internal reflection to transmit light signals over long distances with minimal loss — backbone of the internet (submarine cables)."
+      "body": "Visible light is just a tiny slice of the EM spectrum. Applications of lenses and mirrors: Periscopes (two mirrors at 45° → see over obstacles), telescopes (refracting: lenses; reflecting: mirrors — gather faint light from distant objects), microscopes (two convex lenses in series → high magnification), cameras (lens focuses image onto sensor/film — aperture controls light; shutter controls time). Magnification: M = image height ÷ object height. Also M = image distance ÷ object distance. The pinhole camera: simple model — tiny hole projects inverted, real image. Smaller hole = sharper but dimmer image (diffraction limits). Larger hole = brighter but blurrier. Optical fibres: thin glass/plastic strands using total internal reflection to transmit light signals over long distances with minimal loss — backbone of the internet (submarine cables).",
+      "illustration": {
+        "src": "/images/physics/phys-light-1-practical-optics.svg",
+        "alt": "Ray diagrams of a periscope and optical fibre showing total internal reflection.",
+        "caption": "Total internal reflection allows light to travel along optical fibres with very little loss."
+      }
     }
   ],
   "flashcards": [
-    { "id": "phys-light-1-f1", "term": "Law of reflection", "definition": "Angle of incidence = angle of reflection, measured from the NORMAL.", "example": "Ray hits mirror at 30° to normal → reflected at 30°." },
-    { "id": "phys-light-1-f2", "term": "Refraction", "definition": "Light bends when crossing boundary between media of different density due to speed change.", "example": "Pencil appears bent in water — light from submerged part refracts at water-air boundary." },
-    { "id": "phys-light-1-f3", "term": "Total internal reflection", "definition": "Light in denser medium hits boundary at angle > critical angle → 100% reflected, zero transmitted.", "example": "Optical fibres — light bounces along inside glass core, enabling high-speed data transmission." },
-    { "id": "phys-light-1-f4", "term": "Convex lens (converging)", "definition": "Thicker in middle. Parallel rays converge at focal point. Can produce real or virtual images.", "example": "Magnifying glass (object inside F → virtual, upright, magnified image)." },
-    { "id": "phys-light-1-f5", "term": "Concave lens (diverging)", "definition": "Thinner in middle. Always produces virtual, upright, diminished image. Corrects short-sightedness.", "example": "Glasses for myopia — diverging lens spreads light before it enters the eye." },
-    { "id": "phys-light-1-f6", "term": "Focal length (f)", "definition": "Distance from lens centre to focal point. Determines lens power. Shorter f = stronger lens.", "example": "Lens power (dioptres) = 1/f(m). f=0.5 m → 2 D. f=0.1 m → 10 D." },
-    { "id": "phys-light-1-f7", "term": "Real vs Virtual image", "definition": "Real: light rays actually converge — can project on screen. Virtual: rays only appear to meet — cannot project.", "example": "Projector → real image. Mirror → virtual image." },
-    { "id": "phys-light-1-f8", "term": "Myopia (short-sighted)", "definition": "Image focuses IN FRONT of retina. Can't see distant objects. Corrected with concave lens.", "example": "Myopic person squints to see distant road signs clearly." },
-    { "id": "phys-light-1-f9", "term": "Hyperopia (long-sighted)", "definition": "Image focuses BEHIND retina. Can't see near objects. Corrected with convex lens.", "example": "Long-sighted person holds book at arm's length to read." },
-    { "id": "phys-light-1-f10", "term": "Dispersion", "definition": "Splitting white light into ROYGBIV by refraction. Violet bends most; red bends least.", "example": "Rainbow — sunlight dispersed by water droplets. Pink Floyd album cover." },
-    { "id": "phys-light-1-f11", "term": "Additive colour mixing", "definition": "Red + Green + Blue = White. Screens use RGB pixels at different intensities to create all colours.", "example": "Yellow on screen = R+G lit. Magenta = R+B lit." },
-    { "id": "phys-light-1-f12", "term": "Critical angle", "definition": "The incident angle in denser medium above which total internal reflection occurs. sin c = 1/n.", "example": "Glass (n=1.5): sin c=1/1.5=0.667 → c≈42°. Diamond (n=2.42): c≈24° — lots of TIR = sparkle." }
+    {
+      "id": "phys-light-1-f1",
+      "term": "Law of reflection",
+      "definition": "Angle of incidence = angle of reflection, measured from the NORMAL.",
+      "example": "Ray hits mirror at 30° to normal → reflected at 30°."
+    },
+    {
+      "id": "phys-light-1-f2",
+      "term": "Refraction",
+      "definition": "Light bends when crossing boundary between media of different density due to speed change.",
+      "example": "Pencil appears bent in water — light from submerged part refracts at water-air boundary."
+    },
+    {
+      "id": "phys-light-1-f3",
+      "term": "Total internal reflection",
+      "definition": "Light in denser medium hits boundary at angle > critical angle → 100% reflected, zero transmitted.",
+      "example": "Optical fibres — light bounces along inside glass core, enabling high-speed data transmission."
+    },
+    {
+      "id": "phys-light-1-f4",
+      "term": "Convex lens (converging)",
+      "definition": "Thicker in middle. Parallel rays converge at focal point. Can produce real or virtual images.",
+      "example": "Magnifying glass (object inside F → virtual, upright, magnified image)."
+    },
+    {
+      "id": "phys-light-1-f5",
+      "term": "Concave lens (diverging)",
+      "definition": "Thinner in middle. Always produces virtual, upright, diminished image. Corrects short-sightedness.",
+      "example": "Glasses for myopia — diverging lens spreads light before it enters the eye."
+    },
+    {
+      "id": "phys-light-1-f6",
+      "term": "Focal length (f)",
+      "definition": "Distance from lens centre to focal point. Determines lens power. Shorter f = stronger lens.",
+      "example": "Lens power (dioptres) = 1/f(m). f=0.5 m → 2 D. f=0.1 m → 10 D."
+    },
+    {
+      "id": "phys-light-1-f7",
+      "term": "Real vs Virtual image",
+      "definition": "Real: light rays actually converge — can project on screen. Virtual: rays only appear to meet — cannot project.",
+      "example": "Projector → real image. Mirror → virtual image."
+    },
+    {
+      "id": "phys-light-1-f8",
+      "term": "Myopia (short-sighted)",
+      "definition": "Image focuses IN FRONT of retina. Can't see distant objects. Corrected with concave lens.",
+      "example": "Myopic person squints to see distant road signs clearly."
+    },
+    {
+      "id": "phys-light-1-f9",
+      "term": "Hyperopia (long-sighted)",
+      "definition": "Image focuses BEHIND retina. Can't see near objects. Corrected with convex lens.",
+      "example": "Long-sighted person holds book at arm's length to read."
+    },
+    {
+      "id": "phys-light-1-f10",
+      "term": "Dispersion",
+      "definition": "Splitting white light into ROYGBIV by refraction. Violet bends most; red bends least.",
+      "example": "Rainbow — sunlight dispersed by water droplets. Pink Floyd album cover."
+    },
+    {
+      "id": "phys-light-1-f11",
+      "term": "Additive colour mixing",
+      "definition": "Red + Green + Blue = White. Screens use RGB pixels at different intensities to create all colours.",
+      "example": "Yellow on screen = R+G lit. Magenta = R+B lit."
+    },
+    {
+      "id": "phys-light-1-f12",
+      "term": "Critical angle",
+      "definition": "The incident angle in denser medium above which total internal reflection occurs. sin c = 1/n.",
+      "example": "Glass (n=1.5): sin c=1/1.5=0.667 → c≈42°. Diamond (n=2.42): c≈24° — lots of TIR = sparkle."
+    }
   ],
   "questions": [
-    { "id": "phys-light-1-q1", "stem": "Light hits a mirror at 35° to the normal. Angle of reflection?", "choices": ["35°", "55°", "70°", "90°"], "correctIndex": 0, "explanation": "Law of reflection: angle of incidence = angle of reflection = 35°." },
-    { "id": "phys-light-1-q2", "stem": "Light travels from air (n≈1) into glass (n≈1.5). It will:", "choices": ["Speed up, bend away from normal", "Slow down, bend towards normal", "No change", "Stop completely"], "correctIndex": 1, "explanation": "Entering denser medium → slower → bends TOWARDS the normal." },
-    { "id": "phys-light-1-q3", "stem": "An object placed inside the focal point of a convex lens produces:", "choices": ["Real, inverted, magnified", "Virtual, upright, magnified (magnifying glass)", "Real, upright, same size", "No image"], "correctIndex": 1, "explanation": "Object distance < f → magnifying glass effect: virtual, upright, magnified image." },
-    { "id": "phys-light-1-q4", "stem": "Which lens corrects short-sightedness (myopia)?", "choices": ["Convex (converging)", "Concave (diverging) — spreads light, moving focal point back onto retina", "Plane mirror", "No lens needed"], "correctIndex": 1, "explanation": "Myopia: image focuses too early. Concave lens diverges rays, effectively lengthening focal length." },
-    { "id": "phys-light-1-q5", "stem": "Why does a diamond sparkle more than glass?", "choices": ["Diamond produces its own light", "Higher refractive index (n≈2.42 vs 1.5) → lower critical angle (~24°) → more total internal reflection → more sparkle", "Diamond is harder", "Diamond absorbs less light"], "correctIndex": 1, "explanation": "Small critical angle = light bounces around inside many times before escaping — creates brilliant sparkle." },
-    { "id": "phys-light-1-q6", "stem": "A red filter in white light appears red because:", "choices": ["It adds red to all light", "It transmits red light and absorbs all other colours", "It reflects blue and green", "It converts all light to red"], "correctIndex": 1, "explanation": "Filters transmit their own colour; absorb complementary colours." },
-    { "id": "phys-light-1-q7", "stem": "Plane mirror image is always:", "choices": ["Real and inverted", "Virtual, upright, same size, laterally inverted", "Real and magnified", "Virtual and smaller"], "correctIndex": 1, "explanation": "Plane mirror: virtual (behind mirror), upright, laterally inverted, same distance behind as object is in front." },
-    { "id": "phys-light-1-q8", "stem": "Total internal reflection requires:", "choices": ["Light entering denser medium", "Light in denser medium hitting boundary at angle > critical angle", "Light in air only", "A mirror"], "correctIndex": 1, "explanation": "TIR: (1) light in denser medium, (2) angle > critical angle. Both conditions must be met." },
-    { "id": "phys-light-1-q9", "stem": "Lens power: f=0.25 m. Power in dioptres?", "choices": ["0.25 D", "2.5 D", "4 D", "25 D"], "correctIndex": 2, "explanation": "P=1/f=1/0.25=4 D. Shorter focal length = more powerful lens." },
-    { "id": "phys-light-1-q10", "stem": "Object beyond 2F of convex lens produces:", "choices": ["Virtual, magnified", "Real, inverted, diminished (like a camera)", "Virtual, inverted", "No image"], "correctIndex": 1, "explanation": "Object distance > 2F → real, inverted, diminished image. This is how cameras work." },
-    { "id": "phys-light-1-q11", "stem": "A green leaf in red light appears:", "choices": ["Green", "Red", "Black — leaf absorbs red (only reflects green); no green in red light → no light reflected = black", "Yellow"], "correctIndex": 2, "explanation": "A green object reflects only green light. Red light contains no green → leaf absorbs all red light → no light reflected → appears black." },
-    { "id": "phys-light-1-q12", "stem": "Red + Green light on white screen produces:", "choices": ["Brown", "Yellow", "Cyan", "Magenta"], "correctIndex": 1, "explanation": "Additive mixing: R+G=Yellow." },
-    { "id": "phys-light-1-q13", "stem": "Optical fibre transmits light by:", "choices": ["Refraction only", "Total internal reflection — light bounces along the core without escaping", "Conduction", "Diffraction"], "correctIndex": 1, "explanation": "TIR keeps light inside the fibre core, even around bends, enabling long-distance, low-loss data transmission." },
-    { "id": "phys-light-1-q14", "stem": "When light enters glass at exactly 0° (along the normal):", "choices": ["It reflects completely", "It bends sharply", "It continues straight — no change in direction, only speed", "It stops"], "correctIndex": 2, "explanation": "No change in direction when entering along the normal. Speed changes but the ray path is unchanged." },
-    { "id": "phys-light-1-q15", "stem": "A real image can be projected on a screen. What property must it have?", "choices": ["It is virtual", "Light rays from the object actually converge at the image location", "It is behind a mirror", "It is always smaller than object"], "correctIndex": 1, "explanation": "Real image = light actually passes through the image point. Virtual image = light only appears to come from that point." }
+    {
+      "id": "phys-light-1-q1",
+      "stem": "Light hits a mirror at 35° to the normal. Angle of reflection?",
+      "choices": [
+        "35°",
+        "55°",
+        "70°",
+        "90°"
+      ],
+      "correctIndex": 0,
+      "explanation": "Law of reflection: angle of incidence = angle of reflection = 35°."
+    },
+    {
+      "id": "phys-light-1-q2",
+      "stem": "Light travels from air (n≈1) into glass (n≈1.5). It will:",
+      "choices": [
+        "Speed up, bend away from normal",
+        "Slow down, bend towards normal",
+        "No change",
+        "Stop completely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Entering denser medium → slower → bends TOWARDS the normal."
+    },
+    {
+      "id": "phys-light-1-q3",
+      "stem": "An object placed inside the focal point of a convex lens produces:",
+      "choices": [
+        "Real, inverted, magnified",
+        "Virtual, upright, magnified (magnifying glass)",
+        "Real, upright, same size",
+        "No image"
+      ],
+      "correctIndex": 1,
+      "explanation": "Object distance < f → magnifying glass effect: virtual, upright, magnified image."
+    },
+    {
+      "id": "phys-light-1-q4",
+      "stem": "Which lens corrects short-sightedness (myopia)?",
+      "choices": [
+        "Convex (converging)",
+        "Concave (diverging) — spreads light, moving focal point back onto retina",
+        "Plane mirror",
+        "No lens needed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Myopia: image focuses too early. Concave lens diverges rays, effectively lengthening focal length."
+    },
+    {
+      "id": "phys-light-1-q5",
+      "stem": "Why does a diamond sparkle more than glass?",
+      "choices": [
+        "Diamond produces its own light",
+        "Higher refractive index (n≈2.42 vs 1.5) → lower critical angle (~24°) → more total internal reflection → more sparkle",
+        "Diamond is harder",
+        "Diamond absorbs less light"
+      ],
+      "correctIndex": 1,
+      "explanation": "Small critical angle = light bounces around inside many times before escaping — creates brilliant sparkle."
+    },
+    {
+      "id": "phys-light-1-q6",
+      "stem": "A red filter in white light appears red because:",
+      "choices": [
+        "It adds red to all light",
+        "It transmits red light and absorbs all other colours",
+        "It reflects blue and green",
+        "It converts all light to red"
+      ],
+      "correctIndex": 1,
+      "explanation": "Filters transmit their own colour; absorb complementary colours."
+    },
+    {
+      "id": "phys-light-1-q7",
+      "stem": "Plane mirror image is always:",
+      "choices": [
+        "Real and inverted",
+        "Virtual, upright, same size, laterally inverted",
+        "Real and magnified",
+        "Virtual and smaller"
+      ],
+      "correctIndex": 1,
+      "explanation": "Plane mirror: virtual (behind mirror), upright, laterally inverted, same distance behind as object is in front."
+    },
+    {
+      "id": "phys-light-1-q8",
+      "stem": "Total internal reflection requires:",
+      "choices": [
+        "Light entering denser medium",
+        "Light in denser medium hitting boundary at angle > critical angle",
+        "Light in air only",
+        "A mirror"
+      ],
+      "correctIndex": 1,
+      "explanation": "TIR: (1) light in denser medium, (2) angle > critical angle. Both conditions must be met."
+    },
+    {
+      "id": "phys-light-1-q9",
+      "stem": "Lens power: f=0.25 m. Power in dioptres?",
+      "choices": [
+        "0.25 D",
+        "2.5 D",
+        "4 D",
+        "25 D"
+      ],
+      "correctIndex": 2,
+      "explanation": "P=1/f=1/0.25=4 D. Shorter focal length = more powerful lens."
+    },
+    {
+      "id": "phys-light-1-q10",
+      "stem": "Object beyond 2F of convex lens produces:",
+      "choices": [
+        "Virtual, magnified",
+        "Real, inverted, diminished (like a camera)",
+        "Virtual, inverted",
+        "No image"
+      ],
+      "correctIndex": 1,
+      "explanation": "Object distance > 2F → real, inverted, diminished image. This is how cameras work."
+    },
+    {
+      "id": "phys-light-1-q11",
+      "stem": "A green leaf in red light appears:",
+      "choices": [
+        "Green",
+        "Red",
+        "Black — leaf absorbs red (only reflects green); no green in red light → no light reflected = black",
+        "Yellow"
+      ],
+      "correctIndex": 2,
+      "explanation": "A green object reflects only green light. Red light contains no green → leaf absorbs all red light → no light reflected → appears black."
+    },
+    {
+      "id": "phys-light-1-q12",
+      "stem": "Red + Green light on white screen produces:",
+      "choices": [
+        "Brown",
+        "Yellow",
+        "Cyan",
+        "Magenta"
+      ],
+      "correctIndex": 1,
+      "explanation": "Additive mixing: R+G=Yellow."
+    },
+    {
+      "id": "phys-light-1-q13",
+      "stem": "Optical fibre transmits light by:",
+      "choices": [
+        "Refraction only",
+        "Total internal reflection — light bounces along the core without escaping",
+        "Conduction",
+        "Diffraction"
+      ],
+      "correctIndex": 1,
+      "explanation": "TIR keeps light inside the fibre core, even around bends, enabling long-distance, low-loss data transmission."
+    },
+    {
+      "id": "phys-light-1-q14",
+      "stem": "When light enters glass at exactly 0° (along the normal):",
+      "choices": [
+        "It reflects completely",
+        "It bends sharply",
+        "It continues straight — no change in direction, only speed",
+        "It stops"
+      ],
+      "correctIndex": 2,
+      "explanation": "No change in direction when entering along the normal. Speed changes but the ray path is unchanged."
+    },
+    {
+      "id": "phys-light-1-q15",
+      "stem": "A real image can be projected on a screen. What property must it have?",
+      "choices": [
+        "It is virtual",
+        "Light rays from the object actually converge at the image location",
+        "It is behind a mirror",
+        "It is always smaller than object"
+      ],
+      "correctIndex": 1,
+      "explanation": "Real image = light actually passes through the image point. Virtual image = light only appears to come from that point."
+    }
   ]
 }

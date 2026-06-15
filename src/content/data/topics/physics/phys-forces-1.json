@@ -8,68 +8,328 @@
     {
       "id": "phys-forces-1-n1",
       "heading": "Speed, Velocity and Acceleration",
-      "body": "Speed (scalar — magnitude only) = distance ÷ time. v = d/t (m/s). Velocity (vector — magnitude + direction): speed in a given direction. Acceleration = change in velocity ÷ time. a = (v−u)/t (m/s²). Deceleration is negative acceleration. Distance-time graphs: gradient = speed. A straight line = constant speed; a horizontal line = stationary; a curve = acceleration (increasing gradient) or deceleration. Velocity-time graphs: gradient = acceleration; area under graph = distance travelled. A horizontal line = constant velocity; a sloping line = constant acceleration; a curve = changing acceleration. The area under a v-t graph can be found by splitting into shapes (rectangles, triangles)."
+      "body": "Speed (scalar — magnitude only) = distance ÷ time. v = d/t (m/s). Velocity (vector — magnitude + direction): speed in a given direction. Acceleration = change in velocity ÷ time. a = (v−u)/t (m/s²). Deceleration is negative acceleration. Distance-time graphs: gradient = speed. A straight line = constant speed; a horizontal line = stationary; a curve = acceleration (increasing gradient) or deceleration. Velocity-time graphs: gradient = acceleration; area under graph = distance travelled. A horizontal line = constant velocity; a sloping line = constant acceleration; a curve = changing acceleration. The area under a v-t graph can be found by splitting into shapes (rectangles, triangles).",
+      "illustration": {
+        "src": "/images/physics/phys-forces-1-motion-graphs.svg",
+        "alt": "Distance-time and velocity-time graphs showing constant speed, stationary, acceleration, and deceleration.",
+        "caption": "The gradient of a distance-time graph gives speed; the gradient of a velocity-time graph gives acceleration."
+      }
     },
     {
       "id": "phys-forces-1-n2",
       "heading": "Newton's Three Laws of Motion",
-      "body": "First Law (Inertia): An object remains at rest or moves with constant velocity unless acted upon by a resultant (net) force. This is why seatbelts are needed — your body continues moving forward when the car stops. Second Law: F = ma. The acceleration of an object is directly proportional to the resultant force and inversely proportional to its mass. Force measured in Newtons (N). 1 N = force needed to accelerate 1 kg by 1 m/s². Third Law: For every action force, there is an equal and opposite reaction force. These act on DIFFERENT objects. Rocket: gas pushed down → rocket pushed up. Walking: foot pushes ground back → ground pushes foot forward. Swimming: water pushed back → swimmer pushed forward."
+      "body": "First Law (Inertia): An object remains at rest or moves with constant velocity unless acted upon by a resultant (net) force. This is why seatbelts are needed — your body continues moving forward when the car stops. Second Law: F = ma. The acceleration of an object is directly proportional to the resultant force and inversely proportional to its mass. Force measured in Newtons (N). 1 N = force needed to accelerate 1 kg by 1 m/s². Third Law: For every action force, there is an equal and opposite reaction force. These act on DIFFERENT objects. Rocket: gas pushed down → rocket pushed up. Walking: foot pushes ground back → ground pushes foot forward. Swimming: water pushed back → swimmer pushed forward.",
+      "illustration": {
+        "src": "/images/physics/phys-forces-1-newtons-laws.svg",
+        "alt": "Illustrated examples of Newton three laws: seatbelt inertia, F equals ma rocket, and action-reaction in swimming.",
+        "caption": "Newton First Law: objects remain at rest or move at constant velocity unless a resultant force acts."
+      }
     },
     {
       "id": "phys-forces-1-n3",
       "heading": "Balanced and Unbalanced Forces",
-      "body": "Forces are vectors — they have magnitude and direction. The resultant (net) force is the vector sum of all forces. Balanced forces: resultant = 0 → object remains stationary or moves at constant velocity (Newton's 1st Law). Unbalanced forces: resultant ≠ 0 → object accelerates in direction of resultant force (Newton's 2nd Law). Free body diagrams show all forces acting on an object. Common forces: Weight (W=mg, downwards), Normal reaction (perpendicular to surface, upwards), Tension (in strings/ropes), Friction (opposes motion), Air resistance/drag (opposes motion, increases with speed), Upthrust (in fluids), Driving force (engine thrust)."
+      "body": "Forces are vectors — they have magnitude and direction. The resultant (net) force is the vector sum of all forces. Balanced forces: resultant = 0 → object remains stationary or moves at constant velocity (Newton's 1st Law). Unbalanced forces: resultant ≠ 0 → object accelerates in direction of resultant force (Newton's 2nd Law). Free body diagrams show all forces acting on an object. Common forces: Weight (W=mg, downwards), Normal reaction (perpendicular to surface, upwards), Tension (in strings/ropes), Friction (opposes motion), Air resistance/drag (opposes motion, increases with speed), Upthrust (in fluids), Driving force (engine thrust).",
+      "illustration": {
+        "src": "/images/physics/phys-forces-1-balanced-forces.svg",
+        "alt": "Free body diagrams showing balanced forces on a stationary box and unbalanced forces causing acceleration.",
+        "caption": "When forces are balanced the resultant is zero; unbalanced forces cause acceleration."
+      }
     },
     {
       "id": "phys-forces-1-n4",
       "heading": "Friction and Terminal Velocity",
-      "body": "Friction always opposes motion and converts kinetic energy to thermal energy. Air resistance (drag) increases with speed — as an object falls faster, drag increases until it equals weight. At this point: resultant force = 0 → no more acceleration → constant speed = terminal velocity. Skydiver: (1) Jump — weight > drag → accelerate downwards. (2) Drag increases with speed → acceleration decreases. (3) Weight = drag → terminal velocity (~200 km/h). (4) Parachute opens — drag suddenly >> weight → decelerate sharply. (5) New lower terminal velocity (~20 km/h) reached. Velocity-time graph shows: increasing curve → horizontal line → sharp deceleration → new lower horizontal line. Reducing drag: streamlined shapes (sports cars, aircraft, cyclists' helmets)."
+      "body": "Friction always opposes motion and converts kinetic energy to thermal energy. Air resistance (drag) increases with speed — as an object falls faster, drag increases until it equals weight. At this point: resultant force = 0 → no more acceleration → constant speed = terminal velocity. Skydiver: (1) Jump — weight > drag → accelerate downwards. (2) Drag increases with speed → acceleration decreases. (3) Weight = drag → terminal velocity (~200 km/h). (4) Parachute opens — drag suddenly >> weight → decelerate sharply. (5) New lower terminal velocity (~20 km/h) reached. Velocity-time graph shows: increasing curve → horizontal line → sharp deceleration → new lower horizontal line. Reducing drag: streamlined shapes (sports cars, aircraft, cyclists' helmets).",
+      "illustration": {
+        "src": "/images/physics/phys-forces-1-terminal-velocity.svg",
+        "alt": "Velocity-time graph of a skydiver showing acceleration, terminal velocity, parachute opening, and new lower terminal velocity.",
+        "caption": "Terminal velocity is reached when drag equals weight and the resultant force becomes zero."
+      }
     },
     {
       "id": "phys-forces-1-n5",
       "heading": "Mass, Weight and Gravity",
-      "body": "Mass (kg) — amount of matter in an object, constant everywhere. Weight (N) — gravitational force acting on mass. W = mg. On Earth, g ≈ 9.8 m/s² (often rounded to 10). On the Moon, g ≈ 1.6 m/s² → weight is ~1/6 of Earth weight but mass is unchanged. Centre of mass: point where weight appears to act. For uniform objects, it is at the geometric centre. Stability: an object topples when its centre of mass moves beyond its base. Wider base + lower centre of mass = more stable. Measured using a Newton meter (spring balance), which measures force, not mass (calibrated for Earth's g)."
+      "body": "Mass (kg) — amount of matter in an object, constant everywhere. Weight (N) — gravitational force acting on mass. W = mg. On Earth, g ≈ 9.8 m/s² (often rounded to 10). On the Moon, g ≈ 1.6 m/s² → weight is ~1/6 of Earth weight but mass is unchanged. Centre of mass: point where weight appears to act. For uniform objects, it is at the geometric centre. Stability: an object topples when its centre of mass moves beyond its base. Wider base + lower centre of mass = more stable. Measured using a Newton meter (spring balance), which measures force, not mass (calibrated for Earth's g).",
+      "illustration": {
+        "src": "/images/physics/phys-forces-1-mass-weight.svg",
+        "alt": "Comparison of mass and weight on Earth vs the Moon, with W equals mg formula and centre of mass stability.",
+        "caption": "Mass is constant everywhere; weight depends on the gravitational field strength (g)."
+      }
     },
     {
       "id": "phys-forces-1-n6",
       "heading": "Hooke's Law and Springs",
-      "body": "Hooke's Law: the extension of a spring is directly proportional to the applied force, up to the limit of proportionality. F = kx, where k = spring constant (N/m — stiffness), x = extension (m). A stiff spring has a high k. Beyond the elastic limit, the spring is permanently deformed (plastic deformation) and will not return to its original length. Force-extension graphs: straight line through origin = Hooke's Law obeyed. Curve = limit of proportionality exceeded. The area under the graph = work done (elastic potential energy stored). EPE = ½Fx = ½kx². Practical: hang masses on a spring, measure extension, plot F vs x. Gradient = k. Applications: suspension systems, measuring instruments (spring balances), elastic bands."
+      "body": "Hooke's Law: the extension of a spring is directly proportional to the applied force, up to the limit of proportionality. F = kx, where k = spring constant (N/m — stiffness), x = extension (m). A stiff spring has a high k. Beyond the elastic limit, the spring is permanently deformed (plastic deformation) and will not return to its original length. Force-extension graphs: straight line through origin = Hooke's Law obeyed. Curve = limit of proportionality exceeded. The area under the graph = work done (elastic potential energy stored). EPE = ½Fx = ½kx². Practical: hang masses on a spring, measure extension, plot F vs x. Gradient = k. Applications: suspension systems, measuring instruments (spring balances), elastic bands.",
+      "illustration": {
+        "src": "/images/physics/phys-forces-1-hookes-law.svg",
+        "alt": "Spring extension experiment setup and force-extension graph showing Hooke Law region and limit of proportionality.",
+        "caption": "Hooke Law: extension is directly proportional to force up to the limit of proportionality (F equals kx)."
+      }
     },
     {
       "id": "phys-forces-1-n7",
       "heading": "Momentum",
-      "body": "Momentum is the product of mass and velocity: p = mv (kg·m/s). It is a vector quantity (direction matters). Conservation of momentum: in a closed system (no external forces), total momentum before a collision = total momentum after. Types of collisions: elastic — kinetic energy conserved (ideal, rarely perfectly in real life). Inelastic — kinetic energy NOT conserved (converted to heat/sound/deformation). Example: Car A (1000 kg, 20 m/s) hits stationary Car B (800 kg). They stick together (inelastic). Momentum before = 1000×20 = 20,000 kg·m/s. After: combined mass = 1800 kg. 20,000 = 1800×v → v ≈ 11.1 m/s. Safety features: crumple zones, airbags, and seatbelts increase collision time → reduce force experienced (F = Δp/Δt). The same change in momentum over a longer time = smaller force."
+      "body": "Momentum is the product of mass and velocity: p = mv (kg·m/s). It is a vector quantity (direction matters). Conservation of momentum: in a closed system (no external forces), total momentum before a collision = total momentum after. Types of collisions: elastic — kinetic energy conserved (ideal, rarely perfectly in real life). Inelastic — kinetic energy NOT conserved (converted to heat/sound/deformation). Example: Car A (1000 kg, 20 m/s) hits stationary Car B (800 kg). They stick together (inelastic). Momentum before = 1000×20 = 20,000 kg·m/s. After: combined mass = 1800 kg. 20,000 = 1800×v → v ≈ 11.1 m/s. Safety features: crumple zones, airbags, and seatbelts increase collision time → reduce force experienced (F = Δp/Δt). The same change in momentum over a longer time = smaller force.",
+      "illustration": {
+        "src": "/images/physics/phys-forces-1-momentum.svg",
+        "alt": "Conservation of momentum diagram showing two cars colliding and sticking together, with before and after calculations.",
+        "caption": "Momentum is conserved in a closed system: total momentum before collision equals total momentum after."
+      }
     }
   ],
   "flashcards": [
-    { "id": "phys-forces-1-f1", "term": "Speed", "definition": "Distance per unit time: v = d/t (m/s). Scalar (magnitude only).", "example": "100 m in 12.5 s = 8 m/s." },
-    { "id": "phys-forces-1-f2", "term": "Acceleration", "definition": "Rate of change of velocity: a = (v−u)/t (m/s²). Vector (direction matters).", "example": "0 to 20 m/s in 4 s: a = 5 m/s²." },
-    { "id": "phys-forces-1-f3", "term": "Newton's 2nd Law", "definition": "F = ma. Resultant force = mass × acceleration. 1 N = force to accelerate 1 kg by 1 m/s².", "example": "10 kg object, a=3 m/s² → F=30 N." },
-    { "id": "phys-forces-1-f4", "term": "Terminal velocity", "definition": "Constant speed reached when drag/air resistance equals weight — resultant force = zero, acceleration = zero.", "example": "Skydiver: ~200 km/h before parachute, ~20 km/h after." },
-    { "id": "phys-forces-1-f5", "term": "Weight vs Mass", "definition": "Mass (kg) — amount of matter, constant. Weight (N) = mg — gravitational force, varies with location.", "example": "70 kg person: mass = 70 kg everywhere. Weight on Earth = 700 N; on Moon ≈ 112 N." },
-    { "id": "phys-forces-1-f6", "term": "Hooke's Law", "definition": "Extension of spring ∝ applied force, up to limit of proportionality. F = kx (k = spring constant).", "example": "Spring extends 0.1 m under 5 N: k = 5/0.1 = 50 N/m." },
-    { "id": "phys-forces-1-f7", "term": "Resultant force", "definition": "The single force representing the vector sum of all forces. Zero resultant → constant velocity or rest.", "example": "10 N right + 4 N left = 6 N right resultant." },
-    { "id": "phys-forces-1-f8", "term": "Momentum", "definition": "p = mv (kg·m/s). Vector. Conserved in closed systems. Total before = total after.", "example": "2000 kg car at 15 m/s: p = 30,000 kg·m/s." },
-    { "id": "phys-forces-1-f9", "term": "Distance-time graph", "definition": "Gradient = speed. Straight line = constant speed. Horizontal = stationary. Curve = acceleration.", "example": "A line with gradient 5 m/s means 5 metres travelled per second." },
-    { "id": "phys-forces-1-f10", "term": "Velocity-time graph", "definition": "Gradient = acceleration. Area under graph = distance travelled.", "example": "Area of rectangle (10s × 15m/s) = 150 m travelled." },
-    { "id": "phys-forces-1-f11", "term": "Limit of proportionality", "definition": "Point beyond which Hooke's Law no longer applies — extension is no longer proportional to force.", "example": "A spring stretched beyond its elastic limit will not return to its original length." },
-    { "id": "phys-forces-1-f12", "term": "Conservation of momentum", "definition": "In a closed system, total momentum before collision = total momentum after collision.", "example": "m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂. Used to find unknown velocities after collisions." }
+    {
+      "id": "phys-forces-1-f1",
+      "term": "Speed",
+      "definition": "Distance per unit time: v = d/t (m/s). Scalar (magnitude only).",
+      "example": "100 m in 12.5 s = 8 m/s."
+    },
+    {
+      "id": "phys-forces-1-f2",
+      "term": "Acceleration",
+      "definition": "Rate of change of velocity: a = (v−u)/t (m/s²). Vector (direction matters).",
+      "example": "0 to 20 m/s in 4 s: a = 5 m/s²."
+    },
+    {
+      "id": "phys-forces-1-f3",
+      "term": "Newton's 2nd Law",
+      "definition": "F = ma. Resultant force = mass × acceleration. 1 N = force to accelerate 1 kg by 1 m/s².",
+      "example": "10 kg object, a=3 m/s² → F=30 N."
+    },
+    {
+      "id": "phys-forces-1-f4",
+      "term": "Terminal velocity",
+      "definition": "Constant speed reached when drag/air resistance equals weight — resultant force = zero, acceleration = zero.",
+      "example": "Skydiver: ~200 km/h before parachute, ~20 km/h after."
+    },
+    {
+      "id": "phys-forces-1-f5",
+      "term": "Weight vs Mass",
+      "definition": "Mass (kg) — amount of matter, constant. Weight (N) = mg — gravitational force, varies with location.",
+      "example": "70 kg person: mass = 70 kg everywhere. Weight on Earth = 700 N; on Moon ≈ 112 N."
+    },
+    {
+      "id": "phys-forces-1-f6",
+      "term": "Hooke's Law",
+      "definition": "Extension of spring ∝ applied force, up to limit of proportionality. F = kx (k = spring constant).",
+      "example": "Spring extends 0.1 m under 5 N: k = 5/0.1 = 50 N/m."
+    },
+    {
+      "id": "phys-forces-1-f7",
+      "term": "Resultant force",
+      "definition": "The single force representing the vector sum of all forces. Zero resultant → constant velocity or rest.",
+      "example": "10 N right + 4 N left = 6 N right resultant."
+    },
+    {
+      "id": "phys-forces-1-f8",
+      "term": "Momentum",
+      "definition": "p = mv (kg·m/s). Vector. Conserved in closed systems. Total before = total after.",
+      "example": "2000 kg car at 15 m/s: p = 30,000 kg·m/s."
+    },
+    {
+      "id": "phys-forces-1-f9",
+      "term": "Distance-time graph",
+      "definition": "Gradient = speed. Straight line = constant speed. Horizontal = stationary. Curve = acceleration.",
+      "example": "A line with gradient 5 m/s means 5 metres travelled per second."
+    },
+    {
+      "id": "phys-forces-1-f10",
+      "term": "Velocity-time graph",
+      "definition": "Gradient = acceleration. Area under graph = distance travelled.",
+      "example": "Area of rectangle (10s × 15m/s) = 150 m travelled."
+    },
+    {
+      "id": "phys-forces-1-f11",
+      "term": "Limit of proportionality",
+      "definition": "Point beyond which Hooke's Law no longer applies — extension is no longer proportional to force.",
+      "example": "A spring stretched beyond its elastic limit will not return to its original length."
+    },
+    {
+      "id": "phys-forces-1-f12",
+      "term": "Conservation of momentum",
+      "definition": "In a closed system, total momentum before collision = total momentum after collision.",
+      "example": "m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂. Used to find unknown velocities after collisions."
+    }
   ],
   "questions": [
-    { "id": "phys-forces-1-q1", "stem": "Car travels 150 m in 10 s. Average speed?", "choices": ["10 m/s", "1500 m/s", "15 m/s", "150 m/s"], "correctIndex": 2, "explanation": "Speed = distance/time = 150/10 = 15 m/s." },
-    { "id": "phys-forces-1-q2", "stem": "4 kg object, resultant force 20 N. Acceleration?", "choices": ["80 m/s²", "0.2 m/s²", "5 m/s²", "16 m/s²"], "correctIndex": 2, "explanation": "F=ma → a=F/m = 20/4 = 5 m/s²." },
-    { "id": "phys-forces-1-q3", "stem": "Skydiver at terminal velocity. Forces are:", "choices": ["Gravity > air resistance", "No forces", "Air resistance > gravity", "Balanced — weight = air resistance"], "correctIndex": 3, "explanation": "Terminal velocity → zero acceleration → zero resultant force → forces balanced (Newton's 1st)." },
-    { "id": "phys-forces-1-q4", "stem": "Rocket expels gas downward. Rocket moves:", "choices": ["Nowhere", "Upward — equal and opposite reaction (Newton's 3rd)", "Slower", "Downward"], "correctIndex": 1, "explanation": "Action: gas pushed down. Reaction: rocket pushed up. Forces act on different objects." },
-    { "id": "phys-forces-1-q5", "stem": "Weight of 12 kg object on Earth? (g=10 m/s²)", "choices": ["1.2 N", "12 N", "120 N", "22 N"], "correctIndex": 2, "explanation": "W=mg = 12×10 = 120 N." },
-    { "id": "phys-forces-1-q6", "stem": "Spring extends 0.05 m under 10 N force. Spring constant?", "choices": ["0.5 N/m", "2 N/m", "200 N/m", "50 N/m"], "correctIndex": 2, "explanation": "k=F/x = 10/0.05 = 200 N/m." },
-    { "id": "phys-forces-1-q7", "stem": "Distance-time graph: horizontal line. What does this show?", "choices": ["Constant speed", "Stationary (zero speed)", "Accelerating", "Decelerating"], "correctIndex": 1, "explanation": "Horizontal line = distance not changing = stationary. Gradient = 0 = speed = 0." },
-    { "id": "phys-forces-1-q8", "stem": "V-t graph: area under graph represents:", "choices": ["Acceleration", "Speed", "Distance travelled", "Force"], "correctIndex": 2, "explanation": "Area = velocity × time = distance. Split area into rectangles/triangles for curved graphs." },
-    { "id": "phys-forces-1-q9", "stem": "Truck (5000 kg, 10 m/s) hits stationary car (1500 kg). They stick. Final speed?", "choices": ["5000/1500=3.3 m/s", "50,000=6500×v → v≈7.7 m/s", "10 m/s", "0 m/s"], "correctIndex": 1, "explanation": "Momentum before: 5000×10=50,000. After: 6500×v. v=50,000/6500≈7.7 m/s." },
-    { "id": "phys-forces-1-q10", "stem": "Why do airbags reduce injury?", "choices": ["They are soft", "They increase collision time → reduce force (F=Δp/Δt)", "They stop momentum completely", "They increase the car's mass"], "correctIndex": 1, "explanation": "Same change in momentum over a longer time = smaller average force = less injury." },
-    { "id": "phys-forces-1-q11", "stem": "65 kg astronaut: weight on Moon? (g_moon=1.6 m/s²)", "choices": ["65 N", "104 N", "650 N", "40.6 N"], "correctIndex": 1, "explanation": "W=mg=65×1.6=104 N. Mass is still 65 kg everywhere." },
-    { "id": "phys-forces-1-q12", "stem": "V-t graph: horizontal line at +15 m/s. What describes the motion?", "choices": ["Stationary", "Constant velocity of 15 m/s", "Accelerating at 15 m/s²", "Decelerating"], "correctIndex": 1, "explanation": "Horizontal v-t line = velocity not changing = constant velocity. No acceleration (gradient=0)." },
-    { "id": "phys-forces-1-q13", "stem": "Spring stretched beyond elastic limit. What happens when force removed?", "choices": ["Returns to original length", "Stays permanently stretched — plastic deformation", "Breaks immediately", "Contracts beyond original length"], "correctIndex": 1, "explanation": "Beyond elastic limit = permanent (plastic) deformation. The spring will not return to its original length." },
-    { "id": "phys-forces-1-q14", "stem": "Which increases friction between tyre and road?", "choices": ["Smoother tyres", "Wet road", "Rougher tyre tread and dry road", "Higher speed"], "correctIndex": 2, "explanation": "Rougher surfaces = more friction. Wet conditions reduce friction (risk of aquaplaning). Tread channels water away." },
-    { "id": "phys-forces-1-q15", "stem": "A car accelerates from 5 m/s to 25 m/s in 4 s. Acceleration?", "choices": ["5 m/s²", "6.25 m/s²", "1.25 m/s²", "20 m/s²"], "correctIndex": 0, "explanation": "a=(v−u)/t=(25−5)/4=20/4=5 m/s²." }
+    {
+      "id": "phys-forces-1-q1",
+      "stem": "Car travels 150 m in 10 s. Average speed?",
+      "choices": [
+        "10 m/s",
+        "1500 m/s",
+        "15 m/s",
+        "150 m/s"
+      ],
+      "correctIndex": 2,
+      "explanation": "Speed = distance/time = 150/10 = 15 m/s."
+    },
+    {
+      "id": "phys-forces-1-q2",
+      "stem": "4 kg object, resultant force 20 N. Acceleration?",
+      "choices": [
+        "80 m/s²",
+        "0.2 m/s²",
+        "5 m/s²",
+        "16 m/s²"
+      ],
+      "correctIndex": 2,
+      "explanation": "F=ma → a=F/m = 20/4 = 5 m/s²."
+    },
+    {
+      "id": "phys-forces-1-q3",
+      "stem": "Skydiver at terminal velocity. Forces are:",
+      "choices": [
+        "Gravity > air resistance",
+        "No forces",
+        "Air resistance > gravity",
+        "Balanced — weight = air resistance"
+      ],
+      "correctIndex": 3,
+      "explanation": "Terminal velocity → zero acceleration → zero resultant force → forces balanced (Newton's 1st)."
+    },
+    {
+      "id": "phys-forces-1-q4",
+      "stem": "Rocket expels gas downward. Rocket moves:",
+      "choices": [
+        "Nowhere",
+        "Upward — equal and opposite reaction (Newton's 3rd)",
+        "Slower",
+        "Downward"
+      ],
+      "correctIndex": 1,
+      "explanation": "Action: gas pushed down. Reaction: rocket pushed up. Forces act on different objects."
+    },
+    {
+      "id": "phys-forces-1-q5",
+      "stem": "Weight of 12 kg object on Earth? (g=10 m/s²)",
+      "choices": [
+        "1.2 N",
+        "12 N",
+        "120 N",
+        "22 N"
+      ],
+      "correctIndex": 2,
+      "explanation": "W=mg = 12×10 = 120 N."
+    },
+    {
+      "id": "phys-forces-1-q6",
+      "stem": "Spring extends 0.05 m under 10 N force. Spring constant?",
+      "choices": [
+        "0.5 N/m",
+        "2 N/m",
+        "200 N/m",
+        "50 N/m"
+      ],
+      "correctIndex": 2,
+      "explanation": "k=F/x = 10/0.05 = 200 N/m."
+    },
+    {
+      "id": "phys-forces-1-q7",
+      "stem": "Distance-time graph: horizontal line. What does this show?",
+      "choices": [
+        "Constant speed",
+        "Stationary (zero speed)",
+        "Accelerating",
+        "Decelerating"
+      ],
+      "correctIndex": 1,
+      "explanation": "Horizontal line = distance not changing = stationary. Gradient = 0 = speed = 0."
+    },
+    {
+      "id": "phys-forces-1-q8",
+      "stem": "V-t graph: area under graph represents:",
+      "choices": [
+        "Acceleration",
+        "Speed",
+        "Distance travelled",
+        "Force"
+      ],
+      "correctIndex": 2,
+      "explanation": "Area = velocity × time = distance. Split area into rectangles/triangles for curved graphs."
+    },
+    {
+      "id": "phys-forces-1-q9",
+      "stem": "Truck (5000 kg, 10 m/s) hits stationary car (1500 kg). They stick. Final speed?",
+      "choices": [
+        "5000/1500=3.3 m/s",
+        "50,000=6500×v → v≈7.7 m/s",
+        "10 m/s",
+        "0 m/s"
+      ],
+      "correctIndex": 1,
+      "explanation": "Momentum before: 5000×10=50,000. After: 6500×v. v=50,000/6500≈7.7 m/s."
+    },
+    {
+      "id": "phys-forces-1-q10",
+      "stem": "Why do airbags reduce injury?",
+      "choices": [
+        "They are soft",
+        "They increase collision time → reduce force (F=Δp/Δt)",
+        "They stop momentum completely",
+        "They increase the car's mass"
+      ],
+      "correctIndex": 1,
+      "explanation": "Same change in momentum over a longer time = smaller average force = less injury."
+    },
+    {
+      "id": "phys-forces-1-q11",
+      "stem": "65 kg astronaut: weight on Moon? (g_moon=1.6 m/s²)",
+      "choices": [
+        "65 N",
+        "104 N",
+        "650 N",
+        "40.6 N"
+      ],
+      "correctIndex": 1,
+      "explanation": "W=mg=65×1.6=104 N. Mass is still 65 kg everywhere."
+    },
+    {
+      "id": "phys-forces-1-q12",
+      "stem": "V-t graph: horizontal line at +15 m/s. What describes the motion?",
+      "choices": [
+        "Stationary",
+        "Constant velocity of 15 m/s",
+        "Accelerating at 15 m/s²",
+        "Decelerating"
+      ],
+      "correctIndex": 1,
+      "explanation": "Horizontal v-t line = velocity not changing = constant velocity. No acceleration (gradient=0)."
+    },
+    {
+      "id": "phys-forces-1-q13",
+      "stem": "Spring stretched beyond elastic limit. What happens when force removed?",
+      "choices": [
+        "Returns to original length",
+        "Stays permanently stretched — plastic deformation",
+        "Breaks immediately",
+        "Contracts beyond original length"
+      ],
+      "correctIndex": 1,
+      "explanation": "Beyond elastic limit = permanent (plastic) deformation. The spring will not return to its original length."
+    },
+    {
+      "id": "phys-forces-1-q14",
+      "stem": "Which increases friction between tyre and road?",
+      "choices": [
+        "Smoother tyres",
+        "Wet road",
+        "Rougher tyre tread and dry road",
+        "Higher speed"
+      ],
+      "correctIndex": 2,
+      "explanation": "Rougher surfaces = more friction. Wet conditions reduce friction (risk of aquaplaning). Tread channels water away."
+    },
+    {
+      "id": "phys-forces-1-q15",
+      "stem": "A car accelerates from 5 m/s to 25 m/s in 4 s. Acceleration?",
+      "choices": [
+        "5 m/s²",
+        "6.25 m/s²",
+        "1.25 m/s²",
+        "20 m/s²"
+      ],
+      "correctIndex": 0,
+      "explanation": "a=(v−u)/t=(25−5)/4=20/4=5 m/s²."
+    }
   ]
 }

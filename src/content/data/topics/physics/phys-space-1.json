@@ -8,37 +8,72 @@
     {
       "id": "phys-space-1-n1",
       "heading": "Our Solar System",
-      "body": "The Solar System consists of: the Sun (a medium-sized star at the centre, contains 99.8% of system's mass), eight planets in order: Mercury, Venus, Earth, Mars (inner rocky planets), Jupiter, Saturn, Uranus, Neptune (outer gas/ice giants). Dwarf planets (Pluto, Ceres, Eris). Moons (natural satellites orbiting planets — Earth has 1, Jupiter has 95). Asteroids (rocky bodies, mainly in asteroid belt between Mars and Jupiter). Comets (ice and dust, highly elliptical orbits, develop tails near Sun). All planets orbit the Sun in elliptical paths, counterclockwise (from above), in roughly the same plane (ecliptic). Planetary orbits obey Kepler's laws. The Sun's energy comes from nuclear fusion: hydrogen → helium in the core, converting ~4 million tonnes of mass to energy every second (E=mc²)."
+      "body": "The Solar System consists of: the Sun (a medium-sized star at the centre, contains 99.8% of system's mass), eight planets in order: Mercury, Venus, Earth, Mars (inner rocky planets), Jupiter, Saturn, Uranus, Neptune (outer gas/ice giants). Dwarf planets (Pluto, Ceres, Eris). Moons (natural satellites orbiting planets — Earth has 1, Jupiter has 95). Asteroids (rocky bodies, mainly in asteroid belt between Mars and Jupiter). Comets (ice and dust, highly elliptical orbits, develop tails near Sun). All planets orbit the Sun in elliptical paths, counterclockwise (from above), in roughly the same plane (ecliptic). Planetary orbits obey Kepler's laws. The Sun's energy comes from nuclear fusion: hydrogen → helium in the core, converting ~4 million tonnes of mass to energy every second (E=mc²).",
+      "illustration": {
+        "src": "/images/physics/phys-space-1-solar-system.svg",
+        "alt": "The eight planets orbiting the Sun, with inner rocky planets and outer gas giants.",
+        "caption": "The solar system consists of the Sun and eight planets, with an asteroid belt between Mars and Jupiter."
+      }
     },
     {
       "id": "phys-space-1-n2",
       "heading": "Gravity and Orbits",
-      "body": "Gravity is the force of attraction between all masses. Newton's Law of Universal Gravitation: F = Gm₁m₂/r². Gravity provides the centripetal force keeping planets and moons in orbit. An orbit is a balance between: the object's forward velocity (wants to go straight) and gravity (pulls it inward). The result: continuous falling inward but moving forward fast enough to 'miss' — an orbit. Lower orbits: stronger gravity → faster orbital speed, shorter orbital period. Geostationary satellites orbit at ~36,000 km altitude, directly above equator, period = 24 hours — appear stationary in sky (used for communications, TV broadcasting). Low Earth orbit (LEO) satellites: ~200-2000 km altitude, ~90 minute period (ISS, Earth observation). Weightlessness in orbit: NOT zero gravity — astronauts are in continuous freefall around Earth (they and the spacecraft fall together → apparent weightlessness)."
+      "body": "Gravity is the force of attraction between all masses. Newton's Law of Universal Gravitation: F = Gm₁m₂/r². Gravity provides the centripetal force keeping planets and moons in orbit. An orbit is a balance between: the object's forward velocity (wants to go straight) and gravity (pulls it inward). The result: continuous falling inward but moving forward fast enough to 'miss' — an orbit. Lower orbits: stronger gravity → faster orbital speed, shorter orbital period. Geostationary satellites orbit at ~36,000 km altitude, directly above equator, period = 24 hours — appear stationary in sky (used for communications, TV broadcasting). Low Earth orbit (LEO) satellites: ~200-2000 km altitude, ~90 minute period (ISS, Earth observation). Weightlessness in orbit: NOT zero gravity — astronauts are in continuous freefall around Earth (they and the spacecraft fall together → apparent weightlessness).",
+      "illustration": {
+        "src": "/images/physics/phys-space-1-gravity-orbits.svg",
+        "alt": "Satellite orbit showing centripetal force from gravity keeping it in circular motion around Earth.",
+        "caption": "For a stable orbit, the gravitational force must provide the required centripetal force."
+      }
     },
     {
       "id": "phys-space-1-n3",
       "heading": "The Life Cycle of Stars",
-      "body": "Stars form from clouds of dust and gas (nebulae) pulled together by gravity. (1) Protostar: gravitational collapse heats the core. (2) Main sequence: nuclear fusion of hydrogen → helium begins — outward radiation pressure balances inward gravity → stable star. Our Sun has been main sequence ~4.6 billion years; will remain for ~5 billion more. (3) When hydrogen fuel depletes: star's fate depends on mass. Low-mass stars (like Sun): Red giant (expands, cools) → planetary nebula (outer layers ejected) → white dwarf (dense core, slowly cools). High-mass stars: Red supergiant → supernova (catastrophic explosion, briefly outshines galaxy) → either neutron star (incredibly dense, ~10 km diameter, mass > Sun) OR black hole (for very massive stars — gravity so strong light cannot escape). Elements heavier than iron are formed ONLY in supernovae — we are made of stardust."
+      "body": "Stars form from clouds of dust and gas (nebulae) pulled together by gravity. (1) Protostar: gravitational collapse heats the core. (2) Main sequence: nuclear fusion of hydrogen → helium begins — outward radiation pressure balances inward gravity → stable star. Our Sun has been main sequence ~4.6 billion years; will remain for ~5 billion more. (3) When hydrogen fuel depletes: star's fate depends on mass. Low-mass stars (like Sun): Red giant (expands, cools) → planetary nebula (outer layers ejected) → white dwarf (dense core, slowly cools). High-mass stars: Red supergiant → supernova (catastrophic explosion, briefly outshines galaxy) → either neutron star (incredibly dense, ~10 km diameter, mass > Sun) OR black hole (for very massive stars — gravity so strong light cannot escape). Elements heavier than iron are formed ONLY in supernovae — we are made of stardust.",
+      "illustration": {
+        "src": "/images/physics/phys-space-1-star-lifecycle.svg",
+        "alt": "Stellar evolution flowchart from nebula to main sequence to red giant or supergiant to white dwarf or neutron star or black hole.",
+        "caption": "Stars like our Sun end as white dwarfs; massive stars go supernova and leave neutron stars or black holes."
+      }
     },
     {
       "id": "phys-space-1-n4",
       "heading": "The Big Bang and Expanding Universe",
-      "body": "The Big Bang theory: the universe began ~13.8 billion years ago from an infinitely hot, dense point and has been expanding ever since. Evidence: (1) Redshift — light from distant galaxies is shifted towards red end of spectrum (longer wavelength). This means galaxies are moving AWAY from us. The further the galaxy, the greater the redshift → faster it recedes. (2) Cosmic Microwave Background (CMB) radiation — uniform microwave radiation from all directions, the 'afterglow' of the Big Bang, cooled to ~2.7 K. Hubble's Law: recessional velocity ∝ distance (v = H₀d). This supports expansion. If everything is moving apart, the universe must have been concentrated at a single point in the past. Doppler effect analogy: siren pitch drops as ambulance moves away — same principle with light waves stretching. Key point: galaxies themselves are NOT expanding — space between them IS."
+      "body": "The Big Bang theory: the universe began ~13.8 billion years ago from an infinitely hot, dense point and has been expanding ever since. Evidence: (1) Redshift — light from distant galaxies is shifted towards red end of spectrum (longer wavelength). This means galaxies are moving AWAY from us. The further the galaxy, the greater the redshift → faster it recedes. (2) Cosmic Microwave Background (CMB) radiation — uniform microwave radiation from all directions, the 'afterglow' of the Big Bang, cooled to ~2.7 K. Hubble's Law: recessional velocity ∝ distance (v = H₀d). This supports expansion. If everything is moving apart, the universe must have been concentrated at a single point in the past. Doppler effect analogy: siren pitch drops as ambulance moves away — same principle with light waves stretching. Key point: galaxies themselves are NOT expanding — space between them IS.",
+      "illustration": {
+        "src": "/images/physics/phys-space-1-big-bang.svg",
+        "alt": "Balloon analogy for universal expansion, redshift of distant galaxies, and cosmic microwave background radiation.",
+        "caption": "The universe began about 13.8 billion years ago and has been expanding ever since."
+      }
     },
     {
       "id": "phys-space-1-n5",
       "heading": "Dark Matter, Dark Energy, and the Universe's Fate",
-      "body": "Observations show that visible matter accounts for only ~5% of the universe. Dark matter (~27%): invisible, undetected matter inferred from its gravitational effects (galaxies rotate too fast — should fly apart without extra mass). Does not emit, absorb, or reflect EM radiation. Evidence: gravitational lensing (light bent by invisible mass), galaxy rotation curves. Dark energy (~68%): mysterious force causing the universe's expansion to ACCELERATE (discovered 1998 — Nobel Prize 2011). Acts opposite to gravity — repulsive. Universe's fate depends on balance between dark energy and gravity: currently, acceleration dominates → 'Big Freeze' or 'Heat Death' — universe continues expanding forever, stars burn out, temperature approaches absolute zero. Alternative theories: Big Crunch (gravity wins → collapse), Big Rip (dark energy increases → tears everything apart)."
+      "body": "Observations show that visible matter accounts for only ~5% of the universe. Dark matter (~27%): invisible, undetected matter inferred from its gravitational effects (galaxies rotate too fast — should fly apart without extra mass). Does not emit, absorb, or reflect EM radiation. Evidence: gravitational lensing (light bent by invisible mass), galaxy rotation curves. Dark energy (~68%): mysterious force causing the universe's expansion to ACCELERATE (discovered 1998 — Nobel Prize 2011). Acts opposite to gravity — repulsive. Universe's fate depends on balance between dark energy and gravity: currently, acceleration dominates → 'Big Freeze' or 'Heat Death' — universe continues expanding forever, stars burn out, temperature approaches absolute zero. Alternative theories: Big Crunch (gravity wins → collapse), Big Rip (dark energy increases → tears everything apart).",
+      "illustration": {
+        "src": "/images/physics/phys-space-1-dark-matter.svg",
+        "alt": "Universe composition pie chart: 68 percent dark energy, 27 percent dark matter, 5 percent ordinary matter.",
+        "caption": "Everything we can see — stars, planets, and galaxies — makes up only about 5 percent of the universe."
+      }
     },
     {
       "id": "phys-space-1-n6",
       "heading": "Day, Night, Seasons and Tides",
-      "body": "Day/night: Earth rotates on its axis once every 24 hours. The side facing the Sun = day; opposite side = night. Seasons: Earth's axis is tilted 23.5° relative to its orbital plane. When the Northern Hemisphere tilts TOWARD the Sun (June) → summer (more direct sunlight, longer days). When tilted AWAY (December) → winter. Southern Hemisphere experiences opposite seasons. Equinoxes (March, September): neither hemisphere tilted towards Sun → equal day/night. Tides: caused by the Moon's (and Sun's) gravitational pull on Earth's oceans. Moon pulls water towards it → high tide on near side. Inertia creates high tide on opposite side. Two high tides and two low tides per ~25-hour period. Spring tides: Sun + Moon aligned (full/new moon) → highest high tides. Neap tides: Sun ⟂ Moon (quarter moons) → smallest tidal range."
+      "body": "Day/night: Earth rotates on its axis once every 24 hours. The side facing the Sun = day; opposite side = night. Seasons: Earth's axis is tilted 23.5° relative to its orbital plane. When the Northern Hemisphere tilts TOWARD the Sun (June) → summer (more direct sunlight, longer days). When tilted AWAY (December) → winter. Southern Hemisphere experiences opposite seasons. Equinoxes (March, September): neither hemisphere tilted towards Sun → equal day/night. Tides: caused by the Moon's (and Sun's) gravitational pull on Earth's oceans. Moon pulls water towards it → high tide on near side. Inertia creates high tide on opposite side. Two high tides and two low tides per ~25-hour period. Spring tides: Sun + Moon aligned (full/new moon) → highest high tides. Neap tides: Sun ⟂ Moon (quarter moons) → smallest tidal range.",
+      "illustration": {
+        "src": "/images/physics/phys-space-1-day-night-tides.svg",
+        "alt": "Earth tilted axis creating seasons, rotation creating day and night, and the Moon gravitational pull creating tides.",
+        "caption": "Seasons are caused by Earth axial tilt, not distance from the Sun."
+      }
     },
     {
       "id": "phys-space-1-n7",
       "heading": "Space Exploration and Satellites",
-      "body": "Satellites: natural (moons) or artificial (human-made). Uses: communications (TV, internet, GPS), Earth observation (weather forecasting, climate monitoring, mapping), navigation (GPS — 24+ satellites in MEO, trilateration), scientific research (Hubble, James Webb telescopes — above atmosphere for clear views), military (surveillance). Escape velocity from Earth: ~11.2 km/s. Rockets use Newton's 3rd Law — expel exhaust downward → upward thrust. Multistage rockets: shed empty fuel tanks to reduce mass. Challenges of space travel: extreme temperatures, vacuum, radiation, microgravity effects on human body (muscle atrophy, bone density loss), psychological isolation, vast distances (Mars ~7 months; nearest star ~4.2 light-years). Space debris: defunct satellites and fragments in orbit pose collision risks — Kessler syndrome (cascade of collisions)."
+      "body": "Satellites: natural (moons) or artificial (human-made). Uses: communications (TV, internet, GPS), Earth observation (weather forecasting, climate monitoring, mapping), navigation (GPS — 24+ satellites in MEO, trilateration), scientific research (Hubble, James Webb telescopes — above atmosphere for clear views), military (surveillance). Escape velocity from Earth: ~11.2 km/s. Rockets use Newton's 3rd Law — expel exhaust downward → upward thrust. Multistage rockets: shed empty fuel tanks to reduce mass. Challenges of space travel: extreme temperatures, vacuum, radiation, microgravity effects on human body (muscle atrophy, bone density loss), psychological isolation, vast distances (Mars ~7 months; nearest star ~4.2 light-years). Space debris: defunct satellites and fragments in orbit pose collision risks — Kessler syndrome (cascade of collisions).",
+      "illustration": {
+        "src": "/images/physics/phys-space-1-space-exploration.svg",
+        "alt": "Uses of artificial satellites: communications, navigation (GPS), Earth observation, and the International Space Station.",
+        "caption": "Satellites provide communications, navigation, weather monitoring, and scientific research platforms."
+      }
     }
   ],
   "flashcards": [

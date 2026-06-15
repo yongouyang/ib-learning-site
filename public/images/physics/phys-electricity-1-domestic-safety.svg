@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Domestic Electricity and Safety</title>
+  <desc id="desc">UK three-pin plug wiring diagram with live, neutral and earth wires labelled, plus fuse, circuit breaker, and RCD safety features.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .wire-live { fill: none; stroke: #8b4513; stroke-width: 3; }
+      .wire-neutral { fill: none; stroke: #3b82f6; stroke-width: 3; }
+      .wire-earth { fill: none; stroke: #22c55e; stroke-width: 3; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .fuse { fill: #fef2f2; stroke: #ef4444; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="480" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Domestic Electricity and Safety</text>
+
+  <!-- UK Plug Diagram -->
+  <rect x="20" y="50" width="360" height="250" rx="10" class="box"/>
+  <text x="200" y="75" text-anchor="middle" class="label">UK Three-Pin Plug (230 V AC, 50 Hz)</text>
+
+  <g transform="translate(60, 92)">
+    <!-- Plug body -->
+    <rect x="0" y="30" width="200" height="140" rx="12" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+    
+    <!-- Pins -->
+    <!-- Earth pin (top, longer) -->
+    <rect x="85" y="0" width="10" height="40" rx="2" fill="#fbbf24"/>
+    <text x="90" y="55" text-anchor="middle" class="sublabel" fill="#22c55e">E</text>
+    
+    <!-- Neutral (bottom left, blue) -->
+    <rect x="30" y="20" width="10" height="40" rx="2" fill="#93c5fd"/>
+    <text x="35" y="75" text-anchor="middle" class="sublabel" fill="#3b82f6">N</text>
+
+    <!-- Live (bottom right, brown) -->
+    <rect x="140" y="20" width="10" height="40" rx="2" fill="#d2b48c"/>
+    <text x="145" y="75" text-anchor="middle" class="sublabel" fill="#8b4513">L</text>
+
+    <!-- Fuse -->
+    <rect x="95" y="35" width="50" height="18" rx="4" class="fuse"/>
+    <text x="120" y="49" text-anchor="middle" class="sublabel" fill="#dc2626">Fuse</text>
+
+    <!-- Cable grip -->
+    <rect x="70" y="160" width="60" height="14" rx="3" fill="#9ca3af"/>
+
+    <!-- Cable -->
+    <rect x="80" y="170" width="40" height="40" rx="4" fill="#374151"/>
+  </g>
+
+  <!-- Wire labels -->
+  <g transform="translate(20, 200)">
+    <line x1="260" y1="30" x2="320" y2="30" stroke="#8b4513" stroke-width="3"/>
+    <rect x="322" y="22" width="130" height="16" rx="4" fill="#f9fafb"/>
+    <text x="326" y="34" class="label" fill="#8b4513">Live (brown)</text>
+
+    <line x1="205" y1="55" x2="300" y2="80" stroke="#3b82f6" stroke-width="3"/>
+    <rect x="302" y="72" width="145" height="16" rx="4" fill="#f9fafb"/>
+    <text x="306" y="84" class="label" fill="#3b82f6">Neutral (blue)</text>
+
+    <line x1="250" y1="80" x2="320" y2="110" stroke="#22c55e" stroke-width="3"/>
+    <rect x="322" y="102" width="155" height="16" rx="4" fill="#f9fafb"/>
+    <text x="326" y="114" class="label" fill="#22c55e">Earth (green/yellow)</text>
+  </g>
+
+  <!-- Safety devices panel -->
+  <rect x="400" y="50" width="380" height="250" rx="10" class="box"/>
+  <text x="590" y="75" text-anchor="middle" class="label">Safety Devices</text>
+
+  <g transform="translate(415, 92)">
+    <!-- Fuse -->
+    <rect x="0" y="0" width="350" height="55" rx="6" fill="#fef2f2"/>
+    <text x="10" y="18" class="label" fill="#dc2626">Fuse</text>
+    <text x="10" y="34" class="sublabel">Thin wire melts if current exceeds rating (3A, 5A, 13A)</text>
+    <text x="10" y="48" class="sublabel">Breaks circuit → prevents overheating and fire</text>
+
+    <!-- Circuit Breaker -->
+    <rect x="0" y="62" width="350" height="55" rx="6" fill="#eff6ff"/>
+    <text x="10" y="80" class="label" fill="#3b82f6">Circuit Breaker (MCB)</text>
+    <text x="10" y="96" class="sublabel">Electromagnetic switch trips on overcurrent</text>
+    <text x="10" y="110" class="sublabel">Reusable — just reset the switch (no replacement needed)</text>
+
+    <!-- RCD -->
+    <rect x="0" y="124" width="350" height="55" rx="6" fill="#f0fdf4"/>
+    <text x="10" y="142" class="label" fill="#22c55e">Residual Current Device (RCD)</text>
+    <text x="10" y="158" class="sublabel">Detects imbalance between live and neutral current</text>
+    <text x="10" y="172" class="sublabel">Cuts power in milliseconds if leakage detected</text>
+
+    <!-- Double Insulation -->
+    <rect x="0" y="186" width="350" height="40" rx="6" fill="#fef3c7"/>
+    <text x="10" y="204" class="label">Double Insulation ☐</text>
+    <text x="10" y="220" class="sublabel">Plastic-cased appliances don't need an earth wire</text>
+  </g>
+
+  <!-- Safety rules -->
+  <rect x="20" y="320" width="760" height="70" rx="10" class="box"/>
+  <text x="400" y="342" text-anchor="middle" class="label">Safety Rules</text>
+  <text x="400" y="360" text-anchor="middle" class="sublabel">No wet hands near sockets · No damaged/frayed cables · Correct fuse rating · Don't overload sockets</text>
+  <text x="400" y="376" text-anchor="middle" class="sublabel">Earth wire connects metal case to ground → if live touches case, large current → fuse blows → disconnects</text>
+</svg>

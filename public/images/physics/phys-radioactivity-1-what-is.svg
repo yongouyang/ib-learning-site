@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-labelledby="title desc">
+  <title id="title">What is Radioactivity?</title>
+  <desc id="desc">Unstable nucleus emitting radiation: alpha, beta, gamma from an atomic nucleus.</desc>
+  <defs><style>
+    .t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}
+    .l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}
+    .s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}
+    .f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}
+    .b{fill:#fff;stroke:#e5e7eb;stroke-width:2}
+  </style></defs>
+  <rect width="800" height="340" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="t">What is Radioactivity?</text>
+  <g transform="translate(0,55)"><rect x="20" y="0" width="450" height="240" rx="10" class="b"/><text x="245" y="25" text-anchor="middle" class="l">Unstable Nucleus Emitting Radiation</text>
+  <g transform="translate(40,38)"><circle cx="180" cy="80" r="50" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+  <circle cx="160" cy="65" r="8" fill="#ef4444"/><text x="160" y="69" text-anchor="middle" class="s" fill="white" font-size="8">p</text>
+  <circle cx="200" cy="65" r="8" fill="#ef4444"/><text x="200" y="69" text-anchor="middle" class="s" fill="white" font-size="8">p</text>
+  <circle cx="165" cy="95" r="8" fill="#3b82f6"/><text x="165" y="99" text-anchor="middle" class="s" fill="white" font-size="8">n</text>
+  <circle cx="195" cy="95" r="8" fill="#3b82f6"/><text x="195" y="99" text-anchor="middle" class="s" fill="white" font-size="8">n</text>
+  <line x1="220" y1="60" x2="320" y2="20" stroke="#ef4444" stroke-width="3"/><text x="330" y="20" class="s" fill="#dc2626">α (He nucleus)</text>
+  <line x1="225" y1="80" x2="350" y2="80" stroke="#3b82f6" stroke-width="2"/><text x="360" y="80" class="s" fill="#3b82f6">β (electron)</text>
+  <line x1="215" y1="105" x2="300" y2="145" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="3,2"/><text x="310" y="150" class="s" fill="#eab308">γ (EM wave)</text>
+  <text x="180" y="160" text-anchor="middle" class="s">Radioactive decay is random — you cannot predict when a specific nucleus will decay</text></g>
+  <rect x="490" y="0" width="290" height="240" rx="10" class="b"/><text x="635" y="25" text-anchor="middle" class="l">Key Facts</text>
+  <g transform="translate(510,38)"><text x="0" y="20" class="s">• Some isotopes are unstable — their nuclei break down (decay)</text>
+  <text x="0" y="44" class="s">• Decay releases ionising radiation</text>
+  <text x="0" y="68" class="s">• Radioactivity is a nuclear process — chemical reactions don't affect it</text>
+  <text x="0" y="92" class="s">• Discovered by Henri Becquerel (1896)</text>
+  <text x="0" y="116" class="s">• Marie Curie named it 'radioactivity'</text>
+  <text x="0" y="148" class="s">• Measured in becquerels (Bq): 1 Bq = 1 decay per second</text></g></g>
+</svg>

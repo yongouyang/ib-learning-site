@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" role="img" aria-labelledby="title desc">
+  <title id="title">Uses and Dangers of Radiation</title>
+  <desc id="desc">Medical tracer and radiotherapy diagrams showing beneficial uses, plus contamination vs irradiation.</desc>
+  <defs><style>
+    .t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}
+    .l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}
+    .s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}
+    .f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}
+    .b{fill:#fff;stroke:#e5e7eb;stroke-width:2}
+  </style></defs>
+  <rect width="800" height="350" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="t">Uses and Dangers of Radiation</text>
+  <g transform="translate(0,55)"><rect x="20" y="0" width="380" height="260" rx="10" class="b"/><text x="210" y="25" text-anchor="middle" class="l">Uses of Radiation</text>
+  <g transform="translate(40,38)"><rect x="0" y="0" width="340" height="42" rx="6" fill="#f0fdf4"/>
+  <text x="10" y="18" class="l" fill="#22c55e">Medical Tracers (γ emitter, short t½)</text><text x="10" y="35" class="s">Inject into body → detected outside → shows organ function</text>
+  <rect x="0" y="48" width="340" height="42" rx="6" fill="#f0fdf4"/>
+  <text x="10" y="66" class="l" fill="#22c55e">Radiotherapy (γ, targeted)</text><text x="10" y="83" class="s">Kill cancer cells — beam rotated around patient to protect healthy tissue</text>
+  <rect x="0" y="96" width="340" height="42" rx="6" fill="#f0fdf4"/>
+  <text x="10" y="114" class="l" fill="#22c55e">Sterilisation (γ)</text><text x="10" y="131" class="s">Kill bacteria on medical equipment and food (no residual radiation)</text>
+  <rect x="0" y="144" width="340" height="42" rx="6" fill="#f0fdf4"/>
+  <text x="10" y="162" class="l" fill="#22c55e">Smoke Detectors (α, Am-241)</text><text x="10" y="179" class="s">Alpha particles ionise air → smoke particles block current → alarm triggers</text></g>
+  <rect x="420" y="0" width="360" height="260" rx="10" class="b"/><text x="600" y="25" text-anchor="middle" class="l">Dangers and Precautions</text>
+  <g transform="translate(440,38)"><rect x="0" y="0" width="320" height="42" rx="6" fill="#fff1f2"/>
+  <text x="10" y="18" class="l" fill="#dc2626">Contamination vs Irradiation</text><text x="10" y="35" class="s">Contamination = radioactive material ON/IN body (ongoing exposure). Irradiation = just exposed to rays (stops when source removed)</text>
+  <rect x="0" y="48" width="320" height="42" rx="6" fill="#fff1f2"/>
+  <text x="10" y="66" class="l" fill="#dc2626">Ionisation damages DNA</text><text x="10" y="83" class="s">Can cause mutations → cancer. High doses → radiation sickness, death</text>
+  <rect x="0" y="96" width="320" height="42" rx="6" fill="#fef3c7"/>
+  <text x="10" y="114" class="l">Precautions:</text><text x="10" y="131" class="s">• Minimise exposure time · Maximise distance · Use shielding · Wear film badges</text>
+  <rect x="0" y="144" width="320" height="42" rx="6" fill="#f3f4f6"/>
+  <text x="10" y="162" class="l">Background Radiation Sources:</text><text x="10" y="179" class="s">Radon gas (50%) · ground/rocks · cosmic rays · medical · food · nuclear industry</text></g>
+  <rect x="20" y="278" width="760" height="35" rx="8" class="b"/><text x="400" y="300" text-anchor="middle" class="s">The risk from radiation depends on the type of radiation, dose received, and whether it's internal (inside body) or external. Alpha is most dangerous inside the body.</text></g>
+</svg>

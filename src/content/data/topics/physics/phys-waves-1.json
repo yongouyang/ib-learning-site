@@ -8,68 +8,328 @@
     {
       "id": "phys-waves-1-n1",
       "heading": "Wave Properties and the Wave Equation",
-      "body": "All waves transfer energy without transferring matter. Key properties: Amplitude — maximum displacement from rest position (related to energy/intensity). Wavelength (λ) — distance between two consecutive identical points (peak to peak, trough to trough). Frequency (f) — number of complete waves per second, measured in Hertz (Hz). 1 Hz = 1 wave/second. Period (T) — time for one complete wave. T = 1/f. Wave speed: v = fλ (m/s). This equation works for all waves — sound, light, water waves. Example: sound wave with f=440 Hz, λ=0.78 m → v=343 m/s. The speed of a wave depends on the medium, not the frequency. Changing frequency changes wavelength proportionally (v constant in a given medium)."
+      "body": "All waves transfer energy without transferring matter. Key properties: Amplitude — maximum displacement from rest position (related to energy/intensity). Wavelength (λ) — distance between two consecutive identical points (peak to peak, trough to trough). Frequency (f) — number of complete waves per second, measured in Hertz (Hz). 1 Hz = 1 wave/second. Period (T) — time for one complete wave. T = 1/f. Wave speed: v = fλ (m/s). This equation works for all waves — sound, light, water waves. Example: sound wave with f=440 Hz, λ=0.78 m → v=343 m/s. The speed of a wave depends on the medium, not the frequency. Changing frequency changes wavelength proportionally (v constant in a given medium).",
+      "illustration": {
+        "src": "/images/physics/phys-waves-1-wave-properties.svg",
+        "alt": "Labelled transverse wave showing amplitude, wavelength, crest, trough, and the wave equation v equals f lambda.",
+        "caption": "Waves transfer energy from one place to another without transferring matter."
+      }
     },
     {
       "id": "phys-waves-1-n2",
       "heading": "Transverse and Longitudinal Waves",
-      "body": "Transverse: particle oscillation is PERPENDICULAR to wave direction. Examples: light, all EM waves, water ripples, S-waves (earthquakes). Can travel through vacuum (EM waves). Crests and troughs. Longitudinal: particle oscillation is PARALLEL to wave direction. Examples: sound, P-waves (earthquakes). Consists of compressions (high pressure, particles close) and rarefactions (low pressure, particles spread). Requires a medium — cannot travel through a vacuum. Sound speed: air ~343 m/s, water ~1500 m/s, steel ~5000 m/s. Denser media transmit sound faster (particles closer, vibrations pass faster). Ripples on water are mainly transverse; seismic P-waves are longitudinal; S-waves are transverse (S-waves cannot pass through liquid outer core — evidence Earth has a liquid core)."
+      "body": "Transverse: particle oscillation is PERPENDICULAR to wave direction. Examples: light, all EM waves, water ripples, S-waves (earthquakes). Can travel through vacuum (EM waves). Crests and troughs. Longitudinal: particle oscillation is PARALLEL to wave direction. Examples: sound, P-waves (earthquakes). Consists of compressions (high pressure, particles close) and rarefactions (low pressure, particles spread). Requires a medium — cannot travel through a vacuum. Sound speed: air ~343 m/s, water ~1500 m/s, steel ~5000 m/s. Denser media transmit sound faster (particles closer, vibrations pass faster). Ripples on water are mainly transverse; seismic P-waves are longitudinal; S-waves are transverse (S-waves cannot pass through liquid outer core — evidence Earth has a liquid core).",
+      "illustration": {
+        "src": "/images/physics/phys-waves-1-transverse-longitudinal.svg",
+        "alt": "Side-by-side comparison of transverse waves (light, water) and longitudinal waves (sound).",
+        "caption": "In transverse waves, oscillations are perpendicular to energy transfer; in longitudinal waves, they are parallel."
+      }
     },
     {
       "id": "phys-waves-1-n3",
       "heading": "The Electromagnetic Spectrum",
-      "body": "The EM spectrum is a continuous family of transverse waves all travelling at 3×10⁸ m/s in a vacuum. Ordered by increasing frequency (decreasing wavelength): Radio waves (longest λ, communication, broadcasting), Microwaves (cooking, satellite transmission, WiFi), Infrared (thermal imaging, remote controls, heating), Visible light (detected by human eye, ROYGBIV — red longest λ, violet shortest), Ultraviolet (UV — tanning, sterilisation, fluorescent lamps, causes skin cancer), X-rays (medical imaging, security scanners, can damage DNA), Gamma rays (shortest λ, highest energy, cancer treatment, sterilising medical equipment). Energy increases with frequency: gamma rays are the most energetic and dangerous (ionising — can knock electrons off atoms, damaging DNA). UV, X-ray, and gamma are ionising. Radio, microwave, infrared, and visible are non-ionising. Uses determined by wavelength: long λ = diffraction around obstacles (radio); short λ = high resolution imaging (X-rays)."
+      "body": "The EM spectrum is a continuous family of transverse waves all travelling at 3×10⁸ m/s in a vacuum. Ordered by increasing frequency (decreasing wavelength): Radio waves (longest λ, communication, broadcasting), Microwaves (cooking, satellite transmission, WiFi), Infrared (thermal imaging, remote controls, heating), Visible light (detected by human eye, ROYGBIV — red longest λ, violet shortest), Ultraviolet (UV — tanning, sterilisation, fluorescent lamps, causes skin cancer), X-rays (medical imaging, security scanners, can damage DNA), Gamma rays (shortest λ, highest energy, cancer treatment, sterilising medical equipment). Energy increases with frequency: gamma rays are the most energetic and dangerous (ionising — can knock electrons off atoms, damaging DNA). UV, X-ray, and gamma are ionising. Radio, microwave, infrared, and visible are non-ionising. Uses determined by wavelength: long λ = diffraction around obstacles (radio); short λ = high resolution imaging (X-rays).",
+      "illustration": {
+        "src": "/images/physics/phys-waves-1-em-spectrum.svg",
+        "alt": "Full electromagnetic spectrum from radio waves to gamma rays, showing decreasing wavelength and increasing frequency.",
+        "caption": "All electromagnetic waves travel at the speed of light in a vacuum and are transverse waves."
+      }
     },
     {
       "id": "phys-waves-1-n4",
       "heading": "Sound Waves",
-      "body": "Sound is a longitudinal wave produced by vibrating objects. The vibration compresses and rarefies air particles → pressure wave travels outward. Properties: Pitch = frequency (higher f = higher pitch). Human hearing range: ~20 Hz to 20,000 Hz. Ultrasound: f > 20 kHz — used for medical imaging (foetal scans), sonar, cleaning. Infrasound: f < 20 Hz — elephants communicate, earthquake detection. Loudness = amplitude (larger amplitude = louder sound, more energy). Sound intensity decreases with distance (energy spreads over larger area). Speed of sound depends on medium: faster in solids (particles tightly coupled), slower in gases. Temperature affects speed: warmer air = faster sound (particles move faster). Echo: sound reflection. Time delay between original sound and echo depends on distance to reflecting surface (v=2d/t). Sonar uses this principle."
+      "body": "Sound is a longitudinal wave produced by vibrating objects. The vibration compresses and rarefies air particles → pressure wave travels outward. Properties: Pitch = frequency (higher f = higher pitch). Human hearing range: ~20 Hz to 20,000 Hz. Ultrasound: f > 20 kHz — used for medical imaging (foetal scans), sonar, cleaning. Infrasound: f < 20 Hz — elephants communicate, earthquake detection. Loudness = amplitude (larger amplitude = louder sound, more energy). Sound intensity decreases with distance (energy spreads over larger area). Speed of sound depends on medium: faster in solids (particles tightly coupled), slower in gases. Temperature affects speed: warmer air = faster sound (particles move faster). Echo: sound reflection. Time delay between original sound and echo depends on distance to reflecting surface (v=2d/t). Sonar uses this principle.",
+      "illustration": {
+        "src": "/images/physics/phys-waves-1-sound.svg",
+        "alt": "How sound travels as longitudinal compression and rarefaction in air, with properties and the echo method for measuring speed.",
+        "caption": "Sound is a longitudinal wave that cannot travel through a vacuum."
+      }
     },
     {
       "id": "phys-waves-1-n5",
       "heading": "Reflection and Refraction",
-      "body": "Reflection: waves bounce off a surface. Law of reflection: angle of incidence = angle of reflection (measured from the normal — an imaginary line perpendicular to surface). Specular reflection: smooth surface → parallel rays reflected parallel → clear image (mirror). Diffuse reflection: rough surface → rays scattered in all directions → no clear image (paper, wall). Refraction: waves change direction when crossing a boundary between media of different densities at an angle (due to speed change). Entering denser medium (e.g., air → glass): wave slows down → bends TOWARDS the normal. Entering less dense medium: speeds up → bends AWAY from normal. If entering along the normal (0°): no bending, just speed change. Refraction explains: lenses focusing light, apparent depth (pool looks shallower), mirages (hot air bends light), broken pencil illusion in water."
+      "body": "Reflection: waves bounce off a surface. Law of reflection: angle of incidence = angle of reflection (measured from the normal — an imaginary line perpendicular to surface). Specular reflection: smooth surface → parallel rays reflected parallel → clear image (mirror). Diffuse reflection: rough surface → rays scattered in all directions → no clear image (paper, wall). Refraction: waves change direction when crossing a boundary between media of different densities at an angle (due to speed change). Entering denser medium (e.g., air → glass): wave slows down → bends TOWARDS the normal. Entering less dense medium: speeds up → bends AWAY from normal. If entering along the normal (0°): no bending, just speed change. Refraction explains: lenses focusing light, apparent depth (pool looks shallower), mirages (hot air bends light), broken pencil illusion in water.",
+      "illustration": {
+        "src": "/images/physics/phys-waves-1-reflection-refraction.svg",
+        "alt": "Wavefront diagrams showing reflection at a barrier and refraction as waves change speed in different depths of water.",
+        "caption": "Refraction occurs when waves change speed at a boundary, causing them to change direction."
+      }
     },
     {
       "id": "phys-waves-1-n6",
       "heading": "Dispersion and Colour",
-      "body": "White light is a mixture of all visible colours (ROYGBIV). Dispersion: splitting white light into its constituent colours using a prism (refraction). Different colours have different wavelengths → refract by different amounts in glass. Violet refracts most (shortest λ, slowest in glass); red refracts least (longest λ, fastest in glass). Rainbow formation: sunlight refracted and internally reflected in water droplets → dispersed. Colour of objects: a red object reflects red light, absorbs all other colours. A white object reflects all colours. A black object absorbs all colours (heats up most in sunlight). Filters: a red filter transmits only red light, absorbs others. Colour mixing: additive (light) — red+green+blue = white (RGB — screens, stage lighting). Subtractive (pigments/paints) — cyan+magenta+yellow = black (CMY — printing). The primary colours for light are red, green, blue."
+      "body": "White light is a mixture of all visible colours (ROYGBIV). Dispersion: splitting white light into its constituent colours using a prism (refraction). Different colours have different wavelengths → refract by different amounts in glass. Violet refracts most (shortest λ, slowest in glass); red refracts least (longest λ, fastest in glass). Rainbow formation: sunlight refracted and internally reflected in water droplets → dispersed. Colour of objects: a red object reflects red light, absorbs all other colours. A white object reflects all colours. A black object absorbs all colours (heats up most in sunlight). Filters: a red filter transmits only red light, absorbs others. Colour mixing: additive (light) — red+green+blue = white (RGB — screens, stage lighting). Subtractive (pigments/paints) — cyan+magenta+yellow = black (CMY — printing). The primary colours for light are red, green, blue.",
+      "illustration": {
+        "src": "/images/physics/phys-waves-1-dispersion.svg",
+        "alt": "Prism splitting white light into rainbow colours, showing that different frequencies refract by different amounts.",
+        "caption": "White light disperses into a spectrum because each colour travels at a slightly different speed in glass."
+      }
     },
     {
       "id": "phys-waves-1-n7",
       "heading": "Wave Behaviour: Diffraction, Absorption, Transmission",
-      "body": "When waves encounter materials or obstacles: Absorption — wave energy is taken in by material (e.g., black surfaces absorb light → heat up; soundproofing foam absorbs sound energy). Transmission — wave passes through material (e.g., glass transmits visible light; ultrasound transmits through soft tissue, reflects off bone). Diffraction — waves spread out after passing through a gap or around an obstacle. Maximum diffraction when gap size ≈ wavelength. This is why: you can hear sound around corners (sound λ ~ 0.1-10 m, comparable to door width), but light does NOT noticeably diffract around corners (light λ ~ 400-700 nm, very small). Radio waves diffract around hills (long λ) — why radio works even without line-of-sight. Microwaves (shorter λ) require line-of-sight for communication. Wavefront diagrams show diffraction: straight wavefronts hitting a gap → curved wavefronts emerging. This is Huygens' principle."
+      "body": "When waves encounter materials or obstacles: Absorption — wave energy is taken in by material (e.g., black surfaces absorb light → heat up; soundproofing foam absorbs sound energy). Transmission — wave passes through material (e.g., glass transmits visible light; ultrasound transmits through soft tissue, reflects off bone). Diffraction — waves spread out after passing through a gap or around an obstacle. Maximum diffraction when gap size ≈ wavelength. This is why: you can hear sound around corners (sound λ ~ 0.1-10 m, comparable to door width), but light does NOT noticeably diffract around corners (light λ ~ 400-700 nm, very small). Radio waves diffract around hills (long λ) — why radio works even without line-of-sight. Microwaves (shorter λ) require line-of-sight for communication. Wavefront diagrams show diffraction: straight wavefronts hitting a gap → curved wavefronts emerging. This is Huygens' principle.",
+      "illustration": {
+        "src": "/images/physics/phys-waves-1-diffraction.svg",
+        "alt": "Wave behaviour at boundaries: transmission, absorption, and diffraction of waves around edges and through gaps.",
+        "caption": "Diffraction is greatest when the gap size is similar to the wavelength of the wave."
+      }
     }
   ],
   "flashcards": [
-    { "id": "phys-waves-1-f1", "term": "Frequency (f)", "definition": "Number of complete waves per second. Measured in Hertz (Hz). 1 Hz = 1 wave/s.", "example": "440 Hz = 440 wave cycles every second — the musical note A." },
-    { "id": "phys-waves-1-f2", "term": "Wavelength (λ)", "definition": "Distance between two consecutive peaks or troughs. Measured in metres.", "example": "Visible light: λ ~400 nm (violet) to ~700 nm (red)." },
-    { "id": "phys-waves-1-f3", "term": "Wave equation", "definition": "v = fλ. Wave speed = frequency × wavelength. Applies to ALL waves.", "example": "Sound: f=500 Hz, λ=0.68 m → v=340 m/s." },
-    { "id": "phys-waves-1-f4", "term": "Transverse wave", "definition": "Particle oscillation perpendicular to wave direction. Light, EM waves, water ripples.", "example": "Rope shaken up/down — wave travels horizontally, rope moves vertically." },
-    { "id": "phys-waves-1-f5", "term": "Longitudinal wave", "definition": "Particle oscillation parallel to wave direction. Sound, P-waves.", "example": "Slinky pushed/pulled along its length — compressions and rarefactions travel along." },
-    { "id": "phys-waves-1-f6", "term": "EM spectrum order", "definition": "Increasing f: Radio → Microwave → Infrared → Visible → UV → X-ray → Gamma. All travel at c=3×10⁸ m/s in vacuum.", "example": "Gamma rays have the highest frequency and energy; radio waves the lowest." },
-    { "id": "phys-waves-1-f7", "term": "Law of reflection", "definition": "Angle of incidence = angle of reflection, measured from the normal.", "example": "Light hitting mirror at 30° to normal → reflected at 30° on other side." },
-    { "id": "phys-waves-1-f8", "term": "Refraction", "definition": "Wave changes direction crossing boundary between media of different density (speed changes).", "example": "Pencil appears bent in water — light speeds up entering air, bends away from normal." },
-    { "id": "phys-waves-1-f9", "term": "Dispersion", "definition": "Splitting white light into ROYGBIV colours by refraction (prism). Violet refracts most; red least.", "example": "Rainbow — sunlight dispersed by water droplets. Pink Floyd album cover." },
-    { "id": "phys-waves-1-f10", "term": "Ultrasound", "definition": "Sound with f > 20,000 Hz — above human hearing. Used for medical imaging and sonar.", "example": "Foetal ultrasound scans use 2-18 MHz waves that reflect off tissue boundaries." },
-    { "id": "phys-waves-1-f11", "term": "Diffraction", "definition": "Waves spread out after passing through a gap. Maximum when gap ≈ wavelength.", "example": "Sound diffracts around doorway (λ ~1 m); light does not (λ ~500 nm) — gap too large." },
-    { "id": "phys-waves-1-f12", "term": "Additive colour mixing", "definition": "Primary colours of light: Red + Green + Blue = White. Used in screens (RGB pixels).", "example": "Yellow on a screen = red + green pixels lit together." }
+    {
+      "id": "phys-waves-1-f1",
+      "term": "Frequency (f)",
+      "definition": "Number of complete waves per second. Measured in Hertz (Hz). 1 Hz = 1 wave/s.",
+      "example": "440 Hz = 440 wave cycles every second — the musical note A."
+    },
+    {
+      "id": "phys-waves-1-f2",
+      "term": "Wavelength (λ)",
+      "definition": "Distance between two consecutive peaks or troughs. Measured in metres.",
+      "example": "Visible light: λ ~400 nm (violet) to ~700 nm (red)."
+    },
+    {
+      "id": "phys-waves-1-f3",
+      "term": "Wave equation",
+      "definition": "v = fλ. Wave speed = frequency × wavelength. Applies to ALL waves.",
+      "example": "Sound: f=500 Hz, λ=0.68 m → v=340 m/s."
+    },
+    {
+      "id": "phys-waves-1-f4",
+      "term": "Transverse wave",
+      "definition": "Particle oscillation perpendicular to wave direction. Light, EM waves, water ripples.",
+      "example": "Rope shaken up/down — wave travels horizontally, rope moves vertically."
+    },
+    {
+      "id": "phys-waves-1-f5",
+      "term": "Longitudinal wave",
+      "definition": "Particle oscillation parallel to wave direction. Sound, P-waves.",
+      "example": "Slinky pushed/pulled along its length — compressions and rarefactions travel along."
+    },
+    {
+      "id": "phys-waves-1-f6",
+      "term": "EM spectrum order",
+      "definition": "Increasing f: Radio → Microwave → Infrared → Visible → UV → X-ray → Gamma. All travel at c=3×10⁸ m/s in vacuum.",
+      "example": "Gamma rays have the highest frequency and energy; radio waves the lowest."
+    },
+    {
+      "id": "phys-waves-1-f7",
+      "term": "Law of reflection",
+      "definition": "Angle of incidence = angle of reflection, measured from the normal.",
+      "example": "Light hitting mirror at 30° to normal → reflected at 30° on other side."
+    },
+    {
+      "id": "phys-waves-1-f8",
+      "term": "Refraction",
+      "definition": "Wave changes direction crossing boundary between media of different density (speed changes).",
+      "example": "Pencil appears bent in water — light speeds up entering air, bends away from normal."
+    },
+    {
+      "id": "phys-waves-1-f9",
+      "term": "Dispersion",
+      "definition": "Splitting white light into ROYGBIV colours by refraction (prism). Violet refracts most; red least.",
+      "example": "Rainbow — sunlight dispersed by water droplets. Pink Floyd album cover."
+    },
+    {
+      "id": "phys-waves-1-f10",
+      "term": "Ultrasound",
+      "definition": "Sound with f > 20,000 Hz — above human hearing. Used for medical imaging and sonar.",
+      "example": "Foetal ultrasound scans use 2-18 MHz waves that reflect off tissue boundaries."
+    },
+    {
+      "id": "phys-waves-1-f11",
+      "term": "Diffraction",
+      "definition": "Waves spread out after passing through a gap. Maximum when gap ≈ wavelength.",
+      "example": "Sound diffracts around doorway (λ ~1 m); light does not (λ ~500 nm) — gap too large."
+    },
+    {
+      "id": "phys-waves-1-f12",
+      "term": "Additive colour mixing",
+      "definition": "Primary colours of light: Red + Green + Blue = White. Used in screens (RGB pixels).",
+      "example": "Yellow on a screen = red + green pixels lit together."
+    }
   ],
   "questions": [
-    { "id": "phys-waves-1-q1", "stem": "f=200 Hz, λ=2 m. Wave speed?", "choices": ["100 m/s", "200 m/s", "400 m/s", "2 m/s"], "correctIndex": 2, "explanation": "Wave speed is frequency times wavelength: $v=f\\lambda=200\\times2=400\\text{ m/s}$." },
-    { "id": "phys-waves-1-q2", "stem": "Which wave type has particles vibrating at right angles to wave direction?", "choices": ["Longitudinal", "Sound", "Transverse", "Compression"], "correctIndex": 2, "explanation": "Transverse waves oscillate perpendicular to travel direction." },
-    { "id": "phys-waves-1-q3", "stem": "Why can light travel through space but sound cannot?", "choices": ["Sound is too slow", "Light has higher frequency", "Sound is mechanical — needs particles; space is a vacuum. Light is EM — no medium needed", "Light is longitudinal"], "correctIndex": 2, "explanation": "Sound requires particle vibration → no particles in space → no sound. EM waves self-propagate through electric/magnetic fields." },
-    { "id": "phys-waves-1-q4", "stem": "Highest frequency EM wave?", "choices": ["Radio", "Visible light", "Microwave", "Gamma rays"], "correctIndex": 3, "explanation": "Gamma: shortest λ, highest f, most energetic. Radio: longest λ, lowest f." },
-    { "id": "phys-waves-1-q5", "stem": "Increasing amplitude of sound affects:", "choices": ["Pitch", "Speed", "Loudness (more energy)", "Frequency"], "correctIndex": 2, "explanation": "Amplitude = energy = loudness. Frequency = pitch. They are independent." },
-    { "id": "phys-waves-1-q6", "stem": "Light hits mirror at 40° to surface. What is angle of incidence?", "choices": ["40°", "50° — measured from NORMAL (90°−40°)", "90°", "20°"], "correctIndex": 1, "explanation": "Angle of incidence is measured from the NORMAL (perpendicular to surface). 90°−40°=50°." },
-    { "id": "phys-waves-1-q7", "stem": "Why does a pool look shallower than it is?", "choices": ["Water absorbs light", "Refraction — light from the bottom speeds up entering air, bends away from normal → image appears higher", "Water magnifies the bottom", "It's an optical illusion with no physical cause"], "correctIndex": 1, "explanation": "Light rays from the pool bottom refract at the water-air boundary, bending away from the normal. Brain traces them back in straight lines → shallower apparent depth." },
-    { "id": "phys-waves-1-q8", "stem": "A red filter appears red because:", "choices": ["It absorbs red light", "It transmits only red light, absorbing all other colours", "It reflects red light", "It converts all colours to red"], "correctIndex": 1, "explanation": "Filters transmit their own colour and absorb complementary colours. Red filter → red passes; blue, green absorbed." },
-    { "id": "phys-waves-1-q9", "stem": "Sound travels fastest in:", "choices": ["Air", "Water", "Steel — denser medium, particles closer → vibrations transmit faster", "Vacuum"], "correctIndex": 2, "explanation": "Speed: solid > liquid > gas. Particles are closer in solids → vibrations pass more rapidly. Vacuum: zero (no particles)." },
-    { "id": "phys-waves-1-q10", "stem": "Why can you hear sound around a corner but not see around it?", "choices": ["Sound is faster than light", "Sound λ (~1 m) ≈ door width → strong diffraction. Light λ (~500 nm) << door → negligible diffraction", "Sound reflects better", "Light is absorbed by walls"], "correctIndex": 1, "explanation": "Diffraction is significant when gap ≈ wavelength. Sound wavelength matches everyday gaps; light's wavelength is microscopic." },
-    { "id": "phys-waves-1-q11", "stem": "A wave has period 0.02 s. What is its frequency?", "choices": ["0.02 Hz", "20 Hz", "50 Hz", "2 Hz"], "correctIndex": 2, "explanation": "f=1/T=1/0.02=50 Hz. This is UK mains electricity frequency." },
-    { "id": "phys-waves-1-q12", "stem": "Which EM waves are ionising (can damage DNA)?", "choices": ["Radio and microwave", "Infrared and visible", "Ultraviolet, X-ray, and gamma", "All EM waves"], "correctIndex": 2, "explanation": "UV, X-ray, and gamma have enough photon energy to ionise atoms (knock electrons off) → DNA damage → cancer risk." },
-    { "id": "phys-waves-1-q13", "stem": "A sound wave has f=1000 Hz in air (v=340 m/s). What is λ?", "choices": ["340,000 m", "340 m", "0.34 m", "2.94 m"], "correctIndex": 2, "explanation": "λ=v/f=340/1000=0.34 m." },
-    { "id": "phys-waves-1-q14", "stem": "In a prism, red light bends ___ than violet because red has ___ wavelength.", "choices": ["More; longer", "Less; longer — longer λ = less refraction", "More; shorter", "The same amount"], "correctIndex": 1, "explanation": "Dispersion: longer λ (red) refracts less; shorter λ (violet) refracts more. Red is fastest in glass; violet slowest." },
-    { "id": "phys-waves-1-q15", "stem": "Green + red light projected on a white screen produces:", "choices": ["Brown", "Yellow — additive mixing: R+G=Y", "Blue", "White"], "correctIndex": 1, "explanation": "Additive (light) mixing: R+G=Yellow, R+B=Magenta, G+B=Cyan, R+G+B=White." }
+    {
+      "id": "phys-waves-1-q1",
+      "stem": "f=200 Hz, λ=2 m. Wave speed?",
+      "choices": [
+        "100 m/s",
+        "200 m/s",
+        "400 m/s",
+        "2 m/s"
+      ],
+      "correctIndex": 2,
+      "explanation": "Wave speed is frequency times wavelength: $v=f\\lambda=200\\times2=400\\text{ m/s}$."
+    },
+    {
+      "id": "phys-waves-1-q2",
+      "stem": "Which wave type has particles vibrating at right angles to wave direction?",
+      "choices": [
+        "Longitudinal",
+        "Sound",
+        "Transverse",
+        "Compression"
+      ],
+      "correctIndex": 2,
+      "explanation": "Transverse waves oscillate perpendicular to travel direction."
+    },
+    {
+      "id": "phys-waves-1-q3",
+      "stem": "Why can light travel through space but sound cannot?",
+      "choices": [
+        "Sound is too slow",
+        "Light has higher frequency",
+        "Sound is mechanical — needs particles; space is a vacuum. Light is EM — no medium needed",
+        "Light is longitudinal"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sound requires particle vibration → no particles in space → no sound. EM waves self-propagate through electric/magnetic fields."
+    },
+    {
+      "id": "phys-waves-1-q4",
+      "stem": "Highest frequency EM wave?",
+      "choices": [
+        "Radio",
+        "Visible light",
+        "Microwave",
+        "Gamma rays"
+      ],
+      "correctIndex": 3,
+      "explanation": "Gamma: shortest λ, highest f, most energetic. Radio: longest λ, lowest f."
+    },
+    {
+      "id": "phys-waves-1-q5",
+      "stem": "Increasing amplitude of sound affects:",
+      "choices": [
+        "Pitch",
+        "Speed",
+        "Loudness (more energy)",
+        "Frequency"
+      ],
+      "correctIndex": 2,
+      "explanation": "Amplitude = energy = loudness. Frequency = pitch. They are independent."
+    },
+    {
+      "id": "phys-waves-1-q6",
+      "stem": "Light hits mirror at 40° to surface. What is angle of incidence?",
+      "choices": [
+        "40°",
+        "50° — measured from NORMAL (90°−40°)",
+        "90°",
+        "20°"
+      ],
+      "correctIndex": 1,
+      "explanation": "Angle of incidence is measured from the NORMAL (perpendicular to surface). 90°−40°=50°."
+    },
+    {
+      "id": "phys-waves-1-q7",
+      "stem": "Why does a pool look shallower than it is?",
+      "choices": [
+        "Water absorbs light",
+        "Refraction — light from the bottom speeds up entering air, bends away from normal → image appears higher",
+        "Water magnifies the bottom",
+        "It's an optical illusion with no physical cause"
+      ],
+      "correctIndex": 1,
+      "explanation": "Light rays from the pool bottom refract at the water-air boundary, bending away from the normal. Brain traces them back in straight lines → shallower apparent depth."
+    },
+    {
+      "id": "phys-waves-1-q8",
+      "stem": "A red filter appears red because:",
+      "choices": [
+        "It absorbs red light",
+        "It transmits only red light, absorbing all other colours",
+        "It reflects red light",
+        "It converts all colours to red"
+      ],
+      "correctIndex": 1,
+      "explanation": "Filters transmit their own colour and absorb complementary colours. Red filter → red passes; blue, green absorbed."
+    },
+    {
+      "id": "phys-waves-1-q9",
+      "stem": "Sound travels fastest in:",
+      "choices": [
+        "Air",
+        "Water",
+        "Steel — denser medium, particles closer → vibrations transmit faster",
+        "Vacuum"
+      ],
+      "correctIndex": 2,
+      "explanation": "Speed: solid > liquid > gas. Particles are closer in solids → vibrations pass more rapidly. Vacuum: zero (no particles)."
+    },
+    {
+      "id": "phys-waves-1-q10",
+      "stem": "Why can you hear sound around a corner but not see around it?",
+      "choices": [
+        "Sound is faster than light",
+        "Sound λ (~1 m) ≈ door width → strong diffraction. Light λ (~500 nm) << door → negligible diffraction",
+        "Sound reflects better",
+        "Light is absorbed by walls"
+      ],
+      "correctIndex": 1,
+      "explanation": "Diffraction is significant when gap ≈ wavelength. Sound wavelength matches everyday gaps; light's wavelength is microscopic."
+    },
+    {
+      "id": "phys-waves-1-q11",
+      "stem": "A wave has period 0.02 s. What is its frequency?",
+      "choices": [
+        "0.02 Hz",
+        "20 Hz",
+        "50 Hz",
+        "2 Hz"
+      ],
+      "correctIndex": 2,
+      "explanation": "f=1/T=1/0.02=50 Hz. This is UK mains electricity frequency."
+    },
+    {
+      "id": "phys-waves-1-q12",
+      "stem": "Which EM waves are ionising (can damage DNA)?",
+      "choices": [
+        "Radio and microwave",
+        "Infrared and visible",
+        "Ultraviolet, X-ray, and gamma",
+        "All EM waves"
+      ],
+      "correctIndex": 2,
+      "explanation": "UV, X-ray, and gamma have enough photon energy to ionise atoms (knock electrons off) → DNA damage → cancer risk."
+    },
+    {
+      "id": "phys-waves-1-q13",
+      "stem": "A sound wave has f=1000 Hz in air (v=340 m/s). What is λ?",
+      "choices": [
+        "340,000 m",
+        "340 m",
+        "0.34 m",
+        "2.94 m"
+      ],
+      "correctIndex": 2,
+      "explanation": "λ=v/f=340/1000=0.34 m."
+    },
+    {
+      "id": "phys-waves-1-q14",
+      "stem": "In a prism, red light bends ___ than violet because red has ___ wavelength.",
+      "choices": [
+        "More; longer",
+        "Less; longer — longer λ = less refraction",
+        "More; shorter",
+        "The same amount"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dispersion: longer λ (red) refracts less; shorter λ (violet) refracts more. Red is fastest in glass; violet slowest."
+    },
+    {
+      "id": "phys-waves-1-q15",
+      "stem": "Green + red light projected on a white screen produces:",
+      "choices": [
+        "Brown",
+        "Yellow — additive mixing: R+G=Y",
+        "Blue",
+        "White"
+      ],
+      "correctIndex": 1,
+      "explanation": "Additive (light) mixing: R+G=Yellow, R+B=Magenta, G+B=Cyan, R+G+B=White."
+    }
   ]
 }

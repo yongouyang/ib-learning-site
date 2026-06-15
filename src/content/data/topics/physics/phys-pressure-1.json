@@ -8,68 +8,328 @@
     {
       "id": "phys-pressure-1-n1",
       "heading": "Pressure in Solids",
-      "body": "Pressure is force per unit area: P = F/A. Units: Pascals (Pa) or N/m². 1 Pa = 1 N/m². The same force over a smaller area = higher pressure (why sharp knives cut better — concentrated force). The same force over a larger area = lower pressure (why snowshoes prevent sinking, why camels have wide feet). Increasing pressure: increase force, decrease area. Decreasing pressure: decrease force, increase area. Examples: drawing pin — sharp point (tiny area = huge pressure to pierce), flat head (large area = low pressure on thumb). Tank tracks — large area distributes weight, prevents sinking. High heels — small area = high pressure on floor (can damage wooden floors). Bed of nails — many nails distribute weight over large total area = low pressure on each nail (safe!). Foundation of buildings — wide base distributes weight onto ground."
+      "body": "Pressure is force per unit area: P = F/A. Units: Pascals (Pa) or N/m². 1 Pa = 1 N/m². The same force over a smaller area = higher pressure (why sharp knives cut better — concentrated force). The same force over a larger area = lower pressure (why snowshoes prevent sinking, why camels have wide feet). Increasing pressure: increase force, decrease area. Decreasing pressure: decrease force, increase area. Examples: drawing pin — sharp point (tiny area = huge pressure to pierce), flat head (large area = low pressure on thumb). Tank tracks — large area distributes weight, prevents sinking. High heels — small area = high pressure on floor (can damage wooden floors). Bed of nails — many nails distribute weight over large total area = low pressure on each nail (safe!). Foundation of buildings — wide base distributes weight onto ground.",
+      "illustration": {
+        "src": "/images/physics/phys-pressure-1-solids.svg",
+        "alt": "Pressure equals force over area comparison: high heels (small area, high pressure) vs snowshoes (large area, low pressure).",
+        "caption": "For the same force, a smaller area produces a larger pressure (P equals F over A)."
+      }
     },
     {
       "id": "phys-pressure-1-n2",
       "heading": "Pressure in Liquids",
-      "body": "Pressure in a liquid: P = hρg (h = depth, ρ = density, g = gravitational field strength). Pressure in a liquid: (1) Increases with depth — deeper = more water weight above = higher pressure. (2) Acts equally in ALL directions at a given depth. (3) Depends on density, not on container shape. (4) At equal depths, pressure is equal in all connected containers (why water finds its own level). Dam walls are thicker at the bottom (to withstand higher pressure at greater depth). Submarines have a maximum depth limit — beyond it, pressure crushes the hull. Liquid pressure explains why: objects seem lighter in water (upthrust = weight of fluid displaced — Archimedes' principle), deep-sea creatures are adapted to extreme pressure (and die if brought to surface), a can crushed by atmospheric pressure when internal steam condenses (dramatic demo)."
+      "body": "Pressure in a liquid: P = hρg (h = depth, ρ = density, g = gravitational field strength). Pressure in a liquid: (1) Increases with depth — deeper = more water weight above = higher pressure. (2) Acts equally in ALL directions at a given depth. (3) Depends on density, not on container shape. (4) At equal depths, pressure is equal in all connected containers (why water finds its own level). Dam walls are thicker at the bottom (to withstand higher pressure at greater depth). Submarines have a maximum depth limit — beyond it, pressure crushes the hull. Liquid pressure explains why: objects seem lighter in water (upthrust = weight of fluid displaced — Archimedes' principle), deep-sea creatures are adapted to extreme pressure (and die if brought to surface), a can crushed by atmospheric pressure when internal steam condenses (dramatic demo).",
+      "illustration": {
+        "src": "/images/physics/phys-pressure-1-liquids.svg",
+        "alt": "Liquid column showing pressure increases with depth, with the equation P equals rho g h.",
+        "caption": "Pressure in a liquid depends on density, gravitational field strength, and depth only."
+      }
     },
     {
       "id": "phys-pressure-1-n3",
       "heading": "Atmospheric Pressure",
-      "body": "The atmosphere exerts pressure due to the weight of air above. At sea level: ~101,000 Pa (101 kPa, ~1 atmosphere, 760 mmHg). Atmospheric pressure decreases with altitude (less air above). This explains: why planes need pressurised cabins, why mountain climbers need oxygen, why water boils at lower temperature at altitude (lower pressure). Measuring pressure: barometer (mercury or aneroid), manometer (U-tube with liquid, measures pressure difference). Weather: high pressure = clear skies; low pressure = clouds/rain. A vacuum has zero pressure. When you drink through a straw, you reduce pressure in the straw → atmospheric pressure pushes the liquid up. The maximum height you can suck water is ~10 m (atm pressure = 10 m water column). Magdeburg hemispheres: two hemispheres evacuated of air → 16 horses couldn't pull them apart — atmospheric pressure demonstration."
+      "body": "The atmosphere exerts pressure due to the weight of air above. At sea level: ~101,000 Pa (101 kPa, ~1 atmosphere, 760 mmHg). Atmospheric pressure decreases with altitude (less air above). This explains: why planes need pressurised cabins, why mountain climbers need oxygen, why water boils at lower temperature at altitude (lower pressure). Measuring pressure: barometer (mercury or aneroid), manometer (U-tube with liquid, measures pressure difference). Weather: high pressure = clear skies; low pressure = clouds/rain. A vacuum has zero pressure. When you drink through a straw, you reduce pressure in the straw → atmospheric pressure pushes the liquid up. The maximum height you can suck water is ~10 m (atm pressure = 10 m water column). Magdeburg hemispheres: two hemispheres evacuated of air → 16 horses couldn't pull them apart — atmospheric pressure demonstration.",
+      "illustration": {
+        "src": "/images/physics/phys-pressure-1-atmospheric.svg",
+        "alt": "Mercury barometer diagram and altitude effect on atmospheric pressure.",
+        "caption": "Atmospheric pressure at sea level is about 101,000 Pa and decreases with altitude."
+      }
     },
     {
       "id": "phys-pressure-1-n4",
       "heading": "Moments (Turning Effect of a Force)",
-      "body": "A moment is the turning effect of a force about a pivot. Moment (Nm) = Force (N) × Perpendicular distance from pivot (m). M = Fd. To increase turning effect: increase force, increase distance from pivot (longer lever). Clockwise moment vs anticlockwise moment. Principle of moments: for an object in rotational equilibrium (balanced), total clockwise moments = total anticlockwise moments. This is why: a see-saw balances when heavier person sits closer to pivot; spanners have long handles (increase distance → larger moment with same force → loosen tight bolts easily); doors have handles far from hinges (maximise d for ease of opening). Centre of mass: point where weight appears to act. An object topples when its centre of mass passes beyond its base."
+      "body": "A moment is the turning effect of a force about a pivot. Moment (Nm) = Force (N) × Perpendicular distance from pivot (m). M = Fd. To increase turning effect: increase force, increase distance from pivot (longer lever). Clockwise moment vs anticlockwise moment. Principle of moments: for an object in rotational equilibrium (balanced), total clockwise moments = total anticlockwise moments. This is why: a see-saw balances when heavier person sits closer to pivot; spanners have long handles (increase distance → larger moment with same force → loosen tight bolts easily); doors have handles far from hinges (maximise d for ease of opening). Centre of mass: point where weight appears to act. An object topples when its centre of mass passes beyond its base.",
+      "illustration": {
+        "src": "/images/physics/phys-pressure-1-moments.svg",
+        "alt": "See-saw diagram showing moment equals force times perpendicular distance, with balanced and unbalanced examples.",
+        "caption": "A see-saw balances when the clockwise moment equals the anti-clockwise moment."
+      }
     },
     {
       "id": "phys-pressure-1-n5",
       "heading": "Levers, Gears and Mechanical Advantage",
-      "body": "Levers are simple machines that multiply force or distance. Three classes: Class 1 (Fulcrum in middle — see-saw, scissors, crowbar). Class 2 (Load in middle — wheelbarrow, nutcracker, bottle opener). Class 3 (Effort in middle — tweezers, fishing rod, human forearm). Mechanical advantage = load ÷ effort. If MA > 1: lever multiplies force (less effort needed, but over shorter distance). Gears: toothed wheels transmitting rotational motion. A small gear driving a large gear: reduces speed, increases torque (force). Large driving small: increases speed, reduces torque. Bicycle gears: low gear (small front, large back) — easier to pedal (high torque), lower speed — for uphill. High gear (large front, small back) — harder to pedal, higher speed — for flat/downhill. Gears reverse direction of rotation. Rack and pinion: converts rotational to linear motion (steering, railway locomotives)."
+      "body": "Levers are simple machines that multiply force or distance. Three classes: Class 1 (Fulcrum in middle — see-saw, scissors, crowbar). Class 2 (Load in middle — wheelbarrow, nutcracker, bottle opener). Class 3 (Effort in middle — tweezers, fishing rod, human forearm). Mechanical advantage = load ÷ effort. If MA > 1: lever multiplies force (less effort needed, but over shorter distance). Gears: toothed wheels transmitting rotational motion. A small gear driving a large gear: reduces speed, increases torque (force). Large driving small: increases speed, reduces torque. Bicycle gears: low gear (small front, large back) — easier to pedal (high torque), lower speed — for uphill. High gear (large front, small back) — harder to pedal, higher speed — for flat/downhill. Gears reverse direction of rotation. Rack and pinion: converts rotational to linear motion (steering, railway locomotives).",
+      "illustration": {
+        "src": "/images/physics/phys-pressure-1-levers-gears.svg",
+        "alt": "Lever classes and a gear pair showing how they act as force and speed multipliers.",
+        "caption": "Levers and gears can act as force multipliers by trading distance for force."
+      }
     },
     {
       "id": "phys-pressure-1-n6",
       "heading": "Hydraulic Systems",
-      "body": "Hydraulics use the principle that pressure in an enclosed liquid is transmitted equally in all directions (Pascal's principle). A hydraulic system uses two pistons of different areas connected by fluid. Pressure is the same in both pistons: P = F₁/A₁ = F₂/A₂. If A₂ > A₁, then F₂ > F₁ — force is multiplied. The smaller piston moves a longer distance; the larger piston moves a shorter distance (work done is approximately equal: F₁d₁ ≈ F₂d₂). Applications: car brakes (small force on brake pedal → amplified force on brake pads), hydraulic car jack (small effort lifts heavy car), construction equipment (excavators, bulldozers — massive force multiplication), dentist chairs, aeroplane control surfaces. Advantages: force multiplication, smooth operation, easy control, can transmit force around corners through pipes."
+      "body": "Hydraulics use the principle that pressure in an enclosed liquid is transmitted equally in all directions (Pascal's principle). A hydraulic system uses two pistons of different areas connected by fluid. Pressure is the same in both pistons: P = F₁/A₁ = F₂/A₂. If A₂ > A₁, then F₂ > F₁ — force is multiplied. The smaller piston moves a longer distance; the larger piston moves a shorter distance (work done is approximately equal: F₁d₁ ≈ F₂d₂). Applications: car brakes (small force on brake pedal → amplified force on brake pads), hydraulic car jack (small effort lifts heavy car), construction equipment (excavators, bulldozers — massive force multiplication), dentist chairs, aeroplane control surfaces. Advantages: force multiplication, smooth operation, easy control, can transmit force around corners through pipes.",
+      "illustration": {
+        "src": "/images/physics/phys-pressure-1-hydraulics.svg",
+        "alt": "Simple hydraulic press diagram using Pascal principle showing force multiplication with different piston areas.",
+        "caption": "Hydraulic systems use an incompressible fluid to multiply force (Pascal principle)."
+      }
     },
     {
       "id": "phys-pressure-1-n7",
       "heading": "Buoyancy and Archimedes' Principle",
-      "body": "Archimedes' principle: an object submerged in a fluid experiences an upward force (upthrust) equal to the weight of fluid it displaces. If upthrust > weight → object floats. If upthrust < weight → object sinks. If upthrust = weight → object suspended at constant depth. Why ships float: a steel ship is hollow — it displaces a large volume of water. The upthrust (weight of displaced water) equals the ship's weight, even though steel is much denser than water. A solid steel block sinks because it displaces only a small volume (upthrust << weight). Density determines floating: object less dense than fluid → floats; more dense → sinks. Submarines control buoyancy by adjusting ballast tanks (fill with water to sink; compressed air to rise). Hot air balloons: heated air is less dense than surrounding cold air → buoyancy → rises. Fish use swim bladders to adjust buoyancy."
+      "body": "Archimedes' principle: an object submerged in a fluid experiences an upward force (upthrust) equal to the weight of fluid it displaces. If upthrust > weight → object floats. If upthrust < weight → object sinks. If upthrust = weight → object suspended at constant depth. Why ships float: a steel ship is hollow — it displaces a large volume of water. The upthrust (weight of displaced water) equals the ship's weight, even though steel is much denser than water. A solid steel block sinks because it displaces only a small volume (upthrust << weight). Density determines floating: object less dense than fluid → floats; more dense → sinks. Submarines control buoyancy by adjusting ballast tanks (fill with water to sink; compressed air to rise). Hot air balloons: heated air is less dense than surrounding cold air → buoyancy → rises. Fish use swim bladders to adjust buoyancy.",
+      "illustration": {
+        "src": "/images/physics/phys-pressure-1-buoyancy.svg",
+        "alt": "Submerged object showing upthrust equals weight of displaced fluid (Archimedes principle).",
+        "caption": "An object floats if its density is less than the fluid; it sinks if its density is greater."
+      }
     }
   ],
   "flashcards": [
-    { "id": "phys-pressure-1-f1", "term": "Pressure", "definition": "Force per unit area: P=F/A. Measured in Pascals (Pa) or N/m².", "example": "100 N force on 0.5 m² → P=200 Pa." },
-    { "id": "phys-pressure-1-f2", "term": "Liquid pressure", "definition": "P=hρg. Increases with depth and density. Acts equally in all directions at a given depth.", "example": "5 m deep in water: P=5×1000×10=50,000 Pa. Dam walls thicker at bottom." },
-    { "id": "phys-pressure-1-f3", "term": "Atmospheric pressure", "definition": "~101 kPa at sea level, caused by weight of air. Decreases with altitude.", "example": "At Everest summit, pressure ~33 kPa — water boils at ~71°C." },
-    { "id": "phys-pressure-1-f4", "term": "Moment", "definition": "Turning effect: M=Fd (Nm). Force × perpendicular distance from pivot.", "example": "20 N force at 0.3 m from hinge → M=6 Nm." },
-    { "id": "phys-pressure-1-f5", "term": "Principle of moments", "definition": "For equilibrium: total clockwise moments = total anticlockwise moments.", "example": "30 kg child at 2 m balances 60 kg adult at 1 m: 600×1=300×2." },
-    { "id": "phys-pressure-1-f6", "term": "Pascal's principle", "definition": "Pressure in enclosed fluid transmits equally. F₁/A₁=F₂/A₂. Force multiplication when A₂>A₁.", "example": "Car jack: small force on small piston → large force on large piston." },
-    { "id": "phys-pressure-1-f7", "term": "Archimedes' principle", "definition": "Upthrust = weight of fluid displaced. Float if upthrust ≥ weight.", "example": "Steel ship floats — hollow shape displaces large water volume, generating sufficient upthrust." },
-    { "id": "phys-pressure-1-f8", "term": "Mechanical advantage", "definition": "Ratio: load÷effort. >1 means lever multiplies force (less effort needed).", "example": "Crowbar lifting 500 N with 100 N effort → MA=5." },
-    { "id": "phys-pressure-1-f9", "term": "Centre of mass", "definition": "Point where weight appears to act. Object topples when COM passes beyond base.", "example": "Double-decker bus has low COM; SUV with roof load has higher COM — easier to roll." },
-    { "id": "phys-pressure-1-f10", "term": "Upthrust (buoyancy)", "definition": "Upward force on object in fluid due to pressure difference (higher pressure at greater depth).", "example": "Object feels lighter in water — apparent weight = actual weight − upthrust." },
-    { "id": "phys-pressure-1-f11", "term": "Gear ratio", "definition": "Small gear driving large = reduce speed, increase torque. Large → small = increase speed, reduce torque.", "example": "Bicycle: uphill = small front gear, large rear gear (high torque, low speed)." },
-    { "id": "phys-pressure-1-f12", "term": "Hydraulic brake", "definition": "Pedal force → small master piston → pressure through fluid → large slave pistons at wheels → multiplied braking force.", "example": "20 N pedal force can generate 1000+ N at brake pads through hydraulic multiplication." }
+    {
+      "id": "phys-pressure-1-f1",
+      "term": "Pressure",
+      "definition": "Force per unit area: P=F/A. Measured in Pascals (Pa) or N/m².",
+      "example": "100 N force on 0.5 m² → P=200 Pa."
+    },
+    {
+      "id": "phys-pressure-1-f2",
+      "term": "Liquid pressure",
+      "definition": "P=hρg. Increases with depth and density. Acts equally in all directions at a given depth.",
+      "example": "5 m deep in water: P=5×1000×10=50,000 Pa. Dam walls thicker at bottom."
+    },
+    {
+      "id": "phys-pressure-1-f3",
+      "term": "Atmospheric pressure",
+      "definition": "~101 kPa at sea level, caused by weight of air. Decreases with altitude.",
+      "example": "At Everest summit, pressure ~33 kPa — water boils at ~71°C."
+    },
+    {
+      "id": "phys-pressure-1-f4",
+      "term": "Moment",
+      "definition": "Turning effect: M=Fd (Nm). Force × perpendicular distance from pivot.",
+      "example": "20 N force at 0.3 m from hinge → M=6 Nm."
+    },
+    {
+      "id": "phys-pressure-1-f5",
+      "term": "Principle of moments",
+      "definition": "For equilibrium: total clockwise moments = total anticlockwise moments.",
+      "example": "30 kg child at 2 m balances 60 kg adult at 1 m: 600×1=300×2."
+    },
+    {
+      "id": "phys-pressure-1-f6",
+      "term": "Pascal's principle",
+      "definition": "Pressure in enclosed fluid transmits equally. F₁/A₁=F₂/A₂. Force multiplication when A₂>A₁.",
+      "example": "Car jack: small force on small piston → large force on large piston."
+    },
+    {
+      "id": "phys-pressure-1-f7",
+      "term": "Archimedes' principle",
+      "definition": "Upthrust = weight of fluid displaced. Float if upthrust ≥ weight.",
+      "example": "Steel ship floats — hollow shape displaces large water volume, generating sufficient upthrust."
+    },
+    {
+      "id": "phys-pressure-1-f8",
+      "term": "Mechanical advantage",
+      "definition": "Ratio: load÷effort. >1 means lever multiplies force (less effort needed).",
+      "example": "Crowbar lifting 500 N with 100 N effort → MA=5."
+    },
+    {
+      "id": "phys-pressure-1-f9",
+      "term": "Centre of mass",
+      "definition": "Point where weight appears to act. Object topples when COM passes beyond base.",
+      "example": "Double-decker bus has low COM; SUV with roof load has higher COM — easier to roll."
+    },
+    {
+      "id": "phys-pressure-1-f10",
+      "term": "Upthrust (buoyancy)",
+      "definition": "Upward force on object in fluid due to pressure difference (higher pressure at greater depth).",
+      "example": "Object feels lighter in water — apparent weight = actual weight − upthrust."
+    },
+    {
+      "id": "phys-pressure-1-f11",
+      "term": "Gear ratio",
+      "definition": "Small gear driving large = reduce speed, increase torque. Large → small = increase speed, reduce torque.",
+      "example": "Bicycle: uphill = small front gear, large rear gear (high torque, low speed)."
+    },
+    {
+      "id": "phys-pressure-1-f12",
+      "term": "Hydraulic brake",
+      "definition": "Pedal force → small master piston → pressure through fluid → large slave pistons at wheels → multiplied braking force.",
+      "example": "20 N pedal force can generate 1000+ N at brake pads through hydraulic multiplication."
+    }
   ],
   "questions": [
-    { "id": "phys-pressure-1-q1", "stem": "500 N force on 0.25 m². Pressure?", "choices": ["125 Pa", "2000 Pa", "0.0005 Pa", "500 Pa"], "correctIndex": 1, "explanation": "P=F/A=500/0.25=2000 Pa." },
-    { "id": "phys-pressure-1-q2", "stem": "Why are dam walls thicker at the bottom?", "choices": ["Cheaper to build that way", "Pressure increases with depth — P=hρg, higher at bottom", "Water is denser at bottom", "Appearance only"], "correctIndex": 1, "explanation": "Deeper water = greater weight of water above = higher pressure. Walls must be stronger to resist this." },
-    { "id": "phys-pressure-1-q3", "stem": "30 N force at 0.4 m from pivot. Moment?", "choices": ["7.5 Nm", "12 Nm", "30.4 Nm", "75 Nm"], "correctIndex": 1, "explanation": "Moment equals force times perpendicular distance: $M=Fd=30\\times0.4=12\\text{ Nm}$." },
-    { "id": "phys-pressure-1-q4", "stem": "Hydraulic piston A₁=0.01 m², F₁=50 N. A₂=0.1 m². F₂=?", "choices": ["5 N", "50 N", "500 N", "5000 N"], "correctIndex": 2, "explanation": "P=50/0.01=5000 Pa. F₂=P×A₂=5000×0.1=500 N. Force multiplied by 10." },
-    { "id": "phys-pressure-1-q5", "stem": "A ship is made of steel but floats because:", "choices": ["Steel is less dense than water", "Hollow shape displaces large volume of water → upthrust equals ship's weight", "It is full of air", "Gravity is weaker on water"], "correctIndex": 1, "explanation": "Archimedes: upthrust = weight of displaced water. Hollow hull displaces enormous volume → large upthrust." },
-    { "id": "phys-pressure-1-q6", "stem": "Why do snowshoes prevent sinking?", "choices": ["They make you lighter", "Large area → lower pressure (P=F/A), distributed weight", "They create upward force", "Snow is denser under shoes"], "correctIndex": 1, "explanation": "Same weight over larger area = lower pressure on snow = less sinking." },
-    { "id": "phys-pressure-1-q7", "stem": "A 40 kg child sits 2 m from see-saw pivot. Where should 80 kg adult sit to balance?", "choices": ["4 m from pivot", "1 m from pivot — 400×2 = 800×d → d=1 m", "2 m from pivot", "0.5 m from pivot"], "correctIndex": 1, "explanation": "40g×2 = 80g×d. d = 80/80 = 1 m. Heavier person sits closer to pivot." },
-    { "id": "phys-pressure-1-q8", "stem": "A spanner has a long handle because:", "choices": ["It weighs more", "Longer handle → larger distance from pivot → larger moment with same force → easier to turn bolts", "It's traditional design", "Shorter handles break more easily"], "correctIndex": 1, "explanation": "M=Fd. Larger d = larger turning effect for the same applied force." },
-    { "id": "phys-pressure-1-q9", "stem": "At high altitude, atmospheric pressure:", "choices": ["Increases", "Decreases — less air above pushing down", "Stays the same", "Depends on temperature only"], "correctIndex": 1, "explanation": "Less atmosphere above → lower weight of air → lower pressure. Sea level: 101 kPa; Everest: ~33 kPa." },
-    { "id": "phys-pressure-1-q10", "stem": "Bicycle: uphill, which gear combination?", "choices": ["Large front, small rear (high gear)", "Small front, large rear — lower gear = higher torque, easier to pedal", "Any gear works the same", "No gears needed uphill"], "correctIndex": 1, "explanation": "Small front/large rear = high torque, low speed. Pedalling is easier but slower — ideal for climbing." },
-    { "id": "phys-pressure-1-q11", "stem": "Why does an object feel lighter when submerged in water?", "choices": ["Water reduces gravity", "Upthrust acts upward — apparent weight = actual weight − upthrust", "Water increases mass", "It's an optical illusion"], "correctIndex": 1, "explanation": "Archimedes' principle. The weight feels reduced by the buoyancy force." },
-    { "id": "phys-pressure-1-q12", "stem": "A submarine fills ballast tanks with water to:", "choices": ["Increase speed", "Increase density → sink. Expelling water with compressed air → rise", "Cool the engine", "Store fresh water"], "correctIndex": 1, "explanation": "Filling tanks increases overall density of submarine. When average density > water density → sinks. Compressed air pumps water out → rises." },
-    { "id": "phys-pressure-1-q13", "stem": "Class 2 lever (load in middle):", "choices": ["Tweezers", "Wheelbarrow — fulcrum (wheel) at one end, effort at other, load between", "See-saw", "Fishing rod"], "correctIndex": 1, "explanation": "Class 2: Fulcrum — Load — Effort. Always has MA > 1 (force multiplier)." },
-    { "id": "phys-pressure-1-q14", "stem": "A hot air balloon rises because:", "choices": ["Hot air is lighter than vacuum", "Heated air is less dense than surrounding cold air → buoyancy → rises", "The balloon becomes lighter", "Wind pushes it up"], "correctIndex": 1, "explanation": "Heating reduces air density. Denser cold air pushes the less dense hot air balloon upward — buoyancy." },
-    { "id": "phys-pressure-1-q15", "stem": "A rectangular box 0.5 m × 0.4 m weighs 200 N. Minimum pressure it can exert on ground?", "choices": ["400 Pa on large face (0.5×0.4=0.2 m²→1000 Pa)", "1000 Pa — largest area = smallest pressure", "500 Pa", "2000 Pa"], "correctIndex": 1, "explanation": "Largest area = 0.5×0.4=0.2 m². P=200/0.2=1000 Pa. Minimum pressure occurs on largest face." }
+    {
+      "id": "phys-pressure-1-q1",
+      "stem": "500 N force on 0.25 m². Pressure?",
+      "choices": [
+        "125 Pa",
+        "2000 Pa",
+        "0.0005 Pa",
+        "500 Pa"
+      ],
+      "correctIndex": 1,
+      "explanation": "P=F/A=500/0.25=2000 Pa."
+    },
+    {
+      "id": "phys-pressure-1-q2",
+      "stem": "Why are dam walls thicker at the bottom?",
+      "choices": [
+        "Cheaper to build that way",
+        "Pressure increases with depth — P=hρg, higher at bottom",
+        "Water is denser at bottom",
+        "Appearance only"
+      ],
+      "correctIndex": 1,
+      "explanation": "Deeper water = greater weight of water above = higher pressure. Walls must be stronger to resist this."
+    },
+    {
+      "id": "phys-pressure-1-q3",
+      "stem": "30 N force at 0.4 m from pivot. Moment?",
+      "choices": [
+        "7.5 Nm",
+        "12 Nm",
+        "30.4 Nm",
+        "75 Nm"
+      ],
+      "correctIndex": 1,
+      "explanation": "Moment equals force times perpendicular distance: $M=Fd=30\\times0.4=12\\text{ Nm}$."
+    },
+    {
+      "id": "phys-pressure-1-q4",
+      "stem": "Hydraulic piston A₁=0.01 m², F₁=50 N. A₂=0.1 m². F₂=?",
+      "choices": [
+        "5 N",
+        "50 N",
+        "500 N",
+        "5000 N"
+      ],
+      "correctIndex": 2,
+      "explanation": "P=50/0.01=5000 Pa. F₂=P×A₂=5000×0.1=500 N. Force multiplied by 10."
+    },
+    {
+      "id": "phys-pressure-1-q5",
+      "stem": "A ship is made of steel but floats because:",
+      "choices": [
+        "Steel is less dense than water",
+        "Hollow shape displaces large volume of water → upthrust equals ship's weight",
+        "It is full of air",
+        "Gravity is weaker on water"
+      ],
+      "correctIndex": 1,
+      "explanation": "Archimedes: upthrust = weight of displaced water. Hollow hull displaces enormous volume → large upthrust."
+    },
+    {
+      "id": "phys-pressure-1-q6",
+      "stem": "Why do snowshoes prevent sinking?",
+      "choices": [
+        "They make you lighter",
+        "Large area → lower pressure (P=F/A), distributed weight",
+        "They create upward force",
+        "Snow is denser under shoes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Same weight over larger area = lower pressure on snow = less sinking."
+    },
+    {
+      "id": "phys-pressure-1-q7",
+      "stem": "A 40 kg child sits 2 m from see-saw pivot. Where should 80 kg adult sit to balance?",
+      "choices": [
+        "4 m from pivot",
+        "1 m from pivot — 400×2 = 800×d → d=1 m",
+        "2 m from pivot",
+        "0.5 m from pivot"
+      ],
+      "correctIndex": 1,
+      "explanation": "40g×2 = 80g×d. d = 80/80 = 1 m. Heavier person sits closer to pivot."
+    },
+    {
+      "id": "phys-pressure-1-q8",
+      "stem": "A spanner has a long handle because:",
+      "choices": [
+        "It weighs more",
+        "Longer handle → larger distance from pivot → larger moment with same force → easier to turn bolts",
+        "It's traditional design",
+        "Shorter handles break more easily"
+      ],
+      "correctIndex": 1,
+      "explanation": "M=Fd. Larger d = larger turning effect for the same applied force."
+    },
+    {
+      "id": "phys-pressure-1-q9",
+      "stem": "At high altitude, atmospheric pressure:",
+      "choices": [
+        "Increases",
+        "Decreases — less air above pushing down",
+        "Stays the same",
+        "Depends on temperature only"
+      ],
+      "correctIndex": 1,
+      "explanation": "Less atmosphere above → lower weight of air → lower pressure. Sea level: 101 kPa; Everest: ~33 kPa."
+    },
+    {
+      "id": "phys-pressure-1-q10",
+      "stem": "Bicycle: uphill, which gear combination?",
+      "choices": [
+        "Large front, small rear (high gear)",
+        "Small front, large rear — lower gear = higher torque, easier to pedal",
+        "Any gear works the same",
+        "No gears needed uphill"
+      ],
+      "correctIndex": 1,
+      "explanation": "Small front/large rear = high torque, low speed. Pedalling is easier but slower — ideal for climbing."
+    },
+    {
+      "id": "phys-pressure-1-q11",
+      "stem": "Why does an object feel lighter when submerged in water?",
+      "choices": [
+        "Water reduces gravity",
+        "Upthrust acts upward — apparent weight = actual weight − upthrust",
+        "Water increases mass",
+        "It's an optical illusion"
+      ],
+      "correctIndex": 1,
+      "explanation": "Archimedes' principle. The weight feels reduced by the buoyancy force."
+    },
+    {
+      "id": "phys-pressure-1-q12",
+      "stem": "A submarine fills ballast tanks with water to:",
+      "choices": [
+        "Increase speed",
+        "Increase density → sink. Expelling water with compressed air → rise",
+        "Cool the engine",
+        "Store fresh water"
+      ],
+      "correctIndex": 1,
+      "explanation": "Filling tanks increases overall density of submarine. When average density > water density → sinks. Compressed air pumps water out → rises."
+    },
+    {
+      "id": "phys-pressure-1-q13",
+      "stem": "Class 2 lever (load in middle):",
+      "choices": [
+        "Tweezers",
+        "Wheelbarrow — fulcrum (wheel) at one end, effort at other, load between",
+        "See-saw",
+        "Fishing rod"
+      ],
+      "correctIndex": 1,
+      "explanation": "Class 2: Fulcrum — Load — Effort. Always has MA > 1 (force multiplier)."
+    },
+    {
+      "id": "phys-pressure-1-q14",
+      "stem": "A hot air balloon rises because:",
+      "choices": [
+        "Hot air is lighter than vacuum",
+        "Heated air is less dense than surrounding cold air → buoyancy → rises",
+        "The balloon becomes lighter",
+        "Wind pushes it up"
+      ],
+      "correctIndex": 1,
+      "explanation": "Heating reduces air density. Denser cold air pushes the less dense hot air balloon upward — buoyancy."
+    },
+    {
+      "id": "phys-pressure-1-q15",
+      "stem": "A rectangular box 0.5 m × 0.4 m weighs 200 N. Minimum pressure it can exert on ground?",
+      "choices": [
+        "400 Pa on large face (0.5×0.4=0.2 m²→1000 Pa)",
+        "1000 Pa — largest area = smallest pressure",
+        "500 Pa",
+        "2000 Pa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Largest area = 0.5×0.4=0.2 m². P=200/0.2=1000 Pa. Minimum pressure occurs on largest face."
+    }
   ]
 }

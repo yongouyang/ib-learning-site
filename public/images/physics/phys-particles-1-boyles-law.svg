@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title desc"><title id="title">Gas Pressure and Boyle's Law</title><desc id="desc">Piston compressing gas showing pressure increases as volume decreases, with Boyle's Law P₁V₁=P₂V₂ graph.</desc><defs><style>.t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}.l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}.s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}.f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}.b{fill:#fff;stroke:#e5e7eb;stroke-width:2}.g{stroke:#e5e7eb;stroke-width:.5}.a{stroke:#374151;stroke-width:2}.p{fill:none;stroke:#ef4444;stroke-width:3}</style></defs><rect width="800" height="360" fill="#f9fafb" rx="12"/><text x="400" y="34" text-anchor="middle" class="t">Gas Pressure and Boyle's Law</text>
+
+<rect x="20" y="50" width="460" height="200" rx="10" class="b"/><text x="250" y="75" text-anchor="middle" class="l">Piston Compressing Gas</text>
+<g transform="translate(50,92)">
+  <!-- Before -->
+  <rect x="0" y="0" width="160" height="120" rx="6" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="40" cy="30" r="6" fill="#22c55e" opacity="0.6"/><circle cx="80" cy="50" r="6" fill="#22c55e" opacity="0.6"/>
+  <circle cx="110" cy="25" r="6" fill="#22c55e" opacity="0.6"/><circle cx="50" cy="70" r="6" fill="#22c55e" opacity="0.6"/>
+  <circle cx="100" cy="80" r="6" fill="#22c55e" opacity="0.6"/><circle cx="130" cy="60" r="6" fill="#22c55e" opacity="0.6"/>
+  <rect x="0" y="115" width="160" height="6" fill="#ef4444"/>
+  <text x="80" y="135" text-anchor="middle" class="s">P₁ = low pressure</text><text x="80" y="148" text-anchor="middle" class="s">V₁ = large volume</text>
+
+  <!-- Arrow -->
+  <line x1="165" y1="60" x2="210" y2="60" stroke="#dc2626" stroke-width="2" marker-end="url(#aR)"/>
+  <text x="188" y="55" text-anchor="middle" class="s" fill="#dc2626">compress</text>
+
+  <!-- After -->
+  <rect x="215" y="25" width="100" height="95" rx="6" fill="#fecaca" stroke="#ef4444" stroke-width="2"/>
+  <circle cx="235" cy="45" r="5" fill="#22c55e" opacity="0.6"/><circle cx="270" cy="60" r="5" fill="#22c55e" opacity="0.6"/>
+  <circle cx="290" cy="40" r="5" fill="#22c55e" opacity="0.6"/><circle cx="255" cy="75" r="5" fill="#22c55e" opacity="0.6"/>
+  <circle cx="285" cy="80" r="5" fill="#22c55e" opacity="0.6"/>
+  <rect x="215" y="115" width="100" height="6" fill="#dc2626"/>
+  <text x="265" y="135" text-anchor="middle" class="s">P₂ = high pressure</text><text x="265" y="148" text-anchor="middle" class="s">V₂ = small volume</text>
+</g>
+<marker id="aR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,1 L8,5 L0,9" fill="#dc2626"/></marker>
+
+<rect x="500" y="50" width="280" height="200" rx="10" class="b"/><text x="640" y="75" text-anchor="middle" class="l">Boyle's Law</text>
+<g transform="translate(520,92)">
+  <rect x="0" y="0" width="240" height="45" rx="6" fill="#fef2f2"/>
+  <text x="120" y="18" text-anchor="middle" class="f">P₁V₁ = P₂V₂</text><text x="120" y="36" text-anchor="middle" class="s">At constant temperature (isothermal)</text>
+
+  <rect x="0" y="52" width="240" height="55" rx="6" fill="#f3f4f6"/>
+  <text x="10" y="70" class="l">P ∝ 1/V (inverse)</text>
+  <text x="10" y="88" class="s">Double volume → half pressure</text>
+  <text x="10" y="104" class="s">Gas particles hit walls less often</text>
+
+  <!-- P vs V graph -->
+  <line x1="20" y1="120" x2="20" y2="170" class="a"/><line x1="20" y1="170" x2="140" y2="170" class="a"/>
+  <path d="M20,130 Q40,140 80,150 Q110,158 140,162" class="p"/>
+  <text x="80" y="186" text-anchor="middle" class="s">Pressure vs 1/V (straight line)</text>
+</g>
+
+<rect x="20" y="268" width="760" height="55" rx="10" class="b"/><text x="400" y="290" text-anchor="middle" class="l">Boyle's Law: For a fixed mass of gas at constant temperature, pressure × volume = constant</text>
+<text x="400" y="310" text-anchor="middle" class="s">Practical: attach syringe to pressure gauge, record P for different V, plot P vs 1/V → straight line through origin confirms P ∝ 1/V</text></svg>

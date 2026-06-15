@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Resistance and Ohm's Law</title>
+  <desc id="desc">I-V characteristic graphs for an ohmic conductor, a filament lamp, and a diode, with labelled axes and explanations.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .formula { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; font-weight: 700; fill: #dc2626; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+      .grid { stroke: #e5e7eb; stroke-width: 0.5; }
+      .axis { stroke: #374151; stroke-width: 2; }
+      .plot-ohmic { stroke: #22c55e; stroke-width: 3; fill: none; }
+      .plot-lamp { stroke: #ef4444; stroke-width: 3; fill: none; }
+      .plot-diode { stroke: #3b82f6; stroke-width: 3; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="800" height="480" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Resistance and Ohm's Law</text>
+
+  <!-- Ohmic conductor graph -->
+  <rect x="20" y="50" width="240" height="200" rx="8" class="box"/>
+  <g transform="translate(50, 70)">
+    <!-- Grid -->
+    <line x1="0" y1="0" x2="0" y2="160" class="grid"/><line x1="40" y1="0" x2="40" y2="160" class="grid"/>
+    <line x1="80" y1="0" x2="80" y2="160" class="grid"/><line x1="120" y1="0" x2="120" y2="160" class="grid"/>
+    <line x1="160" y1="0" x2="160" y2="160" class="grid"/>
+    <line x1="0" y1="0" x2="180" y2="0" class="grid"/><line x1="0" y1="40" x2="180" y2="40" class="grid"/>
+    <line x1="0" y1="80" x2="180" y2="80" class="grid"/><line x1="0" y1="120" x2="180" y2="120" class="grid"/>
+    <!-- Axes -->
+    <line x1="0" y1="160" x2="180" y2="160" class="axis"/><line x1="0" y1="0" x2="0" y2="160" class="axis"/>
+    <!-- Plot -->
+    <line x1="0" y1="160" x2="160" y2="0" class="plot-ohmic"/>
+    <text x="90" y="180" text-anchor="middle" class="label" fill="#22c55e">Ohmic conductor</text>
+    <text x="90" y="194" text-anchor="middle" class="sublabel">Straight line: R = constant</text>
+    <text x="0" y="176" text-anchor="middle" class="sublabel" fill="#374151">V</text>
+    <text x="185" y="165" text-anchor="middle" class="sublabel" fill="#374151">I</text>
+  </g>
+
+  <!-- Filament lamp graph -->
+  <rect x="280" y="50" width="240" height="200" rx="8" class="box"/>
+  <g transform="translate(310, 70)">
+    <line x1="0" y1="0" x2="0" y2="160" class="grid"/><line x1="40" y1="0" x2="40" y2="160" class="grid"/>
+    <line x1="80" y1="0" x2="80" y2="160" class="grid"/><line x1="120" y1="0" x2="120" y2="160" class="grid"/>
+    <line x1="160" y1="0" x2="160" y2="160" class="grid"/>
+    <line x1="0" y1="0" x2="180" y2="0" class="grid"/><line x1="0" y1="40" x2="180" y2="40" class="grid"/>
+    <line x1="0" y1="80" x2="180" y2="80" class="grid"/><line x1="0" y1="120" x2="180" y2="120" class="grid"/>
+    <line x1="0" y1="160" x2="180" y2="160" class="axis"/><line x1="0" y1="0" x2="0" y2="160" class="axis"/>
+    <!-- Curve: starts steep (low resistance cold), flattens as heats up -->
+    <path d="M0,160 Q60,120 100,60 Q120,30 160,20" class="plot-lamp"/>
+    <text x="90" y="180" text-anchor="middle" class="label" fill="#ef4444">Filament lamp</text>
+    <text x="90" y="194" text-anchor="middle" class="sublabel">R ↑ as it heats up</text>
+    <text x="0" y="176" text-anchor="middle" class="sublabel" fill="#374151">V</text>
+    <text x="185" y="165" text-anchor="middle" class="sublabel" fill="#374151">I</text>
+  </g>
+
+  <!-- Diode graph -->
+  <rect x="540" y="50" width="240" height="200" rx="8" class="box"/>
+  <g transform="translate(570, 70)">
+    <line x1="0" y1="0" x2="0" y2="160" class="grid"/><line x1="40" y1="0" x2="40" y2="160" class="grid"/>
+    <line x1="80" y1="0" x2="80" y2="160" class="grid"/><line x1="120" y1="0" x2="120" y2="160" class="grid"/>
+    <line x1="160" y1="0" x2="160" y2="160" class="grid"/>
+    <line x1="0" y1="0" x2="180" y2="0" class="grid"/><line x1="0" y1="40" x2="180" y2="40" class="grid"/>
+    <line x1="0" y1="80" x2="180" y2="80" class="grid"/><line x1="0" y1="120" x2="180" y2="120" class="grid"/>
+    <line x1="0" y1="160" x2="180" y2="160" class="axis"/><line x1="0" y1="0" x2="0" y2="160" class="axis"/>
+    <line x1="0" y1="80" x2="80" y2="80" class="plot-diode"/>
+    <line x1="80" y1="80" x2="120" y2="50" stroke="#3b82f6" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <line x1="120" y1="50" x2="160" y2="20" class="plot-diode"/>
+    <text x="90" y="180" text-anchor="middle" class="label" fill="#3b82f6">Diode</text>
+    <text x="90" y="194" text-anchor="middle" class="sublabel">Conducts forward only</text>
+    <text x="0" y="176" text-anchor="middle" class="sublabel" fill="#374151">V</text>
+    <text x="185" y="165" text-anchor="middle" class="sublabel" fill="#374151">I</text>
+  </g>
+
+  <!-- Ohm's Law formula -->
+  <rect x="20" y="270" width="760" height="65" rx="10" class="box"/>
+  <text x="400" y="295" text-anchor="middle" class="formula">V = I × R</text>
+  <text x="400" y="315" text-anchor="middle" class="label">Voltage (V) = Current (A) × Resistance (Ω)</text>
+
+  <!-- Factors affecting resistance -->
+  <rect x="20" y="350" width="370" height="115" rx="10" class="box"/>
+  <text x="205" y="372" text-anchor="middle" class="label">Factors Affecting Resistance</text>
+  <g transform="translate(35, 388)">
+    <text x="0" y="12" class="sublabel">• Length: R ∝ length (longer wire = more R)</text>
+    <text x="0" y="28" class="sublabel">• Cross-sectional area: R ∝ 1/area (thicker = less R)</text>
+    <text x="0" y="44" class="sublabel">• Material resistivity: copper (low) vs nichrome (high)</text>
+    <text x="0" y="60" class="sublabel">• Temperature: higher T → ions vibrate more → higher R</text>
+  </g>
+
+  <!-- Resistance triangle -->
+  <rect x="410" y="350" width="370" height="115" rx="10" class="box"/>
+  <text x="595" y="372" text-anchor="middle" class="label">Ohm's Law Triangle</text>
+  <g transform="translate(500, 385)">
+    <!-- Triangle layout -->
+    <text x="45" y="50" text-anchor="middle" class="formula">V</text>
+    <text x="15" y="85" text-anchor="middle" class="label">I</text>
+    <text x="75" y="85" text-anchor="middle" class="label">R</text>
+    <line x1="25" y1="45" x2="10" y2="75" stroke="#d1d5db" stroke-width="1.5"/>
+    <line x1="65" y1="45" x2="80" y2="75" stroke="#d1d5db" stroke-width="1.5"/>
+    <line x1="10" y1="75" x2="80" y2="75" stroke="#d1d5db" stroke-width="1.5"/>
+    <rect x="22" y="40" width="46" height="18" rx="4" fill="#fef2f2"/>
+  </g>
+  <text x="595" y="445" text-anchor="middle" class="sublabel">Cover the one you want: V = IR, I = V/R, R = V/I</text>
+</svg>

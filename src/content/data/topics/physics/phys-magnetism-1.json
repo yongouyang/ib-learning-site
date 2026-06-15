@@ -8,68 +8,325 @@
     {
       "id": "phys-magnetism-1-n1",
       "heading": "Magnets and Magnetic Fields",
-      "body": "A magnet has two poles: North (N) and South (S). Like poles repel; unlike poles attract. Magnetic materials: iron, cobalt, nickel, and their alloys (steel). NOT all metals are magnetic (aluminium, copper, gold are NOT). A magnetic field is the region around a magnet where magnetic forces act. Field lines: run from North to South outside the magnet (South to North inside — forming closed loops). Closer lines = stronger field. The Earth has a magnetic field — its magnetic south pole is near the geographic North Pole (compass N points to magnetic south). Plotting compasses trace field lines. Iron filings align along field lines when sprinkled around a magnet."
+      "body": "A magnet has two poles: North (N) and South (S). Like poles repel; unlike poles attract. Magnetic materials: iron, cobalt, nickel, and their alloys (steel). NOT all metals are magnetic (aluminium, copper, gold are NOT). A magnetic field is the region around a magnet where magnetic forces act. Field lines: run from North to South outside the magnet (South to North inside — forming closed loops). Closer lines = stronger field. The Earth has a magnetic field — its magnetic south pole is near the geographic North Pole (compass N points to magnetic south). Plotting compasses trace field lines. Iron filings align along field lines when sprinkled around a magnet.",
+      "illustration": {
+        "src": "/images/physics/phys-magnetism-1-magnetic-fields.svg",
+        "alt": "Bar magnet showing magnetic field lines from north to south pole, with compass plotting method.",
+        "caption": "Magnetic field lines go from the north pole to the south pole outside the magnet."
+      }
     },
     {
       "id": "phys-magnetism-1-n2",
       "heading": "Electromagnets",
-      "body": "An electromagnet is a solenoid (coil of wire) wrapped around a soft iron core. When current flows, a magnetic field is produced (right-hand grip rule: fingers curl in current direction, thumb = N pole). Electromagnets: can be switched on/off, strength can be varied (increase current, more coil turns, add iron core), polarity can be reversed (reverse current). Uses: scrapyard cranes (lift iron/steel), electric bells, relays, magnetic locks, MRI scanners, circuit breakers, loudspeakers. A permanent magnet always has a magnetic field but cannot be switched off. Comparison: electromagnets are temporary, controllable; permanent magnets are always on, don't need power."
+      "body": "An electromagnet is a solenoid (coil of wire) wrapped around a soft iron core. When current flows, a magnetic field is produced (right-hand grip rule: fingers curl in current direction, thumb = N pole). Electromagnets: can be switched on/off, strength can be varied (increase current, more coil turns, add iron core), polarity can be reversed (reverse current). Uses: scrapyard cranes (lift iron/steel), electric bells, relays, magnetic locks, MRI scanners, circuit breakers, loudspeakers. A permanent magnet always has a magnetic field but cannot be switched off. Comparison: electromagnets are temporary, controllable; permanent magnets are always on, don't need power.",
+      "illustration": {
+        "src": "/images/physics/phys-magnetism-1-electromagnets.svg",
+        "alt": "Electromagnet diagram showing a wire coil wrapped around an iron core, connected to a battery.",
+        "caption": "An electromagnet can be switched on and off and its strength can be varied by changing the current."
+      }
     },
     {
       "id": "phys-magnetism-1-n3",
       "heading": "The Motor Effect",
-      "body": "A current-carrying conductor placed in a magnetic field experiences a force — the motor effect. Force is maximum when current ⊥ field (90°). Force = 0 when current ∥ field. Fleming's Left-Hand Rule (for motors): ThuMb = Motion (force), First finger = Field (N→S), Second finger = Current (+ → −). Increasing force: stronger magnet, larger current, more wire in field (coil). Electric motor: a coil rotates between magnet poles. Split-ring commutator reverses current every half-turn → coil keeps rotating in same direction. Brushes conduct current to commutator. Energy conversion: electrical → kinetic (+ heat/sound dissipated)."
+      "body": "A current-carrying conductor placed in a magnetic field experiences a force — the motor effect. Force is maximum when current ⊥ field (90°). Force = 0 when current ∥ field. Fleming's Left-Hand Rule (for motors): ThuMb = Motion (force), First finger = Field (N→S), Second finger = Current (+ → −). Increasing force: stronger magnet, larger current, more wire in field (coil). Electric motor: a coil rotates between magnet poles. Split-ring commutator reverses current every half-turn → coil keeps rotating in same direction. Brushes conduct current to commutator. Energy conversion: electrical → kinetic (+ heat/sound dissipated).",
+      "illustration": {
+        "src": "/images/physics/phys-magnetism-1-motor-effect.svg",
+        "alt": "Fleming left-hand rule diagram showing thumb for force, first finger for field, and second finger for current.",
+        "caption": "A current-carrying wire in a magnetic field experiences a force — the motor effect."
+      }
     },
     {
       "id": "phys-magnetism-1-n4",
       "heading": "Electromagnetic Induction (Generator Effect)",
-      "body": "Moving a conductor through a magnetic field (or changing the magnetic field around a conductor) induces a voltage (potential difference). This is electromagnetic induction. If the conductor is part of a complete circuit, an induced current flows. Factors increasing induced voltage: stronger magnet, faster movement, more coil turns. Fleming's Right-Hand Rule (for generators): ThuMb = Motion, First finger = Field, Second finger = Current. Generator: coil rotates in magnetic field → voltage induced. Slip rings + brushes → alternating current (AC). Split-ring commutator → direct current (DC). Energy conversion: kinetic → electrical. This is the principle behind power stations (steam/water/wind turns turbine → spins generator → electricity)."
+      "body": "Moving a conductor through a magnetic field (or changing the magnetic field around a conductor) induces a voltage (potential difference). This is electromagnetic induction. If the conductor is part of a complete circuit, an induced current flows. Factors increasing induced voltage: stronger magnet, faster movement, more coil turns. Fleming's Right-Hand Rule (for generators): ThuMb = Motion, First finger = Field, Second finger = Current. Generator: coil rotates in magnetic field → voltage induced. Slip rings + brushes → alternating current (AC). Split-ring commutator → direct current (DC). Energy conversion: kinetic → electrical. This is the principle behind power stations (steam/water/wind turns turbine → spins generator → electricity).",
+      "illustration": {
+        "src": "/images/physics/phys-magnetism-1-induction.svg",
+        "alt": "A magnet moving through a coil generates an electric current, showing the generator effect.",
+        "caption": "Electromagnetic induction: a changing magnetic field induces a voltage in a conductor."
+      }
     },
     {
       "id": "phys-magnetism-1-n5",
       "heading": "Transformers",
-      "body": "A transformer changes the voltage of an alternating current (only works with AC — needs changing magnetic field). Two coils wound on a shared iron core: Primary coil (input, Vp, Np turns). Secondary coil (output, Vs, Ns turns). Equation: Vp/Vs = Np/Ns. Step-up transformer: Ns > Np → Vs > Vp (more turns on secondary → higher voltage, lower current). Step-down transformer: Ns < Np → Vs < Vp. Assuming 100% efficiency: input power = output power → Vp×Ip = Vs×Is. If voltage steps up, current steps down proportionally. Why high voltage transmission? P=I²R losses in cables. Transmitting at very high voltage → low current → less energy wasted as heat. National Grid uses step-up transformers (to ~400,000 V for transmission) and step-down transformers (to 230 V for homes)."
+      "body": "A transformer changes the voltage of an alternating current (only works with AC — needs changing magnetic field). Two coils wound on a shared iron core: Primary coil (input, Vp, Np turns). Secondary coil (output, Vs, Ns turns). Equation: Vp/Vs = Np/Ns. Step-up transformer: Ns > Np → Vs > Vp (more turns on secondary → higher voltage, lower current). Step-down transformer: Ns < Np → Vs < Vp. Assuming 100% efficiency: input power = output power → Vp×Ip = Vs×Is. If voltage steps up, current steps down proportionally. Why high voltage transmission? P=I²R losses in cables. Transmitting at very high voltage → low current → less energy wasted as heat. National Grid uses step-up transformers (to ~400,000 V for transmission) and step-down transformers (to 230 V for homes).",
+      "illustration": {
+        "src": "/images/physics/phys-magnetism-1-transformers.svg",
+        "alt": "Step-up and step-down transformer diagrams with primary and secondary coils and the turns ratio equation.",
+        "caption": "Transformers only work with AC; the voltage ratio equals the turns ratio."
+      }
     },
     {
       "id": "phys-magnetism-1-n6",
       "heading": "The National Grid and Power Transmission",
-      "body": "The National Grid distributes electricity from power stations to consumers. Power stations generate at ~25,000 V. Step-up transformers increase to ~400,000 V for long-distance transmission (reduces current → reduces P=I²R heat losses in cables). Step-down transformers reduce voltage in stages: substations → 11,000 V for local distribution → 230 V for homes. Overhead cables: aluminium (lightweight, good conductor) with steel core (strength). Underground cables: used in cities but more expensive and harder to cool/repair. Advantages of the grid: power can be routed from anywhere to anywhere, supply matches demand, different sources can contribute (renewables and non-renewables work together)."
+      "body": "The National Grid distributes electricity from power stations to consumers. Power stations generate at ~25,000 V. Step-up transformers increase to ~400,000 V for long-distance transmission (reduces current → reduces P=I²R heat losses in cables). Step-down transformers reduce voltage in stages: substations → 11,000 V for local distribution → 230 V for homes. Overhead cables: aluminium (lightweight, good conductor) with steel core (strength). Underground cables: used in cities but more expensive and harder to cool/repair. Advantages of the grid: power can be routed from anywhere to anywhere, supply matches demand, different sources can contribute (renewables and non-renewables work together).",
+      "illustration": {
+        "src": "/images/physics/phys-magnetism-1-national-grid.svg",
+        "alt": "National Grid diagram: power station to step-up transformer to high voltage pylons to step-down transformer to homes.",
+        "caption": "High voltage is used for transmission to reduce power loss (P loss equals I squared R)."
+      }
     },
     {
       "id": "phys-magnetism-1-n7",
       "heading": "Loudspeakers and Microphones",
-      "body": "Loudspeaker (motor effect): AC current in coil → alternating force in permanent magnetic field → coil vibrates → attached cone vibrates → sound waves produced. Frequency of AC = frequency of sound. Microphone (generator effect): sound waves → diaphragm vibrates → coil moves in magnetic field → voltage induced → AC signal. This electrical signal can then be amplified and sent to loudspeakers. Loudspeaker = electrical → kinetic → sound. Microphone = sound → kinetic → electrical. Both use the same electromagnetic principles in reverse directions — a lovely symmetry."
+      "body": "Loudspeaker (motor effect): AC current in coil → alternating force in permanent magnetic field → coil vibrates → attached cone vibrates → sound waves produced. Frequency of AC = frequency of sound. Microphone (generator effect): sound waves → diaphragm vibrates → coil moves in magnetic field → voltage induced → AC signal. This electrical signal can then be amplified and sent to loudspeakers. Loudspeaker = electrical → kinetic → sound. Microphone = sound → kinetic → electrical. Both use the same electromagnetic principles in reverse directions — a lovely symmetry.",
+      "illustration": {
+        "src": "/images/physics/phys-magnetism-1-speakers-mics.svg",
+        "alt": "Cross-section diagrams showing how a loudspeaker converts electrical signals to sound and a microphone converts sound to electrical signals.",
+        "caption": "Loudspeakers and microphones both use the motor effect and electromagnetic induction in reverse."
+      }
     }
   ],
   "flashcards": [
-    { "id": "phys-magnetism-1-f1", "term": "Magnetic field", "definition": "Region where magnetic forces act. Lines run N→S outside magnet. Closer lines = stronger field.", "example": "Iron filings around a bar magnet trace out the field line pattern." },
-    { "id": "phys-magnetism-1-f2", "term": "Electromagnet", "definition": "Solenoid (coil) + iron core. Magnetic field when current flows. Can be switched on/off; strength controlled.", "example": "Scrapyard crane — switch on to lift car, switch off to drop." },
-    { "id": "phys-magnetism-1-f3", "term": "Motor effect", "definition": "Force on a current-carrying conductor in a magnetic field. Maximum when wire ⊥ field.", "example": "Fleming's Left-Hand Rule: ThuMb=Motion, First finger=Field, Second finger=Current." },
-    { "id": "phys-magnetism-1-f4", "term": "Fleming's Left-Hand Rule", "definition": "For MOTORS: Thumb=Force(motion), First=Field, Second=Current. All mutually perpendicular." },
-    { "id": "phys-magnetism-1-f5", "term": "Electromagnetic induction", "definition": "Moving a conductor through a magnetic field induces a voltage. Generator effect.", "example": "Bicycle dynamo — magnet spins near coil → voltage induced → lights on." },
-    { "id": "phys-magnetism-1-f6", "term": "Split-ring commutator", "definition": "Reverses current direction every half-turn in a DC motor, keeping coil rotating same way." },
-    { "id": "phys-magnetism-1-f7", "term": "Slip rings", "definition": "Maintain continuous connection in AC generator → produces alternating current (current direction reverses)." },
-    { "id": "phys-magnetism-1-f8", "term": "Transformer equation", "definition": "Vp/Vs = Np/Ns. Step-up: Ns>Np → Vs>Vp. Step-down: Ns<Np → Vs<Vp. AC only.", "example": "Primary 100 turns, 12V; secondary 1000 turns: Vs=12×(1000/100)=120V (step-up)." },
-    { "id": "phys-magnetism-1-f9", "term": "Why high voltage transmission?", "definition": "P=I²R losses. Higher V → lower I for same P → less heat wasted in cables.", "example": "National Grid: 400,000 V transmission → minimal current → minimal power loss." },
-    { "id": "phys-magnetism-1-f10", "term": "Right-hand grip rule", "definition": "For a solenoid: fingers curl in current direction → thumb points to North pole of electromagnet.", "example": "If current flows counterclockwise (looking from N), the facing end is North." },
-    { "id": "phys-magnetism-1-f11", "term": "Loudspeaker principle", "definition": "AC in coil → alternating motor effect force → cone vibrates at AC frequency → sound waves.", "example": "Audio signal at 440 Hz → cone vibrates at 440 Hz → musical note A produced." },
-    { "id": "phys-magnetism-1-f12", "term": "Permanent vs Electromagnet", "definition": "Permanent: always magnetic field, can't switch off. Electro: magnetic only when current flows, controllable strength.", "example": "Fridge door uses permanent magnet. Scrapyard crane uses electromagnet." }
+    {
+      "id": "phys-magnetism-1-f1",
+      "term": "Magnetic field",
+      "definition": "Region where magnetic forces act. Lines run N→S outside magnet. Closer lines = stronger field.",
+      "example": "Iron filings around a bar magnet trace out the field line pattern."
+    },
+    {
+      "id": "phys-magnetism-1-f2",
+      "term": "Electromagnet",
+      "definition": "Solenoid (coil) + iron core. Magnetic field when current flows. Can be switched on/off; strength controlled.",
+      "example": "Scrapyard crane — switch on to lift car, switch off to drop."
+    },
+    {
+      "id": "phys-magnetism-1-f3",
+      "term": "Motor effect",
+      "definition": "Force on a current-carrying conductor in a magnetic field. Maximum when wire ⊥ field.",
+      "example": "Fleming's Left-Hand Rule: ThuMb=Motion, First finger=Field, Second finger=Current."
+    },
+    {
+      "id": "phys-magnetism-1-f4",
+      "term": "Fleming's Left-Hand Rule",
+      "definition": "For MOTORS: Thumb=Force(motion), First=Field, Second=Current. All mutually perpendicular."
+    },
+    {
+      "id": "phys-magnetism-1-f5",
+      "term": "Electromagnetic induction",
+      "definition": "Moving a conductor through a magnetic field induces a voltage. Generator effect.",
+      "example": "Bicycle dynamo — magnet spins near coil → voltage induced → lights on."
+    },
+    {
+      "id": "phys-magnetism-1-f6",
+      "term": "Split-ring commutator",
+      "definition": "Reverses current direction every half-turn in a DC motor, keeping coil rotating same way."
+    },
+    {
+      "id": "phys-magnetism-1-f7",
+      "term": "Slip rings",
+      "definition": "Maintain continuous connection in AC generator → produces alternating current (current direction reverses)."
+    },
+    {
+      "id": "phys-magnetism-1-f8",
+      "term": "Transformer equation",
+      "definition": "Vp/Vs = Np/Ns. Step-up: Ns>Np → Vs>Vp. Step-down: Ns<Np → Vs<Vp. AC only.",
+      "example": "Primary 100 turns, 12V; secondary 1000 turns: Vs=12×(1000/100)=120V (step-up)."
+    },
+    {
+      "id": "phys-magnetism-1-f9",
+      "term": "Why high voltage transmission?",
+      "definition": "P=I²R losses. Higher V → lower I for same P → less heat wasted in cables.",
+      "example": "National Grid: 400,000 V transmission → minimal current → minimal power loss."
+    },
+    {
+      "id": "phys-magnetism-1-f10",
+      "term": "Right-hand grip rule",
+      "definition": "For a solenoid: fingers curl in current direction → thumb points to North pole of electromagnet.",
+      "example": "If current flows counterclockwise (looking from N), the facing end is North."
+    },
+    {
+      "id": "phys-magnetism-1-f11",
+      "term": "Loudspeaker principle",
+      "definition": "AC in coil → alternating motor effect force → cone vibrates at AC frequency → sound waves.",
+      "example": "Audio signal at 440 Hz → cone vibrates at 440 Hz → musical note A produced."
+    },
+    {
+      "id": "phys-magnetism-1-f12",
+      "term": "Permanent vs Electromagnet",
+      "definition": "Permanent: always magnetic field, can't switch off. Electro: magnetic only when current flows, controllable strength.",
+      "example": "Fridge door uses permanent magnet. Scrapyard crane uses electromagnet."
+    }
   ],
   "questions": [
-    { "id": "phys-magnetism-1-q1", "stem": "Two N poles facing each other:", "choices": ["Attract", "Repel — like poles repel", "Nothing", "One reverses"], "correctIndex": 1, "explanation": "Like poles repel each other. Only unlike poles (N-S) attract." },
-    { "id": "phys-magnetism-1-q2", "stem": "How to increase electromagnet strength?", "choices": ["Use copper core", "Reduce coil turns", "Increase current, turns, or add iron core", "Decrease voltage"], "correctIndex": 2, "explanation": "More current = stronger field. More turns = stronger field. Iron core concentrates field lines." },
-    { "id": "phys-magnetism-1-q3", "stem": "Main advantage of electromagnet over permanent?", "choices": ["Always stronger", "Can be switched on/off and strength varied", "Lighter", "No coils needed"], "correctIndex": 1, "explanation": "Controllability is the key advantage. Switching off current → magnetism disappears." },
-    { "id": "phys-magnetism-1-q4", "stem": "Electric motor energy conversion:", "choices": ["Kinetic → electrical", "Electrical → light", "Chemical → thermal", "Electrical → kinetic (+ heat)"], "correctIndex": 3, "explanation": "Motor: electrical energy from power supply → kinetic energy of rotating shaft (some wasted as heat in coils)." },
-    { "id": "phys-magnetism-1-q5", "stem": "Field lines outside bar magnet run:", "choices": ["S→N", "N→S", "Both", "Closed circles"], "correctIndex": 1, "explanation": "Outside: N→S. Inside magnet: S→N (forming closed loops)." },
-    { "id": "phys-magnetism-1-q6", "stem": "Transformer: Vp=230V, Np=500, Ns=50. Vs=?", "choices": ["2300 V", "23 V — step-down: Vs=230×(50/500)=23 V", "115 V", "460 V"], "correctIndex": 1, "explanation": "Vs=Vp×(Ns/Np)=230×(50/500)=230×0.1=23 V. Step-down (Ns<Np)." },
-    { "id": "phys-magnetism-1-q7", "stem": "Why must transformers use AC, not DC?", "choices": ["DC is too dangerous", "Changing magnetic field is needed to induce voltage in secondary — DC produces constant field, no induction", "AC is cheaper", "DC would melt the iron core"], "correctIndex": 1, "explanation": "Electromagnetic induction requires a CHANGING magnetic field. AC provides continuously changing field. DC = steady field → no induced voltage." },
-    { "id": "phys-magnetism-1-q8", "stem": "Generator effect explained by:", "choices": ["Fleming's Left-Hand Rule", "Fleming's Right-Hand Rule — motion + field → current (generator)", "Ohm's Law", "Hooke's Law"], "correctIndex": 1, "explanation": "Right hand = Generator (induction). Left hand = Motor (force). Both use thumb=motion, first=field, second=current." },
-    { "id": "phys-magnetism-1-q9", "stem": "Split-ring commutator in DC motor:", "choices": ["Produces AC output", "Reverses current every half-turn so coil keeps rotating same direction", "Increases voltage", "Reduces friction"], "correctIndex": 1, "explanation": "Without commutator, coil would stop after 90° (forces balance). Commutator swaps connections → current reverses → torque continues same direction." },
-    { "id": "phys-magnetism-1-q10", "stem": "Why transmit electricity at very high voltage?", "choices": ["Safer for consumers", "Reduces current → reduces P=I²R heat losses in transmission cables", "Faster transmission speed", "Transformers require high voltage"], "correctIndex": 1, "explanation": "For same power (P=VI), higher V means lower I. Lower I means less energy wasted heating the cables (P_waste=I²R)." },
-    { "id": "phys-magnetism-1-q11", "stem": "A microphone converts:", "choices": ["Electrical → sound", "Sound → electrical (via electromagnetic induction)", "Sound → light", "Electrical → kinetic"], "correctIndex": 1, "explanation": "Sound vibrates diaphragm → coil moves in magnetic field → voltage induced → electrical signal. Generator effect in reverse of loudspeaker." },
-    { "id": "phys-magnetism-1-q12", "stem": "Right-hand grip rule: fingers curl in ___ direction, thumb points to ___ of electromagnet.", "choices": ["Field; South", "Current; North pole", "Voltage; core", "Force; South"], "correctIndex": 1, "explanation": "Grip the solenoid with right hand: fingers follow conventional current direction around coil; thumb extends to N pole." },
-    { "id": "phys-magnetism-1-q13", "stem": "Step-up transformer: Ns=2000, Np=200, Vp=25V. Vs=?", "choices": ["2.5 V", "250 V", "25 V", "5000 V"], "correctIndex": 1, "explanation": "Vs=25×(2000/200)=25×10=250 V. Step-up: output voltage > input." },
-    { "id": "phys-magnetism-1-q14", "stem": "Slip rings in AC generator vs split-ring in DC motor:", "choices": ["Both do the same thing", "Slip rings maintain continuous connection → AC output. Split-ring reverses connections → DC output", "Slip rings are for DC; commutators for AC", "Neither is needed"], "correctIndex": 1, "explanation": "Slip rings don't reverse connections → current alternates naturally (AC). Commutator reverses every half-turn → current always flows one way (DC)." },
-    { "id": "phys-magnetism-1-q15", "stem": "Which material would NOT be attracted to a magnet?", "choices": ["Iron nail", "Cobalt coin", "Aluminium can — not a magnetic material", "Steel paperclip"], "correctIndex": 2, "explanation": "Only iron, cobalt, nickel (and their alloys) are magnetic. Aluminium, copper, gold, silver, and most other metals are non-magnetic." }
+    {
+      "id": "phys-magnetism-1-q1",
+      "stem": "Two N poles facing each other:",
+      "choices": [
+        "Attract",
+        "Repel — like poles repel",
+        "Nothing",
+        "One reverses"
+      ],
+      "correctIndex": 1,
+      "explanation": "Like poles repel each other. Only unlike poles (N-S) attract."
+    },
+    {
+      "id": "phys-magnetism-1-q2",
+      "stem": "How to increase electromagnet strength?",
+      "choices": [
+        "Use copper core",
+        "Reduce coil turns",
+        "Increase current, turns, or add iron core",
+        "Decrease voltage"
+      ],
+      "correctIndex": 2,
+      "explanation": "More current = stronger field. More turns = stronger field. Iron core concentrates field lines."
+    },
+    {
+      "id": "phys-magnetism-1-q3",
+      "stem": "Main advantage of electromagnet over permanent?",
+      "choices": [
+        "Always stronger",
+        "Can be switched on/off and strength varied",
+        "Lighter",
+        "No coils needed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Controllability is the key advantage. Switching off current → magnetism disappears."
+    },
+    {
+      "id": "phys-magnetism-1-q4",
+      "stem": "Electric motor energy conversion:",
+      "choices": [
+        "Kinetic → electrical",
+        "Electrical → light",
+        "Chemical → thermal",
+        "Electrical → kinetic (+ heat)"
+      ],
+      "correctIndex": 3,
+      "explanation": "Motor: electrical energy from power supply → kinetic energy of rotating shaft (some wasted as heat in coils)."
+    },
+    {
+      "id": "phys-magnetism-1-q5",
+      "stem": "Field lines outside bar magnet run:",
+      "choices": [
+        "S→N",
+        "N→S",
+        "Both",
+        "Closed circles"
+      ],
+      "correctIndex": 1,
+      "explanation": "Outside: N→S. Inside magnet: S→N (forming closed loops)."
+    },
+    {
+      "id": "phys-magnetism-1-q6",
+      "stem": "Transformer: Vp=230V, Np=500, Ns=50. Vs=?",
+      "choices": [
+        "2300 V",
+        "23 V — step-down: Vs=230×(50/500)=23 V",
+        "115 V",
+        "460 V"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vs=Vp×(Ns/Np)=230×(50/500)=230×0.1=23 V. Step-down (Ns<Np)."
+    },
+    {
+      "id": "phys-magnetism-1-q7",
+      "stem": "Why must transformers use AC, not DC?",
+      "choices": [
+        "DC is too dangerous",
+        "Changing magnetic field is needed to induce voltage in secondary — DC produces constant field, no induction",
+        "AC is cheaper",
+        "DC would melt the iron core"
+      ],
+      "correctIndex": 1,
+      "explanation": "Electromagnetic induction requires a CHANGING magnetic field. AC provides continuously changing field. DC = steady field → no induced voltage."
+    },
+    {
+      "id": "phys-magnetism-1-q8",
+      "stem": "Generator effect explained by:",
+      "choices": [
+        "Fleming's Left-Hand Rule",
+        "Fleming's Right-Hand Rule — motion + field → current (generator)",
+        "Ohm's Law",
+        "Hooke's Law"
+      ],
+      "correctIndex": 1,
+      "explanation": "Right hand = Generator (induction). Left hand = Motor (force). Both use thumb=motion, first=field, second=current."
+    },
+    {
+      "id": "phys-magnetism-1-q9",
+      "stem": "Split-ring commutator in DC motor:",
+      "choices": [
+        "Produces AC output",
+        "Reverses current every half-turn so coil keeps rotating same direction",
+        "Increases voltage",
+        "Reduces friction"
+      ],
+      "correctIndex": 1,
+      "explanation": "Without commutator, coil would stop after 90° (forces balance). Commutator swaps connections → current reverses → torque continues same direction."
+    },
+    {
+      "id": "phys-magnetism-1-q10",
+      "stem": "Why transmit electricity at very high voltage?",
+      "choices": [
+        "Safer for consumers",
+        "Reduces current → reduces P=I²R heat losses in transmission cables",
+        "Faster transmission speed",
+        "Transformers require high voltage"
+      ],
+      "correctIndex": 1,
+      "explanation": "For same power (P=VI), higher V means lower I. Lower I means less energy wasted heating the cables (P_waste=I²R)."
+    },
+    {
+      "id": "phys-magnetism-1-q11",
+      "stem": "A microphone converts:",
+      "choices": [
+        "Electrical → sound",
+        "Sound → electrical (via electromagnetic induction)",
+        "Sound → light",
+        "Electrical → kinetic"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sound vibrates diaphragm → coil moves in magnetic field → voltage induced → electrical signal. Generator effect in reverse of loudspeaker."
+    },
+    {
+      "id": "phys-magnetism-1-q12",
+      "stem": "Right-hand grip rule: fingers curl in ___ direction, thumb points to ___ of electromagnet.",
+      "choices": [
+        "Field; South",
+        "Current; North pole",
+        "Voltage; core",
+        "Force; South"
+      ],
+      "correctIndex": 1,
+      "explanation": "Grip the solenoid with right hand: fingers follow conventional current direction around coil; thumb extends to N pole."
+    },
+    {
+      "id": "phys-magnetism-1-q13",
+      "stem": "Step-up transformer: Ns=2000, Np=200, Vp=25V. Vs=?",
+      "choices": [
+        "2.5 V",
+        "250 V",
+        "25 V",
+        "5000 V"
+      ],
+      "correctIndex": 1,
+      "explanation": "Vs=25×(2000/200)=25×10=250 V. Step-up: output voltage > input."
+    },
+    {
+      "id": "phys-magnetism-1-q14",
+      "stem": "Slip rings in AC generator vs split-ring in DC motor:",
+      "choices": [
+        "Both do the same thing",
+        "Slip rings maintain continuous connection → AC output. Split-ring reverses connections → DC output",
+        "Slip rings are for DC; commutators for AC",
+        "Neither is needed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Slip rings don't reverse connections → current alternates naturally (AC). Commutator reverses every half-turn → current always flows one way (DC)."
+    },
+    {
+      "id": "phys-magnetism-1-q15",
+      "stem": "Which material would NOT be attracted to a magnet?",
+      "choices": [
+        "Iron nail",
+        "Cobalt coin",
+        "Aluminium can — not a magnetic material",
+        "Steel paperclip"
+      ],
+      "correctIndex": 2,
+      "explanation": "Only iron, cobalt, nickel (and their alloys) are magnetic. Aluminium, copper, gold, silver, and most other metals are non-magnetic."
+    }
   ]
 }

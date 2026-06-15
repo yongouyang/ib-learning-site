@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="title desc">
+  <title id="title">Friction and Terminal Velocity</title>
+  <desc id="desc">The velocity-time graph of a skydiver showing acceleration, terminal velocity, parachute opening, and new lower terminal velocity.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .grid { stroke: #e5e7eb; stroke-width: 0.5; }
+      .axis { stroke: #374151; stroke-width: 2; }
+      .plot { fill: none; stroke: #ef4444; stroke-width: 3; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="400" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Friction and Terminal Velocity</text>
+
+  <!-- Skydiver graph -->
+  <rect x="20" y="50" width="450" height="260" rx="10" class="box"/>
+  <text x="245" y="75" text-anchor="middle" class="label">Skydiver's Velocity-Time Graph</text>
+
+  <g transform="translate(50, 88)">
+    <line x1="0" y1="0" x2="0" y2="180" class="axis"/>
+    <line x1="0" y1="180" x2="350" y2="180" class="axis"/>
+    
+    <line x1="0" y1="30" x2="350" y2="30" class="grid"/>
+    <line x1="0" y1="60" x2="350" y2="60" class="grid"/>
+    <line x1="0" y1="90" x2="350" y2="90" class="grid"/>
+    <line x1="0" y1="120" x2="350" y2="120" class="grid"/>
+    <line x1="0" y1="150" x2="350" y2="150" class="grid"/>
+    <line x1="70" y1="0" x2="70" y2="180" class="grid"/>
+    <line x1="140" y1="0" x2="140" y2="180" class="grid"/>
+    <line x1="210" y1="0" x2="210" y2="180" class="grid"/>
+    <line x1="280" y1="0" x2="280" y2="180" class="grid"/>
+
+    <!-- Phase 1: acceleration -->
+    <path d="M0,180 Q80,60 140,30" class="plot"/>
+    <text x="60" y="110" class="sublabel" fill="#dc2626">① W > D: accelerating</text>
+
+    <!-- Phase 2: terminal velocity -->
+    <line x1="140" y1="30" x2="210" y2="30" class="plot" stroke="#3b82f6"/>
+    <text x="160" y="22" class="sublabel" fill="#3b82f6">② W = D: ~200 km/h</text>
+
+    <!-- Phase 3: parachute opens -->
+    <line x1="210" y1="30" x2="230" y2="140" class="plot" stroke="#22c55e"/>
+    <text x="215" y="100" class="sublabel" fill="#22c55e">③ Parachute opens</text>
+
+    <!-- Phase 4: new terminal velocity -->
+    <line x1="230" y1="140" x2="350" y2="140" class="plot" stroke="#3b82f6"/>
+    <text x="280" y="133" class="sublabel" fill="#3b82f6">④ W = D: ~20 km/h</text>
+
+    <text x="175" y="196" text-anchor="middle" class="sublabel" fill="#374151">Time</text>
+    <text x="-5" y="20" text-anchor="end" class="sublabel" fill="#374151">Velocity</text>
+  </g>
+
+  <!-- Explanation panel -->
+  <rect x="490" y="50" width="290" height="260" rx="10" class="box"/>
+  <text x="635" y="75" text-anchor="middle" class="label">What is Terminal Velocity?</text>
+  
+  <g transform="translate(510, 92)">
+    <rect x="0" y="0" width="250" height="196" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="20" class="label">As speed increases:</text>
+    <text x="10" y="42" class="sublabel">• Air resistance (drag) increases</text>
+    <text x="10" y="60" class="sublabel">• Drag ∝ speed² (roughly)</text>
+    <text x="10" y="82" class="label" fill="#dc2626">When drag = weight:</text>
+    <text x="10" y="100" class="sublabel">• Resultant force = 0</text>
+    <text x="10" y="118" class="sublabel">• Acceleration = 0</text>
+    <text x="10" y="140" class="sublabel" fill="#dc2626">• Constant speed = terminal velocity</text>
+    
+    <rect x="0" y="155" width="250" height="35" rx="4" fill="#fef2f2"/>
+    <text x="125" y="170" text-anchor="middle" class="sublabel">Streamlined shapes reduce drag</text>
+    <text x="125" y="184" text-anchor="middle" class="sublabel">(sports cars, cyclists' helmets)</text>
+  </g>
+
+  <!-- Key principle -->
+  <rect x="20" y="330" width="760" height="30" rx="8" class="box"/>
+  <text x="400" y="350" text-anchor="middle" class="sublabel">Friction always opposes motion and converts kinetic energy to thermal energy. Drag increases with speed until it equals driving force.</text>
+</svg>

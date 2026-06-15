@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title desc">
+  <title id="title">Kinetic Theory of Gases</title>
+  <desc id="desc">Gas molecules in a container showing random motion, collisions with walls, and the relationship between temperature and kinetic energy.</desc>
+  <defs><style>
+    .t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}
+    .l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}
+    .s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}
+    .f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}
+    .b{fill:#fff;stroke:#e5e7eb;stroke-width:2}
+    .g{stroke:#e5e7eb;stroke-width:.5}
+    .a{stroke:#374151;stroke-width:2}
+    .p{fill:none;stroke:#ef4444;stroke-width:3}
+  </style></defs>
+  <rect width="800" height="360" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="t">Kinetic Theory of Gases</text>
+  <rect x="20" y="55" width="460" height="240" rx="10" class="b"/><text x="250" y="78" text-anchor="middle" class="l">Kinetic Theory of Gases</text>
+    <g transform="translate(40,92)"><rect x="0" y="0" width="400" height="160" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+    <circle cx="60" cy="40" r="8" fill="#ef4444" opacity="0.8"/><text x="60" y="43" text-anchor="middle" class="s" fill="white" font-size="9">1</text>
+    <circle cx="150" cy="30" r="8" fill="#ef4444" opacity="0.8"/><text x="150" y="33" text-anchor="middle" class="s" fill="white" font-size="9">2</text>
+    <circle cx="250" cy="60" r="8" fill="#ef4444" opacity="0.8"/><text x="250" y="63" text-anchor="middle" class="s" fill="white" font-size="9">3</text>
+    <circle cx="350" cy="35" r="8" fill="#ef4444" opacity="0.8"/><text x="350" y="38" text-anchor="middle" class="s" fill="white" font-size="9">4</text>
+    <circle cx="100" cy="110" r="8" fill="#ef4444" opacity="0.8"/><text x="100" y="113" text-anchor="middle" class="s" fill="white" font-size="9">5</text>
+    <circle cx="220" cy="120" r="8" fill="#ef4444" opacity="0.8"/><text x="220" y="123" text-anchor="middle" class="s" fill="white" font-size="9">6</text>
+    <circle cx="330" cy="100" r="8" fill="#ef4444" opacity="0.8"/><text x="330" y="103" text-anchor="middle" class="s" fill="white" font-size="9">7</text>
+    <!-- Velocity arrows -->
+    <line x1="60" y1="32" x2="85" y2="20" stroke="#dc2626" stroke-width="1.5"/><line x1="150" y1="22" x2="180" y2="15" stroke="#dc2626" stroke-width="1.5"/>
+    <line x1="250" y1="52" x2="270" y2="48" stroke="#dc2626" stroke-width="1.5"/><line x1="350" y1="27" x2="330" y2="20" stroke="#dc2626" stroke-width="1.5"/>
+    <line x1="100" y1="120" x2="120" y2="130" stroke="#dc2626" stroke-width="1.5"/><line x1="220" y1="128" x2="240" y2="140" stroke="#dc2626" stroke-width="1.5"/>
+    <line x1="330" y1="108" x2="350" y2="115" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="200" y="180" text-anchor="middle" class="s">Gas molecules in constant random motion — collide elastically with container walls</text></g>
+    <rect x="500" y="55" width="280" height="240" rx="10" class="b"/><text x="640" y="78" text-anchor="middle" class="l">Key Assumptions</text>
+    <g transform="translate(520,92)"><rect x="0" y="0" width="240" height="180" rx="6" fill="#eff6ff"/>
+    <text x="10" y="22" class="s">1. Gas consists of many tiny particles in constant random motion</text>
+    <text x="10" y="44" class="s">2. Volume of particles is negligible compared to container</text>
+    <text x="10" y="66" class="s">3. No forces between particles (except during collisions)</text>
+    <text x="10" y="88" class="s">4. Collisions are perfectly elastic (no KE lost)</text>
+    <text x="10" y="110" class="s">5. Average KE ∝ absolute temperature (Kelvin)</text>
+    <text x="10" y="138" class="l" fill="#dc2626">Pressure = particles hitting walls!</text></g>
+</svg>

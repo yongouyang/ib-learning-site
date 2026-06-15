@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Energy Resources: Renewable vs Non-Renewable</title>
+  <desc id="desc">Comparison of renewable and non-renewable energy resources, showing fossil fuels, nuclear, wind, solar, hydro, tidal, geothermal and biomass.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="480" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Energy Resources: Renewable vs Non-Renewable</text>
+
+  <!-- Non-renewable column -->
+  <rect x="20" y="55" width="370" height="230" rx="10" class="box"/>
+  <rect x="20" y="55" width="370" height="30" rx="10" fill="#fef2f2"/>
+  <text x="205" y="75" text-anchor="middle" class="label" fill="#dc2626">Non-Renewable Resources</text>
+
+  <g transform="translate(35, 98)">
+    <rect x="0" y="0" width="340" height="52" rx="6" fill="#fff1f2"/>
+    <text x="10" y="18" class="label">Fossil Fuels</text>
+    <text x="10" y="36" class="sublabel">Coal, oil, natural gas — formed from ancient organisms</text>
+    <text x="10" y="48" class="sublabel" fill="#dc2626">✗ Limited supply · CO₂ emissions · Climate change</text>
+
+    <rect x="0" y="60" width="340" height="52" rx="6" fill="#fff1f2"/>
+    <text x="10" y="78" class="label">Nuclear Fuel</text>
+    <text x="10" y="96" class="sublabel">Uranium/plutonium — fission releases huge energy</text>
+    <text x="10" y="108" class="sublabel" fill="#dc2626">✗ Radioactive waste · Accident risk · Decommissioning cost</text>
+
+    <!-- Summary -->
+    <rect x="0" y="125" width="340" height="55" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="18" class="label" fill="#dc2626">Disadvantages</text>
+    <text x="10" y="34" class="sublabel">• Will eventually run out (finite)</text>
+    <text x="10" y="48" class="sublabel">• Produce greenhouse gases (except nuclear)</text>
+    <text x="10" y="62" class="sublabel">• Environmental damage from extraction</text>
+  </g>
+
+  <!-- Renewable column -->
+  <rect x="410" y="55" width="370" height="230" rx="10" class="box"/>
+  <rect x="410" y="55" width="370" height="30" rx="10" fill="#f0fdf4"/>
+  <text x="595" y="75" text-anchor="middle" class="label" fill="#22c55e">Renewable Resources</text>
+
+  <g transform="translate(425, 98)">
+    <rect x="0" y="0" width="340" height="30" rx="6" fill="#f0fdf4"/>
+    <text x="10" y="20" class="label">Solar · Wind · Wave · Tidal</text>
+
+    <rect x="0" y="36" width="340" height="30" rx="6" fill="#f0fdf4"/>
+    <text x="10" y="56" class="label">Hydroelectric · Geothermal · Biomass</text>
+
+    <rect x="0" y="75" width="170" height="55" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="18" class="label" fill="#22c55e">Advantages</text>
+    <text x="10" y="34" class="sublabel">• Won't run out</text>
+    <text x="10" y="48" class="sublabel">• Low/no CO₂ (except biomass)</text>
+    <text x="10" y="62" class="sublabel">• Energy security</text>
+
+    <rect x="180" y="75" width="160" height="55" rx="6" fill="#fff1f2"/>
+    <text x="10" y="18" class="label" fill="#dc2626">Disadvantages</text>
+    <text x="10" y="34" class="sublabel" fill="#dc2626">• Weather-dependent</text>
+    <text x="10" y="48" class="sublabel" fill="#dc2626">• High initial cost</text>
+    <text x="10" y="62" class="sublabel" fill="#dc2626">• Visual/noise impact</text>
+  </g>
+
+  <!-- Energy comparison -->
+  <rect x="20" y="305" width="370" height="160" rx="10" class="box"/>
+  <text x="205" y="328" text-anchor="middle" class="label">Energy Source Comparison</text>
+  
+  <g transform="translate(35, 342)">
+    <rect x="0" y="0" width="340" height="18" rx="4" fill="#f3f4f6"/>
+    <text x="10" y="13" class="sublabel">Coal</text>
+    <rect x="60" y="0" width="272" height="18" rx="4" fill="#fca5a5"/>
+    <text x="196" y="13" text-anchor="middle" class="sublabel" fill="white">Reliable · high CO₂ · high power output</text>
+
+    <rect x="0" y="23" width="340" height="18" rx="4" fill="#f3f4f6"/>
+    <text x="10" y="36" class="sublabel">Nuclear</text>
+    <rect x="60" y="23" width="272" height="18" rx="4" fill="#fbbf24"/>
+    <text x="196" y="36" text-anchor="middle" class="sublabel">Very reliable · zero CO₂ · high power · waste issue</text>
+
+    <rect x="0" y="46" width="340" height="18" rx="4" fill="#f3f4f6"/>
+    <text x="10" y="59" class="sublabel">Wind</text>
+    <rect x="60" y="46" width="272" height="18" rx="4" fill="#86efac"/>
+    <text x="196" y="59" text-anchor="middle" class="sublabel">Zero CO₂ · intermittent · visual impact</text>
+
+    <rect x="0" y="69" width="340" height="18" rx="4" fill="#f3f4f6"/>
+    <text x="10" y="82" class="sublabel">Solar</text>
+    <rect x="60" y="69" width="272" height="18" rx="4" fill="#86efac"/>
+    <text x="196" y="82" text-anchor="middle" class="sublabel">Zero CO₂ · daytime only · requires sunlight</text>
+
+    <rect x="0" y="92" width="340" height="18" rx="4" fill="#f3f4f6"/>
+    <text x="10" y="105" class="sublabel">Hydro</text>
+    <rect x="60" y="92" width="272" height="18" rx="4" fill="#86efac"/>
+    <text x="196" y="105" text-anchor="middle" class="sublabel">Reliable · zero CO₂ · habitat impact</text>
+  </g>
+
+  <!-- UK energy mix -->
+  <rect x="410" y="305" width="370" height="160" rx="10" class="box"/>
+  <text x="595" y="328" text-anchor="middle" class="label">UK Energy Mix (typical)</text>
+  
+  <g transform="translate(460, 345)">
+    <!-- Simplified pie chart using circles -->
+    <circle cx="100" cy="55" r="55" fill="none" stroke="#e5e7eb" stroke-width="55" stroke-dasharray="130 214"/>
+    <circle cx="100" cy="55" r="55" fill="none" stroke="#22c55e" stroke-width="55" stroke-dasharray="45 300" stroke-dashoffset="-130"/>
+    <circle cx="100" cy="55" r="55" fill="none" stroke="#3b82f6" stroke-width="55" stroke-dasharray="60 285" stroke-dashoffset="-175"/>
+    <circle cx="100" cy="55" r="55" fill="none" stroke="#fbbf24" stroke-width="55" stroke-dasharray="55 290" stroke-dashoffset="-235"/>
+    <circle cx="100" cy="55" r="55" fill="none" stroke="#ef4444" stroke-width="55" stroke-dasharray="54 290" stroke-dashoffset="-290"/>
+  </g>
+  <g transform="translate(445, 415)">
+    <rect x="0" y="0" width="12" height="12" rx="2" fill="#ef4444"/>
+    <text x="16" y="10" class="sublabel">Gas</text>
+    <rect x="60" y="0" width="12" height="12" rx="2" fill="#fbbf24"/>
+    <text x="76" y="10" class="sublabel">Nuclear</text>
+    <rect x="140" y="0" width="12" height="12" rx="2" fill="#3b82f6"/>
+    <text x="156" y="10" class="sublabel">Wind</text>
+    <rect x="200" y="0" width="12" height="12" rx="2" fill="#22c55e"/>
+    <text x="216" y="10" class="sublabel">Renewables</text>
+    <rect x="290" y="0" width="12" height="12" rx="2" fill="#e5e7eb"/>
+    <text x="306" y="10" class="sublabel">Coal</text>
+  </g>
+</svg>

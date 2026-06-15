@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-labelledby="title desc"><title id="title">Gravity and Orbits</title><desc id="desc">Satellite orbit showing centripetal force from gravity keeping it in circular motion.</desc><defs><style>.t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}.l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}.s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}.f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}.b{fill:#fff;stroke:#e5e7eb;stroke-width:2}</style></defs><rect width="800" height="340" fill="#f9fafb" rx="12"/><text x="400" y="34" text-anchor="middle" class="t">Gravity and Orbits</text><g transform="translate(0,55)"><rect x="20" y="0" width="460" height="240" rx="10" class="b"/><text x="250" y="25" text-anchor="middle" class="l">Orbits and Gravity</text>
+  <g transform="translate(50,40)"><circle cx="180" cy="100" r="40" fill="#3b82f6"/><text x="180" y="105" text-anchor="middle" class="s" fill="white">Earth</text>
+  <circle cx="180" cy="100" r="90" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <circle cx="180" cy="10" r="12" fill="#d1d5db" stroke="#6b7280" stroke-width="1.5"/><text x="180" y="0" text-anchor="middle" class="s">Satellite</text>
+  <line x1="180" y1="100" x2="180" y2="22" stroke="#ef4444" stroke-width="2"/><text x="195" y="65" class="s" fill="#dc2626">F_gravity</text>
+  <line x1="168" y1="10" x2="155" y2="5" stroke="#22c55e" stroke-width="2"/><text x="145" y="0" class="s" fill="#22c55e">v (velocity)</text>
+  <text x="40" y="170" class="s">Gravity provides centripetal force: F = mv²/r</text>
+  <text x="40" y="188" class="s">No gravity → satellite flies off in a straight line!</text></g>
+  <rect x="500" y="0" width="280" height="240" rx="10" class="b"/><text x="640" y="25" text-anchor="middle" class="l">Orbital Velocity</text>
+  <g transform="translate(520,42)"><rect x="0" y="0" width="240" height="55" rx="6" fill="#fef2f2"/>
+  <text x="120" y="20" text-anchor="middle" class="f">v² = GM / r</text><text x="120" y="40" text-anchor="middle" class="s">Higher orbit → slower speed</text>
+  <rect x="0" y="62" width="240" height="55" rx="6" fill="#f3f4f6"/>
+  <text x="10" y="80" class="l">Geostationary Orbit:</text><text x="10" y="98" class="s">~36,000 km, over equator, orbital period = 24 hours → appears stationary in sky (TV satellites!)</text>
+  <rect x="0" y="124" width="240" height="55" rx="6" fill="#f3f4f6"/>
+  <text x="10" y="142" class="l">Low Earth Orbit (LEO):</text><text x="10" y="160" class="s">~200-2000 km, fast (~90 min orbit), used for ISS, imaging satellites, Starlink</text></g>
+  <rect x="20" y="258" width="760" height="35" rx="8" class="b"/><text x="400" y="280" text-anchor="middle" class="s">For a stable orbit, the gravitational force must equal the required centripetal force. If too slow → spirals in. Too fast → escapes!</text></g></svg>

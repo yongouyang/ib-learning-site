@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 390" role="img" aria-labelledby="title desc">
+  <title id="title">Colour, Dispersion and Filters</title>
+  <desc id="desc">White light passing through a prism and splitting into the visible spectrum, plus colour filter diagrams showing subtractive colour mixing.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="390" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Colour, Dispersion and Filters</text>
+
+  <!-- Prism dispersion -->
+  <rect x="20" y="50" width="400" height="220" rx="10" class="box"/>
+  <text x="220" y="75" text-anchor="middle" class="label">Dispersion: White Light Through a Prism</text>
+
+  <g transform="translate(40, 92)">
+    <!-- White light in -->
+    <line x1="0" y1="100" x2="100" y2="80" stroke="#9ca3af" stroke-width="4"/>
+    <text x="40" y="95" class="sublabel">White light</text>
+
+    <!-- Prism -->
+    <polygon points="100,135 100,25 160,80" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
+
+    <!-- Spectrum rays -->
+    <line x1="160" y1="80" x2="300" y2="25" stroke="#ef4444" stroke-width="3"/>
+    <line x1="160" y1="80" x2="295" y2="35" stroke="#f97316" stroke-width="3"/>
+    <line x1="160" y1="80" x2="290" y2="45" stroke="#fbbf24" stroke-width="3"/>
+    <line x1="160" y1="80" x2="285" y2="55" stroke="#22c55e" stroke-width="3"/>
+    <line x1="160" y1="80" x2="280" y2="65" stroke="#3b82f6" stroke-width="3"/>
+    <line x1="160" y1="80" x2="275" y2="75" stroke="#6366f1" stroke-width="3"/>
+    <line x1="160" y1="80" x2="270" y2="85" stroke="#a855f7" stroke-width="3"/>
+
+    <!-- Labels -->
+    <text x="310" y="22" class="sublabel" fill="#dc2626">Red (longest λ)</text>
+    <text x="280" y="95" class="sublabel" fill="#a855f7">Violet (shortest λ)</text>
+    <text x="220" y="120" text-anchor="middle" class="sublabel">ROYGBIV</text>
+    <text x="220" y="138" text-anchor="middle" class="sublabel">Red refracts least · Violet refracts most</text>
+  </g>
+
+  <!-- Colour filters -->
+  <rect x="440" y="50" width="340" height="220" rx="10" class="box"/>
+  <text x="610" y="75" text-anchor="middle" class="label">Colour Filters (Subtractive Mixing)</text>
+
+  <g transform="translate(460, 92)">
+    <rect x="0" y="0" width="300" height="48" rx="6" fill="#fef2f2"/>
+    <text x="10" y="18" class="label">Red Filter</text>
+    <text x="10" y="36" class="sublabel">Only lets RED through — absorbs all other colours</text>
+
+    <rect x="0" y="54" width="300" height="48" rx="6" fill="#fef2f2"/>
+    <text x="10" y="72" class="label">Blue Filter</text>
+    <text x="10" y="90" class="sublabel">Only lets BLUE through — absorbs red/green/etc.</text>
+
+    <rect x="0" y="108" width="300" height="48" rx="6" fill="#fef2f2"/>
+    <text x="10" y="126" class="label">Green Filter</text>
+    <text x="10" y="144" class="sublabel">Only lets GREEN through</text>
+
+    <rect x="0" y="162" width="300" height="30" rx="6" fill="#fef3c7"/>
+    <text x="150" y="182" text-anchor="middle" class="sublabel">Primary colours of light: Red · Green · Blue (RGB)</text>
+  </g>
+
+  <!-- Why objects have colour -->
+  <rect x="20" y="290" width="760" height="85" rx="10" class="box"/>
+  <text x="400" y="312" text-anchor="middle" class="label">Why Do Objects Have Colour?</text>
+  <text x="400" y="332" text-anchor="middle" class="sublabel">A red apple appears red because it REFLECTS red light and ABSORBS all other colours. A white object reflects all colours; a black object absorbs all.</text>
+  <text x="400" y="352" text-anchor="middle" class="sublabel">Rainbows form when water droplets act as tiny prisms, dispersing sunlight. Red on the outside of the arc, violet on the inside.</text>
+</svg>

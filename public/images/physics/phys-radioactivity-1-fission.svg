@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-labelledby="title desc">
+  <title id="title">Nuclear Fission</title>
+  <desc id="desc">Uranium-235 fission chain reaction diagram showing neutron absorption, splitting, and more neutrons released.</desc>
+  <defs><style>
+    .t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}
+    .l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}
+    .s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}
+    .f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}
+    .b{fill:#fff;stroke:#e5e7eb;stroke-width:2}
+  </style></defs>
+  <rect width="800" height="340" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="t">Nuclear Fission</text>
+  <g transform="translate(0,55)"><rect x="20" y="0" width="520" height="260" rx="10" class="b"/><text x="280" y="25" text-anchor="middle" class="l">Nuclear Fission Chain Reaction</text>
+  <g transform="translate(50,40)"><circle cx="100" cy="60" r="25" fill="#fecaca" stroke="#ef4444" stroke-width="2"/><text x="100" y="55" text-anchor="middle" class="s" fill="#dc2626">²³⁵U</text>
+  <line x1="30" y1="60" x2="70" y2="60" stroke="#3b82f6" stroke-width="2"/><text x="15" y="58" class="s" fill="#3b82f6">n</text>
+  <circle cx="125" cy="60" r="5" fill="#fbbf24"/><text x="125" y="100" text-anchor="middle" class="s" fill="#dc2626">Absorbs n → unstable → splits!</text>
+  <circle cx="200" cy="40" r="18" fill="#fbbf24" stroke="#eab308" stroke-width="1.5"/><text x="200" y="35" class="s" fill="#92400e">Ba</text>
+  <circle cx="190" cy="85" r="16" fill="#fbbf24" stroke="#eab308" stroke-width="1.5"/><text x="190" y="80" class="s" fill="#92400e">Kr</text>
+  <line x1="115" y1="55" x2="185" y2="43" stroke="#374151" stroke-width="1.5"/><line x1="115" y1="65" x2="178" y2="82" stroke="#374151" stroke-width="1.5"/>
+  <line x1="218" y1="40" x2="280" y2="25" stroke="#3b82f6" stroke-width="2"/><text x="290" y="25" class="s" fill="#3b82f6">n</text>
+  <line x1="206" y1="85" x2="280" y2="100" stroke="#3b82f6" stroke-width="2"/><text x="285" y="105" class="s" fill="#3b82f6">n</text>
+  <line x1="170" y1="95" x2="170" y2="155" stroke="#fbbf24" stroke-width="2" stroke-dasharray="2,2"/>
+  <text x="170" y="170" text-anchor="middle" class="s" fill="#eab308">γ rays (energy released)</text>
+  <text x="270" y="145" text-anchor="middle" class="l" fill="#dc2626">Energy = mc²!</text>
+  <rect x="100" y="180" width="300" height="20" rx="4" fill="#fef3c7"/>
+  <text x="250" y="194" text-anchor="middle" class="s">2–3 neutrons released → can trigger more fissions → chain reaction!</text></g>
+  <rect x="560" y="0" width="220" height="260" rx="10" class="b"/><text x="670" y="25" text-anchor="middle" class="l">Key Points</text>
+  <g transform="translate(580,40)"><text x="0" y="18" class="s">• Requires neutron to trigger</text>
+  <text x="0" y="38" class="s">• One fission releases 200 MeV</text>
+  <text x="0" y="58" class="s">• (Chemical reaction: ~few eV!)</text>
+  <text x="0" y="82" class="s">• Chain reaction controlled by control rods (absorb neutrons)</text>
+  <text x="0" y="106" class="s">• Nuclear power stations use controlled fission</text>
+  <text x="0" y="130" class="s">• Atomic bombs use uncontrolled chain reaction</text>
+  <text x="0" y="158" class="s">• Waste products are radioactive</text></g>
+  <rect x="20" y="278" width="760" height="35" rx="8" class="b"/><text x="400" y="300" text-anchor="middle" class="s">Fission splits a large nucleus into smaller ones, releasing energy + neutrons. These neutrons can trigger further fissions — a self-sustaining chain reaction.</text></g>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Work Done and Power</title>
+  <desc id="desc">Diagram illustrating work done as force × distance with a person pushing a box, and power as work done ÷ time.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .formula { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; font-weight: 700; fill: #dc2626; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .label-bg { fill: #f9fafb; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="420" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Work Done and Power</text>
+
+  <!-- Work Done diagram -->
+  <rect x="20" y="50" width="400" height="200" rx="10" class="box"/>
+  <text x="220" y="75" text-anchor="middle" class="label">Work Done = Force × Distance</text>
+
+  <g transform="translate(40, 90)">
+    <!-- Person pushing box -->
+    <!-- Person stick figure -->
+    <circle cx="35" cy="15" r="12" fill="none" stroke="#374151" stroke-width="2"/>
+    <line x1="35" y1="27" x2="35" y2="55" stroke="#374151" stroke-width="2"/>
+    <line x1="35" y1="38" x2="18" y2="48" stroke="#374151" stroke-width="2"/>
+    <line x1="35" y1="38" x2="52" y2="48" stroke="#374151" stroke-width="2"/>
+    <line x1="35" y1="55" x2="22" y2="75" stroke="#374151" stroke-width="2"/>
+    <line x1="35" y1="55" x2="48" y2="75" stroke="#374151" stroke-width="2"/>
+
+    <!-- Box -->
+    <rect x="60" y="30" width="55" height="45" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="87" y="56" text-anchor="middle" class="sublabel">Box</text>
+
+    <!-- Force arrow -->
+    <line x1="50" y1="52" x2="60" y2="52" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrowF)"/>
+    <text x="55" y="47" text-anchor="middle" class="sublabel" fill="#dc2626">F</text>
+
+    <!-- Distance arrows below -->
+    <line x1="65" y1="85" x2="200" y2="85" stroke="#22c55e" stroke-width="2"/>
+    <line x1="65" y1="80" x2="65" y2="90" stroke="#22c55e" stroke-width="1.5"/>
+    <line x1="200" y1="80" x2="200" y2="90" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="132" y="100" text-anchor="middle" class="sublabel" fill="#22c55e">Distance moved (d)</text>
+
+    <!-- Ghost box showing displacement -->
+    <rect x="150" y="30" width="55" height="45" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.5"/>
+
+    <!-- Formula -->
+    <rect x="210" y="30" width="150" height="45" rx="6" fill="#fef2f2"/>
+    <text x="285" y="48" text-anchor="middle" class="formula">W = F d</text>
+    <text x="285" y="65" text-anchor="middle" class="sublabel">Joules (J) = Newtons (N) × metres (m)</text>
+
+    <text x="285" y="90" text-anchor="middle" class="sublabel">1 J = 1 N of force moving 1 m</text>
+  </g>
+
+  <marker id="arrowF" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <path d="M0,1 L8,5 L0,9" fill="#ef4444"/>
+  </marker>
+
+  <!-- Power panel -->
+  <rect x="440" y="50" width="340" height="200" rx="10" class="box"/>
+  <text x="610" y="75" text-anchor="middle" class="label">Power = Work Done ÷ Time</text>
+
+  <g transform="translate(460, 92)">
+    <rect x="0" y="0" width="300" height="45" rx="6" fill="#fef2f2"/>
+    <text x="150" y="18" text-anchor="middle" class="formula">P = W / t</text>
+    <text x="150" y="36" text-anchor="middle" class="sublabel">Watts (W) = Joules (J) ÷ seconds (s)</text>
+
+    <rect x="0" y="55" width="300" height="65" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="72" class="label">Example: Lifting a weight</text>
+    <text x="10" y="88" class="sublabel">A person does 500 J of work in 2 s</text>
+    <text x="10" y="106" class="sublabel" fill="#dc2626">P = 500 ÷ 2 = 250 W</text>
+
+    <text x="150" y="140" text-anchor="middle" class="sublabel">1 watt = 1 joule transferred per second</text>
+    <text x="150" y="155" text-anchor="middle" class="sublabel">A 60 W bulb transfers 60 J every second</text>
+  </g>
+
+  <!-- Relationship note -->
+  <rect x="20" y="270" width="760" height="55" rx="10" class="box"/>
+  <text x="400" y="292" text-anchor="middle" class="label">Work Done = Energy Transferred</text>
+  <text x="400" y="312" text-anchor="middle" class="sublabel">When a force moves an object, energy is transferred from one store to another. The work done equals the energy transferred.</text>
+</svg>

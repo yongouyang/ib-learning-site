@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" role="img" aria-labelledby="title desc">
+  <title id="title">Half-Life</title>
+  <desc id="desc">Radioactive decay curve showing exponential decrease in activity with half-life markers at each halving.</desc>
+  <defs><style>
+    .t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}
+    .l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}
+    .s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}
+    .f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}
+    .b{fill:#fff;stroke:#e5e7eb;stroke-width:2}
+  </style></defs>
+  <rect width="800" height="350" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="t">Half-Life</text>
+  <g transform="translate(0,55)"><rect x="20" y="0" width="500" height="260" rx="10" class="b"/><text x="270" y="25" text-anchor="middle" class="l">Radioactive Decay Curve</text>
+  <g transform="translate(50,40)"><line x1="0" y1="0" x2="0" y2="180" stroke="#374151" stroke-width="2"/>
+  <line x1="0" y1="180" x2="400" y2="180" stroke="#374151" stroke-width="2"/>
+  <line x1="0" y1="45" x2="400" y2="45" stroke="#e5e7eb" stroke-width="0.5"/><line x1="0" y1="90" x2="400" y2="90" stroke="#e5e7eb" stroke-width="0.5"/>
+  <line x1="0" y1="135" x2="400" y2="135" stroke="#e5e7eb" stroke-width="0.5"/>
+  <line x1="80" y1="0" x2="80" y2="180" stroke="#e5e7eb" stroke-width="0.5"/><line x1="160" y1="0" x2="160" y2="180" stroke="#e5e7eb" stroke-width="0.5"/>
+  <line x1="240" y1="0" x2="240" y2="180" stroke="#e5e7eb" stroke-width="0.5"/><line x1="320" y1="0" x2="320" y2="180" stroke="#e5e7eb" stroke-width="0.5"/>
+  <path d="M0,0 Q80,10 160,30 Q240,60 320,90 Q380,130 400,145" fill="none" stroke="#ef4444" stroke-width="3"/>
+  <circle cx="80" cy="20" r="4" fill="#ef4444"/>
+  <line x1="80" y1="20" x2="80" y2="180" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="80" y="195" text-anchor="middle" class="s" fill="#dc2626">t½</text>
+  <circle cx="160" cy="45" r="4" fill="#ef4444"/>
+  <line x1="160" y1="45" x2="160" y2="180" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="160" y="195" text-anchor="middle" class="s" fill="#dc2626">2×t½</text>
+  <circle cx="240" cy="70" r="4" fill="#ef4444"/>
+  <line x1="240" y1="70" x2="240" y2="180" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="240" y="195" text-anchor="middle" class="s" fill="#dc2626">3×t½</text>
+  <text x="200" y="215" text-anchor="middle" class="l" fill="#dc2626">After 1 half-life: 50% remains. After 2: 25% · After 3: 12.5%</text></g>
+  <rect x="540" y="0" width="240" height="260" rx="10" class="b"/><text x="660" y="25" text-anchor="middle" class="l">What is Half-Life?</text>
+  <g transform="translate(560,40)"><rect x="0" y="0" width="200" height="200" rx="6" fill="#fef2f2"/>
+  <text x="10" y="22" class="l">Half-life (t½) = time taken for:</text>
+  <text x="10" y="44" class="s">• Half the radioactive nuclei to decay</text>
+  <text x="10" y="66" class="s">• Activity to fall to half</text>
+  <text x="10" y="92" class="l">Constant for each isotope:</text>
+  <text x="10" y="114" class="s">• Carbon-14: 5,730 years</text>
+  <text x="10" y="136" class="s">• Uranium-238: 4.5 billion years</text>
+  <text x="10" y="158" class="s">• Radon-222: 3.8 days</text>
+  <text x="10" y="180" class="s">• Technetium-99m: 6 hours (medical!)</text></g>
+  <rect x="20" y="278" width="760" height="35" rx="8" class="b"/><text x="400" y="300" text-anchor="middle" class="s">Half-life is used in carbon dating (archaeology), medical tracers (short half-life), and nuclear waste storage (long half-life needs isolation for thousands of years).</text></g>
+</svg>

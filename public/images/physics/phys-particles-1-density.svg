@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title desc"><title id="title">Particle Model of Matter - Density</title><desc id="desc">Comparison of particle arrangements in solids, liquids, and gases, with the density formula ρ = m/V.</desc><defs><style>.t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}.l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}.s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}.f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}.b{fill:#fff;stroke:#e5e7eb;stroke-width:2}</style></defs><rect width="800" height="360" fill="#f9fafb" rx="12"/><text x="400" y="34" text-anchor="middle" class="t">Density and the Particle Model</text>
+
+<rect x="20" y="50" width="240" height="180" rx="10" class="b"/><text x="140" y="75" text-anchor="middle" class="l">Solid</text>
+<g transform="translate(50,92)"><rect x="0" y="0" width="180" height="120" rx="6" fill="#f3f4f6"/>
+  <circle cx="40" cy="30" r="10" fill="#ef4444" opacity="0.8"/><circle cx="80" cy="25" r="10" fill="#ef4444" opacity="0.8"/>
+  <circle cx="125" cy="35" r="10" fill="#ef4444" opacity="0.8"/><circle cx="55" cy="65" r="10" fill="#ef4444" opacity="0.8"/>
+  <circle cx="100" cy="60" r="10" fill="#ef4444" opacity="0.8"/><circle cx="140" cy="70" r="10" fill="#ef4444" opacity="0.8"/>
+  <circle cx="60" cy="95" r="10" fill="#ef4444" opacity="0.8"/><circle cx="110" cy="90" r="10" fill="#ef4444" opacity="0.8"/>
+  <text x="90" y="140" text-anchor="middle" class="s">Particles tightly packed, vibrate in fixed positions</text></g>
+
+<rect x="280" y="50" width="240" height="180" rx="10" class="b"/><text x="400" y="75" text-anchor="middle" class="l">Liquid</text>
+<g transform="translate(310,92)"><rect x="0" y="0" width="180" height="120" rx="6" fill="#f3f4f6"/>
+  <circle cx="45" cy="35" r="10" fill="#3b82f6" opacity="0.8"/><circle cx="85" cy="50" r="10" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="130" cy="30" r="10" fill="#3b82f6" opacity="0.8"/><circle cx="55" cy="75" r="10" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="100" cy="70" r="10" fill="#3b82f6" opacity="0.8"/><circle cx="140" cy="65" r="10" fill="#3b82f6" opacity="0.8"/>
+  <circle cx="70" cy="100" r="10" fill="#3b82f6" opacity="0.8"/>
+  <text x="90" y="140" text-anchor="middle" class="s">Particles close but can slide past each other</text></g>
+
+<rect x="540" y="50" width="240" height="180" rx="10" class="b"/><text x="660" y="75" text-anchor="middle" class="l">Gas</text>
+<g transform="translate(570,92)"><rect x="0" y="0" width="180" height="120" rx="6" fill="#f3f4f6"/>
+  <circle cx="25" cy="25" r="8" fill="#22c55e" opacity="0.7"/><circle cx="85" cy="15" r="8" fill="#22c55e" opacity="0.7"/>
+  <circle cx="145" cy="35" r="8" fill="#22c55e" opacity="0.7"/><circle cx="45" cy="70" r="8" fill="#22c55e" opacity="0.7"/>
+  <circle cx="120" cy="80" r="8" fill="#22c55e" opacity="0.7"/><circle cx="65" cy="105" r="8" fill="#22c55e" opacity="0.7"/>
+  <circle cx="140" cy="55" r="8" fill="#22c55e" opacity="0.7"/>
+  <text x="90" y="140" text-anchor="middle" class="s">Particles far apart, move rapidly in all directions</text></g>
+
+<rect x="20" y="248" width="400" height="90" rx="10" class="b"/><text x="220" y="272" text-anchor="middle" class="l">Density Formula</text>
+<g transform="translate(40,288)"><text x="180" y="16" text-anchor="middle" class="f">ρ = m / V</text>
+  <text x="180" y="36" text-anchor="middle" class="s">Density (kg/m³) = mass (kg) ÷ volume (m³)</text>
+  <text x="180" y="54" text-anchor="middle" class="s">Solid &gt; liquid &gt; gas (usually) — water is an exception (ice floats!)</text></g>
+
+<rect x="440" y="248" width="340" height="90" rx="10" class="b"/><text x="610" y="272" text-anchor="middle" class="l">Particle Model Summary</text>
+<g transform="translate(460,288)"><text x="0" y="16" class="s">• Solid: fixed shape, fixed volume, can't flow</text>
+  <text x="0" y="34" class="s">• Liquid: no fixed shape, fixed volume, can flow</text>
+  <text x="0" y="52" class="s">• Gas: no fixed shape, no fixed volume, can flow, compressible</text></g>
+</svg>

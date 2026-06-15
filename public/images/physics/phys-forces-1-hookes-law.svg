@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Hooke's Law and Springs</title>
+  <desc id="desc">Spring extension experiment setup with hanging masses, and the force-extension graph showing Hooke's Law region, limit of proportionality, and elastic limit.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .formula { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; font-weight: 700; fill: #dc2626; }
+      .grid { stroke: #e5e7eb; stroke-width: 0.5; }
+      .axis { stroke: #374151; stroke-width: 2; }
+      .plot { fill: none; stroke: #ef4444; stroke-width: 3; }
+      .box { fill: #ffffff; stroke: #e5e7eb; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="800" height="420" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Hooke's Law and Springs</text>
+
+  <!-- Spring experiment -->
+  <rect x="20" y="50" width="200" height="240" rx="10" class="box"/>
+  <text x="120" y="75" text-anchor="middle" class="label">Practical Setup</text>
+
+  <g transform="translate(60, 88)">
+    <!-- Stand -->
+    <rect x="40" y="0" width="8" height="220" rx="2" fill="#6b7280"/>
+    <rect x="25" y="0" width="38" height="8" rx="2" fill="#6b7280"/>
+    
+    <!-- Spring -->
+    <path d="M44,20 L30,30 L58,40 L30,50 L58,60 L30,70 L58,80 L44,90" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+    
+    <!-- Mass -->
+    <rect x="28" y="92" width="32" height="24" rx="3" fill="#3b82f6"/>
+    <text x="44" y="108" text-anchor="middle" class="sublabel" fill="white">m</text>
+
+    <!-- Extension arrow -->
+    <line x1="80" y1="10" x2="80" y2="100" stroke="#22c55e" stroke-width="1.5"/>
+    <line x1="75" y1="10" x2="85" y2="10" stroke="#22c55e" stroke-width="1"/>
+    <line x1="75" y1="100" x2="85" y2="100" stroke="#22c55e" stroke-width="1"/>
+    <text x="95" y="58" class="sublabel" fill="#22c55e">x</text>
+
+    <!-- Ruler marks -->
+    <line x1="10" y1="10" x2="20" y2="10" stroke="#374151" stroke-width="1"/>
+    <line x1="10" y1="40" x2="20" y2="40" stroke="#374151" stroke-width="1"/>
+    <line x1="10" y1="70" x2="20" y2="70" stroke="#374151" stroke-width="1"/>
+    <line x1="10" y1="100" x2="20" y2="100" stroke="#374151" stroke-width="1"/>
+  </g>
+
+  <!-- Force-Extension graph -->
+  <rect x="240" y="50" width="300" height="240" rx="10" class="box"/>
+  <text x="390" y="75" text-anchor="middle" class="label">Force-Extension Graph</text>
+
+  <g transform="translate(265, 88)">
+    <line x1="0" y1="0" x2="0" y2="170" class="axis"/>
+    <line x1="0" y1="170" x2="230" y2="170" class="axis"/>
+    
+    <line x1="0" y1="35" x2="230" y2="35" class="grid"/>
+    <line x1="0" y1="70" x2="230" y2="70" class="grid"/>
+    <line x1="0" y1="105" x2="230" y2="105" class="grid"/>
+    <line x1="0" y1="140" x2="230" y2="140" class="grid"/>
+    <line x1="50" y1="0" x2="50" y2="170" class="grid"/>
+    <line x1="100" y1="0" x2="100" y2="170" class="grid"/>
+    <line x1="150" y1="0" x2="150" y2="170" class="grid"/>
+    <line x1="200" y1="0" x2="200" y2="170" class="grid"/>
+
+    <!-- Hooke's Law region (straight line through origin) -->
+    <line x1="0" y1="170" x2="120" y2="30" class="plot" stroke="#22c55e"/>
+    <text x="50" y="90" class="sublabel" fill="#22c55e">Hooke's Law</text>
+
+    <!-- Limit of proportionality point -->
+    <circle cx="120" cy="30" r="4" fill="#ef4444"/>
+    <line x1="120" y1="30" x2="120" y2="170" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="100" y="22" class="sublabel" fill="#dc2626">Limit of proportionality</text>
+
+    <!-- Curve beyond -->
+    <path d="M120,30 Q160,10 200,5" class="plot"/>
+    <text x="170" y="15" class="sublabel" fill="#dc2626">Plastic deformation</text>
+
+    <text x="115" y="186" text-anchor="middle" class="sublabel" fill="#374151">Extension (x)</text>
+    <text x="-3" y="20" text-anchor="end" class="sublabel" fill="#374151">Force</text>
+  </g>
+
+  <!-- Formulas panel -->
+  <rect x="560" y="50" width="220" height="240" rx="10" class="box"/>
+  <text x="670" y="75" text-anchor="middle" class="label">Key Equations</text>
+
+  <g transform="translate(580, 92)">
+    <rect x="0" y="0" width="180" height="40" rx="6" fill="#fef2f2"/>
+    <text x="90" y="18" text-anchor="middle" class="formula">F = kx</text>
+    <text x="90" y="34" text-anchor="middle" class="sublabel">k = spring constant (N/m)</text>
+
+    <rect x="0" y="50" width="180" height="40" rx="6" fill="#fef2f2"/>
+    <text x="90" y="68" text-anchor="middle" class="formula">EPE = ½Fx = ½kx²</text>
+    <text x="90" y="84" text-anchor="middle" class="sublabel">Elastic Potential Energy</text>
+
+    <rect x="0" y="100" width="180" height="110" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="118" class="label">Important Terms</text>
+    <text x="10" y="136" class="sublabel" fill="#22c55e">Elastic: returns to original</text>
+    <text x="10" y="154" class="sublabel" fill="#dc2626">Plastic: permanently deformed</text>
+    <text x="10" y="176" class="sublabel">Stiff spring = high k</text>
+    <text x="10" y="194" class="sublabel">Area under graph = work done</text>
+  </g>
+
+  <!-- Bottom -->
+  <rect x="20" y="310" width="760" height="50" rx="10" class="box"/>
+  <text x="400" y="332" text-anchor="middle" class="label">Hooke's Law: extension is directly proportional to force, up to the limit of proportionality</text>
+  <text x="400" y="350" text-anchor="middle" class="sublabel">Applications: suspension systems · spring balances · elastic bands · measuring instruments</text>
+</svg>
