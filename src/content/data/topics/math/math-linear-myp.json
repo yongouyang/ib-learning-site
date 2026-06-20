@@ -38,7 +38,7 @@
     {
       "id": "math-linear-myp-lin-n7",
       "heading": "Modelling with Linear Relationships",
-      "body": "Many real-world situations change at a constant rate and can be modelled by a straight line.\n\n📌 Definition\nA linear model has the form $y=mx+c$, where:\n• $m$ is the rate of change.\n• $c$ is the initial value or fixed value when $x=0$.\n\n🔑 How it works\nIdentify the input variable ($x$) and output variable ($y$). The gradient tells you how much $y$ changes for each one-unit increase in $x$.\n\n💡 Worked Example\nA phone plan costs $£15$ per month plus $£2$ for each gigabyte of data used.\nLet $g$ be the number of GB used and $C$ be the total monthly cost.\n$$C=2g+15$$\n• The gradient $2$ means each extra GB costs $£2$.\n• The intercept $15$ is the fixed monthly charge.\nIf a customer uses $8$ GB:\n$$C=2(8)+15=16+15=31$$\nThe bill is $£31$.\n\n📎 Key Points to Remember\n• The gradient represents a rate such as cost per unit, distance per hour, or pay per hour.\n• The $y$-intercept represents a starting amount or fixed fee.\n• Test your model with simple values to check it makes sense.\n\n⚠️ Common Misconception\nConfusing the fixed value with the rate. In $C=2g+15$, the $£15$ is paid even if no data is used; the $£2$ is added per GB."
+      "body": "Many real-world situations change at a constant rate and can be modelled by a straight line.\n\n📌 Definition\nA linear model has the form $y=mx+c$, where:\n• $m$ is the rate of change.\n• $c$ is the initial value or fixed value when $x=0$.\n\n🔑 How it works\nIdentify the input variable ($x$) and output variable ($y$). The gradient tells you how much $y$ changes for each one-unit increase in $x$.\n\n💡 Worked Example\nA phone plan costs £15 per month plus £2 for each gigabyte of data used.\nLet $g$ be the number of GB used and $C$ be the total monthly cost.\n$$C=2g+15$$\n• The gradient $2$ means each extra GB costs £2.\n• The intercept $15$ is the fixed monthly charge.\nIf a customer uses $8$ GB:\n$$C=2(8)+15=16+15=31$$\nThe bill is £31.\n\n📎 Key Points to Remember\n• The gradient represents a rate such as cost per unit, distance per hour, or pay per hour.\n• The $y$-intercept represents a starting amount or fixed fee.\n• Test your model with simple values to check it makes sense.\n\n⚠️ Common Misconception\nConfusing the fixed value with the rate. In $C=2g+15$, the £15 is paid even if no data is used; the £2 is added per GB."
     }
   ],
   "flashcards": [
@@ -100,7 +100,7 @@
       "id": "math-linear-myp-lin-f10",
       "term": "Rate of change",
       "definition": "In a linear model, the gradient showing how much the output changes per unit increase in the input.",
-      "example": "In $C=2g+15$, the rate is $£2$ per GB."
+      "example": "In $C=2g+15$, the rate is £2 per GB."
     },
     {
       "id": "math-linear-myp-lin-f11",
@@ -188,10 +188,10 @@
     },
     {
       "id": "math-linear-myp-lin-q11",
-      "stem": "A plumber charges a $£40$ call-out fee plus $£25$ per hour. Which equation gives the total cost $C$ for $h$ hours?",
+      "stem": "A plumber charges a £40 call-out fee plus £25 per hour. Which equation gives the total cost $C$ for $h$ hours?",
       "choices": ["$C=40h+25$", "$C=25h+40$", "$C=65h$", "$C=25(h+40)$"],
       "correctIndex": 1,
-      "explanation": "The $£40$ is the fixed intercept and $£25$ is the rate per hour, so $C=25h+40$."
+      "explanation": "The £40 is the fixed intercept and £25 is the rate per hour, so $C=25h+40$."
     },
     {
       "id": "math-linear-myp-lin-q12",
@@ -216,10 +216,10 @@
     },
     {
       "id": "math-linear-myp-lin-q15",
-      "stem": "A car rental company charges $£30$ per day plus a one-off $£20$ insurance fee. What is the cost of a 7-day rental?",
+      "stem": "A car rental company charges £30 per day plus a one-off £20 insurance fee. What is the cost of a 7-day rental?",
       "choices": ["£230", "£210", "£200", "£250"],
       "correctIndex": 0,
-      "explanation": "Using $C=30d+20$ with $d=7$ gives $C=210+20=230$, so the cost is $£230$."
+      "explanation": "Using $C=30d+20$ with $d=7$ gives $C=210+20=230$, so the cost is £230."
     }
   ]
 }

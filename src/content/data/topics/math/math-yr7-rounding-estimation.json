@@ -33,7 +33,7 @@
     {
       "id": "math-yr7-rounding-estimation-re-n6",
       "heading": "Rounding Up and Down in Context",
-      "body": "In real life, rounding to the nearest value is not always the right choice. Sometimes you must round up, and sometimes you must round down, depending on what the problem is asking.\n\n📌 Definition\n• Round up when you need to make sure you have enough.\n• Round down when you cannot exceed a limit or when something must fit completely.\n\n🔑 How to decide\nAsk yourself what would happen if you rounded the wrong way:\n• If rounding down would leave someone without a seat, round up.\n• If rounding up would cost more money than you have, round down.\n\n💡 Worked Example 1 — Round up\nA minibus seats $8$ people. How many minibuses are needed for $23$ people?\n\n$$23 \\div 8 = 2.875$$\n\nTwo minibuses would only hold $16$ people, leaving $7$ people behind. You need a third minibus, so round up:\n$$23 \\div 8 = 2.875 \\to 3 \\text{ minibuses}$$\n\n💡 Worked Example 2 — Round down\nA book costs $£12$. How many books can you buy with $£50$?\n\n$$50 \\div 12 = 4.16\\ldots$$\n\nYou cannot buy $0.16$ of a book, and $5$ books would cost $£60$, which is too much. Round down:\n$$50 \\div 12 = 4.16\\ldots \\to 4 \\text{ books}$$\n\n💡 Worked Example 3 — Area and tiles\nA rectangular floor measures $4.2$ m by $3.8$ m. One tile covers $1$ m$^2$. How many tiles are needed?\n\nArea:\n$$4.2 \\times 3.8 = 15.96 \\text{ m}^2$$\n\nAlthough $15.96$ rounds to $16$ to the nearest whole number, the reason for rounding up is practical: $15$ tiles would leave a gap, so $16$ tiles are needed.\n\n⚠️ Common Mistake\nAlways rounding to the nearest whole number in word problems. The context tells you whether to round up or down.\n\n✅ Tip\nWhen you see words such as \"how many buses\", \"how many boxes\", \"how many tiles\", or \"how many full groups\", think carefully about whether a part-group is acceptable."
+      "body": "In real life, rounding to the nearest value is not always the right choice. Sometimes you must round up, and sometimes you must round down, depending on what the problem is asking.\n\n📌 Definition\n• Round up when you need to make sure you have enough.\n• Round down when you cannot exceed a limit or when something must fit completely.\n\n🔑 How to decide\nAsk yourself what would happen if you rounded the wrong way:\n• If rounding down would leave someone without a seat, round up.\n• If rounding up would cost more money than you have, round down.\n\n💡 Worked Example 1 — Round up\nA minibus seats $8$ people. How many minibuses are needed for $23$ people?\n\n$$23 \\div 8 = 2.875$$\n\nTwo minibuses would only hold $16$ people, leaving $7$ people behind. You need a third minibus, so round up:\n$$23 \\div 8 = 2.875 \\to 3 \\text{ minibuses}$$\n\n💡 Worked Example 2 — Round down\nA book costs £12. How many books can you buy with £50?\n\n$$50 \\div 12 = 4.16\\ldots$$\n\nYou cannot buy $0.16$ of a book, and $5$ books would cost £60, which is too much. Round down:\n$$50 \\div 12 = 4.16\\ldots \\to 4 \\text{ books}$$\n\n💡 Worked Example 3 — Area and tiles\nA rectangular floor measures $4.2$ m by $3.8$ m. One tile covers $1$ m$^2$. How many tiles are needed?\n\nArea:\n$$4.2 \\times 3.8 = 15.96 \\text{ m}^2$$\n\nAlthough $15.96$ rounds to $16$ to the nearest whole number, the reason for rounding up is practical: $15$ tiles would leave a gap, so $16$ tiles are needed.\n\n⚠️ Common Mistake\nAlways rounding to the nearest whole number in word problems. The context tells you whether to round up or down.\n\n✅ Tip\nWhen you see words such as \"how many buses\", \"how many boxes\", \"how many tiles\", or \"how many full groups\", think carefully about whether a part-group is acceptable."
     },
     {
       "id": "math-yr7-rounding-estimation-re-n7",
@@ -94,7 +94,7 @@
       "id": "math-yr7-rounding-estimation-re-f9",
       "term": "Rounding down in context",
       "definition": "Keeping the lower whole number when you cannot exceed a limit.",
-      "example": "With $£50$ and books costing $£12$, you can buy $4$ books."
+      "example": "With £50 and books costing £12, you can buy $4$ books."
     },
     {
       "id": "math-yr7-rounding-estimation-re-f10",
@@ -238,7 +238,7 @@
     },
     {
       "id": "math-yr7-rounding-estimation-re-q11",
-      "stem": "A book costs $£12$. What is the greatest number of books you can buy with $£50$?",
+      "stem": "A book costs £12. What is the greatest number of books you can buy with £50?",
       "choices": [
         "$4$",
         "$5$",
@@ -246,7 +246,7 @@
         "$6$"
       ],
       "correctIndex": 0,
-      "explanation": "$50 \\div 12 = 4.16\\ldots$; $5$ books would cost $£60$, which is too much, so round down to $4$."
+      "explanation": "$50 \\div 12 = 4.16\\ldots$; $5$ books would cost £60, which is too much, so round down to $4$."
     },
     {
       "id": "math-yr7-rounding-estimation-re-q12",

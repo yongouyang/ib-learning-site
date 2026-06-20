@@ -18,7 +18,7 @@
     {
       "id": "math-yr7-data-data-n3",
       "heading": "Pictograms and Pie Charts",
-      "body": "📌 Definition\nA pictogram uses pictures or symbols to represent data. A pie chart uses sectors of a circle to show how a whole amount is divided into parts.\n\n🔑 How it works — Pictograms\nEach symbol stands for a fixed number of items, shown in the key. Always check the key before counting. If ★ = 4 books, then ★★★½ represents $3.5 \\times 4 = 14$ books.\n\n🔑 How it works — Pie Charts\nA full turn is $360°$. The angle for each sector is found by:\n$$\\text{sector angle} = \\frac{\\text{frequency}}{\\text{total frequency}} \\times 360°$$\n\n💡 Worked Example 1 — Pictogram\nA key says 🚲 = 10 students. If the row for 'walk' shows 🚲🚲🚲½, the number of students who walk is $3.5 \\times 10 = 35$.\n\n💡 Worked Example 2 — Pie Chart\nIn a survey of 40 students, 10 chose tennis. The tennis sector angle is:\n$$\\frac{10}{40} \\times 360° = 90°$$\n\n📎 Key Points to Remember\n• Pictograms: read the key first; half or quarter symbols are common.\n• Pie charts: each sector angle is proportional to the frequency.\n• Pie charts are best for showing proportions, not exact amounts.\n\n⚠️ Common Mistake\nDrawing a pie chart without checking that all the sector angles add up to $360°$. If they do not, a calculation error has been made."
+      "body": "📌 Definition\nA pictogram uses pictures or symbols to represent data. A pie chart uses sectors of a circle to show how a whole amount is divided into parts.\n\n🔑 How it works — Pictograms\nEach symbol stands for a fixed number of items, shown in the key. Always check the key before counting. If ★ = 4 books, then ★★★½ represents $3.5 \\times 4 = 14$ books.\n\n🔑 How it works — Pie Charts\nA full turn is 360°. The angle for each sector is found by:\n$$\\text{sector angle} = \\frac{\\text{frequency}}{\\text{total frequency}} \\times 360^\\circ$$\n\n💡 Worked Example 1 — Pictogram\nA key says 🚲 = 10 students. If the row for 'walk' shows 🚲🚲🚲½, the number of students who walk is $3.5 \\times 10 = 35$.\n\n💡 Worked Example 2 — Pie Chart\nIn a survey of 40 students, 10 chose tennis. The tennis sector angle is:\n$$\\frac{10}{40} \\times 360^\\circ = 90^\\circ$$\n\n📎 Key Points to Remember\n• Pictograms: read the key first; half or quarter symbols are common.\n• Pie charts: each sector angle is proportional to the frequency.\n• Pie charts are best for showing proportions, not exact amounts.\n\n⚠️ Common Mistake\nDrawing a pie chart without checking that all the sector angles add up to 360°. If they do not, a calculation error has been made."
     },
     {
       "id": "math-yr7-data-data-n4",
@@ -38,7 +38,7 @@
     {
       "id": "math-yr7-data-data-n7",
       "heading": "Choosing the Right Average and Reading Charts",
-      "body": "📌 Definition\nAn average is a single value that represents a typical value in a data set. The best average depends on the data and the question you are trying to answer.\n\n🔑 How it works\nUse the mean when the data is fairly symmetrical and has no extreme values. Use the median when there are outliers or when the data is skewed. Use the mode for categorical data or when you want the most common answer. Always pair an average with the range or another measure of spread.\n\n💡 Worked Example — Choosing an average\nA small shop records daily takings for a week: $£120, £135, £128, £140, £132, £125, £800$.\n\nMean $= £1580 \\div 7 \\approx £225.71$\nMedian $= £132$ (middle value of ordered list)\nMode: no value repeats.\n\nThe £800 day is an outlier. The mean makes the shop look much busier than usual, so the median (£132) is a fairer typical daily taking.\n\n✅ Check — Reading charts\nBefore answering any chart question:\n1. Read the title.\n2. Check the labels on both axes.\n3. Look at the scale and what each unit represents.\n4. Read the key if it is a pictogram or pie chart.\n\n📎 Key Points to Remember\n• Mean: uses every value; affected by outliers.\n• Median: middle value; robust against outliers.\n• Mode: most common; useful for categories.\n• Range: shows spread; use alongside an average.\n\n⚠️ Common Mistake\nSaying 'the chart shows...' without quoting numbers. In mathematics you must back up statements with values from the data or chart."
+      "body": "📌 Definition\nAn average is a single value that represents a typical value in a data set. The best average depends on the data and the question you are trying to answer.\n\n🔑 How it works\nUse the mean when the data is fairly symmetrical and has no extreme values. Use the median when there are outliers or when the data is skewed. Use the mode for categorical data or when you want the most common answer. Always pair an average with the range or another measure of spread.\n\n💡 Worked Example — Choosing an average\nA small shop records daily takings for a week: £120, £135, £128, £140, £132, £125, £800.\n\nMean = £1580 ÷ 7 ≈ £225.71\nMedian = £132 (middle value of ordered list)\nMode: no value repeats.\n\nThe £800 day is an outlier. The mean makes the shop look much busier than usual, so the median (£132) is a fairer typical daily taking.\n\n✅ Check — Reading charts\nBefore answering any chart question:\n1. Read the title.\n2. Check the labels on both axes.\n3. Look at the scale and what each unit represents.\n4. Read the key if it is a pictogram or pie chart.\n\n📎 Key Points to Remember\n• Mean: uses every value; affected by outliers.\n• Median: middle value; robust against outliers.\n• Mode: most common; useful for categories.\n• Range: shows spread; use alongside an average.\n\n⚠️ Common Mistake\nSaying 'the chart shows...' without quoting numbers. In mathematics you must back up statements with values from the data or chart."
     }
   ],
   "flashcards": [
@@ -192,13 +192,13 @@
       "id": "math-yr7-data-data-q7",
       "stem": "A survey of 30 students found 15 prefer blue, 9 prefer red, and 6 prefer green. What is the pie chart angle for blue?",
       "choices": [
-        "$90°$",
-        "$120°$",
-        "$180°$",
-        "$360°$"
+        "$90^\\circ$",
+        "$120^\\circ$",
+        "$180^\\circ$",
+        "$360^\\circ$"
       ],
       "correctIndex": 2,
-      "explanation": "The sector angle is $\\frac{15}{30} \\times 360° = 0.5 \\times 360° = 180°$."
+      "explanation": "The sector angle is $\\frac{15}{30} \\times 360^\\circ = 0.5 \\times 360^\\circ = 180^\\circ$."
     },
     {
       "id": "math-yr7-data-data-q8",

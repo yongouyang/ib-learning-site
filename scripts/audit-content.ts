@@ -11,6 +11,7 @@ export type IssueType =
   | "duplicate_id"
   | "folder_mismatch"
   | "latex_error"
+  | "latex_unicode"
   | "empty_flashcard"
   | "unreadable_topic";
 
@@ -156,6 +157,9 @@ export function findLatexIssues(text: string): LatexIssue[] {
         mathStart = i + 2;
       } else if (state === "display") {
         const math = text.slice(mathStart, i);
+        if (containsNonAscii(math)) {
+          issues.push({ message: "Display math contains non-ASCII characters", math });
+        }
         const error = checkKatex(math, true);
         if (error) {
           issues.push({ message: `Display math parse error: ${error}`, math });
@@ -175,6 +179,9 @@ export function findLatexIssues(text: string): LatexIssue[] {
       mathStart = i + 1;
     } else if (state === "inline") {
       const math = text.slice(mathStart, i);
+      if (containsNonAscii(math)) {
+        issues.push({ message: "Inline math contains non-ASCII characters", math });
+      }
       const error = checkKatex(math, false);
       if (error) {
         issues.push({ message: `Inline math parse error: ${error}`, math });
@@ -201,6 +208,13 @@ function checkKatex(math: string, displayMode: boolean): string | null {
   } catch (error) {
     return error instanceof Error ? error.message : String(error);
   }
+}
+
+function containsNonAscii(math: string): boolean {
+  for (const ch of math) {
+    if (ch.codePointAt(0)! > 127) return true;
+  }
+  return false;
 }
 
 export function auditContent(input: AuditInput): AuditResult {
@@ -319,9 +333,10 @@ export function auditContent(input: AuditInput): AuditResult {
     for (const field of extractTextFields(topic)) {
       const latexIssues = findLatexIssues(field.value);
       for (const latexIssue of latexIssues) {
+        const isUnicode = latexIssue.message.includes("non-ASCII");
         issues.push({
-          type: "latex_error",
-          severity: "warning",
+          type: isUnicode ? "latex_unicode" : "latex_error",
+          severity: isUnicode ? "error" : "warning",
           location: `${location(topic)}/${field.path}`,
           message: latexIssue.message,
         });
@@ -425,6 +440,8 @@ function issueTypeLabel(type: IssueType): string {
       return "Folder / subjectId mismatches";
     case "latex_error":
       return "LaTeX red flags";
+    case "latex_unicode":
+      return "LaTeX contains non-ASCII characters";
     case "empty_flashcard":
       return "Empty flashcard term/definition";
     case "unreadable_topic":
