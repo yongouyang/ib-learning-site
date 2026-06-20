@@ -1,0 +1,213 @@
+{
+  "id": "math-dp-voronoi-diagrams",
+  "subjectId": "math",
+  "title": "Voronoi Diagrams",
+  "description": "Partitioning a plane around seed points using perpendicular bisectors, with applications to nearest-neighbour queries and facility-location problems.",
+  "ibLevel": "DP",
+  "notes": [
+    {
+      "id": "math-dp-voronoi-diagrams-n1",
+      "heading": "What is a Voronoi Diagram?",
+      "body": "A Voronoi diagram divides a region into cells so that every point inside a cell is closer to one particular site than to any other site.\n\n📌 Key Definitions\n• A **site** (or seed point) is a given point that acts as the centre of a cell.\n• A **Voronoi cell** is the region of points closer to one site than to any other.\n• A **Voronoi edge** is the boundary between two cells; it consists of points equidistant from two sites.\n• A **Voronoi vertex** is a point where three or more edges meet; it is equidistant from three or more sites.\n\n📌 Simple Example\nImagine two coffee shops at points $A$ and $B$. A customer standing exactly on the Voronoi edge between $A$ and $B$ is equally close to both shops. Anyone inside $A$'s cell should go to $A$, and anyone inside $B$'s cell should go to $B$.\n\n🔑 Properties\n• Voronoi edges are parts of **perpendicular bisectors** of the line segments joining pairs of sites.\n• A Voronoi vertex is the centre of a circle that passes through the surrounding sites and contains no other site inside it.\n• The diagram is unique for a given set of sites (assuming no three sites are collinear in a way that causes degenerate cases).\n\n💡 Worked Example — Identifying the Nearest Site\nSites are at $A(0,0)$, $B(4,0)$ and $C(2,3)$. Which site is closest to the point $P(1,1)$?\n\n  Compute squared distances (squaring avoids square roots):\\\n  $PA^2 = (1-0)^2 + (1-0)^2 = 2$\\\n  $PB^2 = (1-4)^2 + (1-0)^2 = 10$\\\n  $PC^2 = (1-2)^2 + (1-3)^2 = 5$\\\n  The smallest squared distance is $PA^2$, so $A$ is closest.\n\n📎 Key Points to Remember\n• Voronoi diagrams answer \"which site is nearest?\" questions visually.\n• Edges are always perpendicular bisectors; vertices are equidistant from multiple sites."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-n2",
+      "heading": "Perpendicular Bisectors & Construction",
+      "body": "To build a Voronoi diagram by hand, you draw perpendicular bisectors between pairs of sites and keep only the parts that form cell boundaries.\n\n📌 Perpendicular Bisector\nFor two points $A(x_1, y_1)$ and $B(x_2, y_2)$, the perpendicular bisector of $AB$ is the line:\n\n1. Passing through the **midpoint** $M = \\left(\\dfrac{x_1+x_2}{2}, \\dfrac{y_1+y_2}{2}\\right)$\n2. Having gradient $m = -\\dfrac{x_2 - x_1}{y_2 - y_1}$ (the negative reciprocal of $AB$'s gradient), provided $y_1 \\neq y_2$\n\nIf $AB$ is horizontal, the perpendicular bisector is vertical; if $AB$ is vertical, the bisector is horizontal.\n\n🔑 Constructing a Voronoi Diagram\n1. Plot all the sites.\n2. For each pair of neighbouring sites, draw the perpendicular bisector.\n3. Erase the parts of each bisector that lie inside another site's cell.\n4. The remaining segments form the Voronoi edges.\n\n💡 Worked Example — Equation of a Perpendicular Bisector\nFind the perpendicular bisector of $A(1, 2)$ and $B(5, 4)$.\n\n  Step 1: Midpoint\\\n  $M = \\left(\\dfrac{1+5}{2}, \\dfrac{2+4}{2}\\right) = (3, 3)$\\\n\n  Step 2: Gradient of $AB$\\\n  $m_{AB} = \\dfrac{4-2}{5-1} = \\dfrac{1}{2}$\\\n\n  Step 3: Gradient of perpendicular bisector\\\n  $m = -2$\\\n\n  Step 4: Equation through $(3, 3)$\\\n  $y - 3 = -2(x - 3)$, so $y = -2x + 9$\n\n⚠️ Common Mistake\nThe perpendicular bisector's gradient is the **negative reciprocal** of $AB$'s gradient, not just the negative. If $m_{AB} = \\frac{1}{2}$, the bisector's gradient is $-2$, not $-\\frac{1}{2}$."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-n3",
+      "heading": "Applications: Nearest Neighbour & Toxic Waste",
+      "body": "Voronoi diagrams turn distance questions into visual decisions. Two classic problems are the nearest-neighbour query and the toxic-waste-dump problem.\n\n📌 Nearest-Neighbour Query\nGiven a query point $P$, the site whose cell contains $P$ is the nearest site. If $P$ lies on an edge, it is equidistant from the two neighbouring sites; if it lies on a vertex, it is equidistant from three or more sites.\n\n📌 Toxic Waste Dump Problem\nWhere should you place an undesirable facility (such as a toxic waste dump) so that it is as far as possible from all existing sites?\n\n🔑 Solution Method\n1. Construct the Voronoi diagram for the sites.\n2. Identify the Voronoi **vertices**.\n3. The optimal location is the vertex with the **largest empty circle** — the circle centred at that vertex passing through its surrounding sites with no other site inside.\n4. Compare distances; the vertex with the greatest distance to its surrounding sites is the answer.\n\n💡 Worked Example — Toxic Waste Dump\nThree schools are at $A(0,0)$, $B(6,0)$ and $C(3,5)$. Find the best place for a toxic waste dump that is farthest from all three schools.\n\n  Step 1: Sketch or construct the Voronoi diagram.\\\n  The Voronoi vertex is equidistant from $A$, $B$ and $C$.\\\n\n  Step 2: Find the circumcentre of triangle $ABC$\\\n  The perpendicular bisector of $AB$ is $x = 3$.\\\n  The perpendicular bisector of $AC$ has gradient $-\\frac{3}{5}$ and passes through $(1.5, 2.5)$.\\\n  Solving gives the vertex approximately $(3, 1.7)$.\\\n\n  Step 3: Radius of the empty circle\\\n  Distance from $(3, 1.7)$ to $A$ is approximately $\\sqrt{9 + 2.89} \\approx 3.45$.\\\n  This is the largest possible distance from all three schools.\n\n📎 Key Points to Remember\n• Nearest-neighbour answers come directly from which cell contains the query point.\n• Toxic-waste answers come from Voronoi vertices and their empty-circle radii."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-n4",
+      "heading": "Adding a New Site",
+      "body": "When a new site is added to a Voronoi diagram, only the cells that share a boundary with the new site's cell need to change. This local change is useful in planning and competition problems.\n\n📌 Effect of a New Site\n1. Draw perpendicular bisectors between the new site and each existing site.\n2. The new cell is the intersection of all half-planes that are closer to the new site than to each existing site.\n3. Existing cell boundaries that lie inside the new cell are removed.\n\n🔑 Finding the New Cell\nFor each existing site $S$, the perpendicular bisector of the new site $N$ and $S$ divides the plane into two half-planes:\n• The side containing $N$ is closer to $N$.\n• The side containing $S$ is closer to $S$.\n\nThe new cell is the intersection of all the \"closer to $N$\" half-planes.\n\n💡 Worked Example — Adding a Site\nExisting sites are $A(0,0)$ and $B(4,0)$. Add a new site $C(2,3)$.\n\n  Step 1: Perpendicular bisector of $AC$\\\n  Midpoint $(1, 1.5)$; gradient of $AC$ is $\\frac{3}{2}$, so bisector gradient is $-\\frac{2}{3}$.\\\n\n  Step 2: Perpendicular bisector of $BC$\\\n  Midpoint $(3, 1.5)$; gradient of $BC$ is $-\\frac{3}{2}$, so bisector gradient is $\\frac{2}{3}$.\\\n\n  Step 3: The two bisectors meet at the Voronoi vertex $(2, 0)$?\\\n  Check: the vertex must be equidistant from $A$, $B$ and $C$.\\\n  Distance from $(2,0)$ to $A$ is $2$, to $B$ is $2$, to $C$ is $3$.\\\n  Not equal, so the actual vertex lies above the $x$-axis. Solving the two bisector equations gives the vertex.\n\n📎 Key Points to Remember\n• Adding a site only affects nearby cells; distant cells stay the same.\n• The new cell is always a convex polygon (or an unbounded region near the edge of the diagram)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-voronoi-diagrams-f1",
+      "term": "Voronoi diagram",
+      "definition": "A partition of a plane into cells so that every point in a cell is closer to one site than to any other site.",
+      "example": "Two coffee shops divide a town into regions showing which shop each customer should visit."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-f2",
+      "term": "Site (seed point)",
+      "definition": "A given point that acts as the centre of a Voronoi cell.",
+      "example": "In a map of hospitals, each hospital location is a site."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-f3",
+      "term": "Voronoi cell",
+      "definition": "The region containing all points closer to one particular site than to any other site.",
+      "example": "All houses that are nearest to Hospital A lie inside Hospital A's Voronoi cell."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-f4",
+      "term": "Voronoi edge",
+      "definition": "The boundary between two Voronoi cells; it consists of points equidistant from two sites.",
+      "example": "The perpendicular bisector of two neighbouring sites forms a Voronoi edge."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-f5",
+      "term": "Voronoi vertex",
+      "definition": "A point where three or more Voronoi edges meet; it is equidistant from three or more sites.",
+      "example": "A location equally close to three schools is a Voronoi vertex."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-f6",
+      "term": "Perpendicular bisector",
+      "definition": "The line that is perpendicular to a segment at its midpoint; all points on it are equidistant from the segment's endpoints.",
+      "example": "The perpendicular bisector of $AB$ is used to separate the cells of $A$ and $B$."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-f7",
+      "term": "Nearest-neighbour query",
+      "definition": "Using a Voronoi diagram to find which site is closest to a given point.",
+      "example": "Finding the nearest hospital to an emergency call."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-f8",
+      "term": "Toxic waste dump problem",
+      "definition": "Finding the location farthest from all existing sites, solved by the Voronoi vertex with the largest empty circle.",
+      "example": "Placing a landfill as far as possible from all residential areas."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-f9",
+      "term": "Largest empty circle",
+      "definition": "The biggest circle centred at a Voronoi vertex that passes through surrounding sites without containing any other site.",
+      "example": "The circle at the toxic-waste-dump vertex touches the three nearest towns and contains no other town."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-f10",
+      "term": "Gradient of a perpendicular bisector",
+      "definition": "If the gradient of segment $AB$ is $m$, the gradient of its perpendicular bisector is $-\\frac{1}{m}$ (negative reciprocal).",
+      "example": "If $m_{AB} = \\frac{2}{3}$, the bisector's gradient is $-\\frac{3}{2}$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-voronoi-diagrams-q1",
+      "stem": "What does a Voronoi edge represent?",
+      "choices": [
+        "The shortest path between two sites",
+        "All points equidistant from two neighbouring sites",
+        "The distance from a site to the origin",
+        "The centre of a Voronoi cell"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Voronoi edge is the boundary between two cells and consists of points that are equidistant from the two neighbouring sites."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-q2",
+      "stem": "Find the equation of the perpendicular bisector of $A(2, 1)$ and $B(6, 3)$.",
+      "choices": [
+        "$y = -\\frac{1}{2}x + 5$",
+        "$y = -2x + 10$",
+        "$y = \\frac{1}{2}x + 1$",
+        "$y = 2x - 7$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Midpoint is $(4, 2)$ and gradient of $AB$ is $\\frac{3-1}{6-2} = \\frac{1}{2}$, so the perpendicular gradient is $-2$. Equation: $y - 2 = -2(x - 4)$, which simplifies to $y = -2x + 10$."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-q3",
+      "stem": "Sites are at $A(0,0)$, $B(6,0)$ and $C(3,5)$. Which site is closest to $P(2,1)$?",
+      "choices": [
+        "$A$",
+        "$B$",
+        "$C$",
+        "$A$ and $B$ are equally close"
+      ],
+      "correctIndex": 0,
+      "explanation": "$PA^2 = 2^2 + 1^2 = 5$, $PB^2 = 4^2 + 1^2 = 17$, $PC^2 = 1^2 + 4^2 = 17$. The smallest squared distance is $PA^2$, so $A$ is closest."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-q4",
+      "stem": "A Voronoi vertex is equidistant from how many sites?",
+      "choices": [
+        "Exactly one",
+        "Exactly two",
+        "Three or more",
+        "None"
+      ],
+      "correctIndex": 2,
+      "explanation": "A Voronoi vertex is a point where three or more edges meet, so it is equidistant from three or more sites."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-q5",
+      "stem": "In the toxic waste dump problem, the optimal location is usually:",
+      "choices": [
+        "At one of the existing sites",
+        "At a Voronoi vertex",
+        "On a Voronoi edge but not at a vertex",
+        "Outside the convex hull of the sites"
+      ],
+      "correctIndex": 1,
+      "explanation": "The point farthest from all existing sites is found at a Voronoi vertex, specifically the centre of the largest empty circle."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-q6",
+      "stem": "The perpendicular bisector of a horizontal segment is:",
+      "choices": [
+        "Horizontal",
+        "Vertical",
+        "Diagonal",
+        "Undefined"
+      ],
+      "correctIndex": 1,
+      "explanation": "A horizontal segment has gradient $0$. The perpendicular gradient is undefined, so the perpendicular bisector is a vertical line."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-q7",
+      "stem": "Sites $A$ and $B$ are $10$ km apart. A new site $C$ is added exactly halfway between them. What happens to the original Voronoi edge between $A$ and $B$?",
+      "choices": [
+        "It disappears completely",
+        "It is split into two edges meeting at $C$'s cell",
+        "It becomes longer",
+        "It does not change"
+      ],
+      "correctIndex": 1,
+      "explanation": "Adding $C$ between $A$ and $B$ creates a new cell around $C$, splitting the original edge $AB$ into two shorter edges that meet at the boundary of $C$'s cell."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-q8",
+      "stem": "Find the midpoint of $A(1, 3)$ and $B(5, 7)$.",
+      "choices": [
+        "$(3, 5)$",
+        "$(2, 2)$",
+        "$(6, 10)$",
+        "$(4, 4)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Midpoint $= \\left(\\dfrac{1+5}{2}, \\dfrac{3+7}{2}\\right) = (3, 5)$."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-q9",
+      "stem": "If the gradient of segment $PQ$ is $-\\frac{3}{4}$, what is the gradient of its perpendicular bisector?",
+      "choices": [
+        "$\\frac{3}{4}$",
+        "$-\\frac{4}{3}$",
+        "$\\frac{4}{3}$",
+        "$-\\frac{3}{4}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The perpendicular gradient is the negative reciprocal of $-\\frac{3}{4}$, which is $\\frac{4}{3}$."
+    },
+    {
+      "id": "math-dp-voronoi-diagrams-q10",
+      "stem": "A query point lies on a Voronoi edge. What can you conclude?",
+      "choices": [
+        "It is closest to exactly one site",
+        "It is equidistant from exactly two sites",
+        "It is equidistant from three or more sites",
+        "It is outside all cells"
+      ],
+      "correctIndex": 1,
+      "explanation": "Points on a Voronoi edge are equidistant from the two sites whose cells share that edge."
+    }
+  ]
+}
