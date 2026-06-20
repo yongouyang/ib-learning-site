@@ -1,0 +1,305 @@
+{
+  "id": "math-yr8-probability-trees",
+  "subjectId": "math",
+  "title": "Probability & Tree Diagrams",
+  "description": "Calculate probabilities for independent and dependent events using AND/OR rules, tree diagrams and expected frequency, including simple conditional probability.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-probability-trees-n1",
+      "heading": "Basic Probability Language",
+      "illustration": {
+        "src": "/images/math/math-yr8-probability-trees.svg",
+        "alt": "A tree diagram showing two trials of picking a counter from a bag, with branches labelled with probabilities for red and blue outcomes.",
+        "caption": "Tree diagrams show all possible outcomes of two or more events and the probability of each path."
+      },
+      "body": "📌 Definition\nProbability measures how likely an event is. It is written as a number between $0$ (impossible) and $1$ (certain).\n\n🔑 Key Concept\nFor equally likely outcomes:\n$$P(\\text{event}) = \\frac{\\text{number of favourable outcomes}}{\\text{total number of possible outcomes}}$$\n\nAn event is something that may happen, such as rolling a $6$ or picking a red card.\n\n📎 Key Points to Remember\n• Probabilities can be written as fractions, decimals or percentages.\n• The probability of an event not happening is $P(\\text{not } A) = 1 - P(A)$.\n• A sample space is a list of all possible outcomes."
+    },
+    {
+      "id": "math-yr8-probability-trees-n2",
+      "heading": "Independent Events and the AND Rule",
+      "body": "📌 Definition\nTwo events are independent when one event does not affect the probability of the other.\n\n🔑 Key Concept\nFor independent events $A$ and $B$:\n$$P(A \\text{ and } B) = P(A) \\times P(B)$$\n\n💡 Worked Example\nA fair dice is rolled and a fair coin is tossed. What is the probability of rolling a $4$ and getting tails?\n\nStep 1: Find each separate probability.\n$$P(4) = \\frac{1}{6}$$\n$$P(\\text{tails}) = \\frac{1}{2}$$\n\nStep 2: Multiply because the events are independent.\n$$P(4 \\text{ and tails}) = \\frac{1}{6} \\times \\frac{1}{2} = \\frac{1}{12}$$\n\n✅ Check\nThe answer is less than each separate probability, which makes sense because both events must happen together."
+    },
+    {
+      "id": "math-yr8-probability-trees-n3",
+      "heading": "Dependent Events and Conditional Probability",
+      "body": "📌 Definition\nTwo events are dependent when the first event changes the probability of the second event.\n\n🔑 How it works\nFor dependent events, the probability of the second event must be calculated after the first event has happened. This is called conditional probability.\n\n💡 Worked Example\nA bag contains $3$ red and $2$ blue counters. One counter is picked and not replaced, then another is picked. What is the probability of picking two red counters?\n\nStep 1: Probability of red first.\n$$P(\\text{red first}) = \\frac{3}{5}$$\n\nStep 2: After one red is removed, $2$ red and $2$ blue remain. Probability of red second is now:\n$$P(\\text{red second}) = \\frac{2}{4} = \\frac{1}{2}$$\n\nStep 3: Multiply.\n$$P(\\text{red and red}) = \\frac{3}{5} \\times \\frac{1}{2} = \\frac{3}{10}$$\n\n⚠️ Common Mistake\nUsing the original probability of $\\frac{3}{5}$ for the second pick. The total number of counters changes after the first pick."
+    },
+    {
+      "id": "math-yr8-probability-trees-n4",
+      "heading": "Mutually Exclusive Events and the OR Rule",
+      "body": "📌 Definition\nTwo events are mutually exclusive if they cannot happen at the same time.\n\n🔑 Key Concept\nFor mutually exclusive events $A$ and $B$:\n$$P(A \\text{ or } B) = P(A) + P(B)$$\n\n💡 Worked Example\nA fair dice is rolled once. What is the probability of rolling a $2$ or a $5$?\n\nStep 1: Find each probability.\n$$P(2) = \\frac{1}{6}$$\n$$P(5) = \\frac{1}{6}$$\n\nStep 2: Add because the two outcomes cannot both happen on one roll.\n$$P(2 \\text{ or } 5) = \\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3}$$\n\n📎 Key Points to Remember\n• Only add probabilities when the events cannot happen together.\n• Rolling a $2$ and rolling a $5$ on one roll are mutually exclusive.\n• Picking a red card and picking a heart from a deck are not mutually exclusive because a card can be both red and a heart."
+    },
+    {
+      "id": "math-yr8-probability-trees-n5",
+      "heading": "Drawing and Using Tree Diagrams",
+      "body": "📌 Definition\nA tree diagram is a picture that shows all possible outcomes of two or more events. Each branch is labelled with its probability.\n\n🔑 How it works\n• Draw a branch for each possible outcome of the first event.\n• From the end of each branch, draw branches for the second event.\n• Multiply along branches to find the probability of a combined outcome.\n• Add outcomes that answer the question.\n\n💡 Worked Example\nA bag contains $2$ red and $3$ blue counters. A counter is picked, replaced, then another is picked. Find the probability of one red and one blue in any order.\n\nStep 1: Because of replacement, the events are independent.\n$$P(\\text{red}) = \\frac{2}{5}, \\quad P(\\text{blue}) = \\frac{3}{5}$$\n\nStep 2: Two paths give one of each colour: red then blue, or blue then red.\n$$P(\\text{red then blue}) = \\frac{2}{5} \\times \\frac{3}{5} = \\frac{6}{25}$$\n$$P(\\text{blue then red}) = \\frac{3}{5} \\times \\frac{2}{5} = \\frac{6}{25}$$\n\nStep 3: Add the two paths.\n$$P(\\text{one of each}) = \\frac{6}{25} + \\frac{6}{25} = \\frac{12}{25}$$\n\n✅ Check\nThe probabilities of all paths add to $1$:\n$$\\frac{4}{25} + \\frac{6}{25} + \\frac{6}{25} + \\frac{9}{25} = 1$$"
+    },
+    {
+      "id": "math-yr8-probability-trees-n6",
+      "heading": "Expected Frequency",
+      "body": "📌 Definition\nExpected frequency is the number of times you expect an event to happen if an experiment is repeated many times.\n\n🔑 Key Concept\n$$\\text{expected frequency} = \\text{probability of event} \\times \\text{number of trials}$$\n\n💡 Worked Example\nA fair coin is tossed $200$ times. How many heads are expected?\n\nStep 1: Probability of heads.\n$$P(\\text{heads}) = \\frac{1}{2}$$\n\nStep 2: Multiply by the number of trials.\n$$\\text{expected heads} = \\frac{1}{2} \\times 200 = 100$$\n\n⚠️ Common Mistake\nExpecting exactly $100$ heads every time. The actual number may vary, but $100$ is the long-run average."
+    },
+    {
+      "id": "math-yr8-probability-trees-n7",
+      "heading": "Simple Conditional Probability",
+      "body": "📌 Definition\nConditional probability is the probability of an event happening given that another event has already happened.\n\n🔑 Key Concept\nThe notation $P(A | B)$ means the probability of $A$ given that $B$ has happened.\n\n💡 Worked Example\nA class has $12$ boys and $18$ girls. Half of the boys and one third of the girls wear glasses. A student is chosen at random. Given that the student is a girl, what is the probability she wears glasses?\n\nStep 1: Focus only on the girls because the condition is given.\nNumber of girls = $18$.\nNumber of girls with glasses = $\\frac{1}{3} \\times 18 = 6$.\n\nStep 2: Find the conditional probability.\n$$P(\\text{glasses} | \\text{girl}) = \\frac{6}{18} = \\frac{1}{3}$$\n\n📎 Key Points to Remember\n• Conditional probability reduces the sample space to only those outcomes that satisfy the condition.\n• Tree diagrams are very useful for organising conditional probabilities."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-probability-trees-f1",
+      "term": "Independent events",
+      "definition": "Two events are independent when one does not affect the probability of the other.",
+      "example": "Rolling a dice and tossing a coin are independent."
+    },
+    {
+      "id": "math-yr8-probability-trees-f2",
+      "term": "Dependent events",
+      "definition": "Two events are dependent when the first changes the probability of the second.",
+      "example": "Picking counters from a bag without replacement."
+    },
+    {
+      "id": "math-yr8-probability-trees-f3",
+      "term": "AND rule for probability",
+      "definition": "To find the probability of both events happening, multiply their probabilities.",
+      "example": "$P(A \\text{ and } B) = P(A) \\times P(B)$ for independent events."
+    },
+    {
+      "id": "math-yr8-probability-trees-f4",
+      "term": "OR rule for probability",
+      "definition": "To find the probability of either of two mutually exclusive events happening, add their probabilities.",
+      "example": "$P(A \\text{ or } B) = P(A) + P(B)$"
+    },
+    {
+      "id": "math-yr8-probability-trees-f5",
+      "term": "Mutually exclusive events",
+      "definition": "Events that cannot happen at the same time.",
+      "example": "Rolling a $2$ and rolling a $5$ on one dice roll."
+    },
+    {
+      "id": "math-yr8-probability-trees-f6",
+      "term": "Tree diagram",
+      "definition": "A diagram that shows all possible outcomes of two or more events using branches.",
+      "example": "Each branch is labelled with a probability; multiply along branches."
+    },
+    {
+      "id": "math-yr8-probability-trees-f7",
+      "term": "Expected frequency",
+      "definition": "The number of times an event is expected to happen in a given number of trials.",
+      "example": "$\\text{expected frequency} = P(\\text{event}) \\times \\text{number of trials}$"
+    },
+    {
+      "id": "math-yr8-probability-trees-f8",
+      "term": "Conditional probability",
+      "definition": "The probability of an event happening given that another event has already happened.",
+      "example": "$P(\\text{glasses} | \\text{girl})$ means probability of glasses given the student is a girl."
+    },
+    {
+      "id": "math-yr8-probability-trees-f9",
+      "term": "Sample space",
+      "definition": "A list of all possible outcomes of an experiment.",
+      "example": "For a coin toss the sample space is heads, tails."
+    },
+    {
+      "id": "math-yr8-probability-trees-f10",
+      "term": "Complementary probability",
+      "definition": "The probability that an event does not happen.",
+      "example": "$P(\\text{not } A) = 1 - P(A)$"
+    },
+    {
+      "id": "math-yr8-probability-trees-f11",
+      "term": "With replacement",
+      "definition": "An item is returned before the next selection, so probabilities stay the same.",
+      "example": "Picking a counter and putting it back makes the events independent."
+    },
+    {
+      "id": "math-yr8-probability-trees-f12",
+      "term": "Without replacement",
+      "definition": "An item is not returned, so the total and probabilities change for the next selection.",
+      "example": "Picking two counters from a bag without replacing the first."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-probability-trees-q1",
+      "stem": "A bag contains $4$ red and $6$ blue counters. One counter is picked at random. What is the probability it is red?",
+      "choices": [
+        "$\\frac{2}{5}$",
+        "$\\frac{3}{5}$",
+        "$\\frac{4}{6}$",
+        "$\\frac{6}{10}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "There are $4$ red counters out of $10$ total, so $P(\\text{red}) = \\frac{4}{10} = \\frac{2}{5}$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q2",
+      "stem": "A fair dice is rolled and a fair coin is tossed. What is the probability of rolling a $5$ and getting heads?",
+      "choices": [
+        "$\\frac{1}{12}$",
+        "$\\frac{1}{8}$",
+        "$\\frac{1}{6}$",
+        "$\\frac{1}{3}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$P(5) = \\frac{1}{6}$ and $P(\\text{heads}) = \\frac{1}{2}$. Multiply: $\\frac{1}{6} \\times \\frac{1}{2} = \\frac{1}{12}$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q3",
+      "stem": "A fair dice is rolled once. What is the probability of rolling an even number or a $3$?",
+      "choices": [
+        "$\\frac{2}{3}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{3}$",
+        "$\\frac{5}{6}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Even numbers are $2$, $4$, $6$, and adding $3$ gives $4$ favourable outcomes out of $6$: $\\frac{4}{6} = \\frac{2}{3}$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q4",
+      "stem": "A bag has $3$ red and $7$ blue counters. A counter is picked, replaced, then another is picked. What is the probability both are blue?",
+      "choices": [
+        "$\\frac{49}{100}$",
+        "$\\frac{42}{100}$",
+        "$\\frac{7}{10}$",
+        "$\\frac{9}{100}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Because of replacement the events are independent: $\\frac{7}{10} \\times \\frac{7}{10} = \\frac{49}{100}$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q5",
+      "stem": "A bag has $3$ red and $7$ blue counters. A counter is picked and not replaced, then another is picked. What is the probability both are blue?",
+      "choices": [
+        "$\\frac{42}{90}$",
+        "$\\frac{49}{100}$",
+        "$\\frac{7}{10}$",
+        "$\\frac{21}{100}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$P(\\text{blue first}) = \\frac{7}{10}$, then $P(\\text{blue second}) = \\frac{6}{9}$. Multiply: $\\frac{7}{10} \\times \\frac{6}{9} = \\frac{42}{90}$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q6",
+      "stem": "Which formula gives the probability of two independent events both happening?",
+      "choices": [
+        "$P(A) \\times P(B)$",
+        "$P(A) + P(B)$",
+        "$P(A) - P(B)$",
+        "$P(A) \\div P(B)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "For independent events, multiply the probabilities: $P(A \\text{ and } B) = P(A) \\times P(B)$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q7",
+      "stem": "A spinner has probability $0.3$ of landing on red. If it is spun $80$ times, how many reds are expected?",
+      "choices": [
+        "$24$",
+        "$30$",
+        "$56$",
+        "$77$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Expected frequency = $0.3 \\times 80 = 24$. The actual number may vary but $24$ is the long-run average."
+    },
+    {
+      "id": "math-yr8-probability-trees-q8",
+      "stem": "A card is picked from a standard deck. What is the probability it is a heart or a diamond?",
+      "choices": [
+        "$\\frac{1}{2}$",
+        "$\\frac{1}{4}$",
+        "$\\frac{1}{3}$",
+        "$\\frac{3}{4}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hearts and diamonds are mutually exclusive suits. $\\frac{13}{52} + \\frac{13}{52} = \\frac{26}{52} = \\frac{1}{2}$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q9",
+      "stem": "A tree diagram has two events. The first branch has probability $\\frac{1}{3}$ and the second branch has probability $\\frac{1}{4}$. What is the probability of travelling along both branches?",
+      "choices": [
+        "$\\frac{1}{12}$",
+        "$\\frac{2}{7}$",
+        "$\\frac{1}{7}$",
+        "$\\frac{7}{12}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply along the branches: $\\frac{1}{3} \\times \\frac{1}{4} = \\frac{1}{12}$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q10",
+      "stem": "A biased coin has $P(\\text{heads}) = 0.6$. It is tossed twice. What is the probability of two heads?",
+      "choices": [
+        "$0.36$",
+        "$0.6$",
+        "$0.12$",
+        "$1.2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The tosses are independent: $0.6 \\times 0.6 = 0.36$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q11",
+      "stem": "A class has $10$ boys and $20$ girls. One third of the girls have brown eyes. Given that a chosen student is a girl, what is the probability she has brown eyes?",
+      "choices": [
+        "$\\frac{1}{3}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{2}{3}$",
+        "$\\frac{20}{30}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The condition limits the sample space to girls only. One third of the girls have brown eyes, so the probability is $\\frac{1}{3}$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q12",
+      "stem": "A bag contains $5$ green and $5$ yellow marbles. One marble is picked and not replaced, then another is picked. What is the probability both are green?",
+      "choices": [
+        "$\\frac{2}{9}$",
+        "$\\frac{1}{4}$",
+        "$\\frac{5}{10}$",
+        "$\\frac{25}{100}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\frac{5}{10} \\times \\frac{4}{9} = \\frac{20}{90} = \\frac{2}{9}$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q13",
+      "stem": "Which of these pairs of events are mutually exclusive?",
+      "choices": [
+        "Rolling a $1$ and rolling a $6$ on one dice roll",
+        "Rolling an even number and rolling a $2$",
+        "Picking a red card and picking a heart",
+        "Rain tomorrow and sunshine tomorrow"
+      ],
+      "correctIndex": 0,
+      "explanation": "A single dice roll cannot be both $1$ and $6$, so these are mutually exclusive."
+    },
+    {
+      "id": "math-yr8-probability-trees-q14",
+      "stem": "A fair dice is rolled $60$ times. How many sixes are expected?",
+      "choices": [
+        "$10$",
+        "$6$",
+        "$12$",
+        "$15$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$P(6) = \\frac{1}{6}$, so expected number is $\\frac{1}{6} \\times 60 = 10$."
+    },
+    {
+      "id": "math-yr8-probability-trees-q15",
+      "stem": "A bag has $2$ red, $3$ blue and $5$ green counters. One counter is picked and replaced, then another is picked. What is the probability of picking red then blue?",
+      "choices": [
+        "$\\frac{6}{100}$",
+        "$\\frac{5}{100}$",
+        "$\\frac{6}{90}$",
+        "$\\frac{1}{10}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$P(\\text{red}) = \\frac{2}{10}$ and $P(\\text{blue}) = \\frac{3}{10}$. Because of replacement, multiply: $\\frac{2}{10} \\times \\frac{3}{10} = \\frac{6}{100}$."
+    }
+  ]
+}

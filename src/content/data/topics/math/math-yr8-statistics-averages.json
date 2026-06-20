@@ -1,0 +1,305 @@
+{
+  "id": "math-yr8-statistics-averages",
+  "subjectId": "math",
+  "title": "Statistics & Averages: Frequency Tables, Estimated Mean, Stem-and-Leaf Diagrams, Choosing Averages & Comparing Distributions",
+  "description": "Organise data with frequency tables, estimate the mean from grouped data, draw stem-and-leaf diagrams, choose the most appropriate average and compare distributions.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-statistics-averages-n1",
+      "heading": "Frequency Tables",
+      "illustration": {
+        "src": "/images/math/math-yr8-statistics-averages.svg",
+        "alt": "A frequency table and a stem-and-leaf diagram shown side by side.",
+        "caption": "Frequency tables and stem-and-leaf diagrams are two useful ways to organise and display data."
+      },
+      "body": "📌 Definition\nA frequency table shows how often each value or group of values occurs in a data set.\n\n🔑 How it works\nUse tally marks to count, then write the frequency for each value. The total frequency is the number of data items.\n\n| Score | Tally    | Frequency |\n|-------|----------|-----------|\n| 3     | `||`     | 2         |\n| 4     | `||||`   | 4         |\n| 5     | `|||`    | 3         |\n| 6     | `|`      | 1         |\n\nTotal frequency = $2 + 4 + 3 + 1 = 10$.\n\n📎 Key Points to Remember\n• The mode is the value with the highest frequency.\n• Adding all frequencies gives the total number of items.\n• Frequency tables can use individual values or grouped class intervals."
+    },
+    {
+      "id": "math-yr8-statistics-averages-n2",
+      "heading": "Estimated Mean from a Frequency Table",
+      "body": "📌 Definition\nThe estimated mean is found when data are grouped into class intervals by using the midpoint of each interval.\n\n🔑 How it works\n1. Find the midpoint of each class interval.\n2. Multiply each midpoint by its frequency to get $fx$.\n3. Add the $fx$ values.\n4. Divide by the total frequency.\n\n$$\\text{estimated mean} = \\frac{\\sum fx}{\\sum f}$$\n\n💡 Worked Example\nFind the estimated mean of these scores.\n\n| Score   | Frequency | Midpoint | $fx$  |\n|---------|-----------|----------|-------|\n| $0-10$  | 3         | 5        | 15    |\n| $11-20$ | 7         | 15.5     | 108.5 |\n| $21-30$ | 5         | 25.5     | 127.5 |\n\nTotal $f = 15$ and total $fx = 251$.\n\n$$\\text{estimated mean} = \\frac{251}{15} \\approx 16.7$$\n\n✅ Check\nThe answer lies inside the $11-20$ interval, which has the most data, so it is reasonable."
+    },
+    {
+      "id": "math-yr8-statistics-averages-n3",
+      "heading": "Stem-and-Leaf Diagrams",
+      "body": "📌 Definition\nA stem-and-leaf diagram shows each data value split into a stem and a leaf.\n\n🔑 How it works\nFor the data set $23$, $25$, $31$, $36$, $42$:\n\nStem $2$: leaves $3$, $5$ represents $23$, $25$.\nStem $3$: leaves $1$, $6$ represents $31$, $36$.\nStem $4$: leaf $2$ represents $42$.\n\nA key is essential:\n\n$$1 \\mid 4 = 14$$\n\n📎 Key Points to Remember\n• Always order the leaves from smallest to largest.\n• Always include a key.\n• The median is the middle value when leaves are read in order.\n• The range is largest value minus smallest value."
+    },
+    {
+      "id": "math-yr8-statistics-averages-n4",
+      "heading": "Mean, Median and Mode",
+      "body": "📌 Definition\nAn average is a single value that represents a set of data.\n\n🔑 Key Concept\n• Mean: add all values and divide by how many there are.\n\n$$\\text{mean} = \\frac{\\sum x}{n}$$\n\n• Median: the middle value when data are in order. For an even number of values, take the mean of the two middle values.\n• Mode: the value that occurs most often. A data set can have more than one mode or no mode.\n\n💡 Worked Example\nData: $4$, $7$, $8$, $8$, $10$.\n\nMean: $(4 + 7 + 8 + 8 + 10) \\div 5 = 37 \\div 5 = 7.4$.\nMedian: $8$ (the middle value).\nMode: $8$ (appears twice)."
+    },
+    {
+      "id": "math-yr8-statistics-averages-n5",
+      "heading": "Choosing the Best Average",
+      "body": "📌 Definition\nThe best average depends on the data and what you want to show.\n\n🔑 How it works\n• Use the mean when the data are fairly symmetrical and there are no extreme values.\n• Use the median when there are outliers, because it is not affected by very large or very small values.\n• Use the mode for non-numerical data or to find the most popular category.\n\n💡 Worked Example\nHouse prices in a street: $200000$, $220000$, $230000$, $240000$, $1800000$.\n\nThe mean is $(200000 + 220000 + 230000 + 240000 + 1800000) \\div 5 = 540000$.\nThe median is $230000$.\n\nThe median is a better average here because the one very expensive house raises the mean too high.\n\n⚠️ Common Mistake\nAlways using the mean without checking for outliers. Outliers can make the mean misleading."
+    },
+    {
+      "id": "math-yr8-statistics-averages-n6",
+      "heading": "Comparing Distributions",
+      "body": "📌 Definition\nTo compare two distributions, look at their averages and their spread.\n\n🔑 How it works\nCompare:\n• an average (mean or median) to see which group is typically higher or lower;\n• the range to see how spread out the data are;\n• the shape shown by a stem-and-leaf diagram or frequency table.\n\n💡 Worked Example\nGroup A test scores: range $12$, median $72$.\nGroup B test scores: range $24$, median $68$.\n\nGroup A has a higher median, so Group A typically scores better. Group A also has a smaller range, so Group A's scores are more consistent.\n\n📎 Key Points to Remember\n• Write comparisons in context.\n• A larger range means the data are more spread out.\n• A smaller range means the data are more consistent."
+    },
+    {
+      "id": "math-yr8-statistics-averages-n7",
+      "heading": "Range",
+      "body": "📌 Definition\nThe range is a simple measure of spread.\n\n🔑 Key Concept\n\n$$\\text{range} = \\text{largest value} - \\text{smallest value}$$\n\n💡 Worked Example\nFor the data $14$, $19$, $21$, $23$, $27$:\n\n$$\\text{range} = 27 - 14 = 13$$\n\n⚠️ Common Mistake\nForgetting to subtract the smallest value. The range is a single number, not the two values themselves."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-statistics-averages-f1",
+      "term": "Frequency table",
+      "definition": "A table that shows how often each value or group occurs.",
+      "example": "Score 5 has frequency 3 means 5 appears 3 times."
+    },
+    {
+      "id": "math-yr8-statistics-averages-f2",
+      "term": "Tally",
+      "definition": "Marks used to count items quickly in groups of five.",
+      "example": "|||| means 4."
+    },
+    {
+      "id": "math-yr8-statistics-averages-f3",
+      "term": "Estimated mean",
+      "definition": "An approximation of the mean found from grouped data.",
+      "example": "Use midpoints and frequencies: $\\frac{\\sum fx}{\\sum f}$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-f4",
+      "term": "Midpoint",
+      "definition": "The middle value of a class interval.",
+      "example": "The midpoint of $20-30$ is $25$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-f5",
+      "term": "Stem-and-leaf diagram",
+      "definition": "A diagram that splits each value into a stem and a leaf.",
+      "example": "$2 \\mid 3\\ 5$ represents $23$ and $25$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-f6",
+      "term": "Key in a stem-and-leaf diagram",
+      "definition": "Explains what one row represents.",
+      "example": "$1 \\mid 4 = 14$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-f7",
+      "term": "Mean",
+      "definition": "The sum of all values divided by the number of values.",
+      "example": "$\\frac{4 + 7 + 8 + 10}{4} = 7.25$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-f8",
+      "term": "Median",
+      "definition": "The middle value when data are written in order.",
+      "example": "The median of $4, 7, 8, 10, 12$ is $8$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-f9",
+      "term": "Mode",
+      "definition": "The value that appears most often.",
+      "example": "The mode of $3, 5, 5, 7$ is $5$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-f10",
+      "term": "Range",
+      "definition": "The largest value minus the smallest value.",
+      "example": "For $6, 9, 15$, the range is $15 - 6 = 9$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-f11",
+      "term": "Outlier",
+      "definition": "A value that is much larger or smaller than the others.",
+      "example": "$1000$ is an outlier in $12, 15, 14, 1000$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-f12",
+      "term": "Comparing distributions",
+      "definition": "Looking at averages and spread to decide how two data sets differ.",
+      "example": "Group A has a higher median and smaller range than Group B."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-statistics-averages-q1",
+      "stem": "What is the mean of $4$, $7$, $8$, $10$ and $11$?",
+      "choices": [
+        "$8$",
+        "$7$",
+        "$9$",
+        "$10$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Add the values: $4 + 7 + 8 + 10 + 11 = 40$, then divide by $5$ to get $8$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q2",
+      "stem": "What is the median of $12$, $15$, $18$, $22$, $30$?",
+      "choices": [
+        "$18$",
+        "$15$",
+        "$22$",
+        "$19.4$"
+      ],
+      "correctIndex": 0,
+      "explanation": "There are five values in order, so the median is the third value, $18$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q3",
+      "stem": "What is the mode of $3$, $5$, $5$, $7$, $9$, $5$?",
+      "choices": [
+        "$5$",
+        "$3$",
+        "$7$",
+        "No mode"
+      ],
+      "correctIndex": 0,
+      "explanation": "The value $5$ appears three times, which is more often than any other value."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q4",
+      "stem": "The scores $2$, $3$, $3$, $5$, $7$ have a range of:",
+      "choices": [
+        "$5$",
+        "$2$",
+        "$7$",
+        "$9$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Range = largest value $-$ smallest value $= 7 - 2 = 5$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q5",
+      "stem": "For the stem-and-leaf key $2 \\mid 3 = 23$, what does $2 \\mid 7$ represent?",
+      "choices": [
+        "$27$",
+        "$72$",
+        "$23$",
+        "$2.7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The stem $2$ means twenty, and the leaf $7$ means seven, so the value is $27$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q6",
+      "stem": "Find the midpoint of the class interval $20-30$.",
+      "choices": [
+        "$25$",
+        "$10$",
+        "$50$",
+        "$15$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Midpoint = $(20 + 30) \\div 2 = 25$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q7",
+      "stem": "A grouped frequency table has midpoints $5$, $15$, $25$ with frequencies $4$, $6$, $5$. What is $\\sum fx$?",
+      "choices": [
+        "$235$",
+        "$30$",
+        "$15$",
+        "$270$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$5 \\times 4 + 15 \\times 6 + 25 \\times 5 = 20 + 90 + 125 = 235$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q8",
+      "stem": "The total frequency in a table is $40$ and $\\sum fx = 1200$. What is the estimated mean?",
+      "choices": [
+        "$30$",
+        "$30.5$",
+        "$29$",
+        "$32$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Estimated mean = $\\frac{\\sum fx}{\\sum f} = \\frac{1200}{40} = 30$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q9",
+      "stem": "Which average is most affected by an outlier?",
+      "choices": [
+        "Mean",
+        "Median",
+        "Mode",
+        "Range"
+      ],
+      "correctIndex": 0,
+      "explanation": "The mean uses every value, so a very large or small outlier changes it. The median and mode are less affected."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q10",
+      "stem": "Which average should you use to find the most common shoe size?",
+      "choices": [
+        "Mode",
+        "Mean",
+        "Median",
+        "Range"
+      ],
+      "correctIndex": 0,
+      "explanation": "The mode shows the value that occurs most often, which is the most common size."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q11",
+      "stem": "In a stem-and-leaf diagram, how should the leaves be arranged?",
+      "choices": [
+        "In order from smallest to largest",
+        "In the order the data were collected",
+        "From largest to smallest",
+        "Grouped by tens"
+      ],
+      "correctIndex": 0,
+      "explanation": "Leaves must be ordered from smallest to largest so the median and shape are easy to see."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q12",
+      "stem": "Group X has median $65$ and range $15$. Group Y has median $72$ and range $30$. Which statement is true?",
+      "choices": [
+        "Group Y is more spread out",
+        "Group X scores are higher",
+        "Group X has a smaller median",
+        "Group Y is more consistent"
+      ],
+      "correctIndex": 0,
+      "explanation": "Group Y has a larger range, so its scores are more spread out. Group Y also has the higher median."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q13",
+      "stem": "For the data $8$, $12$, $14$, $15$, $16$, $20$, what is the median?",
+      "choices": [
+        "$14.5$",
+        "$14$",
+        "$15$",
+        "$12$"
+      ],
+      "correctIndex": 0,
+      "explanation": "With six ordered values the median is the mean of the third and fourth values: $(14 + 15) \\div 2 = 14.5$."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q14",
+      "stem": "Which value is the outlier in $45$, $48$, $50$, $52$, $95$?",
+      "choices": [
+        "$95$",
+        "$45$",
+        "$50$",
+        "$52$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$95$ is much larger than the other values, so it is the outlier."
+    },
+    {
+      "id": "math-yr8-statistics-averages-q15",
+      "stem": "The mean of five numbers is $12$. What is their total sum?",
+      "choices": [
+        "$60$",
+        "$17$",
+        "$2.4$",
+        "$55$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $\\text{sum} = \\text{mean} \\times n = 12 \\times 5 = 60$."
+    }
+  ]
+}
