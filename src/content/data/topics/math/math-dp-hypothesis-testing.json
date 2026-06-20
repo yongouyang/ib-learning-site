@@ -24,6 +24,21 @@
       "id": "math-dp-hypothesis-testing-n4",
       "heading": "Binomial, Poisson and Type I & II Errors",
       "body": "Some hypothesis tests use discrete distributions, and every test carries a risk of reaching the wrong conclusion. Spearman's rank correlation offers a robust way to measure monotonic relationships.\n\n📌 Binomial Hypothesis Test\nUsed to test whether the proportion of a population with a certain characteristic has increased or decreased.\n    $H_0: p = p_0$\n    $H_1: p < p_0$  or  $p > p_0$    (one-tailed only in IB DP)\n    Test statistic: $x =$ number of successes in $n$ trials\n    $p$-value $= P(X \\leq x)$ for $H_1: p < p_0$\n    $p$-value $= P(X \\geq x)$ for $H_1: p > p_0$     where $X \\sim B(n, p_0)$\n\n💡 Worked Example — Binomial\nA coin is suspected of bias towards heads. In 20 tosses there are 14 heads. Test at the 5% level whether $p > 0.5$.\n\n  Step 1: State the hypotheses\n    $H_0: p = 0.5$\n    $H_1: p > 0.5$\n\n  Step 2: Identify the test statistic\n    $x = 14$\n\n  Step 3: Calculate the $p$-value\n    $p$-value $= P(X \\geq 14)$ where $X \\sim B(20, 0.5)$\n    $p\\text{-value} \\approx 0.0577$\n\n  Step 4: Decide and conclude\n    $0.0577 > 0.05$, so we fail to reject $H_0$.\n    There is insufficient evidence to suggest the coin is biased towards heads.\n\n📌 Poisson Hypothesis Test\nUsed to test whether the mean number of occurrences in a fixed period has changed.\n    $H_0: m = m_0$\n    $H_1: m < m_0$  or  $m > m_0$    (one-tailed only in IB DP)\n    Test statistic: $x =$ observed count\n    $p$-value $= P(X \\leq x)$ for $H_1: m < m_0$\n    $p$-value $= P(X \\geq x)$ for $H_1: m > m_0$     where $X \\sim \\text{Po}(m_0)$\n\n💡 Worked Example — Poisson\nA call centre usually receives 4 calls per hour. One hour only 2 calls are received. Test at the 5% level whether the mean has decreased.\n\n  Step 1: State the hypotheses\n    $H_0: m = 4$\n    $H_1: m < 4$\n\n  Step 2: Identify the test statistic\n    $x = 2$\n\n  Step 3: Calculate the $p$-value\n    $p$-value $= P(X \\leq 2)$ where $X \\sim \\text{Po}(4)$\n    $p\\text{-value} \\approx 0.238$\n\n  Step 4: Decide and conclude\n    $0.238 > 0.05$, so we fail to reject $H_0$.\n    There is insufficient evidence to suggest the mean number of calls has decreased.\n\n📌 Type I and Type II Errors\n    Type I error — rejecting $H_0$ when it is actually true (false positive).\n    Type II error — failing to reject $H_0$ when it is actually false (false negative).\n    For continuous distributions:     $P(\\text{Type I}) = \\alpha$\n    For discrete distributions:       $P(\\text{Type I}) \\leq \\alpha$\nLowering $\\alpha$ reduces the chance of a Type I error but increases the chance of a Type II error.\n\n📌 Spearman's Rank Correlation Coefficient ($r_s$)\nMeasures the strength of a monotonic relationship between two variables using ranked data.\n    $r_s$ is simply the PMCC calculated on the ranks.\n    $r_s = 1$ means the data is strictly increasing.\n    $r_s = -1$ means the data is strictly decreasing.\n    It is robust to outliers and can be used when the original data is not linear.\n\n💡 Worked Example — Spearman's Rank\nTwo judges rank five artworks:\n\n  Artwork   A   B   C   D   E\n  Judge 1   1   2   3   4   5\n  Judge 2   2   1   4   3   5\n\n  Step 1: Enter the ranks as two lists in your GDC\n  Step 2: Calculate the PMCC of the ranks\n    $r_s \\approx 0.80$\n  Step 3: Interpret\n    There is a strong positive monotonic correlation between the two judges' rankings.\n\n📎 Key Points to Remember\n• Binomial and Poisson hypothesis tests in the IB are one-tailed only.\n• For discrete distributions, the probability of a Type I error is at most $\\alpha$, not necessarily equal to it.\n• Use Spearman's when the relationship may be monotonic but not linear, or when data is given as ranks.\n\n⚠️ Common Mistake\nUsing Pearson's PMCC on ranked or clearly non-linear data. Pearson's only measures linear correlation and is sensitive to outliers, whereas Spearman's measures monotonic trends."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-n5",
+      "heading": "The Critical-Value Approach",
+      "body": "Besides comparing a $p$-value with $\\alpha$, you can also decide a hypothesis test by comparing the test statistic with a critical value. The two methods always lead to the same conclusion.\n\n📌 Definition\nThe critical-value approach rejects $H_0$ whenever the test statistic falls in the critical region, i.e. beyond a critical value chosen so that the critical region has total area $\\alpha$.\n\n🔑 How it works\n    Find the critical value(s) from the appropriate distribution using the significance level $\\alpha$.\n    For a one-tailed test, put all of $\\alpha$ in one tail.\n    For a two-tailed test, split $\\alpha$ equally between both tails ($\\alpha/2$ in each).\n    If the test statistic lies beyond the critical value, reject $H_0$.\n\n💡 Worked Example\nA two-tailed $z$-test is carried out at the 5% level and the test statistic is $z = -2.34$.\n\n  Step 1: Find the critical values\n    $\\alpha/2 = 0.025$ in each tail.\n    Critical values are $\\pm z_{0.025} \\approx \\pm 1.96$.\n\n  Step 2: Compare the test statistic\n    $-2.34 < -1.96$, so the statistic lies in the critical region.\n\n  Step 3: Conclude\n    Reject $H_0$. There is sufficient evidence to suggest the mean has changed.\n\n📎 Key Points to Remember\n• The critical-value approach and the $p$-value approach are equivalent: rejecting with one means rejecting with the other.\n• Use inverse-normal, inverse-$t$ or $\\chi^2$ tables on your GDC to find critical values.\n• Always state the critical region when using this method.\n\n⚠️ Common Mistake\nComparing a test statistic with $\\alpha$ or a $p$-value with a critical value. Compare like with like: test statistic vs critical value, or $p$-value vs $\\alpha$."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-n6",
+      "heading": "$z$-Tests for Means and Proportions",
+      "body": "A $z$-test is used when the test statistic can be modelled by a normal distribution. This happens when the population variance is known, or when the sample is large enough for the Central Limit Theorem to apply.\n\n📌 One-Sample $z$-Test for a Mean\nUse when the population is normal (or $n$ is large) and $\\sigma^2$ is known.\n    $H_0: \\mu = \\mu_0$\n    Test statistic:     $z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$\n\n📌 One-Sample $z$-Test for a Proportion\nUse when testing a population proportion with a sufficiently large sample.\n    $H_0: p = p_0$\n    Test statistic:     $z = \\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$\n\n💡 Worked Example — Proportion\nA company claims that 30% of customers prefer its new flavour. In a random sample of 200 customers, 72 prefer it. Test at the 5% level whether the proportion differs from 30%.\n\n  Step 1: State the hypotheses\n    $H_0: p = 0.30$\n    $H_1: p \\neq 0.30$\n\n  Step 2: Calculate the test statistic\n    $\\hat{p} = 72/200 = 0.36$\n    $$z = \\frac{0.36 - 0.30}{\\sqrt{0.30 \\times 0.70 / 200}} \\approx 1.85$$\n\n  Step 3: Find the $p$-value\n    Two-tailed $p$-value $\\approx 0.064$\n\n  Step 4: Decide and conclude\n    $0.064 > 0.05$, so we fail to reject $H_0$.\n    There is insufficient evidence to suggest the proportion differs from 30%.\n\n📎 Key Points to Remember\n• Use a $z$-test when $\\sigma^2$ is known or when $n$ is large.\n• For proportions, check that $np_0$ and $n(1-p_0)$ are both greater than 5.\n• A two-tailed test looks for any difference; a one-tailed test looks for increase or decrease.\n\n⚠️ Common Mistake\nUsing a $t$-test when the population standard deviation $\\sigma$ is actually known. With known $\\sigma$, the test statistic follows a normal distribution, not a $t$-distribution."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-n7",
+      "heading": "Spearman's Rank Correlation Hypothesis Test",
+      "body": "Spearman's rank correlation coefficient $r_s$ measures the strength of a monotonic relationship between two variables. You can test whether the population rank correlation $\\rho_s$ is different from zero.\n\n📌 Definition\n$r_s$ is Pearson's product-moment correlation coefficient calculated on the ranks of the data rather than the raw values. It takes values from $-1$ to $1$.\n\n🔑 How it works\n    Rank each variable separately, averaging tied ranks.\n    Calculate the PMCC of the ranks to obtain $r_s$.\n    State $H_0: \\rho_s = 0$ and a one- or two-tailed alternative.\n    Compare $|r_s|$ with the critical value from tables or use the $p$-value from your GDC.\n\n💡 Worked Example\nTen students are ranked by height and by exam score. The calculated value is $r_s = 0.71$. Test at the 5% level whether there is a positive monotonic correlation.\n\n  Step 1: State the hypotheses\n    $H_0: \\rho_s = 0$\n    $H_1: \\rho_s > 0$\n\n  Step 2: Identify the test statistic\n    $r_s = 0.71$\n\n  Step 3: Compare with the critical value\n    For $n = 10$ at 5% one-tailed, the critical value is approximately $0.564$.\n    Since $0.71 > 0.564$, reject $H_0$.\n\n  Step 4: Conclude\n    There is sufficient evidence of a positive monotonic relationship between height and exam score.\n\n📎 Key Points to Remember\n• Use Spearman's when the relationship may be monotonic but not linear, or when data is given as ranks.\n• It is robust to outliers because it uses ranks rather than raw values.\n• Always average tied ranks before calculating $r_s$.\n\n⚠️ Common Mistake\nApplying Pearson's PMCC to ranked or clearly non-linear data. Pearson's only measures linear correlation, whereas Spearman's measures monotonic trends."
     }
   ],
   "flashcards": [
@@ -74,6 +89,30 @@
       "term": "Type I and Type II errors",
       "definition": "Type I: rejecting a true $H_0$ (false positive). Type II: failing to reject a false $H_0$ (false negative).",
       "example": "A medical test saying you are sick when you are healthy is a Type I error."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-f9",
+      "term": "Critical value",
+      "definition": "A value from the sampling distribution that marks the boundary of the critical region for a given significance level $\\alpha$.",
+      "example": "For a two-tailed $z$-test at 5%, the critical values are $\\pm 1.96$."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-f10",
+      "term": "Critical region",
+      "definition": "The set of values of the test statistic that would lead you to reject the null hypothesis $H_0$.",
+      "example": "$|z| > 1.96$ is the critical region for a two-tailed $z$-test at 5%."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-f11",
+      "term": "$z$-test for a proportion",
+      "definition": "A test of $H_0: p = p_0$ using the statistic $z = \\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}}$, valid for large samples.",
+      "example": "Testing whether more than 60% of voters support a policy based on a sample of 500 voters."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-f12",
+      "term": "Spearman's rank correlation coefficient ($r_s$)",
+      "definition": "The PMCC calculated on ranked data; it measures the strength of a monotonic relationship and is robust to outliers.",
+      "example": "$r_s = 0.85$ indicates a strong positive monotonic association between two ranked variables."
     }
   ],
   "questions": [
@@ -196,6 +235,66 @@
       ],
       "correctIndex": 1,
       "explanation": "$H_0$ always states \"no effect\" or \"no difference\": $\\mu_1 = \\mu_2$. $H_1$ would be $\\mu_1 < \\mu_2$, $\\mu_1 > \\mu_2$, or $\\mu_1 \\neq \\mu_2$ depending on the context."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-q11",
+      "stem": "In a two-tailed $z$-test at the 5% significance level, the test statistic is $z = 2.10$. What is the correct conclusion using the critical-value approach?",
+      "choices": [
+        "Reject $H_0$ because $2.10 > 1.645$",
+        "Fail to reject $H_0$ because $2.10 < 2.576$",
+        "Reject $H_0$ because $2.10 > 1.96$",
+        "Fail to reject $H_0$ because $p > 0.05$"
+      ],
+      "correctIndex": 2,
+      "explanation": "For a two-tailed test at 5%, the critical values are $\\pm 1.96$. Since $2.10 > 1.96$, the test statistic lies in the critical region, so we reject $H_0$."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-q12",
+      "stem": "A researcher knows the population standard deviation $\\sigma$ and has a large random sample. Which test is most appropriate for the population mean?",
+      "choices": [
+        "Paired $t$-test",
+        "One-sample $z$-test",
+        "One-sample $t$-test",
+        "Chi-squared goodness of fit test"
+      ],
+      "correctIndex": 1,
+      "explanation": "When $\\sigma$ is known and the sample is large (or the population is normal), use a one-sample $z$-test for the mean. A $t$-test is used when $\\sigma$ is unknown."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-q13",
+      "stem": "A politician claims that 45% of voters support a new policy. In a random sample of 300 voters, 150 support it. What is the value of $\\hat{p}$ used in the $z$-test?",
+      "choices": [
+        "$0.45$",
+        "$0.50$",
+        "$0.55$",
+        "$0.60$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The sample proportion is $\\hat{p} = 150/300 = 0.50$. The value $0.45$ is the hypothesised proportion $p_0$ under $H_0$."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-q14",
+      "stem": "Which of the following best describes the purpose of Spearman's rank correlation coefficient?",
+      "choices": [
+        "To test whether two variables are linearly related using raw data",
+        "To measure the strength of a monotonic relationship using ranked data",
+        "To compare the means of two independent samples",
+        "To test whether a sample follows a uniform distribution"
+      ],
+      "correctIndex": 1,
+      "explanation": "Spearman's $r_s$ is the PMCC of the ranks, so it measures monotonic relationships and is robust to outliers. Pearson's $r$ measures linear relationships using raw data."
+    },
+    {
+      "id": "math-dp-hypothesis-testing-q15",
+      "stem": "If the significance level $\\alpha$ is decreased from 5% to 1%, what happens to the probability of a Type II error, all else being equal?",
+      "choices": [
+        "It decreases",
+        "It increases",
+        "It stays the same",
+        "It becomes equal to 0.01"
+      ],
+      "correctIndex": 1,
+      "explanation": "Decreasing $\\alpha$ makes it harder to reject $H_0$, which reduces the chance of a Type I error but increases the chance of a Type II error."
     }
   ]
 }

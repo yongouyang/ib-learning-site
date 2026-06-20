@@ -29,6 +29,16 @@
       "id": "math-dp-exponents-eel-n5",
       "heading": "Logarithmic Scales and Real-World Models",
       "body": "Many natural phenomena span enormous ranges — earthquake energy, sound intensity, acidity. Linear scales become impractical, so scientists use logarithmic scales where equal steps represent equal ratios, not equal amounts.\n\n📌 Why Log Scales?\nOn a linear scale, the distance from 1 to 2 is the same as from 1000 to 1001.\nOn a log scale, the distance from 1 to 10 equals the distance from 10 to 100.\nThis compresses huge ranges into manageable numbers.\n\n🔑 Common Logarithmic Scales\n\n    Richter scale (earthquakes):\n        $R = \\log\\left(\\frac{A}{A_0}\\right)$\n        A difference of $1$ means $10\\times$ more wave amplitude\n        A difference of $2$ means $100\\times$ more wave amplitude\n\n    Decibel scale (sound):\n        $L = 10 \\cdot \\log\\left(\\frac{I}{I_0}\\right)$\n        Every $10$ dB increase means $10\\times$ more intensity\n\n    pH scale (acidity):\n        $\\text{pH} = -\\log[H^+]$\n        Lower pH means higher acidity\n        A difference of $1$ pH unit means $10\\times$ difference in $[H^+]$\n\n💡 Worked Example 1 — Richter Scale\nAn earthquake measures $6.0$ on the Richter scale. Another measures $4.0$.\nHow many times greater is the wave amplitude?\n\n  Step 1: Find the difference\n    $6.0 - 4.0 = 2$\n\n  Step 2: Convert to amplitude ratio\n    $\\text{Amplitude ratio} = 10^2 = 100$\n\n  Answer: $100$ times greater\n\n💡 Worked Example 2 — Sound Intensity\nA concert speaker produces $90$ dB. Normal conversation is $60$ dB.\nHow many times more intense is the concert sound?\n\n  Step 1: Find the decibel difference\n    $90 - 60 = 30$ dB\n\n  Step 2: Use the decibel formula\n    $30 = 10 \\cdot \\log\\left(\\frac{I_{\\text{concert}}}{I_{\\text{conversation}}}\\right)$\n    $3 = \\log\\left(\\frac{I_{\\text{concert}}}{I_{\\text{conversation}}}\\right)$\n\n  Step 3: Convert from log form\n    $\\frac{I_{\\text{concert}}}{I_{\\text{conversation}}} = 10^3 = 1000$\n\n  Answer: $1000$ times more intense\n\n📎 Key Points to Remember\n• On any log scale, equal differences mean equal ratios, not equal amounts\n• A change of $+1$ on a base-$10$ log scale always means $10\\times$\n• pH is reverse: lower numbers mean higher concentration\n• Log scales are used because human perception itself is often logarithmic\n\n⚠️ Common Mistake\nTreating log-scale differences as linear differences.\n    A magnitude $8$ earthquake is NOT 'twice as strong' as magnitude $4$.\n    The difference is $4$ units, so the amplitude ratio is $10^4 = 10\\,000\\times$."
+    },
+    {
+      "id": "math-dp-exponents-eel-n6",
+      "heading": "Fractional Exponents and Surds",
+      "body": "Fractional exponents give us a neat way to write roots and powers together. They appear constantly when simplifying algebraic expressions and solving equations.\n\n📌 Definition\nFor $a > 0$ and positive integers $m$, $n$:\n    $$a^{\\frac{m}{n}} = \\sqrt[n]{a^m} = (\\sqrt[n]{a})^m$$\n\nThe denominator $n$ tells you which root to take; the numerator $m$ tells you which power to raise.\n\n🔑 Key Concept\nFractional exponents combine the index laws with root notation:\n    $a^{\\frac{1}{n}} = \\sqrt[n]{a}$\n    $a^{-\\frac{m}{n}} = \\frac{1}{a^{\\frac{m}{n}}}$\n\nThis means negative fractional exponents mean both a root and a reciprocal.\n\n💡 Worked Example 1 — Simplify $16^{-\\frac{3}{4}}$\n\n  Step 1: Rewrite the negative exponent as a reciprocal\n    $16^{-\\frac{3}{4}} = \\frac{1}{16^{\\frac{3}{4}}}$\n\n  Step 2: Evaluate the fractional exponent\n    $16^{\\frac{3}{4}} = (\\sqrt[4]{16})^3 = 2^3 = 8$\n\n  Answer: $\\frac{1}{8}$\n\n💡 Worked Example 2 — Write $\\sqrt[3]{x^5}$ using a fractional exponent\n\n  Step 1: Apply the definition\n    $\\sqrt[3]{x^5} = x^{\\frac{5}{3}}$\n\n  Answer: $x^{\\frac{5}{3}}$\n\n📎 Key Points to Remember\n• Index laws apply to all rational exponents, positive or negative\n• When evaluating $a^{\\frac{m}{n}}$, it is usually easier to take the root first, then the power\n• A negative exponent always means reciprocal, never a negative result\n• Surds such as $\\sqrt{2}$ and $\\sqrt[3]{5}$ are exact forms; use them to keep answers precise\n\n⚠️ Common Mistake\nWriting $a^{\\frac{m}{n}}$ as $\\frac{a^m}{a^n}$ or $\\frac{a^m}{n}$.\n    $8^{\\frac{2}{3}} = (\\sqrt[3]{8})^2 = 2^2 = 4$, not $\\frac{8^2}{8^3}$ or $\\frac{64}{3}$."
+    },
+    {
+      "id": "math-dp-exponents-eel-n7",
+      "heading": "Graphs of Exponential and Logarithmic Functions",
+      "body": "Recognising the basic shapes of exponential and logarithmic graphs helps you sketch functions, find asymptotes, and identify transformations quickly.\n\n📌 Definition\nAn exponential function has the form $f(x) = a^x$ with $a > 0$, $a \\neq 1$.\nA logarithmic function has the form $f(x) = \\log_a(x)$ with $a > 0$, $a \\neq 1$ and $x > 0$.\n\nThe two functions are inverses of each other: the graph of $y = \\log_a(x)$ is the reflection of $y = a^x$ in the line $y = x$.\n\n🔑 Key Concept\nFor $y = a^x$:\n    $y$-intercept at $(0, 1)$\n    Horizontal asymptote: $y = 0$ (the $x$-axis)\n    Always positive\n    Increasing when $a > 1$, decreasing when $0 < a < 1$\n\nFor $y = \\log_a(x)$:\n    $x$-intercept at $(1, 0)$\n    Vertical asymptote: $x = 0$ (the $y$-axis)\n    Only defined for $x > 0$\n    Increasing when $a > 1$, decreasing when $0 < a < 1$\n\n💡 Worked Example 1 — Sketch $y = 2^x$ and $y = \\log_2(x)$\n\n  Step 1: Exponential graph\n    Passes through $(0, 1)$ and $(1, 2)$, approaches $y = 0$ as $x \\rightarrow -\\infty$.\n\n  Step 2: Logarithmic graph\n    Passes through $(1, 0)$ and $(2, 1)$, approaches $x = 0$ as $x \\rightarrow 0^+$.\n\n  Step 3: Reflect in $y = x$\n    The two graphs are mirror images across $y = x$.\n\n💡 Worked Example 2 — Find the horizontal asymptote of $f(x) = 5 \\cdot 2^x + 3$\n\n  Step 1: Consider the base exponential\n    $2^x \\rightarrow 0$ as $x \\rightarrow -\\infty$.\n\n  Step 2: Apply the vertical shift\n    $5 \\cdot 2^x + 3 \\rightarrow 5(0) + 3 = 3$.\n\n  Answer: Horizontal asymptote is $y = 3$.\n\n📎 Key Points to Remember\n• Exponential graphs have horizontal asymptotes; log graphs have vertical asymptotes\n• Reflection in $y = x$ swaps the roles of $x$ and $y$\n• Vertical shifts move asymptotes up or down\n• Always state the equation of the asymptote, not just \"the $x$-axis\"\n\n⚠️ Common Mistake\nConfusing the asymptotes.\n    $y = e^x$ has a horizontal asymptote $y = 0$, while $y = \\ln(x)$ has a vertical asymptote $x = 0$."
     }
   ],
   "flashcards": [
@@ -91,6 +101,18 @@
       "term": "Common log misconception",
       "definition": "$\\log(x+y) \\neq \\log(x) + \\log(y)$. The product law only applies to multiplication inside the log.",
       "example": "$\\log(2+8) = \\log(10) = 1$, but $\\log(2) + \\log(8) \\approx 0.301 + 0.903 = 1.204$. Not equal!"
+    },
+    {
+      "id": "math-dp-exponents-eel-f11",
+      "term": "Negative exponent",
+      "definition": "$a^{-n} = \\frac{1}{a^n}$",
+      "example": "$2^{-3} = \\frac{1}{2^3} = \\frac{1}{8}$"
+    },
+    {
+      "id": "math-dp-exponents-eel-f12",
+      "term": "Natural logarithm",
+      "definition": "$\\ln(x) = \\log_e(x)$, the inverse of $e^x$.",
+      "example": "$\\ln(e^5) = 5$ and $e^{\\ln 7} = 7$."
     }
   ],
   "questions": [
@@ -237,6 +259,42 @@
       ],
       "correctIndex": 0,
       "explanation": "$8^{\\frac{2}{3}} = (\\sqrt[3]{8})^2 = 2^2 = 4$. $(x^6)^{\\frac{2}{3}} = x^{6 \\times 2/3} = x^4$. So the result is $4x^4$. A common mistake is to multiply $8 \\times 2/3 = 16/3$ or to add exponents instead of multiplying."
+    },
+    {
+      "id": "math-dp-exponents-eel-q13",
+      "stem": "Simplify $\\left(\\frac{27}{8}\\right)^{-\\frac{2}{3}}$.",
+      "choices": [
+        "$\\frac{9}{4}$",
+        "$\\frac{4}{9}$",
+        "$-\\frac{9}{4}$",
+        "$\\frac{8}{27}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "First take the reciprocal because of the negative exponent: $\\left(\\frac{8}{27}\\right)^{\\frac{2}{3}}$. Then $\\sqrt[3]{\\frac{8}{27}} = \\frac{2}{3}$, and squaring gives $\\left(\\frac{2}{3}\\right)^2 = \\frac{4}{9}$."
+    },
+    {
+      "id": "math-dp-exponents-eel-q14",
+      "stem": "Solve $\\log_2(x - 3) + \\log_2(x - 1) = 3$.",
+      "choices": [
+        "$x = -1$",
+        "$x = 5$",
+        "$x = -1$ or $x = 5$",
+        "No solution"
+      ],
+      "correctIndex": 1,
+      "explanation": "Combine logs: $\\log_2((x-3)(x-1)) = 3$, so $(x-3)(x-1) = 8$. Expanding gives $x^2 - 4x - 5 = 0$, which factors as $(x-5)(x+1) = 0$. However, the domain requires $x - 3 > 0$ and $x - 1 > 0$, so $x > 3$. Therefore $x = 5$ is the only valid solution."
+    },
+    {
+      "id": "math-dp-exponents-eel-q15",
+      "stem": "Evaluate $\\log_4(32)$.",
+      "choices": [
+        "$2$",
+        "$\\frac{5}{2}$",
+        "$\\frac{3}{2}$",
+        "$\\frac{\\ln 32}{\\ln 8}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Let $\\log_4(32) = x$. Then $4^x = 32$. Write both as powers of $2$: $(2^2)^x = 2^5$, so $2^{2x} = 2^5$. Equating exponents gives $2x = 5$, hence $x = \\frac{5}{2}$."
     }
   ]
 }

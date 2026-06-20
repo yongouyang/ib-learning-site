@@ -29,6 +29,16 @@
       "id": "math-dp-binomial-bin-n5",
       "heading": "Key Properties of Binomial Expansions",
       "body": "Clever substitutions into $(a + b)^n$ reveal beautiful patterns in the binomial coefficients. These patterns are powerful tools for summing coefficients and checking your work.\n\n📌 Property 1: Sum of All Coefficients\nSetting $a = 1$ and $b = 1$ gives:\n    $$(1 + 1)^n = \\binom{n}{0} + \\binom{n}{1} + \\binom{n}{2} + \\dots + \\binom{n}{n}$$\n    $$2^n = \\binom{n}{0} + \\binom{n}{1} + \\binom{n}{2} + \\dots + \\binom{n}{n}$$\n\nThe sum of all binomial coefficients in row $n$ equals $2^n$.\n\n💡 Worked Example\nWhat is the sum of all coefficients in $(2x + 1)^5$?\n\n  Step 1: Substitute $x = 1$\n    Every term becomes its coefficient when $x = 1$\n\n  Step 2: Evaluate\n    $$(2 \\cdot 1 + 1)^5 = 3^5 = 243$$\n\n  The sum of all coefficients is $243$.\n\n📌 Property 2: Alternating Sum of Coefficients\nSetting $a = 1$ and $b = -1$ gives:\n    $$(1 - 1)^n = \\binom{n}{0} - \\binom{n}{1} + \\binom{n}{2} - \\binom{n}{3} + \\dots + (-1)^n \\binom{n}{n}$$\n    $$0 = \\binom{n}{0} - \\binom{n}{1} + \\binom{n}{2} - \\binom{n}{3} + \\dots + (-1)^n \\binom{n}{n}$$\n\nFor any $n \\geq 1$, the alternating sum of coefficients equals $0$.\n\n💡 Worked Example\nVerify for $n = 4$:\n\n  Step 1: List the coefficients\n    Row 4: 1, 4, 6, 4, 1\n\n  Step 2: Apply alternating signs\n    $$1 - 4 + 6 - 4 + 1 = 0$$\n\n📌 Property 3: Power Pattern\nIn every term of $(a + b)^n$:\n• The powers of $a$ decrease by 1 from left to right\n• The powers of $b$ increase by 1 from left to right\n• The sum of the powers in each term always equals $n$\n\n📎 Key Points to Remember\n• Substitute $x = 1$ to find the sum of coefficients in any polynomial\n• Substitute $x = -1$ to find the alternating sum of coefficients\n• The number of terms in $(a + b)^n$ is always $n + 1$\n• Symmetry: $\\binom{n}{r} = \\binom{n}{n-r}$ means coefficients mirror around the centre\n\n⚠️ Common Mistake\nConfusing 'sum of coefficients' with 'sum of binomial coefficients'. The sum of binomial coefficients $\\binom{n}{0} + \\binom{n}{1} + \\dots + \\binom{n}{n}$ is always $2^n$. But for $(2x + 1)^5$, the coefficients are not just $\\binom{5}{r}$ — they also include powers of $2$. Use $x = 1$ to get the correct total directly."
+    },
+    {
+      "id": "math-dp-binomial-bin-n6",
+      "heading": "Approximating Powers with the Binomial Theorem",
+      "body": "For values close to 1, powers can be estimated quickly by keeping only the first few terms of a binomial expansion.\n\n📌 Definition\nFor small $x$, the expansion of $(1+x)^n$ gives a useful approximation:\n\n$$(1+x)^n = 1 + nx + \\frac{n(n-1)}{2}x^2 + \\frac{n(n-1)(n-2)}{6}x^3 + \\dots$$\n\nWhen $|x|$ is small, higher powers of $x$ become tiny, so later terms can be ignored.\n\n🔑 How it works\n• Choose the number of terms based on how small $x$ is and how accurate the answer must be.\n• Substitute $x$ into the first two or three terms.\n• Evaluate to obtain an approximate value.\n\n💡 Worked Example\nApproximate $(1.02)^6$ using the first three terms.\n\n  Step 1: Write $(1.02)^6 = (1 + 0.02)^6$, so $x = 0.02$ and $n = 6$.\n\n  Step 2: Substitute into the expansion\n    $$(1+0.02)^6 \\approx 1 + 6(0.02) + \\frac{6 \\cdot 5}{2}(0.02)^2$$\n    $$= 1 + 0.12 + 15(0.0004)$$\n    $$= 1 + 0.12 + 0.006 = 1.126$$\n\n  So $(1.02)^6 \\approx 1.126$.\n\n📎 Key Points to Remember\n• The closer $|x|$ is to zero, the fewer terms are needed.\n• This method is useful for estimating powers without a calculator.\n• Including more terms improves accuracy.\n\n⚠️ Common Mistake\nStopping after only two terms when $x$ is not very small. If $x = 0.2$, the $x^2$ term may be significant, so always check whether later terms are small enough to ignore.\n\n✅ Check\nUsing a calculator, $(1.02)^6 \\approx 1.12616$. Our three-term estimate $1.126$ is accurate to three decimal places."
+    },
+    {
+      "id": "math-dp-binomial-bin-n7",
+      "heading": "Expanding an Expression with a Product Factor",
+      "body": "Some questions ask for a specific term when a binomial expansion is multiplied by another factor. The key is to expand the binomial part first, then distribute the extra factor.\n\n📌 Definition\nAn expression such as $(x+3)(2x-1)^6$ contains a product factor $(x+3)$ outside the binomial. To find a specific term in the final expression, expand $(2x-1)^6$ and then multiply by $(x+3)$.\n\n🔑 Key Concept\nThe target power of $x$ can be produced in more than one way. For the $x^5$ term in $(x+3)(2x-1)^6$:\n• $x$ multiplies the $x^4$ term of $(2x-1)^6$\n• $3$ multiplies the $x^5$ term of $(2x-1)^6$\nThe final coefficient is the sum of the two contributions.\n\n💡 Worked Example\nFind the coefficient of $x^3$ in $(1+x)^4(1-2x)$.\n\n  Step 1: Expand $(1+x)^4$\n    $$(1+x)^4 = 1 + 4x + 6x^2 + 4x^3 + x^4$$\n\n  Step 2: Multiply by $(1-2x)$ and collect $x^3$ terms\n    $$x^3 \\text{ terms} = (4x^3)(1) + (6x^2)(-2x)$$\n    $$= 4x^3 - 12x^3 = -8x^3$$\n\n  The coefficient of $x^3$ is $-8$.\n\n📎 Key Points to Remember\n• Always expand the binomial first.\n• List the terms of the expansion clearly.\n• Identify every way the target power can be formed.\n\n⚠️ Common Mistake\nMissing one of the contributions. In the example above, students often forget the $6x^2 \\cdot (-2x)$ term and answer $4$ instead of $-8$."
     }
   ],
   "flashcards": [
@@ -79,6 +89,30 @@
       "term": "Constant term",
       "definition": "The term independent of $x$ — found by setting the overall power of $x$ to zero.",
       "example": "In $(x+1/x)^6$, the constant term is $\\binom{6}{3} = 20$."
+    },
+    {
+      "id": "math-dp-binomial-bin-f9",
+      "term": "Approximating $(1+x)^n$ for small $x$",
+      "definition": "Use the first few terms of the binomial expansion; higher powers of $x$ are small enough to ignore.",
+      "example": "$(1.02)^6 \\approx 1 + 6(0.02) + 15(0.02)^2 = 1.126$"
+    },
+    {
+      "id": "math-dp-binomial-bin-f10",
+      "term": "Expanding with a product factor",
+      "definition": "Expand the binomial part, multiply by the extra factor, then collect like terms.",
+      "example": "$(1+x)^4(1-2x)$ has $x^3$ coefficient $-8$."
+    },
+    {
+      "id": "math-dp-binomial-bin-f11",
+      "term": "Symmetry of binomial coefficients",
+      "definition": "$\\binom{n}{r} = \\binom{n}{n-r}$",
+      "example": "$\\binom{10}{8} = \\binom{10}{2} = 45$"
+    },
+    {
+      "id": "math-dp-binomial-bin-f12",
+      "term": "Powers in each term of $(a+b)^n$",
+      "definition": "The sum of the powers of $a$ and $b$ in every term equals $n$.",
+      "example": "In $(x+2)^5$, the term $40x^3$ comes from $x^3 \\cdot 2^2$, and $3+2=5$."
     }
   ],
   "questions": [
@@ -225,6 +259,42 @@
       ],
       "correctIndex": 0,
       "explanation": "Expand $(1+x)^4 = 1+4x+6x^2+4x^3+x^4$. Multiply by $(1-2x)$: $x^3$ terms come from $4x^3 \\cdot 1 + 6x^2 \\cdot (-2x) = 4-12 = -8$."
+    },
+    {
+      "id": "math-dp-binomial-bin-q13",
+      "stem": "$\\binom{10}{8} = ?$",
+      "choices": [
+        "45",
+        "80",
+        "90",
+        "120"
+      ],
+      "correctIndex": 0,
+      "explanation": "By symmetry $\\binom{10}{8} = \\binom{10}{2} = \\frac{10 \\cdot 9}{2} = 45$."
+    },
+    {
+      "id": "math-dp-binomial-bin-q14",
+      "stem": "Find the coefficient of $x^6$ in $(x+2)^8$.",
+      "choices": [
+        "112",
+        "224",
+        "448",
+        "56"
+      ],
+      "correctIndex": 0,
+      "explanation": "The $x^6$ term is $\\binom{8}{6} \\cdot x^6 \\cdot 2^2 = 28 \\times 4 = 112$."
+    },
+    {
+      "id": "math-dp-binomial-bin-q15",
+      "stem": "Find the coefficient of $x^4$ in $(1+x)^5(1-2x)$.",
+      "choices": [
+        "-15",
+        "-5",
+        "5",
+        "15"
+      ],
+      "correctIndex": 0,
+      "explanation": "$(1+x)^5 = 1+5x+10x^2+10x^3+5x^4+\\dots$. The $x^4$ terms are $5x^4 \\cdot 1 + 10x^3 \\cdot (-2x) = -15x^4$."
     }
   ]
 }

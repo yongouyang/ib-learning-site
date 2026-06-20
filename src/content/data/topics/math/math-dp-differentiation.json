@@ -24,6 +24,21 @@
       "id": "math-dp-differentiation-dif-n4",
       "heading": "Related Rates of Change",
       "body": "Related rates problems connect how two quantities change using the chain rule. They appear in many real-world contexts.\n\n📌 What are Related Rates?\nWhen two quantities are linked by a formula and both change with respect to time, their rates of change are related through differentiation.\n\n🔑 The Chain Rule Connection\nIf $V$ and $r$ are linked, then:\n    $$\\frac{dV}{dt} = \\frac{dV}{dr} \\times \\frac{dr}{dt}$$\nIn general:\n    $$\\frac{dy}{dt} = \\frac{dy}{dx} \\times \\frac{dx}{dt}$$\nIf it is easier to find $\\frac{dx}{dy}$, you can also use:\n    $$\\frac{dy}{dt} = \\frac{\\frac{dx}{dt}}{\\frac{dx}{dy}}$$\n\n💡 Worked Example — Expanding Balloon\nA spherical balloon is inflated so its radius increases at $2$ cm/s. Find the rate of increase of volume when $r = 5$ cm.\n\n  Step 1: Write the linking formula\n    $$V = \\frac{4}{3} \\pi r^3$$\n\n  Step 2: Differentiate with respect to $r$\n    $$\\frac{dV}{dr} = 4\\pi r^2$$\n\n  Step 3: Apply the chain rule\n    $$\\frac{dV}{dt} = \\frac{dV}{dr} \\times \\frac{dr}{dt}$$\n    $$\\frac{dV}{dt} = 4\\pi r^2 \\times 2$$\n    $$\\frac{dV}{dt} = 8\\pi r^2$$\n\n  Step 4: Substitute $r = 5$\n    $$\\frac{dV}{dt} = 8\\pi(25) = 200\\pi \\text{ cm}^3/\\text{s}$$\n\n💡 Worked Example — Sliding Ladder\nA $5$ m ladder rests against a wall. The bottom slides away at $10$ cm/s. How fast is the top sliding down when the bottom is $3$ m from the wall?\n\n  Step 1: Set up the diagram and formula\n    $$x^2 + y^2 = 25 \\quad (\\text{Pythagoras})$$\n\n  Step 2: Differentiate implicitly with respect to time $t$\n    $$2x \\cdot \\frac{dx}{dt} + 2y \\cdot \\frac{dy}{dt} = 0$$\n    $$x \\cdot \\frac{dx}{dt} + y \\cdot \\frac{dy}{dt} = 0$$\n\n  Step 3: Find $y$ when $x = 3$\n    $$9 + y^2 = 25 \\rightarrow y = 4$$\n\n  Step 4: Substitute known values\n    $$3 \\cdot (10) + 4 \\cdot \\frac{dy}{dt} = 0$$\n    $$30 + 4 \\cdot \\frac{dy}{dt} = 0$$\n    $$\\frac{dy}{dt} = -7.5 \\text{ cm/s}$$\n\n  Step 5: Interpret\n    The negative sign means $y$ is decreasing.\n    The top is sliding down at $7.5$ cm/s.\n\n📎 Key Points to Remember\n• Step 1: Write a formula linking the two quantities\n• Step 2: Differentiate implicitly with respect to time (or the linking variable)\n• Step 3: Substitute known rates and values\n• Always include units in the final answer\n• Do not substitute particular values before differentiating\n\n⚠️ Common Mistake\nSubstituting values too early. You must differentiate the general equation first, then substitute the specific instant. If you substitute before differentiating, you incorrectly treat variables as constants and the derivative will be zero."
+    },
+    {
+      "id": "math-dp-differentiation-dif-n5",
+      "heading": "Standard Derivatives",
+      "body": "There are several derivatives you should know by heart. These are the building blocks for more complicated functions.\n\n📌 Definition — Standard Derivatives\nFor the basic functions used in DP Mathematics:\n    $$\\frac{d}{dx}(\\sin x) = \\cos x$$\n    $$\\frac{d}{dx}(\\cos x) = -\\sin x$$\n    $$\\frac{d}{dx}(\\tan x) = \\sec^2 x$$\n    $$\\frac{d}{dx}(e^x) = e^x$$\n    $$\\frac{d}{dx}(\\ln x) = \\frac{1}{x}, \\quad x > 0$$\n    $$\\frac{d}{dx}(a^x) = a^x \\ln a$$\n    $$\\frac{d}{dx}(\\log_a x) = \\frac{1}{x \\ln a}$$\n\n🔑 Key Concept — Chain rule with standard derivatives\nWhen the argument is not simply $x$, multiply by the derivative of the inner function.\n    $$\\frac{d}{dx}[\\sin(u)] = \\cos(u) \\cdot \\frac{du}{dx}$$\n    $$\\frac{d}{dx}(e^{u}) = e^{u} \\cdot \\frac{du}{dx}$$\n    $$\\frac{d}{dx}[\\ln(u)] = \\frac{1}{u} \\cdot \\frac{du}{dx}$$\n\n💡 Worked Example — Combining chain rule and standard derivatives\nDifferentiate $y = \\ln(5x^2 + 3)$.\n\n  Let $u = 5x^2 + 3$, so $\\frac{du}{dx} = 10x$.\n    $$\\frac{dy}{dx} = \\frac{1}{u} \\cdot \\frac{du}{dx} = \\frac{10x}{5x^2 + 3}$$\n\n💡 Worked Example — Exponential with a coefficient\nDifferentiate $y = e^{4x^3}$.\n\n    $$\\frac{dy}{dx} = e^{4x^3} \\cdot \\frac{d}{dx}(4x^3)$$\n    $$\\frac{dy}{dx} = e^{4x^3} \\cdot 12x^2 = 12x^2 e^{4x^3}$$\n\n📎 Key Points to Remember\n• $\\frac{d}{dx}(\\cos x)$ has a negative sign.\n• $\\ln x$ is only defined for $x > 0$.\n• Always look for an inner function before applying a standard derivative.\n\n⚠️ Common Mistake\nWriting $\\frac{d}{dx}(\\sin(3x)) = \\cos(3x)$ and forgetting to multiply by $3$. The correct answer is $3\\cos(3x)$."
+    },
+    {
+      "id": "math-dp-differentiation-dif-n6",
+      "heading": "Concavity and Points of Inflection",
+      "body": "The second derivative tells us about the curvature of a graph, not just the nature of stationary points.\n\n📌 Definition — Concavity\nA function is:\n• Concave up on an interval if $f''(x) > 0$ (shaped like a cup $\\cup$)\n• Concave down on an interval if $f''(x) < 0$ (shaped like a cap $\\cap$)\n\n🔑 Key Concept — Point of inflection\nA point of inflection is where the concavity changes. Two conditions must be met:\n1. $f''(x) = 0$ (or $f''$ is undefined)\n2. The sign of $f''(x)$ changes through the point\n\nA stationary point of inflection also satisfies $f'(x) = 0$. A non-stationary point of inflection does not.\n\n💡 Worked Example — Finding a point of inflection\nFind the point of inflection of $f(x) = x^3 - 6x^2 + 5$.\n\n  Step 1: Find the first derivative\n    $$f'(x) = 3x^2 - 12x$$\n\n  Step 2: Find the second derivative\n    $$f''(x) = 6x - 12$$\n\n  Step 3: Solve $f''(x) = 0$\n    $$6x - 12 = 0 \\rightarrow x = 2$$\n\n  Step 4: Check sign change\n    For $x < 2$, $f''(x) < 0$ (concave down).\n    For $x > 2$, $f''(x) > 0$ (concave up).\n\n  Step 5: Find the $y$-coordinate\n    $$f(2) = 8 - 24 + 5 = -11$$\n\n  The point of inflection is $(2, -11)$.\n\n⚠️ Common Mistake\nAssuming $f''(x) = 0$ always means a point of inflection. You must confirm the sign of $f''$ changes. For example, $f(x) = x^4$ has $f''(0) = 0$ but $(0, 0)$ is a minimum, not an inflection point."
+    },
+    {
+      "id": "math-dp-differentiation-dif-n7",
+      "heading": "Implicit Differentiation",
+      "body": "Sometimes $y$ is not given explicitly as a function of $x$. Implicit differentiation lets us find $\\frac{dy}{dx}$ without solving for $y$.\n\n📌 Definition — Implicit function\nAn equation such as $x^2 + y^2 = 25$ defines $y$ implicitly in terms of $x$. Differentiating both sides with respect to $x$ gives an equation involving $\\frac{dy}{dx}$.\n\n🔑 How it works\n1. Differentiate every term with respect to $x$.\n2. When differentiating a term in $y$, multiply by $\\frac{dy}{dx}$ (chain rule).\n3. Collect terms containing $\\frac{dy}{dx}$ on one side.\n4. Factor out $\\frac{dy}{dx}$ and solve.\n\n💡 Worked Example — Circle\nFind $\\frac{dy}{dx}$ for $x^2 + y^2 = 25$.\n\n  Step 1: Differentiate both sides\n    $$\\frac{d}{dx}(x^2) + \\frac{d}{dx}(y^2) = \\frac{d}{dx}(25)$$\n    $$2x + 2y \\frac{dy}{dx} = 0$$\n\n  Step 2: Solve for $\\frac{dy}{dx}$\n    $$2y \\frac{dy}{dx} = -2x$$\n    $$\\frac{dy}{dx} = -\\frac{x}{y}$$\n\n💡 Worked Example — Product needed\nFind $\\frac{dy}{dx}$ if $x^3 + xy + y^2 = 7$.\n\n  Step 1: Differentiate term by term\n    $$3x^2 + \\left(x \\frac{dy}{dx} + y\\right) + 2y \\frac{dy}{dx} = 0$$\n\n  Step 2: Collect $\\frac{dy}{dx}$ terms\n    $$x \\frac{dy}{dx} + 2y \\frac{dy}{dx} = -3x^2 - y$$\n\n  Step 3: Factor and solve\n    $$\\frac{dy}{dx}(x + 2y) = -3x^2 - y$$\n    $$\\frac{dy}{dx} = -\\frac{3x^2 + y}{x + 2y}$$\n\n⚠️ Common Mistake\nForgetting to multiply by $\\frac{dy}{dx}$ when differentiating $y^2$. Treat $y$ as a function of $x$, so $\\frac{d}{dx}(y^2) = 2y \\frac{dy}{dx}$."
     }
   ],
   "flashcards": [
@@ -80,6 +95,24 @@
       "term": "Point of inflection",
       "definition": "Where concavity changes: $f''(x) = 0$ AND sign of $f''$ changes through the point.",
       "example": "$f(x) = x^3$: $f''(x) = 6x = 0$ at $x = 0$, changes from $-$ to $+$ → inflection at $(0, 0)$."
+    },
+    {
+      "id": "math-dp-differentiation-dif-f10",
+      "term": "Standard derivatives of sine and cosine",
+      "definition": "$\\frac{d}{dx}(\\sin x) = \\cos x$ and $\\frac{d}{dx}(\\cos x) = -\\sin x$",
+      "example": "$\\frac{d}{dx}(\\sin(2x)) = 2\\cos(2x)$; $\\frac{d}{dx}(\\cos(3x)) = -3\\sin(3x)$."
+    },
+    {
+      "id": "math-dp-differentiation-dif-f11",
+      "term": "Concavity",
+      "definition": "$f''(x) > 0$ means concave up; $f''(x) < 0$ means concave down.",
+      "example": "$f(x) = x^3$: $f''(x) = 6x$, so concave down for $x < 0$ and concave up for $x > 0$."
+    },
+    {
+      "id": "math-dp-differentiation-dif-f12",
+      "term": "Implicit differentiation",
+      "definition": "Differentiate both sides with respect to $x$, treating $y$ as a function of $x$, then solve for $\\frac{dy}{dx}$.",
+      "example": "For $x^2 + y^2 = 25$, $2x + 2y \\frac{dy}{dx} = 0$ → $\\frac{dy}{dx} = -\\frac{x}{y}$."
     }
   ],
   "questions": [
@@ -226,6 +259,42 @@
       ],
       "correctIndex": 1,
       "explanation": "Let base side = $x$ and height = $h$. Volume $x^2 h = 500$ → $h = \\frac{500}{x^2}$. Surface area $A = x^2 + 4xh = x^2 + \\frac{2000}{x}$. $\\frac{dA}{dx} = 2x - \\frac{2000}{x^2} = 0$ → $2x^3 = 2000$ → $x^3 = 1000$ → $x = 10$ cm. Second derivative is positive, confirming a minimum."
+    },
+    {
+      "id": "math-dp-differentiation-dif-q13",
+      "stem": "$\\frac{d}{dx}(\\sin(3x))$?",
+      "choices": [
+        "$\\cos(3x)$",
+        "$3\\cos(3x)$",
+        "$-3\\cos(3x)$",
+        "$3\\sin(3x)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Chain rule: derivative of $\\sin(3x)$ is $\\cos(3x) \\times 3 = 3\\cos(3x)$."
+    },
+    {
+      "id": "math-dp-differentiation-dif-q14",
+      "stem": "Find the $x$-coordinate of the point of inflection of $f(x) = x^3 - 6x^2 + 4$.",
+      "choices": [
+        "$x = 0$",
+        "$x = 2$",
+        "$x = 3$",
+        "$x = 4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$f''(x) = 6x - 12$. Setting $f''(x) = 0$ gives $x = 2$, and the sign of $f''$ changes through $x = 2$, so it is a point of inflection."
+    },
+    {
+      "id": "math-dp-differentiation-dif-q15",
+      "stem": "Given $x^2 + y^2 = 25$, find $\\frac{dy}{dx}$.",
+      "choices": [
+        "$\\frac{dy}{dx} = \\frac{x}{y}$",
+        "$\\frac{dy}{dx} = -\\frac{x}{y}$",
+        "$\\frac{dy}{dx} = \\frac{y}{x}$",
+        "$\\frac{dy}{dx} = -\\frac{y}{x}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Implicit differentiation gives $2x + 2y \\frac{dy}{dx} = 0$, so $\\frac{dy}{dx} = -\\frac{x}{y}$."
     }
   ]
 }

@@ -29,6 +29,16 @@
       "id": "math-dp-graph-theory-n5",
       "heading": "Routing Problems: Chinese Postman & Travelling Salesman",
       "body": "Two famous optimisation problems ask you to travel along or visit every part of a network as efficiently as possible.\n\n📌 Chinese Postman Problem (Route Inspection)\nFind the shortest route that uses every edge at least once and returns to the start.\n\n🔑 Solution Method\n1. Identify all vertices with odd degree.\n2. If there are none, an Eulerian circuit exists and the total weight of all edges is the answer.\n3. If there are odd vertices, pair them up so that the total added weight of the pairing paths is minimised.\n4. Double the edges along those pairing paths and find an Eulerian circuit.\n\n📌 Travelling Salesman Problem (TSP)\nFind the shortest cycle that visits every vertex exactly once and returns to the start.\n\n🔑 Solving TSP\n• For small graphs, list all possible Hamiltonian cycles and choose the cheapest.\n• For larger graphs, exact methods are slow; heuristic methods such as nearest neighbour give approximate answers.\n\n💡 Worked Example — Chinese Postman Pairing\nA graph has odd-degree vertices $A, B, C, D$. The shortest paths between them are $AB=3$, $CD=2$, $AC=5$, $BD=4$, $AD=6$, $BC=5$.\n\n  Possible pairings:\n  • $AB + CD = 3 + 2 = 5$\\\n  • $AC + BD = 5 + 4 = 9$\\\n  • $AD + BC = 6 + 5 = 11$\\\n  Best pairing is $AB$ and $CD$, adding $5$ to the total route length.\n\n⚠️ Common Mistake\nDo not confuse the Chinese Postman Problem (covers every **edge**) with the Travelling Salesman Problem (visits every **vertex**)."
+    },
+    {
+      "id": "math-dp-graph-theory-n6",
+      "heading": "Planar Graphs & Euler's Formula",
+      "body": "A graph is planar if it can be drawn on a flat surface without any edges crossing. Planarity is important for designing circuit boards, road networks and maps.\n\n📌 Definition\nA **planar graph** is a graph that can be drawn in a plane so that no two edges meet except at a common vertex.\n\n🔑 Key Concept — Euler's Formula\nFor any connected planar graph drawn with no crossing edges:\n    $$V - E + F = 2$$\nwhere $V$ is the number of vertices, $E$ the number of edges, and $F$ the number of faces (regions), including the outer region.\n\n💡 Worked Example\nA connected planar graph has $6$ vertices and $9$ edges. Find the number of faces.\n\n  Using Euler's formula: $V - E + F = 2$\\\n  $6 - 9 + F = 2$\\\n  $F = 5$\n\n  So the graph has $5$ faces, including the outside face.\n\n📎 Key Points to Remember\n• Planarity does not depend on how the graph is drawn; only on whether a crossing-free drawing exists.\n• $K_5$ (complete graph on $5$ vertices) and $K_{3,3}$ (complete bipartite graph) are the two fundamental non-planar graphs.\n• For simple connected planar graphs with $V \\ge 3$, the inequality $E \\le 3V - 6$ holds.\n\n⚠️ Common Mistake\nDo not forget to count the outer, unbounded region when counting faces. It is always one of the faces."
+    },
+    {
+      "id": "math-dp-graph-theory-n7",
+      "heading": "Bipartite Graphs & Graph Colouring",
+      "body": "Some graphs can be split into two groups so that every edge goes between the groups. This structure leads to useful colouring and matching results.\n\n📌 Definition\nA **bipartite graph** is a graph whose vertices can be divided into two disjoint sets $U$ and $V$ such that every edge joins a vertex in $U$ to a vertex in $V$. No edge joins two vertices within the same set.\n\n🔑 Key Concept — Chromatic Number\nThe **chromatic number** $\\chi(G)$ of a graph $G$ is the smallest number of colours needed to colour the vertices so that no two adjacent vertices share the same colour.\n• A graph is bipartite if and only if it is $2$-colourable, i.e. $\\chi(G) = 2$.\n• A graph containing an odd cycle cannot be bipartite.\n\n💡 Worked Example\nA graph is a cycle $C_4$ with vertices $A, B, C, D, A$. Show it is bipartite.\n\n  Put $A$ and $C$ in set $U$, and $B$ and $D$ in set $V$.\\\n  Edges are $AB, BC, CD, DA$, each joining $U$ to $V$.\\\n  Therefore $C_4$ is bipartite.\n\n  By contrast, $C_3$ (a triangle) is not bipartite because the third vertex would need to be in the opposite set to both of the other two, which is impossible.\n\n📎 Key Points to Remember\n• Trees are bipartite.\n• Complete bipartite graphs are written $K_{m,n}$; they have $m + n$ vertices and $mn$ edges.\n• The four-colour theorem states that every planar graph has chromatic number at most $4$.\n\n⚠️ Common Mistake\nAssuming a graph is bipartite just because it looks balanced. Always check that every edge connects the two sets; if you find an odd cycle, the graph is not bipartite."
     }
   ],
   "flashcards": [
@@ -225,6 +235,66 @@
       ],
       "correctIndex": 1,
       "explanation": "TSP asks for the shortest Hamiltonian cycle: a route that visits every vertex exactly once and returns to the start. It is computationally hard for large graphs."
+    },
+    {
+      "id": "math-dp-graph-theory-q11",
+      "stem": "A connected planar graph has $V = 8$ vertices and $E = 12$ edges. How many faces does it have?",
+      "choices": [
+        "$2$",
+        "$4$",
+        "$6$",
+        "$8$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Using Euler's formula $V - E + F = 2$, substitute $8 - 12 + F = 2$ to get $F = 6$, including the outer face."
+    },
+    {
+      "id": "math-dp-graph-theory-q12",
+      "stem": "Which of the following graphs has chromatic number $2$?",
+      "choices": [
+        "A triangle $K_3$",
+        "A cycle with $5$ vertices $C_5$",
+        "A complete graph $K_4$",
+        "A tree with $10$ vertices"
+      ],
+      "correctIndex": 3,
+      "explanation": "Trees are bipartite, so they are $2$-colourable and have chromatic number $2$. $K_3$ and $C_5$ need $3$ colours, while $K_4$ needs $4$."
+    },
+    {
+      "id": "math-dp-graph-theory-q13",
+      "stem": "Which of the following graphs is always non-planar?",
+      "choices": [
+        "$K_3$",
+        "$K_4$",
+        "$K_5$",
+        "$C_6$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$K_5$ is one of the two fundamental non-planar graphs. $K_3$, $K_4$ and any cycle $C_n$ can all be drawn without edge crossings."
+    },
+    {
+      "id": "math-dp-graph-theory-q14",
+      "stem": "A connected graph contains a cycle of length $5$. What can you conclude?",
+      "choices": [
+        "It must be planar",
+        "It cannot be bipartite",
+        "It has an Eulerian circuit",
+        "It is a tree"
+      ],
+      "correctIndex": 1,
+      "explanation": "A graph containing an odd cycle cannot be bipartite, because the two sets of a bipartition would force two adjacent vertices on the cycle to share the same set."
+    },
+    {
+      "id": "math-dp-graph-theory-q15",
+      "stem": "For a simple undirected graph, which statement about its adjacency matrix is true?",
+      "choices": [
+        "It always has $n^2$ non-zero entries",
+        "It is symmetric about the leading diagonal",
+        "Its diagonal entries are all $1$",
+        "It lists edges in increasing weight order"
+      ],
+      "correctIndex": 1,
+      "explanation": "The adjacency matrix of an undirected graph is symmetric, since an edge between vertices $i$ and $j$ contributes equally to entries $A_{ij}$ and $A_{ji}$."
     }
   ]
 }

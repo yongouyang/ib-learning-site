@@ -29,6 +29,16 @@
       "id": "math-dp-explog-ell-n5",
       "heading": "Logarithm Laws and Change of Base",
       "body": "Logarithms turn difficult operations into easier ones. Multiplication becomes addition, division becomes subtraction, and powers become multiplication.\n\n📌 Definition Reminder\n\n$$\\log_a(b) = c \\iff a^c = b$$\n\nwhere $a > 0$, $a \\neq 1$, and $b > 0$.\n\n🔑 The Three Log Laws\nProduct law:\n\n$$\\log_a(xy) = \\log_a(x) + \\log_a(y)$$\n\nQuotient law:\n\n$$\\log_a\\left(\\frac{x}{y}\\right) = \\log_a(x) - \\log_a(y)$$\n\nPower law:\n\n$$\\log_a(x^n) = n \\cdot \\log_a(x)$$\n\n🔑 Change of Base Formula\n\n$$\\log_a(b) = \\frac{\\ln(b)}{\\ln(a)}$$\n\nThis works with any base, including $\\log_{10}$.\n\n🔑 Special Values\n\n$$\\log_a(1) = 0 \\quad \\text{(because } a^0 = 1\\text{)}$$\n$$\\log_a(a) = 1 \\quad \\text{(because } a^1 = a\\text{)}$$\n\n💡 Worked Example 1\nWrite $\\log(12)$ in terms of $\\log(2)$ and $\\log(3)$.\n\n  Step 1: Factorise 12\n    $12 = 2^2 \\times 3$\n\n  Step 2: Apply the product law\n    $\\log(12) = \\log(2^2) + \\log(3)$\n\n  Step 3: Apply the power law\n    $\\log(12) = 2\\log(2) + \\log(3)$\n\n💡 Worked Example 2\nEvaluate $\\log_3(7)$ correct to 3 significant figures.\n\n  Step 1: Use change of base\n    $\\log_3(7) = \\frac{\\ln(7)}{\\ln(3)}$\n\n  Step 2: Calculate\n    $\\ln(7) \\approx 1.946$,  $\\ln(3) \\approx 1.099$\n    $\\log_3(7) \\approx 1.771$\n\n📎 Key Points to Remember\n• The log laws only apply when all quantities are positive\n• Change of base is essential for evaluating logs on a calculator\n• $\\log_a(x) + \\log_a(y) = \\log_a(xy)$, NOT $\\log_a(x + y)$\n• $\\log_a(x) - \\log_a(y) = \\log_a\\left(\\frac{x}{y}\\right)$, NOT $\\frac{\\log_a(x)}{\\log_a(y)}$\n\n⚠️ Common Mistake\nBelieving $\\log(x + y) = \\log(x) + \\log(y)$. This is false. For example, $\\log(2 + 8) = \\log(10) = 1$, but $\\log(2) + \\log(8) \\approx 0.301 + 0.903 = 1.204$. The product law applies to multiplication inside the log, not addition."
+    },
+    {
+      "id": "math-dp-explog-ell-n6",
+      "heading": "Applications of Exponential and Logarithmic Models",
+      "body": "Exponential and logarithmic functions model many real-world situations beyond simple growth and decay.\n\n📌 Definition: pH\nThe pH of a solution measures acidity using a logarithmic scale:\n\n$$\\text{pH} = -\\log_{10}\\left([H^+]\\right)$$\n\nwhere $[H^+]$ is the hydrogen ion concentration in mol/L.\n\n🔑 How it works\nA lower pH means a higher concentration of hydrogen ions and a more acidic solution. Because the scale is logarithmic, each whole-number decrease in pH means the acidity is $10$ times greater.\n\n💡 Worked Example 1\nFind the pH of a solution with $[H^+] = 2.5 \\times 10^{-4}$ mol/L.\n\n  Step 1: Substitute into the formula\n    $\\text{pH} = -\\log_{10}(2.5 \\times 10^{-4})$\n\n  Step 2: Evaluate\n    $\\text{pH} \\approx 3.60$\n\n💡 Worked Example 2\nA savings account pays $4.5\\%$ annual interest compounded continuously. If $\\$1000$ is invested, how much is in the account after $10$ years?\n\n  Step 1: Use the continuous compound interest formula\n    $A = Pe^{rt}$\n\n  Step 2: Substitute values\n    $A = 1000e^{0.045 \\times 10}$\n\n  Step 3: Evaluate\n    $A = 1000e^{0.45} \\approx \\$1568.31$\n\n📎 Key Points to Remember\n• Logarithmic scales compress huge ranges into manageable numbers\n• A difference of $1$ on the pH scale means a $10$-fold change in acidity\n• Continuous compounding uses $A = Pe^{rt}$, while periodic compounding uses $A = P\\left(1 + \\frac{r}{n}\\right)^{nt}$\n• Earthquake magnitudes and sound intensity also use logarithmic scales\n\n⚠️ Common Mistake\nForgetting that a logarithmic scale is multiplicative, not additive. A change from pH $3$ to pH $2$ is a $10$-fold increase in acidity, not a $1$-fold increase."
+    },
+    {
+      "id": "math-dp-explog-ell-n7",
+      "heading": "Inverse Functions and Composite Relationships",
+      "body": "Exponential and logarithmic functions are inverses, which gives them special algebraic and graphical relationships.\n\n📌 Definition\nTwo functions $f$ and $g$ are inverses if:\n\n$$f(g(x)) = x \\quad \\text{and} \\quad g(f(x)) = x$$\n\nFor the natural exponential and logarithm:\n\n$$e^{\\ln x} = x \\quad \\text{for } x > 0$$\n$$\\ln(e^x) = x \\quad \\text{for all real } x$$\n\n🔑 How it works\nThe graphs of inverse functions are reflections of each other in the line $y = x$. This means the $x$- and $y$-coordinates of key points are swapped.\n\nFor $y = e^x$: key points are $(0, 1)$, $(1, e)$, $(-1, \\frac{1}{e})$.\nFor $y = \\ln x$: key points are $(1, 0)$, $(e, 1)$, $(\\frac{1}{e}, -1)$.\n\n💡 Worked Example 1\nSimplify $e^{2\\ln 3}$.\n\n  Step 1: Use the power law inside the log\n    $2\\ln 3 = \\ln(3^2) = \\ln 9$\n\n  Step 2: Use the inverse relationship\n    $e^{\\ln 9} = 9$\n\n💡 Worked Example 2\nSolve $\\ln(x^2 - 4) = \\ln(2x + 4)$.\n\n  Step 1: Remove the logs (same base, same value)\n    $x^2 - 4 = 2x + 4$\n\n  Step 2: Rearrange\n    $x^2 - 2x - 8 = 0$\n\n  Step 3: Factorise\n    $(x - 4)(x + 2) = 0$\n    $x = 4$ or $x = -2$\n\n  Step 4: Check the domain\n    For $x = 4$: $x^2 - 4 = 12 > 0$ and $2x + 4 = 12 > 0$  ✓\n    For $x = -2$: $x^2 - 4 = 0$, but the log argument must be positive  ✗\n    So $x = 4$ only.\n\n📎 Key Points to Remember\n• $e^{\\ln x}$ cancels to $x$ only when $x > 0$\n• $\\ln(e^x)$ simplifies to $x$ for any real value of $x$\n• When solving $\\ln A = \\ln B$, first check that $A > 0$ and $B > 0$\n• The domain of $\\ln$ is the range of $e^x$, and vice versa\n\n⚠️ Common Mistake\nWriting $\\ln(x^2) = 2\\ln x$ and then solving without considering that $\\ln(x^2) = 2\\ln|x|$. This can cause negative solutions to be incorrectly accepted."
     }
   ],
   "flashcards": [
@@ -85,6 +95,24 @@
       "term": "Linearising exponential data",
       "definition": "If $y=ab^x$, taking logs gives $\\ln y = \\ln a + x\\ln b$, which is linear in $x$.",
       "example": "Plotting $\\ln y$ against $x$ gives a straight line with gradient $\\ln b$ and $y$-intercept $\\ln a$."
+    },
+    {
+      "id": "math-dp-explog-ell-f10",
+      "term": "pH formula",
+      "definition": "$\\text{pH} = -\\log_{10}([H^+])$",
+      "example": "$[H^+] = 10^{-3}$ gives pH $= 3$."
+    },
+    {
+      "id": "math-dp-explog-ell-f11",
+      "term": "Periodic compound interest",
+      "definition": "$A = P\\left(1 + \\frac{r}{n}\\right)^{nt}$",
+      "example": "$\\$1000$ at $6\\%$ compounded monthly for $1$ year gives $1000\\left(1 + \\frac{0.06}{12}\\right)^{12} \\approx \\$1061.68$."
+    },
+    {
+      "id": "math-dp-explog-ell-f12",
+      "term": "Composite inverse property",
+      "definition": "$e^{\\ln x} = x$ for $x > 0$ and $\\ln(e^x) = x$ for all real $x$.",
+      "example": "$\\ln(e^7) = 7$ and $e^{\\ln 5} = 5$."
     }
   ],
   "questions": [
@@ -231,6 +259,42 @@
       ],
       "correctIndex": 1,
       "explanation": "Take $\\ln$ of both sides: $x \\cdot \\ln 3=\\ln 20 \\rightarrow x=\\frac{\\ln 20}{\\ln 3} \\approx \\frac{2.996}{1.099} \\approx 2.73$."
+    },
+    {
+      "id": "math-dp-explog-ell-q13",
+      "stem": "A population of bacteria doubles every $3$ hours. Starting with $500$ bacteria, which model gives the population after $t$ hours?",
+      "choices": [
+        "$P(t) = 500 \\cdot 2^{3t}$",
+        "$P(t) = 500 \\cdot 2^{\\frac{t}{3}}$",
+        "$P(t) = 500 \\cdot 3^{2t}$",
+        "$P(t) = 500 \\cdot e^{2t}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Doubling time is $3$ hours, so the exponent is $\\frac{t}{3}$. The model is $P(t) = 500 \\cdot 2^{\\frac{t}{3}}$."
+    },
+    {
+      "id": "math-dp-explog-ell-q14",
+      "stem": "The pH of orange juice is $3.5$. What is the hydrogen ion concentration $[H^+]$?",
+      "choices": [
+        "$10^{-3.5} \\approx 3.16 \\times 10^{-4}$ mol/L",
+        "$10^{3.5} \\approx 3162$ mol/L",
+        "$-3.5 \\times 10^{-4}$ mol/L",
+        "$3.5 \\times 10^{-3}$ mol/L"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using $\\text{pH} = -\\log_{10}([H^+])$, we get $[H^+] = 10^{-\\text{pH}} = 10^{-3.5} \\approx 3.16 \\times 10^{-4}$ mol/L."
+    },
+    {
+      "id": "math-dp-explog-ell-q15",
+      "stem": "Which transformation maps $y = e^x$ onto $y = e^{2x}$?",
+      "choices": [
+        "Vertical stretch by factor $2$",
+        "Horizontal compression by factor $\\frac{1}{2}$",
+        "Horizontal stretch by factor $2$",
+        "Translation right by $2$ units"
+      ],
+      "correctIndex": 1,
+      "explanation": "Replacing $x$ with $2x$ causes a horizontal compression by factor $\\frac{1}{2}$. This is different from $y = 2e^x$, which is a vertical stretch."
     }
   ]
 }

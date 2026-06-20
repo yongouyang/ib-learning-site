@@ -24,6 +24,21 @@
       "id": "math-dp-complex-numbers-n4",
       "heading": "Polar, Euler Forms & Operations",
       "body": "Polar and Euler forms package a complex number by its size (modulus) and direction (argument). These forms make multiplication, division, and powers almost effortless compared with Cartesian form.\n\n📌 Polar (cis) Form\nAny complex number can be written as:\n    $$z = r(\\cos \\theta + i \\sin \\theta) = r \\operatorname{cis} \\theta$$\nwhere:\n    $$r = |z| \\quad (\\text{modulus})$$\n    $$\\theta = \\arg(z) \\quad (\\text{argument})$$\n\n📌 Euler (Exponential) Form\n    $$z = r e^{i\\theta}$$\n\nThis reveals a deep link between exponentials and trigonometry. It is equivalent to polar form and is ideal for multiplication, division, and powers.\n\n🔑 Multiplication & Division in Polar/Euler Form\nTo multiply: multiply the moduli and add the arguments\n    $$z_1 z_2 = r_1 r_2 \\operatorname{cis}(\\theta_1 + \\theta_2)$$\n\nTo divide: divide the moduli and subtract the arguments\n    $$\\frac{z_1}{z_2} = \\frac{r_1}{r_2} \\operatorname{cis}(\\theta_1 - \\theta_2)$$\n\nIf the new argument falls outside $-\\pi < \\theta \\leq \\pi$, add or subtract $2\\pi$ to bring it back into range.\n\n🔑 De Moivre's Theorem\nFor powers of a complex number in polar form:\n    $$z^n = r^n \\operatorname{cis}(n\\theta)$$\n\n💡 Worked Example — Multiplication in Polar Form\nLet $z_1 = 3 \\operatorname{cis}\\left(\\frac{\\pi}{6}\\right)$ and $z_2 = 2 \\operatorname{cis}\\left(\\frac{\\pi}{4}\\right)$. Find $z_1 z_2$.\n\n  Step 1: Multiply the moduli\n    $$r = 3 \\times 2 = 6$$\n\n  Step 2: Add the arguments\n    $$\\theta = \\frac{\\pi}{6} + \\frac{\\pi}{4} = \\frac{2\\pi}{12} + \\frac{3\\pi}{12} = \\frac{5\\pi}{12}$$\n\n  Step 3: Write the result\n    $$z_1 z_2 = 6 \\operatorname{cis}\\left(\\frac{5\\pi}{12}\\right)$$\n\n💡 Worked Example — Conversion Between Forms\nExpress $z = 2 + 2i$ in polar form $r \\operatorname{cis} \\theta$.\n\n  Step 1: Find the modulus\n    $$r = \\sqrt{2^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2}$$\n\n  Step 2: Find the argument\n    Point $(2, 2)$ is in Q1, so $\\theta = \\tan^{-1}\\left(\\frac{2}{2}\\right) = \\tan^{-1}(1) = \\frac{\\pi}{4}$\n\n  Step 3: Write in polar form\n    $$z = 2\\sqrt{2} \\operatorname{cis}\\left(\\frac{\\pi}{4}\\right)$$\n\n💡 Worked Example — De Moivre's Theorem\nLet $z = 2e^{i\\pi/3}$. Calculate $z^2$.\n\n  Step 1: Apply the theorem\n    $$z^2 = 2^2 e^{i \\cdot 2\\pi/3} = 4e^{2\\pi i/3}$$\n\n  Step 2: Convert to Cartesian form (optional)\n    $$4\\left[\\cos\\left(\\frac{2\\pi}{3}\\right) + i \\sin\\left(\\frac{2\\pi}{3}\\right)\\right] = 4\\left(-\\frac{1}{2} + i \\frac{\\sqrt{3}}{2}\\right) = -2 + 2\\sqrt{3} \\, i$$\n\n📎 Key Points to Remember\n• Polar/Euler forms are much faster than Cartesian form for multiplication and division\n• Always check that the final argument lies in the required range\n• The conjugate of $r \\operatorname{cis} \\theta$ is $r \\operatorname{cis}(-\\theta)$\n• Euler's identity: $$e^{i\\pi} + 1 = 0$$ connects the five most important numbers in mathematics\n\n⚠️ Common Mistake\nTrying to add complex numbers in polar form by adding moduli and arguments. Addition only works cleanly in Cartesian form. Convert to $a + bi$ first, add, then convert back if needed."
+    },
+    {
+      "id": "math-dp-complex-numbers-n5",
+      "heading": "De Moivre's Theorem & nth Roots",
+      "body": "De Moivre's theorem turns raising a complex number to a power into simple arithmetic on the modulus and argument. It also leads to a neat formula for finding all nth roots of a complex number.\n\n📌 De Moivre's Theorem\nFor a complex number in polar form $z = r \\operatorname{cis} \\theta$ and any integer $n$:\n    $$z^n = r^n \\operatorname{cis}(n\\theta)$$\n\n🔑 Key Idea\nRaising $z$ to the $n$th power multiplies the argument by $n$ and raises the modulus to the $n$th power.\n\n📌 nth Roots of a Complex Number\nThe $n$ distinct nth roots of $z = r \\operatorname{cis} \\theta$ are:\n    $$z_k = r^{1/n} \\operatorname{cis}\\left(\\frac{\\theta + 2k\\pi}{n}\\right)$$\nwhere $k = 0, 1, 2, \\dots, n-1$.\n\n🔑 How it works\n1. Take the $n$th root of the modulus: $r^{1/n}$\n2. Start with the principal argument $\\theta$\n3. Add multiples of $2\\pi$ to $\\theta$ and divide each by $n$\n4. The $n$ roots are equally spaced around a circle of radius $r^{1/n}$\n\n💡 Worked Example — Power using De Moivre\nLet $z = 2 \\operatorname{cis}\\left(\\frac{\\pi}{6}\\right)$. Find $z^3$.\n\n  Step 1: Apply the theorem\n    $$z^3 = 2^3 \\operatorname{cis}\\left(3 \\cdot \\frac{\\pi}{6}\\right)$$\n\n  Step 2: Simplify\n    $$z^3 = 8 \\operatorname{cis}\\left(\\frac{\\pi}{2}\\right)$$\n\n  Step 3: Convert to Cartesian form\n    $$8\\left(\\cos\\frac{\\pi}{2} + i \\sin\\frac{\\pi}{2}\\right) = 8(0 + i) = 8i$$\n\n💡 Worked Example — Cube Roots of Unity\nFind the three cube roots of $1$.\n\n  Step 1: Write $1$ in polar form\n    $$1 = 1 \\operatorname{cis}(0)$$\n\n  Step 2: Apply the formula with $n = 3$ and $k = 0, 1, 2$\n    $$z_k = 1^{1/3} \\operatorname{cis}\\left(\\frac{0 + 2k\\pi}{3}\\right)$$\n\n  Step 3: List the roots\n    $$z_0 = \\operatorname{cis}(0) = 1$$\n    $$z_1 = \\operatorname{cis}\\left(\\frac{2\\pi}{3}\\right) = -\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i$$\n    $$z_2 = \\operatorname{cis}\\left(\\frac{4\\pi}{3}\\right) = -\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$$\n\n📎 Key Points to Remember\n• De Moivre's theorem only applies directly to polar or Euler form\n• There are always exactly $n$ distinct $n$th roots\n• Roots of unity form a regular $n$-gon on the unit circle\n\n⚠️ Common Mistake\nForgetting to add $2k\\pi$ before dividing by $n$. Dividing $\\theta$ by $n$ alone gives only the principal root and misses the others."
+    },
+    {
+      "id": "math-dp-complex-numbers-n6",
+      "heading": "Polynomials with Complex Roots",
+      "body": "When polynomial equations have real coefficients, their complex roots always come in conjugate pairs. This is one of the most useful facts for solving and factorising polynomials over the complex numbers.\n\n📌 Conjugate Root Theorem\nIf a polynomial has real coefficients and $z = a + bi$ is a root, then its conjugate $z^* = a - bi$ is also a root.\n\n🔑 Key Concept\nThe theorem guarantees symmetry: non-real roots appear in matching conjugate pairs whenever the polynomial's coefficients are real numbers.\n\n🔑 Why it works\nFor real-coefficient polynomials, imaginary parts must cancel out in symmetric pairs. A single isolated complex root would force some coefficients to be non-real.\n\n💡 Worked Example — Finding a Conjugate Root\nGiven that $2 + i$ is a root of $x^2 - 4x + 5 = 0$, find the other root.\n\n  Step 1: Apply the theorem\n    The conjugate of $2 + i$ is $2 - i$.\n\n  Step 2: Verify (optional)\n    $$[x - (2 + i)][x - (2 - i)] = (x - 2)^2 - i^2 = x^2 - 4x + 4 + 1 = x^2 - 4x + 5$$\n\n  Answer: The other root is $2 - i$.\n\n💡 Worked Example — Building a Polynomial from Roots\nFind a real quadratic with roots $1 + 2i$ and $1 - 2i$.\n\n  Step 1: Use the factor form\n    $$[x - (1 + 2i)][x - (1 - 2i)]$$\n\n  Step 2: Expand\n    $$(x - 1)^2 - (2i)^2 = x^2 - 2x + 1 - 4i^2$$\n\n  Step 3: Replace $i^2$ with $-1$\n    $$x^2 - 2x + 1 + 4 = x^2 - 2x + 5$$\n\n📎 Key Points to Remember\n• The theorem only applies when all coefficients are real\n• A degree-$n$ polynomial has exactly $n$ roots in $\\mathbb{C}$ counting multiplicity\n• If the degree is odd, there is always at least one real root\n\n⚠️ Common Mistake\nAssuming $3 + i$ and $-3 + i$ are conjugates. The conjugate of $3 + i$ is $3 - i$; only the sign of the imaginary part changes."
+    },
+    {
+      "id": "math-dp-complex-numbers-n7",
+      "heading": "Loci in the Complex Plane",
+      "body": "A locus is a set of points that satisfy a given condition. In the complex plane, simple equations involving $z$ describe familiar geometric shapes such as circles and lines.\n\n📌 Definition of a Locus\nA locus is the set of all points $z$ in the complex plane that satisfy a particular equation or inequality.\n\n🔑 Common Loci\n\nCircle centred at $a$ with radius $r$:\n    $$|z - a| = r$$\n\nPerpendicular bisector of the segment joining $a$ and $b$:\n    $$|z - a| = |z - b|$$\n\nRay from the origin at angle $\\alpha$:\n    $$\\arg(z) = \\alpha$$\n\nRegion inside a circle:\n    $$|z - a| < r$$\n\n💡 Worked Example — Identifying a Locus\nDescribe the locus given by $|z - (2 + i)| = 3$.\n\n  Step 1: Compare with the standard form\n    $$|z - a| = r$$\n    Here $a = 2 + i$ and $r = 3$.\n\n  Step 2: Interpret\n    This is a circle centred at $2 + i$ with radius $3$.\n\n💡 Worked Example — Perpendicular Bisector\nDescribe the locus $|z - 1| = |z - i|$.\n\n  Step 1: Recognise the form\n    It states that the distance from $z$ to $1$ equals the distance from $z$ to $i$.\n\n  Step 2: Identify the geometric shape\n    The set of points equidistant from two fixed points is the perpendicular bisector of the segment joining them.\n\n  Step 3: Find the line\n    The segment from $1$ to $i$ has midpoint $\\frac{1 + i}{2}$ and slope $-1$, so the perpendicular bisector has slope $1$ and passes through the midpoint. Its equation is $y = x$.\n\n📎 Key Points to Remember\n• $|z - a| = r$ is a circle; $|z - a| < r$ is its interior\n• $|z - a| = |z - b|$ is a straight line (perpendicular bisector)\n• $\\arg(z - a) = \\alpha$ is a ray starting from $a$ at angle $\\alpha$\n\n⚠️ Common Mistake\nWriting $|z - a|$ as $|z| - |a|$. Moduli do not distribute over subtraction. For example, $|3 + 4i - (1 + i)| = |2 + 3i| = \\sqrt{13}$, not $|3 + 4i| - |1 + i| = 5 - \\sqrt{2}$."
     }
   ],
   "flashcards": [
@@ -74,6 +89,30 @@
       "term": "Euler's form",
       "definition": "$z = r e^{i\\theta}$, equivalent to polar form and ideal for multiplication, division, and powers.",
       "example": "$e^{i\\pi} = -1$ and $i = e^{i\\pi/2}$."
+    },
+    {
+      "id": "math-dp-complex-numbers-f9",
+      "term": "De Moivre's theorem",
+      "definition": "For $z = r \\operatorname{cis} \\theta$, $z^n = r^n \\operatorname{cis}(n\\theta)$ for any integer $n$.",
+      "example": "$\\left(2 \\operatorname{cis} \\frac{\\pi}{6}\\right)^3 = 8 \\operatorname{cis} \\frac{\\pi}{2} = 8i$."
+    },
+    {
+      "id": "math-dp-complex-numbers-f10",
+      "term": "nth roots of a complex number",
+      "definition": "The $n$ roots of $z = r \\operatorname{cis} \\theta$ are $z_k = r^{1/n} \\operatorname{cis}\\left(\\frac{\\theta + 2k\\pi}{n}\\right)$ for $k = 0, 1, \\dots, n-1$.",
+      "example": "The cube roots of $1$ are $1$, $-\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i$, and $-\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$."
+    },
+    {
+      "id": "math-dp-complex-numbers-f11",
+      "term": "Conjugate Root Theorem",
+      "definition": "If a polynomial has real coefficients and $a + bi$ is a root, then $a - bi$ is also a root.",
+      "example": "Since $2 + i$ is a root of $x^2 - 4x + 5 = 0$, the other root is $2 - i$."
+    },
+    {
+      "id": "math-dp-complex-numbers-f12",
+      "term": "Locus $|z - a| = r$",
+      "definition": "The set of points $z$ at distance $r$ from the fixed complex number $a$, i.e. a circle centred at $a$ with radius $r$.",
+      "example": "$|z - (2 + i)| = 3$ is a circle centred at $2 + i$ with radius $3$."
     }
   ],
   "questions": [
@@ -172,6 +211,90 @@
       ],
       "correctIndex": 3,
       "explanation": "Multiplying by $i$ rotates a complex number $90^\\circ$ counter-clockwise about the origin."
+    },
+    {
+      "id": "math-dp-complex-numbers-q9",
+      "stem": "Simplify $\\dfrac{2 + i}{1 - i}$.",
+      "choices": [
+        "$\\frac{1}{2} + \\frac{3}{2}i$",
+        "$\\frac{3}{2} + \\frac{1}{2}i$",
+        "$1 + 3i$",
+        "$1 - i$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply top and bottom by $1 + i$: $\\frac{(2 + i)(1 + i)}{(1 - i)(1 + i)} = \\frac{2 + 2i + i + i^2}{1 + 1} = \\frac{1 + 3i}{2} = \\frac{1}{2} + \\frac{3}{2}i$."
+    },
+    {
+      "id": "math-dp-complex-numbers-q10",
+      "stem": "Simplify $i^{47}$.",
+      "choices": [
+        "$i$",
+        "$-i$",
+        "$1$",
+        "$-1$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Since $47 = 4 \\times 11 + 3$, we have $i^{47} = i^3 = -i$."
+    },
+    {
+      "id": "math-dp-complex-numbers-q11",
+      "stem": "Let $z = \\sqrt{2} \\operatorname{cis}\\left(\\frac{\\pi}{8}\\right)$. Find $z^4$.",
+      "choices": [
+        "$4 \\operatorname{cis}\\left(\\frac{\\pi}{2}\\right)$",
+        "$2 \\operatorname{cis}\\left(\\frac{\\pi}{2}\\right)$",
+        "$4 \\operatorname{cis}\\left(\\frac{\\pi}{8}\\right)$",
+        "$2 \\operatorname{cis}\\left(\\frac{\\pi}{4}\\right)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using De Moivre's theorem: $(\\sqrt{2})^4 = 4$ and $4 \\cdot \\frac{\\pi}{8} = \\frac{\\pi}{2}$, so $z^4 = 4 \\operatorname{cis}\\left(\\frac{\\pi}{2}\\right)$."
+    },
+    {
+      "id": "math-dp-complex-numbers-q12",
+      "stem": "Which of the following are the square roots of $-4$?",
+      "choices": [
+        "$2i$ and $-2i$",
+        "$2$ and $-2$",
+        "$4i$ and $-4i$",
+        "$\\sqrt{2}i$ and $-\\sqrt{2}i$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$-4 = 4 \\operatorname{cis}(\\pi)$. Its square roots are $2 \\operatorname{cis}\\left(\\frac{\\pi}{2}\\right) = 2i$ and $2 \\operatorname{cis}\\left(\\frac{3\\pi}{2}\\right) = -2i$."
+    },
+    {
+      "id": "math-dp-complex-numbers-q13",
+      "stem": "A real cubic polynomial has roots $1$ and $2 + i$. What is its third root?",
+      "choices": [
+        "$2 - i$",
+        "$-2 - i$",
+        "$1 + i$",
+        "$-2 + i$"
+      ],
+      "correctIndex": 0,
+      "explanation": "By the Conjugate Root Theorem, non-real roots of real polynomials occur in conjugate pairs, so the third root is $2 - i$."
+    },
+    {
+      "id": "math-dp-complex-numbers-q14",
+      "stem": "Describe the locus defined by $|z - (1 - i)| = 2$.",
+      "choices": [
+        "A circle centred at $1 - i$ with radius $2$",
+        "A circle centred at $-1 + i$ with radius $2$",
+        "A line through $1 - i$",
+        "A perpendicular bisector of $1$ and $-i$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The equation $|z - a| = r$ represents a circle centred at $a$ with radius $r$. Here $a = 1 - i$ and $r = 2$."
+    },
+    {
+      "id": "math-dp-complex-numbers-q15",
+      "stem": "Express $z = \\sqrt{3} + i$ in Euler form $r e^{i\\theta}$.",
+      "choices": [
+        "$2e^{i\\pi/6}$",
+        "$2e^{i\\pi/3}$",
+        "$4e^{i\\pi/6}$",
+        "$\\sqrt{3}e^{i\\pi/3}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$r = \\sqrt{(\\sqrt{3})^2 + 1^2} = 2$ and $\\theta = \\tan^{-1}\\left(\\frac{1}{\\sqrt{3}}\\right) = \\frac{\\pi}{6}$, so $z = 2e^{i\\pi/6}$."
     }
   ]
 }

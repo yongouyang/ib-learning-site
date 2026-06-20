@@ -24,6 +24,21 @@
       "id": "math-dp-correlation-regression-n4",
       "heading": "Non-linear Regression, Residuals & $R^2$",
       "body": "When data is not linear, curved models may provide a better fit. We compare models using residuals and the coefficient of determination.\n\n📌 Residuals\nA residual is the vertical difference between an observed y-value and the value predicted by the model.\n    residual $= y - \\hat{y}$\n\nThe sum of squared residuals is denoted $SS_{res}$.\n    Smaller $SS_{res}$ → better fit\n\n📌 Coefficient of Determination ($R^2$)\n$R^2$ tells you the proportion of variation in y explained by the model.\n    $0 \\le R^2 \\le 1$\n\n    $R^2 = 1$ → perfect fit\n    $R^2$ closer to $1$ → better fit\n\nFor linear models:\n    $R^2 = r^2$\n\n💡 Worked Example\nData on cheetah lengths (x metres) and running speeds (y m/s) is modelled with quadratic and exponential curves.\n\n  Length (x): 1.21, 1.33, 1.12, 1.45, 1.42, 1.39, 1.24, 1.19, 1.32\n  Speed (y):  24.3, 25.1, 22.2, 35.1, 35.1, 33.4, 27.1, 23.1, 24.8\n\n  Step 1: Fit a quadratic model $y = ax^2 + bx + c$\n    Using a GDC: $a \\approx -302$, $b \\approx 844$, $c \\approx -562$\n    $R^2 \\approx 0.972$\n\n  Step 2: Fit an exponential model $y = ab^x$\n    Using a GDC: $a \\approx 0.00307$, $b \\approx 25.1$\n    $R^2 \\approx 0.918$\n\n  Step 3: Choose the better model\n    The quadratic model has the higher $R^2$ ($0.972$ > $0.918$).\n    Based solely on $R^2$, the quadratic model is the better fit.\n\n📎 Comparing Models\n• Prefer the model with the higher $R^2$ when using the same data set\n• Check whether the model type makes sense in context\n• Be cautious with extrapolation — the model may behave wildly outside the data range\n• More parameters do not guarantee a better model if overfitting occurs\n\n⚠️ Common Mistake\nChoosing a model solely because $R^2$ is closest to 1. A cubic model fitted to only four points will always have $R^2 = 1$, but it may be terrible at predicting new data. Always consider sample size, context, and whether the model is plausible."
+    },
+    {
+      "id": "math-dp-correlation-regression-n5",
+      "heading": "Hypothesis Test for Pearson's Correlation",
+      "body": "When we calculate Pearson's $r$ from a sample, we can test whether the underlying population correlation coefficient $\\rho$ is non-zero.\n\n📌 Definition\nA hypothesis test for correlation checks whether there is statistically significant evidence of a linear relationship in the population.\n    $H_0: \\rho = 0$ (no linear correlation)\n    $H_1: \\rho \\neq 0$ (two-tailed), or $H_1: \\rho > 0$ / $H_1: \\rho < 0$ (one-tailed)\n\n🔑 How it works\nThe test statistic is $t = r\\sqrt{\\frac{n-2}{1-r^2}}$, which follows a $t$-distribution with $n-2$ degrees of freedom.\nAlternatively, compare $|r|$ with the critical value from tables.\nIf $|r| >$ critical value, reject $H_0$.\n\n💡 Worked Example\nA sample of 12 students gives Pearson's $r = 0.68$.\nTest $H_0: \\rho = 0$ against $H_1: \\rho \\neq 0$ at the 5% significance level.\n\n  Step 1: Degrees of freedom\n    $df = n - 2 = 10$\n\n  Step 2: Critical value\n    For a two-tailed test at 5% with $df = 10$, the critical value is approximately $0.576$.\n\n  Step 3: Compare\n    $|0.68| > 0.576$, so reject $H_0$.\n\n  Step 4: Conclusion\n    There is sufficient evidence at the 5% level of a linear correlation in the population.\n\n📎 Key Points to Remember\n• Use a two-tailed test unless the question specifies a direction.\n• Degrees of freedom are always $n-2$.\n• A small $p$-value ($< \\alpha$) also leads to rejection of $H_0$.\n• The test assumes the underlying relationship is linear.\n\n⚠️ Common Mistake\nConfusing the sample statistic $r$ with the population parameter $\\rho$. $r$ comes from data; $\\rho$ is what we are testing about.\n\n✅ Check\nFor $n=20$ and $r=0.45$, $df=18$. Compare $|r|$ with the critical value or compute $t = 0.45\\sqrt{\\frac{18}{1-0.45^2}} \\approx 2.16$."
+    },
+    {
+      "id": "math-dp-correlation-regression-n6",
+      "heading": "Residual Plots & Model Checking",
+      "body": "Residuals help us check whether a regression model is appropriate.\n\n📌 Definition\nA residual plot graphs residuals against the corresponding $x$-values (or predicted $\\hat{y}$ values). It shows where the model overestimates or underestimates.\n\n🔑 How it works\nFor a good linear model, residuals should be randomly scattered around zero with no obvious pattern.\nA curved pattern suggests a non-linear relationship.\nA funnel shape suggests the spread changes with $x$ (heteroscedasticity).\n\n💡 Worked Example\nA model predicts temperatures and gives residuals:\n    $x$:       1,  2,  3,  4,  5,  6\n    residuals: 2,  1, -1, -2, -1,  2\nThe residual plot shows a U-shape. This indicates the linear model is missing a quadratic trend.\n\n📎 Key Points to Remember\n• Residuals sum to zero for a least squares regression line that includes a constant term.\n• A random scatter around zero supports the linear model.\n• Patterns in the plot suggest the model should be changed.\n\n⚠️ Common Mistake\nThinking a high $R^2$ guarantees the model is appropriate. If the residual plot shows a pattern, the model may still give poor predictions."
+    },
+    {
+      "id": "math-dp-correlation-regression-n7",
+      "heading": "Regression of x on y",
+      "body": "If we want to predict $x$ from $y$, we need a different regression line.\n\n📌 Definition\nThe regression line of $x$ on $y$ estimates $x$ from $y$ and minimises horizontal distances from the data points to the line.\nIts equation is $x = cy + d$, where $c$ is the gradient and $d$ is the intercept.\n\n🔑 How it works\nThe line of $x$ on $y$ passes through the same mean point $(\\bar{x}, \\bar{y})$.\nUnless $r = \\pm 1$, this line is different from the regression line of $y$ on $x$.\n\n💡 Worked Example\nGiven $\\bar{x}=10$, $\\bar{y}=25$, and the regression of $y$ on $x$ is $y=2x+5$, predict $x$ when $y=35$.\n\n  Incorrect method (rearranging y on x):\n    $35 = 2x + 5 \\Rightarrow x = 15$\n\n  Correct method (using regression of x on y):\n    If the regression of $x$ on $y$ is $x = 0.3y + 2.5$,\n    $x = 0.3(35) + 2.5 = 13$\n\n📎 Key Points to Remember\n• Use $y$ on $x$ to predict $y$ from $x$.\n• Use $x$ on $y$ to predict $x$ from $y$.\n• The two lines are closer together when $|r|$ is close to 1.\n\n⚠️ Common Mistake\nRearranging the $y$ on $x$ equation to predict $x$. This is only valid when $r = \\pm 1$."
     }
   ],
   "flashcards": [
@@ -74,6 +89,30 @@
       "term": "Coefficient of determination ($R^2$)",
       "definition": "The proportion of variation in the dependent variable explained by the model.",
       "example": "$R^2 = 0.92$ means 92% of the variation in y is explained by the model."
+    },
+    {
+      "id": "math-dp-correlation-regression-f9",
+      "term": "Mean point $(\\bar{x}, \\bar{y})$",
+      "definition": "The point representing the means of the two variables; the regression line of y on x always passes through it.",
+      "example": "If $\\bar{x}=8$ and $\\bar{y}=20$, the line of best fit passes through $(8,20)$."
+    },
+    {
+      "id": "math-dp-correlation-regression-f10",
+      "term": "Population correlation coefficient ($\\rho$)",
+      "definition": "The true correlation coefficient for the entire population, estimated by the sample statistic $r$.",
+      "example": "A hypothesis test uses $H_0: \\rho = 0$ to test for no linear correlation in the population."
+    },
+    {
+      "id": "math-dp-correlation-regression-f11",
+      "term": "Residual plot",
+      "definition": "A graph of residuals against the explanatory variable or predicted values, used to check model appropriateness.",
+      "example": "A random scatter around zero suggests a good linear model; a curved pattern suggests non-linearity."
+    },
+    {
+      "id": "math-dp-correlation-regression-f12",
+      "term": "Regression of x on y",
+      "definition": "The line $x = cy + d$ used to predict x from y; it minimises horizontal distances from the data points.",
+      "example": "If $x = 0.3y + 2.5$, a y-value of 35 predicts $x = 0.3(35) + 2.5 = 13$."
     }
   ],
   "questions": [
@@ -196,6 +235,66 @@
       ],
       "correctIndex": 2,
       "explanation": "A quadratic with a negative leading coefficient produces a downward-opening parabola, which increases to a maximum then decreases — matching the described behaviour."
+    },
+    {
+      "id": "math-dp-correlation-regression-q11",
+      "stem": "In Spearman's rank correlation, how should tied ranks be handled?",
+      "choices": [
+        "Assign the lowest available rank",
+        "Assign the highest available rank",
+        "Assign the average of the ranks they would occupy",
+        "Delete the tied values from the data set"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tied values receive the mean of the ranks they would have taken, which preserves the total sum of the ranks."
+    },
+    {
+      "id": "math-dp-correlation-regression-q12",
+      "stem": "For a regression model, the predicted value is $\\hat{y}=18.4$ and the residual is $-2.4$. What is the observed value of $y$?",
+      "choices": [
+        "16",
+        "20.8",
+        "-16",
+        "18.4"
+      ],
+      "correctIndex": 0,
+      "explanation": "$y = \\hat{y} + \\text{residual} = 18.4 - 2.4 = 16$."
+    },
+    {
+      "id": "math-dp-correlation-regression-q13",
+      "stem": "A quadratic model for a data set has $R^2 = 0.89$. What does this mean?",
+      "choices": [
+        "The correlation coefficient is 0.89",
+        "89% of the variation in y is explained by the model",
+        "The sum of squared residuals is 0.89",
+        "11% of the data points are outliers"
+      ],
+      "correctIndex": 1,
+      "explanation": "$R^2$ is the proportion of variation in the response variable explained by the model, so $R^2 = 0.89$ means 89% of the variation in y is explained."
+    },
+    {
+      "id": "math-dp-correlation-regression-q14",
+      "stem": "A correlation test uses $H_0: \\rho = 0$ at the 5% level. The sample gives $r = 0.62$ and the critical value is $0.54$. What is the conclusion?",
+      "choices": [
+        "Reject $H_0$; there is evidence of linear correlation",
+        "Accept $H_0$; there is no linear correlation",
+        "Reject $H_0$; the relationship is causal",
+        "Accept $H_0$; the correlation is perfect"
+      ],
+      "correctIndex": 0,
+      "explanation": "Because $|0.62| > 0.54$, the test statistic exceeds the critical value, so we reject $H_0$ at the 5% level."
+    },
+    {
+      "id": "math-dp-correlation-regression-q15",
+      "stem": "A residual plot for a linear model shows a clear U-shaped pattern. What should you do?",
+      "choices": [
+        "Try a non-linear model or transformation",
+        "Increase the sample size and refit the line",
+        "Remove all data points that lie above the line",
+        "Conclude that $R^2$ must be zero"
+      ],
+      "correctIndex": 0,
+      "explanation": "A patterned residual plot indicates the linear model is inappropriate; a transformation or non-linear model is likely needed."
     }
   ]
 }
