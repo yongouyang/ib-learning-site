@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="title desc">
+  <title id="title">Net of a cube</title>
+  <desc id="desc">A two-dimensional net showing six squares arranged in a cross pattern that can be folded to form a cube.</desc>
+  <style>
+    .face { fill: #e0f2fe; stroke: #0284c7; stroke-width: 2; }
+    .front { fill: #bae6fd; }
+    .label { font-family: system-ui, sans-serif; font-size: 14px; fill: #0c4a6e; text-anchor: middle; }
+  </style>
+  <rect x="100" y="0" width="80" height="80" class="face"/>
+  <rect x="0" y="80" width="80" height="80" class="face"/>
+  <rect x="80" y="80" width="80" height="80" class="face front"/>
+  <rect x="160" y="80" width="80" height="80" class="face"/>
+  <rect x="240" y="80" width="80" height="80" class="face"/>
+  <rect x="100" y="160" width="80" height="80" class="face"/>
+  <text x="140" y="45" class="label">Top</text>
+  <text x="40" y="125" class="label">Left</text>
+  <text x="120" y="125" class="label">Front</text>
+  <text x="200" y="125" class="label">Right</text>
+  <text x="280" y="125" class="label">Back</text>
+  <text x="140" y="205" class="label">Bottom</text>
+</svg>

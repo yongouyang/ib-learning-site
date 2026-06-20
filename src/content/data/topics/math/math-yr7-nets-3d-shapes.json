@@ -1,0 +1,305 @@
+{
+  "id": "math-yr7-nets-3d-shapes",
+  "subjectId": "math",
+  "title": "Nets of 3D Shapes",
+  "description": "Recognise and draw nets of cubes, cuboids, prisms and pyramids.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr7-nets-3d-shapes-n1",
+      "heading": "What is a Net?",
+      "body": "📌 Definition\nA net is a two-dimensional shape that can be folded to make a three-dimensional solid. The flat faces of the net become the faces of the solid.\n\n🔑 Key Concept\nA net shows all the faces of a 3D shape laid out flat. When the net is folded, edges that touch join together to form the solid.\n\n💡 Worked Example\nA cube has 6 square faces. One possible net is a cross made of 6 squares. If you fold the four side squares up and the top and bottom squares over, they meet to form a cube.\n\n📎 Key Points to Remember\n• A net must include every face of the solid exactly once.\n• Different nets can fold to make the same solid.\n• The faces must be arranged so that they can fold together without overlapping.\n\n⚠️ Common Mistake\nThinking that any arrangement of the right number of faces is a valid net. The faces must be connected in a way that actually folds into the solid.",
+      "illustration": {
+        "src": "/images/math/math-yr7-nets-3d-shapes.svg",
+        "alt": "A cube net showing six squares arranged in a cross pattern.",
+        "caption": "This cross-shaped net can be folded to make a cube."
+      }
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-n2",
+      "heading": "Cube Nets",
+      "body": "📌 Definition\nA cube net is an arrangement of 6 identical squares that can be folded to form a cube.\n\n🔑 Key Concept\nThere are exactly 11 different cube nets. They all have 6 squares, but the arrangement of the squares changes. No cube net can have more than 4 squares in a single row.\n\n💡 Worked Example\nWhich of these arrangements is a cube net?\nArrangement A has 4 squares in a row with 1 square above the second square and 1 square below the third square. This folds into a cube.\nArrangement B has 5 squares in a straight row with 1 square attached to the side. This cannot fold into a cube because the row is too long.\n\n📎 Key Points to Remember\n• Every cube net has exactly 6 squares.\n• All 6 squares must be the same size.\n• The squares must be connected edge-to-edge.\n\n⚠️ Common Mistake\nBelieving that any 6 squares joined together make a cube net. The arrangement must fold without gaps or overlaps."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-n3",
+      "heading": "Cuboid Nets",
+      "body": "📌 Definition\nA cuboid net is an arrangement of 6 rectangles that can be folded to form a cuboid. Opposite faces of a cuboid are identical.\n\n🔑 Key Concept\nA cuboid has three pairs of identical rectangular faces. In its net, the faces are usually arranged around a central rectangle, with the top and bottom faces attached to opposite sides.\n\n💡 Worked Example\nA cuboid has length $l = 5$ cm, width $w = 3$ cm and height $h = 2$ cm. Its net contains:\n• Two faces of size $5 \text{ cm} \times 3 \text{ cm}$\n• Two faces of size $5 \text{ cm} \times 2 \text{ cm}$\n• Two faces of size $3 \text{ cm} \times 2 \text{ cm}$\n\n📎 Key Points to Remember\n• A cuboid net has 6 rectangular faces.\n• Opposite faces are equal in size.\n• The dimensions of each face come from pairs of the cuboid's length, width and height.\n\n⚠️ Common Mistake\nForgetting that a cube is a special cuboid where all faces are squares."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-n4",
+      "heading": "Prism Nets",
+      "body": "📌 Definition\nA prism is a solid with a constant cross-section. Its net consists of two identical end faces and a row of rectangles that form the sides.\n\n🔑 Key Concept\nFor a triangular prism, the net has 2 identical triangles and 3 rectangles. The width of each rectangle equals the length of one side of the triangle, and the height of each rectangle equals the length of the prism.\n\n💡 Worked Example\nA triangular prism has triangle sides of length $3$ cm, $4$ cm and $5$ cm, and a prism length of $6$ cm. Its net has:\n• 2 triangles with sides $3$ cm, $4$ cm and $5$ cm\n• 3 rectangles measuring $3 \text{ cm} \times 6 \text{ cm}$, $4 \text{ cm} \times 6 \text{ cm}$ and $5 \text{ cm} \times 6 \text{ cm}$\n\n📎 Key Points to Remember\n• The name of the prism comes from the shape of its cross-section.\n• A triangular prism has 5 faces, 9 edges and 6 vertices.\n• The two end faces are parallel and congruent.\n\n⚠️ Common Mistake\nThinking a prism net has only rectangles. Remember to include the two end faces."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-n5",
+      "heading": "Pyramid Nets",
+      "body": "📌 Definition\nA pyramid is a solid with a polygon base and triangular faces that meet at a single point called the apex.\n\n🔑 Key Concept\nA square pyramid has 1 square base and 4 triangular faces. Its net shows the square in the centre with the 4 triangles attached to each side, all pointing outward.\n\n💡 Worked Example\nA square pyramid has a base of side length $4$ cm and slant height $5$ cm. Its net contains:\n• 1 square of side $4$ cm\n• 4 identical triangles with base $4$ cm and height $5$ cm\n\n📎 Key Points to Remember\n• The base of the pyramid gives the pyramid its name.\n• A square pyramid has 5 faces, 8 edges and 5 vertices.\n• The triangular faces meet at the apex.\n\n⚠️ Common Mistake\nConfusing the height of the pyramid with the slant height of a triangular face. The slant height is measured along a triangular face, not vertically through the solid."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-n6",
+      "heading": "Counting Faces from a Net",
+      "body": "📌 Definition\nThe number of faces of a 3D shape is equal to the number of flat regions in its net.\n\n🔑 Key Concept\nYou can read the number of faces directly from a net by counting the separate 2D shapes. You can also work out which edges will join together when the net is folded.\n\n💡 Worked Example\nHow many faces does a triangular prism have?\n\nStep 1: Look at the net of a triangular prism.\n\nStep 2: Count the faces: 2 triangles + 3 rectangles = 5 faces.\n\n✅ Check\nA prism with a triangular cross-section has 2 triangular ends and 3 rectangular sides, so 5 faces is correct.\n\n📎 Key Points to Remember\n• Count each face once, even if the faces are identical.\n• The number of faces in the net equals the number of faces of the solid.\n• Use the net to predict which edges meet.\n\n⚠️ Common Mistake\nDouble-counting a face because it appears next to two other faces in the net. Each separate flat region is one face."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-n7",
+      "heading": "Identifying a Solid from its Net",
+      "body": "📌 Definition\nTo identify a 3D shape from its net, look at the number and shape of the faces and how they are connected.\n\n🔑 Key Concept\nAsk yourself these questions:\n1. How many faces are there?\n2. What shapes are the faces?\n3. Which faces will be opposite each other when folded?\n\n💡 Worked Example\nA net has 2 identical triangles and 3 rectangles. What solid does it make?\n\nStep 1: Two triangular faces will be the ends of the solid.\n\nStep 2: Three rectangles form the sides.\n\nStep 3: The solid is a triangular prism.\n\n📎 Key Points to Remember\n• 6 squares that fold together make a cube.\n• 6 rectangles, with opposite pairs equal, make a cuboid.\n• 2 polygons with rectangles between them make a prism.\n• 1 polygon with triangles meeting at a point makes a pyramid.\n\n⚠️ Common Mistake\nIdentifying the solid by only one face. Always consider all the faces together."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-n8",
+      "heading": "Drawing Nets on a Grid",
+      "body": "📌 Definition\nDrawing a net on a squared grid helps you keep the faces the right size and shape. Each square on the grid can represent a unit of length.\n\n🔑 Key Concept\nWhen drawing a net:\n1. Draw the base face.\n2. Attach the side faces to the edges of the base.\n3. Attach the top face to one of the side faces.\n4. Make sure all faces are connected edge-to-edge.\n\n💡 Worked Example\nDraw a net for a cube with side length $2$ cm on a grid where $1$ square = $1$ cm.\n\nStep 1: Draw a square of side length $2$ squares for the front face.\n\nStep 2: Attach one square to each of the four sides of the front face.\n\nStep 3: Attach one more square to one of the side faces to form a lid.\n\nThis gives one of the 11 possible cube nets.\n\n✅ Check\nCount the squares: there should be exactly 6, all of side length $2$ squares.\n\n📎 Key Points to Remember\n• Use a ruler or grid lines to keep edges straight.\n• Make sure faces that meet in the solid share a full edge in the net.\n• Label the faces to check that the net folds correctly.\n\n⚠️ Common Mistake\nDrawing faces that meet only at a corner. In a valid net, faces that fold together must share a complete edge."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-nets-3d-shapes-f1",
+      "term": "Net",
+      "definition": "A two-dimensional shape that can be folded to form a three-dimensional solid.",
+      "example": "A cross made of 6 squares is one net of a cube."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-f2",
+      "term": "Cube net",
+      "definition": "An arrangement of 6 identical squares that folds into a cube.",
+      "example": "There are 11 different nets that all fold into a cube."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-f3",
+      "term": "Cuboid net",
+      "definition": "An arrangement of 6 rectangles, with opposite faces equal, that folds into a cuboid."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-f4",
+      "term": "Prism",
+      "definition": "A solid with a constant cross-section and two identical end faces.",
+      "example": "A triangular prism has triangular ends and rectangular sides."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-f5",
+      "term": "Triangular prism net",
+      "definition": "A net made of 2 triangles and 3 rectangles that folds into a triangular prism."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-f6",
+      "term": "Pyramid",
+      "definition": "A solid with a polygon base and triangular faces that meet at an apex.",
+      "example": "A square pyramid has a square base and 4 triangular faces."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-f7",
+      "term": "Face",
+      "definition": "A flat surface of a 3D shape.",
+      "example": "A cube has 6 square faces."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-f8",
+      "term": "Edge",
+      "definition": "A line segment where two faces of a 3D shape meet.",
+      "example": "A cube has 12 edges."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-f9",
+      "term": "Vertex",
+      "definition": "A corner point where edges of a 3D shape meet.",
+      "example": "A cube has 8 vertices."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-f10",
+      "term": "Apex",
+      "definition": "The single point at the top of a pyramid where all triangular faces meet."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-f11",
+      "term": "Number of cube nets",
+      "definition": "There are exactly 11 different nets that can fold into a cube."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-f12",
+      "term": "Opposite faces of a cuboid",
+      "definition": "The three pairs of faces on a cuboid that are parallel and identical in size."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-nets-3d-shapes-q1",
+      "stem": "How many faces does a cube have?",
+      "choices": [
+        "$4$",
+        "$5$",
+        "$6$",
+        "$8$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A cube has 6 square faces: top, bottom, front, back, left and right."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q2",
+      "stem": "Which shapes make up the net of a cuboid?",
+      "choices": [
+        "$6$ identical squares",
+        "$6$ rectangles, with opposite pairs equal",
+        "$2$ triangles and $3$ rectangles",
+        "$1$ square and $4$ triangles"
+      ],
+      "correctIndex": 1,
+      "explanation": "A cuboid has 6 rectangular faces. Opposite faces are equal, but adjacent faces may have different dimensions."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q3",
+      "stem": "How many different nets can fold into a cube?",
+      "choices": [
+        "$6$",
+        "$8$",
+        "$10$",
+        "$11$"
+      ],
+      "correctIndex": 3,
+      "explanation": "There are exactly 11 distinct arrangements of 6 squares that can be folded to form a cube."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q4",
+      "stem": "A net has 2 identical triangles and 3 rectangles. What solid does it make?",
+      "choices": [
+        "Cube",
+        "Cuboid",
+        "Triangular prism",
+        "Square pyramid"
+      ],
+      "correctIndex": 2,
+      "explanation": "Two triangular ends and three rectangular sides fold together to make a triangular prism."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q5",
+      "stem": "How many faces does a square pyramid have?",
+      "choices": [
+        "$4$",
+        "$5$",
+        "$6$",
+        "$8$"
+      ],
+      "correctIndex": 1,
+      "explanation": "A square pyramid has 1 square base and 4 triangular faces, giving 5 faces in total."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q6",
+      "stem": "Which of these shapes is NOT part of a triangular prism net?",
+      "choices": [
+        "Triangle",
+        "Rectangle",
+        "Square",
+        "Triangle and rectangle"
+      ],
+      "correctIndex": 2,
+      "explanation": "A triangular prism net contains 2 triangles and 3 rectangles. It does not contain any squares unless the rectangles happen to be square, but a square is not a required shape."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q7",
+      "stem": "What solid has a net made of 6 identical squares?",
+      "choices": [
+        "Cuboid",
+        "Cube",
+        "Triangular prism",
+        "Square pyramid"
+      ],
+      "correctIndex": 1,
+      "explanation": "A cube is the only solid whose net is made of 6 identical squares."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q8",
+      "stem": "A cuboid has dimensions $2$ cm, $3$ cm and $4$ cm. How many faces have an area of $6$ cm$^2$?",
+      "choices": [
+        "$0$",
+        "$1$",
+        "$2$",
+        "$4$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The face areas are $2 \times 3 = 6$ cm$^2$, $2 \times 4 = 8$ cm$^2$ and $3 \times 4 = 12$ cm$^2$. Each area appears on exactly 2 opposite faces, so 2 faces measure $6$ cm$^2$."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q9",
+      "stem": "Which arrangement cannot be a net of a cube?",
+      "choices": [
+        "$4$ squares in a row with $1$ square above and $1$ below",
+        "$3$ squares in a row with $1$ square above each of them",
+        "$5$ squares in a straight row with $1$ square attached to the side",
+        "$2$ rows of $3$ squares offset by one square"
+      ],
+      "correctIndex": 2,
+      "explanation": "A cube net cannot have 5 squares in a single row. The longest possible row in any cube net contains 4 squares."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q10",
+      "stem": "How many vertices does a square pyramid have?",
+      "choices": [
+        "$4$",
+        "$5$",
+        "$6$",
+        "$8$"
+      ],
+      "correctIndex": 1,
+      "explanation": "A square pyramid has 4 vertices at the base corners plus 1 vertex at the apex, giving 5 vertices in total."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q11",
+      "stem": "What is the name of the point where the triangular faces of a pyramid meet?",
+      "choices": [
+        "Base",
+        "Vertex",
+        "Apex",
+        "Edge"
+      ],
+      "correctIndex": 2,
+      "explanation": "The triangular faces of a pyramid meet at a single point called the apex."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q12",
+      "stem": "Which solid has a constant cross-section?",
+      "choices": [
+        "Pyramid",
+        "Prism",
+        "Sphere",
+        "Cone"
+      ],
+      "correctIndex": 1,
+      "explanation": "A prism is defined as a solid with a constant cross-section. If you slice it parallel to the end faces, every slice is the same shape."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q13",
+      "stem": "How many rectangular faces does a triangular prism have?",
+      "choices": [
+        "$2$",
+        "$3$",
+        "$4$",
+        "$5$"
+      ],
+      "correctIndex": 1,
+      "explanation": "A triangular prism has 2 triangular end faces and 3 rectangular side faces, one for each side of the triangle."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q14",
+      "stem": "What shape are the two end faces of a hexagonal prism?",
+      "choices": [
+        "Triangle",
+        "Square",
+        "Hexagon",
+        "Rectangle"
+      ],
+      "correctIndex": 2,
+      "explanation": "A hexagonal prism is named after its hexagonal cross-section, so its two end faces are hexagons."
+    },
+    {
+      "id": "math-yr7-nets-3d-shapes-q15",
+      "stem": "A net has 1 pentagon and 5 triangles. What solid does it make?",
+      "choices": [
+        "Pentagonal prism",
+        "Pentagonal pyramid",
+        "Pentagonal cuboid",
+        "Pentagonal cube"
+      ],
+      "correctIndex": 1,
+      "explanation": "A pyramid has one polygon base and triangular faces that meet at the apex. A pentagon base with 5 triangles forms a pentagonal pyramid."
+    }
+  ]
+}

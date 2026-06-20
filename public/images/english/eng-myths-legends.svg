@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="title desc">
+  <title id="title">Myth, legend and fairy-tale scenes side by side</title>
+  <desc id="desc">An illustrated map-style diagram with three panels: a myth scene with a temple and lightning bolt, a legend scene with a knight, castle and shield, and a fairy-tale scene with a wand, stars and a crown.</desc>
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F7FA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="groundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8FBC8F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E8B57;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="400" fill="#f8fafc"/>
+
+  <!-- Myth panel -->
+  <rect x="30" y="30" width="230" height="340" rx="12" fill="url(#skyGrad)" stroke="#4682B4" stroke-width="2"/>
+  <path d="M 30 290 L 260 290 L 260 370 L 30 370 Z" fill="url(#groundGrad)"/>
+  <!-- Temple -->
+  <rect x="95" y="210" width="100" height="80" fill="#F5F5DC" stroke="#8B7355" stroke-width="2"/>
+  <rect x="85" y="200" width="120" height="15" fill="#D2B48C" stroke="#8B7355" stroke-width="2"/>
+  <rect x="110" y="240" width="15" height="50" fill="#8B7355"/>
+  <rect x="140" y="240" width="15" height="50" fill="#8B7355"/>
+  <rect x="170" y="240" width="15" height="50" fill="#8B7355"/>
+  <path d="M 80 200 L 145 150 L 210 200 Z" fill="#CD853F" stroke="#8B4513" stroke-width="2"/>
+  <!-- Lightning -->
+  <polygon points="180,80 160,140 190,140 165,200 205,130 175,130" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+  <text x="145" y="350" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#1e293b">Myth</text>
+
+  <!-- Legend panel -->
+  <rect x="285" y="30" width="230" height="340" rx="12" fill="url(#skyGrad)" stroke="#4682B4" stroke-width="2"/>
+  <path d="M 285 290 L 515 290 L 515 370 L 285 370 Z" fill="url(#groundGrad)"/>
+  <!-- Castle -->
+  <rect x="340" y="180" width="120" height="110" fill="#A9A9A9" stroke="#696969" stroke-width="2"/>
+  <rect x="330" y="160" width="30" height="40" fill="#A9A9A9" stroke="#696969" stroke-width="2"/>
+  <rect x="440" y="160" width="30" height="40" fill="#A9A9A9" stroke="#696969" stroke-width="2"/>
+  <rect x="360" y="250" width="25" height="40" fill="#4a4a4a"/>
+  <rect x="415" y="250" width="25" height="40" fill="#4a4a4a"/>
+  <path d="M 325 160 L 345 130 L 365 160 Z" fill="#696969"/>
+  <path d="M 435 160 L 455 130 L 475 160 Z" fill="#696969"/>
+  <!-- Knight -->
+  <circle cx="320" cy="245" r="12" fill="#C0C0C0" stroke="#696969" stroke-width="2"/>
+  <rect x="308" y="258" width="24" height="35" fill="#4682B4" stroke="#1e3a5f" stroke-width="2"/>
+  <rect x="300" y="260" width="8" height="30" fill="#C0C0C0" stroke="#696969" stroke-width="2"/>
+  <polygon points="300,260 295,235 305,235" fill="#C0C0C0" stroke="#696969" stroke-width="2"/>
+  <text x="400" y="350" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#1e293b">Legend</text>
+
+  <!-- Fairy tale panel -->
+  <rect x="540" y="30" width="230" height="340" rx="12" fill="url(#skyGrad)" stroke="#4682B4" stroke-width="2"/>
+  <path d="M 540 290 L 770 290 L 770 370 L 540 370 Z" fill="url(#groundGrad)"/>
+  <!-- Wand -->
+  <line x1="630" y1="240" x2="680" y2="120" stroke="#8B4513" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="680,120 670,140 690,135 675,150 695,155 680,165" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+  <!-- Stars -->
+  <polygon points="600,90 604,102 617,102 607,110 611,122 600,115 589,122 593,110 583,102 596,102" fill="#FFD700" stroke="#DAA520" stroke-width="1"/>
+  <polygon points="720,160 723,168 732,168 725,174 728,183 720,178 712,183 715,174 708,168 717,168" fill="#FFD700" stroke="#DAA520" stroke-width="1"/>
+  <polygon points="640,190 642,196 648,196 643,200 645,206 640,202 635,206 637,200 632,196 638,196" fill="#FFD700" stroke="#DAA520" stroke-width="1"/>
+  <!-- Crown -->
+  <path d="M 690 250 L 690 230 L 705 215 L 720 230 L 735 215 L 750 230 L 750 250 Z" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+  <circle cx="705" cy="235" r="3" fill="#E74C3C"/>
+  <circle cx="720" cy="235" r="3" fill="#3498DB"/>
+  <circle cx="735" cy="235" r="3" fill="#E74C3C"/>
+  <text x="655" y="350" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#1e293b">Fairy Tale</text>
+
+  <!-- Connecting path -->
+  <path d="M 260 330 Q 400 380 540 330" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="400" y="395" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6b7280">Traditional stories evolve across cultures</text>
+</svg>

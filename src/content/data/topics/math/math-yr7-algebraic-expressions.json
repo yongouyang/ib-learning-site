@@ -1,0 +1,305 @@
+{
+  "id": "math-yr7-algebraic-expressions",
+  "subjectId": "math",
+  "title": "Simplifying & Expanding Algebraic Expressions",
+  "description": "Collect like terms, multiply a single term over a bracket and expand simple expressions.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr7-algebraic-expressions-n1",
+      "heading": "Algebraic Terms",
+      "illustration": {
+        "src": "/images/math/math-yr7-algebraic-expressions.svg",
+        "alt": "Diagram showing like terms grouped together to simplify an algebraic expression.",
+        "caption": "Like terms have exactly the same letters raised to the same powers, so they can be collected."
+      },
+      "body": "📌 Definition\nAn algebraic term is a single number, variable, or product of numbers and variables, such as $3x$, $-5$, or $2xy^2$.\n\n🔑 Key Concept\nA term has two parts:\n• A coefficient (the number in front).\n• A variable part (the letters and powers).\n\nFor example, in $7x^2$, the coefficient is $7$ and the variable part is $x^2$.\n\n💡 Worked Example\nIdentify the coefficient and variable part of $-4xy$.\n\nCoefficient: $-4$\nVariable part: $xy$\n\n📎 Key Points to Remember\n• A term with no coefficient has an implied coefficient of $1$, so $x$ means $1x$.\n• A minus sign belongs to the coefficient, so $-x$ means $-1x$.\n• Terms are separated by $+$ and $-$ signs."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-n2",
+      "heading": "Like Terms",
+      "body": "📌 Definition\nLike terms are terms that have exactly the same variables raised to exactly the same powers. Only the coefficients may differ.\n\n🔑 Key Concept\n$3x$ and $5x$ are like terms because both have variable part $x$.\n\n$3x$ and $3x^2$ are not like terms because the powers of $x$ are different.\n\n$2xy$ and $2x$ are not like terms because the variable parts are different.\n\n💡 Worked Example\nWhich of these are like terms? $4a$, $-2a^2$, $7a$, $3ab$\n\n$4a$ and $7a$ are like terms.\n$-2a^2$ and $3ab$ are not like any of the others.\n\n📎 Key Points to Remember\n• Match both the letters and their powers.\n• The order of letters does not matter: $xy$ and $yx$ are the same variable part.\n• Constants (plain numbers) are like terms with each other.\n\n⚠️ Common Mistake\nThinking $x$ and $x^2$ can be combined. They cannot, because the powers are different."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-n3",
+      "heading": "Collecting Like Terms",
+      "body": "📌 Definition\nTo simplify an expression by collecting like terms, add or subtract the coefficients of like terms and keep the variable part the same.\n\n🔑 How it works\n1. Identify groups of like terms.\n2. Add or subtract their coefficients.\n3. Write the simplified expression.\n\n💡 Worked Example\nSimplify $3x + 5y - 2x + y$.\n\nStep 1: Group like terms.\n$$(3x - 2x) + (5y + y)$$\n\nStep 2: Combine coefficients.\n$$(3 - 2)x + (5 + 1)y$$\n\nStep 3: Write the answer.\n$$x + 6y$$\n\n✅ Check\nCount the $x$ terms: $3x$ take away $2x$ leaves $1x$, which is $x$. Count the $y$ terms: $5y$ plus $1y$ is $6y$.\n\n📎 Key Points to Remember\n• You can only collect like terms.\n• The sign in front of each term moves with it.\n• Write terms in a sensible order, such as alphabetical or descending powers."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-n4",
+      "heading": "Multiplying a Single Term by an Expression",
+      "body": "📌 Definition\nWhen a single term is multiplied by a bracketed expression, every term inside the bracket must be multiplied by the term outside.\n\n🔑 How it works\n$$a(b + c) = ab + ac$$\n$$a(b - c) = ab - ac$$\n\nThe term outside is distributed across each term inside the bracket.\n\n💡 Worked Example\nExpand $3(x + 4)$.\n\nStep 1: Multiply $3$ by $x$.\n$$3 \times x = 3x$$\n\nStep 2: Multiply $3$ by $4$.\n$$3 \times 4 = 12$$\n\nStep 3: Combine.\n$$3x + 12$$\n\n⚠️ Common Mistake\nOnly multiplying the first term inside the bracket. For example, writing $3(x + 4) = 3x + 4$ is wrong because the $4$ was not multiplied by $3$.\n\n✅ Check\nSubstitute a value for $x$ into the original and expanded forms. If $x = 2$, both $3(2 + 4)$ and $3(2) + 12$ equal $18$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-n5",
+      "heading": "Expanding with a Negative Coefficient",
+      "body": "📌 Definition\nWhen the term outside the bracket is negative, every term inside the bracket changes sign after multiplication.\n\n🔑 How it works\n$$-2(x - 3) = -2x + 6$$\n\nA negative times a negative gives a positive, so $-2$ multiplied by $-3$ becomes $+6$.\n\n💡 Worked Example\nExpand $-4(2x - 5)$.\n\nStep 1: Multiply $-4$ by $2x$.\n$$-4 \times 2x = -8x$$\n\nStep 2: Multiply $-4$ by $-5$.\n$$-4 \times (-5) = 20$$\n\nStep 3: Combine.\n$$-8x + 20$$\n\n⚠️ Common Mistake\nForgetting that a negative times a negative is positive. Many students write $-4(2x - 5) = -8x - 20$, but the constant term should be $+20$.\n\n✅ Check\nUse $x = 1$. The original $-4(2 \times 1 - 5)$ is $-4(-3) = 12$, and the expansion $-8(1) + 20$ is also $12$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-n6",
+      "heading": "Simplifying after Expanding",
+      "body": "📌 Definition\nAfter expanding brackets, collect any like terms to write the expression in its simplest form.\n\n🔑 How it works\n1. Expand every bracket.\n2. Identify like terms.\n3. Collect them.\n\n💡 Worked Example\nSimplify $2(x + 3) + 4(x - 1)$.\n\nStep 1: Expand both brackets.\n$$2x + 6 + 4x - 4$$\n\nStep 2: Group like terms.\n$$(2x + 4x) + (6 - 4)$$\n\nStep 3: Combine.\n$$6x + 2$$\n\n⚠️ Common Mistake\nExpanding correctly but then trying to combine $6x$ and $2$. They are not like terms, so the answer stays as $6x + 2$.\n\n✅ Check\nLet $x = 2$. The original expression is $2(5) + 4(1) = 14$, and the simplified expression is $6(2) + 2 = 14$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-n7",
+      "heading": "Expressions with Multiple Brackets",
+      "body": "📌 Definition\nSome expressions contain more than one bracket. Expand each bracket separately, then collect like terms.\n\n🔑 How it works\nTreat each bracket one at a time. Keep the signs correct, especially when subtracting a bracket.\n\n💡 Worked Example\nSimplify $3(2x + 1) - 2(x - 4)$.\n\nStep 1: Expand $3(2x + 1)$.\n$$6x + 3$$\n\nStep 2: Expand $-2(x - 4)$.\n$$-2x + 8$$\n\nStep 3: Combine and collect like terms.\n$$6x + 3 - 2x + 8 = 4x + 11$$\n\n📎 Key Points to Remember\n• Expand every bracket before collecting terms.\n• A minus sign in front of a bracket changes the sign of every term inside after expansion.\n• Write the final answer with like terms collected.\n\n✅ Check\nUsing $x = 1$: $3(3) - 2(-3) = 9 + 6 = 15$, and $4(1) + 11 = 15$."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-algebraic-expressions-f1",
+      "term": "Algebraic term",
+      "definition": "A single number, variable, or product of numbers and variables in an expression.",
+      "example": "$5x^2$, $-3y$ and $7$ are all terms."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-f2",
+      "term": "Coefficient",
+      "definition": "The numerical factor in front of a variable part of a term.",
+      "example": "In $-6x$, the coefficient is $-6$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-f3",
+      "term": "Variable part",
+      "definition": "The letter or letters raised to powers in a term.",
+      "example": "In $4xy^2$, the variable part is $xy^2$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-f4",
+      "term": "Like terms",
+      "definition": "Terms that have exactly the same variables raised to the same powers.",
+      "example": "$3x$ and $8x$ are like terms; $3x$ and $3x^2$ are not."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-f5",
+      "term": "Collecting like terms",
+      "definition": "Simplifying an expression by adding or subtracting the coefficients of like terms.",
+      "example": "$7a - 2a = 5a$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-f6",
+      "term": "Expand a bracket",
+      "definition": "Multiply every term inside a bracket by the term outside the bracket.",
+      "example": "$4(x + 2) = 4x + 8$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-f7",
+      "term": "Distributive law",
+      "definition": "The rule that $a(b + c) = ab + ac$ for numbers and algebraic terms.",
+      "example": "$3(2x - 5) = 6x - 15$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-f8",
+      "term": "Negative coefficient expanding",
+      "definition": "When a negative term multiplies a bracket, signs of the resulting terms may change.",
+      "example": "$-2(x - 3) = -2x + 6$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-f9",
+      "term": "Constant term",
+      "definition": "A term that has no variable part; it is just a number.",
+      "example": "In $3x + 7$, the constant term is $7$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-f10",
+      "term": "Simplest form",
+      "definition": "An expression that has no like terms left to collect and no brackets left to expand.",
+      "example": "$5x + 3$ is in simplest form."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-f11",
+      "term": "Subtracting a bracket",
+      "definition": "When a bracket is subtracted, expand it and then change the sign of every resulting term.",
+      "example": "$10 - (2x + 3) = 10 - 2x - 3 = 7 - 2x$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-f12",
+      "term": "Check by substitution",
+      "definition": "A way to verify an expansion by replacing the variable with a number in both forms.",
+      "example": "If $2(x + 3) = 2x + 6$, substituting $x = 4$ gives $14$ on both sides."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-algebraic-expressions-q1",
+      "stem": "Simplify $3x + 7x$.",
+      "choices": [
+        "$10x$",
+        "$10x^2$",
+        "$21x$",
+        "$21x^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$3x$ and $7x$ are like terms. Add their coefficients: $3 + 7 = 10$, so the answer is $10x$. You do not add or multiply the powers."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q2",
+      "stem": "Simplify $8a - 5a + 2a$.",
+      "choices": [
+        "$1a$",
+        "$5a$",
+        "$15a$",
+        "$11a$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Combine the coefficients in order: $8 - 5 = 3$, then $3 + 2 = 5$. The result is $5a$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q3",
+      "stem": "Simplify $4x + 3y - 2x + y$.",
+      "choices": [
+        "$6x + 4y$",
+        "$2x + 4y$",
+        "$2x + 3y$",
+        "$5xy$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Collect the $x$ terms: $4x - 2x = 2x$. Collect the $y$ terms: $3y + y = 4y$. The simplified expression is $2x + 4y$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q4",
+      "stem": "Which pair shows like terms?",
+      "choices": [
+        "$3x$ and $3y$",
+        "$2x$ and $2x^2$",
+        "$5ab$ and $5ba$",
+        "$6$ and $6x$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$5ab$ and $5ba$ have the same variables raised to the same powers; the order of letters does not matter. The other pairs have different variable parts."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q5",
+      "stem": "Expand $2(x + 5)$.",
+      "choices": [
+        "$2x + 5$",
+        "$2x + 10$",
+        "$x + 10$",
+        "$2x + 7$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiply both terms inside the bracket by $2$: $2 \times x = 2x$ and $2 \times 5 = 10$. The expanded form is $2x + 10$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q6",
+      "stem": "Expand $3(2x - 4)$.",
+      "choices": [
+        "$6x - 4$",
+        "$5x - 12$",
+        "$6x - 12$",
+        "$6x + 12$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$3 \times 2x = 6x$ and $3 \times (-4) = -12$. So $3(2x - 4) = 6x - 12$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q7",
+      "stem": "Expand $-4(x + 3)$.",
+      "choices": [
+        "$-4x + 3$",
+        "$-4x + 12$",
+        "$-4x - 12$",
+        "$4x - 12$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$-4 \times x = -4x$ and $-4 \times 3 = -12$. The result is $-4x - 12$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q8",
+      "stem": "Expand $-2(3x - 5)$.",
+      "choices": [
+        "$-6x - 5$",
+        "$-6x - 10$",
+        "$-6x + 10$",
+        "$6x + 10$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$-2 \times 3x = -6x$ and $-2 \times (-5) = +10$. The expanded form is $-6x + 10$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q9",
+      "stem": "Simplify $5(2x + 1) - 3x$.",
+      "choices": [
+        "$7x + 1$",
+        "$7x + 5$",
+        "$10x + 5$",
+        "$13x$"
+      ],
+      "correctIndex": 1,
+      "explanation": "First expand $5(2x + 1) = 10x + 5$, then subtract $3x$: $10x + 5 - 3x = 7x + 5$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q10",
+      "stem": "Simplify $2(x + 4) + 3(x + 2)$.",
+      "choices": [
+        "$5x + 6$",
+        "$5x + 14$",
+        "$6x + 8$",
+        "$5x + 10$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Expand both brackets: $2x + 8 + 3x + 6$. Collect like terms: $2x + 3x = 5x$ and $8 + 6 = 14$, giving $5x + 14$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q11",
+      "stem": "Simplify $4(3x - 2) - 2(x - 5)$.",
+      "choices": [
+        "$10x + 2$",
+        "$10x - 2$",
+        "$10x - 18$",
+        "$6x + 2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Expand: $12x - 8 - 2x + 10$. Collect like terms: $12x - 2x = 10x$ and $-8 + 10 = 2$. The answer is $10x + 2$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q12",
+      "stem": "Which expression is equivalent to $x + x + x + x$?",
+      "choices": [
+        "$4x$",
+        "$x^4$",
+        "$4x^4$",
+        "$4 + x$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Four lots of $x$ added together is the same as $4 \times x$, which is written as $4x$. The exponent is not added."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q13",
+      "stem": "Simplify $7x - 3 - 4x + 9$.",
+      "choices": [
+        "$3x + 12$",
+        "$3x - 6$",
+        "$11x + 6$",
+        "$3x + 6$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$x$ terms: $7x - 4x = 3x$. Constant terms: $-3 + 9 = 6$. The simplified expression is $3x + 6$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q14",
+      "stem": "Expand and simplify $6 + 2(3x - 1)$.",
+      "choices": [
+        "$6x + 4$",
+        "$6x + 5$",
+        "$6x + 8$",
+        "$8x - 2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Expand the bracket: $6x - 2$. Then add the $6$ outside: $6x - 2 + 6 = 6x + 4$."
+    },
+    {
+      "id": "math-yr7-algebraic-expressions-q15",
+      "stem": "Simplify $3x + 2y - x - y + 4x$.",
+      "choices": [
+        "$6x + y$",
+        "$7x + y$",
+        "$6x - y$",
+        "$2x + 3y$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$x$ terms: $3x - x + 4x = 6x$. $y$ terms: $2y - y = y$. The final answer is $6x + y$."
+    }
+  ]
+}

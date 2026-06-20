@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Theatre stage with curtains, spotlight and drama masks</title>
+  <desc id="desc">A diagram of a Shakespearean-style theatre stage showing red side curtains, a wooden floor, a spotlight, comedy and tragedy masks, and labels for stage, audience and spotlight.</desc>
+  <defs>
+    <linearGradient id="curtainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B0000;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#B22222;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B0000;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5D4037;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3E2723;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="spotlightGrad" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" style="stop-color:#FFFACD;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#FFFACD;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background wall -->
+  <rect x="0" y="0" width="800" height="500" fill="#1a1a2e"/>
+
+  <!-- Stage floor -->
+  <path d="M 100 320 L 700 320 L 760 460 L 40 460 Z" fill="url(#floorGrad)" stroke="#3E2723" stroke-width="2"/>
+  <line x1="180" y1="320" x2="140" y2="460" stroke="#4E342E" stroke-width="2"/>
+  <line x1="300" y1="320" x2="300" y2="460" stroke="#4E342E" stroke-width="2"/>
+  <line x1="420" y1="320" x2="460" y2="460" stroke="#4E342E" stroke-width="2"/>
+  <line x1="540" y1="320" x2="620" y2="460" stroke="#4E342E" stroke-width="2"/>
+
+  <!-- Left curtain -->
+  <path d="M 0 0 Q 80 120 60 250 Q 50 350 80 450 L 0 450 Z" fill="url(#curtainGrad)" stroke="#5c0000" stroke-width="2"/>
+  <path d="M 60 250 Q 90 200 120 260 Q 100 350 130 450 L 80 450 Q 50 350 60 250" fill="#9e1b1b" stroke="#5c0000" stroke-width="2"/>
+
+  <!-- Right curtain -->
+  <path d="M 800 0 Q 720 120 740 250 Q 750 350 720 450 L 800 450 Z" fill="url(#curtainGrad)" stroke="#5c0000" stroke-width="2"/>
+  <path d="M 740 250 Q 710 200 680 260 Q 700 350 670 450 L 720 450 Q 750 350 740 250" fill="#9e1b1b" stroke="#5c0000" stroke-width="2"/>
+
+  <!-- Top valance -->
+  <path d="M 0 0 L 800 0 L 800 80 Q 700 120 600 80 Q 500 40 400 80 Q 300 120 200 80 Q 100 40 0 80 Z" fill="#B22222" stroke="#5c0000" stroke-width="2"/>
+
+  <!-- Spotlight beam -->
+  <polygon points="360,0 440,0 520,420 280,420" fill="url(#spotlightGrad)"/>
+
+  <!-- Comedy mask -->
+  <g transform="translate(340, 220)">
+    <ellipse cx="30" cy="40" rx="28" ry="36" fill="#F4D03F" stroke="#B7950B" stroke-width="2"/>
+    <circle cx="18" cy="32" r="6" fill="#1a1a2e"/>
+    <circle cx="42" cy="32" r="6" fill="#1a1a2e"/>
+    <path d="M 14 52 Q 30 68 46 52" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Tragedy mask -->
+  <g transform="translate(400, 220)">
+    <ellipse cx="30" cy="40" rx="28" ry="36" fill="#AAB7B8" stroke="#626567" stroke-width="2"/>
+    <circle cx="18" cy="34" r="6" fill="#1a1a2e"/>
+    <circle cx="42" cy="34" r="6" fill="#1a1a2e"/>
+    <path d="M 14 58 Q 30 42 46 58" fill="none" stroke="#1a1a2e" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Labels with backing rectangles for readability -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#1a1a2e">
+    <!-- Stage label -->
+    <rect x="360" y="370" width="80" height="24" rx="4" fill="#f9fafb" opacity="0.95"/>
+    <text x="400" y="387" text-anchor="middle" font-weight="600">Stage</text>
+
+    <!-- Audience label -->
+    <rect x="355" y="440" width="90" height="24" rx="4" fill="#f9fafb" opacity="0.95"/>
+    <text x="400" y="457" text-anchor="middle" font-weight="600">Audience</text>
+
+    <!-- Spotlight label -->
+    <rect x="520" y="140" width="90" height="24" rx="4" fill="#f9fafb" opacity="0.95"/>
+    <text x="565" y="157" text-anchor="middle" font-weight="600">Spotlight</text>
+    <line x1="565" y1="164" x2="480" y2="240" stroke="#6b7280" stroke-width="1.5" fill="none"/>
+
+    <!-- Curtains label -->
+    <rect x="70" y="140" width="80" height="24" rx="4" fill="#f9fafb" opacity="0.95"/>
+    <text x="110" y="157" text-anchor="middle" font-weight="600">Curtains</text>
+    <line x1="110" y1="164" x2="90" y2="220" stroke="#6b7280" stroke-width="1.5" fill="none"/>
+  </g>
+</svg>

@@ -1,0 +1,310 @@
+{
+  "id": "math-yr7-venn-sets",
+  "subjectId": "math",
+  "title": "Venn Diagrams & Sets",
+  "description": "Use Venn diagrams to show sets, intersections, unions and complements.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr7-venn-sets-n1",
+      "heading": "What is a Set?",
+      "illustration": {
+        "src": "/images/math/math-yr7-venn-sets.svg",
+        "alt": "Venn diagram showing a universal set U containing two overlapping circles labelled A and B.",
+        "caption": "A Venn diagram shows how sets overlap inside a universal set."
+      },
+      "body": "📌 Definition\nA set is a well-defined collection of distinct objects called elements. Sets are usually named with capital letters such as $A$, $B$ or $U$.\n\nWe can write a set by listing its elements inside braces:\n$$A = \\{1, 2, 3, 4\\}$$\n\nThe symbol $\\in$ means \"is an element of\". For this set, $2 \\in A$ and $5 \\notin A$.\n\n🔑 Key Concept\nThe universal set $U$ contains every object being considered in a problem. All other sets are drawn inside $U$.\n\n💡 Worked Example\nIf $U = \\{1, 2, 3, 4, 5, 6\\}$ and $A = \\{2, 4, 6\\}$, list the elements that are in $U$ but not in $A$.\n\nAnswer: $1$, $3$, $5$.\n\n📎 Key Points to Remember\n• A set collects distinct objects.\n• Capital letters name sets.\n• $U$ is the universal set.\n\n⚠️ Common Mistake\nWriting $A \\in 2$ instead of $2 \\in A$. The element belongs to the set, not the set to the element."
+    },
+    {
+      "id": "math-yr7-venn-sets-n2",
+      "heading": "Reading a Venn Diagram",
+      "body": "📌 Definition\nA Venn diagram uses closed curves, usually circles or rectangles, to represent sets and their relationships.\n\nIn a basic two-set Venn diagram:\n• The rectangle represents the universal set $U$.\n• Each circle represents one set.\n• Points inside a circle are elements of that set.\n• The overlapping region belongs to both sets.\n\n🔑 Key Concept\nAn element that belongs to two sets is placed inside the overlap of their circles.\n\n💡 Worked Example\nLet $U = \\{1, 2, 3, \\dots, 10\\}$, $A = \\{2, 4, 6, 8, 10\\}$ and $B = \\{1, 2, 3, 4, 5\\}$.\n\nPlace each number in the diagram:\n• $2$ and $4$ are in $A \\cap B$, so they go in the overlap.\n• $6, 8, 10$ are in $A$ only.\n• $1, 3, 5$ are in $B$ only.\n• $7, 9$ are outside both circles.\n\n✅ Check\nEvery element of $U$ appears exactly once in the diagram."
+    },
+    {
+      "id": "math-yr7-venn-sets-n3",
+      "heading": "Intersection $A \\cap B$",
+      "body": "📌 Definition\nThe intersection of two sets $A$ and $B$, written $A \\cap B$, is the set of elements that are in both $A$ and $B$.\n\nIn symbols:\n$$A \\cap B = \\{x : x \\in A \\text{ and } x \\in B\\}$$\n\n🔑 Key Concept\nIn a Venn diagram, $A \\cap B$ is the overlapping lens-shaped region of the two circles.\n\n💡 Worked Example\nIf $A = \\{1, 2, 3, 4\\}$ and $B = \\{3, 4, 5, 6\\}$, then:\n$$A \\cap B = \\{3, 4\\}$$\n\n📎 Key Points to Remember\n• $A \\cap B$ contains only the elements shared by both sets.\n• If two sets have no elements in common, $A \\cap B = \\emptyset$.\n• The order does not matter: $A \\cap B = B \\cap A$."
+    },
+    {
+      "id": "math-yr7-venn-sets-n4",
+      "heading": "Union $A \\cup B$",
+      "body": "📌 Definition\nThe union of two sets $A$ and $B$, written $A \\cup B$, is the set of all elements that are in $A$, in $B$, or in both.\n\nIn symbols:\n$$A \\cup B = \\{x : x \\in A \\text{ or } x \\in B\\}$$\n\n🔑 Key Concept\nIn a Venn diagram, $A \\cup B$ covers everything inside either circle, including the overlap.\n\n💡 Worked Example\nIf $A = \\{1, 2, 3, 4\\}$ and $B = \\{3, 4, 5, 6\\}$, then:\n$$A \\cup B = \\{1, 2, 3, 4, 5, 6\\}$$\n\n✅ Check\nEach element is listed only once, even if it appears in both sets.\n\n⚠️ Common Mistake\nListing shared elements twice. Sets contain distinct objects, so $3$ and $4$ appear only once in $A \\cup B$."
+    },
+    {
+      "id": "math-yr7-venn-sets-n5",
+      "heading": "Complement $A'$",
+      "body": "📌 Definition\nThe complement of a set $A$, written $A'$, is the set of all elements in the universal set $U$ that are not in $A$.\n\nIn symbols:\n$$A' = \\{x : x \\in U \\text{ and } x \\notin A\\}$$\n\n🔑 Key Concept\nIn a Venn diagram, $A'$ is everything inside the rectangle $U$ but outside circle $A$.\n\n💡 Worked Example\nLet $U = \\{1, 2, 3, 4, 5, 6, 7, 8\\}$ and $A = \\{2, 4, 6, 8\\}$.\n\nThen:\n$$A' = \\{1, 3, 5, 7\\}$$\n\n📎 Key Points to Remember\n• The complement depends on the universal set $U$.\n• $A \\cap A' = \\emptyset$.\n• $A \\cup A' = U$."
+    },
+    {
+      "id": "math-yr7-venn-sets-n6",
+      "heading": "Subsets and Disjoint Sets",
+      "body": "📌 Definition\nA set $A$ is a subset of $B$, written $A \\subset B$, if every element of $A$ is also an element of $B$.\n\nTwo sets are disjoint if they have no elements in common, so $A \\cap B = \\emptyset$.\n\n🔑 Key Concept\nIn a Venn diagram:\n• If $A \\subset B$, the circle for $A$ sits completely inside the circle for $B$.\n• If $A$ and $B$ are disjoint, the two circles do not overlap.\n\n💡 Worked Example\nLet $A = \\{2, 4\\}$ and $B = \\{1, 2, 3, 4, 5\\}$. Since every element of $A$ is in $B$, we write $A \\subset B$.\n\nLet $C = \\{7, 8\\}$. Then $A$ and $C$ are disjoint because $A \\cap C = \\emptyset$.\n\n⚠️ Common Mistake\nThinking that $A \\subset B$ means $A$ and $B$ merely share some elements. It means every element of $A$ is in $B$."
+    },
+    {
+      "id": "math-yr7-venn-sets-n7",
+      "heading": "Counting with Venn Diagrams",
+      "body": "📌 Definition\nThe number of elements in a set $A$ is written $n(A)$.\n\nFor two sets, the counting rule is:\n$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$\n\n🔑 Key Concept\nWe subtract $n(A \\cap B)$ because those elements are counted twice when we simply add $n(A)$ and $n(B)$.\n\n💡 Worked Example\nIn a group of students, $12$ play football, $9$ play basketball and $5$ play both. How many students play at least one sport?\n\nLet $F$ be the set of football players and $B$ the set of basketball players.\n\n$$n(F \\cup B) = 12 + 9 - 5 = 16$$\n\nSo $16$ students play at least one sport.\n\n✅ Check\nOnly the students in the overlap are subtracted once.\n\n📎 Key Points to Remember\n• $n(A)$ means \"the number of elements in set $A$\".\n• Add the two sets, then subtract the overlap.\n• Use the diagram to fill in each region before adding."
+    },
+    {
+      "id": "math-yr7-venn-sets-n8",
+      "heading": "Solving Problems with Venn Diagrams",
+      "body": "📌 Definition\nA Venn diagram can help organise information and answer questions about overlapping groups.\n\n🔑 How it works\n1. Draw a rectangle for the universal set $U$ and circles for each set.\n2. Fill in the overlap first, using the number given for $A \\cap B$.\n3. Fill in the remaining parts of each circle.\n4. Find the value asked for, such as total in $A \\cup B$ or outside both sets.\n\n💡 Worked Example\nIn a class of $30$ students, $18$ study Spanish, $15$ study French and $7$ study both. How many study neither language?\n\nStep 1: Fill in the overlap: $7$.\n\nStep 2: Spanish only: $18 - 7 = 11$.\n\nStep 3: French only: $15 - 7 = 8$.\n\nStep 4: Total inside at least one circle: $11 + 7 + 8 = 26$.\n\nStep 5: Neither: $30 - 26 = 4$.\n\nAnswer: $4$ students study neither language.\n\n⚠️ Common Mistake\nForgetting to subtract the overlap before finding \"only Spanish\" or \"only French\"."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-venn-sets-f1",
+      "term": "Set",
+      "definition": "A well-defined collection of distinct objects called elements.",
+      "example": "$A = \\{1, 2, 3\\}$ is a set with three elements."
+    },
+    {
+      "id": "math-yr7-venn-sets-f2",
+      "term": "Element",
+      "definition": "A single object that belongs to a set.",
+      "example": "For $A = \\{1, 2, 3\\}$, the number $2$ is an element of $A$, written $2 \\in A$."
+    },
+    {
+      "id": "math-yr7-venn-sets-f3",
+      "term": "Universal set",
+      "definition": "The set that contains all objects being considered in a problem.",
+      "example": "If only whole numbers from $1$ to $10$ are being considered, then $U = \\{1, 2, \\dots, 10\\}$."
+    },
+    {
+      "id": "math-yr7-venn-sets-f4",
+      "term": "Venn diagram",
+      "definition": "A diagram that uses overlapping shapes to show how sets are related.",
+      "example": "Two overlapping circles inside a rectangle show sets $A$ and $B$ inside the universal set $U$."
+    },
+    {
+      "id": "math-yr7-venn-sets-f5",
+      "term": "Intersection",
+      "definition": "The set of elements that are in both sets.",
+      "example": "If $A = \\{1, 2, 3\\}$ and $B = \\{2, 3, 4\\}$, then $A \\cap B = \\{2, 3\\}$."
+    },
+    {
+      "id": "math-yr7-venn-sets-f6",
+      "term": "Union",
+      "definition": "The set of all elements that are in either set, or in both.",
+      "example": "If $A = \\{1, 2, 3\\}$ and $B = \\{2, 3, 4\\}$, then $A \\cup B = \\{1, 2, 3, 4\\}$."
+    },
+    {
+      "id": "math-yr7-venn-sets-f7",
+      "term": "Complement",
+      "definition": "The set of all elements in the universal set that are not in a given set.",
+      "example": "If $U = \\{1, 2, 3, 4\\}$ and $A = \\{2, 4\\}$, then $A' = \\{1, 3\\}$."
+    },
+    {
+      "id": "math-yr7-venn-sets-f8",
+      "term": "Subset",
+      "definition": "A set whose elements are all contained in another set.",
+      "example": "$\\{2, 4\\} \\subset \\{1, 2, 3, 4\\}$ because every element is in the larger set."
+    },
+    {
+      "id": "math-yr7-venn-sets-f9",
+      "term": "Disjoint sets",
+      "definition": "Two sets that have no elements in common.",
+      "example": "$\\{1, 2\\}$ and $\\{3, 4\\}$ are disjoint because their intersection is empty."
+    },
+    {
+      "id": "math-yr7-venn-sets-f10",
+      "term": "$n(A)$",
+      "definition": "The number of elements in set $A$.",
+      "example": "If $A = \\{a, b, c\\}$, then $n(A) = 3$."
+    },
+    {
+      "id": "math-yr7-venn-sets-f11",
+      "term": "Empty set",
+      "definition": "The set that contains no elements.",
+      "example": "If $A = \\{1, 2\\}$ and $B = \\{3, 4\\}$, then $A \\cap B = \\emptyset$."
+    },
+    {
+      "id": "math-yr7-venn-sets-f12",
+      "term": "Inclusion-exclusion principle",
+      "definition": "A counting rule for the union of two sets: add the sizes and subtract the overlap.",
+      "example": "$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-venn-sets-q1",
+      "stem": "Which symbol is used for the intersection of two sets?",
+      "choices": [
+        "$\\cup$",
+        "$\\cap$",
+        "$\\subset$",
+        "$\\in$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$A \\cap B$ is read \"$A$ intersection $B$\" and contains only the elements shared by both sets."
+    },
+    {
+      "id": "math-yr7-venn-sets-q2",
+      "stem": "Which symbol is used for the union of two sets?",
+      "choices": [
+        "$\\cap$",
+        "$\\cup$",
+        "$\\subset$",
+        "$\\notin$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$A \\cup B$ is read \"$A$ union $B$\" and contains every element that is in $A$, in $B$, or in both."
+    },
+    {
+      "id": "math-yr7-venn-sets-q3",
+      "stem": "What does $A'$ represent?",
+      "choices": [
+        "The complement of set $A$",
+        "The union of set $A$",
+        "The intersection of set $A$",
+        "A subset of set $A$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$A'$ is the complement of $A$, meaning all elements in the universal set $U$ that are not in $A$."
+    },
+    {
+      "id": "math-yr7-venn-sets-q4",
+      "stem": "Let $U = \\{1, 2, 3, \\dots, 10\\}$ and $A = \\{2, 4, 6, 8\\}$. What is $A'$?",
+      "choices": [
+        "$\\{1, 3, 5, 7, 9\\}$",
+        "$\\{2, 4, 6, 8\\}$",
+        "$\\{1, 3, 5, 7\\}$",
+        "$\\{10\\}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$A'$ contains every element of $U$ that is not in $A$, giving the odd numbers from $1$ to $9$."
+    },
+    {
+      "id": "math-yr7-venn-sets-q5",
+      "stem": "If $A = \\{1, 2, 3\\}$ and $B = \\{2, 3, 4\\}$, what is $A \\cap B$?",
+      "choices": [
+        "$\\{1, 2, 3, 4\\}$",
+        "$\\{2, 3\\}$",
+        "$\\{1, 4\\}$",
+        "$\\{3\\}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The intersection contains only the elements that appear in both sets: $2$ and $3$."
+    },
+    {
+      "id": "math-yr7-venn-sets-q6",
+      "stem": "If $A = \\{1, 2, 3\\}$ and $B = \\{2, 3, 4\\}$, what is $A \\cup B$?",
+      "choices": [
+        "$\\{1, 2, 3, 4\\}$",
+        "$\\{2, 3\\}$",
+        "$\\{1, 4\\}$",
+        "$\\{1, 2, 3\\}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The union contains every element that is in $A$ or $B$, listed without duplication: $1, 2, 3, 4$."
+    },
+    {
+      "id": "math-yr7-venn-sets-q7",
+      "stem": "If $A$ and $B$ are disjoint sets, what is $A \\cap B$?",
+      "choices": [
+        "$U$",
+        "$A$",
+        "$B$",
+        "$\\emptyset$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Disjoint sets have no common elements, so their intersection is the empty set."
+    },
+    {
+      "id": "math-yr7-venn-sets-q8",
+      "stem": "Which Venn diagram shows $A \\subset B$?",
+      "choices": [
+        "The circle for $A$ is completely inside the circle for $B$",
+        "The two circles overlap partly",
+        "The two circles do not touch",
+        "The two circles are identical"
+      ],
+      "correctIndex": 0,
+      "explanation": "When $A$ is a subset of $B$, every element of $A$ is also in $B$, so circle $A$ lies inside circle $B$."
+    },
+    {
+      "id": "math-yr7-venn-sets-q9",
+      "stem": "$n(A) = 10$, $n(B) = 6$ and $n(A \\cap B) = 2$. What is $n(A \\cup B)$?",
+      "choices": [
+        "$14$",
+        "$16$",
+        "$12$",
+        "$18$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using $n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$ gives $10 + 6 - 2 = 14$."
+    },
+    {
+      "id": "math-yr7-venn-sets-q10",
+      "stem": "In a class of $40$ students, $25$ play tennis, $18$ play hockey and $8$ play both. How many play neither sport?",
+      "choices": [
+        "$5$",
+        "$7$",
+        "$9$",
+        "$15$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Tennis only is $25 - 8 = 17$, hockey only is $18 - 8 = 10$, so $17 + 8 + 10 = 35$ play at least one sport. Therefore $40 - 35 = 5$ play neither."
+    },
+    {
+      "id": "math-yr7-venn-sets-q11",
+      "stem": "Let $U = \\{1, 2, 3, \\dots, 20\\}$. $A$ is the set of even numbers and $B$ is the set of multiples of $3$. How many elements are in $A \\cap B$?",
+      "choices": [
+        "$2$",
+        "$3$",
+        "$4$",
+        "$5$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$A \\cap B$ contains multiples of $6$: $6, 12, 18$. That is $3$ elements."
+    },
+    {
+      "id": "math-yr7-venn-sets-q12",
+      "stem": "Which list represents $A = \\{x \\in \\mathbb{N} : x < 6\\}$?",
+      "choices": [
+        "$\\{1, 2, 3, 4, 5\\}$",
+        "$\\{0, 1, 2, 3, 4, 5\\}$",
+        "$\\{1, 2, 3, 4, 5, 6\\}$",
+        "$\\{2, 3, 4, 5\\}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The set contains natural numbers less than $6$, which are $1, 2, 3, 4, 5$."
+    },
+    {
+      "id": "math-yr7-venn-sets-q13",
+      "stem": "What is $A \\cap A'$?",
+      "choices": [
+        "$U$",
+        "$A$",
+        "$\\emptyset$",
+        "$A'$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A set and its complement have no elements in common, so their intersection is the empty set."
+    },
+    {
+      "id": "math-yr7-venn-sets-q14",
+      "stem": "If $A \\subset B$, which statement must be true?",
+      "choices": [
+        "$A \\cap B = A$",
+        "$A \\cup B = B$",
+        "Both of the above",
+        "$A \\cap B = \\emptyset$"
+      ],
+      "correctIndex": 2,
+      "explanation": "If every element of $A$ is in $B$, then $A$ and $B$ overlap exactly on $A$, and their union is just $B$."
+    },
+    {
+      "id": "math-yr7-venn-sets-q15",
+      "stem": "In a survey of $50$ people, $30$ like tea, $25$ like coffee and $10$ like both. How many like at least one drink?",
+      "choices": [
+        "$35$",
+        "$45$",
+        "$55$",
+        "$50$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Using inclusion-exclusion, $30 + 25 - 10 = 45$ people like tea, coffee, or both."
+    }
+  ]
+}
