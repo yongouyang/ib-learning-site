@@ -24,6 +24,21 @@
       "id": "math-dp-matrices-n4",
       "heading": "Solving Systems of Linear Equations",
       "body": "One of the most powerful applications of matrices is solving systems of linear equations. Instead of solving equation by equation, you can solve the entire system in one step using matrix inverses.\n\n📌 Matrix Form of a System\nA system of linear equations can be written as:\n    $$AX = B$$\nwhere:\n• $A$ = coefficient matrix\n• $X$ = column vector of variables\n• $B$ = column vector of constants\n\n🔑 Condition for a Unique Solution\nFor a unique solution to exist:\n• $A$ must be square\n• $\\det(A) \\neq 0$  ($A$ must be invertible)\n\nIf $\\det(A) = 0$, the system has either no solution or infinitely many solutions.\n\n💡 Worked Example — Solving a $2 \\times 2$ System\nSolve:  $$2x + y = 7$$\n        $$3x + 2y = 12$$\n\n  Step 1: Write in matrix form $AX = B$\n    $$A = \\begin{pmatrix} 2 & 1 \\\\ 3 & 2 \\end{pmatrix}, \\quad X = \\begin{pmatrix} x \\\\ y \\end{pmatrix}, \\quad B = \\begin{pmatrix} 7 \\\\ 12 \\end{pmatrix}$$\n\n  Step 2: Find $\\det(A)$\n    $$\\det(A) = (2)(2) - (1)(3) = 4 - 3 = 1$$\n\n  Step 3: Find $A^{-1}$\n    $$A^{-1} = \\frac{1}{1} \\begin{pmatrix} 2 & -1 \\\\ -3 & 2 \\end{pmatrix}$$\n    $$A^{-1} = \\begin{pmatrix} 2 & -1 \\\\ -3 & 2 \\end{pmatrix}$$\n\n  Step 4: Solve $X = A^{-1}B$\n    $$X = \\begin{pmatrix} 2 & -1 \\\\ -3 & 2 \\end{pmatrix} \\begin{pmatrix} 7 \\\\ 12 \\end{pmatrix}$$\n    $$x = (2)(7) + (-1)(12) = 14 - 12 = 2$$\n    $$y = (-3)(7) + (2)(12) = -21 + 24 = 3$$\n\n  Step 5: Verify by substitution\n    $2(2) + 3 = 7$  ✓\n    $3(2) + 2(3) = 12$  ✓\n\n💡 Worked Example — Solving a $3 \\times 3$ System\nSolve:  $$x + 3y - z = 3$$\n        $$2x + 2y + z = 2$$\n        $$3x - y + 2z = 1$$\n\n  Step 1: Write in matrix form $AX = B$\n    $$A = \\begin{pmatrix} 1 & 3 & -1 \\\\ 2 & 2 & 1 \\\\ 3 & -1 & 2 \\end{pmatrix}$$\n    $$X = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}$$\n    $$B = \\begin{pmatrix} 3 \\\\ 2 \\\\ 1 \\end{pmatrix}$$\n\n  Step 2: Find $A^{-1}$ using your GDC\n    (In exams, use your GDC for $3 \\times 3$ inverses)\n\n  Step 3: Calculate $X = A^{-1}B$\n    $$X = \\begin{pmatrix} -\\frac{5}{8} \\\\ \\frac{11}{8} \\\\ \\frac{5}{4} \\end{pmatrix}$$\n\n  Step 4: State the solution\n    $$x = -\\frac{5}{8}, \\quad y = \\frac{11}{8}, \\quad z = \\frac{5}{4}$$\n\n📌 Isolating Variables in Matrix Equations\nIf $AB = C$, pre-multiply by $A^{-1}$:\n    $$B = A^{-1}C$$\n\nIf $BA = C$, post-multiply by $A^{-1}$:\n    $$B = CA^{-1}$$\n\nThe order of multiplication matters because matrix multiplication is not commutative.\n\n📎 Key Points to Remember\n• For $2 \\times 2$ systems, you can solve by hand using the inverse formula\n• For $3 \\times 3$ systems, use your GDC to find $A^{-1}$\n• Always verify your answer by substituting back into the original equations\n• If $\\det(A) = 0$, there is no unique solution\n• Pre-multiplication and post-multiplication give different results\n\n⚠️ Common Mistake\nGetting the order of multiplication wrong when isolating a matrix. Remember: to cancel $A$ from the left side of $AB = C$, you must pre-multiply both sides by $A^{-1}$ ($A^{-1}$ on the left). To cancel $A$ from the right side of $BA = C$, you must post-multiply both sides by $A^{-1}$ ($A^{-1}$ on the right)."
+    },
+    {
+      "id": "math-dp-matrices-n5",
+      "heading": "Transpose of a Matrix",
+      "body": "The transpose is a simple but useful operation that turns rows into columns. It appears in many matrix formulas and applications.\n\n📌 Definition\nThe transpose of a matrix $A$, written $A^T$, is formed by interchanging rows and columns.\n\nIf $A$ has order $m \\times n$, then $A^T$ has order $n \\times m$.\n\nThe element in row $i$, column $j$ of $A^T$ is the element in row $j$, column $i$ of $A$:\n    $$(A^T)_{ij} = a_{ji}$$\n\n🔑 Properties of the Transpose\n• $(A^T)^T = A$\n• $(A + B)^T = A^T + B^T$\n• $(kA)^T = kA^T$\n• $(AB)^T = B^T A^T$  (note the reversed order)\n\n💡 Worked Example\nLet $$A = \\begin{pmatrix} 2 & -1 & 5 \\\\ 0 & 3 & 4 \\end{pmatrix}$$\n\n  Step 1: Identify the order\n    $A$ is $2 \\times 3$, so $A^T$ will be $3 \\times 2$\n\n  Step 2: Rewrite each row of $A$ as a column of $A^T$\n    Row 1 of $A$: $(2, -1, 5)$ becomes Column 1 of $A^T$\n    Row 2 of $A$: $(0, 3, 4)$ becomes Column 2 of $A^T$\n\n    $$A^T = \\begin{pmatrix} 2 & 0 \\\\ -1 & 3 \\\\ 5 & 4 \\end{pmatrix}$$\n\n📎 Key Points to Remember\n• The order swaps: rows become columns and columns become rows\n• A square matrix is symmetric if $A^T = A$\n• For products, the transpose reverses the order of multiplication\n\n⚠️ Common Mistake\nForgetting to reverse the order when taking the transpose of a product. $(AB)^T \\neq A^T B^T$ in general; it equals $B^T A^T$."
+    },
+    {
+      "id": "math-dp-matrices-n6",
+      "heading": "Determinants of $3 \\times 3$ Matrices",
+      "body": "For larger matrices, finding determinants by hand becomes tedious. In DP mathematics, you will normally use your GDC, but understanding the idea helps you check your answers.\n\n📌 Definition\nThe determinant of a $3 \\times 3$ matrix is a single number calculated from its nine elements. Like the $2 \\times 2$ case, if the determinant is zero, the matrix has no inverse.\n\n🔑 How it works\nFor $$A = \\begin{pmatrix} a_{11} & a_{12} & a_{13} \\\\ a_{21} & a_{22} & a_{23} \\\\ a_{31} & a_{32} & a_{33} \\end{pmatrix}$$\n\nyou can expand along the first row:\n    $$\\det(A) = a_{11}\\begin{vmatrix} a_{22} & a_{23} \\\\ a_{32} & a_{33} \\end{vmatrix} - a_{12}\\begin{vmatrix} a_{21} & a_{23} \\\\ a_{31} & a_{33} \\end{vmatrix} + a_{13}\\begin{vmatrix} a_{21} & a_{22} \\\\ a_{31} & a_{32} \\end{vmatrix}$$\n\nEach $2 \\times 2$ determinant is called a minor, and the alternating signs are called cofactors.\n\n💡 Worked Example\nFind $\\det(A)$ for $$A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 4 & 5 \\\\ 0 & 0 & 6 \\end{pmatrix}$$\n\n  Step 1: Expand along the first row\n    $$\\det(A) = 1\\begin{vmatrix} 4 & 5 \\\\ 0 & 6 \\end{vmatrix} - 2\\begin{vmatrix} 0 & 5 \\\\ 0 & 6 \\end{vmatrix} + 3\\begin{vmatrix} 0 & 4 \\\\ 0 & 0 \\end{vmatrix}$$\n\n  Step 2: Evaluate each $2 \\times 2$ determinant\n    $$\\det(A) = 1(24 - 0) - 2(0 - 0) + 3(0 - 0)$$\n    $$\\det(A) = 24$$\n\n🔑 Using your GDC\nIn exams, enter the matrix into your calculator and use the determinant command. Always write down the determinant value, not just the final answer, to show your method.\n\n📎 Key Points to Remember\n• A $3 \\times 3$ determinant is zero if one row (or column) is a multiple of another\n• Triangular matrices (zeros below or above the diagonal) have determinant equal to the product of diagonal entries\n• If $\\det(A) = 0$, $A^{-1}$ does not exist\n\n⚠️ Common Mistake\nMixing up the alternating signs during expansion. The pattern along any row or column is $+$, $-$, $+$."
+    },
+    {
+      "id": "math-dp-matrices-n7",
+      "heading": "Matrix Powers and Applications",
+      "body": "Matrices are not just abstract objects — they model real situations such as transitions between states, computer graphics, and networks.\n\n📌 Definition\nFor a square matrix $A$, the power $A^n$ means multiplying $A$ by itself $n$ times:\n    $$A^n = A \\times A \\times \\ldots \\times A \\quad (n \\text{ times})$$\n\n$A^0$ is defined to be the identity matrix $I$ (when $A$ is square).\n\n🔑 How it works\nYou can compute $A^n$ efficiently using a GDC. Repeated multiplication is useful when the same transformation or transition is applied many times.\n\n💡 Worked Example — Transition Matrix\nA delivery company has two warehouses, $X$ and $Y$. Each month, $80\\%$ of stock at $X$ stays at $X$ and $20\\%$ moves to $Y$; $70\\%$ of stock at $Y$ stays at $Y$ and $30\\%$ moves to $X$.\n\nThe transition matrix is:\n    $$T = \\begin{pmatrix} 0.8 & 0.3 \\\\ 0.2 & 0.7 \\end{pmatrix}$$\n\nwhere columns represent the current warehouse and rows represent the next warehouse.\n\nIf the current distribution is $$S_0 = \\begin{pmatrix} 100 \\\\ 200 \\end{pmatrix}$$, then after one month:\n    $$S_1 = T S_0 = \\begin{pmatrix} 0.8 & 0.3 \\\\ 0.2 & 0.7 \\end{pmatrix} \\begin{pmatrix} 100 \\\\ 200 \\end{pmatrix} = \\begin{pmatrix} 140 \\\\ 160 \\end{pmatrix}$$\n\nAfter two months:\n    $$S_2 = T^2 S_0 = T S_1$$\n\n📎 Key Points to Remember\n• Only square matrices can be raised to a power\n• Use a GDC for large powers or large matrices\n• In transition models, make sure you know whether columns or rows represent the current state\n\n⚠️ Common Mistake\nAssuming $A^n$ means raising each element to the power $n$. Matrix powers mean matrix multiplication, not element-wise powers."
     }
   ],
   "flashcards": [
@@ -74,6 +89,30 @@
       "term": "Solving $AX = B$",
       "definition": "If $A$ is invertible, the unique solution is $X = A^{-1}B$.",
       "example": "For a system $2x + y = 5$, $x - 3y = 6$, write as $AX = B$ and compute $X = A^{-1}B$."
+    },
+    {
+      "id": "math-dp-matrices-f9",
+      "term": "Transpose of a matrix $A^T$",
+      "definition": "The matrix formed by interchanging the rows and columns of $A$.",
+      "example": "If $A = \\begin{pmatrix} 2 & -1 \\\\ 0 & 3 \\\\ 5 & 4 \\end{pmatrix}$, then $A^T = \\begin{pmatrix} 2 & 0 & 5 \\\\ -1 & 3 & 4 \\end{pmatrix}$."
+    },
+    {
+      "id": "math-dp-matrices-f10",
+      "term": "Determinant of a $3 \\times 3$ matrix",
+      "definition": "A single number calculated from the nine elements; zero means the matrix has no inverse.",
+      "example": "Use your GDC or expand by minors: $\\det\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 4 & 5 \\\\ 0 & 0 & 6 \\end{pmatrix} = 24$."
+    },
+    {
+      "id": "math-dp-matrices-f11",
+      "term": "Matrix power $A^n$",
+      "definition": "The matrix $A$ multiplied by itself $n$ times, defined for square matrices.",
+      "example": "$A^3 = A \\times A \\times A$."
+    },
+    {
+      "id": "math-dp-matrices-f12",
+      "term": "Transition matrix",
+      "definition": "A matrix whose entries show the probabilities or proportions of moving from one state to another.",
+      "example": "$T = \\begin{pmatrix} 0.8 & 0.3 \\\\ 0.2 & 0.7 \\end{pmatrix}$ can model monthly stock movements between two warehouses."
     }
   ],
   "questions": [
@@ -196,6 +235,66 @@
       ],
       "correctIndex": 2,
       "explanation": "A unique solution requires $A$ to be invertible, which means it must be square with a non-zero determinant."
+    },
+    {
+      "id": "math-dp-matrices-q11",
+      "stem": "If $A$ is a $3 \\times 4$ matrix, what is the order of $A^T$?",
+      "choices": [
+        "$3 \\times 4$",
+        "$4 \\times 3$",
+        "$12 \\times 1$",
+        "Not defined"
+      ],
+      "correctIndex": 1,
+      "explanation": "The transpose swaps rows and columns, so a $3 \\times 4$ matrix becomes $4 \\times 3$."
+    },
+    {
+      "id": "math-dp-matrices-q12",
+      "stem": "Find $\\det(A)$ for $A = \\begin{pmatrix} 2 & 0 & 0 \\\\ 1 & 3 & 0 \\\\ 4 & 5 & 4 \\end{pmatrix}$.",
+      "choices": [
+        "24",
+        "12",
+        "9",
+        "0"
+      ],
+      "correctIndex": 0,
+      "explanation": "For a triangular matrix the determinant is the product of the diagonal entries: $2 \\times 3 \\times 4 = 24$."
+    },
+    {
+      "id": "math-dp-matrices-q13",
+      "stem": "If $A$ is a $3 \\times 3$ matrix with $\\det(A) = 2$, what is $\\det(2A)$?",
+      "choices": [
+        "4",
+        "6",
+        "8",
+        "16"
+      ],
+      "correctIndex": 3,
+      "explanation": "For an $n \\times n$ matrix, $\\det(kA) = k^n \\det(A)$. Here $n = 3$, so $\\det(2A) = 2^3 \\times 2 = 16$."
+    },
+    {
+      "id": "math-dp-matrices-q14",
+      "stem": "A transition matrix $T = \\begin{pmatrix} 0.6 & 0.4 \\\\ 0.4 & 0.6 \\end{pmatrix}$ acts on $S_0 = \\begin{pmatrix} 50 \\\\ 150 \\end{pmatrix}$. Find the first entry of $S_1 = T S_0$.",
+      "choices": [
+        "70",
+        "90",
+        "110",
+        "130"
+      ],
+      "correctIndex": 1,
+      "explanation": "$S_1 = T S_0 = \\begin{pmatrix} 0.6(50) + 0.4(150) \\\\ 0.4(50) + 0.6(150) \\end{pmatrix} = \\begin{pmatrix} 90 \\\\ 110 \\end{pmatrix}$, so the first entry is $90$."
+    },
+    {
+      "id": "math-dp-matrices-q15",
+      "stem": "The matrix equation $A X = B$ represents a system. Which statement is true if $\\det(A) = 0$?",
+      "choices": [
+        "There is always a unique solution",
+        "There is never a solution",
+        "There may be no solution or infinitely many solutions",
+        "The system can be solved using $X = A^{-1}B$"
+      ],
+      "correctIndex": 2,
+      "explanation": "If $\\det(A) = 0$, then $A$ has no inverse. The system is either inconsistent (no solution) or dependent (infinitely many solutions)."
     }
   ]
 }

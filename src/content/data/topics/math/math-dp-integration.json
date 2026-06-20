@@ -29,6 +29,16 @@
       "id": "math-dp-integration-int-n5",
       "heading": "Reverse Chain Rule and Composite Functions",
       "body": "The reverse chain rule lets you integrate composite functions by inspection. It is faster than formal substitution when the structure is easy to spot.\n\n📌 Reverse Chain Rule\nIf $F'(x) = f(x)$, then:\n    $$\\int g'(x) \\cdot f(g(x)) \\, dx = F(g(x)) + C$$\n\nIn words: if the integrand is the derivative of the inner function times the outer function, the result is the antiderivative of the outer function with the inner function plugged in.\n\n🔑 Linear Composite Functions — Direct Formulas\nFor any constants $a$ and $b$, with $n \\neq -1$:\n\n    $$\\int (ax + b)^n \\, dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$$\n\n    $$\\int \\sin(ax + b) \\, dx = -\\frac{1}{a} \\cos(ax + b) + C$$\n\n    $$\\int \\cos(ax + b) \\, dx = \\frac{1}{a} \\sin(ax + b) + C$$\n\n    $$\\int \\sec^2(ax + b) \\, dx = \\frac{1}{a} \\tan(ax + b) + C$$\n\n    $$\\int e^{ax + b} \\, dx = \\frac{1}{a} e^{ax + b} + C$$\n\n    $$\\int \\frac{1}{ax + b} \\, dx = \\frac{1}{a} \\ln|ax + b| + C$$\n\n💡 Worked Example — Integrating a Linear Composite\nFind $\\int \\sec^2(3x) \\, dx$.\n\n  Step 1: Identify the pattern\n    This matches $\\int \\sec^2(ax + b) \\, dx$ with $a = 3$, $b = 0$\n\n  Step 2: Apply the formula\n    $= \\frac{1}{3} \\tan(3x) + C$\n\n💡 Worked Example — Adjust and Compensate\nFind $\\int x \\cdot (5x^2 - 2)^6 \\, dx$.\n\n  Step 1: Spot the inner function\n    Let $u = 5x^2 - 2$, then $\\frac{du}{dx} = 10x$\n    We have $x$ in the integrand, but need $10x$\n\n  Step 2: Adjust and compensate\n    $x = \\frac{1}{10} \\cdot 10x$\n    $\\text{integral} = \\frac{1}{10} \\cdot \\int 10x \\cdot (5x^2 - 2)^6 \\, dx$\n\n  Step 3: Integrate by reverse chain rule\n    $= \\frac{1}{10} \\cdot \\frac{(5x^2 - 2)^7}{7} + C$\n    $= \\frac{(5x^2 - 2)^7}{70} + C$\n\n💡 Worked Example — Definite Integral with Substitution\nEvaluate $\\int_{1}^{e} \\frac{1}{x} \\, dx$.\n\n  Step 1: Identify the antiderivative\n    $$\\int \\frac{1}{x} \\, dx = \\ln|x| + C$$\n\n  Step 2: Apply the FTC\n    $[\\ln|x|]_{1}^{e}$\n    $= \\ln(e) - \\ln(1)$\n    $= 1 - 0$\n    $= 1$\n\n📎 Key Points to Remember\n• Every linear composite has a $\\frac{1}{a}$ factor — do not forget it\n• If the inner derivative is present but with a wrong coefficient, adjust and compensate\n• For definite integrals with substitution, change limits to $u$-values or substitute back\n• Reverse chain rule and substitution are the same idea presented differently\n\n⚠️ Common Mistake\nMultiplying by $a$ instead of dividing by $a$. Students often write $\\int \\sin(4x) \\, dx = \\cos(4x) + C$, but the correct answer is $-\\frac{1}{4}\\cos(4x) + C$. Always check by differentiating your answer — you should recover the original integrand."
+    },
+    {
+      "id": "math-dp-integration-int-n6",
+      "heading": "Average Value and Total Change",
+      "body": "Definite integrals are not only about area — they also give average values and accumulated totals over an interval.\n\n📌 Definition\nThe average value of a function $f(x)$ on the interval $[a,b]$ is:\n    $$\\text{Average value} = \\frac{1}{b-a} \\int_{a}^{b} f(x) \\, dx$$\n\nIf $f(x)$ represents a rate of change, the definite integral gives the total change over $[a,b]$.\n\n🔑 Key Concept\nThink of the average-value formula as \"height $\\times$ width = area, solved for height\". The integral gives the signed area under the curve; dividing by the width $b-a$ gives the mean height of the function on that interval.\n\n💡 Worked Example — Average Value\nFind the average value of $f(x) = x^2$ on $[0,3]$.\n\n  Step 1: Write the formula\n    $$\\text{Average} = \\frac{1}{3-0} \\int_{0}^{3} x^2 \\, dx$$\n\n  Step 2: Evaluate the integral\n    $$= \\frac{1}{3} \\left[\\frac{x^3}{3}\\right]_{0}^{3}$$\n    $$= \\frac{1}{3} \\left(\\frac{27}{3} - 0\\right)$$\n    $$= \\frac{1}{3} \\cdot 9 = 3$$\n\n💡 Worked Example — Total Change from a Rate\nWater flows into a tank at $r(t) = 5 + 2t$ litres per minute for $0 \\le t \\le 4$. Find the total volume that enters.\n\n  Step 1: Integrate the rate\n    $$V = \\int_{0}^{4} (5 + 2t) \\, dx$$\n\n  Step 2: Evaluate\n    $$= \\left[5t + t^2\\right]_{0}^{4}$$\n    $$= (20 + 16) - (0 + 0)$$\n    $$= 36 \\text{ litres}$$\n\n📎 Key Points to Remember\n• Average value always divides the integral by the length of the interval\n• Total change = integral of rate, with appropriate units\n• If $f(x)$ is negative on part of the interval, the average value is signed (net average)\n• For kinematics, $\\int v(t) \\, dt$ gives displacement; for flow rates it gives total volume\n\n⚠️ Common Mistake\nForgetting to divide by $b-a$ when asked for an average value. Many students correctly evaluate the integral but then present that as the average."
+    },
+    {
+      "id": "math-dp-integration-int-n7",
+      "heading": "Integration by Parts",
+      "body": "Integration by parts is the reverse of the product rule. It turns a difficult integral into a simpler one.\n\n📌 Definition\nFor functions $u(x)$ and $v(x)$:\n    $$\\int u \\frac{dv}{dx} \\, dx = uv - \\int v \\frac{du}{dx} \\, dx$$\n\nA compact form is:\n    $$\\int u \\, dv = uv - \\int v \\, du$$\n\n🔑 How it works\n1. Choose $u$ so that its derivative becomes simpler (LIATE: Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential)\n2. Let $dv$ be the rest of the integrand\n3. Differentiate $u$ to get $du$\n4. Integrate $dv$ to get $v$\n5. Substitute into the formula\n\n💡 Worked Example — Polynomial Times Exponential\nFind $\\int x e^x \\, dx$.\n\n  Step 1: Choose $u$ and $dv$\n    $u = x$  \\quad  $dv = e^x \\, dx$\n\n  Step 2: Differentiate and integrate\n    $du = dx$  \\quad  $v = e^x$\n\n  Step 3: Apply the formula\n    $$\\int x e^x \\, dx = x e^x - \\int e^x \\, dx$$\n\n  Step 4: Finish\n    $$= x e^x - e^x + C$$\n\n💡 Worked Example — Definite Integral by Parts\nEvaluate $\\int_{0}^{1} x e^x \\, dx$.\n\n  Using the antiderivative from above:\n    $$\\left[x e^x - e^x\\right]_{0}^{1}$$\n    $$= (1 \\cdot e - e) - (0 - 1)$$\n    $$= 1$$\n\n📎 Key Points to Remember\n• Pick $u$ using LIATE to make the new integral simpler\n• Sometimes integration by parts must be applied more than once (e.g. $x^2 e^x$)\n• For definite integrals, evaluate $uv$ and the remaining integral at both limits\n• The constant $C$ is only added at the very end\n\n⚠️ Common Mistake\nChoosing the wrong $u$. If we had set $u = e^x$ in $\\int x e^x \\, dx$, the integral would become harder, not easier. Always differentiate the part that simplifies."
     }
   ],
   "flashcards": [
@@ -91,6 +101,18 @@
       "term": "$\\int (ax+b)^n \\, dx$",
       "definition": "$\\int (ax+b)^n \\, dx = \\frac{(ax+b)^{n+1}}{a(n+1)} + C$ ($n \\neq -1$)",
       "example": "$\\int (2x+1)^3 \\, dx = \\frac{(2x+1)^4}{8} + C$."
+    },
+    {
+      "id": "math-dp-integration-int-f11",
+      "term": "Average value of a function",
+      "definition": "$\\text{Average value} = \\frac{1}{b-a} \\int_{a}^{b} f(x) \\, dx$",
+      "example": "Average value of $x^2$ on $[0,3]$ is $3$."
+    },
+    {
+      "id": "math-dp-integration-int-f12",
+      "term": "Integration by Parts",
+      "definition": "$\\int u \\, dv = uv - \\int v \\, du$",
+      "example": "$\\int x e^x \\, dx = x e^x - e^x + C$."
     }
   ],
   "questions": [
@@ -237,6 +259,42 @@
       ],
       "correctIndex": 0,
       "explanation": "$v(t) = (t-1)(t-3)$, so $v>0$ on $[0,1)$ and $v<0$ on $(1,3]$. Split the integral: $\\int_{0}^{1} (t^2-4t+3) \\, dt + \\int_{1}^{3} -(t^2-4t+3) \\, dt = \\frac{4}{3} + \\frac{4}{3} = \\frac{8}{3}$. Choice $B$ is the displacement (net zero); choice $C$ only counts the first interval; choice $D$ has a sign error."
+    },
+    {
+      "id": "math-dp-integration-int-q13",
+      "stem": "Find the average value of $f(x) = x^2$ on the interval $[0,3]$.",
+      "choices": [
+        "$3$",
+        "$9$",
+        "$1$",
+        "$27$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Average value = $\\frac{1}{3-0} \\int_{0}^{3} x^2 \\, dx = \\frac{1}{3} \\left[\\frac{x^3}{3}\\right]_{0}^{3} = \\frac{1}{3} \\cdot 9 = 3$."
+    },
+    {
+      "id": "math-dp-integration-int-q14",
+      "stem": "Find $\\int x e^x \\, dx$.",
+      "choices": [
+        "$x e^x - e^x + C$",
+        "$x e^x + e^x + C$",
+        "$\\frac{x^2}{2} e^x + C$",
+        "$e^x(x+1) + C$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using integration by parts with $u=x$ and $dv=e^x dx$: $\\int x e^x \\, dx = x e^x - \\int e^x \\, dx = x e^x - e^x + C$."
+    },
+    {
+      "id": "math-dp-integration-int-q15",
+      "stem": "Water flows into a tank at $r(t) = 5 + 2t$ litres per minute for $0 \\le t \\le 4$. Find the total volume that enters.",
+      "choices": [
+        "$36$ L",
+        "$52$ L",
+        "$28$ L",
+        "$13$ L"
+      ],
+      "correctIndex": 0,
+      "explanation": "Total volume = $\\int_{0}^{4} (5 + 2t) \\, dt = [5t + t^2]_{0}^{4} = 20 + 16 = 36$ litres."
     }
   ]
 }

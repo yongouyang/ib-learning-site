@@ -34,6 +34,11 @@
       "id": "math-dp-vectors-vec-n6",
       "heading": "Shortest Distance Between Moving Objects",
       "body": "When two objects move with constant velocity, their paths are straight lines. You can use vectors to find the time at which they are closest together and what that shortest distance is.\n\n📌 Setup\nLet the position vectors of two objects at time $t$ be:\n    $$\\vec{r}_A = \\vec{a} + t\\vec{v}_A$$\n    $$\\vec{r}_B = \\vec{b} + t\\vec{v}_B$$\n    where $\\vec{a}$, $\\vec{b}$ are initial positions and $\\vec{v}_A$, $\\vec{v}_B$ are constant velocity vectors.\n\nThe vector joining them at time $t$ is:\n    $$overrightarrow{AB} = \\vec{r}_B - \\vec{r}_A = (\\vec{b} - \\vec{a}) + t(\\vec{v}_B - \\vec{v}_A)$$\n\nThe distance between them is $|overrightarrow{AB}|$. To avoid square roots, minimise $|overrightarrow{AB}|^2$.\n\n💡 Worked Example — Closest Approach of Two Ships\nShip A starts at $(0, 0)$ with velocity $(3, 4)$ km/h.\nShip B starts at $(10, 0)$ with velocity $(0, 5)$ km/h.\nFind the time when they are closest and the shortest distance.\n\n  Step 1: Write position vectors at time $t$\n    $$\\vec{r}_A = (0, 0) + t(3, 4) = (3t, 4t)$$\n    $$\\vec{r}_B = (10, 0) + t(0, 5) = (10, 5t)$$\n\n  Step 2: Find the displacement vector from $A$ to $B$\n    $$overrightarrow{AB} = \\vec{r}_B - \\vec{r}_A = (10 - 3t, 5t - 4t) = (10 - 3t, t)$$\n\n  Step 3: Form an expression for the squared distance\n    $$|overrightarrow{AB}|^2 = (10 - 3t)^2 + t^2$$\n    $$|overrightarrow{AB}|^2 = 100 - 60t + 9t^2 + t^2$$\n    $$|overrightarrow{AB}|^2 = 10t^2 - 60t + 100$$\n\n  Step 4: Differentiate with respect to $t$ and set to zero\n    $$\\frac{d}{dt}\\left(|overrightarrow{AB}|^2\\right) = 20t - 60 = 0$$\n    $$t = 3$$\n\n  Step 5: Find the minimum distance\n    $$|overrightarrow{AB}|^2 \\text{ at } t = 3: ; 10(9) - 60(3) + 100 = 90 - 180 + 100 = 10$$\n    $$\\text{Shortest distance} = sqrt{10} \\text{ km}$$\n\n🔑 Alternative Method (Calculus-free)\nIf you prefer not to differentiate, complete the square on the quadratic in $t$:\n    $$|overrightarrow{AB}|^2 = 10(t^2 - 6t) + 100$$\n    $$|overrightarrow{AB}|^2 = 10(t - 3)^2 + 10$$\nThe minimum occurs at $t = 3$ and equals $sqrt{10}$ km.\n\n📎 Key Points to Remember\n• Always minimise the squared distance — it avoids awkward square-root algebra.\n• The method works in both 2D and 3D.\n• If the objects are on a collision course, the minimum distance is zero.\n\n⚠️ Common Mistake\nDifferentiating the distance $|overrightarrow{AB}|$ directly instead of $|overrightarrow{AB}|^2$. This creates a messy chain-rule expression and is much harder to solve. Squaring first keeps everything simple."
+    },
+    {
+      "id": "math-dp-vectors-vec-n7",
+      "heading": "Direction Angles and Direction Cosines",
+      "body": "Every vector in 3D makes three angles with the coordinate axes. These direction angles, and their cosines, give a compact way to describe the direction of a vector.\n\n📌 Definition\nFor a non-zero vector $\\vec{v} = (v_1, v_2, v_3)$, the direction angles $\\alpha$, $\\beta$ and $\\gamma$ are the angles between $\\vec{v}$ and the positive $x$, $y$ and $z$ axes respectively.\n\n🔑 Key Concept\nThe direction cosines are the cosines of these angles:\n    $$\\cos\\alpha = \\frac{v_1}{|\\vec{v}|}, \\quad \\cos\\beta = \\frac{v_2}{|\\vec{v}|}, \\quad \\cos\\gamma = \\frac{v_3}{|\\vec{v}|}$$\n\nThe unit vector in the direction of $\\vec{v}$ is therefore:\n    $$\\hat{v} = (\\cos\\alpha, \\cos\\beta, \\cos\\gamma)$$\n\n💡 Worked Example — Finding Direction Cosines\nFind the direction cosines of $\\vec{v} = (1, 2, 2)$.\n\n  Step 1: Calculate the magnitude\n    $$|\\vec{v}| = \\sqrt{1^2 + 2^2 + 2^2} = \\sqrt{9} = 3$$\n\n  Step 2: Divide each component by the magnitude\n    $$\\cos\\alpha = \\frac{1}{3}, \\quad \\cos\\beta = \\frac{2}{3}, \\quad \\cos\\gamma = \\frac{2}{3}$$\n\n📎 Key Points to Remember\n• Direction cosines satisfy the identity $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$.\n• A unit vector is always $(\\cos\\alpha, \\cos\\beta, \\cos\\gamma)$.\n• Direction angles are always between $0^\\circ$ and $180^\\circ$.\n\n⚠️ Common Mistake\nConfusing direction angles with the angle between two vectors. Direction angles describe one vector relative to the axes; the angle $\\theta$ in the scalar product describes the angle between two vectors.\n\n✅ Check\nFor $\\vec{v} = (1, 2, 2)$, verify the identity:\n    $$\\left(\\frac{1}{3}\\right)^2 + \\left(\\frac{2}{3}\\right)^2 + \\left(\\frac{2}{3}\\right)^2 = \\frac{1 + 4 + 4}{9} = 1 \\quad \\checkmark$$"
     }
   ],
   "flashcards": [
@@ -96,6 +101,18 @@
       "term": "Area with cross product",
       "definition": "Parallelogram area $= |a\\times b|$; triangle area $= \\frac{1}{2}|a\\times b|$.",
       "example": "Triangle with adjacent sides $a=(2,1,2)$, $b=(1,-1,4)$ has area $\\frac{9}{2}$."
+    },
+    {
+      "id": "math-dp-vectors-vec-f11",
+      "term": "Direction angles",
+      "definition": "The angles $\\alpha$, $\\beta$, $\\gamma$ that a vector makes with the positive $x$, $y$ and $z$ axes.",
+      "example": "For $\\vec{v}=(1,2,2)$, $|\\vec{v}|=3$ so $\\cos\\alpha=\\frac{1}{3}$, $\\cos\\beta=\\cos\\gamma=\\frac{2}{3}$."
+    },
+    {
+      "id": "math-dp-vectors-vec-f12",
+      "term": "Direction cosines identity",
+      "definition": "$\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$.",
+      "example": "$\\left(\\frac{1}{3}\\right)^2+\\left(\\frac{2}{3}\\right)^2+\\left(\\frac{2}{3}\\right)^2=1$."
     }
   ],
   "questions": [
@@ -242,6 +259,42 @@
       ],
       "correctIndex": 1,
       "explanation": "$d_2=2d_1$, so the direction vectors are scalar multiples. This means the lines are parallel. (They could be coincident, but they are definitely parallel.)"
+    },
+    {
+      "id": "math-dp-vectors-vec-q13",
+      "stem": "What are the direction cosines of $\\vec{v}=(4,0,-3)$?",
+      "choices": [
+        "$\\left(\\frac{4}{5},0,-\\frac{3}{5}\\right)$",
+        "$\\left(\\frac{4}{7},0,-\\frac{3}{7}\\right)$",
+        "$\\left(\\frac{4}{5},0,\\frac{3}{5}\\right)$",
+        "$\\left(\\frac{4}{25},0,-\\frac{3}{25}\\right)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$|\\vec{v}|=\\sqrt{16+0+9}=5$, so the direction cosines are $\\frac{4}{5}$, $0$, $-\\frac{3}{5}$."
+    },
+    {
+      "id": "math-dp-vectors-vec-q14",
+      "stem": "A vector has direction cosines $\\cos\\alpha=\\frac{1}{2}$ and $\\cos\\beta=\\frac{1}{3}$. Which value is possible for $\\cos\\gamma$?",
+      "choices": [
+        "$\\frac{\\sqrt{23}}{6}$",
+        "$\\frac{5}{6}$",
+        "$\\frac{\\sqrt{31}}{6}$",
+        "$\\frac{7}{6}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Direction cosines satisfy $\\cos^2\\alpha+\\cos^2\\beta+\\cos^2\\gamma=1$. So $\\cos^2\\gamma=1-\\frac{1}{4}-\\frac{1}{9}=\\frac{23}{36}$, giving $\\cos\\gamma=\\pm\\frac{\\sqrt{23}}{6}$."
+    },
+    {
+      "id": "math-dp-vectors-vec-q15",
+      "stem": "The unit vector in the direction of $\\vec{v}=(6,-2,3)$ is:",
+      "choices": [
+        "$\\left(\\frac{6}{11},-\\frac{2}{11},\\frac{3}{11}\\right)$",
+        "$\\left(\\frac{6}{7},-\\frac{2}{7},\\frac{3}{7}\\right)$",
+        "$\\left(\\frac{3}{5},-\\frac{1}{5},\\frac{3}{10}\\right)$",
+        "$\\left(\\frac{2}{3},-\\frac{2}{9},\\frac{1}{3}\\right)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$|\\vec{v}|=\\sqrt{36+4+9}=7$, so $\\hat{v}=\\frac{1}{7}(6,-2,3)=\\left(\\frac{6}{7},-\\frac{2}{7},\\frac{3}{7}\\right)$."
     }
   ]
 }

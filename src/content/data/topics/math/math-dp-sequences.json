@@ -29,6 +29,16 @@
       "id": "math-dp-sequences-seq-n5",
       "heading": "Depreciation, Simple Interest & Compounding Periods",
       "body": "Financial mathematics uses sequences and series to model how money grows or shrinks over time.\n\n📌 Simple Interest\nInterest is paid only on the original principal. This creates an arithmetic sequence.\n\n    $$FV = PV \\times (1 + rt)$$\n\n    $PV$ = present value (principal)\n    $r$ = annual interest rate (as a decimal)\n    $t$ = time in years\n\n📌 Compound Interest\nInterest is paid on the principal AND on previously earned interest. This creates a geometric sequence.\n\n    $$FV = PV \\times \\left(1 + \\frac{r}{100k}\\right)^{kn}$$\n\n    $PV$ = present value\n    $r$ = nominal annual interest rate ($\\%$)\n    $k$ = compounding periods per year\n    $n$ = number of years\n\n🔑 Common Values of $k$\n• Annually:      $k = 1$\n• Half-yearly:   $k = 2$\n• Quarterly:     $k = 4$\n• Monthly:       $k = 12$\n\n📌 Depreciation\nValue decreases by a fixed percentage each year. This is compound interest with subtraction.\n\n    $$FV = PV \\times \\left(1 - \\frac{r}{100}\\right)^n$$\n\n💡 Worked Example\nKim invests MYR 2000 at a nominal annual rate of $2.5\\%$ compounded monthly. Find the value after 5 years.\n\n  Step 1: Identify the values\n    $$PV = 2000, \\quad r = 2.5, \\quad k = 12, \\quad n = 5$$\n\n  Step 2: Substitute into the formula\n    $$FV = 2000 \\times \\left(1 + \\frac{2.5}{100 \\times 12}\\right)^{12 \\times 5}$$\n    $$FV = 2000 \\times (1 + 0.002083\\ldots)^{60}$$\n    $$FV = 2000 \\times 1.133148\\ldots$$\n    $$FV \\approx 2266.30$$\n\n  Answer: MYR 2266.30\n\n💡 Worked Example\nA new laptop costs \\$1200 and depreciates by $20\\%$ each year. What is its value after 3 years?\n\n  Step 1: Use the depreciation formula\n    $$FV = 1200 \\times \\left(1 - \\frac{20}{100}\\right)^3$$\n    $$FV = 1200 \\times (0.8)^3$$\n    $$FV = 1200 \\times 0.512$$\n    $$FV = 614.40$$\n\n  Answer: \\$614.40\n\n📎 Key Points to Remember\n• Simple interest forms an arithmetic sequence (constant difference)\n• Compound interest and depreciation form geometric sequences (constant ratio)\n• More compounding periods per year means more interest earned\n\n⚠️ Common Mistake\nUsing $r/k$ directly as a decimal without dividing by 100 first. The formula uses $r$ as a percentage, so $5\\%$ becomes $\\frac{5}{100k}$, not $\\frac{5}{k}$."
+    },
+    {
+      "id": "math-dp-sequences-seq-n6",
+      "heading": "Recurrence Relations",
+      "body": "An explicit formula gives $u_n$ directly from $n$. A recurrence relation builds each term from earlier terms.\n\n📌 Definition\nA recurrence relation defines each term of a sequence using one or more earlier terms, together with a starting value.\n    $$u_{n+1} = f(u_n), \\quad u_1 = a$$\nFor arithmetic sequences this becomes $u_{n+1} = u_n + d$.\nFor geometric sequences this becomes $u_{n+1} = u_n \\times r$.\n\n🔑 Key Concept\nTo generate terms, repeatedly apply the rule using the previous term. To find an explicit formula, solve the recurrence.\n\n💡 Worked Example\nA sequence is defined by $u_{n+1} = 2u_n + 1$ with $u_1 = 3$. Find the first five terms.\n\n  Step 1: Apply the rule repeatedly\n    $$u_2 = 2(3) + 1 = 7$$\n    $$u_3 = 2(7) + 1 = 15$$\n    $$u_4 = 2(15) + 1 = 31$$\n    $$u_5 = 2(31) + 1 = 63$$\n\n  Answer: $3, 7, 15, 31, 63$\n\n📎 Key Points to Remember\n• Arithmetic and geometric sequences are special cases of recurrence relations\n• A recurrence needs a starting value; without it the sequence is not fully defined\n• Some recurrence relations cannot be solved with the standard arithmetic or geometric formulas\n\n⚠️ Common Mistake\nConfusing the index. In $u_{n+1} = u_n + d$, the common difference is added once per step, so $u_n = u_1 + (n-1)d$, not $u_1 + nd$."
+    },
+    {
+      "id": "math-dp-sequences-seq-n7",
+      "heading": "Identifying Arithmetic and Geometric Sequences",
+      "body": "Before using a formula, decide whether a sequence is arithmetic, geometric, or neither.\n\n📌 Definition\n• A sequence is arithmetic if the difference between consecutive terms is constant: $d = u_{n+1} - u_n$\n• A sequence is geometric if the ratio between consecutive terms is constant: $r = \\frac{u_{n+1}}{u_n}$\n\n🔑 How it works\nFirst check the differences between consecutive terms. If they are equal, the sequence is arithmetic. If they change, check the ratios. Equal ratios mean the sequence is geometric.\n\n💡 Worked Example\nIdentify the type of sequence $5, 9, 13, 17, \\ldots$\n\n  Step 1: Check the differences\n    $$9 - 5 = 4, \\quad 13 - 9 = 4, \\quad 17 - 13 = 4$$\n\n  The differences are constant, so the sequence is arithmetic with $d = 4$.\n\n💡 Worked Example\nIdentify the type of sequence $2, 6, 18, 54, \\ldots$\n\n  Step 1: Check the ratios\n    $$\\frac{6}{2} = 3, \\quad \\frac{18}{6} = 3, \\quad \\frac{54}{18} = 3$$\n\n  The ratios are constant, so the sequence is geometric with $r = 3$.\n\n📎 Key Points to Remember\n• A sequence can be neither arithmetic nor geometric\n• Terms that alternate in sign often indicate a negative common ratio\n• Financial contexts: simple interest follows an arithmetic pattern; compound interest and depreciation follow geometric patterns\n\n⚠️ Common Mistake\nUsing geometric formulas on an arithmetic sequence. Always test for a common difference first."
     }
   ],
   "flashcards": [
@@ -91,6 +101,18 @@
       "term": "Compounding periods",
       "definition": "$k$ = periods per year. $FV = PV \\cdot \\left(1 + \\frac{r}{100k}\\right)^{kn}$.",
       "example": "$6\\%$ compounded monthly: $k=12$, rate per month = $0.5\\%$."
+    },
+    {
+      "id": "math-dp-sequences-seq-f11",
+      "term": "Recurrence relation",
+      "definition": "A rule that defines each term using previous term(s), e.g. $u_{n+1}=u_n+d$ or $u_{n+1}=r\\,u_n$.",
+      "example": "$u_{n+1}=2u_n+1$ with $u_1=3$ gives $3, 7, 15, 31, \\ldots$"
+    },
+    {
+      "id": "math-dp-sequences-seq-f12",
+      "term": "Sigma notation",
+      "definition": "Compact notation for a sum: $\\sum_{k=m}^{n} u_k = u_m+u_{m+1}+\\ldots+u_n$.",
+      "example": "$\\sum_{k=1}^{5} k = 1+2+3+4+5 = 15$."
     }
   ],
   "questions": [
@@ -225,6 +247,54 @@
       ],
       "correctIndex": 1,
       "explanation": "Simple interest: $2000 + 4\\times100 = 2400$ \\$2400. Compound: $2000\\times1.05^4 \\approx 2431$ \\$2431. The difference is about \\$31. Compound interest earns \"interest on interest,\" so it outperforms simple interest over time."
+    },
+    {
+      "id": "math-dp-sequences-seq-q12",
+      "stem": "Evaluate $\\sum_{k=1}^{4} (2k+1)$.",
+      "choices": [
+        "20",
+        "24",
+        "28",
+        "32"
+      ],
+      "correctIndex": 1,
+      "explanation": "Substitute $k=1,2,3,4$ into $2k+1$ and add: $3+5+7+9=24$."
+    },
+    {
+      "id": "math-dp-sequences-seq-q13",
+      "stem": "A sequence is defined by $u_{n+1}=3u_n-2$ with $u_1=2$. Find $u_4$.",
+      "choices": [
+        "10",
+        "20",
+        "28",
+        "34"
+      ],
+      "correctIndex": 2,
+      "explanation": "Apply the recurrence: $u_2=3(2)-2=4$, $u_3=3(4)-2=10$, $u_4=3(10)-2=28$."
+    },
+    {
+      "id": "math-dp-sequences-seq-q14",
+      "stem": "Which of the following sequences is geometric?",
+      "choices": [
+        "$2, 5, 8, 11, \\ldots$",
+        "$3, 6, 12, 24, \\ldots$",
+        "$1, 4, 9, 16, \\ldots$",
+        "$10, 7, 4, 1, \\ldots$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$3,6,12,24$ has common ratio $r=2$. The other choices are arithmetic or neither."
+    },
+    {
+      "id": "math-dp-sequences-seq-q15",
+      "stem": "For what value of $x$ does the geometric series $12+12x+12x^2+\\ldots$ converge to $18$?",
+      "choices": [
+        "$\\frac{1}{3}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{2}{3}$",
+        "$-\\frac{1}{3}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$S_\\infty=\\frac{12}{1-x}=18$, so $1-x=\\frac{2}{3}$ and $x=\\frac{1}{3}$."
     }
   ]
 }

@@ -29,6 +29,16 @@
       "id": "math-dp-probability-prb-n5",
       "heading": "Linear Combinations and Sample Mean",
       "body": "When we combine random variables by adding, subtracting, or scaling them, we can find the mean and variance of the result using simple rules.\n\n📌 Expected Value of a Linear Combination\nFor independent random variables $X$ and $Y$, and constants $a$ and $b$:\n\n    $$E(aX \\pm bY) = a \\cdot E(X) \\pm b \\cdot E(Y)$$\n\n📌 Variance of a Linear Combination\nFor independent $X$ and $Y$:\n\n    $$Var(aX \\pm bY) = a^2 \\cdot Var(X) + b^2 \\cdot Var(Y)$$\n\nNotice: variances ALWAYS add, even when subtracting the variables. This is because $b^2$ is always positive.\n\n💡 Worked Example — Linear Combination\n$X$ and $Y$ are independent with $E(X) = 5$, $Var(X) = 3$, $E(Y) = -2$, $Var(Y) = 4$.\nFind $E(2X + 5Y)$ and $Var(2X + 5Y)$.\n\n  Step 1: Expected value\n    $E(2X + 5Y) = 2(5) + 5(-2) = 10 - 10 = 0$\n\n  Step 2: Variance\n    $Var(2X + 5Y) = 2^2(3) + 5^2(4)$\n    $Var(2X + 5Y) = 4(3) + 25(4) = 12 + 100 = 112$\n\n🔑 Critical Distinction: $2X$ versus $X + X$\nThese look similar but behave very differently:\n\n    $2X$ means one observation of $X$, then doubled\n    $X + X$ means two independent observations of $X$, then added\n\nExpected values are the same:\n    $$E(2X) = 2E(X)$$\n    $$E(X + X) = E(X) + E(X) = 2E(X)$$\n\nVariances are different:\n    $$Var(2X) = 4 \\cdot Var(X)$$\n    $$Var(X + X) = Var(X) + Var(X) = 2 \\cdot Var(X)$$\n\n💡 Worked Example — $2X$ vs $X + X$\nSuppose $X$ can only be 0 or 1 with equal probability.\n\n    $2X$ can be 0 or 2\n    $X + X$ can be 0, 1, or 2\n\nThe second variable has more spread because two independent observations add more variability than scaling one observation.\n\n🔑 Distribution of the Sample Mean\nIf $X \\sim N(\\mu, \\sigma^2)$, then the sample mean $\\bar{X}$ of $n$ independent observations is also normally distributed:\n\n    $$\\bar{X} \\sim N\\left(\\mu, \\frac{\\sigma^2}{n}\\right)$$\n\nThe mean stays the same, but the variance shrinks by a factor of $n$. This means larger samples give more precise estimates of $\\mu$.\n\n💡 Worked Example — Sample Mean Distribution\n$X \\sim N(80, 36)$. A random sample of $n = 9$ observations is taken.\n\n  Step 1: Identify population parameters\n    $\\mu = 80$,  $\\sigma^2 = 36$\n\n  Step 2: Apply the formula\n    $\\bar{X} \\sim N\\left(80, \\frac{36}{9}\\right)$\n    $\\bar{X} \\sim N(80, 4)$\n\n  Step 3: Find standard deviation of $\\bar{X}$\n    $SD(\\bar{X}) = \\sqrt{4} = 2$\n\nSo the sample mean has mean 80 and standard error 2.\n\n📎 Key Points to Remember\n• Expected value is linear — it distributes over addition and subtraction\n• Variance of a sum equals the sum of variances ONLY for independent variables\n• When scaling: $Var(aX) = a^2 \\cdot Var(X)$, not $a \\cdot Var(X)$\n• The sample mean is less spread out than individual observations\n• For normal populations, $\\bar{X}$ is exactly normal for any $n$\n\n⚠️ Common Mistake\nForgetting to square the constant when finding variance. $Var(3X - 2) = 9 \\cdot Var(X)$, not $3 \\cdot Var(X)$. The $-2$ disappears because adding a constant does not change spread."
+    },
+    {
+      "id": "math-dp-probability-prb-n6",
+      "heading": "Continuous Random Variables",
+      "body": "Continuous random variables can take any value in an interval. Unlike discrete variables, we describe them with curves rather than tables.\n\n📌 Definition\nA continuous random variable $X$ takes values from an interval (possibly infinite). Its probability is described by a probability density function $f(x)$ where:\n• $f(x) \\geq 0$ for all $x$\n• The total area under the curve is 1: $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$\n• $P(a \\leq X \\leq b)$ is the area under $f(x)$ between $a$ and $b$\n\nImportantly, for any specific value $k$:\n$$P(X = k) = 0$$\n\n🔑 Key Concept: The Uniform Distribution\nA continuous random variable $X$ is uniformly distributed on the interval $[a, b]$, written $X \\sim U(a, b)$, if every value in the interval is equally likely. The PDF is a horizontal line.\n\n$$f(x) = \\frac{1}{b - a}, \\quad a \\leq x \\leq b$$\n\n$$E(X) = \\frac{a + b}{2}, \\quad Var(X) = \\frac{(b - a)^2}{12}$$\n\n💡 Worked Example — Uniform Probability\nThe waiting time for a bus, $X$ minutes, is uniformly distributed between 0 and 15.\n\n  Step 1: State the distribution\n    $X \\sim U(0, 15)$\n\n  Step 2: Find $P(5 \\leq X \\leq 10)$\n    The favourable interval length is $10 - 5 = 5$\n    The total interval length is $15 - 0 = 15$\n    $$P(5 \\leq X \\leq 10) = \\frac{5}{15} = \\frac{1}{3}$$\n\n  Step 3: Find the expected waiting time\n    $$E(X) = \\frac{0 + 15}{2} = 7.5\\text{ minutes}$$\n\n📎 Key Points to Remember\n• For continuous distributions, probability is area, not height\n• $P(X < k) = P(X \\leq k)$ because $P(X = k) = 0$\n• The uniform distribution is the continuous analogue of \"equally likely outcomes\"\n\n⚠️ Common Mistake\nUsing the height of the PDF as a probability. The value $f(x)$ is not a probability; only the area under $f(x)$ over an interval gives probability. For $U(0, 15)$, $f(x) = \\frac{1}{15}$, but $P(0 \\leq X \\leq 15) = 1$, not $\\frac{1}{15}$."
+    },
+    {
+      "id": "math-dp-probability-prb-n7",
+      "heading": "Type I and Type II Errors",
+      "body": "When we carry out a hypothesis test, two kinds of mistake are possible because we make a decision based on sample data.\n\n📌 Definition\n• Type I error: rejecting the null hypothesis $H_0$ when it is actually true\n• Type II error: failing to reject $H_0$ when it is actually false\n\nIn a court of law, $H_0$ might be \"the defendant is innocent\":\n• Type I error = convicting an innocent person (false positive)\n• Type II error = acquitting a guilty person (false negative)\n\n🔑 How it works\nThe significance level $\\alpha$ is the probability of making a Type I error when $H_0$ is true:\n$$P(\\text{Type I error}) = \\alpha$$\n\nDecreasing $\\alpha$ makes Type I errors less likely, but it usually makes Type II errors more likely. The only way to reduce both errors at the same time is to increase the sample size.\n\n💡 Worked Example — Identifying Errors\nA company tests $H_0$: \"A new packaging machine fills bags to 1 kg on average\" against $H_1$: \"The mean fill is not 1 kg\".\n\n  Scenario A: The machine is actually working correctly, but the sample suggests the mean is different and the company stops production.\n    This is a Type I error: $H_0$ is true but rejected.\n\n  Scenario B: The machine is actually under-filling by 5%, but the sample does not provide enough evidence and production continues.\n    This is a Type II error: $H_0$ is false but not rejected.\n\n📎 Key Points to Remember\n• Type I and Type II errors describe mistakes about $H_0$\n• $\\alpha$ directly controls the Type I error rate\n• Increasing sample size reduces both error probabilities\n\n⚠️ Common Mistake\nConfusing the two errors. Remember: Type I is \"rejecting a true $H_0$\" and Type II is \"accepting a false $H_0$\". A helpful mnemonic is that Type I is the first possible mistake (rejecting when true) and Type II is the second (failing to reject when false)."
     }
   ],
   "flashcards": [
@@ -91,6 +101,18 @@
       "term": "Continuous RV Property",
       "definition": "For any continuous RV, $P(X=k)=0$ for a specific value $k$. We only find probabilities over intervals.",
       "example": "For $Y\\sim N(20,25)$, $P(Y=20)=0$, but $P(18\\leq Y<27)\\approx 0.579$."
+    },
+    {
+      "id": "math-dp-probability-prb-f11",
+      "term": "Type I Error",
+      "definition": "Rejecting the null hypothesis $H_0$ when it is actually true.",
+      "example": "Convicting an innocent defendant in court."
+    },
+    {
+      "id": "math-dp-probability-prb-f12",
+      "term": "Type II Error",
+      "definition": "Failing to reject the null hypothesis $H_0$ when it is actually false.",
+      "example": "Acquitting a guilty defendant in court."
     }
   ],
   "questions": [
@@ -237,6 +259,42 @@
       ],
       "correctIndex": 0,
       "explanation": "Find $k$ where $P(X<k)=0.05$. Using invNorm(0.05,12,2) gives $k\\approx 8.71$ hours. This is below the mean because we want the lower tail. Distractor B uses the wrong tail or z-value; C forgets to multiply $z$ by $\\sigma$; D finds the upper $5\\%$ point."
+    },
+    {
+      "id": "math-dp-probability-prb-q13",
+      "stem": "The time $X$ (minutes) until the next bus arrives is uniformly distributed on $[0, 20]$. What is $P(5 < X < 15)$?",
+      "choices": [
+        "$\\frac{1}{4}$",
+        "$\\frac{1}{2}$",
+        "$\\frac{2}{3}$",
+        "$\\frac{3}{4}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "For $X \\sim U(0, 20)$, probability equals the ratio of interval lengths: $\\frac{15 - 5}{20 - 0} = \\frac{10}{20} = \\frac{1}{2}$."
+    },
+    {
+      "id": "math-dp-probability-prb-q14",
+      "stem": "A medical trial tests whether a new drug is effective. The null hypothesis is that the drug has no effect. If researchers conclude the drug works when it actually does not, what error is this?",
+      "choices": [
+        "Type I error",
+        "Type II error",
+        "Sampling error",
+        "No error"
+      ],
+      "correctIndex": 0,
+      "explanation": "Rejecting a true null hypothesis is a Type I error. Here the drug has no effect ($H_0$ true) but the researchers reject $H_0$ and claim it works."
+    },
+    {
+      "id": "math-dp-probability-prb-q15",
+      "stem": "For $X \\sim B(25, 0.2)$, what is the variance?",
+      "choices": [
+        "1",
+        "2",
+        "4",
+        "5"
+      ],
+      "correctIndex": 2,
+      "explanation": "For a binomial distribution, $Var(X) = np(1-p) = 25 \\times 0.2 \\times 0.8 = 4$."
     }
   ]
 }

@@ -24,6 +24,21 @@
       "id": "math-dp-poisson-distribution-n4",
       "heading": "Modelling with the Poisson Distribution",
       "body": "Setting up a Poisson model is about translating a real-world scenario into the correct random variable and mean rate.\n\n📌 Steps to Build a Poisson Model\n1. Identify what counts as a single occurrence\n2. Determine the mean rate $m$ for the relevant interval\n3. State your random variable clearly\n4. Check that independence and constant-rate conditions hold\n\n🔑 Scaling the Mean Rate\n\n  $m$ scales linearly with time or space.\n\n  If $12$ cars pass in $5$ minutes, then in $15$ minutes:\n\n$$m = 12 \\times \\frac{15}{5} = 36$$\n\n💡 Worked Example — Scaling and Modelling\nA call centre receives $8$ calls in $30$ minutes on average.\n\n  Step 1: Define the random variable for $15$ minutes\n    Let $X$ be the number of calls in a $15$-minute period.\n\n  Step 2: Scale the mean\n    $15$ minutes is half of $30$ minutes.\n\n$$m = 8 \\times \\frac{15}{30} = 4$$\n\n  Step 3: State the distribution\n\n$$X \\sim \\text{Po}(4)$$\n\n  Step 4: Check conditions\n    • Calls are independent\n    • Calls arrive at a constant average rate\n    The model is appropriate.\n\n📎 Key Points to Remember\n• Always write \"Let $X$ be the number of ...\" in exam answers\n• Scale $m$ using proportion — double the time means double the mean\n• The model also works for space (e.g. flaws per square metre)\n• If events cluster or one triggers another, the model breaks down\n\n⚠️ Common Mistake\nForgetting to scale the mean when the time period changes. If the question gives a rate for one interval but asks about another, you must adjust $m$ proportionally before calculating any probabilities."
+    },
+    {
+      "id": "math-dp-poisson-distribution-n5",
+      "heading": "Poisson Approximation to the Binomial",
+      "body": "The binomial distribution can be hard to calculate when $n$ is very large. In some cases, a Poisson distribution gives an excellent approximation.\n\n📌 Definition\nIf $X \\sim B(n,p)$ with $n$ large, $p$ small, and $np$ moderate, then $X$ can be approximated by a Poisson distribution with mean $m = np$:\n$$X \\sim \\text{Po}(np)$$\nA common rule of thumb is $n \\ge 20$ and $p \\le 0.05$ (or $np \\le 10$).\n\n🔑 Why it works\nWhen $n$ is large and $p$ is small, each trial is a rare event. The binomial formula simplifies toward the Poisson formula because $(1-p)^{n-r} \\approx e^{-np}$.\n\n💡 Worked Example\nA factory produces light bulbs. The probability that a bulb is defective is $0.02$. In a batch of $100$ bulbs, find the approximate probability of exactly $3$ defectives.\n\n  Step 1: Check conditions\n    $n = 100$ is large, $p = 0.02$ is small, and $np = 2$ is moderate.\n\n  Step 2: Choose the approximating distribution\n    Let $X$ be the number of defectives. Then $X$ is approximately Poisson with $X \\sim \\text{Po}(2)$.\n\n  Step 3: Calculate\n$$P(X = 3) = \\frac{e^{-2} \\cdot 2^3}{3!} = \\frac{e^{-2} \\cdot 8}{6} \\approx 0.180$$\n\n📎 Key Points to Remember\n• Use the approximation only when $n$ is large and $p$ is small\n• Set the Poisson mean to $m = np$\n• The approximation improves as $n \\to \\infty$ and $p \\to 0$ with $np$ fixed\n• It is an approximation, not an exact distribution\n\n⚠️ Common Mistake\nUsing the Poisson approximation when $p$ is not small or when $np$ is large. If $p$ is close to $0.5$, a normal approximation to the binomial is more appropriate."
+    },
+    {
+      "id": "math-dp-poisson-distribution-n6",
+      "heading": "Shape of the Poisson Distribution",
+      "body": "The Poisson distribution is not symmetric; its shape depends entirely on the value of the mean $m$.\n\n🔑 How it works\nFor small $m$, the distribution is strongly right-skewed, with the highest probabilities concentrated at $0$ or $1$. As $m$ increases, the distribution becomes more spread out and more symmetric, eventually resembling a bell shape.\n\n💡 Worked Example\nCompare $X \\sim \\text{Po}(1)$ and $Y \\sim \\text{Po}(8)$.\n\n  For $X$:\n    $P(X = 0) = e^{-1} \\approx 0.368$ is the largest probability.\n    The probabilities form a long tail to the right.\n\n  For $Y$:\n    Probabilities are centred around $8$ and the shape is much more symmetric.\n\n📎 Key Points to Remember\n• Poisson is discrete and defined only for non-negative integers\n• Small $m$ produces strong right skew\n• Large $m$ produces an approximately symmetric, bell-shaped distribution\n• There is no upper limit on the possible values of $X$\n\n⚠️ Common Mistake\nTreating the Poisson distribution as symmetric for small $m$. Intervals and tail probabilities must account for the skew.\n\n✅ Check\nIf $m = 0.5$, would you expect many large values? No — most observations will be $0$ or $1$."
+    },
+    {
+      "id": "math-dp-poisson-distribution-n7",
+      "heading": "Choosing Between Binomial and Poisson Models",
+      "body": "Both the binomial and Poisson distributions model counts, but they apply in different situations. Choosing the right model is often the first step to earning full marks.\n\n📌 Definition\nUse a binomial distribution when there is a fixed number of independent trials, each with the same probability of success. Use a Poisson distribution when events occur independently at a constant average rate over time or space, with no fixed upper limit.\n\n🔑 Key Concept\nAsk yourself: \"Is there a maximum possible number of occurrences?\"\n\n  • If yes, the binomial distribution is usually appropriate.\n  • If no, the Poisson distribution is usually appropriate.\n\n💡 Worked Example\nScenario A: Count the number of sixes in $20$ rolls of a fair die.\n  There is a fixed number of trials ($n = 20$).\n  Model: $X \\sim B(20, \\frac{1}{6})$.\n\nScenario B: Count the number of sixes rolled during a $5$-minute period.\n  There is no fixed number of rolls.\n  Model: $Y \\sim \\text{Po}(m)$, where $m$ is the average rate of sixes per $5$ minutes.\n\n📎 Key Points to Remember\n• Binomial: fixed $n$, independence, constant success probability $p$\n• Poisson: constant average rate, independence, no upper bound\n• Some problems can be modelled either way when the Poisson approximates the binomial\n• Always state your random variable and its parameters in exam answers\n\n⚠️ Common Mistake\nChoosing a Poisson model just because the events are rare. Always check whether there is a fixed number of trials; if there is, binomial is the natural choice."
     }
   ],
   "flashcards": [
@@ -74,6 +89,30 @@
       "term": "Scaling the mean rate",
       "definition": "Use proportion to adjust $m$ for different time periods or areas.",
       "example": "$8$ flaws per $\\text{m}^2 \\to 24$ flaws per $3\\text{ m}^2$ ($m$ scales linearly with space or time)."
+    },
+    {
+      "id": "math-dp-poisson-distribution-f9",
+      "term": "Poisson approximation to the binomial",
+      "definition": "When $n$ is large and $p$ is small, $X \\sim B(n,p)$ can be approximated by $\\text{Po}(np)$.",
+      "example": "$B(100, 0.02) \\approx \\text{Po}(2)$."
+    },
+    {
+      "id": "math-dp-poisson-distribution-f10",
+      "term": "Shape of the Poisson distribution",
+      "definition": "Right-skewed for small $m$ and increasingly symmetric as $m$ grows; defined for non-negative integers.",
+      "example": "$\\text{Po}(1)$ is strongly skewed, while $\\text{Po}(20)$ is nearly symmetric."
+    },
+    {
+      "id": "math-dp-poisson-distribution-f11",
+      "term": "When to use a Poisson model",
+      "definition": "Use Poisson when events are independent, occur at a constant average rate, and have no fixed upper limit.",
+      "example": "Counting calls to a help desk in a one-hour period."
+    },
+    {
+      "id": "math-dp-poisson-distribution-f12",
+      "term": "Poisson cumulative probability conversions",
+      "definition": "For discrete $X$, $P(X < x) = P(X \\le x - 1)$, $P(X > x) = 1 - P(X \\le x)$, and $P(X \\ge x) = 1 - P(X \\le x - 1)$.",
+      "example": "$P(X \\ge 4) = 1 - P(X \\le 3)$."
     }
   ],
   "questions": [
@@ -196,6 +235,66 @@
       ],
       "correctIndex": 0,
       "explanation": "For $X \\sim \\text{Po}(m)$, $\\text{Var}(X) = m$, so $\\text{SD}(X) = \\sqrt{m} = \\sqrt{6}$. Note that $2.45$ is $\\sqrt{6}$ rounded, but $\\sqrt{6}$ is the exact answer."
+    },
+    {
+      "id": "math-dp-poisson-distribution-q11",
+      "stem": "A machine produces defective items with probability $0.03$. In a batch of $200$ items, which Poisson distribution approximates the number of defectives?",
+      "choices": [
+        "$\\text{Po}(0.03)$",
+        "$\\text{Po}(6)$",
+        "$\\text{Po}(200)$",
+        "$\\text{Po}(0.06)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "For a Poisson approximation to the binomial, use $m = np = 200 \\times 0.03 = 6$."
+    },
+    {
+      "id": "math-dp-poisson-distribution-q12",
+      "stem": "For which value of $m$ is the Poisson distribution most strongly right-skewed?",
+      "choices": [
+        "$m = 0.5$",
+        "$m = 5$",
+        "$m = 15$",
+        "$m = 25$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The Poisson distribution is most skewed when the mean is small; larger means produce a more symmetric shape."
+    },
+    {
+      "id": "math-dp-poisson-distribution-q13",
+      "stem": "Which statement correctly describes the variance of a Poisson distribution?",
+      "choices": [
+        "Variance is greater than the mean",
+        "Variance is less than the mean",
+        "Variance equals the mean",
+        "Variance equals the square of the mean"
+      ],
+      "correctIndex": 2,
+      "explanation": "For $X \\sim \\text{Po}(m)$, both the expected value and the variance equal $m$."
+    },
+    {
+      "id": "math-dp-poisson-distribution-q14",
+      "stem": "$X \\sim \\text{Po}(4)$. What is $P(X \\ge 1)$?",
+      "choices": [
+        "$e^{-4}$",
+        "$1 - e^{-4}$",
+        "$4e^{-4}$",
+        "$1 - 4e^{-4}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$P(X \\ge 1) = 1 - P(X = 0) = 1 - e^{-4}$, since $P(X = 0) = \\frac{e^{-4} \\cdot 4^0}{0!} = e^{-4}$."
+    },
+    {
+      "id": "math-dp-poisson-distribution-q15",
+      "stem": "A call centre receives an average of $3$ calls every $10$ minutes. Using a Poisson model, what is the mean number of calls in a $40$-minute period?",
+      "choices": [
+        "$3$",
+        "$6$",
+        "$9$",
+        "$12$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The mean scales linearly with time: $m = 3 \\times \\frac{40}{10} = 12$."
     }
   ]
 }

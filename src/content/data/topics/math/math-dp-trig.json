@@ -29,6 +29,16 @@
       "id": "math-dp-trig-dtr-n5",
       "heading": "The Ambiguous Case of the Sine Rule",
       "body": "When you are given two sides and a non-included acute angle (SSA), the sine rule can sometimes produce TWO valid triangles. This is called the ambiguous case.\n\n📌 Definition\nThe ambiguous case occurs when using the sine rule with SSA data, specifically when the side opposite the given angle is SHORTER than the other known side but LONGER than the altitude from the other known side.\n\n🔑 The Three Possibilities\nGiven angle $A$ (acute), side $a$ (opposite $A$), and side $b$ (adjacent to $A$):\n\n    Calculate the altitude:  $h = b \\sin A$\n\nThen compare $a$ with $h$ and $b$:\n\n1. If $a < h$ → no triangle is possible\n2. If $a = h$ → exactly one right-angled triangle\n3. If $h < a < b$ → TWO triangles are possible\n4. If $a \\geq b$ → exactly one triangle\n\n💡 Worked Example — The Ambiguous Case\nIn triangle ABC, $a = 8$, $b = 12$, and angle $A = 35^{\\circ}$. Determine how many triangles can be formed.\n\n  Step 1: Calculate the altitude\n    $h = b \\sin A = 12 \\times \\sin 35^{\\circ} \\approx 6.88$\n\n  Step 2: Compare $a$ with $h$ and $b$\n    $h \\approx 6.88 < a = 8 < b = 12$\n\n  Step 3: Conclusion\n    Since $h < a < b$, TWO triangles are possible.\n\n  Step 4: Find both solutions (optional working)\n    Using $\\sin B = \\frac{b \\sin A}{a} = \\frac{12 \\sin 35^{\\circ}}{8} \\approx 0.860$\n\n    Solution 1: $B \\approx 59.4^{\\circ}$ (acute)\n    Solution 2: $B \\approx 180^{\\circ} - 59.4^{\\circ} = 120.6^{\\circ}$ (obtuse)\n\n    Both give valid triangles because $A + B < 180^{\\circ}$ in each case.\n\n🔑 Why Two Solutions Exist\nThe sine function is positive in both Quadrant 1 and Quadrant 2. So if $\\sin B = k$ (where $0 < k < 1$), there are two possible angles:\n    $$B = \\sin^{-1}(k) \\quad \\text{(acute)}$$\n    $$B = 180^{\\circ} - \\sin^{-1}(k) \\quad \\text{(obtuse)}$$\n\nBoth may give valid triangles if the angle sum does not exceed $180^{\\circ}$.\n\n📎 Key Points to Remember\n• The ambiguous case ONLY happens with SSA and an acute given angle\n• If the given angle is obtuse or right, there is at most one triangle\n• Always check whether $A + B < 180^{\\circ}$ for each possible value of $B$\n\n⚠️ Common Mistake\nForgetting to check the second (obtuse) solution. When you use $\\sin^{-1}$ on your calculator, it always gives the acute angle. You must also consider $180^{\\circ}$ minus that value."
+    },
+    {
+      "id": "math-dp-trig-dtr-n6",
+      "heading": "Compound Angle Identities",
+      "body": "Compound angle identities let you expand expressions like $\\sin(A+B)$ and $\\cos(A-B)$. They are essential for rewriting trig expressions and solving equations that cannot be simplified with the Pythagorean identity alone.\n\n📌 Definition\nFor all angles $A$ and $B$:\n    $$\\sin(A+B) = \\sin A \\cos B + \\cos A \\sin B$$\n    $$\\sin(A-B) = \\sin A \\cos B - \\cos A \\sin B$$\n    $$\\cos(A+B) = \\cos A \\cos B - \\sin A \\sin B$$\n    $$\\cos(A-B) = \\cos A \\cos B + \\sin A \\sin B$$\n\n🔑 Key Concept\nThese formulas replace a single trig ratio of a combined angle with products of ratios of the separate angles. The sign pattern matters: $\\sin$ keeps the sign, while $\\cos$ changes it.\n\n💡 Worked Example — Expanding $\\sin 75^{\\circ}$\nFind the exact value of $\\sin 75^{\\circ}$.\n\n  Step 1: Split the angle\n    $$\\sin 75^{\\circ} = \\sin(45^{\\circ} + 30^{\\circ})$$\n\n  Step 2: Apply the identity\n    $$\\sin(45^{\\circ} + 30^{\\circ}) = \\sin 45^{\\circ}\\cos 30^{\\circ} + \\cos 45^{\\circ}\\sin 30^{\\circ}$$\n\n  Step 3: Substitute exact values\n    $$= \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2}$$\n\n  Step 4: Simplify\n    $$= \\frac{\\sqrt{6}}{4} + \\frac{\\sqrt{2}}{4} = \\frac{\\sqrt{6}+\\sqrt{2}}{4}$$\n\n📎 Key Points to Remember\n• $\\sin(A+B) \\neq \\sin A + \\sin B$ — never distribute the function across the bracket.\n• For $\\cos(A+B)$ the middle sign is MINUS, and for $\\cos(A-B)$ it is PLUS.\n• These identities are valid for all real angles $A$ and $B$.\n\n⚠️ Common Mistake\nForgetting the sign swap in the cosine identities:\n    $$\\cos(A+B) = \\cos A \\cos B - \\sin A \\sin B$$\n    $$\\cos(A-B) = \\cos A \\cos B + \\sin A \\sin B$$\nA plus inside the bracket becomes minus in the expansion, and vice versa.\n\n✅ Check\nUse the identities to show that $\\cos 90^{\\circ} = 0$:\n    $$\\cos(60^{\\circ} + 30^{\\circ}) = \\frac{1}{2} \\cdot \\frac{\\sqrt{3}}{2} - \\frac{\\sqrt{3}}{2} \\cdot \\frac{1}{2} = 0.$$"
+    },
+    {
+      "id": "math-dp-trig-dtr-n7",
+      "heading": "Inverse Trigonometric Functions",
+      "body": "Inverse trig functions undo the action of sine, cosine, and tangent. Because trig functions are not one-to-one, their inverses are defined on restricted domains.\n\n📌 Definition\nThe inverse trigonometric functions are:\n    $$y = \\sin^{-1} x \\quad \\text{(arcsin)}$$\n    $$y = \\cos^{-1} x \\quad \\text{(arccos)}$$\n    $$y = \\tan^{-1} x \\quad \\text{(arctan)}$$\n\nEach gives the angle $y$ whose sine, cosine, or tangent is $x$.\n\n🔑 Key Concept — Domains and Principal Ranges\nFor the inverse functions to be functions, the original trig function is restricted:\n\n• $\\sin^{-1} x$ has domain $[-1, 1]$ and range $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$\n• $\\cos^{-1} x$ has domain $[-1, 1]$ and range $[0, \\pi]$\n• $\\tan^{-1} x$ has domain $\\mathbb{R}$ and range $(-\\frac{\\pi}{2}, \\frac{\\pi}{2})$\n\n💡 Worked Example — Evaluating an Inverse\nFind the exact value of $\\cos^{-1}\\left(-\\frac{1}{2}\\right)$.\n\n  Step 1: Set up the equation\n    Let $y = \\cos^{-1}\\left(-\\frac{1}{2}\\right)$, so $\\cos y = -\\frac{1}{2}$.\n\n  Step 2: Use the principal range\n    The range of $\\cos^{-1}$ is $[0, \\pi]$, where cosine is negative in Q2.\n\n  Step 3: Solve\n    $$y = \\pi - \\frac{\\pi}{3} = \\frac{2\\pi}{3}$$\n\n📎 Key Points to Remember\n• $\\sin^{-1} x$ does NOT mean $(\\sin x)^{-1}$; the latter is the reciprocal $\\csc x$.\n• The output of an inverse trig function is always a single angle in the principal range.\n• Inverse trig functions can be used to write the general solution of trig equations.\n\n⚠️ Common Mistake\nWriting $\\sin^{-1}(\\sin 210^{\\circ}) = 210^{\\circ}$. Because the principal range of $\\sin^{-1}$ is $[-90^{\\circ}, 90^{\\circ}]$, the correct value is:\n    $$\\sin^{-1}(\\sin 210^{\\circ}) = -30^{\\circ}$$\n\n✅ Check\nEvaluate $\\tan^{-1}(1)$.\n    $\\tan^{-1}(1) = \\frac{\\pi}{4}$, since $\\tan \\frac{\\pi}{4} = 1$ and $\\frac{\\pi}{4}$ lies in $(-\\frac{\\pi}{2}, \\frac{\\pi}{2})$."
     }
   ],
   "flashcards": [
@@ -91,6 +101,18 @@
       "term": "Tangent Identity",
       "definition": "$\\tan \\theta = \\frac{\\sin \\theta}{\\cos \\theta}$",
       "example": "$\\tan 60^{\\circ} = \\frac{\\sqrt{3}/2}{1/2} = \\sqrt{3}$."
+    },
+    {
+      "id": "math-dp-trig-dtr-f11",
+      "term": "Amplitude",
+      "definition": "Half the distance between the maximum and minimum values of a sinusoidal function; $|a|$ in $y = a\\sin(b(x-c))+d$.",
+      "example": "$y=4\\sin(3x)-2$ has amplitude $4$."
+    },
+    {
+      "id": "math-dp-trig-dtr-f12",
+      "term": "Period of a Sinusoidal Function",
+      "definition": "The length of one complete cycle. For $y=a\\sin(b(x-c))+d$, period $=\\frac{2\\pi}{|b|}$.",
+      "example": "$y=3\\cos(2x)$ has period $\\pi$."
     }
   ],
   "questions": [
@@ -237,6 +259,42 @@
       ],
       "correctIndex": 2,
       "explanation": "Sine is positive in both Q1 and Q2, so $\\theta = 30^{\\circ}$ and $\\theta = 150^{\\circ}$ both satisfy $\\sin \\theta = 0.5$ in $[0^{\\circ}, 360^{\\circ}]$. Additionally, sine is periodic with period $360^{\\circ}$, giving infinitely many solutions. Option A is false ($\\sin$ is also positive in Q2). Option B is false ($30^{\\circ}$ IS the principal value). Option D is nonsense."
+    },
+    {
+      "id": "math-dp-trig-dtr-q13",
+      "stem": "Convert $\\frac{5\\pi}{6}$ radians to degrees.",
+      "choices": [
+        "$30^{\\circ}$",
+        "$60^{\\circ}$",
+        "$150^{\\circ}$",
+        "$300^{\\circ}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\frac{5\\pi}{6} \\times \\frac{180^{\\circ}}{\\pi} = 150^{\\circ}$."
+    },
+    {
+      "id": "math-dp-trig-dtr-q14",
+      "stem": "Find the exact value of $\\cos 15^{\\circ}$.",
+      "choices": [
+        "$\\frac{\\sqrt{6}+\\sqrt{2}}{4}$",
+        "$\\frac{\\sqrt{6}-\\sqrt{2}}{4}$",
+        "$\\frac{\\sqrt{3}-1}{2}$",
+        "$\\frac{\\sqrt{3}+1}{2}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\cos(45^{\\circ}-30^{\\circ}) = \\cos45^{\\circ}\\cos30^{\\circ} + \\sin45^{\\circ}\\sin30^{\\circ} = \\frac{\\sqrt{2}}{2}\\cdot\\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2}\\cdot\\frac{1}{2} = \\frac{\\sqrt{6}+\\sqrt{2}}{4}$."
+    },
+    {
+      "id": "math-dp-trig-dtr-q15",
+      "stem": "What is the principal value of $\\tan^{-1}(-1)$?",
+      "choices": [
+        "$-\\frac{\\pi}{4}$",
+        "$\\frac{3\\pi}{4}$",
+        "$\\frac{5\\pi}{4}$",
+        "$\\frac{7\\pi}{4}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The principal range of $\\tan^{-1}$ is $(-\\frac{\\pi}{2}, \\frac{\\pi}{2})$, and $\\tan(-\\frac{\\pi}{4}) = -1$."
     }
   ]
 }
