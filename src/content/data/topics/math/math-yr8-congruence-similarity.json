@@ -1,0 +1,305 @@
+{
+  "id": "math-yr8-congruence-similarity",
+  "subjectId": "math",
+  "title": "Congruence & Similarity",
+  "description": "Identify congruent and similar shapes; use scale factors for lengths and areas.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-congruence-similarity-n1",
+      "heading": "Congruent Shapes",
+      "illustration": {
+        "src": "/images/math/math-yr8-congruence-similarity.svg",
+        "alt": "Diagram showing two congruent triangles with matching side lengths and two similar triangles with different sizes but equal angles.",
+        "caption": "Congruent shapes are identical in size and shape; similar shapes have the same shape but may differ in size."
+      },
+      "body": "📌 Definition\\nTwo shapes are congruent when they have exactly the same size and exactly the same shape.\n\n🔑 Key Concept\\nFor two shapes to be congruent:\n• All corresponding sides must be equal in length.\n• All corresponding angles must be equal in size.\n\\nThe symbol for congruence is $\\cong$. For example, $\\triangle ABC \\cong \\triangle DEF$ means triangle $ABC$ is congruent to triangle $DEF$.\n\n💡 Worked Example\\nThese two rectangles are congruent:\n$$\\text{Rectangle A: } 4 \\text{ cm by } 6 \\text{ cm}$$\n$$\\text{Rectangle B: } 4 \\text{ cm by } 6 \\text{ cm}$$\\nBoth have the same length, the same width, and the same angles ($90^\\circ$ each).\n\n📎 Key Points to Remember\n• Congruent shapes fit exactly on top of one another.\n• Congruent shapes have equal perimeters and equal areas.\n• Reflections, rotations, and translations produce congruent images.\n\n⚠️ Common Mistake\\nThinking that shapes with the same angles are automatically congruent. Two rectangles can have four $90^\\circ$ angles but different side lengths, so they are not congruent."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-n2",
+      "heading": "Similar Shapes",
+      "body": "📌 Definition\\nTwo shapes are similar when they have the same shape but not necessarily the same size.\n\n🔑 Key Concept\\nFor two shapes to be similar:\n• All corresponding angles must be equal.\n• All corresponding sides must be in the same ratio.\n\\nThe symbol for similarity is $\\sim$. For example, $\\triangle PQR \\sim \\triangle STU$ means triangle $PQR$ is similar to triangle $STU$.\n\n💡 Worked Example\\nTwo rectangles are similar if their sides are in the same ratio:\n$$\\text{Rectangle A: } 2 \\text{ cm by } 4 \\text{ cm}$$\n$$\\text{Rectangle B: } 5 \\text{ cm by } 10 \\text{ cm}$$\\nThe ratio of widths is $2 : 5$ and the ratio of lengths is $4 : 10 = 2 : 5$. Both ratios match, so the rectangles are similar.\n\n📎 Key Points to Remember\n• Similar shapes have equal corresponding angles.\n• The ratio of any pair of corresponding sides is called the scale factor.\n• Similar shapes are enlargements or reductions of each other.\n\n⚠️ Common Mistake\\nAssuming that shapes with the same area are similar. Two rectangles can both have area $24$ cm$^2$ but very different shapes."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-n3",
+      "heading": "Conditions for Triangle Congruence",
+      "body": "📌 Definition\\nTo prove that two triangles are congruent, it is enough to show that one of four sets of matching parts is equal.\n\n🔑 Key Concept\\nThe four standard tests for triangle congruence are:\n• SSS (Side-Side-Side): all three pairs of corresponding sides are equal.\n• SAS (Side-Angle-Side): two pairs of sides and the included angle are equal.\n• ASA (Angle-Side-Angle): two pairs of angles and the included side are equal.\n• RHS (Right angle-Hypotenuse-Side): the hypotenuse and one other side of a right-angled triangle are equal.\n\n💡 Worked Example\\nConsider two triangles where:\n$$AB = DE = 5 \\text{ cm}, \\quad BC = EF = 7 \\text{ cm}, \\quad AC = DF = 8 \\text{ cm}$$\\nBecause all three pairs of sides match, the triangles are congruent by SSS.\n\n📎 Key Points to Remember\n• The equal angle in SAS must be the included angle between the two sides.\n• AAA (Angle-Angle-Angle) alone proves similarity, not congruence.\n• RHS only applies to right-angled triangles.\n\n⚠️ Common Mistake\\nUsing SSA (Side-Side-Angle) as a congruence test. SSA is not a valid test because it can produce two different triangles."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-n4",
+      "heading": "Scale Factor for Lengths",
+      "body": "📌 Definition\\nThe scale factor is the ratio of a length on an image to the corresponding length on the original shape.\n\n🔑 How it works\\nIf shape $B$ is an enlargement of shape $A$, then:\n$$\\text{scale factor} = \\frac{\\text{length on } B}{\\text{corresponding length on } A}$$\n\\nTo find a missing length on the image, multiply the original length by the scale factor:\n$$\\text{image length} = \\text{original length} \\times \\text{scale factor}$$\n\n💡 Worked Example\\nA photograph is enlarged so that a side of length $6$ cm becomes $15$ cm. Find the scale factor.\n\\nStep 1: Divide the new length by the original length.\n$$\\text{scale factor} = \\frac{15}{6} = 2.5$$\n\\nStep 2: Any other original length can now be multiplied by $2.5$.\n\n📎 Key Points to Remember\n• A scale factor greater than $1$ produces an enlargement.\n• A scale factor between $0$ and $1$ produces a reduction.\n• The scale factor applies to lengths, not directly to areas.\n\n✅ Check\\nIf the scale factor is $2.5$, every length on the image should be $2.5$ times the matching length on the original."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-n5",
+      "heading": "Scale Factor for Areas",
+      "body": "📌 Definition\\nWhen a shape is enlarged by a linear scale factor $k$, its area is multiplied by $k^2$.\n\n🔑 Key Concept\\nIf the length scale factor is $k$, then:\n$$\\text{area scale factor} = k^2$$\n\\nThis means:\n$$\\text{image area} = \\text{original area} \\times k^2$$\n\n💡 Worked Example\\nA rectangle has length $4$ cm and width $3$ cm. It is enlarged by scale factor $3$. Find the area of the enlarged rectangle.\n\\nStep 1: Find the original area.\n$$\\text{original area} = 4 \\times 3 = 12 \\text{ cm}^2$$\n\\nStep 2: Multiply by the area scale factor.\n$$\\text{image area} = 12 \\times 3^2 = 12 \\times 9 = 108 \\text{ cm}^2$$\n\n✅ Check\\nThe enlarged lengths are $12$ cm and $9$ cm. The area is $12 \\times 9 = 108$ cm$^2$, which matches.\n\n⚠️ Common Mistake\\nMultiplying the area by the linear scale factor instead of by the square of the scale factor."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-n6",
+      "heading": "Using Ratios in Similar Shapes",
+      "body": "📌 Definition\\nIn similar shapes, every pair of corresponding lengths is in the same ratio. This ratio can be used to find missing lengths.\n\n🔑 How it works\\nSet up a proportion using two pairs of corresponding sides:\n$$\\frac{a_1}{a_2} = \\frac{b_1}{b_2}$$\\nwhere $a_1$ and $b_1$ are lengths on the first shape, and $a_2$ and $b_2$ are the corresponding lengths on the second shape.\n\n💡 Worked Example\\nTwo similar triangles have corresponding sides $3$ cm and $6$ cm. A second pair of corresponding sides are $5$ cm and $x$ cm. Find $x$.\n\\nStep 1: Write the ratio of corresponding sides.\n$$\\frac{3}{6} = \\frac{5}{x}$$\n\\nStep 2: Solve for $x$.\n$$3x = 30 \\quad \\Rightarrow \\quad x = 10$$\n\\nThe missing length is $10$ cm.\n\n📎 Key Points to Remember\n• Always match corresponding sides carefully.\n• The scale factor is the same for every pair of corresponding lengths.\n• Corresponding angles are equal, so use angles to identify matching sides.\n\n⚠️ Common Mistake\\nMatching sides that do not correspond. The longest side on one shape corresponds to the longest side on the other."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-n7",
+      "heading": "Scale Drawings and Maps",
+      "body": "📌 Definition\\nA scale drawing or map is similar to the real object or area it represents. The scale tells you the ratio between a length on the drawing and the real length.\n\n🔑 Key Concept\\nA scale such as $1 : 100$ means $1$ unit on the drawing represents $100$ units in real life. Lengths are multiplied by $100$, but areas are multiplied by $100^2 = 10\\,000$.\n\n💡 Worked Example\\nA room is drawn as a rectangle $5$ cm by $8$ cm using a scale of $1 : 50$. Find the real area in square metres.\n\\nStep 1: Find real lengths.\n$$5 \\times 50 = 250 \\text{ cm} = 2.5 \\text{ m}$$\n$$8 \\times 50 = 400 \\text{ cm} = 4 \\text{ m}$$\n\\nStep 2: Find the real area.\n$$2.5 \\times 4 = 10 \\text{ m}^2$$\n\\nThe real area is $10$ m$^2$.\n\n📎 Key Points to Remember\n• Convert drawing lengths to real lengths before finding real area.\n• Real area = drawing area $\\times$ (scale factor)$^2$ only if both are in the same units.\n• Check that units are consistent at each step.\n\n✅ Check\\nA quick estimate: $5$ cm by $8$ cm on a $1 : 50$ scale represents about $2.5$ m by $4$ m, giving roughly $10$ m$^2$."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-congruence-similarity-f1",
+      "term": "Congruent",
+      "definition": "Having exactly the same size and exactly the same shape.",
+      "example": "Two triangles with sides $3$ cm, $4$ cm, $5$ cm are congruent to each other."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-f2",
+      "term": "Similar",
+      "definition": "Having the same shape but not necessarily the same size.",
+      "example": "Two rectangles with sides $2$ by $4$ and $5$ by $10$ are similar."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-f3",
+      "term": "Scale factor",
+      "definition": "The ratio of a length on an image to the corresponding length on the original shape.",
+      "example": "If a $6$ cm side becomes $12$ cm, the scale factor is $2$."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-f4",
+      "term": "SSS congruence",
+      "definition": "Two triangles are congruent if all three pairs of corresponding sides are equal.",
+      "example": "$AB = DE$, $BC = EF$, and $AC = DF$ proves $\\triangle ABC \\cong \\triangle DEF$."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-f5",
+      "term": "SAS congruence",
+      "definition": "Two triangles are congruent if two pairs of corresponding sides and the included angle are equal.",
+      "example": "$AB = DE$, $\\angle B = \\angle E$, and $BC = EF$ proves congruence."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-f6",
+      "term": "ASA congruence",
+      "definition": "Two triangles are congruent if two pairs of corresponding angles and the included side are equal.",
+      "example": "$\\angle A = \\angle D$, $AB = DE$, and $\\angle B = \\angle E$ proves congruence."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-f7",
+      "term": "RHS congruence",
+      "definition": "Two right-angled triangles are congruent if their hypotenuses and one other pair of sides are equal.",
+      "example": "In right triangles, equal hypotenuse and one equal leg prove congruence."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-f8",
+      "term": "Corresponding sides",
+      "definition": "Sides that occupy the same relative position in two similar or congruent shapes.",
+      "example": "The longest side of one triangle corresponds to the longest side of a similar triangle."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-f9",
+      "term": "Corresponding angles",
+      "definition": "Angles that occupy the same relative position in two similar or congruent shapes.",
+      "example": "Matching angles in similar triangles are equal."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-f10",
+      "term": "Area scale factor",
+      "definition": "The factor by which an area changes when a shape is enlarged or reduced.",
+      "example": "For a linear scale factor of $3$, the area scale factor is $3^2 = 9$."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-f11",
+      "term": "Linear scale factor",
+      "definition": "The factor by which all lengths change when a shape is enlarged or reduced.",
+      "example": "A scale factor of $0.5$ halves every length."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-f12",
+      "term": "Enlargement",
+      "definition": "A transformation that produces a similar image larger than the original.",
+      "example": "A scale factor greater than $1$ produces an enlargement."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-congruence-similarity-q1",
+      "stem": "Which statement is true for two congruent shapes?",
+      "choices": [
+        "They have the same shape but different sizes.",
+        "They have the same size and the same shape.",
+        "They have equal areas but different perimeters.",
+        "Their corresponding angles are different."
+      ],
+      "correctIndex": 1,
+      "explanation": "Congruent shapes are identical in both size and shape. They also have equal perimeters and equal areas, and all corresponding angles are equal."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q2",
+      "stem": "Two triangles are similar. The first has sides $3$ cm, $4$ cm, and $5$ cm. The second has a corresponding side of $9$ cm. What is the scale factor?",
+      "choices": [
+        "$3$",
+        "$4$",
+        "$5$",
+        "$6$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The scale factor is the ratio of corresponding lengths: $9 \\div 3 = 3$."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q3",
+      "stem": "A shape is enlarged by scale factor $4$. By what factor does its area increase?",
+      "choices": [
+        "$4$",
+        "$8$",
+        "$16$",
+        "$64$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Area scales by the square of the linear scale factor. For scale factor $4$, the area factor is $4^2 = 16$."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q4",
+      "stem": "Which of these is a valid test for triangle congruence?",
+      "choices": [
+        "AAA",
+        "SSA",
+        "SAS",
+        "RHS for any triangle"
+      ],
+      "correctIndex": 2,
+      "explanation": "SAS (Side-Angle-Side) is a valid congruence test. AAA proves similarity, SSA is not valid, and RHS only applies to right-angled triangles."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q5",
+      "stem": "Two rectangles are similar. The smaller rectangle is $2$ cm by $6$ cm. The larger rectangle has width $5$ cm. What is its length?",
+      "choices": [
+        "$10$ cm",
+        "$12$ cm",
+        "$15$ cm",
+        "$18$ cm"
+      ],
+      "correctIndex": 2,
+      "explanation": "The ratio of widths is $2 : 5$, so the scale factor is $2.5$. The length is $6 \\times 2.5 = 15$ cm."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q6",
+      "stem": "A triangle has area $20$ cm$^2$. A similar triangle is drawn with scale factor $3$. What is the area of the larger triangle?",
+      "choices": [
+        "$60$ cm$^2$",
+        "$120$ cm$^2$",
+        "$180$ cm$^2$",
+        "$240$ cm$^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The area scale factor is $3^2 = 9$. Therefore the larger area is $20 \\times 9 = 180$ cm$^2$."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q7",
+      "stem": "Two similar triangles have corresponding sides $6$ cm and $9$ cm. A side of length $8$ cm on the first triangle corresponds to a side of length $x$ cm on the second. Find $x$.",
+      "choices": [
+        "$10$ cm",
+        "$12$ cm",
+        "$14$ cm",
+        "$16$ cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "The scale factor is $9 \\div 6 = 1.5$. So $x = 8 \\times 1.5 = 12$ cm."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q8",
+      "stem": "Which condition proves that two right-angled triangles are congruent?",
+      "choices": [
+        "Two angles equal",
+        "Hypotenuse and one other side equal",
+        "Two sides equal but not the hypotenuse",
+        "One acute angle equal"
+      ],
+      "correctIndex": 1,
+      "explanation": "RHS (Right angle-Hypotenuse-Side) states that two right-angled triangles are congruent if their hypotenuses and one other pair of sides are equal."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q9",
+      "stem": "A model car is made using scale $1 : 25$. If the real car is $4$ m long, how long is the model in centimetres?",
+      "choices": [
+        "$10$ cm",
+        "$16$ cm",
+        "$20$ cm",
+        "$25$ cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "$4$ m = $400$ cm. With scale $1 : 25$, the model length is $400 \\div 25 = 16$ cm."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q10",
+      "stem": "Two shapes are similar with scale factor $\\frac{1}{2}$. What happens to the area?",
+      "choices": [
+        "It is halved.",
+        "It is divided by $4$.",
+        "It is doubled.",
+        "It stays the same."
+      ],
+      "correctIndex": 1,
+      "explanation": "The area scale factor is the square of the linear scale factor: $\\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}$. So the area is divided by $4$."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q11",
+      "stem": "A map uses scale $1 : 10\\,000$. A field is $4$ cm by $5$ cm on the map. What is the real area in square metres?",
+      "choices": [
+        "$200$ m$^2$",
+        "$2\\,000$ m$^2$",
+        "$20\\,000$ m$^2$",
+        "$200\\,000$ m$^2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Real lengths are $4 \\times 10\\,000 = 40\\,000$ cm = $400$ m and $5 \\times 10\\,000 = 50\\,000$ cm = $500$ m. The area is $400 \\times 500 = 200\\,000$ m$^2$."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q12",
+      "stem": "Two similar triangles have areas $27$ cm$^2$ and $243$ cm$^2$. What is the linear scale factor from the smaller to the larger?",
+      "choices": [
+        "$3$",
+        "$6$",
+        "$9$",
+        "$12$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The area scale factor is $243 \\div 27 = 9$. Since area scale factor = (linear scale factor)$^2$, the linear scale factor is $\\sqrt{9} = 3$."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q13",
+      "stem": "In two congruent triangles, $AB = 7$ cm. What is the length of the corresponding side on the other triangle?",
+      "choices": [
+        "$3.5$ cm",
+        "$7$ cm",
+        "$14$ cm",
+        "Cannot be determined"
+      ],
+      "correctIndex": 1,
+      "explanation": "Corresponding sides of congruent triangles are equal in length, so the matching side is also $7$ cm."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q14",
+      "stem": "A rectangle with length $8$ cm and width $5$ cm is enlarged by scale factor $2$. What is the perimeter of the enlarged rectangle?",
+      "choices": [
+        "$26$ cm",
+        "$40$ cm",
+        "$52$ cm",
+        "$80$ cm"
+      ],
+      "correctIndex": 2,
+      "explanation": "The enlarged length is $8 \\times 2 = 16$ cm and the enlarged width is $5 \\times 2 = 10$ cm. The perimeter is $2(16 + 10) = 52$ cm."
+    },
+    {
+      "id": "math-yr8-congruence-similarity-q15",
+      "stem": "Which of the following pairs of triangles must be similar?",
+      "choices": [
+        "Two triangles with the same perimeter",
+        "Two equilateral triangles",
+        "Two isosceles triangles",
+        "Two right-angled triangles"
+      ],
+      "correctIndex": 1,
+      "explanation": "All equilateral triangles have angles of $60^\\circ$, $60^\\circ$, and $60^\\circ$, so their corresponding angles are equal and they are always similar. The other options do not guarantee similarity."
+    }
+  ]
+}

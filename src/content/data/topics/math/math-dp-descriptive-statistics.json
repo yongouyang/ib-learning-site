@@ -25,22 +25,22 @@
       "heading": "Outliers, Transformations & Interpretation",
       "body": "This section brings together how to spot unusual values, how they affect your analysis, and what happens when you change every value in a data set.\n\n📌 Identifying Outliers\n\nA value is an outlier if it lies more than $1.5 \\times \\text{IQR}$ below $Q_1$ or above $Q_3$.\n\n    Lower fence = $Q_1$ − $1.5 \\times \\text{IQR}$\n    Upper fence = $Q_3$ + $1.5 \\times \\text{IQR}$\n\nAny value outside these fences is an outlier.\n\n💡 Worked Example — Outlier Detection\n\nFor the biology exam data: $Q_1 = 46$, $Q_3 = 78$, $\\text{IQR} = 32$\n\n  Step 1: Calculate the fences\n    $\\text{Lower fence} = 46 - 1.5 \\times 32 = 46 - 48 = -2$\n    $\\text{Upper fence} = 78 + 1.5 \\times 32 = 78 + 48 = 126$\n\n  Step 2: Check the data\n    All scores are between 18 and 98.\n\n  Conclusion: There are no outliers in this data set.\n\n📌 Effect of Outliers on Measures\n\n• Mean and standard deviation are distorted by outliers.\n• Median and $\\text{IQR}$ are usually unaffected.\n• Only remove outliers if they are proven errors. Valid extreme values should stay.\n\n📌 Linear Transformations of Data\n\nIf every data value is transformed by $y = ax + b$:\n\n    $\\text{New mean} = a \\bar{x} + b$\n    $\\text{New standard deviation} = |a| \\sigma$\n    $\\text{New variance} = a^2 \\sigma^2$\n\n    $a =$ multiplication factor\n    $b =$ addition/subtraction constant\n    $\\bar{x} =$ original mean\n    $\\sigma =$ original standard deviation\n\n💡 Worked Example — Transformation\n\nA data set has mean 45 and standard deviation 6. Every value is multiplied by 2, then 10 is added.\n\n  Step 1: New mean\n    $\\text{Mean} = 2 \\times 45 + 10 = 100$\n\n  Step 2: New standard deviation\n    $\\text{SD} = |2| \\times 6 = 12$\n\n  Step 3: New variance\n    $\\text{Variance} = 2^2 \\times 6^2 = 4 \\times 36 = 144$\n\n  Key insight: Adding 10 shifts the mean but does not affect spread. Multiplying by 2 scales both the mean and the spread.\n\n📌 Box Plots (Box-and-Whisker Plots)\n\nA box plot displays the five-number summary:\n\n    Minimum, $Q_1$, Median, $Q_3$, Maximum\n\nOutliers are shown as individual crosses beyond the whiskers.\n\nBox plots are ideal for comparing two distributions side-by-side.\n\n📌 Cumulative Frequency Graphs\n\nA cumulative frequency graph plots upper class boundary against cumulative frequency.\n\nYou can read off:\n• Median at 50% of total frequency\n• $Q_1$ at 25% of total frequency\n• $Q_3$ at 75% of total frequency\n• Any percentile by finding the corresponding percentage\n\n💡 Worked Example — Cumulative Frequency\n\nThe table shows visitors to a castle over 200 days:\n\n    Visitors      | 0–50 | 50–100 | 100–150 | 150–200 | 200–250 | 250–300 | 300–350 | 350–400\n    Frequency     |   16 |     38 |      50 |      36 |      32 |      19 |       6 |       3\n\n  Step 1: Build cumulative frequencies\n    < 50: 16\n    < 100: $16 + 38 = 54$\n    < 150: $54 + 50 = 104$\n    < 200: $104 + 36 = 140$\n    < 250: $140 + 32 = 172$\n    < 300: $172 + 19 = 191$\n    < 350: $191 + 6 = 197$\n    < 400: $197 + 3 = 200$\n\n  Step 2: Estimate median and quartiles from the graph\n    $\\text{Median}$ ($100$th value) $\\approx 146$\n    $Q_1$ ($50$th value) $\\approx 95$\n    $Q_3$ ($150$th value) $\\approx 215$\n\n  Step 3: Check for outliers\n    $\\text{IQR} = 215 - 95 = 120$\n    $\\text{Upper fence} = 215 + 1.5 \\times 120 = 395$\n    $\\text{Lower fence} = 95 - 1.5 \\times 120 = -85$\n    Since $\\max = 370$ and $\\min = 25$, there are no outliers.\n\n📎 Key Points to Remember\n• Adding or subtracting a constant shifts the mean but leaves spread unchanged.\n• Multiplying by a constant scales the mean, standard deviation, and variance.\n• Box plots give a quick visual comparison of two data sets.\n• Cumulative frequency graphs are best for estimating percentiles in grouped continuous data.\n\n⚠️ Common Mistake\nForgetting that standard deviation scales by $|a|$ but variance scales by $a^2$. If you double every value, the SD doubles but the variance becomes four times larger. Also, do not confuse the $1.5 \\times \\text{IQR}$ rule with $3 \\times \\text{IQR}$ — the IB uses 1.5."
     },
-  {
-    "id": "math-dp-descriptive-statistics-n5",
-    "heading": "Grouped Data & Cumulative Frequency",
-    "body": "Grouped data is organised into classes or intervals. It is useful when there are many distinct values, but you lose some exact detail.\n\n📌 Frequency Tables\n\nA frequency table shows how often each value or class occurs.\n• $f_i$ = frequency of the $i$th class\n• The total frequency is $\\sum f_i = n$\n\nFor grouped data, use the midpoint of each class to estimate the mean:\n\n    $\\bar{x} \\approx \\frac{\\sum f_i m_i}{\\sum f_i}$\n\n    $m_i$ = midpoint of each class\n\n🔑 Cumulative Frequency\n\nCumulative frequency is a running total of frequencies.\nIt helps you find the median class and quartiles.\n\n💡 Worked Example — Cumulative Frequency Table\n\nHeights of 50 plants:\n\n    Height (cm) | 0–10 | 10–20 | 20–30 | 30–40 | 40–50\n    Frequency   |    5 |     8 |    15 |    14 |     8\n\n  Step 1: Add cumulative frequencies\n    0–10: 5\n    10–20: 5 + 8 = 13\n    20–30: 13 + 15 = 28\n    30–40: 28 + 14 = 42\n    40–50: 42 + 8 = 50\n\n  Step 2: Find the median class\n    Median position = $\\frac{n}{2} = 25$th value\n    The 25th value falls in the 20–30 cm class.\n\n📎 Key Points to Remember\n\n• Always use class midpoints for mean calculations with grouped data.\n• Cumulative frequency graphs are useful for estimating medians and percentiles.\n• The modal class is the class with the highest frequency.\n\n⚠️ Common Mistake\n\nDo not use the class width as $x$ when calculating the mean from grouped data. Use the midpoint of each class."
-  },
-  {
-    "id": "math-dp-descriptive-statistics-n6",
-    "heading": "Box Plots & Five-Number Summary",
-    "body": "A box plot displays the spread and centre of a data set using five key values.\n\n📌 The Five-Number Summary\n\n1. Minimum\n2. Lower quartile ($Q_1$)\n3. Median ($Q_2$)\n4. Upper quartile ($Q_3$)\n5. Maximum\n\n📌 Drawing a Box Plot\n\n• Draw a scale covering the full range of data.\n• Mark $Q_1$, median, and $Q_3$ and draw a box between $Q_1$ and $Q_3$.\n• Draw whiskers from the box to the minimum and maximum (or to the fences if outliers are shown separately).\n\n💡 Worked Example — Constructing a Box Plot\n\nData set: 12, 15, 18, 22, 24, 27, 29, 31, 35, 38, 42\n\n  Step 1: Identify the five values\n    Minimum = 12\n    $Q_1$ = 18 (3rd value)\n    Median = 27 (6th value)\n    $Q_3$ = 35 (9th value)\n    Maximum = 42\n\n  Step 2: Draw the box plot\n    Box from 18 to 35, line inside at 27, whiskers to 12 and 42.\n\n🔑 Interpreting Box Plots\n\n• A longer box or whiskers means greater spread.\n• The median line shows where the centre lies.\n• If the median is closer to $Q_1$, the data may be right-skewed.\n• If the median is closer to $Q_3$, the data may be left-skewed.\n\n⚠️ Common Mistake\n\nOutliers are sometimes plotted as individual points beyond the whiskers. Do not assume whiskers always end at the minimum and maximum."
-  },
-  {
-    "id": "math-dp-descriptive-statistics-n7",
-    "heading": "Skewness & Comparing Distributions",
-    "body": "Skewness describes the asymmetry of a distribution.\n\n📌 Types of Skewness\n\nSymmetrical distribution:\n• Mean $\\approx$ Median $\\approx$ Mode\n• The left and right sides are roughly mirror images.\n\nPositive skew (right skew):\n• Tail extends to the right.\n• Mean > Median > Mode\n• Outliers pull the mean up.\n\nNegative skew (left skew):\n• Tail extends to the left.\n• Mean < Median < Mode\n• Outliers pull the mean down.\n\n💡 Worked Example — Identifying Skewness\n\nA data set has mean = 72, median = 78, mode = 82.\n\n  Step 1: Compare the measures\n    Mean (72) < Median (78) < Mode (82)\n\n  Step 2: Conclude\n    The tail is longer on the left, so the data is negatively skewed.\n\n🔑 Using Box Plots to Judge Skewness\n\n• Right whisker longer than left → possible positive skew.\n• Left whisker longer than right → possible negative skew.\n• Median off-centre in the box → indicates skewness direction.\n\n📎 Key Points to Remember\n\n• The mean is pulled toward the tail in skewed data.\n• The median is more robust and a better measure of centre for skewed distributions.\n• Use the IQR to measure spread when data is skewed or has outliers.\n\n✅ Check\n\nIf a distribution is skewed, which measure of centre should you report?\n→ The median, because it is less affected by extreme values."
-  }
-],
+    {
+      "id": "math-dp-descriptive-statistics-n5",
+      "heading": "Grouped Data & Cumulative Frequency",
+      "body": "Grouped data is organised into classes or intervals. It is useful when there are many distinct values, but you lose some exact detail.\n\n📌 Frequency Tables\n\nA frequency table shows how often each value or class occurs.\n• $f_i$ = frequency of the $i$th class\n• The total frequency is $\\sum f_i = n$\n\nFor grouped data, use the midpoint of each class to estimate the mean:\n\n    $\\bar{x} \\approx \\frac{\\sum f_i m_i}{\\sum f_i}$\n\n    $m_i$ = midpoint of each class\n\n🔑 Cumulative Frequency\n\nCumulative frequency is a running total of frequencies.\nIt helps you find the median class and quartiles.\n\n💡 Worked Example — Cumulative Frequency Table\n\nHeights of 50 plants:\n\n    Height (cm) | 0–10 | 10–20 | 20–30 | 30–40 | 40–50\n    Frequency   |    5 |     8 |    15 |    14 |     8\n\n  Step 1: Add cumulative frequencies\n    0–10: 5\n    10–20: 5 + 8 = 13\n    20–30: 13 + 15 = 28\n    30–40: 28 + 14 = 42\n    40–50: 42 + 8 = 50\n\n  Step 2: Find the median class\n    Median position = $\\frac{n}{2} = 25$th value\n    The 25th value falls in the 20–30 cm class.\n\n📎 Key Points to Remember\n\n• Always use class midpoints for mean calculations with grouped data.\n• Cumulative frequency graphs are useful for estimating medians and percentiles.\n• The modal class is the class with the highest frequency.\n\n⚠️ Common Mistake\n\nDo not use the class width as $x$ when calculating the mean from grouped data. Use the midpoint of each class."
+    },
+    {
+      "id": "math-dp-descriptive-statistics-n6",
+      "heading": "Box Plots & Five-Number Summary",
+      "body": "A box plot displays the spread and centre of a data set using five key values.\n\n📌 The Five-Number Summary\n\n1. Minimum\n2. Lower quartile ($Q_1$)\n3. Median ($Q_2$)\n4. Upper quartile ($Q_3$)\n5. Maximum\n\n📌 Drawing a Box Plot\n\n• Draw a scale covering the full range of data.\n• Mark $Q_1$, median, and $Q_3$ and draw a box between $Q_1$ and $Q_3$.\n• Draw whiskers from the box to the minimum and maximum (or to the fences if outliers are shown separately).\n\n💡 Worked Example — Constructing a Box Plot\n\nData set: 12, 15, 18, 22, 24, 27, 29, 31, 35, 38, 42\n\n  Step 1: Identify the five values\n    Minimum = 12\n    $Q_1$ = 18 (3rd value)\n    Median = 27 (6th value)\n    $Q_3$ = 35 (9th value)\n    Maximum = 42\n\n  Step 2: Draw the box plot\n    Box from 18 to 35, line inside at 27, whiskers to 12 and 42.\n\n🔑 Interpreting Box Plots\n\n• A longer box or whiskers means greater spread.\n• The median line shows where the centre lies.\n• If the median is closer to $Q_1$, the data may be right-skewed.\n• If the median is closer to $Q_3$, the data may be left-skewed.\n\n⚠️ Common Mistake\n\nOutliers are sometimes plotted as individual points beyond the whiskers. Do not assume whiskers always end at the minimum and maximum."
+    },
+    {
+      "id": "math-dp-descriptive-statistics-n7",
+      "heading": "Skewness & Comparing Distributions",
+      "body": "Skewness describes the asymmetry of a distribution.\n\n📌 Types of Skewness\n\nSymmetrical distribution:\n• Mean $\\approx$ Median $\\approx$ Mode\n• The left and right sides are roughly mirror images.\n\nPositive skew (right skew):\n• Tail extends to the right.\n• Mean > Median > Mode\n• Outliers pull the mean up.\n\nNegative skew (left skew):\n• Tail extends to the left.\n• Mean < Median < Mode\n• Outliers pull the mean down.\n\n💡 Worked Example — Identifying Skewness\n\nA data set has mean = 72, median = 78, mode = 82.\n\n  Step 1: Compare the measures\n    Mean (72) < Median (78) < Mode (82)\n\n  Step 2: Conclude\n    The tail is longer on the left, so the data is negatively skewed.\n\n🔑 Using Box Plots to Judge Skewness\n\n• Right whisker longer than left → possible positive skew.\n• Left whisker longer than right → possible negative skew.\n• Median off-centre in the box → indicates skewness direction.\n\n📎 Key Points to Remember\n\n• The mean is pulled toward the tail in skewed data.\n• The median is more robust and a better measure of centre for skewed distributions.\n• Use the IQR to measure spread when data is skewed or has outliers.\n\n✅ Check\n\nIf a distribution is skewed, which measure of centre should you report?\n→ The median, because it is less affected by extreme values."
+    }
+  ],
   "flashcards": [
     {
       "id": "math-dp-descriptive-statistics-f1",
@@ -90,31 +90,31 @@
       "definition": "Multiplying by $k$ scales the mean by $k$, the standard deviation by $|k|$, and the variance by $k^2$.",
       "example": "If mean=$20$ and $\\sigma=3$, doubling every value gives mean=$40$, $\\sigma=6$, $\\text{variance}=36$."
     },
-  {
-    "id": "math-dp-descriptive-statistics-f9",
-    "term": "Modal class",
-    "definition": "For grouped data, the modal class is the class interval with the highest frequency.",
-    "example": "Classes 0–10 (freq 4), 10–20 (freq 9), 20–30 (freq 6) → modal class is 10–20."
-  },
-  {
-    "id": "math-dp-descriptive-statistics-f10",
-    "term": "Cumulative frequency",
-    "definition": "A running total of frequencies, used to estimate medians, quartiles and percentiles.",
-    "example": "Frequencies 3, 5, 7 have cumulative frequencies 3, 8, 15."
-  },
-  {
-    "id": "math-dp-descriptive-statistics-f11",
-    "term": "Five-number summary",
-    "definition": "Minimum, lower quartile ($Q_1$), median ($Q_2$), upper quartile ($Q_3$), and maximum. Used to draw box plots.",
-    "example": "For data 5, 8, 12, 15, 20, 25, 30: min=5, $Q_1$=8, median=15, $Q_3$=25, max=30."
-  },
-  {
-    "id": "math-dp-descriptive-statistics-f12",
-    "term": "Positive skew (right skew)",
-    "definition": "A distribution with a long tail to the right. Typically mean > median > mode.",
-    "example": "House prices often have positive skew: most are moderate, but a few are very expensive."
-  }
-],
+    {
+      "id": "math-dp-descriptive-statistics-f9",
+      "term": "Modal class",
+      "definition": "For grouped data, the modal class is the class interval with the highest frequency.",
+      "example": "Classes 0–10 (freq 4), 10–20 (freq 9), 20–30 (freq 6) → modal class is 10–20."
+    },
+    {
+      "id": "math-dp-descriptive-statistics-f10",
+      "term": "Cumulative frequency",
+      "definition": "A running total of frequencies, used to estimate medians, quartiles and percentiles.",
+      "example": "Frequencies 3, 5, 7 have cumulative frequencies 3, 8, 15."
+    },
+    {
+      "id": "math-dp-descriptive-statistics-f11",
+      "term": "Five-number summary",
+      "definition": "Minimum, lower quartile ($Q_1$), median ($Q_2$), upper quartile ($Q_3$), and maximum. Used to draw box plots.",
+      "example": "For data 5, 8, 12, 15, 20, 25, 30: min=5, $Q_1$=8, median=15, $Q_3$=25, max=30."
+    },
+    {
+      "id": "math-dp-descriptive-statistics-f12",
+      "term": "Positive skew (right skew)",
+      "definition": "A distribution with a long tail to the right. Typically mean > median > mode.",
+      "example": "House prices often have positive skew: most are moderate, but a few are very expensive."
+    }
+  ],
   "questions": [
     {
       "id": "math-dp-descriptive-statistics-q1",
@@ -236,65 +236,65 @@
       "correctIndex": 0,
       "explanation": "Adding a constant (\\$200) shifts the mean: \\$3500 + \\$200 = \\$3700. Standard deviation is unaffected by addition/subtraction, so it remains \\$250."
     },
-  {
-    "id": "math-dp-descriptive-statistics-q11",
-    "stem": "The frequency table shows the number of pets owned by 25 students.\n\nPets (x) | 0 | 1 | 2 | 3 | 4\nFrequency (f) | 3 | 7 | 8 | 5 | 2\n\nWhat is the mode?",
-    "choices": [
-      "0",
-      "1",
-      "2",
-      "3"
-    ],
-    "correctIndex": 2,
-    "explanation": "The mode is the value with the highest frequency. Here, 2 pets has frequency 8, which is higher than any other value."
-  },
-  {
-    "id": "math-dp-descriptive-statistics-q12",
-    "stem": "A data set has minimum value 14 and maximum value 89. What is the range?",
-    "choices": [
-      "75",
-      "79",
-      "89",
-      "103"
-    ],
-    "correctIndex": 0,
-    "explanation": "Range = maximum − minimum = $89 - 14 = 75$."
-  },
-  {
-    "id": "math-dp-descriptive-statistics-q13",
-    "stem": "A data set has variance 9. Every value is multiplied by 4. What is the new variance?",
-    "choices": [
-      "9",
-      "12",
-      "36",
-      "144"
-    ],
-    "correctIndex": 3,
-    "explanation": "When values are multiplied by $k$, the variance is multiplied by $k^2$. New variance = $4^2 \\times 9 = 16 \\times 9 = 144$."
-  },
-  {
-    "id": "math-dp-descriptive-statistics-q14",
-    "stem": "A market researcher wants to survey shoppers at a mall. She stands near the main entrance and interviews the first 60 people who agree to participate. What type of sampling is this?",
-    "choices": [
-      "Simple random sampling",
-      "Systematic sampling",
-      "Stratified sampling",
-      "Convenience sampling"
-    ],
-    "correctIndex": 3,
-    "explanation": "This is convenience sampling because the researcher uses shoppers who are easiest to reach, not a random or structured selection method."
-  },
-  {
-    "id": "math-dp-descriptive-statistics-q15",
-    "stem": "The cumulative frequency table shows the masses of 40 packages.\n\nMass (kg) | < 2 | < 4 | < 6 | < 8 | < 10\nCumulative frequency | 4 | 12 | 26 | 35 | 40\n\nWhich class contains the median mass?",
-    "choices": [
-      "$0 \\leq m < 2$",
-      "$2 \\leq m < 4$",
-      "$4 \\leq m < 6$",
-      "$6 \\leq m < 8$"
-    ],
-    "correctIndex": 2,
-    "explanation": "The median is the 20th value (half of 40). Cumulative frequencies show 12 below 4 kg and 26 below 6 kg, so the 20th value lies in the class $4 \\leq m < 6$."
-  }
-]
+    {
+      "id": "math-dp-descriptive-statistics-q11",
+      "stem": "The frequency table shows the number of pets owned by 25 students.\n\nPets (x) | 0 | 1 | 2 | 3 | 4\nFrequency (f) | 3 | 7 | 8 | 5 | 2\n\nWhat is the mode?",
+      "choices": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "correctIndex": 2,
+      "explanation": "The mode is the value with the highest frequency. Here, 2 pets has frequency 8, which is higher than any other value."
+    },
+    {
+      "id": "math-dp-descriptive-statistics-q12",
+      "stem": "A data set has minimum value 14 and maximum value 89. What is the range?",
+      "choices": [
+        "75",
+        "79",
+        "89",
+        "103"
+      ],
+      "correctIndex": 0,
+      "explanation": "Range = maximum − minimum = $89 - 14 = 75$."
+    },
+    {
+      "id": "math-dp-descriptive-statistics-q13",
+      "stem": "A data set has variance 9. Every value is multiplied by 4. What is the new variance?",
+      "choices": [
+        "9",
+        "12",
+        "36",
+        "144"
+      ],
+      "correctIndex": 3,
+      "explanation": "When values are multiplied by $k$, the variance is multiplied by $k^2$. New variance = $4^2 \\times 9 = 16 \\times 9 = 144$."
+    },
+    {
+      "id": "math-dp-descriptive-statistics-q14",
+      "stem": "A market researcher wants to survey shoppers at a mall. She stands near the main entrance and interviews the first 60 people who agree to participate. What type of sampling is this?",
+      "choices": [
+        "Simple random sampling",
+        "Systematic sampling",
+        "Stratified sampling",
+        "Convenience sampling"
+      ],
+      "correctIndex": 3,
+      "explanation": "This is convenience sampling because the researcher uses shoppers who are easiest to reach, not a random or structured selection method."
+    },
+    {
+      "id": "math-dp-descriptive-statistics-q15",
+      "stem": "The cumulative frequency table shows the masses of 40 packages.\n\nMass (kg) | < 2 | < 4 | < 6 | < 8 | < 10\nCumulative frequency | 4 | 12 | 26 | 35 | 40\n\nWhich class contains the median mass?",
+      "choices": [
+        "$0 \\leq m < 2$",
+        "$2 \\leq m < 4$",
+        "$4 \\leq m < 6$",
+        "$6 \\leq m < 8$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The median is the 20th value (half of 40). Cumulative frequencies show 12 below 4 kg and 26 below 6 kg, so the 20th value lies in the class $4 \\leq m < 6$."
+    }
+  ]
 }

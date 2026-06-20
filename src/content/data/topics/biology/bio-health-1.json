@@ -154,105 +154,180 @@
     {
       "id": "bio-health-1-q1",
       "stem": "Which of these diseases is caused by a virus?",
-      "choices": ["Cholera (from contaminated water)", "Athlete's foot (skin infection)", "Influenza (flu)", "Malaria"],
+      "choices": [
+        "Cholera (from contaminated water)",
+        "Athlete's foot (skin infection)",
+        "Influenza (flu)",
+        "Malaria"
+      ],
       "correctIndex": 2,
       "explanation": "Influenza is caused by the influenza virus. Cholera = bacteria (Vibrio cholerae), athlete's foot = fungus, malaria = protist (Plasmodium)."
     },
     {
       "id": "bio-health-1-q2",
       "stem": "How do ciliated epithelial cells protect the respiratory system?",
-      "choices": ["They produce antibodies that kill pathogens", "They secrete mucus that traps pathogens, then cilia sweep the mucus up to the throat to be swallowed", "They form a waterproof barrier in the lungs", "They produce stomach acid that kills bacteria"],
+      "choices": [
+        "They produce antibodies that kill pathogens",
+        "They secrete mucus that traps pathogens, then cilia sweep the mucus up to the throat to be swallowed",
+        "They form a waterproof barrier in the lungs",
+        "They produce stomach acid that kills bacteria"
+      ],
       "correctIndex": 1,
       "explanation": "Cilia are tiny hair-like projections that beat in coordinated waves, moving mucus (with trapped pathogens and particles) up to the throat. The mucus is swallowed and stomach acid destroys the pathogens."
     },
     {
       "id": "bio-health-1-q3",
       "stem": "What is the difference between a phagocyte and a lymphocyte?",
-      "choices": ["Phagocytes produce antibodies; lymphocytes engulf pathogens", "Phagocytes engulf and digest pathogens non-specifically; lymphocytes produce specific antibodies and memory cells", "They are the same type of cell with different names", "Phagocytes work outside the body; lymphocytes work inside"],
+      "choices": [
+        "Phagocytes produce antibodies; lymphocytes engulf pathogens",
+        "Phagocytes engulf and digest pathogens non-specifically; lymphocytes produce specific antibodies and memory cells",
+        "They are the same type of cell with different names",
+        "Phagocytes work outside the body; lymphocytes work inside"
+      ],
       "correctIndex": 1,
       "explanation": "Phagocytes (macrophages, neutrophils) carry out phagocytosis — non-specific engulfing of any foreign material. Lymphocytes are specific — each one produces antibodies against a single antigen."
     },
     {
       "id": "bio-health-1-q4",
       "stem": "Why does a vaccine NOT make you ill from the disease it protects against?",
-      "choices": ["The vaccine contains antibiotics that kill the pathogen immediately", "The vaccine contains weakened, dead, or fragmented pathogens that cannot cause disease but still trigger an immune response", "The vaccine only works after you already have the disease", "The vaccine contains memory cells, not pathogens"],
+      "choices": [
+        "The vaccine contains antibiotics that kill the pathogen immediately",
+        "The vaccine contains weakened, dead, or fragmented pathogens that cannot cause disease but still trigger an immune response",
+        "The vaccine only works after you already have the disease",
+        "The vaccine contains memory cells, not pathogens"
+      ],
       "correctIndex": 1,
       "explanation": "Vaccines use attenuated (weakened), inactivated (dead), or subunit (fragments/antigens) forms of the pathogen. These cannot cause full disease but are enough to stimulate immunity and memory cell production."
     },
     {
       "id": "bio-health-1-q5",
       "stem": "A patient has flu-like symptoms. The doctor prescribes antibiotics. Why is this inappropriate?",
-      "choices": ["Antibiotics only work against bacteria — flu is caused by a virus, so antibiotics will have no effect and contribute to antibiotic resistance", "Antibiotics are too expensive for viral infections", "The patient should just rest instead", "Antibiotics will make the virus mutate faster"],
+      "choices": [
+        "Antibiotics only work against bacteria — flu is caused by a virus, so antibiotics will have no effect and contribute to antibiotic resistance",
+        "Antibiotics are too expensive for viral infections",
+        "The patient should just rest instead",
+        "Antibiotics will make the virus mutate faster"
+      ],
       "correctIndex": 0,
       "explanation": "Antibiotics target bacterial-specific features (cell wall, ribosomes). Viruses have none of these — they use the host cell's machinery. Prescribing antibiotics for viral infections is ineffective and contributes to the antibiotic resistance crisis."
     },
     {
       "id": "bio-health-1-q6",
       "stem": "How does antibiotic resistance develop in a bacterial population?",
-      "choices": ["Bacteria choose to become resistant when they detect antibiotics", "Random mutations produce resistance in a few bacteria; when exposed to antibiotics, these survive and reproduce, passing resistance genes — the population evolves", "Antibiotics directly change bacterial DNA to become resistant", "All bacteria are naturally resistant to all antibiotics"],
+      "choices": [
+        "Bacteria choose to become resistant when they detect antibiotics",
+        "Random mutations produce resistance in a few bacteria; when exposed to antibiotics, these survive and reproduce, passing resistance genes — the population evolves",
+        "Antibiotics directly change bacterial DNA to become resistant",
+        "All bacteria are naturally resistant to all antibiotics"
+      ],
       "correctIndex": 1,
       "explanation": "Antibiotic resistance evolves through natural selection. Random mutations produce rare resistant individuals. Antibiotics kill susceptible bacteria, leaving resistant ones to thrive — these multiply and the resistance allele frequency increases."
     },
     {
       "id": "bio-health-1-q7",
       "stem": "A student tests three mouthwashes by placing soaked discs on a bacterial lawn. After incubation, Mouthwash A has a 12 mm inhibition zone, B has 20 mm, C has 5 mm. Which is most effective at killing bacteria?",
-      "choices": ["Mouthwash A", "Mouthwash B", "Mouthwash C", "They are all equally effective"],
+      "choices": [
+        "Mouthwash A",
+        "Mouthwash B",
+        "Mouthwash C",
+        "They are all equally effective"
+      ],
       "correctIndex": 1,
       "explanation": "The larger the zone of inhibition, the more effective the antimicrobial at killing or inhibiting bacterial growth. Mouthwash B (20 mm) is clearly the most effective in this test."
     },
     {
       "id": "bio-health-1-q8",
       "stem": "Why is aseptic technique important when culturing bacteria in the lab?",
-      "choices": ["To make the bacteria grow faster", "To prevent contamination of the culture with unwanted microorganisms (including pathogens from the air/surfaces) and to prevent the cultured bacteria from escaping and causing harm", "To save money on agar plates", "To ensure the bacteria produce more toxins for study"],
+      "choices": [
+        "To make the bacteria grow faster",
+        "To prevent contamination of the culture with unwanted microorganisms (including pathogens from the air/surfaces) and to prevent the cultured bacteria from escaping and causing harm",
+        "To save money on agar plates",
+        "To ensure the bacteria produce more toxins for study"
+      ],
       "correctIndex": 1,
       "explanation": "Aseptic technique (sterilising equipment, flaming bottlenecks, working near a Bunsen updraft) prevents contamination both ways — stops environmental microbes from growing on your plate and stops your cultured bacteria from escaping."
     },
     {
       "id": "bio-health-1-q9",
       "stem": "What is herd immunity and why does it matter?",
-      "choices": ["When all cows in a herd are immune to a disease", "When a high proportion of a population is vaccinated, preventing disease spread and protecting those who cannot be vaccinated (infants, immunocompromised)", "When a disease naturally dies out without any intervention", "When vaccines are given to livestock only"],
+      "choices": [
+        "When all cows in a herd are immune to a disease",
+        "When a high proportion of a population is vaccinated, preventing disease spread and protecting those who cannot be vaccinated (infants, immunocompromised)",
+        "When a disease naturally dies out without any intervention",
+        "When vaccines are given to livestock only"
+      ],
       "correctIndex": 1,
       "explanation": "Herd immunity protects vulnerable individuals (newborns, cancer patients, organ transplant recipients) who cannot receive vaccines. If enough people are immune, the pathogen has no 'chain' of susceptible hosts to spread through."
     },
     {
       "id": "bio-health-1-q10",
       "stem": "What is the role of memory lymphocytes in the immune response?",
-      "choices": ["They produce toxins that kill all pathogens immediately", "They remain in the body for years and enable a rapid, strong antibody response if the same pathogen invades again — this is immunity", "They transport oxygen around the body", "They digest food in the stomach"],
+      "choices": [
+        "They produce toxins that kill all pathogens immediately",
+        "They remain in the body for years and enable a rapid, strong antibody response if the same pathogen invades again — this is immunity",
+        "They transport oxygen around the body",
+        "They digest food in the stomach"
+      ],
       "correctIndex": 1,
       "explanation": "Following an infection or vaccination, memory B and T cells remain dormant. On re-exposure to the same pathogen, they rapidly multiply and produce large quantities of antibodies — often eliminating the pathogen before symptoms appear."
     },
     {
       "id": "bio-health-1-q11",
       "stem": "Which lifestyle factor has the strongest direct link to lung cancer?",
-      "choices": ["Eating too much sugar", "Not exercising enough", "Smoking tobacco", "Drinking alcohol"],
+      "choices": [
+        "Eating too much sugar",
+        "Not exercising enough",
+        "Smoking tobacco",
+        "Drinking alcohol"
+      ],
       "correctIndex": 2,
       "explanation": "Tobacco smoke contains over 70 known carcinogens. Smoking causes approximately 85% of lung cancer cases. Tar damages the cilia and lung tissue; carcinogens directly mutate DNA in lung cells."
     },
     {
       "id": "bio-health-1-q12",
       "stem": "How does stomach acid act as a defence against pathogens?",
-      "choices": ["It physically washes pathogens out of the stomach", "It has a very low pH (~1-2) that denatures pathogen proteins and kills most ingested bacteria", "It contains antibodies that neutralise pathogens", "It absorbs pathogens into the stomach wall"],
+      "choices": [
+        "It physically washes pathogens out of the stomach",
+        "It has a very low pH (~1-2) that denatures pathogen proteins and kills most ingested bacteria",
+        "It contains antibodies that neutralise pathogens",
+        "It absorbs pathogens into the stomach wall"
+      ],
       "correctIndex": 1,
       "explanation": "Hydrochloric acid in the stomach creates an extremely acidic environment (pH 1-2). This low pH denatures the proteins of most bacteria and pathogens — very few can survive passage through the stomach."
     },
     {
       "id": "bio-health-1-q13",
       "stem": "Why is a secondary immune response (2nd exposure) faster and stronger than the primary response (1st exposure)?",
-      "choices": ["The pathogen is weaker the second time", "Memory lymphocytes from the first exposure are already present and ready — they rapidly multiply and produce antibodies before the pathogen can establish infection", "The body produces more phagocytes the second time", "Antibiotics from the first infection remain in the blood"],
+      "choices": [
+        "The pathogen is weaker the second time",
+        "Memory lymphocytes from the first exposure are already present and ready — they rapidly multiply and produce antibodies before the pathogen can establish infection",
+        "The body produces more phagocytes the second time",
+        "Antibiotics from the first infection remain in the blood"
+      ],
       "correctIndex": 1,
       "explanation": "During the primary response, it takes days for lymphocytes to recognise the antigen, activate, and produce antibodies. Memory cells generated then remain. On re-exposure, they respond within hours — producing a much faster, larger antibody response."
     },
     {
       "id": "bio-health-1-q14",
       "stem": "Which of the following is a non-communicable disease?",
-      "choices": ["COVID-19", "Malaria", "Type 2 diabetes", "Tuberculosis"],
+      "choices": [
+        "COVID-19",
+        "Malaria",
+        "Type 2 diabetes",
+        "Tuberculosis"
+      ],
       "correctIndex": 2,
       "explanation": "Type 2 diabetes is largely caused by lifestyle factors (obesity, poor diet, lack of exercise) and genetics. It is NOT contagious. COVID-19 is viral, malaria is a protist, and TB is bacterial — all communicable."
     },
     {
       "id": "bio-health-1-q15",
       "stem": "In a practical, agar plates are incubated at 25°C rather than 37°C. Why?",
-      "choices": ["Bacteria grow faster at 25°C", "25°C is room temperature so no incubator is needed", "Incubating at 37°C (human body temperature) would selectively encourage the growth of human pathogens, creating a significant safety risk in a school laboratory", "Bacteria die at 37°C"],
+      "choices": [
+        "Bacteria grow faster at 25°C",
+        "25°C is room temperature so no incubator is needed",
+        "Incubating at 37°C (human body temperature) would selectively encourage the growth of human pathogens, creating a significant safety risk in a school laboratory",
+        "Bacteria die at 37°C"
+      ],
       "correctIndex": 2,
       "explanation": "Pathogens adapted to the human body thrive at 37°C. In a school setting, incubating at 25°C reduces the risk of accidentally culturing dangerous human pathogens while still allowing safe bacterial species to grow."
     }

@@ -154,105 +154,180 @@
     {
       "id": "chem-changes-1-q1",
       "stem": "Which is a physical change?",
-      "choices": ["Iron rusting", "Wood burning", "Ice melting", "Egg cooking"],
+      "choices": [
+        "Iron rusting",
+        "Wood burning",
+        "Ice melting",
+        "Egg cooking"
+      ],
       "correctIndex": 2,
       "explanation": "Melting is a change of state — still H₂O. No new substance is formed. All changes of state are physical."
     },
     {
       "id": "chem-changes-1-q2",
       "stem": "Which observation is the BEST evidence that a chemical change has occurred?",
-      "choices": ["The shape changed", "It melted", "A new gas was produced (bubbles) and a permanent colour change occurred", "It dissolved in water"],
+      "choices": [
+        "The shape changed",
+        "It melted",
+        "A new gas was produced (bubbles) and a permanent colour change occurred",
+        "It dissolved in water"
+      ],
       "correctIndex": 2,
       "explanation": "Gas production (not boiling) and permanent colour changes indicate new substances forming — these are chemical changes."
     },
     {
       "id": "chem-changes-1-q3",
       "stem": "In an exothermic reaction, what happens to the temperature?",
-      "choices": ["Decreases", "Stays the same", "Increases — heat is released", "Increases then decreases"],
+      "choices": [
+        "Decreases",
+        "Stays the same",
+        "Increases — heat is released",
+        "Increases then decreases"
+      ],
       "correctIndex": 2,
       "explanation": "Exothermic = 'heat out.' Energy is released to surroundings → temperature rises."
     },
     {
       "id": "chem-changes-1-q4",
       "stem": "Two solutions mix, temperature drops. What type?",
-      "choices": ["Exothermic", "Physical change", "Neutralisation", "Endothermic"],
+      "choices": [
+        "Exothermic",
+        "Physical change",
+        "Neutralisation",
+        "Endothermic"
+      ],
       "correctIndex": 3,
       "explanation": "Temperature dropping = absorbing energy from surroundings = endothermic."
     },
     {
       "id": "chem-changes-1-q5",
       "stem": "10 g CaCO₃ reacts and 4.4 g CO₂ escapes. Mass of remaining products?",
-      "choices": ["4.4 g", "5.6 g", "10 g", "14.4 g"],
+      "choices": [
+        "4.4 g",
+        "5.6 g",
+        "10 g",
+        "14.4 g"
+      ],
       "correctIndex": 1,
       "explanation": "Conservation of mass: 10 − 4.4 = 5.6 g. The gas is still mass — it just escaped. Total mass was 10 g."
     },
     {
       "id": "chem-changes-1-q6",
       "stem": "Balance: __Na + Cl₂ → __NaCl",
-      "choices": ["Na + Cl₂ → NaCl", "2Na + Cl₂ → 2NaCl", "Na + 2Cl₂ → NaCl₂", "2Na + Cl₂ → Na₂Cl"],
+      "choices": [
+        "Na + Cl₂ → NaCl",
+        "2Na + Cl₂ → 2NaCl",
+        "Na + 2Cl₂ → NaCl₂",
+        "2Na + Cl₂ → Na₂Cl"
+      ],
       "correctIndex": 1,
       "explanation": "Left: 2Na, 2Cl. Right: 2Na, 2Cl. Balanced. Never change NaCl to NaCl₂ — that would be a different compound."
     },
     {
       "id": "chem-changes-1-q7",
       "stem": "Magnesium burns in air and mass appears to increase from 24 g to 40 g. Why is this NOT a violation of conservation of mass?",
-      "choices": ["Mass is created during burning", "24 g Mg combined with 16 g O₂ from the air → 40 g MgO. Total mass unchanged", "The balance was broken", "Heat makes things heavier"],
+      "choices": [
+        "Mass is created during burning",
+        "24 g Mg combined with 16 g O₂ from the air → 40 g MgO. Total mass unchanged",
+        "The balance was broken",
+        "Heat makes things heavier"
+      ],
       "correctIndex": 1,
       "explanation": "The 'extra' mass is oxygen from the air that combined with magnesium. In a sealed container, total mass would remain constant."
     },
     {
       "id": "chem-changes-1-q8",
       "stem": "Zn + CuSO₄ → ZnSO₄ + Cu. What type of reaction?",
-      "choices": ["Neutralisation", "Thermal decomposition", "Displacement", "Combustion"],
+      "choices": [
+        "Neutralisation",
+        "Thermal decomposition",
+        "Displacement",
+        "Combustion"
+      ],
       "correctIndex": 2,
       "explanation": "Zinc is more reactive than copper. It displaces Cu from CuSO₄ solution. Copper metal appears; blue solution fades."
     },
     {
       "id": "chem-changes-1-q9",
       "stem": "Heating CaCO₃ produces CaO + CO₂. What type?",
-      "choices": ["Combustion", "Displacement", "Thermal decomposition", "Neutralisation"],
+      "choices": [
+        "Combustion",
+        "Displacement",
+        "Thermal decomposition",
+        "Neutralisation"
+      ],
       "correctIndex": 2,
       "explanation": "One compound (CaCO₃) breaks down into simpler substances (CaO + CO₂) when heated — thermal decomposition."
     },
     {
       "id": "chem-changes-1-q10",
       "stem": "Why does a reaction need activation energy even if it is exothermic?",
-      "choices": ["Exothermic reactions don't need activation energy", "Bonds in reactants must be broken first — this always requires energy input, even if more energy is later released", "Activation energy is only for endothermic reactions", "It prevents the reaction from being too fast"],
+      "choices": [
+        "Exothermic reactions don't need activation energy",
+        "Bonds in reactants must be broken first — this always requires energy input, even if more energy is later released",
+        "Activation energy is only for endothermic reactions",
+        "It prevents the reaction from being too fast"
+      ],
       "correctIndex": 1,
       "explanation": "Breaking bonds ALWAYS takes energy. Even if the overall reaction releases energy (exothermic), you still need initial energy to break reactant bonds."
     },
     {
       "id": "chem-changes-1-q11",
       "stem": "Blue CuSO₄·5H₂O is heated → white powder. Adding water → turns blue again. This is:",
-      "choices": ["A chemical change followed by a physical change", "A reversible reaction: CuSO₄·5H₂O ⇌ CuSO₄ + 5H₂O", "A permanent chemical change", "A combustion reaction"],
+      "choices": [
+        "A chemical change followed by a physical change",
+        "A reversible reaction: CuSO₄·5H₂O ⇌ CuSO₄ + 5H₂O",
+        "A permanent chemical change",
+        "A combustion reaction"
+      ],
       "correctIndex": 1,
       "explanation": "The reaction can go both ways: heat drives off water; adding water restores the hydrated form. This is a classic reversible reaction."
     },
     {
       "id": "chem-changes-1-q12",
       "stem": "Balance: CH₄ + __O₂ → CO₂ + __H₂O",
-      "choices": ["CH₄ + O₂ → CO₂ + H₂O", "CH₄ + 2O₂ → CO₂ + 2H₂O", "CH₄ + 3O₂ → CO₂ + 4H₂O", "2CH₄ + O₂ → 2CO₂ + H₂O"],
+      "choices": [
+        "CH₄ + O₂ → CO₂ + H₂O",
+        "CH₄ + 2O₂ → CO₂ + 2H₂O",
+        "CH₄ + 3O₂ → CO₂ + 4H₂O",
+        "2CH₄ + O₂ → 2CO₂ + H₂O"
+      ],
       "correctIndex": 1,
       "explanation": "C: balanced (1 each). H: 4 on left → need 2H₂O (4H on right). O: 2 from 2O₂ → 2+2=4 on right (1 in CO₂ + 1 in each H₂O). ✓"
     },
     {
       "id": "chem-changes-1-q13",
       "stem": "AgNO₃(aq) + KCl(aq) → AgCl(s) + KNO₃(aq). What does (s) indicate?",
-      "choices": ["Soluble", "A precipitate — an insoluble solid formed when two solutions react", "A gas", "Silver chloride is dissolved"],
+      "choices": [
+        "Soluble",
+        "A precipitate — an insoluble solid formed when two solutions react",
+        "A gas",
+        "Silver chloride is dissolved"
+      ],
       "correctIndex": 1,
       "explanation": "(s) = solid precipitate. AgCl is insoluble and appears as a white solid when the two clear solutions are mixed."
     },
     {
       "id": "chem-changes-1-q14",
       "stem": "Which correctly gives state symbols for the reaction 2Na + 2H₂O → 2NaOH + H₂?",
-      "choices": ["2Na(aq) + 2H₂O(l) → 2NaOH(aq) + H₂(l)", "2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g)", "2Na(g) + 2H₂O(g) → 2NaOH(s) + H₂(l)", "2Na(s) + 2H₂O(aq) → 2NaOH(l) + H₂(s)"],
+      "choices": [
+        "2Na(aq) + 2H₂O(l) → 2NaOH(aq) + H₂(l)",
+        "2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g)",
+        "2Na(g) + 2H₂O(g) → 2NaOH(s) + H₂(l)",
+        "2Na(s) + 2H₂O(aq) → 2NaOH(l) + H₂(s)"
+      ],
       "correctIndex": 1,
       "explanation": "Sodium is a solid metal, water is liquid, NaOH dissolves (aq), and hydrogen is a gas that bubbles off."
     },
     {
       "id": "chem-changes-1-q15",
       "stem": "What is meant by 'dynamic equilibrium' in a reversible reaction?",
-      "choices": ["The reaction has stopped completely", "Forward and reverse reactions occur at the same rate — concentrations remain constant but reactions continue", "All reactants have become products", "The reaction is unbalanced"],
+      "choices": [
+        "The reaction has stopped completely",
+        "Forward and reverse reactions occur at the same rate — concentrations remain constant but reactions continue",
+        "All reactants have become products",
+        "The reaction is unbalanced"
+      ],
       "correctIndex": 1,
       "explanation": "Equilibrium is dynamic — reactions don't stop. The forward reaction rate = reverse reaction rate. Concentrations are constant (but not necessarily equal)."
     }

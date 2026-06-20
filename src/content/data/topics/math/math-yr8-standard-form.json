@@ -1,0 +1,310 @@
+{
+  "id": "math-yr8-standard-form",
+  "subjectId": "math",
+  "title": "Standard Form (Scientific Notation)",
+  "description": "Write and calculate with numbers in standard form.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-standard-form-n1",
+      "heading": "What is Standard Form?",
+      "illustration": {
+        "src": "/images/math/math-yr8-standard-form.svg",
+        "alt": "Diagram showing a number written in standard form as 3.4 times 10 to the power 5, with the coefficient, base, and exponent labelled.",
+        "caption": "Standard form writes a number as a coefficient between 1 and 10 multiplied by a power of 10."
+      },
+      "body": "📌 Definition\nStandard form (also called scientific notation) is a way of writing very large or very small numbers compactly. A number is in standard form when it is written as:\n$$a \\times 10^n$$\nwhere $1 \\leq a < 10$ and $n$ is an integer.\n\n🔑 Key Concept\nThe coefficient $a$ is always at least $1$ and less than $10$. The power of $10$ tells you how many places to move the decimal point.\n\n💡 Worked Example\nWrite $340\\,000$ in standard form.\n\nStep 1: Place the decimal point after the first non-zero digit to get $3.4$.\n\nStep 2: Count how many places the decimal point has moved from its original position.\n$$340\\,000 \\rightarrow 3.40000$$\nThe decimal point moved $5$ places to the left.\n\nStep 3: Write the answer.\n$$340\\,000 = 3.4 \\times 10^5$$\n\n📎 Key Points to Remember\n• Standard form makes large and small numbers easier to read and compare.\n• The coefficient must satisfy $1 \\leq a < 10$.\n• The exponent $n$ is positive for large numbers and negative for small numbers.\n\n⚠️ Common Mistake\nWriting $34 \\times 10^4$ instead of $3.4 \\times 10^5$. The coefficient $34$ is not between $1$ and $10$, so this is not standard form."
+    },
+    {
+      "id": "math-yr8-standard-form-n2",
+      "heading": "The Coefficient",
+      "body": "📌 Definition\nThe coefficient in standard form is the number $a$ in $a \\times 10^n$. It must be greater than or equal to $1$ and less than $10$.\n\n🔑 Key Concept\nTo find the coefficient, move the decimal point in the original number so that only one non-zero digit is to the left of the decimal point.\n\n💡 Worked Example\nWhat is the coefficient when $5\\,600$ is written in standard form?\n\nMove the decimal point three places to the left:\n$$5\\,600 = 5.6 \\times 10^3$$\nThe coefficient is $5.6$.\n\n💡 Worked Example\nWhat is the coefficient when $0.0072$ is written in standard form?\n\nMove the decimal point three places to the right:\n$$0.0072 = 7.2 \\times 10^{-3}$$\nThe coefficient is $7.2$.\n\n📎 Key Points to Remember\n• $a = 1$ is allowed, but $a = 10$ is not.\n• $0.5 \\times 10^4$ is not standard form because $0.5 < 1$.\n• $12 \\times 10^4$ is not standard form because $12 \\geq 10$.\n\n⚠️ Common Mistake\nLeaving the coefficient as a whole number, such as $45 \\times 10^2$. Always adjust so that $1 \\leq a < 10$."
+    },
+    {
+      "id": "math-yr8-standard-form-n3",
+      "heading": "Positive Powers of 10 for Large Numbers",
+      "body": "📌 Definition\nA positive power of $10$ represents a large number. The exponent tells you how many zeros follow the $1$.\n\n🔑 Key Concept\n$$10^n = 1 \\underbrace{00\\dots0}_{n \\text{ zeros}}$$\nFor example:\n$$10^2 = 100, \\quad 10^3 = 1\\,000, \\quad 10^6 = 1\\,000\\,000$$\n\n💡 Worked Example\nWrite $7\\,200\\,000$ in standard form.\n\nStep 1: Move the decimal point to after the first digit:\n$$7.200\\,000$$\n\nStep 2: Count the moves. The decimal point moved $6$ places to the left, so the exponent is $6$.\n\nStep 3: Write the answer:\n$$7\\,200\\,000 = 7.2 \\times 10^6$$\n\n✅ Check\n$7.2 \\times 10^6 = 7.2 \\times 1\\,000\\,000 = 7\\,200\\,000$. Correct.\n\n📎 Key Points to Remember\n• Large numbers have positive exponents.\n• The exponent equals the number of places the decimal point moves to the left.\n• $10^0 = 1$, so any number between $1$ and $10$ is already in standard form with $n = 0$."
+    },
+    {
+      "id": "math-yr8-standard-form-n4",
+      "heading": "Negative Powers of 10 for Small Numbers",
+      "body": "📌 Definition\nA negative power of $10$ represents a small number between $0$ and $1$. The exponent tells you how many places the decimal point is to the right of $1$.\n\n🔑 Key Concept\n$$10^{-n} = \\frac{1}{10^n}$$\nFor example:\n$$10^{-1} = 0.1, \\quad 10^{-3} = 0.001, \\quad 10^{-6} = 0.000\\,001$$\n\n💡 Worked Example\nWrite $0.000\\,083$ in standard form.\n\nStep 1: Move the decimal point to after the first non-zero digit:\n$$8.3$$\n\nStep 2: Count the moves. The decimal point moved $5$ places to the right, so the exponent is $-5$.\n\nStep 3: Write the answer:\n$$0.000\\,083 = 8.3 \\times 10^{-5}$$\n\n✅ Check\n$8.3 \\times 10^{-5} = 8.3 \\times 0.000\\,01 = 0.000\\,083$. Correct.\n\n📎 Key Points to Remember\n• Small numbers (between $0$ and $1$) have negative exponents.\n• The size of the negative exponent tells you how many places the decimal point moves to the right.\n• A negative exponent does not make the answer negative; it makes the value small.\n\n⚠️ Common Mistake\nWriting $0.83 \\times 10^{-4}$ for $0.000\\,083$. The coefficient must be at least $1$, so the correct form is $8.3 \\times 10^{-5}$."
+    },
+    {
+      "id": "math-yr8-standard-form-n5",
+      "heading": "Converting from Ordinary Numbers to Standard Form",
+      "body": "📌 Definition\nTo convert an ordinary number to standard form, adjust the decimal point to produce a coefficient between $1$ and $10$, then use the correct power of $10$.\n\n🔑 How it works\n1. Find the first non-zero digit.\n2. Place the decimal point immediately after it.\n3. Count how many places you moved the decimal point.\n4. Use a positive exponent if you moved left; use a negative exponent if you moved right.\n\n💡 Worked Example\nWrite $456\\,000$ in standard form.\n\nStep 1: The first digit is $4$, so the coefficient starts as $4.56$.\n\nStep 2: The decimal point moved $5$ places to the left.\n\nStep 3: Write the answer:\n$$456\\,000 = 4.56 \\times 10^5$$\n\n💡 Worked Example\nWrite $0.000\\,009\\,04$ in standard form.\n\nStep 1: The first non-zero digit is $9$, so the coefficient is $9.04$.\n\nStep 2: The decimal point moved $6$ places to the right.\n\nStep 3: Write the answer:\n$$0.000\\,009\\,04 = 9.04 \\times 10^{-6}$$\n\n✅ Check\n$9.04 \\times 10^{-6} = 9.04 \\times 0.000\\,001 = 0.000\\,009\\,04$. Correct.\n\n📎 Key Points to Remember\n• Left moves give positive exponents.\n• Right moves give negative exponents.\n• Count all place moves, including those past zeros."
+    },
+    {
+      "id": "math-yr8-standard-form-n6",
+      "heading": "Converting from Standard Form to Ordinary Numbers",
+      "body": "📌 Definition\nTo convert from standard form to an ordinary number, move the decimal point in the coefficient according to the exponent.\n\n🔑 How it works\nIf the exponent is positive, move the decimal point to the right.\nIf the exponent is negative, move the decimal point to the left.\n\n💡 Worked Example\nWrite $6.7 \\times 10^4$ as an ordinary number.\n\nStep 1: Start with $6.7$.\n\nStep 2: The exponent is $4$, so move the decimal point $4$ places to the right.\n\nStep 3: Fill any gaps with zeros:\n$$6.7 \\times 10^4 = 67\\,000$$\n\n💡 Worked Example\nWrite $2.05 \\times 10^{-3}$ as an ordinary number.\n\nStep 1: Start with $2.05$.\n\nStep 2: The exponent is $-3$, so move the decimal point $3$ places to the left.\n\nStep 3: Fill any gaps with zeros:\n$$2.05 \\times 10^{-3} = 0.002\\,05$$\n\n📎 Key Points to Remember\n• Positive exponent: make the number larger (move right).\n• Negative exponent: make the number smaller (move left).\n• Add zeros as placeholders when necessary.\n\n⚠️ Common Mistake\nMoving the decimal point the wrong way. A positive exponent always produces a larger ordinary number, never a smaller one."
+    },
+    {
+      "id": "math-yr8-standard-form-n7",
+      "heading": "Multiplying and Dividing in Standard Form",
+      "body": "📌 Definition\nTo multiply or divide numbers in standard form, handle the coefficients and the powers of $10$ separately.\n\n🔑 How it works\nMultiplication:\n$$(a \\times 10^m) \\times (b \\times 10^n) = (a \\times b) \\times 10^{m+n}$$\n\nDivision:\n$$(a \\times 10^m) \\div (b \\times 10^n) = \\left(\\frac{a}{b}\\right) \\times 10^{m-n}$$\n\nAfter calculating, check that the final coefficient is still between $1$ and $10$.\n\n💡 Worked Example 1 — Multiplication\nSimplify $(2 \\times 10^3) \\times (3 \\times 10^5)$.\n\nStep 1: Multiply the coefficients:\n$$2 \\times 3 = 6$$\n\nStep 2: Add the exponents:\n$$10^3 \\times 10^5 = 10^{3+5} = 10^8$$\n\nStep 3: Combine:\n$$(2 \\times 10^3) \\times (3 \\times 10^5) = 6 \\times 10^8$$\n\n💡 Worked Example 2 — Division\nSimplify $(8 \\times 10^7) \\div (2 \\times 10^4)$.\n\nStep 1: Divide the coefficients:\n$$8 \\div 2 = 4$$\n\nStep 2: Subtract the exponents:\n$$10^7 \\div 10^4 = 10^{7-4} = 10^3$$\n\nStep 3: Combine:\n$$(8 \\times 10^7) \\div (2 \\times 10^4) = 4 \\times 10^3$$\n\n📎 Key Points to Remember\n• Multiply or divide the coefficients.\n• Add exponents when multiplying; subtract exponents when dividing.\n• Adjust the final answer so that the coefficient is between $1$ and $10$.\n\n⚠️ Common Mistake\nAdding exponents during division. Remember: division means subtract the exponents."
+    },
+    {
+      "id": "math-yr8-standard-form-n8",
+      "heading": "Adding and Subtracting in Standard Form",
+      "body": "📌 Definition\nTo add or subtract numbers in standard form, first rewrite them so that they have the same power of $10$. Then add or subtract the coefficients.\n\n🔑 How it works\n1. Choose the larger power of $10$.\n2. Rewrite the other number with the same power of $10$.\n3. Add or subtract the coefficients.\n4. Keep the common power of $10$.\n\n💡 Worked Example\nSimplify $(3 \\times 10^4) + (5 \\times 10^3)$.\n\nStep 1: Rewrite $5 \\times 10^3$ with power $10^4$.\nBecause $10^3 = 10^{-1} \\times 10^4$, we have:\n$$5 \\times 10^3 = 0.5 \\times 10^4$$\n\nStep 2: Add the coefficients:\n$$3 + 0.5 = 3.5$$\n\nStep 3: Keep the power of $10$:\n$$(3 \\times 10^4) + (5 \\times 10^3) = 3.5 \\times 10^4$$\n\n✅ Check\n$3 \\times 10^4 = 30\\,000$ and $5 \\times 10^3 = 5\\,000$. Their sum is $35\\,000 = 3.5 \\times 10^4$. Correct.\n\n📎 Key Points to Remember\n• You cannot add or subtract coefficients unless the powers of $10$ are the same.\n• It is usually easiest to convert to the larger power of $10$.\n• Check your answer by converting to ordinary numbers.\n\n⚠️ Common Mistake\nAdding the coefficients directly: $3 \\times 10^4 + 5 \\times 10^3 \\neq 8 \\times 10^4$. The powers must match first."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-standard-form-f1",
+      "term": "Standard form",
+      "definition": "A way of writing numbers as $a \\times 10^n$ where $1 \\leq a < 10$ and $n$ is an integer.",
+      "example": "$3.4 \\times 10^5$ is the standard form of $340\\,000$."
+    },
+    {
+      "id": "math-yr8-standard-form-f2",
+      "term": "Coefficient",
+      "definition": "The number $a$ in the standard form $a \\times 10^n$. It must be at least $1$ and less than $10$.",
+      "example": "In $5.6 \\times 10^3$, the coefficient is $5.6$."
+    },
+    {
+      "id": "math-yr8-standard-form-f3",
+      "term": "Base",
+      "definition": "The number that is raised to a power in standard form; it is always $10$.",
+      "example": "In $7.2 \\times 10^4$, the base is $10$."
+    },
+    {
+      "id": "math-yr8-standard-form-f4",
+      "term": "Exponent",
+      "definition": "The power $n$ in $a \\times 10^n$. It tells how many places the decimal point has moved.",
+      "example": "In $8.3 \\times 10^{-5}$, the exponent is $-5$."
+    },
+    {
+      "id": "math-yr8-standard-form-f5",
+      "term": "Positive exponent",
+      "definition": "An exponent greater than zero, used for large numbers in standard form.",
+      "example": "$10^6 = 1\\,000\\,000$."
+    },
+    {
+      "id": "math-yr8-standard-form-f6",
+      "term": "Negative exponent",
+      "definition": "An exponent less than zero, used for small numbers between $0$ and $1$.",
+      "example": "$10^{-3} = 0.001$."
+    },
+    {
+      "id": "math-yr8-standard-form-f7",
+      "term": "Converting to standard form",
+      "definition": "Move the decimal point so that one non-zero digit is before it, then use the matching power of $10$.",
+      "example": "$456\\,000 = 4.56 \\times 10^5$."
+    },
+    {
+      "id": "math-yr8-standard-form-f8",
+      "term": "Converting from standard form",
+      "definition": "Move the decimal point in the coefficient by the number of places given by the exponent.",
+      "example": "$6.7 \\times 10^4 = 67\\,000$."
+    },
+    {
+      "id": "math-yr8-standard-form-f9",
+      "term": "Multiplying in standard form",
+      "definition": "Multiply the coefficients and add the exponents.",
+      "example": "$(2 \\times 10^3) \\times (3 \\times 10^5) = 6 \\times 10^8$."
+    },
+    {
+      "id": "math-yr8-standard-form-f10",
+      "term": "Dividing in standard form",
+      "definition": "Divide the coefficients and subtract the exponents.",
+      "example": "$(8 \\times 10^7) \\div (2 \\times 10^4) = 4 \\times 10^3$."
+    },
+    {
+      "id": "math-yr8-standard-form-f11",
+      "term": "Adding in standard form",
+      "definition": "Rewrite the numbers with the same power of $10$, then add the coefficients.",
+      "example": "$(3 \\times 10^4) + (5 \\times 10^3) = 3.5 \\times 10^4$."
+    },
+    {
+      "id": "math-yr8-standard-form-f12",
+      "term": "Order of magnitude",
+      "definition": "The size of a number given by the power of $10$ in its standard form.",
+      "example": "$3.4 \\times 10^5$ has order of magnitude $10^5$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-standard-form-q1",
+      "stem": "Which of the following is written in correct standard form?",
+      "choices": [
+        "$12 \\times 10^4$",
+        "$0.5 \\times 10^6$",
+        "$7.3 \\times 10^2$",
+        "$100 \\times 10^{-3}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Standard form requires the coefficient to be at least $1$ and less than $10$. Only $7.3 \\times 10^2$ satisfies this condition. The other options have coefficients outside the allowed range."
+    },
+    {
+      "id": "math-yr8-standard-form-q2",
+      "stem": "Write $56\\,000$ in standard form.",
+      "choices": [
+        "$5.6 \\times 10^3$",
+        "$5.6 \\times 10^4$",
+        "$56 \\times 10^3$",
+        "$0.56 \\times 10^5$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Move the decimal point four places to the left to get $5.6$. Because it moved four places, the exponent is $4$, so $56\\,000 = 5.6 \\times 10^4$."
+    },
+    {
+      "id": "math-yr8-standard-form-q3",
+      "stem": "Write $0.000\\,009\\,2$ in standard form.",
+      "choices": [
+        "$9.2 \\times 10^{-5}$",
+        "$9.2 \\times 10^{-6}$",
+        "$92 \\times 10^{-7}$",
+        "$0.92 \\times 10^{-5}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Move the decimal point six places to the right to get $9.2$. Because it moved six places to the right, the exponent is $-6$, so $0.000\\,009\\,2 = 9.2 \\times 10^{-6}$."
+    },
+    {
+      "id": "math-yr8-standard-form-q4",
+      "stem": "Write $3.7 \\times 10^5$ as an ordinary number.",
+      "choices": [
+        "$370\\,000$",
+        "$37\\,000$",
+        "$3\\,700\\,000$",
+        "$0.000\\,037$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The exponent is $5$, so move the decimal point five places to the right: $3.7 \\times 10^5 = 370\\,000$."
+    },
+    {
+      "id": "math-yr8-standard-form-q5",
+      "stem": "Write $4.2 \\times 10^{-4}$ as an ordinary number.",
+      "choices": [
+        "$42\\,000$",
+        "$0.000\\,42$",
+        "$0.000\\,042$",
+        "$420\\,000$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The exponent is $-4$, so move the decimal point four places to the left: $4.2 \\times 10^{-4} = 0.000\\,042$."
+    },
+    {
+      "id": "math-yr8-standard-form-q6",
+      "stem": "Simplify $(3 \\times 10^4) \\times (2 \\times 10^6)$.",
+      "choices": [
+        "$5 \\times 10^{10}$",
+        "$6 \\times 10^{10}$",
+        "$6 \\times 10^{24}$",
+        "$5 \\times 10^{24}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiply the coefficients: $3 \\times 2 = 6$. Add the exponents: $10^4 \\times 10^6 = 10^{10}$. So the answer is $6 \\times 10^{10}$."
+    },
+    {
+      "id": "math-yr8-standard-form-q7",
+      "stem": "Simplify $(8 \\times 10^9) \\div (4 \\times 10^3)$.",
+      "choices": [
+        "$2 \\times 10^6$",
+        "$2 \\times 10^{12}$",
+        "$32 \\times 10^6$",
+        "$4 \\times 10^6$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Divide the coefficients: $8 \\div 4 = 2$. Subtract the exponents: $10^9 \\div 10^3 = 10^6$. So the answer is $2 \\times 10^6$."
+    },
+    {
+      "id": "math-yr8-standard-form-q8",
+      "stem": "Simplify $(2 \\times 10^3) \\times (5 \\times 10^2)$.",
+      "choices": [
+        "$10 \\times 10^5$",
+        "$10 \\times 10^6$",
+        "$1 \\times 10^6$",
+        "$7 \\times 10^5$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Multiply the coefficients: $2 \\times 5 = 10$. Add the exponents: $10^3 \\times 10^2 = 10^5$. This gives $10 \\times 10^5$, but the coefficient $10$ is not in standard form, so rewrite it as $1 \\times 10^6$."
+    },
+    {
+      "id": "math-yr8-standard-form-q9",
+      "stem": "Calculate $(4 \\times 10^5) + (3 \\times 10^4)$.",
+      "choices": [
+        "$7 \\times 10^5$",
+        "$4.3 \\times 10^5$",
+        "$43 \\times 10^4$",
+        "$4.3 \\times 10^4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rewrite $3 \\times 10^4$ as $0.3 \\times 10^5$. Then add the coefficients: $4 + 0.3 = 4.3$, giving $4.3 \\times 10^5$."
+    },
+    {
+      "id": "math-yr8-standard-form-q10",
+      "stem": "Calculate $(9 \\times 10^7) - (2 \\times 10^6)$.",
+      "choices": [
+        "$7 \\times 10^7$",
+        "$8.8 \\times 10^7$",
+        "$8.8 \\times 10^6$",
+        "$7 \\times 10^6$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rewrite $2 \\times 10^6$ as $0.2 \\times 10^7$. Then subtract: $9 - 0.2 = 8.8$, giving $8.8 \\times 10^7$."
+    },
+    {
+      "id": "math-yr8-standard-form-q11",
+      "stem": "What is $10^{-3}$ as a decimal?",
+      "choices": [
+        "$1000$",
+        "$0.01$",
+        "$0.001$",
+        "$-1000$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$10^{-3} = \\frac{1}{10^3} = \\frac{1}{1000} = 0.001$. A negative exponent gives a reciprocal, not a negative number."
+    },
+    {
+      "id": "math-yr8-standard-form-q12",
+      "stem": "Which ordinary number equals $2.5 \\times 10^{-2}$?",
+      "choices": [
+        "$250$",
+        "$25$",
+        "$0.025$",
+        "$0.25$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Move the decimal point two places to the left: $2.5 \\times 10^{-2} = 0.025$."
+    },
+    {
+      "id": "math-yr8-standard-form-q13",
+      "stem": "Write $720\\,000\\,000$ in standard form.",
+      "choices": [
+        "$7.2 \\times 10^7$",
+        "$72 \\times 10^7$",
+        "$7.2 \\times 10^8$",
+        "$0.72 \\times 10^9$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Move the decimal point eight places to the left to get $7.2$, so $720\\,000\\,000 = 7.2 \\times 10^8$."
+    },
+    {
+      "id": "math-yr8-standard-form-q14",
+      "stem": "Simplify $(6 \\times 10^5) \\div (3 \\times 10^{-2})$.",
+      "choices": [
+        "$2 \\times 10^3$",
+        "$2 \\times 10^7$",
+        "$18 \\times 10^{-10}$",
+        "$2 \\times 10^{-10}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Divide the coefficients: $6 \\div 3 = 2$. Subtract the exponents: $10^5 \\div 10^{-2} = 10^{5 - (-2)} = 10^7$. So the answer is $2 \\times 10^7$."
+    },
+    {
+      "id": "math-yr8-standard-form-q15",
+      "stem": "A calculator display shows $7.2\text{E}6$. What ordinary number does this represent?",
+      "choices": [
+        "$0.000\\,007\\,2$",
+        "$72\\,000$",
+        "$7\\,200\\,000$",
+        "$72\\,000\\,000$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$7.2\text{E}6$ means $7.2 \\times 10^6$. Move the decimal point six places to the right: $7.2 \\times 10^6 = 7\\,200\\,000$."
+    }
+  ]
+}

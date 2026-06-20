@@ -154,105 +154,180 @@
     {
       "id": "chem-states-1-q1",
       "stem": "Why can gases be compressed but solids cannot?",
-      "choices": ["Gas particles are softer", "Gas particles are far apart with empty space between them; solid particles are already touching", "Gas particles are smaller", "Solids resist all forces"],
+      "choices": [
+        "Gas particles are softer",
+        "Gas particles are far apart with empty space between them; solid particles are already touching",
+        "Gas particles are smaller",
+        "Solids resist all forces"
+      ],
       "correctIndex": 1,
       "explanation": "In gases, particles have large spaces between them — they can be pushed closer together. In solids, particles are already in contact."
     },
     {
       "id": "chem-states-1-q2",
       "stem": "During melting, the temperature remains constant even though heating continues. Why?",
-      "choices": ["The thermometer is broken", "Energy is being used to break intermolecular forces (latent heat of fusion) rather than increasing kinetic energy", "Melting absorbs all the heat", "The substance stops absorbing energy"],
+      "choices": [
+        "The thermometer is broken",
+        "Energy is being used to break intermolecular forces (latent heat of fusion) rather than increasing kinetic energy",
+        "Melting absorbs all the heat",
+        "The substance stops absorbing energy"
+      ],
       "correctIndex": 1,
       "explanation": "The plateau in a heating curve represents latent heat — energy goes into overcoming forces between particles, not raising temperature."
     },
     {
       "id": "chem-states-1-q3",
       "stem": "Sublimation is the change from:",
-      "choices": ["Solid to liquid", "Liquid to gas", "Solid directly to gas, skipping liquid", "Gas to liquid"],
+      "choices": [
+        "Solid to liquid",
+        "Liquid to gas",
+        "Solid directly to gas, skipping liquid",
+        "Gas to liquid"
+      ],
       "correctIndex": 2,
       "explanation": "Sublimation bypasses the liquid phase. CO₂ (dry ice) and iodine sublime at room temperature."
     },
     {
       "id": "chem-states-1-q4",
       "stem": "Ammonia (NH₃, Mᵣ=17) and HCl (Mᵣ=36.5) diffuse from opposite ends of a tube. Where does the white ring form?",
-      "choices": ["Exactly in the middle", "Closer to the HCl end — NH₃ is lighter and diffuses faster", "Closer to the NH₃ end — HCl is heavier and faster", "At both ends simultaneously"],
+      "choices": [
+        "Exactly in the middle",
+        "Closer to the HCl end — NH₃ is lighter and diffuses faster",
+        "Closer to the NH₃ end — HCl is heavier and faster",
+        "At both ends simultaneously"
+      ],
       "correctIndex": 1,
       "explanation": "Lighter particles diffuse faster. NH₃ travels further in the same time, so the white NH₄Cl ring forms nearer to the HCl source."
     },
     {
       "id": "chem-states-1-q5",
       "stem": "A sealed syringe of air at 100 kPa and 50 cm³ is compressed to 25 cm³. What is the new pressure? (Assume constant temperature.)",
-      "choices": ["50 kPa", "100 kPa", "200 kPa", "400 kPa"],
+      "choices": [
+        "50 kPa",
+        "100 kPa",
+        "200 kPa",
+        "400 kPa"
+      ],
       "correctIndex": 2,
       "explanation": "Boyle's Law: P₁V₁ = P₂V₂. 100 × 50 = P₂ × 25. P₂ = 200 kPa. Halve the volume → double the pressure."
     },
     {
       "id": "chem-states-1-q6",
       "stem": "Why does sweating cool you down?",
-      "choices": ["Sweat is cold when it comes out of glands", "The fastest-moving water particles escape (evaporation), lowering the average kinetic energy of remaining liquid — cooling the skin", "Sweat absorbs heat from the air", "Sweat contains chemicals that lower skin temperature"],
+      "choices": [
+        "Sweat is cold when it comes out of glands",
+        "The fastest-moving water particles escape (evaporation), lowering the average kinetic energy of remaining liquid — cooling the skin",
+        "Sweat absorbs heat from the air",
+        "Sweat contains chemicals that lower skin temperature"
+      ],
       "correctIndex": 1,
       "explanation": "Evaporation removes the most energetic particles from the liquid surface. The remaining liquid has lower average kinetic energy → cooler temperature."
     },
     {
       "id": "chem-states-1-q7",
       "stem": "Water boils at a lower temperature at high altitude. Why?",
-      "choices": ["Water is purer at high altitude", "Atmospheric pressure is lower, so water's vapour pressure equals external pressure at a lower temperature", "The air is colder, cooling the water", "Gravity is weaker, so water boils faster"],
+      "choices": [
+        "Water is purer at high altitude",
+        "Atmospheric pressure is lower, so water's vapour pressure equals external pressure at a lower temperature",
+        "The air is colder, cooling the water",
+        "Gravity is weaker, so water boils faster"
+      ],
       "correctIndex": 1,
       "explanation": "Boiling occurs when vapour pressure = external pressure. At altitude, there's less air above you → lower pressure → boiling occurs below 100°C."
     },
     {
       "id": "chem-states-1-q8",
       "stem": "Impurities in a substance typically:",
-      "choices": ["Raise the melting point and lower the boiling point", "Lower the melting point and raise the boiling point", "Have no effect on melting or boiling", "Lower both melting and boiling points"],
+      "choices": [
+        "Raise the melting point and lower the boiling point",
+        "Lower the melting point and raise the boiling point",
+        "Have no effect on melting or boiling",
+        "Lower both melting and boiling points"
+      ],
       "correctIndex": 1,
       "explanation": "Impurities disrupt the crystal structure (lower melting point) and make it harder for particles to escape (raise boiling point). E.g., salt on icy roads."
     },
     {
       "id": "chem-states-1-q9",
       "stem": "A liquid has a fixed volume but no fixed shape. What does the particle model say about liquid particles?",
-      "choices": ["They are fixed in position", "They are close together but can slide past each other — strong enough forces for fixed volume, weak enough to allow flow", "They are far apart and move freely", "They are arranged in a regular pattern"],
+      "choices": [
+        "They are fixed in position",
+        "They are close together but can slide past each other — strong enough forces for fixed volume, weak enough to allow flow",
+        "They are far apart and move freely",
+        "They are arranged in a regular pattern"
+      ],
       "correctIndex": 1,
       "explanation": "Liquid particles are still touching (fixed volume) but can move relative to each other (no fixed shape). Forces are intermediate between solids and gases."
     },
     {
       "id": "chem-states-1-q10",
       "stem": "Which process is the reverse of sublimation?",
-      "choices": ["Evaporation", "Deposition — gas → solid directly", "Condensation", "Freezing"],
+      "choices": [
+        "Evaporation",
+        "Deposition — gas → solid directly",
+        "Condensation",
+        "Freezing"
+      ],
       "correctIndex": 1,
       "explanation": "Sublimation = solid → gas. Deposition = gas → solid. Frost forming on a cold surface is deposition of water vapour."
     },
     {
       "id": "chem-states-1-q11",
       "stem": "Why does a car tyre pressure increase after a long motorway journey?",
-      "choices": ["Air leaks into the tyre from the road", "Friction heats the tyre → air inside gets hotter → particles move faster → more frequent and forceful collisions with tyre walls → higher pressure", "The tyre stretches, making more space", "The rubber contracts, squeezing the air"],
+      "choices": [
+        "Air leaks into the tyre from the road",
+        "Friction heats the tyre → air inside gets hotter → particles move faster → more frequent and forceful collisions with tyre walls → higher pressure",
+        "The tyre stretches, making more space",
+        "The rubber contracts, squeezing the air"
+      ],
       "correctIndex": 1,
       "explanation": "Increased temperature → increased kinetic energy of gas particles → more collisions (frequency and force) → higher pressure at constant volume."
     },
     {
       "id": "chem-states-1-q12",
       "stem": "Which statement about the particle model is a LIMITATION?",
-      "choices": ["It explains why solids have fixed shapes", "It represents all particles as identical solid spheres and ignores intermolecular forces and particle size", "It shows that gases can be compressed", "It correctly predicts that liquids flow"],
+      "choices": [
+        "It explains why solids have fixed shapes",
+        "It represents all particles as identical solid spheres and ignores intermolecular forces and particle size",
+        "It shows that gases can be compressed",
+        "It correctly predicts that liquids flow"
+      ],
       "correctIndex": 1,
       "explanation": "The model assumes all particles are identical spheres with no forces between them (or simple forces). Reality: different shapes, sizes, and complex intermolecular forces."
     },
     {
       "id": "chem-states-1-q13",
       "stem": "On a heating curve, which plateau is typically LONGER and why?",
-      "choices": ["Melting — particles need more time to rearrange", "Boiling — separating particles completely (liquid → gas) requires much more energy than just loosening them (solid → liquid)", "Neither — they are always equal", "The first plateau — the solid is coldest"],
+      "choices": [
+        "Melting — particles need more time to rearrange",
+        "Boiling — separating particles completely (liquid → gas) requires much more energy than just loosening them (solid → liquid)",
+        "Neither — they are always equal",
+        "The first plateau — the solid is coldest"
+      ],
       "correctIndex": 1,
       "explanation": "Latent heat of vaporisation > latent heat of fusion. Completely freeing particles from each other (boiling) requires more energy than just freeing them from fixed positions (melting)."
     },
     {
       "id": "chem-states-1-q14",
       "stem": "Why does increasing the temperature increase the rate of diffusion?",
-      "choices": ["Particles become smaller at higher temperatures", "Particles gain kinetic energy → move faster → spread out more quickly", "Temperature creates more particles", "The concentration gradient increases"],
+      "choices": [
+        "Particles become smaller at higher temperatures",
+        "Particles gain kinetic energy → move faster → spread out more quickly",
+        "Temperature creates more particles",
+        "The concentration gradient increases"
+      ],
       "correctIndex": 1,
       "explanation": "Higher temperature = more kinetic energy = faster particle movement = particles spread through the available space more rapidly."
     },
     {
       "id": "chem-states-1-q15",
       "stem": "A sealed container of gas is heated. What happens to the pressure and why?",
-      "choices": ["Pressure decreases — particles slow down", "Pressure stays the same — temperature doesn't affect pressure", "Pressure increases — particles move faster and hit the walls more often and with more force", "Pressure fluctuates randomly"],
+      "choices": [
+        "Pressure decreases — particles slow down",
+        "Pressure stays the same — temperature doesn't affect pressure",
+        "Pressure increases — particles move faster and hit the walls more often and with more force",
+        "Pressure fluctuates randomly"
+      ],
       "correctIndex": 2,
       "explanation": "At constant volume, increasing temperature → particles gain kinetic energy → collide more frequently and forcefully with walls → pressure rises."
     }

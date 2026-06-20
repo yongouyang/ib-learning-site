@@ -154,105 +154,180 @@
     {
       "id": "bio-reproduction-1-q1",
       "stem": "Which part of a flower produces pollen grains?",
-      "choices": ["Stigma", "Anther", "Ovary", "Petal"],
+      "choices": [
+        "Stigma",
+        "Anther",
+        "Ovary",
+        "Petal"
+      ],
       "correctIndex": 1,
       "explanation": "The anther, part of the stamen (male reproductive organ), produces pollen grains containing the male gametes."
     },
     {
       "id": "bio-reproduction-1-q2",
       "stem": "A flower has small, dull green petals, no scent, and feathery stigmas hanging outside. How is it most likely pollinated?",
-      "choices": ["By insects", "By wind", "By birds", "By water"],
+      "choices": [
+        "By insects",
+        "By wind",
+        "By birds",
+        "By water"
+      ],
       "correctIndex": 1,
       "explanation": "Wind-pollinated flowers are typically small and dull (no need to attract insects), with exposed feathery stigmas to catch airborne pollen and large amounts of light, smooth pollen."
     },
     {
       "id": "bio-reproduction-1-q3",
       "stem": "After pollination, the pollen grain grows a tube down through the style. What is this tube's purpose?",
-      "choices": ["To absorb nectar for energy", "To deliver the male gamete nucleus to the ovule for fertilisation", "To anchor the flower more firmly", "To attract more pollinators"],
+      "choices": [
+        "To absorb nectar for energy",
+        "To deliver the male gamete nucleus to the ovule for fertilisation",
+        "To anchor the flower more firmly",
+        "To attract more pollinators"
+      ],
       "correctIndex": 1,
       "explanation": "The pollen tube digests its way through the style tissue to deliver the male gamete to the ovule, where fertilisation occurs."
     },
     {
       "id": "bio-reproduction-1-q4",
       "stem": "Which part of the flower develops into the fruit after fertilisation?",
-      "choices": ["The ovule", "The stigma", "The petal", "The ovary"],
+      "choices": [
+        "The ovule",
+        "The stigma",
+        "The petal",
+        "The ovary"
+      ],
       "correctIndex": 3,
       "explanation": "After fertilisation, the ovary wall develops into the fruit, while the ovules inside develop into seeds."
     },
     {
       "id": "bio-reproduction-1-q5",
       "stem": "Why is seed dispersal important for plants?",
-      "choices": ["It provides food for animals", "It prevents the seed from germinating too early", "It reduces competition with the parent plant for light, water, and nutrients, and allows colonisation of new areas", "It helps the seed absorb more water"],
+      "choices": [
+        "It provides food for animals",
+        "It prevents the seed from germinating too early",
+        "It reduces competition with the parent plant for light, water, and nutrients, and allows colonisation of new areas",
+        "It helps the seed absorb more water"
+      ],
       "correctIndex": 2,
       "explanation": "If all seeds fell directly under the parent plant, seedlings would compete with each other and the parent. Dispersal spreads offspring to new locations with potentially better conditions."
     },
     {
       "id": "bio-reproduction-1-q6",
       "stem": "Which three conditions are required for seed germination?",
-      "choices": ["Light, carbon dioxide, and warmth", "Water, oxygen, and warmth", "Water, light, and soil", "Oxygen, soil, and light"],
+      "choices": [
+        "Light, carbon dioxide, and warmth",
+        "Water, oxygen, and warmth",
+        "Water, light, and soil",
+        "Oxygen, soil, and light"
+      ],
       "correctIndex": 1,
       "explanation": "Water activates enzymes and softens the seed coat; oxygen is needed for aerobic respiration to release energy; warmth provides the optimum temperature for enzyme activity. Light is NOT needed — seeds often germinate underground."
     },
     {
       "id": "bio-reproduction-1-q7",
       "stem": "Why are the testes located outside the body in the scrotum?",
-      "choices": ["To protect them from injury inside the body", "To keep them 2-3°C cooler than body temperature, which is essential for sperm production", "To make them more visible as a sign of puberty", "To allow them to move closer to the penis"],
+      "choices": [
+        "To protect them from injury inside the body",
+        "To keep them 2-3°C cooler than body temperature, which is essential for sperm production",
+        "To make them more visible as a sign of puberty",
+        "To allow them to move closer to the penis"
+      ],
       "correctIndex": 1,
       "explanation": "Sperm production (spermatogenesis) requires a temperature slightly below normal body temperature. The external location of the testes maintains this optimum temperature."
     },
     {
       "id": "bio-reproduction-1-q8",
       "stem": "In which part of the female reproductive system does fertilisation normally occur?",
-      "choices": ["Ovary", "Uterus", "Oviduct (fallopian tube)", "Vagina"],
+      "choices": [
+        "Ovary",
+        "Uterus",
+        "Oviduct (fallopian tube)",
+        "Vagina"
+      ],
       "correctIndex": 2,
       "explanation": "Sperm swim through the uterus and meet the egg in the oviduct. The fertilised egg (zygote) then travels down the oviduct to implant in the uterus."
     },
     {
       "id": "bio-reproduction-1-q9",
       "stem": "On approximately which day of a 28-day menstrual cycle does ovulation occur?",
-      "choices": ["Day 1", "Day 7", "Day 14", "Day 28"],
+      "choices": [
+        "Day 1",
+        "Day 7",
+        "Day 14",
+        "Day 28"
+      ],
       "correctIndex": 2,
       "explanation": "Ovulation — the release of a mature egg from the ovary — typically occurs around day 14 of a 28-day cycle, triggered by a surge in LH (luteinising hormone)."
     },
     {
       "id": "bio-reproduction-1-q10",
       "stem": "What is the function of the placenta during pregnancy?",
-      "choices": ["It produces sperm for fertilisation", "It allows exchange of oxygen, nutrients, and waste between mother and foetus without their blood mixing", "It stores food for the foetus to eat", "It produces amniotic fluid"],
+      "choices": [
+        "It produces sperm for fertilisation",
+        "It allows exchange of oxygen, nutrients, and waste between mother and foetus without their blood mixing",
+        "It stores food for the foetus to eat",
+        "It produces amniotic fluid"
+      ],
       "correctIndex": 1,
       "explanation": "The placenta is the site of diffusion between maternal and foetal blood — oxygen and nutrients move to the foetus; CO₂ and urea move to the mother for excretion. The blood supplies do NOT mix."
     },
     {
       "id": "bio-reproduction-1-q11",
       "stem": "Why does the uterus lining (endometrium) thicken during the menstrual cycle?",
-      "choices": ["To provide extra space for the ovaries to grow", "To prepare a rich, blood-filled surface for a fertilised egg to implant into", "To push the egg into the oviduct", "To produce more eggs for fertilisation"],
+      "choices": [
+        "To provide extra space for the ovaries to grow",
+        "To prepare a rich, blood-filled surface for a fertilised egg to implant into",
+        "To push the egg into the oviduct",
+        "To produce more eggs for fertilisation"
+      ],
       "correctIndex": 1,
       "explanation": "The endometrium thickens with blood vessels each cycle to create a nourishing environment for a potential embryo. If no fertilisation occurs, it is shed during menstruation."
     },
     {
       "id": "bio-reproduction-1-q12",
       "stem": "A student investigates germination by placing cress seeds in four test tubes: A — water, oxygen, 20°C; B — no water, oxygen, 20°C; C — water, no oxygen (boiled water + oil layer), 20°C; D — water, oxygen, 4°C. Which seeds will germinate?",
-      "choices": ["A only — it provides all three conditions (water, oxygen, warmth)", "A and D only — water is the most important factor", "All of them — seeds always germinate eventually", "A, B, and C — temperature is the only limiting factor"],
+      "choices": [
+        "A only — it provides all three conditions (water, oxygen, warmth)",
+        "A and D only — water is the most important factor",
+        "All of them — seeds always germinate eventually",
+        "A, B, and C — temperature is the only limiting factor"
+      ],
       "correctIndex": 0,
       "explanation": "Only tube A provides all three required conditions: water, oxygen, and suitable warmth (20°C). B lacks water; C lacks oxygen (boiling removed dissolved O₂; oil prevents re-entry); D is too cold for enzyme activity."
     },
     {
       "id": "bio-reproduction-1-q13",
       "stem": "What is the main advantage of cross-pollination over self-pollination?",
-      "choices": ["It is faster and more reliable", "It increases genetic variation in the offspring, making the population more adaptable to environmental change", "It requires less energy from the plant", "It produces seeds that germinate more quickly"],
+      "choices": [
+        "It is faster and more reliable",
+        "It increases genetic variation in the offspring, making the population more adaptable to environmental change",
+        "It requires less energy from the plant",
+        "It produces seeds that germinate more quickly"
+      ],
       "correctIndex": 1,
       "explanation": "Cross-pollination combines genetic material from two different plants, producing offspring with greater genetic variation. This variation is the raw material for natural selection and adaptation."
     },
     {
       "id": "bio-reproduction-1-q14",
       "stem": "During puberty, which hormone is primarily responsible for male secondary sexual characteristics (voice deepening, facial hair, muscle growth)?",
-      "choices": ["Oestrogen", "Progesterone", "Testosterone", "Adrenaline"],
+      "choices": [
+        "Oestrogen",
+        "Progesterone",
+        "Testosterone",
+        "Adrenaline"
+      ],
       "correctIndex": 2,
       "explanation": "Testosterone, produced by the testes, triggers the development of male secondary sexual characteristics during puberty."
     },
     {
       "id": "bio-reproduction-1-q15",
       "stem": "Why does a sperm cell contain many mitochondria in its midpiece?",
-      "choices": ["To store genetic information", "To provide ATP energy for the tail to swim towards the egg", "To help the sperm penetrate the egg's outer layer", "To produce testosterone"],
+      "choices": [
+        "To store genetic information",
+        "To provide ATP energy for the tail to swim towards the egg",
+        "To help the sperm penetrate the egg's outer layer",
+        "To produce testosterone"
+      ],
       "correctIndex": 1,
       "explanation": "The midpiece of a sperm cell is packed with mitochondria that produce ATP through respiration. This energy powers the flagellum (tail), enabling the sperm to swim through the female reproductive tract to reach the egg."
     }

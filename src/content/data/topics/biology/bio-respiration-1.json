@@ -154,105 +154,180 @@
     {
       "id": "bio-respiration-1-q1",
       "stem": "What is the key difference between breathing (ventilation) and respiration?",
-      "choices": ["They are the same thing — the terms are interchangeable", "Breathing is the physical movement of air in and out of lungs; respiration is the chemical release of energy from glucose inside cells", "Breathing happens only in animals; respiration only in plants", "Breathing requires oxygen; respiration does not"],
+      "choices": [
+        "They are the same thing — the terms are interchangeable",
+        "Breathing is the physical movement of air in and out of lungs; respiration is the chemical release of energy from glucose inside cells",
+        "Breathing happens only in animals; respiration only in plants",
+        "Breathing requires oxygen; respiration does not"
+      ],
       "correctIndex": 1,
       "explanation": "Ventilation is the mechanical process of moving air. Respiration is a chemical reaction (C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O) occurring in every living cell to release ATP energy."
     },
     {
       "id": "bio-respiration-1-q2",
       "stem": "Which word equation correctly describes aerobic respiration?",
-      "choices": ["Carbon dioxide + Water → Glucose + Oxygen", "Glucose + Oxygen → Carbon dioxide + Water (+ energy)", "Glucose → Lactic acid (+ energy)", "Glucose → Ethanol + Carbon dioxide (+ energy)"],
+      "choices": [
+        "Carbon dioxide + Water → Glucose + Oxygen",
+        "Glucose + Oxygen → Carbon dioxide + Water (+ energy)",
+        "Glucose → Lactic acid (+ energy)",
+        "Glucose → Ethanol + Carbon dioxide (+ energy)"
+      ],
       "correctIndex": 1,
       "explanation": "Aerobic respiration uses oxygen to break down glucose, producing CO₂, water, and a large amount of ATP energy. The other equations describe photosynthesis or anaerobic respiration."
     },
     {
       "id": "bio-respiration-1-q3",
       "stem": "During a 100-metre sprint, why do athletes' muscles switch to anaerobic respiration?",
-      "choices": ["Aerobic respiration stops working above a certain speed", "Oxygen delivery to muscles cannot keep up with the very high energy demand, so the faster (but less efficient) anaerobic pathway is used", "Sprinters' muscles do not contain mitochondria", "Anaerobic respiration produces more ATP than aerobic"],
+      "choices": [
+        "Aerobic respiration stops working above a certain speed",
+        "Oxygen delivery to muscles cannot keep up with the very high energy demand, so the faster (but less efficient) anaerobic pathway is used",
+        "Sprinters' muscles do not contain mitochondria",
+        "Anaerobic respiration produces more ATP than aerobic"
+      ],
       "correctIndex": 1,
       "explanation": "During intense, short-duration exercise, the circulatory system cannot deliver oxygen fast enough to meet demand. Anaerobic respiration provides rapid ATP production, but only ~2 ATP per glucose vs ~38 aerobically."
     },
     {
       "id": "bio-respiration-1-q4",
       "stem": "What causes muscle fatigue during intense exercise?",
-      "choices": ["Depletion of oxygen in the atmosphere", "Build-up of lactic acid from anaerobic respiration, which lowers pH and interferes with muscle contraction", "Overproduction of carbon dioxide", "Muscles running out of glucose completely"],
+      "choices": [
+        "Depletion of oxygen in the atmosphere",
+        "Build-up of lactic acid from anaerobic respiration, which lowers pH and interferes with muscle contraction",
+        "Overproduction of carbon dioxide",
+        "Muscles running out of glucose completely"
+      ],
       "correctIndex": 1,
       "explanation": "Lactic acid accumulation increases acidity in muscle cells, inhibiting enzyme activity and muscle fibre contraction — this is experienced as the 'burn' and eventual inability to continue."
     },
     {
       "id": "bio-respiration-1-q5",
       "stem": "Yeast is used in bread-making because it produces CO₂ during anaerobic respiration. What does the CO₂ do?",
-      "choices": ["It gives bread its flavour", "It forms bubbles that make the dough rise, creating a light, spongy texture", "It kills bacteria in the dough", "It converts starch into sugar"],
+      "choices": [
+        "It gives bread its flavour",
+        "It forms bubbles that make the dough rise, creating a light, spongy texture",
+        "It kills bacteria in the dough",
+        "It converts starch into sugar"
+      ],
       "correctIndex": 1,
       "explanation": "Yeast ferments sugars in the dough, producing CO₂ gas. The gas bubbles get trapped in the elastic gluten network, causing the dough to expand and rise — creating the soft texture of bread."
     },
     {
       "id": "bio-respiration-1-q6",
       "stem": "A student breathes out through a straw into limewater. The limewater turns milky. What does this prove?",
-      "choices": ["Exhaled air contains more oxygen than inhaled air", "Exhaled air contains carbon dioxide, a product of respiration", "Exhaled air contains water vapour from respiration", "Limewater reacts with oxygen in exhaled air"],
+      "choices": [
+        "Exhaled air contains more oxygen than inhaled air",
+        "Exhaled air contains carbon dioxide, a product of respiration",
+        "Exhaled air contains water vapour from respiration",
+        "Limewater reacts with oxygen in exhaled air"
+      ],
       "correctIndex": 1,
       "explanation": "Limewater (calcium hydroxide) reacts with CO₂ to form insoluble calcium carbonate, which appears as a milky/cloudy precipitate. This shows that respiring cells produce CO₂."
     },
     {
       "id": "bio-respiration-1-q7",
       "stem": "Why do plants NOT photosynthesise at night, but DO respire?",
-      "choices": ["Photosynthesis requires light, which is absent at night; respiration does not require light and happens continuously in all living cells", "Plants switch between photosynthesis and respiration — they never do both", "At night plants respire using stored starch instead of glucose", "Plants only respire when they are growing"],
+      "choices": [
+        "Photosynthesis requires light, which is absent at night; respiration does not require light and happens continuously in all living cells",
+        "Plants switch between photosynthesis and respiration — they never do both",
+        "At night plants respire using stored starch instead of glucose",
+        "Plants only respire when they are growing"
+      ],
       "correctIndex": 0,
       "explanation": "Photosynthesis is light-dependent. Respiration is a continuous process in all living cells, 24/7, to provide energy for maintenance. At night, plants take in O₂ and release CO₂ — they are respiring."
     },
     {
       "id": "bio-respiration-1-q8",
       "stem": "What is the 'oxygen debt' and why does it occur?",
-      "choices": ["The amount of oxygen the body owes to the lungs after holding one's breath", "The extra oxygen needed after exercise to oxidise lactic acid back to glucose in the liver", "The oxygen that muscles store for future use", "The oxygen consumed during anaerobic respiration"],
+      "choices": [
+        "The amount of oxygen the body owes to the lungs after holding one's breath",
+        "The extra oxygen needed after exercise to oxidise lactic acid back to glucose in the liver",
+        "The oxygen that muscles store for future use",
+        "The oxygen consumed during anaerobic respiration"
+      ],
       "correctIndex": 1,
       "explanation": "After anaerobic exercise, accumulated lactic acid must be removed. The liver uses oxygen to convert lactic acid back into glucose — this requires extra oxygen beyond normal resting levels, hence the 'debt' repaid by continued heavy breathing."
     },
     {
       "id": "bio-respiration-1-q9",
       "stem": "Which product is formed ONLY during anaerobic respiration in plants and yeast, but NOT in animals?",
-      "choices": ["Lactic acid", "Carbon dioxide", "Ethanol", "Water"],
+      "choices": [
+        "Lactic acid",
+        "Carbon dioxide",
+        "Ethanol",
+        "Water"
+      ],
       "correctIndex": 2,
       "explanation": "Plants and yeast produce ethanol + CO₂ during anaerobic respiration (fermentation). Animals produce lactic acid only (no CO₂ in animal anaerobic respiration)."
     },
     {
       "id": "bio-respiration-1-q10",
       "stem": "Where in the cell does aerobic respiration occur?",
-      "choices": ["Cytoplasm", "Nucleus", "Mitochondria", "Ribosomes"],
+      "choices": [
+        "Cytoplasm",
+        "Nucleus",
+        "Mitochondria",
+        "Ribosomes"
+      ],
       "correctIndex": 2,
       "explanation": "Aerobic respiration takes place in the mitochondria. Anaerobic respiration occurs in the cytoplasm (glycolysis only)."
     },
     {
       "id": "bio-respiration-1-q11",
       "stem": "Two vacuum flasks contain seeds: Flask A has germinating seeds; Flask B has boiled (dead) seeds. After 24 hours, Flask A is warmer. Why?",
-      "choices": ["Germinating seeds absorb more heat from the surroundings", "Respiration is an exothermic reaction — the germinating seeds release heat energy as they respire", "Boiled seeds reflect heat better", "Dead seeds absorb the heat produced by live seeds"],
+      "choices": [
+        "Germinating seeds absorb more heat from the surroundings",
+        "Respiration is an exothermic reaction — the germinating seeds release heat energy as they respire",
+        "Boiled seeds reflect heat better",
+        "Dead seeds absorb the heat produced by live seeds"
+      ],
       "correctIndex": 1,
       "explanation": "Respiration is exothermic — it releases energy as heat. Germinating seeds respire rapidly, generating measurable warmth. Boiled seeds are dead and do not respire, so no heat is produced."
     },
     {
       "id": "bio-respiration-1-q12",
       "stem": "Why can a human only sprint at maximum speed for a short period?",
-      "choices": ["The heart gets tired and stops beating", "Anaerobic respiration is inefficient — it produces little ATP and lactic acid builds up, causing muscle fatigue", "Aerobic respiration stops working after 10 seconds", "The lungs run out of oxygen storage"],
+      "choices": [
+        "The heart gets tired and stops beating",
+        "Anaerobic respiration is inefficient — it produces little ATP and lactic acid builds up, causing muscle fatigue",
+        "Aerobic respiration stops working after 10 seconds",
+        "The lungs run out of oxygen storage"
+      ],
       "correctIndex": 1,
       "explanation": "Maximum sprinting relies heavily on anaerobic respiration, which yields only ~2 ATP per glucose (vs ~38 aerobically). Lactic acid accumulation rapidly causes fatigue, limiting sprint duration to seconds."
     },
     {
       "id": "bio-respiration-1-q13",
       "stem": "Which gas is consumed during aerobic respiration?",
-      "choices": ["Carbon dioxide", "Nitrogen", "Oxygen", "Hydrogen"],
+      "choices": [
+        "Carbon dioxide",
+        "Nitrogen",
+        "Oxygen",
+        "Hydrogen"
+      ],
       "correctIndex": 2,
       "explanation": "Oxygen is the reactant in aerobic respiration that acts as the final electron acceptor, enabling the complete breakdown of glucose."
     },
     {
       "id": "bio-respiration-1-q14",
       "stem": "A mouse is placed in a sealed respirometer. Soda lime (absorbs CO₂) is in the chamber. The coloured liquid drop moves TOWARDS the mouse. What does this show?",
-      "choices": ["The mouse is producing more CO₂ than it consumes O₂", "The mouse is consuming O₂ for respiration; CO₂ is absorbed by soda lime, so the total gas volume decreases, pulling the drop inward", "The mouse is photosynthesising", "The temperature change is pushing the drop"],
+      "choices": [
+        "The mouse is producing more CO₂ than it consumes O₂",
+        "The mouse is consuming O₂ for respiration; CO₂ is absorbed by soda lime, so the total gas volume decreases, pulling the drop inward",
+        "The mouse is photosynthesising",
+        "The temperature change is pushing the drop"
+      ],
       "correctIndex": 1,
       "explanation": "Respiration consumes O₂ and produces CO₂. If CO₂ is absorbed by soda lime, the only net change is O₂ depletion — reducing gas volume in the chamber and pulling the liquid drop towards the organism."
     },
     {
       "id": "bio-respiration-1-q15",
       "stem": "After a marathon, an athlete's blood contains less lactic acid than after a 400-metre sprint. Why?",
-      "choices": ["Marathon runners produce no lactic acid", "Marathons are run at a pace where oxygen delivery keeps up with demand — mostly aerobic respiration — so little lactic acid accumulates. Sprinting exceeds oxygen supply, relying on anaerobic", "Sweating removes lactic acid during the marathon", "Lactic acid is converted to CO₂ during long-distance running"],
+      "choices": [
+        "Marathon runners produce no lactic acid",
+        "Marathons are run at a pace where oxygen delivery keeps up with demand — mostly aerobic respiration — so little lactic acid accumulates. Sprinting exceeds oxygen supply, relying on anaerobic",
+        "Sweating removes lactic acid during the marathon",
+        "Lactic acid is converted to CO₂ during long-distance running"
+      ],
       "correctIndex": 1,
       "explanation": "Long-distance events are primarily aerobic — the steady pace allows the circulatory system to deliver enough oxygen to muscles. Sprints demand energy faster than oxygen can be supplied, triggering anaerobic respiration and lactic acid build-up."
     }

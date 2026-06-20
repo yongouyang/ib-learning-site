@@ -154,105 +154,180 @@
     {
       "id": "bio-classification-1-q1",
       "stem": "What is the correct order of classification hierarchy from broadest to most specific?",
-      "choices": ["Species → Genus → Family → Order → Class → Phylum → Kingdom", "Kingdom → Phylum → Class → Order → Family → Genus → Species", "Kingdom → Class → Phylum → Order → Family → Genus → Species", "Phylum → Kingdom → Class → Order → Family → Genus → Species"],
+      "choices": [
+        "Species → Genus → Family → Order → Class → Phylum → Kingdom",
+        "Kingdom → Phylum → Class → Order → Family → Genus → Species",
+        "Kingdom → Class → Phylum → Order → Family → Genus → Species",
+        "Phylum → Kingdom → Class → Order → Family → Genus → Species"
+      ],
       "correctIndex": 1,
       "explanation": "Kingdom is the broadest group; species is the most specific. Mnemonic: King Philip Came Over For Good Soup."
     },
     {
       "id": "bio-classification-1-q2",
       "stem": "Why are viruses not classified in any of the five kingdoms?",
-      "choices": ["They are too small to be classified", "They are not considered alive — they have no cellular structure, cannot reproduce independently, and show no life processes outside a host cell", "They are a type of bacteria", "They belong to the protist kingdom"],
+      "choices": [
+        "They are too small to be classified",
+        "They are not considered alive — they have no cellular structure, cannot reproduce independently, and show no life processes outside a host cell",
+        "They are a type of bacteria",
+        "They belong to the protist kingdom"
+      ],
       "correctIndex": 1,
       "explanation": "Viruses do not meet the criteria for life: they have no cells, no metabolism, and cannot reproduce without hijacking a host cell's machinery. They exist in a grey zone between living and non-living."
     },
     {
       "id": "bio-classification-1-q3",
       "stem": "A vertebrate has moist skin, lives in water as a larva (with gills) and on land as an adult (with lungs), and lays eggs in water. Which class does it belong to?",
-      "choices": ["Fish", "Reptile", "Amphibian", "Mammal"],
+      "choices": [
+        "Fish",
+        "Reptile",
+        "Amphibian",
+        "Mammal"
+      ],
       "correctIndex": 2,
       "explanation": "Amphibians undergo metamorphosis — larvae are aquatic with gills, adults are semi-terrestrial with lungs. Their moist skin and water-laid eggs (no shell) are characteristic of this class."
     },
     {
       "id": "bio-classification-1-q4",
       "stem": "Which feature distinguishes mammals from all other vertebrate classes?",
-      "choices": ["They have backbones", "They breathe air using lungs", "Females produce milk from mammary glands to feed their young", "They lay eggs"],
+      "choices": [
+        "They have backbones",
+        "They breathe air using lungs",
+        "Females produce milk from mammary glands to feed their young",
+        "They lay eggs"
+      ],
       "correctIndex": 2,
       "explanation": "Milk production (lactation) is the defining characteristic of mammals. While some mammals lay eggs (platypus, echidna) and some birds breathe air, ONLY mammals produce milk."
     },
     {
       "id": "bio-classification-1-q5",
       "stem": "A student finds an animal with 8 legs and a body divided into 2 sections. This animal is a(n):",
-      "choices": ["Insect", "Arachnid", "Crustacean", "Myriapod"],
+      "choices": [
+        "Insect",
+        "Arachnid",
+        "Crustacean",
+        "Myriapod"
+      ],
       "correctIndex": 1,
       "explanation": "Arachnids (spiders, scorpions, ticks) have 8 legs and 2 body sections (cephalothorax + abdomen). Insects have 6 legs and 3 body sections."
     },
     {
       "id": "bio-classification-1-q6",
       "stem": "Two animals have the scientific names Canis lupus and Canis familiaris. What does this tell you about their relationship?",
-      "choices": ["They are the same species", "They belong to the same genus (Canis) but are different species — they are closely related", "They are completely unrelated", "Canis lupus is the ancestor of Canis familiaris"],
+      "choices": [
+        "They are the same species",
+        "They belong to the same genus (Canis) but are different species — they are closely related",
+        "They are completely unrelated",
+        "Canis lupus is the ancestor of Canis familiaris"
+      ],
       "correctIndex": 1,
       "explanation": "Sharing the same genus name (Canis) means grey wolves and domestic dogs are closely related. They are different species (lupus vs familiaris) within the same genus."
     },
     {
       "id": "bio-classification-1-q7",
       "stem": "Use this dichotomous key: 1a. Has wings → 2; 1b. No wings → 3. 2a. Has feathers → Bird; 2b. Has membranous wings → Bat. An organism with wings but NO feathers is a:",
-      "choices": ["Bird", "Bat", "Insect", "Cannot be determined"],
+      "choices": [
+        "Bird",
+        "Bat",
+        "Insect",
+        "Cannot be determined"
+      ],
       "correctIndex": 1,
       "explanation": "Following the key: has wings (go to 2), does NOT have feathers (2b), so it is a bat. Bats have membranous wings — they are the only mammals capable of true flight."
     },
     {
       "id": "bio-classification-1-q8",
       "stem": "A fungus, unlike a plant, feeds by:",
-      "choices": ["Photosynthesis using chloroplasts", "Engulfing food particles like an amoeba", "Secreting enzymes externally onto food and absorbing the digested nutrients (saprophytic nutrition)", "Filtering nutrients from water flowing through its body"],
+      "choices": [
+        "Photosynthesis using chloroplasts",
+        "Engulfing food particles like an amoeba",
+        "Secreting enzymes externally onto food and absorbing the digested nutrients (saprophytic nutrition)",
+        "Filtering nutrients from water flowing through its body"
+      ],
       "correctIndex": 2,
       "explanation": "Fungi are saprophytes — they release digestive enzymes onto organic matter, break it down externally, then absorb the soluble products. Plants are autotrophic (photosynthesis)."
     },
     {
       "id": "bio-classification-1-q9",
       "stem": "Which animal group has a hard exoskeleton that must be shed (moulted) for the organism to grow?",
-      "choices": ["Molluscs", "Annelids", "Arthropods", "Cnidarians"],
+      "choices": [
+        "Molluscs",
+        "Annelids",
+        "Arthropods",
+        "Cnidarians"
+      ],
       "correctIndex": 2,
       "explanation": "Arthropods have a rigid chitin exoskeleton that does not grow. To increase in size, they must shed (moult) the old exoskeleton and form a new, larger one while the new one is still soft."
     },
     {
       "id": "bio-classification-1-q10",
       "stem": "Why do reptiles not need to keep their skin moist like amphibians do?",
-      "choices": ["Reptiles live only in deserts", "Reptiles have dry, scaly skin that is waterproof, reducing water loss — amphibians have thin, moist skin used for gas exchange", "Reptiles produce water inside their bodies", "Reptiles drink more water than amphibians"],
+      "choices": [
+        "Reptiles live only in deserts",
+        "Reptiles have dry, scaly skin that is waterproof, reducing water loss — amphibians have thin, moist skin used for gas exchange",
+        "Reptiles produce water inside their bodies",
+        "Reptiles drink more water than amphibians"
+      ],
       "correctIndex": 1,
       "explanation": "Reptile skin is covered in waterproof keratin scales, preventing dehydration. Amphibian skin is thin and permeable — they use it for supplementary gas exchange, which requires it to stay moist."
     },
     {
       "id": "bio-classification-1-q11",
       "stem": "What is the advantage of using scientific (binomial) names instead of common names?",
-      "choices": ["Scientific names are easier to remember", "Scientific names are universal — one species has one unique name worldwide, avoiding confusion from different common names in different languages and regions", "Scientific names describe what the organism tastes like", "Scientific names are shorter than common names"],
+      "choices": [
+        "Scientific names are easier to remember",
+        "Scientific names are universal — one species has one unique name worldwide, avoiding confusion from different common names in different languages and regions",
+        "Scientific names describe what the organism tastes like",
+        "Scientific names are shorter than common names"
+      ],
       "correctIndex": 1,
       "explanation": "Common names vary by language and region. For example, 'puma,' 'mountain lion,' and 'cougar' all refer to Puma concolor. The binomial name is unique and understood internationally."
     },
     {
       "id": "bio-classification-1-q12",
       "stem": "Which of these provides an example of an ecosystem service?",
-      "choices": ["A farmer planting wheat in a field", "Bees pollinating apple blossoms in an orchard, enabling fruit production", "A factory manufacturing fertiliser", "A scientist classifying a new species"],
+      "choices": [
+        "A farmer planting wheat in a field",
+        "Bees pollinating apple blossoms in an orchard, enabling fruit production",
+        "A factory manufacturing fertiliser",
+        "A scientist classifying a new species"
+      ],
       "correctIndex": 1,
       "explanation": "Ecosystem services are benefits humans receive from natural ecosystems without payment. Pollination by wild and managed bees is a critical service — without it, many crops would fail."
     },
     {
       "id": "bio-classification-1-q13",
       "stem": "What is the key difference between ectothermic and endothermic animals?",
-      "choices": ["Ectotherms are always smaller than endotherms", "Ectotherms' body temperature varies with the environment; endotherms generate their own heat to maintain a constant internal temperature", "Endotherms live only in cold climates", "Ectotherms have backbones; endotherms do not"],
+      "choices": [
+        "Ectotherms are always smaller than endotherms",
+        "Ectotherms' body temperature varies with the environment; endotherms generate their own heat to maintain a constant internal temperature",
+        "Endotherms live only in cold climates",
+        "Ectotherms have backbones; endotherms do not"
+      ],
       "correctIndex": 1,
       "explanation": "Ectotherms ('cold-blooded') depend on external heat sources and their body temperature fluctuates. Endotherms ('warm-blooded') generate heat through metabolism and maintain a stable temperature regardless of surroundings."
     },
     {
       "id": "bio-classification-1-q14",
       "stem": "Which organisms are classified in the kingdom Protista?",
-      "choices": ["Mushrooms and moulds", "E. coli and Salmonella bacteria", "Unicellular eukaryotic organisms like amoeba, euglena, and paramecium", "Mosses and ferns"],
+      "choices": [
+        "Mushrooms and moulds",
+        "E. coli and Salmonella bacteria",
+        "Unicellular eukaryotic organisms like amoeba, euglena, and paramecium",
+        "Mosses and ferns"
+      ],
       "correctIndex": 2,
       "explanation": "Protists are a diverse group of mainly unicellular eukaryotes that don't fit neatly into the plant, animal, or fungi kingdoms. Algae are photosynthetic protists; amoeba are animal-like protists (protozoa)."
     },
     {
       "id": "bio-classification-1-q15",
       "stem": "A scientist discovers a new organism. It is unicellular, has a cell wall but no nucleus, and DNA floats free in the cytoplasm. Which kingdom does it belong to?",
-      "choices": ["Plantae", "Fungi", "Bacteria (Monera)", "Protista"],
+      "choices": [
+        "Plantae",
+        "Fungi",
+        "Bacteria (Monera)",
+        "Protista"
+      ],
       "correctIndex": 2,
       "explanation": "The key feature is 'no nucleus' — this means the organism is prokaryotic. Only bacteria (kingdom Monera/Prokaryota) lack a membrane-bound nucleus. All other kingdoms are eukaryotic."
     }

@@ -119,105 +119,180 @@
     {
       "id": "math-linear-myp-lin-q1",
       "stem": "In which quadrant does the point $(-3,4)$ lie?",
-      "choices": ["I", "II", "III", "IV"],
+      "choices": [
+        "I",
+        "II",
+        "III",
+        "IV"
+      ],
       "correctIndex": 1,
       "explanation": "Negative $x$ and positive $y$ place a point in Quadrant II."
     },
     {
       "id": "math-linear-myp-lin-q2",
       "stem": "What is the gradient of the line through $(1,2)$ and $(5,10)$?",
-      "choices": ["1", "2", "3", "4"],
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
       "correctIndex": 1,
       "explanation": "$m=\\frac{10-2}{5-1}=\\frac{8}{4}=2$."
     },
     {
       "id": "math-linear-myp-lin-q3",
       "stem": "What is the $y$-intercept of $y=4x-7$?",
-      "choices": ["4", "7", "-7", "-4"],
+      "choices": [
+        "4",
+        "7",
+        "-7",
+        "-4"
+      ],
       "correctIndex": 2,
       "explanation": "In $y=mx+c$, the $y$-intercept is $c=-7$."
     },
     {
       "id": "math-linear-myp-lin-q4",
       "stem": "A line has gradient $-2$ and passes through $(0,5)$. What is its equation?",
-      "choices": ["$y=5x-2$", "$y=-2x+5$", "$y=2x+5$", "$y=-2x-5$"],
+      "choices": [
+        "$y=5x-2$",
+        "$y=-2x+5$",
+        "$y=2x+5$",
+        "$y=-2x-5$"
+      ],
       "correctIndex": 1,
       "explanation": "The $y$-intercept is $5$ and the gradient is $-2$, so $y=-2x+5$."
     },
     {
       "id": "math-linear-myp-lin-q5",
       "stem": "Find the equation of the line through $(2,5)$ and $(4,11)$.",
-      "choices": ["$y=2x+1$", "$y=3x-1$", "$y=2x-1$", "$y=3x+1$"],
+      "choices": [
+        "$y=2x+1$",
+        "$y=3x-1$",
+        "$y=2x-1$",
+        "$y=3x+1$"
+      ],
       "correctIndex": 1,
       "explanation": "Gradient $m=\\frac{11-5}{4-2}=3$. Substituting $(2,5)$ gives $5=6+c$, so $c=-1$ and $y=3x-1$."
     },
     {
       "id": "math-linear-myp-lin-q6",
       "stem": "Which line is parallel to $y=\\frac{2}{3}x+4$?",
-      "choices": ["$y=-\\frac{2}{3}x+4$", "$y=\\frac{2}{3}x-1$", "$y=\\frac{3}{2}x+4$", "$y=2x+4$"],
+      "choices": [
+        "$y=-\\frac{2}{3}x+4$",
+        "$y=\\frac{2}{3}x-1$",
+        "$y=\\frac{3}{2}x+4$",
+        "$y=2x+4$"
+      ],
       "correctIndex": 1,
       "explanation": "Parallel lines have the same gradient, so the answer must keep $m=\\frac{2}{3}$."
     },
     {
       "id": "math-linear-myp-lin-q7",
       "stem": "A line is perpendicular to $y=5x+2$. What is its gradient?",
-      "choices": ["5", "-5", "$\\frac{1}{5}$", "$-\\frac{1}{5}$"],
+      "choices": [
+        "5",
+        "-5",
+        "$\\frac{1}{5}$",
+        "$-\\frac{1}{5}$"
+      ],
       "correctIndex": 3,
       "explanation": "Perpendicular gradients multiply to $-1$, so $m_2=-\\frac{1}{5}$."
     },
     {
       "id": "math-linear-myp-lin-q8",
       "stem": "What is the equation of the horizontal line through $(6,-2)$?",
-      "choices": ["$y=6$", "$y=-2$", "$x=6$", "$x=-2$"],
+      "choices": [
+        "$y=6$",
+        "$y=-2$",
+        "$x=6$",
+        "$x=-2$"
+      ],
       "correctIndex": 1,
       "explanation": "A horizontal line has equation $y=c$, so through $(6,-2)$ it is $y=-2$."
     },
     {
       "id": "math-linear-myp-lin-q9",
       "stem": "Find the $x$-intercept of $y=3x-12$.",
-      "choices": ["4", "-4", "12", "-12"],
+      "choices": [
+        "4",
+        "-4",
+        "12",
+        "-12"
+      ],
       "correctIndex": 0,
       "explanation": "Set $y=0$: $0=3x-12$ gives $3x=12$ and $x=4$."
     },
     {
       "id": "math-linear-myp-lin-q10",
       "stem": "The line through $(0,c)$ and $(4,14)$ has gradient $2$. Find $c$.",
-      "choices": ["6", "8", "10", "12"],
+      "choices": [
+        "6",
+        "8",
+        "10",
+        "12"
+      ],
       "correctIndex": 0,
       "explanation": "$\\frac{14-c}{4}=2$, so $14-c=8$ and $c=6$."
     },
     {
       "id": "math-linear-myp-lin-q11",
       "stem": "A plumber charges a £40 call-out fee plus £25 per hour. Which equation gives the total cost $C$ for $h$ hours?",
-      "choices": ["$C=40h+25$", "$C=25h+40$", "$C=65h$", "$C=25(h+40)$"],
+      "choices": [
+        "$C=40h+25$",
+        "$C=25h+40$",
+        "$C=65h$",
+        "$C=25(h+40)$"
+      ],
       "correctIndex": 1,
       "explanation": "The £40 is the fixed intercept and £25 is the rate per hour, so $C=25h+40$."
     },
     {
       "id": "math-linear-myp-lin-q12",
       "stem": "Which equation is perpendicular to $2y=6x+8$?",
-      "choices": ["$y=-\\frac{1}{3}x+2$", "$y=3x+2$", "$y=-3x+2$", "$y=\\frac{1}{3}x+2$"],
+      "choices": [
+        "$y=-\\frac{1}{3}x+2$",
+        "$y=3x+2$",
+        "$y=-3x+2$",
+        "$y=\\frac{1}{3}x+2$"
+      ],
       "correctIndex": 0,
       "explanation": "Rearranging gives $y=3x+4$, gradient $3$; a perpendicular gradient is $-\\frac{1}{3}$."
     },
     {
       "id": "math-linear-myp-lin-q13",
       "stem": "Find the equation of the line through $(-1,5)$ that is parallel to $y=2x+3$.",
-      "choices": ["$y=2x+7$", "$y=2x-7$", "$y=-\\frac{1}{2}x+7$", "$y=-\\frac{1}{2}x+\\frac{9}{2}$"],
+      "choices": [
+        "$y=2x+7$",
+        "$y=2x-7$",
+        "$y=-\\frac{1}{2}x+7$",
+        "$y=-\\frac{1}{2}x+\\frac{9}{2}$"
+      ],
       "correctIndex": 0,
       "explanation": "Parallel means $m=2$. Substituting $(-1,5)$ gives $5=-2+c$, so $c=7$ and $y=2x+7$."
     },
     {
       "id": "math-linear-myp-lin-q14",
       "stem": "The points $(2,a)$ and $(6,1)$ lie on a line with gradient $-\\frac{3}{4}$. Find $a$.",
-      "choices": ["4", "-2", "1", "7"],
+      "choices": [
+        "4",
+        "-2",
+        "1",
+        "7"
+      ],
       "correctIndex": 0,
       "explanation": "$\\frac{1-a}{6-2}=-\\frac{3}{4}$, so $1-a=-3$ and $a=4$."
     },
     {
       "id": "math-linear-myp-lin-q15",
       "stem": "A car rental company charges £30 per day plus a one-off £20 insurance fee. What is the cost of a 7-day rental?",
-      "choices": ["£230", "£210", "£200", "£250"],
+      "choices": [
+        "£230",
+        "£210",
+        "£200",
+        "£250"
+      ],
       "correctIndex": 0,
       "explanation": "Using $C=30d+20$ with $d=7$ gives $C=210+20=230$, so the cost is £230."
     }

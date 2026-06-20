@@ -154,105 +154,180 @@
     {
       "id": "chem-periodic-1-q1",
       "stem": "An element is in Group 2 and Period 3. What is its electron configuration?",
-      "choices": ["2, 2", "2, 8, 2", "2, 8, 8, 2", "2, 3"],
+      "choices": [
+        "2, 2",
+        "2, 8, 2",
+        "2, 8, 8, 2",
+        "2, 3"
+      ],
       "correctIndex": 1,
       "explanation": "Period 3 = 3 shells. Group 2 = 2 outer electrons. Configuration: 2 + 8 + 2 = 12 electrons (magnesium)."
     },
     {
       "id": "chem-periodic-1-q2",
       "stem": "Why do elements in the same group have similar chemical properties?",
-      "choices": ["They have the same number of protons", "They have the same number of electron shells", "They have the same number of electrons in their outer shell", "They have the same mass number"],
+      "choices": [
+        "They have the same number of protons",
+        "They have the same number of electron shells",
+        "They have the same number of electrons in their outer shell",
+        "They have the same mass number"
+      ],
       "correctIndex": 2,
       "explanation": "Outer shell electrons determine reactivity. Same group = same outer electron count = similar chemistry."
     },
     {
       "id": "chem-periodic-1-q3",
       "stem": "Sodium reacts more vigorously with water than lithium. Why?",
-      "choices": ["Sodium is lighter", "Sodium's outer electron is further from the nucleus and held less tightly, so it is lost more easily", "Sodium has more protons", "Sodium has fewer electron shells"],
+      "choices": [
+        "Sodium is lighter",
+        "Sodium's outer electron is further from the nucleus and held less tightly, so it is lost more easily",
+        "Sodium has more protons",
+        "Sodium has fewer electron shells"
+      ],
       "correctIndex": 1,
       "explanation": "Down Group 1, atoms are larger. The outer electron is further from the attractive nucleus → weaker hold → easier to lose → more reactive."
     },
     {
       "id": "chem-periodic-1-q4",
       "stem": "Chlorine water is added to potassium bromide solution. It turns orange-brown. Why?",
-      "choices": ["Potassium displaced chlorine", "Chlorine (more reactive) displaced bromine: Cl₂ + 2KBr → 2KCl + Br₂", "The bromide ions evaporated", "No reaction — the colour is from chlorine"],
+      "choices": [
+        "Potassium displaced chlorine",
+        "Chlorine (more reactive) displaced bromine: Cl₂ + 2KBr → 2KCl + Br₂",
+        "The bromide ions evaporated",
+        "No reaction — the colour is from chlorine"
+      ],
       "correctIndex": 1,
       "explanation": "A more reactive halogen displaces a less reactive one. Chlorine is above bromine in Group 17, so it displaces Br⁻, forming orange-brown Br₂."
     },
     {
       "id": "chem-periodic-1-q5",
       "stem": "Why was Mendeleev's periodic table more successful than earlier attempts?",
-      "choices": ["He used atomic number instead of atomic mass", "He left gaps for undiscovered elements and accurately predicted their properties", "He included only metals", "He discovered all the elements himself"],
+      "choices": [
+        "He used atomic number instead of atomic mass",
+        "He left gaps for undiscovered elements and accurately predicted their properties",
+        "He included only metals",
+        "He discovered all the elements himself"
+      ],
       "correctIndex": 1,
       "explanation": "Mendeleev's gaps and predictions (verified when gallium and germanium were discovered) proved the table's validity. Predictive power = good science."
     },
     {
       "id": "chem-periodic-1-q6",
       "stem": "Why are noble gases unreactive?",
-      "choices": ["They have no protons", "They have full outer electron shells — no tendency to gain, lose, or share electrons", "They are gases", "They are too heavy"],
+      "choices": [
+        "They have no protons",
+        "They have full outer electron shells — no tendency to gain, lose, or share electrons",
+        "They are gases",
+        "They are too heavy"
+      ],
       "correctIndex": 1,
       "explanation": "Full outer shells = stable electron configuration. There is no energetic drive to react. They are already at maximum stability."
     },
     {
       "id": "chem-periodic-1-q7",
       "stem": "Copper forms Cu⁺ and Cu²⁺ but sodium only forms Na⁺. Why?",
-      "choices": ["Copper is a transition metal — variable valency; Group 1 only forms +1", "Copper has more protons", "Sodium is more reactive", "Copper has more electron shells"],
+      "choices": [
+        "Copper is a transition metal — variable valency; Group 1 only forms +1",
+        "Copper has more protons",
+        "Sodium is more reactive",
+        "Copper has more electron shells"
+      ],
       "correctIndex": 0,
       "explanation": "Transition metals can lose different numbers of electrons (variable valency). Group 1 always loses exactly 1 outer electron."
     },
     {
       "id": "chem-periodic-1-q8",
       "stem": "A shiny solid conducts electricity and forms green-coloured compounds. It is most likely:",
-      "choices": ["Alkali metal (Group 1)", "Halogen (Group 17)", "Transition metal", "Noble gas (Group 18)"],
+      "choices": [
+        "Alkali metal (Group 1)",
+        "Halogen (Group 17)",
+        "Transition metal",
+        "Noble gas (Group 18)"
+      ],
       "correctIndex": 2,
       "explanation": "Coloured compounds are a hallmark of transition metals. This could be chromium(III) (green), nickel(II) (green), or copper(II) (blue-green)."
     },
     {
       "id": "chem-periodic-1-q9",
       "stem": "Iodine is added to potassium chloride solution. Will a reaction occur?",
-      "choices": ["Yes — iodine is heavier", "No — iodine is LESS reactive than chlorine, so cannot displace Cl⁻", "Yes — all halogens displace each other", "Only if heated"],
+      "choices": [
+        "Yes — iodine is heavier",
+        "No — iodine is LESS reactive than chlorine, so cannot displace Cl⁻",
+        "Yes — all halogens displace each other",
+        "Only if heated"
+      ],
       "correctIndex": 1,
       "explanation": "Down Group 17, reactivity decreases. Iodine is below chlorine → less reactive → cannot displace chloride ions. No reaction."
     },
     {
       "id": "chem-periodic-1-q10",
       "stem": "Silicon is a metalloid. What does this mean practically?",
-      "choices": ["It is magnetic", "It is a semiconductor — conducts electricity only under certain conditions, ideal for electronics", "It is the heaviest element", "It reacts with all other elements"],
+      "choices": [
+        "It is magnetic",
+        "It is a semiconductor — conducts electricity only under certain conditions, ideal for electronics",
+        "It is the heaviest element",
+        "It reacts with all other elements"
+      ],
       "correctIndex": 1,
       "explanation": "Metalloids like silicon have intermediate conductivity. Doping with other elements creates transistors — the foundation of all modern electronics."
     },
     {
       "id": "chem-periodic-1-q11",
       "stem": "Element X reacts violently with water, producing an alkaline solution and H₂. Stored under oil. It is:",
-      "choices": ["Iron (Fe)", "Copper (Cu)", "Potassium (K)", "Chlorine (Cl)"],
+      "choices": [
+        "Iron (Fe)",
+        "Copper (Cu)",
+        "Potassium (K)",
+        "Chlorine (Cl)"
+      ],
       "correctIndex": 2,
       "explanation": "Violent water reaction → H₂ + alkali (KOH) is characteristic of Group 1 metals. Storage under oil prevents air/water contact."
     },
     {
       "id": "chem-periodic-1-q12",
       "stem": "Who revised the periodic table to use atomic number instead of atomic mass?",
-      "choices": ["Dmitri Mendeleev", "Henry Moseley (1913, X-ray spectroscopy)", "John Dalton", "Niels Bohr"],
+      "choices": [
+        "Dmitri Mendeleev",
+        "Henry Moseley (1913, X-ray spectroscopy)",
+        "John Dalton",
+        "Niels Bohr"
+      ],
       "correctIndex": 1,
       "explanation": "Moseley determined atomic numbers via X-rays, allowing the table to be ordered by protons. This resolved remaining inconsistencies."
     },
     {
       "id": "chem-periodic-1-q13",
       "stem": "Why does reactivity DECREASE down Group 17?",
-      "choices": ["Atoms get larger → outer shell further from nucleus → harder to attract an extra electron", "The outer electron is lost more easily", "More protons make them less reactive", "Halogens become metallic down the group"],
+      "choices": [
+        "Atoms get larger → outer shell further from nucleus → harder to attract an extra electron",
+        "The outer electron is lost more easily",
+        "More protons make them less reactive",
+        "Halogens become metallic down the group"
+      ],
       "correctIndex": 0,
       "explanation": "Larger atoms have outer shells further from nuclear attraction. Halogens react by GAINING electrons — the larger the atom, the harder it is to pull in an extra electron."
     },
     {
       "id": "chem-periodic-1-q14",
       "stem": "Which is a typical property of MOST non-metals?",
-      "choices": ["Good electrical conductor", "Shiny (lustrous)", "Brittle when solid", "Malleable"],
+      "choices": [
+        "Good electrical conductor",
+        "Shiny (lustrous)",
+        "Brittle when solid",
+        "Malleable"
+      ],
       "correctIndex": 2,
       "explanation": "Non-metals are mostly brittle solids or gases, poor conductors. Graphite is the unusual exception — it conducts electricity."
     },
     {
       "id": "chem-periodic-1-q15",
       "stem": "Mendeleev swapped Te and I positions despite Te having higher atomic mass. Why?",
-      "choices": ["Mistake — he later corrected it", "He trusted chemical properties: iodine is halogen-like (Group 17) and belonged there", "Te was undiscovered", "Mass measurements were wrong"],
+      "choices": [
+        "Mistake — he later corrected it",
+        "He trusted chemical properties: iodine is halogen-like (Group 17) and belonged there",
+        "Te was undiscovered",
+        "Mass measurements were wrong"
+      ],
       "correctIndex": 1,
       "explanation": "Mendeleev prioritised chemical behaviour over mass. He argued atomic masses must be wrong — confirmed later by Moseley's atomic number work."
     }

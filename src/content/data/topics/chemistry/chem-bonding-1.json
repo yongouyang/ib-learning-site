@@ -154,105 +154,180 @@
     {
       "id": "chem-bonding-1-q1",
       "stem": "A bond forms between a metal (Na) and a non-metal (Cl). What type of bond is this?",
-      "choices": ["Covalent bond", "Metallic bond", "Ionic bond — electron transfer from metal to non-metal", "Hydrogen bond"],
+      "choices": [
+        "Covalent bond",
+        "Metallic bond",
+        "Ionic bond — electron transfer from metal to non-metal",
+        "Hydrogen bond"
+      ],
       "correctIndex": 2,
       "explanation": "Metal + non-metal = ionic bond. Na loses 1e⁻ → Na⁺; Cl gains 1e⁻ → Cl⁻. Opposite ions attract."
     },
     {
       "id": "chem-bonding-1-q2",
       "stem": "What type of bonding is present in a water molecule (H₂O)?",
-      "choices": ["Ionic", "Metallic", "Covalent — H and O are both non-metals, they share electrons", "No bonding — water is neutral"],
+      "choices": [
+        "Ionic",
+        "Metallic",
+        "Covalent — H and O are both non-metals, they share electrons",
+        "No bonding — water is neutral"
+      ],
       "correctIndex": 2,
       "explanation": "Non-metal + non-metal = covalent. O shares one pair of electrons with each H atom."
     },
     {
       "id": "chem-bonding-1-q3",
       "stem": "Why can metals conduct electricity as solids?",
-      "choices": ["Ionic bonds carry charge", "Delocalised electrons are free to move through the metal lattice when a voltage is applied", "Protons can move between atoms", "Covalent bonds break and reform"],
+      "choices": [
+        "Ionic bonds carry charge",
+        "Delocalised electrons are free to move through the metal lattice when a voltage is applied",
+        "Protons can move between atoms",
+        "Covalent bonds break and reform"
+      ],
       "correctIndex": 1,
       "explanation": "Metals have a 'sea' of delocalised electrons not attached to any specific atom. These free electrons flow as an electric current."
     },
     {
       "id": "chem-bonding-1-q4",
       "stem": "Sodium chloride (NaCl) does NOT conduct electricity as a solid but DOES when molten. Why?",
-      "choices": ["Solid NaCl has no charged particles", "In the solid, ions are fixed in the lattice and cannot move; when molten, ions are free to move and carry charge", "Heat creates electrons in NaCl", "Solid NaCl has covalent bonds"],
+      "choices": [
+        "Solid NaCl has no charged particles",
+        "In the solid, ions are fixed in the lattice and cannot move; when molten, ions are free to move and carry charge",
+        "Heat creates electrons in NaCl",
+        "Solid NaCl has covalent bonds"
+      ],
       "correctIndex": 1,
       "explanation": "Ionic compounds conduct only when ions are mobile. In solids, ions vibrate in fixed positions. Melting frees them to move towards electrodes."
     },
     {
       "id": "chem-bonding-1-q5",
       "stem": "Both diamond and graphite are pure carbon. Why is diamond hard but graphite soft?",
-      "choices": ["Diamond has stronger carbon atoms", "Diamond: 3D tetrahedral network of strong covalent bonds in all directions. Graphite: strong bonds within layers, weak forces BETWEEN layers → layers slide", "Graphite has impurities that make it soft", "Diamond has metallic bonds"],
+      "choices": [
+        "Diamond has stronger carbon atoms",
+        "Diamond: 3D tetrahedral network of strong covalent bonds in all directions. Graphite: strong bonds within layers, weak forces BETWEEN layers → layers slide",
+        "Graphite has impurities that make it soft",
+        "Diamond has metallic bonds"
+      ],
       "correctIndex": 1,
       "explanation": "Structure determines properties. Diamond's continuous 3D covalent network makes it hard. Graphite's layered structure (weak interlayer forces) allows layers to slide."
     },
     {
       "id": "chem-bonding-1-q6",
       "stem": "What is the formula of aluminium oxide? (Al³⁺, O²⁻)",
-      "choices": ["AlO", "AlO₂", "Al₂O₃", "Al₃O₂"],
+      "choices": [
+        "AlO",
+        "AlO₂",
+        "Al₂O₃",
+        "Al₃O₂"
+      ],
       "correctIndex": 2,
       "explanation": "Swap-and-drop: Al³⁺ and O²⁻ → Al₂O₃. Total positive charge = 2×3+ = 6+; total negative = 3×2− = 6−. Charges balance."
     },
     {
       "id": "chem-bonding-1-q7",
       "stem": "Why do simple molecular substances like CO₂ have low boiling points?",
-      "choices": ["The covalent bonds in CO₂ are weak", "Only weak intermolecular forces need to be overcome — the covalent bonds within molecules do NOT break", "CO₂ is ionic", "CO₂ molecules are very light"],
+      "choices": [
+        "The covalent bonds in CO₂ are weak",
+        "Only weak intermolecular forces need to be overcome — the covalent bonds within molecules do NOT break",
+        "CO₂ is ionic",
+        "CO₂ molecules are very light"
+      ],
       "correctIndex": 1,
       "explanation": "Boiling a simple molecular substance overcomes weak intermolecular forces between molecules. The strong covalent bonds within each molecule remain intact."
     },
     {
       "id": "chem-bonding-1-q8",
       "stem": "Which of these substances conducts electricity as a solid?",
-      "choices": ["Sodium chloride (NaCl)", "Diamond (C)", "Copper (Cu)", "Water (H₂O)"],
+      "choices": [
+        "Sodium chloride (NaCl)",
+        "Diamond (C)",
+        "Copper (Cu)",
+        "Water (H₂O)"
+      ],
       "correctIndex": 2,
       "explanation": "Copper is a metal — it has delocalised electrons that conduct. NaCl needs to be molten; diamond has no free electrons; water is molecular."
     },
     {
       "id": "chem-bonding-1-q9",
       "stem": "Magnesium oxide (MgO) has a very high melting point (~2852°C). Why?",
-      "choices": ["MgO is a simple molecule", "MgO has a giant ionic lattice — Mg²⁺ and O²⁻ are held by strong electrostatic forces throughout. MgO has 2+/2− ions (stronger than 1+/1− in NaCl)", "MgO is metallic", "MgO has covalent bonds"],
+      "choices": [
+        "MgO is a simple molecule",
+        "MgO has a giant ionic lattice — Mg²⁺ and O²⁻ are held by strong electrostatic forces throughout. MgO has 2+/2− ions (stronger than 1+/1− in NaCl)",
+        "MgO is metallic",
+        "MgO has covalent bonds"
+      ],
       "correctIndex": 1,
       "explanation": "MgO is ionic with doubly charged ions (Mg²⁺ and O²⁻). The electrostatic attraction is stronger than in NaCl (Na⁺/Cl⁻), so the melting point is much higher."
     },
     {
       "id": "chem-bonding-1-q10",
       "stem": "In a dot-and-cross diagram of methane (CH₄), how many shared pairs of electrons are there?",
-      "choices": ["1", "4 — carbon shares one pair with each of the 4 hydrogen atoms", "2", "8"],
+      "choices": [
+        "1",
+        "4 — carbon shares one pair with each of the 4 hydrogen atoms",
+        "2",
+        "8"
+      ],
       "correctIndex": 1,
       "explanation": "CH₄ has 4 single covalent bonds. Each H shares 1 electron pair with the central C atom. C achieves a full outer shell (8 electrons total from sharing)."
     },
     {
       "id": "chem-bonding-1-q11",
       "stem": "Why are metals malleable (can be hammered into shape) but ionic compounds are brittle?",
-      "choices": ["Metals have weaker bonds", "In metals, layers of ions slide while the sea of electrons adapts. In ionic lattices, shifting layers brings like charges together → repulsion → shattering", "Ionic compounds are softer", "Metals have covalent bonds"],
+      "choices": [
+        "Metals have weaker bonds",
+        "In metals, layers of ions slide while the sea of electrons adapts. In ionic lattices, shifting layers brings like charges together → repulsion → shattering",
+        "Ionic compounds are softer",
+        "Metals have covalent bonds"
+      ],
       "correctIndex": 1,
       "explanation": "Metallic bonding's delocalised electrons allow layers to slide past each other without breaking bonds. Ionic lattices shatter because shifting aligns like-charged ions (++ or −−), causing repulsion."
     },
     {
       "id": "chem-bonding-1-q12",
       "stem": "Name the compound N₂O₄ using prefixes.",
-      "choices": ["Nitrogen oxide", "Dinitrogen tetroxide", "Nitrogen tetroxide", "Dinitride tetroxide"],
+      "choices": [
+        "Nitrogen oxide",
+        "Dinitrogen tetroxide",
+        "Nitrogen tetroxide",
+        "Dinitride tetroxide"
+      ],
       "correctIndex": 1,
       "explanation": "Two non-metals → use prefixes: di- (2 N) + tetr- (4 O) + -oxide = dinitrogen tetroxide. (Drop the 'a' in tetra before oxide.)"
     },
     {
       "id": "chem-bonding-1-q13",
       "stem": "Which type of bonding explains why transition metals have higher melting points than Group 1 metals?",
-      "choices": ["Transition metals have more delocalised electrons per atom → stronger metallic bonding → higher melting points", "Transition metals have ionic bonds", "Group 1 metals have covalent bonds", "Transition metals form giant covalent structures"],
+      "choices": [
+        "Transition metals have more delocalised electrons per atom → stronger metallic bonding → higher melting points",
+        "Transition metals have ionic bonds",
+        "Group 1 metals have covalent bonds",
+        "Transition metals form giant covalent structures"
+      ],
       "correctIndex": 0,
       "explanation": "More delocalised electrons per atom means a stronger electrostatic attraction between the positive ions and the electron sea → more energy required to melt."
     },
     {
       "id": "chem-bonding-1-q14",
       "stem": "Graphite conducts electricity but diamond does not. Why?",
-      "choices": ["Diamond has no carbon atoms", "Graphite has delocalised electrons (4th outer electron from each C) between layers that can move; in diamond, all 4 outer electrons are fixed in covalent bonds", "Graphite is a metal", "Diamond's structure blocks electron flow"],
+      "choices": [
+        "Diamond has no carbon atoms",
+        "Graphite has delocalised electrons (4th outer electron from each C) between layers that can move; in diamond, all 4 outer electrons are fixed in covalent bonds",
+        "Graphite is a metal",
+        "Diamond's structure blocks electron flow"
+      ],
       "correctIndex": 1,
       "explanation": "Carbon has 4 outer electrons. In diamond, all 4 form covalent bonds — no free electrons. In graphite, only 3 form bonds; the 4th is delocalised between layers → can conduct."
     },
     {
       "id": "chem-bonding-1-q15",
       "stem": "Calcium nitrate contains Ca²⁺ and NO₃⁻ ions. What is its formula?",
-      "choices": ["CaNO₃", "Ca(NO₃)₂", "Ca₂NO₃", "CaNO₆"],
+      "choices": [
+        "CaNO₃",
+        "Ca(NO₃)₂",
+        "Ca₂NO₃",
+        "CaNO₆"
+      ],
       "correctIndex": 1,
       "explanation": "Ca²⁺ needs two NO₃⁻ to balance: 1 × (+2) + 2 × (−1) = 0. Brackets show two nitrate ions. Formula = Ca(NO₃)₂."
     }

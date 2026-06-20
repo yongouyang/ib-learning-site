@@ -154,105 +154,180 @@
     {
       "id": "chem-mixtures-1-q1",
       "stem": "Which technique separates an insoluble solid from a liquid?",
-      "choices": ["Distillation", "Filtration", "Chromatography", "Crystallisation"],
+      "choices": [
+        "Distillation",
+        "Filtration",
+        "Chromatography",
+        "Crystallisation"
+      ],
       "correctIndex": 1,
       "explanation": "Filtration uses filter paper — liquid passes through, insoluble solid stays as residue."
     },
     {
       "id": "chem-mixtures-1-q2",
       "stem": "How would you obtain pure water from salt water?",
-      "choices": ["Filtration", "Evaporation", "Simple distillation — water boils, vapour condenses, pure water collected; salt remains", "Chromatography"],
+      "choices": [
+        "Filtration",
+        "Evaporation",
+        "Simple distillation — water boils, vapour condenses, pure water collected; salt remains",
+        "Chromatography"
+      ],
       "correctIndex": 2,
       "explanation": "Simple distillation collects pure water as distillate. Filtration wouldn't work (salt is dissolved, not insoluble). Evaporation would lose the water."
     },
     {
       "id": "chem-mixtures-1-q3",
       "stem": "A spot moved 3 cm; solvent front moved 12 cm. Rf = ?",
-      "choices": ["0.25", "4", "0.75", "36"],
+      "choices": [
+        "0.25",
+        "4",
+        "0.75",
+        "36"
+      ],
       "correctIndex": 0,
       "explanation": "Rf = 3 ÷ 12 = 0.25. Always between 0 and 1."
     },
     {
       "id": "chem-mixtures-1-q4",
       "stem": "Why must the baseline be drawn in pencil, not pen, in chromatography?",
-      "choices": ["Pencil is cheaper", "Pen ink would dissolve in the solvent and run, contaminating the chromatogram", "Pencil shows up better on paper", "Pen ink repels the solvent"],
+      "choices": [
+        "Pencil is cheaper",
+        "Pen ink would dissolve in the solvent and run, contaminating the chromatogram",
+        "Pencil shows up better on paper",
+        "Pen ink repels the solvent"
+      ],
       "correctIndex": 1,
       "explanation": "Pen ink is itself a mixture of dyes that would dissolve and separate, interfering with the results. Pencil (graphite) is insoluble."
     },
     {
       "id": "chem-mixtures-1-q5",
       "stem": "Ethanol (BP 78°C) + Water (BP 100°C). How to separate?",
-      "choices": ["Simple distillation", "Filtration", "Fractional distillation — boiling points are different but both evaporate; fractionating column achieves separation", "Evaporation"],
+      "choices": [
+        "Simple distillation",
+        "Filtration",
+        "Fractional distillation — boiling points are different but both evaporate; fractionating column achieves separation",
+        "Evaporation"
+      ],
       "correctIndex": 2,
       "explanation": "Both are liquids with close boiling points. Fractional distillation provides repeated condensation/vaporisation cycles to separate them cleanly."
     },
     {
       "id": "chem-mixtures-1-q6",
       "stem": "Why does slow cooling produce larger crystals in crystallisation?",
-      "choices": ["Slow cooling dissolves more impurities", "Molecules have more time to arrange in an ordered crystal lattice before being frozen in place", "Fast cooling makes crystals evaporate", "Temperature does not affect crystal size"],
+      "choices": [
+        "Slow cooling dissolves more impurities",
+        "Molecules have more time to arrange in an ordered crystal lattice before being frozen in place",
+        "Fast cooling makes crystals evaporate",
+        "Temperature does not affect crystal size"
+      ],
       "correctIndex": 1,
       "explanation": "Slow cooling gives particles time to find the lowest-energy positions in the growing crystal lattice → larger, more ordered crystals. Rapid cooling traps particles randomly → small, impure crystals."
     },
     {
       "id": "chem-mixtures-1-q7",
       "stem": "Oil and water are immiscible. Which apparatus separates them?",
-      "choices": ["Filter funnel", "Separating funnel — oil (less dense) floats on water; drain water from bottom", "Condenser", "Chromatography tank"],
+      "choices": [
+        "Filter funnel",
+        "Separating funnel — oil (less dense) floats on water; drain water from bottom",
+        "Condenser",
+        "Chromatography tank"
+      ],
       "correctIndex": 1,
       "explanation": "A separating funnel separates immiscible liquids by density. Water (denser) is drained through the tap; oil remains."
     },
     {
       "id": "chem-mixtures-1-q8",
       "stem": "To separate sand, salt, and iron filings from a mixture:",
-      "choices": ["Add water, filter, then evaporate — sand stays on filter, salt dissolves; use magnet for iron", "Use magnet → iron removed. Add water → salt dissolves. Filter → sand residue. Evaporate filtrate → salt crystals", "Distil the mixture", "Use chromatography"],
+      "choices": [
+        "Add water, filter, then evaporate — sand stays on filter, salt dissolves; use magnet for iron",
+        "Use magnet → iron removed. Add water → salt dissolves. Filter → sand residue. Evaporate filtrate → salt crystals",
+        "Distil the mixture",
+        "Use chromatography"
+      ],
       "correctIndex": 1,
       "explanation": "Step 1: Magnet removes iron. Step 2: Add water to dissolve salt. Step 3: Filter — sand stays. Step 4: Evaporate/crystallise filtrate → salt."
     },
     {
       "id": "chem-mixtures-1-q9",
       "stem": "In simple distillation, why does cold water enter the condenser at the BOTTOM?",
-      "choices": ["It doesn't — cold water enters at the top", "To ensure the condenser is completely filled with cold water (counter-current flow) for maximum cooling efficiency", "It's easier to connect tubing that way", "Cold water sinks naturally"],
+      "choices": [
+        "It doesn't — cold water enters at the top",
+        "To ensure the condenser is completely filled with cold water (counter-current flow) for maximum cooling efficiency",
+        "It's easier to connect tubing that way",
+        "Cold water sinks naturally"
+      ],
       "correctIndex": 1,
       "explanation": "Water enters at the bottom and exits at the top. This counter-current flow ensures the coolest water meets the vapour at the point where it's about to exit, maximising condensation."
     },
     {
       "id": "chem-mixtures-1-q10",
       "stem": "Two substances have the same Rf value in a given solvent. What does this suggest?",
-      "choices": ["They may be the same substance — further testing with different solvents is needed", "They are definitely different substances", "The experiment failed", "Rf values cannot be the same"],
+      "choices": [
+        "They may be the same substance — further testing with different solvents is needed",
+        "They are definitely different substances",
+        "The experiment failed",
+        "Rf values cannot be the same"
+      ],
       "correctIndex": 0,
       "explanation": "Same Rf suggests they COULD be the same, but confirmation requires running the chromatography again with a different solvent — different substances can coincidentally have the same Rf in one solvent."
     },
     {
       "id": "chem-mixtures-1-q11",
       "stem": "Why is the baseline placed ABOVE the solvent level in chromatography?",
-      "choices": ["To make it easier to see", "If the baseline is submerged, the sample spots would dissolve directly into the solvent instead of travelling up the paper", "The paper would tear", "Solvent cannot travel above the baseline"],
+      "choices": [
+        "To make it easier to see",
+        "If the baseline is submerged, the sample spots would dissolve directly into the solvent instead of travelling up the paper",
+        "The paper would tear",
+        "Solvent cannot travel above the baseline"
+      ],
       "correctIndex": 1,
       "explanation": "If the spots are in the solvent, they dissolve and mix into the bulk solvent — no separation occurs. The spots must be above the solvent so the mobile phase carries them upwards."
     },
     {
       "id": "chem-mixtures-1-q12",
       "stem": "What is the main limitation of evaporation compared to crystallisation?",
-      "choices": ["It's slower", "The solvent is lost to the air and the solid may be impure or decompose if overheated", "It cannot separate any solids", "It requires expensive equipment"],
+      "choices": [
+        "It's slower",
+        "The solvent is lost to the air and the solid may be impure or decompose if overheated",
+        "It cannot separate any solids",
+        "It requires expensive equipment"
+      ],
       "correctIndex": 1,
       "explanation": "Evaporation loses the solvent and can trap impurities in the solid crust. If heated too strongly, some solids decompose thermally. Crystallisation preserves purity and solvent."
     },
     {
       "id": "chem-mixtures-1-q13",
       "stem": "A pure substance has a melting point of 122-123°C. An impure sample will:",
-      "choices": ["Melt at exactly 123°C", "Melt over a wider range and at a lower temperature", "Not melt at all", "Melt at a higher temperature"],
+      "choices": [
+        "Melt at exactly 123°C",
+        "Melt over a wider range and at a lower temperature",
+        "Not melt at all",
+        "Melt at a higher temperature"
+      ],
       "correctIndex": 1,
       "explanation": "Impurities disrupt the crystal lattice → lower melting point and broader melting range."
     },
     {
       "id": "chem-mixtures-1-q14",
       "stem": "Which properties does fractional distillation exploit to separate crude oil?",
-      "choices": ["Density differences", "Different boiling points of hydrocarbon fractions", "Particle size differences", "Magnetic properties"],
+      "choices": [
+        "Density differences",
+        "Different boiling points of hydrocarbon fractions",
+        "Particle size differences",
+        "Magnetic properties"
+      ],
       "correctIndex": 1,
       "explanation": "Crude oil is separated into fractions (petrol, kerosene, diesel, bitumen) based on boiling point ranges in a fractionating tower."
     },
     {
       "id": "chem-mixtures-1-q15",
       "stem": "A chromatogram shows three spots from a sample and one spot from a known dye at the same height. What conclusion?",
-      "choices": ["The sample is pure", "One component of the sample matches the known dye (same Rf value)", "The experiment failed", "All spots are the same substance"],
+      "choices": [
+        "The sample is pure",
+        "One component of the sample matches the known dye (same Rf value)",
+        "The experiment failed",
+        "All spots are the same substance"
+      ],
       "correctIndex": 1,
       "explanation": "A spot at the same height (same Rf) suggests one component is the known dye. The other spots are different substances in the mixture."
     }

@@ -154,105 +154,180 @@
     {
       "id": "bio-practical-1-q1",
       "stem": "A student investigates how temperature affects the rate of enzyme activity. What is the independent variable?",
-      "choices": ["The rate of enzyme activity", "Temperature", "The type of enzyme used", "The volume of the reaction mixture"],
+      "choices": [
+        "The rate of enzyme activity",
+        "Temperature",
+        "The type of enzyme used",
+        "The volume of the reaction mixture"
+      ],
       "correctIndex": 1,
       "explanation": "The independent variable is what the student deliberately changes — in this case, the temperature. The rate of enzyme activity is the dependent variable (what is being measured)."
     },
     {
       "id": "bio-practical-1-q2",
       "stem": "A microscope has a ×10 eyepiece and a ×40 objective lens. What is the total magnification?",
-      "choices": ["×40", "×50", "×400", "×4000"],
+      "choices": [
+        "×40",
+        "×50",
+        "×400",
+        "×4000"
+      ],
       "correctIndex": 2,
       "explanation": "Total magnification = eyepiece × objective = 10 × 40 = ×400."
     },
     {
       "id": "bio-practical-1-q3",
       "stem": "Why should you NEVER use the coarse focus knob when using a high-power (×40) objective lens?",
-      "choices": ["The coarse focus knob does not work at high power", "The lens is too close to the slide — using the coarse focus could drive the lens into and crack the slide", "The coarse focus knob is only for the eyepiece", "High-power objectives do not need focusing"],
+      "choices": [
+        "The coarse focus knob does not work at high power",
+        "The lens is too close to the slide — using the coarse focus could drive the lens into and crack the slide",
+        "The coarse focus knob is only for the eyepiece",
+        "High-power objectives do not need focusing"
+      ],
       "correctIndex": 1,
       "explanation": "At high power, the objective lens is very close to the slide (working distance of ~0.5 mm). The coarse focus knob moves the stage large distances — it is easy to crash the lens into the slide, breaking both."
     },
     {
       "id": "bio-practical-1-q4",
       "stem": "Which of the following is a GOOD hypothesis for a biology experiment?",
-      "choices": ["I think temperature will affect enzymes", "'If temperature increases (up to 40°C), then the rate of starch breakdown by amylase will increase, because enzymes have more kinetic energy and collisions with substrate occur more frequently'", "Temperature and enzymes are related", "I predict the enzyme will work faster because my textbook says so"],
+      "choices": [
+        "I think temperature will affect enzymes",
+        "'If temperature increases (up to 40°C), then the rate of starch breakdown by amylase will increase, because enzymes have more kinetic energy and collisions with substrate occur more frequently'",
+        "Temperature and enzymes are related",
+        "I predict the enzyme will work faster because my textbook says so"
+      ],
       "correctIndex": 1,
       "explanation": "A good hypothesis includes the relationship between IV and DV, AND a scientific explanation (reasoning). The first and third options are too vague. Textbooks provide evidence, not hypotheses."
     },
     {
       "id": "bio-practical-1-q5",
       "stem": "A student's biological drawing of a cell is 50 mm across. The actual cell is 0.05 mm. What is the drawing's magnification?",
-      "choices": ["×10", "×100", "×1000", "×5000"],
+      "choices": [
+        "×10",
+        "×100",
+        "×1000",
+        "×5000"
+      ],
       "correctIndex": 2,
       "explanation": "Magnification = image size ÷ actual size = 50 ÷ 0.05 = ×1000. Both measurements must be in the same units."
     },
     {
       "id": "bio-practical-1-q6",
       "stem": "A student draws a plant cell and labels it with pen, adds shaded areas, and sketches arrows. Why would this lose marks?",
-      "choices": ["Biological drawings should be in pencil with clean lines, no shading/colouring, and labels on straight ruled lines — not arrows", "The drawing is not artistic enough", "Plant cells should be drawn in colour", "Drawings are never used in biology"],
+      "choices": [
+        "Biological drawings should be in pencil with clean lines, no shading/colouring, and labels on straight ruled lines — not arrows",
+        "The drawing is not artistic enough",
+        "Plant cells should be drawn in colour",
+        "Drawings are never used in biology"
+      ],
       "correctIndex": 0,
       "explanation": "Biological drawing conventions require: pencil only, clear continuous lines, no shading/colouring/sketching, and horizontal ruled label lines (no arrows). These rules ensure drawings are clear, reproducible scientific records."
     },
     {
       "id": "bio-practical-1-q7",
       "stem": "Five measurements of a plant's height over 2 weeks: 10 cm, 12 cm, 11 cm, 35 cm, 10 cm. What is the most appropriate way to handle the anomalous result?",
-      "choices": ["Ignore it silently and calculate the mean of the remaining four values", "Identify 35 cm as anomalous, exclude it from the mean calculation, note its exclusion, and suggest a reason (e.g., measurement or recording error)", "Include it — all data must be used regardless", "Change 35 cm to 13 cm to fit the pattern"],
+      "choices": [
+        "Ignore it silently and calculate the mean of the remaining four values",
+        "Identify 35 cm as anomalous, exclude it from the mean calculation, note its exclusion, and suggest a reason (e.g., measurement or recording error)",
+        "Include it — all data must be used regardless",
+        "Change 35 cm to 13 cm to fit the pattern"
+      ],
       "correctIndex": 1,
       "explanation": "An anomalous result should be transparently identified, excluded from the mean, and the exclusion should be explained with a plausible reason. Never alter data to fit expectations — this is scientific fraud."
     },
     {
       "id": "bio-practical-1-q8",
       "stem": "What type of graph is most appropriate for data on the number of students with each blood type (A, B, AB, O)?",
-      "choices": ["Line graph", "Scatter graph", "Bar chart", "Histogram"],
+      "choices": [
+        "Line graph",
+        "Scatter graph",
+        "Bar chart",
+        "Histogram"
+      ],
       "correctIndex": 2,
       "explanation": "Blood type is categorical data. Bar charts (with gaps between bars) display categorical independent variables. Line graphs are for continuous data; histograms are for grouped continuous data."
     },
     {
       "id": "bio-practical-1-q9",
       "stem": "Why is it important to include a scale bar rather than just a magnification number on a biological drawing?",
-      "choices": ["Scale bars look more professional", "A scale bar remains accurate if the image is enlarged or reduced (photocopied, projected); a magnification number becomes incorrect if the image size changes", "Magnification numbers are difficult to calculate", "Scale bars are easier to draw"],
+      "choices": [
+        "Scale bars look more professional",
+        "A scale bar remains accurate if the image is enlarged or reduced (photocopied, projected); a magnification number becomes incorrect if the image size changes",
+        "Magnification numbers are difficult to calculate",
+        "Scale bars are easier to draw"
+      ],
       "correctIndex": 1,
       "explanation": "If a drawing labelled '×400' is photocopied at 200%, the actual magnification is now ×800 — the label is wrong. A scale bar represents an actual length and scales proportionally with the image, remaining accurate."
     },
     {
       "id": "bio-practical-1-q10",
       "stem": "A student's conclusion states: 'My results prove my hypothesis was correct.' What is the issue with this statement?",
-      "choices": ["Results support or refute a hypothesis; they never 'prove' it — future experiments could produce different results or alternative explanations", "Hypotheses are never correct", "The student should not have a hypothesis", "Only professional scientists can draw conclusions"],
+      "choices": [
+        "Results support or refute a hypothesis; they never 'prove' it — future experiments could produce different results or alternative explanations",
+        "Hypotheses are never correct",
+        "The student should not have a hypothesis",
+        "Only professional scientists can draw conclusions"
+      ],
       "correctIndex": 0,
       "explanation": "Science is provisional — conclusions are always open to revision with new evidence. Use 'support' not 'prove'. One experiment provides evidence, not absolute proof."
     },
     {
       "id": "bio-practical-1-q11",
       "stem": "A balance consistently reads 2.3 g too low for every measurement. This is an example of:",
-      "choices": ["Random error — it varies unpredictably", "Systematic error — a consistent bias in all measurements affecting accuracy", "Human error — the student is reading incorrectly", "No error — balances are always perfectly accurate"],
+      "choices": [
+        "Random error — it varies unpredictably",
+        "Systematic error — a consistent bias in all measurements affecting accuracy",
+        "Human error — the student is reading incorrectly",
+        "No error — balances are always perfectly accurate"
+      ],
       "correctIndex": 1,
       "explanation": "A systematic error affects all measurements equally in one direction. The measurements may be precise (consistent) but they are inaccurate (offset from the true value). Recalibrating the balance would fix this."
     },
     {
       "id": "bio-practical-1-q12",
       "stem": "When is a line graph more appropriate than a bar chart?",
-      "choices": ["When the independent variable is continuous numerical data (e.g., temperature, concentration, time)", "When the independent variable is categorical (e.g., type of disinfectant)", "When you have fewer than 5 data points", "Line graphs are always better"],
+      "choices": [
+        "When the independent variable is continuous numerical data (e.g., temperature, concentration, time)",
+        "When the independent variable is categorical (e.g., type of disinfectant)",
+        "When you have fewer than 5 data points",
+        "Line graphs are always better"
+      ],
       "correctIndex": 0,
       "explanation": "Line graphs show trends and relationships between two continuous numerical variables. Bar charts are for categorical or discrete independent variables with no intermediate values between categories."
     },
     {
       "id": "bio-practical-1-q13",
       "stem": "In an investigation, a student measures the effect of light intensity on photosynthesis rate. Which variable MUST be controlled?",
-      "choices": ["Light intensity — that is what is being changed", "Oxygen production — that is what is being measured", "Temperature — it also affects photosynthesis, so if it changes, you cannot tell whether light or temperature caused the effect", "The number of bubbles counted"],
+      "choices": [
+        "Light intensity — that is what is being changed",
+        "Oxygen production — that is what is being measured",
+        "Temperature — it also affects photosynthesis, so if it changes, you cannot tell whether light or temperature caused the effect",
+        "The number of bubbles counted"
+      ],
       "correctIndex": 2,
       "explanation": "Temperature affects the rate of photosynthesis independently of light. If temperature fluctuates, you cannot attribute changes in the DV solely to your IV. All other factors that could affect the DV must be controlled."
     },
     {
       "id": "bio-practical-1-q14",
       "stem": "A student finds a 'line of best fit' that does not pass through the origin (0,0) even though 0 light intensity means 0 photosynthesis. What should they do?",
-      "choices": ["Force the line through the origin to make it look correct", "Draw the line where the data points suggest it should go, and evaluate why the data may show a non-zero intercept — consider systematic errors or experimental limitations", "Ignore the discrepancy — the origin does not matter", "Remove the data points near the origin"],
+      "choices": [
+        "Force the line through the origin to make it look correct",
+        "Draw the line where the data points suggest it should go, and evaluate why the data may show a non-zero intercept — consider systematic errors or experimental limitations",
+        "Ignore the discrepancy — the origin does not matter",
+        "Remove the data points near the origin"
+      ],
       "correctIndex": 1,
       "explanation": "A line of best fit should follow the actual data, not preconceived expectations. If it does not pass through the origin where theory predicts it should, this is a finding to discuss in the evaluation — not something to hide or force."
     },
     {
       "id": "bio-practical-1-q15",
       "stem": "Why are 3 repeat measurements better than a single measurement?",
-      "choices": ["More data impresses the teacher", "Repeats allow you to calculate a mean, identify anomalous results, and assess precision (via range) — increasing reliability of conclusions", "Three is a magic number in biology", "Repeats eliminate all sources of error"],
+      "choices": [
+        "More data impresses the teacher",
+        "Repeats allow you to calculate a mean, identify anomalous results, and assess precision (via range) — increasing reliability of conclusions",
+        "Three is a magic number in biology",
+        "Repeats eliminate all sources of error"
+      ],
       "correctIndex": 1,
       "explanation": "Repeats enable you to (1) calculate a more representative mean, (2) spot outliers, and (3) assess how consistent your measurements are (small range = high precision). They increase the reliability of your findings."
     }

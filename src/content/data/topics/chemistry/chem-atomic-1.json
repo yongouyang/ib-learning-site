@@ -154,105 +154,180 @@
     {
       "id": "chem-atomic-1-q1",
       "stem": "An atom has atomic number 8 and mass number 16. How many neutrons does it have?",
-      "choices": ["8", "16", "24", "6"],
+      "choices": [
+        "8",
+        "16",
+        "24",
+        "6"
+      ],
       "correctIndex": 0,
       "explanation": "Neutrons = mass number − atomic number = 16 − 8 = 8. This is oxygen."
     },
     {
       "id": "chem-atomic-1-q2",
       "stem": "What determines which element an atom belongs to?",
-      "choices": ["Number of neutrons", "Number of electrons", "Number of protons (atomic number)", "Mass number"],
+      "choices": [
+        "Number of neutrons",
+        "Number of electrons",
+        "Number of protons (atomic number)",
+        "Mass number"
+      ],
       "correctIndex": 2,
       "explanation": "The number of protons (atomic number) is unique to each element. Change the number of protons, and you change the element."
     },
     {
       "id": "chem-atomic-1-q3",
       "stem": "What is the electron configuration of aluminium (atomic number 13)?",
-      "choices": ["2, 8, 3", "2, 11", "3, 8, 2", "2, 8, 8"],
+      "choices": [
+        "2, 8, 3",
+        "2, 11",
+        "3, 8, 2",
+        "2, 8, 8"
+      ],
       "correctIndex": 0,
       "explanation": "Shell 1 = 2, Shell 2 = 8, Shell 3 = 3. Total = 2 + 8 + 3 = 13 electrons."
     },
     {
       "id": "chem-atomic-1-q4",
       "stem": "Isotopes of the same element have the same number of protons but different numbers of:",
-      "choices": ["Electrons", "Protons", "Neutrons", "Electron shells"],
+      "choices": [
+        "Electrons",
+        "Protons",
+        "Neutrons",
+        "Electron shells"
+      ],
       "correctIndex": 2,
       "explanation": "Isotopes have the same atomic number (protons) but different mass numbers due to different numbers of neutrons."
     },
     {
       "id": "chem-atomic-1-q5",
       "stem": "In a neutral atom, which relationship is always true?",
-      "choices": ["Protons = neutrons", "Protons = electrons", "Neutrons = electrons", "Mass number = atomic number"],
+      "choices": [
+        "Protons = neutrons",
+        "Protons = electrons",
+        "Neutrons = electrons",
+        "Mass number = atomic number"
+      ],
       "correctIndex": 1,
       "explanation": "A neutral atom has equal numbers of positive protons and negative electrons, so the overall charge is zero."
     },
     {
       "id": "chem-atomic-1-q6",
       "stem": "Chlorine has two isotopes: 75% ³⁵Cl and 25% ³⁷Cl. What is its relative atomic mass?",
-      "choices": ["35", "36", "35.5", "37"],
+      "choices": [
+        "35",
+        "36",
+        "35.5",
+        "37"
+      ],
       "correctIndex": 2,
       "explanation": "Aᵣ = (75 × 35 + 25 × 37) ÷ 100 = (2625 + 925) ÷ 100 = 35.5. This is why chlorine's atomic mass on the periodic table is not a whole number."
     },
     {
       "id": "chem-atomic-1-q7",
       "stem": "A magnesium ion Mg²⁺ has 12 protons and 10 electrons. What is its overall charge?",
-      "choices": ["−2", "0 (neutral)", "+2", "+10"],
+      "choices": [
+        "−2",
+        "0 (neutral)",
+        "+2",
+        "+10"
+      ],
       "correctIndex": 2,
       "explanation": "Charge = protons − electrons = 12 − 10 = +2. Magnesium lost 2 electrons to form a +2 cation."
     },
     {
       "id": "chem-atomic-1-q8",
       "stem": "What did Rutherford's gold foil experiment prove about the structure of the atom?",
-      "choices": ["Atoms are indivisible solid spheres", "Electrons are embedded in a positive sphere (plum pudding)", "The atom is mostly empty space with a tiny, dense, positively charged nucleus", "Electrons orbit in fixed shells at specific energy levels"],
+      "choices": [
+        "Atoms are indivisible solid spheres",
+        "Electrons are embedded in a positive sphere (plum pudding)",
+        "The atom is mostly empty space with a tiny, dense, positively charged nucleus",
+        "Electrons orbit in fixed shells at specific energy levels"
+      ],
       "correctIndex": 2,
       "explanation": "Most alpha particles passed straight through → atom is mostly empty space. A few bounced back → there must be a tiny, dense, positive centre (the nucleus)."
     },
     {
       "id": "chem-atomic-1-q9",
       "stem": "Why does sodium (Group 1, 2,8,1) form a +1 ion?",
-      "choices": ["It gains 1 electron to fill its outer shell", "It loses 1 electron to achieve the stable electron configuration of neon (2,8)", "It gains 7 electrons to fill its outer shell", "Sodium does not form ions"],
+      "choices": [
+        "It gains 1 electron to fill its outer shell",
+        "It loses 1 electron to achieve the stable electron configuration of neon (2,8)",
+        "It gains 7 electrons to fill its outer shell",
+        "Sodium does not form ions"
+      ],
       "correctIndex": 1,
       "explanation": "Sodium has 1 electron in its outer shell. By losing that electron, it achieves the stable 2,8 configuration of neon — easier than gaining 7 electrons."
     },
     {
       "id": "chem-atomic-1-q10",
       "stem": "Which type of radiation can be stopped by a sheet of paper?",
-      "choices": ["Alpha (α)", "Beta (β)", "Gamma (γ)", "X-rays"],
+      "choices": [
+        "Alpha (α)",
+        "Beta (β)",
+        "Gamma (γ)",
+        "X-rays"
+      ],
       "correctIndex": 0,
       "explanation": "Alpha particles are large and heavy (helium nuclei). They are the least penetrating — stopped by a few cm of air or a sheet of paper — but the most ionising."
     },
     {
       "id": "chem-atomic-1-q11",
       "stem": "An atom of ³⁹₁₉K (potassium) has how many neutrons?",
-      "choices": ["19", "20", "39", "58"],
+      "choices": [
+        "19",
+        "20",
+        "39",
+        "58"
+      ],
       "correctIndex": 1,
       "explanation": "Mass number (39) minus atomic number (19) = 20 neutrons. Protons = 19; electrons (neutral atom) = 19."
     },
     {
       "id": "chem-atomic-1-q12",
       "stem": "Which electron configuration represents a noble gas?",
-      "choices": ["2, 8, 1", "2, 8, 7", "2, 8, 8", "2, 8, 2"],
+      "choices": [
+        "2, 8, 1",
+        "2, 8, 7",
+        "2, 8, 8",
+        "2, 8, 2"
+      ],
       "correctIndex": 2,
       "explanation": "Noble gases (Group 18) have full outer shells — 2,8,8 is argon. Full outer shells make noble gases extremely unreactive."
     },
     {
       "id": "chem-atomic-1-q13",
       "stem": "A chlorine atom gains 1 electron. What ion does it form, and what is its electron configuration?",
-      "choices": ["Cl⁺, configuration 2,8,6", "Cl⁻, configuration 2,8,8", "Cl²⁻, configuration 2,8,9", "Cl, configuration 2,8,7 — no ion formed"],
+      "choices": [
+        "Cl⁺, configuration 2,8,6",
+        "Cl⁻, configuration 2,8,8",
+        "Cl²⁻, configuration 2,8,9",
+        "Cl, configuration 2,8,7 — no ion formed"
+      ],
       "correctIndex": 1,
       "explanation": "Chlorine (2,8,7) gains 1 electron to become Cl⁻ with configuration 2,8,8 — the same as argon. It gains 1 electron, so the charge is −1."
     },
     {
       "id": "chem-atomic-1-q14",
       "stem": "Why is the plum pudding model no longer accepted?",
-      "choices": ["It was disproved by Rutherford's experiment — if the positive charge was spread out, alpha particles would not have been strongly deflected backwards", "Scientists decided to change it without evidence", "It did not include electrons", "It could not explain isotopes"],
+      "choices": [
+        "It was disproved by Rutherford's experiment — if the positive charge was spread out, alpha particles would not have been strongly deflected backwards",
+        "Scientists decided to change it without evidence",
+        "It did not include electrons",
+        "It could not explain isotopes"
+      ],
       "correctIndex": 0,
       "explanation": "The plum pudding model predicted that alpha particles would pass through with only slight deflection — like bullets through pudding. Rutherford observed some bouncing back, which required a concentrated positive charge (the nucleus)."
     },
     {
       "id": "chem-atomic-1-q15",
       "stem": "The half-life of iodine-131 is 8 days. If you start with 100 g, how much remains after 24 days?",
-      "choices": ["0 g", "12.5 g", "25 g", "33.3 g"],
+      "choices": [
+        "0 g",
+        "12.5 g",
+        "25 g",
+        "33.3 g"
+      ],
       "correctIndex": 1,
       "explanation": "24 days ÷ 8 days per half-life = 3 half-lives. After 1: 50 g. After 2: 25 g. After 3: 12.5 g remains."
     }

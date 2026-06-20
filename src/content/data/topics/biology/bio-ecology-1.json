@@ -154,105 +154,180 @@
     {
       "id": "bio-ecology-1-q1",
       "stem": "In a food chain, which organism always occupies the first trophic level?",
-      "choices": ["A carnivore", "A decomposer", "A herbivore", "A producer (green plant or alga)"],
+      "choices": [
+        "A carnivore",
+        "A decomposer",
+        "A herbivore",
+        "A producer (green plant or alga)"
+      ],
       "correctIndex": 3,
       "explanation": "Producers (green plants and algae) convert light energy into chemical energy through photosynthesis. They form the energy base that supports all other trophic levels."
     },
     {
       "id": "bio-ecology-1-q2",
       "stem": "Why is only about 10% of energy transferred between trophic levels?",
-      "choices": ["Energy is destroyed when organisms eat each other", "Most energy is lost as heat from respiration, and some is lost in undigested food and waste", "Organisms convert the remaining 90% into oxygen", "Energy turns into matter at each level"],
+      "choices": [
+        "Energy is destroyed when organisms eat each other",
+        "Most energy is lost as heat from respiration, and some is lost in undigested food and waste",
+        "Organisms convert the remaining 90% into oxygen",
+        "Energy turns into matter at each level"
+      ],
       "correctIndex": 1,
       "explanation": "At each trophic level, organisms use most of the consumed energy for their own respiration (releasing it as heat). Some energy is also lost in undigested material. Only about 10% becomes new biomass available to the next level."
     },
     {
       "id": "bio-ecology-1-q3",
       "stem": "If a disease kills most rabbits in a woodland ecosystem, what is most likely to happen to the fox population?",
-      "choices": ["Foxes will increase because there is less competition", "Foxes will stay the same — they can eat other things", "Foxes will decrease because their main food source has declined", "Foxes will move to a new trophic level"],
+      "choices": [
+        "Foxes will increase because there is less competition",
+        "Foxes will stay the same — they can eat other things",
+        "Foxes will decrease because their main food source has declined",
+        "Foxes will move to a new trophic level"
+      ],
       "correctIndex": 2,
       "explanation": "Rabbits are a primary food source for foxes. With fewer rabbits available, foxes will struggle to find enough food, and their population will decline. This is interdependence in action."
     },
     {
       "id": "bio-ecology-1-q4",
       "stem": "What role do decomposers play in nutrient cycles?",
-      "choices": ["They produce oxygen for other organisms", "They convert sunlight into chemical energy", "They break down dead organisms and waste, returning nutrients like carbon and nitrogen to the soil for reuse", "They fix nitrogen directly from the atmosphere"],
+      "choices": [
+        "They produce oxygen for other organisms",
+        "They convert sunlight into chemical energy",
+        "They break down dead organisms and waste, returning nutrients like carbon and nitrogen to the soil for reuse",
+        "They fix nitrogen directly from the atmosphere"
+      ],
       "correctIndex": 2,
       "explanation": "Decomposers (bacteria and fungi) break down dead organic matter, releasing carbon (as CO₂) and nitrogen (as ammonium) back into the environment — recycling nutrients that producers can reuse."
     },
     {
       "id": "bio-ecology-1-q5",
       "stem": "What does 'biodiversity' measure?",
-      "choices": ["The total mass of all organisms in an area", "The number of individuals in the most common species", "The variety of different species and their genetic variation in an ecosystem", "The amount of energy available at each trophic level"],
+      "choices": [
+        "The total mass of all organisms in an area",
+        "The number of individuals in the most common species",
+        "The variety of different species and their genetic variation in an ecosystem",
+        "The amount of energy available at each trophic level"
+      ],
       "correctIndex": 2,
       "explanation": "Biodiversity encompasses species richness (number of species), genetic diversity within species, and ecosystem diversity. High biodiversity makes ecosystems more resilient to change."
     },
     {
       "id": "bio-ecology-1-q6",
       "stem": "A camel has long eyelashes, closable nostrils, and wide feet. These are all adaptations to which biome?",
-      "choices": ["Tropical rainforest", "Tundra", "Desert", "Temperate deciduous forest"],
+      "choices": [
+        "Tropical rainforest",
+        "Tundra",
+        "Desert",
+        "Temperate deciduous forest"
+      ],
       "correctIndex": 2,
       "explanation": "These are desert adaptations. Long eyelashes and closable nostrils protect against blowing sand; wide feet prevent sinking into soft sand."
     },
     {
       "id": "bio-ecology-1-q7",
       "stem": "A student places a quadrat randomly 10 times in a field and counts an average of 4 dandelions per quadrat. The quadrat is 0.25 m² and the field is 100 m². What is the estimated total dandelion population?",
-      "choices": ["400", "1600", "1000", "40"],
+      "choices": [
+        "400",
+        "1600",
+        "1000",
+        "40"
+      ],
       "correctIndex": 1,
       "explanation": "Number of quadrats that fit in the field = 100 ÷ 0.25 = 400. Mean per quadrat = 4. Estimated total = 400 × 4 = 1600 dandelions."
     },
     {
       "id": "bio-ecology-1-q8",
       "stem": "Eutrophication in a lake is most likely caused by:",
-      "choices": ["Oil spills from boats", "Fertiliser runoff from nearby farms, adding nitrates and phosphates to the water", "Acid rain from factories", "Plastic pollution"],
+      "choices": [
+        "Oil spills from boats",
+        "Fertiliser runoff from nearby farms, adding nitrates and phosphates to the water",
+        "Acid rain from factories",
+        "Plastic pollution"
+      ],
       "correctIndex": 1,
       "explanation": "Fertilisers rich in nitrates and phosphates wash into water bodies. These nutrients fuel explosive algal growth (algal bloom). When algae die and decompose, oxygen is consumed, suffocating fish and other aquatic life."
     },
     {
       "id": "bio-ecology-1-q9",
       "stem": "Which process in the nitrogen cycle converts ammonium into nitrates that plants can absorb?",
-      "choices": ["Nitrogen fixation", "Denitrification", "Nitrification", "Ammonification"],
+      "choices": [
+        "Nitrogen fixation",
+        "Denitrification",
+        "Nitrification",
+        "Ammonification"
+      ],
       "correctIndex": 2,
       "explanation": "Nitrification is a two-step process carried out by nitrifying bacteria: ammonium (NH₄⁺) → nitrite (NO₂⁻) → nitrate (NO₃⁻). Plants absorb nitrates through their roots."
     },
     {
       "id": "bio-ecology-1-q10",
       "stem": "Fossil fuels (coal, oil, gas) are formed from:",
-      "choices": ["Minerals compressed underground for millions of years", "The remains of ancient living organisms buried and compressed over millions of years", "Volcanic activity trapping carbon dioxide", "Modern plant material that has been burned and compressed"],
+      "choices": [
+        "Minerals compressed underground for millions of years",
+        "The remains of ancient living organisms buried and compressed over millions of years",
+        "Volcanic activity trapping carbon dioxide",
+        "Modern plant material that has been burned and compressed"
+      ],
       "correctIndex": 1,
       "explanation": "Fossil fuels are formed from ancient organisms (plants for coal; marine plankton for oil and gas) that were buried under sediment and subjected to heat and pressure over millions of years."
     },
     {
       "id": "bio-ecology-1-q11",
       "stem": "Why do food chains rarely have more than 4 or 5 trophic levels?",
-      "choices": ["Predators at the top are too large to be eaten", "There is not enough energy remaining at higher trophic levels to support another level", "Top predators deliberately limit the number of levels", "Producers cannot produce enough oxygen beyond 5 levels"],
+      "choices": [
+        "Predators at the top are too large to be eaten",
+        "There is not enough energy remaining at higher trophic levels to support another level",
+        "Top predators deliberately limit the number of levels",
+        "Producers cannot produce enough oxygen beyond 5 levels"
+      ],
       "correctIndex": 1,
       "explanation": "With only ~10% energy transfer between levels, the energy available becomes vanishingly small at higher trophic levels. By level 5 or 6, there is too little energy to support a viable population."
     },
     {
       "id": "bio-ecology-1-q12",
       "stem": "What is a key difference between a food chain and a food web?",
-      "choices": ["A food chain includes decomposers; a food web does not", "A food chain shows a single linear pathway of energy flow; a food web shows all interconnected feeding relationships", "A food web is simpler and less accurate", "A food chain shows energy, a food web shows matter cycling"],
+      "choices": [
+        "A food chain includes decomposers; a food web does not",
+        "A food chain shows a single linear pathway of energy flow; a food web shows all interconnected feeding relationships",
+        "A food web is simpler and less accurate",
+        "A food chain shows energy, a food web shows matter cycling"
+      ],
       "correctIndex": 1,
       "explanation": "A food chain is a single linear sequence. A food web is a complex network of many interconnected food chains, giving a more realistic picture of an ecosystem's feeding relationships."
     },
     {
       "id": "bio-ecology-1-q13",
       "stem": "Why does deforestation contribute to climate change?",
-      "choices": ["Trees release CO₂ when they are cut down, and fewer trees means less CO₂ is removed from the atmosphere by photosynthesis", "Deforestation destroys the ozone layer", "Cut trees release methane, a greenhouse gas", "Forests generate heat, so removing them cools the planet"],
+      "choices": [
+        "Trees release CO₂ when they are cut down, and fewer trees means less CO₂ is removed from the atmosphere by photosynthesis",
+        "Deforestation destroys the ozone layer",
+        "Cut trees release methane, a greenhouse gas",
+        "Forests generate heat, so removing them cools the planet"
+      ],
       "correctIndex": 0,
       "explanation": "Forests act as carbon sinks — they absorb and store CO₂ through photosynthesis. When forests are burned or decompose, stored carbon is released. Additionally, fewer trees mean less ongoing CO₂ absorption."
     },
     {
       "id": "bio-ecology-1-q14",
       "stem": "A farmer grows peas (a legume) in a field one year, then wheat the next year. Why does this crop rotation benefit the soil?",
-      "choices": ["Peas add oxygen to the soil that wheat needs", "Nitrogen-fixing bacteria in pea root nodules add nitrates to the soil, reducing the need for fertiliser for the next wheat crop", "Peas remove pests that would attack wheat", "Peas produce a natural pesticide"],
+      "choices": [
+        "Peas add oxygen to the soil that wheat needs",
+        "Nitrogen-fixing bacteria in pea root nodules add nitrates to the soil, reducing the need for fertiliser for the next wheat crop",
+        "Peas remove pests that would attack wheat",
+        "Peas produce a natural pesticide"
+      ],
       "correctIndex": 1,
       "explanation": "Legumes (peas, beans, clover) host nitrogen-fixing bacteria (Rhizobium) in root nodules. These bacteria convert atmospheric N₂ into ammonium, enriching the soil with nitrates for the next crop."
     },
     {
       "id": "bio-ecology-1-q15",
       "stem": "An invasive species is introduced to an island. Which characteristic would make it MOST likely to become a serious problem?",
-      "choices": ["It is brightly coloured", "It has no natural predators on the island and reproduces rapidly, outcompeting native species for resources", "It is larger than the native species", "It only eats one specific type of plant"],
+      "choices": [
+        "It is brightly coloured",
+        "It has no natural predators on the island and reproduces rapidly, outcompeting native species for resources",
+        "It is larger than the native species",
+        "It only eats one specific type of plant"
+      ],
       "correctIndex": 1,
       "explanation": "Without natural predators, parasites, or competitors to control its population, an invasive species can reproduce exponentially, outcompete or prey on native species, and disrupt the entire ecosystem."
     }

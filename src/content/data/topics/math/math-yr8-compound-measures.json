@@ -1,0 +1,305 @@
+{
+  "id": "math-yr8-compound-measures",
+  "subjectId": "math",
+  "title": "Compound Measures: Speed, Density & Pressure",
+  "description": "Use and rearrange formulas for speed, density and pressure.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-compound-measures-n1",
+      "heading": "What are Compound Measures?",
+      "illustration": {
+        "src": "/images/math/math-yr8-compound-measures.svg",
+        "alt": "Three formula triangles showing the relationships between speed, distance and time; density, mass and volume; and pressure, force and area.",
+        "caption": "Formula triangles help you remember how to calculate and rearrange speed, density and pressure."
+      },
+      "body": "📌 Definition\nA compound measure is a quantity that is calculated from two other measurements. Speed, density and pressure are three important compound measures in mathematics and science.\n\n🔑 Key Concept\nEach compound measure has a standard formula:\n• Speed measures how fast something moves:\n$$\\text{speed} = \\frac{\\text{distance}}{\\text{time}}$$\n• Density measures how much mass is packed into a volume:\n$$\\text{density} = \\frac{\\text{mass}}{\\text{volume}}$$\n• Pressure measures how a force is spread over an area:\n$$\\text{pressure} = \\frac{\\text{force}}{\\text{area}}$$\n\n📎 Key Points to Remember\n• The units of a compound measure come from the units of the two measurements it combines.\n• You must know how to use each formula and how to rearrange it.\n• Always check that your final units make sense."
+    },
+    {
+      "id": "math-yr8-compound-measures-n2",
+      "heading": "Speed Formula and Units",
+      "body": "📌 Definition\nSpeed is the distance travelled per unit of time. It tells you how fast an object is moving.\n\n🔑 Key Concept\nThe formula for average speed is:\n$$s = \\frac{d}{t}$$\nwhere $s$ is speed, $d$ is distance and $t$ is time.\n\nCommon units for speed include:\n• metres per second: $m/s$\n• kilometres per hour: $km/h$\n\n💡 Worked Example\nA car travels $240$ km in $4$ hours. Find its average speed.\n\nStep 1: Write the formula.\n$$s = \\frac{d}{t}$$\n\nStep 2: Substitute the values.\n$$s = \\frac{240}{4} = 60$$\n\nStep 3: State the units.\nThe speed is $60$ km/h.\n\n✅ Check\nAt $60$ km/h for $4$ hours the car would travel $60 \\times 4 = 240$ km, which matches the question."
+    },
+    {
+      "id": "math-yr8-compound-measures-n3",
+      "heading": "Rearranging the Speed Formula",
+      "body": "📌 Definition\nRearranging a formula means rewriting it to make a different variable the subject.\n\n🔑 How it works\nStarting with $s = \\frac{d}{t}$:\n• To find distance, multiply both sides by $t$:\n$$d = s \\times t$$\n• To find time, divide distance by speed:\n$$t = \\frac{d}{s}$$\n\n💡 Worked Example\nHow long does it take to travel $300$ km at a steady speed of $60$ km/h?\n\nStep 1: Use the rearranged formula for time.\n$$t = \\frac{d}{s}$$\n\nStep 2: Substitute the values.\n$$t = \\frac{300}{60} = 5$$\n\nStep 3: State the units.\nThe journey takes $5$ hours.\n\n⚠️ Common Mistake\nDividing speed by distance instead of distance by speed. Time must have units of hours, so $t = \\frac{d}{s}$ not $t = \\frac{s}{d}$."
+    },
+    {
+      "id": "math-yr8-compound-measures-n4",
+      "heading": "Density Formula and Units",
+      "body": "📌 Definition\nDensity is the mass of an object divided by its volume. It describes how compact a material is.\n\n🔑 Key Concept\nThe formula for density is:\n$$\\rho = \\frac{m}{V}$$\nwhere $\\rho$ is density, $m$ is mass and $V$ is volume.\n\nCommon units for density include:\n• grams per cubic centimetre: $g/cm^3$\n• kilograms per cubic metre: $kg/m^3$\n\n💡 Worked Example\nA block of metal has mass $270$ g and volume $30$ cm$^3$. Find its density.\n\nStep 1: Write the formula.\n$$\\rho = \\frac{m}{V}$$\n\nStep 2: Substitute the values.\n$$\\rho = \\frac{270}{30} = 9$$\n\nStep 3: State the units.\nThe density is $9$ g/cm$^3$.\n\n📎 Key Points to Remember\n• A high density means a lot of mass in a small volume.\n• A low density means the material is less compact.\n• Always use matching units for mass and volume before calculating."
+    },
+    {
+      "id": "math-yr8-compound-measures-n5",
+      "heading": "Rearranging the Density Formula",
+      "body": "📌 Definition\nYou can rearrange the density formula to find mass or volume when the other two values are known.\n\n🔑 How it works\nStarting with $\\rho = \\frac{m}{V}$:\n• To find mass, multiply density by volume:\n$$m = \\rho \\times V$$\n• To find volume, divide mass by density:\n$$V = \\frac{m}{\\rho}$$\n\n💡 Worked Example\nA liquid has density $1.2$ g/cm$^3$ and volume $50$ cm$^3$. Find its mass.\n\nStep 1: Use the rearranged formula for mass.\n$$m = \\rho \\times V$$\n\nStep 2: Substitute the values.\n$$m = 1.2 \\times 50 = 60$$\n\nStep 3: State the units.\nThe mass is $60$ g.\n\n✅ Check\nUsing $\\rho = \\frac{m}{V}$ gives $\\frac{60}{50} = 1.2$ g/cm$^3$, which matches the given density."
+    },
+    {
+      "id": "math-yr8-compound-measures-n6",
+      "heading": "Pressure Formula and Units",
+      "body": "📌 Definition\nPressure is the force acting on a surface divided by the area over which the force is spread.\n\n🔑 Key Concept\nThe formula for pressure is:\n$$P = \\frac{F}{A}$$\nwhere $P$ is pressure, $F$ is force and $A$ is area.\n\nThe standard unit of pressure is the pascal:\n• $1$ pascal = $1$ newton per square metre = $1$ N/m$^2$\n\n💡 Worked Example\nA box exerts a force of $80$ N on a floor with contact area $10$ m$^2$. Find the pressure.\n\nStep 1: Write the formula.\n$$P = \\frac{F}{A}$$\n\nStep 2: Substitute the values.\n$$P = \\frac{80}{10} = 8$$\n\nStep 3: State the units.\nThe pressure is $8$ Pa.\n\n📎 Key Points to Remember\n• The same force creates more pressure when it acts on a smaller area.\n• Pressure is reduced when the same force is spread over a larger area.\n• Always use force in newtons and area in square metres when the answer is required in pascals."
+    },
+    {
+      "id": "math-yr8-compound-measures-n7",
+      "heading": "Rearranging the Pressure Formula",
+      "body": "📌 Definition\nThe pressure formula can be rearranged to make force or area the subject.\n\n🔑 How it works\nStarting with $P = \\frac{F}{A}$:\n• To find force, multiply pressure by area:\n$$F = P \\times A$$\n• To find area, divide force by pressure:\n$$A = \\frac{F}{P}$$\n\n💡 Worked Example\nA pressure of $500$ Pa is exerted over an area of $2$ m$^2$. Find the force.\n\nStep 1: Use the rearranged formula for force.\n$$F = P \\times A$$\n\nStep 2: Substitute the values.\n$$F = 500 \\times 2 = 1\\,000$$\n\nStep 3: State the units.\nThe force is $1\\,000$ N.\n\n⚠️ Common Mistake\nForgetting to convert area into square metres before using the pressure formula. If area is given in cm$^2$, convert it to m$^2$ first, or the pascal answer will be wrong."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-compound-measures-f1",
+      "term": "Compound measure",
+      "definition": "A quantity that is calculated from two other measurements.",
+      "example": "Speed, density and pressure are all compound measures."
+    },
+    {
+      "id": "math-yr8-compound-measures-f2",
+      "term": "Speed formula",
+      "definition": "Speed equals distance divided by time.",
+      "example": "$s = \\frac{d}{t}$"
+    },
+    {
+      "id": "math-yr8-compound-measures-f3",
+      "term": "Distance from speed and time",
+      "definition": "Distance equals speed multiplied by time.",
+      "example": "$d = s \\times t$"
+    },
+    {
+      "id": "math-yr8-compound-measures-f4",
+      "term": "Time from distance and speed",
+      "definition": "Time equals distance divided by speed.",
+      "example": "$t = \\frac{d}{s}$"
+    },
+    {
+      "id": "math-yr8-compound-measures-f5",
+      "term": "Density formula",
+      "definition": "Density equals mass divided by volume.",
+      "example": "$\\rho = \\frac{m}{V}$"
+    },
+    {
+      "id": "math-yr8-compound-measures-f6",
+      "term": "Mass from density and volume",
+      "definition": "Mass equals density multiplied by volume.",
+      "example": "$m = \\rho \\times V$"
+    },
+    {
+      "id": "math-yr8-compound-measures-f7",
+      "term": "Volume from mass and density",
+      "definition": "Volume equals mass divided by density.",
+      "example": "$V = \\frac{m}{\\rho}$"
+    },
+    {
+      "id": "math-yr8-compound-measures-f8",
+      "term": "Pressure formula",
+      "definition": "Pressure equals force divided by area.",
+      "example": "$P = \\frac{F}{A}$"
+    },
+    {
+      "id": "math-yr8-compound-measures-f9",
+      "term": "Force from pressure and area",
+      "definition": "Force equals pressure multiplied by area.",
+      "example": "$F = P \\times A$"
+    },
+    {
+      "id": "math-yr8-compound-measures-f10",
+      "term": "Area from force and pressure",
+      "definition": "Area equals force divided by pressure.",
+      "example": "$A = \\frac{F}{P}$"
+    },
+    {
+      "id": "math-yr8-compound-measures-f11",
+      "term": "Units of pressure",
+      "definition": "Pressure is measured in pascals, where one pascal is one newton per square metre.",
+      "example": "$1$ Pa = $1$ N/m$^2$"
+    },
+    {
+      "id": "math-yr8-compound-measures-f12",
+      "term": "Formula triangle",
+      "definition": "A triangular diagram that shows how three related quantities are connected by multiplication and division.",
+      "example": "For speed, $s$ is at the top and $d$ and $t$ are at the bottom."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-compound-measures-q1",
+      "stem": "A car travels $240$ km in $4$ hours. What is its average speed?",
+      "choices": [
+        "$60$ km/h",
+        "$80$ km/h",
+        "$40$ km/h",
+        "$120$ km/h"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $s = \\frac{d}{t}$. Substituting $d = 240$ and $t = 4$ gives $s = \\frac{240}{4} = 60$ km/h."
+    },
+    {
+      "id": "math-yr8-compound-measures-q2",
+      "stem": "A cyclist rides at a steady speed of $15$ km/h for $3$ hours. How far does she travel?",
+      "choices": [
+        "$45$ km",
+        "$5$ km",
+        "$12$ km",
+        "$18$ km"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $d = s \\times t$. Substituting $s = 15$ and $t = 3$ gives $d = 15 \\times 3 = 45$ km."
+    },
+    {
+      "id": "math-yr8-compound-measures-q3",
+      "stem": "How long does it take to travel $300$ km at a constant speed of $60$ km/h?",
+      "choices": [
+        "$5$ hours",
+        "$6$ hours",
+        "$4$ hours",
+        "$8$ hours"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $t = \\frac{d}{s}$. Substituting $d = 300$ and $s = 60$ gives $t = \\frac{300}{60} = 5$ hours."
+    },
+    {
+      "id": "math-yr8-compound-measures-q4",
+      "stem": "Which formula makes distance the subject of the speed formula?",
+      "choices": [
+        "$d = s \\times t$",
+        "$d = \\frac{s}{t}$",
+        "$d = \\frac{t}{s}$",
+        "$d = s + t$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Starting from $s = \\frac{d}{t}$, multiply both sides by $t$ to get $d = s \\times t$."
+    },
+    {
+      "id": "math-yr8-compound-measures-q5",
+      "stem": "A metal block has mass $270$ g and volume $30$ cm$^3$. What is its density?",
+      "choices": [
+        "$9$ g/cm$^3$",
+        "$8$ g/cm$^3$",
+        "$8\\,100$ g/cm$^3$",
+        "$300$ g/cm$^3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $\\rho = \\frac{m}{V}$. Substituting $m = 270$ and $V = 30$ gives $\\rho = \\frac{270}{30} = 9$ g/cm$^3$."
+    },
+    {
+      "id": "math-yr8-compound-measures-q6",
+      "stem": "A liquid has density $1.2$ g/cm$^3$ and volume $50$ cm$^3$. What is its mass?",
+      "choices": [
+        "$60$ g",
+        "$41.7$ g",
+        "$0.024$ g",
+        "$120$ g"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $m = \\rho \\times V$. Substituting $\\rho = 1.2$ and $V = 50$ gives $m = 1.2 \\times 50 = 60$ g."
+    },
+    {
+      "id": "math-yr8-compound-measures-q7",
+      "stem": "Which formula makes volume the subject of the density formula?",
+      "choices": [
+        "$V = \\frac{m}{\\rho}$",
+        "$V = \\frac{\\rho}{m}$",
+        "$V = m \\times \\rho$",
+        "$V = \\rho - m$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Starting from $\\rho = \\frac{m}{V}$, multiply by $V$ and divide by $\\rho$ to get $V = \\frac{m}{\\rho}$."
+    },
+    {
+      "id": "math-yr8-compound-measures-q8",
+      "stem": "A force of $80$ N acts on an area of $10$ m$^2$. What is the pressure?",
+      "choices": [
+        "$8$ Pa",
+        "$0.125$ Pa",
+        "$800$ Pa",
+        "$90$ Pa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $P = \\frac{F}{A}$. Substituting $F = 80$ and $A = 10$ gives $P = \\frac{80}{10} = 8$ Pa."
+    },
+    {
+      "id": "math-yr8-compound-measures-q9",
+      "stem": "A pressure of $500$ Pa is exerted over an area of $2$ m$^2$. What is the force?",
+      "choices": [
+        "$1\\,000$ N",
+        "$250$ N",
+        "$100$ N",
+        "$50$ N"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $F = P \\times A$. Substituting $P = 500$ and $A = 2$ gives $F = 500 \\times 2 = 1\\,000$ N."
+    },
+    {
+      "id": "math-yr8-compound-measures-q10",
+      "stem": "Which formula makes area the subject of the pressure formula?",
+      "choices": [
+        "$A = \\frac{F}{P}$",
+        "$A = \\frac{P}{F}$",
+        "$A = F \\times P$",
+        "$A = P - F$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Starting from $P = \\frac{F}{A}$, multiply by $A$ and divide by $P$ to get $A = \\frac{F}{P}$."
+    },
+    {
+      "id": "math-yr8-compound-measures-q11",
+      "stem": "Which of these is a correct unit for density?",
+      "choices": [
+        "$g/cm^3$",
+        "$m/s$",
+        "$N/m^2$",
+        "$kg$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Density is mass divided by volume, so its units combine a mass unit and a volume unit such as grams per cubic centimetre."
+    },
+    {
+      "id": "math-yr8-compound-measures-q12",
+      "stem": "A train travels $450$ km in $5$ hours. How far will it travel in $8$ hours at the same speed?",
+      "choices": [
+        "$720$ km",
+        "$90$ km",
+        "$360$ km",
+        "$225$ km"
+      ],
+      "correctIndex": 0,
+      "explanation": "First find the speed: $s = \\frac{450}{5} = 90$ km/h. Then find the distance in $8$ hours: $d = 90 \\times 8 = 720$ km."
+    },
+    {
+      "id": "math-yr8-compound-measures-q13",
+      "stem": "An object has mass $500$ g and density $2.5$ g/cm$^3$. What is its volume?",
+      "choices": [
+        "$200$ cm$^3$",
+        "$1\\,250$ cm$^3$",
+        "$1\\,000$ cm$^3$",
+        "$50$ cm$^3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $V = \\frac{m}{\\rho}$. Substituting $m = 500$ and $\\rho = 2.5$ gives $V = \\frac{500}{2.5} = 200$ cm$^3$."
+    },
+    {
+      "id": "math-yr8-compound-measures-q14",
+      "stem": "A box exerts a pressure of $120$ Pa with a force of $480$ N. What is the contact area?",
+      "choices": [
+        "$4$ m$^2$",
+        "$57\\,600$ m$^2$",
+        "$0.25$ m$^2$",
+        "$360$ m$^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $A = \\frac{F}{P}$. Substituting $F = 480$ and $P = 120$ gives $A = \\frac{480}{120} = 4$ m$^2$."
+    },
+    {
+      "id": "math-yr8-compound-measures-q15",
+      "stem": "Which formula shows the relationship between speed, distance and time?",
+      "choices": [
+        "$s = \\frac{d}{t}$",
+        "$s = \\frac{t}{d}$",
+        "$s = d \\times t$",
+        "$s = d - t$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Speed is distance divided by time, so the correct relationship is $s = \\frac{d}{t}$."
+    }
+  ]
+}

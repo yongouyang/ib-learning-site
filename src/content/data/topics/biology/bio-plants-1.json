@@ -154,105 +154,180 @@
     {
       "id": "bio-plants-1-q1",
       "stem": "What is the key difference between xylem and phloem?",
-      "choices": ["Xylem transports sugars; phloem transports water", "Xylem is dead tissue transporting water and minerals upwards; phloem is living tissue transporting sugars bidirectionally", "Xylem is in roots only; phloem is in leaves only", "Xylem is living; phloem is dead"],
+      "choices": [
+        "Xylem transports sugars; phloem transports water",
+        "Xylem is dead tissue transporting water and minerals upwards; phloem is living tissue transporting sugars bidirectionally",
+        "Xylem is in roots only; phloem is in leaves only",
+        "Xylem is living; phloem is dead"
+      ],
       "correctIndex": 1,
       "explanation": "Xylem is composed of dead, hollow, lignified cells carrying water up. Phloem is living (sieve tubes + companion cells), transporting sugars from sources to sinks in either direction."
     },
     {
       "id": "bio-plants-1-q2",
       "stem": "What force primarily drives water up through the xylem of a tall tree?",
-      "choices": ["Root pressure pushing water upwards from below", "Transpiration pull — evaporation from leaves creates tension that pulls the water column up", "Capillary action alone", "Gravity pulling water molecules upward"],
+      "choices": [
+        "Root pressure pushing water upwards from below",
+        "Transpiration pull — evaporation from leaves creates tension that pulls the water column up",
+        "Capillary action alone",
+        "Gravity pulling water molecules upward"
+      ],
       "correctIndex": 1,
       "explanation": "Transpiration (water evaporation from leaves) creates negative pressure (tension) at the top of the xylem column. This tension, combined with cohesion between water molecules, pulls the entire column upward — the cohesion-tension theory."
     },
     {
       "id": "bio-plants-1-q3",
       "stem": "On a hot, dry, windy day, a plant's transpiration rate will:",
-      "choices": ["Decrease because the plant conserves water", "Increase — high temperature increases evaporation, wind removes humid air around stomata maintaining a steep diffusion gradient", "Stay the same regardless of conditions", "Stop completely"],
+      "choices": [
+        "Decrease because the plant conserves water",
+        "Increase — high temperature increases evaporation, wind removes humid air around stomata maintaining a steep diffusion gradient",
+        "Stay the same regardless of conditions",
+        "Stop completely"
+      ],
       "correctIndex": 1,
       "explanation": "High temperature increases the kinetic energy of water molecules (faster evaporation). Wind removes humid air from around stomata, keeping the water vapour concentration gradient steep, which speeds up diffusion."
     },
     {
       "id": "bio-plants-1-q4",
       "stem": "Which vessel has lignin deposited in its walls and why?",
-      "choices": ["Phloem — lignin helps transport sugars faster", "Xylem — lignin provides structural support and waterproofs the walls, preventing collapse under the tension created by transpiration", "Both xylem and phloem — all transport vessels need lignin", "Neither — lignin is only found in bark"],
+      "choices": [
+        "Phloem — lignin helps transport sugars faster",
+        "Xylem — lignin provides structural support and waterproofs the walls, preventing collapse under the tension created by transpiration",
+        "Both xylem and phloem — all transport vessels need lignin",
+        "Neither — lignin is only found in bark"
+      ],
       "correctIndex": 1,
       "explanation": "Xylem is strengthened with lignin rings/spirals. This prevents the thin-walled tubes from collapsing inward when transpiration creates negative pressure (suction) inside the vessel."
     },
     {
       "id": "bio-plants-1-q5",
       "stem": "In a potometer, what does the movement of the air bubble actually measure?",
-      "choices": ["The exact rate of transpiration", "The rate of water uptake by the cut shoot (which approximates transpiration rate — most water taken up IS transpired)", "The rate of photosynthesis in the leaves", "The rate of sugar translocation in phloem"],
+      "choices": [
+        "The exact rate of transpiration",
+        "The rate of water uptake by the cut shoot (which approximates transpiration rate — most water taken up IS transpired)",
+        "The rate of photosynthesis in the leaves",
+        "The rate of sugar translocation in phloem"
+      ],
       "correctIndex": 1,
       "explanation": "A potometer measures water uptake. A very small fraction (~1-2%) of the water is used in photosynthesis and cell expansion; the vast majority (~98-99%) is lost through transpiration. So water uptake closely approximates transpiration rate."
     },
     {
       "id": "bio-plants-1-q6",
       "stem": "What happens to guard cells when they pump potassium ions (K⁺) in during the day?",
-      "choices": ["They become flaccid and the stoma closes", "Water follows by osmosis, guard cells swell and curve, opening the stoma", "They die — guard cells cannot survive K⁺ accumulation", "Nothing — K⁺ movement has no effect on stomatal opening"],
+      "choices": [
+        "They become flaccid and the stoma closes",
+        "Water follows by osmosis, guard cells swell and curve, opening the stoma",
+        "They die — guard cells cannot survive K⁺ accumulation",
+        "Nothing — K⁺ movement has no effect on stomatal opening"
+      ],
       "correctIndex": 1,
       "explanation": "Active transport of K⁺ into guard cells lowers their water potential. Water enters by osmosis, making them turgid. Due to their uneven cell wall thickness, they curve, creating a pore — the open stoma."
     },
     {
       "id": "bio-plants-1-q7",
       "stem": "Why must a shoot be cut under water when setting up a potometer?",
-      "choices": ["To keep the leaves hydrated", "To prevent air from entering the xylem vessels — an air bubble would break the continuous water column and stop water uptake", "To make the stem softer and easier to insert", "To remove dirt from the stem"],
+      "choices": [
+        "To keep the leaves hydrated",
+        "To prevent air from entering the xylem vessels — an air bubble would break the continuous water column and stop water uptake",
+        "To make the stem softer and easier to insert",
+        "To remove dirt from the stem"
+      ],
       "correctIndex": 1,
       "explanation": "If the stem is cut in air, air enters the xylem, breaking the water column. Once broken, cohesion is lost and water cannot be pulled up. Cutting under water ensures the xylem remains filled with water."
     },
     {
       "id": "bio-plants-1-q8",
       "stem": "In spring, where is sucrose translocated FROM and TO in a potato plant?",
-      "choices": ["FROM leaves TO the potato tuber for storage", "FROM the potato tuber (stored starch converted to sucrose) TO growing shoots above ground", "FROM roots TO leaves", "FROM flowers TO roots"],
+      "choices": [
+        "FROM leaves TO the potato tuber for storage",
+        "FROM the potato tuber (stored starch converted to sucrose) TO growing shoots above ground",
+        "FROM roots TO leaves",
+        "FROM flowers TO roots"
+      ],
       "correctIndex": 1,
       "explanation": "In spring, the potato tuber is a source — stored starch is broken down into sucrose and translocated up through phloem to the developing shoots (sinks) for growth, before the plant has leaves to photosynthesise."
     },
     {
       "id": "bio-plants-1-q9",
       "stem": "A plant in high humidity shows reduced transpiration. Why?",
-      "choices": ["Stomata close completely in humid conditions", "The water vapour concentration gradient between the leaf interior and the outside air is shallow — less diffusion occurs", "Humidity damages the leaf cuticle", "High humidity prevents photosynthesis"],
+      "choices": [
+        "Stomata close completely in humid conditions",
+        "The water vapour concentration gradient between the leaf interior and the outside air is shallow — less diffusion occurs",
+        "Humidity damages the leaf cuticle",
+        "High humidity prevents photosynthesis"
+      ],
       "correctIndex": 1,
       "explanation": "Transpiration relies on a steep concentration gradient. Moist air outside means the difference in water vapour concentration between inside and outside the leaf is small, so diffusion of water vapour outward slows down."
     },
     {
       "id": "bio-plants-1-q10",
       "stem": "Which feature is an adaptation of a xerophyte (plant adapted to dry conditions)?",
-      "choices": ["Large, thin leaves for maximum photosynthesis", "Sunken stomata in pits — trapping a layer of humid air that reduces the water vapour gradient and slows transpiration", "No cuticle — to allow maximum water absorption from air", "Stomata on the upper surface only"],
+      "choices": [
+        "Large, thin leaves for maximum photosynthesis",
+        "Sunken stomata in pits — trapping a layer of humid air that reduces the water vapour gradient and slows transpiration",
+        "No cuticle — to allow maximum water absorption from air",
+        "Stomata on the upper surface only"
+      ],
       "correctIndex": 1,
       "explanation": "Sunken stomata are recessed into the leaf surface in pits. The still, humid air trapped in the pit reduces the concentration gradient, slowing water loss. This is common in pine needles and many desert plants."
     },
     {
       "id": "bio-plants-1-q11",
       "stem": "What is the role of companion cells in phloem?",
-      "choices": ["They transport water and minerals", "They provide ATP energy (from their many mitochondria) to actively load sugars into sieve tube elements at the source", "They produce new phloem cells", "They form the outer bark of trees"],
+      "choices": [
+        "They transport water and minerals",
+        "They provide ATP energy (from their many mitochondria) to actively load sugars into sieve tube elements at the source",
+        "They produce new phloem cells",
+        "They form the outer bark of trees"
+      ],
       "correctIndex": 1,
       "explanation": "Sieve tube elements lack a nucleus and most organelles. Companion cells (which retain full cellular machinery) supply ATP to power the active transport of sucrose into sieve tubes and maintain the metabolic needs of the sieve element."
     },
     {
       "id": "bio-plants-1-q12",
       "stem": "A student investigates transpiration using a potometer. They place a fan blowing over the shoot. What happens to the air bubble movement?",
-      "choices": ["It slows down because the fan cools the leaf", "It speeds up — wind removes the humid boundary layer around stomata, maintaining a steep diffusion gradient for faster transpiration", "No change — wind does not affect transpiration", "It stops because stomata close in response to wind"],
+      "choices": [
+        "It slows down because the fan cools the leaf",
+        "It speeds up — wind removes the humid boundary layer around stomata, maintaining a steep diffusion gradient for faster transpiration",
+        "No change — wind does not affect transpiration",
+        "It stops because stomata close in response to wind"
+      ],
       "correctIndex": 1,
       "explanation": "Moving air sweeps away the water vapour that accumulates near the stomata, maintaining a steep gradient. This increases the rate of diffusion of water vapour out of the leaf, increasing the transpiration rate."
     },
     {
       "id": "bio-plants-1-q13",
       "stem": "What substance makes xylem walls waterproof and rigid?",
-      "choices": ["Cellulose", "Chitin", "Lignin", "Starch"],
+      "choices": [
+        "Cellulose",
+        "Chitin",
+        "Lignin",
+        "Starch"
+      ],
       "correctIndex": 2,
       "explanation": "Lignin is deposited in xylem cell walls in rings, spirals, or solid patterns. It is waterproof (prevents water loss from xylem) and extremely rigid (prevents collapse under tension). Wood is essentially lignified xylem."
     },
     {
       "id": "bio-plants-1-q14",
       "stem": "Why does a plant wilt when it loses too much water?",
-      "choices": ["The plant cells die from dehydration", "Vacuoles lose water → cells lose turgor pressure → cells become flaccid → non-woody stems and leaves can no longer stay upright", "The xylem vessels collapse", "Photosynthesis stops completely"],
+      "choices": [
+        "The plant cells die from dehydration",
+        "Vacuoles lose water → cells lose turgor pressure → cells become flaccid → non-woody stems and leaves can no longer stay upright",
+        "The xylem vessels collapse",
+        "Photosynthesis stops completely"
+      ],
       "correctIndex": 1,
       "explanation": "Plant cells rely on turgor pressure (water pushing against the cell wall) to stay rigid. When water is lost and vacuoles shrink, cells become flaccid and the plant wilts. Watering restores turgor — the plant recovers."
     },
     {
       "id": "bio-plants-1-q15",
       "stem": "Which mineral deficiency most directly affects the plant's ability to transport sugars in phloem?",
-      "choices": ["Nitrate deficiency — affects protein synthesis", "Magnesium deficiency — affects chlorophyll production", "None — phloem transport depends on ATP from respiration, which requires glucose from photosynthesis. A deficiency in any essential mineral could indirectly affect it, but phloem itself does not require a specific mineral to function", "Potassium deficiency — directly stops phloem flow"],
+      "choices": [
+        "Nitrate deficiency — affects protein synthesis",
+        "Magnesium deficiency — affects chlorophyll production",
+        "None — phloem transport depends on ATP from respiration, which requires glucose from photosynthesis. A deficiency in any essential mineral could indirectly affect it, but phloem itself does not require a specific mineral to function",
+        "Potassium deficiency — directly stops phloem flow"
+      ],
       "correctIndex": 2,
       "explanation": "Phloem structure and function do not depend on a single mineral. However, because translocation requires ATP, any mineral deficiency severe enough to impair respiration or photosynthesis would indirectly reduce transport. There is no single 'phloem-specific' mineral."
     }
