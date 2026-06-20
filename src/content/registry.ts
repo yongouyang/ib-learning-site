@@ -98,6 +98,9 @@ import math_yr7_rounding_estimation_json from './data/topics/math/math-yr7-round
 import math_yr7_algebraic_expressions_json from './data/topics/math/math-yr7-algebraic-expressions.json';
 import math_yr7_nets_3d_shapes_json from './data/topics/math/math-yr7-nets-3d-shapes.json';
 import math_yr7_venn_sets_json from './data/topics/math/math-yr7-venn-sets.json';
+import math_yr8_factorising_json from './data/topics/math/math-yr8-factorising.json';
+import math_yr8_circles_json from './data/topics/math/math-yr8-circles.json';
+import math_yr8_angles_parallel_polygons_json from './data/topics/math/math-yr8-angles-parallel-polygons.json';
 
 // Physics topics
 import phys_electricity_1_json from './data/topics/physics/phys-electricity-1.json';
@@ -199,6 +202,9 @@ const math_yr7_rounding_estimation: Topic = topicSchema.parse(math_yr7_rounding_
 const math_yr7_algebraic_expressions: Topic = topicSchema.parse(math_yr7_algebraic_expressions_json);
 const math_yr7_nets_3d_shapes: Topic = topicSchema.parse(math_yr7_nets_3d_shapes_json);
 const math_yr7_venn_sets: Topic = topicSchema.parse(math_yr7_venn_sets_json);
+const math_yr8_factorising: Topic = topicSchema.parse(math_yr8_factorising_json);
+const math_yr8_circles: Topic = topicSchema.parse(math_yr8_circles_json);
+const math_yr8_angles_parallel_polygons: Topic = topicSchema.parse(math_yr8_angles_parallel_polygons_json);
 const phys_electricity_1: Topic = topicSchema.parse(phys_electricity_1_json);
 const phys_energy_1: Topic = topicSchema.parse(phys_energy_1_json);
 const phys_forces_1: Topic = topicSchema.parse(phys_forces_1_json);
@@ -255,7 +261,7 @@ const mathSubject: Subject = {
   name: mathMeta.name,
   icon: mathMeta.icon,
   accentColor: mathMeta.accentColor,
-  topics: [math_algebra_1, math_dp_binomial, math_dp_complex_numbers, math_dp_correlation_regression, math_dp_descriptive_statistics, math_dp_differentiation, math_dp_explog, math_dp_exponents, math_dp_functions, math_dp_graph_theory, math_dp_hypothesis_testing, math_dp_integration, math_dp_kinematics, math_dp_matrices, math_dp_poisson_distribution, math_dp_probability, math_dp_quadratics, math_dp_sequences, math_dp_trig, math_dp_vectors, math_dp_voronoi_diagrams, math_fractions_1, math_geometry_1, math_inequalities_myp, math_linear_myp, math_powers_myp, math_pythagoras_myp, math_ratio_myp, math_simultaneous_myp, math_statistics_1, math_trig_basic_myp, math_yr7_angles, math_yr7_area_perimeter, math_yr7_bearings_scale, math_yr7_calculations, math_yr7_constructions_loci, math_yr7_data, math_yr7_decimals, math_yr7_equations, math_yr7_factors_multiples, math_yr7_measures_conversions, math_yr7_money_finance, math_yr7_negative_numbers, math_yr7_percentages, math_yr7_probability, math_yr7_rounding_estimation, math_yr7_sequences, math_yr7_substitution, math_yr7_transformations, math_yr7_volume_surface_area, math_yr7_algebraic_expressions, math_yr7_nets_3d_shapes, math_yr7_venn_sets],
+  topics: [math_algebra_1, math_dp_binomial, math_dp_complex_numbers, math_dp_correlation_regression, math_dp_descriptive_statistics, math_dp_differentiation, math_dp_explog, math_dp_exponents, math_dp_functions, math_dp_graph_theory, math_dp_hypothesis_testing, math_dp_integration, math_dp_kinematics, math_dp_matrices, math_dp_poisson_distribution, math_dp_probability, math_dp_quadratics, math_dp_sequences, math_dp_trig, math_dp_vectors, math_dp_voronoi_diagrams, math_fractions_1, math_geometry_1, math_inequalities_myp, math_linear_myp, math_powers_myp, math_pythagoras_myp, math_ratio_myp, math_simultaneous_myp, math_statistics_1, math_trig_basic_myp, math_yr7_angles, math_yr7_area_perimeter, math_yr7_bearings_scale, math_yr7_calculations, math_yr7_constructions_loci, math_yr7_data, math_yr7_decimals, math_yr7_equations, math_yr7_factors_multiples, math_yr7_measures_conversions, math_yr7_money_finance, math_yr7_negative_numbers, math_yr7_percentages, math_yr7_probability, math_yr7_rounding_estimation, math_yr7_sequences, math_yr7_substitution, math_yr7_transformations, math_yr7_volume_surface_area, math_yr7_algebraic_expressions, math_yr7_nets_3d_shapes, math_yr7_venn_sets, math_yr8_factorising, math_yr8_circles, math_yr8_angles_parallel_polygons],
 };
 
 const subjects: Record<SubjectId, Subject> = {

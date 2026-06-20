@@ -1,0 +1,305 @@
+{
+  "id": "math-yr8-factorising",
+  "subjectId": "math",
+  "title": "Factorising Algebraic Expressions",
+  "description": "Take out common factors and factorise linear expressions.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-factorising-n1",
+      "heading": "What is Factorising?",
+      "illustration": {
+        "src": "/images/math/math-yr8-factorising.svg",
+        "alt": "Diagram showing the expression 3x + 6 rewritten as 3 times the bracket (x + 2).",
+        "caption": "Factorising reverses expanding: the common factor 3 is pulled out of each term."
+      },
+      "body": "📌 Definition\nFactorising is the process of rewriting an expression as a product of simpler expressions called factors.\n\n🔑 Key Concept\nExpanding multiplies a common factor into a bracket:\n$$3(x + 2) = 3x + 6$$\n\nFactorising does the opposite: it pulls the common factor back out:\n$$3x + 6 = 3(x + 2)$$\n\n💡 Worked Example\nFactorise $4x + 8$.\n\nBoth terms are divisible by $4$:\n$$4x + 8 = 4(x + 2)$$\n\n📎 Key Points to Remember\n• Factorising and expanding are inverse operations.\n• The expression inside the bracket should have no further common factors.\n• You can check by expanding the bracket again."
+    },
+    {
+      "id": "math-yr8-factorising-n2",
+      "heading": "Highest Common Factor of Terms",
+      "body": "📌 Definition\nThe highest common factor (HCF) of two or more terms is the largest factor that divides every term exactly.\n\n🔑 Key Concept\nTo find the HCF of algebraic terms, look at two parts:\n1. The HCF of the coefficients.\n2. The common variables with the lowest power that appears.\n\n💡 Worked Example\nFind the HCF of $6x$ and $9x^2$.\n\nCoefficients: HCF of $6$ and $9$ is $3$.\nVariables: both terms contain $x$, and the lowest power is $x^1 = x$.\nSo the HCF is $3x$.\n\n📎 Key Points to Remember\n• Only take out factors that are present in every term.\n• If a variable is missing from one term, it cannot be part of the HCF.\n• Use the lowest power of each common variable.\n\n⚠️ Common Mistake\nTaking out a higher power than necessary. For $6x$ and $9x^2$, the HCF is $3x$, not $3x^2$, because $x^2$ does not divide $6x$ exactly."
+    },
+    {
+      "id": "math-yr8-factorising-n3",
+      "heading": "Taking out a Common Factor",
+      "body": "📌 Definition\nTo factorise by taking out a common factor, divide every term by the HCF and write the result inside a bracket with the HCF outside.\n\n🔑 How it works\n1. Identify the HCF of all terms.\n2. Divide each term by the HCF.\n3. Write the HCF outside a bracket containing the results.\n\n💡 Worked Example\nFactorise $5x + 10$.\n\nStep 1: HCF of $5x$ and $10$ is $5$.\nStep 2: Divide each term by $5$:\n$$5x \\div 5 = x \\quad \\text{and} \\quad 10 \\div 5 = 2$$\n\nStep 3: Write the factorised form:\n$$5x + 10 = 5(x + 2)$$\n\n✅ Check\nExpand: $5(x + 2) = 5x + 10$. This matches the original expression.\n\n📎 Key Points to Remember\n• The number of terms inside the bracket equals the number in the original expression.\n• The sign of each term inside the bracket must be correct.\n• Always check your answer by expanding."
+    },
+    {
+      "id": "math-yr8-factorising-n4",
+      "heading": "Factorising Linear Expressions",
+      "body": "📌 Definition\nA linear expression in one variable has the form $ax + b$, where $a$ and $b$ are numbers. Factorising it means writing it as a single common factor multiplied by a bracket.\n\n🔑 How it works\nLook for the HCF of the coefficient and the constant term, then write:\n$$ax + b = c\\left(\\frac{a}{c}x + \\frac{b}{c}\\right)$$\nwhere $c$ is the HCF.\n\n💡 Worked Example\nFactorise $7x + 14$.\n\nThe HCF of $7$ and $14$ is $7$:\n$$7x + 14 = 7(x + 2)$$\n\n💡 Worked Example\nFactorise $12x - 18$.\n\nThe HCF of $12$ and $18$ is $6$:\n$$12x - 18 = 6(2x - 3)$$\n\n⚠️ Common Mistake\nLeaving a common factor behind, such as writing $12x - 18 = 2(6x - 9)$. This is not fully factorised because $6x - 9$ still has a common factor of $3$."
+    },
+    {
+      "id": "math-yr8-factorising-n5",
+      "heading": "Factorising with Algebraic Common Factors",
+      "body": "📌 Definition\nWhen every term contains the same variable, that variable is part of the common factor.\n\n🔑 How it works\nTake out both the numerical HCF and the common variable raised to its lowest power.\n\n💡 Worked Example\nFactorise $x^2 + 5x$.\n\nBoth terms contain $x$. The lowest power is $x^1 = x$.\nDivide each term by $x$:\n$$x^2 \\div x = x \\quad \\text{and} \\quad 5x \\div x = 5$$\nSo:\n$$x^2 + 5x = x(x + 5)$$\n\n💡 Worked Example\nFactorise $8xy - 12x$.\n\nNumerical HCF of $8$ and $12$ is $4$.\nCommon variable: $x$.\nDivide each term by $4x$:\n$$8xy \\div 4x = 2y \\quad \\text{and} \\quad -12x \\div 4x = -3$$\nSo:\n$$8xy - 12x = 4x(2y - 3)$$\n\n✅ Check\nExpand: $4x(2y - 3) = 8xy - 12x$. Correct.\n\n📎 Key Points to Remember\n• If one term has no variable, you cannot take that variable out of every term.\n• Take the lowest power of each common variable."
+    },
+    {
+      "id": "math-yr8-factorising-n6",
+      "heading": "Factorising Expressions with Negative Terms",
+      "body": "📌 Definition\nWhen the leading term is negative, it is often neatest to take out a negative common factor so that the first term inside the bracket becomes positive.\n\n🔑 How it works\nA negative common factor changes the sign of every term inside the bracket.\n\n💡 Worked Example\nFactorise $-6x + 15$.\n\nThe HCF of $6$ and $15$ is $3$. Take out $-3$:\n$$-6x + 15 = -3(2x - 5)$$\n\nCheck by expanding:\n$$-3(2x - 5) = -6x + 15$$\n\n💡 Worked Example\nFactorise $-10x - 20$.\n\nTake out $-10$:\n$$-10x - 20 = -10(x + 2)$$\n\n⚠️ Common Mistake\nForgetting to change signs when taking out a negative factor. If you write $-6x + 15 = -3(2x + 5)$, expanding gives $-6x - 15$, which is wrong."
+    },
+    {
+      "id": "math-yr8-factorising-n7",
+      "heading": "Checking and Presenting Your Answer",
+      "body": "📌 Definition\nA fully factorised expression has no common factor left to remove from the terms inside the bracket.\n\n🔑 How it works\n1. Factorise completely.\n2. Expand your answer mentally or on paper.\n3. Compare with the original expression.\n\n💡 Worked Example\nFactorise $9x^2 + 15x$ completely.\n\nNumerical HCF of $9$ and $15$ is $3$.\nCommon variable factor is $x$ (lowest power).\nTake out $3x$:\n$$9x^2 + 15x = 3x(3x + 5)$$\n\nCheck: $3x(3x + 5) = 9x^2 + 15x$. Correct.\n\n📎 Key Points to Remember\n• Always write the simplest possible bracket contents.\n• Check that the terms inside the bracket have no further common numerical or algebraic factor.\n• It is good practice to expand your final answer to verify.\n\n✅ Check\nFor $18x - 24$, taking out $6$ gives $6(3x - 4)$. The bracket $3x - 4$ has no common factor, so the answer is fully factorised."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-factorising-f1",
+      "term": "Factorise",
+      "definition": "To rewrite an expression as a product of simpler expressions called factors.",
+      "example": "$3x + 6 = 3(x + 2)$"
+    },
+    {
+      "id": "math-yr8-factorising-f2",
+      "term": "Common factor",
+      "definition": "A factor that divides every term in an expression exactly.",
+      "example": "$5$ is a common factor of $5x$ and $10$."
+    },
+    {
+      "id": "math-yr8-factorising-f3",
+      "term": "Highest common factor (HCF)",
+      "definition": "The largest factor shared by every term in an expression.",
+      "example": "The HCF of $12x$ and $18x$ is $6x$."
+    },
+    {
+      "id": "math-yr8-factorising-f4",
+      "term": "Linear expression",
+      "definition": "An expression of the form $ax + b$ where the variable has power $1$.",
+      "example": "$4x - 7$ is linear."
+    },
+    {
+      "id": "math-yr8-factorising-f5",
+      "term": "Factorising by taking out a common factor",
+      "definition": "Divide every term by the HCF and write the result inside a bracket.",
+      "example": "$8x + 12 = 4(2x + 3)$"
+    },
+    {
+      "id": "math-yr8-factorising-f6",
+      "term": "Reverse of expanding",
+      "definition": "Factorising undoes expanding because both produce equivalent expressions.",
+      "example": "$2(x + 3)$ expands to $2x + 6$; $2x + 6$ factorises to $2(x + 3)$."
+    },
+    {
+      "id": "math-yr8-factorising-f7",
+      "term": "Algebraic common factor",
+      "definition": "A variable or power that appears in every term of the expression.",
+      "example": "$x$ is a common factor of $x^2 + 7x$."
+    },
+    {
+      "id": "math-yr8-factorising-f8",
+      "term": "Lowest power of a common variable",
+      "definition": "When taking out a variable, use the smallest exponent that appears in all terms.",
+      "example": "For $x^3 + x^2$, take out $x^2$ to get $x^2(x + 1)$."
+    },
+    {
+      "id": "math-yr8-factorising-f9",
+      "term": "Negative common factor",
+      "definition": "Taking out a negative factor so that the leading term inside the bracket becomes positive.",
+      "example": "$-4x + 12 = -4(x - 3)$"
+    },
+    {
+      "id": "math-yr8-factorising-f10",
+      "term": "Fully factorised",
+      "definition": "An expression is fully factorised when the terms inside the bracket share no further common factor.",
+      "example": "$6x + 9$ is fully factorised as $3(2x + 3)$; the bracket $2x + 3$ has no further common factor."
+    },
+    {
+      "id": "math-yr8-factorising-f11",
+      "term": "Check by expanding",
+      "definition": "A method to verify factorisation by multiplying the common factor back into the bracket.",
+      "example": "$5(2x - 1) = 10x - 5$"
+    },
+    {
+      "id": "math-yr8-factorising-f12",
+      "term": "Constant term",
+      "definition": "A term with no variable part, which may still share a numerical common factor.",
+      "example": "In $6x + 15$, the constant term is $15$ and the HCF is $3$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-factorising-q1",
+      "stem": "Factorise $3x + 9$.",
+      "choices": [
+        "$3(x + 3)$",
+        "$3(x + 9)$",
+        "$3x(x + 3)$",
+        "$x(3 + 9)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The HCF of $3x$ and $9$ is $3$. Dividing each term by $3$ gives $x + 3$, so $3x + 9 = 3(x + 3)$."
+    },
+    {
+      "id": "math-yr8-factorising-q2",
+      "stem": "Factorise $5x - 15$.",
+      "choices": [
+        "$5(x - 15)$",
+        "$5(x - 3)$",
+        "$5x(x - 3)$",
+        "$5(x + 3)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The HCF is $5$. $5x \\div 5 = x$ and $-15 \\div 5 = -3$, so $5x - 15 = 5(x - 3)$."
+    },
+    {
+      "id": "math-yr8-factorising-q3",
+      "stem": "Factorise $8x + 12$.",
+      "choices": [
+        "$2(4x + 6)$",
+        "$4(2x + 3)$",
+        "$8(x + 12)$",
+        "$4(2x + 6)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The HCF of $8$ and $12$ is $4$. Dividing gives $2x + 3$, so $8x + 12 = 4(2x + 3)$. The bracket $2x + 3$ has no further common factor."
+    },
+    {
+      "id": "math-yr8-factorising-q4",
+      "stem": "Factorise $x^2 + 4x$.",
+      "choices": [
+        "$x(x + 4)$",
+        "$x(x^2 + 4)$",
+        "$x^2(x + 4)$",
+        "$x(x + 4x)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The common factor is $x$. $x^2 \\div x = x$ and $4x \\div x = 4$, so $x^2 + 4x = x(x + 4)$."
+    },
+    {
+      "id": "math-yr8-factorising-q5",
+      "stem": "Factorise $7x - 21$.",
+      "choices": [
+        "$7(x - 21)$",
+        "$7(x - 3)$",
+        "$7x(x - 3)$",
+        "$x(7 - 21)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The HCF is $7$. $7x \\div 7 = x$ and $-21 \\div 7 = -3$, so the answer is $7(x - 3)$."
+    },
+    {
+      "id": "math-yr8-factorising-q6",
+      "stem": "Factorise $6x + 10$.",
+      "choices": [
+        "$2(3x + 5)$",
+        "$2(3x + 10)$",
+        "$6(x + 5)$",
+        "$3(2x + 5)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The HCF of $6$ and $10$ is $2$. Dividing gives $3x + 5$, so $6x + 10 = 2(3x + 5)$."
+    },
+    {
+      "id": "math-yr8-factorising-q7",
+      "stem": "Factorise $9x - 18$.",
+      "choices": [
+        "$9(x - 18)$",
+        "$9(x - 2)$",
+        "$9(x + 2)$",
+        "$3(3x - 6)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The HCF is $9$. $9x \\div 9 = x$ and $-18 \\div 9 = -2$, so $9x - 18 = 9(x - 2)$. Option $3(3x - 6)$ is not fully factorised."
+    },
+    {
+      "id": "math-yr8-factorising-q8",
+      "stem": "Factorise $xy + 3x$.",
+      "choices": [
+        "$x(y + 3)$",
+        "$y(x + 3)$",
+        "$x(y + 3x)$",
+        "$xy(1 + 3)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The common factor is $x$. $xy \\div x = y$ and $3x \\div x = 3$, so $xy + 3x = x(y + 3)$."
+    },
+    {
+      "id": "math-yr8-factorising-q9",
+      "stem": "Factorise $-4x + 12$.",
+      "choices": [
+        "$-4(x + 3)$",
+        "$-4(x - 3)$",
+        "$4(x - 3)$",
+        "$4(3 - x)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Taking out $-4$ gives $-4(x - 3)$ because $-4x \\div (-4) = x$ and $12 \\div (-4) = -3$. Expanding confirms: $-4(x - 3) = -4x + 12$."
+    },
+    {
+      "id": "math-yr8-factorising-q10",
+      "stem": "Factorise $10x + 25$.",
+      "choices": [
+        "$5(2x + 5)$",
+        "$5(2x + 25)$",
+        "$10(x + 25)$",
+        "$5x(2 + 5)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The HCF of $10$ and $25$ is $5$. Dividing gives $2x + 5$, so $10x + 25 = 5(2x + 5)$."
+    },
+    {
+      "id": "math-yr8-factorising-q11",
+      "stem": "Factorise $12x - 8$.",
+      "choices": [
+        "$4(3x - 2)$",
+        "$2(6x - 4)$",
+        "$4(3x - 8)$",
+        "$12(x - 8)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The HCF of $12$ and $8$ is $4$. $12x \\div 4 = 3x$ and $-8 \\div 4 = -2$, so $12x - 8 = 4(3x - 2)$. The bracket cannot be factorised further."
+    },
+    {
+      "id": "math-yr8-factorising-q12",
+      "stem": "Factorise $x^2 + 6x$.",
+      "choices": [
+        "$x(x + 6)$",
+        "$x(x + 6x)$",
+        "$x^2(x + 6)$",
+        "$x(x^2 + 6)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The common factor is $x$. $x^2 \\div x = x$ and $6x \\div x = 6$, so $x^2 + 6x = x(x + 6)$."
+    },
+    {
+      "id": "math-yr8-factorising-q13",
+      "stem": "Factorise $-5x - 20$.",
+      "choices": [
+        "$-5(x + 4)$",
+        "$-5(x - 4)$",
+        "$5(x + 4)$",
+        "$5(x - 4)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Taking out $-5$ gives $-5(x + 4)$ because $-5x \\div (-5) = x$ and $-20 \\div (-5) = 4$. Expanding gives $-5x - 20$, matching the original."
+    },
+    {
+      "id": "math-yr8-factorising-q14",
+      "stem": "Factorise $15x + 35$ completely.",
+      "choices": [
+        "$5(3x + 7)$",
+        "$5(3x + 35)$",
+        "$15(x + 35)$",
+        "$3(5x + 7)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The HCF of $15$ and $35$ is $5$. Dividing gives $3x + 7$, which has no further common factor, so $15x + 35 = 5(3x + 7)$."
+    },
+    {
+      "id": "math-yr8-factorising-q15",
+      "stem": "Factorise $4xy - 10x$.",
+      "choices": [
+        "$2x(2y - 5)$",
+        "$2x(2y - 10)$",
+        "$x(4y - 10)$",
+        "$4x(y - 10)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The HCF is $2x$. $4xy \\div 2x = 2y$ and $-10x \\div 2x = -5$, so $4xy - 10x = 2x(2y - 5)$. The other options are not fully factorised or incorrect."
+    }
+  ]
+}

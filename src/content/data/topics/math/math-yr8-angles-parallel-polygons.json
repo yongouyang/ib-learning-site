@@ -1,0 +1,305 @@
+{
+  "id": "math-yr8-angles-parallel-polygons",
+  "subjectId": "math",
+  "title": "Angles in Parallel Lines & Polygons",
+  "description": "Angles on parallel lines, interior and exterior angles of polygons.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-angles-parallel-polygons-n1",
+      "heading": "Parallel Lines and Transversals",
+      "illustration": {
+        "src": "/images/math/math-yr8-angles-parallel-polygons.svg",
+        "alt": "Diagram of two parallel lines crossed by a transversal, showing corresponding, alternate and co-interior angles, plus a hexagon with interior and exterior angles marked.",
+        "caption": "Parallel lines and a transversal create three special angle pairs: corresponding (a), alternate (b) and co-interior (c). Polygons have interior angles (x) and exterior angles (y)."
+      },
+      "body": "📌 Definition\nParallel lines are straight lines in the same plane that never meet. A transversal is a straight line that crosses two or more parallel lines.\n\n🔑 Key Concept\nWhen a transversal crosses parallel lines, three important angle pairs are formed:\n• Corresponding angles: equal (they make an F shape).\n• Alternate angles: equal (they make a Z shape).\n• Co-interior angles: add to $180^{\\circ}$ (they make a C shape).\n\n💡 Worked Example\nTwo parallel lines are crossed by a transversal. One corresponding angle is $62^{\\circ}$. Find the co-interior angle on the same side.\n\nStep 1: The corresponding angle is $62^{\\circ}$, so the angle in the same position on the other parallel line is also $62^{\\circ}$.\n\nStep 2: Co-interior angles add to $180^{\\circ}$.\n$$180^{\\circ} - 62^{\\circ} = 118^{\\circ}$$\n\n📎 Key Points to Remember\n• Only use these rules when the lines are parallel.\n• Look for the F, Z and C shapes to identify angle pairs quickly.\n• Always write a reason for each step in an angle problem.\n\n⚠️ Common Mistake\nAssuming lines are parallel without checking for arrow marks or being told so."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-n2",
+      "heading": "Corresponding and Alternate Angles",
+      "body": "📌 Definition\nCorresponding angles are in matching positions at each intersection where the transversal crosses the parallel lines. Alternate angles are between the parallel lines on opposite sides of the transversal.\n\n🔑 Key Concept\nWhen lines are parallel:\n$$\\text{corresponding angle} = \\text{corresponding angle}$$\n$$\\text{alternate angle} = \\text{alternate angle}$$\n\n💡 Worked Example\nFind angle $x$ when a transversal makes an angle of $55^{\\circ}$ with one of two parallel lines and $x$ is alternate to it.\n\nBecause alternate angles are equal:\n$$x = 55^{\\circ}$$\n\n✅ Check\nThe two angles form a Z shape and are on opposite sides of the transversal.\n\n📎 Key Points to Remember\n• Corresponding angles make an F shape.\n• Alternate angles make a Z shape.\n• Vertically opposite angles at each intersection are also equal."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-n3",
+      "heading": "Co-Interior Angles",
+      "body": "📌 Definition\nCo-interior angles are the angles that lie between the parallel lines and on the same side of the transversal.\n\n🔑 Key Concept\nCo-interior angles are supplementary, which means they add to $180^{\\circ}$.\n$$a + b = 180^{\\circ}$$\n\n💡 Worked Example\nTwo parallel lines are crossed by a transversal. One co-interior angle is $72^{\\circ}$. Find the other.\n\n$$180^{\\circ} - 72^{\\circ} = 108^{\\circ}$$\n\nThe other co-interior angle is $108^{\\circ}$.\n\n⚠️ Common Mistake\nThinking co-interior angles are equal. They are supplementary, not equal.\n\n✅ Check\n$72^{\\circ} + 108^{\\circ} = 180^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-n4",
+      "heading": "Interior Angle Sum of a Polygon",
+      "body": "📌 Definition\nThe interior angles of a polygon are the angles inside the shape at each vertex.\n\n🔑 Key Concept\nA polygon with $n$ sides can be split into $(n - 2)$ triangles. Since the angles in every triangle add to $180^{\\circ}$:\n$$\\text{sum of interior angles} = (n - 2) \\times 180^{\\circ}$$\n\n💡 Worked Example\nFind the sum of the interior angles of a hexagon. A hexagon has $n = 6$.\n\n$$(6 - 2) \\times 180^{\\circ} = 4 \\times 180^{\\circ} = 720^{\\circ}$$\n\n📎 Key Points to Remember\n• The formula works for any polygon.\n• A triangle has $n = 3$: $(3 - 2) \\times 180^{\\circ} = 180^{\\circ}$.\n• A quadrilateral has $n = 4$: $(4 - 2) \\times 180^{\\circ} = 360^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-n5",
+      "heading": "Exterior Angle Sum of a Polygon",
+      "body": "📌 Definition\nAn exterior angle is formed by extending one side of a polygon at a vertex. At each vertex, one interior angle and one exterior angle sit on a straight line.\n\n🔑 Key Concept\nFor any polygon, the sum of the exterior angles, taking one at each vertex, is always $360^{\\circ}$. This is true no matter how many sides the polygon has.\n$$\\text{sum of exterior angles} = 360^{\\circ}$$\n\n💡 Worked Example\nA pentagon has exterior angles $70^{\\circ}$, $80^{\\circ}$, $90^{\\circ}$, $65^{\\circ}$ and $x$. Find $x$.\n\n$$70^{\\circ} + 80^{\\circ} + 90^{\\circ} + 65^{\\circ} + x = 360^{\\circ}$$\n$$305^{\\circ} + x = 360^{\\circ}$$\n$$x = 55^{\\circ}$$\n\n✅ Check\nThe five exterior angles add to $360^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-n6",
+      "heading": "Regular Polygons",
+      "body": "📌 Definition\nA regular polygon has all sides equal and all angles equal.\n\n🔑 Key Concept\nFor a regular polygon with $n$ sides:\n$$\\text{one exterior angle} = \\frac{360^{\\circ}}{n}$$\n$$\\text{one interior angle} = \\frac{(n - 2) \\times 180^{\\circ}}{n}$$\n\nAlso, at each vertex:\n$$\\text{interior angle} + \\text{exterior angle} = 180^{\\circ}$$\n\n💡 Worked Example\nFind the interior and exterior angles of a regular octagon ($n = 8$).\n\nExterior angle:\n$$\\frac{360^{\\circ}}{8} = 45^{\\circ}$$\n\nInterior angle:\n$$180^{\\circ} - 45^{\\circ} = 135^{\\circ}$$\n\n✅ Check\n$135^{\\circ} + 45^{\\circ} = 180^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-n7",
+      "heading": "Multi-step Angle Problems",
+      "body": "📌 Definition\nMany angle problems need more than one angle fact used in a sequence.\n\n🔑 How it works\n1. Mark every angle you know on the diagram.\n2. Use parallel-line facts for corresponding, alternate or co-interior angles.\n3. Use triangle, quadrilateral or polygon angle sums when shapes are involved.\n4. Write a reason next to each step.\n\n💡 Worked Example\nTwo parallel lines are crossed by a transversal. One angle is $48^{\\circ}$. Find the angle $x$ that is co-interior to the vertically opposite angle of $48^{\\circ}$.\n\nStep 1: The angle vertically opposite $48^{\\circ}$ is also $48^{\\circ}$.\n\nStep 2: The co-interior angle adds to $180^{\\circ}$.\n$$x = 180^{\\circ} - 48^{\\circ} = 132^{\\circ}$$\n\n⚠️ Common Mistake\nMissing a step or using the wrong angle pair. Always identify parallel lines, transversals and shapes first.\n\n📎 Key Points to Remember\n• Angles on a straight line add to $180^{\\circ}$.\n• Angles around a point add to $360^{\\circ}$.\n• Vertically opposite angles are equal."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-angles-parallel-polygons-f1",
+      "term": "Transversal",
+      "definition": "A straight line that crosses two or more other lines.",
+      "example": "A transversal crossing two parallel lines creates eight angles."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-f2",
+      "term": "Corresponding angles",
+      "definition": "Equal angles in matching positions when a transversal crosses parallel lines.",
+      "example": "If one corresponding angle is $62^{\\circ}$, the other is also $62^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-f3",
+      "term": "Alternate angles",
+      "definition": "Equal angles between parallel lines on opposite sides of a transversal.",
+      "example": "Alternate angles of $55^{\\circ}$ and $55^{\\circ}$ form a Z shape."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-f4",
+      "term": "Co-interior angles",
+      "definition": "Angles between parallel lines on the same side of a transversal; they are supplementary.",
+      "example": "$72^{\\circ}$ and $108^{\\circ}$ are co-interior because $72^{\\circ} + 108^{\\circ} = 180^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-f5",
+      "term": "Interior angle sum formula",
+      "definition": "The sum of the interior angles of a polygon with $n$ sides.",
+      "example": "$(n - 2) \\times 180^{\\circ}$ gives $720^{\\circ}$ for a hexagon."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-f6",
+      "term": "Exterior angle sum",
+      "definition": "The sum of one exterior angle at each vertex of any polygon.",
+      "example": "For every polygon the exterior angles add to $360^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-f7",
+      "term": "Regular polygon",
+      "definition": "A polygon with all sides equal and all angles equal.",
+      "example": "A regular hexagon has six equal sides and six equal angles."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-f8",
+      "term": "Interior angle of a regular polygon",
+      "definition": "One interior angle of a regular polygon with $n$ sides.",
+      "example": "$\\frac{(n - 2) \\times 180^{\\circ}}{n}$ gives $135^{\\circ}$ for a regular octagon."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-f9",
+      "term": "Exterior angle of a regular polygon",
+      "definition": "One exterior angle of a regular polygon with $n$ sides.",
+      "example": "$\\frac{360^{\\circ}}{n}$ gives $45^{\\circ}$ for a regular octagon."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-f10",
+      "term": "Number of sides from an exterior angle",
+      "definition": "A way to find how many sides a regular polygon has from one exterior angle.",
+      "example": "$n = \\frac{360^{\\circ}}{\\text{one exterior angle}}$. An exterior angle of $30^{\\circ}$ means $12$ sides."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-f11",
+      "term": "Interior and exterior angle relationship",
+      "definition": "At any vertex of a polygon, the interior angle and exterior angle add to $180^{\\circ}$.",
+      "example": "If the interior angle is $150^{\\circ}$, the exterior angle is $30^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-f12",
+      "term": "Parallel-line angle facts",
+      "definition": "The three angle-pair rules used when a transversal crosses parallel lines.",
+      "example": "Corresponding angles are equal, alternate angles are equal and co-interior angles add to $180^{\\circ}$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-angles-parallel-polygons-q1",
+      "stem": "Two parallel lines are crossed by a transversal. One corresponding angle is $58^{\\circ}$. What is the other corresponding angle?",
+      "choices": [
+        "$58^{\\circ}$",
+        "$122^{\\circ}$",
+        "$32^{\\circ}$",
+        "$180^{\\circ}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Corresponding angles are equal when lines are parallel, so the other corresponding angle is also $58^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q2",
+      "stem": "Two parallel lines are crossed by a transversal. One alternate angle is $47^{\\circ}$. What is the other alternate angle?",
+      "choices": [
+        "$47^{\\circ}$",
+        "$133^{\\circ}$",
+        "$43^{\\circ}$",
+        "$90^{\\circ}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Alternate angles are equal when lines are parallel, so the other alternate angle is also $47^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q3",
+      "stem": "Two parallel lines are crossed by a transversal. One co-interior angle is $65^{\\circ}$. What is the other co-interior angle?",
+      "choices": [
+        "$65^{\\circ}$",
+        "$115^{\\circ}$",
+        "$125^{\\circ}$",
+        "$295^{\\circ}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Co-interior angles add to $180^{\\circ}$, so the missing angle is $180^{\\circ} - 65^{\\circ} = 115^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q4",
+      "stem": "Two parallel lines are crossed by a transversal. One angle is $55^{\\circ}$. What is the corresponding angle?",
+      "choices": [
+        "$125^{\\circ}$",
+        "$55^{\\circ}$",
+        "$35^{\\circ}$",
+        "$180^{\\circ}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Corresponding angles are equal, so the corresponding angle is $55^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q5",
+      "stem": "Two parallel lines are crossed by a transversal. One angle is $112^{\\circ}$. What is the alternate angle?",
+      "choices": [
+        "$68^{\\circ}$",
+        "$112^{\\circ}$",
+        "$180^{\\circ}$",
+        "$22^{\\circ}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alternate angles are equal, so the alternate angle is $112^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q6",
+      "stem": "Two parallel lines are crossed by a transversal. One angle is $38^{\\circ}$. What is the co-interior angle on the same side?",
+      "choices": [
+        "$38^{\\circ}$",
+        "$142^{\\circ}$",
+        "$152^{\\circ}$",
+        "$322^{\\circ}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Co-interior angles add to $180^{\\circ}$, so the missing angle is $180^{\\circ} - 38^{\\circ} = 142^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q7",
+      "stem": "What is the sum of the interior angles of a hexagon?",
+      "choices": [
+        "$720^{\\circ}$",
+        "$600^{\\circ}$",
+        "$900^{\\circ}$",
+        "$360^{\\circ}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $(n - 2) \\times 180^{\\circ}$ with $n = 6$: $(6 - 2) \\times 180^{\\circ} = 4 \\times 180^{\\circ} = 720^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q8",
+      "stem": "What is the sum of the interior angles of an octagon?",
+      "choices": [
+        "$1080^{\\circ}$",
+        "$1440^{\\circ}$",
+        "$1260^{\\circ}$",
+        "$900^{\\circ}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use $(n - 2) \\times 180^{\\circ}$ with $n = 8$: $(8 - 2) \\times 180^{\\circ} = 6 \\times 180^{\\circ} = 1080^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q9",
+      "stem": "What is the size of one exterior angle of a regular pentagon?",
+      "choices": [
+        "$90^{\\circ}$",
+        "$72^{\\circ}$",
+        "$60^{\\circ}$",
+        "$108^{\\circ}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "For a regular polygon, one exterior angle is $\\frac{360^{\\circ}}{n}$. With $n = 5$, this is $\\frac{360^{\\circ}}{5} = 72^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q10",
+      "stem": "A regular polygon has an exterior angle of $24^{\\circ}$. How many sides does it have?",
+      "choices": [
+        "$12$",
+        "$15$",
+        "$18$",
+        "$20$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The number of sides is $n = \\frac{360^{\\circ}}{\\text{exterior angle}} = \\frac{360^{\\circ}}{24^{\\circ}} = 15$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q11",
+      "stem": "What is the size of one interior angle of a regular hexagon?",
+      "choices": [
+        "$120^{\\circ}$",
+        "$108^{\\circ}$",
+        "$135^{\\circ}$",
+        "$150^{\\circ}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using $\\frac{(n - 2) \\times 180^{\\circ}}{n}$ with $n = 6$ gives $\\frac{4 \\times 180^{\\circ}}{6} = 120^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q12",
+      "stem": "A regular polygon has an interior angle of $150^{\\circ}$. What is the exterior angle?",
+      "choices": [
+        "$30^{\\circ}$",
+        "$40^{\\circ}$",
+        "$20^{\\circ}$",
+        "$60^{\\circ}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Interior and exterior angles add to $180^{\\circ}$, so the exterior angle is $180^{\\circ} - 150^{\\circ} = 30^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q13",
+      "stem": "A regular polygon has an interior angle of $150^{\\circ}$. How many sides does it have?",
+      "choices": [
+        "$10$",
+        "$12$",
+        "$15$",
+        "$20$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The exterior angle is $180^{\\circ} - 150^{\\circ} = 30^{\\circ}$. Then $n = \\frac{360^{\\circ}}{30^{\\circ}} = 12$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q14",
+      "stem": "The exterior angles of a hexagon are $60^{\\circ}$, $70^{\\circ}$, $80^{\\circ}$, $55^{\\circ}$, $50^{\\circ}$ and $x$. Find $x$.",
+      "choices": [
+        "$45^{\\circ}$",
+        "$55^{\\circ}$",
+        "$60^{\\circ}$",
+        "$65^{\\circ}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The sum of exterior angles is $360^{\\circ}$. So $x = 360^{\\circ} - 60^{\\circ} - 70^{\\circ} - 80^{\\circ} - 55^{\\circ} - 50^{\\circ} = 45^{\\circ}$."
+    },
+    {
+      "id": "math-yr8-angles-parallel-polygons-q15",
+      "stem": "Two parallel lines are crossed by a transversal. One angle is $70^{\\circ}$. Find the angle that is co-interior to the vertically opposite angle of $70^{\\circ}$.",
+      "choices": [
+        "$70^{\\circ}$",
+        "$110^{\\circ}$",
+        "$180^{\\circ}$",
+        "$290^{\\circ}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The vertically opposite angle is also $70^{\\circ}$. The co-interior angle adds to $180^{\\circ}$, so it is $180^{\\circ} - 70^{\\circ} = 110^{\\circ}$."
+    }
+  ]
+}

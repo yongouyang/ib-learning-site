@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title desc">
+  <title id="title">Factorising 3x plus 6 by taking out the common factor 3</title>
+  <desc id="desc">A visual model showing two blocks representing 3x and 6. Each block is split into three equal parts of size x and 2, demonstrating that 3x plus 6 equals 3 times the bracket x plus 2.</desc>
+  <rect width="800" height="360" fill="#f8fafc"/>
+
+  <g transform="translate(60, 80)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="600" fill="#1e293b">Original expression</text>
+
+    <rect x="0" y="30" width="180" height="90" rx="8" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="90" y="82" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#1e3a8a">3x</text>
+
+    <rect x="200" y="30" width="180" height="90" rx="8" fill="#bbf7d0" stroke="#22c55e" stroke-width="2"/>
+    <text x="290" y="82" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#14532d">6</text>
+
+    <text x="190" y="82" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#334155">+</text>
+  </g>
+
+  <g transform="translate(60, 210)">
+    <rect x="0" y="0" width="380" height="90" rx="8" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+    <line x1="126.7" y1="0" x2="126.7" y2="90" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+    <line x1="253.3" y1="0" x2="253.3" y2="90" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+
+    <rect x="4" y="4" width="118.7" height="82" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="63.3" y="52" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="600" fill="#1e3a8a">x</text>
+
+    <rect x="130.7" y="4" width="118.7" height="82" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="190" y="52" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="600" fill="#1e3a8a">x</text>
+
+    <rect x="257.3" y="4" width="118.7" height="82" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="316.6" y="52" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="600" fill="#1e3a8a">x</text>
+
+    <text x="0" y="122" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#475569">Three equal groups, each containing </text>
+    <text x="288" y="122" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="600" fill="#1e293b">x + 2</text>
+  </g>
+
+  <g transform="translate(520, 80)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="600" fill="#1e293b">Factorised form</text>
+
+    <rect x="0" y="40" width="70" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+    <text x="35" y="83" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#0f172a">3</text>
+    <text x="80" y="83" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#334155">(</text>
+
+    <rect x="100" y="40" width="70" height="70" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="135" y="83" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#1e3a8a">x</text>
+
+    <text x="180" y="83" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#334155">+</text>
+
+    <rect x="210" y="40" width="70" height="70" rx="8" fill="#bbf7d0" stroke="#22c55e" stroke-width="2"/>
+    <text x="245" y="83" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#14532d">2</text>
+    <text x="290" y="83" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#334155">)</text>
+  </g>
+
+  <g>
+    <path d="M 470 170 L 500 170" fill="none" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+      </marker>
+    </defs>
+  </g>
+
+  <text x="400" y="300" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="18" fill="#475569">Factorising pulls out the common factor shared by every term.</text>
+</svg>

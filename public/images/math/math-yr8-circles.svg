@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Circle with radius, diameter and circumference labelled</title>
+  <desc id="desc">A circle showing its centre, a vertical radius, a horizontal diameter, and a curved arrow indicating the circumference.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <!-- Circle -->
+  <circle cx="300" cy="250" r="150" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+
+  <!-- Centre point -->
+  <circle cx="300" cy="250" r="5" fill="#dc2626"/>
+
+  <!-- Diameter line -->
+  <line x1="150" y1="250" x2="450" y2="250" stroke="#1f2937" stroke-width="2"/>
+  <circle cx="150" cy="250" r="4" fill="#1f2937"/>
+  <circle cx="450" cy="250" r="4" fill="#1f2937"/>
+
+  <!-- Radius line -->
+  <line x1="300" y1="250" x2="300" y2="100" stroke="#dc2626" stroke-width="2"/>
+
+  <!-- Circumference arrow -->
+  <path d="M 435 165 A 155 155 0 0 1 435 335" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Leader lines and labels -->
+  <!-- Centre label -->
+  <line x1="230" y1="290" x2="295" y2="255" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="182" y="272" width="48" height="22" rx="4" fill="#f9fafb"/>
+  <text x="206" y="288" font-family="system-ui, sans-serif" font-size="14" fill="#111827" text-anchor="middle">centre</text>
+
+  <!-- Radius label -->
+  <rect x="308" y="159" width="72" height="22" rx="4" fill="#f9fafb"/>
+  <text x="344" y="175" font-family="system-ui, sans-serif" font-size="14" fill="#111827" text-anchor="middle">radius r</text>
+
+  <!-- Diameter label -->
+  <rect x="240" y="272" width="120" height="22" rx="4" fill="#f9fafb"/>
+  <text x="300" y="288" font-family="system-ui, sans-serif" font-size="14" fill="#111827" text-anchor="middle">diameter d = 2r</text>
+
+  <!-- Circumference label -->
+  <line x1="470" y1="250" x2="440" y2="330" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="460" y="228" width="118" height="22" rx="4" fill="#f9fafb"/>
+  <text x="519" y="244" font-family="system-ui, sans-serif" font-size="14" fill="#111827" text-anchor="middle">circumference C</text>
+
+  <!-- Formula summary -->
+  <rect x="560" y="160" width="200" height="180" rx="8" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="660" y="190" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#111827" text-anchor="middle">Key formulas</text>
+  <text x="580" y="225" font-family="system-ui, sans-serif" font-size="14" fill="#111827">d = 2r</text>
+  <text x="580" y="255" font-family="system-ui, sans-serif" font-size="14" fill="#111827">C = 2πr = πd</text>
+  <text x="580" y="285" font-family="system-ui, sans-serif" font-size="14" fill="#111827">A = πr²</text>
+</svg>

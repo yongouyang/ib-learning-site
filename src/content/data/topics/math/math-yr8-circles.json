@@ -1,0 +1,310 @@
+{
+  "id": "math-yr8-circles",
+  "subjectId": "math",
+  "title": "Circles",
+  "description": "Calculate circumference and area of circles; understand radius, diameter and pi.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-circles-n1",
+      "heading": "Parts of a Circle",
+      "illustration": {
+        "src": "/images/math/math-yr8-circles.svg",
+        "alt": "Diagram of a circle showing the centre, radius, diameter and circumference.",
+        "caption": "The radius is half the diameter; the circumference is the distance around the circle."
+      },
+      "body": "📌 Definition\nA circle is a shape where every point on the curve is the same distance from the centre.\n\n🔑 Key Concepts\n• The centre is the fixed middle point.\n• The radius ($r$) is the distance from the centre to any point on the circle.\n• The diameter ($d$) is a straight line passing through the centre and touching the circle at both ends.\n• The circumference ($C$) is the distance around the circle.\n\n💡 Worked Example\nIn a circle with radius $5~\\text{cm}$, the diameter is $d = 2r = 2 \\times 5 = 10~\\text{cm}$.\n\n📎 Key Points to Remember\n• The diameter is twice the radius: $d = 2r$.\n• The radius is half the diameter: $r = \\frac{d}{2}$.\n\n⚠️ Common Mistake\nMixing up the radius and diameter when reading a diagram."
+    },
+    {
+      "id": "math-yr8-circles-n2",
+      "heading": "The Number $\\pi$",
+      "body": "📌 Definition\n$\\pi$ (pi) is the number of times the diameter fits around the circumference of any circle.\n\n🔑 Key Concept\n$\\pi$ is approximately $3.14159...$ It is an irrational number, so its decimal digits never end or repeat.\nFor calculations you can use $\\pi \\approx 3.14$ or the $\\pi$ button on a calculator.\n\n💡 Worked Example\nEstimate the circumference of a circle with diameter $7~\\text{cm}$ using $\\pi \\approx \\frac{22}{7}$.\n$$C = \\pi d \\approx \\frac{22}{7} \\times 7 = 22~\\text{cm}$$\n\n📎 Key Points to Remember\n• $\\pi$ is the same for every circle, no matter how large or small.\n• Using $3.14$ gives an approximate answer; the $\\pi$ key gives a more accurate answer.\n\n✅ Check\nIf a diameter is about $3$ units, the circumference is about $3\\pi \\approx 9.42$ units."
+    },
+    {
+      "id": "math-yr8-circles-n3",
+      "heading": "Circumference of a Circle",
+      "body": "📌 Definition\nThe circumference ($C$) is the distance around a circle.\n\n🔑 Formulas\n$$C = \\pi d$$\n$$C = 2\\pi r$$\nwhere $d$ is the diameter and $r$ is the radius.\n\n💡 Worked Example\nFind the circumference of a circle with radius $4~\\text{cm}$. Use $\\pi \\approx 3.14$.\n$$C = 2\\pi r = 2 \\times 3.14 \\times 4 = 25.12~\\text{cm}$$\n\n⚠️ Common Mistake\nUsing the diameter formula with the radius, or forgetting to double the radius when using $C = 2\\pi r$.\n\n✅ Check\nA radius of $4~\\text{cm}$ means a diameter of $8~\\text{cm}$. Then $C = \\pi d \\approx 3.14 \\times 8 = 25.12~\\text{cm}$, which matches."
+    },
+    {
+      "id": "math-yr8-circles-n4",
+      "heading": "Area of a Circle",
+      "body": "📌 Definition\nThe area ($A$) of a circle is the space inside its circumference.\n\n🔑 Formula\n$$A = \\pi r^2$$\nThis means $\\pi \\times r \\times r$, not $\\pi \\times 2r$.\n\n💡 Worked Example\nFind the area of a circle with radius $3~\\text{cm}$. Use $\\pi \\approx 3.14$.\n$$A = \\pi r^2 = 3.14 \\times 3^2 = 3.14 \\times 9 = 28.26~\\text{cm}^2$$\n\n⚠️ Common Mistake\nSquaring the radius incorrectly: $3^2 = 9$, not $6$.\n\n📎 Key Points to Remember\n• Area units are square units, e.g. $\\text{cm}^2$.\n• If you are given the diameter, halve it first to find $r$."
+    },
+    {
+      "id": "math-yr8-circles-n5",
+      "heading": "Finding Circumference and Area from Diameter",
+      "body": "📌 Definition\nWhen a question gives the diameter, halve it to find the radius before using $A = \\pi r^2$.\n\n🔑 How it works\n1. Write down the diameter $d$.\n2. Find the radius: $r = \\frac{d}{2}$.\n3. Substitute into the formula you need.\n\n💡 Worked Example\nA circle has diameter $10~\\text{cm}$. Find its area.\n$$r = \\frac{10}{2} = 5~\\text{cm}$$\n$$A = \\pi r^2 = 3.14 \\times 5^2 = 3.14 \\times 25 = 78.5~\\text{cm}^2$$\n\n✅ Check\nThe radius is $5~\\text{cm}$, so the circumference would be $C = 2\\pi r \\approx 31.4~\\text{cm}$. That is a sensible length for a $10~\\text{cm}$ diameter circle."
+    },
+    {
+      "id": "math-yr8-circles-n6",
+      "heading": "Finding the Radius from the Circumference",
+      "body": "📌 Definition\nIf you know the circumference, you can rearrange $C = 2\\pi r$ to find $r$.\n\n🔑 How it works\n$$r = \\frac{C}{2\\pi}$$\n\n💡 Worked Example\nA circle has circumference $31.4~\\text{cm}$. Find its radius using $\\pi \\approx 3.14$.\n$$r = \\frac{31.4}{2 \\times 3.14} = \\frac{31.4}{6.28} = 5~\\text{cm}$$\n\n⚠️ Common Mistake\nDividing by $\\pi$ but forgetting to divide by $2$. The denominator is $2\\pi$, not $\\pi$.\n\n✅ Check\nIf $r = 5~\\text{cm}$, then $C = 2 \\times 3.14 \\times 5 = 31.4~\\text{cm}$, which matches the given circumference."
+    },
+    {
+      "id": "math-yr8-circles-n7",
+      "heading": "Finding the Radius from the Area",
+      "body": "📌 Definition\nIf you know the area, rearrange $A = \\pi r^2$ to find $r$.\n\n🔑 How it works\n$$r^2 = \\frac{A}{\\pi}$$\n$$r = \\sqrt{\\frac{A}{\\pi}}$$\nTake the square root to find the radius.\n\n💡 Worked Example\nA circle has area $78.5~\\text{cm}^2$. Find its radius using $\\pi \\approx 3.14$.\n$$r^2 = \\frac{78.5}{3.14} = 25$$\n$$r = \\sqrt{25} = 5~\\text{cm}$$\n\n⚠️ Common Mistake\nForgetting to take the square root. The value $25$ is $r^2$, so $r = 5$.\n\n📎 Key Points to Remember\n• The radius must be a positive length, so take the positive square root."
+    },
+    {
+      "id": "math-yr8-circles-n8",
+      "heading": "Circle Calculations Checklist",
+      "body": "📎 Key Points to Remember\n• Radius to diameter: $d = 2r$.\n• Diameter to radius: $r = \\frac{d}{2}$.\n• Circumference: $C = \\pi d = 2\\pi r$.\n• Area: $A = \\pi r^2$.\n• Always check whether the question gives the radius or the diameter.\n• Use the same units throughout a calculation.\n\n✅ Check\nFor a circle with radius $6~\\text{cm}$:\n$$C = 2 \\times 3.14 \\times 6 = 37.68~\\text{cm}$$\n$$A = 3.14 \\times 6^2 = 113.04~\\text{cm}^2$$"
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-circles-f1",
+      "term": "Radius",
+      "definition": "The distance from the centre of a circle to any point on its circumference.",
+      "example": "A circle with radius $5~\\text{cm}$ is $5~\\text{cm}$ from its centre to the edge."
+    },
+    {
+      "id": "math-yr8-circles-f2",
+      "term": "Diameter",
+      "definition": "A straight line passing through the centre of a circle from one side to the other.",
+      "example": "If $r = 4~\\text{cm}$, then $d = 8~\\text{cm}$."
+    },
+    {
+      "id": "math-yr8-circles-f3",
+      "term": "Circumference",
+      "definition": "The distance all the way around a circle.",
+      "example": "$C = 2\\pi r$ gives the circumference of a circle with radius $r$."
+    },
+    {
+      "id": "math-yr8-circles-f4",
+      "term": "Area of a circle",
+      "definition": "The amount of space inside a circle.",
+      "example": "$A = \\pi r^2$ gives the area when the radius is known."
+    },
+    {
+      "id": "math-yr8-circles-f5",
+      "term": "Pi ($\\pi$)",
+      "definition": "The constant ratio of a circle's circumference to its diameter.",
+      "example": "$\\pi \\approx 3.14$ or use the $\\pi$ key on a calculator."
+    },
+    {
+      "id": "math-yr8-circles-f6",
+      "term": "Radius-diameter relationship",
+      "definition": "The diameter is twice the radius, and the radius is half the diameter.",
+      "example": "$d = 2r$ and $r = \\frac{d}{2}$."
+    },
+    {
+      "id": "math-yr8-circles-f7",
+      "term": "Circumference using diameter",
+      "definition": "The formula for circumference when the diameter is known.",
+      "example": "$C = \\pi d$."
+    },
+    {
+      "id": "math-yr8-circles-f8",
+      "term": "Circumference using radius",
+      "definition": "The formula for circumference when the radius is known.",
+      "example": "$C = 2\\pi r$."
+    },
+    {
+      "id": "math-yr8-circles-f9",
+      "term": "Area using radius",
+      "definition": "The formula for the area of a circle when the radius is known.",
+      "example": "$A = \\pi r^2$."
+    },
+    {
+      "id": "math-yr8-circles-f10",
+      "term": "Finding radius from circumference",
+      "definition": "Rearrange the circumference formula to make $r$ the subject.",
+      "example": "$r = \\frac{C}{2\\pi}$."
+    },
+    {
+      "id": "math-yr8-circles-f11",
+      "term": "Finding radius from area",
+      "definition": "Rearrange the area formula and take the square root.",
+      "example": "$r = \\sqrt{\\frac{A}{\\pi}}$."
+    },
+    {
+      "id": "math-yr8-circles-f12",
+      "term": "Units for circle measurements",
+      "definition": "Circumference uses length units; area uses square units.",
+      "example": "$C$ is in $\\text{cm}$ while $A$ is in $\\text{cm}^2$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-circles-q1",
+      "stem": "A circle has radius $6~\\text{cm}$. What is its diameter?",
+      "choices": [
+        "$3~\\text{cm}$",
+        "$12~\\text{cm}$",
+        "$6~\\text{cm}$",
+        "$24~\\text{cm}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The diameter is twice the radius: $d = 2r = 2 \\times 6 = 12~\\text{cm}$."
+    },
+    {
+      "id": "math-yr8-circles-q2",
+      "stem": "A circle has diameter $14~\\text{cm}$. What is its radius?",
+      "choices": [
+        "$7~\\text{cm}$",
+        "$28~\\text{cm}$",
+        "$14~\\text{cm}$",
+        "$3.5~\\text{cm}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The radius is half the diameter: $r = \\frac{d}{2} = \\frac{14}{2} = 7~\\text{cm}$."
+    },
+    {
+      "id": "math-yr8-circles-q3",
+      "stem": "What is the approximate value of $\\pi$?",
+      "choices": [
+        "$3.14$",
+        "$2.72$",
+        "$1.41$",
+        "$1.73$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\pi$ is approximately $3.14$; the other values are common approximations for different constants."
+    },
+    {
+      "id": "math-yr8-circles-q4",
+      "stem": "Find the circumference of a circle with diameter $10~\\text{cm}$. Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$31.4~\\text{cm}$",
+        "$62.8~\\text{cm}$",
+        "$314~\\text{cm}$",
+        "$15.7~\\text{cm}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using $C = \\pi d$, we get $C \\approx 3.14 \\times 10 = 31.4~\\text{cm}$."
+    },
+    {
+      "id": "math-yr8-circles-q5",
+      "stem": "Find the circumference of a circle with radius $5~\\text{cm}$. Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$15.7~\\text{cm}$",
+        "$31.4~\\text{cm}$",
+        "$78.5~\\text{cm}$",
+        "$10~\\text{cm}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Using $C = 2\\pi r$, we get $C \\approx 2 \\times 3.14 \\times 5 = 31.4~\\text{cm}$."
+    },
+    {
+      "id": "math-yr8-circles-q6",
+      "stem": "Find the area of a circle with radius $4~\\text{cm}$. Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$25.12~\\text{cm}^2$",
+        "$50.24~\\text{cm}^2$",
+        "$12.56~\\text{cm}^2$",
+        "$16~\\text{cm}^2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Using $A = \\pi r^2$, we get $A \\approx 3.14 \\times 4^2 = 3.14 \\times 16 = 50.24~\\text{cm}^2$."
+    },
+    {
+      "id": "math-yr8-circles-q7",
+      "stem": "A circle has diameter $12~\\text{cm}$. Find its area. Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$37.68~\\text{cm}^2$",
+        "$75.36~\\text{cm}^2$",
+        "$113.04~\\text{cm}^2$",
+        "$226.08~\\text{cm}^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The radius is $r = \\frac{12}{2} = 6~\\text{cm}$. Then $A = \\pi r^2 \\approx 3.14 \\times 36 = 113.04~\\text{cm}^2$."
+    },
+    {
+      "id": "math-yr8-circles-q8",
+      "stem": "A circle has circumference $31.4~\\text{cm}$. Find its radius. Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$10~\\text{cm}$",
+        "$2.5~\\text{cm}$",
+        "$5~\\text{cm}$",
+        "$15.7~\\text{cm}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Rearrange $C = 2\\pi r$ to get $r = \\frac{C}{2\\pi} = \\frac{31.4}{2 \\times 3.14} = 5~\\text{cm}$."
+    },
+    {
+      "id": "math-yr8-circles-q9",
+      "stem": "A circle has area $50.24~\\text{cm}^2$. Find its radius. Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$8~\\text{cm}$",
+        "$16~\\text{cm}$",
+        "$2~\\text{cm}$",
+        "$4~\\text{cm}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "From $A = \\pi r^2$, we get $r^2 = \\frac{50.24}{3.14} = 16$, so $r = \\sqrt{16} = 4~\\text{cm}$."
+    },
+    {
+      "id": "math-yr8-circles-q10",
+      "stem": "Which formula gives the area of a circle?",
+      "choices": [
+        "$A = 2\\pi r$",
+        "$A = \\pi d$",
+        "$A = \\pi r^2$",
+        "$A = \\frac{1}{2}\\pi r^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The area of a circle is $A = \\pi r^2$. The other formulas give circumference or an incorrect area."
+    },
+    {
+      "id": "math-yr8-circles-q11",
+      "stem": "Which formula gives the circumference of a circle using the radius?",
+      "choices": [
+        "$C = \\pi r^2$",
+        "$C = \\pi d$",
+        "$C = 2\\pi r$",
+        "$C = \\frac{r}{2}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$C = 2\\pi r$ uses the radius. $C = \\pi d$ is equivalent but uses the diameter."
+    },
+    {
+      "id": "math-yr8-circles-q12",
+      "stem": "A circular running track has radius $35~\\text{m}$. Find its circumference using $\\pi \\approx \\frac{22}{7}$.",
+      "choices": [
+        "$110~\\text{m}$",
+        "$220~\\text{m}$",
+        "$70~\\text{m}$",
+        "$440~\\text{m}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Using $C = 2\\pi r$, we get $C \\approx 2 \\times \\frac{22}{7} \\times 35 = 220~\\text{m}$."
+    },
+    {
+      "id": "math-yr8-circles-q13",
+      "stem": "A pizza has diameter $28~\\text{cm}$. Find its area using $\\pi \\approx \\frac{22}{7}$.",
+      "choices": [
+        "$88~\\text{cm}^2$",
+        "$154~\\text{cm}^2$",
+        "$308~\\text{cm}^2$",
+        "$616~\\text{cm}^2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The radius is $r = 14~\\text{cm}$. Then $A = \\pi r^2 \\approx \\frac{22}{7} \\times 14^2 = \\frac{22}{7} \\times 196 = 616~\\text{cm}^2$."
+    },
+    {
+      "id": "math-yr8-circles-q14",
+      "stem": "What is the circumference of a circle with radius $1~\\text{cm}$? Leave your answer in terms of $\\pi$.",
+      "choices": [
+        "$\\pi~\\text{cm}$",
+        "$2\\pi~\\text{cm}$",
+        "$\\pi^2~\\text{cm}$",
+        "$\\frac{\\pi}{2}~\\text{cm}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$C = 2\\pi r = 2\\pi \\times 1 = 2\\pi~\\text{cm}$."
+    },
+    {
+      "id": "math-yr8-circles-q15",
+      "stem": "What is the area of a circle with radius $1~\\text{cm}$? Leave your answer in terms of $\\pi$.",
+      "choices": [
+        "$2\\pi~\\text{cm}^2$",
+        "$\\pi~\\text{cm}^2$",
+        "$\\pi^2~\\text{cm}^2$",
+        "$\\frac{\\pi}{2}~\\text{cm}^2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$A = \\pi r^2 = \\pi \\times 1^2 = \\pi~\\text{cm}^2$."
+    }
+  ]
+}
