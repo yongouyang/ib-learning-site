@@ -75,11 +75,15 @@ import math_statistics_1_json from './data/topics/math/math-statistics-1.json';
 import math_trig_basic_myp_json from './data/topics/math/math-trig-basic-myp.json';
 import math_yr7_angles_json from './data/topics/math/math-yr7-angles.json';
 import math_yr7_area_perimeter_json from './data/topics/math/math-yr7-area-perimeter.json';
+import math_yr7_bearings_scale_json from './data/topics/math/math-yr7-bearings-scale.json';
 import math_yr7_calculations_json from './data/topics/math/math-yr7-calculations.json';
+import math_yr7_constructions_loci_json from './data/topics/math/math-yr7-constructions-loci.json';
 import math_yr7_data_json from './data/topics/math/math-yr7-data.json';
 import math_yr7_decimals_json from './data/topics/math/math-yr7-decimals.json';
 import math_yr7_equations_json from './data/topics/math/math-yr7-equations.json';
 import math_yr7_factors_multiples_json from './data/topics/math/math-yr7-factors-multiples.json';
+import math_yr7_measures_conversions_json from './data/topics/math/math-yr7-measures-conversions.json';
+import math_yr7_money_finance_json from './data/topics/math/math-yr7-money-finance.json';
 import math_yr7_negative_numbers_json from './data/topics/math/math-yr7-negative-numbers.json';
 import math_yr7_percentages_json from './data/topics/math/math-yr7-percentages.json';
 import math_yr7_probability_json from './data/topics/math/math-yr7-probability.json';
@@ -166,11 +170,15 @@ const math_statistics_1: Topic = topicSchema.parse(math_statistics_1_json);
 const math_trig_basic_myp: Topic = topicSchema.parse(math_trig_basic_myp_json);
 const math_yr7_angles: Topic = topicSchema.parse(math_yr7_angles_json);
 const math_yr7_area_perimeter: Topic = topicSchema.parse(math_yr7_area_perimeter_json);
+const math_yr7_bearings_scale: Topic = topicSchema.parse(math_yr7_bearings_scale_json);
 const math_yr7_calculations: Topic = topicSchema.parse(math_yr7_calculations_json);
+const math_yr7_constructions_loci: Topic = topicSchema.parse(math_yr7_constructions_loci_json);
 const math_yr7_data: Topic = topicSchema.parse(math_yr7_data_json);
 const math_yr7_decimals: Topic = topicSchema.parse(math_yr7_decimals_json);
 const math_yr7_equations: Topic = topicSchema.parse(math_yr7_equations_json);
 const math_yr7_factors_multiples: Topic = topicSchema.parse(math_yr7_factors_multiples_json);
+const math_yr7_measures_conversions: Topic = topicSchema.parse(math_yr7_measures_conversions_json);
+const math_yr7_money_finance: Topic = topicSchema.parse(math_yr7_money_finance_json);
 const math_yr7_negative_numbers: Topic = topicSchema.parse(math_yr7_negative_numbers_json);
 const math_yr7_percentages: Topic = topicSchema.parse(math_yr7_percentages_json);
 const math_yr7_probability: Topic = topicSchema.parse(math_yr7_probability_json);
@@ -235,7 +243,7 @@ const mathSubject: Subject = {
   name: mathMeta.name,
   icon: mathMeta.icon,
   accentColor: mathMeta.accentColor,
-  topics: [math_algebra_1, math_dp_binomial, math_dp_complex_numbers, math_dp_correlation_regression, math_dp_descriptive_statistics, math_dp_differentiation, math_dp_explog, math_dp_exponents, math_dp_functions, math_dp_graph_theory, math_dp_hypothesis_testing, math_dp_integration, math_dp_kinematics, math_dp_matrices, math_dp_poisson_distribution, math_dp_probability, math_dp_quadratics, math_dp_sequences, math_dp_trig, math_dp_vectors, math_dp_voronoi_diagrams, math_fractions_1, math_geometry_1, math_inequalities_myp, math_linear_myp, math_powers_myp, math_pythagoras_myp, math_ratio_myp, math_simultaneous_myp, math_statistics_1, math_trig_basic_myp, math_yr7_angles, math_yr7_area_perimeter, math_yr7_calculations, math_yr7_data, math_yr7_decimals, math_yr7_equations, math_yr7_factors_multiples, math_yr7_negative_numbers, math_yr7_percentages, math_yr7_probability, math_yr7_rounding_estimation, math_yr7_sequences, math_yr7_substitution, math_yr7_transformations, math_yr7_volume_surface_area],
+  topics: [math_algebra_1, math_dp_binomial, math_dp_complex_numbers, math_dp_correlation_regression, math_dp_descriptive_statistics, math_dp_differentiation, math_dp_explog, math_dp_exponents, math_dp_functions, math_dp_graph_theory, math_dp_hypothesis_testing, math_dp_integration, math_dp_kinematics, math_dp_matrices, math_dp_poisson_distribution, math_dp_probability, math_dp_quadratics, math_dp_sequences, math_dp_trig, math_dp_vectors, math_dp_voronoi_diagrams, math_fractions_1, math_geometry_1, math_inequalities_myp, math_linear_myp, math_powers_myp, math_pythagoras_myp, math_ratio_myp, math_simultaneous_myp, math_statistics_1, math_trig_basic_myp, math_yr7_angles, math_yr7_area_perimeter, math_yr7_bearings_scale, math_yr7_calculations, math_yr7_constructions_loci, math_yr7_data, math_yr7_decimals, math_yr7_equations, math_yr7_factors_multiples, math_yr7_measures_conversions, math_yr7_money_finance, math_yr7_negative_numbers, math_yr7_percentages, math_yr7_probability, math_yr7_rounding_estimation, math_yr7_sequences, math_yr7_substitution, math_yr7_transformations, math_yr7_volume_surface_area],
 };
 
 const subjects: Record<SubjectId, Subject> = {

@@ -1,0 +1,300 @@
+{
+  "id": "math-yr7-constructions-loci",
+  "subjectId": "math",
+  "title": "Constructions & Loci",
+  "description": "Using a ruler and compasses to construct triangles, perpendicular bisectors, angle bisectors and simple loci.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr7-constructions-loci-cl-n1",
+      "heading": "Constructing a Triangle from Three Sides (SSS)",
+      "body": "📌 Definition\nA construction is an accurate drawing made with a ruler and compasses. When we construct a triangle, all construction arcs must be left visible to show how the vertices were found.\n\n🔑 Key Concept\nIf the lengths of all three sides are known, the triangle can be drawn using the SSS construction method. The three sides fix the shape and size of the triangle.\n\n💡 Worked Example\nConstruct triangle $ABC$ with $AB = 6\\text{ cm}$, $BC = 5\\text{ cm}$ and $CA = 4\\text{ cm}$.\n\nStep 1: Draw side $AB = 6\\text{ cm}$ with a ruler.\nStep 2: Set the compass to $4\\text{ cm}$. With centre $A$, draw an arc above $AB$.\nStep 3: Set the compass to $5\\text{ cm}$. With centre $B$, draw an arc that crosses the first arc at $C$.\nStep 4: Join $A$ to $C$ and $B$ to $C$ with the ruler.\n\n📎 Key Points to Remember\n• Leave all construction arcs visible.\n• The two arcs from $A$ and $B$ must intersect; if they do not, the given lengths cannot form a triangle.\n• Always check each side with a ruler.\n\n⚠️ Common Mistake\nRubbing out the construction arcs. Arcs are part of the method and must be shown to earn method marks.\n\n✅ Check\nMeasure the three sides: they should be $6\\text{ cm}$, $5\\text{ cm}$ and $4\\text{ cm}$."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-n2",
+      "heading": "Perpendicular Bisector of a Line Segment",
+      "body": "📌 Definition\nA perpendicular bisector is a straight line that cuts a line segment exactly in half and meets it at $90^\\circ$.\n\n🔑 Key Concept\nEvery point on the perpendicular bisector of segment $AB$ is the same distance from $A$ and from $B$. This is why the construction uses equal radii from both ends.\n\n💡 Worked Example\nConstruct the perpendicular bisector of line segment $AB$.\n\nStep 1: Open the compass to a radius greater than half of $AB$.\nStep 2: With centre $A$, draw arcs above and below $AB$.\nStep 3: With centre $B$ and the same radius, draw arcs above and below $AB$ that cross the first arcs.\nStep 4: Join the two crossing points with a straight line. This line is the perpendicular bisector of $AB$.\n\n📎 Key Points to Remember\n• The compass must be opened to more than half the length of the segment.\n• The bisector passes through the midpoint of $AB$.\n• It meets $AB$ at exactly $90^\\circ$.\n\n⚠️ Common Mistake\nUsing a radius smaller than half of $AB$. The arcs will not cross, so the bisector cannot be drawn.\n\n✅ Check\nMeasure the two parts of $AB$; they should be equal, and the angle at the midpoint should be $90^\\circ$."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-n3",
+      "heading": "Angle Bisector",
+      "body": "📌 Definition\nAn angle bisector is a straight line that splits an angle into two equal, smaller angles.\n\n🔑 Key Concept\nAny point on the bisector of an angle is equidistant from the two arms of the angle. The construction makes two pairs of equal arcs to guarantee this property.\n\n💡 Worked Example\nBisect angle $ABC$.\n\nStep 1: With the compass point on $B$, draw an arc that crosses both arms of the angle. Label the crossings $P$ and $Q$.\nStep 2: With the compass point on $P$ and then on $Q$, draw two arcs inside the angle using the same radius. Let them cross at $R$.\nStep 3: Draw a straight line from $B$ through $R$. This line bisects angle $ABC$.\n\n📎 Key Points to Remember\n• Keep the compass width the same for both inner arcs.\n• The bisector always starts from the vertex of the angle.\n• Each half-angle is equal to the original angle divided by two.\n\n⚠️ Common Mistake\nChanging the compass width between the two inner arcs. Different radii make the crossing point wrong, so the bisector will not split the angle exactly in half.\n\n✅ Check\nMeasure the two new angles; they should be equal."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-n4",
+      "heading": "Shortest Distance from a Point to a Line",
+      "body": "📌 Definition\nThe perpendicular distance from a point to a line is the shortest distance between them. The line joining the point to the line meets the line at $90^\\circ$.\n\n🔑 Key Concept\nOut of all possible line segments from a point to a line, the perpendicular one is the shortest. Any other segment would be the hypotenuse of a right-angled triangle.\n\n💡 Worked Example\nConstruct the perpendicular from point $P$ to line $AB$.\n\nStep 1: With centre $P$, draw an arc that cuts line $AB$ at two points, $X$ and $Y$.\nStep 2: With centres $X$ and $Y$ and the same radius, draw arcs on the opposite side of $AB$ from $P$ that cross at $Q$.\nStep 3: Join $P$ to $Q$. The line $PQ$ is perpendicular to $AB$.\n\n📎 Key Points to Remember\n• The perpendicular gives the shortest distance from the point to the line.\n• Construction arcs must cross the original line in two places.\n• The final line meets the original line at $90^\\circ$.\n\n⚠️ Common Mistake\nJoining the point to the nearest end of the line instead of drawing a perpendicular. This usually gives a longer distance.\n\n✅ Check\nMeasure the angle where $PQ$ meets $AB$; it should be $90^\\circ$."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-n5",
+      "heading": "Constructing a Triangle from SAS",
+      "body": "📌 Definition\nA triangle can be constructed when two side lengths and the angle between them are known. This is called the SAS case: Side-Angle-Side.\n\n🔑 Key Concept\nThe angle must be the included angle between the two known sides. Draw one side, construct the given angle at one end, then mark off the second side length along the new ray.\n\n💡 Worked Example\nConstruct triangle $PQR$ with $QR = 5\\text{ cm}$, angle $PQR = 50^\\circ$ and $PQ = 7\\text{ cm}$.\n\nStep 1: Draw side $QR = 5\\text{ cm}$.\nStep 2: At $Q$, construct an angle of $50^\\circ$ and draw a ray from $Q$.\nStep 3: Measure $7\\text{ cm}$ along the ray and mark point $P$.\nStep 4: Join $P$ to $R$ to complete the triangle.\n\n📎 Key Points to Remember\n• The known angle must sit between the two known sides.\n• Use a protractor or a construction to make the angle accurately.\n• Leave any construction arcs visible.\n\n⚠️ Common Mistake\nPlacing the known angle at the wrong vertex, so the two given sides do not meet at the correct angle.\n\n✅ Check\nMeasure sides $QR$, $PQ$ and angle $PQR$; they should be $5\\text{ cm}$, $7\\text{ cm}$ and $50^\\circ$."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-n6",
+      "heading": "Constructing a Triangle from ASA",
+      "body": "📌 Definition\nA triangle can be constructed when two angles and the side between them are known. This is called the ASA case: Angle-Side-Angle.\n\n🔑 Key Concept\nThe known side must lie between the two known angles. Draw the side first, then construct each angle at the two endpoints. The point where the new rays meet is the third vertex.\n\n💡 Worked Example\nConstruct triangle $XYZ$ with $XY = 6\\text{ cm}$, angle $YXZ = 40^\\circ$ and angle $XYZ = 70^\\circ$.\n\nStep 1: Draw side $XY = 6\\text{ cm}$.\nStep 2: At $X$, construct an angle of $40^\\circ$ and draw a ray.\nStep 3: At $Y$, construct an angle of $70^\\circ$ and draw a ray.\nStep 4: The point where the two rays cross is $Z$.\n\n📎 Key Points to Remember\n• The given side must be between the two given angles.\n• The third angle can be found because angles in a triangle add to $180^\\circ$.\n• The two new rays must cross to form the triangle.\n\n⚠️ Common Mistake\nDrawing the two given angles on the same side of the known side so that the rays diverge and never meet.\n\n✅ Check\nThe three angles should add to $180^\\circ$; here $40^\\circ + 70^\\circ + 70^\\circ = 180^\\circ$."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-n7",
+      "heading": "Simple Loci",
+      "body": "📌 Definition\nA locus (plural loci) is the set of all points that satisfy a given rule. It describes the path of a moving point.\n\n🔑 Key Concept\nRecognising the rule helps you name the locus:\n• Equidistant from a fixed point: a circle.\n• Equidistant from two fixed points: the perpendicular bisector of the segment joining them.\n• Equidistant from a straight line: two parallel lines, one on each side.\n• Equidistant from two intersecting lines: the pair of angle bisectors.\n\n💡 Worked Example\nDescribe the locus of points that are $3\\text{ cm}$ from point $O$.\n\nThe rule says the distance from the point to $O$ is always $3\\text{ cm}$. The locus is therefore a circle with centre $O$ and radius $3\\text{ cm}$.\n\n📎 Key Points to Remember\n• A locus is a path or set of points, not a single point.\n• Use a compass to draw circular loci.\n• Use perpendicular bisectors for two points and angle bisectors for two lines.\n\n⚠️ Common Mistake\nForgetting that the locus of points a fixed distance from a straight line is two parallel lines, one on each side of the line.\n\n✅ Check\nState the rule and then match it to one of the common loci."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-constructions-loci-cl-f1",
+      "term": "Compass",
+      "definition": "A mathematical instrument used to draw circles and arcs by keeping the radius fixed.",
+      "example": "Drawing the arcs needed to locate the third vertex of a triangle."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-f2",
+      "term": "Ruler (straightedge)",
+      "definition": "A tool for drawing straight line segments and measuring lengths.",
+      "example": "Joining two points after construction arcs have been drawn."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-f3",
+      "term": "Construction",
+      "definition": "An accurate drawing made using a ruler and compasses, leaving construction lines visible.",
+      "example": "Constructing a perpendicular bisector of a line segment."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-f4",
+      "term": "SSS triangle construction",
+      "definition": "Building a triangle when all three side lengths are known.",
+      "example": "A triangle with sides $5\\text{ cm}$, $6\\text{ cm}$ and $7\\text{ cm}$."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-f5",
+      "term": "SAS triangle construction",
+      "definition": "Building a triangle when two sides and the angle between them are known.",
+      "example": "$PQ = 7\\text{ cm}$, $QR = 5\\text{ cm}$ and angle $PQR = 50^\\circ$."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-f6",
+      "term": "ASA triangle construction",
+      "definition": "Building a triangle when two angles and the side between them are known.",
+      "example": "$XY = 6\\text{ cm}$, angle $YXZ = 40^\\circ$ and angle $XYZ = 70^\\circ$."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-f7",
+      "term": "Perpendicular bisector",
+      "definition": "A line that cuts a line segment in half and meets it at $90^\\circ$.",
+      "example": "The perpendicular bisector of $AB$ is the set of points equidistant from $A$ and $B$."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-f8",
+      "term": "Angle bisector",
+      "definition": "A line that splits an angle into two equal angles.",
+      "example": "A bisector of $80^\\circ$ creates two angles of $40^\\circ$."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-f9",
+      "term": "Perpendicular from a point to a line",
+      "definition": "The shortest line segment from a point to a line, meeting the line at $90^\\circ$.",
+      "example": "The distance from $P$ to line $AB$ is measured along the perpendicular."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-f10",
+      "term": "Equidistant",
+      "definition": "The same distance from two or more points, lines or shapes.",
+      "example": "Every point on a perpendicular bisector is equidistant from the segment's endpoints."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-f11",
+      "term": "Locus",
+      "definition": "The path or set of points that obey a given rule.",
+      "example": "A circle is the locus of points a fixed distance from a centre."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-f12",
+      "term": "Common loci",
+      "definition": "Standard paths: circle, perpendicular bisector, parallel lines and angle bisectors.",
+      "example": "The locus equidistant from two intersecting lines is a pair of angle bisectors."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-constructions-loci-cl-q1",
+      "stem": "Which information is needed to construct a unique triangle using the SSS method?",
+      "choices": [
+        "Three side lengths",
+        "Two sides and any angle",
+        "Two angles and any side",
+        "One side and one angle"
+      ],
+      "correctIndex": 0,
+      "explanation": "SSS needs the lengths of all three sides; these fix the triangle's size and shape uniquely."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q2",
+      "stem": "What is the first step in constructing the perpendicular bisector of a line segment?",
+      "choices": [
+        "Draw a line through the midpoint",
+        "Open the compass to more than half the segment length",
+        "Measure the angle with a protractor",
+        "Mark the endpoints with a ruler"
+      ],
+      "correctIndex": 1,
+      "explanation": "The compass must be wider than half the segment so the arcs from both endpoints intersect."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q3",
+      "stem": "A point lies on the perpendicular bisector of $AB$. Which statement is true?",
+      "choices": [
+        "It is closer to $A$ than to $B$",
+        "It is equidistant from $A$ and $B$",
+        "It is the midpoint of $AB$",
+        "It forms a right angle at $A$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Any point on the perpendicular bisector is the same distance from both endpoints of the segment."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q4",
+      "stem": "What does an angle bisector do?",
+      "choices": [
+        "Cuts the opposite side in half",
+        "Splits an angle into two equal angles",
+        "Makes a right angle with the vertex",
+        "Doubles the size of the angle"
+      ],
+      "correctIndex": 1,
+      "explanation": "An angle bisector divides the original angle into two congruent smaller angles."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q5",
+      "stem": "Which instrument is used to draw construction arcs and circles?",
+      "choices": [
+        "Ruler",
+        "Protractor",
+        "Compass",
+        "Calculator"
+      ],
+      "correctIndex": 2,
+      "explanation": "A compass keeps a fixed radius and is used to draw arcs and circles."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q6",
+      "stem": "Which locus is the set of points equidistant from a single fixed point?",
+      "choices": [
+        "A straight line",
+        "A perpendicular bisector",
+        "A circle",
+        "An angle bisector"
+      ],
+      "correctIndex": 2,
+      "explanation": "A circle is the path of all points at a fixed distance from its centre."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q7",
+      "stem": "Which locus is the set of points equidistant from two fixed points?",
+      "choices": [
+        "A circle around one point",
+        "An angle bisector",
+        "The perpendicular bisector of the segment joining them",
+        "A line parallel to the segment"
+      ],
+      "correctIndex": 2,
+      "explanation": "The perpendicular bisector contains all points that are the same distance from both endpoints."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q8",
+      "stem": "A point moves so that it is always the same distance from two intersecting lines. What is its locus?",
+      "choices": [
+        "A single straight line",
+        "A circle",
+        "A perpendicular bisector",
+        "The pair of angle bisectors"
+      ],
+      "correctIndex": 3,
+      "explanation": "The angle bisectors contain all points equidistant from the two lines; there are two bisectors for two intersecting lines."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q9",
+      "stem": "How is the shortest distance from a point to a straight line measured?",
+      "choices": [
+        "Along any slanted line to the line",
+        "Along the perpendicular from the point to the line",
+        "From the point to the nearest endpoint",
+        "By drawing a circle through the point"
+      ],
+      "correctIndex": 1,
+      "explanation": "The perpendicular segment from the point to the line is the shortest possible distance."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q10",
+      "stem": "A triangle is constructed from two sides and the included angle. Which method is being used?",
+      "choices": [
+        "SSS",
+        "ASA",
+        "SAS",
+        "AAA"
+      ],
+      "correctIndex": 2,
+      "explanation": "SAS stands for Side-Angle-Side, where the angle is between the two known sides."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q11",
+      "stem": "A triangle is constructed from two angles and the side between them. Which method is being used?",
+      "choices": [
+        "SAS",
+        "SSS",
+        "ASA",
+        "RHS"
+      ],
+      "correctIndex": 2,
+      "explanation": "ASA stands for Angle-Side-Angle, with the known side between the two known angles."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q12",
+      "stem": "A triangle has angles $40^\\circ$ and $70^\\circ$ and the side between them is $6\\text{ cm}$. What is the third angle?",
+      "choices": [
+        "$60^\\circ$",
+        "$70^\\circ$",
+        "$50^\\circ$",
+        "$110^\\circ$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The angles in a triangle add to $180^\\circ$, so the third angle is $180^\\circ - 40^\\circ - 70^\\circ = 70^\\circ$."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q13",
+      "stem": "A point moves so it is always $4\\text{ cm}$ from a straight line. What is its locus?",
+      "choices": [
+        "One line",
+        "A circle",
+        "Two parallel lines",
+        "A perpendicular bisector"
+      ],
+      "correctIndex": 2,
+      "explanation": "There are two lines, one on each side of the given line, each $4\\text{ cm}$ away from it."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q14",
+      "stem": "Which error makes an angle bisector construction inaccurate?",
+      "choices": [
+        "Drawing the first arc too large",
+        "Changing the compass width between the two inner arcs",
+        "Using a sharp pencil",
+        "Labelling the vertex clearly"
+      ],
+      "correctIndex": 1,
+      "explanation": "The two inner arcs must be drawn with the same radius so their crossing point is on the true bisector."
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q15",
+      "stem": "Why must construction arcs be left visible?",
+      "choices": [
+        "They make the diagram colourful",
+        "They show the method used to find the result",
+        "They hide mistakes",
+        "They are required only for circles"
+      ],
+      "correctIndex": 1,
+      "explanation": "Visible arcs allow the reader to see how the construction was done and are needed for method marks."
+    }
+  ]
+}

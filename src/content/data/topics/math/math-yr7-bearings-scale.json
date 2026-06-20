@@ -1,0 +1,299 @@
+{
+  "id": "math-yr7-bearings-scale",
+  "subjectId": "math",
+  "title": "Bearings & Scale Drawings",
+  "description": "Three-figure bearings, map scales, scale drawings and relating distances on a diagram to real distances.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr7-bearings-scale-bs-n1",
+      "heading": "What is a Bearing?",
+      "body": "📌 Definition\nA bearing is an angle used to describe direction. Bearings are measured clockwise from north and are always written using three figures, such as $045^\\circ$ or $270^\\circ$.\n\n🔑 Key Concept\nTo measure a bearing from point $A$ to point $B$:\n1. Stand at point $A$ and face north.\n2. Turn clockwise until you face point $B$.\n3. The angle turned is the bearing of $B$ from $A$.\n\nBecause bearings use three figures, $5^\\circ$ is written as $005^\\circ$, and $90^\\circ$ is written as $090^\\circ$.\n\n💡 Worked Example\nWhat is the three-figure bearing for due east?\n\nStep 1: Face north.\n\nStep 2: Turn clockwise through $90^\\circ$.\n\nStep 3: Write as $090^\\circ$.\n\n📎 Key Points to Remember\n• Bearings are always measured clockwise from north.\n• Bearings are always written as three digits.\n• North itself is $000^\\circ$.\n\n⚠️ Common Mistake\nWriting a bearing such as $45^\\circ$ instead of $045^\\circ$. Always include three figures, using leading zeros if necessary."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-n2",
+      "heading": "Compass Directions and Bearings",
+      "body": "📌 Definition\nCompass directions such as north (N), east (E), south (S) and west (W) describe the four main points of the compass. Bearings give a more precise clockwise angle from north.\n\n🔑 Key Concept\nThe main compass bearings are:\n• North: $000^\\circ$\n• East: $090^\\circ$\n• South: $180^\\circ$\n• West: $270^\\circ$\n\nIntermediate directions such as north-east lie halfway between two main points, so north-east is $045^\\circ$ and south-east is $135^\\circ$.\n\n💡 Worked Example\nGive the bearing for south-west.\n\nStep 1: South-west is halfway between south ($180^\\circ$) and west ($270^\\circ$).\n\nStep 2: Find the midpoint:\n$$\\frac{180^\\circ + 270^\\circ}{2} = 225^\\circ$$\n\nStep 3: Write the bearing as $225^\\circ$.\n\n✅ Check\nSouth-west should be between $180^\\circ$ and $270^\\circ$. Since $225^\\circ$ is exactly halfway, it is correct.\n\n📎 Key Points to Remember\n• North-east (NE) = $045^\\circ$\n• South-east (SE) = $135^\\circ$\n• South-west (SW) = $225^\\circ$\n• North-west (NW) = $315^\\circ$"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-n3",
+      "heading": "Map Scales as Ratios",
+      "body": "📌 Definition\nA map scale shows the relationship between a distance on a map and the corresponding real distance on the ground. Scales are often written as a ratio, such as $1 : 50\\,000$.\n\n🔑 How it works\nThe ratio $1 : 50\\,000$ means that $1$ unit on the map represents $50\\,000$ of the same units in real life. For example:\n• $1$ cm on the map = $50\\,000$ cm in real life\n• $1$ cm on the map = $500$ m in real life\n• $1$ cm on the map = $0.5$ km in real life\n\n💡 Worked Example\nA map has scale $1 : 25\\,000$. How many metres does $1$ cm on the map represent?\n\nStep 1: Interpret the ratio.\n$$1 \\text{ cm on map} = 25\\,000 \\text{ cm in real life}$$\n\nStep 2: Convert centimetres to metres.\n$$25\\,000 \\div 100 = 250 \\text{ m}$$\n\nSo $1$ cm on the map represents $250$ m.\n\n📎 Key Points to Remember\n• The first number in the ratio always refers to the map or drawing.\n• Convert units carefully: $100$ cm = $1$ m and $1\\,000$ m = $1$ km.\n• The ratio itself has no units.\n\n⚠️ Common Mistake\nForgetting to convert units. A scale of $1 : 100\\,000$ means $1$ cm represents $1$ km, not $100\\,000$ km."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-n4",
+      "heading": "Converting Map Distance to Real Distance",
+      "body": "📌 Definition\nTo find a real distance from a map distance, multiply the map distance by the scale factor and then convert to sensible units.\n\n🔑 How it works\nIf the scale is $1 : n$, then:\n$$\\text{real distance} = \\text{map distance} \\times n$$\n\nAlways make sure both distances are in the same units before comparing them.\n\n💡 Worked Example\nOn a map with scale $1 : 50\\,000$, two towns are $4$ cm apart. Find the real distance in kilometres.\n\nStep 1: Multiply by the scale factor.\n$$4 \\times 50\\,000 = 200\\,000 \\text{ cm}$$\n\nStep 2: Convert centimetres to kilometres.\n$$200\\,000 \\div 100 = 2\\,000 \\text{ m}$$\n$$2\\,000 \\div 1\\,000 = 2 \\text{ km}$$\n\nThe real distance is $2$ km.\n\n✅ Check\nUse a rough estimate. Since $1$ cm = $0.5$ km, $4$ cm should be about $2$ km. The answer is sensible.\n\n📎 Key Points to Remember\n• Map distance $\\times$ scale factor = real distance in the same unit.\n• Convert to metres or kilometres for final answers when appropriate.\n• A larger scale factor means a smaller area is shown in more detail."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-n5",
+      "heading": "Scale Drawings",
+      "body": "📌 Definition\nA scale drawing is a diagram of a real object that is made larger or smaller by a fixed ratio, while keeping all angles and proportions the same.\n\n🔑 Key Concept\nA scale such as $1 : 10$ means the drawing is $10$ times smaller than the real object. A scale such as $10 : 1$ means the drawing is $10$ times larger than the real object.\n\nIf the scale is $1 : k$, then:\n$$\\text{drawing length} = \\frac{\\text{real length}}{k}$$\n\n💡 Worked Example\nA model car is made using a scale of $1 : 24$. The real car is $4.8$ m long. How long is the model in centimetres?\n\nStep 1: Find the model length in metres.\n$$4.8 \\div 24 = 0.2 \\text{ m}$$\n\nStep 2: Convert to centimetres.\n$$0.2 \\times 100 = 20 \\text{ cm}$$\n\nThe model is $20$ cm long.\n\n📎 Key Points to Remember\n• A scale drawing keeps the same shape but changes the size.\n• The ratio tells you whether the drawing is smaller or larger than real life.\n• Always check the order of numbers in the ratio.\n\n⚠️ Common Mistake\nMixing up $1 : k$ and $k : 1$. If the object is smaller in the drawing, the first number must be smaller."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-n6",
+      "heading": "Bearings Combined with Distance",
+      "body": "📌 Definition\nMany problems combine bearings with distances. You may be asked to describe the position of one place relative to another using a bearing and a distance.\n\n🔑 How it works\nTo describe point $B$ from point $A$:\n1. Measure the bearing of $B$ from $A$ clockwise from north.\n2. Measure or calculate the distance between $A$ and $B$.\n3. State the answer as a bearing and a distance, for example: \"$B$ is $12$ km from $A$ on a bearing of $060^\\circ$.\"\n\n💡 Worked Example\nA ship sails $30$ km on a bearing of $090^\\circ$ from port $P$ to point $Q$. Describe the return journey from $Q$ to $P$.\n\nStep 1: Find the reverse bearing.\nThe return bearing is $180^\\circ$ different from the outward bearing:\n$$090^\\circ + 180^\\circ = 270^\\circ$$\n\nStep 2: State the distance.\nThe distance is the same, $30$ km.\n\nAnswer: The ship sails $30$ km on a bearing of $270^\\circ$.\n\n✅ Check\nA bearing plus or minus $180^\\circ$ points in the exact opposite direction. $270^\\circ$ is due west, which is opposite due east ($090^\\circ$).\n\n📎 Key Points to Remember\n• The reverse bearing is usually found by adding or subtracting $180^\\circ$.\n• If the original bearing is less than $180^\\circ$, add $180^\\circ$.\n• If the original bearing is greater than $180^\\circ$, subtract $180^\\circ$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-n7",
+      "heading": "Scale Drawings and Area",
+      "body": "📌 Definition\nWhen a shape is enlarged or reduced by a scale factor $k$, lengths are multiplied by $k$, but areas are multiplied by $k^2$. This is important when working with scale drawings of rooms, maps or models.\n\n🔑 Key Concept\nIf a drawing uses scale $1 : k$, then:\n$$\\text{real length} = k \\times \\text{drawing length}$$\n$$\\text{real area} = k^2 \\times \\text{drawing area}$$\n\nFor example, with scale $1 : 100$, a length is $100$ times larger in real life, but an area is $100^2 = 10\\,000$ times larger.\n\n💡 Worked Example\nA rectangular field is shown on a map with scale $1 : 5\\,000$. On the map the field measures $2$ cm by $3$ cm. Find the real area in square metres.\n\nStep 1: Find the real lengths.\n$$2 \\times 5\\,000 = 10\\,000 \\text{ cm} = 100 \\text{ m}$$\n$$3 \\times 5\\,000 = 15\\,000 \\text{ cm} = 150 \\text{ m}$$\n\nStep 2: Find the real area.\n$$100 \\times 150 = 15\\,000 \\text{ m}^2$$\n\nThe real area is $15\\,000$ m$^2$.\n\n⚠️ Common Mistake\nFinding the area on the map and then multiplying by the scale factor instead of by the scale factor squared. Always square the scale factor when working with area.\n\n✅ Check\nUsing the area formula directly gives the same result as squaring the scale factor."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-bearings-scale-bs-f1",
+      "term": "Bearing",
+      "definition": "An angle measured clockwise from north, written using three figures.",
+      "example": "$090^\\circ$ is the bearing for due east."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-f2",
+      "term": "Three-figure bearing",
+      "definition": "A bearing always written with three digits, using leading zeros if necessary.",
+      "example": "$5^\\circ$ is written as $005^\\circ$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-f3",
+      "term": "North bearing",
+      "definition": "The bearing for north is $000^\\circ$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-f4",
+      "term": "Reverse bearing",
+      "definition": "The bearing in the opposite direction, found by adding or subtracting $180^\\circ$.",
+      "example": "The reverse of $060^\\circ$ is $240^\\circ$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-f5",
+      "term": "Map scale",
+      "definition": "A ratio that compares a distance on a map to the corresponding real distance.",
+      "example": "$1 : 50\\,000$ means $1$ cm on the map is $50\\,000$ cm in real life."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-f6",
+      "term": "Scale factor",
+      "definition": "The number in a scale ratio that tells you how many times larger or smaller the real object is.",
+      "example": "In $1 : 100$, the scale factor is $100$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-f7",
+      "term": "Converting map distance to real distance",
+      "definition": "Multiply the map distance by the scale factor, then convert to sensible units.",
+      "example": "$4$ cm on a $1 : 50\\,000$ map is $4 \\times 50\\,000 = 200\\,000$ cm = $2$ km."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-f8",
+      "term": "Scale drawing",
+      "definition": "A diagram of a real object drawn larger or smaller by a fixed ratio while keeping the same shape.",
+      "example": "A $1 : 24$ model car is $\\frac{1}{24}$ of the real car's length."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-f9",
+      "term": "$1 : k$ scale",
+      "definition": "A scale where every unit on the drawing represents $k$ units in real life.",
+      "example": "$1 : 100$ means $1$ cm on the drawing is $100$ cm, or $1$ m, in real life."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-f10",
+      "term": "Area and scale",
+      "definition": "When lengths are scaled by a factor $k$, areas are scaled by $k^2$.",
+      "example": "With scale $1 : 100$, an area is $100^2 = 10\\,000$ times larger in real life."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-f11",
+      "term": "$k : 1$ scale",
+      "definition": "A scale where the drawing is larger than the real object, used for very small objects.",
+      "example": "$10 : 1$ means the drawing is $10$ times larger than real life."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-f12",
+      "term": "Bearing of $B$ from $A$",
+      "definition": "The clockwise angle measured at $A$, turning from north towards $B$.",
+      "example": "If $B$ is due south of $A$, the bearing of $B$ from $A$ is $180^\\circ$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-bearings-scale-bs-q1",
+      "stem": "Which of these is the correct three-figure bearing for due south?",
+      "choices": [
+        "$090^\\circ$",
+        "$180^\\circ$",
+        "$270^\\circ$",
+        "$360^\\circ$"
+      ],
+      "correctIndex": 1,
+      "explanation": "South is a half-turn clockwise from north, which is $180^\\circ$. It is already three figures, so it is written as $180^\\circ$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q2",
+      "stem": "What is $7^\\circ$ written as a three-figure bearing?",
+      "choices": [
+        "$007^\\circ$",
+        "$070^\\circ$",
+        "$700^\\circ$",
+        "$77^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Three-figure bearings use leading zeros. Therefore $7^\\circ$ is written as $007^\\circ$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q3",
+      "stem": "What is the bearing for north-west?",
+      "choices": [
+        "$045^\\circ$",
+        "$135^\\circ$",
+        "$225^\\circ$",
+        "$315^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "North-west is halfway between north ($000^\\circ$) and west ($270^\\circ$). The midpoint is $315^\\circ$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q4",
+      "stem": "A map has scale $1 : 25\\,000$. How many metres does $1$ cm on the map represent?",
+      "choices": [
+        "$25$ m",
+        "$250$ m",
+        "$2\\,500$ m",
+        "$25\\,000$ m"
+      ],
+      "correctIndex": 1,
+      "explanation": "$1$ cm represents $25\\,000$ cm. Converting to metres gives $25\\,000 \\div 100 = 250$ m."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q5",
+      "stem": "On a $1 : 50\\,000$ map, two villages are $3$ cm apart. What is the real distance in kilometres?",
+      "choices": [
+        "$0.15$ km",
+        "$1.5$ km",
+        "$15$ km",
+        "$150$ km"
+      ],
+      "correctIndex": 1,
+      "explanation": "$3 \\times 50\\,000 = 150\\,000$ cm. Converting to kilometres: $150\\,000 \\div 100\\,000 = 1.5$ km."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q6",
+      "stem": "A model is made with scale $1 : 20$. If the real object is $80$ cm long, how long is the model?",
+      "choices": [
+        "$4$ cm",
+        "$8$ cm",
+        "$16$ cm",
+        "$40$ cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "With scale $1 : 20$, the model is $\\frac{1}{20}$ of the real length. So $80 \\div 20 = 4$ cm."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q7",
+      "stem": "The bearing of point $B$ from point $A$ is $050^\\circ$. What is the bearing of $A$ from $B$?",
+      "choices": [
+        "$050^\\circ$",
+        "$130^\\circ$",
+        "$230^\\circ$",
+        "$310^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The reverse bearing is found by adding $180^\\circ$ because $050^\\circ$ is less than $180^\\circ$. So $050^\\circ + 180^\\circ = 230^\\circ$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q8",
+      "stem": "What is the bearing for south-east?",
+      "choices": [
+        "$045^\\circ$",
+        "$135^\\circ$",
+        "$225^\\circ$",
+        "$315^\\circ$"
+      ],
+      "correctIndex": 1,
+      "explanation": "South-east is halfway between south ($180^\\circ$) and east ($090^\\circ$). The midpoint is $135^\\circ$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q9",
+      "stem": "On a map, $2$ cm represents $1$ km. What is the scale written as a ratio?",
+      "choices": [
+        "$1 : 500$",
+        "$1 : 5\\,000$",
+        "$1 : 50\\,000$",
+        "$1 : 500\\,000$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$1$ km = $100\\,000$ cm. If $2$ cm represents $100\\,000$ cm, then $1$ cm represents $50\\,000$ cm, giving a scale of $1 : 50\\,000$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q10",
+      "stem": "A scale drawing uses scale $1 : 100$. A room is $5$ m by $8$ m in real life. What are its dimensions on the drawing?",
+      "choices": [
+        "$0.5$ cm by $0.8$ cm",
+        "$5$ cm by $8$ cm",
+        "$50$ cm by $80$ cm",
+        "$500$ cm by $800$ cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "With scale $1 : 100$, drawing lengths are $\\frac{1}{100}$ of real lengths. So $5$ m = $500$ cm becomes $5$ cm, and $8$ m = $800$ cm becomes $8$ cm."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q11",
+      "stem": "A field is drawn as a rectangle $2$ cm by $4$ cm using scale $1 : 5\\,000$. What is the real area in square metres?",
+      "choices": [
+        "$2\\,000$ m$^2$",
+        "$20\\,000$ m$^2$",
+        "$200\\,000$ m$^2$",
+        "$2\\,000\\,000$ m$^2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Real lengths are $2 \\times 5\\,000 = 10\\,000$ cm = $100$ m and $4 \\times 5\\,000 = 20\\,000$ cm = $200$ m. The real area is $100 \\times 200 = 20\\,000$ m$^2$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q12",
+      "stem": "The bearing of $P$ from $Q$ is $210^\\circ$. What is the bearing of $Q$ from $P$?",
+      "choices": [
+        "$030^\\circ$",
+        "$150^\\circ$",
+        "$210^\\circ$",
+        "$390^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The original bearing is greater than $180^\\circ$, so subtract $180^\\circ$. Thus $210^\\circ - 180^\\circ = 030^\\circ$."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q13",
+      "stem": "A map has scale $1 : 100\\,000$. How many kilometres does $1$ cm represent?",
+      "choices": [
+        "$0.1$ km",
+        "$1$ km",
+        "$10$ km",
+        "$100$ km"
+      ],
+      "correctIndex": 1,
+      "explanation": "$1$ cm represents $100\\,000$ cm. Since $100\\,000$ cm = $1$ km, the answer is $1$ km."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q14",
+      "stem": "A ship sails on a bearing of $120^\\circ$. In which compass direction is it heading most closely?",
+      "choices": [
+        "North-east",
+        "South-east",
+        "South-west",
+        "North-west"
+      ],
+      "correctIndex": 1,
+      "explanation": "$120^\\circ$ is between east ($090^\\circ$) and south ($180^\\circ$), so the ship is heading south-east."
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q15",
+      "stem": "A plan uses scale $1 : 200$. A garden measures $10$ m by $20$ m in real life. What is its area on the plan?",
+      "choices": [
+        "$5$ cm$^2$",
+        "$10$ cm$^2$",
+        "$25$ cm$^2$",
+        "$50$ cm$^2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Real dimensions convert to $10$ m = $1\\,000$ cm $\\rightarrow 1\\,000 \\div 200 = 5$ cm, and $20$ m = $2\\,000$ cm $\\rightarrow 2\\,000 \\div 200 = 10$ cm. The plan area is $5 \\times 10 = 50$ cm$^2$."
+    }
+  ]
+}
