@@ -24,6 +24,21 @@
       "id": "math-simultaneous-myp-sim-n4",
       "heading": "Forming Equations from Word Problems",
       "body": "Identify two unknowns (x, y) and translate each piece of information into an equation. Example: \"Two apples and three bananas cost £1.60; one apple and five bananas cost £2.00.\" → 2x+3y=1.60, x+5y=2.00. Solve and interpret in context."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-n5",
+      "heading": "📌 Definition",
+      "body": "A system of simultaneous linear equations is two or more linear equations that must be satisfied at the same time. A solution is an ordered pair $(x,y)$ that makes every equation in the system true."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-n6",
+      "heading": "🔑 How it works",
+      "body": "To solve a system, reduce it to one equation with one unknown. Use elimination when the coefficients of one variable are equal or opposite, or can be made so by multiplication. Use substitution when one equation already has a variable with coefficient $1$ or is easy to rearrange. After finding the first value, substitute back to find the second."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-n7",
+      "heading": "💡 Worked Example",
+      "body": "Solve $$\\begin{cases} 3x+2y=16 \\\\ 2x+3y=14 \\end{cases}$$.\n\nMultiply the first equation by $3$: $9x+6y=48$.\nMultiply the second equation by $2$: $4x+6y=28$.\nSubtract the new equations: $5x=20$, so $x=4$.\nSubstitute into the first original equation: $3(4)+2y=16$ → $12+2y=16$ → $y=2$.\nCheck in the second equation: $2(4)+3(2)=8+6=14$ ✓."
     }
   ],
   "flashcards": [
@@ -62,6 +77,42 @@
       "term": "Checking a solution",
       "definition": "Substitute x and y into BOTH original equations to verify.",
       "example": "x=2, y=3: 2(2)+3=7 ✓ and 2−3=−1 ✓."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-f7",
+      "term": "Infinitely many solutions",
+      "definition": "When two equations describe the same line, every point on the line is a solution.",
+      "example": "$2x+y=4$ and $4x+2y=8$ are multiples of each other, so they share every point."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-f8",
+      "term": "Coefficient",
+      "definition": "The numerical factor in front of a variable in a term.",
+      "example": "In $3x+2y=12$, the coefficient of $x$ is $3$ and of $y$ is $2$."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-f9",
+      "term": "Rearranging to slope-intercept form",
+      "definition": "Rewrite a linear equation as $y=mx+c$ to read the gradient and y-intercept quickly.",
+      "example": "$2x+y=5$ becomes $y=-2x+5$, so the gradient is $-2$ and the y-intercept is $5$."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-f10",
+      "term": "Choosing a method",
+      "definition": "Pick elimination when coefficients match easily after multiplication; pick substitution when a variable is isolated or has coefficient $1$.",
+      "example": "$x+3y=7$ and $2x-y=4$ suit substitution because $x$ has coefficient $1$."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-f11",
+      "term": "Consistent system",
+      "definition": "A system that has at least one solution — either one intersection point or infinitely many.",
+      "example": "$y=x+1$ and $y=2x-1$ meet at $(2,3)$, so the system is consistent."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-f12",
+      "term": "Checking in context",
+      "definition": "After solving a word problem, verify that your answer makes sense with the original wording and units.",
+      "example": "If $x=2$ adults and $y=3$ children pay $£9$ and $£5$ each, $2(9)+3(5)=33$ must match the total given in the problem."
     }
   ],
   "questions": [
@@ -184,6 +235,66 @@
       ],
       "correctIndex": 2,
       "explanation": "a+c=8, 9a+5c=56 → c=8−a → 9a+40−5a=56 → 4a=16 → a=4."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q11",
+      "stem": "Solve: $2x+3y=13$ and $5x-2y=4$.",
+      "choices": [
+        "x=1, y=3",
+        "x=2, y=3",
+        "x=3, y=2",
+        "x=2, y=4"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiply the first equation by $2$ and the second by $3$ to get $4x+6y=26$ and $15x-6y=12$. Adding gives $19x=38$, so $x=2$. Substitute into $2(2)+3y=13$ to get $y=3$."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q12",
+      "stem": "Solve by substitution: $y=2x+3$ and $4x-3y=1$.",
+      "choices": [
+        "x=-5, y=-7",
+        "x=-2, y=-1",
+        "x=1, y=5",
+        "x=2, y=7"
+      ],
+      "correctIndex": 0,
+      "explanation": "Replace $y$ with $2x+3$ in the second equation: $4x-3(2x+3)=1$. This simplifies to $-2x-9=1$, so $x=-5$. Then $y=2(-5)+3=-7$."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q13",
+      "stem": "Which pair of equations has no solution?",
+      "choices": [
+        "$y=3x+2$ and $y=3x-1$",
+        "$y=2x+1$ and $y=x+1$",
+        "$y=4x-3$ and $2y=8x-6$",
+        "$x+y=5$ and $2x+2y=10$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Parallel lines have the same gradient but different y-intercepts. $y=3x+2$ and $y=3x-1$ both have gradient $3$, so they never meet."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q14",
+      "stem": "Pens cost $£1.50$ and notebooks cost $£2.50$. Sarah buys 8 items for $£16.00$. How many notebooks?",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctIndex": 2,
+      "explanation": "Let $p$ be pens and $n$ be notebooks. Then $p+n=8$ and $1.5p+2.5n=16$. Substitute $p=8-n$ to get $1.5(8-n)+2.5n=16$ → $12+n=16$ → $n=4$."
+    },
+    {
+      "id": "math-simultaneous-myp-sim-q15",
+      "stem": "A system has infinitely many solutions. What must be true?",
+      "choices": [
+        "The lines have the same gradient and different y-intercepts.",
+        "The lines are perpendicular.",
+        "The lines have the same gradient and the same y-intercept.",
+        "The lines cross at exactly one point."
+      ],
+      "correctIndex": 2,
+      "explanation": "Infinitely many solutions occur when both equations describe exactly the same line, which means equal gradients and equal y-intercepts."
     }
   ]
 }

@@ -24,6 +24,21 @@
       "id": "math-inequalities-myp-ine-n4",
       "heading": "Graphical Inequalities",
       "body": "Draw the boundary line. Use solid if ≤ or ≥ (boundary included), dashed if < or > (boundary excluded). Test a point (e.g., (0,0)) to determine which side to shade. Multiple inequalities give a feasible region."
+    },
+    {
+      "id": "math-inequalities-myp-ine-n5",
+      "heading": "Rearranging Inequalities with Variables on Both Sides",
+      "body": "Solving inequalities with terms on both sides follows the same rules as equations, with extra care for negative coefficients.\n\n📌 Definition\nAn inequality with variables on both sides, such as $5x - 3 \\le 2x + 9$, still has a range of solutions rather than a single value.\n\n🔑 How it works\n1. Collect variable terms on one side and numbers on the other.\n2. If you multiply or divide by a negative number, reverse the inequality sign.\n3. Simplify to the form $x \\; \\text{symbol} \\; \\text{value}$.\n\n💡 Worked Example\nSolve $7 - 3x > 13$.\nSubtract 7: $-3x > 6$.\nDivide by $-3$ and reverse: $x < -2$.\n\n📎 Key Points to Remember\n• Treat $>$ and $<$ the same way as $=$ until the final step.\n• Only reverse the sign when multiplying or dividing by a negative.\n• A solution like $x < -2$ means every number less than $-2$ works, not just $-2$.\n\n⚠️ Common Mistake\nForgetting to reverse the sign when dividing by a negative. For example, $-4x \\ge 20$ becomes $x \\le -5$, not $x \\ge -5$."
+    },
+    {
+      "id": "math-inequalities-myp-ine-n6",
+      "heading": "Writing and Solving Word Problems",
+      "body": "Inequalities are used to describe real situations that involve a limit, minimum, or maximum.\n\n📌 Definition\nA word problem gives a relationship in words that can be translated into an inequality using phrases such as 'at least' ($\\ge$), 'at most' ($\\le$), 'more than' ($>$), and 'fewer than' ($<$).\n\n🔑 How it works\n1. Choose a variable for the unknown quantity.\n2. Translate the words into symbols.\n3. Solve the inequality.\n4. Interpret the answer in context.\n\n💡 Worked Example\nA taxi charges a $£3$ booking fee plus $£2$ per mile. You have at most $£25$. How many miles can you travel?\nLet $m$ be the number of miles.\n$$3 + 2m \\le 25$$\n$$2m \\le 22$$\n$$m \\le 11$$\nYou can travel at most $11$ miles.\n\n📎 Key Points to Remember\n• 'At most' and 'no more than' mean $\\le$.\n• 'At least' and 'no less than' mean $\\ge$.\n• The final answer should be given in a sentence, not just as $x \\le \\dots$.\n\n⚠️ Common Mistake\nUsing $<$ instead of $\\le$ when the phrase includes 'or equal to', such as 'at most 12'."
+    },
+    {
+      "id": "math-inequalities-myp-ine-n7",
+      "heading": "Special Solution Sets",
+      "body": "Some inequalities simplify to statements that are always true or always false.\n\n📌 Definition\nThe solution set of an inequality is the collection of all values that make it true. It can be all real numbers, no real numbers, or a bounded interval.\n\n🔑 How it works\nIf the variable disappears:\n• A true statement, such as $5 > 2$, means the solution is all real numbers.\n• A false statement, such as $3 < 1$, means there is no solution.\n\n💡 Worked Example\nSolve $2x + 4 < 2x + 10$.\nSubtract $2x$: $4 < 10$.\nThis is always true, so the solution is all real numbers.\n\n📎 Key Points to Remember\n• $x > x$ has no solution.\n• $x \\le x$ is true for all real numbers.\n• On a number line, all real numbers is drawn as the entire line.\n\n✅ Check\nSubstitute any value into the original inequality. If the variable has disappeared and the statement is true, every value works."
     }
   ],
   "flashcards": [
@@ -62,6 +77,42 @@
       "term": "Boundary line",
       "definition": "The line forming the edge of a shaded region. Solid if included (≤, ≥); dashed if not (< or >).",
       "example": "y ≤ 2x+1 has a solid line."
+    },
+    {
+      "id": "math-inequalities-myp-ine-f7",
+      "term": "Solution set",
+      "definition": "All values of the variable that make an inequality true.",
+      "example": "The solution set of $x > 2$ is every real number greater than 2."
+    },
+    {
+      "id": "math-inequalities-myp-ine-f8",
+      "term": "All real numbers",
+      "definition": "The solution of an inequality that is always true after simplification.",
+      "example": "$2x < 2x + 5$ simplifies to $0 < 5$, true for all $x$."
+    },
+    {
+      "id": "math-inequalities-myp-ine-f9",
+      "term": "No solution",
+      "definition": "The result when an inequality simplifies to a false statement.",
+      "example": "$x + 3 > x + 5$ simplifies to $3 > 5$, which is impossible."
+    },
+    {
+      "id": "math-inequalities-myp-ine-f10",
+      "term": "Test point",
+      "definition": "A chosen point used to decide which side of a boundary line to shade.",
+      "example": "For $y > x + 1$, testing $(0,0)$ gives $0 > 1$, false, so shade the other side."
+    },
+    {
+      "id": "math-inequalities-myp-ine-f11",
+      "term": "'At most'",
+      "definition": "A phrase meaning the maximum value is included; translates to $\\le$.",
+      "example": "'At most 8 items' → $n \\le 8$."
+    },
+    {
+      "id": "math-inequalities-myp-ine-f12",
+      "term": "Feasible region",
+      "definition": "The area on a graph where all given inequalities are satisfied at the same time.",
+      "example": "The overlap of $y \\le x + 2$ and $y > 1$."
     }
   ],
   "questions": [
@@ -184,6 +235,66 @@
       ],
       "correctIndex": 1,
       "explanation": "Strict (>) → dashed boundary; y > = shade above the line."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q11",
+      "stem": "Solve: $3(2x - 1) \\le 4x + 7$.",
+      "choices": [
+        "$x \\le 5$",
+        "$x \\le 2$",
+        "$x \\ge 5$",
+        "$x \\ge 2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Expand: $6x - 3 \\le 4x + 7$. Subtract $4x$: $2x - 3 \\le 7$. Add 3: $2x \\le 10$. Divide by 2: $x \\le 5$."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q12",
+      "stem": "A child needs at least 8 correct answers to pass a quiz of 20 questions. They already have 5 correct. How many more questions must they answer correctly?",
+      "choices": [
+        "at least 2",
+        "at least 3",
+        "at most 3",
+        "exactly 3"
+      ],
+      "correctIndex": 1,
+      "explanation": "Let $q$ be extra correct answers. Then $5 + q \\ge 8$, so $q \\ge 3$. The child needs at least 3 more correct answers."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q13",
+      "stem": "Which point satisfies $y < 2x - 1$?",
+      "choices": [
+        "$(0, 0)$",
+        "$(1, 2)$",
+        "$(2, 1)$",
+        "$(3, 6)$"
+      ],
+      "correctIndex": 2,
+      "explanation": "For $(2,1)$: $1 < 2(2) - 1 = 3$, which is true. The other points do not satisfy the inequality."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q14",
+      "stem": "Solve: $\\frac{x}{3} + 2 > 5$.",
+      "choices": [
+        "$x > 9$",
+        "$x > 7$",
+        "$x < 9$",
+        "$x < 7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 2: $\\frac{x}{3} > 3$. Multiply both sides by 3: $x > 9$."
+    },
+    {
+      "id": "math-inequalities-myp-ine-q15",
+      "stem": "The solution set of $4x - 5 \\ge 4x + 1$ is:",
+      "choices": [
+        "all real numbers",
+        "$x \\ge 6$",
+        "$x \\le -6$",
+        "no solution"
+      ],
+      "correctIndex": 3,
+      "explanation": "Subtract $4x$ from both sides: $-5 \\ge 1$, which is false. Therefore the inequality has no solution."
     }
   ]
 }
