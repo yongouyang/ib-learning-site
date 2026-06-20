@@ -32,11 +32,11 @@
     <text x="10" y="108" class="sublabel" fill="#dc2626">✗ Radioactive waste · Accident risk · Decommissioning cost</text>
 
     <!-- Summary -->
-    <rect x="0" y="125" width="340" height="55" rx="6" fill="#f3f4f6"/>
-    <text x="10" y="18" class="label" fill="#dc2626">Disadvantages</text>
-    <text x="10" y="34" class="sublabel">• Will eventually run out (finite)</text>
-    <text x="10" y="48" class="sublabel">• Produce greenhouse gases (except nuclear)</text>
-    <text x="10" y="62" class="sublabel">• Environmental damage from extraction</text>
+    <rect x="0" y="112" width="340" height="70" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="130" class="label" fill="#dc2626">Disadvantages</text>
+    <text x="10" y="148" class="sublabel">• Will eventually run out (finite)</text>
+    <text x="10" y="166" class="sublabel">• Produce greenhouse gases (except nuclear)</text>
+    <text x="10" y="184" class="sublabel">• Environmental damage from extraction</text>
   </g>
 
   <!-- Renewable column -->
@@ -51,17 +51,17 @@
     <rect x="0" y="36" width="340" height="30" rx="6" fill="#f0fdf4"/>
     <text x="10" y="56" class="label">Hydroelectric · Geothermal · Biomass</text>
 
-    <rect x="0" y="75" width="170" height="55" rx="6" fill="#f3f4f6"/>
-    <text x="10" y="18" class="label" fill="#22c55e">Advantages</text>
-    <text x="10" y="34" class="sublabel">• Won't run out</text>
-    <text x="10" y="48" class="sublabel">• Low/no CO₂ (except biomass)</text>
-    <text x="10" y="62" class="sublabel">• Energy security</text>
+    <rect x="0" y="60" width="165" height="72" rx="6" fill="#f3f4f6"/>
+    <text x="10" y="78" class="label" fill="#22c55e">Advantages</text>
+    <text x="10" y="96" class="sublabel">• Won't run out</text>
+    <text x="10" y="112" class="sublabel">• Low/no CO₂ (except biomass)</text>
+    <text x="10" y="128" class="sublabel">• Energy security</text>
 
-    <rect x="180" y="75" width="160" height="55" rx="6" fill="#fff1f2"/>
-    <text x="10" y="18" class="label" fill="#dc2626">Disadvantages</text>
-    <text x="10" y="34" class="sublabel" fill="#dc2626">• Weather-dependent</text>
-    <text x="10" y="48" class="sublabel" fill="#dc2626">• High initial cost</text>
-    <text x="10" y="62" class="sublabel" fill="#dc2626">• Visual/noise impact</text>
+    <rect x="175" y="60" width="165" height="72" rx="6" fill="#fff1f2"/>
+    <text x="185" y="78" class="label" fill="#dc2626">Disadvantages</text>
+    <text x="185" y="96" class="sublabel" fill="#dc2626">• Weather-dependent</text>
+    <text x="185" y="112" class="sublabel" fill="#dc2626">• High initial cost</text>
+    <text x="185" y="128" class="sublabel" fill="#dc2626">• Visual/noise impact</text>
   </g>
 
   <!-- Energy comparison -->

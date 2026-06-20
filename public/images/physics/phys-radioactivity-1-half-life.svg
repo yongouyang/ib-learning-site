@@ -27,7 +27,7 @@
   <circle cx="240" cy="70" r="4" fill="#ef4444"/>
   <line x1="240" y1="70" x2="240" y2="180" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
   <text x="240" y="195" text-anchor="middle" class="s" fill="#dc2626">3×t½</text>
-  <text x="200" y="215" text-anchor="middle" class="l" fill="#dc2626">After 1 half-life: 50% remains. After 2: 25% · After 3: 12.5%</text></g>
+  <text x="200" y="175" text-anchor="middle" class="l" fill="#dc2626">After 1 half-life: 50% remains. After 2: 25% · After 3: 12.5%</text></g>
   <rect x="540" y="0" width="240" height="260" rx="10" class="b"/><text x="660" y="25" text-anchor="middle" class="l">What is Half-Life?</text>
   <g transform="translate(560,40)"><rect x="0" y="0" width="200" height="200" rx="6" fill="#fef2f2"/>
   <text x="10" y="22" class="l">Half-life (t½) = time taken for:</text>
@@ -38,5 +38,5 @@
   <text x="10" y="136" class="s">• Uranium-238: 4.5 billion years</text>
   <text x="10" y="158" class="s">• Radon-222: 3.8 days</text>
   <text x="10" y="180" class="s">• Technetium-99m: 6 hours (medical!)</text></g>
-  <rect x="20" y="278" width="760" height="35" rx="8" class="b"/><text x="400" y="300" text-anchor="middle" class="s">Half-life is used in carbon dating (archaeology), medical tracers (short half-life), and nuclear waste storage (long half-life needs isolation for thousands of years).</text></g>
+  <rect x="20" y="245" width="760" height="30" rx="8" class="b"/><text x="400" y="260" text-anchor="middle" class="s">Half-life is used in carbon dating, medical tracers, and nuclear waste storage.</text></g>
 </svg>

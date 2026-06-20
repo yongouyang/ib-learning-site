@@ -28,9 +28,11 @@
   <g transform="translate(580,40)"><text x="0" y="18" class="s">• Requires neutron to trigger</text>
   <text x="0" y="38" class="s">• One fission releases 200 MeV</text>
   <text x="0" y="58" class="s">• (Chemical reaction: ~few eV!)</text>
-  <text x="0" y="82" class="s">• Chain reaction controlled by control rods (absorb neutrons)</text>
-  <text x="0" y="106" class="s">• Nuclear power stations use controlled fission</text>
-  <text x="0" y="130" class="s">• Atomic bombs use uncontrolled chain reaction</text>
-  <text x="0" y="158" class="s">• Waste products are radioactive</text></g>
-  <rect x="20" y="278" width="760" height="35" rx="8" class="b"/><text x="400" y="300" text-anchor="middle" class="s">Fission splits a large nucleus into smaller ones, releasing energy + neutrons. These neutrons can trigger further fissions — a self-sustaining chain reaction.</text></g>
+  <text x="0" y="80" class="s">• Chain reaction controlled by</text>
+  <text x="0" y="94" class="s">  control rods (absorb neutrons)</text>
+  <text x="0" y="116" class="s">• Nuclear power: controlled fission</text>
+  <text x="0" y="138" class="s">• Atomic bombs: uncontrolled chain</text>
+  <text x="0" y="156" class="s">  reaction</text>
+  <text x="0" y="178" class="s">• Waste products are radioactive</text></g>
+  <rect x="20" y="248" width="760" height="40" rx="8" class="b"/><text x="400" y="268" text-anchor="middle" class="s">Fission splits a large nucleus into smaller ones, releasing energy + neutrons.</text><text x="400" y="284" text-anchor="middle" class="s">These neutrons can trigger further fissions — a self-sustaining chain reaction.</text></g>
 </svg>

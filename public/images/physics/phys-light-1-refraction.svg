@@ -49,7 +49,7 @@
 
     <text x="130" y="88" class="sublabel" fill="#dc2626">Air (faster)</text>
     <text x="330" y="48" class="sublabel" fill="#dc2626">Air (faster)</text>
-    <text x="310" y="170" class="sublabel" fill="#f97316">Light bends towards the normal in denser media</text>
+    <text x="50" y="190" class="sublabel" fill="#f97316">Light bends towards the normal in denser media</text>
   </g>
 
   <!-- Snell's Law panel -->
@@ -72,7 +72,7 @@
     <text x="10" y="178" class="sublabel">i = 0 → no bending (straight through)</text>
   </g>
 
-  <rect x="20" y="285" width="760" height="40" rx="8" class="box"/>
+  <rect x="20" y="285" width="760" height="45" rx="8" class="box"/>
   <text x="400" y="305" text-anchor="middle" class="label">Refraction occurs because light changes speed in different media</text>
-  <text x="400" y="320" text-anchor="middle" class="sublabel">Slower in glass/water → bends towards normal. Faster in air → bends away from normal. Explains why objects appear bent in water!</text>
+  <text x="400" y="325" text-anchor="middle" class="sublabel">Slower in glass/water → bends towards normal. Faster in air → bends away from normal. Explains why objects appear bent in water!</text>
 </svg>

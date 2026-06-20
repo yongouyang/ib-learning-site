@@ -40,10 +40,10 @@
     <text x="195" y="48" class="sublabel" fill="#3b82f6">Amplitude (A)</text>
 
     <!-- Wavelength arrow -->
-    <line x1="40" y1="-30" x2="200" y2="-30" stroke="#dc2626" stroke-width="1.5"/>
-    <line x1="40" y1="-35" x2="40" y2="-25" stroke="#dc2626" stroke-width="1"/>
-    <line x1="200" y1="-35" x2="200" y2="-25" stroke="#dc2626" stroke-width="1"/>
-    <text x="120" y="-38" text-anchor="middle" class="sublabel" fill="#dc2626">Wavelength (λ)</text>
+    <line x1="40" y1="-45" x2="200" y2="-45" stroke="#dc2626" stroke-width="1.5"/>
+    <line x1="40" y1="-50" x2="40" y2="-40" stroke="#dc2626" stroke-width="1"/>
+    <line x1="200" y1="-50" x2="200" y2="-40" stroke="#dc2626" stroke-width="1"/>
+    <text x="120" y="-58" text-anchor="middle" class="sublabel" fill="#dc2626">Wavelength (λ)</text>
 
     <!-- Oscillation direction -->
     <line x1="350" y1="80" x2="350" y2="0" stroke="#dc2626" stroke-width="1.5" marker-end="url(#aU)"/>

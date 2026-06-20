@@ -34,11 +34,11 @@
 
     <!-- Stationary (horizontal) -->
     <line x1="80" y1="35" x2="120" y2="35" stroke="#3b82f6" stroke-width="3"/>
-    <text x="88" y="28" class="sublabel" fill="#3b82f6">Stationary</text>
+    <text x="88" y="48" class="sublabel" fill="#3b82f6">Stationary</text>
 
     <!-- Acceleration (curving up) -->
     <path d="M120,35 Q150,50 160,10" class="plot"/>
-    <text x="125" y="18" class="sublabel" fill="#dc2626">Acceleration</text>
+    <text x="125" y="10" class="sublabel" fill="#dc2626">Acceleration</text>
 
     <text x="80" y="156" text-anchor="middle" class="sublabel" fill="#374151">Time</text>
     <text x="-5" y="72" text-anchor="end" class="sublabel" fill="#374151">Distance</text>
@@ -67,7 +67,7 @@
 
     <!-- Constant velocity again -->
     <line x1="110" y1="10" x2="140" y2="10" stroke="#3b82f6" stroke-width="3"/>
-    <text x="118" y="5" class="sublabel" fill="#3b82f6">Constant v</text>
+    <text x="118" y="48" class="sublabel" fill="#3b82f6">Constant v</text>
 
     <!-- Deceleration (slope down) -->
     <line x1="140" y1="10" x2="160" y2="140" stroke="#22c55e" stroke-width="3"/>

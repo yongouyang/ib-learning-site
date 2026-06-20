@@ -1,0 +1,230 @@
+{
+  "id": "math-dp-graph-theory",
+  "subjectId": "math",
+  "title": "Graph Theory",
+  "description": "Vertices, edges, adjacency matrices, Eulerian and Hamiltonian paths, minimum spanning trees, shortest paths, and routing problems.",
+  "ibLevel": "DP",
+  "notes": [
+    {
+      "id": "math-dp-graph-theory-n1",
+      "heading": "Introduction to Graphs",
+      "body": "A graph is a mathematical structure made of points (vertices) joined by lines (edges). Graphs model networks such as roads, social media, or computer cables.\n\n📌 Key Definitions\n• A **vertex** (or node) is a point in a graph.\n• An **edge** is a line that joins two vertices.\n• The **order** of a graph is its number of vertices.\n• The **size** of a graph is its number of edges.\n\n📌 Types of Graphs\n• **Undirected graph**: edges have no direction; they can be travelled both ways.\n• **Directed graph (digraph)**: each edge has an arrow showing its direction.\n• **Weighted graph**: each edge has a number (weight) representing cost, distance, or time.\n• **Unweighted graph**: all edges are treated equally.\n\n💡 Worked Example — Counting Vertices and Edges\nConsider a graph with vertices $A, B, C, D$ and edges $AB, BC, CD, DA, AC$.\n\n  Order = number of vertices = $4$\\\n  Size = number of edges = $5$\n\n📎 Key Points to Remember\n• A graph can be drawn in many ways; only the connections matter, not the exact positions.\n• An edge that starts and ends at the same vertex is called a **loop**.\n• Two edges joining the same pair of vertices are called **multiple edges**; a graph with no loops or multiple edges is **simple**."
+    },
+    {
+      "id": "math-dp-graph-theory-n2",
+      "heading": "Degrees, Adjacency Matrices & the Handshaking Lemma",
+      "body": "The degree of a vertex tells you how many connections it has. Degrees reveal important global properties of a graph through the handshaking lemma.\n\n📌 Degree of a Vertex\nThe **degree** of a vertex, written $\\deg(v)$, is the number of edges incident to it.\n• In a directed graph we use **in-degree** (arrows in) and **out-degree** (arrows out).\n\n📌 Handshaking Lemma\nFor any undirected graph:\n    $$\\sum \\deg(v) = 2|E|$$\nwhere $|E|$ is the number of edges.\n\nThis means the sum of all degrees is always even, so the number of vertices with odd degree must be even.\n\n🔑 Adjacency Matrix\nAn adjacency matrix $A$ for a graph with $n$ vertices is an $n \\times n$ table where:\n    $$A_{ij} = \\text{number of edges from vertex } i \\text{ to vertex } j$$\n\nFor an undirected graph without loops, the matrix is symmetric and the diagonal entries are $0$.\n\n💡 Worked Example — Handshaking Lemma\nA graph has degrees $3, 3, 2, 2, 2$. Find the number of edges.\n\n  Sum of degrees = $3 + 3 + 2 + 2 + 2 = 12$\\\n  Using the lemma: $2|E| = 12$, so $|E| = 6$.\n\n⚠️ Common Mistake\nDo not divide the degree sum by $2$ twice. The lemma already tells you that the degree sum equals $2 \\times |E|$, so divide by $2$ once to get $|E|$."
+    },
+    {
+      "id": "math-dp-graph-theory-n3",
+      "heading": "Walks, Trails, Paths & Cycles",
+      "body": "Moving through a graph uses special vocabulary. The key difference is whether vertices or edges are allowed to repeat.\n\n📌 Definitions\n• **Walk**: a sequence of vertices connected by edges; vertices and edges may repeat.\n• **Trail**: a walk with no repeated edges; vertices may repeat.\n• **Path**: a walk with no repeated vertices (and therefore no repeated edges).\n• **Cycle**: a path that starts and ends at the same vertex.\n\n📌 Connected Graphs\nA graph is **connected** if there is a path between every pair of vertices. A **tree** is a connected graph with no cycles; a tree with $n$ vertices always has $n - 1$ edges.\n\n🔑 Eulerian Trails and Circuits\nAn **Eulerian trail** uses every edge exactly once.\n• A connected graph has an Eulerian **circuit** (starts and ends at the same vertex) if and only if every vertex has even degree.\n• A connected graph has an Eulerian **trail** (starts and ends at different vertices) if and only if exactly two vertices have odd degree.\n\n🔑 Hamiltonian Paths and Cycles\nA **Hamiltonian cycle** visits every vertex exactly once and returns to the start. A **Hamiltonian path** visits every vertex exactly once but does not return.\n\nUnlike Eulerian trails, there is no simple rule for Hamiltonian cycles — you usually test by inspection or use known theorems.\n\n💡 Worked Example — Eulerian Trail Test\nA connected graph has degrees $2, 3, 3, 4, 4$. Does it have an Eulerian trail?\n\n  Odd-degree vertices = $2$ (the two vertices of degree $3$).\\\n  Therefore an Eulerian trail exists, starting at one odd vertex and ending at the other."
+    },
+    {
+      "id": "math-dp-graph-theory-n4",
+      "heading": "Minimum Spanning Trees & Shortest Paths",
+      "body": "Many real problems ask for the cheapest or shortest network. Two classic algorithms solve these: Kruskal's and Prim's for minimum spanning trees, and Dijkstra's for shortest paths.\n\n📌 Minimum Spanning Tree (MST)\nA **spanning tree** connects all vertices of a weighted graph with no cycles. The **minimum spanning tree** is the spanning tree with the smallest total edge weight.\n\n🔑 Kruskal's Algorithm\n1. List all edges in order of increasing weight.\n2. Add the smallest edge that does not create a cycle.\n3. Repeat until all vertices are connected.\n\n🔑 Prim's Algorithm\n1. Start from any vertex.\n2. Add the cheapest edge that joins a connected vertex to an unconnected vertex.\n3. Repeat until all vertices are included.\n\nBoth algorithms always produce an MST, though they may choose different edges when weights are equal.\n\n🔑 Dijkstra's Algorithm\nUsed to find the shortest path from a start vertex to all other vertices in a weighted graph with non-negative edges.\n1. Label the start vertex with distance $0$ and all others with $\\infty$.\n2. Visit the unvisited vertex with the smallest label.\n3. Update the labels of its neighbours if a shorter route is found.\n4. Repeat until the destination is visited.\n\n💡 Worked Example — Kruskal's First Step\nEdges with weights: $AB=2$, $BC=3$, $CD=4$, $AD=5$, $AC=6$.\n\n  Kruskal's selects $AB$ first (weight $2$), then $BC$ (weight $3$), then $CD$ (weight $4$).\\\n  Edge $AC$ (weight $6$) is skipped because it would create cycle $A \\to B \\to C \\to A$.\n\n📎 Key Points to Remember\n• MST algorithms work on connected, weighted graphs.\n• Dijkstra's algorithm fails if edge weights are negative; use other methods for negative weights."
+    },
+    {
+      "id": "math-dp-graph-theory-n5",
+      "heading": "Routing Problems: Chinese Postman & Travelling Salesman",
+      "body": "Two famous optimisation problems ask you to travel along or visit every part of a network as efficiently as possible.\n\n📌 Chinese Postman Problem (Route Inspection)\nFind the shortest route that uses every edge at least once and returns to the start.\n\n🔑 Solution Method\n1. Identify all vertices with odd degree.\n2. If there are none, an Eulerian circuit exists and the total weight of all edges is the answer.\n3. If there are odd vertices, pair them up so that the total added weight of the pairing paths is minimised.\n4. Double the edges along those pairing paths and find an Eulerian circuit.\n\n📌 Travelling Salesman Problem (TSP)\nFind the shortest cycle that visits every vertex exactly once and returns to the start.\n\n🔑 Solving TSP\n• For small graphs, list all possible Hamiltonian cycles and choose the cheapest.\n• For larger graphs, exact methods are slow; heuristic methods such as nearest neighbour give approximate answers.\n\n💡 Worked Example — Chinese Postman Pairing\nA graph has odd-degree vertices $A, B, C, D$. The shortest paths between them are $AB=3$, $CD=2$, $AC=5$, $BD=4$, $AD=6$, $BC=5$.\n\n  Possible pairings:\n  • $AB + CD = 3 + 2 = 5$\\\n  • $AC + BD = 5 + 4 = 9$\\\n  • $AD + BC = 6 + 5 = 11$\\\n  Best pairing is $AB$ and $CD$, adding $5$ to the total route length.\n\n⚠️ Common Mistake\nDo not confuse the Chinese Postman Problem (covers every **edge**) with the Travelling Salesman Problem (visits every **vertex**)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-graph-theory-f1",
+      "term": "Vertex and edge",
+      "definition": "A vertex is a point (node) in a graph; an edge is a line joining two vertices.",
+      "example": "In a road network, intersections are vertices and roads are edges."
+    },
+    {
+      "id": "math-dp-graph-theory-f2",
+      "term": "Weighted graph",
+      "definition": "A graph in which each edge is assigned a numerical weight, such as distance, cost, or time.",
+      "example": "A flight network where each route has a price or duration."
+    },
+    {
+      "id": "math-dp-graph-theory-f3",
+      "term": "Directed graph",
+      "definition": "A graph where each edge has a direction, shown by an arrow.",
+      "example": "A one-way street map is a directed graph."
+    },
+    {
+      "id": "math-dp-graph-theory-f4",
+      "term": "Degree of a vertex",
+      "definition": "The number of edges incident to a vertex. For directed graphs, split into in-degree and out-degree.",
+      "example": "If a vertex has edges $AB, BC, BD$, then $\\deg(B) = 3$."
+    },
+    {
+      "id": "math-dp-graph-theory-f5",
+      "term": "Handshaking lemma",
+      "definition": "The sum of all vertex degrees equals twice the number of edges: $\\sum \\deg(v) = 2|E|$.",
+      "example": "A graph with degree sum $20$ has $10$ edges."
+    },
+    {
+      "id": "math-dp-graph-theory-f6",
+      "term": "Simple graph",
+      "definition": "A graph with no loops and no multiple edges between the same pair of vertices.",
+      "example": "A triangle $K_3$ is a simple graph with $3$ vertices and $3$ edges."
+    },
+    {
+      "id": "math-dp-graph-theory-f7",
+      "term": "Complete graph $K_n$",
+      "definition": "A simple graph in which every pair of distinct vertices is joined by exactly one edge.",
+      "example": "$K_4$ has $6$ edges; in general $K_n$ has $\\frac{n(n-1)}{2}$ edges."
+    },
+    {
+      "id": "math-dp-graph-theory-f8",
+      "term": "Tree",
+      "definition": "A connected graph with no cycles. A tree with $n$ vertices has exactly $n - 1$ edges.",
+      "example": "A family tree diagram with no loops."
+    },
+    {
+      "id": "math-dp-graph-theory-f9",
+      "term": "Eulerian trail",
+      "definition": "A trail that uses every edge of a graph exactly once. It exists when exactly zero or two vertices have odd degree.",
+      "example": "A route that drives down every street exactly once."
+    },
+    {
+      "id": "math-dp-graph-theory-f10",
+      "term": "Hamiltonian cycle",
+      "definition": "A cycle that visits every vertex exactly once and returns to the start.",
+      "example": "A delivery route that stops at every city once before returning home."
+    },
+    {
+      "id": "math-dp-graph-theory-f11",
+      "term": "Minimum spanning tree (MST)",
+      "definition": "A spanning tree of a weighted graph with the smallest possible total edge weight.",
+      "example": "The cheapest set of cables connecting all buildings in a campus."
+    },
+    {
+      "id": "math-dp-graph-theory-f12",
+      "term": "Dijkstra's algorithm",
+      "definition": "An algorithm that finds the shortest path from a start vertex to all other vertices in a weighted graph with non-negative edges.",
+      "example": "GPS navigation finding the fastest driving route."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-graph-theory-q1",
+      "stem": "In graph theory, what is the correct definition of an edge?",
+      "choices": [
+        "A point or node in a graph",
+        "A line joining two vertices",
+        "The weight assigned to a vertex",
+        "A loop that starts and ends at different vertices"
+      ],
+      "correctIndex": 1,
+      "explanation": "An edge is a line (or arc) that joins two vertices. A vertex is a point, a weight is a number on an edge, and a loop starts and ends at the same vertex."
+    },
+    {
+      "id": "math-dp-graph-theory-q2",
+      "stem": "A graph has degrees $2, 4, 3, 3, 2, 2$. How many edges does it have?",
+      "choices": [
+        "$8$",
+        "$16$",
+        "$10$",
+        "$12$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sum of degrees = $2 + 4 + 3 + 3 + 2 + 2 = 16$. By the handshaking lemma, $2|E| = 16$, so $|E| = 8$."
+    },
+    {
+      "id": "math-dp-graph-theory-q3",
+      "stem": "Which condition guarantees that a connected graph has an Eulerian circuit?",
+      "choices": [
+        "Exactly two vertices have odd degree",
+        "Every vertex has even degree",
+        "The graph has no cycles",
+        "The graph is a complete graph"
+      ],
+      "correctIndex": 1,
+      "explanation": "A connected graph has an Eulerian circuit if and only if every vertex has even degree. Exactly two odd degrees gives an Eulerian trail, not a circuit."
+    },
+    {
+      "id": "math-dp-graph-theory-q4",
+      "stem": "How many edges does the complete graph $K_5$ have?",
+      "choices": [
+        "$10$",
+        "$5$",
+        "$20$",
+        "$25$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$K_n$ has $\\frac{n(n-1)}{2}$ edges. For $n = 5$: $\\frac{5 \\times 4}{2} = 10$."
+    },
+    {
+      "id": "math-dp-graph-theory-q5",
+      "stem": "A tree has $12$ vertices. How many edges does it have?",
+      "choices": [
+        "$11$",
+        "$12$",
+        "$13$",
+        "$6$"
+      ],
+      "correctIndex": 0,
+      "explanation": "A tree with $n$ vertices always has $n - 1$ edges. So $12 - 1 = 11$ edges."
+    },
+    {
+      "id": "math-dp-graph-theory-q6",
+      "stem": "Dijkstra's algorithm is used to find:",
+      "choices": [
+        "The minimum spanning tree of a graph",
+        "The shortest path from one vertex to all others",
+        "An Eulerian trail in a graph",
+        "A Hamiltonian cycle in a graph"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dijkstra's algorithm finds the shortest path from a start vertex to all other reachable vertices in a weighted graph with non-negative edges."
+    },
+    {
+      "id": "math-dp-graph-theory-q7",
+      "stem": "In Kruskal's algorithm, which edge is chosen first?",
+      "choices": [
+        "The edge with the smallest weight that does not create a cycle",
+        "The edge connected to the start vertex with the smallest weight",
+        "The edge with the largest weight",
+        "Any edge that connects two new vertices"
+      ],
+      "correctIndex": 0,
+      "explanation": "Kruskal's algorithm sorts edges by weight and always adds the smallest edge that does not create a cycle, regardless of where it is in the graph."
+    },
+    {
+      "id": "math-dp-graph-theory-q8",
+      "stem": "The Chinese Postman Problem asks for the shortest route that:",
+      "choices": [
+        "Visits every vertex exactly once and returns to the start",
+        "Uses every edge at least once and returns to the start",
+        "Finds the minimum spanning tree of a graph",
+        "Finds the longest path between two vertices"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Chinese Postman Problem requires every edge to be traversed at least once, returning to the start. Visiting every vertex is the Travelling Salesman Problem."
+    },
+    {
+      "id": "math-dp-graph-theory-q9",
+      "stem": "A connected graph has exactly two vertices of odd degree. What can you conclude?",
+      "choices": [
+        "It has an Eulerian circuit",
+        "It has an Eulerian trail but not a circuit",
+        "It has a Hamiltonian cycle",
+        "It has no Eulerian trail"
+      ],
+      "correctIndex": 1,
+      "explanation": "Exactly two odd-degree vertices means an Eulerian trail exists, starting at one odd vertex and ending at the other. An Eulerian circuit needs all even degrees."
+    },
+    {
+      "id": "math-dp-graph-theory-q10",
+      "stem": "Which statement about the Travelling Salesman Problem (TSP) is true?",
+      "choices": [
+        "TSP requires every edge to be traversed at least once",
+        "TSP seeks the shortest cycle visiting every vertex exactly once",
+        "TSP can always be solved exactly in polynomial time",
+        "TSP is solved by Dijkstra's algorithm"
+      ],
+      "correctIndex": 1,
+      "explanation": "TSP asks for the shortest Hamiltonian cycle: a route that visits every vertex exactly once and returns to the start. It is computationally hard for large graphs."
+    }
+  ]
+}

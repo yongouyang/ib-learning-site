@@ -31,8 +31,9 @@
   <rect x="0" y="92" width="220" height="40" rx="6" fill="#fef2f2"/>
   <text x="110" y="110" text-anchor="middle" class="l">Solid → Gas = Sublimation</text>
   <rect x="0" y="138" width="220" height="60" rx="6" fill="#eff6ff"/>
-  <text x="10" y="156" class="l" fill="#3b82f6">Internal Energy</text>
-  <text x="10" y="174" class="s">= Kinetic (particle motion) + Potential (bond positions). ↑ during state changes</text>
+  <text x="10" y="154" class="l" fill="#3b82f6">Internal Energy</text>
+  <text x="10" y="172" class="s">= Kinetic (particle motion) + Potential</text>
+  <text x="10" y="186" class="s">(bond positions). ↑ during state changes</text>
 </g>
 
-<rect x="20" y="318" width="760" height="35" rx="8" class="b"/><text x="400" y="340" text-anchor="middle" class="s">Latent heat: energy needed to change state without temperature change. Specific latent heat of fusion (L_f, solid↔liquid) and vaporisation (L_v, liquid↔gas). E = mL</text></svg>
+<rect x="20" y="315" width="760" height="50" rx="8" class="b"/><text x="400" y="335" text-anchor="middle" class="s">Latent heat: energy needed to change state without temperature change.</text><text x="400" y="355" text-anchor="middle" class="s">Specific latent heat of fusion (L_f, solid↔liquid) and vaporisation (L_v, liquid↔gas). E = mL</text></svg>

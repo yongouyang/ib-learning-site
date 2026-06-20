@@ -29,10 +29,10 @@
   <line x1="240" y1="90" x2="365" y2="90" stroke="#eab308" stroke-width="2"/><text x="300" y="80" class="s" fill="#eab308">Passes through but reduced</text></g>
   <rect x="560" y="0" width="220" height="240" rx="10" class="b"/><text x="670" y="25" text-anchor="middle" class="l">Comparison</text>
   <g transform="translate(580,38)"><rect x="0" y="0" width="180" height="60" rx="6" fill="#fef2f2"/>
-  <text x="90" y="18" text-anchor="middle" class="l" fill="#dc2626">α (Alpha)</text><text x="90" y="36" text-anchor="middle" class="s">He nucleus (2p+2n), +2 charge, most ionising, slow</text>
-  <rect x="0" y="66" width="180" height="50" rx="6" fill="#eff6ff"/>
-  <text x="90" y="84" text-anchor="middle" class="l" fill="#3b82f6">β (Beta)</text><text x="90" y="100" text-anchor="middle" class="s">Fast electron, −1 charge, medium ionising</text>
-  <rect x="0" y="122" width="180" height="50" rx="6" fill="#fef3c7"/>
-  <text x="90" y="140" text-anchor="middle" class="l" fill="#eab308">γ (Gamma)</text><text x="90" y="156" text-anchor="middle" class="s">EM wave, no charge, least ionising, most penetrating</text></g>
-  <rect x="20" y="258" width="760" height="35" rx="8" class="b"/><text x="400" y="280" text-anchor="middle" class="s">Penetration: γ > β > α. Ionisation: α > β > γ. Alpha particles are stopped by skin/dead cells but dangerous inside the body. Gamma needs thick lead/concrete.</text></g>
+  <text x="90" y="18" text-anchor="middle" class="l" fill="#dc2626">α (Alpha)</text><text x="90" y="34" text-anchor="middle" class="s">He nucleus (2p+2n)</text><text x="90" y="48" text-anchor="middle" class="s">+2 charge, most ionising</text>
+  <rect x="0" y="58" width="180" height="50" rx="6" fill="#eff6ff"/>
+  <text x="90" y="76" text-anchor="middle" class="l" fill="#3b82f6">β (Beta)</text><text x="90" y="92" text-anchor="middle" class="s">Fast electron, −1 charge</text><text x="90" y="106" text-anchor="middle" class="s">Medium ionising</text>
+  <rect x="0" y="114" width="180" height="50" rx="6" fill="#fef3c7"/>
+  <text x="90" y="132" text-anchor="middle" class="l" fill="#eab308">γ (Gamma)</text><text x="90" y="148" text-anchor="middle" class="s">EM wave, no charge</text><text x="90" y="162" text-anchor="middle" class="s">Least ionising, most penetrating</text></g>
+  <rect x="20" y="235" width="760" height="45" rx="8" class="b"/><text x="400" y="255" text-anchor="middle" class="s">Penetration: γ > β > α. Ionisation: α > β > γ.</text><text x="400" y="271" text-anchor="middle" class="s">Alpha is stopped by skin but dangerous inside the body. Gamma needs thick lead/concrete.</text></g>
 </svg>

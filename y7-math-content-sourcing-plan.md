@@ -8,9 +8,9 @@
 ## 1. Project Context
 
 **IBLearn** is an interactive, mobile-first revision platform for IB students (MYP + DP).
-- Content is authored as static TypeScript modules (`src/content/*.ts`)
+- Content is authored as static JSON files (`src/content/data/topics/<subject>/<topic-id>.json`)
 - Each topic needs: **Study Notes**, **Flashcards**, **Multiple-Choice Questions** (stem + choices + correctIndex + explanation)
-- Current coverage: 5 subjects, 51 topics. Math already has 31 topics spanning Year 7 basics through DP level.
+- Current coverage: 5 subjects, 86 topics. Math has 45 topics (27 MYP + 18 DP), with the full DP core already covered.
 - Target for this plan: **MYP Year 7 / KS3 Year 7** math content expansion.
 
 ---
@@ -21,9 +21,9 @@ For every topic we add, we need three asset types:
 
 | Asset Type | Format in App | What to Source |
 |---|---|---|
-| **Study Notes** | Array of `ConceptNote` (heading + body) | Concise explanations, definitions, worked examples |
-| **Flashcards** | Array of `Flashcard` (term + definition + optional example) | Key terms, formulas, rules, vocabulary |
-| **Quiz Questions** | Array of `Question` (stem + 2–6 choices + correctIndex + explanation) | Multiple-choice questions with distractors and full explanations |
+| **Study Notes** | Array of `notes` (id + heading + body + optional illustration) | Concise explanations, definitions, worked examples |
+| **Flashcards** | Array of `flashcards` (id + term + definition + optional example) | Key terms, formulas, rules, vocabulary |
+| **Quiz Questions** | Array of `questions` (id + stem + 2–6 choices + correctIndex + explanation) | Multiple-choice questions with distractors and full explanations |
 
 **Quality criteria:**
 - Curriculum-aligned (IB MYP Year 1–2 or UK KS3 Year 7)
@@ -188,9 +188,19 @@ For every topic we add, we need three asset types:
 
 ## 7. Sourcing Strategy Options
 
+All new content must pass the project's quality gates before merging:
+
+```bash
+npm run validate:content
+npm run validate:illustrations
+npm run audit:content
+```
+
+The CI pipeline treats any validation error or audit warning as a failure. See `CONTENT_STYLE.md` for the full content conventions.
+
 ### Option A: Manual Curation from Free Sources (High Effort, High Control)
 - Use **Corbett Maths**, **Cazoom**, **BBC Bitesize** as inspiration
-- Write all content in IBLearn's TypeScript format manually
+- Write all content as JSON topic files manually (`src/content/data/topics/math/<topic-id>.json`)
 - **Pros:** Perfect quality control; exact fit for app format; zero cost
 - **Cons:** Very time-consuming; requires strong math pedagogy knowledge
 - **Best if:** You want a small, premium set of topics and have time to craft content
@@ -224,10 +234,10 @@ For every topic we add, we need three asset types:
 ## 8. Recommended Next Steps
 
 1. **Decide on curriculum anchor:** Choose between Pearson MYP Year 2 or Haese MYP as the authoritative source for topic sequencing and explanations.
-2. **Audit existing content:** Map IBLearn's current 31 math topics against the MYP Year 1–2 scope to identify gaps.
+2. **Audit existing content:** Map IBLearn's current 45 math topics (27 MYP + 18 DP) against the MYP Year 1–2 scope to identify gaps.
 3. **Prioritize topics:** Select 5–10 highest-impact Year 7 topics that are currently missing or underdeveloped.
-4. **Source one topic end-to-end:** Pick one topic (e.g., "Fractions & Decimals" or "Basic Probability") and fully populate it using your chosen strategy to validate the workflow.
-5. **Document conversion workflow:** Create a lightweight process for converting sourced questions into IBLearn's `Question`, `Flashcard`, and `ConceptNote` TypeScript structures.
+4. **Source one topic end-to-end:** Pick one topic (e.g., "Fractions & Decimals" or "Basic Probability") and fully populate it as a JSON topic file to validate the workflow.
+5. **Document conversion workflow:** Create a lightweight process for converting sourced questions into IBLearn's JSON `questions`, `flashcards`, and `notes` structures (see `src/content/types.ts` and `src/content/schema.ts`).
 6. **Consider licensing:** If adapting from commercial textbooks, ensure you are rewriting in your own words rather than copying verbatim. Worksheet questions are generally safe to adapt if rewritten.
 
 ---
