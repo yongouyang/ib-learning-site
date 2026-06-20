@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Volume of prisms: cuboid, triangular prism, and cylinder</title>
+  <desc id="desc">Diagram showing a cuboid, a triangular prism, and a cylinder, each labelled with the dimensions used in its volume formula.</desc>
+
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow-slate" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Background panel -->
+  <rect x="20" y="20" width="860" height="480" rx="16" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- Title -->
+  <text x="450" y="65" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#1e293b" text-anchor="middle">Volume of any prism = area of cross-section × length</text>
+
+  <!-- Cuboid -->
+  <g filter="url(#shadow)">
+    <!-- Right face -->
+    <polygon points="240,300 280,260 280,360 240,400" fill="#93c5fd" stroke="#2563eb" stroke-width="2"/>
+    <!-- Top face -->
+    <polygon points="80,300 120,260 280,260 240,300" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+    <!-- Front face -->
+    <rect x="80" y="300" width="160" height="100" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <!-- Dimensions -->
+    <line x1="80" y1="420" x2="240" y2="420" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-slate)" marker-start="url(#arrow-slate)"/>
+    <text x="160" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#334155" text-anchor="middle">length l</text>
+    <line x1="60" y1="300" x2="60" y2="400" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-slate)" marker-start="url(#arrow-slate)"/>
+    <text x="45" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#334155" text-anchor="middle">height h</text>
+    <line x1="120" y1="245" x2="280" y2="245" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-slate)" marker-start="url(#arrow-slate)"/>
+    <text x="200" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#334155" text-anchor="middle">width w</text>
+    <!-- Formula -->
+    <rect x="90" y="460" width="180" height="32" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="180" y="481" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#1e40af" text-anchor="middle">V = l × w × h</text>
+  </g>
+
+  <!-- Triangular prism -->
+  <g filter="url(#shadow)">
+    <!-- Bottom face -->
+    <polygon points="420,360 580,360 640,320 480,320" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+    <!-- Left face -->
+    <polygon points="420,360 480,320 480,220 420,260" fill="#4ade80" stroke="#16a34a" stroke-width="2"/>
+    <!-- Slanted top face -->
+    <polygon points="420,260 480,220 640,320 580,360" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
+    <!-- Front triangle -->
+    <polygon points="420,360 420,260 580,360" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <!-- Triangle height -->
+    <line x1="420" y1="260" x2="420" y2="360" stroke="#15803d" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <line x1="420" y1="310" x2="500" y2="310" stroke="#15803d" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <text x="405" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#14532d" text-anchor="end">h</text>
+    <text x="500" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#14532d" text-anchor="middle">base b</text>
+    <!-- Length label -->
+    <line x1="480" y1="235" x2="640" y2="235" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-slate)" marker-start="url(#arrow-slate)"/>
+    <text x="560" y="225" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#334155" text-anchor="middle">length l</text>
+    <!-- Formula -->
+    <rect x="440" y="460" width="220" height="32" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1"/>
+    <text x="550" y="481" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#166534" text-anchor="middle">V = (1/2) b h × l</text>
+  </g>
+
+  <!-- Cylinder -->
+  <g filter="url(#shadow)">
+    <!-- Bottom ellipse -->
+    <ellipse cx="740" cy="340" rx="60" ry="25" fill="#d8b4fe" stroke="#9333ea" stroke-width="2"/>
+    <!-- Curved side -->
+    <path d="M 680 200 L 680 340 A 60 25 0 0 0 800 340 L 800 200 A 60 25 0 0 1 680 200" fill="#e9d5ff" stroke="#9333ea" stroke-width="2"/>
+    <!-- Top ellipse -->
+    <ellipse cx="740" cy="200" rx="60" ry="25" fill="#f3e8ff" stroke="#9333ea" stroke-width="2"/>
+    <!-- Height label -->
+    <line x1="820" y1="200" x2="820" y2="340" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-slate)" marker-start="url(#arrow-slate)"/>
+    <text x="845" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#334155" text-anchor="start">height h</text>
+    <!-- Radius label -->
+    <line x1="740" y1="200" x2="800" y2="200" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-slate)"/>
+    <text x="770" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#334155" text-anchor="middle">radius r</text>
+    <!-- Formula -->
+    <rect x="660" y="460" width="160" height="32" rx="6" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1"/>
+    <text x="740" y="481" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#6b21a8" text-anchor="middle">V = π r² h</text>
+  </g>
+</svg>

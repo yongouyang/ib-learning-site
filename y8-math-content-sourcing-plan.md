@@ -53,7 +53,7 @@ Year 8 math is being built in phases of three topics. Phases 1 and 2 are complet
 | Standard Form | `math-yr8-standard-form` | Scientific notation, operations, conversions |
 | Compound Measures | `math-yr8-compound-measures` | Speed, density, pressure, unit conversions |
 
-### Phase 3 — Number, Probability & Statistics (In Progress)
+### Phase 3 — Number, Probability & Statistics (Done)
 
 | Topic | ID | Focus |
 |---|---|---|
@@ -61,7 +61,7 @@ Year 8 math is being built in phases of three topics. Phases 1 and 2 are complet
 | Probability & Tree Diagrams | `math-yr8-probability-trees` | Independent/dependent events, AND/OR rules, tree diagrams, expected frequency |
 | Statistics & Averages | `math-yr8-statistics-averages` | Frequency tables, estimated mean, stem-and-leaf, comparing distributions |
 
-### Phase 4 — Algebra & Graphs (Planned)
+### Phase 4 — Algebra & Graphs (Done)
 
 | Topic | ID | Focus |
 |---|---|---|
@@ -69,13 +69,21 @@ Year 8 math is being built in phases of three topics. Phases 1 and 2 are complet
 | Straight-Line Graphs | `math-yr8-straight-line-graphs` | Gradient, intercept, y = mx + c, parallel/perpendicular |
 | Sequences & nth Term | `math-yr8-sequences` | Linear sequences, quadratic sequences, position-to-term rules |
 
-### Phase 5 — Geometry & Measures (Planned)
+### Phase 5 — Geometry & Measures (Done)
 
 | Topic | ID | Focus |
 |---|---|---|
 | Volume & Surface Area of Prisms | `math-yr8-volume-surface-area` | Cuboids, prisms, cylinders, composite solids |
 | Transformations & Symmetry | `math-yr8-transformations` | Reflection, rotation, translation, enlargement, symmetry |
 | Pythagoras' Theorem | `math-yr8-pythagoras` | Right-angled triangles, applications, distance on grids |
+
+### Phase 6 — Year 8 Science & English Pilot (Done)
+
+| Topic | ID | Subject | Focus |
+|---|---|---|---|
+| Novel Study & Analysis | `eng-novel-study-1` | English | Character, setting, plot, theme, narrative perspective, analytical writing |
+| Persuasive Speaking & Debate | `eng-persuasive-speaking-1` | English | Rhetorical devices, argument structure, rebuttal, debate etiquette |
+| Introduction to Organic Chemistry | `chem-organic-1` | Chemistry | Carbon bonding, alkanes/alkenes, functional groups, simple formulas |
 
 ---
 
@@ -246,10 +254,10 @@ The CI pipeline treats any validation error or audit warning as a failure. See `
 
 ## 9. Recommended Next Steps
 
-1. **Complete Phase 3** — Add Percentages/Ratio/Proportion, Probability & Tree Diagrams, and Statistics & Averages.
-2. **Validate Phase 3** — Run `validate:content`, `validate:illustrations`, `audit:content`, unit tests, build, and e2e tests.
-3. **Plan Phase 4** — Confirm scope for Linear Equations & Inequalities, Straight-Line Graphs, and Sequences & nth Term.
-4. **Source an anchor textbook** — Purchase or trial Pearson MYP Year 3 or Haese MYP 2–3 to improve curriculum fidelity for remaining phases.
+1. **Expand Year 8 science coverage** — Add Year 8-appropriate topics in biology and physics (e.g., microorganisms, further forces, energy resources).
+2. **Expand Year 8 English coverage** — Add media literacy, non-fiction analysis, or research and citation skills topics.
+3. **Source an anchor textbook** — Purchase or trial Pearson MYP Year 3 or Haese MYP 2–3 to improve curriculum fidelity for future phases.
+4. **Enrich existing topics** — Add more challenging questions and worked examples to high-traffic DP and MYP topics.
 
 ---
 

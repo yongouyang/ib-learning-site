@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280" role="img" aria-labelledby="title desc">
+  <title id="title">Linear sequence 4, 7, 10, 13, 16 with common difference 3</title>
+  <desc id="desc">Five numbered blocks showing the first five terms of a linear sequence. Position numbers 1 to 5 sit above the terms 4, 7, 10, 13, 16, with arrows labelled plus 3 between consecutive terms.</desc>
+  <rect width="800" height="280" fill="#f8fafc"/>
+
+  <g transform="translate(90, 90)">
+    <text x="310" y="-50" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="600" fill="#1e293b">Linear sequence with common difference 3</text>
+
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="100" height="70" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+      <text x="50" y="44" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#1e3a8a">4</text>
+      <text x="50" y="95" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#475569">Position 1</text>
+    </g>
+
+    <g transform="translate(130, 0)">
+      <rect x="0" y="0" width="100" height="70" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+      <text x="50" y="44" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#1e3a8a">7</text>
+      <text x="50" y="95" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#475569">Position 2</text>
+    </g>
+
+    <g transform="translate(260, 0)">
+      <rect x="0" y="0" width="100" height="70" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+      <text x="50" y="44" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#1e3a8a">10</text>
+      <text x="50" y="95" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#475569">Position 3</text>
+    </g>
+
+    <g transform="translate(390, 0)">
+      <rect x="0" y="0" width="100" height="70" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+      <text x="50" y="44" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#1e3a8a">13</text>
+      <text x="50" y="95" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#475569">Position 4</text>
+    </g>
+
+    <g transform="translate(520, 0)">
+      <rect x="0" y="0" width="100" height="70" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+      <text x="50" y="44" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="600" fill="#1e3a8a">16</text>
+      <text x="50" y="95" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#475569">Position 5</text>
+    </g>
+
+    <g>
+      <defs>
+        <marker id="arrowhead-seq" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+        </marker>
+      </defs>
+      <line x1="105" y1="35" x2="120" y2="35" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead-seq)"/>
+      <text x="112" y="25" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#475569">+3</text>
+
+      <line x1="235" y1="35" x2="250" y2="35" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead-seq)"/>
+      <text x="242" y="25" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#475569">+3</text>
+
+      <line x1="365" y1="35" x2="380" y2="35" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead-seq)"/>
+      <text x="372" y="25" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#475569">+3</text>
+
+      <line x1="495" y1="35" x2="510" y2="35" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead-seq)"/>
+      <text x="502" y="25" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#475569">+3</text>
+    </g>
+  </g>
+
+  <text x="400" y="240" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#475569">Each term is 3 more than the previous term.</text>
+</svg>

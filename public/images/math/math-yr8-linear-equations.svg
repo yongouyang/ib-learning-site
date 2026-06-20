@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" role="img" aria-labelledby="title desc">
+  <title id="title">Inequalities shown on a number line</title>
+  <desc id="desc">A number line diagram showing two examples: x is greater than -1 with an open circle at -1 and shading to the right, and x is less than or equal to 2 with a closed circle at 2 and shading to the left.</desc>
+  <rect width="800" height="320" fill="#f8fafc"/>
+
+  <g transform="translate(100, 70)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="600" fill="#1e293b">x &gt; -1</text>
+
+    <line x1="20" y1="50" x2="620" y2="50" stroke="#334155" stroke-width="3"/>
+    <polygon points="630,50 620,45 620,55" fill="#334155"/>
+
+    <g transform="translate(160, 50)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#334155" stroke-width="2"/>
+      <text y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#334155">-3</text>
+    </g>
+    <g transform="translate(260, 50)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#334155" stroke-width="2"/>
+      <text y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#334155">-2</text>
+    </g>
+    <g transform="translate(360, 50)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#334155" stroke-width="2"/>
+      <text y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#334155">-1</text>
+    </g>
+    <g transform="translate(460, 50)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#334155" stroke-width="2"/>
+      <text y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#334155">0</text>
+    </g>
+    <g transform="translate(560, 50)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#334155" stroke-width="2"/>
+      <text y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#334155">1</text>
+    </g>
+
+    <line x1="368" y1="50" x2="620" y2="50" stroke="#3b82f6" stroke-width="8" stroke-opacity="0.4"/>
+    <circle cx="360" cy="50" r="9" fill="#ffffff" stroke="#3b82f6" stroke-width="3"/>
+    <text x="640" y="55" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#475569">Open circle: -1 is not included</text>
+  </g>
+
+  <g transform="translate(100, 190)">
+    <text x="0" y="0" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="600" fill="#1e293b">x ≤ 2</text>
+
+    <line x1="20" y1="50" x2="620" y2="50" stroke="#334155" stroke-width="3"/>
+    <polygon points="630,50 620,45 620,55" fill="#334155"/>
+
+    <g transform="translate(60, 50)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#334155" stroke-width="2"/>
+      <text y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#334155">-1</text>
+    </g>
+    <g transform="translate(160, 50)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#334155" stroke-width="2"/>
+      <text y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#334155">0</text>
+    </g>
+    <g transform="translate(260, 50)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#334155" stroke-width="2"/>
+      <text y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#334155">1</text>
+    </g>
+    <g transform="translate(360, 50)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#334155" stroke-width="2"/>
+      <text y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#334155">2</text>
+    </g>
+    <g transform="translate(460, 50)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#334155" stroke-width="2"/>
+      <text y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#334155">3</text>
+    </g>
+    <g transform="translate(560, 50)">
+      <line x1="0" y1="-8" x2="0" y2="8" stroke="#334155" stroke-width="2"/>
+      <text y="30" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="16" fill="#334155">4</text>
+    </g>
+
+    <line x1="20" y1="50" x2="360" y2="50" stroke="#22c55e" stroke-width="8" stroke-opacity="0.4"/>
+    <circle cx="360" cy="50" r="9" fill="#22c55e" stroke="#22c55e" stroke-width="3"/>
+    <text x="640" y="55" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="14" fill="#475569">Closed circle: 2 is included</text>
+  </g>
+</svg>

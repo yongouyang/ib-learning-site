@@ -1,0 +1,305 @@
+{
+  "id": "math-yr8-volume-surface-area",
+  "subjectId": "math",
+  "title": "Volume & Surface Area of Prisms",
+  "description": "Calculate and apply the volume and surface area of cuboids, triangular prisms, cylinders, and composite solids at MYP 3 level.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-volume-surface-area-n-prism",
+      "heading": "Prisms and the General Volume Formula",
+      "illustration": {
+        "src": "/images/math/math-yr8-volume-surface-area.svg",
+        "alt": "Diagram of a cuboid, triangular prism, and cylinder labelled with their volume formulas.",
+        "caption": "The volume of any prism equals the area of its cross-section multiplied by its length."
+      },
+      "body": "📌 Definition\nA prism is a three-dimensional shape with a constant cross-section. If you slice it parallel to its ends, every slice is the same shape and size.\n\n🔑 Key Concept\nThe volume of any prism is found by multiplying the area of its cross-section by its length (or height).\n\n$$V = \\text{area of cross-section} \\times \\text{length}$$\n\n💡 Worked Example\nA prism has a cross-sectional area of $15~\\text{cm}^2$ and a length of $8~\\text{cm}$.\n$$V = 15 \\times 8 = 120~\\text{cm}^3$$\n\n📎 Key Points to Remember\n• This formula works for cuboids, triangular prisms, cylinders, and any other prism.\n• The cross-section must be perpendicular to the length of the prism.\n• Volume is measured in cubic units ($\\text{cm}^3$, $\\text{m}^3$)."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-n-cuboid",
+      "heading": "Cuboids",
+      "body": "📌 Definition\nA cuboid is a prism with a rectangular cross-section. A cube is a special cuboid where all edges are equal.\n\n🔑 Formulas\nVolume:\n$$V = l \\times w \\times h$$\n\nSurface area:\n$$\\text{SA} = 2lw + 2lh + 2wh$$\n\n💡 Worked Example\nFind the volume and surface area of a cuboid with length $5~\\text{cm}$, width $4~\\text{cm}$, and height $3~\\text{cm}$.\n\nVolume:\n$$V = 5 \\times 4 \\times 3 = 60~\\text{cm}^3$$\n\nSurface area:\n$$\\text{SA} = 2(5 \\times 4) + 2(5 \\times 3) + 2(4 \\times 3)$$\n$$\\text{SA} = 40 + 30 + 24 = 94~\\text{cm}^2$$\n\n⚠️ Common Mistake\nForgetting that surface area is the sum of all six faces, or using cubic units for surface area.\n\n✅ Check\nThe largest face of this cuboid is $5 \\times 4 = 20~\\text{cm}^2$, so a total of $94~\\text{cm}^2$ is reasonable."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-n-triangular",
+      "heading": "Triangular Prisms",
+      "body": "📌 Definition\nA triangular prism has two identical triangular ends connected by three rectangular faces.\n\n🔑 Formulas\nVolume:\n$$V = \\left(\\frac{1}{2} \\times b \\times h\\right) \\times l$$\n\nSurface area:\n$$\\text{SA} = b h + (a + b + c) \\times l$$\nwhere $a$, $b$, $c$ are the three sides of the triangle and $h$ is the perpendicular height relative to base $b$.\n\n💡 Worked Example\nA triangular prism has a triangle with base $6~\\text{cm}$, perpendicular height $4~\\text{cm}$, and sides $6~\\text{cm}$, $5~\\text{cm}$, $5~\\text{cm}$. The prism length is $10~\\text{cm}$.\n\nVolume:\n$$V = \\frac{1}{2} \\times 6 \\times 4 \\times 10 = 120~\\text{cm}^3$$\n\nSurface area:\n$$\\text{SA} = (6 \\times 4) + (6 + 5 + 5) \\times 10$$\n$$\\text{SA} = 24 + 160 = 184~\\text{cm}^2$$\n\n⚠️ Common Mistake\nUsing a slanted side of the triangle as the height. The height must be perpendicular to the base.\n\n✅ Check\nThe two triangular ends together equal $24~\\text{cm}^2$, and the three rectangles total $160~\\text{cm}^2$, giving $184~\\text{cm}^2$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-n-cylinder",
+      "heading": "Cylinders",
+      "body": "📌 Definition\nA cylinder is a prism with a circular cross-section.\n\n🔑 Formulas\nVolume:\n$$V = \\pi r^2 h$$\n\nCurved surface area:\n$$\\text{CSA} = 2\\pi r h$$\n\nTotal surface area:\n$$\\text{SA} = 2\\pi r h + 2\\pi r^2 = 2\\pi r(r + h)$$\n\n💡 Worked Example\nFind the volume and total surface area of a cylinder with radius $3~\\text{cm}$ and height $5~\\text{cm}$. Use $\\pi \\approx 3.14$.\n\nVolume:\n$$V = 3.14 \\times 3^2 \\times 5 = 3.14 \\times 9 \\times 5 = 141.3~\\text{cm}^3$$\n\nTotal surface area:\n$$\\text{SA} = 2 \\times 3.14 \\times 3 \\times 5 + 2 \\times 3.14 \\times 3^2$$\n$$\\text{SA} = 94.2 + 56.52 = 150.72~\\text{cm}^2$$\n\n📎 Key Points to Remember\n• The radius is half the diameter: $r = \\frac{d}{2}$.\n• Curved surface area is like the label wrapped around a can; total surface area includes the two circular ends.\n• Use the $\\pi$ key on your calculator for greater accuracy.\n\n⚠️ Common Mistake\nUsing the diameter directly in $V = \\pi r^2 h$ without halving it first."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-n-composite-volume",
+      "heading": "Volume of Composite Solids",
+      "body": "📌 Definition\nA composite solid is made by joining two or more simple solids together, or by cutting a hole out of a solid.\n\n🔑 How it works\n1. Split the solid into familiar prisms.\n2. Calculate the volume of each part.\n3. Add the volumes if the parts are joined, or subtract if a part is removed.\n\n💡 Worked Example\nA solid is made from a cuboid $8~\\text{cm} \\times 5~\\text{cm} \\times 4~\\text{cm}$ with a triangular prism on top. The triangle has base $8~\\text{cm}$, height $3~\\text{cm}$, and the prism length is $5~\\text{cm}$.\n\nVolume of cuboid:\n$$V_1 = 8 \\times 5 \\times 4 = 160~\\text{cm}^3$$\n\nVolume of triangular prism:\n$$V_2 = \\frac{1}{2} \\times 8 \\times 3 \\times 5 = 60~\\text{cm}^3$$\n\nTotal volume:\n$$V = 160 + 60 = 220~\\text{cm}^3$$\n\n⚠️ Common Mistake\nForgetting to use the same units for every measurement before adding.\n\n✅ Check\nEstimate: $160 + 60 = 220$, so $220~\\text{cm}^3$ is sensible."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-n-composite-surface",
+      "heading": "Surface Area of Composite Solids",
+      "body": "📌 Definition\nWhen solids are joined, the faces where they touch are no longer part of the outside surface. You must subtract these hidden areas.\n\n🔑 How it works\n1. Find the total surface area of each separate part.\n2. Identify every face that is glued, joined, or hidden inside.\n3. Subtract twice each hidden area (once for each part).\n\n💡 Worked Example\nA cylinder with radius $3~\\text{cm}$ and height $4~\\text{cm}$ is placed on top of a cuboid $10~\\text{cm} \\times 8~\\text{cm} \\times 5~\\text{cm}$. The cylinder's circular base sits completely on the cuboid.\n\nSurface area of cuboid:\n$$\\text{SA}_{\\text{cuboid}} = 2(10 \\times 8) + 2(10 \\times 5) + 2(8 \\times 5) = 340~\\text{cm}^2$$\n\nTotal surface area of cylinder (if it were separate):\n$$\\text{SA}_{\\text{cylinder}} = 2\\pi r h + 2\\pi r^2 \\approx (2 \\times 3.14 \\times 3 \\times 4) + (2 \\times 3.14 \\times 3^2)$$\n$$\\text{SA}_{\\text{cylinder}} \\approx 75.36 + 56.52 = 131.88~\\text{cm}^2$$\n\nArea hidden where they join:\n$$2 \\times \\pi r^2 \\approx 2 \\times 3.14 \\times 3^2 = 56.52~\\text{cm}^2$$\n\nTotal surface area:\n$$\\text{SA} = 340 + 131.88 - 56.52 = 415.36~\\text{cm}^2$$\n\n⚠️ Common Mistake\nUsing only the curved surface area of the cylinder and then subtracting the hidden area twice, which removes the exposed top of the cylinder as well."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-n-checklist",
+      "heading": "Problem-Solving Checklist",
+      "body": "📎 Key Points to Remember\n• Identify which solid or solids you are working with.\n• Choose the correct formula for volume or surface area.\n• Convert all lengths to the same unit before calculating.\n• For surface area, check whether faces are missing (open boxes, lids, joined parts).\n• Use cubic units for volume and square units for surface area.\n• Leave answers in terms of $\\pi$ when asked; otherwise use $3.14$ or the $\\pi$ key.\n\n✅ Check\nA cylinder has radius $2~\\text{cm}$ and height $6~\\text{cm}$. Find its volume and total surface area.\n$$V = \\pi \\times 2^2 \\times 6 = 24\\pi \\approx 75.36~\\text{cm}^3$$\n$$\\text{SA} = 2\\pi \\times 2 \\times 6 + 2\\pi \\times 2^2 = 24\\pi + 8\\pi = 32\\pi \\approx 100.48~\\text{cm}^2$$"
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-volume-surface-area-f-prism",
+      "term": "Prism",
+      "definition": "A 3D shape with a constant cross-section along its length.",
+      "example": "A cuboid, triangular prism, and cylinder are all prisms."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-f-cross-section",
+      "term": "Cross-section",
+      "definition": "The shape formed when a solid is sliced perpendicular to its length.",
+      "example": "The cross-section of a cylinder is a circle."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-f-prism-volume",
+      "term": "Volume of any prism",
+      "definition": "The area of the cross-section multiplied by the length of the prism.",
+      "example": "$V = \\text{area of cross-section} \\times \\text{length}$"
+    },
+    {
+      "id": "math-yr8-volume-surface-area-f-cuboid-volume",
+      "term": "Volume of a cuboid",
+      "definition": "The product of its length, width, and height.",
+      "example": "$V = l \\times w \\times h$"
+    },
+    {
+      "id": "math-yr8-volume-surface-area-f-cuboid-surface",
+      "term": "Surface area of a cuboid",
+      "definition": "The sum of the areas of all six rectangular faces.",
+      "example": "$\\text{SA} = 2lw + 2lh + 2wh$"
+    },
+    {
+      "id": "math-yr8-volume-surface-area-f-triangular-volume",
+      "term": "Volume of a triangular prism",
+      "definition": "Half the base times the perpendicular height of the triangle, multiplied by the prism length.",
+      "example": "$V = \\frac{1}{2} b h \\times l$"
+    },
+    {
+      "id": "math-yr8-volume-surface-area-f-triangular-surface",
+      "term": "Surface area of a triangular prism",
+      "definition": "The area of the two triangular ends plus the area of the three rectangular sides.",
+      "example": "$\\text{SA} = b h + (a + b + c) l$"
+    },
+    {
+      "id": "math-yr8-volume-surface-area-f-cylinder-volume",
+      "term": "Volume of a cylinder",
+      "definition": "The area of the circular base multiplied by the height.",
+      "example": "$V = \\pi r^2 h$"
+    },
+    {
+      "id": "math-yr8-volume-surface-area-f-cylinder-curved",
+      "term": "Curved surface area of a cylinder",
+      "definition": "The area of the curved side, like the label on a can.",
+      "example": "$\\text{CSA} = 2\\pi r h$"
+    },
+    {
+      "id": "math-yr8-volume-surface-area-f-cylinder-total",
+      "term": "Total surface area of a cylinder",
+      "definition": "The curved surface area plus the area of the two circular ends.",
+      "example": "$\\text{SA} = 2\\pi r h + 2\\pi r^2$"
+    },
+    {
+      "id": "math-yr8-volume-surface-area-f-composite",
+      "term": "Composite solid",
+      "definition": "A 3D shape made by joining two or more simple solids, or by removing part of a solid.",
+      "example": "A house-shaped object made from a cuboid and a triangular prism."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-f-units",
+      "term": "Units for volume and surface area",
+      "definition": "Volume is measured in cubic units; surface area is measured in square units.",
+      "example": "$\\text{cm}^3$ for volume and $\\text{cm}^2$ for surface area."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-volume-surface-area-q-cuboid-volume",
+      "stem": "What is the volume of a cuboid with length $6~\\text{cm}$, width $4~\\text{cm}$, and height $3~\\text{cm}$?",
+      "choices": [
+        "$36~\\text{cm}^3$",
+        "$72~\\text{cm}^3$",
+        "$108~\\text{cm}^3$",
+        "$48~\\text{cm}^3$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Volume of a cuboid is $l \\times w \\times h = 6 \\times 4 \\times 3 = 72~\\text{cm}^3$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-cuboid-surface",
+      "stem": "Find the surface area of a cuboid with length $5~\\text{cm}$, width $4~\\text{cm}$, and height $3~\\text{cm}$.",
+      "choices": [
+        "$60~\\text{cm}^2$",
+        "$94~\\text{cm}^2$",
+        "$47~\\text{cm}^2$",
+        "$120~\\text{cm}^2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\text{SA} = 2(5 \\times 4) + 2(5 \\times 3) + 2(4 \\times 3) = 40 + 30 + 24 = 94~\\text{cm}^2$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-triangular-volume",
+      "stem": "A triangular prism has a triangle base $6~\\text{cm}$, perpendicular height $4~\\text{cm}$, and prism length $10~\\text{cm}$. What is its volume?",
+      "choices": [
+        "$120~\\text{cm}^3$",
+        "$240~\\text{cm}^3$",
+        "$60~\\text{cm}^3$",
+        "$24~\\text{cm}^3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$V = \\frac{1}{2} \\times 6 \\times 4 \\times 10 = 120~\\text{cm}^3$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-triangular-surface",
+      "stem": "A triangular prism has a triangle with sides $3~\\text{cm}$, $4~\\text{cm}$, $5~\\text{cm}$, perpendicular height $3~\\text{cm}$ relative to the $4~\\text{cm}$ base, and prism length $10~\\text{cm}$. Find its surface area.",
+      "choices": [
+        "$120~\\text{cm}^2$",
+        "$126~\\text{cm}^2$",
+        "$132~\\text{cm}^2$",
+        "$144~\\text{cm}^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Two triangles: $2 \\times \\frac{1}{2} \\times 4 \\times 3 = 12~\\text{cm}^2$. Three rectangles: $(3+4+5) \\times 10 = 120~\\text{cm}^2$. Total = $132~\\text{cm}^2$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-cylinder-volume",
+      "stem": "Find the volume of a cylinder with radius $3~\\text{cm}$ and height $5~\\text{cm}$. Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$47.1~\\text{cm}^3$",
+        "$141.3~\\text{cm}^3$",
+        "$94.2~\\text{cm}^3$",
+        "$282.6~\\text{cm}^3$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$V = \\pi r^2 h \\approx 3.14 \\times 3^2 \\times 5 = 141.3~\\text{cm}^3$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-cylinder-curved",
+      "stem": "Find the curved surface area of a cylinder with radius $4~\\text{cm}$ and height $6~\\text{cm}$. Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$100.48~\\text{cm}^2$",
+        "$150.72~\\text{cm}^2$",
+        "$200.96~\\text{cm}^2$",
+        "$251.2~\\text{cm}^2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\text{CSA} = 2\\pi r h \\approx 2 \\times 3.14 \\times 4 \\times 6 = 150.72~\\text{cm}^2$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-cylinder-total",
+      "stem": "What is the total surface area of a cylinder with radius $2~\\text{cm}$ and height $5~\\text{cm}$? Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$62.8~\\text{cm}^2$",
+        "$75.36~\\text{cm}^2$",
+        "$87.92~\\text{cm}^2$",
+        "$100.48~\\text{cm}^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\text{SA} = 2\\pi r h + 2\\pi r^2 \\approx 62.8 + 25.12 = 87.92~\\text{cm}^2$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-composite-volume",
+      "stem": "A composite solid is made from a cuboid $5~\\text{cm} \\times 4~\\text{cm} \\times 3~\\text{cm}$ and a cylinder with radius $2~\\text{cm}$ and height $5~\\text{cm}$. What is the total volume? Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$60~\\text{cm}^3$",
+        "$122.8~\\text{cm}^3$",
+        "$182.8~\\text{cm}^3$",
+        "$242.8~\\text{cm}^3$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cuboid volume = $5 \\times 4 \\times 3 = 60~\\text{cm}^3$. Cylinder volume = $3.14 \\times 2^2 \\times 5 = 62.8~\\text{cm}^3$. Total = $122.8~\\text{cm}^3$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-composite-surface",
+      "stem": "A cube of side $4~\\text{cm}$ is placed on top of a larger cube of side $6~\\text{cm}$. What is the total surface area of the composite solid?",
+      "choices": [
+        "$280~\\text{cm}^2$",
+        "$296~\\text{cm}^2$",
+        "$312~\\text{cm}^2$",
+        "$336~\\text{cm}^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\text{SA} = 6 \\times 6^2 + 6 \\times 4^2 - 2 \\times 4^2 = 216 + 96 - 32 = 280~\\text{cm}^2$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-cylinder-missing-height",
+      "stem": "A cylinder has volume $157~\\text{cm}^3$ and radius $5~\\text{cm}$. Find its height. Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$1~\\text{cm}$",
+        "$2~\\text{cm}$",
+        "$3~\\text{cm}$",
+        "$4~\\text{cm}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$h = \\frac{V}{\\pi r^2} = \\frac{157}{3.14 \\times 25} = \\frac{157}{78.5} = 2~\\text{cm}$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-unit-conversion",
+      "stem": "How many cubic centimetres are in $1.5~\\text{m}^3$?",
+      "choices": [
+        "$150~\\text{cm}^3$",
+        "$1\\,500~\\text{cm}^3$",
+        "$15\\,000~\\text{cm}^3$",
+        "$1\\,500\\,000~\\text{cm}^3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$1~\\text{m}^3 = 1\\,000\\,000~\\text{cm}^3$, so $1.5~\\text{m}^3 = 1\\,500\\,000~\\text{cm}^3$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-cylinder-formula",
+      "stem": "Which formula gives the volume of a cylinder?",
+      "choices": [
+        "$V = 2\\pi r h$",
+        "$V = \\pi r^2 h$",
+        "$V = 2\\pi r^2 h$",
+        "$V = \\pi r h$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The volume of a cylinder is $V = \\pi r^2 h$. The other formulas give surface area or are incorrect."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-cylinder-litres",
+      "stem": "A cylindrical tank has radius $50~\\text{cm}$ and height $120~\\text{cm}$. How many litres of water does it hold when full? Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$188.4~\\text{litres}$",
+        "$942~\\text{litres}$",
+        "$1\\,884~\\text{litres}$",
+        "$3\\,768~\\text{litres}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$V = 3.14 \\times 50^2 \\times 120 = 942\\,000~\\text{cm}^3$. Since $1\\,000~\\text{cm}^3 = 1$ litre, the tank holds $942$ litres."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-open-cylinder",
+      "stem": "An open cylinder has no top. Find its surface area if the radius is $4~\\text{cm}$ and height is $5~\\text{cm}$. Use $\\pi \\approx 3.14$.",
+      "choices": [
+        "$125.6~\\text{cm}^2$",
+        "$150.72~\\text{cm}^2$",
+        "$175.84~\\text{cm}^2$",
+        "$226.08~\\text{cm}^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Open cylinder SA = $\\pi r^2 + 2\\pi r h \\approx 50.24 + 125.6 = 175.84~\\text{cm}^2$."
+    },
+    {
+      "id": "math-yr8-volume-surface-area-q-composite-concept",
+      "stem": "When two solids are joined to make a composite solid, what must you do with the surface area?",
+      "choices": [
+        "Add all surface areas and double the total",
+        "Subtract any hidden faces that are glued together",
+        "Use cubic units for the answer",
+        "Multiply the surface areas together"
+      ],
+      "correctIndex": 1,
+      "explanation": "Joined faces are no longer exposed, so subtract twice the hidden area (once for each solid)."
+    }
+  ]
+}

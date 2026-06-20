@@ -1,0 +1,305 @@
+{
+  "id": "math-yr8-pythagoras",
+  "subjectId": "math",
+  "title": "Pythagoras' Theorem",
+  "description": "Apply Pythagoras' theorem to find missing sides in right-angled triangles and calculate straight-line distances on coordinate grids.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-pythagoras-n1",
+      "heading": "Right-Angled Triangles",
+      "illustration": {
+        "src": "/images/math/math-yr8-pythagoras.svg",
+        "alt": "A right-angled triangle with the hypotenuse labelled c opposite the right angle, and the two shorter legs labelled a and b.",
+        "caption": "The hypotenuse is always opposite the right angle and is the longest side."
+      },
+      "body": "📌 Definition\nA right-angled triangle contains one $90^{\\circ}$ angle. The side opposite this right angle is called the hypotenuse, and it is always the longest side. The other two sides are called the legs.\n\n🔑 Key Concept\nIn every right-angled triangle, the two legs meet at the right angle. The hypotenuse is opposite the right angle. If the legs are $a$ and $b$, and the hypotenuse is $c$, then $c > a$ and $c > b$.\n\n💡 Worked Example\nA triangle has sides $6$ cm, $8$ cm and $10$ cm. Identify the hypotenuse.\n\nThe longest side is $10$ cm, so it is the hypotenuse. The legs are $6$ cm and $8$ cm.\n\n📎 Key Points to Remember\n• The hypotenuse is always opposite the right angle.\n• The hypotenuse is always the longest side.\n• Never guess which side is the hypotenuse; always compare the lengths.\n\n⚠️ Common Mistake\nThinking the hypotenuse is the side at the bottom of the triangle. It is defined by its position opposite the right angle, not by where it is drawn."
+    },
+    {
+      "id": "math-yr8-pythagoras-n2",
+      "heading": "The Theorem",
+      "body": "📌 Definition\nPythagoras' theorem states that, in a right-angled triangle, the square of the hypotenuse equals the sum of the squares of the two legs.\n\n🔑 Key Concept\nIf the legs are $a$ and $b$, and the hypotenuse is $c$, then:\n$$a^2 + b^2 = c^2$$\n\nThis means the area of the square on the hypotenuse equals the combined area of the squares on the two legs.\n\n💡 Worked Example\nFor a triangle with legs $3$ and $4$:\n$$3^2 + 4^2 = 9 + 16 = 25 = 5^2$$\nSo the hypotenuse is $5$.\n\n✅ Check\n$5$ is longer than both $3$ and $4$, which is consistent with it being the hypotenuse.\n\n📎 Key Points to Remember\n• The theorem only works for right-angled triangles.\n• $a$ and $b$ are interchangeable because they are both legs.\n• Always make sure $c$ represents the hypotenuse before substituting."
+    },
+    {
+      "id": "math-yr8-pythagoras-n3",
+      "heading": "Finding the Hypotenuse",
+      "body": "📌 Definition\nTo find the hypotenuse when the two legs are known, rearrange Pythagoras' theorem.\n\n🔑 Key Concept\nStarting from $a^2 + b^2 = c^2$, take the square root of both sides:\n$$c = \\sqrt{a^2 + b^2}$$\n\n💡 Worked Example\nFind the hypotenuse of a right-angled triangle with legs $9$ cm and $12$ cm.\n\nStep 1: Substitute into the formula.\n$$c = \\sqrt{9^2 + 12^2}$$\n\nStep 2: Calculate the squares.\n$$c = \\sqrt{81 + 144} = \\sqrt{225}$$\n\nStep 3: Evaluate.\n$$c = 15 \text{ cm}$$\n\n⚠️ Common Mistake\nAdding $a$ and $b$ before squaring. You must square each leg separately and then add the results.\n\n✅ Check\nThe hypotenuse must be longer than either leg. $15$ cm is longer than both $9$ cm and $12$ cm.\n\n📎 Key Points to Remember\n• Square each leg before adding.\n• Take the square root of the total.\n• The hypotenuse must be longer than either leg."
+    },
+    {
+      "id": "math-yr8-pythagoras-n4",
+      "heading": "Finding a Leg",
+      "body": "📌 Definition\nTo find a missing shorter side when the hypotenuse and one leg are known, rearrange Pythagoras' theorem.\n\n🔑 Key Concept\nStarting from $a^2 + b^2 = c^2$, subtract the known square from both sides:\n$$a^2 = c^2 - b^2 \\quad \text{so} \\quad a = \\sqrt{c^2 - b^2}$$\n\n💡 Worked Example\nFind the missing leg when the hypotenuse is $13$ cm and one leg is $5$ cm.\n\nStep 1: Substitute into the rearranged formula.\n$$a = \\sqrt{13^2 - 5^2}$$\n\nStep 2: Calculate.\n$$a = \\sqrt{169 - 25} = \\sqrt{144} = 12 \text{ cm}$$\n\n✅ Check\n$5^2 + 12^2 = 25 + 144 = 169 = 13^2$. The answer is correct.\n\n⚠️ Common Mistake\nSubtracting the side lengths before squaring: $13 - 5 = 8$. This is wrong because the theorem uses squared values, not the original lengths.\n\n📎 Key Points to Remember\n• Square first, then subtract.\n• Take the square root at the end.\n• The missing leg must be shorter than the hypotenuse."
+    },
+    {
+      "id": "math-yr8-pythagoras-n5",
+      "heading": "Pythagorean Triples and the Converse",
+      "body": "📌 Definition\nA Pythagorean triple is a set of three positive integers that satisfy $a^2 + b^2 = c^2$.\n\n🔑 Key Concept\nCommon triples include $3$-$4$-$5$, $5$-$12$-$13$, $8$-$15$-$17$ and $7$-$24$-$25$. Multiples of these also work, such as $6$-$8$-$10$ or $10$-$24$-$26$.\n\nThe converse of Pythagoras' theorem lets you test whether a triangle is right-angled: if $a^2 + b^2 = c^2$ where $c$ is the longest side, the triangle is right-angled.\n\n💡 Worked Example\nIs a triangle with sides $9$ cm, $40$ cm and $41$ cm right-angled?\n\n$$9^2 + 40^2 = 81 + 1600 = 1681 = 41^2$$\n\nYes, it is right-angled.\n\n✅ Check\n$9$, $40$ and $41$ form a Pythagorean triple.\n\n📎 Key Points to Remember\n• If $a^2 + b^2 = c^2$, the triangle is right-angled.\n• If $a^2 + b^2 > c^2$, the triangle is acute.\n• If $a^2 + b^2 < c^2$, the triangle is obtuse.\n\n⚠️ Common Mistake\nForgetting to square each side before adding or subtracting."
+    },
+    {
+      "id": "math-yr8-pythagoras-n6",
+      "heading": "Distance on Coordinate Grids",
+      "body": "📌 Definition\nThe shortest distance between two points on a coordinate grid can be found by treating the horizontal and vertical differences as the two legs of a right-angled triangle.\n\n🔑 Key Concept\nFor points $(x_1, y_1)$ and $(x_2, y_2)$, the distance $d$ is:\n$$d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$\n\nThis is Pythagoras' theorem applied to coordinate geometry.\n\n💡 Worked Example\nFind the distance between $A(1, 2)$ and $B(4, 6)$.\n\nStep 1: Find the differences.\n$$x_2 - x_1 = 4 - 1 = 3$$\n$$y_2 - y_1 = 6 - 2 = 4$$\n\nStep 2: Apply the distance formula.\n$$d = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$$\n\nThe distance is $5$ units.\n\n✅ Check\nThe horizontal and vertical differences form a $3$-$4$-$5$ triangle.\n\n📎 Key Points to Remember\n• Subtract the coordinates carefully, keeping the signs correct.\n• The order of subtraction does not matter because you square the result.\n• The final distance is always positive."
+    },
+    {
+      "id": "math-yr8-pythagoras-n7",
+      "heading": "Solving Word Problems",
+      "body": "📌 Definition\nMany real-life problems involve right-angled triangles, such as ladders leaning against walls, diagonals of rectangles, or paths across rectangular fields.\n\n🔑 How it works\n1. Read the problem and identify the right-angled triangle.\n2. Label the hypotenuse and the legs.\n3. Decide whether you are finding the hypotenuse or a leg.\n4. Substitute into $a^2 + b^2 = c^2$ and solve.\n\n💡 Worked Example\nA ladder reaches $8$ m up a vertical wall. Its foot is $6$ m from the base of the wall. How long is the ladder?\n\nThe ladder is the hypotenuse.\n$$l = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10 \text{ m}$$\n\nThe ladder is $10$ m long.\n\n⚠️ Common Mistake\nUsing the wrong side as the hypotenuse. In this example, the ladder is the sloping side, so it must be $c$.\n\n📎 Key Points to Remember\n• Sketch a diagram whenever possible.\n• Identify which side is the hypotenuse before substituting.\n• Include units in your final answer."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-pythagoras-f1",
+      "term": "Right-angled triangle",
+      "definition": "A triangle that contains one $90^{\\circ}$ angle.",
+      "example": "A triangle with sides $3$, $4$ and $5$ is right-angled."
+    },
+    {
+      "id": "math-yr8-pythagoras-f2",
+      "term": "Hypotenuse",
+      "definition": "The longest side of a right-angled triangle, opposite the right angle.",
+      "example": "In a $5$-$12$-$13$ triangle, the hypotenuse is $13$."
+    },
+    {
+      "id": "math-yr8-pythagoras-f3",
+      "term": "Leg",
+      "definition": "One of the two shorter sides of a right-angled triangle that form the right angle.",
+      "example": "In a $3$-$4$-$5$ triangle, the legs are $3$ and $4$."
+    },
+    {
+      "id": "math-yr8-pythagoras-f4",
+      "term": "Pythagoras' theorem",
+      "definition": "In a right-angled triangle, $a^2 + b^2 = c^2$ where $c$ is the hypotenuse.",
+      "example": "$6^2 + 8^2 = 36 + 64 = 100 = 10^2$."
+    },
+    {
+      "id": "math-yr8-pythagoras-f5",
+      "term": "Finding the hypotenuse",
+      "definition": "Use $c = \\sqrt{a^2 + b^2}$ when the two legs are known.",
+      "example": "Legs $5$ and $12$ give $c = \\sqrt{25 + 144} = 13$."
+    },
+    {
+      "id": "math-yr8-pythagoras-f6",
+      "term": "Finding a leg",
+      "definition": "Use $a = \\sqrt{c^2 - b^2}$ when the hypotenuse and one leg are known.",
+      "example": "Hypotenuse $13$ and leg $5$ give $a = \\sqrt{169 - 25} = 12$."
+    },
+    {
+      "id": "math-yr8-pythagoras-f7",
+      "term": "Pythagorean triple",
+      "definition": "Three positive integers that satisfy $a^2 + b^2 = c^2$.",
+      "example": "$5$, $12$, $13$ is a Pythagorean triple."
+    },
+    {
+      "id": "math-yr8-pythagoras-f8",
+      "term": "Converse of Pythagoras' theorem",
+      "definition": "If $a^2 + b^2 = c^2$, then the triangle is right-angled.",
+      "example": "$7^2 + 24^2 = 25^2$, so $7$-$24$-$25$ is right-angled."
+    },
+    {
+      "id": "math-yr8-pythagoras-f9",
+      "term": "Acute triangle test",
+      "definition": "If $a^2 + b^2 > c^2$ with $c$ the longest side, the triangle is acute.",
+      "example": "$6^2 + 7^2 = 85 > 64 = 8^2$, so the triangle is acute."
+    },
+    {
+      "id": "math-yr8-pythagoras-f10",
+      "term": "Obtuse triangle test",
+      "definition": "If $a^2 + b^2 < c^2$ with $c$ the longest side, the triangle is obtuse.",
+      "example": "$5^2 + 7^2 = 74 < 81 = 9^2$, so the triangle is obtuse."
+    },
+    {
+      "id": "math-yr8-pythagoras-f11",
+      "term": "Distance formula",
+      "definition": "The distance between $(x_1, y_1)$ and $(x_2, y_2)$ is $\\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$.",
+      "example": "The distance from $(1, 2)$ to $(4, 6)$ is $5$."
+    },
+    {
+      "id": "math-yr8-pythagoras-f12",
+      "term": "Horizontal and vertical difference",
+      "definition": "The two legs of the right-angled triangle formed by two points on a grid.",
+      "example": "From $(2, 3)$ to $(5, 7)$, the differences are $3$ and $4$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-pythagoras-q1",
+      "stem": "A right-angled triangle has legs $6$ cm and $8$ cm. What is the length of the hypotenuse?",
+      "choices": [
+        "$10$ cm",
+        "$12$ cm",
+        "$14$ cm",
+        "$\\sqrt{48}$ cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using $c = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$ cm."
+    },
+    {
+      "id": "math-yr8-pythagoras-q2",
+      "stem": "A right-angled triangle has hypotenuse $15$ cm and one leg $9$ cm. What is the other leg?",
+      "choices": [
+        "$6$ cm",
+        "$10$ cm",
+        "$12$ cm",
+        "$\\sqrt{306}$ cm"
+      ],
+      "correctIndex": 2,
+      "explanation": "Using $a = \\sqrt{15^2 - 9^2} = \\sqrt{225 - 81} = \\sqrt{144} = 12$ cm."
+    },
+    {
+      "id": "math-yr8-pythagoras-q3",
+      "stem": "Which of these is a Pythagorean triple?",
+      "choices": [
+        "$3, 5, 6$",
+        "$5, 12, 13$",
+        "$7, 10, 12$",
+        "$4, 6, 8$"
+      ],
+      "correctIndex": 1,
+      "explanation": "A Pythagorean triple satisfies $a^2 + b^2 = c^2$, and $5^2 + 12^2 = 25 + 144 = 169 = 13^2$."
+    },
+    {
+      "id": "math-yr8-pythagoras-q4",
+      "stem": "What is the distance between the points $(1, 1)$ and $(4, 5)$?",
+      "choices": [
+        "$3$",
+        "$4$",
+        "$5$",
+        "$7$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Using the distance formula: $\\sqrt{(4-1)^2 + (5-1)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$."
+    },
+    {
+      "id": "math-yr8-pythagoras-q5",
+      "stem": "A ladder $10$ m long leans against a wall with its foot $6$ m from the wall. How high up the wall does it reach?",
+      "choices": [
+        "$6$ m",
+        "$7$ m",
+        "$8$ m",
+        "$9$ m"
+      ],
+      "correctIndex": 2,
+      "explanation": "The ladder is the hypotenuse, so height $= \\sqrt{10^2 - 6^2} = \\sqrt{100 - 36} = \\sqrt{64} = 8$ m."
+    },
+    {
+      "id": "math-yr8-pythagoras-q6",
+      "stem": "A rectangle has length $5$ cm and width $12$ cm. What is the length of its diagonal?",
+      "choices": [
+        "$13$ cm",
+        "$17$ cm",
+        "$\\sqrt{119}$ cm",
+        "$10$ cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "The diagonal forms a right-angled triangle with length and width: $\\sqrt{5^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$ cm."
+    },
+    {
+      "id": "math-yr8-pythagoras-q7",
+      "stem": "A triangle has sides $7$ cm, $24$ cm and $25$ cm. Is it right-angled?",
+      "choices": [
+        "Yes, because $7^2 + 24^2 = 25^2$",
+        "No, because $7 + 24 \neq 25$",
+        "Cannot determine from the side lengths",
+        "Only if it is isosceles"
+      ],
+      "correctIndex": 0,
+      "explanation": "$7^2 + 24^2 = 49 + 576 = 625 = 25^2$, so the triangle satisfies Pythagoras' theorem."
+    },
+    {
+      "id": "math-yr8-pythagoras-q8",
+      "stem": "Find the distance between $(-2, 3)$ and $(4, -1)$.",
+      "choices": [
+        "$\\sqrt{52}$",
+        "$2\\sqrt{13}$",
+        "$\\sqrt{40}$",
+        "Both A and B"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\sqrt{(4 - (-2))^2 + (-1 - 3)^2} = \\sqrt{36 + 16} = \\sqrt{52} = 2\\sqrt{13}$."
+    },
+    {
+      "id": "math-yr8-pythagoras-q9",
+      "stem": "A right-angled triangle has hypotenuse $17$ cm and one leg $8$ cm. What is the other leg?",
+      "choices": [
+        "$15$ cm",
+        "$9$ cm",
+        "$\\sqrt{353}$ cm",
+        "$25$ cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\sqrt{17^2 - 8^2} = \\sqrt{289 - 64} = \\sqrt{225} = 15$ cm."
+    },
+    {
+      "id": "math-yr8-pythagoras-q10",
+      "stem": "Which set of side lengths does NOT form a right-angled triangle?",
+      "choices": [
+        "$6, 8, 10$",
+        "$5, 12, 13$",
+        "$8, 15, 17$",
+        "$4, 5, 6$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$4^2 + 5^2 = 16 + 25 = 41$, which is not equal to $6^2 = 36$."
+    },
+    {
+      "id": "math-yr8-pythagoras-q11",
+      "stem": "A triangle has sides $10$ cm, $24$ cm and $26$ cm. What type of triangle is it?",
+      "choices": [
+        "Right-angled",
+        "Acute",
+        "Obtuse",
+        "Equilateral"
+      ],
+      "correctIndex": 0,
+      "explanation": "$10^2 + 24^2 = 100 + 576 = 676 = 26^2$, so it is right-angled by the converse of Pythagoras."
+    },
+    {
+      "id": "math-yr8-pythagoras-q12",
+      "stem": "Find the hypotenuse of a right-angled triangle with legs $9$ cm and $12$ cm.",
+      "choices": [
+        "$15$ cm",
+        "$\\sqrt{225}$ cm",
+        "$21$ cm",
+        "$\\sqrt{63}$ cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\sqrt{9^2 + 12^2} = \\sqrt{81 + 144} = \\sqrt{225} = 15$ cm."
+    },
+    {
+      "id": "math-yr8-pythagoras-q13",
+      "stem": "What is the distance between $(0, 0)$ and $(8, 15)$?",
+      "choices": [
+        "$\\sqrt{161}$",
+        "$17$",
+        "$23$",
+        "$\\sqrt{119}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\sqrt{(8-0)^2 + (15-0)^2} = \\sqrt{64 + 225} = \\sqrt{289} = 17$."
+    },
+    {
+      "id": "math-yr8-pythagoras-q14",
+      "stem": "An isosceles triangle has a base of $12$ cm and equal sides of $10$ cm. What is its height?",
+      "choices": [
+        "$6$ cm",
+        "$8$ cm",
+        "$\\sqrt{136}$ cm",
+        "$\\sqrt{44}$ cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "The altitude splits the base into two $6$ cm segments, so $h = \\sqrt{10^2 - 6^2} = \\sqrt{64} = 8$ cm."
+    },
+    {
+      "id": "math-yr8-pythagoras-q15",
+      "stem": "A right-angled triangle has legs $5$ cm and $12$ cm. What is the perimeter of the triangle?",
+      "choices": [
+        "$17$ cm",
+        "$30$ cm",
+        "$\\sqrt{17}$ cm",
+        "$60$ cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "The hypotenuse is $\\sqrt{5^2 + 12^2} = 13$ cm, so the perimeter is $5 + 12 + 13 = 30$ cm."
+    }
+  ]
+}

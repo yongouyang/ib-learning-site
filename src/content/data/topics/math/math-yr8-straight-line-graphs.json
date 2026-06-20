@@ -1,0 +1,305 @@
+{
+  "id": "math-yr8-straight-line-graphs",
+  "subjectId": "math",
+  "title": "Straight-Line Graphs",
+  "description": "Explore the gradient, y-intercept and equation $y=mx+c$, then use them to plot straight lines and identify parallel and perpendicular lines.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-straight-line-graphs-n1",
+      "heading": "Plotting Points on a Grid",
+      "illustration": {
+        "src": "/images/math/math-yr8-straight-line-graphs.svg",
+        "alt": "A straight line drawn on a coordinate grid, showing the y-intercept, a gradient triangle and the equation y equals mx plus c.",
+        "caption": "A straight line is fixed by its gradient and y-intercept."
+      },
+      "body": "📌 Definition\nA coordinate grid is made from a horizontal $x$-axis and a vertical $y$-axis that cross at the origin $(0,0)$. Every point is written as an ordered pair $(x,y)$.\n\n🔑 Key Concept\nTo plot a point, move horizontally first (positive is right, negative is left), then vertically (positive is up, negative is down).\n\n💡 Worked Example\nPlot $A(3,2)$, $B(-2,4)$, $C(-1,-3)$ and $D(2,-2)$.\n• $A$ is 3 right and 2 up.\n• $B$ is 2 left and 4 up.\n• $C$ is 1 left and 3 down.\n• $D$ is 2 right and 2 down.\n\n📎 Key Points to Remember\n• Always write coordinates as $(x,y)$; order matters.\n• Points on the $x$-axis have $y=0$.\n• Points on the $y$-axis have $x=0$.\n\n✅ Check\nCount from the origin along the $x$-axis, then move parallel to the $y$-axis."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-n2",
+      "heading": "Gradient of a Straight Line",
+      "body": "📌 Definition\nThe gradient $m$ measures how steep a straight line is. For two points $(x_1,y_1)$ and $(x_2,y_2)$:\n$$m = \\frac{y_2 - y_1}{x_2 - x_1}$$\n\n🔑 How it works\n• A positive gradient slopes upwards from left to right.\n• A negative gradient slopes downwards from left to right.\n• A zero gradient is horizontal.\n• A vertical line has an undefined gradient.\n\n💡 Worked Example\nFind the gradient through $A(1,2)$ and $B(5,10)$.\n$$m = \\frac{10 - 2}{5 - 1} = \\frac{8}{4} = 2$$\nFor every 1 unit to the right, the line rises 2 units.\n\n⚠️ Common Mistake\nMixing the order of the points. If you subtract $y_1 - y_2$ in the numerator, you must subtract $x_1 - x_2$ in the denominator."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-n3",
+      "heading": "The Equation $y = mx + c$",
+      "body": "📌 Definition\nThe equation of a non-vertical straight line can be written as:\n$$y = mx + c$$\nwhere $m$ is the gradient and $c$ is the $y$-intercept, the value of $y$ where the line crosses the $y$-axis.\n\n🔑 How it works\n• $m$ tells you the steepness and direction of the line.\n• $c$ tells you where the line hits the $y$-axis at the point $(0,c)$.\n\n💡 Worked Example\nFor $y = 3x - 2$:\n• $m = 3$, so the line rises 3 units for every 1 unit to the right.\n• $c = -2$, so the line crosses the $y$-axis at $(0,-2)$.\n\n📎 Key Points to Remember\n• The equation must have $y$ as the subject before you read $m$ and $c$.\n• Lines with the same $m$ are parallel.\n• Lines with the same $c$ cross the $y$-axis at the same point."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-n4",
+      "heading": "Plotting from $y = mx + c$",
+      "body": "🔑 How it works\n1. Mark the $y$-intercept $(0,c)$.\n2. From that point, use the gradient to locate a second point: move 1 unit right and $m$ units up (or down if $m$ is negative).\n3. Join the points with a straight line and extend it in both directions.\n\n💡 Worked Example\nPlot $y = 2x + 1$.\n• The $y$-intercept is $(0,1)$.\n• The gradient is $2$, so move 1 right and 2 up to $(1,3)$.\n• Draw a straight line through $(0,1)$ and $(1,3)$.\n\n💡 Worked Example\nPlot $y = -\\frac{1}{2}x + 4$.\n• The $y$-intercept is $(0,4)$.\n• The gradient is $-\\frac{1}{2}$, so move 2 right and 1 down to $(2,3)$.\n• Draw a straight line through the two points.\n\n⚠️ Common Mistake\nSwapping rise and run. A gradient of $\\frac{2}{3}$ means move 3 right then 2 up, not 2 right then 3 up."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-n5",
+      "heading": "Finding the Equation of a Line",
+      "body": "📌 Key Concept\nIf you know the gradient $m$ and one point $(x_1,y_1)$, you can use point-slope form:\n$$y - y_1 = m(x - x_1)$$\nThen rearrange to $y = mx + c$.\n\nIf you know two points, first find the gradient, then substitute one point to find $c$.\n\n💡 Worked Example 1\nFind the equation of the line with gradient $2$ passing through $(3,7)$.\n$$y - 7 = 2(x - 3)$$\n$$y - 7 = 2x - 6$$\n$$y = 2x + 1$$\n\n💡 Worked Example 2\nFind the equation of the line through $(1,4)$ and $(3,10)$.\nStep 1: gradient.\n$$m = \\frac{10 - 4}{3 - 1} = \\frac{6}{2} = 3$$\nStep 2: substitute $(1,4)$ into $y = 3x + c$.\n$$4 = 3(1) + c \\Rightarrow c = 1$$\nStep 3: equation.\n$$y = 3x + 1$$\n\n✅ Check\nSubstitute the other point: $10 = 3(3) + 1 = 10$. Correct."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-n6",
+      "heading": "Parallel and Perpendicular Lines",
+      "body": "📌 Definition\nTwo lines are parallel if they never meet. They have the same gradient:\n$$m_1 = m_2$$\nTwo lines are perpendicular if they meet at a right angle. Their gradients multiply to $-1$:\n$$m_1 \\times m_2 = -1$$\nSo the perpendicular gradient is the negative reciprocal $-\\frac{1}{m}$.\n\n🔑 How it works\nIf a line has gradient $m$:\n• a parallel line also has gradient $m$;\n• a perpendicular line has gradient $-\\frac{1}{m}$.\n\n💡 Worked Example\nFor $y = 4x + 1$:\n• a parallel line is $y = 4x - 3$;\n• a perpendicular line is $y = -\\frac{1}{4}x + 5$.\n\n⚠️ Common Mistake\nThinking perpendicular gradients are just negatives of each other. The negative reciprocal of $4$ is $-\\frac{1}{4}$, not $-4$.\n\n📎 Key Points to Remember\n• Parallel lines share a gradient but have different $y$-intercepts (otherwise they are the same line).\n• Horizontal lines are perpendicular to vertical lines."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-n7",
+      "heading": "Horizontal and Vertical Lines",
+      "body": "📌 Definition\nA horizontal line has equation $y = c$ and gradient $0$.\nA vertical line has equation $x = a$ and an undefined gradient.\n\n🔑 How it works\nFor $y = c$, every point on the line has the same $y$-coordinate, so the change in $y$ is zero.\nFor $x = a$, every point has the same $x$-coordinate, so the change in $x$ is zero and the gradient formula divides by zero.\n\n💡 Worked Example\nWrite the equation of:\n1. The horizontal line through $(4,-3)$: $y = -3$.\n2. The vertical line through $(4,-3)$: $x = 4$.\nThe two lines cross at $(4,-3)$.\n\n📎 Key Points to Remember\n• Horizontal lines are parallel to the $x$-axis.\n• Vertical lines are parallel to the $y$-axis.\n• The form $y = mx + c$ cannot describe a vertical line."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-straight-line-graphs-f1",
+      "term": "Gradient",
+      "definition": "A measure of how steep a straight line is, equal to the change in $y$ divided by the change in $x$.",
+      "example": "Between $(1,3)$ and $(5,11)$ the gradient is $\\frac{11-3}{5-1}=2$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-f2",
+      "term": "$y$-intercept",
+      "definition": "The value of $y$ where a line crosses the $y$-axis; the constant $c$ in $y=mx+c$.",
+      "example": "$y=2x+5$ has $y$-intercept $5$ at the point $(0,5)$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-f3",
+      "term": "Equation of a straight line",
+      "definition": "$y=mx+c$, where $m$ is the gradient and $c$ is the $y$-intercept.",
+      "example": "$y=-\\frac{1}{2}x+4$ has gradient $-\\frac{1}{2}$ and intercept $4$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-f4",
+      "term": "Plotting from $y=mx+c$",
+      "definition": "Mark the $y$-intercept, then use the gradient to find a second point and draw the line.",
+      "example": "For $y=3x+2$, mark $(0,2)$ and move 1 right, 3 up to $(1,5)$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-f5",
+      "term": "Parallel lines",
+      "definition": "Lines that never meet; they have equal gradients.",
+      "example": "$y=3x+1$ is parallel to $y=3x-7$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-f6",
+      "term": "Perpendicular lines",
+      "definition": "Lines that meet at a right angle; the product of their gradients is $-1$.",
+      "example": "$m=4$ and $m=-\\frac{1}{4}$ are perpendicular gradients."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-f7",
+      "term": "Negative reciprocal",
+      "definition": "The perpendicular gradient to $m$, written $-\\frac{1}{m}$.",
+      "example": "The negative reciprocal of $\\frac{2}{3}$ is $-\\frac{3}{2}$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-f8",
+      "term": "Horizontal line",
+      "definition": "A line with equation $y=c$ and gradient $0$.",
+      "example": "$y=-2$ is a horizontal line through every point with $y$-coordinate $-2$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-f9",
+      "term": "Vertical line",
+      "definition": "A line with equation $x=a$; its gradient is undefined.",
+      "example": "$x=5$ is a vertical line through every point with $x$-coordinate $5$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-f10",
+      "term": "$x$-intercept",
+      "definition": "The value of $x$ where a line crosses the $x$-axis, found by setting $y=0$.",
+      "example": "For $y=2x-6$, setting $y=0$ gives $x=3$, so the $x$-intercept is $(3,0)$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-f11",
+      "term": "Point-slope form",
+      "definition": "$y-y_1=m(x-x_1)$, used when the gradient and one point are known.",
+      "example": "Gradient $3$ through $(2,5)$ gives $y-5=3(x-2)$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-f12",
+      "term": "Undefined gradient",
+      "definition": "A gradient that cannot be calculated because the change in $x$ is zero.",
+      "example": "The vertical line $x=4$ has an undefined gradient."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-straight-line-graphs-q1",
+      "stem": "What is the gradient of the line through $(2,3)$ and $(6,11)$?",
+      "choices": [
+        "$1$",
+        "$2$",
+        "$3$",
+        "$4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$m=\\frac{11-3}{6-2}=\\frac{8}{4}=2$, so the gradient is $2$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q2",
+      "stem": "What is the $y$-intercept of $y=5x-3$?",
+      "choices": [
+        "$5$",
+        "$3$",
+        "$-3$",
+        "$0$"
+      ],
+      "correctIndex": 2,
+      "explanation": "In $y=mx+c$, the $y$-intercept is $c=-3$, so the line crosses the $y$-axis at $(0,-3)$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q3",
+      "stem": "Which equation represents a line with gradient $-2$ and $y$-intercept $4$?",
+      "choices": [
+        "$y=2x+4$",
+        "$y=-2x+4$",
+        "$y=4x-2$",
+        "$y=-4x+2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Using $y=mx+c$ with $m=-2$ and $c=4$ gives $y=-2x+4$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q4",
+      "stem": "Find the equation of the line with gradient $3$ passing through $(0,2)$.",
+      "choices": [
+        "$y=3x+2$",
+        "$y=2x+3$",
+        "$y=3x$",
+        "$y=3x-2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The $y$-intercept is $2$ and the gradient is $3$, so the equation is $y=3x+2$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q5",
+      "stem": "Find the equation of the line through $(1,5)$ and $(3,9)$.",
+      "choices": [
+        "$y=2x+3$",
+        "$y=2x+5$",
+        "$y=3x+2$",
+        "$y=4x+1$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The gradient is $\\frac{9-5}{3-1}=2$. Substituting $(1,5)$ gives $5=2+c$, so $c=3$ and $y=2x+3$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q6",
+      "stem": "Which line is parallel to $y=\\frac{3}{4}x+1$?",
+      "choices": [
+        "$y=\\frac{4}{3}x+1$",
+        "$y=-\\frac{3}{4}x+1$",
+        "$y=\\frac{3}{4}x-5$",
+        "$y=3x+4$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Parallel lines have equal gradients, so the answer must keep $m=\\frac{3}{4}$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q7",
+      "stem": "A line is perpendicular to $y=2x+5$. What is its gradient?",
+      "choices": [
+        "$2$",
+        "$-2$",
+        "$\\frac{1}{2}$",
+        "$-\\frac{1}{2}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Perpendicular gradients multiply to $-1$, so $m_2=-\\frac{1}{2}$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q8",
+      "stem": "What is the equation of the horizontal line through $(7,-3)$?",
+      "choices": [
+        "$x=7$",
+        "$y=7$",
+        "$y=-3$",
+        "$x=-3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A horizontal line has equation $y=c$, so through $(7,-3)$ the equation is $y=-3$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q9",
+      "stem": "Find the $x$-intercept of $y=4x-8$.",
+      "choices": [
+        "$2$",
+        "$-2$",
+        "$8$",
+        "$-8$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Set $y=0$: $0=4x-8$ gives $4x=8$, so $x=2$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q10",
+      "stem": "The line through $(0,c)$ and $(3,10)$ has gradient $2$. Find $c$.",
+      "choices": [
+        "$4$",
+        "$6$",
+        "$8$",
+        "$10$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\frac{10-c}{3}=2$, so $10-c=6$ and therefore $c=4$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q11",
+      "stem": "Which point lies on the line $y=3x-1$?",
+      "choices": [
+        "$(1,2)$",
+        "$(2,5)$",
+        "$(0,-2)$",
+        "$(-1,-4)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Substituting $x=1$ gives $y=3(1)-1=2$, so $(1,2)$ lies on the line."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q12",
+      "stem": "Find the equation of the line through $(-1,4)$ that is parallel to $y=3x+2$.",
+      "choices": [
+        "$y=3x+7$",
+        "$y=3x-7$",
+        "$y=-\\frac{1}{3}x+7$",
+        "$y=-\\frac{1}{3}x-7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Parallel means $m=3$. Substituting $(-1,4)$ gives $4=-3+c$, so $c=7$ and $y=3x+7$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q13",
+      "stem": "The points $(2,a)$ and $(6,5)$ lie on a line with gradient $-\\frac{1}{2}$. Find $a$.",
+      "choices": [
+        "$3$",
+        "$7$",
+        "$9$",
+        "$1$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\frac{5-a}{6-2}=-\\frac{1}{2}$, so $\\frac{5-a}{4}=-\\frac{1}{2}$. Multiplying gives $5-a=-2$, hence $a=7$."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q14",
+      "stem": "Which equation is perpendicular to $y=\\frac{2}{3}x+4$?",
+      "choices": [
+        "$y=\\frac{2}{3}x-1$",
+        "$y=-\\frac{2}{3}x+1$",
+        "$y=\\frac{3}{2}x+1$",
+        "$y=-\\frac{3}{2}x+1$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The negative reciprocal of $\\frac{2}{3}$ is $-\\frac{3}{2}$, so $y=-\\frac{3}{2}x+1$ is perpendicular."
+    },
+    {
+      "id": "math-yr8-straight-line-graphs-q15",
+      "stem": "A taxi charges a fixed fee of $5 plus $2 per kilometre. Which equation gives the cost $C$ for $k$ kilometres?",
+      "choices": [
+        "$C=2k+5$",
+        "$C=5k+2$",
+        "$C=7k$",
+        "$C=2(k+5)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The fixed $5 is the $y$-intercept and the $2 per kilometre is the gradient, so $C=2k+5$."
+    }
+  ]
+}

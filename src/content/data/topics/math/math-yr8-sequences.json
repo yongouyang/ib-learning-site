@@ -1,0 +1,305 @@
+{
+  "id": "math-yr8-sequences",
+  "subjectId": "math",
+  "title": "Sequences & nth Term",
+  "description": "Linear sequences, position-to-term rules, and a first look at quadratic sequences for MYP 3.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-sequences-n1",
+      "heading": "Linear Sequences",
+      "illustration": {
+        "src": "/images/math/math-yr8-sequences.svg",
+        "alt": "A linear sequence shown as numbered steps with position numbers 1 to 5 and terms 4, 7, 10, 13, 16, connected by arrows labelled plus 3.",
+        "caption": "A linear sequence has a constant common difference between consecutive terms."
+      },
+      "body": "📌 Definition\nA linear sequence is a sequence in which the difference between consecutive terms is always the same. This fixed difference is called the common difference.\n\n    $$4, 7, 10, 13, 16, \\dots$$\n\n    The common difference is $7 - 4 = 3$.\n\n🔑 Key Concept\nBecause the pattern grows by equal steps, plotting position $n$ against term value gives points that lie on a straight line.\n\n💡 Worked Example\nFind the common difference of $15, 11, 7, 3, -1, \\dots$.\n\n  $11 - 15 = -4$\n  $7 - 11 = -4$\n  $3 - 7 = -4$\n\n  The common difference is $-4$.\n\n📎 Key Points to Remember\n• A linear sequence is also called an arithmetic sequence.\n• The common difference can be positive or negative.\n• Check at least two differences before deciding a sequence is linear.\n\n⚠️ Common Mistake\nCalling any sequence with a pattern 'linear'. A sequence is linear only when the first differences are constant."
+    },
+    {
+      "id": "math-yr8-sequences-n2",
+      "heading": "Position-to-Term Rules",
+      "body": "📌 Definition\nA position-to-term rule is a formula that gives the value of any term directly from its position number $n$.\n\n    We often write the $n$th term as $T_n$ or $u_n$.\n\n🔑 Key Concept\nFor a linear sequence with common difference $d$ and first term $a$, the $n$th term can be written as:\n\n    $$T_n = a + (n - 1)d$$\n\n    A quicker form for many calculations is:\n\n    $$T_n = dn + c$$\n\n    where $d$ is the common difference and $c$ is a constant chosen to make the first term correct.\n\n💡 Worked Example\nThe $n$th term of a sequence is $T_n = 5n - 2$. Find the first four terms.\n\n  $T_1 = 5(1) - 2 = 3$\n  $T_2 = 5(2) - 2 = 8$\n  $T_3 = 5(3) - 2 = 13$\n  $T_4 = 5(4) - 2 = 18$\n\n  The sequence is $3, 8, 13, 18, \\dots$.\n\n📎 Key Points to Remember\n• Substitute $n = 1, 2, 3, \\dots$ to generate terms.\n• The number multiplying $n$ is the common difference.\n• The rule works for any term, however large $n$ is.\n\n✅ Check\nFor $T_n = 5n - 2$, the common difference should be $5$. The terms $3, 8, 13, 18$ increase by $5$ each time, so the rule is correct."
+    },
+    {
+      "id": "math-yr8-sequences-n3",
+      "heading": "Finding the nth Term of a Linear Sequence",
+      "body": "🔑 How it works\n1. Find the common difference $d$.\n2. Start the rule with $dn$.\n3. Substitute $n = 1$ and compare with the first term to find the constant $c$.\n\n💡 Worked Example\nFind the $n$th term of $6, 10, 14, 18, 22, \\dots$.\n\n  Step 1: Common difference\n    $10 - 6 = 4$, so $d = 4$.\n\n  Step 2: Start with $4n$.\n\n  Step 3: Find $c$\n    When $n = 1$, $4n = 4$, but the first term is $6$.\n    $c = 6 - 4 = 2$.\n\n  The $n$th term is:\n    $$T_n = 4n + 2$$\n\n  ✅ Check: For $n = 4$, $4(4) + 2 = 18$ ✓\n\n📎 Key Points to Remember\n• The coefficient of $n$ is always the common difference.\n• To find $c$, work out first term minus $d$.\n• Always test the rule on at least two terms.\n\n⚠️ Common Mistake\nForgetting that $c$ is not the first term. For $6, 10, 14, \\dots$, the first term is $6$ but the rule is $4n + 2$, not $4n + 6$."
+    },
+    {
+      "id": "math-yr8-sequences-n4",
+      "heading": "Using the nth Term",
+      "body": "🔑 Key Concept\nOnce you have the $n$th term, you can answer many questions without listing every term.\n\n💡 Worked Example 1 — Find a far term\nThe $n$th term of a sequence is $T_n = 7n - 3$. Find the $50$th term.\n\n  $$T_{50} = 7(50) - 3 = 350 - 3 = 347$$\n\n💡 Worked Example 2 — Is a number in the sequence?\nIs $92$ a term of the sequence with $n$th term $T_n = 6n + 2$?\n\n  Set $6n + 2 = 92$.\n  $6n = 90$\n  $n = 15$\n\n  Since $n = 15$ is a whole number, $92$ is the $15$th term.\n\n💡 Worked Example 3 — Find which term equals a value\nWhich term of $T_n = 8n - 5$ equals $91$?\n\n  $8n - 5 = 91$\n  $8n = 96$\n  $n = 12$\n\n  The $12$th term is $91$.\n\n📎 Key Points to Remember\n• Set the $n$th term equal to the target value and solve for $n$.\n• If $n$ is not a positive whole number, the value is not in the sequence.\n• Always interpret your answer in the context of the question.\n\n⚠️ Common Mistake\nAssuming every whole-number answer means the value is in the sequence. The value must also match the sequence direction; for example, $n = 0$ or negative $n$ are not valid positions."
+    },
+    {
+      "id": "math-yr8-sequences-n5",
+      "heading": "Introduction to Quadratic Sequences",
+      "body": "📌 Definition\nA quadratic sequence is a sequence whose $n$th term includes an $n^2$ part. The second differences between terms are constant.\n\n🔑 Key Concept\nFor the simplest quadratic sequence, the square numbers:\n\n    $$T_n = n^2$$\n\n    the terms are $1, 4, 9, 16, 25, 36, \\dots$.\n\n    First differences: $3, 5, 7, 9, 11$\n    Second differences: $2, 2, 2, 2$\n\n    The constant second difference tells us the sequence is quadratic.\n\n💡 Worked Example\nWrite the first five terms of $T_n = n^2 + 2$.\n\n  $T_1 = 1^2 + 2 = 3$\n  $T_2 = 2^2 + 2 = 6$\n  $T_3 = 3^2 + 2 = 11$\n  $T_4 = 4^2 + 2 = 18$\n  $T_5 = 5^2 + 2 = 27$\n\n  The sequence is $3, 6, 11, 18, 27, \\dots$.\n\n📎 Key Points to Remember\n• Quadratic sequences grow faster than linear sequences.\n• The $n$th term always contains $n^2$ (or a multiple of $n^2$).\n• Second differences being constant is the signature of a quadratic sequence.\n\n⚠️ Common Mistake\nTrying to fit a linear rule to a quadratic sequence. If the first differences are not constant, check the second differences before giving up on a simple rule."
+    },
+    {
+      "id": "math-yr8-sequences-n6",
+      "heading": "Finding Simple Quadratic nth Terms",
+      "body": "🔑 How it works\nFor MYP 3 we focus on quadratic rules of the form $T_n = an^2 + c$.\n\n1. Compare the sequence with $n^2$.\n2. Decide whether each term is multiplied by a number or shifted up/down.\n3. Test your rule on at least two terms.\n\n💡 Worked Example 1\nFind the $n$th term of $2, 8, 18, 32, 50, \\dots$.\n\n  Compare with $n^2$: $1, 4, 9, 16, 25$.\n  Each given term is double the corresponding square number.\n\n  $$T_n = 2n^2$$\n\n  Check: $2(3)^2 = 18$ ✓\n\n💡 Worked Example 2\nFind the $n$th term of $5, 8, 13, 20, 29, \\dots$.\n\n  Compare with $n^2$: $1, 4, 9, 16, 25$.\n  Each term is $4$ more than the corresponding square number.\n\n  $$T_n = n^2 + 4$$\n\n  Check: $3^2 + 4 = 13$ ✓\n\n📎 Key Points to Remember\n• If terms are multiples of square numbers, the rule is $an^2$.\n• If terms are square numbers shifted by a constant, the rule is $n^2 + c$.\n• Always check by substituting $n = 1, 2, 3$.\n\n⚠️ Common Mistake\nConfusing $2n^2$ with $(2n)^2$. They are different: $2n^2$ means $2 \\times n^2$, while $(2n)^2 = 4n^2$."
+    },
+    {
+      "id": "math-yr8-sequences-n7",
+      "heading": "Solving Problems with Sequences",
+      "body": "🔑 Key Concept\nMany real situations follow a linear or quadratic pattern. Identify the type of sequence, find the rule, and then use it to answer the question.\n\n💡 Worked Example 1 — Linear pattern\nA staircase has steps. Step $1$ uses $5$ bricks, Step $2$ uses $8$ bricks, Step $3$ uses $11$ bricks, and the pattern continues. How many bricks are needed for Step $20$?\n\n  Sequence: $5, 8, 11, \\dots$\n  Common difference: $3$\n  First term: $5$\n\n  $T_n = 3n + 2$\n\n  $$T_{20} = 3(20) + 2 = 62$$\n\n  Step $20$ needs $62$ bricks.\n\n💡 Worked Example 2 — Quadratic pattern\nThe number of tiles in a growing pattern is $2, 6, 12, 20, 30, \\dots$. Find the $n$th term.\n\n  Compare with $n^2$: $1, 4, 9, 16, 25$.\n  Each term is the square number plus its position number.\n\n  $$T_n = n^2 + n$$\n\n  Check: $3^2 + 3 = 12$ ✓\n\n📎 Key Points to Remember\n• Read the problem to find the first term and the pattern of growth.\n• Decide whether the pattern is linear (constant first difference) or quadratic (constant second difference).\n• Write the rule before substituting a large value.\n\n✅ Check\nAfter finding a rule, generate the first three terms mentally and compare them with the question to catch sign or arithmetic errors."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-sequences-f1",
+      "term": "Linear sequence",
+      "definition": "A sequence with a constant difference between consecutive terms.",
+      "example": "$5, 9, 13, 17$ is linear with common difference $4$."
+    },
+    {
+      "id": "math-yr8-sequences-f2",
+      "term": "Common difference",
+      "definition": "The fixed amount added or subtracted between consecutive terms of a linear sequence.",
+      "example": "In $12, 9, 6, 3$, the common difference is $-3$."
+    },
+    {
+      "id": "math-yr8-sequences-f3",
+      "term": "Position-to-term rule",
+      "definition": "A formula that gives any term directly from its position number $n$.",
+      "example": "$T_n = 3n + 1$ gives the sequence $4, 7, 10, 13$."
+    },
+    {
+      "id": "math-yr8-sequences-f4",
+      "term": "nth term",
+      "definition": "The formula for a sequence written using the position number $n$.",
+      "example": "The $n$th term of $7, 11, 15, 19$ is $4n + 3$."
+    },
+    {
+      "id": "math-yr8-sequences-f5",
+      "term": "Linear nth term formula",
+      "definition": "For a linear sequence, $T_n = dn + c$, where $d$ is the common difference.",
+      "example": "For $2, 6, 10, 14$, $d = 4$ and $c = -2$, so $T_n = 4n - 2$."
+    },
+    {
+      "id": "math-yr8-sequences-f6",
+      "term": "First term",
+      "definition": "The term in position $1$ of a sequence, often denoted $a$ or $T_1$.",
+      "example": "In $8, 13, 18, 23$, the first term is $8$."
+    },
+    {
+      "id": "math-yr8-sequences-f7",
+      "term": "Finding the nth term",
+      "definition": "Find the common difference, start with $dn$, then add a constant so the first term is correct.",
+      "example": "$5, 8, 11, 14$ has $T_n = 3n + 2$."
+    },
+    {
+      "id": "math-yr8-sequences-f8",
+      "term": "Checking if a number is in a sequence",
+      "definition": "Set the nth term equal to the number and solve for $n$. If $n$ is a positive whole number, the number is in the sequence.",
+      "example": "For $T_n = 4n + 3$, set $47 = 4n + 3$ to get $n = 11$, so $47$ is the $11$th term."
+    },
+    {
+      "id": "math-yr8-sequences-f9",
+      "term": "Quadratic sequence",
+      "definition": "A sequence whose nth term includes $n^2$ and whose second differences are constant.",
+      "example": "$1, 4, 9, 16, 25$ from $T_n = n^2$."
+    },
+    {
+      "id": "math-yr8-sequences-f10",
+      "term": "Second difference",
+      "definition": "The difference between consecutive first differences of a sequence.",
+      "example": "For $n^2$: first differences are $3, 5, 7, 9$, so second differences are $2, 2, 2$."
+    },
+    {
+      "id": "math-yr8-sequences-f11",
+      "term": "Simple quadratic nth term",
+      "definition": "A quadratic rule of the form $T_n = an^2 + c$ for MYP 3.",
+      "example": "$2, 8, 18, 32$ has $T_n = 2n^2$."
+    },
+    {
+      "id": "math-yr8-sequences-f12",
+      "term": "Sequence notation $T_n$",
+      "definition": "A shorthand for the term in position $n$ of a sequence.",
+      "example": "If $T_n = 5n - 1$, then $T_4 = 19$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-sequences-q1",
+      "stem": "What is the next term in the linear sequence $7, 12, 17, 22, 27, \\dots$?",
+      "choices": [
+        "$28$",
+        "$30$",
+        "$32$",
+        "$34$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The common difference is $5$, since $12 - 7 = 5$. Therefore, $27 + 5 = 32$."
+    },
+    {
+      "id": "math-yr8-sequences-q2",
+      "stem": "Find the common difference of the sequence $20, 16, 12, 8, 4, \\dots$.",
+      "choices": [
+        "$4$",
+        "$-4$",
+        "$6$",
+        "$-6$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Each term is $4$ less than the previous term: $16 - 20 = -4$, $12 - 16 = -4$, and so on."
+    },
+    {
+      "id": "math-yr8-sequences-q3",
+      "stem": "What is the $n$th term of the sequence $3, 7, 11, 15, 19, \\dots$?",
+      "choices": [
+        "$4n + 3$",
+        "$4n - 1$",
+        "$3n + 4$",
+        "$n + 4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The common difference is $4$, so start with $4n$. When $n = 1$, $4n = 4$, but the first term is $3$, so subtract $1$. The rule is $4n - 1$."
+    },
+    {
+      "id": "math-yr8-sequences-q4",
+      "stem": "The $n$th term of a sequence is $T_n = 6n - 5$. What is the $10$th term?",
+      "choices": [
+        "$50$",
+        "$55$",
+        "$60$",
+        "$65$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Substitute $n = 10$ into $6n - 5$: $6(10) - 5 = 60 - 5 = 55$."
+    },
+    {
+      "id": "math-yr8-sequences-q5",
+      "stem": "Find the $n$th term of the sequence $9, 14, 19, 24, 29, \\dots$.",
+      "choices": [
+        "$5n + 4$",
+        "$5n - 4$",
+        "$4n + 5$",
+        "$5n + 9$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The common difference is $5$, so start with $5n$. When $n = 1$, $5n = 5$, but the first term is $9$, so add $4$. The rule is $5n + 4$."
+    },
+    {
+      "id": "math-yr8-sequences-q6",
+      "stem": "The $n$th term of a sequence is $T_n = 8n + 3$. Which term equals $75$?",
+      "choices": [
+        "$8$",
+        "$9$",
+        "$10$",
+        "$11$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Set $8n + 3 = 75$. Subtract $3$ to get $8n = 72$, then divide by $8$ to get $n = 9$."
+    },
+    {
+      "id": "math-yr8-sequences-q7",
+      "stem": "Is $50$ a term of the sequence with $n$th term $T_n = 6n + 2$?",
+      "choices": [
+        "Yes, the $7$th term",
+        "Yes, the $8$th term",
+        "No, because $n$ is not a whole number",
+        "No, because the sequence decreases"
+      ],
+      "correctIndex": 1,
+      "explanation": "Set $6n + 2 = 50$. Subtract $2$ to get $6n = 48$, then divide by $6$ to get $n = 8$. So $50$ is the $8$th term."
+    },
+    {
+      "id": "math-yr8-sequences-q8",
+      "stem": "Find the missing term in the linear sequence $10, 17, \\underline{\\quad}, 31, 38$.",
+      "choices": [
+        "$22$",
+        "$24$",
+        "$25$",
+        "$28$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The common difference is $7$, since $17 - 10 = 7$ and $38 - 31 = 7$. Therefore, $17 + 7 = 24$, and checking, $24 + 7 = 31$."
+    },
+    {
+      "id": "math-yr8-sequences-q9",
+      "stem": "A taxi fare starts at $\\$4$ and increases by $\\$3$ for each kilometre travelled. How much does a $15$ km journey cost?",
+      "choices": [
+        "$\\$42$",
+        "$\\$45$",
+        "$\\$47$",
+        "$\\$49$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The cost sequence is $7, 10, 13, \\dots$, with first term $7$ and common difference $3$. The $n$th term is $T_n = 3n + 4$. For $15$ km, $T_{15} = 3(15) + 4 = 49$, so the fare is $\\$49$."
+    },
+    {
+      "id": "math-yr8-sequences-q10",
+      "stem": "What is the next term in the quadratic sequence $2, 5, 10, 17, 26, \\dots$?",
+      "choices": [
+        "$34$",
+        "$35$",
+        "$36$",
+        "$37$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The sequence follows $T_n = n^2 + 1$, since $1^2 + 1 = 2$, $2^2 + 1 = 5$, and so on. The $6$th term is $6^2 + 1 = 37$."
+    },
+    {
+      "id": "math-yr8-sequences-q11",
+      "stem": "What is the $n$th term of the quadratic sequence $3, 6, 11, 18, 27, \\dots$?",
+      "choices": [
+        "$n^2 + 2$",
+        "$2n^2$",
+        "$n^2 + 3$",
+        "$2n^2 + 1$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Compare with $n^2$: $1, 4, 9, 16, 25$. Each term is $2$ more than the corresponding square number, so the rule is $T_n = n^2 + 2$."
+    },
+    {
+      "id": "math-yr8-sequences-q12",
+      "stem": "What is the second difference of the square-number sequence $1, 4, 9, 16, 25, \\dots$?",
+      "choices": [
+        "$1$",
+        "$2$",
+        "$3$",
+        "$4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "First differences are $3, 5, 7, 9$. The second differences are $5 - 3 = 2$, $7 - 5 = 2$, and $9 - 7 = 2$, so the second difference is $2$."
+    },
+    {
+      "id": "math-yr8-sequences-q13",
+      "stem": "Find the $n$th term of the sequence $22, 17, 12, 7, 2, \\dots$.",
+      "choices": [
+        "$5n + 17$",
+        "$-5n + 27$",
+        "$5n - 27$",
+        "$27 - 5n$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The common difference is $-5$. Starting with $-5n$, when $n = 1$ we get $-5$, but the first term is $22$, so we need $27 - 5n$. Check: $27 - 5(2) = 17$ ✓."
+    },
+    {
+      "id": "math-yr8-sequences-q14",
+      "stem": "A tile pattern has $2$ tiles in Picture $1$, $6$ tiles in Picture $2$, $12$ tiles in Picture $3$, and $20$ tiles in Picture $4$. How many tiles are in Picture $5$?",
+      "choices": [
+        "$24$",
+        "$28$",
+        "$30$",
+        "$32$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The sequence is $2, 6, 12, 20$. Comparing with $n^2$: $1, 4, 9, 16$, each term is $n^2 + n$. For Picture $5$, $5^2 + 5 = 25 + 5 = 30$."
+    },
+    {
+      "id": "math-yr8-sequences-q15",
+      "stem": "Which of these sequences is quadratic?",
+      "choices": [
+        "$4, 7, 10, 13, 16$",
+        "$3, 5, 7, 9, 11$",
+        "$2, 5, 10, 17, 26$",
+        "$1, 2, 4, 8, 16$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$2, 5, 10, 17, 26$ has first differences $3, 5, 7, 9$ and constant second difference $2$, so it follows $T_n = n^2 + 1$ and is quadratic."
+    }
+  ]
+}

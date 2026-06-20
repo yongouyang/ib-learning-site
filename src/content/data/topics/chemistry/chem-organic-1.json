@@ -1,0 +1,305 @@
+{
+  "id": "chem-organic-1",
+  "subjectId": "chemistry",
+  "title": "Introduction to Organic Chemistry",
+  "description": "An introduction to carbon bonding, alkanes and alkenes, functional groups, and the simple formulae used to represent organic molecules.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "chem-organic-1-n1",
+      "heading": "📌 What is Organic Chemistry?",
+      "body": "Organic chemistry is the study of compounds that contain carbon atoms bonded to hydrogen and often oxygen, nitrogen or halogens. Carbon is special because one atom can form four strong covalent bonds, allowing it to build long chains, branched chains and rings. This creates millions of different organic compounds. Living things are built from organic molecules, and everyday materials such as fuels, plastics, medicines and food molecules are also organic.",
+      "illustration": {
+        "src": "/images/chemistry/chem-organic-1.svg",
+        "alt": "Diagram showing a carbon atom forming four bonds, plus simple alkane, alkene and functional-group molecules.",
+        "caption": "Carbon's four bonds let it form chains, double bonds and rings — the basis of organic chemistry."
+      }
+    },
+    {
+      "id": "chem-organic-1-n2",
+      "heading": "🔑 Carbon Bonding",
+      "body": "A carbon atom has four electrons in its outer shell, so it forms four covalent bonds to become stable. Carbon can bond to other carbon atoms to make chains, double bonds or rings. These bonds are strong and non-polar. In a displayed (structural) formula every bond is drawn as a straight line. For example, methane (CH₄) is drawn with a central C joined to four H atoms by single lines. Always count the bonds around each carbon to check that it has exactly four."
+    },
+    {
+      "id": "chem-organic-1-n3",
+      "heading": "📌 Alkanes — Saturated Hydrocarbons",
+      "body": "Alkanes are hydrocarbons that contain only carbon–carbon single bonds. They are called saturated because each carbon is bonded to the maximum possible number of atoms. The first four alkanes are methane (CH₄), ethane (C₂H₆), propane (C₃H₈) and butane (C₄H₁₀). Their general formula is CnH2n+2. Alkanes are important fuels: methane is natural gas, propane is used in camping stoves and butane is used in lighters. When alkanes burn completely in oxygen they form carbon dioxide and water."
+    },
+    {
+      "id": "chem-organic-1-n4",
+      "heading": "🔑 Alkenes — Unsaturated Hydrocarbons",
+      "body": "Alkenes are hydrocarbons that contain at least one carbon–carbon double bond (C=C). They are described as unsaturated. The simplest alkene is ethene (C₂H₄), which can be drawn as H₂C=CH₂. Alkenes react with bromine water, turning it from orange to colourless. This is a simple test for unsaturation. The general formula for alkenes with one double bond is CnH2n. Alkenes are used to make polymers such as poly(ethene)."
+    },
+    {
+      "id": "chem-organic-1-n5",
+      "heading": "💡 Worked Example — Writing Formulae",
+      "body": "Question: Write the molecular and condensed formulae for propane.\nAnswer: Propane has three carbon atoms in a continuous chain. Using the alkane general formula CnH2n+2 with n = 3 gives C₃H₈. The condensed formula groups the hydrogens with each carbon: CH₃–CH₂–CH₃. The displayed formula would show every C–H and C–C bond as a line. When counting hydrogens in CH₃–CH₂–CH₃, add 3 + 2 + 3 = 8, which matches C₃H₈."
+    },
+    {
+      "id": "chem-organic-1-n6",
+      "heading": "📎 Common Functional Groups",
+      "body": "A functional group is an atom or group of atoms that gives a compound its characteristic reactions. At MYP level the most important ones are:\n• Alcohol: –OH (hydroxyl group), e.g. ethanol (C₂H₅OH).\n• Carboxylic acid: –COOH, e.g. ethanoic acid (CH₃COOH), found in vinegar.\n• Halogenoalkane: –Cl, –Br or –I attached to carbon, e.g. chloromethane (CH₃Cl).\nFunctional groups turn a simple hydrocarbon into a compound with new properties. For example, the –OH group makes small alcohols soluble in water, while the –COOH group makes a compound acidic."
+    },
+    {
+      "id": "chem-organic-1-n7",
+      "heading": "⚠️ Common Mistake — Formulas and Models",
+      "body": "A molecular formula only counts the atoms and does not show how they are arranged. Two different compounds can share the same molecular formula but have different structures; these are called isomers. A displayed formula shows every atom and every bond. A skeletal formula only shows the carbon skeleton. A common error is forgetting that every carbon atom must form four bonds. Before finishing a displayed formula, count the bonds around each carbon and add missing hydrogens."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-organic-1-f1",
+      "term": "Organic chemistry",
+      "definition": "The branch of chemistry that studies carbon-containing compounds and their reactions.",
+      "example": "Fuels, plastics, medicines, proteins and carbohydrates are all organic compounds."
+    },
+    {
+      "id": "chem-organic-1-f2",
+      "term": "Hydrocarbon",
+      "definition": "A compound that contains only hydrogen and carbon atoms.",
+      "example": "Methane (CH₄), ethane (C₂H₆) and ethene (C₂H₄) are all hydrocarbons."
+    },
+    {
+      "id": "chem-organic-1-f3",
+      "term": "Alkane",
+      "definition": "A saturated hydrocarbon containing only single carbon–carbon bonds.",
+      "example": "Propane (C₃H₈) is an alkane used as a camping fuel."
+    },
+    {
+      "id": "chem-organic-1-f4",
+      "term": "Alkene",
+      "definition": "An unsaturated hydrocarbon containing at least one carbon–carbon double bond.",
+      "example": "Ethene (C₂H₄) is the simplest alkene and is used to make poly(ethene)."
+    },
+    {
+      "id": "chem-organic-1-f5",
+      "term": "Saturated",
+      "definition": "Describes a carbon compound in which all carbon–carbon bonds are single bonds.",
+      "example": "Alkanes are saturated; they cannot add any more hydrogen atoms."
+    },
+    {
+      "id": "chem-organic-1-f6",
+      "term": "Unsaturated",
+      "definition": "Describes a carbon compound that contains at least one double or triple carbon–carbon bond.",
+      "example": "Alkenes are unsaturated and decolourise bromine water."
+    },
+    {
+      "id": "chem-organic-1-f7",
+      "term": "Functional group",
+      "definition": "An atom or group of atoms that gives an organic compound its characteristic chemical properties.",
+      "example": "The –OH group in ethanol makes it an alcohol."
+    },
+    {
+      "id": "chem-organic-1-f8",
+      "term": "Alcohol functional group",
+      "definition": "The –OH (hydroxyl) group attached to a carbon chain.",
+      "example": "Ethanol (C₂H₅OH) contains an –OH group."
+    },
+    {
+      "id": "chem-organic-1-f9",
+      "term": "Carboxylic acid functional group",
+      "definition": "The –COOH group, which makes a compound weakly acidic.",
+      "example": "Ethanoic acid (CH₃COOH) is the acid in vinegar."
+    },
+    {
+      "id": "chem-organic-1-f10",
+      "term": "General formula of alkanes",
+      "definition": "CnH2n+2, where n is the number of carbon atoms.",
+      "example": "For butane n = 4, so the formula is C₄H₁₀."
+    },
+    {
+      "id": "chem-organic-1-f11",
+      "term": "Isomer",
+      "definition": "Compounds that have the same molecular formula but different structural arrangements.",
+      "example": "Butane and methylpropane both have the formula C₄H₁₀ but different shapes."
+    },
+    {
+      "id": "chem-organic-1-f12",
+      "term": "Complete combustion of a hydrocarbon",
+      "definition": "A hydrocarbon burns in plenty of oxygen to produce carbon dioxide and water.",
+      "example": "CH₄ + 2O₂ → CO₂ + 2H₂O."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-organic-1-q1",
+      "stem": "Which element is the basis of organic chemistry?",
+      "choices": [
+        "Carbon",
+        "Oxygen",
+        "Nitrogen",
+        "Sulfur"
+      ],
+      "correctIndex": 0,
+      "explanation": "Organic chemistry is the study of carbon-containing compounds. Carbon's ability to form four bonds allows huge variety."
+    },
+    {
+      "id": "chem-organic-1-q2",
+      "stem": "How many covalent bonds does a carbon atom usually form?",
+      "choices": [
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+      ],
+      "correctIndex": 2,
+      "explanation": "Carbon has four outer-shell electrons and forms four covalent bonds to complete its octet."
+    },
+    {
+      "id": "chem-organic-1-q3",
+      "stem": "What is the general formula for alkanes?",
+      "choices": [
+        "CnH2n",
+        "CnH2n+2",
+        "CnH2n-2",
+        "CnH2n+1"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alkanes are saturated hydrocarbons. For every n carbon atoms there are 2n + 2 hydrogen atoms."
+    },
+    {
+      "id": "chem-organic-1-q4",
+      "stem": "Which molecular formula represents ethene?",
+      "choices": [
+        "CH₄",
+        "C₂H₄",
+        "C₂H₆",
+        "C₃H₈"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ethene is the simplest alkene. It has two carbon atoms and a C=C double bond, giving the formula C₂H₄."
+    },
+    {
+      "id": "chem-organic-1-q5",
+      "stem": "What does C=C represent in a structural formula?",
+      "choices": [
+        "A single covalent bond",
+        "A double covalent bond",
+        "A triple covalent bond",
+        "An ionic bond"
+      ],
+      "correctIndex": 1,
+      "explanation": "C=C is the symbol for a carbon–carbon double bond, found in alkenes."
+    },
+    {
+      "id": "chem-organic-1-q6",
+      "stem": "Which test shows that a hydrocarbon is unsaturated?",
+      "choices": [
+        "It turns universal indicator red",
+        "Bromine water changes from orange to colourless",
+        "It produces a squeaky pop with a lighted splint",
+        "It turns limewater cloudy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alkenes react with bromine water and decolourise it, showing the presence of a C=C bond."
+    },
+    {
+      "id": "chem-organic-1-q7",
+      "stem": "Which functional group is found in ethanol?",
+      "choices": [
+        "–COOH",
+        "–OH",
+        "–Cl",
+        "–NH₂"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ethanol is an alcohol and contains the –OH (hydroxyl) functional group."
+    },
+    {
+      "id": "chem-organic-1-q8",
+      "stem": "Which of these compounds is a carboxylic acid?",
+      "choices": [
+        "CH₃OH",
+        "CH₃COOH",
+        "CH₃Cl",
+        "CH₄"
+      ],
+      "correctIndex": 1,
+      "explanation": "CH₃COOH contains the –COOH functional group, which defines a carboxylic acid."
+    },
+    {
+      "id": "chem-organic-1-q9",
+      "stem": "A hydrocarbon is defined as a compound containing:",
+      "choices": [
+        "Carbon and hydrogen only",
+        "Carbon, hydrogen and oxygen",
+        "Any non-metal elements",
+        "Carbon and water"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hydrocarbons contain only carbon and hydrogen atoms. Examples include methane and ethene."
+    },
+    {
+      "id": "chem-organic-1-q10",
+      "stem": "What is the molecular formula of propane?",
+      "choices": [
+        "CH₄",
+        "C₂H₆",
+        "C₃H₈",
+        "C₄H₁₀"
+      ],
+      "correctIndex": 2,
+      "explanation": "Propane has three carbon atoms. Using CnH2n+2 with n = 3 gives C₃H₈."
+    },
+    {
+      "id": "chem-organic-1-q11",
+      "stem": "Which term describes compounds with the same molecular formula but different structures?",
+      "choices": [
+        "Isomers",
+        "Polymers",
+        "Monomers",
+        "Allotropes"
+      ],
+      "correctIndex": 0,
+      "explanation": "Isomers have the same molecular formula but different arrangements of atoms."
+    },
+    {
+      "id": "chem-organic-1-q12",
+      "stem": "What are the products when methane burns completely in oxygen?",
+      "choices": [
+        "Carbon and hydrogen",
+        "Carbon monoxide and water",
+        "Carbon dioxide and water",
+        "Methanol"
+      ],
+      "correctIndex": 2,
+      "explanation": "Complete combustion of a hydrocarbon in plenty of oxygen produces carbon dioxide and water."
+    },
+    {
+      "id": "chem-organic-1-q13",
+      "stem": "Which statement about alkanes is true?",
+      "choices": [
+        "They contain C=C double bonds",
+        "They are saturated hydrocarbons",
+        "They decolourise bromine water",
+        "They react with metals to produce hydrogen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alkanes contain only single C–C bonds, so they are saturated and do not decolourise bromine water."
+    },
+    {
+      "id": "chem-organic-1-q14",
+      "stem": "The condensed formula CH₃–CH₂–CH₃ represents:",
+      "choices": [
+        "Methane",
+        "Propane",
+        "Butane",
+        "Ethene"
+      ],
+      "correctIndex": 1,
+      "explanation": "CH₃–CH₂–CH₃ has three carbon atoms in a chain, which is propane."
+    },
+    {
+      "id": "chem-organic-1-q15",
+      "stem": "Why can carbon atoms form long chains?",
+      "choices": [
+        "They form ionic bonds with other carbons",
+        "They form four strong covalent bonds and can bond to other carbon atoms",
+        "They are metal atoms",
+        "They have six protons"
+      ],
+      "correctIndex": 1,
+      "explanation": "Carbon forms four strong covalent bonds and can bond repeatedly to other carbons, building chains and rings."
+    }
+  ]
+}

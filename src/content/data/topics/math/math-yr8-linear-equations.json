@@ -1,0 +1,305 @@
+{
+  "id": "math-yr8-linear-equations",
+  "subjectId": "math",
+  "title": "Linear Equations & Inequalities",
+  "description": "Solve multi-step linear equations, represent inequalities on a number line, and apply both skills to word problems.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "math-yr8-linear-equations-le-n1",
+      "heading": "Solving Multi-Step Linear Equations",
+      "body": "📌 Definition\nA linear equation is an equation where the highest power of the variable is 1.\n\n🔑 How it works\nTo solve a multi-step equation, undo operations in reverse order: simplify each side first, then isolate the variable.\n\n💡 Worked Example\nSolve $$3x + 5 = 20$$.\n\nSubtract 5 from both sides:\n$$3x = 15$$\n\nDivide by 3:\n$$x = 5$$\n\n✅ Check\n$$3(5) + 5 = 20$$, so the solution is correct.\n\n📎 Key Points to Remember\n• Do the same operation to both sides.\n• Simplify brackets and collect like terms first.\n• The goal is to get the variable alone on one side.\n\n⚠️ Common Mistake\nForgetting to change the sign when moving a term to the other side."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-n2",
+      "heading": "Variables on Both Sides",
+      "body": "📌 Definition\nAn equation has variables on both sides when the unknown appears on the left and the right of the equals sign.\n\n🔑 How it works\nCollect variable terms on one side and number terms on the other. Choose the side that keeps the variable positive if possible.\n\n💡 Worked Example\nSolve $$4x + 7 = 2x + 13$$.\n\nSubtract $$2x$$ from both sides:\n$$2x + 7 = 13$$\n\nSubtract 7:\n$$2x = 6$$\n\nDivide by 2:\n$$x = 3$$\n\n✅ Check\n$$4(3) + 7 = 19$$ and $$2(3) + 13 = 19$$.\n\n📎 Key Points to Remember\n• Move variable terms to the side with the larger coefficient.\n• Keep the equation balanced at every step.\n\n⚠️ Common Mistake\nAdding variable terms instead of subtracting them."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-n3",
+      "heading": "Equations with Brackets",
+      "body": "📌 Definition\nBrackets show that a number or expression multiplies every term inside the bracket.\n\n🔑 How it works\nExpand brackets first, then collect like terms and solve.\n\n💡 Worked Example\nSolve $$2(3x - 4) = 10$$.\n\nExpand:\n$$6x - 8 = 10$$\n\nAdd 8:\n$$6x = 18$$\n\nDivide by 6:\n$$x = 3$$\n\n✅ Check\n$$2(3(3) - 4) = 2(5) = 10$$.\n\n📎 Key Points to Remember\n• Multiply the outside term by each term inside the bracket.\n• Watch negative signs carefully.\n\n⚠️ Common Mistake\nOnly multiplying the first term inside the bracket."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-n4",
+      "heading": "Understanding Inequalities",
+      "body": "📌 Definition\nAn inequality compares two expressions using <, >, ≤, or ≥.\n\n🔑 Key Concept\nThe symbols mean:\n< less than\n> greater than\n≤ less than or equal to\n≥ greater than or equal to\n\n💡 Worked Example\nWrite \"x is at least 7\" as an inequality:\n$$x \\ge 7$$\n\nWrite \"y is fewer than 12\" as an inequality:\n$$y < 12$$\n\n📎 Key Points to Remember\n• \"At least\" and \"minimum\" use ≥.\n• \"At most\" and \"maximum\" use ≤.\n• \"More than\" uses >; \"less than\" uses <.\n\n⚠️ Common Mistake\nConfusing \"at least\" with ≤. \"At least 10\" means 10 or more, so use ≥."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-n5",
+      "heading": "Solving Linear Inequalities",
+      "body": "📌 Definition\nSolving an inequality means finding all values of the variable that make the inequality true.\n\n🔑 How it works\nSolve inequalities just like equations, except reverse the inequality sign when multiplying or dividing by a negative number.\n\n💡 Worked Example\nSolve $$-2x + 6 > 10$$.\n\nSubtract 6:\n$$-2x > 4$$\n\nDivide by -2 and flip the sign:\n$$x < -2$$\n\n✅ Check\nTry $$x = -3$$:\n$$-2(-3) + 6 = 12 > 10$$, which is true.\n\n📎 Key Points to Remember\n• Add or subtract any number without flipping.\n• Flip only when multiplying or dividing by a negative.\n\n⚠️ Common Mistake\nForgetting to reverse the sign when dividing by a negative number."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-n6",
+      "heading": "Inequalities on a Number Line",
+      "illustration": {
+        "src": "/images/math/math-yr8-linear-equations.svg",
+        "alt": "Number line showing x greater than -1 with an open circle and right shading, and x less than or equal to 2 with a closed circle and left shading.",
+        "caption": "Use an open circle for strict inequalities and a closed circle for inclusive inequalities."
+      },
+      "body": "📌 Definition\nA number line shows the set of solutions to an inequality.\n\n🔑 How it works\nUse an open circle for < or > and a closed circle for ≤ or ≥. Shade in the direction of the solutions.\n\n💡 Worked Example\nShow $$x > -1$$ on a number line:\nDraw a line, mark -1 with an open circle, and shade everything to the right.\n\nShow $$x \\le 2$$ on a number line:\nMark 2 with a closed circle and shade to the left.\n\n📎 Key Points to Remember\n• Open circle means the endpoint is not included.\n• Closed circle means the endpoint is included.\n• Shade right for greater than, left for less than.\n\n⚠️ Common Mistake\nUsing a closed circle for strict inequalities such as $$x > 3$$."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-n7",
+      "heading": "Word Problems with Equations and Inequalities",
+      "body": "📌 Definition\nA word problem describes a real situation that can be translated into an equation or inequality.\n\n🔑 How it works\n1. Define the variable.\n2. Write an equation or inequality from the sentence.\n3. Solve and interpret the answer in context.\n\n💡 Worked Example\nA rectangle has a perimeter of 30 cm. Its length is 5 cm more than its width. Find the width.\n\nLet width = w. Then length = w + 5.\nPerimeter equation:\n$$2w + 2(w + 5) = 30$$\n\nSimplify:\n$$4w + 10 = 30$$\n$$4w = 20$$\n$$w = 5$$ cm\n\n✅ Check\nLength = 10 cm, perimeter = 2(5) + 2(10) = 30 cm.\n\n📎 Key Points to Remember\n• Always state what the variable represents.\n• Check that your answer makes sense in the problem.\n\n⚠️ Common Mistake\nIgnoring units or giving an impossible answer such as a negative length."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr8-linear-equations-le-f1",
+      "term": "Linear equation",
+      "definition": "An equation where the highest power of the variable is 1.",
+      "example": "$3x + 4 = 10$ is a linear equation."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-f2",
+      "term": "Solution",
+      "definition": "The value of the variable that makes the equation true.",
+      "example": "$x = 2$ is the solution of $3x + 4 = 10$."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-f3",
+      "term": "Inverse operations",
+      "definition": "Operations that undo each other, used to isolate the variable.",
+      "example": "Addition and subtraction are inverse operations."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-f4",
+      "term": "Like terms",
+      "definition": "Terms that have the same variable raised to the same power.",
+      "example": "$5x$ and $2x$ are like terms."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-f5",
+      "term": "Expand brackets",
+      "definition": "Multiply the term outside by every term inside the bracket.",
+      "example": "$2(x + 3) = 2x + 6$"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-f6",
+      "term": "Variable on both sides",
+      "definition": "An equation that has the unknown on each side of the equals sign.",
+      "example": "$4x + 3 = 2x + 9$"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-f7",
+      "term": "Inequality",
+      "definition": "A statement that one expression is greater than or less than another.",
+      "example": "$x > 4$ means x is greater than 4."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-f8",
+      "term": "Less than or equal to",
+      "definition": "The symbol $\\le$ means the value may be equal to or smaller than the boundary.",
+      "example": "$x \\le 7$ includes 7 and every number below it."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-f9",
+      "term": "Greater than or equal to",
+      "definition": "The symbol $\\ge$ means the value may be equal to or larger than the boundary.",
+      "example": "$x \\ge 0$ includes 0 and every positive number."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-f10",
+      "term": "Flip the inequality sign",
+      "definition": "Reverse the inequality symbol when multiplying or dividing by a negative number.",
+      "example": "$-3x > 9$ becomes $x < -3$."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-f11",
+      "term": "Open circle on a number line",
+      "definition": "Shows that the endpoint value is not included in the solution set.",
+      "example": "$x > 3$ is drawn with an open circle at 3."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-f12",
+      "term": "Closed circle on a number line",
+      "definition": "Shows that the endpoint value is included in the solution set.",
+      "example": "$x \\le 5$ is drawn with a closed circle at 5."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr8-linear-equations-le-q1",
+      "stem": "Solve $2x + 4 = 14$.",
+      "choices": [
+        "$x = 5$",
+        "$x = 6$",
+        "$x = 9$",
+        "$x = 18$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 4 from both sides to get 2x = 10, then divide by 2 to get x = 5."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q2",
+      "stem": "Solve $5x - 3 = 17$.",
+      "choices": [
+        "$x = 3$",
+        "$x = 4$",
+        "$x = 5$",
+        "$x = 20$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Add 3 to both sides to get 5x = 20, then divide by 5 to get x = 4."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q3",
+      "stem": "Solve $3(x + 2) = 21$.",
+      "choices": [
+        "$x = 5$",
+        "$x = 7$",
+        "$x = 9$",
+        "$x = 13$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Expand to get 3x + 6 = 21, subtract 6 to get 3x = 15, then divide by 3 to get x = 5."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q4",
+      "stem": "Solve $4x + 5 = x + 14$.",
+      "choices": [
+        "$x = 3$",
+        "$x = 4$",
+        "$x = 5$",
+        "$x = 19$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract x from both sides and subtract 5 to get 3x = 9, then divide by 3 to get x = 3."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q5",
+      "stem": "Solve $7 - 2x = 1$.",
+      "choices": [
+        "$x = -3$",
+        "$x = 3$",
+        "$x = 4$",
+        "$x = -4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Subtract 7 from both sides to get -2x = -6, then divide by -2 to get x = 3."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q6",
+      "stem": "Solve $2(3x - 1) = 4x + 8$.",
+      "choices": [
+        "$x = 2$",
+        "$x = 3$",
+        "$x = 5$",
+        "$x = 10$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Expand to get 6x - 2 = 4x + 8, subtract 4x and add 2 to get 2x = 10, so x = 5."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q7",
+      "stem": "Which inequality means \"x is at most 8\"?",
+      "choices": [
+        "$x < 8$",
+        "$x > 8$",
+        "$x \\le 8$",
+        "$x \\ge 8$"
+      ],
+      "correctIndex": 2,
+      "explanation": "\"At most 8\" means 8 is allowed and any value below it, so the correct symbol is ≤."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q8",
+      "stem": "Solve $-4x \\le 20$.",
+      "choices": [
+        "$x \\le -5$",
+        "$x \\ge -5$",
+        "$x \\le 5$",
+        "$x \\ge 5$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Divide both sides by -4 and reverse the inequality sign to get x ≥ -5."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q9",
+      "stem": "Which description matches $x > -2$ on a number line?",
+      "choices": [
+        "Open circle at -2, shade right",
+        "Closed circle at -2, shade right",
+        "Open circle at -2, shade left",
+        "Closed circle at -2, shade left"
+      ],
+      "correctIndex": 0,
+      "explanation": "The > symbol means -2 is not included, so use an open circle, and values greater than -2 lie to the right."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q10",
+      "stem": "Solve $\\frac{x}{3} + 2 = 6$.",
+      "choices": [
+        "$x = 8$",
+        "$x = 12$",
+        "$x = 18$",
+        "$x = 24$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Subtract 2 to get x/3 = 4, then multiply by 3 to get x = 12."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q11",
+      "stem": "A number is doubled and then 5 is added. The result is 23. What is the number?",
+      "choices": [
+        "7",
+        "9",
+        "14",
+        "18"
+      ],
+      "correctIndex": 1,
+      "explanation": "The equation is 2x + 5 = 23. Subtract 5 and divide by 2 to find x = 9."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q12",
+      "stem": "Solve $3x + 4 > 13$.",
+      "choices": [
+        "$x > 3$",
+        "$x < 3$",
+        "$x > \\frac{17}{3}$",
+        "$x < \\frac{17}{3}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 4 to get 3x > 9, then divide by 3 to get x > 3."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q13",
+      "stem": "Solve $5 - x \\ge 2$.",
+      "choices": [
+        "$x \\le 3$",
+        "$x \\ge 3$",
+        "$x \\le 7$",
+        "$x \\ge 7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 5 to get -x ≥ -3, then multiply or divide by -1 and flip the sign to get x ≤ 3."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q14",
+      "stem": "A rectangle's length is 4 cm more than its width. The perimeter is 32 cm. Find the width.",
+      "choices": [
+        "6 cm",
+        "7 cm",
+        "8 cm",
+        "10 cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Let width be w. Then 2w + 2(w + 4) = 32, which simplifies to 4w + 8 = 32, so w = 6 cm."
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q15",
+      "stem": "Solve $\\frac{2x - 3}{5} = 3$.",
+      "choices": [
+        "$x = 6$",
+        "$x = 7$",
+        "$x = 9$",
+        "$x = 12$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Multiply by 5 to get 2x - 3 = 15, add 3 to get 2x = 18, then divide by 2 to get x = 9."
+    }
+  ]
+}

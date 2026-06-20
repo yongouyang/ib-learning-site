@@ -28,6 +28,7 @@ import chem_mixtures_1_json from './data/topics/chemistry/chem-mixtures-1.json';
 import chem_metals_1_json from './data/topics/chemistry/chem-metals-1.json';
 import chem_rates_1_json from './data/topics/chemistry/chem-rates-1.json';
 import chem_earth_1_json from './data/topics/chemistry/chem-earth-1.json';
+import chem_organic_1_json from './data/topics/chemistry/chem-organic-1.json';
 
 // English topics
 import eng_essay_1_json from './data/topics/english/eng-essay-1.json';
@@ -43,6 +44,8 @@ import eng_speaking_1_json from './data/topics/english/eng-speaking-1.json';
 import eng_drama_shakespeare_json from './data/topics/english/eng-drama-shakespeare.json';
 import eng_media_visual_literacy_json from './data/topics/english/eng-media-visual-literacy.json';
 import eng_myths_legends_json from './data/topics/english/eng-myths-legends.json';
+import eng_novel_study_1_json from './data/topics/english/eng-novel-study-1.json';
+import eng_persuasive_speaking_1_json from './data/topics/english/eng-persuasive-speaking-1.json';
 
 // Math topics
 import math_algebra_1_json from './data/topics/math/math-algebra-1.json';
@@ -107,6 +110,12 @@ import math_yr8_compound_measures_json from './data/topics/math/math-yr8-compoun
 import math_yr8_percentages_ratio_proportion_json from './data/topics/math/math-yr8-percentages-ratio-proportion.json';
 import math_yr8_probability_trees_json from './data/topics/math/math-yr8-probability-trees.json';
 import math_yr8_statistics_averages_json from './data/topics/math/math-yr8-statistics-averages.json';
+import math_yr8_linear_equations_json from './data/topics/math/math-yr8-linear-equations.json';
+import math_yr8_straight_line_graphs_json from './data/topics/math/math-yr8-straight-line-graphs.json';
+import math_yr8_sequences_json from './data/topics/math/math-yr8-sequences.json';
+import math_yr8_volume_surface_area_json from './data/topics/math/math-yr8-volume-surface-area.json';
+import math_yr8_transformations_json from './data/topics/math/math-yr8-transformations.json';
+import math_yr8_pythagoras_json from './data/topics/math/math-yr8-pythagoras.json';
 
 // Physics topics
 import phys_electricity_1_json from './data/topics/physics/phys-electricity-1.json';
@@ -142,6 +151,7 @@ const chem_mixtures_1: Topic = topicSchema.parse(chem_mixtures_1_json);
 const chem_metals_1: Topic = topicSchema.parse(chem_metals_1_json);
 const chem_rates_1: Topic = topicSchema.parse(chem_rates_1_json);
 const chem_earth_1: Topic = topicSchema.parse(chem_earth_1_json);
+const chem_organic_1: Topic = topicSchema.parse(chem_organic_1_json);
 const eng_essay_1: Topic = topicSchema.parse(eng_essay_1_json);
 const eng_figurative_1: Topic = topicSchema.parse(eng_figurative_1_json);
 const eng_narrative_1: Topic = topicSchema.parse(eng_narrative_1_json);
@@ -155,6 +165,8 @@ const eng_speaking_1: Topic = topicSchema.parse(eng_speaking_1_json);
 const eng_drama_shakespeare: Topic = topicSchema.parse(eng_drama_shakespeare_json);
 const eng_media_visual_literacy: Topic = topicSchema.parse(eng_media_visual_literacy_json);
 const eng_myths_legends: Topic = topicSchema.parse(eng_myths_legends_json);
+const eng_novel_study_1: Topic = topicSchema.parse(eng_novel_study_1_json);
+const eng_persuasive_speaking_1: Topic = topicSchema.parse(eng_persuasive_speaking_1_json);
 const math_algebra_1: Topic = topicSchema.parse(math_algebra_1_json);
 const math_dp_binomial: Topic = topicSchema.parse(math_dp_binomial_json);
 const math_dp_complex_numbers: Topic = topicSchema.parse(math_dp_complex_numbers_json);
@@ -217,6 +229,12 @@ const math_yr8_compound_measures: Topic = topicSchema.parse(math_yr8_compound_me
 const math_yr8_percentages_ratio_proportion: Topic = topicSchema.parse(math_yr8_percentages_ratio_proportion_json);
 const math_yr8_probability_trees: Topic = topicSchema.parse(math_yr8_probability_trees_json);
 const math_yr8_statistics_averages: Topic = topicSchema.parse(math_yr8_statistics_averages_json);
+const math_yr8_linear_equations: Topic = topicSchema.parse(math_yr8_linear_equations_json);
+const math_yr8_straight_line_graphs: Topic = topicSchema.parse(math_yr8_straight_line_graphs_json);
+const math_yr8_sequences: Topic = topicSchema.parse(math_yr8_sequences_json);
+const math_yr8_volume_surface_area: Topic = topicSchema.parse(math_yr8_volume_surface_area_json);
+const math_yr8_transformations: Topic = topicSchema.parse(math_yr8_transformations_json);
+const math_yr8_pythagoras: Topic = topicSchema.parse(math_yr8_pythagoras_json);
 const phys_electricity_1: Topic = topicSchema.parse(phys_electricity_1_json);
 const phys_energy_1: Topic = topicSchema.parse(phys_energy_1_json);
 const phys_forces_1: Topic = topicSchema.parse(phys_forces_1_json);
@@ -249,7 +267,7 @@ const englishSubject: Subject = {
   name: englishMeta.name,
   icon: englishMeta.icon,
   accentColor: englishMeta.accentColor,
-  topics: [eng_essay_1, eng_figurative_1, eng_narrative_1, eng_poetry_1, eng_reading_1, eng_grammar_1, eng_persuasive_1, eng_nonfiction_1, eng_creative_1, eng_speaking_1, eng_drama_shakespeare, eng_media_visual_literacy, eng_myths_legends],
+  topics: [eng_essay_1, eng_figurative_1, eng_narrative_1, eng_poetry_1, eng_reading_1, eng_grammar_1, eng_persuasive_1, eng_nonfiction_1, eng_creative_1, eng_speaking_1, eng_drama_shakespeare, eng_media_visual_literacy, eng_myths_legends, eng_novel_study_1, eng_persuasive_speaking_1],
 };
 
 const chemistrySubject: Subject = {
@@ -257,7 +275,7 @@ const chemistrySubject: Subject = {
   name: chemistryMeta.name,
   icon: chemistryMeta.icon,
   accentColor: chemistryMeta.accentColor,
-  topics: [chem_acids_1, chem_atomic_1, chem_bonding_1, chem_changes_1, chem_periodic_1, chem_states_1, chem_mixtures_1, chem_metals_1, chem_rates_1, chem_earth_1],
+  topics: [chem_acids_1, chem_atomic_1, chem_bonding_1, chem_changes_1, chem_periodic_1, chem_states_1, chem_mixtures_1, chem_metals_1, chem_rates_1, chem_earth_1, chem_organic_1],
 };
 
 const physicsSubject: Subject = {
@@ -274,7 +292,9 @@ const mathSubject: Subject = {
   icon: mathMeta.icon,
   accentColor: mathMeta.accentColor,
   topics: [math_algebra_1, math_dp_binomial, math_dp_complex_numbers, math_dp_correlation_regression, math_dp_descriptive_statistics, math_dp_differentiation, math_dp_explog, math_dp_exponents, math_dp_functions, math_dp_graph_theory, math_dp_hypothesis_testing, math_dp_integration, math_dp_kinematics, math_dp_matrices, math_dp_poisson_distribution, math_dp_probability, math_dp_quadratics, math_dp_sequences, math_dp_trig, math_dp_vectors, math_dp_voronoi_diagrams, math_fractions_1, math_geometry_1, math_inequalities_myp, math_linear_myp, math_powers_myp, math_pythagoras_myp, math_ratio_myp, math_simultaneous_myp, math_statistics_1, math_trig_basic_myp, math_yr7_angles, math_yr7_area_perimeter, math_yr7_bearings_scale, math_yr7_calculations, math_yr7_constructions_loci, math_yr7_data, math_yr7_decimals, math_yr7_equations, math_yr7_factors_multiples, math_yr7_measures_conversions, math_yr7_money_finance, math_yr7_negative_numbers, math_yr7_percentages, math_yr7_probability, math_yr7_rounding_estimation, math_yr7_sequences, math_yr7_substitution, math_yr7_transformations, math_yr7_volume_surface_area, math_yr7_algebraic_expressions, math_yr7_nets_3d_shapes, math_yr7_venn_sets, math_yr8_factorising, math_yr8_circles, math_yr8_angles_parallel_polygons, math_yr8_congruence_similarity, math_yr8_standard_form, math_yr8_compound_measures,
-           math_yr8_percentages_ratio_proportion, math_yr8_probability_trees, math_yr8_statistics_averages],
+           math_yr8_percentages_ratio_proportion, math_yr8_probability_trees, math_yr8_statistics_averages,
+           math_yr8_linear_equations, math_yr8_straight_line_graphs, math_yr8_sequences,
+           math_yr8_volume_surface_area, math_yr8_transformations, math_yr8_pythagoras],
 };
 
 const subjects: Record<SubjectId, Subject> = {
