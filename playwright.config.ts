@@ -58,8 +58,11 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: `npm run dev -- --port ${port}`,
+    command: process.env.E2E_PROD
+      ? `npm start -- --port ${port}`
+      : `npm run dev -- --port ${port}`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
+    timeout: process.env.E2E_PROD ? 120000 : 60000,
   },
 });
