@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">Compass rose showing three-figure bearings</title>
+  <desc id="desc">A circle with North at the top and a ray showing a bearing of 045° measured clockwise from North.</desc>
+  <circle cx="200" cy="200" r="140" fill="none" stroke="#6b7280" stroke-width="2"/>
+  <line x1="200" y1="200" x2="200" y2="40" stroke="#ef4444" stroke-width="3"/>
+  <polygon points="200,30 195,45 205,45" fill="#ef4444"/>
+  <text x="200" y="25" text-anchor="middle" font-family="system-ui" font-size="18" font-weight="bold" fill="#ef4444">N</text>
+  <line x1="200" y1="200" x2="320" y2="80" stroke="#2563eb" stroke-width="3"/>
+  <polygon points="326,74 310,84 316,66" fill="#2563eb"/>
+  <text x="335" y="70" font-family="system-ui" font-size="16" fill="#2563eb">045°</text>
+  <path d="M 200,120 A 80,80 0 0,1 260,145" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="200" y="380" text-anchor="middle" font-family="system-ui" font-size="14" fill="#374151">Bearings are measured clockwise from North.</text>
+</svg>

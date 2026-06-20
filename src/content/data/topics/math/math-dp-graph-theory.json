@@ -8,6 +8,11 @@
     {
       "id": "math-dp-graph-theory-n1",
       "heading": "Introduction to Graphs",
+      "illustration": {
+        "src": "/images/math/math-dp-graph-theory-simple-graph.svg",
+        "alt": "A simple undirected graph with five labelled vertices and seven edges.",
+        "caption": "A graph consists of vertices connected by edges. This graph has order 5 and size 7."
+      },
       "body": "A graph is a mathematical structure made of points (vertices) joined by lines (edges). Graphs model networks such as roads, social media, or computer cables.\n\n📌 Key Definitions\n• A **vertex** (or node) is a point in a graph.\n• An **edge** is a line that joins two vertices.\n• The **order** of a graph is its number of vertices.\n• The **size** of a graph is its number of edges.\n\n📌 Types of Graphs\n• **Undirected graph**: edges have no direction; they can be travelled both ways.\n• **Directed graph (digraph)**: each edge has an arrow showing its direction.\n• **Weighted graph**: each edge has a number (weight) representing cost, distance, or time.\n• **Unweighted graph**: all edges are treated equally.\n\n💡 Worked Example — Counting Vertices and Edges\nConsider a graph with vertices $A, B, C, D$ and edges $AB, BC, CD, DA, AC$.\n\n  Order = number of vertices = $4$\\\n  Size = number of edges = $5$\n\n📎 Key Points to Remember\n• A graph can be drawn in many ways; only the connections matter, not the exact positions.\n• An edge that starts and ends at the same vertex is called a **loop**.\n• Two edges joining the same pair of vertices are called **multiple edges**; a graph with no loops or multiple edges is **simple**."
     },
     {
