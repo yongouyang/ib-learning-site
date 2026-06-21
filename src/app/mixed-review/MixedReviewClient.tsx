@@ -46,6 +46,7 @@ export default function MixedReviewClient() {
         subtitle={mode === 'weak' && usedWeakTopics ? 'Focused on your weak areas' : 'Questions from all topics'}
         backHref="/progress"
         questions={questions.map((q) => q.question)}
+        shuffleSeed={questions.map((q) => q.question.id).join(',')}
         enableTimer={false}
         onComplete={handleComplete}
       />

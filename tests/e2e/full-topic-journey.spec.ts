@@ -6,6 +6,7 @@ const SAMPLES: Array<{ subjectId: string; topicId: string; title: string }> = [
   { subjectId: 'math', topicId: 'math-yr8-probability-trees', title: 'Probability & Tree Diagrams' },
   { subjectId: 'math', topicId: 'math-yr8-straight-line-graphs', title: 'Straight-Line Graphs' },
   { subjectId: 'biology', topicId: 'bio-microorganisms-1', title: 'Microorganisms & Biotechnology' },
+  { subjectId: 'physics', topicId: 'phys-forces-action-1', title: 'Forces in Action' },
   { subjectId: 'biology', topicId: 'bio-cell-1', title: 'Cell Structure & Microscopy' },
   { subjectId: 'chemistry', topicId: 'chem-atomic-1', title: 'Atomic Structure' },
   { subjectId: 'physics', topicId: 'phys-forces-1', title: 'Forces & Motion' },
@@ -65,7 +66,8 @@ async function completeTopicJourney(page: Page, subjectId: string, topicId: stri
 
     const nextButton = page.getByRole('button', { name: /Next Question|See Results/ });
     await expect(nextButton).toBeVisible();
-    await nextButton.click();
+    // Use JS click on small viewports where the fixed bottom nav can cover the button.
+    await nextButton.evaluate((el) => el.click());
 
     const completeHeading = page.getByRole('heading', { name: 'Quiz Complete!' });
     if (await completeHeading.isVisible().catch(() => false)) break;

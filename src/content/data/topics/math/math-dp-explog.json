@@ -174,7 +174,7 @@
         "$\\frac{e^3}{2}$"
       ],
       "correctIndex": 0,
-      "explanation": "$2x-1=e^3 \\rightarrow x=\\frac{e^3+1}{2}$."
+      "explanation": "To solve $\\ln(2x-1)=3$, rewrite the logarithmic equation in exponential form: $2x-1=e^3$. Then $2x=e^3+1$, so $x=\\frac{e^3+1}{2}$. This is the exact answer; numerically it is about $10.54$. Such equations model the time needed for a quantity to reach a certain level under continuous growth."
     },
     {
       "id": "math-dp-explog-ell-q6",

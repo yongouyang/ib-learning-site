@@ -14,6 +14,7 @@ import bio_reproduction_1_json from './data/topics/biology/bio-reproduction-1.js
 import bio_classification_1_json from './data/topics/biology/bio-classification-1.json';
 import bio_respiration_1_json from './data/topics/biology/bio-respiration-1.json';
 import bio_health_1_json from './data/topics/biology/bio-health-1.json';
+import bio_human_reproduction_1_json from './data/topics/biology/bio-human-reproduction-1.json';
 import bio_microorganisms_1_json from './data/topics/biology/bio-microorganisms-1.json';
 import bio_plants_1_json from './data/topics/biology/bio-plants-1.json';
 import bio_practical_1_json from './data/topics/biology/bio-practical-1.json';
@@ -120,6 +121,7 @@ import math_yr8_pythagoras_json from './data/topics/math/math-yr8-pythagoras.jso
 
 // Physics topics
 import phys_energy_resources_1_json from './data/topics/physics/phys-energy-resources-1.json';
+import phys_forces_action_1_json from './data/topics/physics/phys-forces-action-1.json';
 import phys_electricity_1_json from './data/topics/physics/phys-electricity-1.json';
 import phys_energy_1_json from './data/topics/physics/phys-energy-1.json';
 import phys_forces_1_json from './data/topics/physics/phys-forces-1.json';
@@ -141,6 +143,7 @@ const bio_reproduction_1: Topic = topicSchema.parse(bio_reproduction_1_json);
 const bio_classification_1: Topic = topicSchema.parse(bio_classification_1_json);
 const bio_respiration_1: Topic = topicSchema.parse(bio_respiration_1_json);
 const bio_health_1: Topic = topicSchema.parse(bio_health_1_json);
+const bio_human_reproduction_1: Topic = topicSchema.parse(bio_human_reproduction_1_json);
 const bio_microorganisms_1: Topic = topicSchema.parse(bio_microorganisms_1_json);
 const bio_plants_1: Topic = topicSchema.parse(bio_plants_1_json);
 const bio_practical_1: Topic = topicSchema.parse(bio_practical_1_json);
@@ -239,6 +242,7 @@ const math_yr8_volume_surface_area: Topic = topicSchema.parse(math_yr8_volume_su
 const math_yr8_transformations: Topic = topicSchema.parse(math_yr8_transformations_json);
 const math_yr8_pythagoras: Topic = topicSchema.parse(math_yr8_pythagoras_json);
 const phys_energy_resources_1: Topic = topicSchema.parse(phys_energy_resources_1_json);
+const phys_forces_action_1: Topic = topicSchema.parse(phys_forces_action_1_json);
 const phys_electricity_1: Topic = topicSchema.parse(phys_electricity_1_json);
 const phys_energy_1: Topic = topicSchema.parse(phys_energy_1_json);
 const phys_forces_1: Topic = topicSchema.parse(phys_forces_1_json);
@@ -263,7 +267,7 @@ const biologySubject: Subject = {
   name: biologyMeta.name,
   icon: biologyMeta.icon,
   accentColor: biologyMeta.accentColor,
-  topics: [bio_body_1, bio_cell_1, bio_ecology_1, bio_genetics_1, bio_photosynthesis_1, bio_reproduction_1, bio_classification_1, bio_respiration_1, bio_health_1, bio_microorganisms_1, bio_plants_1, bio_practical_1],
+  topics: [bio_body_1, bio_cell_1, bio_ecology_1, bio_genetics_1, bio_photosynthesis_1, bio_reproduction_1, bio_classification_1, bio_respiration_1, bio_health_1, bio_human_reproduction_1, bio_microorganisms_1, bio_plants_1, bio_practical_1],
 };
 
 const englishSubject: Subject = {
@@ -287,7 +291,7 @@ const physicsSubject: Subject = {
   name: physicsMeta.name,
   icon: physicsMeta.icon,
   accentColor: physicsMeta.accentColor,
-  topics: [phys_energy_resources_1, phys_electricity_1, phys_energy_1, phys_forces_1, phys_magnetism_1, phys_waves_1, phys_space_1, phys_light_1, phys_pressure_1, phys_particles_1, phys_radioactivity_1],
+  topics: [phys_energy_resources_1, phys_forces_action_1, phys_electricity_1, phys_energy_1, phys_forces_1, phys_magnetism_1, phys_waves_1, phys_space_1, phys_light_1, phys_pressure_1, phys_particles_1, phys_radioactivity_1],
 };
 
 const mathSubject: Subject = {

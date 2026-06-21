@@ -6,6 +6,31 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
 import type { Question } from '@/content/types';
 
+// Simple string hash for deterministic seeds.
+function hashString(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash |= 0;
+  }
+  return Math.abs(hash);
+}
+
+// Deterministic Fisher-Yates shuffle so server and client render match.
+// When no seed is supplied the order is left unchanged, which is safe for SSR.
+function seededShuffle<T>(items: T[], seed?: string): T[] {
+  if (!seed) return items;
+  const result = [...items];
+  let state = hashString(seed);
+  for (let i = result.length - 1; i > 0; i--) {
+    state = (state * 1103515245 + 12345) & 0x7fffffff;
+    const j = state % (i + 1);
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
 interface QuizGameProps {
   subtitle?: string;
   backHref: string;
@@ -13,6 +38,7 @@ interface QuizGameProps {
   questions: Question[];
   enableTimer?: boolean;
   timerSeconds?: number;
+  shuffleSeed?: string;
   onComplete: (correctCount: number, totalCount: number) => void;
 }
 
@@ -23,10 +49,11 @@ export default function QuizGame({
   questions,
   enableTimer = false,
   timerSeconds = 60,
+  shuffleSeed,
   onComplete,
 }: QuizGameProps) {
   const [shuffledQuestions] = useState(() =>
-    questions.length > 0 ? [...questions].sort(() => Math.random() - 0.5) : []
+    questions.length > 0 ? seededShuffle([...questions], shuffleSeed) : []
   );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -135,7 +162,7 @@ export default function QuizGame({
   }
 
   return (
-    <div className="max-w-lg mx-auto px-4 py-6">
+    <div className="max-w-lg mx-auto px-4 py-6 pb-24 md:pb-6">
       {/* Progress bar */}
       <div className="flex items-center gap-3 mb-6">
         <Link href={backHref} className="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 shrink-0">
@@ -239,9 +266,7 @@ export default function QuizGame({
 
       {/* Next button */}
       {showExplanation && (
-        <motion.button
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
+        <button
           onClick={handleNext}
           className="w-full py-3 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors active:scale-[0.98]"
         >
@@ -250,7 +275,7 @@ export default function QuizGame({
               Next Question <ArrowRight className="w-4 h-4" />
             </span>
           ) : 'See Results'}
-        </motion.button>
+        </button>
       )}
     </div>
   );

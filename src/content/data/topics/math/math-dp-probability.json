@@ -167,7 +167,7 @@
         "0.159"
       ],
       "correctIndex": 0,
-      "explanation": "$Z=\\frac{65-60}{5}=1$; $P(Z<1)\\approx 0.841$."
+      "explanation": "For a normal distribution $X\\sim N(60,25)$, the standard deviation is $\\sqrt{25}=5$. To find $P(X<65)$, standardise: $Z=\\frac{65-60}{5}=1$. Using standard normal tables, $P(Z<1)\\approx0.841$. This means about $84.1\\%$ of values lie below $65$, a typical exam score cutoff calculation."
     },
     {
       "id": "math-dp-probability-prb-q5",

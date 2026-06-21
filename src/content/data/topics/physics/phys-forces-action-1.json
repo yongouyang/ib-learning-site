@@ -1,0 +1,305 @@
+{
+  "id": "phys-forces-action-1",
+  "subjectId": "physics",
+  "title": "Forces in Action",
+  "description": "Resultant forces, free body diagrams, Newton's laws applied to sport and transport, friction, air resistance, braking distances, and vehicle safety features.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "phys-forces-action-1-n1",
+      "heading": "📌 Definition: Resultant Force",
+      "body": "📌 Definition\nWhen several forces act on the same object, they combine to produce one overall force called the resultant force (or net force). Forces are vectors, so direction matters: forces acting in the same direction add together, while forces acting in opposite directions subtract. The resultant points in the direction of the larger force.\n\n💡 Worked Example\nA toy car is pushed with 10 N forwards and 4 N backwards along a track. The resultant force is 10 − 4 = 6 N forwards, so the car accelerates forwards.\n\n📎 Key Points to Remember\n- A resultant force of zero means the object is in equilibrium.\n- In equilibrium, an object remains stationary or continues at constant velocity in a straight line.\n- Always subtract forces that act in opposite directions.\n\n⚠️ Common Mistake\nIgnoring the direction of forces and adding all magnitudes together. Because forces are vectors, opposite forces must be subtracted, not added.",
+      "illustration": {
+        "src": "/images/physics/phys-forces-action-1.svg",
+        "alt": "Diagrams showing forces on a cyclist, a braking car, and how resultant force determines acceleration or constant speed.",
+        "caption": "Resultant force is the vector sum of all forces acting on an object."
+      }
+    },
+    {
+      "id": "phys-forces-action-1-n2",
+      "heading": "🔑 Key Concept: Free Body Diagrams",
+      "body": "🔑 Key Concept\nA free body diagram shows only ONE object and every force acting on it. Each force is drawn as an arrow pointing in the direction it acts; a longer arrow means a larger force.\n\n💡 Worked Example\nFor a cyclist travelling at constant speed on level ground, the forward driving force balances the total backward force of air resistance and rolling friction, while the upward normal reaction force from the road balances the downward weight.\n\nFor a car braking hard, the braking force and friction act opposite to the direction of motion, slowing the vehicle down.\n\n📎 Key Points to Remember\n- Draw only one object in the diagram.\n- Show every force acting on that object as a labelled arrow.\n- A longer arrow represents a larger force.\n- Drawing the diagram first makes it much easier to calculate the resultant force and predict the motion.\n\n⚠️ Common Mistake\nIncluding forces that act on other objects or drawing forces that act on the surroundings rather than on the chosen object."
+    },
+    {
+      "id": "phys-forces-action-1-n3",
+      "heading": "💡 Worked Example: Resultant Force on a Cyclist",
+      "body": "🔑 Key Concept\nTo find the motion of an object, first find the resultant force by combining all forces, then use Newton's Second Law (F = ma) to find acceleration.\n\n💡 Worked Example\nA cyclist and bicycle have a total mass of 80 kg. The cyclist pedals with a driving force of 250 N forwards, while air resistance and rolling friction together provide 180 N backwards.\n\nStep 1: Find the resultant force.\nForces forwards = 250 N. Forces backwards = 180 N.\nResultant = 250 − 180 = 70 N forwards.\n\nStep 2: Use Newton's Second Law to find acceleration.\nF = ma, so a = F/m = 70/80 = 0.875 m/s² forwards.\n\nStep 3: If the cyclist stops pedalling, the driving force becomes zero.\nThe only horizontal force is the total resistive force of 180 N backwards.\nThe resultant force is now 180 N backwards, so the cyclist decelerates at a = 180/80 = 2.25 m/s² backwards.\n\n📎 Key Points to Remember\n- Always find the resultant force before calculating acceleration.\n- F = ma links force, mass, and acceleration.\n- When the driving force is removed, resistive forces cause deceleration.\n\n⚠️ Common Mistake\nForgetting to subtract resistive forces that act opposite to the direction of motion. The resultant force is the vector sum, not the total magnitude."
+    },
+    {
+      "id": "phys-forces-action-1-n4",
+      "heading": "📎 Key Points to Remember: Newton's Laws in Sport and Transport",
+      "body": "🔑 Key Concept\nNewton's three laws explain motion in sport and transport. Each law links forces to changes in motion.\n\n💡 Worked Example\nA fully loaded truck has more mass than an empty car, so it needs a much larger force from its engine to achieve the same acceleration. This illustrates Newton's Second Law, F = ma.\n\n📎 Key Points to Remember\n- Newton's First Law (inertia): objects keep their state of motion unless a resultant force acts. Passengers lurch forward when a bus brakes because their bodies tend to keep moving. A football stays still until a kick makes it move.\n- Newton's Second Law (F = ma): a larger resultant force produces a larger acceleration; a larger mass needs a larger force for the same acceleration. A powerful car engine gives large acceleration, while a sprinter pushes harder against the blocks to accelerate faster.\n- Newton's Third Law (action-reaction): forces always occur in pairs that are equal and opposite but act on different objects. A runner pushes the track backwards and the track pushes the runner forwards; a swimmer pushes water backwards and the water pushes the swimmer forwards; a car tyre pushes the road backwards and the road pushes the car forwards.\n\n⚠️ Common Mistake\nConfusing Newton's First and Third Laws. Inertia (First Law) explains why passengers keep moving when a bus brakes; action-reaction pairs (Third Law) explain why a runner or swimmer can accelerate."
+    },
+    {
+      "id": "phys-forces-action-1-n5",
+      "heading": "⚠️ Common Mistake: Friction Is Not Always Bad",
+      "body": "🔑 Key Concept\nFriction is a force that opposes relative motion between surfaces. It can be useful or unwanted depending on the situation.\n\n💡 Worked Example\nBrakes, tyres, and shoe soles are deliberately designed to increase friction so that they can grip. Rough surfaces and tread patterns improve friction by increasing the interlocking between surfaces.\n\nEngineers reduce unwanted friction using lubricating oil, grease, ball bearings, rollers, and smooth, streamlined shapes.\n\n📎 Key Points to Remember\n- Without friction you could not walk, run, cycle, or steer.\n- Useful friction is increased by rough surfaces and tread patterns.\n- Unwanted friction produces heat and wastes energy.\n- Static friction acts on an object that is not moving.\n- Kinetic friction acts on an object that is already sliding.\n- Static friction is usually greater than kinetic friction.\n\n⚠️ Common Mistake\nThinking friction only slows things down. Friction is often essential for motion and safety; without it you could not walk, run, or steer."
+    },
+    {
+      "id": "phys-forces-action-1-n6",
+      "heading": "🔑 Key Concept: Air Resistance and Streamlining",
+      "body": "🔑 Key Concept\nAir resistance, also called drag, is a frictional force caused by collisions between a moving object and the air molecules around it. Drag always opposes motion. It increases as speed increases and as the cross-sectional area facing the airflow increases.\n\n💡 Worked Example\nA cyclist crouches low over the handlebars, wears tight clothing, and may use an aerodynamic helmet to reduce the cross-sectional area facing the airflow. This reduces drag and makes it easier to ride at high speed.\n\nSports cars, high-speed trains, and aircraft have smooth, tapered shapes that let air flow past more easily.\n\n📎 Key Points to Remember\n- Drag always opposes motion.\n- Drag increases with speed and with cross-sectional area facing the airflow.\n- Streamlining reduces drag by letting air flow past more easily.\n- When driving force equals total resistive force, the resultant force is zero and the vehicle travels at constant maximum speed.\n- Reducing drag allows a higher top speed or less fuel use at the same speed.\n\n⚠️ Common Mistake\nThinking that streamlining removes all air resistance. Streamlining reduces drag but does not eliminate it."
+    },
+    {
+      "id": "phys-forces-action-1-n7",
+      "heading": "💡 Worked Example: Braking Distances and Safety Features",
+      "body": "🔑 Key Concept\nStopping distance is the total distance a vehicle travels from noticing a hazard to coming to rest. It is the sum of thinking distance and braking distance.\n\n💡 Worked Example\nA car travelling at 20 m/s has a thinking distance of 15 m and a braking distance of 25 m.\nStopping distance = thinking distance + braking distance = 15 m + 25 m = 40 m.\n\n📎 Key Points to Remember\n- Thinking distance is the distance travelled while the driver reacts before pressing the brake. It depends on reaction time and speed.\n- Tiredness, alcohol, drugs, mobile-phone use, and loud music increase reaction time and therefore increase thinking distance.\n- Braking distance is the distance travelled after the brakes are applied. It depends on speed, road surface, tyre tread, brake condition, and weather.\n- Wet or icy roads reduce friction, so braking distance becomes much longer.\n- Safety features reduce injury by increasing the time over which a passenger's momentum changes.\n- Crumple zones at the front and rear of a car deform on impact, absorbing kinetic energy.\n- Seatbelts stretch slightly and pull the passenger back with the car.\n- Airbags inflate rapidly to cushion the head and chest.\n- Cycle and motorbike helmets spread the force of an impact and increase the collision time.\n- Because F = change in momentum ÷ time, a longer collision time means a smaller force on the body.\n\n⚠️ Common Mistake\nConfusing thinking distance and braking distance. Thinking distance depends on the driver's reaction time, while braking distance depends on friction and road conditions."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-forces-action-1-f1",
+      "term": "Resultant force",
+      "definition": "The single force that has the same effect as all the forces acting on an object combined.",
+      "example": "10 N right and 4 N left give a resultant of 6 N right."
+    },
+    {
+      "id": "phys-forces-action-1-f2",
+      "term": "Free body diagram",
+      "definition": "A diagram showing only one object and all the forces acting on it, drawn as labelled arrows.",
+      "example": "A car diagram with weight down, normal reaction up, driving force forwards, and drag backwards."
+    },
+    {
+      "id": "phys-forces-action-1-f3",
+      "term": "Equilibrium",
+      "definition": "When the resultant force on an object is zero, so it remains at rest or moves at constant velocity.",
+      "example": "A book resting on a table has weight balanced by the normal reaction force."
+    },
+    {
+      "id": "phys-forces-action-1-f4",
+      "term": "Newton's First Law in transport",
+      "definition": "An object keeps its state of motion unless a resultant force acts. In a vehicle, this is called inertia.",
+      "example": "Passengers lurch forward when a bus brakes because their bodies keep moving."
+    },
+    {
+      "id": "phys-forces-action-1-f5",
+      "term": "Newton's Second Law in sport",
+      "definition": "F = ma. A larger resultant force or a smaller mass produces a greater acceleration.",
+      "example": "A sprinter pushing harder against the starting blocks accelerates forwards faster."
+    },
+    {
+      "id": "phys-forces-action-1-f6",
+      "term": "Newton's Third Law in running",
+      "definition": "For every action force there is an equal and opposite reaction force acting on a different object.",
+      "example": "A runner pushes the ground backwards; the ground pushes the runner forwards."
+    },
+    {
+      "id": "phys-forces-action-1-f7",
+      "term": "Static friction",
+      "definition": "Friction that acts on an object that is not moving, preventing it from starting to slide.",
+      "example": "A heavy box stays on a slope because static friction balances the component of weight pulling it down."
+    },
+    {
+      "id": "phys-forces-action-1-f8",
+      "term": "Kinetic friction",
+      "definition": "Friction that acts on an object that is already sliding over a surface.",
+      "example": "Once a box starts to slide, kinetic friction acts opposite to the direction of motion."
+    },
+    {
+      "id": "phys-forces-action-1-f9",
+      "term": "Streamlining",
+      "definition": "Designing a shape so that air or water flows around it more easily, reducing drag.",
+      "example": "A cyclist crouches low and wears tight clothing to reduce air resistance."
+    },
+    {
+      "id": "phys-forces-action-1-f10",
+      "term": "Stopping distance",
+      "definition": "The total distance a vehicle travels from when the driver notices a hazard until the vehicle stops.",
+      "example": "Stopping distance = thinking distance + braking distance."
+    },
+    {
+      "id": "phys-forces-action-1-f11",
+      "term": "Crumple zone",
+      "definition": "A region of a vehicle designed to deform in a collision, increasing the time of impact and absorbing energy.",
+      "example": "The front of a car crumples so that the passenger compartment slows down more gradually."
+    },
+    {
+      "id": "phys-forces-action-1-f12",
+      "term": "Airbag",
+      "definition": "A safety device that inflates rapidly in a crash to cushion the driver or passenger and increase stopping time.",
+      "example": "An airbag reduces the peak force on the head and chest by slowing them over a longer distance."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-forces-action-1-q1",
+      "stem": "A book is resting on a flat table. What is the resultant force on the book?",
+      "choices": [
+        "Equal to the weight of the book",
+        "Zero",
+        "Equal to the normal reaction force",
+        "Downwards"
+      ],
+      "correctIndex": 1,
+      "explanation": "The weight of the book is balanced by the normal reaction force from the table. Because the forces are equal and opposite, the resultant force is zero and the book is in equilibrium."
+    },
+    {
+      "id": "phys-forces-action-1-q2",
+      "stem": "A car has a forward driving force of 2000 N. Air resistance and friction together provide 1200 N backwards. What is the resultant force?",
+      "choices": [
+        "3200 N backwards",
+        "800 N backwards",
+        "800 N forwards",
+        "2000 N forwards"
+      ],
+      "correctIndex": 2,
+      "explanation": "Forwards force = 2000 N, backwards force = 1200 N. Resultant = 2000 − 1200 = 800 N in the direction of the larger force, which is forwards."
+    },
+    {
+      "id": "phys-forces-action-1-q3",
+      "stem": "What is the main purpose of a free body diagram?",
+      "choices": [
+        "To show how fast an object is moving",
+        "To show every force acting on a single object",
+        "To measure the mass of an object",
+        "To draw the surroundings in detail"
+      ],
+      "correctIndex": 1,
+      "explanation": "A free body diagram isolates one object and represents every force acting on it as an arrow. This makes it easier to find the resultant force."
+    },
+    {
+      "id": "phys-forces-action-1-q4",
+      "stem": "A cyclist stops pedalling and gradually slows down. What is the direction of the resultant horizontal force?",
+      "choices": [
+        "Forwards",
+        "Backwards",
+        "Upwards",
+        "Zero"
+      ],
+      "correctIndex": 1,
+      "explanation": "When pedalling stops, the driving force becomes zero. Air resistance and friction still act backwards, so the resultant force is backwards and the cyclist decelerates."
+    },
+    {
+      "id": "phys-forces-action-1-q5",
+      "stem": "Why do passengers lurch forward when a bus suddenly brakes?",
+      "choices": [
+        "The bus pushes them forward",
+        "Their bodies tend to keep moving forwards due to inertia",
+        "The brakes pull them forward",
+        "Air resistance pushes them forwards"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is Newton's First Law. The passengers' bodies tend to continue moving forwards, while the bus slows down around them. Seatbelts stop this forward motion safely."
+    },
+    {
+      "id": "phys-forces-action-1-q6",
+      "stem": "Which Newton's law best explains why a swimmer moves forward by pushing water backwards?",
+      "choices": [
+        "First Law",
+        "Second Law",
+        "Third Law",
+        "Law of gravitation"
+      ],
+      "correctIndex": 2,
+      "explanation": "Newton's Third Law states that every action has an equal and opposite reaction. The swimmer pushes water backwards (action); the water pushes the swimmer forwards (reaction)."
+    },
+    {
+      "id": "phys-forces-action-1-q7",
+      "stem": "Which safety feature is designed to increase the time over which a passenger stops moving in a crash?",
+      "choices": [
+        "Seatbelt",
+        "Brake pads",
+        "Power steering",
+        "Windscreen wipers"
+      ],
+      "correctIndex": 0,
+      "explanation": "A seatbelt stretches slightly and holds the passenger back with the car, increasing the stopping time and reducing the peak force. Crumple zones and airbags do the same."
+    },
+    {
+      "id": "phys-forces-action-1-q8",
+      "stem": "Which factor increases the braking distance of a car?",
+      "choices": [
+        "New tyres with deep tread",
+        "Dry road surface",
+        "Icy road surface",
+        "Lower speed"
+      ],
+      "correctIndex": 2,
+      "explanation": "Icy roads reduce friction between the tyres and the road, so the car travels further before stopping. New tyres and dry roads improve friction and reduce braking distance."
+    },
+    {
+      "id": "phys-forces-action-1-q9",
+      "stem": "A 1000 kg car accelerates at 3 m/s². What is the resultant force acting on it?",
+      "choices": [
+        "3000 N",
+        "333 N",
+        "1003 N",
+        "300 N"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using F = ma, the resultant force is 1000 kg × 3 m/s² = 3000 N. The direction of the force is the same as the direction of the acceleration."
+    },
+    {
+      "id": "phys-forces-action-1-q10",
+      "stem": "Which change would best reduce air resistance on a cyclist?",
+      "choices": [
+        "Wearing loose, baggy clothing",
+        "Sitting upright with a large cross-sectional area",
+        "Crouching low and wearing tight clothing",
+        "Attaching a large flag"
+      ],
+      "correctIndex": 2,
+      "explanation": "Crouching low reduces the cross-sectional area facing the airflow, and tight clothing creates smoother airflow. Both reduce drag."
+    },
+    {
+      "id": "phys-forces-action-1-q11",
+      "stem": "Why is it usually harder to start moving a heavy box than to keep it moving once it has begun to slide?",
+      "choices": [
+        "Static friction is usually greater than kinetic friction",
+        "Kinetic friction is usually greater than static friction",
+        "The box becomes heavier when moving",
+        "Air resistance is greatest when the box is stationary"
+      ],
+      "correctIndex": 0,
+      "explanation": "Static friction acts before movement starts and is generally larger than kinetic friction, which acts once the object is sliding."
+    },
+    {
+      "id": "phys-forces-action-1-q12",
+      "stem": "Thinking distance depends mainly on which two quantities?",
+      "choices": [
+        "Mass of the vehicle and road gradient",
+        "Driver reaction time and speed",
+        "Brake condition and tyre tread",
+        "Air resistance and engine power"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thinking distance = speed × reaction time. A faster vehicle travels further during the reaction time, and a tired or distracted driver has a longer reaction time."
+    },
+    {
+      "id": "phys-forces-action-1-q13",
+      "stem": "On which surface would a car have the shortest braking distance?",
+      "choices": [
+        "Icy road",
+        "Wet road",
+        "Dry road with good tyres",
+        "Loose gravel"
+      ],
+      "correctIndex": 2,
+      "explanation": "A dry road with good tyres provides the highest friction between the tyre and the road, allowing the car to decelerate rapidly and stop in the shortest distance."
+    },
+    {
+      "id": "phys-forces-action-1-q14",
+      "stem": "Crumple zones reduce injury in a crash because they:",
+      "choices": [
+        "Make the car stronger so it does not deform",
+        "Increase the time over which the car slows down",
+        "Reduce the car's mass",
+        "Prevent the airbags from inflating"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crumple zones deform and absorb energy, increasing the time over which the passenger compartment slows down. A longer stopping time means a smaller force on the passengers."
+    },
+    {
+      "id": "phys-forces-action-1-q15",
+      "stem": "A car travelling at 20 m/s has a thinking distance of 15 m and a braking distance of 25 m. What is its stopping distance?",
+      "choices": [
+        "15 m",
+        "25 m",
+        "40 m",
+        "10 m"
+      ],
+      "correctIndex": 2,
+      "explanation": "Stopping distance = thinking distance + braking distance = 15 m + 25 m = 40 m."
+    }
+  ]
+}

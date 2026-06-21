@@ -162,7 +162,7 @@
         "3.91"
       ],
       "correctIndex": 2,
-      "explanation": "$\\frac{\\ln(45)}{\\ln(3)} \\approx 3.47$."
+      "explanation": "To solve $3^x=45$, take logarithms of both sides: $x\\log3=\\log45$, so $x=\\frac{\\log45}{\\log3}$. Using any base (commonly base 10 or natural log), this gives $x\\approx3.47$. Logarithms are essential for solving exponential equations in population growth, radioactive decay, and compound-interest problems."
     },
     {
       "id": "math-dp-exponents-eel-q5",

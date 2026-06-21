@@ -19,6 +19,7 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
   return (
     <QuizGame
       questions={topic.questions}
+      shuffleSeed={topicId}
       backHref={`/subjects/${subjectId}`}
       backLabel="Back to Topics"
       enableTimer={true}
