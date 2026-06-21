@@ -13,7 +13,7 @@
     {
       "id": "math-dp-probability-prb-n2",
       "heading": "Binomial Distribution",
-      "body": "The binomial distribution models the number of successes in a fixed number of identical, independent trials.\n\n📌 Definition\nA discrete random variable $X$ follows a binomial distribution, written $X \\sim B(n, p)$, if these four conditions hold:\n\n1. Fixed number of trials ($n$)\n2. Independent trials\n3. Same probability of success ($p$) each trial\n4. Two outcomes per trial — success or failure\n\n🔑 Probability Mass Function\n$$P(X = r) = \\binom{n}{r} p^r (1 - p)^{n-r}$$\n\nwhere\n$$\\binom{n}{r} = \\frac{n!}{r!(n - r)!}$$\n\n🔑 Mean and Variance\n$$E(X) = np$$\n$$Var(X) = np(1 - p)$$\n\n💡 Worked Example — Setting Up a Binomial Model\nA factory produces light bulbs. It is known that 8% of bulbs are defective. A quality inspector tests a random sample of 20 bulbs.\n\n  Step 1: Identify the random variable\n    Let $X =$ number of defective bulbs in the sample\n\n  Step 2: Check the conditions\n    • Fixed $n = 20$\n    • Independent (sample is random and population is large)\n    • Two outcomes: defective or not defective\n    • Constant $p = 0.08$\n\n  Step 3: State the distribution\n    $X \\sim B(20, 0.08)$\n\n  Step 4: Calculate expected number of defectives\n    $E(X) = 20 \\times 0.08 = 1.6$\n\n💡 Worked Example — Calculating Binomial Probabilities\nFor $X \\sim B(10, 0.4)$, find:\n\n  (a) $P(X = 3)$\n    Use binompdf on GDC with $n = 10$, $p = 0.4$, $x = 3$\n    $P(X = 3) \\approx 0.215$\n\n  (b) $P(X \\leq 3)$\n    Use binomcdf on GDC with $n = 10$, $p = 0.4$, $x = 3$\n    $P(X \\leq 3) \\approx 0.382$\n\n  (c) $P(X \\geq 5)$\n    $P(X \\geq 5) = 1 - P(X \\leq 4)$\n    Use binomcdf on GDC with $x = 4$\n    $P(X \\geq 5) = 1 - 0.633 = 0.367$\n\n📎 Key Points to Remember\n• binompdf gives $P(X = r)$ — probability of exactly $r$ successes\n• binomcdf gives $P(X \\leq r)$ — cumulative probability up to $r$\n• For strict inequalities with discrete distributions, adjust by 1:\n  • $P(X < 5) = P(X \\leq 4)$\n  • $P(X > 5) = 1 - P(X \\leq 5)$\n  • $P(3 \\leq X \\leq 7) = P(X \\leq 7) - P(X \\leq 2)$\n\n⚠️ Common Mistake\nForgetting that the binomial distribution is discrete. $P(X < 5)$ is NOT the same as $P(X \\leq 5)$ — it equals $P(X \\leq 4)$. Always think about which integer values are included."
+      "body": "The binomial distribution models the number of successes in a fixed number of identical, independent trials.\n\n📌 Definition\nA discrete random variable $X$ follows a binomial distribution, written $X \\sim B(n, p)$, if these four conditions hold:\n\n1. Fixed number of trials ($n$)\n2. Independent trials\n3. Same probability of success ($p$) each trial\n4. Two outcomes per trial — success or failure\n\n🔑 Probability Mass Function\n$$P(X = r) = \\binom{n}{r} p^r (1 - p)^{n-r}$$\n\nwhere\n$$\\binom{n}{r} = \\frac{n!}{r!(n - r)!}$$\n\n🔑 Mean and Variance\n$$E(X) = np$$\n$$Var(X) = np(1 - p)$$\n\n💡 Worked Example — Setting Up a Binomial Model\nA factory produces light bulbs. It is known that 8% of bulbs are defective. A quality inspector tests a random sample of 20 bulbs.\n\n  Step 1: Identify the random variable\n    Let $X =$ number of defective bulbs in the sample\n\n  Step 2: Check the conditions\n    • Fixed $n = 20$\n    • Independent (sample is random and population is large)\n    • Two outcomes: defective or not defective\n    • Constant $p = 0.08$\n\n  Step 3: State the distribution\n    $X \\sim B(20, 0.08)$\n\n  Step 4: Calculate expected number of defectives\n    $E(X) = 20 \times 0.08 = 1.6$\n\n💡 Worked Example — Calculating Binomial Probabilities\nFor $X \\sim B(10, 0.4)$, find:\n\n  (a) $P(X = 3)$\n    Use binompdf on GDC with $n = 10$, $p = 0.4$, $x = 3$\n    $P(X = 3) \\approx 0.215$\n\n  (b) $P(X \\leq 3)$\n    Use binomcdf on GDC with $n = 10$, $p = 0.4$, $x = 3$\n    $P(X \\leq 3) \\approx 0.382$\n\n  (c) $P(X \\geq 5)$\n    $P(X \\geq 5) = 1 - P(X \\leq 4)$\n    Use binomcdf on GDC with $x = 4$\n    $P(X \\geq 5) = 1 - 0.633 = 0.367$\n\n📎 Key Points to Remember\n• binompdf gives $P(X = r)$ — probability of exactly $r$ successes\n• binomcdf gives $P(X \\leq r)$ — cumulative probability up to $r$\n• For strict inequalities with discrete distributions, adjust by 1:\n  • $P(X < 5) = P(X \\leq 4)$\n  • $P(X > 5) = 1 - P(X \\leq 5)$\n  • $P(3 \\leq X \\leq 7) = P(X \\leq 7) - P(X \\leq 2)$\n\n⚠️ Common Mistake\nForgetting that the binomial distribution is discrete. $P(X < 5)$ is NOT the same as $P(X \\leq 5)$ — it equals $P(X \\leq 4)$. Always think about which integer values are included."
     },
     {
       "id": "math-dp-probability-prb-n3",
@@ -23,7 +23,7 @@
     {
       "id": "math-dp-probability-prb-n4",
       "heading": "t-Distribution and Hypothesis Testing (AI HL)",
-      "body": "When the population standard deviation is unknown and the sample size is small, we use the t-distribution instead of the normal distribution for inference about the mean.\n\n📌 The t-Distribution\nThe t-distribution is similar to the standard normal but has heavier tails. It is defined by degrees of freedom:\n\n    $$df = n - 1$$\n\nAs $df$ increases, the t-distribution approaches the standard normal $Z \\sim N(0, 1)$.\n\n🔑 One-Sample t-Test Statistic\n    $$t = \\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$$\n\nwhere\n    $\\bar{x}$ = sample mean\n    $\\mu_0$ = hypothesised population mean under $H_0$\n    $s$ = sample standard deviation\n    $n$ = sample size\n\n💡 Worked Example — t-Test\nA farmer claims his apples weigh 150 g on average. A random sample of 16 apples has mean weight 146 g and standard deviation 8 g. Test at the $5\\%$ significance level.\n\n  Step 1: State hypotheses\n    $H_0: \\mu = 150$\n    $H_1: \\mu \\neq 150$  (two-tailed test)\n\n  Step 2: Calculate test statistic\n    $t = \\frac{146 - 150}{8 / \\sqrt{16}}$\n    $t = \\frac{-4}{2} = -2.0$\n\n  Step 3: Find critical value\n    $df = 16 - 1 = 15$\n    $t_{\\text{crit}}$ for two-tailed test at $5\\%$: $\\pm 2.131$\n\n  Step 4: Compare and conclude\n    $|-2.0| = 2.0 < 2.131$\n    We do not reject $H_0$.\n    There is insufficient evidence at the $5\\%$ level to reject the farmer's claim.\n\n🔑 Chi-Squared Test for Independence (AI)\nUsed to test whether two categorical variables are independent.\n\n    $$\\chi^2 = \\sum \\frac{(O - E)^2}{E}$$\n\nwhere\n    $O$ = observed frequency\n    $E$ = expected frequency $= \\frac{\\text{row total} \\times \\text{column total}}{\\text{grand total}}$\n\nDegrees of freedom:\n    $$df = (rows - 1)(columns - 1)$$\n\n💡 Worked Example — Expected Frequency\nIn a contingency table, a cell has row total 80, column total 60, and grand total 200.\n\n    $$E = \\frac{80 \\times 60}{200} = 24$$\n\n📎 Key Points to Remember\n• Use the t-distribution when $\\sigma$ is unknown AND $n < 30$\n• For $n > 30$, the normal approximation is usually acceptable\n• Reject $H_0$ if $|t| > t_{\\text{crit}}$ OR if p-value $< \\alpha$\n• For $\\chi^2$ tests, all expected frequencies should be at least 5 for valid results\n• Write conclusions in context — never say \"prove\" or \"disprove\"\n\n⚠️ Common Mistake\nConfusing the t-test with the z-test. If the population standard deviation $\\sigma$ is given, use $z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$. If only the sample standard deviation $s$ is available and $n$ is small, use the t-test."
+      "body": "When the population standard deviation is unknown and the sample size is small, we use the t-distribution instead of the normal distribution for inference about the mean.\n\n📌 The t-Distribution\nThe t-distribution is similar to the standard normal but has heavier tails. It is defined by degrees of freedom:\n\n    $$df = n - 1$$\n\nAs $df$ increases, the t-distribution approaches the standard normal $Z \\sim N(0, 1)$.\n\n🔑 One-Sample t-Test Statistic\n    $$t = \\frac{\\bar{x} - \\mu_0}{s / \\sqrt{n}}$$\n\nwhere\n    $\\bar{x}$ = sample mean\n    $\\mu_0$ = hypothesised population mean under $H_0$\n    $s$ = sample standard deviation\n    $n$ = sample size\n\n💡 Worked Example — t-Test\nA farmer claims his apples weigh 150 g on average. A random sample of 16 apples has mean weight 146 g and standard deviation 8 g. Test at the $5\\%$ significance level.\n\n  Step 1: State hypotheses\n    $H_0: \\mu = 150$\n    $H_1: \\mu \neq 150$  (two-tailed test)\n\n  Step 2: Calculate test statistic\n    $t = \\frac{146 - 150}{8 / \\sqrt{16}}$\n    $t = \\frac{-4}{2} = -2.0$\n\n  Step 3: Find critical value\n    $df = 16 - 1 = 15$\n    $t_{\text{crit}}$ for two-tailed test at $5\\%$: $\\pm 2.131$\n\n  Step 4: Compare and conclude\n    $|-2.0| = 2.0 < 2.131$\n    We do not reject $H_0$.\n    There is insufficient evidence at the $5\\%$ level to reject the farmer's claim.\n\n🔑 Chi-Squared Test for Independence (AI)\nUsed to test whether two categorical variables are independent.\n\n    $$\\chi^2 = \\sum \\frac{(O - E)^2}{E}$$\n\nwhere\n    $O$ = observed frequency\n    $E$ = expected frequency $= \\frac{\text{row total} \times \text{column total}}{\text{grand total}}$\n\nDegrees of freedom:\n    $$df = (rows - 1)(columns - 1)$$\n\n💡 Worked Example — Expected Frequency\nIn a contingency table, a cell has row total 80, column total 60, and grand total 200.\n\n    $$E = \\frac{80 \times 60}{200} = 24$$\n\n📎 Key Points to Remember\n• Use the t-distribution when $\\sigma$ is unknown AND $n < 30$\n• For $n > 30$, the normal approximation is usually acceptable\n• Reject $H_0$ if $|t| > t_{\text{crit}}$ OR if p-value $< \\alpha$\n• For $\\chi^2$ tests, all expected frequencies should be at least 5 for valid results\n• Write conclusions in context — never say \"prove\" or \"disprove\"\n\n⚠️ Common Mistake\nConfusing the t-test with the z-test. If the population standard deviation $\\sigma$ is given, use $z = \\frac{\\bar{x} - \\mu_0}{\\sigma / \\sqrt{n}}$. If only the sample standard deviation $s$ is available and $n$ is small, use the t-test."
     },
     {
       "id": "math-dp-probability-prb-n5",
@@ -33,12 +33,17 @@
     {
       "id": "math-dp-probability-prb-n6",
       "heading": "Continuous Random Variables",
-      "body": "Continuous random variables can take any value in an interval. Unlike discrete variables, we describe them with curves rather than tables.\n\n📌 Definition\nA continuous random variable $X$ takes values from an interval (possibly infinite). Its probability is described by a probability density function $f(x)$ where:\n• $f(x) \\geq 0$ for all $x$\n• The total area under the curve is 1: $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$\n• $P(a \\leq X \\leq b)$ is the area under $f(x)$ between $a$ and $b$\n\nImportantly, for any specific value $k$:\n$$P(X = k) = 0$$\n\n🔑 Key Concept: The Uniform Distribution\nA continuous random variable $X$ is uniformly distributed on the interval $[a, b]$, written $X \\sim U(a, b)$, if every value in the interval is equally likely. The PDF is a horizontal line.\n\n$$f(x) = \\frac{1}{b - a}, \\quad a \\leq x \\leq b$$\n\n$$E(X) = \\frac{a + b}{2}, \\quad Var(X) = \\frac{(b - a)^2}{12}$$\n\n💡 Worked Example — Uniform Probability\nThe waiting time for a bus, $X$ minutes, is uniformly distributed between 0 and 15.\n\n  Step 1: State the distribution\n    $X \\sim U(0, 15)$\n\n  Step 2: Find $P(5 \\leq X \\leq 10)$\n    The favourable interval length is $10 - 5 = 5$\n    The total interval length is $15 - 0 = 15$\n    $$P(5 \\leq X \\leq 10) = \\frac{5}{15} = \\frac{1}{3}$$\n\n  Step 3: Find the expected waiting time\n    $$E(X) = \\frac{0 + 15}{2} = 7.5\\text{ minutes}$$\n\n📎 Key Points to Remember\n• For continuous distributions, probability is area, not height\n• $P(X < k) = P(X \\leq k)$ because $P(X = k) = 0$\n• The uniform distribution is the continuous analogue of \"equally likely outcomes\"\n\n⚠️ Common Mistake\nUsing the height of the PDF as a probability. The value $f(x)$ is not a probability; only the area under $f(x)$ over an interval gives probability. For $U(0, 15)$, $f(x) = \\frac{1}{15}$, but $P(0 \\leq X \\leq 15) = 1$, not $\\frac{1}{15}$."
+      "body": "Continuous random variables can take any value in an interval. Unlike discrete variables, we describe them with curves rather than tables.\n\n📌 Definition\nA continuous random variable $X$ takes values from an interval (possibly infinite). Its probability is described by a probability density function $f(x)$ where:\n• $f(x) \\geq 0$ for all $x$\n• The total area under the curve is 1: $\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1$\n• $P(a \\leq X \\leq b)$ is the area under $f(x)$ between $a$ and $b$\n\nImportantly, for any specific value $k$:\n$$P(X = k) = 0$$\n\n🔑 Key Concept: The Uniform Distribution\nA continuous random variable $X$ is uniformly distributed on the interval $[a, b]$, written $X \\sim U(a, b)$, if every value in the interval is equally likely. The PDF is a horizontal line.\n\n$$f(x) = \\frac{1}{b - a}, \\quad a \\leq x \\leq b$$\n\n$$E(X) = \\frac{a + b}{2}, \\quad Var(X) = \\frac{(b - a)^2}{12}$$\n\n💡 Worked Example — Uniform Probability\nThe waiting time for a bus, $X$ minutes, is uniformly distributed between 0 and 15.\n\n  Step 1: State the distribution\n    $X \\sim U(0, 15)$\n\n  Step 2: Find $P(5 \\leq X \\leq 10)$\n    The favourable interval length is $10 - 5 = 5$\n    The total interval length is $15 - 0 = 15$\n    $$P(5 \\leq X \\leq 10) = \\frac{5}{15} = \\frac{1}{3}$$\n\n  Step 3: Find the expected waiting time\n    $$E(X) = \\frac{0 + 15}{2} = 7.5\text{ minutes}$$\n\n📎 Key Points to Remember\n• For continuous distributions, probability is area, not height\n• $P(X < k) = P(X \\leq k)$ because $P(X = k) = 0$\n• The uniform distribution is the continuous analogue of \"equally likely outcomes\"\n\n⚠️ Common Mistake\nUsing the height of the PDF as a probability. The value $f(x)$ is not a probability; only the area under $f(x)$ over an interval gives probability. For $U(0, 15)$, $f(x) = \\frac{1}{15}$, but $P(0 \\leq X \\leq 15) = 1$, not $\\frac{1}{15}$."
     },
     {
       "id": "math-dp-probability-prb-n7",
       "heading": "Type I and Type II Errors",
-      "body": "When we carry out a hypothesis test, two kinds of mistake are possible because we make a decision based on sample data.\n\n📌 Definition\n• Type I error: rejecting the null hypothesis $H_0$ when it is actually true\n• Type II error: failing to reject $H_0$ when it is actually false\n\nIn a court of law, $H_0$ might be \"the defendant is innocent\":\n• Type I error = convicting an innocent person (false positive)\n• Type II error = acquitting a guilty person (false negative)\n\n🔑 How it works\nThe significance level $\\alpha$ is the probability of making a Type I error when $H_0$ is true:\n$$P(\\text{Type I error}) = \\alpha$$\n\nDecreasing $\\alpha$ makes Type I errors less likely, but it usually makes Type II errors more likely. The only way to reduce both errors at the same time is to increase the sample size.\n\n💡 Worked Example — Identifying Errors\nA company tests $H_0$: \"A new packaging machine fills bags to 1 kg on average\" against $H_1$: \"The mean fill is not 1 kg\".\n\n  Scenario A: The machine is actually working correctly, but the sample suggests the mean is different and the company stops production.\n    This is a Type I error: $H_0$ is true but rejected.\n\n  Scenario B: The machine is actually under-filling by 5%, but the sample does not provide enough evidence and production continues.\n    This is a Type II error: $H_0$ is false but not rejected.\n\n📎 Key Points to Remember\n• Type I and Type II errors describe mistakes about $H_0$\n• $\\alpha$ directly controls the Type I error rate\n• Increasing sample size reduces both error probabilities\n\n⚠️ Common Mistake\nConfusing the two errors. Remember: Type I is \"rejecting a true $H_0$\" and Type II is \"accepting a false $H_0$\". A helpful mnemonic is that Type I is the first possible mistake (rejecting when true) and Type II is the second (failing to reject when false)."
+      "body": "When we carry out a hypothesis test, two kinds of mistake are possible because we make a decision based on sample data.\n\n📌 Definition\n• Type I error: rejecting the null hypothesis $H_0$ when it is actually true\n• Type II error: failing to reject $H_0$ when it is actually false\n\nIn a court of law, $H_0$ might be \"the defendant is innocent\":\n• Type I error = convicting an innocent person (false positive)\n• Type II error = acquitting a guilty person (false negative)\n\n🔑 How it works\nThe significance level $\\alpha$ is the probability of making a Type I error when $H_0$ is true:\n$$P(\text{Type I error}) = \\alpha$$\n\nDecreasing $\\alpha$ makes Type I errors less likely, but it usually makes Type II errors more likely. The only way to reduce both errors at the same time is to increase the sample size.\n\n💡 Worked Example — Identifying Errors\nA company tests $H_0$: \"A new packaging machine fills bags to 1 kg on average\" against $H_1$: \"The mean fill is not 1 kg\".\n\n  Scenario A: The machine is actually working correctly, but the sample suggests the mean is different and the company stops production.\n    This is a Type I error: $H_0$ is true but rejected.\n\n  Scenario B: The machine is actually under-filling by 5%, but the sample does not provide enough evidence and production continues.\n    This is a Type II error: $H_0$ is false but not rejected.\n\n📎 Key Points to Remember\n• Type I and Type II errors describe mistakes about $H_0$\n• $\\alpha$ directly controls the Type I error rate\n• Increasing sample size reduces both error probabilities\n\n⚠️ Common Mistake\nConfusing the two errors. Remember: Type I is \"rejecting a true $H_0$\" and Type II is \"accepting a false $H_0$\". A helpful mnemonic is that Type I is the first possible mistake (rejecting when true) and Type II is the second (failing to reject when false)."
+    },
+    {
+      "id": "math-dp-probability-prb-n8",
+      "heading": "💡 Worked Example — Normal Approximation to a Binomial",
+      "body": "The normal distribution can approximate a binomial distribution when the number of trials is large and the success probability is not too close to 0 or 1.\n\n📌 Problem\nA cricket player scores a boundary with probability 0.25 on any delivery, independently. In a tournament she faces 80 deliveries. Use a normal approximation to estimate the probability that she hits at least 25 boundaries.\n\n🔑 Strategy\nModel the number of boundaries $X$ as a binomial random variable. Because $n$ is large and both $np$ and $n(1-p)$ exceed 5, approximate $X$ by a normal distribution. Apply a continuity correction, standardise the boundary value, and use the standard normal distribution to find the required tail probability.\n\n💡 Solution\nStep 1: State the binomial model\n  $X \\sim B(80, 0.25)$\n  $E(X) = np = 80 \times 0.25 = 20$\n  $Var(X) = np(1-p) = 80 \times 0.25 \times 0.75 = 15$\n  $SD(X) = \\sqrt{15} \\approx 3.873$\n\nStep 2: Justify the normal approximation\n  $np = 20 > 5$ and $n(1-p) = 60 > 5$, so we may use $X \\approx N(20, 15)$.\n\nStep 3: Apply continuity correction for $P(X \\geq 25)$\n  For a discrete distribution, $P(X \\geq 25)$ corresponds to the continuous interval above 24.5:\n  $P(X \\geq 25) \\approx P(X_{\text{normal}} > 24.5)$\n\nStep 4: Standardise\n  $Z = \\frac{24.5 - 20}{\\sqrt{15}} \\approx 1.162$\n\nStep 5: Find the tail probability\n  $P(Z > 1.162) = 1 - P(Z < 1.162) \\approx 1 - 0.8775 = 0.1225$\n\nTherefore, the probability that the player hits at least 25 boundaries is approximately $0.123$, or $12.3\\%$.\n\n📎 Key Points to Remember\n• Always check that $np \\geq 5$ and $n(1-p) \\geq 5$ before approximating a binomial distribution with a normal distribution\n• Apply a continuity correction because the binomial distribution is discrete while the normal distribution is continuous\n• \"At least 25\" means include 25, so the continuity correction uses 24.5, not 25.5\n\n⚠️ Common Mistake\nForgetting the continuity correction or applying it in the wrong direction. When $P(X \\geq k)$ is required, use $P(X_{\text{normal}} > k - 0.5)$; when $P(X \\leq k)$ is required, use $P(X_{\text{normal}} < k + 0.5)$."
     }
   ],
   "flashcards": [
@@ -52,7 +57,7 @@
       "id": "math-dp-probability-prb-f2",
       "term": "Expected Value",
       "definition": "$E(X)=\\sum x\\cdot P(X=x)$",
-      "example": "$P(X=1)=0.2$, $P(2)=0.5$, $P(3)=0.3 \\to E=1.9$."
+      "example": "$P(X=1)=0.2$, $P(2)=0.5$, $P(3)=0.3 \to E=1.9$."
     },
     {
       "id": "math-dp-probability-prb-f3",
@@ -70,13 +75,13 @@
       "id": "math-dp-probability-prb-f5",
       "term": "Standardisation",
       "definition": "$Z=\\frac{X-\\mu}{\\sigma}$ converts to $N(0,1)$.",
-      "example": "$N(20,9)$, $X=23 \\to Z=1 \\to P(Z>1)\\approx 0.159$."
+      "example": "$N(20,9)$, $X=23 \to Z=1 \to P(Z>1)\\approx 0.159$."
     },
     {
       "id": "math-dp-probability-prb-f6",
       "term": "Inverse Normal",
       "definition": "Given $P(X<k)=p$, find $k$ via invNorm($p,\\mu,\\sigma$).",
-      "example": "$N(50,16)$, $P(X<k)=0.9 \\to k\\approx 55.1$."
+      "example": "$N(50,16)$, $P(X<k)=0.9 \to k\\approx 55.1$."
     },
     {
       "id": "math-dp-probability-prb-f7",
@@ -88,13 +93,13 @@
       "id": "math-dp-probability-prb-f8",
       "term": "Linear Combinations",
       "definition": "For independent $X,Y$: $E(aX\\pm bY)=aE(X)\\pm bE(Y)$; $Var(aX\\pm bY)=a^2Var(X)+b^2Var(Y)$.",
-      "example": "$E(X)=5$, $Var(X)=3$, $E(Y)=-2$, $Var(Y)=4 \\to E(2X+5Y)=0$, $Var(2X+5Y)=12+100=112$."
+      "example": "$E(X)=5$, $Var(X)=3$, $E(Y)=-2$, $Var(Y)=4 \to E(2X+5Y)=0$, $Var(2X+5Y)=12+100=112$."
     },
     {
       "id": "math-dp-probability-prb-f9",
       "term": "Sample Mean Distribution",
       "definition": "If $X\\sim N(\\mu,\\sigma^2)$, then $\\bar{X}\\sim N(\\mu,\\sigma^2/n)$.",
-      "example": "$X\\sim N(80,36)$, $n=9 \\to \\bar{X}\\sim N(80,4)$, so $SD(\\bar{X})=2$."
+      "example": "$X\\sim N(80,36)$, $n=9 \to \\bar{X}\\sim N(80,4)$, so $SD(\\bar{X})=2$."
     },
     {
       "id": "math-dp-probability-prb-f10",
@@ -126,7 +131,7 @@
         "0.7"
       ],
       "correctIndex": 1,
-      "explanation": "$0.2+0.5+k=1 \\to k=0.3$."
+      "explanation": "Every probability distribution must cover all possible outcomes, so the total probability must equal 1. Adding the given probabilities gives $0.2+0.5+k=1$, so $0.7+k=1$ and therefore $k=0.3$. This means there is a $30\\%$ chance that the random variable takes the value 3."
     },
     {
       "id": "math-dp-probability-prb-q2",
@@ -138,7 +143,7 @@
         "2.5"
       ],
       "correctIndex": 2,
-      "explanation": "Expected value: $E(X)=1(0.2)+2(0.5)+3(0.3)=0.2+1.0+0.9=2.1$."
+      "explanation": "Expected value is the long-run average outcome if the experiment is repeated many times. It is calculated as $E(X)=\\sum x\\cdot P(X=x)$. Here, $E(X)=1(0.2)+2(0.5)+3(0.3)=0.2+1.0+0.9=2.1$. If you rolled this distribution thousands of times, the mean result would settle close to 2.1."
     },
     {
       "id": "math-dp-probability-prb-q3",
@@ -150,7 +155,7 @@
         "3"
       ],
       "correctIndex": 2,
-      "explanation": "For a binomial distribution, $E(X)=np=8\\times0.25=2$."
+      "explanation": "For a binomial distribution, $E(X)=np=8\times0.25=2$."
     },
     {
       "id": "math-dp-probability-prb-q4",
@@ -186,7 +191,7 @@
         "40"
       ],
       "correctIndex": 2,
-      "explanation": "$n\\times0.2=6 \\to n=30$."
+      "explanation": "$n\times0.2=6 \to n=30$."
     },
     {
       "id": "math-dp-probability-prb-q7",
@@ -210,7 +215,7 @@
         "Gain \\$1.40"
       ],
       "correctIndex": 1,
-      "explanation": "$E(W)=0\\times0.5+2\\times0.3+10\\times0.2=0+0.6+2.0=\\$2.60$. Expected profit $= E(W)-4.00 = 2.60-4.00 = -\\$1.40$ (a loss of \\$1.40)."
+      "explanation": "$E(W)=0\times0.5+2\times0.3+10\times0.2=0+0.6+2.0=\\$2.60$. Expected profit $= E(W)-4.00 = 2.60-4.00 = -\\$1.40$ (a loss of \\$1.40)."
     },
     {
       "id": "math-dp-probability-prb-q9",
@@ -222,7 +227,7 @@
         "15"
       ],
       "correctIndex": 2,
-      "explanation": "$Var(aX+b)=a^2Var(X)$. Here $a=3$, so $Var(3X-2)=9\\times5=45$. The constant $-2$ does not affect variance, and you must square the multiplier $3$, not just multiply by $3$."
+      "explanation": "$Var(aX+b)=a^2Var(X)$. Here $a=3$, so $Var(3X-2)=9\times5=45$. The constant $-2$ does not affect variance, and you must square the multiplier $3$, not just multiply by $3$."
     },
     {
       "id": "math-dp-probability-prb-q10",
@@ -294,7 +299,67 @@
         "5"
       ],
       "correctIndex": 2,
-      "explanation": "For a binomial distribution, $Var(X) = np(1-p) = 25 \\times 0.2 \\times 0.8 = 4$."
+      "explanation": "For a binomial distribution, $Var(X) = np(1-p) = 25 \times 0.2 \times 0.8 = 4$."
+    },
+    {
+      "id": "math-dp-probability-prb-q16",
+      "stem": "A biased coin has probability $0.6$ of landing heads. It is tossed $50$ times. Using a normal approximation with continuity correction, what is the probability of obtaining at least $35$ heads?",
+      "choices": [
+        "$0.023$",
+        "$0.097$",
+        "$0.184$",
+        "$0.401$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Let $X \\sim B(50, 0.6)$. Then $E(X)=np=30$ and $Var(X)=np(1-p)=12$, so $SD(X)=\\sqrt{12}\\approx 3.464$. With continuity correction, $P(X \\geq 35) \\approx P(X_{\text{normal}} > 34.5)$. Standardising gives $Z = \\frac{34.5-30}{\\sqrt{12}} \\approx 1.299$, and $P(Z > 1.299) \\approx 0.097$. Option A is too extreme, C ignores the continuity correction, and D uses the wrong tail."
+    },
+    {
+      "id": "math-dp-probability-prb-q17",
+      "stem": "The mass $X$ of a type-A apple is normally distributed with mean $150$ g and variance $225$ g$^2$. The mass $Y$ of a type-B apple is normally distributed with mean $120$ g and variance $144$ g$^2$. The masses are independent. A fruit salad is made from $3$ type-A apples and $2$ type-B apples. What is the probability that the total mass exceeds $800$ g?",
+      "choices": [
+        "$0.0155$",
+        "$0.1587$",
+        "$0.4207$",
+        "$0.8413$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Let $T = 3X + 2Y$. Then $E(T) = 3(150) + 2(120) = 690$ g and $Var(T) = 3^2(225) + 2^2(144) = 2025 + 576 = 2601$ g$^2$, so $SD(T)=51$ g. Thus $T \\sim N(690, 2601)$. We need $P(T > 800) = P\\left(Z > \\frac{800-690}{51}\\right) = P(Z > 2.157) \\approx 0.0155$. Option B corresponds to $P(Z > 1)$, C to about $P(Z > -0.2)$, and D to $P(Z > -1)$."
+    },
+    {
+      "id": "math-dp-probability-prb-q18",
+      "stem": "The volume of juice in a bottle is normally distributed with mean $500$ ml and standard deviation $8$ ml. The company rejects the smallest $2.5\\%$ of bottles. What is the minimum volume of an acceptable bottle?",
+      "choices": [
+        "$484$ ml",
+        "$488$ ml",
+        "$492$ ml",
+        "$516$ ml"
+      ],
+      "correctIndex": 0,
+      "explanation": "We need $k$ such that $P(X < k) = 0.025$ where $X \\sim N(500, 64)$. Using the inverse normal function or the fact that the lower $2.5\\%$ point is about $1.96$ standard deviations below the mean, $k = 500 - 1.96(8) \\approx 484.3$ ml. The closest answer is $484$ ml. Option B is about the $6.7\\%$ point, C is one standard deviation below the mean, and D is the upper $2.5\\%$ point."
+    },
+    {
+      "id": "math-dp-probability-prb-q19",
+      "stem": "In a large population, $20\\%$ of people are left-handed. A random sample of $100$ people is taken. Using a normal approximation with continuity correction, what is the probability that at least $28$ people are left-handed?",
+      "choices": [
+        "$0.017$",
+        "$0.032$",
+        "$0.054$",
+        "$0.122$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Let $X \\sim B(100, 0.2)$. Then $E(X)=20$ and $Var(X)=16$, so $SD(X)=4$. Since $np=20>5$ and $n(1-p)=80>5$, use $X \\approx N(20, 16)$. With continuity correction, $P(X \\geq 28) \\approx P(X_{\text{normal}} > 27.5)$. Standardising gives $Z = \\frac{27.5-20}{4} = 1.875$, and $P(Z > 1.875) \\approx 0.0304$, closest to $0.032$. Option A omits the continuity correction, C uses $27$ instead of $27.5$, and D underestimates the z-score."
+    },
+    {
+      "id": "math-dp-probability-prb-q20",
+      "stem": "A machine produces metal rods. The length $X$ of a type-A rod is normally distributed with mean $50$ cm and variance $4$ cm$^2$. The length $Y$ of a type-B rod is normally distributed with mean $30$ cm and variance $1$ cm$^2$. Lengths are independent. Two type-A rods and three type-B rods are joined end-to-end. What is the probability that the total length is between $190$ cm and $205$ cm?",
+      "choices": [
+        "$0.0013$",
+        "$0.4987$",
+        "$0.5000$",
+        "$0.9987$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Let $T = 2X + 3Y$. Then $E(T) = 2(50) + 3(30) = 190$ cm and $Var(T) = 2^2(4) + 3^2(1) = 16 + 9 = 25$ cm$^2$, so $SD(T)=5$ cm. We need $P(190 < T < 205) = P\\left(0 < Z < \\frac{205-190}{5}\\right) = P(0 < Z < 3) \\approx 0.4987$. Option A gives $P(Z > 3)$, C ignores the upper bound, and D gives $P(Z < 3)$."
     }
   ]
 }

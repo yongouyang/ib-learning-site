@@ -1,0 +1,335 @@
+{
+  "id": "phys-energy-resources-1",
+  "subjectId": "physics",
+  "title": "Energy Resources & Sustainability",
+  "description": "Explore renewable and non-renewable energy resources, how power stations generate electricity, and the efficiency, carbon footprint, and sustainability debates that shape our energy choices.",
+  "ibLevel": "MYP",
+  "notes": [
+    {
+      "id": "phys-energy-resources-1-n1",
+      "heading": "📌 Renewable vs Non-Renewable Resources",
+      "body": "📌 Definition\n\nEnergy resources are divided into two main groups. Non-renewable resources are finite and cannot be replaced on a human timescale. They include fossil fuels (coal, oil, natural gas) and nuclear fuels (uranium). Burning fossil fuels releases carbon dioxide, a greenhouse gas that contributes to climate change. Renewable resources are naturally replenished and include solar, wind, hydroelectric, geothermal, biomass, and tidal/wave power. While renewables produce little or no direct carbon emissions during operation, they still have environmental impacts such as land use, material use, and effects on wildlife.\n\n💡 Worked Example\n\nClassify each resource: coal is a non-renewable fossil fuel, solar is renewable, uranium is a non-renewable nuclear fuel, and wind is renewable.\n\n📎 Key Points to Remember\n\n- Non-renewable resources are finite; once used they cannot be replaced on a human timescale.\n- Burning fossil fuels releases carbon dioxide, a greenhouse gas linked to climate change.\n- Renewable resources are naturally replenished and include solar, wind, hydroelectric, geothermal, biomass, and tidal/wave power.\n- Renewables have low direct emissions during operation but can still affect land use, materials, and wildlife.\n\n⚠️ Common Mistake\n\nAssuming renewable energy has no environmental impact. Manufacturing, land use, and effects on wildlife still need to be considered.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-resources-1.svg",
+        "alt": "Overview of renewable and non-renewable energy resources, a thermal power station, and sustainability factors.",
+        "caption": "Renewable resources are replenished naturally; non-renewable resources are finite and release greenhouse gases when burned."
+      }
+    },
+    {
+      "id": "phys-energy-resources-1-n2",
+      "heading": "🔑 How Solar Energy Works",
+      "body": "🔑 How it works\n\nSolar energy is captured in two main ways. Photovoltaic (PV) cells convert sunlight directly into electricity using semiconductor materials. When light particles (photons) hit the cell, they knock electrons loose, creating an electric current. Solar thermal systems use sunlight to heat water or another fluid, which can then be used directly for hot water or to drive a turbine. Solar power is widely available during the day, but output drops at night and on cloudy days, so energy storage or backup generation is often needed.\n\n💡 Worked Example\n\nA building installs rooftop PV panels to generate electricity during the day, and a separate solar thermal panel to heat water for taps. When the sun sets, stored electricity or grid power is used because the panels no longer receive sunlight.\n\n📎 Key Points to Remember\n\n- Photovoltaic cells convert sunlight directly into electricity.\n- Solar thermal systems use sunlight to heat a fluid for hot water or to drive a turbine.\n- Solar output drops at night and on cloudy days, so storage or backup generation is often needed.\n\n⚠️ Common Mistake\n\nThinking that solar panels only produce heat. Photovoltaic cells produce electricity, while solar thermal systems produce heat.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-resources-1.svg",
+        "alt": "Overview of renewable and non-renewable energy resources, a thermal power station, and sustainability factors.",
+        "caption": "Photovoltaic cells turn sunlight into electricity; solar thermal systems use sunlight to heat fluids."
+      }
+    },
+    {
+      "id": "phys-energy-resources-1-n3",
+      "heading": "🔑 How Wind Energy Works",
+      "body": "🔑 How it works\n\nWind turbines convert the kinetic energy of moving air into electrical energy. Wind pushes against the blades, causing them to rotate. This spins a shaft connected to a generator, where coils of wire move inside a magnetic field to produce electricity. The amount of power generated depends on wind speed, blade size, and turbine efficiency. Wind farms can be placed onshore or offshore. Challenges include variable wind speeds, noise, visual impact, and risks to birds and bats.\n\n💡 Worked Example\n\nIn an offshore wind farm, strong coastal winds push the turbine blades around. The spinning shaft turns a generator in the nacelle, and the electricity is sent to the national grid through undersea cables.\n\n📎 Key Points to Remember\n\n- Wind turbines convert the kinetic energy of moving air into electrical energy.\n- Blades spin a shaft connected to a generator.\n- Power output depends on wind speed, blade size, and turbine efficiency.\n- Wind farms can be onshore or offshore, but variable wind, noise, visual impact, and wildlife risks must be considered.\n\n⚠️ Common Mistake\n\nAssuming wind turbines work in any weather. Very low or very high wind speeds can reduce or stop electricity generation.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-resources-1.svg",
+        "alt": "Overview of renewable and non-renewable energy resources, a thermal power station, and sustainability factors.",
+        "caption": "Wind turbines transform the kinetic energy of air into electrical energy through a generator."
+      }
+    },
+    {
+      "id": "phys-energy-resources-1-n4",
+      "heading": "📎 Hydro, Geothermal, and Biomass",
+      "body": "📌 Definition\n\nHydroelectric power uses the gravitational potential energy of water stored behind a dam. As water flows down, it turns turbines connected to generators. Pumped-storage systems can pump water back uphill when demand is low, storing energy for later. Geothermal power uses heat from underground rocks, often in volcanic regions, to produce steam that drives turbines. Biomass energy comes from burning organic material such as wood, crop waste, or biogas from rotting waste. Biomass is renewable because new plants can be grown, but burning it still releases carbon dioxide and other pollutants.\n\n💡 Worked Example\n\nAt night, when people use less electricity, a pumped-storage station uses surplus power to pump water back up behind the dam. During the next peak demand period, the stored water is released to generate electricity again.\n\n📎 Key Points to Remember\n\n- Hydroelectric power uses the gravitational potential energy of water flowing from a higher level to a lower level.\n- Pumped storage can store energy by moving water uphill for later release.\n- Geothermal power uses heat from underground rocks to produce steam for turbines.\n- Biomass comes from organic material and is renewable, but burning it still releases carbon dioxide and other pollutants.\n\n⚠️ Common Mistake\n\nThinking biomass releases no carbon dioxide. Burning biomass still releases carbon dioxide and other pollutants, even though new plants can be grown.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-resources-1.svg",
+        "alt": "Overview of renewable and non-renewable energy resources, a thermal power station, and sustainability factors.",
+        "caption": "Hydro, geothermal, and biomass each convert a different natural energy store into electricity."
+      }
+    },
+    {
+      "id": "phys-energy-resources-1-n5",
+      "heading": "🔑 How a Power Station Generates Electricity",
+      "body": "🔑 How it works\n\nMost power stations use generators to produce electricity. In a fossil-fuel or biomass power station, fuel is burned to boil water and produce high-pressure steam. The steam turns a turbine, which spins a generator. In a nuclear power station, nuclear fission releases heat instead of burning fuel. In renewable systems such as wind or hydro, the turbine is turned directly by moving air or water. In all cases, the generator works by electromagnetic induction: a coil rotates inside a magnetic field, producing an electric current. Transformers then step up the voltage for efficient transmission through the national grid.\n\n💡 Worked Example\n\nTrace the energy transfer in a coal power station: chemical energy in the coal is released as thermal energy when it burns; thermal energy boils water to make high-pressure steam; kinetic energy in the steam turns the turbine; the generator converts kinetic energy into electrical energy.\n\n📎 Key Points to Remember\n\n- Fossil-fuel and biomass stations burn fuel to produce steam that spins a turbine.\n- Nuclear stations use fission to release heat instead of burning fuel.\n- Wind and hydro turn the turbine directly with moving air or water.\n- A generator produces electricity by electromagnetic induction.\n- Transformers step up voltage for efficient transmission through the grid.\n\n⚠️ Common Mistake\n\nConfusing the turbine and the generator. The turbine is spun by steam, air, or water; the generator uses electromagnetic induction to produce electricity.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-resources-1.svg",
+        "alt": "Overview of renewable and non-renewable energy resources, a thermal power station, and sustainability factors.",
+        "caption": "Thermal power stations burn fuel to produce steam, spin a turbine, and drive a generator."
+      }
+    },
+    {
+      "id": "phys-energy-resources-1-n6",
+      "heading": "💡 Efficiency and Carbon Footprint",
+      "body": "📌 Definition\n\nEfficiency is the percentage of input energy that is converted into useful output. Efficiency = (useful energy output ÷ total energy input) × 100%. No power station is 100% efficient because some energy is always wasted, usually as thermal energy to the surroundings. A carbon footprint measures the total greenhouse gas emissions caused directly and indirectly by an activity, product, or person. Fossil-fuel power stations have large carbon footprints because burning coal, oil, or gas releases large amounts of carbon dioxide. Nuclear power has a very low carbon footprint during operation but produces radioactive waste. Most renewables have low operational carbon footprints but still create some emissions during manufacturing, transport, and installation.\n\n💡 Worked Example\n\nA power station has an input energy of 1000 MJ and a useful electrical output of 350 MJ. Using the formula, efficiency = (350 MJ ÷ 1000 MJ) × 100% = 35%. The remaining 650 MJ is wasted, mostly as thermal energy.\n\n📎 Key Points to Remember\n\n- Efficiency = (useful energy output ÷ total energy input) × 100%.\n- No power station is 100% efficient; some energy is always wasted as heat.\n- Fossil-fuel stations have large carbon footprints.\n- Nuclear power has a low carbon footprint during operation but produces radioactive waste.\n- Renewables have low operational carbon footprints but still create emissions during manufacturing, transport, and installation.\n\n⚠️ Common Mistake\n\nAssuming a power station can be 100% efficient. Energy is always wasted, usually as heat to the surroundings.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-resources-1.svg",
+        "alt": "Overview of renewable and non-renewable energy resources, a thermal power station, and sustainability factors.",
+        "caption": "Efficiency compares useful output to total input; carbon footprint measures greenhouse gas emissions over a lifecycle."
+      }
+    },
+    {
+      "id": "phys-energy-resources-1-n7",
+      "heading": "⚠️ Sustainability Debates",
+      "body": "📌 Definition\n\nChoosing an energy resource involves balancing many factors. Reliability means a resource can supply electricity when needed; fossil fuels and nuclear are reliable, while solar and wind are intermittent. Cost includes building, running, and decommissioning a power station. Environmental impact covers pollution, habitat loss, land use, and waste. Energy security means a country can produce enough of its own energy without depending heavily on imports. Public opinion also matters: some people oppose wind farms or nuclear plants near their homes. Sustainable development aims to meet present energy needs without reducing the ability of future generations to meet theirs. There is no single perfect energy source; decisions depend on local geography, technology, economics, and values.\n\n💡 Worked Example\n\nA country with a windy coastline might build offshore wind farms to reduce imported fuel. Because wind is intermittent, it may also keep gas power stations as backup to maintain electricity supply on calm days.\n\n📎 Key Points to Remember\n\n- Reliability: fossil fuels and nuclear can supply power continuously; solar and wind are intermittent.\n- Cost includes construction, operation, and decommissioning.\n- Environmental impact includes pollution, habitat loss, land use, and waste.\n- Energy security means a country can meet its own energy needs without heavy reliance on imports.\n- Public opinion can influence where power stations are built.\n- Sustainable development meets current needs without limiting the ability of future generations to meet theirs.\n- No single energy source is perfect; choices depend on geography, technology, economics, and values.\n\n⚠️ Common Mistake\n\nClaiming one energy source is best everywhere. The best choice depends on local conditions such as geography, climate, cost, and public values.",
+      "illustration": {
+        "src": "/images/physics/phys-energy-resources-1.svg",
+        "alt": "Overview of renewable and non-renewable energy resources, a thermal power station, and sustainability factors.",
+        "caption": "Sustainability debates balance reliability, cost, environmental impact, and energy security."
+      }
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-energy-resources-1-f1",
+      "term": "Renewable energy resource",
+      "definition": "An energy resource that is naturally replenished on a human timescale and will not run out.",
+      "example": "Solar, wind, hydroelectric, geothermal, biomass, and tidal power are all renewable."
+    },
+    {
+      "id": "phys-energy-resources-1-f2",
+      "term": "Non-renewable energy resource",
+      "definition": "An energy resource that is finite and cannot be replaced once it has been used.",
+      "example": "Coal, oil, natural gas, and uranium for nuclear fission are non-renewable."
+    },
+    {
+      "id": "phys-energy-resources-1-f3",
+      "term": "Photovoltaic cell",
+      "definition": "A device that converts sunlight directly into electricity using semiconductor materials.",
+      "example": "Solar panels on a rooftop contain many photovoltaic cells wired together."
+    },
+    {
+      "id": "phys-energy-resources-1-f4",
+      "term": "Turbine",
+      "definition": "A machine with blades that spins when pushed by steam, water, or air, often connected to a generator.",
+      "example": "In a hydroelectric dam, flowing water turns turbines to generate electricity."
+    },
+    {
+      "id": "phys-energy-resources-1-f5",
+      "term": "Generator",
+      "definition": "A device that produces electricity when a coil rotates inside a magnetic field, by electromagnetic induction.",
+      "example": "A wind turbine spins a shaft connected to a generator in its nacelle."
+    },
+    {
+      "id": "phys-energy-resources-1-f6",
+      "term": "Efficiency",
+      "definition": "The percentage of input energy that is converted into useful output energy.",
+      "example": "If a power station uses 1000 MJ and outputs 400 MJ as electricity, its efficiency is 40%."
+    },
+    {
+      "id": "phys-energy-resources-1-f7",
+      "term": "Carbon footprint",
+      "definition": "The total amount of greenhouse gases, mainly carbon dioxide, released by an activity, product, or person.",
+      "example": "Burning coal in a power station gives it a much larger carbon footprint than a wind farm."
+    },
+    {
+      "id": "phys-energy-resources-1-f8",
+      "term": "Hydroelectric power",
+      "definition": "Electricity generated from the gravitational potential energy of water flowing from a higher level to a lower level.",
+      "example": "Water stored behind a dam flows through turbines to generate electricity."
+    },
+    {
+      "id": "phys-energy-resources-1-f9",
+      "term": "Geothermal energy",
+      "definition": "Energy obtained from heat stored beneath the Earth's surface, often used to produce steam for turbines.",
+      "example": "Iceland uses geothermal energy to heat homes and generate electricity."
+    },
+    {
+      "id": "phys-energy-resources-1-f10",
+      "term": "Biomass",
+      "definition": "Organic material, such as wood, crop waste, or animal manure, burned or processed to release energy.",
+      "example": "Biogas produced by rotting food waste can be burned to generate heat."
+    },
+    {
+      "id": "phys-energy-resources-1-f11",
+      "term": "Intermittent energy source",
+      "definition": "An energy source that does not supply electricity continuously because it depends on variable natural conditions.",
+      "example": "Solar panels produce little electricity at night; wind turbines stop when the air is calm."
+    },
+    {
+      "id": "phys-energy-resources-1-f12",
+      "term": "Energy security",
+      "definition": "A country's ability to access reliable and affordable energy supplies without depending too heavily on imports.",
+      "example": "Using domestic wind and solar can improve a country's energy security."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-energy-resources-1-q1",
+      "stem": "Which of the following is a renewable energy resource?",
+      "choices": [
+        "Coal",
+        "Natural gas",
+        "Wind",
+        "Uranium"
+      ],
+      "correctIndex": 2,
+      "explanation": "Wind is renewable because moving air is naturally replenished. Coal, natural gas, and uranium are finite resources."
+    },
+    {
+      "id": "phys-energy-resources-1-q2",
+      "stem": "What is the main greenhouse gas released when fossil fuels are burned?",
+      "choices": [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Argon"
+      ],
+      "correctIndex": 1,
+      "explanation": "Burning fossil fuels releases carbon dioxide, the main greenhouse gas contributing to global warming."
+    },
+    {
+      "id": "phys-energy-resources-1-q3",
+      "stem": "In a photovoltaic cell, what is converted directly into electricity?",
+      "choices": [
+        "Heat",
+        "Sunlight",
+        "Wind",
+        "Steam"
+      ],
+      "correctIndex": 1,
+      "explanation": "Photovoltaic cells convert sunlight directly into electricity through the photovoltaic effect."
+    },
+    {
+      "id": "phys-energy-resources-1-q4",
+      "stem": "What turns the turbine in a hydroelectric power station?",
+      "choices": [
+        "Steam",
+        "Moving water",
+        "Wind",
+        "Hot air"
+      ],
+      "correctIndex": 1,
+      "explanation": "In hydroelectric power, flowing or falling water turns turbines connected to generators."
+    },
+    {
+      "id": "phys-energy-resources-1-q5",
+      "stem": "Which energy resource relies on heat from beneath the Earth's surface?",
+      "choices": [
+        "Tidal",
+        "Solar",
+        "Geothermal",
+        "Biomass"
+      ],
+      "correctIndex": 2,
+      "explanation": "Geothermal power uses heat from underground rocks to produce steam or hot water for electricity generation."
+    },
+    {
+      "id": "phys-energy-resources-1-q6",
+      "stem": "A power station has an input energy of 1000 MJ and a useful electrical output of 350 MJ. What is its efficiency?",
+      "choices": [
+        "35%",
+        "65%",
+        "29%",
+        "50%"
+      ],
+      "correctIndex": 0,
+      "explanation": "Efficiency = (350 ÷ 1000) × 100 = 35%. The remaining energy is wasted, mostly as heat."
+    },
+    {
+      "id": "phys-energy-resources-1-q7",
+      "stem": "Which statement best describes biomass as an energy source?",
+      "choices": [
+        "It releases no carbon dioxide at all",
+        "It is renewable because new plants or waste can be replaced, but burning still releases carbon dioxide",
+        "It is a fossil fuel formed underground",
+        "It only works in coastal areas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Biomass is renewable, but burning it still releases carbon dioxide and other pollutants into the atmosphere."
+    },
+    {
+      "id": "phys-energy-resources-1-q8",
+      "stem": "Why is nuclear power sometimes described as low-carbon?",
+      "choices": [
+        "It releases large amounts of carbon dioxide",
+        "It produces electricity without burning fossil fuels, so operational carbon emissions are very low",
+        "It uses renewable uranium fuel",
+        "It does not produce any waste"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nuclear fission does not burn fossil fuels, so operational carbon dioxide emissions are very low."
+    },
+    {
+      "id": "phys-energy-resources-1-q9",
+      "stem": "What does the term 'intermittent' mean for solar and wind power?",
+      "choices": [
+        "They are very expensive to build",
+        "They do not produce electricity all the time because they depend on weather and time of day",
+        "They produce radioactive waste",
+        "They require fossil fuels to start"
+      ],
+      "correctIndex": 1,
+      "explanation": "Solar and wind are intermittent because they depend on sunlight and wind, which vary throughout the day and year."
+    },
+    {
+      "id": "phys-energy-resources-1-q10",
+      "stem": "What is a major advantage of renewable energy resources over fossil fuels?",
+      "choices": [
+        "They are always cheaper to build",
+        "They do not produce greenhouse gases during operation and will not run out",
+        "They work equally well everywhere on Earth",
+        "They require no land or materials"
+      ],
+      "correctIndex": 1,
+      "explanation": "Renewables produce little or no greenhouse gas during operation and are naturally replenished."
+    },
+    {
+      "id": "phys-energy-resources-1-q11",
+      "stem": "In most power stations, what is the final step that produces electricity?",
+      "choices": [
+        "Burning fuel",
+        "Turning a turbine",
+        "A generator coil rotating inside a magnetic field",
+        "Boiling water"
+      ],
+      "correctIndex": 2,
+      "explanation": "The generator converts kinetic energy into electrical energy through electromagnetic induction."
+    },
+    {
+      "id": "phys-energy-resources-1-q12",
+      "stem": "Which of these is a social or environmental concern about wind farms?",
+      "choices": [
+        "They release large amounts of carbon dioxide",
+        "They can have visual and noise impacts and may affect birds and bats",
+        "They use uranium fuel",
+        "They produce acid rain"
+      ],
+      "correctIndex": 1,
+      "explanation": "Wind farms have low carbon emissions but can create visual and noise concerns and may affect flying wildlife."
+    },
+    {
+      "id": "phys-energy-resources-1-q13",
+      "stem": "What is meant by a country's energy security?",
+      "choices": [
+        "The total amount of electricity used each year",
+        "The ability to access reliable and affordable energy without depending too heavily on imports",
+        "The efficiency of all power stations in the country",
+        "The amount of renewable energy a country produces"
+      ],
+      "correctIndex": 1,
+      "explanation": "Energy security means having reliable, affordable energy supplies and reducing dependence on foreign fuel imports."
+    },
+    {
+      "id": "phys-energy-resources-1-q14",
+      "stem": "Which energy resource is most likely to be described as reliable and able to provide continuous baseload power?",
+      "choices": [
+        "Solar panels",
+        "Wind turbines",
+        "Coal or nuclear power stations",
+        "Tidal barrages"
+      ],
+      "correctIndex": 2,
+      "explanation": "Coal and nuclear power stations can run continuously, making them suitable for baseload electricity demand."
+    },
+    {
+      "id": "phys-energy-resources-1-q15",
+      "stem": "Which phrase best describes the goal of sustainable energy use?",
+      "choices": [
+        "Using only fossil fuels because they are cheap",
+        "Meeting current energy needs without limiting the ability of future generations to meet theirs",
+        "Building the largest possible power stations",
+        "Stopping all energy use completely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sustainability means balancing today's energy needs with protecting resources and the environment for the future."
+    }
+  ]
+}

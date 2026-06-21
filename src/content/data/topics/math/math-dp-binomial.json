@@ -126,7 +126,7 @@
         "70"
       ],
       "correctIndex": 1,
-      "explanation": "$\\frac{7!}{3!4!} = 35$."
+      "explanation": "The binomial coefficient $\\binom{7}{3}$ counts how many ways you can choose 3 items from 7 without caring about order. The formula is $\\frac{7!}{3!4!}=\\frac{7\\times6\\times5}{3\\times2\\times1}=35$. For example, if you need to pick 3 students from a group of 7 for a committee, there are 35 different possible groups."
     },
     {
       "id": "math-dp-binomial-bin-q2",

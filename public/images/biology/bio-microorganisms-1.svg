@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" role="img" aria-labelledby="title desc">
+  <title id="title">Microorganisms and Their Roles</title>
+  <desc id="desc">Diagram showing the four main types of microorganisms — bacteria, viruses, fungi, and protozoa — with examples of their useful and harmful roles.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel-title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #374151; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .arrow { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="860" height="520" fill="#f9fafb" rx="12"/>
+  <text x="430" y="34" text-anchor="middle" class="title">Microorganisms and Their Roles</text>
+
+  <!-- Bacteria panel -->
+  <g id="bacteria">
+    <rect x="30" y="55" width="190" height="200" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+    <text x="125" y="82" text-anchor="middle" class="panel-title">Bacteria</text>
+    <ellipse cx="125" cy="125" rx="42" ry="18" fill="#86efac" stroke="#16a34a" stroke-width="2"/>
+    <path d="M95,125 Q80,115 65,125" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+    <path d="M95,132 Q80,140 65,132" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="140" cy="120" r="4" fill="#15803d" opacity="0.6"/>
+    <text x="125" y="165" text-anchor="middle" class="label">Useful:</text>
+    <text x="125" y="180" text-anchor="middle" class="sublabel">yoghurt, nitrogen fixation</text>
+    <text x="125" y="200" text-anchor="middle" class="label">Harmful:</text>
+    <text x="125" y="215" text-anchor="middle" class="sublabel">TB, cholera, food poisoning</text>
+  </g>
+
+  <!-- Virus panel -->
+  <g id="virus">
+    <rect x="235" y="55" width="190" height="200" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+    <text x="330" y="82" text-anchor="middle" class="panel-title">Viruses</text>
+    <circle cx="330" cy="125" r="28" fill="#fca5a5" stroke="#dc2626" stroke-width="2"/>
+    <line x1="330" y1="85" x2="330" y2="75" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+    <line x1="330" y1="165" x2="330" y2="175" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+    <line x1="290" y1="125" x2="280" y2="125" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+    <line x1="370" y1="125" x2="380" y2="125" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+    <line x1="302" y1="97" x2="295" y2="90" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+    <line x1="358" y1="97" x2="365" y2="90" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+    <line x1="302" y1="153" x2="295" y2="160" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+    <line x1="358" y1="153" x2="365" y2="160" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+    <text x="330" y="165" text-anchor="middle" class="label">Useful:</text>
+    <text x="330" y="180" text-anchor="middle" class="sublabel">some vaccines, research</text>
+    <text x="330" y="200" text-anchor="middle" class="label">Harmful:</text>
+    <text x="330" y="215" text-anchor="middle" class="sublabel">flu, common cold, COVID-19</text>
+  </g>
+
+  <!-- Fungi panel -->
+  <g id="fungi">
+    <rect x="440" y="55" width="190" height="200" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+    <text x="535" y="82" text-anchor="middle" class="panel-title">Fungi</text>
+    <circle cx="515" cy="120" r="18" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+    <circle cx="555" cy="120" r="18" fill="#fde047" stroke="#d97706" stroke-width="2"/>
+    <path d="M515,138 Q515,160 503,170" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+    <path d="M535,138 Q535,155 545,167" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+    <path d="M555,138 Q555,160 567,170" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+    <text x="535" y="165" text-anchor="middle" class="label">Useful:</text>
+    <text x="535" y="180" text-anchor="middle" class="sublabel">bread, penicillin, decomposers</text>
+    <text x="535" y="200" text-anchor="middle" class="label">Harmful:</text>
+    <text x="535" y="215" text-anchor="middle" class="sublabel">athlete's foot, food mould</text>
+  </g>
+
+  <!-- Protozoa panel -->
+  <g id="protozoa">
+    <rect x="645" y="55" width="190" height="200" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
+    <text x="740" y="82" text-anchor="middle" class="panel-title">Protozoa</text>
+    <path d="M710,125 Q720,105 740,115 Q760,105 770,125 Q780,145 760,150 Q740,160 720,145 Q700,145 710,125 Z" fill="#c4b5fd" stroke="#7c3aed" stroke-width="2"/>
+    <circle cx="745" cy="130" r="8" fill="#a78bfa" stroke="#7c3aed" stroke-width="1.5"/>
+    <path d="M710,140 Q700,155 690,150" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+    <text x="740" y="165" text-anchor="middle" class="label">Useful:</text>
+    <text x="740" y="180" text-anchor="middle" class="sublabel">nutrient cycling in soils</text>
+    <text x="740" y="200" text-anchor="middle" class="label">Harmful:</text>
+    <text x="740" y="215" text-anchor="middle" class="sublabel">malaria, amoebic dysentery</text>
+  </g>
+
+  <!-- Biotechnology examples -->
+  <text x="430" y="285" text-anchor="middle" class="panel-title">Biotechnology Examples</text>
+
+  <!-- Yoghurt -->
+  <g id="yoghurt">
+    <rect x="30" y="305" width="190" height="90" fill="#fff7ed" stroke="#fdba74" stroke-width="2" rx="8"/>
+    <ellipse cx="90" cy="335" rx="22" ry="12" fill="#ffffff" stroke="#d97706" stroke-width="2"/>
+    <text x="90" y="340" text-anchor="middle" class="label">🥣</text>
+    <text x="145" y="330" text-anchor="middle" class="label">Yoghurt</text>
+    <text x="145" y="348" text-anchor="middle" class="sublabel">Lactobacillus turns</text>
+    <text x="145" y="362" text-anchor="middle" class="sublabel">lactose → lactic acid</text>
+  </g>
+
+  <!-- Bread -->
+  <g id="bread">
+    <rect x="235" y="305" width="190" height="90" fill="#fffbeb" stroke="#fcd34d" stroke-width="2" rx="8"/>
+    <ellipse cx="295" cy="335" rx="26" ry="15" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+    <circle cx="285" cy="332" r="4" fill="#92400e" opacity="0.4"/>
+    <circle cx="305" cy="338" r="5" fill="#92400e" opacity="0.4"/>
+    <text x="355" y="330" text-anchor="middle" class="label">Bread</text>
+    <text x="355" y="348" text-anchor="middle" class="sublabel">Yeast releases</text>
+    <text x="355" y="362" text-anchor="middle" class="sublabel">CO₂ to raise dough</text>
+  </g>
+
+  <!-- Biogas -->
+  <g id="biogas">
+    <rect x="440" y="305" width="190" height="90" fill="#f0fdf4" stroke="#86efac" stroke-width="2" rx="8"/>
+    <path d="M485,370 L485,330 L585,330 L585,370 C585,385 485,385 485,370" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+    <ellipse cx="535" cy="330" rx="50" ry="12" fill="#86efac" stroke="#22c55e" stroke-width="2"/>
+    <text x="535" y="355" text-anchor="middle" class="label">Biogas</text>
+    <text x="535" y="373" text-anchor="middle" class="sublabel">Anaerobic microbes</text>
+  </g>
+
+  <!-- Bioremediation -->
+  <g id="bioremediation">
+    <rect x="645" y="305" width="190" height="90" fill="#eff6ff" stroke="#93c5fd" stroke-width="2" rx="8"/>
+    <path d="M690,365 C690,345 705,335 720,345 C735,335 750,345 750,365 C750,375 740,380 720,380 C700,380 690,375 690,365 Z" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="740" y="345" text-anchor="middle" class="label">Bioremediation</text>
+    <text x="740" y="360" text-anchor="middle" class="sublabel">Microbes break</text>
+    <text x="740" y="375" text-anchor="middle" class="sublabel">down pollutants</text>
+  </g>
+
+  <!-- Key reminder -->
+  <rect x="30" y="415" width="800" height="80" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="8"/>
+  <text x="430" y="440" text-anchor="middle" class="label">Key idea: Whether a microbe is useful or harmful depends on the species and situation.</text>
+  <text x="430" y="460" text-anchor="middle" class="sublabel">• Aseptic technique prevents contamination when culturing microbes in the lab.</text>
+  <text x="430" y="478" text-anchor="middle" class="sublabel">• Pathogens cause disease; good hygiene, vaccination, and vector control reduce their spread.</text>
+</svg>

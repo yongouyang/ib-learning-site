@@ -5,6 +5,7 @@ const SAMPLES: Array<{ subjectId: string; topicId: string; title: string }> = [
   { subjectId: 'math', topicId: 'math-dp-sequences', title: 'Sequences & Series' },
   { subjectId: 'math', topicId: 'math-yr8-probability-trees', title: 'Probability & Tree Diagrams' },
   { subjectId: 'math', topicId: 'math-yr8-straight-line-graphs', title: 'Straight-Line Graphs' },
+  { subjectId: 'biology', topicId: 'bio-microorganisms-1', title: 'Microorganisms & Biotechnology' },
   { subjectId: 'biology', topicId: 'bio-cell-1', title: 'Cell Structure & Microscopy' },
   { subjectId: 'chemistry', topicId: 'chem-atomic-1', title: 'Atomic Structure' },
   { subjectId: 'physics', topicId: 'phys-forces-1', title: 'Forces & Motion' },
