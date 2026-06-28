@@ -67,7 +67,7 @@ async function completeTopicJourney(page: Page, subjectId: string, topicId: stri
     const nextButton = page.getByRole('button', { name: /Next Question|See Results/ });
     await expect(nextButton).toBeVisible();
     // Use JS click on small viewports where the fixed bottom nav can cover the button.
-    await nextButton.evaluate((el) => el.click());
+    await nextButton.evaluate((el) => (el as HTMLElement).click());
 
     const completeHeading = page.getByRole('heading', { name: 'Quiz Complete!' });
     if (await completeHeading.isVisible().catch(() => false)) break;

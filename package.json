@@ -14,7 +14,8 @@
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:illustrations": "tsx scripts/validate-illustrations.ts",
     "validate:illustration-layout": "node scripts/diagnose-illustrations.mjs",
-    "audit:content": "tsx scripts/audit-content.ts"
+    "audit:content": "tsx scripts/audit-content.ts",
+    "generate:registry": "tsx scripts/generate-registry.ts"
   },
   "dependencies": {
     "framer-motion": "^12.40.0",

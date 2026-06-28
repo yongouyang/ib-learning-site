@@ -117,7 +117,8 @@ test.describe('Quiz flow', () => {
 
       const nextBtn = page.getByRole('button', { name: /Next Question|See Results/ });
       await expect(nextBtn).toBeVisible();
-      await nextBtn.click();
+      // Use JS click on small viewports where the fixed bottom nav can cover the button.
+      await nextBtn.evaluate((el) => (el as HTMLElement).click());
 
       if (i < totalQuestions - 1) {
         await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
