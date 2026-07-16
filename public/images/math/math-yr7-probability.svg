@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="title desc">
+  <title id="title">Probability scale, calculating probability, and sample spaces</title>
+  <desc id="desc">A probability scale from 0 (impossible) to 1 (certain) with labelled benchmarks; a spinner and dice example showing how to calculate probability as favourable over total outcomes; and a sample space diagram for rolling two dice.</desc>
+
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+    .scale-red { fill: #dc2626; }
+    .scale-amber { fill: #d97706; }
+    .scale-green { fill: #16a34a; }
+    .scale-blue { fill: #2563eb; }
+    .tick { stroke: #374151; stroke-width: 2; }
+    .grid-cell { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1; }
+    .grid-hl { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
+  </style>
+
+  <rect width="900" height="460" fill="#f8fafc" rx="12"/>
+
+  <!-- SECTION 1: Probability Scale -->
+  <text x="30" y="35" class="heading">The probability scale</text>
+
+  <g transform="translate(30, 55)">
+    <!-- Scale bar -->
+    <rect x="0" y="10" width="440" height="30" rx="15" fill="#e2e8f0"/>
+
+    <!-- Gradient sections -->
+    <rect x="0" y="10" width="80" height="30" rx="15" fill="#dc2626" fill-opacity="0.8" clip-path="url(#left-half)"/>
+    <rect x="70" y="10" width="100" height="30" fill="#d97706" fill-opacity="0.7"/>
+    <rect x="160" y="10" width="120" height="30" fill="#eab308" fill-opacity="0.6"/>
+    <rect x="270" y="10" width="120" height="30" fill="#16a34a" fill-opacity="0.7"/>
+    <rect x="380" y="10" width="60" height="30" rx="15" fill="#2563eb" fill-opacity="0.8"/>
+
+    <rect x="0" y="10" width="440" height="30" rx="15" fill="none" stroke="#374151" stroke-width="2"/>
+
+    <!-- Tick at 0 -->
+    <line x1="0" y1="6" x2="0" y2="44" class="tick"/>
+    <text x="0" y="60" class="math scale-red" text-anchor="middle">0</text>
+    <text x="0" y="76" class="label" text-anchor="middle">Impossible</text>
+
+    <!-- Tick at 0.25 -->
+    <line x1="110" y1="6" x2="110" y2="44" class="tick"/>
+    <text x="110" y="60" class="math scale-amber" text-anchor="middle">0.25</text>
+    <text x="110" y="76" class="label" text-anchor="middle">Unlikely</text>
+
+    <!-- Tick at 0.5 -->
+    <line x1="220" y1="6" x2="220" y2="44" class="tick"/>
+    <text x="220" y="60" class="math" fill="#b45309" text-anchor="middle">0.5</text>
+    <text x="220" y="76" class="label" text-anchor="middle">Even chance</text>
+
+    <!-- Tick at 0.75 -->
+    <line x1="330" y1="6" x2="330" y2="44" class="tick"/>
+    <text x="330" y="60" class="math scale-green" text-anchor="middle">0.75</text>
+    <text x="330" y="76" class="label" text-anchor="middle">Likely</text>
+
+    <!-- Tick at 1 -->
+    <line x1="440" y1="6" x2="440" y2="44" class="tick"/>
+    <text x="440" y="60" class="math scale-blue" text-anchor="middle">1</text>
+    <text x="440" y="76" class="label" text-anchor="middle">Certain</text>
+
+    <!-- Example markers -->
+    <polygon points="30,47 36,41 42,47" fill="#dc2626"/>
+    <text x="36" y="96" class="label" fill="#dc2626" text-anchor="middle">Winning the lottery</text>
+
+    <polygon points="330,47 336,41 342,47" fill="#16a34a"/>
+    <text x="336" y="96" class="label" fill="#16a34a" text-anchor="middle">Rolling &gt;1 on a dice</text>
+  </g>
+
+  <!-- SECTION 2: Calculating probability -->
+  <text x="30" y="155" class="heading">Calculating probability</text>
+
+  <g transform="translate(30, 175)">
+    <rect x="0" y="0" width="380" height="100" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="190" y="22" class="subhead" text-anchor="middle">Formula</text>
+    <text x="190" y="55" class="math" text-anchor="middle" fill="#2563eb" font-size="20">P(event) = favourable / total</text>
+    <text x="190" y="82" class="label" text-anchor="middle">Number of ways event can happen ÷ total possible outcomes</text>
+  </g>
+
+  <!-- Spinner example -->
+  <g transform="translate(440, 170)">
+    <text x="0" y="10" class="subhead">Spinner: P(red)?</text>
+    <!-- Spinner circle -->
+    <g transform="translate(60, 45)">
+      <circle cx="0" cy="0" r="45" stroke="#1f2937" stroke-width="2" fill="#f8fafc"/>
+      <path d="M0,0 L0,-45 A45,45 0 0,1 39,-22 Z" fill="#dc2626" fill-opacity="0.6"/>
+      <path d="M0,0 L39,-22 A45,45 0 0,1 -39,-22 Z" fill="#2563eb" fill-opacity="0.6"/>
+      <path d="M0,0 L-39,-22 A45,45 0 0,1 0,45 Z" fill="#16a34a" fill-opacity="0.6"/>
+      <path d="M0,0 L0,45 A45,45 0 0,1 0,-45 Z" fill="#d97706" fill-opacity="0.6"/>
+      <circle cx="0" cy="0" r="4" fill="#1f2937"/>
+
+      <text x="20" y="-17" class="label" fill="#fff" text-anchor="middle" font-size="11">Red</text>
+      <text x="-20" y="-8" class="label" fill="#fff" text-anchor="middle" font-size="11">Blue</text>
+      <text x="-13" y="22" class="label" fill="#fff" text-anchor="middle" font-size="11">Green</text>
+      <text x="10" y="20" class="label" fill="#fff" text-anchor="middle" font-size="11">Yellow</text>
+    </g>
+    <text x="0" y="120" class="math" fill="#dc2626">P(red) = 1/4 = 0.25</text>
+  </g>
+
+  <!-- Dice and fraction equivalence -->
+  <g transform="translate(680, 170)">
+    <rect x="0" y="0" width="190" height="115" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="95" y="22" class="subhead" text-anchor="middle">Dice: P(even)?</text>
+    <text x="15" y="48" class="label">Even: 2, 4, 6 → 3 ways</text>
+    <text x="15" y="68" class="label">Total outcomes: 6</text>
+    <text x="95" y="95" class="math" fill="#2563eb" text-anchor="middle">P(even) = 3/6 = 1/2 = 0.5 = 50%</text>
+  </g>
+
+  <!-- SECTION 3: Sample space -->
+  <text x="30" y="320" class="heading">Sample space — rolling two dice</text>
+
+  <g transform="translate(30, 340)">
+    <!-- Grid header -->
+    <rect x="30" y="0" width="40" height="40" class="grid-cell"/>
+    <text x="50" y="26" class="math" text-anchor="middle">+</text>
+    
+    <!-- Column headers -->
+    <rect x="70" y="0" width="35" height="30" class="grid-cell"/>
+    <text x="87" y="20" class="math" text-anchor="middle" font-size="12">1</text>
+    <rect x="105" y="0" width="35" height="30" class="grid-cell"/>
+    <text x="122" y="20" class="math" text-anchor="middle" font-size="12">2</text>
+    <rect x="140" y="0" width="35" height="30" class="grid-cell"/>
+    <text x="157" y="20" class="math" text-anchor="middle" font-size="12">3</text>
+    <rect x="175" y="0" width="35" height="30" class="grid-cell"/>
+    <text x="192" y="20" class="math" text-anchor="middle" font-size="12">4</text>
+    <rect x="210" y="0" width="35" height="30" class="grid-cell"/>
+    <text x="227" y="20" class="math" text-anchor="middle" font-size="12">5</text>
+    <rect x="245" y="0" width="35" height="30" class="grid-cell"/>
+    <text x="262" y="20" class="math" text-anchor="middle" font-size="12">6</text>
+
+    <!-- Row 1 -->
+    <rect x="30" y="30" width="40" height="30" class="grid-cell"/>
+    <text x="50" y="50" class="math" text-anchor="middle" font-size="12">1</text>
+    <rect x="70" y="30" width="35" height="30" class="grid-cell"/><text x="87" y="50" class="label" text-anchor="middle" font-size="11">2</text>
+    <rect x="105" y="30" width="35" height="30" class="grid-cell"/><text x="122" y="50" class="label" text-anchor="middle" font-size="11">3</text>
+    <rect x="140" y="30" width="35" height="30" class="grid-cell"/><text x="157" y="50" class="label" text-anchor="middle" font-size="11">4</text>
+    <rect x="175" y="30" width="35" height="30" class="grid-cell"/><text x="192" y="50" class="label" text-anchor="middle" font-size="11">5</text>
+    <rect x="210" y="30" width="35" height="30" class="grid-cell"/><text x="227" y="50" class="label" text-anchor="middle" font-size="11">6</text>
+    <rect x="245" y="30" width="35" height="30" class="grid-cell"/><text x="262" y="50" class="label" text-anchor="middle" font-size="11">7</text>
+
+    <!-- Row 2 -->
+    <rect x="30" y="60" width="40" height="30" class="grid-cell"/><text x="50" y="80" class="math" text-anchor="middle" font-size="12">2</text>
+    <rect x="70" y="60" width="35" height="30" class="grid-cell"/><text x="87" y="80" class="label" text-anchor="middle" font-size="11">3</text>
+    <rect x="105" y="60" width="35" height="30" class="grid-cell"/><text x="122" y="80" class="label" text-anchor="middle" font-size="11">4</text>
+    <rect x="140" y="60" width="35" height="30" class="grid-grid-hl"/><text x="157" y="80" class="math" text-anchor="middle" font-size="11" fill="#2563eb">5</text>
+    <rect x="175" y="60" width="35" height="30" class="grid-cell"/><text x="192" y="80" class="label" text-anchor="middle" font-size="11">6</text>
+    <rect x="210" y="60" width="35" height="30" class="grid-cell"/><text x="227" y="80" class="label" text-anchor="middle" font-size="11">7</text>
+    <rect x="245" y="60" width="35" height="30" class="grid-cell"/><text x="262" y="80" class="label" text-anchor="middle" font-size="11">8</text>
+
+    <!-- Row 3 -->
+    <rect x="30" y="90" width="40" height="30" class="grid-cell"/><text x="50" y="110" class="math" text-anchor="middle" font-size="12">3</text>
+    <rect x="70" y="90" width="35" height="30" class="grid-cell"/><text x="87" y="110" class="label" text-anchor="middle" font-size="11">4</text>
+    <rect x="105" y="90" width="35" height="30" class="grid-grid-hl"/><text x="122" y="110" class="math" text-anchor="middle" font-size="11" fill="#2563eb">5</text>
+    <rect x="140" y="90" width="35" height="30" class="grid-cell"/><text x="157" y="110" class="label" text-anchor="middle" font-size="11">6</text>
+    <rect x="175" y="90" width="35" height="30" class="grid-grid-hl"/><text x="192" y="110" class="math" text-anchor="middle" font-size="11" fill="#2563eb">7</text>
+    <rect x="210" y="90" width="35" height="30" class="grid-cell"/><text x="227" y="110" class="label" text-anchor="middle" font-size="11">8</text>
+    <rect x="245" y="90" width="35" height="30" class="grid-cell"/><text x="262" y="110" class="label" text-anchor="middle" font-size="11">9</text>
+
+    <!-- Row 4 -->
+    <rect x="30" y="120" width="40" height="30" class="grid-cell"/><text x="50" y="140" class="math" text-anchor="middle" font-size="12">4</text>
+    <rect x="70" y="120" width="35" height="30" class="grid-cell"/><text x="87" y="140" class="label" text-anchor="middle" font-size="11">5</text>
+    <rect x="105" y="120" width="35" height="30" class="grid-grid-hl"/><text x="122" y="140" class="math" text-anchor="middle" font-size="11" fill="#2563eb">6</text>
+    <rect x="140" y="120" width="35" height="30" class="grid-grid-hl"/><text x="157" y="140" class="math" text-anchor="middle" font-size="11" fill="#2563eb">7</text>
+    <rect x="175" y="120" width="35" height="30" class="grid-cell"/><text x="192" y="140" class="label" text-anchor="middle" font-size="11">8</text>
+    <rect x="210" y="120" width="35" height="30" class="grid-cell"/><text x="227" y="140" class="label" text-anchor="middle" font-size="11">9</text>
+    <rect x="245" y="120" width="35" height="30" class="grid-cell"/><text x="262" y="140" class="label" text-anchor="middle" font-size="11">10</text>
+
+    <!-- Row 5 -->
+    <rect x="30" y="150" width="40" height="30" class="grid-cell"/><text x="50" y="170" class="math" text-anchor="middle" font-size="12">5</text>
+    <rect x="70" y="150" width="35" height="30" class="grid-cell"/><text x="87" y="170" class="label" text-anchor="middle" font-size="11">6</text>
+    <rect x="105" y="150" width="35" height="30" class="grid-grid-hl"/><text x="122" y="170" class="math" text-anchor="middle" font-size="11" fill="#2563eb">7</text>
+    <rect x="140" y="150" width="35" height="30" class="grid-cell"/><text x="157" y="170" class="label" text-anchor="middle" font-size="11">8</text>
+    <rect x="175" y="150" width="35" height="30" class="grid-cell"/><text x="192" y="170" class="label" text-anchor="middle" font-size="11">9</text>
+    <rect x="210" y="150" width="35" height="30" class="grid-cell"/><text x="227" y="170" class="label" text-anchor="middle" font-size="11">10</text>
+    <rect x="245" y="150" width="35" height="30" class="grid-cell"/><text x="262" y="170" class="label" text-anchor="middle" font-size="11">11</text>
+
+    <!-- Row 6 -->
+    <rect x="30" y="180" width="40" height="30" class="grid-cell"/><text x="50" y="200" class="math" text-anchor="middle" font-size="12">6</text>
+    <rect x="70" y="180" width="35" height="30" class="grid-grid-hl"/><text x="87" y="200" class="math" text-anchor="middle" font-size="11" fill="#2563eb">7</text>
+    <rect x="105" y="180" width="35" height="30" class="grid-cell"/><text x="122" y="200" class="label" text-anchor="middle" font-size="11">8</text>
+    <rect x="140" y="180" width="35" height="30" class="grid-cell"/><text x="157" y="200" class="label" text-anchor="middle" font-size="11">9</text>
+    <rect x="175" y="180" width="35" height="30" class="grid-cell"/><text x="192" y="200" class="label" text-anchor="middle" font-size="11">10</text>
+    <rect x="210" y="180" width="35" height="30" class="grid-cell"/><text x="227" y="200" class="label" text-anchor="middle" font-size="11">11</text>
+    <rect x="245" y="180" width="35" height="30" class="grid-cell"/><text x="262" y="200" class="label" text-anchor="middle" font-size="11">12</text>
+
+    <!-- Sum key -->
+    <text x="50" y="230" class="label" text-anchor="middle">Dice 1</text>
+    <text x="170" y="-6" class="label" text-anchor="middle">Dice 2 →</text>
+
+    <g transform="translate(320, 50)">
+      <rect x="0" y="0" width="160" height="100" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+      <text x="80" y="20" class="subhead" text-anchor="middle">P(sum of 7)?</text>
+      <text x="15" y="44" class="label">Favourable: 6 ways (highlighted)</text>
+      <text x="15" y="64" class="label">Total outcomes: 36</text>
+      <text x="80" y="88" class="math" fill="#2563eb" text-anchor="middle">P(sum=7) = 6/36 = 1/6</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" role="img" aria-labelledby="title desc">
+  <title id="title">Number line showing negative and positive numbers</title>
+  <desc id="desc">A horizontal number line from -10 to 10 with labelled tick marks; real-world examples of negative numbers including temperature, sea level, and debt; and visual demonstrations of adding and subtracting negative numbers using arrows.</desc>
+
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+    .num-neg { fill: #dc2626; font-weight: 600; }
+    .num-pos { fill: #2563eb; font-weight: 600; }
+    .num-zero { fill: #16a34a; font-weight: 600; }
+    .tick { stroke: #6b7280; stroke-width: 1; }
+    .tick-num { font-size: 12px; fill: #374151; font-weight: 500; }
+    .arr { fill: none; stroke-width: 2; }
+    .arr-add { stroke: #16a34a; }
+    .arr-sub { stroke: #dc2626; }
+    .arr-neg { stroke: #d97706; }
+    .arrowhead { fill: #6b7280; }
+  </style>
+
+  <rect width="900" height="450" fill="#f8fafc" rx="12"/>
+
+  <!-- SECTION 1: Number line -->
+  <text x="30" y="35" class="heading">The number line</text>
+
+  <g transform="translate(60, 65)">
+    <!-- Main line -->
+    <line x1="-30" y1="30" x2="790" y2="30" stroke="#1f2937" stroke-width="2.5"/>
+    <polygon points="-30,30 -15,24 -15,36" fill="#dc2626"/>
+    <polygon points="790,30 775,24 775,36" fill="#2563eb"/>
+
+    <text x="-30" y="20" class="label" text-anchor="middle" fill="#dc2626">Negative ←</text>
+    <text x="790" y="20" class="label" text-anchor="middle" fill="#2563eb">→ Positive</text>
+
+    <!-- Ticks and labels -10 to 10 -->
+    <line x1="20" y1="22" x2="20" y2="38" class="tick"/>
+    <text x="20" y="52" class="tick-num num-neg" text-anchor="middle">-10</text>
+    <line x1="56" y1="26" x2="56" y2="34" class="tick"/>
+    <text x="56" y="52" class="tick-num num-neg" text-anchor="middle">-9</text>
+    <line x1="92" y1="22" x2="92" y2="38" class="tick"/>
+    <text x="92" y="52" class="tick-num num-neg" text-anchor="middle">-8</text>
+    <line x1="128" y1="26" x2="128" y2="34" class="tick"/>
+    <text x="128" y="52" class="tick-num num-neg" text-anchor="middle">-7</text>
+    <line x1="164" y1="22" x2="164" y2="38" class="tick"/>
+    <text x="164" y="52" class="tick-num num-neg" text-anchor="middle">-6</text>
+    <line x1="200" y1="26" x2="200" y2="34" class="tick"/>
+    <text x="200" y="52" class="tick-num num-neg" text-anchor="middle">-5</text>
+    <line x1="236" y1="26" x2="236" y2="34" class="tick"/>
+    <text x="236" y="52" class="tick-num num-neg" text-anchor="middle">-4</text>
+    <line x1="272" y1="26" x2="272" y2="34" class="tick"/>
+    <text x="272" y="52" class="tick-num num-neg" text-anchor="middle">-3</text>
+    <line x1="308" y1="26" x2="308" y2="34" class="tick"/>
+    <text x="308" y="52" class="tick-num num-neg" text-anchor="middle">-2</text>
+    <line x1="344" y1="26" x2="344" y2="34" class="tick"/>
+    <text x="344" y="52" class="tick-num num-neg" text-anchor="middle">-1</text>
+
+    <!-- Zero -->
+    <line x1="380" y1="18" x2="380" y2="42" stroke="#16a34a" stroke-width="3"/>
+    <text x="380" y="65" class="math num-zero" text-anchor="middle" font-size="16">0</text>
+
+    <!-- Positive -->
+    <line x1="416" y1="26" x2="416" y2="34" class="tick"/>
+    <text x="416" y="52" class="tick-num num-pos" text-anchor="middle">1</text>
+    <line x1="452" y1="26" x2="452" y2="34" class="tick"/>
+    <text x="452" y="52" class="tick-num num-pos" text-anchor="middle">2</text>
+    <line x1="488" y1="26" x2="488" y2="34" class="tick"/>
+    <text x="488" y="52" class="tick-num num-pos" text-anchor="middle">3</text>
+    <line x1="524" y1="26" x2="524" y2="34" class="tick"/>
+    <text x="524" y="52" class="tick-num num-pos" text-anchor="middle">4</text>
+    <line x1="560" y1="22" x2="560" y2="38" class="tick"/>
+    <text x="560" y="52" class="tick-num num-pos" text-anchor="middle">5</text>
+    <line x1="596" y1="26" x2="596" y2="34" class="tick"/>
+    <text x="596" y="52" class="tick-num num-pos" text-anchor="middle">6</text>
+    <line x1="632" y1="26" x2="632" y2="34" class="tick"/>
+    <text x="632" y="52" class="tick-num num-pos" text-anchor="middle">7</text>
+    <line x1="668" y1="22" x2="668" y2="38" class="tick"/>
+    <text x="668" y="52" class="tick-num num-pos" text-anchor="middle">8</text>
+    <line x1="704" y1="26" x2="704" y2="34" class="tick"/>
+    <text x="704" y="52" class="tick-num num-pos" text-anchor="middle">9</text>
+    <line x1="740" y1="22" x2="740" y2="38" class="tick"/>
+    <text x="740" y="52" class="tick-num num-pos" text-anchor="middle">10</text>
+  </g>
+
+  <!-- SECTION 2: Real-world examples -->
+  <text x="30" y="165" class="heading">Negative numbers in real life</text>
+
+  <g transform="translate(30, 185)">
+    <rect x="0" y="0" width="260" height="90" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+    <text x="130" y="22" class="subhead" text-anchor="middle">Temperature</text>
+    <text x="15" y="44" class="label">−5°C = 5 degrees below freezing</text>
+    <text x="15" y="64" class="label">Example: −3°C is warmer than −10°C</text>
+    <text x="15" y="82" class="label">(closer to zero = warmer)</text>
+  </g>
+
+  <g transform="translate(320, 185)">
+    <rect x="0" y="0" width="260" height="90" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="130" y="22" class="subhead" text-anchor="middle">Money &amp; Debt</text>
+    <text x="15" y="44" class="label">−£50 = £50 of debt (overdrawn)</text>
+    <text x="15" y="64" class="label">Credit of £20 + Debt of £30 = −£10</text>
+    <text x="15" y="82" class="label">A negative bank balance</text>
+  </g>
+
+  <g transform="translate(610, 185)">
+    <rect x="0" y="0" width="260" height="90" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="130" y="22" class="subhead" text-anchor="middle">Elevation</text>
+    <text x="15" y="44" class="label">−40 m = 40 metres below sea level</text>
+    <text x="15" y="64" class="label">Dead Sea shore: ≈ −430 m</text>
+    <text x="15" y="82" class="label">Below sea level = negative</text>
+  </g>
+
+  <!-- SECTION 3: Operations with arrows -->
+  <text x="30" y="310" class="heading">Adding and subtracting negative numbers</text>
+
+  <g transform="translate(30, 335)">
+    <text x="0" y="0" class="subhead">5 + (−3) = 2</text>
+    <line x1="0" y1="24" x2="400" y2="24" stroke="#e2e8f0" stroke-width="2"/>
+    <!-- Start at 0, go to 5 -->
+    <line x1="5" y1="14" x2="255" y2="14" class="arr arr-add"/>
+    <polygon points="255,10 265,14 255,18" fill="#16a34a"/>
+    <text x="130" y="10" class="label" fill="#16a34a" text-anchor="middle">+5 →</text>
+    <!-- Then go -3 back -->
+    <line x1="255" y1="34" x2="105" y2="34" class="arr arr-neg"/>
+    <polygon points="105,30 95,34 105,38" fill="#d97706"/>
+    <text x="180" y="48" class="label" fill="#d97706" text-anchor="middle">← +(−3)</text>
+    <!-- Result marker -->
+    <circle cx="105" cy="24" r="5" fill="#2563eb"/>
+    <text x="105" y="65" class="math" text-anchor="middle" fill="#2563eb">2</text>
+
+    <!-- Labels -->
+    <text x="0" y="85" class="label">Tick marks: 0, 1, 2, 3, 4, 5, 6</text>
+    <line x1="-5" y1="24" x2="-5" y2="30" stroke="#6b7280" stroke-width="1"/>
+    <text x="-5" y="42" class="label" text-anchor="middle" font-size="10">0</text>
+    <text x="55" y="42" class="label" text-anchor="middle" font-size="10">1</text>
+    <text x="105" y="42" class="label" text-anchor="middle" font-size="10">2</text>
+    <text x="155" y="42" class="label" text-anchor="middle" font-size="10">3</text>
+    <text x="205" y="42" class="label" text-anchor="middle" font-size="10">4</text>
+    <text x="255" y="42" class="label" text-anchor="middle" font-size="10">5</text>
+  </g>
+
+  <!-- Key rules box -->
+  <g transform="translate(460, 310)">
+    <rect x="0" y="0" width="410" height="110" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="205" y="22" class="subhead" text-anchor="middle">Key rules</text>
+    <g transform="translate(15, 40)">
+      <text x="0" y="0" class="math" fill="#16a34a">+ − → −</text>
+      <text x="0" y="18" class="label">Adding a negative = subtracting</text>
+      <text x="0" y="40" class="math" fill="#dc2626">− − → +</text>
+      <text x="0" y="58" class="label">Subtracting a negative = adding</text>
+    </g>
+  </g>
+</svg>

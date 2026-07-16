@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">The Binomial Theorem and Pascal's Triangle</title>
+  <desc id="desc">Pascal's triangle showing rows 0-6 with binomial coefficients highlighted; the binomial theorem formula (a+b)ⁿ; a worked expansion of (2x+3)⁴ using both methods; and nCr notation for combinations.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+    .pt-cell { font-size: 16px; fill: #111827; font-weight: 600; }
+    .pt-hl { fill: #2563eb; font-weight: 700; }
+  </style>
+  <rect width="900" height="430" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">The Binomial Theorem</text>
+
+  <!-- Pascal's Triangle -->
+  <g transform="translate(30, 55)">
+    <text x="0" y="0" class="subhead">Pascal's Triangle</text>
+    <g transform="translate(60, 15)">
+      <text x="-7" y="0" class="pt-cell">1</text>
+      <text x="-20" y="30" class="pt-cell">1</text><text x="10" y="30" class="pt-cell">1</text>
+      <text x="-35" y="60" class="pt-cell">1</text><text x="-5" y="60" class="pt-cell">2</text><text x="25" y="60" class="pt-cell">1</text>
+      <text x="-50" y="90" class="pt-cell">1</text><text x="-20" y="90" class="pt-cell">3</text><text x="10" y="90" class="pt-cell">3</text><text x="40" y="90" class="pt-cell">1</text>
+      <text x="-65" y="120" class="pt-cell">1</text><text x="-35" y="120" class="pt-cell" fill="#2563eb">4</text><text x="-5" y="120" class="pt-cell" fill="#2563eb">6</text><text x="25" y="120" class="pt-cell" fill="#2563eb">4</text><text x="55" y="120" class="pt-cell">1</text>
+      <text x="-80" y="150" class="pt-cell">1</text><text x="-50" y="150" class="pt-cell">5</text><text x="-20" y="150" class="pt-cell">10</text><text x="10" y="150" class="pt-cell">10</text><text x="40" y="150" class="pt-cell">5</text><text x="70" y="150" class="pt-cell">1</text>
+    </g>
+    <text x="60" y="190" class="label" text-anchor="middle">Row 4 (n=4): coefficients for (a+b)⁴ = 1,4,6,4,1</text>
+  </g>
+
+  <!-- Formula -->
+  <g transform="translate(300, 55)">
+    <rect x="0" y="0" width="570" height="90" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="285" y="22" class="subhead" text-anchor="middle">Binomial Theorem</text>
+    <text x="285" y="55" class="math" text-anchor="middle" fill="#2563eb" font-size="18">(a+b)ⁿ = Σ (ⁿCᵣ) aⁿ⁻ʳ bʳ,  r=0 to n</text>
+    <text x="285" y="78" class="label" text-anchor="middle">ⁿCᵣ = n!/(r!(n−r)!) — also written as (n choose r) or (n r)</text>
+  </g>
+
+  <!-- Worked example -->
+  <g transform="translate(30, 230)">
+    <rect x="0" y="0" width="840" height="85" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="420" y="20" class="subhead" text-anchor="middle">Expand (2x+3)⁴</text>
+    <text x="420" y="42" class="label" text-anchor="middle">Coefficients from Pascal's row 4: 1, 4, 6, 4, 1</text>
+    <text x="420" y="64" class="math" text-anchor="middle" fill="#2563eb">= 1·(2x)⁴·3⁰ + 4·(2x)³·3¹ + 6·(2x)²·3² + 4·(2x)¹·3³ + 1·(2x)⁰·3⁴</text>
+    <text x="420" y="82" class="math" text-anchor="middle" fill="#16a34a">= 16x⁴ + 96x³ + 216x² + 216x + 81</text>
+  </g>
+
+  <!-- Key facts -->
+  <g transform="translate(30, 335)">
+    <rect x="0" y="0" width="840" height="80" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">Key facts</text>
+    <g transform="translate(15, 38)">
+      <text x="0" y="0" class="label">• Total number of terms in expansion of (a+b)ⁿ = n+1</text>
+      <text x="0" y="18" class="label">• General term Tᵣ = ⁿCᵣ aⁿ⁻ʳ bʳ</text>
+      <text x="0" y="36" class="label">• Sum of all binomial coefficients in row n = 2ⁿ</text>
+    </g>
+  </g>
+</svg>

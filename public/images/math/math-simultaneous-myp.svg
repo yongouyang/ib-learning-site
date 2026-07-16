@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Simultaneous equations: elimination and substitution methods</title>
+  <desc id="desc">Visual explanation of solving simultaneous equations using elimination (adding to cancel a variable, or multiplying first to match coefficients) and substitution (replacing one variable); with a graphical interpretation showing intersection of two lines.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="430" fill="#f8fafc" rx="12"/>
+  <text x="30" y="30" class="heading">Simultaneous equations</text>
+  <text x="30" y="50" class="label">Two (or more) equations with two unknowns. Find values that satisfy BOTH equations.</text>
+
+  <!-- Method 1: Elimination -->
+  <g transform="translate(30, 70)">
+    <rect x="0" y="0" width="400" height="155" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="200" y="22" class="subhead" text-anchor="middle" fill="#1e40af">Method 1: Elimination</text>
+    <g transform="translate(15, 42)">
+      <text x="0" y="0" class="label">2x + y = 7  ... (1)</text>
+      <text x="0" y="20" class="label">x − y = 2  ... (2)</text>
+      <line x1="0" y1="26" x2="180" y2="26" stroke="#2563eb" stroke-width="1"/>
+      <text x="0" y="42" class="label">Add (1)+(2): 3x = 9</text>
+      <text x="0" y="62" class="math" fill="#2563eb">→ x = 3</text>
+      <text x="0" y="84" class="label">Substitute x=3 into (2): 3 − y = 2</text>
+      <text x="0" y="104" class="math" fill="#2563eb">→ y = 1</text>
+      <text x="0" y="128" class="math" fill="#16a34a">Solution: x=3, y=1 ✓</text>
+    </g>
+  </g>
+
+  <!-- Method 2: Elimination with multiply -->
+  <g transform="translate(460, 70)">
+    <rect x="0" y="0" width="410" height="155" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="205" y="22" class="subhead" text-anchor="middle" fill="#166534">Elimination (multiply first)</text>
+    <g transform="translate(15, 42)">
+      <text x="0" y="0" class="label">3x + 2y = 12  ... (1)</text>
+      <text x="0" y="20" class="label">2x + y = 7  ... (2)</text>
+      <line x1="0" y1="26" x2="180" y2="26" stroke="#16a34a" stroke-width="1"/>
+      <text x="0" y="44" class="label">2×(2): 4x + 2y = 14</text>
+      <text x="0" y="66" class="label">Subtract (1): (4x+2y)−(3x+2y) = 14−12</text>
+      <text x="0" y="86" class="math" fill="#16a34a">→ x = 2</text>
+      <text x="0" y="108" class="label">Substitute: 2(2)+y=7 → y=3</text>
+      <text x="0" y="130" class="math" fill="#16a34a">Solution: x=2, y=3 ✓</text>
+    </g>
+  </g>
+
+  <!-- Graphical interpretation -->
+  <g transform="translate(30, 250)">
+    <rect x="0" y="0" width="400" height="95" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="200" y="20" class="subhead" text-anchor="middle" fill="#92400e">Graphical interpretation</text>
+    <text x="15" y="46" class="label">Each equation is a straight line. The solution is where they cross.</text>
+    <g transform="translate(190, 64)">
+      <line x1="-60" y1="10" x2="60" y2="-10" stroke="#2563eb" stroke-width="2"/>
+      <text x="65" y="-8" class="label" fill="#2563eb" font-size="11">y = 7−2x</text>
+      <line x1="-60" y1="-10" x2="60" y2="10" stroke="#16a34a" stroke-width="2"/>
+      <text x="65" y="14" class="label" fill="#16a34a" font-size="11">y = x−2</text>
+      <circle cx="0" cy="0" r="5" fill="#dc2626"/>
+      <text x="10" y="-5" class="label" fill="#dc2626" font-size="11">(3,1)</text>
+    </g>
+  </g>
+
+  <!-- Substitution method -->
+  <g transform="translate(460, 250)">
+    <rect x="0" y="0" width="410" height="95" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="205" y="20" class="subhead" text-anchor="middle" fill="#7c3aed">Method 2: Substitution</text>
+    <g transform="translate(15, 40)">
+      <text x="0" y="0" class="label">y = 2x + 1 and 3x + y = 16</text>
+      <text x="0" y="22" class="label">Replace y: 3x + (2x+1) = 16</text>
+      <text x="0" y="44" class="math" fill="#7c3aed">5x+1=16 → 5x=15 → x=3, y=7</text>
+    </g>
+  </g>
+
+  <!-- Check -->
+  <g transform="translate(30, 365)">
+    <rect x="0" y="0" width="840" height="35" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="420" y="23" class="math" text-anchor="middle" fill="#16a34a">Always check: substitute both values back into BOTH original equations to verify!</text>
+  </g>
+</svg>

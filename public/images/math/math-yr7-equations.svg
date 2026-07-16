@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" role="img" aria-labelledby="title desc">
+  <title id="title">Solving equations using balance method and inverse operations</title>
+  <desc id="desc">A balance scale analogy showing an equation must stay balanced; flow chart for solving one-step and two-step equations using inverse operations; and worked examples of equations with the unknown on both sides.</desc>
+
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 16px; fill: #111827; font-weight: 600; }
+    .math-sm { font-size: 14px; fill: #111827; font-weight: 600; }
+    .inv { fill: #dc2626; font-weight: 600; }
+    .box-fn { fill: #dbeafe; stroke: #2563eb; stroke-width: 2; }
+    .box-inv { fill: #fee2e2; stroke: #dc2626; stroke-width: 2; }
+    .box-result { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; }
+    .arrow-flow { stroke: #6b7280; stroke-width: 2; fill: none; }
+    .arrowhead { fill: #6b7280; }
+  </style>
+
+  <rect width="900" height="470" fill="#f8fafc" rx="12"/>
+
+  <!-- SECTION 1: Balance Scale -->
+  <text x="30" y="35" class="heading">Equations are like a balance scale</text>
+  <text x="30" y="55" class="label">Both sides must stay equal. Whatever you do to one side, you must do to the other.</text>
+
+  <g transform="translate(80, 75)">
+    <!-- Scale beam -->
+    <line x1="0" y1="0" x2="280" y2="0" stroke="#1f2937" stroke-width="3"/>
+    <!-- Fulcrum -->
+    <polygon points="140,0 150,25 130,25" fill="#6b7280"/>
+
+    <!-- Left pan: 2x + 3 -->
+    <g transform="translate(30, 12)">
+      <polygon points="-40,0 40,0 35,10 -35,10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="0" y2="-30" stroke="#6b7280" stroke-width="1.5"/>
+      <rect x="-35" y="-50" width="70" height="20" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="0" y="-36" class="math-sm" text-anchor="middle">2x + 3</text>
+    </g>
+
+    <!-- Right pan: 11 -->
+    <g transform="translate(250, 12)">
+      <polygon points="-40,0 40,0 35,10 -35,10" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="0" y2="-30" stroke="#6b7280" stroke-width="1.5"/>
+      <rect x="-35" y="-50" width="70" height="20" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="0" y="-36" class="math-sm" text-anchor="middle">11</text>
+    </g>
+  </g>
+
+  <!-- Solution steps -->
+  <g transform="translate(30, 165)">
+    <text x="10" y="0" class="label">2x + 3 = 11</text>
+    <text x="140" y="0" class="label">Subtract 3 from both sides: 2x = 8</text>
+    <text x="400" y="0" class="label">Divide both sides by 2: x = 4</text>
+
+    <text x="10" y="24" class="math" fill="#2563eb">Check: 2(4) + 3 = 8 + 3 = 11 ✓</text>
+  </g>
+
+  <!-- SECTION 2: Inverse operations -->
+  <text x="30" y="225" class="heading">Solving with inverse operations</text>
+  <text x="30" y="245" class="label">Undo each operation in reverse order to isolate the unknown:</text>
+
+  <!-- One-step: x + 7 = 15 -->
+  <g transform="translate(30, 265)">
+    <rect x="0" y="0" width="250" height="80" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="125" y="20" class="subhead" text-anchor="middle" fill="#1e40af">One-step: x + 7 = 15</text>
+    <text x="15" y="45" class="label">Inverse of +7 is −7:</text>
+    <text x="125" y="68" class="math" fill="#2563eb" text-anchor="middle">x = 15 − 7 = 8</text>
+  </g>
+
+  <!-- Two-step: 3x − 5 = 16 -->
+  <g transform="translate(310, 265)">
+    <rect x="0" y="0" width="270" height="80" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="135" y="20" class="subhead" text-anchor="middle" fill="#166534">Two-step: 3x − 5 = 16</text>
+    <text x="15" y="45" class="label">Step 1: +5 → 3x = 21</text>
+    <text x="15" y="68" class="math" fill="#16a34a">Step 2: ÷3 → x = 7</text>
+  </g>
+
+  <!-- Flow chart -->
+  <g transform="translate(620, 260)">
+    <rect x="0" y="0" width="250" height="90" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="125" y="20" class="subhead" text-anchor="middle">Flow chart method</text>
+
+    <rect x="15" y="32" width="40" height="22" rx="4" class="box-fn"/><text x="35" y="47" class="label" text-anchor="middle">×3</text>
+    <line x1="55" y1="43" x2="85" y2="43" class="arrow-flow"/><polygon points="85,40 92,43 85,46" class="arrowhead"/>
+    <rect x="92" y="32" width="40" height="22" rx="4" class="box-fn"/><text x="112" y="47" class="label" text-anchor="middle">−5</text>
+    <line x1="132" y1="43" x2="162" y2="43" class="arrow-flow"/><polygon points="162,40 169,43 162,46" class="arrowhead"/>
+    <rect x="169" y="32" width="40" height="22" rx="4" class="box-result"/><text x="189" y="47" class="label" text-anchor="middle">16</text>
+
+    <!-- Inverse arrows below -->
+    <rect x="169" y="60" width="40" height="20" rx="4" class="box-inv"/><text x="189" y="74" class="label" text-anchor="middle" fill="#dc2626" font-size="11">÷3</text>
+    <line x1="132" y1="70" x2="169" y2="70" stroke="#dc2626" stroke-width="1.5" fill="none"/>
+    <rect x="92" y="60" width="40" height="20" rx="4" class="box-inv"/><text x="112" y="74" class="label" text-anchor="middle" fill="#dc2626" font-size="11">+5</text>
+    <line x1="55" y1="70" x2="92" y2="70" stroke="#dc2626" stroke-width="1.5" fill="none"/>
+    <text x="25" y="74" class="math" text-anchor="middle" fill="#dc2626">x</text>
+  </g>
+
+  <!-- SECTION 3: Unknown on both sides -->
+  <text x="30" y="390" class="heading">Equations with unknowns on both sides</text>
+
+  <g transform="translate(30, 410)">
+    <rect x="0" y="0" width="840" height="48" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+
+    <g transform="translate(25, 15)">
+      <text x="0" y="0" class="math">5x + 2 = 3x + 10</text>
+
+      <text x="190" y="0" class="label">Move unknowns to one side:</text>
+      <text x="380" y="0" class="math" fill="#dc2626">5x − 3x + 2 = 10</text>
+
+      <text x="550" y="0" class="label">Simplify:</text>
+      <text x="620" y="0" class="math" fill="#2563eb">2x + 2 = 10</text>
+
+      <text x="730" y="0" class="label">Solve:</text>
+      <text x="780" y="0" class="math" fill="#16a34a">x = 4</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Hypothesis testing: p-values, significance and errors</title>
+  <desc id="desc">Visual explanation of null and alternative hypotheses; the p-value compared to significance level α; Type I and Type II errors explained with a table; and critical regions on a normal distribution curve.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="420" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Hypothesis testing</text>
+
+  <!-- H0 and H1 -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="420" height="80" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="210" y="20" class="subhead" text-anchor="middle" fill="#1e40af">Null hypothesis H₀</text>
+    <text x="210" y="44" class="label" text-anchor="middle">H₀: μ = value (no effect, no difference — assume this is true)</text>
+    <text x="210" y="64" class="label" text-anchor="middle">Example: H₀: μ = 100</text>
+  </g>
+  <g transform="translate(470, 55)">
+    <rect x="0" y="0" width="400" height="80" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="200" y="20" class="subhead" text-anchor="middle" fill="#dc2626">Alternative H₁</text>
+    <text x="200" y="44" class="label" text-anchor="middle">H₁: μ ≠ 100 (two-tailed) or H₁: μ &gt; 100 (one-tailed)</text>
+    <text x="200" y="64" class="label" text-anchor="middle">What you want to prove; the research claim.</text>
+  </g>
+
+  <!-- P-value -->
+  <g transform="translate(30, 160)">
+    <rect x="0" y="0" width="840" height="80" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">P-value decision rule</text>
+    <g transform="translate(20, 42)">
+      <text x="0" y="0" class="math" fill="#d97706">If p ≤ α (e.g. α=0.05): REJECT H₀ → result is statistically significant</text>
+      <text x="0" y="24" class="math">If p &gt; α: DO NOT REJECT H₀ → insufficient evidence</text>
+    </g>
+  </g>
+
+  <!-- Type I/II errors -->
+  <g transform="translate(30, 265)">
+    <rect x="0" y="0" width="430" height="140" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="215" y="20" class="subhead" text-anchor="middle">Type I and Type II errors</text>
+    <!-- 2x2 table -->
+    <rect x="15" y="32" width="100" height="24" fill="#e2e8f0"/>
+    <rect x="15" y="56" width="100" height="24" fill="#e2e8f0"/>
+    <text x="65" y="48" class="label" text-anchor="middle">Reject H₀</text>
+    <text x="65" y="72" class="label" text-anchor="middle">Don't reject</text>
+
+    <rect x="115" y="32" width="145" height="24" fill="#fee2e2"/><text x="187" y="48" class="label" text-anchor="middle" fill="#dc2626">Type I error (α)</text>
+    <rect x="115" y="56" width="145" height="24" fill="#dcfce7"/><text x="187" y="72" class="label" text-anchor="middle" fill="#16a34a">Correct ✓</text>
+    <rect x="260" y="32" width="145" height="24" fill="#dcfce7"/><text x="332" y="48" class="label" text-anchor="middle" fill="#16a34a">Correct ✓</text>
+    <rect x="260" y="56" width="145" height="24" fill="#fee2e2"/><text x="332" y="72" class="label" text-anchor="middle" fill="#dc2626">Type II error (β)</text>
+
+    <text x="115" y="28" class="label" text-anchor="middle" font-size="10">H₀ is true</text>
+    <text x="260" y="28" class="label" text-anchor="middle" font-size="10">H₀ is false</text>
+
+    <text x="330" y="100" class="label" text-anchor="middle">Type I: false positive (rejecting a true H₀). Prob = α.</text>
+    <text x="330" y="118" class="label" text-anchor="middle">Type II: false negative (not rejecting a false H₀). Prob = β.</text>
+    <text x="330" y="136" class="label" text-anchor="middle">Power = 1−β = prob of correctly rejecting a false H₀.</text>
+  </g>
+
+  <!-- Critical regions -->
+  <g transform="translate(480, 265)">
+    <rect x="0" y="0" width="390" height="140" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="195" y="20" class="subhead" text-anchor="middle">Two-tailed test (α=0.05)</text>
+    <g transform="translate(15, 38)">
+      <text x="0" y="0" class="label">Split α into 0.025 in each tail.</text>
+      <text x="0" y="22" class="label">Reject H₀ if test statistic is in critical region.</text>
+      <text x="0" y="50" class="label">Critical values: z = ±1.96 (for normal).</text>
+      <text x="0" y="76" class="math" fill="#7c3aed">z-test: z = (x̄−μ₀)/(σ/√n)</text>
+      <text x="0" y="100" class="math" fill="#7c3aed">t-test: t = (x̄−μ₀)/(s/√n)  (use when σ unknown)</text>
+    </g>
+  </g>
+</svg>

@@ -8,7 +8,12 @@
     {
       "id": "math-pythagoras-myp-pyt-n1",
       "heading": "The Theorem and Finding the Hypotenuse",
-      "body": "In any right-angled triangle: a² + b² = c², where c is the hypotenuse (side opposite the right angle, always longest). To find the hypotenuse: c = √(a²+b²). Example: legs 3 and 4 → c = √(9+16) = 5."
+      "body": "In any right-angled triangle: a² + b² = c², where c is the hypotenuse (side opposite the right angle, always longest). To find the hypotenuse: c = √(a²+b²). Example: legs 3 and 4 → c = √(9+16) = 5.",
+      "illustration": {
+        "src": "/images/math/math-pythagoras-myp.svg",
+        "alt": "A right-angled triangle with squares on each side demonstrating a²+b²=c²; worked examples finding the hypotenuse and a shorter side; Pythagorean triples; and applications to coordinate distance.",
+        "caption": "Pythagoras' theorem only works for right-angled triangles. The hypotenuse is always opposite the right angle and is the longest side."
+      }
     },
     {
       "id": "math-pythagoras-myp-pyt-n2",

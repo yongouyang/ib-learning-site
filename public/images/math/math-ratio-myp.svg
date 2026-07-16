@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 410" role="img" aria-labelledby="title desc">
+  <title id="title">Ratio and proportion: simplifying, sharing and scaling</title>
+  <desc id="desc">Visual explanation of simplifying ratios by dividing by the HCF; sharing an amount in a given ratio using the total parts method; direct proportion shown with a proportional table; and the unitary method for solving proportion problems.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="410" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Ratio and proportion</text>
+
+  <!-- Simplifying ratios -->
+  <g transform="translate(30, 55)">
+    <text x="0" y="0" class="subhead">Simplifying ratios</text>
+    <text x="0" y="20" class="label">Divide all parts by the highest common factor:</text>
+    <rect x="0" y="32" width="65" height="28" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="32" y="50" class="math" text-anchor="middle" fill="#1e40af">12:8</text>
+    <text x="75" y="50" class="math">→ ÷4 →</text>
+    <rect x="125" y="32" width="65" height="28" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/><text x="157" y="50" class="math" text-anchor="middle" fill="#166534">3:2</text>
+  </g>
+
+  <!-- Sharing ratio -->
+  <g transform="translate(30, 118)">
+    <text x="0" y="0" class="subhead">Sharing £120 in the ratio 3:5</text>
+    <text x="0" y="18" class="label">3 + 5 = 8 total parts</text>
+    <text x="0" y="36" class="label">1 part = £120 ÷ 8 = £15</text>
+    <rect x="0" y="48" width="90" height="24" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="45" y="64" class="math" text-anchor="middle" fill="#1e40af">3 parts: £45</text>
+    <rect x="100" y="48" width="90" height="24" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/><text x="145" y="64" class="math" text-anchor="middle" fill="#166534">5 parts: £75</text>
+    <text x="195" y="64" class="math" fill="#2563eb">Check: £45+£75=£120 ✓</text>
+  </g>
+
+  <!-- Proportion -->
+  <g transform="translate(370, 55)">
+    <rect x="0" y="0" width="500" height="150" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="250" y="22" class="subhead" text-anchor="middle">Direct proportion</text>
+    <text x="250" y="44" class="label" text-anchor="middle">If 5 apples cost £3, how much do 12 cost?</text>
+    <g transform="translate(15, 62)">
+      <text x="0" y="0" class="math" fill="#2563eb">Unitary method: find the cost of 1 first</text>
+      <text x="0" y="24" class="label">1 apple = £3 ÷ 5 = £0.60</text>
+      <text x="0" y="46" class="label">12 apples = 12 × £0.60 = £7.20</text>
+      <text x="0" y="76" class="math" fill="#d97706">Alternatively: scale factor = 12/5 = 2.4, so cost = 2.4 × £3 = £7.20</text>
+    </g>
+  </g>
+
+  <!-- Inverse proportion -->
+  <g transform="translate(30, 230)">
+    <rect x="0" y="0" width="840" height="70" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle" fill="#dc2626">Inverse proportion</text>
+    <text x="420" y="46" class="label" text-anchor="middle" fill="#dc2626">As one quantity increases, the other decreases (product is constant). Example: 3 workers take 8 hours → 6 workers take 4 hours (3×8 = 6×4 = 24)</text>
+  </g>
+
+  <!-- Key concepts -->
+  <g transform="translate(30, 320)">
+    <rect x="0" y="0" width="840" height="80" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle" fill="#7c3aed">Key concepts</text>
+    <g transform="translate(15, 40)">
+      <text x="0" y="0" class="label">Ratio: compares parts to parts (e.g. boys:girls = 3:4)</text>
+      <text x="0" y="20" class="label">Proportion: compares a part to the whole (e.g. 3/7 are boys). Two quantities are proportional if y = kx.</text>
+      <text x="0" y="40" class="label">Equivalent ratios: multiply or divide all parts by the same number — the ratio stays the same.</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Integration: antiderivatives, definite integrals and area</title>
+  <desc id="desc">Integration as the reverse of differentiation; power rule for integration with the +C constant; definite integral as the area under a curve between limits; and the Fundamental Theorem of Calculus linking integration and differentiation.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="420" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Integration</text>
+
+  <!-- Antiderivative -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="420" height="90" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="210" y="20" class="subhead" text-anchor="middle" fill="#1e40af">Integration = reverse of differentiation</text>
+    <g transform="translate(15, 40)">
+      <text x="0" y="0" class="math" fill="#2563eb">∫ xⁿ dx = xⁿ⁺¹/(n+1) + C  (n ≠ −1)</text>
+      <text x="0" y="24" class="label">+C is the constant of integration (indefinite integral)</text>
+    </g>
+  </g>
+
+  <!-- Standard integrals -->
+  <g transform="translate(470, 55)">
+    <rect x="0" y="0" width="400" height="90" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="200" y="20" class="subhead" text-anchor="middle">Standard integrals</text>
+    <g transform="translate(15, 38)">
+      <text x="0" y="0" class="math">∫ 1/x dx = ln|x| + C</text>
+      <text x="0" y="20" class="math">∫ eˣ dx = eˣ + C</text>
+      <text x="0" y="40" class="math">∫ sin x dx = −cos x + C ; ∫ cos x dx = sin x + C</text>
+    </g>
+  </g>
+
+  <!-- Definite integral -->
+  <g transform="translate(30, 170)">
+    <rect x="0" y="0" width="840" height="100" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">Definite integral = area under the curve</text>
+    <g transform="translate(20, 42)">
+      <text x="0" y="0" class="math" fill="#16a34a">∫[a to b] f(x) dx = F(b) − F(a)  (Fundamental Theorem of Calculus)</text>
+      <text x="0" y="24" class="label">Area between curve and x-axis from x=a to x=b. Areas below the x-axis are negative.</text>
+      <text x="0" y="48" class="label">Total area: split at roots and take absolute values of negative regions.</text>
+    </g>
+  </g>
+
+  <!-- Applications -->
+  <g transform="translate(30, 295)">
+    <rect x="0" y="0" width="420" height="80" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="210" y="20" class="subhead" text-anchor="middle">Area between two curves</text>
+    <text x="210" y="50" class="math" text-anchor="middle" fill="#d97706">Area = ∫[a to b] (top − bottom) dx</text>
+  </g>
+  <g transform="translate(470, 295)">
+    <rect x="0" y="0" width="400" height="80" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="200" y="20" class="subhead" text-anchor="middle">Volume of revolution</text>
+    <text x="200" y="50" class="math" text-anchor="middle" fill="#7c3aed">V = π ∫[a to b] [f(x)]² dx  (around x-axis)</text>
+  </g>
+</svg>

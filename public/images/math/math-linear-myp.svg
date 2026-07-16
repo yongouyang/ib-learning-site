@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450" role="img" aria-labelledby="title desc">
+  <title id="title">Linear graphs: plotting points, gradient and y-intercept</title>
+  <desc id="desc">A labelled coordinate plane with quadrant signs; plotting points as coordinates; the formula y=mx+c with visual identification of gradient m and y-intercept c; and finding gradient from two points using rise over run.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 12px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+    .grid { stroke: #e2e8f0; stroke-width: 0.5; }
+    .axis { stroke: #94a3b8; stroke-width: 1.5; }
+    .graph-line { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+  </style>
+  <rect width="900" height="450" fill="#f8fafc" rx="12"/>
+  <text x="30" y="30" class="heading">Linear graphs: y = mx + c</text>
+
+  <!-- Coordinate plane -->
+  <g transform="translate(30, 50)">
+    <rect x="0" y="0" width="280" height="280" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+    <!-- Grid lines -->
+    <g stroke="#e2e8f0" stroke-width="0.5">
+      <line x1="140" y1="0" x2="140" y2="280"/>
+      <line x1="0" y1="140" x2="280" y2="140"/>
+      <line x1="40" y1="0" x2="40" y2="280"/><line x1="90" y1="0" x2="90" y2="280"/>
+      <line x1="190" y1="0" x2="190" y2="280"/><line x1="240" y1="0" x2="240" y2="280"/>
+      <line x1="0" y1="40" x2="280" y2="40"/><line x1="0" y1="90" x2="280" y2="90"/>
+      <line x1="0" y1="190" x2="280" y2="190"/><line x1="0" y1="240" x2="280" y2="240"/>
+    </g>
+    <line x1="0" y1="140" x2="280" y2="140" class="axis"/>
+    <line x1="140" y1="0" x2="140" y2="280" class="axis"/>
+    <polygon points="280,140 273,136 273,144" fill="#94a3b8"/>
+    <polygon points="140,0 136,7 144,7" fill="#94a3b8"/>
+    <text x="275" y="136" class="label" font-size="10">x</text>
+    <text x="146" y="10" class="label" font-size="10">y</text>
+
+    <!-- Quadrant labels -->
+    <text x="210" y="50" fill="#cbd5e1" font-size="18" font-family="system-ui, sans-serif" text-anchor="middle">I</text>
+    <text x="60" y="50" fill="#cbd5e1" font-size="18" font-family="system-ui, sans-serif" text-anchor="middle">II</text>
+    <text x="60" y="230" fill="#cbd5e1" font-size="18" font-family="system-ui, sans-serif" text-anchor="middle">III</text>
+    <text x="210" y="230" fill="#cbd5e1" font-size="18" font-family="system-ui, sans-serif" text-anchor="middle">IV</text>
+
+    <!-- Line y = 2x + 1 -->
+    <line x1="40" y1="240" x2="240" y2="40" class="graph-line"/>
+
+    <!-- y-intercept marker -->
+    <circle cx="140" cy="90" r="4" fill="#dc2626"/>
+    <text x="150" y="86" class="label" fill="#dc2626" font-size="11">c = 1</text>
+
+    <!-- Rise/run triangle -->
+    <line x1="140" y1="190" x2="190" y2="90" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="140" y1="90" x2="140" y2="190" stroke="#16a34a" stroke-width="2"/>
+    <text x="130" y="145" class="label" fill="#16a34a">rise = 2</text>
+    <line x1="140" y1="190" x2="190" y2="190" stroke="#d97706" stroke-width="2"/>
+    <text x="145" y="205" class="label" fill="#d97706">run = 1</text>
+  </g>
+
+  <!-- Formula explanation -->
+  <g transform="translate(340, 50)">
+    <rect x="0" y="0" width="530" height="280" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="265" y="25" class="heading" font-size="18" text-anchor="middle">y = mx + c</text>
+    <g transform="translate(20, 50)">
+      <text x="0" y="0" class="math" fill="#dc2626">c (y-intercept)</text>
+      <text x="0" y="18" class="label">Where the line crosses the y-axis (when x = 0)</text>
+      <text x="0" y="45" class="math" fill="#2563eb">m (gradient / slope)</text>
+      <text x="0" y="63" class="label">m = rise ÷ run = change in y ÷ change in x</text>
+      <text x="0" y="88" class="math" fill="#16a34a">m &gt; 0: line goes up (positive gradient)</text>
+      <text x="0" y="108" class="math" fill="#dc2626">m &lt; 0: line goes down (negative gradient)</text>
+      <text x="0" y="135" class="subhead">Gradient from two points (x₁,y₁) and (x₂,y₂)</text>
+      <text x="0" y="160" class="math" fill="#2563eb" font-size="18">m = (y₂ − y₁) / (x₂ − x₁)</text>
+      <text x="0" y="190" class="label">Example: (1,3) and (5,11)</text>
+      <text x="0" y="210" class="math" fill="#d97706">m = (11−3)/(5−1) = 8/4 = 2  →  y = 2x + 1</text>
+
+      <text x="0" y="248" class="label" fill="#7c3aed">Parallel lines: same gradient (m₁ = m₂)</text>
+      <text x="0" y="268" class="label" fill="#7c3aed">Perpendicular lines: m₁ × m₂ = −1</text>
+    </g>
+  </g>
+
+  <!-- Key values -->
+  <g transform="translate(30, 350)">
+    <rect x="0" y="0" width="840" height="35" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="420" y="23" class="math" text-anchor="middle" fill="#1e40af">Horizontal line: y = k (gradient = 0)  |  Vertical line: x = k (gradient undefined)  |  y = x: m = 1, c = 0</text>
+  </g>
+</svg>

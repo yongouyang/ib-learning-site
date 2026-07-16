@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Basic trigonometry: SOH CAH TOA</title>
+  <desc id="desc">A right-angled triangle with sides labelled as opposite, adjacent and hypotenuse relative to a marked angle; the SOH CAH TOA mnemonic broken down; worked examples finding sides and angles; and exact trig values for 30°, 45° and 60°.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="430" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Trigonometry: SOH CAH TOA</text>
+
+  <!-- Labelled triangle -->
+  <g transform="translate(30, 55)">
+    <polygon points="0,150 250,150 0,20" fill="#dbeafe" stroke="#2563eb" stroke-width="2" fill-opacity="0.3"/>
+    <!-- Right angle marker -->
+    <polyline points="15,150 15,135 0,135" fill="none" stroke="#1f2937" stroke-width="1.5"/>
+    <!-- Angle theta -->
+    <path d="M 120 150 A 35 35 0 0 0 85 125" fill="#dc2626" fill-opacity="0.2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="70" y="132" class="math" fill="#dc2626">θ</text>
+    <!-- Hypotenuse label -->
+    <text x="140" y="65" class="math" fill="#dc2626" font-size="16">hyp (H)</text>
+    <!-- Opposite -->
+    <text x="-40" y="90" class="math" fill="#d97706">opp (O)</text>
+    <!-- Adjacent -->
+    <text x="120" y="170" class="math" fill="#16a34a">adj (A)</text>
+  </g>
+
+  <!-- SOH CAH TOA -->
+  <g transform="translate(310, 55)">
+    <rect x="0" y="0" width="560" height="200" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="280" y="22" class="heading" font-size="18" text-anchor="middle">SOH CAH TOA</text>
+    <g transform="translate(20, 45)">
+      <rect x="0" y="0" width="240" height="38" rx="6" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1.5"/>
+      <text x="120" y="16" class="math" fill="#dc2626" font-size="16" text-anchor="middle">SOH: sinθ = O/H</text>
+      <text x="120" y="34" class="label" fill="#dc2626" text-anchor="middle" font-size="11">Some Old Horses</text>
+
+      <rect x="260" y="0" width="240" height="38" rx="6" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="380" y="16" class="math" fill="#16a34a" font-size="16" text-anchor="middle">CAH: cosθ = A/H</text>
+      <text x="380" y="34" class="label" fill="#16a34a" text-anchor="middle" font-size="11">Can Always Hide</text>
+
+      <rect x="0" y="50" width="240" height="38" rx="6" fill="#d97706" fill-opacity="0.15" stroke="#d97706" stroke-width="1.5"/>
+      <text x="120" y="66" class="math" fill="#d97706" font-size="16" text-anchor="middle">TOA: tanθ = O/A</text>
+      <text x="120" y="84" class="label" fill="#d97706" text-anchor="middle" font-size="11">Their Old Age</text>
+
+      <text x="0" y="110" class="label">Use sin⁻¹, cos⁻¹, tan⁻¹ to find the angle when you know the sides.</text>
+      <text x="0" y="140" class="math" fill="#2563eb">Example: find θ if opp=3, adj=4</text>
+      <text x="0" y="160" class="label">tanθ = 3/4, so θ = tan⁻¹(3/4) = 36.9°</text>
+    </g>
+  </g>
+
+  <!-- Exact values -->
+  <g transform="translate(30, 290)">
+    <text x="0" y="0" class="subhead">Exact trig values (memorise!)</text>
+  </g>
+  <g transform="translate(30, 310)">
+    <rect x="0" y="0" width="840" height="110" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <!-- Table headers -->
+    <rect x="4" y="4" width="80" height="24" fill="#dbeafe"/><text x="44" y="20" class="label" text-anchor="middle">Angle θ</text>
+    <rect x="84" y="4" width="375" height="24" fill="#dcfce7"/><text x="271" y="20" class="label" text-anchor="middle">0°</text>
+    <rect x="459" y="4" width="375" height="24" fill="#fef3c7"/><text x="646" y="20" class="label" text-anchor="middle">30°</text>
+
+    <rect x="4" y="28" width="80" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="44" y="44" class="math" text-anchor="middle">sinθ</text>
+    <rect x="84" y="28" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="146" y="44" class="math" text-anchor="middle">0</text>
+    <rect x="209" y="28" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="271" y="44" class="math" text-anchor="middle">1/2</text>
+    <rect x="334" y="28" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="396" y="44" class="math" text-anchor="middle">√2/2</text>
+    <rect x="459" y="28" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="521" y="44" class="math" text-anchor="middle">√3/2</text>
+    <rect x="584" y="28" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="646" y="44" class="math" text-anchor="middle">1</text>
+
+    <rect x="4" y="52" width="80" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="44" y="68" class="math" text-anchor="middle">cosθ</text>
+    <rect x="84" y="52" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="146" y="68" class="math" text-anchor="middle">1</text>
+    <rect x="209" y="52" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="271" y="68" class="math" text-anchor="middle">√3/2</text>
+    <rect x="334" y="52" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="396" y="68" class="math" text-anchor="middle">√2/2</text>
+    <rect x="459" y="52" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="521" y="68" class="math" text-anchor="middle">1/2</text>
+    <rect x="584" y="52" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="646" y="68" class="math" text-anchor="middle">0</text>
+
+    <rect x="4" y="76" width="80" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="44" y="92" class="math" text-anchor="middle">tanθ</text>
+    <rect x="84" y="76" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="146" y="92" class="math" text-anchor="middle">0</text>
+    <rect x="209" y="76" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="271" y="92" class="math" text-anchor="middle">√3/3</text>
+    <rect x="334" y="76" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="396" y="92" class="math" text-anchor="middle">1</text>
+    <rect x="459" y="76" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="521" y="92" class="math" text-anchor="middle">√3</text>
+    <rect x="584" y="76" width="125" height="24" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="0.5"/><text x="646" y="92" class="math" text-anchor="middle">undef</text>
+
+    <text x="146" y="4" class="label" text-anchor="middle">0°</text>
+    <text x="396" y="4" class="label" text-anchor="middle">45°</text>
+    <text x="646" y="4" class="label" text-anchor="middle">90°</text>
+  </g>
+</svg>

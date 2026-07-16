@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Money calculations, profit and loss, and budgeting</title>
+  <desc id="desc">Visual guide to adding and subtracting money amounts with decimal alignment; calculating discounts, sale prices, profit and loss; and a simple budget table showing income and expenses.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 15px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="430" fill="#f8fafc" rx="12"/>
+
+  <text x="30" y="35" class="heading">Money and financial mathematics</text>
+
+  <!-- Adding money -->
+  <g transform="translate(30, 55)">
+    <text x="0" y="0" class="subhead">Adding money: line up the decimal points</text>
+    <text x="0" y="20" class="label">£12.50 + £3.75 + £0.99</text>
+  </g>
+  <g transform="translate(50, 90)">
+    <text x="120" y="0" class="math" text-anchor="end">12.50</text>
+    <text x="120" y="20" class="math" text-anchor="end">3.75</text>
+    <text x="130" y="38" class="math">+   0.99</text>
+    <line x1="70" y1="46" x2="140" y2="46" stroke="#1f2937" stroke-width="2"/>
+    <text x="120" y="64" class="math" text-anchor="end" fill="#2563eb">17.24</text>
+    <text x="130" y="64" class="label" fill="#2563eb">= £17.24</text>
+  </g>
+
+  <!-- Profit and loss -->
+  <text x="30" y="200" class="heading">Profit and loss</text>
+  <g transform="translate(30, 220)">
+    <rect x="0" y="0" width="260" height="80" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="130" y="22" class="subhead" text-anchor="middle" fill="#166534">Profit</text>
+    <text x="15" y="48" class="label">Buy for £30, sell for £45</text>
+    <text x="130" y="72" class="math" text-anchor="middle" fill="#16a34a">Profit = £45 − £30 = £15</text>
+  </g>
+  <g transform="translate(320, 220)">
+    <rect x="0" y="0" width="260" height="80" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="130" y="22" class="subhead" text-anchor="middle" fill="#991b1b">Loss</text>
+    <text x="15" y="48" class="label">Buy for £50, sell for £35</text>
+    <text x="130" y="72" class="math" text-anchor="middle" fill="#dc2626">Loss = £50 − £35 = £15</text>
+  </g>
+  <g transform="translate(610, 220)">
+    <rect x="0" y="0" width="260" height="80" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="130" y="22" class="subhead" text-anchor="middle">Discounts</text>
+    <text x="15" y="48" class="label">Original: £80, 20% off</text>
+    <text x="15" y="70" class="math" fill="#2563eb">Sale price = 0.80 × £80 = £64</text>
+  </g>
+
+  <!-- Budgeting -->
+  <text x="30" y="340" class="heading">Simple budgeting</text>
+  <g transform="translate(30, 360)">
+    <rect x="0" y="0" width="430" height="55" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="215" y="20" class="subhead" text-anchor="middle">Income: £120  −  Expenses: £85  =  Savings: <tspan fill="#16a34a" font-weight="600">£35</tspan></text>
+    <text x="215" y="44" class="label" text-anchor="middle">Budget = plan for how you will spend and save your money</text>
+  </g>
+</svg>

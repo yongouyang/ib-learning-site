@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-labelledby="title desc">
+  <title id="title">Perimeter and area formulas for common 2D shapes</title>
+  <desc id="desc">Visual reference showing a rectangle, square, triangle, parallelogram, and trapezium with their perimeter and area formulas labelled on each shape.</desc>
+
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+    .formula { font-size: 13px; fill: #2563eb; font-weight: 600; }
+    .shape-rect { fill: #dbeafe; stroke: #2563eb; stroke-width: 2.5; }
+    .shape-sq { fill: #dcfce7; stroke: #16a34a; stroke-width: 2.5; }
+    .shape-tri { fill: #fef3c7; stroke: #d97706; stroke-width: 2.5; }
+    .shape-para { fill: #ede9fe; stroke: #7c3aed; stroke-width: 2.5; }
+    .shape-trap { fill: #fee2e2; stroke: #dc2626; stroke-width: 2.5; }
+    .dim { stroke: #6b7280; stroke-width: 1.5; stroke-dasharray: 5,4; }
+    .dim-label { font-size: 14px; fill: #6b7280; font-weight: 500; }
+    .arrowhead { fill: #6b7280; }
+  </style>
+
+  <rect width="900" height="480" fill="#f8fafc" rx="12"/>
+
+  <text x="30" y="35" class="heading">Perimeter and area of 2D shapes</text>
+
+  <!-- Rectangle -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="160" height="100" class="shape-rect"/>
+    <text x="80" y="55" class="label" text-anchor="middle">Rectangle</text>
+    <line x1="-15" y1="0" x2="165" y2="0" class="dim"/>
+    <text x="75" y="-8" class="dim-label" text-anchor="middle">l (length)</text>
+    <line x1="170" y1="0" x2="170" y2="100" class="dim"/>
+    <text x="190" y="54" class="dim-label">w</text>
+    <text x="0" y="130" class="formula">P = 2l + 2w</text>
+    <text x="0" y="148" class="formula">A = l × w</text>
+  </g>
+
+  <!-- Square -->
+  <g transform="translate(250, 55)">
+    <rect x="0" y="0" width="100" height="100" class="shape-sq"/>
+    <text x="50" y="55" class="label" text-anchor="middle">Square</text>
+    <line x1="-10" y1="0" x2="110" y2="0" class="dim"/>
+    <text x="50" y="-8" class="dim-label" text-anchor="middle">s</text>
+    <line x1="-10" y1="0" x2="-10" y2="100" class="dim"/>
+    <text x="-28" y="54" class="dim-label">s</text>
+    <text x="0" y="130" class="formula">P = 4s</text>
+    <text x="0" y="148" class="formula">A = s²</text>
+  </g>
+
+  <!-- Triangle -->
+  <g transform="translate(420, 55)">
+    <polygon points="0,100 150,100 75,0" class="shape-tri"/>
+    <text x="75" y="70" class="label" text-anchor="middle">Triangle</text>
+    <line x1="-10" y1="100" x2="160" y2="100" class="dim"/>
+    <text x="75" y="122" class="dim-label" text-anchor="middle">b (base)</text>
+    <line x1="75" y1="0" x2="75" y2="100" class="dim"/>
+    <text x="85" y="50" class="dim-label">h</text>
+    <text x="0" y="148" class="formula">P = sum of sides</text>
+    <text x="0" y="166" class="formula">A = ½ × b × h</text>
+  </g>
+
+  <!-- Parallelogram -->
+  <g transform="translate(650, 55)">
+    <polygon points="30,0 210,0 180,100 0,100" class="shape-para"/>
+    <text x="105" y="58" class="label" text-anchor="middle">Parallelogram</text>
+    <line x1="-10" y1="100" x2="190" y2="100" class="dim"/>
+    <text x="90" y="122" class="dim-label" text-anchor="middle">b</text>
+    <line x1="105" y1="0" x2="105" y2="100" class="dim"/>
+    <text x="115" y="50" class="dim-label">h</text>
+    <text x="0" y="148" class="formula">P = 2a + 2b</text>
+    <text x="0" y="166" class="formula">A = b × h</text>
+  </g>
+
+  <!-- Trapezium -->
+  <g transform="translate(60, 230)">
+    <polygon points="0,90 180,90 140,0 40,0" class="shape-trap"/>
+    <text x="90" y="55" class="label" text-anchor="middle">Trapezium</text>
+    <line x1="40" y1="-15" x2="150" y2="-15" class="dim"/>
+    <text x="95" y="-22" class="dim-label" text-anchor="middle">a (top)</text>
+    <line x1="-10" y1="90" x2="190" y2="90" class="dim"/>
+    <text x="90" y="115" class="dim-label" text-anchor="middle">b (bottom)</text>
+    <line x1="100" y1="0" x2="100" y2="90" class="dim"/>
+    <text x="112" y="45" class="dim-label">h</text>
+    <text x="0" y="140" class="formula">P = sum of 4 sides</text>
+    <text x="0" y="158" class="formula">A = ½ × (a + b) × h</text>
+  </g>
+
+  <!-- Compound shapes -->
+  <g transform="translate(490, 230)">
+    <text x="0" y="0" class="heading" font-size="16">Compound shapes</text>
+    <text x="0" y="24" class="label">Split into rectangles, find each area, then add.</text>
+    <!-- L-shape split -->
+    <g transform="translate(30, 45)">
+      <rect x="0" y="0" width="120" height="35" fill="#dbeafe" fill-opacity="0.4" stroke="#2563eb" stroke-width="1.5"/>
+      <rect x="0" y="0" width="35" height="80" fill="#dcfce7" fill-opacity="0.4" stroke="#16a34a" stroke-width="1.5"/>
+      <line x1="35" y1="0" x2="35" y2="35" stroke="#6b7280" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="0" y1="35" x2="120" y2="35" stroke="#6b7280" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="60" y="22" class="label" font-size="11" text-anchor="middle" fill="#2563eb">A</text>
+      <text x="17" y="60" class="label" font-size="11" text-anchor="middle" fill="#16a34a">B</text>
+      <text x="60" y="105" class="formula" text-anchor="middle">Total = Area A + Area B</text>
+    </g>
+  </g>
+
+  <!-- Key relationships -->
+  <g transform="translate(660, 230)">
+    <rect x="0" y="0" width="210" height="130" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="105" y="22" class="heading" font-size="14" text-anchor="middle">Key relationships</text>
+    <text x="15" y="48" class="label">• Rectangle: special parallelogram</text>
+    <text x="15" y="70" class="label">  with right angles</text>
+    <text x="15" y="92" class="label">• Square: special rectangle</text>
+    <text x="15" y="114" class="label">  with all sides equal</text>
+  </g>
+
+  <!-- Perimeter vs Area -->
+  <g transform="translate(60, 390)">
+    <rect x="0" y="0" width="180" height="70" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="90" y="22" class="heading" font-size="14" text-anchor="middle">Perimeter ≠ Area</text>
+    <text x="10" y="44" class="label">Perimeter = the fence around a field</text>
+    <text x="10" y="62" class="label">Area = the grass inside the field</text>
+  </g>
+</svg>

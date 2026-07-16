@@ -8,7 +8,12 @@
     {
       "id": "math-simultaneous-myp-sim-n1",
       "heading": "Solving by Elimination",
-      "body": "Add or subtract equations to remove one variable. If coefficients of one variable match (or are opposites), add/subtract directly. If not, multiply one or both equations first. Example: 2x+3y=12 and 4x−3y=6 → add to get 6x=18 → x=3. Substitute back: 2(3)+3y=12 → y=2. Always verify in both equations."
+      "body": "Add or subtract equations to remove one variable. If coefficients of one variable match (or are opposites), add/subtract directly. If not, multiply one or both equations first. Example: 2x+3y=12 and 4x−3y=6 → add to get 6x=18 → x=3. Substitute back: 2(3)+3y=12 → y=2. Always verify in both equations.",
+      "illustration": {
+        "src": "/images/math/math-simultaneous-myp.svg",
+        "alt": "The elimination method where adding equations cancels one variable; elimination with multiplication when coefficients differ; the substitution method; and a graphical interpretation showing solution as the intersection of two lines.",
+        "caption": "Simultaneous equations have two unknowns. Elimination cancels one variable by adding or subtracting. Always check your solution in both original equations."
+      }
     },
     {
       "id": "math-simultaneous-myp-sim-n2",

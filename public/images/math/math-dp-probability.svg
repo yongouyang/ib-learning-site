@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Probability distributions: discrete, continuous and normal</title>
+  <desc id="desc">Comparison of discrete and continuous random variables; the normal distribution with the 68-95-99.7 empirical rule on a bell curve; binomial distribution probability formula; and linear combinations of random variables.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="420" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Probability distributions</text>
+
+  <!-- Discrete vs Continuous -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="410" height="80" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="205" y="20" class="subhead" text-anchor="middle" fill="#1e40af">Discrete: X takes specific values</text>
+    <text x="205" y="46" class="label" text-anchor="middle">ΣP(X=x)=1, E(X)=Σx·P(x), Var(X)=Σ(x−μ)²·P(x)</text>
+    <text x="205" y="66" class="label" text-anchor="middle">Example: rolling a die, number of successes</text>
+  </g>
+  <g transform="translate(460, 55)">
+    <rect x="0" y="0" width="410" height="80" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="205" y="20" class="subhead" text-anchor="middle" fill="#166534">Continuous: X takes any value in interval</text>
+    <text x="205" y="46" class="label" text-anchor="middle">∫f(x)dx=1, P(a&lt;X&lt;b)=∫ₐᵇf(x)dx, E(X)=∫x·f(x)dx</text>
+    <text x="205" y="66" class="label" text-anchor="middle">Example: height, weight, time</text>
+  </g>
+
+  <!-- Normal distribution -->
+  <g transform="translate(30, 160)">
+    <rect x="0" y="0" width="450" height="115" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="225" y="20" class="subhead" text-anchor="middle">Normal distribution: X ~ N(μ, σ²)</text>
+    <g transform="translate(15, 40)">
+      <text x="0" y="0" class="math" fill="#2563eb">The 68-95-99.7 rule:</text>
+      <text x="0" y="20" class="label">μ±σ: 68% | μ±2σ: 95% | μ±3σ: 99.7%</text>
+      <text x="0" y="46" class="math" fill="#dc2626">Standardise: Z = (X−μ)/σ  ~ N(0,1)</text>
+      <text x="0" y="68" class="label">Use GDC normcdf(lower, upper, μ, σ) for probabilities</text>
+      <text x="0" y="90" class="label">Use invNorm(area, μ, σ) for quantiles</text>
+    </g>
+  </g>
+
+  <!-- Binomial -->
+  <g transform="translate(500, 160)">
+    <rect x="0" y="0" width="370" height="115" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="185" y="20" class="subhead" text-anchor="middle">Binomial: X ~ B(n, p)</text>
+    <g transform="translate(15, 40)">
+      <text x="0" y="0" class="math" fill="#d97706">P(X=k) = ⁿCₖ pᵏ (1−p)ⁿ⁻ᵏ</text>
+      <text x="0" y="24" class="label">E(X) = np,  Var(X) = np(1−p)</text>
+      <text x="0" y="50" class="label">n trials, each success prob p, independent</text>
+      <text x="0" y="76" class="label">Use GDC binompdf/binomcdf</text>
+    </g>
+  </g>
+
+  <!-- Linear combinations -->
+  <g transform="translate(30, 305)">
+    <rect x="0" y="0" width="840" height="65" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">Linear combinations</text>
+    <text x="420" y="46" class="label" text-anchor="middle">E(aX+bY) = aE(X)+bE(Y)  |  Var(aX+bY) = a²Var(X)+b²Var(Y) (independent)  |  X̄ ~ N(μ, σ²/n) by CLT</text>
+  </g>
+</svg>

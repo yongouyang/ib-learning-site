@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Descriptive statistics: measures of centre and spread</title>
+  <desc id="desc">Visual comparison of mean, median and mode on a skewed distribution; box-and-whisker plot with five-number summary; standard deviation formula for sample and population; and variance explained as average squared deviation.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="430" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Descriptive statistics</text>
+
+  <!-- Measures of centre -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="420" height="110" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="210" y="22" class="subhead" text-anchor="middle">Measures of centre</text>
+    <g transform="translate(15, 40)">
+      <text x="0" y="0" class="math" fill="#2563eb">Mean (x̄): sum of all values ÷ n</text>
+      <text x="0" y="18" class="label">Sensitive to outliers. Best for symmetric data.</text>
+      <text x="0" y="40" class="math" fill="#16a34a">Median: middle value (or avg of two middle)</text>
+      <text x="0" y="58" class="label">Resistant to outliers. Best for skewed data.</text>
+      <text x="0" y="78" class="math" fill="#d97706">Mode: most frequent value(s)</text>
+    </g>
+  </g>
+
+  <!-- Box plot -->
+  <g transform="translate(470, 55)">
+    <rect x="0" y="0" width="400" height="110" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="200" y="18" class="subhead" text-anchor="middle">Five-number summary</text>
+    <g transform="translate(15, 35)">
+      <line x1="0" y1="30" x2="350" y2="30" stroke="#94a3b8" stroke-width="1"/>
+      <!-- Box from Q1 to Q3 -->
+      <rect x="80" y="10" width="160" height="40" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <!-- Median line -->
+      <line x1="170" y1="10" x2="170" y2="50" stroke="#dc2626" stroke-width="2"/>
+      <!-- Whiskers -->
+      <line x1="25" y1="30" x2="80" y2="30" stroke="#2563eb" stroke-width="2"/>
+      <line x1="240" y1="30" x2="340" y2="30" stroke="#2563eb" stroke-width="2"/>
+      <!-- Labels -->
+      <text x="25" y="70" class="label" text-anchor="middle">Min</text>
+      <text x="80" y="70" class="label" text-anchor="middle">Q1</text>
+      <text x="170" y="70" class="label" text-anchor="middle" fill="#dc2626">Med</text>
+      <text x="240" y="70" class="label" text-anchor="middle">Q3</text>
+      <text x="340" y="70" class="label" text-anchor="middle">Max</text>
+    </g>
+  </g>
+
+  <!-- Standard deviation -->
+  <g transform="translate(30, 190)">
+    <rect x="0" y="0" width="840" height="105" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">Standard deviation and variance</text>
+    <g transform="translate(15, 42)">
+      <text x="0" y="0" class="label">Variance = average squared deviation from the mean</text>
+      <text x="0" y="24" class="math" fill="#d97706">s² = Σ(xi−x̄)²/(n−1)  (sample)    or    σ² = Σ(xi−μ)²/n  (population)</text>
+      <text x="0" y="50" class="label">Standard deviation s = √(variance)  —  measure of spread</text>
+      <text x="0" y="72" class="label" fill="#6b7280">IQR = Q3 − Q1 (spread of middle 50%). Outlier: &lt; Q1−1.5×IQR or &gt; Q3+1.5×IQR</text>
+    </g>
+  </g>
+
+  <!-- Distribution shapes -->
+  <g transform="translate(30, 315)">
+    <rect x="0" y="0" width="840" height="60" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">Distribution shapes</text>
+    <text x="420" y="46" class="label" text-anchor="middle">Symmetric: mean ≈ median ≈ mode | Right-skewed: mode &lt; median &lt; mean | Left-skewed: mean &lt; median &lt; mode</text>
+  </g>
+</svg>

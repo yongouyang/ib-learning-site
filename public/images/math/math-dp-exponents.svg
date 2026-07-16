@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-labelledby="title desc">
+  <title id="title">Exponents and logarithms: laws and solving equations</title>
+  <desc id="desc">Complete reference for all exponent laws with algebraic examples; the definition of logarithm as the inverse of exponentiation; log laws matching exponent laws; and solving exponential equations by taking logs of both sides.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="400" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Exponents and logarithms</text>
+
+  <!-- Exponent laws -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="420" height="160" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="210" y="20" class="subhead" text-anchor="middle" fill="#1e40af">Exponent laws</text>
+    <g transform="translate(15, 38)">
+      <text x="0" y="0" class="math">aᵐ × aⁿ = aᵐ⁺ⁿ</text>
+      <text x="0" y="22" class="math">aᵐ ÷ aⁿ = aᵐ⁻ⁿ</text>
+      <text x="0" y="44" class="math">(aᵐ)ⁿ = aᵐⁿ</text>
+      <text x="0" y="66" class="math">a⁰ = 1 (a≠0)</text>
+      <text x="0" y="88" class="math">a⁻ⁿ = 1/aⁿ</text>
+      <text x="0" y="110" class="math">a^(¹/ⁿ) = ⁿ√a</text>
+    </g>
+  </g>
+
+  <!-- Log laws -->
+  <g transform="translate(470, 55)">
+    <rect x="0" y="0" width="400" height="160" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="200" y="20" class="subhead" text-anchor="middle" fill="#166534">Logarithm laws</text>
+    <g transform="translate(15, 38)">
+      <text x="0" y="0" class="label">Definition: logₐ(b)=c ⇔ aᶜ=b</text>
+      <text x="0" y="22" class="math">logₐ(xy) = logₐx + logₐy</text>
+      <text x="0" y="44" class="math">logₐ(x/y) = logₐx − logₐy</text>
+      <text x="0" y="66" class="math">logₐ(xⁿ) = n·logₐx</text>
+      <text x="0" y="88" class="math">logₐ(1) = 0 ; logₐ(a) = 1</text>
+      <text x="0" y="110" class="math">Change of base: logₐb = ln b/ln a</text>
+    </g>
+  </g>
+
+  <!-- Solving -->
+  <g transform="translate(30, 240)">
+    <rect x="0" y="0" width="840" height="65" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="420" y="20" class="subhead" text-anchor="middle">Solving exponential equations</text>
+    <text x="420" y="48" class="label" text-anchor="middle">Take natural log of both sides: 3ˣ = 7 → ln(3ˣ) = ln7 → x·ln3 = ln7 → x = ln7/ln3 ≈ 1.77</text>
+  </g>
+
+  <!-- Common values -->
+  <g transform="translate(30, 330)">
+    <rect x="0" y="0" width="840" height="50" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="420" y="20" class="subhead" text-anchor="middle">Common values: ln 1 = 0 | ln e = 1 | e^(ln x) = x | log₁₀ 100 = 2 | log₁₀ 0.01 = −2</text>
+  </g>
+</svg>

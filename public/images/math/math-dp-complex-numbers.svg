@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Complex numbers: Cartesian form, Argand diagram and operations</title>
+  <desc id="desc">The Argand diagram with a complex number plotted as a point; Cartesian and polar forms with modulus and argument; addition and multiplication of complex numbers; and the complex conjugate shown as a reflection across the real axis.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Complex numbers</text>
+
+  <!-- What is i -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="350" height="65" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="175" y="22" class="subhead" text-anchor="middle">i = √(−1) → i² = −1</text>
+    <text x="175" y="44" class="label" text-anchor="middle">z = a + bi: a = real part, b = imaginary part</text>
+  </g>
+
+  <!-- Argand diagram -->
+  <g transform="translate(30, 140)">
+    <text x="0" y="0" class="subhead">Argand diagram: z = 3 + 4i</text>
+    <g transform="translate(20, 15)">
+      <line x1="0" y1="120" x2="220" y2="120" stroke="#374151" stroke-width="1.5"/>
+      <polygon points="220,120 213,116 213,124" fill="#374151"/>
+      <line x1="100" y1="10" x2="100" y2="120" stroke="#374151" stroke-width="1.5"/>
+      <polygon points="100,10 96,17 104,17" fill="#374151"/>
+      <text x="215" y="116" class="label" font-size="10">Re</text>
+      <text x="105" y="20" class="label" font-size="10">Im</text>
+      <!-- Point at (3,4) scaled -->
+      <circle cx="160" cy="40" r="5" fill="#2563eb"/>
+      <text x="170" y="38" class="math" fill="#2563eb">z=3+4i</text>
+      <line x1="100" y1="120" x2="160" y2="40" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="135" y="80" class="label" fill="#dc2626">|z|=5</text>
+      <!-- Conjugate -->
+      <circle cx="160" cy="200" r="5" fill="#16a34a"/>
+      <text x="170" y="205" class="label" fill="#16a34a">z*=3−4i</text>
+      <line x1="160" y1="40" x2="160" y2="200" stroke="#6b7280" stroke-width="0.5" stroke-dasharray="2,2"/>
+    </g>
+  </g>
+
+  <!-- Polar form -->
+  <g transform="translate(360, 55)">
+    <rect x="0" y="0" width="510" height="180" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="255" y="22" class="subhead" text-anchor="middle">Key formulas</text>
+    <g transform="translate(15, 42)">
+      <text x="0" y="0" class="math" fill="#dc2626">Modulus: |z| = √(a²+b²)</text>
+      <text x="0" y="22" class="label">Distance from origin, e.g. |3+4i| = √(9+16) = 5</text>
+      <text x="0" y="50" class="math" fill="#d97706">Argument: arg(z) = tan⁻¹(b/a)</text>
+      <text x="0" y="72" class="label">Angle from positive real axis (in radians)</text>
+      <text x="0" y="100" class="math" fill="#16a34a">Conjugate: if z = a+bi, then z* = a−bi</text>
+      <text x="0" y="122" class="label">z × z* = a²+b² = |z|² (always real!)</text>
+      <text x="0" y="150" class="math" fill="#2563eb">Adding: (a+bi)+(c+di) = (a+c)+(b+d)i</text>
+      <text x="0" y="170" class="math" fill="#2563eb">Multiplying: (a+bi)(c+di) = (ac−bd)+(ad+bc)i</text>
+    </g>
+  </g>
+
+  <!-- De Moivre -->
+  <g transform="translate(30, 340)">
+    <rect x="0" y="0" width="840" height="45" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle" fill="#7c3aed">De Moivre's Theorem: (r(cosθ + i sinθ))ⁿ = rⁿ(cos(nθ) + i sin(nθ))</text>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Sequences and series: arithmetic, geometric and infinite sums</title>
+  <desc id="desc">Arithmetic sequence with common difference d and nth term formula; geometric sequence with common ratio r; sum formulas for finite arithmetic and geometric series; and infinite geometric series sum when |r|&lt;1.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="420" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Sequences and series</text>
+
+  <!-- Arithmetic -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="420" height="160" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="210" y="22" class="subhead" text-anchor="middle" fill="#1e40af">Arithmetic: constant difference d</text>
+    <g transform="translate(15, 42)">
+      <text x="0" y="0" class="label">Example: 3, 7, 11, 15, ...  (d = 4)</text>
+      <text x="0" y="26" class="math" fill="#2563eb">uₙ = u₁ + (n−1)d</text>
+      <text x="0" y="50" class="label">nth term = first term + (n−1)×common difference</text>
+      <text x="0" y="80" class="math" fill="#16a34a">Sₙ = n/2 (u₁ + uₙ) = n/2 [2u₁ + (n−1)d]</text>
+      <text x="0" y="104" class="label">Sum = number of terms × average of first and last</text>
+      <text x="0" y="132" class="label" fill="#6b7280">Useful for simple interest problems</text>
+    </g>
+  </g>
+
+  <!-- Geometric -->
+  <g transform="translate(470, 55)">
+    <rect x="0" y="0" width="400" height="160" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="200" y="22" class="subhead" text-anchor="middle" fill="#166534">Geometric: constant ratio r</text>
+    <g transform="translate(15, 42)">
+      <text x="0" y="0" class="label">Example: 2, 6, 18, 54, ...  (r = 3)</text>
+      <text x="0" y="26" class="math" fill="#16a34a">uₙ = u₁ × rⁿ⁻¹</text>
+      <text x="0" y="50" class="label">nth term = first term × ratioⁿ⁻¹</text>
+      <text x="0" y="80" class="math" fill="#d97706">Sₙ = u₁(1−rⁿ)/(1−r)  for r ≠ 1</text>
+      <text x="0" y="104" class="label">Sum of first n terms</text>
+      <text x="0" y="132" class="label" fill="#6b7280">Useful for compound interest and growth</text>
+    </g>
+  </g>
+
+  <!-- Infinite geometric -->
+  <g transform="translate(30, 240)">
+    <rect x="0" y="0" width="840" height="75" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">Infinite geometric series (converges when |r| &lt; 1)</text>
+    <text x="420" y="52" class="math" text-anchor="middle" fill="#d97706">S∞ = u₁ / (1−r)</text>
+    <text x="420" y="70" class="label" text-anchor="middle">The sum approaches a finite limit. Example: 4 + 2 + 1 + 1/2 + ... → S∞ = 4/(1−0.5) = 8</text>
+  </g>
+
+  <!-- Sigma notation -->
+  <g transform="translate(30, 340)">
+    <rect x="0" y="0" width="840" height="40" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="420" y="25" class="math" text-anchor="middle" fill="#7c3aed">Sigma notation: Σₙ₌₁⁵ (2n+1) = 3+5+7+9+11 = 35  |  Σₙ₌₁¹⁰ aₙ = a₁+a₂+...+a₁₀</text>
+  </g>
+</svg>

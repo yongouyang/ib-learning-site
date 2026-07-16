@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-labelledby="title desc">
+  <title id="title">Kinematics: displacement, velocity and acceleration with calculus</title>
+  <desc id="desc">The relationships between displacement s(t), velocity v(t)=s'(t) and acceleration a(t)=v'(t)=s''(t); SUVAT equations for constant acceleration; and interpreting motion graphs including distance vs displacement.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="400" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Kinematics</text>
+
+  <!-- Calculus chain -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="840" height="65" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">The calculus chain</text>
+    <text x="420" y="48" class="math" text-anchor="middle" fill="#2563eb">Differentiate: s(t) → v(t) → a(t)    |    Integrate: a(t) → v(t) → s(t)</text>
+  </g>
+
+  <!-- Definitions -->
+  <g transform="translate(30, 145)">
+    <rect x="0" y="0" width="270" height="120" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="135" y="20" class="subhead" text-anchor="middle">v(t) = s'(t) = ds/dt</text>
+    <text x="135" y="46" class="label" text-anchor="middle">Velocity = rate of change of displacement</text>
+    <text x="135" y="72" class="label" text-anchor="middle">Speed = |v(t)| (magnitude only)</text>
+    <text x="135" y="98" class="label" text-anchor="middle">At rest: v(t) = 0</text>
+  </g>
+  <g transform="translate(315, 145)">
+    <rect x="0" y="0" width="270" height="120" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="135" y="20" class="subhead" text-anchor="middle">a(t) = v'(t) = s''(t)</text>
+    <text x="135" y="46" class="label" text-anchor="middle">Acceleration = rate of change of velocity</text>
+    <text x="135" y="72" class="label" text-anchor="middle">a&gt;0: speeding up (in + direction)</text>
+    <text x="135" y="98" class="label" text-anchor="middle">a&lt;0: slowing down / decelerating</text>
+  </g>
+  <g transform="translate(600, 145)">
+    <rect x="0" y="0" width="270" height="120" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="135" y="20" class="subhead" text-anchor="middle">Total distance</text>
+    <text x="135" y="48" class="label" text-anchor="middle">Total distance = ∫|v(t)| dt</text>
+    <text x="135" y="76" class="label" text-anchor="middle">Find where v(t)=0 to split into intervals where direction is constant.</text>
+  </g>
+
+  <!-- SUVAT -->
+  <g transform="translate(30, 290)">
+    <rect x="0" y="0" width="840" height="95" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">SUVAT (constant acceleration only)</text>
+    <g transform="translate(15, 40)">
+      <text x="0" y="0" class="math">s = displacement, u = initial velocity, v = final velocity</text>
+      <text x="0" y="20" class="math">a = acceleration, t = time</text>
+      <text x="0" y="46" class="math" fill="#7c3aed">v = u + at  |  s = ut + ½at²  |  s = ½(u+v)t  |  v² = u² + 2as  |  s = vt − ½at²</text>
+    </g>
+  </g>
+</svg>

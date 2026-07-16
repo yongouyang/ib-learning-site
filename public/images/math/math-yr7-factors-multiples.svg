@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="title desc">
+  <title id="title">Factors, multiples, primes, HCF and LCM</title>
+  <desc id="desc">Factor pairs shown as rectangular arrays; a factor tree for 72; a Venn diagram for finding HCF and LCM of 24 and 36; prime numbers highlighted on a grid; and a Sieve of Eratosthenes visual.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+    .prime { fill: #dc2626; font-weight: 700; }
+    .grid-cell { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1; }
+    .grid-prime { fill: #fee2e2; stroke: #dc2626; stroke-width: 1.5; }
+  </style>
+  <rect width="900" height="460" fill="#f8fafc" rx="12"/>
+
+  <text x="30" y="35" class="heading">Factors, multiples and primes</text>
+
+  <!-- Factors: 24 -->
+  <g transform="translate(30, 55)">
+    <text x="0" y="0" class="subhead">Factors of 24 (numbers that divide 24 exactly)</text>
+    <text x="0" y="20" class="label">Factor pairs multiply to make 24:</text>
+    <rect x="0" y="30" width="60" height="28" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="30" y="49" class="math" text-anchor="middle">1×24</text>
+    <rect x="70" y="30" width="60" height="28" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="100" y="49" class="math" text-anchor="middle">2×12</text>
+    <rect x="140" y="30" width="60" height="28" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="170" y="49" class="math" text-anchor="middle">3×8</text>
+    <rect x="210" y="30" width="60" height="28" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="240" y="49" class="math" text-anchor="middle">4×6</text>
+    <text x="0" y="78" class="math" fill="#2563eb">Factors: 1, 2, 3, 4, 6, 8, 12, 24</text>
+  </g>
+
+  <!-- Multiples -->
+  <g transform="translate(30, 125)">
+    <text x="0" y="0" class="subhead">Multiples of 7 (numbers in the 7 times table)</text>
+    <rect x="0" y="10" width="45" height="24" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/><text x="22" y="26" class="math" text-anchor="middle" fill="#16a34a">7</text>
+    <rect x="50" y="10" width="45" height="24" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/><text x="72" y="26" class="math" text-anchor="middle" fill="#16a34a">14</text>
+    <rect x="100" y="10" width="45" height="24" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/><text x="122" y="26" class="math" text-anchor="middle" fill="#16a34a">21</text>
+    <rect x="150" y="10" width="45" height="24" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/><text x="172" y="26" class="math" text-anchor="middle" fill="#16a34a">28</text>
+    <rect x="200" y="10" width="45" height="24" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/><text x="222" y="26" class="math" text-anchor="middle" fill="#16a34a">35</text>
+    <text x="250" y="26" class="label">...</text>
+  </g>
+
+  <!-- Prime numbers -->
+  <text x="30" y="195" class="subhead">Prime numbers (exactly 2 factors: 1 and itself)</text>
+  <g transform="translate(30, 210)">
+    <rect x="0" y="0" width="45" height="24" class="grid-prime" rx="3"/><text x="22" y="16" class="math prime" text-anchor="middle" font-size="12">2</text>
+    <rect x="45" y="0" width="45" height="24" class="grid-prime" rx="3"/><text x="67" y="16" class="math prime" text-anchor="middle" font-size="12">3</text>
+    <rect x="90" y="0" width="45" height="24" class="grid-cell" rx="1"/><text x="112" y="16" class="math" text-anchor="middle" font-size="12">4</text>
+    <rect x="135" y="0" width="45" height="24" class="grid-prime" rx="3"/><text x="157" y="16" class="math prime" text-anchor="middle" font-size="12">5</text>
+    <rect x="180" y="0" width="45" height="24" class="grid-cell" rx="1"/><text x="202" y="16" class="math" text-anchor="middle" font-size="12">6</text>
+    <rect x="225" y="0" width="45" height="24" class="grid-prime" rx="3"/><text x="247" y="16" class="math prime" text-anchor="middle" font-size="12">7</text>
+    <rect x="270" y="0" width="45" height="24" class="grid-cell" rx="1"/><text x="292" y="16" class="math" text-anchor="middle" font-size="12">8</text>
+    <rect x="315" y="0" width="45" height="24" class="grid-cell" rx="1"/><text x="337" y="16" class="math" text-anchor="middle" font-size="12">9</text>
+    <rect x="360" y="0" width="45" height="24" class="grid-cell" rx="1"/><text x="382" y="16" class="math" text-anchor="middle" font-size="12">10</text>
+    <text x="0" y="40" class="label">Red = prime (only factors are 1 and itself). Note: 1 is NOT prime.</text>
+  </g>
+
+  <!-- HCF and LCM -->
+  <text x="30" y="280" class="heading">HCF and LCM</text>
+  <g transform="translate(30, 300)">
+    <rect x="0" y="0" width="420" height="100" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="210" y="20" class="subhead" text-anchor="middle">HCF (Highest Common Factor) of 24 and 36</text>
+    <text x="15" y="44" class="label">Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24</text>
+    <text x="15" y="64" class="label">Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36</text>
+    <text x="210" y="88" class="math" fill="#2563eb" text-anchor="middle">Common factors: 1, 2, 3, 4, 6, 12 → HCF = 12</text>
+  </g>
+  <g transform="translate(470, 300)">
+    <rect x="0" y="0" width="400" height="100" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="200" y="20" class="subhead" text-anchor="middle">LCM (Lowest Common Multiple) of 4 and 6</text>
+    <text x="15" y="44" class="label">Multiples of 4: 4, 8, 12, 16, 20, 24...</text>
+    <text x="15" y="64" class="label">Multiples of 6: 6, 12, 18, 24...</text>
+    <text x="200" y="88" class="math" fill="#d97706" text-anchor="middle">Common multiples: 12, 24... → LCM = 12</text>
+  </g>
+
+  <!-- Product of primes -->
+  <g transform="translate(30, 420)">
+    <rect x="0" y="0" width="840" height="28" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="420" y="19" class="math" text-anchor="middle" fill="#7c3aed">72 = 2 × 2 × 2 × 3 × 3 = 2³ × 3²  ← product of prime factors</text>
+  </g>
+</svg>

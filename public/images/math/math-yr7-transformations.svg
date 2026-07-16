@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="title desc">
+  <title id="title">Geometric transformations: reflection, rotation, translation and enlargement</title>
+  <desc id="desc">Visual comparison of the four transformations on a coordinate grid: a triangle reflected across the y-axis, rotated 90° around the origin, translated by a vector, and enlarged by scale factor 2 with centre marked.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 14px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 12px; fill: #374151; }
+    .math { font-size: 13px; fill: #111827; font-weight: 600; }
+    .grid { stroke: #e2e8f0; stroke-width: 0.5; }
+    .axis { stroke: #94a3b8; stroke-width: 1.5; }
+    .shape-orig { fill: #dbeafe; stroke: #2563eb; stroke-width: 2; fill-opacity: 0.6; }
+    .shape-new { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; fill-opacity: 0.6; }
+    .mirror { stroke: #dc2626; stroke-width: 2; stroke-dasharray: 8,4; }
+    .centre { fill: #dc2626; }
+  </style>
+  <rect width="900" height="460" fill="#f8fafc" rx="12"/>
+
+  <text x="30" y="30" class="heading">Transformations</text>
+
+  <!-- 1. Reflection -->
+  <g transform="translate(15, 45)">
+    <rect x="0" y="0" width="210" height="190" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+    <text x="105" y="14" class="subhead" text-anchor="middle">Reflection</text>
+    <!-- Coordinate grid -->
+    <g transform="translate(10, 20)">
+      <line x1="0" y1="0" x2="0" y2="150" class="axis"/>
+      <line x1="-60" y1="80" x2="120" y2="80" class="axis"/>
+      <!-- Mirror line y-axis -->
+      <line x1="0" y1="0" x2="0" y2="150" class="mirror"/>
+      <!-- Original triangle right of y-axis -->
+      <polygon points="80,20 130,70 80,70" class="shape-orig"/>
+      <!-- Reflected triangle left of y-axis -->
+      <polygon points="-80,20 -130,70 -80,70" class="shape-new"/>
+      <text x="80" y="90" class="label" text-anchor="middle">Original</text>
+      <text x="-80" y="90" class="label" text-anchor="middle" fill="#16a34a">Image</text>
+    </g>
+    <text x="105" y="182" class="label" text-anchor="middle">Flips shape over a mirror line</text>
+  </g>
+
+  <!-- 2. Rotation -->
+  <g transform="translate(235, 45)">
+    <rect x="0" y="0" width="210" height="190" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+    <text x="105" y="14" class="subhead" text-anchor="middle">Rotation</text>
+    <g transform="translate(10, 20)">
+      <line x1="0" y1="0" x2="0" y2="150" class="axis"/>
+      <line x1="-20" y1="80" x2="100" y2="80" class="axis"/>
+      <circle cx="0" cy="80" r="4" class="centre"/>
+      <text x="8" y="76" class="label" font-size="10" fill="#dc2626">O</text>
+      <!-- Original triangle -->
+      <polygon points="20,20 70,20 20,70" class="shape-orig"/>
+      <!-- Rotated 90° clockwise -->
+      <polygon points="20,-20 20,-70 70,-20" class="shape-new"/>
+    </g>
+    <text x="105" y="182" class="label" text-anchor="middle">Turns shape around a point</text>
+  </g>
+
+  <!-- 3. Translation -->
+  <g transform="translate(455, 45)">
+    <rect x="0" y="0" width="210" height="190" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+    <text x="105" y="14" class="subhead" text-anchor="middle">Translation</text>
+    <g transform="translate(10, 20)">
+      <line x1="0" y1="0" x2="0" y2="150" class="axis"/>
+      <line x1="0" y1="80" x2="160" y2="80" class="axis"/>
+      <polygon points="20,60 70,60 20,20" class="shape-orig"/>
+      <polygon points="100,40 150,40 100,0" class="shape-new"/>
+      <!-- Vector arrow -->
+      <line x1="45" y1="40" x2="110" y2="20" stroke="#d97706" stroke-width="2"/>
+      <polygon points="110,20 105,14 115,15" fill="#d97706"/>
+      <text x="80" y="28" class="label" fill="#d97706">(6,-2)</text>
+    </g>
+    <text x="105" y="182" class="label" text-anchor="middle">Slides shape by a vector</text>
+  </g>
+
+  <!-- 4. Enlargement -->
+  <g transform="translate(675, 45)">
+    <rect x="0" y="0" width="210" height="190" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" rx="4"/>
+    <text x="105" y="14" class="subhead" text-anchor="middle">Enlargement</text>
+    <g transform="translate(10, 20)">
+      <line x1="0" y1="0" x2="0" y2="150" class="axis"/>
+      <line x1="0" y1="80" x2="160" y2="80" class="axis"/>
+      <circle cx="0" cy="80" r="4" class="centre"/>
+      <!-- Original small triangle -->
+      <polygon points="20,60 30,60 20,40" class="shape-orig"/>
+      <!-- Enlarged x2 -->
+      <polygon points="40,40 70,40 40,-20" class="shape-new"/>
+      <!-- Ray lines -->
+      <line x1="0" y1="80" x2="55" y2="60" stroke="#6b7280" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="0" y1="80" x2="55" y2="10" stroke="#6b7280" stroke-width="1" stroke-dasharray="3,3"/>
+    </g>
+    <text x="105" y="182" class="label" text-anchor="middle">Changes size by scale factor</text>
+  </g>
+
+  <!-- Summary -->
+  <g transform="translate(30, 255)">
+    <rect x="0" y="0" width="855" height="180" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="427" y="22" class="heading" font-size="16" text-anchor="middle">Describing transformations</text>
+    <g transform="translate(20, 42)">
+      <text x="0" y="0" class="math" fill="#dc2626">Reflection: mirror line</text>
+      <text x="0" y="20" class="label">e.g. "reflect in the y-axis" or "reflect in the line y = x"</text>
+      <text x="0" y="48" class="math" fill="#2563eb">Rotation: centre, angle, direction</text>
+      <text x="0" y="68" class="label">e.g. "rotate 90° clockwise about (0,0)"</text>
+      <text x="0" y="96" class="math" fill="#d97706">Translation: vector</text>
+      <text x="0" y="116" class="label">e.g. "translate by (3,-2)" — move 3 right, 2 down</text>
+      <text x="0" y="144" class="math" fill="#16a34a">Enlargement: centre + scale factor</text>
+      <text x="0" y="164" class="label">e.g. "enlarge by scale factor 2 about (0,0)"</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Pythagoras' theorem: a² + b² = c²</title>
+  <desc id="desc">A right-angled triangle with squares drawn on each side demonstrating a²+b²=c²; worked examples finding the hypotenuse and finding a shorter side; Pythagorean triples; and application to coordinate geometry distance.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 15px; fill: #111827; font-weight: 600; }
+    .triangle { fill: #dbeafe; stroke: #2563eb; stroke-width: 2; fill-opacity: 0.5; }
+    .sq-a { fill: #fef3c7; stroke: #d97706; stroke-width: 1.5; fill-opacity: 0.5; }
+    .sq-b { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; fill-opacity: 0.5; }
+    .sq-c { fill: #fee2e2; stroke: #dc2626; stroke-width: 1.5; fill-opacity: 0.5; }
+  </style>
+  <rect width="900" height="420" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Pythagoras' theorem</text>
+
+  <!-- Theorem with squares -->
+  <g transform="translate(50, 60)">
+    <!-- Triangle -->
+    <polygon points="0,140 140,140 0,40" class="triangle"/>
+    <text x="75" y="95" font-size="18" font-family="system-ui, sans-serif" fill="#dc2626" font-weight="700" text-anchor="middle">c</text>
+    <text x="-12" y="95" class="math" fill="#d97706">a</text>
+    <text x="65" y="155" class="math" fill="#16a34a">b</text>
+
+    <!-- Right angle marker -->
+    <polyline points="10,140 10,130 0,130" fill="none" stroke="#1f2937" stroke-width="1.5"/>
+
+    <!-- Square on a -->
+    <rect x="-36" y="60" width="36" height="80" class="sq-a"/>
+    <text x="-18" y="105" class="label" fill="#d97706" text-anchor="middle" font-size="11">a²</text>
+
+    <!-- Square on b -->
+    <rect x="0" y="140" width="140" height="36" class="sq-b"/>
+    <text x="70" y="164" class="label" fill="#16a34a" text-anchor="middle" font-size="11">b²</text>
+
+    <!-- Square on c -->
+    <g transform="translate(35, -5) rotate(45, 35, 30)">
+      <rect x="0" y="-106" width="106" height="106" class="sq-c"/>
+      <text x="53" y="-50" class="label" fill="#dc2626" text-anchor="middle" font-size="11">c²</text>
+    </g>
+  </g>
+
+  <!-- Formula and examples -->
+  <g transform="translate(250, 55)">
+    <rect x="0" y="0" width="620" height="150" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="310" y="22" class="heading" font-size="18" text-anchor="middle">a² + b² = c²</text>
+    <text x="310" y="42" class="label" text-anchor="middle">c = hypotenuse (longest side, opposite the right angle)</text>
+
+    <g transform="translate(15, 62)">
+      <text x="0" y="0" class="subhead" fill="#dc2626">Find the hypotenuse:</text>
+      <text x="0" y="22" class="math">a=3, b=4 → c² = 3²+4² = 9+16 = 25 → c = √25 = 5</text>
+
+      <text x="0" y="50" class="subhead" fill="#2563eb">Find a shorter side:</text>
+      <text x="0" y="72" class="math">c=13, b=12 → a² = 13²−12² = 169−144 = 25 → a = √25 = 5</text>
+    </g>
+  </g>
+
+  <!-- Pythagorean triples -->
+  <g transform="translate(30, 275)">
+    <rect x="0" y="0" width="840" height="55" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle" fill="#166534">Pythagorean triples (whole number solutions — memorise these!)</text>
+    <text x="420" y="46" class="label" text-anchor="middle" fill="#16a34a">(3,4,5)  |  (5,12,13)  |  (7,24,25)  |  (8,15,17)  |  (9,40,41)  —  ALL multiples also work, e.g. (6,8,10) = 2×(3,4,5)</text>
+  </g>
+
+  <!-- Applications -->
+  <g transform="translate(30, 348)">
+    <rect x="0" y="0" width="840" height="55" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">Applications</text>
+    <text x="420" y="46" class="label" text-anchor="middle">Is a triangle right-angled? Check if a²+b²=c²  |  Distance between points (x₁,y₁) and (x₂,y₂): d = √((x₂−x₁)² + (y₂−y₁)²)  |  3D Pythagoras: a²+b²+c² diagonal of a cuboid</text>
+  </g>
+</svg>

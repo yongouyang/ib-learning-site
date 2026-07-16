@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 410" role="img" aria-labelledby="title desc">
+  <title id="title">Powers, roots and the laws of indices</title>
+  <desc id="desc">Visual explanation of index notation with base and exponent; the five laws of indices with examples; square and cube roots; negative and fractional indices; and standard form notation.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="410" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Powers, roots and indices</text>
+
+  <!-- Why powers -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="350" height="55" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="175" y="22" class="subhead" text-anchor="middle">Why powers? They're shortcuts for repeated multiplication</text>
+    <text x="175" y="46" class="label" text-anchor="middle">2×2×2×2 = 2⁴  (the exponent 4 means multiply 2 by itself 4 times)</text>
+  </g>
+
+  <!-- Laws of indices -->
+  <text x="30" y="142" class="subhead">The five laws of indices</text>
+  <g transform="translate(30, 162)">
+    <rect x="0" y="0" width="840" height="240" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <g transform="translate(15, 20)">
+      <text x="0" y="0" class="math">1. Multiplication: aᵐ × aⁿ = aᵐ⁺ⁿ</text>
+      <text x="0" y="18" class="label" fill="#6b7280">Example: x² × x³ = x²⁺³ = x⁵</text>
+      <text x="0" y="46" class="math">2. Division: aᵐ ÷ aⁿ = aᵐ⁻ⁿ</text>
+      <text x="0" y="64" class="label" fill="#6b7280">Example: x⁷ ÷ x³ = x⁷⁻³ = x⁴</text>
+      <text x="0" y="92" class="math">3. Power of a power: (aᵐ)ⁿ = aᵐˣⁿ</text>
+      <text x="0" y="110" class="label" fill="#6b7280">Example: (x²)³ = x²ˣ³ = x⁶</text>
+      <text x="0" y="138" class="math">4. Zero index: a⁰ = 1 (for a ≠ 0)</text>
+      <text x="0" y="156" class="label" fill="#6b7280">Examples: 5⁰ = 1, x⁰ = 1</text>
+      <text x="0" y="184" class="math">5. Negative index: a⁻ⁿ = 1/aⁿ</text>
+      <text x="0" y="202" class="label" fill="#6b7280">Example: 2⁻³ = 1/2³ = 1/8</text>
+    </g>
+
+    <g transform="translate(350, 20)">
+      <text x="0" y="0" class="subhead">Roots (inverse of powers)</text>
+      <text x="0" y="24" class="math">√a = a^(¹/₂) — square root</text>
+      <text x="0" y="44" class="math">∛a = a^(¹/₃) — cube root</text>
+      <text x="0" y="72" class="math" fill="#2563eb">Fractional indices:</text>
+      <text x="0" y="92" class="label">a^(¹/ⁿ) = ⁿ√a  (the nth root)</text>
+      <text x="0" y="118" class="math" fill="#d97706">Standard form:</text>
+      <text x="0" y="138" class="label">A × 10ⁿ where 1 ≤ A &lt; 10</text>
+      <text x="0" y="160" class="label">Example: 6,400,000 = 6.4 × 10⁶</text>
+      <text x="0" y="180" class="label">Example: 0.00037 = 3.7 × 10⁻⁴</text>
+    </g>
+  </g>
+</svg>

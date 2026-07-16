@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Algebra basics: variables, expressions and simplifying</title>
+  <desc id="desc">A visual showing how algebra uses letters for unknown numbers; collecting like terms by grouping x-terms, y-terms and constants; expanding brackets with the distributive law; and the balance method for simple equations.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 15px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Algebra basics</text>
+
+  <!-- Variables are placeholders -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="380" height="70" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="190" y="20" class="subhead" text-anchor="middle">Letters represent unknown numbers</text>
+    <text x="15" y="46" class="label">x + 3 = 10  →  x is the mystery number.  →  x = 7</text>
+    <text x="15" y="64" class="label">3a means 3 × a.  a² means a × a.  ab means a × b.</text>
+  </g>
+
+  <!-- Like terms -->
+  <text x="30" y="155" class="subhead">Collecting like terms</text>
+  <g transform="translate(30, 172)">
+    <rect x="0" y="0" width="50" height="32" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="25" y="21" class="math" text-anchor="middle" fill="#1e40af">5x</text>
+    <text x="55" y="21" class="math">+</text>
+    <rect x="65" y="0" width="50" height="32" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="90" y="21" class="math" text-anchor="middle" fill="#1e40af">3x</text>
+    <text x="120" y="21" class="math">+</text>
+    <rect x="130" y="0" width="50" height="32" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="155" y="21" class="math" text-anchor="middle" fill="#166534">2y</text>
+    <text x="185" y="21" class="math">+</text>
+    <rect x="195" y="0" width="50" height="32" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="220" y="21" class="math" text-anchor="middle" fill="#92400e">7</text>
+    <text x="260" y="21" class="math">→</text>
+    <text x="290" y="21" class="math" fill="#2563eb">= 8x + 2y + 7</text>
+  </g>
+
+  <!-- Expanding -->
+  <text x="30" y="240" class="subhead">Expanding brackets</text>
+  <g transform="translate(30, 260)">
+    <rect x="0" y="0" width="400" height="65" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="15" y="22" class="label" fill="#16a34a">The distributive law: multiply everything inside by what's outside</text>
+    <text x="15" y="48" class="math" fill="#16a34a">3(x + 4) = 3×x + 3×4 = 3x + 12</text>
+  </g>
+
+  <!-- Factorising -->
+  <g transform="translate(460, 260)">
+    <rect x="0" y="0" width="410" height="65" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="15" y="22" class="label" fill="#d97706">Factorising is the reverse: find the common factor</text>
+    <text x="15" y="48" class="math" fill="#d97706">6x + 9 = 3(2x + 3)  ← HCF is 3</text>
+  </g>
+
+  <!-- Balance method -->
+  <text x="30" y="365" class="subhead">Solving equations: the balance method</text>
+  <g transform="translate(30, 385)">
+    <rect x="0" y="0" width="840" height="40" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="16" class="math">2x + 3 = 11</text>
+    <text x="150" y="16" class="label">→ Subtract 3:</text>
+    <text x="260" y="16" class="math" fill="#dc2626">2x = 8</text>
+    <text x="350" y="16" class="label">→ Divide by 2:</text>
+    <text x="470" y="16" class="math" fill="#16a34a">x = 4</text>
+    <text x="530" y="16" class="label">Check:</text>
+    <text x="590" y="16" class="math" fill="#2563eb">2(4)+3 = 8+3 = 11 ✓</text>
+  </g>
+</svg>

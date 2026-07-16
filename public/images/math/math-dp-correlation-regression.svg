@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Correlation and regression: scatter plots and lines of best fit</title>
+  <desc id="desc">Scatter plots showing positive, negative and zero correlation; Pearson's r values explained; the least-squares regression line formula y=ax+b; and interpretation of residuals.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="420" fill="#f8fafc" rx="12"/>
+  <text x="30" y="30" class="heading">Correlation and regression</text>
+
+  <!-- Scatter plots -->
+  <g transform="translate(30, 45)">
+    <rect x="0" y="0" width="280" height="170" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+    <text x="140" y="15" class="subhead" text-anchor="middle">Strong positive (r≈0.9)</text>
+    <line x1="15" y1="150" x2="15" y2="30" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="15" y1="150" x2="260" y2="150" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="40" y1="130" x2="240" y2="40" stroke="#2563eb" stroke-width="1.5"/>
+    <circle cx="50" cy="120" r="3" fill="#2563eb"/><circle cx="80" cy="100" r="3" fill="#2563eb"/>
+    <circle cx="110" cy="90" r="3" fill="#2563eb"/><circle cx="150" cy="70" r="3" fill="#2563eb"/>
+    <circle cx="180" cy="55" r="3" fill="#2563eb"/><circle cx="220" cy="40" r="3" fill="#2563eb"/>
+  </g>
+
+  <g transform="translate(325, 45)">
+    <rect x="0" y="0" width="280" height="170" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+    <text x="140" y="15" class="subhead" text-anchor="middle">Negative (r≈−0.8)</text>
+    <line x1="15" y1="150" x2="15" y2="30" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="15" y1="150" x2="260" y2="150" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="40" y1="40" x2="240" y2="130" stroke="#dc2626" stroke-width="1.5"/>
+    <circle cx="50" cy="50" r="3" fill="#dc2626"/><circle cx="80" cy="70" r="3" fill="#dc2626"/>
+    <circle cx="110" cy="80" r="3" fill="#dc2626"/><circle cx="150" cy="100" r="3" fill="#dc2626"/>
+    <circle cx="190" cy="110" r="3" fill="#dc2626"/><circle cx="230" cy="125" r="3" fill="#dc2626"/>
+  </g>
+
+  <g transform="translate(620, 45)">
+    <rect x="0" y="0" width="250" height="170" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+    <text x="125" y="15" class="subhead" text-anchor="middle">Zero (r≈0)</text>
+    <line x1="15" y1="150" x2="15" y2="30" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="15" y1="150" x2="240" y2="150" stroke="#94a3b8" stroke-width="1"/>
+    <circle cx="50" cy="110" r="3" fill="#6b7280"/><circle cx="85" cy="50" r="3" fill="#6b7280"/>
+    <circle cx="120" cy="100" r="3" fill="#6b7280"/><circle cx="155" cy="60" r="3" fill="#6b7280"/>
+    <circle cx="190" cy="90" r="3" fill="#6b7280"/><circle cx="225" cy="70" r="3" fill="#6b7280"/>
+  </g>
+
+  <!-- Pearson's r -->
+  <g transform="translate(30, 240)">
+    <rect x="0" y="0" width="840" height="65" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">Pearson's correlation coefficient r: −1 ≤ r ≤ 1</text>
+    <text x="420" y="44" class="label" text-anchor="middle">r = 1: perfect positive | r = −1: perfect negative | r = 0: no linear correlation | |r| > 0.8: strong correlation</text>
+  </g>
+
+  <!-- Regression line -->
+  <g transform="translate(30, 325)">
+    <rect x="0" y="0" width="840" height="80" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">Least-squares regression line</text>
+    <text x="420" y="48" class="math" text-anchor="middle" fill="#16a34a">y = ax + b   where a = r(sy/sx) and b = ȳ − ax̄</text>
+    <text x="420" y="70" class="label" text-anchor="middle">Use GDC or calculate from summary statistics. The line passes through (x̄, ȳ).</text>
+  </g>
+</svg>

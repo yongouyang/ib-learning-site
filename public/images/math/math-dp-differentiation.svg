@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Differentiation: derivatives, tangents and optimisation</title>
+  <desc id="desc">A curve showing the tangent line at a point and the first-principles definition of the derivative; derivative rules for common functions; and an optimisation example with a rectangle of maximum area.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Differentiation</text>
+
+  <!-- First principles -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="350" height="80" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="175" y="20" class="subhead" text-anchor="middle">Derivative = gradient of tangent</text>
+    <text x="175" y="48" class="math" text-anchor="middle" fill="#2563eb">f'(x) = lim[h→0] (f(x+h)−f(x))/h</text>
+    <text x="175" y="68" class="label" text-anchor="middle">Derivative = instantaneous rate of change</text>
+  </g>
+
+  <!-- Derivative rules -->
+  <g transform="translate(400, 55)">
+    <rect x="0" y="0" width="470" height="140" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="235" y="20" class="subhead" text-anchor="middle">Standard derivatives</text>
+    <g transform="translate(15, 38)">
+      <text x="0" y="0" class="math">d/dx (xⁿ) = nxⁿ⁻¹ (power rule)</text>
+      <text x="0" y="20" class="math">d/dx (eˣ) = eˣ ; d/dx (ln x) = 1/x</text>
+      <text x="0" y="40" class="math">d/dx (sin x) = cos x ; d/dx (cos x) = −sin x</text>
+      <text x="0" y="60" class="math">Product: d/dx(uv) = u'v + uv'</text>
+      <text x="0" y="80" class="math">Quotient: d/dx(u/v) = (u'v−uv')/v²</text>
+      <text x="0" y="100" class="math">Chain: d/dx(f(g(x))) = f'(g(x))·g'(x)</text>
+    </g>
+  </g>
+
+  <!-- Tangent and normal -->
+  <g transform="translate(30, 220)">
+    <rect x="0" y="0" width="400" height="90" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="200" y="20" class="subhead" text-anchor="middle">Tangent line at x=a</text>
+    <text x="200" y="48" class="math" text-anchor="middle" fill="#16a34a">y − f(a) = f'(a)(x − a)</text>
+    <text x="200" y="72" class="label" text-anchor="middle">Normal: y − f(a) = −1/f'(a)(x − a)  (perpendicular to tangent)</text>
+  </g>
+
+  <!-- Optimisation -->
+  <g transform="translate(450, 220)">
+    <rect x="0" y="0" width="420" height="90" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="210" y="20" class="subhead" text-anchor="middle">Optimisation</text>
+    <text x="15" y="44" class="label">Stationary points: solve f'(x)=0</text>
+    <text x="15" y="64" class="label">Second derivative: f''(x)&gt;0 → minimum, f''(x)&lt;0 → maximum</text>
+    <text x="15" y="82" class="label">f''(x)=0 → point of inflection (check sign change)</text>
+  </g>
+
+  <!-- Concavity -->
+  <g transform="translate(30, 330)">
+    <rect x="0" y="0" width="840" height="55" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="420" y="20" class="subhead" text-anchor="middle">Concavity and points of inflection</text>
+    <text x="420" y="44" class="label" text-anchor="middle">Concave up: f''&gt;0 (shaped like ∪). Concave down: f''&lt;0 (shaped like ∩). Inflection: concavity changes.</text>
+  </g>
+</svg>

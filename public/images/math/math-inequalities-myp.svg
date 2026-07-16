@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-labelledby="title desc">
+  <title id="title">Linear inequalities: solving and representing on number lines</title>
+  <desc id="desc">Inequality symbols explained; solving one-step and two-step inequalities with the sign-flip rule when multiplying/dividing by a negative; and representations on number lines with open and closed circles.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 15px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="400" fill="#f8fafc" rx="12"/>
+
+  <text x="30" y="35" class="heading">Inequalities</text>
+
+  <!-- Symbols -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="170" height="55" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="85" y="20" class="subhead" text-anchor="middle">&lt; less than</text>
+    <text x="85" y="44" class="label" text-anchor="middle">x &lt; 5</text>
+  </g>
+  <g transform="translate(215, 55)">
+    <rect x="0" y="0" width="170" height="55" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="85" y="20" class="subhead" text-anchor="middle">≤ less than or equal</text>
+    <text x="85" y="44" class="label" text-anchor="middle">x ≤ 5</text>
+  </g>
+  <g transform="translate(400, 55)">
+    <rect x="0" y="0" width="170" height="55" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="85" y="20" class="subhead" text-anchor="middle">&gt; greater than</text>
+    <text x="85" y="44" class="label" text-anchor="middle">x &gt; 5</text>
+  </g>
+  <g transform="translate(585, 55)">
+    <rect x="0" y="0" width="170" height="55" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="85" y="20" class="subhead" text-anchor="middle">≥ greater than or equal</text>
+    <text x="85" y="44" class="label" text-anchor="middle">x ≥ 5</text>
+  </g>
+
+  <!-- Number line x > 3 -->
+  <text x="30" y="145" class="subhead">x &gt; 3 on a number line</text>
+  <g transform="translate(30, 165)">
+    <line x1="0" y1="15" x2="250" y2="15" stroke="#1f2937" stroke-width="2"/>
+    <polygon points="250,15 240,11 240,19" fill="#1f2937"/>
+    <line x1="15" y1="8" x2="15" y2="22" stroke="#1f2937" stroke-width="2"/>
+    <text x="15" y="35" class="math" text-anchor="middle">0</text>
+    <line x1="65" y1="8" x2="65" y2="22" stroke="#dc2626" stroke-width="2"/>
+    <circle cx="65" cy="15" r="4" fill="white" stroke="#dc2626" stroke-width="2"/>
+    <text x="65" y="35" class="math" text-anchor="middle" fill="#dc2626">3</text>
+    <line x1="65" y1="15" x2="250" y2="15" stroke="#dc2626" stroke-width="3"/>
+    <polygon points="250,15 240,11 240,19" fill="#dc2626"/>
+    <text x="125" y="10" class="label" fill="#dc2626" text-anchor="middle">Open circle: 3 not included</text>
+  </g>
+
+  <!-- x <= -1 -->
+  <text x="30" y="215" class="subhead">x ≤ −1 on a number line</text>
+  <g transform="translate(30, 235)">
+    <line x1="0" y1="15" x2="250" y2="15" stroke="#1f2937" stroke-width="2"/>
+    <polygon points="0,15 10,11 10,19" fill="#2563eb"/>
+    <line x1="100" y1="8" x2="100" y2="22" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="100" cy="15" r="4" fill="#2563eb" stroke="#2563eb" stroke-width="2"/>
+    <text x="100" y="35" class="math" text-anchor="middle" fill="#2563eb">−1</text>
+    <line x1="0" y1="15" x2="100" y2="15" stroke="#2563eb" stroke-width="3"/>
+    <text x="50" y="10" class="label" fill="#2563eb" text-anchor="middle">Closed: −1 included</text>
+  </g>
+
+  <!-- SIGN FLIP RULE -->
+  <g transform="translate(370, 145)">
+    <rect x="0" y="0" width="500" height="120" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+    <text x="250" y="22" class="subhead" text-anchor="middle" fill="#dc2626">⚠️  THE SIGN-FLIP RULE</text>
+    <g transform="translate(20, 42)">
+      <text x="0" y="0" class="label">When you multiply or divide by a NEGATIVE number, you MUST flip the inequality sign!</text>
+      <text x="0" y="30" class="math" fill="#dc2626">−2x &lt; 8  →  x &gt; −4  (divided by −2, sign FLIPS)</text>
+      <text x="0" y="60" class="math" fill="#dc2626">Check: −2(0) = 0 &lt; 8 ✓  but  −2(−5) = 10 which is NOT &lt; 8 ✗</text>
+    </g>
+  </g>
+
+  <!-- Two-step -->
+  <g transform="translate(30, 310)">
+    <rect x="0" y="0" width="840" height="40" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="16" class="math">Solve 3x − 5 ≤ 10:</text>
+    <text x="210" y="16" class="label">+5: 3x ≤ 15</text>
+    <text x="340" y="16" class="label">÷3: x ≤ 5</text>
+    <text x="480" y="16" class="math" fill="#16a34a">Solution: x ≤ 5</text>
+  </g>
+</svg>

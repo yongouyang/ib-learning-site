@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img" aria-labelledby="title desc">
+  <title id="title">Quadratic functions: forms, roots and the discriminant</title>
+  <desc id="desc">The three forms of a quadratic (standard, vertex, factored) with their key features; the quadratic formula and discriminant Δ=b²−4ac determining root nature; and completing the square to find the vertex.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="430" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Quadratic functions: f(x) = ax² + bx + c</text>
+
+  <!-- Three forms -->
+  <g transform="translate(30, 55)">
+    <rect x="0" y="0" width="280" height="100" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <text x="140" y="20" class="subhead" text-anchor="middle" fill="#1e40af">Standard form</text>
+    <text x="140" y="48" class="math" text-anchor="middle" fill="#2563eb">f(x) = ax² + bx + c</text>
+    <text x="140" y="72" class="label" text-anchor="middle">y-intercept = c. a&gt;0: ∪ (min)</text>
+    <text x="140" y="90" class="label" text-anchor="middle">a&lt;0: ∩ (max)</text>
+  </g>
+  <g transform="translate(325, 55)">
+    <rect x="0" y="0" width="280" height="100" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <text x="140" y="20" class="subhead" text-anchor="middle" fill="#166534">Vertex form</text>
+    <text x="140" y="48" class="math" text-anchor="middle" fill="#16a34a">f(x) = a(x−h)² + k</text>
+    <text x="140" y="72" class="label" text-anchor="middle">Vertex = (h,k). Axis: x=h</text>
+    <text x="140" y="90" class="label" text-anchor="middle">Complete the square to find it</text>
+  </g>
+  <g transform="translate(620, 55)">
+    <rect x="0" y="0" width="250" height="100" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <text x="125" y="20" class="subhead" text-anchor="middle" fill="#92400e">Factored form</text>
+    <text x="125" y="48" class="math" text-anchor="middle" fill="#d97706">f(x) = a(x−p)(x−q)</text>
+    <text x="125" y="72" class="label" text-anchor="middle">x-intercepts: p, q</text>
+    <text x="125" y="90" class="label" text-anchor="middle">Axis: x=(p+q)/2</text>
+  </g>
+
+  <!-- Quadratic formula and discriminant -->
+  <g transform="translate(30, 180)">
+    <rect x="0" y="0" width="840" height="110" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="420" y="22" class="subhead" text-anchor="middle">Quadratic formula and discriminant</text>
+    <text x="420" y="54" class="math" text-anchor="middle" fill="#2563eb" font-size="18">x = (−b ± √(b²−4ac)) / 2a</text>
+    <g transform="translate(20, 72)">
+      <text x="0" y="0" class="math" fill="#dc2626">Δ = b² − 4ac (discriminant)</text>
+      <text x="0" y="22" class="label">Δ &gt; 0: two distinct real roots | Δ = 0: one repeated real root | Δ &lt; 0: no real roots (complex conjugates)</text>
+    </g>
+  </g>
+
+  <!-- Completing the square -->
+  <g transform="translate(30, 315)">
+    <rect x="0" y="0" width="420" height="70" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+    <text x="210" y="20" class="subhead" text-anchor="middle">Completing the square for x² + 6x + 5</text>
+    <text x="210" y="48" class="math" text-anchor="middle" fill="#7c3aed">= (x²+6x+9) − 9 + 5 = (x+3)² − 4 → vertex (−3,−4)</text>
+  </g>
+  <g transform="translate(470, 315)">
+    <rect x="0" y="0" width="400" height="70" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <text x="200" y="20" class="subhead" text-anchor="middle">Sum and product of roots</text>
+    <text x="200" y="48" class="math" text-anchor="middle" fill="#dc2626">α+β = −b/a  |  αβ = c/a</text>
+  </g>
+</svg>
