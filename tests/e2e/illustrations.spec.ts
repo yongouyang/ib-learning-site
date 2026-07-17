@@ -42,7 +42,7 @@ test.describe.configure({ mode: 'serial' });
 
 test.describe('Study page illustrations', () => {
   for (const topic of topics) {
-    test(`${topic.title} renders ${topic.illustrationCount} illustration(s)`, async ({ page }) => {
+    test(`${topic.topicId}: ${topic.title} renders ${topic.illustrationCount} illustration(s)`, async ({ page }) => {
       await page.goto(`/subjects/${topic.subjectId}/${topic.topicId}/study`);
 
       // Wait for the topic heading to ensure the page has rendered
