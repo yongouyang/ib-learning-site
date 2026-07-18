@@ -18,7 +18,7 @@
     {
       "id": "math-linear-myp-lin-n2",
       "heading": "Gradient of a Straight Line",
-      "body": "The gradient measures how steep a straight line is.\n\n📌 Definition\nThe gradient $m$ between two points $(x_1,y_1)$ and $(x_2,y_2)$ is:\n$$m=\\frac{y_2-y_1}{x_2-x_1}$$\n\n🔑 How it works\n• Positive gradient: the line rises as $x$ increases.\n• Negative gradient: the line falls as $x$ increases.\n• Zero gradient: the line is horizontal.\n• Undefined gradient: the line is vertical.\n\n💡 Worked Example\nFind the gradient of the line through $A(2,5)$ and $B(6,13)$.\nStep 1: Label $(x_1,y_1)=(2,5)$ and $(x_2,y_2)=(6,13)$.\nStep 2: Substitute:\n$$m=\\frac{13-5}{6-2}=\\frac{8}{4}=2$$\nSo the gradient is $2$: for every 1 unit right, the line rises 2 units.\n\n⚠️ Common Mistake\nMixing the order of the points. Use the same point order in the numerator and denominator:\n$$m=\\frac{y_2-y_1}{x_2-x_1}=\\frac{y_1-y_2}{x_1-x_2}$$\nBoth are correct if consistent."
+      "body": "The gradient measures how steep a straight line is.\n\n📌 Definition\nThe gradient $m$ between two points $(x_1,y_1)$ and $(x_2,y_2)$ is:\n$$m=\\dfrac{y_2-y_1}{x_2-x_1}$$\n\n🔑 How it works\n• Positive gradient: the line rises as $x$ increases.\n• Negative gradient: the line falls as $x$ increases.\n• Zero gradient: the line is horizontal.\n• Undefined gradient: the line is vertical.\n\n💡 Worked Example\nFind the gradient of the line through $A(2,5)$ and $B(6,13)$.\nStep 1: Label $(x_1,y_1)=(2,5)$ and $(x_2,y_2)=(6,13)$.\nStep 2: Substitute:\n$$m=\\dfrac{13-5}{6-2}=\\dfrac{8}{4}=2$$\nSo the gradient is $2$: for every 1 unit right, the line rises 2 units.\n\n⚠️ Common Mistake\nMixing the order of the points. Use the same point order in the numerator and denominator:\n$$m=\\dfrac{y_2-y_1}{x_2-x_1}=\\dfrac{y_1-y_2}{x_1-x_2}$$\nBoth are correct if consistent."
     },
     {
       "id": "math-linear-myp-lin-n3",
@@ -28,17 +28,17 @@
     {
       "id": "math-linear-myp-lin-n4",
       "heading": "Finding the Equation of a Line",
-      "body": "You can find the equation of a line from different pieces of information.\n\n📌 Key Concept\nIf you know the gradient $m$ and one point $(x_1,y_1)$, use point-slope form:\n$$y-y_1=m(x-x_1)$$\nThen rearrange to $y=mx+c$.\n\nIf you know two points, first find the gradient, then substitute one point to find $c$.\n\n💡 Worked Example 1 — Gradient and a point\nFind the equation of the line with gradient $3$ through $(2,7)$.\n$$y-7=3(x-2)$$\n$$y-7=3x-6$$\n$$y=3x+1$$\n\n💡 Worked Example 2 — Two points\nFind the equation of the line through $(1,4)$ and $(3,10)$.\nStep 1: Gradient:\n$$m=\\frac{10-4}{3-1}=\\frac{6}{2}=3$$\nStep 2: Substitute into $y=mx+c$ using $(1,4)$:\n$$4=3(1)+c \\Rightarrow c=1$$\nStep 3: Equation:\n$$y=3x+1$$\n\n📎 Key Points to Remember\n• The final answer is usually given as $y=mx+c$.\n• Either point can be used to find $c$.\n• Check by substituting the other point.\n\n⚠️ Common Misconception\nForgetting to add $y_1$ back when rearranging $y-y_1=m(x-x_1)$."
+      "body": "You can find the equation of a line from different pieces of information.\n\n📌 Key Concept\nIf you know the gradient $m$ and one point $(x_1,y_1)$, use point-slope form:\n$$y-y_1=m(x-x_1)$$\nThen rearrange to $y=mx+c$.\n\nIf you know two points, first find the gradient, then substitute one point to find $c$.\n\n💡 Worked Example 1 — Gradient and a point\nFind the equation of the line with gradient $3$ through $(2,7)$.\n$$y-7=3(x-2)$$\n$$y-7=3x-6$$\n$$y=3x+1$$\n\n💡 Worked Example 2 — Two points\nFind the equation of the line through $(1,4)$ and $(3,10)$.\nStep 1: Gradient:\n$$m=\\dfrac{10-4}{3-1}=\\dfrac{6}{2}=3$$\nStep 2: Substitute into $y=mx+c$ using $(1,4)$:\n$$4=3(1)+c \\Rightarrow c=1$$\nStep 3: Equation:\n$$y=3x+1$$\n\n📎 Key Points to Remember\n• The final answer is usually given as $y=mx+c$.\n• Either point can be used to find $c$.\n• Check by substituting the other point.\n\n⚠️ Common Misconception\nForgetting to add $y_1$ back when rearranging $y-y_1=m(x-x_1)$."
     },
     {
       "id": "math-linear-myp-lin-n5",
       "heading": "Parallel and Perpendicular Lines",
-      "body": "Parallel and perpendicular lines have special gradient relationships.\n\n📌 Definition\nTwo lines are parallel if they never meet. Parallel lines have the same gradient:\n$$m_1=m_2$$\nTwo lines are perpendicular if they meet at a right angle. Their gradients satisfy:\n$$m_1 \\times m_2=-1$$\nSo each gradient is the negative reciprocal of the other.\n\n🔑 How it works\nIf a line has gradient $m$:\n• A parallel line also has gradient $m$.\n• A perpendicular line has gradient $-\\frac{1}{m}$.\n\n💡 Worked Example 1\nFor $y=4x-5$:\n• A parallel line is $y=4x+2$ (gradient $4$).\n• A perpendicular line is $y=-\\frac{1}{4}x+3$ (gradient $-\\frac{1}{4}$).\n\n💡 Worked Example 2\nShow the line through $(0,2)$ and $(2,8)$ is perpendicular to the line through $(0,5)$ and $(3,4)$.\nGradient 1:\n$$m_1=\\frac{8-2}{2-0}=3$$\nGradient 2:\n$$m_2=\\frac{4-5}{3-0}=-\\frac{1}{3}$$\nProduct:\n$$m_1 \\times m_2=3 \\times \\left(-\\frac{1}{3}\\right)=-1$$\nTherefore the lines are perpendicular.\n\n📎 Key Points to Remember\n• Parallel lines share the same gradient but have different $y$-intercepts.\n• The negative reciprocal of $\\frac{a}{b}$ is $-\\frac{b}{a}$.\n• Horizontal lines are perpendicular to vertical lines.\n\n⚠️ Common Mistake\nThinking perpendicular gradients are just negatives of each other. They are negative reciprocals, so $m_2=-\\frac{1}{m_1}$, not $m_2=-m_1$."
+      "body": "Parallel and perpendicular lines have special gradient relationships.\n\n📌 Definition\nTwo lines are parallel if they never meet. Parallel lines have the same gradient:\n$$m_1=m_2$$\nTwo lines are perpendicular if they meet at a right angle. Their gradients satisfy:\n$$m_1 \\times m_2=-1$$\nSo each gradient is the negative reciprocal of the other.\n\n🔑 How it works\nIf a line has gradient $m$:\n• A parallel line also has gradient $m$.\n• A perpendicular line has gradient $-\\dfrac{1}{m}$.\n\n💡 Worked Example 1\nFor $y=4x-5$:\n• A parallel line is $y=4x+2$ (gradient $4$).\n• A perpendicular line is $y=-\\dfrac{1}{4}x+3$ (gradient $-\\dfrac{1}{4}$).\n\n💡 Worked Example 2\nShow the line through $(0,2)$ and $(2,8)$ is perpendicular to the line through $(0,5)$ and $(3,4)$.\nGradient 1:\n$$m_1=\\dfrac{8-2}{2-0}=3$$\nGradient 2:\n$$m_2=\\dfrac{4-5}{3-0}=-\\dfrac{1}{3}$$\nProduct:\n$$m_1 \\times m_2=3 \\times \\left(-\\dfrac{1}{3}\\right)=-1$$\nTherefore the lines are perpendicular.\n\n📎 Key Points to Remember\n• Parallel lines share the same gradient but have different $y$-intercepts.\n• The negative reciprocal of $\\dfrac{a}{b}$ is $-\\dfrac{b}{a}$.\n• Horizontal lines are perpendicular to vertical lines.\n\n⚠️ Common Mistake\nThinking perpendicular gradients are just negatives of each other. They are negative reciprocals, so $m_2=-\\dfrac{1}{m_1}$, not $m_2=-m_1$."
     },
     {
       "id": "math-linear-myp-lin-n6",
       "heading": "Horizontal and Vertical Lines",
-      "body": "Some lines are not described by $y=mx+c$.\n\n📌 Definition\nA horizontal line has equation $y=c$ and gradient $0$.\nA vertical line has equation $x=a$ and an undefined gradient.\n\n🔑 How it works\nFor $y=c$, every point has the same $y$-coordinate, so:\n$$m=\\frac{0}{x_2-x_1}=0$$\nFor $x=a$, every point has the same $x$-coordinate, so:\n$$m=\\frac{y_2-y_1}{0} \\text{ (undefined)}$$\n\n💡 Worked Example\nWrite the equation of:\n1. The horizontal line through $(5,-2)$: $y=-2$.\n2. The vertical line through $(5,-2)$: $x=5$.\nThe two lines intersect at $(5,-2)$.\n\n📎 Key Points to Remember\n• Horizontal lines are parallel to the $x$-axis.\n• Vertical lines are parallel to the $y$-axis.\n• $y=mx+c$ cannot describe a vertical line.\n\n✅ Tip\nWhen reading a graph, look for perfectly flat or upright lines and state their equations carefully."
+      "body": "Some lines are not described by $y=mx+c$.\n\n📌 Definition\nA horizontal line has equation $y=c$ and gradient $0$.\nA vertical line has equation $x=a$ and an undefined gradient.\n\n🔑 How it works\nFor $y=c$, every point has the same $y$-coordinate, so:\n$$m=\\dfrac{0}{x_2-x_1}=0$$\nFor $x=a$, every point has the same $x$-coordinate, so:\n$$m=\\dfrac{y_2-y_1}{0} \\text{ (undefined)}$$\n\n💡 Worked Example\nWrite the equation of:\n1. The horizontal line through $(5,-2)$: $y=-2$.\n2. The vertical line through $(5,-2)$: $x=5$.\nThe two lines intersect at $(5,-2)$.\n\n📎 Key Points to Remember\n• Horizontal lines are parallel to the $x$-axis.\n• Vertical lines are parallel to the $y$-axis.\n• $y=mx+c$ cannot describe a vertical line.\n\n✅ Tip\nWhen reading a graph, look for perfectly flat or upright lines and state their equations carefully."
     },
     {
       "id": "math-linear-myp-lin-n7",
@@ -51,7 +51,7 @@
       "id": "math-linear-myp-lin-f1",
       "term": "Gradient",
       "definition": "A measure of the steepness of a straight line, equal to change in $y$ divided by change in $x$.",
-      "example": "For $(1,2)$ and $(5,10)$, $m=\\frac{10-2}{5-1}=2$."
+      "example": "For $(1,2)$ and $(5,10)$, $m=\\dfrac{10-2}{5-1}=2$."
     },
     {
       "id": "math-linear-myp-lin-f2",
@@ -63,7 +63,7 @@
       "id": "math-linear-myp-lin-f3",
       "term": "Equation of a straight line",
       "definition": "$y=mx+c$, where $m$ is the gradient and $c$ is the $y$-intercept.",
-      "example": "$y=-\\frac{1}{2}x+5$ has gradient $-\\frac{1}{2}$ and intercept $5$."
+      "example": "$y=-\\dfrac{1}{2}x+5$ has gradient $-\\dfrac{1}{2}$ and intercept $5$."
     },
     {
       "id": "math-linear-myp-lin-f4",
@@ -75,7 +75,7 @@
       "id": "math-linear-myp-lin-f5",
       "term": "Perpendicular lines",
       "definition": "Lines that meet at $90^\\circ$; the product of their gradients is $-1$.",
-      "example": "A line with $m=3$ is perpendicular to a line with $m=-\\frac{1}{3}$."
+      "example": "A line with $m=3$ is perpendicular to a line with $m=-\\dfrac{1}{3}$."
     },
     {
       "id": "math-linear-myp-lin-f6",
@@ -116,8 +116,8 @@
     {
       "id": "math-linear-myp-lin-f12",
       "term": "Negative reciprocal",
-      "definition": "The number $-\\frac{1}{m}$; two perpendicular gradients multiply to $-1$.",
-      "example": "The negative reciprocal of $4$ is $-\\frac{1}{4}$."
+      "definition": "The number $-\\dfrac{1}{m}$; two perpendicular gradients multiply to $-1$.",
+      "example": "The negative reciprocal of $4$ is $-\\dfrac{1}{4}$."
     }
   ],
   "questions": [
@@ -143,7 +143,7 @@
         "4"
       ],
       "correctIndex": 1,
-      "explanation": "Gradient measures the steepness of a line: it tells you how much the $y$-value changes for each one-unit increase in $x$. Using the points $(1,2)$ and $(5,10)$, the change in $y$ is $10-2=8$ and the change in $x$ is $5-1=4$, so $m=\\frac{8}{4}=2$. In real life, a gradient of 2 is like a ramp that rises 2 metres for every 1 metre horizontally."
+      "explanation": "Gradient measures the steepness of a line: it tells you how much the $y$-value changes for each one-unit increase in $x$. Using the points $(1,2)$ and $(5,10)$, the change in $y$ is $10-2=8$ and the change in $x$ is $5-1=4$, so $m=\\dfrac{8}{4}=2$. In real life, a gradient of 2 is like a ramp that rises 2 metres for every 1 metre horizontally."
     },
     {
       "id": "math-linear-myp-lin-q3",
@@ -179,19 +179,19 @@
         "$y=3x+1$"
       ],
       "correctIndex": 1,
-      "explanation": "Gradient $m=\\frac{11-5}{4-2}=3$. Substituting $(2,5)$ gives $5=6+c$, so $c=-1$ and $y=3x-1$."
+      "explanation": "Gradient $m=\\dfrac{11-5}{4-2}=3$. Substituting $(2,5)$ gives $5=6+c$, so $c=-1$ and $y=3x-1$."
     },
     {
       "id": "math-linear-myp-lin-q6",
-      "stem": "Which line is parallel to $y=\\frac{2}{3}x+4$?",
+      "stem": "Which line is parallel to $y=\\dfrac{2}{3}x+4$?",
       "choices": [
-        "$y=-\\frac{2}{3}x+4$",
-        "$y=\\frac{2}{3}x-1$",
-        "$y=\\frac{3}{2}x+4$",
+        "$y=-\\dfrac{2}{3}x+4$",
+        "$y=\\dfrac{2}{3}x-1$",
+        "$y=\\dfrac{3}{2}x+4$",
         "$y=2x+4$"
       ],
       "correctIndex": 1,
-      "explanation": "Parallel lines have the same gradient, so the answer must keep $m=\\frac{2}{3}$."
+      "explanation": "Parallel lines have the same gradient, so the answer must keep $m=\\dfrac{2}{3}$."
     },
     {
       "id": "math-linear-myp-lin-q7",
@@ -199,11 +199,11 @@
       "choices": [
         "5",
         "-5",
-        "$\\frac{1}{5}$",
-        "$-\\frac{1}{5}$"
+        "$\\dfrac{1}{5}$",
+        "$-\\dfrac{1}{5}$"
       ],
       "correctIndex": 3,
-      "explanation": "Perpendicular gradients multiply to $-1$, so $m_2=-\\frac{1}{5}$."
+      "explanation": "Perpendicular gradients multiply to $-1$, so $m_2=-\\dfrac{1}{5}$."
     },
     {
       "id": "math-linear-myp-lin-q8",
@@ -239,7 +239,7 @@
         "12"
       ],
       "correctIndex": 0,
-      "explanation": "$\\frac{14-c}{4}=2$, so $14-c=8$ and $c=6$."
+      "explanation": "$\\dfrac{14-c}{4}=2$, so $14-c=8$ and $c=6$."
     },
     {
       "id": "math-linear-myp-lin-q11",
@@ -257,13 +257,13 @@
       "id": "math-linear-myp-lin-q12",
       "stem": "Which equation is perpendicular to $2y=6x+8$?",
       "choices": [
-        "$y=-\\frac{1}{3}x+2$",
+        "$y=-\\dfrac{1}{3}x+2$",
         "$y=3x+2$",
         "$y=-3x+2$",
-        "$y=\\frac{1}{3}x+2$"
+        "$y=\\dfrac{1}{3}x+2$"
       ],
       "correctIndex": 0,
-      "explanation": "Rearranging gives $y=3x+4$, gradient $3$; a perpendicular gradient is $-\\frac{1}{3}$."
+      "explanation": "Rearranging gives $y=3x+4$, gradient $3$; a perpendicular gradient is $-\\dfrac{1}{3}$."
     },
     {
       "id": "math-linear-myp-lin-q13",
@@ -271,15 +271,15 @@
       "choices": [
         "$y=2x+7$",
         "$y=2x-7$",
-        "$y=-\\frac{1}{2}x+7$",
-        "$y=-\\frac{1}{2}x+\\frac{9}{2}$"
+        "$y=-\\dfrac{1}{2}x+7$",
+        "$y=-\\dfrac{1}{2}x+\\dfrac{9}{2}$"
       ],
       "correctIndex": 0,
       "explanation": "Parallel means $m=2$. Substituting $(-1,5)$ gives $5=-2+c$, so $c=7$ and $y=2x+7$."
     },
     {
       "id": "math-linear-myp-lin-q14",
-      "stem": "The points $(2,a)$ and $(6,1)$ lie on a line with gradient $-\\frac{3}{4}$. Find $a$.",
+      "stem": "The points $(2,a)$ and $(6,1)$ lie on a line with gradient $-\\dfrac{3}{4}$. Find $a$.",
       "choices": [
         "4",
         "-2",
@@ -287,7 +287,7 @@
         "7"
       ],
       "correctIndex": 0,
-      "explanation": "$\\frac{1-a}{6-2}=-\\frac{3}{4}$, so $1-a=-3$ and $a=4$."
+      "explanation": "$\\dfrac{1-a}{6-2}=-\\dfrac{3}{4}$, so $1-a=-3$ and $a=4$."
     },
     {
       "id": "math-linear-myp-lin-q15",

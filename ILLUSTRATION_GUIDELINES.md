@@ -33,10 +33,11 @@ Every SVG must have:
 - Choose a `viewBox` wide/tall enough that labels and leader lines fit without clipping.
 - A common starting size is 800–1000 px wide.
 
-### 4. Labels must not overlap
+### 4. Labels must not overlap or overflow
 
 - No two text labels may overlap each other.
 - No text label may overlap the main illustration, arrows, or other decorative elements.
+- Text placed inside a coloured panel, chip, or backing rect must fit fully within that rect — `npm run validate:illustration-layout` flags any text that spills out of its containing box.
 - When in doubt, move the label further away and use a longer leader line.
 
 ### 5. Leader lines must be clean

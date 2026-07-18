@@ -7,6 +7,7 @@ import { getTopic } from '@/content/registry';
 import type { SubjectId } from '@/content/types';
 import StudyNoteBody from '@/components/StudyNoteBody';
 import StudyNoteIllustration from '@/components/StudyNoteIllustration';
+import InlineMath from '@/components/InlineMath';
 
 interface StudyPageClientProps {
   subjectId: string;
@@ -24,7 +25,7 @@ export default function StudyPageClient({ subjectId, topicId }: StudyPageClientP
         <ArrowLeft className="w-4 h-4" /> Back to topics
       </Link>
       <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-1">{topic.title}</h1>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">{topic.description}</p>
+      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6"><InlineMath text={topic.description} /></p>
 
       <div className="space-y-4">
         {topic.notes.map((note, idx) => (
@@ -35,7 +36,7 @@ export default function StudyPageClient({ subjectId, topicId }: StudyPageClientP
             transition={{ duration: 0.25, delay: idx * 0.05 }}
             className="card p-5"
           >
-            <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-2">{note.heading}</h2>
+            <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-2"><InlineMath text={note.heading} /></h2>
             {note.illustration && (
               <StudyNoteIllustration
                 src={note.illustration.src}

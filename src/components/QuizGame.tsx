@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
 import type { Question } from '@/content/types';
+import InlineMath from './InlineMath';
 
 // Simple string hash for deterministic seeds.
 function hashString(str: string): number {
@@ -190,7 +191,7 @@ export default function QuizGame({
           className="card p-5 mb-4"
         >
           <div className="flex items-start justify-between gap-3 mb-4">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-50">{currentQuestion.stem}</h2>
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-50"><InlineMath text={currentQuestion.stem} /></h2>
           </div>
 
           {/* Timer */}
@@ -235,7 +236,7 @@ export default function QuizGame({
                   className={`w-full text-left p-3 rounded-xl border-2 ${borderColor} ${bgColor} transition-all text-sm ${answerState === 'unanswered' ? 'cursor-pointer' : 'cursor-default'}`}
                 >
                   <span className="font-medium text-gray-500 dark:text-gray-400 mr-2">{String.fromCharCode(65 + i)}.</span>
-                  {choice}
+                  <InlineMath text={choice} />
                 </motion.button>
               );
             })}
@@ -259,7 +260,7 @@ export default function QuizGame({
                 <><XCircle className="w-4 h-4 text-red-600 dark:text-red-400" /> Incorrect</>
               )}
             </p>
-            <p className="text-sm text-gray-700 dark:text-gray-300">{currentQuestion.explanation}</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300"><InlineMath text={currentQuestion.explanation} /></p>
           </motion.div>
         )}
       </AnimatePresence>

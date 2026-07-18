@@ -28,12 +28,12 @@
     {
       "id": "math-geometry-1-geo-n4",
       "heading": "Quadrilaterals and Their Properties",
-      "body": "Quadrilaterals are four-sided polygons. Knowing their properties helps you classify shapes and find missing angles.\n\n📌 Definition\nA quadrilateral is a polygon with four sides. The sum of its interior angles is $360^\\circ$.\n\n🔑 Key Properties\n• Square: four equal sides, four right angles, opposite sides parallel, diagonals equal and bisect at $90^\\circ$.\n• Rectangle: opposite sides equal and parallel, four right angles, diagonals equal.\n• Parallelogram: opposite sides equal and parallel, opposite angles equal, diagonals bisect each other.\n• Rhombus: four equal sides, opposite sides parallel, opposite angles equal, diagonals bisect at $90^\\circ$.\n• Trapezium: exactly one pair of parallel sides.\n• Kite: two pairs of adjacent equal sides, one pair of opposite angles equal, diagonals cross at $90^\\circ$.\n\n💡 Worked Example\nA quadrilateral has angles $95^\\circ$, $110^\\circ$ and $(2x)^\\circ$. The fourth angle is $(x + 25)^\\circ$. Find $x$.\n\nStep 1: Use the angle sum\n$$95 + 110 + 2x + x + 25 = 360$$\n\nStep 2: Simplify\n$$230 + 3x = 360$$\n\nStep 3: Solve\n$$3x = 130$$\n$$x = \\frac{130}{3} \\approx 43.3^\\circ$$\n\nStep 4: Find the angles\n$2x \\approx 86.7^\\circ$ and $x + 25 \\approx 68.3^\\circ$.\n\n✅ Check: $95 + 110 + 86.7 + 68.3 = 360$ ✓\n\n📎 Key Points to Remember\n• A square is a special rectangle, a special rhombus, and a special parallelogram.\n• The hierarchy matters: if a shape has all the properties of a rectangle and a rhombus, it is a square.\n\n⚠️ Common Misconception\nThinking a rhombus always has right angles. Only a square (a special rhombus) has right angles."
+      "body": "Quadrilaterals are four-sided polygons. Knowing their properties helps you classify shapes and find missing angles.\n\n📌 Definition\nA quadrilateral is a polygon with four sides. The sum of its interior angles is $360^\\circ$.\n\n🔑 Key Properties\n• Square: four equal sides, four right angles, opposite sides parallel, diagonals equal and bisect at $90^\\circ$.\n• Rectangle: opposite sides equal and parallel, four right angles, diagonals equal.\n• Parallelogram: opposite sides equal and parallel, opposite angles equal, diagonals bisect each other.\n• Rhombus: four equal sides, opposite sides parallel, opposite angles equal, diagonals bisect at $90^\\circ$.\n• Trapezium: exactly one pair of parallel sides.\n• Kite: two pairs of adjacent equal sides, one pair of opposite angles equal, diagonals cross at $90^\\circ$.\n\n💡 Worked Example\nA quadrilateral has angles $95^\\circ$, $110^\\circ$ and $(2x)^\\circ$. The fourth angle is $(x + 25)^\\circ$. Find $x$.\n\nStep 1: Use the angle sum\n$$95 + 110 + 2x + x + 25 = 360$$\n\nStep 2: Simplify\n$$230 + 3x = 360$$\n\nStep 3: Solve\n$$3x = 130$$\n$$x = \\dfrac{130}{3} \\approx 43.3^\\circ$$\n\nStep 4: Find the angles\n$2x \\approx 86.7^\\circ$ and $x + 25 \\approx 68.3^\\circ$.\n\n✅ Check: $95 + 110 + 86.7 + 68.3 = 360$ ✓\n\n📎 Key Points to Remember\n• A square is a special rectangle, a special rhombus, and a special parallelogram.\n• The hierarchy matters: if a shape has all the properties of a rectangle and a rhombus, it is a square.\n\n⚠️ Common Misconception\nThinking a rhombus always has right angles. Only a square (a special rhombus) has right angles."
     },
     {
       "id": "math-geometry-1-geo-n5",
       "heading": "Circle Properties: Circumference and Area",
-      "body": "Circles appear in many real-world and mathematical contexts. The two most important formulas involve the radius $r$.\n\n📌 Definition\n• Radius ($r$): distance from the centre to any point on the circle.\n• Diameter ($d$): distance across the circle through the centre, $d = 2r$.\n• Circumference ($C$): distance around the circle.\n• Area ($A$): space inside the circle.\n\n🔑 Key Formulas\n$$C = 2\\pi r = \\pi d$$\n$$A = \\pi r^2$$\n\n💡 Worked Example 1 — Circumference\nFind the circumference of a circle with radius $7\\text{ cm}$. Use $\\pi = \\frac{22}{7}$.\n\nStep 1: Substitute into $C = 2\\pi r$\n$$C = 2 \\times \\frac{22}{7} \\times 7$$\n\nStep 2: Calculate\n$$C = 44\\text{ cm}$$\n\n💡 Worked Example 2 — Area\nFind the area of a circle with diameter $10\\text{ cm}$. Use $\\pi = 3.14$.\n\nStep 1: Find the radius\n$$r = 10 \\div 2 = 5\\text{ cm}$$\n\nStep 2: Substitute into $A = \\pi r^2$\n$$A = 3.14 \\times 5^2 = 3.14 \\times 25$$\n\nStep 3: Calculate\n$$A = 78.5\\text{ cm}^2$$\n\n⚠️ Common Mistake\nUsing the diameter directly in $A = \\pi r^2$. Always halve the diameter to find the radius first.\n\n✅ Tip\nLeave answers in terms of $\\pi$ unless asked for a decimal approximation. This is often more exact."
+      "body": "Circles appear in many real-world and mathematical contexts. The two most important formulas involve the radius $r$.\n\n📌 Definition\n• Radius ($r$): distance from the centre to any point on the circle.\n• Diameter ($d$): distance across the circle through the centre, $d = 2r$.\n• Circumference ($C$): distance around the circle.\n• Area ($A$): space inside the circle.\n\n🔑 Key Formulas\n$$C = 2\\pi r = \\pi d$$\n$$A = \\pi r^2$$\n\n💡 Worked Example 1 — Circumference\nFind the circumference of a circle with radius $7\\text{ cm}$. Use $\\pi = \\dfrac{22}{7}$.\n\nStep 1: Substitute into $C = 2\\pi r$\n$$C = 2 \\times \\dfrac{22}{7} \\times 7$$\n\nStep 2: Calculate\n$$C = 44\\text{ cm}$$\n\n💡 Worked Example 2 — Area\nFind the area of a circle with diameter $10\\text{ cm}$. Use $\\pi = 3.14$.\n\nStep 1: Find the radius\n$$r = 10 \\div 2 = 5\\text{ cm}$$\n\nStep 2: Substitute into $A = \\pi r^2$\n$$A = 3.14 \\times 5^2 = 3.14 \\times 25$$\n\nStep 3: Calculate\n$$A = 78.5\\text{ cm}^2$$\n\n⚠️ Common Mistake\nUsing the diameter directly in $A = \\pi r^2$. Always halve the diameter to find the radius first.\n\n✅ Tip\nLeave answers in terms of $\\pi$ unless asked for a decimal approximation. This is often more exact."
     },
     {
       "id": "math-geometry-1-geo-n6",
@@ -43,7 +43,7 @@
     {
       "id": "math-geometry-1-geo-n7",
       "heading": "Congruence, Similarity and Transformations",
-      "body": "Two shapes can be related by size, shape, or position. Understanding these relationships helps solve problems involving scaled diagrams and patterns.\n\n📌 Definition\n• Congruent shapes are identical in shape and size. Corresponding sides and angles are equal.\n• Similar shapes have the same shape but different sizes. Corresponding angles are equal and corresponding sides are in the same ratio (scale factor).\n\n🔑 Congruence Tests for Triangles\n• SSS: three equal sides.\n• SAS: two equal sides and the included angle.\n• ASA: two equal angles and the included side.\n• RHS: right angle, hypotenuse, and one other side equal.\n\n🔑 Transformations\n• Translation: slides a shape without turning or flipping.\n• Reflection: flips a shape across a mirror line.\n• Rotation: turns a shape around a fixed centre.\n• Enlargement: changes the size by a scale factor from a centre point.\n\n💡 Worked Example — Similar triangles\nTwo similar triangles have corresponding sides in the ratio $2:5$. The smaller triangle has base $6\\text{ cm}$ and height $4\\text{ cm}$. Find the base and height of the larger triangle.\n\nStep 1: Find the scale factor\n$$\\text{Scale factor} = \\frac{5}{2} = 2.5$$\n\nStep 2: Multiply each dimension\n$$\\text{Base} = 6 \\times 2.5 = 15\\text{ cm}$$\n$$\\text{Height} = 4 \\times 2.5 = 10\\text{ cm}$$\n\n📎 Key Points to Remember\n• Congruent shapes can be transformed onto each other by translation, reflection, or rotation.\n• For similar shapes, area scales by the square of the scale factor; volume scales by the cube.\n\n⚠️ Common Misconception\nAAA is a similarity test, not a congruence test. Equal angles alone do not guarantee congruence because the triangles could be different sizes."
+      "body": "Two shapes can be related by size, shape, or position. Understanding these relationships helps solve problems involving scaled diagrams and patterns.\n\n📌 Definition\n• Congruent shapes are identical in shape and size. Corresponding sides and angles are equal.\n• Similar shapes have the same shape but different sizes. Corresponding angles are equal and corresponding sides are in the same ratio (scale factor).\n\n🔑 Congruence Tests for Triangles\n• SSS: three equal sides.\n• SAS: two equal sides and the included angle.\n• ASA: two equal angles and the included side.\n• RHS: right angle, hypotenuse, and one other side equal.\n\n🔑 Transformations\n• Translation: slides a shape without turning or flipping.\n• Reflection: flips a shape across a mirror line.\n• Rotation: turns a shape around a fixed centre.\n• Enlargement: changes the size by a scale factor from a centre point.\n\n💡 Worked Example — Similar triangles\nTwo similar triangles have corresponding sides in the ratio $2:5$. The smaller triangle has base $6\\text{ cm}$ and height $4\\text{ cm}$. Find the base and height of the larger triangle.\n\nStep 1: Find the scale factor\n$$\\text{Scale factor} = \\dfrac{5}{2} = 2.5$$\n\nStep 2: Multiply each dimension\n$$\\text{Base} = 6 \\times 2.5 = 15\\text{ cm}$$\n$$\\text{Height} = 4 \\times 2.5 = 10\\text{ cm}$$\n\n📎 Key Points to Remember\n• Congruent shapes can be transformed onto each other by translation, reflection, or rotation.\n• For similar shapes, area scales by the square of the scale factor; volume scales by the cube.\n\n⚠️ Common Misconception\nAAA is a similarity test, not a congruence test. Equal angles alone do not guarantee congruence because the triangles could be different sizes."
     }
   ],
   "flashcards": [
@@ -93,7 +93,7 @@
       "id": "math-geometry-1-geo-f8",
       "term": "Circumference of a circle",
       "definition": "The distance around a circle, calculated as $C = 2\\pi r$ or $C = \\pi d$.",
-      "example": "For $r = 7\\text{ cm}$, $C = 2 \\times \\frac{22}{7} \\times 7 = 44\\text{ cm}$."
+      "example": "For $r = 7\\text{ cm}$, $C = 2 \\times \\dfrac{22}{7} \\times 7 = 44\\text{ cm}$."
     },
     {
       "id": "math-geometry-1-geo-f9",
@@ -219,7 +219,7 @@
     },
     {
       "id": "math-geometry-1-geo-q9",
-      "stem": "Find the circumference of a circle with radius $14\\text{ cm}$. Use $\\pi = \\frac{22}{7}$.",
+      "stem": "Find the circumference of a circle with radius $14\\text{ cm}$. Use $\\pi = \\dfrac{22}{7}$.",
       "choices": [
         "$44\\text{ cm}$",
         "$88\\text{ cm}$",
@@ -227,7 +227,7 @@
         "$616\\text{ cm}$"
       ],
       "correctIndex": 1,
-      "explanation": "Using $C = 2\\pi r$, we get $C = 2 \\times \\frac{22}{7} \\times 14 = 88\\text{ cm}$."
+      "explanation": "Using $C = 2\\pi r$, we get $C = 2 \\times \\dfrac{22}{7} \\times 14 = 88\\text{ cm}$."
     },
     {
       "id": "math-geometry-1-geo-q10",
@@ -263,7 +263,7 @@
         "$8\\text{ cm}$"
       ],
       "correctIndex": 2,
-      "explanation": "Using $A = \\frac{1}{2}bh$, we have $42 = \\frac{1}{2} \\times 12 \\times h = 6h$. Therefore $h = 42 \\div 6 = 7\\text{ cm}$."
+      "explanation": "Using $A = \\dfrac{1}{2}bh$, we have $42 = \\dfrac{1}{2} \\times 12 \\times h = 6h$. Therefore $h = 42 \\div 6 = 7\\text{ cm}$."
     },
     {
       "id": "math-geometry-1-geo-q13",
@@ -275,7 +275,7 @@
         "$27\\text{ cm}$"
       ],
       "correctIndex": 1,
-      "explanation": "The scale factor from small to large is $\\frac{7}{3}$. So the larger base is $9 \\times \\frac{7}{3} = 21\\text{ cm}$."
+      "explanation": "The scale factor from small to large is $\\dfrac{7}{3}$. So the larger base is $9 \\times \\dfrac{7}{3} = 21\\text{ cm}$."
     },
     {
       "id": "math-geometry-1-geo-q14",

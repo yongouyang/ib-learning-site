@@ -23,17 +23,17 @@
     {
       "id": "math-yr8-volume-surface-area-n-triangular",
       "heading": "Triangular Prisms",
-      "body": "📌 Definition\nA triangular prism has two identical triangular ends connected by three rectangular faces.\n\n🔑 Formulas\nVolume:\n$$V = \\left(\\frac{1}{2} \\times b \\times h\\right) \\times l$$\n\nSurface area:\n$$\\text{SA} = b h + (a + b + c) \\times l$$\nwhere $a$, $b$, $c$ are the three sides of the triangle and $h$ is the perpendicular height relative to base $b$.\n\n💡 Worked Example\nA triangular prism has a triangle with base $6~\\text{cm}$, perpendicular height $4~\\text{cm}$, and sides $6~\\text{cm}$, $5~\\text{cm}$, $5~\\text{cm}$. The prism length is $10~\\text{cm}$.\n\nVolume:\n$$V = \\frac{1}{2} \\times 6 \\times 4 \\times 10 = 120~\\text{cm}^3$$\n\nSurface area:\n$$\\text{SA} = (6 \\times 4) + (6 + 5 + 5) \\times 10$$\n$$\\text{SA} = 24 + 160 = 184~\\text{cm}^2$$\n\n⚠️ Common Mistake\nUsing a slanted side of the triangle as the height. The height must be perpendicular to the base.\n\n✅ Check\nThe two triangular ends together equal $24~\\text{cm}^2$, and the three rectangles total $160~\\text{cm}^2$, giving $184~\\text{cm}^2$."
+      "body": "📌 Definition\nA triangular prism has two identical triangular ends connected by three rectangular faces.\n\n🔑 Formulas\nVolume:\n$$V = \\left(\\dfrac{1}{2} \\times b \\times h\\right) \\times l$$\n\nSurface area:\n$$\\text{SA} = b h + (a + b + c) \\times l$$\nwhere $a$, $b$, $c$ are the three sides of the triangle and $h$ is the perpendicular height relative to base $b$.\n\n💡 Worked Example\nA triangular prism has a triangle with base $6~\\text{cm}$, perpendicular height $4~\\text{cm}$, and sides $6~\\text{cm}$, $5~\\text{cm}$, $5~\\text{cm}$. The prism length is $10~\\text{cm}$.\n\nVolume:\n$$V = \\dfrac{1}{2} \\times 6 \\times 4 \\times 10 = 120~\\text{cm}^3$$\n\nSurface area:\n$$\\text{SA} = (6 \\times 4) + (6 + 5 + 5) \\times 10$$\n$$\\text{SA} = 24 + 160 = 184~\\text{cm}^2$$\n\n⚠️ Common Mistake\nUsing a slanted side of the triangle as the height. The height must be perpendicular to the base.\n\n✅ Check\nThe two triangular ends together equal $24~\\text{cm}^2$, and the three rectangles total $160~\\text{cm}^2$, giving $184~\\text{cm}^2$."
     },
     {
       "id": "math-yr8-volume-surface-area-n-cylinder",
       "heading": "Cylinders",
-      "body": "📌 Definition\nA cylinder is a prism with a circular cross-section.\n\n🔑 Formulas\nVolume:\n$$V = \\pi r^2 h$$\n\nCurved surface area:\n$$\\text{CSA} = 2\\pi r h$$\n\nTotal surface area:\n$$\\text{SA} = 2\\pi r h + 2\\pi r^2 = 2\\pi r(r + h)$$\n\n💡 Worked Example\nFind the volume and total surface area of a cylinder with radius $3~\\text{cm}$ and height $5~\\text{cm}$. Use $\\pi \\approx 3.14$.\n\nVolume:\n$$V = 3.14 \\times 3^2 \\times 5 = 3.14 \\times 9 \\times 5 = 141.3~\\text{cm}^3$$\n\nTotal surface area:\n$$\\text{SA} = 2 \\times 3.14 \\times 3 \\times 5 + 2 \\times 3.14 \\times 3^2$$\n$$\\text{SA} = 94.2 + 56.52 = 150.72~\\text{cm}^2$$\n\n📎 Key Points to Remember\n• The radius is half the diameter: $r = \\frac{d}{2}$.\n• Curved surface area is like the label wrapped around a can; total surface area includes the two circular ends.\n• Use the $\\pi$ key on your calculator for greater accuracy.\n\n⚠️ Common Mistake\nUsing the diameter directly in $V = \\pi r^2 h$ without halving it first."
+      "body": "📌 Definition\nA cylinder is a prism with a circular cross-section.\n\n🔑 Formulas\nVolume:\n$$V = \\pi r^2 h$$\n\nCurved surface area:\n$$\\text{CSA} = 2\\pi r h$$\n\nTotal surface area:\n$$\\text{SA} = 2\\pi r h + 2\\pi r^2 = 2\\pi r(r + h)$$\n\n💡 Worked Example\nFind the volume and total surface area of a cylinder with radius $3~\\text{cm}$ and height $5~\\text{cm}$. Use $\\pi \\approx 3.14$.\n\nVolume:\n$$V = 3.14 \\times 3^2 \\times 5 = 3.14 \\times 9 \\times 5 = 141.3~\\text{cm}^3$$\n\nTotal surface area:\n$$\\text{SA} = 2 \\times 3.14 \\times 3 \\times 5 + 2 \\times 3.14 \\times 3^2$$\n$$\\text{SA} = 94.2 + 56.52 = 150.72~\\text{cm}^2$$\n\n📎 Key Points to Remember\n• The radius is half the diameter: $r = \\dfrac{d}{2}$.\n• Curved surface area is like the label wrapped around a can; total surface area includes the two circular ends.\n• Use the $\\pi$ key on your calculator for greater accuracy.\n\n⚠️ Common Mistake\nUsing the diameter directly in $V = \\pi r^2 h$ without halving it first."
     },
     {
       "id": "math-yr8-volume-surface-area-n-composite-volume",
       "heading": "Volume of Composite Solids",
-      "body": "📌 Definition\nA composite solid is made by joining two or more simple solids together, or by cutting a hole out of a solid.\n\n🔑 How it works\n1. Split the solid into familiar prisms.\n2. Calculate the volume of each part.\n3. Add the volumes if the parts are joined, or subtract if a part is removed.\n\n💡 Worked Example\nA solid is made from a cuboid $8~\\text{cm} \\times 5~\\text{cm} \\times 4~\\text{cm}$ with a triangular prism on top. The triangle has base $8~\\text{cm}$, height $3~\\text{cm}$, and the prism length is $5~\\text{cm}$.\n\nVolume of cuboid:\n$$V_1 = 8 \\times 5 \\times 4 = 160~\\text{cm}^3$$\n\nVolume of triangular prism:\n$$V_2 = \\frac{1}{2} \\times 8 \\times 3 \\times 5 = 60~\\text{cm}^3$$\n\nTotal volume:\n$$V = 160 + 60 = 220~\\text{cm}^3$$\n\n⚠️ Common Mistake\nForgetting to use the same units for every measurement before adding.\n\n✅ Check\nEstimate: $160 + 60 = 220$, so $220~\\text{cm}^3$ is sensible."
+      "body": "📌 Definition\nA composite solid is made by joining two or more simple solids together, or by cutting a hole out of a solid.\n\n🔑 How it works\n1. Split the solid into familiar prisms.\n2. Calculate the volume of each part.\n3. Add the volumes if the parts are joined, or subtract if a part is removed.\n\n💡 Worked Example\nA solid is made from a cuboid $8~\\text{cm} \\times 5~\\text{cm} \\times 4~\\text{cm}$ with a triangular prism on top. The triangle has base $8~\\text{cm}$, height $3~\\text{cm}$, and the prism length is $5~\\text{cm}$.\n\nVolume of cuboid:\n$$V_1 = 8 \\times 5 \\times 4 = 160~\\text{cm}^3$$\n\nVolume of triangular prism:\n$$V_2 = \\dfrac{1}{2} \\times 8 \\times 3 \\times 5 = 60~\\text{cm}^3$$\n\nTotal volume:\n$$V = 160 + 60 = 220~\\text{cm}^3$$\n\n⚠️ Common Mistake\nForgetting to use the same units for every measurement before adding.\n\n✅ Check\nEstimate: $160 + 60 = 220$, so $220~\\text{cm}^3$ is sensible."
     },
     {
       "id": "math-yr8-volume-surface-area-n-composite-surface",
@@ -81,7 +81,7 @@
       "id": "math-yr8-volume-surface-area-f-triangular-volume",
       "term": "Volume of a triangular prism",
       "definition": "Half the base times the perpendicular height of the triangle, multiplied by the prism length.",
-      "example": "$V = \\frac{1}{2} b h \\times l$"
+      "example": "$V = \\dfrac{1}{2} b h \\times l$"
     },
     {
       "id": "math-yr8-volume-surface-area-f-triangular-surface",
@@ -155,7 +155,7 @@
         "$24~\\text{cm}^3$"
       ],
       "correctIndex": 0,
-      "explanation": "$V = \\frac{1}{2} \\times 6 \\times 4 \\times 10 = 120~\\text{cm}^3$."
+      "explanation": "$V = \\dfrac{1}{2} \\times 6 \\times 4 \\times 10 = 120~\\text{cm}^3$."
     },
     {
       "id": "math-yr8-volume-surface-area-q-triangular-surface",
@@ -167,7 +167,7 @@
         "$144~\\text{cm}^2$"
       ],
       "correctIndex": 2,
-      "explanation": "Two triangles: $2 \\times \\frac{1}{2} \\times 4 \\times 3 = 12~\\text{cm}^2$. Three rectangles: $(3+4+5) \\times 10 = 120~\\text{cm}^2$. Total = $132~\\text{cm}^2$."
+      "explanation": "Two triangles: $2 \\times \\dfrac{1}{2} \\times 4 \\times 3 = 12~\\text{cm}^2$. Three rectangles: $(3+4+5) \\times 10 = 120~\\text{cm}^2$. Total = $132~\\text{cm}^2$."
     },
     {
       "id": "math-yr8-volume-surface-area-q-cylinder-volume",
@@ -239,7 +239,7 @@
         "$4~\\text{cm}$"
       ],
       "correctIndex": 1,
-      "explanation": "$h = \\frac{V}{\\pi r^2} = \\frac{157}{3.14 \\times 25} = \\frac{157}{78.5} = 2~\\text{cm}$."
+      "explanation": "$h = \\dfrac{V}{\\pi r^2} = \\dfrac{157}{3.14 \\times 25} = \\dfrac{157}{78.5} = 2~\\text{cm}$."
     },
     {
       "id": "math-yr8-volume-surface-area-q-unit-conversion",

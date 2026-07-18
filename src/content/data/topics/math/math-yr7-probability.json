@@ -8,7 +8,7 @@
     {
       "id": "math-yr7-probability-prob-n1",
       "heading": "The Probability Scale",
-      "body": "📌 Definition\nProbability is a number from 0 to 1 that tells us how likely an event is to happen. It can be written as a fraction, a decimal or a percentage.\n\n🔑 Key Concept\nThe probability scale runs from 0 (impossible) to 1 (certain). A probability of 0.5 means an event is equally likely to happen as not.\n\n💡 Worked Example\nA weather forecast says there is a 75% chance of rain.\n• As a decimal: 0.75\n• As a fraction: $\\frac{75}{100}=\\frac{3}{4}$\n• On the probability scale: close to certain, but not guaranteed.\n\n📎 Key Points to Remember\n• 0 = impossible\n• 1 = certain\n• 0.5 = even chance\n• Probabilities can be written as fractions, decimals or percentages\n• Every probability must lie between 0 and 1\n\n⚠️ Common Misconception\nA high probability such as 0.9 does not mean an event will definitely happen; it means the event is very likely. Only $P=1$ is certain.",
+      "body": "📌 Definition\nProbability is a number from 0 to 1 that tells us how likely an event is to happen. It can be written as a fraction, a decimal or a percentage.\n\n🔑 Key Concept\nThe probability scale runs from 0 (impossible) to 1 (certain). A probability of 0.5 means an event is equally likely to happen as not.\n\n💡 Worked Example\nA weather forecast says there is a 75% chance of rain.\n• As a decimal: 0.75\n• As a fraction: $\\dfrac{75}{100}=\\dfrac{3}{4}$\n• On the probability scale: close to certain, but not guaranteed.\n\n📎 Key Points to Remember\n• 0 = impossible\n• 1 = certain\n• 0.5 = even chance\n• Probabilities can be written as fractions, decimals or percentages\n• Every probability must lie between 0 and 1\n\n⚠️ Common Misconception\nA high probability such as 0.9 does not mean an event will definitely happen; it means the event is very likely. Only $P=1$ is certain.",
       "illustration": {
         "src": "/images/math/math-yr7-probability.svg",
         "alt": "A probability scale from 0 (impossible) to 1 (certain) with colour-coded benchmarks; spinner and dice examples showing the favourable/total formula; and a sample space diagram for rolling two dice with the sum-of-7 outcomes highlighted.",
@@ -18,7 +18,7 @@
     {
       "id": "math-yr7-probability-prob-n2",
       "heading": "Calculating Simple Probability",
-      "body": "📌 Definition\nThe theoretical probability of an event is calculated as:\n$$P(\\text{event})=\\frac{\\text{number of favourable outcomes}}{\\text{total number of possible outcomes}}$$\n\n🔑 Key Concept\nFavourable outcomes are the ones we want. The total must include every possible result, and every result must be equally likely.\n\n💡 Worked Example\nA bag contains 4 red, 5 blue and 6 green marbles. What is the probability of choosing a red marble?\n\nStep 1: Find the total number of marbles.\n$$4+5+6=15$$\n\nStep 2: Identify the number of favourable outcomes.\nThere are 4 red marbles.\n\nStep 3: Write the probability.\n$$P(\\text{red})=\\frac{4}{15}$$\n\n✅ Check\nThe fraction is already in its simplest form and $\\frac{4}{15}$ is between 0 and 1. ✓\n\n📎 Key Points to Remember\n• Always count the total carefully\n• Simplify fractions when possible\n• Probabilities must be between 0 and 1\n• The sum of the probabilities of all possible outcomes equals 1"
+      "body": "📌 Definition\nThe theoretical probability of an event is calculated as:\n$$P(\\text{event})=\\dfrac{\\text{number of favourable outcomes}}{\\text{total number of possible outcomes}}$$\n\n🔑 Key Concept\nFavourable outcomes are the ones we want. The total must include every possible result, and every result must be equally likely.\n\n💡 Worked Example\nA bag contains 4 red, 5 blue and 6 green marbles. What is the probability of choosing a red marble?\n\nStep 1: Find the total number of marbles.\n$$4+5+6=15$$\n\nStep 2: Identify the number of favourable outcomes.\nThere are 4 red marbles.\n\nStep 3: Write the probability.\n$$P(\\text{red})=\\dfrac{4}{15}$$\n\n✅ Check\nThe fraction is already in its simplest form and $\\dfrac{4}{15}$ is between 0 and 1. ✓\n\n📎 Key Points to Remember\n• Always count the total carefully\n• Simplify fractions when possible\n• Probabilities must be between 0 and 1\n• The sum of the probabilities of all possible outcomes equals 1"
     },
     {
       "id": "math-yr7-probability-prob-n3",
@@ -28,22 +28,22 @@
     {
       "id": "math-yr7-probability-prob-n4",
       "heading": "Sample Spaces and Listing Outcomes",
-      "body": "📌 Definition\nA sample space is the set of all possible outcomes of an experiment.\n\n🔑 Key Concept\nListing outcomes carefully helps us count the total and find probabilities. For two experiments, use a table or a tree diagram so you do not miss any possibilities.\n\n💡 Worked Example\nTwo fair dice are rolled and the scores are added. Use a sample-space table to find $P(\\text{total }=7)$.\n\nStep 1: There are $6\\times 6=36$ equally likely outcomes.\n\nStep 2: List the pairs that give a total of 7:\n$$(1,6),\\,(2,5),\\,(3,4),\\,(4,3),\\,(5,2),\\,(6,1)$$\nThere are 6 favourable outcomes.\n\nStep 3: Calculate the probability.\n$$P(\\text{total }=7)=\\frac{6}{36}=\\frac{1}{6}$$\n\n⚠️ Common Mistake\nWriting 'a total of 7' as a single outcome. It is actually made up of several different equally likely outcomes."
+      "body": "📌 Definition\nA sample space is the set of all possible outcomes of an experiment.\n\n🔑 Key Concept\nListing outcomes carefully helps us count the total and find probabilities. For two experiments, use a table or a tree diagram so you do not miss any possibilities.\n\n💡 Worked Example\nTwo fair dice are rolled and the scores are added. Use a sample-space table to find $P(\\text{total }=7)$.\n\nStep 1: There are $6\\times 6=36$ equally likely outcomes.\n\nStep 2: List the pairs that give a total of 7:\n$$(1,6),\\,(2,5),\\,(3,4),\\,(4,3),\\,(5,2),\\,(6,1)$$\nThere are 6 favourable outcomes.\n\nStep 3: Calculate the probability.\n$$P(\\text{total }=7)=\\dfrac{6}{36}=\\dfrac{1}{6}$$\n\n⚠️ Common Mistake\nWriting 'a total of 7' as a single outcome. It is actually made up of several different equally likely outcomes."
     },
     {
       "id": "math-yr7-probability-prob-n5",
       "heading": "Experimental and Theoretical Probability",
-      "body": "📌 Definition\nTheoretical probability is what should happen, calculated from the sample space. Experimental probability, also called relative frequency, is what actually happened in an experiment.\n\n🔑 Key Concept\n$$\\text{relative frequency}=\\frac{\\text{number of times the event happened}}{\\text{total number of trials}}$$\n\n💡 Worked Example\nA coin is flipped 80 times and lands on heads 34 times.\n\nTheoretical probability of heads:\n$$P(\\text{heads})=\\frac{1}{2}=0.5$$\n\nExperimental probability of heads:\n$$\\text{relative frequency}=\\frac{34}{80}=\\frac{17}{40}=0.425$$\n\n📎 Key Points to Remember\n• Experimental probability changes with each set of trials\n• More trials usually make the experimental probability closer to the theoretical probability\n• This pattern is called the law of large numbers\n• A single coin flip is still theoretical $P=0.5$; the actual result is either heads or tails"
+      "body": "📌 Definition\nTheoretical probability is what should happen, calculated from the sample space. Experimental probability, also called relative frequency, is what actually happened in an experiment.\n\n🔑 Key Concept\n$$\\text{relative frequency}=\\dfrac{\\text{number of times the event happened}}{\\text{total number of trials}}$$\n\n💡 Worked Example\nA coin is flipped 80 times and lands on heads 34 times.\n\nTheoretical probability of heads:\n$$P(\\text{heads})=\\dfrac{1}{2}=0.5$$\n\nExperimental probability of heads:\n$$\\text{relative frequency}=\\dfrac{34}{80}=\\dfrac{17}{40}=0.425$$\n\n📎 Key Points to Remember\n• Experimental probability changes with each set of trials\n• More trials usually make the experimental probability closer to the theoretical probability\n• This pattern is called the law of large numbers\n• A single coin flip is still theoretical $P=0.5$; the actual result is either heads or tails"
     },
     {
       "id": "math-yr7-probability-prob-n6",
       "heading": "Equally Likely Outcomes",
-      "body": "📌 Definition\nOutcomes are equally likely when each one has the same chance of happening.\n\n🔑 Key Concept\nThe formula $P=\\frac{\\text{favourable}}{\\text{total}}$ only works when all outcomes are equally likely. If a spinner has a larger red section, red is more likely than blue.\n\n💡 Worked Example\nA spinner is divided into 8 equal sectors: 3 red, 3 blue and 2 green. What is $P(\\text{red})$?\n\nBecause the sectors are equal:\n$$P(\\text{red})=\\frac{3}{8}$$\n\n⚠️ Common Mistake\nUsing the number of colours as the total. There are 3 colours, but they are not equally likely because red and blue each have 3 sectors while green has 2.\n\n✅ Tip\nBefore calculating, ask: 'Is every outcome fair?' If not, you cannot use the simple fraction formula."
+      "body": "📌 Definition\nOutcomes are equally likely when each one has the same chance of happening.\n\n🔑 Key Concept\nThe formula $P=\\dfrac{\\text{favourable}}{\\text{total}}$ only works when all outcomes are equally likely. If a spinner has a larger red section, red is more likely than blue.\n\n💡 Worked Example\nA spinner is divided into 8 equal sectors: 3 red, 3 blue and 2 green. What is $P(\\text{red})$?\n\nBecause the sectors are equal:\n$$P(\\text{red})=\\dfrac{3}{8}$$\n\n⚠️ Common Mistake\nUsing the number of colours as the total. There are 3 colours, but they are not equally likely because red and blue each have 3 sectors while green has 2.\n\n✅ Tip\nBefore calculating, ask: 'Is every outcome fair?' If not, you cannot use the simple fraction formula."
     },
     {
       "id": "math-yr7-probability-prob-n7",
       "heading": "Solving Probability Problems",
-      "body": "📌 Definition\nA probability problem may ask you to combine several ideas: sample spaces, complements, fractions and checking your answer.\n\n🔑 How it works\nStep 1: Identify the experiment and list all possible outcomes.\nStep 2: Count the favourable outcomes.\nStep 3: Use $P=\\frac{\\text{favourable}}{\\text{total}}$.\nStep 4: Simplify and check the answer makes sense.\n\n💡 Worked Example\nA letter is chosen at random from the word PROBABILITY. What is the probability of choosing a vowel?\n\nStep 1: Count total letters.\nThe word has 11 letters.\n\nStep 2: Count vowels.\nO, A, I, I = 4 vowels.\n\nStep 3: Write the probability.\n$$P(\\text{vowel})=\\frac{4}{11}$$\n\n✅ Check\nThe answer $\\frac{4}{11}$ is between 0 and 1, and the fraction is already in its simplest form.\n\n📎 Key Points to Remember\n• Read the question carefully to identify what is being chosen\n• Repeated letters count separately\n• Always check that the probabilities of all outcomes add up to 1"
+      "body": "📌 Definition\nA probability problem may ask you to combine several ideas: sample spaces, complements, fractions and checking your answer.\n\n🔑 How it works\nStep 1: Identify the experiment and list all possible outcomes.\nStep 2: Count the favourable outcomes.\nStep 3: Use $P=\\dfrac{\\text{favourable}}{\\text{total}}$.\nStep 4: Simplify and check the answer makes sense.\n\n💡 Worked Example\nA letter is chosen at random from the word PROBABILITY. What is the probability of choosing a vowel?\n\nStep 1: Count total letters.\nThe word has 11 letters.\n\nStep 2: Count vowels.\nO, A, I, I = 4 vowels.\n\nStep 3: Write the probability.\n$$P(\\text{vowel})=\\dfrac{4}{11}$$\n\n✅ Check\nThe answer $\\dfrac{4}{11}$ is between 0 and 1, and the fraction is already in its simplest form.\n\n📎 Key Points to Remember\n• Read the question carefully to identify what is being chosen\n• Repeated letters count separately\n• Always check that the probabilities of all outcomes add up to 1"
     }
   ],
   "flashcards": [
@@ -51,7 +51,7 @@
       "id": "math-yr7-probability-prob-f1",
       "term": "Probability",
       "definition": "A number from 0 to 1 that measures how likely an event is to happen.",
-      "example": "$P(\\text{rolling a 4 on a fair die})=\\frac{1}{6}$."
+      "example": "$P(\\text{rolling a 4 on a fair die})=\\dfrac{1}{6}$."
     },
     {
       "id": "math-yr7-probability-prob-f2",
@@ -81,25 +81,25 @@
       "id": "math-yr7-probability-prob-f6",
       "term": "Theoretical probability",
       "definition": "Probability calculated using the sample space when all outcomes are equally likely.",
-      "example": "$P(\\text{even on a die})=\\frac{3}{6}=\\frac{1}{2}$."
+      "example": "$P(\\text{even on a die})=\\dfrac{3}{6}=\\dfrac{1}{2}$."
     },
     {
       "id": "math-yr7-probability-prob-f7",
       "term": "Experimental probability",
       "definition": "Probability based on the results of an experiment; also called relative frequency.",
-      "example": "18 heads in 40 flips gives experimental $P(\\text{heads})=\\frac{18}{40}=\\frac{9}{20}$."
+      "example": "18 heads in 40 flips gives experimental $P(\\text{heads})=\\dfrac{18}{40}=\\dfrac{9}{20}$."
     },
     {
       "id": "math-yr7-probability-prob-f8",
       "term": "Fair",
       "definition": "Every outcome has the same chance of happening.",
-      "example": "A fair six-sided die has $P(\\text{rolling a 2})=\\frac{1}{6}$."
+      "example": "A fair six-sided die has $P(\\text{rolling a 2})=\\dfrac{1}{6}$."
     },
     {
       "id": "math-yr7-probability-prob-f9",
       "term": "Equally likely",
       "definition": "Outcomes that have the same probability.",
-      "example": "Heads and tails on a fair coin are equally likely, each with probability $\\frac{1}{2}$."
+      "example": "Heads and tails on a fair coin are equally likely, each with probability $\\dfrac{1}{2}$."
     },
     {
       "id": "math-yr7-probability-prob-f10",
@@ -137,13 +137,13 @@
       "id": "math-yr7-probability-prob-q2",
       "stem": "A bag contains 3 red and 7 blue marbles. What is $P(\\text{red})$?",
       "choices": [
-        "$\\frac{3}{7}$",
-        "$\\frac{3}{10}$",
-        "$\\frac{7}{10}$",
-        "$\\frac{10}{3}$"
+        "$\\dfrac{3}{7}$",
+        "$\\dfrac{3}{10}$",
+        "$\\dfrac{7}{10}$",
+        "$\\dfrac{10}{3}$"
       ],
       "correctIndex": 1,
-      "explanation": "There are 3 red marbles out of 10 marbles in total, so $P(\\text{red})=\\frac{3}{10}$."
+      "explanation": "There are 3 red marbles out of 10 marbles in total, so $P(\\text{red})=\\dfrac{3}{10}$."
     },
     {
       "id": "math-yr7-probability-prob-q3",
@@ -161,25 +161,25 @@
       "id": "math-yr7-probability-prob-q4",
       "stem": "A fair six-sided die is rolled once. What is $P(\\text{even})$?",
       "choices": [
-        "$\\frac{1}{6}$",
-        "$\\frac{1}{3}$",
-        "$\\frac{1}{2}$",
-        "$\\frac{2}{3}$"
+        "$\\dfrac{1}{6}$",
+        "$\\dfrac{1}{3}$",
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{2}{3}$"
       ],
       "correctIndex": 2,
-      "explanation": "The even numbers are 2, 4 and 6, so there are 3 favourable outcomes out of 6. $P=\\frac{3}{6}=\\frac{1}{2}$."
+      "explanation": "The even numbers are 2, 4 and 6, so there are 3 favourable outcomes out of 6. $P=\\dfrac{3}{6}=\\dfrac{1}{2}$."
     },
     {
       "id": "math-yr7-probability-prob-q5",
       "stem": "A letter is chosen at random from the word MATH. What is $P(\\text{M})$?",
       "choices": [
-        "$\\frac{1}{4}$",
-        "$\\frac{1}{3}$",
-        "$\\frac{1}{2}$",
-        "$\\frac{1}{5}$"
+        "$\\dfrac{1}{4}$",
+        "$\\dfrac{1}{3}$",
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{1}{5}$"
       ],
       "correctIndex": 0,
-      "explanation": "There are 4 letters in MATH and one M, so the probability is $\\frac{1}{4}$."
+      "explanation": "There are 4 letters in MATH and one M, so the probability is $\\dfrac{1}{4}$."
     },
     {
       "id": "math-yr7-probability-prob-q6",
@@ -197,32 +197,32 @@
       "id": "math-yr7-probability-prob-q7",
       "stem": "Two fair coins are flipped. What is $P(\\text{at least one tail})$?",
       "choices": [
-        "$\\frac{1}{4}$",
-        "$\\frac{1}{2}$",
-        "$\\frac{3}{4}$",
+        "$\\dfrac{1}{4}$",
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{3}{4}$",
         "1"
       ],
       "correctIndex": 2,
-      "explanation": "HT, TH and TT all contain at least one tail. That is 3 out of 4 outcomes, so $P=\\frac{3}{4}$."
+      "explanation": "HT, TH and TT all contain at least one tail. That is 3 out of 4 outcomes, so $P=\\dfrac{3}{4}$."
     },
     {
       "id": "math-yr7-probability-prob-q8",
       "stem": "A spinner has four equal sections: red, blue, green and yellow. What is $P(\\text{red or yellow})$?",
       "choices": [
-        "$\\frac{1}{4}$",
-        "$\\frac{1}{2}$",
-        "$\\frac{3}{4}$",
+        "$\\dfrac{1}{4}$",
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{3}{4}$",
         "1"
       ],
       "correctIndex": 1,
-      "explanation": "Two of the four equal sections are red or yellow, so $P=\\frac{2}{4}=\\frac{1}{2}$."
+      "explanation": "Two of the four equal sections are red or yellow, so $P=\\dfrac{2}{4}=\\dfrac{1}{2}$."
     },
     {
       "id": "math-yr7-probability-prob-q9",
       "stem": "Which of these values CANNOT be a probability?",
       "choices": [
         "0.75",
-        "$\\frac{1}{2}$",
+        "$\\dfrac{1}{2}$",
         "1.2",
         "0"
       ],
@@ -233,49 +233,49 @@
       "id": "math-yr7-probability-prob-q10",
       "stem": "A spinner is spun 50 times and lands on red 18 times. What is the experimental probability of red?",
       "choices": [
-        "$\\frac{18}{50}$",
-        "$\\frac{18}{32}$",
-        "$\\frac{32}{50}$",
-        "$\\frac{1}{2}$"
+        "$\\dfrac{18}{50}$",
+        "$\\dfrac{18}{32}$",
+        "$\\dfrac{32}{50}$",
+        "$\\dfrac{1}{2}$"
       ],
       "correctIndex": 0,
-      "explanation": "Experimental probability is successes divided by trials: $\\frac{18}{50}=\\frac{9}{25}$."
+      "explanation": "Experimental probability is successes divided by trials: $\\dfrac{18}{50}=\\dfrac{9}{25}$."
     },
     {
       "id": "math-yr7-probability-prob-q11",
       "stem": "Two fair dice are rolled and the scores are added. What is $P(\\text{total }=7)$?",
       "choices": [
-        "$\\frac{1}{12}$",
-        "$\\frac{1}{6}$",
-        "$\\frac{1}{8}$",
-        "$\\frac{1}{36}$"
+        "$\\dfrac{1}{12}$",
+        "$\\dfrac{1}{6}$",
+        "$\\dfrac{1}{8}$",
+        "$\\dfrac{1}{36}$"
       ],
       "correctIndex": 1,
-      "explanation": "There are 36 equally likely outcomes and 6 ways to score 7, so $P=\\frac{6}{36}=\\frac{1}{6}$."
+      "explanation": "There are 36 equally likely outcomes and 6 ways to score 7, so $P=\\dfrac{6}{36}=\\dfrac{1}{6}$."
     },
     {
       "id": "math-yr7-probability-prob-q12",
       "stem": "A class has 12 girls and 18 boys. One student is chosen at random. What is $P(\\text{girl})$?",
       "choices": [
-        "$\\frac{12}{18}$",
-        "$\\frac{2}{5}$",
-        "$\\frac{3}{5}$",
-        "$\\frac{1}{2}$"
+        "$\\dfrac{12}{18}$",
+        "$\\dfrac{2}{5}$",
+        "$\\dfrac{3}{5}$",
+        "$\\dfrac{1}{2}$"
       ],
       "correctIndex": 1,
-      "explanation": "There are 30 students in total. $P(\\text{girl})=\\frac{12}{30}=\\frac{2}{5}$."
+      "explanation": "There are 30 students in total. $P(\\text{girl})=\\dfrac{12}{30}=\\dfrac{2}{5}$."
     },
     {
       "id": "math-yr7-probability-prob-q13",
       "stem": "A spinner is divided into 5 equal sections: red, red, blue, green and yellow. What is $P(\\text{red})$?",
       "choices": [
-        "$\\frac{2}{5}$",
-        "$\\frac{1}{5}$",
-        "$\\frac{1}{4}$",
-        "$\\frac{3}{5}$"
+        "$\\dfrac{2}{5}$",
+        "$\\dfrac{1}{5}$",
+        "$\\dfrac{1}{4}$",
+        "$\\dfrac{3}{5}$"
       ],
       "correctIndex": 0,
-      "explanation": "There are 5 equal sections and 2 are red, so $P(\\text{red})=\\frac{2}{5}$."
+      "explanation": "There are 5 equal sections and 2 are red, so $P(\\text{red})=\\dfrac{2}{5}$."
     },
     {
       "id": "math-yr7-probability-prob-q14",
@@ -287,19 +287,19 @@
         "40"
       ],
       "correctIndex": 1,
-      "explanation": "The theoretical probability of a six is $\\frac{1}{6}$. Expected number $=120\\times\\frac{1}{6}=20$."
+      "explanation": "The theoretical probability of a six is $\\dfrac{1}{6}$. Expected number $=120\\times\\dfrac{1}{6}=20$."
     },
     {
       "id": "math-yr7-probability-prob-q15",
       "stem": "Tom has a bag of 20 sweets: 8 strawberry, 7 lemon and 5 orange. He picks one sweet at random. What is $P(\\text{not orange})$?",
       "choices": [
-        "$\\frac{3}{4}$",
-        "$\\frac{5}{20}$",
-        "$\\frac{11}{20}$",
-        "$\\frac{7}{20}$"
+        "$\\dfrac{3}{4}$",
+        "$\\dfrac{5}{20}$",
+        "$\\dfrac{11}{20}$",
+        "$\\dfrac{7}{20}$"
       ],
       "correctIndex": 0,
-      "explanation": "There are 5 orange sweets, so 15 are not orange. $P(\\text{not orange})=\\frac{15}{20}=\\frac{3}{4}$."
+      "explanation": "There are 5 orange sweets, so 15 are not orange. $P(\\text{not orange})=\\dfrac{15}{20}=\\dfrac{3}{4}$."
     }
   ]
 }

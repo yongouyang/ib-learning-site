@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, RotateCcw, BookOpen } from 'lucide-react';
 import { getTopic } from '@/content/registry';
 import type { SubjectId } from '@/content/types';
+import InlineMath from '@/components/InlineMath';
 
 interface FlashcardsPageClientProps {
   subjectId: string;
@@ -74,12 +75,12 @@ export default function FlashcardsPageClient({ subjectId, topicId }: FlashcardsP
             className="card p-6 absolute inset-0 flex flex-col items-center justify-center text-center cursor-pointer select-none hover:shadow-md"
           >
             {!isFlipped ? (
-              <h2 className="text-xl font-bold text-gray-900 dark:text-gray-50">{card.term}</h2>
+              <h2 className="text-xl font-bold text-gray-900 dark:text-gray-50"><InlineMath text={card.term} /></h2>
             ) : (
               <div>
-                <p className="text-gray-700 dark:text-gray-300 mb-3">{card.definition}</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-3"><InlineMath text={card.definition} /></p>
                 {card.example && (
-                  <p className="text-sm text-gray-500 dark:text-gray-400 italic">Example: {card.example}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 italic">Example: <InlineMath text={card.example} /></p>
                 )}
               </div>
             )}

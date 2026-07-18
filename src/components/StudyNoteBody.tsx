@@ -1,16 +1,7 @@
 'use client';
 
 import MathExpression from './MathExpression';
-
-function renderInlineMath(text: string): React.ReactNode[] {
-  const parts = text.split(/(\$[^$\n]+\$)/);
-  return parts.map((part, i) => {
-    if (part.startsWith('$') && part.endsWith('$') && part.length > 1) {
-      return <MathExpression key={i} latex={part.slice(1, -1)} />;
-    }
-    return <span key={i}>{part}</span>;
-  });
-}
+import { renderInlineMath } from './InlineMath';
 
 export default function StudyNoteBody({ body }: { body: string }) {
   const lines = body.split('\n');
@@ -63,6 +54,33 @@ export default function StudyNoteBody({ body }: { body: string }) {
         />
       );
       continue;
+    }
+
+    // Multi-line display math block: line starts with $$ but closes on a later
+    // line. Join the lines, normalising a single trailing "\" (author typo for
+    // the LaTeX line break "\\") so KaTeX renders the block correctly.
+    if (trimmed.startsWith('$$') && (trimmed.match(/\$\$/g) || []).length === 1) {
+      const blockLines = [trimmed];
+      let j = i + 1;
+      while (j < lines.length && !lines[j].trim().endsWith('$$')) {
+        blockLines.push(lines[j].trim());
+        j++;
+      }
+      if (j < lines.length) {
+        blockLines.push(lines[j].trim());
+        flushList();
+        const joined = blockLines
+          .map((l) => (l.endsWith('\\') && !l.endsWith('\\\\') ? l + '\\' : l))
+          .join(' ');
+        const inner = joined.startsWith('$$') ? joined.slice(2) : joined;
+        const latex = inner.endsWith('$$') ? inner.slice(0, -2) : inner;
+        elements.push(
+          <MathExpression key={`math-${key++}`} latex={latex.trim()} display />
+        );
+        i = j;
+        continue;
+      }
+      // No closing $$ found — fall through and render as normal lines.
     }
 
     // Bullet list item

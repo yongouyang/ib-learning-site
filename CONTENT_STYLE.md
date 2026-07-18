@@ -60,7 +60,11 @@ Newly created topics may temporarily fall below the target, but they should not 
 
 - Only use characters that KaTeX can render inside `$...$` / `$$...$$`.
 - Avoid raw Unicode symbols such as `★`, `🚲`, or `½` inside math delimiters.
-- Use proper LaTeX commands: `\frac{1}{2}`, `\times`, `\text{unit}`.
+- Use proper LaTeX commands: `\times`, `\text{unit}`.
+- Always use `\dfrac{a}{b}` (not `\frac{a}{b}`) so fractions render at full, readable size both inline and in display math.
+- Write currency amounts as plain text outside math (`£28`), not `£$28$` or `\pounds` — keeps the £ symbol in the same font as the surrounding sentence.
+- Do not end content lines with a single `\` (Markdown hard break) — the renderer does not interpret it and the audit flags it.
+- Inline `$...$` is rendered by KaTeX everywhere content is displayed: note bodies and headings, quiz stems, choices and explanations, flashcards, and topic descriptions. Display `$$...$$` is only supported in note bodies, on one line or as a multi-line block closed by a later `$$` line.
 
 ## IDs
 

@@ -38,7 +38,7 @@
     {
       "id": "math-yr8-angles-parallel-polygons-n6",
       "heading": "Regular Polygons",
-      "body": "📌 Definition\nA regular polygon has all sides equal and all angles equal.\n\n🔑 Key Concept\nFor a regular polygon with $n$ sides:\n$$\\text{one exterior angle} = \\frac{360^{\\circ}}{n}$$\n$$\\text{one interior angle} = \\frac{(n - 2) \\times 180^{\\circ}}{n}$$\n\nAlso, at each vertex:\n$$\\text{interior angle} + \\text{exterior angle} = 180^{\\circ}$$\n\n💡 Worked Example\nFind the interior and exterior angles of a regular octagon ($n = 8$).\n\nExterior angle:\n$$\\frac{360^{\\circ}}{8} = 45^{\\circ}$$\n\nInterior angle:\n$$180^{\\circ} - 45^{\\circ} = 135^{\\circ}$$\n\n✅ Check\n$135^{\\circ} + 45^{\\circ} = 180^{\\circ}$."
+      "body": "📌 Definition\nA regular polygon has all sides equal and all angles equal.\n\n🔑 Key Concept\nFor a regular polygon with $n$ sides:\n$$\\text{one exterior angle} = \\dfrac{360^{\\circ}}{n}$$\n$$\\text{one interior angle} = \\dfrac{(n - 2) \\times 180^{\\circ}}{n}$$\n\nAlso, at each vertex:\n$$\\text{interior angle} + \\text{exterior angle} = 180^{\\circ}$$\n\n💡 Worked Example\nFind the interior and exterior angles of a regular octagon ($n = 8$).\n\nExterior angle:\n$$\\dfrac{360^{\\circ}}{8} = 45^{\\circ}$$\n\nInterior angle:\n$$180^{\\circ} - 45^{\\circ} = 135^{\\circ}$$\n\n✅ Check\n$135^{\\circ} + 45^{\\circ} = 180^{\\circ}$."
     },
     {
       "id": "math-yr8-angles-parallel-polygons-n7",
@@ -93,19 +93,19 @@
       "id": "math-yr8-angles-parallel-polygons-f8",
       "term": "Interior angle of a regular polygon",
       "definition": "One interior angle of a regular polygon with $n$ sides.",
-      "example": "$\\frac{(n - 2) \\times 180^{\\circ}}{n}$ gives $135^{\\circ}$ for a regular octagon."
+      "example": "$\\dfrac{(n - 2) \\times 180^{\\circ}}{n}$ gives $135^{\\circ}$ for a regular octagon."
     },
     {
       "id": "math-yr8-angles-parallel-polygons-f9",
       "term": "Exterior angle of a regular polygon",
       "definition": "One exterior angle of a regular polygon with $n$ sides.",
-      "example": "$\\frac{360^{\\circ}}{n}$ gives $45^{\\circ}$ for a regular octagon."
+      "example": "$\\dfrac{360^{\\circ}}{n}$ gives $45^{\\circ}$ for a regular octagon."
     },
     {
       "id": "math-yr8-angles-parallel-polygons-f10",
       "term": "Number of sides from an exterior angle",
       "definition": "A way to find how many sides a regular polygon has from one exterior angle.",
-      "example": "$n = \\frac{360^{\\circ}}{\\text{one exterior angle}}$. An exterior angle of $30^{\\circ}$ means $12$ sides."
+      "example": "$n = \\dfrac{360^{\\circ}}{\\text{one exterior angle}}$. An exterior angle of $30^{\\circ}$ means $12$ sides."
     },
     {
       "id": "math-yr8-angles-parallel-polygons-f11",
@@ -227,7 +227,7 @@
         "$108^{\\circ}$"
       ],
       "correctIndex": 1,
-      "explanation": "For a regular polygon, one exterior angle is $\\frac{360^{\\circ}}{n}$. With $n = 5$, this is $\\frac{360^{\\circ}}{5} = 72^{\\circ}$."
+      "explanation": "For a regular polygon, one exterior angle is $\\dfrac{360^{\\circ}}{n}$. With $n = 5$, this is $\\dfrac{360^{\\circ}}{5} = 72^{\\circ}$."
     },
     {
       "id": "math-yr8-angles-parallel-polygons-q10",
@@ -239,7 +239,7 @@
         "$20$"
       ],
       "correctIndex": 1,
-      "explanation": "The number of sides is $n = \\frac{360^{\\circ}}{\\text{exterior angle}} = \\frac{360^{\\circ}}{24^{\\circ}} = 15$."
+      "explanation": "The number of sides is $n = \\dfrac{360^{\\circ}}{\\text{exterior angle}} = \\dfrac{360^{\\circ}}{24^{\\circ}} = 15$."
     },
     {
       "id": "math-yr8-angles-parallel-polygons-q11",
@@ -251,7 +251,7 @@
         "$150^{\\circ}$"
       ],
       "correctIndex": 0,
-      "explanation": "Using $\\frac{(n - 2) \\times 180^{\\circ}}{n}$ with $n = 6$ gives $\\frac{4 \\times 180^{\\circ}}{6} = 120^{\\circ}$."
+      "explanation": "Using $\\dfrac{(n - 2) \\times 180^{\\circ}}{n}$ with $n = 6$ gives $\\dfrac{4 \\times 180^{\\circ}}{6} = 120^{\\circ}$."
     },
     {
       "id": "math-yr8-angles-parallel-polygons-q12",
@@ -275,7 +275,7 @@
         "$20$"
       ],
       "correctIndex": 1,
-      "explanation": "The exterior angle is $180^{\\circ} - 150^{\\circ} = 30^{\\circ}$. Then $n = \\frac{360^{\\circ}}{30^{\\circ}} = 12$."
+      "explanation": "The exterior angle is $180^{\\circ} - 150^{\\circ} = 30^{\\circ}$. Then $n = \\dfrac{360^{\\circ}}{30^{\\circ}} = 12$."
     },
     {
       "id": "math-yr8-angles-parallel-polygons-q14",

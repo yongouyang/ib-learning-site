@@ -23,7 +23,7 @@
     {
       "id": "math-yr7-area-perimeter-ap-n3",
       "heading": "Area of a Triangle",
-      "body": "Any triangle takes up exactly half the space of a rectangle (or parallelogram) with the same base and height.\n\n📌 Definition\nThe area of a triangle is one half of its base multiplied by the perpendicular height.\n\n$$A = \\frac{1}{2} \\times b \\times h$$\n\n🔑 Key Concept\nThe height $h$ must be measured at right angles (perpendicular) to the base. It is not necessarily one of the slanted sides.\n\n💡 Worked Example 1\nFind the area of a triangle with base $10\\text{ cm}$ and perpendicular height $4\\text{ cm}$.\n\n  Step 1: Substitute into the formula\n    $A = \\frac{1}{2} \\times 10 \\times 4$\n\n  Step 2: Multiply\n    $A = \\frac{1}{2} \\times 40 = 20$\n\n  Step 3: State the units\n    $A = 20\\text{ cm}^2$\n\n💡 Worked Example 2 — Finding a missing height\nA triangle has area $24\\text{ cm}^2$ and base $8\\text{ cm}$. Find the perpendicular height.\n\n  Step 1: Start with $A = \\frac{1}{2}bh$\n    $24 = \\frac{1}{2} \\times 8 \\times h$\n\n  Step 2: Simplify\n    $24 = 4h$\n\n  Step 3: Solve\n    $h = 6\\text{ cm}$\n\n  ✅ Check: $\\frac{1}{2} \\times 8 \\times 6 = 24\\text{ cm}^2$ ✓\n\n⚠️ Common Mistake\nUsing a slanted side as the height. Always look for the right-angle between base and height."
+      "body": "Any triangle takes up exactly half the space of a rectangle (or parallelogram) with the same base and height.\n\n📌 Definition\nThe area of a triangle is one half of its base multiplied by the perpendicular height.\n\n$$A = \\dfrac{1}{2} \\times b \\times h$$\n\n🔑 Key Concept\nThe height $h$ must be measured at right angles (perpendicular) to the base. It is not necessarily one of the slanted sides.\n\n💡 Worked Example 1\nFind the area of a triangle with base $10\\text{ cm}$ and perpendicular height $4\\text{ cm}$.\n\n  Step 1: Substitute into the formula\n    $A = \\dfrac{1}{2} \\times 10 \\times 4$\n\n  Step 2: Multiply\n    $A = \\dfrac{1}{2} \\times 40 = 20$\n\n  Step 3: State the units\n    $A = 20\\text{ cm}^2$\n\n💡 Worked Example 2 — Finding a missing height\nA triangle has area $24\\text{ cm}^2$ and base $8\\text{ cm}$. Find the perpendicular height.\n\n  Step 1: Start with $A = \\dfrac{1}{2}bh$\n    $24 = \\dfrac{1}{2} \\times 8 \\times h$\n\n  Step 2: Simplify\n    $24 = 4h$\n\n  Step 3: Solve\n    $h = 6\\text{ cm}$\n\n  ✅ Check: $\\dfrac{1}{2} \\times 8 \\times 6 = 24\\text{ cm}^2$ ✓\n\n⚠️ Common Mistake\nUsing a slanted side as the height. Always look for the right-angle between base and height."
     },
     {
       "id": "math-yr7-area-perimeter-ap-n4",
@@ -43,7 +43,7 @@
     {
       "id": "math-yr7-area-perimeter-ap-n7",
       "heading": "Problem Solving and Checking",
-      "body": "Many area and perimeter questions ask you to work backwards or solve a real-life problem.\n\n🔑 Key Concept — Working backwards\nIf you know the area and one dimension, you can find the other:\n\n$$\\text{rectangle: } l = \\frac{A}{w} \\quad \\text{and} \\quad w = \\frac{A}{l}$$\n\n$$\\text{triangle: } b = \\frac{2A}{h} \\quad \\text{and} \\quad h = \\frac{2A}{b}$$\n\n$$\\text{parallelogram: } b = \\frac{A}{h} \\quad \\text{and} \\quad h = \\frac{A}{b}$$\n\n💡 Worked Example — Garden path\nA rectangular garden is $12\\text{ m}$ long and $8\\text{ m}$ wide. A path $1\\text{ m}$ wide runs all the way around the inside edge. Find the area of the path.\n\n  Step 1: Area of whole garden\n    $A_{\\text{garden}} = 12 \\times 8 = 96\\text{ m}^2$\n\n  Step 2: Dimensions of the inner flower bed\n    Length: $12 - 1 - 1 = 10\\text{ m}$\n    Width: $8 - 1 - 1 = 6\\text{ m}$\n\n  Step 3: Area of inner bed\n    $A_{\\text{bed}} = 10 \\times 6 = 60\\text{ m}^2$\n\n  Step 4: Area of path\n    $A_{\\text{path}} = 96 - 60 = 36\\text{ m}^2$\n\n✅ Check\nEstimate: the path is about $1\\text{ m}$ wide around a $12\\text{ m}\\times 8\\text{ m}$ rectangle, so its area should be a bit less than the garden's perimeter ($40\\text{ m}$) times $1\\text{ m}$, giving about $36\\text{ m}^2$. The answer is reasonable.\n\n⚠️ Common Misconception\nSubtracting only $1\\text{ m}$ from each dimension when a border runs on both sides. Remember to subtract twice the border width."
+      "body": "Many area and perimeter questions ask you to work backwards or solve a real-life problem.\n\n🔑 Key Concept — Working backwards\nIf you know the area and one dimension, you can find the other:\n\n$$\\text{rectangle: } l = \\dfrac{A}{w} \\quad \\text{and} \\quad w = \\dfrac{A}{l}$$\n\n$$\\text{triangle: } b = \\dfrac{2A}{h} \\quad \\text{and} \\quad h = \\dfrac{2A}{b}$$\n\n$$\\text{parallelogram: } b = \\dfrac{A}{h} \\quad \\text{and} \\quad h = \\dfrac{A}{b}$$\n\n💡 Worked Example — Garden path\nA rectangular garden is $12\\text{ m}$ long and $8\\text{ m}$ wide. A path $1\\text{ m}$ wide runs all the way around the inside edge. Find the area of the path.\n\n  Step 1: Area of whole garden\n    $A_{\\text{garden}} = 12 \\times 8 = 96\\text{ m}^2$\n\n  Step 2: Dimensions of the inner flower bed\n    Length: $12 - 1 - 1 = 10\\text{ m}$\n    Width: $8 - 1 - 1 = 6\\text{ m}$\n\n  Step 3: Area of inner bed\n    $A_{\\text{bed}} = 10 \\times 6 = 60\\text{ m}^2$\n\n  Step 4: Area of path\n    $A_{\\text{path}} = 96 - 60 = 36\\text{ m}^2$\n\n✅ Check\nEstimate: the path is about $1\\text{ m}$ wide around a $12\\text{ m}\\times 8\\text{ m}$ rectangle, so its area should be a bit less than the garden's perimeter ($40\\text{ m}$) times $1\\text{ m}$, giving about $36\\text{ m}^2$. The answer is reasonable.\n\n⚠️ Common Misconception\nSubtracting only $1\\text{ m}$ from each dimension when a border runs on both sides. Remember to subtract twice the border width."
     }
   ],
   "flashcards": [
@@ -74,7 +74,7 @@
     {
       "id": "math-yr7-area-perimeter-ap-f5",
       "term": "Triangle area formula",
-      "definition": "Area equals one half of base multiplied by perpendicular height: $A = \\frac{1}{2}bh$.",
+      "definition": "Area equals one half of base multiplied by perpendicular height: $A = \\dfrac{1}{2}bh$.",
       "example": "Base $12\\text{ cm}$ and height $5\\text{ cm}$ gives area $30\\text{ cm}^2$."
     },
     {
@@ -155,7 +155,7 @@
         "$26\\text{ cm}^2$"
       ],
       "correctIndex": 2,
-      "explanation": "Area of a triangle $= \\frac{1}{2}bh = \\frac{1}{2} \\times 8 \\times 5 = 20\\text{ cm}^2$."
+      "explanation": "Area of a triangle $= \\dfrac{1}{2}bh = \\dfrac{1}{2} \\times 8 \\times 5 = 20\\text{ cm}^2$."
     },
     {
       "id": "math-yr7-area-perimeter-ap-q4",
@@ -179,7 +179,7 @@
         "$12\\text{ cm}$"
       ],
       "correctIndex": 2,
-      "explanation": "Using $\\frac{1}{2} \\times 8 \\times h = 24$ gives $4h = 24$, so $h = 6\\text{ cm}$."
+      "explanation": "Using $\\dfrac{1}{2} \\times 8 \\times h = 24$ gives $4h = 24$, so $h = 6\\text{ cm}$."
     },
     {
       "id": "math-yr7-area-perimeter-ap-q6",
@@ -263,7 +263,7 @@
         "$44\\text{ cm}^2$"
       ],
       "correctIndex": 1,
-      "explanation": "Rectangle area $= 8 \\times 5 = 40\\text{ cm}^2$. Triangle area $= \\frac{1}{2} \\times 8 \\times 3 = 12\\text{ cm}^2$. Total $= 40 + 12 = 52\\text{ cm}^2$."
+      "explanation": "Rectangle area $= 8 \\times 5 = 40\\text{ cm}^2$. Triangle area $= \\dfrac{1}{2} \\times 8 \\times 3 = 12\\text{ cm}^2$. Total $= 40 + 12 = 52\\text{ cm}^2$."
     },
     {
       "id": "math-yr7-area-perimeter-ap-q13",

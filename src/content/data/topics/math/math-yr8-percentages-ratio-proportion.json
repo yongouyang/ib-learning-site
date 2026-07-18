@@ -18,32 +18,32 @@
     {
       "id": "math-yr8-percentages-ratio-proportion-n2",
       "heading": "Compound Interest",
-      "body": "📌 Definition\nCompound interest is interest calculated on the original amount and on the interest already earned.\n\n🔑 Key Concept\nThe formula for compound interest is:\n$$A = P\\left(1 + \\frac{r}{100}\\right)^n$$\nwhere $A$ is the final amount, $P$ is the principal, $r$ is the annual interest rate and $n$ is the number of years.\n\n💡 Worked Example\nMaya invests £ $500$ at $4\\%$ per year compound interest for $3$ years. How much is in the account after $3$ years?\n\nStep 1: Identify the values.\n$$P = 500, \\quad r = 4, \\quad n = 3$$\n\nStep 2: Substitute into the formula.\n$$A = 500\\left(1 + \\frac{4}{100}\\right)^3 = 500 \\times 1.04^3$$\n\nStep 3: Calculate.\n$$A \\approx 500 \\times 1.124864 = 562.432$$\n\nStep 4: State the answer.\nThe amount is £ $562.43$ to the nearest penny.\n\n⚠️ Common Mistake\nUsing simple interest instead of compound interest. Simple interest would give $500 + (500 \\times 0.04 \\times 3) = 560$, which is less than the compound amount."
+      "body": "📌 Definition\nCompound interest is interest calculated on the original amount and on the interest already earned.\n\n🔑 Key Concept\nThe formula for compound interest is:\n$$A = P\\left(1 + \\dfrac{r}{100}\\right)^n$$\nwhere $A$ is the final amount, $P$ is the principal, $r$ is the annual interest rate and $n$ is the number of years.\n\n💡 Worked Example\nMaya invests £ $500$ at $4\\%$ per year compound interest for $3$ years. How much is in the account after $3$ years?\n\nStep 1: Identify the values.\n$$P = 500, \\quad r = 4, \\quad n = 3$$\n\nStep 2: Substitute into the formula.\n$$A = 500\\left(1 + \\dfrac{4}{100}\\right)^3 = 500 \\times 1.04^3$$\n\nStep 3: Calculate.\n$$A \\approx 500 \\times 1.124864 = 562.432$$\n\nStep 4: State the answer.\nThe amount is £ $562.43$ to the nearest penny.\n\n⚠️ Common Mistake\nUsing simple interest instead of compound interest. Simple interest would give $500 + (500 \\times 0.04 \\times 3) = 560$, which is less than the compound amount."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-n3",
       "heading": "Reverse Percentages",
-      "body": "📌 Definition\nA reverse percentage problem asks you to find an original amount after a percentage increase or decrease has been applied.\n\n🔑 How it works\nIf a value has been increased by $r\\%$, divide by the multiplier $(1 + \\frac{r}{100})$ to find the original.\nIf a value has been decreased by $r\\%$, divide by the multiplier $(1 - \\frac{r}{100})$ to find the original.\n\n💡 Worked Example\nA shop sells a jacket for £ $66$ after a $10\\%$ increase. What was the original price?\n\nStep 1: Find the multiplier.\nA $10\\%$ increase uses $1 + 0.10 = 1.10$.\n\nStep 2: Divide the new price by the multiplier.\n$$\\text{original price} = \\frac{66}{1.10} = 60$$\n\nStep 3: State the answer.\nThe original price was £ $60$.\n\n⚠️ Common Mistake\nFinding $10\\%$ of £ $66$ and subtracting. This gives $66 - 6.60 = 59.40$, which is wrong because the $10\\%$ increase was applied to the original price, not to £ $66$."
+      "body": "📌 Definition\nA reverse percentage problem asks you to find an original amount after a percentage increase or decrease has been applied.\n\n🔑 How it works\nIf a value has been increased by $r\\%$, divide by the multiplier $(1 + \\dfrac{r}{100})$ to find the original.\nIf a value has been decreased by $r\\%$, divide by the multiplier $(1 - \\dfrac{r}{100})$ to find the original.\n\n💡 Worked Example\nA shop sells a jacket for £ $66$ after a $10\\%$ increase. What was the original price?\n\nStep 1: Find the multiplier.\nA $10\\%$ increase uses $1 + 0.10 = 1.10$.\n\nStep 2: Divide the new price by the multiplier.\n$$\\text{original price} = \\dfrac{66}{1.10} = 60$$\n\nStep 3: State the answer.\nThe original price was £ $60$.\n\n⚠️ Common Mistake\nFinding $10\\%$ of £ $66$ and subtracting. This gives $66 - 6.60 = 59.40$, which is wrong because the $10\\%$ increase was applied to the original price, not to £ $66$."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-n4",
       "heading": "Repeated Percentage Change",
-      "body": "📌 Definition\nRepeated percentage change means applying the same percentage increase or decrease more than once.\n\n🔑 How it works\nUse a multiplier raised to a power.\nFor an increase of $r\\%$ repeated $n$ times:\n$$\\text{final amount} = \\text{original} \\times \\left(1 + \\frac{r}{100}\\right)^n$$\nFor a decrease of $r\\%$ repeated $n$ times:\n$$\\text{final amount} = \\text{original} \\times \\left(1 - \\frac{r}{100}\\right)^n$$\n\n💡 Worked Example\nA car loses $15\\%$ of its value each year. Its original value is £ $20\\,000$. Find its value after $2$ years.\n\nStep 1: Find the multiplier.\nA $15\\%$ decrease uses $1 - 0.15 = 0.85$.\n\nStep 2: Apply it twice.\n$$\\text{value} = 20\\,000 \\times 0.85^2 = 20\\,000 \\times 0.7225 = 14\\,450$$\n\nStep 3: State the answer.\nThe car is worth £ $14\\,450$ after $2$ years.\n\n✅ Check\nAfter one year the car is worth $20\\,000 \\times 0.85 = 17\\,000$. After the second year it is $17\\,000 \\times 0.85 = 14\\,450$, which matches."
+      "body": "📌 Definition\nRepeated percentage change means applying the same percentage increase or decrease more than once.\n\n🔑 How it works\nUse a multiplier raised to a power.\nFor an increase of $r\\%$ repeated $n$ times:\n$$\\text{final amount} = \\text{original} \\times \\left(1 + \\dfrac{r}{100}\\right)^n$$\nFor a decrease of $r\\%$ repeated $n$ times:\n$$\\text{final amount} = \\text{original} \\times \\left(1 - \\dfrac{r}{100}\\right)^n$$\n\n💡 Worked Example\nA car loses $15\\%$ of its value each year. Its original value is £ $20\\,000$. Find its value after $2$ years.\n\nStep 1: Find the multiplier.\nA $15\\%$ decrease uses $1 - 0.15 = 0.85$.\n\nStep 2: Apply it twice.\n$$\\text{value} = 20\\,000 \\times 0.85^2 = 20\\,000 \\times 0.7225 = 14\\,450$$\n\nStep 3: State the answer.\nThe car is worth £ $14\\,450$ after $2$ years.\n\n✅ Check\nAfter one year the car is worth $20\\,000 \\times 0.85 = 17\\,000$. After the second year it is $17\\,000 \\times 0.85 = 14\\,450$, which matches."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-n5",
       "heading": "Direct Proportion",
-      "body": "📌 Definition\nTwo quantities are in direct proportion when one quantity is a constant multiple of the other. As one increases, the other increases at the same rate.\n\n🔑 Key Concept\nDirect proportion can be written as:\n$$y = kx$$\nwhere $k$ is the constant of proportionality.\nThe graph of $y$ against $x$ is a straight line through the origin.\n\n💡 Worked Example\nFour pens cost £ $2.40$. How much do seven pens cost?\n\nStep 1: Find the cost of one pen.\n$$\\text{cost of one pen} = \\frac{2.40}{4} = 0.60$$\n\nStep 2: Multiply by the number needed.\n$$\\text{cost of seven pens} = 7 \\times 0.60 = 4.20$$\n\nStep 3: State the answer.\nSeven pens cost £ $4.20$.\n\n📎 Key Points to Remember\n• The ratio of the two quantities stays the same.\n• Doubling one quantity doubles the other.\n• $k$ is found by dividing $y$ by $x$."
+      "body": "📌 Definition\nTwo quantities are in direct proportion when one quantity is a constant multiple of the other. As one increases, the other increases at the same rate.\n\n🔑 Key Concept\nDirect proportion can be written as:\n$$y = kx$$\nwhere $k$ is the constant of proportionality.\nThe graph of $y$ against $x$ is a straight line through the origin.\n\n💡 Worked Example\nFour pens cost £ $2.40$. How much do seven pens cost?\n\nStep 1: Find the cost of one pen.\n$$\\text{cost of one pen} = \\dfrac{2.40}{4} = 0.60$$\n\nStep 2: Multiply by the number needed.\n$$\\text{cost of seven pens} = 7 \\times 0.60 = 4.20$$\n\nStep 3: State the answer.\nSeven pens cost £ $4.20$.\n\n📎 Key Points to Remember\n• The ratio of the two quantities stays the same.\n• Doubling one quantity doubles the other.\n• $k$ is found by dividing $y$ by $x$."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-n6",
       "heading": "Inverse Proportion",
-      "body": "📌 Definition\nTwo quantities are in inverse proportion when one quantity increases as the other decreases, so that their product stays constant.\n\n🔑 Key Concept\nInverse proportion can be written as:\n$$y = \\frac{k}{x}$$\nwhere $k$ is the constant of proportionality.\nEquivalently, $xy = k$.\n\n💡 Worked Example\nIt takes $5$ workers $12$ days to build a wall. How long would it take $6$ workers at the same rate?\n\nStep 1: Find the constant $k$.\nThe total work is $5 \\times 12 = 60$ worker-days, so $k = 60$.\n\nStep 2: Divide by the new number of workers.\n$$\\text{time} = \\frac{60}{6} = 10$$\n\nStep 3: State the answer.\nIt would take $6$ workers $10$ days.\n\n⚠️ Common Mistake\nUsing direct proportion and writing $\\frac{5}{12} = \\frac{6}{x}$. More workers means less time, so the relationship is inverse, not direct."
+      "body": "📌 Definition\nTwo quantities are in inverse proportion when one quantity increases as the other decreases, so that their product stays constant.\n\n🔑 Key Concept\nInverse proportion can be written as:\n$$y = \\dfrac{k}{x}$$\nwhere $k$ is the constant of proportionality.\nEquivalently, $xy = k$.\n\n💡 Worked Example\nIt takes $5$ workers $12$ days to build a wall. How long would it take $6$ workers at the same rate?\n\nStep 1: Find the constant $k$.\nThe total work is $5 \\times 12 = 60$ worker-days, so $k = 60$.\n\nStep 2: Divide by the new number of workers.\n$$\\text{time} = \\dfrac{60}{6} = 10$$\n\nStep 3: State the answer.\nIt would take $6$ workers $10$ days.\n\n⚠️ Common Mistake\nUsing direct proportion and writing $\\dfrac{5}{12} = \\dfrac{6}{x}$. More workers means less time, so the relationship is inverse, not direct."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-n7",
       "heading": "Best Buys",
-      "body": "📌 Definition\nA best-buy comparison decides which product gives the most for your money by comparing the cost per unit.\n\n🔑 How it works\nDivide the total price by the number of units to find the price per unit. The product with the lower price per unit is the better value.\n\n💡 Worked Example\nA $500$ g bag of rice costs £ $1.80$ and a $750$ g bag costs £ $2.55$. Which is the better buy?\n\nStep 1: Find the price per gram for each bag.\n$$\\text{small bag: } \\frac{1.80}{500} = 0.00360 \\text{ per gram}$$\n$$\\text{large bag: } \\frac{2.55}{750} = 0.00340 \\text{ per gram}$$\n\nStep 2: Compare the unit prices.\n$0.00340$ is less than $0.00360$, so the large bag is better value.\n\n📎 Key Points to Remember\n• Always use the same unit when comparing.\n• The larger pack is not always the best buy.\n• Units may be grams, litres, items or any consistent measure."
+      "body": "📌 Definition\nA best-buy comparison decides which product gives the most for your money by comparing the cost per unit.\n\n🔑 How it works\nDivide the total price by the number of units to find the price per unit. The product with the lower price per unit is the better value.\n\n💡 Worked Example\nA $500$ g bag of rice costs £ $1.80$ and a $750$ g bag costs £ $2.55$. Which is the better buy?\n\nStep 1: Find the price per gram for each bag.\n$$\\text{small bag: } \\dfrac{1.80}{500} = 0.00360 \\text{ per gram}$$\n$$\\text{large bag: } \\dfrac{2.55}{750} = 0.00340 \\text{ per gram}$$\n\nStep 2: Compare the unit prices.\n$0.00340$ is less than $0.00360$, so the large bag is better value.\n\n📎 Key Points to Remember\n• Always use the same unit when comparing.\n• The larger pack is not always the best buy.\n• Units may be grams, litres, items or any consistent measure."
     }
   ],
   "flashcards": [
@@ -51,19 +51,19 @@
       "id": "math-yr8-percentages-ratio-proportion-f1",
       "term": "Compound interest",
       "definition": "Interest calculated on the original amount and on the interest already earned.",
-      "example": "$A = P(1 + \\frac{r}{100})^n$"
+      "example": "$A = P(1 + \\dfrac{r}{100})^n$"
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-f2",
       "term": "Principal",
       "definition": "The original amount of money invested or borrowed.",
-      "example": "In $A = P(1 + \\frac{r}{100})^n$, $P$ is the principal."
+      "example": "In $A = P(1 + \\dfrac{r}{100})^n$, $P$ is the principal."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-f3",
       "term": "Reverse percentage",
       "definition": "Finding an original amount after a percentage increase or decrease has been applied.",
-      "example": "$\\text{original} = \\frac{\\text{new value}}{\\text{multiplier}}$"
+      "example": "$\\text{original} = \\dfrac{\\text{new value}}{\\text{multiplier}}$"
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-f4",
@@ -93,13 +93,13 @@
       "id": "math-yr8-percentages-ratio-proportion-f8",
       "term": "Inverse proportion",
       "definition": "A relationship where the product of two quantities is constant.",
-      "example": "$y = \\frac{k}{x}$; doubling $x$ halves $y$."
+      "example": "$y = \\dfrac{k}{x}$; doubling $x$ halves $y$."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-f9",
       "term": "Constant of proportionality",
       "definition": "The fixed value $k$ that links two proportional quantities.",
-      "example": "In $y = kx$, $k = \\frac{y}{x}$."
+      "example": "In $y = kx$, $k = \\dfrac{y}{x}$."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-f10",
@@ -167,7 +167,7 @@
         "£ $500$"
       ],
       "correctIndex": 0,
-      "explanation": "Divide by the multiplier $1.20$: $\\frac{540}{1.20} = 450$, so the original price was £ $450$."
+      "explanation": "Divide by the multiplier $1.20$: $\\dfrac{540}{1.20} = 450$, so the original price was £ $450$."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q5",
@@ -179,7 +179,7 @@
         "£ $33.75$"
       ],
       "correctIndex": 0,
-      "explanation": "A $25\\%$ decrease uses multiplier $0.75$. The original price is $\\frac{45}{0.75} = 60$, so it was £ $60$."
+      "explanation": "A $25\\%$ decrease uses multiplier $0.75$. The original price is $\\dfrac{45}{0.75} = 60$, so it was £ $60$."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q6",
@@ -215,7 +215,7 @@
         "£ $30$"
       ],
       "correctIndex": 0,
-      "explanation": "One book costs $\\frac{15}{5} = 3$, so eight books cost $8 \\times 3 = 24$. The answer is £ $24$."
+      "explanation": "One book costs $\\dfrac{15}{5} = 3$, so eight books cost $8 \\times 3 = 24$. The answer is £ $24$."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q9",
@@ -227,7 +227,7 @@
         "$36$"
       ],
       "correctIndex": 0,
-      "explanation": "First $k = \\frac{42}{6} = 7$. Then $y = 7 \\times 9 = 63$, so the answer is $63$."
+      "explanation": "First $k = \\dfrac{42}{6} = 7$. Then $y = 7 \\times 9 = 63$, so the answer is $63$."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q10",
@@ -239,7 +239,7 @@
         "$200$ g"
       ],
       "correctIndex": 0,
-      "explanation": "Flour is directly proportional to people. $\\frac{300}{6} = 50$ g per person, so for $10$ people use $10 \\times 50 = 500$ g."
+      "explanation": "Flour is directly proportional to people. $\\dfrac{300}{6} = 50$ g per person, so for $10$ people use $10 \\times 50 = 500$ g."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q11",
@@ -251,7 +251,7 @@
         "$2$"
       ],
       "correctIndex": 0,
-      "explanation": "The constant $k = xy = 4 \\times 9 = 36$. When $x = 6$, $y = \\frac{36}{6} = 6$."
+      "explanation": "The constant $k = xy = 4 \\times 9 = 36$. When $x = 6$, $y = \\dfrac{36}{6} = 6$."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q12",
@@ -263,19 +263,19 @@
         "$16$ hours"
       ],
       "correctIndex": 0,
-      "explanation": "Work is $8 \\times 6 = 48$ person-hours. For $12$ people the time is $\\frac{48}{12} = 4$ hours."
+      "explanation": "Work is $8 \\times 6 = 48$ person-hours. For $12$ people the time is $\\dfrac{48}{12} = 4$ hours."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q13",
       "stem": "Which equation shows that $y$ is inversely proportional to $x$?",
       "choices": [
-        "$y = \\frac{k}{x}$",
+        "$y = \\dfrac{k}{x}$",
         "$y = kx$",
         "$y = k + x$",
         "$y = k - x$"
       ],
       "correctIndex": 0,
-      "explanation": "Inverse proportion means the product $xy$ is constant, which can be written as $y = \\frac{k}{x}$."
+      "explanation": "Inverse proportion means the product $xy$ is constant, which can be written as $y = \\dfrac{k}{x}$."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q14",
@@ -287,7 +287,7 @@
         "Cannot be determined"
       ],
       "correctIndex": 0,
-      "explanation": "$400$ g pack: $\\frac{2.40}{400} = 0.006$ per g. $600$ g pack: $\\frac{3.30}{600} = 0.0055$ per g. The $600$ g pack has the lower unit price."
+      "explanation": "$400$ g pack: $\\dfrac{2.40}{400} = 0.006$ per g. $600$ g pack: $\\dfrac{3.30}{600} = 0.0055$ per g. The $600$ g pack has the lower unit price."
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q15",

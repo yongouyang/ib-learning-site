@@ -38,12 +38,12 @@
     {
       "id": "math-trig-basic-myp-tba-n6",
       "heading": "💡 Worked Example — Angle of Elevation",
-      "body": "📌 Definition: The angle of elevation is measured upward from the horizontal to the line of sight.\n\n🔑 How it works: Draw a right-angled triangle with the horizontal distance as the adjacent side and the vertical height as the opposite side.\n\n💡 Worked Example: An observer stands $30\\,\\text{m}$ from the base of a tower and looks up at an angle of elevation of $40^\\circ$ to the top. Height $h = 30 \\tan 40^\\circ \\approx 30 \\times 0.839 \\approx 25.2\\,\\text{m}$.\n\n📎 Key Points to Remember: $\\tan \\theta = \\frac{\\text{opposite}}{\\text{adjacent}}$ is usually the best ratio for elevation and depression problems.\n\n⚠️ Common Mistake: Using the angle with the wrong side or putting opposite/adjacent in the wrong order."
+      "body": "📌 Definition: The angle of elevation is measured upward from the horizontal to the line of sight.\n\n🔑 How it works: Draw a right-angled triangle with the horizontal distance as the adjacent side and the vertical height as the opposite side.\n\n💡 Worked Example: An observer stands $30\\,\\text{m}$ from the base of a tower and looks up at an angle of elevation of $40^\\circ$ to the top. Height $h = 30 \\tan 40^\\circ \\approx 30 \\times 0.839 \\approx 25.2\\,\\text{m}$.\n\n📎 Key Points to Remember: $\\tan \\theta = \\dfrac{\\text{opposite}}{\\text{adjacent}}$ is usually the best ratio for elevation and depression problems.\n\n⚠️ Common Mistake: Using the angle with the wrong side or putting opposite/adjacent in the wrong order."
     },
     {
       "id": "math-trig-basic-myp-tba-n7",
       "heading": "⚠️ Common Mistakes and ✅ Final Check",
-      "body": "📌 Definition: A bearing is an angle measured clockwise from north, usually written as a three-digit number (e.g. $060^\\circ$).\n\n🔑 Key Concept: For bearings, draw a north line at each point and use alternate or co-interior angles where parallel north lines meet a transversal.\n\n💡 Worked Example: A ship sails $5\\,\\text{km}$ east from port on bearing $090^\\circ$, then $5\\,\\text{km}$ north. The return bearing is $225^\\circ$ (south-west), because $\\tan \\theta = \\frac{5}{5}=1$ gives $\\theta = 45^\\circ$ measured from south.\n\n📎 Key Points to Remember: Check your calculator is in degree mode; label opposite, adjacent and hypotenuse before choosing a ratio.\n\n⚠️ Common Mistake: Confusing the angle of depression with the angle inside the triangle — the angle of depression from the horizontal equals the angle of elevation from below (alternate angles).\n\n✅ Check: Re-read the question, confirm your answer matches what was asked, and round to the required number of significant figures."
+      "body": "📌 Definition: A bearing is an angle measured clockwise from north, usually written as a three-digit number (e.g. $060^\\circ$).\n\n🔑 Key Concept: For bearings, draw a north line at each point and use alternate or co-interior angles where parallel north lines meet a transversal.\n\n💡 Worked Example: A ship sails $5\\,\\text{km}$ east from port on bearing $090^\\circ$, then $5\\,\\text{km}$ north. The return bearing is $225^\\circ$ (south-west), because $\\tan \\theta = \\dfrac{5}{5}=1$ gives $\\theta = 45^\\circ$ measured from south.\n\n📎 Key Points to Remember: Check your calculator is in degree mode; label opposite, adjacent and hypotenuse before choosing a ratio.\n\n⚠️ Common Mistake: Confusing the angle of depression with the angle inside the triangle — the angle of depression from the horizontal equals the angle of elevation from below (alternate angles).\n\n✅ Check: Re-read the question, confirm your answer matches what was asked, and round to the required number of significant figures."
     }
   ],
   "flashcards": [
@@ -111,7 +111,7 @@
       "id": "math-trig-basic-myp-tba-f11",
       "term": "When to use cosine",
       "definition": "Use $\\cos \\theta$ when the hypotenuse and adjacent side are involved (CAH).",
-      "example": "$\\cos 50^\\circ = \\frac{6}{H}$ gives $H = \\frac{6}{\\cos 50^\\circ} \\approx 9.33$."
+      "example": "$\\cos 50^\\circ = \\dfrac{6}{H}$ gives $H = \\dfrac{6}{\\cos 50^\\circ} \\approx 9.33$."
     },
     {
       "id": "math-trig-basic-myp-tba-f12",
@@ -275,19 +275,19 @@
         "$13.9\\,\\text{m}$"
       ],
       "correctIndex": 1,
-      "explanation": "Angle of depression equals the angle of elevation, so $\\tan 25^\\circ = \\frac{30}{d}$, giving $d = \\frac{30}{\\tan 25^\\circ} \\approx 64.4\\,\\text{m}$."
+      "explanation": "Angle of depression equals the angle of elevation, so $\\tan 25^\\circ = \\dfrac{30}{d}$, giving $d = \\dfrac{30}{\\tan 25^\\circ} \\approx 64.4\\,\\text{m}$."
     },
     {
       "id": "math-trig-basic-myp-tba-q14",
-      "stem": "If $\\cos \\theta = \\frac{4}{5}$, what is $\\sin \\theta$?",
+      "stem": "If $\\cos \\theta = \\dfrac{4}{5}$, what is $\\sin \\theta$?",
       "choices": [
-        "$\\frac{3}{5}$",
-        "$\\frac{4}{5}$",
-        "$\\frac{5}{3}$",
-        "$\\frac{1}{5}$"
+        "$\\dfrac{3}{5}$",
+        "$\\dfrac{4}{5}$",
+        "$\\dfrac{5}{3}$",
+        "$\\dfrac{1}{5}$"
       ],
       "correctIndex": 0,
-      "explanation": "Draw a right triangle with adjacent $4$ and hypotenuse $5$; the opposite side is $\\sqrt{5^2-4^2}=3$, so $\\sin \\theta = \\frac{3}{5}$."
+      "explanation": "Draw a right triangle with adjacent $4$ and hypotenuse $5$; the opposite side is $\\sqrt{5^2-4^2}=3$, so $\\sin \\theta = \\dfrac{3}{5}$."
     },
     {
       "id": "math-trig-basic-myp-tba-q15",

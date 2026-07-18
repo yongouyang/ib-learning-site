@@ -28,7 +28,7 @@
     {
       "id": "math-yr8-congruence-similarity-n4",
       "heading": "Scale Factor for Lengths",
-      "body": "📌 Definition\\nThe scale factor is the ratio of a length on an image to the corresponding length on the original shape.\n\n🔑 How it works\\nIf shape $B$ is an enlargement of shape $A$, then:\n$$\\text{scale factor} = \\frac{\\text{length on } B}{\\text{corresponding length on } A}$$\n\\nTo find a missing length on the image, multiply the original length by the scale factor:\n$$\\text{image length} = \\text{original length} \\times \\text{scale factor}$$\n\n💡 Worked Example\\nA photograph is enlarged so that a side of length $6$ cm becomes $15$ cm. Find the scale factor.\n\\nStep 1: Divide the new length by the original length.\n$$\\text{scale factor} = \\frac{15}{6} = 2.5$$\n\\nStep 2: Any other original length can now be multiplied by $2.5$.\n\n📎 Key Points to Remember\n• A scale factor greater than $1$ produces an enlargement.\n• A scale factor between $0$ and $1$ produces a reduction.\n• The scale factor applies to lengths, not directly to areas.\n\n✅ Check\\nIf the scale factor is $2.5$, every length on the image should be $2.5$ times the matching length on the original."
+      "body": "📌 Definition\\nThe scale factor is the ratio of a length on an image to the corresponding length on the original shape.\n\n🔑 How it works\\nIf shape $B$ is an enlargement of shape $A$, then:\n$$\\text{scale factor} = \\dfrac{\\text{length on } B}{\\text{corresponding length on } A}$$\n\\nTo find a missing length on the image, multiply the original length by the scale factor:\n$$\\text{image length} = \\text{original length} \\times \\text{scale factor}$$\n\n💡 Worked Example\\nA photograph is enlarged so that a side of length $6$ cm becomes $15$ cm. Find the scale factor.\n\\nStep 1: Divide the new length by the original length.\n$$\\text{scale factor} = \\dfrac{15}{6} = 2.5$$\n\\nStep 2: Any other original length can now be multiplied by $2.5$.\n\n📎 Key Points to Remember\n• A scale factor greater than $1$ produces an enlargement.\n• A scale factor between $0$ and $1$ produces a reduction.\n• The scale factor applies to lengths, not directly to areas.\n\n✅ Check\\nIf the scale factor is $2.5$, every length on the image should be $2.5$ times the matching length on the original."
     },
     {
       "id": "math-yr8-congruence-similarity-n5",
@@ -38,7 +38,7 @@
     {
       "id": "math-yr8-congruence-similarity-n6",
       "heading": "Using Ratios in Similar Shapes",
-      "body": "📌 Definition\\nIn similar shapes, every pair of corresponding lengths is in the same ratio. This ratio can be used to find missing lengths.\n\n🔑 How it works\\nSet up a proportion using two pairs of corresponding sides:\n$$\\frac{a_1}{a_2} = \\frac{b_1}{b_2}$$\\nwhere $a_1$ and $b_1$ are lengths on the first shape, and $a_2$ and $b_2$ are the corresponding lengths on the second shape.\n\n💡 Worked Example\\nTwo similar triangles have corresponding sides $3$ cm and $6$ cm. A second pair of corresponding sides are $5$ cm and $x$ cm. Find $x$.\n\\nStep 1: Write the ratio of corresponding sides.\n$$\\frac{3}{6} = \\frac{5}{x}$$\n\\nStep 2: Solve for $x$.\n$$3x = 30 \\quad \\Rightarrow \\quad x = 10$$\n\\nThe missing length is $10$ cm.\n\n📎 Key Points to Remember\n• Always match corresponding sides carefully.\n• The scale factor is the same for every pair of corresponding lengths.\n• Corresponding angles are equal, so use angles to identify matching sides.\n\n⚠️ Common Mistake\\nMatching sides that do not correspond. The longest side on one shape corresponds to the longest side on the other."
+      "body": "📌 Definition\\nIn similar shapes, every pair of corresponding lengths is in the same ratio. This ratio can be used to find missing lengths.\n\n🔑 How it works\\nSet up a proportion using two pairs of corresponding sides:\n$$\\dfrac{a_1}{a_2} = \\dfrac{b_1}{b_2}$$\\nwhere $a_1$ and $b_1$ are lengths on the first shape, and $a_2$ and $b_2$ are the corresponding lengths on the second shape.\n\n💡 Worked Example\\nTwo similar triangles have corresponding sides $3$ cm and $6$ cm. A second pair of corresponding sides are $5$ cm and $x$ cm. Find $x$.\n\\nStep 1: Write the ratio of corresponding sides.\n$$\\dfrac{3}{6} = \\dfrac{5}{x}$$\n\\nStep 2: Solve for $x$.\n$$3x = 30 \\quad \\Rightarrow \\quad x = 10$$\n\\nThe missing length is $10$ cm.\n\n📎 Key Points to Remember\n• Always match corresponding sides carefully.\n• The scale factor is the same for every pair of corresponding lengths.\n• Corresponding angles are equal, so use angles to identify matching sides.\n\n⚠️ Common Mistake\\nMatching sides that do not correspond. The longest side on one shape corresponds to the longest side on the other."
     },
     {
       "id": "math-yr8-congruence-similarity-n7",
@@ -231,7 +231,7 @@
     },
     {
       "id": "math-yr8-congruence-similarity-q10",
-      "stem": "Two shapes are similar with scale factor $\\frac{1}{2}$. What happens to the area?",
+      "stem": "Two shapes are similar with scale factor $\\dfrac{1}{2}$. What happens to the area?",
       "choices": [
         "It is halved.",
         "It is divided by $4$.",
@@ -239,7 +239,7 @@
         "It stays the same."
       ],
       "correctIndex": 1,
-      "explanation": "The area scale factor is the square of the linear scale factor: $\\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}$. So the area is divided by $4$."
+      "explanation": "The area scale factor is the square of the linear scale factor: $\\left(\\dfrac{1}{2}\\right)^2 = \\dfrac{1}{4}$. So the area is divided by $4$."
     },
     {
       "id": "math-yr8-congruence-similarity-q11",

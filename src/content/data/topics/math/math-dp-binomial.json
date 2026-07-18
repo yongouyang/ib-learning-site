@@ -8,7 +8,7 @@
     {
       "id": "math-dp-binomial-bin-n1",
       "heading": "Binomial Coefficients and Pascal's Triangle",
-      "body": "The binomial coefficient $\\binom{n}{r}$ tells us how many ways we can choose $r$ objects from a set of $n$. It also appears as the coefficient of each term in a binomial expansion.\n\n📌 Definition\nThe binomial coefficient is defined as:\n\n$$\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$$\n\nwhere $n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 2 \\times 1$, and $0! = 1$.\n\n▶️ Pascal's Triangle\nEach row $n$ gives the coefficients for $(a + b)^n$. To build the triangle:\n1. Start with 1 at the top\n2. Every row begins and ends with 1\n3. Each interior entry equals the sum of the two entries directly above it\n\n    Row 0:        1\n    Row 1:      1   1\n    Row 2:    1   2   1\n    Row 3:  1   3   3   1\n    Row 4: 1   4   6   4   1\n\n💡 Worked Example\nEvaluate $\\binom{8}{3}$.\n\n  Step 1: Write the factorial formula\n    $$\\binom{8}{3} = \\frac{8!}{3! \\times 5!}$$\n\n  Step 2: Expand and cancel\n    $$\\binom{8}{3} = \\frac{8 \\times 7 \\times 6 \\times 5!}{3! \\times 5!}$$\n    $$\\binom{8}{3} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1}$$\n    $$\\binom{8}{3} = \\frac{336}{6}$$\n\n  Step 3: State the answer\n    $$\\binom{8}{3} = 56$$\n\n📎 Key Properties\n• Symmetry: $\\binom{n}{r} = \\binom{n}{n-r}$ (choosing $r$ is the same as leaving out $n - r$)\n• $\\binom{n}{0} = \\binom{n}{n} = 1$\n• $\\binom{n}{1} = \\binom{n}{n-1} = n$\n• The entries in row $n$ of Pascal's triangle are $\\binom{n}{0}, \\binom{n}{1}, \\binom{n}{2}, \\dots, \\binom{n}{n}$\n\n⚠️ Common Mistake\nForgetting that $0! = 1$. When $r = 0$ or $r = n$, the formula still works because $0! = 1$ by definition. Some students think $0! = 0$, which breaks the calculation.",
+      "body": "The binomial coefficient $\\binom{n}{r}$ tells us how many ways we can choose $r$ objects from a set of $n$. It also appears as the coefficient of each term in a binomial expansion.\n\n📌 Definition\nThe binomial coefficient is defined as:\n\n$$\\binom{n}{r} = \\dfrac{n!}{r!(n-r)!}$$\n\nwhere $n! = n \\times (n-1) \\times (n-2) \\times \\dots \\times 2 \\times 1$, and $0! = 1$.\n\n▶️ Pascal's Triangle\nEach row $n$ gives the coefficients for $(a + b)^n$. To build the triangle:\n1. Start with 1 at the top\n2. Every row begins and ends with 1\n3. Each interior entry equals the sum of the two entries directly above it\n\n    Row 0:        1\n    Row 1:      1   1\n    Row 2:    1   2   1\n    Row 3:  1   3   3   1\n    Row 4: 1   4   6   4   1\n\n💡 Worked Example\nEvaluate $\\binom{8}{3}$.\n\n  Step 1: Write the factorial formula\n    $$\\binom{8}{3} = \\dfrac{8!}{3! \\times 5!}$$\n\n  Step 2: Expand and cancel\n    $$\\binom{8}{3} = \\dfrac{8 \\times 7 \\times 6 \\times 5!}{3! \\times 5!}$$\n    $$\\binom{8}{3} = \\dfrac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1}$$\n    $$\\binom{8}{3} = \\dfrac{336}{6}$$\n\n  Step 3: State the answer\n    $$\\binom{8}{3} = 56$$\n\n📎 Key Properties\n• Symmetry: $\\binom{n}{r} = \\binom{n}{n-r}$ (choosing $r$ is the same as leaving out $n - r$)\n• $\\binom{n}{0} = \\binom{n}{n} = 1$\n• $\\binom{n}{1} = \\binom{n}{n-1} = n$\n• The entries in row $n$ of Pascal's triangle are $\\binom{n}{0}, \\binom{n}{1}, \\binom{n}{2}, \\dots, \\binom{n}{n}$\n\n⚠️ Common Mistake\nForgetting that $0! = 1$. When $r = 0$ or $r = n$, the formula still works because $0! = 1$ by definition. Some students think $0! = 0$, which breaks the calculation.",
       "illustration": {
         "src": "/images/math/math-dp-binomial.svg",
         "alt": "Pascal's triangle rows 0-6 with binomial coefficients highlighted; the binomial theorem formula (a+b)ⁿ=Σ(ⁿCᵣ)aⁿ⁻ʳbʳ; and a worked expansion of (2x+3)⁴.",
@@ -28,7 +28,7 @@
     {
       "id": "math-dp-binomial-bin-n4",
       "heading": "Finding a Specific Term",
-      "body": "When a binomial contains variables with powers, finding a specific term — like the constant term or the $x^5$ term — requires setting up an equation for the exponent.\n\n📌 The Strategy\n1. Write the general term: $T_{r+1} = \\binom{n}{r} \\cdot a^{n-r} \\cdot b^r$\n2. Simplify the powers of $x$ in this term\n3. Set the overall power of $x$ equal to the target value\n4. Solve for $r$, then substitute back to find the term\n\n💡 Worked Example 1\nFind the constant term in the expansion of $\\left(x + \\frac{1}{x}\\right)^6$.\n\n  Step 1: Write the general term\n    $$T_{r+1} = \\binom{6}{r} \\cdot x^{6-r} \\cdot \\left(\\frac{1}{x}\\right)^r$$\n\n  Step 2: Combine powers of $x$\n    $$T_{r+1} = \\binom{6}{r} \\cdot x^{6-r} \\cdot x^{-r}$$\n    $$T_{r+1} = \\binom{6}{r} \\cdot x^{6-2r}$$\n\n  Step 3: Set power to zero for constant term\n    $$6 - 2r = 0$$\n    $$r = 3$$\n\n  Step 4: Find the term\n    $$T_4 = \\binom{6}{3} \\cdot x^0 = 20$$\n\n  The constant term is $20$.\n\n💡 Worked Example 2\nFind the coefficient of $x^5$ in $\\left(x^2 + \\frac{2}{x}\\right)^7$.\n\n  Step 1: Write the general term\n    $$T_{r+1} = \\binom{7}{r} \\cdot (x^2)^{7-r} \\cdot \\left(\\frac{2}{x}\\right)^r$$\n\n  Step 2: Simplify powers of $x$\n    $$T_{r+1} = \\binom{7}{r} \\cdot x^{14-2r} \\cdot 2^r \\cdot x^{-r}$$\n    $$T_{r+1} = \\binom{7}{r} \\cdot 2^r \\cdot x^{14-3r}$$\n\n  Step 3: Match the required power\n    $$14 - 3r = 5$$\n    $$3r = 9$$\n    $$r = 3$$\n\n  Step 4: Calculate the coefficient\n    Coefficient = $\\binom{7}{3} \\cdot 2^3 = 35 \\times 8 = 280$\n\n📎 When the Binomial Has a Product Factor\nIf the expression is $(x + 3)(2x - 1)^6$, expand the binomial part first. Then multiply by $(x + 3)$ and collect like terms. The $x^5$ terms come from:\n• $x \\times$ (the $x^4$ term of the expansion)\n• $3 \\times$ (the $x^5$ term of the expansion)\n\n⚠️ Common Mistake\nForgetting to include the numerical coefficient from the second term. In $\\left(x^2 + \\frac{2}{x}\\right)^7$, the $2^r$ factor is easy to miss. Always carry the constant from $b$ through the entire calculation."
+      "body": "When a binomial contains variables with powers, finding a specific term — like the constant term or the $x^5$ term — requires setting up an equation for the exponent.\n\n📌 The Strategy\n1. Write the general term: $T_{r+1} = \\binom{n}{r} \\cdot a^{n-r} \\cdot b^r$\n2. Simplify the powers of $x$ in this term\n3. Set the overall power of $x$ equal to the target value\n4. Solve for $r$, then substitute back to find the term\n\n💡 Worked Example 1\nFind the constant term in the expansion of $\\left(x + \\dfrac{1}{x}\\right)^6$.\n\n  Step 1: Write the general term\n    $$T_{r+1} = \\binom{6}{r} \\cdot x^{6-r} \\cdot \\left(\\dfrac{1}{x}\\right)^r$$\n\n  Step 2: Combine powers of $x$\n    $$T_{r+1} = \\binom{6}{r} \\cdot x^{6-r} \\cdot x^{-r}$$\n    $$T_{r+1} = \\binom{6}{r} \\cdot x^{6-2r}$$\n\n  Step 3: Set power to zero for constant term\n    $$6 - 2r = 0$$\n    $$r = 3$$\n\n  Step 4: Find the term\n    $$T_4 = \\binom{6}{3} \\cdot x^0 = 20$$\n\n  The constant term is $20$.\n\n💡 Worked Example 2\nFind the coefficient of $x^5$ in $\\left(x^2 + \\dfrac{2}{x}\\right)^7$.\n\n  Step 1: Write the general term\n    $$T_{r+1} = \\binom{7}{r} \\cdot (x^2)^{7-r} \\cdot \\left(\\dfrac{2}{x}\\right)^r$$\n\n  Step 2: Simplify powers of $x$\n    $$T_{r+1} = \\binom{7}{r} \\cdot x^{14-2r} \\cdot 2^r \\cdot x^{-r}$$\n    $$T_{r+1} = \\binom{7}{r} \\cdot 2^r \\cdot x^{14-3r}$$\n\n  Step 3: Match the required power\n    $$14 - 3r = 5$$\n    $$3r = 9$$\n    $$r = 3$$\n\n  Step 4: Calculate the coefficient\n    Coefficient = $\\binom{7}{3} \\cdot 2^3 = 35 \\times 8 = 280$\n\n📎 When the Binomial Has a Product Factor\nIf the expression is $(x + 3)(2x - 1)^6$, expand the binomial part first. Then multiply by $(x + 3)$ and collect like terms. The $x^5$ terms come from:\n• $x \\times$ (the $x^4$ term of the expansion)\n• $3 \\times$ (the $x^5$ term of the expansion)\n\n⚠️ Common Mistake\nForgetting to include the numerical coefficient from the second term. In $\\left(x^2 + \\dfrac{2}{x}\\right)^7$, the $2^r$ factor is easy to miss. Always carry the constant from $b$ through the entire calculation."
     },
     {
       "id": "math-dp-binomial-bin-n5",
@@ -38,7 +38,7 @@
     {
       "id": "math-dp-binomial-bin-n6",
       "heading": "Approximating Powers with the Binomial Theorem",
-      "body": "For values close to 1, powers can be estimated quickly by keeping only the first few terms of a binomial expansion.\n\n📌 Definition\nFor small $x$, the expansion of $(1+x)^n$ gives a useful approximation:\n\n$$(1+x)^n = 1 + nx + \\frac{n(n-1)}{2}x^2 + \\frac{n(n-1)(n-2)}{6}x^3 + \\dots$$\n\nWhen $|x|$ is small, higher powers of $x$ become tiny, so later terms can be ignored.\n\n🔑 How it works\n• Choose the number of terms based on how small $x$ is and how accurate the answer must be.\n• Substitute $x$ into the first two or three terms.\n• Evaluate to obtain an approximate value.\n\n💡 Worked Example\nApproximate $(1.02)^6$ using the first three terms.\n\n  Step 1: Write $(1.02)^6 = (1 + 0.02)^6$, so $x = 0.02$ and $n = 6$.\n\n  Step 2: Substitute into the expansion\n    $$(1+0.02)^6 \\approx 1 + 6(0.02) + \\frac{6 \\cdot 5}{2}(0.02)^2$$\n    $$= 1 + 0.12 + 15(0.0004)$$\n    $$= 1 + 0.12 + 0.006 = 1.126$$\n\n  So $(1.02)^6 \\approx 1.126$.\n\n📎 Key Points to Remember\n• The closer $|x|$ is to zero, the fewer terms are needed.\n• This method is useful for estimating powers without a calculator.\n• Including more terms improves accuracy.\n\n⚠️ Common Mistake\nStopping after only two terms when $x$ is not very small. If $x = 0.2$, the $x^2$ term may be significant, so always check whether later terms are small enough to ignore.\n\n✅ Check\nUsing a calculator, $(1.02)^6 \\approx 1.12616$. Our three-term estimate $1.126$ is accurate to three decimal places."
+      "body": "For values close to 1, powers can be estimated quickly by keeping only the first few terms of a binomial expansion.\n\n📌 Definition\nFor small $x$, the expansion of $(1+x)^n$ gives a useful approximation:\n\n$$(1+x)^n = 1 + nx + \\dfrac{n(n-1)}{2}x^2 + \\dfrac{n(n-1)(n-2)}{6}x^3 + \\dots$$\n\nWhen $|x|$ is small, higher powers of $x$ become tiny, so later terms can be ignored.\n\n🔑 How it works\n• Choose the number of terms based on how small $x$ is and how accurate the answer must be.\n• Substitute $x$ into the first two or three terms.\n• Evaluate to obtain an approximate value.\n\n💡 Worked Example\nApproximate $(1.02)^6$ using the first three terms.\n\n  Step 1: Write $(1.02)^6 = (1 + 0.02)^6$, so $x = 0.02$ and $n = 6$.\n\n  Step 2: Substitute into the expansion\n    $$(1+0.02)^6 \\approx 1 + 6(0.02) + \\dfrac{6 \\cdot 5}{2}(0.02)^2$$\n    $$= 1 + 0.12 + 15(0.0004)$$\n    $$= 1 + 0.12 + 0.006 = 1.126$$\n\n  So $(1.02)^6 \\approx 1.126$.\n\n📎 Key Points to Remember\n• The closer $|x|$ is to zero, the fewer terms are needed.\n• This method is useful for estimating powers without a calculator.\n• Including more terms improves accuracy.\n\n⚠️ Common Mistake\nStopping after only two terms when $x$ is not very small. If $x = 0.2$, the $x^2$ term may be significant, so always check whether later terms are small enough to ignore.\n\n✅ Check\nUsing a calculator, $(1.02)^6 \\approx 1.12616$. Our three-term estimate $1.126$ is accurate to three decimal places."
     },
     {
       "id": "math-dp-binomial-bin-n7",
@@ -50,7 +50,7 @@
     {
       "id": "math-dp-binomial-bin-f1",
       "term": "Binomial coefficient",
-      "definition": "$\\binom{n}{r} = \\frac{n!}{r!(n-r)!}$",
+      "definition": "$\\binom{n}{r} = \\dfrac{n!}{r!(n-r)!}$",
       "example": "$\\binom{8}{3} = 56$"
     },
     {
@@ -131,7 +131,7 @@
         "70"
       ],
       "correctIndex": 1,
-      "explanation": "The binomial coefficient $\\binom{7}{3}$ counts how many ways you can choose 3 items from 7 without caring about order. The formula is $\\frac{7!}{3!4!}=\\frac{7\\times6\\times5}{3\\times2\\times1}=35$. For example, if you need to pick 3 students from a group of 7 for a committee, there are 35 different possible groups."
+      "explanation": "The binomial coefficient $\\binom{7}{3}$ counts how many ways you can choose 3 items from 7 without caring about order. The formula is $\\dfrac{7!}{3!4!}=\\dfrac{7\\times6\\times5}{3\\times2\\times1}=35$. For example, if you need to pick 3 students from a group of 7 for a committee, there are 35 different possible groups."
     },
     {
       "id": "math-dp-binomial-bin-q2",
@@ -143,7 +143,7 @@
         "15"
       ],
       "correctIndex": 2,
-      "explanation": "The coefficient of $x^3$ in $(1+x)^5$ is given by the binomial coefficient $\\binom{5}{3}$, which counts the number of ways to choose three $x$'s from five factors. Calculating, $\\binom{5}{3}=\\frac{5!}{3!2!}=\\frac{5\\times4}{2\\times1}=10$. This is the fourth number in the fifth row of Pascal's triangle."
+      "explanation": "The coefficient of $x^3$ in $(1+x)^5$ is given by the binomial coefficient $\\binom{5}{3}$, which counts the number of ways to choose three $x$'s from five factors. Calculating, $\\binom{5}{3}=\\dfrac{5!}{3!2!}=\\dfrac{5\\times4}{2\\times1}=10$. This is the fourth number in the fifth row of Pascal's triangle."
     },
     {
       "id": "math-dp-binomial-bin-q3",
@@ -207,7 +207,7 @@
     },
     {
       "id": "math-dp-binomial-bin-q8",
-      "stem": "Find the coefficient of $x^5$ in $\\left(x^2 + \\frac{2}{x}\\right)^7$.",
+      "stem": "Find the coefficient of $x^5$ in $\\left(x^2 + \\dfrac{2}{x}\\right)^7$.",
       "choices": [
         "280",
         "560",
@@ -215,7 +215,7 @@
         "35"
       ],
       "correctIndex": 0,
-      "explanation": "$T_{r+1} = \\binom{7}{r} \\cdot (x^2)^{7-r} \\cdot \\left(\\frac{2}{x}\\right)^r = \\binom{7}{r} \\cdot 2^r \\cdot x^{14-3r}$. Set $14-3r=5 \\to r=3$. Coefficient $= \\binom{7}{3} \\cdot 2^3 = 35 \\times 8 = 280$."
+      "explanation": "$T_{r+1} = \\binom{7}{r} \\cdot (x^2)^{7-r} \\cdot \\left(\\dfrac{2}{x}\\right)^r = \\binom{7}{r} \\cdot 2^r \\cdot x^{14-3r}$. Set $14-3r=5 \\to r=3$. Coefficient $= \\binom{7}{3} \\cdot 2^3 = 35 \\times 8 = 280$."
     },
     {
       "id": "math-dp-binomial-bin-q9",
@@ -243,7 +243,7 @@
     },
     {
       "id": "math-dp-binomial-bin-q11",
-      "stem": "Find the constant term in the expansion of $\\left(2x^2 + \\frac{1}{x}\\right)^6$.",
+      "stem": "Find the constant term in the expansion of $\\left(2x^2 + \\dfrac{1}{x}\\right)^6$.",
       "choices": [
         "15",
         "30",
@@ -251,7 +251,7 @@
         "120"
       ],
       "correctIndex": 2,
-      "explanation": "$T_{r+1} = \\binom{6}{r} \\cdot (2x^2)^{6-r} \\cdot \\left(\\frac{1}{x}\\right)^r = \\binom{6}{r} \\cdot 2^{6-r} \\cdot x^{12-3r}$. For constant term: $12-3r=0 \\to r=4$. $T_5 = \\binom{6}{4} \\cdot 2^2 = 15 \\times 4 = 60$."
+      "explanation": "$T_{r+1} = \\binom{6}{r} \\cdot (2x^2)^{6-r} \\cdot \\left(\\dfrac{1}{x}\\right)^r = \\binom{6}{r} \\cdot 2^{6-r} \\cdot x^{12-3r}$. For constant term: $12-3r=0 \\to r=4$. $T_5 = \\binom{6}{4} \\cdot 2^2 = 15 \\times 4 = 60$."
     },
     {
       "id": "math-dp-binomial-bin-q12",
@@ -275,7 +275,7 @@
         "120"
       ],
       "correctIndex": 0,
-      "explanation": "By symmetry $\\binom{10}{8} = \\binom{10}{2} = \\frac{10 \\cdot 9}{2} = 45$."
+      "explanation": "By symmetry $\\binom{10}{8} = \\binom{10}{2} = \\dfrac{10 \\cdot 9}{2} = 45$."
     },
     {
       "id": "math-dp-binomial-bin-q14",

@@ -13,6 +13,7 @@ export type IssueType =
   | "latex_error"
   | "latex_unicode"
   | "empty_flashcard"
+  | "stray_backslash"
   | "unreadable_topic";
 
 export interface AuditIssue {
@@ -125,6 +126,28 @@ function extractTextFields(topic: AuditTopic): TextField[] {
   });
 
   return fields;
+}
+
+// Flags lines ending in a single "\" outside $$...$$ display-math blocks.
+// Authors sometimes write a Markdown-style hard break, but the renderer does
+// not interpret it — the backslash renders literally. Inside display math a
+// line break must be "\\".
+export function findStrayBackslashes(text: string): string[] {
+  const flagged: string[] = [];
+  let inDisplay = false;
+  for (const line of text.split("\n")) {
+    const trimmed = line.trim();
+    const delimiterCount = (trimmed.match(/\$\$/g) || []).length;
+    if (delimiterCount % 2 === 1) {
+      inDisplay = !inDisplay;
+      continue;
+    }
+    if (inDisplay) continue;
+    if (trimmed.endsWith("\\") && !trimmed.endsWith("\\\\")) {
+      flagged.push(trimmed.slice(0, 60));
+    }
+  }
+  return flagged;
 }
 
 interface LatexIssue {
@@ -344,6 +367,20 @@ export function auditContent(input: AuditInput): AuditResult {
     }
   }
 
+  // Stray trailing backslashes outside display math (renders literally)
+  for (const topic of topics) {
+    topic.notes.forEach((note, idx) => {
+      for (const line of findStrayBackslashes(note.body)) {
+        issues.push({
+          type: "stray_backslash",
+          severity: "warning",
+          location: `${location(topic)}/notes[${idx}].body`,
+          message: `Line ends with a stray "\\" outside math: "${line}"`,
+        });
+      }
+    });
+  }
+
   const totalQuestions = topics.reduce(
     (sum, topic) => sum + topic.questions.length,
     0,
@@ -444,6 +481,8 @@ function issueTypeLabel(type: IssueType): string {
       return "LaTeX contains non-ASCII characters";
     case "empty_flashcard":
       return "Empty flashcard term/definition";
+    case "stray_backslash":
+      return "Lines ending with a stray backslash";
     case "unreadable_topic":
       return "Unreadable topic files";
     default:

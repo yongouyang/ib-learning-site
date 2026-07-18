@@ -18,22 +18,22 @@
     {
       "id": "math-dp-complex-numbers-n2",
       "heading": "Complex Conjugates, Division & Modulus",
-      "body": "The complex conjugate is a powerful tool that turns division into a simple fraction with a real denominator. It is also closely tied to the modulus, which measures the size of a complex number.\n\n📌 Complex Conjugate\nFor $z = a + bi$, the conjugate is:\n    $$z^* = a - bi$$\n\n🔑 Key Properties of the Conjugate\n    $$z + z^* = 2a \\quad \\text{(always real)}$$\n    $$z - z^* = 2bi \\quad \\text{(always imaginary)}$$\n    $$zz^* = a^2 + b^2 \\quad \\text{(always real and equal to } |z|^2\\text{)}$$\n\n📌 Modulus\nThe modulus $|z|$ is the distance from the origin to $z$ on an Argand diagram:\n    $$|z| = \\sqrt{a^2 + b^2}$$\n\nThe modulus is never negative. It links directly to the conjugate through:\n    $$zz^* = |z|^2$$\n\n🔑 Division Method\nTo divide two complex numbers:\n1. Write the calculation as a single fraction\n2. Multiply top and bottom by the conjugate of the denominator\n3. Expand and simplify — the denominator becomes real\n4. Write the result in Cartesian form\n\n    $$\\frac{a + bi}{c + di} = \\frac{(a + bi)(c - di)}{c^2 + d^2}$$\n\n💡 Worked Example — Division\nSimplify $(1 + 7i) \\div (3 - i)$.\n\n  Step 1: Write as a fraction\n    $$\\frac{1 + 7i}{3 - i}$$\n\n  Step 2: Multiply top and bottom by $(3 + i)$\n    $$\\frac{(1 + 7i)(3 + i)}{(3 - i)(3 + i)}$$\n\n  Step 3: Expand numerator and denominator\n    Numerator: $3 + i + 21i + 7i^2 = 3 + 22i - 7 = -4 + 22i$\n    Denominator: $9 + 3i - 3i - i^2 = 9 + 1 = 10$\n\n  Step 4: Simplify\n    $$\\frac{-4 + 22i}{10} = -0.4 + 2.2i$$\n\n💡 Worked Example — Using $zz^* = |z|^2$\nIf $z = 3 + 4i$, find $z \\cdot z^*$.\n\n  Step 1: Identify $a$ and $b$\n    $$a = 3, \\ b = 4$$\n\n  Step 2: Apply the formula\n    $$zz^* = a^2 + b^2 = 9 + 16 = 25$$\n\n📎 Key Points to Remember\n• The conjugate flips the sign of the imaginary part only\n• $zz^*$ always gives a real number — this is why it removes $i$ from a denominator\n• $|z_1 + z_2|$ is not the same as $|z_1| + |z_2|$ in general\n\n⚠️ Common Mistake\nForgetting to multiply both numerator and denominator by the conjugate. If you only multiply the top, you have changed the value of the expression."
+      "body": "The complex conjugate is a powerful tool that turns division into a simple fraction with a real denominator. It is also closely tied to the modulus, which measures the size of a complex number.\n\n📌 Complex Conjugate\nFor $z = a + bi$, the conjugate is:\n    $$z^* = a - bi$$\n\n🔑 Key Properties of the Conjugate\n    $$z + z^* = 2a \\quad \\text{(always real)}$$\n    $$z - z^* = 2bi \\quad \\text{(always imaginary)}$$\n    $$zz^* = a^2 + b^2 \\quad \\text{(always real and equal to } |z|^2\\text{)}$$\n\n📌 Modulus\nThe modulus $|z|$ is the distance from the origin to $z$ on an Argand diagram:\n    $$|z| = \\sqrt{a^2 + b^2}$$\n\nThe modulus is never negative. It links directly to the conjugate through:\n    $$zz^* = |z|^2$$\n\n🔑 Division Method\nTo divide two complex numbers:\n1. Write the calculation as a single fraction\n2. Multiply top and bottom by the conjugate of the denominator\n3. Expand and simplify — the denominator becomes real\n4. Write the result in Cartesian form\n\n    $$\\dfrac{a + bi}{c + di} = \\dfrac{(a + bi)(c - di)}{c^2 + d^2}$$\n\n💡 Worked Example — Division\nSimplify $(1 + 7i) \\div (3 - i)$.\n\n  Step 1: Write as a fraction\n    $$\\dfrac{1 + 7i}{3 - i}$$\n\n  Step 2: Multiply top and bottom by $(3 + i)$\n    $$\\dfrac{(1 + 7i)(3 + i)}{(3 - i)(3 + i)}$$\n\n  Step 3: Expand numerator and denominator\n    Numerator: $3 + i + 21i + 7i^2 = 3 + 22i - 7 = -4 + 22i$\n    Denominator: $9 + 3i - 3i - i^2 = 9 + 1 = 10$\n\n  Step 4: Simplify\n    $$\\dfrac{-4 + 22i}{10} = -0.4 + 2.2i$$\n\n💡 Worked Example — Using $zz^* = |z|^2$\nIf $z = 3 + 4i$, find $z \\cdot z^*$.\n\n  Step 1: Identify $a$ and $b$\n    $$a = 3, \\ b = 4$$\n\n  Step 2: Apply the formula\n    $$zz^* = a^2 + b^2 = 9 + 16 = 25$$\n\n📎 Key Points to Remember\n• The conjugate flips the sign of the imaginary part only\n• $zz^*$ always gives a real number — this is why it removes $i$ from a denominator\n• $|z_1 + z_2|$ is not the same as $|z_1| + |z_2|$ in general\n\n⚠️ Common Mistake\nForgetting to multiply both numerator and denominator by the conjugate. If you only multiply the top, you have changed the value of the expression."
     },
     {
       "id": "math-dp-complex-numbers-n3",
       "heading": "Argand Diagrams & Argument",
-      "body": "An Argand diagram turns complex numbers into geometry. Once you can visualise them as points or vectors, operations like addition and multiplication become much easier to understand.\n\n📌 Argand Diagram\nA complex plane with:\n• Horizontal axis = real axis ($\\text{Re}$)\n• Vertical axis = imaginary axis ($\\text{Im}$)\n\nThe number $z = x + iy$ is plotted at the point $(x, y)$ or drawn as a vector from the origin to that point.\n\n📌 Argument $\\arg(z)$\nThe argument is the angle measured counter-clockwise from the positive real axis to the vector. It is usually given in the range:\n    $$-\\pi < \\arg(z) \\leq \\pi$$\n\nTo calculate it, first find the acute reference angle using:\n    $$\\text{reference angle} = \\tan^{-1}\\left(\\left|\\frac{y}{x}\\right|\\right)$$\n\nThen adjust for the quadrant:\n• Q1 ($x > 0$, $y > 0$):   $\\arg(z) = \\text{reference angle}$\n• Q2 ($x < 0$, $y > 0$):   $\\arg(z) = \\pi - \\text{reference angle}$\n• Q3 ($x < 0$, $y < 0$):   $\\arg(z) = -\\pi + \\text{reference angle}$\n• Q4 ($x > 0$, $y < 0$):   $\\arg(z) = -\\text{reference angle}$\n\n💡 Worked Example — Finding the Argument\nFind $\\arg(z)$ for $z = -1 - i$.\n\n  Step 1: Identify the quadrant\n    $x = -1$, $y = -1$ → Q3\n\n  Step 2: Find the reference angle\n    $$\\tan^{-1}(1) = \\frac{\\pi}{4}$$\n\n  Step 3: Apply the Q3 rule\n    $$\\arg(z) = -\\pi + \\frac{\\pi}{4} = -\\frac{3\\pi}{4}$$\n\n🔑 Geometric Operations\n• Adding $w$ to $z$ translates $z$ by the vector $(\\operatorname{Re}(w), \\operatorname{Im}(w))$\n• Multiplying by $i$ rotates $z$ $90^\\circ$ counter-clockwise\n• Taking the conjugate $z^*$ reflects $z$ across the real axis\n\n💡 Worked Example — Geometry of Multiplication by $i$\nLet $z = 2 - i$. Find $iz$ and describe the transformation.\n\n  Step 1: Multiply\n    $$iz = i(2 - i) = 2i - i^2 = 2i + 1 = 1 + 2i$$\n\n  Step 2: Compare on the Argand diagram\n    $z = 2 - i$ is at $(2, -1)$\n    $iz = 1 + 2i$ is at $(1, 2)$\n\n  Step 3: Describe\n    The point has rotated $90^\\circ$ counter-clockwise about the origin.\n\n📎 Key Points to Remember\n• Always sketch the point before deciding the quadrant for $\\arg(z)$\n• $\\arg(0)$ is undefined — there is no angle to measure\n• A negative argument simply means the angle is measured clockwise\n\n⚠️ Common Mistake\nUsing $\\tan^{-1}\\left(\\frac{y}{x}\\right)$ directly without checking the quadrant. For example, $\\tan^{-1}\\left(\\frac{-1}{-1}\\right) = \\frac{\\pi}{4}$, but the correct argument for $-1 - i$ is $-\\frac{3\\pi}{4}$ because it lies in Q3."
+      "body": "An Argand diagram turns complex numbers into geometry. Once you can visualise them as points or vectors, operations like addition and multiplication become much easier to understand.\n\n📌 Argand Diagram\nA complex plane with:\n• Horizontal axis = real axis ($\\text{Re}$)\n• Vertical axis = imaginary axis ($\\text{Im}$)\n\nThe number $z = x + iy$ is plotted at the point $(x, y)$ or drawn as a vector from the origin to that point.\n\n📌 Argument $\\arg(z)$\nThe argument is the angle measured counter-clockwise from the positive real axis to the vector. It is usually given in the range:\n    $$-\\pi < \\arg(z) \\leq \\pi$$\n\nTo calculate it, first find the acute reference angle using:\n    $$\\text{reference angle} = \\tan^{-1}\\left(\\left|\\dfrac{y}{x}\\right|\\right)$$\n\nThen adjust for the quadrant:\n• Q1 ($x > 0$, $y > 0$):   $\\arg(z) = \\text{reference angle}$\n• Q2 ($x < 0$, $y > 0$):   $\\arg(z) = \\pi - \\text{reference angle}$\n• Q3 ($x < 0$, $y < 0$):   $\\arg(z) = -\\pi + \\text{reference angle}$\n• Q4 ($x > 0$, $y < 0$):   $\\arg(z) = -\\text{reference angle}$\n\n💡 Worked Example — Finding the Argument\nFind $\\arg(z)$ for $z = -1 - i$.\n\n  Step 1: Identify the quadrant\n    $x = -1$, $y = -1$ → Q3\n\n  Step 2: Find the reference angle\n    $$\\tan^{-1}(1) = \\dfrac{\\pi}{4}$$\n\n  Step 3: Apply the Q3 rule\n    $$\\arg(z) = -\\pi + \\dfrac{\\pi}{4} = -\\dfrac{3\\pi}{4}$$\n\n🔑 Geometric Operations\n• Adding $w$ to $z$ translates $z$ by the vector $(\\operatorname{Re}(w), \\operatorname{Im}(w))$\n• Multiplying by $i$ rotates $z$ $90^\\circ$ counter-clockwise\n• Taking the conjugate $z^*$ reflects $z$ across the real axis\n\n💡 Worked Example — Geometry of Multiplication by $i$\nLet $z = 2 - i$. Find $iz$ and describe the transformation.\n\n  Step 1: Multiply\n    $$iz = i(2 - i) = 2i - i^2 = 2i + 1 = 1 + 2i$$\n\n  Step 2: Compare on the Argand diagram\n    $z = 2 - i$ is at $(2, -1)$\n    $iz = 1 + 2i$ is at $(1, 2)$\n\n  Step 3: Describe\n    The point has rotated $90^\\circ$ counter-clockwise about the origin.\n\n📎 Key Points to Remember\n• Always sketch the point before deciding the quadrant for $\\arg(z)$\n• $\\arg(0)$ is undefined — there is no angle to measure\n• A negative argument simply means the angle is measured clockwise\n\n⚠️ Common Mistake\nUsing $\\tan^{-1}\\left(\\dfrac{y}{x}\\right)$ directly without checking the quadrant. For example, $\\tan^{-1}\\left(\\dfrac{-1}{-1}\\right) = \\dfrac{\\pi}{4}$, but the correct argument for $-1 - i$ is $-\\dfrac{3\\pi}{4}$ because it lies in Q3."
     },
     {
       "id": "math-dp-complex-numbers-n4",
       "heading": "Polar, Euler Forms & Operations",
-      "body": "Polar and Euler forms package a complex number by its size (modulus) and direction (argument). These forms make multiplication, division, and powers almost effortless compared with Cartesian form.\n\n📌 Polar (cis) Form\nAny complex number can be written as:\n    $$z = r(\\cos \\theta + i \\sin \\theta) = r \\operatorname{cis} \\theta$$\nwhere:\n    $$r = |z| \\quad (\\text{modulus})$$\n    $$\\theta = \\arg(z) \\quad (\\text{argument})$$\n\n📌 Euler (Exponential) Form\n    $$z = r e^{i\\theta}$$\n\nThis reveals a deep link between exponentials and trigonometry. It is equivalent to polar form and is ideal for multiplication, division, and powers.\n\n🔑 Multiplication & Division in Polar/Euler Form\nTo multiply: multiply the moduli and add the arguments\n    $$z_1 z_2 = r_1 r_2 \\operatorname{cis}(\\theta_1 + \\theta_2)$$\n\nTo divide: divide the moduli and subtract the arguments\n    $$\\frac{z_1}{z_2} = \\frac{r_1}{r_2} \\operatorname{cis}(\\theta_1 - \\theta_2)$$\n\nIf the new argument falls outside $-\\pi < \\theta \\leq \\pi$, add or subtract $2\\pi$ to bring it back into range.\n\n🔑 De Moivre's Theorem\nFor powers of a complex number in polar form:\n    $$z^n = r^n \\operatorname{cis}(n\\theta)$$\n\n💡 Worked Example — Multiplication in Polar Form\nLet $z_1 = 3 \\operatorname{cis}\\left(\\frac{\\pi}{6}\\right)$ and $z_2 = 2 \\operatorname{cis}\\left(\\frac{\\pi}{4}\\right)$. Find $z_1 z_2$.\n\n  Step 1: Multiply the moduli\n    $$r = 3 \\times 2 = 6$$\n\n  Step 2: Add the arguments\n    $$\\theta = \\frac{\\pi}{6} + \\frac{\\pi}{4} = \\frac{2\\pi}{12} + \\frac{3\\pi}{12} = \\frac{5\\pi}{12}$$\n\n  Step 3: Write the result\n    $$z_1 z_2 = 6 \\operatorname{cis}\\left(\\frac{5\\pi}{12}\\right)$$\n\n💡 Worked Example — Conversion Between Forms\nExpress $z = 2 + 2i$ in polar form $r \\operatorname{cis} \\theta$.\n\n  Step 1: Find the modulus\n    $$r = \\sqrt{2^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2}$$\n\n  Step 2: Find the argument\n    Point $(2, 2)$ is in Q1, so $\\theta = \\tan^{-1}\\left(\\frac{2}{2}\\right) = \\tan^{-1}(1) = \\frac{\\pi}{4}$\n\n  Step 3: Write in polar form\n    $$z = 2\\sqrt{2} \\operatorname{cis}\\left(\\frac{\\pi}{4}\\right)$$\n\n💡 Worked Example — De Moivre's Theorem\nLet $z = 2e^{i\\pi/3}$. Calculate $z^2$.\n\n  Step 1: Apply the theorem\n    $$z^2 = 2^2 e^{i \\cdot 2\\pi/3} = 4e^{2\\pi i/3}$$\n\n  Step 2: Convert to Cartesian form (optional)\n    $$4\\left[\\cos\\left(\\frac{2\\pi}{3}\\right) + i \\sin\\left(\\frac{2\\pi}{3}\\right)\\right] = 4\\left(-\\frac{1}{2} + i \\frac{\\sqrt{3}}{2}\\right) = -2 + 2\\sqrt{3} \\, i$$\n\n📎 Key Points to Remember\n• Polar/Euler forms are much faster than Cartesian form for multiplication and division\n• Always check that the final argument lies in the required range\n• The conjugate of $r \\operatorname{cis} \\theta$ is $r \\operatorname{cis}(-\\theta)$\n• Euler's identity: $$e^{i\\pi} + 1 = 0$$ connects the five most important numbers in mathematics\n\n⚠️ Common Mistake\nTrying to add complex numbers in polar form by adding moduli and arguments. Addition only works cleanly in Cartesian form. Convert to $a + bi$ first, add, then convert back if needed."
+      "body": "Polar and Euler forms package a complex number by its size (modulus) and direction (argument). These forms make multiplication, division, and powers almost effortless compared with Cartesian form.\n\n📌 Polar (cis) Form\nAny complex number can be written as:\n    $$z = r(\\cos \\theta + i \\sin \\theta) = r \\operatorname{cis} \\theta$$\nwhere:\n    $$r = |z| \\quad (\\text{modulus})$$\n    $$\\theta = \\arg(z) \\quad (\\text{argument})$$\n\n📌 Euler (Exponential) Form\n    $$z = r e^{i\\theta}$$\n\nThis reveals a deep link between exponentials and trigonometry. It is equivalent to polar form and is ideal for multiplication, division, and powers.\n\n🔑 Multiplication & Division in Polar/Euler Form\nTo multiply: multiply the moduli and add the arguments\n    $$z_1 z_2 = r_1 r_2 \\operatorname{cis}(\\theta_1 + \\theta_2)$$\n\nTo divide: divide the moduli and subtract the arguments\n    $$\\dfrac{z_1}{z_2} = \\dfrac{r_1}{r_2} \\operatorname{cis}(\\theta_1 - \\theta_2)$$\n\nIf the new argument falls outside $-\\pi < \\theta \\leq \\pi$, add or subtract $2\\pi$ to bring it back into range.\n\n🔑 De Moivre's Theorem\nFor powers of a complex number in polar form:\n    $$z^n = r^n \\operatorname{cis}(n\\theta)$$\n\n💡 Worked Example — Multiplication in Polar Form\nLet $z_1 = 3 \\operatorname{cis}\\left(\\dfrac{\\pi}{6}\\right)$ and $z_2 = 2 \\operatorname{cis}\\left(\\dfrac{\\pi}{4}\\right)$. Find $z_1 z_2$.\n\n  Step 1: Multiply the moduli\n    $$r = 3 \\times 2 = 6$$\n\n  Step 2: Add the arguments\n    $$\\theta = \\dfrac{\\pi}{6} + \\dfrac{\\pi}{4} = \\dfrac{2\\pi}{12} + \\dfrac{3\\pi}{12} = \\dfrac{5\\pi}{12}$$\n\n  Step 3: Write the result\n    $$z_1 z_2 = 6 \\operatorname{cis}\\left(\\dfrac{5\\pi}{12}\\right)$$\n\n💡 Worked Example — Conversion Between Forms\nExpress $z = 2 + 2i$ in polar form $r \\operatorname{cis} \\theta$.\n\n  Step 1: Find the modulus\n    $$r = \\sqrt{2^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2}$$\n\n  Step 2: Find the argument\n    Point $(2, 2)$ is in Q1, so $\\theta = \\tan^{-1}\\left(\\dfrac{2}{2}\\right) = \\tan^{-1}(1) = \\dfrac{\\pi}{4}$\n\n  Step 3: Write in polar form\n    $$z = 2\\sqrt{2} \\operatorname{cis}\\left(\\dfrac{\\pi}{4}\\right)$$\n\n💡 Worked Example — De Moivre's Theorem\nLet $z = 2e^{i\\pi/3}$. Calculate $z^2$.\n\n  Step 1: Apply the theorem\n    $$z^2 = 2^2 e^{i \\cdot 2\\pi/3} = 4e^{2\\pi i/3}$$\n\n  Step 2: Convert to Cartesian form (optional)\n    $$4\\left[\\cos\\left(\\dfrac{2\\pi}{3}\\right) + i \\sin\\left(\\dfrac{2\\pi}{3}\\right)\\right] = 4\\left(-\\dfrac{1}{2} + i \\dfrac{\\sqrt{3}}{2}\\right) = -2 + 2\\sqrt{3} \\, i$$\n\n📎 Key Points to Remember\n• Polar/Euler forms are much faster than Cartesian form for multiplication and division\n• Always check that the final argument lies in the required range\n• The conjugate of $r \\operatorname{cis} \\theta$ is $r \\operatorname{cis}(-\\theta)$\n• Euler's identity: $$e^{i\\pi} + 1 = 0$$ connects the five most important numbers in mathematics\n\n⚠️ Common Mistake\nTrying to add complex numbers in polar form by adding moduli and arguments. Addition only works cleanly in Cartesian form. Convert to $a + bi$ first, add, then convert back if needed."
     },
     {
       "id": "math-dp-complex-numbers-n5",
       "heading": "De Moivre's Theorem & nth Roots",
-      "body": "De Moivre's theorem turns raising a complex number to a power into simple arithmetic on the modulus and argument. It also leads to a neat formula for finding all nth roots of a complex number.\n\n📌 De Moivre's Theorem\nFor a complex number in polar form $z = r \\operatorname{cis} \\theta$ and any integer $n$:\n    $$z^n = r^n \\operatorname{cis}(n\\theta)$$\n\n🔑 Key Idea\nRaising $z$ to the $n$th power multiplies the argument by $n$ and raises the modulus to the $n$th power.\n\n📌 nth Roots of a Complex Number\nThe $n$ distinct nth roots of $z = r \\operatorname{cis} \\theta$ are:\n    $$z_k = r^{1/n} \\operatorname{cis}\\left(\\frac{\\theta + 2k\\pi}{n}\\right)$$\nwhere $k = 0, 1, 2, \\dots, n-1$.\n\n🔑 How it works\n1. Take the $n$th root of the modulus: $r^{1/n}$\n2. Start with the principal argument $\\theta$\n3. Add multiples of $2\\pi$ to $\\theta$ and divide each by $n$\n4. The $n$ roots are equally spaced around a circle of radius $r^{1/n}$\n\n💡 Worked Example — Power using De Moivre\nLet $z = 2 \\operatorname{cis}\\left(\\frac{\\pi}{6}\\right)$. Find $z^3$.\n\n  Step 1: Apply the theorem\n    $$z^3 = 2^3 \\operatorname{cis}\\left(3 \\cdot \\frac{\\pi}{6}\\right)$$\n\n  Step 2: Simplify\n    $$z^3 = 8 \\operatorname{cis}\\left(\\frac{\\pi}{2}\\right)$$\n\n  Step 3: Convert to Cartesian form\n    $$8\\left(\\cos\\frac{\\pi}{2} + i \\sin\\frac{\\pi}{2}\\right) = 8(0 + i) = 8i$$\n\n💡 Worked Example — Cube Roots of Unity\nFind the three cube roots of $1$.\n\n  Step 1: Write $1$ in polar form\n    $$1 = 1 \\operatorname{cis}(0)$$\n\n  Step 2: Apply the formula with $n = 3$ and $k = 0, 1, 2$\n    $$z_k = 1^{1/3} \\operatorname{cis}\\left(\\frac{0 + 2k\\pi}{3}\\right)$$\n\n  Step 3: List the roots\n    $$z_0 = \\operatorname{cis}(0) = 1$$\n    $$z_1 = \\operatorname{cis}\\left(\\frac{2\\pi}{3}\\right) = -\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i$$\n    $$z_2 = \\operatorname{cis}\\left(\\frac{4\\pi}{3}\\right) = -\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$$\n\n📎 Key Points to Remember\n• De Moivre's theorem only applies directly to polar or Euler form\n• There are always exactly $n$ distinct $n$th roots\n• Roots of unity form a regular $n$-gon on the unit circle\n\n⚠️ Common Mistake\nForgetting to add $2k\\pi$ before dividing by $n$. Dividing $\\theta$ by $n$ alone gives only the principal root and misses the others."
+      "body": "De Moivre's theorem turns raising a complex number to a power into simple arithmetic on the modulus and argument. It also leads to a neat formula for finding all nth roots of a complex number.\n\n📌 De Moivre's Theorem\nFor a complex number in polar form $z = r \\operatorname{cis} \\theta$ and any integer $n$:\n    $$z^n = r^n \\operatorname{cis}(n\\theta)$$\n\n🔑 Key Idea\nRaising $z$ to the $n$th power multiplies the argument by $n$ and raises the modulus to the $n$th power.\n\n📌 nth Roots of a Complex Number\nThe $n$ distinct nth roots of $z = r \\operatorname{cis} \\theta$ are:\n    $$z_k = r^{1/n} \\operatorname{cis}\\left(\\dfrac{\\theta + 2k\\pi}{n}\\right)$$\nwhere $k = 0, 1, 2, \\dots, n-1$.\n\n🔑 How it works\n1. Take the $n$th root of the modulus: $r^{1/n}$\n2. Start with the principal argument $\\theta$\n3. Add multiples of $2\\pi$ to $\\theta$ and divide each by $n$\n4. The $n$ roots are equally spaced around a circle of radius $r^{1/n}$\n\n💡 Worked Example — Power using De Moivre\nLet $z = 2 \\operatorname{cis}\\left(\\dfrac{\\pi}{6}\\right)$. Find $z^3$.\n\n  Step 1: Apply the theorem\n    $$z^3 = 2^3 \\operatorname{cis}\\left(3 \\cdot \\dfrac{\\pi}{6}\\right)$$\n\n  Step 2: Simplify\n    $$z^3 = 8 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$$\n\n  Step 3: Convert to Cartesian form\n    $$8\\left(\\cos\\dfrac{\\pi}{2} + i \\sin\\dfrac{\\pi}{2}\\right) = 8(0 + i) = 8i$$\n\n💡 Worked Example — Cube Roots of Unity\nFind the three cube roots of $1$.\n\n  Step 1: Write $1$ in polar form\n    $$1 = 1 \\operatorname{cis}(0)$$\n\n  Step 2: Apply the formula with $n = 3$ and $k = 0, 1, 2$\n    $$z_k = 1^{1/3} \\operatorname{cis}\\left(\\dfrac{0 + 2k\\pi}{3}\\right)$$\n\n  Step 3: List the roots\n    $$z_0 = \\operatorname{cis}(0) = 1$$\n    $$z_1 = \\operatorname{cis}\\left(\\dfrac{2\\pi}{3}\\right) = -\\dfrac{1}{2} + \\dfrac{\\sqrt{3}}{2}i$$\n    $$z_2 = \\operatorname{cis}\\left(\\dfrac{4\\pi}{3}\\right) = -\\dfrac{1}{2} - \\dfrac{\\sqrt{3}}{2}i$$\n\n📎 Key Points to Remember\n• De Moivre's theorem only applies directly to polar or Euler form\n• There are always exactly $n$ distinct $n$th roots\n• Roots of unity form a regular $n$-gon on the unit circle\n\n⚠️ Common Mistake\nForgetting to add $2k\\pi$ before dividing by $n$. Dividing $\\theta$ by $n$ alone gives only the principal root and misses the others."
     },
     {
       "id": "math-dp-complex-numbers-n6",
@@ -43,7 +43,7 @@
     {
       "id": "math-dp-complex-numbers-n7",
       "heading": "Loci in the Complex Plane",
-      "body": "A locus is a set of points that satisfy a given condition. In the complex plane, simple equations involving $z$ describe familiar geometric shapes such as circles and lines.\n\n📌 Definition of a Locus\nA locus is the set of all points $z$ in the complex plane that satisfy a particular equation or inequality.\n\n🔑 Common Loci\n\nCircle centred at $a$ with radius $r$:\n    $$|z - a| = r$$\n\nPerpendicular bisector of the segment joining $a$ and $b$:\n    $$|z - a| = |z - b|$$\n\nRay from the origin at angle $\\alpha$:\n    $$\\arg(z) = \\alpha$$\n\nRegion inside a circle:\n    $$|z - a| < r$$\n\n💡 Worked Example — Identifying a Locus\nDescribe the locus given by $|z - (2 + i)| = 3$.\n\n  Step 1: Compare with the standard form\n    $$|z - a| = r$$\n    Here $a = 2 + i$ and $r = 3$.\n\n  Step 2: Interpret\n    This is a circle centred at $2 + i$ with radius $3$.\n\n💡 Worked Example — Perpendicular Bisector\nDescribe the locus $|z - 1| = |z - i|$.\n\n  Step 1: Recognise the form\n    It states that the distance from $z$ to $1$ equals the distance from $z$ to $i$.\n\n  Step 2: Identify the geometric shape\n    The set of points equidistant from two fixed points is the perpendicular bisector of the segment joining them.\n\n  Step 3: Find the line\n    The segment from $1$ to $i$ has midpoint $\\frac{1 + i}{2}$ and slope $-1$, so the perpendicular bisector has slope $1$ and passes through the midpoint. Its equation is $y = x$.\n\n📎 Key Points to Remember\n• $|z - a| = r$ is a circle; $|z - a| < r$ is its interior\n• $|z - a| = |z - b|$ is a straight line (perpendicular bisector)\n• $\\arg(z - a) = \\alpha$ is a ray starting from $a$ at angle $\\alpha$\n\n⚠️ Common Mistake\nWriting $|z - a|$ as $|z| - |a|$. Moduli do not distribute over subtraction. For example, $|3 + 4i - (1 + i)| = |2 + 3i| = \\sqrt{13}$, not $|3 + 4i| - |1 + i| = 5 - \\sqrt{2}$."
+      "body": "A locus is a set of points that satisfy a given condition. In the complex plane, simple equations involving $z$ describe familiar geometric shapes such as circles and lines.\n\n📌 Definition of a Locus\nA locus is the set of all points $z$ in the complex plane that satisfy a particular equation or inequality.\n\n🔑 Common Loci\n\nCircle centred at $a$ with radius $r$:\n    $$|z - a| = r$$\n\nPerpendicular bisector of the segment joining $a$ and $b$:\n    $$|z - a| = |z - b|$$\n\nRay from the origin at angle $\\alpha$:\n    $$\\arg(z) = \\alpha$$\n\nRegion inside a circle:\n    $$|z - a| < r$$\n\n💡 Worked Example — Identifying a Locus\nDescribe the locus given by $|z - (2 + i)| = 3$.\n\n  Step 1: Compare with the standard form\n    $$|z - a| = r$$\n    Here $a = 2 + i$ and $r = 3$.\n\n  Step 2: Interpret\n    This is a circle centred at $2 + i$ with radius $3$.\n\n💡 Worked Example — Perpendicular Bisector\nDescribe the locus $|z - 1| = |z - i|$.\n\n  Step 1: Recognise the form\n    It states that the distance from $z$ to $1$ equals the distance from $z$ to $i$.\n\n  Step 2: Identify the geometric shape\n    The set of points equidistant from two fixed points is the perpendicular bisector of the segment joining them.\n\n  Step 3: Find the line\n    The segment from $1$ to $i$ has midpoint $\\dfrac{1 + i}{2}$ and slope $-1$, so the perpendicular bisector has slope $1$ and passes through the midpoint. Its equation is $y = x$.\n\n📎 Key Points to Remember\n• $|z - a| = r$ is a circle; $|z - a| < r$ is its interior\n• $|z - a| = |z - b|$ is a straight line (perpendicular bisector)\n• $\\arg(z - a) = \\alpha$ is a ray starting from $a$ at angle $\\alpha$\n\n⚠️ Common Mistake\nWriting $|z - a|$ as $|z| - |a|$. Moduli do not distribute over subtraction. For example, $|3 + 4i - (1 + i)| = |2 + 3i| = \\sqrt{13}$, not $|3 + 4i| - |1 + i| = 5 - \\sqrt{2}$."
     }
   ],
   "flashcards": [
@@ -75,7 +75,7 @@
       "id": "math-dp-complex-numbers-f5",
       "term": "Argument $\\arg(z)$",
       "definition": "The angle from the positive real axis to $z$, measured counter-clockwise, usually in the range $-\\pi < \\arg(z) \\leq \\pi$.",
-      "example": "$\\arg(1 + i) = \\frac{\\pi}{4}$; $\\arg(-1 + i) = \\frac{3\\pi}{4}$."
+      "example": "$\\arg(1 + i) = \\dfrac{\\pi}{4}$; $\\arg(-1 + i) = \\dfrac{3\\pi}{4}$."
     },
     {
       "id": "math-dp-complex-numbers-f6",
@@ -87,7 +87,7 @@
       "id": "math-dp-complex-numbers-f7",
       "term": "Polar (cis) form",
       "definition": "$z = r(\\cos \\theta + i \\sin \\theta) = r \\operatorname{cis} \\theta$, where $r = |z|$ and $\\theta = \\arg(z)$.",
-      "example": "$2\\left(\\cos\\left(\\frac{\\pi}{3}\\right) + i \\sin\\left(\\frac{\\pi}{3}\\right)\\right) = 2 \\operatorname{cis}\\left(\\frac{\\pi}{3}\\right)$."
+      "example": "$2\\left(\\cos\\left(\\dfrac{\\pi}{3}\\right) + i \\sin\\left(\\dfrac{\\pi}{3}\\right)\\right) = 2 \\operatorname{cis}\\left(\\dfrac{\\pi}{3}\\right)$."
     },
     {
       "id": "math-dp-complex-numbers-f8",
@@ -99,13 +99,13 @@
       "id": "math-dp-complex-numbers-f9",
       "term": "De Moivre's theorem",
       "definition": "For $z = r \\operatorname{cis} \\theta$, $z^n = r^n \\operatorname{cis}(n\\theta)$ for any integer $n$.",
-      "example": "$\\left(2 \\operatorname{cis} \\frac{\\pi}{6}\\right)^3 = 8 \\operatorname{cis} \\frac{\\pi}{2} = 8i$."
+      "example": "$\\left(2 \\operatorname{cis} \\dfrac{\\pi}{6}\\right)^3 = 8 \\operatorname{cis} \\dfrac{\\pi}{2} = 8i$."
     },
     {
       "id": "math-dp-complex-numbers-f10",
       "term": "nth roots of a complex number",
-      "definition": "The $n$ roots of $z = r \\operatorname{cis} \\theta$ are $z_k = r^{1/n} \\operatorname{cis}\\left(\\frac{\\theta + 2k\\pi}{n}\\right)$ for $k = 0, 1, \\dots, n-1$.",
-      "example": "The cube roots of $1$ are $1$, $-\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i$, and $-\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i$."
+      "definition": "The $n$ roots of $z = r \\operatorname{cis} \\theta$ are $z_k = r^{1/n} \\operatorname{cis}\\left(\\dfrac{\\theta + 2k\\pi}{n}\\right)$ for $k = 0, 1, \\dots, n-1$.",
+      "example": "The cube roots of $1$ are $1$, $-\\dfrac{1}{2} + \\dfrac{\\sqrt{3}}{2}i$, and $-\\dfrac{1}{2} - \\dfrac{\\sqrt{3}}{2}i$."
     },
     {
       "id": "math-dp-complex-numbers-f11",
@@ -149,13 +149,13 @@
       "id": "math-dp-complex-numbers-q3",
       "stem": "Find $\\arg(z)$ for $z = -1 - i$, giving your answer in the range $-\\pi < \\theta \\leq \\pi$.",
       "choices": [
-        "$\\frac{\\pi}{4}$",
-        "$-\\frac{\\pi}{4}$",
-        "$\\frac{3\\pi}{4}$",
-        "$-\\frac{3\\pi}{4}$"
+        "$\\dfrac{\\pi}{4}$",
+        "$-\\dfrac{\\pi}{4}$",
+        "$\\dfrac{3\\pi}{4}$",
+        "$-\\dfrac{3\\pi}{4}$"
       ],
       "correctIndex": 3,
-      "explanation": "$z$ lies in Q3. $\\tan^{-1}(1) = \\frac{\\pi}{4}$, so the angle is $-\\pi + \\frac{\\pi}{4} = -\\frac{3\\pi}{4}$."
+      "explanation": "$z$ lies in Q3. $\\tan^{-1}(1) = \\dfrac{\\pi}{4}$, so the angle is $-\\pi + \\dfrac{\\pi}{4} = -\\dfrac{3\\pi}{4}$."
     },
     {
       "id": "math-dp-complex-numbers-q4",
@@ -167,7 +167,7 @@
         "$-2 \\pm \\sqrt{3} \\, i$"
       ],
       "correctIndex": 0,
-      "explanation": "$x = \\frac{-4 \\pm \\sqrt{16 - 52}}{2} = \\frac{-4 \\pm \\sqrt{-36}}{2} = \\frac{-4 \\pm 6i}{2} = -2 \\pm 3i$."
+      "explanation": "$x = \\dfrac{-4 \\pm \\sqrt{16 - 52}}{2} = \\dfrac{-4 \\pm \\sqrt{-36}}{2} = \\dfrac{-4 \\pm 6i}{2} = -2 \\pm 3i$."
     },
     {
       "id": "math-dp-complex-numbers-q5",
@@ -185,25 +185,25 @@
       "id": "math-dp-complex-numbers-q6",
       "stem": "Express $2 - 2i$ in polar form $r \\operatorname{cis} \\theta$.",
       "choices": [
-        "$2\\sqrt{2} \\operatorname{cis}\\left(-\\frac{\\pi}{4}\\right)$",
-        "$2\\sqrt{2} \\operatorname{cis}\\left(\\frac{\\pi}{4}\\right)$",
-        "$4 \\operatorname{cis}\\left(-\\frac{\\pi}{4}\\right)$",
-        "$2 \\operatorname{cis}\\left(-\\frac{\\pi}{4}\\right)$"
+        "$2\\sqrt{2} \\operatorname{cis}\\left(-\\dfrac{\\pi}{4}\\right)$",
+        "$2\\sqrt{2} \\operatorname{cis}\\left(\\dfrac{\\pi}{4}\\right)$",
+        "$4 \\operatorname{cis}\\left(-\\dfrac{\\pi}{4}\\right)$",
+        "$2 \\operatorname{cis}\\left(-\\dfrac{\\pi}{4}\\right)$"
       ],
       "correctIndex": 0,
-      "explanation": "$r = \\sqrt{4 + 4} = 2\\sqrt{2}$. The point $(2, -2)$ is in Q4, so $\\theta = -\\frac{\\pi}{4}$."
+      "explanation": "$r = \\sqrt{4 + 4} = 2\\sqrt{2}$. The point $(2, -2)$ is in Q4, so $\\theta = -\\dfrac{\\pi}{4}$."
     },
     {
       "id": "math-dp-complex-numbers-q7",
-      "stem": "Let $z_1 = 3 \\operatorname{cis}\\left(\\frac{\\pi}{6}\\right)$ and $z_2 = 2 \\operatorname{cis}\\left(\\frac{\\pi}{4}\\right)$. Find $z_1 z_2$ in polar form.",
+      "stem": "Let $z_1 = 3 \\operatorname{cis}\\left(\\dfrac{\\pi}{6}\\right)$ and $z_2 = 2 \\operatorname{cis}\\left(\\dfrac{\\pi}{4}\\right)$. Find $z_1 z_2$ in polar form.",
       "choices": [
-        "$5 \\operatorname{cis}\\left(\\frac{5\\pi}{12}\\right)$",
-        "$6 \\operatorname{cis}\\left(\\frac{5\\pi}{12}\\right)$",
-        "$6 \\operatorname{cis}\\left(-\\frac{\\pi}{12}\\right)$",
-        "$5 \\operatorname{cis}\\left(\\frac{\\pi}{24}\\right)$"
+        "$5 \\operatorname{cis}\\left(\\dfrac{5\\pi}{12}\\right)$",
+        "$6 \\operatorname{cis}\\left(\\dfrac{5\\pi}{12}\\right)$",
+        "$6 \\operatorname{cis}\\left(-\\dfrac{\\pi}{12}\\right)$",
+        "$5 \\operatorname{cis}\\left(\\dfrac{\\pi}{24}\\right)$"
       ],
       "correctIndex": 1,
-      "explanation": "Multiply moduli: $3 \\times 2 = 6$. Add arguments: $\\frac{\\pi}{6} + \\frac{\\pi}{4} = \\frac{2\\pi}{12} + \\frac{3\\pi}{12} = \\frac{5\\pi}{12}$."
+      "explanation": "Multiply moduli: $3 \\times 2 = 6$. Add arguments: $\\dfrac{\\pi}{6} + \\dfrac{\\pi}{4} = \\dfrac{2\\pi}{12} + \\dfrac{3\\pi}{12} = \\dfrac{5\\pi}{12}$."
     },
     {
       "id": "math-dp-complex-numbers-q8",
@@ -221,13 +221,13 @@
       "id": "math-dp-complex-numbers-q9",
       "stem": "Simplify $\\dfrac{2 + i}{1 - i}$.",
       "choices": [
-        "$\\frac{1}{2} + \\frac{3}{2}i$",
-        "$\\frac{3}{2} + \\frac{1}{2}i$",
+        "$\\dfrac{1}{2} + \\dfrac{3}{2}i$",
+        "$\\dfrac{3}{2} + \\dfrac{1}{2}i$",
         "$1 + 3i$",
         "$1 - i$"
       ],
       "correctIndex": 0,
-      "explanation": "Multiply top and bottom by $1 + i$: $\\frac{(2 + i)(1 + i)}{(1 - i)(1 + i)} = \\frac{2 + 2i + i + i^2}{1 + 1} = \\frac{1 + 3i}{2} = \\frac{1}{2} + \\frac{3}{2}i$."
+      "explanation": "Multiply top and bottom by $1 + i$: $\\dfrac{(2 + i)(1 + i)}{(1 - i)(1 + i)} = \\dfrac{2 + 2i + i + i^2}{1 + 1} = \\dfrac{1 + 3i}{2} = \\dfrac{1}{2} + \\dfrac{3}{2}i$."
     },
     {
       "id": "math-dp-complex-numbers-q10",
@@ -243,15 +243,15 @@
     },
     {
       "id": "math-dp-complex-numbers-q11",
-      "stem": "Let $z = \\sqrt{2} \\operatorname{cis}\\left(\\frac{\\pi}{8}\\right)$. Find $z^4$.",
+      "stem": "Let $z = \\sqrt{2} \\operatorname{cis}\\left(\\dfrac{\\pi}{8}\\right)$. Find $z^4$.",
       "choices": [
-        "$4 \\operatorname{cis}\\left(\\frac{\\pi}{2}\\right)$",
-        "$2 \\operatorname{cis}\\left(\\frac{\\pi}{2}\\right)$",
-        "$4 \\operatorname{cis}\\left(\\frac{\\pi}{8}\\right)$",
-        "$2 \\operatorname{cis}\\left(\\frac{\\pi}{4}\\right)$"
+        "$4 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$",
+        "$2 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$",
+        "$4 \\operatorname{cis}\\left(\\dfrac{\\pi}{8}\\right)$",
+        "$2 \\operatorname{cis}\\left(\\dfrac{\\pi}{4}\\right)$"
       ],
       "correctIndex": 0,
-      "explanation": "Using De Moivre's theorem: $(\\sqrt{2})^4 = 4$ and $4 \\cdot \\frac{\\pi}{8} = \\frac{\\pi}{2}$, so $z^4 = 4 \\operatorname{cis}\\left(\\frac{\\pi}{2}\\right)$."
+      "explanation": "Using De Moivre's theorem: $(\\sqrt{2})^4 = 4$ and $4 \\cdot \\dfrac{\\pi}{8} = \\dfrac{\\pi}{2}$, so $z^4 = 4 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$."
     },
     {
       "id": "math-dp-complex-numbers-q12",
@@ -263,7 +263,7 @@
         "$\\sqrt{2}i$ and $-\\sqrt{2}i$"
       ],
       "correctIndex": 0,
-      "explanation": "$-4 = 4 \\operatorname{cis}(\\pi)$. Its square roots are $2 \\operatorname{cis}\\left(\\frac{\\pi}{2}\\right) = 2i$ and $2 \\operatorname{cis}\\left(\\frac{3\\pi}{2}\\right) = -2i$."
+      "explanation": "$-4 = 4 \\operatorname{cis}(\\pi)$. Its square roots are $2 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right) = 2i$ and $2 \\operatorname{cis}\\left(\\dfrac{3\\pi}{2}\\right) = -2i$."
     },
     {
       "id": "math-dp-complex-numbers-q13",
@@ -299,7 +299,7 @@
         "$\\sqrt{3}e^{i\\pi/3}$"
       ],
       "correctIndex": 0,
-      "explanation": "$r = \\sqrt{(\\sqrt{3})^2 + 1^2} = 2$ and $\\theta = \\tan^{-1}\\left(\\frac{1}{\\sqrt{3}}\\right) = \\frac{\\pi}{6}$, so $z = 2e^{i\\pi/6}$."
+      "explanation": "$r = \\sqrt{(\\sqrt{3})^2 + 1^2} = 2$ and $\\theta = \\tan^{-1}\\left(\\dfrac{1}{\\sqrt{3}}\\right) = \\dfrac{\\pi}{6}$, so $z = 2e^{i\\pi/6}$."
     }
   ]
 }

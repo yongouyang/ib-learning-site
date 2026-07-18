@@ -6,6 +6,56 @@
 
 ---
 
+## 2026-07-18 — Circle diagram: labels moved outside with leader lines
+
+Git HEAD: `4c52b7f` + uncommitted changes (branch `develop`)
+Done: Reworked the Circle geometry section of `math-geometry-1.svg` — all 5 labels (centre, radius, diameter, arc, chord) now sit outside the circle with 1.5px colour-matched leader lines, no crossings. Also fixed an accuracy bug: the chord endpoint was outside the circle (was a secant); moved onto the circle. Parent-verified with PNG render + diagnose clean.
+Verified: diagnose-illustrations ✅, validate:illustrations ✅.
+Next: unchanged (Next.js upgrade, SVG backlog, DP niche topics, Y8 science, features).
+Notes: Same uncommitted batch awaiting user review + commit.
+
+---
+
+## 2026-07-18 — Illustration sizing fix + Geometry SVG
+
+Git HEAD: `4c52b7f` + uncommitted changes (branch `develop`) — stacks on the two entries below (all uncommitted).
+Done:
+- **StudyNoteIllustration**: replaced next/image in a fixed 16:10 frame with a plain `<img class="w-full h-auto">` — illustrations now always use full container width at their intrinsic aspect ratio (the new 900x780 fractions SVG was letterboxed before). Local SVGs get no next/image optimisation anyway.
+- **math-geometry-1.svg**: viewBox 440→500 tall; polygon formula strip moved from y=400 to y=455 — circle section ("chord" label) no longer collides with the strip (subagent + PNG visual review).
+Verified: tsc ✅, ESLint ✅, Vitest 87/87 ✅, diagnose on geometry ✅, validate:illustrations ✅, illustrations e2e Desktop Chrome 119/119 ✅.
+Next: unchanged — 1) Next.js 15.5 upgrade (branch; security patch lands 2026-07-20). 2) SVG backlog (161 flagged files). 3) DP niche topics. 4) Y8 science. 5) Features.
+Notes: Still awaiting user manual review + commit approval for the whole uncommitted batch (InlineMath/$ rendering, overflow check, backslash/£/\dfrac content fixes, fractions + geometry SVGs, illustration sizing).
+
+---
+
+## 2026-07-18 — Manual-review fixes: backslashes, £ fonts, \dfrac, Fractions SVG
+
+Git HEAD: `4c52b7f` + uncommitted changes (branch `develop`) — NOTE: also includes the still-uncommitted InlineMath/overflow-check work from the previous entry.
+Done:
+- **Stray `\` at line ends**: cleaned 53 lines in math-algebra-1, math-dp-graph-theory, math-dp-voronoi-diagrams; added `stray_backslash` audit rule; `StudyNoteBody` now supports multi-line `$$...$$` blocks (math-dp-functions fun-n3, math-yr7-negative-numbers n5/n6 previously rendered as raw code text!) and normalizes single `\` → `\\`. New regression test `tests/unit/study-note-body.test.tsx`.
+- **£ font inconsistency** (math-fractions-1): currency now plain text outside math; convention documented in CONTENT_STYLE.md.
+- **Fraction sizing**: converted all 2,430 `\frac` → `\dfrac` in 56 topic files — fractions now render full-size inline and display (uniform). Convention documented in CONTENT_STYLE.md.
+- **Fractions SVG** (math-fractions-1.svg): redesigned 900x500→900x780, five stacked full-width sections (subagent + PNG visual review); passes diagnose-illustrations cleanly.
+Verified: tsc ✅, ESLint ✅, Vitest 87/87 ✅ (new study-note-body test), validate:content ✅, validate:illustrations ✅, audit:content ✅ 0/0, diagnose on math-fractions-1 ✅, e2e app+study+flashcards 14/14 ✅.
+Next: 1) **Next.js upgrade** — assessed: go to Next 15.5+/React 19 on a branch; only real breaking change for this static site is async `params` in dynamic routes (codemod: `npx @next/codemod@canary next-async-request-api .`); Next security patch lands 2026-07-20 — good time to do it. 2) SVG cleanup backlog (161 flagged files — overlaps/oob/overflow in legacy science SVGs). 3) DP niche topics. 4) Y8 science expansion. 5) Features: spaced repetition, progress sync, PWA.
+Notes: Awaiting user manual review before commit. `\dfrac` convention: KaTeX renders it full-size inline; global conversion is visually uniform.
+
+---
+
+## 2026-07-18 — Fix `$` rendering, SVG overflow check + Algebra Basics fix
+
+Git HEAD: `4c52b7f` + uncommitted changes (branch `develop`)
+Done:
+- Root-caused literal `$` in quiz/flashcards/descriptions: content convention allows `$...$` LaTeX in all fields (audit validates it), but only `StudyNoteBody` rendered it. Created shared `src/components/InlineMath.tsx`; wired into `QuizGame` (stem/choices/explanation), `FlashcardsPageClient` (term/definition/example), `SubjectPageClient` + `StudyPageClient` (description), and note headings in `StudyPageClient`.
+- Extended `scripts/diagnose-illustrations.mjs` with a **container-overflow check**: flags text whose centre sits well inside a rect but spills > 4px outside it (edge-hugging labels excluded to avoid false positives). This is the automated "visual acceptance" check.
+- Fixed `math-algebra-1.svg` distributive-law label overflowing its green panel (shortened text, widened box 400→415).
+- Docs: `CONTENT_STYLE.md` (where LaTeX renders), `ILLUSTRATION_GUIDELINES.md` (overflow rule), `README.md` (layout-check description).
+Verified: tsc ✅, ESLint ✅, Vitest 86/86 ✅, validate:content ✅, validate:illustrations ✅, audit:content ✅ (0/0), e2e smoke app+study+flashcards 14/14 ✅ (Desktop Chrome). All 15 English SVGs + fixed math-algebra-1.svg pass the new check.
+Next: 1) **SVG cleanup backlog**: full diagnosis flags 161 legacy SVGs — 139 with container overflow (270 spills, mostly labels wider than their backing rects in science SVGs), 31 label overlaps, 17 out-of-bounds. Report at `/tmp/diag-final2.txt` (regenerate with `npm run validate:illustration-layout`). Good swarm candidate. 2) DP niche topics (Markov Chains, Volume of Revolution, Further Differential Equations). 3) Year 8 science expansion. 4) Features: spaced repetition, progress sync, PWA.
+Notes: `validate:illustration-layout` exits 1 due to the pre-existing backlog (it already did before this change — 40 files). Changes uncommitted; user reviewing manually before commit.
+
+---
+
 ## 2026-07-18 — Finish English illustrations (10 topics)
 
 Git HEAD: `586556f` (branch `develop`, pushed to origin)

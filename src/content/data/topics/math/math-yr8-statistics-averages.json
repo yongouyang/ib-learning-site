@@ -18,7 +18,7 @@
     {
       "id": "math-yr8-statistics-averages-n2",
       "heading": "Estimated Mean from a Frequency Table",
-      "body": "📌 Definition\nThe estimated mean is found when data are grouped into class intervals by using the midpoint of each interval.\n\n🔑 How it works\n1. Find the midpoint of each class interval.\n2. Multiply each midpoint by its frequency to get $fx$.\n3. Add the $fx$ values.\n4. Divide by the total frequency.\n\n$$\\text{estimated mean} = \\frac{\\sum fx}{\\sum f}$$\n\n💡 Worked Example\nFind the estimated mean of these scores.\n\n| Score   | Frequency | Midpoint | $fx$  |\n|---------|-----------|----------|-------|\n| $0-10$  | 3         | 5        | 15    |\n| $11-20$ | 7         | 15.5     | 108.5 |\n| $21-30$ | 5         | 25.5     | 127.5 |\n\nTotal $f = 15$ and total $fx = 251$.\n\n$$\\text{estimated mean} = \\frac{251}{15} \\approx 16.7$$\n\n✅ Check\nThe answer lies inside the $11-20$ interval, which has the most data, so it is reasonable."
+      "body": "📌 Definition\nThe estimated mean is found when data are grouped into class intervals by using the midpoint of each interval.\n\n🔑 How it works\n1. Find the midpoint of each class interval.\n2. Multiply each midpoint by its frequency to get $fx$.\n3. Add the $fx$ values.\n4. Divide by the total frequency.\n\n$$\\text{estimated mean} = \\dfrac{\\sum fx}{\\sum f}$$\n\n💡 Worked Example\nFind the estimated mean of these scores.\n\n| Score   | Frequency | Midpoint | $fx$  |\n|---------|-----------|----------|-------|\n| $0-10$  | 3         | 5        | 15    |\n| $11-20$ | 7         | 15.5     | 108.5 |\n| $21-30$ | 5         | 25.5     | 127.5 |\n\nTotal $f = 15$ and total $fx = 251$.\n\n$$\\text{estimated mean} = \\dfrac{251}{15} \\approx 16.7$$\n\n✅ Check\nThe answer lies inside the $11-20$ interval, which has the most data, so it is reasonable."
     },
     {
       "id": "math-yr8-statistics-averages-n3",
@@ -28,7 +28,7 @@
     {
       "id": "math-yr8-statistics-averages-n4",
       "heading": "Mean, Median and Mode",
-      "body": "📌 Definition\nAn average is a single value that represents a set of data.\n\n🔑 Key Concept\n• Mean: add all values and divide by how many there are.\n\n$$\\text{mean} = \\frac{\\sum x}{n}$$\n\n• Median: the middle value when data are in order. For an even number of values, take the mean of the two middle values.\n• Mode: the value that occurs most often. A data set can have more than one mode or no mode.\n\n💡 Worked Example\nData: $4$, $7$, $8$, $8$, $10$.\n\nMean: $(4 + 7 + 8 + 8 + 10) \\div 5 = 37 \\div 5 = 7.4$.\nMedian: $8$ (the middle value).\nMode: $8$ (appears twice)."
+      "body": "📌 Definition\nAn average is a single value that represents a set of data.\n\n🔑 Key Concept\n• Mean: add all values and divide by how many there are.\n\n$$\\text{mean} = \\dfrac{\\sum x}{n}$$\n\n• Median: the middle value when data are in order. For an even number of values, take the mean of the two middle values.\n• Mode: the value that occurs most often. A data set can have more than one mode or no mode.\n\n💡 Worked Example\nData: $4$, $7$, $8$, $8$, $10$.\n\nMean: $(4 + 7 + 8 + 8 + 10) \\div 5 = 37 \\div 5 = 7.4$.\nMedian: $8$ (the middle value).\nMode: $8$ (appears twice)."
     },
     {
       "id": "math-yr8-statistics-averages-n5",
@@ -63,7 +63,7 @@
       "id": "math-yr8-statistics-averages-f3",
       "term": "Estimated mean",
       "definition": "An approximation of the mean found from grouped data.",
-      "example": "Use midpoints and frequencies: $\\frac{\\sum fx}{\\sum f}$."
+      "example": "Use midpoints and frequencies: $\\dfrac{\\sum fx}{\\sum f}$."
     },
     {
       "id": "math-yr8-statistics-averages-f4",
@@ -87,7 +87,7 @@
       "id": "math-yr8-statistics-averages-f7",
       "term": "Mean",
       "definition": "The sum of all values divided by the number of values.",
-      "example": "$\\frac{4 + 7 + 8 + 10}{4} = 7.25$."
+      "example": "$\\dfrac{4 + 7 + 8 + 10}{4} = 7.25$."
     },
     {
       "id": "math-yr8-statistics-averages-f8",
@@ -215,7 +215,7 @@
         "$32$"
       ],
       "correctIndex": 0,
-      "explanation": "Estimated mean = $\\frac{\\sum fx}{\\sum f} = \\frac{1200}{40} = 30$."
+      "explanation": "Estimated mean = $\\dfrac{\\sum fx}{\\sum f} = \\dfrac{1200}{40} = 30$."
     },
     {
       "id": "math-yr8-statistics-averages-q9",

@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 interface StudyNoteIllustrationProps {
   src: string;
   alt: string;
@@ -9,14 +7,11 @@ interface StudyNoteIllustrationProps {
 export default function StudyNoteIllustration({ src, alt, caption }: StudyNoteIllustrationProps) {
   return (
     <figure className="my-4">
-      <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="object-contain p-3"
-          sizes="(max-width: 768px) 100vw, 42rem"
-        />
+      <div className="w-full rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+        {/* Plain <img>: local SVGs get no next/image optimisation, and this lets
+            each illustration keep its intrinsic aspect ratio (full width). */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={src} alt={alt} className="w-full h-auto p-3" />
       </div>
       {caption && (
         <figcaption className="mt-2 text-xs text-center text-gray-500 dark:text-gray-400">

@@ -9,6 +9,7 @@ import { useProgress } from '@/context/ProgressContext';
 import { getRecentAverageScore } from '@/lib/progress-store';
 import { filterTopics, TopicFilterState } from '@/lib/topic-filter';
 import { TopicFilter } from '@/components/TopicFilter';
+import InlineMath from '@/components/InlineMath';
 import type { SubjectId } from '@/content/types';
 
 interface SubjectPageClientProps {
@@ -77,7 +78,7 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
                       {topic.ibLevel}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{topic.description}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400"><InlineMath text={topic.description} /></p>
                 </div>
                 {score >= 0 && (
                   <div className="flex gap-0.5 ml-2">

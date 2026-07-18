@@ -73,7 +73,23 @@ async function diagnose(file, page) {
     };
     Array.from(svg.childNodes).forEach((child) => collect(child));
 
-    return { width, height, texts: boxes };
+    // Collect candidate container rects (in viewBox coords), skipping
+    // background rects that cover (nearly) the whole viewBox.
+    const rects = [];
+    svg.querySelectorAll('rect').forEach((r) => {
+      const b = r.getBoundingClientRect();
+      if (b.width === 0 || b.height === 0) return;
+      const box = {
+        x: (b.left - svgRect.left) * scaleX,
+        y: (b.top - svgRect.top) * scaleY,
+        width: b.width * scaleX,
+        height: b.height * scaleY,
+      };
+      if (box.width * box.height >= 0.9 * width * height) return;
+      rects.push(box);
+    });
+
+    return { width, height, texts: boxes, rects };
   });
 
   // Group vertically-stacked label+sublabel pairs so they are not reported as overlapping each other.
@@ -130,7 +146,40 @@ async function diagnose(file, page) {
     }
   }
 
-  return { file, outOfBounds, overlaps };
+  // Container overflow: a text that genuinely belongs inside a rect (panel,
+  // chip or label backing) must fit within it. To match what a human reviewer
+  // would flag, we only consider texts whose centre sits well inside the rect
+  // (not hugging its edge, which indicates an adjacent label), and only flag
+  // spills larger than OVERFLOW_TOL px — anything smaller is imperceptible.
+  const OVERFLOW_TOL = 4;
+  const CENTRE_INSET = 4;
+  const containerOverflows = [];
+  for (const t of result.texts) {
+    const cx = t.x + t.width / 2;
+    const cy = t.y + t.height / 2;
+    let best = null;
+    for (const r of result.rects) {
+      if (
+        cx >= r.x + CENTRE_INSET && cx <= r.x + r.width - CENTRE_INSET &&
+        cy >= r.y + CENTRE_INSET && cy <= r.y + r.height - CENTRE_INSET
+      ) {
+        if (!best || r.width * r.height < best.width * best.height) best = r;
+      }
+    }
+    if (!best) continue;
+    const spillLeft = best.x - t.x;
+    const spillTop = best.y - t.y;
+    const spillRight = t.x + t.width - (best.x + best.width);
+    const spillBottom = t.y + t.height - (best.y + best.height);
+    const worst = Math.max(spillLeft, spillTop, spillRight, spillBottom);
+    if (worst > OVERFLOW_TOL) {
+      containerOverflows.push(
+        `"${t.text}" spills ${worst.toFixed(0)}px out of its box (text ${t.width.toFixed(0)}x${t.height.toFixed(0)} at (${t.x.toFixed(0)},${t.y.toFixed(0)}), box ${best.width.toFixed(0)}x${best.height.toFixed(0)} at (${best.x.toFixed(0)},${best.y.toFixed(0)}))`
+      );
+    }
+  }
+
+  return { file, outOfBounds, overlaps, containerOverflows };
 }
 
 (async () => {
@@ -142,7 +191,7 @@ async function diagnose(file, page) {
   const issues = [];
   for (const file of files) {
     const issue = await diagnose(file, page);
-    if (issue.outOfBounds.length || issue.overlaps.length) {
+    if (issue.outOfBounds.length || issue.overlaps.length || issue.containerOverflows.length) {
       issues.push(issue);
     }
   }
@@ -150,7 +199,7 @@ async function diagnose(file, page) {
   await browser.close();
 
   if (issues.length === 0) {
-    console.log('No text overlap or out-of-bounds issues detected.');
+    console.log('No text overlap, out-of-bounds or container-overflow issues detected.');
     process.exit(0);
   }
 
@@ -164,6 +213,10 @@ async function diagnose(file, page) {
     if (issue.overlaps.length) {
       console.log('  Overlaps:');
       for (const line of issue.overlaps) console.log('    - ' + line);
+    }
+    if (issue.containerOverflows.length) {
+      console.log('  Container overflow:');
+      for (const line of issue.containerOverflows) console.log('    - ' + line);
     }
     console.log('');
   }

@@ -18,7 +18,7 @@
     {
       "id": "math-yr7-bearings-scale-bs-n2",
       "heading": "Compass Directions and Bearings",
-      "body": "📌 Definition\nCompass directions such as north (N), east (E), south (S) and west (W) describe the four main points of the compass. Bearings give a more precise clockwise angle from north.\n\n🔑 Key Concept\nThe main compass bearings are:\n• North: $000^\\circ$\n• East: $090^\\circ$\n• South: $180^\\circ$\n• West: $270^\\circ$\n\nIntermediate directions such as north-east lie halfway between two main points, so north-east is $045^\\circ$ and south-east is $135^\\circ$.\n\n💡 Worked Example\nGive the bearing for south-west.\n\nStep 1: South-west is halfway between south ($180^\\circ$) and west ($270^\\circ$).\n\nStep 2: Find the midpoint:\n$$\\frac{180^\\circ + 270^\\circ}{2} = 225^\\circ$$\n\nStep 3: Write the bearing as $225^\\circ$.\n\n✅ Check\nSouth-west should be between $180^\\circ$ and $270^\\circ$. Since $225^\\circ$ is exactly halfway, it is correct.\n\n📎 Key Points to Remember\n• North-east (NE) = $045^\\circ$\n• South-east (SE) = $135^\\circ$\n• South-west (SW) = $225^\\circ$\n• North-west (NW) = $315^\\circ$"
+      "body": "📌 Definition\nCompass directions such as north (N), east (E), south (S) and west (W) describe the four main points of the compass. Bearings give a more precise clockwise angle from north.\n\n🔑 Key Concept\nThe main compass bearings are:\n• North: $000^\\circ$\n• East: $090^\\circ$\n• South: $180^\\circ$\n• West: $270^\\circ$\n\nIntermediate directions such as north-east lie halfway between two main points, so north-east is $045^\\circ$ and south-east is $135^\\circ$.\n\n💡 Worked Example\nGive the bearing for south-west.\n\nStep 1: South-west is halfway between south ($180^\\circ$) and west ($270^\\circ$).\n\nStep 2: Find the midpoint:\n$$\\dfrac{180^\\circ + 270^\\circ}{2} = 225^\\circ$$\n\nStep 3: Write the bearing as $225^\\circ$.\n\n✅ Check\nSouth-west should be between $180^\\circ$ and $270^\\circ$. Since $225^\\circ$ is exactly halfway, it is correct.\n\n📎 Key Points to Remember\n• North-east (NE) = $045^\\circ$\n• South-east (SE) = $135^\\circ$\n• South-west (SW) = $225^\\circ$\n• North-west (NW) = $315^\\circ$"
     },
     {
       "id": "math-yr7-bearings-scale-bs-n3",
@@ -33,7 +33,7 @@
     {
       "id": "math-yr7-bearings-scale-bs-n5",
       "heading": "Scale Drawings",
-      "body": "📌 Definition\nA scale drawing is a diagram of a real object that is made larger or smaller by a fixed ratio, while keeping all angles and proportions the same.\n\n🔑 Key Concept\nA scale such as $1 : 10$ means the drawing is $10$ times smaller than the real object. A scale such as $10 : 1$ means the drawing is $10$ times larger than the real object.\n\nIf the scale is $1 : k$, then:\n$$\\text{drawing length} = \\frac{\\text{real length}}{k}$$\n\n💡 Worked Example\nA model car is made using a scale of $1 : 24$. The real car is $4.8$ m long. How long is the model in centimetres?\n\nStep 1: Find the model length in metres.\n$$4.8 \\div 24 = 0.2 \\text{ m}$$\n\nStep 2: Convert to centimetres.\n$$0.2 \\times 100 = 20 \\text{ cm}$$\n\nThe model is $20$ cm long.\n\n📎 Key Points to Remember\n• A scale drawing keeps the same shape but changes the size.\n• The ratio tells you whether the drawing is smaller or larger than real life.\n• Always check the order of numbers in the ratio.\n\n⚠️ Common Mistake\nMixing up $1 : k$ and $k : 1$. If the object is smaller in the drawing, the first number must be smaller."
+      "body": "📌 Definition\nA scale drawing is a diagram of a real object that is made larger or smaller by a fixed ratio, while keeping all angles and proportions the same.\n\n🔑 Key Concept\nA scale such as $1 : 10$ means the drawing is $10$ times smaller than the real object. A scale such as $10 : 1$ means the drawing is $10$ times larger than the real object.\n\nIf the scale is $1 : k$, then:\n$$\\text{drawing length} = \\dfrac{\\text{real length}}{k}$$\n\n💡 Worked Example\nA model car is made using a scale of $1 : 24$. The real car is $4.8$ m long. How long is the model in centimetres?\n\nStep 1: Find the model length in metres.\n$$4.8 \\div 24 = 0.2 \\text{ m}$$\n\nStep 2: Convert to centimetres.\n$$0.2 \\times 100 = 20 \\text{ cm}$$\n\nThe model is $20$ cm long.\n\n📎 Key Points to Remember\n• A scale drawing keeps the same shape but changes the size.\n• The ratio tells you whether the drawing is smaller or larger than real life.\n• Always check the order of numbers in the ratio.\n\n⚠️ Common Mistake\nMixing up $1 : k$ and $k : 1$. If the object is smaller in the drawing, the first number must be smaller."
     },
     {
       "id": "math-yr7-bearings-scale-bs-n6",
@@ -92,7 +92,7 @@
       "id": "math-yr7-bearings-scale-bs-f8",
       "term": "Scale drawing",
       "definition": "A diagram of a real object drawn larger or smaller by a fixed ratio while keeping the same shape.",
-      "example": "A $1 : 24$ model car is $\\frac{1}{24}$ of the real car's length."
+      "example": "A $1 : 24$ model car is $\\dfrac{1}{24}$ of the real car's length."
     },
     {
       "id": "math-yr7-bearings-scale-bs-f9",
@@ -190,7 +190,7 @@
         "$40$ cm"
       ],
       "correctIndex": 0,
-      "explanation": "With scale $1 : 20$, the model is $\\frac{1}{20}$ of the real length. So $80 \\div 20 = 4$ cm."
+      "explanation": "With scale $1 : 20$, the model is $\\dfrac{1}{20}$ of the real length. So $80 \\div 20 = 4$ cm."
     },
     {
       "id": "math-yr7-bearings-scale-bs-q7",
@@ -238,7 +238,7 @@
         "$500$ cm by $800$ cm"
       ],
       "correctIndex": 1,
-      "explanation": "With scale $1 : 100$, drawing lengths are $\\frac{1}{100}$ of real lengths. So $5$ m = $500$ cm becomes $5$ cm, and $8$ m = $800$ cm becomes $8$ cm."
+      "explanation": "With scale $1 : 100$, drawing lengths are $\\dfrac{1}{100}$ of real lengths. So $5$ m = $500$ cm becomes $5$ cm, and $8$ m = $800$ cm becomes $8$ cm."
     },
     {
       "id": "math-yr7-bearings-scale-bs-q11",

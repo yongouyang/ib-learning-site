@@ -122,7 +122,7 @@ npm run validate:content
 # Validate SVG illustrations
 npm run validate:illustrations
 
-# Detect SVG layout issues (overlapping / out-of-bounds labels)
+# Detect SVG layout issues (overlapping / out-of-bounds labels, text spilling out of boxes)
 npm run validate:illustration-layout
 
 # Regenerate src/content/registry.ts from JSON topic files
