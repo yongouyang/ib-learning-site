@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-07-18 — Commit + push of the full fix batch
+
+Git HEAD: `3e29f21` (branch `develop`, pushed to origin, clean tree)
+Done: Committed and pushed all work from the four entries below as one commit (73 files). Full verification before commit: Vitest 87/87 ✅, full Playwright suite all devices 443 passed / 0 failed / 7 skipped ✅, all content + illustration gates ✅.
+Next: 1) Next.js 15.5 upgrade (branch; security patch lands 2026-07-20). 2) SVG backlog (161 flagged files — good swarm candidate). 3) DP niche topics (Markov Chains, Volume of Revolution, Further Differential Equations). 4) Y8 science expansion. 5) Features: spaced repetition, progress sync, PWA.
+Notes: Vercel auto-deploys from develop.
+
+---
+
 ## 2026-07-18 — Circle diagram: labels moved outside with leader lines
 
 Git HEAD: `4c52b7f` + uncommitted changes (branch `develop`)
