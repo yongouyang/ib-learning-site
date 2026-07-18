@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Structure of a strong presentation</title>
+  <desc id="desc">A speaker at a podium, flanked by icons for visual aids and audience engagement, stands above a three-stage flow showing presentation structure: an introduction with a hook and roadmap, a body of main points with evidence, and a conclusion that summarises and closes strongly.</desc>
+
+  <rect x="0" y="0" width="800" height="500" fill="#f8fafc"/>
+
+  <!-- Visual aids icon (top left): presentation screen on a stand -->
+  <g transform="translate(160, 115)">
+    <rect x="-55" y="-40" width="110" height="70" rx="4" fill="#ffffff" stroke="#3b82f6" stroke-width="3"/>
+    <rect x="-42" y="-26" width="40" height="30" rx="2" fill="#93c5fd"/>
+    <rect x="6" y="-26" width="36" height="5" rx="2.5" fill="#94a3b8"/>
+    <rect x="6" y="-14" width="30" height="5" rx="2.5" fill="#94a3b8"/>
+    <rect x="6" y="-2" width="36" height="5" rx="2.5" fill="#94a3b8"/>
+    <line x1="0" y1="30" x2="0" y2="44" stroke="#3b82f6" stroke-width="3"/>
+    <line x1="-18" y1="52" x2="18" y2="52" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Audience icon (top right): three listeners -->
+  <g transform="translate(640, 115)">
+    <circle cx="0" cy="-24" r="12" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+    <path d="M -17 16 Q 0 -8 17 16 Z" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+    <circle cx="-30" cy="-14" r="10" fill="#fbbf24" stroke="#b45309" stroke-width="2"/>
+    <path d="M -42 14 Q -30 -2 -18 14 Z" fill="#fbbf24" stroke="#b45309" stroke-width="2"/>
+    <circle cx="30" cy="-14" r="10" fill="#fbbf24" stroke="#b45309" stroke-width="2"/>
+    <path d="M 18 14 Q 30 -2 42 14 Z" fill="#fbbf24" stroke="#b45309" stroke-width="2"/>
+  </g>
+
+  <!-- Speaker at podium (top centre) -->
+  <g transform="translate(400, 125)">
+    <circle cx="0" cy="-32" r="16" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+    <path d="M -24 6 Q 0 -22 24 6 Z" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+    <rect x="-30" y="2" width="60" height="58" rx="4" fill="#cbd5e1" stroke="#94a3b8" stroke-width="2"/>
+    <line x1="14" y1="2" x2="24" y2="-22" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="25" cy="-25" r="5" fill="#475569"/>
+  </g>
+
+  <!-- Top labels with backing rectangles and leader lines -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e293b">
+    <rect x="108" y="180" width="104" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="160" y="197" text-anchor="middle">Visual aids</text>
+    <line x1="160" y1="168" x2="160" y2="180" stroke="#6b7280" stroke-width="1.5"/>
+
+    <rect x="558" y="180" width="164" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="640" y="197" text-anchor="middle">Engage the audience</text>
+    <line x1="640" y1="132" x2="640" y2="180" stroke="#6b7280" stroke-width="1.5"/>
+
+    <rect x="323" y="208" width="154" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="400" y="225" text-anchor="middle">Confident delivery</text>
+    <line x1="400" y1="186" x2="400" y2="208" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+
+  <!-- Three-stage structure flow -->
+  <g font-family="system-ui, -apple-system, sans-serif">
+    <!-- Stage 1: Introduction -->
+    <rect x="70" y="320" width="180" height="76" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="2.5"/>
+    <circle cx="160" cy="320" r="13" fill="#3b82f6"/>
+    <text x="160" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">1</text>
+    <text x="160" y="356" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">Introduction</text>
+    <text x="160" y="378" text-anchor="middle" font-size="12" fill="#475569">Hook + roadmap</text>
+
+    <!-- Stage 2: Body -->
+    <rect x="310" y="320" width="180" height="76" rx="8" fill="#ffffff" stroke="#10b981" stroke-width="2.5"/>
+    <circle cx="400" cy="320" r="13" fill="#10b981"/>
+    <text x="400" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">2</text>
+    <text x="400" y="356" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">Body</text>
+    <text x="400" y="378" text-anchor="middle" font-size="12" fill="#475569">Main points + evidence</text>
+
+    <!-- Stage 3: Conclusion -->
+    <rect x="550" y="320" width="180" height="76" rx="8" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <circle cx="640" cy="320" r="13" fill="#f59e0b"/>
+    <text x="640" y="325" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">3</text>
+    <text x="640" y="356" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">Conclusion</text>
+    <text x="640" y="378" text-anchor="middle" font-size="12" fill="#475569">Summarise + closing</text>
+
+    <!-- Flow arrows -->
+    <line x1="254" y1="358" x2="296" y2="358" stroke="#94a3b8" stroke-width="3"/>
+    <polygon points="296,352 308,358 296,364" fill="#94a3b8"/>
+    <line x1="494" y1="358" x2="536" y2="358" stroke="#94a3b8" stroke-width="3"/>
+    <polygon points="536,352 548,358 536,364" fill="#94a3b8"/>
+  </g>
+
+  <!-- Key takeaway band -->
+  <rect x="140" y="430" width="520" height="42" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="400" y="456" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#3730a3">Slides support your speech — never read them verbatim</text>
+</svg>

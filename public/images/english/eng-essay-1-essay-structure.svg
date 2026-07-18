@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Essay structure with thesis statement and PEEL body paragraphs</title>
+  <desc id="desc">A diagram of essay structure: an introduction ending with a highlighted thesis statement, three body paragraphs each built with the PEEL method (Point, Evidence, Explanation, Link), and a conclusion that restates the thesis.</desc>
+
+  <rect x="0" y="0" width="800" height="500" fill="#f8fafc"/>
+
+  <!-- Introduction block -->
+  <rect x="290" y="55" width="220" height="90" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <rect x="305" y="70" width="160" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="305" y="84" width="180" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="305" y="98" width="150" height="8" rx="4" fill="#cbd5e1"/>
+  <!-- Highlighted thesis statement line -->
+  <rect x="305" y="118" width="190" height="10" rx="5" fill="#f59e0b"/>
+
+  <!-- Arrow: introduction to body -->
+  <line x1="400" y1="147" x2="400" y2="172" stroke="#64748b" stroke-width="2"/>
+  <polygon points="393,168 407,168 400,180" fill="#64748b"/>
+
+  <!-- Body block with three PEEL paragraphs -->
+  <rect x="250" y="180" width="300" height="190" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+
+  <!-- Paragraph row 1 -->
+  <rect x="270" y="196" width="260" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="285" y="207" width="22" height="22" rx="5" fill="#3b82f6"/>
+  <rect x="315" y="207" width="22" height="22" rx="5" fill="#10b981"/>
+  <rect x="345" y="207" width="22" height="22" rx="5" fill="#f59e0b"/>
+  <rect x="375" y="207" width="22" height="22" rx="5" fill="#6366f1"/>
+  <rect x="415" y="214" width="100" height="8" rx="4" fill="#e2e8f0"/>
+
+  <!-- Paragraph row 2 -->
+  <rect x="270" y="252" width="260" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="285" y="263" width="22" height="22" rx="5" fill="#3b82f6"/>
+  <rect x="315" y="263" width="22" height="22" rx="5" fill="#10b981"/>
+  <rect x="345" y="263" width="22" height="22" rx="5" fill="#f59e0b"/>
+  <rect x="375" y="263" width="22" height="22" rx="5" fill="#6366f1"/>
+  <rect x="415" y="270" width="100" height="8" rx="4" fill="#e2e8f0"/>
+
+  <!-- Paragraph row 3 -->
+  <rect x="270" y="308" width="260" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="285" y="319" width="22" height="22" rx="5" fill="#3b82f6"/>
+  <rect x="315" y="319" width="22" height="22" rx="5" fill="#10b981"/>
+  <rect x="345" y="319" width="22" height="22" rx="5" fill="#f59e0b"/>
+  <rect x="375" y="319" width="22" height="22" rx="5" fill="#6366f1"/>
+  <rect x="415" y="326" width="100" height="8" rx="4" fill="#e2e8f0"/>
+
+  <!-- Arrow: body to conclusion -->
+  <line x1="400" y1="372" x2="400" y2="397" stroke="#64748b" stroke-width="2"/>
+  <polygon points="393,393 407,393 400,405" fill="#64748b"/>
+
+  <!-- Conclusion block -->
+  <rect x="290" y="405" width="220" height="80" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <rect x="305" y="420" width="150" height="10" rx="5" fill="#fbbf24"/>
+  <rect x="305" y="438" width="170" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="305" y="452" width="140" height="8" rx="4" fill="#cbd5e1"/>
+
+  <!-- Labels with backing rectangles and leader lines -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e293b">
+    <!-- Introduction label -->
+    <rect x="90" y="85" width="110" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="145" y="102" text-anchor="middle">Introduction</text>
+    <line x1="200" y1="97" x2="288" y2="97" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Thesis statement label -->
+    <rect x="555" y="105" width="140" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="625" y="122" text-anchor="middle">Thesis statement</text>
+    <line x1="555" y1="117" x2="500" y2="117" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Body paragraphs label -->
+    <rect x="40" y="260" width="180" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="130" y="277" text-anchor="middle">Body paragraphs (PEEL)</text>
+    <line x1="220" y1="272" x2="248" y2="272" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Conclusion label -->
+    <rect x="560" y="428" width="110" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="615" y="445" text-anchor="middle">Conclusion</text>
+    <line x1="560" y1="440" x2="512" y2="440" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+
+  <!-- PEEL chip letters -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <text x="296" y="223">P</text>
+    <text x="326" y="223">E</text>
+    <text x="356" y="223">E</text>
+    <text x="386" y="223">L</text>
+    <text x="296" y="279">P</text>
+    <text x="326" y="279">E</text>
+    <text x="356" y="279">E</text>
+    <text x="386" y="279">L</text>
+    <text x="296" y="335">P</text>
+    <text x="326" y="335">E</text>
+    <text x="356" y="335">E</text>
+    <text x="386" y="335">L</text>
+  </g>
+</svg>

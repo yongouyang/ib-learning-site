@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">How inference works: textual clues plus background knowledge</title>
+  <desc id="desc">A diagram showing that an inference combines textual clues from a passage with the reader's background knowledge, contrasted with explicit information that is stated directly in the text.</desc>
+
+  <rect x="0" y="0" width="800" height="500" fill="#f8fafc"/>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M 0 0 L 9 4 L 0 8 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Background knowledge icon (top left): stack of books -->
+  <g transform="translate(170, 120)">
+    <rect x="-32" y="-26" width="64" height="16" rx="3" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+    <rect x="-24" y="-10" width="56" height="15" rx="3" fill="#818cf8" stroke="#4338ca" stroke-width="2"/>
+    <path d="M 20 -26 L 20 -14 L 24 -18 L 28 -14 L 28 -26 Z" fill="#c7d2fe" stroke="#4338ca" stroke-width="1.5"/>
+  </g>
+
+  <!-- Textual clue icon (bottom left): document with a highlighted clue line -->
+  <g transform="translate(170, 330)">
+    <path d="M -40 -50 L 25 -50 L 40 -35 L 40 55 L -40 55 Z" fill="#ffffff" stroke="#3b82f6" stroke-width="3"/>
+    <path d="M 25 -50 L 25 -35 L 40 -35" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="-28" y="-22" width="52" height="5" rx="2.5" fill="#64748b"/>
+    <rect x="-28" y="-8" width="42" height="5" rx="2.5" fill="#64748b"/>
+    <rect x="-28" y="24" width="56" height="10" rx="5" fill="#fbbf24"/>
+    <rect x="-28" y="42" width="46" height="5" rx="2.5" fill="#64748b"/>
+  </g>
+
+  <!-- Arrows converging on the inference lightbulb -->
+  <line x1="212" y1="118" x2="498" y2="212" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="212" y1="330" x2="498" y2="258" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- Inference icon (centre right): lightbulb -->
+  <g transform="translate(560, 235)">
+    <circle cx="0" cy="-20" r="32" fill="#fbbf24" stroke="#d97706" stroke-width="2.5"/>
+    <rect x="-12" y="12" width="24" height="13" rx="2" fill="#9ca3af"/>
+    <line x1="0" y1="-63" x2="0" y2="-77" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+    <line x1="-32" y1="-52" x2="-42" y2="-62" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+    <line x1="32" y1="-52" x2="42" y2="-62" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Explicit information icon (bottom right): document with checkmark -->
+  <g transform="translate(560, 390)">
+    <rect x="-28" y="-32" width="56" height="64" rx="4" fill="#ffffff" stroke="#10b981" stroke-width="3"/>
+    <rect x="-18" y="-15" width="36" height="5" rx="2.5" fill="#64748b"/>
+    <rect x="-18" y="-2" width="28" height="5" rx="2.5" fill="#64748b"/>
+    <polyline points="-16,18 -8,25 8,8" fill="none" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Labels with backing rectangles -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e293b">
+    <!-- Background knowledge label -->
+    <rect x="88" y="30" width="164" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="170" y="47" text-anchor="middle">Background knowledge</text>
+    <line x1="170" y1="54" x2="170" y2="90" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Textual clue label -->
+    <rect x="118" y="415" width="104" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="170" y="432" text-anchor="middle">Textual clue</text>
+    <line x1="170" y1="390" x2="170" y2="413" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Inference label -->
+    <rect x="640" y="223" width="92" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="686" y="240" text-anchor="middle">Inference</text>
+    <line x1="598" y1="235" x2="638" y2="235" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Explicit information label -->
+    <rect x="478" y="440" width="164" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="560" y="457" text-anchor="middle">Explicit information</text>
+    <line x1="560" y1="425" x2="560" y2="438" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+</svg>

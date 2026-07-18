@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Six-step structure of a persuasive argument</title>
+  <desc id="desc">A vertical flow of six coloured blocks showing the structure of persuasive writing: hook, context, thesis, body paragraphs, counter-argument, and call to action, connected by downward arrows.</desc>
+
+  <rect x="0" y="0" width="800" height="500" fill="#f8fafc"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Flow arrows between blocks -->
+  <g stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)">
+    <line x1="400" y1="92" x2="400" y2="116"/>
+    <line x1="400" y1="164" x2="400" y2="188"/>
+    <line x1="400" y1="236" x2="400" y2="260"/>
+    <line x1="400" y1="308" x2="400" y2="332"/>
+    <line x1="400" y1="380" x2="400" y2="404"/>
+  </g>
+
+  <!-- Step blocks -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <rect x="340" y="50" width="120" height="38" rx="8" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+    <text x="400" y="75">1</text>
+    <rect x="340" y="122" width="120" height="38" rx="8" fill="#94a3b8" stroke="#64748b" stroke-width="2"/>
+    <text x="400" y="147">2</text>
+    <rect x="340" y="194" width="120" height="38" rx="8" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+    <text x="400" y="219">3</text>
+    <rect x="340" y="266" width="120" height="38" rx="8" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+    <text x="400" y="291">4</text>
+    <rect x="340" y="338" width="120" height="38" rx="8" fill="#10b981" stroke="#047857" stroke-width="2"/>
+    <text x="400" y="363">5</text>
+    <rect x="340" y="410" width="120" height="38" rx="8" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+    <text x="400" y="435">6</text>
+  </g>
+
+  <!-- Labels with backing rectangles and leader lines -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e293b">
+    <!-- Hook (left, step 1) -->
+    <rect x="150" y="57" width="60" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="180" y="74" text-anchor="middle">Hook</text>
+    <line x1="210" y1="69" x2="340" y2="69" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Context (right, step 2) -->
+    <rect x="560" y="129" width="80" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="600" y="146" text-anchor="middle">Context</text>
+    <line x1="460" y1="141" x2="560" y2="141" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Thesis (left, step 3) -->
+    <rect x="145" y="201" width="70" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="180" y="218" text-anchor="middle">Thesis</text>
+    <line x1="215" y1="213" x2="340" y2="213" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Body paragraphs (right, step 4) -->
+    <rect x="530" y="273" width="140" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="600" y="290" text-anchor="middle">Body paragraphs</text>
+    <line x1="460" y1="285" x2="530" y2="285" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Counter-argument (left, step 5) -->
+    <rect x="110" y="345" width="140" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="180" y="362" text-anchor="middle">Counter-argument</text>
+    <line x1="250" y1="357" x2="340" y2="357" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Call to action (right, step 6) -->
+    <rect x="535" y="417" width="130" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="600" y="434" text-anchor="middle">Call to action</text>
+    <line x1="460" y1="429" x2="535" y2="429" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+</svg>

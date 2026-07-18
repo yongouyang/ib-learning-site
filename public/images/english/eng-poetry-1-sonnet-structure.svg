@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Structure of a Shakespearean sonnet</title>
+  <desc id="desc">A diagram of a Shakespearean sonnet showing three quatrains with rhyme schemes ABAB, CDCD and EFEF, followed by a volta (turn) and a final rhyming couplet GG.</desc>
+
+  <rect x="0" y="0" width="800" height="500" fill="#f8fafc"/>
+
+  <!-- Stanza group boxes -->
+  <rect x="200" y="70" width="300" height="90" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="200" y="175" width="300" height="90" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="200" y="280" width="300" height="90" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="200" y="395" width="300" height="60" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+
+  <!-- Poem lines -->
+  <g fill="#94a3b8">
+    <rect x="220" y="85" width="260" height="8" rx="4"/>
+    <rect x="220" y="105" width="260" height="8" rx="4"/>
+    <rect x="220" y="125" width="260" height="8" rx="4"/>
+    <rect x="220" y="145" width="260" height="8" rx="4"/>
+    <rect x="220" y="190" width="260" height="8" rx="4"/>
+    <rect x="220" y="210" width="260" height="8" rx="4"/>
+    <rect x="220" y="230" width="260" height="8" rx="4"/>
+    <rect x="220" y="250" width="260" height="8" rx="4"/>
+    <rect x="220" y="295" width="260" height="8" rx="4"/>
+    <rect x="220" y="315" width="260" height="8" rx="4"/>
+    <rect x="220" y="335" width="260" height="8" rx="4"/>
+    <rect x="220" y="355" width="260" height="8" rx="4"/>
+    <rect x="220" y="408" width="260" height="8" rx="4"/>
+    <rect x="220" y="428" width="260" height="8" rx="4"/>
+  </g>
+
+  <!-- Rhyme scheme letters -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle">
+    <text x="178" y="93" fill="#3b82f6">A</text>
+    <text x="178" y="113" fill="#f59e0b">B</text>
+    <text x="178" y="133" fill="#3b82f6">A</text>
+    <text x="178" y="153" fill="#f59e0b">B</text>
+    <text x="178" y="198" fill="#3b82f6">C</text>
+    <text x="178" y="218" fill="#f59e0b">D</text>
+    <text x="178" y="238" fill="#3b82f6">C</text>
+    <text x="178" y="258" fill="#f59e0b">D</text>
+    <text x="178" y="303" fill="#3b82f6">E</text>
+    <text x="178" y="323" fill="#f59e0b">F</text>
+    <text x="178" y="343" fill="#3b82f6">E</text>
+    <text x="178" y="363" fill="#f59e0b">F</text>
+    <text x="178" y="416" fill="#10b981">G</text>
+    <text x="178" y="436" fill="#10b981">G</text>
+  </g>
+
+  <!-- Volta arrow between third quatrain and couplet -->
+  <line x1="350" y1="370" x2="350" y2="388" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+  <polyline points="343,382 350,391 357,382" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Labels with backing rectangles -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e293b">
+    <!-- Quatrain 1 label -->
+    <rect x="585" y="103" width="150" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="660" y="120" text-anchor="middle">Quatrain · ABAB</text>
+    <line x1="585" y1="115" x2="502" y2="115" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Quatrain 2 label -->
+    <rect x="585" y="208" width="150" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="660" y="225" text-anchor="middle">Quatrain · CDCD</text>
+    <line x1="585" y1="220" x2="502" y2="220" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Quatrain 3 label -->
+    <rect x="585" y="313" width="150" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="660" y="330" text-anchor="middle">Quatrain · EFEF</text>
+    <line x1="585" y1="325" x2="502" y2="325" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Couplet label -->
+    <rect x="585" y="403" width="150" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="660" y="420" text-anchor="middle">Couplet · GG</text>
+    <line x1="585" y1="415" x2="502" y2="415" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Volta label -->
+    <rect x="40" y="368" width="120" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="100" y="385" text-anchor="middle">Volta (turn)</text>
+    <line x1="160" y1="380" x2="335" y2="380" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Central document surrounded by six non-fiction text types</title>
+  <desc id="desc">A document labelled Non-Fiction sits at the centre, surrounded by labelled icons for six text types: news article, speech, biography, review, essay and letter.</desc>
+
+  <rect x="0" y="0" width="800" height="500" fill="#f8fafc"/>
+
+  <!-- Central document -->
+  <g>
+    <rect x="330" y="175" width="140" height="170" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+    <path d="M 440 175 L 470 205 L 440 205 Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+    <rect x="350" y="200" width="90" height="8" rx="4" fill="#64748b"/>
+    <rect x="350" y="220" width="100" height="6" rx="3" fill="#94a3b8"/>
+    <rect x="350" y="235" width="100" height="6" rx="3" fill="#94a3b8"/>
+    <rect x="350" y="250" width="80" height="6" rx="3" fill="#94a3b8"/>
+    <rect x="350" y="270" width="100" height="6" rx="3" fill="#94a3b8"/>
+    <rect x="350" y="285" width="90" height="6" rx="3" fill="#94a3b8"/>
+  </g>
+
+  <!-- News article icon (top centre): newspaper -->
+  <g>
+    <rect x="370" y="68" width="60" height="44" rx="3" fill="#ffffff" stroke="#3b82f6" stroke-width="2.5"/>
+    <rect x="376" y="74" width="48" height="6" rx="3" fill="#3b82f6"/>
+    <rect x="376" y="86" width="20" height="3" rx="1.5" fill="#93c5fd"/>
+    <rect x="376" y="93" width="20" height="3" rx="1.5" fill="#93c5fd"/>
+    <rect x="376" y="100" width="20" height="3" rx="1.5" fill="#93c5fd"/>
+    <rect x="404" y="86" width="20" height="3" rx="1.5" fill="#93c5fd"/>
+    <rect x="404" y="93" width="20" height="3" rx="1.5" fill="#93c5fd"/>
+    <rect x="404" y="100" width="20" height="3" rx="1.5" fill="#93c5fd"/>
+  </g>
+
+  <!-- Speech icon (top left): speech bubble -->
+  <g>
+    <rect x="140" y="118" width="80" height="40" rx="10" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <path d="M 160 158 L 150 172 L 174 158 Z" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="152" y="130" width="56" height="4" rx="2" fill="#fbbf24"/>
+    <rect x="152" y="141" width="40" height="4" rx="2" fill="#fbbf24"/>
+  </g>
+
+  <!-- Biography icon (top right): person bust -->
+  <g>
+    <circle cx="620" cy="132" r="12" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+    <path d="M 592 168 Q 620 142 648 168 Z" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+  </g>
+
+  <!-- Review icon (bottom left): star -->
+  <g>
+    <polygon points="180,342 187,359 205,359 191,371 197,388 180,378 163,388 169,371 155,359 173,359" fill="#fbbf24" stroke="#d97706" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Essay icon (bottom right): page with pencil -->
+  <g>
+    <rect x="592" y="344" width="56" height="48" rx="4" fill="#ffffff" stroke="#10b981" stroke-width="2.5"/>
+    <rect x="600" y="354" width="40" height="4" rx="2" fill="#6ee7b7"/>
+    <rect x="600" y="364" width="40" height="4" rx="2" fill="#6ee7b7"/>
+    <rect x="600" y="374" width="28" height="4" rx="2" fill="#6ee7b7"/>
+    <line x1="668" y1="322" x2="646" y2="344" stroke="#10b981" stroke-width="8" stroke-linecap="round"/>
+    <polygon points="646,344 638,354 652,350" fill="#f59e0b"/>
+  </g>
+
+  <!-- Letter icon (bottom centre): envelope -->
+  <g>
+    <rect x="368" y="396" width="64" height="40" rx="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2.5"/>
+    <polyline points="368,400 400,420 432,400" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Labels with backing rectangles and leader lines -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e293b">
+    <!-- Non-Fiction label (centre, under document) -->
+    <rect x="325" y="355" width="150" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="400" y="372" text-anchor="middle">Non-Fiction</text>
+    <line x1="400" y1="345" x2="400" y2="355" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- News Article label -->
+    <rect x="345" y="30" width="110" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="400" y="47" text-anchor="middle">News Article</text>
+    <line x1="400" y1="54" x2="400" y2="66" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Speech label -->
+    <rect x="135" y="82" width="90" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="180" y="99" text-anchor="middle">Speech</text>
+    <line x1="180" y1="106" x2="180" y2="116" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Biography label -->
+    <rect x="570" y="82" width="100" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="620" y="99" text-anchor="middle">Biography</text>
+    <line x1="620" y1="106" x2="620" y2="118" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Review label -->
+    <rect x="135" y="406" width="90" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="180" y="423" text-anchor="middle">Review</text>
+    <line x1="180" y1="394" x2="180" y2="406" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Essay label -->
+    <rect x="575" y="406" width="90" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="620" y="423" text-anchor="middle">Essay</text>
+    <line x1="620" y1="396" x2="620" y2="406" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Letter label -->
+    <rect x="355" y="452" width="90" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="400" y="469" text-anchor="middle">Letter</text>
+    <line x1="400" y1="438" x2="400" y2="452" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+</svg>

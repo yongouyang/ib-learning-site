@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">The four narrative points of view around a story</title>
+  <desc id="desc">A central circle containing three characters represents the story. Around it, four labelled icons show the narrative points of view: first person (I), a narrator who is a character inside the story; second person (you), a narrator addressing the reader directly; third person limited, a narrator who follows one character; and third person omniscient, an all-seeing eye that knows every character's thoughts.</desc>
+
+  <rect x="0" y="0" width="800" height="500" fill="#f8fafc"/>
+
+  <defs>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <g font-family="system-ui, -apple-system, sans-serif">
+
+    <!-- Central story circle with characters -->
+    <circle cx="400" cy="255" r="76" fill="#ffffff" stroke="#6366f1" stroke-width="3"/>
+    <g fill="#94a3b8" stroke="#64748b" stroke-width="2">
+      <circle cx="370" cy="246" r="11"/>
+      <path d="M 352 282 Q 370 258 388 282 Z"/>
+      <circle cx="400" cy="234" r="11"/>
+      <path d="M 382 270 Q 400 246 418 270 Z"/>
+      <circle cx="430" cy="246" r="11"/>
+      <path d="M 412 282 Q 430 258 448 282 Z"/>
+    </g>
+
+    <!-- First person icon (top left): narrator is a character, says 'I' -->
+    <g transform="translate(180, 150)">
+      <circle cx="0" cy="-14" r="15" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+      <path d="M -26 34 Q 0 0 26 34 Z" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+      <text x="0" y="-9" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">I</text>
+    </g>
+
+    <!-- Second person icon (bottom left): narrator addresses the reader as 'you' -->
+    <g transform="translate(180, 340)">
+      <rect x="-34" y="-72" width="68" height="30" rx="8" fill="#ffffff" stroke="#047857" stroke-width="2"/>
+      <path d="M -6 -44 L 6 -44 L 0 -28 Z" fill="#ffffff"/>
+      <text x="0" y="-51" text-anchor="middle" font-size="14" font-weight="600" fill="#047857">you</text>
+      <circle cx="0" cy="-8" r="14" fill="#10b981" stroke="#047857" stroke-width="2"/>
+      <path d="M -24 32 Q 0 2 24 32 Z" fill="#10b981" stroke="#047857" stroke-width="2"/>
+    </g>
+
+    <!-- Third person omniscient icon (top right): all-seeing eye -->
+    <g transform="translate(620, 150)">
+      <line x1="-20" y1="-22" x2="-28" y2="-36" stroke="#6366f1" stroke-width="3" stroke-linecap="round"/>
+      <line x1="0" y1="-26" x2="0" y2="-42" stroke="#6366f1" stroke-width="3" stroke-linecap="round"/>
+      <line x1="20" y1="-22" x2="28" y2="-36" stroke="#6366f1" stroke-width="3" stroke-linecap="round"/>
+      <path d="M -36 0 Q 0 -30 36 0 Q 0 30 -36 0 Z" fill="#ffffff" stroke="#6366f1" stroke-width="3"/>
+      <circle cx="0" cy="0" r="13" fill="#6366f1"/>
+      <circle cx="0" cy="0" r="5.5" fill="#ffffff"/>
+    </g>
+
+    <!-- Third person limited icon (bottom right): narrator follows one character -->
+    <g transform="translate(620, 340)">
+      <circle cx="0" cy="-12" r="14" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+      <path d="M -24 32 Q 0 0 24 32 Z" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+    </g>
+    <line x1="592" y1="336" x2="478" y2="286" stroke="#3b82f6" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrowBlue)"/>
+
+    <!-- Labels with backing rectangles -->
+    <g font-size="14" font-weight="600" fill="#1e293b">
+      <!-- First person label -->
+      <rect x="125" y="84" width="110" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+      <text x="180" y="101" text-anchor="middle">First person</text>
+      <line x1="180" y1="108" x2="180" y2="119" stroke="#6b7280" stroke-width="1.5"/>
+
+      <!-- Second person label -->
+      <rect x="120" y="392" width="120" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+      <text x="180" y="409" text-anchor="middle">Second person</text>
+      <line x1="180" y1="372" x2="180" y2="392" stroke="#6b7280" stroke-width="1.5"/>
+
+      <!-- Third person omniscient label -->
+      <rect x="534" y="56" width="172" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+      <text x="620" y="73" text-anchor="middle">Third person omniscient</text>
+      <line x1="620" y1="80" x2="620" y2="104" stroke="#6b7280" stroke-width="1.5"/>
+
+      <!-- Third person limited label -->
+      <rect x="534" y="392" width="172" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+      <text x="620" y="409" text-anchor="middle">Third person limited</text>
+      <line x1="620" y1="372" x2="620" y2="392" stroke="#6b7280" stroke-width="1.5"/>
+
+      <!-- Central story label -->
+      <rect x="360" y="352" width="80" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+      <text x="400" y="369" text-anchor="middle">The story</text>
+      <line x1="400" y1="331" x2="400" y2="352" stroke="#6b7280" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

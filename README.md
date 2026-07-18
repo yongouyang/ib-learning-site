@@ -21,7 +21,7 @@ Binomial Theorem · Complex Numbers · Correlation & Regression · Descriptive S
 ### Study Tools
 
 Each topic provides three modes:
-1. **Study notes** — concept explanations with headings, body text, and **SVG illustrations** (sciences are fully illustrated; math and English coverage is in progress)
+1. **Study notes** — concept explanations with headings, body text, and **SVG illustrations** (all subjects fully illustrated)
 2. **Flashcards** — term/definition cards with worked examples
 3. **Quiz** — multiple-choice questions with scoring, explanations, and star ratings
 
