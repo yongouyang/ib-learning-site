@@ -6,6 +6,20 @@
 
 ---
 
+## 2026-07-19 — Unified nav + breadcrumbs, Mixed Review surfaced
+
+Git HEAD: `151e4ad` (branch `develop`, unpushed)
+Done:
+- **Shared nav**: `nav-items.ts` feeds both `HeaderNav` (desktop) and `Nav` (mobile bottom bar); both gain **Review** (`/mixed-review`, Shuffle icon). Mobile bar is now 4 tabs.
+- **Breadcrumbs**: new `Breadcrumbs.tsx` on all leaf pages (Home › Subject › Topic › mode), replacing one-off back links; topic crumb on flashcards/quiz links to the study page; current-page label truncates on phones. `QuizGame` takes an optional `breadcrumbs` prop; completion-screen CTAs unchanged.
+- **Mixed review mode toggle**: Weak areas / All topics segmented control on `/mixed-review` — weak-area practice now reachable without going via Home/Progress prompts. Completion back label now "Back to Progress".
+- e2e: 2 stale back-link assertions updated; 4 new tests (Review nav link, study breadcrumb navigation, flashcards breadcrumb, mode toggle).
+Verified: tsc ✅, ESLint ✅, Vitest 87/87 ✅, targeted e2e (app/mixed-review/mobile-navigation/flashcards/study) 66/66 ✅, full suite 456 passed / 0 failed / 6 skipped ✅.
+Next: 1) DP niche topics (Markov Chains, Volume of Revolution, Further Differential Equations). 2) Y8 science expansion. 3) Features: spaced repetition, progress sync, PWA.
+Notes: First full-suite attempt aborted (100 fails / 354 did-not-run, element-not-found across unrelated specs — stale-server signature); clean re-run passed fully. Recurring environmental flake: only run e2e with no other dev servers up.
+
+---
+
 ## 2026-07-19 — Desktop header navigation
 
 Git HEAD: `9d91940` (branch `develop`, uncommitted push pending)
