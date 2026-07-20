@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-07-19 — Next.js 15.5.20 + React 19 upgrade (branch pushed)
+
+Git HEAD: `23975da` (branch `chore/next-15-upgrade`, pushed to origin; NOT merged to develop)
+Done: next/eslint-config-next 14.2.35 → 15.5.20, react/react-dom 18 → 19, @types/react* → 19. Async-`params` codemod applied to the 4 dynamic pages (only breaking change for this static site). Found + fixed one real regression: the Next 15 dev-tools button injected in dev overlaid the mobile bottom nav and matched the e2e `Next` locator — disabled via `devIndicators: false` in next.config.mjs. tsconfig auto-updated by the Next 15 build (formatting + ES2017 target).
+Verified: tsc ✅, next build ✅ (all static paths prerender), ESLint ✅, Vitest 87/87 ✅, validate:content ✅, audit:content ✅ 0/0, full Playwright suite 443 passed / 0 failed / 7 skipped ✅.
+Next: 1) **Review + merge `chore/next-15-upgrade` into develop** (user decision). 2) DP niche topics (Markov Chains, Volume of Revolution, Further Differential Equations). 3) Y8 science expansion. 4) Features: spaced repetition, progress sync, PWA. 5) Later: `next lint` is deprecated — migrate to ESLint CLI before any Next 16 jump (`npx @next/codemod@canary next-lint-to-eslint-cli .`).
+Notes: `devIndicators: false` only affects the dev server; no production change. SVG backlog branch work from earlier today is already on develop (`b87b37e`).
+
+---
+
 ## 2026-07-19 — SVG layout backlog cleared (159 files, all subjects)
 
 Git HEAD: `df8819e` + uncommitted changes (branch `develop`)
