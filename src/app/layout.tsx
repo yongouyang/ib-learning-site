@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from 'next';
+import Link from 'next/link';
 import localFont from 'next/font/local';
 import './globals.css';
 import { ProgressProvider } from '@/context/ProgressContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { Nav } from '@/components/Nav';
+import { HeaderNav } from '@/components/HeaderNav';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
 const geistSans = localFont({
@@ -35,8 +37,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <ProgressProvider>
             <header className="hidden md:flex items-center justify-between px-6 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950">
-              <span className="font-bold text-gray-900 dark:text-gray-50">IBLearn</span>
-              <ThemeToggle />
+              <Link href="/" className="font-bold text-gray-900 dark:text-gray-50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">IBLearn</Link>
+              <div className="flex items-center gap-2">
+                <HeaderNav />
+                <ThemeToggle />
+              </div>
             </header>
             <div className="flex-1 flex flex-col">
               <main className="flex-1 pb-24 md:pb-0">{children}</main>
