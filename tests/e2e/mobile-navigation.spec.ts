@@ -2,7 +2,10 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Mobile / tablet navigation', () => {
   test('bottom navigation is usable on mobile viewports', async ({ page, isMobile }) => {
-    test.skip(!isMobile, 'Only runs on mobile viewports');
+    // Bottom nav is intentionally hidden at >=768px (md breakpoint) — tablets
+    // like iPad Pro 11 (834px) get the desktop layout, so only phones apply.
+    const width = page.viewportSize()?.width ?? 0;
+    test.skip(!isMobile || width >= 768, 'Only runs on phone-sized viewports (bottom nav hidden at >=768px)');
 
     await page.goto('/');
 

@@ -50,7 +50,7 @@ export default defineConfig({
     },
     {
       name: 'iPad Pro',
-      use: { ...devices['iPad Pro'], defaultBrowserType: 'chromium' },
+      use: { ...devices['iPad Pro 11'], defaultBrowserType: 'chromium' },
     },
     {
       name: 'Desktop Chrome',
