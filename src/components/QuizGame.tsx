@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
 import type { Question } from '@/content/types';
+import { Breadcrumbs, type BreadcrumbItem } from './Breadcrumbs';
 import InlineMath from './InlineMath';
 
 // Simple string hash for deterministic seeds.
@@ -36,6 +37,7 @@ interface QuizGameProps {
   subtitle?: string;
   backHref: string;
   backLabel?: string;
+  breadcrumbs?: BreadcrumbItem[];
   questions: Question[];
   enableTimer?: boolean;
   timerSeconds?: number;
@@ -47,6 +49,7 @@ export default function QuizGame({
   subtitle,
   backHref,
   backLabel = 'Back',
+  breadcrumbs,
   questions,
   enableTimer = false,
   timerSeconds = 60,
@@ -164,11 +167,14 @@ export default function QuizGame({
 
   return (
     <div className="max-w-lg mx-auto px-4 py-6 pb-24 md:pb-6">
+      {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
       {/* Progress bar */}
       <div className="flex items-center gap-3 mb-6">
-        <Link href={backHref} className="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 shrink-0">
-          <ArrowLeft className="w-4 h-4" /> Back
-        </Link>
+        {!breadcrumbs && (
+          <Link href={backHref} className="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 shrink-0">
+            <ArrowLeft className="w-4 h-4" /> Back
+          </Link>
+        )}
         <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-blue-500 rounded-full"

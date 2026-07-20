@@ -5,7 +5,25 @@ test.describe('Mixed review', () => {
     await page.goto('/mixed-review');
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
     await expect(page.getByRole('button').filter({ hasText: /^A\./ }).first()).toBeVisible();
-    await expect(page.getByRole('link', { name: /Back/i })).toBeVisible();
+    const breadcrumb = page.getByRole('navigation', { name: 'Breadcrumb' });
+    await expect(breadcrumb).toBeVisible();
+    await expect(breadcrumb.getByText('Mixed Review')).toBeVisible();
+  });
+
+  test('mode toggle switches between weak areas and all topics', async ({ page }) => {
+    await page.goto('/mixed-review');
+    const weakToggle = page.getByRole('link', { name: /Weak areas/i });
+    const allToggle = page.getByRole('link', { name: /All topics/i });
+    await expect(weakToggle).toBeVisible();
+    await expect(allToggle).toBeVisible();
+    await expect(allToggle).toHaveAttribute('aria-pressed', 'true');
+
+    await weakToggle.click();
+    await page.waitForURL('/mixed-review?mode=weak');
+    await expect(page.getByRole('link', { name: /Weak areas/i })).toHaveAttribute('aria-pressed', 'true');
+
+    await page.getByRole('link', { name: /All topics/i }).click();
+    await page.waitForURL('/mixed-review');
   });
 
   test('loads weak-area mixed review from progress page', async ({ page }) => {

@@ -4,8 +4,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, RotateCcw, BookOpen } from 'lucide-react';
-import { getTopic } from '@/content/registry';
+import { getSubject, getTopic } from '@/content/registry';
 import type { SubjectId } from '@/content/types';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import InlineMath from '@/components/InlineMath';
 
 interface FlashcardsPageClientProps {
@@ -15,6 +16,7 @@ interface FlashcardsPageClientProps {
 
 export default function FlashcardsPageClient({ subjectId, topicId }: FlashcardsPageClientProps) {
   const topic = getTopic(subjectId as SubjectId, topicId);
+  const subject = getSubject(subjectId as SubjectId);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -47,10 +49,13 @@ export default function FlashcardsPageClient({ subjectId, topicId }: FlashcardsP
 
   return (
     <div className="max-w-md mx-auto px-4 py-6">
+      <Breadcrumbs items={[
+        { href: '/', label: 'Home' },
+        { href: `/subjects/${subjectId}`, label: subject?.name ?? subjectId },
+        { href: `/subjects/${subjectId}/${topicId}/study`, label: topic.title },
+        { label: 'Flashcards' },
+      ]} />
       <div className="flex items-center gap-3 mb-6">
-        <Link href={`/subjects/${subjectId}`} className="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 shrink-0">
-          <ArrowLeft className="w-4 h-4" /> Back
-        </Link>
         <div className="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-green-500 rounded-full"

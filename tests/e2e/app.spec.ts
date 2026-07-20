@@ -144,8 +144,42 @@ test.describe('Quiz flow', () => {
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
     // Should have choice buttons with A., B., etc.
     await expect(page.getByRole('button').filter({ hasText: /^A\./ }).first()).toBeVisible();
-    // Should have a back link
-    await expect(page.getByRole('link', { name: /Back/i })).toBeVisible();
+    // Should have a breadcrumb trail: Home / Math / Sequences & Series / Quiz
+    const breadcrumb = page.getByRole('navigation', { name: 'Breadcrumb' });
+    await expect(breadcrumb).toBeVisible();
+    await expect(breadcrumb.getByRole('link', { name: 'Math' })).toBeVisible();
+    await expect(breadcrumb.getByText('Quiz')).toBeVisible();
+  });
+});
+
+test.describe('Navigation & breadcrumbs', () => {
+  test('main nav has a Review link that opens mixed review', async ({ page }) => {
+    await page.goto('/');
+    const reviewLink = page.getByRole('link', { name: 'Review' }).first();
+    await expect(reviewLink).toBeVisible();
+    await reviewLink.click();
+    await page.waitForURL('/mixed-review');
+    await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
+  });
+
+  test('study page breadcrumb links back to subject and home', async ({ page }) => {
+    await page.goto('/subjects/biology/bio-cell-1/study');
+    const breadcrumb = page.getByRole('navigation', { name: 'Breadcrumb' });
+    await expect(breadcrumb).toBeVisible();
+    await expect(breadcrumb.getByRole('link', { name: 'Home' })).toBeVisible();
+    const subjectCrumb = breadcrumb.getByRole('link', { name: 'Biology' });
+    await expect(subjectCrumb).toBeVisible();
+    await subjectCrumb.click();
+    await page.waitForURL('/subjects/biology');
+    await expect(page.getByRole('heading', { name: 'Biology' }).first()).toBeVisible();
+  });
+
+  test('flashcards page shows breadcrumb trail', async ({ page }) => {
+    await page.goto('/subjects/biology/bio-cell-1/flashcards');
+    const breadcrumb = page.getByRole('navigation', { name: 'Breadcrumb' });
+    await expect(breadcrumb).toBeVisible();
+    await expect(breadcrumb.getByRole('link', { name: 'Biology' })).toBeVisible();
+    await expect(breadcrumb.getByText('Flashcards')).toBeVisible();
   });
 });
 

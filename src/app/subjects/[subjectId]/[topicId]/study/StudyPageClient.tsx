@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Layers, Pencil } from 'lucide-react';
-import { getTopic } from '@/content/registry';
+import { Layers, Pencil } from 'lucide-react';
+import { getSubject, getTopic } from '@/content/registry';
 import type { SubjectId } from '@/content/types';
 import StudyNoteBody from '@/components/StudyNoteBody';
 import StudyNoteIllustration from '@/components/StudyNoteIllustration';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import InlineMath from '@/components/InlineMath';
 
 interface StudyPageClientProps {
@@ -16,14 +17,17 @@ interface StudyPageClientProps {
 
 export default function StudyPageClient({ subjectId, topicId }: StudyPageClientProps) {
   const topic = getTopic(subjectId as SubjectId, topicId);
+  const subject = getSubject(subjectId as SubjectId);
 
   if (!topic) return <div className="p-6 text-center text-gray-500 dark:text-gray-400">Topic not found.</div>;
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6">
-      <Link href={`/subjects/${subjectId}`} className="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 mb-4">
-        <ArrowLeft className="w-4 h-4" /> Back to topics
-      </Link>
+      <Breadcrumbs items={[
+        { href: '/', label: 'Home' },
+        { href: `/subjects/${subjectId}`, label: subject?.name ?? subjectId },
+        { label: topic.title },
+      ]} />
       <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-1">{topic.title}</h1>
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-6"><InlineMath text={topic.description} /></p>
 

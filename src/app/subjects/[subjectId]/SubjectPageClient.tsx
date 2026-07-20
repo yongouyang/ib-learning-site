@@ -3,12 +3,13 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, BookOpen, Layers, Pencil, SearchX } from 'lucide-react';
+import { BookOpen, Layers, Pencil, SearchX } from 'lucide-react';
 import { getSubject } from '@/content/registry';
 import { useProgress } from '@/context/ProgressContext';
 import { getRecentAverageScore } from '@/lib/progress-store';
 import { filterTopics, TopicFilterState } from '@/lib/topic-filter';
 import { TopicFilter } from '@/components/TopicFilter';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import InlineMath from '@/components/InlineMath';
 import type { SubjectId } from '@/content/types';
 
@@ -28,9 +29,7 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
-      <Link href="/" className="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 mb-4">
-        <ArrowLeft className="w-4 h-4" /> Back
-      </Link>
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: subject.name }]} />
 
       <div
         className="rounded-2xl p-5 mb-6 text-white shadow-sm"

@@ -2,12 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BookOpen, BarChart3 } from 'lucide-react';
-
-const navItems = [
-  { href: '/', label: 'Learn', icon: BookOpen },
-  { href: '/progress', label: 'Progress', icon: BarChart3 },
-];
+import { navItems } from './nav-items';
 
 export function HeaderNav() {
   const pathname = usePathname();
