@@ -11,6 +11,7 @@ export function generateStaticParams() {
   return params;
 }
 
-export default function StudyPage({ params }: { params: { subjectId: string; topicId: string } }) {
+export default async function StudyPage(props: { params: Promise<{ subjectId: string; topicId: string }> }) {
+  const params = await props.params;
   return <StudyPageClient subjectId={params.subjectId} topicId={params.topicId} />;
 }

@@ -11,6 +11,7 @@ export function generateStaticParams() {
   return params;
 }
 
-export default function FlashcardsPage({ params }: { params: { subjectId: string; topicId: string } }) {
+export default async function FlashcardsPage(props: { params: Promise<{ subjectId: string; topicId: string }> }) {
+  const params = await props.params;
   return <FlashcardsPageClient subjectId={params.subjectId} topicId={params.topicId} />;
 }
