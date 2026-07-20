@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-07-19 — Desktop header navigation
+
+Git HEAD: `9d91940` (branch `develop`, uncommitted push pending)
+Done: Desktop header had no navigation — static brand text + theme toggle only, so /progress had no way back home. Added `HeaderNav` client component (Learn/Progress links with active state, mirrors mobile bottom nav) and made the brand a Link to `/`.
+Verified: tsc ✅, ESLint ✅, Vitest 87/87 ✅, e2e app+mobile-navigation 39 passed / 0 failed / 3 skipped ✅.
+Next: 1) DP niche topics (Markov Chains, Volume of Revolution, Further Differential Equations). 2) Y8 science expansion. 3) Features: spaced repetition, progress sync, PWA.
+Notes: Gotcha discovered — Playwright reuses a dev server already on its resolved port (`reuseExistingServer`), so running `npm run dev` on :3000 during e2e made tests hit the stale server (JSON parse errors, /progress 500s). Stop your dev server before running e2e, or use E2E_PROD=1.
+
+---
+
 ## 2026-07-19 — Hydration mismatch fix (ProgressContext)
 
 Git HEAD: `9767e68` (branch `develop`, uncommitted push pending)
