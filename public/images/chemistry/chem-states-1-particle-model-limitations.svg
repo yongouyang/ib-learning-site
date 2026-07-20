@@ -30,7 +30,7 @@
     <circle cx="120" cy="330" r="14"/><circle cx="170" cy="330" r="14"/><circle cx="220" cy="330" r="14"/><circle cx="270" cy="330" r="14"/><circle cx="320" cy="330" r="14"/>
   </g>
 
-  <rect x="100" y="370" width="240" height="18" rx="4" class="label-bg"/>
+  <rect x="100" y="370" width="250" height="18" rx="4" class="label-bg"/>
   <text x="105" y="382" class="label">Identical solid spheres, evenly spaced</text>
 
   <line x1="120" y1="136" x2="120" y2="110" class="line"/>
@@ -66,15 +66,15 @@
   <line x1="674" y1="225" x2="704" y2="222" class="arrow" stroke="#f97316" marker-end="url(#arrow-force)" marker-start="url(#arrow-force)"/>
   <line x1="536" y1="300" x2="570" y2="300" class="arrow" stroke="#f97316" marker-end="url(#arrow-force)" marker-start="url(#arrow-force)"/>
 
-  <rect x="540" y="370" width="230" height="18" rx="4" class="label-bg"/>
+  <rect x="540" y="370" width="295" height="18" rx="4" class="label-bg"/>
   <text x="545" y="382" class="label">Different sizes, shapes, and attractive forces</text>
 
   <line x1="655" y1="120" x2="655" y2="105" class="line"/>
-  <rect x="600" y="87" width="110" height="18" rx="4" class="label-bg"/>
+  <rect x="600" y="87" width="165" height="18" rx="4" class="label-bg"/>
   <text x="605" y="99" class="label">Different shapes &amp; sizes</text>
 
   <line x1="620" y1="250" x2="580" y2="280" class="line"/>
-  <rect x="500" y="285" width="90" height="18" rx="4" class="label-bg"/>
+  <rect x="500" y="285" width="146" height="18" rx="4" class="label-bg"/>
   <text x="505" y="297" class="label">Intermolecular forces</text>
 
   <!-- Arrow between panels -->

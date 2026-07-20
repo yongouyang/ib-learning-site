@@ -44,14 +44,15 @@
   </g>
 
   <line x1="165" y1="190" x2="220" y2="180" class="line"/>
-  <rect x="222" y="171" width="140" height="18" rx="4" class="label-bg"/>
-  <text x="226" y="183" class="label">Circular DNA (free in cytoplasm)</text>
+  <rect x="222" y="164" width="140" height="30" rx="4" class="label-bg"/>
+  <text x="226" y="176" class="label">Circular DNA</text>
+  <text x="226" y="189" class="sublabel">(free in cytoplasm)</text>
 
   <line x1="125" y1="155" x2="80" y2="130" class="line"/>
   <rect x="20" y="113" width="80" height="18" rx="4" class="label-bg"/>
   <text x="24" y="125" class="label">Ribosomes</text>
 
-  <rect x="60" y="220" width="120" height="20" rx="4" class="label-bg"/>
+  <rect x="60" y="220" width="172" height="20" rx="4" class="label-bg"/>
   <text x="70" y="233" class="sublabel">No membrane-bound nucleus</text>
 
   <!-- Eukaryotic cell panel -->
@@ -82,8 +83,9 @@
   </g>
 
   <line x1="545" y1="190" x2="620" y2="180" class="line"/>
-  <rect x="622" y="171" width="120" height="18" rx="4" class="label-bg"/>
-  <text x="626" y="183" class="label">Membrane-bound nucleus</text>
+  <rect x="622" y="164" width="120" height="30" rx="4" class="label-bg"/>
+  <text x="626" y="176" class="label">Membrane-bound</text>
+  <text x="626" y="189" class="sublabel">nucleus</text>
 
   <line x1="500" y1="155" x2="440" y2="140" class="line"/>
   <rect x="355" y="131" width="82" height="18" rx="4" class="label-bg"/>

@@ -35,7 +35,7 @@
   <circle cx="135" cy="225" r="6" fill="#16a34a"/>
 
   <line x1="270" y1="130" x2="320" y2="120" class="line"/>
-  <rect x="250" y="101" width="90" height="18" rx="4" class="label-bg"/>
+  <rect x="250" y="101" width="122" height="18" rx="4" class="label-bg"/>
   <text x="254" y="113" class="label">Random placement</text>
 
   <line x1="270" y1="220" x2="330" y2="220" class="line"/>
@@ -69,11 +69,11 @@
   <circle cx="715" cy="180" r="5" fill="#16a34a"/>
 
   <line x1="650" y1="150" x2="720" y2="120" class="line"/>
-  <rect x="635" y="101" width="120" height="18" rx="4" class="label-bg"/>
+  <rect x="635" y="101" width="145" height="18" rx="4" class="label-bg"/>
   <text x="639" y="113" class="label">Environmental gradient</text>
 
   <line x1="505" y1="240" x2="450" y2="255" class="line"/>
-  <rect x="350" y="256" width="95" height="18" rx="4" class="label-bg"/>
+  <rect x="350" y="256" width="108" height="18" rx="4" class="label-bg"/>
   <text x="354" y="268" class="label">Regular intervals</text>
 
   <!-- Capture-mark-recapture panel -->

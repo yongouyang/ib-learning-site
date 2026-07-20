@@ -21,9 +21,9 @@
 
   <!-- Derivative rules -->
   <g transform="translate(400, 55)">
-    <rect x="0" y="0" width="470" height="140" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="0" y="0" width="470" height="148" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
     <text x="235" y="20" class="subhead" text-anchor="middle">Standard derivatives</text>
-    <g transform="translate(15, 38)">
+    <g transform="translate(15, 42)">
       <text x="0" y="0" class="math">d/dx (xⁿ) = nxⁿ⁻¹ (power rule)</text>
       <text x="0" y="20" class="math">d/dx (eˣ) = eˣ ; d/dx (ln x) = 1/x</text>
       <text x="0" y="40" class="math">d/dx (sin x) = cos x ; d/dx (cos x) = −sin x</text>

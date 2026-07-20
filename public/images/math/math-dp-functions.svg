@@ -15,18 +15,20 @@
   <g transform="translate(30, 55)">
     <rect x="0" y="0" width="300" height="80" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
     <text x="150" y="20" class="subhead" text-anchor="middle">f: x → f(x)</text>
-    <text x="150" y="44" class="label" text-anchor="middle">Input (domain) → function → Output (range)</text>
+    <text x="150" y="44" class="label" text-anchor="middle">Domain → function → Range</text>
     <text x="150" y="64" class="label" text-anchor="middle">Each input maps to exactly one output</text>
   </g>
   <g transform="translate(350, 55)">
     <rect x="0" y="0" width="250" height="80" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
     <text x="125" y="20" class="subhead" text-anchor="middle">Vertical line test</text>
-    <text x="125" y="46" class="label" text-anchor="middle">A graph is a function if any vertical line crosses it at most once.</text>
+    <text x="125" y="42" class="label" text-anchor="middle">A graph is a function if any vertical</text>
+    <text x="125" y="60" class="label" text-anchor="middle">line crosses it at most once.</text>
   </g>
   <g transform="translate(620, 55)">
     <rect x="0" y="0" width="250" height="80" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
     <text x="125" y="20" class="subhead" text-anchor="middle">1-to-1 function</text>
-    <text x="125" y="46" class="label" text-anchor="middle">Horizontal line test: has an inverse function.</text>
+    <text x="125" y="42" class="label" text-anchor="middle">Horizontal line test:</text>
+    <text x="125" y="60" class="label" text-anchor="middle">has an inverse function.</text>
   </g>
 
   <!-- Composition and inverses -->

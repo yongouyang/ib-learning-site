@@ -85,7 +85,7 @@
   <circle cx="110" cy="380" r="8" fill="#1f2937"/>
   <path d="M110,380 Q140,360 150,380 Q140,400 110,380 M110,380 Q125,370 135,380" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
   <line x1="110" y1="360" x2="110" y2="345" class="line"/>
-  <rect x="75" y="326" width="70" height="18" rx="4" class="label-bg"/>
+  <rect x="75" y="326" width="79" height="18" rx="4" class="label-bg"/>
   <text x="80" y="338" class="label">Wind (wing)</text>
 
   <!-- Animal internal -->
@@ -116,7 +116,7 @@
   <line x1="720" y1="370" x2="750" y2="350" class="arrow" stroke="#16a34a" marker-end="url(#arrow-green)"/>
   <line x1="660" y1="390" x2="630" y2="410" class="arrow" stroke="#16a34a" marker-end="url(#arrow-green)"/>
   <line x1="690" y1="365" x2="690" y2="345" class="line"/>
-  <rect x="635" y="326" width="110" height="18" rx="4" class="label-bg"/>
+  <rect x="635" y="326" width="119" height="18" rx="4" class="label-bg"/>
   <text x="640" y="338" class="label">Explosive pod split</text>
 
   <text x="420" y="460" text-anchor="middle" class="sublabel">Dispersal reduces competition between parent plant and offspring for light, water and nutrients.</text>

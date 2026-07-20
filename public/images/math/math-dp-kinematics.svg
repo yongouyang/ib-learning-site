@@ -37,14 +37,15 @@
     <rect x="0" y="0" width="270" height="120" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
     <text x="135" y="20" class="subhead" text-anchor="middle">Total distance</text>
     <text x="135" y="48" class="label" text-anchor="middle">Total distance = ∫|v(t)| dt</text>
-    <text x="135" y="76" class="label" text-anchor="middle">Find where v(t)=0 to split into intervals where direction is constant.</text>
+    <text x="135" y="72" class="label" text-anchor="middle">Find where v(t)=0 to split into</text>
+    <text x="135" y="94" class="label" text-anchor="middle">intervals where direction is constant.</text>
   </g>
 
   <!-- SUVAT -->
   <g transform="translate(30, 290)">
     <rect x="0" y="0" width="840" height="95" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
     <text x="420" y="22" class="subhead" text-anchor="middle">SUVAT (constant acceleration only)</text>
-    <g transform="translate(15, 40)">
+    <g transform="translate(15, 44)">
       <text x="0" y="0" class="math">s = displacement, u = initial velocity, v = final velocity</text>
       <text x="0" y="20" class="math">a = acceleration, t = time</text>
       <text x="0" y="46" class="math" fill="#7c3aed">v = u + at  |  s = ut + ½at²  |  s = ½(u+v)t  |  v² = u² + 2as  |  s = vt − ½at²</text>

@@ -55,12 +55,12 @@
 
   <!-- Sedimentary to Metamorphic: heat &amp; pressure -->
   <path d="M550,360 C590,330 640,290 680,240" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
-  <rect x="575" y="290" width="100" height="18" rx="4" class="label-bg"/>
+  <rect x="575" y="290" width="112" height="18" rx="4" class="label-bg"/>
   <text x="580" y="303" class="label">Heat &amp; pressure</text>
 
   <!-- Metamorphic to Igneous: melting then cooling -->
   <path d="M600,120 C500,80 400,80 300,120" class="arrow" stroke="#6b7280" marker-end="url(#arrow-gray)"/>
-  <rect x="395" y="72" width="110" height="18" rx="4" class="label-bg"/>
+  <rect x="395" y="72" width="122" height="18" rx="4" class="label-bg"/>
   <text x="400" y="85" class="label">Melting &amp; cooling</text>
 
   <!-- Direct Sedimentary to Igneous: melting -->

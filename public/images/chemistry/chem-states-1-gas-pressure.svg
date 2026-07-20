@@ -48,18 +48,19 @@
   <line x1="480" y1="390" x2="480" y2="400" stroke="#ef4444" stroke-width="3"/>
 
   <!-- Labels -->
-  <rect x="610" y="175" width="150" height="42" rx="4" class="label-bg"/>
+  <rect x="610" y="175" width="172" height="42" rx="4" class="label-bg"/>
   <text x="615" y="192" class="label">Wall collisions</text>
   <text x="615" y="209" class="sublabel">Create force on container walls</text>
   <line x1="605" y1="196" x2="590" y2="196" class="line"/>
 
-  <rect x="270" y="415" width="260" height="34" rx="4" class="label-bg"/>
-  <text x="275" y="432" class="label">Pressure = total force from collisions per unit area</text>
-  <text x="275" y="445" class="sublabel">Increases with temperature, number of particles, or reduced volume</text>
+  <rect x="215" y="415" width="370" height="34" rx="4" class="label-bg"/>
+  <text x="225" y="432" class="label">Pressure = total force from collisions per unit area</text>
+  <text x="225" y="445" class="sublabel">Increases with temperature, number of particles, or reduced volume</text>
   <line x1="400" y1="413" x2="400" y2="400" class="line"/>
 
-  <rect x="60" y="140" width="110" height="34" rx="4" class="label-bg"/>
+  <rect x="60" y="140" width="110" height="48" rx="4" class="label-bg"/>
   <text x="65" y="157" class="label">Gas particles</text>
-  <text x="65" y="170" class="sublabel">Move randomly at high speed</text>
+  <text x="65" y="170" class="sublabel">Move randomly</text>
+  <text x="65" y="183" class="sublabel">at high speed</text>
   <line x1="170" y1="157" x2="200" y2="157" class="line"/>
 </svg>

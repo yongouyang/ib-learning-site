@@ -15,11 +15,11 @@
   <line x1="180" y1="100" x2="240" y2="100" class="p"/><text x="200" y="95" class="s" fill="#dc2626">Boiling</text>
   <line x1="240" y1="100" x2="380" y2="20" class="p"/><text x="300" y="50" class="s" fill="#dc2626">Gas</text>
 
-  <text x="190" y="216" text-anchor="middle" class="s" fill="#374151">Heat added →</text>
-  <text x="-5" y="20" text-anchor="end" class="s" fill="#374151">Temp°C</text>
+  <text x="375" y="186" text-anchor="end" class="s" fill="#374151">Heat added →</text>
+  <text x="4" y="12" class="s" fill="#374151">Temp°C</text>
 
-  <rect x="60" y="225" width="300" height="18" rx="4" fill="#fef3c7"/>
-  <text x="210" y="238" text-anchor="middle" class="s">Flat sections: energy goes into breaking bonds, NOT raising temperature (latent heat!)</text>
+  <rect x="20" y="190" width="380" height="18" rx="4" fill="#fef3c7"/>
+  <text x="210" y="203" text-anchor="middle" class="s">Flat sections: energy breaks bonds, NOT raising temp (latent heat!)</text>
 </g>
 
 <rect x="520" y="50" width="260" height="250" rx="10" class="b"/><text x="650" y="75" text-anchor="middle" class="l">State Changes</text>
@@ -33,7 +33,7 @@
   <rect x="0" y="138" width="220" height="60" rx="6" fill="#eff6ff"/>
   <text x="10" y="154" class="l" fill="#3b82f6">Internal Energy</text>
   <text x="10" y="172" class="s">= Kinetic (particle motion) + Potential</text>
-  <text x="10" y="186" class="s">(bond positions). ↑ during state changes</text>
+  <text x="10" y="186" class="s">(bond positions). ↑ in state changes</text>
 </g>
 
 <rect x="20" y="315" width="760" height="50" rx="8" class="b"/><text x="400" y="335" text-anchor="middle" class="s">Latent heat: energy needed to change state without temperature change.</text><text x="400" y="355" text-anchor="middle" class="s">Specific latent heat of fusion (L_f, solid↔liquid) and vaporisation (L_v, liquid↔gas). E = mL</text></svg>

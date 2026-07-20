@@ -27,7 +27,7 @@
   </g>
 
   <!-- Multiples -->
-  <g transform="translate(30, 125)">
+  <g transform="translate(30, 154)">
     <text x="0" y="0" class="subhead">Multiples of 7 (numbers in the 7 times table)</text>
     <rect x="0" y="10" width="45" height="24" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/><text x="22" y="26" class="math" text-anchor="middle" fill="#16a34a">7</text>
     <rect x="50" y="10" width="45" height="24" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/><text x="72" y="26" class="math" text-anchor="middle" fill="#16a34a">14</text>
@@ -38,8 +38,8 @@
   </g>
 
   <!-- Prime numbers -->
-  <text x="30" y="195" class="subhead">Prime numbers (exactly 2 factors: 1 and itself)</text>
-  <g transform="translate(30, 210)">
+  <text x="30" y="205" class="subhead">Prime numbers (exactly 2 factors: 1 and itself)</text>
+  <g transform="translate(30, 220)">
     <rect x="0" y="0" width="45" height="24" class="grid-prime" rx="3"/><text x="22" y="16" class="math prime" text-anchor="middle" font-size="12">2</text>
     <rect x="45" y="0" width="45" height="24" class="grid-prime" rx="3"/><text x="67" y="16" class="math prime" text-anchor="middle" font-size="12">3</text>
     <rect x="90" y="0" width="45" height="24" class="grid-cell" rx="1"/><text x="112" y="16" class="math" text-anchor="middle" font-size="12">4</text>
@@ -53,15 +53,15 @@
   </g>
 
   <!-- HCF and LCM -->
-  <text x="30" y="280" class="heading">HCF and LCM</text>
-  <g transform="translate(30, 300)">
+  <text x="30" y="288" class="heading">HCF and LCM</text>
+  <g transform="translate(30, 308)">
     <rect x="0" y="0" width="420" height="100" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
     <text x="210" y="20" class="subhead" text-anchor="middle">HCF (Highest Common Factor) of 24 and 36</text>
     <text x="15" y="44" class="label">Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24</text>
     <text x="15" y="64" class="label">Factors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36</text>
     <text x="210" y="88" class="math" fill="#2563eb" text-anchor="middle">Common factors: 1, 2, 3, 4, 6, 12 → HCF = 12</text>
   </g>
-  <g transform="translate(470, 300)">
+  <g transform="translate(470, 308)">
     <rect x="0" y="0" width="400" height="100" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
     <text x="200" y="20" class="subhead" text-anchor="middle">LCM (Lowest Common Multiple) of 4 and 6</text>
     <text x="15" y="44" class="label">Multiples of 4: 4, 8, 12, 16, 20, 24...</text>

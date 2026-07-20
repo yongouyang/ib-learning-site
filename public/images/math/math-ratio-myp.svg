@@ -21,13 +21,13 @@
   </g>
 
   <!-- Sharing ratio -->
-  <g transform="translate(30, 118)">
+  <g transform="translate(30, 128)">
     <text x="0" y="0" class="subhead">Sharing £120 in the ratio 3:5</text>
     <text x="0" y="18" class="label">3 + 5 = 8 total parts</text>
     <text x="0" y="36" class="label">1 part = £120 ÷ 8 = £15</text>
     <rect x="0" y="48" width="90" height="24" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="45" y="64" class="math" text-anchor="middle" fill="#1e40af">3 parts: £45</text>
     <rect x="100" y="48" width="90" height="24" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/><text x="145" y="64" class="math" text-anchor="middle" fill="#166534">5 parts: £75</text>
-    <text x="195" y="64" class="math" fill="#2563eb">Check: £45+£75=£120 ✓</text>
+    <text x="195" y="64" class="math" fill="#2563eb">£45+£75=£120 ✓</text>
   </g>
 
   <!-- Proportion -->
@@ -45,9 +45,10 @@
 
   <!-- Inverse proportion -->
   <g transform="translate(30, 230)">
-    <rect x="0" y="0" width="840" height="70" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+    <rect x="0" y="0" width="840" height="84" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
     <text x="420" y="22" class="subhead" text-anchor="middle" fill="#dc2626">Inverse proportion</text>
-    <text x="420" y="46" class="label" text-anchor="middle" fill="#dc2626">As one quantity increases, the other decreases (product is constant). Example: 3 workers take 8 hours → 6 workers take 4 hours (3×8 = 6×4 = 24)</text>
+    <text x="420" y="44" class="label" text-anchor="middle" fill="#dc2626">As one quantity increases, the other decreases (product is constant).</text>
+    <text x="420" y="64" class="label" text-anchor="middle" fill="#dc2626">Example: 3 workers take 8 hours → 6 workers take 4 hours (3×8 = 6×4 = 24)</text>
   </g>
 
   <!-- Key concepts -->

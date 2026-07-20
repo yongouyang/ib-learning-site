@@ -54,8 +54,8 @@
   </g>
 
   <line x1="210" y1="185" x2="250" y2="220" class="line"/>
-  <rect x="200" y="221" width="80" height="18" rx="4" class="label-bg"/>
-  <text x="204" y="233" class="label">Magnet removes</text>
+  <rect x="190" y="221" width="105" height="18" rx="4" class="label-bg"/>
+  <text x="194" y="233" class="label">Magnet removes</text>
   <text x="200" y="251" class="sublabel">iron, cobalt, nickel</text>
 
   <!-- Decanting panel -->
@@ -80,8 +80,8 @@
   <path d="M525,250 L585,250" fill="#bae6fd" opacity="0.7"/>
 
   <line x1="555" y1="270" x2="555" y2="305" class="line"/>
-  <rect x="515" y="306" width="80" height="18" rx="4" class="label-bg"/>
-  <text x="519" y="318" class="label">Liquid poured off</text>
+  <rect x="478" y="306" width="104" height="18" rx="4" class="label-bg"/>
+  <text x="481" y="318" class="label">Liquid poured off</text>
 
   <line x1="400" y1="270" x2="400" y2="305" class="line"/>
   <rect x="360" y="306" width="80" height="18" rx="4" class="label-bg"/>
@@ -112,6 +112,6 @@
   <text x="564" y="203" class="label">Immiscible</text>
 
   <line x1="718" y1="290" x2="718" y2="330" class="line"/>
-  <rect x="670" y="331" width="95" height="18" rx="4" class="label-bg"/>
-  <text x="674" y="343" class="label">Drain denser layer</text>
+  <rect x="666" y="331" width="113" height="18" rx="4" class="label-bg"/>
+  <text x="670" y="343" class="label">Drain denser layer</text>
 </svg>

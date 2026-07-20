@@ -17,7 +17,8 @@
   <!-- Arthropods -->
   <rect x="30" y="70" width="250" height="240" fill="#fee2e2" stroke="#ef4444" class="box"/>
   <text x="155" y="94" text-anchor="middle" class="group-title">Arthropods (largest phylum)</text>
-  <text x="155" y="116" text-anchor="middle" class="sublabel">Jointed legs, segmented body, exoskeleton (chitin)</text>
+  <text x="155" y="114" text-anchor="middle" class="sublabel">Jointed legs, segmented body,</text>
+  <text x="155" y="129" text-anchor="middle" class="sublabel">exoskeleton (chitin)</text>
 
   <!-- Insect -->
   <ellipse cx="80" cy="170" rx="22" ry="14" fill="#fca5a5" stroke="#b91c1c" stroke-width="2"/>
@@ -86,7 +87,8 @@
   <!-- Cnidarians -->
   <rect x="670" y="70" width="150" height="240" fill="#d1fae5" stroke="#10b981" class="box"/>
   <text x="745" y="94" text-anchor="middle" class="group-title">Cnidarians</text>
-  <text x="745" y="116" text-anchor="middle" class="sublabel">Stinging cells, radial symmetry</text>
+  <text x="745" y="112" text-anchor="middle" class="sublabel">Stinging cells,</text>
+  <text x="745" y="127" text-anchor="middle" class="sublabel">radial symmetry</text>
   <path d="M720,170 Q745,130 770,170 Q745,210 720,170" fill="#6ee7b7" stroke="#047857" stroke-width="2"/>
   <path d="M730,180 L725,200" stroke="#047857" stroke-width="1.5"/>
   <path d="M745,185 L745,205" stroke="#047857" stroke-width="1.5"/>
@@ -96,7 +98,8 @@
   <!-- Echinoderms -->
   <rect x="310" y="340" width="250" height="140" fill="#f3e8ff" stroke="#9333ea" class="box"/>
   <text x="435" y="364" text-anchor="middle" class="group-title">Echinoderms</text>
-  <text x="435" y="386" text-anchor="middle" class="sublabel">Spiny skin, radial symmetry (usually 5-part), tube feet</text>
+  <text x="435" y="382" text-anchor="middle" class="sublabel">Spiny skin, radial symmetry</text>
+  <text x="435" y="397" text-anchor="middle" class="sublabel">(usually 5-part), tube feet</text>
   <g transform="translate(435,425)">
     <polygon points="0,-25 7,-8 25,-5 12,8 16,25 0,16 -16,25 -12,8 -25,-5 -7,-8" fill="#d8b4fe" stroke="#7e22ce" stroke-width="2"/>
     <circle cx="0" cy="0" r="5" fill="#7e22ce"/>

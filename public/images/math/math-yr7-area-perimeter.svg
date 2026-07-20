@@ -85,11 +85,12 @@
   </g>
 
   <!-- Compound shapes -->
-  <g transform="translate(490, 230)">
+  <g transform="translate(490, 248)">
     <text x="0" y="0" class="heading" font-size="16">Compound shapes</text>
-    <text x="0" y="24" class="label">Split into rectangles, find each area, then add.</text>
+    <text x="0" y="24" class="label">Split into rectangles, find</text>
+    <text x="0" y="42" class="label">each area, then add.</text>
     <!-- L-shape split -->
-    <g transform="translate(30, 45)">
+    <g transform="translate(30, 60)">
       <rect x="0" y="0" width="120" height="35" fill="#dbeafe" fill-opacity="0.4" stroke="#2563eb" stroke-width="1.5"/>
       <rect x="0" y="0" width="35" height="80" fill="#dcfce7" fill-opacity="0.4" stroke="#16a34a" stroke-width="1.5"/>
       <line x1="35" y1="0" x2="35" y2="35" stroke="#6b7280" stroke-width="1" stroke-dasharray="3,3"/>
@@ -104,7 +105,7 @@
   <g transform="translate(660, 230)">
     <rect x="0" y="0" width="210" height="130" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
     <text x="105" y="22" class="heading" font-size="14" text-anchor="middle">Key relationships</text>
-    <text x="15" y="48" class="label">• Rectangle: special parallelogram</text>
+    <text x="15" y="48" class="label">• Rectangle = parallelogram</text>
     <text x="15" y="70" class="label">  with right angles</text>
     <text x="15" y="92" class="label">• Square: special rectangle</text>
     <text x="15" y="114" class="label">  with all sides equal</text>
@@ -112,7 +113,7 @@
 
   <!-- Perimeter vs Area -->
   <g transform="translate(60, 390)">
-    <rect x="0" y="0" width="180" height="70" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <rect x="0" y="0" width="250" height="70" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
     <text x="90" y="22" class="heading" font-size="14" text-anchor="middle">Perimeter ≠ Area</text>
     <text x="10" y="44" class="label">Perimeter = the fence around a field</text>
     <text x="10" y="62" class="label">Area = the grass inside the field</text>

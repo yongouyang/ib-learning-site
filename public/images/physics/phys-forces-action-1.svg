@@ -47,7 +47,7 @@
     <text x="175" y="76" class="sublabel" fill="#dc2626">Driving force</text>
 
     <line x1="70" y1="95" x2="20" y2="95" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrL)"/>
-    <text x="15" y="116" class="sublabel" fill="#3b82f6">Drag + friction</text>
+    <text x="15" y="90" class="sublabel" fill="#3b82f6">Drag + friction</text>
 
     <line x1="85" y1="45" x2="85" y2="10" stroke="#10b981" stroke-width="2" marker-end="url(#arrU)"/>
     <text x="95" y="20" class="sublabel" fill="#059669">Normal reaction</text>
@@ -82,7 +82,7 @@
     <text x="160" y="70" class="sublabel" fill="#059669">Normal reaction</text>
 
     <line x1="55" y1="105" x2="15" y2="105" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrL)"/>
-    <text x="20" y="95" class="sublabel" fill="#3b82f6">Braking friction</text>
+    <text x="5" y="95" class="sublabel" fill="#3b82f6">Braking friction</text>
 
     <line x1="175" y1="95" x2="175" y2="55" stroke="#ef4444" stroke-width="2" marker-end="url(#arrU)"/>
     <text x="185" y="50" class="sublabel" fill="#dc2626">Motion</text>
@@ -114,16 +114,17 @@
 
     <!-- Forces -->
     <line x1="70" y1="115" x2="40" y2="115" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrL)"/>
-    <text x="10" y="108" class="sublabel" fill="#3b82f6">Foot pushes ground BACK</text>
+    <text x="10" y="126" class="sublabel" fill="#3b82f6">Foot pushes ground BACK</text>
 
     <line x1="95" y1="55" x2="165" y2="55" stroke="#ef4444" stroke-width="3" marker-end="url(#arrR)"/>
-    <text x="170" y="60" class="sublabel" fill="#dc2626">Ground pushes runner FORWARD</text>
+    <text x="245" y="48" text-anchor="end" class="sublabel" fill="#dc2626">Ground pushes runner</text>
+    <text x="245" y="62" text-anchor="end" class="sublabel" fill="#dc2626">FORWARD</text>
 
     <line x1="90" y1="85" x2="90" y2="115" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrD)"/>
     <text x="100" y="110" class="sublabel" fill="#d97706">Weight</text>
 
     <line x1="125" y1="115" x2="125" y2="90" stroke="#10b981" stroke-width="2" marker-end="url(#arrU)"/>
-    <text x="135" y="95" class="sublabel" fill="#059669">Normal reaction</text>
+    <text x="140" y="90" class="sublabel" fill="#059669">Normal reaction</text>
 
     <rect x="20" y="150" width="190" height="55" rx="6" fill="#fef2f2"/>
     <text x="115" y="170" text-anchor="middle" class="sublabel" fill="#dc2626">Newton's Third Law pair</text>

@@ -13,9 +13,9 @@
 
   <!-- Measures of centre -->
   <g transform="translate(30, 55)">
-    <rect x="0" y="0" width="420" height="110" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="0" y="0" width="420" height="130" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
     <text x="210" y="22" class="subhead" text-anchor="middle">Measures of centre</text>
-    <g transform="translate(15, 40)">
+    <g transform="translate(15, 46)">
       <text x="0" y="0" class="math" fill="#2563eb">Mean (x̄): sum of all values ÷ n</text>
       <text x="0" y="18" class="label">Sensitive to outliers. Best for symmetric data.</text>
       <text x="0" y="40" class="math" fill="#16a34a">Median: middle value (or avg of two middle)</text>
@@ -26,7 +26,7 @@
 
   <!-- Box plot -->
   <g transform="translate(470, 55)">
-    <rect x="0" y="0" width="400" height="110" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <rect x="0" y="0" width="400" height="130" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
     <text x="200" y="18" class="subhead" text-anchor="middle">Five-number summary</text>
     <g transform="translate(15, 35)">
       <line x1="0" y1="30" x2="350" y2="30" stroke="#94a3b8" stroke-width="1"/>

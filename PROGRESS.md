@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-07-19 — SVG layout backlog cleared (159 files, all subjects)
+
+Git HEAD: `df8819e` + uncommitted changes (branch `develop`)
+Done: Fixed every file flagged by the illustration layout checker — biology 45, chemistry 33, math 37, physics 45 (159 total). Fixes were minimal: widened backing rects, moved/shrunk labels, shortened text where meaning is preserved; yr7 math needed the most structural work (re-laid-out sections, viewBox growth for clipped content in math-yr7-probability, math-yr7-transformations, math-yr7-calculations, math-yr7-angles). `validate:illustration-layout` now exits 0 for the first time. Removed one agent scratch file (`scripts/.measure-tmp.mjs`); no files outside `public/images/` touched.
+Verified: validate:illustration-layout ✅ (exit 0), validate:illustrations ✅, validate:content ✅, audit:content ✅ 0/0, Vitest 87/87 ✅, illustrations e2e Desktop Chrome 119/119 ✅.
+Next: 1) **User visual review + commit** of this batch (spot-check the rebuilt yr7 SVGs: math-yr7-probability, math-yr7-transformations). 2) Next.js 15.5 upgrade (branch; security patch lands 2026-07-20). 3) DP niche topics (Markov Chains, Volume of Revolution, Further Differential Equations). 4) Y8 science expansion. 5) Features: spaced repetition, progress sync, PWA.
+Notes: Work done by a 4-agent swarm (one per subject), resumed after a 30-min timeout and a quota cut-off. The layout gate is now green — keep it that way: run `npm run validate:illustration-layout` before committing any SVG change.
+
+---
+
 ## 2026-07-18 — Commit + push of the full fix batch
 
 Git HEAD: `3e29f21` (branch `develop`, pushed to origin, clean tree)

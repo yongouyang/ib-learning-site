@@ -50,8 +50,8 @@
   </g>
 
   <!-- x <= -1 -->
-  <text x="30" y="215" class="subhead">x ≤ −1 on a number line</text>
-  <g transform="translate(30, 235)">
+  <text x="30" y="222" class="subhead">x ≤ −1 on a number line</text>
+  <g transform="translate(30, 242)">
     <line x1="0" y1="15" x2="250" y2="15" stroke="#1f2937" stroke-width="2"/>
     <polygon points="0,15 10,11 10,19" fill="#2563eb"/>
     <line x1="100" y1="8" x2="100" y2="22" stroke="#2563eb" stroke-width="2"/>
@@ -66,9 +66,10 @@
     <rect x="0" y="0" width="500" height="120" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
     <text x="250" y="22" class="subhead" text-anchor="middle" fill="#dc2626">⚠️  THE SIGN-FLIP RULE</text>
     <g transform="translate(20, 42)">
-      <text x="0" y="0" class="label">When you multiply or divide by a NEGATIVE number, you MUST flip the inequality sign!</text>
-      <text x="0" y="30" class="math" fill="#dc2626">−2x &lt; 8  →  x &gt; −4  (divided by −2, sign FLIPS)</text>
-      <text x="0" y="60" class="math" fill="#dc2626">Check: −2(0) = 0 &lt; 8 ✓  but  −2(−5) = 10 which is NOT &lt; 8 ✗</text>
+      <text x="0" y="0" class="label">When you multiply or divide by a NEGATIVE number,</text>
+      <text x="0" y="18" class="label">you MUST flip the inequality sign!</text>
+      <text x="0" y="44" class="math" fill="#dc2626">−2x &lt; 8  →  x &gt; −4  (divided by −2, sign FLIPS)</text>
+      <text x="0" y="72" class="math" fill="#dc2626">Check: −2(0) = 0 &lt; 8 ✓  but  −2(−5) = 10 which is NOT &lt; 8 ✗</text>
     </g>
   </g>
 

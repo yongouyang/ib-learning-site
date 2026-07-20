@@ -35,7 +35,7 @@
     <line x1="160" y1="80" x2="270" y2="85" stroke="#a855f7" stroke-width="3"/>
 
     <!-- Labels -->
-    <text x="310" y="22" class="sublabel" fill="#dc2626">Red (longest λ)</text>
+    <text x="295" y="22" class="sublabel" fill="#dc2626">Red (longest λ)</text>
     <text x="280" y="95" class="sublabel" fill="#a855f7">Violet (shortest λ)</text>
     <text x="220" y="120" text-anchor="middle" class="sublabel">ROYGBIV</text>
     <text x="220" y="138" text-anchor="middle" class="sublabel">Red refracts least · Violet refracts most</text>
@@ -65,6 +65,6 @@
   <!-- Why objects have colour -->
   <rect x="20" y="290" width="760" height="85" rx="10" class="box"/>
   <text x="400" y="312" text-anchor="middle" class="label">Why Do Objects Have Colour?</text>
-  <text x="400" y="332" text-anchor="middle" class="sublabel">A red apple appears red because it REFLECTS red light and ABSORBS all other colours. A white object reflects all colours; a black object absorbs all.</text>
+  <text x="400" y="332" text-anchor="middle" class="sublabel">A red apple appears red because it REFLECTS red light and ABSORBS other colours. White objects reflect all colours; black objects absorb all.</text>
   <text x="400" y="352" text-anchor="middle" class="sublabel">Rainbows form when water droplets act as tiny prisms, dispersing sunlight. Red on the outside of the arc, violet on the inside.</text>
 </svg>

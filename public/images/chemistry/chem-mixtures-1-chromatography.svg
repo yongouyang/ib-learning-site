@@ -50,12 +50,12 @@
 
   <!-- Mobile phase arrow -->
   <line x1="320" y1="320" x2="320" y2="130" class="arrow" marker-end="url(#arrow-gray)"/>
-  <text x="340" y="230" class="label">Mobile phase</text>
-  <text x="340" y="248" class="sublabel">(solvent)</text>
+  <text x="285" y="230" class="label">Mobile phase</text>
+  <text x="285" y="248" class="sublabel">(solvent)</text>
 
   <!-- Stationary phase label -->
-  <line x1="250" y1="220" x2="205" y2="220" class="line"/>
-  <rect x="105" y="211" width="90" height="18" rx="4" class="label-bg"/>
+  <line x1="250" y1="220" x2="218" y2="220" class="line"/>
+  <rect x="105" y="211" width="110" height="18" rx="4" class="label-bg"/>
   <text x="109" y="223" class="label">Stationary phase</text>
   <text x="105" y="241" class="sublabel">(chromatography paper)</text>
 
@@ -69,7 +69,7 @@
   <line x1="500" y1="220" x2="540" y2="220" class="line"/>
   <text x="545" y="224" class="sublabel">4 cm</text>
   <line x1="500" y1="120" x2="500" y2="220" class="line" stroke-dasharray="3,3"/>
-  <text x="470" y="175" class="sublabel" transform="rotate(-90 470 175)">solvent front 10 cm</text>
+  <text x="470" y="210" class="sublabel" transform="rotate(-90 470 210)">solvent front 10 cm</text>
   <text x="585" y="250" text-anchor="middle" class="label" fill="#f97316">Rf = 4 ÷ 10 = 0.4</text>
 
   <!-- Key rule -->

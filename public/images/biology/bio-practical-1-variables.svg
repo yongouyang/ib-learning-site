@@ -49,12 +49,12 @@
 
   <!-- IV label -->
   <line x1="200" y1="180" x2="200" y2="150" class="line"/>
-  <rect x="140" y="131" width="120" height="18" rx="4" class="label-bg"/>
+  <rect x="140" y="131" width="133" height="18" rx="4" class="label-bg"/>
   <text x="145" y="144" class="label">Independent variable</text>
 
   <!-- DV label -->
   <line x1="360" y1="130" x2="360" y2="105" class="line"/>
-  <rect x="280" y="86" width="160" height="18" rx="4" class="label-bg"/>
+  <rect x="280" y="86" width="194" height="18" rx="4" class="label-bg"/>
   <text x="285" y="99" class="label">Dependent variable: O₂ bubbles</text>
 
   <!-- Controlled variables panel -->

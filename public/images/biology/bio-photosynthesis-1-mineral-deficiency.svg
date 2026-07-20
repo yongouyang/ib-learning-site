@@ -59,9 +59,10 @@
   <g transform="translate(460, 90)">
     <path d="M0,35 Q55,-10 110,35 Q55,80 0,35 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
     <line x1="10" y1="35" x2="100" y2="35" stroke="#eab308" stroke-width="1.5"/>
-    <rect x="15" y="15" width="80" height="40" rx="4" fill="#f9fafb" opacity="0.7"/>
-    <text x="55" y="32" text-anchor="middle" class="label" fill="#854d0e">Nitrate deficiency</text>
-    <text x="55" y="48" text-anchor="middle" class="sublabel" fill="#854d0e">Stunted, yellow older leaves</text>
+    <rect x="-5" y="9" width="120" height="52" rx="4" fill="#f9fafb" opacity="0.7"/>
+    <text x="55" y="26" text-anchor="middle" class="label" fill="#854d0e">Nitrate deficiency</text>
+    <text x="55" y="41" text-anchor="middle" class="sublabel" fill="#854d0e">Stunted, yellow</text>
+    <text x="55" y="55" text-anchor="middle" class="sublabel" fill="#854d0e">older leaves</text>
   </g>
 
   <!-- Magnesium deficiency leaf -->
@@ -71,7 +72,7 @@
     <circle cx="35" cy="35" r="10" fill="#fef08a" opacity="0.8"/>
     <circle cx="70" cy="28" r="8" fill="#fef08a" opacity="0.8"/>
     <circle cx="55" cy="50" r="7" fill="#fef08a" opacity="0.8"/>
-    <rect x="12" y="12" width="86" height="46" rx="4" fill="#f9fafb" opacity="0.7"/>
+    <rect x="-13" y="12" width="136" height="46" rx="4" fill="#f9fafb" opacity="0.7"/>
     <text x="55" y="30" text-anchor="middle" class="label" fill="#14532d">Magnesium deficiency</text>
     <text x="55" y="46" text-anchor="middle" class="sublabel" fill="#14532d">Yellowing between veins</text>
   </g>
@@ -82,7 +83,7 @@
     <line x1="10" y1="35" x2="100" y2="35" stroke="#22c55e" stroke-width="1.5"/>
     <path d="M5,35 L105,35" stroke="#fde047" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
     <path d="M5,25 L105,25" stroke="#fde047" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
-    <rect x="12" y="12" width="86" height="46" rx="4" fill="#f9fafb" opacity="0.7"/>
+    <rect x="-11" y="12" width="132" height="46" rx="4" fill="#f9fafb" opacity="0.7"/>
     <text x="55" y="30" text-anchor="middle" class="label" fill="#14532d">Potassium deficiency</text>
     <text x="55" y="46" text-anchor="middle" class="sublabel" fill="#14532d">Yellow leaf edges</text>
   </g>

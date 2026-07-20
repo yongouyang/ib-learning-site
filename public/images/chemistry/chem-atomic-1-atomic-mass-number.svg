@@ -26,12 +26,12 @@
 
     <!-- Labels for superscript/subscript -->
     <line x1="-90" y1="-28" x2="-160" y2="-60" class="line"/>
-    <rect x="-235" y="-78" width="72" height="42" rx="4" class="label-bg"/>
+    <rect x="-247" y="-78" width="96" height="42" rx="4" class="label-bg"/>
     <text x="-199" y="-58" text-anchor="middle" class="label">Mass number</text>
     <text x="-199" y="-43" text-anchor="middle" class="sublabel">A = p + n</text>
 
     <line x1="-90" y1="62" x2="-160" y2="100" class="line"/>
-    <rect x="-240" y="90" width="75" height="42" rx="4" class="label-bg"/>
+    <rect x="-255" y="90" width="106" height="42" rx="4" class="label-bg"/>
     <text x="-202" y="110" text-anchor="middle" class="label">Atomic number</text>
     <text x="-202" y="125" text-anchor="middle" class="sublabel">Z = protons</text>
   </g>

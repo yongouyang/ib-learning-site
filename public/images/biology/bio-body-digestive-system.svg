@@ -31,7 +31,7 @@
 
   <!-- Oesophagus -->
   <line x1="300" y1="110" x2="340" y2="120" class="line"/>
-  <rect x="342" y="111" width="68" height="18" rx="4" class="label-bg"/>
+  <rect x="342" y="111" width="82" height="18" rx="4" class="label-bg"/>
   <text x="346" y="123" class="label">Oesophagus</text>
 
   <!-- Stomach -->
@@ -49,7 +49,7 @@
   <!-- Gall bladder -->
   <ellipse cx="345" cy="215" rx="12" ry="16" fill="#fde047" stroke="#eab308" stroke-width="2"/>
   <line x1="357" y1="215" x2="420" y2="220" class="line"/>
-  <rect x="422" y="211" width="68" height="18" rx="4" class="label-bg"/>
+  <rect x="422" y="211" width="79" height="18" rx="4" class="label-bg"/>
   <text x="426" y="223" class="label">Gall bladder</text>
 
   <!-- Pancreas -->
@@ -67,7 +67,7 @@
   <!-- Large intestine -->
   <path d="M260,310 C240,310 230,330 230,360 C230,420 250,440 300,440 C350,440 370,420 370,380 C370,350 360,330 340,320" fill="none" stroke="#86efac" stroke-width="8" stroke-linecap="round"/>
   <line x1="230" y1="360" x2="150" y2="360" class="line"/>
-  <rect x="68" y="351" width="80" height="18" rx="4" class="label-bg"/>
+  <rect x="68" y="351" width="96" height="18" rx="4" class="label-bg"/>
   <text x="72" y="363" class="label">Large intestine</text>
 
   <!-- Direction arrow -->

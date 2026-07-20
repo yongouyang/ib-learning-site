@@ -16,11 +16,11 @@
   <text x="30" y="35" class="heading">Pythagoras' theorem</text>
 
   <!-- Theorem with squares -->
-  <g transform="translate(50, 60)">
+  <g transform="translate(50, 80)">
     <!-- Triangle -->
     <polygon points="0,140 140,140 0,40" class="triangle"/>
     <text x="75" y="95" font-size="18" font-family="system-ui, sans-serif" fill="#dc2626" font-weight="700" text-anchor="middle">c</text>
-    <text x="-12" y="95" class="math" fill="#d97706">a</text>
+    <text x="-44" y="95" class="math" fill="#d97706">a</text>
     <text x="65" y="155" class="math" fill="#16a34a">b</text>
 
     <!-- Right angle marker -->
@@ -35,7 +35,7 @@
     <text x="70" y="164" class="label" fill="#16a34a" text-anchor="middle" font-size="11">b²</text>
 
     <!-- Square on c -->
-    <g transform="translate(35, -5) rotate(45, 35, 30)">
+    <g transform="translate(35, 53) rotate(45, 35, 30)">
       <rect x="0" y="-106" width="106" height="106" class="sq-c"/>
       <text x="53" y="-50" class="label" fill="#dc2626" text-anchor="middle" font-size="11">c²</text>
     </g>
@@ -65,8 +65,9 @@
 
   <!-- Applications -->
   <g transform="translate(30, 348)">
-    <rect x="0" y="0" width="840" height="55" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <rect x="0" y="0" width="840" height="64" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
     <text x="420" y="22" class="subhead" text-anchor="middle">Applications</text>
-    <text x="420" y="46" class="label" text-anchor="middle">Is a triangle right-angled? Check if a²+b²=c²  |  Distance between points (x₁,y₁) and (x₂,y₂): d = √((x₂−x₁)² + (y₂−y₁)²)  |  3D Pythagoras: a²+b²+c² diagonal of a cuboid</text>
+    <text x="420" y="42" class="label" text-anchor="middle">Is a triangle right-angled? Check if a²+b²=c²  |  Distance between points (x₁,y₁) and (x₂,y₂): d = √((x₂−x₁)² + (y₂−y₁)²)</text>
+    <text x="420" y="58" class="label" text-anchor="middle">3D Pythagoras: a²+b²+c² gives the diagonal of a cuboid</text>
   </g>
 </svg>

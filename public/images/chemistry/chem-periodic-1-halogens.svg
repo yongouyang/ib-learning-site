@@ -104,9 +104,10 @@
   <g transform="translate(660, 340)">
     <rect x="-30" y="-60" width="60" height="120" rx="6" class="tube"/>
     <rect x="-26" y="0" width="52" height="56" class="solution"/>
-    <text x="0" y="36" text-anchor="middle" class="sublabel">KCl(aq) + Br₂</text>
-    <text x="0" y="50" text-anchor="middle" class="sublabel">orange-brown</text>
   </g>
+  <line x1="692" y1="362" x2="702" y2="362" class="line"/>
+  <text x="706" y="358" class="sublabel">KCl(aq) + Br₂</text>
+  <text x="706" y="374" class="sublabel">orange-brown</text>
 
   <!-- Equation -->
   <rect x="220" y="410" width="460" height="34" rx="6" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>

@@ -53,9 +53,9 @@
     <text x="115" y="28" class="label" text-anchor="middle" font-size="10">H₀ is true</text>
     <text x="260" y="28" class="label" text-anchor="middle" font-size="10">H₀ is false</text>
 
-    <text x="330" y="100" class="label" text-anchor="middle">Type I: false positive (rejecting a true H₀). Prob = α.</text>
-    <text x="330" y="118" class="label" text-anchor="middle">Type II: false negative (not rejecting a false H₀). Prob = β.</text>
-    <text x="330" y="136" class="label" text-anchor="middle">Power = 1−β = prob of correctly rejecting a false H₀.</text>
+    <text x="15" y="100" class="label">Type I: false positive (rejecting a true H₀). Prob = α.</text>
+    <text x="15" y="118" class="label">Type II: false negative (not rejecting a false H₀). Prob = β.</text>
+    <text x="15" y="136" class="label">Power = 1−β = prob of correctly rejecting a false H₀.</text>
   </g>
 
   <!-- Critical regions -->

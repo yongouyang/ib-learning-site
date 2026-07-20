@@ -41,7 +41,8 @@
     <rect x="20" y="185" width="190" height="18" rx="4" class="label-bg"/>
     <text x="115" y="197" text-anchor="middle" class="sublabel">2HCl + Mg → MgCl₂ + H₂</text>
 
-    <text x="115" y="150" text-anchor="middle" class="sublabel">Lighted splint → squeaky pop</text>
+    <text x="142" y="100" class="sublabel">Lighted splint</text>
+    <text x="142" y="114" class="sublabel">→ squeaky pop</text>
   </g>
 
   <!-- Card 2: acid + metal oxide -->
@@ -94,7 +95,8 @@
     <rect x="15" y="185" width="220" height="18" rx="4" class="label-bg"/>
     <text x="125" y="197" text-anchor="middle" class="sublabel">2HCl + CaCO₃ → CaCl₂ + H₂O + CO₂</text>
 
-    <text x="125" y="150" text-anchor="middle" class="sublabel">Limewater turns milky</text>
+    <text x="142" y="100" class="sublabel">Limewater</text>
+    <text x="142" y="114" class="sublabel">turns milky</text>
   </g>
 
   <!-- Card 5: acid + metal hydrogencarbonate -->
@@ -105,7 +107,7 @@
 
     <path d="M55,70 L55,150 Q55,170 75,170 L115,170 Q135,170 135,150 L135,70" class="beaker"/>
     <rect x="60" y="105" width="70" height="60" rx="25" class="liquid"/>
-    <rect x="80" y="75" width="30" height="25" rx="4" class="carbonate"/>
+    <rect x="72" y="75" width="46" height="25" rx="4" class="carbonate"/>
     <text x="95" y="91" text-anchor="middle" class="sublabel" fill="white">NaHCO₃</text>
 
     <circle cx="70" cy="58" r="5" class="gas"/>

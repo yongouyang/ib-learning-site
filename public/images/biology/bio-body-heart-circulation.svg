@@ -24,7 +24,7 @@
   <!-- Body silhouette -->
   <g transform="translate(40, 240)">
     <path d="M60,0 C60,-25 90,-25 90,0 C90,-10 110,-10 110,0 L110,100 C110,130 100,150 85,160 L85,210 L75,210 L75,160 C60,150 50,130 50,100 L50,0 Z" fill="#fca5a5" stroke="#ef4444" stroke-width="2"/>
-    <rect x="62" y="98" width="46" height="34" rx="4" class="label-bg"/>
+    <rect x="55" y="98" width="60" height="34" rx="4" class="label-bg"/>
     <text x="85" y="110" text-anchor="middle" class="label" fill="#7f1d1d">Body</text>
     <text x="85" y="130" text-anchor="middle" class="sublabel" fill="#7f1d1d">(systemic)</text>
   </g>
@@ -33,7 +33,7 @@
   <g transform="translate(760, 210)">
     <ellipse cx="35" cy="55" rx="38" ry="55" fill="#93c5fd" stroke="#3b82f6" stroke-width="2"/>
     <ellipse cx="95" cy="55" rx="38" ry="55" fill="#93c5fd" stroke="#3b82f6" stroke-width="2"/>
-    <rect x="42" y="48" width="46" height="34" rx="4" class="label-bg"/>
+    <rect x="31" y="48" width="68" height="34" rx="4" class="label-bg"/>
     <text x="65" y="60" text-anchor="middle" class="label" fill="#1e3a8a">Lungs</text>
     <text x="65" y="78" text-anchor="middle" class="sublabel" fill="#1e3a8a">(pulmonary)</text>
   </g>
@@ -76,7 +76,7 @@
   <text x="358" y="129" text-anchor="end" class="sublabel" fill="#1e3a8a">Right atrium</text>
 
   <line x1="415" y1="320" x2="100" y2="500" class="line"/>
-  <rect x="62" y="491" width="70" height="18" rx="4" class="label-bg"/>
+  <rect x="48" y="491" width="84" height="18" rx="4" class="label-bg"/>
   <text x="128" y="503" text-anchor="end" class="sublabel" fill="#1e3a8a">Right ventricle</text>
 
   <line x1="486" y1="272" x2="540" y2="130" class="line"/>
@@ -84,7 +84,7 @@
   <text x="554" y="129" text-anchor="start" class="sublabel" fill="#7f1d1d">Left atrium</text>
 
   <line x1="485" y1="320" x2="800" y2="500" class="line"/>
-  <rect x="806" y="491" width="64" height="18" rx="4" class="label-bg"/>
+  <rect x="806" y="491" width="79" height="18" rx="4" class="label-bg"/>
   <text x="812" y="503" text-anchor="start" class="sublabel" fill="#7f1d1d">Left ventricle</text>
 
   <!-- Arrows: Body to heart (deoxygenated, blue) -->

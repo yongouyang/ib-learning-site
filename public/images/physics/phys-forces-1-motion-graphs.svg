@@ -74,7 +74,7 @@
     <text x="145" y="80" class="sublabel" fill="#22c55e">Deceleration</text>
 
     <text x="80" y="156" text-anchor="middle" class="sublabel" fill="#374151">Time</text>
-    <text x="-5" y="72" text-anchor="end" class="sublabel" fill="#374151">Velocity</text>
+    <text x="4" y="12" class="sublabel" fill="#374151">Velocity</text>
     <text x="80" y="172" text-anchor="middle" class="sublabel">Gradient = acceleration | Area = distance</text>
   </g>
 
@@ -85,5 +85,5 @@
 
   <rect x="410" y="280" width="370" height="55" rx="10" class="box"/>
   <text x="595" y="300" text-anchor="middle" class="label">Scalar vs Vector</text>
-  <text x="595" y="320" text-anchor="middle" class="sublabel">Speed (scalar, magnitude only) | Velocity (vector, magnitude + direction)</text>
+  <text x="595" y="320" text-anchor="middle" class="sublabel">Speed (scalar, magnitude) | Velocity (vector, magnitude + direction)</text>
 </svg>

@@ -68,11 +68,11 @@
   <text x="444" y="133" class="label">Column shape</text>
 
   <line x1="625" y1="150" x2="700" y2="130" class="line"/>
-  <rect x="702" y="121" width="100" height="18" rx="4" class="label-bg"/>
+  <rect x="702" y="121" width="108" height="18" rx="4" class="label-bg"/>
   <text x="706" y="133" class="label">Many chloroplasts</text>
 
   <line x1="582" y1="240" x2="660" y2="255" class="line"/>
-  <rect x="615" y="256" width="130" height="18" rx="4" class="label-bg"/>
+  <rect x="615" y="256" width="143" height="18" rx="4" class="label-bg"/>
   <text x="619" y="268" class="label">Packed near leaf surface</text>
 
   <!-- Xylem vessel panel -->
@@ -89,15 +89,16 @@
   <line x1="150" y1="450" x2="150" y2="360" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
 
   <line x1="230" y1="340" x2="300" y2="330" class="line"/>
-  <rect x="302" y="321" width="90" height="18" rx="4" class="label-bg"/>
+  <rect x="302" y="321" width="106" height="18" rx="4" class="label-bg"/>
   <text x="306" y="333" class="label">Dead, hollow tube</text>
 
-  <line x1="270" y1="400" x2="330" y2="410" class="line"/>
-  <rect x="332" y="401" width="120" height="18" rx="4" class="label-bg"/>
-  <text x="336" y="413" class="label">Lignin-strengthened walls</text>
+  <line x1="268" y1="390" x2="310" y2="368" class="line"/>
+  <rect x="302" y="339" width="120" height="30" rx="4" class="label-bg"/>
+  <text x="306" y="351" class="label">Lignin-strengthened</text>
+  <text x="306" y="363" class="label">walls</text>
 
   <line x1="230" y1="420" x2="150" y2="430" class="line"/>
-  <rect x="10" y="421" width="120" height="18" rx="4" class="label-bg"/>
+  <rect x="10" y="421" width="135" height="18" rx="4" class="label-bg"/>
   <text x="14" y="433" class="label">No cytoplasm / nucleus</text>
 
   <!-- Guard cells panel -->
@@ -114,10 +115,10 @@
   <text x="706" y="333" class="label">Guard cells</text>
 
   <line x1="610" y1="375" x2="700" y2="390" class="line"/>
-  <rect x="702" y="381" width="70" height="18" rx="4" class="label-bg"/>
+  <rect x="702" y="381" width="80" height="18" rx="4" class="label-bg"/>
   <text x="706" y="393" class="label">Stoma (pore)</text>
 
   <line x1="560" y1="350" x2="480" y2="330" class="line"/>
-  <rect x="350" y="321" width="128" height="18" rx="4" class="label-bg"/>
+  <rect x="350" y="321" width="146" height="18" rx="4" class="label-bg"/>
   <text x="354" y="333" class="label">Control stomatal opening</text>
 </svg>

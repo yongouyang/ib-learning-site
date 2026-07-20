@@ -36,7 +36,7 @@
   <path d="M108,135 C108,120 132,120 132,135 C132,148 120,152 108,148 C100,144 100,140 108,135 Z" fill="#fbcfe8" stroke="#db2777" class="system-icon"/>
   <path d="M120,125 Q125,140 120,150" fill="none" stroke="#db2777" stroke-width="1.5"/>
   <line x1="105" y1="135" x2="102" y2="135" class="line"/>
-  <rect x="20" y="116" width="82" height="30" rx="4" class="label-bg"/>
+  <rect x="20" y="116" width="107" height="30" rx="4" class="label-bg"/>
   <text x="28" y="130" class="label">Nervous system</text>
   <text x="28" y="142" class="sublabel">brain &amp; nerves</text>
 
@@ -44,7 +44,7 @@
   <ellipse cx="370" cy="135" rx="22" ry="14" fill="#fde68a" stroke="#d97706" class="system-icon"/>
   <circle cx="370" cy="120" r="7" fill="#fde68a" stroke="#d97706" class="system-icon"/>
   <line x1="392" y1="135" x2="392" y2="135" class="line"/>
-  <rect x="392" y="116" width="98" height="30" rx="4" class="label-bg"/>
+  <rect x="392" y="116" width="121" height="30" rx="4" class="label-bg"/>
   <text x="400" y="130" class="label">Endocrine system</text>
   <text x="400" y="142" class="sublabel">glands &amp; hormones</text>
 
@@ -60,14 +60,14 @@
   <ellipse cx="410" cy="250" rx="14" ry="22" fill="#bfdbfe" stroke="#3b82f6" class="system-icon"/>
   <line x1="400" y1="235" x2="400" y2="265" stroke="#3b82f6" stroke-width="2"/>
   <line x1="420" y1="250" x2="425" y2="250" class="line"/>
-  <rect x="425" y="231" width="90" height="30" rx="4" class="label-bg"/>
+  <rect x="425" y="231" width="131" height="30" rx="4" class="label-bg"/>
   <text x="433" y="245" class="label">Respiratory</text>
   <text x="433" y="257" class="sublabel">lungs &amp; gas exchange</text>
 
   <!-- Digestive system -->
   <path d="M105,365 C105,345 140,345 140,365 C140,380 120,390 105,380 C95,375 95,370 105,365 Z" fill="#fdba74" stroke="#f97316" class="system-icon"/>
   <line x1="105" y1="365" x2="110" y2="365" class="line"/>
-  <rect x="20" y="346" width="90" height="30" rx="4" class="label-bg"/>
+  <rect x="20" y="346" width="101" height="30" rx="4" class="label-bg"/>
   <text x="28" y="360" class="label">Digestive</text>
   <text x="28" y="372" class="sublabel">breaks down food</text>
 
@@ -123,7 +123,7 @@
   <text x="838" y="232" class="sublabel">(brain / glands)</text>
 
   <line x1="675" y1="352" x2="675" y2="370" class="line"/>
-  <rect x="595" y="370" width="160" height="20" rx="4" class="label-bg"/>
+  <rect x="585" y="370" width="180" height="20" rx="4" class="label-bg"/>
   <text x="675" y="384" text-anchor="middle" class="label">Effector carries out response</text>
 
   <line x1="538" y1="225" x2="520" y2="225" class="line"/>

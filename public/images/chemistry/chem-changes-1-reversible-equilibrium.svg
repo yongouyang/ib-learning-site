@@ -88,12 +88,12 @@
 
     <!-- Forward arrow -->
     <line x1="120" y1="72" x2="260" y2="72" class="reversible-arrow" stroke="#f97316" marker-end="url(#arrow-orange)"/>
-    <rect x="150" y="48" width="80" height="18" rx="4" class="label-bg"/>
+    <rect x="146" y="48" width="95" height="18" rx="4" class="label-bg"/>
     <text x="154" y="61" class="sublabel" fill="#7c2d12">forward reaction</text>
 
     <!-- Reverse arrow -->
     <line x1="480" y1="72" x2="340" y2="72" class="reversible-arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
-    <rect x="370" y="78" width="80" height="18" rx="4" class="label-bg"/>
+    <rect x="368" y="78" width="95" height="18" rx="4" class="label-bg"/>
     <text x="374" y="91" class="sublabel" fill="#1d4ed8">reverse reaction</text>
 
     <text x="300" y="105" text-anchor="middle" class="sublabel">Rates are equal; concentrations stay constant.</text>

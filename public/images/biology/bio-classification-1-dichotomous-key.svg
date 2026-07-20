@@ -19,7 +19,7 @@
   <text x="390" y="36" text-anchor="middle" class="title">Using a Dichotomous Key</text>
 
   <!-- Start -->
-  <rect x="330" y="70" width="120" height="40" fill="#ffffff" stroke="#16a34a" class="box"/>
+  <rect x="312" y="70" width="156" height="40" fill="#ffffff" stroke="#16a34a" class="box"/>
   <text x="390" y="96" text-anchor="middle" class="label">Start: unknown organism</text>
 
   <!-- First question -->
@@ -76,7 +76,8 @@
   <text x="685" y="402" text-anchor="middle" class="sublabel">(membrane wings)</text>
 
   <!-- Rules box -->
-  <rect x="30" y="460" width="480" height="45" fill="#ffffff" stroke="#d1d5db" stroke-width="2" rx="6"/>
-  <text x="270" y="480" text-anchor="middle" class="sublabel">Rules: choices are mutually exclusive, use observable traits, each branch ends at one identification.</text>
-  <text x="270" y="498" text-anchor="middle" class="sublabel">Answer one pair at a time to narrow down the organism.</text>
+  <rect x="30" y="450" width="480" height="60" fill="#ffffff" stroke="#d1d5db" stroke-width="2" rx="6"/>
+  <text x="270" y="468" text-anchor="middle" class="sublabel">Rules: choices are mutually exclusive, use observable traits,</text>
+  <text x="270" y="484" text-anchor="middle" class="sublabel">each branch ends at one identification.</text>
+  <text x="270" y="500" text-anchor="middle" class="sublabel">Answer one pair at a time to narrow down the organism.</text>
 </svg>

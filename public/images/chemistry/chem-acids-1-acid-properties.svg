@@ -58,7 +58,7 @@
     <circle cx="55" cy="120" r="11" class="molecule"/>
     <!-- few ions -->
     <circle cx="100" cy="70" r="6" class="ion-h"/><text x="100" y="73" text-anchor="middle" class="sublabel" fill="white">H⁺</text>
-    <circle cx="25" cy="110" r="9" class="ion-acetate"/><text x="25" y="113" text-anchor="middle" class="sublabel" fill="white">CH₃COO⁻</text>
+    <circle cx="31" cy="110" r="9" class="ion-acetate"/><text x="31" y="113" text-anchor="middle" class="sublabel" fill="white">CH₃COO⁻</text>
 
     <text x="60" y="165" text-anchor="middle" class="sublabel">Partially ionised — most molecules stay intact</text>
   </g>
@@ -71,7 +71,8 @@
 
     <rect x="155" y="0" width="135" height="55" rx="8" class="box"/>
     <text x="222" y="22" text-anchor="middle" class="label">Corrosive</text>
-    <text x="222" y="40" text-anchor="middle" class="sublabel">burn skin / damage materials</text>
+    <text x="222" y="36" text-anchor="middle" class="sublabel">burn skin,</text>
+    <text x="222" y="50" text-anchor="middle" class="sublabel">damage materials</text>
 
     <rect x="310" y="0" width="135" height="55" rx="8" class="box"/>
     <text x="377" y="22" text-anchor="middle" class="label">Litmus red</text>

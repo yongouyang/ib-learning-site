@@ -70,7 +70,7 @@
     <ellipse cx="740" cy="200" rx="60" ry="25" fill="#f3e8ff" stroke="#9333ea" stroke-width="2"/>
     <!-- Height label -->
     <line x1="820" y1="200" x2="820" y2="340" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-slate)" marker-start="url(#arrow-slate)"/>
-    <text x="845" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#334155" text-anchor="start">height h</text>
+    <text x="850" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#334155" text-anchor="middle">height h</text>
     <!-- Radius label -->
     <line x1="740" y1="200" x2="800" y2="200" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow-slate)"/>
     <text x="770" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#334155" text-anchor="middle">radius r</text>

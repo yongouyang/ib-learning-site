@@ -77,8 +77,8 @@
 
   <!-- Condensation arrow -->
   <path d="M620 265 Q580 300 535 265" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>
-  <rect x="545" y="282" width="90" height="18" rx="4" class="label-bg"/>
-  <text x="555" y="294" class="label">Condensation</text>
+  <rect x="527" y="282" width="92" height="18" rx="4" class="label-bg"/>
+  <text x="529" y="294" class="label">Condensation</text>
 
   <!-- Sublimation arrow -->
   <path d="M230 170 Q230 110 450 110 Q670 110 670 170" class="arrow" stroke="#f97316" marker-end="url(#arrow-orange)" fill="none"/>
@@ -97,7 +97,7 @@
     <text x="55" y="22" class="sublabel">Heating / energy added</text>
     <line x1="20" y1="36" x2="50" y2="36" class="arrow" stroke="#3b82f6"/>
     <text x="55" y="40" class="sublabel">Cooling / energy removed</text>
-    <line x1="190" y1="27" x2="220" y2="27" class="arrow" stroke="#f97316"/>
-    <text x="225" y="31" class="sublabel">Direct solid ⇄ gas</text>
+    <line x1="165" y1="27" x2="195" y2="27" class="arrow" stroke="#f97316"/>
+    <text x="200" y="31" class="sublabel">Direct solid ⇄ gas</text>
   </g>
 </svg>

@@ -36,7 +36,7 @@
     <!-- Tree -->
     <rect x="70" y="70" width="14" height="40" fill="#78350f"/>
     <circle cx="77" cy="60" r="28" fill="#22c55e"/>
-    <text x="80" y="110" text-anchor="middle" class="sublabel">photosynthesis</text>
+    <text x="80" y="115" text-anchor="middle" class="sublabel">photosynthesis</text>
   </g>
 
   <!-- Animals -->
@@ -85,7 +85,7 @@
 
   <!-- Plants to atmosphere (respiration/decomposition) -->
   <path d="M200,290 C240,240 300,200 350,170" class="arrow" stroke="#9ca3af" stroke-dasharray="5,4" marker-end="url(#arrow-gray)"/>
-  <rect x="230" y="235" width="90" height="18" rx="4" class="label-bg"/>
+  <rect x="230" y="235" width="115" height="18" rx="4" class="label-bg"/>
   <text x="235" y="248" class="sublabel">Respiration &amp; decay</text>
 
   <!-- Atmosphere to oceans -->

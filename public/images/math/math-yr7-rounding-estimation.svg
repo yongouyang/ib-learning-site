@@ -27,7 +27,7 @@
     <line x1="110" y1="22" x2="110" y2="28" stroke="#6b7280" stroke-width="1"/>
     <text x="110" y="17" class="label" text-anchor="middle" fill="#6b7280">75</text>
     <polygon points="115,12 120,7 123,12" fill="#dc2626"/>
-    <text x="115" y="62" class="label" fill="#dc2626" text-anchor="middle">76 is ≥ 75 → round up to 80</text>
+    <text x="115" y="68" class="label" fill="#dc2626" text-anchor="middle">76 is ≥ 75 → round up to 80</text>
   </g>
 
   <!-- Rounding to nearest 100: 342 -->
@@ -70,9 +70,10 @@
 
   <!-- Significant figures -->
   <g transform="translate(420, 325)">
-    <rect x="0" y="0" width="450" height="65" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="0" y="0" width="450" height="95" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
     <text x="225" y="20" class="subhead" text-anchor="middle">Significant figures (s.f.)</text>
-   <text x="15" y="44" class="label">1st non-zero digit is the 1st significant figure. Zeros between non-zero digits count.</text>
-   <text x="15" y="60" class="math" fill="#d97706">0.0305 → 2 s.f. = 0.031  |  50800 → 3 s.f. = 50800 (or 5.08×10⁴)</text>
+   <text x="15" y="42" class="label">1st non-zero digit is the 1st significant figure.</text>
+   <text x="15" y="58" class="label">Zeros between non-zero digits count.</text>
+   <text x="15" y="80" class="math" fill="#d97706">0.0305 → 2 s.f. = 0.031  |  50800 → 3 s.f. = 5.08×10⁴</text>
   </g>
 </svg>
