@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
 import { UserProgress, TopicProgress, SubjectId } from '@/content/types';
 import {
   getUserProgress,
@@ -19,14 +19,23 @@ interface ProgressContextType {
 
 const ProgressContext = createContext<ProgressContextType | null>(null);
 
+// Same defaults the server renders with (progress-store returns these when
+// window is undefined) — state starts here so SSR and the first client render
+// match, then real progress is loaded from localStorage after mount.
+const SSR_DEFAULTS: UserProgress = { totalStars: 0, currentStreakDays: 0, lastStudyDate: null };
+
 export function ProgressProvider({ children }: { children: ReactNode }) {
-  const [userProgress, setUserProgress] = useState<UserProgress>(getUserProgress);
-  const [topicProgress, setTopicProgress] = useState<TopicProgress[]>(getAllTopicProgress);
+  const [userProgress, setUserProgress] = useState<UserProgress>(SSR_DEFAULTS);
+  const [topicProgress, setTopicProgress] = useState<TopicProgress[]>([]);
 
   const refresh = useCallback(() => {
     setUserProgress(getUserProgress());
     setTopicProgress(getAllTopicProgress());
   }, []);
+
+  useEffect(() => {
+    refresh();
+  }, [refresh]);
 
   const recordAttempt = useCallback((
     topicId: string, subjectId: SubjectId, topicTitle: string, subjectTitle: string,
