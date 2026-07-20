@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-07-19 — Hydration mismatch fix (ProgressContext)
+
+Git HEAD: `9767e68` (branch `develop`, uncommitted push pending)
+Done: Home page threw a React hydration error for users with saved progress — `ProgressProvider` initialized state via `useState(getUserProgress)`, reading localStorage synchronously, so client render ≠ SSR. Now initializes with the same defaults the server uses and loads real progress in `useEffect` after mount. Fixes streak badge / subject stars / weak-topics panel mismatches in one place.
+Verified: tsc ✅, Vitest 87/87 ✅, headless-Chrome check with seeded localStorage (streak badge renders, zero hydration console errors) ✅, e2e app+study+flashcards 42/42 ✅.
+Next: 1) DP niche topics (Markov Chains, Volume of Revolution, Further Differential Equations). 2) Y8 science expansion. 3) Features: spaced repetition, progress sync, PWA.
+Notes: Bug predates the Next 15 upgrade — React 19/Next 15 just surfaced it as a visible recoverable error. ThemeContext already used the correct mount-then-load pattern.
+
+---
+
 ## 2026-07-19 — Next.js 15.5.20 + React 19 upgrade (branch pushed)
 
 Git HEAD: `31aece8` (branch `chore/next-15-upgrade`, pushed to origin; NOT merged to develop)
