@@ -6,26 +6,26 @@ import subjectsMeta from './data/subjects.json';
 
 // Math topics
 import math_algebra_1_json from './data/topics/math/math-algebra-1.json';
-import math_dp_binomial_json from './data/topics/math/math-dp-binomial.json';
-import math_dp_complex_numbers_json from './data/topics/math/math-dp-complex-numbers.json';
-import math_dp_correlation_regression_json from './data/topics/math/math-dp-correlation-regression.json';
-import math_dp_descriptive_statistics_json from './data/topics/math/math-dp-descriptive-statistics.json';
-import math_dp_differentiation_json from './data/topics/math/math-dp-differentiation.json';
-import math_dp_explog_json from './data/topics/math/math-dp-explog.json';
-import math_dp_exponents_json from './data/topics/math/math-dp-exponents.json';
-import math_dp_functions_json from './data/topics/math/math-dp-functions.json';
-import math_dp_graph_theory_json from './data/topics/math/math-dp-graph-theory.json';
-import math_dp_hypothesis_testing_json from './data/topics/math/math-dp-hypothesis-testing.json';
-import math_dp_integration_json from './data/topics/math/math-dp-integration.json';
-import math_dp_kinematics_json from './data/topics/math/math-dp-kinematics.json';
-import math_dp_matrices_json from './data/topics/math/math-dp-matrices.json';
-import math_dp_poisson_distribution_json from './data/topics/math/math-dp-poisson-distribution.json';
-import math_dp_probability_json from './data/topics/math/math-dp-probability.json';
-import math_dp_quadratics_json from './data/topics/math/math-dp-quadratics.json';
-import math_dp_sequences_json from './data/topics/math/math-dp-sequences.json';
-import math_dp_trig_json from './data/topics/math/math-dp-trig.json';
-import math_dp_vectors_json from './data/topics/math/math-dp-vectors.json';
-import math_dp_voronoi_diagrams_json from './data/topics/math/math-dp-voronoi-diagrams.json';
+import math_dp_ai_binomial_json from './data/topics/math/math-dp-ai-binomial.json';
+import math_dp_ai_complex_numbers_json from './data/topics/math/math-dp-ai-complex-numbers.json';
+import math_dp_ai_correlation_regression_json from './data/topics/math/math-dp-ai-correlation-regression.json';
+import math_dp_ai_descriptive_statistics_json from './data/topics/math/math-dp-ai-descriptive-statistics.json';
+import math_dp_ai_differentiation_json from './data/topics/math/math-dp-ai-differentiation.json';
+import math_dp_ai_explog_json from './data/topics/math/math-dp-ai-explog.json';
+import math_dp_ai_exponents_json from './data/topics/math/math-dp-ai-exponents.json';
+import math_dp_ai_functions_json from './data/topics/math/math-dp-ai-functions.json';
+import math_dp_ai_graph_theory_json from './data/topics/math/math-dp-ai-graph-theory.json';
+import math_dp_ai_hypothesis_testing_json from './data/topics/math/math-dp-ai-hypothesis-testing.json';
+import math_dp_ai_integration_json from './data/topics/math/math-dp-ai-integration.json';
+import math_dp_ai_kinematics_json from './data/topics/math/math-dp-ai-kinematics.json';
+import math_dp_ai_matrices_json from './data/topics/math/math-dp-ai-matrices.json';
+import math_dp_ai_poisson_distribution_json from './data/topics/math/math-dp-ai-poisson-distribution.json';
+import math_dp_ai_probability_json from './data/topics/math/math-dp-ai-probability.json';
+import math_dp_ai_quadratics_json from './data/topics/math/math-dp-ai-quadratics.json';
+import math_dp_ai_sequences_json from './data/topics/math/math-dp-ai-sequences.json';
+import math_dp_ai_trig_json from './data/topics/math/math-dp-ai-trig.json';
+import math_dp_ai_vectors_json from './data/topics/math/math-dp-ai-vectors.json';
+import math_dp_ai_voronoi_diagrams_json from './data/topics/math/math-dp-ai-voronoi-diagrams.json';
 import math_fractions_1_json from './data/topics/math/math-fractions-1.json';
 import math_geometry_1_json from './data/topics/math/math-geometry-1.json';
 import math_inequalities_myp_json from './data/topics/math/math-inequalities-myp.json';
@@ -130,26 +130,26 @@ import phys_space_1_json from './data/topics/physics/phys-space-1.json';
 import phys_waves_1_json from './data/topics/physics/phys-waves-1.json';
 
 const math_algebra_1: Topic = topicSchema.parse(math_algebra_1_json);
-const math_dp_binomial: Topic = topicSchema.parse(math_dp_binomial_json);
-const math_dp_complex_numbers: Topic = topicSchema.parse(math_dp_complex_numbers_json);
-const math_dp_correlation_regression: Topic = topicSchema.parse(math_dp_correlation_regression_json);
-const math_dp_descriptive_statistics: Topic = topicSchema.parse(math_dp_descriptive_statistics_json);
-const math_dp_differentiation: Topic = topicSchema.parse(math_dp_differentiation_json);
-const math_dp_explog: Topic = topicSchema.parse(math_dp_explog_json);
-const math_dp_exponents: Topic = topicSchema.parse(math_dp_exponents_json);
-const math_dp_functions: Topic = topicSchema.parse(math_dp_functions_json);
-const math_dp_graph_theory: Topic = topicSchema.parse(math_dp_graph_theory_json);
-const math_dp_hypothesis_testing: Topic = topicSchema.parse(math_dp_hypothesis_testing_json);
-const math_dp_integration: Topic = topicSchema.parse(math_dp_integration_json);
-const math_dp_kinematics: Topic = topicSchema.parse(math_dp_kinematics_json);
-const math_dp_matrices: Topic = topicSchema.parse(math_dp_matrices_json);
-const math_dp_poisson_distribution: Topic = topicSchema.parse(math_dp_poisson_distribution_json);
-const math_dp_probability: Topic = topicSchema.parse(math_dp_probability_json);
-const math_dp_quadratics: Topic = topicSchema.parse(math_dp_quadratics_json);
-const math_dp_sequences: Topic = topicSchema.parse(math_dp_sequences_json);
-const math_dp_trig: Topic = topicSchema.parse(math_dp_trig_json);
-const math_dp_vectors: Topic = topicSchema.parse(math_dp_vectors_json);
-const math_dp_voronoi_diagrams: Topic = topicSchema.parse(math_dp_voronoi_diagrams_json);
+const math_dp_ai_binomial: Topic = topicSchema.parse(math_dp_ai_binomial_json);
+const math_dp_ai_complex_numbers: Topic = topicSchema.parse(math_dp_ai_complex_numbers_json);
+const math_dp_ai_correlation_regression: Topic = topicSchema.parse(math_dp_ai_correlation_regression_json);
+const math_dp_ai_descriptive_statistics: Topic = topicSchema.parse(math_dp_ai_descriptive_statistics_json);
+const math_dp_ai_differentiation: Topic = topicSchema.parse(math_dp_ai_differentiation_json);
+const math_dp_ai_explog: Topic = topicSchema.parse(math_dp_ai_explog_json);
+const math_dp_ai_exponents: Topic = topicSchema.parse(math_dp_ai_exponents_json);
+const math_dp_ai_functions: Topic = topicSchema.parse(math_dp_ai_functions_json);
+const math_dp_ai_graph_theory: Topic = topicSchema.parse(math_dp_ai_graph_theory_json);
+const math_dp_ai_hypothesis_testing: Topic = topicSchema.parse(math_dp_ai_hypothesis_testing_json);
+const math_dp_ai_integration: Topic = topicSchema.parse(math_dp_ai_integration_json);
+const math_dp_ai_kinematics: Topic = topicSchema.parse(math_dp_ai_kinematics_json);
+const math_dp_ai_matrices: Topic = topicSchema.parse(math_dp_ai_matrices_json);
+const math_dp_ai_poisson_distribution: Topic = topicSchema.parse(math_dp_ai_poisson_distribution_json);
+const math_dp_ai_probability: Topic = topicSchema.parse(math_dp_ai_probability_json);
+const math_dp_ai_quadratics: Topic = topicSchema.parse(math_dp_ai_quadratics_json);
+const math_dp_ai_sequences: Topic = topicSchema.parse(math_dp_ai_sequences_json);
+const math_dp_ai_trig: Topic = topicSchema.parse(math_dp_ai_trig_json);
+const math_dp_ai_vectors: Topic = topicSchema.parse(math_dp_ai_vectors_json);
+const math_dp_ai_voronoi_diagrams: Topic = topicSchema.parse(math_dp_ai_voronoi_diagrams_json);
 const math_fractions_1: Topic = topicSchema.parse(math_fractions_1_json);
 const math_geometry_1: Topic = topicSchema.parse(math_geometry_1_json);
 const math_inequalities_myp: Topic = topicSchema.parse(math_inequalities_myp_json);
@@ -262,7 +262,7 @@ const mathSubject: Subject = {
   name: mathMeta.name,
   icon: mathMeta.icon,
   accentColor: mathMeta.accentColor,
-  topics: [math_algebra_1, math_dp_binomial, math_dp_complex_numbers, math_dp_correlation_regression, math_dp_descriptive_statistics, math_dp_differentiation, math_dp_explog, math_dp_exponents, math_dp_functions, math_dp_graph_theory, math_dp_hypothesis_testing, math_dp_integration, math_dp_kinematics, math_dp_matrices, math_dp_poisson_distribution, math_dp_probability, math_dp_quadratics, math_dp_sequences, math_dp_trig, math_dp_vectors, math_dp_voronoi_diagrams, math_fractions_1, math_geometry_1, math_inequalities_myp, math_linear_myp, math_powers_myp, math_pythagoras_myp, math_ratio_myp, math_simultaneous_myp, math_statistics_1, math_trig_basic_myp, math_yr7_algebraic_expressions, math_yr7_angles, math_yr7_area_perimeter, math_yr7_bearings_scale, math_yr7_calculations, math_yr7_constructions_loci, math_yr7_data, math_yr7_decimals, math_yr7_equations, math_yr7_factors_multiples, math_yr7_measures_conversions, math_yr7_money_finance, math_yr7_negative_numbers, math_yr7_nets_3d_shapes, math_yr7_percentages, math_yr7_probability, math_yr7_rounding_estimation, math_yr7_sequences, math_yr7_substitution, math_yr7_transformations, math_yr7_venn_sets, math_yr7_volume_surface_area, math_yr8_angles_parallel_polygons, math_yr8_circles, math_yr8_compound_measures, math_yr8_congruence_similarity, math_yr8_factorising, math_yr8_linear_equations, math_yr8_percentages_ratio_proportion, math_yr8_probability_trees, math_yr8_pythagoras, math_yr8_sequences, math_yr8_standard_form, math_yr8_statistics_averages, math_yr8_straight_line_graphs, math_yr8_transformations, math_yr8_volume_surface_area],
+  topics: [math_algebra_1, math_dp_ai_binomial, math_dp_ai_complex_numbers, math_dp_ai_correlation_regression, math_dp_ai_descriptive_statistics, math_dp_ai_differentiation, math_dp_ai_explog, math_dp_ai_exponents, math_dp_ai_functions, math_dp_ai_graph_theory, math_dp_ai_hypothesis_testing, math_dp_ai_integration, math_dp_ai_kinematics, math_dp_ai_matrices, math_dp_ai_poisson_distribution, math_dp_ai_probability, math_dp_ai_quadratics, math_dp_ai_sequences, math_dp_ai_trig, math_dp_ai_vectors, math_dp_ai_voronoi_diagrams, math_fractions_1, math_geometry_1, math_inequalities_myp, math_linear_myp, math_powers_myp, math_pythagoras_myp, math_ratio_myp, math_simultaneous_myp, math_statistics_1, math_trig_basic_myp, math_yr7_algebraic_expressions, math_yr7_angles, math_yr7_area_perimeter, math_yr7_bearings_scale, math_yr7_calculations, math_yr7_constructions_loci, math_yr7_data, math_yr7_decimals, math_yr7_equations, math_yr7_factors_multiples, math_yr7_measures_conversions, math_yr7_money_finance, math_yr7_negative_numbers, math_yr7_nets_3d_shapes, math_yr7_percentages, math_yr7_probability, math_yr7_rounding_estimation, math_yr7_sequences, math_yr7_substitution, math_yr7_transformations, math_yr7_venn_sets, math_yr7_volume_surface_area, math_yr8_angles_parallel_polygons, math_yr8_circles, math_yr8_compound_measures, math_yr8_congruence_similarity, math_yr8_factorising, math_yr8_linear_equations, math_yr8_percentages_ratio_proportion, math_yr8_probability_trees, math_yr8_pythagoras, math_yr8_sequences, math_yr8_standard_form, math_yr8_statistics_averages, math_yr8_straight_line_graphs, math_yr8_transformations, math_yr8_volume_surface_area],
 };
 const englishSubject: Subject = {
   id: englishMeta.id as SubjectId,

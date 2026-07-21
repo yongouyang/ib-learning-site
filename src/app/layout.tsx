@@ -45,6 +45,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </header>
             <div className="flex-1 flex flex-col">
               <main className="flex-1 pb-24 md:pb-0">{children}</main>
+              <footer className="px-6 pt-4 pb-24 md:pb-4 text-center text-xs text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-800">
+                IBLearn is an independent study resource and is not endorsed by or affiliated with the International Baccalaureate Organization (IBO) or Cambridge Assessment International Education (CAIE).
+              </footer>
               <Nav />
             </div>
           </ProgressProvider>

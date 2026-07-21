@@ -1,10 +1,41 @@
 import fs from 'fs';
 import path from 'path';
-import { topicSchema, subjectMetaSchema } from '../src/content/schema';
+import { topicSchema, subjectMetaSchema, type ValidatedTopic } from '../src/content/schema';
 
 const DATA_DIR = path.resolve(__dirname, '../src/content/data');
 const TOPICS_DIR = path.join(DATA_DIR, 'topics');
 const SUBJECTS_FILE = path.join(DATA_DIR, 'subjects.json');
+
+// Stage/course/level consistency rules (Phase 1 taxonomy).
+function checkStageConsistency(topic: ValidatedTopic): string[] {
+  const errors: string[] = [];
+  const { stage, year, course, level } = topic;
+
+  if (year !== undefined && stage !== 'ks3') {
+    errors.push(`year is set (${year}) but stage is "${stage}" (year is ks3-only)`);
+  }
+  if (stage === 'ks3' && level !== undefined) {
+    errors.push(`level is set ("${level}") but stage is "ks3" (level is igcse/dp-only)`);
+  }
+  if (level === 'core' || level === 'extended') {
+    if (stage !== 'igcse') {
+      errors.push(`level "${level}" requires stage "igcse", got "${stage}"`);
+    }
+  }
+  if (level === 'sl' || level === 'hl') {
+    if (stage !== 'dp') {
+      errors.push(`level "${level}" requires stage "dp", got "${stage}"`);
+    }
+  }
+  if (stage === 'dp' && !course) {
+    errors.push('stage "dp" requires a course (e.g. "aa", "ai", "bio", "chem", "phys", "langlit")');
+  }
+  if (stage === 'igcse' && !course) {
+    errors.push('stage "igcse" requires a course (e.g. "0580", "0610", "0620", "0625", "0500")');
+  }
+
+  return errors;
+}
 
 interface Failure {
   file: string;
@@ -62,6 +93,11 @@ function validateTopics() {
             filePath,
             `subjectId "${result.data.subjectId}" does not match folder "${subjectDir}"`
           );
+          continue;
+        }
+        const consistencyErrors = checkStageConsistency(result.data);
+        if (consistencyErrors.length > 0) {
+          failures.push({ file: relative(filePath), errors: consistencyErrors });
           continue;
         }
         console.log(`✓ ${relative(filePath)}`);

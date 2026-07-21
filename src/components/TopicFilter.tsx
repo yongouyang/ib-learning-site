@@ -2,7 +2,7 @@
 
 import { Search, X } from 'lucide-react';
 import {
-  LevelFilter,
+  StageFilter,
   TopicFilterState,
 } from '@/lib/topic-filter';
 
@@ -12,10 +12,11 @@ interface TopicFilterProps {
   resultCount: number;
 }
 
-const levelOptions: { value: LevelFilter; label: string }[] = [
+const stageOptions: { value: StageFilter; label: string }[] = [
   { value: 'all', label: 'All' },
-  { value: 'MYP', label: 'MYP' },
-  { value: 'DP', label: 'DP' },
+  { value: 'ks3', label: 'KS3' },
+  { value: 'igcse', label: 'IGCSE' },
+  { value: 'dp', label: 'IB DP' },
 ];
 
 export function TopicFilter({ value, onChange, resultCount }: TopicFilterProps) {
@@ -49,14 +50,14 @@ export function TopicFilter({ value, onChange, resultCount }: TopicFilterProps) 
 
       <div className="flex items-center justify-between">
         <div className="inline-flex rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
-          {levelOptions.map((option) => (
+          {stageOptions.map((option) => (
             <button
               key={option.value}
               type="button"
-              onClick={() => update({ level: option.value })}
-              aria-pressed={value.level === option.value}
+              onClick={() => update({ stage: option.value })}
+              aria-pressed={value.stage === option.value}
               className={`px-3 py-1.5 text-sm font-medium transition-colors ${
-                value.level === option.value
+                value.stage === option.value
                   ? 'bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300'
                   : 'bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
               }`}

@@ -40,6 +40,14 @@ test.describe('Home page', () => {
     // Tailwind blue-500 / #3B82F6 in rgb
     expect(borderTopColor).toBe('rgb(59, 130, 246)');
   });
+
+  test('footer shows the trademark disclaimer', async ({ page }) => {
+    await page.goto('/');
+    const footer = page.locator('footer');
+    await expect(footer).toBeVisible();
+    await expect(footer).toContainText('not endorsed by or affiliated with the International Baccalaureate Organization');
+    await expect(footer).toContainText('Cambridge Assessment International Education');
+  });
 });
 
 test.describe('Subject pages', () => {
@@ -48,8 +56,20 @@ test.describe('Subject pages', () => {
     await expect(page.getByRole('heading', { name: 'Math' }).first()).toBeVisible();
     // A DP topic should be visible
     await expect(page.getByText('Sequences & Series')).toBeVisible();
-    // An MYP topic should also be visible
+    // A KS3 topic should also be visible
     await expect(page.getByText('Algebra Basics')).toBeVisible();
+  });
+
+  test('math subject page groups topics by stage and year', async ({ page }) => {
+    await page.goto('/subjects/math');
+    await expect(page.getByRole('heading', { name: 'KS3 · Year 7' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'KS3 · Year 8' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'IB DP' })).toBeVisible();
+    // Year 7 group contains a Y7 topic; DP group contains a DP topic
+    const y7Section = page.getByRole('region', { name: 'KS3 · Year 7' });
+    await expect(y7Section.getByText('Written Calculations')).toBeVisible();
+    const dpSection = page.getByRole('region', { name: 'IB DP' });
+    await expect(dpSection.getByText('Sequences & Series')).toBeVisible();
   });
 
   test('biology subject page should show enriched topics', async ({ page }) => {
@@ -77,19 +97,19 @@ test.describe('Subject pages', () => {
     await expect(page.getByText('Algebra Basics')).toBeVisible();
   });
 
-  test('math subject page filters topics by level', async ({ page }) => {
+  test('math subject page filters topics by stage', async ({ page }) => {
     await page.goto('/subjects/math');
 
-    const dpButton = page.getByRole('button', { name: 'DP', exact: true });
-    const mypButton = page.getByRole('button', { name: 'MYP', exact: true });
+    const dpButton = page.getByRole('button', { name: 'IB DP', exact: true });
+    const ks3Button = page.getByRole('button', { name: 'KS3', exact: true });
 
-    // Filter to DP: DP badge should be visible, a known MYP topic should not
+    // Filter to IB DP: DP topic should be visible, a known KS3 topic should not
     await dpButton.click();
     await expect(page.getByText('Sequences & Series')).toBeVisible();
     await expect(page.getByText('Written Calculations')).not.toBeVisible();
 
-    // Filter to MYP
-    await mypButton.click();
+    // Filter to KS3
+    await ks3Button.click();
     await expect(page.getByText('Written Calculations')).toBeVisible();
     await expect(page.getByText('Sequences & Series')).not.toBeVisible();
   });
@@ -104,7 +124,7 @@ test.describe('Subject pages', () => {
 });
 
 test.describe('Quiz flow', () => {
-  test('should complete a full MYP quiz and show results', async ({ page }) => {
+  test('should complete a full KS3 quiz and show results', async ({ page }) => {
     await page.goto('/subjects/math/math-yr7-calculations/quiz');
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
 
@@ -132,13 +152,13 @@ test.describe('Quiz flow', () => {
 
   test('should load a DP-level quiz page with KaTeX-rendered math', async ({ page }) => {
     // Start on the study page for the DP topic where notes render KaTeX
-    await page.goto('/subjects/math/math-dp-sequences/study');
+    await page.goto('/subjects/math/math-dp-ai-sequences/study');
     await expect(page.getByRole('heading', { name: 'Sequences & Series', level: 1 })).toBeVisible();
     await expect(page.locator('.katex').first()).toBeVisible({ timeout: 10000 });
 
     // Navigate into the quiz from the study page
     await page.getByRole('link', { name: /Take Quiz/i }).click();
-    await page.waitForURL('/subjects/math/math-dp-sequences/quiz');
+    await page.waitForURL('/subjects/math/math-dp-ai-sequences/quiz');
 
     // Quiz page should have a question stem heading visible
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();

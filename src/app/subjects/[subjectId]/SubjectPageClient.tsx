@@ -8,6 +8,7 @@ import { getSubject } from '@/content/registry';
 import { useProgress } from '@/context/ProgressContext';
 import { getRecentAverageScore } from '@/lib/progress-store';
 import { filterTopics, TopicFilterState } from '@/lib/topic-filter';
+import { groupTopicsByStage } from '@/lib/topic-groups';
 import { TopicFilter } from '@/components/TopicFilter';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import InlineMath from '@/components/InlineMath';
@@ -20,12 +21,14 @@ interface SubjectPageClientProps {
 export default function SubjectPageClient({ subjectId }: SubjectPageClientProps) {
   const subject = getSubject(subjectId as SubjectId);
   const { topicProgress } = useProgress();
-  const [filter, setFilter] = useState<TopicFilterState>({ query: '', level: 'all' });
+  const [filter, setFilter] = useState<TopicFilterState>({ query: '', stage: 'all' });
 
   if (!subject) return <p className="p-6">Subject not found.</p>;
 
   const emoji = subjectId === 'math' ? '📐' : subjectId === 'english' ? '📖' : subjectId === 'biology' ? '🌿' : subjectId === 'chemistry' ? '🧪' : '⚛️';
   const filteredTopics = filterTopics(subject.topics, filter);
+  const groups = groupTopicsByStage(filteredTopics);
+  let cardIndex = 0;
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
@@ -46,7 +49,7 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
 
       <TopicFilter value={filter} onChange={setFilter} resultCount={filteredTopics.length} />
 
-      <div className="space-y-3">
+      <div className="space-y-6">
         {filteredTopics.length === 0 && (
           <div className="card p-8 text-center">
             <SearchX className="w-10 h-10 mx-auto mb-3 text-gray-400" />
@@ -55,10 +58,18 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
             </p>
           </div>
         )}
-        {filteredTopics.map((topic, idx) => {
-          const tp = topicProgress.find(t => t.topicId === topic.id && t.subjectId === subjectId);
-          const score = tp ? getRecentAverageScore(tp.attempts) : -1;
-          const stars = score >= 0.9 ? 3 : score >= 0.7 ? 2 : score >= 0.4 ? 1 : 0;
+        {groups.map((group) => (
+          <section key={group.key} aria-label={group.label}>
+            <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
+              {group.label}
+              <span className="ml-1.5 font-normal normal-case">({group.topics.length})</span>
+            </h2>
+            <div className="space-y-3">
+              {group.topics.map((topic) => {
+                const idx = cardIndex++;
+                const tp = topicProgress.find(t => t.topicId === topic.id && t.subjectId === subjectId);
+                const score = tp ? getRecentAverageScore(tp.attempts) : -1;
+                const stars = score >= 0.9 ? 3 : score >= 0.7 ? 2 : score >= 0.4 ? 1 : 0;
 
           return (
             <motion.div
@@ -73,8 +84,8 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-0.5">
                     <h3 className="font-semibold text-gray-900 dark:text-gray-50">{topic.title}</h3>
-                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wide ${topic.ibLevel === 'DP' ? 'bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300' : 'bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300'}`}>
-                      {topic.ibLevel}
+                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wide ${topic.stage === 'dp' ? 'bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300' : topic.stage === 'igcse' ? 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300' : 'bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300'}`}>
+                      {topic.stage === 'dp' ? `DP${topic.level ? ` ${topic.level.toUpperCase()}` : ''}` : topic.stage === 'igcse' ? 'IGCSE' : 'KS3'}
                     </span>
                   </div>
                   <p className="text-sm text-gray-500 dark:text-gray-400"><InlineMath text={topic.description} /></p>
@@ -103,8 +114,11 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
                 </Link>
               </div>
             </motion.div>
-          );
-        })}
+              );
+              })}
+            </div>
+          </section>
+        ))}
       </div>
     </div>
   );

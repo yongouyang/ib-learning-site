@@ -13,7 +13,7 @@ const validTopic = {
   subjectId: 'math',
   title: 'Test Topic',
   description: 'A topic for testing validation.',
-  ibLevel: 'MYP',
+  stage: 'ks3',
   notes: [
     { id: 'n1', heading: 'Note 1', body: 'This is a note body.' },
   ],
@@ -50,7 +50,7 @@ describe('content schema validation', () => {
     it('should accept a valid topic', () => {
       const result = topicSchema.parse(validTopic);
       expect(result.id).toBe('test-topic-1');
-      expect(result.ibLevel).toBe('MYP');
+      expect(result.stage).toBe('ks3');
     });
 
     it('should reject a topic with missing id', () => {
@@ -63,8 +63,8 @@ describe('content schema validation', () => {
       expect(() => topicSchema.parse(invalid)).toThrow();
     });
 
-    it('should reject a topic with invalid ibLevel', () => {
-      const invalid = { ...validTopic, ibLevel: 'HL' };
+    it('should reject a topic with invalid stage', () => {
+      const invalid = { ...validTopic, stage: 'MYP' };
       expect(() => topicSchema.parse(invalid)).toThrow();
     });
 

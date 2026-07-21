@@ -107,21 +107,22 @@ describe('content-registry', () => {
   describe('DP-level topics', () => {
     it('math should have DP topics', () => {
       const math = getSubject('math')!;
-      const dpTopics = math.topics.filter(t => t.ibLevel === 'DP');
+      const dpTopics = math.topics.filter(t => t.stage === 'dp');
       expect(dpTopics.length).toBeGreaterThanOrEqual(18);
     });
 
     it('DP topics should be accessible via getTopic', () => {
-      const topic = getTopic('math', 'math-dp-sequences');
+      const topic = getTopic('math', 'math-dp-ai-sequences');
       expect(topic).toBeDefined();
-      expect(topic!.ibLevel).toBe('DP');
+      expect(topic!.stage).toBe('dp');
+      expect(topic!.course).toBe('ai');
       expect(topic!.title).toBe('Sequences & Series');
     });
 
-    it('every topic ibLevel should be MYP or DP', () => {
+    it('every topic stage should be ks3, igcse or dp', () => {
       for (const subj of getSubjects()) {
         for (const topic of subj.topics) {
-          expect(['MYP', 'DP'], `${subj.id}/${topic.id}: invalid ibLevel`).toContain(topic.ibLevel);
+          expect(['ks3', 'igcse', 'dp'], `${subj.id}/${topic.id}: invalid stage`).toContain(topic.stage);
         }
       }
     });

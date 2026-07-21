@@ -39,4 +39,6 @@ npm run test:e2e               # Playwright (auto-starts dev server)
 - Illustration rules: `ILLUSTRATION_GUIDELINES.md`. SVGs go in `public/images/<subject>/`.
 - `src/content/registry.ts` is generated — never edit by hand; use `npm run generate:registry`.
 - New topics follow the 7 notes / 12 flashcards / 15 questions standard.
+- Topic taxonomy: `stage` (ks3/igcse/dp) + optional `year`/`course`/`level` — see `CONTENT_STYLE.md` ("Stage & course tagging" and ID conventions). `ibLevel` was retired in the Phase 1 migration (2026-07).
+- Roadmap: `revised-implementation-plan.md` (phases) and `phase-1-implementation-plan.md`.
 - Deploy: Vercel, automatic on push to `develop`.

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Study page', () => {
   test('should render a DP math topic with notes, KaTeX formulas, and action links', async ({ page }) => {
-    await page.goto('/subjects/math/math-dp-sequences/study');
+    await page.goto('/subjects/math/math-dp-ai-sequences/study');
 
     // Topic title should be visible
     await expect(page.getByRole('heading', { name: 'Sequences & Series', level: 1 })).toBeVisible();

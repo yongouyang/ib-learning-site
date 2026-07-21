@@ -6,6 +6,26 @@
 
 ---
 
+## 2026-07-21 — Phase 1 Session 2: stage grouping, disclaimer footer, e2e green
+
+Git HEAD: `eec1489` + uncommitted changes (branch `develop`, tree dirty — Sessions 1+2 awaiting commit decision)
+Done: Subject pages now group topics by stage→year via new `src/lib/topic-groups.ts` (`KS3 · Year 7/8/9` → `KS3` → `IGCSE` → `IB DP`, labelled sections with counts). Trademark disclaimer footer added to `layout.tsx` (IBO + CAIE, visible above mobile bottom nav). e2e updated: stale `math-dp-sequences` → `math-dp-ai-sequences` in app/study/full-topic-journey specs, MYP/DP filter test → KS3/IB DP stage test. New tests: unit `topic-groups.test.ts` (3), e2e stage-grouping sections test + footer disclaimer test. Docs: CONTENT_STYLE.md gains "Stage & course tagging" table + new-topic ID conventions; AGENTS.md conventions updated (taxonomy, retired ibLevel, roadmap docs).
+Verified: tsc ✅, next lint ✅, validate:content ✅, audit:content ✅ 0/0, validate:illustrations ✅, validate:illustration-layout ✅, Vitest **90/90** ✅ (was 87), **full Playwright suite 462 passed / 0 failed / 6 skipped** ✅ (was 456 — +6 from new tests).
+Next: 1) Commit Sessions 1+2 (user decision). 2) Review provisional migration tags (myp→Y9, plain -1→Y7, DP SL/HL split). 3) Phase 2: difficulty/calculator tags + diagnostic tests. 4) Existing backlog (DP niche topics, Y8 science, PWA…).
+Notes: Phase 1 complete per `phase-1-implementation-plan.md` — both sessions done in one day.
+
+---
+
+## 2026-07-21 — Phase 1 Session 1: stage/course/level taxonomy + migration
+
+Git HEAD: `eec1489` + uncommitted changes (branch `develop`, tree dirty)
+Done: Replaced `ibLevel` (MYP/DP) with `stage` (ks3/igcse/dp) + optional `year` (7/8/9), `course`, `level` (core/extended/sl/hl) in `src/content/schema.ts` + `types.ts`. One-time `scripts/migrate-stage-tags.ts` (explicit pattern table, kept for audit) migrated all **119** topic JSONs and renamed `math-dp-*` → `math-dp-ai-*` (20 files, topic ids updated, inner item ids untouched); provisional tags flagged in script output (myp→Y9, plain -1→Y7, DP SL/HL split — HL-only: complex-numbers, poisson, graph-theory, hypothesis-testing, matrices). `validate-content.ts` gains stage/course/level consistency rules (year⇒ks3, sl/hl⇒dp, dp/igcse require course). Registry regenerated (119 topics). `topic-filter.ts` LevelFilter→StageFilter; `TopicFilter.tsx` options now All/KS3/IGCSE/IB DP; `SubjectPageClient` badge shows KS3/IGCSE/DP SL/HL (full stage *grouping* deferred to Session 2). Unit tests updated (topic-filter, topic-filter-component, content-schema, content-registry, audit-content).
+Verified: tsc ✅, next lint ✅, validate:content ✅, audit:content ✅ 0/0, validate:illustrations ✅, validate:illustration-layout ✅, Vitest 87/87 ✅. e2e NOT run — `tests/e2e/app.spec.ts:83-84` still targets MYP/DP buttons (Session 2).
+Next: 1) Phase 1 Session 2 (Part B): stage grouping on subject page, disclaimer footer, e2e updates, CONTENT_STYLE.md/AGENTS.md conventions. 2) Review provisional tags. 3) Existing backlog unchanged.
+Notes: Migration is one-way (no ibLevel left in data); script throws if re-run. User accepted orphaned DP localStorage progress from renames (dev phase). `next lint` deprecation still pending (ESLint CLI migration).
+
+---
+
 ## 2026-07-21 — Merged DeepSeek platform analysis into revised plan
 
 Git HEAD: `69b4b1a` (branch `develop`, tree dirty — plan doc + new DeepSeek analysis file, uncommitted)

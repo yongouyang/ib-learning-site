@@ -1,21 +1,21 @@
-import type { Topic } from '@/content/types';
+import type { Stage, Topic } from '@/content/types';
 
-export type LevelFilter = 'all' | 'MYP' | 'DP';
+export type StageFilter = 'all' | Stage;
 
 export interface TopicFilterState {
   query: string;
-  level: LevelFilter;
+  stage: StageFilter;
 }
 
 export function filterTopics(
   topics: Topic[],
-  { query, level }: TopicFilterState,
+  { query, stage }: TopicFilterState,
 ): Topic[] {
   const normalizedQuery = query.trim().toLowerCase();
 
   return topics.filter((topic) => {
-    const matchesLevel = level === 'all' || topic.ibLevel === level;
-    if (!matchesLevel) return false;
+    const matchesStage = stage === 'all' || topic.stage === stage;
+    if (!matchesStage) return false;
 
     if (normalizedQuery === '') return true;
 

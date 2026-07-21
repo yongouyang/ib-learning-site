@@ -12,12 +12,32 @@ Each topic is a single JSON file validated against `src/content/schema.ts`.
   "subjectId": "math",
   "title": "Fractions",
   "description": "...",
-  "ibLevel": "MYP",
+  "stage": "ks3",
+  "year": 7,
   "notes": [...],
   "flashcards": [...],
   "questions": [...]
 }
 ```
+
+## Stage & course tagging
+
+Every topic carries a curriculum taxonomy (replacing the old `ibLevel` field):
+
+| Field | Values | Rules |
+|---|---|---|
+| `stage` | `ks3`, `igcse`, `dp` | Required. |
+| `year` | `7`, `8`, `9` | KS3 only; omit for topics spanning years (e.g. science). |
+| `course` | IGCSE: `0580`, `0610`, `0620`, `0625`, `0500` · DP: `aa`, `ai`, `bio`, `chem`, `phys`, `langlit` | Required for `igcse` and `dp`. |
+| `level` | IGCSE: `core`, `extended` · DP: `sl`, `hl` | IGCSE/DP only; omit for KS3. |
+
+`npm run validate:content` enforces consistency (year ⇒ ks3, core/extended ⇒ igcse, sl/hl ⇒ dp, course required for igcse/dp).
+
+## Topic ID conventions for new topics
+
+- KS3: `<subject>-yr<7|8|9>-<slug>` (e.g. `math-yr9-quadratics`); `<subject>-<slug>-1` for KS3 science/English.
+- IGCSE: `<subject>-igcse-<slug>` (e.g. `bio-igcse-enzymes`).
+- DP: `<subject>-dp-<course>-<slug>` (e.g. `math-dp-ai-sequences`, `math-dp-aa-proof`, `phys-dp-kinematics`).
 
 ## Target sizes
 

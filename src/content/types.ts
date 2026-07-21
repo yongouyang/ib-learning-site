@@ -1,6 +1,8 @@
 export type SubjectId = 'english' | 'math' | 'biology' | 'chemistry' | 'physics';
 
-export type IBLevel = 'MYP' | 'DP';
+export type Stage = 'ks3' | 'igcse' | 'dp';
+
+export type CourseLevel = 'core' | 'extended' | 'sl' | 'hl';
 
 export interface Illustration {
   src: string;
@@ -35,7 +37,10 @@ export interface Topic {
   subjectId: SubjectId;
   title: string;
   description: string;
-  ibLevel: IBLevel;
+  stage: Stage;
+  year?: 7 | 8 | 9;
+  course?: string;
+  level?: CourseLevel;
   notes: ConceptNote[];
   flashcards: Flashcard[];
   questions: Question[];

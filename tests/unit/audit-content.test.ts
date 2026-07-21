@@ -13,7 +13,7 @@ function makeTopic(
     subjectId: overrides.subjectId,
     title: overrides.title ?? "Test Topic",
     description: overrides.description ?? "A topic for testing.",
-    ibLevel: "MYP",
+    stage: "ks3" as const,
     notes: overrides.notes ?? [
       { id: "n1", heading: "Note 1", body: "Body of note 1." },
     ],

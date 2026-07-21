@@ -2,7 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 
 const SAMPLES: Array<{ subjectId: string; topicId: string; title: string }> = [
   { subjectId: 'math', topicId: 'math-yr7-calculations', title: 'Written Calculations' },
-  { subjectId: 'math', topicId: 'math-dp-sequences', title: 'Sequences & Series' },
+  { subjectId: 'math', topicId: 'math-dp-ai-sequences', title: 'Sequences & Series' },
   { subjectId: 'math', topicId: 'math-yr8-probability-trees', title: 'Probability & Tree Diagrams' },
   { subjectId: 'math', topicId: 'math-yr8-straight-line-graphs', title: 'Straight-Line Graphs' },
   { subjectId: 'biology', topicId: 'bio-microorganisms-1', title: 'Microorganisms & Biotechnology' },
