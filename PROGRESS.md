@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-07-21 — Merged DeepSeek platform analysis into revised plan
+
+Git HEAD: `69b4b1a` (branch `develop`, tree dirty — plan doc + new DeepSeek analysis file, uncommitted)
+Done: Reviewed `content-resource-platforms-analysis_deepseek_v4_pro.md` (Save My Exams + PapaCambridge + RV, scraped July 2026) and merged into `revised-implementation-plan.md`: new §1.4 (SME — IGCSE breadth, Target Tests diagnostics, Smart Mark AI, all-access ~£40/yr model), §1.5 (PapaCambridge — free unsolved papers, topical solved papers as question-bank validation), §1.6 (cross-platform takeaways + source discrepancies — kept directly-verified RV figures: RV *does* have IGCSE math at igcse.revisionvillage.com; verified one-time $249/$499 pricing), new §7 Legal & compliance (original content only, no exam PDFs, IBO/CAIE trademark footer disclaimer in Phase 1, source file retained as reference). Phase updates: diagnostics added to Phase 2, predicted-mock note to Phase 3, flashcard "know/learning" sort to Phase 6, monetization model reference to Phase 7; Econ/Business/TOK added to non-goals.
+User decisions: keep 5-subject scope (Econ/Business/TOK future-only); add SME-style diagnostic tests to plan.
+Verified: docs-only session, no gates run.
+Next: 1) Commit both docs (user to confirm). 2) Phase 1: schema stage/course/level fields + migration + registry. 3) Existing backlog unchanged.
+
+---
+
 ## 2026-07-21 — Revision Village benchmark + revised Y7→IBDP plan
 
 Git HEAD: `a22a3aa` (branch `develop`, tree dirty — new untracked plan doc only)

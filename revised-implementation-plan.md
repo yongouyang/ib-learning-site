@@ -1,13 +1,13 @@
 # IBLearn — Revised Implementation Plan (Y7 → IBDP)
 
 > Supersedes the roadmap portions of `ib-books-analysis-and-implementation-plan.md`.
-> Benchmark: Revision Village (RV), researched 2026-07-21 (sources cited inline).
+> Benchmarks: Revision Village (RV), researched 2026-07-21 (sources cited inline); merged with the DeepSeek platform analysis (`content-resource-platforms-analysis_deepseek_v4_pro.md`, 2026-07-21) covering Save My Exams and PapaCambridge.
 > Student context: GSIS — UK KS3 in Y7–Y9 (from Aug 2026), Cambridge IGCSE in Y10–Y11, IBDP in Y12–Y13.
 > Tech stack: unchanged (Next.js 15 static + later serverless API route, React 19, Tailwind, KaTeX, Vitest/Playwright, Vercel).
 
 ---
 
-## 1. Revision Village benchmark — verified findings
+## 1. Platform benchmark — verified findings
 
 ### 1.1 What RV actually covers
 
@@ -46,6 +46,36 @@ RV is Next.js + MUI/Emotion; we stay Tailwind — below is the token mapping.
 - **Components**: pill buttons (`rounded-full`), accordion topic groups → sub-topic card grids, breadcrumbs on all inner pages, exam cards with calculator/no-calculator glyph + question count + duration, "RV Free/Gold" chips.
 - **Navigation**: subject mega-grid grouped by IB subject group; course page = vertical stack of resource cards (Questionbank / Practice Exams / Key Concepts / Past Papers / Flashcards); questionbank = Topic accordion → sub-topic cards.
 - **Dark mode**: none on web. (We keep ours — it's a differentiator.)
+
+### 1.4 Save My Exams (SME) — the IGCSE benchmark
+
+From `content-resource-platforms-analysis_deepseek_v4_pro.md` (scraped July 2026; coverage/resource types high confidence, pricing medium confidence):
+
+- **Coverage**: ~28 IGCSE subjects across Cambridge, Edexcel and Oxford AQA — including all 5 of ours; 11 IB DP subjects (Math AA/AI, Bio/Chem/Phys, Econ, Business, Psych, ESS, History) + TOK notes.
+- **Resource types worth borrowing**:
+  - *Revision Notes* — examiner-written, syllabus-organized, with diagrams and examiner tips. The gold standard for our study notes; our `📌/🔑/💡/📎/⚠️` conventions already match this style.
+  - *Flashcards* — self-sorted "I know this" / "Still learning" (same two-state model as RV's Seen/Known rings → our Phase 6).
+  - *Target Tests* — adaptive diagnostic tests that identify strengths/weaknesses and prescribe practice (→ folded into our Phase 2 per user decision).
+  - *Smart Mark* — AI marking against real mark schemes with detailed feedback; convergent with RV Newton AI (validates our Phase 5 design).
+  - *Mock exams* auto-graded; real past papers downloadable as PDFs (we won't host PDFs — copyright).
+- **Pricing model**: single all-access subscription (~£40/yr UK / ~$70 intl, free sample tier) — reference for the future monetization phase.
+
+### 1.5 PapaCambridge — authentic exam materials
+
+Same source, same confidence levels:
+
+- Pay-per-product marketplace; **free unsolved past papers** for all CAIE subjects (5–10 year bundles), paid solved papers ($20–60), **topical solved past papers** (past questions reorganized by topic — validates our per-topic question-bank organization), AI+expert predicted papers, notes ~$40/subject. ~635 IB products; all CAIE IGCSE subjects incl. 0580/0610/0620/0625/0500.
+- **Value to us**: authoritative reference for real exam formats, mark distribution and difficulty progression when authoring original questions and mock exams. Reference only — never copied (see §7).
+
+### 1.6 Cross-platform takeaways & source discrepancies
+
+- **Convergent quality bar** across all three platforms: topic × difficulty question banks with mark schemes; examiner-style notes with tips and common-mistake callouts; two-state flashcard mastery; AI marking against mark schemes; timed mocks. Our Phases 1–6 map directly onto this.
+- **Discrepancies between research passes** (we keep the directly verified figures):
+  - DeepSeek states RV has no IGCSE — **incorrect**: `igcse.revisionvillage.com` exists (math only, verified).
+  - RV pricing: verified **one-time** $249/course, $499/suite on the [RV Gold page](https://www.revisionvillage.com/revision-village-gold/); DeepSeek reports ~$199/yr subscription (unverified, dynamically loaded).
+  - RV subject count: 14 per [RV help center](https://help.revisionvillage.com/en/how-much-does-revision-village-cost) vs "15" in DeepSeek.
+  - SME/PapaCambridge prices and product counts: medium confidence (publicly reported rates).
+- **Not adopted from DeepSeek**: "IB DP primary, IGCSE secondary" prioritization (user decision: all stages in parallel) and Econ/Business/TOK expansion (user decision: 5-subject scope).
 
 ---
 
@@ -125,30 +155,33 @@ Sequencing rule: within each track, order topics by school-year relevance (Y7-no
 - Subjects page → stage-aware browsing: KS3 (Y7/8/9) / IGCSE / IB DP groupings, course cards with progress bars (RV pattern), breadcrumbs already in place.
 - Update AGENTS.md/CONTENT_STYLE.md with new fields and ID conventions.
 
-**Phase 2 — Question bank & difficulty**
+**Phase 2 — Question bank & difficulty + diagnostics**
 - `difficulty`/`calculator` tags surfaced in quiz UI (badges), quiz ordered easy→hard, filter by difficulty.
 - Mixed review + weak-areas reuse difficulty weighting.
+- **Diagnostic tests** (SME "Target Tests" analog, user-approved): one short cross-topic diagnostic per course; results seed the weak-areas system immediately instead of waiting for quiz history to accumulate.
 
 **Phase 3 — Practice exams**
 - Timed mock mode per course (question sampler matching real paper structure: e.g. IGCSE 0580 P2 non-calc/P4 calc; DP P1 non-calc/P2 calc).
 - "Revision Ladder" analog: N cross-topic sets of increasing difficulty per course (generated from tagged question pool).
 - Results screen per exam; stored in localStorage progress.
+- Later (nice-to-have): a periodically refreshed original "predicted" mock per course (RV Prediction Exams / PapaCambridge predicted-papers analog).
 
 **Phase 4 — Free-response + worked solutions ("past-paper-style")**
 - `freeResponse` question type with markscheme points and self-marking checklist UI.
-- Past-paper-*style* sets (original questions only — copyright-safe, RV's model), arranged by year-like sets per course.
+- Past-paper-*style* sets (original questions only — copyright-safe, RV's model), arranged by year-like sets per course; exam format/mark distribution referenced from PapaCambridge free unsolved papers.
 
 **Phase 5 — AI feedback (approved: API route)**
-- `app/api/feedback/route.ts` (serverless): sends student free-response + markscheme points to an LLM, returns marks + feedback; rate-limited, API key in env (never client-side), graceful degradation to self-marking when key absent.
+- `app/api/feedback/route.ts` (serverless): sends student free-response + markscheme points to an LLM, returns marks + feedback; rate-limited, API key in env (never client-side), graceful degradation to self-marking when key absent. Same convergent design as RV Newton AI and SME Smart Mark.
 - Later: hint mode on any question; photo/handwriting input deferred (needs vision model + upload storage).
 
 **Phase 6 — Progress analytics & flashcard upgrade**
 - RV-style dual-ring donut (Seen/Known) for flashcards; linear progress bars on topic/course cards; per-topic mastery from quiz history.
-- Spaced-repetition scheduling for flashcards (already on backlog) feeds the Known ring.
+- Flashcard self-sorting "I know this / Still learning" (SME/RV two-state model) feeds the Known ring; spaced-repetition scheduling (already on backlog) drives re-surfacing of "Still learning" cards.
 
 **Phase 7 — Platform (deferred, per decision)**
 - PWA (offline content, install prompt) — backlog item, fits before any native consideration.
 - Accounts + sync + subscriptions: **explicitly deferred** to the future AWS/public-cloud phase (user decision). Design note only: keep progress state shape versioned (`version` field in localStorage payload) now, so a future server sync can migrate cleanly. No auth work in this plan.
+- Monetization reference for that phase (observed models): all-access subscription ~£40/yr (SME), tiered free→premium ~$249–499 (RV), per-product marketplace (PapaCambridge), school licenses (all three). Decide at that time; no build work now.
 
 ---
 
@@ -164,16 +197,25 @@ Adopt the RV visual language as tokens in `tailwind.config.ts` and `globals.css`
 
 ---
 
-## 7. Quality gates & process (unchanged + additions)
+## 7. Legal & compliance (from the platform analysis — applies to every phase)
+
+- **Original content only.** RV, SME and PapaCambridge own their derivative content (notes, solutions, predicted papers); exam boards own past papers. Use all of them as quality/format references — never copy or redistribute.
+- **No real exam PDFs.** IB/CAIE/Pearson past papers are copyrighted; we follow RV's model (original questions + worked solutions) and never host papers.
+- **Trademark disclaimer.** "IB", "International Baccalaureate", "IBDP" and Cambridge/CAIE marks are registered trademarks. Add a site footer disclaimer ("not endorsed by or affiliated with the IBO or Cambridge") — small UI task folded into Phase 1.
+- **Purchased third-party materials** (e.g. PapaCambridge products) carry individual-use licenses — not a content source for a commercial product.
+- The DeepSeek source analysis is retained at `content-resource-platforms-analysis_deepseek_v4_pro.md` for reference; it is a planning input, not a content source.
+
+## 8. Quality gates & process (unchanged + additions)
 
 - Existing gates stay mandatory: `generate:registry`, `validate:content`, `validate:illustrations`, `validate:illustration-layout`, `audit:content`, `npm test`, `test:e2e`.
 - Schema migration adds: fixture topics for new fields; validator rules (stage/course/level consistency, difficulty values).
 - Every session: PROGRESS.md entry per AGENTS.md.
 
-## 8. Explicit non-goals (for now)
+## 9. Explicit non-goals (for now)
 
 - No auth/accounts/subscriptions (future AWS phase).
 - No native mobile app (PWA first).
 - No real IB/CAIE past-paper PDFs (copyright).
 - No MYP content track (GSIS uses UK KS3/IGCSE — existing `ibLevel: "MYP"` labels get remapped to KS3/stage tags).
 - No Bootcamps/video content (out of scope for a single-author project).
+- No subjects beyond Math, English, Biology, Chemistry, Physics — Economics/Business/TOK and others noted as possible future additions only (user decision).
