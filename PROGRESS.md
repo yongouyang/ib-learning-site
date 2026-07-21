@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-07-21 — Revision Village benchmark + revised Y7→IBDP plan
+
+Git HEAD: `a22a3aa` (branch `develop`, tree dirty — new untracked plan doc only)
+Done: Researched revisionvillage.com via 6-agent swarm (verified w/ URLs): RV covers IB DP (14 subjects incl. English Lang&Lit/Lit) + IGCSE **math only**; **no Y7–9/KS3/MYP content** — KS3/IGCSE-sciences/English benchmarked against official gov.uk + Cambridge (0580/0610/0620/0625/0500) + ibo.org syllabi instead. Captured RV feature set (Questionbank w/ difficulty tiers, 4 practice-exam types incl. Revision Ladder, past-paper video solutions only — no PDFs, Key Concepts, dual-ring Seen/Known flashcards, Newton AI marking) and design tokens (navy #032254, accent #0081D6, Manrope+Inter, dual-ring donut, subject color-coding). Wrote `revised-implementation-plan.md`: gap analysis (117 current topics vs full Y7–Y13 map), data-model changes (stage/course/level tags, difficulty tiers, freeResponse question type), 7 feature phases (curriculum browsing → difficulty banks → timed mocks → free-response+markschemes → AI feedback API route → analytics/SR → PWA), RV-based design refresh.
+User decisions: all stages in parallel; Cambridge CAIE for IGCSE; both DP Math AA and AI; tiered question banks phased; AI feedback via serverless API route; localStorage for now (accounts/subscriptions deferred to future AWS phase); English from official syllabi.
+Verified: research-only session, no code changes — no gates run.
+Next: 1) Review plan doc with user. 2) Phase 1: schema stage/course/level fields + migration + registry. 3) Existing backlog: DP niche topics (vol. of revolution, further diff eqs), Y8 science expansion, merge review of `chore/next-15-upgrade`.
+
+---
+
 ## 2026-07-19 — Unified nav + breadcrumbs, Mixed Review surfaced
 
 Git HEAD: `151e4ad` (branch `develop`, unpushed)
