@@ -1,0 +1,14 @@
+{
+  "name": "ib-learn-tools",
+  "private": true,
+  "description": "Scraping and content tools for IB Learning Site",
+  "scripts": {
+    "scrape:bbc": "node scripts/scrape-bbc-ks3.mjs",
+    "scrape:bbc:dry": "node scripts/scrape-bbc-ks3.mjs --dry-run",
+    "scrape:bbc:maths": "node scripts/scrape-bbc-ks3.mjs --subject maths",
+    "scrape:bbc:resume": "node scripts/scrape-bbc-ks3.mjs --resume"
+  },
+  "dependencies": {
+    "playwright": "^1.45.0"
+  }
+}
