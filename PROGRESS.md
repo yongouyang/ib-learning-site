@@ -6,6 +6,51 @@
 
 ---
 
+## 2026-07-22 — BBC Bitesize scraper v2: cleanup + CS fix COMPLETE, full quality audit
+
+Git HEAD: `2b6dee6` + uncommitted changes (branch `develop`, tree dirty — scraper v2)
+Done:
+1. **Cleanup**: 158 residual `https/` folders deleted → 820 clean files across 9 subjects.
+2. **CS scraper fixed**: (a) TreeWalker fallback extracts content from nested `<div class="text-block">` containers in `/guides/.../revision/N` pages; (b) multi-page revision scraping discovers pages 2-N from sidebar; (c) H1 concatenation fix ("IntroWhat is..."); (d) 32 CS guide-IDs mapped to 7 parent categories in KNOWN_TOPIC_MAP; (e) regex now matches both `/topics/<id>` and `/guides/<id>` patterns; (f) noiseWords expanded (sign in, in this guide, pages, more guides, game -, etc.).
+3. **Final quality audit** — 820 guides across 9 subjects:
+
+| Subject | Guides | Content Rate | Avg Items | Verdict |
+|---------|--------|-------------|-----------|--------|
+| Spanish | 20 | 100% | ~7 sections | ⭐ |
+| Religious Studies | 44 | 100% | ~5 sections | ⭐ |
+| French | 29 | 96% | ~6 sections | ⭐ |
+| Computer Science | 32 | **100%** | **16 items** | ⭐ |
+| English | 196 | 89% | ~3 sections | ✅ |
+| History | 140 | 74% | ~2 sections | ✅ |
+| Geography | 104 | 74% | ~2 sections | ✅ |
+| Maths | 218 | 70% | ~1 section | ⚠️ |
+| Biology | 86 | ~49% | ~2 sections | ⚠️ |
+
+CS topic breakdown: Programming 8, Algorithms 7, Computational thinking 6, Hardware & software 4, Safety & responsibility 3, Data representation 2, Internet communication 2 → 510 total items.
+
+Verified: syntax ✅, CS content extraction 100% ✅, topic categorization ✅. Quiz/key points still 0% (BBC React JS state — Phase 2 will auto-generate).
+Next: Phase 2 — build `tools/scripts/convert-bbc-to-topics.mjs` to transform 820 scraped guides into project topic JSONs (7 notes, 12 flashcards, 15 questions each with auto-generation for quizzes/keypoints).
+Notes: Scraper v2 is feature-complete. KNOWN_TOPIC_MAP covers 60+ IDs across biology, french, spanish, CS, maths, english, history, geography. Multi-page revision scraping skips non-existent pages silently. 4 stale CS URLs (zts8d2p, z3khpv4, zwmbgk7, z2p9kqt) return 404 — guide directories cover these topics.
+
+---
+---
+
+## 2026-07-22 — BBC Bitesize scraper v2: fixed topic resolution + content extraction
+
+Git HEAD: `2b6dee6` + uncommitted changes (branch `develop`, tree dirty — scraper fixes + untracked tools/node_modules)
+Done: Rewrote `tools/scripts/scrape-bbc-ks3.mjs` with 5 critical fixes:
+1. **`determineTopic()` https bug**: URLs like `https://www.bbc.co.uk/bitesize/topics/.../articles/...` were parsing `parts[0]` = `https:` → all guides in `https/` folder. Fixed with `toPath()` that strips protocol+host.
+2. **Topic-ID → Topic-Name resolution**: BBC React SPA doesn't expose links in H2-sibling DOM. Solution: (a) `KNOWN_TOPIC_MAP` with 29 pre-seeded mappings (biology/french/spanish/maths/english/history/geo), (b) auto-discovery visits each unknown topic page to scrape H1 heading. Verified: biology 85/85 guides correctly categorized across 10 topics.
+3. **Topic-collection page resolution** (`resolveTopicPages`): Phase 1.5 navigates to topic-only URLs (maths 28/31, English 18/46, etc.) and extracts individual `/articles/` links.
+4. **Key points/quiz/vocab extraction**: 2-strategy scan — searches for headings containing "key point"/"quiz"/"test your" text, falls back to class/data selectors; vocab scans for `<dt>/<dd>` pairs + bold terms in paragraphs.
+5. **Noise filtering**: Added 'more on', 'find out more' to footer/noise filter.
+
+Verified: syntax ✅ (`node --check`), dry-run biology (85/85 correct topics ✅), dry-run french (19/19 correct topics ✅). Full scrape NOT run yet.
+Next: 1) Run `node tools/scripts/scrape-bbc-ks3.mjs --resume` to re-scrape all 316 guides with fixed extractors. 2) Check if key points/quiz/vocab are now populated in output. 3) Phase 2: build `tools/scripts/convert-bbc-to-topics.mjs` to transform scraped data into project topic JSONs.
+Notes: KNOWN_TOPIC_MAP in scraper needs expansion for remaining subjects (RE, CS, remaining maths/English/history/geo topic-IDs). The scraper auto-discovers unknowns via page visits at ~4s each.
+
+---
+
 ## 2026-07-22 — Provisional migration tags reviewed (Phase 1 follow-up)
 
 Git HEAD: `2b6dee6` + uncommitted changes (branch `develop`, tree dirty — this review + untracked tools/node_modules)

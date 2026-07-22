@@ -1,19 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * BBC Bitesize KS3 Content Scraper
+ * BBC Bitesize KS3 Content Scraper (v2 — fixed topic resolution + content extractors)
  *
- * Traverses BBC Bitesize KS3 subject pages, extracts guide URLs,
- * then scrapes each guide's full content (text, quizzes, vocabulary).
+ * Traverses BBC Bitesize KS3 subject pages, extracts guide URLs with topic context,
+ * resolves topic-collection pages to article URLs, then scrapes each guide's full
+ * content (text, quizzes, vocabulary).
  *
  * Usage:
- *   node tools/scripts/scrape-bbc-ks3.mjs [--subject maths] [--dry-run] [--resume]
- *
- * Options:
- *   --subject <name>   Scrape only one subject (e.g., "biology", "maths")
- *   --dry-run          Collect guide URLs only, don't scrape content
- *   --resume           Skip guides already saved in tools/data/
- *   --delay <ms>       Delay between requests in ms (default: 2500)
+ *   node tools/scripts/scrape-bbc-ks3.mjs [--subject maths] [--dry-run] [--resume] [--delay <ms>]
  *
  * Prerequisites:
  *   npm install playwright
@@ -40,6 +35,52 @@ const BASE_URL = 'https://www.bbc.co.uk';
 const DEFAULT_DELAY_MS = 2500;
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 5000;
+const TOPIC_RESOLVE_DELAY_MS = 1500;
+
+// Known BBC topic-ID → human-readable topic name mappings (stable, verified 2026-07)
+// Used as seed — the scraper will visit unknown pages to discover new mappings.
+const KNOWN_TOPIC_MAP = {
+  // Biology (verified 2026-07-22)
+  znyycdm: 'Living organisms',          zf339j6: 'Nutrition, digestion and excretion',
+  zvrrd2p: 'Respiration and gas exchange', ztnnb9q: 'Health and disease',
+  zybbkqt: 'Reproduction',              znbx2v4: 'Games',
+  zxhhvcw: 'Ecosystems and habitats',   zpffr82: 'Inheritance and genetics',
+  zhssgk7: 'Humans and the environment', zsg6m39: 'Working scientifically',
+  // French (verified 2026-07-22)
+  zrrfscw: 'Games',                     zkqgbdm: 'Phonics',
+  zjx947h: 'Topics',                    z7t8kmn: 'Grammar',
+  // Spanish
+  zgfqwnb: 'Phonics',                   zg9mhyc: 'Topics',
+  z9fkr2p: 'Grammar',
+  // Maths
+  zc3d7ty: 'Place value',               zp26n39: 'Positive and negative numbers',
+  znmtsbk: 'Operations/Calculations',   zmdqxnb: 'Rounding and estimating',
+  // English
+  zwpfvwx: 'Literature',
+  // History
+  z6wg3j6: 'History Detectives game',   zhxmn39: 'The Romans',
+  zp6xsbk: 'Anglo-Saxon England',       zshtyrd: 'The Norman Conquest',
+  zvhjdp3: 'Medieval England',
+  // Geography
+  zs6j2v4: 'Planet Planners game',      zm38q6f: 'Geographical skills',
+  // Computer Science (verified 2026-07-22) — mapped to parent topic categories
+  zp92mp3: 'Computational thinking',    zqqfyrd: 'Computational thinking',
+  zxxbgk7: 'Computational thinking',    zttrcdm: 'Computational thinking',
+  zpp49j6: 'Computational thinking',    zssk87h: 'Computational thinking',
+  z3bq7ty: 'Algorithms',               zcjfyrd: 'Algorithms',
+  zgr2mp3: 'Algorithms',               zsf8d2p: 'Algorithms',
+  z9nk87h: 'Algorithms',               zg46tfr: 'Algorithms',
+  z8jfyrd: 'Algorithms',               zy9thyc: 'Programming',
+  zws8d2p: 'Programming',              zcxgr82: 'Programming',
+  zqp9kqt: 'Programming',              zts8d2p: 'Programming',
+  z3khpv4: 'Programming',              zwmbgk7: 'Programming',
+  z2p9kqt: 'Programming',              z26rcdm: 'Data representation',
+  zy3q7ty: 'Data representation',      zxb72hv: 'Hardware and software',
+  z2m3b9q: 'Hardware and software',    zpkhpv4: 'Hardware and software',
+  zc6rcdm: 'Hardware and software',    z8nk87h: 'Internet communication',
+  zpfdwmn: 'Internet communication',   z9p9kqt: 'Safety and responsibility',
+  z2g2mp3: 'Safety and responsibility', zqh49j6: 'Safety and responsibility',
+};
 
 // All KS3 subject pages verified via scraping July 2026
 const SUBJECTS = {
@@ -100,7 +141,12 @@ function log(level, msg) {
   console.log(`[${ts}] ${icons[level] || '•'} ${msg}`);
 }
 
-// ─── PHASE 1: Extract Guide URLs from a Subject Page ─────────────────────────
+/** Strip protocol + host from a URL, keeping the path */
+function toPath(url) {
+  return url.replace(/^https?:\/\/[^\/]+/, '');
+}
+
+// ─── PHASE 1: Extract Guide URLs + Topic Context from a Subject Page ─────────
 
 async function extractGuideUrls(page, subjectKey) {
   const subject = SUBJECTS[subjectKey];
@@ -108,35 +154,191 @@ async function extractGuideUrls(page, subjectKey) {
   log('info', `Navigating to ${subject.name}: ${url}`);
   await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
 
-  const guides = await page.evaluate(() => {
-    const results = [];
+  // Flat link scan (handles React-rendered BBC pages reliably).
+  // Simultaneously build a topicId→topicName map from topic-page links.
+  const result = await page.evaluate(() => {
+    const guides = [];          // { url, title, topicName }
+    const topicIdMap = {};      // topicHash → topicName
+    const topicNames = [];      // unique topic heading strings
     const main = document.querySelector('main, [role="main"]') || document;
-    const links = main.querySelectorAll('a[href*="/bitesize/"]');
-    for (const link of links) {
+    const seenUrls = new Set();
+
+    // 1. Collect all guide/article links (flat scan — most reliable for React SPAs)
+    const allLinks = main.querySelectorAll('a[href*="/bitesize/"]');
+    for (const link of allLinks) {
       const href = link.getAttribute('href') || '';
       const text = link.textContent?.trim() || '';
-      if ((href.includes('/articles/') || href.includes('/guides/') || href.includes('/topics/')) &&
-          text.length > 0 && !href.includes('/subjects/') && !href.includes('/levels/')) {
-        if (!results.find((r) => r.url === href)) {
-          results.push({ url: href, title: text });
+      if (!seenUrls.has(href) &&
+          (href.includes('/articles/') || href.includes('/guides/') || href.includes('/topics/')) &&
+          text.length > 0 &&
+          !href.includes('/subjects/') && !href.includes('/levels/')) {
+        seenUrls.add(href);
+        guides.push({ url: href, title: text, topicName: '' });
+      }
+    }
+
+    // 2. Build topicId→topicName map from topic-page links
+    // BBC subject pages have topic cards/links that point to /bitesize/topics/<id>
+    // Scan ALL links, find topic-page-only links (no /articles/), use their text as topic name
+    for (const link of allLinks) {
+      const href = link.getAttribute('href') || '';
+      // Only match topic-page links (NOT article links)
+      if (!href.includes('/articles/') && !href.includes('/guides/') && href.includes('/topics/')) {
+        const topicMatch = href.match(/\/topics\/([a-z0-9]+)/i);
+        const text = link.textContent?.trim() || '';
+        if (topicMatch && text.length > 1 && text.length < 80) {
+          const topicId = topicMatch[1].toLowerCase();
+          // Prefer longer text (full topic name) over short labels
+          if (!topicIdMap[topicId] || text.length > (topicIdMap[topicId]?.length || 0)) {
+            topicIdMap[topicId] = text;
+          }
         }
       }
     }
-    return results;
+    // Also collect H2/H3 headings as topic-names fallback
+    const headings = main.querySelectorAll('h2, h3');
+    for (const heading of headings) {
+      const headingText = heading.textContent?.trim() || '';
+      if (!headingText || headingText.length < 3 || headingText.length > 120) continue;
+      if (!topicNames.includes(headingText)) topicNames.push(headingText);
+    }
+
+    return { guides, topicNames, topicIdMap };
   });
 
-  log('ok', `Found ${guides.length} guide links for ${subject.name}`);
+  // 3. Retroactively assign topicName to each guide by extracting the BBC topic ID from its URL
+  for (const guide of result.guides) {
+    const match = guide.url.match(/\/(?:topics|guides)\/([a-z0-9]+)/i);
+    if (match && result.topicIdMap[match[1].toLowerCase()]) {
+      guide.topicName = result.topicIdMap[match[1].toLowerCase()];
+    }
+  }
 
-  const topics = await page.evaluate(() => {
-    const results = [];
-    document.querySelectorAll('h2, h3').forEach((h) => {
-      const t = h.textContent?.trim();
-      if (t && t.length > 3 && t.length < 80) results.push(t);
-    });
-    return results;
-  });
+  // 4. Resolve unresolved topic-IDs (check known map first, then visit pages)
+  const unresolvedIds = new Set();
+  for (const guide of result.guides) {
+    if (!guide.topicName) {
+      const match = guide.url.match(/\/(?:topics|guides)\/([a-z0-9]+)/i);
+      if (match) {
+        const tid = match[1].toLowerCase();
+        // Check known map first
+        if (KNOWN_TOPIC_MAP[tid]) {
+          guide.topicName = KNOWN_TOPIC_MAP[tid];
+          result.topicIdMap[tid] = KNOWN_TOPIC_MAP[tid];
+        } else {
+          unresolvedIds.add(tid);
+        }
+      }
+    }
+  }
 
-  return { guides, topics };
+  if (unresolvedIds.size > 0) {
+    log('info', `Resolving ${unresolvedIds.size} unknown topic-IDs by visiting topic pages...`);
+    for (const tid of unresolvedIds) {
+      try {
+        const topicPageUrl = `${BASE_URL}/bitesize/topics/${tid}`;
+        await page.goto(topicPageUrl, { waitUntil: 'networkidle', timeout: 20000 });
+        await sleep(1000);
+        const topicTitle = await page.evaluate(() => {
+          const h1 = document.querySelector('h1');
+          return h1?.textContent?.trim() || '';
+        });
+        if (topicTitle) {
+          result.topicIdMap[tid] = topicTitle;
+          log('ok', `  ${tid} → "${topicTitle}"`);
+        } else {
+          log('warn', `  ${tid} → no H1 found`);
+        }
+      } catch (e) {
+        log('warn', `  ${tid} → error: ${e.message}`);
+      }
+      await sleep(TOPIC_RESOLVE_DELAY_MS);
+    }
+    // Re-assign now that we have the map
+    for (const guide of result.guides) {
+      if (!guide.topicName) {
+        const match = guide.url.match(/\/(?:topics|guides)\/([a-z0-9]+)/i);
+        if (match && result.topicIdMap[match[1].toLowerCase()]) {
+          guide.topicName = result.topicIdMap[match[1].toLowerCase()];
+        }
+      }
+    }
+  }
+
+  log('ok', `Found ${result.guides.length} guide links for ${subject.name} across ${result.topicNames.length} topics`);
+
+  return {
+    guides: result.guides,
+    topics: result.topicNames,
+  };
+}
+
+// ─── PHASE 1.5: Resolve Topic-Collection Pages → Article URLs ────────────────
+
+/**
+ * For guides whose URL is a topic-collection page (no /articles/ or /guides/),
+ * navigate to that page and extract the individual article links.
+ */
+async function resolveTopicPages(page, guides, delay, summary) {
+  const resolved = [];
+  let topicPagesResolved = 0;
+  let newArticlesFound = 0;
+
+  for (const guide of guides) {
+    const pathUrl = toPath(guide.url);
+    const isArticle = pathUrl.includes('/articles/');
+    const isGuideRevision = pathUrl.includes('/guides/') && pathUrl.includes('/revision/');
+
+    if (isArticle || isGuideRevision) {
+      // Already an article-level URL, keep as-is
+      resolved.push(guide);
+      continue;
+    }
+
+    // This is a topic-collection page — resolve it
+    topicPagesResolved++;
+    const pageUrl = guide.url.startsWith('http') ? guide.url : `${BASE_URL}${guide.url}`;
+    log('info', `Resolving topic page: ${guide.title.slice(0, 50)}`);
+
+    try {
+      await page.goto(pageUrl, { waitUntil: 'networkidle', timeout: 30000 });
+      await sleep(1500);
+
+      const subArticles = await page.evaluate((parentTopicName) => {
+        const results = [];
+        const main = document.querySelector('main, [role="main"]') || document;
+        const links = main.querySelectorAll('a[href*="/bitesize/"]');
+        for (const link of links) {
+          const href = link.getAttribute('href') || '';
+          const text = link.textContent?.trim() || '';
+          if (href.includes('/articles/') && text.length > 0 &&
+              !href.includes('/subjects/') && !href.includes('/levels/')) {
+            results.push({ url: href, title: text, topicName: parentTopicName });
+          }
+        }
+        return results;
+      }, guide.topicName);
+
+      if (subArticles.length > 0) {
+        log('ok', `  → ${subArticles.length} articles found under "${guide.title.slice(0, 40)}"`);
+        resolved.push(...subArticles);
+        newArticlesFound += subArticles.length;
+      } else {
+        // No articles found — might be a leaf topic with only /topics/ links; keep original
+        log('warn', `  → 0 articles found, keeping original topic link`);
+        resolved.push(guide);
+      }
+    } catch (err) {
+      log('err', `  → Failed to resolve: ${err.message}`);
+      resolved.push(guide); // keep original
+      summary.errors++;
+    }
+
+    await sleep(Math.min(delay, TOPIC_RESOLVE_DELAY_MS));
+  }
+
+  log('prog', `Topic-page resolution: ${topicPagesResolved} pages resolved → ${newArticlesFound} new article URLs`);
+  return resolved;
 }
 
 // ─── PHASE 2: Scrape a Single Guide Page ────────────────────────────────────
@@ -148,21 +350,87 @@ async function scrapeGuide(page, guideUrl, subjectKey) {
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
       await page.goto(fullUrl, { waitUntil: 'networkidle', timeout: 30000 });
-
-      // Wait for React to render the article content
       await page.waitForSelector('main, [role="main"], article, h1', { timeout: 10000 }).catch(() => {});
-      await sleep(1500);  // Extra wait for React hydration
+      await sleep(1500);
 
       const content = await page.evaluate(() => {
-        // ── Title ──
+        // Helper: extract content from a DOM element
+        function extractContent(el, items, vocab) {
+          const tag = el.tagName;
+          const text = el.textContent?.trim() || '';
+          const cls = (typeof el.className === 'string') ? el.className : '';
+          if (tag === 'P' && text.length > 10) {
+            items.push({ type: 'paragraph', text });
+          }
+          if (tag === 'UL' || tag === 'OL') {
+            const liItems = [];
+            el.querySelectorAll('li').forEach((li) => { const t = li.textContent?.trim(); if (t) liItems.push(t); });
+            if (liItems.length) items.push({ type: tag === 'OL' ? 'ordered_list' : 'unordered_list', items: liItems });
+          }
+          if (tag === 'DIV' && (cls.includes('text-block') || cls.includes('TextWrapper') || cls.includes('RichText'))) {
+            el.querySelectorAll('p').forEach((p) => {
+              const pt = p.textContent?.trim();
+              if (pt && pt.length > 10) items.push({ type: 'paragraph', text: pt });
+            });
+            el.querySelectorAll('ul, ol').forEach((list) => {
+              const liItems = [];
+              list.querySelectorAll('li').forEach((li) => { const t = li.textContent?.trim(); if (t) liItems.push(t); });
+              if (liItems.length) items.push({ type: list.tagName === 'OL' ? 'ordered_list' : 'unordered_list', items: liItems });
+            });
+          }
+          if (cls.includes('callout') || cls.includes('key-fact') || cls.includes('highlight')) {
+            items.push({ type: 'callout', text });
+          }
+          if (tag === 'TABLE') {
+            const rows = [];
+            el.querySelectorAll('tr').forEach((tr) => {
+              const cells = [];
+              tr.querySelectorAll('th, td').forEach((td) => { const t = td.textContent?.trim(); if (t) cells.push(t); });
+              if (cells.length) rows.push(cells);
+            });
+            if (rows.length) items.push({ type: 'table', rows });
+          }
+          el.querySelectorAll('dt').forEach((dt) => {
+            const term = dt.textContent?.trim();
+            const def = dt.nextElementSibling?.textContent?.trim();
+            if (term && def && !vocab.find((v) => v.term === term)) {
+              vocab.push({ term, definition: def });
+            }
+          });
+          if (tag === 'P' && text.length > 20) {
+            el.querySelectorAll('b, strong').forEach((b) => {
+              const term = b.textContent?.trim();
+              if (term && term.length > 2 && !vocab.find((v) => v.term === term)) {
+                vocab.push({ term, definition: '' });
+              }
+            });
+          }
+        }
+
         const title = document.querySelector('h1')?.textContent?.trim() || '';
+        const allH = document.querySelectorAll('h2, h3, h4, [class*="heading"]');
 
-        // ── Key Points (summary bullets at top) ──
+        // --- Key Points ---
         const keyPoints = [];
-        const kpEl = document.querySelector('[class*="key-point"], [class*="summary"], [data-testid="key-points"]');
-        if (kpEl) kpEl.querySelectorAll('li').forEach((li) => { const t = li.textContent?.trim(); if (t) keyPoints.push(t); });
+        for (const h of allH) {
+          if (h.textContent?.toLowerCase().includes('key point')) {
+            let sib = h.nextElementSibling;
+            while (sib && !['H2', 'H3', 'H4'].includes(sib.tagName)) {
+              if (sib.tagName === 'UL' || sib.tagName === 'OL') {
+                sib.querySelectorAll('li').forEach((li) => { const t = li.textContent?.trim(); if (t) keyPoints.push(t); });
+                break;
+              }
+              sib = sib.nextElementSibling;
+            }
+            break;
+          }
+        }
+        if (keyPoints.length === 0) {
+          const kpEl = document.querySelector('[class*="key-point"], [class*="summary"], [data-testid="key-points"]');
+          if (kpEl) kpEl.querySelectorAll('li').forEach((li) => { const t = li.textContent?.trim(); if (t) keyPoints.push(t); });
+        }
 
-        // ── Sections (headings + content) ──
+        // --- Sections ---
         const sections = [];
         const container = document.querySelector('main, [role="main"], article') || document;
         const headings = container.querySelectorAll('h2, h3, h4');
@@ -174,60 +442,159 @@ async function scrapeGuide(page, guideUrl, subjectKey) {
           if (processed.has(headingText)) continue;
           processed.add(headingText);
 
-          const contentItems = [];
-          const vocabItems = [];
+          const items = [];
+          const vocab = [];
+
+          // Strategy 1: sibling walk (works for article pages)
           let el = heading.nextElementSibling;
-
           while (el && !['H2', 'H3', 'H4'].includes(el.tagName)) {
-            const tag = el.tagName;
-            const text = el.textContent?.trim() || '';
-            const cls = (typeof el.className === 'string') ? el.className : '';
-
-            if (tag === 'P' && text.length > 10) {
-              contentItems.push({ type: 'paragraph', text });
-            }
-            if (tag === 'UL' || tag === 'OL') {
-              const items = [];
-              el.querySelectorAll('li').forEach((li) => { const t = li.textContent?.trim(); if (t) items.push(t); });
-              if (items.length) contentItems.push({ type: tag === 'OL' ? 'ordered_list' : 'unordered_list', items });
-            }
-            if (cls.includes('callout') || cls.includes('key-fact') || cls.includes('highlight')) {
-              contentItems.push({ type: 'callout', text });
-            }
-            if (cls.includes('glossary') || cls.includes('vocab')) {
-              el.querySelectorAll('dt, [class*="term"]').forEach((dt) => {
-                const term = dt.textContent?.trim();
-                const def = dt.nextElementSibling?.textContent?.trim();
-                if (term && def) vocabItems.push({ term, definition: def });
-              });
-            }
+            extractContent(el, items, vocab);
             el = el.nextElementSibling;
           }
 
-          if (contentItems.length > 0 || vocabItems.length > 0) {
-            sections.push({ heading: headingText, content: contentItems, vocabulary: vocabItems });
+          // Strategy 2: parent-container tree walker (works for revision guide pages)
+          if (items.length === 0) {
+            let ancestor = heading.parentElement;
+            for (let i = 0; i < 4 && ancestor && items.length === 0; i++) {
+              let foundHeading = false;
+              const walker = document.createTreeWalker(ancestor, NodeFilter.SHOW_ELEMENT);
+              let node = walker.nextNode();
+              while (node) {
+                if (node === heading) { foundHeading = true; }
+                else if (foundHeading && !['H2', 'H3', 'H4'].includes(node.tagName)) {
+                  extractContent(node, items, vocab);
+                }
+                node = walker.nextNode();
+              }
+              ancestor = ancestor.parentElement;
+            }
+          }
+
+          if (items.length > 0 || vocab.length > 0) {
+            sections.push({ heading: headingText, content: items, vocabulary: vocab });
           }
         }
 
-        // ── Quiz Questions ──
+        // --- Quiz ---
         const quiz = [];
-        const quizSection = document.querySelector('[class*="quiz"], [class*="test"], [data-testid="quiz"]');
-        if (quizSection) {
-          quizSection.querySelectorAll('[class*="question"], [class*="quiz-item"], fieldset').forEach((block) => {
-            const qText = block.querySelector('legend, [class*="question-text"], p')?.textContent?.trim() || '';
-            const opts = [];
-            block.querySelectorAll('label, [class*="option"], [class*="answer"]').forEach((o) => {
-              const t = o.textContent?.trim(); if (t) opts.push(t);
+        for (const h of allH) {
+          const ht = h.textContent?.toLowerCase() || '';
+          if (ht.includes('quiz') || ht.includes('test your') || ht.includes('check your')) {
+            let sib = h.nextElementSibling;
+            while (sib && !['H2', 'H3', 'H4'].includes(sib.tagName)) {
+              sib.querySelectorAll('fieldset, [class*="question"], [class*="quiz-item"]').forEach((block) => {
+                const qText = block.querySelector('legend, [class*="question-text"], p, span')?.textContent?.trim() || '';
+                const opts = [];
+                block.querySelectorAll('label').forEach((o) => {
+                  const t = o.textContent?.trim(); if (t && t.length > 1) opts.push(t);
+                });
+                if (qText && opts.length >= 2) quiz.push({ question: qText, options: opts });
+              });
+              sib = sib.nextElementSibling;
+            }
+            break;
+          }
+        }
+        if (quiz.length === 0) {
+          const quizEl = document.querySelector('[class*="quiz"], [class*="test"], [data-testid="quiz"]');
+          if (quizEl) {
+            quizEl.querySelectorAll('[class*="question"], [class*="quiz-item"], fieldset').forEach((block) => {
+              const qText = block.querySelector('legend, [class*="question-text"], p')?.textContent?.trim() || '';
+              const opts = [];
+              block.querySelectorAll('label, [class*="option"], [class*="answer"]').forEach((o) => {
+                const t = o.textContent?.trim(); if (t) opts.push(t);
+              });
+              if (qText && opts.length >= 2) quiz.push({ question: qText, options: opts });
             });
-            if (qText && opts.length >= 2) quiz.push({ question: qText, options: opts });
-          });
+          }
         }
 
         return { title, keyPoints, sections, quiz };
       });
 
-      // Filter out navigation/footer sections
-      const noiseWords = ['where next', 'related', 'explore more', 'learn more', 'links', 'explore the bb'];
+      // Post-process title: fix concatenated H1 (BBC revision guides append subtitle)
+      if (content.title) {
+        // e.g. "Introduction to computational thinkingWhat is computational thinking?"
+        // Detect camelCase join: lowercase letter followed by uppercase
+        const splitIdx = content.title.search(/[a-z][A-Z]/);
+        if (splitIdx >= 0) {
+          const mainTitle = content.title.slice(0, splitIdx + 1).trim();
+          const subtitle = content.title.slice(splitIdx + 1).trim();
+          // If the subtitle looks like a real heading (not noise), prefer it
+          if (subtitle.length > 5 && !subtitle.startsWith('Sign in')) {
+            content.title = mainTitle;
+            // Prepend subtitle as a first section if sections look empty for this guide
+            if (content.sections.length === 0) {
+              content.sections.unshift({ heading: subtitle, content: [], vocabulary: [] });
+            }
+          } else {
+            content.title = mainTitle;
+          }
+        }
+      }
+
+      // For revision-guide format (/guides/.../revision/1): scrape sibling pages 2-N
+      if (fullUrl.includes('/guides/') && fullUrl.includes('/revision/')) {
+        const nextPages = await page.evaluate(() => {
+          const links = [];
+          document.querySelectorAll('a[href*="revision/"]').forEach((a) => {
+            const href = a.getAttribute('href') || '';
+            const m = href.match(/revision\/(\d+)/);
+            if (m) links.push({ num: parseInt(m[1]), href });
+          });
+          return [...new Map(links.map(l => [l.num, l])).values()]
+            .filter(l => l.num > 1)
+            .sort((a, b) => a.num - b.num);
+        });
+
+        for (const next of nextPages.slice(0, 8)) { // max 8 additional pages
+          const nextUrl = next.href.startsWith('http') ? next.href : `${BASE_URL}${next.href}`;
+          try {
+            await page.goto(nextUrl, { waitUntil: 'networkidle', timeout: 20000 });
+            await sleep(1000);
+            const nextContent = await page.evaluate(() => {
+              const sections = [];
+              const container = document.querySelector('main, [role=\"main\"], article') || document;
+              const headings = container.querySelectorAll('h2, h3, h4');
+              const processed = new Set();
+              // Find the content after the first real content heading (skip nav)
+              for (const heading of headings) {
+                const ht = heading.textContent?.trim() || '';
+                if (!ht || ht.length < 2 || processed.has(ht)) continue;
+                if (['sign in', 'in this guide', 'pages', 'more guides', 'related links', 'where next'].some(w => ht.toLowerCase().includes(w))) continue;
+                processed.add(ht);
+                const items = [];
+                let el = heading.nextElementSibling;
+                while (el && !['H2', 'H3', 'H4'].includes(el.tagName)) {
+                  const tag = el.tagName;
+                  const cls = (typeof el.className === 'string') ? el.className : '';
+                  if (tag === 'P') {
+                    const t = el.textContent?.trim();
+                    if (t && t.length > 10) items.push({ type: 'paragraph', text: t });
+                  }
+                  if (tag === 'UL' || tag === 'OL') {
+                    const liItems = [];
+                    el.querySelectorAll('li').forEach((li) => { const t = li.textContent?.trim(); if (t) liItems.push(t); });
+                    if (liItems.length) items.push({ type: tag === 'OL' ? 'ordered_list' : 'unordered_list', items: liItems });
+                  }
+                  if (tag === 'DIV' && (cls.includes('text-block') || cls.includes('TextWrapper'))) {
+                    el.querySelectorAll('p').forEach((p) => { const t = p.textContent?.trim(); if (t && t.length > 10) items.push({ type: 'paragraph', text: t }); });
+                  }
+                  el = el.nextElementSibling;
+                }
+                if (items.length) sections.push({ heading: ht, content: items, vocabulary: [] });
+              }
+              return sections;
+            });
+            if (nextContent.length > 0) {
+              content.sections.push(...nextContent);
+            }
+          } catch (e) {
+            // Silently skip failed revision pages
+          }
+        }
+      }
+      const noiseWords = ['where next', 'related', 'explore more', 'learn more', 'links', 'explore the bb', 'more on', 'find out more', 'sign in', 'in this guide', 'pages', 'more guides', 'game -', 'play ', 'bitesize', 'up next', 'next page'];
       content.sections = content.sections.filter(
         (s) => !noiseWords.some((w) => s.heading.toLowerCase().includes(w)) && s.content.length > 0
       );
@@ -249,15 +616,29 @@ async function scrapeGuide(page, guideUrl, subjectKey) {
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-function determineTopic(guideUrl, guideTitle, topics) {
+function determineTopic(guideUrl, guideTitle, topics, guideTopicName) {
+  // If Phase 1 captured a topic name from the DOM, use it (most reliable)
+  if (guideTopicName && guideTopicName.length > 1) {
+    return guideTopicName;
+  }
+  // Try matching against known topic headings
   for (const topic of topics) {
     if (guideTitle.toLowerCase().includes(topic.toLowerCase()) ||
         guideUrl.toLowerCase().includes(slugify(topic))) {
       return topic;
     }
   }
-  const parts = guideUrl.replace('/bitesize/', '').split('/');
-  return parts[0] || 'uncategorised';
+  // Parse URL path properly (handle full URLs with protocol)
+  const pathUrl = toPath(guideUrl).replace('/bitesize/', '');
+  const parts = pathUrl.split('/').filter(Boolean);
+  // Skip known structural segments, find first meaningful one
+  const skipWords = new Set(['topics', 'articles', 'guides', 'revision', 'levels', 'subjects']);
+  for (const part of parts) {
+    if (!skipWords.has(part) && !/^\d+$/.test(part) && !/^z[a-z0-9]+$/.test(part)) {
+      return part;
+    }
+  }
+  return 'uncategorised';
 }
 
 // ─── MAIN ────────────────────────────────────────────────────────────────────
@@ -274,7 +655,7 @@ async function main() {
     process.exit(1);
   }
 
-  log('prog', `BBC Bitesize KS3 Scraper`);
+  log('prog', `BBC Bitesize KS3 Scraper v2`);
   log('prog', `Mode: ${opts.dryRun ? 'DRY RUN (URLs only)' : 'FULL SCRAPE'}`);
   log('prog', `Subjects: ${Object.keys(subjectsToScrape).join(', ')}`);
   log('prog', `Delay: ${opts.delay}ms | Retries: ${MAX_RETRIES} | Resume: ${opts.resume}`);
@@ -293,6 +674,7 @@ async function main() {
   const summary = {
     startedAt: new Date().toISOString(),
     totalGuides: 0, scraped: 0, skipped: 0, errors: 0,
+    topicPagesResolved: 0, articlesFromResolution: 0,
     subjects: {},
   };
 
@@ -309,6 +691,21 @@ async function main() {
       };
       summary.totalGuides += result.guides.length;
       await sleep(opts.delay);
+    }
+
+    // ═══ PHASE 1.5: Resolve topic-collection pages to article URLs ═══
+    log('prog', '\n═══ PHASE 1.5: Resolving topic pages → article URLs ═══');
+    for (const [key, result] of Object.entries(allGuides)) {
+      const before = result.guides.length;
+      result.guides = await resolveTopicPages(page, result.guides, opts.delay, summary);
+      const after = result.guides.length;
+      if (after !== before) {
+        summary.topicPagesResolved += before;
+        summary.articlesFromResolution += (after - before);
+        summary.subjects[key].guideCount = after;
+        summary.totalGuides += (after - before);
+        log('ok', `${SUBJECTS[key].name}: ${before} → ${after} guides after resolution`);
+      }
     }
 
     fs.writeFileSync(path.join(DATA_DIR, '_url-map.json'), JSON.stringify(allGuides, null, 2));
@@ -329,7 +726,7 @@ async function main() {
 
       for (let i = 0; i < guides.length; i++) {
         const guide = guides[i];
-        const topic = determineTopic(guide.url, guide.title, topics);
+        const topic = determineTopic(guide.url, guide.title, topics, guide.topicName);
         const topicSlug = slugify(topic) || 'uncategorised';
         const guideSlug = slugify(guide.title) || `guide-${i}`;
         const outputDir = path.join(DATA_DIR, subjectKey, topicSlug);
@@ -369,6 +766,9 @@ async function main() {
     fs.writeFileSync(path.join(DATA_DIR, '_summary.json'), JSON.stringify(summary, null, 2));
     log('prog', `\n═══ Complete ═══`);
     log('prog', `Guides: ${summary.totalGuides} | Scraped: ${summary.scraped} | Skipped: ${summary.skipped} | Errors: ${summary.errors}`);
+    if (summary.topicPagesResolved) {
+      log('prog', `Topic pages resolved: ${summary.topicPagesResolved} → ${summary.articlesFromResolution} article URLs`);
+    }
     log('prog', `Data: ${DATA_DIR}`);
     await browser.close();
   }
