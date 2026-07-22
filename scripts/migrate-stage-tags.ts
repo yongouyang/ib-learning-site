@@ -23,11 +23,16 @@ const DRY_RUN = process.argv.includes('--dry-run');
 
 // DP AI HL-only topic slugs (provisional — flagged for content review).
 // Everything else math-dp-* is tagged level 'sl' (SL & HL common content).
+//
+// REVIEWED 2026-07-22 against the official AI syllabus (first exams 2021):
+// - hypothesis-testing moved back to 'sl' — chi-squared tests and t-tests are
+//   AI SL 4.11 content; the topic's HL-only extras (critical values, Type I/II
+//   errors, Spearman's) follow the same pattern as the SL-tagged probability
+//   topic. Complex numbers / matrices / graph theory / Poisson confirmed HL-only.
 const DP_AI_HL_ONLY = new Set([
   'complex-numbers',
   'poisson-distribution',
   'graph-theory',
-  'hypothesis-testing',
   'matrices',
 ]);
 

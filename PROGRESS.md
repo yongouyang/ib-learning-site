@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-07-22 — Provisional migration tags reviewed (Phase 1 follow-up)
+
+Git HEAD: `2b6dee6` + uncommitted changes (branch `develop`, tree dirty — this review + untracked tools/node_modules)
+Done: Reviewed all 3 provisional tag groups from the Phase 1 migration. (1) DP AI SL/HL split (20 topics): verified against official AI syllabus — complex-numbers, matrices, graph-theory, poisson-distribution confirmed HL-only; voronoi-diagrams confirmed SL (SL 3.6, contrary to some tutoring sites); **hypothesis-testing flipped hl→sl** (chi-squared + t-tests are AI SL 4.11; SL-tagged probability topic sets the "SL core + HL extras" precedent). (2) myp→Y9 (7 topics) confirmed — content depth (simultaneous eqs, SOH CAH TOA, fractional indices) fits Year 9. (3) plain -1→Y7 (4 topics) confirmed (algebra/fractions/geometry/statistics basics). Review outcome recorded in `scripts/migrate-stage-tags.ts` comment; DP_AI_HL_ONLY set updated. Registry untouched (imports JSONs directly; no files added/removed).
+Verified: validate:content ✅, audit:content ✅ 0/0, validate:illustrations ✅, validate:illustration-layout ✅, Vitest 90/90 ✅. e2e NOT run (badge-only change; no test asserts "DP HL" text).
+Next: 1) BBC Bitesize scraper run (DeepSeek session owns this — `_summary.json` showed 316 guides discovered, 0 scraped). 2) Phase 2: difficulty/calculator tags + diagnostic tests. 3) Existing backlog (DP niche topics, Y8 science, PWA…).
+Notes: Finding for later decision — `math-dp-ai-binomial` (binomial theorem/expansion) appears to be AA SL content, not AI syllabus; left tagged course=ai/level=sl pending user decision. `level` is display-badge only (`SubjectPageClient.tsx`), no filtering depends on it.
+
+---
+
 ## 2026-07-21 — Phase 1 Session 2: stage grouping, disclaimer footer, e2e green
 
 Git HEAD: `eec1489` + uncommitted changes (branch `develop`, tree dirty — Sessions 1+2 awaiting commit decision)
