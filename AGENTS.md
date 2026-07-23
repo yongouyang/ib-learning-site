@@ -41,4 +41,5 @@ npm run test:e2e               # Playwright (auto-starts dev server)
 - New topics follow the 7 notes / 12 flashcards / 15 questions standard.
 - Topic taxonomy: `stage` (ks3/igcse/dp) + optional `year`/`course`/`level` — see `CONTENT_STYLE.md` ("Stage & course tagging" and ID conventions). `ibLevel` was retired in the Phase 1 migration (2026-07).
 - Roadmap: `revised-implementation-plan.md` (phases) and `phase-1-implementation-plan.md`.
+- BBC reference pipeline (Phase 1.5): `tools/scripts/scrape-bbc-ks3.mjs` scrapes to `tools/data/`; `tools/scripts/convert-bbc-to-topics.mjs` (map: `tools/scripts/bbc-curation-map.json`) writes reference drafts to `tools/data/_staging/`. BBC text is **reference only** — notes are rewritten in our own voice, flashcards/questions authored, before anything lands in `src/content/data/topics/`. Out-of-scope subjects are archived in `tools/data/_archive/`.
 - Deploy: Vercel, automatic on push to `develop`.

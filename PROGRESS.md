@@ -6,6 +6,42 @@
 
 ---
 
+## 2026-07-23 — Phase 1.5 step 3: converter + curation map built, 9 staging drafts generated
+
+Git HEAD: `5a9a3fe` (branch `develop`, tree dirty — tools/ scripts + staging)
+Done:
+1. **`tools/scripts/bbc-curation-map.json`** — seeded with 9 NET-NEW entries (verified against existing 117 topics): 6× Y9 math (quadratic-graphs, quadratic-expressions, standard-form, error-intervals, surds, 3d-geometry), chem/phys-working-scientifically-1, eng-spelling-1. Deliberately skipped: bio working-scientifically (covered by bio-practical-1), simultaneous/inequalities/trig (covered by Y9-confirmed `-myp` topics), eng punctuation/grammar (covered by eng-grammar-1).
+2. **`tools/scripts/convert-bbc-to-topics.mjs`** — map-driven converter: validates entries (id prefix, subjectId, stage/year, source dirs, collision with existing app topics → skip unless `--force`); aggregates guides per entry (optional `guides`/`excludeGuides` filters); cleans text (show/hide toggle headings → "Worked example", `∙` decimal bullet → `.`, sentence-boundary spacing fixes); renders blocks → markdown; writes reference drafts to `tools/data/_staging/<subjectId>/<id>.json` with `status: "reference-draft"` + source URLs. Flags: `--only`, `--map`, `--force`, `--list-unmapped`. npm scripts: `convert:bbc`, `convert:bbc:unmapped` (tools/).
+3. Ran it: 9/9 entries converted (44 guides consumed). Artifact sweep after cleaning: 1 residual (missing period in BBC source text — unfixable by regex, harmless for reference).
+Verified: `node --check` ✅, full run 9/9 ✅, `--only`/`--list-unmapped` flags ✅, staging content spot-checked (maths worked examples clean, chem/phys WS drafts confirmed distinct content despite identical section counts).
+Next: Authoring pass — rewrite the 9 staging drafts into real topic JSONs in our own voice (7 notes/12 flashcards/15 questions), then `generate:registry` + all quality gates. Grow the curation map afterwards (`--list-unmapped` shows remaining dirs; English needs strand-level decisions, maths Y9 ~10 more topics per plan).
+Notes: staging files are NOT publishable — they contain BBC reference text. `AGENTS.md` conventions updated with the pipeline rule. `--list-unmapped` output is the queue for expanding the map (biology has 8 unmapped dirs, english 20, maths 23, chemistry 10, physics 8).
+
+---
+
+## 2026-07-23 — Phase 1.5 step 1-2: tools/data curated, scraper fixed + chem/phys scraped
+
+Git HEAD: `5a9a3fe` (branch `develop`, tree dirty — scraper fixes + tools/data changes)
+Done:
+1. **Curation**: 6 out-of-scope subjects moved to `tools/data/_archive/` (history, geography, religious-studies, computer-science, french, spanish). Deleted junk from in-scope subjects: `topics/` collection-page files (maths 28, english 16 — all verified empty), 68 `play-*` game files, 18 empty-section files. Remaining: maths 148, english 145, biology 86.
+2. **Scraper fixes** (`tools/scripts/scrape-bbc-ks3.mjs`): (a) paragraph-duplication bug — tree-walker now skips children of expanded container divs + stops at next heading, plus per-section dedupe safety net; (b) 404 guard on topic resolution (regex must tolerate BBC's curly apostrophe "couldn’t"); (c) KNOWN_TOPIC_MAP now beats the DOM-derived topic map; (d) resolveTopicPages returns real counts (mis-accounting fixed); (e) game links dropped at discovery (`/^play\b/` or `game -` in title); (f) `_summary.json`/`_url-map.json` now merge cumulatively across runs; (g) revision sub-page catch logs instead of silence; (h) `archived: true` flag on the 6 out-of-scope subjects — excluded from default runs, still scrapable via `--subject`.
+3. **Chem/phys added + scraped**: chemistry `znxtyrd`, physics `zh2xsbk` (IDs verified against live KS3 subjects page). Full run: chemistry 69/69, physics 81/81, 0 errors, **0 duplicated-paragraph files** (dedupe fix confirmed). Post-clean: 147 new files; physics topics incl. forces-and-movement 16, waves 15, electricity 11, working-scientifically 11; chemistry incl. chemical-reactions 12, working-scientifically 11, atoms/elements 8.
+Verified: `node --check` ✅, chemistry dry-run (69 guides/14 topics) ✅, full scrape 0 errors ✅, on-disk audit (empty/dup counts) ✅. Correction to earlier review: "title overwritten by link text" was NOT a bug — spread order in the output object favors the scraped h1; verified real files have correct titles.
+Next: Build `tools/scripts/convert-bbc-to-topics.mjs` (curation mapping BBC topicSlug → app topic ID; targets: Y9 math ~16, KS3 English +~6, Working Scientifically). Corpus now 526 in-scope guides (maths 148, english 145, biology 86, chemistry 68, physics 79).
+Notes: Deleted 3 stragglers post-scrape (2 "Science game - Atomic Labs", 1 stale-404 `zyn3b9q` acids-and-bases). `_summary.json` guideCount = discovery counts (pre-cleanup). KNOWN_TOPIC_MAP has no chem/phys entries — auto-resolution via topic-page visits worked fine, but spot-check topic names before converting.
+
+---
+
+## 2026-07-23 — BBC scraper/data review; Phase 1.5 pipeline added to revised plan
+
+Git HEAD: `5a9a3fe` (branch `develop`, tree clean → plan edited this session)
+Done: Reviewed `tools/scripts/scrape-bbc-ks3.mjs` + all 822 scraped guides vs `revised-implementation-plan.md`. Measured: `quiz`/`keyPoints` empty in 822/822 files; 146 zero-section files; paragraph-duplication bug (all 32 CS files, 10–23% of french/spanish/geography); scraped-h1 overwritten by link text (scraper line 750); `_summary`/`_url-map` per-run only. User decisions: (1) BBC text = **reference only**, notes rewritten in our voice; (2) **keep 5-subject scope** — archive history/geography/RS/CS/french/spanish, add chemistry+physics to scraper; (3) plan updated. Added **Phase 1.5 — BBC-sourced KS3 content pipeline** to `revised-implementation-plan.md` §5 (curate → fix/extend scraper → `convert-bbc-to-topics.mjs` with curation mapping, net-new IDs only).
+Verified: review only — no code/content changes; quality gates not applicable.
+Next: 1) Curate `tools/data/` (delete junk, archive 6 subjects). 2) Fix scraper bugs + add chem/phys, one final run. 3) Build `tools/scripts/convert-bbc-to-topics.mjs` (targets: Y9 math ~16, KS3 English +~6, Working Scientifically).
+Notes: Converter must dedupe paragraphs, strip `Show answerHide answer`/`Video Transcript` heading artifacts, and not trust `_url-map.json` topicName (re-derive from URL hash + KNOWN_TOPIC_MAP). Flashcards/questions always authored — nothing salvageable in scraped data.
+
+---
+
 ## 2026-07-22 — BBC Bitesize scraper v2: cleanup + CS fix COMPLETE, full quality audit
 
 Git HEAD: `2b6dee6` + uncommitted changes (branch `develop`, tree dirty — scraper v2)

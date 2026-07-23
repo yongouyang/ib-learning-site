@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "_comment": "Curation map for convert-bbc-to-topics.mjs. Each entry defines ONE net-new app topic and the BBC scraped guides that serve as REFERENCE material for authoring it (BBC text is never published verbatim — see revised-implementation-plan.md Phase 1.5). 'subject' = tools/data dir; 'topicSlug' = BBC topic dir; optional 'guides' allowlist / 'excludeGuides' denylist filter guide slugs within the topic dir. Only add entries whose 'id' does NOT already exist in src/content/data/topics/ (existing topics win).",
+  "topics": [
+    {
+      "id": "math-yr9-quadratic-graphs",
+      "subjectId": "math",
+      "title": "Quadratic Graphs",
+      "description": "Plotting and interpreting graphs of quadratic functions — parabolas, roots, turning points and symmetry.",
+      "stage": "ks3",
+      "year": 9,
+      "sources": [{ "subject": "maths", "topicSlug": "graphs" }]
+    },
+    {
+      "id": "math-yr9-quadratic-expressions",
+      "subjectId": "math",
+      "title": "Quadratic Expressions",
+      "description": "Expanding double brackets and factorising quadratic expressions — an introduction to quadratics.",
+      "stage": "ks3",
+      "year": 9,
+      "sources": [{ "subject": "maths", "topicSlug": "expressions-and-formulae" }]
+    },
+    {
+      "id": "math-yr9-standard-form",
+      "subjectId": "math",
+      "title": "Standard Form (Deeper)",
+      "description": "Calculating with numbers in standard index form — multiplication, division, addition and subtraction without a calculator.",
+      "stage": "ks3",
+      "year": 9,
+      "sources": [{ "subject": "maths", "topicSlug": "standard-index-form" }]
+    },
+    {
+      "id": "math-yr9-error-intervals",
+      "subjectId": "math",
+      "title": "Error Intervals & Bounds",
+      "description": "Upper and lower bounds of rounded values, error intervals and limits of accuracy in calculations.",
+      "stage": "ks3",
+      "year": 9,
+      "sources": [{ "subject": "maths", "topicSlug": "rounding-and-estimating" }]
+    },
+    {
+      "id": "math-yr9-surds",
+      "subjectId": "math",
+      "title": "Surds",
+      "description": "Exact irrational values — simplifying surds and carrying out calculations with them.",
+      "stage": "ks3",
+      "year": 9,
+      "sources": [{ "subject": "maths", "topicSlug": "powers-and-roots" }]
+    },
+    {
+      "id": "math-yr9-3d-geometry",
+      "subjectId": "math",
+      "title": "3D Geometry (Trigonometry-Free)",
+      "description": "Volume and surface area of prisms, cylinders, cones and spheres; plans and elevations of 3D shapes.",
+      "stage": "ks3",
+      "year": 9,
+      "sources": [{ "subject": "maths", "topicSlug": "perimeter-area-volume" }]
+    },
+    {
+      "id": "chem-working-scientifically-1",
+      "subjectId": "chemistry",
+      "title": "Working Scientifically in Chemistry",
+      "description": "Variables, hypotheses, planning experiments, data types, graphs and evaluation — the practical skills of KS3 chemistry.",
+      "stage": "ks3",
+      "sources": [
+        { "subject": "chemistry", "topicSlug": "working-scientifically" },
+        { "subject": "chemistry", "topicSlug": "how-science-works" }
+      ]
+    },
+    {
+      "id": "phys-working-scientifically-1",
+      "subjectId": "physics",
+      "title": "Working Scientifically in Physics",
+      "description": "Variables, hypotheses, planning experiments, data types, graphs and evaluation — the practical skills of KS3 physics.",
+      "stage": "ks3",
+      "sources": [
+        { "subject": "physics", "topicSlug": "working-scientifically" },
+        { "subject": "physics", "topicSlug": "think-like-a-scientist" }
+      ]
+    },
+    {
+      "id": "eng-spelling-1",
+      "subjectId": "english",
+      "title": "Spelling Strategies",
+      "description": "Spelling rules, patterns and memory strategies — homophones, common confusions and proofreading for spelling.",
+      "stage": "ks3",
+      "sources": [{ "subject": "english", "topicSlug": "spelling" }]
+    }
+  ]
+}

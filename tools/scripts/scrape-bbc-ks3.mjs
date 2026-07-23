@@ -83,16 +83,21 @@ const KNOWN_TOPIC_MAP = {
 };
 
 // All KS3 subject pages verified via scraping July 2026
+// `archived: true` = outside the project's 5-subject scope (see revised-implementation-plan.md §9).
+// Archived subjects are excluded from a default (no --subject) run but can still be
+// scraped explicitly with `--subject <key>`; their data lives in tools/data/_archive/.
 const SUBJECTS = {
   biology:       { url: '/bitesize/subjects/z4882hv', name: 'Biology',            parent: 'Science' },
+  chemistry:     { url: '/bitesize/subjects/znxtyrd', name: 'Chemistry',          parent: 'Science' },
+  physics:       { url: '/bitesize/subjects/zh2xsbk', name: 'Physics',            parent: 'Science' },
   maths:         { url: '/bitesize/subjects/zqhs34j', name: 'Maths' },
   english:       { url: '/bitesize/subjects/z3kw2hv', name: 'English' },
-  history:       { url: '/bitesize/subjects/zk26n39', name: 'History' },
-  geography:     { url: '/bitesize/subjects/zrw76sg', name: 'Geography' },
-  'computer-science': { url: '/bitesize/subjects/zvc9q6f', name: 'Computer Science' },
-  french:        { url: '/bitesize/subjects/zgdqxnb', name: 'French',             parent: 'Modern Foreign Languages' },
-  spanish:       { url: '/bitesize/subjects/zfckjxs', name: 'Spanish',            parent: 'Modern Foreign Languages' },
-  'religious-studies': { url: '/bitesize/subjects/zh3rkqt', name: 'Religious Studies' },
+  history:       { url: '/bitesize/subjects/zk26n39', name: 'History',            archived: true },
+  geography:     { url: '/bitesize/subjects/zrw76sg', name: 'Geography',          archived: true },
+  'computer-science': { url: '/bitesize/subjects/zvc9q6f', name: 'Computer Science', archived: true },
+  french:        { url: '/bitesize/subjects/zgdqxnb', name: 'French',             parent: 'Modern Foreign Languages', archived: true },
+  spanish:       { url: '/bitesize/subjects/zfckjxs', name: 'Spanish',            parent: 'Modern Foreign Languages', archived: true },
+  'religious-studies': { url: '/bitesize/subjects/zh3rkqt', name: 'Religious Studies', archived: true },
 };
 
 // ─── CLI Argument Parsing ─────────────────────────────────────────────────────
@@ -207,10 +212,16 @@ async function extractGuideUrls(page, subjectKey) {
   });
 
   // 3. Retroactively assign topicName to each guide by extracting the BBC topic ID from its URL
+  //    KNOWN_TOPIC_MAP (manually verified) wins over the DOM-derived map, which is unreliable.
   for (const guide of result.guides) {
     const match = guide.url.match(/\/(?:topics|guides)\/([a-z0-9]+)/i);
-    if (match && result.topicIdMap[match[1].toLowerCase()]) {
-      guide.topicName = result.topicIdMap[match[1].toLowerCase()];
+    if (match) {
+      const tid = match[1].toLowerCase();
+      if (KNOWN_TOPIC_MAP[tid]) {
+        guide.topicName = KNOWN_TOPIC_MAP[tid];
+      } else if (result.topicIdMap[tid]) {
+        guide.topicName = result.topicIdMap[tid];
+      }
     }
   }
 
@@ -243,9 +254,12 @@ async function extractGuideUrls(page, subjectKey) {
           const h1 = document.querySelector('h1');
           return h1?.textContent?.trim() || '';
         });
-        if (topicTitle) {
+        const is404 = /sorry, we couldn.t find|page not found|404/i.test(topicTitle);
+        if (topicTitle && !is404) {
           result.topicIdMap[tid] = topicTitle;
           log('ok', `  ${tid} → "${topicTitle}"`);
+        } else if (is404) {
+          log('warn', `  ${tid} → topic page is a 404, skipping`);
         } else {
           log('warn', `  ${tid} → no H1 found`);
         }
@@ -338,7 +352,7 @@ async function resolveTopicPages(page, guides, delay, summary) {
   }
 
   log('prog', `Topic-page resolution: ${topicPagesResolved} pages resolved → ${newArticlesFound} new article URLs`);
-  return resolved;
+  return { guides: resolved, topicPagesResolved, newArticlesFound };
 }
 
 // ─── PHASE 2: Scrape a Single Guide Page ────────────────────────────────────
@@ -457,13 +471,19 @@ async function scrapeGuide(page, guideUrl, subjectKey) {
             let ancestor = heading.parentElement;
             for (let i = 0; i < 4 && ancestor && items.length === 0; i++) {
               let foundHeading = false;
+              const expandedDivs = []; // container divs already expanded by extractContent — skip their children
               const walker = document.createTreeWalker(ancestor, NodeFilter.SHOW_ELEMENT);
               let node = walker.nextNode();
               while (node) {
-                if (node === heading) { foundHeading = true; }
-                else if (foundHeading && !['H2', 'H3', 'H4'].includes(node.tagName)) {
-                  extractContent(node, items, vocab);
+                if (node === heading) { foundHeading = true; node = walker.nextNode(); continue; }
+                if (!foundHeading) { node = walker.nextNode(); continue; }
+                if (['H2', 'H3', 'H4'].includes(node.tagName)) break; // stop at the next heading
+                if (expandedDivs.some((d) => d.contains(node))) { node = walker.nextNode(); continue; }
+                const nodeCls = (typeof node.className === 'string') ? node.className : '';
+                if (node.tagName === 'DIV' && (nodeCls.includes('text-block') || nodeCls.includes('TextWrapper') || nodeCls.includes('RichText'))) {
+                  expandedDivs.push(node);
                 }
+                extractContent(node, items, vocab);
                 node = walker.nextNode();
               }
               ancestor = ancestor.parentElement;
@@ -590,7 +610,7 @@ async function scrapeGuide(page, guideUrl, subjectKey) {
               content.sections.push(...nextContent);
             }
           } catch (e) {
-            // Silently skip failed revision pages
+            log('warn', `  Skipping revision page ${nextUrl}: ${e.message}`);
           }
         }
       }
@@ -598,6 +618,20 @@ async function scrapeGuide(page, guideUrl, subjectKey) {
       content.sections = content.sections.filter(
         (s) => !noiseWords.some((w) => s.heading.toLowerCase().includes(w)) && s.content.length > 0
       );
+
+      // Dedupe content blocks within each section (guards against double-push from
+      // overlapping extraction strategies and duplicated mobile/desktop DOM)
+      for (const s of content.sections) {
+        const seen = new Set();
+        s.content = s.content.filter((item) => {
+          const key = item.type + ':' + (item.text || (item.items || []).join('|') || JSON.stringify(item.rows || []));
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+      }
+      // Drop sections left empty by dedupe
+      content.sections = content.sections.filter((s) => s.content.length > 0);
 
       if (!content.title) throw new Error('No title found');
       return content;
@@ -647,7 +681,7 @@ async function main() {
   const opts = parseArgs();
   const subjectsToScrape = opts.subject
     ? { [opts.subject]: SUBJECTS[opts.subject] }
-    : SUBJECTS;
+    : Object.fromEntries(Object.entries(SUBJECTS).filter(([, s]) => !s.archived));
 
   if (opts.subject && !SUBJECTS[opts.subject]) {
     console.error(`Unknown subject: "${opts.subject}"`);
@@ -697,18 +731,37 @@ async function main() {
     log('prog', '\n═══ PHASE 1.5: Resolving topic pages → article URLs ═══');
     for (const [key, result] of Object.entries(allGuides)) {
       const before = result.guides.length;
-      result.guides = await resolveTopicPages(page, result.guides, opts.delay, summary);
+      const res = await resolveTopicPages(page, result.guides, opts.delay, summary);
+      result.guides = res.guides;
+      summary.topicPagesResolved += res.topicPagesResolved;
+      summary.articlesFromResolution += res.newArticlesFound;
       const after = result.guides.length;
       if (after !== before) {
-        summary.topicPagesResolved += before;
-        summary.articlesFromResolution += (after - before);
         summary.subjects[key].guideCount = after;
         summary.totalGuides += (after - before);
         log('ok', `${SUBJECTS[key].name}: ${before} → ${after} guides after resolution`);
       }
     }
 
-    fs.writeFileSync(path.join(DATA_DIR, '_url-map.json'), JSON.stringify(allGuides, null, 2));
+    // Drop game placeholder pages (e.g. "Play KS3 Maths game", "Science game - Atomic Labs") — no scrapable content
+    for (const result of Object.values(allGuides)) {
+      const before = result.guides.length;
+      result.guides = result.guides.filter((g) => !/(^play\b)|(\bgame\s*[-–])/i.test(g.title.trim()));
+      const dropped = before - result.guides.length;
+      if (dropped > 0) {
+        summary.totalGuides -= dropped;
+        log('info', `Dropped ${dropped} game links`);
+      }
+    }
+
+    // Merge with the existing URL map so single-subject runs don't lose other subjects
+    const urlMapPath = path.join(DATA_DIR, '_url-map.json');
+    let mergedUrlMap = allGuides;
+    try {
+      const existing = JSON.parse(fs.readFileSync(urlMapPath, 'utf-8'));
+      mergedUrlMap = { ...existing, ...allGuides };
+    } catch { /* no usable prior map */ }
+    fs.writeFileSync(urlMapPath, JSON.stringify(mergedUrlMap, null, 2));
     log('ok', `URL map saved: ${summary.totalGuides} total guides`);
 
     if (opts.dryRun) {
@@ -723,6 +776,7 @@ async function main() {
     for (const [subjectKey, { guides, topics }] of Object.entries(allGuides)) {
       const subjectName = SUBJECTS[subjectKey].name;
       log('prog', `\n── ${subjectName} (${guides.length} guides) ──`);
+      const subjStats = { scraped: 0, skipped: 0, errors: 0 };
 
       for (let i = 0; i < guides.length; i++) {
         const guide = guides[i];
@@ -735,12 +789,13 @@ async function main() {
         if (opts.resume && isAlreadyScraped(outputFile)) {
           log('warn', `Skipping: ${guide.title.slice(0, 55)}`);
           summary.skipped++;
+          subjStats.skipped++;
           continue;
         }
 
         const progress = `[${i + 1}/${guides.length}]`;
         const content = await scrapeGuide(page, guide.url, subjectKey);
-        if (content._error) { summary.errors++; } else { summary.scraped++; }
+        if (content._error) { summary.errors++; subjStats.errors++; } else { summary.scraped++; subjStats.scraped++; }
 
         ensureDir(outputDir);
         const output = {
@@ -756,14 +811,23 @@ async function main() {
         log('ok', `${progress} ${guide.title.slice(0, 55)}`);
         await sleep(opts.delay);
       }
+
+      summary.subjects[subjectKey].lastRun = { ...subjStats, at: new Date().toISOString() };
     }
   } catch (err) {
     log('err', `Fatal: ${err.message}`);
     console.error(err);
   } finally {
     summary.completedAt = new Date().toISOString();
-    summary.totalGuides = Object.values(allGuides).reduce((s, v) => s + v.guides.length, 0);
-    fs.writeFileSync(path.join(DATA_DIR, '_summary.json'), JSON.stringify(summary, null, 2));
+    // Merge with the previous summary so single-subject runs stay cumulative
+    const summaryPath = path.join(DATA_DIR, '_summary.json');
+    try {
+      const prev = JSON.parse(fs.readFileSync(summaryPath, 'utf-8'));
+      summary.subjects = { ...(prev.subjects || {}), ...summary.subjects };
+    } catch { /* no usable prior summary */ }
+    summary.totalGuides = Object.values(summary.subjects).reduce((s, v) => s + (v.guideCount || 0), 0);
+    summary.scrapeScope = Object.keys(subjectsToScrape);
+    fs.writeFileSync(summaryPath, JSON.stringify(summary, null, 2));
     log('prog', `\n═══ Complete ═══`);
     log('prog', `Guides: ${summary.totalGuides} | Scraped: ${summary.scraped} | Skipped: ${summary.skipped} | Errors: ${summary.errors}`);
     if (summary.topicPagesResolved) {

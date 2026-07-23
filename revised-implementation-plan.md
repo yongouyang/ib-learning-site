@@ -155,6 +155,15 @@ Sequencing rule: within each track, order topics by school-year relevance (Y7-no
 - Subjects page → stage-aware browsing: KS3 (Y7/8/9) / IGCSE / IB DP groupings, course cards with progress bars (RV pattern), breadcrumbs already in place.
 - Update AGENTS.md/CONTENT_STYLE.md with new fields and ID conventions.
 
+**Phase 1.5 — BBC-sourced KS3 content pipeline**
+Raw material: 822 BBC Bitesize KS3 guides already scraped to `tools/data/` (reviewed 2026-07-23). Usage rule (user decision, consistent with §7): **BBC text is reference only** — notes are rewritten in our own voice per `CONTENT_STYLE.md`; the topic maps double as a KS3 coverage checklist. Flashcards/questions are authored (LLM-assisted + human review) regardless, since scraped `quiz`/`keyPoints` are empty in all 822 files.
+
+- **Curate** `tools/data/`: delete junk (`*/topics/` collection-page files, `play-*` game files, ~146 empty-section files); archive the 6 out-of-scope subjects (history, geography, religious-studies, computer-science, french, spanish) — kept on disk, never published (§9 scope unchanged). In-scope scraped: maths 217, english 169, biology 86.
+- **Fix + extend scraper** (`tools/scripts/scrape-bbc-ks3.mjs`): paragraph-duplication bug (double-push in strategy-2 walker, ~lines 356–380), scraped-h1 overwritten by link text (~line 750), missing 404 guard on topic resolution, `_summary.json`/`_url-map.json` overwritten per run instead of cumulative. Then add **chemistry + physics** to `SUBJECTS` (in scope, not yet scraped; BBC structure already mapped in `bbc-bitesize-ks3-full-topic-maps_deepseek_v4_pro.md` §2–§3) and do one final run.
+- **Build `tools/scripts/convert-bbc-to-topics.mjs`** driven by a curation mapping file: BBC `topicSlug` → app topic ID (`math-yr9-*`, `eng-*-1`, …) with explicit `stage`/`year` tags; **only net-new IDs** are created (existing 117 topics win; overlapping guides serve as enrichment reference). Many BBC guides aggregate into one app topic. Converter cleans text (dedupe paragraphs, strip `Show answerHide answer`/`Video Transcript` artifacts, fix sentence spacing), renders blocks → markdown note drafts, and emits flashcard/question skeletons to be filled by authoring.
+- **Priority targets** (the gaps from §2): Y9 math (~16 topics), KS3 English re-map (+~6), Working Scientifically topics for science.
+- Gates unchanged: converted topics must pass `validate:content` + `audit:content` (7/12/15 standard) before merge.
+
 **Phase 2 — Question bank & difficulty + diagnostics**
 - `difficulty`/`calculator` tags surfaced in quiz UI (badges), quiz ordered easy→hard, filter by difficulty.
 - Mixed review + weak-areas reuse difficulty weighting.

@@ -6,7 +6,9 @@
     "scrape:bbc": "node scripts/scrape-bbc-ks3.mjs",
     "scrape:bbc:dry": "node scripts/scrape-bbc-ks3.mjs --dry-run",
     "scrape:bbc:maths": "node scripts/scrape-bbc-ks3.mjs --subject maths",
-    "scrape:bbc:resume": "node scripts/scrape-bbc-ks3.mjs --resume"
+    "scrape:bbc:resume": "node scripts/scrape-bbc-ks3.mjs --resume",
+    "convert:bbc": "node scripts/convert-bbc-to-topics.mjs",
+    "convert:bbc:unmapped": "node scripts/convert-bbc-to-topics.mjs --list-unmapped"
   },
   "dependencies": {
     "playwright": "^1.45.0"
