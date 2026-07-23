@@ -1,0 +1,301 @@
+{
+  "id": "math-yr9-surds",
+  "subjectId": "math",
+  "title": "Surds",
+  "description": "Exact irrational values — simplifying surds and carrying out calculations with them.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "math-yr9-surds-n1",
+      "heading": "What Is a Surd?",
+      "body": "📌 Definition\nA surd is a root that cannot be simplified to a whole number or a fraction. Surds are irrational numbers: their decimal forms go on forever without repeating, so we leave them in root form to keep the value exact.\n\n🔑 How it works\nTake the square root of a number:\n• If the answer is rational (a whole number or fraction), it is NOT a surd.\n• If the answer is irrational, it IS a surd.\n\nExamples:\n• $\\sqrt{9} = 3$ — rational, so not a surd.\n• $\\sqrt{25} = 5$ — rational, so not a surd.\n• $\\sqrt{7} = 2.6457\\ldots$ — never-ending, so $\\sqrt{7}$ is a surd.\n• $\\sqrt{2} = 1.4142\\ldots$ — a surd.\n\n💡 Worked Example\nDecide whether $\\sqrt{36}$ and $\\sqrt{10}$ are surds.\n\n• $\\sqrt{36} = 6$, a whole number — not a surd.\n• $\\sqrt{10} = 3.162\\ldots$, never-ending — $\\sqrt{10}$ is a surd.\n\n📎 Key Points to Remember\n• Square roots of perfect squares ($1, 4, 9, 16, 25, \\ldots$) are rational.\n• Square roots of non-square positive integers are surds.\n• Writing $\\sqrt{7}$ keeps the value EXACT; writing $2.6457\\ldots$ or $2.65$ only approximates it.\n\n⚠️ Common Mistake\nThinking every square root is a surd. $\\sqrt{49} = 7$ exactly, so $\\sqrt{49}$ is rational — the whole point of surds is that they do NOT simplify to a rational number.\n\n✅ Check\nWork out the root on a calculator. A tidy whole number or terminating decimal means it is not a surd."
+    },
+    {
+      "id": "math-yr9-surds-n2",
+      "heading": "Multiplying and Dividing Surds",
+      "body": "📌 Definition\nTwo rules let you combine surds under one root:\n$$\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$$\n$$\\dfrac{\\sqrt{a}}{\\sqrt{b}} = \\sqrt{\\dfrac{a}{b}}$$\n\n🔑 How it works\n• To multiply surds, multiply the numbers inside the roots.\n• To divide surds, divide the numbers inside the roots.\n• Numbers OUTSIDE the roots multiply together separately: $2\\sqrt{3} \\times 4\\sqrt{5} = (2 \\times 4)\\sqrt{3 \\times 5} = 8\\sqrt{15}$.\n\n💡 Worked Example 1\nSimplify $\\sqrt{3} \\times \\sqrt{5}$.\n$$\\sqrt{3} \\times \\sqrt{5} = \\sqrt{15}$$\n$15$ has no square factor bigger than $1$, so this is fully simplified.\n\n💡 Worked Example 2\nSimplify $\\sqrt{6} \\times \\sqrt{2}$.\n$$\\sqrt{6} \\times \\sqrt{2} = \\sqrt{12} = \\sqrt{4 \\times 3} = 2\\sqrt{3}$$\nAlways check whether the result simplifies further.\n\n💡 Worked Example 3\nSimplify $\\dfrac{\\sqrt{20}}{\\sqrt{5}}$.\n$$\\dfrac{\\sqrt{20}}{\\sqrt{5}} = \\sqrt{\\dfrac{20}{5}} = \\sqrt{4} = 2$$\n\n📎 Key Points to Remember\n• Multiply the insides, and multiply the outsides — keep the two jobs separate.\n• After multiplying or dividing, always check whether the new surd simplifies.\n• Division can produce a whole number, as in Worked Example 3.\n\n⚠️ Common Mistake\nAdding the numbers instead of multiplying: $\\sqrt{3} \\times \\sqrt{5} \\neq \\sqrt{8}$. The rule multiplies the values inside the roots."
+    },
+    {
+      "id": "math-yr9-surds-n3",
+      "heading": "Simplifying Surds",
+      "body": "📌 Definition\nSimplifying a surd means writing it as $a\\sqrt{b}$, where $b$ is as small as possible — that is, $b$ has no square factor other than $1$. The rule used is:\n$$\\sqrt{ab} = \\sqrt{a} \\times \\sqrt{b}$$\n\n🔑 How it works\n1. Find the LARGEST square number ($4, 9, 16, 25, 36, \\ldots$) that divides the number inside the root.\n2. Split the surd using that factor.\n3. Take the square root of the square factor and write it outside.\n\n💡 Worked Example 1\nSimplify $\\sqrt{50}$.\n\nThe largest square factor of $50$ is $25$:\n$$\\sqrt{50} = \\sqrt{25 \\times 2} = \\sqrt{25} \\times \\sqrt{2} = 5\\sqrt{2}$$\n\n💡 Worked Example 2\nSimplify $\\sqrt{72}$.\n\nThe largest square factor of $72$ is $36$:\n$$\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$$\n\nIf you spot only a smaller factor first, keep going: $\\sqrt{72} = \\sqrt{4} \\times \\sqrt{18} = 2\\sqrt{18} = 2 \\times 3\\sqrt{2} = 6\\sqrt{2}$.\n\n💡 Worked Example 3\nSimplify $\\sqrt{45}$.\n$$\\sqrt{45} = \\sqrt{9 \\times 5} = 3\\sqrt{5}$$\n\n📎 Key Points to Remember\n• A surd is fully simplified only when the number inside the root has no square factor.\n• Knowing the square numbers up to at least $15^2 = 225$ makes spotting factors much faster.\n• The number outside multiplies: $\\sqrt{25 \\times 2} = 5\\sqrt{2}$, not $\\sqrt{5}\\sqrt{2}$ or $25\\sqrt{2}$.\n\n⚠️ Common Mistake\nStopping too early. $\\sqrt{50} = \\sqrt{25 \\times 2}$, but writing $\\sqrt{12} = \\sqrt{4 \\times 3} = 2\\sqrt{3}$ is complete only because $3$ has no square factor — always check the number left inside.\n\n✅ Check\nSquare your answer's outside number and multiply back: $(5\\sqrt{2})^2 = 25 \\times 2 = 50$ — it matches the original surd."
+    },
+    {
+      "id": "math-yr9-surds-n4",
+      "heading": "Adding and Subtracting Surds",
+      "body": "📌 Definition\nOnly LIKE surds — surds with the same number inside the root — can be added or subtracted. You combine them by adding or subtracting the numbers outside the roots.\n\n🔑 How it works\n• $3\\sqrt{2} + 5\\sqrt{2} = 8\\sqrt{2}$ — treat $\\sqrt{2}$ like a unit, just as $3x + 5x = 8x$.\n• $7\\sqrt{3} - 2\\sqrt{3} = 5\\sqrt{3}$.\n• $\\sqrt{2}$ and $\\sqrt{3}$ are unlike surds: $\\sqrt{2} + \\sqrt{3}$ cannot be simplified.\n• If surds look unlike, simplify each one first — they may become like surds.\n\n💡 Worked Example 1\nSimplify $\\sqrt{50} + \\sqrt{18}$.\n\nSimplify each surd first:\n$$\\sqrt{50} = 5\\sqrt{2} \\quad \\text{and} \\quad \\sqrt{18} = 3\\sqrt{2}$$\nNow the surds are like, so:\n$$5\\sqrt{2} + 3\\sqrt{2} = 8\\sqrt{2}$$\n\n💡 Worked Example 2\nSimplify $\\sqrt{27} - \\sqrt{12}$.\n$$\\sqrt{27} = 3\\sqrt{3} \\quad \\text{and} \\quad \\sqrt{12} = 2\\sqrt{3}$$\n$$3\\sqrt{3} - 2\\sqrt{3} = \\sqrt{3}$$\n\n📎 Key Points to Remember\n• The number inside the root never changes when you add or subtract like surds.\n• A bare $\\sqrt{3}$ means $1\\sqrt{3}$.\n• \"Simplify first, then collect\" is the standard approach for exam questions.\n\n⚠️ Common Mistake\nAdding the numbers inside the roots: $\\sqrt{9} + \\sqrt{16} \\neq \\sqrt{25}$, because $3 + 4 = 7$, not $5$. There is no rule $\\sqrt{a} + \\sqrt{b} = \\sqrt{a + b}$."
+    },
+    {
+      "id": "math-yr9-surds-n5",
+      "heading": "Expanding Brackets with Surds",
+      "body": "📌 Definition\nSurds follow the same algebra rules as letters, so brackets containing surds expand in the usual way. The key fact used throughout is:\n$$\\sqrt{a} \\times \\sqrt{a} = (\\sqrt{a})^2 = a$$\n\n🔑 How it works\n• Single bracket: multiply each term inside by the term outside.\n• Double brackets: use FOIL (First, Outer, Inner, Last), then collect like terms.\n• Squaring removes the root: $\\sqrt{5} \\times \\sqrt{5} = 5$.\n\n💡 Worked Example 1\nExpand $\\sqrt{3}(\\sqrt{3} + 4)$.\n$$\\sqrt{3} \\times \\sqrt{3} + \\sqrt{3} \\times 4 = 3 + 4\\sqrt{3}$$\n\n💡 Worked Example 2\nExpand and simplify $(\\sqrt{2} + 3)(\\sqrt{2} + 1)$.\n\n• First: $\\sqrt{2} \\times \\sqrt{2} = 2$\n• Outer: $\\sqrt{2} \\times 1 = \\sqrt{2}$\n• Inner: $3 \\times \\sqrt{2} = 3\\sqrt{2}$\n• Last: $3 \\times 1 = 3$\n\nCollecting: $2 + \\sqrt{2} + 3\\sqrt{2} + 3 = 5 + 4\\sqrt{2}$.\n\n💡 Worked Example 3\nExpand and simplify $(\\sqrt{5} + 2)(\\sqrt{5} - 2)$.\n$$5 - 2\\sqrt{5} + 2\\sqrt{5} - 4 = 1$$\nThe surd terms cancel — this always happens with a sum-and-difference pair $(a + b)(a - b)$.\n\n📎 Key Points to Remember\n• Write whole numbers and surd terms separately at the end: answer like $5 + 4\\sqrt{2}$.\n• $(\\sqrt{a})^2 = a$ is what lets the roots disappear.\n• After expanding, check for like surds to collect.\n\n⚠️ Common Mistake\nThinking $(\\sqrt{a} + \\sqrt{b})^2 = a + b$. In fact $(\\sqrt{2} + 1)^2 = 2 + 2\\sqrt{2} + 1 = 3 + 2\\sqrt{2}$ — you must expand both brackets fully.\n\n✅ Check\nEstimate with decimals: $(\\sqrt{5} + 2)(\\sqrt{5} - 2) \\approx (2.236 + 2)(2.236 - 2) \\approx 4.236 \\times 0.236 \\approx 1$ — matching the exact answer."
+    },
+    {
+      "id": "math-yr9-surds-n6",
+      "heading": "Rationalising the Denominator",
+      "body": "📌 Definition\nRationalising the denominator means rewriting a fraction so that the denominator is a whole number. It is considered untidy to leave a surd on the bottom of a fraction.\n\n🔑 How it works\nFor a fraction like $\\dfrac{a}{\\sqrt{b}}$:\n1. Multiply the top and bottom by $\\sqrt{b}$ — this multiplies the fraction by $1$, so its value does not change.\n2. The bottom becomes $\\sqrt{b} \\times \\sqrt{b} = b$, a whole number.\n3. Simplify the result if possible.\n\n💡 Worked Example 1\nRationalise $\\dfrac{1}{\\sqrt{5}}$.\n$$\\dfrac{1}{\\sqrt{5}} = \\dfrac{1}{\\sqrt{5}} \\times \\dfrac{\\sqrt{5}}{\\sqrt{5}} = \\dfrac{\\sqrt{5}}{5}$$\n\n💡 Worked Example 2\nRationalise $\\dfrac{3}{\\sqrt{2}}$.\n$$\\dfrac{3}{\\sqrt{2}} \\times \\dfrac{\\sqrt{2}}{\\sqrt{2}} = \\dfrac{3\\sqrt{2}}{2}$$\n\n💡 Worked Example 3\nRationalise $\\dfrac{10}{\\sqrt{5}}$ and simplify.\n$$\\dfrac{10}{\\sqrt{5}} \\times \\dfrac{\\sqrt{5}}{\\sqrt{5}} = \\dfrac{10\\sqrt{5}}{5} = 2\\sqrt{5}$$\n\n📎 Key Points to Remember\n• Multiplying top and bottom by the same surd keeps the fraction's value unchanged.\n• $\\sqrt{b} \\times \\sqrt{b} = b$ is the whole trick.\n• After rationalising, cancel common factors between the whole-number parts.\n\n⚠️ Common Mistake\nMultiplying only the denominator by the surd, which changes the value of the fraction. Whatever you do to the bottom, you must do to the top.\n\n✅ Check\nUse a calculator: $\\dfrac{10}{\\sqrt{5}} \\approx 4.472$ and $2\\sqrt{5} \\approx 4.472$ — the forms match."
+    },
+    {
+      "id": "math-yr9-surds-n7",
+      "heading": "Exact Answers and Estimating Surds",
+      "body": "📌 Definition\nBecause surds are exact, geometry and calculation questions often ask for answers \"in surd form\" or \"in its simplest form\". Estimating tells you roughly how big a surd is without a calculator.\n\n🔑 How it works — estimating\nTo estimate $\\sqrt{n}$, find the two consecutive square numbers either side of $n$:\n$$\\sqrt{16} < \\sqrt{20} < \\sqrt{25} \\quad \\text{so} \\quad 4 < \\sqrt{20} < 5$$\nSince $20$ is closer to $16$ than to $25$, $\\sqrt{20} \\approx 4.5$ (the true value is $4.472\\ldots$).\n\n🔑 How it works — exact answers\nWhen a calculation produces a surd, leave it exact unless told to round:\n• A right-angled triangle has legs $3$ cm and $4$ cm... hypotenuse $\\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$ cm (rational).\n• Legs $3$ cm and $3$ cm: hypotenuse $\\sqrt{9 + 9} = \\sqrt{18} = 3\\sqrt{2}$ cm (exact surd answer).\n\n💡 Worked Example 1\nA square has area $10$ cm$^2$. Find the exact side length.\n$$\\text{side} = \\sqrt{10} \\text{ cm}$$\n$10$ has no square factor, so $\\sqrt{10}$ cm is the exact answer — no need for a decimal.\n\n💡 Worked Example 2\nBetween which two consecutive whole numbers does $\\sqrt{30}$ lie?\n\n$25 < 30 < 36$, so $\\sqrt{25} < \\sqrt{30} < \\sqrt{36}$, giving:\n$$5 < \\sqrt{30} < 6$$\n\n📎 Key Points to Remember\n• \"Give your answer in surd form\" means do NOT reach for the calculator decimal.\n• Simplify the surd where possible: $\\sqrt{18}$ should be written as $3\\sqrt{2}$.\n• Square numbers either side of $n$ give a quick estimate of $\\sqrt{n}$.\n\n⚠️ Common Mistake\nRounding a surd answer when the question asks for an exact value. $3\\sqrt{2} \\approx 4.24$ is an approximation; $3\\sqrt{2}$ is the answer.\n\n✅ Check\nSquare the estimated value: $4.5^2 = 20.25 \\approx 20$, so $\\sqrt{20} \\approx 4.5$ is sensible."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr9-surds-f1",
+      "term": "Surd",
+      "definition": "A root that cannot be simplified to a whole number or fraction; an irrational number left in root form.",
+      "example": "$\\sqrt{7}$ is a surd, but $\\sqrt{9} = 3$ is not."
+    },
+    {
+      "id": "math-yr9-surds-f2",
+      "term": "Irrational number",
+      "definition": "A number whose decimal form never ends and never repeats, so it cannot be written as a fraction.",
+      "example": "$\\sqrt{2} = 1.4142\\ldots$ is irrational."
+    },
+    {
+      "id": "math-yr9-surds-f3",
+      "term": "Multiplying surds",
+      "definition": "$\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$ — multiply the numbers inside the roots.",
+      "example": "$\\sqrt{3} \\times \\sqrt{5} = \\sqrt{15}$."
+    },
+    {
+      "id": "math-yr9-surds-f4",
+      "term": "Dividing surds",
+      "definition": "$\\dfrac{\\sqrt{a}}{\\sqrt{b}} = \\sqrt{\\dfrac{a}{b}}$ — divide the numbers inside the roots.",
+      "example": "$\\dfrac{\\sqrt{20}}{\\sqrt{5}} = \\sqrt{4} = 2$."
+    },
+    {
+      "id": "math-yr9-surds-f5",
+      "term": "Simplifying a surd",
+      "definition": "Writing a surd as $a\\sqrt{b}$ where $b$ has no square factor, using $\\sqrt{ab} = \\sqrt{a}\\sqrt{b}$.",
+      "example": "$\\sqrt{50} = \\sqrt{25 \\times 2} = 5\\sqrt{2}$."
+    },
+    {
+      "id": "math-yr9-surds-f6",
+      "term": "Square factor method",
+      "definition": "To simplify a surd, find the largest square number that divides the value inside the root and take its root outside.",
+      "example": "$\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$."
+    },
+    {
+      "id": "math-yr9-surds-f7",
+      "term": "Like surds",
+      "definition": "Surds with the same number inside the root; only like surds can be added or subtracted.",
+      "example": "$3\\sqrt{2} + 5\\sqrt{2} = 8\\sqrt{2}$, but $\\sqrt{2} + \\sqrt{3}$ cannot be simplified."
+    },
+    {
+      "id": "math-yr9-surds-f8",
+      "term": "Squaring a surd",
+      "definition": "$(\\sqrt{a})^2 = a$ — squaring removes the root.",
+      "example": "$(\\sqrt{7})^2 = 7$ and $(3\\sqrt{2})^2 = 9 \\times 2 = 18$."
+    },
+    {
+      "id": "math-yr9-surds-f9",
+      "term": "Rationalising the denominator",
+      "definition": "Multiplying the top and bottom of a fraction by the surd on the bottom so the denominator becomes a whole number.",
+      "example": "$\\dfrac{3}{\\sqrt{2}} = \\dfrac{3\\sqrt{2}}{2}$."
+    },
+    {
+      "id": "math-yr9-surds-f10",
+      "term": "Exact form (surd form)",
+      "definition": "Leaving an answer with surds in it rather than rounding to a decimal, so no accuracy is lost.",
+      "example": "A hypotenuse of $\\sqrt{18} = 3\\sqrt{2}$ cm is exact; $4.24$ cm is only an approximation."
+    },
+    {
+      "id": "math-yr9-surds-f11",
+      "term": "Expanding surd brackets",
+      "definition": "Expanding brackets containing surds term by term, using $\\sqrt{a} \\times \\sqrt{a} = a$, then collecting like terms.",
+      "example": "$(\\sqrt{2} + 3)(\\sqrt{2} + 1) = 2 + \\sqrt{2} + 3\\sqrt{2} + 3 = 5 + 4\\sqrt{2}$."
+    },
+    {
+      "id": "math-yr9-surds-f12",
+      "term": "Estimating a surd",
+      "definition": "Locating $\\sqrt{n}$ between the square roots of the two consecutive square numbers either side of $n$.",
+      "example": "Since $16 < 20 < 25$, $\\sqrt{20}$ lies between $4$ and $5$, at roughly $4.5$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr9-surds-q1",
+      "stem": "Which of these is a surd?",
+      "choices": [
+        "$\\sqrt{9}$",
+        "$\\sqrt{16}$",
+        "$\\sqrt{5}$",
+        "$\\sqrt{0.25}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\sqrt{9} = 3$, $\\sqrt{16} = 4$ and $\\sqrt{0.25} = 0.5$ are all rational. $\\sqrt{5} = 2.236\\ldots$ never ends or repeats, so it is a surd."
+    },
+    {
+      "id": "math-yr9-surds-q2",
+      "stem": "Simplify $\\sqrt{3} \\times \\sqrt{5}$.",
+      "choices": [
+        "$\\sqrt{8}$",
+        "$\\sqrt{15}$",
+        "$8$",
+        "$15$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The rule $\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$ gives $\\sqrt{3 \\times 5} = \\sqrt{15}$, and $15$ has no square factor."
+    },
+    {
+      "id": "math-yr9-surds-q3",
+      "stem": "Simplify fully: $\\sqrt{6} \\times \\sqrt{2}$.",
+      "choices": [
+        "$2\\sqrt{3}$",
+        "$\\sqrt{8}$",
+        "$2\\sqrt{6}$",
+        "$3\\sqrt{2}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\sqrt{6} \\times \\sqrt{2} = \\sqrt{12}$, and $\\sqrt{12} = \\sqrt{4 \\times 3} = 2\\sqrt{3}$. The other options do not equal $\\sqrt{12}$."
+    },
+    {
+      "id": "math-yr9-surds-q4",
+      "stem": "Simplify $\\sqrt{50}$.",
+      "choices": [
+        "$2\\sqrt{5}$",
+        "$25\\sqrt{2}$",
+        "$5\\sqrt{2}$",
+        "$5\\sqrt{5}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The largest square factor of $50$ is $25$, so $\\sqrt{50} = \\sqrt{25 \\times 2} = 5\\sqrt{2}$."
+    },
+    {
+      "id": "math-yr9-surds-q5",
+      "stem": "Simplify $\\sqrt{72}$.",
+      "choices": [
+        "$2\\sqrt{6}$",
+        "$6\\sqrt{3}$",
+        "$36\\sqrt{2}$",
+        "$6\\sqrt{2}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The largest square factor of $72$ is $36$, so $\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$."
+    },
+    {
+      "id": "math-yr9-surds-q6",
+      "stem": "Simplify $3\\sqrt{7} + 4\\sqrt{7}$.",
+      "choices": [
+        "$7\\sqrt{7}$",
+        "$7\\sqrt{14}$",
+        "$12\\sqrt{7}$",
+        "$7\\sqrt{49}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "These are like surds, so add the numbers outside: $(3 + 4)\\sqrt{7} = 7\\sqrt{7}$. The value inside the root does not change."
+    },
+    {
+      "id": "math-yr9-surds-q7",
+      "stem": "Simplify $\\sqrt{45}$.",
+      "choices": [
+        "$9\\sqrt{5}$",
+        "$3\\sqrt{15}$",
+        "$3\\sqrt{5}$",
+        "$5\\sqrt{3}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\sqrt{45} = \\sqrt{9 \\times 5} = \\sqrt{9} \\times \\sqrt{5} = 3\\sqrt{5}$."
+    },
+    {
+      "id": "math-yr9-surds-q8",
+      "stem": "Simplify $\\sqrt{27} - \\sqrt{12}$.",
+      "choices": [
+        "$\\sqrt{15}$",
+        "$\\sqrt{3}$",
+        "$5\\sqrt{3}$",
+        "$3\\sqrt{3}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Simplify first: $\\sqrt{27} = 3\\sqrt{3}$ and $\\sqrt{12} = 2\\sqrt{3}$. Then $3\\sqrt{3} - 2\\sqrt{3} = \\sqrt{3}$."
+    },
+    {
+      "id": "math-yr9-surds-q9",
+      "stem": "What is the value of $(\\sqrt{5})^2$?",
+      "choices": [
+        "$10$",
+        "$25$",
+        "$\\sqrt{5}$",
+        "$5$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Squaring undoes the square root: $(\\sqrt{5})^2 = \\sqrt{5} \\times \\sqrt{5} = 5$."
+    },
+    {
+      "id": "math-yr9-surds-q10",
+      "stem": "What is the value of $(2\\sqrt{3})^2$?",
+      "choices": [
+        "$6$",
+        "$12$",
+        "$36$",
+        "$2\\sqrt{6}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Square both parts: $2^2 \\times (\\sqrt{3})^2 = 4 \\times 3 = 12$. A common slip is squaring only the surd, giving $6$."
+    },
+    {
+      "id": "math-yr9-surds-q11",
+      "stem": "Rationalise the denominator of $\\dfrac{1}{\\sqrt{3}}$.",
+      "choices": [
+        "$\\dfrac{\\sqrt{3}}{3}$",
+        "$\\dfrac{3}{\\sqrt{3}}$",
+        "$\\sqrt{3}$",
+        "$3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply top and bottom by $\\sqrt{3}$: $\\dfrac{1}{\\sqrt{3}} \\times \\dfrac{\\sqrt{3}}{\\sqrt{3}} = \\dfrac{\\sqrt{3}}{3}$, since $\\sqrt{3} \\times \\sqrt{3} = 3$."
+    },
+    {
+      "id": "math-yr9-surds-q12",
+      "stem": "Rationalise and simplify $\\dfrac{6}{\\sqrt{2}}$.",
+      "choices": [
+        "$3$",
+        "$6\\sqrt{2}$",
+        "$\\dfrac{3\\sqrt{2}}{2}$",
+        "$3\\sqrt{2}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\dfrac{6}{\\sqrt{2}} \\times \\dfrac{\\sqrt{2}}{\\sqrt{2}} = \\dfrac{6\\sqrt{2}}{2} = 3\\sqrt{2}$ after cancelling the factor of $2$."
+    },
+    {
+      "id": "math-yr9-surds-q13",
+      "stem": "Expand $\\sqrt{3}(\\sqrt{3} + 4)$.",
+      "choices": [
+        "$3 + 4\\sqrt{3}$",
+        "$7\\sqrt{3}$",
+        "$4 + 3\\sqrt{3}$",
+        "$3 + \\sqrt{12}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\sqrt{3} \\times \\sqrt{3} = 3$ and $\\sqrt{3} \\times 4 = 4\\sqrt{3}$, so the expansion is $3 + 4\\sqrt{3}$."
+    },
+    {
+      "id": "math-yr9-surds-q14",
+      "stem": "Expand and simplify $(\\sqrt{2} + 3)(\\sqrt{2} + 1)$.",
+      "choices": [
+        "$2 + 4\\sqrt{2}$",
+        "$5 + 4\\sqrt{2}$",
+        "$5 + 3\\sqrt{2}$",
+        "$6\\sqrt{2}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "FOIL gives $2 + \\sqrt{2} + 3\\sqrt{2} + 3$. Collecting whole numbers and like surds: $5 + 4\\sqrt{2}$."
+    },
+    {
+      "id": "math-yr9-surds-q15",
+      "stem": "Between which two consecutive whole numbers does $\\sqrt{30}$ lie?",
+      "choices": [
+        "$3$ and $4$",
+        "$4$ and $5$",
+        "$5$ and $6$",
+        "$6$ and $7$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Since $25 < 30 < 36$, we have $\\sqrt{25} < \\sqrt{30} < \\sqrt{36}$, so $5 < \\sqrt{30} < 6$."
+    }
+  ]
+}

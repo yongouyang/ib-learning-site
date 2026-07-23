@@ -1,0 +1,301 @@
+{
+  "id": "math-yr9-quadratic-graphs",
+  "subjectId": "math",
+  "title": "Quadratic Graphs",
+  "description": "Plotting and interpreting graphs of quadratic functions — parabolas, roots, turning points and symmetry.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "math-yr9-quadratic-graphs-n1",
+      "heading": "What is a Quadratic Graph?",
+      "body": "📌 Definition\nA quadratic function has the form $y = ax^2 + bx + c$, where $a \\neq 0$ — the highest power of $x$ is $2$. Its graph is a curve called a parabola.\n\n🔑 How it works\n• If $a$ is positive, the parabola is U-shaped and has a lowest point (a minimum).\n• If $a$ is negative, the parabola is upside-down (∩-shaped) and has a highest point (a maximum).\n• The simplest quadratic is $y = x^2$.\n\n💡 Worked Example\nWork out $y = x^2$ for $x = -2, -1, 0, 1, 2$.\n\n• $x = -2$: $y = (-2)^2 = 4$\n• $x = -1$: $y = (-1)^2 = 1$\n• $x = 0$: $y = 0^2 = 0$\n• $x = 1$: $y = 1^2 = 1$\n• $x = 2$: $y = 2^2 = 4$\n\nThe points are $(-2, 4)$, $(-1, 1)$, $(0, 0)$, $(1, 1)$ and $(2, 4)$. Plotted and joined with a smooth curve, they form a U-shaped parabola with its lowest point at the origin.\n\n📎 Key Points to Remember\n• Squaring a negative number gives a positive result, so $y = x^2$ is never negative.\n• Equal $x$ values either side of zero give equal $y$ values — the curve is symmetric.\n\n⚠️ Common Mistake\nWriting $(-2)^2 = -4$. The square of a negative number is positive: $(-2)^2 = (-2) \\times (-2) = 4$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-n2",
+      "heading": "Drawing a Quadratic Graph from a Table of Values",
+      "body": "🔑 How it works\n1. Choose a range of $x$ values that includes several negative numbers, zero and several positive numbers.\n2. Substitute each $x$ value into the equation to find $y$.\n3. Plot the points $(x, y)$.\n4. Join the points with a smooth curve — never use a ruler.\n\n💡 Worked Example\nDraw the graph of $y = x^2 - 2x$ for $x$ from $-1$ to $4$.\n\n• $x = -1$: $y = (-1)^2 - 2(-1) = 1 + 2 = 3$\n• $x = 0$: $y = 0 - 0 = 0$\n• $x = 1$: $y = 1 - 2 = -1$\n• $x = 2$: $y = 4 - 4 = 0$\n• $x = 3$: $y = 9 - 6 = 3$\n• $x = 4$: $y = 16 - 8 = 8$\n\nPlot $(-1, 3)$, $(0, 0)$, $(1, -1)$, $(2, 0)$, $(3, 3)$ and $(4, 8)$, then draw a smooth curve through them. The curve dips to a lowest point at $(1, -1)$.\n\n📎 Key Points to Remember\n• Work out every $y$ value before plotting — a full table catches arithmetic slips early.\n• Include $x = 0$ and values on both sides of where you expect the curve to turn.\n• If one point looks out of place, recalculate it before drawing the curve.\n\n⚠️ Common Mistake\nJoining the points with straight line segments. A quadratic graph is a smooth curve; a ruler makes the turning point look pointed instead of rounded."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-n3",
+      "heading": "Symmetry and the Turning Point",
+      "body": "📌 Definition\n• The turning point is where the parabola changes direction — the lowest point of a U-shaped curve or the highest point of a ∩-shaped curve.\n• The line of symmetry is the vertical line through the turning point. Each side of the curve is a mirror image of the other.\n\n🔑 How it works\nFor $y = ax^2 + bx + c$, the line of symmetry is:\n$$x = -\\dfrac{b}{2a}$$\nSubstitute this $x$ value back into the equation to find the $y$-coordinate of the turning point.\n\n💡 Worked Example\nFind the line of symmetry and turning point of $y = x^2 - 2x$.\n\nHere $a = 1$ and $b = -2$, so:\n$$x = -\\dfrac{-2}{2 \\times 1} = 1$$\nSubstitute $x = 1$: $y = 1^2 - 2(1) = -1$.\n\nThe line of symmetry is $x = 1$ and the turning point is $(1, -1)$. Notice the table confirms the symmetry: $x = 0$ and $x = 2$ both give $y = 0$, and $x = -1$ and $x = 3$ both give $y = 3$.\n\n📎 Key Points to Remember\n• A positive $x^2$ coefficient means the turning point is a minimum; a negative one means a maximum.\n• Pairs of points equally spaced from the line of symmetry have the same height — use this to check your table.\n\n⚠️ Common Mistake\nForgetting the negative sign in the formula. For $y = x^2 - 2x$, the line of symmetry is $x = 1$, not $x = -1$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-n4",
+      "heading": "The Effect of $c$ in $y = x^2 + c$",
+      "body": "📌 Definition\nAdding a constant $c$ to $y = x^2$ moves the whole parabola vertically. The shape and the line of symmetry ($x = 0$) stay the same; only the height changes.\n\n🔑 How it works\n• $y = x^2 + c$ is the graph of $y = x^2$ shifted up by $c$ units when $c$ is positive.\n• It is shifted down by $|c|$ units when $c$ is negative.\n• The turning point moves from $(0, 0)$ to $(0, c)$, and the curve crosses the $y$-axis at $(0, c)$.\n\n💡 Worked Example\nCompare $y = x^2$, $y = x^2 + 2$ and $y = x^2 - 2$.\n\n• $y = x^2$ passes through $(-2, 4)$, $(-1, 1)$, $(0, 0)$, $(1, 1)$ and $(2, 4)$.\n• $y = x^2 + 2$ gives the same values plus $2$: $(-2, 6)$, $(-1, 3)$, $(0, 2)$, $(1, 3)$ and $(2, 6)$.\n• $y = x^2 - 2$ gives the same values minus $2$: $(-2, 2)$, $(-1, -1)$, $(0, -2)$, $(1, -1)$ and $(2, 2)$.\n\nAll three curves are identical in shape; $y = x^2 + 2$ sits $2$ units above $y = x^2$, and $y = x^2 - 2$ sits $2$ units below it.\n\n📎 Key Points to Remember\n• The constant term is always the $y$-intercept: $y = ax^2 + bx + c$ crosses the $y$-axis at $(0, c)$.\n• A vertical shift does not change the width or direction of the parabola.\n\n⚠️ Common Mistake\nThinking $y = x^2 + 2$ moves the graph sideways. Adding to the whole equation shifts the graph vertically; a horizontal shift would need the $x$ inside the brackets to change, as in $y = (x + 2)^2$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-n5",
+      "heading": "Reading Values from a Quadratic Graph",
+      "body": "🔑 How it works\nTo find $y$ from a value of $x$: draw a vertical line from the $x$-axis up to the curve, then read across to the $y$-axis. There is only one answer.\n\nTo find $x$ from a value of $y$: draw a horizontal line from the $y$-axis across to the curve, then read down to the $x$-axis. Because the curve turns back on itself, the horizontal line usually meets the curve twice — expect two answers.\n\n💡 Worked Example\nThe graph of $y = x^2 - 4x + 3$ is drawn. Find the values of $x$ when $y = 3$.\n\n• Find $3$ on the $y$-axis and draw a horizontal line across to the curve.\n• The line crosses the curve at two points.\n• Draw vertical lines down from each crossing point to the $x$-axis.\n• The readings are $x = 0$ and $x = 4$.\n\nCheck by substitution: when $x = 0$, $y = 0 - 0 + 3 = 3$; when $x = 4$, $y = 16 - 16 + 3 = 3$. Both work.\n\n📎 Key Points to Remember\n• Use a ruler for the guide lines so your readings are accurate.\n• For a given $y$ value, look for both crossing points — one is often on each side of the turning point.\n• Readings from a hand-drawn graph are estimates; check them against the equation when you can.\n\n⚠️ Common Mistake\nStopping after finding one $x$ value. A horizontal line through a parabola usually cuts it in two places, so there are two solutions, not one."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-n6",
+      "heading": "Solving Quadratic Equations Graphically",
+      "body": "📌 Definition\nThe roots (solutions) of the equation $ax^2 + bx + c = 0$ are the $x$ values where the graph of $y = ax^2 + bx + c$ crosses the $x$-axis, because that is exactly where $y = 0$.\n\n🔑 How it works\n1. Draw the graph of the quadratic.\n2. Find where it crosses the $x$-axis.\n3. Read off the $x$-coordinates of the crossing points — these are the solutions.\n\nA parabola can cross the $x$-axis twice (two roots), touch it once (one repeated root), or miss it entirely (no real roots).\n\n💡 Worked Example\nUse the graph of $y = x^2 - 4x + 3$ to solve $x^2 - 4x + 3 = 0$.\n\nFrom the table: $(0, 3)$, $(1, 0)$, $(2, -1)$, $(3, 0)$ and $(4, 3)$.\n\nThe curve crosses the $x$-axis at $(1, 0)$ and $(3, 0)$, so the solutions are:\n$$x = 1 \\quad \\text{and} \\quad x = 3$$\n\nCheck: $x^2 - 4x + 3 = (x - 1)(x - 3)$, which is zero exactly when $x = 1$ or $x = 3$. The graphical and algebraic answers agree.\n\n📎 Key Points to Remember\n• Roots are read on the $x$-axis, not the $y$-axis.\n• The same idea works for any horizontal line: the solutions of $ax^2 + bx + c = k$ are the $x$ values where the curve meets the line $y = k$.\n\n⚠️ Common Mistake\nReading off the turning point instead of the $x$-intercepts. The turning point of $y = x^2 - 4x + 3$ is $(2, -1)$ — it tells you the minimum value, not the solutions of the equation."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-n7",
+      "heading": "Identifying the Key Features of a Parabola",
+      "body": "📌 Key Features Checklist\nFor any quadratic graph $y = ax^2 + bx + c$, be ready to find:\n• Shape: U-shaped if $a > 0$, ∩-shaped if $a < 0$.\n• $y$-intercept: the point $(0, c)$, found by setting $x = 0$.\n• Roots: the $x$-intercepts, where $y = 0$.\n• Turning point: the minimum or maximum, on the line of symmetry.\n• Line of symmetry: $x = -\\dfrac{b}{2a}$.\n\n💡 Worked Example\nDescribe the key features of $y = x^2 - 4x + 3$.\n\n• $a = 1 > 0$, so the parabola is U-shaped with a minimum.\n• $y$-intercept: $c = 3$, so the curve crosses the $y$-axis at $(0, 3)$.\n• Line of symmetry: $x = -\\dfrac{-4}{2} = 2$.\n• Turning point: when $x = 2$, $y = 4 - 8 + 3 = -1$, so the minimum is at $(2, -1)$.\n• Roots: the curve crosses the $x$-axis at $x = 1$ and $x = 3$.\n\n📎 Key Points to Remember\n• The $y$-intercept, line of symmetry and turning point can be found without drawing anything — straight from $a$, $b$ and $c$.\n• The roots are symmetrical about the line of symmetry: $1$ and $3$ are both $1$ unit from $x = 2$.\n\n⚠️ Common Mistakes — summary\n• Computing $(-2)^2$ as $-4$ when building a table of values.\n• Joining plotted points with a ruler instead of a smooth curve.\n• Giving only one $x$ value when a horizontal line cuts the curve twice.\n\n✅ Check\nAfter reading any feature from a graph, verify it by substituting back into the equation — the numbers must satisfy $y = ax^2 + bx + c$."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr9-quadratic-graphs-f1",
+      "term": "Quadratic function",
+      "definition": "A function of the form $y = ax^2 + bx + c$ with $a \\neq 0$; the highest power of $x$ is $2$.",
+      "example": "$y = x^2 - 2x$ and $y = 3x^2 + 1$ are quadratic; $y = 2x + 1$ is not."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-f2",
+      "term": "Parabola",
+      "definition": "The smooth U-shaped (or ∩-shaped) curve produced by graphing a quadratic function.",
+      "example": "The graph of $y = x^2$ is a parabola through $(-2, 4)$, $(0, 0)$ and $(2, 4)$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-f3",
+      "term": "Turning point",
+      "definition": "The point where a parabola changes direction — its minimum (U-shaped) or maximum (∩-shaped).",
+      "example": "$y = x^2 - 2x$ has its turning point at $(1, -1)$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-f4",
+      "term": "Line of symmetry",
+      "definition": "The vertical line through the turning point of a parabola, with equation $x = -\\dfrac{b}{2a}$.",
+      "example": "$y = x^2 - 4x + 3$ is symmetric about $x = 2$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-f5",
+      "term": "Minimum point",
+      "definition": "The lowest point of a U-shaped parabola, which occurs when the $x^2$ coefficient is positive.",
+      "example": "$y = x^2 + 2$ has a minimum value of $2$ at $(0, 2)$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-f6",
+      "term": "Maximum point",
+      "definition": "The highest point of a ∩-shaped parabola, which occurs when the $x^2$ coefficient is negative.",
+      "example": "$y = -x^2$ has a maximum value of $0$ at the origin."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-f7",
+      "term": "Roots of a quadratic equation",
+      "definition": "The solutions of $ax^2 + bx + c = 0$; graphically, the $x$-coordinates where the curve crosses the $x$-axis.",
+      "example": "$x^2 - 4x + 3 = 0$ has roots $x = 1$ and $x = 3$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-f8",
+      "term": "$y$-intercept of a quadratic",
+      "definition": "The point where the parabola crosses the $y$-axis, always $(0, c)$ for $y = ax^2 + bx + c$.",
+      "example": "$y = x^2 - 4x + 3$ crosses the $y$-axis at $(0, 3)$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-f9",
+      "term": "Table of values",
+      "definition": "A list of $x$ values and their calculated $y$ values, used to plot the points of a graph.",
+      "example": "For $y = x^2 - 2x$, the values at $x = 0, 1, 2$ are $y = 0, -1, 0$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-f10",
+      "term": "Smooth curve",
+      "definition": "The correct way to join plotted points of a quadratic — a flowing rounded curve, never straight line segments.",
+      "example": "The bottom of $y = x^2$ is rounded at $(0, 0)$, not a sharp V."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-f11",
+      "term": "Vertical translation",
+      "definition": "Adding a constant $c$ to $y = x^2$ shifts the parabola up by $c$ units (down if $c$ is negative) without changing its shape.",
+      "example": "$y = x^2 + 2$ is $y = x^2$ moved $2$ units up, with turning point $(0, 2)$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-f12",
+      "term": "Reading a graph for a given $y$",
+      "definition": "Draw a horizontal line at the given $y$ value; it usually meets the parabola twice, giving two $x$ values.",
+      "example": "On $y = x^2 - 4x + 3$, the line $y = 3$ meets the curve at $x = 0$ and $x = 4$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr9-quadratic-graphs-q1",
+      "stem": "For $y = x^2$, what is the value of $y$ when $x = -3$?",
+      "choices": [
+        "$9$",
+        "$-9$",
+        "$6$",
+        "$-6$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$y = (-3)^2 = (-3) \\times (-3) = 9$. Squaring a negative number always gives a positive result, so $-9$ is impossible."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q2",
+      "stem": "Which point lies on the graph of $y = x^2 + 2$?",
+      "choices": [
+        "$(3, 9)$",
+        "$(2, 6)$",
+        "$(4, 14)$",
+        "$(0, 0)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Substituting $x = 2$ gives $y = 4 + 2 = 6$, so $(2, 6)$ lies on the curve. The others fail: $3^2 + 2 = 11$, $4^2 + 2 = 18$ and $0^2 + 2 = 2$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q3",
+      "stem": "Complete the table of values for $y = x^2 - 2x$: what is $y$ when $x = 4$?",
+      "choices": [
+        "$6$",
+        "$2$",
+        "$16$",
+        "$8$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$y = 4^2 - 2 \\times 4 = 16 - 8 = 8$. Choosing $16$ means forgetting to subtract the $2x$ term."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q4",
+      "stem": "What is the turning point of $y = x^2 - 2x$?",
+      "choices": [
+        "$(1, -1)$",
+        "$(-1, 1)$",
+        "$(0, 0)$",
+        "$(2, 0)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The line of symmetry is $x = -\\dfrac{-2}{2} = 1$, and substituting $x = 1$ gives $y = 1 - 2 = -1$. The points $(0, 0)$ and $(2, 0)$ are the roots, not the turning point."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q5",
+      "stem": "What is the line of symmetry of the graph of $y = x^2 - 4x + 3$?",
+      "choices": [
+        "$x = -2$",
+        "$x = 2$",
+        "$x = 3$",
+        "$y = 2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Using $x = -\\dfrac{b}{2a}$ with $a = 1$ and $b = -4$ gives $x = -\\dfrac{-4}{2} = 2$. The line of symmetry is a vertical line, so it must have the form $x = $ a number."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q6",
+      "stem": "How is the graph of $y = x^2 - 2$ related to the graph of $y = x^2$?",
+      "choices": [
+        "It is shifted $2$ units up.",
+        "It is shifted $2$ units to the left.",
+        "It is shifted $2$ units down.",
+        "It is twice as wide."
+      ],
+      "correctIndex": 2,
+      "explanation": "Subtracting $2$ from the whole equation moves every point down by $2$ units; the turning point moves from $(0, 0)$ to $(0, -2)$. The shape is unchanged."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q7",
+      "stem": "Where does the graph of $y = x^2 - 4x + 3$ cross the $y$-axis?",
+      "choices": [
+        "$(0, 3)$",
+        "$(0, -4)$",
+        "$(3, 0)$",
+        "$(0, 1)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "On the $y$-axis $x = 0$, so $y = 0 - 0 + 3 = 3$. The constant term $c$ is always the $y$-intercept; $(3, 0)$ is an $x$-intercept."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q8",
+      "stem": "The graph of $y = x^2 - 4x + 3$ crosses the $x$-axis at two points. What are the solutions of $x^2 - 4x + 3 = 0$?",
+      "choices": [
+        "$x = -1$ and $x = -3$",
+        "$x = 1$ and $x = 4$",
+        "$x = 1$ and $x = 3$",
+        "$x = 0$ and $x = 3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The curve crosses the $x$-axis at $(1, 0)$ and $(3, 0)$, giving $x = 1$ and $x = 3$. This agrees with factorising: $(x - 1)(x - 3) = 0$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q9",
+      "stem": "On the graph of $y = x^2 - 4x + 3$, a horizontal line is drawn at $y = 3$. At which $x$ values does it meet the curve?",
+      "choices": [
+        "$x = 1$ and $x = 3$",
+        "$x = 0$ and $x = 4$",
+        "$x = 0$ and $x = 3$",
+        "$x = 2$ and $x = 4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Setting $x^2 - 4x + 3 = 3$ gives $x^2 - 4x = 0$, so $x(x - 4) = 0$ and $x = 0$ or $x = 4$. The values $1$ and $3$ are where the curve meets $y = 0$, not $y = 3$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q10",
+      "stem": "Which of these equations produces a U-shaped parabola with a minimum point?",
+      "choices": [
+        "$y = -x^2$",
+        "$y = x^2 + 5$",
+        "$y = 3x$",
+        "$y = -2x^2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "A U-shaped parabola needs a positive $x^2$ coefficient, and only $y = x^2 + 5$ qualifies. $y = 3x$ is a straight line, and the other two are ∩-shaped."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q11",
+      "stem": "What is the minimum value of $y = x^2 + 2$?",
+      "choices": [
+        "$0$",
+        "$-2$",
+        "$1$",
+        "$2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Since $x^2 \\geq 0$ for every $x$, the smallest possible value of $y$ is $0 + 2 = 2$, reached at $x = 0$. The turning point is $(0, 2)$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q12",
+      "stem": "For $y = x^2 - 2x$, what is the value of $y$ when $x = -1$?",
+      "choices": [
+        "$-1$",
+        "$3$",
+        "$1$",
+        "$-3$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$y = (-1)^2 - 2(-1) = 1 + 2 = 3$. A common slip is to compute $-2(-1)$ as $-2$ instead of $+2$, which would wrongly give $-1$."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q13",
+      "stem": "To solve $x^2 - 4x + 3 = 0$ from the graph of $y = x^2 - 4x + 3$, you should read off where the curve crosses which line?",
+      "choices": [
+        "The $y$-axis",
+        "The line $y = 3$",
+        "The $x$-axis",
+        "The line of symmetry"
+      ],
+      "correctIndex": 2,
+      "explanation": "The equation equals zero, so the solutions are the $x$ values where $y = 0$ — that is, where the curve crosses the $x$-axis."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q14",
+      "stem": "Which is the correct way to join the plotted points of a quadratic graph?",
+      "choices": [
+        "A smooth rounded curve through all the points.",
+        "Straight line segments drawn with a ruler.",
+        "A sharp V shape through the lowest point.",
+        "Only join the points above the $x$-axis."
+      ],
+      "correctIndex": 0,
+      "explanation": "A quadratic graph is a smooth curve; using a ruler creates corners and a pointed bottom that do not match the true parabola shape."
+    },
+    {
+      "id": "math-yr9-quadratic-graphs-q15",
+      "stem": "Use the graph (or the equation) of $y = x^2 - 2x$ to find the value of $y$ when $x = 2.5$.",
+      "choices": [
+        "$0.75$",
+        "$2.25$",
+        "$1.25$",
+        "$-1.25$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$y = (2.5)^2 - 2(2.5) = 6.25 - 5 = 1.25$. Reading from the graph between $x = 2$ and $x = 3$ should give a value just above $1$."
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "id": "phys-working-scientifically-1",
+  "subjectId": "physics",
+  "title": "Working Scientifically in Physics",
+  "description": "Variables, hypotheses, planning experiments, data types, graphs and evaluation — the practical skills of KS3 physics.",
+  "stage": "ks3",
+  "notes": [
+    {
+      "id": "phys-working-scientifically-1-n1",
+      "heading": "The Scientific Method: Hypotheses and Predictions",
+      "body": "📌 Definition\n• The scientific method is a structured way of investigating: collect and analyse data to test whether an idea is right or wrong.\n• A hypothesis is an idea or explanation about how something works that can be tested by experiment.\n• A prediction is a statement of what you expect to happen in a particular experiment if the hypothesis is correct.\n\n🔑 How it works\n1. Make an observation — something you notice happening.\n2. Turn it into a question that an experiment could answer.\n3. Suggest a hypothesis that might explain the observation.\n4. Write a prediction linking the independent variable to the dependent variable.\n5. Test the prediction with an experiment, then compare the results with what you expected.\n\n💡 Worked Example\nObservation: a heavy ball and a light ball seem to roll down a hill at different speeds.\n\n• Question: does the mass of a ball affect how fast it rolls down a hill?\n• Hypothesis: heavier objects accelerate downhill faster because the pull of gravity on them is greater.\n• Prediction: if I double the mass of the ball, the time it takes to roll down the ramp will decrease.\n\nThe prediction is testable — it says exactly what should happen to the measured variable.\n\n📎 Key Points to Remember\n• A hypothesis explains WHY something might happen; a prediction says WHAT will happen in the test.\n• A good prediction links the variable you change to the variable you measure.\n• Results can support a hypothesis or show it needs changing — one experiment never proves an idea for all cases.\n\n⚠️ Common Mistake\nMixing up hypothesis and prediction. \"Cars use more fuel at higher speeds because air resistance increases with speed\" is a hypothesis; \"the car will use more fuel travelling at 70 mph than at 30 mph\" is a prediction."
+    },
+    {
+      "id": "phys-working-scientifically-1-n2",
+      "heading": "Variables and Fair Tests",
+      "body": "📌 Definition\nA variable is any factor that can change or be measured in an experiment. There are three types:\n• Independent variable — the one thing you deliberately change.\n• Dependent variable — the thing you measure; it depends on the independent variable.\n• Control variables — everything else that could affect the result, which you keep the same.\n\n🔑 How it works\nAn experiment is a fair (valid) test only when just the independent variable changes. If two variables change at once, you cannot tell which one caused the effect you measured. Controlling the other variables makes sure only the independent variable can affect the dependent variable.\n\n💡 Worked Example\nInvestigation: how does the angle of a ramp affect the time a toy car takes to roll down?\n\n• Independent variable: the angle of the ramp.\n• Dependent variable: the time taken to reach the bottom.\n• Control variables: the same car, the same ramp surface, the same starting position, releasing the car without pushing.\n\nIf you used a different car at each angle, a difference in times might be caused by the car, not the angle — the test would not be valid.\n\n📎 Key Points to Remember\n• Change one thing, measure one thing, keep everything else the same.\n• List your control variables AND say how you will keep each one constant.\n• A test where only the independent variable changes is called a valid test.\n\n⚠️ Common Mistake\nCalling the variable you measure the \"independent\" variable. Remember: the dependent variable DEPENDS on the one you change — it is the thing you measure."
+    },
+    {
+      "id": "phys-working-scientifically-1-n3",
+      "heading": "Planning an Experiment and Writing a Method",
+      "body": "📌 Definition\nA method is a numbered list of instructions describing exactly how an experiment is carried out, so that another person could repeat it and get similar results.\n\n🔑 How it works\nA good plan has five parts:\n1. The question you want to answer (and a hypothesis).\n2. The variables: independent, dependent, and the control variables with how to control them.\n3. A prediction — what you think will happen and why.\n4. A list of the apparatus (equipment) needed.\n5. A numbered method, including how many readings to take and over what range.\n\nBefore starting, also think about safety: identify each hazard (something that could cause harm), judge the risk (the chance of it causing harm), and decide on precautions to reduce the risk.\n\n💡 Worked Example\nPlanning \"how does the length of a pendulum affect the time of one swing?\"\n\n1. Question and hypothesis: longer pendulums may swing more slowly.\n2. Variables: change the string length; measure the swing time; keep the mass and the release angle the same.\n3. Prediction: doubling the length will increase the time of one swing.\n4. Apparatus: string, mass, clamp stand, stopwatch, ruler.\n5. Method: time 10 swings and divide by 10 for each length; repeat each length three times and find a mean.\n\n📎 Key Points to Remember\n• Each step of a method should describe one action, using correct scientific names for equipment.\n• A labelled diagram of the setup makes a method much clearer.\n• Timing several swings (or repeats) and dividing gives a more accurate value than a single timing.\n\n⚠️ Common Mistake\nWriting a method that misses out the control variables or the number of repeats. If someone else could not copy your experiment exactly from your instructions, the method is not complete."
+    },
+    {
+      "id": "phys-working-scientifically-1-n4",
+      "heading": "Accuracy, Precision and Types of Error",
+      "body": "📌 Definition\n• Accurate: a measurement is accurate if it is close to the true value — the value an ideal, error-free measurement would give.\n• Precise: repeat measurements are precise if they are close to each other (a small spread).\n• An error is something that makes a measurement differ from the true value.\n\n🔑 How it works\nThere are two types of error:\n• Random error makes readings scatter unpredictably — some too high, some too low — and can produce outliers. Causes include reading a scale at an angle (parallax error) or inconsistent reaction time on a stopwatch. Repeating readings and taking a mean reduces the effect of random error.\n• Systematic error shifts EVERY reading by the same amount in the same direction, making results less accurate. Causes include a balance not reset to zero or a stopwatch that starts at 0.5 s. Repeating readings does NOT remove a systematic error — you must fix the equipment or technique.\n\n💡 Worked Example\nFour students time the same pendulum swing; the true time is 2.0 s.\n\n• Student A gets 2.0, 2.1, 1.9 s — accurate AND precise.\n• Student B gets 2.4, 2.5, 2.4 s — precise (small spread) but NOT accurate: a systematic error (perhaps starting the stopwatch late) has shifted every reading up.\n\n📎 Key Points to Remember\n• Precise is not the same as accurate: readings can cluster tightly around the WRONG value.\n• Random errors scatter the data; systematic errors shift all the data.\n• Check scales at eye level and zero all instruments before use.\n\n⚠️ Common Mistake\nAssuming that repeating an experiment fixes every error. Repeats only average out random error; a systematic error affects every repeat by the same amount."
+    },
+    {
+      "id": "phys-working-scientifically-1-n5",
+      "heading": "Recording and Processing Data",
+      "body": "📌 Definition\n• Data is the information collected during an experiment: numbers from measurements (quantitative) or descriptions in words (qualitative).\n• An outlier is a result that is very different from the others in a set of repeat readings.\n• The mean is an average found by adding the results together and dividing by the number of results.\n\n🔑 How it works\n• Draw a results table BEFORE starting: independent variable in the first column, dependent variable in the next columns, with units in the column headings — never in the body of the table.\n• Take repeat readings at each value of the independent variable and calculate a mean; the mean is usually more accurate than any single reading.\n• If you spot an outlier, take that reading again. If the repeat fits with the others, leave the outlier out of the mean.\n• Data is repeatable if YOU get similar results when you redo the experiment, and reproducible if SOMEONE ELSE gets similar results following your method.\n\n💡 Worked Example\nTiming a toy car over a fixed distance, four readings are recorded: $6.2$ s, $6.4$ s, $6.3$ s and $9.1$ s.\n\nThe value $9.1$ s is far from the others — it is an outlier, so it is ignored:\n$$\\text{mean} = \\dfrac{6.2 + 6.4 + 6.3}{3} = \\dfrac{18.9}{3} = 6.3 \\text{ s}$$\nIncluding the outlier would wrongly give $28.0 \\div 4 = 7.0$ s.\n\n📎 Key Points to Remember\n• Choose a wide enough range and even intervals so the pattern in the data shows up clearly.\n• Outliers are excluded from the mean — but say that you have done so.\n• Repeatable and reproducible data gives confidence in a conclusion.\n\n⚠️ Common Mistake\nQuietly averaging an outlier into the mean. Always check the spread of repeat readings first and investigate any result that looks wildly different."
+    },
+    {
+      "id": "phys-working-scientifically-1-n6",
+      "heading": "Presenting Data: Graphs, Charts and Lines of Best Fit",
+      "body": "📌 Definition\n• Continuous data can take any numerical value within a range (e.g. time, temperature, length).\n• Discrete data can only take certain separated values, often whole numbers (e.g. number of paper clips).\n• Categoric data is described in words (e.g. type of surface: rough or smooth).\n\n🔑 How it works\n• Use a line graph when both variables are continuous; use a bar chart when the independent variable is categoric or discrete; a pie chart shows proportions of a whole for categoric data.\n• The independent variable goes on the horizontal ($x$) axis and the dependent variable on the vertical ($y$) axis.\n• Label each axis with the quantity AND its unit, choose scales that fill the page, and give the graph a title.\n• For a line graph, draw a line of best fit: a smooth straight line or curve through the middle of the points, with roughly equal numbers of points above and below it. Ignore outliers when drawing it.\n• If the line of best fit is straight AND passes through the origin $(0, 0)$, the variables are directly proportional — doubling one doubles the other.\n\n💡 Worked Example\nIn an experiment stretching a spring, the extension is measured for forces of $0$, $1$, $2$, $3$ and $4$ N. Force is the independent variable (x-axis) and extension the dependent variable (y-axis). The plotted points fall close to a straight line through the origin, so the extension is directly proportional to the force: doubling the force doubles the extension.\n\n📎 Key Points to Remember\n• The type of variable decides the type of chart — decide this before you draw anything.\n• Never force the line of best fit through an outlier.\n• Describe the relationship you see: \"as X increases, Y increases/decreases/stays the same\".\n\n⚠️ Common Mistake\nJoining the dots point-to-point with a ruler. Unless the points fall exactly on a line, draw a single smooth line of best fit through the trend instead."
+    },
+    {
+      "id": "phys-working-scientifically-1-n7",
+      "heading": "Conclusions, Evaluation and Bias",
+      "body": "📌 Definition\n• A conclusion sums up what the investigation found out, explained using scientific knowledge.\n• An evaluation judges the quality of the results and the method, and suggests improvements.\n• Bias is a preference for or against an idea, or data distorted by problems with the equipment or method.\n\n🔑 How it works\nA good conclusion does three things:\n1. Describes the relationship between the variables (including any numerical pattern, such as \"doubling the force doubled the extension\").\n2. Links the findings back to the hypothesis — do the results support it or not?\n3. Explains the findings using science you already know.\n\nA good evaluation asks:\n• Were there outliers, or a large spread in the repeats? (This suggests low precision.)\n• Was the range of data wide enough to show the pattern?\n• Was the test valid — were all the control variables really controlled?\n• Could different apparatus give more accurate or precise readings?\n\nScientists also check each other's work: peer review is when other scientists examine the method, results and conclusions of new research before it is accepted. It helps to spot bias — for example, when someone presents only the evidence that supports their view, or uses language designed to persuade rather than inform.\n\n💡 Worked Example\nConclusion for the spring experiment: \"The results show that the extension of the spring is directly proportional to the force applied, up to $10$ N. This supports the hypothesis, because the particles in the spring are pulled further apart as the force increases.\" An evaluation might add: \"Readings above $10$ N scattered widely, suggesting the spring was overstretched; repeating with smaller force intervals near $10$ N would show where the proportionality ends.\"\n\n📎 Key Points to Remember\n• Say what the data shows, link it to the hypothesis, then explain it with science.\n• Suggest specific improvements and say how each would improve the data.\n• Peer review and checking for bias keep scientific conclusions trustworthy.\n\n⚠️ Common Mistake\nWriting \"the experiment PROVED my hypothesis\". Results support or disagree with a hypothesis — a single experiment cannot prove an idea true in every possible case."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-working-scientifically-1-f1",
+      "term": "Hypothesis",
+      "definition": "An idea or explanation about how something works that can be tested by experiment.",
+      "example": "A ball accelerates down a ramp because gravity pulls it downhill."
+    },
+    {
+      "id": "phys-working-scientifically-1-f2",
+      "term": "Prediction",
+      "definition": "A statement of what you expect to happen in an experiment if the hypothesis is correct, linking the two variables.",
+      "example": "The steeper the ramp, the less time the car will take to reach the bottom."
+    },
+    {
+      "id": "phys-working-scientifically-1-f3",
+      "term": "Independent variable",
+      "definition": "The variable that is deliberately changed during an experiment.",
+      "example": "The angle of the ramp in a toy-car timing experiment."
+    },
+    {
+      "id": "phys-working-scientifically-1-f4",
+      "term": "Dependent variable",
+      "definition": "The variable that is measured in an experiment; it depends on the independent variable.",
+      "example": "The time taken for the car to roll to the bottom of the ramp."
+    },
+    {
+      "id": "phys-working-scientifically-1-f5",
+      "term": "Control variable",
+      "definition": "A variable kept the same so that only the independent variable can affect the dependent variable.",
+      "example": "Using the same car and the same starting position every time."
+    },
+    {
+      "id": "phys-working-scientifically-1-f6",
+      "term": "Accurate",
+      "definition": "A measurement is accurate if it is close to the true value.",
+      "example": "A stopwatch reading of 2.0 s when the true time is 2.0 s."
+    },
+    {
+      "id": "phys-working-scientifically-1-f7",
+      "term": "Precise",
+      "definition": "Repeat measurements are precise if they are close to each other, with little spread.",
+      "example": "Readings of 2.4, 2.5 and 2.4 s are precise even if the true value is 2.0 s."
+    },
+    {
+      "id": "phys-working-scientifically-1-f8",
+      "term": "Random error",
+      "definition": "An error that makes readings scatter unpredictably above and below the true value; reduced by repeating and averaging.",
+      "example": "Reading a measuring cylinder at an angle (parallax error)."
+    },
+    {
+      "id": "phys-working-scientifically-1-f9",
+      "term": "Systematic error",
+      "definition": "An error that shifts every reading by the same amount in the same direction; not removed by repeating.",
+      "example": "A balance that reads 0.3 g with nothing on it."
+    },
+    {
+      "id": "phys-working-scientifically-1-f10",
+      "term": "Outlier",
+      "definition": "A result that is very different from the other repeat readings; it is excluded when calculating the mean.",
+      "example": "Readings of 6.2, 6.4, 6.3 and 9.1 s — the 9.1 s value is the outlier."
+    },
+    {
+      "id": "phys-working-scientifically-1-f11",
+      "term": "Mean",
+      "definition": "An average found by adding all the results and dividing by the number of results.",
+      "example": "Mean of 5.2, 5.6 and 5.7 s: $16.5 \\div 3 = 5.5$ s."
+    },
+    {
+      "id": "phys-working-scientifically-1-f12",
+      "term": "Line of best fit",
+      "definition": "A smooth line or curve drawn through the middle of plotted points, with roughly equal numbers of points above and below it, ignoring outliers.",
+      "example": "A straight line of best fit through the origin shows the variables are directly proportional."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-working-scientifically-1-q1",
+      "stem": "Which of these statements is a prediction rather than a hypothesis?",
+      "choices": [
+        "Objects fall because gravity pulls them towards the Earth.",
+        "Friction slows moving objects by converting kinetic energy to heat.",
+        "If the ramp is made steeper, the toy car will take less time to reach the bottom.",
+        "Air resistance increases as an object moves faster."
+      ],
+      "correctIndex": 2,
+      "explanation": "A prediction states what will happen to the measured variable in a specific experiment. The other statements are hypotheses — general explanations of why things happen."
+    },
+    {
+      "id": "phys-working-scientifically-1-q2",
+      "stem": "A student investigates how the angle of a ramp affects the time a toy car takes to roll down it. What is the independent variable?",
+      "choices": [
+        "The time taken to roll down",
+        "The angle of the ramp",
+        "The mass of the toy car",
+        "The length of the ramp"
+      ],
+      "correctIndex": 1,
+      "explanation": "The independent variable is the one the student deliberately changes — the ramp angle. The time is the dependent variable, and the car's mass and ramp length should be controlled."
+    },
+    {
+      "id": "phys-working-scientifically-1-q3",
+      "stem": "In the same ramp experiment, which of these should be a control variable?",
+      "choices": [
+        "The angle of the ramp",
+        "The time the car takes",
+        "The position on the ramp where the car is released",
+        "The number of readings taken"
+      ],
+      "correctIndex": 2,
+      "explanation": "The release position must stay the same so that only the angle affects the time. The angle is the independent variable and the time is the dependent variable, so neither can be controlled."
+    },
+    {
+      "id": "phys-working-scientifically-1-q4",
+      "stem": "What makes an experiment a valid (fair) test?",
+      "choices": [
+        "Using the most expensive equipment available",
+        "Changing only the independent variable while keeping all other variables constant",
+        "Changing several variables at once to save time",
+        "Taking only one reading for each value"
+      ],
+      "correctIndex": 1,
+      "explanation": "A valid test changes just one variable and controls the rest, so any change in the dependent variable must be caused by the independent variable. Changing several variables at once makes the cause impossible to identify."
+    },
+    {
+      "id": "phys-working-scientifically-1-q5",
+      "stem": "What does it mean for a measurement to be accurate?",
+      "choices": [
+        "It is close to the true value.",
+        "It is close to the other repeat readings.",
+        "It is written to many decimal places.",
+        "It was taken with a digital meter."
+      ],
+      "correctIndex": 0,
+      "explanation": "Accuracy is about closeness to the true value. Readings close to each other are precise, which is a different idea — precise readings can still all be wrong."
+    },
+    {
+      "id": "phys-working-scientifically-1-q6",
+      "stem": "A student obtains repeat readings of 2.4 s, 2.5 s and 2.4 s for an event whose true time is 2.0 s. How are these results best described?",
+      "choices": [
+        "Accurate and precise",
+        "Accurate but not precise",
+        "Precise but not accurate",
+        "Neither precise nor accurate"
+      ],
+      "correctIndex": 2,
+      "explanation": "The readings are close together, so they are precise, but they are all about 0.4–0.5 s from the true value, so they are not accurate — a systematic error is likely."
+    },
+    {
+      "id": "phys-working-scientifically-1-q7",
+      "stem": "A stopwatch always starts counting from 0.5 s instead of zero, so every time recorded is 0.5 s too long. What type of error is this?",
+      "choices": [
+        "Random error",
+        "Systematic error",
+        "Parallax error",
+        "Human error that repeats will remove"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every reading is shifted by the same amount in the same direction, which is the definition of a systematic error. Repeating and averaging cannot remove it — the stopwatch must be fixed."
+    },
+    {
+      "id": "phys-working-scientifically-1-q8",
+      "stem": "Which of these is most likely to cause a random error?",
+      "choices": [
+        "A balance that was not reset to zero",
+        "Measuring from the worn end of a ruler instead of the zero mark",
+        "Reading the level of liquid in a measuring cylinder while viewing it from above",
+        "Using a stopwatch that runs slow"
+      ],
+      "correctIndex": 2,
+      "explanation": "Viewing the scale from the wrong angle (parallax) makes individual readings randomly too high or too low. The other options shift every reading by the same amount, so they are systematic errors."
+    },
+    {
+      "id": "phys-working-scientifically-1-q9",
+      "stem": "Four timings are recorded: $6.2$ s, $6.4$ s, $6.3$ s and $9.1$ s. The value $9.1$ s is an outlier. What mean should be reported?",
+      "choices": [
+        "$7.0$ s",
+        "$6.3$ s",
+        "$6.2$ s",
+        "$6.5$ s"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ignoring the outlier, the mean is $(6.2 + 6.4 + 6.3) \\div 3 = 18.9 \\div 3 = 6.3$ s. Including the outlier gives $28.0 \\div 4 = 7.0$ s, which is pulled away from the true cluster of readings."
+    },
+    {
+      "id": "phys-working-scientifically-1-q10",
+      "stem": "What does it mean if experimental data is reproducible?",
+      "choices": [
+        "You get similar results when you repeat the experiment yourself.",
+        "Someone else gets similar results when they follow your method.",
+        "The results contain no outliers.",
+        "The results match the prediction exactly."
+      ],
+      "correctIndex": 1,
+      "explanation": "Reproducible means a different person can get similar results using your method. Getting similar results when YOU repeat the experiment is called repeatable."
+    },
+    {
+      "id": "phys-working-scientifically-1-q11",
+      "stem": "A student measures how the temperature of cooling water changes with time. Both variables are continuous. How should this data be presented?",
+      "choices": [
+        "A bar chart",
+        "A pie chart",
+        "A line graph",
+        "A pictogram"
+      ],
+      "correctIndex": 2,
+      "explanation": "A line graph is used when both the independent and dependent variables are continuous, such as time and temperature. Bar charts and pie charts are for categoric or discrete data."
+    },
+    {
+      "id": "phys-working-scientifically-1-q12",
+      "stem": "A student counts how many cars of each colour pass the school gate. Which chart is most appropriate?",
+      "choices": [
+        "A line graph",
+        "A bar chart",
+        "A scatter graph with a line of best fit",
+        "A distance-time graph"
+      ],
+      "correctIndex": 1,
+      "explanation": "Car colour is categoric data (words, not numbers), so a bar chart is the right choice. Line graphs need two continuous variables."
+    },
+    {
+      "id": "phys-working-scientifically-1-q13",
+      "stem": "When drawing a line of best fit, what should you do with an outlier?",
+      "choices": [
+        "Make sure the line passes through it.",
+        "Join it to its neighbouring points with a ruler.",
+        "Ignore it when drawing the line.",
+        "Move it closer to the other points."
+      ],
+      "correctIndex": 2,
+      "explanation": "Outliers are ignored when drawing a line of best fit; including one would distort the line. Data points must never be moved or altered."
+    },
+    {
+      "id": "phys-working-scientifically-1-q14",
+      "stem": "A force of $600$ N acts on an area of $3$ m$^2$. Using $\\text{pressure} = \\dfrac{\\text{force}}{\\text{area}}$, what is the pressure?",
+      "choices": [
+        "$200$ N/m$^2$",
+        "$1800$ N/m$^2$",
+        "$0.005$ N/m$^2$",
+        "$603$ N/m$^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pressure $= 600 \\div 3 = 200$ N/m$^2$ (pascals). The answer $1800$ comes from multiplying instead of dividing; check which way round the formula goes."
+    },
+    {
+      "id": "phys-working-scientifically-1-q15",
+      "stem": "What happens during peer review?",
+      "choices": [
+        "Scientists check each other's methods, results and conclusions before research is accepted.",
+        "Students mark each other's homework in class.",
+        "A scientist repeats their own experiment to check the mean.",
+        "Journalists rewrite scientific findings to make them more exciting."
+      ],
+      "correctIndex": 0,
+      "explanation": "Peer review is other scientists examining new research — its method, accuracy of results and conclusions — to check it is valid and free from bias before it is widely accepted."
+    }
+  ]
+}

@@ -1,0 +1,301 @@
+{
+  "id": "math-yr9-3d-geometry",
+  "subjectId": "math",
+  "title": "3D Geometry (Trigonometry-Free)",
+  "description": "Volume and surface area of prisms, cylinders, cones and spheres; plans and elevations of 3D shapes.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "math-yr9-3d-geometry-n1",
+      "heading": "Volume of Cubes and Cuboids",
+      "body": "📌 Definition\nA cuboid is a 3D shape with six rectangular faces. A cube is a special cuboid whose edges are all equal. The volume of a 3D shape is the amount of space it occupies, measured in cubic units such as cm$^3$ or m$^3$.\n\n🔑 How it works\nVolume = length $\\times$ width $\\times$ height:\n$$V = l \\times w \\times h$$\nFor a cube with edge $s$, this becomes $V = s^3$.\n\nYou can picture this as layers: the base layer holds $l \\times w$ unit cubes, and there are $h$ layers.\n\n💡 Worked Example 1\nFind the volume of a cuboid measuring $8$ cm by $4.5$ cm by $2$ cm.\n$$V = 8 \\times 4.5 \\times 2 = 72 \\text{ cm}^3$$\n\n💡 Worked Example 2\nFind the volume of a cube with edge $3$ cm.\n$$V = 3^3 = 3 \\times 3 \\times 3 = 27 \\text{ cm}^3$$\n\n📎 Key Points to Remember\n• Multiply all three dimensions together — in any order.\n• Volume is always in cubic units (cm$^3$, m$^3$, mm$^3$).\n• For a cube, cube the edge length.\n\n⚠️ Common Mistake\nAdding the dimensions instead of multiplying. For a $4 \\times 3 \\times 2$ cuboid the volume is $4 \\times 3 \\times 2 = 24$ cm$^3$, not $4 + 3 + 2 = 9$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-n2",
+      "heading": "Surface Area of Cubes and Cuboids",
+      "body": "📌 Definition\nThe surface area of a 3D shape is the total area of all its faces, measured in square units such as cm$^2$.\n\n🔑 How it works\nA cuboid has three pairs of identical rectangular faces, so:\n$$\\text{Surface area} = 2(lw + lh + wh)$$\nFor a cube with edge $s$, all six faces are the same square:\n$$\\text{Surface area} = 6s^2$$\n\n💡 Worked Example 1\nFind the surface area of a cuboid $5$ cm by $4$ cm by $3$ cm.\n\nThe three different faces have areas:\n• $5 \\times 4 = 20$ cm$^2$\n• $5 \\times 3 = 15$ cm$^2$\n• $4 \\times 3 = 12$ cm$^2$\n\n$$\\text{Surface area} = 2 \\times (20 + 15 + 12) = 2 \\times 47 = 94 \\text{ cm}^2$$\n\n💡 Worked Example 2\nFind the surface area of a cube with edge $11$ mm.\n$$6 \\times 11^2 = 6 \\times 121 = 726 \\text{ mm}^2$$\n\n📎 Key Points to Remember\n• Count every face — a cuboid has six.\n• Surface area is in square units; volume is in cubic units. Never mix them up.\n• Sketching the net helps you check you have found every face.\n\n⚠️ Common Mistake\nConfusing surface area with volume. A cube of edge $5$ cm has surface area $6 \\times 25 = 150$ cm$^2$ but volume $125$ cm$^3$ — different quantities and different units.\n\n✅ Check\nDraw or imagine the net: you should be able to account for exactly six faces, no more and no fewer."
+    },
+    {
+      "id": "math-yr9-3d-geometry-n3",
+      "heading": "Volume and Surface Area of Prisms",
+      "body": "📌 Definition\nA prism is a 3D shape with a constant cross-section — the shape you get by slicing it parallel to its end faces is the same all the way through. Cubes, cuboids and cylinders are all prisms; triangular and trapezium-based prisms are other common examples.\n\n🔑 How it works\nBecause the cross-section never changes, the volume is:\n$$V = \\text{area of cross-section} \\times \\text{length}$$\nFor the surface area, add together the two identical end faces and every rectangular side face.\n\n💡 Worked Example 1 — Volume\nA triangular prism has a cross-section that is a triangle with base $6$ cm and perpendicular height $4$ cm. The prism is $10$ cm long.\n$$\\text{Cross-section area} = \\dfrac{1}{2} \\times 6 \\times 4 = 12 \\text{ cm}^2$$\n$$V = 12 \\times 10 = 120 \\text{ cm}^3$$\n\n💡 Worked Example 2 — Surface area\nA prism has a trapezium-shaped cross-section of area $20$ mm$^2$ and is $10$ mm long. Its four rectangular faces measure $10 \\times 5$ (two of them), $10 \\times 8$ and $10 \\times 2$.\n\n• Two trapezium ends: $2 \\times 20 = 40$ mm$^2$\n• Two side rectangles: $2 \\times (10 \\times 5) = 100$ mm$^2$\n• Top rectangle: $10 \\times 8 = 80$ mm$^2$\n• Base rectangle: $10 \\times 2 = 20$ mm$^2$\n\n$$\\text{Surface area} = 40 + 100 + 80 + 20 = 240 \\text{ mm}^2$$\n\n📎 Key Points to Remember\n• Find the cross-section area first, then multiply by the length.\n• Each side face of a prism is a rectangle whose one side is the length of the prism.\n• The two end faces are always identical.\n\n⚠️ Common Mistake\nUsing the wrong face as the cross-section. The cross-section must be the shape that repeats along the whole length of the prism — for a triangular prism it is the triangle, not one of the rectangles."
+    },
+    {
+      "id": "math-yr9-3d-geometry-n4",
+      "heading": "Volume and Surface Area of Cylinders",
+      "body": "📌 Definition\nA cylinder is a prism whose cross-section is a circle. Its radius is $r$ and its height (or length) is $h$.\n\n🔑 How it works\nThe cross-section is a circle of area $\\pi r^2$, so the volume is:\n$$V = \\pi r^2 h$$\nThe surface is made of two circles plus a curved face which unrolls into a rectangle of width $h$ and length $2\\pi r$ (the circumference):\n$$\\text{Surface area} = 2\\pi r^2 + 2\\pi r h$$\nThe term $2\\pi r h$ on its own is the curved surface area.\n\n💡 Worked Example 1 — Volume\nA cylinder has radius $3$ cm and height $7$ cm.\n$$V = \\pi \\times 3^2 \\times 7 = 63\\pi \\approx 197.9 \\text{ cm}^3$$\n\n💡 Worked Example 2 — Surface area\nA cylinder has diameter $14$ mm and length $16$ mm, so $r = 7$ mm and $h = 16$ mm.\n$$\\text{Surface area} = 2\\pi \\times 7^2 + 2\\pi \\times 7 \\times 16 = 98\\pi + 224\\pi = 322\\pi \\approx 1011.6 \\text{ mm}^2$$\n\n📎 Key Points to Remember\n• Halve the diameter before using any formula — they all need the radius.\n• Total surface area = two circular ends + the curved surface.\n• Leave answers in terms of $\\pi$ for an exact answer, or round at the end.\n\n⚠️ Common Mistake\nSquaring the diameter instead of the radius. With diameter $10$ cm, $r = 5$ cm and $\\pi r^2 = 25\\pi$ cm$^2$ — using $\\pi \\times 10^2 = 100\\pi$ makes the area four times too big.\n\n✅ Check\nCompare with a box around the cylinder: a cuboid $2r \\times 2r \\times h$ has volume $4r^2h$, and your cylinder's volume $\\pi r^2 h \\approx 3.14 r^2 h$ should be a bit less than that."
+    },
+    {
+      "id": "math-yr9-3d-geometry-n5",
+      "heading": "Volume of Cones and Pyramids",
+      "body": "📌 Definition\nA cone has a circular base and tapers to a single point called the apex. A pyramid has a polygon base (often a square or rectangle) with triangular faces meeting at an apex. The perpendicular height $h$ is the straight-line distance from the apex to the base.\n\n🔑 How it works\nA cone or pyramid holds exactly one third of the prism with the same base and height:\n$$V_{\\text{cone}} = \\dfrac{1}{3} \\pi r^2 h$$\n$$V_{\\text{pyramid}} = \\dfrac{1}{3} \\times \\text{base area} \\times h$$\n\n💡 Worked Example 1 — Cone\nA cone has radius $3$ cm and perpendicular height $8$ cm.\n$$V = \\dfrac{1}{3} \\times \\pi \\times 3^2 \\times 8 = 24\\pi \\approx 75.4 \\text{ cm}^3$$\n\n💡 Worked Example 2 — Pyramid\nA pyramid has a rectangular base $6$ cm by $5$ cm and perpendicular height $9$ cm.\n$$V = \\dfrac{1}{3} \\times (6 \\times 5) \\times 9 = \\dfrac{1}{3} \\times 30 \\times 9 = 90 \\text{ cm}^3$$\n\n📎 Key Points to Remember\n• The factor $\\dfrac{1}{3}$ applies to BOTH cones and pyramids.\n• Use the perpendicular height, not the slant height.\n• Find the base area first, then multiply by $h$, then divide by $3$.\n\n⚠️ Common Mistake\nForgetting the $\\dfrac{1}{3}$. A cone with $r = 3$ and $h = 8$ has volume $24\\pi$ cm$^3$, not $72\\pi$ cm$^3$ — $72\\pi$ would be the cylinder with the same base and height."
+    },
+    {
+      "id": "math-yr9-3d-geometry-n6",
+      "heading": "Volume and Surface Area of Spheres",
+      "body": "📌 Definition\nA sphere is a perfectly round 3D shape — every point on its surface is the same distance $r$ (the radius) from its centre.\n\n🔑 How it works\n$$V = \\dfrac{4}{3} \\pi r^3$$\n$$\\text{Surface area} = 4 \\pi r^2$$\nNotice the volume formula cubes the radius, while the surface area formula squares it.\n\n💡 Worked Example 1 — Full sphere\nA sphere has radius $6$ cm.\n$$V = \\dfrac{4}{3} \\times \\pi \\times 6^3 = \\dfrac{4}{3} \\times \\pi \\times 216 = 288\\pi \\approx 904.8 \\text{ cm}^3$$\n$$\\text{Surface area} = 4 \\times \\pi \\times 6^2 = 144\\pi \\approx 452.4 \\text{ cm}^2$$\n\n💡 Worked Example 2 — Hemisphere\nA hemisphere (half a sphere) has radius $3$ cm. Find its volume.\n$$V = \\dfrac{1}{2} \\times \\dfrac{4}{3} \\times \\pi \\times 3^3 = \\dfrac{1}{2} \\times 36\\pi = 18\\pi \\approx 56.5 \\text{ cm}^3$$\n\n📎 Key Points to Remember\n• Cube $r$ for volume; square $r$ for surface area.\n• A hemisphere has half the volume of the full sphere.\n• The curved surface of a hemisphere is half of $4\\pi r^2$; add $\\pi r^2$ if the flat circular face is also required.\n\n⚠️ Common Mistake\nSwapping the powers: using $r^2$ in the volume formula or $r^3$ in the surface area formula. Remember — volume is 3D, so it needs $r^3$; area is 2D, so it needs $r^2$.\n\n✅ Check\nUnits give it away: a volume answer must be in cubic units, so if your calculation only squared the radius, something is wrong."
+    },
+    {
+      "id": "math-yr9-3d-geometry-n7",
+      "heading": "Plans and Elevations",
+      "body": "📌 Definition\nPlans and elevations are 2D drawings that show a 3D shape from different directions:\n• The plan is the view looking straight down from above.\n• The front elevation is the view from the front.\n• The side elevation is the view from the side.\n\n🔑 How it works\nEach view shows only the outline and visible edges from that direction — depth is flattened away. Edges that exist but are hidden behind the shape from that direction are sometimes drawn as dashed lines. The three views together contain enough information to reconstruct the solid.\n\n💡 Worked Example\nA solid is made of $4$ unit cubes: three cubes in an L-shape on the ground, with one cube stacked on top of the corner cube.\n\n• Plan: an L-shape of three squares (the stacked cube sits directly above the corner cube, so it does not add a new square).\n• Front elevation: two squares side by side, with one square on top of one of them.\n• Side elevation: two squares side by side, with one square on top.\n\nA cylinder standing upright is another classic case: its plan is a circle, but its front and side elevations are both rectangles.\n\n📎 Key Points to Remember\n• Plan = from above; front elevation = from the front; side elevation = from the side.\n• A view only shows what is visible from that direction.\n• Heights stack vertically in elevations, never in the plan.\n\n⚠️ Common Mistake\nDrawing the plan as a 3D picture. A plan is a flat, top-down outline — not an isometric sketch. For an upright cylinder the plan is a plain circle, not an ellipse or a 3D drawing.\n\n✅ Check\nCount the cubes or features in each view: every part of the solid must appear in the plan and in at least one elevation."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr9-3d-geometry-f1",
+      "term": "Cuboid",
+      "definition": "A 3D shape with six rectangular faces; a cube is a cuboid with all edges equal.",
+      "example": "A shoebox is a cuboid; a dice is a cube."
+    },
+    {
+      "id": "math-yr9-3d-geometry-f2",
+      "term": "Volume of a cuboid",
+      "definition": "Multiply length by width by height: $V = l \\times w \\times h$.",
+      "example": "A $4 \\times 3 \\times 2$ cm cuboid has volume $24$ cm$^3$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-f3",
+      "term": "Prism",
+      "definition": "A 3D shape with a constant cross-section — slicing it parallel to its end face gives the same shape all the way through.",
+      "example": "Triangular prisms and cylinders are prisms; cones and pyramids are not."
+    },
+    {
+      "id": "math-yr9-3d-geometry-f4",
+      "term": "Volume of a prism",
+      "definition": "Area of the cross-section multiplied by the length of the prism.",
+      "example": "Cross-section $15$ cm$^2$, length $8$ cm: $V = 15 \\times 8 = 120$ cm$^3$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-f5",
+      "term": "Volume of a cylinder",
+      "definition": "$V = \\pi r^2 h$ — the area of the circular cross-section times the height.",
+      "example": "$r = 3$, $h = 7$: $V = 63\\pi \\approx 197.9$ cm$^3$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-f6",
+      "term": "Surface area of a cylinder",
+      "definition": "$2\\pi r^2 + 2\\pi r h$: two circular ends plus the curved surface, which unrolls into a rectangle.",
+      "example": "$r = 7$, $h = 16$: $98\\pi + 224\\pi = 322\\pi \\approx 1011.6$ mm$^2$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-f7",
+      "term": "Volume of a cone",
+      "definition": "$V = \\dfrac{1}{3} \\pi r^2 h$ — one third of the cylinder with the same base and height.",
+      "example": "$r = 3$, $h = 8$: $V = 24\\pi \\approx 75.4$ cm$^3$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-f8",
+      "term": "Volume of a pyramid",
+      "definition": "$V = \\dfrac{1}{3} \\times \\text{base area} \\times \\text{perpendicular height}$.",
+      "example": "Base $6 \\times 5$ cm, height $9$ cm: $V = \\dfrac{1}{3} \\times 30 \\times 9 = 90$ cm$^3$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-f9",
+      "term": "Volume of a sphere",
+      "definition": "$V = \\dfrac{4}{3} \\pi r^3$ — the radius is cubed.",
+      "example": "$r = 6$: $V = 288\\pi \\approx 904.8$ cm$^3$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-f10",
+      "term": "Surface area of a sphere",
+      "definition": "$4\\pi r^2$ — the radius is squared.",
+      "example": "$r = 6$: surface area $= 144\\pi \\approx 452.4$ cm$^2$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-f11",
+      "term": "Plan",
+      "definition": "The 2D view of a 3D shape looking straight down from above.",
+      "example": "The plan of an upright cylinder is a circle."
+    },
+    {
+      "id": "math-yr9-3d-geometry-f12",
+      "term": "Elevation",
+      "definition": "The 2D view of a 3D shape from the front (front elevation) or from the side (side elevation).",
+      "example": "The front elevation of an upright cylinder is a rectangle."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr9-3d-geometry-q1",
+      "stem": "A cuboid measures $4$ cm by $3$ cm by $2$ cm. What is its volume?",
+      "choices": [
+        "$24$ cm$^3$",
+        "$9$ cm$^3$",
+        "$12$ cm$^3$",
+        "$48$ cm$^3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Volume = length $\\times$ width $\\times$ height $= 4 \\times 3 \\times 2 = 24$ cm$^3$. The value $9$ comes from adding the dimensions instead of multiplying."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q2",
+      "stem": "What is the surface area of a cube with edge $5$ cm?",
+      "choices": [
+        "$25$ cm$^2$",
+        "$125$ cm$^2$",
+        "$150$ cm$^2$",
+        "$100$ cm$^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A cube has $6$ identical square faces: $6 \\times 5^2 = 6 \\times 25 = 150$ cm$^2$. The value $125$ is the volume in cm$^3$, not the surface area."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q3",
+      "stem": "A prism has a cross-section of area $15$ cm$^2$ and a length of $8$ cm. What is its volume?",
+      "choices": [
+        "$23$ cm$^3$",
+        "$60$ cm$^3$",
+        "$120$ cm$^3$",
+        "$225$ cm$^3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Volume of a prism = cross-section area $\\times$ length $= 15 \\times 8 = 120$ cm$^3$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q4",
+      "stem": "A triangular prism has a triangular cross-section with base $10$ cm and perpendicular height $6$ cm. The prism is $4$ cm long. What is its volume?",
+      "choices": [
+        "$240$ cm$^3$",
+        "$120$ cm$^3$",
+        "$60$ cm$^3$",
+        "$34$ cm$^3$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cross-section area $= \\dfrac{1}{2} \\times 10 \\times 6 = 30$ cm$^2$, so $V = 30 \\times 4 = 120$ cm$^3$. The answer $240$ cm$^3$ forgets the $\\dfrac{1}{2}$ in the triangle area."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q5",
+      "stem": "A cylinder has radius $5$ cm and height $10$ cm. What is its volume, to $1$ decimal place?",
+      "choices": [
+        "$785.4$ cm$^3$",
+        "$314.2$ cm$^3$",
+        "$157.1$ cm$^3$",
+        "$78.5$ cm$^3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$V = \\pi r^2 h = \\pi \\times 25 \\times 10 = 250\\pi \\approx 785.4$ cm$^3$. The value $314.2$ is the curved surface area $100\\pi$, and $78.5$ is just the base area $25\\pi$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q6",
+      "stem": "A cylinder has radius $3$ cm and height $5$ cm. What is its total surface area, to $1$ decimal place?",
+      "choices": [
+        "$94.2$ cm$^2$",
+        "$141.4$ cm$^2$",
+        "$47.1$ cm$^2$",
+        "$150.8$ cm$^2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Total surface area $= 2\\pi r^2 + 2\\pi r h = 18\\pi + 30\\pi = 48\\pi \\approx 150.8$ cm$^2$. The value $94.2$ cm$^2$ is only the curved surface $30\\pi$, missing the two circular ends."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q7",
+      "stem": "A cone has radius $6$ cm and perpendicular height $7$ cm. What is its volume, to $1$ decimal place?",
+      "choices": [
+        "$791.7$ cm$^3$",
+        "$263.9$ cm$^3$",
+        "$131.9$ cm$^3$",
+        "$113.1$ cm$^3$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$V = \\dfrac{1}{3} \\pi r^2 h = \\dfrac{1}{3} \\times \\pi \\times 36 \\times 7 = 84\\pi \\approx 263.9$ cm$^3$. The value $791.7$ cm$^3$ forgets the factor $\\dfrac{1}{3}$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q8",
+      "stem": "A pyramid has a rectangular base $8$ cm by $5$ cm and a perpendicular height of $9$ cm. What is its volume?",
+      "choices": [
+        "$360$ cm$^3$",
+        "$40$ cm$^3$",
+        "$72$ cm$^3$",
+        "$120$ cm$^3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$V = \\dfrac{1}{3} \\times (8 \\times 5) \\times 9 = \\dfrac{1}{3} \\times 360 = 120$ cm$^3$. The answer $360$ cm$^3$ is the cuboid volume without dividing by $3$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q9",
+      "stem": "What is the volume of a sphere with radius $2$ cm, to $1$ decimal place?",
+      "choices": [
+        "$33.5$ cm$^3$",
+        "$50.3$ cm$^3$",
+        "$25.1$ cm$^3$",
+        "$100.5$ cm$^3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$V = \\dfrac{4}{3} \\pi r^3 = \\dfrac{4}{3} \\times \\pi \\times 8 = \\dfrac{32\\pi}{3} \\approx 33.5$ cm$^3$. The value $50.3$ is the surface area $16\\pi$ cm$^2$ with wrong units."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q10",
+      "stem": "What is the surface area of a sphere with radius $5$ cm, to $1$ decimal place?",
+      "choices": [
+        "$523.6$ cm$^2$",
+        "$78.5$ cm$^2$",
+        "$314.2$ cm$^2$",
+        "$157.1$ cm$^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Surface area $= 4\\pi r^2 = 4 \\times \\pi \\times 25 = 100\\pi \\approx 314.2$ cm$^2$. The value $523.6$ is the volume $\\dfrac{500\\pi}{3}$ cm$^3$, which uses the wrong formula."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q11",
+      "stem": "In technical drawing, what is the plan of a 3D shape?",
+      "choices": [
+        "The view looking straight down from above",
+        "The view from the front",
+        "A 3D sketch of the shape",
+        "The view from the side"
+      ],
+      "correctIndex": 0,
+      "explanation": "The plan is the flat, top-down view of the shape. Views from the front and side are called elevations, not plans."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q12",
+      "stem": "A cylinder stands upright on its circular base. What shape is its front elevation?",
+      "choices": [
+        "Circle",
+        "Ellipse",
+        "Rectangle",
+        "Triangle"
+      ],
+      "correctIndex": 2,
+      "explanation": "Seen from the front, an upright cylinder has a rectangular outline. The circle is the plan (the view from above)."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q13",
+      "stem": "A cylinder has radius $4$ cm and height $9$ cm. What is its curved surface area (excluding the two circular ends), to $1$ decimal place?",
+      "choices": [
+        "$226.2$ cm$^2$",
+        "$326.7$ cm$^2$",
+        "$113.1$ cm$^2$",
+        "$452.4$ cm$^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Curved surface area $= 2\\pi r h = 2\\pi \\times 4 \\times 9 = 72\\pi \\approx 226.2$ cm$^2$. The value $326.7$ cm$^2$ is the total surface area $104\\pi$, which adds the two circular ends the question excludes."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q14",
+      "stem": "A cuboid has a base measuring $8$ cm by $6$ cm and a volume of $240$ cm$^3$. What is its height?",
+      "choices": [
+        "$48$ cm",
+        "$30$ cm",
+        "$5$ cm",
+        "$6$ cm"
+      ],
+      "correctIndex": 2,
+      "explanation": "Height $= 240 \\div (8 \\times 6) = 240 \\div 48 = 5$ cm. Check: $8 \\times 6 \\times 5 = 240$ cm$^3$."
+    },
+    {
+      "id": "math-yr9-3d-geometry-q15",
+      "stem": "A cube has a volume of $64$ cm$^3$. What is the length of one edge?",
+      "choices": [
+        "$8$ cm",
+        "$4$ cm",
+        "$16$ cm",
+        "$21.3$ cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "The edge is the cube root of the volume: $\\sqrt[3]{64} = 4$ cm, since $4^3 = 64$. Dividing $64$ by $4$ or $8$ does not reverse the cubing."
+    }
+  ]
+}

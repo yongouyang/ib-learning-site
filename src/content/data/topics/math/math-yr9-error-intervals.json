@@ -1,0 +1,301 @@
+{
+  "id": "math-yr9-error-intervals",
+  "subjectId": "math",
+  "title": "Error Intervals & Bounds",
+  "description": "Upper and lower bounds of rounded values, error intervals and limits of accuracy in calculations.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "math-yr9-error-intervals-n1",
+      "heading": "Why Rounded Values Have a Range",
+      "body": "📌 Definition\nA rounded value is an approximation. When a measurement is given as correct to a stated degree of accuracy, the true value is not known exactly — it lies somewhere in a range of values that all round to the same answer.\n\n🔑 How it works\nMeasured (continuous) data such as time, length and mass can never be written down perfectly; every recorded measurement has been rounded. So one recorded value stands for many possible true values.\n\n💡 Worked Example\nA sprinter's time is recorded as $34.6$ seconds, correct to $1$ decimal place.\n\nWhich true times $t$ would round to $34.6$?\n\n• $34.55$ rounds up to $34.6$ — this is the smallest possible time.\n• $34.6499\\ldots$ rounds down to $34.6$.\n• $34.65$ itself rounds up to $34.7$, so it is NOT included.\n\nThe true time satisfies $34.55 \\leq t < 34.65$.\n\n📎 Key Points to Remember\n• A rounded value always represents a range of possible true values.\n• The more accurately a value is rounded, the narrower that range is.\n• Counted data (e.g. number of people) can be exact; measured data cannot.\n\n⚠️ Common Mistake\nTreating $34.6$ s as the exact time. It is only the rounded value; the true time could be anywhere in the range that rounds to $34.6$."
+    },
+    {
+      "id": "math-yr9-error-intervals-n2",
+      "heading": "Finding Upper and Lower Bounds",
+      "body": "📌 Definition\n• The lower bound is the smallest value that would still round up to the given value.\n• The upper bound is the smallest value that would round up to the NEXT value — the true value must be strictly less than it.\n\n🔑 How it works\n1. Identify the degree of accuracy (e.g. nearest $0.1$, nearest $10$).\n2. Halve it.\n3. Lower bound = given value $-$ half the degree of accuracy.\n4. Upper bound = given value $+$ half the degree of accuracy.\n\n💡 Worked Example 1\nA length is $8.4$ cm, correct to $1$ decimal place.\n\nDegree of accuracy $= 0.1$, so half of it is $0.05$.\n$$\\text{Lower bound} = 8.4 - 0.05 = 8.35$$\n$$\\text{Upper bound} = 8.4 + 0.05 = 8.45$$\n\n💡 Worked Example 2\nA mass is $230$ g, correct to the nearest $10$ g.\n\nDegree of accuracy $= 10$, so half of it is $5$.\n$$\\text{Lower bound} = 230 - 5 = 225 \\text{ g}$$\n$$\\text{Upper bound} = 230 + 5 = 235 \\text{ g}$$\n\n📎 Key Points to Remember\n• Always halve the degree of accuracy — do not use the whole unit.\n• The lower bound belongs to the range; the upper bound does not.\n\n⚠️ Common Mistake\nHalving the wrong unit. For $1$ decimal place the half-unit is $0.05$, not $0.5$.\n\n✅ Check\nRound each bound back: the lower bound should round up to the given value, and the upper bound should round up to the next value."
+    },
+    {
+      "id": "math-yr9-error-intervals-n3",
+      "heading": "Writing Error Intervals",
+      "body": "📌 Definition\nAn error interval is the range of possible true values of a rounded measurement, written as an inequality:\n$$\\text{lower bound} \\leq x < \\text{upper bound}$$\n\n🔑 How it works\n• Use $\\leq$ at the lower bound, because the lower bound itself rounds to the given value.\n• Use $<$ (strictly less than) at the upper bound, because the upper bound itself would round up to the next value.\n\n💡 Worked Example 1\nA time is $t = 34.6$ s, correct to $1$ decimal place. Write the error interval.\n\nBounds: $34.55$ and $34.65$.\n$$34.55 \\leq t < 34.65$$\n\n💡 Worked Example 2\nA mass is $m = 5.8$ kg, correct to $1$ decimal place.\n\nHalf of $0.1$ is $0.05$, so the bounds are $5.75$ and $5.85$.\n$$5.75 \\leq m < 5.85$$\n\n📎 Key Points to Remember\n• The inequality always has the form lower $\\leq x <$ upper.\n• Both bounds come from halving the degree of accuracy.\n• The error interval tells you every value the measurement could really be.\n\n⚠️ Common Mistake\nWriting $\\leq$ for the upper bound. $34.65$ rounds to $34.7$, so $34.55 \\leq t \\leq 34.65$ incorrectly includes a value that would not round to $34.6$."
+    },
+    {
+      "id": "math-yr9-error-intervals-n4",
+      "heading": "Bounds for Different Degrees of Accuracy",
+      "body": "📌 Definition\nThe same rule — halve the degree of accuracy — works for any rounding: nearest whole number, nearest $10$ or $100$, decimal places, or significant figures.\n\n🔑 How it works\nFirst work out the size of ONE unit at the rounded place, then halve it:\n• Nearest whole number: unit $= 1$, half $= 0.5$\n• Nearest $10$: unit $= 10$, half $= 5$\n• Nearest $100$: unit $= 100$, half $= 50$\n• $2$ decimal places: unit $= 0.01$, half $= 0.005$\n\n💡 Worked Example 1 — nearest whole number\n$x = 18$, correct to the nearest whole number.\n$$17.5 \\leq x < 18.5$$\n\n💡 Worked Example 2 — nearest $10$ and nearest $100$\n$x = 340$, correct to the nearest $10$:\n$$335 \\leq x < 345$$\n$x = 2\\,700$, correct to the nearest $100$:\n$$2\\,650 \\leq x < 2\\,750$$\n\n💡 Worked Example 3 — significant figures\n$x = 0.046$, correct to $2$ significant figures.\n\nThe last significant digit is in the thousandths place, so the unit is $0.001$ and half of it is $0.0005$.\n$$0.0455 \\leq x < 0.0465$$\n\n📎 Key Points to Remember\n• Find the place value of the last rounded digit FIRST, then halve that unit.\n• For significant figures, the last significant digit tells you the unit.\n\n⚠️ Common Mistake\nTreating a value rounded to $2$ significant figures as if it were rounded to $2$ decimal places. For $0.046$ ($2$ s.f.), the half-unit is $0.0005$, not $0.005$."
+    },
+    {
+      "id": "math-yr9-error-intervals-n5",
+      "heading": "Bounds in Calculations — Adding and Subtracting",
+      "body": "📌 Definition\nWhen rounded values are used in a calculation, the answer is also only known within a range. The largest and smallest possible results are found by combining the bounds.\n\n🔑 How it works\nFor two rounded values $A$ and $B$:\n• Maximum of $A + B$ = upper bound of $A$ $+$ upper bound of $B$\n• Minimum of $A + B$ = lower bound of $A$ $+$ lower bound of $B$\n• Maximum of $A - B$ = upper bound of $A$ $-$ lower bound of $B$\n• Minimum of $A - B$ = lower bound of $A$ $-$ upper bound of $B$\n\n💡 Worked Example\nTwo lengths are $A = 4.6$ m and $B = 3.2$ m, both correct to $1$ decimal place.\n\nThe bounds are:\n$$4.55 \\leq A < 4.65 \\quad \\text{and} \\quad 3.15 \\leq B < 3.25$$\n\nTotal length $A + B$:\n• Minimum: $4.55 + 3.15 = 7.7$ m\n• Maximum: $4.65 + 3.25 = 7.9$ m\n\nSo $7.7 \\leq A + B < 7.9$.\n\nDifference $A - B$:\n• Largest gap: biggest $A$, smallest $B$: $4.65 - 3.15 = 1.5$ m\n• Smallest gap: smallest $A$, biggest $B$: $4.55 - 3.25 = 1.3$ m\n\nSo $1.3 \\leq A - B < 1.5$.\n\n📎 Key Points to Remember\n• For $A + B$, add matching bounds (upper with upper, lower with lower).\n• For $A - B$, mix the bounds: to make a difference big, start big and take away little.\n• Because the upper bounds are never actually reached, the maximum is a limit the answer stays below.\n\n⚠️ Common Mistake\nCalculating $A - B$ as upper $-$ upper and lower $-$ lower. That shrinks the range instead of finding its extremes."
+    },
+    {
+      "id": "math-yr9-error-intervals-n6",
+      "heading": "Bounds in Calculations — Multiplying and Dividing",
+      "body": "📌 Definition\nFor positive rounded values, the extreme values of products and quotients also come from combining bounds.\n\n🔑 How it works\n• Maximum of $A \\times B$ = upper bound of $A$ $\\times$ upper bound of $B$\n• Minimum of $A \\times B$ = lower bound of $A$ $\\times$ lower bound of $B$\n• Maximum of $\\dfrac{A}{B}$ = upper bound of $A$ $\\div$ lower bound of $B$\n• Minimum of $\\dfrac{A}{B}$ = lower bound of $A$ $\\div$ upper bound of $B$\n\n💡 Worked Example 1 — Area\nA rectangle has length $12.3$ cm and width $8.2$ cm, both correct to $1$ decimal place.\n\nBounds: $12.25 \\leq l < 12.35$ and $8.15 \\leq w < 8.25$.\n\n• Minimum area: $12.25 \\times 8.15 = 99.8375$ cm$^2$\n• Maximum area: $12.35 \\times 8.25 = 101.8875$ cm$^2$\n\nSo $99.8375 \\leq \\text{area} < 101.8875$ cm$^2$.\n\n💡 Worked Example 2 — Speed\nA car travels $120$ km (nearest $10$ km) in $2.4$ hours (correct to $1$ decimal place).\n\nBounds: $115 \\leq d < 125$ and $2.35 \\leq t < 2.45$.\n\n• Maximum speed: $\\dfrac{125}{2.35} \\approx 53.2$ km/h\n• Minimum speed: $\\dfrac{115}{2.45} \\approx 46.9$ km/h\n\nThe true speed lies between about $46.9$ km/h and $53.2$ km/h.\n\n📎 Key Points to Remember\n• Dividing by a SMALLER number gives a BIGGER answer — that is why the maximum quotient uses the lower bound of the denominator.\n• Always write down the bounds of each value before combining them.\n\n⚠️ Common Mistake\nMultiplying or dividing the rounded values and treating the result as exact. $120 \\div 2.4 = 50$ km/h is only the central estimate, not the full story."
+    },
+    {
+      "id": "math-yr9-error-intervals-n7",
+      "heading": "Choosing an Appropriate Degree of Accuracy",
+      "body": "📌 Definition\nAn appropriate degree of accuracy means giving a final answer no more precise than the data it came from. Extra decimal places look exact but are really false precision.\n\n🔑 How it works\n• Check the bounds of your answer first.\n• If the minimum and maximum disagree before a certain digit, digits beyond that point are meaningless.\n• A common rule of thumb: round the final answer to the same number of significant figures as the least accurate value in the question.\n\n💡 Worked Example\nIn the speed example, the true speed lies between $46.9$ km/h and $53.2$ km/h.\n\nWriting the maximum as $53.191\\ldots$ km/h claims accuracy the data does not support. A sensible statement is:\n$$\\text{maximum speed} \\approx 53 \\text{ km/h (2 s.f.)}$$\n\n📎 Key Points to Remember\n• A rounded input can never produce an exact output.\n• Bounds questions usually ask for the lower bound, the upper bound, or an error interval — give those exactly.\n• For a single \"best\" answer, round to a sensible number of significant figures and say so.\n\n⚠️ Common Mistakes — summary\n• Using $\\leq$ at the upper bound of an error interval — it must be $<$.\n• Halving the wrong unit, e.g. using $0.5$ instead of $0.05$ for $1$ decimal place.\n• Copying a long calculator display as the final answer without checking whether the bounds justify it.\n\n✅ Check\nBefore finishing, ask: does every digit of my answer survive across the whole error interval? If not, round more."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr9-error-intervals-f1",
+      "term": "Lower bound",
+      "definition": "The smallest value that would still round up to the given rounded value.",
+      "example": "For $6.3$ correct to $1$ d.p., the lower bound is $6.25$."
+    },
+    {
+      "id": "math-yr9-error-intervals-f2",
+      "term": "Upper bound",
+      "definition": "The smallest value that would round up to the NEXT value; the true value must be strictly less than it.",
+      "example": "For $6.3$ correct to $1$ d.p., the upper bound is $6.35$."
+    },
+    {
+      "id": "math-yr9-error-intervals-f3",
+      "term": "Error interval",
+      "definition": "The range of possible true values of a rounded measurement, written as lower bound $\\leq x <$ upper bound.",
+      "example": "$34.6$ s ($1$ d.p.) gives $34.55 \\leq t < 34.65$."
+    },
+    {
+      "id": "math-yr9-error-intervals-f4",
+      "term": "Limit of accuracy (rounding error)",
+      "definition": "Half of the degree of accuracy; the maximum amount by which a rounded value can differ from the true value.",
+      "example": "Values rounded to $1$ d.p. have a limit of accuracy of $0.05$."
+    },
+    {
+      "id": "math-yr9-error-intervals-f5",
+      "term": "Degree of accuracy",
+      "definition": "The place or unit to which a value has been rounded, such as the nearest $0.1$ or nearest $10$.",
+      "example": "$34.6$ s is correct to the nearest $0.1$ s."
+    },
+    {
+      "id": "math-yr9-error-intervals-f6",
+      "term": "Finding bounds",
+      "definition": "Halve the degree of accuracy, then subtract it for the lower bound and add it for the upper bound.",
+      "example": "$230$ g (nearest $10$ g): half of $10$ is $5$, so the bounds are $225$ g and $235$ g."
+    },
+    {
+      "id": "math-yr9-error-intervals-f7",
+      "term": "Why the upper bound is excluded",
+      "definition": "The upper bound itself rounds up to the next value, so the error interval uses $<$ rather than $\\leq$ at the top.",
+      "example": "$34.65$ rounds to $34.7$, so it is not part of the error interval for $34.6$."
+    },
+    {
+      "id": "math-yr9-error-intervals-f8",
+      "term": "Maximum of a sum",
+      "definition": "Add the two upper bounds; the minimum of a sum adds the two lower bounds.",
+      "example": "$A = 4.6$, $B = 3.2$ ($1$ d.p.): maximum $A + B = 4.65 + 3.25 = 7.9$."
+    },
+    {
+      "id": "math-yr9-error-intervals-f9",
+      "term": "Minimum of a difference",
+      "definition": "Lower bound of the first value minus the upper bound of the second; the maximum difference is upper minus lower.",
+      "example": "$A = 4.6$, $B = 3.2$ ($1$ d.p.): minimum $A - B = 4.55 - 3.25 = 1.3$."
+    },
+    {
+      "id": "math-yr9-error-intervals-f10",
+      "term": "Maximum of a product",
+      "definition": "Multiply the two upper bounds; the minimum of a product multiplies the two lower bounds.",
+      "example": "$3.2 \\times 4.1$ ($1$ d.p.): maximum $= 3.25 \\times 4.15 = 13.4875$."
+    },
+    {
+      "id": "math-yr9-error-intervals-f11",
+      "term": "Maximum of a quotient",
+      "definition": "Upper bound of the numerator divided by the lower bound of the denominator (for positive values).",
+      "example": "$120$ km (nearest $10$) in $2.4$ h ($1$ d.p.): max speed $= 125 \\div 2.35 \\approx 53.2$ km/h."
+    },
+    {
+      "id": "math-yr9-error-intervals-f12",
+      "term": "Appropriate degree of accuracy",
+      "definition": "Giving a final answer no more precise than the data it came from, avoiding false precision.",
+      "example": "A maximum speed of $53.191\\ldots$ km/h is sensibly reported as $53$ km/h ($2$ s.f.)."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr9-error-intervals-q1",
+      "stem": "A number is $6.3$, correct to $1$ decimal place. What is the lower bound?",
+      "choices": [
+        "$6.25$",
+        "$6.2$",
+        "$6.35$",
+        "$6.3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Half of $0.1$ is $0.05$, so the lower bound is $6.3 - 0.05 = 6.25$. The value $6.35$ is the upper bound, not the lower."
+    },
+    {
+      "id": "math-yr9-error-intervals-q2",
+      "stem": "A number is $6.3$, correct to $1$ decimal place. What is the upper bound?",
+      "choices": [
+        "$6.4$",
+        "$6.35$",
+        "$6.45$",
+        "$6.39$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The upper bound is $6.3 + 0.05 = 6.35$. Values below $6.35$ round to $6.3$; $6.35$ itself would round to $6.4$."
+    },
+    {
+      "id": "math-yr9-error-intervals-q3",
+      "stem": "A time is recorded as $34.6$ s, correct to $1$ decimal place. Which error interval is correct?",
+      "choices": [
+        "$34.55 \\leq t < 34.65$",
+        "$34.55 \\leq t \\leq 34.65$",
+        "$34.5 \\leq t < 34.7$",
+        "$34.6 \\leq t < 34.65$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Half of $0.1$ is $0.05$, giving bounds $34.55$ and $34.65$. The upper bound uses $<$ because $34.65$ itself rounds to $34.7$."
+    },
+    {
+      "id": "math-yr9-error-intervals-q4",
+      "stem": "A mass is $250$ g, correct to the nearest $10$ g. Which error interval is correct?",
+      "choices": [
+        "$240 \\leq m < 260$",
+        "$245 \\leq m \\leq 255$",
+        "$245 \\leq m < 255$",
+        "$249.5 \\leq m < 250.5$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Half of $10$ is $5$, so the bounds are $245$ and $255$, with $<$ at the top. Using $240$ and $260$ means halving was forgotten; $249.5$ and $250.5$ would apply to the nearest gram."
+    },
+    {
+      "id": "math-yr9-error-intervals-q5",
+      "stem": "A crowd of $4\\,800$ people is given correct to the nearest $100$. What is the lower bound of the true number?",
+      "choices": [
+        "$4\\,750$",
+        "$4\\,795$",
+        "$4\\,700$",
+        "$4\\,799$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Half of $100$ is $50$, so the lower bound is $4\\,800 - 50 = 4\\,750$. Any value from $4\\,750$ upwards rounds to $4\\,800$."
+    },
+    {
+      "id": "math-yr9-error-intervals-q6",
+      "stem": "A value is $0.074$, correct to $2$ significant figures. Which error interval is correct?",
+      "choices": [
+        "$0.073 \\leq x < 0.075$",
+        "$0.0735 \\leq x < 0.0745$",
+        "$0.0735 \\leq x \\leq 0.0745$",
+        "$0.0695 \\leq x < 0.0795$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The last significant digit is in the thousandths place, so half the unit is $0.0005$, giving $0.0735 \\leq x < 0.0745$."
+    },
+    {
+      "id": "math-yr9-error-intervals-q7",
+      "stem": "Why does an error interval use $<$ rather than $\\leq$ at the upper bound?",
+      "choices": [
+        "Because the lower bound is always smaller than the upper bound.",
+        "Because the upper bound itself would round up to the next value.",
+        "Because measurements can never equal the upper bound exactly.",
+        "Because it is shorter to write."
+      ],
+      "correctIndex": 1,
+      "explanation": "The upper bound, e.g. $34.65$, rounds up to the next value ($34.7$), so it cannot be included in the interval for $34.6$."
+    },
+    {
+      "id": "math-yr9-error-intervals-q8",
+      "stem": "$A = 5.4$ and $B = 2.1$, both correct to $1$ decimal place. What is the maximum possible value of $A + B$?",
+      "choices": [
+        "$7.5$",
+        "$7.6$",
+        "$7.59$",
+        "$7.7$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The upper bounds are $5.45$ and $2.15$, so the maximum sum is $5.45 + 2.15 = 7.6$. Adding $5.4 + 2.1 = 7.5$ ignores the rounding."
+    },
+    {
+      "id": "math-yr9-error-intervals-q9",
+      "stem": "$A = 5.4$ and $B = 2.1$, both correct to $1$ decimal place. What is the minimum possible value of $A - B$?",
+      "choices": [
+        "$3.4$",
+        "$3.3$",
+        "$3.0$",
+        "$3.2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The smallest difference uses the smallest $A$ and the largest $B$: $5.35 - 2.15 = 3.2$."
+    },
+    {
+      "id": "math-yr9-error-intervals-q10",
+      "stem": "$A = 3.2$ and $B = 4.1$, both correct to $1$ decimal place. What is the maximum possible value of $A \\times B$?",
+      "choices": [
+        "$13.12$",
+        "$13.4875$",
+        "$13.6$",
+        "$13.4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The upper bounds are $3.25$ and $4.15$, so the maximum product is $3.25 \\times 4.15 = 13.4875$."
+    },
+    {
+      "id": "math-yr9-error-intervals-q11",
+      "stem": "A car travels $120$ km (nearest $10$ km) in $2.4$ hours (correct to $1$ decimal place). What is the maximum possible speed?",
+      "choices": [
+        "$46.9$ km/h",
+        "$50.0$ km/h",
+        "$53.2$ km/h",
+        "$51.0$ km/h"
+      ],
+      "correctIndex": 2,
+      "explanation": "Maximum speed uses the greatest distance and least time: $125 \\div 2.35 \\approx 53.2$ km/h. The value $50.0$ km/h comes from the rounded numbers, not the bounds."
+    },
+    {
+      "id": "math-yr9-error-intervals-q12",
+      "stem": "Which of these values could round to $7.8$ when written correct to $1$ decimal place?",
+      "choices": [
+        "$7.74$",
+        "$7.85$",
+        "$7.75$",
+        "$7.89$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The error interval is $7.75 \\leq x < 7.85$. Only $7.75$ lies in it; $7.74$ rounds to $7.7$, while $7.85$ and $7.89$ round to $7.9$."
+    },
+    {
+      "id": "math-yr9-error-intervals-q13",
+      "stem": "A rectangle measures $4.2$ m by $3.8$ m, both correct to $1$ decimal place. What is the minimum possible area?",
+      "choices": [
+        "$15.96$ m$^2$",
+        "$15.6$ m$^2$",
+        "$16.0$ m$^2$",
+        "$15.5625$ m$^2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The lower bounds are $4.15$ m and $3.75$ m, so the minimum area is $4.15 \\times 3.75 = 15.5625$ m$^2$."
+    },
+    {
+      "id": "math-yr9-error-intervals-q14",
+      "stem": "A length is $9.0$ cm, correct to $1$ decimal place. Which error interval is correct?",
+      "choices": [
+        "$8.95 \\leq x < 9.05$",
+        "$8.9 \\leq x < 9.1$",
+        "$8.95 \\leq x \\leq 9.05$",
+        "$9.0 \\leq x < 9.05$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Half of $0.1$ is $0.05$, so the bounds are $8.95$ and $9.05$, with $<$ at the upper bound. The interval $8.9 \\leq x < 9.1$ forgets to halve the unit."
+    },
+    {
+      "id": "math-yr9-error-intervals-q15",
+      "stem": "A length is written as $8.0$ cm. To what degree of accuracy has it been rounded?",
+      "choices": [
+        "Nearest $1$ cm",
+        "Nearest $0.1$ cm",
+        "Nearest $10$ cm",
+        "Nearest $0.01$ cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "The trailing zero in $8.0$ shows the tenths digit was recorded, so the value is correct to the nearest $0.1$ cm. Writing $8$ cm would only claim the nearest centimetre."
+    }
+  ]
+}

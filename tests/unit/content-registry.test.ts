@@ -3,11 +3,11 @@ import { getSubjects, getSubject, getTopic } from '@/content/registry';
 import type { SubjectId } from '@/content/types';
 
 const EXPECTED_TOPIC_COUNTS: Record<SubjectId, number> = {
-  math: 68,
+  math: 74,
   biology: 13,
-  chemistry: 11,
-  english: 15,
-  physics: 12,
+  chemistry: 12,
+  english: 16,
+  physics: 13,
 };
 
 describe('content-registry', () => {

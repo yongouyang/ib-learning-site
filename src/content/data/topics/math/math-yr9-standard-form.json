@@ -1,0 +1,301 @@
+{
+  "id": "math-yr9-standard-form",
+  "subjectId": "math",
+  "title": "Standard Form (Deeper)",
+  "description": "Calculating with numbers in standard index form — multiplication, division, addition and subtraction without a calculator.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "math-yr9-standard-form-n1",
+      "heading": "Multiplying Numbers in Standard Form",
+      "body": "📌 Definition\nTo multiply two numbers written in standard form, deal with the coefficients and the powers of $10$ separately:\n$$(a \\times 10^m) \\times (b \\times 10^n) = (a \\times b) \\times 10^{m+n}$$\n\n🔑 How it works\n1. Multiply the two coefficients (the numbers between $1$ and $10$).\n2. Multiply the powers of $10$ by ADDING the indices.\n3. If the new coefficient is not between $1$ and $10$, adjust the answer back into standard form.\n\n💡 Worked Example 1\nSimplify $(4 \\times 10^5) \\times (3 \\times 10^3)$.\n\n• Coefficients: $4 \\times 3 = 12$\n• Powers: $10^5 \\times 10^3 = 10^{5+3} = 10^8$\n• Result so far: $12 \\times 10^8$ — not standard form, because $12 \\geq 10$.\n\nAdjust: $12 = 1.2 \\times 10$, so\n$$12 \\times 10^8 = 1.2 \\times 10^9$$\n\n💡 Worked Example 2\nSimplify $(7 \\times 10^{-9}) \\times (8 \\times 10^{20})$.\n\n• Coefficients: $7 \\times 8 = 56$\n• Powers: $10^{-9} \\times 10^{20} = 10^{-9+20} = 10^{11}$\n• Result so far: $56 \\times 10^{11}$ — again too big a coefficient.\n\nAdjust: $56 = 5.6 \\times 10$, so\n$$56 \\times 10^{11} = 5.6 \\times 10^{12}$$\n\n📎 Key Points to Remember\n• Multiply coefficients, ADD indices.\n• The index laws work with negative indices too: $-9 + 20 = 11$.\n• The final answer is not finished until the coefficient satisfies $1 \\leq a < 10$.\n\n⚠️ Common Mistake\nAdding the coefficients instead of multiplying them. $(4 \\times 10^5) \\times (3 \\times 10^3)$ is not $7 \\times 10^8$ — the coefficients are multiplied: $4 \\times 3 = 12$."
+    },
+    {
+      "id": "math-yr9-standard-form-n2",
+      "heading": "Dividing Numbers in Standard Form",
+      "body": "📌 Definition\nTo divide two numbers in standard form, divide the coefficients and divide the powers of $10$ by SUBTRACTING the indices:\n$$(a \\times 10^m) \\div (b \\times 10^n) = \\left(\\dfrac{a}{b}\\right) \\times 10^{m-n}$$\n\n🔑 How it works\n1. Write the division as a fraction if it helps.\n2. Divide the coefficients.\n3. Subtract the indices of the powers of $10$.\n4. Adjust the result into standard form if the coefficient is not between $1$ and $10$.\n\n💡 Worked Example 1\nSimplify $(9 \\times 10^6) \\div (4 \\times 10^2)$.\n\n• Coefficients: $9 \\div 4 = 2.25$\n• Powers: $10^6 \\div 10^2 = 10^{6-2} = 10^4$\n\n$$\\dfrac{9 \\times 10^6}{4 \\times 10^2} = 2.25 \\times 10^4$$\nThe coefficient $2.25$ is already between $1$ and $10$, so no adjustment is needed.\n\n💡 Worked Example 2\nSimplify $(6 \\times 10^7) \\div (8 \\times 10^{-2})$.\n\n• Coefficients: $6 \\div 8 = 0.75$\n• Powers: $10^{7-(-2)} = 10^{7+2} = 10^9$\n• Result so far: $0.75 \\times 10^9$ — not standard form, because $0.75 < 1$.\n\nAdjust: $0.75 \\times 10 = 7.5$, so\n$$0.75 \\times 10^9 = 7.5 \\times 10^8$$\n\n📎 Key Points to Remember\n• Divide coefficients, SUBTRACT indices.\n• Subtracting a negative index means adding: $7 - (-2) = 9$.\n• A coefficient below $1$ must be fixed by moving the decimal point and lowering the index.\n\n⚠️ Common Mistake\nAdding the indices during division. $10^6 \\div 10^2 = 10^4$, not $10^8$. Multiplication adds indices; division subtracts them."
+    },
+    {
+      "id": "math-yr9-standard-form-n3",
+      "heading": "Adjusting an Answer into Standard Form",
+      "body": "📌 Definition\nAfter a multiplication or division, the coefficient often ends up outside the allowed range $1 \\leq a < 10$. Adjusting means rewriting the number so the coefficient is back in range, by shifting value between the coefficient and the power of $10$.\n\n🔑 How it works\n• If the coefficient is TOO BIG ($a \\geq 10$): divide it by $10$ and add $1$ to the index.\n• If the coefficient is TOO SMALL ($a < 1$): multiply it by $10$ and subtract $1$ from the index.\n\nThe value never changes — you are only moving a factor of $10$ from one part to the other.\n\n💡 Worked Example 1 — coefficient too big\nWrite $25 \\times 10^6$ in standard form.\n\n$25 = 2.5 \\times 10^1$, so\n$$25 \\times 10^6 = 2.5 \\times 10^1 \\times 10^6 = 2.5 \\times 10^7$$\n\n💡 Worked Example 2 — coefficient too small\nWrite $0.4 \\times 10^{-5}$ in standard form.\n\n$0.4 = 4 \\times 10^{-1}$, so\n$$0.4 \\times 10^{-5} = 4 \\times 10^{-1} \\times 10^{-5} = 4 \\times 10^{-6}$$\n\n💡 Worked Example 3 — chained adjustment\n$56 \\times 10^{11} = 5.6 \\times 10 \\times 10^{11} = 5.6 \\times 10^{12}$.\n\n📎 Key Points to Remember\n• Coefficient too big → index goes UP by $1$.\n• Coefficient too small → index goes DOWN by $1$.\n• Always do this adjustment as the LAST step of a calculation.\n\n⚠️ Common Mistake\nMoving the index the wrong way. $25 \\times 10^6$ is $2.5 \\times 10^7$, not $2.5 \\times 10^5$. Shrinking the coefficient by a factor of $10$ must be balanced by growing the power by a factor of $10$.\n\n✅ Check\nConvert both versions to an ordinary number: $25 \\times 10^6 = 25\\,000\\,000$ and $2.5 \\times 10^7 = 25\\,000\\,000$. They match."
+    },
+    {
+      "id": "math-yr9-standard-form-n4",
+      "heading": "Working with Negative Indices",
+      "body": "📌 Definition\nSmall numbers use negative indices in standard form. The index laws apply to them in exactly the same way: add indices when multiplying, subtract when dividing — using normal negative number arithmetic.\n\n🔑 How it works\n• $10^{-4} \\times 10^{-7} = 10^{-4+(-7)} = 10^{-11}$\n• $10^{-3} \\div 10^{-9} = 10^{-3-(-9)} = 10^{6}$\n\nRemember the sign rules:\n• Adding a negative: $-4 + (-7) = -11$\n• Subtracting a negative: $-3 - (-9) = -3 + 9 = 6$\n\n💡 Worked Example 1 — multiplying small numbers\nSimplify $(5 \\times 10^{-4}) \\times (6 \\times 10^{-7})$.\n\n• Coefficients: $5 \\times 6 = 30$\n• Powers: $10^{-4+(-7)} = 10^{-11}$\n• Result: $30 \\times 10^{-11}$, which adjusts to\n$$3 \\times 10^{-10}$$\n\n💡 Worked Example 2 — dividing small numbers\nSimplify $(8 \\times 10^{-3}) \\div (2 \\times 10^{-9})$.\n\n• Coefficients: $8 \\div 2 = 4$\n• Powers: $10^{-3-(-9)} = 10^6$\n\n$$\\dfrac{8 \\times 10^{-3}}{2 \\times 10^{-9}} = 4 \\times 10^6$$\nThe answer is a LARGE number — dividing by a very small number gives a large result.\n\n📎 Key Points to Remember\n• Negative indices follow the same add/subtract index laws.\n• A negative index does not make the value negative; it makes it small.\n• Dividing by $10^{-9}$ is the same as multiplying by $10^9$.\n\n⚠️ Common Mistake\nGetting the sign wrong when subtracting a negative index. $-3 - (-9) = 6$, not $-12$. Rewrite it as $-3 + 9$ before you calculate."
+    },
+    {
+      "id": "math-yr9-standard-form-n5",
+      "heading": "Adding and Subtracting in Standard Form",
+      "body": "📌 Definition\nYou cannot add or subtract numbers in standard form while their powers of $10$ are different. First rewrite both numbers with the SAME power of $10$, then add or subtract the coefficients.\n\n🔑 How it works\n1. Choose the larger power of $10$.\n2. Rewrite the other number using that power (its coefficient will get smaller).\n3. Add or subtract the coefficients.\n4. Check the answer is in standard form; adjust if needed.\n\n💡 Worked Example 1 — adding\nSimplify $(4.6 \\times 10^7) + (3.2 \\times 10^6)$.\n\nRewrite $3.2 \\times 10^6$ with the power $10^7$:\n$$3.2 \\times 10^6 = 0.32 \\times 10^7$$\nNow add the coefficients:\n$$(4.6 + 0.32) \\times 10^7 = 4.92 \\times 10^7$$\n\n💡 Worked Example 2 — subtracting\nSimplify $(8 \\times 10^{-3}) - (5 \\times 10^{-4})$.\n\nRewrite $5 \\times 10^{-4}$ with the power $10^{-3}$:\n$$5 \\times 10^{-4} = 0.5 \\times 10^{-3}$$\nNow subtract:\n$$(8 - 0.5) \\times 10^{-3} = 7.5 \\times 10^{-3}$$\n\n✅ Check\n$8 \\times 10^{-3} = 0.008$ and $5 \\times 10^{-4} = 0.0005$.\n$0.008 - 0.0005 = 0.0075 = 7.5 \\times 10^{-3}$. Correct.\n\n📎 Key Points to Remember\n• Equal powers first, then combine the coefficients.\n• Converting to the LARGER power keeps the other coefficient simple (usually just one decimal shift).\n• You can always check by converting to ordinary numbers.\n\n⚠️ Common Mistake\nAdding coefficients with different powers: $(4 \\times 10^5) + (3 \\times 10^4) \\neq 7 \\times 10^9$ and it is not $7 \\times 10^5$ either. It is $4.3 \\times 10^5$, because $3 \\times 10^4 = 0.3 \\times 10^5$."
+    },
+    {
+      "id": "math-yr9-standard-form-n6",
+      "heading": "Standard Form in Real-World Problems",
+      "body": "📌 Definition\nScience, technology and finance all use standard form to handle extremely large or small quantities — distances across space, nanotechnology sizes, national budgets. The calculation rules are the same; the skill is extracting the numbers and giving the answer in standard form.\n\n🔑 How it works\n1. Read the problem and identify the operation (How many times bigger? Total? Share equally?).\n2. Write every quantity in standard form.\n3. Apply the multiply/divide/add/subtract rules.\n4. Adjust the final answer into standard form and include units.\n\n💡 Worked Example 1 — area\nA rectangular solar farm is $4 \\times 10^3$ m long and $2.5 \\times 10^2$ m wide. Find its area.\n\n$$(4 \\times 10^3) \\times (2.5 \\times 10^2) = (4 \\times 2.5) \\times 10^{3+2} = 10 \\times 10^5$$\nAdjust: $10 \\times 10^5 = 1 \\times 10^6$ m$^2$.\n\n💡 Worked Example 2 — sharing a budget\nA government spends £6 \\times 10^9 on a scheme shared equally among $3 \\times 10^7$ people. How much is that per person?\n\n$$\\dfrac{6 \\times 10^9}{3 \\times 10^7} = (6 \\div 3) \\times 10^{9-7} = 2 \\times 10^2$$\nThat is £200 per person.\n\n📎 Key Points to Remember\n• Units belong with the final answer: m$^2$, £, km.\n• \"How many times bigger\" means divide.\n• Always adjust the coefficient into the range $1 \\leq a < 10$ at the end.\n\n⚠️ Common Mistake\nStopping at $10 \\times 10^5$. A coefficient of $10$ is not allowed — adjust to $1 \\times 10^6$."
+    },
+    {
+      "id": "math-yr9-standard-form-n7",
+      "heading": "Estimating, Comparing and Common Errors",
+      "body": "📌 Definition\nStandard form is a powerful estimating tool: round each awkward number to $1$ significant figure, convert to standard form, and the index laws make the mental arithmetic easy.\n\n🔑 How it works\n1. Round each number to $1$ significant figure.\n2. Write each rounded value in standard form.\n3. Use the multiplication/division rules for a quick estimate.\n\n💡 Worked Example — estimating\nEstimate $0.000\\,078 \\times 6\\,500\\,000$.\n\n• $0.000\\,078 \\approx 8 \\times 10^{-5}$\n• $6\\,500\\,000 \\approx 7 \\times 10^6$\n\n$$(8 \\times 10^{-5}) \\times (7 \\times 10^6) = 56 \\times 10^1 = 5.6 \\times 10^2 \\approx 560$$\nThe exact value is $507$, so $560$ is a sensible estimate.\n\n🔑 Comparing sizes\nTo compare two numbers in standard form, compare the powers of $10$ first — the bigger power always wins. Only if the powers are equal do you compare coefficients.\n\nExample: $4 \\times 10^{-5}$ versus $9 \\times 10^{-6}$.\nSince $-5 > -6$, the number $4 \\times 10^{-5} = 0.000\\,04$ is larger than $9 \\times 10^{-6} = 0.000\\,009$ — even though $9 > 4$.\n\n📎 Key Points to Remember\n• Multiply: coefficients multiply, indices ADD.\n• Divide: coefficients divide, indices SUBTRACT.\n• Add/subtract: equal powers first, then combine coefficients.\n• Finish every answer with a coefficient between $1$ and $10$.\n\n⚠️ Common Mistakes — summary\n• Adding coefficients when multiplying, or adding indices when dividing.\n• Forgetting to adjust answers like $56 \\times 10^{11}$ into $5.6 \\times 10^{12}$.\n• Adding numbers whose powers of $10$ differ without converting first.\n• Mishandling double negatives in indices, e.g. $-3 - (-9)$.\n\n✅ Check\nConvert your final answer to an ordinary number and compare it with a rough estimate. If they are wildly different, find the slip."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr9-standard-form-f1",
+      "term": "Standard form (recap)",
+      "definition": "A number written as $a \\times 10^n$ where $1 \\leq a < 10$ and $n$ is an integer.",
+      "example": "$43\\,000 = 4.3 \\times 10^4$."
+    },
+    {
+      "id": "math-yr9-standard-form-f2",
+      "term": "Multiplying in standard form",
+      "definition": "Multiply the coefficients and add the indices of the powers of $10$.",
+      "example": "$(4 \\times 10^5) \\times (3 \\times 10^3) = 12 \\times 10^8 = 1.2 \\times 10^9$."
+    },
+    {
+      "id": "math-yr9-standard-form-f3",
+      "term": "Dividing in standard form",
+      "definition": "Divide the coefficients and subtract the indices of the powers of $10$.",
+      "example": "$(9 \\times 10^6) \\div (4 \\times 10^2) = 2.25 \\times 10^4$."
+    },
+    {
+      "id": "math-yr9-standard-form-f4",
+      "term": "Adjusting a coefficient that is too big",
+      "definition": "If the coefficient is $10$ or more, divide it by $10$ and add $1$ to the index.",
+      "example": "$25 \\times 10^6 = 2.5 \\times 10^7$."
+    },
+    {
+      "id": "math-yr9-standard-form-f5",
+      "term": "Adjusting a coefficient that is too small",
+      "definition": "If the coefficient is less than $1$, multiply it by $10$ and subtract $1$ from the index.",
+      "example": "$0.4 \\times 10^{-5} = 4 \\times 10^{-6}$."
+    },
+    {
+      "id": "math-yr9-standard-form-f6",
+      "term": "Adding in standard form",
+      "definition": "Rewrite both numbers with the same power of $10$, then add the coefficients.",
+      "example": "$(4.6 \\times 10^7) + (3.2 \\times 10^6) = (4.6 + 0.32) \\times 10^7 = 4.92 \\times 10^7$."
+    },
+    {
+      "id": "math-yr9-standard-form-f7",
+      "term": "Subtracting in standard form",
+      "definition": "Rewrite both numbers with the same power of $10$, then subtract the coefficients.",
+      "example": "$(8 \\times 10^{-3}) - (5 \\times 10^{-4}) = (8 - 0.5) \\times 10^{-3} = 7.5 \\times 10^{-3}$."
+    },
+    {
+      "id": "math-yr9-standard-form-f8",
+      "term": "Adding indices with negatives",
+      "definition": "The index laws still apply: $10^a \\times 10^b = 10^{a+b}$ even when $a$ or $b$ is negative.",
+      "example": "$10^{-9} \\times 10^{20} = 10^{11}$."
+    },
+    {
+      "id": "math-yr9-standard-form-f9",
+      "term": "Subtracting a negative index",
+      "definition": "Subtracting a negative index means adding its value, because two minuses make a plus.",
+      "example": "$10^{-3} \\div 10^{-9} = 10^{-3-(-9)} = 10^6$."
+    },
+    {
+      "id": "math-yr9-standard-form-f10",
+      "term": "Converting to the larger power",
+      "definition": "When adding or subtracting, rewrite the smaller-power number with the larger power; its coefficient shifts one decimal place per index step.",
+      "example": "$3.2 \\times 10^6 = 0.32 \\times 10^7$."
+    },
+    {
+      "id": "math-yr9-standard-form-f11",
+      "term": "Estimating with standard form",
+      "definition": "Round each number to $1$ significant figure, write it in standard form, then apply the index laws for a quick estimate.",
+      "example": "$0.000\\,078 \\times 6\\,500\\,000 \\approx (8 \\times 10^{-5})(7 \\times 10^6) = 5.6 \\times 10^2$."
+    },
+    {
+      "id": "math-yr9-standard-form-f12",
+      "term": "Comparing numbers in standard form",
+      "definition": "Compare the powers of $10$ first; the larger power gives the larger number regardless of the coefficients.",
+      "example": "$4 \\times 10^{-5} > 9 \\times 10^{-6}$ because $-5 > -6$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr9-standard-form-q1",
+      "stem": "Simplify $(3 \\times 10^4) \\times (2 \\times 10^5)$, giving your answer in standard form.",
+      "choices": [
+        "$6 \\times 10^9$",
+        "$6 \\times 10^{20}$",
+        "$5 \\times 10^9$",
+        "$6 \\times 10^8$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply the coefficients ($3 \\times 2 = 6$) and add the indices ($4 + 5 = 9$), giving $6 \\times 10^9$. The coefficient is already between $1$ and $10$."
+    },
+    {
+      "id": "math-yr9-standard-form-q2",
+      "stem": "Simplify $(5 \\times 10^6) \\times (4 \\times 10^3)$, giving your answer in standard form.",
+      "choices": [
+        "$2 \\times 10^9$",
+        "$2 \\times 10^{18}$",
+        "$9 \\times 10^9$",
+        "$2 \\times 10^{10}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$5 \\times 4 = 20$ and $6 + 3 = 9$, giving $20 \\times 10^9$. Since $20 = 2 \\times 10$, the answer adjusts to $2 \\times 10^{10}$."
+    },
+    {
+      "id": "math-yr9-standard-form-q3",
+      "stem": "Simplify $(7 \\times 10^{-9}) \\times (8 \\times 10^{20})$, giving your answer in standard form.",
+      "choices": [
+        "$5.6 \\times 10^{11}$",
+        "$1.5 \\times 10^{11}$",
+        "$5.6 \\times 10^{12}$",
+        "$5.6 \\times 10^{30}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$7 \\times 8 = 56$ and $-9 + 20 = 11$, giving $56 \\times 10^{11}$. Adjusting the coefficient gives $5.6 \\times 10^{12}$; the option $5.6 \\times 10^{11}$ forgets this adjustment."
+    },
+    {
+      "id": "math-yr9-standard-form-q4",
+      "stem": "Simplify $(9 \\times 10^8) \\div (3 \\times 10^5)$, giving your answer in standard form.",
+      "choices": [
+        "$3 \\times 10^{13}$",
+        "$3 \\times 10^3$",
+        "$6 \\times 10^3$",
+        "$3 \\times 10^{-3}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Divide the coefficients ($9 \\div 3 = 3$) and subtract the indices ($8 - 5 = 3$), giving $3 \\times 10^3$. Adding the indices would wrongly give $10^{13}$."
+    },
+    {
+      "id": "math-yr9-standard-form-q5",
+      "stem": "Simplify $(6 \\times 10^7) \\div (8 \\times 10^{-2})$, giving your answer in standard form.",
+      "choices": [
+        "$7.5 \\times 10^9$",
+        "$7.5 \\times 10^5$",
+        "$1.33 \\times 10^9$",
+        "$7.5 \\times 10^8$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$6 \\div 8 = 0.75$ and $7 - (-2) = 9$, giving $0.75 \\times 10^9$. Since $0.75 < 1$, adjust to $7.5 \\times 10^8$. The option $7.5 \\times 10^9$ skips this adjustment."
+    },
+    {
+      "id": "math-yr9-standard-form-q6",
+      "stem": "Simplify $(8 \\times 10^{-3}) \\div (2 \\times 10^{-9})$, giving your answer in standard form.",
+      "choices": [
+        "$4 \\times 10^{-12}$",
+        "$4 \\times 10^6$",
+        "$4 \\times 10^{-6}$",
+        "$16 \\times 10^{-12}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$8 \\div 2 = 4$ and $-3 - (-9) = -3 + 9 = 6$, so the answer is $4 \\times 10^6$. Dividing by a very small number gives a large answer."
+    },
+    {
+      "id": "math-yr9-standard-form-q7",
+      "stem": "Which of these is $34 \\times 10^6$ written correctly in standard form?",
+      "choices": [
+        "$3.4 \\times 10^7$",
+        "$3.4 \\times 10^6$",
+        "$34 \\times 10^5$",
+        "$3.4 \\times 10^5$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$34 = 3.4 \\times 10$, so $34 \\times 10^6 = 3.4 \\times 10^7$. Dividing the coefficient by $10$ means the index must go up by $1$, not down."
+    },
+    {
+      "id": "math-yr9-standard-form-q8",
+      "stem": "Which of these is $0.06 \\times 10^{-4}$ written correctly in standard form?",
+      "choices": [
+        "$6 \\times 10^{-5}$",
+        "$6 \\times 10^{-6}$",
+        "$6 \\times 10^{-4}$",
+        "$6 \\times 10^{-3}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$0.06 = 6 \\times 10^{-2}$, so $0.06 \\times 10^{-4} = 6 \\times 10^{-2} \\times 10^{-4} = 6 \\times 10^{-6}$. Making the coefficient bigger by a factor of $100$ lowers the index by $2$."
+    },
+    {
+      "id": "math-yr9-standard-form-q9",
+      "stem": "Simplify $(4 \\times 10^5) + (3 \\times 10^4)$, giving your answer in standard form.",
+      "choices": [
+        "$7 \\times 10^9$",
+        "$4.3 \\times 10^5$",
+        "$7 \\times 10^5$",
+        "$4.3 \\times 10^9$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rewrite $3 \\times 10^4 = 0.3 \\times 10^5$, then add the coefficients: $(4 + 0.3) \\times 10^5 = 4.3 \\times 10^5$. You cannot add coefficients until the powers of $10$ match."
+    },
+    {
+      "id": "math-yr9-standard-form-q10",
+      "stem": "Simplify $(9 \\times 10^{-2}) - (4 \\times 10^{-3})$, giving your answer in standard form.",
+      "choices": [
+        "$8.6 \\times 10^{-3}$",
+        "$5 \\times 10^{-1}$",
+        "$8.6 \\times 10^{-2}$",
+        "$5 \\times 10^{-5}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Rewrite $4 \\times 10^{-3} = 0.4 \\times 10^{-2}$, then subtract: $(9 - 0.4) \\times 10^{-2} = 8.6 \\times 10^{-2}$."
+    },
+    {
+      "id": "math-yr9-standard-form-q11",
+      "stem": "Why must two numbers in standard form be rewritten with the same power of $10$ before they are added?",
+      "choices": [
+        "So that the coefficients count units of the same size.",
+        "So that the indices can be added together.",
+        "Because standard form answers always use the smaller power.",
+        "Because a calculator requires equal powers."
+      ],
+      "correctIndex": 0,
+      "explanation": "Each coefficient counts multiples of its own power of $10$. Only when the powers match do the coefficients count the same-sized units, so adding them makes sense."
+    },
+    {
+      "id": "math-yr9-standard-form-q12",
+      "stem": "A rectangular solar farm is $4 \\times 10^3$ m long and $2.5 \\times 10^2$ m wide. What is its area in standard form?",
+      "choices": [
+        "$1 \\times 10^5$ m$^2$",
+        "$1 \\times 10^6$ m$^2$",
+        "$6.5 \\times 10^5$ m$^2$",
+        "$1 \\times 10^7$ m$^2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$(4 \\times 2.5) \\times 10^{3+2} = 10 \\times 10^5$, and a coefficient of $10$ is not allowed, so adjust to $1 \\times 10^6$ m$^2$."
+    },
+    {
+      "id": "math-yr9-standard-form-q13",
+      "stem": "A grant of £6 \\times 10^9 is shared equally among $3 \\times 10^7$ people. How much does each person receive?",
+      "choices": [
+        "£2 \\times 10^2",
+        "£2 \\times 10^{16}",
+        "£20",
+        "£2 \\times 10^3"
+      ],
+      "correctIndex": 0,
+      "explanation": "$(6 \\div 3) \\times 10^{9-7} = 2 \\times 10^2$, so each person receives £2 \\times 10^2, which is £200."
+    },
+    {
+      "id": "math-yr9-standard-form-q14",
+      "stem": "Which of these numbers is NOT in standard form?",
+      "choices": [
+        "$3.2 \\times 10^4$",
+        "$1 \\times 10^{-5}$",
+        "$0.9 \\times 10^7$",
+        "$9.99 \\times 10^0$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The coefficient must satisfy $1 \\leq a < 10$. Since $0.9 < 1$, the number $0.9 \\times 10^7$ is not in standard form; it should be $9 \\times 10^6$."
+    },
+    {
+      "id": "math-yr9-standard-form-q15",
+      "stem": "Using standard form with each number rounded to $1$ significant figure, which is the best estimate of $0.000\\,078 \\times 6\\,500\\,000$?",
+      "choices": [
+        "$56$",
+        "$560$",
+        "$5\\,600$",
+        "$50$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$0.000\\,078 \\approx 8 \\times 10^{-5}$ and $6\\,500\\,000 \\approx 7 \\times 10^6$, so the product is about $56 \\times 10^1 = 5.6 \\times 10^2 \\approx 560$. The exact answer, $507$, confirms this is sensible."
+    }
+  ]
+}

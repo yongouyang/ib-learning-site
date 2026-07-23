@@ -73,6 +73,12 @@ import math_yr8_statistics_averages_json from './data/topics/math/math-yr8-stati
 import math_yr8_straight_line_graphs_json from './data/topics/math/math-yr8-straight-line-graphs.json';
 import math_yr8_transformations_json from './data/topics/math/math-yr8-transformations.json';
 import math_yr8_volume_surface_area_json from './data/topics/math/math-yr8-volume-surface-area.json';
+import math_yr9_3d_geometry_json from './data/topics/math/math-yr9-3d-geometry.json';
+import math_yr9_error_intervals_json from './data/topics/math/math-yr9-error-intervals.json';
+import math_yr9_quadratic_expressions_json from './data/topics/math/math-yr9-quadratic-expressions.json';
+import math_yr9_quadratic_graphs_json from './data/topics/math/math-yr9-quadratic-graphs.json';
+import math_yr9_standard_form_json from './data/topics/math/math-yr9-standard-form.json';
+import math_yr9_surds_json from './data/topics/math/math-yr9-surds.json';
 // English topics
 import eng_creative_1_json from './data/topics/english/eng-creative-1.json';
 import eng_drama_shakespeare_json from './data/topics/english/eng-drama-shakespeare.json';
@@ -89,6 +95,7 @@ import eng_persuasive_speaking_1_json from './data/topics/english/eng-persuasive
 import eng_poetry_1_json from './data/topics/english/eng-poetry-1.json';
 import eng_reading_1_json from './data/topics/english/eng-reading-1.json';
 import eng_speaking_1_json from './data/topics/english/eng-speaking-1.json';
+import eng_spelling_1_json from './data/topics/english/eng-spelling-1.json';
 // Biology topics
 import bio_body_1_json from './data/topics/biology/bio-body-1.json';
 import bio_cell_1_json from './data/topics/biology/bio-cell-1.json';
@@ -115,6 +122,7 @@ import chem_organic_1_json from './data/topics/chemistry/chem-organic-1.json';
 import chem_periodic_1_json from './data/topics/chemistry/chem-periodic-1.json';
 import chem_rates_1_json from './data/topics/chemistry/chem-rates-1.json';
 import chem_states_1_json from './data/topics/chemistry/chem-states-1.json';
+import chem_working_scientifically_1_json from './data/topics/chemistry/chem-working-scientifically-1.json';
 // Physics topics
 import phys_electricity_1_json from './data/topics/physics/phys-electricity-1.json';
 import phys_energy_1_json from './data/topics/physics/phys-energy-1.json';
@@ -128,6 +136,7 @@ import phys_pressure_1_json from './data/topics/physics/phys-pressure-1.json';
 import phys_radioactivity_1_json from './data/topics/physics/phys-radioactivity-1.json';
 import phys_space_1_json from './data/topics/physics/phys-space-1.json';
 import phys_waves_1_json from './data/topics/physics/phys-waves-1.json';
+import phys_working_scientifically_1_json from './data/topics/physics/phys-working-scientifically-1.json';
 
 const math_algebra_1: Topic = topicSchema.parse(math_algebra_1_json);
 const math_dp_ai_binomial: Topic = topicSchema.parse(math_dp_ai_binomial_json);
@@ -197,6 +206,12 @@ const math_yr8_statistics_averages: Topic = topicSchema.parse(math_yr8_statistic
 const math_yr8_straight_line_graphs: Topic = topicSchema.parse(math_yr8_straight_line_graphs_json);
 const math_yr8_transformations: Topic = topicSchema.parse(math_yr8_transformations_json);
 const math_yr8_volume_surface_area: Topic = topicSchema.parse(math_yr8_volume_surface_area_json);
+const math_yr9_3d_geometry: Topic = topicSchema.parse(math_yr9_3d_geometry_json);
+const math_yr9_error_intervals: Topic = topicSchema.parse(math_yr9_error_intervals_json);
+const math_yr9_quadratic_expressions: Topic = topicSchema.parse(math_yr9_quadratic_expressions_json);
+const math_yr9_quadratic_graphs: Topic = topicSchema.parse(math_yr9_quadratic_graphs_json);
+const math_yr9_standard_form: Topic = topicSchema.parse(math_yr9_standard_form_json);
+const math_yr9_surds: Topic = topicSchema.parse(math_yr9_surds_json);
 const eng_creative_1: Topic = topicSchema.parse(eng_creative_1_json);
 const eng_drama_shakespeare: Topic = topicSchema.parse(eng_drama_shakespeare_json);
 const eng_essay_1: Topic = topicSchema.parse(eng_essay_1_json);
@@ -212,6 +227,7 @@ const eng_persuasive_speaking_1: Topic = topicSchema.parse(eng_persuasive_speaki
 const eng_poetry_1: Topic = topicSchema.parse(eng_poetry_1_json);
 const eng_reading_1: Topic = topicSchema.parse(eng_reading_1_json);
 const eng_speaking_1: Topic = topicSchema.parse(eng_speaking_1_json);
+const eng_spelling_1: Topic = topicSchema.parse(eng_spelling_1_json);
 const bio_body_1: Topic = topicSchema.parse(bio_body_1_json);
 const bio_cell_1: Topic = topicSchema.parse(bio_cell_1_json);
 const bio_classification_1: Topic = topicSchema.parse(bio_classification_1_json);
@@ -236,6 +252,7 @@ const chem_organic_1: Topic = topicSchema.parse(chem_organic_1_json);
 const chem_periodic_1: Topic = topicSchema.parse(chem_periodic_1_json);
 const chem_rates_1: Topic = topicSchema.parse(chem_rates_1_json);
 const chem_states_1: Topic = topicSchema.parse(chem_states_1_json);
+const chem_working_scientifically_1: Topic = topicSchema.parse(chem_working_scientifically_1_json);
 const phys_electricity_1: Topic = topicSchema.parse(phys_electricity_1_json);
 const phys_energy_1: Topic = topicSchema.parse(phys_energy_1_json);
 const phys_energy_resources_1: Topic = topicSchema.parse(phys_energy_resources_1_json);
@@ -248,6 +265,7 @@ const phys_pressure_1: Topic = topicSchema.parse(phys_pressure_1_json);
 const phys_radioactivity_1: Topic = topicSchema.parse(phys_radioactivity_1_json);
 const phys_space_1: Topic = topicSchema.parse(phys_space_1_json);
 const phys_waves_1: Topic = topicSchema.parse(phys_waves_1_json);
+const phys_working_scientifically_1: Topic = topicSchema.parse(phys_working_scientifically_1_json);
 
 const validatedSubjectsMeta = subjectMetaSchema.array().parse(subjectsMeta);
 
@@ -262,14 +280,14 @@ const mathSubject: Subject = {
   name: mathMeta.name,
   icon: mathMeta.icon,
   accentColor: mathMeta.accentColor,
-  topics: [math_algebra_1, math_dp_ai_binomial, math_dp_ai_complex_numbers, math_dp_ai_correlation_regression, math_dp_ai_descriptive_statistics, math_dp_ai_differentiation, math_dp_ai_explog, math_dp_ai_exponents, math_dp_ai_functions, math_dp_ai_graph_theory, math_dp_ai_hypothesis_testing, math_dp_ai_integration, math_dp_ai_kinematics, math_dp_ai_matrices, math_dp_ai_poisson_distribution, math_dp_ai_probability, math_dp_ai_quadratics, math_dp_ai_sequences, math_dp_ai_trig, math_dp_ai_vectors, math_dp_ai_voronoi_diagrams, math_fractions_1, math_geometry_1, math_inequalities_myp, math_linear_myp, math_powers_myp, math_pythagoras_myp, math_ratio_myp, math_simultaneous_myp, math_statistics_1, math_trig_basic_myp, math_yr7_algebraic_expressions, math_yr7_angles, math_yr7_area_perimeter, math_yr7_bearings_scale, math_yr7_calculations, math_yr7_constructions_loci, math_yr7_data, math_yr7_decimals, math_yr7_equations, math_yr7_factors_multiples, math_yr7_measures_conversions, math_yr7_money_finance, math_yr7_negative_numbers, math_yr7_nets_3d_shapes, math_yr7_percentages, math_yr7_probability, math_yr7_rounding_estimation, math_yr7_sequences, math_yr7_substitution, math_yr7_transformations, math_yr7_venn_sets, math_yr7_volume_surface_area, math_yr8_angles_parallel_polygons, math_yr8_circles, math_yr8_compound_measures, math_yr8_congruence_similarity, math_yr8_factorising, math_yr8_linear_equations, math_yr8_percentages_ratio_proportion, math_yr8_probability_trees, math_yr8_pythagoras, math_yr8_sequences, math_yr8_standard_form, math_yr8_statistics_averages, math_yr8_straight_line_graphs, math_yr8_transformations, math_yr8_volume_surface_area],
+  topics: [math_algebra_1, math_dp_ai_binomial, math_dp_ai_complex_numbers, math_dp_ai_correlation_regression, math_dp_ai_descriptive_statistics, math_dp_ai_differentiation, math_dp_ai_explog, math_dp_ai_exponents, math_dp_ai_functions, math_dp_ai_graph_theory, math_dp_ai_hypothesis_testing, math_dp_ai_integration, math_dp_ai_kinematics, math_dp_ai_matrices, math_dp_ai_poisson_distribution, math_dp_ai_probability, math_dp_ai_quadratics, math_dp_ai_sequences, math_dp_ai_trig, math_dp_ai_vectors, math_dp_ai_voronoi_diagrams, math_fractions_1, math_geometry_1, math_inequalities_myp, math_linear_myp, math_powers_myp, math_pythagoras_myp, math_ratio_myp, math_simultaneous_myp, math_statistics_1, math_trig_basic_myp, math_yr7_algebraic_expressions, math_yr7_angles, math_yr7_area_perimeter, math_yr7_bearings_scale, math_yr7_calculations, math_yr7_constructions_loci, math_yr7_data, math_yr7_decimals, math_yr7_equations, math_yr7_factors_multiples, math_yr7_measures_conversions, math_yr7_money_finance, math_yr7_negative_numbers, math_yr7_nets_3d_shapes, math_yr7_percentages, math_yr7_probability, math_yr7_rounding_estimation, math_yr7_sequences, math_yr7_substitution, math_yr7_transformations, math_yr7_venn_sets, math_yr7_volume_surface_area, math_yr8_angles_parallel_polygons, math_yr8_circles, math_yr8_compound_measures, math_yr8_congruence_similarity, math_yr8_factorising, math_yr8_linear_equations, math_yr8_percentages_ratio_proportion, math_yr8_probability_trees, math_yr8_pythagoras, math_yr8_sequences, math_yr8_standard_form, math_yr8_statistics_averages, math_yr8_straight_line_graphs, math_yr8_transformations, math_yr8_volume_surface_area, math_yr9_3d_geometry, math_yr9_error_intervals, math_yr9_quadratic_expressions, math_yr9_quadratic_graphs, math_yr9_standard_form, math_yr9_surds],
 };
 const englishSubject: Subject = {
   id: englishMeta.id as SubjectId,
   name: englishMeta.name,
   icon: englishMeta.icon,
   accentColor: englishMeta.accentColor,
-  topics: [eng_creative_1, eng_drama_shakespeare, eng_essay_1, eng_figurative_1, eng_grammar_1, eng_media_visual_literacy, eng_myths_legends, eng_narrative_1, eng_nonfiction_1, eng_novel_study_1, eng_persuasive_1, eng_persuasive_speaking_1, eng_poetry_1, eng_reading_1, eng_speaking_1],
+  topics: [eng_creative_1, eng_drama_shakespeare, eng_essay_1, eng_figurative_1, eng_grammar_1, eng_media_visual_literacy, eng_myths_legends, eng_narrative_1, eng_nonfiction_1, eng_novel_study_1, eng_persuasive_1, eng_persuasive_speaking_1, eng_poetry_1, eng_reading_1, eng_speaking_1, eng_spelling_1],
 };
 const biologySubject: Subject = {
   id: biologyMeta.id as SubjectId,
@@ -283,14 +301,14 @@ const chemistrySubject: Subject = {
   name: chemistryMeta.name,
   icon: chemistryMeta.icon,
   accentColor: chemistryMeta.accentColor,
-  topics: [chem_acids_1, chem_atomic_1, chem_bonding_1, chem_changes_1, chem_earth_1, chem_metals_1, chem_mixtures_1, chem_organic_1, chem_periodic_1, chem_rates_1, chem_states_1],
+  topics: [chem_acids_1, chem_atomic_1, chem_bonding_1, chem_changes_1, chem_earth_1, chem_metals_1, chem_mixtures_1, chem_organic_1, chem_periodic_1, chem_rates_1, chem_states_1, chem_working_scientifically_1],
 };
 const physicsSubject: Subject = {
   id: physicsMeta.id as SubjectId,
   name: physicsMeta.name,
   icon: physicsMeta.icon,
   accentColor: physicsMeta.accentColor,
-  topics: [phys_electricity_1, phys_energy_1, phys_energy_resources_1, phys_forces_1, phys_forces_action_1, phys_light_1, phys_magnetism_1, phys_particles_1, phys_pressure_1, phys_radioactivity_1, phys_space_1, phys_waves_1],
+  topics: [phys_electricity_1, phys_energy_1, phys_energy_resources_1, phys_forces_1, phys_forces_action_1, phys_light_1, phys_magnetism_1, phys_particles_1, phys_pressure_1, phys_radioactivity_1, phys_space_1, phys_waves_1, phys_working_scientifically_1],
 };
 
 const subjects: Record<SubjectId, Subject> = {

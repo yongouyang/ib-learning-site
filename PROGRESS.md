@@ -6,6 +6,19 @@
 
 ---
 
+## 2026-07-23 — Phase 1.5 authoring pass: 9 BBC-referenced topics authored, all gates green
+
+Git HEAD: `acd08dd` (branch `develop`; pushed acd08dd earlier this session, content changes uncommitted at entry time)
+Done:
+1. **Committed + pushed** scraper/converter work as `acd08dd` (tools/data stays gitignored — copyrighted reference material).
+2. **Authored 9 topics** from staging drafts (pilot + 8 parallel): math-yr9-error-intervals, math-yr9-quadratic-graphs, math-yr9-quadratic-expressions, math-yr9-standard-form, math-yr9-surds, math-yr9-3d-geometry, chem-working-scientifically-1, phys-working-scientifically-1, eng-spelling-1. All 7 notes / 12 flashcards / 15 questions, BBC text used as reference only (rewritten in our voice), no illustrations this pass. KS3 maths now has its first 6 Y9-tagged topics.
+3. **Test fix**: `tests/unit/content-registry.test.ts` EXPECTED_TOPIC_COUNTS updated (math 68→74, chemistry 11→12, english 15→16, physics 12→13).
+Verified: `generate:registry` (128 topics) ✅, `validate:content` ✅, `audit:content` 0/0 ✅, `validate:illustrations` ✅, `validate:illustration-layout` ✅, Vitest 90/90 ✅, e2e 462 passed / 6 skipped / 0 failed ✅. Random answer spot-check across all 8 swarm-authored topics: all correct.
+Next: 1) Grow the curation map (`node tools/scripts/convert-bbc-to-topics.mjs --list-unmapped` — maths 23, english 20, biology 8, chemistry 10, physics 8 unmapped dirs; English re-map needs strand-level decisions first). 2) Remaining Y9 math ~10 topics per plan. 3) Existing backlog (Phase 2 difficulty/calculator tags, DP AA, PWA).
+Notes: Chem/phys working-scientifically staging drafts look identical in counts but ARE distinct content (verified). math-yr9-surds/quadratic-* staging was thin — those topics were authored mostly from curriculum knowledge with BBC as a coverage check. `eng-spelling-1` explanations avoid eng-grammar-1's repeat-the-stem habit (audit-clean).
+
+---
+
 ## 2026-07-23 — Phase 1.5 step 3: converter + curation map built, 9 staging drafts generated
 
 Git HEAD: `5a9a3fe` (branch `develop`, tree dirty — tools/ scripts + staging)

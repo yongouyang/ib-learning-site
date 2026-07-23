@@ -1,0 +1,301 @@
+{
+  "id": "math-yr9-quadratic-expressions",
+  "subjectId": "math",
+  "title": "Quadratic Expressions",
+  "description": "Expanding double brackets and factorising quadratic expressions — an introduction to quadratics.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "math-yr9-quadratic-expressions-n1",
+      "heading": "What is a Quadratic Expression?",
+      "body": "📌 Definition\nA quadratic expression is an algebraic expression in which the highest power of the variable is $2$. In one variable it has the form\n$$ax^2 + bx + c$$\nwhere $a$, $b$ and $c$ are numbers and $a \\neq 0$.\n\n🔑 How it works\n• $a$ is the coefficient of $x^2$.\n• $b$ is the coefficient of $x$.\n• $c$ is the constant term.\n• $b$ or $c$ can be zero — the expression is still quadratic as long as $a \\neq 0$.\n\n💡 Worked Example\nState the values of $a$, $b$ and $c$ for each expression.\n\n• $x^2 + 7x + 12$: $a = 1$, $b = 7$, $c = 12$\n• $3x^2 - 5x + 2$: $a = 3$, $b = -5$, $c = 2$\n• $x^2 - 9$: $a = 1$, $b = 0$, $c = -9$\n\n📎 Key Points to Remember\n• The power of $2$ is what makes an expression quadratic.\n• A coefficient belongs to the term that follows it, including its sign.\n• Quadratic expressions are built by expanding double brackets, and broken back down by factorising.\n\n⚠️ Common Mistake\nThinking every quadratic must have three terms. $x^2 - 9$ and $x^2 + 6x$ are both quadratic even though one term is missing — the missing coefficient is simply $0$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-n2",
+      "heading": "Expanding Double Brackets",
+      "body": "📌 Definition\nExpanding double brackets means multiplying out a product such as $(x + 3)(x + 5)$ so that no brackets remain. Every term in the first bracket must be multiplied by every term in the second bracket.\n\n🔑 How it works\nThe four products are often remembered as FOIL — First, Outside, Inside, Last:\n• First: $x \\times x = x^2$\n• Outside: $x \\times 5 = 5x$\n• Inside: $3 \\times x = 3x$\n• Last: $3 \\times 5 = 15$\n\nThen collect the like terms $5x + 3x$.\n\n💡 Worked Example 1\nExpand $(x + 3)(x + 5)$.\n$$(x + 3)(x + 5) = x^2 + 5x + 3x + 15 = x^2 + 8x + 15$$\n\n💡 Worked Example 2\nExpand $(2x + 3)(x + 4)$.\n$$(2x + 3)(x + 4) = 2x^2 + 8x + 3x + 12 = 2x^2 + 11x + 12$$\n\n📎 Key Points to Remember\n• There are always four products before simplifying; two of them usually combine into one $x$ term.\n• The result of expanding two linear brackets is a quadratic expression.\n• Multiply coefficients and add powers of the variable: $2x \\times x = 2x^2$.\n\n⚠️ Common Mistake\nMultiplying only the First and Last terms and writing $(x + 3)(x + 5) = x^2 + 15$. The Outside and Inside products $5x$ and $3x$ must not be dropped.\n\n✅ Check\nSubstitute a simple value such as $x = 1$: $(1 + 3)(1 + 5) = 4 \\times 6 = 24$, and $1 + 8 + 15 = 24$. Both sides agree."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-n3",
+      "heading": "Expanding Brackets with Negative Terms",
+      "body": "📌 Definition\nThe same four-product method applies when one or both brackets contain negative terms — but the sign rules for multiplication must be applied to every product.\n\n🔑 How it works\n• Positive $\\times$ positive = positive\n• Positive $\\times$ negative = negative\n• Negative $\\times$ negative = positive\n\nKeep the sign attached to each term as you multiply.\n\n💡 Worked Example 1\nExpand $(x - 4)(x + 2)$.\n• First: $x \\times x = x^2$\n• Outside: $x \\times 2 = 2x$\n• Inside: $-4 \\times x = -4x$\n• Last: $-4 \\times 2 = -8$\n$$(x - 4)(x + 2) = x^2 + 2x - 4x - 8 = x^2 - 2x - 8$$\n\n💡 Worked Example 2\nExpand $(x - 3)(x - 5)$.\n$$(x - 3)(x - 5) = x^2 - 5x - 3x + 15 = x^2 - 8x + 15$$\nThe Last product is positive because $-3 \\times -5 = 15$.\n\n📎 Key Points to Remember\n• Write the sign in front of each term before multiplying.\n• Two negative brackets give a positive constant term.\n• One negative bracket gives a negative constant term.\n\n⚠️ Common Mistake\nLosing the sign on the Last product, e.g. writing $(x - 3)(x - 5) = x^2 - 8x - 15$. Remember that $-3 \\times -5 = +15$, not $-15$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-n4",
+      "heading": "Squaring a Bracket and the Difference of Two Squares",
+      "body": "📌 Definition\n• Squaring a bracket: $(x + a)^2$ means $(x + a)(x + a)$, which expands to $x^2 + 2ax + a^2$.\n• Difference of two squares: $(x + a)(x - a)$ expands to $x^2 - a^2$.\n\n🔑 How it works\nFor a square, the Outside and Inside products are identical, so they double:\n$$(x + a)^2 = x^2 + ax + ax + a^2 = x^2 + 2ax + a^2$$\n\nFor $(x + a)(x - a)$ the middle terms cancel:\n$$(x + a)(x - a) = x^2 - ax + ax - a^2 = x^2 - a^2$$\n\n💡 Worked Example 1\nExpand $(x + 6)^2$.\n$$(x + 6)^2 = x^2 + 6x + 6x + 36 = x^2 + 12x + 36$$\n\n💡 Worked Example 2\nExpand $(x + 5)(x - 5)$.\n$$(x + 5)(x - 5) = x^2 - 5x + 5x - 25 = x^2 - 25$$\n\n📎 Key Points to Remember\n• $(x + a)^2$ always produces three terms, including the middle term $2ax$.\n• $(x + a)(x - a)$ produces only two terms — the $x$ terms cancel.\n• These two patterns save time and appear constantly when factorising.\n\n⚠️ Common Mistake\nWriting $(x + 6)^2 = x^2 + 36$. Squaring each term separately misses the middle term; the correct expansion is $x^2 + 12x + 36$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-n5",
+      "heading": "Factorising Quadratics: $x^2 + bx + c$",
+      "body": "📌 Definition\nFactorising a quadratic is the reverse of expanding double brackets: the expression $x^2 + bx + c$ is rewritten as a product $(x + p)(x + q)$.\n\n🔑 How it works\nExpanding $(x + p)(x + q)$ gives $x^2 + (p + q)x + pq$. So to factorise $x^2 + bx + c$, find two numbers $p$ and $q$ that:\n• multiply to give the constant term $c$, and\n• add to give the coefficient $b$.\n\nList the factor pairs of $c$ and test their sums.\n\n💡 Worked Example\nFactorise $x^2 + 7x + 12$.\n\nFactor pairs of $12$: $1 \\times 12$, $2 \\times 6$, $3 \\times 4$.\nTheir sums: $13$, $8$, $7$. The pair $3$ and $4$ adds to $7$.\n$$x^2 + 7x + 12 = (x + 3)(x + 4)$$\n\n✅ Check\nExpand: $(x + 3)(x + 4) = x^2 + 4x + 3x + 12 = x^2 + 7x + 12$. Correct.\n\n📎 Key Points to Remember\n• The two numbers must satisfy BOTH conditions: product $= c$ and sum $= b$.\n• Start by listing factor pairs of the constant term.\n• Always check by expanding your brackets.\n\n⚠️ Common Mistake\nChoosing a pair that multiplies to $c$ but does not add to $b$. For $x^2 + 7x + 12$, the pair $2$ and $6$ multiplies to $12$ but adds to $8$, so $(x + 2)(x + 6)$ is wrong."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-n6",
+      "heading": "Factorising Quadratics with Negative Coefficients",
+      "body": "📌 Definition\nWhen $b$ or $c$ is negative, the factor pair must include negative numbers. The signs of $b$ and $c$ tell you the signs inside the brackets.\n\n🔑 How it works\n• If $c$ is positive, both numbers have the SAME sign as $b$.\n• If $c$ is negative, the two numbers have OPPOSITE signs, and the number with the larger size takes the sign of $b$.\n\n💡 Worked Example 1\nFactorise $x^2 - 2x - 15$.\n\n$c = -15$ is negative, so the pair has opposite signs. Pairs multiplying to $-15$: $-1, 15$; $1, -15$; $-3, 5$; $3, -5$.\nSums: $14$, $-14$, $2$, $-2$. The pair $3$ and $-5$ adds to $-2$.\n$$x^2 - 2x - 15 = (x + 3)(x - 5)$$\n\n💡 Worked Example 2\nFactorise $x^2 - 8x + 15$.\n\n$c = 15$ is positive and $b = -8$ is negative, so both numbers are negative. The pair $-3$ and $-5$ multiplies to $15$ and adds to $-8$.\n$$x^2 - 8x + 15 = (x - 3)(x - 5)$$\n\n✅ Check\nExpand $(x + 3)(x - 5) = x^2 - 5x + 3x - 15 = x^2 - 2x - 15$. Correct.\n\n📎 Key Points to Remember\n• Product negative $\\Rightarrow$ opposite signs; product positive $\\Rightarrow$ same signs.\n• Check both conditions before writing the brackets.\n• Expanding your answer is the fastest way to catch a sign error.\n\n⚠️ Common Mistake\nSwapping the signs, e.g. writing $x^2 - 2x - 15 = (x - 3)(x + 5)$. Expanding gives $x^2 + 2x - 15$ — the sign of the middle term is wrong."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-n7",
+      "heading": "Special Factorising Cases and Common Mistakes",
+      "body": "📌 Definition\nSome quadratics factorise using shortcuts instead of the full factor-pair method:\n• Difference of two squares: $x^2 - a^2 = (x + a)(x - a)$\n• No constant term: take out $x$ as a common factor\n• Perfect square: $x^2 + 2ax + a^2 = (x + a)^2$\n\n🔑 How it works\nSpot the pattern first, then apply the matching rule.\n\n💡 Worked Example 1 — difference of two squares\nFactorise $x^2 - 9$.\n\nSince $9 = 3^2$:\n$$x^2 - 9 = (x + 3)(x - 3)$$\n\n💡 Worked Example 2 — common factor only\nFactorise $x^2 + 6x$.\n\nBoth terms contain $x$:\n$$x^2 + 6x = x(x + 6)$$\n\n💡 Worked Example 3 — perfect square\nFactorise $x^2 + 10x + 25$.\n\nThe pair $5$ and $5$ multiplies to $25$ and adds to $10$:\n$$x^2 + 10x + 25 = (x + 5)^2$$\n\n📎 Key Points to Remember\n• A quadratic with no constant term always has $x$ as a common factor.\n• $x^2 - a^2$ factorises, but $x^2 + a^2$ does not factorise over whole numbers.\n• Expanding and factorising are inverse operations — one always checks the other.\n\n⚠️ Common Mistakes — summary\n• $(x + a)^2 = x^2 + a^2$ — wrong; the middle term $2ax$ is missing.\n• Choosing a factor pair that multiplies to $c$ but does not add to $b$.\n• Putting the wrong sign in each bracket when $c$ is negative.\n• Forgetting that $x^2 - 9$ factorises as $(x + 3)(x - 3)$, not $(x - 3)^2$.\n\n✅ Check\nWhatever you factorise, expand the result and compare it with the original expression term by term."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr9-quadratic-expressions-f1",
+      "term": "Quadratic expression",
+      "definition": "An algebraic expression whose highest power of the variable is $2$, of the form $ax^2 + bx + c$ with $a \\neq 0$.",
+      "example": "$x^2 + 7x + 12$ is quadratic; $x^3 + x$ is not."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-f2",
+      "term": "Coefficient",
+      "definition": "The number multiplying a variable or power of a variable, including its sign.",
+      "example": "In $3x^2 - 5x + 2$, the coefficient of $x$ is $-5$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-f3",
+      "term": "Constant term",
+      "definition": "The term in an expression that contains no variable.",
+      "example": "In $x^2 + 7x + 12$, the constant term is $12$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-f4",
+      "term": "Expanding double brackets",
+      "definition": "Multiplying every term in the first bracket by every term in the second bracket, then collecting like terms.",
+      "example": "$(x + 3)(x + 5) = x^2 + 5x + 3x + 15 = x^2 + 8x + 15$"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-f5",
+      "term": "FOIL",
+      "definition": "A reminder of the four products when expanding double brackets: First, Outside, Inside, Last.",
+      "example": "For $(x + 2)(x + 6)$: $x^2$, $6x$, $2x$, $12$, giving $x^2 + 8x + 12$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-f6",
+      "term": "Squaring a bracket",
+      "definition": "$(x + a)^2 = (x + a)(x + a) = x^2 + 2ax + a^2$; the middle term must not be forgotten.",
+      "example": "$(x + 6)^2 = x^2 + 12x + 36$"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-f7",
+      "term": "Difference of two squares",
+      "definition": "The pattern $x^2 - a^2 = (x + a)(x - a)$, where the middle terms cancel when expanded.",
+      "example": "$x^2 - 25 = (x + 5)(x - 5)$"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-f8",
+      "term": "Factorising a quadratic",
+      "definition": "Rewriting $x^2 + bx + c$ as a product of two brackets $(x + p)(x + q)$ — the reverse of expanding.",
+      "example": "$x^2 + 7x + 12 = (x + 3)(x + 4)$"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-f9",
+      "term": "Factor pair method",
+      "definition": "To factorise $x^2 + bx + c$, find two numbers that multiply to $c$ and add to $b$.",
+      "example": "For $x^2 + 9x + 20$, the pair $4$ and $5$ gives $(x + 4)(x + 5)$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-f10",
+      "term": "Sign rules for factorising",
+      "definition": "If $c$ is positive both bracket signs match the sign of $b$; if $c$ is negative the brackets have opposite signs.",
+      "example": "$x^2 - 8x + 15 = (x - 3)(x - 5)$; $x^2 - 2x - 15 = (x + 3)(x - 5)$"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-f11",
+      "term": "Perfect square quadratic",
+      "definition": "A quadratic that factorises into one bracket squared, $x^2 + 2ax + a^2 = (x + a)^2$.",
+      "example": "$x^2 + 10x + 25 = (x + 5)^2$"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-f12",
+      "term": "Checking by expanding",
+      "definition": "Verifying a factorisation by expanding the brackets and comparing with the original expression.",
+      "example": "$(x - 3)(x - 5) = x^2 - 8x + 15$, confirming the factorisation."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr9-quadratic-expressions-q1",
+      "stem": "Expand $(x + 2)(x + 5)$.",
+      "choices": [
+        "$x^2 + 7x + 10$",
+        "$x^2 + 10x + 7$",
+        "$x^2 + 7x + 7$",
+        "$x^2 + 3x + 10$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The four products are $x^2$, $5x$, $2x$ and $10$. Collecting like terms gives $x^2 + 7x + 10$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q2",
+      "stem": "Expand $(x + 3)(x + 4)$.",
+      "choices": [
+        "$x^2 + 12x + 7$",
+        "$x^2 + 7x + 7$",
+        "$x^2 + 7x + 12$",
+        "$x^2 + 6x + 12$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Expanding gives $x^2 + 4x + 3x + 12$, and $4x + 3x = 7x$, so the answer is $x^2 + 7x + 12$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q3",
+      "stem": "Expand $(x - 2)(x + 6)$.",
+      "choices": [
+        "$x^2 + 4x + 12$",
+        "$x^2 + 4x - 12$",
+        "$x^2 - 4x - 12$",
+        "$x^2 + 8x - 12$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The products are $x^2$, $6x$, $-2x$ and $-12$. Since $6x - 2x = 4x$, the result is $x^2 + 4x - 12$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q4",
+      "stem": "Expand $(x - 3)(x - 5)$.",
+      "choices": [
+        "$x^2 - 8x - 15$",
+        "$x^2 + 8x + 15$",
+        "$x^2 - 2x + 15$",
+        "$x^2 - 8x + 15$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The products are $x^2$, $-5x$, $-3x$ and $+15$ because $-3 \\times -5 = 15$. So $(x - 3)(x - 5) = x^2 - 8x + 15$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q5",
+      "stem": "Expand $(x + 7)(x - 7)$.",
+      "choices": [
+        "$x^2 - 49$",
+        "$x^2 + 49$",
+        "$x^2 - 14x - 49$",
+        "$x^2 - 14$"
+      ],
+      "correctIndex": 0,
+      "explanation": "This is a difference of two squares: the middle terms $-7x$ and $+7x$ cancel, leaving $x^2 - 49$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q6",
+      "stem": "Expand $(x + 4)^2$.",
+      "choices": [
+        "$x^2 + 16$",
+        "$x^2 + 8x + 16$",
+        "$x^2 + 8x + 8$",
+        "$x^2 + 4x + 16$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$(x + 4)^2 = (x + 4)(x + 4) = x^2 + 4x + 4x + 16 = x^2 + 8x + 16$. Squaring each term alone misses the middle term."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q7",
+      "stem": "Expand $(2x + 1)(x + 3)$.",
+      "choices": [
+        "$2x^2 + 6x + 3$",
+        "$2x^2 + 7x + 3$",
+        "$2x^2 + 4x + 3$",
+        "$2x^2 + 7x + 1$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The products are $2x^2$, $6x$, $x$ and $3$. Since $6x + x = 7x$, the result is $2x^2 + 7x + 3$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q8",
+      "stem": "Factorise $x^2 + 9x + 20$.",
+      "choices": [
+        "$(x + 2)(x + 10)$",
+        "$(x + 4)(x - 5)$",
+        "$(x + 4)(x + 5)$",
+        "$(x + 9)(x + 20)$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The pair $4$ and $5$ multiplies to $20$ and adds to $9$, so $x^2 + 9x + 20 = (x + 4)(x + 5)$. The pair $2$ and $10$ adds to $12$, not $9$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q9",
+      "stem": "Factorise $x^2 + 7x + 10$.",
+      "choices": [
+        "$(x + 1)(x + 10)$",
+        "$(x + 2)(x + 5)$",
+        "$(x + 7)(x + 10)$",
+        "$(x - 2)(x - 5)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The pair $2$ and $5$ multiplies to $10$ and adds to $7$, giving $(x + 2)(x + 5)$. Expanding $(x - 2)(x - 5)$ would give $-7x$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q10",
+      "stem": "Factorise $x^2 - x - 12$.",
+      "choices": [
+        "$(x + 4)(x - 3)$",
+        "$(x - 4)(x + 3)$",
+        "$(x - 6)(x + 2)$",
+        "$(x - 12)(x + 1)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "A pair multiplying to $-12$ and adding to $-1$ is $-4$ and $3$, so $x^2 - x - 12 = (x - 4)(x + 3)$. The swapped signs give $x^2 + x - 12$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q11",
+      "stem": "Factorise $x^2 - 9x + 18$.",
+      "choices": [
+        "$(x + 3)(x + 6)$",
+        "$(x - 2)(x - 9)$",
+        "$(x - 3)(x + 6)$",
+        "$(x - 3)(x - 6)$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Since $c = 18$ is positive and $b = -9$ is negative, both numbers are negative: $-3$ and $-6$ multiply to $18$ and add to $-9$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q12",
+      "stem": "Factorise $x^2 - 16$.",
+      "choices": [
+        "$(x - 4)^2$",
+        "$(x + 4)(x - 4)$",
+        "$(x + 8)(x - 2)$",
+        "$(x - 16)(x + 1)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "This is a difference of two squares with $a = 4$: $x^2 - 16 = (x + 4)(x - 4)$. Expanding $(x - 4)^2$ would give $x^2 - 8x + 16$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q13",
+      "stem": "Factorise $x^2 + 2x - 24$.",
+      "choices": [
+        "$(x + 6)(x - 4)$",
+        "$(x - 6)(x + 4)$",
+        "$(x + 8)(x - 3)$",
+        "$(x + 12)(x - 2)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The pair $6$ and $-4$ multiplies to $-24$ and adds to $2$, so $x^2 + 2x - 24 = (x + 6)(x - 4)$. The larger number takes the sign of $b$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q14",
+      "stem": "Factorise $x^2 + 10x + 25$.",
+      "choices": [
+        "$(x + 5)(x - 5)$",
+        "$(x + 25)(x + 1)$",
+        "$(x + 5)^2$",
+        "$(x - 5)^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The pair $5$ and $5$ multiplies to $25$ and adds to $10$, so this is the perfect square $(x + 5)^2$."
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q15",
+      "stem": "Which pair of numbers multiplies to $-18$ and adds to $-7$?",
+      "choices": [
+        "$-9$ and $2$",
+        "$9$ and $-2$",
+        "$-6$ and $-3$",
+        "$-3$ and $6$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The product $-18$ requires opposite signs, and $-9 + 2 = -7$. The pair $9$ and $-2$ adds to $+7$, and $-3$ and $6$ adds to $+3$."
+    }
+  ]
+}
