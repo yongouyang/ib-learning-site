@@ -93,6 +93,7 @@ import eng_novel_study_1_json from './data/topics/english/eng-novel-study-1.json
 import eng_persuasive_1_json from './data/topics/english/eng-persuasive-1.json';
 import eng_persuasive_speaking_1_json from './data/topics/english/eng-persuasive-speaking-1.json';
 import eng_poetry_1_json from './data/topics/english/eng-poetry-1.json';
+import eng_poetry_writing_1_json from './data/topics/english/eng-poetry-writing-1.json';
 import eng_reading_1_json from './data/topics/english/eng-reading-1.json';
 import eng_speaking_1_json from './data/topics/english/eng-speaking-1.json';
 import eng_spelling_1_json from './data/topics/english/eng-spelling-1.json';
@@ -225,6 +226,7 @@ const eng_novel_study_1: Topic = topicSchema.parse(eng_novel_study_1_json);
 const eng_persuasive_1: Topic = topicSchema.parse(eng_persuasive_1_json);
 const eng_persuasive_speaking_1: Topic = topicSchema.parse(eng_persuasive_speaking_1_json);
 const eng_poetry_1: Topic = topicSchema.parse(eng_poetry_1_json);
+const eng_poetry_writing_1: Topic = topicSchema.parse(eng_poetry_writing_1_json);
 const eng_reading_1: Topic = topicSchema.parse(eng_reading_1_json);
 const eng_speaking_1: Topic = topicSchema.parse(eng_speaking_1_json);
 const eng_spelling_1: Topic = topicSchema.parse(eng_spelling_1_json);
@@ -287,7 +289,7 @@ const englishSubject: Subject = {
   name: englishMeta.name,
   icon: englishMeta.icon,
   accentColor: englishMeta.accentColor,
-  topics: [eng_creative_1, eng_drama_shakespeare, eng_essay_1, eng_figurative_1, eng_grammar_1, eng_media_visual_literacy, eng_myths_legends, eng_narrative_1, eng_nonfiction_1, eng_novel_study_1, eng_persuasive_1, eng_persuasive_speaking_1, eng_poetry_1, eng_reading_1, eng_speaking_1, eng_spelling_1],
+  topics: [eng_creative_1, eng_drama_shakespeare, eng_essay_1, eng_figurative_1, eng_grammar_1, eng_media_visual_literacy, eng_myths_legends, eng_narrative_1, eng_nonfiction_1, eng_novel_study_1, eng_persuasive_1, eng_persuasive_speaking_1, eng_poetry_1, eng_poetry_writing_1, eng_reading_1, eng_speaking_1, eng_spelling_1],
 };
 const biologySubject: Subject = {
   id: biologyMeta.id as SubjectId,

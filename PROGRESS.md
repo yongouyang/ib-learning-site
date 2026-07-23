@@ -6,6 +6,19 @@
 
 ---
 
+## 2026-07-23 — Phase 1.5 wrap: map exhausted for net-new; eng-poetry-writing-1 added (10th topic)
+
+Git HEAD: `05a386a` (branch `develop`; content commit pushed, poetry-writing changes uncommitted at entry time)
+Done:
+1. **Pushed `05a386a`**: 9 authored topics + registry + test-count fix.
+2. **Coverage analysis** (all 69 unmapped BBC dirs × existing 128 topics): BBC KS3 corpus is **exhausted for net-new topics** in the 5-subject scope. Y9 math gap list from the plan is fully covered (6 new + 7 `-myp` = 13 Y9 topics); all bio/chem/phys BBC dirs map onto existing topics (human-impact is inside bio-ecology-1; materials/polymers inside chem-organic-1); remaining maths dirs match Y7/Y8 topics; English play guides (8 Shakespeare dirs) deliberately not mapped (school-text-dependent, outside the strand-based plan). Remaining BBC value = **enrichment reference** for existing topics when they're revisited.
+3. **eng-poetry-writing-1** added (map + staging + authored): writer's-craft complement to eng-poetry-1 (analysis) — ideas, choosing form, drafting, imagery/sound as choices, line breaks, redrafting. 7/12/15.
+Verified: `generate:registry` (129 topics) ✅, `validate:content` ✅, `audit:content` 0/0 ✅, Vitest 90/90 ✅ (english count 16→17). e2e not re-run (single prose topic; e2e was green on the 9-topic batch).
+Next: 1) Phase 2 — difficulty/calculator tags + diagnostic tests (per revised plan). 2) KS3 English strand re-map (needs user decision on Y8/Y9 progression structure). 3) Optional: BBC enrichment pass on existing topics when revisited. 4) Backlog: DP AA, PWA.
+Notes: uncommitted now: eng-poetry-writing-1.json, registry.ts, test counts, curation map, this entry. IGCSE tracks are unaffected by BBC KS3 content (different syllabus) — they need syllabus-sourced authoring, not the scraper.
+
+---
+
 ## 2026-07-23 — Phase 1.5 authoring pass: 9 BBC-referenced topics authored, all gates green
 
 Git HEAD: `acd08dd` (branch `develop`; pushed acd08dd earlier this session, content changes uncommitted at entry time)
