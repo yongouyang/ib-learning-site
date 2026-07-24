@@ -6,7 +6,19 @@
 
 ---
 
-## 2026-07-23 — Phase 1.5 wrap: map exhausted for net-new; eng-poetry-writing-1 added (10th topic)
+## 2026-07-24 — Phase 2 Session 1: schema + validators + tagging pilot (rubric fixed)
+
+Git HEAD: `66256c2` (branch `develop`; Phase 2 changes uncommitted at entry time)
+Done:
+1. **`phase-2-implementation-plan.md`** written (4 sessions; verified current state: 129 topics / 1,970 questions, no per-question history, mixed review = uniform random).
+2. **Schema + types**: optional `difficulty` ('easy'|'medium'|'hard') + `calculator` (bool, math-only) on questions (`schema.ts`, `types.ts` — zod-optional so untagged legacy JSON still parses).
+3. **Validators**: `validate-content.ts` — calculator ⇒ math rule (script refactored to `require.main` guard + exported `checkStageConsistency` for testability). `audit-content.ts` — `missing_difficulty` (one aggregated warning per topic) + `difficulty_distribution` (≥3 easy / ≥3 hard, checked only once fully tagged).
+4. **Pilot tagged by hand** (rubric nailed): math-yr9-surds 4/8/3, bio-cell-1 9/3/3, eng-spelling-1 11/1/3 — all meet ≥3/≥3 without forcing. Rubric (now in plan §3.1): relative to topic level; scenario prediction = hard band for recall-heavy subjects.
+Verified: `generate:registry` ✅, `validate:content` ✅, `audit:content` = **expected red** (126 warnings = exactly the 126 untagged topics, pilot 3 clean) ✅, Vitest 100/100 ✅ (+10 new: schema tags, audit rules, calculator rule).
+Next: 1) Phase 2 Session 2 — swarm-tag the remaining 126 topics (rubric in plan §3.1 quoted verbatim; diff-check tags-only; audit must go green). 2) Session 3 — quiz UI badges/ordering/filter. 3) Session 4 — stratified mixed review + diagnostics. Other backlog unchanged (English strand re-map needs user decision, DP AA, PWA).
+Notes: open questions 1–2 in the plan resolved by the pilot; diagnostic length cap deferred to Session 4. e2e not run (no UI changes yet).
+
+---
 
 Git HEAD: `05a386a` (branch `develop`; content commit pushed, poetry-writing changes uncommitted at entry time)
 Done:

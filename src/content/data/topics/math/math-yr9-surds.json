@@ -127,7 +127,8 @@
         "$\\sqrt{0.25}$"
       ],
       "correctIndex": 2,
-      "explanation": "$\\sqrt{9} = 3$, $\\sqrt{16} = 4$ and $\\sqrt{0.25} = 0.5$ are all rational. $\\sqrt{5} = 2.236\\ldots$ never ends or repeats, so it is a surd."
+      "explanation": "$\\sqrt{9} = 3$, $\\sqrt{16} = 4$ and $\\sqrt{0.25} = 0.5$ are all rational. $\\sqrt{5} = 2.236\\ldots$ never ends or repeats, so it is a surd.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-surds-q2",
@@ -139,7 +140,8 @@
         "$15$"
       ],
       "correctIndex": 1,
-      "explanation": "The rule $\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$ gives $\\sqrt{3 \\times 5} = \\sqrt{15}$, and $15$ has no square factor."
+      "explanation": "The rule $\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$ gives $\\sqrt{3 \\times 5} = \\sqrt{15}$, and $15$ has no square factor.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-surds-q3",
@@ -151,7 +153,8 @@
         "$3\\sqrt{2}$"
       ],
       "correctIndex": 0,
-      "explanation": "$\\sqrt{6} \\times \\sqrt{2} = \\sqrt{12}$, and $\\sqrt{12} = \\sqrt{4 \\times 3} = 2\\sqrt{3}$. The other options do not equal $\\sqrt{12}$."
+      "explanation": "$\\sqrt{6} \\times \\sqrt{2} = \\sqrt{12}$, and $\\sqrt{12} = \\sqrt{4 \\times 3} = 2\\sqrt{3}$. The other options do not equal $\\sqrt{12}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-surds-q4",
@@ -163,7 +166,8 @@
         "$5\\sqrt{5}$"
       ],
       "correctIndex": 2,
-      "explanation": "The largest square factor of $50$ is $25$, so $\\sqrt{50} = \\sqrt{25 \\times 2} = 5\\sqrt{2}$."
+      "explanation": "The largest square factor of $50$ is $25$, so $\\sqrt{50} = \\sqrt{25 \\times 2} = 5\\sqrt{2}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-surds-q5",
@@ -175,7 +179,8 @@
         "$6\\sqrt{2}$"
       ],
       "correctIndex": 3,
-      "explanation": "The largest square factor of $72$ is $36$, so $\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$."
+      "explanation": "The largest square factor of $72$ is $36$, so $\\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-surds-q6",
@@ -187,7 +192,8 @@
         "$7\\sqrt{49}$"
       ],
       "correctIndex": 0,
-      "explanation": "These are like surds, so add the numbers outside: $(3 + 4)\\sqrt{7} = 7\\sqrt{7}$. The value inside the root does not change."
+      "explanation": "These are like surds, so add the numbers outside: $(3 + 4)\\sqrt{7} = 7\\sqrt{7}$. The value inside the root does not change.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-surds-q7",
@@ -199,7 +205,8 @@
         "$5\\sqrt{3}$"
       ],
       "correctIndex": 2,
-      "explanation": "$\\sqrt{45} = \\sqrt{9 \\times 5} = \\sqrt{9} \\times \\sqrt{5} = 3\\sqrt{5}$."
+      "explanation": "$\\sqrt{45} = \\sqrt{9 \\times 5} = \\sqrt{9} \\times \\sqrt{5} = 3\\sqrt{5}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-surds-q8",
@@ -211,7 +218,8 @@
         "$3\\sqrt{3}$"
       ],
       "correctIndex": 1,
-      "explanation": "Simplify first: $\\sqrt{27} = 3\\sqrt{3}$ and $\\sqrt{12} = 2\\sqrt{3}$. Then $3\\sqrt{3} - 2\\sqrt{3} = \\sqrt{3}$."
+      "explanation": "Simplify first: $\\sqrt{27} = 3\\sqrt{3}$ and $\\sqrt{12} = 2\\sqrt{3}$. Then $3\\sqrt{3} - 2\\sqrt{3} = \\sqrt{3}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-surds-q9",
@@ -223,7 +231,8 @@
         "$5$"
       ],
       "correctIndex": 3,
-      "explanation": "Squaring undoes the square root: $(\\sqrt{5})^2 = \\sqrt{5} \\times \\sqrt{5} = 5$."
+      "explanation": "Squaring undoes the square root: $(\\sqrt{5})^2 = \\sqrt{5} \\times \\sqrt{5} = 5$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-surds-q10",
@@ -235,7 +244,8 @@
         "$2\\sqrt{6}$"
       ],
       "correctIndex": 1,
-      "explanation": "Square both parts: $2^2 \\times (\\sqrt{3})^2 = 4 \\times 3 = 12$. A common slip is squaring only the surd, giving $6$."
+      "explanation": "Square both parts: $2^2 \\times (\\sqrt{3})^2 = 4 \\times 3 = 12$. A common slip is squaring only the surd, giving $6$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-surds-q11",
@@ -247,7 +257,8 @@
         "$3$"
       ],
       "correctIndex": 0,
-      "explanation": "Multiply top and bottom by $\\sqrt{3}$: $\\dfrac{1}{\\sqrt{3}} \\times \\dfrac{\\sqrt{3}}{\\sqrt{3}} = \\dfrac{\\sqrt{3}}{3}$, since $\\sqrt{3} \\times \\sqrt{3} = 3$."
+      "explanation": "Multiply top and bottom by $\\sqrt{3}$: $\\dfrac{1}{\\sqrt{3}} \\times \\dfrac{\\sqrt{3}}{\\sqrt{3}} = \\dfrac{\\sqrt{3}}{3}$, since $\\sqrt{3} \\times \\sqrt{3} = 3$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-surds-q12",
@@ -259,7 +270,8 @@
         "$3\\sqrt{2}$"
       ],
       "correctIndex": 3,
-      "explanation": "$\\dfrac{6}{\\sqrt{2}} \\times \\dfrac{\\sqrt{2}}{\\sqrt{2}} = \\dfrac{6\\sqrt{2}}{2} = 3\\sqrt{2}$ after cancelling the factor of $2$."
+      "explanation": "$\\dfrac{6}{\\sqrt{2}} \\times \\dfrac{\\sqrt{2}}{\\sqrt{2}} = \\dfrac{6\\sqrt{2}}{2} = 3\\sqrt{2}$ after cancelling the factor of $2$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-surds-q13",
@@ -271,7 +283,8 @@
         "$3 + \\sqrt{12}$"
       ],
       "correctIndex": 0,
-      "explanation": "$\\sqrt{3} \\times \\sqrt{3} = 3$ and $\\sqrt{3} \\times 4 = 4\\sqrt{3}$, so the expansion is $3 + 4\\sqrt{3}$."
+      "explanation": "$\\sqrt{3} \\times \\sqrt{3} = 3$ and $\\sqrt{3} \\times 4 = 4\\sqrt{3}$, so the expansion is $3 + 4\\sqrt{3}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-surds-q14",
@@ -283,7 +296,8 @@
         "$6\\sqrt{2}$"
       ],
       "correctIndex": 1,
-      "explanation": "FOIL gives $2 + \\sqrt{2} + 3\\sqrt{2} + 3$. Collecting whole numbers and like surds: $5 + 4\\sqrt{2}$."
+      "explanation": "FOIL gives $2 + \\sqrt{2} + 3\\sqrt{2} + 3$. Collecting whole numbers and like surds: $5 + 4\\sqrt{2}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-surds-q15",
@@ -295,7 +309,8 @@
         "$6$ and $7$"
       ],
       "correctIndex": 2,
-      "explanation": "Since $25 < 30 < 36$, we have $\\sqrt{25} < \\sqrt{30} < \\sqrt{36}$, so $5 < \\sqrt{30} < 6$."
+      "explanation": "Since $25 < 30 < 36$, we have $\\sqrt{25} < \\sqrt{30} < \\sqrt{36}$, so $5 < \\sqrt{30} < 6$.",
+      "difficulty": "medium"
     }
   ]
 }

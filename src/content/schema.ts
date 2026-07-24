@@ -28,12 +28,17 @@ export const flashcardSchema = z.object({
   example: z.string().optional(),
 });
 
+export const difficultySchema = z.enum(['easy', 'medium', 'hard']);
+
 export const questionSchema = z.object({
   id: z.string().min(1),
   stem: z.string().min(1),
   choices: z.array(z.string()).length(4),
   correctIndex: z.number().int().min(0).max(3),
   explanation: z.string().min(1),
+  difficulty: difficultySchema.optional(),
+  // Math only: true = calculator expected/allowed (feeds Phase 3 calc/non-calc pools).
+  calculator: z.boolean().optional(),
 });
 
 export const topicSchema = z.object({
@@ -68,6 +73,7 @@ export const subjectSchema = z.object({
 export type ValidatedSubjectId = z.infer<typeof subjectIdSchema>;
 export type ValidatedStage = z.infer<typeof stageSchema>;
 export type ValidatedCourseLevel = z.infer<typeof courseLevelSchema>;
+export type ValidatedDifficulty = z.infer<typeof difficultySchema>;
 export type ValidatedConceptNote = z.infer<typeof conceptNoteSchema>;
 export type ValidatedFlashcard = z.infer<typeof flashcardSchema>;
 export type ValidatedQuestion = z.infer<typeof questionSchema>;

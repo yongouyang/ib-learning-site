@@ -7,7 +7,7 @@ const TOPICS_DIR = path.join(DATA_DIR, 'topics');
 const SUBJECTS_FILE = path.join(DATA_DIR, 'subjects.json');
 
 // Stage/course/level consistency rules (Phase 1 taxonomy).
-function checkStageConsistency(topic: ValidatedTopic): string[] {
+export function checkStageConsistency(topic: ValidatedTopic): string[] {
   const errors: string[] = [];
   const { stage, year, course, level } = topic;
 
@@ -32,6 +32,16 @@ function checkStageConsistency(topic: ValidatedTopic): string[] {
   }
   if (stage === 'igcse' && !course) {
     errors.push('stage "igcse" requires a course (e.g. "0580", "0610", "0620", "0625", "0500")');
+  }
+
+  // Phase 2: calculator tags are only meaningful for math questions.
+  if (topic.subjectId !== 'math') {
+    const tagged = topic.questions.filter((q) => q.calculator !== undefined);
+    if (tagged.length > 0) {
+      errors.push(
+        `calculator tag on ${tagged.length} question(s) but subjectId is "${topic.subjectId}" (calculator is math-only)`
+      );
+    }
   }
 
   return errors;
@@ -130,4 +140,6 @@ function main() {
   console.log('\nAll content files passed validation.');
 }
 
-main();
+if (require.main === module) {
+  main();
+}

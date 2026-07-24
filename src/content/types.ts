@@ -24,12 +24,17 @@ export interface Flashcard {
   example?: string;
 }
 
+export type Difficulty = 'easy' | 'medium' | 'hard';
+
 export interface Question {
   id: string;
   stem: string;
   choices: string[];
   correctIndex: number;
   explanation: string;
+  difficulty?: Difficulty;
+  /** Math only: true = calculator expected/allowed (feeds Phase 3 calc/non-calc pools). */
+  calculator?: boolean;
 }
 
 export interface Topic {

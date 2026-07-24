@@ -34,13 +34,19 @@ function makeTopic(
   };
 }
 
-function makeValidQuestions(prefix: string) {
-  return Array.from({ length: 5 }, (_, i) => ({
+function makeValidQuestions(prefix: string, count = 5) {
+  // Difficulty pattern: first 3 easy, last 3 hard (when count >= 6), rest medium —
+  // satisfies the audit distribution rule (>=3 easy, >=3 hard) for count >= 6.
+  return Array.from({ length: count }, (_, i) => ({
     id: `${prefix}-q${i + 1}`,
     stem: `Stem ${i + 1} for ${prefix}`,
     choices: ['A', 'B', 'C', 'D'],
     correctIndex: 0,
     explanation: `This is a sufficiently long explanation for question ${i + 1} of ${prefix}.`,
+    difficulty: (i < 3 ? 'easy' : i >= count - 3 ? 'hard' : 'medium') as
+      | 'easy'
+      | 'medium'
+      | 'hard',
   }));
 }
 
@@ -53,12 +59,54 @@ describe("auditContent", () => {
       flashcards: [
         { id: "test-topic-f1", term: "Term 1", definition: "Definition of term 1." },
       ],
-      questions: makeValidQuestions("test-topic"),
+      questions: makeValidQuestions("test-topic", 6),
     });
     const result = auditContent({ topics: [topic] });
     expect(result.issues).toHaveLength(0);
     expect(result.summary.totalTopics).toBe(1);
-    expect(result.summary.totalQuestions).toBe(5);
+    expect(result.summary.totalQuestions).toBe(6);
+  });
+
+  it("aggregates missing difficulty tags into one warning per topic", () => {
+    const topic = makeTopic({
+      id: "test-topic",
+      subjectId: "math",
+      questions: makeValidQuestions("test-topic").map(
+        ({ difficulty: _omitted, ...q }) => q,
+      ),
+    });
+    const result = auditContent({ topics: [topic] });
+    const issues = result.issues.filter((i) => i.type === "missing_difficulty");
+    expect(issues).toHaveLength(1);
+    expect(issues[0].severity).toBe("warning");
+    expect(issues[0].message).toContain("5 of 5");
+  });
+
+  it("skips the distribution check while a topic is only partially tagged", () => {
+    const questions = makeValidQuestions("test-topic", 6);
+    delete questions[0].difficulty;
+    const topic = makeTopic({ id: "test-topic", subjectId: "math", questions });
+    const result = auditContent({ topics: [topic] });
+    expect(
+      result.issues.find((i) => i.type === "difficulty_distribution"),
+    ).toBeUndefined();
+    expect(
+      result.issues.find((i) => i.type === "missing_difficulty"),
+    ).toBeDefined();
+  });
+
+  it("warns when a fully tagged topic has too few easy or hard questions", () => {
+    // 6 questions, all medium: fully tagged, but 0 easy / 0 hard.
+    const questions = makeValidQuestions("test-topic", 6).map((q) => ({
+      ...q,
+      difficulty: "medium" as const,
+    }));
+    const topic = makeTopic({ id: "test-topic", subjectId: "math", questions });
+    const result = auditContent({ topics: [topic] });
+    const issue = result.issues.find((i) => i.type === "difficulty_distribution");
+    expect(issue).toBeDefined();
+    expect(issue!.severity).toBe("warning");
+    expect(issue!.message).toContain("0 easy / 0 hard");
   });
 
   it("detects folder / subjectId mismatches as errors", () => {

@@ -14,6 +14,8 @@ export type IssueType =
   | "latex_unicode"
   | "empty_flashcard"
   | "stray_backslash"
+  | "missing_difficulty"
+  | "difficulty_distribution"
   | "unreadable_topic";
 
 export interface AuditIssue {
@@ -56,6 +58,9 @@ interface IdItem {
 
 const MIN_QUESTION_COUNT = 5;
 const MIN_EXPLANATION_LENGTH = 20;
+// Phase 2: per-topic difficulty distribution targets (tuned to the 15-question standard).
+const MIN_EASY_QUESTIONS = 3;
+const MIN_HARD_QUESTIONS = 3;
 
 function location(topic: AuditTopic, kind?: string, id?: string): string {
   const base = `${topic.subjectId}/${topic.id}`;
@@ -264,6 +269,38 @@ export function auditContent(input: AuditInput): AuditResult {
         severity: "warning",
         location: location(topic),
         message: `Topic has ${topic.questions.length} question(s); minimum recommended is ${MIN_QUESTION_COUNT}`,
+      });
+    }
+  }
+
+  // Missing difficulty tags (one aggregated warning per topic)
+  for (const topic of topics) {
+    const untagged = topic.questions.filter((q) => q.difficulty === undefined);
+    if (untagged.length > 0) {
+      issues.push({
+        type: "missing_difficulty",
+        severity: "warning",
+        location: location(topic),
+        message: `Topic has ${untagged.length} of ${topic.questions.length} question(s) without a difficulty tag`,
+      });
+    }
+  }
+
+  // Difficulty distribution (only meaningful once a topic is fully tagged)
+  for (const topic of topics) {
+    if (topic.questions.some((q) => q.difficulty === undefined)) continue;
+    const easyCount = topic.questions.filter(
+      (q) => q.difficulty === "easy",
+    ).length;
+    const hardCount = topic.questions.filter(
+      (q) => q.difficulty === "hard",
+    ).length;
+    if (easyCount < MIN_EASY_QUESTIONS || hardCount < MIN_HARD_QUESTIONS) {
+      issues.push({
+        type: "difficulty_distribution",
+        severity: "warning",
+        location: location(topic),
+        message: `Topic has ${easyCount} easy / ${hardCount} hard question(s); minimum is ${MIN_EASY_QUESTIONS} easy and ${MIN_HARD_QUESTIONS} hard`,
       });
     }
   }
@@ -483,6 +520,10 @@ function issueTypeLabel(type: IssueType): string {
       return "Empty flashcard term/definition";
     case "stray_backslash":
       return "Lines ending with a stray backslash";
+    case "missing_difficulty":
+      return "Questions without a difficulty tag";
+    case "difficulty_distribution":
+      return "Difficulty distribution below minimum";
     case "unreadable_topic":
       return "Unreadable topic files";
     default:

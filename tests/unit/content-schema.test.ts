@@ -128,6 +128,32 @@ describe('content schema validation', () => {
       const invalid = { ...validTopic.questions[0], explanation: '' };
       expect(() => questionSchema.parse(invalid)).toThrow();
     });
+
+    it('should accept optional difficulty and calculator tags', () => {
+      const result = questionSchema.parse({
+        ...validTopic.questions[0],
+        difficulty: 'medium',
+        calculator: true,
+      });
+      expect(result.difficulty).toBe('medium');
+      expect(result.calculator).toBe(true);
+    });
+
+    it('should leave difficulty and calculator undefined when absent', () => {
+      const result = questionSchema.parse(validTopic.questions[0]);
+      expect(result.difficulty).toBeUndefined();
+      expect(result.calculator).toBeUndefined();
+    });
+
+    it('should reject an invalid difficulty value', () => {
+      const invalid = { ...validTopic.questions[0], difficulty: 'extreme' };
+      expect(() => questionSchema.parse(invalid)).toThrow();
+    });
+
+    it('should reject a non-boolean calculator value', () => {
+      const invalid = { ...validTopic.questions[0], calculator: 'yes' };
+      expect(() => questionSchema.parse(invalid)).toThrow();
+    });
   });
 
   describe('flashcardSchema', () => {
