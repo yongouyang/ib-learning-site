@@ -1,19 +1,27 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
-import { UserProgress, TopicProgress, SubjectId } from '@/content/types';
+import { UserProgress, TopicProgress, SubjectId, ExamResult, LadderLevelResult } from '@/content/types';
 import {
   getUserProgress,
   getAllTopicProgress,
   recordQuizAttempt,
   getRecentAverageScore,
+  getExamResults,
+  recordExamResult,
+  getLadderProgress,
+  recordLadderResult,
 } from '@/lib/progress-store';
 
 interface ProgressContextType {
   userProgress: UserProgress;
   topicProgress: TopicProgress[];
+  examResults: ExamResult[];
+  ladderProgress: Record<string, Record<number, LadderLevelResult>>;
   refresh: () => void;
   recordAttempt: (topicId: string, subjectId: SubjectId, topicTitle: string, subjectTitle: string, correct: number, total: number) => void;
+  recordExam: (result: ExamResult) => void;
+  recordLadder: (courseId: string, level: number, score: number) => void;
   getSubjectScore: (subjectId: SubjectId) => number;
 }
 
@@ -27,10 +35,14 @@ const SSR_DEFAULTS: UserProgress = { totalStars: 0, currentStreakDays: 0, lastSt
 export function ProgressProvider({ children }: { children: ReactNode }) {
   const [userProgress, setUserProgress] = useState<UserProgress>(SSR_DEFAULTS);
   const [topicProgress, setTopicProgress] = useState<TopicProgress[]>([]);
+  const [examResults, setExamResults] = useState<ExamResult[]>([]);
+  const [ladderProgress, setLadderProgress] = useState<Record<string, Record<number, LadderLevelResult>>>({});
 
   const refresh = useCallback(() => {
     setUserProgress(getUserProgress());
     setTopicProgress(getAllTopicProgress());
+    setExamResults(getExamResults());
+    setLadderProgress(getLadderProgress());
   }, []);
 
   useEffect(() => {
@@ -45,6 +57,16 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     refresh();
   }, [refresh]);
 
+  const recordExam = useCallback((result: ExamResult) => {
+    recordExamResult(result);
+    refresh();
+  }, [refresh]);
+
+  const recordLadder = useCallback((courseId: string, level: number, score: number) => {
+    recordLadderResult(courseId, level, score);
+    refresh();
+  }, [refresh]);
+
   const getSubjectScore = useCallback((subjectId: SubjectId): number => {
     const subjectProgress = topicProgress.filter(tp => tp.subjectId === subjectId && tp.attempts.length > 0);
     if (subjectProgress.length === 0) return 0;
@@ -53,7 +75,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   }, [topicProgress]);
 
   return (
-    <ProgressContext.Provider value={{ userProgress, topicProgress, refresh, recordAttempt, getSubjectScore }}>
+    <ProgressContext.Provider value={{ userProgress, topicProgress, examResults, ladderProgress, refresh, recordAttempt, recordExam, recordLadder, getSubjectScore }}>
       {children}
     </ProgressContext.Provider>
   );

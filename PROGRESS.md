@@ -6,7 +6,20 @@
 
 ---
 
-## 2026-07-24 — Phase 2 Session 4 (final): stratified mixed review + diagnostics — Phase 2 COMPLETE
+## 2026-07-24 — Phase 3 Session 1: shared course map, storage v1 extension, exam/ladder libs
+
+Git HEAD: `13e6846` (branch `develop`; Phase 3 changes uncommitted at entry time)
+Done:
+1. **`phase-3-implementation-plan.md`** written; user decision: **all mocks non-calculator** (sampler excludes `calculator: true`; paper variants split by difficulty lean instead; DP-AI caveat recorded — real AI papers allow GDC).
+2. **`src/lib/courses.ts`**: 8 course predicates extracted from diagnostics.ts (shared by diagnostics/exams/ladder).
+3. **`src/lib/question-sets.ts`**: generalized the seeded topic-spread builder (targets/seed/excludeCalculator params); `diagnostics.ts` delegates with identical seeds — byte-identical output (existing diagnostics tests + e2e confirm).
+4. **Storage v1**: progress-store gains `version` (stamped on save), `examResults[]`, `ladderProgress{}` — all additive/optional, legacy payloads load with defaults (tested). `recordExamResult`/`recordLadderResult` share a rewards helper (stars + streak) with quiz attempts; neither touches `topicProgress` (no weak-area pollution).
+5. **`src/lib/exams.ts`**: paper defs — KS3 math P1 5E/9M/6H + P2 3E/8M/9H (20q/30min), science+eng P1 5/9/6 (20q/25min), DP-AI P1 6/10/4 (30min) + P2 3/8/9 (35min). **`src/lib/ladder.ts`**: 5 levels ×10q ramping 6E/3M/1H → 1E/3M/6H, unlock at ≥60% best score.
+Verified: Vitest 153/153 ✅ (+27: question-sets ×6, exams ×9, ladder ×9, progress-store ×3), tsc clean (fixed one pre-existing delete-on-required error in audit-content.test.ts), validate:content ✅, audit 0/0 ✅, illustrations + layout ✅, diagnostics e2e 9/9 ✅ (refactor regression check). Full e2e deferred to Session 2 (no UI changes this session).
+Next: 1) Phase 3 Session 2 — QuizGame overall-timer mode + auto-submit, `/exams` index + `/exams/[courseId]/[paperId]` runner with result recording, progress-page CTA, e2e. 2) Session 3 — ladder UI + unlock, e2e, docs.
+Notes: `structuredClone` now used in progress-store load/save (Node ≥17 / all modern browsers — fine). Plan §6.2 retake policy still open (deterministic sets v1; "new set" button is a cheap later add).
+
+---
 
 Git HEAD: `f8c63b7` (branch `develop`; Session 4 changes uncommitted at entry time)
 Done:

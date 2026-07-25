@@ -5,6 +5,10 @@ import {
   recordQuizAttempt,
   getRecentAverageScore,
   getStarRating,
+  recordExamResult,
+  getExamResults,
+  recordLadderResult,
+  getLadderProgress,
 } from '@/lib/progress-store';
 
 // Mock localStorage
@@ -63,5 +67,42 @@ describe('progress-store', () => {
     recordQuizAttempt('t2', 'math', 'Test 2', 'Math', 5, 10);
     // Same day, streak stays at 1
     expect(getUserProgress().currentStreakDays).toBe(1);
+  });
+
+  it('should load legacy payloads without the new fields (additive defaults)', () => {
+    // Legacy shape: no version, no examResults, no ladderProgress.
+    store['iblearn_progress'] = JSON.stringify({
+      userProgress: { totalStars: 5, currentStreakDays: 2, lastStudyDate: '2026-07-01' },
+      topicProgress: {},
+    });
+    expect(getExamResults()).toEqual([]);
+    expect(getLadderProgress()).toEqual({});
+    expect(getUserProgress().totalStars).toBe(5);
+    // Saving stamps the version without losing data.
+    recordExamResult({ examId: 'math-y7:paper-1', date: new Date().toISOString(), correctCount: 10, totalCount: 20, secondsUsed: 600 });
+    const raw = JSON.parse(store['iblearn_progress']);
+    expect(raw.version).toBe(1);
+    expect(raw.userProgress.totalStars).toBe(6); // 5 + 1 star for 50%
+    expect(raw.examResults).toHaveLength(1);
+  });
+
+  it('should record exam results with rewards, without touching topicProgress', () => {
+    recordExamResult({ examId: 'math-y7:paper-1', date: new Date().toISOString(), correctCount: 18, totalCount: 20, secondsUsed: 1200 });
+    const results = getExamResults();
+    expect(results).toHaveLength(1);
+    expect(results[0].correctCount).toBe(18);
+    expect(getUserProgress().totalStars).toBe(3); // 90% → 3 stars
+    expect(getUserProgress().currentStreakDays).toBe(1);
+    expect(getAllTopicProgress()).toEqual([]); // no weak-area pollution
+  });
+
+  it('should keep the best ladder score per level', () => {
+    recordLadderResult('math-y7', 1, 0.5);
+    recordLadderResult('math-y7', 1, 0.8);
+    recordLadderResult('math-y7', 2, 0.6);
+    const progress = getLadderProgress();
+    expect(progress['math-y7'][1].bestScore).toBe(0.8);
+    expect(progress['math-y7'][2].bestScore).toBe(0.6);
+    expect(progress['math-y7'][1].completedAt).toBeTruthy();
   });
 });

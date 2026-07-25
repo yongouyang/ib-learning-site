@@ -79,6 +79,19 @@ export interface UserProgress {
   lastStudyDate: string | null; // ISO string
 }
 
+export interface ExamResult {
+  examId: string; // `${courseId}:${paperId}`
+  date: string; // ISO string
+  correctCount: number;
+  totalCount: number;
+  secondsUsed: number;
+}
+
+export interface LadderLevelResult {
+  bestScore: number; // fraction 0–1
+  completedAt: string; // ISO string
+}
+
 export interface SubjectSummary {
   subjectId: SubjectId;
   completedTopics: number;

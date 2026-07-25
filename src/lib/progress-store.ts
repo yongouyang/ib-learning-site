@@ -1,25 +1,47 @@
-import { UserProgress, TopicProgress, QuizAttempt, SubjectId } from '@/content/types';
+import { UserProgress, TopicProgress, QuizAttempt, SubjectId, ExamResult, LadderLevelResult } from '@/content/types';
 
 const STORAGE_KEY = 'iblearn_progress';
+const STORAGE_VERSION = 1;
 
 interface StoredData {
+  version?: number; // absent in legacy payloads — treated as STORAGE_VERSION
   userProgress: UserProgress;
   topicProgress: Record<string, TopicProgress>;
+  examResults?: ExamResult[];
+  ladderProgress?: Record<string, Record<number, LadderLevelResult>>;
 }
+
+const DEFAULT_DATA: StoredData = {
+  version: STORAGE_VERSION,
+  userProgress: { totalStars: 0, currentStreakDays: 0, lastStudyDate: null },
+  topicProgress: {},
+  examResults: [],
+  ladderProgress: {},
+};
 
 function load(): StoredData {
   if (typeof window === 'undefined') {
-    return { userProgress: { totalStars: 0, currentStreakDays: 0, lastStudyDate: null }, topicProgress: {} };
+    return structuredClone(DEFAULT_DATA);
   }
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const parsed = JSON.parse(raw) as StoredData;
+      // Additive defaults — legacy payloads lack the newer fields.
+      return {
+        ...structuredClone(DEFAULT_DATA),
+        ...parsed,
+        examResults: parsed.examResults ?? [],
+        ladderProgress: parsed.ladderProgress ?? {},
+      };
+    }
   } catch { /* ignore */ }
-  return { userProgress: { totalStars: 0, currentStreakDays: 0, lastStudyDate: null }, topicProgress: {} };
+  return structuredClone(DEFAULT_DATA);
 }
 
 function save(data: StoredData): void {
   if (typeof window === 'undefined') return;
+  data.version = STORAGE_VERSION;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
@@ -52,14 +74,45 @@ export function recordQuizAttempt(
   tp.attempts.push(attempt);
   data.topicProgress[key] = tp;
 
-  // Update user progress
-  const up = data.userProgress;
-  const scorePercent = correctCount / Math.max(totalCount, 1);
-  up.totalStars += starsForScore(scorePercent);
-  updateStreak(up);
-  data.userProgress = up;
+  applyStudyRewards(data.userProgress, correctCount / Math.max(totalCount, 1));
 
   save(data);
+}
+
+// Exams and the revision ladder record into their own fields — never into
+// topicProgress, so aggregate exam scores can't pollute the weak-areas system.
+
+export function recordExamResult(result: ExamResult): void {
+  const data = load();
+  data.examResults!.push(result);
+  applyStudyRewards(data.userProgress, result.correctCount / Math.max(result.totalCount, 1));
+  save(data);
+}
+
+export function getExamResults(): ExamResult[] {
+  return load().examResults!;
+}
+
+export function recordLadderResult(courseId: string, level: number, score: number): void {
+  const data = load();
+  const course = data.ladderProgress![courseId] ?? {};
+  const existing = course[level];
+  course[level] = {
+    bestScore: Math.max(existing?.bestScore ?? 0, score),
+    completedAt: new Date().toISOString(),
+  };
+  data.ladderProgress![courseId] = course;
+  applyStudyRewards(data.userProgress, score);
+  save(data);
+}
+
+export function getLadderProgress(): Record<string, Record<number, LadderLevelResult>> {
+  return load().ladderProgress!;
+}
+
+function applyStudyRewards(up: UserProgress, scorePercent: number): void {
+  up.totalStars += starsForScore(scorePercent);
+  updateStreak(up);
 }
 
 function updateStreak(up: UserProgress): void {

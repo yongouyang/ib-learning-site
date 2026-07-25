@@ -4,6 +4,7 @@ import {
   findLatexIssues,
   type AuditTopic,
 } from "../../scripts/audit-content";
+import type { Question } from "@/content/types";
 
 function makeTopic(
   overrides: Partial<AuditTopic> & { id: string; subjectId: string },
@@ -34,7 +35,7 @@ function makeTopic(
   };
 }
 
-function makeValidQuestions(prefix: string, count = 5) {
+function makeValidQuestions(prefix: string, count = 5): Question[] {
   // Difficulty pattern: first 3 easy, last 3 hard (when count >= 6), rest medium —
   // satisfies the audit distribution rule (>=3 easy, >=3 hard) for count >= 6.
   return Array.from({ length: count }, (_, i) => ({
