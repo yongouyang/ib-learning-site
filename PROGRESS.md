@@ -6,7 +6,26 @@
 
 ---
 
-## 2026-07-24 — Phase 3 Session 2: timed mock exams live at /exams
+## 2026-07-24 — Phase 4 planned (implementation not started)
+
+Git HEAD: `0eb737f` (branch `develop`, tree clean after this entry's commit)
+Done: **`phase-4-implementation-plan.md`** written and user-approved direction pending. Design: new `src/content/data/papers/<courseId>/<set-id>.json` content tree (freeResponse questions: `{ stem, marks, markscheme[], modelAnswer, difficulty? }`, marks === markscheme.length); M1/A1/B1 markscheme style; self-marking checklist UI (new PaperRunnerClient, NOT QuizGame); results reuse `examResults`; non-calculator policy; Phase-5 AI-mark hook by design (runner keeps `{questionId, studentAnswer, ticks}`). 3 sessions: (1) schema/pipeline/pilot math-y7-set-1/runner, (2) authoring swarm for 7 remaining sets, (3) index/cross-links/docs.
+Verified: plan only — no code changes; gates not applicable (last full run: Vitest 155/155, e2e 507 passed at Phase 3 close).
+Next: 1) Phase 4 Session 1 (see plan §4): schema (`paperSchema` in schema.ts/types.ts), registry+validate+audit papers passes, hand-author pilot set, `/papers` routes + self-marking runner, tests. Backlog unchanged: English strand re-map (needs user decision), DP AA, PWA, per-question history (Phase 6).
+Notes: FR questions must NOT enter the MC `questions` array (QuizGame expects choices/correctIndex). One set per course in v1 (8 sets, 6–10 questions, ~20 marks each). Original questions only — never copied from real papers (legal constraint, parent plan §7).
+
+---
+
+Git HEAD: `1efff9f` → pushed `0eb737f` (branch `develop`, tree clean)
+Done:
+1. **Ladder overview** `/exams/[courseId]/ladder`: 5 levels with live unlock states from `ladderProgress` (L1 always open; locked levels show Lock icon + "Score ≥60% on Level N−1"); best-score badges with green check at passing levels.
+2. **Level runner** `/exams/[courseId]/ladder/[level]`: deterministic non-calc 10q sets, no timer, `recordLadder(courseId, level, score)` (best kept), direct-URL guard for locked levels. Static params for all 40 course×level combos.
+3. **Index integration**: every /exams course card links to its ladder.
+Verified: `ladder.spec.ts` 15/15 ✅ (fresh-profile locks, full run → best score, addInitScript-seeded unlock flow, locked-level guard, index link), Vitest 155/155 ✅, tsc ✅, validate:content ✅, audit 0/0 ✅, illustrations + layout ✅, full e2e **507 passed** / 6 skipped / 0 failed ✅.
+Next: Phase 4 — free-response + worked solutions (`freeResponse` question type with markscheme points + self-marking checklist UI; original past-paper-style sets). Backlog: English strand re-map (needs user decision), DP AA, PWA, per-question history (Phase 6).
+Notes: Phase 3 complete per plan (mocks + ladder + storage v1). Predicted/refreshed mocks deliberately out (parent plan nice-to-have). Ladder/exam results stay out of weak areas by design; e2e seeds storage via `page.addInitScript` for unlock tests — pattern reusable for progress-dependent e2e.
+
+---
 
 Git HEAD: `1627076` → pushed `1efff9f` (branch `develop`, tree clean)
 Done:
