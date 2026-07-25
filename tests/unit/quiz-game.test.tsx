@@ -111,4 +111,31 @@ describe('QuizGame', () => {
     expect(onComplete).toHaveBeenCalledWith(2, 2);
     expect(screen.getByRole('heading', { name: /Quiz Complete!/i })).toBeInTheDocument();
   });
+
+  it('shows difficulty and calculator badges when the question has tags', () => {
+    const tagged: Question[] = [
+      {
+        id: 'q1',
+        stem: 'Hard calculator question?',
+        choices: ['A', 'B', 'C', 'D'],
+        correctIndex: 0,
+        explanation: 'Explanation.',
+        difficulty: 'hard',
+        calculator: true,
+      },
+    ];
+    render(<QuizGame questions={tagged} backHref="/back" onComplete={vi.fn()} />);
+
+    expect(screen.getByText('hard')).toBeInTheDocument();
+    expect(screen.getByText('Calculator')).toBeInTheDocument();
+  });
+
+  it('renders no badges for untagged questions', () => {
+    render(<QuizGame questions={questions} backHref="/back" onComplete={vi.fn()} />);
+
+    expect(screen.queryByText('easy')).not.toBeInTheDocument();
+    expect(screen.queryByText('medium')).not.toBeInTheDocument();
+    expect(screen.queryByText('hard')).not.toBeInTheDocument();
+    expect(screen.queryByText('Calculator')).not.toBeInTheDocument();
+  });
 });

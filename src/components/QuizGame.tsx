@@ -3,34 +3,37 @@
 import { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Clock, CheckCircle2, XCircle, RotateCcw } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock, CheckCircle2, XCircle, RotateCcw, Calculator } from 'lucide-react';
 import type { Question } from '@/content/types';
+import { seededShuffle } from '@/lib/quiz-utils';
 import { Breadcrumbs, type BreadcrumbItem } from './Breadcrumbs';
 import InlineMath from './InlineMath';
 
-// Simple string hash for deterministic seeds.
-function hashString(str: string): number {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i);
-    hash = (hash << 5) - hash + char;
-    hash |= 0;
-  }
-  return Math.abs(hash);
-}
+const DIFFICULTY_CHIP_CLASSES: Record<string, string> = {
+  easy: 'bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-300',
+  medium: 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300',
+  hard: 'bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-300',
+};
 
-// Deterministic Fisher-Yates shuffle so server and client render match.
-// When no seed is supplied the order is left unchanged, which is safe for SSR.
-function seededShuffle<T>(items: T[], seed?: string): T[] {
-  if (!seed) return items;
-  const result = [...items];
-  let state = hashString(seed);
-  for (let i = result.length - 1; i > 0; i--) {
-    state = (state * 1103515245 + 12345) & 0x7fffffff;
-    const j = state % (i + 1);
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
+function QuestionBadges({ question }: { question: Question }) {
+  if (!question.difficulty && !question.calculator) return null;
+  return (
+    <div className="flex items-center gap-1.5 shrink-0">
+      {question.difficulty && (
+        <span
+          className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wide ${DIFFICULTY_CHIP_CLASSES[question.difficulty]}`}
+        >
+          {question.difficulty}
+        </span>
+      )}
+      {question.calculator && (
+        <span className="inline-flex items-center gap-1 text-[10px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wide bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">
+          <Calculator className="w-3 h-3" aria-hidden="true" />
+          Calculator
+        </span>
+      )}
+    </div>
+  );
 }
 
 interface QuizGameProps {
@@ -198,6 +201,7 @@ export default function QuizGame({
         >
           <div className="flex items-start justify-between gap-3 mb-4">
             <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-50"><InlineMath text={currentQuestion.stem} /></h2>
+            <QuestionBadges question={currentQuestion} />
           </div>
 
           {/* Timer */}

@@ -6,7 +6,18 @@
 
 ---
 
-## 2026-07-24 — Phase 2 Session 2: all 1,970 questions difficulty-tagged; LaTeX escape bug fixed
+## 2026-07-24 — Phase 2 Session 3: quiz UI — difficulty badges, easy→hard ordering, difficulty filter
+
+Git HEAD: `4e74918` (branch `develop`; Session 3 changes uncommitted at entry time)
+Done:
+1. **`src/lib/quiz-utils.ts`** (new): `seededShuffle`/`hashString` moved out of QuizGame; `orderQuestionsByDifficulty` (band sort easy→medium→hard, deterministic intra-band shuffle, untagged = medium); `filterQuestionsByDifficulty`; `parseDifficultyFilter`.
+2. **Badges** (`QuizGame.tsx`): difficulty chip (easy=green/medium=amber/hard=red, stage-chip style) + blue Calculator chip (lucide) in the question-card header. Shows in mixed review too (same component).
+3. **Filter + ordering** (`QuizPageClient.tsx`): chip row All/Easy/Medium/Hard with counts, `?difficulty=` param (linkable, `?mode=weak` precedent), questions pre-ordered easy→hard (no shuffleSeed — SSR-safe), `key={difficulty}` remount on switch. Quiz `page.tsx` wrapped in Suspense (useSearchParams requirement).
+Verified: Vitest 113/113 ✅ (+13: quiz-utils ×11, badges ×2), new `tests/e2e/quiz-difficulty.spec.ts` 12/12 ✅, full e2e **474 passed** / 6 skipped / 0 failed ✅, validate:content ✅, audit:content 0/0 ✅, illustrations + layout ✅.
+Next: 1) Commit + push Session 3 (user confirmation pending). 2) Phase 2 Session 4 — stratified mixed review sampling (3/4/3), diagnostics (`src/lib/diagnostics.ts`, `/diagnostics` routes, 8 course groupings, results fan out to per-topic attempts), homepage/progress CTAs, CONTENT_STYLE.md tag-rubric docs. Backlog unchanged (English strand re-map needs user decision, DP AA, PWA).
+Notes: `?difficulty=hard` e2e pins math-yr7-calculations to Hard (3) — update that spec if the topic's distribution ever changes. Filtered quiz attempts record normally against the topic (by design).
+
+---
 
 Git HEAD: `b144186` (branch `develop`; Session 2 changes uncommitted at entry time)
 Done:
