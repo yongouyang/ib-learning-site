@@ -44,6 +44,13 @@ interface QuizGameProps {
   questions: Question[];
   enableTimer?: boolean;
   timerSeconds?: number;
+  /**
+   * 'per-question' (default): countdown resets each question, timeout marks the
+   * current question incorrect. 'overall': one countdown for the whole quiz
+   * (exam mode) — on expiry all unanswered questions count as incorrect and
+   * the quiz auto-completes.
+   */
+  timerMode?: 'per-question' | 'overall';
   shuffleSeed?: string;
   onComplete: (correctCount: number, totalCount: number) => void;
   /** Called once per answered question (correct=false on timeout). */
@@ -58,6 +65,7 @@ export default function QuizGame({
   questions,
   enableTimer = false,
   timerSeconds = 60,
+  timerMode = 'per-question',
   shuffleSeed,
   onComplete,
   onQuestionResult,
@@ -106,16 +114,43 @@ export default function QuizGame({
       setSelectedIndex(null);
       setAnswerState('unanswered');
       setShowExplanation(false);
-      setTimeLeft(timerSeconds);
+      if (timerMode === 'per-question') setTimeLeft(timerSeconds);
     } else if (!isComplete) {
       onComplete(correctCount, shuffledQuestions.length);
       setIsComplete(true);
     }
-  }, [currentIndex, isComplete, correctCount, shuffledQuestions.length, timerSeconds, onComplete]);
+  }, [currentIndex, isComplete, correctCount, shuffledQuestions.length, timerSeconds, timerMode, onComplete]);
 
-  // Timer effect
+  // Overall mode (exams): the countdown never resets; on expiry every
+  // unanswered question counts as incorrect and the quiz auto-completes.
+  const handleOverallTimeout = useCallback(() => {
+    if (isComplete) return;
+    for (let i = currentIndex; i < shuffledQuestions.length; i++) {
+      onQuestionResult?.(shuffledQuestions[i].id, false);
+    }
+    onComplete(correctCount, shuffledQuestions.length);
+    setIsComplete(true);
+  }, [isComplete, currentIndex, shuffledQuestions, correctCount, onComplete, onQuestionResult]);
+
+  // Timer effect — overall mode: single countdown for the whole quiz.
   useEffect(() => {
-    if (!enableTimer || answerState !== 'unanswered' || isComplete || !currentQuestion) return;
+    if (!enableTimer || timerMode !== 'overall' || isComplete) return;
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          handleOverallTimeout();
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [enableTimer, timerMode, isComplete, handleOverallTimeout]);
+
+  // Timer effect — per-question mode (default): countdown resets each question.
+  useEffect(() => {
+    if (!enableTimer || timerMode !== 'per-question' || answerState !== 'unanswered' || isComplete || !currentQuestion) return;
 
     setTimeLeft(timerSeconds);
     const interval = setInterval(() => {
@@ -130,7 +165,7 @@ export default function QuizGame({
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [enableTimer, timerSeconds, currentIndex, answerState, isComplete, currentQuestion, handleTimeout]);
+  }, [enableTimer, timerMode, timerSeconds, currentIndex, answerState, isComplete, currentQuestion, handleTimeout]);
 
   if (shuffledQuestions.length === 0) {
     return (
@@ -215,9 +250,11 @@ export default function QuizGame({
             <div className="mb-4">
               <div className="flex items-center justify-between text-xs mb-1">
                 <span className="inline-flex items-center gap-1 text-gray-500 dark:text-gray-400">
-                  <Clock className="w-3.5 h-3.5" /> Time remaining
+                  <Clock className="w-3.5 h-3.5" /> {timerMode === 'overall' ? 'Exam time remaining' : 'Time remaining'}
                 </span>
-                <span className={`font-semibold ${timeLeft <= 10 ? 'text-red-600 dark:text-red-400' : 'text-gray-700 dark:text-gray-300'}`}>{timeLeft}s</span>
+                <span className={`font-semibold ${timeLeft <= 10 ? 'text-red-600 dark:text-red-400' : 'text-gray-700 dark:text-gray-300'}`}>
+                  {timerMode === 'overall' ? `${Math.floor(timeLeft / 60)}:${String(timeLeft % 60).padStart(2, '0')}` : `${timeLeft}s`}
+                </span>
               </div>
               <div className="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                 <motion.div

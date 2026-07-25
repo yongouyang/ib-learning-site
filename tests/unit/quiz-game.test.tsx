@@ -138,4 +138,49 @@ describe('QuizGame', () => {
     expect(screen.queryByText('hard')).not.toBeInTheDocument();
     expect(screen.queryByText('Calculator')).not.toBeInTheDocument();
   });
+
+  it('overall timer mode shows a single mm:ss countdown', () => {
+    render(
+      <QuizGame questions={questions} backHref="/back" onComplete={vi.fn()} enableTimer timerMode="overall" timerSeconds={1500} />
+    );
+    expect(screen.getByText(/Exam time remaining/i)).toBeInTheDocument();
+    expect(screen.getByText('25:00')).toBeInTheDocument();
+  });
+
+  it('overall timer expiry auto-completes with unanswered questions incorrect', async () => {
+    vi.useFakeTimers();
+    try {
+      const onComplete = vi.fn();
+      const onQuestionResult = vi.fn();
+      render(
+        <QuizGame
+          questions={questions}
+          backHref="/back"
+          onComplete={onComplete}
+          onQuestionResult={onQuestionResult}
+          enableTimer
+          timerMode="overall"
+          timerSeconds={3}
+        />
+      );
+
+      // Answer the first question correctly (2 questions total).
+      const choices = screen.getAllByRole('button');
+      await React.act(async () => {
+        choices[1].click();
+      });
+
+      // Let the 3-second countdown expire.
+      await React.act(async () => {
+        vi.advanceTimersByTime(3500);
+      });
+
+      expect(onComplete).toHaveBeenCalledWith(1, 2);
+      expect(onQuestionResult).toHaveBeenCalledWith('q1', true);
+      expect(onQuestionResult).toHaveBeenCalledWith('q2', false);
+      expect(screen.getByRole('heading', { name: /Quiz Complete!/i })).toBeInTheDocument();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 });
