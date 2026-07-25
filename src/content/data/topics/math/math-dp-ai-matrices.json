@@ -133,7 +133,8 @@
         "7"
       ],
       "correctIndex": 1,
-      "explanation": "Order is rows $\\times$ columns, so $4 \\times 3$."
+      "explanation": "Order is rows $\\times$ columns, so $4 \\times 3$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-matrices-q2",
@@ -145,7 +146,8 @@
         "Cannot be multiplied"
       ],
       "correctIndex": 0,
-      "explanation": "Columns of $A$ ($3$) = rows of $B$ ($3$), so $AB$ exists with order $2 \\times 4$."
+      "explanation": "Columns of $A$ ($3$) = rows of $B$ ($3$), so $AB$ exists with order $2 \\times 4$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-matrices-q3",
@@ -157,7 +159,8 @@
         "Identity law"
       ],
       "correctIndex": 2,
-      "explanation": "Matrix multiplication is associative and distributive, but NOT commutative: $AB \\neq BA$ in general."
+      "explanation": "Matrix multiplication is associative and distributive, but NOT commutative: $AB \\neq BA$ in general.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-matrices-q4",
@@ -169,7 +172,8 @@
         "-2"
       ],
       "correctIndex": 0,
-      "explanation": "$\\det = (5)(4) - (2)(3) = 20 - 6 = 14$."
+      "explanation": "$\\det = (5)(4) - (2)(3) = 20 - 6 = 14$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-matrices-q5",
@@ -181,7 +185,8 @@
         "6"
       ],
       "correctIndex": 1,
-      "explanation": "Singular means $\\det = 0$: $2k - 6 = 0 \\rightarrow k = 3$."
+      "explanation": "Singular means $\\det = 0$: $2k - 6 = 0 \\rightarrow k = 3$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-matrices-q6",
@@ -193,7 +198,8 @@
         "4"
       ],
       "correctIndex": 1,
-      "explanation": "For a $2 \\times 2$ matrix, $\\det(kA) = k^2 \\det(A)$. So $\\det(3A) = 9 \\times 4 = 36$."
+      "explanation": "For a $2 \\times 2$ matrix, $\\det(kA) = k^2 \\det(A)$. So $\\det(3A) = 9 \\times 4 = 36$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-matrices-q7",
@@ -205,7 +211,8 @@
         "$\\begin{pmatrix} -3 & 1 \\\\ 5 & -2 \\end{pmatrix}$"
       ],
       "correctIndex": 0,
-      "explanation": "$\\det = 2 \\times 3 - 1 \\times 5 = 1$. $A^{-1} = \\dfrac{1}{1} \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix} = \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix}$. Swap leading diagonal, negate off-diagonal."
+      "explanation": "$\\det = 2 \\times 3 - 1 \\times 5 = 1$. $A^{-1} = \\dfrac{1}{1} \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix} = \\begin{pmatrix} 3 & -1 \\\\ -5 & 2 \\end{pmatrix}$. Swap leading diagonal, negate off-diagonal.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-matrices-q8",
@@ -217,7 +224,9 @@
         "4"
       ],
       "correctIndex": 1,
-      "explanation": "Write as $AX = B$ with $A = \\begin{pmatrix} 2 & 1 \\\\ 3 & 2 \\end{pmatrix}$, $B = \\begin{pmatrix} 7 \\\\ 12 \\end{pmatrix}$. $\\det(A) = 1$, so $A^{-1} = \\begin{pmatrix} 2 & -1 \\\\ -3 & 2 \\end{pmatrix}$. Then $X = A^{-1}B = \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}$, giving $x = 2$, $y = 3$."
+      "explanation": "Write as $AX = B$ with $A = \\begin{pmatrix} 2 & 1 \\\\ 3 & 2 \\end{pmatrix}$, $B = \\begin{pmatrix} 7 \\\\ 12 \\end{pmatrix}$. $\\det(A) = 1$, so $A^{-1} = \\begin{pmatrix} 2 & -1 \\\\ -3 & 2 \\end{pmatrix}$. Then $X = A^{-1}B = \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}$, giving $x = 2$, $y = 3$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-dp-matrices-q9",
@@ -229,7 +238,8 @@
         "$B = AC^{-1}$"
       ],
       "correctIndex": 0,
-      "explanation": "Pre-multiply both sides by $A^{-1}$: $A^{-1}AB = A^{-1}C \\rightarrow IB = A^{-1}C \\rightarrow B = A^{-1}C$."
+      "explanation": "Pre-multiply both sides by $A^{-1}$: $A^{-1}AB = A^{-1}C \\rightarrow IB = A^{-1}C \\rightarrow B = A^{-1}C$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-matrices-q10",
@@ -241,7 +251,8 @@
         "$B$ must be the identity matrix"
       ],
       "correctIndex": 2,
-      "explanation": "A unique solution requires $A$ to be invertible, which means it must be square with a non-zero determinant."
+      "explanation": "A unique solution requires $A$ to be invertible, which means it must be square with a non-zero determinant.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-matrices-q11",
@@ -253,7 +264,8 @@
         "Not defined"
       ],
       "correctIndex": 1,
-      "explanation": "The transpose swaps rows and columns, so a $3 \\times 4$ matrix becomes $4 \\times 3$."
+      "explanation": "The transpose swaps rows and columns, so a $3 \\times 4$ matrix becomes $4 \\times 3$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-matrices-q12",
@@ -265,7 +277,8 @@
         "0"
       ],
       "correctIndex": 0,
-      "explanation": "For a triangular matrix the determinant is the product of the diagonal entries: $2 \\times 3 \\times 4 = 24$."
+      "explanation": "For a triangular matrix the determinant is the product of the diagonal entries: $2 \\times 3 \\times 4 = 24$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-matrices-q13",
@@ -277,7 +290,8 @@
         "16"
       ],
       "correctIndex": 3,
-      "explanation": "For an $n \\times n$ matrix, $\\det(kA) = k^n \\det(A)$. Here $n = 3$, so $\\det(2A) = 2^3 \\times 2 = 16$."
+      "explanation": "For an $n \\times n$ matrix, $\\det(kA) = k^n \\det(A)$. Here $n = 3$, so $\\det(2A) = 2^3 \\times 2 = 16$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-matrices-q14",
@@ -289,7 +303,9 @@
         "130"
       ],
       "correctIndex": 1,
-      "explanation": "$S_1 = T S_0 = \\begin{pmatrix} 0.6(50) + 0.4(150) \\\\ 0.4(50) + 0.6(150) \\end{pmatrix} = \\begin{pmatrix} 90 \\\\ 110 \\end{pmatrix}$, so the first entry is $90$."
+      "explanation": "$S_1 = T S_0 = \\begin{pmatrix} 0.6(50) + 0.4(150) \\\\ 0.4(50) + 0.6(150) \\end{pmatrix} = \\begin{pmatrix} 90 \\\\ 110 \\end{pmatrix}$, so the first entry is $90$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-matrices-q15",
@@ -301,7 +317,8 @@
         "The system can be solved using $X = A^{-1}B$"
       ],
       "correctIndex": 2,
-      "explanation": "If $\\det(A) = 0$, then $A$ has no inverse. The system is either inconsistent (no solution) or dependent (infinitely many solutions)."
+      "explanation": "If $\\det(A) = 0$, then $A$ has no inverse. The system is either inconsistent (no solution) or dependent (infinitely many solutions).",
+      "difficulty": "hard"
     }
   ]
 }

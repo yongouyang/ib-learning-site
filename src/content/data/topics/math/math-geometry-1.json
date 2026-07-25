@@ -132,7 +132,8 @@
         "$50$"
       ],
       "correctIndex": 1,
-      "explanation": "Angles on a straight line add to $180^\\circ$, so $(2x + 20) + (3x - 10) = 180$. This gives $5x + 10 = 180$, so $5x = 170$ and $x = 34$."
+      "explanation": "Angles on a straight line add to $180^\\circ$, so $(2x + 20) + (3x - 10) = 180$. This gives $5x + 10 = 180$, so $5x = 170$ and $x = 34$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-geometry-1-geo-q2",
@@ -144,7 +145,8 @@
         "$60$"
       ],
       "correctIndex": 1,
-      "explanation": "Angles around a point add to $360^\\circ$. So $95 + 110 + 3x + 5 = 360$, giving $210 + 3x = 360$, $3x = 150$, and $x = 50$."
+      "explanation": "Angles around a point add to $360^\\circ$. So $95 + 110 + 3x + 5 = 360$, giving $210 + 3x = 360$, $3x = 150$, and $x = 50$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-geometry-1-geo-q3",
@@ -156,7 +158,8 @@
         "$180^\\circ$"
       ],
       "correctIndex": 1,
-      "explanation": "Vertically opposite angles are equal. Therefore the angle opposite $48^\\circ$ is also $48^\\circ$."
+      "explanation": "Vertically opposite angles are equal. Therefore the angle opposite $48^\\circ$ is also $48^\\circ$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-geometry-1-geo-q4",
@@ -168,7 +171,8 @@
         "$35$"
       ],
       "correctIndex": 2,
-      "explanation": "Corresponding angles on parallel lines are equal, so $4x - 10 = 3x + 20$. Subtracting $3x$ gives $x - 10 = 20$, so $x = 30$."
+      "explanation": "Corresponding angles on parallel lines are equal, so $4x - 10 = 3x + 20$. Subtracting $3x$ gives $x - 10 = 20$, so $x = 30$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-geometry-1-geo-q5",
@@ -180,7 +184,8 @@
         "$70^\\circ$"
       ],
       "correctIndex": 1,
-      "explanation": "Angles in a triangle add to $180^\\circ$. The third angle is $180 - 55 - 75 = 50^\\circ$."
+      "explanation": "Angles in a triangle add to $180^\\circ$. The third angle is $180 - 55 - 75 = 50^\\circ$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-geometry-1-geo-q6",
@@ -192,7 +197,8 @@
         "$77^\\circ$"
       ],
       "correctIndex": 2,
-      "explanation": "The two base angles are equal. Their total is $180 - 46 = 134^\\circ$, so each base angle is $134 \\div 2 = 67^\\circ$."
+      "explanation": "The two base angles are equal. Their total is $180 - 46 = 134^\\circ$, so each base angle is $134 \\div 2 = 67^\\circ$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-geometry-1-geo-q7",
@@ -204,7 +210,8 @@
         "$90$"
       ],
       "correctIndex": 2,
-      "explanation": "Angles in a quadrilateral add to $360^\\circ$. So $x = 360 - 100 - 95 - 85 = 80$."
+      "explanation": "Angles in a quadrilateral add to $360^\\circ$. So $x = 360 - 100 - 95 - 85 = 80$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-geometry-1-geo-q8",
@@ -216,7 +223,8 @@
         "$110^\\circ$"
       ],
       "correctIndex": 1,
-      "explanation": "The exterior angle equals the sum of the two opposite interior angles: $38 + 52 = 90^\\circ$."
+      "explanation": "The exterior angle equals the sum of the two opposite interior angles: $38 + 52 = 90^\\circ$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-geometry-1-geo-q9",
@@ -228,7 +236,8 @@
         "$616\\text{ cm}$"
       ],
       "correctIndex": 1,
-      "explanation": "Using $C = 2\\pi r$, we get $C = 2 \\times \\dfrac{22}{7} \\times 14 = 88\\text{ cm}$."
+      "explanation": "Using $C = 2\\pi r$, we get $C = 2 \\times \\dfrac{22}{7} \\times 14 = 88\\text{ cm}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-geometry-1-geo-q10",
@@ -240,7 +249,9 @@
         "$452.16\\text{ cm}^2$"
       ],
       "correctIndex": 2,
-      "explanation": "The radius is $12 \\div 2 = 6\\text{ cm}$. Then $A = \\pi r^2 = 3.14 \\times 36 = 113.04\\text{ cm}^2$."
+      "explanation": "The radius is $12 \\div 2 = 6\\text{ cm}$. Then $A = \\pi r^2 = 3.14 \\times 36 = 113.04\\text{ cm}^2$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-geometry-1-geo-q11",
@@ -252,7 +263,8 @@
         "$76\\text{ cm}^2$"
       ],
       "correctIndex": 3,
-      "explanation": "Rectangle area $= 10 \\times 6 = 60\\text{ cm}^2$. Square area $= 4 \\times 4 = 16\\text{ cm}^2$. Total area $= 60 + 16 = 76\\text{ cm}^2$."
+      "explanation": "Rectangle area $= 10 \\times 6 = 60\\text{ cm}^2$. Square area $= 4 \\times 4 = 16\\text{ cm}^2$. Total area $= 60 + 16 = 76\\text{ cm}^2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-geometry-1-geo-q12",
@@ -264,7 +276,8 @@
         "$8\\text{ cm}$"
       ],
       "correctIndex": 2,
-      "explanation": "Using $A = \\dfrac{1}{2}bh$, we have $42 = \\dfrac{1}{2} \\times 12 \\times h = 6h$. Therefore $h = 42 \\div 6 = 7\\text{ cm}$."
+      "explanation": "Using $A = \\dfrac{1}{2}bh$, we have $42 = \\dfrac{1}{2} \\times 12 \\times h = 6h$. Therefore $h = 42 \\div 6 = 7\\text{ cm}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-geometry-1-geo-q13",
@@ -276,7 +289,8 @@
         "$27\\text{ cm}$"
       ],
       "correctIndex": 1,
-      "explanation": "The scale factor from small to large is $\\dfrac{7}{3}$. So the larger base is $9 \\times \\dfrac{7}{3} = 21\\text{ cm}$."
+      "explanation": "The scale factor from small to large is $\\dfrac{7}{3}$. So the larger base is $9 \\times \\dfrac{7}{3} = 21\\text{ cm}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-geometry-1-geo-q14",
@@ -288,7 +302,9 @@
         "$528\\text{ m}^2$"
       ],
       "correctIndex": 0,
-      "explanation": "Total area $= 80 \\times 50 = 4\\,000\\text{ m}^2$. Inner dimensions are $80 - 4 = 76\\text{ m}$ and $50 - 4 = 46\\text{ m}$, so inner area $= 76 \\times 46 = 3\\,496\\text{ m}^2$. Path area $= 4\\,000 - 3\\,496 = 504\\text{ m}^2$."
+      "explanation": "Total area $= 80 \\times 50 = 4\\,000\\text{ m}^2$. Inner dimensions are $80 - 4 = 76\\text{ m}$ and $50 - 4 = 46\\text{ m}$, so inner area $= 76 \\times 46 = 3\\,496\\text{ m}^2$. Path area $= 4\\,000 - 3\\,496 = 504\\text{ m}^2$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-geometry-1-geo-q15",
@@ -300,7 +316,8 @@
         "Rotation $90^\\circ$ clockwise about the origin"
       ],
       "correctIndex": 1,
-      "explanation": "Reflecting in the $y$-axis changes the sign of the $x$-coordinate while keeping the $y$-coordinate the same, so $(x, y) \\to (-x, y)$."
+      "explanation": "Reflecting in the $y$-axis changes the sign of the $x$-coordinate while keeping the $y$-coordinate the same, so $(x, y) \\to (-x, y)$.",
+      "difficulty": "easy"
     }
   ]
 }

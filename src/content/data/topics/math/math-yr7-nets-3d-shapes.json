@@ -24,12 +24,12 @@
     {
       "id": "math-yr7-nets-3d-shapes-n3",
       "heading": "Cuboid Nets",
-      "body": "📌 Definition\nA cuboid net is an arrangement of 6 rectangles that can be folded to form a cuboid. Opposite faces of a cuboid are identical.\n\n🔑 Key Concept\nA cuboid has three pairs of identical rectangular faces. In its net, the faces are usually arranged around a central rectangle, with the top and bottom faces attached to opposite sides.\n\n💡 Worked Example\nA cuboid has length $l = 5$ cm, width $w = 3$ cm and height $h = 2$ cm. Its net contains:\n• Two faces of size $5 \text{ cm} \times 3 \text{ cm}$\n• Two faces of size $5 \text{ cm} \times 2 \text{ cm}$\n• Two faces of size $3 \text{ cm} \times 2 \text{ cm}$\n\n📎 Key Points to Remember\n• A cuboid net has 6 rectangular faces.\n• Opposite faces are equal in size.\n• The dimensions of each face come from pairs of the cuboid's length, width and height.\n\n⚠️ Common Mistake\nForgetting that a cube is a special cuboid where all faces are squares."
+      "body": "📌 Definition\nA cuboid net is an arrangement of 6 rectangles that can be folded to form a cuboid. Opposite faces of a cuboid are identical.\n\n🔑 Key Concept\nA cuboid has three pairs of identical rectangular faces. In its net, the faces are usually arranged around a central rectangle, with the top and bottom faces attached to opposite sides.\n\n💡 Worked Example\nA cuboid has length $l = 5$ cm, width $w = 3$ cm and height $h = 2$ cm. Its net contains:\n• Two faces of size $5 \\text{ cm} \\times 3 \\text{ cm}$\n• Two faces of size $5 \\text{ cm} \\times 2 \\text{ cm}$\n• Two faces of size $3 \\text{ cm} \\times 2 \\text{ cm}$\n\n📎 Key Points to Remember\n• A cuboid net has 6 rectangular faces.\n• Opposite faces are equal in size.\n• The dimensions of each face come from pairs of the cuboid's length, width and height.\n\n⚠️ Common Mistake\nForgetting that a cube is a special cuboid where all faces are squares."
     },
     {
       "id": "math-yr7-nets-3d-shapes-n4",
       "heading": "Prism Nets",
-      "body": "📌 Definition\nA prism is a solid with a constant cross-section. Its net consists of two identical end faces and a row of rectangles that form the sides.\n\n🔑 Key Concept\nFor a triangular prism, the net has 2 identical triangles and 3 rectangles. The width of each rectangle equals the length of one side of the triangle, and the height of each rectangle equals the length of the prism.\n\n💡 Worked Example\nA triangular prism has triangle sides of length $3$ cm, $4$ cm and $5$ cm, and a prism length of $6$ cm. Its net has:\n• 2 triangles with sides $3$ cm, $4$ cm and $5$ cm\n• 3 rectangles measuring $3 \text{ cm} \times 6 \text{ cm}$, $4 \text{ cm} \times 6 \text{ cm}$ and $5 \text{ cm} \times 6 \text{ cm}$\n\n📎 Key Points to Remember\n• The name of the prism comes from the shape of its cross-section.\n• A triangular prism has 5 faces, 9 edges and 6 vertices.\n• The two end faces are parallel and congruent.\n\n⚠️ Common Mistake\nThinking a prism net has only rectangles. Remember to include the two end faces."
+      "body": "📌 Definition\nA prism is a solid with a constant cross-section. Its net consists of two identical end faces and a row of rectangles that form the sides.\n\n🔑 Key Concept\nFor a triangular prism, the net has 2 identical triangles and 3 rectangles. The width of each rectangle equals the length of one side of the triangle, and the height of each rectangle equals the length of the prism.\n\n💡 Worked Example\nA triangular prism has triangle sides of length $3$ cm, $4$ cm and $5$ cm, and a prism length of $6$ cm. Its net has:\n• 2 triangles with sides $3$ cm, $4$ cm and $5$ cm\n• 3 rectangles measuring $3 \\text{ cm} \\times 6 \\text{ cm}$, $4 \\text{ cm} \\times 6 \\text{ cm}$ and $5 \\text{ cm} \\times 6 \\text{ cm}$\n\n📎 Key Points to Remember\n• The name of the prism comes from the shape of its cross-section.\n• A triangular prism has 5 faces, 9 edges and 6 vertices.\n• The two end faces are parallel and congruent.\n\n⚠️ Common Mistake\nThinking a prism net has only rectangles. Remember to include the two end faces."
     },
     {
       "id": "math-yr7-nets-3d-shapes-n5",
@@ -132,7 +132,8 @@
         "$8$"
       ],
       "correctIndex": 2,
-      "explanation": "A cube has 6 square faces: top, bottom, front, back, left and right."
+      "explanation": "A cube has 6 square faces: top, bottom, front, back, left and right.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q2",
@@ -144,7 +145,8 @@
         "$1$ square and $4$ triangles"
       ],
       "correctIndex": 1,
-      "explanation": "A cuboid has 6 rectangular faces. Opposite faces are equal, but adjacent faces may have different dimensions."
+      "explanation": "A cuboid has 6 rectangular faces. Opposite faces are equal, but adjacent faces may have different dimensions.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q3",
@@ -156,7 +158,8 @@
         "$11$"
       ],
       "correctIndex": 3,
-      "explanation": "There are exactly 11 distinct arrangements of 6 squares that can be folded to form a cube."
+      "explanation": "There are exactly 11 distinct arrangements of 6 squares that can be folded to form a cube.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q4",
@@ -168,7 +171,8 @@
         "Square pyramid"
       ],
       "correctIndex": 2,
-      "explanation": "Two triangular ends and three rectangular sides fold together to make a triangular prism."
+      "explanation": "Two triangular ends and three rectangular sides fold together to make a triangular prism.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q5",
@@ -180,7 +184,8 @@
         "$8$"
       ],
       "correctIndex": 1,
-      "explanation": "A square pyramid has 1 square base and 4 triangular faces, giving 5 faces in total."
+      "explanation": "A square pyramid has 1 square base and 4 triangular faces, giving 5 faces in total.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q6",
@@ -192,7 +197,8 @@
         "Triangle and rectangle"
       ],
       "correctIndex": 2,
-      "explanation": "A triangular prism net contains 2 triangles and 3 rectangles. It does not contain any squares unless the rectangles happen to be square, but a square is not a required shape."
+      "explanation": "A triangular prism net contains 2 triangles and 3 rectangles. It does not contain any squares unless the rectangles happen to be square, but a square is not a required shape.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q7",
@@ -204,7 +210,8 @@
         "Square pyramid"
       ],
       "correctIndex": 1,
-      "explanation": "A cube is the only solid whose net is made of 6 identical squares."
+      "explanation": "A cube is the only solid whose net is made of 6 identical squares.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q8",
@@ -216,7 +223,8 @@
         "$4$"
       ],
       "correctIndex": 2,
-      "explanation": "The face areas are $2 \times 3 = 6$ cm$^2$, $2 \times 4 = 8$ cm$^2$ and $3 \times 4 = 12$ cm$^2$. Each area appears on exactly 2 opposite faces, so 2 faces measure $6$ cm$^2$."
+      "explanation": "The face areas are $2 \\times 3 = 6$ cm$^2$, $2 \\times 4 = 8$ cm$^2$ and $3 \\times 4 = 12$ cm$^2$. Each area appears on exactly 2 opposite faces, so 2 faces measure $6$ cm$^2$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q9",
@@ -228,7 +236,8 @@
         "$2$ rows of $3$ squares offset by one square"
       ],
       "correctIndex": 2,
-      "explanation": "A cube net cannot have 5 squares in a single row. The longest possible row in any cube net contains 4 squares."
+      "explanation": "A cube net cannot have 5 squares in a single row. The longest possible row in any cube net contains 4 squares.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q10",
@@ -240,7 +249,8 @@
         "$8$"
       ],
       "correctIndex": 1,
-      "explanation": "A square pyramid has 4 vertices at the base corners plus 1 vertex at the apex, giving 5 vertices in total."
+      "explanation": "A square pyramid has 4 vertices at the base corners plus 1 vertex at the apex, giving 5 vertices in total.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q11",
@@ -252,7 +262,8 @@
         "Edge"
       ],
       "correctIndex": 2,
-      "explanation": "The triangular faces of a pyramid meet at a single point called the apex."
+      "explanation": "The triangular faces of a pyramid meet at a single point called the apex.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q12",
@@ -264,7 +275,8 @@
         "Cone"
       ],
       "correctIndex": 1,
-      "explanation": "A prism is defined as a solid with a constant cross-section. If you slice it parallel to the end faces, every slice is the same shape."
+      "explanation": "A prism is defined as a solid with a constant cross-section. If you slice it parallel to the end faces, every slice is the same shape.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q13",
@@ -276,7 +288,8 @@
         "$5$"
       ],
       "correctIndex": 1,
-      "explanation": "A triangular prism has 2 triangular end faces and 3 rectangular side faces, one for each side of the triangle."
+      "explanation": "A triangular prism has 2 triangular end faces and 3 rectangular side faces, one for each side of the triangle.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q14",
@@ -288,7 +301,8 @@
         "Rectangle"
       ],
       "correctIndex": 2,
-      "explanation": "A hexagonal prism is named after its hexagonal cross-section, so its two end faces are hexagons."
+      "explanation": "A hexagonal prism is named after its hexagonal cross-section, so its two end faces are hexagons.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-nets-3d-shapes-q15",
@@ -300,7 +314,8 @@
         "Pentagonal cube"
       ],
       "correctIndex": 1,
-      "explanation": "A pyramid has one polygon base and triangular faces that meet at the apex. A pentagon base with 5 triangles forms a pentagonal pyramid."
+      "explanation": "A pyramid has one polygon base and triangular faces that meet at the apex. A pentagon base with 5 triangles forms a pentagonal pyramid.",
+      "difficulty": "hard"
     }
   ]
 }

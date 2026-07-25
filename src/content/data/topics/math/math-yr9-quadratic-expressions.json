@@ -127,7 +127,8 @@
         "$x^2 + 3x + 10$"
       ],
       "correctIndex": 0,
-      "explanation": "The four products are $x^2$, $5x$, $2x$ and $10$. Collecting like terms gives $x^2 + 7x + 10$."
+      "explanation": "The four products are $x^2$, $5x$, $2x$ and $10$. Collecting like terms gives $x^2 + 7x + 10$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-quadratic-expressions-q2",
@@ -139,7 +140,8 @@
         "$x^2 + 6x + 12$"
       ],
       "correctIndex": 2,
-      "explanation": "Expanding gives $x^2 + 4x + 3x + 12$, and $4x + 3x = 7x$, so the answer is $x^2 + 7x + 12$."
+      "explanation": "Expanding gives $x^2 + 4x + 3x + 12$, and $4x + 3x = 7x$, so the answer is $x^2 + 7x + 12$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-quadratic-expressions-q3",
@@ -151,7 +153,8 @@
         "$x^2 + 8x - 12$"
       ],
       "correctIndex": 1,
-      "explanation": "The products are $x^2$, $6x$, $-2x$ and $-12$. Since $6x - 2x = 4x$, the result is $x^2 + 4x - 12$."
+      "explanation": "The products are $x^2$, $6x$, $-2x$ and $-12$. Since $6x - 2x = 4x$, the result is $x^2 + 4x - 12$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-expressions-q4",
@@ -163,7 +166,8 @@
         "$x^2 - 8x + 15$"
       ],
       "correctIndex": 3,
-      "explanation": "The products are $x^2$, $-5x$, $-3x$ and $+15$ because $-3 \\times -5 = 15$. So $(x - 3)(x - 5) = x^2 - 8x + 15$."
+      "explanation": "The products are $x^2$, $-5x$, $-3x$ and $+15$ because $-3 \\times -5 = 15$. So $(x - 3)(x - 5) = x^2 - 8x + 15$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-expressions-q5",
@@ -175,7 +179,8 @@
         "$x^2 - 14$"
       ],
       "correctIndex": 0,
-      "explanation": "This is a difference of two squares: the middle terms $-7x$ and $+7x$ cancel, leaving $x^2 - 49$."
+      "explanation": "This is a difference of two squares: the middle terms $-7x$ and $+7x$ cancel, leaving $x^2 - 49$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-expressions-q6",
@@ -187,7 +192,8 @@
         "$x^2 + 4x + 16$"
       ],
       "correctIndex": 1,
-      "explanation": "$(x + 4)^2 = (x + 4)(x + 4) = x^2 + 4x + 4x + 16 = x^2 + 8x + 16$. Squaring each term alone misses the middle term."
+      "explanation": "$(x + 4)^2 = (x + 4)(x + 4) = x^2 + 4x + 4x + 16 = x^2 + 8x + 16$. Squaring each term alone misses the middle term.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-expressions-q7",
@@ -199,7 +205,8 @@
         "$2x^2 + 7x + 1$"
       ],
       "correctIndex": 1,
-      "explanation": "The products are $2x^2$, $6x$, $x$ and $3$. Since $6x + x = 7x$, the result is $2x^2 + 7x + 3$."
+      "explanation": "The products are $2x^2$, $6x$, $x$ and $3$. Since $6x + x = 7x$, the result is $2x^2 + 7x + 3$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-quadratic-expressions-q8",
@@ -211,7 +218,8 @@
         "$(x + 9)(x + 20)$"
       ],
       "correctIndex": 2,
-      "explanation": "The pair $4$ and $5$ multiplies to $20$ and adds to $9$, so $x^2 + 9x + 20 = (x + 4)(x + 5)$. The pair $2$ and $10$ adds to $12$, not $9$."
+      "explanation": "The pair $4$ and $5$ multiplies to $20$ and adds to $9$, so $x^2 + 9x + 20 = (x + 4)(x + 5)$. The pair $2$ and $10$ adds to $12$, not $9$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-expressions-q9",
@@ -223,7 +231,8 @@
         "$(x - 2)(x - 5)$"
       ],
       "correctIndex": 1,
-      "explanation": "The pair $2$ and $5$ multiplies to $10$ and adds to $7$, giving $(x + 2)(x + 5)$. Expanding $(x - 2)(x - 5)$ would give $-7x$."
+      "explanation": "The pair $2$ and $5$ multiplies to $10$ and adds to $7$, giving $(x + 2)(x + 5)$. Expanding $(x - 2)(x - 5)$ would give $-7x$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-expressions-q10",
@@ -235,7 +244,8 @@
         "$(x - 12)(x + 1)$"
       ],
       "correctIndex": 1,
-      "explanation": "A pair multiplying to $-12$ and adding to $-1$ is $-4$ and $3$, so $x^2 - x - 12 = (x - 4)(x + 3)$. The swapped signs give $x^2 + x - 12$."
+      "explanation": "A pair multiplying to $-12$ and adding to $-1$ is $-4$ and $3$, so $x^2 - x - 12 = (x - 4)(x + 3)$. The swapped signs give $x^2 + x - 12$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-quadratic-expressions-q11",
@@ -247,7 +257,8 @@
         "$(x - 3)(x - 6)$"
       ],
       "correctIndex": 3,
-      "explanation": "Since $c = 18$ is positive and $b = -9$ is negative, both numbers are negative: $-3$ and $-6$ multiply to $18$ and add to $-9$."
+      "explanation": "Since $c = 18$ is positive and $b = -9$ is negative, both numbers are negative: $-3$ and $-6$ multiply to $18$ and add to $-9$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-expressions-q12",
@@ -259,7 +270,8 @@
         "$(x - 16)(x + 1)$"
       ],
       "correctIndex": 1,
-      "explanation": "This is a difference of two squares with $a = 4$: $x^2 - 16 = (x + 4)(x - 4)$. Expanding $(x - 4)^2$ would give $x^2 - 8x + 16$."
+      "explanation": "This is a difference of two squares with $a = 4$: $x^2 - 16 = (x + 4)(x - 4)$. Expanding $(x - 4)^2$ would give $x^2 - 8x + 16$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-quadratic-expressions-q13",
@@ -271,7 +283,8 @@
         "$(x + 12)(x - 2)$"
       ],
       "correctIndex": 0,
-      "explanation": "The pair $6$ and $-4$ multiplies to $-24$ and adds to $2$, so $x^2 + 2x - 24 = (x + 6)(x - 4)$. The larger number takes the sign of $b$."
+      "explanation": "The pair $6$ and $-4$ multiplies to $-24$ and adds to $2$, so $x^2 + 2x - 24 = (x + 6)(x - 4)$. The larger number takes the sign of $b$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-quadratic-expressions-q14",
@@ -283,7 +296,8 @@
         "$(x - 5)^2$"
       ],
       "correctIndex": 2,
-      "explanation": "The pair $5$ and $5$ multiplies to $25$ and adds to $10$, so this is the perfect square $(x + 5)^2$."
+      "explanation": "The pair $5$ and $5$ multiplies to $25$ and adds to $10$, so this is the perfect square $(x + 5)^2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-expressions-q15",
@@ -295,7 +309,8 @@
         "$-3$ and $6$"
       ],
       "correctIndex": 0,
-      "explanation": "The product $-18$ requires opposite signs, and $-9 + 2 = -7$. The pair $9$ and $-2$ adds to $+7$, and $-3$ and $6$ adds to $+3$."
+      "explanation": "The product $-18$ requires opposite signs, and $-9 + 2 = -7$. The pair $9$ and $-2$ adds to $+7$, and $-3$ and $6$ adds to $+3$.",
+      "difficulty": "easy"
     }
   ]
 }

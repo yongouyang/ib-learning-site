@@ -132,7 +132,8 @@
         "x ≥ 5"
       ],
       "correctIndex": 0,
-      "explanation": "Subtract 7 from both sides: $x>12-7$, which simplifies to $x>5$."
+      "explanation": "Subtract 7 from both sides: $x>12-7$, which simplifies to $x>5$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-inequalities-myp-ine-q2",
@@ -144,7 +145,8 @@
         "x > 5"
       ],
       "correctIndex": 1,
-      "explanation": "Divide by −2; reverse sign: x > −5."
+      "explanation": "Divide by −2; reverse sign: x > −5.",
+      "difficulty": "medium"
     },
     {
       "id": "math-inequalities-myp-ine-q3",
@@ -156,7 +158,8 @@
         "Filled circle at 3, arrow right"
       ],
       "correctIndex": 3,
-      "explanation": "≥ includes 3 (filled) and all values greater (arrow right)."
+      "explanation": "≥ includes 3 (filled) and all values greater (arrow right).",
+      "difficulty": "easy"
     },
     {
       "id": "math-inequalities-myp-ine-q4",
@@ -168,7 +171,8 @@
         "0, 1, 2, 3"
       ],
       "correctIndex": 0,
-      "explanation": "Strict at −2 (excluded), ≤ at 3 (included). Integers: −1, 0, 1, 2, 3."
+      "explanation": "Strict at −2 (excluded), ≤ at 3 (included). Integers: −1, 0, 1, 2, 3.",
+      "difficulty": "medium"
     },
     {
       "id": "math-inequalities-myp-ine-q5",
@@ -180,7 +184,8 @@
         "4 ≤ x < 12"
       ],
       "correctIndex": 0,
-      "explanation": "Add 3: 4 ≤ 2x < 12 → 2 ≤ x < 6."
+      "explanation": "Add 3: 4 ≤ 2x < 12 → 2 ≤ x < 6.",
+      "difficulty": "hard"
     },
     {
       "id": "math-inequalities-myp-ine-q6",
@@ -192,7 +197,8 @@
         "12"
       ],
       "correctIndex": 1,
-      "explanation": "7.5+0.5n ≤ 12 → 0.5n ≤ 4.5 → n ≤ 9."
+      "explanation": "7.5+0.5n ≤ 12 → 0.5n ≤ 4.5 → n ≤ 9.",
+      "difficulty": "hard"
     },
     {
       "id": "math-inequalities-myp-ine-q7",
@@ -204,7 +210,8 @@
         "x ≥ −5"
       ],
       "correctIndex": 0,
-      "explanation": "−2x ≥ −10 → x ≤ 5 (flip sign)."
+      "explanation": "−2x ≥ −10 → x ≤ 5 (flip sign).",
+      "difficulty": "medium"
     },
     {
       "id": "math-inequalities-myp-ine-q8",
@@ -216,7 +223,8 @@
         "No solution"
       ],
       "correctIndex": 3,
-      "explanation": "0x+3 < −1 → 3 < −1 is always false. No solution."
+      "explanation": "0x+3 < −1 → 3 < −1 is always false. No solution.",
+      "difficulty": "hard"
     },
     {
       "id": "math-inequalities-myp-ine-q9",
@@ -228,7 +236,8 @@
         "x > 5"
       ],
       "correctIndex": 1,
-      "explanation": "2x−6 < 4 → 2x < 10 → x < 5."
+      "explanation": "2x−6 < 4 → 2x < 10 → x < 5.",
+      "difficulty": "medium"
     },
     {
       "id": "math-inequalities-myp-ine-q10",
@@ -240,7 +249,8 @@
         "Solid line, shade below"
       ],
       "correctIndex": 1,
-      "explanation": "Strict (>) → dashed boundary; y > = shade above the line."
+      "explanation": "Strict (>) → dashed boundary; y > = shade above the line.",
+      "difficulty": "medium"
     },
     {
       "id": "math-inequalities-myp-ine-q11",
@@ -252,7 +262,8 @@
         "$x \\ge 2$"
       ],
       "correctIndex": 0,
-      "explanation": "Expand: $6x - 3 \\le 4x + 7$. Subtract $4x$: $2x - 3 \\le 7$. Add 3: $2x \\le 10$. Divide by 2: $x \\le 5$."
+      "explanation": "Expand: $6x - 3 \\le 4x + 7$. Subtract $4x$: $2x - 3 \\le 7$. Add 3: $2x \\le 10$. Divide by 2: $x \\le 5$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-inequalities-myp-ine-q12",
@@ -264,7 +275,8 @@
         "exactly 3"
       ],
       "correctIndex": 1,
-      "explanation": "Let $q$ be extra correct answers. Then $5 + q \\ge 8$, so $q \\ge 3$. The child needs at least 3 more correct answers."
+      "explanation": "Let $q$ be extra correct answers. Then $5 + q \\ge 8$, so $q \\ge 3$. The child needs at least 3 more correct answers.",
+      "difficulty": "medium"
     },
     {
       "id": "math-inequalities-myp-ine-q13",
@@ -276,7 +288,8 @@
         "$(3, 6)$"
       ],
       "correctIndex": 2,
-      "explanation": "For $(2,1)$: $1 < 2(2) - 1 = 3$, which is true. The other points do not satisfy the inequality."
+      "explanation": "For $(2,1)$: $1 < 2(2) - 1 = 3$, which is true. The other points do not satisfy the inequality.",
+      "difficulty": "easy"
     },
     {
       "id": "math-inequalities-myp-ine-q14",
@@ -288,7 +301,8 @@
         "$x < 7$"
       ],
       "correctIndex": 0,
-      "explanation": "Subtract 2: $\\dfrac{x}{3} > 3$. Multiply both sides by 3: $x > 9$."
+      "explanation": "Subtract 2: $\\dfrac{x}{3} > 3$. Multiply both sides by 3: $x > 9$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-inequalities-myp-ine-q15",
@@ -300,7 +314,8 @@
         "no solution"
       ],
       "correctIndex": 3,
-      "explanation": "Subtract $4x$ from both sides: $-5 \\ge 1$, which is false. Therefore the inequality has no solution."
+      "explanation": "Subtract $4x$ from both sides: $-5 \\ge 1$, which is false. Therefore the inequality has no solution.",
+      "difficulty": "hard"
     }
   ]
 }

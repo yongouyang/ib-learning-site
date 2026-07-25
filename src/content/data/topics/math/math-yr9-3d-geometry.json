@@ -127,7 +127,8 @@
         "$48$ cm$^3$"
       ],
       "correctIndex": 0,
-      "explanation": "Volume = length $\\times$ width $\\times$ height $= 4 \\times 3 \\times 2 = 24$ cm$^3$. The value $9$ comes from adding the dimensions instead of multiplying."
+      "explanation": "Volume = length $\\times$ width $\\times$ height $= 4 \\times 3 \\times 2 = 24$ cm$^3$. The value $9$ comes from adding the dimensions instead of multiplying.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-3d-geometry-q2",
@@ -139,7 +140,8 @@
         "$100$ cm$^2$"
       ],
       "correctIndex": 2,
-      "explanation": "A cube has $6$ identical square faces: $6 \\times 5^2 = 6 \\times 25 = 150$ cm$^2$. The value $125$ is the volume in cm$^3$, not the surface area."
+      "explanation": "A cube has $6$ identical square faces: $6 \\times 5^2 = 6 \\times 25 = 150$ cm$^2$. The value $125$ is the volume in cm$^3$, not the surface area.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-3d-geometry-q3",
@@ -151,7 +153,8 @@
         "$225$ cm$^3$"
       ],
       "correctIndex": 2,
-      "explanation": "Volume of a prism = cross-section area $\\times$ length $= 15 \\times 8 = 120$ cm$^3$."
+      "explanation": "Volume of a prism = cross-section area $\\times$ length $= 15 \\times 8 = 120$ cm$^3$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-3d-geometry-q4",
@@ -163,7 +166,8 @@
         "$34$ cm$^3$"
       ],
       "correctIndex": 1,
-      "explanation": "Cross-section area $= \\dfrac{1}{2} \\times 10 \\times 6 = 30$ cm$^2$, so $V = 30 \\times 4 = 120$ cm$^3$. The answer $240$ cm$^3$ forgets the $\\dfrac{1}{2}$ in the triangle area."
+      "explanation": "Cross-section area $= \\dfrac{1}{2} \\times 10 \\times 6 = 30$ cm$^2$, so $V = 30 \\times 4 = 120$ cm$^3$. The answer $240$ cm$^3$ forgets the $\\dfrac{1}{2}$ in the triangle area.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-3d-geometry-q5",
@@ -175,7 +179,9 @@
         "$78.5$ cm$^3$"
       ],
       "correctIndex": 0,
-      "explanation": "$V = \\pi r^2 h = \\pi \\times 25 \\times 10 = 250\\pi \\approx 785.4$ cm$^3$. The value $314.2$ is the curved surface area $100\\pi$, and $78.5$ is just the base area $25\\pi$."
+      "explanation": "$V = \\pi r^2 h = \\pi \\times 25 \\times 10 = 250\\pi \\approx 785.4$ cm$^3$. The value $314.2$ is the curved surface area $100\\pi$, and $78.5$ is just the base area $25\\pi$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr9-3d-geometry-q6",
@@ -187,7 +193,9 @@
         "$150.8$ cm$^2$"
       ],
       "correctIndex": 3,
-      "explanation": "Total surface area $= 2\\pi r^2 + 2\\pi r h = 18\\pi + 30\\pi = 48\\pi \\approx 150.8$ cm$^2$. The value $94.2$ cm$^2$ is only the curved surface $30\\pi$, missing the two circular ends."
+      "explanation": "Total surface area $= 2\\pi r^2 + 2\\pi r h = 18\\pi + 30\\pi = 48\\pi \\approx 150.8$ cm$^2$. The value $94.2$ cm$^2$ is only the curved surface $30\\pi$, missing the two circular ends.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr9-3d-geometry-q7",
@@ -199,7 +207,9 @@
         "$113.1$ cm$^3$"
       ],
       "correctIndex": 1,
-      "explanation": "$V = \\dfrac{1}{3} \\pi r^2 h = \\dfrac{1}{3} \\times \\pi \\times 36 \\times 7 = 84\\pi \\approx 263.9$ cm$^3$. The value $791.7$ cm$^3$ forgets the factor $\\dfrac{1}{3}$."
+      "explanation": "$V = \\dfrac{1}{3} \\pi r^2 h = \\dfrac{1}{3} \\times \\pi \\times 36 \\times 7 = 84\\pi \\approx 263.9$ cm$^3$. The value $791.7$ cm$^3$ forgets the factor $\\dfrac{1}{3}$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr9-3d-geometry-q8",
@@ -211,7 +221,8 @@
         "$120$ cm$^3$"
       ],
       "correctIndex": 3,
-      "explanation": "$V = \\dfrac{1}{3} \\times (8 \\times 5) \\times 9 = \\dfrac{1}{3} \\times 360 = 120$ cm$^3$. The answer $360$ cm$^3$ is the cuboid volume without dividing by $3$."
+      "explanation": "$V = \\dfrac{1}{3} \\times (8 \\times 5) \\times 9 = \\dfrac{1}{3} \\times 360 = 120$ cm$^3$. The answer $360$ cm$^3$ is the cuboid volume without dividing by $3$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-3d-geometry-q9",
@@ -223,7 +234,9 @@
         "$100.5$ cm$^3$"
       ],
       "correctIndex": 0,
-      "explanation": "$V = \\dfrac{4}{3} \\pi r^3 = \\dfrac{4}{3} \\times \\pi \\times 8 = \\dfrac{32\\pi}{3} \\approx 33.5$ cm$^3$. The value $50.3$ is the surface area $16\\pi$ cm$^2$ with wrong units."
+      "explanation": "$V = \\dfrac{4}{3} \\pi r^3 = \\dfrac{4}{3} \\times \\pi \\times 8 = \\dfrac{32\\pi}{3} \\approx 33.5$ cm$^3$. The value $50.3$ is the surface area $16\\pi$ cm$^2$ with wrong units.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr9-3d-geometry-q10",
@@ -235,7 +248,9 @@
         "$157.1$ cm$^2$"
       ],
       "correctIndex": 2,
-      "explanation": "Surface area $= 4\\pi r^2 = 4 \\times \\pi \\times 25 = 100\\pi \\approx 314.2$ cm$^2$. The value $523.6$ is the volume $\\dfrac{500\\pi}{3}$ cm$^3$, which uses the wrong formula."
+      "explanation": "Surface area $= 4\\pi r^2 = 4 \\times \\pi \\times 25 = 100\\pi \\approx 314.2$ cm$^2$. The value $523.6$ is the volume $\\dfrac{500\\pi}{3}$ cm$^3$, which uses the wrong formula.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr9-3d-geometry-q11",
@@ -247,7 +262,8 @@
         "The view from the side"
       ],
       "correctIndex": 0,
-      "explanation": "The plan is the flat, top-down view of the shape. Views from the front and side are called elevations, not plans."
+      "explanation": "The plan is the flat, top-down view of the shape. Views from the front and side are called elevations, not plans.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-3d-geometry-q12",
@@ -259,7 +275,8 @@
         "Triangle"
       ],
       "correctIndex": 2,
-      "explanation": "Seen from the front, an upright cylinder has a rectangular outline. The circle is the plan (the view from above)."
+      "explanation": "Seen from the front, an upright cylinder has a rectangular outline. The circle is the plan (the view from above).",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-3d-geometry-q13",
@@ -271,7 +288,9 @@
         "$452.4$ cm$^2$"
       ],
       "correctIndex": 0,
-      "explanation": "Curved surface area $= 2\\pi r h = 2\\pi \\times 4 \\times 9 = 72\\pi \\approx 226.2$ cm$^2$. The value $326.7$ cm$^2$ is the total surface area $104\\pi$, which adds the two circular ends the question excludes."
+      "explanation": "Curved surface area $= 2\\pi r h = 2\\pi \\times 4 \\times 9 = 72\\pi \\approx 226.2$ cm$^2$. The value $326.7$ cm$^2$ is the total surface area $104\\pi$, which adds the two circular ends the question excludes.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr9-3d-geometry-q14",
@@ -283,7 +302,8 @@
         "$6$ cm"
       ],
       "correctIndex": 2,
-      "explanation": "Height $= 240 \\div (8 \\times 6) = 240 \\div 48 = 5$ cm. Check: $8 \\times 6 \\times 5 = 240$ cm$^3$."
+      "explanation": "Height $= 240 \\div (8 \\times 6) = 240 \\div 48 = 5$ cm. Check: $8 \\times 6 \\times 5 = 240$ cm$^3$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-3d-geometry-q15",
@@ -295,7 +315,8 @@
         "$21.3$ cm"
       ],
       "correctIndex": 1,
-      "explanation": "The edge is the cube root of the volume: $\\sqrt[3]{64} = 4$ cm, since $4^3 = 64$. Dividing $64$ by $4$ or $8$ does not reverse the cubing."
+      "explanation": "The edge is the cube root of the volume: $\\sqrt[3]{64} = 4$ cm, since $4^3 = 64$. Dividing $64$ by $4$ or $8$ does not reverse the cubing.",
+      "difficulty": "medium"
     }
   ]
 }

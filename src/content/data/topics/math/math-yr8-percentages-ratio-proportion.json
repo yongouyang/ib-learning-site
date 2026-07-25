@@ -132,7 +132,9 @@
         "£ $840.00$"
       ],
       "correctIndex": 0,
-      "explanation": "Use $A = 800 \\times 1.05^2 = 800 \\times 1.1025 = 882$, so the final amount is £ $882.00$."
+      "explanation": "Use $A = 800 \\times 1.05^2 = 800 \\times 1.1025 = 882$, so the final amount is £ $882.00$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q2",
@@ -144,7 +146,9 @@
         "£ $2\\,120$"
       ],
       "correctIndex": 0,
-      "explanation": "$A = 2\\,000 \\times 1.03^4 \\approx 2\\,000 \\times 1.1255 = 2\\,251$ to the nearest pound."
+      "explanation": "$A = 2\\,000 \\times 1.03^4 \\approx 2\\,000 \\times 1.1255 = 2\\,251$ to the nearest pound.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q3",
@@ -156,7 +160,8 @@
         "$P \\times 0.94^5$"
       ],
       "correctIndex": 0,
-      "explanation": "The multiplier for $6\\%$ increase is $1.06$, and it is applied five times, giving $P \\times 1.06^5$."
+      "explanation": "The multiplier for $6\\%$ increase is $1.06$, and it is applied five times, giving $P \\times 1.06^5$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q4",
@@ -168,7 +173,8 @@
         "£ $500$"
       ],
       "correctIndex": 0,
-      "explanation": "Divide by the multiplier $1.20$: $\\dfrac{540}{1.20} = 450$, so the original price was £ $450$."
+      "explanation": "Divide by the multiplier $1.20$: $\\dfrac{540}{1.20} = 450$, so the original price was £ $450$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q5",
@@ -180,7 +186,8 @@
         "£ $33.75$"
       ],
       "correctIndex": 0,
-      "explanation": "A $25\\%$ decrease uses multiplier $0.75$. The original price is $\\dfrac{45}{0.75} = 60$, so it was £ $60$."
+      "explanation": "A $25\\%$ decrease uses multiplier $0.75$. The original price is $\\dfrac{45}{0.75} = 60$, so it was £ $60$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q6",
@@ -192,7 +199,9 @@
         "$48\\,000$"
       ],
       "correctIndex": 0,
-      "explanation": "$40\\,000 \\times 1.08^2 = 40\\,000 \\times 1.1664 = 46\\,656$, so the new population is $46\\,656$."
+      "explanation": "$40\\,000 \\times 1.08^2 = 40\\,000 \\times 1.1664 = 46\\,656$, so the new population is $46\\,656$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q7",
@@ -204,7 +213,9 @@
         "£ $90\\,000$"
       ],
       "correctIndex": 0,
-      "explanation": "$150\\,000 \\times 0.90^3 = 150\\,000 \\times 0.729 = 109\\,350$, so the value is £ $109\\,350$."
+      "explanation": "$150\\,000 \\times 0.90^3 = 150\\,000 \\times 0.729 = 109\\,350$, so the value is £ $109\\,350$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q8",
@@ -216,7 +227,8 @@
         "£ $30$"
       ],
       "correctIndex": 0,
-      "explanation": "One book costs $\\dfrac{15}{5} = 3$, so eight books cost $8 \\times 3 = 24$. The answer is £ $24$."
+      "explanation": "One book costs $\\dfrac{15}{5} = 3$, so eight books cost $8 \\times 3 = 24$. The answer is £ $24$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q9",
@@ -228,7 +240,8 @@
         "$36$"
       ],
       "correctIndex": 0,
-      "explanation": "First $k = \\dfrac{42}{6} = 7$. Then $y = 7 \\times 9 = 63$, so the answer is $63$."
+      "explanation": "First $k = \\dfrac{42}{6} = 7$. Then $y = 7 \\times 9 = 63$, so the answer is $63$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q10",
@@ -240,7 +253,8 @@
         "$200$ g"
       ],
       "correctIndex": 0,
-      "explanation": "Flour is directly proportional to people. $\\dfrac{300}{6} = 50$ g per person, so for $10$ people use $10 \\times 50 = 500$ g."
+      "explanation": "Flour is directly proportional to people. $\\dfrac{300}{6} = 50$ g per person, so for $10$ people use $10 \\times 50 = 500$ g.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q11",
@@ -252,7 +266,8 @@
         "$2$"
       ],
       "correctIndex": 0,
-      "explanation": "The constant $k = xy = 4 \\times 9 = 36$. When $x = 6$, $y = \\dfrac{36}{6} = 6$."
+      "explanation": "The constant $k = xy = 4 \\times 9 = 36$. When $x = 6$, $y = \\dfrac{36}{6} = 6$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q12",
@@ -264,7 +279,8 @@
         "$16$ hours"
       ],
       "correctIndex": 0,
-      "explanation": "Work is $8 \\times 6 = 48$ person-hours. For $12$ people the time is $\\dfrac{48}{12} = 4$ hours."
+      "explanation": "Work is $8 \\times 6 = 48$ person-hours. For $12$ people the time is $\\dfrac{48}{12} = 4$ hours.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q13",
@@ -276,7 +292,8 @@
         "$y = k - x$"
       ],
       "correctIndex": 0,
-      "explanation": "Inverse proportion means the product $xy$ is constant, which can be written as $y = \\dfrac{k}{x}$."
+      "explanation": "Inverse proportion means the product $xy$ is constant, which can be written as $y = \\dfrac{k}{x}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q14",
@@ -288,7 +305,9 @@
         "Cannot be determined"
       ],
       "correctIndex": 0,
-      "explanation": "$400$ g pack: $\\dfrac{2.40}{400} = 0.006$ per g. $600$ g pack: $\\dfrac{3.30}{600} = 0.0055$ per g. The $600$ g pack has the lower unit price."
+      "explanation": "$400$ g pack: $\\dfrac{2.40}{400} = 0.006$ per g. $600$ g pack: $\\dfrac{3.30}{600} = 0.0055$ per g. The $600$ g pack has the lower unit price.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-percentages-ratio-proportion-q15",
@@ -300,7 +319,8 @@
         "$5$ litres for £ $8.00$"
       ],
       "correctIndex": 0,
-      "explanation": "Unit prices: $2$ L for £ $2.80$ is £ $1.40$/L, $1$ L is £ $1.60$/L, $3$ L is £ $1.60$/L, $5$ L is £ $1.60$/L. The lowest is £ $1.40$/L."
+      "explanation": "Unit prices: $2$ L for £ $2.80$ is £ $1.40$/L, $1$ L is £ $1.60$/L, $3$ L is £ $1.60$/L, $5$ L is £ $1.60$/L. The lowest is £ $1.40$/L.",
+      "difficulty": "hard"
     }
   ]
 }

@@ -138,7 +138,8 @@
         "13"
       ],
       "correctIndex": 2,
-      "explanation": "First $g(2)=2^2=4$, then $f(4)=3(4)-2=10$."
+      "explanation": "First $g(2)=2^2=4$, then $f(4)=3(4)-2=10$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-functions-fun-q2",
@@ -150,7 +151,8 @@
         "all real $x$"
       ],
       "correctIndex": 1,
-      "explanation": "$x-4\\geq 0 \\to x\\geq 4$."
+      "explanation": "$x-4\\geq 0 \\to x\\geq 4$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-functions-fun-q3",
@@ -162,7 +164,8 @@
         "$\\dfrac{5-x}{2}$"
       ],
       "correctIndex": 1,
-      "explanation": "$y=2x+5$, swap: $x=2y+5 \\to y=\\dfrac{x-5}{2}$."
+      "explanation": "$y=2x+5$, swap: $x=2y+5 \\to y=\\dfrac{x-5}{2}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-functions-fun-q4",
@@ -174,7 +177,8 @@
         "$x^2+x$"
       ],
       "correctIndex": 1,
-      "explanation": "For $f(x)=x^2+1$, substituting $-x$ gives $(-x)^2+1=x^2+1=f(x)$, so it is even."
+      "explanation": "For $f(x)=x^2+1$, substituting $-x$ gives $(-x)^2+1=x^2+1=f(x)$, so it is even.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-functions-fun-q5",
@@ -186,7 +190,8 @@
         "$f(x-3)+2$"
       ],
       "correctIndex": 1,
-      "explanation": "Right: $x\\to x-3$; down: $-2$."
+      "explanation": "Right: $x\\to x-3$; down: $-2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-functions-fun-q6",
@@ -198,7 +203,8 @@
         "all real $y$"
       ],
       "correctIndex": 0,
-      "explanation": "$x^2\\geq 0 \\to x^2-4\\geq -4$."
+      "explanation": "$x^2\\geq 0 \\to x^2-4\\geq -4$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-functions-fun-q7",
@@ -210,7 +216,8 @@
         "all real $x$"
       ],
       "correctIndex": 1,
-      "explanation": "$(f \\circ g)(x)=\\sqrt{x-3}$. The output of $g$ must lie in the domain of $f$, so $x-3\\geq 0 \\to x\\geq 3$."
+      "explanation": "$(f \\circ g)(x)=\\sqrt{x-3}$. The output of $g$ must lie in the domain of $f$, so $x-3\\geq 0 \\to x\\geq 3$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-functions-fun-q8",
@@ -222,7 +229,8 @@
         "$f(x)=x+1$"
       ],
       "correctIndex": 2,
-      "explanation": "For $f(x)=\\dfrac{1}{x}$, solving $y=\\dfrac{1}{x}$ gives $x=\\dfrac{1}{y}$, so $f^{-1}(x)=\\dfrac{1}{x}=f(x)$. Its graph is also symmetric about $y=x$."
+      "explanation": "For $f(x)=\\dfrac{1}{x}$, solving $y=\\dfrac{1}{x}$ gives $x=\\dfrac{1}{y}$, so $f^{-1}(x)=\\dfrac{1}{x}=f(x)$. Its graph is also symmetric about $y=x$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-functions-fun-q9",
@@ -234,7 +242,8 @@
         "$C(d)=2$ for $d\\leq 2$, $C(d)=3+2d$ for $d>2$"
       ],
       "correctIndex": 1,
-      "explanation": "The first 2 km cost a flat $3. Beyond that, each extra kilometre adds $2, so the cost is $3+2(d-2)$."
+      "explanation": "The first 2 km cost a flat $3. Beyond that, each extra kilometre adds $2, so the cost is $3+2(d-2)$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-functions-fun-q10",
@@ -246,7 +255,8 @@
         "$x-3$"
       ],
       "correctIndex": 0,
-      "explanation": "$(g \\circ f)(x)=g(f(x))=g(\\dfrac{1}{x+2})=\\dfrac{1}{x+2}-1=\\dfrac{1-x-2}{x+2}=\\dfrac{-x-1}{x+2}$."
+      "explanation": "$(g \\circ f)(x)=g(f(x))=g(\\dfrac{1}{x+2})=\\dfrac{1}{x+2}-1=\\dfrac{1-x-2}{x+2}=\\dfrac{-x-1}{x+2}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-functions-fun-q11",
@@ -258,7 +268,8 @@
         "$\\sqrt{x-1}-2$"
       ],
       "correctIndex": 0,
-      "explanation": "Complete the square: $f(x)=(x-2)^2+1$. With $x\\leq 2$, solving $y=(x-2)^2+1$ gives $x-2=-\\sqrt{y-1}$, so $x=2-\\sqrt{y-1}$. Hence $f^{-1}(x)=2-\\sqrt{x-1}$."
+      "explanation": "Complete the square: $f(x)=(x-2)^2+1$. With $x\\leq 2$, solving $y=(x-2)^2+1$ gives $x-2=-\\sqrt{y-1}$, so $x=2-\\sqrt{y-1}$. Hence $f^{-1}(x)=2-\\sqrt{x-1}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-functions-fun-q12",
@@ -270,7 +281,8 @@
         "0°C"
       ],
       "correctIndex": 1,
-      "explanation": "As $t\\to\\infty$, $0.9^t\\to 0$, so $T\\to 20^\\circ\\text{C}$. This horizontal asymptote represents the room temperature the coffee approaches but never goes below."
+      "explanation": "As $t\\to\\infty$, $0.9^t\\to 0$, so $T\\to 20^\\circ\\text{C}$. This horizontal asymptote represents the room temperature the coffee approaches but never goes below.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-functions-fun-q13",
@@ -282,7 +294,8 @@
         "$x = 3$ or $x = -4$"
       ],
       "correctIndex": 2,
-      "explanation": "$2x - 1 = 7$ gives $x = 4$, and $2x - 1 = -7$ gives $x = -3$. Both values satisfy the original equation."
+      "explanation": "$2x - 1 = 7$ gives $x = 4$, and $2x - 1 = -7$ gives $x = -3$. Both values satisfy the original equation.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-functions-fun-q14",
@@ -294,7 +307,8 @@
         "$y = 60$"
       ],
       "correctIndex": 1,
-      "explanation": "As $x \\to \\infty$, $0.8^x \\to 0$, so $f(x) \\to 10$. The horizontal asymptote is therefore $y = 10$."
+      "explanation": "As $x \\to \\infty$, $0.8^x \\to 0$, so $f(x) \\to 10$. The horizontal asymptote is therefore $y = 10$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-functions-fun-q15",
@@ -306,7 +320,8 @@
         "$(2, 3)$"
       ],
       "correctIndex": 1,
-      "explanation": "The graph of $y = |x - h| + k$ has vertex $(h, k)$. Here $h = 3$ and $k = 2$, so the vertex is $(3, 2)$."
+      "explanation": "The graph of $y = |x - h| + k$ has vertex $(h, k)$. Here $h = 3$ and $k = 2$, so the vertex is $(3, 2)$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-functions-fun-q16",
@@ -318,7 +333,8 @@
         "all real $x$"
       ],
       "correctIndex": 1,
-      "explanation": "The expression under the square root must be positive because it is in the denominator: $x^{2} - 9 > 0$ → $(x - 3)(x + 3) > 0$ → $x < -3$ or $x > 3$. The values $x = \\pm 3$ are excluded because they make the denominator zero."
+      "explanation": "The expression under the square root must be positive because it is in the denominator: $x^{2} - 9 > 0$ → $(x - 3)(x + 3) > 0$ → $x < -3$ or $x > 3$. The values $x = \\pm 3$ are excluded because they make the denominator zero.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-functions-fun-q17",
@@ -330,7 +346,8 @@
         "$x > -1$, $x \\neq 3$"
       ],
       "correctIndex": 3,
-      "explanation": "$(f \\circ g)(x) = f(\\sqrt{x + 1}) = \\dfrac{1}{\\sqrt{x + 1} - 2}$. We need $x + 1 \\geq 0$ and $\\sqrt{x + 1} \\neq 2$. Thus $x \\geq -1$ and $x + 1 \\neq 4$, so $x \\neq 3$. Because $\\sqrt{x + 1} = 2$ is excluded, we write $x \\geq -1$, $x \\neq 3$."
+      "explanation": "$(f \\circ g)(x) = f(\\sqrt{x + 1}) = \\dfrac{1}{\\sqrt{x + 1} - 2}$. We need $x + 1 \\geq 0$ and $\\sqrt{x + 1} \\neq 2$. Thus $x \\geq -1$ and $x + 1 \\neq 4$, so $x \\neq 3$. Because $\\sqrt{x + 1} = 2$ is excluded, we write $x \\geq -1$, $x \\neq 3$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-functions-fun-q18",
@@ -342,7 +359,8 @@
         "$3$"
       ],
       "correctIndex": 1,
-      "explanation": "For continuity at $x = 2$, the left-hand limit must equal the right-hand limit. From the left: $2(2) + k = 4 + k$. From the right: $2^{2} - 3 = 1$. Setting them equal gives $4 + k = 1$, so $k = -3$."
+      "explanation": "For continuity at $x = 2$, the left-hand limit must equal the right-hand limit. From the left: $2(2) + k = 4 + k$. From the right: $2^{2} - 3 = 1$. Setting them equal gives $4 + k = 1$, so $k = -3$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-functions-fun-q19",
@@ -354,7 +372,8 @@
         "$9$"
       ],
       "correctIndex": 2,
-      "explanation": "$d = 4$ is in the second interval, so $C(4) = 3 + 2(4 - 2) = 3 + 4 = 7$. This represents a flat $3 for the first 2 km plus $2 for each additional km."
+      "explanation": "$d = 4$ is in the second interval, so $C(4) = 3 + 2(4 - 2) = 3 + 4 = 7$. This represents a flat $3 for the first 2 km plus $2 for each additional km.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-functions-fun-q20",
@@ -366,7 +385,8 @@
         "Translate right 1, reflect in x-axis, vertical stretch factor 2, translate up 3"
       ],
       "correctIndex": 0,
-      "explanation": "Inside the brackets, $x - 1$ means translate right 1 first. Then $-2f(x - 1)$ applies a vertical stretch by factor 2 and a reflection in the x-axis (the negative sign). Finally, $+3$ translates the graph up 3 units."
+      "explanation": "Inside the brackets, $x - 1$ means translate right 1 first. Then $-2f(x - 1)$ applies a vertical stretch by factor 2 and a reflection in the x-axis (the negative sign). Finally, $+3$ translates the graph up 3 units.",
+      "difficulty": "hard"
     }
   ]
 }

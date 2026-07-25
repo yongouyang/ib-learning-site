@@ -132,7 +132,8 @@
         "Number of students in a class"
       ],
       "correctIndex": 2,
-      "explanation": "Temperature is measured on a scale and can take any value within a range, so it is continuous data. The other options are counted in whole numbers and are discrete."
+      "explanation": "Temperature is measured on a scale and can take any value within a range, so it is continuous data. The other options are counted in whole numbers and are discrete.",
+      "difficulty": "medium"
     },
     {
       "id": "math-statistics-1-stat-q2",
@@ -144,7 +145,8 @@
         "40"
       ],
       "correctIndex": 0,
-      "explanation": "$\\dfrac{100}{150+100} = \\dfrac{100}{250} = 0.4$. The sample should contain $50 \\times 0.4 = 20$ girls."
+      "explanation": "$\\dfrac{100}{150+100} = \\dfrac{100}{250} = 0.4$. The sample should contain $50 \\times 0.4 = 20$ girls.",
+      "difficulty": "hard"
     },
     {
       "id": "math-statistics-1-stat-q3",
@@ -156,7 +158,8 @@
         "24"
       ],
       "correctIndex": 1,
-      "explanation": "The sum is $14 + 18 + 22 + 26 = 80$. There are 4 values, so the mean is $80 \\div 4 = 20$."
+      "explanation": "The sum is $14 + 18 + 22 + 26 = 80$. There are 4 values, so the mean is $80 \\div 4 = 20$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-statistics-1-stat-q4",
@@ -168,7 +171,8 @@
         "$34$"
       ],
       "correctIndex": 1,
-      "explanation": "Arrange in order: $25, 29, 31, 35, 38, 42$. With an even number of values, the median is the mean of the two middle values: $(31 + 35) \\div 2 = 33$."
+      "explanation": "Arrange in order: $25, 29, 31, 35, 38, 42$. With an even number of values, the median is the mean of the two middle values: $(31 + 35) \\div 2 = 33$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-statistics-1-stat-q5",
@@ -180,7 +184,8 @@
         "Mode $= 11$, range $= 19$"
       ],
       "correctIndex": 1,
-      "explanation": "The value 11 appears three times, so the mode is 11. The range is maximum − minimum $= 19 - 8 = 11$."
+      "explanation": "The value 11 appears three times, so the mode is 11. The range is maximum − minimum $= 19 - 8 = 11$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-statistics-1-stat-q6",
@@ -192,7 +197,8 @@
         "$19$ minutes"
       ],
       "correctIndex": 2,
-      "explanation": "Midpoints are 5, 15, 25 and 35. $\\sum f \\times m = 4(5) + 8(15) + 6(25) + 2(35) = 20 + 120 + 150 + 70 = 360$. Estimated mean $= 360 \\div 20 = 18$ minutes."
+      "explanation": "Midpoints are 5, 15, 25 and 35. $\\sum f \\times m = 4(5) + 8(15) + 6(25) + 2(35) = 20 + 120 + 150 + 70 = 360$. Estimated mean $= 360 \\div 20 = 18$ minutes.",
+      "difficulty": "hard"
     },
     {
       "id": "math-statistics-1-stat-q7",
@@ -204,7 +210,8 @@
         "$23$"
       ],
       "correctIndex": 1,
-      "explanation": "The lower half is $5, 8, 12, 15, 18$, so $Q_1 = 12$. The upper half is $21, 24, 28, 31, 35$, so $Q_3 = 28$. The interquartile range is $Q_3 - Q_1 = 28 - 12 = 16$."
+      "explanation": "The lower half is $5, 8, 12, 15, 18$, so $Q_1 = 12$. The upper half is $21, 24, 28, 31, 35$, so $Q_3 = 28$. The interquartile range is $Q_3 - Q_1 = 28 - 12 = 16$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-statistics-1-stat-q8",
@@ -216,7 +223,8 @@
         "$144^\\circ$"
       ],
       "correctIndex": 1,
-      "explanation": "Sector angle $= \\dfrac{18}{60} \\times 360^\\circ = 0.3 \\times 360^\\circ = 108^\\circ$."
+      "explanation": "Sector angle $= \\dfrac{18}{60} \\times 360^\\circ = 0.3 \\times 360^\\circ = 108^\\circ$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-statistics-1-stat-q9",
@@ -228,7 +236,8 @@
         "$\\dfrac{8}{40}$"
       ],
       "correctIndex": 0,
-      "explanation": "$\\dfrac{18}{40}$ students cycle. Simplifying by dividing numerator and denominator by 2 gives $\\dfrac{9}{20}$."
+      "explanation": "$\\dfrac{18}{40}$ students cycle. Simplifying by dividing numerator and denominator by 2 gives $\\dfrac{9}{20}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-statistics-1-stat-q10",
@@ -240,7 +249,9 @@
         "60"
       ],
       "correctIndex": 2,
-      "explanation": "Expected frequency $= P(\\text{event}) \\times \\text{number of trials} = 0.35 \\times 150 = 52.5$, which rounds to about 52 sixes."
+      "explanation": "Expected frequency $= P(\\text{event}) \\times \\text{number of trials} = 0.35 \\times 150 = 52.5$, which rounds to about 52 sixes.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-statistics-1-stat-q11",
@@ -252,7 +263,8 @@
         "$1.65$"
       ],
       "correctIndex": 1,
-      "explanation": "Using the complement rule: $P(\\text{not win}) = 1 - P(\\text{win}) = 1 - 0.65 = 0.35$."
+      "explanation": "Using the complement rule: $P(\\text{not win}) = 1 - P(\\text{win}) = 1 - 0.65 = 0.35$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-statistics-1-stat-q12",
@@ -264,7 +276,8 @@
         "$0.8$"
       ],
       "correctIndex": 1,
-      "explanation": "For independent events, multiply the probabilities: $0.4 \\times 0.4 = 0.16$."
+      "explanation": "For independent events, multiply the probabilities: $0.4 \\times 0.4 = 0.16$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-statistics-1-stat-q13",
@@ -276,7 +289,8 @@
         "The bars should be horizontal."
       ],
       "correctIndex": 1,
-      "explanation": "Starting the vertical axis above zero exaggerates the difference between bar heights. Here the actual difference is only $300$, but the bars may appear several times taller."
+      "explanation": "Starting the vertical axis above zero exaggerates the difference between bar heights. Here the actual difference is only $300$, but the bars may appear several times taller.",
+      "difficulty": "medium"
     },
     {
       "id": "math-statistics-1-stat-q14",
@@ -288,7 +302,8 @@
         "Temperature causes people to buy ice cream."
       ],
       "correctIndex": 1,
-      "explanation": "An upward trend means that as temperature increases, ice cream sales tend to increase too. This is a positive correlation. It does not prove causation on its own."
+      "explanation": "An upward trend means that as temperature increases, ice cream sales tend to increase too. This is a positive correlation. It does not prove causation on its own.",
+      "difficulty": "easy"
     },
     {
       "id": "math-statistics-1-stat-q15",
@@ -300,7 +315,8 @@
         "The range tells us the most common daily profit."
       ],
       "correctIndex": 1,
-      "explanation": "Shop B's mean is lower ($410 < $420), but its range is much smaller ($60 < $380), so Shop B's daily profits are more consistent. The range measures spread, not the most common value."
+      "explanation": "Shop B's mean is lower ($410 < $420), but its range is much smaller ($60 < $380), so Shop B's daily profits are more consistent. The range measures spread, not the most common value.",
+      "difficulty": "hard"
     }
   ]
 }

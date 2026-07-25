@@ -161,7 +161,8 @@
         "30 V"
       ],
       "correctIndex": 3,
-      "explanation": "Using Ohm's Law: $V=IR=3\\times10=30\\text{ V}$."
+      "explanation": "Using Ohm's Law: $V=IR=3\\times10=30\\text{ V}$.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-electricity-1-q2",
@@ -173,7 +174,8 @@
         "Divided by resistance"
       ],
       "correctIndex": 1,
-      "explanation": "In series, current is the same at all points. Ammeter readings would be identical."
+      "explanation": "In series, current is the same at all points. Ammeter readings would be identical.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-electricity-1-q3",
@@ -185,7 +187,8 @@
         "Lower resistance"
       ],
       "correctIndex": 1,
-      "explanation": "Parallel: 230 V to each appliance, independent switching, fault isolation."
+      "explanation": "Parallel: 230 V to each appliance, independent switching, fault isolation.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-electricity-1-q4",
@@ -197,7 +200,8 @@
         "4000 kWh"
       ],
       "correctIndex": 1,
-      "explanation": "2 kW × 0.5 h = 1 kWh."
+      "explanation": "2 kW × 0.5 h = 1 kWh.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-electricity-1-q5",
@@ -209,7 +213,8 @@
         "0.33 A"
       ],
       "correctIndex": 2,
-      "explanation": "Rearranging Ohm's Law: $I=V/R=12/4=3\\text{ A}$."
+      "explanation": "Rearranging Ohm's Law: $I=V/R=12/4=3\\text{ A}$.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-electricity-1-q6",
@@ -221,7 +226,8 @@
         "0 Ω"
       ],
       "correctIndex": 2,
-      "explanation": "1/R=1/10+1/10=2/10. R=5 Ω. Parallel R < smallest individual R."
+      "explanation": "1/R=1/10+1/10=2/10. R=5 Ω. Parallel R < smallest individual R.",
+      "difficulty": "hard"
     },
     {
       "id": "phys-electricity-1-q7",
@@ -233,7 +239,8 @@
         "Both parallel"
       ],
       "correctIndex": 1,
-      "explanation": "Ammeter: series (same current). Voltmeter: parallel (measures PD across component)."
+      "explanation": "Ammeter: series (same current). Voltmeter: parallel (measures PD across component).",
+      "difficulty": "easy"
     },
     {
       "id": "phys-electricity-1-q8",
@@ -245,7 +252,8 @@
         "Current is constant regardless of voltage"
       ],
       "correctIndex": 1,
-      "explanation": "As current flows, filament temperature rises. Metal ions vibrate more → more electron collisions → higher resistance → I-V curve flattens."
+      "explanation": "As current flows, filament temperature rises. Metal ions vibrate more → more electron collisions → higher resistance → I-V curve flattens.",
+      "difficulty": "hard"
     },
     {
       "id": "phys-electricity-1-q9",
@@ -257,7 +265,8 @@
         "The hat containing glue"
       ],
       "correctIndex": 1,
-      "explanation": "Rubbing transfers electrons. Each hair gains same charge → mutual repulsion → hairs stand apart."
+      "explanation": "Rubbing transfers electrons. Each hair gains same charge → mutual repulsion → hairs stand apart.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-electricity-1-q10",
@@ -269,7 +278,8 @@
         "30 A"
       ],
       "correctIndex": 2,
-      "explanation": "I=2300/230=10 A → 13 A fuse (next standard rating above operating current)."
+      "explanation": "I=2300/230=10 A → 13 A fuse (next standard rating above operating current).",
+      "difficulty": "hard"
     },
     {
       "id": "phys-electricity-1-q11",
@@ -281,7 +291,8 @@
         "Insulation is not important"
       ],
       "correctIndex": 1,
-      "explanation": "Double insulation (symbol: square within square) means the appliance has two layers of insulation. Plastic case → no earth needed."
+      "explanation": "Double insulation (symbol: square within square) means the appliance has two layers of insulation. Plastic case → no earth needed.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-electricity-1-q12",
@@ -293,7 +304,8 @@
         "36 Ω"
       ],
       "correctIndex": 2,
-      "explanation": "R_total = 6+6+6 = 18 Ω. Series: add resistances."
+      "explanation": "R_total = 6+6+6 = 18 Ω. Series: add resistances.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-electricity-1-q13",
@@ -305,7 +317,8 @@
         "35 A"
       ],
       "correctIndex": 1,
-      "explanation": "Current is charge over time: $I=Q/t=30/5=6\\text{ A}$."
+      "explanation": "Current is charge over time: $I=Q/t=30/5=6\\text{ A}$.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-electricity-1-q14",
@@ -317,7 +330,8 @@
         "Increases current efficiency"
       ],
       "correctIndex": 1,
-      "explanation": "RCDs detect imbalances as small as 30 mA between live and neutral. If current is leaking (e.g., through a person to earth), it trips — saving lives."
+      "explanation": "RCDs detect imbalances as small as 30 mA between live and neutral. If current is leaking (e.g., through a person to earth), it trips — saving lives.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-electricity-1-q15",
@@ -329,7 +343,8 @@
         "30 J"
       ],
       "correctIndex": 1,
-      "explanation": "P=I²R=0.25×20=5 W. E=Pt=5×60=300 J. Or: V=IR=10 V, E=VIt=10×0.5×60=300 J."
+      "explanation": "P=I²R=0.25×20=5 W. E=Pt=5×60=300 J. Or: V=IR=10 V, E=VIt=10×0.5×60=300 J.",
+      "difficulty": "hard"
     }
   ]
 }

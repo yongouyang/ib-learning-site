@@ -132,7 +132,8 @@
         "$120$ km/h"
       ],
       "correctIndex": 0,
-      "explanation": "Use $s = \\dfrac{d}{t}$. Substituting $d = 240$ and $t = 4$ gives $s = \\dfrac{240}{4} = 60$ km/h."
+      "explanation": "Use $s = \\dfrac{d}{t}$. Substituting $d = 240$ and $t = 4$ gives $s = \\dfrac{240}{4} = 60$ km/h.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-compound-measures-q2",
@@ -144,7 +145,8 @@
         "$18$ km"
       ],
       "correctIndex": 0,
-      "explanation": "Use $d = s \\times t$. Substituting $s = 15$ and $t = 3$ gives $d = 15 \\times 3 = 45$ km."
+      "explanation": "Use $d = s \\times t$. Substituting $s = 15$ and $t = 3$ gives $d = 15 \\times 3 = 45$ km.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-compound-measures-q3",
@@ -156,7 +158,8 @@
         "$8$ hours"
       ],
       "correctIndex": 0,
-      "explanation": "Use $t = \\dfrac{d}{s}$. Substituting $d = 300$ and $s = 60$ gives $t = \\dfrac{300}{60} = 5$ hours."
+      "explanation": "Use $t = \\dfrac{d}{s}$. Substituting $d = 300$ and $s = 60$ gives $t = \\dfrac{300}{60} = 5$ hours.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-compound-measures-q4",
@@ -168,7 +171,8 @@
         "$d = s + t$"
       ],
       "correctIndex": 0,
-      "explanation": "Starting from $s = \\dfrac{d}{t}$, multiply both sides by $t$ to get $d = s \\times t$."
+      "explanation": "Starting from $s = \\dfrac{d}{t}$, multiply both sides by $t$ to get $d = s \\times t$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-compound-measures-q5",
@@ -180,7 +184,8 @@
         "$300$ g/cm$^3$"
       ],
       "correctIndex": 0,
-      "explanation": "Use $\\rho = \\dfrac{m}{V}$. Substituting $m = 270$ and $V = 30$ gives $\\rho = \\dfrac{270}{30} = 9$ g/cm$^3$."
+      "explanation": "Use $\\rho = \\dfrac{m}{V}$. Substituting $m = 270$ and $V = 30$ gives $\\rho = \\dfrac{270}{30} = 9$ g/cm$^3$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-compound-measures-q6",
@@ -192,7 +197,9 @@
         "$120$ g"
       ],
       "correctIndex": 0,
-      "explanation": "Use $m = \\rho \\times V$. Substituting $\\rho = 1.2$ and $V = 50$ gives $m = 1.2 \\times 50 = 60$ g."
+      "explanation": "Use $m = \\rho \\times V$. Substituting $\\rho = 1.2$ and $V = 50$ gives $m = 1.2 \\times 50 = 60$ g.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-compound-measures-q7",
@@ -204,7 +211,8 @@
         "$V = \\rho - m$"
       ],
       "correctIndex": 0,
-      "explanation": "Starting from $\\rho = \\dfrac{m}{V}$, multiply by $V$ and divide by $\\rho$ to get $V = \\dfrac{m}{\\rho}$."
+      "explanation": "Starting from $\\rho = \\dfrac{m}{V}$, multiply by $V$ and divide by $\\rho$ to get $V = \\dfrac{m}{\\rho}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-compound-measures-q8",
@@ -216,7 +224,8 @@
         "$90$ Pa"
       ],
       "correctIndex": 0,
-      "explanation": "Use $P = \\dfrac{F}{A}$. Substituting $F = 80$ and $A = 10$ gives $P = \\dfrac{80}{10} = 8$ Pa."
+      "explanation": "Use $P = \\dfrac{F}{A}$. Substituting $F = 80$ and $A = 10$ gives $P = \\dfrac{80}{10} = 8$ Pa.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-compound-measures-q9",
@@ -228,7 +237,8 @@
         "$50$ N"
       ],
       "correctIndex": 0,
-      "explanation": "Use $F = P \\times A$. Substituting $P = 500$ and $A = 2$ gives $F = 500 \\times 2 = 1\\,000$ N."
+      "explanation": "Use $F = P \\times A$. Substituting $P = 500$ and $A = 2$ gives $F = 500 \\times 2 = 1\\,000$ N.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-compound-measures-q10",
@@ -240,7 +250,8 @@
         "$A = P - F$"
       ],
       "correctIndex": 0,
-      "explanation": "Starting from $P = \\dfrac{F}{A}$, multiply by $A$ and divide by $P$ to get $A = \\dfrac{F}{P}$."
+      "explanation": "Starting from $P = \\dfrac{F}{A}$, multiply by $A$ and divide by $P$ to get $A = \\dfrac{F}{P}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-compound-measures-q11",
@@ -252,7 +263,8 @@
         "$kg$"
       ],
       "correctIndex": 0,
-      "explanation": "Density is mass divided by volume, so its units combine a mass unit and a volume unit such as grams per cubic centimetre."
+      "explanation": "Density is mass divided by volume, so its units combine a mass unit and a volume unit such as grams per cubic centimetre.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-compound-measures-q12",
@@ -264,7 +276,8 @@
         "$225$ km"
       ],
       "correctIndex": 0,
-      "explanation": "First find the speed: $s = \\dfrac{450}{5} = 90$ km/h. Then find the distance in $8$ hours: $d = 90 \\times 8 = 720$ km."
+      "explanation": "First find the speed: $s = \\dfrac{450}{5} = 90$ km/h. Then find the distance in $8$ hours: $d = 90 \\times 8 = 720$ km.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-compound-measures-q13",
@@ -276,7 +289,9 @@
         "$50$ cm$^3$"
       ],
       "correctIndex": 0,
-      "explanation": "Use $V = \\dfrac{m}{\\rho}$. Substituting $m = 500$ and $\\rho = 2.5$ gives $V = \\dfrac{500}{2.5} = 200$ cm$^3$."
+      "explanation": "Use $V = \\dfrac{m}{\\rho}$. Substituting $m = 500$ and $\\rho = 2.5$ gives $V = \\dfrac{500}{2.5} = 200$ cm$^3$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-compound-measures-q14",
@@ -288,7 +303,8 @@
         "$360$ m$^2$"
       ],
       "correctIndex": 0,
-      "explanation": "Use $A = \\dfrac{F}{P}$. Substituting $F = 480$ and $P = 120$ gives $A = \\dfrac{480}{120} = 4$ m$^2$."
+      "explanation": "Use $A = \\dfrac{F}{P}$. Substituting $F = 480$ and $P = 120$ gives $A = \\dfrac{480}{120} = 4$ m$^2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-compound-measures-q15",
@@ -300,7 +316,8 @@
         "$s = d - t$"
       ],
       "correctIndex": 0,
-      "explanation": "Speed is distance divided by time, so the correct relationship is $s = \\dfrac{d}{t}$."
+      "explanation": "Speed is distance divided by time, so the correct relationship is $s = \\dfrac{d}{t}$.",
+      "difficulty": "easy"
     }
   ]
 }

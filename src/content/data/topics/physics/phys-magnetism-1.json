@@ -158,7 +158,8 @@
         "One reverses"
       ],
       "correctIndex": 1,
-      "explanation": "Like poles repel each other. Only unlike poles (N-S) attract."
+      "explanation": "Like poles repel each other. Only unlike poles (N-S) attract.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-magnetism-1-q2",
@@ -170,7 +171,8 @@
         "Decrease voltage"
       ],
       "correctIndex": 2,
-      "explanation": "More current = stronger field. More turns = stronger field. Iron core concentrates field lines."
+      "explanation": "More current = stronger field. More turns = stronger field. Iron core concentrates field lines.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-magnetism-1-q3",
@@ -182,7 +184,8 @@
         "No coils needed"
       ],
       "correctIndex": 1,
-      "explanation": "Controllability is the key advantage. Switching off current → magnetism disappears."
+      "explanation": "Controllability is the key advantage. Switching off current → magnetism disappears.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-magnetism-1-q4",
@@ -194,7 +197,8 @@
         "Electrical → kinetic (+ heat)"
       ],
       "correctIndex": 3,
-      "explanation": "Motor: electrical energy from power supply → kinetic energy of rotating shaft (some wasted as heat in coils)."
+      "explanation": "Motor: electrical energy from power supply → kinetic energy of rotating shaft (some wasted as heat in coils).",
+      "difficulty": "easy"
     },
     {
       "id": "phys-magnetism-1-q5",
@@ -206,7 +210,8 @@
         "Closed circles"
       ],
       "correctIndex": 1,
-      "explanation": "Outside: N→S. Inside magnet: S→N (forming closed loops)."
+      "explanation": "Outside: N→S. Inside magnet: S→N (forming closed loops).",
+      "difficulty": "easy"
     },
     {
       "id": "phys-magnetism-1-q6",
@@ -218,7 +223,8 @@
         "460 V"
       ],
       "correctIndex": 1,
-      "explanation": "Vs=Vp×(Ns/Np)=230×(50/500)=230×0.1=23 V. Step-down (Ns<Np)."
+      "explanation": "Vs=Vp×(Ns/Np)=230×(50/500)=230×0.1=23 V. Step-down (Ns<Np).",
+      "difficulty": "medium"
     },
     {
       "id": "phys-magnetism-1-q7",
@@ -230,7 +236,8 @@
         "DC would melt the iron core"
       ],
       "correctIndex": 1,
-      "explanation": "Electromagnetic induction requires a CHANGING magnetic field. AC provides continuously changing field. DC = steady field → no induced voltage."
+      "explanation": "Electromagnetic induction requires a CHANGING magnetic field. AC provides continuously changing field. DC = steady field → no induced voltage.",
+      "difficulty": "hard"
     },
     {
       "id": "phys-magnetism-1-q8",
@@ -242,7 +249,8 @@
         "Hooke's Law"
       ],
       "correctIndex": 1,
-      "explanation": "Right hand = Generator (induction). Left hand = Motor (force). Both use thumb=motion, first=field, second=current."
+      "explanation": "Right hand = Generator (induction). Left hand = Motor (force). Both use thumb=motion, first=field, second=current.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-magnetism-1-q9",
@@ -254,7 +262,8 @@
         "Reduces friction"
       ],
       "correctIndex": 1,
-      "explanation": "Without commutator, coil would stop after 90° (forces balance). Commutator swaps connections → current reverses → torque continues same direction."
+      "explanation": "Without commutator, coil would stop after 90° (forces balance). Commutator swaps connections → current reverses → torque continues same direction.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-magnetism-1-q10",
@@ -266,7 +275,8 @@
         "Transformers require high voltage"
       ],
       "correctIndex": 1,
-      "explanation": "For same power (P=VI), higher V means lower I. Lower I means less energy wasted heating the cables (P_waste=I²R)."
+      "explanation": "For same power (P=VI), higher V means lower I. Lower I means less energy wasted heating the cables (P_waste=I²R).",
+      "difficulty": "hard"
     },
     {
       "id": "phys-magnetism-1-q11",
@@ -278,7 +288,8 @@
         "Electrical → kinetic"
       ],
       "correctIndex": 1,
-      "explanation": "Sound vibrates diaphragm → coil moves in magnetic field → voltage induced → electrical signal. Generator effect in reverse of loudspeaker."
+      "explanation": "Sound vibrates diaphragm → coil moves in magnetic field → voltage induced → electrical signal. Generator effect in reverse of loudspeaker.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-magnetism-1-q12",
@@ -290,7 +301,8 @@
         "Force; South"
       ],
       "correctIndex": 1,
-      "explanation": "Grip the solenoid with right hand: fingers follow conventional current direction around coil; thumb extends to N pole."
+      "explanation": "Grip the solenoid with right hand: fingers follow conventional current direction around coil; thumb extends to N pole.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-magnetism-1-q13",
@@ -302,7 +314,8 @@
         "5000 V"
       ],
       "correctIndex": 1,
-      "explanation": "Vs=25×(2000/200)=25×10=250 V. Step-up: output voltage > input."
+      "explanation": "Vs=25×(2000/200)=25×10=250 V. Step-up: output voltage > input.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-magnetism-1-q14",
@@ -314,7 +327,8 @@
         "Neither is needed"
       ],
       "correctIndex": 1,
-      "explanation": "Slip rings don't reverse connections → current alternates naturally (AC). Commutator reverses every half-turn → current always flows one way (DC)."
+      "explanation": "Slip rings don't reverse connections → current alternates naturally (AC). Commutator reverses every half-turn → current always flows one way (DC).",
+      "difficulty": "hard"
     },
     {
       "id": "phys-magnetism-1-q15",
@@ -326,7 +340,8 @@
         "Steel paperclip"
       ],
       "correctIndex": 2,
-      "explanation": "Only iron, cobalt, nickel (and their alloys) are magnetic. Aluminium, copper, gold, silver, and most other metals are non-magnetic."
+      "explanation": "Only iron, cobalt, nickel (and their alloys) are magnetic. Aluminium, copper, gold, silver, and most other metals are non-magnetic.",
+      "difficulty": "easy"
     }
   ]
 }

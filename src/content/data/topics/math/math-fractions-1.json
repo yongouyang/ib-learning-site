@@ -132,7 +132,8 @@
         "$19$"
       ],
       "correctIndex": 1,
-      "explanation": "The denominator is the bottom number of a fraction; it tells you how many equal parts the whole is divided into. Here it is $12$."
+      "explanation": "The denominator is the bottom number of a fraction; it tells you how many equal parts the whole is divided into. Here it is $12$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-fractions-1-frac-q2",
@@ -144,7 +145,8 @@
         "$\\dfrac{3}{8}$"
       ],
       "correctIndex": 2,
-      "explanation": "An improper fraction has a numerator that is greater than or equal to its denominator. Since $7 = 7$, $\\dfrac{7}{7}$ is improper."
+      "explanation": "An improper fraction has a numerator that is greater than or equal to its denominator. Since $7 = 7$, $\\dfrac{7}{7}$ is improper.",
+      "difficulty": "medium"
     },
     {
       "id": "math-fractions-1-frac-q3",
@@ -156,7 +158,8 @@
         "$\\dfrac{1}{2}$"
       ],
       "correctIndex": 0,
-      "explanation": "The HCF of $15$ and $25$ is $5$. Dividing both numerator and denominator by $5$ gives $\\dfrac{3}{5}$."
+      "explanation": "The HCF of $15$ and $25$ is $5$. Dividing both numerator and denominator by $5$ gives $\\dfrac{3}{5}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-fractions-1-frac-q4",
@@ -168,7 +171,8 @@
         "$5\\dfrac{2}{5}$"
       ],
       "correctIndex": 0,
-      "explanation": "$17 \\div 5 = 3$ remainder $2$, so $\\dfrac{17}{5} = 3\\dfrac{2}{5}$."
+      "explanation": "$17 \\div 5 = 3$ remainder $2$, so $\\dfrac{17}{5} = 3\\dfrac{2}{5}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-fractions-1-frac-q5",
@@ -180,7 +184,8 @@
         "$\\dfrac{3}{8}$"
       ],
       "correctIndex": 1,
-      "explanation": "Multiplying numerator and denominator of $\\dfrac{3}{4}$ by $3$ gives $\\dfrac{9}{12}$, so the two fractions are equivalent."
+      "explanation": "Multiplying numerator and denominator of $\\dfrac{3}{4}$ by $3$ gives $\\dfrac{9}{12}$, so the two fractions are equivalent.",
+      "difficulty": "easy"
     },
     {
       "id": "math-fractions-1-frac-q6",
@@ -192,7 +197,8 @@
         "$\\dfrac{2}{3} > 1$"
       ],
       "correctIndex": 2,
-      "explanation": "Using the common denominator $15$, $\\dfrac{2}{3} = \\dfrac{10}{15}$ and $\\dfrac{3}{5} = \\dfrac{9}{15}$. Since $\\dfrac{10}{15} > \\dfrac{9}{15}$, we have $\\dfrac{2}{3} > \\dfrac{3}{5}$."
+      "explanation": "Using the common denominator $15$, $\\dfrac{2}{3} = \\dfrac{10}{15}$ and $\\dfrac{3}{5} = \\dfrac{9}{15}$. Since $\\dfrac{10}{15} > \\dfrac{9}{15}$, we have $\\dfrac{2}{3} > \\dfrac{3}{5}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-fractions-1-frac-q7",
@@ -204,7 +210,8 @@
         "$\\dfrac{1}{2}$"
       ],
       "correctIndex": 2,
-      "explanation": "When denominators are the same, add the numerators and keep the denominator: $\\dfrac{3}{8} + \\dfrac{1}{8} = \\dfrac{4}{8}$. This can be simplified to $\\dfrac{1}{2}$, but $\\dfrac{4}{8}$ is the direct result."
+      "explanation": "When denominators are the same, add the numerators and keep the denominator: $\\dfrac{3}{8} + \\dfrac{1}{8} = \\dfrac{4}{8}$. This can be simplified to $\\dfrac{1}{2}$, but $\\dfrac{4}{8}$ is the direct result.",
+      "difficulty": "easy"
     },
     {
       "id": "math-fractions-1-frac-q8",
@@ -216,7 +223,8 @@
         "$\\dfrac{1}{3}$"
       ],
       "correctIndex": 1,
-      "explanation": "The LCM of $6$ and $4$ is $12$. Rewriting gives $\\dfrac{10}{12} - \\dfrac{3}{12} = \\dfrac{7}{12}$."
+      "explanation": "The LCM of $6$ and $4$ is $12$. Rewriting gives $\\dfrac{10}{12} - \\dfrac{3}{12} = \\dfrac{7}{12}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-fractions-1-frac-q9",
@@ -228,7 +236,8 @@
         "$\\dfrac{8}{15}$"
       ],
       "correctIndex": 1,
-      "explanation": "Multiplying gives $\\dfrac{2 \\times 3}{5 \\times 4} = \\dfrac{6}{20}$. Simplifying by dividing numerator and denominator by $2$ gives $\\dfrac{3}{10}$."
+      "explanation": "Multiplying gives $\\dfrac{2 \\times 3}{5 \\times 4} = \\dfrac{6}{20}$. Simplifying by dividing numerator and denominator by $2$ gives $\\dfrac{3}{10}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-fractions-1-frac-q10",
@@ -240,7 +249,8 @@
         "$\\dfrac{12}{18}$"
       ],
       "correctIndex": 2,
-      "explanation": "Dividing by $\\dfrac{2}{3}$ is the same as multiplying by its reciprocal $\\dfrac{3}{2}$: $\\dfrac{4}{9} \\times \\dfrac{3}{2} = \\dfrac{12}{18} = \\dfrac{2}{3}$."
+      "explanation": "Dividing by $\\dfrac{2}{3}$ is the same as multiplying by its reciprocal $\\dfrac{3}{2}$: $\\dfrac{4}{9} \\times \\dfrac{3}{2} = \\dfrac{12}{18} = \\dfrac{2}{3}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-fractions-1-frac-q11",
@@ -252,7 +262,8 @@
         "$32$"
       ],
       "correctIndex": 2,
-      "explanation": "Divide $64$ by $8$ to get $8$, then multiply by $3$ to get $24$. So $\\dfrac{3}{8}$ of $64 = 24$."
+      "explanation": "Divide $64$ by $8$ to get $8$, then multiply by $3$ to get $24$. So $\\dfrac{3}{8}$ of $64 = 24$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-fractions-1-frac-q12",
@@ -264,7 +275,8 @@
         "$0.85$"
       ],
       "correctIndex": 1,
-      "explanation": "$5 \\div 8 = 0.625$. This is an exact decimal because the denominator $8$ is a power of $2$."
+      "explanation": "$5 \\div 8 = 0.625$. This is an exact decimal because the denominator $8$ is a power of $2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-fractions-1-frac-q13",
@@ -276,7 +288,8 @@
         "$3\\dfrac{1}{4}$ cups"
       ],
       "correctIndex": 1,
-      "explanation": "Convert $2\\dfrac{1}{2}$ to $\\dfrac{5}{2}$, then multiply: $\\dfrac{3}{4} \\times \\dfrac{5}{2} = \\dfrac{15}{8} = 1\\dfrac{7}{8}$ cups."
+      "explanation": "Convert $2\\dfrac{1}{2}$ to $\\dfrac{5}{2}$, then multiply: $\\dfrac{3}{4} \\times \\dfrac{5}{2} = \\dfrac{15}{8} = 1\\dfrac{7}{8}$ cups.",
+      "difficulty": "hard"
     },
     {
       "id": "math-fractions-1-frac-q14",
@@ -288,7 +301,8 @@
         "$5$"
       ],
       "correctIndex": 1,
-      "explanation": "$2\\dfrac{1}{4} = \\dfrac{9}{4}$. Divide by $\\dfrac{3}{4}$: $\\dfrac{9}{4} \\div \\dfrac{3}{4} = \\dfrac{9}{4} \\times \\dfrac{4}{3} = \\dfrac{36}{12} = 3$ pieces."
+      "explanation": "$2\\dfrac{1}{4} = \\dfrac{9}{4}$. Divide by $\\dfrac{3}{4}$: $\\dfrac{9}{4} \\div \\dfrac{3}{4} = \\dfrac{9}{4} \\times \\dfrac{4}{3} = \\dfrac{36}{12} = 3$ pieces.",
+      "difficulty": "hard"
     },
     {
       "id": "math-fractions-1-frac-q15",
@@ -300,7 +314,8 @@
         "$180$ litres"
       ],
       "correctIndex": 3,
-      "explanation": "The fraction used is $\\dfrac{5}{6} - \\dfrac{2}{3} = \\dfrac{5}{6} - \\dfrac{4}{6} = \\dfrac{1}{6}$. This $\\dfrac{1}{6}$ of the tank equals $30$ litres, so the full capacity is $30 \\times 6 = 180$ litres."
+      "explanation": "The fraction used is $\\dfrac{5}{6} - \\dfrac{2}{3} = \\dfrac{5}{6} - \\dfrac{4}{6} = \\dfrac{1}{6}$. This $\\dfrac{1}{6}$ of the tank equals $30$ litres, so the full capacity is $30 \\times 6 = 180$ litres.",
+      "difficulty": "hard"
     }
   ]
 }

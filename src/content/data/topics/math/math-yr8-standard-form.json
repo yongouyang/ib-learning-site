@@ -137,7 +137,8 @@
         "$100 \\times 10^{-3}$"
       ],
       "correctIndex": 2,
-      "explanation": "Standard form requires the coefficient to be at least $1$ and less than $10$. Only $7.3 \\times 10^2$ satisfies this condition. The other options have coefficients outside the allowed range."
+      "explanation": "Standard form requires the coefficient to be at least $1$ and less than $10$. Only $7.3 \\times 10^2$ satisfies this condition. The other options have coefficients outside the allowed range.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-standard-form-q2",
@@ -149,7 +150,8 @@
         "$0.56 \\times 10^5$"
       ],
       "correctIndex": 1,
-      "explanation": "Move the decimal point four places to the left to get $5.6$. Because it moved four places, the exponent is $4$, so $56\\,000 = 5.6 \\times 10^4$."
+      "explanation": "Move the decimal point four places to the left to get $5.6$. Because it moved four places, the exponent is $4$, so $56\\,000 = 5.6 \\times 10^4$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-standard-form-q3",
@@ -161,7 +163,8 @@
         "$0.92 \\times 10^{-5}$"
       ],
       "correctIndex": 1,
-      "explanation": "Move the decimal point six places to the right to get $9.2$. Because it moved six places to the right, the exponent is $-6$, so $0.000\\,009\\,2 = 9.2 \\times 10^{-6}$."
+      "explanation": "Move the decimal point six places to the right to get $9.2$. Because it moved six places to the right, the exponent is $-6$, so $0.000\\,009\\,2 = 9.2 \\times 10^{-6}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-standard-form-q4",
@@ -173,7 +176,8 @@
         "$0.000\\,037$"
       ],
       "correctIndex": 0,
-      "explanation": "The exponent is $5$, so move the decimal point five places to the right: $3.7 \\times 10^5 = 370\\,000$."
+      "explanation": "The exponent is $5$, so move the decimal point five places to the right: $3.7 \\times 10^5 = 370\\,000$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-standard-form-q5",
@@ -185,7 +189,8 @@
         "$420\\,000$"
       ],
       "correctIndex": 2,
-      "explanation": "The exponent is $-4$, so move the decimal point four places to the left: $4.2 \\times 10^{-4} = 0.000\\,042$."
+      "explanation": "The exponent is $-4$, so move the decimal point four places to the left: $4.2 \\times 10^{-4} = 0.000\\,042$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-standard-form-q6",
@@ -197,7 +202,9 @@
         "$5 \\times 10^{24}$"
       ],
       "correctIndex": 1,
-      "explanation": "Multiply the coefficients: $3 \\times 2 = 6$. Add the exponents: $10^4 \\times 10^6 = 10^{10}$. So the answer is $6 \\times 10^{10}$."
+      "explanation": "Multiply the coefficients: $3 \\times 2 = 6$. Add the exponents: $10^4 \\times 10^6 = 10^{10}$. So the answer is $6 \\times 10^{10}$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-standard-form-q7",
@@ -209,7 +216,9 @@
         "$4 \\times 10^6$"
       ],
       "correctIndex": 0,
-      "explanation": "Divide the coefficients: $8 \\div 4 = 2$. Subtract the exponents: $10^9 \\div 10^3 = 10^6$. So the answer is $2 \\times 10^6$."
+      "explanation": "Divide the coefficients: $8 \\div 4 = 2$. Subtract the exponents: $10^9 \\div 10^3 = 10^6$. So the answer is $2 \\times 10^6$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-standard-form-q8",
@@ -221,7 +230,9 @@
         "$7 \\times 10^5$"
       ],
       "correctIndex": 2,
-      "explanation": "Multiply the coefficients: $2 \\times 5 = 10$. Add the exponents: $10^3 \\times 10^2 = 10^5$. This gives $10 \\times 10^5$, but the coefficient $10$ is not in standard form, so rewrite it as $1 \\times 10^6$."
+      "explanation": "Multiply the coefficients: $2 \\times 5 = 10$. Add the exponents: $10^3 \\times 10^2 = 10^5$. This gives $10 \\times 10^5$, but the coefficient $10$ is not in standard form, so rewrite it as $1 \\times 10^6$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr8-standard-form-q9",
@@ -233,7 +244,9 @@
         "$4.3 \\times 10^4$"
       ],
       "correctIndex": 1,
-      "explanation": "Rewrite $3 \\times 10^4$ as $0.3 \\times 10^5$. Then add the coefficients: $4 + 0.3 = 4.3$, giving $4.3 \\times 10^5$."
+      "explanation": "Rewrite $3 \\times 10^4$ as $0.3 \\times 10^5$. Then add the coefficients: $4 + 0.3 = 4.3$, giving $4.3 \\times 10^5$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr8-standard-form-q10",
@@ -245,7 +258,9 @@
         "$7 \\times 10^6$"
       ],
       "correctIndex": 1,
-      "explanation": "Rewrite $2 \\times 10^6$ as $0.2 \\times 10^7$. Then subtract: $9 - 0.2 = 8.8$, giving $8.8 \\times 10^7$."
+      "explanation": "Rewrite $2 \\times 10^6$ as $0.2 \\times 10^7$. Then subtract: $9 - 0.2 = 8.8$, giving $8.8 \\times 10^7$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr8-standard-form-q11",
@@ -257,7 +272,8 @@
         "$-1000$"
       ],
       "correctIndex": 2,
-      "explanation": "$10^{-3} = \\dfrac{1}{10^3} = \\dfrac{1}{1000} = 0.001$. A negative exponent gives a reciprocal, not a negative number."
+      "explanation": "$10^{-3} = \\dfrac{1}{10^3} = \\dfrac{1}{1000} = 0.001$. A negative exponent gives a reciprocal, not a negative number.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-standard-form-q12",
@@ -269,7 +285,8 @@
         "$0.25$"
       ],
       "correctIndex": 2,
-      "explanation": "Move the decimal point two places to the left: $2.5 \\times 10^{-2} = 0.025$."
+      "explanation": "Move the decimal point two places to the left: $2.5 \\times 10^{-2} = 0.025$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-standard-form-q13",
@@ -281,7 +298,8 @@
         "$0.72 \\times 10^9$"
       ],
       "correctIndex": 2,
-      "explanation": "Move the decimal point eight places to the left to get $7.2$, so $720\\,000\\,000 = 7.2 \\times 10^8$."
+      "explanation": "Move the decimal point eight places to the left to get $7.2$, so $720\\,000\\,000 = 7.2 \\times 10^8$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-standard-form-q14",
@@ -293,11 +311,13 @@
         "$2 \\times 10^{-10}$"
       ],
       "correctIndex": 1,
-      "explanation": "Divide the coefficients: $6 \\div 3 = 2$. Subtract the exponents: $10^5 \\div 10^{-2} = 10^{5 - (-2)} = 10^7$. So the answer is $2 \\times 10^7$."
+      "explanation": "Divide the coefficients: $6 \\div 3 = 2$. Subtract the exponents: $10^5 \\div 10^{-2} = 10^{5 - (-2)} = 10^7$. So the answer is $2 \\times 10^7$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr8-standard-form-q15",
-      "stem": "A calculator display shows $7.2\text{E}6$. What ordinary number does this represent?",
+      "stem": "A calculator display shows $7.2\\text{E}6$. What ordinary number does this represent?",
       "choices": [
         "$0.000\\,007\\,2$",
         "$72\\,000$",
@@ -305,7 +325,8 @@
         "$72\\,000\\,000$"
       ],
       "correctIndex": 2,
-      "explanation": "$7.2\text{E}6$ means $7.2 \\times 10^6$. Move the decimal point six places to the right: $7.2 \\times 10^6 = 7\\,200\\,000$."
+      "explanation": "$7.2\\text{E}6$ means $7.2 \\times 10^6$. Move the decimal point six places to the right: $7.2 \\times 10^6 = 7\\,200\\,000$.",
+      "difficulty": "medium"
     }
   ]
 }

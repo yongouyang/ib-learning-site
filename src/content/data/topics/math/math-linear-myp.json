@@ -132,7 +132,8 @@
         "IV"
       ],
       "correctIndex": 1,
-      "explanation": "Negative $x$ and positive $y$ place a point in Quadrant II."
+      "explanation": "Negative $x$ and positive $y$ place a point in Quadrant II.",
+      "difficulty": "easy"
     },
     {
       "id": "math-linear-myp-lin-q2",
@@ -144,7 +145,8 @@
         "4"
       ],
       "correctIndex": 1,
-      "explanation": "Gradient measures the steepness of a line: it tells you how much the $y$-value changes for each one-unit increase in $x$. Using the points $(1,2)$ and $(5,10)$, the change in $y$ is $10-2=8$ and the change in $x$ is $5-1=4$, so $m=\\dfrac{8}{4}=2$. In real life, a gradient of 2 is like a ramp that rises 2 metres for every 1 metre horizontally."
+      "explanation": "Gradient measures the steepness of a line: it tells you how much the $y$-value changes for each one-unit increase in $x$. Using the points $(1,2)$ and $(5,10)$, the change in $y$ is $10-2=8$ and the change in $x$ is $5-1=4$, so $m=\\dfrac{8}{4}=2$. In real life, a gradient of 2 is like a ramp that rises 2 metres for every 1 metre horizontally.",
+      "difficulty": "medium"
     },
     {
       "id": "math-linear-myp-lin-q3",
@@ -156,7 +158,8 @@
         "-4"
       ],
       "correctIndex": 2,
-      "explanation": "In $y=mx+c$, the $y$-intercept is $c=-7$."
+      "explanation": "In $y=mx+c$, the $y$-intercept is $c=-7$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-linear-myp-lin-q4",
@@ -168,7 +171,8 @@
         "$y=-2x-5$"
       ],
       "correctIndex": 1,
-      "explanation": "The $y$-intercept is $5$ and the gradient is $-2$, so $y=-2x+5$."
+      "explanation": "The $y$-intercept is $5$ and the gradient is $-2$, so $y=-2x+5$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-linear-myp-lin-q5",
@@ -180,7 +184,8 @@
         "$y=3x+1$"
       ],
       "correctIndex": 1,
-      "explanation": "Gradient $m=\\dfrac{11-5}{4-2}=3$. Substituting $(2,5)$ gives $5=6+c$, so $c=-1$ and $y=3x-1$."
+      "explanation": "Gradient $m=\\dfrac{11-5}{4-2}=3$. Substituting $(2,5)$ gives $5=6+c$, so $c=-1$ and $y=3x-1$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-linear-myp-lin-q6",
@@ -192,7 +197,8 @@
         "$y=2x+4$"
       ],
       "correctIndex": 1,
-      "explanation": "Parallel lines have the same gradient, so the answer must keep $m=\\dfrac{2}{3}$."
+      "explanation": "Parallel lines have the same gradient, so the answer must keep $m=\\dfrac{2}{3}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-linear-myp-lin-q7",
@@ -204,7 +210,8 @@
         "$-\\dfrac{1}{5}$"
       ],
       "correctIndex": 3,
-      "explanation": "Perpendicular gradients multiply to $-1$, so $m_2=-\\dfrac{1}{5}$."
+      "explanation": "Perpendicular gradients multiply to $-1$, so $m_2=-\\dfrac{1}{5}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-linear-myp-lin-q8",
@@ -216,7 +223,8 @@
         "$x=-2$"
       ],
       "correctIndex": 1,
-      "explanation": "A horizontal line has equation $y=c$, so through $(6,-2)$ it is $y=-2$."
+      "explanation": "A horizontal line has equation $y=c$, so through $(6,-2)$ it is $y=-2$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-linear-myp-lin-q9",
@@ -228,7 +236,8 @@
         "-12"
       ],
       "correctIndex": 0,
-      "explanation": "Set $y=0$: $0=3x-12$ gives $3x=12$ and $x=4$."
+      "explanation": "Set $y=0$: $0=3x-12$ gives $3x=12$ and $x=4$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-linear-myp-lin-q10",
@@ -240,7 +249,8 @@
         "12"
       ],
       "correctIndex": 0,
-      "explanation": "$\\dfrac{14-c}{4}=2$, so $14-c=8$ and $c=6$."
+      "explanation": "$\\dfrac{14-c}{4}=2$, so $14-c=8$ and $c=6$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-linear-myp-lin-q11",
@@ -252,7 +262,8 @@
         "$C=25(h+40)$"
       ],
       "correctIndex": 1,
-      "explanation": "The £40 is the fixed intercept and £25 is the rate per hour, so $C=25h+40$."
+      "explanation": "The £40 is the fixed intercept and £25 is the rate per hour, so $C=25h+40$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-linear-myp-lin-q12",
@@ -264,7 +275,8 @@
         "$y=\\dfrac{1}{3}x+2$"
       ],
       "correctIndex": 0,
-      "explanation": "Rearranging gives $y=3x+4$, gradient $3$; a perpendicular gradient is $-\\dfrac{1}{3}$."
+      "explanation": "Rearranging gives $y=3x+4$, gradient $3$; a perpendicular gradient is $-\\dfrac{1}{3}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-linear-myp-lin-q13",
@@ -276,7 +288,8 @@
         "$y=-\\dfrac{1}{2}x+\\dfrac{9}{2}$"
       ],
       "correctIndex": 0,
-      "explanation": "Parallel means $m=2$. Substituting $(-1,5)$ gives $5=-2+c$, so $c=7$ and $y=2x+7$."
+      "explanation": "Parallel means $m=2$. Substituting $(-1,5)$ gives $5=-2+c$, so $c=7$ and $y=2x+7$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-linear-myp-lin-q14",
@@ -288,7 +301,8 @@
         "7"
       ],
       "correctIndex": 0,
-      "explanation": "$\\dfrac{1-a}{6-2}=-\\dfrac{3}{4}$, so $1-a=-3$ and $a=4$."
+      "explanation": "$\\dfrac{1-a}{6-2}=-\\dfrac{3}{4}$, so $1-a=-3$ and $a=4$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-linear-myp-lin-q15",
@@ -300,7 +314,8 @@
         "£250"
       ],
       "correctIndex": 0,
-      "explanation": "Using $C=30d+20$ with $d=7$ gives $C=210+20=230$, so the cost is £230."
+      "explanation": "Using $C=30d+20$ with $d=7$ gives $C=210+20=230$, so the cost is £230.",
+      "difficulty": "medium"
     }
   ]
 }

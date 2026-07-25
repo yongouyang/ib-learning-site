@@ -127,7 +127,8 @@
         "$6.3$"
       ],
       "correctIndex": 0,
-      "explanation": "Half of $0.1$ is $0.05$, so the lower bound is $6.3 - 0.05 = 6.25$. The value $6.35$ is the upper bound, not the lower."
+      "explanation": "Half of $0.1$ is $0.05$, so the lower bound is $6.3 - 0.05 = 6.25$. The value $6.35$ is the upper bound, not the lower.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-error-intervals-q2",
@@ -139,7 +140,8 @@
         "$6.39$"
       ],
       "correctIndex": 1,
-      "explanation": "The upper bound is $6.3 + 0.05 = 6.35$. Values below $6.35$ round to $6.3$; $6.35$ itself would round to $6.4$."
+      "explanation": "The upper bound is $6.3 + 0.05 = 6.35$. Values below $6.35$ round to $6.3$; $6.35$ itself would round to $6.4$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-error-intervals-q3",
@@ -151,7 +153,8 @@
         "$34.6 \\leq t < 34.65$"
       ],
       "correctIndex": 0,
-      "explanation": "Half of $0.1$ is $0.05$, giving bounds $34.55$ and $34.65$. The upper bound uses $<$ because $34.65$ itself rounds to $34.7$."
+      "explanation": "Half of $0.1$ is $0.05$, giving bounds $34.55$ and $34.65$. The upper bound uses $<$ because $34.65$ itself rounds to $34.7$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-error-intervals-q4",
@@ -163,7 +166,8 @@
         "$249.5 \\leq m < 250.5$"
       ],
       "correctIndex": 2,
-      "explanation": "Half of $10$ is $5$, so the bounds are $245$ and $255$, with $<$ at the top. Using $240$ and $260$ means halving was forgotten; $249.5$ and $250.5$ would apply to the nearest gram."
+      "explanation": "Half of $10$ is $5$, so the bounds are $245$ and $255$, with $<$ at the top. Using $240$ and $260$ means halving was forgotten; $249.5$ and $250.5$ would apply to the nearest gram.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-error-intervals-q5",
@@ -175,7 +179,8 @@
         "$4\\,799$"
       ],
       "correctIndex": 0,
-      "explanation": "Half of $100$ is $50$, so the lower bound is $4\\,800 - 50 = 4\\,750$. Any value from $4\\,750$ upwards rounds to $4\\,800$."
+      "explanation": "Half of $100$ is $50$, so the lower bound is $4\\,800 - 50 = 4\\,750$. Any value from $4\\,750$ upwards rounds to $4\\,800$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-error-intervals-q6",
@@ -187,7 +192,8 @@
         "$0.0695 \\leq x < 0.0795$"
       ],
       "correctIndex": 1,
-      "explanation": "The last significant digit is in the thousandths place, so half the unit is $0.0005$, giving $0.0735 \\leq x < 0.0745$."
+      "explanation": "The last significant digit is in the thousandths place, so half the unit is $0.0005$, giving $0.0735 \\leq x < 0.0745$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-error-intervals-q7",
@@ -199,7 +205,8 @@
         "Because it is shorter to write."
       ],
       "correctIndex": 1,
-      "explanation": "The upper bound, e.g. $34.65$, rounds up to the next value ($34.7$), so it cannot be included in the interval for $34.6$."
+      "explanation": "The upper bound, e.g. $34.65$, rounds up to the next value ($34.7$), so it cannot be included in the interval for $34.6$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-error-intervals-q8",
@@ -211,7 +218,8 @@
         "$7.7$"
       ],
       "correctIndex": 1,
-      "explanation": "The upper bounds are $5.45$ and $2.15$, so the maximum sum is $5.45 + 2.15 = 7.6$. Adding $5.4 + 2.1 = 7.5$ ignores the rounding."
+      "explanation": "The upper bounds are $5.45$ and $2.15$, so the maximum sum is $5.45 + 2.15 = 7.6$. Adding $5.4 + 2.1 = 7.5$ ignores the rounding.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-error-intervals-q9",
@@ -223,7 +231,8 @@
         "$3.2$"
       ],
       "correctIndex": 3,
-      "explanation": "The smallest difference uses the smallest $A$ and the largest $B$: $5.35 - 2.15 = 3.2$."
+      "explanation": "The smallest difference uses the smallest $A$ and the largest $B$: $5.35 - 2.15 = 3.2$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-error-intervals-q10",
@@ -235,7 +244,9 @@
         "$13.4$"
       ],
       "correctIndex": 1,
-      "explanation": "The upper bounds are $3.25$ and $4.15$, so the maximum product is $3.25 \\times 4.15 = 13.4875$."
+      "explanation": "The upper bounds are $3.25$ and $4.15$, so the maximum product is $3.25 \\times 4.15 = 13.4875$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr9-error-intervals-q11",
@@ -247,7 +258,9 @@
         "$51.0$ km/h"
       ],
       "correctIndex": 2,
-      "explanation": "Maximum speed uses the greatest distance and least time: $125 \\div 2.35 \\approx 53.2$ km/h. The value $50.0$ km/h comes from the rounded numbers, not the bounds."
+      "explanation": "Maximum speed uses the greatest distance and least time: $125 \\div 2.35 \\approx 53.2$ km/h. The value $50.0$ km/h comes from the rounded numbers, not the bounds.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr9-error-intervals-q12",
@@ -259,7 +272,8 @@
         "$7.89$"
       ],
       "correctIndex": 2,
-      "explanation": "The error interval is $7.75 \\leq x < 7.85$. Only $7.75$ lies in it; $7.74$ rounds to $7.7$, while $7.85$ and $7.89$ round to $7.9$."
+      "explanation": "The error interval is $7.75 \\leq x < 7.85$. Only $7.75$ lies in it; $7.74$ rounds to $7.7$, while $7.85$ and $7.89$ round to $7.9$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-error-intervals-q13",
@@ -271,7 +285,9 @@
         "$15.5625$ m$^2$"
       ],
       "correctIndex": 3,
-      "explanation": "The lower bounds are $4.15$ m and $3.75$ m, so the minimum area is $4.15 \\times 3.75 = 15.5625$ m$^2$."
+      "explanation": "The lower bounds are $4.15$ m and $3.75$ m, so the minimum area is $4.15 \\times 3.75 = 15.5625$ m$^2$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr9-error-intervals-q14",
@@ -283,7 +299,8 @@
         "$9.0 \\leq x < 9.05$"
       ],
       "correctIndex": 0,
-      "explanation": "Half of $0.1$ is $0.05$, so the bounds are $8.95$ and $9.05$, with $<$ at the upper bound. The interval $8.9 \\leq x < 9.1$ forgets to halve the unit."
+      "explanation": "Half of $0.1$ is $0.05$, so the bounds are $8.95$ and $9.05$, with $<$ at the upper bound. The interval $8.9 \\leq x < 9.1$ forgets to halve the unit.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-error-intervals-q15",
@@ -295,7 +312,8 @@
         "Nearest $0.01$ cm"
       ],
       "correctIndex": 1,
-      "explanation": "The trailing zero in $8.0$ shows the tenths digit was recorded, so the value is correct to the nearest $0.1$ cm. Writing $8$ cm would only claim the nearest centimetre."
+      "explanation": "The trailing zero in $8.0$ shows the tenths digit was recorded, so the value is correct to the nearest $0.1$ cm. Writing $8$ cm would only claim the nearest centimetre.",
+      "difficulty": "easy"
     }
   ]
 }

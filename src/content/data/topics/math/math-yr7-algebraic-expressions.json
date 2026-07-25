@@ -29,12 +29,12 @@
     {
       "id": "math-yr7-algebraic-expressions-n4",
       "heading": "Multiplying a Single Term by an Expression",
-      "body": "📌 Definition\nWhen a single term is multiplied by a bracketed expression, every term inside the bracket must be multiplied by the term outside.\n\n🔑 How it works\n$$a(b + c) = ab + ac$$\n$$a(b - c) = ab - ac$$\n\nThe term outside is distributed across each term inside the bracket.\n\n💡 Worked Example\nExpand $3(x + 4)$.\n\nStep 1: Multiply $3$ by $x$.\n$$3 \times x = 3x$$\n\nStep 2: Multiply $3$ by $4$.\n$$3 \times 4 = 12$$\n\nStep 3: Combine.\n$$3x + 12$$\n\n⚠️ Common Mistake\nOnly multiplying the first term inside the bracket. For example, writing $3(x + 4) = 3x + 4$ is wrong because the $4$ was not multiplied by $3$.\n\n✅ Check\nSubstitute a value for $x$ into the original and expanded forms. If $x = 2$, both $3(2 + 4)$ and $3(2) + 12$ equal $18$."
+      "body": "📌 Definition\nWhen a single term is multiplied by a bracketed expression, every term inside the bracket must be multiplied by the term outside.\n\n🔑 How it works\n$$a(b + c) = ab + ac$$\n$$a(b - c) = ab - ac$$\n\nThe term outside is distributed across each term inside the bracket.\n\n💡 Worked Example\nExpand $3(x + 4)$.\n\nStep 1: Multiply $3$ by $x$.\n$$3 \\times x = 3x$$\n\nStep 2: Multiply $3$ by $4$.\n$$3 \\times 4 = 12$$\n\nStep 3: Combine.\n$$3x + 12$$\n\n⚠️ Common Mistake\nOnly multiplying the first term inside the bracket. For example, writing $3(x + 4) = 3x + 4$ is wrong because the $4$ was not multiplied by $3$.\n\n✅ Check\nSubstitute a value for $x$ into the original and expanded forms. If $x = 2$, both $3(2 + 4)$ and $3(2) + 12$ equal $18$."
     },
     {
       "id": "math-yr7-algebraic-expressions-n5",
       "heading": "Expanding with a Negative Coefficient",
-      "body": "📌 Definition\nWhen the term outside the bracket is negative, every term inside the bracket changes sign after multiplication.\n\n🔑 How it works\n$$-2(x - 3) = -2x + 6$$\n\nA negative times a negative gives a positive, so $-2$ multiplied by $-3$ becomes $+6$.\n\n💡 Worked Example\nExpand $-4(2x - 5)$.\n\nStep 1: Multiply $-4$ by $2x$.\n$$-4 \times 2x = -8x$$\n\nStep 2: Multiply $-4$ by $-5$.\n$$-4 \times (-5) = 20$$\n\nStep 3: Combine.\n$$-8x + 20$$\n\n⚠️ Common Mistake\nForgetting that a negative times a negative is positive. Many students write $-4(2x - 5) = -8x - 20$, but the constant term should be $+20$.\n\n✅ Check\nUse $x = 1$. The original $-4(2 \times 1 - 5)$ is $-4(-3) = 12$, and the expansion $-8(1) + 20$ is also $12$."
+      "body": "📌 Definition\nWhen the term outside the bracket is negative, every term inside the bracket changes sign after multiplication.\n\n🔑 How it works\n$$-2(x - 3) = -2x + 6$$\n\nA negative times a negative gives a positive, so $-2$ multiplied by $-3$ becomes $+6$.\n\n💡 Worked Example\nExpand $-4(2x - 5)$.\n\nStep 1: Multiply $-4$ by $2x$.\n$$-4 \\times 2x = -8x$$\n\nStep 2: Multiply $-4$ by $-5$.\n$$-4 \\times (-5) = 20$$\n\nStep 3: Combine.\n$$-8x + 20$$\n\n⚠️ Common Mistake\nForgetting that a negative times a negative is positive. Many students write $-4(2x - 5) = -8x - 20$, but the constant term should be $+20$.\n\n✅ Check\nUse $x = 1$. The original $-4(2 \\times 1 - 5)$ is $-4(-3) = 12$, and the expansion $-8(1) + 20$ is also $12$."
     },
     {
       "id": "math-yr7-algebraic-expressions-n6",
@@ -132,7 +132,8 @@
         "$21x^2$"
       ],
       "correctIndex": 0,
-      "explanation": "$3x$ and $7x$ are like terms. Add their coefficients: $3 + 7 = 10$, so the answer is $10x$. You do not add or multiply the powers."
+      "explanation": "$3x$ and $7x$ are like terms. Add their coefficients: $3 + 7 = 10$, so the answer is $10x$. You do not add or multiply the powers.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-algebraic-expressions-q2",
@@ -144,7 +145,8 @@
         "$11a$"
       ],
       "correctIndex": 1,
-      "explanation": "Combine the coefficients in order: $8 - 5 = 3$, then $3 + 2 = 5$. The result is $5a$."
+      "explanation": "Combine the coefficients in order: $8 - 5 = 3$, then $3 + 2 = 5$. The result is $5a$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-algebraic-expressions-q3",
@@ -156,7 +158,8 @@
         "$5xy$"
       ],
       "correctIndex": 1,
-      "explanation": "Collect the $x$ terms: $4x - 2x = 2x$. Collect the $y$ terms: $3y + y = 4y$. The simplified expression is $2x + 4y$."
+      "explanation": "Collect the $x$ terms: $4x - 2x = 2x$. Collect the $y$ terms: $3y + y = 4y$. The simplified expression is $2x + 4y$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-algebraic-expressions-q4",
@@ -168,7 +171,8 @@
         "$6$ and $6x$"
       ],
       "correctIndex": 2,
-      "explanation": "$5ab$ and $5ba$ have the same variables raised to the same powers; the order of letters does not matter. The other pairs have different variable parts."
+      "explanation": "$5ab$ and $5ba$ have the same variables raised to the same powers; the order of letters does not matter. The other pairs have different variable parts.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-algebraic-expressions-q5",
@@ -180,7 +184,8 @@
         "$2x + 7$"
       ],
       "correctIndex": 1,
-      "explanation": "Multiply both terms inside the bracket by $2$: $2 \times x = 2x$ and $2 \times 5 = 10$. The expanded form is $2x + 10$."
+      "explanation": "Multiply both terms inside the bracket by $2$: $2 \\times x = 2x$ and $2 \\times 5 = 10$. The expanded form is $2x + 10$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-algebraic-expressions-q6",
@@ -192,7 +197,8 @@
         "$6x + 12$"
       ],
       "correctIndex": 2,
-      "explanation": "$3 \times 2x = 6x$ and $3 \times (-4) = -12$. So $3(2x - 4) = 6x - 12$."
+      "explanation": "$3 \\times 2x = 6x$ and $3 \\times (-4) = -12$. So $3(2x - 4) = 6x - 12$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-algebraic-expressions-q7",
@@ -204,7 +210,8 @@
         "$4x - 12$"
       ],
       "correctIndex": 2,
-      "explanation": "$-4 \times x = -4x$ and $-4 \times 3 = -12$. The result is $-4x - 12$."
+      "explanation": "$-4 \\times x = -4x$ and $-4 \\times 3 = -12$. The result is $-4x - 12$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-algebraic-expressions-q8",
@@ -216,7 +223,8 @@
         "$6x + 10$"
       ],
       "correctIndex": 2,
-      "explanation": "$-2 \times 3x = -6x$ and $-2 \times (-5) = +10$. The expanded form is $-6x + 10$."
+      "explanation": "$-2 \\times 3x = -6x$ and $-2 \\times (-5) = +10$. The expanded form is $-6x + 10$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-algebraic-expressions-q9",
@@ -228,7 +236,8 @@
         "$13x$"
       ],
       "correctIndex": 1,
-      "explanation": "First expand $5(2x + 1) = 10x + 5$, then subtract $3x$: $10x + 5 - 3x = 7x + 5$."
+      "explanation": "First expand $5(2x + 1) = 10x + 5$, then subtract $3x$: $10x + 5 - 3x = 7x + 5$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-algebraic-expressions-q10",
@@ -240,7 +249,8 @@
         "$5x + 10$"
       ],
       "correctIndex": 1,
-      "explanation": "Expand both brackets: $2x + 8 + 3x + 6$. Collect like terms: $2x + 3x = 5x$ and $8 + 6 = 14$, giving $5x + 14$."
+      "explanation": "Expand both brackets: $2x + 8 + 3x + 6$. Collect like terms: $2x + 3x = 5x$ and $8 + 6 = 14$, giving $5x + 14$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-algebraic-expressions-q11",
@@ -252,7 +262,8 @@
         "$6x + 2$"
       ],
       "correctIndex": 0,
-      "explanation": "Expand: $12x - 8 - 2x + 10$. Collect like terms: $12x - 2x = 10x$ and $-8 + 10 = 2$. The answer is $10x + 2$."
+      "explanation": "Expand: $12x - 8 - 2x + 10$. Collect like terms: $12x - 2x = 10x$ and $-8 + 10 = 2$. The answer is $10x + 2$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-algebraic-expressions-q12",
@@ -264,7 +275,8 @@
         "$4 + x$"
       ],
       "correctIndex": 0,
-      "explanation": "Four lots of $x$ added together is the same as $4 \times x$, which is written as $4x$. The exponent is not added."
+      "explanation": "Four lots of $x$ added together is the same as $4 \\times x$, which is written as $4x$. The exponent is not added.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-algebraic-expressions-q13",
@@ -276,7 +288,8 @@
         "$3x + 6$"
       ],
       "correctIndex": 3,
-      "explanation": "$x$ terms: $7x - 4x = 3x$. Constant terms: $-3 + 9 = 6$. The simplified expression is $3x + 6$."
+      "explanation": "$x$ terms: $7x - 4x = 3x$. Constant terms: $-3 + 9 = 6$. The simplified expression is $3x + 6$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-algebraic-expressions-q14",
@@ -288,7 +301,8 @@
         "$8x - 2$"
       ],
       "correctIndex": 0,
-      "explanation": "Expand the bracket: $6x - 2$. Then add the $6$ outside: $6x - 2 + 6 = 6x + 4$."
+      "explanation": "Expand the bracket: $6x - 2$. Then add the $6$ outside: $6x - 2 + 6 = 6x + 4$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-algebraic-expressions-q15",
@@ -300,7 +314,8 @@
         "$2x + 3y$"
       ],
       "correctIndex": 0,
-      "explanation": "$x$ terms: $3x - x + 4x = 6x$. $y$ terms: $2y - y = y$. The final answer is $6x + y$."
+      "explanation": "$x$ terms: $3x - x + 4x = 6x$. $y$ terms: $2y - y = y$. The final answer is $6x + y$.",
+      "difficulty": "medium"
     }
   ]
 }

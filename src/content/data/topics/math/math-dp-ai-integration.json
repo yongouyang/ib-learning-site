@@ -10,7 +10,7 @@
     {
       "id": "math-dp-integration-int-n1",
       "heading": "Antiderivatives and Indefinite Integrals",
-      "body": "Integration is the reverse process of differentiation. If you know the derivative of a function, integration lets you recover the original function.\n\n📌 Definition\nIf $F'(x) = f(x)$, then $F(x)$ is called an antiderivative of $f(x)$.\n\nThe indefinite integral includes an arbitrary constant because any constant disappears during differentiation:\n    $$\\int f(x) \\, dx = F(x) + C$$\n    where $C$ is the constant of integration\n\n🔑 Power Rule\nFor any rational number $n \neq -1$:\n    $$\\int x^n \\, dx = \\dfrac{x^{n+1}}{n+1} + C$$\n\n💡 Worked Example — Using the Power Rule\nFind $\\int (6x^2 - 4x + 3) \\, dx$.\n\n  Step 1: Integrate each term separately\n    $\\int 6x^2 \\, dx = 6 \\cdot \\dfrac{x^3}{3} = 2x^3$\n    $\\int -4x \\, dx = -4 \\cdot \\dfrac{x^2}{2} = -2x^2$\n    $\\int 3 \\, dx = 3x$\n\n  Step 2: Add the constant of integration\n    Result: $2x^3 - 2x^2 + 3x + C$\n\n🔑 Standard Integrals You Must Know\n    $$\\int e^x \\, dx = e^x + C$$\n    $$\\int \\dfrac{1}{x} \\, dx = \\ln|x| + C$$\n    $$\\int \\sin x \\, dx = -\\cos x + C$$\n    $$\\int \\cos x \\, dx = \\sin x + C$$\n    $$\\int \\sec^2 x \\, dx = \tan x + C$$\n\n💡 Worked Example — Finding the Constant of Integration\nGiven $f'(x) = 6x^2 - 4x$ and $f(1) = 3$, find $f(x)$.\n\n  Step 1: Integrate to find the general form\n    $f(x) = \\int (6x^2 - 4x) \\, dx$\n    $f(x) = 2x^3 - 2x^2 + C$\n\n  Step 2: Use the given point to find $C$\n    $f(1) = 3$\n    $2(1)^3 - 2(1)^2 + C = 3$\n    $2 - 2 + C = 3$\n    $C = 3$\n\n  Step 3: Write the final answer\n    $f(x) = 2x^3 - 2x^2 + 3$\n\n📎 Key Points to Remember\n• Always include $+C$ for indefinite integrals\n• The power rule fails when $n = -1$ (use $\\ln|x|$ instead)\n• Integrating a sum means integrating each term separately\n• A constant factor can be pulled outside the integral\n\n⚠️ Common Mistake\nForgetting the constant of integration. If a question gives you a point on the curve and you omit $+C$, you will get the wrong answer. Every indefinite integral has infinitely many solutions — the $+C$ captures all of them.",
+      "body": "Integration is the reverse process of differentiation. If you know the derivative of a function, integration lets you recover the original function.\n\n📌 Definition\nIf $F'(x) = f(x)$, then $F(x)$ is called an antiderivative of $f(x)$.\n\nThe indefinite integral includes an arbitrary constant because any constant disappears during differentiation:\n    $$\\int f(x) \\, dx = F(x) + C$$\n    where $C$ is the constant of integration\n\n🔑 Power Rule\nFor any rational number $n \\neq -1$:\n    $$\\int x^n \\, dx = \\dfrac{x^{n+1}}{n+1} + C$$\n\n💡 Worked Example — Using the Power Rule\nFind $\\int (6x^2 - 4x + 3) \\, dx$.\n\n  Step 1: Integrate each term separately\n    $\\int 6x^2 \\, dx = 6 \\cdot \\dfrac{x^3}{3} = 2x^3$\n    $\\int -4x \\, dx = -4 \\cdot \\dfrac{x^2}{2} = -2x^2$\n    $\\int 3 \\, dx = 3x$\n\n  Step 2: Add the constant of integration\n    Result: $2x^3 - 2x^2 + 3x + C$\n\n🔑 Standard Integrals You Must Know\n    $$\\int e^x \\, dx = e^x + C$$\n    $$\\int \\dfrac{1}{x} \\, dx = \\ln|x| + C$$\n    $$\\int \\sin x \\, dx = -\\cos x + C$$\n    $$\\int \\cos x \\, dx = \\sin x + C$$\n    $$\\int \\sec^2 x \\, dx = \\tan x + C$$\n\n💡 Worked Example — Finding the Constant of Integration\nGiven $f'(x) = 6x^2 - 4x$ and $f(1) = 3$, find $f(x)$.\n\n  Step 1: Integrate to find the general form\n    $f(x) = \\int (6x^2 - 4x) \\, dx$\n    $f(x) = 2x^3 - 2x^2 + C$\n\n  Step 2: Use the given point to find $C$\n    $f(1) = 3$\n    $2(1)^3 - 2(1)^2 + C = 3$\n    $2 - 2 + C = 3$\n    $C = 3$\n\n  Step 3: Write the final answer\n    $f(x) = 2x^3 - 2x^2 + 3$\n\n📎 Key Points to Remember\n• Always include $+C$ for indefinite integrals\n• The power rule fails when $n = -1$ (use $\\ln|x|$ instead)\n• Integrating a sum means integrating each term separately\n• A constant factor can be pulled outside the integral\n\n⚠️ Common Mistake\nForgetting the constant of integration. If a question gives you a point on the curve and you omit $+C$, you will get the wrong answer. Every indefinite integral has infinitely many solutions — the $+C$ captures all of them.",
       "illustration": {
         "src": "/images/math/math-dp-integration.svg",
         "alt": "Integration as the reverse of differentiation; the power rule ∫xⁿdx=xⁿ⁺¹/(n+1)+C; standard integrals for 1/x, eˣ, sin x, cos x; the definite integral as area under a curve; and volume of revolution.",
@@ -20,7 +20,7 @@
     {
       "id": "math-dp-integration-int-n2",
       "heading": "Definite Integrals and FTC",
-      "body": "While indefinite integrals give families of functions, definite integrals produce a single number. They are the tool we use to calculate exact areas.\n\n📌 The Fundamental Theorem of Calculus (FTC)\nIf $F'(x) = f(x)$, then:\n    $$\\int_{a}^{b} f(x) \\, dx = F(b) - F(a)$$\n\nThe notation $[F(x)]_{a}^{b}$ means you evaluate $F$ at the top limit and subtract $F$ at the bottom limit.\n\n💡 Worked Example — Evaluating a Definite Integral\nEvaluate $\\int_{0}^{2} (3x^2 + 1) \\, dx$.\n\n  Step 1: Find the antiderivative\n    $F(x) = x^3 + x$\n\n  Step 2: Apply the FTC\n    $[x^3 + x]_{0}^{2}$\n    $= (2^3 + 2) - (0^3 + 0)$\n    $= 8 + 2 - 0$\n    $= 10$\n\n🔑 Area Under a Curve\nWhen $f(x)$ is above the $x$-axis on $[a, b]$:\n    $$\text{Area} = \\int_{a}^{b} f(x) \\, dx$$\n\nWhen $f(x)$ dips below the $x$-axis, the definite integral gives a negative value for that portion. Area must be positive, so you need to split the integral at the zeros and take absolute values.\n\n💡 Worked Example — Area with a Curve Below the Axis\nFind the total area enclosed by $y = x^2 - 2x$ and the $x$-axis.\n\n  Step 1: Find where the curve cuts the $x$-axis\n    $x^2 - 2x = 0$\n    $x(x - 2) = 0$\n    $x = 0$ or $x = 2$\n\n  Step 2: Determine which function is on top\n    On $[0, 2]$, the curve is below the axis, so $y_U = 0$ and $y_L = x^2 - 2x$\n\n  Step 3: Set up the integral\n    $$\text{Area} = \\int_{0}^{2} [0 - (x^2 - 2x)] \\, dx$$\n    $$= \\int_{0}^{2} (2x - x^2) \\, dx$$\n\n  Step 4: Evaluate\n    $$= \\left[x^2 - \\dfrac{x^3}{3}\\right]_{0}^{2}$$\n    $$= \\left(4 - \\dfrac{8}{3}\\right) - (0 - 0)$$\n    $$= \\dfrac{4}{3} \text{ units}^2$$\n\n🔑 Area Between Two Curves\nIf $f(x) \\geq g(x)$ on $[a, b]$:\n    $$\text{Area} = \\int_{a}^{b} [f(x) - g(x)] \\, dx$$\n\nThe limits $a$ and $b$ are the $x$-coordinates where the curves intersect.\n\n💡 Worked Example — Area Between Two Curves\nFind the area enclosed by $y = x^2$ and $y = 2x$.\n\n  Step 1: Find intersection points\n    $x^2 = 2x$\n    $x^2 - 2x = 0$\n    $x(x - 2) = 0$\n    $x = 0$ or $x = 2$\n\n  Step 2: Determine which curve is on top\n    Test $x = 1$: $y_{\text{line}} = 2$, $y_{\text{parabola}} = 1$\n    So $y = 2x$ is the upper curve on $[0, 2]$\n\n  Step 3: Set up and evaluate\n    $$\text{Area} = \\int_{0}^{2} (2x - x^2) \\, dx$$\n    $$= \\left[x^2 - \\dfrac{x^3}{3}\\right]_{0}^{2}$$\n    $$= \\left(4 - \\dfrac{8}{3}\\right) - 0$$\n    $$= \\dfrac{4}{3} \text{ units}^2$$\n\n📎 Properties of Definite Integrals\n• $\\int_{a}^{a} f(x) \\, dx = 0$\n• $\\int_{a}^{b} f(x) \\, dx = - \\int_{b}^{a} f(x) \\, dx$\n• $\\int_{a}^{b} f(x) \\, dx + \\int_{b}^{c} f(x) \\, dx = \\int_{a}^{c} f(x) \\, dx$\n• $\\int_{a}^{b} [f(x) \\pm g(x)] \\, dx = \\int_{a}^{b} f(x) \\, dx \\pm \\int_{a}^{b} g(x) \\, dx$\n\n⚠️ Common Mistake\nComputing the definite integral without checking whether the curve dips below the $x$-axis. If part of the region is below the axis, that portion contributes a negative value. Always sketch the graph first, find the zeros, and split the integral if needed."
+      "body": "While indefinite integrals give families of functions, definite integrals produce a single number. They are the tool we use to calculate exact areas.\n\n📌 The Fundamental Theorem of Calculus (FTC)\nIf $F'(x) = f(x)$, then:\n    $$\\int_{a}^{b} f(x) \\, dx = F(b) - F(a)$$\n\nThe notation $[F(x)]_{a}^{b}$ means you evaluate $F$ at the top limit and subtract $F$ at the bottom limit.\n\n💡 Worked Example — Evaluating a Definite Integral\nEvaluate $\\int_{0}^{2} (3x^2 + 1) \\, dx$.\n\n  Step 1: Find the antiderivative\n    $F(x) = x^3 + x$\n\n  Step 2: Apply the FTC\n    $[x^3 + x]_{0}^{2}$\n    $= (2^3 + 2) - (0^3 + 0)$\n    $= 8 + 2 - 0$\n    $= 10$\n\n🔑 Area Under a Curve\nWhen $f(x)$ is above the $x$-axis on $[a, b]$:\n    $$\\text{Area} = \\int_{a}^{b} f(x) \\, dx$$\n\nWhen $f(x)$ dips below the $x$-axis, the definite integral gives a negative value for that portion. Area must be positive, so you need to split the integral at the zeros and take absolute values.\n\n💡 Worked Example — Area with a Curve Below the Axis\nFind the total area enclosed by $y = x^2 - 2x$ and the $x$-axis.\n\n  Step 1: Find where the curve cuts the $x$-axis\n    $x^2 - 2x = 0$\n    $x(x - 2) = 0$\n    $x = 0$ or $x = 2$\n\n  Step 2: Determine which function is on top\n    On $[0, 2]$, the curve is below the axis, so $y_U = 0$ and $y_L = x^2 - 2x$\n\n  Step 3: Set up the integral\n    $$\\text{Area} = \\int_{0}^{2} [0 - (x^2 - 2x)] \\, dx$$\n    $$= \\int_{0}^{2} (2x - x^2) \\, dx$$\n\n  Step 4: Evaluate\n    $$= \\left[x^2 - \\dfrac{x^3}{3}\\right]_{0}^{2}$$\n    $$= \\left(4 - \\dfrac{8}{3}\\right) - (0 - 0)$$\n    $$= \\dfrac{4}{3} \\text{ units}^2$$\n\n🔑 Area Between Two Curves\nIf $f(x) \\geq g(x)$ on $[a, b]$:\n    $$\\text{Area} = \\int_{a}^{b} [f(x) - g(x)] \\, dx$$\n\nThe limits $a$ and $b$ are the $x$-coordinates where the curves intersect.\n\n💡 Worked Example — Area Between Two Curves\nFind the area enclosed by $y = x^2$ and $y = 2x$.\n\n  Step 1: Find intersection points\n    $x^2 = 2x$\n    $x^2 - 2x = 0$\n    $x(x - 2) = 0$\n    $x = 0$ or $x = 2$\n\n  Step 2: Determine which curve is on top\n    Test $x = 1$: $y_{\\text{line}} = 2$, $y_{\\text{parabola}} = 1$\n    So $y = 2x$ is the upper curve on $[0, 2]$\n\n  Step 3: Set up and evaluate\n    $$\\text{Area} = \\int_{0}^{2} (2x - x^2) \\, dx$$\n    $$= \\left[x^2 - \\dfrac{x^3}{3}\\right]_{0}^{2}$$\n    $$= \\left(4 - \\dfrac{8}{3}\\right) - 0$$\n    $$= \\dfrac{4}{3} \\text{ units}^2$$\n\n📎 Properties of Definite Integrals\n• $\\int_{a}^{a} f(x) \\, dx = 0$\n• $\\int_{a}^{b} f(x) \\, dx = - \\int_{b}^{a} f(x) \\, dx$\n• $\\int_{a}^{b} f(x) \\, dx + \\int_{b}^{c} f(x) \\, dx = \\int_{a}^{c} f(x) \\, dx$\n• $\\int_{a}^{b} [f(x) \\pm g(x)] \\, dx = \\int_{a}^{b} f(x) \\, dx \\pm \\int_{a}^{b} g(x) \\, dx$\n\n⚠️ Common Mistake\nComputing the definite integral without checking whether the curve dips below the $x$-axis. If part of the region is below the axis, that portion contributes a negative value. Always sketch the graph first, find the zeros, and split the integral if needed."
     },
     {
       "id": "math-dp-integration-int-n3",
@@ -30,17 +30,17 @@
     {
       "id": "math-dp-integration-int-n4",
       "heading": "Kinematics and Volume of Revolution",
-      "body": "Integration connects the three quantities of motion — displacement, velocity, and acceleration. It also lets us calculate volumes of solids formed by rotating curves around an axis.\n\n📌 Displacement, Velocity, and Acceleration\nDifferentiation moves downward; integration moves upward:\n    $s(t) = \text{displacement}$\n    $v(t) = \\dfrac{ds}{dt} = \\int a(t) \\, dt + C_1$\n    $a(t) = \\dfrac{dv}{dt} = \\dfrac{d^2s}{dt^2}$\n\nGiven different starting information:\n• Given $s(t)$: differentiate to get $v(t)$ and $a(t)$\n• Given $v(t)$: integrate to get $s(t)$, differentiate to get $a(t)$\n• Given $a(t)$: integrate twice to get $v(t)$ then $s(t)$\n\n🔑 Displacement vs Total Distance\n    $$\text{Displacement} = \\int_{t_1}^{t_2} v(t) \\, dt \text{ (signed, net change)}$$\n    $$\text{Total distance} = \\int_{t_1}^{t_2} |v(t)| \\, dt \text{ (always positive)}$$\n\n💡 Worked Example — Total Distance Travelled\nA particle moves with velocity $v(t) = t^2 - 4t + 3$ m/s for $0 \\leq t \\leq 3$. Find the total distance travelled.\n\n  Step 1: Find when velocity changes sign\n    $v(t) = (t - 1)(t - 3)$\n    $v(t) = 0$ at $t = 1$ and $t = 3$\n    Sign diagram: $v > 0$ on $[0, 1)$ and $v < 0$ on $(1, 3]$\n\n  Step 2: Find the antiderivative\n    $s(t) = \\int v(t) \\, dt = \\dfrac{t^3}{3} - 2t^2 + 3t + C$\n    With $s(0) = 0$, we get $C = 0$\n\n  Step 3: Evaluate displacement at key points\n    $s(0) = 0$\n    $s(1) = \\dfrac{1}{3} - 2 + 3 = \\dfrac{4}{3}$\n    $s(3) = 9 - 18 + 9 = 0$\n\n  Step 4: Calculate total distance from motion diagram\n    $|s(1) - s(0)| + |s(3) - s(1)|$\n    $= \\dfrac{4}{3} + \\dfrac{4}{3}$\n    $= \\dfrac{8}{3}$ metres\n\n🔑 Volume of Revolution (AA HL)\nWhen the region under $y = f(x)$ from $x = a$ to $x = b$ is rotated $2\\pi$ around the $x$-axis:\n    $$V = \\pi \\int_{a}^{b} [f(x)]^2 \\, dx$$\n\nWhen rotating around the $y$-axis, use $x$ as a function of $y$:\n    $$V = \\pi \\int_{a}^{b} [x(y)]^2 \\, dy$$\n\n💡 Worked Example — Volume Around the $x$-axis\nFind the volume when $y = \\sqrt{x}$ from $x = 0$ to $x = 4$ is rotated $2\\pi$ about the $x$-axis.\n\n  Step 1: Set up the formula\n    $$V = \\pi \\int_{0}^{4} (\\sqrt{x})^2 \\, dx$$\n\n  Step 2: Simplify the integrand\n    $(\\sqrt{x})^2 = x$\n\n  Step 3: Evaluate\n    $$V = \\pi \\int_{0}^{4} x \\, dx$$\n    $$V = \\pi \\left[\\dfrac{x^2}{2}\\right]_{0}^{4}$$\n    $$V = \\pi \\left(\\dfrac{16}{2} - 0\\right)$$\n    $$V = 8\\pi \text{ cubic units}$$\n\n💡 Worked Example — Volume Around the $y$-axis\nThe region bounded by $y = x^2$, the $y$-axis, and $y = 4$ is rotated $2\\pi$ about the $y$-axis. Find the volume.\n\n  Step 1: Express $x$ in terms of $y$\n    $y = x^2$, so $x = \\sqrt{y}$\n\n  Step 2: Set up the integral with $y$-limits\n    $$V = \\pi \\int_{0}^{4} (\\sqrt{y})^2 \\, dy$$\n    $$V = \\pi \\int_{0}^{4} y \\, dy$$\n\n  Step 3: Evaluate\n    $$V = \\pi \\left[\\dfrac{y^2}{2}\\right]_{0}^{4}$$\n    $$V = \\pi \\left(\\dfrac{16}{2} - 0\\right)$$\n    $$V = 8\\pi \text{ cubic units}$$\n\n📎 Key Points to Remember\n• Displacement can be zero while distance is positive (round trips)\n• Split at $v = 0$ to compute total distance\n• For volume, always square the function before integrating\n• Rotation about $y$-axis requires $x$ as a function of $y$\n• The $\\pi$ factor stays outside the integral\n\n⚠️ Common Mistake\nUsing displacement instead of total distance when the velocity changes sign. The net displacement can be zero even after travelling a long distance — always check for direction changes by finding where $v(t) = 0$."
+      "body": "Integration connects the three quantities of motion — displacement, velocity, and acceleration. It also lets us calculate volumes of solids formed by rotating curves around an axis.\n\n📌 Displacement, Velocity, and Acceleration\nDifferentiation moves downward; integration moves upward:\n    $s(t) = \\text{displacement}$\n    $v(t) = \\dfrac{ds}{dt} = \\int a(t) \\, dt + C_1$\n    $a(t) = \\dfrac{dv}{dt} = \\dfrac{d^2s}{dt^2}$\n\nGiven different starting information:\n• Given $s(t)$: differentiate to get $v(t)$ and $a(t)$\n• Given $v(t)$: integrate to get $s(t)$, differentiate to get $a(t)$\n• Given $a(t)$: integrate twice to get $v(t)$ then $s(t)$\n\n🔑 Displacement vs Total Distance\n    $$\\text{Displacement} = \\int_{t_1}^{t_2} v(t) \\, dt \\text{ (signed, net change)}$$\n    $$\\text{Total distance} = \\int_{t_1}^{t_2} |v(t)| \\, dt \\text{ (always positive)}$$\n\n💡 Worked Example — Total Distance Travelled\nA particle moves with velocity $v(t) = t^2 - 4t + 3$ m/s for $0 \\leq t \\leq 3$. Find the total distance travelled.\n\n  Step 1: Find when velocity changes sign\n    $v(t) = (t - 1)(t - 3)$\n    $v(t) = 0$ at $t = 1$ and $t = 3$\n    Sign diagram: $v > 0$ on $[0, 1)$ and $v < 0$ on $(1, 3]$\n\n  Step 2: Find the antiderivative\n    $s(t) = \\int v(t) \\, dt = \\dfrac{t^3}{3} - 2t^2 + 3t + C$\n    With $s(0) = 0$, we get $C = 0$\n\n  Step 3: Evaluate displacement at key points\n    $s(0) = 0$\n    $s(1) = \\dfrac{1}{3} - 2 + 3 = \\dfrac{4}{3}$\n    $s(3) = 9 - 18 + 9 = 0$\n\n  Step 4: Calculate total distance from motion diagram\n    $|s(1) - s(0)| + |s(3) - s(1)|$\n    $= \\dfrac{4}{3} + \\dfrac{4}{3}$\n    $= \\dfrac{8}{3}$ metres\n\n🔑 Volume of Revolution (AA HL)\nWhen the region under $y = f(x)$ from $x = a$ to $x = b$ is rotated $2\\pi$ around the $x$-axis:\n    $$V = \\pi \\int_{a}^{b} [f(x)]^2 \\, dx$$\n\nWhen rotating around the $y$-axis, use $x$ as a function of $y$:\n    $$V = \\pi \\int_{a}^{b} [x(y)]^2 \\, dy$$\n\n💡 Worked Example — Volume Around the $x$-axis\nFind the volume when $y = \\sqrt{x}$ from $x = 0$ to $x = 4$ is rotated $2\\pi$ about the $x$-axis.\n\n  Step 1: Set up the formula\n    $$V = \\pi \\int_{0}^{4} (\\sqrt{x})^2 \\, dx$$\n\n  Step 2: Simplify the integrand\n    $(\\sqrt{x})^2 = x$\n\n  Step 3: Evaluate\n    $$V = \\pi \\int_{0}^{4} x \\, dx$$\n    $$V = \\pi \\left[\\dfrac{x^2}{2}\\right]_{0}^{4}$$\n    $$V = \\pi \\left(\\dfrac{16}{2} - 0\\right)$$\n    $$V = 8\\pi \\text{ cubic units}$$\n\n💡 Worked Example — Volume Around the $y$-axis\nThe region bounded by $y = x^2$, the $y$-axis, and $y = 4$ is rotated $2\\pi$ about the $y$-axis. Find the volume.\n\n  Step 1: Express $x$ in terms of $y$\n    $y = x^2$, so $x = \\sqrt{y}$\n\n  Step 2: Set up the integral with $y$-limits\n    $$V = \\pi \\int_{0}^{4} (\\sqrt{y})^2 \\, dy$$\n    $$V = \\pi \\int_{0}^{4} y \\, dy$$\n\n  Step 3: Evaluate\n    $$V = \\pi \\left[\\dfrac{y^2}{2}\\right]_{0}^{4}$$\n    $$V = \\pi \\left(\\dfrac{16}{2} - 0\\right)$$\n    $$V = 8\\pi \\text{ cubic units}$$\n\n📎 Key Points to Remember\n• Displacement can be zero while distance is positive (round trips)\n• Split at $v = 0$ to compute total distance\n• For volume, always square the function before integrating\n• Rotation about $y$-axis requires $x$ as a function of $y$\n• The $\\pi$ factor stays outside the integral\n\n⚠️ Common Mistake\nUsing displacement instead of total distance when the velocity changes sign. The net displacement can be zero even after travelling a long distance — always check for direction changes by finding where $v(t) = 0$."
     },
     {
       "id": "math-dp-integration-int-n5",
       "heading": "Reverse Chain Rule and Composite Functions",
-      "body": "The reverse chain rule lets you integrate composite functions by inspection. It is faster than formal substitution when the structure is easy to spot.\n\n📌 Reverse Chain Rule\nIf $F'(x) = f(x)$, then:\n    $$\\int g'(x) \\cdot f(g(x)) \\, dx = F(g(x)) + C$$\n\nIn words: if the integrand is the derivative of the inner function times the outer function, the result is the antiderivative of the outer function with the inner function plugged in.\n\n🔑 Linear Composite Functions — Direct Formulas\nFor any constants $a$ and $b$, with $n \neq -1$:\n\n    $$\\int (ax + b)^n \\, dx = \\dfrac{(ax + b)^{n+1}}{a(n+1)} + C$$\n\n    $$\\int \\sin(ax + b) \\, dx = -\\dfrac{1}{a} \\cos(ax + b) + C$$\n\n    $$\\int \\cos(ax + b) \\, dx = \\dfrac{1}{a} \\sin(ax + b) + C$$\n\n    $$\\int \\sec^2(ax + b) \\, dx = \\dfrac{1}{a} \tan(ax + b) + C$$\n\n    $$\\int e^{ax + b} \\, dx = \\dfrac{1}{a} e^{ax + b} + C$$\n\n    $$\\int \\dfrac{1}{ax + b} \\, dx = \\dfrac{1}{a} \\ln|ax + b| + C$$\n\n💡 Worked Example — Integrating a Linear Composite\nFind $\\int \\sec^2(3x) \\, dx$.\n\n  Step 1: Identify the pattern\n    This matches $\\int \\sec^2(ax + b) \\, dx$ with $a = 3$, $b = 0$\n\n  Step 2: Apply the formula\n    $= \\dfrac{1}{3} \tan(3x) + C$\n\n💡 Worked Example — Adjust and Compensate\nFind $\\int x \\cdot (5x^2 - 2)^6 \\, dx$.\n\n  Step 1: Spot the inner function\n    Let $u = 5x^2 - 2$, then $\\dfrac{du}{dx} = 10x$\n    We have $x$ in the integrand, but need $10x$\n\n  Step 2: Adjust and compensate\n    $x = \\dfrac{1}{10} \\cdot 10x$\n    $\text{integral} = \\dfrac{1}{10} \\cdot \\int 10x \\cdot (5x^2 - 2)^6 \\, dx$\n\n  Step 3: Integrate by reverse chain rule\n    $= \\dfrac{1}{10} \\cdot \\dfrac{(5x^2 - 2)^7}{7} + C$\n    $= \\dfrac{(5x^2 - 2)^7}{70} + C$\n\n💡 Worked Example — Definite Integral with Substitution\nEvaluate $\\int_{1}^{e} \\dfrac{1}{x} \\, dx$.\n\n  Step 1: Identify the antiderivative\n    $$\\int \\dfrac{1}{x} \\, dx = \\ln|x| + C$$\n\n  Step 2: Apply the FTC\n    $[\\ln|x|]_{1}^{e}$\n    $= \\ln(e) - \\ln(1)$\n    $= 1 - 0$\n    $= 1$\n\n📎 Key Points to Remember\n• Every linear composite has a $\\dfrac{1}{a}$ factor — do not forget it\n• If the inner derivative is present but with a wrong coefficient, adjust and compensate\n• For definite integrals with substitution, change limits to $u$-values or substitute back\n• Reverse chain rule and substitution are the same idea presented differently\n\n⚠️ Common Mistake\nMultiplying by $a$ instead of dividing by $a$. Students often write $\\int \\sin(4x) \\, dx = \\cos(4x) + C$, but the correct answer is $-\\dfrac{1}{4}\\cos(4x) + C$. Always check by differentiating your answer — you should recover the original integrand."
+      "body": "The reverse chain rule lets you integrate composite functions by inspection. It is faster than formal substitution when the structure is easy to spot.\n\n📌 Reverse Chain Rule\nIf $F'(x) = f(x)$, then:\n    $$\\int g'(x) \\cdot f(g(x)) \\, dx = F(g(x)) + C$$\n\nIn words: if the integrand is the derivative of the inner function times the outer function, the result is the antiderivative of the outer function with the inner function plugged in.\n\n🔑 Linear Composite Functions — Direct Formulas\nFor any constants $a$ and $b$, with $n \\neq -1$:\n\n    $$\\int (ax + b)^n \\, dx = \\dfrac{(ax + b)^{n+1}}{a(n+1)} + C$$\n\n    $$\\int \\sin(ax + b) \\, dx = -\\dfrac{1}{a} \\cos(ax + b) + C$$\n\n    $$\\int \\cos(ax + b) \\, dx = \\dfrac{1}{a} \\sin(ax + b) + C$$\n\n    $$\\int \\sec^2(ax + b) \\, dx = \\dfrac{1}{a} \\tan(ax + b) + C$$\n\n    $$\\int e^{ax + b} \\, dx = \\dfrac{1}{a} e^{ax + b} + C$$\n\n    $$\\int \\dfrac{1}{ax + b} \\, dx = \\dfrac{1}{a} \\ln|ax + b| + C$$\n\n💡 Worked Example — Integrating a Linear Composite\nFind $\\int \\sec^2(3x) \\, dx$.\n\n  Step 1: Identify the pattern\n    This matches $\\int \\sec^2(ax + b) \\, dx$ with $a = 3$, $b = 0$\n\n  Step 2: Apply the formula\n    $= \\dfrac{1}{3} \\tan(3x) + C$\n\n💡 Worked Example — Adjust and Compensate\nFind $\\int x \\cdot (5x^2 - 2)^6 \\, dx$.\n\n  Step 1: Spot the inner function\n    Let $u = 5x^2 - 2$, then $\\dfrac{du}{dx} = 10x$\n    We have $x$ in the integrand, but need $10x$\n\n  Step 2: Adjust and compensate\n    $x = \\dfrac{1}{10} \\cdot 10x$\n    $\\text{integral} = \\dfrac{1}{10} \\cdot \\int 10x \\cdot (5x^2 - 2)^6 \\, dx$\n\n  Step 3: Integrate by reverse chain rule\n    $= \\dfrac{1}{10} \\cdot \\dfrac{(5x^2 - 2)^7}{7} + C$\n    $= \\dfrac{(5x^2 - 2)^7}{70} + C$\n\n💡 Worked Example — Definite Integral with Substitution\nEvaluate $\\int_{1}^{e} \\dfrac{1}{x} \\, dx$.\n\n  Step 1: Identify the antiderivative\n    $$\\int \\dfrac{1}{x} \\, dx = \\ln|x| + C$$\n\n  Step 2: Apply the FTC\n    $[\\ln|x|]_{1}^{e}$\n    $= \\ln(e) - \\ln(1)$\n    $= 1 - 0$\n    $= 1$\n\n📎 Key Points to Remember\n• Every linear composite has a $\\dfrac{1}{a}$ factor — do not forget it\n• If the inner derivative is present but with a wrong coefficient, adjust and compensate\n• For definite integrals with substitution, change limits to $u$-values or substitute back\n• Reverse chain rule and substitution are the same idea presented differently\n\n⚠️ Common Mistake\nMultiplying by $a$ instead of dividing by $a$. Students often write $\\int \\sin(4x) \\, dx = \\cos(4x) + C$, but the correct answer is $-\\dfrac{1}{4}\\cos(4x) + C$. Always check by differentiating your answer — you should recover the original integrand."
     },
     {
       "id": "math-dp-integration-int-n6",
       "heading": "Average Value and Total Change",
-      "body": "Definite integrals are not only about area — they also give average values and accumulated totals over an interval.\n\n📌 Definition\nThe average value of a function $f(x)$ on the interval $[a,b]$ is:\n    $$\text{Average value} = \\dfrac{1}{b-a} \\int_{a}^{b} f(x) \\, dx$$\n\nIf $f(x)$ represents a rate of change, the definite integral gives the total change over $[a,b]$.\n\n🔑 Key Concept\nThink of the average-value formula as \"height $\times$ width = area, solved for height\". The integral gives the signed area under the curve; dividing by the width $b-a$ gives the mean height of the function on that interval.\n\n💡 Worked Example — Average Value\nFind the average value of $f(x) = x^2$ on $[0,3]$.\n\n  Step 1: Write the formula\n    $$\text{Average} = \\dfrac{1}{3-0} \\int_{0}^{3} x^2 \\, dx$$\n\n  Step 2: Evaluate the integral\n    $$= \\dfrac{1}{3} \\left[\\dfrac{x^3}{3}\\right]_{0}^{3}$$\n    $$= \\dfrac{1}{3} \\left(\\dfrac{27}{3} - 0\\right)$$\n    $$= \\dfrac{1}{3} \\cdot 9 = 3$$\n\n💡 Worked Example — Total Change from a Rate\nWater flows into a tank at $r(t) = 5 + 2t$ litres per minute for $0 \\le t \\le 4$. Find the total volume that enters.\n\n  Step 1: Integrate the rate\n    $$V = \\int_{0}^{4} (5 + 2t) \\, dx$$\n\n  Step 2: Evaluate\n    $$= \\left[5t + t^2\\right]_{0}^{4}$$\n    $$= (20 + 16) - (0 + 0)$$\n    $$= 36 \text{ litres}$$\n\n📎 Key Points to Remember\n• Average value always divides the integral by the length of the interval\n• Total change = integral of rate, with appropriate units\n• If $f(x)$ is negative on part of the interval, the average value is signed (net average)\n• For kinematics, $\\int v(t) \\, dt$ gives displacement; for flow rates it gives total volume\n\n⚠️ Common Mistake\nForgetting to divide by $b-a$ when asked for an average value. Many students correctly evaluate the integral but then present that as the average."
+      "body": "Definite integrals are not only about area — they also give average values and accumulated totals over an interval.\n\n📌 Definition\nThe average value of a function $f(x)$ on the interval $[a,b]$ is:\n    $$\\text{Average value} = \\dfrac{1}{b-a} \\int_{a}^{b} f(x) \\, dx$$\n\nIf $f(x)$ represents a rate of change, the definite integral gives the total change over $[a,b]$.\n\n🔑 Key Concept\nThink of the average-value formula as \"height $\\times$ width = area, solved for height\". The integral gives the signed area under the curve; dividing by the width $b-a$ gives the mean height of the function on that interval.\n\n💡 Worked Example — Average Value\nFind the average value of $f(x) = x^2$ on $[0,3]$.\n\n  Step 1: Write the formula\n    $$\\text{Average} = \\dfrac{1}{3-0} \\int_{0}^{3} x^2 \\, dx$$\n\n  Step 2: Evaluate the integral\n    $$= \\dfrac{1}{3} \\left[\\dfrac{x^3}{3}\\right]_{0}^{3}$$\n    $$= \\dfrac{1}{3} \\left(\\dfrac{27}{3} - 0\\right)$$\n    $$= \\dfrac{1}{3} \\cdot 9 = 3$$\n\n💡 Worked Example — Total Change from a Rate\nWater flows into a tank at $r(t) = 5 + 2t$ litres per minute for $0 \\le t \\le 4$. Find the total volume that enters.\n\n  Step 1: Integrate the rate\n    $$V = \\int_{0}^{4} (5 + 2t) \\, dx$$\n\n  Step 2: Evaluate\n    $$= \\left[5t + t^2\\right]_{0}^{4}$$\n    $$= (20 + 16) - (0 + 0)$$\n    $$= 36 \\text{ litres}$$\n\n📎 Key Points to Remember\n• Average value always divides the integral by the length of the interval\n• Total change = integral of rate, with appropriate units\n• If $f(x)$ is negative on part of the interval, the average value is signed (net average)\n• For kinematics, $\\int v(t) \\, dt$ gives displacement; for flow rates it gives total volume\n\n⚠️ Common Mistake\nForgetting to divide by $b-a$ when asked for an average value. Many students correctly evaluate the integral but then present that as the average."
     },
     {
       "id": "math-dp-integration-int-n7",
@@ -63,7 +63,7 @@
     {
       "id": "math-dp-integration-int-f2",
       "term": "Power Rule",
-      "definition": "$\\int x^n \\, dx = \\dfrac{x^{n+1}}{n+1} + C$ ($n \neq -1$)",
+      "definition": "$\\int x^n \\, dx = \\dfrac{x^{n+1}}{n+1} + C$ ($n \\neq -1$)",
       "example": "$\\int x^4 \\, dx = \\dfrac{x^5}{5} + C$."
     },
     {
@@ -99,8 +99,8 @@
     {
       "id": "math-dp-integration-int-f8",
       "term": "$\\int \\sec^2 x \\, dx$",
-      "definition": "$\\int \\sec^2 x \\, dx = \tan x + C$",
-      "example": "$\\int \\sec^2(2x) \\, dx = \\dfrac{1}{2}\tan(2x) + C$."
+      "definition": "$\\int \\sec^2 x \\, dx = \\tan x + C$",
+      "example": "$\\int \\sec^2(2x) \\, dx = \\dfrac{1}{2}\\tan(2x) + C$."
     },
     {
       "id": "math-dp-integration-int-f9",
@@ -111,13 +111,13 @@
     {
       "id": "math-dp-integration-int-f10",
       "term": "$\\int (ax+b)^n \\, dx$",
-      "definition": "$\\int (ax+b)^n \\, dx = \\dfrac{(ax+b)^{n+1}}{a(n+1)} + C$ ($n \neq -1$)",
+      "definition": "$\\int (ax+b)^n \\, dx = \\dfrac{(ax+b)^{n+1}}{a(n+1)} + C$ ($n \\neq -1$)",
       "example": "$\\int (2x+1)^3 \\, dx = \\dfrac{(2x+1)^4}{8} + C$."
     },
     {
       "id": "math-dp-integration-int-f11",
       "term": "Average value of a function",
-      "definition": "$\text{Average value} = \\dfrac{1}{b-a} \\int_{a}^{b} f(x) \\, dx$",
+      "definition": "$\\text{Average value} = \\dfrac{1}{b-a} \\int_{a}^{b} f(x) \\, dx$",
       "example": "Average value of $x^2$ on $[0,3]$ is $3$."
     },
     {
@@ -138,7 +138,8 @@
         "$2x^3 - 4x + 3 + C$"
       ],
       "correctIndex": 0,
-      "explanation": "Term by term: $2x^3 - 2x^2 + 3x + C$."
+      "explanation": "Term by term: $2x^3 - 2x^2 + 3x + C$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-integration-int-q2",
@@ -150,7 +151,8 @@
         "6"
       ],
       "correctIndex": 0,
-      "explanation": "$[x^3 + x]_{0}^{2} = 8 + 2 - 0 = 10$."
+      "explanation": "$[x^3 + x]_{0}^{2} = 8 + 2 - 0 = 10$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-integration-int-q3",
@@ -162,7 +164,8 @@
         "$-4\\cos(4x) + C$"
       ],
       "correctIndex": 1,
-      "explanation": "$\\int \\sin(ax) \\, dx = -\\dfrac{1}{a}\\cos(ax) + C$."
+      "explanation": "$\\int \\sin(ax) \\, dx = -\\dfrac{1}{a}\\cos(ax) + C$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-integration-int-q4",
@@ -174,7 +177,8 @@
         "$e-1$"
       ],
       "correctIndex": 1,
-      "explanation": "$[\\ln|x|]_{1}^{e} = 1 - 0 = 1$."
+      "explanation": "$[\\ln|x|]_{1}^{e} = 1 - 0 = 1$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-integration-int-q5",
@@ -186,7 +190,8 @@
         "$\\dfrac{1}{12}$"
       ],
       "correctIndex": 0,
-      "explanation": "$\\int_{0}^{1} (x - x^2) \\, dx = \\dfrac{1}{2} - \\dfrac{1}{3} = \\dfrac{1}{6}$."
+      "explanation": "$\\int_{0}^{1} (x - x^2) \\, dx = \\dfrac{1}{2} - \\dfrac{1}{3} = \\dfrac{1}{6}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-integration-int-q6",
@@ -198,7 +203,8 @@
         "$72\\pi$"
       ],
       "correctIndex": 1,
-      "explanation": "$\\pi \\int_{0}^{3} 4x^2 \\, dx = \\pi \\left[\\dfrac{4x^3}{3}\\right]_{0}^{3} = 36\\pi$."
+      "explanation": "$\\pi \\int_{0}^{3} 4x^2 \\, dx = \\pi \\left[\\dfrac{4x^3}{3}\\right]_{0}^{3} = 36\\pi$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-integration-int-q7",
@@ -210,7 +216,8 @@
         "$\\dfrac{d}{dx}\\left[\\int f(x) \\, dx\\right] = f(x)$"
       ],
       "correctIndex": 1,
-      "explanation": "Integration distributes over addition and constant multiplication, but NOT over multiplication. The integral of a product is not the product of the integrals. This is a common misconception-there is no simple reverse of the product rule."
+      "explanation": "Integration distributes over addition and constant multiplication, but NOT over multiplication. The integral of a product is not the product of the integrals. This is a common misconception-there is no simple reverse of the product rule.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-integration-int-q8",
@@ -222,19 +229,21 @@
         "$14$"
       ],
       "correctIndex": 0,
-      "explanation": "$f(x) = 2x^3 - 2x^2 + C$. Using $f(1)=3$: $3 = 2-2+C \\Rightarrow C=3$. So $f(2)=16-8+3=11$. Choice $8$ comes from forgetting $+C$; choice $5$ from an arithmetic error in finding $C$."
+      "explanation": "$f(x) = 2x^3 - 2x^2 + C$. Using $f(1)=3$: $3 = 2-2+C \\Rightarrow C=3$. So $f(2)=16-8+3=11$. Choice $8$ comes from forgetting $+C$; choice $5$ from an arithmetic error in finding $C$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-integration-int-q9",
       "stem": "$\\int \\sec^2(3x) \\, dx$?",
       "choices": [
-        "$\tan(3x) + C$",
-        "$\\dfrac{1}{3}\tan(3x) + C$",
-        "$3\tan(3x) + C$",
-        "$\tan(x) + C$"
+        "$\\tan(3x) + C$",
+        "$\\dfrac{1}{3}\\tan(3x) + C$",
+        "$3\\tan(3x) + C$",
+        "$\\tan(x) + C$"
       ],
       "correctIndex": 1,
-      "explanation": "$\\int \\sec^2(ax) \\, dx = \\dfrac{1}{a}\tan(ax) + C$. Here $a=3$, so divide by $3$. Choice $A$ forgets the $\\dfrac{1}{a}$ factor; choice $C$ multiplies by $a$ instead; choice $D$ ignores the $3x$ entirely."
+      "explanation": "$\\int \\sec^2(ax) \\, dx = \\dfrac{1}{a}\\tan(ax) + C$. Here $a=3$, so divide by $3$. Choice $A$ forgets the $\\dfrac{1}{a}$ factor; choice $C$ multiplies by $a$ instead; choice $D$ ignores the $3x$ entirely.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-integration-int-q10",
@@ -246,7 +255,8 @@
         "$-\\dfrac{4}{3}$"
       ],
       "correctIndex": 0,
-      "explanation": "Intersection at $x=0$ and $x=2$. $\text{Area} = \\int_{0}^{2} (2x - x^2) \\, dx = \\left[x^2 - \\dfrac{x^3}{3}\\right]_{0}^{2} = 4 - \\dfrac{8}{3} = \\dfrac{4}{3}$. Choice $B$ is the area under the line only; choice $C$ integrates the wrong function; choice $D$ has a sign error."
+      "explanation": "Intersection at $x=0$ and $x=2$. $\\text{Area} = \\int_{0}^{2} (2x - x^2) \\, dx = \\left[x^2 - \\dfrac{x^3}{3}\\right]_{0}^{2} = 4 - \\dfrac{8}{3} = \\dfrac{4}{3}$. Choice $B$ is the area under the line only; choice $C$ integrates the wrong function; choice $D$ has a sign error.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-integration-int-q11",
@@ -258,7 +268,8 @@
         "$4\\pi$"
       ],
       "correctIndex": 0,
-      "explanation": "$V = \\pi \\int_{0}^{4} x^2 \\, dy = \\pi \\int_{0}^{4} y \\, dy = \\pi \\left[\\dfrac{y^2}{2}\\right]_{0}^{4} = 8\\pi$. Choice $B$ is what you get if you mistakenly rotate about the $x$-axis ($\\pi \\int_{0}^{2} (x^2)^2 \\, dx = \\dfrac{32\\pi}{5}$). Choice $C$ forgets the $\\dfrac{1}{2}$ from integration."
+      "explanation": "$V = \\pi \\int_{0}^{4} x^2 \\, dy = \\pi \\int_{0}^{4} y \\, dy = \\pi \\left[\\dfrac{y^2}{2}\\right]_{0}^{4} = 8\\pi$. Choice $B$ is what you get if you mistakenly rotate about the $x$-axis ($\\pi \\int_{0}^{2} (x^2)^2 \\, dx = \\dfrac{32\\pi}{5}$). Choice $C$ forgets the $\\dfrac{1}{2}$ from integration.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-integration-int-q12",
@@ -270,7 +281,8 @@
         "$-\\dfrac{8}{3}$ m"
       ],
       "correctIndex": 0,
-      "explanation": "$v(t) = (t-1)(t-3)$, so $v>0$ on $[0,1)$ and $v<0$ on $(1,3]$. Split the integral: $\\int_{0}^{1} (t^2-4t+3) \\, dt + \\int_{1}^{3} -(t^2-4t+3) \\, dt = \\dfrac{4}{3} + \\dfrac{4}{3} = \\dfrac{8}{3}$. Choice $B$ is the displacement (net zero); choice $C$ only counts the first interval; choice $D$ has a sign error."
+      "explanation": "$v(t) = (t-1)(t-3)$, so $v>0$ on $[0,1)$ and $v<0$ on $(1,3]$. Split the integral: $\\int_{0}^{1} (t^2-4t+3) \\, dt + \\int_{1}^{3} -(t^2-4t+3) \\, dt = \\dfrac{4}{3} + \\dfrac{4}{3} = \\dfrac{8}{3}$. Choice $B$ is the displacement (net zero); choice $C$ only counts the first interval; choice $D$ has a sign error.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-integration-int-q13",
@@ -282,7 +294,8 @@
         "$27$"
       ],
       "correctIndex": 0,
-      "explanation": "Average value = $\\dfrac{1}{3-0} \\int_{0}^{3} x^2 \\, dx = \\dfrac{1}{3} \\left[\\dfrac{x^3}{3}\\right]_{0}^{3} = \\dfrac{1}{3} \\cdot 9 = 3$."
+      "explanation": "Average value = $\\dfrac{1}{3-0} \\int_{0}^{3} x^2 \\, dx = \\dfrac{1}{3} \\left[\\dfrac{x^3}{3}\\right]_{0}^{3} = \\dfrac{1}{3} \\cdot 9 = 3$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-integration-int-q14",
@@ -294,7 +307,8 @@
         "$e^x(x+1) + C$"
       ],
       "correctIndex": 0,
-      "explanation": "Using integration by parts with $u=x$ and $dv=e^x dx$: $\\int x e^x \\, dx = x e^x - \\int e^x \\, dx = x e^x - e^x + C$."
+      "explanation": "Using integration by parts with $u=x$ and $dv=e^x dx$: $\\int x e^x \\, dx = x e^x - \\int e^x \\, dx = x e^x - e^x + C$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-integration-int-q15",
@@ -306,7 +320,8 @@
         "$13$ L"
       ],
       "correctIndex": 0,
-      "explanation": "Total volume = $\\int_{0}^{4} (5 + 2t) \\, dt = [5t + t^2]_{0}^{4} = 20 + 16 = 36$ litres."
+      "explanation": "Total volume = $\\int_{0}^{4} (5 + 2t) \\, dt = [5t + t^2]_{0}^{4} = 20 + 16 = 36$ litres.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-integration-int-q16",
@@ -318,7 +333,8 @@
         "$6$"
       ],
       "correctIndex": 0,
-      "explanation": "Use the substitution $u = x + 1$, so $x = u - 1$ and $dx = du$. The limits change from $x = 0$ to $u = 1$ and from $x = 3$ to $u = 4$. The integral becomes $\\int_{1}^{4} \\dfrac{u - 1}{\\sqrt{u}} \\, du = \\int_{1}^{4} (u^{1/2} - u^{-1/2}) \\, du$. Evaluating gives $\\left[\\dfrac{2}{3}u^{3/2} - 2u^{1/2}\\right]_{1}^{4} = \\left(\\dfrac{16}{3} - 4\\right) - \\left(\\dfrac{2}{3} - 2\\right) = \\dfrac{8}{3}$."
+      "explanation": "Use the substitution $u = x + 1$, so $x = u - 1$ and $dx = du$. The limits change from $x = 0$ to $u = 1$ and from $x = 3$ to $u = 4$. The integral becomes $\\int_{1}^{4} \\dfrac{u - 1}{\\sqrt{u}} \\, du = \\int_{1}^{4} (u^{1/2} - u^{-1/2}) \\, du$. Evaluating gives $\\left[\\dfrac{2}{3}u^{3/2} - 2u^{1/2}\\right]_{1}^{4} = \\left(\\dfrac{16}{3} - 4\\right) - \\left(\\dfrac{2}{3} - 2\\right) = \\dfrac{8}{3}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-integration-int-q17",
@@ -330,7 +346,8 @@
         "$\\dfrac{8\\pi}{3}$"
       ],
       "correctIndex": 0,
-      "explanation": "The curves intersect where $x^2 = 2x$, giving $x = 0$ and $x = 2$. On $[0, 2]$ the line $y = 2x$ is above the parabola $y = x^2$, so use the washer method: $V = \\pi \\int_{0}^{2} [(2x)^2 - (x^2)^2] \\, dx = \\pi \\int_{0}^{2} (4x^2 - x^4) \\, dx$. This evaluates to $\\pi \\left[\\dfrac{4x^3}{3} - \\dfrac{x^5}{5}\\right]_{0}^{2} = \\pi \\left(\\dfrac{32}{3} - \\dfrac{32}{5}\\right) = \\dfrac{64\\pi}{15}$."
+      "explanation": "The curves intersect where $x^2 = 2x$, giving $x = 0$ and $x = 2$. On $[0, 2]$ the line $y = 2x$ is above the parabola $y = x^2$, so use the washer method: $V = \\pi \\int_{0}^{2} [(2x)^2 - (x^2)^2] \\, dx = \\pi \\int_{0}^{2} (4x^2 - x^4) \\, dx$. This evaluates to $\\pi \\left[\\dfrac{4x^3}{3} - \\dfrac{x^5}{5}\\right]_{0}^{2} = \\pi \\left(\\dfrac{32}{3} - \\dfrac{32}{5}\\right) = \\dfrac{64\\pi}{15}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-integration-int-q18",
@@ -342,7 +359,8 @@
         "$\\dfrac{14}{3}$ m"
       ],
       "correctIndex": 0,
-      "explanation": "First integrate acceleration: $v(t) = \\int (2t - 6) \\, dt = t^2 - 6t + 8$, using $v(0) = 8$ to fix the constant as $8$. Factorising gives $v(t) = (t - 2)(t - 4)$, so the velocity changes sign at $t = 2$ and $t = 4$. The displacement is $s(t) = \\dfrac{t^3}{3} - 3t^2 + 8t$. Evaluating at $0, 2, 4, 5$ yields $0, \\dfrac{20}{3}, \\dfrac{16}{3}, \\dfrac{20}{3}$. The total distance is $\\left|\\dfrac{20}{3}\\right| + \\left|\\dfrac{16}{3} - \\dfrac{20}{3}\\right| + \\left|\\dfrac{20}{3} - \\dfrac{16}{3}\\right| = \\dfrac{20}{3} + \\dfrac{4}{3} + \\dfrac{4}{3} = \\dfrac{28}{3}$ metres."
+      "explanation": "First integrate acceleration: $v(t) = \\int (2t - 6) \\, dt = t^2 - 6t + 8$, using $v(0) = 8$ to fix the constant as $8$. Factorising gives $v(t) = (t - 2)(t - 4)$, so the velocity changes sign at $t = 2$ and $t = 4$. The displacement is $s(t) = \\dfrac{t^3}{3} - 3t^2 + 8t$. Evaluating at $0, 2, 4, 5$ yields $0, \\dfrac{20}{3}, \\dfrac{16}{3}, \\dfrac{20}{3}$. The total distance is $\\left|\\dfrac{20}{3}\\right| + \\left|\\dfrac{16}{3} - \\dfrac{20}{3}\\right| + \\left|\\dfrac{20}{3} - \\dfrac{16}{3}\\right| = \\dfrac{20}{3} + \\dfrac{4}{3} + \\dfrac{4}{3} = \\dfrac{28}{3}$ metres.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-integration-int-q19",
@@ -354,7 +372,8 @@
         "$x^2 e^x - 2x e^x + C$"
       ],
       "correctIndex": 0,
-      "explanation": "This requires integration by parts twice. First set $u = x^2$ and $dv = e^x dx$, giving $du = 2x dx$ and $v = e^x$, so $\\int x^2 e^x dx = x^2 e^x - 2\\int x e^x dx$. For the remaining integral use parts again with $u = x$ and $dv = e^x dx$ to get $\\int x e^x dx = x e^x - e^x$. Substituting back gives $x^2 e^x - 2x e^x + 2e^x + C = e^x(x^2 - 2x + 2) + C$."
+      "explanation": "This requires integration by parts twice. First set $u = x^2$ and $dv = e^x dx$, giving $du = 2x dx$ and $v = e^x$, so $\\int x^2 e^x dx = x^2 e^x - 2\\int x e^x dx$. For the remaining integral use parts again with $u = x$ and $dv = e^x dx$ to get $\\int x e^x dx = x e^x - e^x$. Substituting back gives $x^2 e^x - 2x e^x + 2e^x + C = e^x(x^2 - 2x + 2) + C$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-integration-int-q20",
@@ -366,7 +385,8 @@
         "$0$"
       ],
       "correctIndex": 0,
-      "explanation": "The curve cuts the $x$-axis where $x^3 - x = 0$, so $x(x - 1)(x + 1) = 0$ and the intersections are $x = -1, 0, 1$. The curve is below the axis on $[0, 1]$ and above on $[-1, 0]$. By symmetry the total area is $2\\int_{0}^{1} [0 - (x^3 - x)] \\, dx = 2\\int_{0}^{1} (x - x^3) \\, dx$. Evaluating gives $2\\left[\\dfrac{x^2}{2} - \\dfrac{x^4}{4}\\right]_{0}^{1} = 2\\left(\\dfrac{1}{2} - \\dfrac{1}{4}\\right) = \\dfrac{1}{2}$."
+      "explanation": "The curve cuts the $x$-axis where $x^3 - x = 0$, so $x(x - 1)(x + 1) = 0$ and the intersections are $x = -1, 0, 1$. The curve is below the axis on $[0, 1]$ and above on $[-1, 0]$. By symmetry the total area is $2\\int_{0}^{1} [0 - (x^3 - x)] \\, dx = 2\\int_{0}^{1} (x - x^3) \\, dx$. Evaluating gives $2\\left[\\dfrac{x^2}{2} - \\dfrac{x^4}{4}\\right]_{0}^{1} = 2\\left(\\dfrac{1}{2} - \\dfrac{1}{4}\\right) = \\dfrac{1}{2}$.",
+      "difficulty": "hard"
     }
   ]
 }

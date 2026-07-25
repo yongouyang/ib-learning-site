@@ -161,7 +161,8 @@
         "10 g/cm³"
       ],
       "correctIndex": 1,
-      "explanation": "ρ=m/V=200/50=4 g/cm³ = 4000 kg/m³."
+      "explanation": "ρ=m/V=200/50=4 g/cm³ = 4000 kg/m³.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-particles-1-q2",
@@ -173,7 +174,8 @@
         "Creating more particles"
       ],
       "correctIndex": 1,
-      "explanation": "Latent heat: energy breaks bonds between particles, enabling state change without temperature rise."
+      "explanation": "Latent heat: energy breaks bonds between particles, enabling state change without temperature rise.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-particles-1-q3",
@@ -185,7 +187,8 @@
         "50 kPa"
       ],
       "correctIndex": 1,
-      "explanation": "Boyle's Law: P₁V₁=P₂V₂. 200×100=P₂×50 → P₂=400 kPa."
+      "explanation": "Boyle's Law: P₁V₁=P₂V₂. 200×100=P₂×50 → P₂=400 kPa.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-particles-1-q4",
@@ -197,7 +200,8 @@
         "Water cannot burn"
       ],
       "correctIndex": 1,
-      "explanation": "Steam condensing on skin releases enormous latent heat. Water at 100°C only releases specific heat energy as it cools."
+      "explanation": "Steam condensing on skin releases enormous latent heat. Water at 100°C only releases specific heat energy as it cools.",
+      "difficulty": "hard"
     },
     {
       "id": "phys-particles-1-q5",
@@ -209,7 +213,8 @@
         "162,000 J"
       ],
       "correctIndex": 1,
-      "explanation": "The energy needed to heat a substance depends on its mass, specific heat capacity, and temperature change: $\\Delta E=mc\\Delta\\theta$. Aluminium has $c=900\\text{ J/kg}^{\\circ}\\text{C}$, so heating $3\\text{ kg}$ by $30^{\\circ}\\text{C}$ needs $3\\times900\\times30=81{,}000\\text{ J}$. This is why an aluminium pan heats up faster than an iron one of the same mass."
+      "explanation": "The energy needed to heat a substance depends on its mass, specific heat capacity, and temperature change: $\\Delta E=mc\\Delta\\theta$. Aluminium has $c=900\\text{ J/kg}^{\\circ}\\text{C}$, so heating $3\\text{ kg}$ by $30^{\\circ}\\text{C}$ needs $3\\times900\\times30=81{,}000\\text{ J}$. This is why an aluminium pan heats up faster than an iron one of the same mass.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-particles-1-q6",
@@ -221,7 +226,8 @@
         "Electrical charge"
       ],
       "correctIndex": 1,
-      "explanation": "The jerky motion of visible particles can only be explained by impacts from much smaller, invisible particles."
+      "explanation": "The jerky motion of visible particles can only be explained by impacts from much smaller, invisible particles.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-particles-1-q7",
@@ -233,7 +239,8 @@
         "273 K"
       ],
       "correctIndex": 2,
-      "explanation": "The Kelvin temperature scale starts at absolute zero, so converting from degrees Celsius is done by adding 273. Therefore $50^{\\circ}\\text{C}$ is $50+273=323\\text{ K}$. Kelvin is the SI unit for temperature and must be used in gas-law calculations, such as when applying $pV=nRT$ or Boyle's law."
+      "explanation": "The Kelvin temperature scale starts at absolute zero, so converting from degrees Celsius is done by adding 273. Therefore $50^{\\circ}\\text{C}$ is $50+273=323\\text{ K}$. Kelvin is the SI unit for temperature and must be used in gas-law calculations, such as when applying $pV=nRT$ or Boyle's law.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-particles-1-q8",
@@ -245,7 +252,8 @@
         "Celsius was invented later"
       ],
       "correctIndex": 1,
-      "explanation": "Kelvin starts at absolute zero. The Kelvin scale is proportional to kinetic energy — essential for gas law proportionality."
+      "explanation": "Kelvin starts at absolute zero. The Kelvin scale is proportional to kinetic energy — essential for gas law proportionality.",
+      "difficulty": "hard"
     },
     {
       "id": "phys-particles-1-q9",
@@ -257,7 +265,8 @@
         "Approximating"
       ],
       "correctIndex": 2,
-      "explanation": "Eureka can or measuring cylinder: submerge solid, measure water level rise. Water displaced = solid's volume."
+      "explanation": "Eureka can or measuring cylinder: submerge solid, measure water level rise. Water displaced = solid's volume.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-particles-1-q10",
@@ -269,7 +278,8 @@
         "Can becomes heavier"
       ],
       "correctIndex": 1,
-      "explanation": "Heating increases particle kinetic energy → more forceful/frequent wall collisions → pressure rises. Can may rupture."
+      "explanation": "Heating increases particle kinetic energy → more forceful/frequent wall collisions → pressure rises. Can may rupture.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-particles-1-q11",
@@ -281,7 +291,8 @@
         "668,000 J"
       ],
       "correctIndex": 1,
-      "explanation": "E=mL=0.5×334,000=167,000 J. Temperature stays 0°C — all energy breaks bonds."
+      "explanation": "E=mL=0.5×334,000=167,000 J. Temperature stays 0°C — all energy breaks bonds.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-particles-1-q12",
@@ -293,7 +304,8 @@
         "Cannot determine"
       ],
       "correctIndex": 1,
-      "explanation": "At constant V: P₁/T₁=P₂/T₂. T halves → P halves."
+      "explanation": "At constant V: P₁/T₁=P₂/T₂. T halves → P halves.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-particles-1-q13",
@@ -305,7 +317,8 @@
         "Variable mass"
       ],
       "correctIndex": 1,
-      "explanation": "Ideal gas model: point particles, no intermolecular forces, elastic collisions. Real gases approximate this at low P, high T."
+      "explanation": "Ideal gas model: point particles, no intermolecular forces, elastic collisions. Real gases approximate this at low P, high T.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-particles-1-q14",
@@ -317,7 +330,8 @@
         "Oceans produce heat"
       ],
       "correctIndex": 1,
-      "explanation": "Water's high c means large energy changes produce small temperature changes. Coast stays cooler in summer, warmer in winter."
+      "explanation": "Water's high c means large energy changes produce small temperature changes. Coast stays cooler in summer, warmer in winter.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-particles-1-q15",
@@ -329,7 +343,8 @@
         "Need more info"
       ],
       "correctIndex": 1,
-      "explanation": "ρ=540/200=2.7 g/cm³ > 1 g/cm³ (water). Object is denser than water → sinks."
+      "explanation": "ρ=540/200=2.7 g/cm³ > 1 g/cm³ (water). Object is denser than water → sinks.",
+      "difficulty": "hard"
     }
   ]
 }

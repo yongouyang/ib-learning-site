@@ -132,7 +132,8 @@
         "$10$"
       ],
       "correctIndex": 1,
-      "explanation": "Subtract $6$ from both sides: $2x = 8$, then divide by $2$: $x = 4$."
+      "explanation": "Subtract $6$ from both sides: $2x = 8$, then divide by $2$: $x = 4$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-algebra-1-alg-q2",
@@ -144,7 +145,8 @@
         "$7a + 2b$"
       ],
       "correctIndex": 0,
-      "explanation": "Collecting like terms: $(5a - 2a) + (3b + b) = 3a + 4b$."
+      "explanation": "Collecting like terms: $(5a - 2a) + (3b + b) = 3a + 4b$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-algebra-1-alg-q3",
@@ -156,7 +158,8 @@
         "$-9$"
       ],
       "correctIndex": 2,
-      "explanation": "The coefficient of $y$ is $9$."
+      "explanation": "The coefficient of $y$ is $9$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-algebra-1-alg-q4",
@@ -168,7 +171,8 @@
         "$6x + 15$"
       ],
       "correctIndex": 1,
-      "explanation": "$3 \\times 2x = 6x$ and $3 \\times (-5) = -15$, so $3(2x - 5) = 6x - 15$."
+      "explanation": "$3 \\times 2x = 6x$ and $3 \\times (-5) = -15$, so $3(2x - 5) = 6x - 15$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-algebra-1-alg-q5",
@@ -180,7 +184,8 @@
         "$5 + n = 12$"
       ],
       "correctIndex": 2,
-      "explanation": "$3x - 7$ has no equals sign — it is an expression."
+      "explanation": "$3x - 7$ has no equals sign — it is an expression.",
+      "difficulty": "easy"
     },
     {
       "id": "math-algebra-1-alg-q6",
@@ -192,7 +197,8 @@
         "$21$"
       ],
       "correctIndex": 0,
-      "explanation": "Substitute $a = 3$: $4(3) + 7 = 12 + 7 = 19$."
+      "explanation": "Substitute $a = 3$: $4(3) + 7 = 12 + 7 = 19$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-algebra-1-alg-q7",
@@ -204,7 +210,8 @@
         "$11$"
       ],
       "correctIndex": 0,
-      "explanation": "$2(4)^2 - 5(1) = 2 \\times 16 - 5 = 32 - 5 = 27$."
+      "explanation": "$2(4)^2 - 5(1) = 2 \\times 16 - 5 = 32 - 5 = 27$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-algebra-1-alg-q8",
@@ -216,7 +223,8 @@
         "$6(x + \\dfrac{3}{2})$"
       ],
       "correctIndex": 0,
-      "explanation": "The HCF of $6$ and $9$ is $3$, so $6x + 9 = 3(2x + 3)$."
+      "explanation": "The HCF of $6$ and $9$ is $3$, so $6x + 9 = 3(2x + 3)$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-algebra-1-alg-q9",
@@ -228,7 +236,8 @@
         "$6a + 8b$"
       ],
       "correctIndex": 0,
-      "explanation": "$8a + 2a = 10a$ and $-3b + 5b = 2b$, so the simplified expression is $10a + 2b$."
+      "explanation": "$8a + 2a = 10a$ and $-3b + 5b = 2b$, so the simplified expression is $10a + 2b$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-algebra-1-alg-q10",
@@ -240,7 +249,8 @@
         "$6x - 2$"
       ],
       "correctIndex": 0,
-      "explanation": "$2(x + 3) = 2x + 6$ and $4(x - 1) = 4x - 4$. Collecting like terms: $2x + 4x + 6 - 4 = 6x + 2$."
+      "explanation": "$2(x + 3) = 2x + 6$ and $4(x - 1) = 4x - 4$. Collecting like terms: $2x + 4x + 6 - 4 = 6x + 2$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-algebra-1-alg-q11",
@@ -252,7 +262,8 @@
         "$x = 25$"
       ],
       "correctIndex": 1,
-      "explanation": "Add $3$ to both sides: $5x = 25$. Divide by $5$: $x = 5$."
+      "explanation": "Add $3$ to both sides: $5x = 25$. Divide by $5$: $x = 5$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-algebra-1-alg-q12",
@@ -264,7 +275,8 @@
         "$n + 3$"
       ],
       "correctIndex": 1,
-      "explanation": "\"$3$ less than $n$\" means $n$ is reduced by $3$, so the expression is $n - 3$."
+      "explanation": "\"$3$ less than $n$\" means $n$ is reduced by $3$, so the expression is $n - 3$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-algebra-1-alg-q13",
@@ -276,7 +288,8 @@
         "$2(4a - 6ab)$"
       ],
       "correctIndex": 1,
-      "explanation": "The HCF of $8a$ and $12ab$ is $4a$. Dividing each term by $4a$ gives $4a(2 - 3b)$."
+      "explanation": "The HCF of $8a$ and $12ab$ is $4a$. Dividing each term by $4a$ gives $4a(2 - 3b)$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-algebra-1-alg-q14",
@@ -288,7 +301,8 @@
         "$w^2 + 6w$"
       ],
       "correctIndex": 1,
-      "explanation": "Length = $w + 6$. Perimeter = $w + (w + 6) + w + (w + 6) = 4w + 12$."
+      "explanation": "Length = $w + 6$. Perimeter = $w + (w + 6) + w + (w + 6) = 4w + 12$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-algebra-1-alg-q15",
@@ -300,7 +314,8 @@
         "$-13$"
       ],
       "correctIndex": 1,
-      "explanation": "Substitute $x = -3$: $-2(-3) + 7 = 6 + 7 = 13$."
+      "explanation": "Substitute $x = -3$: $-2(-3) + 7 = 6 + 7 = 13$.",
+      "difficulty": "hard"
     }
   ]
 }

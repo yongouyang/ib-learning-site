@@ -133,7 +133,8 @@
         "$y=5$"
       ],
       "correctIndex": 1,
-      "explanation": "As $x \\to -\\infty$, $e^x \\to 0 \\rightarrow y \\to 2$."
+      "explanation": "As $x \\to -\\infty$, $e^x \\to 0 \\rightarrow y \\to 2$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-explog-ell-q2",
@@ -145,7 +146,8 @@
         "Up 3"
       ],
       "correctIndex": 1,
-      "explanation": "$x \\rightarrow x-3$ shifts right 3."
+      "explanation": "$x \\rightarrow x-3$ shifts right 3.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-explog-ell-q3",
@@ -157,7 +159,9 @@
         "$1.85$"
       ],
       "correctIndex": 0,
-      "explanation": "$\\ln 7 \\approx 1.946 \\approx 1.95$."
+      "explanation": "$\\ln 7 \\approx 1.946 \\approx 1.95$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-explog-ell-q4",
@@ -169,7 +173,8 @@
         "$40\\%$/yr"
       ],
       "correctIndex": 0,
-      "explanation": "$k=0.04 = 4\\%$ continuous growth."
+      "explanation": "$k=0.04 = 4\\%$ continuous growth.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-explog-ell-q5",
@@ -181,7 +186,8 @@
         "$\\dfrac{e^3}{2}$"
       ],
       "correctIndex": 0,
-      "explanation": "To solve $\\ln(2x-1)=3$, rewrite the logarithmic equation in exponential form: $2x-1=e^3$. Then $2x=e^3+1$, so $x=\\dfrac{e^3+1}{2}$. This is the exact answer; numerically it is about $10.54$. Such equations model the time needed for a quantity to reach a certain level under continuous growth."
+      "explanation": "To solve $\\ln(2x-1)=3$, rewrite the logarithmic equation in exponential form: $2x-1=e^3$. Then $2x=e^3+1$, so $x=\\dfrac{e^3+1}{2}$. This is the exact answer; numerically it is about $10.54$. Such equations model the time needed for a quantity to reach a certain level under continuous growth.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-explog-ell-q6",
@@ -193,7 +199,9 @@
         "$20.0$ yr"
       ],
       "correctIndex": 1,
-      "explanation": "$e^{-0.05t}=0.1 \\rightarrow t=\\dfrac{\\ln 10}{0.05} \\approx 46.1$."
+      "explanation": "$e^{-0.05t}=0.1 \\rightarrow t=\\dfrac{\\ln 10}{0.05} \\approx 46.1$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-dp-explog-ell-q7",
@@ -205,7 +213,9 @@
         "$12.5$ yr"
       ],
       "correctIndex": 2,
-      "explanation": "Half of $\\$25,000$ is $\\$12,500$. Solve $25000(0.92)^t=12500 \\rightarrow 0.92^t=0.5 \\rightarrow t=\\dfrac{\\ln 0.5}{\\ln 0.92} \\approx 8.31$ years."
+      "explanation": "Half of $\\$25,000$ is $\\$12,500$. Solve $25000(0.92)^t=12500 \\rightarrow 0.92^t=0.5 \\rightarrow t=\\dfrac{\\ln 0.5}{\\ln 0.92} \\approx 8.31$ years.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-explog-ell-q8",
@@ -217,7 +227,8 @@
         "The graph is decreasing"
       ],
       "correctIndex": 2,
-      "explanation": "As $x \\to -\\infty$, $a^x \\to 0$ so $f(x) \\to c$. Thus $y=c$ is the horizontal asymptote. The $y$-intercept is $(0, k+c)$, not $(0,k)$, and since $a>1$ the graph is increasing (not decreasing)."
+      "explanation": "As $x \\to -\\infty$, $a^x \\to 0$ so $f(x) \\to c$. Thus $y=c$ is the horizontal asymptote. The $y$-intercept is $(0, k+c)$, not $(0,k)$, and since $a>1$ the graph is increasing (not decreasing).",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-explog-ell-q9",
@@ -229,7 +240,8 @@
         "$2$"
       ],
       "correctIndex": 0,
-      "explanation": "$\\ln(6e^2)-\\ln 3 = \\ln\\left(\\dfrac{6e^2}{3}\\right) = \\ln(2e^2) = \\ln 2 + \\ln(e^2) = \\ln 2 + 2$."
+      "explanation": "$\\ln(6e^2)-\\ln 3 = \\ln\\left(\\dfrac{6e^2}{3}\\right) = \\ln(2e^2) = \\ln 2 + \\ln(e^2) = \\ln 2 + 2$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-explog-ell-q10",
@@ -241,7 +253,9 @@
         "$18.4$ hr"
       ],
       "correctIndex": 2,
-      "explanation": "Set $200e^{0.15t}=800 \\rightarrow e^{0.15t}=4 \\rightarrow 0.15t=\\ln 4 \\rightarrow t=\\dfrac{\\ln 4}{0.15} \\approx \\dfrac{1.386}{0.15} \\approx 9.24$ hours."
+      "explanation": "Set $200e^{0.15t}=800 \\rightarrow e^{0.15t}=4 \\rightarrow 0.15t=\\ln 4 \\rightarrow t=\\dfrac{\\ln 4}{0.15} \\approx \\dfrac{1.386}{0.15} \\approx 9.24$ hours.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-explog-ell-q11",
@@ -253,7 +267,8 @@
         "$x>-\\dfrac{5}{2}$"
       ],
       "correctIndex": 0,
-      "explanation": "The argument of a logarithm must be positive: $5-2x>0 \\rightarrow 5>2x \\rightarrow x<\\dfrac{5}{2}$. Common mistake: solving $5-2x>0$ as $x>\\dfrac{5}{2}$ (forgetting to reverse the inequality when dividing by a negative number)."
+      "explanation": "The argument of a logarithm must be positive: $5-2x>0 \\rightarrow 5>2x \\rightarrow x<\\dfrac{5}{2}$. Common mistake: solving $5-2x>0$ as $x>\\dfrac{5}{2}$ (forgetting to reverse the inequality when dividing by a negative number).",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-explog-ell-q12",
@@ -265,7 +280,9 @@
         "$3.00$"
       ],
       "correctIndex": 1,
-      "explanation": "Take $\\ln$ of both sides: $x \\cdot \\ln 3=\\ln 20 \\rightarrow x=\\dfrac{\\ln 20}{\\ln 3} \\approx \\dfrac{2.996}{1.099} \\approx 2.73$."
+      "explanation": "Take $\\ln$ of both sides: $x \\cdot \\ln 3=\\ln 20 \\rightarrow x=\\dfrac{\\ln 20}{\\ln 3} \\approx \\dfrac{2.996}{1.099} \\approx 2.73$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-explog-ell-q13",
@@ -277,7 +294,8 @@
         "$P(t) = 500 \\cdot e^{2t}$"
       ],
       "correctIndex": 1,
-      "explanation": "Doubling time is $3$ hours, so the exponent is $\\dfrac{t}{3}$. The model is $P(t) = 500 \\cdot 2^{\\dfrac{t}{3}}$."
+      "explanation": "Doubling time is $3$ hours, so the exponent is $\\dfrac{t}{3}$. The model is $P(t) = 500 \\cdot 2^{\\dfrac{t}{3}}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-explog-ell-q14",
@@ -289,7 +307,9 @@
         "$3.5 \\times 10^{-3}$ mol/L"
       ],
       "correctIndex": 0,
-      "explanation": "Using $\\text{pH} = -\\log_{10}([H^+])$, we get $[H^+] = 10^{-\\text{pH}} = 10^{-3.5} \\approx 3.16 \\times 10^{-4}$ mol/L."
+      "explanation": "Using $\\text{pH} = -\\log_{10}([H^+])$, we get $[H^+] = 10^{-\\text{pH}} = 10^{-3.5} \\approx 3.16 \\times 10^{-4}$ mol/L.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-explog-ell-q15",
@@ -301,7 +321,8 @@
         "Translation right by $2$ units"
       ],
       "correctIndex": 1,
-      "explanation": "Replacing $x$ with $2x$ causes a horizontal compression by factor $\\dfrac{1}{2}$. This is different from $y = 2e^x$, which is a vertical stretch."
+      "explanation": "Replacing $x$ with $2x$ causes a horizontal compression by factor $\\dfrac{1}{2}$. This is different from $y = 2e^x$, which is a vertical stretch.",
+      "difficulty": "hard"
     }
   ]
 }

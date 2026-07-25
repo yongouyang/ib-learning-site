@@ -161,7 +161,8 @@
         "X-rays"
       ],
       "correctIndex": 2,
-      "explanation": "Alpha is a helium nucleus — large, highly ionising, stopped by a few cm of air or paper."
+      "explanation": "Alpha is a helium nucleus — large, highly ionising, stopped by a few cm of air or paper.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-radioactivity-1-q2",
@@ -173,7 +174,8 @@
         "Proton"
       ],
       "correctIndex": 1,
-      "explanation": "Beta decay: n → p + e⁻ (+ antineutrino). Mass number unchanged; atomic number increases by 1."
+      "explanation": "Beta decay: n → p + e⁻ (+ antineutrino). Mass number unchanged; atomic number increases by 1.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-radioactivity-1-q3",
@@ -185,7 +187,8 @@
         "1/16"
       ],
       "correctIndex": 2,
-      "explanation": "24 ÷ 8 = 3 half-lives. (½)³ = ⅛ of original remains."
+      "explanation": "24 ÷ 8 = 3 half-lives. (½)³ = ⅛ of original remains.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-radioactivity-1-q4",
@@ -197,7 +200,8 @@
         "Neutron"
       ],
       "correctIndex": 1,
-      "explanation": "Mass drops by 4 (238→234), atomic number drops by 2 (92→90). This is alpha decay."
+      "explanation": "Mass drops by 4 (238→234), atomic number drops by 2 (92→90). This is alpha decay.",
+      "difficulty": "hard"
     },
     {
       "id": "phys-radioactivity-1-q5",
@@ -209,7 +213,8 @@
         "It multiplies inside cells"
       ],
       "correctIndex": 1,
-      "explanation": "Alpha particles deposit all their energy in a tiny volume → intense localised damage. Outside body, dead skin layer stops them."
+      "explanation": "Alpha particles deposit all their energy in a tiny volume → intense localised damage. Outside body, dead skin layer stops them.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-radioactivity-1-q6",
@@ -221,7 +226,8 @@
         "Both alpha and beta"
       ],
       "correctIndex": 2,
-      "explanation": "Only charged particles are deflected. Gamma is electromagnetic → no charge → no deflection."
+      "explanation": "Only charged particles are deflected. Gamma is electromagnetic → no charge → no deflection.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-radioactivity-1-q7",
@@ -233,7 +239,8 @@
         "Increasing pressure"
       ],
       "correctIndex": 1,
-      "explanation": "Boron/cadmium control rods absorb neutrons, keeping the multiplication factor = 1. Fully inserted = shutdown."
+      "explanation": "Boron/cadmium control rods absorb neutrons, keeping the multiplication factor = 1. Fully inserted = shutdown.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-radioactivity-1-q8",
@@ -245,7 +252,8 @@
         "Fusion is radioactive"
       ],
       "correctIndex": 1,
-      "explanation": "Electrostatic repulsion between nuclei. Gravity in stars provides containment. On Earth: magnetic confinement (tokamaks) or lasers."
+      "explanation": "Electrostatic repulsion between nuclei. Gravity in stars provides containment. On Earth: magnetic confinement (tokamaks) or lasers.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-radioactivity-1-q9",
@@ -257,7 +265,8 @@
         "It cures diseases"
       ],
       "correctIndex": 1,
-      "explanation": "Short t½ = patient not radioactive for long. Gamma penetrates body → detected by gamma camera. Ideal tracer properties."
+      "explanation": "Short t½ = patient not radioactive for long. Gamma penetrates body → detected by gamma camera. Ideal tracer properties.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-radioactivity-1-q10",
@@ -269,7 +278,8 @@
         "5 min"
       ],
       "correctIndex": 1,
-      "explanation": "1200→600 (1) →300 (2) →150 (3). 3 half-lives in 30 min → t½=10 min."
+      "explanation": "1200→600 (1) →300 (2) →150 (3). 3 half-lives in 30 min → t½=10 min.",
+      "difficulty": "hard"
     },
     {
       "id": "phys-radioactivity-1-q11",
@@ -281,7 +291,8 @@
         "Background is man-made"
       ],
       "correctIndex": 1,
-      "explanation": "Geiger counters detect background radiation even with no source. True count = measured − background."
+      "explanation": "Geiger counters detect background radiation even with no source. True count = measured − background.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-radioactivity-1-q12",
@@ -293,7 +304,8 @@
         "Fusion produces more waste"
       ],
       "correctIndex": 1,
-      "explanation": "Deuterium from seawater essentially unlimited. Helium product is inert. Reaction self-limits if conditions fail — no runaway possible."
+      "explanation": "Deuterium from seawater essentially unlimited. Helium product is inert. Reaction self-limits if conditions fail — no runaway possible.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-radioactivity-1-q13",
@@ -305,7 +317,8 @@
         "Lead reflects gamma"
       ],
       "correctIndex": 1,
-      "explanation": "Dense materials like lead absorb gamma photons. Thickness required depends on gamma energy. Inverse square law also used (distance)."
+      "explanation": "Dense materials like lead absorb gamma photons. Thickness required depends on gamma energy. Inverse square law also used (distance).",
+      "difficulty": "easy"
     },
     {
       "id": "phys-radioactivity-1-q14",
@@ -317,7 +330,8 @@
         "¹⁰₄Be"
       ],
       "correctIndex": 1,
-      "explanation": "Beta decay: n→p+e⁻. Mass stays 14, atomic number 6→7. Nitrogen-14."
+      "explanation": "Beta decay: n→p+e⁻. Mass stays 14, atomic number 6→7. Nitrogen-14.",
+      "difficulty": "hard"
     },
     {
       "id": "phys-radioactivity-1-q15",
@@ -329,7 +343,8 @@
         "Neutrons have no mass"
       ],
       "correctIndex": 1,
-      "explanation": "The total mass of fission products + neutrons is slightly less than the original uranium + neutron mass. This 'missing mass' became energy: E=mc²."
+      "explanation": "The total mass of fission products + neutrons is slightly less than the original uranium + neutron mass. This 'missing mass' became energy: E=mc².",
+      "difficulty": "medium"
     }
   ]
 }

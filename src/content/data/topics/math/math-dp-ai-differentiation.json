@@ -10,7 +10,7 @@
     {
       "id": "math-dp-differentiation-dif-n1",
       "heading": "First Principles and Derivative Rules",
-      "body": "Differentiation lets us find the gradient of a curve at any point. It is one of the most powerful tools in calculus.\n\n📌 Definition — Derivative from First Principles\nThe derivative of $f(x)$ is the limit of the gradient of a chord as the chord shrinks to a point:\n    $$f'(x) = \\lim_{h \to 0} \\dfrac{f(x + h) - f(x)}{h}$$\nThis gives the instantaneous rate of change of $f$ at $x$.\n\n🔑 The Power Rule\nFor any rational power $n$:\n    $$\\dfrac{d}{dx}(x^n) = n x^{n-1}$$\n• If $f(x) = a x^n$, then $f'(x) = a n x^{n-1}$\n• The derivative of a constant is zero\n• The derivative of $x$ is $1$\n\n💡 Worked Example — Power Rule\nDifferentiate $f(x) = 2x^3 + \\dfrac{4}{x}$ for $x > 0$.\n\n  Step 1: Rewrite using negative powers\n    $$f(x) = 2x^3 + 4x^{-1}$$\n\n  Step 2: Differentiate term by term\n    $$f'(x) = 2 \\cdot 3x^2 + 4 \\cdot (-1)x^{-2}$$\n    $$f'(x) = 6x^2 - 4x^{-2}$$\n\n  Step 3: Write with fractions\n    $$f'(x) = 6x^2 - \\dfrac{4}{x^2}$$\n\n  Step 4: Find the gradient at $x = 4$\n    $$f'(4) = 6(16) - \\dfrac{4}{16} = 96 - 0.25 = 95.75$$\n\n🔑 Product Rule\nIf $y = u v$ where $u$ and $v$ are both functions of $x$:\n    $$\\dfrac{d}{dx}(uv) = u \\dfrac{dv}{dx} + v \\dfrac{du}{dx}$$\n    or in dash notation: $(uv)' = u'v + uv'$\n\n🔑 Quotient Rule\nIf $y = \\dfrac{u}{v}$ where $u$ and $v$ are both functions of $x$:\n    $$\\dfrac{d}{dx}\\left(\\dfrac{u}{v}\\right) = \\dfrac{v \\dfrac{du}{dx} - u \\dfrac{dv}{dx}}{v^2}$$\n    or in dash notation: $\\left(\\dfrac{u}{v}\\right)' = \\dfrac{vu' - uv'}{v^2}$\n\n💡 Worked Example — Product and Quotient Rules\na) Find the derivative of $y = e^x \\sin x$\n    Let $u = e^x \\rightarrow u' = e^x$\n    Let $v = \\sin x \\rightarrow v' = \\cos x$\n    $$\\dfrac{dy}{dx} = u v' + v u' = e^x \\cos x + \\sin x \\cdot e^x$$\n    $$\\dfrac{dy}{dx} = e^x(\\cos x + \\sin x)$$\n\nb) Differentiate $f(x) = \\dfrac{2x + 1}{x - 3}$\n    Let $u = 2x + 1 \\rightarrow u' = 2$\n    Let $v = x - 3 \\rightarrow v' = 1$\n    $$f'(x) = \\dfrac{v u' - u v'}{v^2}$$\n    $$f'(x) = \\dfrac{(x - 3) \\cdot 2 - (2x + 1) \\cdot 1}{(x - 3)^2}$$\n    $$f'(x) = \\dfrac{2x - 6 - 2x - 1}{(x - 3)^2}$$\n    $$f'(x) = \\dfrac{-7}{(x - 3)^2}$$\n\n🔑 Chain Rule\nFor a composite function $y = f(g(x))$:\n    $$\\dfrac{dy}{dx} = f'(g(x)) \\cdot g'(x)$$\n    or if $y = f(u)$ where $u = g(x)$:\n    $$\\dfrac{dy}{dx} = \\dfrac{dy}{du} \\cdot \\dfrac{du}{dx}$$\n\nThink of it as \"differentiate the outside, leave the inside alone, then multiply by the derivative of the inside.\"\n\n💡 Worked Example — Chain Rule\nFind the derivative of $y = (x^2 - 5x + 7)^7$.\n\n  Step 1: Identify the inner and outer functions\n    Inside: $u = x^2 - 5x + 7$\n    Outside: $y = u^7$\n\n  Step 2: Differentiate each part\n    $$\\dfrac{dy}{du} = 7u^6$$\n    $$\\dfrac{du}{dx} = 2x - 5$$\n\n  Step 3: Apply the chain rule\n    $$\\dfrac{dy}{dx} = 7u^6 \\cdot (2x - 5)$$\n    $$\\dfrac{dy}{dx} = 7(x^2 - 5x + 7)^6 \\cdot (2x - 5)$$\n\n🔑 Standard Derivatives (in formula booklet)\n    $$\\dfrac{d}{dx}(\\sin x) = \\cos x$$\n    $$\\dfrac{d}{dx}(\\cos x) = -\\sin x$$\n    $$\\dfrac{d}{dx}(e^x) = e^x$$\n    $$\\dfrac{d}{dx}(\\ln x) = \\dfrac{1}{x} \\quad (x > 0)$$\n\nFor composite versions, multiply by the derivative of the inner function:\n    $$\\dfrac{d}{dx}(\\sin(ax + b)) = a \\cos(ax + b)$$\n    $$\\dfrac{d}{dx}(e^{ax + b}) = a e^{ax + b}$$\n    $$\\dfrac{d}{dx}(\\ln(ax + b)) = \\dfrac{a}{ax + b}$$\n\n📎 Key Points to Remember\n• Always rewrite roots as fractional powers and fractions as negative powers before differentiating\n• The product and quotient rules are needed when two functions of $x$ are multiplied or divided\n• The chain rule is needed when one function is inside another\n• For sums and differences, differentiate each term separately\n\n⚠️ Common Mistake\nMixing up the order in the quotient rule. The formula is $\\dfrac{vu' - uv'}{v^2}$, NOT $\\dfrac{uv' - vu'}{v^2}$. A quick check: if $u$ is the numerator, the first term in the numerator should start with $v \\cdot u'$.",
+      "body": "Differentiation lets us find the gradient of a curve at any point. It is one of the most powerful tools in calculus.\n\n📌 Definition — Derivative from First Principles\nThe derivative of $f(x)$ is the limit of the gradient of a chord as the chord shrinks to a point:\n    $$f'(x) = \\lim_{h \\to 0} \\dfrac{f(x + h) - f(x)}{h}$$\nThis gives the instantaneous rate of change of $f$ at $x$.\n\n🔑 The Power Rule\nFor any rational power $n$:\n    $$\\dfrac{d}{dx}(x^n) = n x^{n-1}$$\n• If $f(x) = a x^n$, then $f'(x) = a n x^{n-1}$\n• The derivative of a constant is zero\n• The derivative of $x$ is $1$\n\n💡 Worked Example — Power Rule\nDifferentiate $f(x) = 2x^3 + \\dfrac{4}{x}$ for $x > 0$.\n\n  Step 1: Rewrite using negative powers\n    $$f(x) = 2x^3 + 4x^{-1}$$\n\n  Step 2: Differentiate term by term\n    $$f'(x) = 2 \\cdot 3x^2 + 4 \\cdot (-1)x^{-2}$$\n    $$f'(x) = 6x^2 - 4x^{-2}$$\n\n  Step 3: Write with fractions\n    $$f'(x) = 6x^2 - \\dfrac{4}{x^2}$$\n\n  Step 4: Find the gradient at $x = 4$\n    $$f'(4) = 6(16) - \\dfrac{4}{16} = 96 - 0.25 = 95.75$$\n\n🔑 Product Rule\nIf $y = u v$ where $u$ and $v$ are both functions of $x$:\n    $$\\dfrac{d}{dx}(uv) = u \\dfrac{dv}{dx} + v \\dfrac{du}{dx}$$\n    or in dash notation: $(uv)' = u'v + uv'$\n\n🔑 Quotient Rule\nIf $y = \\dfrac{u}{v}$ where $u$ and $v$ are both functions of $x$:\n    $$\\dfrac{d}{dx}\\left(\\dfrac{u}{v}\\right) = \\dfrac{v \\dfrac{du}{dx} - u \\dfrac{dv}{dx}}{v^2}$$\n    or in dash notation: $\\left(\\dfrac{u}{v}\\right)' = \\dfrac{vu' - uv'}{v^2}$\n\n💡 Worked Example — Product and Quotient Rules\na) Find the derivative of $y = e^x \\sin x$\n    Let $u = e^x \\rightarrow u' = e^x$\n    Let $v = \\sin x \\rightarrow v' = \\cos x$\n    $$\\dfrac{dy}{dx} = u v' + v u' = e^x \\cos x + \\sin x \\cdot e^x$$\n    $$\\dfrac{dy}{dx} = e^x(\\cos x + \\sin x)$$\n\nb) Differentiate $f(x) = \\dfrac{2x + 1}{x - 3}$\n    Let $u = 2x + 1 \\rightarrow u' = 2$\n    Let $v = x - 3 \\rightarrow v' = 1$\n    $$f'(x) = \\dfrac{v u' - u v'}{v^2}$$\n    $$f'(x) = \\dfrac{(x - 3) \\cdot 2 - (2x + 1) \\cdot 1}{(x - 3)^2}$$\n    $$f'(x) = \\dfrac{2x - 6 - 2x - 1}{(x - 3)^2}$$\n    $$f'(x) = \\dfrac{-7}{(x - 3)^2}$$\n\n🔑 Chain Rule\nFor a composite function $y = f(g(x))$:\n    $$\\dfrac{dy}{dx} = f'(g(x)) \\cdot g'(x)$$\n    or if $y = f(u)$ where $u = g(x)$:\n    $$\\dfrac{dy}{dx} = \\dfrac{dy}{du} \\cdot \\dfrac{du}{dx}$$\n\nThink of it as \"differentiate the outside, leave the inside alone, then multiply by the derivative of the inside.\"\n\n💡 Worked Example — Chain Rule\nFind the derivative of $y = (x^2 - 5x + 7)^7$.\n\n  Step 1: Identify the inner and outer functions\n    Inside: $u = x^2 - 5x + 7$\n    Outside: $y = u^7$\n\n  Step 2: Differentiate each part\n    $$\\dfrac{dy}{du} = 7u^6$$\n    $$\\dfrac{du}{dx} = 2x - 5$$\n\n  Step 3: Apply the chain rule\n    $$\\dfrac{dy}{dx} = 7u^6 \\cdot (2x - 5)$$\n    $$\\dfrac{dy}{dx} = 7(x^2 - 5x + 7)^6 \\cdot (2x - 5)$$\n\n🔑 Standard Derivatives (in formula booklet)\n    $$\\dfrac{d}{dx}(\\sin x) = \\cos x$$\n    $$\\dfrac{d}{dx}(\\cos x) = -\\sin x$$\n    $$\\dfrac{d}{dx}(e^x) = e^x$$\n    $$\\dfrac{d}{dx}(\\ln x) = \\dfrac{1}{x} \\quad (x > 0)$$\n\nFor composite versions, multiply by the derivative of the inner function:\n    $$\\dfrac{d}{dx}(\\sin(ax + b)) = a \\cos(ax + b)$$\n    $$\\dfrac{d}{dx}(e^{ax + b}) = a e^{ax + b}$$\n    $$\\dfrac{d}{dx}(\\ln(ax + b)) = \\dfrac{a}{ax + b}$$\n\n📎 Key Points to Remember\n• Always rewrite roots as fractional powers and fractions as negative powers before differentiating\n• The product and quotient rules are needed when two functions of $x$ are multiplied or divided\n• The chain rule is needed when one function is inside another\n• For sums and differences, differentiate each term separately\n\n⚠️ Common Mistake\nMixing up the order in the quotient rule. The formula is $\\dfrac{vu' - uv'}{v^2}$, NOT $\\dfrac{uv' - vu'}{v^2}$. A quick check: if $u$ is the numerator, the first term in the numerator should start with $v \\cdot u'$.",
       "illustration": {
         "src": "/images/math/math-dp-differentiation.svg",
         "alt": "The derivative as gradient of tangent with the first-principles definition; standard derivative rules for power, exponential, trig, product, quotient and chain rule; and optimisation using stationary points.",
@@ -20,22 +20,22 @@
     {
       "id": "math-dp-differentiation-dif-n2",
       "heading": "Tangents, Normals, and Curve Analysis",
-      "body": "The derivative tells us the gradient of a curve at any point. This lets us find equations of tangents and normals, and analyse the shape of curves.\n\n📌 Tangent and Normal\nAt any point on a curve:\n• The tangent is a straight line that touches the curve and has the same gradient\n• The normal is perpendicular to the tangent\n\n🔑 Equations\n    Gradient of tangent at $x = a$: $m_T = f'(a)$\n    Equation of tangent: $y - f(a) = f'(a)(x - a)$\n    Gradient of normal: $m_N = -\\dfrac{1}{f'(a)}$ (provided $f'(a) \neq 0$)\n    Equation of normal: $y - f(a) = \\left(-\\dfrac{1}{f'(a)}\\right)(x - a)$\n\n💡 Worked Example — Tangent and Normal\nFind the tangent and normal to $y = x^2$ at the point $(2, 4)$.\n\n  Step 1: Find the derivative\n    $$f'(x) = 2x$$\n\n  Step 2: Gradient of tangent at $x = 2$\n    $$m_T = f'(2) = 4$$\n\n  Step 3: Equation of tangent\n    $$y - 4 = 4(x - 2)$$\n    $$y = 4x - 4$$\n\n  Step 4: Gradient of normal\n    $$m_N = -\\dfrac{1}{4}$$\n\n  Step 5: Equation of normal\n    $$y - 4 = \\left(-\\dfrac{1}{4}\\right)(x - 2)$$\n    $$y = -\\dfrac{1}{4}x + \\dfrac{9}{2}$$\n\n📌 Increasing and Decreasing Functions\n• $f'(x) > 0$ → $f$ is increasing\n• $f'(x) < 0$ → $f$ is decreasing\n\n📌 Stationary Points\nA stationary point occurs where $f'(x) = 0$. The tangent is horizontal.\n\n🔑 First Derivative Test (sign change)\nCheck the sign of $f'(x)$ on either side of the stationary point:\n• $f'$ changes from $+$ to $-$ → local maximum\n• $f'$ changes from $-$ to $+$ → local minimum\n• $f'$ does not change sign → horizontal point of inflection\n\n🔑 Second Derivative Test\nEvaluate $f''(x)$ at the stationary point:\n• $f''(c) < 0$ → concave down → local maximum\n• $f''(c) > 0$ → concave up → local minimum\n• $f''(c) = 0$ → test is inconclusive, use first derivative test\n\n💡 Worked Example — Finding Stationary Points\nFind the stationary points of $f(x) = 2x^3 - 3x^2 - 36x + 25$ and determine their nature.\n\n  Step 1: Find $f'(x)$ and solve $f'(x) = 0$\n    $$f'(x) = 6x^2 - 6x - 36$$\n    $$6x^2 - 6x - 36 = 0$$\n    $$x^2 - x - 6 = 0$$\n    $$(x - 3)(x + 2) = 0$$\n    $$x = 3 \text{ or } x = -2$$\n\n  Step 2: Find $y$-coordinates\n    $$f(3) = 54 - 27 - 108 + 25 = -56$$\n    $$f(-2) = -16 - 12 + 72 + 25 = 69$$\n    Stationary points: $(3, -56)$ and $(-2, 69)$\n\n  Step 3: Second derivative test\n    $$f''(x) = 12x - 6$$\n    $$f''(3) = 30 > 0$$\n    → local minimum at $(3, -56)$\n    $$f''(-2) = -30 < 0$$\n    → local maximum at $(-2, 69)$\n\n📌 Point of Inflection\nA point of inflection is where the concavity changes.\n    $$f''(x) = 0 \text{ AND the sign of } f'' \text{ changes through the point}$$\nA point of inflection does NOT have to be a stationary point.\n\n💡 Worked Example — Point of Inflection\nShow that $f(x) = x^3$ has a point of inflection at $(0, 0)$.\n\n  Step 1: Find $f''(x)$\n    $$f'(x) = 3x^2$$\n    $$f''(x) = 6x$$\n\n  Step 2: Solve $f''(x) = 0$\n    $$6x = 0 \\rightarrow x = 0$$\n\n  Step 3: Check concavity on either side\n    $$f''(-1) = -6 < 0$$\n    → concave down\n    $$f''(1) = 6 > 0$$\n    → concave up\n    Concavity changes → point of inflection at $(0, 0)$\n\n📎 Key Points to Remember\n• $f'(x)$ tells us the gradient; $f''(x)$ tells us the concavity\n• Always check the sign changes for inflection points — $f''(x) = 0$ alone is not enough\n• When $f''(c) = 0$ at a stationary point, the second derivative test fails — use the first derivative test instead\n• The normal gradient is the negative reciprocal of the tangent gradient\n\n⚠️ Common Mistake\nConcluding that $f''(x) = 0$ automatically means a point of inflection. It does NOT. You must check that $f''(x)$ changes sign. For example, $f(x) = x^4$ has $f''(0) = 0$ but $(0, 0)$ is a local minimum, not an inflection point."
+      "body": "The derivative tells us the gradient of a curve at any point. This lets us find equations of tangents and normals, and analyse the shape of curves.\n\n📌 Tangent and Normal\nAt any point on a curve:\n• The tangent is a straight line that touches the curve and has the same gradient\n• The normal is perpendicular to the tangent\n\n🔑 Equations\n    Gradient of tangent at $x = a$: $m_T = f'(a)$\n    Equation of tangent: $y - f(a) = f'(a)(x - a)$\n    Gradient of normal: $m_N = -\\dfrac{1}{f'(a)}$ (provided $f'(a) \\neq 0$)\n    Equation of normal: $y - f(a) = \\left(-\\dfrac{1}{f'(a)}\\right)(x - a)$\n\n💡 Worked Example — Tangent and Normal\nFind the tangent and normal to $y = x^2$ at the point $(2, 4)$.\n\n  Step 1: Find the derivative\n    $$f'(x) = 2x$$\n\n  Step 2: Gradient of tangent at $x = 2$\n    $$m_T = f'(2) = 4$$\n\n  Step 3: Equation of tangent\n    $$y - 4 = 4(x - 2)$$\n    $$y = 4x - 4$$\n\n  Step 4: Gradient of normal\n    $$m_N = -\\dfrac{1}{4}$$\n\n  Step 5: Equation of normal\n    $$y - 4 = \\left(-\\dfrac{1}{4}\\right)(x - 2)$$\n    $$y = -\\dfrac{1}{4}x + \\dfrac{9}{2}$$\n\n📌 Increasing and Decreasing Functions\n• $f'(x) > 0$ → $f$ is increasing\n• $f'(x) < 0$ → $f$ is decreasing\n\n📌 Stationary Points\nA stationary point occurs where $f'(x) = 0$. The tangent is horizontal.\n\n🔑 First Derivative Test (sign change)\nCheck the sign of $f'(x)$ on either side of the stationary point:\n• $f'$ changes from $+$ to $-$ → local maximum\n• $f'$ changes from $-$ to $+$ → local minimum\n• $f'$ does not change sign → horizontal point of inflection\n\n🔑 Second Derivative Test\nEvaluate $f''(x)$ at the stationary point:\n• $f''(c) < 0$ → concave down → local maximum\n• $f''(c) > 0$ → concave up → local minimum\n• $f''(c) = 0$ → test is inconclusive, use first derivative test\n\n💡 Worked Example — Finding Stationary Points\nFind the stationary points of $f(x) = 2x^3 - 3x^2 - 36x + 25$ and determine their nature.\n\n  Step 1: Find $f'(x)$ and solve $f'(x) = 0$\n    $$f'(x) = 6x^2 - 6x - 36$$\n    $$6x^2 - 6x - 36 = 0$$\n    $$x^2 - x - 6 = 0$$\n    $$(x - 3)(x + 2) = 0$$\n    $$x = 3 \\text{ or } x = -2$$\n\n  Step 2: Find $y$-coordinates\n    $$f(3) = 54 - 27 - 108 + 25 = -56$$\n    $$f(-2) = -16 - 12 + 72 + 25 = 69$$\n    Stationary points: $(3, -56)$ and $(-2, 69)$\n\n  Step 3: Second derivative test\n    $$f''(x) = 12x - 6$$\n    $$f''(3) = 30 > 0$$\n    → local minimum at $(3, -56)$\n    $$f''(-2) = -30 < 0$$\n    → local maximum at $(-2, 69)$\n\n📌 Point of Inflection\nA point of inflection is where the concavity changes.\n    $$f''(x) = 0 \\text{ AND the sign of } f'' \\text{ changes through the point}$$\nA point of inflection does NOT have to be a stationary point.\n\n💡 Worked Example — Point of Inflection\nShow that $f(x) = x^3$ has a point of inflection at $(0, 0)$.\n\n  Step 1: Find $f''(x)$\n    $$f'(x) = 3x^2$$\n    $$f''(x) = 6x$$\n\n  Step 2: Solve $f''(x) = 0$\n    $$6x = 0 \\rightarrow x = 0$$\n\n  Step 3: Check concavity on either side\n    $$f''(-1) = -6 < 0$$\n    → concave down\n    $$f''(1) = 6 > 0$$\n    → concave up\n    Concavity changes → point of inflection at $(0, 0)$\n\n📎 Key Points to Remember\n• $f'(x)$ tells us the gradient; $f''(x)$ tells us the concavity\n• Always check the sign changes for inflection points — $f''(x) = 0$ alone is not enough\n• When $f''(c) = 0$ at a stationary point, the second derivative test fails — use the first derivative test instead\n• The normal gradient is the negative reciprocal of the tangent gradient\n\n⚠️ Common Mistake\nConcluding that $f''(x) = 0$ automatically means a point of inflection. It does NOT. You must check that $f''(x)$ changes sign. For example, $f(x) = x^4$ has $f''(0) = 0$ but $(0, 0)$ is a local minimum, not an inflection point."
     },
     {
       "id": "math-dp-differentiation-dif-n3",
       "heading": "Optimisation Problems",
-      "body": "Optimisation is the process of finding the maximum or minimum value of a quantity in a real-world situation.\n\n📌 What is Optimisation?\nAny problem that asks you to maximise or minimise a quantity can be solved using differentiation. Examples include maximising area, minimising cost, or finding the greatest height.\n\n🔑 The Six-Step Method\n1. Draw a clear diagram and label variables\n2. Write the quantity $Q$ to be optimised as a formula\n3. Use constraints to express $Q$ in terms of a single variable\n4. State the domain of the variable\n5. Find $\\dfrac{dQ}{dx}$, set it equal to zero, and solve\n6. Verify max/min using the second derivative test or sign diagram\n7. Write the final answer in context\n\n💡 Worked Example — Maximum Area\nA rectangle has a fixed perimeter of $60$ cm. Find the dimensions that give maximum area.\n\n  Step 1: Define variables\n    Let width = $x$, then length = $30 - x$\n    (since perimeter = $2x + 2(30 - x) = 60$)\n\n  Step 2: Write area formula\n    $$A = x(30 - x) = 30x - x^2$$\n\n  Step 3: State domain\n    $$0 < x < 30$$\n\n  Step 4: Differentiate and solve\n    $$\\dfrac{dA}{dx} = 30 - 2x$$\n    $$30 - 2x = 0 \\rightarrow x = 15$$\n\n  Step 5: Verify maximum\n    $$\\dfrac{d^2A}{dx^2} = -2 < 0$$\n    → confirms a maximum\n\n  Step 6: Answer\n    Width = $15$ cm, length = $15$ cm\n    Maximum area = $15 \times 15 = 225$ cm$^2$\n    The rectangle is a square.\n\n💡 Worked Example — Minimising Surface Area\nAn open-top box with square base has volume $500$ cm$^3$. Find the base side that minimises surface area.\n\n  Step 1: Define variables\n    Let base side = $x$ cm, height = $h$ cm\n\n  Step 2: Use volume constraint\n    $$x^2 h = 500 \\rightarrow h = \\dfrac{500}{x^2}$$\n\n  Step 3: Write surface area formula\n    $$A = x^2 + 4xh \\quad (\text{base} + \text{four sides})$$\n    $$A = x^2 + 4x\\left(\\dfrac{500}{x^2}\\right)$$\n    $$A = x^2 + \\dfrac{2000}{x}$$\n\n  Step 4: Differentiate and solve\n    $$\\dfrac{dA}{dx} = 2x - \\dfrac{2000}{x^2}$$\n    $$2x - \\dfrac{2000}{x^2} = 0$$\n    $$2x^3 = 2000$$\n    $$x^3 = 1000$$\n    $$x = 10$$\n\n  Step 5: Verify minimum\n    $$\\dfrac{d^2A}{dx^2} = 2 + \\dfrac{4000}{x^3}$$\n    At $x = 10$:\n    $$\\dfrac{d^2A}{dx^2} = 2 + 4 = 6 > 0$$\n    → confirms a minimum\n\n  Step 6: Answer\n    The base side should be $10$ cm.\n\n📎 Key Points to Remember\n• Always express the quantity in terms of ONE variable before differentiating\n• Check endpoints of the domain as well as stationary points\n• The second derivative test is usually the quickest way to verify max/min\n• Write your final answer in the context of the problem, with units\n\n⚠️ Common Mistake\nForgetting to check that a stationary point is actually a maximum or minimum. Always verify with the second derivative or a sign diagram. Also, don't forget to check endpoints — the optimal value might occur at a boundary."
+      "body": "Optimisation is the process of finding the maximum or minimum value of a quantity in a real-world situation.\n\n📌 What is Optimisation?\nAny problem that asks you to maximise or minimise a quantity can be solved using differentiation. Examples include maximising area, minimising cost, or finding the greatest height.\n\n🔑 The Six-Step Method\n1. Draw a clear diagram and label variables\n2. Write the quantity $Q$ to be optimised as a formula\n3. Use constraints to express $Q$ in terms of a single variable\n4. State the domain of the variable\n5. Find $\\dfrac{dQ}{dx}$, set it equal to zero, and solve\n6. Verify max/min using the second derivative test or sign diagram\n7. Write the final answer in context\n\n💡 Worked Example — Maximum Area\nA rectangle has a fixed perimeter of $60$ cm. Find the dimensions that give maximum area.\n\n  Step 1: Define variables\n    Let width = $x$, then length = $30 - x$\n    (since perimeter = $2x + 2(30 - x) = 60$)\n\n  Step 2: Write area formula\n    $$A = x(30 - x) = 30x - x^2$$\n\n  Step 3: State domain\n    $$0 < x < 30$$\n\n  Step 4: Differentiate and solve\n    $$\\dfrac{dA}{dx} = 30 - 2x$$\n    $$30 - 2x = 0 \\rightarrow x = 15$$\n\n  Step 5: Verify maximum\n    $$\\dfrac{d^2A}{dx^2} = -2 < 0$$\n    → confirms a maximum\n\n  Step 6: Answer\n    Width = $15$ cm, length = $15$ cm\n    Maximum area = $15 \\times 15 = 225$ cm$^2$\n    The rectangle is a square.\n\n💡 Worked Example — Minimising Surface Area\nAn open-top box with square base has volume $500$ cm$^3$. Find the base side that minimises surface area.\n\n  Step 1: Define variables\n    Let base side = $x$ cm, height = $h$ cm\n\n  Step 2: Use volume constraint\n    $$x^2 h = 500 \\rightarrow h = \\dfrac{500}{x^2}$$\n\n  Step 3: Write surface area formula\n    $$A = x^2 + 4xh \\quad (\\text{base} + \\text{four sides})$$\n    $$A = x^2 + 4x\\left(\\dfrac{500}{x^2}\\right)$$\n    $$A = x^2 + \\dfrac{2000}{x}$$\n\n  Step 4: Differentiate and solve\n    $$\\dfrac{dA}{dx} = 2x - \\dfrac{2000}{x^2}$$\n    $$2x - \\dfrac{2000}{x^2} = 0$$\n    $$2x^3 = 2000$$\n    $$x^3 = 1000$$\n    $$x = 10$$\n\n  Step 5: Verify minimum\n    $$\\dfrac{d^2A}{dx^2} = 2 + \\dfrac{4000}{x^3}$$\n    At $x = 10$:\n    $$\\dfrac{d^2A}{dx^2} = 2 + 4 = 6 > 0$$\n    → confirms a minimum\n\n  Step 6: Answer\n    The base side should be $10$ cm.\n\n📎 Key Points to Remember\n• Always express the quantity in terms of ONE variable before differentiating\n• Check endpoints of the domain as well as stationary points\n• The second derivative test is usually the quickest way to verify max/min\n• Write your final answer in the context of the problem, with units\n\n⚠️ Common Mistake\nForgetting to check that a stationary point is actually a maximum or minimum. Always verify with the second derivative or a sign diagram. Also, don't forget to check endpoints — the optimal value might occur at a boundary."
     },
     {
       "id": "math-dp-differentiation-dif-n4",
       "heading": "Related Rates of Change",
-      "body": "Related rates problems connect how two quantities change using the chain rule. They appear in many real-world contexts.\n\n📌 What are Related Rates?\nWhen two quantities are linked by a formula and both change with respect to time, their rates of change are related through differentiation.\n\n🔑 The Chain Rule Connection\nIf $V$ and $r$ are linked, then:\n    $$\\dfrac{dV}{dt} = \\dfrac{dV}{dr} \times \\dfrac{dr}{dt}$$\nIn general:\n    $$\\dfrac{dy}{dt} = \\dfrac{dy}{dx} \times \\dfrac{dx}{dt}$$\nIf it is easier to find $\\dfrac{dx}{dy}$, you can also use:\n    $$\\dfrac{dy}{dt} = \\dfrac{\\dfrac{dx}{dt}}{\\dfrac{dx}{dy}}$$\n\n💡 Worked Example — Expanding Balloon\nA spherical balloon is inflated so its radius increases at $2$ cm/s. Find the rate of increase of volume when $r = 5$ cm.\n\n  Step 1: Write the linking formula\n    $$V = \\dfrac{4}{3} \\pi r^3$$\n\n  Step 2: Differentiate with respect to $r$\n    $$\\dfrac{dV}{dr} = 4\\pi r^2$$\n\n  Step 3: Apply the chain rule\n    $$\\dfrac{dV}{dt} = \\dfrac{dV}{dr} \times \\dfrac{dr}{dt}$$\n    $$\\dfrac{dV}{dt} = 4\\pi r^2 \times 2$$\n    $$\\dfrac{dV}{dt} = 8\\pi r^2$$\n\n  Step 4: Substitute $r = 5$\n    $$\\dfrac{dV}{dt} = 8\\pi(25) = 200\\pi \text{ cm}^3/\text{s}$$\n\n💡 Worked Example — Sliding Ladder\nA $5$ m ladder rests against a wall. The bottom slides away at $10$ cm/s. How fast is the top sliding down when the bottom is $3$ m from the wall?\n\n  Step 1: Set up the diagram and formula\n    $$x^2 + y^2 = 25 \\quad (\text{Pythagoras})$$\n\n  Step 2: Differentiate implicitly with respect to time $t$\n    $$2x \\cdot \\dfrac{dx}{dt} + 2y \\cdot \\dfrac{dy}{dt} = 0$$\n    $$x \\cdot \\dfrac{dx}{dt} + y \\cdot \\dfrac{dy}{dt} = 0$$\n\n  Step 3: Find $y$ when $x = 3$\n    $$9 + y^2 = 25 \\rightarrow y = 4$$\n\n  Step 4: Substitute known values\n    $$3 \\cdot (10) + 4 \\cdot \\dfrac{dy}{dt} = 0$$\n    $$30 + 4 \\cdot \\dfrac{dy}{dt} = 0$$\n    $$\\dfrac{dy}{dt} = -7.5 \text{ cm/s}$$\n\n  Step 5: Interpret\n    The negative sign means $y$ is decreasing.\n    The top is sliding down at $7.5$ cm/s.\n\n📎 Key Points to Remember\n• Step 1: Write a formula linking the two quantities\n• Step 2: Differentiate implicitly with respect to time (or the linking variable)\n• Step 3: Substitute known rates and values\n• Always include units in the final answer\n• Do not substitute particular values before differentiating\n\n⚠️ Common Mistake\nSubstituting values too early. You must differentiate the general equation first, then substitute the specific instant. If you substitute before differentiating, you incorrectly treat variables as constants and the derivative will be zero."
+      "body": "Related rates problems connect how two quantities change using the chain rule. They appear in many real-world contexts.\n\n📌 What are Related Rates?\nWhen two quantities are linked by a formula and both change with respect to time, their rates of change are related through differentiation.\n\n🔑 The Chain Rule Connection\nIf $V$ and $r$ are linked, then:\n    $$\\dfrac{dV}{dt} = \\dfrac{dV}{dr} \\times \\dfrac{dr}{dt}$$\nIn general:\n    $$\\dfrac{dy}{dt} = \\dfrac{dy}{dx} \\times \\dfrac{dx}{dt}$$\nIf it is easier to find $\\dfrac{dx}{dy}$, you can also use:\n    $$\\dfrac{dy}{dt} = \\dfrac{\\dfrac{dx}{dt}}{\\dfrac{dx}{dy}}$$\n\n💡 Worked Example — Expanding Balloon\nA spherical balloon is inflated so its radius increases at $2$ cm/s. Find the rate of increase of volume when $r = 5$ cm.\n\n  Step 1: Write the linking formula\n    $$V = \\dfrac{4}{3} \\pi r^3$$\n\n  Step 2: Differentiate with respect to $r$\n    $$\\dfrac{dV}{dr} = 4\\pi r^2$$\n\n  Step 3: Apply the chain rule\n    $$\\dfrac{dV}{dt} = \\dfrac{dV}{dr} \\times \\dfrac{dr}{dt}$$\n    $$\\dfrac{dV}{dt} = 4\\pi r^2 \\times 2$$\n    $$\\dfrac{dV}{dt} = 8\\pi r^2$$\n\n  Step 4: Substitute $r = 5$\n    $$\\dfrac{dV}{dt} = 8\\pi(25) = 200\\pi \\text{ cm}^3/\\text{s}$$\n\n💡 Worked Example — Sliding Ladder\nA $5$ m ladder rests against a wall. The bottom slides away at $10$ cm/s. How fast is the top sliding down when the bottom is $3$ m from the wall?\n\n  Step 1: Set up the diagram and formula\n    $$x^2 + y^2 = 25 \\quad (\\text{Pythagoras})$$\n\n  Step 2: Differentiate implicitly with respect to time $t$\n    $$2x \\cdot \\dfrac{dx}{dt} + 2y \\cdot \\dfrac{dy}{dt} = 0$$\n    $$x \\cdot \\dfrac{dx}{dt} + y \\cdot \\dfrac{dy}{dt} = 0$$\n\n  Step 3: Find $y$ when $x = 3$\n    $$9 + y^2 = 25 \\rightarrow y = 4$$\n\n  Step 4: Substitute known values\n    $$3 \\cdot (10) + 4 \\cdot \\dfrac{dy}{dt} = 0$$\n    $$30 + 4 \\cdot \\dfrac{dy}{dt} = 0$$\n    $$\\dfrac{dy}{dt} = -7.5 \\text{ cm/s}$$\n\n  Step 5: Interpret\n    The negative sign means $y$ is decreasing.\n    The top is sliding down at $7.5$ cm/s.\n\n📎 Key Points to Remember\n• Step 1: Write a formula linking the two quantities\n• Step 2: Differentiate implicitly with respect to time (or the linking variable)\n• Step 3: Substitute known rates and values\n• Always include units in the final answer\n• Do not substitute particular values before differentiating\n\n⚠️ Common Mistake\nSubstituting values too early. You must differentiate the general equation first, then substitute the specific instant. If you substitute before differentiating, you incorrectly treat variables as constants and the derivative will be zero."
     },
     {
       "id": "math-dp-differentiation-dif-n5",
       "heading": "Standard Derivatives",
-      "body": "There are several derivatives you should know by heart. These are the building blocks for more complicated functions.\n\n📌 Definition — Standard Derivatives\nFor the basic functions used in DP Mathematics:\n    $$\\dfrac{d}{dx}(\\sin x) = \\cos x$$\n    $$\\dfrac{d}{dx}(\\cos x) = -\\sin x$$\n    $$\\dfrac{d}{dx}(\tan x) = \\sec^2 x$$\n    $$\\dfrac{d}{dx}(e^x) = e^x$$\n    $$\\dfrac{d}{dx}(\\ln x) = \\dfrac{1}{x}, \\quad x > 0$$\n    $$\\dfrac{d}{dx}(a^x) = a^x \\ln a$$\n    $$\\dfrac{d}{dx}(\\log_a x) = \\dfrac{1}{x \\ln a}$$\n\n🔑 Key Concept — Chain rule with standard derivatives\nWhen the argument is not simply $x$, multiply by the derivative of the inner function.\n    $$\\dfrac{d}{dx}[\\sin(u)] = \\cos(u) \\cdot \\dfrac{du}{dx}$$\n    $$\\dfrac{d}{dx}(e^{u}) = e^{u} \\cdot \\dfrac{du}{dx}$$\n    $$\\dfrac{d}{dx}[\\ln(u)] = \\dfrac{1}{u} \\cdot \\dfrac{du}{dx}$$\n\n💡 Worked Example — Combining chain rule and standard derivatives\nDifferentiate $y = \\ln(5x^2 + 3)$.\n\n  Let $u = 5x^2 + 3$, so $\\dfrac{du}{dx} = 10x$.\n    $$\\dfrac{dy}{dx} = \\dfrac{1}{u} \\cdot \\dfrac{du}{dx} = \\dfrac{10x}{5x^2 + 3}$$\n\n💡 Worked Example — Exponential with a coefficient\nDifferentiate $y = e^{4x^3}$.\n\n    $$\\dfrac{dy}{dx} = e^{4x^3} \\cdot \\dfrac{d}{dx}(4x^3)$$\n    $$\\dfrac{dy}{dx} = e^{4x^3} \\cdot 12x^2 = 12x^2 e^{4x^3}$$\n\n📎 Key Points to Remember\n• $\\dfrac{d}{dx}(\\cos x)$ has a negative sign.\n• $\\ln x$ is only defined for $x > 0$.\n• Always look for an inner function before applying a standard derivative.\n\n⚠️ Common Mistake\nWriting $\\dfrac{d}{dx}(\\sin(3x)) = \\cos(3x)$ and forgetting to multiply by $3$. The correct answer is $3\\cos(3x)$."
+      "body": "There are several derivatives you should know by heart. These are the building blocks for more complicated functions.\n\n📌 Definition — Standard Derivatives\nFor the basic functions used in DP Mathematics:\n    $$\\dfrac{d}{dx}(\\sin x) = \\cos x$$\n    $$\\dfrac{d}{dx}(\\cos x) = -\\sin x$$\n    $$\\dfrac{d}{dx}(\\tan x) = \\sec^2 x$$\n    $$\\dfrac{d}{dx}(e^x) = e^x$$\n    $$\\dfrac{d}{dx}(\\ln x) = \\dfrac{1}{x}, \\quad x > 0$$\n    $$\\dfrac{d}{dx}(a^x) = a^x \\ln a$$\n    $$\\dfrac{d}{dx}(\\log_a x) = \\dfrac{1}{x \\ln a}$$\n\n🔑 Key Concept — Chain rule with standard derivatives\nWhen the argument is not simply $x$, multiply by the derivative of the inner function.\n    $$\\dfrac{d}{dx}[\\sin(u)] = \\cos(u) \\cdot \\dfrac{du}{dx}$$\n    $$\\dfrac{d}{dx}(e^{u}) = e^{u} \\cdot \\dfrac{du}{dx}$$\n    $$\\dfrac{d}{dx}[\\ln(u)] = \\dfrac{1}{u} \\cdot \\dfrac{du}{dx}$$\n\n💡 Worked Example — Combining chain rule and standard derivatives\nDifferentiate $y = \\ln(5x^2 + 3)$.\n\n  Let $u = 5x^2 + 3$, so $\\dfrac{du}{dx} = 10x$.\n    $$\\dfrac{dy}{dx} = \\dfrac{1}{u} \\cdot \\dfrac{du}{dx} = \\dfrac{10x}{5x^2 + 3}$$\n\n💡 Worked Example — Exponential with a coefficient\nDifferentiate $y = e^{4x^3}$.\n\n    $$\\dfrac{dy}{dx} = e^{4x^3} \\cdot \\dfrac{d}{dx}(4x^3)$$\n    $$\\dfrac{dy}{dx} = e^{4x^3} \\cdot 12x^2 = 12x^2 e^{4x^3}$$\n\n📎 Key Points to Remember\n• $\\dfrac{d}{dx}(\\cos x)$ has a negative sign.\n• $\\ln x$ is only defined for $x > 0$.\n• Always look for an inner function before applying a standard derivative.\n\n⚠️ Common Mistake\nWriting $\\dfrac{d}{dx}(\\sin(3x)) = \\cos(3x)$ and forgetting to multiply by $3$. The correct answer is $3\\cos(3x)$."
     },
     {
       "id": "math-dp-differentiation-dif-n6",
@@ -50,7 +50,7 @@
     {
       "id": "math-dp-differentiation-dif-n8",
       "heading": "💡 Worked Example — Harder Optimisation with Unequal Costs",
-      "body": "This example combines optimisation with a real-world cost constraint where different parts of an object have different unit costs.\n\n📌 Problem\nA closed cylindrical can must hold exactly $1000$ cm$^3$. The material for the top and bottom circular ends costs twice as much per cm$^2$ as the material for the curved side. Find the radius and height that minimise the total material cost.\n\n🔑 Strategy\n1. Let the curved side cost $k$ per cm$^2$, so each circular end costs $2k$ per cm$^2$.\n2. Write the total cost $C$ in terms of radius $r$ and height $h$.\n3. Use the volume constraint to eliminate $h$.\n4. Differentiate $C$ with respect to $r$, set to zero, and verify a minimum.\n\n💡 Solution\n  Step 1: Cost formula\n    Area of curved side = $2\\pi r h$\n    Area of top and bottom together = $2\\pi r^2$\n    Total cost: $C = k(2\\pi r h) + 2k(2\\pi r^2) = 2\\pi k r h + 4\\pi k r^2$\n\n  Step 2: Use the volume constraint\n    $$V = \\pi r^2 h = 1000 \\rightarrow h = \\dfrac{1000}{\\pi r^2}$$\n\n  Step 3: Express cost in one variable\n    $$C = 2\\pi k r \\left(\\dfrac{1000}{\\pi r^2}\\right) + 4\\pi k r^2$$\n    $$C = \\dfrac{2000k}{r} + 4\\pi k r^2$$\n\n  Step 4: Differentiate with respect to $r$\n    $$\\dfrac{dC}{dr} = -\\dfrac{2000k}{r^2} + 8\\pi k r$$\n\n  Step 5: Set derivative equal to zero\n    $$-\\dfrac{2000k}{r^2} + 8\\pi k r = 0$$\n    $$8\\pi k r = \\dfrac{2000k}{r^2}$$\n    $$8\\pi r^3 = 2000$$\n    $$r^3 = \\dfrac{250}{\\pi}$$\n    $$r = \\sqrt[3]{\\dfrac{250}{\\pi}} \\approx 4.30 \text{ cm}$$\n\n  Step 6: Find the height\n    $$h = \\dfrac{1000}{\\pi r^2} = \\dfrac{1000}{\\pi} \\left(\\dfrac{\\pi}{250}\\right)^{2/3} = 2\\sqrt[3]{\\dfrac{250}{\\pi}} = 2r$$\n\n  Step 7: Verify minimum\n    $$\\dfrac{d^2C}{dr^2} = \\dfrac{4000k}{r^3} + 8\\pi k > 0 \\quad \text{for } r > 0$$\n    → confirms a minimum.\n\n  The cheapest can has height equal to twice its radius, with $r \\approx 4.30$ cm and $h \\approx 8.60$ cm."
+      "body": "This example combines optimisation with a real-world cost constraint where different parts of an object have different unit costs.\n\n📌 Problem\nA closed cylindrical can must hold exactly $1000$ cm$^3$. The material for the top and bottom circular ends costs twice as much per cm$^2$ as the material for the curved side. Find the radius and height that minimise the total material cost.\n\n🔑 Strategy\n1. Let the curved side cost $k$ per cm$^2$, so each circular end costs $2k$ per cm$^2$.\n2. Write the total cost $C$ in terms of radius $r$ and height $h$.\n3. Use the volume constraint to eliminate $h$.\n4. Differentiate $C$ with respect to $r$, set to zero, and verify a minimum.\n\n💡 Solution\n  Step 1: Cost formula\n    Area of curved side = $2\\pi r h$\n    Area of top and bottom together = $2\\pi r^2$\n    Total cost: $C = k(2\\pi r h) + 2k(2\\pi r^2) = 2\\pi k r h + 4\\pi k r^2$\n\n  Step 2: Use the volume constraint\n    $$V = \\pi r^2 h = 1000 \\rightarrow h = \\dfrac{1000}{\\pi r^2}$$\n\n  Step 3: Express cost in one variable\n    $$C = 2\\pi k r \\left(\\dfrac{1000}{\\pi r^2}\\right) + 4\\pi k r^2$$\n    $$C = \\dfrac{2000k}{r} + 4\\pi k r^2$$\n\n  Step 4: Differentiate with respect to $r$\n    $$\\dfrac{dC}{dr} = -\\dfrac{2000k}{r^2} + 8\\pi k r$$\n\n  Step 5: Set derivative equal to zero\n    $$-\\dfrac{2000k}{r^2} + 8\\pi k r = 0$$\n    $$8\\pi k r = \\dfrac{2000k}{r^2}$$\n    $$8\\pi r^3 = 2000$$\n    $$r^3 = \\dfrac{250}{\\pi}$$\n    $$r = \\sqrt[3]{\\dfrac{250}{\\pi}} \\approx 4.30 \\text{ cm}$$\n\n  Step 6: Find the height\n    $$h = \\dfrac{1000}{\\pi r^2} = \\dfrac{1000}{\\pi} \\left(\\dfrac{\\pi}{250}\\right)^{2/3} = 2\\sqrt[3]{\\dfrac{250}{\\pi}} = 2r$$\n\n  Step 7: Verify minimum\n    $$\\dfrac{d^2C}{dr^2} = \\dfrac{4000k}{r^3} + 8\\pi k > 0 \\quad \\text{for } r > 0$$\n    → confirms a minimum.\n\n  The cheapest can has height equal to twice its radius, with $r \\approx 4.30$ cm and $h \\approx 8.60$ cm."
     }
   ],
   "flashcards": [
@@ -138,7 +138,8 @@
         "$20x^4 - 6x + 7$"
       ],
       "correctIndex": 0,
-      "explanation": "Term by term: $20x^3 - 6x + 7$."
+      "explanation": "Term by term: $20x^3 - 6x + 7$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-differentiation-dif-q2",
@@ -150,7 +151,8 @@
         "$2(2x + 3)^4$"
       ],
       "correctIndex": 1,
-      "explanation": "Chain: $5(2x + 3)^4 \times 2 = 10(2x + 3)^4$."
+      "explanation": "Chain: $5(2x + 3)^4 \\times 2 = 10(2x + 3)^4$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-differentiation-dif-q3",
@@ -162,7 +164,8 @@
         "$x^3 \\cos x$"
       ],
       "correctIndex": 1,
-      "explanation": "Product: $3x^2 \\sin x + x^3 \\cos x$."
+      "explanation": "Product: $3x^2 \\sin x + x^3 \\cos x$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-differentiation-dif-q4",
@@ -174,7 +177,8 @@
         "$-3$"
       ],
       "correctIndex": 0,
-      "explanation": "$f'(x) = 3x^2 - 3$; $f'(2) = 12 - 3 = 9$."
+      "explanation": "$f'(x) = 3x^2 - 3$; $f'(2) = 12 - 3 = 9$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-differentiation-dif-q5",
@@ -186,19 +190,21 @@
         "$x = 3$ only"
       ],
       "correctIndex": 0,
-      "explanation": "$f'(x) = 6x^2 - 18x + 12 = 6(x - 1)(x - 2) = 0$."
+      "explanation": "$f'(x) = 6x^2 - 18x + 12 = 6(x - 1)(x - 2) = 0$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-differentiation-dif-q6",
       "stem": "Rectangle perimeter $60$ cm. Max area?",
       "choices": [
-        "$20 \times 10 = 200$",
-        "$15 \times 15 = 225$",
-        "$25 \times 5 = 125$",
-        "$30 \times 0 = 0$"
+        "$20 \\times 10 = 200$",
+        "$15 \\times 15 = 225$",
+        "$25 \\times 5 = 125$",
+        "$30 \\times 0 = 0$"
       ],
       "correctIndex": 1,
-      "explanation": "$A = x(30 - x)$; max at $x = 15$; $15 \times 15 = 225$."
+      "explanation": "$A = x(30 - x)$; max at $x = 15$; $15 \\times 15 = 225$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-differentiation-dif-q7",
@@ -210,7 +216,8 @@
         "$\\dfrac{2x - 5}{(x - 3)^2}$"
       ],
       "correctIndex": 1,
-      "explanation": "Quotient rule: $\\dfrac{2(x - 3) - (2x + 1)(1)}{(x - 3)^2} = \\dfrac{2x - 6 - 2x - 1}{(x - 3)^2} = \\dfrac{-7}{(x - 3)^2}$."
+      "explanation": "Quotient rule: $\\dfrac{2(x - 3) - (2x + 1)(1)}{(x - 3)^2} = \\dfrac{2x - 6 - 2x - 1}{(x - 3)^2} = \\dfrac{-7}{(x - 3)^2}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-differentiation-dif-q8",
@@ -222,7 +229,8 @@
         "$y = -4x + 12$"
       ],
       "correctIndex": 0,
-      "explanation": "$f'(x) = 2x$ → gradient of tangent at $x = 2$ is $4$. Gradient of normal = $-\\dfrac{1}{4}$ (negative reciprocal). Using $y - 4 = -\\dfrac{1}{4}(x - 2)$ gives $y = -\\dfrac{1}{4}x + \\dfrac{9}{2}$."
+      "explanation": "$f'(x) = 2x$ → gradient of tangent at $x = 2$ is $4$. Gradient of normal = $-\\dfrac{1}{4}$ (negative reciprocal). Using $y - 4 = -\\dfrac{1}{4}(x - 2)$ gives $y = -\\dfrac{1}{4}x + \\dfrac{9}{2}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-differentiation-dif-q9",
@@ -234,7 +242,8 @@
         "$40\\pi$ cm$^3$/s"
       ],
       "correctIndex": 1,
-      "explanation": "Differentiate $V$ with respect to $t$: $\\dfrac{dV}{dt} = 4\\pi r^2 \\cdot \\dfrac{dr}{dt}$. Substitute $r = 5$ and $\\dfrac{dr}{dt} = 2$: $\\dfrac{dV}{dt} = 4\\pi(25)(2) = 200\\pi$ cm$^3$/s."
+      "explanation": "Differentiate $V$ with respect to $t$: $\\dfrac{dV}{dt} = 4\\pi r^2 \\cdot \\dfrac{dr}{dt}$. Substitute $r = 5$ and $\\dfrac{dr}{dt} = 2$: $\\dfrac{dV}{dt} = 4\\pi(25)(2) = 200\\pi$ cm$^3$/s.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-differentiation-dif-q10",
@@ -246,7 +255,8 @@
         "Divide $f$ by $f''$"
       ],
       "correctIndex": 1,
-      "explanation": "When the second derivative is zero, the test is inconclusive. You must check the sign of $f'(x)$ on either side of $c$ (first derivative test) to determine the nature of the stationary point."
+      "explanation": "When the second derivative is zero, the test is inconclusive. You must check the sign of $f'(x)$ on either side of $c$ (first derivative test) to determine the nature of the stationary point.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-differentiation-dif-q11",
@@ -258,7 +268,8 @@
         "$\\dfrac{1}{x}$"
       ],
       "correctIndex": 1,
-      "explanation": "Chain rule: derivative of $\\ln(u)$ is $\\dfrac{u'}{u}$. Here $u = 4x + 3$, so $u' = 4$. Answer = $\\dfrac{4}{4x + 3}$."
+      "explanation": "Chain rule: derivative of $\\ln(u)$ is $\\dfrac{u'}{u}$. Here $u = 4x + 3$, so $u' = 4$. Answer = $\\dfrac{4}{4x + 3}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-differentiation-dif-q12",
@@ -270,7 +281,8 @@
         "$25$ cm"
       ],
       "correctIndex": 1,
-      "explanation": "Let base side = $x$ and height = $h$. Volume $x^2 h = 500$ → $h = \\dfrac{500}{x^2}$. Surface area $A = x^2 + 4xh = x^2 + \\dfrac{2000}{x}$. $\\dfrac{dA}{dx} = 2x - \\dfrac{2000}{x^2} = 0$ → $2x^3 = 2000$ → $x^3 = 1000$ → $x = 10$ cm. Second derivative is positive, confirming a minimum."
+      "explanation": "Let base side = $x$ and height = $h$. Volume $x^2 h = 500$ → $h = \\dfrac{500}{x^2}$. Surface area $A = x^2 + 4xh = x^2 + \\dfrac{2000}{x}$. $\\dfrac{dA}{dx} = 2x - \\dfrac{2000}{x^2} = 0$ → $2x^3 = 2000$ → $x^3 = 1000$ → $x = 10$ cm. Second derivative is positive, confirming a minimum.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-differentiation-dif-q13",
@@ -282,7 +294,8 @@
         "$3\\sin(3x)$"
       ],
       "correctIndex": 1,
-      "explanation": "Chain rule: derivative of $\\sin(3x)$ is $\\cos(3x) \times 3 = 3\\cos(3x)$."
+      "explanation": "Chain rule: derivative of $\\sin(3x)$ is $\\cos(3x) \\times 3 = 3\\cos(3x)$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-differentiation-dif-q14",
@@ -294,7 +307,8 @@
         "$x = 4$"
       ],
       "correctIndex": 1,
-      "explanation": "$f''(x) = 6x - 12$. Setting $f''(x) = 0$ gives $x = 2$, and the sign of $f''$ changes through $x = 2$, so it is a point of inflection."
+      "explanation": "$f''(x) = 6x - 12$. Setting $f''(x) = 0$ gives $x = 2$, and the sign of $f''$ changes through $x = 2$, so it is a point of inflection.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-differentiation-dif-q15",
@@ -306,7 +320,8 @@
         "$\\dfrac{dy}{dx} = -\\dfrac{y}{x}$"
       ],
       "correctIndex": 1,
-      "explanation": "Implicit differentiation gives $2x + 2y \\dfrac{dy}{dx} = 0$, so $\\dfrac{dy}{dx} = -\\dfrac{x}{y}$."
+      "explanation": "Implicit differentiation gives $2x + 2y \\dfrac{dy}{dx} = 0$, so $\\dfrac{dy}{dx} = -\\dfrac{x}{y}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-differentiation-dif-q16",
@@ -318,7 +333,8 @@
         "4 km"
       ],
       "correctIndex": 0,
-      "explanation": "Let $x$ be the downstream distance on the opposite bank where the pipe reaches land. Underwater length is $\\sqrt{x^2 + 4}$ and land length is $8 - x$. Cost is $C = 50\\sqrt{x^2 + 4} + 30(8 - x)$. Differentiating gives $\\dfrac{dC}{dx} = \\dfrac{50x}{\\sqrt{x^2 + 4}} - 30$. Setting to zero yields $50x = 30\\sqrt{x^2 + 4}$, so $25x^2 = 9(x^2 + 4)$ and $x = 1.5$ km. The second derivative is positive, confirming a minimum."
+      "explanation": "Let $x$ be the downstream distance on the opposite bank where the pipe reaches land. Underwater length is $\\sqrt{x^2 + 4}$ and land length is $8 - x$. Cost is $C = 50\\sqrt{x^2 + 4} + 30(8 - x)$. Differentiating gives $\\dfrac{dC}{dx} = \\dfrac{50x}{\\sqrt{x^2 + 4}} - 30$. Setting to zero yields $50x = 30\\sqrt{x^2 + 4}$, so $25x^2 = 9(x^2 + 4)$ and $x = 1.5$ km. The second derivative is positive, confirming a minimum.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-differentiation-dif-q17",
@@ -330,7 +346,8 @@
         "undefined"
       ],
       "correctIndex": 0,
-      "explanation": "Differentiating implicitly with respect to $x$ gives $3x^2 + 3y^2 \\dfrac{dy}{dx} = 6y + 6x \\dfrac{dy}{dx}$. Collecting terms containing $\\dfrac{dy}{dx}$ yields $\\dfrac{dy}{dx}(3y^2 - 6x) = 6y - 3x^2$, so $\\dfrac{dy}{dx} = \\dfrac{6y - 3x^2}{3y^2 - 6x}$. Substituting $x = 3$ and $y = 3$ gives $\\dfrac{18 - 27}{27 - 18} = \\dfrac{-9}{9} = -1$."
+      "explanation": "Differentiating implicitly with respect to $x$ gives $3x^2 + 3y^2 \\dfrac{dy}{dx} = 6y + 6x \\dfrac{dy}{dx}$. Collecting terms containing $\\dfrac{dy}{dx}$ yields $\\dfrac{dy}{dx}(3y^2 - 6x) = 6y - 3x^2$, so $\\dfrac{dy}{dx} = \\dfrac{6y - 3x^2}{3y^2 - 6x}$. Substituting $x = 3$ and $y = 3$ gives $\\dfrac{18 - 27}{27 - 18} = \\dfrac{-9}{9} = -1$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-differentiation-dif-q18",
@@ -342,7 +359,8 @@
         "$\\dfrac{5}{2\\pi}$ m/min"
       ],
       "correctIndex": 0,
-      "explanation": "By similar triangles, when the water depth is $h$ the radius of the water surface is $r = \\dfrac{h}{2}$. The volume of water is $V = \\dfrac{1}{3}\\pi r^2 h = \\dfrac{\\pi h^3}{12}$. Differentiating gives $\\dfrac{dV}{dh} = \\dfrac{\\pi h^2}{4}$. Using the chain rule, $\\dfrac{dh}{dt} = \\dfrac{dV}{dt} \\div \\dfrac{dV}{dh} = \\dfrac{5}{\\pi h^2/4} = \\dfrac{20}{\\pi h^2}$. Substituting $h = 2$ gives $\\dfrac{20}{4\\pi} = \\dfrac{5}{\\pi}$ m/min."
+      "explanation": "By similar triangles, when the water depth is $h$ the radius of the water surface is $r = \\dfrac{h}{2}$. The volume of water is $V = \\dfrac{1}{3}\\pi r^2 h = \\dfrac{\\pi h^3}{12}$. Differentiating gives $\\dfrac{dV}{dh} = \\dfrac{\\pi h^2}{4}$. Using the chain rule, $\\dfrac{dh}{dt} = \\dfrac{dV}{dt} \\div \\dfrac{dV}{dh} = \\dfrac{5}{\\pi h^2/4} = \\dfrac{20}{\\pi h^2}$. Substituting $h = 2$ gives $\\dfrac{20}{4\\pi} = \\dfrac{5}{\\pi}$ m/min.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-differentiation-dif-q19",
@@ -354,7 +372,8 @@
         "$2x + y = 4$"
       ],
       "correctIndex": 0,
-      "explanation": "Differentiating implicitly gives $2x + y + x\\dfrac{dy}{dx} + 2y\\dfrac{dy}{dx} = 0$. Collecting the derivative terms yields $\\dfrac{dy}{dx}(x + 2y) = -2x - y$, so $\\dfrac{dy}{dx} = -\\dfrac{2x + y}{x + 2y}$. At $(1, 2)$ the gradient is $-\\dfrac{4}{5}$. Using $y - 2 = -\\dfrac{4}{5}(x - 1)$ and rearranging gives $4x + 5y = 14$."
+      "explanation": "Differentiating implicitly gives $2x + y + x\\dfrac{dy}{dx} + 2y\\dfrac{dy}{dx} = 0$. Collecting the derivative terms yields $\\dfrac{dy}{dx}(x + 2y) = -2x - y$, so $\\dfrac{dy}{dx} = -\\dfrac{2x + y}{x + 2y}$. At $(1, 2)$ the gradient is $-\\dfrac{4}{5}$. Using $y - 2 = -\\dfrac{4}{5}(x - 1)$ and rearranging gives $4x + 5y = 14$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-differentiation-dif-q20",
@@ -366,7 +385,8 @@
         "$6\\sqrt{5}$ cm/s"
       ],
       "correctIndex": 0,
-      "explanation": "Let $D$ be the distance from the particle to the origin, so $D^2 = x^2 + y^2 = x^2 + x^4$. Differentiating implicitly with respect to time gives $2D\\dfrac{dD}{dt} = (2x + 4x^3)\\dfrac{dx}{dt}$. When $x = 2$, $y = 4$ and $D = \\sqrt{20} = 2\\sqrt{5}$. Substituting $\\dfrac{dx}{dt} = 3$ gives $\\dfrac{dD}{dt} = \\dfrac{(4 + 32)(3)}{2(2\\sqrt{5})} = \\dfrac{27}{\\sqrt{5}} = \\dfrac{27\\sqrt{5}}{5}$ cm/s."
+      "explanation": "Let $D$ be the distance from the particle to the origin, so $D^2 = x^2 + y^2 = x^2 + x^4$. Differentiating implicitly with respect to time gives $2D\\dfrac{dD}{dt} = (2x + 4x^3)\\dfrac{dx}{dt}$. When $x = 2$, $y = 4$ and $D = \\sqrt{20} = 2\\sqrt{5}$. Substituting $\\dfrac{dx}{dt} = 3$ gives $\\dfrac{dD}{dt} = \\dfrac{(4 + 32)(3)}{2(2\\sqrt{5})} = \\dfrac{27}{\\sqrt{5}} = \\dfrac{27\\sqrt{5}}{5}$ cm/s.",
+      "difficulty": "hard"
     }
   ]
 }

@@ -65,7 +65,7 @@ calculator: z.boolean().optional()   // math only; true = calculator expected/al
 - **easy** = single-fact recall or a direct definition; a student who read the notes once should get it right.
 - **medium** = apply one rule or procedure, discriminate between close options, or a short single-step calculation.
 - **hard** = multi-step procedure, prediction/application in an unfamiliar context, or fine discrimination across several options — the questions a typical student at this level is most likely to miss. (For recall-heavy subjects like science, scenario-based prediction *is* the hard band.)
-- **calculator** (math only) = a calculator is genuinely expected for the computation; exact-form topics (e.g. surds) and mental-math questions stay untagged. KS3 is mostly untagged; DP-AI follows the P1 non-calc / P2 calc convention.
+- **calculator** (math only) = a calculator is genuinely expected for the computation; exact-form topics (e.g. surds) and mental-math questions stay untagged. KS3 is mostly untagged; DP-AI allows a GDC on **all** papers (the P1-non-calc convention applies to AA, not AI), so tag where a GDC is genuinely expected (regression, distribution probabilities, hypothesis tests, matrices, graph algorithms, numerical solving).
 - Target ≈ 30/40/30 easy/medium/hard per topic; audit requires ≥3 easy and ≥3 hard.
 
 Pilot results (Session 1, tagged by hand): math-yr9-surds 4/8/3, bio-cell-1 9/3/3, eng-spelling-1 11/1/3 — all satisfy ≥3/≥3 without forcing unnatural questions, including the recall-heavy spelling topic (its "hard" band = multi-option discrimination + applied reasoning: homophones in full sentences, irregular plurals in context, spell-checker limits).

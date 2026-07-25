@@ -132,7 +132,8 @@
         "Enlargement"
       ],
       "correctIndex": 2,
-      "explanation": "A translation moves every point of a shape by the same vector, so the shape keeps its size, shape, and orientation."
+      "explanation": "A translation moves every point of a shape by the same vector, so the shape keeps its size, shape, and orientation.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-transformations-trans-q2",
@@ -144,7 +145,8 @@
         "$(5,4)$"
       ],
       "correctIndex": 0,
-      "explanation": "Reflecting in the $y$-axis changes the sign of the $x$-coordinate: $(x,y) \\to (-x,y)$. So $(4,5) \\to (-4,5)$."
+      "explanation": "Reflecting in the $y$-axis changes the sign of the $x$-coordinate: $(x,y) \\to (-x,y)$. So $(4,5) \\to (-4,5)$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-transformations-trans-q3",
@@ -156,7 +158,8 @@
         "$(2,-1)$"
       ],
       "correctIndex": 0,
-      "explanation": "The rule for $90^\\circ$ clockwise is $(x,y) \\to (y,-x)$. Applying it to $(2,1)$ gives $(1,-2)$."
+      "explanation": "The rule for $90^\\circ$ clockwise is $(x,y) \\to (y,-x)$. Applying it to $(2,1)$ gives $(1,-2)$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-transformations-trans-q4",
@@ -168,7 +171,8 @@
         "$(8,-8)$"
       ],
       "correctIndex": 0,
-      "explanation": "Add the vector to the point: $-3 + 5 = 2$ and $4 + (-2) = 2$. The image is $(2,2)$."
+      "explanation": "Add the vector to the point: $-3 + 5 = 2$ and $4 + (-2) = 2$. The image is $(2,2)$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-transformations-trans-q5",
@@ -180,7 +184,8 @@
         "$(6,3)$"
       ],
       "correctIndex": 1,
-      "explanation": "For an enlargement about the origin, multiply each coordinate by the scale factor: $(2 \\times 3, 3 \\times 3) = (6,9)$."
+      "explanation": "For an enlargement about the origin, multiply each coordinate by the scale factor: $(2 \\times 3, 3 \\times 3) = (6,9)$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-transformations-trans-q6",
@@ -192,7 +197,8 @@
         "$(4,2)$"
       ],
       "correctIndex": 1,
-      "explanation": "A scale factor between $0$ and $1$ makes the image smaller. Multiply each coordinate by $\\dfrac{1}{2}$: $(8 \\times \\dfrac{1}{2}, 2 \\times \\dfrac{1}{2}) = (4,1)$."
+      "explanation": "A scale factor between $0$ and $1$ makes the image smaller. Multiply each coordinate by $\\dfrac{1}{2}$: $(8 \\times \\dfrac{1}{2}, 2 \\times \\dfrac{1}{2}) = (4,1)$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-transformations-trans-q7",
@@ -204,7 +210,8 @@
         "Enlargement"
       ],
       "correctIndex": 3,
-      "explanation": "Only enlargement changes size. Reflections, translations, and rotations all produce congruent images that are the same size."
+      "explanation": "Only enlargement changes size. Reflections, translations, and rotations all produce congruent images that are the same size.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-transformations-trans-q8",
@@ -216,7 +223,8 @@
         "$(8,2)$"
       ],
       "correctIndex": 0,
-      "explanation": "The distance from $x=6$ to $x=1$ is $5$ units. Moving $5$ units the other side gives $x = 1 - 5 = -4$. The $y$-coordinate stays $2$, so the image is $(-4,2)$."
+      "explanation": "The distance from $x=6$ to $x=1$ is $5$ units. Moving $5$ units the other side gives $x = 1 - 5 = -4$. The $y$-coordinate stays $2$, so the image is $(-4,2)$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-transformations-trans-q9",
@@ -228,7 +236,8 @@
         "$(-2,3)$"
       ],
       "correctIndex": 0,
-      "explanation": "A $180^\\circ$ rotation reverses both coordinates: $(x,y) \\to (-x,-y)$. So $(-3,2) \\to (3,-2)$."
+      "explanation": "A $180^\\circ$ rotation reverses both coordinates: $(x,y) \\to (-x,-y)$. So $(-3,2) \\to (3,-2)$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-transformations-trans-q10",
@@ -240,7 +249,8 @@
         "$\\begin{pmatrix} -1 \\\\ -5 \\end{pmatrix}$"
       ],
       "correctIndex": 0,
-      "explanation": "Add the two vectors: $2 + (-3) = -1$ and $-1 + 4 = 3$. The single equivalent vector is $\\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}$."
+      "explanation": "Add the two vectors: $2 + (-3) = -1$ and $-1 + 4 = 3$. The single equivalent vector is $\\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-transformations-trans-q11",
@@ -252,7 +262,8 @@
         "No change"
       ],
       "correctIndex": 1,
-      "explanation": "Reflecting $(x,y)$ in the $x$-axis gives $(x,-y)$, and reflecting that in the $y$-axis gives $(-x,-y)$. That is exactly the rule for a $180^\\circ$ rotation about the origin."
+      "explanation": "Reflecting $(x,y)$ in the $x$-axis gives $(x,-y)$, and reflecting that in the $y$-axis gives $(-x,-y)$. That is exactly the rule for a $180^\\circ$ rotation about the origin.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-transformations-trans-q12",
@@ -264,7 +275,8 @@
         "Enlargement with scale factor $2$"
       ],
       "correctIndex": 1,
-      "explanation": "Reflections, rotations, and translations preserve size and shape, so they always produce congruent images. Enlargements change size, so they produce similar images instead."
+      "explanation": "Reflections, rotations, and translations preserve size and shape, so they always produce congruent images. Enlargements change size, so they produce similar images instead.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-transformations-trans-q13",
@@ -276,7 +288,8 @@
         "$(2,2)$"
       ],
       "correctIndex": 0,
-      "explanation": "After the translation: $(2 + (-4), -1 + 3) = (-2,2)$. Reflecting in the $x$-axis changes the sign of the $y$-coordinate: $(-2,2) \\to (-2,-2)$."
+      "explanation": "After the translation: $(2 + (-4), -1 + 3) = (-2,2)$. Reflecting in the $x$-axis changes the sign of the $y$-coordinate: $(-2,2) \\to (-2,-2)$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-transformations-trans-q14",
@@ -288,7 +301,8 @@
         "$9$ cm by $7$ cm"
       ],
       "correctIndex": 1,
-      "explanation": "Multiply each dimension by $2.5$: $6 \\times 2.5 = 15$ cm and $4 \\times 2.5 = 10$ cm. The enlarged photo is $15$ cm by $10$ cm and similar to the original."
+      "explanation": "Multiply each dimension by $2.5$: $6 \\times 2.5 = 15$ cm and $4 \\times 2.5 = 10$ cm. The enlarged photo is $15$ cm by $10$ cm and similar to the original.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-transformations-trans-q15",
@@ -300,7 +314,8 @@
         "$(a,-b)$"
       ],
       "correctIndex": 0,
-      "explanation": "Reflecting in $y=x$ swaps the coordinates: $(a,b) \\to (b,a)$. Reflecting in the $y$-axis changes the sign of the $x$-coordinate: $(b,a) \\to (-b,a)$."
+      "explanation": "Reflecting in $y=x$ swaps the coordinates: $(a,b) \\to (b,a)$. Reflecting in the $y$-axis changes the sign of the $x$-coordinate: $(b,a) \\to (-b,a)$.",
+      "difficulty": "hard"
     }
   ]
 }

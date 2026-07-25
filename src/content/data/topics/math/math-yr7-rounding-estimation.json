@@ -132,7 +132,8 @@
         "$48$"
       ],
       "correctIndex": 2,
-      "explanation": "The digit to the right of the tens place is $7$, which is $5$ or more, so round up from $40$ to $50$."
+      "explanation": "The digit to the right of the tens place is $7$, which is $5$ or more, so round up from $40$ to $50$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q2",
@@ -144,7 +145,8 @@
         "$3.7$"
       ],
       "correctIndex": 1,
-      "explanation": "The tenths digit is $7$, so round the units digit $3$ up to $4$."
+      "explanation": "The tenths digit is $7$, so round the units digit $3$ up to $4$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q3",
@@ -156,7 +158,8 @@
         "$8.2$"
       ],
       "correctIndex": 1,
-      "explanation": "The third decimal digit is $9$, so the hundredths digit $4$ rounds up to $5$, giving $8.15$."
+      "explanation": "The third decimal digit is $9$, so the hundredths digit $4$ rounds up to $5$, giving $8.15$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q4",
@@ -168,7 +171,8 @@
         "$0.00562$"
       ],
       "correctIndex": 0,
-      "explanation": "The first two significant digits are $5$ and $6$, and the next digit $2$ is less than $5$, so round down to $0.0056$."
+      "explanation": "The first two significant digits are $5$ and $6$, and the next digit $2$ is less than $5$, so round down to $0.0056$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q5",
@@ -180,7 +184,8 @@
         "$8\\,000$"
       ],
       "correctIndex": 0,
-      "explanation": "$198$ rounds to $200$ and $3.9$ rounds to $4$, so $200 \\times 4 = 800$."
+      "explanation": "$198$ rounds to $200$ and $3.9$ rounds to $4$, so $200 \\times 4 = 800$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q6",
@@ -192,7 +197,8 @@
         "$3\\,751$"
       ],
       "correctIndex": 2,
-      "explanation": "Numbers from $3\\,650$ up to (but not including) $3\\,750$ round to $3\\,700$, so $3\\,749$ is the only valid choice."
+      "explanation": "Numbers from $3\\,650$ up to (but not including) $3\\,750$ round to $3\\,700$, so $3\\,749$ is the only valid choice.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q7",
@@ -204,7 +210,8 @@
         "$13.0$"
       ],
       "correctIndex": 2,
-      "explanation": "The tenths digit is $5$, so by convention we always round up to $13$."
+      "explanation": "The tenths digit is $5$, so by convention we always round up to $13$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q8",
@@ -216,7 +223,8 @@
         "$10$"
       ],
       "correctIndex": 0,
-      "explanation": "The third decimal digit is $5$, so rounding up causes a chain of carries; the answer must show two decimal places: $10.00$."
+      "explanation": "The third decimal digit is $5$, so rounding up causes a chain of carries; the answer must show two decimal places: $10.00$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q9",
@@ -228,7 +236,8 @@
         "$60$"
       ],
       "correctIndex": 0,
-      "explanation": "$412$ rounds to $400$ and $7.9$ rounds to $8$, giving $400 \\div 8 = 50$."
+      "explanation": "$412$ rounds to $400$ and $7.9$ rounds to $8$, giving $400 \\div 8 = 50$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q10",
@@ -240,7 +249,8 @@
         "$23$"
       ],
       "correctIndex": 2,
-      "explanation": "$23 \\div 8 = 2.875$, but $2$ buses would leave $7$ people behind, so round up to $3$ buses."
+      "explanation": "$23 \\div 8 = 2.875$, but $2$ buses would leave $7$ people behind, so round up to $3$ buses.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q11",
@@ -252,7 +262,8 @@
         "$6$"
       ],
       "correctIndex": 0,
-      "explanation": "$50 \\div 12 = 4.16\\ldots$; $5$ books would cost £60, which is too much, so round down to $4$."
+      "explanation": "$50 \\div 12 = 4.16\\ldots$; $5$ books would cost £60, which is too much, so round down to $4$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q12",
@@ -264,7 +275,8 @@
         "$20$"
       ],
       "correctIndex": 1,
-      "explanation": "The area is $4.2 \\times 3.8 = 15.96$ m$^2$; $15$ tiles would leave a gap, so round up to $16$."
+      "explanation": "The area is $4.2 \\times 3.8 = 15.96$ m$^2$; $15$ tiles would leave a gap, so round up to $16$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q13",
@@ -276,7 +288,8 @@
         "$12\\,000$"
       ],
       "correctIndex": 0,
-      "explanation": "$1\\,247$ rounds to $1\\,000$ and $8.5$ rounds to $9$, so $1\\,000 \\times 9 = 9\\,000$."
+      "explanation": "$1\\,247$ rounds to $1\\,000$ and $8.5$ rounds to $9$, so $1\\,000 \\times 9 = 9\\,000$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q14",
@@ -288,7 +301,8 @@
         "$4.65$ cm"
       ],
       "correctIndex": 1,
-      "explanation": "Values from $4.55$ cm up to $4.65$ cm round to $4.6$ cm, so the smallest possible actual length is $4.55$ cm."
+      "explanation": "Values from $4.55$ cm up to $4.65$ cm round to $4.6$ cm, so the smallest possible actual length is $4.55$ cm.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-rounding-estimation-re-q15",
@@ -300,7 +314,8 @@
         "The exact answer is about $3\\,600$."
       ],
       "correctIndex": 1,
-      "explanation": "Rounding gives $80 \\times 60 = 4\\,800$; the exact answer is $4\\,836$, which is about $4\\,800$."
+      "explanation": "Rounding gives $80 \\times 60 = 4\\,800$; the exact answer is $4\\,836$, which is about $4\\,800$.",
+      "difficulty": "medium"
     }
   ]
 }

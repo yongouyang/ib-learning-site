@@ -133,7 +133,8 @@
         "No linear correlation"
       ],
       "correctIndex": 1,
-      "explanation": "The negative sign indicates negative correlation, and $|-0.92|$ is close to 1, so the correlation is strong."
+      "explanation": "The negative sign indicates negative correlation, and $|-0.92|$ is close to 1, so the correlation is strong.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-correlation-regression-q2",
@@ -145,7 +146,8 @@
         "Neither; exponential data cannot be analysed statistically"
       ],
       "correctIndex": 1,
-      "explanation": "Exponential growth is monotonic (always increasing) but not linear. Spearman's rank tests for monotonicity, while Pearson's measures only linear correlation and would underestimate the relationship."
+      "explanation": "Exponential growth is monotonic (always increasing) but not linear. Spearman's rank tests for monotonicity, while Pearson's measures only linear correlation and would underestimate the relationship.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-correlation-regression-q3",
@@ -157,7 +159,8 @@
         "The mean of x is 4.2"
       ],
       "correctIndex": 1,
-      "explanation": "In $y = ax + b$, the gradient a represents the change in y for each 1-unit increase in x."
+      "explanation": "In $y = ax + b$, the gradient a represents the change in y for each 1-unit increase in x.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-correlation-regression-q4",
@@ -169,7 +172,8 @@
         "$x = 40$"
       ],
       "correctIndex": 3,
-      "explanation": "$x = 40$ is far outside the original data range (5–25), making it extrapolation. The relationship may not hold beyond the observed range."
+      "explanation": "$x = 40$ is far outside the original data range (5–25), making it extrapolation. The relationship may not hold beyond the observed range.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-correlation-regression-q5",
@@ -181,7 +185,8 @@
         "48"
       ],
       "correctIndex": 1,
-      "explanation": "Substitute $x = 6$: $y = 2.5(6) + 8 = 15 + 8 = 23$."
+      "explanation": "Substitute $x = 6$: $y = 2.5(6) + 8 = 15 + 8 = 23$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-correlation-regression-q6",
@@ -193,7 +198,8 @@
         "Nobel prizes cause people to eat more chocolate"
       ],
       "correctIndex": 2,
-      "explanation": "Correlation does not imply causation. Wealthier countries may both consume more chocolate and invest more in research, creating a spurious correlation."
+      "explanation": "Correlation does not imply causation. Wealthier countries may both consume more chocolate and invest more in research, creating a spurious correlation.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-correlation-regression-q7",
@@ -205,7 +211,8 @@
         "0.3"
       ],
       "correctIndex": 1,
-      "explanation": "For a linear model, $R^2 = r^2 = 0.7^2 = 0.49$. This means 49% of the variation in y is explained by the linear relationship with x."
+      "explanation": "For a linear model, $R^2 = r^2 = 0.7^2 = 0.49$. This means 49% of the variation in y is explained by the linear relationship with x.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-correlation-regression-q8",
@@ -217,7 +224,8 @@
         "1.25"
       ],
       "correctIndex": 1,
-      "explanation": "residual $= 15 - 12 = 3$. A positive residual means the model underestimates the actual value."
+      "explanation": "residual $= 15 - 12 = 3$. A positive residual means the model underestimates the actual value.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-correlation-regression-q9",
@@ -229,7 +237,8 @@
         "Reject $H_0$; the correlation is causal"
       ],
       "correctIndex": 1,
-      "explanation": "Since p-value (0.03) < significance level (0.05), we reject $H_0$. There is sufficient evidence at the 5% level to suggest a linear correlation exists."
+      "explanation": "Since p-value (0.03) < significance level (0.05), we reject $H_0$. There is sufficient evidence at the 5% level to suggest a linear correlation exists.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-correlation-regression-q10",
@@ -241,7 +250,8 @@
         "Cubic model with only positive coefficients"
       ],
       "correctIndex": 2,
-      "explanation": "A quadratic with a negative leading coefficient produces a downward-opening parabola, which increases to a maximum then decreases — matching the described behaviour."
+      "explanation": "A quadratic with a negative leading coefficient produces a downward-opening parabola, which increases to a maximum then decreases — matching the described behaviour.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-correlation-regression-q11",
@@ -253,7 +263,8 @@
         "Delete the tied values from the data set"
       ],
       "correctIndex": 2,
-      "explanation": "Tied values receive the mean of the ranks they would have taken, which preserves the total sum of the ranks."
+      "explanation": "Tied values receive the mean of the ranks they would have taken, which preserves the total sum of the ranks.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-correlation-regression-q12",
@@ -265,7 +276,8 @@
         "18.4"
       ],
       "correctIndex": 0,
-      "explanation": "$y = \\hat{y} + \\text{residual} = 18.4 - 2.4 = 16$."
+      "explanation": "$y = \\hat{y} + \\text{residual} = 18.4 - 2.4 = 16$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-correlation-regression-q13",
@@ -277,7 +289,8 @@
         "11% of the data points are outliers"
       ],
       "correctIndex": 1,
-      "explanation": "$R^2$ is the proportion of variation in the response variable explained by the model, so $R^2 = 0.89$ means 89% of the variation in y is explained."
+      "explanation": "$R^2$ is the proportion of variation in the response variable explained by the model, so $R^2 = 0.89$ means 89% of the variation in y is explained.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-correlation-regression-q14",
@@ -289,7 +302,8 @@
         "Accept $H_0$; the correlation is perfect"
       ],
       "correctIndex": 0,
-      "explanation": "Because $|0.62| > 0.54$, the test statistic exceeds the critical value, so we reject $H_0$ at the 5% level."
+      "explanation": "Because $|0.62| > 0.54$, the test statistic exceeds the critical value, so we reject $H_0$ at the 5% level.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-correlation-regression-q15",
@@ -301,7 +315,8 @@
         "Conclude that $R^2$ must be zero"
       ],
       "correctIndex": 0,
-      "explanation": "A patterned residual plot indicates the linear model is inappropriate; a transformation or non-linear model is likely needed."
+      "explanation": "A patterned residual plot indicates the linear model is inappropriate; a transformation or non-linear model is likely needed.",
+      "difficulty": "hard"
     }
   ]
 }

@@ -132,7 +132,8 @@
         "Base"
       ],
       "correctIndex": 2,
-      "explanation": "The hypotenuse is always opposite the right angle, longest side."
+      "explanation": "The hypotenuse is always opposite the right angle, longest side.",
+      "difficulty": "easy"
     },
     {
       "id": "math-trig-basic-myp-tba-q2",
@@ -144,7 +145,8 @@
         "1"
       ],
       "correctIndex": 1,
-      "explanation": "sin 30° = 1/2 (exact value to memorise)."
+      "explanation": "sin 30° = 1/2 (exact value to memorise).",
+      "difficulty": "easy"
     },
     {
       "id": "math-trig-basic-myp-tba-q3",
@@ -156,7 +158,8 @@
         "2"
       ],
       "correctIndex": 2,
-      "explanation": "tan 60° = √3 (exact value)."
+      "explanation": "tan 60° = √3 (exact value).",
+      "difficulty": "easy"
     },
     {
       "id": "math-trig-basic-myp-tba-q4",
@@ -168,7 +171,9 @@
         "18.67 cm"
       ],
       "correctIndex": 1,
-      "explanation": "O = H×sinθ = 12×0.643 = 7.71."
+      "explanation": "O = H×sinθ = 12×0.643 = 7.71.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-trig-basic-myp-tba-q5",
@@ -180,7 +185,8 @@
         "90°"
       ],
       "correctIndex": 1,
-      "explanation": "tan θ = 7/7 = 1 → θ = 45°."
+      "explanation": "tan θ = 7/7 = 1 → θ = 45°.",
+      "difficulty": "medium"
     },
     {
       "id": "math-trig-basic-myp-tba-q6",
@@ -192,7 +198,8 @@
         "√2"
       ],
       "correctIndex": 2,
-      "explanation": "cos 45° = 1/√2 = √2/2."
+      "explanation": "cos 45° = 1/√2 = √2/2.",
+      "difficulty": "easy"
     },
     {
       "id": "math-trig-basic-myp-tba-q7",
@@ -204,7 +211,8 @@
         "53.1°"
       ],
       "correctIndex": 1,
-      "explanation": "tan θ = 15/20 = 0.75 → θ ≈ 36.9°."
+      "explanation": "tan θ = 15/20 = 0.75 → θ ≈ 36.9°.",
+      "difficulty": "hard"
     },
     {
       "id": "math-trig-basic-myp-tba-q8",
@@ -216,7 +224,8 @@
         "60°"
       ],
       "correctIndex": 1,
-      "explanation": "sin θ = 0.5 → θ = 30°."
+      "explanation": "sin θ = 0.5 → θ = 30°.",
+      "difficulty": "easy"
     },
     {
       "id": "math-trig-basic-myp-tba-q9",
@@ -228,7 +237,9 @@
         "6.40 m"
       ],
       "correctIndex": 2,
-      "explanation": "H = 6 × 0.940 = 5.64 m."
+      "explanation": "H = 6 × 0.940 = 5.64 m.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-trig-basic-myp-tba-q10",
@@ -240,7 +251,8 @@
         "sin θ = O/H"
       ],
       "correctIndex": 1,
-      "explanation": "CAH: cos θ = A/H → H = A/cos θ."
+      "explanation": "CAH: cos θ = A/H → H = A/cos θ.",
+      "difficulty": "medium"
     },
     {
       "id": "math-trig-basic-myp-tba-q11",
@@ -252,7 +264,8 @@
         "$15\\,\\text{cm}$"
       ],
       "correctIndex": 0,
-      "explanation": "Pythagoras' theorem states that in a right-angled triangle, $c^2=a^2+b^2$ where $c$ is the hypotenuse. With shorter sides $5\\text{ cm}$ and $12\\text{ cm}$, the hypotenuse is $\\sqrt{5^2+12^2}=\\sqrt{25+144}=\\sqrt{169}=13\\text{ cm}$. This $5$-$12$-$13$ triangle is a common Pythagorean triple used in construction and navigation."
+      "explanation": "Pythagoras' theorem states that in a right-angled triangle, $c^2=a^2+b^2$ where $c$ is the hypotenuse. With shorter sides $5\\text{ cm}$ and $12\\text{ cm}$, the hypotenuse is $\\sqrt{5^2+12^2}=\\sqrt{25+144}=\\sqrt{169}=13\\text{ cm}$. This $5$-$12$-$13$ triangle is a common Pythagorean triple used in construction and navigation.",
+      "difficulty": "medium"
     },
     {
       "id": "math-trig-basic-myp-tba-q12",
@@ -264,7 +277,8 @@
         "$12\\,\\text{m}$"
       ],
       "correctIndex": 0,
-      "explanation": "The ladder is the hypotenuse: $\\sqrt{8^2+6^2}=\\sqrt{100}=10\\,\\text{m}$."
+      "explanation": "The ladder is the hypotenuse: $\\sqrt{8^2+6^2}=\\sqrt{100}=10\\,\\text{m}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-trig-basic-myp-tba-q13",
@@ -276,7 +290,9 @@
         "$13.9\\,\\text{m}$"
       ],
       "correctIndex": 1,
-      "explanation": "Angle of depression equals the angle of elevation, so $\\tan 25^\\circ = \\dfrac{30}{d}$, giving $d = \\dfrac{30}{\\tan 25^\\circ} \\approx 64.4\\,\\text{m}$."
+      "explanation": "Angle of depression equals the angle of elevation, so $\\tan 25^\\circ = \\dfrac{30}{d}$, giving $d = \\dfrac{30}{\\tan 25^\\circ} \\approx 64.4\\,\\text{m}$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-trig-basic-myp-tba-q14",
@@ -288,7 +304,8 @@
         "$\\dfrac{1}{5}$"
       ],
       "correctIndex": 0,
-      "explanation": "Draw a right triangle with adjacent $4$ and hypotenuse $5$; the opposite side is $\\sqrt{5^2-4^2}=3$, so $\\sin \\theta = \\dfrac{3}{5}$."
+      "explanation": "Draw a right triangle with adjacent $4$ and hypotenuse $5$; the opposite side is $\\sqrt{5^2-4^2}=3$, so $\\sin \\theta = \\dfrac{3}{5}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-trig-basic-myp-tba-q15",
@@ -300,7 +317,8 @@
         "North-West"
       ],
       "correctIndex": 2,
-      "explanation": "Bearings are measured clockwise from north; $180^\\circ$ is south and $270^\\circ$ is west, so $225^\\circ$ points south-west."
+      "explanation": "Bearings are measured clockwise from north; $180^\\circ$ is south and $270^\\circ$ is west, so $225^\\circ$ points south-west.",
+      "difficulty": "medium"
     }
   ]
 }

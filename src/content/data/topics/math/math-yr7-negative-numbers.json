@@ -132,7 +132,8 @@
         "Cannot tell"
       ],
       "correctIndex": 1,
-      "explanation": "$-4$ is closer to zero than $-9$, so it is greater. On a number line, $-4$ lies to the right of $-9$."
+      "explanation": "$-4$ is closer to zero than $-9$, so it is greater. On a number line, $-4$ lies to the right of $-9$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q2",
@@ -144,7 +145,8 @@
         "$0, -1, -3, -7, 2$"
       ],
       "correctIndex": 0,
-      "explanation": "On a number line, reading from left to right gives $-7, -3, -1, 0, 2$, which is smallest to largest."
+      "explanation": "On a number line, reading from left to right gives $-7, -3, -1, 0, 2$, which is smallest to largest.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q3",
@@ -156,7 +158,8 @@
         "$2$"
       ],
       "correctIndex": 2,
-      "explanation": "Starting at $-6$ and moving 4 places to the right lands on $-2$. The signs are different, so subtract the digits and keep the sign of the larger digit."
+      "explanation": "Starting at $-6$ and moving 4 places to the right lands on $-2$. The signs are different, so subtract the digits and keep the sign of the larger digit.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q4",
@@ -168,7 +171,8 @@
         "$-3$"
       ],
       "correctIndex": 1,
-      "explanation": "Adding $-8$ is the same as subtracting 8. Starting at $-5$ and moving 8 places left gives $-13$."
+      "explanation": "Adding $-8$ is the same as subtracting 8. Starting at $-5$ and moving 8 places left gives $-13$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q5",
@@ -180,7 +184,8 @@
         "$-10$"
       ],
       "correctIndex": 2,
-      "explanation": "Two minus signs make a plus, so $7 - (-3) = 7 + 3 = 10$."
+      "explanation": "Two minus signs make a plus, so $7 - (-3) = 7 + 3 = 10$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q6",
@@ -192,7 +197,8 @@
         "$-13$"
       ],
       "correctIndex": 3,
-      "explanation": "Subtracting 9 from $-4$ means moving 9 places left on the number line: $-4 - 9 = -13$."
+      "explanation": "Subtracting 9 from $-4$ means moving 9 places left on the number line: $-4 - 9 = -13$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q7",
@@ -204,7 +210,8 @@
         "$-11$"
       ],
       "correctIndex": 1,
-      "explanation": "The signs are different, so the answer is negative. $6 \\times 5 = 30$, therefore $(-6) \\times 5 = -30$."
+      "explanation": "The signs are different, so the answer is negative. $6 \\times 5 = 30$, therefore $(-6) \\times 5 = -30$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q8",
@@ -216,7 +223,8 @@
         "$10$"
       ],
       "correctIndex": 1,
-      "explanation": "The signs are the same, so the answer is positive. $7 \\times 3 = 21$, therefore $(-7) \\times (-3) = 21$."
+      "explanation": "The signs are the same, so the answer is positive. $7 \\times 3 = 21$, therefore $(-7) \\times (-3) = 21$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q9",
@@ -228,7 +236,8 @@
         "$-9$"
       ],
       "correctIndex": 0,
-      "explanation": "Same signs give a positive answer. $48 \\div 6 = 8$, so $(-48) \\div (-6) = 8$."
+      "explanation": "Same signs give a positive answer. $48 \\div 6 = 8$, so $(-48) \\div (-6) = 8$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q10",
@@ -240,7 +249,8 @@
         "$-27$"
       ],
       "correctIndex": 1,
-      "explanation": "Different signs give a negative answer. $36 \\div 9 = 4$, so $36 \\div (-9) = -4$."
+      "explanation": "Different signs give a negative answer. $36 \\div 9 = 4$, so $36 \\div (-9) = -4$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q11",
@@ -252,7 +262,8 @@
         "$20$"
       ],
       "correctIndex": 1,
-      "explanation": "Multiplication comes before addition. $(-3) \\times 4 = -12$, then $-2 + (-12) = -14$."
+      "explanation": "Multiplication comes before addition. $(-3) \\times 4 = -12$, then $-2 + (-12) = -14$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q12",
@@ -264,7 +275,8 @@
         "$-(3)^2$ and $-3^2$"
       ],
       "correctIndex": 3,
-      "explanation": "Without brackets, the power applies only to the 3, so $-3^2 = -(3 \\times 3) = -9$. The same is true of $-(3)^2$. Note that $(-3)^2 = 9$ because the brackets make the negative part of the base."
+      "explanation": "Without brackets, the power applies only to the 3, so $-3^2 = -(3 \\times 3) = -9$. The same is true of $-(3)^2$. Note that $(-3)^2 = 9$ because the brackets make the negative part of the base.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q13",
@@ -276,7 +288,8 @@
         "$-5^\\circ\\text{C}$"
       ],
       "correctIndex": 1,
-      "explanation": "Risen means add. $-8 + 13 = 5$, so the temperature at 10 am was $5^\\circ\\text{C}$."
+      "explanation": "Risen means add. $-8 + 13 = 5$, so the temperature at 10 am was $5^\\circ\\text{C}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q14",
@@ -288,7 +301,8 @@
         "$17$ metres"
       ],
       "correctIndex": 0,
-      "explanation": "Diving deeper means moving further below sea level, so add $-28$. $-45 + (-28) = -73$, so the submarine is at $-73$ metres."
+      "explanation": "Diving deeper means moving further below sea level, so add $-28$. $-45 + (-28) = -73$, so the submarine is at $-73$ metres.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-negative-numbers-neg-q15",
@@ -300,7 +314,8 @@
         "$\\$155$"
       ],
       "correctIndex": 0,
-      "explanation": "Depositing adds money and withdrawing subtracts money: $-50 + 120 - 85$. Working left to right, $-50 + 120 = 70$, then $70 - 85 = -15$. The final balance is $-\\$15$."
+      "explanation": "Depositing adds money and withdrawing subtracts money: $-50 + 120 - 85$. Working left to right, $-50 + 120 = 70$, then $70 - 85 = -15$. The final balance is $-\\$15$.",
+      "difficulty": "hard"
     }
   ]
 }

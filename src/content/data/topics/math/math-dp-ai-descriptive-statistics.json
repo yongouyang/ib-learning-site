@@ -133,7 +133,8 @@
         "Convenience sampling"
       ],
       "correctIndex": 1,
-      "explanation": "Systematic sampling selects members at regular intervals from a list after a random starting point."
+      "explanation": "Systematic sampling selects members at regular intervals from a list after a random starting point.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-descriptive-statistics-q2",
@@ -145,7 +146,8 @@
         "Bivariate data"
       ],
       "correctIndex": 2,
-      "explanation": "Time is measured on a continuous scale and can take any value within a range, so it is continuous data."
+      "explanation": "Time is measured on a continuous scale and can take any value within a range, so it is continuous data.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-descriptive-statistics-q3",
@@ -157,7 +159,9 @@
         "2.5"
       ],
       "correctIndex": 2,
-      "explanation": "Using $\\bar{x} = \\dfrac{\\sum fx}{\\sum f}$: $\\dfrac{(0 \\times 2 + 1 \\times 6 + 2 \\times 10 + 3 \\times 8 + 4 \\times 4)}{30}$ = $\\dfrac{(0+6+20+24+16)}{30}$ = $\\dfrac{66}{30} = 2.2.$"
+      "explanation": "Using $\\bar{x} = \\dfrac{\\sum fx}{\\sum f}$: $\\dfrac{(0 \\times 2 + 1 \\times 6 + 2 \\times 10 + 3 \\times 8 + 4 \\times 4)}{30}$ = $\\dfrac{(0+6+20+24+16)}{30}$ = $\\dfrac{66}{30} = 2.2.$",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-descriptive-statistics-q4",
@@ -169,7 +173,8 @@
         "32"
       ],
       "correctIndex": 1,
-      "explanation": "With 11 values, the median is the 6th value when ordered: 12, 15, 18, 21, 24, 28, 32, 35, 38, 42, 50. The 6th value is 28."
+      "explanation": "With 11 values, the median is the 6th value when ordered: 12, 15, 18, 21, 24, 28, 32, 35, 38, 42, 50. The 6th value is 28.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-descriptive-statistics-q5",
@@ -181,7 +186,8 @@
         "Class B performed better on average."
       ],
       "correctIndex": 1,
-      "explanation": "Standard deviation measures spread. A larger SD (12 vs 5) means Class B scores were more spread out around the same mean."
+      "explanation": "Standard deviation measures spread. A larger SD (12 vs 5) means Class B scores were more spread out around the same mean.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-descriptive-statistics-q6",
@@ -193,7 +199,8 @@
         "48"
       ],
       "correctIndex": 3,
-      "explanation": "$\\text{IQR} = 30 - 18 = 12$. Upper fence = $Q_3$ + $1.5 \\times \\text{IQR}$ = $30 + 18 = 48$. $\\text{Lower fence} = 18 - 18 = 0$. A value of 48 is exactly at the upper fence, so it is an outlier. (Note: 38 is below the upper fence of 48, so not an outlier.)"
+      "explanation": "$\\text{IQR} = 30 - 18 = 12$. Upper fence = $Q_3$ + $1.5 \\times \\text{IQR}$ = $30 + 18 = 48$. $\\text{Lower fence} = 18 - 18 = 0$. A value of 48 is exactly at the upper fence, so it is an outlier. (Note: 38 is below the upper fence of 48, so not an outlier.)",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-descriptive-statistics-q7",
@@ -205,7 +212,8 @@
         "Mean 90, SD 6"
       ],
       "correctIndex": 0,
-      "explanation": "$\\text{New mean} = 2 \\times 45 + 10 = 100$. $\\text{New SD} = |2| \\times 6 = 12$. Adding 10 shifts the mean but does not affect spread."
+      "explanation": "$\\text{New mean} = 2 \\times 45 + 10 = 100$. $\\text{New SD} = |2| \\times 6 = 12$. Adding 10 shifts the mean but does not affect spread.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-descriptive-statistics-q8",
@@ -217,7 +225,8 @@
         "All three are equally good."
       ],
       "correctIndex": 1,
-      "explanation": "When $\\text{mean} < \\text{median} < \\text{mode}$, the data is likely left-skewed with low outliers pulling the mean down. The median is more robust and representative in this case."
+      "explanation": "When $\\text{mean} < \\text{median} < \\text{mode}$, the data is likely left-skewed with low outliers pulling the mean down. The median is more robust and representative in this case.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-descriptive-statistics-q9",
@@ -229,7 +238,8 @@
         "$40 \\leq h < 50$"
       ],
       "correctIndex": 2,
-      "explanation": "The median is the 40th value (half of 80). From cumulative frequencies: 5 are below 10, 18 below 20, 38 below 30, and 62 below 40. The 40th value falls in the $30 \\leq h < 40$ class."
+      "explanation": "The median is the 40th value (half of 80). From cumulative frequencies: 5 are below 10, 18 below 20, 38 below 30, and 62 below 40. The 40th value falls in the $30 \\leq h < 40$ class.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-descriptive-statistics-q10",
@@ -241,7 +251,8 @@
         "Mean \\$3500, SD \\$450"
       ],
       "correctIndex": 0,
-      "explanation": "Adding a constant (\\$200) shifts the mean: \\$3500 + \\$200 = \\$3700. Standard deviation is unaffected by addition/subtraction, so it remains \\$250."
+      "explanation": "Adding a constant (\\$200) shifts the mean: \\$3500 + \\$200 = \\$3700. Standard deviation is unaffected by addition/subtraction, so it remains \\$250.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-descriptive-statistics-q11",
@@ -253,7 +264,8 @@
         "3"
       ],
       "correctIndex": 2,
-      "explanation": "The mode is the value with the highest frequency. Here, 2 pets has frequency 8, which is higher than any other value."
+      "explanation": "The mode is the value with the highest frequency. Here, 2 pets has frequency 8, which is higher than any other value.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-descriptive-statistics-q12",
@@ -265,7 +277,8 @@
         "103"
       ],
       "correctIndex": 0,
-      "explanation": "Range = maximum − minimum = $89 - 14 = 75$."
+      "explanation": "Range = maximum − minimum = $89 - 14 = 75$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-descriptive-statistics-q13",
@@ -277,7 +290,8 @@
         "144"
       ],
       "correctIndex": 3,
-      "explanation": "When values are multiplied by $k$, the variance is multiplied by $k^2$. New variance = $4^2 \\times 9 = 16 \\times 9 = 144$."
+      "explanation": "When values are multiplied by $k$, the variance is multiplied by $k^2$. New variance = $4^2 \\times 9 = 16 \\times 9 = 144$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-descriptive-statistics-q14",
@@ -289,7 +303,8 @@
         "Convenience sampling"
       ],
       "correctIndex": 3,
-      "explanation": "This is convenience sampling because the researcher uses shoppers who are easiest to reach, not a random or structured selection method."
+      "explanation": "This is convenience sampling because the researcher uses shoppers who are easiest to reach, not a random or structured selection method.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-descriptive-statistics-q15",
@@ -301,7 +316,8 @@
         "$6 \\leq m < 8$"
       ],
       "correctIndex": 2,
-      "explanation": "The median is the 20th value (half of 40). Cumulative frequencies show 12 below 4 kg and 26 below 6 kg, so the 20th value lies in the class $4 \\leq m < 6$."
+      "explanation": "The median is the 20th value (half of 40). Cumulative frequencies show 12 below 4 kg and 26 below 6 kg, so the 20th value lies in the class $4 \\leq m < 6$.",
+      "difficulty": "medium"
     }
   ]
 }

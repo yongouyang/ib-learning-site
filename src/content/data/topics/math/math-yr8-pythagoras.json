@@ -24,12 +24,12 @@
     {
       "id": "math-yr8-pythagoras-n3",
       "heading": "Finding the Hypotenuse",
-      "body": "📌 Definition\nTo find the hypotenuse when the two legs are known, rearrange Pythagoras' theorem.\n\n🔑 Key Concept\nStarting from $a^2 + b^2 = c^2$, take the square root of both sides:\n$$c = \\sqrt{a^2 + b^2}$$\n\n💡 Worked Example\nFind the hypotenuse of a right-angled triangle with legs $9$ cm and $12$ cm.\n\nStep 1: Substitute into the formula.\n$$c = \\sqrt{9^2 + 12^2}$$\n\nStep 2: Calculate the squares.\n$$c = \\sqrt{81 + 144} = \\sqrt{225}$$\n\nStep 3: Evaluate.\n$$c = 15 \text{ cm}$$\n\n⚠️ Common Mistake\nAdding $a$ and $b$ before squaring. You must square each leg separately and then add the results.\n\n✅ Check\nThe hypotenuse must be longer than either leg. $15$ cm is longer than both $9$ cm and $12$ cm.\n\n📎 Key Points to Remember\n• Square each leg before adding.\n• Take the square root of the total.\n• The hypotenuse must be longer than either leg."
+      "body": "📌 Definition\nTo find the hypotenuse when the two legs are known, rearrange Pythagoras' theorem.\n\n🔑 Key Concept\nStarting from $a^2 + b^2 = c^2$, take the square root of both sides:\n$$c = \\sqrt{a^2 + b^2}$$\n\n💡 Worked Example\nFind the hypotenuse of a right-angled triangle with legs $9$ cm and $12$ cm.\n\nStep 1: Substitute into the formula.\n$$c = \\sqrt{9^2 + 12^2}$$\n\nStep 2: Calculate the squares.\n$$c = \\sqrt{81 + 144} = \\sqrt{225}$$\n\nStep 3: Evaluate.\n$$c = 15 \\text{ cm}$$\n\n⚠️ Common Mistake\nAdding $a$ and $b$ before squaring. You must square each leg separately and then add the results.\n\n✅ Check\nThe hypotenuse must be longer than either leg. $15$ cm is longer than both $9$ cm and $12$ cm.\n\n📎 Key Points to Remember\n• Square each leg before adding.\n• Take the square root of the total.\n• The hypotenuse must be longer than either leg."
     },
     {
       "id": "math-yr8-pythagoras-n4",
       "heading": "Finding a Leg",
-      "body": "📌 Definition\nTo find a missing shorter side when the hypotenuse and one leg are known, rearrange Pythagoras' theorem.\n\n🔑 Key Concept\nStarting from $a^2 + b^2 = c^2$, subtract the known square from both sides:\n$$a^2 = c^2 - b^2 \\quad \text{so} \\quad a = \\sqrt{c^2 - b^2}$$\n\n💡 Worked Example\nFind the missing leg when the hypotenuse is $13$ cm and one leg is $5$ cm.\n\nStep 1: Substitute into the rearranged formula.\n$$a = \\sqrt{13^2 - 5^2}$$\n\nStep 2: Calculate.\n$$a = \\sqrt{169 - 25} = \\sqrt{144} = 12 \text{ cm}$$\n\n✅ Check\n$5^2 + 12^2 = 25 + 144 = 169 = 13^2$. The answer is correct.\n\n⚠️ Common Mistake\nSubtracting the side lengths before squaring: $13 - 5 = 8$. This is wrong because the theorem uses squared values, not the original lengths.\n\n📎 Key Points to Remember\n• Square first, then subtract.\n• Take the square root at the end.\n• The missing leg must be shorter than the hypotenuse."
+      "body": "📌 Definition\nTo find a missing shorter side when the hypotenuse and one leg are known, rearrange Pythagoras' theorem.\n\n🔑 Key Concept\nStarting from $a^2 + b^2 = c^2$, subtract the known square from both sides:\n$$a^2 = c^2 - b^2 \\quad \\text{so} \\quad a = \\sqrt{c^2 - b^2}$$\n\n💡 Worked Example\nFind the missing leg when the hypotenuse is $13$ cm and one leg is $5$ cm.\n\nStep 1: Substitute into the rearranged formula.\n$$a = \\sqrt{13^2 - 5^2}$$\n\nStep 2: Calculate.\n$$a = \\sqrt{169 - 25} = \\sqrt{144} = 12 \\text{ cm}$$\n\n✅ Check\n$5^2 + 12^2 = 25 + 144 = 169 = 13^2$. The answer is correct.\n\n⚠️ Common Mistake\nSubtracting the side lengths before squaring: $13 - 5 = 8$. This is wrong because the theorem uses squared values, not the original lengths.\n\n📎 Key Points to Remember\n• Square first, then subtract.\n• Take the square root at the end.\n• The missing leg must be shorter than the hypotenuse."
     },
     {
       "id": "math-yr8-pythagoras-n5",
@@ -44,7 +44,7 @@
     {
       "id": "math-yr8-pythagoras-n7",
       "heading": "Solving Word Problems",
-      "body": "📌 Definition\nMany real-life problems involve right-angled triangles, such as ladders leaning against walls, diagonals of rectangles, or paths across rectangular fields.\n\n🔑 How it works\n1. Read the problem and identify the right-angled triangle.\n2. Label the hypotenuse and the legs.\n3. Decide whether you are finding the hypotenuse or a leg.\n4. Substitute into $a^2 + b^2 = c^2$ and solve.\n\n💡 Worked Example\nA ladder reaches $8$ m up a vertical wall. Its foot is $6$ m from the base of the wall. How long is the ladder?\n\nThe ladder is the hypotenuse.\n$$l = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10 \text{ m}$$\n\nThe ladder is $10$ m long.\n\n⚠️ Common Mistake\nUsing the wrong side as the hypotenuse. In this example, the ladder is the sloping side, so it must be $c$.\n\n📎 Key Points to Remember\n• Sketch a diagram whenever possible.\n• Identify which side is the hypotenuse before substituting.\n• Include units in your final answer."
+      "body": "📌 Definition\nMany real-life problems involve right-angled triangles, such as ladders leaning against walls, diagonals of rectangles, or paths across rectangular fields.\n\n🔑 How it works\n1. Read the problem and identify the right-angled triangle.\n2. Label the hypotenuse and the legs.\n3. Decide whether you are finding the hypotenuse or a leg.\n4. Substitute into $a^2 + b^2 = c^2$ and solve.\n\n💡 Worked Example\nA ladder reaches $8$ m up a vertical wall. Its foot is $6$ m from the base of the wall. How long is the ladder?\n\nThe ladder is the hypotenuse.\n$$l = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10 \\text{ m}$$\n\nThe ladder is $10$ m long.\n\n⚠️ Common Mistake\nUsing the wrong side as the hypotenuse. In this example, the ladder is the sloping side, so it must be $c$.\n\n📎 Key Points to Remember\n• Sketch a diagram whenever possible.\n• Identify which side is the hypotenuse before substituting.\n• Include units in your final answer."
     }
   ],
   "flashcards": [
@@ -132,7 +132,8 @@
         "$\\sqrt{48}$ cm"
       ],
       "correctIndex": 0,
-      "explanation": "Using $c = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$ cm."
+      "explanation": "Using $c = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10$ cm.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-pythagoras-q2",
@@ -144,7 +145,8 @@
         "$\\sqrt{306}$ cm"
       ],
       "correctIndex": 2,
-      "explanation": "Using $a = \\sqrt{15^2 - 9^2} = \\sqrt{225 - 81} = \\sqrt{144} = 12$ cm."
+      "explanation": "Using $a = \\sqrt{15^2 - 9^2} = \\sqrt{225 - 81} = \\sqrt{144} = 12$ cm.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-pythagoras-q3",
@@ -156,7 +158,8 @@
         "$4, 6, 8$"
       ],
       "correctIndex": 1,
-      "explanation": "A Pythagorean triple satisfies $a^2 + b^2 = c^2$, and $5^2 + 12^2 = 25 + 144 = 169 = 13^2$."
+      "explanation": "A Pythagorean triple satisfies $a^2 + b^2 = c^2$, and $5^2 + 12^2 = 25 + 144 = 169 = 13^2$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-pythagoras-q4",
@@ -168,7 +171,8 @@
         "$7$"
       ],
       "correctIndex": 2,
-      "explanation": "Using the distance formula: $\\sqrt{(4-1)^2 + (5-1)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$."
+      "explanation": "Using the distance formula: $\\sqrt{(4-1)^2 + (5-1)^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-pythagoras-q5",
@@ -180,7 +184,8 @@
         "$9$ m"
       ],
       "correctIndex": 2,
-      "explanation": "The ladder is the hypotenuse, so height $= \\sqrt{10^2 - 6^2} = \\sqrt{100 - 36} = \\sqrt{64} = 8$ m."
+      "explanation": "The ladder is the hypotenuse, so height $= \\sqrt{10^2 - 6^2} = \\sqrt{100 - 36} = \\sqrt{64} = 8$ m.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-pythagoras-q6",
@@ -192,19 +197,22 @@
         "$10$ cm"
       ],
       "correctIndex": 0,
-      "explanation": "The diagonal forms a right-angled triangle with length and width: $\\sqrt{5^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$ cm."
+      "explanation": "The diagonal forms a right-angled triangle with length and width: $\\sqrt{5^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$ cm.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-pythagoras-q7",
       "stem": "A triangle has sides $7$ cm, $24$ cm and $25$ cm. Is it right-angled?",
       "choices": [
         "Yes, because $7^2 + 24^2 = 25^2$",
-        "No, because $7 + 24 \neq 25$",
+        "No, because $7 + 24 \\neq 25$",
         "Cannot determine from the side lengths",
         "Only if it is isosceles"
       ],
       "correctIndex": 0,
-      "explanation": "$7^2 + 24^2 = 49 + 576 = 625 = 25^2$, so the triangle satisfies Pythagoras' theorem."
+      "explanation": "$7^2 + 24^2 = 49 + 576 = 625 = 25^2$, so the triangle satisfies Pythagoras' theorem.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-pythagoras-q8",
@@ -216,7 +224,8 @@
         "Both A and B"
       ],
       "correctIndex": 3,
-      "explanation": "$\\sqrt{(4 - (-2))^2 + (-1 - 3)^2} = \\sqrt{36 + 16} = \\sqrt{52} = 2\\sqrt{13}$."
+      "explanation": "$\\sqrt{(4 - (-2))^2 + (-1 - 3)^2} = \\sqrt{36 + 16} = \\sqrt{52} = 2\\sqrt{13}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-pythagoras-q9",
@@ -228,7 +237,8 @@
         "$25$ cm"
       ],
       "correctIndex": 0,
-      "explanation": "$\\sqrt{17^2 - 8^2} = \\sqrt{289 - 64} = \\sqrt{225} = 15$ cm."
+      "explanation": "$\\sqrt{17^2 - 8^2} = \\sqrt{289 - 64} = \\sqrt{225} = 15$ cm.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-pythagoras-q10",
@@ -240,7 +250,9 @@
         "$4, 5, 6$"
       ],
       "correctIndex": 3,
-      "explanation": "$4^2 + 5^2 = 16 + 25 = 41$, which is not equal to $6^2 = 36$."
+      "explanation": "$4^2 + 5^2 = 16 + 25 = 41$, which is not equal to $6^2 = 36$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-pythagoras-q11",
@@ -252,7 +264,9 @@
         "Equilateral"
       ],
       "correctIndex": 0,
-      "explanation": "$10^2 + 24^2 = 100 + 576 = 676 = 26^2$, so it is right-angled by the converse of Pythagoras."
+      "explanation": "$10^2 + 24^2 = 100 + 576 = 676 = 26^2$, so it is right-angled by the converse of Pythagoras.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-pythagoras-q12",
@@ -264,7 +278,8 @@
         "$\\sqrt{63}$ cm"
       ],
       "correctIndex": 0,
-      "explanation": "$\\sqrt{9^2 + 12^2} = \\sqrt{81 + 144} = \\sqrt{225} = 15$ cm."
+      "explanation": "$\\sqrt{9^2 + 12^2} = \\sqrt{81 + 144} = \\sqrt{225} = 15$ cm.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-pythagoras-q13",
@@ -276,7 +291,8 @@
         "$\\sqrt{119}$"
       ],
       "correctIndex": 1,
-      "explanation": "$\\sqrt{(8-0)^2 + (15-0)^2} = \\sqrt{64 + 225} = \\sqrt{289} = 17$."
+      "explanation": "$\\sqrt{(8-0)^2 + (15-0)^2} = \\sqrt{64 + 225} = \\sqrt{289} = 17$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-pythagoras-q14",
@@ -288,7 +304,8 @@
         "$\\sqrt{44}$ cm"
       ],
       "correctIndex": 1,
-      "explanation": "The altitude splits the base into two $6$ cm segments, so $h = \\sqrt{10^2 - 6^2} = \\sqrt{64} = 8$ cm."
+      "explanation": "The altitude splits the base into two $6$ cm segments, so $h = \\sqrt{10^2 - 6^2} = \\sqrt{64} = 8$ cm.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-pythagoras-q15",
@@ -300,7 +317,8 @@
         "$60$ cm"
       ],
       "correctIndex": 1,
-      "explanation": "The hypotenuse is $\\sqrt{5^2 + 12^2} = 13$ cm, so the perimeter is $5 + 12 + 13 = 30$ cm."
+      "explanation": "The hypotenuse is $\\sqrt{5^2 + 12^2} = 13$ cm, so the perimeter is $5 + 12 + 13 = 30$ cm.",
+      "difficulty": "hard"
     }
   ]
 }

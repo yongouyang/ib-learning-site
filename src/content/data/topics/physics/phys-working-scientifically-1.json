@@ -126,7 +126,8 @@
         "Air resistance increases as an object moves faster."
       ],
       "correctIndex": 2,
-      "explanation": "A prediction states what will happen to the measured variable in a specific experiment. The other statements are hypotheses — general explanations of why things happen."
+      "explanation": "A prediction states what will happen to the measured variable in a specific experiment. The other statements are hypotheses — general explanations of why things happen.",
+      "difficulty": "hard"
     },
     {
       "id": "phys-working-scientifically-1-q2",
@@ -138,7 +139,8 @@
         "The length of the ramp"
       ],
       "correctIndex": 1,
-      "explanation": "The independent variable is the one the student deliberately changes — the ramp angle. The time is the dependent variable, and the car's mass and ramp length should be controlled."
+      "explanation": "The independent variable is the one the student deliberately changes — the ramp angle. The time is the dependent variable, and the car's mass and ramp length should be controlled.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-working-scientifically-1-q3",
@@ -150,7 +152,8 @@
         "The number of readings taken"
       ],
       "correctIndex": 2,
-      "explanation": "The release position must stay the same so that only the angle affects the time. The angle is the independent variable and the time is the dependent variable, so neither can be controlled."
+      "explanation": "The release position must stay the same so that only the angle affects the time. The angle is the independent variable and the time is the dependent variable, so neither can be controlled.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-working-scientifically-1-q4",
@@ -162,7 +165,8 @@
         "Taking only one reading for each value"
       ],
       "correctIndex": 1,
-      "explanation": "A valid test changes just one variable and controls the rest, so any change in the dependent variable must be caused by the independent variable. Changing several variables at once makes the cause impossible to identify."
+      "explanation": "A valid test changes just one variable and controls the rest, so any change in the dependent variable must be caused by the independent variable. Changing several variables at once makes the cause impossible to identify.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-working-scientifically-1-q5",
@@ -174,7 +178,8 @@
         "It was taken with a digital meter."
       ],
       "correctIndex": 0,
-      "explanation": "Accuracy is about closeness to the true value. Readings close to each other are precise, which is a different idea — precise readings can still all be wrong."
+      "explanation": "Accuracy is about closeness to the true value. Readings close to each other are precise, which is a different idea — precise readings can still all be wrong.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-working-scientifically-1-q6",
@@ -186,7 +191,8 @@
         "Neither precise nor accurate"
       ],
       "correctIndex": 2,
-      "explanation": "The readings are close together, so they are precise, but they are all about 0.4–0.5 s from the true value, so they are not accurate — a systematic error is likely."
+      "explanation": "The readings are close together, so they are precise, but they are all about 0.4–0.5 s from the true value, so they are not accurate — a systematic error is likely.",
+      "difficulty": "hard"
     },
     {
       "id": "phys-working-scientifically-1-q7",
@@ -198,7 +204,8 @@
         "Human error that repeats will remove"
       ],
       "correctIndex": 1,
-      "explanation": "Every reading is shifted by the same amount in the same direction, which is the definition of a systematic error. Repeating and averaging cannot remove it — the stopwatch must be fixed."
+      "explanation": "Every reading is shifted by the same amount in the same direction, which is the definition of a systematic error. Repeating and averaging cannot remove it — the stopwatch must be fixed.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-working-scientifically-1-q8",
@@ -210,7 +217,8 @@
         "Using a stopwatch that runs slow"
       ],
       "correctIndex": 2,
-      "explanation": "Viewing the scale from the wrong angle (parallax) makes individual readings randomly too high or too low. The other options shift every reading by the same amount, so they are systematic errors."
+      "explanation": "Viewing the scale from the wrong angle (parallax) makes individual readings randomly too high or too low. The other options shift every reading by the same amount, so they are systematic errors.",
+      "difficulty": "hard"
     },
     {
       "id": "phys-working-scientifically-1-q9",
@@ -222,7 +230,8 @@
         "$6.5$ s"
       ],
       "correctIndex": 1,
-      "explanation": "Ignoring the outlier, the mean is $(6.2 + 6.4 + 6.3) \\div 3 = 18.9 \\div 3 = 6.3$ s. Including the outlier gives $28.0 \\div 4 = 7.0$ s, which is pulled away from the true cluster of readings."
+      "explanation": "Ignoring the outlier, the mean is $(6.2 + 6.4 + 6.3) \\div 3 = 18.9 \\div 3 = 6.3$ s. Including the outlier gives $28.0 \\div 4 = 7.0$ s, which is pulled away from the true cluster of readings.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-working-scientifically-1-q10",
@@ -234,7 +243,8 @@
         "The results match the prediction exactly."
       ],
       "correctIndex": 1,
-      "explanation": "Reproducible means a different person can get similar results using your method. Getting similar results when YOU repeat the experiment is called repeatable."
+      "explanation": "Reproducible means a different person can get similar results using your method. Getting similar results when YOU repeat the experiment is called repeatable.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-working-scientifically-1-q11",
@@ -246,7 +256,8 @@
         "A pictogram"
       ],
       "correctIndex": 2,
-      "explanation": "A line graph is used when both the independent and dependent variables are continuous, such as time and temperature. Bar charts and pie charts are for categoric or discrete data."
+      "explanation": "A line graph is used when both the independent and dependent variables are continuous, such as time and temperature. Bar charts and pie charts are for categoric or discrete data.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-working-scientifically-1-q12",
@@ -258,7 +269,8 @@
         "A distance-time graph"
       ],
       "correctIndex": 1,
-      "explanation": "Car colour is categoric data (words, not numbers), so a bar chart is the right choice. Line graphs need two continuous variables."
+      "explanation": "Car colour is categoric data (words, not numbers), so a bar chart is the right choice. Line graphs need two continuous variables.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-working-scientifically-1-q13",
@@ -270,7 +282,8 @@
         "Move it closer to the other points."
       ],
       "correctIndex": 2,
-      "explanation": "Outliers are ignored when drawing a line of best fit; including one would distort the line. Data points must never be moved or altered."
+      "explanation": "Outliers are ignored when drawing a line of best fit; including one would distort the line. Data points must never be moved or altered.",
+      "difficulty": "easy"
     },
     {
       "id": "phys-working-scientifically-1-q14",
@@ -282,7 +295,8 @@
         "$603$ N/m$^2$"
       ],
       "correctIndex": 0,
-      "explanation": "Pressure $= 600 \\div 3 = 200$ N/m$^2$ (pascals). The answer $1800$ comes from multiplying instead of dividing; check which way round the formula goes."
+      "explanation": "Pressure $= 600 \\div 3 = 200$ N/m$^2$ (pascals). The answer $1800$ comes from multiplying instead of dividing; check which way round the formula goes.",
+      "difficulty": "medium"
     },
     {
       "id": "phys-working-scientifically-1-q15",
@@ -294,7 +308,8 @@
         "Journalists rewrite scientific findings to make them more exciting."
       ],
       "correctIndex": 0,
-      "explanation": "Peer review is other scientists examining new research — its method, accuracy of results and conclusions — to check it is valid and free from bias before it is widely accepted."
+      "explanation": "Peer review is other scientists examining new research — its method, accuracy of results and conclusions — to check it is valid and free from bias before it is widely accepted.",
+      "difficulty": "easy"
     }
   ]
 }

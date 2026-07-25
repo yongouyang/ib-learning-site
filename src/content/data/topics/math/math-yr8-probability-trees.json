@@ -132,7 +132,8 @@
         "$\\dfrac{6}{10}$"
       ],
       "correctIndex": 0,
-      "explanation": "There are $4$ red counters out of $10$ total, so $P(\\text{red}) = \\dfrac{4}{10} = \\dfrac{2}{5}$."
+      "explanation": "There are $4$ red counters out of $10$ total, so $P(\\text{red}) = \\dfrac{4}{10} = \\dfrac{2}{5}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-probability-trees-q2",
@@ -144,7 +145,8 @@
         "$\\dfrac{1}{3}$"
       ],
       "correctIndex": 0,
-      "explanation": "$P(5) = \\dfrac{1}{6}$ and $P(\\text{heads}) = \\dfrac{1}{2}$. Multiply: $\\dfrac{1}{6} \\times \\dfrac{1}{2} = \\dfrac{1}{12}$."
+      "explanation": "$P(5) = \\dfrac{1}{6}$ and $P(\\text{heads}) = \\dfrac{1}{2}$. Multiply: $\\dfrac{1}{6} \\times \\dfrac{1}{2} = \\dfrac{1}{12}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-probability-trees-q3",
@@ -156,7 +158,8 @@
         "$\\dfrac{5}{6}$"
       ],
       "correctIndex": 0,
-      "explanation": "Even numbers are $2$, $4$, $6$, and adding $3$ gives $4$ favourable outcomes out of $6$: $\\dfrac{4}{6} = \\dfrac{2}{3}$."
+      "explanation": "Even numbers are $2$, $4$, $6$, and adding $3$ gives $4$ favourable outcomes out of $6$: $\\dfrac{4}{6} = \\dfrac{2}{3}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-probability-trees-q4",
@@ -168,7 +171,8 @@
         "$\\dfrac{9}{100}$"
       ],
       "correctIndex": 0,
-      "explanation": "Because of replacement the events are independent: $\\dfrac{7}{10} \\times \\dfrac{7}{10} = \\dfrac{49}{100}$."
+      "explanation": "Because of replacement the events are independent: $\\dfrac{7}{10} \\times \\dfrac{7}{10} = \\dfrac{49}{100}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-probability-trees-q5",
@@ -180,7 +184,8 @@
         "$\\dfrac{21}{100}$"
       ],
       "correctIndex": 0,
-      "explanation": "$P(\\text{blue first}) = \\dfrac{7}{10}$, then $P(\\text{blue second}) = \\dfrac{6}{9}$. Multiply: $\\dfrac{7}{10} \\times \\dfrac{6}{9} = \\dfrac{42}{90}$."
+      "explanation": "$P(\\text{blue first}) = \\dfrac{7}{10}$, then $P(\\text{blue second}) = \\dfrac{6}{9}$. Multiply: $\\dfrac{7}{10} \\times \\dfrac{6}{9} = \\dfrac{42}{90}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-probability-trees-q6",
@@ -192,7 +197,8 @@
         "$P(A) \\div P(B)$"
       ],
       "correctIndex": 0,
-      "explanation": "For independent events, multiply the probabilities: $P(A \\text{ and } B) = P(A) \\times P(B)$."
+      "explanation": "For independent events, multiply the probabilities: $P(A \\text{ and } B) = P(A) \\times P(B)$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-probability-trees-q7",
@@ -204,7 +210,8 @@
         "$77$"
       ],
       "correctIndex": 0,
-      "explanation": "Expected frequency = $0.3 \\times 80 = 24$. The actual number may vary but $24$ is the long-run average."
+      "explanation": "Expected frequency = $0.3 \\times 80 = 24$. The actual number may vary but $24$ is the long-run average.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-probability-trees-q8",
@@ -216,7 +223,8 @@
         "$\\dfrac{3}{4}$"
       ],
       "correctIndex": 0,
-      "explanation": "Hearts and diamonds are mutually exclusive suits. $\\dfrac{13}{52} + \\dfrac{13}{52} = \\dfrac{26}{52} = \\dfrac{1}{2}$."
+      "explanation": "Hearts and diamonds are mutually exclusive suits. $\\dfrac{13}{52} + \\dfrac{13}{52} = \\dfrac{26}{52} = \\dfrac{1}{2}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-probability-trees-q9",
@@ -228,7 +236,8 @@
         "$\\dfrac{7}{12}$"
       ],
       "correctIndex": 0,
-      "explanation": "Multiply along the branches: $\\dfrac{1}{3} \\times \\dfrac{1}{4} = \\dfrac{1}{12}$."
+      "explanation": "Multiply along the branches: $\\dfrac{1}{3} \\times \\dfrac{1}{4} = \\dfrac{1}{12}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-probability-trees-q10",
@@ -240,7 +249,8 @@
         "$1.2$"
       ],
       "correctIndex": 0,
-      "explanation": "The tosses are independent: $0.6 \\times 0.6 = 0.36$."
+      "explanation": "The tosses are independent: $0.6 \\times 0.6 = 0.36$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-probability-trees-q11",
@@ -252,7 +262,8 @@
         "$\\dfrac{20}{30}$"
       ],
       "correctIndex": 0,
-      "explanation": "The condition limits the sample space to girls only. One third of the girls have brown eyes, so the probability is $\\dfrac{1}{3}$."
+      "explanation": "The condition limits the sample space to girls only. One third of the girls have brown eyes, so the probability is $\\dfrac{1}{3}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-probability-trees-q12",
@@ -264,7 +275,8 @@
         "$\\dfrac{25}{100}$"
       ],
       "correctIndex": 0,
-      "explanation": "$\\dfrac{5}{10} \\times \\dfrac{4}{9} = \\dfrac{20}{90} = \\dfrac{2}{9}$."
+      "explanation": "$\\dfrac{5}{10} \\times \\dfrac{4}{9} = \\dfrac{20}{90} = \\dfrac{2}{9}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-probability-trees-q13",
@@ -276,7 +288,8 @@
         "Rain tomorrow and sunshine tomorrow"
       ],
       "correctIndex": 0,
-      "explanation": "A single dice roll cannot be both $1$ and $6$, so these are mutually exclusive."
+      "explanation": "A single dice roll cannot be both $1$ and $6$, so these are mutually exclusive.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-probability-trees-q14",
@@ -288,7 +301,8 @@
         "$15$"
       ],
       "correctIndex": 0,
-      "explanation": "$P(6) = \\dfrac{1}{6}$, so expected number is $\\dfrac{1}{6} \\times 60 = 10$."
+      "explanation": "$P(6) = \\dfrac{1}{6}$, so expected number is $\\dfrac{1}{6} \\times 60 = 10$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-probability-trees-q15",
@@ -300,7 +314,8 @@
         "$\\dfrac{1}{10}$"
       ],
       "correctIndex": 0,
-      "explanation": "$P(\\text{red}) = \\dfrac{2}{10}$ and $P(\\text{blue}) = \\dfrac{3}{10}$. Because of replacement, multiply: $\\dfrac{2}{10} \\times \\dfrac{3}{10} = \\dfrac{6}{100}$."
+      "explanation": "$P(\\text{red}) = \\dfrac{2}{10}$ and $P(\\text{blue}) = \\dfrac{3}{10}$. Because of replacement, multiply: $\\dfrac{2}{10} \\times \\dfrac{3}{10} = \\dfrac{6}{100}$.",
+      "difficulty": "medium"
     }
   ]
 }

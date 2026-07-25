@@ -137,7 +137,8 @@
         "$\\in$"
       ],
       "correctIndex": 1,
-      "explanation": "$A \\cap B$ is read \"$A$ intersection $B$\" and contains only the elements shared by both sets."
+      "explanation": "$A \\cap B$ is read \"$A$ intersection $B$\" and contains only the elements shared by both sets.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-venn-sets-q2",
@@ -149,7 +150,8 @@
         "$\\notin$"
       ],
       "correctIndex": 1,
-      "explanation": "$A \\cup B$ is read \"$A$ union $B$\" and contains every element that is in $A$, in $B$, or in both."
+      "explanation": "$A \\cup B$ is read \"$A$ union $B$\" and contains every element that is in $A$, in $B$, or in both.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-venn-sets-q3",
@@ -161,7 +163,8 @@
         "A subset of set $A$"
       ],
       "correctIndex": 0,
-      "explanation": "$A'$ is the complement of $A$, meaning all elements in the universal set $U$ that are not in $A$."
+      "explanation": "$A'$ is the complement of $A$, meaning all elements in the universal set $U$ that are not in $A$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-venn-sets-q4",
@@ -173,7 +176,8 @@
         "$\\{10\\}$"
       ],
       "correctIndex": 0,
-      "explanation": "$A'$ contains every element of $U$ that is not in $A$, giving the odd numbers from $1$ to $9$."
+      "explanation": "$A'$ contains every element of $U$ that is not in $A$, giving the odd numbers from $1$ to $9$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-venn-sets-q5",
@@ -185,7 +189,8 @@
         "$\\{3\\}$"
       ],
       "correctIndex": 1,
-      "explanation": "The intersection contains only the elements that appear in both sets: $2$ and $3$."
+      "explanation": "The intersection contains only the elements that appear in both sets: $2$ and $3$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-venn-sets-q6",
@@ -197,7 +202,8 @@
         "$\\{1, 2, 3\\}$"
       ],
       "correctIndex": 0,
-      "explanation": "The union contains every element that is in $A$ or $B$, listed without duplication: $1, 2, 3, 4$."
+      "explanation": "The union contains every element that is in $A$ or $B$, listed without duplication: $1, 2, 3, 4$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-venn-sets-q7",
@@ -209,7 +215,8 @@
         "$\\emptyset$"
       ],
       "correctIndex": 3,
-      "explanation": "Disjoint sets have no common elements, so their intersection is the empty set."
+      "explanation": "Disjoint sets have no common elements, so their intersection is the empty set.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-venn-sets-q8",
@@ -221,7 +228,8 @@
         "The two circles are identical"
       ],
       "correctIndex": 0,
-      "explanation": "When $A$ is a subset of $B$, every element of $A$ is also in $B$, so circle $A$ lies inside circle $B$."
+      "explanation": "When $A$ is a subset of $B$, every element of $A$ is also in $B$, so circle $A$ lies inside circle $B$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-venn-sets-q9",
@@ -233,7 +241,8 @@
         "$18$"
       ],
       "correctIndex": 0,
-      "explanation": "Using $n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$ gives $10 + 6 - 2 = 14$."
+      "explanation": "Using $n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$ gives $10 + 6 - 2 = 14$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-venn-sets-q10",
@@ -245,7 +254,8 @@
         "$15$"
       ],
       "correctIndex": 0,
-      "explanation": "Tennis only is $25 - 8 = 17$, hockey only is $18 - 8 = 10$, so $17 + 8 + 10 = 35$ play at least one sport. Therefore $40 - 35 = 5$ play neither."
+      "explanation": "Tennis only is $25 - 8 = 17$, hockey only is $18 - 8 = 10$, so $17 + 8 + 10 = 35$ play at least one sport. Therefore $40 - 35 = 5$ play neither.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-venn-sets-q11",
@@ -257,7 +267,8 @@
         "$5$"
       ],
       "correctIndex": 1,
-      "explanation": "$A \\cap B$ contains multiples of $6$: $6, 12, 18$. That is $3$ elements."
+      "explanation": "$A \\cap B$ contains multiples of $6$: $6, 12, 18$. That is $3$ elements.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-venn-sets-q12",
@@ -269,7 +280,8 @@
         "$\\{2, 3, 4, 5\\}$"
       ],
       "correctIndex": 0,
-      "explanation": "The set contains natural numbers less than $6$, which are $1, 2, 3, 4, 5$."
+      "explanation": "The set contains natural numbers less than $6$, which are $1, 2, 3, 4, 5$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-venn-sets-q13",
@@ -281,7 +293,8 @@
         "$A'$"
       ],
       "correctIndex": 2,
-      "explanation": "A set and its complement have no elements in common, so their intersection is the empty set."
+      "explanation": "A set and its complement have no elements in common, so their intersection is the empty set.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-venn-sets-q14",
@@ -293,7 +306,8 @@
         "$A \\cap B = \\emptyset$"
       ],
       "correctIndex": 2,
-      "explanation": "If every element of $A$ is in $B$, then $A$ and $B$ overlap exactly on $A$, and their union is just $B$."
+      "explanation": "If every element of $A$ is in $B$, then $A$ and $B$ overlap exactly on $A$, and their union is just $B$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-venn-sets-q15",
@@ -305,7 +319,8 @@
         "$50$"
       ],
       "correctIndex": 1,
-      "explanation": "Using inclusion-exclusion, $30 + 25 - 10 = 45$ people like tea, coffee, or both."
+      "explanation": "Using inclusion-exclusion, $30 + 25 - 10 = 45$ people like tea, coffee, or both.",
+      "difficulty": "medium"
     }
   ]
 }

@@ -132,7 +132,8 @@
         "x=8, y=2"
       ],
       "correctIndex": 1,
-      "explanation": "Add: 2x=14 → x=7. Substitute: 7+y=10 → y=3."
+      "explanation": "Add: 2x=14 → x=7. Substitute: 7+y=10 → y=3.",
+      "difficulty": "easy"
     },
     {
       "id": "math-simultaneous-myp-sim-q2",
@@ -144,7 +145,8 @@
         "x=5, y=9"
       ],
       "correctIndex": 1,
-      "explanation": "3x+2x−1=14 → 5x=15 → x=3 → y=5."
+      "explanation": "3x+2x−1=14 → 5x=15 → x=3 → y=5.",
+      "difficulty": "medium"
     },
     {
       "id": "math-simultaneous-myp-sim-q3",
@@ -156,7 +158,8 @@
         "(1, 3)"
       ],
       "correctIndex": 0,
-      "explanation": "x+2=−x+6 → 2x=4 → x=2 → y=4."
+      "explanation": "x+2=−x+6 → 2x=4 → x=2 → y=4.",
+      "difficulty": "medium"
     },
     {
       "id": "math-simultaneous-myp-sim-q4",
@@ -168,7 +171,8 @@
         "x=1, y=6.5"
       ],
       "correctIndex": 1,
-      "explanation": "Add: 8x=24 → x=3 → 9+2y=16 → y=3.5."
+      "explanation": "Add: 8x=24 → x=3 → 9+2y=16 → y=3.5.",
+      "difficulty": "medium"
     },
     {
       "id": "math-simultaneous-myp-sim-q5",
@@ -180,7 +184,8 @@
         "14"
       ],
       "correctIndex": 2,
-      "explanation": "x+y=20, x−y=6 → 2x=26 → x=13 (larger)."
+      "explanation": "x+y=20, x−y=6 → 2x=26 → x=13 (larger).",
+      "difficulty": "medium"
     },
     {
       "id": "math-simultaneous-myp-sim-q6",
@@ -192,7 +197,8 @@
         "x=1, y=10"
       ],
       "correctIndex": 1,
-      "explanation": "Subtract: 2x=6 → x=3 → 12+y=14 → y=2."
+      "explanation": "Subtract: 2x=6 → x=3 → 12+y=14 → y=2.",
+      "difficulty": "medium"
     },
     {
       "id": "math-simultaneous-myp-sim-q7",
@@ -204,7 +210,8 @@
         "Infinitely many"
       ],
       "correctIndex": 0,
-      "explanation": "Both have gradient 3 but different y-intercepts → parallel, no intersection."
+      "explanation": "Both have gradient 3 but different y-intercepts → parallel, no intersection.",
+      "difficulty": "easy"
     },
     {
       "id": "math-simultaneous-myp-sim-q8",
@@ -216,7 +223,8 @@
         "10 cm"
       ],
       "correctIndex": 2,
-      "explanation": "l+w=14, l=w+4 → 2w+4=14 → w=5 → l=9 cm."
+      "explanation": "l+w=14, l=w+4 → 2w+4=14 → w=5 → l=9 cm.",
+      "difficulty": "medium"
     },
     {
       "id": "math-simultaneous-myp-sim-q9",
@@ -228,7 +236,8 @@
         "x=10, y=15"
       ],
       "correctIndex": 1,
-      "explanation": "2(3y)+y=35 → 7y=35 → y=5 → x=15."
+      "explanation": "2(3y)+y=35 → 7y=35 → y=5 → x=15.",
+      "difficulty": "medium"
     },
     {
       "id": "math-simultaneous-myp-sim-q10",
@@ -240,7 +249,8 @@
         "5"
       ],
       "correctIndex": 2,
-      "explanation": "a+c=8, 9a+5c=56 → c=8−a → 9a+40−5a=56 → 4a=16 → a=4."
+      "explanation": "a+c=8, 9a+5c=56 → c=8−a → 9a+40−5a=56 → 4a=16 → a=4.",
+      "difficulty": "hard"
     },
     {
       "id": "math-simultaneous-myp-sim-q11",
@@ -252,7 +262,8 @@
         "x=2, y=4"
       ],
       "correctIndex": 1,
-      "explanation": "Multiply the first equation by $2$ and the second by $3$ to get $4x+6y=26$ and $15x-6y=12$. Adding gives $19x=38$, so $x=2$. Substitute into $2(2)+3y=13$ to get $y=3$."
+      "explanation": "Multiply the first equation by $2$ and the second by $3$ to get $4x+6y=26$ and $15x-6y=12$. Adding gives $19x=38$, so $x=2$. Substitute into $2(2)+3y=13$ to get $y=3$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-simultaneous-myp-sim-q12",
@@ -264,7 +275,8 @@
         "x=2, y=7"
       ],
       "correctIndex": 0,
-      "explanation": "Replace $y$ with $2x+3$ in the second equation: $4x-3(2x+3)=1$. This simplifies to $-2x-9=1$, so $x=-5$. Then $y=2(-5)+3=-7$."
+      "explanation": "Replace $y$ with $2x+3$ in the second equation: $4x-3(2x+3)=1$. This simplifies to $-2x-9=1$, so $x=-5$. Then $y=2(-5)+3=-7$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-simultaneous-myp-sim-q13",
@@ -276,7 +288,8 @@
         "$x+y=5$ and $2x+2y=10$"
       ],
       "correctIndex": 0,
-      "explanation": "Parallel lines have the same gradient but different y-intercepts. $y=3x+2$ and $y=3x-1$ both have gradient $3$, so they never meet."
+      "explanation": "Parallel lines have the same gradient but different y-intercepts. $y=3x+2$ and $y=3x-1$ both have gradient $3$, so they never meet.",
+      "difficulty": "hard"
     },
     {
       "id": "math-simultaneous-myp-sim-q14",
@@ -288,7 +301,8 @@
         "5"
       ],
       "correctIndex": 2,
-      "explanation": "Let $p$ be pens and $n$ be notebooks. Then $p+n=8$ and $1.5p+2.5n=16$. Substitute $p=8-n$ to get $1.5(8-n)+2.5n=16$ → $12+n=16$ → $n=4$."
+      "explanation": "Let $p$ be pens and $n$ be notebooks. Then $p+n=8$ and $1.5p+2.5n=16$. Substitute $p=8-n$ to get $1.5(8-n)+2.5n=16$ → $12+n=16$ → $n=4$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-simultaneous-myp-sim-q15",
@@ -300,7 +314,8 @@
         "The lines cross at exactly one point."
       ],
       "correctIndex": 2,
-      "explanation": "Infinitely many solutions occur when both equations describe exactly the same line, which means equal gradients and equal y-intercepts."
+      "explanation": "Infinitely many solutions occur when both equations describe exactly the same line, which means equal gradients and equal y-intercepts.",
+      "difficulty": "easy"
     }
   ]
 }

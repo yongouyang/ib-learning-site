@@ -10,7 +10,7 @@
     {
       "id": "math-dp-quadratics-qua-n1",
       "heading": "Forms of a Quadratic",
-      "body": "A quadratic function is any function of the form $f(x) = ax^2 + bx + c$ where $a \neq 0$. Its graph is a parabola. The way you write the equation reveals different features instantly.\n\n📌 Standard Form\n    $$f(x) = ax^2 + bx + c$$\n• The y-intercept is $(0, c)$ — just substitute $x = 0$.\n• The axis of symmetry is $x = -\\dfrac{b}{2a}$.\n• The vertex has x-coordinate $-\\dfrac{b}{2a}$.\n\n📌 Vertex Form\n    $$f(x) = a(x - h)^2 + k$$\n• The vertex is at the point $(h, k)$.\n• The axis of symmetry is $x = h$.\n• If $a > 0$, the parabola opens upward (∪ shape) and the vertex is a minimum.\n• If $a < 0$, the parabola opens downward (∩ shape) and the vertex is a maximum.\n\n📌 Factored Form\n    $$f(x) = a(x - p)(x - q)$$\n• The x-intercepts (roots) are at $x = p$ and $x = q$.\n• The axis of symmetry is exactly halfway between the roots: $x = \\dfrac{p + q}{2}$.\n• Substitute $x = 0$ to find the y-intercept: $f(0) = apq$.\n\n💡 Worked Example — Finding the Vertex from Standard Form\nFind the vertex of $f(x) = 2x^2 - 8x + 1$.\n\n  Step 1: Identify $a$ and $b$\n    $a = 2$,  $b = -8$\n\n  Step 2: Find the axis of symmetry\n    $$x = -\\dfrac{b}{2a} = -\\dfrac{(-8)}{2 \times 2} = \\dfrac{8}{4} = 2$$\n\n  Step 3: Find the y-coordinate of the vertex\n    $$f(2) = 2(2)^2 - 8(2) + 1 = 8 - 16 + 1 = -7$$\n\n  Answer: The vertex is $(2, -7)$.\n\n💡 Worked Example — Converting Factored to Standard Form\nFind the y-intercept of $f(x) = -3(x - 2)(x + 5)$.\n\n  Step 1: Expand the brackets\n    $$f(x) = -3(x^2 + 5x - 2x - 10) = -3(x^2 + 3x - 10)$$\n\n  Step 2: Distribute the $-3$\n    $$f(x) = -3x^2 - 9x + 30$$\n\n  Answer: The y-intercept is $30$.\n\n📎 Key Points to Remember\n• $a$ controls width and direction: $|a| > 1$ → narrower; $|a| < 1$ → wider.\n• The three forms are equivalent — you can always expand or factorise to switch between them.\n• Vertex form is best for graphing; factored form is best for finding roots.\n\n⚠️ Common Mistake\nMixing up the sign in vertex form. In $f(x) = a(x - h)^2 + k$, the vertex is $(h, k)$, NOT $(-h, k)$. For example, $f(x) = 3(x + 2)^2 - 5$ has vertex $(-2, -5)$.",
+      "body": "A quadratic function is any function of the form $f(x) = ax^2 + bx + c$ where $a \\neq 0$. Its graph is a parabola. The way you write the equation reveals different features instantly.\n\n📌 Standard Form\n    $$f(x) = ax^2 + bx + c$$\n• The y-intercept is $(0, c)$ — just substitute $x = 0$.\n• The axis of symmetry is $x = -\\dfrac{b}{2a}$.\n• The vertex has x-coordinate $-\\dfrac{b}{2a}$.\n\n📌 Vertex Form\n    $$f(x) = a(x - h)^2 + k$$\n• The vertex is at the point $(h, k)$.\n• The axis of symmetry is $x = h$.\n• If $a > 0$, the parabola opens upward (∪ shape) and the vertex is a minimum.\n• If $a < 0$, the parabola opens downward (∩ shape) and the vertex is a maximum.\n\n📌 Factored Form\n    $$f(x) = a(x - p)(x - q)$$\n• The x-intercepts (roots) are at $x = p$ and $x = q$.\n• The axis of symmetry is exactly halfway between the roots: $x = \\dfrac{p + q}{2}$.\n• Substitute $x = 0$ to find the y-intercept: $f(0) = apq$.\n\n💡 Worked Example — Finding the Vertex from Standard Form\nFind the vertex of $f(x) = 2x^2 - 8x + 1$.\n\n  Step 1: Identify $a$ and $b$\n    $a = 2$,  $b = -8$\n\n  Step 2: Find the axis of symmetry\n    $$x = -\\dfrac{b}{2a} = -\\dfrac{(-8)}{2 \\times 2} = \\dfrac{8}{4} = 2$$\n\n  Step 3: Find the y-coordinate of the vertex\n    $$f(2) = 2(2)^2 - 8(2) + 1 = 8 - 16 + 1 = -7$$\n\n  Answer: The vertex is $(2, -7)$.\n\n💡 Worked Example — Converting Factored to Standard Form\nFind the y-intercept of $f(x) = -3(x - 2)(x + 5)$.\n\n  Step 1: Expand the brackets\n    $$f(x) = -3(x^2 + 5x - 2x - 10) = -3(x^2 + 3x - 10)$$\n\n  Step 2: Distribute the $-3$\n    $$f(x) = -3x^2 - 9x + 30$$\n\n  Answer: The y-intercept is $30$.\n\n📎 Key Points to Remember\n• $a$ controls width and direction: $|a| > 1$ → narrower; $|a| < 1$ → wider.\n• The three forms are equivalent — you can always expand or factorise to switch between them.\n• Vertex form is best for graphing; factored form is best for finding roots.\n\n⚠️ Common Mistake\nMixing up the sign in vertex form. In $f(x) = a(x - h)^2 + k$, the vertex is $(h, k)$, NOT $(-h, k)$. For example, $f(x) = 3(x + 2)^2 - 5$ has vertex $(-2, -5)$.",
       "illustration": {
         "src": "/images/math/math-dp-quadratics.svg",
         "alt": "The three forms of a quadratic (standard, vertex, factored) with their key features labelled; the quadratic formula and discriminant Δ=b²−4ac; and sum/product of roots α+β=−b/a, αβ=c/a.",
@@ -20,22 +20,22 @@
     {
       "id": "math-dp-quadratics-qua-n2",
       "heading": "Solving Quadratics",
-      "body": "There are three main ways to solve a quadratic equation $ax^2 + bx + c = 0$: factorising, completing the square, and the quadratic formula. Each has its own best-use case.\n\n📌 Method 1: Factorising (Null Factor Law)\nIf you can write $ax^2 + bx + c$ as a product of two linear factors, then:\n    $$(px + q)(rx + s) = 0 \\quad \\Rightarrow \\quad px + q = 0 \text{ or } rx + s = 0$$\nThis is the fastest method when the quadratic factors neatly.\n\n📌 Method 2: Completing the Square\nRewrite $ax^2 + bx + c$ in the form $a(x + h)^2 + k$.\nWhen $a = 1$:\n    $$x^2 + bx + c = \\left(x + \\dfrac{b}{2}\\right)^2 - \\dfrac{b^2}{4} + c$$\nWhen $a \neq 1$, factor $a$ out from the $x$-terms first.\n\n📌 Method 3: The Quadratic Formula\nFor any quadratic $ax^2 + bx + c = 0$ with $a \neq 0$:\n    $$x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\n🔑 The Discriminant\nThe expression under the square root is called the discriminant:\n    $$\\Delta = b^2 - 4ac$$\n• $\\Delta > 0$  →  two distinct real roots\n• $\\Delta = 0$  →  one repeated real root (the parabola touches the x-axis)\n• $\\Delta < 0$  →  no real roots (the parabola does not cross the x-axis)\n\n💡 Worked Example — Using the Quadratic Formula\nSolve $2x^2 - 5x - 3 = 0$.\n\n  Step 1: Identify $a$, $b$, $c$\n    $a = 2$,  $b = -5$,  $c = -3$\n\n  Step 2: Calculate the discriminant\n    $$\\Delta = (-5)^2 - 4(2)(-3) = 25 + 24 = 49$$\n\n  Step 3: Apply the formula\n    $$x = \\dfrac{5 \\pm \\sqrt{49}}{4} = \\dfrac{5 \\pm 7}{4}$$\n\n  Step 4: Find both solutions\n    $$x = \\dfrac{5 + 7}{4} = \\dfrac{12}{4} = 3$$\n    $$x = \\dfrac{5 - 7}{4} = -\\dfrac{2}{4} = -\\dfrac{1}{2}$$\n\n  Answer: $x = 3$  or  $x = -\\dfrac{1}{2}$\n\n💡 Worked Example — Completing the Square\nWrite $x^2 + 6x + 5$ in the form $(x + h)^2 + k$.\n\n  Step 1: Take half the coefficient of $x$ and square it\n    $$\\left(\\dfrac{6}{2}\\right)^2 = 9$$\n\n  Step 2: Add and subtract this value inside the expression\n    $$x^2 + 6x + 5 = (x^2 + 6x + 9) + 5 - 9$$\n\n  Step 3: Factor the perfect square\n    $$= (x + 3)^2 - 4$$\n\n  Answer: $(x + 3)^2 - 4$, so the vertex is $(-3, -4)$.\n\n📎 Key Points to Remember\n• Always try factorising first — it is the quickest method when it works.\n• Completing the square is essential for deriving the quadratic formula and for graphing.\n• The quadratic formula always works, even when factorising is difficult.\n• If a quadratic has no real roots, you can still find complex roots using the same formula.\n\n⚠️ Common Mistake\nDividing both sides of an equation by $x$. For example, solving $x^2 = 5x$ by dividing by $x$ gives $x = 5$ and loses the solution $x = 0$. Always rearrange to make the RHS zero before factorising."
+      "body": "There are three main ways to solve a quadratic equation $ax^2 + bx + c = 0$: factorising, completing the square, and the quadratic formula. Each has its own best-use case.\n\n📌 Method 1: Factorising (Null Factor Law)\nIf you can write $ax^2 + bx + c$ as a product of two linear factors, then:\n    $$(px + q)(rx + s) = 0 \\quad \\Rightarrow \\quad px + q = 0 \\text{ or } rx + s = 0$$\nThis is the fastest method when the quadratic factors neatly.\n\n📌 Method 2: Completing the Square\nRewrite $ax^2 + bx + c$ in the form $a(x + h)^2 + k$.\nWhen $a = 1$:\n    $$x^2 + bx + c = \\left(x + \\dfrac{b}{2}\\right)^2 - \\dfrac{b^2}{4} + c$$\nWhen $a \\neq 1$, factor $a$ out from the $x$-terms first.\n\n📌 Method 3: The Quadratic Formula\nFor any quadratic $ax^2 + bx + c = 0$ with $a \\neq 0$:\n    $$x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\n🔑 The Discriminant\nThe expression under the square root is called the discriminant:\n    $$\\Delta = b^2 - 4ac$$\n• $\\Delta > 0$  →  two distinct real roots\n• $\\Delta = 0$  →  one repeated real root (the parabola touches the x-axis)\n• $\\Delta < 0$  →  no real roots (the parabola does not cross the x-axis)\n\n💡 Worked Example — Using the Quadratic Formula\nSolve $2x^2 - 5x - 3 = 0$.\n\n  Step 1: Identify $a$, $b$, $c$\n    $a = 2$,  $b = -5$,  $c = -3$\n\n  Step 2: Calculate the discriminant\n    $$\\Delta = (-5)^2 - 4(2)(-3) = 25 + 24 = 49$$\n\n  Step 3: Apply the formula\n    $$x = \\dfrac{5 \\pm \\sqrt{49}}{4} = \\dfrac{5 \\pm 7}{4}$$\n\n  Step 4: Find both solutions\n    $$x = \\dfrac{5 + 7}{4} = \\dfrac{12}{4} = 3$$\n    $$x = \\dfrac{5 - 7}{4} = -\\dfrac{2}{4} = -\\dfrac{1}{2}$$\n\n  Answer: $x = 3$  or  $x = -\\dfrac{1}{2}$\n\n💡 Worked Example — Completing the Square\nWrite $x^2 + 6x + 5$ in the form $(x + h)^2 + k$.\n\n  Step 1: Take half the coefficient of $x$ and square it\n    $$\\left(\\dfrac{6}{2}\\right)^2 = 9$$\n\n  Step 2: Add and subtract this value inside the expression\n    $$x^2 + 6x + 5 = (x^2 + 6x + 9) + 5 - 9$$\n\n  Step 3: Factor the perfect square\n    $$= (x + 3)^2 - 4$$\n\n  Answer: $(x + 3)^2 - 4$, so the vertex is $(-3, -4)$.\n\n📎 Key Points to Remember\n• Always try factorising first — it is the quickest method when it works.\n• Completing the square is essential for deriving the quadratic formula and for graphing.\n• The quadratic formula always works, even when factorising is difficult.\n• If a quadratic has no real roots, you can still find complex roots using the same formula.\n\n⚠️ Common Mistake\nDividing both sides of an equation by $x$. For example, solving $x^2 = 5x$ by dividing by $x$ gives $x = 5$ and loses the solution $x = 0$. Always rearrange to make the RHS zero before factorising."
     },
     {
       "id": "math-dp-quadratics-qua-n3",
       "heading": "Vieta's Formulas",
-      "body": "When a quadratic equation has roots, there is a beautiful relationship between the coefficients and the roots — even if you never find the roots explicitly.\n\n📌 Definition\nFor the quadratic $ax^2 + bx + c = 0$ with roots $\\alpha$ and $\\beta$:\n    $$\text{Sum of roots:} \\quad \\alpha + \\beta = -\\dfrac{b}{a}$$\n    $$\text{Product of roots:} \\quad \\alpha\\beta = \\dfrac{c}{a}$$\n\nThese are called Vieta's formulas (or the sum-and-product of roots).\n\n🔑 Why They Matter\n• Check your answers: if you solve a quadratic, the sum and product of your solutions should match $-\\dfrac{b}{a}$ and $\\dfrac{c}{a}$.\n• Form a quadratic from its roots: if roots are $\\alpha$ and $\\beta$, the monic quadratic is $x^2 - (\\alpha + \\beta)x + \\alpha\\beta = 0$.\n• Solve problems without finding roots: many symmetric expressions in $\\alpha$ and $\\beta$ can be evaluated directly.\n\n💡 Worked Example — Forming a Quadratic from Roots\nFind a quadratic equation with roots $2$ and $-5$.\n\n  Step 1: Find the sum and product\n    $\text{Sum} = 2 + (-5) = -3$\n    $\text{Product} = 2 \times (-5) = -10$\n\n  Step 2: Write the monic quadratic\n    $$x^2 - (\text{sum})x + (\text{product}) = 0$$\n    $$x^2 - (-3)x + (-10) = 0$$\n\n  Step 3: Simplify\n    $$x^2 + 3x - 10 = 0$$\n\n  Answer: $x^2 + 3x - 10 = 0$\n\n💡 Worked Example — Evaluating without Finding Roots\nIf $\\alpha$ and $\\beta$ are roots of $2x^2 - 7x + 3 = 0$, find $\\alpha^2 + \\beta^2$.\n\n  Step 1: Use Vieta's formulas\n    $$\\alpha + \\beta = \\dfrac{-(-7)}{2} = \\dfrac{7}{2}$$\n    $$\\alpha\\beta = \\dfrac{3}{2}$$\n\n  Step 2: Rewrite $\\alpha^2 + \\beta^2$ using the identity\n    $$\\alpha^2 + \\beta^2 = (\\alpha + \\beta)^2 - 2\\alpha\\beta$$\n\n  Step 3: Substitute\n    $$= \\left(\\dfrac{7}{2}\\right)^2 - 2\\left(\\dfrac{3}{2}\\right)$$\n    $$= \\dfrac{49}{4} - 3$$\n    $$= \\dfrac{49}{4} - \\dfrac{12}{4}$$\n    $$= \\dfrac{37}{4}$$\n\n  Answer: $\\alpha^2 + \\beta^2 = \\dfrac{37}{4}$\n\n📎 Key Points to Remember\n• Vieta\\'s formulas work for any quadratic, even when the roots are complex.\n• For a monic quadratic ($a = 1$), the formulas simplify to: sum = $-b$, product = $c$.\n• Common symmetric expressions: $\\alpha^2 + \\beta^2 = (\\alpha + \\beta)^2 - 2\\alpha\\beta$ and $\\dfrac{1}{\\alpha} + \\dfrac{1}{\\beta} = \\dfrac{\\alpha + \\beta}{\\alpha\\beta}$.\n\n⚠️ Common Mistake\nForgetting the minus sign in the sum formula. The sum of roots equals $-\\dfrac{b}{a}$, not $\\dfrac{b}{a}$. If the quadratic is $x^2 - 5x + 6 = 0$, the sum of roots is $5$ (not $-5$) because $-\\dfrac{b}{a} = -\\dfrac{(-5)}{1} = 5$."
+      "body": "When a quadratic equation has roots, there is a beautiful relationship between the coefficients and the roots — even if you never find the roots explicitly.\n\n📌 Definition\nFor the quadratic $ax^2 + bx + c = 0$ with roots $\\alpha$ and $\\beta$:\n    $$\\text{Sum of roots:} \\quad \\alpha + \\beta = -\\dfrac{b}{a}$$\n    $$\\text{Product of roots:} \\quad \\alpha\\beta = \\dfrac{c}{a}$$\n\nThese are called Vieta's formulas (or the sum-and-product of roots).\n\n🔑 Why They Matter\n• Check your answers: if you solve a quadratic, the sum and product of your solutions should match $-\\dfrac{b}{a}$ and $\\dfrac{c}{a}$.\n• Form a quadratic from its roots: if roots are $\\alpha$ and $\\beta$, the monic quadratic is $x^2 - (\\alpha + \\beta)x + \\alpha\\beta = 0$.\n• Solve problems without finding roots: many symmetric expressions in $\\alpha$ and $\\beta$ can be evaluated directly.\n\n💡 Worked Example — Forming a Quadratic from Roots\nFind a quadratic equation with roots $2$ and $-5$.\n\n  Step 1: Find the sum and product\n    $\\text{Sum} = 2 + (-5) = -3$\n    $\\text{Product} = 2 \\times (-5) = -10$\n\n  Step 2: Write the monic quadratic\n    $$x^2 - (\\text{sum})x + (\\text{product}) = 0$$\n    $$x^2 - (-3)x + (-10) = 0$$\n\n  Step 3: Simplify\n    $$x^2 + 3x - 10 = 0$$\n\n  Answer: $x^2 + 3x - 10 = 0$\n\n💡 Worked Example — Evaluating without Finding Roots\nIf $\\alpha$ and $\\beta$ are roots of $2x^2 - 7x + 3 = 0$, find $\\alpha^2 + \\beta^2$.\n\n  Step 1: Use Vieta's formulas\n    $$\\alpha + \\beta = \\dfrac{-(-7)}{2} = \\dfrac{7}{2}$$\n    $$\\alpha\\beta = \\dfrac{3}{2}$$\n\n  Step 2: Rewrite $\\alpha^2 + \\beta^2$ using the identity\n    $$\\alpha^2 + \\beta^2 = (\\alpha + \\beta)^2 - 2\\alpha\\beta$$\n\n  Step 3: Substitute\n    $$= \\left(\\dfrac{7}{2}\\right)^2 - 2\\left(\\dfrac{3}{2}\\right)$$\n    $$= \\dfrac{49}{4} - 3$$\n    $$= \\dfrac{49}{4} - \\dfrac{12}{4}$$\n    $$= \\dfrac{37}{4}$$\n\n  Answer: $\\alpha^2 + \\beta^2 = \\dfrac{37}{4}$\n\n📎 Key Points to Remember\n• Vieta\\'s formulas work for any quadratic, even when the roots are complex.\n• For a monic quadratic ($a = 1$), the formulas simplify to: sum = $-b$, product = $c$.\n• Common symmetric expressions: $\\alpha^2 + \\beta^2 = (\\alpha + \\beta)^2 - 2\\alpha\\beta$ and $\\dfrac{1}{\\alpha} + \\dfrac{1}{\\beta} = \\dfrac{\\alpha + \\beta}{\\alpha\\beta}$.\n\n⚠️ Common Mistake\nForgetting the minus sign in the sum formula. The sum of roots equals $-\\dfrac{b}{a}$, not $\\dfrac{b}{a}$. If the quadratic is $x^2 - 5x + 6 = 0$, the sum of roots is $5$ (not $-5$) because $-\\dfrac{b}{a} = -\\dfrac{(-5)}{1} = 5$."
     },
     {
       "id": "math-dp-quadratics-qua-n4",
       "heading": "Inequalities and Optimisation",
-      "body": "Quadratic inequalities and optimisation problems appear constantly in IB exams. The key is understanding how the parabola shape determines where the expression is positive or negative.\n\n📌 Solving Quadratic Inequalities\nTo solve $ax^2 + bx + c > 0$ (or $< 0$, $\\geq 0$, $\\leq 0$):\n\n  1. Find the roots by solving $ax^2 + bx + c = 0$.\n  2. Sketch the parabola using the sign of $a$.\n  3. Read the solution from the graph.\n\n🔑 The Sign Rule\n• If $a > 0$ (parabola opens upward):\n    $$ax^2 + bx + c > 0 \\quad \\rightarrow \\quad \text{outside the roots } (x < \text{smaller root} \text{ or } x > \text{larger root})$$\n    $$ax^2 + bx + c < 0 \\quad \\rightarrow \\quad \text{between the roots}$$\n• If $a < 0$ (parabola opens downward), the inequalities reverse.\n\n📌 Optimisation with Quadratics\nFor $f(x) = ax^2 + bx + c$, the vertex gives the extreme value:\n• If $a > 0$, the minimum value occurs at $x = -\\dfrac{b}{2a}$.\n• If $a < 0$, the maximum value occurs at $x = -\\dfrac{b}{2a}$.\n\n💡 Worked Example — Quadratic Inequality\nSolve $x^2 - x - 12 < 0$.\n\n  Step 1: Find the roots\n    $$x^2 - x - 12 = 0$$\n    $$(x - 4)(x + 3) = 0$$\n    $$x = 4 \text{ or } x = -3$$\n\n  Step 2: Determine the shape\n    $a = 1 > 0$, so the parabola opens upward.\n\n  Step 3: Read the solution\n    We want where the parabola is below the x-axis — between the roots.\n\n  Answer: $-3 < x < 4$\n\n💡 Worked Example — Optimisation\nA ball is thrown upward and its height after $t$ seconds is $h(t) = -5t^2 + 20t + 1$ metres. Find the maximum height and when it occurs.\n\n  Step 1: Identify $a$ and $b$\n    $a = -5$,  $b = 20$\n\n  Step 2: Find the time at the vertex\n    $$t = -\\dfrac{b}{2a} = -\\dfrac{20}{2 \times -5} = -\\dfrac{20}{-10} = 2 \text{ seconds}$$\n\n  Step 3: Find the maximum height\n    $$h(2) = -5(2)^2 + 20(2) + 1 = -20 + 40 + 1 = 21 \text{ metres}$$\n\n  Answer: Maximum height is $21$ m at $t = 2$ s.\n\n📎 Key Points to Remember\n• Always make the RHS zero before solving an inequality.\n• When multiplying or dividing an inequality by a negative number, flip the inequality sign.\n• For optimisation, always check that your answer makes sense in the real-world context (e.g., time cannot be negative).\n• The vertex formula $x = -\\dfrac{b}{2a}$ is faster than completing the square for finding maxima/minima.\n\n⚠️ Common Mistake\nWriting the solution to $x^2 - x - 12 > 0$ as $x < -3$ and $x > 4$ (using \"and\" instead of \"or\"). These are two separate intervals that do not overlap, so the correct connective is \"or\". In interval notation: $(-\\infty, -3) \\cup (4, \\infty)$."
+      "body": "Quadratic inequalities and optimisation problems appear constantly in IB exams. The key is understanding how the parabola shape determines where the expression is positive or negative.\n\n📌 Solving Quadratic Inequalities\nTo solve $ax^2 + bx + c > 0$ (or $< 0$, $\\geq 0$, $\\leq 0$):\n\n  1. Find the roots by solving $ax^2 + bx + c = 0$.\n  2. Sketch the parabola using the sign of $a$.\n  3. Read the solution from the graph.\n\n🔑 The Sign Rule\n• If $a > 0$ (parabola opens upward):\n    $$ax^2 + bx + c > 0 \\quad \\rightarrow \\quad \\text{outside the roots } (x < \\text{smaller root} \\text{ or } x > \\text{larger root})$$\n    $$ax^2 + bx + c < 0 \\quad \\rightarrow \\quad \\text{between the roots}$$\n• If $a < 0$ (parabola opens downward), the inequalities reverse.\n\n📌 Optimisation with Quadratics\nFor $f(x) = ax^2 + bx + c$, the vertex gives the extreme value:\n• If $a > 0$, the minimum value occurs at $x = -\\dfrac{b}{2a}$.\n• If $a < 0$, the maximum value occurs at $x = -\\dfrac{b}{2a}$.\n\n💡 Worked Example — Quadratic Inequality\nSolve $x^2 - x - 12 < 0$.\n\n  Step 1: Find the roots\n    $$x^2 - x - 12 = 0$$\n    $$(x - 4)(x + 3) = 0$$\n    $$x = 4 \\text{ or } x = -3$$\n\n  Step 2: Determine the shape\n    $a = 1 > 0$, so the parabola opens upward.\n\n  Step 3: Read the solution\n    We want where the parabola is below the x-axis — between the roots.\n\n  Answer: $-3 < x < 4$\n\n💡 Worked Example — Optimisation\nA ball is thrown upward and its height after $t$ seconds is $h(t) = -5t^2 + 20t + 1$ metres. Find the maximum height and when it occurs.\n\n  Step 1: Identify $a$ and $b$\n    $a = -5$,  $b = 20$\n\n  Step 2: Find the time at the vertex\n    $$t = -\\dfrac{b}{2a} = -\\dfrac{20}{2 \\times -5} = -\\dfrac{20}{-10} = 2 \\text{ seconds}$$\n\n  Step 3: Find the maximum height\n    $$h(2) = -5(2)^2 + 20(2) + 1 = -20 + 40 + 1 = 21 \\text{ metres}$$\n\n  Answer: Maximum height is $21$ m at $t = 2$ s.\n\n📎 Key Points to Remember\n• Always make the RHS zero before solving an inequality.\n• When multiplying or dividing an inequality by a negative number, flip the inequality sign.\n• For optimisation, always check that your answer makes sense in the real-world context (e.g., time cannot be negative).\n• The vertex formula $x = -\\dfrac{b}{2a}$ is faster than completing the square for finding maxima/minima.\n\n⚠️ Common Mistake\nWriting the solution to $x^2 - x - 12 > 0$ as $x < -3$ and $x > 4$ (using \"and\" instead of \"or\"). These are two separate intervals that do not overlap, so the correct connective is \"or\". In interval notation: $(-\\infty, -3) \\cup (4, \\infty)$."
     },
     {
       "id": "math-dp-quadratics-qua-n5",
       "heading": "Positive and Negative Definite Quadratics",
-      "body": "Some quadratics are always positive or always negative — they never cross the x-axis. Recognising these quickly saves time and prevents sign errors.\n\n📌 Definitions\n• A quadratic is positive definite when $ax^2 + bx + c > 0$ for ALL real $x$.\n• A quadratic is negative definite when $ax^2 + bx + c < 0$ for ALL real $x$.\n\n🔑 Test for Definiteness\n    $$\text{Positive definite} \\iff a > 0 \text{ AND } \\Delta < 0$$\n    $$\text{Negative definite} \\iff a < 0 \text{ AND } \\Delta < 0$$\n\nWhy does this work? The discriminant $\\Delta < 0$ means there are no real roots, so the parabola never touches the x-axis. The sign of $a$ then tells you whether the entire graph is above ($a > 0$) or below ($a < 0$) the x-axis.\n\n💡 Worked Example — Testing for Positive Definite\nShow that $x^2 + 2x + 3$ is positive definite.\n\n  Step 1: Check the coefficient of $x^2$\n    $$a = 1 > 0 \\quad \\rightarrow \\quad \text{parabola opens upward}$$\n\n  Step 2: Calculate the discriminant\n    $$\\Delta = b^2 - 4ac = (2)^2 - 4(1)(3) = 4 - 12 = -8$$\n\n  Step 3: Apply the test\n    $$a > 0 \text{ and } \\Delta < 0 \\quad \\rightarrow \\quad \text{positive definite}$$\n\n  Answer: $x^2 + 2x + 3 > 0$ for all real $x$.\n\n💡 Worked Example — Finding a Parameter for Definiteness\nFor what values of $k$ is $x^2 - 4x + k$ positive definite?\n\n  Step 1: Identify $a$, $b$, $c$\n    $a = 1$,  $b = -4$,  $c = k$\n\n  Step 2: Apply the positive definite condition\n    Need $a > 0$ (true, since $a = 1$) AND $\\Delta < 0$\n\n  Step 3: Solve $\\Delta < 0$\n    $$\\Delta = (-4)^2 - 4(1)(k) = 16 - 4k$$\n    $$16 - 4k < 0$$\n    $$16 < 4k$$\n    $$k > 4$$\n\n  Answer: The quadratic is positive definite when $k > 4$.\n\n📎 Key Points to Remember\n• The phrase \"definite\" means the quadratic has a definite sign — it never changes.\n• If $\\Delta \\geq 0$, the quadratic is neither positive nor negative definite (it crosses or touches the x-axis).\n• Positive definite quadratics are useful for proving inequalities and showing expressions are always positive.\n• Negative definite quadratics are less common but appear in certain optimisation and proof problems.\n\n⚠️ Common Mistake\nChecking only $\\Delta < 0$ without checking the sign of $a$. A quadratic with $a < 0$ and $\\Delta < 0$ is negative definite, not positive definite. Both conditions must be verified."
+      "body": "Some quadratics are always positive or always negative — they never cross the x-axis. Recognising these quickly saves time and prevents sign errors.\n\n📌 Definitions\n• A quadratic is positive definite when $ax^2 + bx + c > 0$ for ALL real $x$.\n• A quadratic is negative definite when $ax^2 + bx + c < 0$ for ALL real $x$.\n\n🔑 Test for Definiteness\n    $$\\text{Positive definite} \\iff a > 0 \\text{ AND } \\Delta < 0$$\n    $$\\text{Negative definite} \\iff a < 0 \\text{ AND } \\Delta < 0$$\n\nWhy does this work? The discriminant $\\Delta < 0$ means there are no real roots, so the parabola never touches the x-axis. The sign of $a$ then tells you whether the entire graph is above ($a > 0$) or below ($a < 0$) the x-axis.\n\n💡 Worked Example — Testing for Positive Definite\nShow that $x^2 + 2x + 3$ is positive definite.\n\n  Step 1: Check the coefficient of $x^2$\n    $$a = 1 > 0 \\quad \\rightarrow \\quad \\text{parabola opens upward}$$\n\n  Step 2: Calculate the discriminant\n    $$\\Delta = b^2 - 4ac = (2)^2 - 4(1)(3) = 4 - 12 = -8$$\n\n  Step 3: Apply the test\n    $$a > 0 \\text{ and } \\Delta < 0 \\quad \\rightarrow \\quad \\text{positive definite}$$\n\n  Answer: $x^2 + 2x + 3 > 0$ for all real $x$.\n\n💡 Worked Example — Finding a Parameter for Definiteness\nFor what values of $k$ is $x^2 - 4x + k$ positive definite?\n\n  Step 1: Identify $a$, $b$, $c$\n    $a = 1$,  $b = -4$,  $c = k$\n\n  Step 2: Apply the positive definite condition\n    Need $a > 0$ (true, since $a = 1$) AND $\\Delta < 0$\n\n  Step 3: Solve $\\Delta < 0$\n    $$\\Delta = (-4)^2 - 4(1)(k) = 16 - 4k$$\n    $$16 - 4k < 0$$\n    $$16 < 4k$$\n    $$k > 4$$\n\n  Answer: The quadratic is positive definite when $k > 4$.\n\n📎 Key Points to Remember\n• The phrase \"definite\" means the quadratic has a definite sign — it never changes.\n• If $\\Delta \\geq 0$, the quadratic is neither positive nor negative definite (it crosses or touches the x-axis).\n• Positive definite quadratics are useful for proving inequalities and showing expressions are always positive.\n• Negative definite quadratics are less common but appear in certain optimisation and proof problems.\n\n⚠️ Common Mistake\nChecking only $\\Delta < 0$ without checking the sign of $a$. A quadratic with $a < 0$ and $\\Delta < 0$ is negative definite, not positive definite. Both conditions must be verified."
     },
     {
       "id": "math-dp-quadratics-qua-n6",
@@ -45,12 +45,12 @@
     {
       "id": "math-dp-quadratics-qua-n7",
       "heading": "Modelling with Quadratics",
-      "body": "Quadratic functions model many real-world situations: projectiles, areas, profit, and bridge shapes. The key skill is translating words into an equation, then using the vertex or roots to answer the question.\n\n📌 Definition\nA quadratic model has the form $y = ax^2 + bx + c$ where the independent variable $x$ represents time, length, price, or another quantity, and $y$ represents height, area, profit, or another output.\n\n🔑 Key Concept\nIn applications the vertex usually gives the maximum or minimum value of the model, while the roots tell you when the output is zero. Always check whether the mathematical answer makes sense in the real-world context.\n\n💡 Worked Example — Maximising Area\nA farmer has $60$ m of fencing to make a rectangular enclosure against a straight wall. Find the maximum possible area.\n\n  Step 1: Define variables\n    Let the side perpendicular to the wall be $x$ m. Then the side parallel to the wall is $(60 - 2x)$ m.\n\n  Step 2: Write the area model\n    $$A(x) = x(60 - 2x) = 60x - 2x^2$$\n\n  Step 3: Find the vertex\n    $$x = -\\dfrac{b}{2a} = -\\dfrac{60}{2(-2)} = 15 \text{ m}$$\n\n  Step 4: Find the maximum area\n    $$A(15) = 15(60 - 30) = 15 \times 30 = 450 \text{ m}^2$$\n\n  Answer: The maximum area is $450 \text{ m}^2$.\n\n💡 Worked Example — Projectile Motion\nA stone is thrown from a height of $2$ m. Its height is $h(t) = -5t^2 + 12t + 2$. When does it hit the ground?\n\n  Step 1: Set height to zero\n    $$-5t^2 + 12t + 2 = 0$$\n\n  Step 2: Use the quadratic formula\n    $$t = \\dfrac{-12 \\pm \\sqrt{12^2 - 4(-5)(2)}}{2(-5)} = \\dfrac{-12 \\pm \\sqrt{144 + 40}}{-10}$$\n    $$t = \\dfrac{-12 \\pm \\sqrt{184}}{-10}$$\n\n  Step 3: Take the positive root\n    $$t \\approx \\dfrac{-12 + 13.56}{-10} \\approx -0.16 \text{ (reject)}$$\n    $$t \\approx \\dfrac{-12 - 13.56}{-10} \\approx 2.56 \text{ s}$$\n\n  Answer: The stone hits the ground after approximately $2.56$ seconds.\n\n📎 Key Points to Remember\n• Identify which quantity you are maximising or minimising before choosing a method.\n• Reject answers that are negative or outside the practical domain.\n• Round final answers to a sensible number of significant figures.\n\n⚠️ Common Mistake\nUsing the x-coordinate of the vertex as the final answer when the question asks for the maximum value. Always substitute back to find the actual output."
+      "body": "Quadratic functions model many real-world situations: projectiles, areas, profit, and bridge shapes. The key skill is translating words into an equation, then using the vertex or roots to answer the question.\n\n📌 Definition\nA quadratic model has the form $y = ax^2 + bx + c$ where the independent variable $x$ represents time, length, price, or another quantity, and $y$ represents height, area, profit, or another output.\n\n🔑 Key Concept\nIn applications the vertex usually gives the maximum or minimum value of the model, while the roots tell you when the output is zero. Always check whether the mathematical answer makes sense in the real-world context.\n\n💡 Worked Example — Maximising Area\nA farmer has $60$ m of fencing to make a rectangular enclosure against a straight wall. Find the maximum possible area.\n\n  Step 1: Define variables\n    Let the side perpendicular to the wall be $x$ m. Then the side parallel to the wall is $(60 - 2x)$ m.\n\n  Step 2: Write the area model\n    $$A(x) = x(60 - 2x) = 60x - 2x^2$$\n\n  Step 3: Find the vertex\n    $$x = -\\dfrac{b}{2a} = -\\dfrac{60}{2(-2)} = 15 \\text{ m}$$\n\n  Step 4: Find the maximum area\n    $$A(15) = 15(60 - 30) = 15 \\times 30 = 450 \\text{ m}^2$$\n\n  Answer: The maximum area is $450 \\text{ m}^2$.\n\n💡 Worked Example — Projectile Motion\nA stone is thrown from a height of $2$ m. Its height is $h(t) = -5t^2 + 12t + 2$. When does it hit the ground?\n\n  Step 1: Set height to zero\n    $$-5t^2 + 12t + 2 = 0$$\n\n  Step 2: Use the quadratic formula\n    $$t = \\dfrac{-12 \\pm \\sqrt{12^2 - 4(-5)(2)}}{2(-5)} = \\dfrac{-12 \\pm \\sqrt{144 + 40}}{-10}$$\n    $$t = \\dfrac{-12 \\pm \\sqrt{184}}{-10}$$\n\n  Step 3: Take the positive root\n    $$t \\approx \\dfrac{-12 + 13.56}{-10} \\approx -0.16 \\text{ (reject)}$$\n    $$t \\approx \\dfrac{-12 - 13.56}{-10} \\approx 2.56 \\text{ s}$$\n\n  Answer: The stone hits the ground after approximately $2.56$ seconds.\n\n📎 Key Points to Remember\n• Identify which quantity you are maximising or minimising before choosing a method.\n• Reject answers that are negative or outside the practical domain.\n• Round final answers to a sensible number of significant figures.\n\n⚠️ Common Mistake\nUsing the x-coordinate of the vertex as the final answer when the question asks for the maximum value. Always substitute back to find the actual output."
     },
     {
       "id": "math-dp-quadratics-qua-n8",
       "heading": "Challenging Applications",
-      "body": "Harder IB questions often link several quadratic ideas in one problem: the discriminant controls whether roots exist, Vieta's formulas turn root expressions into coefficient calculations, and the vertex gives optimised values in real-world models.\n\n🔑 Key Concept\nBefore calculating, list what you know and what you need.\n• For $ax^2+bx+c=0$ with roots $\\alpha$ and $\\beta$: $\\alpha+\\beta=-\\dfrac{b}{a}$ and $\\alpha\\beta=\\dfrac{c}{a}$.\n• Useful identities include $\\alpha^2+\\beta^2=(\\alpha+\\beta)^2-2\\alpha\\beta$ and $\\dfrac{1}{\\alpha}+\\dfrac{1}{\\beta}=\\dfrac{\\alpha+\\beta}{\\alpha\\beta}$.\n• Real roots require $\\Delta\\geq0$.\n\n💡 Worked Example — Discriminant and Vieta Combined\nThe equation $x^2-(k+2)x+(2k+3)=0$ has roots $\\alpha$ and $\\beta$.\n(a) Find, in terms of $k$, the value of $\\alpha^2+\\beta^2$.\n(b) Given that the roots are real, find the range of possible values of $\\alpha^2+\\beta^2$.\n\n  Part (a)\n  Step 1: Apply Vieta's formulas\n    $$\\alpha+\\beta=k+2, \\quad \\alpha\\beta=2k+3$$\n\n  Step 2: Use the identity for $\\alpha^2+\\beta^2$\n    $$\\alpha^2+\\beta^2=(\\alpha+\\beta)^2-2\\alpha\\beta$$\n    $$=(k+2)^2-2(2k+3)$$\n    $$=k^2+4k+4-4k-6$$\n    $$=k^2-2$$\n\n  Answer (a): $\\alpha^2+\\beta^2=k^2-2$\n\n  Part (b)\n  Step 1: Write the discriminant condition\n    $$\\Delta=(k+2)^2-4(1)(2k+3)\\geq0$$\n\n  Step 2: Simplify\n    $$\\Delta=k^2+4k+4-8k-12$$\n    $$=k^2-4k-8$$\n\n  Step 3: Solve $\\Delta\\geq0$\n    Roots of $k^2-4k-8=0$ are\n    $$k=\\dfrac{4\\pm\\sqrt{16+32}}{2}=\\dfrac{4\\pm\\sqrt{48}}{2}=2\\pm2\\sqrt{3}$$\n    Since the coefficient of $k^2$ is positive, $\\Delta\\geq0$ when\n    $$k\\leq2-2\\sqrt{3} \\quad \text{or} \\quad k\\geq2+2\\sqrt{3}$$\n\n  Step 4: Find the range of $k^2-2$\n    The expression $\\alpha^2+\\beta^2=k^2-2$ is an upward-opening parabola in $k$ with vertex at $k=0$. The value $k=0$ lies inside the excluded interval $(2-2\\sqrt{3},\\,2+2\\sqrt{3})$, so the smallest value on the allowed set occurs at the boundary points $k=2\\pm2\\sqrt{3}$:\n    $$(2\\pm2\\sqrt{3})^2-2=4\\pm8\\sqrt{3}+12-2=14\\pm8\\sqrt{3}$$\n    The smaller value is $14-8\\sqrt{3}$.\n\n  Answer (b): $\\alpha^2+\\beta^2\\geq14-8\\sqrt{3}$\n\n💡 Worked Example — Optimisation in Projectile Motion\nA ball is thrown from ground level. Its height after $t$ seconds is $h(t)=-5t^2+20t$ metres.\n(a) Find the maximum height.\n(b) Find the time interval during which the ball is above $15$ m.\n\n  Part (a)\n  Step 1: Identify $a$ and $b$\n    $a=-5$, $b=20$\n\n  Step 2: Find the time at the vertex\n    $$t=-\\dfrac{b}{2a}=-\\dfrac{20}{2(-5)}=2 \text{ s}$$\n\n  Step 3: Substitute to find the maximum height\n    $$h(2)=-5(2)^2+20(2)=-20+40=20 \text{ m}$$\n\n  Answer (a): The maximum height is $20$ m.\n\n  Part (b)\n  Step 1: Solve $h(t)=15$\n    $$-5t^2+20t=15$$\n    $$5t^2-20t+15=0$$\n    $$t^2-4t+3=0$$\n\n  Step 2: Factorise\n    $$(t-1)(t-3)=0$$\n\n  Step 3: Interpret the solution\n    The ball is at $15$ m at $t=1$ and $t=3$. Because the parabola opens downward, the height is above $15$ m between these two times.\n\n  Answer (b): The ball is above $15$ m for $2$ seconds.\n\n📎 Key Points to Remember\n• Whenever a question mentions roots without asking for their values, Vieta's formulas are usually the fastest route.\n• Always state the real-root condition using $\\Delta\\geq0$ before trying to optimise a root-related expression.\n• The minimum of a quadratic expression over a restricted domain can occur at a boundary, not at the vertex.\n• In projectile motion, read carefully whether the question asks for maximum height, time above a height, or total flight time.\n\n⚠️ Common Mistake\nForgetting that the roots must be real. You cannot minimise $\\alpha^2+\\beta^2$ over all real $k$; the discriminant restriction removes a central band of values."
+      "body": "Harder IB questions often link several quadratic ideas in one problem: the discriminant controls whether roots exist, Vieta's formulas turn root expressions into coefficient calculations, and the vertex gives optimised values in real-world models.\n\n🔑 Key Concept\nBefore calculating, list what you know and what you need.\n• For $ax^2+bx+c=0$ with roots $\\alpha$ and $\\beta$: $\\alpha+\\beta=-\\dfrac{b}{a}$ and $\\alpha\\beta=\\dfrac{c}{a}$.\n• Useful identities include $\\alpha^2+\\beta^2=(\\alpha+\\beta)^2-2\\alpha\\beta$ and $\\dfrac{1}{\\alpha}+\\dfrac{1}{\\beta}=\\dfrac{\\alpha+\\beta}{\\alpha\\beta}$.\n• Real roots require $\\Delta\\geq0$.\n\n💡 Worked Example — Discriminant and Vieta Combined\nThe equation $x^2-(k+2)x+(2k+3)=0$ has roots $\\alpha$ and $\\beta$.\n(a) Find, in terms of $k$, the value of $\\alpha^2+\\beta^2$.\n(b) Given that the roots are real, find the range of possible values of $\\alpha^2+\\beta^2$.\n\n  Part (a)\n  Step 1: Apply Vieta's formulas\n    $$\\alpha+\\beta=k+2, \\quad \\alpha\\beta=2k+3$$\n\n  Step 2: Use the identity for $\\alpha^2+\\beta^2$\n    $$\\alpha^2+\\beta^2=(\\alpha+\\beta)^2-2\\alpha\\beta$$\n    $$=(k+2)^2-2(2k+3)$$\n    $$=k^2+4k+4-4k-6$$\n    $$=k^2-2$$\n\n  Answer (a): $\\alpha^2+\\beta^2=k^2-2$\n\n  Part (b)\n  Step 1: Write the discriminant condition\n    $$\\Delta=(k+2)^2-4(1)(2k+3)\\geq0$$\n\n  Step 2: Simplify\n    $$\\Delta=k^2+4k+4-8k-12$$\n    $$=k^2-4k-8$$\n\n  Step 3: Solve $\\Delta\\geq0$\n    Roots of $k^2-4k-8=0$ are\n    $$k=\\dfrac{4\\pm\\sqrt{16+32}}{2}=\\dfrac{4\\pm\\sqrt{48}}{2}=2\\pm2\\sqrt{3}$$\n    Since the coefficient of $k^2$ is positive, $\\Delta\\geq0$ when\n    $$k\\leq2-2\\sqrt{3} \\quad \\text{or} \\quad k\\geq2+2\\sqrt{3}$$\n\n  Step 4: Find the range of $k^2-2$\n    The expression $\\alpha^2+\\beta^2=k^2-2$ is an upward-opening parabola in $k$ with vertex at $k=0$. The value $k=0$ lies inside the excluded interval $(2-2\\sqrt{3},\\,2+2\\sqrt{3})$, so the smallest value on the allowed set occurs at the boundary points $k=2\\pm2\\sqrt{3}$:\n    $$(2\\pm2\\sqrt{3})^2-2=4\\pm8\\sqrt{3}+12-2=14\\pm8\\sqrt{3}$$\n    The smaller value is $14-8\\sqrt{3}$.\n\n  Answer (b): $\\alpha^2+\\beta^2\\geq14-8\\sqrt{3}$\n\n💡 Worked Example — Optimisation in Projectile Motion\nA ball is thrown from ground level. Its height after $t$ seconds is $h(t)=-5t^2+20t$ metres.\n(a) Find the maximum height.\n(b) Find the time interval during which the ball is above $15$ m.\n\n  Part (a)\n  Step 1: Identify $a$ and $b$\n    $a=-5$, $b=20$\n\n  Step 2: Find the time at the vertex\n    $$t=-\\dfrac{b}{2a}=-\\dfrac{20}{2(-5)}=2 \\text{ s}$$\n\n  Step 3: Substitute to find the maximum height\n    $$h(2)=-5(2)^2+20(2)=-20+40=20 \\text{ m}$$\n\n  Answer (a): The maximum height is $20$ m.\n\n  Part (b)\n  Step 1: Solve $h(t)=15$\n    $$-5t^2+20t=15$$\n    $$5t^2-20t+15=0$$\n    $$t^2-4t+3=0$$\n\n  Step 2: Factorise\n    $$(t-1)(t-3)=0$$\n\n  Step 3: Interpret the solution\n    The ball is at $15$ m at $t=1$ and $t=3$. Because the parabola opens downward, the height is above $15$ m between these two times.\n\n  Answer (b): The ball is above $15$ m for $2$ seconds.\n\n📎 Key Points to Remember\n• Whenever a question mentions roots without asking for their values, Vieta's formulas are usually the fastest route.\n• Always state the real-root condition using $\\Delta\\geq0$ before trying to optimise a root-related expression.\n• The minimum of a quadratic expression over a restricted domain can occur at a boundary, not at the vertex.\n• In projectile motion, read carefully whether the question asks for maximum height, time above a height, or total flight time.\n\n⚠️ Common Mistake\nForgetting that the roots must be real. You cannot minimise $\\alpha^2+\\beta^2$ over all real $k$; the discriminant restriction removes a central band of values."
     }
   ],
   "flashcards": [
@@ -70,7 +70,7 @@
       "id": "math-dp-quadratics-qua-f3",
       "term": "Quadratic formula",
       "definition": "$x=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$",
-      "example": "$x^2-5x+6 \\rightarrow x=2 \text{ or } 3$"
+      "example": "$x^2-5x+6 \\rightarrow x=2 \\text{ or } 3$"
     },
     {
       "id": "math-dp-quadratics-qua-f4",
@@ -138,7 +138,8 @@
         "$-1,6$"
       ],
       "correctIndex": 1,
-      "explanation": "Factorising gives $(x-2)(x-3)=0$, so the solutions are $x=2$ or $x=3$."
+      "explanation": "Factorising gives $(x-2)(x-3)=0$, so the solutions are $x=2$ or $x=3$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-quadratics-qua-q2",
@@ -150,7 +151,8 @@
         "$-49$, no real"
       ],
       "correctIndex": 1,
-      "explanation": "The discriminant $\\Delta=b^2-4ac$ tells you how many real roots a quadratic has. For $2x^2-3x+5=0$, $a=2$, $b=-3$, and $c=5$, so $\\Delta=(-3)^2-4(2)(5)=9-40=-31$. Because $\\Delta<0$, the equation has no real roots; its graph never crosses the $x$-axis."
+      "explanation": "The discriminant $\\Delta=b^2-4ac$ tells you how many real roots a quadratic has. For $2x^2-3x+5=0$, $a=2$, $b=-3$, and $c=5$, so $\\Delta=(-3)^2-4(2)(5)=9-40=-31$. Because $\\Delta<0$, the equation has no real roots; its graph never crosses the $x$-axis.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-quadratics-qua-q3",
@@ -162,7 +164,8 @@
         "$(x-3)^2-16$"
       ],
       "correctIndex": 0,
-      "explanation": "To write $x^2-6x+7$ in vertex form, complete the square. Half of $-6$ is $-3$, so $(x-3)^2=x^2-6x+9$. Replacing the first two terms gives $(x-3)^2-9+7=(x-3)^2-2$. The vertex form reveals the turning point $(3,-2)$, which is the lowest point of this upward-opening parabola."
+      "explanation": "To write $x^2-6x+7$ in vertex form, complete the square. Half of $-6$ is $-3$, so $(x-3)^2=x^2-6x+9$. Replacing the first two terms gives $(x-3)^2-9+7=(x-3)^2-2$. The vertex form reveals the turning point $(3,-2)$, which is the lowest point of this upward-opening parabola.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-quadratics-qua-q4",
@@ -174,31 +177,34 @@
         "$3$ at $x=2$"
       ],
       "correctIndex": 0,
-      "explanation": "For a downward-opening parabola $f(x)=-2x^2+8x-3$, the maximum occurs at the vertex. The $x$-coordinate is $x=-\\dfrac{b}{2a}=-\\dfrac{8}{2(-2)}=2$. Substituting gives $f(2)=-2(4)+8(2)-3=-8+16-3=5$. In real terms, this is the highest point of a projectile or the peak revenue point."
+      "explanation": "For a downward-opening parabola $f(x)=-2x^2+8x-3$, the maximum occurs at the vertex. The $x$-coordinate is $x=-\\dfrac{b}{2a}=-\\dfrac{8}{2(-2)}=2$. Substituting gives $f(2)=-2(4)+8(2)-3=-8+16-3=5$. In real terms, this is the highest point of a projectile or the peak revenue point.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-quadratics-qua-q5",
       "stem": "$x^2-x-12<0$ solution:",
       "choices": [
-        "$x<-3 \text{ or } x>4$",
+        "$x<-3 \\text{ or } x>4$",
         "$-3<x<4$",
         "$-4<x<3$",
-        "$x<-4 \text{ or } x>3$"
+        "$x<-4 \\text{ or } x>3$"
       ],
       "correctIndex": 1,
-      "explanation": "$(x-4)(x+3)<0 \\rightarrow$ between roots."
+      "explanation": "$(x-4)(x+3)<0 \\rightarrow$ between roots.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-quadratics-qua-q6",
       "stem": "Rectangle perimeter $40$ m. Max area?",
       "choices": [
-        "$100 \text{ m}^2$",
-        "$200 \text{ m}^2$",
-        "$80 \text{ m}^2$",
-        "$150 \text{ m}^2$"
+        "$100 \\text{ m}^2$",
+        "$200 \\text{ m}^2$",
+        "$80 \\text{ m}^2$",
+        "$150 \\text{ m}^2$"
       ],
       "correctIndex": 0,
-      "explanation": "$A=x(20-x)$; max at $x=10$: $100 \text{ m}^2$."
+      "explanation": "$A=x(20-x)$; max at $x=10$: $100 \\text{ m}^2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-quadratics-qua-q7",
@@ -206,11 +212,12 @@
       "choices": [
         "$a>0$",
         "$\\Delta<0$",
-        "$a>0 \text{ and } \\Delta<0$",
-        "$a<0 \text{ and } \\Delta<0$"
+        "$a>0 \\text{ and } \\Delta<0$",
+        "$a<0 \\text{ and } \\Delta<0$"
       ],
       "correctIndex": 2,
-      "explanation": "The parabola must open upward ($a>0$) AND never touch the x-axis ($\\Delta<0$). Together these make the quadratic positive definite."
+      "explanation": "The parabola must open upward ($a>0$) AND never touch the x-axis ($\\Delta<0$). Together these make the quadratic positive definite.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-quadratics-qua-q8",
@@ -222,7 +229,8 @@
         "$2(x-2)^2+5$"
       ],
       "correctIndex": 0,
-      "explanation": "Factor out $2$: $2(x^2-4x)+5 = 2[(x-2)^2-4]+5 = 2(x-2)^2-8+5 = 2(x-2)^2-3$."
+      "explanation": "Factor out $2$: $2(x^2-4x)+5 = 2[(x-2)^2-4]+5 = 2(x-2)^2-8+5 = 2(x-2)^2-3$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-quadratics-qua-q9",
@@ -234,7 +242,8 @@
         "$23$ m"
       ],
       "correctIndex": 1,
-      "explanation": "The maximum occurs at $t=-\\dfrac{b}{2a}=-\\dfrac{16}{-8}=2$ s. Substituting: $h(2)=-4(4)+16(2)+3=-16+32+3=19$ m."
+      "explanation": "The maximum occurs at $t=-\\dfrac{b}{2a}=-\\dfrac{16}{-8}=2$ s. Substituting: $h(2)=-4(4)+16(2)+3=-16+32+3=19$ m.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-quadratics-qua-q10",
@@ -246,7 +255,8 @@
         "$y=x^2+x-6$"
       ],
       "correctIndex": 0,
-      "explanation": "Factored form: $y=a(x-3)(x+2)$. At $x=0$, $y=a(-3)(2)=-6a=-12 \\rightarrow a=2$. Expanding: $y=2(x^2-x-6)=2x^2-2x-12$."
+      "explanation": "Factored form: $y=a(x-3)(x+2)$. At $x=0$, $y=a(-3)(2)=-6a=-12 \\rightarrow a=2$. Expanding: $y=2(x^2-x-6)=2x^2-2x-12$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-quadratics-qua-q11",
@@ -258,7 +268,8 @@
         "$k\\leq4$"
       ],
       "correctIndex": 0,
-      "explanation": "Need $\\Delta<0$. $\\Delta=(-4)^2-4(1)(k)=16-4k<0 \\rightarrow 4k>16 \\rightarrow k>4$. When $k>4$, the parabola opens upward and never touches the x-axis, so it is always positive."
+      "explanation": "Need $\\Delta<0$. $\\Delta=(-4)^2-4(1)(k)=16-4k<0 \\rightarrow 4k>16 \\rightarrow k>4$. When $k>4$, the parabola opens upward and never touches the x-axis, so it is always positive.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-quadratics-qua-q12",
@@ -270,7 +281,8 @@
         "$4$"
       ],
       "correctIndex": 0,
-      "explanation": "Set equal: $x^2+5x+2=3x+c \\rightarrow x^2+2x+(2-c)=0$. For tangency, $\\Delta=0$. $\\Delta=4-4(2-c)=4c-4=0 \\rightarrow c=1$."
+      "explanation": "Set equal: $x^2+5x+2=3x+c \\rightarrow x^2+2x+(2-c)=0$. For tangency, $\\Delta=0$. $\\Delta=4-4(2-c)=4c-4=0 \\rightarrow c=1$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-quadratics-qua-q13",
@@ -282,7 +294,8 @@
         "$y=2(x+3)^2-1$"
       ],
       "correctIndex": 1,
-      "explanation": "Vertical stretch by factor $2$ gives $y=2x^2$. A translation of $\\binom{3}{-1}$ means shift $3$ units right and $1$ unit down, giving $y=2(x-3)^2-1$."
+      "explanation": "Vertical stretch by factor $2$ gives $y=2x^2$. A translation of $\\binom{3}{-1}$ means shift $3$ units right and $1$ unit down, giving $y=2(x-3)^2-1$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-quadratics-qua-q14",
@@ -294,7 +307,8 @@
         "$-\\dfrac{1}{3}$"
       ],
       "correctIndex": 0,
-      "explanation": "By Vieta's formulas, $\\alpha+\\beta=2$ and $\\alpha\\beta=\\dfrac{1}{3}$. Hence $\\alpha\\beta-\\alpha-\\beta=\\dfrac{1}{3}-2=-\\dfrac{5}{3}$."
+      "explanation": "By Vieta's formulas, $\\alpha+\\beta=2$ and $\\alpha\\beta=\\dfrac{1}{3}$. Hence $\\alpha\\beta-\\alpha-\\beta=\\dfrac{1}{3}-2=-\\dfrac{5}{3}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-quadratics-qua-q15",
@@ -306,19 +320,21 @@
         "Cannot be determined"
       ],
       "correctIndex": 2,
-      "explanation": "Set equal: $x^2=2x+1$ becomes $x^2-2x-1=0$. The discriminant is $\\Delta=(-2)^2-4(1)(-1)=8>0$, so the line cuts the parabola at two distinct points."
+      "explanation": "Set equal: $x^2=2x+1$ becomes $x^2-2x-1=0$. The discriminant is $\\Delta=(-2)^2-4(1)(-1)=8>0$, so the line cuts the parabola at two distinct points.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-quadratics-qua-q16",
       "stem": "For what values of $k$ does $x^2+kx+2k-3=0$ have two distinct real roots?",
       "choices": [
-        "$k<2 \text{ or } k>6$",
+        "$k<2 \\text{ or } k>6$",
         "$2<k<6$",
-        "$k<-6 \text{ or } k>-2$",
+        "$k<-6 \\text{ or } k>-2$",
         "$-6<k<-2$"
       ],
       "correctIndex": 0,
-      "explanation": "Two distinct real roots require $\\Delta>0$. The discriminant is $\\Delta=k^2-4(2k-3)=k^2-8k+12=(k-2)(k-6)$. This is positive when both factors have the same sign, i.e. $k<2$ or $k>6$."
+      "explanation": "Two distinct real roots require $\\Delta>0$. The discriminant is $\\Delta=k^2-4(2k-3)=k^2-8k+12=(k-2)(k-6)$. This is positive when both factors have the same sign, i.e. $k<2$ or $k>6$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-quadratics-qua-q17",
@@ -330,7 +346,8 @@
         "$21$"
       ],
       "correctIndex": 0,
-      "explanation": "By Vieta's formulas, $\\alpha+\\beta=\\dfrac{5}{2}$ and $\\alpha\\beta=\\dfrac{1}{2}$. Then $\\dfrac{\\alpha}{\\beta}+\\dfrac{\\beta}{\\alpha}=\\dfrac{\\alpha^2+\\beta^2}{\\alpha\\beta}=\\dfrac{(\\alpha+\\beta)^2-2\\alpha\\beta}{\\alpha\\beta}=\\dfrac{\\dfrac{25}{4}-1}{\\dfrac{1}{2}}=\\dfrac{21}{2}$."
+      "explanation": "By Vieta's formulas, $\\alpha+\\beta=\\dfrac{5}{2}$ and $\\alpha\\beta=\\dfrac{1}{2}$. Then $\\dfrac{\\alpha}{\\beta}+\\dfrac{\\beta}{\\alpha}=\\dfrac{\\alpha^2+\\beta^2}{\\alpha\\beta}=\\dfrac{(\\alpha+\\beta)^2-2\\alpha\\beta}{\\alpha\\beta}=\\dfrac{\\dfrac{25}{4}-1}{\\dfrac{1}{2}}=\\dfrac{21}{2}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-quadratics-qua-q18",
@@ -342,19 +359,21 @@
         "$x^2-2x-8=0$"
       ],
       "correctIndex": 0,
-      "explanation": "For new roots $\\alpha+1$ and $\\beta+1$: sum $=(\\alpha+\\beta)+2=4+2=6$ and product $=(\\alpha+1)(\\beta+1)=\\alpha\\beta+\\alpha+\\beta+1=-5+4+1=0$. The monic equation is $x^2-(\text{sum})x+(\text{product})=0$, giving $x^2-6x=0$."
+      "explanation": "For new roots $\\alpha+1$ and $\\beta+1$: sum $=(\\alpha+\\beta)+2=4+2=6$ and product $=(\\alpha+1)(\\beta+1)=\\alpha\\beta+\\alpha+\\beta+1=-5+4+1=0$. The monic equation is $x^2-(\\text{sum})x+(\\text{product})=0$, giving $x^2-6x=0$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-quadratics-qua-q19",
       "stem": "A rectangular garden uses an existing wall as one side. The other three sides total $40$ m of fencing. What is the maximum possible area?",
       "choices": [
-        "$100 \text{ m}^2$",
-        "$150 \text{ m}^2$",
-        "$200 \text{ m}^2$",
-        "$400 \text{ m}^2$"
+        "$100 \\text{ m}^2$",
+        "$150 \\text{ m}^2$",
+        "$200 \\text{ m}^2$",
+        "$400 \\text{ m}^2$"
       ],
       "correctIndex": 2,
-      "explanation": "Let the side perpendicular to the wall be $x$ m. The side parallel to the wall is $(40-2x)$ m, so the area is $A=x(40-2x)=-2x^2+40x$. The maximum occurs at $x=-\\dfrac{40}{-4}=10$ m, giving $A=10(20)=200 \text{ m}^2$."
+      "explanation": "Let the side perpendicular to the wall be $x$ m. The side parallel to the wall is $(40-2x)$ m, so the area is $A=x(40-2x)=-2x^2+40x$. The maximum occurs at $x=-\\dfrac{40}{-4}=10$ m, giving $A=10(20)=200 \\text{ m}^2$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-quadratics-qua-q20",
@@ -366,7 +385,8 @@
         "$4$ seconds"
       ],
       "correctIndex": 1,
-      "explanation": "Solve $-5t^2+20t=15$, which rearranges to $t^2-4t+3=0$. This factorises as $(t-1)(t-3)=0$, so the ball is at $15$ m at $t=1$ and $t=3$. It is above $15$ m between these times, for $3-1=2$ seconds."
+      "explanation": "Solve $-5t^2+20t=15$, which rearranges to $t^2-4t+3=0$. This factorises as $(t-1)(t-3)=0$, so the ball is at $15$ m at $t=1$ and $t=3$. It is above $15$ m between these times, for $3-1=2$ seconds.",
+      "difficulty": "hard"
     }
   ]
 }

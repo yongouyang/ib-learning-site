@@ -132,7 +132,8 @@
         "$128$"
       ],
       "correctIndex": 2,
-      "explanation": "$2^6 = 2 \\times 2 \\times 2 \\times 2 \\times 2 \\times 2 = 64$. Be careful not to multiply the base by the index."
+      "explanation": "$2^6 = 2 \\times 2 \\times 2 \\times 2 \\times 2 \\times 2 = 64$. Be careful not to multiply the base by the index.",
+      "difficulty": "easy"
     },
     {
       "id": "math-powers-myp-pow-q2",
@@ -144,7 +145,8 @@
         "$x^5$"
       ],
       "correctIndex": 0,
-      "explanation": "When multiplying powers with the same base, add the indices: $x^4 \\times x^9 = x^{4+9} = x^{13}$."
+      "explanation": "When multiplying powers with the same base, add the indices: $x^4 \\times x^9 = x^{4+9} = x^{13}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-powers-myp-pow-q3",
@@ -156,7 +158,8 @@
         "$a^{2.5}$"
       ],
       "correctIndex": 2,
-      "explanation": "When dividing powers with the same base, subtract the indices: $a^{10} \\div a^4 = a^{10-4} = a^6$."
+      "explanation": "When dividing powers with the same base, subtract the indices: $a^{10} \\div a^4 = a^{10-4} = a^6$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-powers-myp-pow-q4",
@@ -168,7 +171,8 @@
         "$3x^5$"
       ],
       "correctIndex": 1,
-      "explanation": "When a power is raised to another power, multiply the indices: $(x^3)^5 = x^{3 \\times 5} = x^{15}$."
+      "explanation": "When a power is raised to another power, multiply the indices: $(x^3)^5 = x^{3 \\times 5} = x^{15}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-powers-myp-pow-q5",
@@ -180,7 +184,8 @@
         "$5x^2y$"
       ],
       "correctIndex": 1,
-      "explanation": "Any non-zero expression raised to the power of zero equals $1$. Here the whole bracket $(5x^2y)$ is raised to $0$, so the answer is $1$."
+      "explanation": "Any non-zero expression raised to the power of zero equals $1$. Here the whole bracket $(5x^2y)$ is raised to $0$, so the answer is $1$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-powers-myp-pow-q6",
@@ -192,7 +197,8 @@
         "$-16$"
       ],
       "correctIndex": 1,
-      "explanation": "A negative index means take the reciprocal: $4^{-2} = \\dfrac{1}{4^2} = \\dfrac{1}{16}$. The sign of the base does not change."
+      "explanation": "A negative index means take the reciprocal: $4^{-2} = \\dfrac{1}{4^2} = \\dfrac{1}{16}$. The sign of the base does not change.",
+      "difficulty": "medium"
     },
     {
       "id": "math-powers-myp-pow-q7",
@@ -204,7 +210,8 @@
         "$8a^{28}$"
       ],
       "correctIndex": 1,
-      "explanation": "Multiply the coefficients $3 \\times 5 = 15$, then add the indices of $a$: $a^4 \\times a^7 = a^{11}$. The answer is $15a^{11}$."
+      "explanation": "Multiply the coefficients $3 \\times 5 = 15$, then add the indices of $a$: $a^4 \\times a^7 = a^{11}$. The answer is $15a^{11}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-powers-myp-pow-q8",
@@ -216,7 +223,8 @@
         "$64$"
       ],
       "correctIndex": 1,
-      "explanation": "$16^{\\dfrac{3}{4}} = (\\sqrt[4]{16})^3 = 2^3 = 8$. Take the fourth root first, then cube the result."
+      "explanation": "$16^{\\dfrac{3}{4}} = (\\sqrt[4]{16})^3 = 2^3 = 8$. Take the fourth root first, then cube the result.",
+      "difficulty": "hard"
     },
     {
       "id": "math-powers-myp-pow-q9",
@@ -228,7 +236,8 @@
         "$\\dfrac{4y^4}{x^2}$"
       ],
       "correctIndex": 0,
-      "explanation": "Divide coefficients: $8 \\div 2 = 4$. For $x$: $x^{5-3} = x^2$. For $y$: $y^{2-6} = y^{-4} = \\dfrac{1}{y^4}$. So the simplified form is $\\dfrac{4x^2}{y^4}$."
+      "explanation": "Divide coefficients: $8 \\div 2 = 4$. For $x$: $x^{5-3} = x^2$. For $y$: $y^{2-6} = y^{-4} = \\dfrac{1}{y^4}$. So the simplified form is $\\dfrac{4x^2}{y^4}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-powers-myp-pow-q10",
@@ -240,7 +249,8 @@
         "$8x^8y^7$"
       ],
       "correctIndex": 1,
-      "explanation": "Raise every factor inside the bracket to the power $4$: $2^4 = 16$, $(x^2)^4 = x^8$, and $(y^3)^4 = y^{12}$. The answer is $16x^8y^{12}$."
+      "explanation": "Raise every factor inside the bracket to the power $4$: $2^4 = 16$, $(x^2)^4 = x^8$, and $(y^3)^4 = y^{12}$. The answer is $16x^8y^{12}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-powers-myp-pow-q11",
@@ -252,7 +262,8 @@
         "$0.58 \\times 10^{-7}$"
       ],
       "correctIndex": 1,
-      "explanation": "Move the decimal point $6$ places to the right to get $5.8$. Because the original number is small, the power is negative: $0.0000058 = 5.8 \\times 10^{-6}$."
+      "explanation": "Move the decimal point $6$ places to the right to get $5.8$. Because the original number is small, the power is negative: $0.0000058 = 5.8 \\times 10^{-6}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-powers-myp-pow-q12",
@@ -264,7 +275,8 @@
         "$6 \\times 10^2$"
       ],
       "correctIndex": 0,
-      "explanation": "Multiply the coefficients: $3 \\times 2 = 6$. Add the powers of $10$: $10^4 \\times 10^6 = 10^{10}$. The answer is $6 \\times 10^{10}$."
+      "explanation": "Multiply the coefficients: $3 \\times 2 = 6$. Add the powers of $10$: $10^4 \\times 10^6 = 10^{10}$. The answer is $6 \\times 10^{10}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-powers-myp-pow-q13",
@@ -276,7 +288,8 @@
         "$2 \\times 10^{12}$"
       ],
       "correctIndex": 2,
-      "explanation": "After $3$ hours the population is multiplied by $2^3 = 8$. So $2 \\times 10^4 \\times 8 = 16 \\times 10^4 = 1.6 \\times 10^5$ bacteria."
+      "explanation": "After $3$ hours the population is multiplied by $2^3 = 8$. So $2 \\times 10^4 \\times 8 = 16 \\times 10^4 = 1.6 \\times 10^5$ bacteria.",
+      "difficulty": "hard"
     },
     {
       "id": "math-powers-myp-pow-q14",
@@ -288,7 +301,8 @@
         "$x = 3$"
       ],
       "correctIndex": 1,
-      "explanation": "Rewrite $27$ as $3^3$. Then $3^{2x} = 3^3$, so $2x = 3$ and therefore $x = \\dfrac{3}{2} = 1.5$."
+      "explanation": "Rewrite $27$ as $3^3$. Then $3^{2x} = 3^3$, so $2x = 3$ and therefore $x = \\dfrac{3}{2} = 1.5$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-powers-myp-pow-q15",
@@ -300,7 +314,8 @@
         "$\\dfrac{b^2}{2a^3}$"
       ],
       "correctIndex": 0,
-      "explanation": "$a^{-3}$ moves to the denominator as $a^3$, and $b^{-2}$ moves to the numerator as $b^2$. The coefficient $2$ stays in the numerator, giving $\\dfrac{2b^2}{a^3}$."
+      "explanation": "$a^{-3}$ moves to the denominator as $a^3$, and $b^{-2}$ moves to the numerator as $b^2$. The coefficient $2$ stays in the numerator, giving $\\dfrac{2b^2}{a^3}$.",
+      "difficulty": "medium"
     }
   ]
 }

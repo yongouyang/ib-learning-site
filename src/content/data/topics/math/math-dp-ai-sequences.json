@@ -10,7 +10,7 @@
     {
       "id": "math-dp-sequences-seq-n1",
       "heading": "Arithmetic Sequences and Series",
-      "body": "An arithmetic sequence is a list of numbers where each term changes by a fixed amount.\n\n📌 Definition\nA sequence is arithmetic if the difference between consecutive terms is constant:\n    $$d = u_{n+1} - u_n$$\n\n🔑 Key Formulas\n    nth term:     $$u_n = u_1 + (n - 1)d$$\n    Sum of $n$ terms:\n        $$S_n = \\dfrac{n}{2} \\left[2u_1 + (n - 1)d\\right]$$\n        or $$S_n = \\dfrac{n}{2}(u_1 + u_n)$$\n\n💡 Worked Example\nThe fourth term of an arithmetic sequence is 10 and the ninth term is 25. Find the first term and common difference.\n\n  Step 1: Set up two equations\n    $$u_4 = u_1 + 3d = 10$$\n    $$u_9 = u_1 + 8d = 25$$\n\n  Step 2: Subtract the first equation from the second\n    $$5d = 15$$\n    $$d = 3$$\n\n  Step 3: Substitute back to find $u_1$\n    $$u_1 + 3(3) = 10$$\n    $$u_1 = 1$$\n\n  Answer: $u_1 = 1$, $d = 3$\n\n💡 Worked Example\nFind the sum of the first 20 terms of the sequence 3, 7, 11, 15, ...\n\n  Step 1: Identify $u_1$ and $d$\n    $$u_1 = 3, \\quad d = 7 - 3 = 4$$\n\n  Step 2: Use the sum formula\n    $$S_{20} = \\dfrac{20}{2} \times \\left[2(3) + (20 - 1)(4)\\right]$$\n    $$S_{20} = 10 \times (6 + 76)$$\n    $$S_{20} = 10 \times 82$$\n    $$S_{20} = 820$$\n\n📎 Key Points to Remember\n• Simple interest and straight-line depreciation both follow arithmetic patterns\n• The formula $S_n = \\dfrac{n}{2}(u_1 + u_n)$ is fastest when you know the first and last terms\n• Use $S_n = \\dfrac{n}{2}\\left[2u_1 + (n - 1)d\\right]$ when you know the common difference instead\n\n⚠️ Common Mistake\nForgetting that the nth term formula uses $(n - 1)$, not $n$. The first term already exists — you only add the common difference $(n - 1)$ times.",
+      "body": "An arithmetic sequence is a list of numbers where each term changes by a fixed amount.\n\n📌 Definition\nA sequence is arithmetic if the difference between consecutive terms is constant:\n    $$d = u_{n+1} - u_n$$\n\n🔑 Key Formulas\n    nth term:     $$u_n = u_1 + (n - 1)d$$\n    Sum of $n$ terms:\n        $$S_n = \\dfrac{n}{2} \\left[2u_1 + (n - 1)d\\right]$$\n        or $$S_n = \\dfrac{n}{2}(u_1 + u_n)$$\n\n💡 Worked Example\nThe fourth term of an arithmetic sequence is 10 and the ninth term is 25. Find the first term and common difference.\n\n  Step 1: Set up two equations\n    $$u_4 = u_1 + 3d = 10$$\n    $$u_9 = u_1 + 8d = 25$$\n\n  Step 2: Subtract the first equation from the second\n    $$5d = 15$$\n    $$d = 3$$\n\n  Step 3: Substitute back to find $u_1$\n    $$u_1 + 3(3) = 10$$\n    $$u_1 = 1$$\n\n  Answer: $u_1 = 1$, $d = 3$\n\n💡 Worked Example\nFind the sum of the first 20 terms of the sequence 3, 7, 11, 15, ...\n\n  Step 1: Identify $u_1$ and $d$\n    $$u_1 = 3, \\quad d = 7 - 3 = 4$$\n\n  Step 2: Use the sum formula\n    $$S_{20} = \\dfrac{20}{2} \\times \\left[2(3) + (20 - 1)(4)\\right]$$\n    $$S_{20} = 10 \\times (6 + 76)$$\n    $$S_{20} = 10 \\times 82$$\n    $$S_{20} = 820$$\n\n📎 Key Points to Remember\n• Simple interest and straight-line depreciation both follow arithmetic patterns\n• The formula $S_n = \\dfrac{n}{2}(u_1 + u_n)$ is fastest when you know the first and last terms\n• Use $S_n = \\dfrac{n}{2}\\left[2u_1 + (n - 1)d\\right]$ when you know the common difference instead\n\n⚠️ Common Mistake\nForgetting that the nth term formula uses $(n - 1)$, not $n$. The first term already exists — you only add the common difference $(n - 1)$ times.",
       "illustration": {
         "src": "/images/math/math-dp-sequences.svg",
         "alt": "Arithmetic sequences with common difference d and nth term uₙ=u₁+(n−1)d; geometric sequences with common ratio r and nth term uₙ=u₁rⁿ⁻¹; sum formulas for both; and the infinite geometric series sum S∞=u₁/(1−r) when |r|<1.",
@@ -20,27 +20,27 @@
     {
       "id": "math-dp-sequences-seq-n2",
       "heading": "Geometric Sequences and Series",
-      "body": "A geometric sequence is a list of numbers where each term is multiplied by a fixed amount to get the next.\n\n📌 Definition\nA sequence is geometric if the ratio between consecutive terms is constant:\n    $$r = \\dfrac{u_{n+1}}{u_n}$$\n\n🔑 Key Formulas\n    nth term:     $$u_n = u_1 \times r^{n - 1}$$\n    Sum of $n$ terms ($r \neq 1$):\n        $$S_n = \\dfrac{u_1(r^n - 1)}{r - 1}$$\n        or $$S_n = \\dfrac{u_1(1 - r^n)}{1 - r}$$\n\n💡 Worked Example\nThe sixth term of a geometric sequence is 486 and the seventh term is 1458. Find the common ratio and first term.\n\n  Step 1: Find the common ratio\n    $$r = \\dfrac{u_7}{u_6} = \\dfrac{1458}{486} = 3$$\n\n  Step 2: Use the nth term formula to find $u_1$\n    $$u_6 = u_1 \times 3^5 = 486$$\n    $$u_1 \times 243 = 486$$\n    $$u_1 = 2$$\n\n  Answer: $r = 3$, $u_1 = 2$\n\n💡 Worked Example\nA geometric sequence has $u_1 = 25$ and $r = 0.8$. Find $u_5$ and $S_5$.\n\n  Step 1: Find the fifth term\n    $$u_5 = 25 \times (0.8)^4$$\n    $$u_5 = 25 \times 0.4096$$\n    $$u_5 = 10.24$$\n\n  Step 2: Find the sum of five terms\n    $$S_5 = \\dfrac{25 \times (1 - 0.8^5)}{1 - 0.8}$$\n    $$S_5 = \\dfrac{25 \times (1 - 0.32768)}{0.2}$$\n    $$S_5 = 25 \times 3.3616$$\n    $$S_5 = 84.04$$\n\n📎 Real-World Applications\n• Compound interest: $FV = PV \times (1 + r)^n$\n• Population growth and radioactive decay\n• Spread of bacteria and viruses\n\n⚠️ Common Mistake\nUsing the wrong sum formula. When $r > 1$, use $S_n = \\dfrac{u_1(r^n - 1)}{r - 1}$. When $0 < r < 1$, use $S_n = \\dfrac{u_1(1 - r^n)}{1 - r}$ to avoid negative denominators."
+      "body": "A geometric sequence is a list of numbers where each term is multiplied by a fixed amount to get the next.\n\n📌 Definition\nA sequence is geometric if the ratio between consecutive terms is constant:\n    $$r = \\dfrac{u_{n+1}}{u_n}$$\n\n🔑 Key Formulas\n    nth term:     $$u_n = u_1 \\times r^{n - 1}$$\n    Sum of $n$ terms ($r \\neq 1$):\n        $$S_n = \\dfrac{u_1(r^n - 1)}{r - 1}$$\n        or $$S_n = \\dfrac{u_1(1 - r^n)}{1 - r}$$\n\n💡 Worked Example\nThe sixth term of a geometric sequence is 486 and the seventh term is 1458. Find the common ratio and first term.\n\n  Step 1: Find the common ratio\n    $$r = \\dfrac{u_7}{u_6} = \\dfrac{1458}{486} = 3$$\n\n  Step 2: Use the nth term formula to find $u_1$\n    $$u_6 = u_1 \\times 3^5 = 486$$\n    $$u_1 \\times 243 = 486$$\n    $$u_1 = 2$$\n\n  Answer: $r = 3$, $u_1 = 2$\n\n💡 Worked Example\nA geometric sequence has $u_1 = 25$ and $r = 0.8$. Find $u_5$ and $S_5$.\n\n  Step 1: Find the fifth term\n    $$u_5 = 25 \\times (0.8)^4$$\n    $$u_5 = 25 \\times 0.4096$$\n    $$u_5 = 10.24$$\n\n  Step 2: Find the sum of five terms\n    $$S_5 = \\dfrac{25 \\times (1 - 0.8^5)}{1 - 0.8}$$\n    $$S_5 = \\dfrac{25 \\times (1 - 0.32768)}{0.2}$$\n    $$S_5 = 25 \\times 3.3616$$\n    $$S_5 = 84.04$$\n\n📎 Real-World Applications\n• Compound interest: $FV = PV \\times (1 + r)^n$\n• Population growth and radioactive decay\n• Spread of bacteria and viruses\n\n⚠️ Common Mistake\nUsing the wrong sum formula. When $r > 1$, use $S_n = \\dfrac{u_1(r^n - 1)}{r - 1}$. When $0 < r < 1$, use $S_n = \\dfrac{u_1(1 - r^n)}{1 - r}$ to avoid negative denominators."
     },
     {
       "id": "math-dp-sequences-seq-n3",
       "heading": "Sum to Infinity",
-      "body": "Some geometric series keep adding up forever — yet they still settle on a single number.\n\n📌 Definition\nA geometric series converges when the terms get closer and closer to zero. This happens only when the common ratio is between $-1$ and $1$.\n\n🔑 Formula\n    If $|r| < 1$:     $$S_\\infty = \\dfrac{u_1}{1 - r}$$\n    If $|r| \\geq 1$:     The series diverges (no finite sum)\n\n💡 Worked Example\nThe first three terms of a geometric sequence are 6, 2, and $\\dfrac{2}{3}$. Explain why the series converges and find the sum to infinity.\n\n  Step 1: Find the common ratio\n    $$r = \\dfrac{2}{6} = \\dfrac{1}{3}$$\n\n  Step 2: Check convergence\n    $$\\left|\\dfrac{1}{3}\\right| = \\dfrac{1}{3} < 1$$\n    The series converges because $|r| < 1$.\n\n  Step 3: Calculate $S_\\infty$\n    $$S_\\infty = \\dfrac{6}{1 - \\dfrac{1}{3}}$$\n    $$S_\\infty = \\dfrac{6}{\\dfrac{2}{3}}$$\n    $$S_\\infty = 6 \times \\dfrac{3}{2}$$\n    $$S_\\infty = 9$$\n\n💡 Worked Example\nDoes the series $1 + \\dfrac{1}{2} + \\dfrac{1}{4} + \\dfrac{1}{8} + \\ldots$ have a finite sum?\n\n  Step 1: Identify $u_1$ and $r$\n    $$u_1 = 1, \\quad r = \\dfrac{1}{2}$$\n\n  Step 2: Check $|r|$\n    $$\\left|\\dfrac{1}{2}\\right| < 1$$ → converges\n\n  Step 3: Calculate $S_\\infty$\n    $$S_\\infty = \\dfrac{1}{1 - \\dfrac{1}{2}} = \\dfrac{1}{\\dfrac{1}{2}} = 2$$\n\n📎 Key Points to Remember\n• Always verify $|r| < 1$ before applying the $S_\\infty$ formula\n• The sum to infinity is a limit — the partial sums get closer and closer but never exceed it\n• Alternating sequences with negative $r$ can still converge if $|r| < 1$\n\n⚠️ Common Mistake\nApplying $S_\\infty = \\dfrac{u_1}{1 - r}$ without checking $|r|$ first. If $r = 2$, the formula gives a negative number, which is clearly wrong because the terms are all positive and growing."
+      "body": "Some geometric series keep adding up forever — yet they still settle on a single number.\n\n📌 Definition\nA geometric series converges when the terms get closer and closer to zero. This happens only when the common ratio is between $-1$ and $1$.\n\n🔑 Formula\n    If $|r| < 1$:     $$S_\\infty = \\dfrac{u_1}{1 - r}$$\n    If $|r| \\geq 1$:     The series diverges (no finite sum)\n\n💡 Worked Example\nThe first three terms of a geometric sequence are 6, 2, and $\\dfrac{2}{3}$. Explain why the series converges and find the sum to infinity.\n\n  Step 1: Find the common ratio\n    $$r = \\dfrac{2}{6} = \\dfrac{1}{3}$$\n\n  Step 2: Check convergence\n    $$\\left|\\dfrac{1}{3}\\right| = \\dfrac{1}{3} < 1$$\n    The series converges because $|r| < 1$.\n\n  Step 3: Calculate $S_\\infty$\n    $$S_\\infty = \\dfrac{6}{1 - \\dfrac{1}{3}}$$\n    $$S_\\infty = \\dfrac{6}{\\dfrac{2}{3}}$$\n    $$S_\\infty = 6 \\times \\dfrac{3}{2}$$\n    $$S_\\infty = 9$$\n\n💡 Worked Example\nDoes the series $1 + \\dfrac{1}{2} + \\dfrac{1}{4} + \\dfrac{1}{8} + \\ldots$ have a finite sum?\n\n  Step 1: Identify $u_1$ and $r$\n    $$u_1 = 1, \\quad r = \\dfrac{1}{2}$$\n\n  Step 2: Check $|r|$\n    $$\\left|\\dfrac{1}{2}\\right| < 1$$ → converges\n\n  Step 3: Calculate $S_\\infty$\n    $$S_\\infty = \\dfrac{1}{1 - \\dfrac{1}{2}} = \\dfrac{1}{\\dfrac{1}{2}} = 2$$\n\n📎 Key Points to Remember\n• Always verify $|r| < 1$ before applying the $S_\\infty$ formula\n• The sum to infinity is a limit — the partial sums get closer and closer but never exceed it\n• Alternating sequences with negative $r$ can still converge if $|r| < 1$\n\n⚠️ Common Mistake\nApplying $S_\\infty = \\dfrac{u_1}{1 - r}$ without checking $|r|$ first. If $r = 2$, the formula gives a negative number, which is clearly wrong because the terms are all positive and growing."
     },
     {
       "id": "math-dp-sequences-seq-n4",
       "heading": "Sigma Notation",
-      "body": "Sigma notation is a compact way to write the sum of many terms in a sequence.\n\n📌 Definition\nThe Greek letter $sum$ (sigma) means \"sum.\" The expression to the right tells you what to add, and the limits above and below tell you where to start and stop.\n\n    $$\\sum_{k=m}^{n} u_k = u_m + u_{m+1} + \\ldots + u_n$$\n\n🔑 Key Properties\n    $$\\sum_{k=1}^{n} \\left[u_k + v_k\\right] = \\sum_{k=1}^{n} u_k + \\sum_{k=1}^{n} v_k$$\n    $$\\sum_{k=1}^{n} c \\cdot u_k = c \\cdot \\sum_{k=1}^{n} u_k$$\n\n💡 Worked Example\nWrite $u_1 + u_2 + u_3 + \\ldots + u_6$ in sigma notation, given $u_n = 2 \times 3^{n-1}$.\n\n  Step 1: Identify the pattern\n    Each term has the form $2 \times 3^{n-1}$\n\n  Step 2: Write in sigma notation\n    $$\\sum_{n=1}^{6} 2 \times 3^{n-1}$$\n\n💡 Worked Example\nEvaluate $\\sum_{k=3}^{7} (2k + 1)$.\n\n  Step 1: Recognise the lower limit is not 1\n    Rewrite as $\\sum_{k=1}^{7} (2k + 1) - \\sum_{k=1}^{2} (2k + 1)$\n\n  Step 2: Evaluate each sum\n    $$\\sum_{k=1}^{7}: 3 + 5 + 7 + 9 + 11 + 13 + 15 = 63$$\n    $$\\sum_{k=1}^{2}: 3 + 5 = 8$$\n\n  Step 3: Subtract\n    $$63 - 8 = 55$$\n\n📎 Key Points to Remember\n• The variable below $sum$ is the index (commonly $k$, $i$, or $n$)\n• Always check whether the lower limit starts at 1 or another number\n• Identify whether the underlying sequence is arithmetic or geometric before applying a sum formula\n\n⚠️ Common Mistake\nChanging the limits incorrectly when rewriting a sigma expression. If you shift the index, you must adjust the limits AND the formula inside."
+      "body": "Sigma notation is a compact way to write the sum of many terms in a sequence.\n\n📌 Definition\nThe Greek letter $sum$ (sigma) means \"sum.\" The expression to the right tells you what to add, and the limits above and below tell you where to start and stop.\n\n    $$\\sum_{k=m}^{n} u_k = u_m + u_{m+1} + \\ldots + u_n$$\n\n🔑 Key Properties\n    $$\\sum_{k=1}^{n} \\left[u_k + v_k\\right] = \\sum_{k=1}^{n} u_k + \\sum_{k=1}^{n} v_k$$\n    $$\\sum_{k=1}^{n} c \\cdot u_k = c \\cdot \\sum_{k=1}^{n} u_k$$\n\n💡 Worked Example\nWrite $u_1 + u_2 + u_3 + \\ldots + u_6$ in sigma notation, given $u_n = 2 \\times 3^{n-1}$.\n\n  Step 1: Identify the pattern\n    Each term has the form $2 \\times 3^{n-1}$\n\n  Step 2: Write in sigma notation\n    $$\\sum_{n=1}^{6} 2 \\times 3^{n-1}$$\n\n💡 Worked Example\nEvaluate $\\sum_{k=3}^{7} (2k + 1)$.\n\n  Step 1: Recognise the lower limit is not 1\n    Rewrite as $\\sum_{k=1}^{7} (2k + 1) - \\sum_{k=1}^{2} (2k + 1)$\n\n  Step 2: Evaluate each sum\n    $$\\sum_{k=1}^{7}: 3 + 5 + 7 + 9 + 11 + 13 + 15 = 63$$\n    $$\\sum_{k=1}^{2}: 3 + 5 = 8$$\n\n  Step 3: Subtract\n    $$63 - 8 = 55$$\n\n📎 Key Points to Remember\n• The variable below $sum$ is the index (commonly $k$, $i$, or $n$)\n• Always check whether the lower limit starts at 1 or another number\n• Identify whether the underlying sequence is arithmetic or geometric before applying a sum formula\n\n⚠️ Common Mistake\nChanging the limits incorrectly when rewriting a sigma expression. If you shift the index, you must adjust the limits AND the formula inside."
     },
     {
       "id": "math-dp-sequences-seq-n5",
       "heading": "Depreciation, Simple Interest & Compounding Periods",
-      "body": "Financial mathematics uses sequences and series to model how money grows or shrinks over time.\n\n📌 Simple Interest\nInterest is paid only on the original principal. This creates an arithmetic sequence.\n\n    $$FV = PV \times (1 + rt)$$\n\n    $PV$ = present value (principal)\n    $r$ = annual interest rate (as a decimal)\n    $t$ = time in years\n\n📌 Compound Interest\nInterest is paid on the principal AND on previously earned interest. This creates a geometric sequence.\n\n    $$FV = PV \times \\left(1 + \\dfrac{r}{100k}\\right)^{kn}$$\n\n    $PV$ = present value\n    $r$ = nominal annual interest rate ($\\%$)\n    $k$ = compounding periods per year\n    $n$ = number of years\n\n🔑 Common Values of $k$\n• Annually:      $k = 1$\n• Half-yearly:   $k = 2$\n• Quarterly:     $k = 4$\n• Monthly:       $k = 12$\n\n📌 Depreciation\nValue decreases by a fixed percentage each year. This is compound interest with subtraction.\n\n    $$FV = PV \times \\left(1 - \\dfrac{r}{100}\\right)^n$$\n\n💡 Worked Example\nKim invests MYR 2000 at a nominal annual rate of $2.5\\%$ compounded monthly. Find the value after 5 years.\n\n  Step 1: Identify the values\n    $$PV = 2000, \\quad r = 2.5, \\quad k = 12, \\quad n = 5$$\n\n  Step 2: Substitute into the formula\n    $$FV = 2000 \times \\left(1 + \\dfrac{2.5}{100 \times 12}\\right)^{12 \times 5}$$\n    $$FV = 2000 \times (1 + 0.002083\\ldots)^{60}$$\n    $$FV = 2000 \times 1.133148\\ldots$$\n    $$FV \\approx 2266.30$$\n\n  Answer: MYR 2266.30\n\n💡 Worked Example\nA new laptop costs \\$1200 and depreciates by $20\\%$ each year. What is its value after 3 years?\n\n  Step 1: Use the depreciation formula\n    $$FV = 1200 \times \\left(1 - \\dfrac{20}{100}\\right)^3$$\n    $$FV = 1200 \times (0.8)^3$$\n    $$FV = 1200 \times 0.512$$\n    $$FV = 614.40$$\n\n  Answer: \\$614.40\n\n📎 Key Points to Remember\n• Simple interest forms an arithmetic sequence (constant difference)\n• Compound interest and depreciation form geometric sequences (constant ratio)\n• More compounding periods per year means more interest earned\n\n⚠️ Common Mistake\nUsing $r/k$ directly as a decimal without dividing by 100 first. The formula uses $r$ as a percentage, so $5\\%$ becomes $\\dfrac{5}{100k}$, not $\\dfrac{5}{k}$."
+      "body": "Financial mathematics uses sequences and series to model how money grows or shrinks over time.\n\n📌 Simple Interest\nInterest is paid only on the original principal. This creates an arithmetic sequence.\n\n    $$FV = PV \\times (1 + rt)$$\n\n    $PV$ = present value (principal)\n    $r$ = annual interest rate (as a decimal)\n    $t$ = time in years\n\n📌 Compound Interest\nInterest is paid on the principal AND on previously earned interest. This creates a geometric sequence.\n\n    $$FV = PV \\times \\left(1 + \\dfrac{r}{100k}\\right)^{kn}$$\n\n    $PV$ = present value\n    $r$ = nominal annual interest rate ($\\%$)\n    $k$ = compounding periods per year\n    $n$ = number of years\n\n🔑 Common Values of $k$\n• Annually:      $k = 1$\n• Half-yearly:   $k = 2$\n• Quarterly:     $k = 4$\n• Monthly:       $k = 12$\n\n📌 Depreciation\nValue decreases by a fixed percentage each year. This is compound interest with subtraction.\n\n    $$FV = PV \\times \\left(1 - \\dfrac{r}{100}\\right)^n$$\n\n💡 Worked Example\nKim invests MYR 2000 at a nominal annual rate of $2.5\\%$ compounded monthly. Find the value after 5 years.\n\n  Step 1: Identify the values\n    $$PV = 2000, \\quad r = 2.5, \\quad k = 12, \\quad n = 5$$\n\n  Step 2: Substitute into the formula\n    $$FV = 2000 \\times \\left(1 + \\dfrac{2.5}{100 \\times 12}\\right)^{12 \\times 5}$$\n    $$FV = 2000 \\times (1 + 0.002083\\ldots)^{60}$$\n    $$FV = 2000 \\times 1.133148\\ldots$$\n    $$FV \\approx 2266.30$$\n\n  Answer: MYR 2266.30\n\n💡 Worked Example\nA new laptop costs \\$1200 and depreciates by $20\\%$ each year. What is its value after 3 years?\n\n  Step 1: Use the depreciation formula\n    $$FV = 1200 \\times \\left(1 - \\dfrac{20}{100}\\right)^3$$\n    $$FV = 1200 \\times (0.8)^3$$\n    $$FV = 1200 \\times 0.512$$\n    $$FV = 614.40$$\n\n  Answer: \\$614.40\n\n📎 Key Points to Remember\n• Simple interest forms an arithmetic sequence (constant difference)\n• Compound interest and depreciation form geometric sequences (constant ratio)\n• More compounding periods per year means more interest earned\n\n⚠️ Common Mistake\nUsing $r/k$ directly as a decimal without dividing by 100 first. The formula uses $r$ as a percentage, so $5\\%$ becomes $\\dfrac{5}{100k}$, not $\\dfrac{5}{k}$."
     },
     {
       "id": "math-dp-sequences-seq-n6",
       "heading": "Recurrence Relations",
-      "body": "An explicit formula gives $u_n$ directly from $n$. A recurrence relation builds each term from earlier terms.\n\n📌 Definition\nA recurrence relation defines each term of a sequence using one or more earlier terms, together with a starting value.\n    $$u_{n+1} = f(u_n), \\quad u_1 = a$$\nFor arithmetic sequences this becomes $u_{n+1} = u_n + d$.\nFor geometric sequences this becomes $u_{n+1} = u_n \times r$.\n\n🔑 Key Concept\nTo generate terms, repeatedly apply the rule using the previous term. To find an explicit formula, solve the recurrence.\n\n💡 Worked Example\nA sequence is defined by $u_{n+1} = 2u_n + 1$ with $u_1 = 3$. Find the first five terms.\n\n  Step 1: Apply the rule repeatedly\n    $$u_2 = 2(3) + 1 = 7$$\n    $$u_3 = 2(7) + 1 = 15$$\n    $$u_4 = 2(15) + 1 = 31$$\n    $$u_5 = 2(31) + 1 = 63$$\n\n  Answer: $3, 7, 15, 31, 63$\n\n📎 Key Points to Remember\n• Arithmetic and geometric sequences are special cases of recurrence relations\n• A recurrence needs a starting value; without it the sequence is not fully defined\n• Some recurrence relations cannot be solved with the standard arithmetic or geometric formulas\n\n⚠️ Common Mistake\nConfusing the index. In $u_{n+1} = u_n + d$, the common difference is added once per step, so $u_n = u_1 + (n-1)d$, not $u_1 + nd$."
+      "body": "An explicit formula gives $u_n$ directly from $n$. A recurrence relation builds each term from earlier terms.\n\n📌 Definition\nA recurrence relation defines each term of a sequence using one or more earlier terms, together with a starting value.\n    $$u_{n+1} = f(u_n), \\quad u_1 = a$$\nFor arithmetic sequences this becomes $u_{n+1} = u_n + d$.\nFor geometric sequences this becomes $u_{n+1} = u_n \\times r$.\n\n🔑 Key Concept\nTo generate terms, repeatedly apply the rule using the previous term. To find an explicit formula, solve the recurrence.\n\n💡 Worked Example\nA sequence is defined by $u_{n+1} = 2u_n + 1$ with $u_1 = 3$. Find the first five terms.\n\n  Step 1: Apply the rule repeatedly\n    $$u_2 = 2(3) + 1 = 7$$\n    $$u_3 = 2(7) + 1 = 15$$\n    $$u_4 = 2(15) + 1 = 31$$\n    $$u_5 = 2(31) + 1 = 63$$\n\n  Answer: $3, 7, 15, 31, 63$\n\n📎 Key Points to Remember\n• Arithmetic and geometric sequences are special cases of recurrence relations\n• A recurrence needs a starting value; without it the sequence is not fully defined\n• Some recurrence relations cannot be solved with the standard arithmetic or geometric formulas\n\n⚠️ Common Mistake\nConfusing the index. In $u_{n+1} = u_n + d$, the common difference is added once per step, so $u_n = u_1 + (n-1)d$, not $u_1 + nd$."
     },
     {
       "id": "math-dp-sequences-seq-n7",
@@ -50,7 +50,7 @@
     {
       "id": "math-dp-sequences-seq-n8",
       "heading": "Harder Exam-Style Applications",
-      "body": "This note brings together sigma notation, geometric series word problems, compound interest series, recurrence relations, and convergence in harder exam-style questions.\n\n🔑 Sigma Notation for a Geometric Series\n\n💡 Worked Example\nWrite the infinite geometric series $8+4+2+1+\\ldots$ using sigma notation and find its sum.\n\n  Step 1: Identify $u_1$ and $r$\n    $$u_1=8, \\quad r=\\dfrac{1}{2}$$\n\n  Step 2: Write the nth term\n    $$u_n = 8 \times \\left(\\dfrac{1}{2}\\right)^{n-1}$$\n\n  Step 3: Write the series in sigma notation\n    $$\\sum_{n=1}^{\\infty} 8 \times \\left(\\dfrac{1}{2}\\right)^{n-1}$$\n\n  Step 4: Check convergence and sum\n    $$|r|=\\dfrac{1}{2}<1 \\quad \\Rightarrow \\quad S_\\infty = \\dfrac{8}{1-\\dfrac{1}{2}} = 16$$\n\n🔑 Geometric Series Word Problem\n\n💡 Worked Example\nA ball is dropped from 10 m and rebounds to 60% of its previous height. Find the total distance travelled before it comes to rest.\n\n  Step 1: Downward distance\n    First drop = 10 m\n\n  Step 2: Up and down after the first bounce\n    Each rebound is 0.6 of the previous height, so the combined up-and-down distances form an infinite geometric series:\n    $$2\times10\times0.6 + 2\times10\times0.6^2 + \\ldots$$\n\n  Step 3: Sum the rebounds\n    $$2\times10\times0.6 \times \\dfrac{1}{1-0.6} = 12 \times \\dfrac{1}{0.4} = 30$$\n\n  Step 4: Add the original drop\n    $$10 + 30 = 40 \text{ m}$$\n\n🔑 Compound Interest as a Series\n\n💡 Worked Example\nTom deposits \\$100 at the start of each year into an account paying 4% per annum. Find the value immediately after the third deposit.\n\n  Step 1: Each deposit earns compound interest for a different number of years\n    First deposit: \\$100 $\times 1.04^3$\n    Second deposit: \\$100 $\times 1.04^2$\n    Third deposit: \\$100 $\times 1.04^1$\n\n  Step 2: Write as a geometric series\n    $$FV = 100(1.04) + 100(1.04)^2 + 100(1.04)^3$$\n    First term $a=100\times1.04$, common ratio $r=1.04$, $n=3$\n\n  Step 3: Apply the sum formula\n    $$FV = \\dfrac{100\times1.04\\left(1.04^3 - 1\\right)}{1.04 - 1}$$\n    $$FV \\approx \\$324.65$$\n\n🔑 From Recurrence Relation to Explicit Formula\n\n💡 Worked Example\nA sequence is defined by $u_{n+1}=3u_n-4$ with $u_1=2$. Find an explicit formula for $u_n$.\n\n  Step 1: Find the fixed point $L$\n    At equilibrium $L=3L-4$, so $L=2$\n\n  Step 2: Define a new sequence $v_n = u_n - L$\n    Then $v_{n+1}=u_{n+1}-2=3u_n-4-2=3(u_n-2)=3v_n$\n    So $v_n$ is geometric with $v_1=u_1-2=0$\n\n  Step 3: Conclude\n    Since $v_1=0$, every $v_n=0$, so $u_n=2$ for all $n$.\n\n  Answer: $u_n=2$\n\n🔑 Convergence with an Unknown Common Ratio\n\n💡 Worked Example\nThe infinite geometric series $a+ar+ar^2+\\ldots$ has first term 5 and sum 20. Find $r$.\n\n  Step 1: Use the sum-to-infinity formula\n    $$S_\\infty = \\dfrac{a}{1-r} = 20$$\n\n  Step 2: Substitute $a=5$\n    $$\\dfrac{5}{1-r}=20$$\n    $$1-r = \\dfrac{5}{20} = \\dfrac{1}{4}$$\n    $$r = \\dfrac{3}{4}$$\n\n  Step 3: Check convergence\n    $$|r|=\\dfrac{3}{4}<1$$, so the series converges.\n\n📎 Key Points to Remember\n• Sigma notation can describe both finite and infinite series\n• Geometric series model repeated percentage change, including bouncing balls and regular deposits\n• A recurrence relation can often be converted to an explicit formula by finding a fixed point\n• Always check $|r|<1$ before using $S_\\infty = \\dfrac{u_1}{1-r}$\n\n⚠️ Common Mistake\nForgetting the first drop in a bouncing-ball problem. The initial fall is not doubled, but every rebound has both an upward and a downward part."
+      "body": "This note brings together sigma notation, geometric series word problems, compound interest series, recurrence relations, and convergence in harder exam-style questions.\n\n🔑 Sigma Notation for a Geometric Series\n\n💡 Worked Example\nWrite the infinite geometric series $8+4+2+1+\\ldots$ using sigma notation and find its sum.\n\n  Step 1: Identify $u_1$ and $r$\n    $$u_1=8, \\quad r=\\dfrac{1}{2}$$\n\n  Step 2: Write the nth term\n    $$u_n = 8 \\times \\left(\\dfrac{1}{2}\\right)^{n-1}$$\n\n  Step 3: Write the series in sigma notation\n    $$\\sum_{n=1}^{\\infty} 8 \\times \\left(\\dfrac{1}{2}\\right)^{n-1}$$\n\n  Step 4: Check convergence and sum\n    $$|r|=\\dfrac{1}{2}<1 \\quad \\Rightarrow \\quad S_\\infty = \\dfrac{8}{1-\\dfrac{1}{2}} = 16$$\n\n🔑 Geometric Series Word Problem\n\n💡 Worked Example\nA ball is dropped from 10 m and rebounds to 60% of its previous height. Find the total distance travelled before it comes to rest.\n\n  Step 1: Downward distance\n    First drop = 10 m\n\n  Step 2: Up and down after the first bounce\n    Each rebound is 0.6 of the previous height, so the combined up-and-down distances form an infinite geometric series:\n    $$2\\times10\\times0.6 + 2\\times10\\times0.6^2 + \\ldots$$\n\n  Step 3: Sum the rebounds\n    $$2\\times10\\times0.6 \\times \\dfrac{1}{1-0.6} = 12 \\times \\dfrac{1}{0.4} = 30$$\n\n  Step 4: Add the original drop\n    $$10 + 30 = 40 \\text{ m}$$\n\n🔑 Compound Interest as a Series\n\n💡 Worked Example\nTom deposits \\$100 at the start of each year into an account paying 4% per annum. Find the value immediately after the third deposit.\n\n  Step 1: Each deposit earns compound interest for a different number of years\n    First deposit: \\$100 $\\times 1.04^3$\n    Second deposit: \\$100 $\\times 1.04^2$\n    Third deposit: \\$100 $\\times 1.04^1$\n\n  Step 2: Write as a geometric series\n    $$FV = 100(1.04) + 100(1.04)^2 + 100(1.04)^3$$\n    First term $a=100\\times1.04$, common ratio $r=1.04$, $n=3$\n\n  Step 3: Apply the sum formula\n    $$FV = \\dfrac{100\\times1.04\\left(1.04^3 - 1\\right)}{1.04 - 1}$$\n    $$FV \\approx \\$324.65$$\n\n🔑 From Recurrence Relation to Explicit Formula\n\n💡 Worked Example\nA sequence is defined by $u_{n+1}=3u_n-4$ with $u_1=2$. Find an explicit formula for $u_n$.\n\n  Step 1: Find the fixed point $L$\n    At equilibrium $L=3L-4$, so $L=2$\n\n  Step 2: Define a new sequence $v_n = u_n - L$\n    Then $v_{n+1}=u_{n+1}-2=3u_n-4-2=3(u_n-2)=3v_n$\n    So $v_n$ is geometric with $v_1=u_1-2=0$\n\n  Step 3: Conclude\n    Since $v_1=0$, every $v_n=0$, so $u_n=2$ for all $n$.\n\n  Answer: $u_n=2$\n\n🔑 Convergence with an Unknown Common Ratio\n\n💡 Worked Example\nThe infinite geometric series $a+ar+ar^2+\\ldots$ has first term 5 and sum 20. Find $r$.\n\n  Step 1: Use the sum-to-infinity formula\n    $$S_\\infty = \\dfrac{a}{1-r} = 20$$\n\n  Step 2: Substitute $a=5$\n    $$\\dfrac{5}{1-r}=20$$\n    $$1-r = \\dfrac{5}{20} = \\dfrac{1}{4}$$\n    $$r = \\dfrac{3}{4}$$\n\n  Step 3: Check convergence\n    $$|r|=\\dfrac{3}{4}<1$$, so the series converges.\n\n📎 Key Points to Remember\n• Sigma notation can describe both finite and infinite series\n• Geometric series model repeated percentage change, including bouncing balls and regular deposits\n• A recurrence relation can often be converted to an explicit formula by finding a fixed point\n• Always check $|r|<1$ before using $S_\\infty = \\dfrac{u_1}{1-r}$\n\n⚠️ Common Mistake\nForgetting the first drop in a bouncing-ball problem. The initial fall is not doubled, but every rebound has both an upward and a downward part."
     }
   ],
   "flashcards": [
@@ -138,7 +138,8 @@
         "6"
       ],
       "correctIndex": 1,
-      "explanation": "$3d = 30-18 = 12$ \\rightarrow $d = 4$."
+      "explanation": "$3d = 30-18 = 12$ \\rightarrow $d = 4$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-sequences-seq-q2",
@@ -150,7 +151,8 @@
         "840"
       ],
       "correctIndex": 2,
-      "explanation": "This is an arithmetic series with first term $u_1=3$ and common difference $d=4$. The 20th term is $u_{20}=3+(20-1)(4)=79$. The sum of the first $n$ terms is $S_n=\\dfrac{n}{2}(u_1+u_n)$, so $S_{20}=\\dfrac{20}{2}(3+79)=10\\times82=820$. This formula is used to total regular savings or distances."
+      "explanation": "This is an arithmetic series with first term $u_1=3$ and common difference $d=4$. The 20th term is $u_{20}=3+(20-1)(4)=79$. The sum of the first $n$ terms is $S_n=\\dfrac{n}{2}(u_1+u_n)$, so $S_{20}=\\dfrac{20}{2}(3+79)=10\\times82=820$. This formula is used to total regular savings or distances.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-sequences-seq-q3",
@@ -162,7 +164,8 @@
         "512"
       ],
       "correctIndex": 2,
-      "explanation": "$3\\cdot2^7 = 3\\cdot128 = 384$."
+      "explanation": "$3\\cdot2^7 = 3\\cdot128 = 384$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-sequences-seq-q4",
@@ -174,7 +177,8 @@
         "14"
       ],
       "correctIndex": 1,
-      "explanation": "$\\dfrac{12}{1-\\dfrac{1}{4}} = \\dfrac{12}{\\dfrac{3}{4}} = 16$."
+      "explanation": "$\\dfrac{12}{1-\\dfrac{1}{4}} = \\dfrac{12}{\\dfrac{3}{4}} = 16$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-sequences-seq-q5",
@@ -186,7 +190,9 @@
         "\\$5632"
       ],
       "correctIndex": 2,
-      "explanation": "$5000\times1.04^3 \\approx 5624$."
+      "explanation": "$5000\\times1.04^3 \\approx 5624$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-sequences-seq-q6",
@@ -198,7 +204,9 @@
         "£2408"
       ],
       "correctIndex": 2,
-      "explanation": "$FV = 2000\\cdot(1+0.003)^{60} \\approx 2000\\cdot1.197$ £2394. Monthly compounding beats annual (£2387) and simple interest (£2360)."
+      "explanation": "$FV = 2000\\cdot(1+0.003)^{60} \\approx 2000\\cdot1.197$ £2394. Monthly compounding beats annual (£2387) and simple interest (£2360).",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-sequences-seq-q7",
@@ -210,7 +218,9 @@
         "\\$768"
       ],
       "correctIndex": 2,
-      "explanation": "$FV = 1200\\cdot(0.8)^3 = 1200\\cdot0.512 = 614.40$ \\$614.40. \\$600 is linear depreciation (wrong model), \\$768 is after only 2 years."
+      "explanation": "$FV = 1200\\cdot(0.8)^3 = 1200\\cdot0.512 = 614.40$ \\$614.40. \\$600 is linear depreciation (wrong model), \\$768 is after only 2 years.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-sequences-seq-q8",
@@ -222,7 +232,8 @@
         "$u_1=3$, $r=-1.2$"
       ],
       "correctIndex": 3,
-      "explanation": "$S_\\infty$ exists only when $|r|<1$. Here $|-1.2|=1.2 \\geq 1$, so the series diverges. The others all have $|r|<1$."
+      "explanation": "$S_\\infty$ exists only when $|r|<1$. Here $|-1.2|=1.2 \\geq 1$, so the series diverges. The others all have $|r|<1$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-sequences-seq-q9",
@@ -234,7 +245,8 @@
         "162"
       ],
       "correctIndex": 0,
-      "explanation": "$u_6 = 2\\cdot(-3)^5 = 2\\cdot(-243) = -486$. The negative ratio makes terms alternate; odd powers of $r$ are negative."
+      "explanation": "$u_6 = 2\\cdot(-3)^5 = 2\\cdot(-243) = -486$. The negative ratio makes terms alternate; odd powers of $r$ are negative.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-sequences-seq-q10",
@@ -246,7 +258,9 @@
         "11th"
       ],
       "correctIndex": 1,
-      "explanation": "Solve $4\\cdot1.5^{n-1} > 100$. Taking logs: $n-1 > \\dfrac{\\ln 25}{\\ln 1.5} \\approx 7.94$, so $n > 8.94$. The 9th term ($\\approx 102.5$) is first to exceed 100."
+      "explanation": "Solve $4\\cdot1.5^{n-1} > 100$. Taking logs: $n-1 > \\dfrac{\\ln 25}{\\ln 1.5} \\approx 7.94$, so $n > 8.94$. The 9th term ($\\approx 102.5$) is first to exceed 100.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-dp-sequences-seq-q11",
@@ -258,7 +272,9 @@
         "\\$50"
       ],
       "correctIndex": 1,
-      "explanation": "Simple interest: $2000 + 4\times100 = 2400$ \\$2400. Compound: $2000\times1.05^4 \\approx 2431$ \\$2431. The difference is about \\$31. Compound interest earns \"interest on interest,\" so it outperforms simple interest over time."
+      "explanation": "Simple interest: $2000 + 4\\times100 = 2400$ \\$2400. Compound: $2000\\times1.05^4 \\approx 2431$ \\$2431. The difference is about \\$31. Compound interest earns \"interest on interest,\" so it outperforms simple interest over time.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-sequences-seq-q12",
@@ -270,7 +286,8 @@
         "32"
       ],
       "correctIndex": 1,
-      "explanation": "Substitute $k=1,2,3,4$ into $2k+1$ and add: $3+5+7+9=24$."
+      "explanation": "Substitute $k=1,2,3,4$ into $2k+1$ and add: $3+5+7+9=24$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-sequences-seq-q13",
@@ -282,7 +299,8 @@
         "34"
       ],
       "correctIndex": 2,
-      "explanation": "Apply the recurrence: $u_2=3(2)-2=4$, $u_3=3(4)-2=10$, $u_4=3(10)-2=28$."
+      "explanation": "Apply the recurrence: $u_2=3(2)-2=4$, $u_3=3(4)-2=10$, $u_4=3(10)-2=28$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-sequences-seq-q14",
@@ -294,7 +312,8 @@
         "$10, 7, 4, 1, \\ldots$"
       ],
       "correctIndex": 1,
-      "explanation": "$3,6,12,24$ has common ratio $r=2$. The other choices are arithmetic or neither."
+      "explanation": "$3,6,12,24$ has common ratio $r=2$. The other choices are arithmetic or neither.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-sequences-seq-q15",
@@ -306,7 +325,8 @@
         "$-\\dfrac{1}{3}$"
       ],
       "correctIndex": 0,
-      "explanation": "$S_\\infty=\\dfrac{12}{1-x}=18$, so $1-x=\\dfrac{2}{3}$ and $x=\\dfrac{1}{3}$."
+      "explanation": "$S_\\infty=\\dfrac{12}{1-x}=18$, so $1-x=\\dfrac{2}{3}$ and $x=\\dfrac{1}{3}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-sequences-seq-q16",
@@ -318,7 +338,8 @@
         "6000"
       ],
       "correctIndex": 0,
-      "explanation": "Split the sum. The arithmetic part is $\\sum_{k=1}^{10}4k=4\times55=220$. The geometric part is $\\sum_{k=1}^{10}3\\cdot2^k=3\times(2^{11}-2)=6138$. Subtracting gives $6138-220=5918$."
+      "explanation": "Split the sum. The arithmetic part is $\\sum_{k=1}^{10}4k=4\\times55=220$. The geometric part is $\\sum_{k=1}^{10}3\\cdot2^k=3\\times(2^{11}-2)=6138$. Subtracting gives $6138-220=5918$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-sequences-seq-q17",
@@ -330,7 +351,8 @@
         "96 m"
       ],
       "correctIndex": 0,
-      "explanation": "After the first drop, every rebound has an upward and a downward part. The rebound distances form $2\times12\times0.75+2\times12\times0.75^2+\\ldots$. Sum this infinite geometric series: $2\times12\times0.75\\div(1-0.75)=72$. Add the original 12 m drop: $12+72=84$ m."
+      "explanation": "After the first drop, every rebound has an upward and a downward part. The rebound distances form $2\\times12\\times0.75+2\\times12\\times0.75^2+\\ldots$. Sum this infinite geometric series: $2\\times12\\times0.75\\div(1-0.75)=72$. Add the original 12 m drop: $12+72=84$ m.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-sequences-seq-q18",
@@ -342,7 +364,9 @@
         "\\$2520"
       ],
       "correctIndex": 0,
-      "explanation": "The deposits form a geometric series: $200(1.005)+200(1.005)^2+\\ldots+200(1.005)^{12}$. Use $a=200\times1.005$, $r=1.005$, $n=12$: $S=\\dfrac{200\times1.005(1.005^{12}-1)}{0.005}\\approx2479.45$, which rounds to \\$2480."
+      "explanation": "The deposits form a geometric series: $200(1.005)+200(1.005)^2+\\ldots+200(1.005)^{12}$. Use $a=200\\times1.005$, $r=1.005$, $n=12$: $S=\\dfrac{200\\times1.005(1.005^{12}-1)}{0.005}\\approx2479.45$, which rounds to \\$2480.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-dp-sequences-seq-q19",
@@ -354,7 +378,8 @@
         "103"
       ],
       "correctIndex": 0,
-      "explanation": "From the recurrence, $5p+q=11$ and $11p+q=23$. Subtracting gives $6p=12$, so $p=2$ and $q=1$. Then $u_4=2(23)+1=47$ and $u_5=2(47)+1=95$."
+      "explanation": "From the recurrence, $5p+q=11$ and $11p+q=23$. Subtracting gives $6p=12$, so $p=2$ and $q=1$. Then $u_4=2(23)+1=47$ and $u_5=2(47)+1=95$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-sequences-seq-q20",
@@ -366,7 +391,8 @@
         "$x<1$"
       ],
       "correctIndex": 0,
-      "explanation": "A geometric series converges when $|r|<1$. Here $r=2x-1$, so $|2x-1|<1$. Solving gives $-1<2x-1<1$, which simplifies to $0<x<1$."
+      "explanation": "A geometric series converges when $|r|<1$. Here $r=2x-1$, so $|2x-1|<1$. Solving gives $-1<2x-1<1$, which simplifies to $0<x<1$.",
+      "difficulty": "medium"
     }
   ]
 }

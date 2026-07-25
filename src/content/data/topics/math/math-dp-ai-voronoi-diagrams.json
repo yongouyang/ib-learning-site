@@ -133,7 +133,8 @@
         "The centre of a Voronoi cell"
       ],
       "correctIndex": 1,
-      "explanation": "A Voronoi edge is the boundary between two cells and consists of points that are equidistant from the two neighbouring sites."
+      "explanation": "A Voronoi edge is the boundary between two cells and consists of points that are equidistant from the two neighbouring sites.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-voronoi-diagrams-q2",
@@ -145,7 +146,8 @@
         "$y = 2x - 7$"
       ],
       "correctIndex": 1,
-      "explanation": "Midpoint is $(4, 2)$ and gradient of $AB$ is $\\dfrac{3-1}{6-2} = \\dfrac{1}{2}$, so the perpendicular gradient is $-2$. Equation: $y - 2 = -2(x - 4)$, which simplifies to $y = -2x + 10$."
+      "explanation": "Midpoint is $(4, 2)$ and gradient of $AB$ is $\\dfrac{3-1}{6-2} = \\dfrac{1}{2}$, so the perpendicular gradient is $-2$. Equation: $y - 2 = -2(x - 4)$, which simplifies to $y = -2x + 10$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-voronoi-diagrams-q3",
@@ -157,7 +159,8 @@
         "$A$ and $B$ are equally close"
       ],
       "correctIndex": 0,
-      "explanation": "$PA^2 = 2^2 + 1^2 = 5$, $PB^2 = 4^2 + 1^2 = 17$, $PC^2 = 1^2 + 4^2 = 17$. The smallest squared distance is $PA^2$, so $A$ is closest."
+      "explanation": "$PA^2 = 2^2 + 1^2 = 5$, $PB^2 = 4^2 + 1^2 = 17$, $PC^2 = 1^2 + 4^2 = 17$. The smallest squared distance is $PA^2$, so $A$ is closest.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-voronoi-diagrams-q4",
@@ -169,7 +172,8 @@
         "None"
       ],
       "correctIndex": 2,
-      "explanation": "A Voronoi vertex is a point where three or more edges meet, so it is equidistant from three or more sites."
+      "explanation": "A Voronoi vertex is a point where three or more edges meet, so it is equidistant from three or more sites.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-voronoi-diagrams-q5",
@@ -181,7 +185,8 @@
         "Outside the convex hull of the sites"
       ],
       "correctIndex": 1,
-      "explanation": "The point farthest from all existing sites is found at a Voronoi vertex, specifically the centre of the largest empty circle."
+      "explanation": "The point farthest from all existing sites is found at a Voronoi vertex, specifically the centre of the largest empty circle.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-voronoi-diagrams-q6",
@@ -193,7 +198,8 @@
         "Undefined"
       ],
       "correctIndex": 1,
-      "explanation": "A horizontal segment has gradient $0$. The perpendicular gradient is undefined, so the perpendicular bisector is a vertical line."
+      "explanation": "A horizontal segment has gradient $0$. The perpendicular gradient is undefined, so the perpendicular bisector is a vertical line.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-voronoi-diagrams-q7",
@@ -205,7 +211,8 @@
         "It does not change"
       ],
       "correctIndex": 1,
-      "explanation": "Adding $C$ between $A$ and $B$ creates a new cell around $C$, splitting the original edge $AB$ into two shorter edges that meet at the boundary of $C$'s cell."
+      "explanation": "Adding $C$ between $A$ and $B$ creates a new cell around $C$, splitting the original edge $AB$ into two shorter edges that meet at the boundary of $C$'s cell.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-voronoi-diagrams-q8",
@@ -217,7 +224,8 @@
         "$(4, 4)$"
       ],
       "correctIndex": 0,
-      "explanation": "Midpoint $= \\left(\\dfrac{1+5}{2}, \\dfrac{3+7}{2}\\right) = (3, 5)$."
+      "explanation": "Midpoint $= \\left(\\dfrac{1+5}{2}, \\dfrac{3+7}{2}\\right) = (3, 5)$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-voronoi-diagrams-q9",
@@ -229,7 +237,8 @@
         "$-\\dfrac{3}{4}$"
       ],
       "correctIndex": 2,
-      "explanation": "The perpendicular gradient is the negative reciprocal of $-\\dfrac{3}{4}$, which is $\\dfrac{4}{3}$."
+      "explanation": "The perpendicular gradient is the negative reciprocal of $-\\dfrac{3}{4}$, which is $\\dfrac{4}{3}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-voronoi-diagrams-q10",
@@ -241,7 +250,8 @@
         "It is outside all cells"
       ],
       "correctIndex": 1,
-      "explanation": "Points on a Voronoi edge are equidistant from the two sites whose cells share that edge."
+      "explanation": "Points on a Voronoi edge are equidistant from the two sites whose cells share that edge.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-voronoi-diagrams-q11",
@@ -253,7 +263,9 @@
         "$\\dfrac{15}{8}$"
       ],
       "correctIndex": 2,
-      "explanation": "The perpendicular bisector of $AB$ is $x = 3$. The perpendicular bisector of $AC$ has equation $y - 2 = -\\dfrac{3}{4}(x - 1.5)$. Substituting $x = 3$ gives $y = \\dfrac{7}{8}$."
+      "explanation": "The perpendicular bisector of $AB$ is $x = 3$. The perpendicular bisector of $AC$ has equation $y - 2 = -\\dfrac{3}{4}(x - 1.5)$. Substituting $x = 3$ gives $y = \\dfrac{7}{8}$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-dp-voronoi-diagrams-q12",
@@ -265,7 +277,8 @@
         "Any point on a Voronoi edge"
       ],
       "correctIndex": 1,
-      "explanation": "The optimal location is the Voronoi vertex whose empty circle has the greatest radius, making it farthest from all surrounding sites."
+      "explanation": "The optimal location is the Voronoi vertex whose empty circle has the greatest radius, making it farthest from all surrounding sites.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-voronoi-diagrams-q13",
@@ -277,7 +290,8 @@
         "$A$ and $C$ are equally close"
       ],
       "correctIndex": 0,
-      "explanation": "$PA^2 = 1^2 + 1^2 = 2$, $PB^2 = 3^2 + 1^2 = 10$, $PC^2 = 1^2 + 2^2 = 5$. The smallest squared distance is $PA^2$, so $A$ is closest."
+      "explanation": "$PA^2 = 1^2 + 1^2 = 2$, $PB^2 = 3^2 + 1^2 = 10$, $PC^2 = 1^2 + 2^2 = 5$. The smallest squared distance is $PA^2$, so $A$ is closest.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-voronoi-diagrams-q14",
@@ -289,7 +303,8 @@
         "$\\dfrac{2}{5}$"
       ],
       "correctIndex": 1,
-      "explanation": "The perpendicular gradient is the negative reciprocal of $\\dfrac{2}{5}$, which is $-\\dfrac{5}{2}$."
+      "explanation": "The perpendicular gradient is the negative reciprocal of $\\dfrac{2}{5}$, which is $-\\dfrac{5}{2}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-voronoi-diagrams-q15",
@@ -301,7 +316,8 @@
         "The Voronoi vertices do not move."
       ],
       "correctIndex": 1,
-      "explanation": "Adding a site only affects nearby cells. Cells that do not share a boundary with the new site's cell remain unchanged."
+      "explanation": "Adding a site only affects nearby cells. Cells that do not share a boundary with the new site's cell remain unchanged.",
+      "difficulty": "medium"
     }
   ]
 }

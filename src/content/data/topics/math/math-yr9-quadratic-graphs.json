@@ -127,7 +127,8 @@
         "$-6$"
       ],
       "correctIndex": 0,
-      "explanation": "$y = (-3)^2 = (-3) \\times (-3) = 9$. Squaring a negative number always gives a positive result, so $-9$ is impossible."
+      "explanation": "$y = (-3)^2 = (-3) \\times (-3) = 9$. Squaring a negative number always gives a positive result, so $-9$ is impossible.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-quadratic-graphs-q2",
@@ -139,7 +140,8 @@
         "$(0, 0)$"
       ],
       "correctIndex": 1,
-      "explanation": "Substituting $x = 2$ gives $y = 4 + 2 = 6$, so $(2, 6)$ lies on the curve. The others fail: $3^2 + 2 = 11$, $4^2 + 2 = 18$ and $0^2 + 2 = 2$."
+      "explanation": "Substituting $x = 2$ gives $y = 4 + 2 = 6$, so $(2, 6)$ lies on the curve. The others fail: $3^2 + 2 = 11$, $4^2 + 2 = 18$ and $0^2 + 2 = 2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-graphs-q3",
@@ -151,7 +153,8 @@
         "$8$"
       ],
       "correctIndex": 3,
-      "explanation": "$y = 4^2 - 2 \\times 4 = 16 - 8 = 8$. Choosing $16$ means forgetting to subtract the $2x$ term."
+      "explanation": "$y = 4^2 - 2 \\times 4 = 16 - 8 = 8$. Choosing $16$ means forgetting to subtract the $2x$ term.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-graphs-q4",
@@ -163,7 +166,8 @@
         "$(2, 0)$"
       ],
       "correctIndex": 0,
-      "explanation": "The line of symmetry is $x = -\\dfrac{-2}{2} = 1$, and substituting $x = 1$ gives $y = 1 - 2 = -1$. The points $(0, 0)$ and $(2, 0)$ are the roots, not the turning point."
+      "explanation": "The line of symmetry is $x = -\\dfrac{-2}{2} = 1$, and substituting $x = 1$ gives $y = 1 - 2 = -1$. The points $(0, 0)$ and $(2, 0)$ are the roots, not the turning point.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-quadratic-graphs-q5",
@@ -175,7 +179,8 @@
         "$y = 2$"
       ],
       "correctIndex": 1,
-      "explanation": "Using $x = -\\dfrac{b}{2a}$ with $a = 1$ and $b = -4$ gives $x = -\\dfrac{-4}{2} = 2$. The line of symmetry is a vertical line, so it must have the form $x = $ a number."
+      "explanation": "Using $x = -\\dfrac{b}{2a}$ with $a = 1$ and $b = -4$ gives $x = -\\dfrac{-4}{2} = 2$. The line of symmetry is a vertical line, so it must have the form $x = $ a number.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-quadratic-graphs-q6",
@@ -187,7 +192,8 @@
         "It is twice as wide."
       ],
       "correctIndex": 2,
-      "explanation": "Subtracting $2$ from the whole equation moves every point down by $2$ units; the turning point moves from $(0, 0)$ to $(0, -2)$. The shape is unchanged."
+      "explanation": "Subtracting $2$ from the whole equation moves every point down by $2$ units; the turning point moves from $(0, 0)$ to $(0, -2)$. The shape is unchanged.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-graphs-q7",
@@ -199,7 +205,8 @@
         "$(0, 1)$"
       ],
       "correctIndex": 0,
-      "explanation": "On the $y$-axis $x = 0$, so $y = 0 - 0 + 3 = 3$. The constant term $c$ is always the $y$-intercept; $(3, 0)$ is an $x$-intercept."
+      "explanation": "On the $y$-axis $x = 0$, so $y = 0 - 0 + 3 = 3$. The constant term $c$ is always the $y$-intercept; $(3, 0)$ is an $x$-intercept.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-quadratic-graphs-q8",
@@ -211,7 +218,8 @@
         "$x = 0$ and $x = 3$"
       ],
       "correctIndex": 2,
-      "explanation": "The curve crosses the $x$-axis at $(1, 0)$ and $(3, 0)$, giving $x = 1$ and $x = 3$. This agrees with factorising: $(x - 1)(x - 3) = 0$."
+      "explanation": "The curve crosses the $x$-axis at $(1, 0)$ and $(3, 0)$, giving $x = 1$ and $x = 3$. This agrees with factorising: $(x - 1)(x - 3) = 0$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-graphs-q9",
@@ -223,7 +231,8 @@
         "$x = 2$ and $x = 4$"
       ],
       "correctIndex": 1,
-      "explanation": "Setting $x^2 - 4x + 3 = 3$ gives $x^2 - 4x = 0$, so $x(x - 4) = 0$ and $x = 0$ or $x = 4$. The values $1$ and $3$ are where the curve meets $y = 0$, not $y = 3$."
+      "explanation": "Setting $x^2 - 4x + 3 = 3$ gives $x^2 - 4x = 0$, so $x(x - 4) = 0$ and $x = 0$ or $x = 4$. The values $1$ and $3$ are where the curve meets $y = 0$, not $y = 3$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-quadratic-graphs-q10",
@@ -235,7 +244,8 @@
         "$y = -2x^2$"
       ],
       "correctIndex": 1,
-      "explanation": "A U-shaped parabola needs a positive $x^2$ coefficient, and only $y = x^2 + 5$ qualifies. $y = 3x$ is a straight line, and the other two are ∩-shaped."
+      "explanation": "A U-shaped parabola needs a positive $x^2$ coefficient, and only $y = x^2 + 5$ qualifies. $y = 3x$ is a straight line, and the other two are ∩-shaped.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-quadratic-graphs-q11",
@@ -247,7 +257,8 @@
         "$2$"
       ],
       "correctIndex": 3,
-      "explanation": "Since $x^2 \\geq 0$ for every $x$, the smallest possible value of $y$ is $0 + 2 = 2$, reached at $x = 0$. The turning point is $(0, 2)$."
+      "explanation": "Since $x^2 \\geq 0$ for every $x$, the smallest possible value of $y$ is $0 + 2 = 2$, reached at $x = 0$. The turning point is $(0, 2)$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-graphs-q12",
@@ -259,7 +270,8 @@
         "$-3$"
       ],
       "correctIndex": 1,
-      "explanation": "$y = (-1)^2 - 2(-1) = 1 + 2 = 3$. A common slip is to compute $-2(-1)$ as $-2$ instead of $+2$, which would wrongly give $-1$."
+      "explanation": "$y = (-1)^2 - 2(-1) = 1 + 2 = 3$. A common slip is to compute $-2(-1)$ as $-2$ instead of $+2$, which would wrongly give $-1$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-quadratic-graphs-q13",
@@ -271,7 +283,8 @@
         "The line of symmetry"
       ],
       "correctIndex": 2,
-      "explanation": "The equation equals zero, so the solutions are the $x$ values where $y = 0$ — that is, where the curve crosses the $x$-axis."
+      "explanation": "The equation equals zero, so the solutions are the $x$ values where $y = 0$ — that is, where the curve crosses the $x$-axis.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-quadratic-graphs-q14",
@@ -283,7 +296,8 @@
         "Only join the points above the $x$-axis."
       ],
       "correctIndex": 0,
-      "explanation": "A quadratic graph is a smooth curve; using a ruler creates corners and a pointed bottom that do not match the true parabola shape."
+      "explanation": "A quadratic graph is a smooth curve; using a ruler creates corners and a pointed bottom that do not match the true parabola shape.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-quadratic-graphs-q15",
@@ -295,7 +309,8 @@
         "$-1.25$"
       ],
       "correctIndex": 2,
-      "explanation": "$y = (2.5)^2 - 2(2.5) = 6.25 - 5 = 1.25$. Reading from the graph between $x = 2$ and $x = 3$ should give a value just above $1$."
+      "explanation": "$y = (2.5)^2 - 2(2.5) = 6.25 - 5 = 1.25$. Reading from the graph between $x = 2$ and $x = 3$ should give a value just above $1$.",
+      "difficulty": "medium"
     }
   ]
 }

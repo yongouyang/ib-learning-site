@@ -133,7 +133,8 @@
         "70"
       ],
       "correctIndex": 1,
-      "explanation": "The binomial coefficient $\\binom{7}{3}$ counts how many ways you can choose 3 items from 7 without caring about order. The formula is $\\dfrac{7!}{3!4!}=\\dfrac{7\\times6\\times5}{3\\times2\\times1}=35$. For example, if you need to pick 3 students from a group of 7 for a committee, there are 35 different possible groups."
+      "explanation": "The binomial coefficient $\\binom{7}{3}$ counts how many ways you can choose 3 items from 7 without caring about order. The formula is $\\dfrac{7!}{3!4!}=\\dfrac{7\\times6\\times5}{3\\times2\\times1}=35$. For example, if you need to pick 3 students from a group of 7 for a committee, there are 35 different possible groups.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-binomial-bin-q2",
@@ -145,7 +146,8 @@
         "15"
       ],
       "correctIndex": 2,
-      "explanation": "The coefficient of $x^3$ in $(1+x)^5$ is given by the binomial coefficient $\\binom{5}{3}$, which counts the number of ways to choose three $x$'s from five factors. Calculating, $\\binom{5}{3}=\\dfrac{5!}{3!2!}=\\dfrac{5\\times4}{2\\times1}=10$. This is the fourth number in the fifth row of Pascal's triangle."
+      "explanation": "The coefficient of $x^3$ in $(1+x)^5$ is given by the binomial coefficient $\\binom{5}{3}$, which counts the number of ways to choose three $x$'s from five factors. Calculating, $\\binom{5}{3}=\\dfrac{5!}{3!2!}=\\dfrac{5\\times4}{2\\times1}=10$. This is the fourth number in the fifth row of Pascal's triangle.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-binomial-bin-q3",
@@ -157,7 +159,8 @@
         "9"
       ],
       "correctIndex": 0,
-      "explanation": "$\\binom{4}{2} \\cdot 3^2 \\cdot (-1)^2 = 6 \\cdot 9 \\cdot 1 = 54$."
+      "explanation": "$\\binom{4}{2} \\cdot 3^2 \\cdot (-1)^2 = 6 \\cdot 9 \\cdot 1 = 54$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-binomial-bin-q4",
@@ -169,7 +172,8 @@
         "24"
       ],
       "correctIndex": 2,
-      "explanation": "A binomial expansion of $(a+b)^n$ has $n+1$ terms, so $(a+b)^{12}$ has 13 terms."
+      "explanation": "A binomial expansion of $(a+b)^n$ has $n+1$ terms, so $(a+b)^{12}$ has 13 terms.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-binomial-bin-q5",
@@ -181,7 +185,8 @@
         "1.122"
       ],
       "correctIndex": 1,
-      "explanation": "The binomial expansion $(1+x)^6=1+6x+15x^2+\\ldots$ gives the first three terms when $x=0.02$. Substituting gives $1+6(0.02)+15(0.02)^2=1+0.12+15(0.0004)=1+0.12+0.006=1.126$. This approximation is useful for estimating small percentage changes, such as a $2\\%$ growth factor over six periods."
+      "explanation": "The binomial expansion $(1+x)^6=1+6x+15x^2+\\ldots$ gives the first three terms when $x=0.02$. Substituting gives $1+6(0.02)+15(0.02)^2=1+0.12+15(0.0004)=1+0.12+0.006=1.126$. This approximation is useful for estimating small percentage changes, such as a $2\\%$ growth factor over six periods.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-binomial-bin-q6",
@@ -193,7 +198,8 @@
         "5"
       ],
       "correctIndex": 1,
-      "explanation": "$\\binom{4}{2} \\cdot k^2 = 6k^2 = 54 \\to k=3$."
+      "explanation": "$\\binom{4}{2} \\cdot k^2 = 6k^2 = 54 \\to k=3$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-binomial-bin-q7",
@@ -205,7 +211,8 @@
         "The expansion contains a term $a^{n+1} b^{-1}$"
       ],
       "correctIndex": 3,
-      "explanation": "Powers of $a$ decrease from $n$ to $0$ and powers of $b$ increase from $0$ to $n$. No term can have a negative power or a power exceeding $n$."
+      "explanation": "Powers of $a$ decrease from $n$ to $0$ and powers of $b$ increase from $0$ to $n$. No term can have a negative power or a power exceeding $n$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-binomial-bin-q8",
@@ -217,7 +224,8 @@
         "35"
       ],
       "correctIndex": 0,
-      "explanation": "$T_{r+1} = \\binom{7}{r} \\cdot (x^2)^{7-r} \\cdot \\left(\\dfrac{2}{x}\\right)^r = \\binom{7}{r} \\cdot 2^r \\cdot x^{14-3r}$. Set $14-3r=5 \\to r=3$. Coefficient $= \\binom{7}{3} \\cdot 2^3 = 35 \\times 8 = 280$."
+      "explanation": "$T_{r+1} = \\binom{7}{r} \\cdot (x^2)^{7-r} \\cdot \\left(\\dfrac{2}{x}\\right)^r = \\binom{7}{r} \\cdot 2^r \\cdot x^{14-3r}$. Set $14-3r=5 \\to r=3$. Coefficient $= \\binom{7}{3} \\cdot 2^3 = 35 \\times 8 = 280$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-binomial-bin-q9",
@@ -229,7 +237,9 @@
         "0.44"
       ],
       "correctIndex": 2,
-      "explanation": "$\\binom{7}{2} \\cdot (0.3)^2 \\cdot (0.7)^5 = 21 \\times 0.09 \\times 0.16807 \\approx 0.3177 \\approx 0.32$. This is a direct application of the binomial probability formula."
+      "explanation": "$\\binom{7}{2} \\cdot (0.3)^2 \\cdot (0.7)^5 = 21 \\times 0.09 \\times 0.16807 \\approx 0.3177 \\approx 0.32$. This is a direct application of the binomial probability formula.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-binomial-bin-q10",
@@ -241,7 +251,8 @@
         "1024"
       ],
       "correctIndex": 2,
-      "explanation": "Substitute $x=1$: $(2 \\cdot 1+1)^5 = 3^5 = 243$. When $x=1$, each term reduces to its coefficient, so the total equals the sum of all coefficients."
+      "explanation": "Substitute $x=1$: $(2 \\cdot 1+1)^5 = 3^5 = 243$. When $x=1$, each term reduces to its coefficient, so the total equals the sum of all coefficients.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-binomial-bin-q11",
@@ -253,7 +264,8 @@
         "120"
       ],
       "correctIndex": 2,
-      "explanation": "$T_{r+1} = \\binom{6}{r} \\cdot (2x^2)^{6-r} \\cdot \\left(\\dfrac{1}{x}\\right)^r = \\binom{6}{r} \\cdot 2^{6-r} \\cdot x^{12-3r}$. For constant term: $12-3r=0 \\to r=4$. $T_5 = \\binom{6}{4} \\cdot 2^2 = 15 \\times 4 = 60$."
+      "explanation": "$T_{r+1} = \\binom{6}{r} \\cdot (2x^2)^{6-r} \\cdot \\left(\\dfrac{1}{x}\\right)^r = \\binom{6}{r} \\cdot 2^{6-r} \\cdot x^{12-3r}$. For constant term: $12-3r=0 \\to r=4$. $T_5 = \\binom{6}{4} \\cdot 2^2 = 15 \\times 4 = 60$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-binomial-bin-q12",
@@ -265,7 +277,8 @@
         "8"
       ],
       "correctIndex": 0,
-      "explanation": "Expand $(1+x)^4 = 1+4x+6x^2+4x^3+x^4$. Multiply by $(1-2x)$: $x^3$ terms come from $4x^3 \\cdot 1 + 6x^2 \\cdot (-2x) = 4-12 = -8$."
+      "explanation": "Expand $(1+x)^4 = 1+4x+6x^2+4x^3+x^4$. Multiply by $(1-2x)$: $x^3$ terms come from $4x^3 \\cdot 1 + 6x^2 \\cdot (-2x) = 4-12 = -8$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-binomial-bin-q13",
@@ -277,7 +290,8 @@
         "120"
       ],
       "correctIndex": 0,
-      "explanation": "By symmetry $\\binom{10}{8} = \\binom{10}{2} = \\dfrac{10 \\cdot 9}{2} = 45$."
+      "explanation": "By symmetry $\\binom{10}{8} = \\binom{10}{2} = \\dfrac{10 \\cdot 9}{2} = 45$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-binomial-bin-q14",
@@ -289,7 +303,8 @@
         "56"
       ],
       "correctIndex": 0,
-      "explanation": "The $x^6$ term is $\\binom{8}{6} \\cdot x^6 \\cdot 2^2 = 28 \\times 4 = 112$."
+      "explanation": "The $x^6$ term is $\\binom{8}{6} \\cdot x^6 \\cdot 2^2 = 28 \\times 4 = 112$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-binomial-bin-q15",
@@ -301,7 +316,8 @@
         "15"
       ],
       "correctIndex": 0,
-      "explanation": "$(1+x)^5 = 1+5x+10x^2+10x^3+5x^4+\\dots$. The $x^4$ terms are $5x^4 \\cdot 1 + 10x^3 \\cdot (-2x) = -15x^4$."
+      "explanation": "$(1+x)^5 = 1+5x+10x^2+10x^3+5x^4+\\dots$. The $x^4$ terms are $5x^4 \\cdot 1 + 10x^3 \\cdot (-2x) = -15x^4$.",
+      "difficulty": "hard"
     }
   ]
 }

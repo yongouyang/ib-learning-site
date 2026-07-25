@@ -133,7 +133,8 @@
         "24 m/s"
       ],
       "correctIndex": 0,
-      "explanation": "$v = 6t^2 - 6t$; $v(2) = 24 - 12 = 12$."
+      "explanation": "$v = 6t^2 - 6t$; $v(2) = 24 - 12 = 12$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-kinematics-kin-q2",
@@ -145,7 +146,8 @@
         "t=0"
       ],
       "correctIndex": 0,
-      "explanation": "$v = 0 \\to t = 2$; $v$ changes sign there."
+      "explanation": "$v = 0 \\to t = 2$; $v$ changes sign there.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-kinematics-kin-q3",
@@ -157,7 +159,8 @@
         "30 m/s²"
       ],
       "correctIndex": 1,
-      "explanation": "$a = 12t$; $a(3) = 36$."
+      "explanation": "$a = 12t$; $a(3) = 36$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-kinematics-kin-q4",
@@ -169,7 +172,8 @@
         "6"
       ],
       "correctIndex": 0,
-      "explanation": "$s = t^3 - 6t^2 + 9t$; $s(2) = 8 - 24 + 18 = 2$."
+      "explanation": "$s = t^3 - 6t^2 + 9t$; $s(2) = 8 - 24 + 18 = 2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-kinematics-kin-q5",
@@ -181,7 +185,8 @@
         "6t+4"
       ],
       "correctIndex": 0,
-      "explanation": "$v = 3t^2 + 4$; $s = t^3 + 4t + 1$."
+      "explanation": "$v = 3t^2 + 4$; $s = t^3 + 4t + 1$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-kinematics-kin-q6",
@@ -193,7 +198,8 @@
         "4 s"
       ],
       "correctIndex": 1,
-      "explanation": "$v = 19.6 - 9.8t = 0 \\to t = 2$."
+      "explanation": "$v = 19.6 - 9.8t = 0 \\to t = 2$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-kinematics-kin-q7",
@@ -205,7 +211,8 @@
         "The particle is speeding up and moving to the right"
       ],
       "correctIndex": 0,
-      "explanation": "Negative velocity means the particle is moving to the left. Positive acceleration acts to the right, which is opposite to the direction of motion. When velocity and acceleration have opposite signs, speed decreases — the particle is slowing down."
+      "explanation": "Negative velocity means the particle is moving to the left. Positive acceleration acts to the right, which is opposite to the direction of motion. When velocity and acceleration have opposite signs, speed decreases — the particle is slowing down.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-kinematics-kin-q8",
@@ -217,7 +224,9 @@
         "24.5 m"
       ],
       "correctIndex": 0,
-      "explanation": "Using $v^2 = u^2 + 2as$ with final velocity $v = 0$: $0 = 24.5^2 - 2(9.8)s \\to s = \\dfrac{600.25}{19.6} \\approx 30.6$ m. 61.3 m comes from forgetting the deceleration ($s = ut$), 2.5 s is the time to max height, and 24.5 m is the initial speed."
+      "explanation": "Using $v^2 = u^2 + 2as$ with final velocity $v = 0$: $0 = 24.5^2 - 2(9.8)s \\to s = \\dfrac{600.25}{19.6} \\approx 30.6$ m. 61.3 m comes from forgetting the deceleration ($s = ut$), 2.5 s is the time to max height, and 24.5 m is the initial speed.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-kinematics-kin-q9",
@@ -229,7 +238,8 @@
         "16 m"
       ],
       "correctIndex": 0,
-      "explanation": "Factor: $v = 3(t-1)(t-3)$, so direction changes at $t = 1$ and $t = 3$. $s(t) = t^3 - 6t^2 + 9t$. $s(0) = 0$, $s(1) = 4$, $s(3) = 0$, $s(4) = 4$. Total distance $= |4-0| + |0-4| + |4-0| = 4 + 4 + 4 = 12$ m. 4 m is the net displacement, 0 m incorrectly assumes the particle returns to the start, and 16 m adds displacements without accounting for backtracking."
+      "explanation": "Factor: $v = 3(t-1)(t-3)$, so direction changes at $t = 1$ and $t = 3$. $s(t) = t^3 - 6t^2 + 9t$. $s(0) = 0$, $s(1) = 4$, $s(3) = 0$, $s(4) = 4$. Total distance $= |4-0| + |0-4| + |4-0| = 4 + 4 + 4 = 12$ m. 4 m is the net displacement, 0 m incorrectly assumes the particle returns to the start, and 16 m adds displacements without accounting for backtracking.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-kinematics-kin-q10",
@@ -241,7 +251,8 @@
         "5 m/s"
       ],
       "correctIndex": 0,
-      "explanation": "$\\text{Average velocity} = \\dfrac{s(5) - s(0)}{5 - 0} = \\dfrac{0 - 5}{5} = -1$ m/s. $s(5) = 25 - 30 + 5 = 0$ and $s(0) = 5$. 0 m/s would be the average speed if distances were equal, −5 m/s forgets to divide by time, and 5 m/s takes $s(0)$ without the sign change."
+      "explanation": "$\\text{Average velocity} = \\dfrac{s(5) - s(0)}{5 - 0} = \\dfrac{0 - 5}{5} = -1$ m/s. $s(5) = 25 - 30 + 5 = 0$ and $s(0) = 5$. 0 m/s would be the average speed if distances were equal, −5 m/s forgets to divide by time, and 5 m/s takes $s(0)$ without the sign change.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-kinematics-kin-q11",
@@ -253,7 +264,8 @@
         "0 m"
       ],
       "correctIndex": 0,
-      "explanation": "Integrate: $v(t) = 4t - t^2 + C_1$. $v(0) = 0 \\to C_1 = 0$. Integrate again: $s(t) = 2t^2 - \\dfrac{t^3}{3} + C_2$. $s(0) = 0 \\to C_2 = 0$. At $t = 3$: $s(3) = 2(9) - \\dfrac{27}{3} = 18 - 9 = 9$ m. 3 m is the velocity at $t = 3$, 18 m forgets to divide the $t^3$ term by 3, and 0 m ignores the constants of integration."
+      "explanation": "Integrate: $v(t) = 4t - t^2 + C_1$. $v(0) = 0 \\to C_1 = 0$. Integrate again: $s(t) = 2t^2 - \\dfrac{t^3}{3} + C_2$. $s(0) = 0 \\to C_2 = 0$. At $t = 3$: $s(3) = 2(9) - \\dfrac{27}{3} = 18 - 9 = 9$ m. 3 m is the velocity at $t = 3$, 18 m forgets to divide the $t^3$ term by 3, and 0 m ignores the constants of integration.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-kinematics-kin-q12",
@@ -265,7 +277,8 @@
         "The velocity is negative and the acceleration is zero"
       ],
       "correctIndex": 0,
-      "explanation": "A downward-opening parabola has equation $s = -at^2 + bt + c$ with $a > 0$. The velocity $v = \\dfrac{ds}{dt} = -2at + b$ is zero at the vertex (turning point). The acceleration $a = \\dfrac{d^2s}{dt^2} = -2a$ is negative. Students often confuse $s$-$t$ graphs with $v$-$t$ graphs, which is why \"velocity is maximum\" is a tempting distractor."
+      "explanation": "A downward-opening parabola has equation $s = -at^2 + bt + c$ with $a > 0$. The velocity $v = \\dfrac{ds}{dt} = -2at + b$ is zero at the vertex (turning point). The acceleration $a = \\dfrac{d^2s}{dt^2} = -2a$ is negative. Students often confuse $s$-$t$ graphs with $v$-$t$ graphs, which is why \"velocity is maximum\" is a tempting distractor.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-kinematics-kin-q13",
@@ -277,7 +290,8 @@
         "2 m/s²"
       ],
       "correctIndex": 0,
-      "explanation": "Using $a = v \\dfrac{dv}{ds}$ with $v = 2s$, we get $\\dfrac{dv}{ds} = 2$ and $a = (2s)(2) = 4s$. At $s = 3$, $a = 12$ m/s²."
+      "explanation": "Using $a = v \\dfrac{dv}{ds}$ with $v = 2s$, we get $\\dfrac{dv}{ds} = 2$ and $a = (2s)(2) = 4s$. At $s = 3$, $a = 12$ m/s².",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-kinematics-kin-q14",
@@ -289,7 +303,9 @@
         "31.3 m"
       ],
       "correctIndex": 0,
-      "explanation": "$R = \\dfrac{u^2 \\sin 2\\theta}{g} = \\dfrac{25^2 \\sin 60^\\circ}{9.8} = \\dfrac{625 \\times 0.866}{9.8} \\approx 55.2$ m. 27.6 m uses $\\sin 30^\\circ$, 110.4 m doubles the correct range, and 31.3 m uses the maximum-height formula."
+      "explanation": "$R = \\dfrac{u^2 \\sin 2\\theta}{g} = \\dfrac{25^2 \\sin 60^\\circ}{9.8} = \\dfrac{625 \\times 0.866}{9.8} \\approx 55.2$ m. 27.6 m uses $\\sin 30^\\circ$, 110.4 m doubles the correct range, and 31.3 m uses the maximum-height formula.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-kinematics-kin-q15",
@@ -301,7 +317,8 @@
         "0 m"
       ],
       "correctIndex": 0,
-      "explanation": "Find $v = 6t^2 - 18t + 12 = 6(t-1)(t-2)$. Turning points at $t = 1$ and $t = 2$. Evaluate $s(0) = 0$, $s(1) = 5$, $s(2) = 4$, $s(3) = 9$. The maximum distance from the origin is $|9| = 9$ m."
+      "explanation": "Find $v = 6t^2 - 18t + 12 = 6(t-1)(t-2)$. Turning points at $t = 1$ and $t = 2$. Evaluate $s(0) = 0$, $s(1) = 5$, $s(2) = 4$, $s(3) = 9$. The maximum distance from the origin is $|9| = 9$ m.",
+      "difficulty": "hard"
     }
   ]
 }

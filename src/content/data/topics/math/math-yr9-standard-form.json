@@ -127,7 +127,8 @@
         "$6 \\times 10^8$"
       ],
       "correctIndex": 0,
-      "explanation": "Multiply the coefficients ($3 \\times 2 = 6$) and add the indices ($4 + 5 = 9$), giving $6 \\times 10^9$. The coefficient is already between $1$ and $10$."
+      "explanation": "Multiply the coefficients ($3 \\times 2 = 6$) and add the indices ($4 + 5 = 9$), giving $6 \\times 10^9$. The coefficient is already between $1$ and $10$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-standard-form-q2",
@@ -139,7 +140,8 @@
         "$2 \\times 10^{10}$"
       ],
       "correctIndex": 3,
-      "explanation": "$5 \\times 4 = 20$ and $6 + 3 = 9$, giving $20 \\times 10^9$. Since $20 = 2 \\times 10$, the answer adjusts to $2 \\times 10^{10}$."
+      "explanation": "$5 \\times 4 = 20$ and $6 + 3 = 9$, giving $20 \\times 10^9$. Since $20 = 2 \\times 10$, the answer adjusts to $2 \\times 10^{10}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-standard-form-q3",
@@ -151,7 +153,8 @@
         "$5.6 \\times 10^{30}$"
       ],
       "correctIndex": 2,
-      "explanation": "$7 \\times 8 = 56$ and $-9 + 20 = 11$, giving $56 \\times 10^{11}$. Adjusting the coefficient gives $5.6 \\times 10^{12}$; the option $5.6 \\times 10^{11}$ forgets this adjustment."
+      "explanation": "$7 \\times 8 = 56$ and $-9 + 20 = 11$, giving $56 \\times 10^{11}$. Adjusting the coefficient gives $5.6 \\times 10^{12}$; the option $5.6 \\times 10^{11}$ forgets this adjustment.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-standard-form-q4",
@@ -163,7 +166,8 @@
         "$3 \\times 10^{-3}$"
       ],
       "correctIndex": 1,
-      "explanation": "Divide the coefficients ($9 \\div 3 = 3$) and subtract the indices ($8 - 5 = 3$), giving $3 \\times 10^3$. Adding the indices would wrongly give $10^{13}$."
+      "explanation": "Divide the coefficients ($9 \\div 3 = 3$) and subtract the indices ($8 - 5 = 3$), giving $3 \\times 10^3$. Adding the indices would wrongly give $10^{13}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-standard-form-q5",
@@ -175,7 +179,8 @@
         "$7.5 \\times 10^8$"
       ],
       "correctIndex": 3,
-      "explanation": "$6 \\div 8 = 0.75$ and $7 - (-2) = 9$, giving $0.75 \\times 10^9$. Since $0.75 < 1$, adjust to $7.5 \\times 10^8$. The option $7.5 \\times 10^9$ skips this adjustment."
+      "explanation": "$6 \\div 8 = 0.75$ and $7 - (-2) = 9$, giving $0.75 \\times 10^9$. Since $0.75 < 1$, adjust to $7.5 \\times 10^8$. The option $7.5 \\times 10^9$ skips this adjustment.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-standard-form-q6",
@@ -187,7 +192,8 @@
         "$16 \\times 10^{-12}$"
       ],
       "correctIndex": 1,
-      "explanation": "$8 \\div 2 = 4$ and $-3 - (-9) = -3 + 9 = 6$, so the answer is $4 \\times 10^6$. Dividing by a very small number gives a large answer."
+      "explanation": "$8 \\div 2 = 4$ and $-3 - (-9) = -3 + 9 = 6$, so the answer is $4 \\times 10^6$. Dividing by a very small number gives a large answer.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-standard-form-q7",
@@ -199,7 +205,8 @@
         "$3.4 \\times 10^5$"
       ],
       "correctIndex": 0,
-      "explanation": "$34 = 3.4 \\times 10$, so $34 \\times 10^6 = 3.4 \\times 10^7$. Dividing the coefficient by $10$ means the index must go up by $1$, not down."
+      "explanation": "$34 = 3.4 \\times 10$, so $34 \\times 10^6 = 3.4 \\times 10^7$. Dividing the coefficient by $10$ means the index must go up by $1$, not down.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-standard-form-q8",
@@ -211,7 +218,8 @@
         "$6 \\times 10^{-3}$"
       ],
       "correctIndex": 1,
-      "explanation": "$0.06 = 6 \\times 10^{-2}$, so $0.06 \\times 10^{-4} = 6 \\times 10^{-2} \\times 10^{-4} = 6 \\times 10^{-6}$. Making the coefficient bigger by a factor of $100$ lowers the index by $2$."
+      "explanation": "$0.06 = 6 \\times 10^{-2}$, so $0.06 \\times 10^{-4} = 6 \\times 10^{-2} \\times 10^{-4} = 6 \\times 10^{-6}$. Making the coefficient bigger by a factor of $100$ lowers the index by $2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-standard-form-q9",
@@ -223,7 +231,8 @@
         "$4.3 \\times 10^9$"
       ],
       "correctIndex": 1,
-      "explanation": "Rewrite $3 \\times 10^4 = 0.3 \\times 10^5$, then add the coefficients: $(4 + 0.3) \\times 10^5 = 4.3 \\times 10^5$. You cannot add coefficients until the powers of $10$ match."
+      "explanation": "Rewrite $3 \\times 10^4 = 0.3 \\times 10^5$, then add the coefficients: $(4 + 0.3) \\times 10^5 = 4.3 \\times 10^5$. You cannot add coefficients until the powers of $10$ match.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-standard-form-q10",
@@ -235,7 +244,8 @@
         "$5 \\times 10^{-5}$"
       ],
       "correctIndex": 2,
-      "explanation": "Rewrite $4 \\times 10^{-3} = 0.4 \\times 10^{-2}$, then subtract: $(9 - 0.4) \\times 10^{-2} = 8.6 \\times 10^{-2}$."
+      "explanation": "Rewrite $4 \\times 10^{-3} = 0.4 \\times 10^{-2}$, then subtract: $(9 - 0.4) \\times 10^{-2} = 8.6 \\times 10^{-2}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-standard-form-q11",
@@ -247,7 +257,8 @@
         "Because a calculator requires equal powers."
       ],
       "correctIndex": 0,
-      "explanation": "Each coefficient counts multiples of its own power of $10$. Only when the powers match do the coefficients count the same-sized units, so adding them makes sense."
+      "explanation": "Each coefficient counts multiples of its own power of $10$. Only when the powers match do the coefficients count the same-sized units, so adding them makes sense.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-standard-form-q12",
@@ -259,7 +270,8 @@
         "$1 \\times 10^7$ m$^2$"
       ],
       "correctIndex": 1,
-      "explanation": "$(4 \\times 2.5) \\times 10^{3+2} = 10 \\times 10^5$, and a coefficient of $10$ is not allowed, so adjust to $1 \\times 10^6$ m$^2$."
+      "explanation": "$(4 \\times 2.5) \\times 10^{3+2} = 10 \\times 10^5$, and a coefficient of $10$ is not allowed, so adjust to $1 \\times 10^6$ m$^2$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr9-standard-form-q13",
@@ -271,7 +283,8 @@
         "£2 \\times 10^3"
       ],
       "correctIndex": 0,
-      "explanation": "$(6 \\div 3) \\times 10^{9-7} = 2 \\times 10^2$, so each person receives £2 \\times 10^2, which is £200."
+      "explanation": "$(6 \\div 3) \\times 10^{9-7} = 2 \\times 10^2$, so each person receives £2 \\times 10^2, which is £200.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr9-standard-form-q14",
@@ -283,7 +296,8 @@
         "$9.99 \\times 10^0$"
       ],
       "correctIndex": 2,
-      "explanation": "The coefficient must satisfy $1 \\leq a < 10$. Since $0.9 < 1$, the number $0.9 \\times 10^7$ is not in standard form; it should be $9 \\times 10^6$."
+      "explanation": "The coefficient must satisfy $1 \\leq a < 10$. Since $0.9 < 1$, the number $0.9 \\times 10^7$ is not in standard form; it should be $9 \\times 10^6$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr9-standard-form-q15",
@@ -295,7 +309,8 @@
         "$50$"
       ],
       "correctIndex": 1,
-      "explanation": "$0.000\\,078 \\approx 8 \\times 10^{-5}$ and $6\\,500\\,000 \\approx 7 \\times 10^6$, so the product is about $56 \\times 10^1 = 5.6 \\times 10^2 \\approx 560$. The exact answer, $507$, confirms this is sensible."
+      "explanation": "$0.000\\,078 \\approx 8 \\times 10^{-5}$ and $6\\,500\\,000 \\approx 7 \\times 10^6$, so the product is about $56 \\times 10^1 = 5.6 \\times 10^2 \\approx 560$. The exact answer, $507$, confirms this is sensible.",
+      "difficulty": "hard"
     }
   ]
 }

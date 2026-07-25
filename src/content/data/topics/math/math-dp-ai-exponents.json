@@ -133,7 +133,8 @@
         "18"
       ],
       "correctIndex": 2,
-      "explanation": "$(\\sqrt[3]{27})^2 = 3^2 = 9$."
+      "explanation": "$(\\sqrt[3]{27})^2 = 3^2 = 9$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-exponents-eel-q2",
@@ -145,7 +146,8 @@
         "8"
       ],
       "correctIndex": 2,
-      "explanation": "Since $2^6=64$, the logarithm $\\log_2(64)$ equals 6."
+      "explanation": "Since $2^6=64$, the logarithm $\\log_2(64)$ equals 6.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-exponents-eel-q3",
@@ -157,7 +159,8 @@
         "$3\\log(2) - \\log(3)$"
       ],
       "correctIndex": 1,
-      "explanation": "$12 = 2^2 \\times 3 \\rightarrow 2\\log(2) + \\log(3)$."
+      "explanation": "$12 = 2^2 \\times 3 \\rightarrow 2\\log(2) + \\log(3)$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-exponents-eel-q4",
@@ -169,7 +172,9 @@
         "3.91"
       ],
       "correctIndex": 2,
-      "explanation": "To solve $3^x=45$, take logarithms of both sides: $x\\log3=\\log45$, so $x=\\dfrac{\\log45}{\\log3}$. Using any base (commonly base 10 or natural log), this gives $x\\approx3.47$. Logarithms are essential for solving exponential equations in population growth, radioactive decay, and compound-interest problems."
+      "explanation": "To solve $3^x=45$, take logarithms of both sides: $x\\log3=\\log45$, so $x=\\dfrac{\\log45}{\\log3}$. Using any base (commonly base 10 or natural log), this gives $x\\approx3.47$. Logarithms are essential for solving exponential equations in population growth, radioactive decay, and compound-interest problems.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-exponents-eel-q5",
@@ -181,7 +186,8 @@
         "27"
       ],
       "correctIndex": 1,
-      "explanation": "$x(x-6) = 27 \\rightarrow x^2 - 6x - 27 = 0 \\rightarrow x = 9$."
+      "explanation": "$x(x-6) = 27 \\rightarrow x^2 - 6x - 27 = 0 \\rightarrow x = 9$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-exponents-eel-q6",
@@ -193,7 +199,8 @@
         "9"
       ],
       "correctIndex": 2,
-      "explanation": "Using inverse properties: $e^{\\ln 3}=3$ and $\\ln(e^3)=3$, so the sum is 6."
+      "explanation": "Using inverse properties: $e^{\\ln 3}=3$ and $\\ln(e^3)=3$, so the sum is 6.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-exponents-eel-q7",
@@ -205,7 +212,8 @@
         "1000"
       ],
       "correctIndex": 3,
-      "explanation": "Decibels use $L = 10 \\log\\left(\\dfrac{I}{I_0}\\right)$. A $30$ dB difference means $10^{30/10} = 10^3 = 1000\\times$ more intense. Each $10$ dB step is a $10\\times$ multiplier, so three steps = $10 \\times 10 \\times 10 = 1000$."
+      "explanation": "Decibels use $L = 10 \\log\\left(\\dfrac{I}{I_0}\\right)$. A $30$ dB difference means $10^{30/10} = 10^3 = 1000\\times$ more intense. Each $10$ dB step is a $10\\times$ multiplier, so three steps = $10 \\times 10 \\times 10 = 1000$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-exponents-eel-q8",
@@ -217,7 +225,8 @@
         "$\\log_a(x^n) = (\\log_a x)^n$"
       ],
       "correctIndex": 2,
-      "explanation": "The quotient law states $\\log_a\\left(\\dfrac{x}{y}\\right) = \\log_a(x) - \\log_a(y)$. Choice A confuses sum with product; the product law says $\\log(xy) = \\log(x) + \\log(y)$. Choice B confuses log of a product with product of logs. Choice D confuses log of a power with power of a log."
+      "explanation": "The quotient law states $\\log_a\\left(\\dfrac{x}{y}\\right) = \\log_a(x) - \\log_a(y)$. Choice A confuses sum with product; the product law says $\\log(xy) = \\log(x) + \\log(y)$. Choice B confuses log of a product with product of logs. Choice D confuses log of a power with power of a log.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-exponents-eel-q9",
@@ -229,7 +238,8 @@
         "1000"
       ],
       "correctIndex": 2,
-      "explanation": "Richter scale: $R = \\log\\left(\\dfrac{A}{A_0}\\right)$. Difference $= 6 - 4 = 2$. Amplitude ratio $= 10^2 = 100$. Each whole number step on the Richter scale represents a $10$-fold increase in wave amplitude."
+      "explanation": "Richter scale: $R = \\log\\left(\\dfrac{A}{A_0}\\right)$. Difference $= 6 - 4 = 2$. Amplitude ratio $= 10^2 = 100$. Each whole number step on the Richter scale represents a $10$-fold increase in wave amplitude.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-exponents-eel-q10",
@@ -241,7 +251,8 @@
         "4"
       ],
       "correctIndex": 1,
-      "explanation": "Write $125$ as $5^3$. Since the bases are equal: $2x - 1 = 3 \\rightarrow 2x = 4 \\rightarrow x = 2$."
+      "explanation": "Write $125$ as $5^3$. Since the bases are equal: $2x - 1 = 3 \\rightarrow 2x = 4 \\rightarrow x = 2$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-exponents-eel-q11",
@@ -253,7 +264,8 @@
         "10000"
       ],
       "correctIndex": 3,
-      "explanation": "$\\text{pH}$ of lemon juice $= -\\log(10^{-2}) = 2$. $\\text{pH}$ of milk $= -\\log(10^{-6}) = 6$. A difference of $4$ pH units means $10^4 = 10000\\times$ more acidic. Alternatively, ratio of $[H^+] = \\dfrac{10^{-2}}{10^{-6}} = 10^4 = 10000$."
+      "explanation": "$\\text{pH}$ of lemon juice $= -\\log(10^{-2}) = 2$. $\\text{pH}$ of milk $= -\\log(10^{-6}) = 6$. A difference of $4$ pH units means $10^4 = 10000\\times$ more acidic. Alternatively, ratio of $[H^+] = \\dfrac{10^{-2}}{10^{-6}} = 10^4 = 10000$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-exponents-eel-q12",
@@ -265,7 +277,8 @@
         "$16x^{12}$"
       ],
       "correctIndex": 0,
-      "explanation": "$8^{\\dfrac{2}{3}} = (\\sqrt[3]{8})^2 = 2^2 = 4$. $(x^6)^{\\dfrac{2}{3}} = x^{6 \\times 2/3} = x^4$. So the result is $4x^4$. A common mistake is to multiply $8 \\times 2/3 = 16/3$ or to add exponents instead of multiplying."
+      "explanation": "$8^{\\dfrac{2}{3}} = (\\sqrt[3]{8})^2 = 2^2 = 4$. $(x^6)^{\\dfrac{2}{3}} = x^{6 \\times 2/3} = x^4$. So the result is $4x^4$. A common mistake is to multiply $8 \\times 2/3 = 16/3$ or to add exponents instead of multiplying.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-exponents-eel-q13",
@@ -277,7 +290,8 @@
         "$\\dfrac{8}{27}$"
       ],
       "correctIndex": 1,
-      "explanation": "First take the reciprocal because of the negative exponent: $\\left(\\dfrac{8}{27}\\right)^{\\dfrac{2}{3}}$. Then $\\sqrt[3]{\\dfrac{8}{27}} = \\dfrac{2}{3}$, and squaring gives $\\left(\\dfrac{2}{3}\\right)^2 = \\dfrac{4}{9}$."
+      "explanation": "First take the reciprocal because of the negative exponent: $\\left(\\dfrac{8}{27}\\right)^{\\dfrac{2}{3}}$. Then $\\sqrt[3]{\\dfrac{8}{27}} = \\dfrac{2}{3}$, and squaring gives $\\left(\\dfrac{2}{3}\\right)^2 = \\dfrac{4}{9}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-exponents-eel-q14",
@@ -289,7 +303,8 @@
         "No solution"
       ],
       "correctIndex": 1,
-      "explanation": "Combine logs: $\\log_2((x-3)(x-1)) = 3$, so $(x-3)(x-1) = 8$. Expanding gives $x^2 - 4x - 5 = 0$, which factors as $(x-5)(x+1) = 0$. However, the domain requires $x - 3 > 0$ and $x - 1 > 0$, so $x > 3$. Therefore $x = 5$ is the only valid solution."
+      "explanation": "Combine logs: $\\log_2((x-3)(x-1)) = 3$, so $(x-3)(x-1) = 8$. Expanding gives $x^2 - 4x - 5 = 0$, which factors as $(x-5)(x+1) = 0$. However, the domain requires $x - 3 > 0$ and $x - 1 > 0$, so $x > 3$. Therefore $x = 5$ is the only valid solution.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-exponents-eel-q15",
@@ -301,7 +316,8 @@
         "$\\dfrac{\\ln 32}{\\ln 8}$"
       ],
       "correctIndex": 1,
-      "explanation": "Let $\\log_4(32) = x$. Then $4^x = 32$. Write both as powers of $2$: $(2^2)^x = 2^5$, so $2^{2x} = 2^5$. Equating exponents gives $2x = 5$, hence $x = \\dfrac{5}{2}$."
+      "explanation": "Let $\\log_4(32) = x$. Then $4^x = 32$. Write both as powers of $2$: $(2^2)^x = 2^5$, so $2^{2x} = 2^5$. Equating exponents gives $2x = 5$, hence $x = \\dfrac{5}{2}$.",
+      "difficulty": "medium"
     }
   ]
 }

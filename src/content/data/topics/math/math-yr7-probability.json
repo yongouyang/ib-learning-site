@@ -132,7 +132,8 @@
         "0.1"
       ],
       "correctIndex": 0,
-      "explanation": "A probability of 0 means the event can never happen. A probability of 1 means it is certain."
+      "explanation": "A probability of 0 means the event can never happen. A probability of 1 means it is certain.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-probability-prob-q2",
@@ -144,7 +145,8 @@
         "$\\dfrac{10}{3}$"
       ],
       "correctIndex": 1,
-      "explanation": "There are 3 red marbles out of 10 marbles in total, so $P(\\text{red})=\\dfrac{3}{10}$."
+      "explanation": "There are 3 red marbles out of 10 marbles in total, so $P(\\text{red})=\\dfrac{3}{10}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-probability-prob-q3",
@@ -156,7 +158,8 @@
         "0"
       ],
       "correctIndex": 1,
-      "explanation": "Using the complement rule, $P(\\text{not rain})=1-0.2=0.8$."
+      "explanation": "Using the complement rule, $P(\\text{not rain})=1-0.2=0.8$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-probability-prob-q4",
@@ -168,7 +171,8 @@
         "$\\dfrac{2}{3}$"
       ],
       "correctIndex": 2,
-      "explanation": "The even numbers are 2, 4 and 6, so there are 3 favourable outcomes out of 6. $P=\\dfrac{3}{6}=\\dfrac{1}{2}$."
+      "explanation": "The even numbers are 2, 4 and 6, so there are 3 favourable outcomes out of 6. $P=\\dfrac{3}{6}=\\dfrac{1}{2}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-probability-prob-q5",
@@ -180,7 +184,8 @@
         "$\\dfrac{1}{5}$"
       ],
       "correctIndex": 0,
-      "explanation": "There are 4 letters in MATH and one M, so the probability is $\\dfrac{1}{4}$."
+      "explanation": "There are 4 letters in MATH and one M, so the probability is $\\dfrac{1}{4}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-probability-prob-q6",
@@ -192,7 +197,8 @@
         "8"
       ],
       "correctIndex": 2,
-      "explanation": "The sample space is HH, HT, TH, TT, which gives 4 equally likely outcomes."
+      "explanation": "The sample space is HH, HT, TH, TT, which gives 4 equally likely outcomes.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-probability-prob-q7",
@@ -204,7 +210,8 @@
         "1"
       ],
       "correctIndex": 2,
-      "explanation": "HT, TH and TT all contain at least one tail. That is 3 out of 4 outcomes, so $P=\\dfrac{3}{4}$."
+      "explanation": "HT, TH and TT all contain at least one tail. That is 3 out of 4 outcomes, so $P=\\dfrac{3}{4}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-probability-prob-q8",
@@ -216,7 +223,8 @@
         "1"
       ],
       "correctIndex": 1,
-      "explanation": "Two of the four equal sections are red or yellow, so $P=\\dfrac{2}{4}=\\dfrac{1}{2}$."
+      "explanation": "Two of the four equal sections are red or yellow, so $P=\\dfrac{2}{4}=\\dfrac{1}{2}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-probability-prob-q9",
@@ -228,7 +236,8 @@
         "0"
       ],
       "correctIndex": 2,
-      "explanation": "Probabilities must be between 0 and 1 inclusive. 1.2 is greater than 1, so it cannot be a probability."
+      "explanation": "Probabilities must be between 0 and 1 inclusive. 1.2 is greater than 1, so it cannot be a probability.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-probability-prob-q10",
@@ -240,7 +249,8 @@
         "$\\dfrac{1}{2}$"
       ],
       "correctIndex": 0,
-      "explanation": "Experimental probability is successes divided by trials: $\\dfrac{18}{50}=\\dfrac{9}{25}$."
+      "explanation": "Experimental probability is successes divided by trials: $\\dfrac{18}{50}=\\dfrac{9}{25}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-probability-prob-q11",
@@ -252,7 +262,8 @@
         "$\\dfrac{1}{36}$"
       ],
       "correctIndex": 1,
-      "explanation": "There are 36 equally likely outcomes and 6 ways to score 7, so $P=\\dfrac{6}{36}=\\dfrac{1}{6}$."
+      "explanation": "There are 36 equally likely outcomes and 6 ways to score 7, so $P=\\dfrac{6}{36}=\\dfrac{1}{6}$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-probability-prob-q12",
@@ -264,7 +275,8 @@
         "$\\dfrac{1}{2}$"
       ],
       "correctIndex": 1,
-      "explanation": "There are 30 students in total. $P(\\text{girl})=\\dfrac{12}{30}=\\dfrac{2}{5}$."
+      "explanation": "There are 30 students in total. $P(\\text{girl})=\\dfrac{12}{30}=\\dfrac{2}{5}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-probability-prob-q13",
@@ -276,7 +288,8 @@
         "$\\dfrac{3}{5}$"
       ],
       "correctIndex": 0,
-      "explanation": "There are 5 equal sections and 2 are red, so $P(\\text{red})=\\dfrac{2}{5}$."
+      "explanation": "There are 5 equal sections and 2 are red, so $P(\\text{red})=\\dfrac{2}{5}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-probability-prob-q14",
@@ -288,7 +301,8 @@
         "40"
       ],
       "correctIndex": 1,
-      "explanation": "The theoretical probability of a six is $\\dfrac{1}{6}$. Expected number $=120\\times\\dfrac{1}{6}=20$."
+      "explanation": "The theoretical probability of a six is $\\dfrac{1}{6}$. Expected number $=120\\times\\dfrac{1}{6}=20$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-probability-prob-q15",
@@ -300,7 +314,8 @@
         "$\\dfrac{7}{20}$"
       ],
       "correctIndex": 0,
-      "explanation": "There are 5 orange sweets, so 15 are not orange. $P(\\text{not orange})=\\dfrac{15}{20}=\\dfrac{3}{4}$."
+      "explanation": "There are 5 orange sweets, so 15 are not orange. $P(\\text{not orange})=\\dfrac{15}{20}=\\dfrac{3}{4}$.",
+      "difficulty": "hard"
     }
   ]
 }

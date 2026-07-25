@@ -137,7 +137,8 @@
         "$24~\\text{cm}$"
       ],
       "correctIndex": 1,
-      "explanation": "The diameter is twice the radius: $d = 2r = 2 \\times 6 = 12~\\text{cm}$."
+      "explanation": "The diameter is twice the radius: $d = 2r = 2 \\times 6 = 12~\\text{cm}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-circles-q2",
@@ -149,7 +150,8 @@
         "$3.5~\\text{cm}$"
       ],
       "correctIndex": 0,
-      "explanation": "The radius is half the diameter: $r = \\dfrac{d}{2} = \\dfrac{14}{2} = 7~\\text{cm}$."
+      "explanation": "The radius is half the diameter: $r = \\dfrac{d}{2} = \\dfrac{14}{2} = 7~\\text{cm}$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-circles-q3",
@@ -161,7 +163,8 @@
         "$1.73$"
       ],
       "correctIndex": 0,
-      "explanation": "$\\pi$ is approximately $3.14$; the other values are common approximations for different constants."
+      "explanation": "$\\pi$ is approximately $3.14$; the other values are common approximations for different constants.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-circles-q4",
@@ -173,7 +176,9 @@
         "$15.7~\\text{cm}$"
       ],
       "correctIndex": 0,
-      "explanation": "Using $C = \\pi d$, we get $C \\approx 3.14 \\times 10 = 31.4~\\text{cm}$."
+      "explanation": "Using $C = \\pi d$, we get $C \\approx 3.14 \\times 10 = 31.4~\\text{cm}$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-circles-q5",
@@ -185,7 +190,9 @@
         "$10~\\text{cm}$"
       ],
       "correctIndex": 1,
-      "explanation": "Using $C = 2\\pi r$, we get $C \\approx 2 \\times 3.14 \\times 5 = 31.4~\\text{cm}$."
+      "explanation": "Using $C = 2\\pi r$, we get $C \\approx 2 \\times 3.14 \\times 5 = 31.4~\\text{cm}$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-circles-q6",
@@ -197,7 +204,9 @@
         "$16~\\text{cm}^2$"
       ],
       "correctIndex": 1,
-      "explanation": "Using $A = \\pi r^2$, we get $A \\approx 3.14 \\times 4^2 = 3.14 \\times 16 = 50.24~\\text{cm}^2$."
+      "explanation": "Using $A = \\pi r^2$, we get $A \\approx 3.14 \\times 4^2 = 3.14 \\times 16 = 50.24~\\text{cm}^2$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-circles-q7",
@@ -209,7 +218,9 @@
         "$226.08~\\text{cm}^2$"
       ],
       "correctIndex": 2,
-      "explanation": "The radius is $r = \\dfrac{12}{2} = 6~\\text{cm}$. Then $A = \\pi r^2 \\approx 3.14 \\times 36 = 113.04~\\text{cm}^2$."
+      "explanation": "The radius is $r = \\dfrac{12}{2} = 6~\\text{cm}$. Then $A = \\pi r^2 \\approx 3.14 \\times 36 = 113.04~\\text{cm}^2$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-yr8-circles-q8",
@@ -221,7 +232,9 @@
         "$15.7~\\text{cm}$"
       ],
       "correctIndex": 2,
-      "explanation": "Rearrange $C = 2\\pi r$ to get $r = \\dfrac{C}{2\\pi} = \\dfrac{31.4}{2 \\times 3.14} = 5~\\text{cm}$."
+      "explanation": "Rearrange $C = 2\\pi r$ to get $r = \\dfrac{C}{2\\pi} = \\dfrac{31.4}{2 \\times 3.14} = 5~\\text{cm}$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr8-circles-q9",
@@ -233,7 +246,9 @@
         "$4~\\text{cm}$"
       ],
       "correctIndex": 3,
-      "explanation": "From $A = \\pi r^2$, we get $r^2 = \\dfrac{50.24}{3.14} = 16$, so $r = \\sqrt{16} = 4~\\text{cm}$."
+      "explanation": "From $A = \\pi r^2$, we get $r^2 = \\dfrac{50.24}{3.14} = 16$, so $r = \\sqrt{16} = 4~\\text{cm}$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-yr8-circles-q10",
@@ -245,7 +260,8 @@
         "$A = \\dfrac{1}{2}\\pi r^2$"
       ],
       "correctIndex": 2,
-      "explanation": "The area of a circle is $A = \\pi r^2$. The other formulas give circumference or an incorrect area."
+      "explanation": "The area of a circle is $A = \\pi r^2$. The other formulas give circumference or an incorrect area.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-circles-q11",
@@ -257,7 +273,8 @@
         "$C = \\dfrac{r}{2}$"
       ],
       "correctIndex": 2,
-      "explanation": "$C = 2\\pi r$ uses the radius. $C = \\pi d$ is equivalent but uses the diameter."
+      "explanation": "$C = 2\\pi r$ uses the radius. $C = \\pi d$ is equivalent but uses the diameter.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-circles-q12",
@@ -269,7 +286,8 @@
         "$440~\\text{m}$"
       ],
       "correctIndex": 1,
-      "explanation": "Using $C = 2\\pi r$, we get $C \\approx 2 \\times \\dfrac{22}{7} \\times 35 = 220~\\text{m}$."
+      "explanation": "Using $C = 2\\pi r$, we get $C \\approx 2 \\times \\dfrac{22}{7} \\times 35 = 220~\\text{m}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-circles-q13",
@@ -281,7 +299,8 @@
         "$616~\\text{cm}^2$"
       ],
       "correctIndex": 3,
-      "explanation": "The radius is $r = 14~\\text{cm}$. Then $A = \\pi r^2 \\approx \\dfrac{22}{7} \\times 14^2 = \\dfrac{22}{7} \\times 196 = 616~\\text{cm}^2$."
+      "explanation": "The radius is $r = 14~\\text{cm}$. Then $A = \\pi r^2 \\approx \\dfrac{22}{7} \\times 14^2 = \\dfrac{22}{7} \\times 196 = 616~\\text{cm}^2$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-circles-q14",
@@ -293,7 +312,8 @@
         "$\\dfrac{\\pi}{2}~\\text{cm}$"
       ],
       "correctIndex": 1,
-      "explanation": "$C = 2\\pi r = 2\\pi \\times 1 = 2\\pi~\\text{cm}$."
+      "explanation": "$C = 2\\pi r = 2\\pi \\times 1 = 2\\pi~\\text{cm}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-circles-q15",
@@ -305,7 +325,8 @@
         "$\\dfrac{\\pi}{2}~\\text{cm}^2$"
       ],
       "correctIndex": 1,
-      "explanation": "$A = \\pi r^2 = \\pi \\times 1^2 = \\pi~\\text{cm}^2$."
+      "explanation": "$A = \\pi r^2 = \\pi \\times 1^2 = \\pi~\\text{cm}^2$.",
+      "difficulty": "medium"
     }
   ]
 }

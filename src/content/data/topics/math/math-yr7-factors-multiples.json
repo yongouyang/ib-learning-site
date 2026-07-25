@@ -132,7 +132,8 @@
         "11"
       ],
       "correctIndex": 2,
-      "explanation": "$42 \\div 7 = 6$ exactly, so 7 is a factor. The other choices leave a remainder."
+      "explanation": "$42 \\div 7 = 6$ exactly, so 7 is a factor. The other choices leave a remainder.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-factors-multiples-q2",
@@ -144,7 +145,8 @@
         "1, 20, 40, 60"
       ],
       "correctIndex": 0,
-      "explanation": "$20 = 1 \\times 20 = 2 \\times 10 = 4 \\times 5$, so the factors are 1, 2, 4, 5, 10 and 20."
+      "explanation": "$20 = 1 \\times 20 = 2 \\times 10 = 4 \\times 5$, so the factors are 1, 2, 4, 5, 10 and 20.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-factors-multiples-q3",
@@ -156,7 +158,8 @@
         "3"
       ],
       "correctIndex": 2,
-      "explanation": "2 is prime because its only factors are 1 and 2. It is also the only even prime number."
+      "explanation": "2 is prime because its only factors are 1 and 2. It is also the only even prime number.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-factors-multiples-q4",
@@ -168,7 +171,8 @@
         "23"
       ],
       "correctIndex": 2,
-      "explanation": "$21 = 3 \\times 7$, so it has more than two factors and is not prime."
+      "explanation": "$21 = 3 \\times 7$, so it has more than two factors and is not prime.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-factors-multiples-q5",
@@ -180,7 +184,8 @@
         "72"
       ],
       "correctIndex": 1,
-      "explanation": "Multiples of 8 are 8, 16, 24, 32, 40, 48, 56, 64, ... The first one greater than 50 is 56."
+      "explanation": "Multiples of 8 are 8, 16, 24, 32, 40, 48, 56, 64, ... The first one greater than 50 is 56.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-factors-multiples-q6",
@@ -192,7 +197,8 @@
         "$3 \\times 16$"
       ],
       "correctIndex": 2,
-      "explanation": "$48 = 16 \\times 3 = 2^4 \\times 3$. All factors must be prime, and 24 and 16 are not prime."
+      "explanation": "$48 = 16 \\times 3 = 2^4 \\times 3$. All factors must be prime, and 24 and 16 are not prime.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-factors-multiples-q7",
@@ -204,7 +210,8 @@
         "42"
       ],
       "correctIndex": 1,
-      "explanation": "24 is divisible by 4 (last two digits 24) and by 3 (digit sum $2 + 4 = 6$)."
+      "explanation": "24 is divisible by 4 (last two digits 24) and by 3 (digit sum $2 + 4 = 6$).",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-factors-multiples-q8",
@@ -216,7 +223,8 @@
         "45"
       ],
       "correctIndex": 2,
-      "explanation": "$36 = 6 \\times 6 = 6^2$, so 36 is a square number."
+      "explanation": "$36 = 6 \\times 6 = 6^2$, so 36 is a square number.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-factors-multiples-q9",
@@ -228,7 +236,8 @@
         "14"
       ],
       "correctIndex": 1,
-      "explanation": "$12 \\times 12 = 144$, so $\\sqrt{144} = 12$."
+      "explanation": "$12 \\times 12 = 144$, so $\\sqrt{144} = 12$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr7-factors-multiples-q10",
@@ -240,7 +249,8 @@
         "15"
       ],
       "correctIndex": 1,
-      "explanation": "Factors of 18 are 1, 2, 3, 6, 9, 18. Factors of 30 are 1, 2, 3, 5, 6, 10, 15, 30. The highest common factor is 6."
+      "explanation": "Factors of 18 are 1, 2, 3, 6, 9, 18. Factors of 30 are 1, 2, 3, 5, 6, 10, 15, 30. The highest common factor is 6.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-factors-multiples-q11",
@@ -252,7 +262,8 @@
         "16"
       ],
       "correctIndex": 1,
-      "explanation": "Multiples of 6 are 6, 12, 18, 24, 30, ... Multiples of 10 are 10, 20, 30, ... The lowest common multiple is 30."
+      "explanation": "Multiples of 6 are 6, 12, 18, 24, 30, ... Multiples of 10 are 10, 20, 30, ... The lowest common multiple is 30.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr7-factors-multiples-q12",
@@ -264,7 +275,8 @@
         "24"
       ],
       "correctIndex": 1,
-      "explanation": "$36 = 2^2 \\times 3^2$ and $60 = 2^2 \\times 3 \\times 5$. Take the lowest power of each common prime: $2^2 \\times 3 = 12$."
+      "explanation": "$36 = 2^2 \\times 3^2$ and $60 = 2^2 \\times 3 \\times 5$. Take the lowest power of each common prime: $2^2 \\times 3 = 12$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-factors-multiples-q13",
@@ -276,7 +288,8 @@
         "72"
       ],
       "correctIndex": 2,
-      "explanation": "$12 = 2^2 \\times 3$ and $18 = 2 \\times 3^2$. Take the highest power of each prime: $2^2 \\times 3^2 = 4 \\times 9 = 36$."
+      "explanation": "$12 = 2^2 \\times 3$ and $18 = 2 \\times 3^2$. Take the highest power of each prime: $2^2 \\times 3^2 = 4 \\times 9 = 36$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-factors-multiples-q14",
@@ -288,7 +301,8 @@
         "9:24 am"
       ],
       "correctIndex": 3,
-      "explanation": "This asks for the LCM of 8 and 12. Multiples of 8 are 8, 16, 24, ... and multiples of 12 are 12, 24, ... The LCM is 24, so they next leave together 24 minutes after 9:00 am."
+      "explanation": "This asks for the LCM of 8 and 12. Multiples of 8 are 8, 16, 24, ... and multiples of 12 are 12, 24, ... The LCM is 24, so they next leave together 24 minutes after 9:00 am.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr7-factors-multiples-q15",
@@ -300,7 +314,8 @@
         "8 m"
       ],
       "correctIndex": 2,
-      "explanation": "The largest square that divides both 24 and 30 exactly has side length equal to the HCF of 24 and 30. Factors of 24 are 1, 2, 3, 4, 6, 8, 12, 24; factors of 30 are 1, 2, 3, 5, 6, 10, 15, 30. The HCF is 6 m."
+      "explanation": "The largest square that divides both 24 and 30 exactly has side length equal to the HCF of 24 and 30. Factors of 24 are 1, 2, 3, 4, 6, 8, 12, 24; factors of 30 are 1, 2, 3, 5, 6, 10, 15, 30. The HCF is 6 m.",
+      "difficulty": "hard"
     }
   ]
 }

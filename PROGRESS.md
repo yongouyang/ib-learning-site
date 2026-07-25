@@ -6,7 +6,19 @@
 
 ---
 
-## 2026-07-24 — Phase 2 Session 1: schema + validators + tagging pilot (rubric fixed)
+## 2026-07-24 — Phase 2 Session 2: all 1,970 questions difficulty-tagged; LaTeX escape bug fixed
+
+Git HEAD: `b144186` (branch `develop`; Session 2 changes uncommitted at entry time)
+Done:
+1. **Swarm tagging complete** (9 batches, 126 topics, 2 resume rounds after a 403 quota pause mid-run): 1,925 `difficulty` + 92 `calculator` keys added. Global 640 easy (32%) / 852 medium (43%) / 478 hard (24%); every topic ≥3 easy / ≥3 hard. Rubric from plan §3.1 used verbatim.
+2. **Verification**: mechanical diff check CLEAN (only tag keys; all removed lines restored verbatim + trailing comma); 12-question random spot-check defensible; per-batch distribution tables in swarm reports.
+3. **Pre-existing bug fixed**: 467 corrupted LaTeX escapes in 11 math files (`\times`/`\text`/`\theta`/`\tan`/`\to`/`\neq` written single-backslashed → JSON `\t` parsed as literal tab, rendering "imes"/"heta"…). Predates the swarm (proven by tags-only diff). All fixed; control-char scan now clean. Files: 6 math-dp-ai (trig 186, quadratics 56, sequences 58, integration 36, probability 34, differentiation 26), yr7-algebraic-expressions, yr7-nets-3d-shapes, yr8-pythagoras, yr8-standard-form, yr8-transformations.
+4. Plan §3.1 calculator note corrected: **AI allows a GDC on all papers** (P1-non-calc is AA, not AI) — swarm prompt already applied this.
+Verified: `generate:registry` ✅, `validate:content` ✅, `audit:content` **0/0** ✅ (was 126 warnings pre-tagging), `validate:illustrations` + layout ✅, Vitest 100/100 ✅, e2e 462 passed / 6 skipped / 0 failed ✅.
+Next: 1) Commit + push Session 2 (user confirmation pending at entry time). 2) Phase 2 Session 3 — quiz UI: badges, easy→hard ordering, difficulty filter. 3) Session 4 — stratified mixed review + diagnostics. Backlog unchanged (English strand re-map needs user decision, DP AA, PWA).
+Notes: Thin-but-honest hard bands flagged by agents (future harder-question candidates, NOT tagging errors): eng-speaking-1, chem-organic-1, math-dp-ai-voronoi-diagrams, math-dp-ai-graph-theory. Several DP files have 20 questions (not 15) — audit's 15-standard is a target, min is 5. Swarm used insertion scripts instead of 1,925 Edit calls — allowed; parent-side diff check is the real gate.
+
+---
 
 Git HEAD: `66256c2` (branch `develop`; Phase 2 changes uncommitted at entry time)
 Done:

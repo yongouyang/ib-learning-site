@@ -133,7 +133,9 @@
         "$0.314$"
       ],
       "correctIndex": 1,
-      "explanation": "$P(X = 3) = \\dfrac{e^{-2.5} \\cdot 2.5^3}{3!} = \\dfrac{e^{-2.5} \\cdot 15.625}{6} \\approx 0.2138 \\to 0.214$."
+      "explanation": "$P(X = 3) = \\dfrac{e^{-2.5} \\cdot 2.5^3}{3!} = \\dfrac{e^{-2.5} \\cdot 15.625}{6} \\approx 0.2138 \\to 0.214$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-poisson-distribution-q2",
@@ -145,7 +147,9 @@
         "$0.195$"
       ],
       "correctIndex": 2,
-      "explanation": "Using Poisson CD: $P(X \\leq 2) = P(0) + P(1) + P(2) = e^{-4}(1 + 4 + 8) = 13e^{-4} \\approx 0.238$."
+      "explanation": "Using Poisson CD: $P(X \\leq 2) = P(0) + P(1) + P(2) = e^{-4}(1 + 4 + 8) = 13e^{-4} \\approx 0.238$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-poisson-distribution-q3",
@@ -157,7 +161,9 @@
         "$0.950$"
       ],
       "correctIndex": 2,
-      "explanation": "$P(X > 1) = 1 - P(X \\leq 1) = 1 - [e^{-3}(1 + 3)] = 1 - 4e^{-3} \\approx 1 - 0.199 = 0.801$."
+      "explanation": "$P(X > 1) = 1 - P(X \\leq 1) = 1 - [e^{-3}(1 + 3)] = 1 - 4e^{-3} \\approx 1 - 0.199 = 0.801$.",
+      "difficulty": "medium",
+      "calculator": true
     },
     {
       "id": "math-dp-poisson-distribution-q4",
@@ -169,7 +175,8 @@
         "$N(6, 6)$"
       ],
       "correctIndex": 2,
-      "explanation": "The Poisson distribution is the only one where mean = variance = $m$. $B(12, 0.5)$ has mean $6$ but variance $3$. $N(6, 6)$ is continuous, not discrete."
+      "explanation": "The Poisson distribution is the only one where mean = variance = $m$. $B(12, 0.5)$ has mean $6$ but variance $3$. $N(6, 6)$ is continuous, not discrete.",
+      "difficulty": "hard"
     },
     {
       "id": "math-dp-poisson-distribution-q5",
@@ -181,7 +188,8 @@
         "$\\text{Po}(10)$"
       ],
       "correctIndex": 2,
-      "explanation": "The sum of independent Poisson variables is also Poisson with mean equal to the sum of the individual means: $2 + 5 = 7$."
+      "explanation": "The sum of independent Poisson variables is also Poisson with mean equal to the sum of the individual means: $2 + 5 = 7$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-poisson-distribution-q6",
@@ -193,7 +201,8 @@
         "$16$"
       ],
       "correctIndex": 1,
-      "explanation": "The mean scales proportionally with time. $15$ minutes is half of $30$ minutes, so $m = 8/2 = 4$."
+      "explanation": "The mean scales proportionally with time. $15$ minutes is half of $30$ minutes, so $m = 8/2 = 4$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-poisson-distribution-q7",
@@ -205,7 +214,9 @@
         "$0.440$"
       ],
       "correctIndex": 3,
-      "explanation": "$P(2 \\leq X \\leq 4) = P(X \\leq 4) - P(X \\leq 1)$. Using Poisson CD: $P(X \\leq 4) \\approx 0.4405$ and $P(X \\leq 1) \\approx 0.0404$. Difference $\\approx 0.440$."
+      "explanation": "$P(2 \\leq X \\leq 4) = P(X \\leq 4) - P(X \\leq 1)$. Using Poisson CD: $P(X \\leq 4) \\approx 0.4405$ and $P(X \\leq 1) \\approx 0.0404$. Difference $\\approx 0.440$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-dp-poisson-distribution-q8",
@@ -217,7 +228,9 @@
         "$0.777$"
       ],
       "correctIndex": 2,
-      "explanation": "$P(X < 2) = P(X \\leq 1)$ because $X$ is discrete. $P(X \\leq 1) = e^{-1.5}(1 + 1.5) = 2.5e^{-1.5} \\approx 0.558$."
+      "explanation": "$P(X < 2) = P(X \\leq 1)$ because $X$ is discrete. $P(X \\leq 1) = e^{-1.5}(1 + 1.5) = 2.5e^{-1.5} \\approx 0.558$.",
+      "difficulty": "hard",
+      "calculator": true
     },
     {
       "id": "math-dp-poisson-distribution-q9",
@@ -229,7 +242,8 @@
         "The mean and variance are approximately equal"
       ],
       "correctIndex": 2,
-      "explanation": "Poisson does NOT require a fixed number of trials — that is a feature of the binomial distribution. Poisson events can theoretically occur without limit."
+      "explanation": "Poisson does NOT require a fixed number of trials — that is a feature of the binomial distribution. Poisson events can theoretically occur without limit.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-poisson-distribution-q10",
@@ -241,7 +255,8 @@
         "$2.45$"
       ],
       "correctIndex": 0,
-      "explanation": "For $X \\sim \\text{Po}(m)$, $\\text{Var}(X) = m$, so $\\text{SD}(X) = \\sqrt{m} = \\sqrt{6}$. Note that $2.45$ is $\\sqrt{6}$ rounded, but $\\sqrt{6}$ is the exact answer."
+      "explanation": "For $X \\sim \\text{Po}(m)$, $\\text{Var}(X) = m$, so $\\text{SD}(X) = \\sqrt{m} = \\sqrt{6}$. Note that $2.45$ is $\\sqrt{6}$ rounded, but $\\sqrt{6}$ is the exact answer.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-poisson-distribution-q11",
@@ -253,7 +268,8 @@
         "$\\text{Po}(0.06)$"
       ],
       "correctIndex": 1,
-      "explanation": "For a Poisson approximation to the binomial, use $m = np = 200 \\times 0.03 = 6$."
+      "explanation": "For a Poisson approximation to the binomial, use $m = np = 200 \\times 0.03 = 6$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-poisson-distribution-q12",
@@ -265,7 +281,8 @@
         "$m = 25$"
       ],
       "correctIndex": 0,
-      "explanation": "The Poisson distribution is most skewed when the mean is small; larger means produce a more symmetric shape."
+      "explanation": "The Poisson distribution is most skewed when the mean is small; larger means produce a more symmetric shape.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-poisson-distribution-q13",
@@ -277,7 +294,8 @@
         "Variance equals the square of the mean"
       ],
       "correctIndex": 2,
-      "explanation": "For $X \\sim \\text{Po}(m)$, both the expected value and the variance equal $m$."
+      "explanation": "For $X \\sim \\text{Po}(m)$, both the expected value and the variance equal $m$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-dp-poisson-distribution-q14",
@@ -289,7 +307,8 @@
         "$1 - 4e^{-4}$"
       ],
       "correctIndex": 1,
-      "explanation": "$P(X \\ge 1) = 1 - P(X = 0) = 1 - e^{-4}$, since $P(X = 0) = \\dfrac{e^{-4} \\cdot 4^0}{0!} = e^{-4}$."
+      "explanation": "$P(X \\ge 1) = 1 - P(X = 0) = 1 - e^{-4}$, since $P(X = 0) = \\dfrac{e^{-4} \\cdot 4^0}{0!} = e^{-4}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-dp-poisson-distribution-q15",
@@ -301,7 +320,8 @@
         "$12$"
       ],
       "correctIndex": 3,
-      "explanation": "The mean scales linearly with time: $m = 3 \\times \\dfrac{40}{10} = 12$."
+      "explanation": "The mean scales linearly with time: $m = 3 \\times \\dfrac{40}{10} = 12$.",
+      "difficulty": "easy"
     }
   ]
 }

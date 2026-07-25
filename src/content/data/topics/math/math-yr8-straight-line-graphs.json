@@ -132,7 +132,8 @@
         "$4$"
       ],
       "correctIndex": 1,
-      "explanation": "$m=\\dfrac{11-3}{6-2}=\\dfrac{8}{4}=2$, so the gradient is $2$."
+      "explanation": "$m=\\dfrac{11-3}{6-2}=\\dfrac{8}{4}=2$, so the gradient is $2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-straight-line-graphs-q2",
@@ -144,7 +145,8 @@
         "$0$"
       ],
       "correctIndex": 2,
-      "explanation": "In $y=mx+c$, the $y$-intercept is $c=-3$, so the line crosses the $y$-axis at $(0,-3)$."
+      "explanation": "In $y=mx+c$, the $y$-intercept is $c=-3$, so the line crosses the $y$-axis at $(0,-3)$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-straight-line-graphs-q3",
@@ -156,7 +158,8 @@
         "$y=-4x+2$"
       ],
       "correctIndex": 1,
-      "explanation": "Using $y=mx+c$ with $m=-2$ and $c=4$ gives $y=-2x+4$."
+      "explanation": "Using $y=mx+c$ with $m=-2$ and $c=4$ gives $y=-2x+4$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-straight-line-graphs-q4",
@@ -168,7 +171,8 @@
         "$y=3x-2$"
       ],
       "correctIndex": 0,
-      "explanation": "The $y$-intercept is $2$ and the gradient is $3$, so the equation is $y=3x+2$."
+      "explanation": "The $y$-intercept is $2$ and the gradient is $3$, so the equation is $y=3x+2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-straight-line-graphs-q5",
@@ -180,7 +184,8 @@
         "$y=4x+1$"
       ],
       "correctIndex": 0,
-      "explanation": "The gradient is $\\dfrac{9-5}{3-1}=2$. Substituting $(1,5)$ gives $5=2+c$, so $c=3$ and $y=2x+3$."
+      "explanation": "The gradient is $\\dfrac{9-5}{3-1}=2$. Substituting $(1,5)$ gives $5=2+c$, so $c=3$ and $y=2x+3$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-straight-line-graphs-q6",
@@ -192,7 +197,8 @@
         "$y=3x+4$"
       ],
       "correctIndex": 2,
-      "explanation": "Parallel lines have equal gradients, so the answer must keep $m=\\dfrac{3}{4}$."
+      "explanation": "Parallel lines have equal gradients, so the answer must keep $m=\\dfrac{3}{4}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-straight-line-graphs-q7",
@@ -204,7 +210,8 @@
         "$-\\dfrac{1}{2}$"
       ],
       "correctIndex": 3,
-      "explanation": "Perpendicular gradients multiply to $-1$, so $m_2=-\\dfrac{1}{2}$."
+      "explanation": "Perpendicular gradients multiply to $-1$, so $m_2=-\\dfrac{1}{2}$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-straight-line-graphs-q8",
@@ -216,7 +223,8 @@
         "$x=-3$"
       ],
       "correctIndex": 2,
-      "explanation": "A horizontal line has equation $y=c$, so through $(7,-3)$ the equation is $y=-3$."
+      "explanation": "A horizontal line has equation $y=c$, so through $(7,-3)$ the equation is $y=-3$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-straight-line-graphs-q9",
@@ -228,7 +236,8 @@
         "$-8$"
       ],
       "correctIndex": 0,
-      "explanation": "Set $y=0$: $0=4x-8$ gives $4x=8$, so $x=2$."
+      "explanation": "Set $y=0$: $0=4x-8$ gives $4x=8$, so $x=2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-straight-line-graphs-q10",
@@ -240,7 +249,8 @@
         "$10$"
       ],
       "correctIndex": 0,
-      "explanation": "$\\dfrac{10-c}{3}=2$, so $10-c=6$ and therefore $c=4$."
+      "explanation": "$\\dfrac{10-c}{3}=2$, so $10-c=6$ and therefore $c=4$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-straight-line-graphs-q11",
@@ -252,7 +262,8 @@
         "$(-1,-4)$"
       ],
       "correctIndex": 0,
-      "explanation": "Substituting $x=1$ gives $y=3(1)-1=2$, so $(1,2)$ lies on the line."
+      "explanation": "Substituting $x=1$ gives $y=3(1)-1=2$, so $(1,2)$ lies on the line.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-straight-line-graphs-q12",
@@ -264,7 +275,8 @@
         "$y=-\\dfrac{1}{3}x-7$"
       ],
       "correctIndex": 0,
-      "explanation": "Parallel means $m=3$. Substituting $(-1,4)$ gives $4=-3+c$, so $c=7$ and $y=3x+7$."
+      "explanation": "Parallel means $m=3$. Substituting $(-1,4)$ gives $4=-3+c$, so $c=7$ and $y=3x+7$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-straight-line-graphs-q13",
@@ -276,7 +288,8 @@
         "$1$"
       ],
       "correctIndex": 1,
-      "explanation": "$\\dfrac{5-a}{6-2}=-\\dfrac{1}{2}$, so $\\dfrac{5-a}{4}=-\\dfrac{1}{2}$. Multiplying gives $5-a=-2$, hence $a=7$."
+      "explanation": "$\\dfrac{5-a}{6-2}=-\\dfrac{1}{2}$, so $\\dfrac{5-a}{4}=-\\dfrac{1}{2}$. Multiplying gives $5-a=-2$, hence $a=7$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-straight-line-graphs-q14",
@@ -288,7 +301,8 @@
         "$y=-\\dfrac{3}{2}x+1$"
       ],
       "correctIndex": 3,
-      "explanation": "The negative reciprocal of $\\dfrac{2}{3}$ is $-\\dfrac{3}{2}$, so $y=-\\dfrac{3}{2}x+1$ is perpendicular."
+      "explanation": "The negative reciprocal of $\\dfrac{2}{3}$ is $-\\dfrac{3}{2}$, so $y=-\\dfrac{3}{2}x+1$ is perpendicular.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-straight-line-graphs-q15",
@@ -300,7 +314,8 @@
         "$C=2(k+5)$"
       ],
       "correctIndex": 0,
-      "explanation": "The fixed $5 is the $y$-intercept and the $2 per kilometre is the gradient, so $C=2k+5$."
+      "explanation": "The fixed $5 is the $y$-intercept and the $2 per kilometre is the gradient, so $C=2k+5$.",
+      "difficulty": "medium"
     }
   ]
 }

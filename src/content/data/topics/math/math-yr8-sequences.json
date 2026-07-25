@@ -132,7 +132,8 @@
         "$34$"
       ],
       "correctIndex": 2,
-      "explanation": "The common difference is $5$, since $12 - 7 = 5$. Therefore, $27 + 5 = 32$."
+      "explanation": "The common difference is $5$, since $12 - 7 = 5$. Therefore, $27 + 5 = 32$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-sequences-q2",
@@ -144,7 +145,8 @@
         "$-6$"
       ],
       "correctIndex": 1,
-      "explanation": "Each term is $4$ less than the previous term: $16 - 20 = -4$, $12 - 16 = -4$, and so on."
+      "explanation": "Each term is $4$ less than the previous term: $16 - 20 = -4$, $12 - 16 = -4$, and so on.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-sequences-q3",
@@ -156,7 +158,8 @@
         "$n + 4$"
       ],
       "correctIndex": 1,
-      "explanation": "The common difference is $4$, so start with $4n$. When $n = 1$, $4n = 4$, but the first term is $3$, so subtract $1$. The rule is $4n - 1$."
+      "explanation": "The common difference is $4$, so start with $4n$. When $n = 1$, $4n = 4$, but the first term is $3$, so subtract $1$. The rule is $4n - 1$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-sequences-q4",
@@ -168,7 +171,8 @@
         "$65$"
       ],
       "correctIndex": 1,
-      "explanation": "Substitute $n = 10$ into $6n - 5$: $6(10) - 5 = 60 - 5 = 55$."
+      "explanation": "Substitute $n = 10$ into $6n - 5$: $6(10) - 5 = 60 - 5 = 55$.",
+      "difficulty": "easy"
     },
     {
       "id": "math-yr8-sequences-q5",
@@ -180,7 +184,8 @@
         "$5n + 9$"
       ],
       "correctIndex": 0,
-      "explanation": "The common difference is $5$, so start with $5n$. When $n = 1$, $5n = 5$, but the first term is $9$, so add $4$. The rule is $5n + 4$."
+      "explanation": "The common difference is $5$, so start with $5n$. When $n = 1$, $5n = 5$, but the first term is $9$, so add $4$. The rule is $5n + 4$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-sequences-q6",
@@ -192,7 +197,8 @@
         "$11$"
       ],
       "correctIndex": 1,
-      "explanation": "Set $8n + 3 = 75$. Subtract $3$ to get $8n = 72$, then divide by $8$ to get $n = 9$."
+      "explanation": "Set $8n + 3 = 75$. Subtract $3$ to get $8n = 72$, then divide by $8$ to get $n = 9$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-sequences-q7",
@@ -204,7 +210,8 @@
         "No, because the sequence decreases"
       ],
       "correctIndex": 1,
-      "explanation": "Set $6n + 2 = 50$. Subtract $2$ to get $6n = 48$, then divide by $6$ to get $n = 8$. So $50$ is the $8$th term."
+      "explanation": "Set $6n + 2 = 50$. Subtract $2$ to get $6n = 48$, then divide by $6$ to get $n = 8$. So $50$ is the $8$th term.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-sequences-q8",
@@ -216,7 +223,8 @@
         "$28$"
       ],
       "correctIndex": 1,
-      "explanation": "The common difference is $7$, since $17 - 10 = 7$ and $38 - 31 = 7$. Therefore, $17 + 7 = 24$, and checking, $24 + 7 = 31$."
+      "explanation": "The common difference is $7$, since $17 - 10 = 7$ and $38 - 31 = 7$. Therefore, $17 + 7 = 24$, and checking, $24 + 7 = 31$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-sequences-q9",
@@ -228,7 +236,8 @@
         "$\\$49$"
       ],
       "correctIndex": 3,
-      "explanation": "The cost sequence is $7, 10, 13, \\dots$, with first term $7$ and common difference $3$. The $n$th term is $T_n = 3n + 4$. For $15$ km, $T_{15} = 3(15) + 4 = 49$, so the fare is $\\$49$."
+      "explanation": "The cost sequence is $7, 10, 13, \\dots$, with first term $7$ and common difference $3$. The $n$th term is $T_n = 3n + 4$. For $15$ km, $T_{15} = 3(15) + 4 = 49$, so the fare is $\\$49$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-sequences-q10",
@@ -240,7 +249,8 @@
         "$37$"
       ],
       "correctIndex": 3,
-      "explanation": "The sequence follows $T_n = n^2 + 1$, since $1^2 + 1 = 2$, $2^2 + 1 = 5$, and so on. The $6$th term is $6^2 + 1 = 37$."
+      "explanation": "The sequence follows $T_n = n^2 + 1$, since $1^2 + 1 = 2$, $2^2 + 1 = 5$, and so on. The $6$th term is $6^2 + 1 = 37$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-sequences-q11",
@@ -252,7 +262,8 @@
         "$2n^2 + 1$"
       ],
       "correctIndex": 0,
-      "explanation": "Compare with $n^2$: $1, 4, 9, 16, 25$. Each term is $2$ more than the corresponding square number, so the rule is $T_n = n^2 + 2$."
+      "explanation": "Compare with $n^2$: $1, 4, 9, 16, 25$. Each term is $2$ more than the corresponding square number, so the rule is $T_n = n^2 + 2$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-sequences-q12",
@@ -264,7 +275,8 @@
         "$4$"
       ],
       "correctIndex": 1,
-      "explanation": "First differences are $3, 5, 7, 9$. The second differences are $5 - 3 = 2$, $7 - 5 = 2$, and $9 - 7 = 2$, so the second difference is $2$."
+      "explanation": "First differences are $3, 5, 7, 9$. The second differences are $5 - 3 = 2$, $7 - 5 = 2$, and $9 - 7 = 2$, so the second difference is $2$.",
+      "difficulty": "medium"
     },
     {
       "id": "math-yr8-sequences-q13",
@@ -276,7 +288,8 @@
         "$27 - 5n$"
       ],
       "correctIndex": 3,
-      "explanation": "The common difference is $-5$. Starting with $-5n$, when $n = 1$ we get $-5$, but the first term is $22$, so we need $27 - 5n$. Check: $27 - 5(2) = 17$ ✓."
+      "explanation": "The common difference is $-5$. Starting with $-5n$, when $n = 1$ we get $-5$, but the first term is $22$, so we need $27 - 5n$. Check: $27 - 5(2) = 17$ ✓.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-sequences-q14",
@@ -288,7 +301,8 @@
         "$32$"
       ],
       "correctIndex": 2,
-      "explanation": "The sequence is $2, 6, 12, 20$. Comparing with $n^2$: $1, 4, 9, 16$, each term is $n^2 + n$. For Picture $5$, $5^2 + 5 = 25 + 5 = 30$."
+      "explanation": "The sequence is $2, 6, 12, 20$. Comparing with $n^2$: $1, 4, 9, 16$, each term is $n^2 + n$. For Picture $5$, $5^2 + 5 = 25 + 5 = 30$.",
+      "difficulty": "hard"
     },
     {
       "id": "math-yr8-sequences-q15",
@@ -300,7 +314,8 @@
         "$1, 2, 4, 8, 16$"
       ],
       "correctIndex": 2,
-      "explanation": "$2, 5, 10, 17, 26$ has first differences $3, 5, 7, 9$ and constant second difference $2$, so it follows $T_n = n^2 + 1$ and is quadratic."
+      "explanation": "$2, 5, 10, 17, 26$ has first differences $3, 5, 7, 9$ and constant second difference $2$, so it follows $T_n = n^2 + 1$ and is quadratic.",
+      "difficulty": "medium"
     }
   ]
 }
