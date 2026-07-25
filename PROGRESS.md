@@ -6,7 +6,18 @@
 
 ---
 
-## 2026-07-24 — Phase 3 Session 1: shared course map, storage v1 extension, exam/ladder libs
+## 2026-07-24 — Phase 3 Session 2: timed mock exams live at /exams
+
+Git HEAD: `1627076` → pushed `1efff9f` (branch `develop`, tree clean)
+Done:
+1. **QuizGame `timerMode='overall'`**: single whole-quiz countdown (mm:ss, "Exam time remaining"), never resets per question; on expiry all unanswered questions → `onQuestionResult(id, false)` + auto-complete. Per-question mode default/unchanged; topic quizzes unaffected.
+2. **Routes**: `/exams` index — 8 course cards, 12 paper links (math ×2, others ×1), live `Best: X% · N attempts` badges via client `PaperScore` reading context. `/exams/[courseId]/[paperId]` runner — deterministic sets (static params, SSR-safe), overall timer at paper duration, records `ExamResult` incl. `secondsUsed`, retake-guarded (`recorded` ref).
+3. **CTA**: Mock Exams button on /progress Practice card.
+Verified: Vitest 155/155 ✅ (+2: mm:ss display, fake-timer expiry auto-complete), `exams.spec.ts` 9/9 ✅ (index 12 papers, full 20q timed run → Best badge, progress CTA), tsc ✅, validate:content ✅, audit 0/0 ✅, illustrations + layout ✅, full e2e **492 passed** / 6 skipped / 0 failed ✅.
+Next: 1) Phase 3 Session 3 (final) — revision ladder UI: `/exams/[courseId]/ladder` overview (unlock states) + `ladder/[level]` runner, e2e unlock flow, docs; then Phase 3 complete. Backlog: English strand re-map (needs user decision), DP AA, PWA.
+Notes: Try-Again resets the overall timer correctly (state reset already covers timeLeft). Exam results intentionally do NOT feed weak areas (aggregate scores aren't topic-level signals) — diagnostics own that role.
+
+---
 
 Git HEAD: `13e6846` (branch `develop`; Phase 3 changes uncommitted at entry time)
 Done:

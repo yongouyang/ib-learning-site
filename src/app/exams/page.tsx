@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FileText, Clock, ArrowRight } from 'lucide-react';
+import { FileText, Clock, ArrowRight, TrendingUp } from 'lucide-react';
 import { getExamCourses, examId } from '@/lib/exams';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import PaperScore from './PaperScore';
@@ -43,6 +43,14 @@ export default function ExamsPage() {
                   <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-gray-500 dark:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
                 </Link>
               ))}
+            </div>
+            <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-800">
+              <Link
+                href={`/exams/${course.id}/ladder`}
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200"
+              >
+                <TrendingUp className="w-4 h-4" /> Revision Ladder — 5 levels
+              </Link>
             </div>
           </div>
         ))}
