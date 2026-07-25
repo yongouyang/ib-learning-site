@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Star, Flame, CheckCircle2, Target, Dices } from 'lucide-react';
+import { Star, Flame, CheckCircle2, Target, Dices, ClipboardList } from 'lucide-react';
 import { useProgress } from '@/context/ProgressContext';
 import { getSubjects } from '@/content/registry';
 import { getRecentAverageScore } from '@/lib/progress-store';
@@ -47,6 +47,10 @@ export default function ProgressPage() {
           <Link href="/mixed-review"
             className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
             <Dices className="w-4 h-4" /> Mixed Review
+          </Link>
+          <Link href="/diagnostics"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
+            <ClipboardList className="w-4 h-4" /> Diagnostics
           </Link>
         </div>
       </div>

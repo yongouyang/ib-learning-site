@@ -46,6 +46,8 @@ interface QuizGameProps {
   timerSeconds?: number;
   shuffleSeed?: string;
   onComplete: (correctCount: number, totalCount: number) => void;
+  /** Called once per answered question (correct=false on timeout). */
+  onQuestionResult?: (questionId: string, correct: boolean) => void;
 }
 
 export default function QuizGame({
@@ -58,6 +60,7 @@ export default function QuizGame({
   timerSeconds = 60,
   shuffleSeed,
   onComplete,
+  onQuestionResult,
 }: QuizGameProps) {
   const [shuffledQuestions] = useState(() =>
     questions.length > 0 ? seededShuffle([...questions], shuffleSeed) : []
@@ -81,18 +84,21 @@ export default function QuizGame({
     if (index === currentQuestion.correctIndex) {
       setAnswerState('correct');
       setCorrectCount((c) => c + 1);
+      onQuestionResult?.(currentQuestion.id, true);
     } else {
       setAnswerState('incorrect');
+      onQuestionResult?.(currentQuestion.id, false);
     }
     setShowExplanation(true);
-  }, [answerState, currentQuestion]);
+  }, [answerState, currentQuestion, onQuestionResult]);
 
   const handleTimeout = useCallback(() => {
     if (answerState !== 'unanswered' || !currentQuestion) return;
     setSelectedIndex(-1);
     setAnswerState('incorrect');
+    onQuestionResult?.(currentQuestion.id, false);
     setShowExplanation(true);
-  }, [answerState, currentQuestion]);
+  }, [answerState, currentQuestion, onQuestionResult]);
 
   const handleNext = useCallback(() => {
     if (currentIndex < shuffledQuestions.length - 1) {

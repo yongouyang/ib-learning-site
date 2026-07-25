@@ -60,3 +60,30 @@ export function parseDifficultyFilter(value: string | null): DifficultyFilter {
   if (value === 'easy' || value === 'medium' || value === 'hard') return value;
   return 'all';
 }
+
+// Stratified random sample: pick `targets[level]` items from each difficulty
+// band (untagged counts as medium). When a band runs short, the deficit is
+// filled from the leftovers of all bands so the total is still reached.
+// Non-deterministic (Math.random) — for quiz-session sampling, not SSR.
+export function stratifiedSample<T>(
+  pool: T[],
+  targets: Partial<Record<Difficulty, number>>,
+  getDifficulty: (item: T) => Difficulty | undefined = (item) =>
+    (item as { difficulty?: Difficulty }).difficulty
+): T[] {
+  const total = Object.values(targets).reduce((sum, n) => sum + n, 0);
+  const bands: Record<Difficulty, T[]> = { easy: [], medium: [], hard: [] };
+  for (const item of pool) bands[getDifficulty(item) ?? 'medium'].push(item);
+  for (const level of DIFFICULTY_LEVELS) {
+    bands[level].sort(() => Math.random() - 0.5);
+  }
+  const picked: T[] = [];
+  const leftovers: T[] = [];
+  for (const level of DIFFICULTY_LEVELS) {
+    const want = targets[level] ?? 0;
+    picked.push(...bands[level].slice(0, want));
+    leftovers.push(...bands[level].slice(want));
+  }
+  leftovers.sort(() => Math.random() - 0.5);
+  return [...picked, ...leftovers].slice(0, total);
+}

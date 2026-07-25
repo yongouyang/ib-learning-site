@@ -1,11 +1,14 @@
 import { Question, TopicProgress, SubjectId } from '@/content/types';
 import { getSubjects } from '@/content/registry';
 import { getWeakTopics } from '@/lib/weak-point-analyzer';
+import { stratifiedSample } from '@/lib/quiz-utils';
 
 export const MIXED_REVIEW_TOPIC_ID = 'mixed-review';
 export const MIXED_REVIEW_SUBJECT_ID: SubjectId = 'math';
 export const MIXED_REVIEW_TITLE = 'Mixed Review';
 export const MIXED_REVIEW_COUNT = 10;
+// Per-band targets for each mixed-review set (sums to MIXED_REVIEW_COUNT).
+export const MIXED_REVIEW_BAND_TARGETS = { easy: 3, medium: 4, hard: 3 } as const;
 
 export interface MixedReviewQuestion {
   question: Question;
@@ -46,8 +49,7 @@ export function buildMixedReviewQuestions(
     }
   }
 
-  const shuffled = pool.sort(() => Math.random() - 0.5);
-  const questions = shuffled.slice(0, MIXED_REVIEW_COUNT);
+  const questions = stratifiedSample(pool, MIXED_REVIEW_BAND_TARGETS, (mq) => mq.question.difficulty);
 
   if (questions.length === 0) {
     // Ultimate fallback: any available question.

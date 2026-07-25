@@ -51,4 +51,13 @@ describe('buildMixedReviewQuestions', () => {
       expect(result.questions.every((q) => q.topicId === 'math-yr7-calculations')).toBe(true);
     }
   });
+
+  it('samples 3 easy / 4 medium / 3 hard from the full pool', () => {
+    const result = buildMixedReviewQuestions([], 'random');
+    const count = (d: string) =>
+      result.questions.filter((q) => (q.question.difficulty ?? 'medium') === d).length;
+    expect(count('easy')).toBe(3);
+    expect(count('medium')).toBe(4);
+    expect(count('hard')).toBe(3);
+  });
 });

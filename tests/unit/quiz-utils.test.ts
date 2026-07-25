@@ -1,9 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import {
   orderQuestionsByDifficulty,
   filterQuestionsByDifficulty,
   parseDifficultyFilter,
   seededShuffle,
+  stratifiedSample,
 } from '@/lib/quiz-utils';
 import type { Question } from '@/content/types';
 
@@ -84,6 +85,56 @@ describe('parseDifficultyFilter', () => {
     expect(parseDifficultyFilter(null)).toBe('all');
     expect(parseDifficultyFilter('extreme')).toBe('all');
     expect(parseDifficultyFilter('')).toBe('all');
+  });
+});
+
+describe('stratifiedSample', () => {
+  beforeEach(() => {
+    vi.stubGlobal('Math', { ...Math, random: vi.fn(() => 0.5) });
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('picks the requested number per band', () => {
+    const big = [
+      ...Array.from({ length: 10 }, (_, i) => makeQuestion(`e${i}`, 'easy')),
+      ...Array.from({ length: 10 }, (_, i) => makeQuestion(`m${i}`, 'medium')),
+      ...Array.from({ length: 10 }, (_, i) => makeQuestion(`h${i}`, 'hard')),
+    ];
+    const sample = stratifiedSample(big, { easy: 3, medium: 4, hard: 3 });
+    expect(sample).toHaveLength(10);
+    const count = (d: string) => sample.filter((q) => q.difficulty === d).length;
+    expect(count('easy')).toBe(3);
+    expect(count('medium')).toBe(4);
+    expect(count('hard')).toBe(3);
+  });
+
+  it('fills short bands from leftovers of other bands', () => {
+    const skewed = [
+      makeQuestion('e1', 'easy'),
+      ...Array.from({ length: 12 }, (_, i) => makeQuestion(`m${i}`, 'medium')),
+      makeQuestion('h1', 'hard'),
+    ];
+    const sample = stratifiedSample(skewed, { easy: 3, medium: 4, hard: 3 });
+    expect(sample).toHaveLength(10);
+    // Only 1 easy and 1 hard exist; the other 8 come from the medium leftovers.
+    expect(sample.filter((q) => q.difficulty === 'medium')).toHaveLength(8);
+    expect(sample.filter((q) => q.difficulty === 'easy')).toHaveLength(1);
+    expect(sample.filter((q) => q.difficulty === 'hard')).toHaveLength(1);
+  });
+
+  it('treats untagged items as medium', () => {
+    const untagged = Array.from({ length: 8 }, (_, i) => makeQuestion(`u${i}`));
+    const sample = stratifiedSample(untagged, { easy: 1, medium: 3, hard: 1 });
+    expect(sample).toHaveLength(5);
+    expect(sample.every((q) => q.difficulty === undefined)).toBe(true);
+  });
+
+  it('returns everything when the pool is smaller than the target total', () => {
+    const tiny = [makeQuestion('e1', 'easy'), makeQuestion('m1', 'medium')];
+    expect(stratifiedSample(tiny, { easy: 3, medium: 4, hard: 3 })).toHaveLength(2);
   });
 });
 

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Flame, ArrowRight, Target } from 'lucide-react';
+import { Flame, ArrowRight, Target, ClipboardList } from 'lucide-react';
 import { useProgress } from '@/context/ProgressContext';
 import { getSubjects, subjectMeta } from '@/content/registry';
 import { getWeakTopics } from '@/lib/weak-point-analyzer';
@@ -54,6 +54,21 @@ export default function HomePage() {
               Practice all weak areas in mixed review <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+        </div>
+      )}
+
+      {weakTopics.length === 0 && (
+        <div className="card p-4 mb-6 bg-blue-50/50 dark:bg-blue-950/50 border-blue-200 dark:border-blue-900">
+          <h2 className="text-sm font-semibold text-blue-800 dark:text-blue-200 mb-1 inline-flex items-center gap-1.5">
+            <ClipboardList className="w-4 h-4" /> Not sure where to start?
+          </h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+            Take a short diagnostic test — your results instantly highlight the topics to practise first.
+          </p>
+          <Link href="/diagnostics"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200">
+            Choose a diagnostic test <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       )}
 

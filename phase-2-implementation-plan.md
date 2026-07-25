@@ -143,4 +143,4 @@ Dependencies: Sessions 3–4 both depend on Session 2 (tags must exist before UI
 
 1. ~~**Difficulty rubric wording**~~ — **resolved in Session 1**: rubric fixed in §3.1 (relative to topic level; scenario prediction = hard for recall subjects).
 2. ~~**Distribution rule strictness**~~ — **resolved in Session 1**: pilot confirmed ≥3 easy/≥3 hard is reachable even for a recall-heavy spelling topic (its hard band = multi-option discrimination + applied reasoning), so the rule stands unchanged.
-3. **Diagnostic length** (resolve in Session 4) — 15 questions default; math-Y7 has 26 topics so 1-per-topic needs a cap. Cap at 15 with topic spread maximized, or let length = topic count? Default: cap 15.
+3. ~~**Diagnostic length**~~ — **resolved in Session 4**: capped at 15 with topic spread maximized (round-robin across topics, one question per topic until the pool runs out). Band targets 4 easy / 7 medium / 4 hard. Sets are deterministic per course (seeded) so SSR matches and retakes see the same set.

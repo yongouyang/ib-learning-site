@@ -6,7 +6,20 @@
 
 ---
 
-## 2026-07-24 — Phase 2 Session 3: quiz UI — difficulty badges, easy→hard ordering, difficulty filter
+## 2026-07-24 — Phase 2 Session 4 (final): stratified mixed review + diagnostics — Phase 2 COMPLETE
+
+Git HEAD: `f8c63b7` (branch `develop`; Session 4 changes uncommitted at entry time)
+Done:
+1. **Stratified mixed review**: `stratifiedSample` in `quiz-utils.ts` (accessor-based, untagged = medium, short bands backfilled from leftovers); `mixed-review.ts` now samples 3 easy / 4 medium / 3 hard in both weak and random modes.
+2. **Diagnostics**: `src/lib/diagnostics.ts` — 8 course groupings (math-y7/y8/y9, math-dp-ai, eng/bio/chem/phys-ks3); deterministic seeded builder: 15 questions, band targets 4/7/4, ≤1 question per topic (rotating per-round band priority — first attempt only hit 7 topics, caught by unit test). Routes: `/diagnostics` index (server, 8 cards) + `/diagnostics/[courseId]` runner (static params, reuses QuizGame, no timer).
+3. **Result fan-out**: new optional `QuizGame.onQuestionResult(questionId, correct)`; runner records one attempt per touched topic via existing `recordAttempt` → weak areas seeded immediately, **no storage migration**.
+4. **CTAs**: homepage cold-start card (shown when no weak areas) + Diagnostics button on /progress Practice card.
+5. **Docs**: CONTENT_STYLE.md — difficulty/calculator tag rubric (moved from plan §3.1) + JSON backslash-escaping rule (`\\times` never `\times`); plan §6.3 resolved (cap 15, topic spread, deterministic sets).
+Verified: Vitest 126/126 ✅ (+13: stratified ×4, diagnostics ×8, mixed-review bands ×1), `diagnostics.spec.ts` 9/9 ✅ (index, CTA, full run → Needs Practice), full e2e **483 passed** / 6 skipped / 0 failed ✅, validate:content ✅, audit:content 0/0 ✅, illustrations + layout ✅.
+Next: 1) Commit + push Session 4 (user confirmation pending). 2) Phase 3 — practice exams (timed mocks per course, P1-non-calc/P2-calc samplers — the calculator tags are ready). Backlog: English strand re-map (needs user decision), DP AA, PWA, per-question history (Phase 6).
+Notes: Diagnostic sets are deterministic per course (retake = same set; reshuffle-on-retake is a later nicety). Per-topic diagnostic attempts are 1-question each — 0/1 or 1/1 scores, which is what seeds weak/strong instantly; stars accrue per attempt (up to 3 per topic) — accepted design, revisit if it inflates. Retake guard: `recorded.current` ref prevents double-recording on Try Again.
+
+---
 
 Git HEAD: `4e74918` (branch `develop`; Session 3 changes uncommitted at entry time)
 Done:

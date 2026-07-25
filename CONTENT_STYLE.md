@@ -76,11 +76,24 @@ Newly created topics may temporarily fall below the target, but they should not 
   - Not be identical to the `stem`.
   - Explain why the correct answer is right (and, where useful, why common distractors are wrong).
 
+### Difficulty & calculator tags
+
+Every question must carry a `difficulty` tag (`easy` | `medium` | `hard`); `audit:content` fails on untagged questions and enforces a per-topic minimum of 3 easy and 3 hard. Judge difficulty **relative to the topic's target level** (year/course), not on an absolute scale:
+
+- **easy** — single-fact recall or a direct definition; a student who read the notes once should get it right.
+- **medium** — apply one rule or procedure, discriminate between close options, or a short single-step calculation.
+- **hard** — multi-step procedure, prediction/application in an unfamiliar context, or fine discrimination across several options — the questions a typical student at this level is most likely to miss. (For recall-heavy subjects like science, scenario-based prediction *is* the hard band.)
+
+Aim for roughly 30% easy / 40% medium / 30% hard per topic.
+
+Math questions may also carry `"calculator": true` when a calculator/GDC is genuinely expected (awkward decimal arithmetic, trig lookups, regression, distribution probabilities, matrix operations, numerical solving). Omit the field otherwise — never write `"calculator": false`. KS3 is mostly non-calculator; DP-AI allows a GDC on all papers (the P1-non-calc convention is AA, not AI). The tag is math-only (`validate:content` rejects it on other subjects).
+
 ## LaTeX
 
 - Only use characters that KaTeX can render inside `$...$` / `$$...$$`.
 - Avoid raw Unicode symbols such as `★`, `🚲`, or `½` inside math delimiters.
 - Use proper LaTeX commands: `\times`, `\text{unit}`.
+- In JSON, LaTeX backslashes must be doubled (`\\times`, never `\times`) — a single backslash before `t`/`n`/`r`/`b`/`f` is a valid JSON escape and silently becomes a control character (tab, newline…), corrupting the math.
 - Always use `\dfrac{a}{b}` (not `\frac{a}{b}`) so fractions render at full, readable size both inline and in display math.
 - Write currency amounts as plain text outside math (`£28`), not `£$28$` or `\pounds` — keeps the £ symbol in the same font as the surrounding sentence.
 - Do not end content lines with a single `\` (Markdown hard break) — the renderer does not interpret it and the audit flags it.
