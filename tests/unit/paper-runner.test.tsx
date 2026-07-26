@@ -1,6 +1,6 @@
 import React from 'react';
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import PaperRunnerClient from '@/app/papers/[courseId]/[setId]/PaperRunnerClient';
 import type { Paper } from '@/content/types';
@@ -55,7 +55,13 @@ const paper: Paper = {
   ],
 };
 
+const timedPaper: Paper = { ...paper, durationMinutes: 1 };
+
 describe('PaperRunnerClient', () => {
+  beforeEach(() => {
+    recordExam.mockClear();
+  });
+
   it('runs the self-marking flow and records marks achieved', async () => {
     const user = userEvent.setup();
     render(<PaperRunnerClient paper={paper} />);
@@ -95,5 +101,51 @@ describe('PaperRunnerClient', () => {
         totalCount: 3,
       })
     );
+  });
+
+  it('auto-finishes on timer expiry with unattempted questions scoring zero', async () => {
+    vi.useFakeTimers();
+    try {
+      render(<PaperRunnerClient paper={timedPaper} />);
+
+      // Expire the 1-minute countdown without answering anything.
+      await React.act(async () => {
+        vi.advanceTimersByTime(61_000);
+      });
+
+      expect(screen.getByRole('heading', { name: /Paper Complete!/i })).toBeInTheDocument();
+      expect(recordExam).toHaveBeenCalledTimes(1);
+      expect(recordExam).toHaveBeenCalledWith(
+        expect.objectContaining({ examId: 'math-y7-set-1', correctCount: 0, totalCount: 3 })
+      );
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('keeps marks from completed questions when the timer expires mid-paper', async () => {
+    vi.useFakeTimers();
+    try {
+      render(<PaperRunnerClient paper={timedPaper} />);
+
+      // Complete the first (easy, 1-mark) question with the point ticked
+      // (fireEvent — userEvent's async delays hang under fake timers).
+      fireEvent.change(screen.getByLabelText(/Your answer/i), { target: { value: '4' } });
+      fireEvent.click(screen.getByRole('button', { name: /Check answer/i }));
+      fireEvent.click(screen.getByRole('button', { name: /B1: 4/i }));
+      fireEvent.click(screen.getByRole('button', { name: /Next Question \(1\/1 marks\)/i }));
+
+      // Expire mid-second-question.
+      await React.act(async () => {
+        vi.advanceTimersByTime(61_000);
+      });
+
+      expect(recordExam).toHaveBeenCalledTimes(1);
+      expect(recordExam).toHaveBeenCalledWith(
+        expect.objectContaining({ correctCount: 1, totalCount: 3 })
+      );
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });

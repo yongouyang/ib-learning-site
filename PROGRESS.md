@@ -6,7 +6,18 @@
 
 ---
 
-## 2026-07-26 — Phase 6 Session 1: flashcard self-sorting + storage v2 + spaced repetition + donut
+## 2026-07-26 — Phase 6 Session 2 (final): mastery bars + due surfacing — Phase 6 COMPLETE
+
+Git HEAD: `77f25ab` → pushed `900d7e3` (branch `develop`, tree clean)
+Done:
+1. **Mastery bars**: subject-page topic rows show thin bar + % from `getRecentAverageScore` (aria-label "Mastery X%"); progress-page subject cards gained a mini Seen/Known donut aggregating all decks in the subject.
+2. **Homepage due card**: "N flashcards due for review" (top-3 topics, per-topic counts) deep-linking into `?filter=due` decks.
+3. **Hydration bug fixed (caught by new e2e)**: filtered decks (`learning`/`due`) were built during SSR with empty progress and — because of the deliberate deck-stability memo — never rebuilt; real users would have seen "Nothing here". Fix: `loaded` flag on ProgressContext (true after first localStorage load); filtered decks wait for it ('all' mode unaffected).
+Verified: `flashcard-progress.spec.ts` 12/12 ✅ (persistence + donut, seeded due/learning filters, due-card deep link, mastery bar), Vitest 190/190 ✅, tsc ✅, validate:content ✅, audit:content 0/0 ✅, illustrations + layout ✅, full e2e **546 passed** / 6 skipped / 0 failed ✅ (one mixed-review iPhone SE timeout flake in the first run — passes standalone and in the confirmation run).
+Next: Phase 7 — platform (PWA: offline content, install prompt; accounts/sync explicitly deferred to the future cloud phase). Backlog: English strand re-map (needs user decision), DP AA, IGCSE content, design refresh (parent plan §6 tokens).
+Notes: all 6 planned phases now shipped. Deploy state: AI feedback still env-gated (no FEEDBACK_* on Vercel — button hidden) per user's pending Moonshot key decision. Interval ladder `[1,3,7,16,35]` is one constant to tune after real usage (plan §6.3).
+
+---
 
 Git HEAD: `af4a4b0` → pushed `77f25ab` (branch `develop`, tree clean)
 Done:
