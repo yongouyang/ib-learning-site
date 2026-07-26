@@ -6,7 +6,20 @@
 
 ---
 
-## 2026-07-25 — Phase 5 Session 2 (final): Mark with AI in paper runner — Phase 5 COMPLETE
+## 2026-07-26 — Phase 6 Session 1: flashcard self-sorting + storage v2 + spaced repetition + donut
+
+Git HEAD: `af4a4b0` → pushed `77f25ab` (branch `develop`, tree clean)
+Done:
+1. **`phase-6-implementation-plan.md`** written (2 sessions; open decisions: no stars for flashcards, learning = explicitly marked, interval ladder tunable).
+2. **Storage v2**: `flashcardProgress: Record<cardId, {status, lastReviewed, knownStreak}>` — additive, v1 payloads default cleanly, save stamps v2. Known bumps streak, learning resets; day-streak counts card review, stars stay quiz/exam-only.
+3. **`flashcard-scheduler.ts`**: `KNOWN_INTERVALS_DAYS = [1,3,7,16,35]` (capped by streak), `isCardDue` (learning always due; never-seen NOT due), `getCardStats`, `filterDeck` (all/learning/due), `getDueTopics` (descending).
+4. **`DualRingDonut`**: pure-SVG dual ring (Seen outer blue / Known inner green), center %, aria label, no chart lib.
+5. **Flashcards page**: post-flip self-sort buttons (Still learning amber / I know this green — forward path now requires a judgment); `?filter=learning|due` modes + empty states; completion stats with session known/learning counts + "Review still learning"; header donut; Suspense wrapper for useSearchParams. Deck frozen per session (marking known can't shrink a filtered deck mid-run).
+Verified: Vitest 190/190 ✅ (+14: scheduler ×9, storage v2 ×2, donut ×3, version-stamp fix ×1), tsc ✅, validate:content ✅, audit:content 0/0 ✅, illustrations + layout ✅, updated flashcards.spec + full-topic-journey.spec for new UX ✅, full e2e **534 passed** / 6 skipped / 0 failed ✅.
+Next: Phase 6 Session 2 (final) — mastery bars on subject-page topic rows + progress-page subjects, homepage "Flashcards due" card with deep links (`?filter=due`), e2e (self-sort flow, filters, due card via seeded storage, mastery bar), docs.
+Notes: two existing e2e specs used the old Next/Finish flashcard nav — updated to flip + "I know this". `deck` useMemo deliberately excludes flashcardProgress from deps (session stability) with an eslint-disable note.
+
+---
 
 Git HEAD: `84245fe` → pushed `af4a4b0` (branch `develop`, tree clean)
 Done:

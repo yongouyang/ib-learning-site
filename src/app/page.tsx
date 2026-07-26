@@ -2,16 +2,19 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Flame, ArrowRight, Target, ClipboardList } from 'lucide-react';
+import { Flame, ArrowRight, Target, ClipboardList, Layers } from 'lucide-react';
 import { useProgress } from '@/context/ProgressContext';
 import { getSubjects, subjectMeta } from '@/content/registry';
 import { getWeakTopics } from '@/lib/weak-point-analyzer';
 import { getRecentAverageScore } from '@/lib/progress-store';
+import { getDueTopics } from '@/lib/flashcard-scheduler';
 
 export default function HomePage() {
-  const { userProgress, topicProgress } = useProgress();
+  const { userProgress, topicProgress, flashcardProgress } = useProgress();
   const subjects = getSubjects();
   const weakTopics = getWeakTopics(topicProgress);
+  const dueTopics = getDueTopics(subjects.flatMap((s) => s.topics), flashcardProgress);
+  const totalDue = dueTopics.reduce((sum, t) => sum + t.dueCount, 0);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">
@@ -53,6 +56,27 @@ export default function HomePage() {
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-700 dark:text-orange-300 hover:text-orange-800 dark:hover:text-orange-200">
               Practice all weak areas in mixed review <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      )}
+
+      {dueTopics.length > 0 && (
+        <div className="card p-4 mb-6 bg-green-50/50 dark:bg-green-950/50 border-green-200 dark:border-green-900">
+          <h2 className="text-sm font-semibold text-green-800 dark:text-green-200 mb-2 inline-flex items-center gap-1.5">
+            <Layers className="w-4 h-4" /> {totalDue} flashcard{totalDue !== 1 ? 's' : ''} due for review
+          </h2>
+          <div className="space-y-1.5">
+            {dueTopics.slice(0, 3).map((t) => {
+              const meta = subjectMeta[t.subjectId];
+              return (
+                <Link key={`${t.subjectId}:${t.topicId}`} href={`/subjects/${t.subjectId}/${t.topicId}/flashcards?filter=due`}
+                  className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 py-1">
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: meta.color }} />
+                  <span className="flex-1">{t.topicTitle}</span>
+                  <span className="text-green-600 dark:text-green-400 font-medium">{t.dueCount} due</span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}

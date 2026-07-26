@@ -21,6 +21,8 @@ interface ProgressContextType {
   examResults: ExamResult[];
   ladderProgress: Record<string, Record<number, LadderLevelResult>>;
   flashcardProgress: Record<string, FlashcardProgress>;
+  /** False until the first localStorage load completes (after mount). */
+  loaded: boolean;
   refresh: () => void;
   recordAttempt: (topicId: string, subjectId: SubjectId, topicTitle: string, subjectTitle: string, correct: number, total: number) => void;
   recordExam: (result: ExamResult) => void;
@@ -42,6 +44,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [examResults, setExamResults] = useState<ExamResult[]>([]);
   const [ladderProgress, setLadderProgress] = useState<Record<string, Record<number, LadderLevelResult>>>({});
   const [flashcardProgress, setFlashcardProgress] = useState<Record<string, FlashcardProgress>>({});
+  const [loaded, setLoaded] = useState(false);
 
   const refresh = useCallback(() => {
     setUserProgress(getUserProgress());
@@ -49,6 +52,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     setExamResults(getExamResults());
     setLadderProgress(getLadderProgress());
     setFlashcardProgress(getFlashcardProgress());
+    setLoaded(true);
   }, []);
 
   useEffect(() => {
@@ -86,7 +90,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   }, [topicProgress]);
 
   return (
-    <ProgressContext.Provider value={{ userProgress, topicProgress, examResults, ladderProgress, flashcardProgress, refresh, recordAttempt, recordExam, recordLadder, recordFlashcard, getSubjectScore }}>
+    <ProgressContext.Provider value={{ userProgress, topicProgress, examResults, ladderProgress, flashcardProgress, loaded, refresh, recordAttempt, recordExam, recordLadder, recordFlashcard, getSubjectScore }}>
       {children}
     </ProgressContext.Provider>
   );

@@ -29,7 +29,7 @@ export default function FlashcardsPageClient({ subjectId, topicId }: FlashcardsP
   const filter = parseDeckFilter(searchParams.get('filter'));
   const topic = getTopic(subjectId as SubjectId, topicId);
   const subject = getSubject(subjectId as SubjectId);
-  const { flashcardProgress, recordFlashcard } = useProgress();
+  const { flashcardProgress, recordFlashcard, loaded } = useProgress();
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -47,12 +47,14 @@ export default function FlashcardsPageClient({ subjectId, topicId }: FlashcardsP
     setSessionLearning(0);
   }, [filter]);
 
+  // Filtered decks need the stored progress, which only exists after the
+  // first client-side load — wait for `loaded` before building them.
   const deck = useMemo(
-    () => (topic ? filterDeck(topic.flashcards, flashcardProgress, filter) : []),
+    () => (topic && (filter === 'all' || loaded) ? filterDeck(topic.flashcards, flashcardProgress, filter) : []),
     // Deck membership is fixed for the session even as cards are marked
     // (marking a card known must not pull it out from under the user).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [topic, filter, isComplete]
+    [topic, filter, loaded, isComplete]
   );
 
   const stats = useMemo(
@@ -62,6 +64,10 @@ export default function FlashcardsPageClient({ subjectId, topicId }: FlashcardsP
 
   if (!topic || topic.flashcards.length === 0) {
     return <div className="p-6 text-center text-gray-500 dark:text-gray-400">No flashcards available.</div>;
+  }
+
+  if (filter !== 'all' && !loaded) {
+    return <div className="max-w-md mx-auto px-4 py-8 text-center text-gray-500 dark:text-gray-400">Loading deck…</div>;
   }
 
   if (deck.length === 0) {

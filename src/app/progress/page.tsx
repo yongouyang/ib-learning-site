@@ -6,9 +6,11 @@ import { Star, Flame, CheckCircle2, Target, Dices, ClipboardList, FileText, File
 import { useProgress } from '@/context/ProgressContext';
 import { getSubjects } from '@/content/registry';
 import { getRecentAverageScore } from '@/lib/progress-store';
+import { getCardStats } from '@/lib/flashcard-scheduler';
+import DualRingDonut from '@/components/DualRingDonut';
 
 export default function ProgressPage() {
-  const { userProgress, topicProgress } = useProgress();
+  const { userProgress, topicProgress, flashcardProgress } = useProgress();
   const subjects = getSubjects();
 
   const attemptedTopics = new Set(topicProgress.filter(tp => tp.attempts.length > 0).map(tp => tp.topicId)).size;
@@ -70,6 +72,14 @@ export default function ProgressPage() {
         const avgScore = completed > 0
           ? subjectProgress.reduce((s, tp) => s + getRecentAverageScore(tp.attempts), 0) / completed
           : 0;
+        // Flashcard Seen/Known across the subject's decks (Phase 6).
+        const cardStats = subject.topics.reduce(
+          (acc, topic) => {
+            const stats = getCardStats(topic, flashcardProgress);
+            return { seen: acc.seen + stats.seen, known: acc.known + stats.known, total: acc.total + stats.total };
+          },
+          { seen: 0, known: 0, total: 0 }
+        );
 
         return (
           <div key={subject.id} className="card p-4 mb-3 border-l-4" style={{ borderLeftColor: subject.accentColor }}>
@@ -78,7 +88,10 @@ export default function ProgressPage() {
                 <span>{subject.id === 'math' ? '📐' : subject.id === 'english' ? '📖' : subject.id === 'biology' ? '🌿' : subject.id === 'chemistry' ? '🧪' : '⚛️'}</span>
                 <span className="font-semibold text-gray-900 dark:text-gray-50">{subject.name}</span>
               </div>
-              <span className="text-xs text-gray-500 dark:text-gray-400">{completed}/{subject.topics.length} topics</span>
+              <div className="flex items-center gap-3">
+                <span className="text-xs text-gray-500 dark:text-gray-400">{completed}/{subject.topics.length} topics</span>
+                <DualRingDonut seen={cardStats.seen} known={cardStats.known} total={cardStats.total} size={36} />
+              </div>
             </div>
             {/* Progress bar */}
             <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden mb-3">

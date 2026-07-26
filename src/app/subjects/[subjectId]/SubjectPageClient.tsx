@@ -99,6 +99,16 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
                 )}
               </div>
 
+              {/* Mastery bar (quiz history) — Phase 6 */}
+              {score >= 0 && (
+                <div className="flex items-center gap-2 mb-1" aria-label={`Mastery ${Math.round(score * 100)}%`}>
+                  <div className="flex-1 h-1.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div className="h-full rounded-full" style={{ width: `${Math.round(score * 100)}%`, backgroundColor: subject.accentColor }} />
+                  </div>
+                  <span className="text-xs font-medium text-gray-500 dark:text-gray-400 shrink-0">{Math.round(score * 100)}%</span>
+                </div>
+              )}
+
               <div className="flex gap-2 mt-3">
                 <Link href={`/subjects/${subjectId}/${topic.id}/study`}
                   className="flex-1 inline-flex items-center justify-center gap-1 text-sm py-2 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
