@@ -1,0 +1,100 @@
+{
+  "id": "math-y8-set-1",
+  "courseId": "math-y8",
+  "title": "Practice Set 1",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "math-y8-set-1-q1",
+      "stem": "Work out $35\\%$ of £80.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $10\\%$ of £80 $=$ £8 and used to build $35\\%$ (or equivalent non-calculator strategy)",
+        "A1: £28 (correct answer only)"
+      ],
+      "modelAnswer": "$10\\%$ of £80 is £8, so $30\\%$ is $3 \\times 8 = 24$ pounds and $5\\%$ is half of £8, which is £4. Add: $24 + 4 = 28$. Answer: £28.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y8-set-1-q2",
+      "stem": "Factorise fully $8x + 12$.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $4$ identified as the highest common factor and taken outside the bracket",
+        "B1: $4(2x + 3)$"
+      ],
+      "modelAnswer": "The highest common factor of $8$ and $12$ is $4$. Taking $4$ outside the bracket: $8x + 12 = 4(2x + 3)$. Check: $4 \\times 2x = 8x$ and $4 \\times 3 = 12$ ✓",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y8-set-1-q3",
+      "stem": "Write $45\\,000$ in standard form.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $4.5$ seen as the number between $1$ and $10$",
+        "B1: $4.5 \\times 10^{4}$"
+      ],
+      "modelAnswer": "Move the decimal point $4$ places to get a number between $1$ and $10$: $45\\,000 = 4.5 \\times 10\\,000 = 4.5 \\times 10^{4}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y8-set-1-q4",
+      "stem": "Solve the equation $5x - 4 = 2x + 11$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $3x = 15$ (collecting the $x$ terms on one side and constants on the other)",
+        "A1: $x = 5$"
+      ],
+      "modelAnswer": "Subtract $2x$ from both sides: $3x - 4 = 11$. Add $4$ to both sides: $3x = 15$. Divide by $3$: $x = 5$. Check: $5(5) - 4 = 21$ and $2(5) + 11 = 21$ ✓",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y8-set-1-q5",
+      "stem": "Work out the size of one interior angle of a regular hexagon.",
+      "marks": 3,
+      "markscheme": [
+        "M1: $(6 - 2) \\times 180$ (interior angle sum of a hexagon)",
+        "A1: $720^\\circ$",
+        "A1: $120^\\circ$"
+      ],
+      "modelAnswer": "The interior angles of a hexagon sum to $(6 - 2) \\times 180 = 720^\\circ$. A regular hexagon has $6$ equal angles, so each angle is $720 \\div 6 = 120^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y8-set-1-q6",
+      "stem": "A bag contains $3$ red counters and $5$ blue counters. Two counters are taken out at random, one after the other, without replacement. Work out the probability that both counters are red.",
+      "marks": 3,
+      "markscheme": [
+        "M1: $\\dfrac{3}{8}$ for the first red counter",
+        "M1: multiplying by $\\dfrac{2}{7}$ for the second red counter (without replacement)",
+        "A1: $\\dfrac{3}{28}$ (accept $\\dfrac{6}{56}$)"
+      ],
+      "modelAnswer": "P(first red) $= \\dfrac{3}{8}$. One red is removed, leaving $2$ red out of $7$, so P(second red) $= \\dfrac{2}{7}$. Multiply along the tree: $\\dfrac{3}{8} \\times \\dfrac{2}{7} = \\dfrac{6}{56} = \\dfrac{3}{28}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y8-set-1-q7",
+      "stem": "A ladder of length $13$ m leans against a vertical wall. The foot of the ladder is $5$ m from the base of the wall. Work out how far up the wall the ladder reaches.",
+      "marks": 3,
+      "markscheme": [
+        "M1: $h^{2} + 5^{2} = 13^{2}$ (Pythagoras applied to the right-angled triangle)",
+        "A1: $h^{2} = 144$",
+        "A1: $h = 12$ m"
+      ],
+      "modelAnswer": "The wall, ground and ladder form a right-angled triangle with hypotenuse $13$. By Pythagoras: $h^{2} = 13^{2} - 5^{2} = 169 - 25 = 144$. So $h = \\sqrt{144} = 12$. The ladder reaches $12$ m up the wall.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-y8-set-1-q8",
+      "stem": "A cuboid measures $5$ cm by $4$ cm by $3$ cm. Work out its total surface area.",
+      "marks": 3,
+      "markscheme": [
+        "M1: three different face areas found: $20$, $12$ and $15$ cm$^{2}$",
+        "A1: doubling the sum: $2 \\times (20 + 12 + 15)$",
+        "A1: $94$ cm$^{2}$ (units required)"
+      ],
+      "modelAnswer": "The three different faces have areas $5 \\times 4 = 20$, $4 \\times 3 = 12$ and $5 \\times 3 = 15$ cm$^{2}$. Each face appears twice, so the total surface area is $2 \\times (20 + 12 + 15) = 2 \\times 47 = 94$ cm$^{2}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

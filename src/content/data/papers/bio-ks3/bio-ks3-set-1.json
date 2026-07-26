@@ -1,0 +1,100 @@
+{
+  "id": "bio-ks3-set-1",
+  "courseId": "bio-ks3",
+  "title": "Practice Set 1",
+  "durationMinutes": 25,
+  "questions": [
+    {
+      "id": "bio-ks3-set-1-q1",
+      "stem": "Name the part of a plant cell that contains chlorophyll, and state the process that takes place there.",
+      "marks": 2,
+      "markscheme": [
+        "B1: chloroplasts",
+        "B1: photosynthesis"
+      ],
+      "modelAnswer": "Chlorophyll is contained in the chloroplasts, which are the green disc-shaped structures in the cytoplasm of plant cells. This is where photosynthesis takes place, using light energy to make glucose.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-ks3-set-1-q2",
+      "stem": "State the word equation for aerobic respiration.",
+      "marks": 2,
+      "markscheme": [
+        "B1: glucose $+$ oxygen on the left-hand side (reactants)",
+        "B1: carbon dioxide $+$ water on the right-hand side (products)"
+      ],
+      "modelAnswer": "Aerobic respiration: glucose $+$ oxygen $\\rightarrow$ carbon dioxide $+$ water. Glucose and oxygen are the reactants, and carbon dioxide and water are the products, with energy released for the cell to use.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-ks3-set-1-q3",
+      "stem": "Explain why antibiotics can be used to treat a bacterial throat infection but not the common cold.",
+      "marks": 2,
+      "markscheme": [
+        "B1: antibiotics kill bacteria / stop bacteria reproducing",
+        "B1: the common cold is caused by a virus, which antibiotics cannot kill"
+      ],
+      "modelAnswer": "Antibiotics work by killing bacteria or stopping them from reproducing, so they clear a bacterial throat infection. The common cold is caused by a virus, and antibiotics have no effect on viruses, so they cannot treat it.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-ks3-set-1-q4",
+      "stem": "A student draws a diagram of a cell. The diagram is $60$ mm long and the magnification used is $\\times 300$. Use the formula magnification $=$ image size $\\div$ actual size to calculate the actual length of the cell. Give your answer in mm.",
+      "marks": 3,
+      "markscheme": [
+        "M1: actual size $=$ image size $\\div$ magnification (rearranged correctly)",
+        "M1: $60 \\div 300$",
+        "A1: $0.2$ mm (units required)"
+      ],
+      "modelAnswer": "Rearrange the formula: actual size $=$ image size $\\div$ magnification. Substitute the values: actual size $= 60 \\div 300 = 0.2$. The actual length of the cell is $0.2$ mm.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-ks3-set-1-q5",
+      "stem": "A student investigates how light intensity affects the rate of photosynthesis in pondweed by counting the bubbles produced in one minute at different distances from a lamp. Identify the independent variable, the dependent variable, and one control variable in this investigation.",
+      "marks": 3,
+      "markscheme": [
+        "B1: independent variable $=$ light intensity / distance of the lamp",
+        "B1: dependent variable $=$ number of bubbles produced per minute",
+        "B1: control variable $=$ e.g. temperature, volume of water, or mass/length of pondweed"
+      ],
+      "modelAnswer": "The independent variable is the light intensity, changed by moving the lamp to different distances. The dependent variable is the number of bubbles of oxygen produced in one minute. A control variable could be the temperature of the water, the volume of water, or the mass of pondweed, all kept the same so the test is fair.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-ks3-set-1-q6",
+      "stem": "In a food chain, grass is eaten by rabbits, and rabbits are eaten by foxes. Explain why the number of foxes is always much smaller than the number of rabbits.",
+      "marks": 2,
+      "markscheme": [
+        "B1: energy is lost at each stage of the food chain (e.g. respiration, movement, heat, waste)",
+        "B1: so less energy is available to support foxes, meaning fewer can survive"
+      ],
+      "modelAnswer": "Energy passes along the food chain when rabbits eat grass and foxes eat rabbits. At each stage most of the energy is lost — used in respiration and movement, lost as heat, or egested as waste — so only a small fraction is passed on. With far less energy available at the top of the chain, only a small number of foxes can be supported compared with rabbits.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-ks3-set-1-q7",
+      "stem": "A plant cell is placed in a concentrated salt solution. Explain why the cell loses water.",
+      "marks": 3,
+      "markscheme": [
+        "B1: the salt solution has a lower water potential / lower concentration of water than the cell cytoplasm",
+        "B1: water moves out of the cell by osmosis",
+        "B1: across the partially permeable cell membrane (from dilute to concentrated solution)"
+      ],
+      "modelAnswer": "The concentrated salt solution has a lower water potential than the cytoplasm inside the plant cell. Water therefore moves out of the cell by osmosis, passing across the partially permeable cell membrane from the more dilute solution inside the cell to the more concentrated solution outside. The cell then becomes flaccid or plasmolysed.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-ks3-set-1-q8",
+      "stem": "In pea plants, the allele for tall plants (T) is dominant over the allele for short plants (t). Two heterozygous tall plants (Tt) are crossed. Use a genetic diagram to work out the probability that an offspring plant is short.",
+      "marks": 3,
+      "markscheme": [
+        "M1: gametes identified as T and t from each parent",
+        "M1: Punnett square completed giving TT, Tt, Tt, tt",
+        "A1: probability of short offspring $= \\dfrac{1}{4}$ ($25\\%$)"
+      ],
+      "modelAnswer": "Each heterozygous parent (Tt) produces gametes carrying either T or t. The Punnett square gives four combinations: TT, Tt, Tt and tt. Since tall (T) is dominant, TT and Tt plants are tall and only the tt plant is short. So the probability of a short offspring is $\\dfrac{1}{4}$, or $25\\%$.",
+      "difficulty": "hard"
+    }
+  ]
+}

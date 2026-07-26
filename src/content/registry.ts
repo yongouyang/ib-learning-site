@@ -139,8 +139,22 @@ import phys_space_1_json from './data/topics/physics/phys-space-1.json';
 import phys_waves_1_json from './data/topics/physics/phys-waves-1.json';
 import phys_working_scientifically_1_json from './data/topics/physics/phys-working-scientifically-1.json';
 
+// bio-ks3 practice sets
+import bio_ks3_bio_ks3_set_1_json from './data/papers/bio-ks3/bio-ks3-set-1.json';
+// chem-ks3 practice sets
+import chem_ks3_chem_ks3_set_1_json from './data/papers/chem-ks3/chem-ks3-set-1.json';
+// eng-ks3 practice sets
+import eng_ks3_eng_ks3_set_1_json from './data/papers/eng-ks3/eng-ks3-set-1.json';
+// math-dp-ai practice sets
+import math_dp_ai_math_dp_ai_set_1_json from './data/papers/math-dp-ai/math-dp-ai-set-1.json';
 // math-y7 practice sets
 import math_y7_math_y7_set_1_json from './data/papers/math-y7/math-y7-set-1.json';
+// math-y8 practice sets
+import math_y8_math_y8_set_1_json from './data/papers/math-y8/math-y8-set-1.json';
+// math-y9 practice sets
+import math_y9_math_y9_set_1_json from './data/papers/math-y9/math-y9-set-1.json';
+// phys-ks3 practice sets
+import phys_ks3_phys_ks3_set_1_json from './data/papers/phys-ks3/phys-ks3-set-1.json';
 
 const math_algebra_1: Topic = topicSchema.parse(math_algebra_1_json);
 const math_dp_ai_binomial: Topic = topicSchema.parse(math_dp_ai_binomial_json);
@@ -272,7 +286,14 @@ const phys_space_1: Topic = topicSchema.parse(phys_space_1_json);
 const phys_waves_1: Topic = topicSchema.parse(phys_waves_1_json);
 const phys_working_scientifically_1: Topic = topicSchema.parse(phys_working_scientifically_1_json);
 
+const bio_ks3_bio_ks3_set_1: Paper = paperSchema.parse(bio_ks3_bio_ks3_set_1_json);
+const chem_ks3_chem_ks3_set_1: Paper = paperSchema.parse(chem_ks3_chem_ks3_set_1_json);
+const eng_ks3_eng_ks3_set_1: Paper = paperSchema.parse(eng_ks3_eng_ks3_set_1_json);
+const math_dp_ai_math_dp_ai_set_1: Paper = paperSchema.parse(math_dp_ai_math_dp_ai_set_1_json);
 const math_y7_math_y7_set_1: Paper = paperSchema.parse(math_y7_math_y7_set_1_json);
+const math_y8_math_y8_set_1: Paper = paperSchema.parse(math_y8_math_y8_set_1_json);
+const math_y9_math_y9_set_1: Paper = paperSchema.parse(math_y9_math_y9_set_1_json);
+const phys_ks3_phys_ks3_set_1: Paper = paperSchema.parse(phys_ks3_phys_ks3_set_1_json);
 
 const validatedSubjectsMeta = subjectMetaSchema.array().parse(subjectsMeta);
 
@@ -346,7 +367,7 @@ export const subjectMeta: Record<SubjectId, { name: string; icon: string; color:
   physics: { name: physicsMeta.name, icon: physicsMeta.icon, color: physicsMeta.accentColor },
 };
 
-const papers: Paper[] = [math_y7_math_y7_set_1];
+const papers: Paper[] = [bio_ks3_bio_ks3_set_1, chem_ks3_chem_ks3_set_1, eng_ks3_eng_ks3_set_1, math_dp_ai_math_dp_ai_set_1, math_y7_math_y7_set_1, math_y8_math_y8_set_1, math_y9_math_y9_set_1, phys_ks3_phys_ks3_set_1];
 
 export function getAllPapers(): Paper[] {
   return papers;

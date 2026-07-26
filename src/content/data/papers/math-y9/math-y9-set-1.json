@@ -1,0 +1,109 @@
+{
+  "id": "math-y9-set-1",
+  "courseId": "math-y9",
+  "title": "Practice Set 1",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "math-y9-set-1-q1",
+      "stem": "Simplify $5^3 \\times 5^4$, giving your answer as a single power of $5$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: indices added, $5^{3+4}$",
+        "A1: $5^7$"
+      ],
+      "modelAnswer": "When multiplying powers with the same base, add the indices: $5^3 \\times 5^4 = 5^{3+4} = 5^7$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y9-set-1-q2",
+      "stem": "Simplify the ratio $24 : 40$.",
+      "marks": 2,
+      "markscheme": [
+        "B1: both parts divided by a common factor, e.g. $12 : 20$ or $6 : 10$",
+        "B1: $3 : 5$"
+      ],
+      "modelAnswer": "The highest common factor of $24$ and $40$ is $8$. Dividing both parts by $8$ gives $24 \\div 8 = 3$ and $40 \\div 8 = 5$, so the simplified ratio is $3 : 5$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y9-set-1-q3",
+      "stem": "Write down the exact value of $\\sin 30^\\circ$ and the exact value of $\\cos 60^\\circ$.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $\\sin 30^\\circ = \\dfrac{1}{2}$",
+        "B1: $\\cos 60^\\circ = \\dfrac{1}{2}$"
+      ],
+      "modelAnswer": "From the exact-values triangle (half of an equilateral triangle with side $2$), $\\sin 30^\\circ = \\dfrac{1}{2}$ and $\\cos 60^\\circ = \\dfrac{1}{2}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y9-set-1-q4",
+      "stem": "Write $0.000072$ in standard form.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $7.2$ identified with a power of ten, e.g. $7.2 \\times 10^n$ for some $n$",
+        "A1: $7.2 \\times 10^{-5}$"
+      ],
+      "modelAnswer": "Move the decimal point $5$ places to the right to get $7.2$, which lies between $1$ and $10$. Since the original number is small, the power is negative: $0.000072 = 7.2 \\times 10^{-5}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y9-set-1-q5",
+      "stem": "Solve the inequality $3x - 4 > 11$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $3x > 15$ (adding $4$ to both sides)",
+        "A1: $x > 5$"
+      ],
+      "modelAnswer": "Add $4$ to both sides: $3x > 11 + 4 = 15$. Divide both sides by $3$: $x > 5$. Check with $x = 6$: $3(6) - 4 = 14 > 11$ ✓",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y9-set-1-q6",
+      "stem": "Factorise $x^2 + 7x + 12$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $(x + a)(x + b)$ with $ab = 12$ or $a + b = 7$",
+        "A1: $(x + 3)(x + 4)$"
+      ],
+      "modelAnswer": "Find two numbers that multiply to $12$ and add to $7$: $3$ and $4$. So $x^2 + 7x + 12 = (x + 3)(x + 4)$. Expanding back gives $x^2 + 4x + 3x + 12 = x^2 + 7x + 12$ ✓",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y9-set-1-q7",
+      "stem": "A mass is given as $4.6$ kg, correct to $1$ decimal place. Write down the error interval for the mass $m$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $4.55$ and $4.65$ identified as the lower and upper bounds",
+        "A1: $4.55 \\leq m < 4.65$ with correct inequality symbols"
+      ],
+      "modelAnswer": "Half of $0.1$ is $0.05$, so the true mass lies between $4.6 - 0.05 = 4.55$ and $4.6 + 0.05 = 4.65$. The lower bound is included but the upper bound is not: $4.55 \\leq m < 4.65$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y9-set-1-q8",
+      "stem": "Solve the simultaneous equations $x + y = 10$ and $2x + 3y = 26$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: correct elimination step, e.g. doubling the first equation and subtracting to eliminate $x$",
+        "A1: $y = 6$",
+        "A1: $x = 4$"
+      ],
+      "modelAnswer": "Double the first equation: $2x + 2y = 20$. Subtract from the second: $(2x + 3y) - (2x + 2y) = 26 - 20$, so $y = 6$. Substitute into $x + y = 10$: $x = 4$. Check: $2(4) + 3(6) = 8 + 18 = 26$ ✓",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-y9-set-1-q9",
+      "stem": "Write $\\sqrt{50} + \\sqrt{8}$ in the form $k\\sqrt{2}$, where $k$ is an integer.",
+      "marks": 3,
+      "markscheme": [
+        "M1: $\\sqrt{50} = 5\\sqrt{2}$",
+        "A1: $\\sqrt{8} = 2\\sqrt{2}$",
+        "A1: $7\\sqrt{2}$"
+      ],
+      "modelAnswer": "Split each surd using square factors: $\\sqrt{50} = \\sqrt{25 \\times 2} = 5\\sqrt{2}$ and $\\sqrt{8} = \\sqrt{4 \\times 2} = 2\\sqrt{2}$. Add the like surds: $5\\sqrt{2} + 2\\sqrt{2} = 7\\sqrt{2}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

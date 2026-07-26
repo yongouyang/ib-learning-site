@@ -5,10 +5,12 @@ test.describe('Practice papers', () => {
   test('index lists the pilot set with marks and duration', async ({ page }) => {
     await page.goto('/papers');
     await expect(page.getByRole('heading', { name: 'Practice Papers', level: 1 })).toBeVisible();
-    const setLink = page.getByRole('link', { name: /Practice Set 1/ });
+    const setLink = page.locator('a[href="/papers/math-y7/math-y7-set-1"]');
     await expect(setLink).toBeVisible();
     await expect(setLink.getByText(/30 min · 8 questions · 20 marks/)).toBeVisible();
     await expect(setLink.getByText('Not attempted')).toBeVisible();
+    // All 8 courses now have a set.
+    await expect(page.locator('a[href^="/papers/"]')).toHaveCount(8);
   });
 
   test('a full self-marking run records the result', async ({ page }) => {
@@ -46,7 +48,7 @@ test.describe('Practice papers', () => {
 
     // Recorded: index shows a best score for the set.
     await page.goto('/papers');
-    const setLink = page.getByRole('link', { name: /Practice Set 1/ });
+    const setLink = page.locator('a[href="/papers/math-y7/math-y7-set-1"]');
     await expect(setLink.getByText('Best: 100%')).toBeVisible();
   });
 

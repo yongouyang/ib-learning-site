@@ -1,0 +1,109 @@
+{
+  "id": "math-dp-ai-set-1",
+  "courseId": "math-dp-ai",
+  "title": "Practice Set 1",
+  "durationMinutes": 35,
+  "questions": [
+    {
+      "id": "math-dp-ai-set-1-q1",
+      "stem": "Simplify $3^4 \\times 3^2 \\div 3^5$, giving your answer as an integer.",
+      "marks": 1,
+      "markscheme": [
+        "B1: $3^{4+2-5} = 3^1 = 3$"
+      ],
+      "modelAnswer": "Using the laws of exponents, add the powers when multiplying and subtract when dividing: $3^4 \\times 3^2 = 3^{4+2} = 3^6$, then $3^6 \\div 3^5 = 3^{6-5} = 3^1 = 3$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-ai-set-1-q2",
+      "stem": "A fair six-sided die is rolled once. Find the probability that the score is a prime number.",
+      "marks": 1,
+      "markscheme": [
+        "B1: $\\dfrac{3}{6} = \\dfrac{1}{2}$ (prime scores are $2, 3, 5$)"
+      ],
+      "modelAnswer": "The prime numbers on a die are $2$, $3$ and $5$, so there are $3$ favourable outcomes out of $6$ equally likely outcomes. Probability $= \\dfrac{3}{6} = \\dfrac{1}{2}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-ai-set-1-q3",
+      "stem": "The function $f$ is defined by $f(x) = 3x - 5$. Find an expression for the inverse function $f^{-1}(x)$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: interchanging variables, $x = 3y - 5$",
+        "A1: $f^{-1}(x) = \\dfrac{x + 5}{3}$"
+      ],
+      "modelAnswer": "Write $y = 3x - 5$ and interchange $x$ and $y$: $x = 3y - 5$. Solve for $y$: $3y = x + 5$, so $y = \\dfrac{x + 5}{3}$. Hence $f^{-1}(x) = \\dfrac{x + 5}{3}$. Check: $f^{-1}(f(4)) = f^{-1}(7) = \\dfrac{7 + 5}{3} = 4$ ✓",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-ai-set-1-q4",
+      "stem": "An arithmetic sequence has first term $u_1 = 7$ and common difference $d = 4$. (a) Find $u_{10}$, the tenth term. (b) Find $S_{10}$, the sum of the first ten terms.",
+      "marks": 3,
+      "markscheme": [
+        "M1: correct substitution into $u_n = u_1 + (n - 1)d$",
+        "A1: $u_{10} = 43$",
+        "A1: $S_{10} = 250$"
+      ],
+      "modelAnswer": "(a) $u_{10} = u_1 + 9d = 7 + 9 \\times 4 = 7 + 36 = 43$. (b) $S_{10} = \\dfrac{10}{2}(u_1 + u_{10}) = 5(7 + 43) = 5 \\times 50 = 250$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-ai-set-1-q5",
+      "stem": "A curve has equation $y = x^3 - 6x^2 + 5$. Find the gradient of the curve at the point where $x = 2$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: attempt to differentiate using the power rule",
+        "A1: $\\dfrac{dy}{dx} = 3x^2 - 12x$",
+        "A1: gradient $= -12$"
+      ],
+      "modelAnswer": "Differentiate term by term: $\\dfrac{dy}{dx} = 3x^2 - 12x$. Substitute $x = 2$: $3(2)^2 - 12(2) = 12 - 24 = -12$. The gradient at $x = 2$ is $-12$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-ai-set-1-q6",
+      "stem": "A sample of five data values is $3, 5, 8, 9, 10$. Find (a) the median, (b) the mean.",
+      "marks": 2,
+      "markscheme": [
+        "B1: median $= 8$",
+        "A1: mean $= \\dfrac{35}{5} = 7$"
+      ],
+      "modelAnswer": "(a) The data are already in order, so the median is the middle (third) value: $8$. (b) The sum is $3 + 5 + 8 + 9 + 10 = 35$, so the mean is $\\dfrac{35}{5} = 7$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-ai-set-1-q7",
+      "stem": "Solve the equation $\\log_2 x + \\log_2 (x - 2) = 3$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: combining logs, $\\log_2 \\left[x(x - 2)\\right] = 3$",
+        "A1: $x^2 - 2x - 8 = 0$",
+        "A1: $x = 4$ only, with $x = -2$ rejected"
+      ],
+      "modelAnswer": "Combine the logarithms: $\\log_2 \\left[x(x - 2)\\right] = 3$. Rewrite in index form: $x(x - 2) = 2^3 = 8$, so $x^2 - 2x - 8 = 0$. Factorise: $(x - 4)(x + 2) = 0$, giving $x = 4$ or $x = -2$. Since $\\log_2 x$ is only defined for $x > 0$ (and we need $x - 2 > 0$), reject $x = -2$. Check: $\\log_2 4 + \\log_2 2 = 2 + 1 = 3$ ✓ Answer: $x = 4$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-ai-set-1-q8",
+      "stem": "A particle moves in a plane with constant velocity $\\begin{pmatrix} 3 \\\\ -2 \\end{pmatrix}$ m s$^{-1}$. At time $t = 0$ its position vector is $\\begin{pmatrix} 1 \\\\ 5 \\end{pmatrix}$ m. (a) Find its position vector when $t = 4$. (b) Find the speed of the particle, giving your answer in exact form.",
+      "marks": 3,
+      "markscheme": [
+        "M1: position $=$ initial position $+\\ t \\times$ velocity attempted",
+        "A1: $\\begin{pmatrix} 13 \\\\ -3 \\end{pmatrix}$ m",
+        "A1: speed $= \\sqrt{13}$ m s$^{-1}$"
+      ],
+      "modelAnswer": "(a) Position at time $t$ is $\\begin{pmatrix} 1 \\\\ 5 \\end{pmatrix} + t \\begin{pmatrix} 3 \\\\ -2 \\end{pmatrix}$. At $t = 4$: $\\begin{pmatrix} 1 + 12 \\\\ 5 - 8 \\end{pmatrix} = \\begin{pmatrix} 13 \\\\ -3 \\end{pmatrix}$ m. (b) Speed is the magnitude of the velocity: $\\sqrt{3^2 + (-2)^2} = \\sqrt{9 + 4} = \\sqrt{13}$ m s$^{-1}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-ai-set-1-q9",
+      "stem": "Evaluate $\\displaystyle\\int_1^2 (6x^2 - 4x)\\,dx$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: correct integration, $\\left[2x^3 - 2x^2\\right]_1^2$",
+        "A1: integral $= 8$"
+      ],
+      "modelAnswer": "Integrate term by term: $\\int (6x^2 - 4x)\\,dx = 2x^3 - 2x^2$. Evaluate between the limits: at $x = 2$, $2(8) - 2(4) = 16 - 8 = 8$; at $x = 1$, $2 - 2 = 0$. So the integral equals $8 - 0 = 8$.",
+      "difficulty": "hard"
+    }
+  ]
+}

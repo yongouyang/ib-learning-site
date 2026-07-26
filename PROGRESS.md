@@ -6,7 +6,18 @@
 
 ---
 
-## 2026-07-24 — Phase 4 planned (implementation not started)
+## 2026-07-25 — Phase 4 Session 1: free-response schema + pipeline + self-marking runner + pilot set
+
+Git HEAD: `b885dac` → pushed `c9f9360` (branch `develop`, tree clean)
+Done:
+1. **Schema/pipeline**: `freeResponseQuestionSchema` (zod `.refine`: markscheme.length === marks) + `paperSchema` (`<courseId>-set-<n>` id regex, ≥5 questions); papers tree at `src/content/data/papers/<courseId>/`; registry gains `getAllPapers`/`getPapersForCourse`/`getPaper`; validate-content (courseId↔folder, known course via COURSES, `calculator:true` rejected per non-calc policy); audit-content (`paper_quality` min: modelAnswer ≥40 chars, point ≥8 chars; LaTeX checks on stems/points/model answers; missing_difficulty; global duplicate IDs now span topics AND papers).
+2. **Pilot set** `math-y7-set-1`: 8 original questions, 20 marks, easy→hard ramp, M1/A1/B1 markscheme style (fixed own `\pounds` style violation — currency is plain-text £ outside math).
+3. **Self-marking runner** (`PaperRunnerClient`): textarea answer → model answer reveal → tickable markscheme checklist → per-question tally → results (marks/%/stars) recorded into `examResults` (examId = paper.id). Overall countdown + auto-finish (unticked = 0). Outcomes kept as `{questionId, studentAnswer, ticks}` — the Phase 5 AI-marking payload shape. Routes: `/papers` index (reuses exams `PaperScore`) + `/papers/[courseId]/[setId]`; progress-page CTA. `orderQuestionsByDifficulty` generalized to any difficulty-tagged item; difficulty chip classes extracted to `src/components/difficulty-chip.ts`.
+Verified: Vitest 163/163 ✅ (+8: paper schema ×7, runner self-mark flow ×1), `papers.spec.ts` 9/9 ✅ (index, full 20/20 self-marked run → Best: 100%, CTA), tsc ✅, validate:content ✅, audit:content 0/0 ✅, illustrations + layout ✅, full e2e **516 passed** / 6 skipped / 0 failed ✅.
+Next: 1) Phase 4 Session 2 — authoring swarm: 7 remaining sets (math-y8, math-y9, math-dp-ai, eng/bio/chem/phys-ks3), 6–10 original questions ~20 marks each, spot-check answers/markschemes. 2) Session 3 — cross-links from /exams, docs (CONTENT_STYLE.md markscheme style, AGENTS.md papers tree), full gates.
+Notes: jsdom framer-motion Proxy mock remounts nodes per render — tests must re-query elements after each interaction (bit me twice in paper-runner.test.tsx). Runner unit test mocks `@/context/ProgressContext` for the recordExam spy — pattern reusable.
+
+---
 
 Git HEAD: `0eb737f` (branch `develop`, tree clean after this entry's commit)
 Done: **`phase-4-implementation-plan.md`** written and user-approved direction pending. Design: new `src/content/data/papers/<courseId>/<set-id>.json` content tree (freeResponse questions: `{ stem, marks, markscheme[], modelAnswer, difficulty? }`, marks === markscheme.length); M1/A1/B1 markscheme style; self-marking checklist UI (new PaperRunnerClient, NOT QuizGame); results reuse `examResults`; non-calculator policy; Phase-5 AI-mark hook by design (runner keeps `{questionId, studentAnswer, ticks}`). 3 sessions: (1) schema/pipeline/pilot math-y7-set-1/runner, (2) authoring swarm for 7 remaining sets, (3) index/cross-links/docs.

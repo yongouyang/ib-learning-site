@@ -1,0 +1,100 @@
+{
+  "id": "phys-ks3-set-1",
+  "courseId": "phys-ks3",
+  "title": "Practice Set 1",
+  "durationMinutes": 25,
+  "questions": [
+    {
+      "id": "phys-ks3-set-1-q1",
+      "stem": "A book rests on a table. The weight of the book is $5$ N. State the size and direction of the upward force exerted by the table on the book, and explain how you know.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $5$ N upwards (equal to the weight, opposite in direction)",
+        "B1: the book is stationary, so the forces on it are balanced (no resultant force)"
+      ],
+      "modelAnswer": "The table pushes up on the book with a force of $5$ N upwards. Because the book is not moving, there is no resultant force on it, so the upward contact force must exactly balance the $5$ N weight pulling down.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-ks3-set-1-q2",
+      "stem": "Two bar magnets are brought close together. State what happens when (a) a north pole is brought near a south pole, and (b) a north pole is brought near another north pole.",
+      "marks": 2,
+      "markscheme": [
+        "B1: (a) the poles attract each other (unlike poles attract)",
+        "B1: (b) the poles repel each other (like poles repel)"
+      ],
+      "modelAnswer": "(a) A north pole and a south pole are unlike poles, so the magnets attract each other. (b) Two north poles are like poles, so the magnets repel each other — they push apart.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-ks3-set-1-q3",
+      "stem": "A sprinter runs $100$ m in $20$ s. Calculate her average speed.",
+      "marks": 2,
+      "markscheme": [
+        "M1: speed $=$ distance $\\div$ time, e.g. $100 \\div 20$",
+        "A1: $5$ m/s (units required)"
+      ],
+      "modelAnswer": "Average speed is distance divided by time: $v = \\dfrac{100}{20} = 5$. Answer: $5$ m/s.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-ks3-set-1-q4",
+      "stem": "A resistor of $6$ Ω is connected across a $12$ V battery. Calculate the current flowing through the resistor.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $I = \\dfrac{V}{R}$ (Ohm's law correctly rearranged)",
+        "A1: $I = \\dfrac{12}{6} = 2$ A"
+      ],
+      "modelAnswer": "Rearrange Ohm's law $V = IR$ to $I = \\dfrac{V}{R}$. Substitute: $I = \\dfrac{12}{6} = 2$. Answer: $2$ A.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-ks3-set-1-q5",
+      "stem": "A metal block has a mass of $240$ g and a volume of $30$ cm$^3$. Calculate the density of the metal.",
+      "marks": 3,
+      "markscheme": [
+        "M1: density $=$ mass $\\div$ volume",
+        "A1: $\\dfrac{240}{30}$ (correct substitution)",
+        "A1: $8$ g/cm$^3$ (units required)"
+      ],
+      "modelAnswer": "Density is mass divided by volume: $\\rho = \\dfrac{240}{30} = 8$. Answer: $8$ g/cm$^3$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-ks3-set-1-q6",
+      "stem": "A water wave has a frequency of $50$ Hz and a wavelength of $0.1$ m. Calculate the speed of the wave.",
+      "marks": 3,
+      "markscheme": [
+        "M1: wave speed $=$ frequency $\\times$ wavelength",
+        "A1: $50 \\times 0.1$ (correct substitution)",
+        "A1: $5$ m/s (units required)"
+      ],
+      "modelAnswer": "Use the wave equation $v = f\\lambda$: $v = 50 \\times 0.1 = 5$. Answer: $5$ m/s.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-ks3-set-1-q7",
+      "stem": "A see-saw is balanced on a pivot at its centre. A child of weight $300$ N sits $2$ m to the left of the pivot. A second child of weight $200$ N sits on the right-hand side. Calculate how far from the pivot the second child must sit for the see-saw to balance.",
+      "marks": 3,
+      "markscheme": [
+        "M1: principle of moments used (clockwise moment $=$ anticlockwise moment)",
+        "A1: $300 \\times 2 = 200 \\times d$, i.e. $600 = 200d$",
+        "A1: $d = 3$ m"
+      ],
+      "modelAnswer": "For balance, the moments about the pivot must be equal. The left moment is $300 \\times 2 = 600$ N m. Set the right moment equal: $200 \\times d = 600$, so $d = \\dfrac{600}{200} = 3$. The second child must sit $3$ m from the pivot.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-ks3-set-1-q8",
+      "stem": "A radioactive sample contains $800$ undecayed nuclei. The isotope has a half-life of $3$ days. Calculate how many undecayed nuclei remain after $9$ days.",
+      "marks": 3,
+      "markscheme": [
+        "M1: $9$ days $= 3$ half-lives identified",
+        "A1: correct repeated halving: $800 \\rightarrow 400 \\rightarrow 200 \\rightarrow 100$",
+        "A1: $100$ undecayed nuclei"
+      ],
+      "modelAnswer": "Nine days is $9 \\div 3 = 3$ half-lives. After the first half-life $400$ nuclei remain, after the second $200$, and after the third $100$. Answer: $100$ undecayed nuclei.",
+      "difficulty": "hard"
+    }
+  ]
+}

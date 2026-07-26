@@ -1,0 +1,91 @@
+{
+  "id": "chem-ks3-set-1",
+  "courseId": "chem-ks3",
+  "title": "Practice Set 1",
+  "durationMinutes": 25,
+  "questions": [
+    {
+      "id": "chem-ks3-set-1-q1",
+      "stem": "Ice melts to form liquid water, and the water can then boil to form steam. Describe how the particles are arranged and how they move in (a) solid ice and (b) steam.",
+      "marks": 2,
+      "markscheme": [
+        "B1: in ice the particles are closely packed in a regular arrangement and only vibrate about fixed positions",
+        "B1: in steam the particles are far apart, randomly arranged and move quickly in all directions"
+      ],
+      "modelAnswer": "In solid ice the particles are packed closely together in a regular, ordered pattern; they cannot move around and only vibrate about fixed positions. In steam (a gas) the particles are far apart with no regular arrangement, and they move rapidly and randomly in all directions, filling any container.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-ks3-set-1-q2",
+      "stem": "A lithium atom has an atomic number of $3$ and a mass number of $7$. State the number of electrons and the number of neutrons in a neutral lithium atom.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $3$ electrons (equal to the number of protons in a neutral atom)",
+        "B1: $4$ neutrons (mass number $-$ atomic number $= 7 - 3$)"
+      ],
+      "modelAnswer": "The atomic number is the number of protons, so lithium has $3$ protons. A neutral atom has the same number of electrons as protons, so there are $3$ electrons. Neutrons $=$ mass number $-$ atomic number $= 7 - 3 = 4$. Answer: $3$ electrons and $4$ neutrons.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-ks3-set-1-q3",
+      "stem": "Solution X has a pH of $3$ and solution Y has a pH of $10$. State which solution is acidic and which is alkaline, and give the colour that universal indicator would turn in solution Y.",
+      "marks": 3,
+      "markscheme": [
+        "B1: solution X is acidic (pH below $7$)",
+        "B1: solution Y is alkaline (pH above $7$)",
+        "B1: universal indicator turns purple (or violet/blue) in solution Y"
+      ],
+      "modelAnswer": "On the pH scale, values below $7$ are acidic and values above $7$ are alkaline. Solution X has pH $3$, so it is acidic. Solution Y has pH $10$, so it is alkaline. Universal indicator in an alkaline solution of pH $10$ turns purple/violet (blue-purple).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ks3-set-1-q4",
+      "stem": "A student is given a mixture of sand and salt. Describe a method to obtain a pure sample of the salt. Sand is insoluble in water; salt dissolves in water.",
+      "marks": 3,
+      "markscheme": [
+        "M1: add the mixture to water and stir so the salt dissolves",
+        "M1: filter the mixture — the sand stays on the filter paper as the residue",
+        "A1: evaporate the water from the filtrate (heat / leave to crystallise) to obtain pure salt crystals"
+      ],
+      "modelAnswer": "Add the mixture to water and stir: the salt dissolves but the sand does not. Filter the mixture through filter paper; the insoluble sand is trapped on the paper as the residue, while the salt solution passes through as the filtrate. Finally, heat the filtrate (or leave it in a warm place) so the water evaporates, leaving pure salt crystals behind.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ks3-set-1-q5",
+      "stem": "Methane burns in oxygen to form carbon dioxide and water. Balance the equation: $\\mathrm{CH_4} + \\mathrm{O_2} \\rightarrow \\mathrm{CO_2} + \\mathrm{H_2O}$",
+      "marks": 3,
+      "markscheme": [
+        "M1: balances hydrogen with $2\\mathrm{H_2O}$",
+        "A1: balances oxygen with $2\\mathrm{O_2}$",
+        "A1: fully correct: $\\mathrm{CH_4} + 2\\mathrm{O_2} \\rightarrow \\mathrm{CO_2} + 2\\mathrm{H_2O}$"
+      ],
+      "modelAnswer": "Count atoms on each side. Carbon is already balanced ($1$ each side). Hydrogen: $4$ on the left, so put $2$ in front of $\\mathrm{H_2O}$ to give $4$ H on the right. Oxygen: the right now has $2 + 2 = 4$ O atoms, so put $2$ in front of $\\mathrm{O_2}$. Balanced equation: $\\mathrm{CH_4} + 2\\mathrm{O_2} \\rightarrow \\mathrm{CO_2} + 2\\mathrm{H_2O}$. Check: C $1 = 1$, H $4 = 4$, O $4 = 4$ ✓",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ks3-set-1-q6",
+      "stem": "In a paper chromatography experiment, a spot from an unknown ink travels $4$ cm while the solvent front travels $8$ cm. Calculate the $R_f$ value of the ink spot. A dye in the ink database has an $R_f$ value of $0.5$ — state whether the ink could contain this dye, giving a reason.",
+      "marks": 3,
+      "markscheme": [
+        "M1: uses $R_f = \\dfrac{\\text{distance moved by spot}}{\\text{distance moved by solvent front}}$",
+        "A1: $R_f = \\dfrac{4}{8} = 0.5$",
+        "B1: yes, the ink could contain the dye because the $R_f$ values match ($0.5$)"
+      ],
+      "modelAnswer": "$R_f = \\dfrac{\\text{distance moved by spot}}{\\text{distance moved by solvent front}} = \\dfrac{4}{8} = 0.5$. The $R_f$ value of the unknown spot is $0.5$, which matches the dye in the database exactly, so the ink could contain this dye — a substance always has the same $R_f$ value under the same conditions.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-ks3-set-1-q7",
+      "stem": "A student reacts magnesium ribbon with dilute hydrochloric acid and measures how quickly hydrogen gas is produced. She then repeats the experiment using acid of a higher concentration, keeping everything else the same. State and explain, in terms of particles, what happens to the rate of reaction, and name one variable she must keep constant for a fair test.",
+      "marks": 4,
+      "markscheme": [
+        "B1: the reaction is faster (rate increases) at the higher concentration",
+        "M1: the more concentrated acid has more acid particles in the same volume",
+        "A1: so collisions between acid particles and magnesium particles happen more often (more frequent collisions)",
+        "B1: one controlled variable, e.g. temperature, mass of magnesium, or volume of acid"
+      ],
+      "modelAnswer": "The rate of reaction increases: the hydrogen is produced more quickly with the more concentrated acid. In a higher concentration there are more acid particles packed into the same volume of solution. This means the acid particles collide with the surface of the magnesium more frequently, so there are more successful collisions each second and the reaction goes faster. For a fair test she must keep variables such as the temperature, the mass (and size) of the magnesium ribbon, and the volume of acid the same.",
+      "difficulty": "hard"
+    }
+  ]
+}
