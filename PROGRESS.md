@@ -6,7 +6,17 @@
 
 ---
 
-## 2026-07-25 — Phase 4 Session 2: 7 practice sets authored + independently verified
+## 2026-07-25 — Phase 4 Session 3 (final): cross-links + docs — Phase 4 COMPLETE
+
+Git HEAD: `5ac6c4e` → pushed `c2ea83c` (branch `develop`, tree clean)
+Done:
+1. **Cross-links**: every /exams course card now links to its free-response set(s) via `getPapersForCourse` (purple accent matching /papers) alongside the ladder link.
+2. **Docs**: CONTENT_STYLE.md "Practice papers" section (papers tree, exactly-20-marks rule, M1/A1/B1 markscheme style with independently-awardable points, original-questions legal constraint, non-calc, English stimulus rules); AGENTS.md conventions (papers tree, `courses.ts` as course-grouping source, registry regen covers papers, difficulty tags required for FR too).
+Verified: exams spec 12/12 ✅ (incl. new cross-link test ×3 projects), Vitest 163/163 ✅, tsc ✅, generate:registry (8 papers) ✅, validate:content ✅, audit:content 0/0 ✅, illustrations + layout ✅, full e2e **519 passed** / 6 skipped / 0 failed ✅.
+Next: Phase 5 — AI feedback (user-approved API route): `app/api/feedback/route.ts` serverless, sends student free-response + markscheme points to an LLM, returns marks + feedback; rate-limited, key in env (never client-side), graceful degradation to self-marking. The PaperRunnerClient already keeps the `{questionId, studentAnswer, ticks}` payload shape. Backlog: English strand re-map (needs user decision), DP AA, PWA, per-question history (Phase 6).
+Notes: Phase 4 complete per plan (schema/pipeline/pilot, 8 sets authored+verified, integration/docs). "Mark with AI" slots into the runner's mark stage — pre-fills the checklist instead of replacing self-marking.
+
+---
 
 Git HEAD: `c9f9360` → pushed `5ac6c4e` (branch `develop`, tree clean)
 Done:
