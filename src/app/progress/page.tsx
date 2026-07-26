@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Star, Flame, CheckCircle2, Target, Dices, ClipboardList, FileText } from 'lucide-react';
+import { Star, Flame, CheckCircle2, Target, Dices, ClipboardList, FileText, FileSignature } from 'lucide-react';
 import { useProgress } from '@/context/ProgressContext';
 import { getSubjects } from '@/content/registry';
 import { getRecentAverageScore } from '@/lib/progress-store';
@@ -55,6 +55,10 @@ export default function ProgressPage() {
           <Link href="/exams"
             className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
             <FileText className="w-4 h-4" /> Mock Exams
+          </Link>
+          <Link href="/papers"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-medium text-sm hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors">
+            <FileSignature className="w-4 h-4" /> Practice Papers
           </Link>
         </div>
       </div>

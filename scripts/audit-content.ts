@@ -1,7 +1,12 @@
 import fs from "fs";
 import path from "path";
 import katex from "katex";
-import { topicSchema, type ValidatedTopic } from "../src/content/schema";
+import {
+  topicSchema,
+  paperSchema,
+  type ValidatedTopic,
+  type ValidatedPaper,
+} from "../src/content/schema";
 
 export type IssueSeverity = "warning" | "error";
 
@@ -16,6 +21,7 @@ export type IssueType =
   | "stray_backslash"
   | "missing_difficulty"
   | "difficulty_distribution"
+  | "paper_quality"
   | "unreadable_topic";
 
 export interface AuditIssue {
@@ -30,8 +36,14 @@ export interface AuditTopic extends ValidatedTopic {
   folderSubjectId: string;
 }
 
+export interface AuditPaper extends ValidatedPaper {
+  filePath: string;
+  folderCourseId: string;
+}
+
 export interface AuditInput {
   topics: AuditTopic[];
+  papers?: AuditPaper[];
 }
 
 export interface AuditSummary {
@@ -61,6 +73,9 @@ const MIN_EXPLANATION_LENGTH = 20;
 // Phase 2: per-topic difficulty distribution targets (tuned to the 15-question standard).
 const MIN_EASY_QUESTIONS = 3;
 const MIN_HARD_QUESTIONS = 3;
+// Phase 4: free-response papers.
+const MIN_MODEL_ANSWER_LENGTH = 40;
+const MIN_MARKSCHEME_POINT_LENGTH = 8;
 
 function location(topic: AuditTopic, kind?: string, id?: string): string {
   const base = `${topic.subjectId}/${topic.id}`;
@@ -248,6 +263,7 @@ function containsNonAscii(math: string): boolean {
 export function auditContent(input: AuditInput): AuditResult {
   const issues: AuditIssue[] = [];
   const { topics } = input;
+  const papers = input.papers ?? [];
 
   // Folder mismatch (blocking CI error)
   for (const topic of topics) {
@@ -258,6 +274,52 @@ export function auditContent(input: AuditInput): AuditResult {
         location: location(topic),
         message: `subjectId "${topic.subjectId}" does not match parent folder "${topic.folderSubjectId}"`,
       });
+    }
+  }
+
+  // Paper folder mismatch (blocking CI error)
+  for (const paper of papers) {
+    if (paper.courseId !== paper.folderCourseId) {
+      issues.push({
+        type: "folder_mismatch",
+        severity: "error",
+        location: `papers/${paper.id}`,
+        message: `courseId "${paper.courseId}" does not match parent folder "${paper.folderCourseId}"`,
+      });
+    }
+  }
+
+  // Paper question quality: missing difficulty (aggregated), thin model
+  // answers and markscheme points.
+  for (const paper of papers) {
+    const untagged = paper.questions.filter((q) => q.difficulty === undefined);
+    if (untagged.length > 0) {
+      issues.push({
+        type: "missing_difficulty",
+        severity: "warning",
+        location: `papers/${paper.id}`,
+        message: `Paper has ${untagged.length} of ${paper.questions.length} question(s) without a difficulty tag`,
+      });
+    }
+    for (const q of paper.questions) {
+      if (q.modelAnswer.length < MIN_MODEL_ANSWER_LENGTH) {
+        issues.push({
+          type: "paper_quality",
+          severity: "warning",
+          location: `papers/${paper.id}/question/${q.id}`,
+          message: `Model answer is ${q.modelAnswer.length} characters long (minimum recommended is ${MIN_MODEL_ANSWER_LENGTH})`,
+        });
+      }
+      for (const point of q.markscheme) {
+        if (point.length < MIN_MARKSCHEME_POINT_LENGTH) {
+          issues.push({
+            type: "paper_quality",
+            severity: "warning",
+            location: `papers/${paper.id}/question/${q.id}`,
+            message: `Markscheme point is ${point.length} characters long (minimum recommended is ${MIN_MARKSCHEME_POINT_LENGTH}): "${point}"`,
+          });
+        }
+      }
     }
   }
 
@@ -345,24 +407,27 @@ export function auditContent(input: AuditInput): AuditResult {
     }
   }
 
-  // Duplicate IDs across all topics (blocking CI error)
-  const allItems: Array<IdItem & { topic: AuditTopic }> = [];
+  // Duplicate IDs across all topics and papers (blocking CI error)
+  const allItems: Array<IdItem & { loc: string }> = [];
   for (const topic of topics) {
     for (const item of collectIds(topic)) {
-      allItems.push({ ...item, topic });
+      allItems.push({ ...item, loc: location(topic, item.kind, item.label) });
+    }
+  }
+  for (const paper of papers) {
+    for (const q of paper.questions) {
+      allItems.push({ id: q.id, kind: "question", label: q.id, loc: `papers/${paper.id}/question/${q.id}` });
     }
   }
   const globalDuplicateIds = findDuplicates(allItems.map((item) => item.id));
   for (const dupId of globalDuplicateIds) {
     const occurrences = allItems.filter((item) => item.id === dupId);
-    const locations = occurrences.map((item) =>
-      location(item.topic, item.kind, item.label),
-    );
+    const locations = occurrences.map((item) => item.loc);
     issues.push({
       type: "duplicate_id",
       severity: "error",
       location: locations.join("; "),
-      message: `ID "${dupId}" appears ${occurrences.length} times across topics`,
+      message: `ID "${dupId}" appears ${occurrences.length} times across topics and papers`,
     });
   }
 
@@ -398,6 +463,30 @@ export function auditContent(input: AuditInput): AuditResult {
           type: isUnicode ? "latex_unicode" : "latex_error",
           severity: isUnicode ? "error" : "warning",
           location: `${location(topic)}/${field.path}`,
+          message: latexIssue.message,
+        });
+      }
+    }
+  }
+
+  // LaTeX red flags in papers (stems, markscheme points, model answers)
+  for (const paper of papers) {
+    const fields: TextField[] = [];
+    paper.questions.forEach((q, idx) => {
+      fields.push({ path: `questions[${idx}].stem`, value: q.stem });
+      fields.push({ path: `questions[${idx}].modelAnswer`, value: q.modelAnswer });
+      q.markscheme.forEach((point, pidx) => {
+        fields.push({ path: `questions[${idx}].markscheme[${pidx}]`, value: point });
+      });
+    });
+    for (const field of fields) {
+      const latexIssues = findLatexIssues(field.value);
+      for (const latexIssue of latexIssues) {
+        const isUnicode = latexIssue.message.includes("non-ASCII");
+        issues.push({
+          type: isUnicode ? "latex_unicode" : "latex_error",
+          severity: isUnicode ? "error" : "warning",
+          location: `papers/${paper.id}/${field.path}`,
           message: latexIssue.message,
         });
       }
@@ -493,6 +582,52 @@ export function loadTopicsFromDisk(topicsDir: string): LoadResult {
   return { input: { topics }, unreadable };
 }
 
+export function loadPapersFromDisk(papersDir: string): {
+  papers: AuditPaper[];
+  unreadable: Array<{ filePath: string; error: string }>;
+} {
+  const papers: AuditPaper[] = [];
+  const unreadable: Array<{ filePath: string; error: string }> = [];
+  if (!fs.existsSync(papersDir)) return { papers, unreadable };
+
+  const courseDirs = fs.readdirSync(papersDir).filter((name) => {
+    const full = path.join(papersDir, name);
+    return fs.statSync(full).isDirectory();
+  });
+
+  for (const courseDir of courseDirs) {
+    const dirPath = path.join(papersDir, courseDir);
+    const files = fs.readdirSync(dirPath).filter((f) => f.endsWith(".json"));
+
+    for (const file of files) {
+      const filePath = path.join(dirPath, file);
+      const relativePath = path.relative(process.cwd(), filePath);
+      const raw = fs.readFileSync(filePath, "utf8");
+
+      let parsed: unknown;
+      try {
+        parsed = JSON.parse(raw);
+      } catch (err) {
+        unreadable.push({
+          filePath: relativePath,
+          error: err instanceof Error ? err.message : String(err),
+        });
+        continue;
+      }
+
+      const result = paperSchema.safeParse(parsed);
+      if (!result.success) {
+        unreadable.push({ filePath: relativePath, error: result.error.message });
+        continue;
+      }
+
+      papers.push({ ...result.data, filePath: relativePath, folderCourseId: courseDir });
+    }
+  }
+
+  return { papers, unreadable };
+}
+
 function groupByType(issues: AuditIssue[]): Record<IssueType, AuditIssue[]> {
   const grouped = {} as Record<IssueType, AuditIssue[]>;
   for (const issue of issues) {
@@ -524,6 +659,8 @@ function issueTypeLabel(type: IssueType): string {
       return "Questions without a difficulty tag";
     case "difficulty_distribution":
       return "Difficulty distribution below minimum";
+    case "paper_quality":
+      return "Paper model answers / markscheme quality";
     case "unreadable_topic":
       return "Unreadable topic files";
     default:
@@ -593,16 +730,20 @@ export function formatReport(
 
 export function main(): void {
   const topicsDir = path.resolve(__dirname, "../src/content/data/topics");
+  const papersDir = path.resolve(__dirname, "../src/content/data/papers");
   const { input, unreadable } = loadTopicsFromDisk(topicsDir);
+  const papersResult = loadPapersFromDisk(papersDir);
+  input.papers = papersResult.papers;
+  const allUnreadable = [...unreadable, ...papersResult.unreadable];
   const result = auditContent(input);
 
-  console.log(formatReport(result, unreadable));
+  console.log(formatReport(result, allUnreadable));
 
   const errorCount = result.issues.filter((i) => i.severity === "error").length;
   const warningCount = result.issues.filter(
     (i) => i.severity === "warning",
   ).length;
-  if (errorCount > 0 || warningCount > 0 || unreadable.length > 0) {
+  if (errorCount > 0 || warningCount > 0 || allUnreadable.length > 0) {
     process.exit(1);
   }
   process.exit(0);

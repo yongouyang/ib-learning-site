@@ -1,9 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import { topicSchema, subjectMetaSchema, type ValidatedTopic } from '../src/content/schema';
+import { topicSchema, subjectMetaSchema, paperSchema, type ValidatedTopic } from '../src/content/schema';
+import { COURSES } from '../src/lib/courses';
 
 const DATA_DIR = path.resolve(__dirname, '../src/content/data');
 const TOPICS_DIR = path.join(DATA_DIR, 'topics');
+const PAPERS_DIR = path.join(DATA_DIR, 'papers');
 const SUBJECTS_FILE = path.join(DATA_DIR, 'subjects.json');
 
 // Stage/course/level consistency rules (Phase 1 taxonomy).
@@ -121,10 +123,70 @@ function validateTopics() {
   }
 }
 
+// Phase 4: free-response practice sets in data/papers/<courseId>/<set-id>.json.
+function validatePapers() {
+  if (!fs.existsSync(PAPERS_DIR)) return;
+
+  const courseDirs = fs.readdirSync(PAPERS_DIR).filter((name) => {
+    const full = path.join(PAPERS_DIR, name);
+    return fs.statSync(full).isDirectory();
+  });
+
+  for (const courseDir of courseDirs) {
+    const dirPath = path.join(PAPERS_DIR, courseDir);
+    const files = fs.readdirSync(dirPath).filter((f) => f.endsWith('.json'));
+
+    for (const file of files) {
+      const filePath = path.join(dirPath, file);
+      const raw = fs.readFileSync(filePath, 'utf8');
+      let parsed: unknown;
+      try {
+        parsed = JSON.parse(raw);
+      } catch (err) {
+        recordFailure(filePath, err);
+        continue;
+      }
+
+      const result = paperSchema.safeParse(parsed);
+      if (!result.success) {
+        const errors = result.error.issues.map(
+          (issue) => `${issue.path.join('.') || 'root'}: ${issue.message}`
+        );
+        failures.push({ file: relative(filePath), errors });
+        continue;
+      }
+
+      const paper = result.data;
+      const errors: string[] = [];
+      if (paper.courseId !== courseDir) {
+        errors.push(`courseId "${paper.courseId}" does not match folder "${courseDir}"`);
+      }
+      if (!COURSES.some((c) => c.id === paper.courseId)) {
+        errors.push(`courseId "${paper.courseId}" is not a known course (see src/lib/courses.ts)`);
+      }
+      if (!paper.id.startsWith(`${paper.courseId}-`)) {
+        errors.push(`paper id "${paper.id}" should start with its courseId "${paper.courseId}-"`);
+      }
+      // Non-calculator policy (Phase 3 user decision): no calc-tagged FR questions.
+      const calcTagged = paper.questions.filter((q) => q.calculator);
+      if (calcTagged.length > 0) {
+        errors.push(`${calcTagged.length} question(s) tagged calculator:true — papers are non-calculator for now`);
+      }
+
+      if (errors.length > 0) {
+        failures.push({ file: relative(filePath), errors });
+      } else {
+        console.log(`✓ ${relative(filePath)}`);
+      }
+    }
+  }
+}
+
 function main() {
   console.log('Validating content...\n');
   validateSubjects();
   validateTopics();
+  validatePapers();
 
   if (failures.length > 0) {
     console.error(`\n${failures.length} file(s) failed validation:\n`);

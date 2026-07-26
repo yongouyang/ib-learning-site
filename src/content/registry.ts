@@ -1,6 +1,6 @@
 import { Subject, SubjectId } from './types';
-import type { Topic } from './types';
-import { topicSchema, subjectMetaSchema } from './schema';
+import type { Topic, Paper } from './types';
+import { topicSchema, subjectMetaSchema, paperSchema } from './schema';
 
 import subjectsMeta from './data/subjects.json';
 
@@ -139,6 +139,9 @@ import phys_space_1_json from './data/topics/physics/phys-space-1.json';
 import phys_waves_1_json from './data/topics/physics/phys-waves-1.json';
 import phys_working_scientifically_1_json from './data/topics/physics/phys-working-scientifically-1.json';
 
+// math-y7 practice sets
+import math_y7_math_y7_set_1_json from './data/papers/math-y7/math-y7-set-1.json';
+
 const math_algebra_1: Topic = topicSchema.parse(math_algebra_1_json);
 const math_dp_ai_binomial: Topic = topicSchema.parse(math_dp_ai_binomial_json);
 const math_dp_ai_complex_numbers: Topic = topicSchema.parse(math_dp_ai_complex_numbers_json);
@@ -269,6 +272,8 @@ const phys_space_1: Topic = topicSchema.parse(phys_space_1_json);
 const phys_waves_1: Topic = topicSchema.parse(phys_waves_1_json);
 const phys_working_scientifically_1: Topic = topicSchema.parse(phys_working_scientifically_1_json);
 
+const math_y7_math_y7_set_1: Paper = paperSchema.parse(math_y7_math_y7_set_1_json);
+
 const validatedSubjectsMeta = subjectMetaSchema.array().parse(subjectsMeta);
 
 const mathMeta = validatedSubjectsMeta.find((s) => s.id === 'math')!;
@@ -340,3 +345,17 @@ export const subjectMeta: Record<SubjectId, { name: string; icon: string; color:
   chemistry: { name: chemistryMeta.name, icon: chemistryMeta.icon, color: chemistryMeta.accentColor },
   physics: { name: physicsMeta.name, icon: physicsMeta.icon, color: physicsMeta.accentColor },
 };
+
+const papers: Paper[] = [math_y7_math_y7_set_1];
+
+export function getAllPapers(): Paper[] {
+  return papers;
+}
+
+export function getPapersForCourse(courseId: string): Paper[] {
+  return papers.filter((p) => p.courseId === courseId);
+}
+
+export function getPaper(courseId: string, paperId: string): Paper | undefined {
+  return papers.find((p) => p.id === paperId && p.courseId === courseId);
+}

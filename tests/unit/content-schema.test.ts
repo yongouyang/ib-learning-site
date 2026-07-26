@@ -5,6 +5,8 @@ import {
   conceptNoteSchema,
   flashcardSchema,
   questionSchema,
+  paperSchema,
+  freeResponseQuestionSchema,
 } from '@/content/schema';
 import subjectsMeta from '@/content/data/subjects.json';
 
@@ -183,6 +185,66 @@ describe('content schema validation', () => {
     it('should reject a note with empty body', () => {
       const invalid = { ...validTopic.notes[0], body: '' };
       expect(() => conceptNoteSchema.parse(invalid)).toThrow();
+    });
+  });
+
+  describe('freeResponseQuestionSchema', () => {
+    const validFR = {
+      id: 'set-1-q1',
+      stem: 'Work out $347 + 586$.',
+      marks: 2,
+      markscheme: ['M1: correct method', 'A1: 933'],
+      modelAnswer: 'Column addition gives 933.',
+    };
+
+    it('should accept a valid free-response question', () => {
+      const result = freeResponseQuestionSchema.parse(validFR);
+      expect(result.marks).toBe(2);
+      expect(result.difficulty).toBeUndefined();
+    });
+
+    it('should reject when markscheme length does not match marks', () => {
+      const invalid = { ...validFR, markscheme: ['M1: only one point'] };
+      expect(() => freeResponseQuestionSchema.parse(invalid)).toThrow();
+    });
+
+    it('should reject zero marks', () => {
+      expect(() => freeResponseQuestionSchema.parse({ ...validFR, marks: 0, markscheme: [] })).toThrow();
+    });
+  });
+
+  describe('paperSchema', () => {
+    const validPaper = {
+      id: 'math-y7-set-1',
+      courseId: 'math-y7',
+      title: 'Practice Set 1',
+      durationMinutes: 30,
+      questions: Array.from({ length: 5 }, (_, i) => ({
+        id: `math-y7-set-1-q${i + 1}`,
+        stem: `Question ${i + 1}`,
+        marks: 1,
+        markscheme: ['B1: correct answer'],
+        modelAnswer: 'A worked model answer.',
+      })),
+    };
+
+    it('should accept a valid paper', () => {
+      const result = paperSchema.parse(validPaper);
+      expect(result.questions).toHaveLength(5);
+    });
+
+    it('should reject a malformed paper id', () => {
+      expect(() => paperSchema.parse({ ...validPaper, id: 'Set One' })).toThrow();
+    });
+
+    it('should reject fewer than 5 questions', () => {
+      const invalid = { ...validPaper, questions: validPaper.questions.slice(0, 4) };
+      expect(() => paperSchema.parse(invalid)).toThrow();
+    });
+
+    it('should accept a paper without a duration', () => {
+      const { durationMinutes: _omitted, ...noDuration } = validPaper;
+      expect(paperSchema.parse(noDuration).durationMinutes).toBeUndefined();
     });
   });
 });

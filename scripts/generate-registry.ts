@@ -3,6 +3,7 @@ import path from 'path';
 
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const TOPICS_DIR = path.join(PROJECT_ROOT, 'src', 'content', 'data', 'topics');
+const PAPERS_DIR = path.join(PROJECT_ROOT, 'src', 'content', 'data', 'papers');
 const SUBJECTS_JSON = path.join(PROJECT_ROOT, 'src', 'content', 'data', 'subjects.json');
 const OUTPUT_FILE = path.join(PROJECT_ROOT, 'src', 'content', 'registry.ts');
 
@@ -85,6 +86,36 @@ function main(): void {
     .map((id) => `const ${id}Meta = validatedSubjectsMeta.find((s) => s.id === '${id}')!;`)
     .join('\n');
 
+  // Phase 4: free-response practice sets (src/content/data/papers/<courseId>/*.json)
+  const paperImportLines: string[] = [];
+  const paperDeclarationLines: string[] = [];
+  const paperVarNames: string[] = [];
+
+  if (fs.existsSync(PAPERS_DIR)) {
+    const courseDirs = fs
+      .readdirSync(PAPERS_DIR)
+      .filter((name) => fs.statSync(path.join(PAPERS_DIR, name)).isDirectory())
+      .sort((a, b) => a.localeCompare(b));
+
+    for (const courseId of courseDirs) {
+      const files = fs
+        .readdirSync(path.join(PAPERS_DIR, courseId))
+        .filter((f) => f.endsWith('.json'))
+        .sort((a, b) => a.localeCompare(b));
+
+      paperImportLines.push(`// ${courseId} practice sets`);
+      for (const file of files) {
+        const importName = toIdentifier(`${courseId}_${file}`, 'json');
+        const variableName = toIdentifier(`${courseId}_${file}`);
+        paperImportLines.push(`import ${importName} from './data/papers/${courseId}/${file}';`);
+        paperDeclarationLines.push(
+          `const ${variableName}: Paper = paperSchema.parse(${importName});`,
+        );
+        paperVarNames.push(variableName);
+      }
+    }
+  }
+
   const subjectsRecordEntries = subjectDirs
     .map((id) => `  ${id}: ${id}Subject,`)
     .join('\n');
@@ -97,14 +128,18 @@ function main(): void {
     .join('\n');
 
   const output = `import { Subject, SubjectId } from './types';
-import type { Topic } from './types';
-import { topicSchema, subjectMetaSchema } from './schema';
+import type { Topic, Paper } from './types';
+import { topicSchema, subjectMetaSchema, paperSchema } from './schema';
 
 import subjectsMeta from './data/subjects.json';
 
 ${importLines.join('\n')}
 
+${paperImportLines.join('\n')}
+
 ${declarationLines.join('\n')}
+
+${paperDeclarationLines.join('\n')}
 
 const validatedSubjectsMeta = subjectMetaSchema.array().parse(subjectsMeta);
 
@@ -131,11 +166,25 @@ export function getTopic(subjectId: SubjectId, topicId: string) {
 export const subjectMeta: Record<SubjectId, { name: string; icon: string; color: string }> = {
 ${subjectMetaRecordEntries}
 };
+
+const papers: Paper[] = [${paperVarNames.join(', ')}];
+
+export function getAllPapers(): Paper[] {
+  return papers;
+}
+
+export function getPapersForCourse(courseId: string): Paper[] {
+  return papers.filter((p) => p.courseId === courseId);
+}
+
+export function getPaper(courseId: string, paperId: string): Paper | undefined {
+  return papers.find((p) => p.id === paperId && p.courseId === courseId);
+}
 `;
 
   fs.writeFileSync(OUTPUT_FILE, output, 'utf-8');
   console.log(
-    `Generated ${OUTPUT_FILE} with ${subjectDirs.length} subjects and ${declarationLines.length} topics.`,
+    `Generated ${OUTPUT_FILE} with ${subjectDirs.length} subjects, ${declarationLines.length} topics and ${paperVarNames.length} papers.`,
   );
 }
 

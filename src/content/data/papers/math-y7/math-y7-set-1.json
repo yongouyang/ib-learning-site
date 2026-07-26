@@ -1,0 +1,100 @@
+{
+  "id": "math-y7-set-1",
+  "courseId": "math-y7",
+  "title": "Practice Set 1",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "math-y7-set-1-q1",
+      "stem": "Work out $347 + 586$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: correct column-addition method with at least one carry shown",
+        "A1: $933$"
+      ],
+      "modelAnswer": "Set out the numbers in columns. Units: $7 + 6 = 13$, write $3$ carry $1$. Tens: $4 + 8 + 1 = 13$, write $3$ carry $1$. Hundreds: $3 + 5 + 1 = 9$. Answer: $933$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y7-set-1-q2",
+      "stem": "Simplify $5x + 3x - 2x$.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $8x - 2x$ seen (collecting $5x + 3x$)",
+        "B1: $6x$"
+      ],
+      "modelAnswer": "Collect the like terms: $5x + 3x = 8x$, then $8x - 2x = 6x$. Answer: $6x$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y7-set-1-q3",
+      "stem": "A rectangle measures $9$ cm by $4$ cm. Work out its perimeter.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $(9 + 4) \\times 2$ or $9 + 4 + 9 + 4$",
+        "A1: $26$ cm (units required)"
+      ],
+      "modelAnswer": "Perimeter is the distance all the way round: $9 + 4 + 9 + 4 = 26$. Answer: $26$ cm.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y7-set-1-q4",
+      "stem": "Solve the equation $3x - 7 = 11$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $3x = 18$ (adding $7$ to both sides)",
+        "A1: $x = 6$"
+      ],
+      "modelAnswer": "Add $7$ to both sides: $3x = 11 + 7 = 18$. Divide both sides by $3$: $x = 6$. Check: $3(6) - 7 = 18 - 7 = 11$ ✓",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-set-1-q5",
+      "stem": "The three angles of a triangle are $x$, $2x$ and $60^\\circ$. Work out the value of $x$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: $x + 2x + 60 = 180$ (angles in a triangle sum to $180^\\circ$)",
+        "A1: $3x = 120$",
+        "A1: $x = 40^\\circ$"
+      ],
+      "modelAnswer": "Angles in a triangle add to $180^\\circ$: $x + 2x + 60 = 180$. Collect: $3x = 120$, so $x = 40$. The angles are $40^\\circ$, $80^\\circ$ and $60^\\circ$ — they sum to $180^\\circ$ ✓",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-set-1-q6",
+      "stem": "Work out $\\dfrac{3}{4} - \\dfrac{2}{5}$. Give your answer in its simplest form.",
+      "marks": 3,
+      "markscheme": [
+        "M1: common denominator of $20$ used",
+        "A1: $\\dfrac{15}{20} - \\dfrac{8}{20}$",
+        "A1: $\\dfrac{7}{20}$"
+      ],
+      "modelAnswer": "The lowest common denominator of $4$ and $5$ is $20$. Convert: $\\dfrac{3}{4} = \\dfrac{15}{20}$ and $\\dfrac{2}{5} = \\dfrac{8}{20}$. Subtract: $\\dfrac{15}{20} - \\dfrac{8}{20} = \\dfrac{7}{20}$. Since $7$ is prime, this is already in simplest form.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-set-1-q7",
+      "stem": "A sequence begins $5, 9, 13, 17, \\ldots$ Find the $20$th term of the sequence.",
+      "marks": 3,
+      "markscheme": [
+        "M1: common difference $4$ identified and used to build an nth-term rule",
+        "A1: nth term $= 4n + 1$",
+        "A1: $81$"
+      ],
+      "modelAnswer": "The terms increase by $4$ each time, so the rule starts $4n$. The first term is $5$, and $4(1) = 4$, so we add $1$: nth term $= 4n + 1$. For $n = 20$: $4(20) + 1 = 81$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-y7-set-1-q8",
+      "stem": "A jacket costs £48. In a sale, the price is reduced by $15\\%$. Work out the sale price.",
+      "marks": 3,
+      "markscheme": [
+        "M1: $10\\%$ of £48 $=$ £4.80 and $5\\% =$ £2.40 (or equivalent non-calculator strategy)",
+        "A1: $15\\% =$ £7.20",
+        "A1: £40.80"
+      ],
+      "modelAnswer": "Find $15\\%$ without a calculator: $10\\%$ of £48 is £4.80, and $5\\%$ is half of that, £2.40. So $15\\%$ is $4.80 + 2.40 = 7.20$ pounds. Sale price: $48 - 7.20 = 40.80$, i.e. £40.80.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -6,14 +6,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, CheckCircle2, XCircle, RotateCcw, Calculator } from 'lucide-react';
 import type { Question } from '@/content/types';
 import { seededShuffle } from '@/lib/quiz-utils';
+import { DIFFICULTY_CHIP_CLASSES } from './difficulty-chip';
 import { Breadcrumbs, type BreadcrumbItem } from './Breadcrumbs';
 import InlineMath from './InlineMath';
-
-const DIFFICULTY_CHIP_CLASSES: Record<string, string> = {
-  easy: 'bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-300',
-  medium: 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300',
-  hard: 'bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-300',
-};
 
 function QuestionBadges({ question }: { question: Question }) {
   if (!question.difficulty && !question.calculator) return null;

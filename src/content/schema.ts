@@ -55,6 +55,35 @@ export const topicSchema = z.object({
   questions: z.array(questionSchema).min(1),
 });
 
+// Phase 4 — free-response practice sets ("past-paper-style", original questions only).
+// Lives in src/content/data/papers/<courseId>/<set-id>.json — kept OUT of the MC
+// questions array (QuizGame expects choices/correctIndex).
+export const freeResponseQuestionSchema = z
+  .object({
+    id: z.string().min(1),
+    stem: z.string().min(1),
+    marks: z.number().int().min(1).max(10),
+    // One tickable point per mark (M1/A1/B1 style — see CONTENT_STYLE.md).
+    markscheme: z.array(z.string().min(1)).min(1),
+    modelAnswer: z.string().min(1),
+    difficulty: difficultySchema.optional(),
+    // Reserved for future calc-allowed papers; the non-calculator policy
+    // currently requires this to be absent (enforced by validate-content).
+    calculator: z.boolean().optional(),
+  })
+  .refine((q) => q.markscheme.length === q.marks, {
+    message: 'markscheme must contain exactly one point per mark',
+    path: ['markscheme'],
+  });
+
+export const paperSchema = z.object({
+  id: z.string().regex(/^[a-z0-9-]+-set-\d+$/, 'paper id must look like <courseId>-set-<n>'),
+  courseId: z.string().min(1),
+  title: z.string().min(1),
+  durationMinutes: z.number().int().min(5).max(120).optional(),
+  questions: z.array(freeResponseQuestionSchema).min(5),
+});
+
 export const subjectMetaSchema = z.object({
   id: subjectIdSchema,
   name: z.string().min(1),
@@ -77,5 +106,7 @@ export type ValidatedDifficulty = z.infer<typeof difficultySchema>;
 export type ValidatedConceptNote = z.infer<typeof conceptNoteSchema>;
 export type ValidatedFlashcard = z.infer<typeof flashcardSchema>;
 export type ValidatedQuestion = z.infer<typeof questionSchema>;
+export type ValidatedFreeResponseQuestion = z.infer<typeof freeResponseQuestionSchema>;
+export type ValidatedPaper = z.infer<typeof paperSchema>;
 export type ValidatedTopic = z.infer<typeof topicSchema>;
 export type ValidatedSubject = z.infer<typeof subjectSchema>;

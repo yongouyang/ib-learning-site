@@ -59,6 +59,26 @@ export interface Subject {
   topics: Topic[];
 }
 
+// Phase 4 — free-response practice sets (past-paper-style, original questions).
+export interface FreeResponseQuestion {
+  id: string;
+  stem: string;
+  marks: number;
+  /** One tickable point per mark (M1/A1/B1 style); length === marks. */
+  markscheme: string[];
+  modelAnswer: string;
+  difficulty?: Difficulty;
+  calculator?: boolean;
+}
+
+export interface Paper {
+  id: string; // <courseId>-set-<n>
+  courseId: string;
+  title: string;
+  durationMinutes?: number;
+  questions: FreeResponseQuestion[];
+}
+
 export interface QuizAttempt {
   date: string; // ISO string
   correctCount: number;

@@ -30,15 +30,19 @@ export const DIFFICULTY_LEVELS: Difficulty[] = ['easy', 'medium', 'hard'];
 export type DifficultyFilter = Difficulty | 'all';
 
 // Untagged questions sort as medium (transitional; all questions are tagged post-Phase-2).
-function bandOf(question: Question): Difficulty {
-  return question.difficulty ?? 'medium';
+function bandOf(item: { difficulty?: Difficulty }): Difficulty {
+  return item.difficulty ?? 'medium';
 }
 
 // Easy -> hard ordering with a deterministic shuffle WITHIN each band, so a
-// topic quiz ramps up in difficulty without asking questions in the exact
-// same order every attempt. Untagged questions are treated as medium.
-export function orderQuestionsByDifficulty(questions: Question[], seed: string): Question[] {
-  const bands = new Map<Difficulty, Question[]>();
+// quiz ramps up in difficulty without asking questions in the exact same
+// order every attempt. Untagged questions are treated as medium. Works for
+// both MC questions and free-response questions (anything difficulty-tagged).
+export function orderQuestionsByDifficulty<T extends { difficulty?: Difficulty }>(
+  questions: T[],
+  seed: string
+): T[] {
+  const bands = new Map<Difficulty, T[]>();
   for (const level of DIFFICULTY_LEVELS) bands.set(level, []);
   for (const question of questions) {
     bands.get(bandOf(question))!.push(question);
