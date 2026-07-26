@@ -51,4 +51,13 @@ test.describe('Mock exams', () => {
     await page.waitForURL('/exams');
     await expect(page.getByRole('heading', { name: 'Mock Exams', level: 1 })).toBeVisible();
   });
+
+  test('course cards cross-link to their free-response sets', async ({ page }) => {
+    await page.goto('/exams');
+    const links = page.getByRole('link', { name: /— free-response/ });
+    await expect(links).toHaveCount(8);
+    await links.first().click();
+    await page.waitForURL('**/papers/math-y7/math-y7-set-1');
+    await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
+  });
 });

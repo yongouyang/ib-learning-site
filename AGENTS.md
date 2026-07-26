@@ -36,9 +36,11 @@ npm run test:e2e               # Playwright (auto-starts dev server)
 ## Conventions
 
 - Content lives in `src/content/data/topics/<subject>/<topic-id>.json` — one file per topic. See `CONTENT_STYLE.md`.
+- Free-response practice sets live in `src/content/data/papers/<courseId>/<courseId>-set-<n>.json` — original questions only, 20 marks per set, `marks === markscheme.length`. See `CONTENT_STYLE.md` ("Practice papers").
+- Course groupings (diagnostics/exams/ladder/papers) come from `src/lib/courses.ts` — add new courses there.
 - Illustration rules: `ILLUSTRATION_GUIDELINES.md`. SVGs go in `public/images/<subject>/`.
-- `src/content/registry.ts` is generated — never edit by hand; use `npm run generate:registry`.
-- New topics follow the 7 notes / 12 flashcards / 15 questions standard.
+- `src/content/registry.ts` is generated — never edit by hand; use `npm run generate:registry` (re-run after adding/removing topic OR paper JSON files).
+- New topics follow the 7 notes / 12 flashcards / 15 questions standard; every question (MC and free-response) needs a `difficulty` tag — rubric in `CONTENT_STYLE.md`.
 - Topic taxonomy: `stage` (ks3/igcse/dp) + optional `year`/`course`/`level` — see `CONTENT_STYLE.md` ("Stage & course tagging" and ID conventions). `ibLevel` was retired in the Phase 1 migration (2026-07).
 - Roadmap: `revised-implementation-plan.md` (phases) and `phase-1-implementation-plan.md`.
 - BBC reference pipeline (Phase 1.5): `tools/scripts/scrape-bbc-ks3.mjs` scrapes to `tools/data/`; `tools/scripts/convert-bbc-to-topics.mjs` (map: `tools/scripts/bbc-curation-map.json`) writes reference drafts to `tools/data/_staging/`. BBC text is **reference only** — notes are rewritten in our own voice, flashcards/questions authored, before anything lands in `src/content/data/topics/`. Out-of-scope subjects are archived in `tools/data/_archive/`.

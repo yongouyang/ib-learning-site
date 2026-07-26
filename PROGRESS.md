@@ -6,7 +6,19 @@
 
 ---
 
-## 2026-07-25 — Phase 4 Session 1: free-response schema + pipeline + self-marking runner + pilot set
+## 2026-07-25 — Phase 4 Session 2: 7 practice sets authored + independently verified
+
+Git HEAD: `c9f9360` → pushed `5ac6c4e` (branch `develop`, tree clean)
+Done:
+1. **7 sets authored** (swarm, one per remaining course): math-y8 (8q/30min), math-y9 (9q/30min), math-dp-ai (9q/35min), eng-ks3 (8q/25min, 2 original stimulus passages + original stanza), bio-ks3 (8q/25min), chem-ks3 (7q/25min), phys-ks3 (8q/25min). All: 100% original questions, exactly 20 marks, M1/A1/B1 markschemes, easy→hard ramp (~30/40/30), non-calculator, ≥5 distinct topics per set.
+2. **Independent verification agent** re-derived every hard + first-medium question per set and skimmed the rest: **all 7 PASS** — no wrong answers, markscheme↔model consistent, no phantom quotations (English quotes verified verbatim), all non-calc. Nit noted: eng q5 "needled" as personification — defensible at KS3, no change.
+3. **Registry**: 8 papers. validate:content + audit:content 0/0.
+4. **E2e spec fix** (own bug): `Practice Set 1` link locator matched 8 elements once all sets shared the title — scoped by href; added assertion that all 8 sets are listed.
+Verified: Vitest 163/163 ✅, tsc ✅, validate:content ✅, audit:content 0/0 ✅, illustrations + layout ✅, full e2e **516 passed** / 6 skipped / 0 failed ✅ (after spec fix re-run).
+Next: Phase 4 Session 3 (final) — cross-links from /exams course cards to paper sets, CONTENT_STYLE.md (markscheme style + papers tree) + AGENTS.md (papers conventions) docs, final gates. Then Phase 5 — AI feedback (API route, mark with LLM, graceful fallback to self-marking).
+Notes: e2e lesson — shared titles across sets break role-based locators; scope by href for set links. math-dp-ai set is non-calc practice despite real AI papers allowing GDC (documented caveat, plan §1).
+
+---
 
 Git HEAD: `b885dac` → pushed `c9f9360` (branch `develop`, tree clean)
 Done:
