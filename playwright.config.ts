@@ -64,5 +64,12 @@ export default defineConfig({
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: process.env.E2E_PROD ? 120000 : 60000,
+    env: {
+      // Phase 5: e2e runs against the real /api/feedback route with the Dummy
+      // provider — zero tokens, deterministic defaults, and test-mode injection
+      // (_testResponse) for per-case control (see phase-5-implementation-plan.md).
+      FEEDBACK_PROVIDER: 'dummy',
+      FEEDBACK_TEST_MODE: '1',
+    },
   },
 });

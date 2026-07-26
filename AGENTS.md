@@ -38,6 +38,7 @@ npm run test:e2e               # Playwright (auto-starts dev server)
 - Content lives in `src/content/data/topics/<subject>/<topic-id>.json` — one file per topic. See `CONTENT_STYLE.md`.
 - Free-response practice sets live in `src/content/data/papers/<courseId>/<courseId>-set-<n>.json` — original questions only, 20 marks per set, `marks === markscheme.length`. See `CONTENT_STYLE.md` ("Practice papers").
 - Course groupings (diagnostics/exams/ladder/papers) come from `src/lib/courses.ts` — add new courses there.
+- **External dependencies get a controllable dummy** (user directive): unit tests mock them; e2e/local dev run a dummy implementation with deterministic defaults + per-test response injection. The injection path doubles as production-issue reproduction. See `src/lib/feedback/dummy.ts` (the template) and `docs/ai-feedback.md`.
 - Illustration rules: `ILLUSTRATION_GUIDELINES.md`. SVGs go in `public/images/<subject>/`.
 - `src/content/registry.ts` is generated — never edit by hand; use `npm run generate:registry` (re-run after adding/removing topic OR paper JSON files).
 - New topics follow the 7 notes / 12 flashcards / 15 questions standard; every question (MC and free-response) needs a `difficulty` tag — rubric in `CONTENT_STYLE.md`.

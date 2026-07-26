@@ -6,7 +6,19 @@
 
 ---
 
-## 2026-07-25 — Phase 4 Session 3 (final): cross-links + docs — Phase 4 COMPLETE
+## 2026-07-25 — Phase 5 Session 1: AI feedback provider abstraction + /api/feedback route
+
+Git HEAD: `c2ea83c` → pushed `84245fe` (branch `develop`, tree clean)
+Done:
+1. **`phase-5-implementation-plan.md`** (user-guided): provider abstraction with standing testing mindset — unit tests mock, e2e/local use a **Dummy provider with default + per-test injected responses** (injection path doubles as production-issue reproduction); Kimi token guidance: dedicated Moonshot open-platform key (NOT a CLI subscription credential), server-side env only, rate limits + budget alerts, deploy with no key first.
+2. **`src/lib/feedback/`**: zod contract (answer ≤2000 chars, ≤10 marks); `DummyFeedbackProvider` (default all-awarded + `FEEDBACK_DUMMY_RESPONSE` override); `OpenAICompatibleProvider` (plain fetch, JSON mode, temp 0, 30s timeout, one retry on malformed output); env-switch factory.
+3. **`/api/feedback`**: GET (configured check, no key leak) + POST (zod → per-IP sliding-window rate limit, env-tunable, per-instance caveat documented → provider → same zod schema for real AND injected results → **marks recomputed server-side**). `_testResponse` honored only when `FEEDBACK_PROVIDER=dummy` + `FEEDBACK_TEST_MODE=1` (+ production warning log). 400/429/501/502 semantics.
+4. **Tests**: 13 unit (route via real env-wiring, unique IP per test for rate-limit isolation; dummy provider). Live contract test `tests/live/` + `vitest.live.config.ts` (opt-in: `FEEDBACK_LIVE=1 FEEDBACK_API_KEY=... npx vitest run --config vitest.live.config.ts`).
+Verified: Vitest 176/176 ✅ (+13), tsc ✅, validate/audit/illustrations ✅, curl smoke on dev server (GET configured, dummy default, injection with marks-recompute) ✅, full e2e **519 passed** / 6 skipped / 0 failed ✅.
+Next: Phase 5 Session 2 — PaperRunnerClient "Mark with AI" (configured check via GET, tick pre-fill, per-point comments, loading/error states), e2e (default dummy / injected patterns / malformed / 429 / unconfigured-degradation), `docs/ai-feedback.md` (env, Vercel, Moonshot key, prod-repro workflow), AGENTS.md mindset entry.
+Notes: **dev-server lesson**: `kill` on `npx next dev` only kills the wrapper — orphaned `next-server` kept running, fought Playwright's server over `.next`, corrupted a manifest JSON (154 identical JSON.parse failures). Kill by process group / `pkill -f "next dev --port N"`; `rm -rf .next` fixes the corruption. Rate-limit consts are read per-request (not module-level) so tests can stub env.
+
+---
 
 Git HEAD: `5ac6c4e` → pushed `c2ea83c` (branch `develop`, tree clean)
 Done:
