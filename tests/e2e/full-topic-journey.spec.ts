@@ -41,12 +41,11 @@ async function completeTopicJourney(page: Page, subjectId: string, topicId: stri
   let safety = 0;
   while (safety < 100) {
     await card.click();
-    const nextButton = page.getByRole('button').filter({ hasText: /Next|Finish/ });
-    await expect(nextButton).toBeVisible();
-    const label = (await nextButton.textContent())?.trim() ?? '';
-    await nextButton.click();
-    if (label === 'Finish') break;
+    const knowButton = page.getByRole('button', { name: /I know this/i });
+    await expect(knowButton).toBeVisible();
+    await knowButton.click();
     safety++;
+    if (await page.getByRole('heading', { name: 'Deck Complete!' }).isVisible()) break;
   }
 
   await expect(page.getByRole('heading', { name: 'Deck Complete!' })).toBeVisible();

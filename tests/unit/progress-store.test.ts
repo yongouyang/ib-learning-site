@@ -9,6 +9,8 @@ import {
   getExamResults,
   recordLadderResult,
   getLadderProgress,
+  recordFlashcardResult,
+  getFlashcardProgress,
 } from '@/lib/progress-store';
 
 // Mock localStorage
@@ -78,10 +80,10 @@ describe('progress-store', () => {
     expect(getExamResults()).toEqual([]);
     expect(getLadderProgress()).toEqual({});
     expect(getUserProgress().totalStars).toBe(5);
-    // Saving stamps the version without losing data.
+    // Saving stamps the current version without losing data.
     recordExamResult({ examId: 'math-y7:paper-1', date: new Date().toISOString(), correctCount: 10, totalCount: 20, secondsUsed: 600 });
     const raw = JSON.parse(store['iblearn_progress']);
-    expect(raw.version).toBe(1);
+    expect(raw.version).toBe(2);
     expect(raw.userProgress.totalStars).toBe(6); // 5 + 1 star for 50%
     expect(raw.examResults).toHaveLength(1);
   });
@@ -104,5 +106,40 @@ describe('progress-store', () => {
     expect(progress['math-y7'][1].bestScore).toBe(0.8);
     expect(progress['math-y7'][2].bestScore).toBe(0.6);
     expect(progress['math-y7'][1].completedAt).toBeTruthy();
+  });
+
+  it('should record flashcard results with streak tracking (v2)', () => {
+    recordFlashcardResult('card-1', 'known');
+    recordFlashcardResult('card-1', 'known');
+    recordFlashcardResult('card-2', 'learning');
+    recordFlashcardResult('card-1', 'learning'); // resets streak
+
+    const progress = getFlashcardProgress();
+    expect(progress['card-1'].status).toBe('learning');
+    expect(progress['card-1'].knownStreak).toBe(0);
+    expect(progress['card-2'].status).toBe('learning');
+
+    recordFlashcardResult('card-1', 'known');
+    expect(getFlashcardProgress()['card-1'].knownStreak).toBe(1);
+
+    // Day streak counts flashcard review as study activity.
+    expect(getUserProgress().currentStreakDays).toBe(1);
+    // ...but no stars are awarded for flashcards.
+    expect(getUserProgress().totalStars).toBe(0);
+
+    // v2 stamp on save.
+    expect(JSON.parse(store['iblearn_progress']).version).toBe(2);
+  });
+
+  it('should load v1 payloads without flashcardProgress (additive default)', () => {
+    store['iblearn_progress'] = JSON.stringify({
+      version: 1,
+      userProgress: { totalStars: 3, currentStreakDays: 1, lastStudyDate: '2026-07-01' },
+      topicProgress: {},
+      examResults: [],
+      ladderProgress: {},
+    });
+    expect(getFlashcardProgress()).toEqual({});
+    expect(getUserProgress().totalStars).toBe(3);
   });
 });

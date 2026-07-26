@@ -6,7 +6,18 @@
 
 ---
 
-## 2026-07-25 — Phase 5 Session 1: AI feedback provider abstraction + /api/feedback route
+## 2026-07-25 — Phase 5 Session 2 (final): Mark with AI in paper runner — Phase 5 COMPLETE
+
+Git HEAD: `84245fe` → pushed `af4a4b0` (branch `develop`, tree clean)
+Done:
+1. **Runner UI**: "Mark with AI" button in PaperRunnerClient mark stage — hidden unless `GET /api/feedback` reports configured; loading state; on success ticks pre-fill from `perPoint`, per-point comments under each checklist row, overall feedback banner (purple); 429 → "marker is busy", other errors → "unavailable, mark yourself"; students can override ticks (self-marking stays source of truth). AI state resets per question / on retry.
+2. **E2E** (`tests/e2e/ai-feedback.spec.ts`, 15/15): webServer env `FEEDBACK_PROVIDER=dummy` + `FEEDBACK_TEST_MODE=1` in playwright.config; per-case injection via `page.route` POST-body rewrite + `route.fetch` (tests hit the REAL route). Cases: default dummy, injected mark pattern + student override, malformed injection → banner, 429 handling, unconfigured degradation.
+3. **Docs**: `docs/ai-feedback.md` (providers, env table, zero-token local dev, curl + production-repro workflow, test commands, Vercel rollout incl. Moonshot open-platform key guidance + per-instance rate-limit caveat, contract); AGENTS.md — dummy-provider testing mindset is now a standing convention.
+Verified: Vitest 176/176 ✅, tsc ✅, validate:content ✅, audit:content 0/0 ✅, illustrations + layout ✅, ai-feedback spec 15/15 ✅, full e2e **534 passed** / 6 skipped / 0 failed ✅.
+Next: Phase 6 — progress analytics & flashcard upgrade (dual-ring donut, per-topic mastery from quiz history, flashcard self-sorting feeding Known ring, spaced repetition). Backlog: English strand re-map (needs user decision), DP AA, PWA, IGCSE content. **Deploy note**: production currently runs with NO FEEDBACK_* env → AI button hidden; add the Vercel env vars per docs/ai-feedback.md to go live.
+Notes: injection is dummy+test-mode only, production logs a warning if test mode is ever on. Live contract test still unused (needs a real key): `FEEDBACK_LIVE=1 FEEDBACK_API_KEY=... npx vitest run --config vitest.live.config.ts`.
+
+---
 
 Git HEAD: `c2ea83c` → pushed `84245fe` (branch `develop`, tree clean)
 Done:

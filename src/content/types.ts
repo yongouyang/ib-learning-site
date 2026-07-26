@@ -112,6 +112,12 @@ export interface LadderLevelResult {
   completedAt: string; // ISO string
 }
 
+export interface FlashcardProgress {
+  status: 'known' | 'learning';
+  lastReviewed: string; // ISO string
+  knownStreak: number; // consecutive "I know this" marks (drives spaced-repetition interval)
+}
+
 export interface SubjectSummary {
   subjectId: SubjectId;
   completedTopics: number;

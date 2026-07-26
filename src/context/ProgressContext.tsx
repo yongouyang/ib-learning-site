@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
-import { UserProgress, TopicProgress, SubjectId, ExamResult, LadderLevelResult } from '@/content/types';
+import { UserProgress, TopicProgress, SubjectId, ExamResult, LadderLevelResult, FlashcardProgress } from '@/content/types';
 import {
   getUserProgress,
   getAllTopicProgress,
@@ -11,6 +11,8 @@ import {
   recordExamResult,
   getLadderProgress,
   recordLadderResult,
+  getFlashcardProgress,
+  recordFlashcardResult,
 } from '@/lib/progress-store';
 
 interface ProgressContextType {
@@ -18,10 +20,12 @@ interface ProgressContextType {
   topicProgress: TopicProgress[];
   examResults: ExamResult[];
   ladderProgress: Record<string, Record<number, LadderLevelResult>>;
+  flashcardProgress: Record<string, FlashcardProgress>;
   refresh: () => void;
   recordAttempt: (topicId: string, subjectId: SubjectId, topicTitle: string, subjectTitle: string, correct: number, total: number) => void;
   recordExam: (result: ExamResult) => void;
   recordLadder: (courseId: string, level: number, score: number) => void;
+  recordFlashcard: (cardId: string, status: 'known' | 'learning') => void;
   getSubjectScore: (subjectId: SubjectId) => number;
 }
 
@@ -37,12 +41,14 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [topicProgress, setTopicProgress] = useState<TopicProgress[]>([]);
   const [examResults, setExamResults] = useState<ExamResult[]>([]);
   const [ladderProgress, setLadderProgress] = useState<Record<string, Record<number, LadderLevelResult>>>({});
+  const [flashcardProgress, setFlashcardProgress] = useState<Record<string, FlashcardProgress>>({});
 
   const refresh = useCallback(() => {
     setUserProgress(getUserProgress());
     setTopicProgress(getAllTopicProgress());
     setExamResults(getExamResults());
     setLadderProgress(getLadderProgress());
+    setFlashcardProgress(getFlashcardProgress());
   }, []);
 
   useEffect(() => {
@@ -67,6 +73,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     refresh();
   }, [refresh]);
 
+  const recordFlashcard = useCallback((cardId: string, status: 'known' | 'learning') => {
+    recordFlashcardResult(cardId, status);
+    refresh();
+  }, [refresh]);
+
   const getSubjectScore = useCallback((subjectId: SubjectId): number => {
     const subjectProgress = topicProgress.filter(tp => tp.subjectId === subjectId && tp.attempts.length > 0);
     if (subjectProgress.length === 0) return 0;
@@ -75,7 +86,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   }, [topicProgress]);
 
   return (
-    <ProgressContext.Provider value={{ userProgress, topicProgress, examResults, ladderProgress, refresh, recordAttempt, recordExam, recordLadder, getSubjectScore }}>
+    <ProgressContext.Provider value={{ userProgress, topicProgress, examResults, ladderProgress, flashcardProgress, refresh, recordAttempt, recordExam, recordLadder, recordFlashcard, getSubjectScore }}>
       {children}
     </ProgressContext.Provider>
   );

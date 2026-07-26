@@ -1,7 +1,7 @@
-import { UserProgress, TopicProgress, QuizAttempt, SubjectId, ExamResult, LadderLevelResult } from '@/content/types';
+import { UserProgress, TopicProgress, QuizAttempt, SubjectId, ExamResult, LadderLevelResult, FlashcardProgress } from '@/content/types';
 
 const STORAGE_KEY = 'iblearn_progress';
-const STORAGE_VERSION = 1;
+const STORAGE_VERSION = 2;
 
 interface StoredData {
   version?: number; // absent in legacy payloads — treated as STORAGE_VERSION
@@ -9,6 +9,7 @@ interface StoredData {
   topicProgress: Record<string, TopicProgress>;
   examResults?: ExamResult[];
   ladderProgress?: Record<string, Record<number, LadderLevelResult>>;
+  flashcardProgress?: Record<string /* cardId */, FlashcardProgress>; // v2
 }
 
 const DEFAULT_DATA: StoredData = {
@@ -17,6 +18,7 @@ const DEFAULT_DATA: StoredData = {
   topicProgress: {},
   examResults: [],
   ladderProgress: {},
+  flashcardProgress: {},
 };
 
 function load(): StoredData {
@@ -33,6 +35,7 @@ function load(): StoredData {
         ...parsed,
         examResults: parsed.examResults ?? [],
         ladderProgress: parsed.ladderProgress ?? {},
+        flashcardProgress: parsed.flashcardProgress ?? {},
       };
     }
   } catch { /* ignore */ }
@@ -108,6 +111,24 @@ export function recordLadderResult(courseId: string, level: number, score: numbe
 
 export function getLadderProgress(): Record<string, Record<number, LadderLevelResult>> {
   return load().ladderProgress!;
+}
+
+// Phase 6 — flashcard self-sorting. No stars for flashcards (stars stay
+// quiz/exam), but reviewing cards counts as study activity for the day streak.
+export function recordFlashcardResult(cardId: string, status: 'known' | 'learning'): void {
+  const data = load();
+  const existing = data.flashcardProgress![cardId];
+  data.flashcardProgress![cardId] = {
+    status,
+    lastReviewed: new Date().toISOString(),
+    knownStreak: status === 'known' ? (existing?.knownStreak ?? 0) + 1 : 0,
+  };
+  updateStreak(data.userProgress);
+  save(data);
+}
+
+export function getFlashcardProgress(): Record<string, FlashcardProgress> {
+  return load().flashcardProgress!;
 }
 
 function applyStudyRewards(up: UserProgress, scorePercent: number): void {
