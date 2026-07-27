@@ -8,7 +8,7 @@
 
 ## 2026-07-27 — Phase 7 Session 1: PWA core (manifest, icons, SW, offline UX)
 
-Git HEAD: `e6c9249` (branch `develop`, tree dirty — work uncommitted)
+Git HEAD: `e6c9249` → pushed `c639505` (branch `develop`, tree clean)
 Done:
 1. **Manifest + icons**: `src/app/manifest.ts` (standalone, education, brand blue #2563eb); `public/icons/icon.svg` (maskable-safe "IB" monogram) + `scripts/generate-icons.mjs` (Playwright-screenshot PNGs: 192/512/maskable-512/apple-180 — committed, no new deps). Icon verified visually.
 2. **Service worker** `public/sw.js` (hand-rolled per plan §3.2): precache `['/', '/offline']`, cache-first `/_next/static` + `/icons`, SWR pages/images, network-only `/api/**`, `/offline` navigation fallback, `CACHE_VERSION` constant, `SKIP_WAITING` message listener ready for Session 2 (no skipWaiting on install).
