@@ -6,7 +6,42 @@
 
 ---
 
-## 2026-07-26 — Phase 6 Session 2 (final): mastery bars + due surfacing — Phase 6 COMPLETE
+## 2026-07-27 — Phase 7 Session 1: PWA core (manifest, icons, SW, offline UX)
+
+Git HEAD: `e6c9249` (branch `develop`, tree dirty — work uncommitted)
+Done:
+1. **Manifest + icons**: `src/app/manifest.ts` (standalone, education, brand blue #2563eb); `public/icons/icon.svg` (maskable-safe "IB" monogram) + `scripts/generate-icons.mjs` (Playwright-screenshot PNGs: 192/512/maskable-512/apple-180 — committed, no new deps). Icon verified visually.
+2. **Service worker** `public/sw.js` (hand-rolled per plan §3.2): precache `['/', '/offline']`, cache-first `/_next/static` + `/icons`, SWR pages/images, network-only `/api/**`, `/offline` navigation fallback, `CACHE_VERSION` constant, `SKIP_WAITING` message listener ready for Session 2 (no skipWaiting on install).
+3. **Offline UX**: `src/app/offline/page.tsx` fallback; `ServiceWorkerRegistration` (prod-only, fail-safe); `useOnlineStatus` + dismissible `OfflineBanner` (sits above mobile bottom nav, resets dismissal when back online). Layout gains `appleWebApp` + light/dark `themeColor`.
+4. **Unit tests** ×3 new files (`pwa-*.test.tsx`): registration gating, online-status transitions, banner render/dismiss. 220 total.
+Verified: Vitest 220/220 ✅, tsc ✅, lint 0 warnings ✅, validate:content ✅, audit:content 0/0 ✅, illustrations + layout ✅, full e2e **545 passed** / 6 skipped / 1 failed — failure = iPhone SE diagnostics flake, passes standalone re-run (3/3) ✅; unrelated to PWA changes (dev-server run, SW disabled).
+Next: Phase 7 Session 2 — install button on progress page (`useInstallPrompt`, iOS Share→Add-to-Home-Screen fallback), update toast (SKIP_WAITING + controllerchange), `tests/e2e/pwa.spec.ts` (prod-build, Chromium SW cases: manifest, activation, offline reload, /offline fallback, Mark-with-AI hidden offline), AGENTS.md convention entry. Post-deploy checks (plan §6): verify sw.js Cache-Control on Vercel, Lighthouse PWA audit. Backlog unchanged: English strand re-map (needs user decision), DP AA, IGCSE content, design refresh. Deploy note unchanged: AI feedback env-gated until Moonshot key set.
+Notes: SW inactive in dev/e2e (registration is prod-gated) — e2e SW coverage must use the `E2E_PROD=1` prod-build pattern from `test:e2e:sweep`.
+
+---
+
+## 2026-07-27 — Phase 7 (PWA) implementation plan
+
+Git HEAD: `e6c9249` (branch `develop`, tree dirty: new plan file)
+Done: `phase-7-implementation-plan.md` written (2 sessions). Key decisions: hand-rolled `public/sw.js` (no serwist/workbox — runtime caching: cache-first `/_next/static`, SWR pages/images, network-only `/api/**`, `/offline` fallback); manifest via `app/manifest.ts`; icons generated from one maskable-safe SVG via Playwright-screenshot script (no new deps); user-resolved: install button on progress page (passive, no pop-ups), "IB" monogram icon. Site is fully static (all routes `generateStaticParams`), so offline story is strong; AI feedback already degrades (button hides on failed configured-check).
+Verified: plan only — facts verified by reading code (no SW/manifest/icons exist today; registry statically bundles all content).
+Next: Phase 7 Session 1 — manifest + icons + sw.js + /offline + registration + offline banner + unit tests. Backlog unchanged: English strand re-map (needs user decision), DP AA, IGCSE content, design refresh. Deploy note: AI feedback env-gated until Moonshot key set in Vercel.
+Notes: plan §6 launch checks — after deploy verify `sw.js` Cache-Control header on Vercel + Lighthouse PWA audit.
+
+---
+
+## 2026-07-26 — Unit-coverage review + gap-closing batch + coverage gate
+
+Git HEAD: `900d7e3` → pushed `e6c9249` (branch `develop`, tree clean)
+Done:
+1. **Coverage measured** (`@vitest/coverage-v8`, new dev dep): raw e2e/unit ratio was misleading (546 e2e = ~182 cases × 3 projects vs 190 unit). Real gaps: openai-compatible provider 4%, ProgressContext 0%, runner non-happy paths (fan-out/record-guard/lock), PaperRunnerClient timer expiry.
+2. **+17 unit tests (190→207)**: `feedback-openai-compatible.test.ts` ×6 (mocked fetch: request shape, parse, retry-once, double-malformed, non-OK, no-content → provider 100%); `progress-context.test.tsx` ×4 (storage load + loaded flag, 3 record functions → context 85%); `runner-clients.test.tsx` ×5 (diagnostic fan-out aggregation, exam record-once-after-Try-Again, ladder locked/unlocked/fraction); paper-runner ×2 (timer expiry zero-attempt + mid-paper).
+3. **Coverage gate**: `npm run test:coverage`; vitest.config per-path thresholds — lib 90/85, components 70/70, context 75/50, api 85/75 (set below measured: 93.6/95/83/77). Page-level components deliberately excluded — e2e owns them (jsdom duplication = maintenance cost, low signal).
+Verified: Vitest 207/207 ✅, coverage thresholds pass ✅, tsc ✅, validate:content ✅, audit:content 0/0 ✅, illustrations + layout ✅, full e2e **546 passed** / 6 skipped / 0 failed ✅.
+Next: Phase 7 (PWA) or backlog — English strand re-map (needs user decision), DP AA, IGCSE content, design refresh. Deploy note unchanged: AI feedback env-gated until Moonshot key is set in Vercel.
+Notes: test lessons — (1) QuizGame seeds shuffle questions, so runner tests must answer by reading the on-screen stem, not position; (2) `userEvent` hangs under `vi.useFakeTimers` — use `fireEvent` in fake-timer tests; (3) module-level mock fns need `mockClear()` in beforeEach (cross-test leakage).
+
+---
 
 Git HEAD: `77f25ab` → pushed `900d7e3` (branch `develop`, tree clean)
 Done:

@@ -7,6 +7,8 @@ import { ThemeProvider } from '@/context/ThemeContext';
 import { Nav } from '@/components/Nav';
 import { HeaderNav } from '@/components/HeaderNav';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { ServiceWorkerRegistration } from '@/components/ServiceWorkerRegistration';
+import { OfflineBanner } from '@/components/OfflineBanner';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -23,11 +25,23 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: 'IBLearn',
   description: 'Learn and practise for IB exams',
+  appleWebApp: {
+    capable: true,
+    title: 'IBLearn',
+    statusBarStyle: 'default',
+  },
+  icons: {
+    apple: '/icons/apple-touch-icon.png',
+  },
 };
 
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f9fafb' },
+    { media: '(prefers-color-scheme: dark)', color: '#030712' },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -50,6 +64,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </footer>
               <Nav />
             </div>
+            <ServiceWorkerRegistration />
+            <OfflineBanner />
           </ProgressProvider>
         </ThemeProvider>
       </body>
