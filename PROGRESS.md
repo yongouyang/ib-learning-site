@@ -8,7 +8,7 @@
 
 ## 2026-07-28 — Phase 7 Session 2: install UX, update toast, e2e, content-protection add-on
 
-Git HEAD: `b2949e9` (branch `develop`, tree dirty — not committed)
+Git HEAD: `b2949e9` → pushed `0605a6c` (branch `develop`, tree clean)
 Done:
 1. **Install UX**: `useInstallPrompt` (captures `beforeinstallprompt`, iOS + standalone detection) + `InstallAppButton` on progress page (Chromium prompt flow; iOS shows Share → Add to Home Screen; hidden when installed/not installable).
 2. **Update toast** `UpdateToast.tsx`: prompts when a SW update sits in `waiting`; Refresh posts `SKIP_WAITING`, reloads on `controllerchange`. **Bug found via e2e**: reload was ungated — first-install `clients.claim()` fires `controllerchange`, which would have force-reloaded first-time visitors (and raced Playwright's `page.reload` → ERR_ABORTED). Now gated on the user clicking Refresh.
