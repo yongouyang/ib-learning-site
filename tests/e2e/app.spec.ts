@@ -212,3 +212,37 @@ test.describe('Progress page', () => {
     await expect(page.getByText('Topics Done')).toBeVisible();
   });
 });
+
+// Phase 7 Session 2: content-protection add-on (phase-7-implementation-plan.md §8 items 1–2).
+test.describe('Content protection', () => {
+  test('robots.txt allows normal crawling but disallows AI-training crawlers', async ({ request }) => {
+    const res = await request.get('/robots.txt');
+    expect(res.ok()).toBeTruthy();
+    expect(res.headers()['content-type']).toContain('text/plain');
+    const body = await res.text();
+
+    // Normal agents are allowed site-wide.
+    expect(body).toContain('User-Agent: *');
+    expect(body).toContain('Allow: /');
+
+    // Known AI-training crawlers get a site-wide disallow.
+    for (const bot of ['GPTBot', 'ChatGPT-User', 'CCBot', 'Google-Extended', 'ClaudeBot', 'anthropic-ai', 'Bytespider', 'Amazonbot']) {
+      expect(body).toContain(`User-Agent: ${bot}`);
+    }
+    expect(body).toContain('Disallow: /');
+    // The disallow must only appear in the AI-crawler group, which comes after the allow-all group.
+    expect(body.indexOf('Disallow: /')).toBeGreaterThan(body.indexOf('Allow: /'));
+  });
+
+  test('footer shows the copyright notice and links to Terms of Use', async ({ page }) => {
+    await page.goto('/');
+    const footer = page.locator('footer');
+    await expect(footer).toContainText('IBLearn. All rights reserved');
+
+    await footer.getByRole('link', { name: /terms of use/i }).click();
+    await page.waitForURL('/terms');
+    await expect(page.getByRole('heading', { name: /terms of use/i })).toBeVisible();
+    await expect(page.getByText(/may not be scraped, harvested/i)).toBeVisible();
+    await expect(page.locator('main').getByText(/not endorsed by or affiliated with the International Baccalaureate Organization/i)).toBeVisible();
+  });
+});

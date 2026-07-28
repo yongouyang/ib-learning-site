@@ -44,25 +44,37 @@ describe('ServiceWorkerRegistration', () => {
     expect(register).not.toHaveBeenCalled();
   });
 
-  it('registers /sw.js on window load in production', () => {
+  it('registers /sw.js immediately when the document already loaded', () => {
     vi.stubEnv('NODE_ENV', 'production');
     const register = vi.fn().mockResolvedValue({});
     mockServiceWorker(register);
+    // jsdom's default readyState is 'complete' — hydration after window load
+    // must not miss registration (the load event already fired).
+    expect(document.readyState).toBe('complete');
 
     render(<ServiceWorkerRegistration />);
-    window.dispatchEvent(new Event('load'));
 
     expect(register).toHaveBeenCalledWith('/sw.js');
   });
 
-  it('does not register before the load event in production', () => {
+  it('defers to the load event while the document is still loading', () => {
     vi.stubEnv('NODE_ENV', 'production');
     const register = vi.fn().mockResolvedValue({});
     mockServiceWorker(register);
+    const originalReadyState = Object.getOwnPropertyDescriptor(document, 'readyState');
+    Object.defineProperty(document, 'readyState', { configurable: true, value: 'loading' });
 
-    render(<ServiceWorkerRegistration />);
+    try {
+      render(<ServiceWorkerRegistration />);
+      expect(register).not.toHaveBeenCalled();
 
-    expect(register).not.toHaveBeenCalled();
+      window.dispatchEvent(new Event('load'));
+      expect(register).toHaveBeenCalledWith('/sw.js');
+    } finally {
+      if (originalReadyState) {
+        Object.defineProperty(document, 'readyState', originalReadyState);
+      }
+    }
   });
 
   it('no-ops when the browser has no service worker support', () => {

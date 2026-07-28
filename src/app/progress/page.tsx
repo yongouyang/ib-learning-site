@@ -8,6 +8,7 @@ import { getSubjects } from '@/content/registry';
 import { getRecentAverageScore } from '@/lib/progress-store';
 import { getCardStats } from '@/lib/flashcard-scheduler';
 import DualRingDonut from '@/components/DualRingDonut';
+import { InstallAppButton } from '@/components/InstallAppButton';
 
 export default function ProgressPage() {
   const { userProgress, topicProgress, flashcardProgress } = useProgress();
@@ -125,6 +126,12 @@ export default function ProgressPage() {
           </div>
         );
       })}
+
+      {/* Install entry point — renders only when the browser can install
+          (or on iOS, where it shows manual instructions). */}
+      <div className="mt-6 flex justify-center">
+        <InstallAppButton />
+      </div>
     </div>
   );
 }

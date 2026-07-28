@@ -6,7 +6,20 @@
 
 ---
 
-## 2026-07-27 — Phase 7 Session 1: PWA core (manifest, icons, SW, offline UX)
+## 2026-07-28 — Phase 7 Session 2: install UX, update toast, e2e, content-protection add-on
+
+Git HEAD: `b2949e9` (branch `develop`, tree dirty — not committed)
+Done:
+1. **Install UX**: `useInstallPrompt` (captures `beforeinstallprompt`, iOS + standalone detection) + `InstallAppButton` on progress page (Chromium prompt flow; iOS shows Share → Add to Home Screen; hidden when installed/not installable).
+2. **Update toast** `UpdateToast.tsx`: prompts when a SW update sits in `waiting`; Refresh posts `SKIP_WAITING`, reloads on `controllerchange`. **Bug found via e2e**: reload was ungated — first-install `clients.claim()` fires `controllerchange`, which would have force-reloaded first-time visitors (and raced Playwright's `page.reload` → ERR_ABORTED). Now gated on the user clicking Refresh.
+3. **Registration bug found via e2e**: `ServiceWorkerRegistration` waited for window `load`, which fires before hydration in prod — the SW silently never registered. Now registers immediately when `document.readyState === 'complete'`; unit tests updated for both paths.
+4. **Content-protection add-on** (plan §8 items 1–2, user-approved): `src/app/robots.ts` (allow-all + disallow for 10 AI-training crawlers), footer copyright line + `/terms` link, static `/terms` page (all-rights-reserved, no-AI-training, IBO/CAIE disclaimer).
+5. **Tests**: unit +12 (install button ×6, update toast ×7) + `pwa-sw.test.ts` ×9 (mocked SW env: precache, cache-first, SWR, /api passthrough, /offline fallback, SKIP_WAITING, old-cache cleanup); e2e `pwa.spec.ts` ×5 (prod-only: manifest/icons, SW activation, offline reload, offline Mark-with-AI hidden, install button) + app.spec content-protection ×2.
+Verified: Vitest 242/242 ✅, tsc ✅, lint 0 warnings ✅, validate:content ✅, audit:content 0/0 ✅, illustrations + layout ✅, `pwa.spec.ts` prod run 13 passed / 2 skipped (mobile install variants) ✅, full e2e **552 passed** / 21 skipped / 0 failed ✅.
+Next: deploy + plan §6 launch checks (verify `sw.js` Cache-Control on Vercel, manual install on iOS Safari + Chromium desktop, Lighthouse PWA audit). Phase 7 complete otherwise. Backlog unchanged: English strand re-map (needs user decision), DP AA, IGCSE content, design refresh. Deploy note unchanged: AI feedback env-gated until Moonshot key set.
+Notes: (1) Chromium offline emulation does NOT apply to fetches made by the SW — the /offline-fallback-for-unvisited-route scenario can't be e2e-tested via `context.setOffline`; it lives in `pwa-sw.test.ts` instead. (2) "Install button hidden before prompt" is also unit-only — in a prod build with an active SW, Chromium may fire a real `beforeinstallprompt` at any time. (3) Node's Request constructor rejects `mode: 'navigate'` — patch the getter in tests.
+
+---
 
 Git HEAD: `e6c9249` → pushed `c639505` (branch `develop`, tree clean)
 Done:

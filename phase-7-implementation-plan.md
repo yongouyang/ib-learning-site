@@ -21,6 +21,11 @@
 - Update flow: on new SW waiting, show a "New version available — refresh" toast (user-initiated reload, never mid-quiz auto-reload).
 - Offline indicator: subtle banner when `navigator.onLine` goes false, so users understand AI marking is unavailable but everything else works.
 - Tests (unit + e2e) + docs (AGENTS.md convention entry, PROGRESS.md).
+- **Content-protection add-on (§8 items 1–2, resolved with user 2026-07-28):**
+  - `src/app/robots.ts` (Next metadata route) — allow normal crawling, explicitly `disallow: '/'` for known AI-training crawlers (`GPTBot`, `ChatGPT-User`, `CCBot`, `Google-Extended`, `ClaudeBot`, `Bytespider`, `Amazonbot`, `anthropic-ai`).
+  - Footer: add copyright line (© year IBLearn, all rights reserved) + link to a `/terms` page.
+  - `src/app/terms/page.tsx` — short static page: content is original, all rights reserved, no republication or use for AI training; keeps the existing IBO/CAIE non-affiliation disclaimer.
+  - E2E coverage for all of the above (see §5 Session 2).
 
 **Out (deliberately):**
 - **No accounts/sync/cloud** — explicitly deferred (parent plan: future AWS phase). Progress stays in localStorage (storage v2 `version` field already future-proofed).
@@ -97,10 +102,13 @@ fetch    → GET only
 - `src/hooks/useOnlineStatus.ts`, `useInstallPrompt.ts`
 - `tests/unit/pwa-*.test.tsx` (registration gating, online status, install-prompt capture/dismiss, update-toast flow — SW APIs mocked per convention)
 - `tests/e2e/pwa.spec.ts`
+- `src/app/robots.ts` (content-protection add-on)
+- `src/app/terms/page.tsx` (content-protection add-on)
 
 **Touched:**
-- `src/app/layout.tsx` — metadata/viewport additions; render registration + banner + toast once
+- `src/app/layout.tsx` — metadata/viewport additions; render registration + banner + toast once; footer gains copyright line + `/terms` link
 - `src/app/progress/page.tsx` (or its client) — install entry point
+- `tests/e2e/app.spec.ts` — content-protection cases (§5 Session 2 step 5)
 - `AGENTS.md` — convention note (SW is hand-rolled; CACHE_VERSION bump rule; icon regen command)
 - `PROGRESS.md` — per session, per workflow
 
@@ -127,6 +135,13 @@ fetch    → GET only
    - offline hides "Mark with AI" button on a paper page.
    - install button hidden without prompt event / shows with dispatched `beforeinstallprompt`.
 4. Docs: AGENTS.md convention entry; PROGRESS entry with deploy note (verify `sw.js` cache headers on Vercel after deploy; run Lighthouse PWA audit once live).
+5. **Content-protection add-on** (§8 items 1–2):
+   - `src/app/robots.ts` — AI-training crawler disallow list per §1.
+   - Footer copyright line + `/terms` link in `layout.tsx`; static `/terms` page.
+   - E2E (append cases to `tests/e2e/app.spec.ts` — plain HTML/HTTP checks, no prod build needed):
+     - `GET /robots.txt` → 200, `text/plain`, contains `Disallow: /` under each of the listed AI crawler user-agents, and normal agents are not disallowed site-wide.
+     - Every page footer shows the copyright notice and a working `/terms` link.
+     - `/terms` renders (title, all-rights-reserved + no-AI-training wording, IBO/CAIE disclaimer) and is linked from the footer.
 
 ---
 
@@ -142,3 +157,20 @@ fetch    → GET only
 3. **Prompt style**: passive button only — no pop-up nudges at any visit count.
 
 **Deferred (not blocking):** offline cache ceiling — no cap proposed (hashed assets per deploy are a few MB). If real usage shows bloat, add an LRU trim for the pages cache later.
+
+---
+
+## 8. Open consideration — content scraping (raised 2026-07-28, not a Phase 7 blocker)
+
+User request: think about how to avoid our original content being scraped/copied by others.
+
+**Reality check first (verified in §2):** the entire content corpus is statically bundled into public JS chunks and served as static pages — anyone can already fetch everything with `curl`, no scraping sophistication needed. PWA caching does not make this worse; it just makes the same content available offline to legitimate users. **There is no technical way to make content readable-but-uncopyable on the open web** — do not waste effort on obfuscation (base64, canvas rendering, disabling copy); it hurts UX/accessibility and defeats nothing beyond casual users.
+
+**Realistic measures, in rough cost/benefit order:**
+1. **Legal framing (near-zero cost)**: copyright notice in footer + a short `/terms` page stating content is original and not licensed for republication or AI training. Enables takedowns if copies appear. → **Folded into Session 2** (user decision 2026-07-28, see §1/§5).
+2. **`robots.txt` policy**: disallow known AI-training crawlers (`GPTBot`, `CCBot`, `Google-Extended`, etc.). Courtesy-level only, but free. → **Folded into Session 2** (user decision 2026-07-28, see §1/§5).
+3. **Rate limiting / bot filtering at the edge** (Vercel): only worth it if log evidence of bulk harvesting appears — the site is static, so "scraping" costs attackers almost nothing and blocking them is whack-a-mole.
+4. **Provenance/watermarking**: visible branding on illustrations (SVGs already carry our style); consider subtle identifiers in original practice-paper questions so copied sets are provably ours.
+5. **Hold back the crown jewels later**: if anything becomes genuinely valuable to protect (e.g. markschemes, AI marking logic), move it behind the future accounts/API phase instead of static bundles — that's the only real protection. Static public content, by definition, is copiable.
+
+**Action**: items 1–2 ship with Session 2 (with e2e coverage). Items 3–5 stay deferred — revisit alongside the future cloud/accounts phase (or sooner if actual copying is observed).

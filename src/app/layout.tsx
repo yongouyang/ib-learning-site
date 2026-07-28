@@ -9,6 +9,7 @@ import { HeaderNav } from '@/components/HeaderNav';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { ServiceWorkerRegistration } from '@/components/ServiceWorkerRegistration';
 import { OfflineBanner } from '@/components/OfflineBanner';
+import { UpdateToast } from '@/components/UpdateToast';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -59,13 +60,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </header>
             <div className="flex-1 flex flex-col">
               <main className="flex-1 pb-24 md:pb-0">{children}</main>
-              <footer className="px-6 pt-4 pb-24 md:pb-4 text-center text-xs text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-800">
-                IBLearn is an independent study resource and is not endorsed by or affiliated with the International Baccalaureate Organization (IBO) or Cambridge Assessment International Education (CAIE).
+              <footer className="px-6 pt-4 pb-24 md:pb-4 text-center text-xs text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-800 space-y-1">
+                <p>
+                  &copy; {new Date().getFullYear()} IBLearn. All rights reserved.{' '}
+                  <Link href="/terms" className="underline hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                    Terms of Use
+                  </Link>
+                </p>
+                <p>
+                  IBLearn is an independent study resource and is not endorsed by or affiliated with the International Baccalaureate Organization (IBO) or Cambridge Assessment International Education (CAIE).
+                </p>
               </footer>
               <Nav />
             </div>
             <ServiceWorkerRegistration />
             <OfflineBanner />
+            <UpdateToast />
           </ProgressProvider>
         </ThemeProvider>
       </body>
