@@ -39,7 +39,7 @@ npm run test:e2e               # Playwright (auto-starts dev server)
 - Free-response practice sets live in `src/content/data/papers/<courseId>/<courseId>-set-<n>.json` — original questions only, 20 marks per set, `marks === markscheme.length`. See `CONTENT_STYLE.md` ("Practice papers").
 - Course groupings (diagnostics/exams/ladder/papers) come from `src/lib/courses.ts` — add new courses there.
 - **External dependencies get a controllable dummy** (user directive): unit tests mock them; e2e/local dev run a dummy implementation with deterministic defaults + per-test response injection. The injection path doubles as production-issue reproduction. See `src/lib/feedback/dummy.ts` (the template) and `docs/ai-feedback.md`.
-- Illustration rules: `ILLUSTRATION_GUIDELINES.md`. SVGs go in `public/images/<subject>/`.
+- Illustration rules: `ILLUSTRATION_GUIDELINES.md`. SVGs go in `public/images/<subject>/`. Visual review: `npm run render:illustrations` renders every SVG to `illustration-previews/<subject>/*.png` + an `index.html` contact sheet (gitignored; `--subject=<name>` or a single SVG path as arg). Use it for the manual colour/accuracy pass the validators can't do — an agent can sweep the PNGs with image reading.
 - `src/content/registry.ts` is generated — never edit by hand; use `npm run generate:registry` (re-run after adding/removing topic OR paper JSON files).
 - New topics follow the 7 notes / 12 flashcards / 15 questions standard; every question (MC and free-response) needs a `difficulty` tag — rubric in `CONTENT_STYLE.md`.
 - Topic taxonomy: `stage` (ks3/igcse/dp) + optional `year`/`course`/`level` — see `CONTENT_STYLE.md` ("Stage & course tagging" and ID conventions). `ibLevel` was retired in the Phase 1 migration (2026-07).

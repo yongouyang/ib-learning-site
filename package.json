@@ -14,6 +14,7 @@
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:illustrations": "tsx scripts/validate-illustrations.ts",
     "validate:illustration-layout": "node scripts/diagnose-illustrations.mjs",
+    "render:illustrations": "node scripts/render-illustrations.mjs",
     "audit:content": "tsx scripts/audit-content.ts",
     "generate:registry": "tsx scripts/generate-registry.ts",
     "test:coverage": "vitest run --coverage"

@@ -6,7 +6,78 @@
 
 ---
 
-## 2026-07-28 — Phase 7 Session 2: install UX, update toast, e2e, content-protection add-on
+## 2026-07-29 — Fuchsia markers stripped; illustration work committed
+
+Git HEAD: `1801ac0` (branch `develop`, committing all illustration work from 2026-07-29)
+Done: user approved rounds 1–3 → stripped ALL `#d946ef` review markers from the 19 biology SVGs. Mechanical removals (style fill/stroke overrides, new leader lines → #6b7280) + semantic restorations from git HEAD: biodiversity icons (bee #ca8a04, antennae #1f2937, bottle #7e22ce, tree stroke removed), first-defence inset (attr fallbacks), menstrual x-axis → class="axis" (#9ca3af), legend swatches kept semantic; cycles arrows → grey #6b7280 except photosynthesis green #16a34a / respiration blue #3b82f6; arrow-fuchsia marker def removed. `grep #d946ef public/images/` = 0 hits. Kept: fill-opacity 0.85 chips in bio-ecology-1-adaptations (trial adopted there pending a global decision). Full re-render 304/304 + spot-checks (cycles, first-defence, biodiversity, menstrual) all clean.
+Verified: validate:illustrations ✅, validate:illustration-layout ✅, validate:content ✅. Unit/e2e not run (SVG-only).
+Next: optional review rounds for chemistry/physics/math/english illustrations (same render+review workflow); decide whether fill-opacity 0.85 chips become the global standard. Then English re-map Session 1 (structure) per 2026-07-28 decisions; deploy investigation (Vercel auto-deploy + Phase 7 §6 post-deploy checks; AI feedback env-gated). Backlog: DP AA, IGCSE content, design refresh.
+Notes: review-marker workflow worked well and is reusable — mark changed elements with a temp colour, user verifies in previews, strip mechanically (style overrides) + semantically (git HEAD as the original-colour source). AGENTS.md documents `render:illustrations`.
+
+---
+Git HEAD: `1801ac0` (branch `develop`, tree dirty: bio-ecology-1-cycles.svg on top of rounds 1–2)
+Done: user round-3 review — all other biology illustrations confirmed OK; only bio-ecology-1-cycles needed reorganisation ("arrows all over the place"). Redesigned both panels as perimeter loops with zero crossings (was 6 crossing diagonals per panel). Carbon: added the missing photosynthesis arrow (atmosphere→producers) — the old diagram had respiration but no way in; decomposition (decomposers→atmosphere) and combustion (fossil fuels→atmosphere) now route as elbows around the outer left/right margins into the atmosphere box's side edges; added decomposers→fossil-fuels formation arrow; death-&-waste arrows converge on decomposers without crossings. Nitrogen: re-laid into a clockwise flow — atmosphere→fixation→nitrification (right column), nitrification→plants (assimilation), plants→ammonification, ammonification→nitrification (elbow around plants), nitrification→denitrification→atmosphere (outer-right elbow). All reworked arrows/labels fuchsia `#d946ef` (new arrow-fuchsia marker def); moved nitrogen boxes keep their semantic stroke colours (legend-swatch precedent) with fuchsia texts. Node positions in carbon panel unchanged. Revert plan: arrows back to #6b7280 (photosynthesis green #16a34a, respiration blue #3b82f6 candidates) after user confirms.
+Verified: re-rendered + eyeballed (no crossings, all flows readable); validate:illustrations ✅; validate:illustration-layout ✅. Unit/e2e not run (SVG-only).
+Next: user round-4 review → revert ALL #d946ef markers (19 biology files) on confirmation; decide fill-opacity 0.85 chip trial. Then review rounds for chemistry/physics/math/english; English re-map Session 1; deploy investigation. Backlog: DP AA, IGCSE content, design refresh.
+Notes: pattern that worked — cycle diagrams read best as perimeter loops: return arrows route around the OUTER margins as elbows and enter the top box's side edges; process arrows flow clockwise; converging arrows (death & waste) never cross if sources are left/right and target is bottom-centre.
+
+---
+
+## 2026-07-29 — Biology review round 3: carbon/nitrogen cycles full redesign
+
+Git HEAD: `1801ac0` (branch `develop`, tree dirty: bio-ecology-1-cycles.svg on top of rounds 1–2)
+Done: user round-3 review — all other biology illustrations confirmed OK; only bio-ecology-1-cycles needed reorganisation ("arrows all over the place"). Redesigned both panels as perimeter loops with zero crossings (was 6 crossing diagonals per panel). Carbon: added the missing photosynthesis arrow (atmosphere→producers) — the old diagram had respiration but no way in; decomposition (decomposers→atmosphere) and combustion (fossil fuels→atmosphere) now route as elbows around the outer left/right margins into the atmosphere box's side edges; added decomposers→fossil-fuels formation arrow; death-&-waste arrows converge on decomposers without crossings. Nitrogen: re-laid into a clockwise flow — atmosphere→fixation→nitrification (right column), nitrification→plants (assimilation), plants→ammonification, ammonification→nitrification (elbow around plants), nitrification→denitrification→atmosphere (outer-right elbow). All reworked arrows/labels fuchsia `#d946ef` (new arrow-fuchsia marker def); moved nitrogen boxes keep their semantic stroke colours (legend-swatch precedent) with fuchsia texts. Node positions in carbon panel unchanged. Revert plan: arrows back to #6b7280 (photosynthesis green #16a34a, respiration blue #3b82f6) after user confirms.
+Verified: re-rendered + eyeballed (no crossings, all flows readable); validate:illustrations ✅; validate:illustration-layout ✅. Unit/e2e not run (SVG-only).
+Next: user round-4 review → revert ALL #d946ef markers (19 biology files) on confirmation; decide fill-opacity 0.85 chip trial. Then review rounds for chemistry/physics/math/english; English re-map Session 1; deploy investigation. Backlog: DP AA, IGCSE content, design refresh.
+Notes: pattern that worked — cycle diagrams read best as perimeter loops: return arrows route around the OUTER margins as elbows and enter the top box's side edges; process arrows flow clockwise; converging arrows (death & waste) never cross if sources are left/right and target is bottom-centre.
+
+---
+
+## 2026-07-29 — Biology illustration review round 2: 6 more fixes
+
+Git HEAD: `1801ac0` (branch `develop`, tree dirty: 6 more biology SVGs on top of round-1 changes)
+Done: round-2 visual review fixes (6-agent swarm): bio-body-muscles (Biceps/Triceps chips widened 42→52 / 52→58 — 's' was clipped by border), bio-ecology-1-cycles ("Fossil fuels" box #374151 → #f9fafb; root cause was class fill overriding the text's fill attribute — dark-on-dark), bio-ecology-1-biomes (Taiga trees shortened so their tops clear the labels — no side space existed to move text), bio-health-1-first-defence (Tears chip moved to left of head; leader crosses Skin's leader once — unavoidable geometry, endpoints unambiguous), bio-human-reproduction-1 (foetus-structures box height 95→112, last line no longer clipped), bio-respiration-anaerobic-animals ("lactic acid → glucose" moved below the liver arrow + leader). User: all other round-1 updates confirmed good. Fuchsia `#d946ef` markers still in place across all touched files — do NOT revert until the user confirms round 2.
+Verified: all 6 re-rendered + eyeballed; validate:illustrations ✅; validate:illustration-layout ✅ (full tree, 0 issues). Unit/e2e not run (SVG-only).
+Next: user round-3 review → revert all `#d946ef` markers on confirmation; decide fill-opacity 0.85 chip trial (bio-ecology-1-adaptations); review rounds for chemistry/physics/math/english. Then English re-map Session 1; deploy investigation. Backlog: DP AA, IGCSE content, design refresh.
+Notes: CSS-class fills beat presentation attributes in these SVGs — when a label needs a non-class colour, always use inline style, never fill="".
+
+---
+
+## 2026-07-29 — Biology illustration review round 1: 15 files fixed, fuchsia review markers
+
+Git HEAD: `1801ac0` (branch `develop`, tree dirty: 15 biology SVGs + earlier pH-scale SVG + render script + docs)
+Done: user's visual review of biology illustrations flagged 15 issues; fixed via 13-agent swarm + 2 manual follow-ups. Files: bio-body-1-homeostasis (7 labels moved to side margins, were clipped/overlapping), bio-body-muscles (Biceps/Triceps labels → right of panels), bio-body-nephron (Ultrafiltration/Selective-reabsorption clear of purple tubule), bio-cell-1-plant-specialised ("Ro" = "Root hair" chip hidden behind Xylem panel → moved inside its panel; + "Control stomatal opening" chip no longer overlaps "Dead, hollow tube"), bio-cell-diffusion-osmosis ("Membrane" label separated from "Concentrated side"), bio-cell-specialised (RBC sublabel → bottom-right; note: file has ONE RBC panel, not two), bio-classification-1-biodiversity (bee/tree/bottle icons lifted clear of their texts), bio-ecology-1-adaptations (white-fur + padded-feet chips unblocked; TRIAL: chips at fill-opacity 0.85 instead of opaque — user to judge in review), bio-health-1-first-defence ("Ollated airway" mystery = cilia strokes striking through "Ciliated airway" title; inset redrawn legible + caption below drawing), bio-practical-1-data-table (2 labels above table like the anomalous-result label), bio-practical-1-graph-types (bar values consistently above bars, clear of axis titles), bio-reproduction-1-menstrual-cycle (added missing x-axis + legend nudged off "Day 28"), 3× respiration files (Mitochondria/Mitochondrion label below red oval; spelling was already correct).
+**REVIEW MARKER CONVENTION (temporary)**: every moved/added element is marked fuchsia `#d946ef` — texts `style="fill:#d946ef"`, chips `style="stroke:#d946ef;stroke-width:1.5"`, new leader/axis lines stroke `#d946ef`. **Revert after the user verifies round 1** (grep `#d946ef` in public/images/biology/). Semantic colour swatches (menstrual legend lines) kept their colours deliberately.
+Verified: every fixed file re-rendered and eyeballed (all 15); validate:illustrations ✅; validate:illustration-layout ✅ (full tree, 0 issues). Unit/e2e not run (SVG-only). Previews: `illustration-previews/biology/*.png` (subset re-renders; run `npm run render:illustrations` for a fresh full sheet).
+Next: user verifies round-1 fixes via fuchsia markers → then revert markers; continue review rounds for chemistry/physics/math/english if user wants. Then English re-map Session 1; deploy investigation. Backlog: DP AA, IGCSE content, design refresh.
+Notes: checker (`diagnose-illustrations.mjs`) is text-vs-text/text-vs-chip only — it does NOT catch text-on-drawing or text-hidden-under-later-rect (the "Ro" case); the visual render pass remains the real gate. Open question for user: adopt fill-opacity 0.85 label chips globally (trial in bio-ecology-1-adaptations)?
+
+---
+
+## 2026-07-29 — pH scale illustration: colour gradient + accuracy fixes
+
+Git HEAD: `1801ac0` (branch `develop`, tree dirty: SVG + new script + docs)
+Done: reworked `public/images/chemistry/chem-acids-1-ph-scale.svg` (found in manual testing): (1) main scale + universal-indicator strip now use a smooth 15-stop `linearGradient` (deep red `#b91c1c` → dark purple `#7e22ce`) — was 6 flat zone colours, ends nearly identical; (2) fixed wrong "increasing H⁺ concentration →" arrow (pointed toward alkaline — now points toward pH 0); (3) fixed "acidic"/"alkaline" sublabels hidden behind the indicator strip (table shifted down 30px); (4) "green" chip moved to sit over pH 7 (was over the blue zone). Verified visually via Playwright screenshot before/after.
+Also added the illustration-review workflow: `scripts/render-illustrations.mjs` (+ `npm run render:illustrations`, `--subject=<name>` or single-file arg) renders all 304 SVGs to `illustration-previews/<subject>/*.png` + an `index.html` contact sheet (gitignored). Documented in AGENTS.md + ILLUSTRATION_GUIDELINES.md.
+Verified: validate:illustrations ✅, validate:illustration-layout ✅ (gradient approach also avoids the smallest-rect pairing pitfall for chips), validate:content ✅, render script run ✅ (304/304 PNGs, spot-checked pH-scale + heart-circulation renders). Unit/e2e not run (SVG + tooling only, no app code touched).
+Next: unchanged — English re-map Session 1 (structure), then Session 2 (content); deploy investigation (Vercel auto-deploy + Phase 7 §6 post-deploy checks; AI feedback env-gated). Backlog: DP AA, IGCSE content, design refresh. Optional: full visual sweep of the 304 rendered PNGs for other colour/accuracy issues like the pH one.
+Notes: no specialised illustration-review agent exists — `validate:illustrations` (structure) + `validate:illustration-layout` (overlap/overflow via headless Chromium) are the automated checks; `render:illustrations` now covers the visual pass. Layout-checker pitfall: it pairs a label with the smallest rect containing its centre, so label chips must not sit across narrow colour segments — a gradient-filled single rect avoids this.
+
+---
+
+## 2026-07-28 — KS3 English strand re-map: decisions made (no code)
+
+Git HEAD: `1801ac0` (branch `develop`, tree clean except this entry)
+Done: investigated the re-map and resolved the open decisions with the user. Current state: 17 KS3 English topics, `stage: ks3` only (no year/strand) → flat "KS3" group on the subject page; maps cleanly onto the 4 UK statutory strands (Reading 8 / Writing 5 / Grammar & Vocabulary 2 / Spoken English 2 — full mapping in conversation; BBC skills dirs available for new content: critical-reading 16, grammar 11, punctuation 10, fiction/non-fiction-writing 8+10, essay-writing 5, reading-poetry 7, spoken-english 5 guides).
+**Decisions (user, 2026-07-28):**
+1. **Strand model, no year** — add a `strand` field (`reading` | `writing` | `grammar-vocabulary` | `spoken-english`) for KS3 English; subject page groups English by strand; topics stay year-less like science. (Rejected: year-tag everything like math — English skills spiral, would need 3× content.)
+2. **Author ~6 new Y8/Y9 progression topics** from BBC skills dirs (Critical Reading, Advanced Grammar, Punctuation, Non-Fiction Writing, Essay Writing, Reading Poetry), own voice per BBC pipeline convention.
+3. **8 BBC Shakespeare play-guide dirs stay excluded** (school-text-dependent; `eng-drama-shakespeare` covers the skills generically).
+Verified: n/a — analysis + decisions only (facts verified by reading content JSONs, `topic-groups.ts`, revised plan §92/138, `--list-unmapped`).
+Next: **English re-map Session 1 — structure**: `strand` in topic schema + `validate:content` (strand ⇒ ks3 english only), re-tag the 17 topics, `topic-groups.ts` groups English KS3 by strand (only when `strand` present — math/science rendering unchanged), CONTENT_STYLE.md + unit tests, all gates. Then **Session 2 — content**: extend BBC curation map for the 6 dirs, staging drafts, author 6 topics (7/12/15 + difficulty tags), registry + gates. Backlog: DP AA, IGCSE content, design refresh. Deploy notes unchanged: Vercel auto-deploy from `develop` is suspect per user (never works from GitHub CI Actions — uninvestigated); AI feedback env-gated until Moonshot key set; Phase 7 §6 post-deploy checks pending a working deploy.
+Notes: schema convention to follow — strand grouping must be conditional on the field being present so other subjects are untouched.
+
+---
 
 Git HEAD: `b2949e9` → pushed `0605a6c` (branch `develop`, tree clean)
 Done:

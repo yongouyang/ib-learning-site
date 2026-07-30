@@ -75,6 +75,7 @@
   <text x="400" y="415" text-anchor="middle" class="label">Hormone levels</text>
   <line x1="80" y1="440" x2="720" y2="440" class="axis"/>
   <line x1="80" y1="440" x2="80" y2="500" class="axis"/>
+  <line x1="80" y1="500" x2="720" y2="500" class="axis"/>
   <text x="80" y="515" text-anchor="middle" class="sublabel">Day 1</text>
   <text x="400" y="515" text-anchor="middle" class="sublabel">Day 14</text>
   <text x="720" y="515" text-anchor="middle" class="sublabel">Day 28</text>
@@ -89,13 +90,13 @@
   <path d="M80,485 Q180,470 280,485 Q360,480 400,470 Q500,485 720,485" fill="none" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="4 2"/>
 
   <!-- Legend -->
-  <rect x="520" y="465" width="190" height="48" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
-  <line x1="530" y1="478" x2="550" y2="478" stroke="#22c55e" stroke-width="2.5"/>
-  <text x="555" y="481" class="sublabel">Oestrogen</text>
-  <line x1="530" y1="492" x2="550" y2="492" stroke="#f97316" stroke-width="2.5"/>
-  <text x="555" y="495" class="sublabel">Progesterone</text>
-  <line x1="630" y1="478" x2="650" y2="478" stroke="#3b82f6" stroke-width="2.5"/>
-  <text x="655" y="481" class="sublabel">LH surge</text>
-  <line x1="630" y1="492" x2="650" y2="492" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="4 2"/>
-  <text x="655" y="495" class="sublabel">FSH</text>
+  <rect x="520" y="453" width="190" height="48" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>
+  <line x1="530" y1="466" x2="550" y2="466" stroke="#22c55e" stroke-width="2.5"/>
+  <text x="555" y="469" class="sublabel">Oestrogen</text>
+  <line x1="530" y1="480" x2="550" y2="480" stroke="#f97316" stroke-width="2.5"/>
+  <text x="555" y="483" class="sublabel">Progesterone</text>
+  <line x1="630" y1="466" x2="650" y2="466" stroke="#3b82f6" stroke-width="2.5"/>
+  <text x="655" y="469" class="sublabel">LH surge</text>
+  <line x1="630" y1="480" x2="650" y2="480" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="4 2"/>
+  <text x="655" y="483" class="sublabel">FSH</text>
 </svg>

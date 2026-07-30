@@ -43,7 +43,8 @@
   <!-- Mitochondrion inside cell -->
   <ellipse cx="750" cy="245" rx="55" ry="30" fill="#f87171" stroke="#b91c1c" stroke-width="2"/>
   <path d="M710,245 Q725,230 740,245 Q755,260 770,245 Q785,230 795,245" fill="none" stroke="#7f1d1d" stroke-width="2.5" stroke-linecap="round"/>
-  <text x="750" y="250" text-anchor="middle" class="sublabel" fill="#fff">Mitochondria</text>
+  <rect x="708" y="280" width="84" height="16" rx="4" class="label-bg"/>
+  <text x="750" y="292" text-anchor="middle" class="sublabel">Mitochondria</text>
 
   <!-- Artery: lungs to body cells -->
   <path d="M320,195 Q480,195 640,195" class="vessel-outer" stroke="#ef4444" stroke-width="24"/>

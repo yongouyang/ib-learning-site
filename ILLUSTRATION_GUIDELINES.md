@@ -129,6 +129,16 @@ Manual checks still recommended for:
 - Colour consistency.
 - Readability at mobile widths.
 
+For the visual pass, render every SVG to PNG and review the contact sheet:
+
+```bash
+npm run render:illustrations                              # all subjects → illustration-previews/
+npm run render:illustrations -- --subject=chemistry       # one subject
+node scripts/render-illustrations.mjs <path-to.svg>       # one file
+```
+
+Open `illustration-previews/index.html` for a grid grouped by subject, or sweep the PNGs directly (they are plain images, so an agent can review them in batches). The output directory is gitignored — regenerate it whenever you need a fresh look.
+
 ## Anti-patterns
 
 | Bad | Why |

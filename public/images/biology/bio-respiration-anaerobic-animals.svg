@@ -57,7 +57,8 @@
   <ellipse cx="595" cy="270" rx="70" ry="40" fill="#fb923c" stroke="#f97316" stroke-width="2"/>
   <text x="595" y="275" text-anchor="middle" class="label">Liver</text>
   <line x1="440" y1="240" x2="530" y2="260" class="arrow" stroke="#6b7280" marker-end="url(#arrow-red)"/>
-  <text x="485" y="250" text-anchor="middle" class="sublabel">lactic acid → glucose</text>
+  <line x1="485" y1="256" x2="485" y2="306" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="485" y="320" text-anchor="middle" class="sublabel">lactic acid → glucose</text>
 
   <!-- Equation -->
   <rect x="135" y="340" width="450" height="38" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="6"/>

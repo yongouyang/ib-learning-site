@@ -34,9 +34,9 @@
   <!-- Soil -->
   <rect x="70" y="305" width="290" height="10" fill="#92400e" opacity="0.25" rx="2"/>
 
-  <line x1="210" y1="304" x2="120" y2="320" class="line"/>
-  <rect x="10" y="311" width="88" height="18" rx="4" class="label-bg"/>
-  <text x="14" y="323" class="label">Root hair</text>
+  <line x1="204" y1="262" x2="100" y2="256" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="10" y="247" width="88" height="18" rx="4" class="label-bg"/>
+  <text x="14" y="259" class="label">Root hair</text>
 
   <line x1="180" y1="150" x2="120" y2="130" class="line"/>
   <rect x="10" y="121" width="110" height="18" rx="4" class="label-bg"/>
@@ -118,7 +118,7 @@
   <rect x="702" y="381" width="80" height="18" rx="4" class="label-bg"/>
   <text x="706" y="393" class="label">Stoma (pore)</text>
 
-  <line x1="560" y1="350" x2="480" y2="330" class="line"/>
-  <rect x="350" y="321" width="146" height="18" rx="4" class="label-bg"/>
-  <text x="354" y="333" class="label">Control stomatal opening</text>
+  <line x1="560" y1="398" x2="540" y2="458" class="line"/>
+  <rect x="440" y="459" width="146" height="18" rx="4" class="label-bg"/>
+  <text x="444" y="471" class="label">Control stomatal opening</text>
 </svg>

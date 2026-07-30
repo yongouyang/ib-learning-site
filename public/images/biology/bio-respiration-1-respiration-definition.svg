@@ -61,7 +61,8 @@
   <!-- Mitochondrion -->
   <ellipse cx="590" cy="205" rx="62" ry="34" fill="#f87171" stroke="#b91c1c" stroke-width="2"/>
   <path d="M545,205 Q560,188 575,205 Q590,222 605,205 Q620,188 635,205" fill="none" stroke="#7f1d1d" stroke-width="3" stroke-linecap="round"/>
-  <text x="590" y="210" text-anchor="middle" class="label" fill="#fff">Mitochondrion</text>
+  <rect x="543" y="243" width="94" height="18" rx="4" class="label-bg"/>
+  <text x="590" y="256" text-anchor="middle" class="label">Mitochondrion</text>
 
   <!-- Inputs -->
   <rect x="425" y="165" width="85" height="36" rx="8" fill="#fde047" stroke="#d97706" stroke-width="2"/>

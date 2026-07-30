@@ -82,13 +82,13 @@
   <rect x="315" y="231" width="168" height="18" rx="4" class="label-bg"/>
   <text x="320" y="244" class="label">Anomalous result excluded</text>
 
-  <line x1="155" y1="114" x2="120" y2="150" class="line"/>
-  <rect x="40" y="151" width="107" height="18" rx="4" class="label-bg"/>
-  <text x="44" y="164" class="label">Headings + units</text>
+  <line x1="155" y1="80" x2="140" y2="68" stroke="#6b7280" stroke-width="1.5" fill="none"/>
+  <rect x="85" y="50" width="107" height="18" rx="4" class="label-bg"/>
+  <text x="89" y="63" class="label">Headings + units</text>
 
-  <line x1="520" y1="114" x2="560" y2="150" class="line"/>
-  <rect x="565" y="151" width="140" height="18" rx="4" class="label-bg"/>
-  <text x="569" y="164" class="label">Range shows precision</text>
+  <line x1="660" y1="80" x2="648" y2="68" stroke="#6b7280" stroke-width="1.5" fill="none"/>
+  <rect x="575" y="50" width="140" height="18" rx="4" class="label-bg"/>
+  <text x="579" y="63" class="label">Range shows precision</text>
 
   <text x="400" y="310" text-anchor="middle" class="sublabel">*Mean calculated after excluding the anomalous 72; the exclusion is noted.</text>
 

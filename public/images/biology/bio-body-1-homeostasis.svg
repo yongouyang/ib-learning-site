@@ -33,56 +33,68 @@
   <text x="240" y="282" text-anchor="middle" class="label">environment</text>
 
   <!-- Nervous system -->
-  <path d="M108,135 C108,120 132,120 132,135 C132,148 120,152 108,148 C100,144 100,140 108,135 Z" fill="#fbcfe8" stroke="#db2777" class="system-icon"/>
-  <path d="M120,125 Q125,140 120,150" fill="none" stroke="#db2777" stroke-width="1.5"/>
-  <line x1="105" y1="135" x2="102" y2="135" class="line"/>
-  <rect x="20" y="116" width="107" height="30" rx="4" class="label-bg"/>
-  <text x="28" y="130" class="label">Nervous system</text>
-  <text x="28" y="142" class="sublabel">brain &amp; nerves</text>
+  <g transform="translate(58,0)">
+    <path d="M108,135 C108,120 132,120 132,135 C132,148 120,152 108,148 C100,144 100,140 108,135 Z" fill="#fbcfe8" stroke="#db2777" class="system-icon"/>
+    <path d="M120,125 Q125,140 120,150" fill="none" stroke="#db2777" stroke-width="1.5"/>
+  </g>
+  <line x1="136" y1="134" x2="164" y2="135" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="28" y="119" width="108" height="30" rx="4" class="label-bg"/>
+  <text x="36" y="133" class="label">Nervous system</text>
+  <text x="36" y="145" class="sublabel">brain &amp; nerves</text>
 
   <!-- Endocrine system -->
-  <ellipse cx="370" cy="135" rx="22" ry="14" fill="#fde68a" stroke="#d97706" class="system-icon"/>
-  <circle cx="370" cy="120" r="7" fill="#fde68a" stroke="#d97706" class="system-icon"/>
-  <line x1="392" y1="135" x2="392" y2="135" class="line"/>
-  <rect x="392" y="116" width="121" height="30" rx="4" class="label-bg"/>
-  <text x="400" y="130" class="label">Endocrine system</text>
-  <text x="400" y="142" class="sublabel">glands &amp; hormones</text>
+  <g transform="translate(-70,0)">
+    <ellipse cx="370" cy="135" rx="22" ry="14" fill="#fde68a" stroke="#d97706" class="system-icon"/>
+    <circle cx="370" cy="120" r="7" fill="#fde68a" stroke="#d97706" class="system-icon"/>
+  </g>
+  <line x1="336" y1="132" x2="324" y2="133" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="336" y="117" width="114" height="30" rx="4" class="label-bg"/>
+  <text x="344" y="131" class="label">Endocrine system</text>
+  <text x="344" y="143" class="sublabel">glands &amp; hormones</text>
 
   <!-- Circulatory system -->
-  <path d="M80,258 C80,258 62,242 62,228 C62,218 72,214 80,222 C88,214 98,218 98,228 C98,242 80,258 80,258 Z" fill="#fca5a5" stroke="#ef4444" class="system-icon"/>
-  <line x1="70" y1="250" x2="100" y2="250" class="line"/>
-  <rect x="20" y="231" width="80" height="30" rx="4" class="label-bg"/>
-  <text x="28" y="245" class="label">Circulatory</text>
-  <text x="28" y="257" class="sublabel">heart &amp; blood</text>
+  <g transform="translate(82,0)">
+    <path d="M80,258 C80,258 62,242 62,228 C62,218 72,214 80,222 C88,214 98,218 98,228 C98,242 80,258 80,258 Z" fill="#fca5a5" stroke="#ef4444" class="system-icon"/>
+  </g>
+  <line x1="112" y1="238" x2="142" y2="238" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="28" y="223" width="84" height="30" rx="4" class="label-bg"/>
+  <text x="36" y="237" class="label">Circulatory</text>
+  <text x="36" y="249" class="sublabel">heart &amp; blood</text>
 
   <!-- Respiratory system -->
-  <ellipse cx="390" cy="250" rx="14" ry="22" fill="#bfdbfe" stroke="#3b82f6" class="system-icon"/>
-  <ellipse cx="410" cy="250" rx="14" ry="22" fill="#bfdbfe" stroke="#3b82f6" class="system-icon"/>
-  <line x1="400" y1="235" x2="400" y2="265" stroke="#3b82f6" stroke-width="2"/>
-  <line x1="420" y1="250" x2="425" y2="250" class="line"/>
-  <rect x="425" y="231" width="131" height="30" rx="4" class="label-bg"/>
-  <text x="433" y="245" class="label">Respiratory</text>
-  <text x="433" y="257" class="sublabel">lungs &amp; gas exchange</text>
+  <g transform="translate(-116,-70)">
+    <ellipse cx="390" cy="250" rx="14" ry="22" fill="#bfdbfe" stroke="#3b82f6" class="system-icon"/>
+    <ellipse cx="410" cy="250" rx="14" ry="22" fill="#bfdbfe" stroke="#3b82f6" class="system-icon"/>
+    <line x1="400" y1="235" x2="400" y2="265" stroke="#3b82f6" stroke-width="2"/>
+  </g>
+  <line x1="326" y1="175" x2="312" y2="179" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="326" y="160" width="122" height="30" rx="4" class="label-bg"/>
+  <text x="334" y="174" class="label">Respiratory</text>
+  <text x="334" y="186" class="sublabel">lungs &amp; gas exchange</text>
 
   <!-- Digestive system -->
-  <path d="M105,365 C105,345 140,345 140,365 C140,380 120,390 105,380 C95,375 95,370 105,365 Z" fill="#fdba74" stroke="#f97316" class="system-icon"/>
-  <line x1="105" y1="365" x2="110" y2="365" class="line"/>
-  <rect x="20" y="346" width="101" height="30" rx="4" class="label-bg"/>
-  <text x="28" y="360" class="label">Digestive</text>
-  <text x="28" y="372" class="sublabel">breaks down food</text>
+  <g transform="translate(58,0)">
+    <path d="M105,365 C105,345 140,345 140,365 C140,380 120,390 105,380 C95,375 95,370 105,365 Z" fill="#fdba74" stroke="#f97316" class="system-icon"/>
+  </g>
+  <line x1="140" y1="368" x2="151" y2="368" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="28" y="353" width="112" height="30" rx="4" class="label-bg"/>
+  <text x="36" y="367" class="label">Digestive</text>
+  <text x="36" y="379" class="sublabel">breaks down food</text>
 
   <!-- Excretory system -->
-  <path d="M375,355 C355,355 350,365 355,380 C360,390 375,385 380,375 C385,365 375,355 375,355 Z" fill="#c4b5fd" stroke="#7c3aed" class="system-icon"/>
-  <line x1="390" y1="365" x2="405" y2="365" class="line"/>
-  <rect x="405" y="346" width="90" height="30" rx="4" class="label-bg"/>
-  <text x="413" y="360" class="label">Excretory</text>
-  <text x="413" y="372" class="sublabel">kidneys &amp; skin</text>
+  <g transform="translate(-40,0)">
+    <path d="M375,355 C355,355 350,365 355,380 C360,390 375,385 380,375 C385,365 375,355 375,355 Z" fill="#c4b5fd" stroke="#7c3aed" class="system-icon"/>
+  </g>
+  <line x1="358" y1="365" x2="347" y2="367" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="358" y="350" width="90" height="30" rx="4" class="label-bg"/>
+  <text x="366" y="364" class="label">Excretory</text>
+  <text x="366" y="376" class="sublabel">kidneys &amp; skin</text>
 
   <!-- Muscular system -->
   <path d="M215,385 Q240,375 265,385 Q275,390 265,400 Q240,410 215,400 Q205,390 215,385 Z" fill="#fca5a5" stroke="#ef4444" class="system-icon"/>
-  <line x1="240" y1="375" x2="240" y2="370" class="line"/>
-  <rect x="180" y="350" width="120" height="20" rx="4" class="label-bg"/>
-  <text x="240" y="364" text-anchor="middle" class="label">Muscular system</text>
+  <line x1="148" y1="402" x2="203" y2="396" stroke="#6b7280" stroke-width="1.5"/>
+  <rect x="28" y="392" width="120" height="20" rx="4" class="label-bg"/>
+  <text x="88" y="406" text-anchor="middle" class="label">Muscular system</text>
 
   <!-- Right panel: negative feedback loop -->
   <rect x="475" y="55" width="400" height="370" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>

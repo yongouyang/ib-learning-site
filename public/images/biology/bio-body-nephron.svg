@@ -59,11 +59,13 @@
   <text x="144" y="413" class="label">Urine to bladder</text>
 
   <!-- Process annotations -->
-  <text x="250" y="165" text-anchor="middle" class="sublabel">Ultrafiltration</text>
-  <text x="250" y="180" text-anchor="middle" class="sublabel">(water, glucose, salts, urea)</text>
+  <text x="130" y="170" text-anchor="middle" class="sublabel">Ultrafiltration</text>
+  <text x="130" y="185" text-anchor="middle" class="sublabel">(water, glucose, salts, urea)</text>
+  <line x1="205" y1="175" x2="226" y2="152" stroke="#6b7280" stroke-width="1.5"/>
 
-  <text x="380" y="270" text-anchor="middle" class="sublabel">Selective reabsorption</text>
-  <text x="380" y="285" text-anchor="middle" class="sublabel">(glucose, water, salts back to blood)</text>
+  <text x="590" y="130" text-anchor="middle" class="sublabel">Selective reabsorption</text>
+  <text x="590" y="145" text-anchor="middle" class="sublabel">(glucose, water, salts back to blood)</text>
+  <line x1="498" y1="152" x2="479" y2="278" stroke="#6b7280" stroke-width="1.5"/>
 
   <!-- Arrows for reabsorption -->
   <line x1="360" y1="300" x2="400" y2="280" class="arrow" stroke="#3b82f6" marker-end="url(#arrow-blue)"/>

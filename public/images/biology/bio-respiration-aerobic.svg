@@ -24,7 +24,8 @@
   <!-- Mitochondrion -->
   <ellipse cx="390" cy="230" rx="75" ry="45" fill="#f87171" stroke="#b91c1c" stroke-width="2"/>
   <path d="M345,230 Q360,210 375,230 Q390,250 405,230 Q420,210 435,230" fill="none" stroke="#7f1d1d" stroke-width="3" stroke-linecap="round"/>
-  <text x="390" y="235" text-anchor="middle" class="label" fill="#fff">Mitochondrion</text>
+  <rect x="343" y="283" width="94" height="18" rx="4" class="label-bg"/>
+  <text x="390" y="296" text-anchor="middle" class="label">Mitochondrion</text>
 
   <!-- Glucose -->
   <rect x="60" y="205" width="90" height="38" rx="8" fill="#fde047" stroke="#d97706" stroke-width="2"/>

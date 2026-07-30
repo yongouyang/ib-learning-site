@@ -39,17 +39,17 @@
 
   <!-- Biceps contracted -->
   <path d="M120,115 C120,95 190,95 190,115 L190,180 C190,200 120,200 120,180 Z" class="muscle-contract"/>
-  <line x1="105" y1="150" x2="55" y2="130" class="line"/>
-  <rect x="10" y="121" width="42" height="18" rx="4" class="label-bg"/>
-  <text x="14" y="133" class="label">Biceps</text>
-  <text x="55" y="115" class="sublabel">contracts</text>
+  <line x1="192" y1="150" x2="246" y2="128" class="line"/>
+  <rect x="248" y="119" width="52" height="18" rx="4" class="label-bg"/>
+  <text x="252" y="131" class="label">Biceps</text>
+  <text x="252" y="152" class="sublabel">contracts</text>
 
   <!-- Triceps relaxed -->
   <path d="M125,200 C125,185 185,185 185,200 L185,245 C185,258 125,258 125,245 Z" class="muscle-relax"/>
-  <line x1="105" y1="225" x2="55" y2="245" class="line"/>
-  <rect x="10" y="236" width="52" height="18" rx="4" class="label-bg"/>
-  <text x="14" y="248" class="label">Triceps</text>
-  <text x="55" y="270" class="sublabel">relaxes</text>
+  <line x1="187" y1="225" x2="246" y2="244" class="line"/>
+  <rect x="248" y="236" width="58" height="18" rx="4" class="label-bg"/>
+  <text x="252" y="248" class="label">Triceps</text>
+  <text x="252" y="270" class="sublabel">relaxes</text>
 
   <!-- Extend panel -->
   <rect x="365" y="55" width="330" height="350" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
@@ -64,17 +64,17 @@
 
   <!-- Biceps relaxed -->
   <path d="M460,115 C460,100 520,100 520,115 L520,165 C520,180 460,180 460,165 Z" class="muscle-relax"/>
-  <line x1="445" y1="140" x2="395" y2="120" class="line"/>
-  <rect x="350" y="111" width="42" height="18" rx="4" class="label-bg"/>
-  <text x="354" y="123" class="label">Biceps</text>
-  <text x="395" y="105" class="sublabel">relaxes</text>
+  <line x1="522" y1="140" x2="586" y2="127" class="line"/>
+  <rect x="588" y="118" width="52" height="18" rx="4" class="label-bg"/>
+  <text x="592" y="130" class="label">Biceps</text>
+  <text x="592" y="152" class="sublabel">relaxes</text>
 
   <!-- Triceps contracted -->
   <path d="M460,195 C460,175 520,175 520,195 L520,245 C520,260 460,260 460,245 Z" class="muscle-contract"/>
-  <line x1="445" y1="225" x2="395" y2="245" class="line"/>
-  <rect x="350" y="236" width="52" height="18" rx="4" class="label-bg"/>
-  <text x="354" y="248" class="label">Triceps</text>
-  <text x="395" y="270" class="sublabel">contracts</text>
+  <line x1="522" y1="225" x2="586" y2="244" class="line"/>
+  <rect x="588" y="236" width="58" height="18" rx="4" class="label-bg"/>
+  <text x="592" y="248" class="label">Triceps</text>
+  <text x="592" y="270" class="sublabel">contracts</text>
 
   <!-- Key principle -->
   <rect x="180" y="370" width="360" height="30" fill="#f3f4f6" stroke="#d1d5db" stroke-width="1.5" rx="6"/>

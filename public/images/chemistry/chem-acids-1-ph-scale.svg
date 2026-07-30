@@ -10,6 +10,23 @@
       .label-bg { fill: #f9fafb; }
       .bar-label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; font-weight: 600; fill: #1f2937; }
     </style>
+    <linearGradient id="ph-gradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b91c1c"/>
+      <stop offset="0.0714" stop-color="#dc2626"/>
+      <stop offset="0.1429" stop-color="#ef4444"/>
+      <stop offset="0.2143" stop-color="#f97316"/>
+      <stop offset="0.2857" stop-color="#fb923c"/>
+      <stop offset="0.3571" stop-color="#fbbf24"/>
+      <stop offset="0.4286" stop-color="#facc15"/>
+      <stop offset="0.5" stop-color="#22c55e"/>
+      <stop offset="0.5714" stop-color="#14b8a6"/>
+      <stop offset="0.6429" stop-color="#0ea5e9"/>
+      <stop offset="0.7143" stop-color="#3b82f6"/>
+      <stop offset="0.7857" stop-color="#6366f1"/>
+      <stop offset="0.8571" stop-color="#8b5cf6"/>
+      <stop offset="0.9286" stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#7e22ce"/>
+    </linearGradient>
   </defs>
 
   <rect width="800" height="520" fill="#f9fafb" rx="12"/>
@@ -17,21 +34,7 @@
 
   <!-- pH scale -->
   <g transform="translate(80, 90)">
-    <rect x="0" y="0" width="45.7" height="40" fill="#ef4444"/>
-    <rect x="45.7" y="0" width="45.7" height="40" fill="#ef4444"/>
-    <rect x="91.4" y="0" width="45.7" height="40" fill="#ef4444"/>
-    <rect x="137.1" y="0" width="45.7" height="40" fill="#ef4444"/>
-    <rect x="182.9" y="0" width="45.7" height="40" fill="#f97316"/>
-    <rect x="228.6" y="0" width="45.7" height="40" fill="#f97316"/>
-    <rect x="274.3" y="0" width="45.7" height="40" fill="#facc15"/>
-    <rect x="320.0" y="0" width="45.7" height="40" fill="#22c55e"/>
-    <rect x="365.7" y="0" width="45.7" height="40" fill="#3b82f6"/>
-    <rect x="411.4" y="0" width="45.7" height="40" fill="#3b82f6"/>
-    <rect x="457.1" y="0" width="45.7" height="40" fill="#3b82f6"/>
-    <rect x="502.9" y="0" width="45.7" height="40" fill="#8b5cf6"/>
-    <rect x="548.6" y="0" width="45.7" height="40" fill="#8b5cf6"/>
-    <rect x="594.3" y="0" width="45.7" height="40" fill="#8b5cf6"/>
-    <rect x="640.0" y="0" width="45.7" height="40" fill="#8b5cf6"/>
+    <rect x="0" y="0" width="640" height="40" fill="url(#ph-gradient)"/>
 
     <!-- ticks -->
     <g stroke="#1f2937" stroke-width="1">
@@ -48,26 +51,21 @@
     <text x="530" y="100" text-anchor="middle" class="sublabel">alkaline</text>
   </g>
 
-  <line x1="110" y1="75" x2="690" y2="75" class="line" marker-end="url(#arrow-grey)"/>
-  <text x="400" y="68" text-anchor="middle" class="sublabel">increasing H⁺ concentration →</text>
+  <line x1="690" y1="75" x2="110" y2="75" class="line" marker-end="url(#arrow-grey)"/>
+  <text x="400" y="68" text-anchor="middle" class="sublabel">increasing H⁺ concentration</text>
 
   <!-- Indicator table -->
-  <g transform="translate(80, 170)">
+  <g transform="translate(80, 200)">
     <!-- Universal indicator -->
     <text x="90" y="30" text-anchor="end" class="label">Universal indicator</text>
-    <rect x="110" y="14" width="90" height="24" fill="#ef4444"/>
-    <rect x="200" y="14" width="60" height="24" fill="#f97316"/>
-    <rect x="260" y="14" width="30" height="24" fill="#facc15"/>
-    <rect x="290" y="14" width="30" height="24" fill="#22c55e"/>
-    <rect x="320" y="14" width="90" height="24" fill="#3b82f6"/>
-    <rect x="410" y="14" width="120" height="24" fill="#8b5cf6"/>
+    <rect x="110" y="14" width="420" height="24" fill="url(#ph-gradient)"/>
 
-    <rect x="165" y="16" width="40" height="20" rx="4" class="label-bg"/>
-    <text x="185" y="30" text-anchor="middle" class="bar-label">red</text>
-    <rect x="205" y="16" width="50" height="20" rx="4" class="label-bg"/>
-    <text x="230" y="30" text-anchor="middle" class="bar-label">orange</text>
-    <rect x="350" y="16" width="40" height="20" rx="4" class="label-bg"/>
-    <text x="370" y="30" text-anchor="middle" class="bar-label">green</text>
+    <rect x="145" y="16" width="40" height="20" rx="4" class="label-bg"/>
+    <text x="165" y="30" text-anchor="middle" class="bar-label">red</text>
+    <rect x="200" y="16" width="50" height="20" rx="4" class="label-bg"/>
+    <text x="225" y="30" text-anchor="middle" class="bar-label">orange</text>
+    <rect x="305" y="16" width="40" height="20" rx="4" class="label-bg"/>
+    <text x="325" y="30" text-anchor="middle" class="bar-label">green</text>
     <rect x="450" y="16" width="40" height="20" rx="4" class="label-bg"/>
     <text x="470" y="30" text-anchor="middle" class="bar-label">purple</text>
 
