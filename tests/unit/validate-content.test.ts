@@ -73,4 +73,23 @@ describe('checkStageConsistency', () => {
     const topic = makeTopic({ subjectId: 'english' });
     expect(checkStageConsistency(topic)).toEqual([]);
   });
+
+  it('accepts a strand on KS3 english topics', () => {
+    const topic = makeTopic({ subjectId: 'english', stage: 'ks3', strand: 'reading' });
+    expect(checkStageConsistency(topic)).toEqual([]);
+  });
+
+  it('rejects a strand on non-english topics', () => {
+    const topic = makeTopic({ subjectId: 'math', stage: 'ks3', strand: 'reading' });
+    const errors = checkStageConsistency(topic);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('strand');
+  });
+
+  it('rejects a strand on non-KS3 english topics', () => {
+    const topic = makeTopic({ subjectId: 'english', stage: 'igcse', course: '0500', strand: 'writing' });
+    const errors = checkStageConsistency(topic);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('strand');
+  });
 });

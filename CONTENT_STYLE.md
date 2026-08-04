@@ -28,10 +28,11 @@ Every topic carries a curriculum taxonomy (replacing the old `ibLevel` field):
 |---|---|---|
 | `stage` | `ks3`, `igcse`, `dp` | Required. |
 | `year` | `7`, `8`, `9` | KS3 only; omit for topics spanning years (e.g. science). |
+| `strand` | `reading`, `writing`, `grammar-vocabulary`, `spoken-english` | KS3 English only; the subject page groups English by strand when present. |
 | `course` | IGCSE: `0580`, `0610`, `0620`, `0625`, `0500` · DP: `aa`, `ai`, `bio`, `chem`, `phys`, `langlit` | Required for `igcse` and `dp`. |
 | `level` | IGCSE: `core`, `extended` · DP: `sl`, `hl` | IGCSE/DP only; omit for KS3. |
 
-`npm run validate:content` enforces consistency (year ⇒ ks3, core/extended ⇒ igcse, sl/hl ⇒ dp, course required for igcse/dp).
+`npm run validate:content` enforces consistency (year ⇒ ks3, core/extended ⇒ igcse, sl/hl ⇒ dp, course required for igcse/dp, strand ⇒ ks3 english).
 
 ## Topic ID conventions for new topics
 

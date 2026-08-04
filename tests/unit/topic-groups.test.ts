@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { groupTopicsByStage } from '@/lib/topic-groups';
-import type { Stage, Topic } from '@/content/types';
+import type { EnglishStrand, Stage, Topic } from '@/content/types';
 
-function makeTopic(id: string, stage: Stage, year?: 7 | 8 | 9): Topic {
+function makeTopic(id: string, stage: Stage, year?: 7 | 8 | 9, strand?: EnglishStrand): Topic {
   return {
     id,
     subjectId: 'math',
@@ -10,6 +10,7 @@ function makeTopic(id: string, stage: Stage, year?: 7 | 8 | 9): Topic {
     description: `Description of ${id}`,
     stage,
     ...(year !== undefined ? { year } : {}),
+    ...(strand !== undefined ? { strand } : {}),
     notes: [],
     flashcards: [],
     questions: [],
@@ -48,5 +49,39 @@ describe('groupTopicsByStage', () => {
 
   it('returns an empty array for no topics', () => {
     expect(groupTopicsByStage([])).toEqual([]);
+  });
+
+  it('groups KS3 topics carrying a strand by strand, in statutory order', () => {
+    const topics = [
+      makeTopic('eng-speaking', 'ks3', undefined, 'spoken-english'),
+      makeTopic('eng-reading', 'ks3', undefined, 'reading'),
+      makeTopic('eng-grammar', 'ks3', undefined, 'grammar-vocabulary'),
+      makeTopic('eng-writing', 'ks3', undefined, 'writing'),
+    ];
+    const groups = groupTopicsByStage(topics);
+    expect(groups.map((g) => g.key)).toEqual([
+      'ks3-reading',
+      'ks3-writing',
+      'ks3-grammar-vocabulary',
+      'ks3-spoken-english',
+    ]);
+    expect(groups.map((g) => g.label)).toEqual([
+      'KS3 · Reading',
+      'KS3 · Writing',
+      'KS3 · Grammar & Vocabulary',
+      'KS3 · Spoken English',
+    ]);
+    expect(groups[0].topics.map((t) => t.id)).toEqual(['eng-reading']);
+  });
+
+  it('keeps year groups and unstranded KS3 alongside strand groups', () => {
+    const topics = [
+      makeTopic('eng-reading', 'ks3', undefined, 'reading'),
+      makeTopic('math-y7', 'ks3', 7),
+      makeTopic('science-free', 'ks3'),
+    ];
+    const groups = groupTopicsByStage(topics);
+    expect(groups.map((g) => g.key)).toEqual(['ks3-y7', 'ks3-reading', 'ks3']);
+    expect(groups[2].topics.map((t) => t.id)).toEqual(['science-free']);
   });
 });

@@ -11,7 +11,13 @@ const SUBJECTS_FILE = path.join(DATA_DIR, 'subjects.json');
 // Stage/course/level consistency rules (Phase 1 taxonomy).
 export function checkStageConsistency(topic: ValidatedTopic): string[] {
   const errors: string[] = [];
-  const { stage, year, course, level } = topic;
+  const { stage, year, course, level, strand } = topic;
+
+  if (strand !== undefined && (stage !== 'ks3' || topic.subjectId !== 'english')) {
+    errors.push(
+      `strand is set ("${strand}") but strand is KS3-english-only (stage "${stage}", subjectId "${topic.subjectId}")`
+    );
+  }
 
   if (year !== undefined && stage !== 'ks3') {
     errors.push(`year is set (${year}) but stage is "${stage}" (year is ks3-only)`);

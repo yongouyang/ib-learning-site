@@ -4,6 +4,9 @@ export type Stage = 'ks3' | 'igcse' | 'dp';
 
 export type CourseLevel = 'core' | 'extended' | 'sl' | 'hl';
 
+/** KS3 English only: UK statutory strand grouping (subject page groups by strand when present). */
+export type EnglishStrand = 'reading' | 'writing' | 'grammar-vocabulary' | 'spoken-english';
+
 export interface Illustration {
   src: string;
   alt: string;
@@ -46,6 +49,7 @@ export interface Topic {
   year?: 7 | 8 | 9;
   course?: string;
   level?: CourseLevel;
+  strand?: EnglishStrand;
   notes: ConceptNote[];
   flashcards: Flashcard[];
   questions: Question[];

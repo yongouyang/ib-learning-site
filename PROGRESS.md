@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-07-31 — English re-map Session 1: strand structure
+
+Git HEAD: `d4501a0` (branch `develop`, tree dirty: strand changes uncommitted)
+Done: KS3 English strand model implemented per 2026-07-28 decisions. (1) `strand?: EnglishStrand` (`reading` | `writing` | `grammar-vocabulary` | `spoken-english`) added to `Topic` (types.ts) + `englishStrandSchema` (schema.ts). (2) `validate:content` rule: strand ⇒ ks3 + english (one-directional, strand not required). (3) `topic-groups.ts` groups year-less KS3 topics by strand when present (order reading/writing/grammar-vocabulary/spoken-english, labels "KS3 · Reading" etc.); unstranded topics fall through to plain "KS3" — math/science rendering unchanged. (4) Re-tagged all 17 KS3 English topics (reading 8 / writing 5 / grammar-vocabulary 2 / spoken-english 2 — one-line JSON diffs). (5) Docs: CONTENT_STYLE.md tagging table + AGENTS.md taxonomy line. (6) Tests: +5 unit (3 grouping, 2 validator).
+Verified: validate:content ✅, audit:content 0/0 ✅, tsc ✅, `npm run lint` (next lint) 0 problems ✅ (note: bare `npx eslint .` reports 8 pre-existing problems on HEAD — not the project gate), Vitest 247/247 ✅, registry regenerated (129 topics), dev-server render check: /subjects/english shows 4 strand groups, /subjects/math unchanged. E2E: full suite 552 passed / 21 skipped / 0 failed ✅.
+Next: English re-map Session 2 — content: extend BBC curation map for the 6 skills dirs (critical-reading, advanced grammar, punctuation, non-fiction writing, essay-writing, reading-poetry), staging drafts, author 6 topics (7/12/15 + difficulty tags, `strand` set), registry + gates. Deploy investigation (Vercel auto-deploy + Phase 7 §6). Backlog: DP AA, IGCSE content, design refresh. Minor illustration items deferred by user: math-yr7-angles label errors, per-subject deep-dives.
+Notes: strand is deliberately NOT required by the validator (matches the documented 2026-07-28 decision) — but all current ks3-english topics carry it; keep it that way for new English topics.
+
+---
+
 ## 2026-07-30 — Cross-subject illustration review + fixes; markers stripped, all gates green
 
 Git HEAD: `5e19aea` → pushed `f7cf328` (branch `develop`, tree clean)

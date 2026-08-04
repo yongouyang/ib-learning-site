@@ -8,6 +8,14 @@ export const yearSchema = z.union([z.literal(7), z.literal(8), z.literal(9)]);
 
 export const courseLevelSchema = z.enum(['core', 'extended', 'sl', 'hl']);
 
+// KS3 English only — see CONTENT_STYLE.md ("Stage & course tagging").
+export const englishStrandSchema = z.enum([
+  'reading',
+  'writing',
+  'grammar-vocabulary',
+  'spoken-english',
+]);
+
 export const illustrationSchema = z.object({
   src: z.string().regex(/^\/images\//, 'illustration src must start with /images/'),
   alt: z.string().min(1),
@@ -50,6 +58,7 @@ export const topicSchema = z.object({
   year: yearSchema.optional(),
   course: z.string().min(1).optional(),
   level: courseLevelSchema.optional(),
+  strand: englishStrandSchema.optional(),
   notes: z.array(conceptNoteSchema).min(1),
   flashcards: z.array(flashcardSchema).min(1),
   questions: z.array(questionSchema).min(1),
@@ -102,6 +111,7 @@ export const subjectSchema = z.object({
 export type ValidatedSubjectId = z.infer<typeof subjectIdSchema>;
 export type ValidatedStage = z.infer<typeof stageSchema>;
 export type ValidatedCourseLevel = z.infer<typeof courseLevelSchema>;
+export type ValidatedEnglishStrand = z.infer<typeof englishStrandSchema>;
 export type ValidatedDifficulty = z.infer<typeof difficultySchema>;
 export type ValidatedConceptNote = z.infer<typeof conceptNoteSchema>;
 export type ValidatedFlashcard = z.infer<typeof flashcardSchema>;
