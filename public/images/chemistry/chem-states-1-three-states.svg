@@ -39,7 +39,6 @@
   <text x="175" y="345" text-anchor="middle" class="sublabel">Tightly packed in regular rows</text>
   <text x="175" y="362" text-anchor="middle" class="sublabel">Vibrate in fixed positions</text>
 
-  <line x1="175" y1="388" x2="175" y2="410" class="line"/>
   <text x="175" y="400" text-anchor="middle" class="label">Fixed shape &amp; volume</text>
 
   <!-- Liquid panel -->
@@ -61,7 +60,6 @@
   <text x="460" y="345" text-anchor="middle" class="sublabel">Close together but random</text>
   <text x="460" y="362" text-anchor="middle" class="sublabel">Slide past each other</text>
 
-  <line x1="460" y1="388" x2="460" y2="410" class="line"/>
   <text x="460" y="400" text-anchor="middle" class="label">Fixed volume, no fixed shape</text>
 
   <!-- Gas panel -->
@@ -84,6 +82,5 @@
   <text x="745" y="345" text-anchor="middle" class="sublabel">Far apart, move rapidly</text>
   <text x="745" y="362" text-anchor="middle" class="sublabel">Random motion in all directions</text>
 
-  <line x1="745" y1="388" x2="745" y2="410" class="line"/>
   <text x="745" y="400" text-anchor="middle" class="label">No fixed shape or volume</text>
 </svg>

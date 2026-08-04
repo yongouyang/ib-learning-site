@@ -27,9 +27,7 @@
   <text x="240" y="125" text-anchor="middle" class="sublabel">low energy or wrong orientation</text>
 
   <circle cx="160" cy="240" r="36" class="particle-grey"/>
-  <path d="M160 210 L160 230" stroke="#4b5563" stroke-width="4"/>
   <circle cx="300" cy="240" r="36" class="particle-grey"/>
-  <path d="M300 250 L300 270" stroke="#4b5563" stroke-width="4"/>
 
   <line x1="110" y1="240" x2="124" y2="240" class="arrow" stroke-dasharray="5,4" marker-end="url(#arrowhead)"/>
   <line x1="350" y1="240" x2="336" y2="240" class="arrow" stroke-dasharray="5,4" marker-end="url(#arrowhead)"/>
@@ -58,17 +56,16 @@
   <line x1="760" y1="240" x2="686" y2="240" class="arrow" marker-end="url(#arrowhead)"/>
 
   <circle cx="620" cy="240" r="36" class="particle-a"/>
-  <path d="M620 215 L620 235" stroke="#1e3a8a" stroke-width="4"/>
   <circle cx="660" cy="240" r="36" class="particle-b"/>
-  <path d="M660 245 L660 265" stroke="#7c2d12" stroke-width="4"/>
 
   <g transform="translate(640,320)">
-    <circle cx="0" cy="0" r="40" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
-    <path d="M-25 -25 L25 25 M-25 25 L25 -25" stroke="#f59e0b" stroke-width="3"/>
-    <text x="0" y="5" text-anchor="middle" class="label" fill="#92400e">Product</text>
+    <line x1="-24" y1="0" x2="24" y2="0" stroke="#f59e0b" stroke-width="4"/>
+    <circle cx="-24" cy="0" r="20" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="24" cy="0" r="20" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+    <text x="0" y="52" text-anchor="middle" class="label" fill="#92400e">Product</text>
   </g>
 
-  <line x1="640" y1="360" x2="640" y2="410" class="line"/>
+  <line x1="640" y1="388" x2="640" y2="410" class="line"/>
   <rect x="580" y="415" width="120" height="20" rx="4" fill="#f9fafb"/>
   <text x="640" y="429" text-anchor="middle" class="sublabel">New substance formed</text>
 

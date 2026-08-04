@@ -50,16 +50,16 @@
   <text x="160" y="353" text-anchor="middle" class="sublabel">Fast initial rate</text>
 
   <!-- Tangent at t = 40 s -->
-  <line x1="180" y1="460" x2="360" y2="180" class="tangent"/>
+  <line x1="193" y1="440" x2="360" y2="180" class="tangent"/>
   <circle cx="270" cy="320" r="5" fill="#6b7280"/>
 
   <!-- Tangent gradient triangle -->
   <line x1="270" y1="320" x2="360" y2="320" class="line"/>
   <line x1="360" y1="320" x2="360" y2="180" class="line"/>
   <rect x="300" y="295" width="60" height="18" rx="4" fill="#f9fafb"/>
-  <text x="330" y="308" text-anchor="middle" class="sublabel">Δy</text>
+  <text x="330" y="308" text-anchor="middle" class="sublabel">Δx</text>
   <rect x="365" y="240" width="40" height="18" rx="4" fill="#f9fafb"/>
-  <text x="385" y="253" text-anchor="middle" class="sublabel">Δx</text>
+  <text x="385" y="253" text-anchor="middle" class="sublabel">Δy</text>
 
   <line x1="360" y1="180" x2="720" y2="140" class="line"/>
   <rect x="600" y="120" width="160" height="18" rx="4" fill="#f9fafb"/>

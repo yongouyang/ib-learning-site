@@ -20,7 +20,7 @@
 
   <!-- Conditions -->
   <g transform="translate(30, 140)">
-    <rect x="0" y="0" width="430" height="120" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <rect x="0" y="0" width="430" height="145" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
     <text x="215" y="20" class="subhead" text-anchor="middle">When to use Poisson</text>
     <g transform="translate(15, 40)">
       <text x="0" y="0" class="label">1. Events occur independently and randomly</text>
@@ -33,7 +33,7 @@
 
   <!-- Properties -->
   <g transform="translate(480, 140)">
-    <rect x="0" y="0" width="390" height="120" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <rect x="0" y="0" width="390" height="145" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
     <text x="195" y="20" class="subhead" text-anchor="middle">Key properties</text>
     <g transform="translate(15, 40)">
       <text x="0" y="0" class="math" fill="#d97706">E(X) = λ</text>
@@ -45,7 +45,7 @@
   </g>
 
   <!-- Scaling and approximation -->
-  <g transform="translate(30, 285)">
+  <g transform="translate(30, 302)">
     <rect x="0" y="0" width="840" height="65" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
     <text x="420" y="22" class="subhead" text-anchor="middle">Scaling and approximation</text>
     <text x="420" y="48" class="label" text-anchor="middle">Rate scaling: if λ per hour, 2 hours → Po(2λ). | Poisson as limit of Binomial: Bin(n,p) ≈ Po(np) if n large, p small.</text>

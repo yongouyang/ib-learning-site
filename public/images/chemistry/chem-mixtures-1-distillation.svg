@@ -70,7 +70,7 @@
   <rect x="372" y="291" width="80" height="18" rx="4" class="label-bg"/>
   <text x="376" y="303" class="label">Condenser</text>
 
-  <line x1="370" y1="375" x2="440" y2="395" class="line"/>
+  <line x1="400" y1="355" x2="440" y2="395" class="line"/>
   <rect x="442" y="386" width="55" height="18" rx="4" class="label-bg"/>
   <text x="446" y="398" class="label">Pure H₂O</text>
 
@@ -113,9 +113,9 @@
   <path d="M650,405 L660,425 L670,405" fill="#f97316" opacity="0.8"/>
 
   <!-- Labels -->
-  <line x1="670" y1="150" x2="620" y2="130" class="line"/>
-  <rect x="500" y="121" width="135" height="18" rx="4" class="label-bg"/>
-  <text x="504" y="133" class="label">Fractionating column</text>
+  <line x1="670" y1="150" x2="662" y2="140" class="line"/>
+  <rect x="545" y="121" width="135" height="18" rx="4" class="label-bg"/>
+  <text x="549" y="133" class="label">Fractionating column</text>
 
   <line x1="760" y1="230" x2="820" y2="230" class="line"/>
   <rect x="822" y="221" width="70" height="18" rx="4" class="label-bg"/>

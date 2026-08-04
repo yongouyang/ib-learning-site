@@ -20,14 +20,14 @@
 
   <g transform="translate(40, 92)">
     <!-- Left hand diagram -->
-    <text x="180" y="20" text-anchor="middle" class="label" fill="#dc2626">Left Hand</text>
+    <text x="180" y="12" text-anchor="middle" class="label" fill="#dc2626">Left Hand</text>
 
     <!-- Hand (simplified) -->
     <rect x="120" y="30" width="40" height="60" rx="10" fill="#fecaca" stroke="#ef4444" stroke-width="1.5"/>
     
     <!-- Thumb (up) = Force/Motion -->
-    <line x1="160" y1="30" x2="160" y2="5" stroke="#ef4444" stroke-width="3"/>
-    <text x="170" y="12" class="sublabel" fill="#dc2626">Thumb = Force (Motion)</text>
+    <line x1="160" y1="30" x2="160" y2="16" stroke="#ef4444" stroke-width="3"/>
+    <text x="170" y="32" class="sublabel" fill="#dc2626">Thumb = Force (Motion)</text>
 
     <!-- First finger (right) = Field -->
     <line x1="160" y1="45" x2="210" y2="45" stroke="#3b82f6" stroke-width="3"/>
@@ -43,7 +43,7 @@
     <text x="140" y="120" text-anchor="middle" class="sublabel">FBI: Force · (magnetic) field · current</text>
 
     <!-- Wire in field diagram -->
-    <text x="180" y="150" text-anchor="middle" class="label">Wire in a Magnetic Field</text>
+    <text x="180" y="138" text-anchor="middle" class="label">Wire in a Magnetic Field</text>
     
     <!-- N/S magnets -->
     <rect x="30" y="160" width="15" height="40" rx="3" fill="#ef4444"/>
@@ -56,8 +56,8 @@
     <text x="140" y="184" text-anchor="middle" class="sublabel">I</text>
 
     <!-- Force arrow -->
-    <line x1="140" y1="160" x2="140" y2="135" stroke="#ef4444" stroke-width="2.5" marker-end="url(#aU2)"/>
-    <text x="140" y="130" text-anchor="middle" class="sublabel" fill="#dc2626">Force</text>
+    <line x1="140" y1="168" x2="140" y2="146" stroke="#ef4444" stroke-width="2.5" marker-end="url(#aU2)"/>
+    <text x="152" y="154" class="sublabel" fill="#dc2626">Force</text>
   </g>
 
   <marker id="aU2" viewBox="0 0 10 10" refX="5" refY="2" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,8 L5,2 L9,8" fill="#ef4444"/></marker>

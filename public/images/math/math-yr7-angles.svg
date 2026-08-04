@@ -47,16 +47,16 @@
   <g transform="translate(450, 55)">
     <line x1="0" y1="55" x2="130" y2="55" class="ray"/>
     <line x1="130" y1="55" x2="0" y2="55" stroke="#1f2937" stroke-width="2" stroke-dasharray="4,3"/>
-    <path d="M 65 55 A 8 8 0 0 1 65 39" stroke="#16a34a" fill="none" stroke-width="2"/>
+    <path d="M 45 55 A 20 20 0 0 1 85 55" stroke="#16a34a" fill="none" stroke-width="2"/>
     <rect x="10" y="62" width="120" height="20" rx="4" fill="#f9fafb"/>
     <text x="70" y="76" class="label" text-anchor="middle">Straight = 180°</text>
   </g>
 
   <g transform="translate(600, 55)">
-    <line x1="0" y1="55" x2="130" y2="55" class="ray"/>
-    <line x1="0" y1="55" x2="100" y2="5" class="ray"/>
-    <path d="M 70 55 A 50 50 0 0 0 30 15" stroke="#7c3aed" fill="none" stroke-width="2.5"/>
-    <text x="100" y="50" font-size="13" font-family="system-ui, sans-serif" fill="#7c3aed">225°</text>
+    <line x1="25" y1="30" x2="135" y2="30" class="ray"/>
+    <line x1="25" y1="30" x2="-10" y2="65" class="ray"/>
+    <path d="M 60 30 A 35 35 0 1 0 0.25 54.75" stroke="#7c3aed" fill="none" stroke-width="2.5"/>
+    <text x="-30" y="34" text-anchor="middle" font-size="13" font-family="system-ui, sans-serif" fill="#7c3aed">225°</text>
     <rect x="10" y="62" width="120" height="20" rx="4" fill="#f9fafb"/>
     <text x="70" y="76" class="label" text-anchor="middle">Reflex &gt; 180°</text>
   </g>
@@ -81,7 +81,7 @@
   <g transform="translate(30, 342)">
     <line x1="0" y1="15" x2="420" y2="15" class="parallel"/>
     <line x1="0" y1="85" x2="420" y2="85" class="parallel"/>
-    <line x1="315" y1="0" x2="105" y2="105" class="transversal"/>
+    <line x1="210" y1="0" x2="210" y2="105" class="transversal"/>
     <polygon points="415,11 422,15 415,19" fill="#374151"/>
     <polygon points="415,81 422,85 415,89" fill="#374151"/>
 
@@ -95,7 +95,7 @@
     <text x="184" y="108" class="math" fill="#dc2626">4</text>
 
     <text x="350" y="12" class="label">parallel</text>
-    <text x="318" y="48" class="label" fill="#dc2626">transversal</text>
+    <text x="222" y="48" class="label" fill="#dc2626">transversal</text>
   </g>
 
   <!-- Angle pair summary box -->
@@ -110,7 +110,7 @@
       <text x="0" y="80" class="math" fill="#d97706">Co-interior (C-shape):</text>
       <text x="0" y="98" class="label">∠2 + ∠3 = 180° — inside, same side</text>
       <text x="0" y="122" class="math" fill="#7c3aed">Vertically opposite:</text>
-      <text x="0" y="140" class="label">∠1 = opposite ∠1; ∠2 = opposite ∠2</text>
+      <text x="0" y="140" class="label">∠1 = ∠2 and ∠3 = ∠4</text>
     </g>
   </g>
 

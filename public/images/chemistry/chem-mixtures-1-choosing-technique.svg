@@ -70,13 +70,8 @@
   <rect x="745" y="225" width="140" height="35" rx="8" class="method"/>
   <text x="815" y="247" text-anchor="middle" class="label">Chromatography</text>
 
-  <!-- Lower row -->
-  <line x1="100" y1="260" x2="100" y2="290" class="arrow"/>
-  <line x1="100" y1="290" x2="640" y2="290" class="arrow"/>
-  <line x1="280" y1="260" x2="280" y2="290" class="arrow"/>
-  <line x1="460" y1="260" x2="460" y2="290" class="arrow"/>
-  <line x1="640" y1="260" x2="640" y2="290" class="arrow"/>
-  <line x1="815" y1="260" x2="815" y2="360" class="arrow" marker-end="url(#arrow-gray)"/>
+  <!-- Lower row: technique boxes terminate; "Other mixture types?" hangs off the first question's branch line -->
+  <path d="M727,130 L727,322 L605,322" class="arrow" marker-end="url(#arrow-gray)"/>
 
   <!-- Second decision -->
   <rect x="300" y="300" width="300" height="45" rx="25" class="decision"/>

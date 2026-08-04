@@ -30,7 +30,7 @@
 
   <!-- Key identities -->
   <g transform="translate(300, 55)">
-    <rect x="0" y="0" width="570" height="180" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="0" y="0" width="570" height="215" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
     <text x="285" y="20" class="subhead" text-anchor="middle">Key trigonometric identities</text>
     <g transform="translate(15, 40)">
       <text x="0" y="0" class="math" fill="#dc2626">Pythagorean: sin²θ + cos²θ = 1</text>
@@ -45,7 +45,7 @@
   </g>
 
   <!-- Graphs -->
-  <g transform="translate(30, 260)">
+  <g transform="translate(30, 280)">
     <rect x="0" y="0" width="840" height="85" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
     <text x="420" y="22" class="subhead" text-anchor="middle">Trig graphs: y = asin(bx+c) + d</text>
     <g transform="translate(15, 42)">
@@ -55,7 +55,7 @@
   </g>
 
   <!-- Solving -->
-  <g transform="translate(30, 370)">
+  <g transform="translate(30, 385)">
     <rect x="0" y="0" width="840" height="40" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
     <text x="420" y="25" class="math" text-anchor="middle" fill="#7c3aed">When solving sinx=k: general solution x = sin⁻¹(k)+2πn or x = π−sin⁻¹(k)+2πn. Use CAST diagram!</text>
   </g>

@@ -82,8 +82,8 @@
   <!-- Legend -->
   <g transform="translate(60, 370)">
     <line x1="0" y1="8" x2="30" y2="8" class="branch red"/>
-    <text x="40" y="9" class="prob" text-anchor="start">Red branch</text>
+    <text x="40" y="9" class="prob" style="text-anchor:start">Red branch</text>
     <line x1="140" y1="8" x2="170" y2="8" class="branch blue"/>
-    <text x="180" y="9" class="prob" text-anchor="start">Blue branch</text>
+    <text x="180" y="9" class="prob" style="text-anchor:start">Blue branch</text>
   </g>
 </svg>

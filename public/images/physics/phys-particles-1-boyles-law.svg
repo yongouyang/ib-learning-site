@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" role="img" aria-labelledby="title desc"><title id="title">Gas Pressure and Boyle's Law</title><desc id="desc">Piston compressing gas showing pressure increases as volume decreases, with Boyle's Law P₁V₁=P₂V₂ graph.</desc><defs><style>.t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}.l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}.s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}.f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}.b{fill:#fff;stroke:#e5e7eb;stroke-width:2}.g{stroke:#e5e7eb;stroke-width:.5}.a{stroke:#374151;stroke-width:2}.p{fill:none;stroke:#ef4444;stroke-width:3}</style></defs><rect width="800" height="360" fill="#f9fafb" rx="12"/><text x="400" y="34" text-anchor="middle" class="t">Gas Pressure and Boyle's Law</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="title desc"><title id="title">Gas Pressure and Boyle's Law</title><desc id="desc">Piston compressing gas showing pressure increases as volume decreases, with Boyle's Law P₁V₁=P₂V₂ graph.</desc><defs><style>.t{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}.l{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}.s{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}.f{font-family:system-ui,sans-serif;font-size:16px;font-weight:700;fill:#dc2626}.b{fill:#fff;stroke:#e5e7eb;stroke-width:2}.g{stroke:#e5e7eb;stroke-width:.5}.a{stroke:#374151;stroke-width:2}.p{fill:none;stroke:#ef4444;stroke-width:3}</style></defs><rect width="800" height="380" fill="#f9fafb" rx="12"/><text x="400" y="34" text-anchor="middle" class="t">Gas Pressure and Boyle's Law</text>
 
-<rect x="20" y="50" width="460" height="200" rx="10" class="b"/><text x="250" y="75" text-anchor="middle" class="l">Piston Compressing Gas</text>
+<rect x="20" y="50" width="460" height="248" rx="10" class="b"/><text x="250" y="75" text-anchor="middle" class="l">Piston Compressing Gas</text>
 <g transform="translate(50,92)">
   <!-- Before -->
   <rect x="0" y="0" width="160" height="120" rx="6" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
@@ -24,7 +24,7 @@
 </g>
 <marker id="aR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,1 L8,5 L0,9" fill="#dc2626"/></marker>
 
-<rect x="500" y="50" width="280" height="200" rx="10" class="b"/><text x="640" y="75" text-anchor="middle" class="l">Boyle's Law</text>
+<rect x="500" y="50" width="280" height="248" rx="10" class="b"/><text x="640" y="75" text-anchor="middle" class="l">Boyle's Law</text>
 <g transform="translate(520,92)">
   <rect x="0" y="0" width="240" height="45" rx="6" fill="#fef2f2"/>
   <text x="120" y="18" text-anchor="middle" class="f">P₁V₁ = P₂V₂</text><text x="120" y="36" text-anchor="middle" class="s">At constant temperature (isothermal)</text>
@@ -37,8 +37,10 @@
   <!-- P vs V graph -->
   <line x1="20" y1="120" x2="20" y2="170" class="a"/><line x1="20" y1="170" x2="140" y2="170" class="a"/>
   <path d="M20,130 Q40,140 80,150 Q110,158 140,162" class="p"/>
-  <text x="80" y="186" text-anchor="middle" class="s">Pressure vs 1/V (straight line)</text>
+  <text x="4" y="138" text-anchor="middle" class="s" transform="rotate(-90 4 138)">Pressure (P)</text>
+  <text x="146" y="172" class="s">Volume (V)</text>
+  <text x="80" y="192" text-anchor="middle" class="s">Pressure vs 1/V (straight line)</text>
 </g>
 
-<rect x="20" y="268" width="760" height="55" rx="10" class="b"/><text x="400" y="290" text-anchor="middle" class="l">Boyle's Law: For a fixed mass of gas at constant temperature, pressure × volume = constant</text>
-<text x="400" y="310" text-anchor="middle" class="s">Practical: attach syringe to pressure gauge, record P for different V, plot P vs 1/V → straight line through origin confirms P ∝ 1/V</text></svg>
+<rect x="20" y="308" width="760" height="55" rx="10" class="b"/><text x="400" y="330" text-anchor="middle" class="l">Boyle's Law: For a fixed mass of gas at constant temperature, pressure × volume = constant</text>
+<text x="400" y="350" text-anchor="middle" class="s">Practical: attach syringe to pressure gauge, record P for different V, plot P vs 1/V → straight line through origin confirms P ∝ 1/V</text></svg>

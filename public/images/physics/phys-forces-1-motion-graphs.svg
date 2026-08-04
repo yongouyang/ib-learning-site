@@ -37,11 +37,11 @@
     <text x="88" y="48" class="sublabel" fill="#3b82f6">Stationary</text>
 
     <!-- Acceleration (curving up) -->
-    <path d="M120,35 Q150,50 160,10" class="plot"/>
+    <path d="M120,35 Q145,35 160,10" class="plot"/>
     <text x="125" y="10" class="sublabel" fill="#dc2626">Acceleration</text>
 
     <text x="80" y="156" text-anchor="middle" class="sublabel" fill="#374151">Time</text>
-    <text x="-5" y="72" text-anchor="end" class="sublabel" fill="#374151">Distance</text>
+    <text x="2" y="12" text-anchor="start" class="sublabel" fill="#374151">Distance</text>
     <text x="80" y="172" text-anchor="middle" class="sublabel">Gradient = speed</text>
   </g>
 

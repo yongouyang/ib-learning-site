@@ -18,11 +18,10 @@
   <text x="270" y="75" text-anchor="middle" class="label">Moving Magnet in a Coil</text>
 
   <g transform="translate(50, 95)">
-    <!-- Coil -->
-    <path d="M100,20 Q120,60 100,100" fill="none" stroke="#fbbf24" stroke-width="3"/>
-    <path d="M140,20 Q120,60 140,100" fill="none" stroke="#fbbf24" stroke-width="3"/>
-    <path d="M100,20 L140,20" stroke="#fbbf24" stroke-width="3"/>
-    <path d="M100,100 L140,100" stroke="#fbbf24" stroke-width="3"/>
+    <!-- Coil (solenoid loops) -->
+    <ellipse cx="100" cy="60" rx="9" ry="38" fill="none" stroke="#fbbf24" stroke-width="3"/>
+    <ellipse cx="115" cy="60" rx="9" ry="38" fill="none" stroke="#fbbf24" stroke-width="3"/>
+    <ellipse cx="130" cy="60" rx="9" ry="38" fill="none" stroke="#fbbf24" stroke-width="3"/>
 
     <!-- Magnet (going in) -->
     <rect x="30" y="45" width="30" height="30" rx="3" fill="#ef4444"/>
@@ -32,7 +31,7 @@
 
     <!-- Motion arrow -->
     <line x1="75" y1="75" x2="130" y2="75" stroke="#dc2626" stroke-width="2.5" marker-end="url(#aR)"/>
-    <text x="100" y="70" text-anchor="middle" class="sublabel" fill="#dc2626">motion</text>
+    <text x="72" y="40" text-anchor="middle" class="sublabel" fill="#dc2626">motion</text>
 
     <!-- Galvanometer -->
     <circle cx="260" cy="60" r="25" fill="white" stroke="#374151" stroke-width="2"/>

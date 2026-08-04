@@ -38,16 +38,17 @@
 
   <!-- Low temperature curve -->
   <path d="M120 440 C180 440 240 380 300 220 C340 100 400 80 500 120 C560 150 600 240 760 420" class="low-t"/>
-  <rect x="180" y="340" width="120" height="18" rx="4" fill="#f9fafb"/>
-  <text x="240" y="353" text-anchor="middle" class="sublabel" fill="#1d4ed8">Lower temperature</text>
+  <rect x="260" y="70" width="120" height="18" rx="4" fill="#f9fafb"/>
+  <text x="320" y="83" text-anchor="middle" class="sublabel" fill="#1d4ed8">Lower temperature</text>
 
   <!-- High temperature curve -->
   <path d="M120 440 C200 440 260 400 320 300 C360 220 420 160 520 140 C600 120 680 180 760 280" class="high-t"/>
-  <rect x="520" y="340" width="130" height="18" rx="4" fill="#f9fafb"/>
-  <text x="585" y="353" text-anchor="middle" class="sublabel" fill="#c2410c">Higher temperature</text>
+  <rect x="608" y="108" width="130" height="18" rx="4" fill="#f9fafb"/>
+  <text x="673" y="121" text-anchor="middle" class="sublabel" fill="#c2410c">Higher temperature</text>
 
-  <!-- Shaded area beyond Ea for high T -->
-  <path d="M520 440 L520 142 Q600 124 760 280 L760 440 Z" fill="#f97316" fill-opacity="0.12"/>
+  <!-- Shaded area beyond Ea for high T (between the two curves) -->
+  <path d="M520 140 C600 120 680 180 760 280 L760 420 C600 240 560 150 521 134 Z" fill="#f97316" fill-opacity="0.12"/>
   <rect x="550" y="420" width="180" height="18" rx="4" fill="#f9fafb"/>
   <text x="640" y="433" text-anchor="middle" class="sublabel">More particles can react</text>
+  <line x1="655" y1="418" x2="700" y2="335" stroke="#6b7280" stroke-width="1.5"/>
 </svg>

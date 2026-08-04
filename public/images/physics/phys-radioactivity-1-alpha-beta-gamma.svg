@@ -15,18 +15,18 @@
   <text x="10" y="55" text-anchor="middle" class="s" fill="#dc2626">α</text>
   <rect x="30" y="30" width="12" height="40" rx="2" fill="#d1d5db"/><text x="36" y="90" text-anchor="middle" class="s">Paper</text>
   <line x1="10" y1="70" x2="55" y2="70" stroke="#ef4444" stroke-width="2"/>
-  <rect x="42" y="66" width="6" height="8" fill="#ef4444"/><text x="50" y="88" text-anchor="middle" class="s" fill="#dc2626">Stopped!</text>
+  <rect x="42" y="66" width="6" height="8" fill="#ef4444"/><text x="36" y="106" text-anchor="middle" class="s" fill="#dc2626">Stopped!</text>
   <rect x="80" y="50" width="20" height="40" rx="2" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
   <text x="90" y="75" text-anchor="middle" class="s" fill="#3b82f6">β</text>
-  <rect x="110" y="30" width="12" height="40" rx="2" fill="#d1d5db"/><text x="116" y="90" text-anchor="middle" class="s">Paper</text>
-  <rect x="170" y="30" width="12" height="40" rx="2" fill="#9ca3af"/><text x="176" y="90" text-anchor="middle" class="s">3 mm Al</text>
+  <rect x="110" y="30" width="12" height="40" rx="2" fill="#d1d5db"/><text x="116" y="105" text-anchor="middle" class="s">Paper</text>
+  <rect x="170" y="30" width="12" height="40" rx="2" fill="#9ca3af"/><text x="176" y="105" text-anchor="middle" class="s">3 mm Al</text>
   <line x1="90" y1="90" x2="195" y2="90" stroke="#3b82f6" stroke-width="2"/>
   <rect x="182" y="86" width="6" height="8" fill="#3b82f6"/>
   <rect x="230" y="50" width="20" height="40" rx="2" fill="#fef3c7" stroke="#eab308" stroke-width="2"/>
   <text x="240" y="75" text-anchor="middle" class="s" fill="#eab308">γ</text>
   <rect x="260" y="30" width="12" height="40" rx="2" fill="#d1d5db"/><rect x="300" y="30" width="12" height="40" rx="2" fill="#9ca3af"/>
-  <rect x="340" y="22" width="16" height="56" rx="2" fill="#6b7280"/><text x="348" y="90" text-anchor="middle" class="s">Lead</text>
-  <line x1="240" y1="90" x2="365" y2="90" stroke="#eab308" stroke-width="2"/><text x="300" y="80" class="s" fill="#eab308">Passes through but reduced</text></g>
+  <rect x="340" y="22" width="16" height="56" rx="2" fill="#6b7280"/><text x="348" y="105" text-anchor="middle" class="s">Lead</text>
+  <line x1="240" y1="90" x2="365" y2="90" stroke="#eab308" stroke-width="2"/><text x="300" y="122" text-anchor="middle" class="s" fill="#eab308">Passes through, reduced</text></g>
   <rect x="560" y="0" width="220" height="240" rx="10" class="b"/><text x="670" y="25" text-anchor="middle" class="l">Comparison</text>
   <g transform="translate(580,38)"><rect x="0" y="0" width="180" height="60" rx="6" fill="#fef2f2"/>
   <text x="90" y="18" text-anchor="middle" class="l" fill="#dc2626">α (Alpha)</text><text x="90" y="34" text-anchor="middle" class="s">He nucleus (2p+2n)</text><text x="90" y="48" text-anchor="middle" class="s">+2 charge, most ionising</text>

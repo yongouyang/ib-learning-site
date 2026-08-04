@@ -78,7 +78,19 @@
     <circle cx="0" cy="0" r="16" class="shell"/>
     <circle cx="0" cy="0" r="12" class="nucleus"/>
     <text x="0" y="4" text-anchor="middle" class="sublabel" fill="white">K</text>
-    <circle cx="0" cy="-75" r="5" class="electron"/>
+    <!-- outer electron (on the r=90 shell) -->
+    <circle cx="0" cy="-90" r="5" class="electron"/>
+    <!-- inner electrons simplified -->
+    <circle cx="44" cy="-44" r="4" class="electron"/>
+    <circle cx="-44" cy="-44" r="4" class="electron"/>
+    <circle cx="62" cy="0" r="4" class="electron"/>
+    <circle cx="-62" cy="0" r="4" class="electron"/>
+    <circle cx="0" cy="62" r="4" class="electron"/>
+    <circle cx="0" cy="-38" r="4" class="electron"/>
+    <circle cx="27" cy="27" r="4" class="electron"/>
+    <circle cx="-27" cy="27" r="4" class="electron"/>
+    <circle cx="38" cy="0" r="4" class="electron"/>
+    <circle cx="-38" cy="0" r="4" class="electron"/>
   </g>
   <text x="380" y="310" text-anchor="middle" class="label">Potassium (K)</text>
   <text x="380" y="324" text-anchor="middle" class="sublabel">2,8,8,1</text>
@@ -109,15 +121,15 @@
     <circle cx="640" cy="160" r="5"/>
     <circle cx="720" cy="150" r="6"/>
   </g>
-  <text x="700" y="145" text-anchor="middle" class="label">H₂ gas</text>
+  <text x="752" y="182" text-anchor="middle" class="label">H₂ gas</text>
 
   <!-- Flame -->
   <path d="M665,150 Q675,120 685,150 Q695,120 705,150" fill="#fca5a5" stroke="#ef4444" stroke-width="2"/>
   <text x="685" y="110" text-anchor="middle" class="label">Lilac flame</text>
 
   <!-- Equation -->
-  <rect x="520" y="330" width="310" height="36" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
-  <text x="675" y="352" text-anchor="middle" class="sublabel">2Na + 2H₂O → 2NaOH + H₂</text>
+  <rect x="520" y="305" width="310" height="36" rx="6" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="675" y="327" text-anchor="middle" class="sublabel">2Na + 2H₂O → 2NaOH + H₂</text>
 
   <!-- Key idea -->
   <rect x="25" y="360" width="850" height="80" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5" rx="8"/>

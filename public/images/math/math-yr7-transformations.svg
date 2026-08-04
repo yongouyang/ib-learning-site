@@ -49,8 +49,8 @@
       <text x="8" y="76" class="label" font-size="10" fill="#dc2626">O</text>
       <!-- Original triangle -->
       <polygon points="20,20 70,20 20,70" class="shape-orig"/>
-      <!-- Rotated 90° clockwise -->
-      <polygon points="20,-20 20,-70 70,-20" class="shape-new"/>
+      <!-- Rotated 90° (image below the x-axis so it fits the panel) -->
+      <polygon points="60,100 60,150 10,100" class="shape-new"/>
     </g>
     <text x="105" y="182" class="label" text-anchor="middle">Turns shape around a point</text>
   </g>
@@ -67,7 +67,8 @@
       <!-- Vector arrow -->
       <line x1="45" y1="40" x2="110" y2="20" stroke="#d97706" stroke-width="2"/>
       <polygon points="110,20 105,14 115,15" fill="#d97706"/>
-      <text x="80" y="28" class="label" fill="#d97706">(6,-2)</text>
+      <rect x="36" y="2" width="58" height="16" rx="3" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="65" y="14" class="label" text-anchor="middle" fill="#d97706">(6, −2)</text>
     </g>
     <text x="105" y="182" class="label" text-anchor="middle">Slides shape by a vector</text>
   </g>
@@ -80,13 +81,13 @@
       <line x1="0" y1="0" x2="0" y2="150" class="axis"/>
       <line x1="0" y1="80" x2="160" y2="80" class="axis"/>
       <circle cx="0" cy="80" r="4" class="centre"/>
+      <!-- Ray lines (drawn under the shapes so they stop at the shape edge) -->
+      <line x1="0" y1="80" x2="55" y2="60" stroke="#6b7280" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="0" y1="80" x2="55" y2="10" stroke="#6b7280" stroke-width="1" stroke-dasharray="3,3"/>
       <!-- Original small triangle -->
       <polygon points="20,60 30,60 20,40" class="shape-orig"/>
       <!-- Enlarged x2 -->
       <polygon points="40,40 70,40 40,-20" class="shape-new"/>
-      <!-- Ray lines -->
-      <line x1="0" y1="80" x2="55" y2="60" stroke="#6b7280" stroke-width="1" stroke-dasharray="3,3"/>
-      <line x1="0" y1="80" x2="55" y2="10" stroke="#6b7280" stroke-width="1" stroke-dasharray="3,3"/>
     </g>
     <text x="105" y="182" class="label" text-anchor="middle">Changes size by scale factor</text>
   </g>

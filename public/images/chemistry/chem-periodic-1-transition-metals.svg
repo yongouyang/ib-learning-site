@@ -99,13 +99,13 @@
   </g>
 
   <!-- Variable valency example -->
-  <g transform="translate(620, 120)">
+  <g transform="translate(690, 120)">
     <circle cx="0" cy="0" r="12" class="atom"/>
     <text x="0" y="4" text-anchor="middle" class="sublabel" fill="white">Fe</text>
     <text x="20" y="-5" class="label">Fe²⁺</text>
     <text x="20" y="15" class="label">Fe³⁺</text>
   </g>
-  <g transform="translate(740, 120)">
+  <g transform="translate(570, 120)">
     <circle cx="0" cy="0" r="12" class="atom"/>
     <text x="0" y="4" text-anchor="middle" class="sublabel" fill="white">Cu</text>
     <text x="20" y="-5" class="label">Cu⁺</text>
@@ -117,7 +117,7 @@
   <text x="450" y="370" text-anchor="middle" class="label">Uses and catalysis</text>
 
   <g transform="translate(50, 390)">
-    <rect x="0" y="0" width="140" height="50" rx="6" fill="#e0f2fe" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect x="0" y="0" width="150" height="50" rx="6" fill="#e0f2fe" stroke="#3b82f6" stroke-width="1.5"/>
     <text x="70" y="22" text-anchor="middle" class="label">Iron (Fe)</text>
     <text x="70" y="40" text-anchor="middle" class="sublabel">construction, haemoglobin</text>
   </g>

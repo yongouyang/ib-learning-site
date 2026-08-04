@@ -37,6 +37,9 @@
       <!-- Whiskers -->
       <line x1="25" y1="30" x2="80" y2="30" stroke="#2563eb" stroke-width="2"/>
       <line x1="240" y1="30" x2="340" y2="30" stroke="#2563eb" stroke-width="2"/>
+      <!-- Whisker end caps at Min and Max -->
+      <line x1="25" y1="22" x2="25" y2="38" stroke="#2563eb" stroke-width="2"/>
+      <line x1="340" y1="22" x2="340" y2="38" stroke="#2563eb" stroke-width="2"/>
       <!-- Labels -->
       <text x="25" y="70" class="label" text-anchor="middle">Min</text>
       <text x="80" y="70" class="label" text-anchor="middle">Q1</text>

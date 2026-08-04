@@ -10,6 +10,9 @@
       <stop offset="0%" style="stop-color:#8FBC8F;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#2E8B57;stop-opacity:1" />
     </linearGradient>
+    <marker id="evoArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7280"/>
+    </marker>
   </defs>
 
   <!-- Background -->
@@ -65,6 +68,6 @@
   <text x="655" y="350" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#1e293b">Fairy Tale</text>
 
   <!-- Connecting path -->
-  <path d="M 260 330 Q 400 380 540 330" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="6,4"/>
+  <path d="M 260 24 Q 400 2 540 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#evoArrow)"/>
   <text x="400" y="395" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6b7280">Traditional stories evolve across cultures</text>
 </svg>

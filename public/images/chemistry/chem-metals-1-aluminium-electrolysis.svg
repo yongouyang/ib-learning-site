@@ -47,13 +47,12 @@
     </g>
 
     <!-- Power supply -->
-    <g transform="translate(120, -60)">
-      <rect x="0" y="0" width="60" height="40" rx="4" fill="#f3f4f6" stroke="#374151" stroke-width="2"/>
-      <text x="30" y="18" text-anchor="middle" class="sublabel" font-weight="600">DC</text>
-      <text x="30" y="32" text-anchor="middle" class="sublabel">supply</text>
+    <g transform="translate(120, -28)">
+      <rect x="0" y="0" width="76" height="24" rx="4" fill="#f3f4f6" stroke="#374151" stroke-width="2"/>
+      <text x="38" y="16" text-anchor="middle" class="sublabel" font-weight="600">DC supply</text>
       <!-- Wires -->
-      <line x1="10" y1="40" x2="10" y2="110" stroke="#dc2626" stroke-width="2.5"/>
-      <line x1="50" y1="40" x2="50" y2="110" stroke="#2563eb" stroke-width="2.5"/>
+      <line x1="10" y1="24" x2="10" y2="80" stroke="#dc2626" stroke-width="2.5"/>
+      <line x1="50" y1="24" x2="50" y2="80" stroke="#2563eb" stroke-width="2.5"/>
     </g>
   </g>
 

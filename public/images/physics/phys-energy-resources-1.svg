@@ -96,10 +96,10 @@
   </g>
 
   <!-- Energy mix bar -->
-  <rect x="20" y="390" width="760" height="110" rx="10" class="box"/>
+  <rect x="20" y="390" width="760" height="125" rx="10" class="box"/>
   <text x="400" y="415" text-anchor="middle" class="label">Example Energy Mix Comparison</text>
 
-  <g transform="translate(40, 435)">
+  <g transform="translate(40, 426)">
     <text x="0" y="14" class="sublabel">Fossil fuels</text>
     <rect x="90" y="0" width="280" height="18" rx="4" fill="#fca5a5"/>
     <text x="230" y="13" text-anchor="middle" class="sublabel" fill="#7f1d1d">Reliable · high CO₂</text>
@@ -113,5 +113,5 @@
     <text x="200" y="69" text-anchor="middle" class="sublabel" fill="#14532d">Low CO₂ · intermittent</text>
   </g>
 
-  <text x="400" y="505" text-anchor="middle" class="sublabel">Sustainable choices balance reliability, cost, emissions, and impacts on people and ecosystems.</text>
+  <text x="400" y="510" text-anchor="middle" class="sublabel">Sustainable choices balance reliability, cost, emissions, and impacts on people and ecosystems.</text>
 </svg>

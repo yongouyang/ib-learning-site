@@ -49,14 +49,14 @@
     <!-- Rise/run triangle -->
     <line x1="140" y1="190" x2="190" y2="90" stroke="#d97706" stroke-width="1" stroke-dasharray="4,3"/>
     <line x1="140" y1="90" x2="140" y2="190" stroke="#16a34a" stroke-width="2"/>
-    <text x="130" y="145" class="label" fill="#16a34a">rise = 2</text>
+    <text x="132" y="118" class="label" text-anchor="end" fill="#16a34a">rise = 2</text>
     <line x1="140" y1="190" x2="190" y2="190" stroke="#d97706" stroke-width="2"/>
     <text x="145" y="205" class="label" fill="#d97706">run = 1</text>
   </g>
 
   <!-- Formula explanation -->
   <g transform="translate(340, 50)">
-    <rect x="0" y="0" width="530" height="280" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="0" y="0" width="530" height="328" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
     <text x="265" y="25" class="heading" font-size="18" text-anchor="middle">y = mx + c</text>
     <g transform="translate(20, 50)">
       <text x="0" y="0" class="math" fill="#dc2626">c (y-intercept)</text>
@@ -76,7 +76,7 @@
   </g>
 
   <!-- Key values -->
-  <g transform="translate(30, 350)">
+  <g transform="translate(30, 388)">
     <rect x="0" y="0" width="840" height="35" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
     <text x="420" y="23" class="math" text-anchor="middle" fill="#1e40af">Horizontal line: y = k (gradient = 0)  |  Vertical line: x = k (gradient undefined)  |  y = x: m = 1, c = 0</text>
   </g>

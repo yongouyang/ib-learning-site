@@ -6,7 +6,7 @@
   <circle cx="300" cy="250" r="120" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
   <circle cx="500" cy="250" r="120" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
 
-  <path d="M 400 183.668 A 120 120 0 0 0 400 316.332 A 120 120 0 0 1 400 183.668 Z" fill="#a855f7" opacity="0.35"/>
+  <path d="M 400 183.668 A 120 120 0 0 0 400 316.332 A 120 120 0 0 1 400 183.668 Z" fill="#a855f7" opacity="0.55"/>
 
   <text x="740" y="75" text-anchor="end" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#475569">U</text>
 
@@ -16,7 +16,7 @@
   <rect x="585" y="235" width="50" height="30" rx="4" fill="#f8fafc" opacity="0.9"/>
   <text x="610" y="257" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#15803d">B</text>
 
-  <rect x="340" y="235" width="120" height="30" rx="4" fill="#f8fafc" opacity="0.9"/>
+  <rect x="368" y="235" width="64" height="30" rx="4" fill="#f8fafc" opacity="0.9"/>
   <text x="400" y="257" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#7e22ce">A ∩ B</text>
 
   <text x="400" y="460" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#374151">The shaded overlap is the intersection A ∩ B.</text>

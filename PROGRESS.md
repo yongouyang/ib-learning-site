@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-07-30 — Cross-subject illustration review + fixes; markers stripped, all gates green
+
+Git HEAD: `5e19aea` (branch `develop`, tree dirty: 121 SVGs + this entry, committing)
+Done: applied the biology review lessons to all 225 non-biology illustrations. 16-agent visual review swarm over the rendered PNGs (chem 71 / phys 71 / math 68 / eng 15) found issues in ~70 files — same classes as biology (text hidden/struck through, box-bottom overflows, dark-on-dark, clipping) plus real accuracy bugs (swapped Δx/Δy, linear half-life curve, reflection/refraction ray physics, tidal bulges ⊥ Moon axis, Pythagoras d=5 with rise 3, acute "reflex" angle, UK energy pie coal ~40%, broken trig-table header, garbled column arithmetic). 14-agent fix swarm (8 resumed after a rate-limit pause) fixed everything behind fuchsia `#d946ef` review markers; 12 residual layout-validator flags fixed by hand. User reviewed the previews 2026-07-31 → 6-agent strip swarm (2 resumed after rate limit) removed all 719 markers (`grep #d946ef public/images/` = 0), restoring HEAD colours / sibling conventions; real fix colours kept (white text on dark chips via inline style, teal transition metals, probability-trees inline text-anchor:start).
+Verified: validate:illustrations ✅ (304/304), validate:illustration-layout ✅ (0 issues), validate:content ✅, audit:content ✅ (0/0), Vitest 242/242 ✅, full e2e 552 passed / 21 skipped / 0 failed ✅, full re-render 304/304 ✅. Spot-checked stripped chemistry PNGs.
+Next: English re-map Session 1 (structure) per 2026-07-28 decisions; deploy investigation (Vercel auto-deploy + Phase 7 §6 post-deploy checks; AI feedback env-gated). Minor per-subject deep-dive review deferred by user. Open content decision: math-yr7-angles "Alternate (Z-shape)" cites exterior angles + "Co-interior" pair is actually alternate interior (flagged by fix agent, not yet corrected). Pre-existing quirks: math-yr8-pythagoras anisotropic grid; math-yr7-probability dangling clip-path url(#left-half) at HEAD. Backlog unchanged: DP AA, IGCSE content, design refresh. Open: fill-opacity 0.85 chip global decision (bio trial).
+Notes: workflow that scaled — review swarm (explore agents, ~15 PNGs each, checklist prompt) → fix swarm (coder agents, fuchsia markers, re-render+eyeball each file) → layout-validator residual sweep → strip swarm (git diff for HEAD colours, exception list for fix colours). Rate-limiter pauses resumed cleanly via AgentSwarm resume_agent_ids. Validator false-positive classes: tspan-split texts (subscripts, bold-letter+word), tiny-icon pairing — fix via single-text Unicode (H₂O) or separate non-overlapping texts.
+
+---
+
 ## 2026-07-29 — Fuchsia markers stripped; illustration work committed
 
 Git HEAD: `1801ac0` (branch `develop`, committing all illustration work from 2026-07-29)

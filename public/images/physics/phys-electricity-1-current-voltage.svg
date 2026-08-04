@@ -37,8 +37,8 @@
     <circle cx="300" cy="65" r="6" class="electron"/>
 
     <!-- Flow arrow -->
-    <line x1="10" y1="80" x2="330" y2="80" class="arrow"/>
-    <text x="170" y="98" text-anchor="middle" class="sublabel">Electron flow (negative → positive)</text>
+    <line x1="10" y1="48" x2="330" y2="48" class="arrow"/>
+    <text x="170" y="38" text-anchor="middle" class="sublabel">Electron flow (negative → positive)</text>
   </g>
 
   <!-- Battery source -->
@@ -57,8 +57,12 @@
     <line x1="105" y1="57" x2="80" y2="57" class="line"/>
   </g>
 
+  <!-- Loop wires connecting the electron wire to both battery terminals -->
+  <path d="M30,135 L30,190 L110,190" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+  <path d="M370,135 L370,190 L215,190" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+
   <!-- Formula panel -->
-  <rect x="400" y="55" width="370" height="190" rx="10" class="box"/>
+  <rect x="400" y="55" width="370" height="220" rx="10" class="box"/>
   <text x="585" y="80" text-anchor="middle" class="label">Key Relationships</text>
 
   <g transform="translate(420, 100)">
@@ -75,8 +79,8 @@
   </g>
 
   <!-- Bottom note -->
-  <rect x="400" y="260" width="370" height="55" rx="10" class="box"/>
-  <text x="585" y="282" text-anchor="middle" class="label">Conventional Current vs Electron Flow</text>
-  <text x="585" y="302" text-anchor="middle" class="sublabel">Conventional current: positive → negative (historical)</text>
-  <text x="585" y="317" text-anchor="middle" class="sublabel">Electron flow: negative → positive (physical reality)</text>
+  <rect x="400" y="290" width="370" height="55" rx="10" class="box"/>
+  <text x="585" y="312" text-anchor="middle" class="label">Conventional Current vs Electron Flow</text>
+  <text x="585" y="332" text-anchor="middle" class="sublabel">Conventional current: positive → negative (historical)</text>
+  <text x="585" y="347" text-anchor="middle" class="sublabel">Electron flow: negative → positive (physical reality)</text>
 </svg>

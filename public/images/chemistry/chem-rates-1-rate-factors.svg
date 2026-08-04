@@ -110,15 +110,15 @@
   <text x="810" y="425" text-anchor="start" class="sublabel">Products</text>
 
   <!-- uncatalysed hump -->
-  <path d="M540 500 Q600 500 660 380 Q720 260 810 420" fill="none" stroke="#9ca3af" stroke-width="3"/>
+  <path d="M540 500 Q600 500 660 400 Q720 340 810 420" fill="none" stroke="#9ca3af" stroke-width="3"/>
   <!-- catalysed hump -->
   <path d="M540 500 Q600 500 660 440 Q720 380 810 420" fill="none" stroke="#f97316" stroke-width="4"/>
 
-  <line x1="660" y1="380" x2="660" y2="300" class="line"/>
-  <rect x="620" y="275" width="80" height="18" rx="4" fill="#f9fafb"/>
-  <text x="660" y="288" text-anchor="middle" class="sublabel">Eₐ (uncat)</text>
+  <line x1="628" y1="375" x2="712" y2="373" class="line"/>
+  <rect x="548" y="366" width="80" height="18" rx="4" fill="#f9fafb"/>
+  <text x="588" y="379" text-anchor="middle" class="sublabel">Eₐ (uncat)</text>
 
-  <line x1="700" y1="420" x2="700" y2="340" class="line"/>
-  <rect x="665" y="318" width="70" height="18" rx="4" fill="#f9fafb"/>
-  <text x="700" y="331" text-anchor="middle" class="sublabel" fill="#c2410c">Eₐ (cat)</text>
+  <line x1="733" y1="412" x2="748" y2="438" class="line"/>
+  <rect x="742" y="438" width="70" height="18" rx="4" fill="#f9fafb"/>
+  <text x="777" y="451" text-anchor="middle" class="sublabel" fill="#c2410c">Eₐ (cat)</text>
 </svg>

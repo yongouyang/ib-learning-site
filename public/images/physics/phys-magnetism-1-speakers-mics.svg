@@ -1,29 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" role="img" aria-labelledby="title desc"><title id="title">Loudspeakers and Microphones</title><desc id="desc">Cross-section diagrams showing how a loudspeaker converts electrical signals to sound and a microphone converts sound to electrical signals.</desc><defs><style>.title{font-family:system-ui,sans-serif;font-size:18px;font-weight:700;fill:#111827}.label{font-family:system-ui,sans-serif;font-size:13px;font-weight:600;fill:#1f2937}.sub{font-family:system-ui,sans-serif;font-size:11px;fill:#4b5563}.box{fill:#fff;stroke:#e5e7eb;stroke-width:2}</style></defs><rect width="800" height="380" fill="#f9fafb" rx="12"/><text x="400" y="34" text-anchor="middle" class="title">Loudspeakers and Microphones</text>
 
-<rect x="20" y="50" width="370" height="260" rx="10" class="box"/><text x="205" y="75" text-anchor="middle" class="label">Loudspeaker (Electrical → Sound)</text>
+<rect x="20" y="50" width="370" height="280" rx="10" class="box"/><text x="205" y="75" text-anchor="middle" class="label">Loudspeaker (Electrical → Sound)</text>
 <g transform="translate(40,92)">
-  <rect x="40" y="0" width="160" height="220" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+  <rect x="40" y="0" width="160" height="236" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
   <rect x="80" y="60" width="80" height="12" rx="3" fill="#6b7280"/>
   <path d="M120,72 C120,72 140,100 120,140 C100,100 120,72 120,72" fill="#d1d5db" stroke="#6b7280" stroke-width="1.5"/>
   <rect x="85" y="140" width="70" height="15" rx="4" fill="#ef4444"/>
-  <text x="70" y="152" class="sub" fill="#dc2626">Coil</text>
-  <line x1="70" y1="148" x2="85" y2="140" stroke="#6b7280" stroke-width="1"/>
+  <text x="82" y="152" text-anchor="end" class="sub" fill="#dc2626">Coil</text>
   <rect x="100" y="155" width="40" height="12" rx="3" fill="#6b7280"/>
   <text x="120" y="180" text-anchor="middle" class="sub">Permanent</text><text x="120" y="194" text-anchor="middle" class="sub">magnet</text>
   <text x="120" y="215" text-anchor="middle" class="sub" fill="#dc2626">AC current → coil vibrates</text><text x="120" y="230" text-anchor="middle" class="sub" fill="#dc2626">→ cone vibrates → sound</text>
 </g>
 
-<rect x="410" y="50" width="370" height="260" rx="10" class="box"/><text x="595" y="75" text-anchor="middle" class="label">Microphone (Sound → Electrical)</text>
+<rect x="410" y="50" width="370" height="280" rx="10" class="box"/><text x="595" y="75" text-anchor="middle" class="label">Microphone (Sound → Electrical)</text>
 <g transform="translate(430,92)">
-  <rect x="60" y="0" width="160" height="220" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+  <rect x="60" y="0" width="160" height="236" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
   <rect x="90" y="130" width="80" height="12" rx="3" fill="#6b7280"/>
   <rect x="90" y="85" width="80" height="12" rx="3" fill="#d1d5db"/>
   <path d="M130,85 L130,130" stroke="#6b7280" stroke-width="1.5"/>
   <rect x="100" y="142" width="60" height="12" rx="4" fill="#3b82f6"/>
-  <text x="230" y="148" class="sub" fill="#3b82f6">Coil</text>
+  <text x="95" y="152" text-anchor="end" class="sub" fill="#3b82f6">Coil</text>
   <rect x="110" y="154" width="40" height="10" rx="2" fill="#6b7280"/>
   <text x="130" y="180" text-anchor="middle" class="sub">Permanent</text><text x="130" y="194" text-anchor="middle" class="sub">magnet</text>
   <text x="130" y="215" text-anchor="middle" class="sub" fill="#3b82f6">Sound → coil moves →</text><text x="130" y="230" text-anchor="middle" class="sub" fill="#3b82f6">induces voltage → signal</text>
 </g>
 
-<rect x="20" y="320" width="760" height="45" rx="8" class="box"/><text x="400" y="342" text-anchor="middle" class="sub">Both use the same principle in reverse!</text><text x="400" y="360" text-anchor="middle" class="sub">Loudspeaker: electricity → motion → sound. Microphone: sound → motion → electricity (induction).</text></svg>
+<rect x="20" y="334" width="760" height="42" rx="8" class="box"/><text x="400" y="355" text-anchor="middle" class="sub">Both use the same principle in reverse!</text><text x="400" y="371" text-anchor="middle" class="sub">Loudspeaker: electricity → motion → sound. Microphone: sound → motion → electricity (induction).</text></svg>

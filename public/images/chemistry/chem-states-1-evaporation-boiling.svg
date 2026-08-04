@@ -56,10 +56,10 @@
   <rect x="300" y="375" width="120" height="18" rx="4" class="label-bg"/>
   <text x="305" y="387" class="label">Cools the liquid</text>
 
-  <line x1="360" y1="250" x2="400" y2="250" class="line"/>
-  <rect x="405" y="232" width="95" height="36" rx="4" class="label-bg"/>
-  <text x="410" y="248" class="sublabel">Fastest surface</text>
-  <text x="410" y="262" class="sublabel">particles escape</text>
+  <line x1="330" y1="250" x2="340" y2="250" class="line"/>
+  <rect x="340" y="232" width="98" height="36" rx="4" class="label-bg"/>
+  <text x="345" y="248" class="sublabel">Fastest surface</text>
+  <text x="345" y="262" class="sublabel">particles escape</text>
 
   <!-- Boiling panel -->
   <rect x="460" y="55" width="390" height="400" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="10"/>
@@ -98,7 +98,8 @@
   <rect x="555" y="375" width="200" height="18" rx="4" class="label-bg"/>
   <text x="560" y="387" class="label">Occurs at boiling point only</text>
 
-  <rect x="505" y="232" width="185" height="36" rx="4" class="label-bg"/>
-  <text x="510" y="248" class="sublabel">Temperature stays constant</text>
-  <text x="510" y="262" class="sublabel">during boiling</text>
+  <rect x="743" y="206" width="102" height="50" rx="4" class="label-bg"/>
+  <text x="748" y="220" class="sublabel">Temperature</text>
+  <text x="748" y="234" class="sublabel">stays constant</text>
+  <text x="748" y="248" class="sublabel">during boiling</text>
 </svg>

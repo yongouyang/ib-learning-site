@@ -42,7 +42,7 @@
     <path d="M40,50 L40,130 Q40,150 60,150 L110,150 Q130,150 130,130 L130,50" class="beaker"/>
     <rect x="45" y="85" width="80" height="60" rx="25" class="liquid"/>
     <circle cx="75" cy="110" r="8" class="solid"/>
-    <text x="75" y="113" text-anchor="middle" class="sublabel" fill="white">CuO</text>
+    <text x="75" y="129" text-anchor="middle" class="sublabel" fill="white">CuO</text>
 
     <path d="M170,70 L170,110 L150,140" class="line"/>
     <polygon points="145,135 150,150 160,138" fill="#f9fafb" stroke="#6b7280" stroke-width="1.5"/>
@@ -113,8 +113,8 @@
 
     <line x1="150" y1="90" x2="170" y2="90" class="line" marker-end="url(#arrow-grey)"/>
 
-    <circle cx="210" cy="45" r="8" class="solid"/>
-    <text x="210" y="48" text-anchor="middle" class="sublabel" fill="white">BaSO₄</text>
+    <circle cx="210" cy="40" r="8" class="solid"/>
+    <text x="210" y="43" text-anchor="middle" class="sublabel" fill="white">BaSO₄</text>
     <text x="250" y="45" class="sublabel">precipitate</text>
 
     <text x="165" y="170" text-anchor="middle" class="sublabel">BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl</text>

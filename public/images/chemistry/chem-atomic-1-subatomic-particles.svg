@@ -69,7 +69,7 @@
   <rect x="45" y="257" width="100" height="28" rx="4" class="label-bg"/>
   <text x="95" y="275" text-anchor="middle" class="label">Nucleus</text>
 
-  <line x1="395" y1="145" x2="480" y2="90" class="line"/>
+  <line x1="398" y1="154" x2="480" y2="90" class="line"/>
   <rect x="485" y="76" width="130" height="28" rx="4" class="label-bg"/>
   <text x="550" y="94" text-anchor="middle" class="label">Electron shells</text>
 
@@ -83,9 +83,9 @@
     <rect x="0" y="0" width="280" height="130" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
     <rect x="0" y="0" width="280" height="28" rx="8" class="table-header"/>
     <rect x="0" y="14" width="280" height="14" class="table-header"/>
-    <text x="140" y="19" text-anchor="middle" class="label" style="font-size:12px">Particle</text>
-    <text x="140" y="19" text-anchor="middle" class="label" style="font-size:12px">Charge</text>
-    <text x="230" y="19" text-anchor="middle" class="label" style="font-size:12px">Relative mass</text>
+    <text x="50" y="19" text-anchor="middle" class="label" style="font-size:12px">Particle</text>
+    <text x="145" y="19" text-anchor="middle" class="label" style="font-size:12px">Charge</text>
+    <text x="235" y="19" text-anchor="middle" class="label" style="font-size:12px">Relative mass</text>
 
     <line x1="0" y1="28" x2="280" y2="28" stroke="#9ca3af" stroke-width="1"/>
     <line x1="100" y1="0" x2="100" y2="130" stroke="#d1d5db" stroke-width="1"/>

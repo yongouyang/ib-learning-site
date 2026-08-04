@@ -17,14 +17,14 @@
   <text x="120" y="120" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1e293b">A</text>
   <text x="195" y="125" font-family="system-ui, sans-serif" font-size="13" fill="#334155" text-anchor="middle">5 cm</text>
   <text x="110" y="205" font-family="system-ui, sans-serif" font-size="13" fill="#334155" text-anchor="end">4 cm</text>
-  <text x="205" y="210" font-family="system-ui, sans-serif" font-size="13" fill="#334155" text-anchor="start" transform="rotate(-45,205,210)">6.4 cm</text>
+  <text x="212" y="217" font-family="system-ui, sans-serif" font-size="13" fill="#334155" text-anchor="start" transform="rotate(-45,212,217)">6.4 cm</text>
 
   <!-- Congruent triangle B (reflected/rotated) -->
   <polygon points="360,270 360,130 200,270" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
   <text x="360" y="120" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1e293b">B</text>
   <text x="280" y="125" font-family="system-ui, sans-serif" font-size="13" fill="#334155" text-anchor="middle">5 cm</text>
   <text x="370" y="205" font-family="system-ui, sans-serif" font-size="13" fill="#334155" text-anchor="start">4 cm</text>
-  <text x="270" y="210" font-family="system-ui, sans-serif" font-size="13" fill="#334155" text-anchor="start" transform="rotate(45,270,210)">6.4 cm</text>
+  <text x="277" y="217" font-family="system-ui, sans-serif" font-size="13" fill="#334155" text-anchor="start" transform="rotate(-45,277,217)">6.4 cm</text>
 
   <!-- Congruent label -->
   <rect x="165" y="300" width="150" height="32" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
@@ -49,8 +49,8 @@
   <text x="620" y="441" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#15803d" text-anchor="middle">Triangle C ~ Triangle D</text>
 
   <!-- Scale factor label -->
-  <rect x="520" y="340" width="120" height="28" rx="6" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
-  <text x="580" y="358" font-family="system-ui, sans-serif" font-size="13" fill="#166534" text-anchor="middle">scale factor = 2</text>
+  <rect x="655" y="355" width="120" height="28" rx="6" fill="#ffffff" stroke="#86efac" stroke-width="1.5"/>
+  <text x="715" y="373" font-family="system-ui, sans-serif" font-size="13" fill="#166534" text-anchor="middle">scale factor = 2</text>
 
   <!-- Key points box -->
   <rect x="50" y="360" width="340" height="110" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>

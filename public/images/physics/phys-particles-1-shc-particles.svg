@@ -13,16 +13,17 @@
   </style></defs>
   <rect width="800" height="360" fill="#f9fafb" rx="12"/>
   <text x="400" y="34" text-anchor="middle" class="t">Specific Heat Capacity and Particles</text>
-  <rect x="20" y="55" width="380" height="200" rx="10" class="b"/><text x="210" y="78" text-anchor="middle" class="l">Low Temperature</text>
-    <g transform="translate(40,92)"><rect x="0" y="0" width="160" height="120" rx="6" fill="#dbeafe"/>
+  <rect x="20" y="55" width="760" height="200" rx="10" class="b"/><text x="200" y="78" text-anchor="middle" class="l">Low Temperature</text><text x="600" y="78" text-anchor="middle" class="l">High Temperature</text>
+    <g transform="translate(120,92)"><rect x="0" y="0" width="160" height="120" rx="6" fill="#dbeafe"/>
     <circle cx="40" cy="40" r="10" fill="#3b82f6" opacity="0.6"/><circle cx="80" cy="35" r="10" fill="#3b82f6" opacity="0.6"/>
     <circle cx="120" cy="45" r="10" fill="#3b82f6" opacity="0.6"/><circle cx="50" cy="75" r="10" fill="#3b82f6" opacity="0.6"/>
     <circle cx="100" cy="70" r="10" fill="#3b82f6" opacity="0.6"/>
     <text x="80" y="140" text-anchor="middle" class="s">Particles vibrate slowly</text></g>
-    <g transform="translate(220,92)"><rect x="0" y="0" width="160" height="120" rx="6" fill="#fecaca"/>
+    <g transform="translate(520,92)"><rect x="0" y="0" width="160" height="120" rx="6" fill="#fecaca"/>
     <circle cx="35" cy="35" r="10" fill="#ef4444" opacity="0.8"/><circle cx="75" cy="28" r="10" fill="#ef4444" opacity="0.8"/>
     <circle cx="120" cy="40" r="10" fill="#ef4444" opacity="0.8"/><circle cx="45" cy="72" r="10" fill="#ef4444" opacity="0.8"/>
     <circle cx="105" cy="68" r="10" fill="#ef4444" opacity="0.8"/>
     <text x="80" y="140" text-anchor="middle" class="s">Particles vibrate faster (more KE)</text></g>
+    <line x1="300" y1="150" x2="480" y2="150" stroke="#ef4444" stroke-width="2.5"/><polygon points="480,144 494,150 480,156" fill="#ef4444"/><text x="390" y="138" text-anchor="middle" class="s">heat added</text>
     <rect x="20" y="268" width="760" height="55" rx="10" class="b"/><text x="400" y="290" text-anchor="middle" class="l">Higher temperature = more kinetic energy = particles move/vibrate faster</text><text x="400" y="310" text-anchor="middle" class="s">SHC measures how much energy is needed to increase this vibration for 1 kg by 1°C</text>
 </svg>

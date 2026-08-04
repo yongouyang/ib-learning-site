@@ -51,8 +51,8 @@
     <text x="365" y="82" class="sublabel" fill="#dc2626">Vibration ↑↓</text>
 
     <!-- Energy direction -->
-    <line x1="380" y1="80" x2="415" y2="80" stroke="#22c55e" stroke-width="2" marker-end="url(#aR3)"/>
-    <text x="400" y="72" class="sublabel" fill="#22c55e">Energy →</text>
+    <line x1="380" y1="100" x2="415" y2="100" stroke="#22c55e" stroke-width="2" marker-end="url(#aR3)"/>
+    <text x="395" y="93" class="sublabel" fill="#22c55e">Energy →</text>
   </g>
 
   <marker id="aU" viewBox="0 0 10 10" refX="5" refY="2" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,8 L5,2 L9,8" fill="#dc2626"/></marker>

@@ -99,24 +99,24 @@
   <rect x="410" y="305" width="370" height="160" rx="10" class="box"/>
   <text x="595" y="328" text-anchor="middle" class="label">UK Energy Mix (typical)</text>
   
-  <g transform="translate(460, 345)">
-    <!-- Simplified pie chart using circles -->
-    <circle cx="100" cy="55" r="55" fill="none" stroke="#e5e7eb" stroke-width="55" stroke-dasharray="130 214"/>
-    <circle cx="100" cy="55" r="55" fill="none" stroke="#22c55e" stroke-width="55" stroke-dasharray="45 300" stroke-dashoffset="-130"/>
-    <circle cx="100" cy="55" r="55" fill="none" stroke="#3b82f6" stroke-width="55" stroke-dasharray="60 285" stroke-dashoffset="-175"/>
-    <circle cx="100" cy="55" r="55" fill="none" stroke="#fbbf24" stroke-width="55" stroke-dasharray="55 290" stroke-dashoffset="-235"/>
-    <circle cx="100" cy="55" r="55" fill="none" stroke="#ef4444" stroke-width="55" stroke-dasharray="54 290" stroke-dashoffset="-290"/>
+  <g transform="translate(470, 340)">
+    <!-- Pie chart: typical recent UK electricity mix (Gas 34% · Wind 28% · Nuclear 14% · Other renewables 22% · Coal 2%) -->
+    <circle cx="60" cy="60" r="40" fill="none" stroke="#ef4444" stroke-width="40" stroke-dasharray="85.4 165.9"/>
+    <circle cx="60" cy="60" r="40" fill="none" stroke="#3b82f6" stroke-width="40" stroke-dasharray="70.4 180.9" stroke-dashoffset="-85.4"/>
+    <circle cx="60" cy="60" r="40" fill="none" stroke="#fbbf24" stroke-width="40" stroke-dasharray="35.2 216.1" stroke-dashoffset="-155.8"/>
+    <circle cx="60" cy="60" r="40" fill="none" stroke="#22c55e" stroke-width="40" stroke-dasharray="55.3 196" stroke-dashoffset="-191"/>
+    <circle cx="60" cy="60" r="40" fill="none" stroke="#e5e7eb" stroke-width="40" stroke-dasharray="5 246.3" stroke-dashoffset="-246.3"/>
   </g>
-  <g transform="translate(445, 415)">
+  <g transform="translate(615, 352)">
     <rect x="0" y="0" width="12" height="12" rx="2" fill="#ef4444"/>
-    <text x="16" y="10" class="sublabel">Gas</text>
-    <rect x="60" y="0" width="12" height="12" rx="2" fill="#fbbf24"/>
-    <text x="76" y="10" class="sublabel">Nuclear</text>
-    <rect x="140" y="0" width="12" height="12" rx="2" fill="#3b82f6"/>
-    <text x="156" y="10" class="sublabel">Wind</text>
-    <rect x="200" y="0" width="12" height="12" rx="2" fill="#22c55e"/>
-    <text x="216" y="10" class="sublabel">Renewables</text>
-    <rect x="290" y="0" width="12" height="12" rx="2" fill="#e5e7eb"/>
-    <text x="306" y="10" class="sublabel">Coal</text>
+    <text x="18" y="10" class="sublabel">Gas (~34%)</text>
+    <rect x="0" y="20" width="12" height="12" rx="2" fill="#3b82f6"/>
+    <text x="18" y="30" class="sublabel">Wind (~28%)</text>
+    <rect x="0" y="40" width="12" height="12" rx="2" fill="#fbbf24"/>
+    <text x="18" y="50" class="sublabel">Nuclear (~14%)</text>
+    <rect x="0" y="60" width="12" height="12" rx="2" fill="#22c55e"/>
+    <text x="18" y="70" class="sublabel">Other renewables (~22%)</text>
+    <rect x="0" y="80" width="12" height="12" rx="2" fill="#e5e7eb"/>
+    <text x="18" y="90" class="sublabel">Coal (~2%)</text>
   </g>
 </svg>

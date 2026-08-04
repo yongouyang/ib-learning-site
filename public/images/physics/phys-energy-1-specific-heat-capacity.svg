@@ -60,9 +60,19 @@
     <line x1="168" y1="45" x2="212" y2="45" stroke="#6b7280" stroke-width="1.5"/>
     <text x="250" y="50" text-anchor="middle" class="sublabel" fill="#dc2626">Thermometer</text>
 
-    <text x="55" y="40" text-anchor="middle" class="sublabel">Ammeter →</text>
-    <text x="55" y="55" text-anchor="middle" class="sublabel">Voltmeter →</text>
-    <text x="55" y="70" text-anchor="middle" class="sublabel">E = VIt</text>
+    <!-- Ammeter in series with heater, voltmeter across heater -->
+    <circle cx="16" cy="38" r="9" fill="#ffffff" stroke="#374151" stroke-width="2"/>
+    <text x="16" y="42" text-anchor="middle" class="sublabel">A</text>
+    <text x="16" y="52" text-anchor="middle" class="sublabel">Ammeter</text>
+    <path d="M25,38 L62,38 L62,7 L100,7" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+
+    <circle cx="16" cy="66" r="9" fill="#ffffff" stroke="#374151" stroke-width="2"/>
+    <text x="16" y="70" text-anchor="middle" class="sublabel">V</text>
+    <text x="16" y="85" text-anchor="middle" class="sublabel">Voltmeter</text>
+    <path d="M24,61 L48,61 L48,38" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+    <path d="M25,66 L68,66 L68,24 L120,24" fill="none" stroke="#6b7280" stroke-width="1.5"/>
+
+    <text x="64" y="96" text-anchor="middle" class="sublabel">E = VIt</text>
   </g>
 
   <!-- Worked example -->

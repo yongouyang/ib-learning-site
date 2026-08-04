@@ -40,10 +40,12 @@
     <line x1="110" y1="80" x2="60" y2="80" stroke="#fbbf24" stroke-width="3"/>
     <line x1="60" y1="80" x2="30" y2="80" stroke="#fbbf24" stroke-width="2"/>
 
-    <!-- Light rays entering -->
-    <line x1="420" y1="50" x2="350" y2="65" stroke="#fbbf24" stroke-width="1.5"/>
-    <line x1="420" y1="80" x2="350" y2="80" stroke="#fbbf24" stroke-width="1.5"/>
-    <line x1="420" y1="110" x2="350" y2="95" stroke="#fbbf24" stroke-width="1.5"/>
+    <!-- Light rays entering (refracted by lens, converging on the retina) -->
+    <line x1="420" y1="50" x2="300" y2="76" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="300" y1="76" x2="90" y2="80" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="420" y1="80" x2="90" y2="80" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="420" y1="110" x2="300" y2="84" stroke="#fbbf24" stroke-width="1.5"/>
+    <line x1="300" y1="84" x2="90" y2="80" stroke="#fbbf24" stroke-width="1.5"/>
 
     <!-- Labels -->
     <line x1="365" y1="60" x2="395" y2="40" class="line"/>

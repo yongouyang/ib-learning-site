@@ -23,7 +23,7 @@
   <text x="30" y="35" class="heading">Equations are like a balance scale</text>
   <text x="30" y="55" class="label">Both sides must stay equal. Whatever you do to one side, you must do to the other.</text>
 
-  <g transform="translate(80, 75)">
+  <g transform="translate(80, 105)">
     <!-- Scale beam -->
     <line x1="0" y1="0" x2="280" y2="0" stroke="#1f2937" stroke-width="3"/>
     <!-- Fulcrum -->
@@ -86,11 +86,12 @@
     <line x1="132" y1="43" x2="162" y2="43" class="arrow-flow"/><polygon points="162,40 169,43 162,46" class="arrowhead"/>
     <rect x="169" y="32" width="40" height="22" rx="4" class="box-result"/><text x="189" y="47" class="label" text-anchor="middle">16</text>
 
-    <!-- Inverse arrows below -->
-    <rect x="169" y="60" width="40" height="20" rx="4" class="box-inv"/><text x="189" y="74" class="label" text-anchor="middle" fill="#dc2626" font-size="11">÷3</text>
-    <line x1="132" y1="70" x2="169" y2="70" stroke="#dc2626" stroke-width="1.5" fill="none"/>
-    <rect x="92" y="60" width="40" height="20" rx="4" class="box-inv"/><text x="112" y="74" class="label" text-anchor="middle" fill="#dc2626" font-size="11">+5</text>
-    <line x1="55" y1="70" x2="92" y2="70" stroke="#dc2626" stroke-width="1.5" fill="none"/>
+    <!-- Inverse arrows below: 16 → +5 → ÷3 → x -->
+    <rect x="169" y="60" width="40" height="20" rx="4" class="box-inv"/><text x="189" y="74" class="label" text-anchor="middle" fill="#dc2626" font-size="11">+5</text>
+    <line x1="189" y1="54" x2="189" y2="59" stroke="#dc2626" stroke-width="1.5" fill="none"/><polygon points="186,55 192,55 189,61" fill="#dc2626"/>
+    <line x1="132" y1="70" x2="169" y2="70" stroke="#dc2626" stroke-width="1.5" fill="none"/><polygon points="136,67 136,73 129,70" fill="#dc2626"/>
+    <rect x="92" y="60" width="40" height="20" rx="4" class="box-inv"/><text x="112" y="74" class="label" text-anchor="middle" fill="#dc2626" font-size="11">÷3</text>
+    <line x1="55" y1="70" x2="92" y2="70" stroke="#dc2626" stroke-width="1.5" fill="none"/><polygon points="59,67 59,73 52,70" fill="#dc2626"/>
     <text x="25" y="74" class="math" text-anchor="middle" fill="#dc2626">x</text>
   </g>
 

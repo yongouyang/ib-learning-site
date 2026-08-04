@@ -41,13 +41,10 @@
 
     <!-- Barriers -->
     <rect x="100" y="0" width="12" height="90" class="barrier"/>
-    <text x="106" y="105" text-anchor="middle" class="sublabel">paper</text>
 
     <rect x="160" y="0" width="12" height="90" class="barrier"/>
-    <text x="166" y="105" text-anchor="middle" class="sublabel">aluminium</text>
 
     <rect x="220" y="0" width="12" height="90" class="barrier"/>
-    <text x="226" y="105" text-anchor="middle" class="sublabel">lead</text>
 
     <!-- Stopped by paper -->
     <line x1="54" y1="45" x2="100" y2="45" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
@@ -67,13 +64,10 @@
 
     <!-- Barriers -->
     <rect x="100" y="0" width="12" height="90" class="barrier"/>
-    <text x="106" y="105" text-anchor="middle" class="sublabel">paper</text>
 
     <rect x="160" y="0" width="12" height="90" class="barrier"/>
-    <text x="166" y="105" text-anchor="middle" class="sublabel">aluminium</text>
 
     <rect x="220" y="0" width="12" height="90" class="barrier"/>
-    <text x="226" y="105" text-anchor="middle" class="sublabel">lead</text>
 
     <!-- Passes paper, stopped by aluminium -->
     <line x1="48" y1="45" x2="160" y2="45" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4,3"/>
@@ -93,19 +87,21 @@
 
     <!-- Barriers -->
     <rect x="100" y="0" width="12" height="90" class="barrier"/>
-    <text x="106" y="105" text-anchor="middle" class="sublabel">paper</text>
 
     <rect x="160" y="0" width="12" height="90" class="barrier"/>
-    <text x="166" y="105" text-anchor="middle" class="sublabel">aluminium</text>
 
     <rect x="220" y="0" width="12" height="90" class="barrier"/>
-    <text x="226" y="105" text-anchor="middle" class="sublabel">lead</text>
 
     <!-- Passes paper and aluminium, reduced by lead -->
     <line x1="80" y1="45" x2="232" y2="45" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
     <line x1="232" y1="45" x2="270" y2="45" stroke="#22c55e" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
     <text x="260" y="42" text-anchor="middle" class="sublabel" fill="#dc2626">reduced</text>
   </g>
+
+  <!-- Barrier column labels (apply to all three rows) -->
+  <text x="326" y="497" text-anchor="middle" class="sublabel">paper</text>
+  <text x="386" y="497" text-anchor="middle" class="sublabel">aluminium</text>
+  <text x="446" y="497" text-anchor="middle" class="sublabel">lead</text>
 
   <!-- Properties summary -->
   <g transform="translate(560, 110)">

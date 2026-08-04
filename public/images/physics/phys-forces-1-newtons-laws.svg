@@ -15,7 +15,7 @@
   <text x="400" y="34" text-anchor="middle" class="title">Newton's Three Laws of Motion</text>
 
   <!-- 1st Law -->
-  <rect x="20" y="50" width="240" height="210" rx="10" class="box"/>
+  <rect x="20" y="50" width="240" height="232" rx="10" class="box"/>
   <text x="140" y="75" text-anchor="middle" class="label" fill="#dc2626">1st Law: Inertia</text>
 
   <g transform="translate(35, 88)">
@@ -28,7 +28,7 @@
     <circle cx="70" cy="50" r="8" fill="none" stroke="#374151" stroke-width="1.5"/>
 
     <!-- Arrow forward -->
-    <line x1="125" y1="52" x2="155" y2="52" stroke="#ef4444" stroke-width="2" marker-end="url(#arrR)"/>
+    <line x1="125" y1="62" x2="155" y2="62" stroke="#ef4444" stroke-width="2" marker-end="url(#arrR)"/>
     <text x="140" y="48" text-anchor="middle" class="sublabel" fill="#dc2626">Car stops</text>
 
     <!-- Ghost person moving forward -->
@@ -42,7 +42,7 @@
   </g>
 
   <!-- 2nd Law -->
-  <rect x="280" y="50" width="240" height="210" rx="10" class="box"/>
+  <rect x="280" y="50" width="240" height="232" rx="10" class="box"/>
   <text x="400" y="75" text-anchor="middle" class="label" fill="#dc2626">2nd Law: F = ma</text>
 
   <g transform="translate(295, 88)">
@@ -62,14 +62,14 @@
     <line x1="65" y1="70" x2="65" y2="100" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrD)"/>
     <text x="75" y="90" class="sublabel" fill="#3b82f6">Weight</text>
 
-    <text x="90" y="148" text-anchor="middle" class="formula">F = ma</text>
-    <text x="90" y="165" text-anchor="middle" class="sublabel">Acceleration ∝ Force</text>
-    <text x="90" y="180" text-anchor="middle" class="sublabel">Acceleration ∝ 1/mass</text>
-    <text x="90" y="195" text-anchor="middle" class="sublabel">1 N = 1 kg × 1 m/s²</text>
+    <text x="90" y="146" text-anchor="middle" class="formula">F = ma</text>
+    <text x="90" y="160" text-anchor="middle" class="sublabel">Acceleration ∝ Force</text>
+    <text x="90" y="176" text-anchor="middle" class="sublabel">Acceleration ∝ 1/mass</text>
+    <text x="90" y="192" text-anchor="middle" class="sublabel">1 N = 1 kg × 1 m/s²</text>
   </g>
 
   <!-- 3rd Law -->
-  <rect x="540" y="50" width="240" height="210" rx="10" class="box"/>
+  <rect x="540" y="50" width="240" height="232" rx="10" class="box"/>
   <text x="660" y="75" text-anchor="middle" class="label" fill="#dc2626">3rd Law: Action-Reaction</text>
 
   <g transform="translate(555, 88)">
@@ -97,9 +97,9 @@
   <marker id="arrD" viewBox="0 0 10 10" refX="5" refY="8" markerWidth="6" markerHeight="6" orient="auto"><path d="M1,2 L5,8 L9,2" fill="#ef4444"/></marker>
 
   <!-- Summary -->
-  <rect x="20" y="280" width="760" height="155" rx="10" class="box"/>
-  <text x="400" y="305" text-anchor="middle" class="label">Summary</text>
-  <g transform="translate(40, 318)">
+  <rect x="20" y="290" width="760" height="155" rx="10" class="box"/>
+  <text x="400" y="315" text-anchor="middle" class="label">Summary</text>
+  <g transform="translate(40, 328)">
     <rect x="0" y="0" width="230" height="100" rx="6" fill="#fef2f2"/>
     <text x="115" y="20" text-anchor="middle" class="label" fill="#dc2626">1st: Inertia</text>
     <text x="115" y="42" text-anchor="middle" class="sublabel">No resultant force →</text>

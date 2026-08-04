@@ -2,29 +2,34 @@
 
 <rect x="20" y="50" width="370" height="180" rx="10" class="box"/><text x="205" y="75" text-anchor="middle" class="label">Step-Up Transformer (N_s &gt; N_p)</text>
 <g transform="translate(40,92)">
-  <rect x="80" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <path d="M120,140 L110,20 L120,140 L130,20 L120,140" fill="none" stroke="#fbbf24" stroke-width="2"/>
-  <path d="M120,140 L90,20 L120,140 L150,20 L120,140" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
-  <text x="120" y="155" text-anchor="middle" class="sub">Primary (5 turns)</text>
+  <rect x="65" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <g stroke="#fbbf24" stroke-width="2">
+    <line x1="77" y1="25" x2="77" y2="135"/><line x1="89" y1="25" x2="89" y2="135"/><line x1="101" y1="25" x2="101" y2="135"/><line x1="113" y1="25" x2="113" y2="135"/><line x1="125" y1="25" x2="125" y2="135"/>
+  </g>
+  <text x="105" y="155" text-anchor="middle" class="sub">Primary (5 turns)</text>
   
-  <rect x="220" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <path d="M260,140 L250,20 L260,140 L270,20 L260,140" fill="none" stroke="#f97316" stroke-width="2"/>
-  <path d="M260,140 L230,20 L260,140 L290,20 L260,140" fill="none" stroke="#f97316" stroke-width="1.5"/>
-  <text x="260" y="155" text-anchor="middle" class="sub">Secondary (15 turns)</text>
+  <rect x="235" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <g stroke="#f97316" stroke-width="1.5">
+    <line x1="241" y1="25" x2="241" y2="135"/><line x1="246" y1="25" x2="246" y2="135"/><line x1="251" y1="25" x2="251" y2="135"/><line x1="256" y1="25" x2="256" y2="135"/><line x1="261" y1="25" x2="261" y2="135"/><line x1="266" y1="25" x2="266" y2="135"/><line x1="271" y1="25" x2="271" y2="135"/><line x1="276" y1="25" x2="276" y2="135"/><line x1="281" y1="25" x2="281" y2="135"/><line x1="286" y1="25" x2="286" y2="135"/><line x1="291" y1="25" x2="291" y2="135"/><line x1="296" y1="25" x2="296" y2="135"/><line x1="301" y1="25" x2="301" y2="135"/><line x1="306" y1="25" x2="306" y2="135"/><line x1="311" y1="25" x2="311" y2="135"/>
+  </g>
+  <text x="275" y="155" text-anchor="middle" class="sub">Secondary (15 turns)</text>
   
-  <text x="170" y="90" text-anchor="middle" class="label" fill="#dc2626">V_s = 3 × V_p</text>
+  <text x="190" y="90" text-anchor="middle" class="label" fill="#dc2626">V_s = 3 × V_p</text>
 </g>
 
 <rect x="410" y="50" width="370" height="180" rx="10" class="box"/><text x="595" y="75" text-anchor="middle" class="label">Step-Down Transformer (N_s &lt; N_p)</text>
 <g transform="translate(430,92)">
-  <rect x="80" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <path d="M120,140 L110,20 L120,140 L130,20 L120,140" fill="none" stroke="#fbbf24" stroke-width="2"/>
-  <path d="M120,140 L90,20 L120,140 L150,20 L120,140" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
-  <text x="120" y="155" text-anchor="middle" class="sub">Primary (15 turns)</text>
-  <rect x="220" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
-  <path d="M260,140 L255,20 L260,140 L265,20 L260,140" fill="none" stroke="#f97316" stroke-width="2"/>
-  <text x="260" y="155" text-anchor="middle" class="sub">Secondary (5 turns)</text>
-  <text x="170" y="90" text-anchor="middle" class="label" fill="#dc2626">V_s = V_p / 3</text>
+  <rect x="65" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <g stroke="#fbbf24" stroke-width="1.5">
+    <line x1="71" y1="25" x2="71" y2="135"/><line x1="76" y1="25" x2="76" y2="135"/><line x1="81" y1="25" x2="81" y2="135"/><line x1="86" y1="25" x2="86" y2="135"/><line x1="91" y1="25" x2="91" y2="135"/><line x1="96" y1="25" x2="96" y2="135"/><line x1="101" y1="25" x2="101" y2="135"/><line x1="106" y1="25" x2="106" y2="135"/><line x1="111" y1="25" x2="111" y2="135"/><line x1="116" y1="25" x2="116" y2="135"/><line x1="121" y1="25" x2="121" y2="135"/><line x1="126" y1="25" x2="126" y2="135"/><line x1="131" y1="25" x2="131" y2="135"/><line x1="136" y1="25" x2="136" y2="135"/><line x1="141" y1="25" x2="141" y2="135"/>
+  </g>
+  <text x="105" y="155" text-anchor="middle" class="sub">Primary (15 turns)</text>
+  <rect x="235" y="0" width="80" height="140" rx="8" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2"/>
+  <g stroke="#f97316" stroke-width="2">
+    <line x1="247" y1="25" x2="247" y2="135"/><line x1="259" y1="25" x2="259" y2="135"/><line x1="271" y1="25" x2="271" y2="135"/><line x1="283" y1="25" x2="283" y2="135"/><line x1="295" y1="25" x2="295" y2="135"/>
+  </g>
+  <text x="275" y="155" text-anchor="middle" class="sub">Secondary (5 turns)</text>
+  <text x="190" y="90" text-anchor="middle" class="label" fill="#dc2626">V_s = V_p / 3</text>
 </g>
 
 <rect x="20" y="248" width="370" height="85" rx="10" class="box"/><text x="205" y="272" text-anchor="middle" class="label">Transformer Equation</text>

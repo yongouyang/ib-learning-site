@@ -35,7 +35,7 @@
 
   <!-- Determinant and inverse -->
   <g transform="translate(30, 235)">
-    <rect x="0" y="0" width="430" height="110" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <rect x="0" y="0" width="430" height="125" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
     <text x="215" y="20" class="subhead" text-anchor="middle">2×2 Determinant and inverse</text>
     <g transform="translate(15, 40)">
       <text x="0" y="0" class="math" fill="#16a34a">det(A) = |a b;c d| = ad − bc</text>
@@ -47,7 +47,7 @@
 
   <!-- Solving -->
   <g transform="translate(480, 235)">
-    <rect x="0" y="0" width="390" height="110" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+    <rect x="0" y="0" width="390" height="125" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
     <text x="195" y="20" class="subhead" text-anchor="middle">Solving AX = B</text>
     <g transform="translate(15, 40)">
       <text x="0" y="0" class="label">Represent: AX = B where X = [x;y]</text>

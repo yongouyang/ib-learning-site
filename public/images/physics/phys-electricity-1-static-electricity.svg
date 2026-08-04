@@ -23,7 +23,7 @@
 
   <!-- Before friction -->
   <g transform="translate(40, 90)">
-    <text x="80" y="14" text-anchor="middle" class="sublabel">Before rubbing</text>
+    <text x="80" y="4" text-anchor="middle" class="sublabel">Before rubbing</text>
 
     <!-- Rod -->
     <rect x="45" y="10" width="70" height="16" rx="4" fill="#cbd5e1" stroke="#64748b" stroke-width="2"/>
@@ -100,6 +100,23 @@
 
   <g transform="translate(440, 180)">
     <text x="150" y="10" text-anchor="middle" class="label">Charged rod attracts neutral paper</text>
+
+    <!-- Negatively charged rod -->
+    <rect x="80" y="26" width="110" height="14" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+    <circle cx="96" cy="33" r="3" fill="#ef4444"/>
+    <circle cx="116" cy="33" r="3" fill="#ef4444"/>
+    <circle cx="136" cy="33" r="3" fill="#ef4444"/>
+    <circle cx="156" cy="33" r="3" fill="#ef4444"/>
+    <circle cx="176" cy="33" r="3" fill="#ef4444"/>
+
+    <!-- Attraction arrows -->
+    <line x1="110" y1="54" x2="110" y2="44" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <line x1="160" y1="54" x2="160" y2="44" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,2"/>
+
+    <!-- Neutral paper pieces -->
+    <circle cx="105" cy="62" r="4" fill="#e5e7eb"/>
+    <circle cx="135" cy="66" r="4" fill="#e5e7eb"/>
+    <circle cx="165" cy="62" r="4" fill="#e5e7eb"/>
   </g>
 
   <!-- Uses and dangers -->

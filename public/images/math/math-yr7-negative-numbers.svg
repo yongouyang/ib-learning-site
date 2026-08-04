@@ -123,7 +123,7 @@
     <!-- Then go -3 back -->
     <line x1="255" y1="34" x2="105" y2="34" class="arr arr-neg"/>
     <polygon points="105,30 95,34 105,38" fill="#d97706"/>
-    <text x="180" y="48" class="label" fill="#d97706" text-anchor="middle">← +(−3)</text>
+    <text x="180" y="29" class="label" fill="#d97706" text-anchor="middle">← +(−3)</text>
     <!-- Result marker -->
     <circle cx="105" cy="24" r="5" fill="#2563eb"/>
     <text x="105" y="65" class="math" text-anchor="middle" fill="#2563eb">2</text>

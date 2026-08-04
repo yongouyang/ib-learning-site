@@ -93,15 +93,15 @@
   <!-- Resistance triangle -->
   <rect x="410" y="350" width="370" height="115" rx="10" class="box"/>
   <text x="595" y="372" text-anchor="middle" class="label">Ohm's Law Triangle</text>
-  <g transform="translate(500, 385)">
+  <g transform="translate(505, 378)">
     <!-- Triangle layout -->
     <line x1="25" y1="45" x2="10" y2="75" stroke="#d1d5db" stroke-width="1.5"/>
     <line x1="65" y1="45" x2="80" y2="75" stroke="#d1d5db" stroke-width="1.5"/>
     <line x1="10" y1="75" x2="80" y2="75" stroke="#d1d5db" stroke-width="1.5"/>
     <rect x="22" y="32" width="46" height="26" rx="4" fill="#fef2f2"/>
     <text x="45" y="50" text-anchor="middle" class="formula">V</text>
-    <text x="15" y="85" text-anchor="middle" class="label">I</text>
-    <text x="75" y="85" text-anchor="middle" class="label">R</text>
+    <text x="15" y="80" text-anchor="middle" class="label">I</text>
+    <text x="75" y="80" text-anchor="middle" class="label">R</text>
   </g>
-  <text x="595" y="445" text-anchor="middle" class="sublabel">Cover the one you want: V = IR, I = V/R, R = V/I</text>
+  <text x="595" y="435" text-anchor="middle" class="sublabel">Cover the one you want: V = IR, I = V/R, R = V/I</text>
 </svg>

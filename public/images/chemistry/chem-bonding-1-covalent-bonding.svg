@@ -93,23 +93,23 @@
   <!-- Intermolecular forces note -->
   <rect x="60" y="400" width="780" height="90" rx="10" class="box"/>
   <text x="450" y="428" text-anchor="middle" class="label">Simple molecular substances have weak forces between molecules</text>
-  <g transform="translate(250, 470)">
+  <g transform="translate(250, 458)">
     <circle cx="0" cy="0" r="22" class="atom-o"/>
     <text x="0" y="5" text-anchor="middle" class="sublabel" fill="white">H₂O</text>
   </g>
-  <g transform="translate(350, 470)">
+  <g transform="translate(350, 458)">
     <circle cx="0" cy="0" r="22" class="atom-o"/>
     <text x="0" y="5" text-anchor="middle" class="sublabel" fill="white">H₂O</text>
   </g>
-  <g transform="translate(450, 470)">
+  <g transform="translate(450, 458)">
     <circle cx="0" cy="0" r="25" class="atom-c"/>
-    <text x="0" y="5" text-anchor="middle" class="sublabel" fill="white">CH₄</text>
+    <text x="0" y="5" text-anchor="middle" class="sublabel" style="fill:#fff">CH₄</text>
   </g>
-  <g transform="translate(550, 470)">
+  <g transform="translate(550, 458)">
     <circle cx="0" cy="0" r="25" class="atom-c"/>
-    <text x="0" y="5" text-anchor="middle" class="sublabel" fill="white">CH₄</text>
+    <text x="0" y="5" text-anchor="middle" class="sublabel" style="fill:#fff">CH₄</text>
   </g>
-  <line x1="280" y1="470" x2="320" y2="470" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <line x1="480" y1="470" x2="520" y2="470" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="280" y1="458" x2="320" y2="458" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <line x1="480" y1="458" x2="520" y2="458" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4,3"/>
   <text x="450" y="495" text-anchor="middle" class="sublabel">Weak intermolecular forces (dashed) are easily overcome → low melting/boiling points</text>
 </svg>

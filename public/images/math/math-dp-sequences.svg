@@ -13,7 +13,7 @@
 
   <!-- Arithmetic -->
   <g transform="translate(30, 55)">
-    <rect x="0" y="0" width="420" height="160" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+    <rect x="0" y="0" width="420" height="180" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
     <text x="210" y="22" class="subhead" text-anchor="middle" fill="#1e40af">Arithmetic: constant difference d</text>
     <g transform="translate(15, 42)">
       <text x="0" y="0" class="label">Example: 3, 7, 11, 15, ...  (d = 4)</text>
@@ -27,7 +27,7 @@
 
   <!-- Geometric -->
   <g transform="translate(470, 55)">
-    <rect x="0" y="0" width="400" height="160" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+    <rect x="0" y="0" width="400" height="180" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
     <text x="200" y="22" class="subhead" text-anchor="middle" fill="#166534">Geometric: constant ratio r</text>
     <g transform="translate(15, 42)">
       <text x="0" y="0" class="label">Example: 2, 6, 18, 54, ...  (r = 3)</text>

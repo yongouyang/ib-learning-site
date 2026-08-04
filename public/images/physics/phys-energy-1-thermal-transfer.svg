@@ -63,8 +63,8 @@
     <ellipse cx="40" cy="135" rx="6" ry="10" fill="#fef08a"/>
 
     <!-- Convection arrows -->
-    <path d="M60,50 C70,65 75,80 70,100" fill="none" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrowConv)"/>
-    <path d="M20,100 C15,80 10,65 20,50" fill="none" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrowConvBlue)"/>
+    <path d="M60,50 C70,60 74,72 70,86" fill="none" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrowConv)"/>
+    <path d="M20,86 C14,72 12,60 20,50" fill="none" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#arrowConvBlue)"/>
 
     <text x="100" y="65" text-anchor="middle" class="sublabel" fill="#dc2626">Hot water Rises</text>
     <text x="100" y="80" text-anchor="middle" class="sublabel" fill="#3b82f6">Cold water Sinks</text>

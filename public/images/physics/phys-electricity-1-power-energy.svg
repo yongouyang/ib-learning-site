@@ -60,7 +60,7 @@
   <!-- Energy triangle -->
   <rect x="20" y="290" width="370" height="125" rx="10" class="box"/>
   <text x="205" y="315" text-anchor="middle" class="label">Energy Transfer Triangle</text>
-  <g transform="translate(115, 328)">
+  <g transform="translate(55, 328)">
     <text x="45" y="30" text-anchor="middle" class="formula">E</text>
     <text x="10" y="72" text-anchor="middle" class="label">P</text>
     <text x="80" y="72" text-anchor="middle" class="label">t</text>
@@ -68,7 +68,7 @@
     <line x1="68" y1="22" x2="88" y2="62" stroke="#d1d5db" stroke-width="2"/>
     <line x1="2" y1="62" x2="88" y2="62" stroke="#d1d5db" stroke-width="2"/>
   </g>
-  <text x="205" y="400" text-anchor="middle" class="sublabel">E = Pt, P = E/t, t = E/P</text>
+  <text x="250" y="400" text-anchor="middle" class="sublabel">E = Pt, P = E/t, t = E/P</text>
 
   <!-- Key conversion -->
   <rect x="410" y="290" width="370" height="125" rx="10" class="box"/>

@@ -9,16 +9,16 @@
   <text x="325" y="50" text-anchor="middle" class="s">Small/medium star</text>
   <rect x="270" y="60" width="110" height="30" rx="6" fill="#f97316"/><text x="325" y="80" text-anchor="middle" class="s">Red Giant</text>
   <line x1="325" y1="90" x2="325" y2="115" stroke="#374151" stroke-width="1.5"/>
-  <rect x="280" y="120" width="90" height="30" rx="6" fill="#d1d5db"/><text x="325" y="140" text-anchor="middle" class="s">White Dwarf</text>
+  <rect x="280" y="120" width="90" height="30" rx="6" fill="#d1d5db"/><text x="325" y="140" text-anchor="middle" class="s" style="fill:#1f2937">White Dwarf</text>
 
-  <line x1="380" y1="15" x2="430" y2="55" stroke="#374151" stroke-width="1.5"/>
-  <text x="420" y="50" text-anchor="middle" class="s">Massive star</text>
-  <rect x="440" y="60" width="110" height="30" rx="6" fill="#ef4444"/><text x="495" y="80" text-anchor="middle" class="s">Red Supergiant</text>
-  <line x1="495" y1="90" x2="495" y2="115" stroke="#374151" stroke-width="1.5"/>
-  <rect x="465" y="120" width="60" height="30" rx="6" fill="#ef4444"/><text x="495" y="140" text-anchor="middle" class="s">Supernova</text>
-  <line x1="495" y1="150" x2="495" y2="170" stroke="#374151" stroke-width="1.5"/>
-  <rect x="450" y="170" width="35" height="25" rx="4" fill="#374151"/><text x="467" y="187" text-anchor="middle" class="s" fill="white">NS/BH</text>
-  <text x="550" y="180" class="s">Neutron star or Black hole</text></g>
+  <line x1="380" y1="15" x2="436" y2="50" stroke="#374151" stroke-width="1.5"/>
+  <text x="448" y="46" class="s">Massive star</text>
+  <rect x="440" y="52" width="110" height="26" rx="6" fill="#ef4444"/><text x="495" y="70" text-anchor="middle" class="s" style="fill:#fff">Red Supergiant</text>
+  <line x1="495" y1="78" x2="495" y2="92" stroke="#374151" stroke-width="1.5"/>
+  <rect x="465" y="94" width="60" height="26" rx="6" fill="#ef4444"/><text x="495" y="112" text-anchor="middle" class="s" style="fill:#fff">Supernova</text>
+  <line x1="495" y1="120" x2="495" y2="130" stroke="#374151" stroke-width="1.5"/>
+  <rect x="450" y="132" width="35" height="24" rx="4" fill="#374151"/><text x="467" y="149" text-anchor="middle" class="s" fill="white">NS/BH</text>
+  <text x="492" y="149" class="s">Neutron star or Black hole</text></g>
   <rect x="20" y="218" width="760" height="80" rx="8" class="b"/><text x="400" y="240" text-anchor="middle" class="l">Fusion in Stars</text>
   <text x="400" y="260" text-anchor="middle" class="s">Main sequence: hydrogen → helium fusion (like our Sun). Red giant: helium → carbon/oxygen. Massive stars fuse up to iron — then go supernova!</text>
   <text x="400" y="280" text-anchor="middle" class="s">Elements heavier than iron are created in supernova explosions. We are literally made of stardust!</text></g></svg>
