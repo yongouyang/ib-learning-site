@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-07-31 — English re-map Session 2: 6 new KS3 English topics authored
+
+Git HEAD: `14d9a38` (branch `develop`, tree dirty: session-2 changes uncommitted)
+Done: authored the 6 Y8/Y9 progression topics per 2026-07-28 decisions via the BBC pipeline. (1) Extended `tools/scripts/bbc-curation-map.json` (10→16 entries) with the 6 topics + strand; ran `convert-bbc-to-topics.mjs` → staging drafts in `tools/data/_staging/english/`. (2) 6-agent authoring swarm wrote the topics (7 notes / 12 flashcards / 15 questions each, difficulty 5 easy/6 medium/4 hard, strand set, no year, own voice — BBC text reference-only): `eng-critical-reading-1` (reading — language/structure investigation, context, characterisation, symbolism, Gothic case study), `eng-grammar-2` (grammar-vocabulary — complex sentences, subordination, tense control, modals, paragraphing), `eng-punctuation-1` (grammar-vocabulary — semicolons/colons/brackets/apostrophes, clauses, quotations, direct speech), `eng-nonfiction-writing-1` (writing — register, argument, letters, reports, speeches, travel/autobiography), `eng-essay-2` (writing — introductions, conclusions, evidence, comparative essays), `eng-poetry-2` (reading — form identification, open/closed form, sonnet/ballad/limerick/haiku, personal response). Agents cross-checked sibling topics to avoid re-teaching. (3) Fixed `content-registry.test.ts` english count 17→23. Registry now 135 topics. New topics ship WITHOUT illustrations (not gate-required) — candidates for a future illustration pass.
+Verified: validate:content ✅, audit:content 0/0 ✅, tsc ✅, lint ✅, Vitest 247/247 ✅, e2e 552 passed / 0 failed ✅, content spot-checked by hand (voice/density matches exemplars).
+Next: deploy investigation (Vercel auto-deploy + Phase 7 §6 post-deploy checks; AI feedback env-gated). Backlog: DP AA, IGCSE content, design refresh. Deferred minors: math-yr7-angles label errors, illustrations for the 6 new English topics, per-subject illustration deep-dives, fill-opacity 0.85 chip global decision.
+Notes: authoring-swarm pattern that worked — per-topic prompt = staging draft path + raw BBC dir + explicit anti-overlap scope (sibling topic's note headings) + counts/difficulty contract; agents self-verify with a python count check. BBC guide quality varies: some are thin video transcripts (apostrophes, unfamiliar-vocabulary) — agents fill gaps with standard KS3 knowledge in own voice.
+
+---
+
 ## 2026-07-31 — English re-map Session 1: strand structure
 
 Git HEAD: `d4501a0` → pushed `0479a62` (branch `develop`, tree clean)

@@ -81,19 +81,25 @@ import math_yr9_standard_form_json from './data/topics/math/math-yr9-standard-fo
 import math_yr9_surds_json from './data/topics/math/math-yr9-surds.json';
 // English topics
 import eng_creative_1_json from './data/topics/english/eng-creative-1.json';
+import eng_critical_reading_1_json from './data/topics/english/eng-critical-reading-1.json';
 import eng_drama_shakespeare_json from './data/topics/english/eng-drama-shakespeare.json';
 import eng_essay_1_json from './data/topics/english/eng-essay-1.json';
+import eng_essay_2_json from './data/topics/english/eng-essay-2.json';
 import eng_figurative_1_json from './data/topics/english/eng-figurative-1.json';
 import eng_grammar_1_json from './data/topics/english/eng-grammar-1.json';
+import eng_grammar_2_json from './data/topics/english/eng-grammar-2.json';
 import eng_media_visual_literacy_json from './data/topics/english/eng-media-visual-literacy.json';
 import eng_myths_legends_json from './data/topics/english/eng-myths-legends.json';
 import eng_narrative_1_json from './data/topics/english/eng-narrative-1.json';
 import eng_nonfiction_1_json from './data/topics/english/eng-nonfiction-1.json';
+import eng_nonfiction_writing_1_json from './data/topics/english/eng-nonfiction-writing-1.json';
 import eng_novel_study_1_json from './data/topics/english/eng-novel-study-1.json';
 import eng_persuasive_1_json from './data/topics/english/eng-persuasive-1.json';
 import eng_persuasive_speaking_1_json from './data/topics/english/eng-persuasive-speaking-1.json';
 import eng_poetry_1_json from './data/topics/english/eng-poetry-1.json';
+import eng_poetry_2_json from './data/topics/english/eng-poetry-2.json';
 import eng_poetry_writing_1_json from './data/topics/english/eng-poetry-writing-1.json';
+import eng_punctuation_1_json from './data/topics/english/eng-punctuation-1.json';
 import eng_reading_1_json from './data/topics/english/eng-reading-1.json';
 import eng_speaking_1_json from './data/topics/english/eng-speaking-1.json';
 import eng_spelling_1_json from './data/topics/english/eng-spelling-1.json';
@@ -231,19 +237,25 @@ const math_yr9_quadratic_graphs: Topic = topicSchema.parse(math_yr9_quadratic_gr
 const math_yr9_standard_form: Topic = topicSchema.parse(math_yr9_standard_form_json);
 const math_yr9_surds: Topic = topicSchema.parse(math_yr9_surds_json);
 const eng_creative_1: Topic = topicSchema.parse(eng_creative_1_json);
+const eng_critical_reading_1: Topic = topicSchema.parse(eng_critical_reading_1_json);
 const eng_drama_shakespeare: Topic = topicSchema.parse(eng_drama_shakespeare_json);
 const eng_essay_1: Topic = topicSchema.parse(eng_essay_1_json);
+const eng_essay_2: Topic = topicSchema.parse(eng_essay_2_json);
 const eng_figurative_1: Topic = topicSchema.parse(eng_figurative_1_json);
 const eng_grammar_1: Topic = topicSchema.parse(eng_grammar_1_json);
+const eng_grammar_2: Topic = topicSchema.parse(eng_grammar_2_json);
 const eng_media_visual_literacy: Topic = topicSchema.parse(eng_media_visual_literacy_json);
 const eng_myths_legends: Topic = topicSchema.parse(eng_myths_legends_json);
 const eng_narrative_1: Topic = topicSchema.parse(eng_narrative_1_json);
 const eng_nonfiction_1: Topic = topicSchema.parse(eng_nonfiction_1_json);
+const eng_nonfiction_writing_1: Topic = topicSchema.parse(eng_nonfiction_writing_1_json);
 const eng_novel_study_1: Topic = topicSchema.parse(eng_novel_study_1_json);
 const eng_persuasive_1: Topic = topicSchema.parse(eng_persuasive_1_json);
 const eng_persuasive_speaking_1: Topic = topicSchema.parse(eng_persuasive_speaking_1_json);
 const eng_poetry_1: Topic = topicSchema.parse(eng_poetry_1_json);
+const eng_poetry_2: Topic = topicSchema.parse(eng_poetry_2_json);
 const eng_poetry_writing_1: Topic = topicSchema.parse(eng_poetry_writing_1_json);
+const eng_punctuation_1: Topic = topicSchema.parse(eng_punctuation_1_json);
 const eng_reading_1: Topic = topicSchema.parse(eng_reading_1_json);
 const eng_speaking_1: Topic = topicSchema.parse(eng_speaking_1_json);
 const eng_spelling_1: Topic = topicSchema.parse(eng_spelling_1_json);
@@ -315,7 +327,7 @@ const englishSubject: Subject = {
   name: englishMeta.name,
   icon: englishMeta.icon,
   accentColor: englishMeta.accentColor,
-  topics: [eng_creative_1, eng_drama_shakespeare, eng_essay_1, eng_figurative_1, eng_grammar_1, eng_media_visual_literacy, eng_myths_legends, eng_narrative_1, eng_nonfiction_1, eng_novel_study_1, eng_persuasive_1, eng_persuasive_speaking_1, eng_poetry_1, eng_poetry_writing_1, eng_reading_1, eng_speaking_1, eng_spelling_1],
+  topics: [eng_creative_1, eng_critical_reading_1, eng_drama_shakespeare, eng_essay_1, eng_essay_2, eng_figurative_1, eng_grammar_1, eng_grammar_2, eng_media_visual_literacy, eng_myths_legends, eng_narrative_1, eng_nonfiction_1, eng_nonfiction_writing_1, eng_novel_study_1, eng_persuasive_1, eng_persuasive_speaking_1, eng_poetry_1, eng_poetry_2, eng_poetry_writing_1, eng_punctuation_1, eng_reading_1, eng_speaking_1, eng_spelling_1],
 };
 const biologySubject: Subject = {
   id: biologyMeta.id as SubjectId,

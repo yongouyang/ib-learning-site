@@ -9,7 +9,12 @@
       "description": "Plotting and interpreting graphs of quadratic functions — parabolas, roots, turning points and symmetry.",
       "stage": "ks3",
       "year": 9,
-      "sources": [{ "subject": "maths", "topicSlug": "graphs" }]
+      "sources": [
+        {
+          "subject": "maths",
+          "topicSlug": "graphs"
+        }
+      ]
     },
     {
       "id": "math-yr9-quadratic-expressions",
@@ -18,7 +23,12 @@
       "description": "Expanding double brackets and factorising quadratic expressions — an introduction to quadratics.",
       "stage": "ks3",
       "year": 9,
-      "sources": [{ "subject": "maths", "topicSlug": "expressions-and-formulae" }]
+      "sources": [
+        {
+          "subject": "maths",
+          "topicSlug": "expressions-and-formulae"
+        }
+      ]
     },
     {
       "id": "math-yr9-standard-form",
@@ -27,7 +37,12 @@
       "description": "Calculating with numbers in standard index form — multiplication, division, addition and subtraction without a calculator.",
       "stage": "ks3",
       "year": 9,
-      "sources": [{ "subject": "maths", "topicSlug": "standard-index-form" }]
+      "sources": [
+        {
+          "subject": "maths",
+          "topicSlug": "standard-index-form"
+        }
+      ]
     },
     {
       "id": "math-yr9-error-intervals",
@@ -36,7 +51,12 @@
       "description": "Upper and lower bounds of rounded values, error intervals and limits of accuracy in calculations.",
       "stage": "ks3",
       "year": 9,
-      "sources": [{ "subject": "maths", "topicSlug": "rounding-and-estimating" }]
+      "sources": [
+        {
+          "subject": "maths",
+          "topicSlug": "rounding-and-estimating"
+        }
+      ]
     },
     {
       "id": "math-yr9-surds",
@@ -45,7 +65,12 @@
       "description": "Exact irrational values — simplifying surds and carrying out calculations with them.",
       "stage": "ks3",
       "year": 9,
-      "sources": [{ "subject": "maths", "topicSlug": "powers-and-roots" }]
+      "sources": [
+        {
+          "subject": "maths",
+          "topicSlug": "powers-and-roots"
+        }
+      ]
     },
     {
       "id": "math-yr9-3d-geometry",
@@ -54,7 +79,12 @@
       "description": "Volume and surface area of prisms, cylinders, cones and spheres; plans and elevations of 3D shapes.",
       "stage": "ks3",
       "year": 9,
-      "sources": [{ "subject": "maths", "topicSlug": "perimeter-area-volume" }]
+      "sources": [
+        {
+          "subject": "maths",
+          "topicSlug": "perimeter-area-volume"
+        }
+      ]
     },
     {
       "id": "chem-working-scientifically-1",
@@ -63,8 +93,14 @@
       "description": "Variables, hypotheses, planning experiments, data types, graphs and evaluation — the practical skills of KS3 chemistry.",
       "stage": "ks3",
       "sources": [
-        { "subject": "chemistry", "topicSlug": "working-scientifically" },
-        { "subject": "chemistry", "topicSlug": "how-science-works" }
+        {
+          "subject": "chemistry",
+          "topicSlug": "working-scientifically"
+        },
+        {
+          "subject": "chemistry",
+          "topicSlug": "how-science-works"
+        }
       ]
     },
     {
@@ -74,8 +110,14 @@
       "description": "Variables, hypotheses, planning experiments, data types, graphs and evaluation — the practical skills of KS3 physics.",
       "stage": "ks3",
       "sources": [
-        { "subject": "physics", "topicSlug": "working-scientifically" },
-        { "subject": "physics", "topicSlug": "think-like-a-scientist" }
+        {
+          "subject": "physics",
+          "topicSlug": "working-scientifically"
+        },
+        {
+          "subject": "physics",
+          "topicSlug": "think-like-a-scientist"
+        }
       ]
     },
     {
@@ -84,7 +126,12 @@
       "title": "Spelling Strategies",
       "description": "Spelling rules, patterns and memory strategies — homophones, common confusions and proofreading for spelling.",
       "stage": "ks3",
-      "sources": [{ "subject": "english", "topicSlug": "spelling" }]
+      "sources": [
+        {
+          "subject": "english",
+          "topicSlug": "spelling"
+        }
+      ]
     },
     {
       "id": "eng-poetry-writing-1",
@@ -92,7 +139,96 @@
       "title": "Writing Poetry",
       "description": "Composing your own poems — choosing forms, crafting imagery and sound, drafting and redrafting.",
       "stage": "ks3",
-      "sources": [{ "subject": "english", "topicSlug": "writing-poetry" }]
+      "sources": [
+        {
+          "subject": "english",
+          "topicSlug": "writing-poetry"
+        }
+      ]
+    },
+    {
+      "id": "eng-critical-reading-1",
+      "subjectId": "english",
+      "title": "Critical Reading & Text Investigation",
+      "description": "Analysing how writers create meaning — investigating language and structure in fiction and non-fiction, context, characterisation, setting, symbolism and theme.",
+      "stage": "ks3",
+      "strand": "reading",
+      "sources": [
+        {
+          "subject": "english",
+          "topicSlug": "critical-reading"
+        }
+      ]
+    },
+    {
+      "id": "eng-grammar-2",
+      "subjectId": "english",
+      "title": "Advanced Grammar & Syntax",
+      "description": "Beyond the basics — complex sentences, subordination, tense control, modal verbs, linking ideas and paragraphing for effect.",
+      "stage": "ks3",
+      "strand": "grammar-vocabulary",
+      "sources": [
+        {
+          "subject": "english",
+          "topicSlug": "grammar"
+        }
+      ]
+    },
+    {
+      "id": "eng-punctuation-1",
+      "subjectId": "english",
+      "title": "Punctuation Mastery",
+      "description": "Precision punctuation — semicolons, colons, brackets, apostrophes, punctuating clauses, quotations and direct speech.",
+      "stage": "ks3",
+      "strand": "grammar-vocabulary",
+      "sources": [
+        {
+          "subject": "english",
+          "topicSlug": "punctuation"
+        }
+      ]
+    },
+    {
+      "id": "eng-nonfiction-writing-1",
+      "subjectId": "english",
+      "title": "Writing Non-Fiction",
+      "description": "Crafting real-world texts — formal letters, newspaper reports, speeches, travel articles and autobiography, with control of formality and argument.",
+      "stage": "ks3",
+      "strand": "writing",
+      "sources": [
+        {
+          "subject": "english",
+          "topicSlug": "non-fiction-writing"
+        }
+      ]
+    },
+    {
+      "id": "eng-essay-2",
+      "subjectId": "english",
+      "title": "Essay Craft: Openings, Endings & Comparison",
+      "description": "Taking essays further — writing introductions and conclusions, using evidence from texts, and structuring comparative essays.",
+      "stage": "ks3",
+      "strand": "writing",
+      "sources": [
+        {
+          "subject": "english",
+          "topicSlug": "essay-writing"
+        }
+      ]
+    },
+    {
+      "id": "eng-poetry-2",
+      "subjectId": "english",
+      "title": "Reading Poetry: Form & Response",
+      "description": "Reading poems closely — identifying form, open and closed forms, sonnets, ballads, limericks and haiku, imagery, and developing a personal response.",
+      "stage": "ks3",
+      "strand": "reading",
+      "sources": [
+        {
+          "subject": "english",
+          "topicSlug": "reading-poetry"
+        }
+      ]
     }
   ]
 }
