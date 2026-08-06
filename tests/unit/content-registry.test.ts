@@ -6,7 +6,7 @@ const EXPECTED_TOPIC_COUNTS: Record<SubjectId, number> = {
   math: 74,
   biology: 13,
   chemistry: 12,
-  english: 23,
+  english: 25,
   physics: 13,
 };
 

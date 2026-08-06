@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-07-31 — More BBC-pipeline English: eng-creative-2 + eng-spoken-language-1
+
+Git HEAD: `303f007` (branch `develop`, tree dirty: committing below)
+Done: scoped the remaining BBC English dirs and authored 2 more topics. Scope decisions: `literature/` (18 novel-specific guides) EXCLUDED — text-dependent, same rationale as the Shakespeare play dirs (2026-07-28); `fiction-texts/` (1 guide) is a duplicate of the essay-writing comparison guide already used in eng-essay-2. Authored via the established pipeline (map → staging → authoring swarm): `eng-creative-2` "Fiction Writing: Craft & Style" (writing — precision word choice, figurative language for effect, sound devices, sentence-length pacing, fragments, narrative structure, narrative voice) and `eng-spoken-language-1` "Spoken Language & Variation" (spoken-english — accent/dialect, Standard English/RP, slang/sociolect, multi-modal language, accent bias, code-switching). Curation map 16→18 entries. **Session interrupted mid-swarm by user**: the eng-creative-2 agent had written its file but not tagged difficulty — parent verified the file (7/12/15, strand, scope) and tagged all 15 questions by hand (5 easy/6 medium/4 hard). Registry 137 topics; english 25 (test count 23→25).
+Verified: validate:content ✅, audit:content 0/0 ✅, tsc ✅, lint ✅, Vitest 247/247 ✅, eng-creative-2 content spot-checked by hand (quality good despite aborted agent). E2E: see commit message / next entry.
+Next: deploy investigation (Vercel auto-deploy + Phase 7 §6; AI feedback env-gated). Backlog: DP AA, IGCSE content, design refresh. Deferred minors: math-yr7-angles label errors, illustrations for the 8 newest English topics, per-subject illustration deep-dives, fill-opacity 0.85 chip global decision. BBC English pipeline now exhausted except excluded dirs (literature/, Shakespeare plays) — further English topics need a different source.
+Notes: an aborted authoring agent can leave a COMPLETE-but-unverified file — always verify counts/strand/difficulty before shipping (this one was sound except missing difficulty tags).
+
+---
+
 ## 2026-07-31 — English re-map Session 2: 6 new KS3 English topics authored
 
 Git HEAD: `14d9a38` → pushed `4da7132` (branch `develop`, tree clean)

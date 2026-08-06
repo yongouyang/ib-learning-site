@@ -81,6 +81,7 @@ import math_yr9_standard_form_json from './data/topics/math/math-yr9-standard-fo
 import math_yr9_surds_json from './data/topics/math/math-yr9-surds.json';
 // English topics
 import eng_creative_1_json from './data/topics/english/eng-creative-1.json';
+import eng_creative_2_json from './data/topics/english/eng-creative-2.json';
 import eng_critical_reading_1_json from './data/topics/english/eng-critical-reading-1.json';
 import eng_drama_shakespeare_json from './data/topics/english/eng-drama-shakespeare.json';
 import eng_essay_1_json from './data/topics/english/eng-essay-1.json';
@@ -103,6 +104,7 @@ import eng_punctuation_1_json from './data/topics/english/eng-punctuation-1.json
 import eng_reading_1_json from './data/topics/english/eng-reading-1.json';
 import eng_speaking_1_json from './data/topics/english/eng-speaking-1.json';
 import eng_spelling_1_json from './data/topics/english/eng-spelling-1.json';
+import eng_spoken_language_1_json from './data/topics/english/eng-spoken-language-1.json';
 // Biology topics
 import bio_body_1_json from './data/topics/biology/bio-body-1.json';
 import bio_cell_1_json from './data/topics/biology/bio-cell-1.json';
@@ -237,6 +239,7 @@ const math_yr9_quadratic_graphs: Topic = topicSchema.parse(math_yr9_quadratic_gr
 const math_yr9_standard_form: Topic = topicSchema.parse(math_yr9_standard_form_json);
 const math_yr9_surds: Topic = topicSchema.parse(math_yr9_surds_json);
 const eng_creative_1: Topic = topicSchema.parse(eng_creative_1_json);
+const eng_creative_2: Topic = topicSchema.parse(eng_creative_2_json);
 const eng_critical_reading_1: Topic = topicSchema.parse(eng_critical_reading_1_json);
 const eng_drama_shakespeare: Topic = topicSchema.parse(eng_drama_shakespeare_json);
 const eng_essay_1: Topic = topicSchema.parse(eng_essay_1_json);
@@ -259,6 +262,7 @@ const eng_punctuation_1: Topic = topicSchema.parse(eng_punctuation_1_json);
 const eng_reading_1: Topic = topicSchema.parse(eng_reading_1_json);
 const eng_speaking_1: Topic = topicSchema.parse(eng_speaking_1_json);
 const eng_spelling_1: Topic = topicSchema.parse(eng_spelling_1_json);
+const eng_spoken_language_1: Topic = topicSchema.parse(eng_spoken_language_1_json);
 const bio_body_1: Topic = topicSchema.parse(bio_body_1_json);
 const bio_cell_1: Topic = topicSchema.parse(bio_cell_1_json);
 const bio_classification_1: Topic = topicSchema.parse(bio_classification_1_json);
@@ -327,7 +331,7 @@ const englishSubject: Subject = {
   name: englishMeta.name,
   icon: englishMeta.icon,
   accentColor: englishMeta.accentColor,
-  topics: [eng_creative_1, eng_critical_reading_1, eng_drama_shakespeare, eng_essay_1, eng_essay_2, eng_figurative_1, eng_grammar_1, eng_grammar_2, eng_media_visual_literacy, eng_myths_legends, eng_narrative_1, eng_nonfiction_1, eng_nonfiction_writing_1, eng_novel_study_1, eng_persuasive_1, eng_persuasive_speaking_1, eng_poetry_1, eng_poetry_2, eng_poetry_writing_1, eng_punctuation_1, eng_reading_1, eng_speaking_1, eng_spelling_1],
+  topics: [eng_creative_1, eng_creative_2, eng_critical_reading_1, eng_drama_shakespeare, eng_essay_1, eng_essay_2, eng_figurative_1, eng_grammar_1, eng_grammar_2, eng_media_visual_literacy, eng_myths_legends, eng_narrative_1, eng_nonfiction_1, eng_nonfiction_writing_1, eng_novel_study_1, eng_persuasive_1, eng_persuasive_speaking_1, eng_poetry_1, eng_poetry_2, eng_poetry_writing_1, eng_punctuation_1, eng_reading_1, eng_speaking_1, eng_spelling_1, eng_spoken_language_1],
 };
 const biologySubject: Subject = {
   id: biologyMeta.id as SubjectId,

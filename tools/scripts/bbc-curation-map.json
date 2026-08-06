@@ -229,6 +229,37 @@
           "topicSlug": "reading-poetry"
         }
       ]
+    },
+    {
+      "id": "eng-creative-2",
+      "subjectId": "english",
+      "title": "Fiction Writing: Craft & Style",
+      "description": "Advanced fiction craft — descriptive writing, linguistic devices for effect, sentence control for tension, structure for effect, and narrative voice.",
+      "stage": "ks3",
+      "strand": "writing",
+      "sources": [
+        {
+          "subject": "english",
+          "topicSlug": "fiction-writing",
+          "excludeGuides": [
+            "how-to-investigate-structure-in-fiction-texts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eng-spoken-language-1",
+      "subjectId": "english",
+      "title": "Spoken Language & Variation",
+      "description": "How spoken English varies — accent, dialect, slang and multi-modal language — and using that awareness in discussion, debate and speech delivery.",
+      "stage": "ks3",
+      "strand": "spoken-english",
+      "sources": [
+        {
+          "subject": "english",
+          "topicSlug": "spoken-english"
+        }
+      ]
     }
   ]
 }
