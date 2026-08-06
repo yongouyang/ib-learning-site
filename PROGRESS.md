@@ -8,7 +8,7 @@
 
 ## 2026-08-06 — Illustrations for the 8 newest KS3 English topics
 
-Git HEAD: `803ef3c` (branch `develop`, tree dirty: committing below)
+Git HEAD: `803ef3c` → pushed `3eeb230` (branch `develop`, tree clean)
 Done: committed last session's pending work first (eng-creative-2 + eng-spoken-language-1 → `803ef3c`). Then added ONE house-style SVG per topic (8-agent coder swarm, each wired into the most diagrammable note; all 8 previously shipped illustration-less): eng-critical-reading-1 → four-step analysis method flow (n1); eng-grammar-2 → complex sentence + comma rule, both clause orders (n2); eng-punctuation-1 → joining independent clauses 3 correct ways vs comma splice (n2); eng-nonfiction-writing-1 → formal letter layout, labelled (n4); eng-essay-2 → point-by-point vs block comparative structures (n7); eng-poetry-2 → form-identification flowchart (4 checks → sonnet/ballad/limerick/haiku/open form, n1); eng-creative-2 → sentence-length tension curve (n4); eng-spoken-language-1 → accent vs dialect comparison (n1). Each agent read the full note bodies (diagrams use the notes' exact examples/terminology), validated, rendered, and eyeballed its own PNG. Parent re-rendered all 23 English SVGs and visually reviewed the 8 new ones — clean.
 Verified: validate:illustrations ✅ (312), validate:illustration-layout ✅ (0 issues), validate:content ✅, audit:content 0/0 ✅, tsc ✅, lint ✅, Vitest 247/247 ✅, e2e 576 passed / 21 skipped / 0 failed ✅.
 Next: deploy investigation (Vercel auto-deploy + Phase 7 §6; AI feedback env-gated). Backlog: DP AA, IGCSE content, design refresh. Deferred minors: math-yr7-angles label errors, per-subject illustration deep-dives, fill-opacity 0.85 chip global decision.
