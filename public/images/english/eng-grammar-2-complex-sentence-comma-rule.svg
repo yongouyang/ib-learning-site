@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Anatomy of a complex sentence and the comma rule</title>
+  <desc id="desc">Two versions of one complex sentence. When the subordinate clause comes first — 'Although it was dark, Lily kept walking.' — a comma separates it from the main clause. When the main clause comes first — 'Lily kept walking although it was dark.' — no comma is needed. The subordinating conjunction 'although' attaches the subordinate clause to the main clause.</desc>
+
+  <rect x="0" y="0" width="800" height="520" fill="#f8fafc"/>
+
+  <!-- Row 1: subordinate clause first -->
+  <g font-family="system-ui, -apple-system, sans-serif">
+    <!-- Heading chip -->
+    <rect x="535" y="40" width="240" height="26" rx="4" fill="#f1f5f9"/>
+    <text x="655" y="58" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">Subordinate clause comes first</text>
+
+    <!-- Comma label chip -->
+    <rect x="285" y="40" width="240" height="26" rx="4" fill="#f1f5f9"/>
+    <text x="405" y="58" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">comma after subordinate clause</text>
+    <line x1="405" y1="66" x2="403" y2="105" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Subordinate clause box -->
+    <rect x="70" y="90" width="300" height="60" rx="6" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+    <text x="127" y="127" font-size="18" font-weight="700" fill="#b45309" textLength="80">Although</text>
+    <text x="213" y="127" font-size="18" fill="#1e293b" textLength="100">it was dark</text>
+
+    <!-- Comma marker -->
+    <circle cx="397" cy="120" r="13" fill="#f59e0b"/>
+    <text x="397" y="127" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">,</text>
+
+    <!-- Main clause box -->
+    <rect x="425" y="90" width="300" height="60" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="575" y="127" font-size="18" fill="#1e293b" text-anchor="middle">Lily kept walking.</text>
+
+    <!-- Clause labels -->
+    <rect x="95" y="185" width="250" height="26" rx="4" fill="#f1f5f9"/>
+    <text x="220" y="203" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">subordinate clause (dependent)</text>
+    <line x1="220" y1="185" x2="220" y2="152" stroke="#6b7280" stroke-width="1.5"/>
+
+    <rect x="450" y="185" width="250" height="26" rx="4" fill="#f1f5f9"/>
+    <text x="575" y="203" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">main clause (independent)</text>
+    <line x1="575" y1="185" x2="575" y2="152" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+
+  <!-- Row 2: main clause first -->
+  <g font-family="system-ui, -apple-system, sans-serif">
+    <!-- Heading chip -->
+    <rect x="60" y="272" width="270" height="26" rx="4" fill="#f1f5f9"/>
+    <text x="195" y="290" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">Main clause comes first → no comma</text>
+
+    <!-- Main clause box -->
+    <rect x="70" y="320" width="300" height="60" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="220" y="357" font-size="18" fill="#1e293b" text-anchor="middle">Lily kept walking</text>
+
+    <!-- Junction marker (no comma) -->
+    <circle cx="385" cy="350" r="5" fill="#ffffff" stroke="#6b7280" stroke-width="1.5"/>
+
+    <!-- Subordinate clause box -->
+    <rect x="400" y="320" width="320" height="60" rx="6" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+    <text x="470" y="357" font-size="18" font-weight="700" fill="#b45309" textLength="76">although</text>
+    <text x="552" y="357" font-size="18" fill="#1e293b" textLength="106">it was dark.</text>
+
+    <!-- Labels -->
+    <rect x="250" y="420" width="270" height="26" rx="4" fill="#f1f5f9"/>
+    <text x="385" y="438" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">no comma — main clause comes first</text>
+    <line x1="385" y1="420" x2="385" y2="357" stroke="#6b7280" stroke-width="1.5"/>
+
+    <rect x="540" y="420" width="210" height="26" rx="4" fill="#f1f5f9"/>
+    <text x="645" y="438" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">subordinating conjunction</text>
+    <line x1="645" y1="420" x2="500" y2="382" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+</svg>

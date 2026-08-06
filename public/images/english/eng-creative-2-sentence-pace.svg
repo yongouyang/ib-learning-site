@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Sentence length controlling pace and tension</title>
+  <desc id="desc">A tension curve showing how a long, multi-clause sentence slows the pace and lets tension build gradually, then a short sentence lands like a punch and spikes the tension. The contrast between the two creates the impact.</desc>
+
+  <rect x="0" y="0" width="800" height="520" fill="#f8fafc"/>
+
+  <!-- Example panels -->
+  <rect x="40" y="35" width="430" height="120" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="510" y="35" width="250" height="120" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- Chart axes -->
+  <line x1="90" y1="460" x2="90" y2="212" stroke="#94a3b8" stroke-width="2"/>
+  <polygon points="85,220 95,220 90,208" fill="#94a3b8"/>
+  <line x1="90" y1="460" x2="748" y2="460" stroke="#94a3b8" stroke-width="2"/>
+  <polygon points="740,455 740,465 752,460" fill="#94a3b8"/>
+
+  <!-- Tension curve: slow build during the long sentence -->
+  <path d="M 110 425 C 160 418 200 412 240 404 C 290 394 330 382 370 368 C 410 353 440 330 470 308 C 495 290 520 268 540 255 C 552 246 558 240 565 235"
+        fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Tension spike: the short sentence lands like a punch -->
+  <path d="M 565 235 L 592 172 L 608 212 L 626 188"
+        fill="none" stroke="#dc2626" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="626" cy="188" r="4" fill="#dc2626"/>
+
+  <!-- Panel headers (chips) -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e293b">
+    <rect x="56" y="49" width="212" height="24" rx="4" fill="#f1f5f9"/>
+    <text x="162" y="66" text-anchor="middle">Long sentence — slow build</text>
+    <rect x="517" y="49" width="236" height="24" rx="4" fill="#f1f5f9"/>
+    <text x="635" y="66" text-anchor="middle">Short sentences — sudden punch</text>
+  </g>
+
+  <!-- Panel quotes (examples taken from the notes) -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="13" font-style="italic" fill="#334155">
+    <text x="58" y="100">She edged along the corridor, one hand trailing the damp</text>
+    <text x="58" y="119">wall, counting every door, telling herself the noises were</text>
+    <text x="58" y="138">only pipes, only the wind, only the house settling.</text>
+    <text x="528" y="130">Had they gone? Was it safe?</text>
+  </g>
+  <text x="528" y="104" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" font-style="italic" fill="#dc2626">Help!</text>
+
+  <!-- Leader lines -->
+  <line x1="275" y1="155" x2="275" y2="388" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="640" y1="155" x2="598" y2="176" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="558" y1="400" x2="558" y2="248" stroke="#6b7280" stroke-width="1.5"/>
+
+  <!-- Chart labels (chips) -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e293b">
+    <rect x="20" y="176" width="80" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="60" y="193" text-anchor="middle">Tension</text>
+    <rect x="370" y="400" width="240" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="490" y="417" text-anchor="middle">The contrast creates the impact</text>
+    <rect x="630" y="478" width="110" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="685" y="495" text-anchor="middle">Reading time</text>
+  </g>
+</svg>

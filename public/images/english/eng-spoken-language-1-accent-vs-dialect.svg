@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Accent vs dialect: pronunciation vs vocabulary and grammar</title>
+  <desc id="desc">A two-column comparison. Accent is how you pronounce words — sounds, stress and pitch — for example 'bath' with a long vowel in Somerset and a short vowel in Leeds; an accent cannot be written down. Dialect is the vocabulary and grammar a group uses — for example a bread roll is a 'barm' in Salford, a 'cob' in Nottingham or a 'bap' in Belfast, and 'I were' is used in Yorkshire; dialect can be written down. Everyone has both an accent and a dialect.</desc>
+
+  <rect x="0" y="0" width="800" height="500" fill="#f8fafc"/>
+
+  <!-- Left panel: Accent -->
+  <rect x="40" y="55" width="350" height="350" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="40" y="55" width="350" height="44" rx="6" fill="#3b82f6"/>
+  <rect x="40" y="77" width="350" height="22" fill="#3b82f6"/>
+  <text x="215" y="84" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">ACCENT</text>
+
+  <text x="215" y="128" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">HOW you pronounce words</text>
+  <text x="215" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#475569" text-anchor="middle">sounds · stress · pitch</text>
+
+  <rect x="60" y="172" width="310" height="82" rx="4" fill="#f1f5f9"/>
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#1e293b">
+    <text x="74" y="196" font-weight="600">Example — 'bath':</text>
+    <text x="74" y="217">long vowel in Somerset</text>
+    <text x="74" y="237">short vowel in Leeds</text>
+  </g>
+  <text x="215" y="286" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-style="italic" fill="#475569" text-anchor="middle">Neither is right or wrong.</text>
+
+  <!-- Speech bubble with sound waves -->
+  <g>
+    <rect x="180" y="302" width="70" height="36" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <polygon points="196,336 190,352 210,337" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" stroke-linejoin="round"/>
+    <line x1="192" y1="314" x2="238" y2="314" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+    <line x1="192" y1="326" x2="226" y2="326" stroke="#3b82f6" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 258 312 A 14 14 0 0 1 258 328" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 264 306 A 22 22 0 0 1 264 334" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <rect x="60" y="362" width="310" height="34" rx="4" fill="#f1f5f9" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="215" y="384" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#1e293b" text-anchor="middle">Pronunciation only — can't be written down</text>
+
+  <!-- Right panel: Dialect -->
+  <rect x="410" y="55" width="350" height="350" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="410" y="55" width="350" height="44" rx="6" fill="#10b981"/>
+  <rect x="410" y="77" width="350" height="22" fill="#10b981"/>
+  <text x="585" y="84" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">DIALECT</text>
+
+  <text x="585" y="128" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">the WORDS and GRAMMAR a group uses</text>
+  <text x="585" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#475569" text-anchor="middle">vocabulary + grammar</text>
+
+  <rect x="430" y="160" width="310" height="96" rx="4" fill="#f1f5f9"/>
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#1e293b">
+    <text x="444" y="182" font-weight="600">Vocabulary — a bread roll is a:</text>
+    <text x="444" y="203">'barm' (Salford) · 'cob' (Nottingham)</text>
+    <text x="444" y="223">'bap' (Belfast) · 'batch' (Coventry)</text>
+    <text x="444" y="243">'roll' (London)</text>
+  </g>
+
+  <rect x="430" y="266" width="310" height="76" rx="4" fill="#f1f5f9"/>
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#1e293b">
+    <text x="444" y="288" font-weight="600">Grammar:</text>
+    <text x="444" y="308">'I were' instead of 'I was' (Yorkshire)</text>
+    <text x="444" y="328">'yous' = plural 'you' (Liverpool, Glasgow)</text>
+  </g>
+
+  <rect x="430" y="362" width="310" height="34" rx="4" fill="#f1f5f9" stroke="#10b981" stroke-width="1.5"/>
+  <text x="585" y="384" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#1e293b" text-anchor="middle">Vocabulary + grammar — can be written down</text>
+
+  <!-- VS badge between panels -->
+  <circle cx="400" cy="230" r="18" fill="#ffffff" stroke="#6b7280" stroke-width="1.5"/>
+  <text x="400" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#475569" text-anchor="middle">vs</text>
+
+  <!-- Key distinction summary -->
+  <rect x="110" y="420" width="580" height="56" rx="4" fill="#f1f5f9"/>
+  <text x="400" y="443" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">Accent = pronunciation only · Dialect = vocabulary + grammar</text>
+  <text x="400" y="464" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#475569" text-anchor="middle">Everyone has both an accent and a dialect — no 'accent-free' English.</text>
+</svg>

@@ -149,3 +149,4 @@ Open `illustration-previews/index.html` for a grid grouped by subject, or sweep 
 | Labels clipped by the SVG edge | Text is lost when the diagram is embedded. |
 | Raster images (PNG/JPG) for diagrams | Blurry on retina and larger file sizes. |
 | Missing `alt` or `<desc>` | Screen readers and search engines lose context. |
+| Inline `<tspan>` runs to style part of a text | The layout validator measures each tspan as a separate box and flags them as overlapping. Use separate `<text>` elements with explicit `x`, or move the highlight into a badge/pill. |
