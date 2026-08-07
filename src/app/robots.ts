@@ -1,5 +1,8 @@
 import type { MetadataRoute } from 'next';
 
+// Static by nature; force-static lets `output: 'export'` (build:static) emit it.
+export const dynamic = 'force-static';
+
 // Normal crawling stays open (we want to be found), but known AI-training
 // crawlers are disallowed site-wide. Courtesy-level protection only — see
 // phase-7-implementation-plan.md §8.

@@ -1,5 +1,8 @@
 import type { MetadataRoute } from 'next';
 
+// Static by nature; force-static lets `output: 'export'` (build:static) emit it.
+export const dynamic = 'force-static';
+
 // Palette: brand blue = Tailwind blue-600 (#2563eb, used for links/accents),
 // background = light body background (bg-gray-50, #f9fafb). Dark theme is left
 // to the OS / prefers-color-scheme media handling.

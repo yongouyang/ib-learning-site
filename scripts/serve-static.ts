@@ -1,0 +1,117 @@
+// Local stand-in for the S3 + CloudFront topology (aws-deployment-plan.md §2),
+// used by `npm run test:e2e:static` — NOT for production:
+//   /*           → static export in out/ (like CloudFront's S3 origin:
+//                 dir/index.html resolution, 404 → /404.html with 404 status)
+//   /api/feedback → the real Next route handler (like the /api/* Lambda
+//                 behavior; the Lambda ports this handler 1:1 in Session 3)
+// Run with tsx so the handler's `@/` imports resolve via tsconfig paths.
+
+import http from 'node:http';
+import { createReadStream, existsSync, statSync } from 'node:fs';
+import path from 'node:path';
+
+const outDir = path.resolve(process.cwd(), 'out');
+const portArg = process.argv.indexOf('--port');
+const port = portArg !== -1 ? Number(process.argv[portArg + 1]) : 3000;
+
+if (!existsSync(outDir)) {
+  console.error('[serve-static] out/ not found — run `npm run build:static` first.');
+  process.exit(1);
+}
+
+const MIME: Record<string, string> = {
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.json': 'application/json',
+  '.webmanifest': 'application/manifest+json',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.ico': 'image/x-icon',
+  '.txt': 'text/plain; charset=utf-8',
+  '.woff2': 'font/woff2',
+};
+
+// Resolve a URL path to a file in out/, mirroring CloudFront+S3 with the
+// extensionless-URL export: /foo → /foo.html (the Session-2 CloudFront
+// Function does the same rewrite); /foo/ and / also resolve to index.html.
+function resolveFile(urlPath: string): string | null {
+  const decoded = decodeURIComponent(urlPath);
+  const resolved = path.resolve(outDir, '.' + decoded);
+  if (!resolved.startsWith(outDir + path.sep) && resolved !== outDir) return null;
+
+  const candidates = [resolved, path.join(resolved, 'index.html'), resolved + '.html'];
+  for (const candidate of candidates) {
+    if (existsSync(candidate) && statSync(candidate).isFile()) return candidate;
+  }
+  return null;
+}
+
+type FeedbackRoute = {
+  GET: (req: Request) => Promise<Response>;
+  POST: (req: Request) => Promise<Response>;
+};
+
+async function handleFeedback(req: http.IncomingMessage, res: http.ServerResponse) {
+  // Computed specifier on purpose: `next build` type-checks this script while
+  // build-static.sh has src/app/api stashed aside, so a static import path
+  // would fail to resolve at build time.
+  const routeModule = '../src/app/api/feedback/route';
+  const route = (await import(routeModule)) as FeedbackRoute;
+
+  const chunks: Buffer[] = [];
+  for await (const chunk of req) chunks.push(chunk as Buffer);
+  const body = Buffer.concat(chunks);
+
+  const headers = new Headers();
+  for (const [key, value] of Object.entries(req.headers)) {
+    if (typeof value === 'string') headers.set(key, value);
+  }
+  headers.set('x-forwarded-for', req.socket.remoteAddress ?? 'local');
+
+  const webReq = new Request(`http://localhost:${port}/api/feedback`, {
+    method: req.method,
+    headers,
+    body: body.length > 0 ? body : undefined,
+  });
+  const handler = req.method === 'POST' ? route.POST : route.GET;
+  const webRes = await handler(webReq);
+
+  res.writeHead(webRes.status, Object.fromEntries(webRes.headers.entries()));
+  res.end(Buffer.from(await webRes.arrayBuffer()));
+}
+
+const server = http.createServer((req, res) => {
+  const url = new URL(req.url ?? '/', `http://localhost:${port}`);
+
+  if (url.pathname === '/api/feedback') {
+    handleFeedback(req, res).catch((err) => {
+      console.error('[serve-static] /api/feedback error:', err);
+      res.writeHead(500, { 'content-type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Internal error' }));
+    });
+    return;
+  }
+  if (url.pathname.startsWith('/api/')) {
+    res.writeHead(404, { 'content-type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Not found' }));
+    return;
+  }
+
+  const file = resolveFile(url.pathname);
+  if (file) {
+    res.writeHead(200, { 'content-type': MIME[path.extname(file)] ?? 'application/octet-stream' });
+    createReadStream(file).pipe(res);
+    return;
+  }
+
+  // CloudFront custom error response: 404 → app 404, status preserved (§8).
+  const notFound = path.join(outDir, '404.html');
+  res.writeHead(404, { 'content-type': MIME['.html'] });
+  if (existsSync(notFound)) createReadStream(notFound).pipe(res);
+  else res.end('Not found');
+});
+
+server.listen(port, () => {
+  console.log(`[serve-static] Serving out/ + /api/feedback on http://localhost:${port}`);
+});

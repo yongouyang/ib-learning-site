@@ -58,9 +58,15 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: process.env.E2E_PROD
-      ? `npm start -- --port ${port}`
-      : `npm run dev -- --port ${port}`,
+    // E2E_STATIC=1 serves the static export (out/) + the real /api/feedback
+    // handler via scripts/serve-static.ts — a local stand-in for the S3 +
+    // CloudFront + Lambda topology. Pattern:
+    //   npm run test:e2e:static   (build:static + E2E_STATIC=1 E2E_PROD=1)
+    command: process.env.E2E_STATIC
+      ? `npx tsx scripts/serve-static.ts --port ${port}`
+      : process.env.E2E_PROD
+        ? `npm start -- --port ${port}`
+        : `npm run dev -- --port ${port}`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: process.env.E2E_PROD ? 120000 : 60000,

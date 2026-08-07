@@ -31,6 +31,7 @@ npm run validate:illustration-layout
 npm run audit:content          # fails on any warning
 npm test                       # Vitest unit tests
 npm run test:e2e               # Playwright (auto-starts dev server)
+npm run test:e2e:static        # static-export build + full suite against out/ (pre-deploy gate)
 ```
 
 ## Conventions
@@ -45,5 +46,6 @@ npm run test:e2e               # Playwright (auto-starts dev server)
 - Topic taxonomy: `stage` (ks3/igcse/dp) + optional `year`/`course`/`level`/`strand` (strand = KS3 English only: reading/writing/grammar-vocabulary/spoken-english, grouped on the subject page) — see `CONTENT_STYLE.md` ("Stage & course tagging" and ID conventions). `ibLevel` was retired in the Phase 1 migration (2026-07).
 - Roadmap: `revised-implementation-plan.md` (phases) and `phase-1-implementation-plan.md`.
 - BBC reference pipeline (Phase 1.5): `tools/scripts/scrape-bbc-ks3.mjs` scrapes to `tools/data/`; `tools/scripts/convert-bbc-to-topics.mjs` (map: `tools/scripts/bbc-curation-map.json`) writes reference drafts to `tools/data/_staging/`. BBC text is **reference only** — notes are rewritten in our own voice, flashcards/questions authored, before anything lands in `src/content/data/topics/`. Out-of-scope subjects are archived in `tools/data/_archive/`.
-- Deploy: Vercel, automatic on push to `develop`.
+- Deploy: **none currently live** (corrected 2026-08-06 — there is no Vercel account or Vercel↔GitHub integration; the earlier "auto-deploy on push to `develop`" note was wrong). Target: AWS — S3 + CloudFront + Lambda, Terraform, no custom domain initially. Plan: `aws-deployment-plan.md`.
+- Static export (AWS pre-deploy): `npm run build:static` sets `BUILD_EXPORT=1` (`output: 'export'` in `next.config.mjs`; URLs stay extensionless — `page.html` files, mapped by a CloudFront Function in Session 2) and stashes `src/app/api/` aside for the build (export rejects the non-static route handler; it stays the dev/e2e path). `npm run test:e2e:static` runs the full suite + PWA spec against `out/` served by `scripts/serve-static.ts`, which mimics the CloudFront topology: static files like the S3 origin, `/api/feedback` delegated to the real route handler like the `/api/*` Lambda behavior.
 - PWA (Phase 7): service worker is hand-rolled in `public/sw.js` (no workbox/serwist) — bump `CACHE_VERSION` only when the caching *strategy* changes, never per deploy. SW registration and the update toast are prod-gated (`NODE_ENV === 'production'`; unit tests use `vi.stubEnv`). SW e2e lives in `tests/e2e/pwa.spec.ts` and only runs under the prod-build pattern: `npm run build && E2E_PROD=1 npx playwright test tests/e2e/pwa.spec.ts --project='Desktop Chrome'`. Regenerate icons with `node scripts/generate-icons.mjs` after changing `public/icons/icon.svg`.
