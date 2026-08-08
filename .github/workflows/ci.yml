@@ -1,10 +1,23 @@
-name: CI
+name: CI/CD
+
+# Single pipeline: build-and-test → e2e (per-device matrix) → deploy.
+# Deploy runs only on pushes to develop (or manual dispatch on develop) and
+# only after the full gate chain is green — e2e included. (Amended 2026-08:
+# e2e used to stay out of the deploy path because it took 20+ min; the
+# device matrix keeps it under ~10 min, so it is now a deploy gate.)
+# Deploy details: aws-deployment-plan.md §6. Auth via GitHub OIDC (no stored
+# AWS keys) — the role is managed by terraform/modules/ci and trusts only
+# this repo @ develop.
 
 on:
   push:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build-and-test:
@@ -41,6 +54,12 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     needs: build-and-test
+    strategy:
+      # Don't cancel the other device jobs when one fails — we want the full
+      # per-device picture in a single run.
+      fail-fast: false
+      matrix:
+        project: ['iPhone SE', 'iPad Pro', 'Desktop Chrome']
 
     steps:
       - name: Checkout
@@ -55,9 +74,123 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # All three projects run under Chromium (iPhone/iPad devices set
+      # defaultBrowserType: 'chromium'), so skip Firefox/WebKit downloads.
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ hashFiles('package-lock.json') }}
+
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install --with-deps chromium
 
-      - name: Run e2e tests
-        run: npm run test:e2e
+      - name: Run e2e tests (${{ matrix.project }})
+        run: npx playwright test --project="${{ matrix.project }}"
 
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.project }}
+          path: playwright-report/
+          retention-days: 7
+
+  deploy:
+    needs: [build-and-test, e2e]
+    # Pushes/dispatches on develop only — never PRs, never main.
+    if: >-
+      github.ref == 'refs/heads/develop' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    concurrency:
+      group: deploy-prod
+      cancel-in-progress: false
+    env:
+      AWS_REGION: ap-east-1
+      SITE_URL: https://d2c1g77zfmjpm3.cloudfront.net
+      SITE_BUCKET: iblearn-site-305655353474
+      DISTRIBUTION_ID: E1BMVEW6YOKNUY
+      # Feedback Lambda env (FEEDBACK_PROVIDER / FEEDBACK_API_KEY / ...). Until
+      # the Moonshot key decision: leave the FEEDBACK_ENV secret unset →
+      # unconfigured (GET {configured:false}, POST 501, "Mark with AI" hidden).
+      # When decided, add e.g.
+      # {"FEEDBACK_PROVIDER":"openai-compatible","FEEDBACK_API_KEY":"sk-..."}.
+      TF_VAR_feedback_env: ${{ secrets.FEEDBACK_ENV || '{}' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The layout validator (diagnose-illustrations.mjs) renders SVGs with
+      # headless Chromium — browsers are not preinstalled on the runner.
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      # Illustration gates unique to deploy (CI's build-and-test covers
+      # validate:content, audit, lint, vitest). Re-run everything anyway —
+      # cheap, and keeps this job self-contained if the CI jobs change.
+      - name: Quality gates
+        run: |
+          npm run validate:content
+          npm run validate:illustrations
+          npm run validate:illustration-layout
+          npm run audit:content
+          npm test
+
+      - name: Build static export
+        run: npm run build:static
+
+      - name: Build feedback Lambda zip
+        run: npm run build:lambda
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          # Repo variable preferred; secret accepted as fallback (the role
+          # ARN is not sensitive, but either placement works).
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN || secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.14.9
+
+      - name: Terraform apply
+        working-directory: terraform/envs/prod
+        run: |
+          terraform init -input=false
+          terraform apply -input=false -auto-approve
+
+      - name: Sync static site to S3
+        run: |
+          aws s3 sync out/ s3://$SITE_BUCKET --delete \
+            --exclude "_next/static/*" --exclude "sw.js" --exclude "manifest.webmanifest" \
+            --cache-control "public,max-age=300"
+          aws s3 sync out/_next/static s3://$SITE_BUCKET/_next/static --delete \
+            --cache-control "public,max-age=31536000,immutable"
+          aws s3 cp out/sw.js s3://$SITE_BUCKET/sw.js --cache-control "no-cache"
+          aws s3 cp out/manifest.webmanifest s3://$SITE_BUCKET/manifest.webmanifest --cache-control "no-cache"
+
+      - name: Invalidate CloudFront
+        run: aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+
+      - name: Smoke check
+        run: |
+          curl -fsS "$SITE_URL/" > /dev/null
+          curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
+          curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
+          echo "Smoke checks passed."
