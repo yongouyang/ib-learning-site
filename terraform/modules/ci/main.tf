@@ -100,6 +100,14 @@ data "aws_iam_policy_document" "iblearn_iam" {
       values   = ["lambda.amazonaws.com"]
     }
   }
+
+  # Terraform refreshes the OIDC provider on every apply. PowerUserAccess's
+  # IAM allowance does NOT include this read (verified the hard way).
+  statement {
+    sid       = "ReadGithubOidcProvider"
+    actions   = ["iam:GetOpenIDConnectProvider"]
+    resources = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/token.actions.githubusercontent.com"]
+  }
 }
 
 resource "aws_iam_role_policy" "iblearn_iam" {
