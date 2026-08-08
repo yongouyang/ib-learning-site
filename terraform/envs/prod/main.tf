@@ -38,8 +38,31 @@ variable "region" {
   default     = "ap-east-1"
 }
 
+variable "feedback_env" {
+  description = "Feedback Lambda env vars (FEEDBACK_PROVIDER etc.). Empty = unconfigured: GET { configured: false }, POST 501, UI hides the button. Set via CI secrets or a gitignored tfvars — never commit keys."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
+variable "site_origin" {
+  description = "Public site origin for Function URL CORS. Hardcoded to the known distribution domain: deriving it from module.site would create a dependency cycle (distribution ↔ /api/* behavior ↔ this module)."
+  type        = string
+  default     = "https://d2c1g77zfmjpm3.cloudfront.net"
+}
+
+module "feedback_api" {
+  source = "../../modules/feedback_api"
+
+  zip_path           = "${path.module}/../../../lambda/feedback/dist/feedback-lambda.zip"
+  environment        = var.feedback_env
+  cors_allow_origins = [var.site_origin]
+}
+
 module "site" {
   source = "../../modules/site"
+
+  feedback_origin_domain = module.feedback_api.function_url_domain
 }
 
 output "site_bucket" {
@@ -52,4 +75,8 @@ output "distribution_id" {
 
 output "site_url" {
   value = module.site.site_url
+}
+
+output "feedback_function_url" {
+  value = module.feedback_api.function_url
 }

@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:static": "bash scripts/build-static.sh",
+    "build:lambda": "bash scripts/build-lambda-feedback.sh",
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",

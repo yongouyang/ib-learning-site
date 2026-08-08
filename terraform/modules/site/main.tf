@@ -16,6 +16,12 @@ variable "price_class" {
   default     = "PriceClass_100"
 }
 
+variable "feedback_origin_domain" {
+  description = "Lambda Function URL domain for the feedback API (feedback_api module output). When set, adds the /api/* behavior; empty = API not wired."
+  type        = string
+  default     = ""
+}
+
 data "aws_caller_identity" "current" {}
 
 # --- Static site bucket (private) --------------------------------------------
@@ -108,6 +114,10 @@ resource "aws_cloudfront_function" "url_rewrite" {
 # AWS managed cache policy IDs (global constants, not region-specific).
 locals {
   cache_policy_caching_optimized = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+  cache_policy_caching_disabled  = "4135ea2d-6df8-44a3-9df3-4b5a84be39ad"
+  # Origin request policy: forward everything except Host (the Function URL
+  # requires its own Host header).
+  origin_request_all_except_host = "b689b0a8-53d0-40ab-baf2-68738e2966ac"
 }
 
 resource "aws_cloudfront_distribution" "site" {
@@ -122,6 +132,36 @@ resource "aws_cloudfront_distribution" "site" {
     origin_id                = "s3-site"
     domain_name              = aws_s3_bucket.site.bucket_regional_domain_name
     origin_access_control_id = aws_cloudfront_origin_access_control.site.id
+  }
+
+  # Feedback Lambda Function URL (Session 3) — present only once wired.
+  dynamic "origin" {
+    for_each = var.feedback_origin_domain != "" ? [var.feedback_origin_domain] : []
+    content {
+      origin_id   = "lambda-feedback"
+      domain_name = origin.value
+      custom_origin_config {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.2"]
+      }
+    }
+  }
+
+  # /api/* → feedback Lambda, never cached, all viewer data forwarded.
+  dynamic "ordered_cache_behavior" {
+    for_each = var.feedback_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/*"
+      target_origin_id         = "lambda-feedback"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
   }
 
   default_cache_behavior {

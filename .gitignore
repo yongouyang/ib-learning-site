@@ -20,6 +20,9 @@
 *.tfstate.*
 .terraform/
 
+# lambda build artifacts (rebuilt by npm run build:lambda)
+lambda/*/dist/
+
 # production
 /build
 

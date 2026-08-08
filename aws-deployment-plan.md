@@ -65,7 +65,7 @@ terraform/
 
 - Thin handler wrapper around `getFeedbackProvider()` / `markRequestSchema` / `markResultSchema` from `src/lib/feedback` — same validation and contract as the Next route (one entry per markscheme point, marks recomputed). Port `route.ts` logic 1:1, minus Next imports.
 - Bundled with esbuild in CI (`lambda/feedback/index.ts` → single zip).
-- Function URL with `NONE` auth (public endpoint, same exposure as the Next route today) + CORS restricted to the CloudFront origin. Rate limit stays in-memory per-instance — acceptable per phase-5 §3.5; Upstash/ElastiCache remains the follow-up if abuse appears.
+- Function URL with `NONE` auth (public endpoint, same exposure as the Next route today) + CORS restricted to the CloudFront origin. Rate limit stays in-memory per-instance — acceptable per phase-5 §3.5; Upstash/ElastiCache remains the follow-up if abuse appears. **Implementation note (2026-08-08):** public Function URLs now require TWO resource-policy statements — `lambda:InvokeFunctionUrl` (auth type NONE) AND `lambda:InvokeFunction` with `InvokedViaFunctionUrl=true`; the second is applied via a CLI provisioner because AWS provider 5.x can't express it.
 - Keep `GET /api/feedback` → `{ configured }` behavior identical so the UI's button-gating works unchanged.
 
 ## 6. CI/CD (GitHub Actions)
@@ -96,7 +96,7 @@ Single workflow `.github/workflows/deploy.yml`, on push to `develop`:
 
 ## 9. Session breakdown
 
-> Status 2026-08-08: **Sessions 1–2 done** (static export live at `d2c1g77zfmjpm3.cloudfront.net`; see PROGRESS.md). Next: Session 3.
+> Status 2026-08-08: **Sessions 1–3 done** (site live at `d2c1g77zfmjpm3.cloudfront.net`; `/api/feedback` wired to the Lambda, running unconfigured until the Moonshot key decision). Next: Session 4.
 
 - **Session 1 — static-export readiness**: §3 changes, `build:static` script, gates + full e2e + prod PWA spec against local static serve. No AWS yet.
 - **Session 2 — Terraform bootstrap + site**: AWS account/prereqs (§10), bootstrap state, `site` module, manual first sync + smoke checks.
