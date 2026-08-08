@@ -10,7 +10,7 @@ rm -rf "$DIST"
 mkdir -p "$DIST"
 
 node_modules/.bin/esbuild lambda/feedback/index.ts \
-  --bundle --platform=node --target=node24 --format=cjs \
+  --bundle --platform=node --target=node22 --format=cjs \
   --outfile="$DIST/index.js"
 
 # Normalize the file mtime so identical code produces a byte-identical zip —

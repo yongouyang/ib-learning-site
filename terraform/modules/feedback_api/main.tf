@@ -62,7 +62,10 @@ resource "aws_cloudwatch_log_group" "feedback" {
 resource "aws_lambda_function" "feedback" {
   function_name    = "${var.name_prefix}-feedback"
   role             = aws_iam_role.feedback.arn
-  runtime          = "nodejs24.x"
+  # nodejs24.x exists in AWS since 2025-11, but AWS provider 5.x's runtime
+  # enum ends at nodejs22.x — bump to provider ~> 6.0 to enable 24
+  # (nodejs22.x is supported until 2027-04; tracked in PROGRESS.md).
+  runtime          = "nodejs22.x"
   architectures    = ["arm64"]
   handler          = "index.handler"
   memory_size      = 256
