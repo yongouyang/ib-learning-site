@@ -1,0 +1,46 @@
+name: Security Scan
+
+# SAST (Semgrep) + SCA (OSV-Scanner). Plan: docs/security-scanning-plan.md.
+# Phase 1 rollout: Semgrep is non-blocking on push (continue-on-error) until
+# first-run findings are triaged; OSV-Scanner always fails on a finding.
+# The nightly cron catches newly-disclosed CVEs without a code push.
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    # Nightly at 03:17 UTC — off-the-hour to avoid the UTC top-of-hour herd.
+    - cron: '17 3 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  semgrep:
+    name: Semgrep (SAST)
+    runs-on: ubuntu-latest
+    # Non-blocking on push during initial rollout — remove after triage.
+    continue-on-error: ${{ github.event_name == 'push' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # semgrep/semgrep-action is deprecated — run the OSS CLI directly.
+      # pipx is preinstalled on ubuntu runners.
+      - name: Run Semgrep scan
+        run: >-
+          pipx run semgrep scan
+          --config p/typescript --config p/react
+          --config p/security-audit --config p/secrets
+          --error
+
+  # Official reusable workflow (google/osv-scanner-action). Default scan-args
+  # are `--recursive ./` — covers package-lock.json AND tools/package-lock.json.
+  osv-scanner:
+    name: OSV-Scanner (SCA)
+    permissions:
+      actions: read          # required for SARIF upload
+      security-events: write # results land in Security > Code scanning
+      contents: read
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.8

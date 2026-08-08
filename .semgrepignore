@@ -1,0 +1,16 @@
+# Build outputs / generated content
+.next/
+out/
+coverage/
+playwright-report/
+test-results/
+illustration-previews/
+node_modules/
+
+# Vendored / data content
+tools/data/
+public/images/
+public/icons/
+
+# Terraform is HCL, not JS/TS
+terraform/

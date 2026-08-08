@@ -23,7 +23,10 @@
     "render:illustrations": "node scripts/render-illustrations.mjs",
     "audit:content": "tsx scripts/audit-content.ts",
     "generate:registry": "tsx scripts/generate-registry.ts",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "security:sast": "semgrep scan --config p/typescript --config p/react --config p/security-audit --config p/secrets --error",
+    "security:sca": "osv-scanner scan -r .",
+    "security": "npm run security:sast && npm run security:sca"
   },
   "dependencies": {
     "framer-motion": "^12.40.0",

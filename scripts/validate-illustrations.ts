@@ -84,6 +84,9 @@ function validateXml(svgFiles: string[]) {
 
   for (const filePath of svgFiles) {
     try {
+      // Safe: svgFiles comes from globbing public/images/**/*.svg in this
+      // repo (dev/CI validation script), not from user input.
+      // nosemgrep: javascript.lang.security.detect-child-process.detect-child-process
       execSync(`xmllint --noout "${filePath}"`, { stdio: 'ignore' });
     } catch {
       recordFailure(filePath, 'SVG is not well-formed XML');
