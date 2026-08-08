@@ -96,7 +96,7 @@ Single workflow `.github/workflows/deploy.yml`, on push to `develop`:
 
 ## 9. Session breakdown
 
-> Status 2026-08-08: **Sessions 1–3 done** (site live at `d2c1g77zfmjpm3.cloudfront.net`; `/api/feedback` wired to the Lambda, running unconfigured until the Moonshot key decision). Next: Session 4.
+> Status 2026-08-08: **Sessions 1–4 done** (site live at `d2c1g77zfmjpm3.cloudfront.net`; `/api/feedback` wired to the Lambda, running unconfigured until the Moonshot key decision; CI/CD via `.github/workflows/deploy.yml` + OIDC role). Remaining: §8 launch checks (iOS install, Lighthouse), then custom domain (§7) when wanted.
 
 - **Session 1 — static-export readiness**: §3 changes, `build:static` script, gates + full e2e + prod PWA spec against local static serve. No AWS yet.
 - **Session 2 — Terraform bootstrap + site**: AWS account/prereqs (§10), bootstrap state, `site` module, manual first sync + smoke checks.

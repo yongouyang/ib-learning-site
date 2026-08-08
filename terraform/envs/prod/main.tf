@@ -65,6 +65,10 @@ module "site" {
   feedback_origin_domain = module.feedback_api.function_url_domain
 }
 
+module "ci" {
+  source = "../../modules/ci"
+}
+
 output "site_bucket" {
   value = module.site.bucket_name
 }
@@ -79,4 +83,9 @@ output "site_url" {
 
 output "feedback_function_url" {
   value = module.feedback_api.function_url
+}
+
+output "github_deploy_role_arn" {
+  description = "Set as the AWS_DEPLOY_ROLE_ARN variable in GitHub repo settings (Settings → Secrets and variables → Actions → Variables)."
+  value       = module.ci.role_arn
 }
