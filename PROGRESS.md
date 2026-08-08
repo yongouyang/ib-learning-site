@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-08 — Security Phase 3: scans merged into CI/CD as full gates
+
+Git HEAD: `903abf4` (branch `develop`, tree dirty: committing below)
+Done: Phases 2+3 of `docs/security-scanning-plan.md` compressed (first Security Scan run was green, local triage already done — no audit week needed). (1) `ci.yml`: added `semgrep` (pipx CLI, no continue-on-error — full gate) and `osv-scanner` (reusable workflow @v2.3.8) jobs, parallel with e2e; deploy `needs: [build-and-test, e2e, semgrep, osv-scanner]`. Scans now gate PRs AND deploys. (2) `security.yml` renamed "Security Scan (nightly)" — schedule trigger only (03:17 UTC CVE watch), push/PR triggers removed to avoid double-running. (3) AGENTS.md updated.
+Verified: first standalone Security Scan run green ✅ (user-reported, pre-merge); YAML valid (js-yaml) ✅. Post-merge pipeline run pending on this push.
+Next: watch the merged run. Standing items: Next.js 16 upgrade (clears 5 ignored CVEs, ignoreUntil 2026-10-08); AWS provider 6.x (unlocks nodejs24.x Lambda runtime); Moonshot key decision; custom domain (§7); optional branch protection on develop; root/IAM MFA + billing alarm. Backlog unchanged: DP AA, IGCSE content, design refresh.
+Notes: new CVEs now fail CI within 24h (nightly) or on next push — that's the early-warning system working, not a broken build.
+
+---
+
 ## 2026-08-08 — Security scanning Phase 1: SAST + SCA live
 
 Git HEAD: `8047e26` (branch `develop`, tree dirty: committing below)

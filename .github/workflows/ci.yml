@@ -1,13 +1,14 @@
 name: CI/CD
 
 # Single pipeline: build-and-test → e2e (per-device matrix) → deploy.
-# Deploy runs only on pushes to develop (or manual dispatch on develop) and
-# only after the full gate chain is green — e2e included. (Amended 2026-08:
-# e2e used to stay out of the deploy path because it took 20+ min; the
-# device matrix keeps it under ~10 min, so it is now a deploy gate.)
-# Deploy details: aws-deployment-plan.md §6. Auth via GitHub OIDC (no stored
-# AWS keys) — the role is managed by terraform/modules/ci and trusts only
-# this repo @ develop.
+# Security scans (Semgrep SAST + OSV-Scanner SCA) run in parallel with e2e
+# and are full gates — for PRs AND for deploy (Phase 3 of
+# docs/security-scanning-plan.md). Deploy runs only on pushes to develop
+# (or manual dispatch on develop) and only after the full gate chain is
+# green — e2e and security included. Deploy details:
+# aws-deployment-plan.md §6. Auth via GitHub OIDC (no stored AWS keys) —
+# the role is managed by terraform/modules/ci and trusts only this repo @
+# develop.
 
 on:
   push:
@@ -96,8 +97,36 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
+  # Security gates (docs/security-scanning-plan.md Phase 3) — run in
+  # parallel with e2e; both block PRs and deploys. Local triage:
+  # npm run security. Suppressions: .semgrepignore + osv-scanner.toml.
+  semgrep:
+    name: Semgrep (SAST)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # semgrep/semgrep-action is deprecated — run the OSS CLI directly.
+      # pipx is preinstalled on ubuntu runners.
+      - name: Run Semgrep scan
+        run: >-
+          pipx run semgrep scan
+          --config p/typescript --config p/react
+          --config p/security-audit --config p/secrets
+          --error
+
+  # Official reusable workflow (google/osv-scanner-action). Default scan-args
+  # are `--recursive ./` — covers package-lock.json AND tools/package-lock.json.
+  osv-scanner:
+    name: OSV-Scanner (SCA)
+    permissions:
+      actions: read          # required for SARIF upload
+      security-events: write # results land in Security > Code scanning
+      contents: read
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.8
+
   deploy:
-    needs: [build-and-test, e2e]
+    needs: [build-and-test, e2e, semgrep, osv-scanner]
     # Pushes/dispatches on develop only — never PRs, never main.
     if: >-
       github.ref == 'refs/heads/develop' &&

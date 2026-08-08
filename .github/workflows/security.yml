@@ -1,15 +1,11 @@
-name: Security Scan
+name: Security Scan (nightly)
 
-# SAST (Semgrep) + SCA (OSV-Scanner). Plan: docs/security-scanning-plan.md.
-# Phase 1 rollout: Semgrep is non-blocking on push (continue-on-error) until
-# first-run findings are triaged; OSV-Scanner always fails on a finding.
-# The nightly cron catches newly-disclosed CVEs without a code push.
+# Nightly dependency CVE watch — catches newly-disclosed vulnerabilities in
+# the current lockfiles without a code push. Push/PR/deploy scanning moved
+# into ci.yml (docs/security-scanning-plan.md Phase 3); this workflow keeps
+# only the schedule trigger so scans don't double-run.
 
 on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
   schedule:
     # Nightly at 03:17 UTC — off-the-hour to avoid the UTC top-of-hour herd.
     - cron: '17 3 * * *'
@@ -21,13 +17,9 @@ jobs:
   semgrep:
     name: Semgrep (SAST)
     runs-on: ubuntu-latest
-    # Non-blocking on push during initial rollout — remove after triage.
-    continue-on-error: ${{ github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v4
 
-      # semgrep/semgrep-action is deprecated — run the OSS CLI directly.
-      # pipx is preinstalled on ubuntu runners.
       - name: Run Semgrep scan
         run: >-
           pipx run semgrep scan
