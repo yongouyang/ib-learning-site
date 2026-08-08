@@ -62,7 +62,7 @@ resource "aws_cloudwatch_log_group" "feedback" {
 resource "aws_lambda_function" "feedback" {
   function_name    = "${var.name_prefix}-feedback"
   role             = aws_iam_role.feedback.arn
-  runtime          = "nodejs22.x"
+  runtime          = "nodejs24.x"
   architectures    = ["arm64"]
   handler          = "index.handler"
   memory_size      = 256
