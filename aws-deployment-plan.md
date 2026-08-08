@@ -96,6 +96,8 @@ Single workflow `.github/workflows/deploy.yml`, on push to `develop`:
 
 ## 9. Session breakdown
 
+> Status 2026-08-08: **Sessions 1–2 done** (static export live at `d2c1g77zfmjpm3.cloudfront.net`; see PROGRESS.md). Next: Session 3.
+
 - **Session 1 — static-export readiness**: §3 changes, `build:static` script, gates + full e2e + prod PWA spec against local static serve. No AWS yet.
 - **Session 2 — Terraform bootstrap + site**: AWS account/prereqs (§10), bootstrap state, `site` module, manual first sync + smoke checks.
 - **Session 3 — feedback Lambda**: `lambda/feedback` port, `feedback_api` module, CloudFront `/api/*` behavior, dummy-provider integration test against the deployed URL.

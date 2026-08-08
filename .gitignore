@@ -14,6 +14,12 @@
 /out/
 /.build-static-stash/
 
+# terraform (bootstrap keeps LOCAL state by design; resource names are
+# deterministic and re-importable — see terraform/bootstrap/main.tf)
+*.tfstate
+*.tfstate.*
+.terraform/
+
 # production
 /build
 
