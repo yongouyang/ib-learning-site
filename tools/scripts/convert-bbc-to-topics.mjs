@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * convert-bbc-to-topics.mjs — Phase 1.5 converter (revised-implementation-plan.md)
+ * convert-bbc-to-topics.mjs — Phase 1.5 converter (docs/revised-implementation-plan.md)
  *
  * Transforms scraped BBC Bitesize guides (tools/data/<subject>/<topicSlug>/*.json)
  * into REFERENCE-DRAFT staging files (tools/data/_staging/<subjectId>/<topic-id>.json)
@@ -8,7 +8,7 @@
  *
  * IMPORTANT: staging files are NOT publishable content. Per user decision (plan §7 /
  * Phase 1.5), BBC text is reference only — an authoring pass rewrites notes in our own
- * voice (CONTENT_STYLE.md) and writes flashcards/questions before anything lands in
+ * voice (docs/CONTENT_STYLE.md) and writes flashcards/questions before anything lands in
  * src/content/data/topics/.
  *
  * Usage:

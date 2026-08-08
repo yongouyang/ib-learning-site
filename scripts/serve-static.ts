@@ -1,4 +1,4 @@
-// Local stand-in for the S3 + CloudFront topology (aws-deployment-plan.md §2),
+// Local stand-in for the S3 + CloudFront topology (docs/aws-deployment-plan.md §2),
 // used by `npm run test:e2e:static` — NOT for production:
 //   /*           → static export in out/ (like CloudFront's S3 origin:
 //                 dir/index.html resolution, 404 → /404.html with 404 status)

@@ -1,4 +1,4 @@
-// Static export (S3 + CloudFront, aws-deployment-plan.md §3) is gated on
+// Static export (S3 + CloudFront, docs/aws-deployment-plan.md §3) is gated on
 // BUILD_EXPORT=1 so dev/e2e builds are unchanged. Only `npm run build:static`
 // sets it — the script also stashes src/app/api aside, because `output:
 // 'export'` rejects the non-static /api/feedback route handler. Production

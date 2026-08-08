@@ -1,4 +1,4 @@
-# One-time bootstrap (aws-deployment-plan.md §4). Local state on purpose —
+# One-time bootstrap (docs/aws-deployment-plan.md §4). Local state on purpose —
 # this stack creates the remote-state infrastructure that every other stack
 # uses. Re-run is idempotent; resource names are deterministic, so a lost
 # local state file is recoverable via `terraform import`.

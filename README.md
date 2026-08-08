@@ -133,8 +133,8 @@ npm run generate:registry
 npm run audit:content
 ```
 
-Content conventions are documented in [`CONTENT_STYLE.md`](./CONTENT_STYLE.md).  
-Illustration design rules are documented in [`ILLUSTRATION_GUIDELINES.md`](./ILLUSTRATION_GUIDELINES.md).
+Content conventions are documented in [`CONTENT_STYLE.md`](./docs/CONTENT_STYLE.md).  
+Illustration design rules are documented in [`ILLUSTRATION_GUIDELINES.md`](./docs/ILLUSTRATION_GUIDELINES.md).
 
 The app also respects the user's system dark-mode preference (`prefers-color-scheme`).
 

@@ -8,7 +8,7 @@ export const yearSchema = z.union([z.literal(7), z.literal(8), z.literal(9)]);
 
 export const courseLevelSchema = z.enum(['core', 'extended', 'sl', 'hl']);
 
-// KS3 English only — see CONTENT_STYLE.md ("Stage & course tagging").
+// KS3 English only — see docs/CONTENT_STYLE.md ("Stage & course tagging").
 export const englishStrandSchema = z.enum([
   'reading',
   'writing',
@@ -72,7 +72,7 @@ export const freeResponseQuestionSchema = z
     id: z.string().min(1),
     stem: z.string().min(1),
     marks: z.number().int().min(1).max(10),
-    // One tickable point per mark (M1/A1/B1 style — see CONTENT_STYLE.md).
+    // One tickable point per mark (M1/A1/B1 style — see docs/CONTENT_STYLE.md).
     markscheme: z.array(z.string().min(1)).min(1),
     modelAnswer: z.string().min(1),
     difficulty: difficultySchema.optional(),

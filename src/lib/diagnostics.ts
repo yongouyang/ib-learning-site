@@ -4,7 +4,7 @@ import type { MixedReviewQuestion } from '@/lib/mixed-review';
 
 // One short cross-topic diagnostic per course grouping. Results are recorded
 // as per-topic quiz attempts so the weak-areas system is seeded immediately
-// (see revised-implementation-plan.md Phase 2). Course definitions live in
+// (see docs/revised-implementation-plan.md Phase 2). Course definitions live in
 // src/lib/courses.ts (shared with exams and the revision ladder).
 
 export const DIAGNOSTIC_LENGTH = 15;

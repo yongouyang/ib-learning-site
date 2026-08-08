@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Bundle the feedback Lambda into a single zip for Terraform
-# (aws-deployment-plan.md §5). CI runs the same script before apply.
+# (docs/aws-deployment-plan.md §5). CI runs the same script before apply.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."

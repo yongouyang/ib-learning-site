@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "_comment": "Curation map for convert-bbc-to-topics.mjs. Each entry defines ONE net-new app topic and the BBC scraped guides that serve as REFERENCE material for authoring it (BBC text is never published verbatim — see revised-implementation-plan.md Phase 1.5). 'subject' = tools/data dir; 'topicSlug' = BBC topic dir; optional 'guides' allowlist / 'excludeGuides' denylist filter guide slugs within the topic dir. Only add entries whose 'id' does NOT already exist in src/content/data/topics/ (existing topics win).",
+  "_comment": "Curation map for convert-bbc-to-topics.mjs. Each entry defines ONE net-new app topic and the BBC scraped guides that serve as REFERENCE material for authoring it (BBC text is never published verbatim — see docs/revised-implementation-plan.md Phase 1.5). 'subject' = tools/data dir; 'topicSlug' = BBC topic dir; optional 'guides' allowlist / 'excludeGuides' denylist filter guide slugs within the topic dir. Only add entries whose 'id' does NOT already exist in src/content/data/topics/ (existing topics win).",
   "topics": [
     {
       "id": "math-yr9-quadratic-graphs",

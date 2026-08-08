@@ -5,7 +5,7 @@ export const dynamic = 'force-static';
 
 // Normal crawling stays open (we want to be found), but known AI-training
 // crawlers are disallowed site-wide. Courtesy-level protection only — see
-// phase-7-implementation-plan.md §8.
+// docs/phase-7-implementation-plan.md §8.
 const AI_TRAINING_CRAWLERS = [
   'GPTBot',
   'ChatGPT-User',

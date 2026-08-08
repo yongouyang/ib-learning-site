@@ -21,7 +21,7 @@ const RATE_PER_DAY = () => Number(process.env.FEEDBACK_RATE_LIMIT_PER_DAY ?? 50)
 
 // Per-IP sliding windows, in-memory. NOTE: on serverless this is per-instance,
 // not global — a first line against casual abuse, not a hard quota (see
-// phase-5-implementation-plan.md §3.5; Upstash is the follow-up).
+// docs/phase-5-implementation-plan.md §3.5; Upstash is the follow-up).
 const hits = new Map<string, { minute: number[]; day: number[] }>();
 
 function isRateLimited(ip: string, now: number): boolean {

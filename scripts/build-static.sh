@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Static-export build for S3 + CloudFront (aws-deployment-plan.md §3).
+# Static-export build for S3 + CloudFront (docs/aws-deployment-plan.md §3).
 # `output: 'export'` rejects the non-static /api/feedback route handler, so
 # src/app/api is stashed aside for the duration of the build and restored
 # afterwards (even on failure, via the trap). The Next route stays the

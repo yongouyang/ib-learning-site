@@ -12,7 +12,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       // Gate the areas unit tests are responsible for. Page-level components
-      // are covered by e2e and intentionally excluded (see PROGRESS.md).
+      // are covered by e2e and intentionally excluded (see docs/PROGRESS.md).
       include: ['src/lib/**', 'src/components/**', 'src/context/**', 'src/app/api/**'],
       thresholds: {
         'src/lib/**': { lines: 90, branches: 85 },

@@ -1,6 +1,6 @@
 import { handleFeedbackGet, handleFeedbackPost } from '../../src/lib/feedback/http-handler';
 
-// Production feedback Lambda (aws-deployment-plan.md §5). Thin adapter between
+// Production feedback Lambda (docs/aws-deployment-plan.md §5). Thin adapter between
 // the Lambda Function URL event shape (HTTP API v2 format) and the shared
 // handler in src/lib/feedback/http-handler.ts — same validation and contract
 // as the Next route, which remains the dev/e2e path.

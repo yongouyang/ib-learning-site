@@ -213,7 +213,7 @@ test.describe('Progress page', () => {
   });
 });
 
-// Phase 7 Session 2: content-protection add-on (phase-7-implementation-plan.md §8 items 1–2).
+// Phase 7 Session 2: content-protection add-on (docs/phase-7-implementation-plan.md §8 items 1–2).
 test.describe('Content protection', () => {
   test('robots.txt allows normal crawling but disallows AI-training crawlers', async ({ request }) => {
     const res = await request.get('/robots.txt');

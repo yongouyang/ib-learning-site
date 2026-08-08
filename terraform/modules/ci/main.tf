@@ -1,4 +1,4 @@
-# CI module (aws-deployment-plan.md §4): GitHub Actions OIDC provider + deploy
+# CI module (docs/aws-deployment-plan.md §4): GitHub Actions OIDC provider + deploy
 # role. Trust is scoped to exactly one repo + one branch — no stored AWS keys
 # in GitHub, short-lived OIDC tokens only.
 

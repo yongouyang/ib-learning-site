@@ -1,4 +1,4 @@
-# Site module (aws-deployment-plan.md §4): private S3 bucket behind CloudFront
+# Site module (docs/aws-deployment-plan.md §4): private S3 bucket behind CloudFront
 # with Origin Access Control. Cache headers are NOT set here — the deploy
 # (`aws s3 sync` with cache-control splits, plan §6 step 5) writes them as S3
 # object metadata and the CachingOptimized policy honors them:

@@ -1,4 +1,4 @@
-# Feedback API module (aws-deployment-plan.md §5): Lambda + Function URL.
+# Feedback API module (docs/aws-deployment-plan.md §5): Lambda + Function URL.
 # The function is a thin adapter around src/lib/feedback/http-handler.ts —
 # same contract as the Next route. Deploys fine unconfigured (no provider env):
 # GET returns { configured: false }, POST 501, UI hides "Mark with AI".
@@ -64,7 +64,7 @@ resource "aws_lambda_function" "feedback" {
   role             = aws_iam_role.feedback.arn
   # nodejs24.x exists in AWS since 2025-11, but AWS provider 5.x's runtime
   # enum ends at nodejs22.x — bump to provider ~> 6.0 to enable 24
-  # (nodejs22.x is supported until 2027-04; tracked in PROGRESS.md).
+  # (nodejs22.x is supported until 2027-04; tracked in docs/PROGRESS.md).
   runtime          = "nodejs22.x"
   architectures    = ["arm64"]
   handler          = "index.handler"

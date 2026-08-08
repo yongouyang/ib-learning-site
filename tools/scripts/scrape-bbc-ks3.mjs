@@ -83,7 +83,7 @@ const KNOWN_TOPIC_MAP = {
 };
 
 // All KS3 subject pages verified via scraping July 2026
-// `archived: true` = outside the project's 5-subject scope (see revised-implementation-plan.md §9).
+// `archived: true` = outside the project's 5-subject scope (see docs/revised-implementation-plan.md §9).
 // Archived subjects are excluded from a default (no --subject) run but can still be
 // scraped explicitly with `--subject <key>`; their data lives in tools/data/_archive/.
 const SUBJECTS = {

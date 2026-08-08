@@ -1,4 +1,4 @@
-# Production environment (aws-deployment-plan.md §4). Remote state lives in
+# Production environment (docs/aws-deployment-plan.md §4). Remote state lives in
 # the bootstrap stack's bucket/table — run terraform/bootstrap first.
 
 terraform {

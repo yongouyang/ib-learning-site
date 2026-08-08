@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-08 — Docs moved to docs/ + future-stack review
+
+Git HEAD: `3e471cf` (branch `develop`, tree dirty: committing below)
+Done: (1) Moved all 20 root-level .md files into `docs/` (`git mv`, history preserved) — only `AGENTS.md` and `README.md` stay at root (agent/GitHub entry points). Updated all references: AGENTS.md (session workflow now reads/writes `docs/PROGRESS.md`), README links, and ~25 code comments across terraform/, scripts/, src/, tests/, tools/, workflows. Historical `docs/PROGRESS.md` entries intentionally NOT rewritten — their bare doc paths are pre-move root-relative. (2) Reviewed `docs/future-tech-stack-evolution.md` (new, from another session): analysis holds up against the codebase; fixed 2 factual spots (117 → 137 topics; `middleware.ts` → `proxy.ts` per Next 16 rename). Review notes shared with user (Clerk MAU tier caveat, premium-content-must-be-API-served sharpened, minors/GDPR line for the accounts decision).
+Verified: validate:content ✅, audit:content 0/0 ✅, vitest 247/247 ✅, lint 0 errors ✅ after the move.
+Next: unchanged (AWS provider 6.x, Moonshot key, custom domain, branch protection, MFA/billing alarm; backlog DP AA / IGCSE / design refresh).
+Notes: doc cross-references inside docs/ are bare filenames that resolve within the directory — keep that convention for new docs.
+
+---
+
 ## 2026-08-08 — Next.js 16 upgrade
 
 Git HEAD: `10fb994` (branch `develop`, tree dirty: committing below)
