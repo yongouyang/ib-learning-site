@@ -1,5 +1,8 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { GET, POST } from '@/app/api/feedback/route';
+// Import the handler (not the route) — the route delegates 1:1, and
+// build:static stashes src/app/api aside, so importing the route breaks
+// type-checking during the static export build.
+import { handleFeedbackGet as GET, handleFeedbackPost as POST } from '@/lib/feedback/http-handler';
 
 // Route tests run against the REAL provider wiring using env-based config
 // (dummy provider + test-mode injection) — no module mocks needed.

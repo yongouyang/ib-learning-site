@@ -1,30 +1,4 @@
 # OSV-Scanner configuration — docs/security-scanning-plan.md
-# Remaining findings as of 2026-08-08: all 5 are nested pins inside
-# next@15.5.x (postcss@8.4.31, sharp@0.34.5). The only fix is next@16 —
-# a major upgrade tracked separately. Revisit at the Next 16 upgrade or
-# when ignoreUntil lapses, whichever comes first.
-
-[[IgnoredVulns]]
-id = "GHSA-6g55-p6wh-862q"
-ignoreUntil = 2026-10-08
-reason = "postcss@8.4.31 is pinned by next@15.5.x; fix requires Next.js 16 major upgrade"
-
-[[IgnoredVulns]]
-id = "GHSA-fxqj-rqcc-2cmp"
-ignoreUntil = 2026-10-08
-reason = "postcss@8.4.31 is pinned by next@15.5.x; fix requires Next.js 16 major upgrade"
-
-[[IgnoredVulns]]
-id = "GHSA-qx2v-qp2m-jg93"
-ignoreUntil = 2026-10-08
-reason = "postcss@8.4.31 is pinned by next@15.5.x; fix requires Next.js 16 major upgrade"
-
-[[IgnoredVulns]]
-id = "GHSA-r28c-9q8g-f849"
-ignoreUntil = 2026-10-08
-reason = "postcss@8.4.31 is pinned by next@15.5.x; fix requires Next.js 16 major upgrade"
-
-[[IgnoredVulns]]
-id = "GHSA-f88m-g3jw-g9cj"
-ignoreUntil = 2026-10-08
-reason = "sharp@0.34.5 is pinned by next@15.5.x (build-time image processing only, static export); fix requires Next.js 16 major upgrade"
+# No active ignores. (The 2026-08-08 ignores for next@15.5.x's nested
+# postcss@8.4.31 / sharp@0.34.5 pins were cleared by the Next.js 16 upgrade —
+# next@16.3.0 pins postcss@8.5.23 and sharp@0.35.3.)

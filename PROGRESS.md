@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-08 — Next.js 16 upgrade
+
+Git HEAD: `10fb994` (branch `develop`, tree dirty: committing below)
+Done: next 15.5.23 → **16.3.0** (+ eslint 8 → 9, eslint-config-next 16.3.0; react stays 19.2.7). (1) Async request APIs: no changes needed — pages already used `Promise<params>` from the 15.5 migration (codemod confirmed 0 edits). (2) `next lint` removed in 16 → migrated to ESLint CLI flat config (`eslint.config.mjs`, legacy `.eslintrc.json` deleted, lint script now `eslint .`). eslint-config-next 16 ships react-hooks v6 with React-Compiler-powered rules; the 4 new rules flagging pre-existing patterns (`set-state-in-effect`, `purity`, `refs`, `globals`) downgraded to `warn` with a comment — adopt incrementally, don't rewrite logic mid-upgrade. Flat-config gotcha: rule overrides need `plugins: { 'react-hooks': ... }` explicitly in the same object. Node scripts/configs exempted from `no-require-imports`; tests exempted from `no-explicit-any`. (3) One real break: Next 16 type-checks during `build:static` while `src/app/api` is stashed → `tests/unit/api-feedback.test.ts` now imports `@/lib/feedback/http-handler` directly (route is a pure delegate — identical coverage). (4) Turbopack is now the default bundler for dev AND build — no config changes needed (no custom webpack). (5) **Security payoff**: next 16 pins postcss@8.5.23 / sharp@0.35.3 — all 5 `osv-scanner.toml` ignores deleted, `npm audit` 0 vulnerabilities. (6) AGENTS.md: Next's managed agent-docs block appended (auto-re-added by `next dev` anyway), stale "manual deploy until Session 4" fixed.
+Verified: lint 0 errors/16 warnings ✅, vitest 247/247 ✅, `build` ✅, `build:static` ✅, `build:lambda` ✅, `npm run security` (SAST+SCA) 0 findings ✅, full static e2e **589 passed / 8 skipped, exit 0** ✅ — matches pre-upgrade baseline exactly.
+Next: standing items — AWS provider 6.x (unlocks nodejs24.x Lambda runtime), Moonshot key decision, custom domain (§7), optional branch protection, root/IAM MFA + billing alarm. Backlog unchanged: DP AA, IGCSE content, design refresh.
+Notes: `next dev` output now goes to `.next/dev` (separate from build output; concurrent dev+build safe). `next build` no longer runs lint — CI's lint step covers it. First CI run on Next 16 will be the real-world check of the new baselines.
+
+---
+
 ## 2026-08-08 — Security Phase 3: scans merged into CI/CD as full gates
 
 Git HEAD: `903abf4` (branch `develop`, tree dirty: committing below)
