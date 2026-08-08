@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-08 — Session 4 done: deploy pipeline green end-to-end
+
+Git HEAD: `daf9b6a` (branch `develop`, tree clean)
+Done: closed out the Session 4 deploy-pipeline debug saga — 7 fix-forward commits from first red run to green: (1) `npx playwright install --with-deps chromium` in deploy job (browsers missing). (2) Layout-validator font determinism: SVGs use `font-family:system-ui` → SF Pro locally vs DejaVu on Ubuntu gave different text metrics; validator now embeds vendored Roboto (`scripts/assets/validator-sans-{400,600,700}.woff2` + @font-face/`!important` override in `scripts/diagnose-illustrations.mjs`); 6 genuinely marginal SVGs nudged and re-rendered/eyeballed. (3) deploy.yml accepts `AWS_DEPLOY_ROLE_ARN` from repo variable OR secret. (4) `iam:GetOpenIDConnectProvider` added to the deploy role's inline IAM policy. (5) deterministic Lambda zip (`touch -t 200001010000` before zip in `build-lambda-feedback.sh` — same code, same `source_code_hash`, no spurious plan diff). (6) Node 24 upgrade: ci.yml/deploy.yml runners 24, `@types/node` ^24, `engines >=22`. (7) Lambda runtime pinned back to `nodejs22.x` (+ esbuild `--target=node22`) — AWS provider 5.100.0's runtime enum ends at nodejs22.x; upgrading to provider 6.x is the follow-up that unlocks `nodejs24.x`.
+Verified: deploy workflow green ✅ AND ci.yml green ✅ on `daf9b6a`; remotely confirmed — fresh CloudFront invalidation Completed 2026-08-08T09:06 ✅, S3 `index.html`/`sw.js` LastModified 09:05–09:06 (was stuck at 01:38) ✅, live `/` 200 with fresh last-modified ✅, `/api/feedback` → `{configured:false}` ✅.
+Next: remaining launch items — iOS Safari install check (manual, user); optional: branch protection on develop (console), Moonshot key via `FEEDBACK_ENV` repo secret (JSON map), AWS provider 6.x upgrade for nodejs24.x, custom domain (plan §7), `npm audit fix` pass. Backlog unchanged: DP AA, IGCSE content, design refresh.
+Notes: every push to develop now deploys — the role boundary is "push access to develop". Lighthouse (done earlier): perf 89 / a11y 95 / BP 100 / SEO 100; Lighthouse 12 dropped the PWA category — PWA coverage is `tests/e2e/pwa.spec.ts` + smoke checks.
+
+---
+
 ## 2026-08-08 — AWS deploy Session 4: CI/CD via GitHub OIDC
 
 Git HEAD: `e4f3789` (branch `develop`, tree dirty: committing below)
