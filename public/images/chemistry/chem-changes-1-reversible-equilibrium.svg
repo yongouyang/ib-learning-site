@@ -25,9 +25,9 @@
 
   <!-- Equation -->
   <rect x="100" y="50" width="600" height="50" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5" rx="8"/>
-  <text x="400" y="82" text-anchor="middle" class="label">
-    CuSO₄·5H₂O(s) <tspan fill="#f97316">⇌</tspan> CuSO₄(s) + 5H₂O(g)
-  </text>
+  <text x="375" y="82" text-anchor="end" class="label">CuSO₄·5H₂O(s)</text>
+  <text x="400" y="82" text-anchor="middle" class="label" fill="#f97316">⇌</text>
+  <text x="425" y="82" text-anchor="start" class="label">CuSO₄(s) + 5H₂O(g)</text>
 
   <!-- Blue hydrated crystals -->
   <g transform="translate(100, 130)">

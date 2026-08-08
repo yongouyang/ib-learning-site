@@ -19,6 +19,22 @@ function svgFiles(dir) {
   return files;
 }
 
+// Font determinism: SVGs use `font-family: system-ui, sans-serif`, whose
+// metrics differ per platform (SF Pro on macOS, DejaVu on Ubuntu runners —
+// wider, which produced false overflow failures in CI). The validator
+// therefore measures with a vendored reference font (Inter, OFL-licensed,
+// latin subset) via @font-face + an !important override, so results are
+// identical on every machine. Update the files under scripts/assets/ to
+// change the reference.
+const FONT_CSS = [400, 600, 700]
+  .map((weight) => {
+    const b64 = fs
+      .readFileSync(path.join('scripts', 'assets', `validator-sans-${weight}.woff2`))
+      .toString('base64');
+    return `@font-face { font-family: 'ValidatorSans'; font-weight: ${weight}; font-style: normal; src: url(data:font/woff2;base64,${b64}) format('woff2'); }`;
+  })
+  .join('\n');
+
 async function diagnose(file, page) {
   const content = fs.readFileSync(file, 'utf8');
   const html = `
@@ -26,7 +42,11 @@ async function diagnose(file, page) {
     <html>
       <head>
         <meta charset="utf-8">
-        <style>body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }</style>
+        <style>
+          ${FONT_CSS}
+          body { margin: 0; font-family: 'ValidatorSans', sans-serif; }
+          svg text, svg tspan { font-family: 'ValidatorSans', sans-serif !important; }
+        </style>
       </head>
       <body>
         ${content}

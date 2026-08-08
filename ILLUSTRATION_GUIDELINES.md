@@ -58,6 +58,7 @@ Every SVG must have:
 
 - Use a sans-serif font (e.g. `system-ui`).
 - Minimum effective font size when rendered: 11 px for sublabels, 13 px for labels.
+- **Layout validator font (2026-08-08):** `validate:illustration-layout` measures text with a vendored reference font (Roboto, `scripts/assets/validator-sans-{400,600,700}.woff2`), NOT the platform's system-ui — system-ui metrics differ per OS (SF Pro vs DejaVu) and caused CI/local gate disagreements. Author for system-ui as before, but leave a few px of slack around text: real user fonts vary too. Known false-positive class (now 4×): inline `<tspan>` runs flagged as overlapping text — split into separate `<text>` elements instead.
 
 ### 7. Use consistent colour coding
 
