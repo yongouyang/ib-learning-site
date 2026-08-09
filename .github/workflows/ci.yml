@@ -8,7 +8,9 @@ name: CI/CD
 # green — e2e and security included. Deploy details:
 # docs/aws-deployment-plan.md §6. Auth via GitHub OIDC (no stored AWS keys) —
 # the role is managed by terraform/modules/ci and trusts only this repo @
-# develop.
+# develop. Manual dispatch accepts a `deploy_only` input (escape hatch):
+# skips all gate jobs and deploys develop HEAD as-is — for fixing deploy-stage
+# issues (secrets, terraform) without a 16-minute full-pipeline wait.
 
 on:
   push:
@@ -16,12 +18,20 @@ on:
   pull_request:
     branches: [main, develop]
   workflow_dispatch:
+    inputs:
+      deploy_only:
+        description: 'Escape hatch: skip build/test/security gates, deploy develop HEAD as-is'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 jobs:
   build-and-test:
+    # Skipped when the run is a deploy_only manual dispatch.
+    if: ${{ inputs.deploy_only != true }}
     runs-on: ubuntu-latest
 
     steps:
@@ -53,6 +63,7 @@ jobs:
         run: npm run build
 
   e2e:
+    if: ${{ inputs.deploy_only != true }}
     runs-on: ubuntu-latest
     needs: build-and-test
     strategy:
@@ -102,6 +113,7 @@ jobs:
   # npm run security. Suppressions: .semgrepignore + osv-scanner.toml.
   semgrep:
     name: Semgrep (SAST)
+    if: ${{ inputs.deploy_only != true }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -119,6 +131,7 @@ jobs:
   # are `--recursive ./` — covers package-lock.json AND tools/package-lock.json.
   osv-scanner:
     name: OSV-Scanner (SCA)
+    if: ${{ inputs.deploy_only != true }}
     permissions:
       actions: read          # required for SARIF upload
       security-events: write # results land in Security > Code scanning
@@ -128,7 +141,10 @@ jobs:
   deploy:
     needs: [build-and-test, e2e, semgrep, osv-scanner]
     # Pushes/dispatches on develop only — never PRs, never main.
+    # always()+!failure() so the deploy_only dispatch (gates skipped) still
+    # runs, while any real gate failure on a normal run still blocks it.
     if: >-
+      always() && !failure() && !cancelled() &&
       github.ref == 'refs/heads/develop' &&
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
