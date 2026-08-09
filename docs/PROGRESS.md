@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-09 — AWS provider 6.x + Lambda nodejs24.x
+
+Git HEAD: `0982513` (branch `develop`, tree dirty: committing below)
+Done: Terraform AWS provider 5.100.0 → **6.58.0** (`~> 6.0` in `terraform/envs/prod` + `terraform/bootstrap`). Reviewed the full v6 upgrade guide against our 16 resource types: only applicable change was `data.aws_region.name` deprecation — and that data source is declared-but-unused (dead), so zero config migrations. Prod apply: 1 cosmetic change (CloudFront Function picked up default_tags). Bootstrap: no changes. Then the point of the exercise: Lambda runtime `nodejs22.x` → **`nodejs24.x`** (provider 5.x's enum blocked it), esbuild `--target=node22` → `node24` in build-lambda-feedback.sh, zip rebuilt, applied.
+Verified: runtime `nodejs24.x` on the function ✅, direct invoke GET 200 `{configured:false}` ✅, live via CloudFront GET `{configured:false}` ✅, POST empty body 400 (schema gate, expected) ✅.
+Next: Moonshot key decision (`FEEDBACK_ENV` secret), custom domain (§7), optional branch protection, root/IAM MFA + billing alarm. Backlog: DP AA, IGCSE content, design refresh. Long-term: future-tech-stack-evolution.md.
+Notes: CI's terraform step uses the committed `.terraform.lock.hcl` (plain `init`, no `-upgrade`) — committing the updated locks keeps CI on 6.58.0.
+
+---
+
 ## 2026-08-09 — iOS install-help visibility fix
 
 Git HEAD: `5ad45b6` (branch `develop`, tree dirty: committing below)
