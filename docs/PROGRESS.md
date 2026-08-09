@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-09 — CI: illustration validators run in parallel with e2e
+
+Git HEAD: `3ab2e83` (branch `develop`, tree dirty: committing below)
+Done: moved `validate:illustrations` + `validate:illustration-layout` out of the deploy job into a new `illustrations` job (`needs: build-and-test`, runs in parallel with e2e; Playwright Chromium via the same `package-lock.json` cache key). Deploy now `needs: [build-and-test, e2e, illustrations, semgrep, osv-scanner]` and starts straight at build:static — saves ~2–3 min of deploy time. Also refreshed the stale `FEEDBACK_ENV` comment in ci.yml (no longer "until the Moonshot key decision").
+Verified: workflow YAML parses (js-yaml); job graph + deploy step list confirmed. Gate behavior unchanged — illustration failures still block deploy via `needs`.
+Next: unchanged (custom domain §7, branch protection, MFA/billing, SSM key storage; backlog DP AA / IGCSE / design refresh).
+Notes: deploy-only runs (`deploy_only: true`) still skip the illustrations job too — that's the explicit skip-everything hatch.
+
+---
+
 ## 2026-08-09 — Paper runner: two-phase exam simulation
 
 Git HEAD: `936ae0c` (branch `develop`, tree dirty: committing below)

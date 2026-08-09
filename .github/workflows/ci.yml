@@ -1,9 +1,10 @@
 name: CI/CD
 
 # Single pipeline: build-and-test → e2e (per-device matrix) → deploy.
-# Security scans (Semgrep SAST + OSV-Scanner SCA) run in parallel with e2e
-# and are full gates — for PRs AND for deploy (Phase 3 of
-# docs/security-scanning-plan.md). Deploy runs only on pushes to develop
+# Security scans (Semgrep SAST + OSV-Scanner SCA) and the illustration
+# validators run in parallel with e2e and are full gates — for PRs AND for
+# deploy (Phase 3 of docs/security-scanning-plan.md). Deploy runs only on
+# pushes to develop
 # (or manual dispatch on develop) and only after the full gate chain is
 # green — e2e and security included. Deploy details:
 # docs/aws-deployment-plan.md §6. Auth via GitHub OIDC (no stored AWS keys) —
@@ -108,6 +109,43 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
+  # Illustration gates (validate:illustrations + validate:illustration-layout)
+  # run in parallel with e2e so deploy doesn't spend ~3 min on them.
+  illustrations:
+    name: Validate illustrations
+    if: ${{ inputs.deploy_only != true }}
+    runs-on: ubuntu-latest
+    needs: build-and-test
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The layout validator (diagnose-illustrations.mjs) renders SVGs with
+      # headless Chromium — browsers are not preinstalled on the runner.
+      - name: Cache Playwright browsers
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Validate illustrations
+        run: |
+          npm run validate:illustrations
+          npm run validate:illustration-layout
+
   # Security gates (docs/security-scanning-plan.md Phase 3) — run in
   # parallel with e2e; both block PRs and deploys. Local triage:
   # npm run security. Suppressions: .semgrepignore + osv-scanner.toml.
@@ -139,7 +177,7 @@ jobs:
     uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.5.0
 
   deploy:
-    needs: [build-and-test, e2e, semgrep, osv-scanner]
+    needs: [build-and-test, e2e, illustrations, semgrep, osv-scanner]
     # Pushes/dispatches on develop only — never PRs, never main.
     # always()+!failure() so the deploy_only dispatch (gates skipped) still
     # runs, while any real gate failure on a normal run still blocks it.
@@ -159,11 +197,10 @@ jobs:
       SITE_URL: https://d2c1g77zfmjpm3.cloudfront.net
       SITE_BUCKET: iblearn-site-305655353474
       DISTRIBUTION_ID: E1BMVEW6YOKNUY
-      # Feedback Lambda env (FEEDBACK_PROVIDER / FEEDBACK_API_KEY / ...). Until
-      # the Moonshot key decision: leave the FEEDBACK_ENV secret unset →
-      # unconfigured (GET {configured:false}, POST 501, "Mark with AI" hidden).
-      # When decided, add e.g.
-      # {"FEEDBACK_PROVIDER":"openai-compatible","FEEDBACK_API_KEY":"sk-..."}.
+      # Feedback Lambda env (FEEDBACK_PROVIDER / FEEDBACK_API_KEY / ...) as a
+      # single-line JSON map with straight quotes — terraform parses it as HCL
+      # and rejects multi-line values / curly quotes. Unset secret = {}
+      # = unconfigured (GET {configured:false}, POST 501, "Mark with AI" hidden).
       TF_VAR_feedback_env: ${{ secrets.FEEDBACK_ENV || '{}' }}
 
     steps:
@@ -178,20 +215,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      # The layout validator (diagnose-illustrations.mjs) renders SVGs with
-      # headless Chromium — browsers are not preinstalled on the runner.
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
-
-      # Only the illustration gates are unique to deploy — build-and-test
-      # already ran validate:content, audit:content, lint and vitest on this
-      # same commit (deploy `needs:` it, so they can't be bypassed on a
-      # normal run; deploy_only is the explicit skip-everything hatch).
-      - name: Quality gates
-        run: |
-          npm run validate:illustrations
-          npm run validate:illustration-layout
 
       - name: Build static export
         run: npm run build:static
