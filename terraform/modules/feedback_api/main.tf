@@ -26,10 +26,12 @@ variable "cors_allow_origins" {
 }
 
 data "aws_caller_identity" "current" {}
+# Declared for symmetry with other modules; not currently referenced.
 data "aws_region" "current" {}
 
 # --- IAM ----------------------------------------------------------------------
 
+# Trust policy: only the Lambda service may assume the execution role.
 data "aws_iam_policy_document" "lambda_assume" {
   statement {
     actions = ["sts:AssumeRole"]
@@ -40,11 +42,14 @@ data "aws_iam_policy_document" "lambda_assume" {
   }
 }
 
+# Execution role — what the function's code is allowed to do at runtime.
 resource "aws_iam_role" "feedback" {
   name               = "${var.name_prefix}-feedback-lambda"
   assume_role_policy = data.aws_iam_policy_document.lambda_assume.json
 }
 
+# AWS-managed basic policy: CloudWatch Logs write access only. The function
+# needs nothing else (it calls an external LLM API over HTTPS).
 resource "aws_iam_role_policy_attachment" "feedback_basic" {
   role       = aws_iam_role.feedback.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
@@ -52,6 +57,8 @@ resource "aws_iam_role_policy_attachment" "feedback_basic" {
 
 # --- Logs ---------------------------------------------------------------------
 
+# Created explicitly (rather than letting Lambda auto-create it) so the
+# retention is capped — 14 days of logs, then they expire.
 resource "aws_cloudwatch_log_group" "feedback" {
   name              = "/aws/lambda/${var.name_prefix}-feedback"
   retention_in_days = 14
@@ -60,22 +67,26 @@ resource "aws_cloudwatch_log_group" "feedback" {
 # --- Lambda -------------------------------------------------------------------
 
 resource "aws_lambda_function" "feedback" {
-  function_name    = "${var.name_prefix}-feedback"
-  role             = aws_iam_role.feedback.arn
+  function_name = "${var.name_prefix}-feedback"
+  role          = aws_iam_role.feedback.arn
   # nodejs24.x (available since 2025-11) — requires AWS provider ~> 6.0;
   # provider 5.x's runtime enum ended at nodejs22.x.
-  runtime          = "nodejs24.x"
-  architectures    = ["arm64"]
-  handler          = "index.handler"
-  memory_size      = 256
-  timeout          = 30
-  filename         = var.zip_path
+  runtime       = "nodejs24.x"
+  architectures = ["arm64"]
+  handler       = "index.handler"
+  memory_size   = 256
+  timeout       = 30
+  filename      = var.zip_path
+  # Hash of the zip: Terraform only pushes new code when the bundle changes.
   source_code_hash = filebase64sha256(var.zip_path)
 
+  # Provider config (API key etc.) — empty map = unconfigured mode.
   environment {
     variables = var.environment
   }
 
+  # Ensure the role can write logs and the log group exists before the first
+  # invocation.
   depends_on = [
     aws_iam_role_policy_attachment.feedback_basic,
     aws_cloudwatch_log_group.feedback,
@@ -84,6 +95,8 @@ resource "aws_lambda_function" "feedback" {
 
 # --- Function URL (no API Gateway — one endpoint, plan §2) --------------------
 
+# Public HTTPS endpoint for the function. Fronted by CloudFront's /api/*
+# behavior in production, so direct hits are possible but not the normal path.
 resource "aws_lambda_function_url" "feedback" {
   function_name      = aws_lambda_function.feedback.function_name
   authorization_type = "NONE"

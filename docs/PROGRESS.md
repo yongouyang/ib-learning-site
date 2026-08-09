@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-09 — CI warning cleanup + Terraform file comments
+
+Git HEAD: `cc55357` (branch `develop`, tree dirty: committing below)
+Done: (1) Cleared the 9 green-run annotations: bumped GitHub Actions to Node-24-native majors (checkout v7, setup-node v7, cache v6, upload-artifact v7, configure-aws-credentials v6, setup-terraform v4, osv-scanner reusable v2.5.0) in `ci.yml` + `security.yml`; removed dead `subjectKey` param in `tools/scripts/scrape-bbc-ks3.mjs`; eslint `no-unused-vars` now allows the `_omitted` rest-sibling idiom + `^_` names (`ignoreRestSiblings` etc.). (2) Added per-block explanatory comments to all 5 terraform `.tf` files (bootstrap vs envs intent, OAC, OIDC trust scoping, Lambda permission quirks).
+Verified: `npm run lint` exit 0 (13 warnings, all intentional react-hooks; 0 no-unused-vars; probe confirms real unused vars in .mjs still flagged) ✅, `node --check` scrape script ✅, `terraform fmt` + `terraform validate` both stacks ✅, tf diff = comments + fmt whitespace only (no re-apply needed) ✅. CI run for these changes pending.
+Next: unchanged (Moonshot key decision, custom domain §7, branch protection, root/IAM MFA + billing alarm; backlog DP AA / IGCSE / design refresh).
+Notes: action majors are drop-in for our plain usage; any surprise breaking change would surface in the next CI run.
+
+---
+
 ## 2026-08-09 — AWS provider 6.x + Lambda nodejs24.x
 
 Git HEAD: `0982513` (branch `develop`, tree dirty: committing below)

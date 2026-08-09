@@ -23,6 +23,8 @@ data "aws_caller_identity" "current" {}
 
 # --- GitHub OIDC provider ------------------------------------------------------
 
+# Lets AWS trust tokens issued by GitHub Actions. One per AWS account (shared
+# by all repos); thumbprint pins GitHub's TLS certificate chain.
 resource "aws_iam_openid_connect_provider" "github" {
   url             = "https://token.actions.githubusercontent.com"
   client_id_list  = ["sts.amazonaws.com"]
@@ -31,6 +33,9 @@ resource "aws_iam_openid_connect_provider" "github" {
 
 # --- Deploy role ----------------------------------------------------------------
 
+# Trust policy: the role can be assumed via GitHub's OIDC token, but only
+# when the token's subject is exactly this repo on this branch — a workflow
+# running on any other repo, branch, or a forked PR gets nothing.
 data "aws_iam_policy_document" "github_assume" {
   statement {
     actions = ["sts:AssumeRoleWithWebIdentity"]
@@ -54,6 +59,7 @@ data "aws_iam_policy_document" "github_assume" {
   }
 }
 
+# The role the deploy job assumes (aws-actions/configure-aws-credentials).
 resource "aws_iam_role" "github_deploy" {
   name               = "${var.name_prefix}-github-deploy"
   assume_role_policy = data.aws_iam_policy_document.github_assume.json
@@ -110,6 +116,7 @@ data "aws_iam_policy_document" "iblearn_iam" {
   }
 }
 
+# Inline (not attached-managed) so it lives and dies with the deploy role.
 resource "aws_iam_role_policy" "iblearn_iam" {
   name   = "${var.name_prefix}-iam"
   role   = aws_iam_role.github_deploy.id

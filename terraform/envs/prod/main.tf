@@ -1,9 +1,12 @@
 # Production environment (docs/aws-deployment-plan.md §4). Remote state lives in
-# the bootstrap stack's bucket/table — run terraform/bootstrap first.
+# the bootstrap stack's bucket/table — run terraform/bootstrap first. This is
+# the stack CI applies on every deploy; it composes the three modules below.
 
 terraform {
   required_version = ">= 1.9"
 
+  # AWS provider ~> 6.0 — required for the Lambda nodejs24.x runtime
+  # (provider 5.x's runtime enum ended at nodejs22.x).
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -11,6 +14,10 @@ terraform {
     }
   }
 
+  # Remote state in the bootstrap bucket, locked via DynamoDB so concurrent
+  # applies can't corrupt it. Backend blocks can't use variables, so these
+  # values duplicate the bootstrap outputs — if bootstrap is ever re-created
+  # with different names/region, update them here to match.
   backend "s3" {
     bucket         = "iblearn-tfstate-305655353474"
     key            = "prod/terraform.tfstate"
@@ -20,9 +27,11 @@ terraform {
   }
 }
 
+# Credentials: AWS_PROFILE=ib-learning-site locally, OIDC deploy role in CI.
 provider "aws" {
   region = var.region
 
+  # Tags applied automatically to every taggable resource in this stack.
   default_tags {
     tags = {
       Project     = "IBLearn"
@@ -32,6 +41,7 @@ provider "aws" {
   }
 }
 
+# Must match the region of the bootstrap state bucket (see backend above).
 variable "region" {
   description = "Home region (matches the bootstrap state bucket region)."
   type        = string
@@ -51,6 +61,8 @@ variable "site_origin" {
   default     = "https://d2c1g77zfmjpm3.cloudfront.net"
 }
 
+# Feedback API first: the site module needs its Function URL domain to wire
+# the CloudFront /api/* behavior.
 module "feedback_api" {
   source = "../../modules/feedback_api"
 
@@ -59,12 +71,16 @@ module "feedback_api" {
   cors_allow_origins = [var.site_origin]
 }
 
+# Private S3 bucket + CloudFront distribution + URL-rewrite Function +
+# /api/* proxy behavior to the feedback Lambda.
 module "site" {
   source = "../../modules/site"
 
   feedback_origin_domain = module.feedback_api.function_url_domain
 }
 
+# GitHub Actions OIDC provider + deploy role — short-lived tokens only,
+# no stored AWS keys in GitHub.
 module "ci" {
   source = "../../modules/ci"
 }

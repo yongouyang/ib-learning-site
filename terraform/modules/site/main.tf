@@ -22,14 +22,18 @@ variable "feedback_origin_domain" {
   default     = ""
 }
 
+# Account ID keeps the bucket name globally unique without hardcoding it.
 data "aws_caller_identity" "current" {}
 
 # --- Static site bucket (private) --------------------------------------------
 
+# No website hosting, no public access — the bucket is a pure CloudFront
+# origin; every request arrives via the distribution below.
 resource "aws_s3_bucket" "site" {
   bucket = "${var.name_prefix}-site-${data.aws_caller_identity.current.account_id}"
 }
 
+# Encrypt site objects at rest with S3-managed keys.
 resource "aws_s3_bucket_server_side_encryption_configuration" "site" {
   bucket = aws_s3_bucket.site.id
   rule {
@@ -39,6 +43,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "site" {
   }
 }
 
+# Bucket stays fully private — the only reader is CloudFront, authorized by
+# the bucket policy further down (not by ACLs or public settings).
 resource "aws_s3_bucket_public_access_block" "site" {
   bucket                  = aws_s3_bucket.site.id
   block_public_acls       = true
@@ -49,6 +55,8 @@ resource "aws_s3_bucket_public_access_block" "site" {
 
 # --- Origin Access Control ----------------------------------------------------
 
+# OAC is how CloudFront authenticates to S3: every origin request is signed
+# with SigV4 (successor to the legacy Origin Access Identity).
 resource "aws_cloudfront_origin_access_control" "site" {
   name                              = "${var.name_prefix}-site-oac"
   origin_access_control_origin_type = "s3"
@@ -56,6 +64,9 @@ resource "aws_cloudfront_origin_access_control" "site" {
   signing_protocol                  = "sigv4"
 }
 
+# Allow the CloudFront service to read objects — but only when the request
+# comes from THIS distribution (SourceArn condition), so other distributions
+# in any account can't use the bucket as an origin.
 data "aws_iam_policy_document" "site" {
   statement {
     sid       = "AllowCloudFrontOAC"
@@ -86,6 +97,8 @@ resource "aws_s3_bucket_policy" "site" {
 # this Function maps /foo → /foo.html and /foo/ → /foo.html as well (the
 # export has no dir/index.html pages; only the root has one).
 
+# Runs on the viewer-request event of the default behavior, before the cache
+# lookup, so the cache key already contains the rewritten .html URI.
 resource "aws_cloudfront_function" "url_rewrite" {
   name    = "${var.name_prefix}-url-rewrite"
   runtime = "cloudfront-js-2.0"
@@ -128,13 +141,15 @@ resource "aws_cloudfront_distribution" "site" {
   price_class         = var.price_class
   default_root_object = "index.html"
 
+  # Origin 1: the private S3 bucket (static site), reached via OAC signing.
   origin {
     origin_id                = "s3-site"
     domain_name              = aws_s3_bucket.site.bucket_regional_domain_name
     origin_access_control_id = aws_cloudfront_origin_access_control.site.id
   }
 
-  # Feedback Lambda Function URL (Session 3) — present only once wired.
+  # Origin 2 (optional): feedback Lambda Function URL (Session 3) — created
+  # only once the API is wired (feedback_origin_domain non-empty).
   dynamic "origin" {
     for_each = var.feedback_origin_domain != "" ? [var.feedback_origin_domain] : []
     content {
@@ -150,6 +165,7 @@ resource "aws_cloudfront_distribution" "site" {
   }
 
   # /api/* → feedback Lambda, never cached, all viewer data forwarded.
+  # Ordered behaviors are evaluated before the default behavior.
   dynamic "ordered_cache_behavior" {
     for_each = var.feedback_origin_domain != "" ? [1] : []
     content {
@@ -164,6 +180,8 @@ resource "aws_cloudfront_distribution" "site" {
     }
   }
 
+  # Everything else → S3. CachingOptimized honors the per-object cache-control
+  # metadata written by the deploy sync; the rewrite Function runs first.
   default_cache_behavior {
     target_origin_id       = "s3-site"
     viewer_protocol_policy = "redirect-to-https"
@@ -192,12 +210,15 @@ resource "aws_cloudfront_distribution" "site" {
     response_page_path = "/404.html"
   }
 
+  # No geo-blocking — serve all countries.
   restrictions {
     geo_restriction {
       restriction_type = "none"
     }
   }
 
+  # Default *.cloudfront.net certificate. Swap for an ACM cert (us-east-1)
+  # when a custom domain is added (plan §7).
   viewer_certificate {
     cloudfront_default_certificate = true
   }
@@ -215,6 +236,7 @@ output "distribution_domain_name" {
   value = aws_cloudfront_distribution.site.domain_name
 }
 
+# Full public URL — used in the deploy smoke checks.
 output "site_url" {
   value = "https://${aws_cloudfront_distribution.site.domain_name}"
 }
