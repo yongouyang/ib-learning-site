@@ -29,6 +29,19 @@ export default defineConfig([
       'react-hooks/purity': 'warn',
       'react-hooks/refs': 'warn',
       'react-hooks/globals': 'warn',
+      // Allow the idiomatic "omit a key via rest" pattern (`const { a: _omitted,
+      // ...rest } = obj`) and intentionally-unused `^_` names.
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          ignoreRestSiblings: true,
+          varsIgnorePattern: '^_',
+          argsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
     },
   },
   {

@@ -18,7 +18,7 @@ jobs:
     name: Semgrep (SAST)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Run Semgrep scan
         run: >-
@@ -35,4 +35,4 @@ jobs:
       actions: read          # required for SARIF upload
       security-events: write # results land in Security > Code scanning
       contents: read
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.8
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.5.0

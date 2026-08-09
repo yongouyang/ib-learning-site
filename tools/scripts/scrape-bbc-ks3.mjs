@@ -357,7 +357,7 @@ async function resolveTopicPages(page, guides, delay, summary) {
 
 // ─── PHASE 2: Scrape a Single Guide Page ────────────────────────────────────
 
-async function scrapeGuide(page, guideUrl, subjectKey) {
+async function scrapeGuide(page, guideUrl) {
   const fullUrl = guideUrl.startsWith('http') ? guideUrl : `${BASE_URL}${guideUrl}`;
   log('info', `Scraping: ${fullUrl}`);
 
@@ -794,7 +794,7 @@ async function main() {
         }
 
         const progress = `[${i + 1}/${guides.length}]`;
-        const content = await scrapeGuide(page, guide.url, subjectKey);
+        const content = await scrapeGuide(page, guide.url);
         if (content._error) { summary.errors++; subjStats.errors++; } else { summary.scraped++; subjStats.scraped++; }
 
         ensureDir(outputDir);
