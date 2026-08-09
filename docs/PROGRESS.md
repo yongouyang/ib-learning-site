@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-09 — iOS install-help visibility fix
+
+Git HEAD: `5ad45b6` (branch `develop`, tree dirty: committing below)
+Done: user iOS verification of the PWA install flow — button only on /progress is BY DESIGN (Phase 7 §7.1 passive, user-resolved), and the button correctly disappears in standalone mode ✅. Real gap: tapping "Install app" on iOS *did* toggle help, but as a tiny gray one-liner that read as "nothing happens". Replaced with a visible numbered-step card in `InstallAppButton.tsx` (1. Share — noting newer iOS hides it under ⋯, 2. "Add to Home Screen", 3. "Add").
+Verified: pwa-install-app-button unit tests 6/6 ✅, lint 0 errors ✅.
+Next: unchanged (AWS provider 6.x, Moonshot key, custom domain, branch protection, MFA/billing alarm; backlog DP AA / IGCSE / design refresh).
+Notes: iOS Safari never fires `beforeinstallprompt` — manual Share → Add to Home Screen is the only install path there; the button can never do more than show instructions on iOS.
+
+---
+
 ## 2026-08-08 — Docs moved to docs/ + future-stack review
 
 Git HEAD: `3e471cf` (branch `develop`, tree dirty: committing below)

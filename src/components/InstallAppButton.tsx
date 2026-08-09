@@ -26,10 +26,14 @@ export function InstallAppButton() {
           <Download className="w-4 h-4" /> Install app
         </button>
         {showIOSHelp && (
-          <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-            Tap <Share className="inline w-3.5 h-3.5 -mt-0.5" aria-label="Share" /> Share in Safari,
-            then choose &ldquo;Add to Home Screen&rdquo;.
-          </p>
+          <ol className="mt-2 max-w-xs list-decimal list-inside space-y-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-3 text-sm text-gray-700 dark:text-gray-300 shadow-sm">
+            <li>
+              In Safari, tap <Share className="inline w-4 h-4 -mt-0.5" aria-label="Share" />{' '}
+              <strong>Share</strong> (on newer iOS it&rsquo;s under the <strong>&hellip;</strong> menu)
+            </li>
+            <li>Scroll down and tap &ldquo;<strong>Add to Home Screen</strong>&rdquo;</li>
+            <li>Tap &ldquo;<strong>Add</strong>&rdquo;</li>
+          </ol>
         )}
       </div>
     );
