@@ -68,7 +68,14 @@ test.describe('PWA (production build)', () => {
 
     const reachMarkStage = async () => {
       await page.getByLabel(/Your answer/i).fill('I added the columns and got 933.');
-      await page.getByRole('button', { name: /Check answer/i }).click();
+      // Click through the answering phase (8 questions: 7 Next clicks), then
+      // submit — the review phase (with the AI button) starts back at q1.
+      // Settle on the progress label each time (card animates between questions).
+      for (let i = 0; i < 7; i++) {
+        await page.getByRole('button', { name: /Next Question/i }).click();
+        await expect(page.getByText(`${i + 2}/8`, { exact: true })).toBeVisible();
+      }
+      await page.getByRole('button', { name: /Submit & Review/i }).click();
       await expect(page.getByText('Model answer')).toBeVisible();
     };
 

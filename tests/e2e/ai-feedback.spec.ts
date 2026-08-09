@@ -5,16 +5,24 @@ import { test, expect } from '@playwright/test';
 // /api/feedback route with zero tokens. Per-case responses are injected by
 // rewriting the outgoing POST body with `_testResponse` via page.route.
 test.describe('AI feedback', () => {
-  async function answerFirstQuestion(page: import('@playwright/test').Page) {
+  // Answer q1, click through the rest of the answering phase, submit — the
+  // untimed review phase (with the AI button) starts back at q1.
+  async function answerFirstQuestionAndEnterReview(page: import('@playwright/test').Page) {
     await page.goto('/papers/math-y7/math-y7-set-1');
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
     await page.getByLabel(/Your answer/i).fill('I added the columns and got 933.');
-    await page.getByRole('button', { name: /Check answer/i }).click();
+    // 8 questions in this set: 7 Next clicks reach the last one. Settle on
+    // the progress label each time — the card animates between questions.
+    for (let i = 0; i < 7; i++) {
+      await page.getByRole('button', { name: /Next Question/i }).click();
+      await expect(page.getByText(`${i + 2}/8`, { exact: true })).toBeVisible();
+    }
+    await page.getByRole('button', { name: /Submit & Review/i }).click();
     await expect(page.getByText('Model answer')).toBeVisible();
   }
 
   test('default dummy flow: marks all points and shows canned feedback', async ({ page }) => {
-    await answerFirstQuestion(page);
+    await answerFirstQuestionAndEnterReview(page);
 
     await page.getByRole('button', { name: /Mark with AI/i }).click();
 
@@ -45,7 +53,7 @@ test.describe('AI feedback', () => {
       return route.fulfill({ response });
     });
 
-    await answerFirstQuestion(page);
+    await answerFirstQuestionAndEnterReview(page);
     await page.getByRole('button', { name: /Mark with AI/i }).click();
 
     // One point awarded, one not — exactly as injected.
@@ -71,7 +79,7 @@ test.describe('AI feedback', () => {
       return route.fulfill({ response });
     });
 
-    await answerFirstQuestion(page);
+    await answerFirstQuestionAndEnterReview(page);
     await page.getByRole('button', { name: /Mark with AI/i }).click();
 
     await expect(page.getByText(/AI marker is unavailable/)).toBeVisible();
@@ -86,7 +94,7 @@ test.describe('AI feedback', () => {
       return route.fulfill({ status: 429, json: { error: 'Rate limit exceeded' } });
     });
 
-    await answerFirstQuestion(page);
+    await answerFirstQuestionAndEnterReview(page);
     await page.getByRole('button', { name: /Mark with AI/i }).click();
 
     await expect(page.getByText(/AI marker is busy/)).toBeVisible();
@@ -102,7 +110,7 @@ test.describe('AI feedback', () => {
       return route.continue();
     });
 
-    await answerFirstQuestion(page);
+    await answerFirstQuestionAndEnterReview(page);
     await expect(page.getByRole('button', { name: /Mark with AI/i })).toHaveCount(0);
     await page.locator('button[aria-pressed="false"]').first().click();
     await expect(page.getByRole('button', { name: /Next Question \(1\/2 marks\)/ })).toBeVisible();

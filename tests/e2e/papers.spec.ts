@@ -13,32 +13,44 @@ test.describe('Practice papers', () => {
     await expect(page.locator('a[href^="/papers/"]')).toHaveCount(8);
   });
 
-  test('a full self-marking run records the result', async ({ page }) => {
+  test('a full two-phase run records the result', async ({ page }) => {
     await page.goto('/papers/math-y7/math-y7-set-1');
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
 
-    // 8 questions; write an answer, reveal the markscheme, tick every point.
+    // Timed answering phase: write an answer per question, free navigation.
+    // 8 questions; the last one shows "Submit & Review" instead of Next.
     for (let i = 0; i < 8; i++) {
       // Marks badge and difficulty chip are visible on each question.
       await expect(page.getByText(/\d marks?/).first()).toBeVisible();
 
       await page.getByLabel(/Your answer/i).fill('My worked answer.');
-      await page.getByRole('button', { name: /Check answer/i }).click();
+      const nextBtn = page.getByRole('button', { name: /Next Question/i });
+      if (await nextBtn.count()) {
+        await nextBtn.click();
+        // The old card exits before the new one mounts (AnimatePresence
+        // mode="wait") — wait for a fresh, empty textarea before filling.
+        await expect(page.getByLabel(/Your answer/i)).toHaveValue('');
+      }
+    }
+    await page.getByRole('button', { name: /Submit & Review/i }).click();
 
-      // Model answer appears, then tick every markscheme point (full marks).
-      await expect(page.getByText('Model answer')).toBeVisible();
-      const points = page.locator('button[aria-pressed="false"]');
-      const count = await points.count();
-      for (let j = 0; j < count; j++) {
+    // Untimed review phase: the clock is gone; tick every point (full marks).
+    await expect(page.getByText('Model answer')).toBeVisible();
+    await expect(page.getByText(/Time remaining/)).toHaveCount(0);
+    for (let i = 0; i < 8; i++) {
+      // Wait for this question's unticked points to mount (card animation),
+      // then tick them one at a time, confirming each state flip.
+      await expect(page.locator('button[aria-pressed="false"]').first()).toBeVisible();
+      let remaining = await page.locator('button[aria-pressed="false"]').count();
+      while (remaining > 0) {
         await page.locator('button[aria-pressed="false"]').first().click();
+        remaining--;
+        await expect(page.locator('button[aria-pressed="false"]')).toHaveCount(remaining);
       }
 
       const nextBtn = page.getByRole('button', { name: /Next Question|See Results/ });
       await expect(nextBtn).toBeVisible();
       await nextBtn.click();
-      if (i < 7) {
-        await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
-      }
     }
 
     // Full marks: 20/20 = 100%.

@@ -21,8 +21,15 @@ interface QuestionOutcome {
   studentAnswer: string;
   /** Ticked markscheme points — the Phase 5 AI-marking payload shape. */
   ticks: boolean[];
+  /** Phase 5 AI-marking details, present after "Mark with AI" succeeded. */
+  aiComments?: string[];
+  aiFeedback?: string;
 }
 
+// Two phases, like a real exam: a TIMED answering phase (free navigation,
+// answers editable until submit) followed by an UNTIMED review phase (model
+// answer, AI marking, self-ticks). The clock never runs during review, so
+// reading feedback and self-marking don't eat exam time.
 export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
   const course = getCourse(paper.courseId);
   const { recordExam } = useProgress();
@@ -37,21 +44,21 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
     [paper]
   );
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [stage, setStage] = useState<'answer' | 'mark'>('answer');
-  const [answer, setAnswer] = useState('');
-  const [ticks, setTicks] = useState<boolean[]>([]);
-  const [outcomes, setOutcomes] = useState<QuestionOutcome[]>([]);
+  const [phase, setPhase] = useState<'answering' | 'review'>('answering');
   const [isComplete, setIsComplete] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [answers, setAnswers] = useState<string[]>(() => ordered.map(() => ''));
+  // Review-phase data, keyed by question id — created lazily on first visit.
+  const [outcomes, setOutcomes] = useState<Record<string, QuestionOutcome>>({});
   const [timeLeft, setTimeLeft] = useState((paper.durationMinutes ?? 0) * 60);
+  const [timeExpired, setTimeExpired] = useState(false);
 
-  // Phase 5 — AI marking. The button only appears when the route reports a
-  // configured provider; students can always override the AI's ticks.
+  // Phase 5 — AI marking (review phase only). The button only appears when
+  // the route reports a configured provider; students can always override
+  // the AI's ticks.
   const [aiConfigured, setAiConfigured] = useState(false);
   const [aiState, setAiState] = useState<'idle' | 'loading' | 'error'>('idle');
   const [aiError, setAiError] = useState<string | null>(null);
-  const [aiComments, setAiComments] = useState<string[] | null>(null);
-  const [aiFeedback, setAiFeedback] = useState<string | null>(null);
 
   useEffect(() => {
     fetch('/api/feedback')
@@ -62,63 +69,82 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
 
   const startedAt = useRef(Date.now());
   const recorded = useRef(false);
-  const outcomesRef = useRef<QuestionOutcome[]>([]);
-  outcomesRef.current = outcomes;
+  const answeringSeconds = useRef(0);
 
   const question: FreeResponseQuestion | undefined = ordered[currentIndex];
-  const marksAchieved = outcomesRef.current.reduce(
-    (sum, o) => sum + o.ticks.filter(Boolean).length,
+
+  const blankOutcome = useCallback(
+    (index: number): QuestionOutcome => ({
+      questionId: ordered[index].id,
+      studentAnswer: answers[index],
+      ticks: new Array(ordered[index].marks).fill(false),
+    }),
+    [ordered, answers]
+  );
+
+  const currentOutcome: QuestionOutcome | undefined = question
+    ? outcomes[question.id] ?? blankOutcome(currentIndex)
+    : undefined;
+
+  const updateOutcome = (qid: string, updater: (o: QuestionOutcome) => QuestionOutcome) => {
+    setOutcomes((prev) => {
+      const idx = ordered.findIndex((q) => q.id === qid);
+      const base = prev[qid] ?? blankOutcome(idx);
+      return { ...prev, [qid]: updater(base) };
+    });
+  };
+
+  const marksAchieved = ordered.reduce(
+    (sum, q) => sum + (outcomes[q.id]?.ticks.filter(Boolean).length ?? 0),
     0
   );
 
-  const finish = useCallback(
-    (finalOutcomes: QuestionOutcome[]) => {
-      if (recorded.current) return;
-      recorded.current = true;
-      const achieved = finalOutcomes.reduce((sum, o) => sum + o.ticks.filter(Boolean).length, 0);
-      recordExam({
-        examId: paper.id,
-        date: new Date().toISOString(),
-        correctCount: achieved,
-        totalCount: totalMarks,
-        secondsUsed: Math.round((Date.now() - startedAt.current) / 1000),
-      });
-      setIsComplete(true);
-    },
-    [paper.id, recordExam, totalMarks]
-  );
-
-  // Overall countdown (papers with a duration); on expiry unattempted
-  // questions score zero.
-  useEffect(() => {
-    if (!paper.durationMinutes || isComplete) return;
-    const interval = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(interval);
-          finish(outcomesRef.current);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [paper.durationMinutes, isComplete, finish]);
-
-  const handleCheck = () => {
-    setTicks(new Array(question!.marks).fill(false));
-    setStage('mark');
-  };
-
-  const resetAiState = () => {
+  // Lock the answers and enter the untimed review phase — either from the
+  // student's submit or from the clock running out.
+  const submitAnswers = useCallback((expired: boolean) => {
+    answeringSeconds.current = Math.round((Date.now() - startedAt.current) / 1000);
+    setTimeExpired(expired);
+    setPhase('review');
+    setCurrentIndex(0);
     setAiState('idle');
     setAiError(null);
-    setAiComments(null);
-    setAiFeedback(null);
-  };
+  }, []);
+
+  // Overall countdown, answering phase only; on expiry answers lock as-is.
+  useEffect(() => {
+    if (!paper.durationMinutes || phase !== 'answering' || isComplete) return;
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => Math.max(0, prev - 1));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [paper.durationMinutes, phase, isComplete]);
+
+  useEffect(() => {
+    if (paper.durationMinutes && phase === 'answering' && timeLeft <= 0) {
+      submitAnswers(true);
+    }
+  }, [paper.durationMinutes, phase, timeLeft, submitAnswers]);
+
+  const finishReview = useCallback(() => {
+    if (recorded.current) return;
+    recorded.current = true;
+    const achieved = ordered.reduce(
+      (sum, q) => sum + (outcomes[q.id]?.ticks.filter(Boolean).length ?? 0),
+      0
+    );
+    recordExam({
+      examId: paper.id,
+      date: new Date().toISOString(),
+      correctCount: achieved,
+      totalCount: totalMarks,
+      secondsUsed: answeringSeconds.current,
+    });
+    setIsComplete(true);
+  }, [ordered, outcomes, paper.id, recordExam, totalMarks]);
 
   const handleMarkWithAi = async () => {
     if (!question || aiState === 'loading') return;
+    const studentAnswer = (outcomes[question.id] ?? blankOutcome(currentIndex)).studentAnswer;
     setAiState('loading');
     setAiError(null);
     try {
@@ -129,7 +155,7 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
           stem: question.stem,
           markscheme: question.markscheme,
           modelAnswer: question.modelAnswer,
-          studentAnswer: answer,
+          studentAnswer,
           maxMarks: question.marks,
         }),
       });
@@ -143,9 +169,12 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
         return;
       }
       const json = await res.json();
-      setTicks(json.perPoint.map((p: { awarded: boolean }) => p.awarded));
-      setAiComments(json.perPoint.map((p: { comment: string }) => p.comment));
-      setAiFeedback(json.feedback);
+      updateOutcome(question.id, (o) => ({
+        ...o,
+        ticks: json.perPoint.map((p: { awarded: boolean }) => p.awarded),
+        aiComments: json.perPoint.map((p: { comment: string }) => p.comment),
+        aiFeedback: json.feedback,
+      }));
       setAiState('idle');
     } catch {
       setAiError('The AI marker is unavailable right now — mark yourself below.');
@@ -154,35 +183,26 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
   };
 
   const handleToggle = (index: number) => {
-    setTicks((prev) => prev.map((t, i) => (i === index ? !t : t)));
-  };
-
-  const handleNext = () => {
-    const outcome: QuestionOutcome = { questionId: question!.id, studentAnswer: answer, ticks };
-    const nextOutcomes = [...outcomes, outcome];
-    setOutcomes(nextOutcomes);
-    if (currentIndex < ordered.length - 1) {
-      setCurrentIndex((i) => i + 1);
-      setStage('answer');
-      setAnswer('');
-      setTicks([]);
-      resetAiState();
-    } else {
-      finish(nextOutcomes);
-    }
+    if (!question) return;
+    updateOutcome(question.id, (o) => ({
+      ...o,
+      ticks: o.ticks.map((t, i) => (i === index ? !t : t)),
+    }));
   };
 
   const handleRetry = () => {
+    setPhase('answering');
     setCurrentIndex(0);
-    setStage('answer');
-    setAnswer('');
-    setTicks([]);
-    setOutcomes([]);
+    setAnswers(ordered.map(() => ''));
+    setOutcomes({});
     setIsComplete(false);
     setTimeLeft((paper.durationMinutes ?? 0) * 60);
+    setTimeExpired(false);
     startedAt.current = Date.now();
+    answeringSeconds.current = 0;
     recorded.current = false;
-    resetAiState();
+    setAiState('idle');
+    setAiError(null);
   };
 
   const backHref = '/papers';
@@ -231,7 +251,9 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
     );
   }
 
-  const progress = ((currentIndex + (stage === 'mark' ? 0.5 : 0)) / ordered.length) * 100;
+  const progress = ((currentIndex + 1) / ordered.length) * 100;
+  const answeredCount = answers.filter((a) => a.trim().length > 0).length;
+  const isLast = currentIndex === ordered.length - 1;
 
   return (
     <div className="max-w-lg mx-auto px-4 py-6 pb-24 md:pb-6">
@@ -254,9 +276,15 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
         <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{currentIndex + 1}/{ordered.length}</span>
       </div>
 
+      {phase === 'review' && timeExpired && (
+        <p className="mb-4 text-sm text-amber-700 dark:text-amber-300">
+          Time&apos;s up — your answers were locked as-is. Review each question below.
+        </p>
+      )}
+
       <AnimatePresence mode="wait">
         <motion.div
-          key={question.id}
+          key={`${phase}-${question.id}`}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
@@ -277,7 +305,7 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
             </div>
           </div>
 
-          {paper.durationMinutes && (
+          {phase === 'answering' && paper.durationMinutes && (
             <div className="mb-4">
               <div className="flex items-center justify-between text-xs mb-1">
                 <span className="inline-flex items-center gap-1 text-gray-500 dark:text-gray-400">
@@ -298,26 +326,35 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
             </div>
           )}
 
-          {stage === 'answer' ? (
+          {phase === 'answering' ? (
             <>
               <textarea
-                value={answer}
-                onChange={(e) => setAnswer(e.target.value)}
+                value={answers[currentIndex]}
+                onChange={(e) =>
+                  setAnswers((prev) => prev.map((a, i) => (i === currentIndex ? e.target.value : a)))
+                }
                 rows={5}
                 placeholder="Write your answer here — show your working."
                 aria-label="Your answer"
                 className="w-full p-3 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:border-blue-500 focus:outline-none resize-y"
               />
-              <button
-                onClick={handleCheck}
-                disabled={answer.trim().length === 0}
-                className="mt-3 w-full py-3 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Check answer
-              </button>
+              {isLast && answeredCount < ordered.length && (
+                <p className="mt-2 text-xs text-amber-700 dark:text-amber-300">
+                  {ordered.length - answeredCount} question{ordered.length - answeredCount !== 1 ? 's' : ''} still unanswered.
+                </p>
+              )}
             </>
           ) : (
             <>
+              <div className="mb-4">
+                <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">Your answer</p>
+                {currentOutcome!.studentAnswer.trim() ? (
+                  <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{currentOutcome!.studentAnswer}</p>
+                ) : (
+                  <p className="text-sm italic text-gray-400 dark:text-gray-500">(no answer)</p>
+                )}
+              </div>
+
               <div className="mb-4">
                 <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">Model answer</p>
                 <p className="text-sm text-gray-700 dark:text-gray-300"><InlineMath text={question.modelAnswer} /></p>
@@ -325,12 +362,12 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
 
               {aiConfigured && (
                 <div className="mb-4">
-                  {aiFeedback ? (
+                  {currentOutcome!.aiFeedback ? (
                     <div className="p-3 rounded-lg bg-purple-50 dark:bg-purple-950 border border-purple-200 dark:border-purple-900 text-sm text-purple-900 dark:text-purple-200">
                       <p className="font-semibold inline-flex items-center gap-1.5 mb-1">
                         <Sparkles className="w-4 h-4" /> AI feedback
                       </p>
-                      <p>{aiFeedback}</p>
+                      <p>{currentOutcome!.aiFeedback}</p>
                     </div>
                   ) : (
                     <button
@@ -357,22 +394,22 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
                     <div key={i}>
                       <button
                         onClick={() => handleToggle(i)}
-                        aria-pressed={ticks[i]}
+                        aria-pressed={currentOutcome!.ticks[i] ?? false}
                         className={`w-full text-left flex items-start gap-2.5 p-2.5 rounded-lg border-2 transition-colors text-sm ${
-                          ticks[i]
+                          currentOutcome!.ticks[i]
                             ? 'border-green-500 bg-green-50 dark:bg-green-950 text-gray-900 dark:text-gray-100'
                             : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                         }`}
                       >
-                        {ticks[i]
+                        {currentOutcome!.ticks[i]
                           ? <CheckSquare className="w-4 h-4 mt-0.5 shrink-0 text-green-600 dark:text-green-400" />
                           : <Square className="w-4 h-4 mt-0.5 shrink-0 text-gray-400" />}
                         <span><InlineMath text={point} /></span>
                       </button>
-                      {aiComments?.[i] && (
+                      {currentOutcome!.aiComments?.[i] && (
                         <p className="mt-1 ml-1 text-xs text-purple-700 dark:text-purple-300">
                           <Sparkles className="w-3 h-3 inline mr-1" aria-hidden="true" />
-                          {aiComments[i]}
+                          {currentOutcome!.aiComments[i]}
                         </p>
                       )}
                     </div>
@@ -384,20 +421,57 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
         </motion.div>
       </AnimatePresence>
 
-      {stage === 'mark' && (
-        <button
-          onClick={handleNext}
-          className="w-full py-3 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors active:scale-[0.98]"
-        >
-          {currentIndex < ordered.length - 1 ? (
-            <span className="inline-flex items-center justify-center gap-1.5">
-              Next Question ({ticks.filter(Boolean).length}/{question.marks} marks) <ArrowRight className="w-4 h-4" />
-            </span>
+      {/* Navigation — outside the animated card so buttons stay put. */}
+      <div className="flex gap-3">
+        {currentIndex > 0 && (
+          <button
+            onClick={() => { setCurrentIndex((i) => Math.max(0, i - 1)); setAiState('idle'); setAiError(null); }}
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-semibold text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" /> Previous
+          </button>
+        )}
+        {phase === 'answering' ? (
+          isLast ? (
+            <button
+              onClick={() => submitAnswers(false)}
+              className="flex-1 py-3 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors active:scale-[0.98]"
+            >
+              Submit &amp; Review
+            </button>
           ) : (
-            `See Results (${ticks.filter(Boolean).length}/${question.marks} marks)`
-          )}
-        </button>
-      )}
+            <button
+              onClick={() => setCurrentIndex((i) => Math.min(i + 1, ordered.length - 1))}
+              className="flex-1 py-3 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors active:scale-[0.98]"
+            >
+              <span className="inline-flex items-center justify-center gap-1.5">
+                Next Question <ArrowRight className="w-4 h-4" />
+              </span>
+            </button>
+          )
+        ) : (
+          <button
+            onClick={() => {
+              if (isLast) {
+                finishReview();
+              } else {
+                setCurrentIndex((i) => Math.min(i + 1, ordered.length - 1));
+                setAiState('idle');
+                setAiError(null);
+              }
+            }}
+            className="flex-1 py-3 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition-colors active:scale-[0.98]"
+          >
+            {isLast ? (
+              `See Results (${currentOutcome!.ticks.filter(Boolean).length}/${question.marks} marks)`
+            ) : (
+              <span className="inline-flex items-center justify-center gap-1.5">
+                Next Question ({currentOutcome!.ticks.filter(Boolean).length}/{question.marks} marks) <ArrowRight className="w-4 h-4" />
+              </span>
+            )}
+          </button>
+        )}
+      </div>
     </div>
   );
 }
