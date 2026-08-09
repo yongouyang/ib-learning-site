@@ -6,6 +6,26 @@
 
 ---
 
+## 2026-08-09 — Paper runner: two-phase exam simulation
+
+Git HEAD: `936ae0c` (branch `develop`, tree dirty: committing below)
+Done: reworked `PaperRunnerClient` into exam-realistic phases — TIMED answering (free Previous/Next navigation, answers editable until submit, clock runs only here) → UNTIMED review (student-answer recap, model answer, Mark with AI, self-ticks; no clock) → results. Timer expiry now locks answers and enters review (nothing auto-records until review completes; `secondsUsed` = answering time only). Unanswered-count hint on the submit question; "Time's up" banner in review when the clock did the submitting. Also: deploy job no longer re-runs validate:content/audit/vitest (duplicates of build-and-test; illustration gates are deploy-only).
+Verified: vitest 247/247 ✅, lint 0 errors ✅, papers+ai-feedback e2e 8/8 Desktop Chrome ✅, pwa prod-build spec 5/5 ✅. Full matrix runs in CI.
+Next: unchanged (custom domain §7, branch protection, MFA/billing, SSM key storage; backlog DP AA / IGCSE / design refresh).
+Notes: e2e gotcha — `AnimatePresence mode="wait"` means the OLD card is still in the DOM during its exit; locators must wait for new-card content (empty textarea / unticked-point count), not the progress label (updates instantly). Review-phase AI results persist per question via outcomes keyed by question id.
+
+---
+
+## 2026-08-09 — AI feedback LIVE with DeepSeek
+
+Git HEAD: `936ae0c` (branch `develop`, tree dirty: committing below)
+Done: "Mark with AI" is live in prod. Long road: Kimi Code subscription key ≠ open-platform key (401 on both api endpoints); platform.kimi.com key works on `api.moonshot.cn` locally BUT that host is intermittently blackholed from AWS ap-east-1 (throwaway probe Lambda proved it: TLS 0.5s + two 200 chat completions, then 8/8 connect timeouts; root error `UND_ERR_CONNECT_TIMEOUT` to a single Alibaba Cloud IP — cross-border interference, not code). Switched to **DeepSeek `deepseek-v4-flash`** (`api.deepseek.com` — 8/8 TLS ~60-325ms from AWS). Code change: `temperature` omitted from the provider request (Kimi k2 rejects temp≠1; deepseek-v4 is also a reasoning model — returns `reasoning_content`, we read `content` only). `FEEDBACK_ENV` secret now points at DeepSeek; cutover used the new `deploy_only` dispatch (936ae0c). docs/ai-feedback.md deployment section rewritten for AWS/DeepSeek.
+Verified: live POST `/api/feedback` 200 in ~6s, 1/2 marks with correct per-point discrimination ✅; live UI Playwright walk (Check answer → Mark with AI → feedback panel + per-point comments) ✅; GET `{configured:true}` ✅; probe Lambdas deleted (function + log group) ✅; unit 247/247 ✅.
+Next: custom domain (§7), optional branch protection, root/IAM MFA + billing alarm, optional SSM-Parameter-Store key storage (discussed, deferred). Backlog: DP AA, IGCSE content, design refresh.
+Notes: `api.kimi.com` serves ONLY the /coding subscription API (404 for /v1). Moonshot international platform (`api.moonshot.ai`) needs its own key — a .cn key 401s there. If DeepSeek ever disappoints, provider switch = FEEDBACK_BASE_URL + FEEDBACK_MODEL only.
+
+---
+
 ## 2026-08-09 — CI warning cleanup + Terraform file comments
 
 Git HEAD: `cc55357` (branch `develop`, tree dirty: committing below)

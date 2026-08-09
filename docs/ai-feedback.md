@@ -62,14 +62,21 @@ Injected responses pass the same zod validation as real provider output, and `ma
   FEEDBACK_LIVE=1 FEEDBACK_API_KEY=sk-... npx vitest run --config vitest.live.config.ts
   ```
 
-## Deployment (Vercel)
+## Deployment (AWS)
 
-1. Deploy first **without** any `FEEDBACK_*` env — the feature stays hidden (zero risk).
-2. Get a dedicated API key from the **Moonshot open platform** (platform.moonshot.cn / api.moonshot.ai). Note: a Kimi Code CLI subscription credential is a product login, not an open-platform API key — the open platform bills separately and lets you set budget limits/alerts. Set a monthly budget alert before going live.
-3. Add env vars in the Vercel project settings (Production): `FEEDBACK_PROVIDER=openai-compatible`, `FEEDBACK_API_KEY=sk-...`, optionally `FEEDBACK_MODEL` / `FEEDBACK_BASE_URL`.
-4. Watch the Moonshot dashboard for the first week. Abuse exposure is bounded by per-IP rate limits + payload caps (2,000 chars, one question per request), but on serverless the in-memory limiter is **per-instance, not global** — if usage grows, move to Upstash Redis rate limiting.
+1. The site deploys fine **without** any provider env — the feature hides itself (zero risk).
+2. Production uses **DeepSeek** (`deepseek-v4-flash` at `https://api.deepseek.com/v1`, chosen 2026-08-09). Why not Moonshot: a Kimi Code CLI subscription credential is a product login, not an open-platform API key; and while Moonshot platform keys work from a local machine, `api.moonshot.cn` sits behind mainland ingress that gets intermittently **blackholed from AWS ap-east-1** (verified with a probe Lambda: TLS connects fine at first, then 8/8 connect timeouts). `api.moonshot.ai` only accepts international-platform keys. DeepSeek's endpoint is globally fronted and stable from AWS.
+3. Set the repo secret `FEEDBACK_ENV` (single-line JSON, straight quotes — terraform parses it as HCL and rejects multi-line/curly-quoted values):
 
-Never set `FEEDBACK_TEST_MODE` in Vercel/production (the route logs a loud warning if it detects test mode in production).
+   ```
+   {"FEEDBACK_PROVIDER":"openai-compatible","FEEDBACK_API_KEY":"sk-...","FEEDBACK_BASE_URL":"https://api.deepseek.com/v1","FEEDBACK_MODEL":"deepseek-v4-flash"}
+   ```
+
+   The deploy job maps it to the Lambda env via `TF_VAR_feedback_env`.
+4. Provider quirks handled in code: `temperature` is omitted (Kimi k2 rejects any value but 1) and reasoning models return `reasoning_content` alongside `content` — we only read `content`.
+5. Watch the DeepSeek dashboard for the first week. Abuse exposure is bounded by per-IP rate limits + payload caps (2,000 chars, one question per request), but on serverless the in-memory limiter is **per-instance, not global** — if usage grows, move to a shared store (e.g. DynamoDB) for rate limiting.
+
+Never set `FEEDBACK_TEST_MODE` in production (the route logs a loud warning if it detects test mode in production).
 
 ## Contract
 

@@ -184,16 +184,14 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
-      # Illustration gates unique to deploy (CI's build-and-test covers
-      # validate:content, audit, lint, vitest). Re-run everything anyway —
-      # cheap, and keeps this job self-contained if the CI jobs change.
+      # Only the illustration gates are unique to deploy — build-and-test
+      # already ran validate:content, audit:content, lint and vitest on this
+      # same commit (deploy `needs:` it, so they can't be bypassed on a
+      # normal run; deploy_only is the explicit skip-everything hatch).
       - name: Quality gates
         run: |
-          npm run validate:content
           npm run validate:illustrations
           npm run validate:illustration-layout
-          npm run audit:content
-          npm test
 
       - name: Build static export
         run: npm run build:static
