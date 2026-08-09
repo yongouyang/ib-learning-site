@@ -43,7 +43,7 @@ describe('OpenAICompatibleProvider', () => {
     vi.unstubAllGlobals();
   });
 
-  it('sends an OpenAI-shaped request (auth, JSON mode, temperature 0)', async () => {
+  it('sends an OpenAI-shaped request (auth, JSON mode, no temperature)', async () => {
     const mock = fetchReturning(VALID_LLM_JSON);
     vi.stubGlobal('fetch', mock);
     await makeProvider().markAnswer(REQ);
@@ -55,7 +55,8 @@ describe('OpenAICompatibleProvider', () => {
     expect(headers.Authorization).toBe('Bearer sk-test');
     const body = JSON.parse(init.body as string);
     expect(body.model).toBe('test-model');
-    expect(body.temperature).toBe(0);
+    // Kimi k2 models reject any temperature but 1 — the field is omitted.
+    expect('temperature' in body).toBe(false);
     expect(body.response_format).toEqual({ type: 'json_object' });
     expect(body.messages[0].role).toBe('system');
     expect(body.messages[1].role).toBe('user');

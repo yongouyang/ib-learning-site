@@ -78,7 +78,8 @@ export class OpenAICompatibleProvider implements FeedbackProvider {
       body: JSON.stringify({
         model: this.opts.model,
         messages,
-        temperature: 0,
+        // No temperature: Kimi k2 reasoning models reject any value but 1 —
+        // omitting it lets each provider apply its own default.
         response_format: { type: 'json_object' },
       }),
       signal: AbortSignal.timeout(this.opts.timeoutMs ?? 30000),
