@@ -162,7 +162,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Speed = distance/time = 150/10 = 15 m/s.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "average-speed"
     },
     {
       "id": "phys-forces-1-q2",
@@ -175,7 +176,8 @@
       ],
       "correctIndex": 2,
       "explanation": "F=ma → a=F/m = 20/4 = 5 m/s².",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "newton-second-law"
     },
     {
       "id": "phys-forces-1-q3",
@@ -188,7 +190,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Terminal velocity → zero acceleration → zero resultant force → forces balanced (Newton's 1st).",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "terminal-velocity-forces"
     },
     {
       "id": "phys-forces-1-q4",
@@ -201,7 +204,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Action: gas pushed down. Reaction: rocket pushed up. Forces act on different objects.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "newton-third-law"
     },
     {
       "id": "phys-forces-1-q5",
@@ -214,7 +218,8 @@
       ],
       "correctIndex": 2,
       "explanation": "W=mg = 12×10 = 120 N.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "weight-on-earth"
     },
     {
       "id": "phys-forces-1-q6",
@@ -227,7 +232,8 @@
       ],
       "correctIndex": 2,
       "explanation": "k=F/x = 10/0.05 = 200 N/m.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "spring-constant"
     },
     {
       "id": "phys-forces-1-q7",
@@ -240,7 +246,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Horizontal line = distance not changing = stationary. Gradient = 0 = speed = 0.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "distance-time-graph"
     },
     {
       "id": "phys-forces-1-q8",
@@ -253,7 +260,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Area = velocity × time = distance. Split area into rectangles/triangles for curved graphs.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "velocity-time-graph"
     },
     {
       "id": "phys-forces-1-q9",
@@ -266,7 +274,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Momentum before: 5000×10=50,000. After: 6500×v. v=50,000/6500≈7.7 m/s.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "momentum-collision"
     },
     {
       "id": "phys-forces-1-q10",
@@ -279,7 +288,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Same change in momentum over a longer time = smaller average force = less injury.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "collision-safety-force"
     },
     {
       "id": "phys-forces-1-q11",
@@ -292,7 +302,8 @@
       ],
       "correctIndex": 1,
       "explanation": "W=mg=65×1.6=104 N. Mass is still 65 kg everywhere.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "weight-other-planet"
     },
     {
       "id": "phys-forces-1-q12",
@@ -305,7 +316,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Horizontal v-t line = velocity not changing = constant velocity. No acceleration (gradient=0).",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "velocity-time-graph"
     },
     {
       "id": "phys-forces-1-q13",
@@ -318,7 +330,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Beyond elastic limit = permanent (plastic) deformation. The spring will not return to its original length.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "elastic-limit"
     },
     {
       "id": "phys-forces-1-q14",
@@ -331,7 +344,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Rougher surfaces = more friction. Wet conditions reduce friction (risk of aquaplaning). Tread channels water away.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "friction-factors"
     },
     {
       "id": "phys-forces-1-q15",
@@ -344,7 +358,204 @@
       ],
       "correctIndex": 0,
       "explanation": "Acceleration is the rate at which velocity changes. Using $a=(v-u)/t$, the car speeds up from $u=5\\text{ m/s}$ to $v=25\\text{ m/s}$ in $t=4\\text{ s}$, so the change in velocity is $20\\text{ m/s}$ and $a=20/4=5\\text{ m/s}^2$. This means the car gains $5\\text{ m/s}$ of speed every second, similar to a brisk family-car acceleration.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "acceleration-calc"
+    },
+    {
+      "id": "phys-forces-1-q16",
+      "stem": "A runner covers 400 m in 50 s. Average speed?",
+      "choices": [
+        "8 m/s",
+        "20,000 m/s",
+        "0.125 m/s",
+        "450 m/s"
+      ],
+      "correctIndex": 0,
+      "explanation": "Speed = distance/time = 400/50 = 8 m/s. The distractors come from multiplying (400×50) or inverting (50/400) instead of dividing distance by time.",
+      "difficulty": "medium",
+      "variantOf": "average-speed"
+    },
+    {
+      "id": "phys-forces-1-q17",
+      "stem": "A 3 kg object experiences a resultant force of 12 N. Acceleration?",
+      "choices": [
+        "36 m/s²",
+        "0.25 m/s²",
+        "4 m/s²",
+        "9 m/s²"
+      ],
+      "correctIndex": 2,
+      "explanation": "F=ma → a=F/m = 12/3 = 4 m/s². 36 m/s² comes from multiplying force by mass; 0.25 m/s² from dividing mass by force.",
+      "difficulty": "medium",
+      "variantOf": "newton-second-law"
+    },
+    {
+      "id": "phys-forces-1-q18",
+      "stem": "A raindrop falls at a constant terminal velocity. Which statement about the forces on it is correct?",
+      "choices": [
+        "Weight is greater than air resistance",
+        "Air resistance is greater than weight",
+        "Weight equals air resistance — resultant force is zero",
+        "No forces act on the raindrop"
+      ],
+      "correctIndex": 2,
+      "explanation": "Constant velocity means zero acceleration, so by Newton's 1st law the resultant force is zero: weight and air resistance are balanced.",
+      "difficulty": "medium",
+      "variantOf": "terminal-velocity-forces"
+    },
+    {
+      "id": "phys-forces-1-q19",
+      "stem": "A swimmer pushes the water backwards with her hands. What happens to the swimmer?",
+      "choices": [
+        "She moves backwards",
+        "She is pushed forwards — the water pushes back with an equal and opposite force",
+        "Nothing happens",
+        "She sinks"
+      ],
+      "correctIndex": 1,
+      "explanation": "Newton's 3rd law: pushing the water backwards (action) means the water pushes the swimmer forwards (reaction). The two forces act on different objects.",
+      "difficulty": "easy",
+      "variantOf": "newton-third-law"
+    },
+    {
+      "id": "phys-forces-1-q20",
+      "stem": "Weight of a 7 kg bag on Earth? (g=10 m/s²)",
+      "choices": [
+        "0.7 N",
+        "17 N",
+        "70 N",
+        "700 N"
+      ],
+      "correctIndex": 2,
+      "explanation": "W=mg = 7×10 = 70 N. 17 N comes from adding m and g; 0.7 N from dividing instead of multiplying.",
+      "difficulty": "medium",
+      "variantOf": "weight-on-earth"
+    },
+    {
+      "id": "phys-forces-1-q21",
+      "stem": "A spring extends 0.02 m under a 5 N force. Spring constant?",
+      "choices": [
+        "0.1 N/m",
+        "25 N/m",
+        "250 N/m",
+        "0.004 N/m"
+      ],
+      "correctIndex": 2,
+      "explanation": "k=F/x = 5/0.02 = 250 N/m. 0.1 N/m is F×x and 0.004 N/m is x/F — both use the wrong operation.",
+      "difficulty": "medium",
+      "variantOf": "spring-constant"
+    },
+    {
+      "id": "phys-forces-1-q22",
+      "stem": "Distance-time graph: a straight line sloping upwards. What does this show?",
+      "choices": [
+        "Stationary",
+        "Constant speed",
+        "Acceleration",
+        "Deceleration"
+      ],
+      "correctIndex": 1,
+      "explanation": "A straight sloping line has a constant gradient, and gradient = speed, so the object moves at constant speed. Only a curve shows acceleration.",
+      "difficulty": "easy",
+      "variantOf": "distance-time-graph"
+    },
+    {
+      "id": "phys-forces-1-q23",
+      "stem": "A velocity-time graph shows a horizontal line at 10 m/s for 6 s. Distance travelled in that time?",
+      "choices": [
+        "16 m",
+        "60 m",
+        "1.7 m",
+        "600 m"
+      ],
+      "correctIndex": 1,
+      "explanation": "Distance = area under a v-t graph = velocity × time = 10×6 = 60 m. 16 m comes from adding instead of multiplying.",
+      "difficulty": "easy",
+      "variantOf": "velocity-time-graph"
+    },
+    {
+      "id": "phys-forces-1-q24",
+      "stem": "A 1200 kg van moving at 15 m/s hits a stationary 800 kg car. They stick together. Final speed?",
+      "choices": [
+        "15 m/s",
+        "9 m/s",
+        "22.5 m/s",
+        "7.5 m/s"
+      ],
+      "correctIndex": 1,
+      "explanation": "Momentum before: 1200×15 = 18,000 kg·m/s. After: (1200+800)×v = 2000×v, so v = 18,000/2000 = 9 m/s. 22.5 m/s uses the car's mass alone; 15 m/s ignores the extra mass.",
+      "difficulty": "hard",
+      "variantOf": "momentum-collision"
+    },
+    {
+      "id": "phys-forces-1-q25",
+      "stem": "Crumple zones in a car reduce injury because they:",
+      "choices": [
+        "Increase the collision time, so the same momentum change produces a smaller force",
+        "Eliminate the car's momentum instantly",
+        "Make the car heavier",
+        "Increase the deceleration"
+      ],
+      "correctIndex": 0,
+      "explanation": "F=Δp/Δt: crumple zones lengthen the collision time, so the same change in momentum happens with a smaller average force on the passengers.",
+      "difficulty": "hard",
+      "variantOf": "collision-safety-force"
+    },
+    {
+      "id": "phys-forces-1-q26",
+      "stem": "An 80 kg astronaut stands on Mars, where g=3.7 m/s². His weight is:",
+      "choices": [
+        "80 N",
+        "296 N",
+        "800 N",
+        "21.6 N"
+      ],
+      "correctIndex": 1,
+      "explanation": "W=mg = 80×3.7 = 296 N. His mass is still 80 kg everywhere; 800 N would be his weight on Earth (g=10), and 21.6 N comes from dividing by g.",
+      "difficulty": "hard",
+      "variantOf": "weight-other-planet"
+    },
+    {
+      "id": "phys-forces-1-q27",
+      "stem": "A spring is stretched beyond its limit of proportionality. On its force-extension graph, this region appears as:",
+      "choices": [
+        "A straight line through the origin",
+        "A curve where extension increases faster than force",
+        "A horizontal line",
+        "A line sloping downwards"
+      ],
+      "correctIndex": 1,
+      "explanation": "The straight-line region is where Hooke's Law applies; beyond the limit of proportionality the graph curves as the extension grows faster than the force.",
+      "difficulty": "easy",
+      "variantOf": "elastic-limit"
+    },
+    {
+      "id": "phys-forces-1-q28",
+      "stem": "Which change would REDUCE the friction between a sled and the snow?",
+      "choices": [
+        "Roughening the sled's runners",
+        "Smoothing and waxing the sled's runners",
+        "Riding over gravel instead of ice",
+        "Cutting grooves into the runners"
+      ],
+      "correctIndex": 1,
+      "explanation": "Smoother surfaces slide more easily, so smoothing and waxing the runners reduces friction. Rougher surfaces and gravel increase grip.",
+      "difficulty": "easy",
+      "variantOf": "friction-factors"
+    },
+    {
+      "id": "phys-forces-1-q29",
+      "stem": "A cyclist slows from 12 m/s to 4 m/s in 2 s. Acceleration?",
+      "choices": [
+        "-4 m/s²",
+        "4 m/s²",
+        "8 m/s²",
+        "-8 m/s²"
+      ],
+      "correctIndex": 0,
+      "explanation": "a=(v-u)/t = (4-12)/2 = -4 m/s². The negative sign means deceleration; dropping the sign slip gives the 4 m/s² distractor.",
+      "difficulty": "medium",
+      "variantOf": "acceleration-calc"
     }
   ]
 }

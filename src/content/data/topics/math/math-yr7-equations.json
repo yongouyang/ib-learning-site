@@ -133,7 +133,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Subtract 9 from both sides: $x = 15 - 9 = 6$. Check: $6 + 9 = 15$ ✓.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "solve-one-step-add-sub"
     },
     {
       "id": "math-yr7-equations-eq-q2",
@@ -146,7 +147,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Add 8 to both sides: $y = 13 + 8 = 21$. Check: $21 - 8 = 13$ ✓.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "solve-one-step-add-sub"
     },
     {
       "id": "math-yr7-equations-eq-q3",
@@ -159,7 +161,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Divide both sides by 6: $n = 42 \\div 6 = 7$. Check: $6 \\times 7 = 42$ ✓.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "solve-one-step-mult-div"
     },
     {
       "id": "math-yr7-equations-eq-q4",
@@ -172,7 +175,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Multiply both sides by 5: $p = 6 \\times 5 = 30$. Check: $\\dfrac{30}{5} = 6$ ✓.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "solve-one-step-mult-div"
     },
     {
       "id": "math-yr7-equations-eq-q5",
@@ -185,7 +189,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Subtract 7: $2x = 12$, then divide by 2: $x = 6$. Check: $2(6) + 7 = 19$ ✓.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "solve-two-step-equation"
     },
     {
       "id": "math-yr7-equations-eq-q6",
@@ -198,7 +203,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Add 9: $5y = 35$, then divide by 5: $y = 7$. Check: $5(7) - 9 = 26$ ✓.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "solve-two-step-equation"
     },
     {
       "id": "math-yr7-equations-eq-q7",
@@ -211,7 +217,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Subtract 4: $\\dfrac{x}{3} = 5$, then multiply by 3: $x = 15$. Check: $\\dfrac{15}{3} + 4 = 9$ ✓.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "solve-two-step-fraction"
     },
     {
       "id": "math-yr7-equations-eq-q8",
@@ -224,7 +231,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Subtract 4: $14 = 2x$, then divide by 2: $x = 7$. Check: $4 + 2(7) = 18$ ✓.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "solve-two-step-equation"
     },
     {
       "id": "math-yr7-equations-eq-q9",
@@ -237,7 +245,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Expand: $3x + 6 = 24$. Subtract 6: $3x = 18$, then divide by 3: $x = 6$. Check: $3(6 + 2) = 24$ ✓.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "solve-brackets"
     },
     {
       "id": "math-yr7-equations-eq-q10",
@@ -250,7 +259,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Subtract 7: $-2x = 8$, then divide by $-2$: $x = -4$. Check: $7 - 2(-4) = 7 + 8 = 15$ ✓.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "solve-negative-coefficient"
     },
     {
       "id": "math-yr7-equations-eq-q11",
@@ -263,7 +273,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Let the number be $n$. Then $5n - 3 = 32$. Add 3: $5n = 35$, then divide by 5: $n = 7$. Check: $5(7) - 3 = 32$ ✓.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "word-problem-think-of-number"
     },
     {
       "id": "math-yr7-equations-eq-q12",
@@ -276,7 +287,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$34 = 2(11) + 2w$ → $34 = 22 + 2w$ → $12 = 2w$ → $w = 6$ cm. Check: $2(11) + 2(6) = 34$ ✓.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "word-problem-perimeter"
     },
     {
       "id": "math-yr7-equations-eq-q13",
@@ -289,7 +301,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Three tickets cost $3 \\times 8$ and two popcorns cost $2p$, so $3(8) + 2p = 38$. Solving gives $24 + 2p = 38$ → $2p = 14$ → $p = 7$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "form-equation-from-context"
     },
     {
       "id": "math-yr7-equations-eq-q14",
@@ -302,7 +315,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Substitute $x = 6$: $a \\times 6 = 30$. Divide by 6: $a = 5$. Check: $5 \\times 6 = 30$ ✓.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "find-coefficient-from-solution"
     },
     {
       "id": "math-yr7-equations-eq-q15",
@@ -315,7 +329,176 @@
       ],
       "correctIndex": 0,
       "explanation": "Let $d$ be the distance in km. Then $4 + 2d = 22$. Subtract 4: $2d = 18$, then divide by 2: $d = 9$ km. Check: $4 + 2(9) = 22$ ✓.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "word-problem-linear-cost"
+    },
+    {
+      "id": "math-yr7-equations-eq-q16",
+      "stem": "Solve $m + 14 = 23$.",
+      "choices": [
+        "$m = 9$",
+        "$m = 37$",
+        "$m = 8$",
+        "$m = -9$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 14 from both sides: $m = 23 - 14 = 9$. Check: $9 + 14 = 23$ ✓. ($m = 37$ comes from adding instead of subtracting.)",
+      "difficulty": "easy",
+      "variantOf": "solve-one-step-add-sub"
+    },
+    {
+      "id": "math-yr7-equations-eq-q17",
+      "stem": "Solve $\\dfrac{t}{6} = 7$.",
+      "choices": [
+        "$t = 13$",
+        "$t = 42$",
+        "$t = \\dfrac{7}{6}$",
+        "$t = 36$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiply both sides by 6: $t = 7 \\times 6 = 42$. Check: $\\dfrac{42}{6} = 7$ ✓. ($t = \\dfrac{7}{6}$ comes from dividing instead of multiplying.)",
+      "difficulty": "easy",
+      "variantOf": "solve-one-step-mult-div"
+    },
+    {
+      "id": "math-yr7-equations-eq-q18",
+      "stem": "Solve $\\dfrac{y}{4} - 5 = 2$.",
+      "choices": [
+        "$y = 28$",
+        "$y = 12$",
+        "$y = -12$",
+        "$y = 7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Add 5 to both sides: $\\dfrac{y}{4} = 7$, then multiply by 4: $y = 28$. Check: $\\dfrac{28}{4} - 5 = 7 - 5 = 2$ ✓. ($y = -12$ comes from multiplying before undoing the $-5$.)",
+      "difficulty": "medium",
+      "variantOf": "solve-two-step-fraction"
+    },
+    {
+      "id": "math-yr7-equations-eq-q19",
+      "stem": "Solve $4(x - 3) = 28$.",
+      "choices": [
+        "$x = 10$",
+        "$x = 4$",
+        "$x = 6.25$",
+        "$x = 31$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Expand: $4x - 12 = 28$. Add 12: $4x = 40$, then divide by 4: $x = 10$. Check: $4(10 - 3) = 4 \\times 7 = 28$ ✓. ($x = 4$ comes from dividing by 4 but then subtracting 3 again.)",
+      "difficulty": "hard",
+      "variantOf": "solve-brackets"
+    },
+    {
+      "id": "math-yr7-equations-eq-q20",
+      "stem": "Solve $11 - 3x = 2$.",
+      "choices": [
+        "$x = 3$",
+        "$x = -3$",
+        "$x = \\dfrac{13}{3}$",
+        "$x = -\\dfrac{13}{3}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 11: $-3x = -9$, then divide by $-3$: $x = 3$. Check: $11 - 3(3) = 11 - 9 = 2$ ✓. ($x = -3$ is the classic sign slip when dividing two negatives.)",
+      "difficulty": "hard",
+      "variantOf": "solve-negative-coefficient"
+    },
+    {
+      "id": "math-yr7-equations-eq-q21",
+      "stem": "I think of a number, multiply it by 3 and then add 8. The answer is 29. What is the number?",
+      "choices": [
+        "$6$",
+        "$7$",
+        "$8$",
+        "$21$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Let the number be $n$. Then $3n + 8 = 29$. Subtract 8: $3n = 21$, then divide by 3: $n = 7$. Check: $3(7) + 8 = 29$ ✓. ($n = 21$ comes from forgetting to divide by 3.)",
+      "difficulty": "medium",
+      "variantOf": "word-problem-think-of-number"
+    },
+    {
+      "id": "math-yr7-equations-eq-q22",
+      "stem": "The perimeter of a rectangle is $50$ cm. Its width is $8$ cm. Find the length using $P = 2l + 2w$.",
+      "choices": [
+        "$17$ cm",
+        "$21$ cm",
+        "$25$ cm",
+        "$34$ cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "$50 = 2l + 2(8)$ → $50 = 2l + 16$ → $2l = 34$ → $l = 17$ cm. Check: $2(17) + 2(8) = 34 + 16 = 50$ ✓. ($21$ cm comes from halving $50 - 8$ without doubling the width first.)",
+      "difficulty": "hard",
+      "variantOf": "word-problem-perimeter"
+    },
+    {
+      "id": "math-yr7-equations-eq-q23",
+      "stem": "A notebook costs $\\$3$ and a pen costs $\\$p$. Lila buys 4 pens and 1 notebook for $\\$15$. Which equation finds $p$?",
+      "choices": [
+        "$4p + 3 = 15$",
+        "$3p + 4 = 15$",
+        "$4(p + 3) = 15$",
+        "$p + 4(3) = 15$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Four pens cost $4p$ and one notebook costs $\\$3$, so $4p + 3 = 15$. Solving gives $4p = 12$ → $p = 3$. ($3p + 4 = 15$ swaps the price and the quantity.)",
+      "difficulty": "medium",
+      "variantOf": "form-equation-from-context"
+    },
+    {
+      "id": "math-yr7-equations-eq-q24",
+      "stem": "The equation $bx = 28$ has solution $x = 4$. What is the value of $b$?",
+      "choices": [
+        "$7$",
+        "$24$",
+        "$32$",
+        "$112$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Substitute $x = 4$: $b \\times 4 = 28$. Divide by 4: $b = 7$. Check: $7 \\times 4 = 28$ ✓. ($b = 112$ comes from multiplying $28 \\times 4$ instead of dividing.)",
+      "difficulty": "medium",
+      "variantOf": "find-coefficient-from-solution"
+    },
+    {
+      "id": "math-yr7-equations-eq-q25",
+      "stem": "A gym charges a $\\$10$ joining fee plus $\\$5$ per class. Priya pays $\\$45$ in total. How many classes did she attend?",
+      "choices": [
+        "$7$",
+        "$9$",
+        "$11$",
+        "$35$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Let $c$ be the number of classes. Then $10 + 5c = 45$. Subtract 10: $5c = 35$, then divide by 5: $c = 7$. Check: $10 + 5(7) = 45$ ✓. ($c = 9$ comes from dividing $45$ by $5$ without removing the joining fee first.)",
+      "difficulty": "medium",
+      "variantOf": "word-problem-linear-cost"
+    },
+    {
+      "id": "math-yr7-equations-eq-q26",
+      "stem": "Which equation does $x = 6$ satisfy?",
+      "choices": [
+        "$2x + 3 = 15$",
+        "$3x - 4 = 20$",
+        "$x + 6 = 10$",
+        "$5x = 25$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Substitute $x = 6$ into each: $2(6) + 3 = 15$ ✓, but $3(6) - 4 = 14 \\neq 20$, $6 + 6 = 12 \\neq 10$ and $5(6) = 30 \\neq 25$.",
+      "difficulty": "easy",
+      "variantOf": "check-solution-by-substitution"
+    },
+    {
+      "id": "math-yr7-equations-eq-q27",
+      "stem": "A student claims that $x = 3$ is the solution of $4x - 5 = 9$. Which check is correct?",
+      "choices": [
+        "$4(3) - 5 = 7 \\neq 9$, so $x = 3$ is not a solution",
+        "$4(3) - 5 = 7$, so $x = 3$ is a solution",
+        "$4(9) - 5 = 31$, so $x = 9$ is the correct value",
+        "$3 - 5 = -2 \\neq 9$, so $x = 3$ is not a solution"
+      ],
+      "correctIndex": 0,
+      "explanation": "Substitute $x = 3$ into the left-hand side: $4(3) - 5 = 12 - 5 = 7$, which is not $9$, so $x = 3$ is not a solution. (The actual solution is $x = 3.5$, since $4(3.5) - 5 = 9$.)",
+      "difficulty": "easy",
+      "variantOf": "check-solution-by-substitution"
     }
   ]
 }

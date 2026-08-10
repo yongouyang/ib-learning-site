@@ -128,7 +128,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The four products are $x^2$, $5x$, $2x$ and $10$. Collecting like terms gives $x^2 + 7x + 10$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "expand-positive-brackets"
     },
     {
       "id": "math-yr9-quadratic-expressions-q2",
@@ -141,7 +142,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Expanding gives $x^2 + 4x + 3x + 12$, and $4x + 3x = 7x$, so the answer is $x^2 + 7x + 12$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "expand-positive-brackets"
     },
     {
       "id": "math-yr9-quadratic-expressions-q3",
@@ -154,7 +156,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The products are $x^2$, $6x$, $-2x$ and $-12$. Since $6x - 2x = 4x$, the result is $x^2 + 4x - 12$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "expand-with-negatives"
     },
     {
       "id": "math-yr9-quadratic-expressions-q4",
@@ -167,7 +170,8 @@
       ],
       "correctIndex": 3,
       "explanation": "The products are $x^2$, $-5x$, $-3x$ and $+15$ because $-3 \\times -5 = 15$. So $(x - 3)(x - 5) = x^2 - 8x + 15$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "expand-with-negatives"
     },
     {
       "id": "math-yr9-quadratic-expressions-q5",
@@ -180,7 +184,8 @@
       ],
       "correctIndex": 0,
       "explanation": "This is a difference of two squares: the middle terms $-7x$ and $+7x$ cancel, leaving $x^2 - 49$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "expand-difference-squares"
     },
     {
       "id": "math-yr9-quadratic-expressions-q6",
@@ -193,7 +198,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$(x + 4)^2 = (x + 4)(x + 4) = x^2 + 4x + 4x + 16 = x^2 + 8x + 16$. Squaring each term alone misses the middle term.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "expand-perfect-square"
     },
     {
       "id": "math-yr9-quadratic-expressions-q7",
@@ -206,7 +212,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The products are $2x^2$, $6x$, $x$ and $3$. Since $6x + x = 7x$, the result is $2x^2 + 7x + 3$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "expand-leading-coefficient"
     },
     {
       "id": "math-yr9-quadratic-expressions-q8",
@@ -219,7 +226,8 @@
       ],
       "correctIndex": 2,
       "explanation": "The pair $4$ and $5$ multiplies to $20$ and adds to $9$, so $x^2 + 9x + 20 = (x + 4)(x + 5)$. The pair $2$ and $10$ adds to $12$, not $9$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "factorise-positive"
     },
     {
       "id": "math-yr9-quadratic-expressions-q9",
@@ -232,7 +240,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The pair $2$ and $5$ multiplies to $10$ and adds to $7$, giving $(x + 2)(x + 5)$. Expanding $(x - 2)(x - 5)$ would give $-7x$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "factorise-positive"
     },
     {
       "id": "math-yr9-quadratic-expressions-q10",
@@ -245,7 +254,8 @@
       ],
       "correctIndex": 1,
       "explanation": "A pair multiplying to $-12$ and adding to $-1$ is $-4$ and $3$, so $x^2 - x - 12 = (x - 4)(x + 3)$. The swapped signs give $x^2 + x - 12$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "factorise-negative-constant"
     },
     {
       "id": "math-yr9-quadratic-expressions-q11",
@@ -258,7 +268,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Since $c = 18$ is positive and $b = -9$ is negative, both numbers are negative: $-3$ and $-6$ multiply to $18$ and add to $-9$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "factorise-negative-b"
     },
     {
       "id": "math-yr9-quadratic-expressions-q12",
@@ -271,7 +282,8 @@
       ],
       "correctIndex": 1,
       "explanation": "This is a difference of two squares with $a = 4$: $x^2 - 16 = (x + 4)(x - 4)$. Expanding $(x - 4)^2$ would give $x^2 - 8x + 16$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "factorise-difference-of-squares"
     },
     {
       "id": "math-yr9-quadratic-expressions-q13",
@@ -284,7 +296,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The pair $6$ and $-4$ multiplies to $-24$ and adds to $2$, so $x^2 + 2x - 24 = (x + 6)(x - 4)$. The larger number takes the sign of $b$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "factorise-negative-constant"
     },
     {
       "id": "math-yr9-quadratic-expressions-q14",
@@ -297,7 +310,8 @@
       ],
       "correctIndex": 2,
       "explanation": "The pair $5$ and $5$ multiplies to $25$ and adds to $10$, so this is the perfect square $(x + 5)^2$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "factorise-perfect-square"
     },
     {
       "id": "math-yr9-quadratic-expressions-q15",
@@ -310,7 +324,190 @@
       ],
       "correctIndex": 0,
       "explanation": "The product $-18$ requires opposite signs, and $-9 + 2 = -7$. The pair $9$ and $-2$ adds to $+7$, and $-3$ and $6$ adds to $+3$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "find-factor-pair"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q16",
+      "stem": "Expand $(x + 4)(x + 6)$.",
+      "choices": [
+        "$x^2 + 24x + 10$",
+        "$x^2 + 10x + 10$",
+        "$x^2 + 10x + 24$",
+        "$x^2 + 2x + 24$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The products are $x^2$, $6x$, $4x$ and $24$, and $6x + 4x = 10x$, so the expansion is $x^2 + 10x + 24$.",
+      "difficulty": "easy",
+      "variantOf": "expand-positive-brackets"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q17",
+      "stem": "Factorise $x^2 - 36$.",
+      "choices": [
+        "$(x - 6)^2$",
+        "$(x + 6)(x - 6)$",
+        "$(x + 18)(x - 2)$",
+        "$(x - 36)(x + 1)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Since $36 = 6^2$ this is a difference of two squares: $x^2 - 36 = (x + 6)(x - 6)$. Expanding $(x - 6)^2$ would give a middle term $-12x$.",
+      "difficulty": "easy",
+      "variantOf": "factorise-difference-of-squares"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q18",
+      "stem": "Which pair of numbers multiplies to $-20$ and adds to $1$?",
+      "choices": [
+        "$5$ and $-4$",
+        "$-5$ and $4$",
+        "$10$ and $-2$",
+        "$-10$ and $2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The negative product means opposite signs, and $5 + (-4) = 1$ with $5 \\times (-4) = -20$. The pair $-5$ and $4$ adds to $-1$ instead.",
+      "difficulty": "easy",
+      "variantOf": "find-factor-pair"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q19",
+      "stem": "Expand $(x + 5)(x - 2)$.",
+      "choices": [
+        "$x^2 + 3x - 10$",
+        "$x^2 + 3x + 10$",
+        "$x^2 - 3x - 10$",
+        "$x^2 + 7x - 10$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The products are $x^2$, $-2x$, $5x$ and $-10$. Since $5x - 2x = 3x$, the result is $x^2 + 3x - 10$; the constant is negative because $5 \\times (-2) = -10$.",
+      "difficulty": "medium",
+      "variantOf": "expand-with-negatives"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q20",
+      "stem": "Expand $(x + 9)(x - 9)$.",
+      "choices": [
+        "$x^2 - 81$",
+        "$x^2 + 81$",
+        "$x^2 - 18x - 81$",
+        "$x^2 - 18$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The middle terms $-9x$ and $+9x$ cancel, leaving the difference of two squares $x^2 - 81$.",
+      "difficulty": "medium",
+      "variantOf": "expand-difference-squares"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q21",
+      "stem": "Expand $(x + 7)^2$.",
+      "choices": [
+        "$x^2 + 49$",
+        "$x^2 + 14x + 14$",
+        "$x^2 + 7x + 49$",
+        "$x^2 + 14x + 49$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$(x + 7)^2 = (x + 7)(x + 7) = x^2 + 7x + 7x + 49 = x^2 + 14x + 49$. Squaring each term alone misses the middle term $14x$.",
+      "difficulty": "medium",
+      "variantOf": "expand-perfect-square"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q22",
+      "stem": "Factorise $x^2 + 8x + 15$.",
+      "choices": [
+        "$(x + 1)(x + 15)$",
+        "$(x + 3)(x + 5)$",
+        "$(x - 3)(x - 5)$",
+        "$(x + 2)(x + 4)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The pair $3$ and $5$ multiplies to $15$ and adds to $8$, so $x^2 + 8x + 15 = (x + 3)(x + 5)$. The pair $1$ and $15$ adds to $16$, not $8$.",
+      "difficulty": "medium",
+      "variantOf": "factorise-positive"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q23",
+      "stem": "Factorise $x^2 - 7x + 12$.",
+      "choices": [
+        "$(x + 3)(x + 4)$",
+        "$(x - 2)(x - 6)$",
+        "$(x - 3)(x + 4)$",
+        "$(x - 3)(x - 4)$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Since $c = 12$ is positive and $b = -7$ is negative, both numbers are negative: $-3$ and $-4$ multiply to $12$ and add to $-7$.",
+      "difficulty": "medium",
+      "variantOf": "factorise-negative-b"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q24",
+      "stem": "Factorise $x^2 + 12x + 36$.",
+      "choices": [
+        "$(x + 6)(x - 6)$",
+        "$(x + 4)(x + 9)$",
+        "$(x + 6)^2$",
+        "$(x - 6)^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The pair $6$ and $6$ multiplies to $36$ and adds to $12$, so this is the perfect square $(x + 6)^2$.",
+      "difficulty": "medium",
+      "variantOf": "factorise-perfect-square"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q25",
+      "stem": "Expand $(3x + 2)(x + 5)$.",
+      "choices": [
+        "$3x^2 + 7x + 10$",
+        "$3x^2 + 17x + 10$",
+        "$3x^2 + 17x + 7$",
+        "$3x^2 + 11x + 10$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The products are $3x^2$, $15x$, $2x$ and $10$. Since $15x + 2x = 17x$, the result is $3x^2 + 17x + 10$.",
+      "difficulty": "hard",
+      "variantOf": "expand-leading-coefficient"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q26",
+      "stem": "Factorise $x^2 - 3x - 18$.",
+      "choices": [
+        "$(x + 6)(x - 3)$",
+        "$(x - 6)(x + 3)$",
+        "$(x - 9)(x + 2)$",
+        "$(x - 3)(x - 6)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "A pair multiplying to $-18$ and adding to $-3$ is $-6$ and $3$, so $x^2 - 3x - 18 = (x - 6)(x + 3)$. Swapping the signs gives $x^2 + 3x - 18$.",
+      "difficulty": "hard",
+      "variantOf": "factorise-negative-constant"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q27",
+      "stem": "Expand $(2x + 5)^2$.",
+      "choices": [
+        "$4x^2 + 25$",
+        "$2x^2 + 20x + 25$",
+        "$4x^2 + 10x + 25$",
+        "$4x^2 + 20x + 25$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The products are $4x^2$, $10x$, $10x$ and $25$, giving $4x^2 + 20x + 25$; squaring each term alone misses the middle term $20x$.",
+      "difficulty": "hard",
+      "variantOf": "expand-coefficient-square"
+    },
+    {
+      "id": "math-yr9-quadratic-expressions-q28",
+      "stem": "Expand $(3x - 2)^2$.",
+      "choices": [
+        "$9x^2 - 12x + 4$",
+        "$9x^2 - 4$",
+        "$9x^2 + 12x + 4$",
+        "$9x^2 - 12x - 4$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$(3x - 2)^2 = (3x - 2)(3x - 2) = 9x^2 - 6x - 6x + 4 = 9x^2 - 12x + 4$; the constant is positive because $-2 \\times -2 = 4$.",
+      "difficulty": "hard",
+      "variantOf": "expand-coefficient-square"
     }
   ]
 }

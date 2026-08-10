@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-10 — Variations Phase 1 pilot: 7 topics expanded with variant groups
+
+Git HEAD: `22f1bdc` (branch `develop`, tree dirty: pilot content awaiting user review before commit)
+Done: Phase 1 of docs/question-variations-plan.md — 7 pilot topics expanded from 15 fixed questions to grouped variant pools (agent-authored in parallel, one subagent per topic, then parent-verified): math-yr7-equations (27q/12 groups), math-yr7-percentages (25/12), math-yr8-linear-equations (28/12), math-yr9-quadratic-expressions (28/12), phys-electricity-1 (25/12), phys-energy-1 (24/12), phys-forces-1 (29/14 — 15 existing questions covered 14 genuinely distinct skills; merging further was forbidden by the brief). Every group 2–3 members sharing one difficulty; ≥3 easy + ≥3 hard groups per topic. Parent QA: every new math/physics numeric answer re-derived by hand (all correct), structure counts spot-checked, registry regenerated.
+Verified: validate:content ✅, audit:content 0/0 ✅, vitest 274/274 ✅, e2e quiz-difficulty+topic-journeys+full-topic-journey 13 passed/1 pre-existing skip ✅ (grouped quiz path now live for these 7 topics).
+Next: **user reviews the pilot batch** (D4) — then commit. Phase 2 (template engine + math/physics generators) can start in parallel. After pilot sign-off: decide group-mastery UI surface, then rollout batches (remaining math/physics, then chem/bio/english per plan Phases 3–4).
+Notes: phys-forces-1 at 14 groups shows the ~10-group target is aspirational for broad-survey topics — sessions will show 14 questions there, fine. Grouping judgment calls (merges of distinct-but-same-procedure questions) are documented per topic in this session's subagent reports; key ones: yr7-equations q8 merged into solve-two-step-equation; yr8 q3+q15 merged as grouped-expression solve; yr9 q3+q4 merged as expand-with-negatives.
+
+---
+
 ## 2026-08-10 — Question variations Phase 0: variant groups + session sampling foundation
 
 Git HEAD: `4b0e40f` (branch `develop`, tree dirty: committing below)

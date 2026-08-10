@@ -161,7 +161,8 @@
       ],
       "correctIndex": 1,
       "explanation": "KE = ½mv² = ½×3×16 = 24 J.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "energy-store-calculation"
     },
     {
       "id": "phys-energy-1-q2",
@@ -174,7 +175,8 @@
       ],
       "correctIndex": 1,
       "explanation": "20/100 × 100 = 20%. 80 J is wasted as heat.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "energy-accounting"
     },
     {
       "id": "phys-energy-1-q3",
@@ -187,7 +189,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Gravitational potential → kinetic as height decreases and speed increases.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "energy-transformation"
     },
     {
       "id": "phys-energy-1-q4",
@@ -200,7 +203,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Law of conservation of energy.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "conservation-law"
     },
     {
       "id": "phys-energy-1-q5",
@@ -213,7 +217,8 @@
       ],
       "correctIndex": 2,
       "explanation": "GPE = mgh = 10×10×3 = 300 J.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "energy-store-calculation"
     },
     {
       "id": "phys-energy-1-q6",
@@ -226,7 +231,8 @@
       ],
       "correctIndex": 0,
       "explanation": "W = Fd = 200×5 = 1000 J. P = W/t = 1000/10 = 100 W.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "power-calculation"
     },
     {
       "id": "phys-energy-1-q7",
@@ -239,7 +245,8 @@
       ],
       "correctIndex": 1,
       "explanation": "m=0.5 kg. ΔE=mcΔθ=0.5×4200×30=63,000 J.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "specific-heat-calculation"
     },
     {
       "id": "phys-energy-1-q8",
@@ -252,7 +259,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Both are at room temp. Metal's high thermal conductivity rapidly transfers heat from your warm hand → feels cold.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "conduction-explanation"
     },
     {
       "id": "phys-energy-1-q9",
@@ -265,7 +273,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Dark, matt surfaces absorb well AND emit well. Shiny, light surfaces reflect radiation.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "thermal-transfer-recall"
     },
     {
       "id": "phys-energy-1-q10",
@@ -278,7 +287,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Renewables are replenished. Non-renewables (fossil fuels, nuclear) are finite.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "renewable-vs-nonrenewable"
     },
     {
       "id": "phys-energy-1-q11",
@@ -291,7 +301,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Convection requires fluid movement (density changes with temperature). Solids cannot convect — particles are fixed.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "thermal-transfer-recall"
     },
     {
       "id": "phys-energy-1-q12",
@@ -304,7 +315,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Input = useful + wasted. 800 = 200 + wasted → wasted = 600 J.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "energy-accounting"
     },
     {
       "id": "phys-energy-1-q13",
@@ -317,7 +329,8 @@
       ],
       "correctIndex": 1,
       "explanation": "KE = ½mv². When v doubles, KE quadruples (2²=4). This is why high-speed crashes are so destructive.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "ke-speed-scaling"
     },
     {
       "id": "phys-energy-1-q14",
@@ -330,7 +343,8 @@
       ],
       "correctIndex": 1,
       "explanation": "High c means water can absorb large amounts of waste heat from the engine without its temperature rising dangerously.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "shc-explanation"
     },
     {
       "id": "phys-energy-1-q15",
@@ -343,7 +357,134 @@
       ],
       "correctIndex": 2,
       "explanation": "Opening windows increases heat loss by convection (warm air escapes). All other options reduce heat transfer.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "insulation-methods"
+    },
+    {
+      "id": "phys-energy-1-q16",
+      "stem": "A stretched rubber band is released and flies across the room. Main energy transfer?",
+      "choices": [
+        "Elastic potential → kinetic",
+        "Kinetic → gravitational potential",
+        "Chemical → thermal",
+        "Thermal → kinetic"
+      ],
+      "correctIndex": 0,
+      "explanation": "The stretched band stores elastic potential energy, which is transferred to kinetic energy of motion when released.",
+      "difficulty": "easy",
+      "variantOf": "energy-transformation"
+    },
+    {
+      "id": "phys-energy-1-q17",
+      "stem": "A swinging pendulum gradually slows and stops. What happened to its energy?",
+      "choices": [
+        "It was destroyed by friction",
+        "It was transferred to the surroundings as thermal energy (dissipated)",
+        "It turned back into force",
+        "It is stored permanently in the string"
+      ],
+      "correctIndex": 1,
+      "explanation": "Energy is never destroyed; air resistance and friction dissipate it as thermal energy to the surroundings.",
+      "difficulty": "easy",
+      "variantOf": "conservation-law"
+    },
+    {
+      "id": "phys-energy-1-q18",
+      "stem": "Which of these is a NON-renewable energy resource?",
+      "choices": [
+        "Wind",
+        "Solar",
+        "Natural gas — a finite fossil fuel",
+        "Hydroelectric"
+      ],
+      "correctIndex": 2,
+      "explanation": "Natural gas is a fossil fuel that will run out; wind, solar and hydro are replenished on a human timescale.",
+      "difficulty": "easy",
+      "variantOf": "renewable-vs-nonrenewable"
+    },
+    {
+      "id": "phys-energy-1-q19",
+      "stem": "Which change reduces heat loss from a house?",
+      "choices": [
+        "Fitting thicker loft insulation — traps air, a poor conductor",
+        "Opening windows on cold days",
+        "Replacing thick curtains with thin ones",
+        "Removing draught excluders from doors"
+      ],
+      "correctIndex": 0,
+      "explanation": "Trapped air is a poor conductor, so loft insulation slows conduction of heat through the roof. The other options all increase heat loss.",
+      "difficulty": "easy",
+      "variantOf": "insulation-methods"
+    },
+    {
+      "id": "phys-energy-1-q20",
+      "stem": "Why does a tiled floor feel colder than a carpeted floor in the same room?",
+      "choices": [
+        "Tiles are always at a lower temperature",
+        "Tiles conduct heat away from your feet faster (better conductor)",
+        "Carpet generates its own heat",
+        "Carpet emits more infrared radiation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Both floors are at room temperature; tile's higher thermal conductivity draws heat from your skin faster, so it feels colder.",
+      "difficulty": "medium",
+      "variantOf": "conduction-explanation"
+    },
+    {
+      "id": "phys-energy-1-q21",
+      "stem": "Why do coastal regions usually have milder climates than inland regions?",
+      "choices": [
+        "Sea water has a high specific heat capacity — it heats up and cools down slowly",
+        "The sea reflects all incoming sunlight",
+        "Land cannot store any thermal energy",
+        "Waves generate heat at the coast"
+      ],
+      "correctIndex": 0,
+      "explanation": "Water's high c means the sea absorbs and releases large amounts of energy with only small temperature changes, moderating coastal temperatures.",
+      "difficulty": "medium",
+      "variantOf": "shc-explanation"
+    },
+    {
+      "id": "phys-energy-1-q22",
+      "stem": "Crane lifts a 300 N crate 4 m in 6 s. Power?",
+      "choices": [
+        "200 W",
+        "50 W",
+        "1200 W",
+        "7200 W"
+      ],
+      "correctIndex": 0,
+      "explanation": "W = Fd = 300×4 = 1200 J. P = W/t = 1200/6 = 200 W. (50 W forgets the distance; 1200 W forgets the time.)",
+      "difficulty": "hard",
+      "variantOf": "power-calculation"
+    },
+    {
+      "id": "phys-energy-1-q23",
+      "stem": "2 kg water heated from 25°C to 45°C. Energy? (c=4200)",
+      "choices": [
+        "168,000 J",
+        "84,000 J",
+        "42,000 J",
+        "336,000 J"
+      ],
+      "correctIndex": 0,
+      "explanation": "Δθ = 45−25 = 20°C. ΔE = mcΔθ = 2×4200×20 = 168,000 J.",
+      "difficulty": "hard",
+      "variantOf": "specific-heat-calculation"
+    },
+    {
+      "id": "phys-energy-1-q24",
+      "stem": "A car triples its speed from 10 m/s to 30 m/s. Its kinetic energy increases by:",
+      "choices": [
+        "×3",
+        "×9 — KE ∝ v². 10²=100; 30²=900. 900/100=9.",
+        "×6",
+        "×27"
+      ],
+      "correctIndex": 1,
+      "explanation": "KE = ½mv². Tripling v multiplies KE by 3² = 9 — a key reason high-speed collisions are far more destructive.",
+      "difficulty": "hard",
+      "variantOf": "ke-speed-scaling"
     }
   ]
 }

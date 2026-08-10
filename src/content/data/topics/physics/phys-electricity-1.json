@@ -162,7 +162,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Using Ohm's Law: $V=IR=3\\times10=30\\text{ V}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "ohms-law-calc"
     },
     {
       "id": "phys-electricity-1-q2",
@@ -175,7 +176,8 @@
       ],
       "correctIndex": 1,
       "explanation": "In series, current is the same at all points. Ammeter readings would be identical.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "series-parallel-rules"
     },
     {
       "id": "phys-electricity-1-q3",
@@ -188,7 +190,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Parallel: 230 V to each appliance, independent switching, fault isolation.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "series-parallel-rules"
     },
     {
       "id": "phys-electricity-1-q4",
@@ -201,7 +204,8 @@
       ],
       "correctIndex": 1,
       "explanation": "2 kW × 0.5 h = 1 kWh.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "energy-kwh"
     },
     {
       "id": "phys-electricity-1-q5",
@@ -214,7 +218,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Rearranging Ohm's Law: $I=V/R=12/4=3\\text{ A}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "ohms-law-calc"
     },
     {
       "id": "phys-electricity-1-q6",
@@ -227,7 +232,8 @@
       ],
       "correctIndex": 2,
       "explanation": "1/R=1/10+1/10=2/10. R=5 Ω. Parallel R < smallest individual R.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "parallel-resistance"
     },
     {
       "id": "phys-electricity-1-q7",
@@ -240,7 +246,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Ammeter: series (same current). Voltmeter: parallel (measures PD across component).",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "meter-connection"
     },
     {
       "id": "phys-electricity-1-q8",
@@ -253,7 +260,8 @@
       ],
       "correctIndex": 1,
       "explanation": "As current flows, filament temperature rises. Metal ions vibrate more → more electron collisions → higher resistance → I-V curve flattens.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "iv-characteristics"
     },
     {
       "id": "phys-electricity-1-q9",
@@ -266,7 +274,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Rubbing transfers electrons. Each hair gains same charge → mutual repulsion → hairs stand apart.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "static-electricity"
     },
     {
       "id": "phys-electricity-1-q10",
@@ -279,7 +288,8 @@
       ],
       "correctIndex": 2,
       "explanation": "I=2300/230=10 A → 13 A fuse (next standard rating above operating current).",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "fuse-rating"
     },
     {
       "id": "phys-electricity-1-q11",
@@ -292,7 +302,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Double insulation (symbol: square within square) means the appliance has two layers of insulation. Plastic case → no earth needed.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "safety-devices"
     },
     {
       "id": "phys-electricity-1-q12",
@@ -305,7 +316,8 @@
       ],
       "correctIndex": 2,
       "explanation": "R_total = 6+6+6 = 18 Ω. Series: add resistances.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "series-resistance"
     },
     {
       "id": "phys-electricity-1-q13",
@@ -318,7 +330,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Current is charge over time: $I=Q/t=30/5=6\\text{ A}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "current-from-charge"
     },
     {
       "id": "phys-electricity-1-q14",
@@ -331,7 +344,8 @@
       ],
       "correctIndex": 1,
       "explanation": "RCDs detect imbalances as small as 30 mA between live and neutral. If current is leaking (e.g., through a person to earth), it trips — saving lives.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "safety-devices"
     },
     {
       "id": "phys-electricity-1-q15",
@@ -344,7 +358,148 @@
       ],
       "correctIndex": 1,
       "explanation": "P=I²R=0.25×20=5 W. E=Pt=5×60=300 J. Or: V=IR=10 V, E=VIt=10×0.5×60=300 J.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "energy-from-current"
+    },
+    {
+      "id": "phys-electricity-1-q16",
+      "stem": "A 500 W washing machine runs for 4 h. Energy used in kWh?",
+      "choices": [
+        "2 kWh",
+        "2000 kWh",
+        "0.5 kWh",
+        "8 kWh"
+      ],
+      "correctIndex": 0,
+      "explanation": "Convert watts to kilowatts first: 500 W = 0.5 kW. Then $E=Pt=0.5\\times4=2\\text{ kWh}$. Using 500 directly gives the 2000 kWh trap.",
+      "difficulty": "medium",
+      "variantOf": "energy-kwh"
+    },
+    {
+      "id": "phys-electricity-1-q17",
+      "stem": "A 6 Ω and a 3 Ω resistor are connected in parallel. Total resistance?",
+      "choices": [
+        "2 Ω",
+        "9 Ω",
+        "4.5 Ω",
+        "0.5 Ω"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\dfrac{1}{R}=\\dfrac{1}{6}+\\dfrac{1}{3}=\\dfrac{1}{2}$, so $R=2\\ \\Omega$. The 9 Ω option is the series sum — adding is wrong for parallel. Parallel R is always less than the smallest branch.",
+      "difficulty": "hard",
+      "variantOf": "parallel-resistance"
+    },
+    {
+      "id": "phys-electricity-1-q18",
+      "stem": "To measure the voltage across a lamp, a voltmeter must be connected:",
+      "choices": [
+        "In parallel across the lamp",
+        "In series with the lamp",
+        "In series with the battery",
+        "Anywhere in the loop — position does not matter"
+      ],
+      "correctIndex": 0,
+      "explanation": "A voltmeter measures the potential difference BETWEEN two points, so it connects in parallel across the component. An ammeter would go in series instead.",
+      "difficulty": "easy",
+      "variantOf": "meter-connection"
+    },
+    {
+      "id": "phys-electricity-1-q19",
+      "stem": "Which description matches the I-V graph of a diode?",
+      "choices": [
+        "Current flows easily in one direction but is almost zero in reverse",
+        "A straight line through the origin",
+        "A curve that flattens as the component heats up",
+        "Current is the same at every voltage"
+      ],
+      "correctIndex": 0,
+      "explanation": "A diode only conducts in one direction: large current when forward-biased, near-zero current in reverse. The straight line is an ohmic resistor; the flattening curve is a filament lamp.",
+      "difficulty": "hard",
+      "variantOf": "iv-characteristics"
+    },
+    {
+      "id": "phys-electricity-1-q20",
+      "stem": "A balloon rubbed on hair then sticks to a wall because:",
+      "choices": [
+        "Friction charges the balloon; it induces opposite charge on the wall's surface and attraction holds it",
+        "The wall is magnetic",
+        "Air pressure glues it permanently",
+        "The balloon becomes heavier than air"
+      ],
+      "correctIndex": 0,
+      "explanation": "Rubbing transfers electrons onto the balloon, giving it a static charge. The charged balloon attracts the neutral wall by inducing opposite charge on its surface — unlike charges attract.",
+      "difficulty": "easy",
+      "variantOf": "static-electricity"
+    },
+    {
+      "id": "phys-electricity-1-q21",
+      "stem": "A 920 W microwave runs on 230 V mains. Which fuse rating should be fitted?",
+      "choices": [
+        "3 A",
+        "5 A",
+        "13 A",
+        "1 A"
+      ],
+      "correctIndex": 1,
+      "explanation": "$I=\\dfrac{P}{V}=\\dfrac{920}{230}=4\\text{ A}$. Choose the next standard rating above 4 A, so a 5 A fuse. A 3 A fuse would melt in normal use; 13 A is too high to protect properly.",
+      "difficulty": "hard",
+      "variantOf": "fuse-rating"
+    },
+    {
+      "id": "phys-electricity-1-q22",
+      "stem": "A 4 Ω and a 12 Ω resistor are connected in series. Total resistance?",
+      "choices": [
+        "16 Ω",
+        "3 Ω",
+        "8 Ω",
+        "48 Ω"
+      ],
+      "correctIndex": 0,
+      "explanation": "In series, resistances add: $R=4+12=16\\ \\Omega$. The 3 Ω option is the parallel answer ($\\dfrac{4\\times12}{4+12}$) — a common mix-up.",
+      "difficulty": "medium",
+      "variantOf": "series-resistance"
+    },
+    {
+      "id": "phys-electricity-1-q23",
+      "stem": "A current of 2 A flows through a wire for 3 minutes. How much charge passes?",
+      "choices": [
+        "360 C",
+        "6 C",
+        "90 C",
+        "180 C"
+      ],
+      "correctIndex": 0,
+      "explanation": "Convert minutes to seconds first: 3 min = 180 s. Then $Q=It=2\\times180=360\\text{ C}$. Using 3 instead of 180 gives the 6 C trap.",
+      "difficulty": "medium",
+      "variantOf": "current-from-charge"
+    },
+    {
+      "id": "phys-electricity-1-q24",
+      "stem": "A 12 V car headlamp draws 5 A for 10 minutes. Energy transferred?",
+      "choices": [
+        "36000 J",
+        "600 J",
+        "60 J",
+        "3600 J"
+      ],
+      "correctIndex": 0,
+      "explanation": "Convert 10 min to 600 s. $E=VIt=12\\times5\\times600=36000\\text{ J}$. Using 10 instead of 600 s gives the 600 J trap; 60 J is just the power in watts.",
+      "difficulty": "hard",
+      "variantOf": "energy-from-current"
+    },
+    {
+      "id": "phys-electricity-1-q25",
+      "stem": "What does the earth wire in a plug do?",
+      "choices": [
+        "Carries current safely to the ground if a fault makes the metal case live, so the fuse blows",
+        "Completes the circuit during normal operation",
+        "Carries the alternating voltage to the appliance",
+        "Doubles the appliance's insulation"
+      ],
+      "correctIndex": 0,
+      "explanation": "The earth wire (green/yellow) is a safety wire: if the live wire touches the metal case, current flows to ground, the large current blows the fuse and disconnects the supply. The neutral wire completes the circuit in normal use.",
+      "difficulty": "easy",
+      "variantOf": "safety-devices"
     }
   ]
 }

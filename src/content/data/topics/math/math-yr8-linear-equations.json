@@ -133,7 +133,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Subtract 4 from both sides to get 2x = 10, then divide by 2 to get x = 5.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "solve-two-step-equation"
     },
     {
       "id": "math-yr8-linear-equations-le-q2",
@@ -146,7 +147,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Add 3 to both sides to get 5x = 20, then divide by 5 to get x = 4.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "solve-two-step-equation"
     },
     {
       "id": "math-yr8-linear-equations-le-q3",
@@ -159,7 +161,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Expand to get 3x + 6 = 21, subtract 6 to get 3x = 15, then divide by 3 to get x = 5.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "solve-grouped-expression-equation"
     },
     {
       "id": "math-yr8-linear-equations-le-q4",
@@ -172,7 +175,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Subtract x from both sides and subtract 5 to get 3x = 9, then divide by 3 to get x = 3.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "solve-variables-both-sides"
     },
     {
       "id": "math-yr8-linear-equations-le-q5",
@@ -185,7 +189,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Subtract 7 from both sides to get -2x = -6, then divide by -2 to get x = 3.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "solve-negative-coefficient-equation"
     },
     {
       "id": "math-yr8-linear-equations-le-q6",
@@ -198,7 +203,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Expand to get 6x - 2 = 4x + 8, subtract 4x and add 2 to get 2x = 10, so x = 5.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "solve-brackets-both-sides"
     },
     {
       "id": "math-yr8-linear-equations-le-q7",
@@ -211,7 +217,8 @@
       ],
       "correctIndex": 2,
       "explanation": "\"At most 8\" means 8 is allowed and any value below it, so the correct symbol is ≤.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "translate-words-to-inequality"
     },
     {
       "id": "math-yr8-linear-equations-le-q8",
@@ -224,7 +231,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Divide both sides by -4 and reverse the inequality sign to get x ≥ -5.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "solve-inequality-negative-flip"
     },
     {
       "id": "math-yr8-linear-equations-le-q9",
@@ -237,7 +245,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The > symbol means -2 is not included, so use an open circle, and values greater than -2 lie to the right.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "number-line-interpretation"
     },
     {
       "id": "math-yr8-linear-equations-le-q10",
@@ -250,7 +259,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Subtract 2 to get x/3 = 4, then multiply by 3 to get x = 12.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "solve-fraction-equation"
     },
     {
       "id": "math-yr8-linear-equations-le-q11",
@@ -263,7 +273,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The equation is 2x + 5 = 23. Subtract 5 and divide by 2 to find x = 9.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "word-problem-form-equation"
     },
     {
       "id": "math-yr8-linear-equations-le-q12",
@@ -276,7 +287,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Subtract 4 to get 3x > 9, then divide by 3 to get x > 3.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "solve-inequality-positive"
     },
     {
       "id": "math-yr8-linear-equations-le-q13",
@@ -289,7 +301,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Subtract 5 to get -x ≥ -3, then multiply or divide by -1 and flip the sign to get x ≤ 3.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "solve-inequality-negative-flip"
     },
     {
       "id": "math-yr8-linear-equations-le-q14",
@@ -302,7 +315,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Let width be w. Then 2w + 2(w + 4) = 32, which simplifies to 4w + 8 = 32, so w = 6 cm.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "perimeter-word-problem"
     },
     {
       "id": "math-yr8-linear-equations-le-q15",
@@ -315,7 +329,190 @@
       ],
       "correctIndex": 2,
       "explanation": "Multiply by 5 to get 2x - 3 = 15, add 3 to get 2x = 18, then divide by 2 to get x = 9.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "solve-grouped-expression-equation"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q16",
+      "stem": "Solve $8x + 8 = 48$.",
+      "choices": [
+        "$x = 5$",
+        "$x = 6$",
+        "$x = 7$",
+        "$x = 40$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 8 from both sides to get 8x = 40, then divide by 8 to get x = 5. Choosing 7 comes from adding 8 instead of subtracting, and 40 from forgetting to divide.",
+      "difficulty": "easy",
+      "variantOf": "solve-two-step-equation"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q17",
+      "stem": "Solve $\\dfrac{x}{4} - 3 = 1$.",
+      "choices": [
+        "$x = 16$",
+        "$x = 4$",
+        "$x = -8$",
+        "$x = 7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Add 3 to both sides to get x/4 = 4, then multiply by 4 to get x = 16. Choosing 4 forgets the final multiplication by 4.",
+      "difficulty": "easy",
+      "variantOf": "solve-fraction-equation"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q18",
+      "stem": "Which inequality means \"x is at least 12\"?",
+      "choices": [
+        "$x > 12$",
+        "$x \\ge 12$",
+        "$x < 12$",
+        "$x \\le 12$"
+      ],
+      "correctIndex": 1,
+      "explanation": "\"At least 12\" means 12 itself is allowed along with every value above it, so the correct symbol is ≥.",
+      "difficulty": "easy",
+      "variantOf": "translate-words-to-inequality"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q19",
+      "stem": "Which inequality means \"x is fewer than 6\"?",
+      "choices": [
+        "$x \\le 6$",
+        "$x > 6$",
+        "$x < 6$",
+        "$x \\ge 6$"
+      ],
+      "correctIndex": 2,
+      "explanation": "\"Fewer than 6\" means strictly less than 6, so 6 itself is not included and the correct symbol is <.",
+      "difficulty": "easy",
+      "variantOf": "translate-words-to-inequality"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q20",
+      "stem": "Solve $\\dfrac{x + 3}{2} = 5$.",
+      "choices": [
+        "$x = 7$",
+        "$x = 13$",
+        "$x = 10$",
+        "$x = 4$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply both sides by 2 to get x + 3 = 10, then subtract 3 to get x = 7. Choosing 13 adds 3 instead of subtracting, and 10 forgets the final subtraction.",
+      "difficulty": "medium",
+      "variantOf": "solve-grouped-expression-equation"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q21",
+      "stem": "Solve $5x - 4 = 3x + 10$.",
+      "choices": [
+        "$x = 7$",
+        "$x = 3$",
+        "$x = 14$",
+        "$x = 2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 3x from both sides to get 2x - 4 = 10, add 4 to get 2x = 14, then divide by 2 to get x = 7. Choosing 3 comes from subtracting 10 the wrong way.",
+      "difficulty": "medium",
+      "variantOf": "solve-variables-both-sides"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q22",
+      "stem": "Solve $10 - 4x = 2$.",
+      "choices": [
+        "$x = 2$",
+        "$x = -2$",
+        "$x = 3$",
+        "$x = -3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 10 from both sides to get -4x = -8, then divide by -4 to get x = 2. Choosing -2 is a sign slip when dividing by a negative.",
+      "difficulty": "medium",
+      "variantOf": "solve-negative-coefficient-equation"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q23",
+      "stem": "Which description matches $x \\le 4$ on a number line?",
+      "choices": [
+        "Open circle at 4, shade left",
+        "Closed circle at 4, shade left",
+        "Closed circle at 4, shade right",
+        "Open circle at 4, shade right"
+      ],
+      "correctIndex": 1,
+      "explanation": "The ≤ symbol means 4 is included, so use a closed circle, and values less than 4 lie to the left.",
+      "difficulty": "medium",
+      "variantOf": "number-line-interpretation"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q24",
+      "stem": "Solve $5x - 7 > 8$.",
+      "choices": [
+        "$x > 3$",
+        "$x < 3$",
+        "$x > 15$",
+        "$x < 15$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Add 7 to both sides to get 5x > 15, then divide by 5 to get x > 3. The sign stays the same because you divide by a positive number.",
+      "difficulty": "medium",
+      "variantOf": "solve-inequality-positive"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q25",
+      "stem": "A number is doubled and then 7 is subtracted. The result is 11. What is the number?",
+      "choices": [
+        "9",
+        "2",
+        "18",
+        "4"
+      ],
+      "correctIndex": 0,
+      "explanation": "The equation is 2x - 7 = 11. Add 7 to get 2x = 18, then divide by 2 to find x = 9. Choosing 2 comes from subtracting 7 the wrong way.",
+      "difficulty": "medium",
+      "variantOf": "word-problem-form-equation"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q26",
+      "stem": "Solve $3 - 2x > 9$.",
+      "choices": [
+        "$x < -3$",
+        "$x > -3$",
+        "$x < -6$",
+        "$x > -6$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract 3 to get -2x > 6, then divide by -2 and reverse the inequality sign to get x < -3. Choosing x > -3 forgets to flip the sign.",
+      "difficulty": "hard",
+      "variantOf": "solve-inequality-negative-flip"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q27",
+      "stem": "Solve $3(2x + 1) = 5x + 7$.",
+      "choices": [
+        "$x = 4$",
+        "$x = 10$",
+        "$x = 6$",
+        "$x = -2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Expand to get 6x + 3 = 5x + 7, subtract 5x and subtract 3 to get x = 4. Choosing 10 moves the constant the wrong way, and 6 expands only the first term in the bracket.",
+      "difficulty": "hard",
+      "variantOf": "solve-brackets-both-sides"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q28",
+      "stem": "A rectangle's length is 3 cm more than twice its width. The perimeter is 36 cm. Find the width.",
+      "choices": [
+        "5 cm",
+        "6 cm",
+        "11 cm",
+        "13 cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Let width be w, so length is 2w + 3. Then 2w + 2(2w + 3) = 36, which simplifies to 6w + 6 = 36, so 6w = 30 and w = 5 cm. Choosing 6 ignores the +6, and 13 cm is the length, not the width.",
+      "difficulty": "hard",
+      "variantOf": "perimeter-word-problem"
     }
   ]
 }

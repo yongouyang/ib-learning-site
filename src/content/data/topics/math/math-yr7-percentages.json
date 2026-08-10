@@ -133,7 +133,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Percentage means 'out of 100', so 25% means 25 out of 100, which is one quarter.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "percent-meaning"
     },
     {
       "id": "math-yr7-percentages-pct-q2",
@@ -146,7 +147,8 @@
       ],
       "correctIndex": 0,
       "explanation": "To convert a decimal to a percentage, multiply by 100: 0.08 x 100 = 8%.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "decimal-to-percent"
     },
     {
       "id": "math-yr7-percentages-pct-q3",
@@ -159,7 +161,8 @@
       ],
       "correctIndex": 0,
       "explanation": "3 divided by 4 equals 0.75, and 0.75 x 100 = 75%.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "fraction-to-percent"
     },
     {
       "id": "math-yr7-percentages-pct-q4",
@@ -172,7 +175,8 @@
       ],
       "correctIndex": 0,
       "explanation": "To find 10% of a number, divide by 10: 180 / 10 = 18.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "ten-percent-of-amount"
     },
     {
       "id": "math-yr7-percentages-pct-q5",
@@ -185,7 +189,8 @@
       ],
       "correctIndex": 0,
       "explanation": "10% of 80 is 8, so 30% is 24 and 5% is 4. Adding gives 24 + 4 = 28.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "percent-of-amount"
     },
     {
       "id": "math-yr7-percentages-pct-q6",
@@ -198,7 +203,8 @@
       ],
       "correctIndex": 0,
       "explanation": "1% of 300 is 3, so 7% is 7 x 3 = 21.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "percent-of-amount"
     },
     {
       "id": "math-yr7-percentages-pct-q7",
@@ -212,7 +218,8 @@
       "correctIndex": 0,
       "explanation": "Use the multiplier 1.18: 50 x 1.18 = 59. Alternatively, 18% of 50 is 9, and 50 + 9 = 59.",
       "difficulty": "medium",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "percent-increase"
     },
     {
       "id": "math-yr7-percentages-pct-q8",
@@ -226,7 +233,8 @@
       "correctIndex": 0,
       "explanation": "Use the multiplier 0.85: 120 x 0.85 = 102. Alternatively, 15% of 120 is 18, and 120 - 18 = 102.",
       "difficulty": "medium",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "percent-decrease"
     },
     {
       "id": "math-yr7-percentages-pct-q9",
@@ -239,7 +247,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Divide the part by the whole and multiply by 100: (21 / 30) x 100 = 0.7 x 100 = 70%.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "part-as-percent"
     },
     {
       "id": "math-yr7-percentages-pct-q10",
@@ -252,7 +261,8 @@
       ],
       "correctIndex": 0,
       "explanation": "1 hour is 60 minutes. (45 / 60) x 100 = 0.75 x 100 = 75%.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "part-as-percent"
     },
     {
       "id": "math-yr7-percentages-pct-q11",
@@ -265,7 +275,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The sale price is 80% of the original. Divide by 0.80: 64 / 0.80 = 80, so the original price was £80.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "reverse-percent"
     },
     {
       "id": "math-yr7-percentages-pct-q12",
@@ -278,7 +289,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Profit = 52 - 40 = 12. Percentage profit = (12 / 40) x 100 = 0.3 x 100 = 30%.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "part-as-percent"
     },
     {
       "id": "math-yr7-percentages-pct-q13",
@@ -292,7 +304,8 @@
       "correctIndex": 0,
       "explanation": "Use the multiplier 1.15: 48 x 1.15 = 55.20. The total paid is £55.20.",
       "difficulty": "hard",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "percent-tip-total"
     },
     {
       "id": "math-yr7-percentages-pct-q14",
@@ -305,7 +318,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Divide the part by the whole and multiply by 100: (20 / 80) x 100 = 0.25 x 100 = 25%.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "survey-percent"
     },
     {
       "id": "math-yr7-percentages-pct-q15",
@@ -318,7 +332,151 @@
       ],
       "correctIndex": 0,
       "explanation": "The combined multiplier is 1.10 x 1.20 = 1.32, which is a 32% increase. You cannot simply add 10% and 20%.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "successive-percent"
+    },
+    {
+      "id": "math-yr7-percentages-pct-q16",
+      "stem": "Which fraction has the same value as 30%?",
+      "choices": [
+        "$\\dfrac{3}{10}$",
+        "$\\dfrac{1}{3}$",
+        "$\\dfrac{3}{100}$",
+        "$\\dfrac{1}{30}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "30% means 30 out of 100, and 30/100 simplifies to 3/10 by dividing the top and bottom by 10.",
+      "difficulty": "easy",
+      "variantOf": "percent-meaning"
+    },
+    {
+      "id": "math-yr7-percentages-pct-q17",
+      "stem": "Write 0.045 as a percentage.",
+      "choices": [
+        "4.5%",
+        "45%",
+        "0.45%",
+        "450%"
+      ],
+      "correctIndex": 0,
+      "explanation": "To convert a decimal to a percentage, multiply by 100: 0.045 x 100 = 4.5%.",
+      "difficulty": "medium",
+      "variantOf": "decimal-to-percent"
+    },
+    {
+      "id": "math-yr7-percentages-pct-q18",
+      "stem": "What is $\\dfrac{1}{5}$ as a percentage?",
+      "choices": [
+        "20%",
+        "15%",
+        "5%",
+        "25%"
+      ],
+      "correctIndex": 0,
+      "explanation": "1 divided by 5 equals 0.2, and 0.2 x 100 = 20%.",
+      "difficulty": "easy",
+      "variantOf": "fraction-to-percent"
+    },
+    {
+      "id": "math-yr7-percentages-pct-q19",
+      "stem": "Find 10% of 340.",
+      "choices": [
+        "34",
+        "3.4",
+        "340",
+        "3400"
+      ],
+      "correctIndex": 0,
+      "explanation": "To find 10% of a number, divide by 10: 340 / 10 = 34.",
+      "difficulty": "easy",
+      "variantOf": "ten-percent-of-amount"
+    },
+    {
+      "id": "math-yr7-percentages-pct-q20",
+      "stem": "Increase 45 by 16%.",
+      "choices": [
+        "52.2",
+        "61",
+        "7.2",
+        "38.7"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use the multiplier 1.16: 45 x 1.16 = 52.2. Alternatively, 16% of 45 is 7.2, and 45 + 7.2 = 52.2.",
+      "difficulty": "medium",
+      "calculator": true,
+      "variantOf": "percent-increase"
+    },
+    {
+      "id": "math-yr7-percentages-pct-q21",
+      "stem": "Decrease 240 by 35%.",
+      "choices": [
+        "156",
+        "205",
+        "84",
+        "324"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use the multiplier 0.65: 240 x 0.65 = 156. Alternatively, 35% of 240 is 84, and 240 - 84 = 156.",
+      "difficulty": "medium",
+      "calculator": true,
+      "variantOf": "percent-decrease"
+    },
+    {
+      "id": "math-yr7-percentages-pct-q22",
+      "stem": "In a class of 30 students, 6 walk to school. What percentage walk to school?",
+      "choices": [
+        "20%",
+        "6%",
+        "5%",
+        "24%"
+      ],
+      "correctIndex": 0,
+      "explanation": "Divide the part by the whole and multiply by 100: (6 / 30) x 100 = 0.2 x 100 = 20%.",
+      "difficulty": "easy",
+      "variantOf": "survey-percent"
+    },
+    {
+      "id": "math-yr7-percentages-pct-q23",
+      "stem": "After a 25% discount, a coat costs £54. What was the original price?",
+      "choices": [
+        "£72",
+        "£67.50",
+        "£40.50",
+        "£43.20"
+      ],
+      "correctIndex": 0,
+      "explanation": "The sale price is 75% of the original. Divide by 0.75: 54 / 0.75 = 72, so the original price was £72.",
+      "difficulty": "hard",
+      "variantOf": "reverse-percent"
+    },
+    {
+      "id": "math-yr7-percentages-pct-q24",
+      "stem": "A taxi fare is £36. A 12.5% service charge is added. How much is paid in total?",
+      "choices": [
+        "£40.50",
+        "£48.50",
+        "£45",
+        "£4.50"
+      ],
+      "correctIndex": 0,
+      "explanation": "Use the multiplier 1.125: 36 x 1.125 = 40.50. The total paid is £40.50.",
+      "difficulty": "hard",
+      "calculator": true,
+      "variantOf": "percent-tip-total"
+    },
+    {
+      "id": "math-yr7-percentages-pct-q25",
+      "stem": "A price increases by 20% and then decreases by 20%. What is the overall percentage change?",
+      "choices": [
+        "A 4% decrease",
+        "No change",
+        "A 4% increase",
+        "A 2% decrease"
+      ],
+      "correctIndex": 0,
+      "explanation": "The combined multiplier is 1.20 x 0.80 = 0.96, which is 96% of the original price, a 4% decrease. The two 20% changes do not cancel out.",
+      "difficulty": "hard",
+      "variantOf": "successive-percent"
     }
   ]
 }
