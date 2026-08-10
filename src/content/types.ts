@@ -38,6 +38,19 @@ export interface Question {
   difficulty?: Difficulty;
   /** Math only: true = calculator expected/allowed (feeds Phase 3 calc/non-calc pools). */
   calculator?: boolean;
+  /**
+   * Variant group key (docs/question-variations-plan.md): questions sharing a
+   * value are isomorphic variants of the same skill; a quiz session samples
+   * ONE per group. Questions without it act as singleton groups.
+   */
+  variantOf?: string;
+}
+
+/** Reference to a parameterized generator (src/content/generators/, Phase 2). */
+export interface TopicTemplate {
+  generator: string;
+  variantOf?: string;
+  params?: Record<string, unknown>;
 }
 
 export interface Topic {
@@ -53,6 +66,7 @@ export interface Topic {
   notes: ConceptNote[];
   flashcards: Flashcard[];
   questions: Question[];
+  templates?: TopicTemplate[];
 }
 
 export interface Subject {
@@ -87,6 +101,15 @@ export interface QuizAttempt {
   date: string; // ISO string
   correctCount: number;
   totalCount: number;
+  /** Per-question outcomes when the caller provides them (topic quizzes since
+   * the variant-group rollout); older attempts lack this — derive group
+   * mastery only from attempts that have it. */
+  questionResults?: QuestionResult[];
+}
+
+export interface QuestionResult {
+  questionId: string;
+  correct: boolean;
 }
 
 export interface TopicProgress {

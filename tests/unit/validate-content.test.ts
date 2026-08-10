@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { checkStageConsistency } from '../../scripts/validate-content';
+import { checkStageConsistency, checkVariantGroups } from '../../scripts/validate-content';
 import type { ValidatedTopic } from '@/content/schema';
 
 function makeTopic(overrides: Partial<ValidatedTopic> = {}): ValidatedTopic {
@@ -91,5 +91,67 @@ describe('checkStageConsistency', () => {
     const errors = checkStageConsistency(topic);
     expect(errors).toHaveLength(1);
     expect(errors[0]).toContain('strand');
+  });
+});
+
+
+describe('checkVariantGroups', () => {
+  function groupQuestion(id: string, variantOf: string, difficulty?: 'easy' | 'medium' | 'hard') {
+    return {
+      id,
+      stem: `Stem ${id}`,
+      choices: ['A', 'B', 'C', 'D'],
+      correctIndex: 0,
+      explanation: `Explanation for ${id}.`,
+      ...(difficulty ? { difficulty } : {}),
+      variantOf,
+    };
+  }
+
+  it('accepts a group whose members share one difficulty', () => {
+    const topic = makeTopic({
+      questions: [
+        groupQuestion('q1', 'skill-a', 'easy'),
+        groupQuestion('q2', 'skill-a', 'easy'),
+      ],
+    });
+    expect(checkVariantGroups(topic)).toEqual([]);
+  });
+
+  it('accepts single-member groups (audit warns; not an error here)', () => {
+    const topic = makeTopic({
+      questions: [groupQuestion('q1', 'skill-a', 'easy')],
+    });
+    expect(checkVariantGroups(topic)).toEqual([]);
+  });
+
+  it('rejects a group mixing difficulties', () => {
+    const topic = makeTopic({
+      questions: [
+        groupQuestion('q1', 'skill-a', 'easy'),
+        groupQuestion('q2', 'skill-a', 'hard'),
+      ],
+    });
+    const errors = checkVariantGroups(topic);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('skill-a');
+    expect(errors[0]).toContain('mixes difficulties');
+  });
+
+  it('rejects a multi-member group with an untagged member', () => {
+    const topic = makeTopic({
+      questions: [
+        groupQuestion('q1', 'skill-a', 'easy'),
+        groupQuestion('q2', 'skill-a'),
+      ],
+    });
+    const errors = checkVariantGroups(topic);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('untagged');
+  });
+
+  it('ignores questions without variantOf', () => {
+    const topic = makeTopic();
+    expect(checkVariantGroups(topic)).toEqual([]);
   });
 });

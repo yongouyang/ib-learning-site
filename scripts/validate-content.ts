@@ -55,6 +55,37 @@ export function checkStageConsistency(topic: ValidatedTopic): string[] {
   return errors;
 }
 
+// Variant-group invariants (docs/question-variations-plan.md): a quiz session
+// samples ONE question per variantOf group for the difficulty ramp, so every
+// member of a multi-question group must carry the SAME difficulty tag.
+export function checkVariantGroups(topic: ValidatedTopic): string[] {
+  const errors: string[] = [];
+  const groups = new Map<string, typeof topic.questions>();
+  for (const q of topic.questions) {
+    if (q.variantOf === undefined) continue;
+    const members = groups.get(q.variantOf);
+    if (members) members.push(q);
+    else groups.set(q.variantOf, [q]);
+  }
+  for (const [key, members] of groups) {
+    if (members.length < 2) continue; // single-member explicit groups are an audit warning, not an error
+    const untagged = members.filter((q) => q.difficulty === undefined);
+    if (untagged.length > 0) {
+      errors.push(
+        `variant group "${key}" has ${untagged.length} untagged member(s); all members of a multi-question group must share one difficulty tag`
+      );
+      continue;
+    }
+    const bands = new Set(members.map((q) => q.difficulty));
+    if (bands.size > 1) {
+      errors.push(
+        `variant group "${key}" mixes difficulties (${members.map((q) => `${q.id}:${q.difficulty}`).join(', ')}); all members must share one difficulty`
+      );
+    }
+  }
+  return errors;
+}
+
 interface Failure {
   file: string;
   errors: string[];
@@ -113,7 +144,10 @@ function validateTopics() {
           );
           continue;
         }
-        const consistencyErrors = checkStageConsistency(result.data);
+        const consistencyErrors = [
+          ...checkStageConsistency(result.data),
+          ...checkVariantGroups(result.data),
+        ];
         if (consistencyErrors.length > 0) {
           failures.push({ file: relative(filePath), errors: consistencyErrors });
           continue;

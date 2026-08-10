@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-10 — Question variations Phase 0: variant groups + session sampling foundation
+
+Git HEAD: `4b0e40f` (branch `develop`, tree dirty: committing below)
+Done: foundation for `docs/question-variations-plan.md` (written this session; decisions D1–D8 confirmed with user). (1) Schema/types: `variantOf` on questions, `templates` array on topics (Phase 2 engine placeholder), `questionResults` on QuizAttempt. (2) `sampleVariantGroups`/`groupKeyOf`/`hasVariantGroups` in quiz-utils — one question per group per session, ungrouped = singleton. (3) Validators: validate-content errors on mixed-difficulty/untagged multi-member groups; audit counts ≥3 easy/hard per GROUP for grouped topics + warns on single-member groups. (4) QuizPageClient: grouped topics sample ~one-per-group with a client-side reseed on mount; QuizGame results screen gets "New Question Set" (onNewSet) next to "Try Again"; per-question outcomes now persisted via recordAttempt. (5) `src/lib/mastery.ts`: per-group mastery derivation (2 consecutive correct), read-time only, legacy attempts ignored. NOT yet surfaced in UI. (6) **Fixed a real PRNG bug**: seededShuffle's LCG lost its low ~8 bits to double rounding (hash×1103515245 > 2^53) — `state % 2` was always 0, so 2-item arrays never shuffled. Now mulberry32 via Math.imul. All seeded orders change (still deterministic per seed).
+Verified: vitest 274/274 ✅ (27 new: sampler, mastery, validators, store, QuizGame onNewSet), validate:content ✅, audit:content 0/0 ✅, lint 0 errors ✅, build ✅, e2e quiz/topic-journeys/mixed-review/diagnostics/ladder/exams 29 passed/1 pre-existing skip ✅, prod-build smoke with temporarily group-tagged math-algebra-1: session = 8 questions (one per group) ✅, New Question Set deals fresh variants ✅, localStorage questionResults persisted ✅; smoke tags reverted + registry regenerated clean.
+Next: Phase 1 — pilot authored variants on 3–4 math + 3–4 physics topics (agent drafts, user reviews batches); Phase 2 in parallel — template engine (src/content/generators/) + pilot generators. Also decide where group mastery surfaces in UI (subject page / quiz results). Standing: custom domain §7 (user exploring), branch protection, MFA/billing alarm.
+Notes: group mastery is derived from `attempt.questionResults` — attempts recorded before this change have no per-question data and contribute nothing (by design; no storage migration). The reseed-on-mount effect triggers a `react-hooks/set-state-in-effect` warning (warn-level per Next 16 policy — hydration-safe SSR-first-render pattern).
+
+---
+
 ## 2026-08-09 — CI: illustration validators run in parallel with e2e
 
 Git HEAD: `3ab2e83` (branch `develop`, tree dirty: committing below)

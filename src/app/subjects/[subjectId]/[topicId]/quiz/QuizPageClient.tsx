@@ -1,16 +1,19 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { getSubject, getTopic } from '@/content/registry';
 import { useProgress } from '@/context/ProgressContext';
 import QuizGame from '@/components/QuizGame';
-import type { SubjectId } from '@/content/types';
+import type { QuestionResult, SubjectId } from '@/content/types';
 import {
   DIFFICULTY_LEVELS,
   filterQuestionsByDifficulty,
+  hasVariantGroups,
   orderQuestionsByDifficulty,
   parseDifficultyFilter,
+  sampleVariantGroups,
   type DifficultyFilter,
 } from '@/lib/quiz-utils';
 
@@ -19,20 +22,45 @@ interface QuizPageClientProps {
   topicId: string;
 }
 
+function randomSeed(): string {
+  return Math.random().toString(36).slice(2);
+}
+
 export default function QuizPageClient({ subjectId, topicId }: QuizPageClientProps) {
   const searchParams = useSearchParams();
   const difficulty = parseDifficultyFilter(searchParams.get('difficulty'));
   const topic = getTopic(subjectId as SubjectId, topicId);
   const subject = getSubject(subjectId as SubjectId);
   const { recordAttempt } = useProgress();
+  // Per-question outcomes for the current session, flushed into recordAttempt
+  // on completion (feeds variant-group mastery in src/lib/mastery.ts).
+  const resultsRef = useRef<QuestionResult[]>([]);
+
+  const grouped = topic ? hasVariantGroups(topic.questions) : false;
+
+  // Session seed: deterministic during SSR/first render (hydration-safe), then
+  // reseeded client-side on mount for grouped topics so every visit — and every
+  // "new question set" — samples fresh variants (docs/question-variations-plan.md).
+  const [sessionSeed, setSessionSeed] = useState(`${topicId}:${difficulty}`);
+  useEffect(() => {
+    if (grouped) setSessionSeed(`${topicId}:${difficulty}:${randomSeed()}`);
+  }, [grouped, topicId, difficulty]);
+
+  const handleNewSet = () => {
+    resultsRef.current = [];
+    setSessionSeed(`${topicId}:${difficulty}:${randomSeed()}`);
+  };
 
   if (!topic) return <div className="p-6 text-center text-gray-500 dark:text-gray-400">Topic not found.</div>;
 
   const filtered = filterQuestionsByDifficulty(topic.questions, difficulty);
+  // Grouped topics: one question per variant group (~10 per session). Topics
+  // without groups keep the legacy behavior — every question, every session.
+  const sessionQuestions = grouped ? sampleVariantGroups(filtered, sessionSeed) : filtered;
   // Easy -> hard with a deterministic intra-band shuffle; QuizGame receives the
-  // final order (no shuffleSeed), and keying on the filter forces a remount
-  // when the user switches difficulty mid-visit.
-  const ordered = orderQuestionsByDifficulty(filtered, `${topicId}:${difficulty}`);
+  // final order (no shuffleSeed), and keying on filter+seed forces a remount
+  // when the user switches difficulty or requests a new set.
+  const ordered = orderQuestionsByDifficulty(sessionQuestions, sessionSeed);
 
   const filters: { key: DifficultyFilter; label: string }[] = [
     { key: 'all', label: `All (${topic.questions.length})` },
@@ -73,7 +101,7 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
         </div>
       </div>
       <QuizGame
-        key={difficulty}
+        key={`${difficulty}:${sessionSeed}`}
         questions={ordered}
         backHref={`/subjects/${subjectId}`}
         backLabel="Back to Topics"
@@ -85,9 +113,14 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
         ]}
         enableTimer={true}
         timerSeconds={60}
-        onComplete={(correctCount, totalCount) => {
-          recordAttempt(topicId, subjectId as SubjectId, topic.title, subjectId, correctCount, totalCount);
+        onQuestionResult={(questionId, correct) => {
+          resultsRef.current.push({ questionId, correct });
         }}
+        onComplete={(correctCount, totalCount) => {
+          recordAttempt(topicId, subjectId as SubjectId, topic.title, subjectId, correctCount, totalCount, resultsRef.current);
+          resultsRef.current = [];
+        }}
+        onNewSet={grouped ? handleNewSet : undefined}
       />
     </div>
   );

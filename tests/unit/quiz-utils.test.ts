@@ -5,6 +5,9 @@ import {
   parseDifficultyFilter,
   seededShuffle,
   stratifiedSample,
+  groupKeyOf,
+  hasVariantGroups,
+  sampleVariantGroups,
 } from '@/lib/quiz-utils';
 import type { Question } from '@/content/types';
 
@@ -146,5 +149,66 @@ describe('seededShuffle (moved from QuizGame)', () => {
   it('is deterministic for a given seed', () => {
     const items = [1, 2, 3, 4, 5, 6, 7, 8];
     expect(seededShuffle(items, 's')).toEqual(seededShuffle(items, 's'));
+  });
+});
+
+
+describe('variant groups', () => {
+  const grouped: Question[] = [
+    { ...makeQuestion('a1', 'easy'), variantOf: 'skill-a' },
+    { ...makeQuestion('a2', 'easy'), variantOf: 'skill-a' },
+    { ...makeQuestion('a3', 'easy'), variantOf: 'skill-a' },
+    { ...makeQuestion('b1', 'medium'), variantOf: 'skill-b' },
+    { ...makeQuestion('b2', 'medium'), variantOf: 'skill-b' },
+    makeQuestion('solo1', 'hard'),
+  ];
+
+  describe('groupKeyOf', () => {
+    it('uses variantOf when present, solo key otherwise', () => {
+      expect(groupKeyOf(grouped[0])).toBe('skill-a');
+      expect(groupKeyOf(grouped[5])).toBe('solo:solo1');
+    });
+  });
+
+  describe('hasVariantGroups', () => {
+    it('detects grouped and ungrouped pools', () => {
+      expect(hasVariantGroups(grouped)).toBe(true);
+      expect(hasVariantGroups(pool)).toBe(false);
+      expect(hasVariantGroups([])).toBe(false);
+    });
+  });
+
+  describe('sampleVariantGroups', () => {
+    it('picks exactly one question per group, singletons always included', () => {
+      const sample = sampleVariantGroups(grouped, 'seed-1');
+      expect(sample).toHaveLength(3); // skill-a, skill-b, solo:solo1
+      expect(sample.filter((q) => q.variantOf === 'skill-a')).toHaveLength(1);
+      expect(sample.filter((q) => q.variantOf === 'skill-b')).toHaveLength(1);
+      expect(sample.some((q) => q.id === 'solo1')).toBe(true);
+    });
+
+    it('is deterministic for the same seed', () => {
+      const a = sampleVariantGroups(grouped, 'seed-1').map((q) => q.id);
+      const b = sampleVariantGroups(grouped, 'seed-1').map((q) => q.id);
+      expect(a).toEqual(b);
+    });
+
+    it('surfaces different variants across many seeds', () => {
+      const seenA = new Set<string>();
+      const seenB = new Set<string>();
+      for (let i = 0; i < 30; i++) {
+        const sample = sampleVariantGroups(grouped, `seed-${i}`);
+        seenA.add(sample.find((q) => q.variantOf === 'skill-a')!.id);
+        seenB.add(sample.find((q) => q.variantOf === 'skill-b')!.id);
+      }
+      expect(seenA.size).toBeGreaterThan(1);
+      expect(seenB.size).toBeGreaterThan(1);
+    });
+
+    it('composes with orderQuestionsByDifficulty for the easy->hard ramp', () => {
+      const sample = sampleVariantGroups(grouped, 'seed-1');
+      const ordered = orderQuestionsByDifficulty(sample, 'seed-1');
+      expect(ordered.map((q) => q.difficulty)).toEqual(['easy', 'medium', 'hard']);
+    });
   });
 });

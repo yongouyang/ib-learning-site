@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
-import { UserProgress, TopicProgress, SubjectId, ExamResult, LadderLevelResult, FlashcardProgress } from '@/content/types';
+import { UserProgress, TopicProgress, SubjectId, ExamResult, LadderLevelResult, FlashcardProgress, QuestionResult } from '@/content/types';
 import {
   getUserProgress,
   getAllTopicProgress,
@@ -24,7 +24,7 @@ interface ProgressContextType {
   /** False until the first localStorage load completes (after mount). */
   loaded: boolean;
   refresh: () => void;
-  recordAttempt: (topicId: string, subjectId: SubjectId, topicTitle: string, subjectTitle: string, correct: number, total: number) => void;
+  recordAttempt: (topicId: string, subjectId: SubjectId, topicTitle: string, subjectTitle: string, correct: number, total: number, questionResults?: QuestionResult[]) => void;
   recordExam: (result: ExamResult) => void;
   recordLadder: (courseId: string, level: number, score: number) => void;
   recordFlashcard: (cardId: string, status: 'known' | 'learning') => void;
@@ -61,9 +61,9 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
   const recordAttempt = useCallback((
     topicId: string, subjectId: SubjectId, topicTitle: string, subjectTitle: string,
-    correct: number, total: number
+    correct: number, total: number, questionResults?: QuestionResult[]
   ) => {
-    recordQuizAttempt(topicId, subjectId, topicTitle, subjectTitle, correct, total);
+    recordQuizAttempt(topicId, subjectId, topicTitle, subjectTitle, correct, total, questionResults);
     refresh();
   }, [refresh]);
 

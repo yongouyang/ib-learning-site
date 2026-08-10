@@ -47,6 +47,21 @@ export const questionSchema = z.object({
   difficulty: difficultySchema.optional(),
   // Math only: true = calculator expected/allowed (feeds Phase 3 calc/non-calc pools).
   calculator: z.boolean().optional(),
+  // Variant group key (docs/question-variations-plan.md): questions sharing a
+  // value are isomorphic variants of the same skill; a quiz session samples
+  // ONE per group. Members of a multi-question group must share a difficulty
+  // (enforced by validate-content). Questions without it are singleton groups.
+  variantOf: z.string().min(1).optional(),
+});
+
+// Parameterized question templates (Phase 2 of the variations plan): a named
+// TS generator in src/content/generators/ plus a per-topic param table. The
+// engine consumes this in Phase 2; Phase 0 only validates the shape. variantOf
+// lets a template share a group slot with authored variants.
+export const topicTemplateSchema = z.object({
+  generator: z.string().min(1),
+  variantOf: z.string().min(1).optional(),
+  params: z.record(z.string(), z.unknown()).optional(),
 });
 
 export const topicSchema = z.object({
@@ -62,6 +77,7 @@ export const topicSchema = z.object({
   notes: z.array(conceptNoteSchema).min(1),
   flashcards: z.array(flashcardSchema).min(1),
   questions: z.array(questionSchema).min(1),
+  templates: z.array(topicTemplateSchema).optional(),
 });
 
 // Phase 4 — free-response practice sets ("past-paper-style", original questions only).
@@ -116,6 +132,7 @@ export type ValidatedDifficulty = z.infer<typeof difficultySchema>;
 export type ValidatedConceptNote = z.infer<typeof conceptNoteSchema>;
 export type ValidatedFlashcard = z.infer<typeof flashcardSchema>;
 export type ValidatedQuestion = z.infer<typeof questionSchema>;
+export type ValidatedTopicTemplate = z.infer<typeof topicTemplateSchema>;
 export type ValidatedFreeResponseQuestion = z.infer<typeof freeResponseQuestionSchema>;
 export type ValidatedPaper = z.infer<typeof paperSchema>;
 export type ValidatedTopic = z.infer<typeof topicSchema>;

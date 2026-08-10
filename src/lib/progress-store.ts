@@ -1,4 +1,4 @@
-import { UserProgress, TopicProgress, QuizAttempt, SubjectId, ExamResult, LadderLevelResult, FlashcardProgress } from '@/content/types';
+import { UserProgress, TopicProgress, QuizAttempt, QuestionResult, SubjectId, ExamResult, LadderLevelResult, FlashcardProgress } from '@/content/types';
 
 const STORAGE_KEY = 'iblearn_progress';
 const STORAGE_VERSION = 2;
@@ -67,13 +67,19 @@ export function getAllTopicProgress(): TopicProgress[] {
 
 export function recordQuizAttempt(
   topicId: string, subjectId: SubjectId, topicTitle: string, subjectTitle: string,
-  correctCount: number, totalCount: number
+  correctCount: number, totalCount: number,
+  questionResults?: QuestionResult[]
 ): void {
   const data = load();
   const key = `${subjectId}:${topicId}`;
   const tp = data.topicProgress[key] || { topicId, subjectId, topicTitle, subjectTitle, attempts: [] };
 
   const attempt: QuizAttempt = { date: new Date().toISOString(), correctCount, totalCount };
+  // Per-question outcomes feed variant-group mastery (src/lib/mastery.ts);
+  // omitted by callers that only know aggregates (diagnostics, mixed review).
+  if (questionResults && questionResults.length > 0) {
+    attempt.questionResults = questionResults;
+  }
   tp.attempts.push(attempt);
   data.topicProgress[key] = tp;
 

@@ -315,3 +315,92 @@ describe("findLatexIssues", () => {
     expect(findLatexIssues("It costs \\$5 and \\$10.")).toHaveLength(0);
   });
 });
+
+
+describe("auditContent variant-group rules", () => {
+  function groupQuestion(
+    id: string,
+    variantOf: string | undefined,
+    difficulty: "easy" | "medium" | "hard",
+  ): Question {
+    return {
+      id,
+      stem: `Stem ${id}`,
+      choices: ["A", "B", "C", "D"],
+      correctIndex: 0,
+      explanation: `This is a sufficiently long explanation for ${id}.`,
+      difficulty,
+      ...(variantOf ? { variantOf } : {}),
+    };
+  }
+
+  // 10 groups x 2 variants: 3 easy, 4 medium, 3 hard — valid on a per-group basis.
+  function makeGroupedQuestions(): Question[] {
+    const bands: Array<["easy" | "medium" | "hard", number]> = [
+      ["easy", 3],
+      ["medium", 4],
+      ["hard", 3],
+    ];
+    const questions: Question[] = [];
+    for (const [band, groupCount] of bands) {
+      for (let g = 0; g < groupCount; g++) {
+        for (let v = 0; v < 2; v++) {
+          questions.push(groupQuestion(`${band}-g${g}-v${v}`, `${band}-skill-${g}`, band));
+        }
+      }
+    }
+    return questions;
+  }
+
+  it("accepts a grouped topic meeting the per-group distribution", () => {
+    const topic = makeTopic({
+      id: "grouped-topic",
+      subjectId: "math",
+      questions: makeGroupedQuestions(),
+    });
+    const result = auditContent({ topics: [topic] });
+    expect(result.issues).toHaveLength(0);
+  });
+
+  it("warns when easy/hard GROUP counts fall short even though question counts pass", () => {
+    // 1 easy group x 3 variants = 3 easy questions but only 1 easy group.
+    const questions = [
+      ...[0, 1, 2].map((v) => groupQuestion(`e-v${v}`, "easy-skill-0", "easy")),
+      ...[0, 1, 2, 3].flatMap((g) =>
+        [0, 1].map((v) => groupQuestion(`m-g${g}-v${v}`, `medium-skill-${g}`, "medium")),
+      ),
+      ...[0, 1, 2].flatMap((g) =>
+        [0, 1].map((v) => groupQuestion(`h-g${g}-v${v}`, `hard-skill-${g}`, "hard")),
+      ),
+    ];
+    const topic = makeTopic({ id: "skewed-topic", subjectId: "math", questions });
+    const result = auditContent({ topics: [topic] });
+    const issues = result.issues.filter((i) => i.type === "difficulty_distribution");
+    expect(issues).toHaveLength(1);
+    expect(issues[0].message).toContain("per-group basis");
+    expect(issues[0].message).toContain("1 easy");
+  });
+
+  it("warns on a single-member explicit variant group", () => {
+    const questions = [
+      ...makeGroupedQuestions(),
+      groupQuestion("lonely-q", "lonely-group", "medium"),
+    ];
+    const topic = makeTopic({ id: "lonely-topic", subjectId: "math", questions });
+    const result = auditContent({ topics: [topic] });
+    const issues = result.issues.filter((i) => i.type === "variant_group");
+    expect(issues).toHaveLength(1);
+    expect(issues[0].message).toContain("lonely-group");
+  });
+
+  it("does not apply group rules to ungrouped topics", () => {
+    const topic = makeTopic({
+      id: "plain-topic",
+      subjectId: "math",
+      questions: makeValidQuestions("plain", 6),
+    });
+    const result = auditContent({ topics: [topic] });
+    expect(result.issues.filter((i) => i.type === "variant_group")).toHaveLength(0);
+    expect(result.issues.filter((i) => i.type === "difficulty_distribution")).toHaveLength(0);
+  });
+});

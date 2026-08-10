@@ -1,5 +1,5 @@
 import React from 'react';
-import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest';
+import { describe, it, expect, vi, beforeAll, afterAll, beforeEach, type Mock } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import QuizGame from '@/components/QuizGame';
@@ -182,5 +182,47 @@ describe('QuizGame', () => {
     } finally {
       vi.useRealTimers();
     }
+  });
+});
+
+
+describe('QuizGame onNewSet', () => {
+  async function completeQuiz(onComplete = vi.fn()) {
+    const user = userEvent.setup();
+    render(<QuizGame questions={questions} backHref="/back" onComplete={onComplete} onNewSet={onNewSetMock} />);
+    await user.click(screen.getAllByRole('button')[1]); // correct answer for q1
+    await user.click(screen.getByRole('button', { name: /Next Question/i }));
+    await user.click(screen.getAllByRole('button')[2]); // correct answer for q2
+    await user.click(screen.getByRole('button', { name: /See Results/i }));
+    return user;
+  }
+
+  let onNewSetMock: Mock<() => void>;
+
+  beforeEach(() => {
+    onNewSetMock = vi.fn<() => void>();
+  });
+
+  it('shows "New Question Set" on the results screen when onNewSet is provided', async () => {
+    const user = await completeQuiz();
+    const button = screen.getByRole('button', { name: /New Question Set/i });
+    expect(button).toBeInTheDocument();
+    await user.click(button);
+    expect(onNewSetMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps "Try Again" alongside it', async () => {
+    await completeQuiz();
+    expect(screen.getByRole('button', { name: /Try Again/i })).toBeInTheDocument();
+  });
+
+  it('omits the button when onNewSet is not provided', async () => {
+    const user = userEvent.setup();
+    render(<QuizGame questions={questions} backHref="/back" onComplete={vi.fn()} />);
+    await user.click(screen.getAllByRole('button')[1]);
+    await user.click(screen.getByRole('button', { name: /Next Question/i }));
+    await user.click(screen.getAllByRole('button')[2]);
+    await user.click(screen.getByRole('button', { name: /See Results/i }));
+    expect(screen.queryByRole('button', { name: /New Question Set/i })).not.toBeInTheDocument();
   });
 });

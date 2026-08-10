@@ -21,6 +21,7 @@ export type IssueType =
   | "stray_backslash"
   | "missing_difficulty"
   | "difficulty_distribution"
+  | "variant_group"
   | "paper_quality"
   | "unreadable_topic";
 
@@ -73,6 +74,11 @@ const MIN_EXPLANATION_LENGTH = 20;
 // Phase 2: per-topic difficulty distribution targets (tuned to the 15-question standard).
 const MIN_EASY_QUESTIONS = 3;
 const MIN_HARD_QUESTIONS = 3;
+// Variant-group topics (docs/question-variations-plan.md): the distribution
+// minimums apply per GROUP (ungrouped questions count as singleton groups),
+// since a session samples one question per group.
+const MIN_EASY_GROUPS = 3;
+const MIN_HARD_GROUPS = 3;
 // Phase 4: free-response papers.
 const MIN_MODEL_ANSWER_LENGTH = 40;
 const MIN_MARKSCHEME_POINT_LENGTH = 8;
@@ -348,9 +354,32 @@ export function auditContent(input: AuditInput): AuditResult {
     }
   }
 
-  // Difficulty distribution (only meaningful once a topic is fully tagged)
+  // Difficulty distribution (only meaningful once a topic is fully tagged).
+  // Topics with variant groups are counted per GROUP (a session samples one
+  // question per group); ungrouped questions count as singleton groups, so
+  // fully-ungrouped topics get the original per-question counts.
   for (const topic of topics) {
     if (topic.questions.some((q) => q.difficulty === undefined)) continue;
+    const hasGroups = topic.questions.some((q) => q.variantOf !== undefined);
+    if (hasGroups) {
+      const groupBands = new Map<string, string>();
+      for (const q of topic.questions) {
+        const key = q.variantOf ?? `solo:${q.id}`;
+        if (!groupBands.has(key)) groupBands.set(key, q.difficulty!);
+      }
+      const bands = Array.from(groupBands.values());
+      const easyGroups = bands.filter((b) => b === "easy").length;
+      const hardGroups = bands.filter((b) => b === "hard").length;
+      if (easyGroups < MIN_EASY_GROUPS || hardGroups < MIN_HARD_GROUPS) {
+        issues.push({
+          type: "difficulty_distribution",
+          severity: "warning",
+          location: location(topic),
+          message: `Topic has ${easyGroups} easy / ${hardGroups} hard variant group(s); minimum is ${MIN_EASY_GROUPS} easy and ${MIN_HARD_GROUPS} hard (per-group basis)`,
+        });
+      }
+      continue;
+    }
     const easyCount = topic.questions.filter(
       (q) => q.difficulty === "easy",
     ).length;
@@ -364,6 +393,27 @@ export function auditContent(input: AuditInput): AuditResult {
         location: location(topic),
         message: `Topic has ${easyCount} easy / ${hardCount} hard question(s); minimum is ${MIN_EASY_QUESTIONS} easy and ${MIN_HARD_QUESTIONS} hard`,
       });
+    }
+  }
+
+  // Variant-group hygiene: an explicit variantOf with a single member is
+  // almost always a mistyped group key (a question that should have joined an
+  // existing group). Mixed-difficulty groups are a validate-content error.
+  for (const topic of topics) {
+    const groupSizes = new Map<string, number>();
+    for (const q of topic.questions) {
+      if (q.variantOf === undefined) continue;
+      groupSizes.set(q.variantOf, (groupSizes.get(q.variantOf) ?? 0) + 1);
+    }
+    for (const [key, size] of groupSizes) {
+      if (size === 1) {
+        issues.push({
+          type: "variant_group",
+          severity: "warning",
+          location: location(topic),
+          message: `Variant group "${key}" has a single member; remove the tag or add a second variant`,
+        });
+      }
     }
   }
 
@@ -659,6 +709,8 @@ function issueTypeLabel(type: IssueType): string {
       return "Questions without a difficulty tag";
     case "difficulty_distribution":
       return "Difficulty distribution below minimum";
+    case "variant_group":
+      return "Variant group issues";
     case "paper_quality":
       return "Paper model answers / markscheme quality";
     case "unreadable_topic":

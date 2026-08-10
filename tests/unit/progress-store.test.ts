@@ -143,3 +143,24 @@ describe('progress-store', () => {
     expect(getUserProgress().totalStars).toBe(3);
   });
 });
+
+
+describe('questionResults on quiz attempts', () => {
+  it('persists per-question outcomes when provided', () => {
+    recordQuizAttempt('t1', 'math', 'Test', 'Math', 1, 2, [
+      { questionId: 'q1', correct: true },
+      { questionId: 'q2', correct: false },
+    ]);
+    const all = getAllTopicProgress();
+    expect(all[0].attempts[0].questionResults).toEqual([
+      { questionId: 'q1', correct: true },
+      { questionId: 'q2', correct: false },
+    ]);
+  });
+
+  it('omits the field for aggregate-only attempts', () => {
+    recordQuizAttempt('t1', 'math', 'Test', 'Math', 8, 10);
+    const all = getAllTopicProgress();
+    expect(all[0].attempts[0].questionResults).toBeUndefined();
+  });
+});

@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Clock, CheckCircle2, XCircle, RotateCcw, Calculator } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock, CheckCircle2, XCircle, RotateCcw, Calculator, Shuffle } from 'lucide-react';
 import type { Question } from '@/content/types';
 import { seededShuffle } from '@/lib/quiz-utils';
 import { DIFFICULTY_CHIP_CLASSES } from './difficulty-chip';
@@ -50,6 +50,12 @@ interface QuizGameProps {
   onComplete: (correctCount: number, totalCount: number) => void;
   /** Called once per answered question (correct=false on timeout). */
   onQuestionResult?: (questionId: string, correct: boolean) => void;
+  /**
+   * When provided, the results screen shows a "New Question Set" button that
+   * requests a freshly sampled session (variant-group topics). Unlike
+   * "Try Again", which replays the same questions.
+   */
+  onNewSet?: () => void;
 }
 
 export default function QuizGame({
@@ -64,6 +70,7 @@ export default function QuizGame({
   shuffleSeed,
   onComplete,
   onQuestionResult,
+  onNewSet,
 }: QuizGameProps) {
   const [shuffledQuestions] = useState(() =>
     questions.length > 0 ? seededShuffle([...questions], shuffleSeed) : []
@@ -190,11 +197,17 @@ export default function QuizGame({
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
           {correctCount} out of {shuffledQuestions.length} correct
         </p>
-        <div className="flex gap-3 justify-center">
+        <div className="flex flex-wrap gap-3 justify-center">
           <button onClick={() => { setCurrentIndex(0); setSelectedIndex(null); setAnswerState('unanswered'); setCorrectCount(0); setIsComplete(false); setShowExplanation(false); setTimeLeft(timerSeconds); }}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors">
             <RotateCcw className="w-4 h-4" /> Try Again
           </button>
+          {onNewSet && (
+            <button onClick={onNewSet}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-green-600 text-white font-medium text-sm hover:bg-green-700 transition-colors">
+              <Shuffle className="w-4 h-4" /> New Question Set
+            </button>
+          )}
           <Link href={backHref}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
             {backLabel}
