@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { topicSchema, subjectMetaSchema, paperSchema, type ValidatedTopic } from '../src/content/schema';
 import { COURSES } from '../src/lib/courses';
+import { getGenerator } from '../src/content/generators';
+import { createRng } from '../src/lib/quiz-utils';
 
 const DATA_DIR = path.resolve(__dirname, '../src/content/data');
 const TOPICS_DIR = path.join(DATA_DIR, 'topics');
@@ -86,6 +88,82 @@ export function checkVariantGroups(topic: ValidatedTopic): string[] {
   return errors;
 }
 
+// Question-template invariants (docs/question-variations-plan.md, Phase 2):
+// the generator id must exist in the registry, the params table must pass the
+// generator's paramsSchema, the fixed difficulty must match the variant group
+// the template joins, and a fixed-seed sweep of generated instances must
+// satisfy the same invariants as authored questions.
+export function checkTemplates(topic: ValidatedTopic): string[] {
+  const errors: string[] = [];
+  const SWEEP_SEEDS = 20;
+  const FORBIDDEN = ['undefined', 'NaN', 'Infinity'];
+
+  (topic.templates ?? []).forEach((tpl, index) => {
+    const label = `template ${index} (generator "${tpl.generator}")`;
+    const generator = getGenerator(tpl.generator);
+    if (!generator) {
+      errors.push(`${label}: unknown generator id — not registered in src/content/generators`);
+      return;
+    }
+    const parsed = generator.paramsSchema.safeParse(tpl.params ?? {});
+    if (!parsed.success) {
+      const detail = parsed.error.issues
+        .map((issue) => `${issue.path.join('.') || 'root'}: ${issue.message}`)
+        .join('; ');
+      errors.push(`${label}: params failed the generator's paramsSchema (${detail})`);
+      return;
+    }
+
+    // A template joining an authored group must share the group's difficulty
+    // band (the session sampler draws one member per group for the ramp).
+    if (tpl.variantOf !== undefined) {
+      const siblings = topic.questions.filter((q) => q.variantOf === tpl.variantOf);
+      const bands = new Set(siblings.map((q) => q.difficulty));
+      if (bands.size === 1) {
+        const [band] = bands;
+        if (band !== generator.difficulty) {
+          errors.push(
+            `${label}: generator difficulty "${generator.difficulty}" does not match variant group "${tpl.variantOf}" difficulty "${band}"`
+          );
+        }
+      }
+    }
+
+    // Fixed-seed invariant sweep: every generated instance must look like a
+    // valid authored question.
+    for (let i = 0; i < SWEEP_SEEDS; i++) {
+      const where = `${label}, sweep seed ${i}`;
+      let output;
+      try {
+        output = generator.generate(parsed.data, createRng(`${topic.id}:tplcheck:${i}`));
+      } catch (err) {
+        errors.push(`${where}: generator threw — ${err instanceof Error ? err.message : String(err)}`);
+        continue;
+      }
+      const choices = [output.correct, ...output.distractors];
+      if (choices.some((c) => c.trim() === '')) {
+        errors.push(`${where}: empty choice (${choices.join(' | ')})`);
+      }
+      if (new Set(choices).size !== 4) {
+        errors.push(`${where}: choices are not 4 unique values (${choices.join(' | ')})`);
+      }
+      if (output.explanation.length < 20) {
+        errors.push(`${where}: explanation is under 20 characters`);
+      }
+      if (output.explanation === output.stem) {
+        errors.push(`${where}: explanation is identical to the stem`);
+      }
+      for (const text of [output.stem, output.explanation, ...choices]) {
+        const bad = FORBIDDEN.find((token) => text.includes(token));
+        if (bad) {
+          errors.push(`${where}: text contains "${bad}": ${text}`);
+        }
+      }
+    }
+  });
+  return errors;
+}
+
 interface Failure {
   file: string;
   errors: string[];
@@ -147,6 +225,7 @@ function validateTopics() {
         const consistencyErrors = [
           ...checkStageConsistency(result.data),
           ...checkVariantGroups(result.data),
+          ...checkTemplates(result.data),
         ];
         if (consistencyErrors.length > 0) {
           failures.push({ file: relative(filePath), errors: consistencyErrors });

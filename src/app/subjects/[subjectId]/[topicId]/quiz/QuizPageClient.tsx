@@ -16,6 +16,7 @@ import {
   sampleVariantGroups,
   type DifficultyFilter,
 } from '@/lib/quiz-utils';
+import { materializeTemplates } from '@/lib/generators';
 
 interface QuizPageClientProps {
   subjectId: string;
@@ -36,7 +37,11 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
   // on completion (feeds variant-group mastery in src/lib/mastery.ts).
   const resultsRef = useRef<QuestionResult[]>([]);
 
-  const grouped = topic ? hasVariantGroups(topic.questions) : false;
+  // Templates make a topic grouped even without authored variantOf groups —
+  // each template instance occupies a group slot (its variantOf, or solo).
+  const grouped = topic
+    ? hasVariantGroups(topic.questions) || (topic.templates?.length ?? 0) > 0
+    : false;
 
   // Session seed: deterministic during SSR/first render (hydration-safe), then
   // reseeded client-side on mount for grouped topics so every visit — and every
@@ -53,7 +58,11 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
 
   if (!topic) return <div className="p-6 text-center text-gray-500 dark:text-gray-400">Topic not found.</div>;
 
-  const filtered = filterQuestionsByDifficulty(topic.questions, difficulty);
+  // Authored questions plus one materialized instance per template (seeded by
+  // sessionSeed, so "new question set" redraws fresh values). Difficulty chip
+  // counts below intentionally cover authored questions only.
+  const pool = [...topic.questions, ...materializeTemplates(topic, sessionSeed)];
+  const filtered = filterQuestionsByDifficulty(pool, difficulty);
   // Grouped topics: one question per variant group (~10 per session). Topics
   // without groups keep the legacy behavior — every question, every session.
   const sessionQuestions = grouped ? sampleVariantGroups(filtered, sessionSeed) : filtered;

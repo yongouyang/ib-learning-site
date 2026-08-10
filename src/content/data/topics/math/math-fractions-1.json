@@ -317,5 +317,15 @@
       "explanation": "The fraction used is $\\dfrac{5}{6} - \\dfrac{2}{3} = \\dfrac{5}{6} - \\dfrac{4}{6} = \\dfrac{1}{6}$. This $\\dfrac{1}{6}$ of the tank equals $30$ litres, so the full capacity is $30 \\times 6 = 180$ litres.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-fraction-arithmetic",
+      "params": {
+        "den1": [2, 3, 4, 5, 6],
+        "den2": [3, 4, 5, 6, 8],
+        "maxNum": 4
+      }
+    }
   ]
 }

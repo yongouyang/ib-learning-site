@@ -11,24 +11,32 @@ export function hashString(str: string): number {
   return Math.abs(hash);
 }
 
-// Deterministic Fisher-Yates shuffle so server and client render match.
-// When no seed is supplied the order is left unchanged, which is safe for SSR.
-// PRNG: mulberry32 seeded from hashString — pure 32-bit integer arithmetic via
+// mulberry32 PRNG seeded from hashString — pure 32-bit integer arithmetic via
 // Math.imul/>>>, so low bits mix properly. (The previous LCG did
 // `state * 1103515245` in double precision: for typical hashes the product
 // exceeds 2^53 and the low ~8 bits were rounded to zero, so state % 2 was
 // ALWAYS 0 and two-item arrays never actually shuffled.)
-export function seededShuffle<T>(items: T[], seed?: string): T[] {
-  if (!seed) return items;
-  const result = [...items];
+// Deterministic per seed — drives both seededShuffle and the question-template
+// generators (src/lib/generators.ts).
+export function createRng(seed: string): () => number {
   let state = hashString(seed) >>> 0;
-  for (let i = result.length - 1; i > 0; i--) {
+  return () => {
     state = (state + 0x6d2b79f5) >>> 0;
     let t = state;
     t = Math.imul(t ^ (t >>> 15), t | 1);
     t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    const random = ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    const j = Math.floor(random * (i + 1));
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// Deterministic Fisher-Yates shuffle so server and client render match.
+// When no seed is supplied the order is left unchanged, which is safe for SSR.
+export function seededShuffle<T>(items: T[], seed?: string): T[] {
+  if (!seed) return items;
+  const result = [...items];
+  const random = createRng(seed);
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
     [result[i], result[j]] = [result[j], result[i]];
   }
   return result;

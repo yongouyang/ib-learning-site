@@ -478,5 +478,15 @@
       "difficulty": "hard",
       "variantOf": "successive-percent"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-percent-of-amount",
+      "variantOf": "percent-of-amount",
+      "params": {
+        "p": [5, 15, 25, 35, 45, 55, 65, 75, 85, 95],
+        "n": [20, 40, 60, 80, 120, 140, 160, 200, 240, 300]
+      }
+    }
   ]
 }

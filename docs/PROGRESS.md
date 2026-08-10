@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-10 — Variations Phase 2: parameterized template engine + 12 pilot generators
+
+Git HEAD: `6f723bc` (branch `develop`, tree dirty: awaiting user review before commit)
+Done: Phase 2 of docs/question-variations-plan.md (delegated to one coder subagent, parent-verified). Engine: `createRng` (mulberry32) extracted in quiz-utils (shuffle outputs unchanged); generator contract in `src/content/generators/` (types + utils + registry; every generator has exported pure `draw`/`build` for testability); `src/lib/generators.ts` `materializeTemplates(topic, seed)` — one seeded instance per template per session, id `tpl:<index>:<generatorId>`, choices shuffled, joins a variant group via the template's `variantOf`; mastery `templatePlaceholders` so generated outcomes count toward groups; `checkTemplates` in validate-content (registry existence, paramsSchema, difficulty must match target group, 20-seed invariant sweep). QuizPageClient materializes templates into the pool before sampling. 12 generators: math-linear-equation, math-percent-of-amount, math-fraction-arithmetic; phys-v-ir, phys-resistance-series/parallel, phys-charge-current, phys-energy-kwh, phys-fuse-rating, phys-kinetic-energy, phys-efficiency, phys-power — distractors computed from common-error rules. Wired into 5 topics: math-yr7-equations, math-yr7-percentages, math-fractions-1 (first grouped topic with NO authored groups — 15 singletons + 1 generated per session), phys-electricity-1 (6 templates), phys-energy-1 (3). Parent fixes/verification: rounded phys-efficiency inverted-ratio distractor (was "8.333333%"); hand-verified one instance per generator (all answers + error-based distractors correct); prod-build smoke — fractions serves 16, electricity 12, legacy topic 15, New Question Set redraws template values. False alarm debugged: leftover `next-server` from the Phase 0 smoke held port 3000 (`pkill -f "next start"` misses it — process renames itself; use `kill $(lsof -tnP -iTCP:3000 -sTCP:LISTEN)`), making a stale dev server hang all quiz pages at "Loading quiz…".
+Verified: validate:content ✅, audit:content 0/0 ✅, vitest 325/325 (51 new: generators, engine, checkTemplates) ✅, lint 0 errors ✅, build ✅, e2e quiz specs 13 passed ✅, KaTeX strict-render sweep of generated strings ✅ (by subagent), prod smoke ✅.
+Next: user reviews Phase 2 (try the wired topics) → commit. Then: group-mastery UI surface decision; rollout of variant batches to remaining math/physics topics (Phase 4); Phase 3 chemistry combinatorial generators (electron config, ion formation, isotope mass, half-life, naming).
+Notes: generator distractor rules are the authoring surface — when adding generators, copy the draw/build split so unit tests can recompute answers independently. Templates with no matching authored group form their own solo group (validated). `no-explicit-any` forced the registry to `QuestionGenerator<unknown>` (method bivariance makes it assignment-safe).
+
+---
+
 ## 2026-08-10 — Variations Phase 1 pilot: 7 topics expanded with variant groups
 
 Git HEAD: `22f1bdc` (branch `develop`, tree dirty: pilot content awaiting user review before commit)

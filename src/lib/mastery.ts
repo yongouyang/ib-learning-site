@@ -1,5 +1,6 @@
-import type { Question, QuizAttempt } from '@/content/types';
+import type { Question, QuizAttempt, Topic } from '@/content/types';
 import { groupKeyOf } from './quiz-utils';
+import { templateQuestionId } from './generators';
 
 // Per-group mastery (docs/question-variations-plan.md, decision D6).
 // The stored attempt log is per-session aggregates with optional per-question
@@ -71,4 +72,17 @@ export function getMasterySummary(
     if (entry.mastered) masteredGroups += 1;
   }
   return { masteredGroups, totalGroups: mastery.size };
+}
+
+/**
+ * Placeholder entries for a topic's question templates, matching the ids that
+ * materializeTemplates (src/lib/generators.ts) gives generated instances.
+ * Pass [...topic.questions, ...templatePlaceholders(topic)] to
+ * computeGroupMastery so generated-question outcomes count toward their group.
+ */
+export function templatePlaceholders(topic: Topic): Pick<Question, 'id' | 'variantOf'>[] {
+  return (topic.templates ?? []).map((tpl, index) => ({
+    id: templateQuestionId(index, tpl.generator),
+    ...(tpl.variantOf !== undefined ? { variantOf: tpl.variantOf } : {}),
+  }));
 }

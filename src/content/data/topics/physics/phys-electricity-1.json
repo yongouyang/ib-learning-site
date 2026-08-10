@@ -501,5 +501,52 @@
       "difficulty": "easy",
       "variantOf": "safety-devices"
     }
+  ],
+  "templates": [
+    {
+      "generator": "phys-v-ir",
+      "variantOf": "ohms-law-calc",
+      "params": {
+        "r": [2, 4, 5, 6, 10, 12, 20],
+        "i": [0.5, 1, 2, 3, 4, 5]
+      }
+    },
+    {
+      "generator": "phys-resistance-series",
+      "variantOf": "series-resistance",
+      "params": {
+        "values": [2, 3, 4, 5, 6, 8, 10, 12, 15, 20]
+      }
+    },
+    {
+      "generator": "phys-resistance-parallel",
+      "variantOf": "parallel-resistance",
+      "params": {
+        "pairs": [[6, 3], [4, 12], [10, 10], [6, 12], [8, 8], [5, 20], [12, 24], [4, 4]]
+      }
+    },
+    {
+      "generator": "phys-charge-current",
+      "variantOf": "current-from-charge",
+      "params": {
+        "i": [0.5, 1, 2, 3, 4, 5, 6],
+        "tSeconds": [10, 20, 30, 40, 60, 90, 120, 180, 240, 300]
+      }
+    },
+    {
+      "generator": "phys-energy-kwh",
+      "variantOf": "energy-kwh",
+      "params": {
+        "watts": [200, 400, 500, 800, 1000, 1500, 2000, 2500, 3000],
+        "hours": [0.5, 1, 2, 3, 4]
+      }
+    },
+    {
+      "generator": "phys-fuse-rating",
+      "variantOf": "fuse-rating",
+      "params": {
+        "watts": [460, 920, 1380, 1610, 1840, 2070, 2300, 2530, 2760]
+      }
+    }
   ]
 }

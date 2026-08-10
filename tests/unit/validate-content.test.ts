@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { checkStageConsistency, checkVariantGroups } from '../../scripts/validate-content';
+import { checkStageConsistency, checkTemplates, checkVariantGroups } from '../../scripts/validate-content';
 import type { ValidatedTopic } from '@/content/schema';
 
 function makeTopic(overrides: Partial<ValidatedTopic> = {}): ValidatedTopic {
@@ -153,5 +153,69 @@ describe('checkVariantGroups', () => {
   it('ignores questions without variantOf', () => {
     const topic = makeTopic();
     expect(checkVariantGroups(topic)).toEqual([]);
+  });
+});
+
+describe('checkTemplates', () => {
+  const linearParams = { a: [2, 3, 4], b: [1, 3, 5], x: [2, 3, 4, 5] };
+
+  it('accepts a valid template that joins a matching-difficulty group', () => {
+    const topic = makeTopic({
+      questions: [
+        { id: 'q1', stem: 'Solve $2x + 1 = 5$.', choices: ['1', '2', '3', '4'], correctIndex: 1, explanation: 'Subtract 1, then divide by 2.', difficulty: 'medium', variantOf: 'two-step' },
+        { id: 'q2', stem: 'Solve $3x - 2 = 7$.', choices: ['1', '2', '3', '4'], correctIndex: 2, explanation: 'Add 2, then divide by 3.', difficulty: 'medium', variantOf: 'two-step' },
+      ],
+      templates: [{ generator: 'math-linear-equation', variantOf: 'two-step', params: linearParams }],
+    });
+    expect(checkTemplates(topic)).toEqual([]);
+  });
+
+  it('accepts a template whose variantOf matches no authored group (its own group)', () => {
+    const topic = makeTopic({
+      templates: [{ generator: 'math-linear-equation', variantOf: 'brand-new-group', params: linearParams }],
+    });
+    expect(checkTemplates(topic)).toEqual([]);
+  });
+
+  it('accepts a template with no variantOf and no params requirements violated', () => {
+    const topic = makeTopic({
+      templates: [{ generator: 'math-fraction-arithmetic', params: { den1: [2, 3], den2: [4, 5], maxNum: 2 } }],
+    });
+    expect(checkTemplates(topic)).toEqual([]);
+  });
+
+  it('rejects an unknown generator id', () => {
+    const topic = makeTopic({
+      templates: [{ generator: 'not-a-generator', params: {} }],
+    });
+    const errors = checkTemplates(topic);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('not-a-generator');
+    expect(errors[0]).toContain('unknown generator');
+  });
+
+  it('rejects params that fail the generator paramsSchema', () => {
+    const topic = makeTopic({
+      templates: [{ generator: 'math-linear-equation', params: { a: 'oops' } }],
+    });
+    const errors = checkTemplates(topic);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('math-linear-equation');
+    expect(errors[0]).toContain('paramsSchema');
+  });
+
+  it('rejects a template whose difficulty differs from its group', () => {
+    const topic = makeTopic({
+      questions: [
+        { id: 'q1', stem: 'Easy one?', choices: ['1', '2', '3', '4'], correctIndex: 0, explanation: 'Because it is easy.', difficulty: 'easy', variantOf: 'easy-group' },
+        { id: 'q2', stem: 'Easy two?', choices: ['1', '2', '3', '4'], correctIndex: 0, explanation: 'Also easy.', difficulty: 'easy', variantOf: 'easy-group' },
+      ],
+      // math-linear-equation is medium; the group is easy.
+      templates: [{ generator: 'math-linear-equation', variantOf: 'easy-group', params: linearParams }],
+    });
+    const errors = checkTemplates(topic);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('does not match');
+    expect(errors[0]).toContain('easy-group');
   });
 });
