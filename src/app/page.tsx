@@ -19,7 +19,10 @@ export default function HomePage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-2">IBLearn</h1>
+        <h1 className="mb-2">
+          <img src="/icons/icon-primary-light-background.svg" alt="Octav Learning" className="h-10 w-auto dark:hidden" />
+          <img src="/icons/icon-inverse-dark-background.svg" alt="Octav Learning" className="h-10 w-auto hidden dark:block" />
+        </h1>
         <p className="text-gray-500 dark:text-gray-400">{subjects.length} subjects · {subjects.reduce((s, sub) => s + sub.topics.length, 0)} topics · Study notes, flashcards & quizzes</p>
       </div>
 

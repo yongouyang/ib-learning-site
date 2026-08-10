@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Offline — IBLearn',
+  title: 'Offline — Octav Learning',
 };
 
 export default function OfflinePage() {

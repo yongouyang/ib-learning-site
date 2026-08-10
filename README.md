@@ -1,183 +1,97 @@
-# IBLearn
+# Octav Learning
 
-A website for IB (International Baccalaureate) students to learn and practice subjects through study notes, flashcards, and quizzes. Built with Next.js 14 + TypeScript + Tailwind CSS.
+A study site for secondary-school students (KS3, IGCSE, IB DP) — study notes, flashcards, quizzes, and exam-style practice papers with AI marking. Built with Next.js 16 + React 19 + TypeScript + Tailwind CSS.
 
-**Live URL:** [https://ib-learning-site.vercel.app](https://ib-learning-site.vercel.app)
+**Live URL:** [https://d2c1g77zfmjpm3.cloudfront.net](https://d2c1g77zfmjpm3.cloudfront.net) (moving to [octavlearning.com](https://octavlearning.com) — see `docs/aws-deployment-plan.md` §7)
 
-## Subjects
+## Content
 
-| Subject | Topics | Levels |
+| Subject | Topics | Stages |
 |---------|--------|--------|
-| Math | 68 | MYP · DP |
-| Biology | 13 | MYP |
-| Chemistry | 11 | MYP |
-| English | 15 | MYP |
-| Physics | 12 | MYP |
+| Math | 74 | KS3 (Years 7–9) · IGCSE · DP (AI) |
+| Biology | 13 | KS3 |
+| Chemistry | 12 | KS3 |
+| English | 25 | KS3 |
+| Physics | 13 | KS3 |
 
-### Math DP Topics
+137 topics, 2,100+ practice questions. Each topic provides:
 
-Binomial Theorem · Complex Numbers · Correlation & Regression · Descriptive Statistics · Differentiation · Exponential & Logarithmic Functions · Exponents & Logarithms · Functions · Graph Theory · Hypothesis Testing · Integration · Kinematics · Matrices · Poisson Distribution · Probability · Quadratic Functions & Equations · Sequences & Series · Trigonometry · Vectors · Voronoi Diagrams
+1. **Study notes** — concept explanations with worked examples and SVG illustrations
+2. **Flashcards** — term/definition cards with spaced-repetition self-sorting
+3. **Quiz** — multiple-choice questions with explanations, difficulty ramp, and star ratings
 
-### Study Tools
+Practice features:
 
-Each topic provides three modes:
-1. **Study notes** — concept explanations with headings, body text, and **SVG illustrations** (all subjects fully illustrated)
-2. **Flashcards** — term/definition cards with worked examples
-3. **Quiz** — multiple-choice questions with scoring, explanations, and star ratings
-
-Additional features:
-- **Topic search/filter** — search by title/description and filter by MYP/DP level on subject pages
-- **Dark mode** — manual light/dark/system toggle (stored in `localStorage`)
-- **Progress tracking** — day streaks, weak-point analysis, and mixed review via `localStorage`
-- **Subject accent colours** — each subject has a distinct colour used on cards, badges, and progress bars
-- **Lucide icons** — consistent SVG iconography across navigation, quizzes, flashcards, and progress
-- **Motion** — animated progress bars, question transitions, flashcard flips, and page entrances via Framer Motion
-- **Geist font** — modern sans-serif body text and monospace for code/math blocks
+- **Variant groups & generated questions** — quiz sessions sample one question per skill group, so retakes surface fresh variants; parameterized generators produce new numbers each session (math/physics)
+- **Practice papers** — free-response, exam-style sets with markschemes, a timed two-phase exam runner, and optional AI marking (DeepSeek-backed Lambda)
+- **Diagnostics** — per-course entry tests that seed weak-area detection
+- **Mixed review & revision ladder** — cross-topic sampling and levelled revision runs
+- **Progress tracking** — stars, day streaks, per-skill mastery, all in `localStorage`
+- **PWA** — installable, offline-capable (hand-rolled service worker)
+- **Dark mode**, **KaTeX math**, subject accent colours, Framer Motion animations
 
 ## Project Structure
 
 ```
 src/
-├── app/                          # Next.js App Router pages
-│   ├── page.tsx                  # Home page with subject grid
-│   ├── layout.tsx                # Root layout with Geist font + providers
-│   ├── globals.css               # Tailwind imports + dark-mode support
-│   ├── progress/page.tsx         # Progress dashboard
-│   └── subjects/[subjectId]/
-│       ├── page.tsx              # Static subject page (server)
-│       ├── SubjectPageClient.tsx # Interactive subject page UI
-│       └── [topicId]/
-│           ├── study/page.tsx    # Static study notes (server)
-│           ├── study/StudyPageClient.tsx
-│           ├── flashcards/page.tsx # Static flashcard deck (server)
-│           ├── flashcards/FlashcardsPageClient.tsx
-│           ├── quiz/page.tsx     # Static interactive quiz (server)
-│           └── quiz/QuizPageClient.tsx
-├── components/
-│   ├── Nav.tsx                   # Bottom navigation bar (mobile)
-│   ├── QuizGame.tsx              # Shared quiz component
-│   ├── StudyNoteBody.tsx         # Renders study note body text + KaTeX
-│   ├── MathExpression.tsx        # KaTeX math renderer
-│   ├── ThemeToggle.tsx           # Light/dark/system theme toggle
-│   └── TopicFilter.tsx           # Subject-page search + MYP/DP filter
-├── content/                      # Static content (all subjects)
-│   ├── types.ts                  # TypeScript interfaces
-│   ├── schema.ts                 # Zod validators for content
-│   ├── registry.ts               # Generated by scripts/generate-registry.ts
+├── app/                  # Next.js App Router pages (home, subjects, progress,
+│                         # diagnostics, exams, papers, mixed-review, ladder, offline)
+├── components/           # QuizGame, PaperRunner, Nav, ThemeToggle, ...
+├── content/
+│   ├── types.ts          # TypeScript interfaces
+│   ├── schema.ts         # Zod validators for content
+│   ├── registry.ts       # GENERATED by scripts/generate-registry.ts — do not edit
+│   ├── generators/       # Parameterized question generators (seeded, per-session)
 │   └── data/
-│       ├── subjects.json         # Subject metadata
-│       └── topics/               # One JSON file per topic
-│           ├── math/
-│           ├── biology/
-│           ├── chemistry/
-│           ├── english/
-│           └── physics/
-├── context/
-│   ├── ProgressContext.tsx       # React context for quiz progress
-│   └── ThemeContext.tsx          # Light/dark/system theme with localStorage
-├── lib/
-│   ├── mixed-review.ts           # Build mixed-review question sets
-│   ├── progress-store.ts         # localStorage persistence
-│   └── weak-point-analyzer.ts    # Identifies topics needing review
-└── hooks/
+│       ├── subjects.json
+│       ├── topics/       # One JSON per topic, by subject
+│       └── papers/       # Free-response practice sets, by course
+├── context/              # ProgressContext, ThemeContext
+└── lib/                  # quiz-utils (sampling), generators engine, mastery,
+                          # progress-store, question-sets, feedback handler, ...
 
-scripts/
-├── generate-registry.ts          # Generate src/content/registry.ts from JSON topic files
-├── validate-content.ts           # Validate subjects.json and all topic JSON files
-├── validate-illustrations.ts     # Validate SVG metadata, paths, and referenced files
-├── audit-content.ts              # Audit content quality (question counts, IDs, LaTeX)
-└── diagnose-illustrations.mjs    # Detect label overlaps / out-of-bounds text in SVGs
+scripts/                  # generate-registry, validate-content, audit-content,
+                          # validate-illustrations, render-illustrations, ...
+lambda/feedback/          # AI-marking Lambda (esbuild bundle, deployed via Terraform)
+terraform/                # S3 + CloudFront + Lambda infra (bootstrap / envs/prod / modules)
+tests/                    # unit (Vitest) + e2e (Playwright, device matrix)
+docs/                     # plans, style guides, PROGRESS.md session log
 ```
 
 ## Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
-- **Language:** TypeScript 5
-- **Styling:** Tailwind CSS 3 + `tailwindcss-animate`
-- **Icons:** Lucide React
-- **Motion:** Framer Motion
-- **Font:** Geist (Sans + Mono) via `next/font/local`
-- **Testing:** Vitest (unit) + Playwright (E2E)
-- **Deployment:** Vercel
+- **Framework:** Next.js 16 (App Router, Turbopack, static export for deploy)
+- **Language:** TypeScript 5 · React 19
+- **Styling:** Tailwind CSS 3 · **Icons:** Lucide · **Motion:** Framer Motion
+- **Content:** JSON validated by Zod; generated registry; KaTeX for math
+- **Testing:** Vitest (unit) + Playwright (e2e, iPhone SE / iPad Pro / Desktop Chrome)
+- **Infra:** AWS S3 + CloudFront + Lambda (Function URL), Terraform, GitHub Actions CI/CD (OIDC)
+- **AI marking:** OpenAI-compatible provider (DeepSeek in prod); swappable via env vars
+- **Security:** Semgrep (SAST) + OSV-Scanner (SCA) as CI gates
 
 ## Getting Started
 
 ```bash
-# Install dependencies
 npm install
+npm run dev                 # → http://localhost:3000
 
-# Start dev server
-npm run dev
-# → http://localhost:3000
-
-# Type check
-npx tsc --noEmit
-
-# Lint
-npm run lint
-
-# Validate all content JSON files
-npm run validate:content
-
-# Validate SVG illustrations
-npm run validate:illustrations
-
-# Detect SVG layout issues (overlapping / out-of-bounds labels, text spilling out of boxes)
-npm run validate:illustration-layout
-
-# Regenerate src/content/registry.ts from JSON topic files
-npm run generate:registry
-
-# Audit content quality (question counts, IDs, LaTeX issues)
-# This now exits with an error if any warnings are found.
-npm run audit:content
+npm run validate:content    # validate all content JSON (incl. generator templates)
+npm run audit:content       # content quality audit — fails on any warning
+npm run generate:registry   # re-run after adding/removing topic or paper JSON files
+npm run lint && npm test    # ESLint + Vitest
+npm run test:e2e            # Playwright (auto-starts dev server)
+npm run test:e2e:static     # full suite against the static export (pre-deploy gate)
 ```
 
-Content conventions are documented in [`CONTENT_STYLE.md`](./docs/CONTENT_STYLE.md).  
-Illustration design rules are documented in [`ILLUSTRATION_GUIDELINES.md`](./docs/ILLUSTRATION_GUIDELINES.md).
+## Conventions & Docs
 
-The app also respects the user's system dark-mode preference (`prefers-color-scheme`).
-
-## Testing
-
-```bash
-# Unit tests (Vitest)
-npm test
-npm run test:watch     # watch mode
-
-# E2E tests (Playwright — auto-starts dev server on an available port)
-npm run test:e2e
-
-# Or run E2E against a specific device
-npx playwright test --project="Desktop Chrome"
-```
-
-### Test coverage
-
-| Suite | Tests | Scope |
-|-------|-------|-------|
-| `content-registry` | 18 | Subject/topic counts, content integrity (non-empty fields, valid correctIndex), DP validation, unique IDs |
-| `progress-store` | 5 | Quiz attempt recording, star ratings, streak tracking, average scores |
-| `mixed-review` | 3 | Building random/weak-area mixed review question sets |
-| `weak-point-analyzer` | 3 | Weak topic detection, score thresholds, result capping |
-| `content-schema` | 20 | Zod schema validation for topics and subjects |
-| `audit-content` | 16 | Content quality audit (question counts, explanations, IDs, LaTeX) |
-| `topic-filter` | 7 | Subject-page topic search and MYP/DP level filtering |
-| `topic-filter-component` | 3 | `TopicFilter` UI rendering, clear/search icons, and level switching |
-| `theme-context` | 5 | Light/dark/system theme resolution and localStorage persistence |
-| `nav` | 2 | Bottom navigation rendering with Lucide icons and active state |
-| `quiz-game` | 4 | Quiz rendering, Lucide icons, timer, answer selection, and completion |
-| `app.e2e` | 57 | Full quiz flow, flashcards, home page, subject pages, search/filter, theme toggle, mixed review, DP topic rendering, progress page, accent-colour styling — across iPhone SE, iPad Pro, Desktop Chrome |
-| `illustrations.e2e` | 63 | Every study page with illustrations renders images correctly, loads them successfully, and keeps them within the viewport on iPhone SE, iPad Pro, and Desktop Chrome |
+- **`AGENTS.md`** — session workflow, quality gates, deploy/CI details (start here)
+- **`docs/CONTENT_STYLE.md`** — topic/paper authoring rules, difficulty rubric, LaTeX conventions
+- **`docs/ILLUSTRATION_GUIDELINES.md`** — SVG illustration standards
+- **`docs/question-variations-plan.md`** — variant groups & parameterized generators
+- **`docs/aws-deployment-plan.md`** — infra plan incl. custom-domain cutover (§7)
+- **`docs/PROGRESS.md`** — append-only session log (newest first)
 
 ## Build & Deploy
 
-```bash
-# Production build
-npm run build
-
-# Start production server
-npm start
-```
-
-The project deploys automatically to Vercel on push to `develop`.
+Pushes to `develop` run the full CI/CD pipeline (`.github/workflows/ci.yml`): build-and-test → e2e device matrix + illustration validators + security scans → deploy to S3/CloudFront via Terraform. The production deploy is a static export (`npm run build:static`); `/api/feedback` is served by the feedback Lambda behind a CloudFront `/api/*` behavior.

@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-10 — Rebrand: IBLearn → Octav Learning (icons + name + wordmark)
+
+Git HEAD: `24a8395` (branch `develop`, tree dirty: awaiting user review before commit)
+Done: user registered **octavlearning.com** (CloudFlare registrar, 1-yr auto-renew) and supplied a new icon set (`public/icons/icon-*.svg` from another session). Decisions confirmed: FULL rebrand, www→apex redirect, brand-then-domain sequencing. Brand implemented (coder subagent, parent-verified): `public/icons/icon.svg` replaced with the Octav mark in FULL-BLEED form (rx removed — maskable crops would show transparent corners) and the 4 PWA PNGs regenerated; maskable safe zone verified under circle + squircle crops. Name sweep: layout (title, nav wordmark with light/dark SVG swap, footer), home h1 wordmark, manifest (`Octav Learning` / short `Octav`), offline/terms/UpdateToast, `metadataBase` set to https://octavlearning.com, SVG favicon wired + stale old-brand `src/app/favicon.ico` regenerated (it was overriding the SVG). e2e app/pwa specs updated. Intentionally unchanged: `iblearn_progress` storage key, `CACHE_VERSION`, `iblearn-*` AWS names + terraform Project tags. Domain cutover specced (NOT implemented): aws-deployment-plan.md §7 rewritten for CloudFlare DNS (ACM us-east-1 apex+www, manual validation CNAMEs, gray-cloud, www→apex 301 in the CloudFront Function, site_origin + SITE_URL follow-ups, per-origin PWA storage caveat); revised-implementation-plan.md gained §10 "Brand & domain".
+Verified: vitest 325/325 ✅, lint 0 errors ✅, build ✅, e2e app.spec 19/19 ✅ + pwa prod-build 5/5 ✅, home + subject screenshots light/dark eyeballed ✅, maskable crops eyeballed ✅.
+Next: user reviews rebrand → commit. Then domain cutover per §7 (needs CloudFlare dashboard steps from user: validation CNAMEs + DNS records). Then variations Phase 3 (chemistry generators) or Phase 4 rollout.
+Notes: render-illustrations.mjs can't handle these icon SVGs (nested `<svg>` in the wordmarks) — screenshot them directly with Playwright instead. (Follow-up in the same session: README.md fully rewritten — was stale: IBLearn title, Vercel URL, Next.js 14, MYP levels; stray `icons/icon-favicon-app-icon.png` confirmed unreferenced and deleted.)
+
+---
+
 ## 2026-08-10 — Variations Phase 2: parameterized template engine + 12 pilot generators
 
 Git HEAD: `6f723bc` (branch `develop`, tree dirty: awaiting user review before commit)

@@ -19,7 +19,7 @@ test.describe('PWA (production build)', () => {
     const manifest = await request.get('/manifest.webmanifest');
     expect(manifest.ok()).toBeTruthy();
     const body = await manifest.json();
-    expect(body.name).toBe('IBLearn');
+    expect(body.name).toBe('Octav Learning');
 
     for (const icon of ['/icons/icon-192.png', '/icons/icon-512.png', '/icons/apple-touch-icon.png']) {
       const res = await request.get(icon);
@@ -49,11 +49,11 @@ test.describe('PWA (production build)', () => {
     // Reload once while controlled so all static chunks for this route are in
     // the SW cache (the very first load bypasses the not-yet-active worker).
     await page.reload();
-    await expect(page.getByRole('heading', { name: 'IBLearn' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Octav Learning' })).toBeVisible();
 
     await context.setOffline(true);
     await page.reload();
-    await expect(page.getByRole('heading', { name: 'IBLearn' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Octav Learning' })).toBeVisible();
 
     // The /offline fallback for *unvisited* routes is covered by unit tests
     // (tests/unit/pwa-sw.test.ts): Chromium's offline emulation does not apply

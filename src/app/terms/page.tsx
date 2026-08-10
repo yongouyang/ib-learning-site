@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Use — IBLearn',
-  description: 'Terms of use and content licensing for IBLearn.',
+  title: 'Terms of Use — Octav Learning',
+  description: 'Terms of use and content licensing for Octav Learning.',
 };
 
 export default function TermsPage() {
@@ -15,7 +15,7 @@ export default function TermsPage() {
           <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-1">Content ownership</h2>
           <p>
             All study notes, flashcards, quizzes, practice papers, markschemes, and illustrations on
-            IBLearn are original works created for this site and are protected by copyright. All
+            Octav Learning are original works created for this site and are protected by copyright. All
             rights reserved.
           </p>
         </section>
@@ -23,7 +23,7 @@ export default function TermsPage() {
         <section>
           <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-1">Permitted use</h2>
           <p>
-            You may use IBLearn for personal, non-commercial study. You may not copy, republish,
+            You may use Octav Learning for personal, non-commercial study. You may not copy, republish,
             redistribute, or sell any part of the content, in whole or in part, without prior
             written permission.
           </p>
@@ -40,7 +40,7 @@ export default function TermsPage() {
         <section>
           <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-1">Independence</h2>
           <p>
-            IBLearn is an independent study resource and is not endorsed by or affiliated with the
+            Octav Learning is an independent study resource and is not endorsed by or affiliated with the
             International Baccalaureate Organization (IBO) or Cambridge Assessment International
             Education (CAIE).
           </p>

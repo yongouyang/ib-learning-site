@@ -24,14 +24,20 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'IBLearn',
+  metadataBase: new URL('https://octavlearning.com'),
+  title: 'Octav Learning',
   description: 'Learn and practise for IB exams',
   appleWebApp: {
     capable: true,
-    title: 'IBLearn',
+    title: 'Octav Learning',
     statusBarStyle: 'default',
   },
   icons: {
+    icon: [
+      { url: '/icons/icon-favicon-app-icon.svg', type: 'image/svg+xml' },
+      { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
     apple: '/icons/apple-touch-icon.png',
   },
 };
@@ -52,7 +58,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <ProgressProvider>
             <header className="hidden md:flex items-center justify-between px-6 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950">
-              <Link href="/" className="font-bold text-gray-900 dark:text-gray-50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">IBLearn</Link>
+              <Link href="/" className="flex items-center">
+                {/* Plain <img>: local SVGs get no next/image optimisation (see StudyNoteIllustration). */}
+                <img src="/icons/icon-primary-light-background.svg" alt="Octav Learning" className="h-6 w-auto dark:hidden" />
+                <img src="/icons/icon-inverse-dark-background.svg" alt="Octav Learning" className="h-6 w-auto hidden dark:block" />
+              </Link>
               <div className="flex items-center gap-2">
                 <HeaderNav />
                 <ThemeToggle />
@@ -62,13 +72,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <main className="flex-1 pb-24 md:pb-0">{children}</main>
               <footer className="px-6 pt-4 pb-24 md:pb-4 text-center text-xs text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-800 space-y-1">
                 <p>
-                  &copy; {new Date().getFullYear()} IBLearn. All rights reserved.{' '}
+                  &copy; {new Date().getFullYear()} Octav Learning. All rights reserved.{' '}
                   <Link href="/terms" className="underline hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
                     Terms of Use
                   </Link>
                 </p>
                 <p>
-                  IBLearn is an independent study resource and is not endorsed by or affiliated with the International Baccalaureate Organization (IBO) or Cambridge Assessment International Education (CAIE).
+                  Octav Learning is an independent study resource and is not endorsed by or affiliated with the International Baccalaureate Organization (IBO) or Cambridge Assessment International Education (CAIE).
                 </p>
               </footer>
               <Nav />

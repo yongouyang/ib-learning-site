@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Home page', () => {
   test('should show the subject grid', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'IBLearn' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Octav Learning' })).toBeVisible();
 
     // 5 subject cards — use heading within links
     await expect(page.getByRole('heading', { name: 'Subjects' })).toBeVisible();
@@ -237,7 +237,7 @@ test.describe('Content protection', () => {
   test('footer shows the copyright notice and links to Terms of Use', async ({ page }) => {
     await page.goto('/');
     const footer = page.locator('footer');
-    await expect(footer).toContainText('IBLearn. All rights reserved');
+    await expect(footer).toContainText('Octav Learning. All rights reserved');
 
     await footer.getByRole('link', { name: /terms of use/i }).click();
     await page.waitForURL('/terms');

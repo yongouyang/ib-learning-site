@@ -228,3 +228,10 @@ Adopt the RV visual language as tokens in `tailwind.config.ts` and `globals.css`
 - No MYP content track (GSIS uses UK KS3/IGCSE — existing `ibLevel: "MYP"` labels get remapped to KS3/stage tags).
 - No Bootcamps/video content (out of scope for a single-author project).
 - No subjects beyond Math, English, Biology, Chemistry, Physics — Economics/Business/TOK and others noted as possible future additions only (user decision).
+
+## 10. Brand & domain
+
+- **Full rebrand to "Octav Learning"** (name + wordmark + icons) — **DONE 2026-08**: wordmark lockups (`icon-primary-light-background.svg` / `icon-inverse-dark-background.svg`) in the header and home h1, new app icon (`public/icons/icon.svg`, full-bleed variant of the Octav mark; regenerate the PWA PNGs with `node scripts/generate-icons.mjs`), SVG favicon + `metadataBase` in `layout.tsx`. The `iblearn_progress` localStorage key and `iblearn-*` AWS resource names intentionally stay unchanged.
+- **www → apex 301**: `www.octavlearning.com` redirects to `octavlearning.com` (CloudFront Function at cutover).
+- **Sequencing**: brand before domain — the rebrand ships on the cloudfront.net URL first, DNS cutover follows.
+- Domain cutover spec: `aws-deployment-plan.md` §7 (octavlearning.com registered at CloudFlare, DNS-only CNAMEs, ACM in us-east-1 — specced, not yet implemented).

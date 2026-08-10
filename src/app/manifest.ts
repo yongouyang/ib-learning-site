@@ -8,8 +8,8 @@ export const dynamic = 'force-static';
 // to the OS / prefers-color-scheme media handling.
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'IBLearn',
-    short_name: 'IBLearn',
+    name: 'Octav Learning',
+    short_name: 'Octav',
     description: 'Learn and practise for IB exams',
     start_url: '/',
     scope: '/',

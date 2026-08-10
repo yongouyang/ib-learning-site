@@ -1,4 +1,4 @@
-# IBLearn — Agent Guide
+# Octav Learning — Agent Guide
 
 ## Session Workflow (required)
 
@@ -36,6 +36,7 @@ npm run test:e2e:static        # static-export build + full suite against out/ (
 
 ## Conventions
 
+- Product name is **"Octav Learning"** (formerly IBLearn); the `iblearn_progress` localStorage key and `iblearn-*` AWS resource names are intentionally unchanged. PWA icon source is `public/icons/icon.svg` (full-bleed variant of the Octav mark), regenerated with `node scripts/generate-icons.mjs`.
 - Content lives in `src/content/data/topics/<subject>/<topic-id>.json` — one file per topic. See `docs/CONTENT_STYLE.md`.
 - Free-response practice sets live in `src/content/data/papers/<courseId>/<courseId>-set-<n>.json` — original questions only, 20 marks per set, `marks === markscheme.length`. See `docs/CONTENT_STYLE.md` ("Practice papers").
 - Course groupings (diagnostics/exams/ladder/papers) come from `src/lib/courses.ts` — add new courses there.

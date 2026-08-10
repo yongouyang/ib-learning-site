@@ -1,4 +1,4 @@
-// IBLearn service worker — hand-rolled, no build step (see docs/phase-7-implementation-plan.md §3.2).
+// Octav Learning service worker — hand-rolled, no build step (see docs/phase-7-implementation-plan.md §3.2).
 // Bump CACHE_VERSION manually when the caching *strategy* changes. Per-deploy
 // invalidation is unnecessary: hashed assets never collide and SWR pages self-heal.
 const CACHE_VERSION = 'iblearn-v1';

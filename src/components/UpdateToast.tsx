@@ -70,7 +70,7 @@ export function UpdateToast() {
       className="fixed inset-x-0 bottom-16 md:bottom-0 z-50 flex justify-center px-4 pb-3 pointer-events-none"
     >
       <div className="pointer-events-auto flex items-center gap-3 rounded-full bg-blue-600 px-4 py-2 text-sm text-white shadow-lg">
-        <span>A new version of IBLearn is ready.</span>
+        <span>A new version of Octav Learning is ready.</span>
         <button
           type="button"
           onClick={() => {

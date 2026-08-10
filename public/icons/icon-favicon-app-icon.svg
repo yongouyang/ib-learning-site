@@ -1,15 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
-  <!-- PWA icon: full-bleed variant of icon-favicon-app-icon.svg (no rx on the
-       background rect) — maskable icons are circle/squircle-cropped by launchers
-       and rounded corners would show transparency. The glyph (O-ring spans
-       ~19%–81% of the canvas) sits inside the central 80% safe zone. -->
   <defs>
     <linearGradient id="grad-icon" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0ea5e9"/>
       <stop offset="100%" stop-color="#6366f1"/>
     </linearGradient>
   </defs>
-  <rect width="72" height="72" fill="url(#grad-icon)"/>
+  <rect width="72" height="72" rx="18" fill="url(#grad-icon)"/>
   <ellipse cx="36" cy="38" rx="22" ry="26" stroke="white" stroke-width="5" fill="none"/>
   <rect x="24" y="44" width="5" height="8" rx="1" fill="white" opacity="0.5"/>
   <rect x="31" y="38" width="5" height="14" rx="1" fill="white" opacity="0.7"/>
