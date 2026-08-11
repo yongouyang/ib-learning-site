@@ -1,5 +1,6 @@
 # CI module (docs/aws-deployment-plan.md §4): GitHub Actions OIDC provider + deploy
-# role. Trust is scoped to exactly one repo + one branch — no stored AWS keys
+# role. Trust is scoped to exactly one repo + the deploy branches (develop for
+# DEV, main for PROD — custom-domain-cutover-plan.md §4) — no stored AWS keys
 # in GitHub, short-lived OIDC tokens only.
 
 variable "name_prefix" {
@@ -13,10 +14,10 @@ variable "github_repo" {
   default     = "yongouyang/ib-learning-site"
 }
 
-variable "github_branch" {
-  description = "Branch allowed to assume the deploy role."
-  type        = string
-  default     = "develop"
+variable "github_branches" {
+  description = "Branches allowed to assume the deploy role (develop = DEV deploys, main = PROD deploys)."
+  type        = list(string)
+  default     = ["develop", "main"]
 }
 
 data "aws_caller_identity" "current" {}
@@ -34,8 +35,8 @@ resource "aws_iam_openid_connect_provider" "github" {
 # --- Deploy role ----------------------------------------------------------------
 
 # Trust policy: the role can be assumed via GitHub's OIDC token, but only
-# when the token's subject is exactly this repo on this branch — a workflow
-# running on any other repo, branch, or a forked PR gets nothing.
+# when the token's subject is this repo on one of the deploy branches — a
+# workflow running on any other repo, branch, or a forked PR gets nothing.
 data "aws_iam_policy_document" "github_assume" {
   statement {
     actions = ["sts:AssumeRoleWithWebIdentity"]
@@ -54,7 +55,7 @@ data "aws_iam_policy_document" "github_assume" {
     condition {
       test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_repo}:ref:refs/heads/${var.github_branch}"]
+      values   = [for b in var.github_branches : "repo:${var.github_repo}:ref:refs/heads/${b}"]
     }
   }
 }
@@ -81,6 +82,7 @@ data "aws_iam_policy_document" "iblearn_iam" {
       "iam:CreateRole",
       "iam:DeleteRole",
       "iam:UpdateRole",
+      "iam:UpdateAssumeRolePolicy",
       "iam:TagRole",
       "iam:UntagRole",
       "iam:ListRolePolicies",

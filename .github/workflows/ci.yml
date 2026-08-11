@@ -3,15 +3,15 @@ name: CI/CD
 # Single pipeline: build-and-test → e2e (per-device matrix) → deploy.
 # Security scans (Semgrep SAST + OSV-Scanner SCA) and the illustration
 # validators run in parallel with e2e and are full gates — for PRs AND for
-# deploy (Phase 3 of docs/security-scanning-plan.md). Deploy runs only on
-# pushes to develop
-# (or manual dispatch on develop) and only after the full gate chain is
-# green — e2e and security included. Deploy details:
-# docs/aws-deployment-plan.md §6. Auth via GitHub OIDC (no stored AWS keys) —
-# the role is managed by terraform/modules/ci and trusts only this repo @
-# develop. Manual dispatch accepts a `deploy_only` input (escape hatch):
-# skips all gate jobs and deploys develop HEAD as-is — for fixing deploy-stage
-# issues (secrets, terraform) without a 16-minute full-pipeline wait.
+# deploy (Phase 3 of docs/security-scanning-plan.md). Two deploy jobs, both
+# gated on the full chain (docs/custom-domain-cutover-plan.md §4):
+# deploy-dev on develop (cloudfront.net URL), deploy-prod on main
+# (octavlearning.com). Deploy details: docs/aws-deployment-plan.md §6. Auth
+# via GitHub OIDC (no stored AWS keys) — the role is managed by
+# terraform/modules/ci and trusts only this repo @ develop + main. Manual
+# dispatch accepts a `deploy_only` input (escape hatch): skips all gate jobs
+# and deploys the selected branch's environment as-is — the branch picked at
+# dispatch time selects the env, so there is no separate env picker input.
 
 on:
   push:
@@ -21,7 +21,7 @@ on:
   workflow_dispatch:
     inputs:
       deploy_only:
-        description: 'Escape hatch: skip build/test/security gates, deploy develop HEAD as-is'
+        description: 'Escape hatch: skip build/test/security gates, deploy the selected branch as-is (develop → DEV, main → PROD)'
         required: false
         type: boolean
         default: false
@@ -176,7 +176,10 @@ jobs:
       contents: read
     uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.5.0
 
-  deploy:
+  # DEV deploy (develop branch) — the pre-cutover environment on the
+  # cloudfront.net URL. Shares one terraform state with deploy-prod; the
+  # common concurrency group serializes the two jobs so applies never race.
+  deploy-dev:
     needs: [build-and-test, e2e, illustrations, semgrep, osv-scanner]
     # Pushes/dispatches on develop only — never PRs, never main.
     # always()+!failure() so the deploy_only dispatch (gates skipped) still
@@ -190,7 +193,7 @@ jobs:
       id-token: write
       contents: read
     concurrency:
-      group: deploy-prod
+      group: deploy
       cancel-in-progress: false
     env:
       AWS_REGION: ap-east-1
@@ -259,4 +262,86 @@ jobs:
           curl -fsS "$SITE_URL/" > /dev/null
           curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
           curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
+          echo "Smoke checks passed."
+
+  # PROD deploy (main branch) — octavlearning.com on the dedicated bucket +
+  # distribution (docs/custom-domain-cutover-plan.md). Same terraform state
+  # and apply as deploy-dev; only the sync/invalidation/smoke targets differ.
+  deploy-prod:
+    needs: [build-and-test, e2e, illustrations, semgrep, osv-scanner]
+    # Pushes/dispatches on main only — never PRs, never develop.
+    if: >-
+      always() && !failure() && !cancelled() &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    concurrency:
+      group: deploy
+      cancel-in-progress: false
+    env:
+      AWS_REGION: ap-east-1
+      SITE_URL: https://octavlearning.com
+      SITE_BUCKET: iblearn-prod-site-305655353474
+      DISTRIBUTION_ID: EYC8IOH4L9SXT
+      TF_VAR_feedback_env: ${{ secrets.FEEDBACK_ENV || '{}' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        run: npm run build:static
+
+      - name: Build feedback Lambda zip
+        run: npm run build:lambda
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN || secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: 1.14.9
+
+      - name: Terraform apply
+        working-directory: terraform/envs/prod
+        run: |
+          terraform init -input=false
+          terraform apply -input=false -auto-approve
+
+      - name: Sync static site to S3
+        run: |
+          aws s3 sync out/ s3://$SITE_BUCKET --delete \
+            --exclude "_next/static/*" --exclude "sw.js" --exclude "manifest.webmanifest" \
+            --cache-control "public,max-age=300"
+          aws s3 sync out/_next/static s3://$SITE_BUCKET/_next/static --delete \
+            --cache-control "public,max-age=31536000,immutable"
+          aws s3 cp out/sw.js s3://$SITE_BUCKET/sw.js --cache-control "no-cache"
+          aws s3 cp out/manifest.webmanifest s3://$SITE_BUCKET/manifest.webmanifest --cache-control "no-cache"
+
+      - name: Invalidate CloudFront
+        run: aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+
+      - name: Smoke check
+        run: |
+          curl -fsS "$SITE_URL/" > /dev/null
+          curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
+          curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
+          # www → apex 301 (redirect lives in the PROD URL-rewrite Function).
+          curl -fsS -o /dev/null -w '%{http_code}' https://www.octavlearning.com/ | grep -q '^301$'
           echo "Smoke checks passed."

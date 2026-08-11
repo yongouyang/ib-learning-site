@@ -41,6 +41,22 @@ provider "aws" {
   }
 }
 
+# CloudFront requires the ACM cert in us-east-1 even though the stack lives in
+# ap-east-1. Used only by the PROD site instance's certificate (custom domain
+# cutover — docs/custom-domain-cutover-plan.md §1).
+provider "aws" {
+  alias  = "us_east_1"
+  region = "us-east-1"
+
+  default_tags {
+    tags = {
+      Project     = "IBLearn"
+      ManagedBy   = "terraform"
+      Environment = "prod"
+    }
+  }
+}
+
 # Must match the region of the bootstrap state bucket (see backend above).
 variable "region" {
   description = "Home region (matches the bootstrap state bucket region)."
@@ -55,10 +71,28 @@ variable "feedback_env" {
   sensitive   = true
 }
 
-variable "site_origin" {
-  description = "Public site origin for Function URL CORS. Hardcoded to the known distribution domain: deriving it from module.site would create a dependency cycle (distribution ↔ /api/* behavior ↔ this module)."
-  type        = string
-  default     = "https://d2c1g77zfmjpm3.cloudfront.net"
+variable "site_origins" {
+  description = "Public site origins for Function URL CORS. Hardcoded to the known distribution/domain URLs: deriving them from the site modules would create a dependency cycle (distribution ↔ /api/* behavior ↔ feedback module). Keep ALL entries — dropping the dev origin breaks Mark with AI on the dev URL."
+  type        = list(string)
+  default = [
+    "https://d2c1g77zfmjpm3.cloudfront.net", # DEV
+    "https://octavlearning.com",             # PROD apex
+    "https://www.octavlearning.com",         # pre-redirect direct hits
+  ]
+}
+
+# ACM cert for octavlearning.com (apex + www), DNS-validated. Lives at the
+# root (not the site module) so only the PROD site instance references it —
+# the DEV distribution keeps the CloudFront default cert. Validated via two
+# one-time manual CNAMEs in CloudFlare (see output below); keep those records
+# forever — ACM auto-renewal re-checks them.
+resource "aws_acm_certificate" "site" {
+  provider                  = aws.us_east_1
+  domain_name               = "octavlearning.com"
+  subject_alternative_names = ["www.octavlearning.com"]
+  validation_method         = "DNS"
+
+  lifecycle { create_before_destroy = true }
 }
 
 # Feedback API first: the site module needs its Function URL domain to wire
@@ -68,15 +102,30 @@ module "feedback_api" {
 
   zip_path           = "${path.module}/../../../lambda/feedback/dist/feedback-lambda.zip"
   environment        = var.feedback_env
-  cors_allow_origins = [var.site_origin]
+  cors_allow_origins = var.site_origins
 }
 
-# Private S3 bucket + CloudFront distribution + URL-rewrite Function +
-# /api/* proxy behavior to the feedback Lambda.
+# DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
+# /api/* proxy behavior to the feedback Lambda. This is the pre-cutover
+# instance (cloudfront.net URL only) — no custom domain, no renames, no
+# state moves; the default variable values keep it byte-identical.
 module "site" {
   source = "../../modules/site"
 
   feedback_origin_domain = module.feedback_api.function_url_domain
+}
+
+# PROD: separate bucket + distribution fronting octavlearning.com (apex + www
+# aliases, ACM cert, www → apex 301 in the rewrite Function). Shares the
+# feedback Lambda with DEV. Docs: custom-domain-cutover-plan.md §3.
+module "site_prod" {
+  source = "../../modules/site"
+
+  name_prefix            = "iblearn-prod"
+  feedback_origin_domain = module.feedback_api.function_url_domain
+  domain_names           = ["octavlearning.com", "www.octavlearning.com"]
+  acm_certificate_arn    = aws_acm_certificate.site.arn
+  redirect_from_host     = "www.octavlearning.com"
 }
 
 # GitHub Actions OIDC provider + deploy role — short-lived tokens only,
@@ -97,6 +146,20 @@ output "site_url" {
   value = module.site.site_url
 }
 
+# PROD instance (custom domain) — the routing CNAME targets for CloudFlare
+# round 2 are the distribution domain below.
+output "site_prod_bucket" {
+  value = module.site_prod.bucket_name
+}
+
+output "site_prod_distribution_id" {
+  value = module.site_prod.distribution_id
+}
+
+output "site_prod_distribution_domain" {
+  value = module.site_prod.distribution_domain_name
+}
+
 output "feedback_function_url" {
   value = module.feedback_api.function_url
 }
@@ -104,4 +167,14 @@ output "feedback_function_url" {
 output "github_deploy_role_arn" {
   description = "Set as the AWS_DEPLOY_ROLE_ARN variable in GitHub repo settings (Settings → Secrets and variables → Actions → Variables)."
   value       = module.ci.role_arn
+}
+
+# The two one-time manual CloudFlare CNAMEs that validate the cert
+# (docs/custom-domain-cutover-plan.md §5 round 1).
+output "acm_validation_records" {
+  description = "DNS validation CNAMEs for CloudFlare (gray cloud / DNS only)."
+  value = {
+    for dvo in aws_acm_certificate.site.domain_validation_options :
+    dvo.domain_name => { name = dvo.resource_record_name, value = dvo.resource_record_value }
+  }
 }

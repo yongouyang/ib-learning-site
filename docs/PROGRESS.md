@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-11 — Domain cutover plan: DEV/PROD split decided, plan rewritten
+
+Git HEAD: `bc725da` (branch `develop`, tree dirty: `docs/custom-domain-cutover-plan.md` **untracked** — rewritten plan, not yet committed)
+Done: reviewed GLM-5.2's `docs/custom-domain-cutover-plan.md` — foundations OK (ACM us-east-1, gray-cloud DNS, two-apply sequencing) but 4 defects found (broken cross-module cert ref; aliases would attach while cert PENDING; `request.querystring` is an object → `[object Object]` in www redirect; CORS trim would break AI marking on dev URL). User decisions: **two distributions** (existing = DEV on develop, unchanged; NEW bucket+distribution = PROD on octavlearning.com), **`main` branch** with auto-deploy on push after all gates (develop → main via PR), **shared feedback Lambda** (CORS = dev + apex + www origins). Plan rewritten in place with full terraform/CI/CloudFlare details and a 7-step execution sequence.
+Verified: n/a — planning only, no code changes.
+Next: implement the cutover — (1) create `main` from green develop; (2) cert-only PR + apply → hand user 2 validation CNAMEs (CloudFlare dashboard, gray cloud); (3) prod site-instance PR + apply → user adds 2 routing CNAMEs pointing at the NEW distribution domain; (4) CI split PR (deploy-dev unchanged / deploy-prod on main; deploy_only gains env picker); (5) merge develop→main = first prod release; (6) verify per plan §7; (7) branch protection on main. Variations backlog: Phase 3 (chemistry generators), Phase 4 rollout, group-mastery UI surface.
+Notes: routing CNAMEs target the NEW distribution's domain (terraform output `site_prod_distribution_domain`), NOT d2c1g77zfmjpm3. Keep ACM validation CNAMEs in CloudFlare forever (auto-renewal re-checks).
+
+---
+
 ## 2026-08-10 — Rebrand: IBLearn → Octav Learning (icons + name + wordmark)
 
 Git HEAD: `24a8395` (branch `develop`, tree dirty: awaiting user review before commit)
