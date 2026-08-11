@@ -12,7 +12,7 @@
 | # | Decision | Choice |
 |---|---|---|
 | 1 | Topology | **Two distributions**: existing = DEV (develop branch), new = PROD (release branch), octavlearning.com on PROD only |
-| 2 | Release flow | **`main` branch**, develop → main via PR, push to `main` auto-deploys PROD after all gates; `deploy_only` dispatch gains an env picker |
+| 2 | Release flow | **`main` branch**, develop → main via PR, push to `main` auto-deploys PROD after all gates; `deploy_only` dispatch needs **no env picker** — the branch chosen at dispatch time selects the env (user decision, 2026-08-11) |
 | 3 | Feedback API | **Shared Lambda** — both distributions proxy `/api/*` to the one Function URL; CORS allows dev + apex + www origins |
 
 ## Target topology
@@ -198,8 +198,10 @@ comment.)
   `terraform output -raw site_prod_*`) and `SITE_URL: https://octavlearning.com`.
   Extract the shared deploy steps into a composite action or accept the
   duplication — decide at implementation; the job is ~15 steps.
-- Manual dispatch: `deploy_only` gains a required `env` choice input
-  (`dev`/`prod`); each deploy job's `if` extended accordingly.
+- Manual dispatch: `deploy_only` with the branch picked at dispatch time —
+  each deploy job's `if` checks its own branch, so dispatching on develop
+  runs deploy-dev and on main runs deploy-prod. No separate env picker
+  (user decision 2026-08-11: branch choice + job re-runs are enough).
 - One terraform apply manages both environments (single state) — the apply step
   is identical in both jobs; only the sync/invalidation/smoke targets differ.
 
