@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-11 — Domain cutover DONE: octavlearning.com live (DEV/PROD split)
+
+Git HEAD: `ebc2ecf` (develop) / `c02459c` (main, PR #1 merge); tree dirty: docs follow-ups committing below
+Done: full 7-step cutover per `docs/custom-domain-cutover-plan.md`. ACM cert (us-east-1, apex+www) ISSUED via CloudFlare gray-cloud validation CNAMEs (keep forever — renewal re-checks); PROD bucket `iblearn-prod-site-305655353474` + distribution `EYC8IOH4L9SXT` (`d1s55irh5569t1.cloudfront.net`) with aliases + ACM cert + www→apex 301 in the rewrite Function (snippet injected via a local — `%{if}` heredoc directives leak leading whitespace; DEV function stays byte-identical, zero diffs); CORS = dev+apex+www (`site_origin` var → `site_origins` list); routing CNAMEs live; CI split `deploy-dev` (develop) / `deploy-prod` (main), shared `deploy` concurrency group + one tfstate; OIDC trust widened to develop+main; PR #1 develop→main = first prod release. **Incident**: local targeted apply of `site_prod` pulled the feedback Lambda into the dependency cone and wiped `FEEDBACK_ENV` ("Mark with AI" → unconfigured in prod); restored by pushing code + letting CI deploy (the DeepSeek key exists ONLY in the GitHub secret). New rule in AGENTS.md: **no local terraform apply, CI-only**, until the key moves to SSM Parameter Store. Second gap found: deploy role lacked `iam:UpdateAssumeRolePolicy` (can't edit its own trust; PowerUserAccess excludes IAM) — fixed with a one-off targeted `-target=module.ci` local apply (no Lambda in that cone) + code.
+Verified: plan §7 suite all green — apex 200 (title "Octav Learning"), www 301 with path+query preserved, `/api/feedback` configured:true on BOTH origins, deep link 200, sw.js no-cache, manifest 200, TLS CN=octavlearning.com (Amazon, exp 2027-02); develop + main CI runs green (deploy-prod incl. www-301 smoke).
+Next: branch protection on `main` (user, GitHub UI); SSM Parameter Store for the DeepSeek key (unblocks local applies); §8 launch checks on the prod domain (iOS install, Lighthouse). Backlog: variations Phase 3 (chemistry generators), Phase 4 rollout, group-mastery UI surface; MFA/billing alarm.
+Notes: `deploy_only` dispatch — the branch picked at dispatch time selects the env (no env picker, user decision 2026-08-11). Old cloudfront URL is internal DEV now — PWA installs/progress there don't migrate (impact nil). Local `terraform plan/validate/fmt` remain fine; only apply is CI-gated.
+
+---
+
 ## 2026-08-11 — Domain cutover plan: DEV/PROD split decided, plan rewritten
 
 Git HEAD: `bc725da` (branch `develop`, tree dirty: `docs/custom-domain-cutover-plan.md` **untracked** — rewritten plan, not yet committed)
