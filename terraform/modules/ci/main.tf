@@ -82,6 +82,7 @@ data "aws_iam_policy_document" "iblearn_iam" {
       "iam:CreateRole",
       "iam:DeleteRole",
       "iam:UpdateRole",
+      "iam:UpdateAssumeRolePolicy",
       "iam:TagRole",
       "iam:UntagRole",
       "iam:ListRolePolicies",
