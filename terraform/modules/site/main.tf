@@ -22,6 +22,24 @@ variable "feedback_origin_domain" {
   default     = ""
 }
 
+variable "domain_names" {
+  description = "Custom domain aliases (apex + www). Empty = cloudfront.net default cert only. First entry is the canonical host."
+  type        = list(string)
+  default     = []
+}
+
+variable "acm_certificate_arn" {
+  description = "ACM cert ARN (must be us-east-1). Required when domain_names is non-empty; must be ISSUED before apply."
+  type        = string
+  default     = ""
+}
+
+variable "redirect_from_host" {
+  description = "Host to 301-redirect to the first domain_names entry (e.g. www → apex). Empty = no redirect (DEV keeps today's behavior)."
+  type        = string
+  default     = ""
+}
+
 # Account ID keeps the bucket name globally unique without hardcoding it.
 data "aws_caller_identity" "current" {}
 
@@ -97,8 +115,47 @@ resource "aws_s3_bucket_policy" "site" {
 # this Function maps /foo → /foo.html and /foo/ → /foo.html as well (the
 # export has no dir/index.html pages; only the root has one).
 
+# When redirect_from_host is set (PROD custom domain), the same Function also
+# 301s that host (www) to the apex BEFORE the rewrite, preserving path and
+# query string. request.querystring is an object in CloudFront Functions and
+# must be serialized entry-by-entry (multiValue included).
+
 # Runs on the viewer-request event of the default behavior, before the cache
 # lookup, so the cache key already contains the rewritten .html URI.
+
+# www → apex 301 snippet, injected into the Function code only when
+# redirect_from_host is set. Empty for DEV, which keeps the emitted code
+# byte-identical to the pre-cutover function (zero-diff guarantee). Kept as a
+# separate local because `%{if}` directives leak their line's leading
+# whitespace into the output.
+locals {
+  www_redirect = (
+    var.redirect_from_host != "" ? <<-JS
+      // ${var.redirect_from_host} → apex 301 (custom domain cutover, plan §2).
+      var host = request.headers.host.value;
+      if (host === '${var.redirect_from_host}') {
+        var qs = [];
+        for (var key in request.querystring) {
+          var entry = request.querystring[key];
+          if (entry.multiValue) {
+            for (var i = 0; i < entry.multiValue.length; i++) {
+              qs.push(key + '=' + encodeURIComponent(entry.multiValue[i].value));
+            }
+          } else {
+            qs.push(key + '=' + encodeURIComponent(entry.value));
+          }
+        }
+        return {
+          statusCode: 301,
+          statusDescription: 'Moved Permanently',
+          headers: { location: { value: 'https://${var.domain_names[0]}' + request.uri + (qs.length ? '?' + qs.join('&') : '') } }
+        };
+      }
+    JS
+    : ""
+  )
+}
+
 resource "aws_cloudfront_function" "url_rewrite" {
   name    = "${var.name_prefix}-url-rewrite"
   runtime = "cloudfront-js-2.0"
@@ -108,7 +165,7 @@ resource "aws_cloudfront_function" "url_rewrite" {
   code = <<-EOT
     function handler(event) {
       var request = event.request;
-      var uri = request.uri;
+    ${local.www_redirect}  var uri = request.uri;
       if (uri !== '/' && uri.endsWith('/')) {
         // No dir/index.html in this export — map /foo/ → /foo.html.
         request.uri = uri.slice(0, -1) + '.html';
@@ -140,6 +197,7 @@ resource "aws_cloudfront_distribution" "site" {
   http_version        = "http2and3"
   price_class         = var.price_class
   default_root_object = "index.html"
+  aliases             = var.domain_names
 
   # Origin 1: the private S3 bucket (static site), reached via OAC signing.
   origin {
@@ -217,10 +275,23 @@ resource "aws_cloudfront_distribution" "site" {
     }
   }
 
-  # Default *.cloudfront.net certificate. Swap for an ACM cert (us-east-1)
-  # when a custom domain is added (plan §7).
-  viewer_certificate {
-    cloudfront_default_certificate = true
+  # TLS: ACM cert (us-east-1) when a custom domain is attached, otherwise the
+  # default *.cloudfront.net certificate. Two mutually exclusive dynamic
+  # blocks — a single block with acm_certificate_arn = "" alongside
+  # cloudfront_default_certificate = true risks a provider validation error.
+  dynamic "viewer_certificate" {
+    for_each = length(var.domain_names) > 0 ? [1] : []
+    content {
+      acm_certificate_arn      = var.acm_certificate_arn
+      ssl_support_method       = "sni-only"
+      minimum_protocol_version = "TLSv1.2_2021"
+    }
+  }
+  dynamic "viewer_certificate" {
+    for_each = length(var.domain_names) == 0 ? [1] : []
+    content {
+      cloudfront_default_certificate = true
+    }
   }
 }
 
