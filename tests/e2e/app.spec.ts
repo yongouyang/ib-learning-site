@@ -160,8 +160,11 @@ test.describe('Quiz flow', () => {
     await page.getByRole('link', { name: /Take Quiz/i }).click();
     await page.waitForURL('/subjects/math/math-dp-ai-sequences/quiz');
 
-    // Quiz page should have a question stem heading visible
-    await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
+    // Quiz page should have a question stem heading visible (scoped to <main>:
+    // during the client-side transition from the study page, React keeps the
+    // outgoing tree in a hidden Suspense segment, so an unscoped lookup can see
+    // both pages' h2s and trip strict mode).
+    await expect(page.locator('main').getByRole('heading', { level: 2 })).toBeVisible();
     // Should have choice buttons with A., B., etc.
     await expect(page.getByRole('button').filter({ hasText: /^A\./ }).first()).toBeVisible();
     // Should have a breadcrumb trail: Home / Math / Sequences & Series / Quiz
