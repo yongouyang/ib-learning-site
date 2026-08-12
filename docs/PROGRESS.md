@@ -6,6 +6,26 @@
 
 ---
 
+## 2026-08-12 — UX_GUIDELINES.md created + standing UX-review pass mandated
+
+Git HEAD: `2e3abf1` (branch `develop`, tree dirty: AGENTS.md + PROGRESS.md modified, `docs/UX_GUIDELINES.md` untracked [this session]; user's untracked GLM docs + `.gitignore` change still pending commit)
+Done: created `docs/UX_GUIDELINES.md` per the agreed shape from the landing review session — design tokens (`.card`, subject `accentColor` hexes from `subjects.json`, semantic colour coding, container widths, hero scale), mobile/desktop chrome asymmetry (no mobile header; bottom nav; nav slots are for destinations not settings — theme-toggle slot flagged as known violation), a11y checklist (single text h1, AA both themes, 44px targets, reduced-motion debt, ProgressContext hydration constraint), copy voice (British spelling, student-first, ~20-word subheads, benefit-named CTAs, say-it-once rule), anti-patterns, and the UX-review pass procedure (Playwright screenshots mobile+desktop × light+dark → fresh-context review subagent → fix-or-waive). Added the matching AGENTS.md Conventions bullet mandating the pass for `src/app/**`/`src/components/**` changes. All facts verified against the code (globals.css, layout.tsx, Nav.tsx, nav-items.ts, subjects.json).
+Verified: n/a — docs only, no code changes.
+Next: (1) implement the landing ship list: nav fix (simplified 4-slot mobile form) → hero + pillars + h1/h2 + metadata; decide the hydration-flicker approach up front — its UX-review pass is the first real exercise of the new rule; (2) commit the two GLM UX docs + user's `.gitignore` change + this session's files (ask user first). Still standing from cutover: branch protection on `main`, SSM for DeepSeek key, §8 launch checks on prod domain (iOS install, Lighthouse). Backlog: variations Phase 3/4, group-mastery UI.
+Notes: `docs/architecture-evolution-plan.md` also untracked (user's, predates this session). The guidelines deliberately encode only settled facts — landing ship-list items land in the doc as they're implemented, not before.
+
+---
+
+## 2026-08-12 — Landing UX review assessed: verdict + next steps agreed
+
+Git HEAD: `2e3abf1` (branch `develop`, tree dirty: `docs/landing-page-copy-proposal.md` + `docs/landing-page-ux-review.md` untracked [user's GLM-5.2 artifacts], `.gitignore` modified [user's]; PROGRESS entry committing later)
+Done: reviewed GLM-5.2's `docs/landing-page-ux-review.md` + `docs/landing-page-copy-proposal.md` claim-by-claim against the code — review is factually solid (logo-as-h1 `page.tsx:22-25`, underselling stats line `:26`, "Not sure where to start?" card gated on `weakTopics.length === 0` `:87` so users WITH weak topics lose the only home path to diagnostics, stale "IB exams" metadata `layout.tsx:29`, mobile has no top header + theme toggle eats a bottom-nav slot). Verdict: **adopt the ship list** — nav IA fix first (surface Diagnostics/Exams), then hero (20-word subhead, stage-tag eyebrow not the full motto, "Start with a free diagnostic" + "5 min · no sign-up" sub-label), pillar redistribution (notes → "Practise" pillar), single h1 + "Why Octav" h2, metadata fix. Two additions of mine: (1) **hero gating flickers** — ProgressContext loads in useEffect so first paint is always the first-time variant; returning users would see the full hero swap out on every visit — decide handling before implementing; (2) skip the "More" overflow menu (new component) — simpler mobile fix is 4 nav slots (Learn/Review/Exams/Progress) + theme. User also wants a **standing UX-expert agent**: agreed shape = `docs/UX_GUIDELINES.md` (tokens, a11y checklist, copy voice, mobile/desktop chrome asymmetry) + an AGENTS.md bullet mandating a UX-review subagent pass (with Playwright screenshots, the render:illustrations pattern) for UI-surface changes.
+Verified: n/a — analysis only, no code changes.
+Next: (1) create `docs/UX_GUIDELINES.md` + AGENTS.md bullet (do this FIRST — it governs the implementation); (2) implement the ship list: nav fix (simplified 4-slot mobile form) → hero + pillars + h1/h2 + metadata; decide the hydration-flicker approach up front; (3) commit the two GLM UX docs + user's `.gitignore` change (ask user first). Still standing from cutover: branch protection on `main`, SSM for DeepSeek key, §8 launch checks on prod domain (iOS install, Lighthouse). Backlog: variations Phase 3/4, group-mastery UI.
+Notes: `docs/landing-poc/` mockups are gitignored POC artifacts. UX review cited `nav-items.ts` at wrong path — it's `src/components/nav-items.ts`.
+
+---
+
 ## 2026-08-11 — Domain cutover DONE: octavlearning.com live (DEV/PROD split)
 
 Git HEAD: `ebc2ecf` (develop) / `c02459c` (main, PR #1 merge); tree dirty: docs follow-ups committing below
