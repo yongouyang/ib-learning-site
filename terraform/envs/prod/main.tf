@@ -95,6 +95,21 @@ resource "aws_acm_certificate" "site" {
   lifecycle { create_before_destroy = true }
 }
 
+# ACM cert for dev.octavlearning.com (DEV custom subdomain). Deliberately a
+# SEPARATE cert from the prod one: adding a SAN to the prod cert would replace
+# it (new ARN) and pull the PROD distribution into the change cone. Validated
+# via one manual CloudFlare CNAME (output below) — keep that record forever,
+# ACM auto-renewal re-checks it. Two-round sequencing (same as the prod
+# cutover): this cert must exist and be ISSUED before module.site can attach
+# the alias, so the alias + cert reference land in a follow-up change.
+resource "aws_acm_certificate" "dev" {
+  provider          = aws.us_east_1
+  domain_name       = "dev.octavlearning.com"
+  validation_method = "DNS"
+
+  lifecycle { create_before_destroy = true }
+}
+
 # Feedback API first: the site module needs its Function URL domain to wire
 # the CloudFront /api/* behavior.
 module "feedback_api" {
@@ -175,6 +190,16 @@ output "acm_validation_records" {
   description = "DNS validation CNAMEs for CloudFlare (gray cloud / DNS only)."
   value = {
     for dvo in aws_acm_certificate.site.domain_validation_options :
+    dvo.domain_name => { name = dvo.resource_record_name, value = dvo.resource_record_value }
+  }
+}
+
+# The one-time manual CloudFlare CNAME that validates the dev subdomain cert
+# (dev.octavlearning.com cutover, round 1).
+output "acm_dev_validation_records" {
+  description = "DNS validation CNAME for the dev.octavlearning.com cert (CloudFlare, gray cloud / DNS only)."
+  value = {
+    for dvo in aws_acm_certificate.dev.domain_validation_options :
     dvo.domain_name => { name = dvo.resource_record_name, value = dvo.resource_record_value }
   }
 }
