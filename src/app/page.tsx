@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Flame, ArrowRight, Target, ClipboardList, Layers } from 'lucide-react';
+import { Flame, ArrowRight, Target, ClipboardList, Layers, Trophy } from 'lucide-react';
 import { useProgress } from '@/context/ProgressContext';
 import { getSubjects, subjectMeta } from '@/content/registry';
 import { getWeakTopics } from '@/lib/weak-point-analyzer';
@@ -10,11 +10,18 @@ import { getRecentAverageScore } from '@/lib/progress-store';
 import { getDueTopics } from '@/lib/flashcard-scheduler';
 
 export default function HomePage() {
-  const { userProgress, topicProgress, flashcardProgress } = useProgress();
+  const { userProgress, topicProgress, flashcardProgress, loaded } = useProgress();
   const subjects = getSubjects();
   const weakTopics = getWeakTopics(topicProgress);
   const dueTopics = getDueTopics(subjects.flatMap((s) => s.topics), flashcardProgress);
   const totalDue = dueTopics.reduce((sum, t) => sum + t.dueCount, 0);
+
+  // True first-timer: never studied anything — lastStudyDate is null until
+  // the first quiz/exam/ladder/flashcard activity, so this also covers users
+  // who have only reviewed flashcards (no quiz attempts).
+  const isFirstTimer = loaded && userProgress.lastStudyDate === null;
+  // Returning user with everything mastered.
+  const isAllCaughtUp = loaded && topicProgress.length > 0 && weakTopics.length === 0;
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">
@@ -57,7 +64,7 @@ export default function HomePage() {
           <div className="mt-3 pt-3 border-t border-orange-200/60 dark:border-orange-900/60">
             <Link href="/mixed-review?mode=weak"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-700 dark:text-orange-300 hover:text-orange-800 dark:hover:text-orange-200">
-              Practice all weak areas in mixed review <ArrowRight className="w-4 h-4" />
+              Practise all weak areas in mixed review <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -84,7 +91,24 @@ export default function HomePage() {
         </div>
       )}
 
-      {weakTopics.length === 0 && (
+      {/* Returning user with everything mastered — positive empty state. */}
+      {isAllCaughtUp && (
+        <div className="card p-4 mb-6 bg-green-50/50 dark:bg-green-950/50 border-green-200 dark:border-green-900">
+          <h2 className="text-sm font-semibold text-green-800 dark:text-green-200 mb-1 inline-flex items-center gap-1.5">
+            <Trophy className="w-4 h-4" /> All caught up!
+          </h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+            No weak topics right now. Try a timed mock exam or explore a new subject.
+          </p>
+          <Link href="/exams"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-green-700 dark:text-green-300 hover:text-green-800 dark:hover:text-green-200">
+            Test yourself under timed conditions <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      )}
+
+      {/* True first-timer — no progress data at all. */}
+      {isFirstTimer && (
         <div className="card p-4 mb-6 bg-blue-50/50 dark:bg-blue-950/50 border-blue-200 dark:border-blue-900">
           <h2 className="text-sm font-semibold text-blue-800 dark:text-blue-200 mb-1 inline-flex items-center gap-1.5">
             <ClipboardList className="w-4 h-4" /> Not sure where to start?
@@ -94,7 +118,7 @@ export default function HomePage() {
           </p>
           <Link href="/diagnostics"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200">
-            Choose a diagnostic test <ArrowRight className="w-4 h-4" />
+            Start with a free diagnostic <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       )}

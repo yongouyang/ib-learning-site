@@ -15,7 +15,7 @@ test.describe('Diagnostics', () => {
   test('homepage shows the diagnostic CTA when there are no weak areas', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByText('Not sure where to start?')).toBeVisible();
-    await page.getByRole('link', { name: /Choose a diagnostic test/ }).click();
+    await page.getByRole('link', { name: /Start with a free diagnostic/ }).click();
     await page.waitForURL('/diagnostics');
     await expect(page.getByRole('heading', { name: 'Diagnostic Tests', level: 1 })).toBeVisible();
   });
@@ -49,6 +49,6 @@ test.describe('Diagnostics', () => {
     await page.goto('/');
     const card = page.getByText('Needs Practice');
     await expect(card).toBeVisible();
-    await expect(page.getByRole('link', { name: /Practice all weak areas in mixed review/ })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Practise all weak areas in mixed review/ })).toBeVisible();
   });
 });

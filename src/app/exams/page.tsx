@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FileText, FileSignature, Clock, ArrowRight, TrendingUp } from 'lucide-react';
+import { FileText, FileSignature, Clock, ArrowRight, TrendingUp, ClipboardList } from 'lucide-react';
 import { getExamCourses, examId } from '@/lib/exams';
 import { getPapersForCourse } from '@/content/registry';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -17,6 +17,29 @@ export default function ExamsPage() {
           Timed practice papers — one countdown for the whole paper, unanswered questions
           count as incorrect when time runs out. All papers are non-calculator.
         </p>
+      </div>
+
+      {/* Cross-link to Diagnostics — natural pair: diagnose weak areas → practice with exams.
+          Stacked layout mirrors the home "Not sure where to start?" card (icon + heading +
+          subtext + link) so it never cramps on narrow phones. */}
+      <div className="card p-4 mb-6 bg-blue-50/50 dark:bg-blue-950/50 border-blue-200 dark:border-blue-900">
+        <div className="flex items-start gap-3">
+          <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 shrink-0">
+            <ClipboardList className="w-5 h-5" />
+          </span>
+          <div className="flex-1 min-w-0">
+            <h2 className="text-sm font-semibold text-blue-800 dark:text-blue-200">Diagnose before you practise.</h2>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+              A short diagnostic pinpoints your weak areas, so you target exactly what needs work.
+            </p>
+            <Link
+              href="/diagnostics"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200"
+            >
+              Start with a free diagnostic <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
       </div>
 
       <div className="grid gap-3">
