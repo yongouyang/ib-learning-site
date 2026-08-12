@@ -162,7 +162,8 @@
       ],
       "correctIndex": 2,
       "explanation": "pH 2 is far below 7 — strongly acidic. Compare: stomach acid is pH 1-3.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "ph-scale-meaning"
     },
     {
       "id": "chem-acids-1-q2",
@@ -175,7 +176,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Litmus is red in acid, blue in alkali. 'Blue base' is a useful memory aid.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "indicators"
     },
     {
       "id": "chem-acids-1-q3",
@@ -188,7 +190,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Neutralisation: acid + alkali → salt + water. HCl + NaOH → NaCl + H₂O.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "neutralisation-equation"
     },
     {
       "id": "chem-acids-1-q4",
@@ -201,7 +204,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Acidic soil needs an alkali to neutralise it and raise the pH towards neutral (~6.5-7), which most crops prefer.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "everyday-neutralisation"
     },
     {
       "id": "chem-acids-1-q5",
@@ -214,7 +218,8 @@
       ],
       "correctIndex": 2,
       "explanation": "2HCl + CaCO₃ → CaCl₂ + H₂O + CO₂. The CO₂ turns limewater milky — this is the test for carbonates.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "acid-carbonate-products"
     },
     {
       "id": "chem-acids-1-q6",
@@ -227,7 +232,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Each pH step = 10×. From pH 6 to pH 4 is 2 steps → 10 × 10 = 100× more acidic at pH 4.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "ph-log-scale"
     },
     {
       "id": "chem-acids-1-q7",
@@ -240,7 +246,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Metal + acid → salt + hydrogen. Mg + 2HCl → MgCl₂ + H₂↑.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "acid-metal-products"
     },
     {
       "id": "chem-acids-1-q8",
@@ -253,7 +260,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Only metals above hydrogen in the reactivity series (Mg, Al, Zn, Fe) react with acids. Copper, silver, and gold are below hydrogen → no reaction.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "acid-metal-reactivity"
     },
     {
       "id": "chem-acids-1-q9",
@@ -266,7 +274,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Na⁺ and Cl⁻ are present before and after the reaction unchanged. The net ionic equation is H⁺ + OH⁻ → H₂O.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "spectator-ions"
     },
     {
       "id": "chem-acids-1-q10",
@@ -279,7 +288,8 @@
       ],
       "correctIndex": 1,
       "explanation": "H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O. Sulfuric acid → sulfate salts.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "salt-naming"
     },
     {
       "id": "chem-acids-1-q11",
@@ -292,7 +302,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Acid + alkali → neutralisation. Baking soda (NaHCO₃) is a mild alkali that neutralises the acidic bee venom. Wasp stings are alkaline — treated with vinegar.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "everyday-neutralisation"
     },
     {
       "id": "chem-acids-1-q12",
@@ -305,7 +316,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The conical shape allows vigorous swirling for mixing while the narrow neck minimises splashing. This ensures accurate mixing as the endpoint is approached.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "titration-practical"
     },
     {
       "id": "chem-acids-1-q13",
@@ -318,7 +330,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Antacids provide a mild base that neutralises stomach acid (HCl), raising pH and relieving the burning sensation of indigestion.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "everyday-neutralisation"
     },
     {
       "id": "chem-acids-1-q14",
@@ -331,7 +344,8 @@
       ],
       "correctIndex": 1,
       "explanation": "HCl (strong) at 0.1 mol/dm³ has a lower pH (~1) than ethanoic acid (weak) at 0.1 mol/dm³ (~3), because HCl fully ionises, releasing more H⁺.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "strong-vs-weak-acids"
     },
     {
       "id": "chem-acids-1-q15",
@@ -344,7 +358,186 @@
       ],
       "correctIndex": 1,
       "explanation": "Sodium hydrogencarbonate releases CO₂ when heated (thermal decomposition) or when reacted with acid. The gas bubbles become trapped in the batter, causing it to rise.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "hydrogencarbonate-co2"
+    },
+    {
+      "id": "chem-acids-1-q16",
+      "stem": "A solution has a pH of 13. The solution is:",
+      "choices": [
+        "A strong alkali",
+        "A weak acid",
+        "Neutral",
+        "A weak alkali"
+      ],
+      "correctIndex": 0,
+      "explanation": "pH 13 is far above 7, so the solution is strongly alkaline. Compare: household bleach is around pH 12-13.",
+      "difficulty": "easy",
+      "variantOf": "ph-scale-meaning"
+    },
+    {
+      "id": "chem-acids-1-q17",
+      "stem": "Universal indicator solution turns green when added to a sample. The sample is:",
+      "choices": [
+        "Strongly acidic",
+        "Neutral",
+        "Weakly alkaline",
+        "Strongly alkaline"
+      ],
+      "correctIndex": 1,
+      "explanation": "Universal indicator is green at pH 7 (neutral). Red/orange shows an acid; blue/purple shows an alkali.",
+      "difficulty": "easy",
+      "variantOf": "indicators"
+    },
+    {
+      "id": "chem-acids-1-q18",
+      "stem": "HNO₃ + KOH → ?",
+      "choices": [
+        "KNO₃ + H₂O",
+        "KNO₃ + H₂",
+        "K + NO₃ + H₂O",
+        "No reaction — both are soluble"
+      ],
+      "correctIndex": 0,
+      "explanation": "Neutralisation: acid + alkali → salt + water. Nitric acid gives a nitrate salt: HNO₃ + KOH → KNO₃ + H₂O.",
+      "difficulty": "easy",
+      "variantOf": "neutralisation-equation"
+    },
+    {
+      "id": "chem-acids-1-q19",
+      "stem": "Dilute sulfuric acid is added to sodium carbonate. Which gas is given off?",
+      "choices": [
+        "Hydrogen",
+        "Oxygen",
+        "Carbon dioxide — it turns limewater milky",
+        "Sulfur dioxide"
+      ],
+      "correctIndex": 2,
+      "explanation": "Acid + carbonate → salt + water + carbon dioxide: H₂SO₄ + Na₂CO₃ → Na₂SO₄ + H₂O + CO₂↑. Hydrogen is only produced when an acid reacts with a metal.",
+      "difficulty": "easy",
+      "variantOf": "acid-carbonate-products"
+    },
+    {
+      "id": "chem-acids-1-q20",
+      "stem": "Zinc granules are dropped into dilute sulfuric acid and bubbles of gas form. The gas is:",
+      "choices": [
+        "Carbon dioxide",
+        "Oxygen",
+        "Chlorine",
+        "Hydrogen — it burns with a 'squeaky pop'"
+      ],
+      "correctIndex": 3,
+      "explanation": "Metal + acid → salt + hydrogen: Zn + H₂SO₄ → ZnSO₄ + H₂↑. Test for H₂: a lighted splint gives a 'squeaky pop'.",
+      "difficulty": "easy",
+      "variantOf": "acid-metal-products"
+    },
+    {
+      "id": "chem-acids-1-q21",
+      "stem": "Which of these metals reacts with dilute hydrochloric acid to produce hydrogen?",
+      "choices": [
+        "Copper",
+        "Silver",
+        "Iron",
+        "Gold"
+      ],
+      "correctIndex": 2,
+      "explanation": "Iron is above hydrogen in the reactivity series, so it displaces H⁺: Fe + 2HCl → FeCl₂ + H₂↑. Copper, silver and gold are below hydrogen → no reaction.",
+      "difficulty": "medium",
+      "variantOf": "acid-metal-reactivity"
+    },
+    {
+      "id": "chem-acids-1-q22",
+      "stem": "What is the net ionic equation for HNO₃ + NaOH → NaNO₃ + H₂O?",
+      "choices": [
+        "Na⁺ + NO₃⁻ → NaNO₃",
+        "H⁺ + NO₃⁻ → HNO₃",
+        "H⁺ + OH⁻ → H₂O",
+        "Na⁺ + OH⁻ → NaOH"
+      ],
+      "correctIndex": 2,
+      "explanation": "Na⁺ and NO₃⁻ are spectator ions — unchanged on both sides. The essential reaction in every acid-alkali neutralisation is H⁺ + OH⁻ → H₂O.",
+      "difficulty": "medium",
+      "variantOf": "spectator-ions"
+    },
+    {
+      "id": "chem-acids-1-q23",
+      "stem": "What salt is produced when hydrochloric acid neutralises calcium hydroxide?",
+      "choices": [
+        "Calcium chloride (CaCl₂)",
+        "Calcium sulfate (CaSO₄)",
+        "Calcium nitrate (Ca(NO₃)₂)",
+        "Calcium carbonate (CaCO₃)"
+      ],
+      "correctIndex": 0,
+      "explanation": "The parent acid names the salt: hydrochloric acid → chlorides. 2HCl + Ca(OH)₂ → CaCl₂ + 2H₂O.",
+      "difficulty": "medium",
+      "variantOf": "salt-naming"
+    },
+    {
+      "id": "chem-acids-1-q24",
+      "stem": "In a titration the conical flask contains an alkali with phenolphthalein (pink). Acid is added from the burette. What colour change marks the endpoint?",
+      "choices": [
+        "Pink → colourless",
+        "Colourless → pink",
+        "Pink → blue",
+        "Colourless → red"
+      ],
+      "correctIndex": 0,
+      "explanation": "Phenolphthalein is pink in alkali and colourless in acid. At the endpoint the last drop of acid turns the mixture permanently colourless — add dropwise near this point for accuracy.",
+      "difficulty": "medium",
+      "variantOf": "titration-practical"
+    },
+    {
+      "id": "chem-acids-1-q25",
+      "stem": "Solution X has a pH of 3 and solution Y has a pH of 6. How many times more acidic is solution X?",
+      "choices": [
+        "2×",
+        "3×",
+        "300×",
+        "1000×"
+      ],
+      "correctIndex": 3,
+      "explanation": "Each pH step is a 10× change in H⁺ concentration. From pH 6 to pH 3 is 3 steps → 10 × 10 × 10 = 1000× more acidic. The answer is not the pH difference itself (3).",
+      "difficulty": "hard",
+      "variantOf": "ph-log-scale"
+    },
+    {
+      "id": "chem-acids-1-q26",
+      "stem": "A concentrated solution of ethanoic acid (weak) can have a lower pH than a very dilute solution of hydrochloric acid (strong). Why?",
+      "choices": [
+        "Weak acids contain more hydrogen atoms per molecule than strong acids",
+        "Strength is how fully an acid ionises, but pH depends on the total H⁺ concentration — a concentrated weak acid can supply more H⁺ than a very dilute strong acid",
+        "Strong acids stop releasing H⁺ when they are diluted",
+        "Diluting any acid always lowers its pH"
+      ],
+      "correctIndex": 1,
+      "explanation": "Strength and concentration are different ideas: HCl fully ionises (strong) but a very dilute sample contains few H⁺ ions per dm³; concentrated ethanoic acid ionises only partly, yet holds so many molecules that more H⁺ ends up in solution.",
+      "difficulty": "hard",
+      "variantOf": "strong-vs-weak-acids"
+    },
+    {
+      "id": "chem-acids-1-q27",
+      "stem": "A recipe mixes baking soda (NaHCO₃) with buttermilk (which is acidic) instead of plain milk. The cake rises better because:",
+      "choices": [
+        "Buttermilk adds extra water so the batter spreads thinner",
+        "The acid in buttermilk reacts with NaHCO₃ to release extra CO₂ bubbles, which expand in the hot batter",
+        "The acid stops the flour absorbing fat",
+        "NaHCO₃ only dissolves in acidic liquids"
+      ],
+      "correctIndex": 1,
+      "explanation": "Acid + hydrogencarbonate → salt + water + CO₂. The acidic buttermilk releases CO₂ from the NaHCO₃ before and during baking; the trapped gas bubbles expand on heating, so the cake rises more.",
+      "difficulty": "hard",
+      "variantOf": "hydrogencarbonate-co2"
+    }
+  ],
+  "templates": [
+    {
+      "generator": "chem-ph-ratio",
+      "variantOf": "ph-log-scale",
+      "params": {
+        "deltaPowers": [1, 2, 3],
+        "includeAlkaline": true
+      }
     }
   ]
 }

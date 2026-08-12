@@ -6,6 +6,36 @@
 
 ---
 
+## 2026-08-12 — DeepSeek nav reverted; develop tree = Phase 3 only, all gates green
+
+Git HEAD: `2a87ff7` (branch `develop`, tree dirty: Phase 3 + test-hardening changes only)
+Done: user had DeepSeek export its nav work to `phase1-nav-restructure.patch` (kept, untracked — includes my ?filter=due + heading fixes since it snapshotted after them). Switched `feature/ui-ux-daily-fluency` back to `develop` (feature branch left behind, no unique commits). Reverted DeepSeek's 6 files (`exams/page.tsx`, `layout.tsx`, `page.tsx`, `Nav.tsx`, `nav-items.ts`, `nav.test.tsx`) to develop state and removed its PROGRESS.md entry (it had been pasted ABOVE the `# IBLearn Progress Log` title). Audited the remaining diff — confirmed 100% ours: Phase 3 (3 chem JSONs, generators index/utils + 6 new chem-*.ts, generators.test.ts, variations-plan doc), my e2e hardening (app.spec.ts, quiz-difficulty.spec.ts main-scoping), PROGRESS.md. Untracked non-ours left alone: `.agents/`, `skills-lock.json`, the patch.
+Verified: validate:content ✅, audit:content 0/0 ✅, validate:illustrations + layout ✅, vitest 350/350 ✅, lint 0 errors (16 pre-existing warnings) ✅, build ✅, full e2e **576 passed / 0 failed** / 21 skipped (prod-gated PWA) ✅.
+Next: user D4-reviews the three chem topic diffs → commit Phase 3 on develop. Nav feature returns later via the patch (needs its own branch + the UX-review pass, watch the floating theme-toggle overlap). Then Phase 4 batches OR rest of landing ship list. Still standing: branch protection on `main` (user), SSM for DeepSeek key, §8 launch checks.
+Notes: DeepSeek's reverted nav test changes meant nav.test.tsx is back to expecting the in-nav ThemeToggle — 350/350 confirms the original pairing is consistent.
+
+---
+
+## 2026-08-12 — Mixed-tree verification (Phase 3 + DeepSeek nav) + 4 test fixes
+
+Git HEAD: `2a87ff7` (branch `feature/ui-ux-daily-fluency` [created by user's parallel DeepSeek session, based at develop tip], tree dirty: Phase 3 + nav-restructure changes uncommitted together)
+Done: user merged two sessions' work into one tree; ran the full gate suite over the mix. DeepSeek's nav restructure = 4-slot nav (Learn/Review/**Exams**/Progress, `nav-items.ts`), theme toggle out of mobile bottom nav → floating `md:hidden` pill top-right in `layout.tsx`, home cards gated on `loaded` (first-timer vs all-caught-up split — handles the hydration flicker correctly), Exams↔Diagnostics cross-links, nav tests updated. Fixed 4 issues found by e2e: (1) DeepSeek dropped `?filter=due` from home due-deck links — **real regression** (link says "2 due" but opened the full deck), restored `page.tsx:80`; (2) DeepSeek reworded the due-card heading, breaking the e2e text contract — reverted to "N flashcards due for review" (`page.tsx:74`); (3) `quiz-difficulty.spec.ts` `getByText('1/3')` tripped strict mode on iPhone SE — **pre-existing on clean develop** (bisected via stash), root cause: React streaming Suspense leaves a hidden page copy in `<div hidden id="S:0">` under `<body>` — scoped both counter assertions to `main`; (4) `app.spec.ts:153` same flake class (client-side nav overlap sees study+quiz h2s) — scoped quiz-heading assertion to `main`.
+Verified: validate:content ✅, audit:content 0/0 ✅, validate:illustrations + layout ✅, vitest 350/350 ✅, lint 0 errors ✅, build ✅, full e2e run 1: 572 passed/4 failed (all 4 diagnosed above); targeted reruns of all 4: green; full e2e run 2 after fixes: 575 passed + 1 flake (app.spec:153, passes on rerun, then hardened); full e2e run 3 (final): **576 passed, 0 failed** ✅.
+Next: user D4-reviews the three chem topic diffs + DeepSeek's nav change → decide commit split (Phase 3 vs nav feature) on `feature/ui-ux-daily-fluency`. Then Phase 4 batches OR rest of landing ship list. Still standing: branch protection on `main` (user), SSM for DeepSeek key, §8 launch checks. Watch item: floating mobile theme toggle may overlap page content — check in the UX-review pass when the branch's surfaces get screenshotted.
+Notes: e2e strict-mode lesson — any `getByText`/`getByRole` on a client-navigated page should be scoped to `main` (hidden `S:0` Suspense duplicates are a Next 16 / React streaming behavior). Turbopack refuses a `node_modules` symlink pointing outside the project root (worktree testing needs a real install). `.agents/` + `skills-lock.json` untracked (session tooling).
+
+---
+
+## 2026-08-12 — Variations Phase 3: 6 chem generators + 3 chem topics group-expanded
+
+Git HEAD: `2a87ff7` (branch `develop`, tree dirty: Phase 3 changes uncommitted — awaiting user D4 content review)
+Done: Phase 3 items 1+2 (partial). **Six table-driven chem generators** in `src/content/generators/` (draw/build split, registered; subagent-built, parent hand-verified one instance each): `chem-electron-config` (Z=1–20, both directions, medium), `chem-ion-formation` (charge + ion-config modes, medium), `chem-isotope-ram` (weighted mean, hard), `chem-half-life` (remaining + elapsed modes, hard), `chem-ph-ratio` (10^ΔpH acidic + alkaline, hard), `chem-compound-naming` (ionic criss-cross + covalent prefixes, medium). New shared helpers in `utils.ts`: `uniqueDistractors` (string analogue; throws if table can't supply 3 unique — loud > duplicates), `aufbauShells`, unicode super/subscript helpers. **Group expansion** (one subagent per topic, existing question ids untouched): `chem-atomic-1` 15→24 q, 11 groups, 4 templates; `chem-bonding-1` 15→29 q, 13 groups, 1 template; `chem-acids-1` 15→27 q, 13 groups, 1 template. Templates join groups of matching difficulty (validator-enforced). Electron-config strings normalized to no-space `2,8,1` house form in chem-atomic-1. `docs/question-variations-plan.md` updated (item 1 ✅; remaining 9 chem topics → Phase 4 queue).
+Verified: validate:content ✅, audit:content 0/0 ✅, vitest 350/350 (61 generator tests incl. KaTeX strict sweep + 200-seed param-space sweeps) ✅, lint 0 errors ✅, build ✅, e2e quiz/journey specs 13 passed ✅, template materialization script (correct answers + reseed redraws) ✅, prod-build smoke — 3 chem quiz pages + subject page 200 ✅.
+Next: user D4-reviews the three topic diffs → commit. Then Phase 4 batches (remaining 9 chem topics group expansion, then math/physics remainder) OR landing ship list (nav fix → hero/pillars/metadata; decide hydration-flicker first). Still standing: branch protection on `main` (user), SSM for DeepSeek key, §8 launch checks on prod domain. Backlog: group-mastery UI surface.
+Notes: `.agents/` + `skills-lock.json` untracked (session tooling artifacts — not ours to commit). Deviation accepted: generator ion-config stems say "the ion it forms" (no −ide anion-name field in the params schema). The audit's ≥3-easy/≥3-hard per-group minimums drove group counts to 11–13/topic (above the ~10 hint) — fine.
+
+---
+
 ## 2026-08-12 — UX_GUIDELINES.md created + standing UX-review pass mandated
 
 Git HEAD: `2e3abf1` (branch `develop`, tree dirty: AGENTS.md + PROGRESS.md modified, `docs/UX_GUIDELINES.md` untracked [this session]; user's untracked GLM docs + `.gitignore` change still pending commit)

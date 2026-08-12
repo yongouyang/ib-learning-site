@@ -11,6 +11,12 @@ import { physFuseRating } from './phys-fuse-rating';
 import { physKineticEnergy } from './phys-kinetic-energy';
 import { physEfficiency } from './phys-efficiency';
 import { physPower } from './phys-power';
+import { chemCompoundNaming } from './chem-compound-naming';
+import { chemElectronConfig } from './chem-electron-config';
+import { chemHalfLife } from './chem-half-life';
+import { chemIonFormation } from './chem-ion-formation';
+import { chemIsotopeRam } from './chem-isotope-ram';
+import { chemPhRatio } from './chem-ph-ratio';
 
 // Registry of parameterized question templates (docs/question-variations-plan.md,
 // Phase 2). Topic JSON `templates[].generator` values must be keys here —
@@ -29,6 +35,12 @@ const all: QuestionGenerator<unknown>[] = [
   physKineticEnergy,
   physEfficiency,
   physPower,
+  chemElectronConfig,
+  chemIonFormation,
+  chemIsotopeRam,
+  chemHalfLife,
+  chemPhRatio,
+  chemCompoundNaming,
 ];
 
 export const GENERATORS: Record<string, QuestionGenerator<unknown>> = Object.fromEntries(

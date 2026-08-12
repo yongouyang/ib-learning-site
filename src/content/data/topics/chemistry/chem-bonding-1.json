@@ -162,7 +162,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Metal + non-metal = ionic bond. Na loses 1e⁻ → Na⁺; Cl gains 1e⁻ → Cl⁻. Opposite ions attract.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "bond-type-identification"
     },
     {
       "id": "chem-bonding-1-q2",
@@ -175,7 +176,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Non-metal + non-metal = covalent. O shares one pair of electrons with each H atom.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "bond-type-identification"
     },
     {
       "id": "chem-bonding-1-q3",
@@ -188,7 +190,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Metals have a 'sea' of delocalised electrons not attached to any specific atom. These free electrons flow as an electric current.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "metallic-conductivity"
     },
     {
       "id": "chem-bonding-1-q4",
@@ -201,7 +204,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Ionic compounds conduct only when ions are mobile. In solids, ions vibrate in fixed positions. Melting frees them to move towards electrodes.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "ionic-conductivity"
     },
     {
       "id": "chem-bonding-1-q5",
@@ -214,7 +218,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Structure determines properties. Diamond's continuous 3D covalent network makes it hard. Graphite's layered structure (weak interlayer forces) allows layers to slide.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "giant-covalent-structure"
     },
     {
       "id": "chem-bonding-1-q6",
@@ -227,7 +232,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Swap-and-drop: Al³⁺ and O²⁻ → Al₂O₃. Total positive charge = 2×3+ = 6+; total negative = 3×2− = 6−. Charges balance.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "naming-and-formulae"
     },
     {
       "id": "chem-bonding-1-q7",
@@ -240,7 +246,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Boiling a simple molecular substance overcomes weak intermolecular forces between molecules. The strong covalent bonds within each molecule remain intact.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "intermolecular-forces"
     },
     {
       "id": "chem-bonding-1-q8",
@@ -253,7 +260,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Copper is a metal — it has delocalised electrons that conduct. NaCl needs to be molten; diamond has no free electrons; water is molecular.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "metallic-conductivity"
     },
     {
       "id": "chem-bonding-1-q9",
@@ -266,7 +274,8 @@
       ],
       "correctIndex": 1,
       "explanation": "MgO is ionic with doubly charged ions (Mg²⁺ and O²⁻). The electrostatic attraction is stronger than in NaCl (Na⁺/Cl⁻), so the melting point is much higher.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "ionic-melting-point"
     },
     {
       "id": "chem-bonding-1-q10",
@@ -279,7 +288,8 @@
       ],
       "correctIndex": 1,
       "explanation": "CH₄ has 4 single covalent bonds. Each H shares 1 electron pair with the central C atom. C achieves a full outer shell (8 electrons total from sharing).",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "dot-and-cross"
     },
     {
       "id": "chem-bonding-1-q11",
@@ -292,7 +302,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Metallic bonding's delocalised electrons allow layers to slide past each other without breaking bonds. Ionic lattices shatter because shifting aligns like-charged ions (++ or −−), causing repulsion.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "malleable-vs-brittle"
     },
     {
       "id": "chem-bonding-1-q12",
@@ -305,7 +316,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Two non-metals → use prefixes: di- (2 N) + tetr- (4 O) + -oxide = dinitrogen tetroxide. (Drop the 'a' in tetra before oxide.)",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "naming-and-formulae"
     },
     {
       "id": "chem-bonding-1-q13",
@@ -318,7 +330,8 @@
       ],
       "correctIndex": 0,
       "explanation": "More delocalised electrons per atom means a stronger electrostatic attraction between the positive ions and the electron sea → more energy required to melt.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "transition-metal-properties"
     },
     {
       "id": "chem-bonding-1-q14",
@@ -331,7 +344,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Carbon has 4 outer electrons. In diamond, all 4 form covalent bonds — no free electrons. In graphite, only 3 form bonds; the 4th is delocalised between layers → can conduct.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "graphite-conductivity"
     },
     {
       "id": "chem-bonding-1-q15",
@@ -344,7 +358,227 @@
       ],
       "correctIndex": 1,
       "explanation": "Ca²⁺ needs two NO₃⁻ to balance: 1 × (+2) + 2 × (−1) = 0. Brackets show two nitrate ions. Formula = Ca(NO₃)₂.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "polyatomic-formulae"
+    },
+    {
+      "id": "chem-bonding-1-q16",
+      "stem": "A strip of magnesium metal is held together by which type of bonding?",
+      "choices": [
+        "Ionic bond",
+        "Covalent bond",
+        "Metallic bond — a lattice of positive ions held by a sea of delocalised electrons",
+        "Hydrogen bond"
+      ],
+      "correctIndex": 2,
+      "explanation": "Metal bonded to metal = metallic bonding. Magnesium's outer electrons are delocalised and move freely around the lattice of Mg²⁺ ions.",
+      "difficulty": "easy",
+      "variantOf": "bond-type-identification"
+    },
+    {
+      "id": "chem-bonding-1-q17",
+      "stem": "Which particles carry the electric current through a copper wire?",
+      "choices": [
+        "Copper ions drifting through the lattice",
+        "Delocalised electrons moving through the metal when a voltage is applied",
+        "Protons jumping from atom to atom",
+        "Neutrons flowing between the nuclei"
+      ],
+      "correctIndex": 1,
+      "explanation": "In a metal the outer electrons are delocalised and free to move — they flow as the current. The positive copper ions stay fixed in the lattice.",
+      "difficulty": "easy",
+      "variantOf": "metallic-conductivity"
+    },
+    {
+      "id": "chem-bonding-1-q18",
+      "stem": "In the giant ionic lattice of sodium chloride, how many Cl⁻ ions surround each Na⁺ ion?",
+      "choices": [
+        "2",
+        "4",
+        "6 — a regular, repeating 3D arrangement of alternating ions",
+        "12"
+      ],
+      "correctIndex": 2,
+      "explanation": "NaCl forms a regular repeating lattice in which each Na⁺ is surrounded by 6 Cl⁻ ions (and each Cl⁻ by 6 Na⁺), attracted in all directions.",
+      "difficulty": "easy",
+      "variantOf": "ionic-lattice-structure"
+    },
+    {
+      "id": "chem-bonding-1-q19",
+      "stem": "Why do ionic compounds such as NaCl have high melting points?",
+      "choices": [
+        "Strong electrostatic forces act between oppositely charged ions throughout the giant lattice, so a lot of energy is needed to separate them",
+        "The covalent bonds between the ions are very strong",
+        "Ionic compounds contain delocalised electrons that hold the structure together",
+        "The ions are very heavy, so they are hard to move"
+      ],
+      "correctIndex": 0,
+      "explanation": "An ionic lattice is held together by strong electrostatic attractions in all directions. Melting means overcoming these forces throughout the whole structure, which needs a high temperature.",
+      "difficulty": "easy",
+      "variantOf": "ionic-lattice-structure"
+    },
+    {
+      "id": "chem-bonding-1-q20",
+      "stem": "Solid potassium bromide (KBr) does not conduct electricity, but a solution of KBr in water does. Why?",
+      "choices": [
+        "Water reacts with KBr to produce free electrons",
+        "Water molecules carry the current between the electrodes",
+        "Dissolving frees the K⁺ and Br⁻ ions from the lattice, so they can move and carry charge",
+        "The solution contains a sea of delocalised electrons"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ionic compounds conduct whenever their ions are free to move — molten or dissolved. In the solid lattice the ions are locked in fixed positions, so no charge can flow.",
+      "difficulty": "medium",
+      "variantOf": "ionic-conductivity"
+    },
+    {
+      "id": "chem-bonding-1-q21",
+      "stem": "Silicon dioxide (SiO₂, sand) is hard and has a very high melting point. Why?",
+      "choices": [
+        "It has strong intermolecular forces between separate SiO₂ molecules",
+        "It has a giant covalent structure — every atom is joined by strong covalent bonds in a continuous network",
+        "It contains metallic bonding between silicon atoms",
+        "It is an ionic compound like NaCl"
+      ],
+      "correctIndex": 1,
+      "explanation": "SiO₂ is a giant covalent (macromolecular) structure like diamond. Melting it requires breaking many strong covalent bonds throughout the network, which takes a lot of energy.",
+      "difficulty": "medium",
+      "variantOf": "giant-covalent-structure"
+    },
+    {
+      "id": "chem-bonding-1-q22",
+      "stem": "Chlorine (Cl₂) is a gas at room temperature but bromine (Br₂) is a liquid. What explains bromine's higher boiling point?",
+      "choices": [
+        "The covalent bond in Br₂ is stronger than in Cl₂",
+        "Br₂ is ionic, so it is harder to boil",
+        "Br₂ molecules are heavier, so they boil more easily",
+        "Br₂ molecules are larger, so the intermolecular forces between them are stronger and need more energy to overcome"
+      ],
+      "correctIndex": 3,
+      "explanation": "Both are simple molecular substances; boiling overcomes the intermolecular forces between molecules, not the covalent bonds. Larger molecules → stronger intermolecular forces → higher boiling point.",
+      "difficulty": "medium",
+      "variantOf": "intermolecular-forces"
+    },
+    {
+      "id": "chem-bonding-1-q23",
+      "stem": "In a dot-and-cross diagram of carbon dioxide (CO₂), how many shared pairs of electrons are there in total?",
+      "choices": [
+        "2",
+        "6",
+        "4 — carbon shares two pairs (a double bond) with each oxygen atom",
+        "8"
+      ],
+      "correctIndex": 2,
+      "explanation": "CO₂ has two double bonds, O=C=O. Each double bond is two shared pairs, so 2 × 2 = 4 shared pairs in total; carbon and both oxygens achieve full outer shells.",
+      "difficulty": "medium",
+      "variantOf": "dot-and-cross"
+    },
+    {
+      "id": "chem-bonding-1-q24",
+      "stem": "Sodium is soft enough to cut with a knife, but iron is hard and strong. Which difference in metallic bonding explains this?",
+      "choices": [
+        "Iron has more delocalised electrons per atom, so the attraction between its positive ions and the electron sea is stronger",
+        "Sodium is held together by covalent bonds instead",
+        "Iron is an alloy, and alloys are always harder",
+        "Sodium atoms have no outer electrons to share"
+      ],
+      "correctIndex": 0,
+      "explanation": "Group 1 metals contribute only one delocalised electron per atom, giving weak metallic bonding (soft, low melting point). Transition metals like iron contribute more delocalised electrons, so the bonding is much stronger.",
+      "difficulty": "medium",
+      "variantOf": "transition-metal-properties"
+    },
+    {
+      "id": "chem-bonding-1-q25",
+      "stem": "Calcium oxide (CaO) melts at ~2572°C but potassium chloride (KCl) melts at ~770°C. Why is CaO's melting point so much higher?",
+      "choices": [
+        "CaO contains metallic bonding as well as ionic bonding",
+        "KCl is a simple molecular substance",
+        "CaO has doubly charged ions (Ca²⁺ and O²⁻), so the electrostatic attraction in its lattice is much stronger than between K⁺ and Cl⁻",
+        "CaO molecules are larger than KCl molecules"
+      ],
+      "correctIndex": 2,
+      "explanation": "Both are giant ionic lattices, but the electrostatic force between ions grows with their charge: 2+ and 2− ions attract far more strongly than 1+ and 1−, so far more energy is needed to melt CaO.",
+      "difficulty": "hard",
+      "variantOf": "ionic-melting-point"
+    },
+    {
+      "id": "chem-bonding-1-q26",
+      "stem": "A copper sheet only dents when struck with a hammer, but a copper sulfate crystal shatters. Why?",
+      "choices": [
+        "In copper, layers of ions slide while the delocalised electron sea keeps bonding them; in copper sulfate, a shifted layer brings like-charged ions together (Cu²⁺ next to Cu²⁺), so the repulsion splits the crystal",
+        "Copper sulfate has weaker bonds than copper, so it breaks more easily",
+        "Copper sulfate is a simple molecular solid with weak intermolecular forces",
+        "Copper is softer than copper sulfate, so it absorbs the blow"
+      ],
+      "correctIndex": 0,
+      "explanation": "Metals are malleable because the sea of delocalised electrons still holds the positive ions after layers slide. Ionic lattices are brittle: a slip aligns like-charged ions and the repulsion cracks the crystal apart.",
+      "difficulty": "hard",
+      "variantOf": "malleable-vs-brittle"
+    },
+    {
+      "id": "chem-bonding-1-q27",
+      "stem": "Graphite is used for the electrodes in electrolysis cells, but diamond never is. Which structural feature makes graphite suitable?",
+      "choices": [
+        "Graphite is a metal, so it conducts electricity",
+        "Graphite contains free ions moving between its layers",
+        "Diamond's atoms are too far apart for charge to flow",
+        "Each carbon in graphite bonds to only 3 others, leaving one delocalised electron per atom free to move along the layers and carry current"
+      ],
+      "correctIndex": 3,
+      "explanation": "In graphite each carbon forms 3 covalent bonds; the 4th outer electron is delocalised between the layers and can flow as an electric current. In diamond all 4 outer electrons are locked in covalent bonds — there are no charge carriers.",
+      "difficulty": "hard",
+      "variantOf": "graphite-conductivity"
+    },
+    {
+      "id": "chem-bonding-1-q28",
+      "stem": "Magnesium nitrate contains Mg²⁺ and NO₃⁻ ions. What is its formula?",
+      "choices": [
+        "MgNO₃",
+        "Mg₂NO₃",
+        "Mg(NO₃)₂",
+        "Mg(NO₃)₃"
+      ],
+      "correctIndex": 2,
+      "explanation": "Mg²⁺ needs two NO₃⁻ ions to balance: 1 × (+2) + 2 × (−1) = 0. Brackets around NO₃ show that the subscript 2 applies to the whole nitrate ion.",
+      "difficulty": "hard",
+      "variantOf": "polyatomic-formulae"
+    },
+    {
+      "id": "chem-bonding-1-q29",
+      "stem": "Sodium carbonate contains Na⁺ and CO₃²⁻ ions. What is its formula?",
+      "choices": [
+        "NaCO₃",
+        "Na(CO₃)₂",
+        "Na₃CO₃",
+        "Na₂CO₃"
+      ],
+      "correctIndex": 3,
+      "explanation": "Two Na⁺ ions balance one CO₃²⁻ ion: 2 × (+1) + 1 × (−2) = 0. No brackets are needed because the formula contains only one carbonate ion.",
+      "difficulty": "hard",
+      "variantOf": "polyatomic-formulae"
+    }
+  ],
+  "templates": [
+    {
+      "generator": "chem-compound-naming",
+      "variantOf": "naming-and-formulae",
+      "params": {
+        "ionic": [
+          { "cationSymbol": "Al", "cationName": "aluminium", "cationCharge": 3, "anionSymbol": "O", "anionName": "oxide", "anionCharge": 2, "formula": "Al₂O₃", "name": "aluminium oxide" },
+          { "cationSymbol": "Mg", "cationName": "magnesium", "cationCharge": 2, "anionSymbol": "O", "anionName": "oxide", "anionCharge": 2, "formula": "MgO", "name": "magnesium oxide" },
+          { "cationSymbol": "Na", "cationName": "sodium", "cationCharge": 1, "anionSymbol": "Cl", "anionName": "chloride", "anionCharge": 1, "formula": "NaCl", "name": "sodium chloride" },
+          { "cationSymbol": "Ca", "cationName": "calcium", "cationCharge": 2, "anionSymbol": "Cl", "anionName": "chloride", "anionCharge": 1, "formula": "CaCl₂", "name": "calcium chloride" },
+          { "cationSymbol": "K", "cationName": "potassium", "cationCharge": 1, "anionSymbol": "O", "anionName": "oxide", "anionCharge": 2, "formula": "K₂O", "name": "potassium oxide" }
+        ],
+        "covalent": [
+          { "formula": "N₂O₄", "name": "dinitrogen tetroxide" },
+          { "formula": "SO₃", "name": "sulfur trioxide" },
+          { "formula": "SO₂", "name": "sulfur dioxide" },
+          { "formula": "CO₂", "name": "carbon dioxide" },
+          { "formula": "CO", "name": "carbon monoxide" },
+          { "formula": "NO₂", "name": "nitrogen dioxide" }
+        ]
+      }
     }
   ]
 }

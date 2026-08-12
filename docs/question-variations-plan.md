@@ -111,15 +111,15 @@ memorizing a seen set.
 4. Unit tests per generator across full param space (answer correctness, distractor plausibility/uniqueness, in-band difficulty).
 5. Wire pilot templates into the Phase 1 pilot topics' groups.
 
-### Phase 3 — Chemistry combinatorial generators
+### Phase 3 — Chemistry combinatorial generators (item 1 DONE 2026-08-12; item 2 in progress: 3 of 12 chem topics)
 
-1. Table-driven generators: electron configuration (Z=1–20), ion formation by group, isotope relative atomic mass, half-life decay, pH ratio, compound naming.
-2. Variant-group expansion of chem topics (agent-authored batches, user review).
+1. ✅ Table-driven generators (all six live in `src/content/generators/`, unit-tested): electron configuration (Z=1–20), ion formation by group, isotope relative atomic mass, half-life decay, pH ratio, compound naming.
+2. Variant-group expansion of chem topics (agent-authored batches, user review per D4). Done: `chem-atomic-1` (11 groups, 24 q, 4 templates), `chem-bonding-1` (13 groups, 29 q, 1 template), `chem-acids-1` (13 groups, 27 q, 1 template). Remaining 9 chem topics move to Phase 4's batch queue.
 3. Gates per phase.
 
 ### Phase 4 — Full KS3 rollout
 
-1. Remaining math + physics topics, then biology + english (authored variant groups only — bio gets at most genetics/magnification/quadrat generators, english none).
+1. Remaining 9 chem topics (group expansion only — generators already exist), then remaining math + physics topics, then biology + english (authored variant groups only — bio gets at most genetics/magnification/quadrat generators, english none).
 2. Per-subject batches with user review (D4).
 3. Revisit paper-set count per course (currently 1 set each) once drilling is live — separate decision.
 
