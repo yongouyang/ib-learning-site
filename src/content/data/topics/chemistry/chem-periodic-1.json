@@ -162,7 +162,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Period 3 = 3 shells. Group 2 = 2 outer electrons. Configuration: 2 + 8 + 2 = 12 electrons (magnesium).",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "electron-configuration"
     },
     {
       "id": "chem-periodic-1-q2",
@@ -175,7 +176,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Outer shell electrons determine reactivity. Same group = same outer electron count = similar chemistry.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "group-similarity"
     },
     {
       "id": "chem-periodic-1-q3",
@@ -188,7 +190,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Down Group 1, atoms are larger. The outer electron is further from the attractive nucleus → weaker hold → easier to lose → more reactive.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "group-reactivity-trend"
     },
     {
       "id": "chem-periodic-1-q4",
@@ -201,7 +204,8 @@
       ],
       "correctIndex": 1,
       "explanation": "A more reactive halogen displaces a less reactive one. Chlorine is above bromine in Group 17, so it displaces Br⁻, forming orange-brown Br₂.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "halogen-displacement"
     },
     {
       "id": "chem-periodic-1-q5",
@@ -214,7 +218,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Mendeleev's gaps and predictions (verified when gallium and germanium were discovered) proved the table's validity. Predictive power = good science.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "periodic-table-history"
     },
     {
       "id": "chem-periodic-1-q6",
@@ -227,7 +232,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Full outer shells = stable electron configuration. There is no energetic drive to react. They are already at maximum stability.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "noble-gases"
     },
     {
       "id": "chem-periodic-1-q7",
@@ -240,7 +246,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Transition metals can lose different numbers of electrons (variable valency). Group 1 always loses exactly 1 outer electron.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "transition-metals"
     },
     {
       "id": "chem-periodic-1-q8",
@@ -253,7 +260,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Coloured compounds are a hallmark of transition metals. This could be chromium(III) (green), nickel(II) (green), or copper(II) (blue-green).",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "identify-transition-metal"
     },
     {
       "id": "chem-periodic-1-q9",
@@ -266,7 +274,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Down Group 17, reactivity decreases. Iodine is below chlorine → less reactive → cannot displace chloride ions. No reaction.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "halogen-displacement"
     },
     {
       "id": "chem-periodic-1-q10",
@@ -279,7 +288,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Metalloids like silicon have intermediate conductivity. Doping with other elements creates transistors — the foundation of all modern electronics.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "metalloids"
     },
     {
       "id": "chem-periodic-1-q11",
@@ -292,7 +302,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Violent water reaction → H₂ + alkali (KOH) is characteristic of Group 1 metals. Storage under oil prevents air/water contact.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "identify-group1-metal"
     },
     {
       "id": "chem-periodic-1-q12",
@@ -305,7 +316,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Moseley determined atomic numbers via X-rays, allowing the table to be ordered by protons. This resolved remaining inconsistencies.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "periodic-table-history"
     },
     {
       "id": "chem-periodic-1-q13",
@@ -318,7 +330,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Larger atoms have outer shells further from nuclear attraction. Halogens react by GAINING electrons — the larger the atom, the harder it is to pull in an extra electron.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "group-reactivity-trend"
     },
     {
       "id": "chem-periodic-1-q14",
@@ -331,7 +344,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Non-metals are mostly brittle solids or gases, poor conductors. Graphite is the unusual exception — it conducts electricity.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "metal-nonmetal-properties"
     },
     {
       "id": "chem-periodic-1-q15",
@@ -344,7 +358,376 @@
       ],
       "correctIndex": 1,
       "explanation": "Mendeleev prioritised chemical behaviour over mass. He argued atomic masses must be wrong — confirmed later by Moseley's atomic number work.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "mendeleev-predictions"
+    },
+    {
+      "id": "chem-periodic-1-q16",
+      "stem": "Lithium, sodium and potassium all react with water in a similar way. What do the three elements have in common?",
+      "choices": [
+        "They each have one electron in their outer shell",
+        "They are all in the same period",
+        "They all have the same number of electron shells",
+        "They are all transition metals"
+      ],
+      "correctIndex": 0,
+      "explanation": "All Group 1 metals have one outer electron, which is why they behave alike chemically — each loses that single electron when it reacts.",
+      "difficulty": "easy",
+      "variantOf": "group-similarity"
+    },
+    {
+      "id": "chem-periodic-1-q17",
+      "stem": "Argon is used to fill incandescent light bulbs because it:",
+      "choices": [
+        "burns brightly when heated",
+        "is unreactive, so it stops the white-hot filament reacting with oxygen",
+        "conducts electricity well",
+        "is the cheapest gas available"
+      ],
+      "correctIndex": 1,
+      "explanation": "Argon has a full outer electron shell, so it will not react with the hot tungsten filament — an unreactive gas protects the filament from oxidising.",
+      "difficulty": "easy",
+      "variantOf": "noble-gases"
+    },
+    {
+      "id": "chem-periodic-1-q18",
+      "stem": "Mendeleev mainly arranged the elements in his 1869 periodic table in order of:",
+      "choices": [
+        "atomic number",
+        "atomic mass",
+        "date of discovery",
+        "alphabetical order"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mendeleev ordered the elements by atomic mass; ordering by atomic number only came later, after Moseley's X-ray work in 1913.",
+      "difficulty": "easy",
+      "variantOf": "periodic-table-history"
+    },
+    {
+      "id": "chem-periodic-1-q19",
+      "stem": "Which is a typical property of MOST metals?",
+      "choices": [
+        "Brittle when solid",
+        "Good conductor of heat and electricity",
+        "Dull surface",
+        "Poor conductor of heat"
+      ],
+      "correctIndex": 1,
+      "explanation": "Metals are lustrous, malleable and good conductors of heat and electricity; brittleness and poor conduction are typical non-metal properties.",
+      "difficulty": "easy",
+      "variantOf": "metal-nonmetal-properties"
+    },
+    {
+      "id": "chem-periodic-1-q20",
+      "stem": "Which element is a metalloid used as a semiconductor in computer chips?",
+      "choices": [
+        "Sodium",
+        "Chlorine",
+        "Silicon",
+        "Iron"
+      ],
+      "correctIndex": 2,
+      "explanation": "Silicon sits on the zigzag line between metals and non-metals; when 'doped' it conducts electricity under controlled conditions, making it essential for chips.",
+      "difficulty": "easy",
+      "variantOf": "metalloids"
+    },
+    {
+      "id": "chem-periodic-1-q21",
+      "stem": "An element is in Group 16 and Period 2. What is its electron configuration?",
+      "choices": [
+        "2, 6",
+        "2, 8, 6",
+        "6, 2",
+        "2, 4"
+      ],
+      "correctIndex": 0,
+      "explanation": "Period 2 = 2 shells; Group 16 = 6 outer electrons. 2 + 6 = 8 electrons (oxygen), so the configuration is 2, 6. The 2, 8, 6 option is sulfur — a Period 3 mistake.",
+      "difficulty": "medium",
+      "variantOf": "electron-configuration"
+    },
+    {
+      "id": "chem-periodic-1-q22",
+      "stem": "Fluorine is far more reactive than iodine. Which statement explains this?",
+      "choices": [
+        "Fluorine atoms are smaller, so the outer shell is closer to the nucleus and pulls in an extra electron more strongly",
+        "Fluorine has more protons than iodine",
+        "Fluorine loses its outer electron more easily",
+        "Iodine already has a full outer shell"
+      ],
+      "correctIndex": 0,
+      "explanation": "Halogens react by gaining an electron. Fluorine tops Group 17 — its small atom attracts an incoming electron most strongly, so it is the most reactive halogen.",
+      "difficulty": "medium",
+      "variantOf": "group-reactivity-trend"
+    },
+    {
+      "id": "chem-periodic-1-q23",
+      "stem": "Bromine water is added to potassium iodide solution. What happens?",
+      "choices": [
+        "Bromine displaces iodine: Br₂ + 2KI → 2KBr + I₂, and the solution darkens",
+        "No reaction — bromine is less reactive than iodine",
+        "Iodine displaces bromine from the bromine water",
+        "Potassium metal is produced"
+      ],
+      "correctIndex": 0,
+      "explanation": "Bromine is above iodine in Group 17, so it is more reactive and displaces the iodide ions; the iodine formed turns the solution yellow-brown.",
+      "difficulty": "medium",
+      "variantOf": "halogen-displacement"
+    },
+    {
+      "id": "chem-periodic-1-q24",
+      "stem": "Which property is typical of transition metals but NOT of Group 1 metals?",
+      "choices": [
+        "They react violently with water",
+        "They form coloured compounds",
+        "They are soft enough to cut with a knife",
+        "They must be stored under oil"
+      ],
+      "correctIndex": 1,
+      "explanation": "Transition metal compounds are coloured (blue CuSO₄, red-brown Fe₂O₃); Group 1 compounds are white or colourless, and Group 1 metals are soft, oil-stored and water-reactive.",
+      "difficulty": "medium",
+      "variantOf": "transition-metals"
+    },
+    {
+      "id": "chem-periodic-1-q25",
+      "stem": "What ion does a sodium atom (electron configuration 2,8,1) form?",
+      "choices": [
+        "Na⁺",
+        "Na⁻",
+        "Na²⁺",
+        "Sodium does not form ions"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sodium is in Group 1, so it loses its one outer electron: 11 − 1 = 10 electrons, giving a charge of +1 — Na⁺.",
+      "difficulty": "medium",
+      "variantOf": "ion-formation"
+    },
+    {
+      "id": "chem-periodic-1-q26",
+      "stem": "A chlorine atom has the electron configuration 2,8,7. What is the configuration of the chloride ion it forms?",
+      "choices": [
+        "2,8,8",
+        "2,8,6",
+        "2,8,7",
+        "2,7"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chlorine is in Group 17, so it gains one electron: 17 + 1 = 18 electrons, giving 2,8,8 — the same configuration as argon. The atom's own configuration (2,8,7) is the trap.",
+      "difficulty": "medium",
+      "variantOf": "ion-formation"
+    },
+    {
+      "id": "chem-periodic-1-q27",
+      "stem": "A metal is hard, dense and has a very high melting point. Its sulfate dissolves to form a bright blue solution. The metal is most likely:",
+      "choices": [
+        "Sodium",
+        "Copper",
+        "Magnesium",
+        "Calcium"
+      ],
+      "correctIndex": 1,
+      "explanation": "A coloured compound (blue copper sulfate) plus hardness and a high melting point point to a transition metal — copper. Group 1 and 2 metals are softer, lower-melting and form colourless compounds.",
+      "difficulty": "hard",
+      "variantOf": "identify-transition-metal"
+    },
+    {
+      "id": "chem-periodic-1-q28",
+      "stem": "A metal is stored under oil. Dropped onto cold water, it melts into a ball that darts about, fizzing vigorously. The metal is most likely:",
+      "choices": [
+        "Lithium",
+        "Sodium",
+        "Iron",
+        "Copper"
+      ],
+      "correctIndex": 1,
+      "explanation": "Storage under oil plus a vigorous water reaction shows a Group 1 metal; melting into a fizzing ball matches sodium — lithium only fizzes gently, while potassium would ignite the hydrogen with a lilac flame.",
+      "difficulty": "hard",
+      "variantOf": "identify-group1-metal"
+    },
+    {
+      "id": "chem-periodic-1-q29",
+      "stem": "Mendeleev predicted the properties of 'eka-aluminium'. When gallium was discovered in 1875, it matched those predictions closely. Why did this matter so much?",
+      "choices": [
+        "It showed his table could make testable predictions, convincing scientists to accept it",
+        "It proved that all atomic masses had been measured incorrectly",
+        "It meant no more elements would ever be discovered",
+        "It showed gallium and aluminium were really the same element"
+      ],
+      "correctIndex": 0,
+      "explanation": "A scientific model earns acceptance when its predictions are verified: gallium's actual density (5.9 g/cm³) almost exactly matched Mendeleev's predicted 6.0 g/cm³, proving the table's power.",
+      "difficulty": "hard",
+      "variantOf": "mendeleev-predictions"
+    }
+  ],
+  "templates": [
+    {
+      "generator": "chem-electron-config",
+      "variantOf": "electron-configuration",
+      "params": {
+        "elements": [
+          {
+            "symbol": "H",
+            "name": "hydrogen",
+            "z": 1
+          },
+          {
+            "symbol": "He",
+            "name": "helium",
+            "z": 2
+          },
+          {
+            "symbol": "Li",
+            "name": "lithium",
+            "z": 3
+          },
+          {
+            "symbol": "Be",
+            "name": "beryllium",
+            "z": 4
+          },
+          {
+            "symbol": "B",
+            "name": "boron",
+            "z": 5
+          },
+          {
+            "symbol": "C",
+            "name": "carbon",
+            "z": 6
+          },
+          {
+            "symbol": "N",
+            "name": "nitrogen",
+            "z": 7
+          },
+          {
+            "symbol": "O",
+            "name": "oxygen",
+            "z": 8
+          },
+          {
+            "symbol": "F",
+            "name": "fluorine",
+            "z": 9
+          },
+          {
+            "symbol": "Ne",
+            "name": "neon",
+            "z": 10
+          },
+          {
+            "symbol": "Na",
+            "name": "sodium",
+            "z": 11
+          },
+          {
+            "symbol": "Mg",
+            "name": "magnesium",
+            "z": 12
+          },
+          {
+            "symbol": "Al",
+            "name": "aluminium",
+            "z": 13
+          },
+          {
+            "symbol": "Si",
+            "name": "silicon",
+            "z": 14
+          },
+          {
+            "symbol": "P",
+            "name": "phosphorus",
+            "z": 15
+          },
+          {
+            "symbol": "S",
+            "name": "sulfur",
+            "z": 16
+          },
+          {
+            "symbol": "Cl",
+            "name": "chlorine",
+            "z": 17
+          },
+          {
+            "symbol": "Ar",
+            "name": "argon",
+            "z": 18
+          },
+          {
+            "symbol": "K",
+            "name": "potassium",
+            "z": 19
+          },
+          {
+            "symbol": "Ca",
+            "name": "calcium",
+            "z": 20
+          }
+        ]
+      }
+    },
+    {
+      "generator": "chem-ion-formation",
+      "variantOf": "ion-formation",
+      "params": {
+        "elements": [
+          {
+            "symbol": "Na",
+            "name": "sodium",
+            "z": 11,
+            "group": 1
+          },
+          {
+            "symbol": "K",
+            "name": "potassium",
+            "z": 19,
+            "group": 1
+          },
+          {
+            "symbol": "Mg",
+            "name": "magnesium",
+            "z": 12,
+            "group": 2
+          },
+          {
+            "symbol": "Ca",
+            "name": "calcium",
+            "z": 20,
+            "group": 2
+          },
+          {
+            "symbol": "Al",
+            "name": "aluminium",
+            "z": 13,
+            "group": 13
+          },
+          {
+            "symbol": "O",
+            "name": "oxygen",
+            "z": 8,
+            "group": 16
+          },
+          {
+            "symbol": "S",
+            "name": "sulfur",
+            "z": 16,
+            "group": 16
+          },
+          {
+            "symbol": "F",
+            "name": "fluorine",
+            "z": 9,
+            "group": 17
+          },
+          {
+            "symbol": "Cl",
+            "name": "chlorine",
+            "z": 17,
+            "group": 17
+          }
+        ]
+      }
     }
   ]
 }

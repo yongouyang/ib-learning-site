@@ -162,7 +162,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Large crystals = slow cooling (intrusive igneous). Magma cooled deep underground over thousands of years, allowing crystals to grow large.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "igneous-formation"
     },
     {
       "id": "chem-earth-1-q2",
@@ -175,7 +176,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Fossils form when organisms are quickly buried in sediment. Igneous rocks form from molten material (too hot for fossils). Metamorphic rocks' heat/pressure destroy most fossils.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "sedimentary-rocks"
     },
     {
       "id": "chem-earth-1-q3",
@@ -188,7 +190,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Photosynthesis: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂. Over ~2 billion years, photosynthetic organisms transformed the atmosphere from anoxic to oxygen-rich.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "atmosphere-evolution"
     },
     {
       "id": "chem-earth-1-q4",
@@ -201,7 +204,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The natural greenhouse effect keeps Earth habitable. The enhanced effect (human-caused) is warming Earth beyond historical norms — the problem is the RATE and MAGNITUDE.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "greenhouse-effect"
     },
     {
       "id": "chem-earth-1-q5",
@@ -214,7 +218,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Incomplete combustion (insufficient O₂) produces CO. CO is colourless, odourless, and deadly — it binds irreversibly to haemoglobin 200× more strongly than O₂.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "incomplete-combustion"
     },
     {
       "id": "chem-earth-1-q6",
@@ -227,7 +232,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Both volcanic eruptions (natural) and burning sulfur-containing fossil fuels (anthropogenic) produce SO₂ — they are the two main sources. Photosynthesis and decomposition do NOT produce SO₂.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "acid-rain"
     },
     {
       "id": "chem-earth-1-q7",
@@ -240,7 +246,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Ocean organisms extract dissolved CO₂ (as carbonate ions) to build shells. Sedimentation of dead organisms forms carbonate rocks — carbon is removed from the short-term cycle.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "limestone-carbon"
     },
     {
       "id": "chem-earth-1-q8",
@@ -253,7 +260,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Catalytic converters reduce toxic CO (to CO₂) and NO (to N₂). Platinum and rhodium catalysts enable this reaction at exhaust temperatures.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "catalytic-converter"
     },
     {
       "id": "chem-earth-1-q9",
@@ -266,7 +274,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Desalination requires enormous amounts of energy to overcome osmotic pressure or boil water. The high cost limits it to wealthy arid regions (Saudi Arabia, UAE, Israel, California).",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "desalination"
     },
     {
       "id": "chem-earth-1-q10",
@@ -279,7 +288,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Fossil fuel combustion releases ancient stored carbon as CO₂. Deforestation reduces the biosphere's capacity to absorb CO₂. Together, these drive rising CO₂.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "co2-rise"
     },
     {
       "id": "chem-earth-1-q11",
@@ -292,7 +302,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Livestock (especially cattle) produce methane through gut bacteria. Rice paddies (flooded fields) also produce methane from anaerobic decomposition. Methane traps ~25× more heat per molecule than CO₂.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "methane"
     },
     {
       "id": "chem-earth-1-q12",
@@ -305,7 +316,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Marble is metamorphosed limestone. The heat and pressure recrystallise the calcium carbonate, producing the characteristic interlocking crystal structure and veining.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "metamorphic-rocks"
     },
     {
       "id": "chem-earth-1-q13",
@@ -318,7 +330,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Ozone (O₃) in the stratosphere absorbs UV-B and UV-C radiation. Without it, surface UV levels would be lethal to most life forms. The ozone layer is recovering thanks to the Montreal Protocol.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "atmosphere-evolution"
     },
     {
       "id": "chem-earth-1-q14",
@@ -331,7 +344,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Energy and transport are the largest CO₂ sources. Switching to renewables eliminates emissions at source. Trees absorb CO₂ (cutting them down increases footprint). Landfills produce methane.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "carbon-footprint"
     },
     {
       "id": "chem-earth-1-q15",
@@ -344,7 +358,176 @@
       ],
       "correctIndex": 1,
       "explanation": "Limestone is ancient sequestered CO₂. Marine organisms incorporated dissolved CO₂ into CaCO₃ shells. Over geological time, these became limestone. Heating releases that ancient carbon back as CO₂.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "limestone-carbon"
+    },
+    {
+      "id": "chem-earth-1-q16",
+      "stem": "Basalt has crystals too small to see with the naked eye. What does this indicate about its formation?",
+      "choices": [
+        "It cooled slowly deep underground, giving crystals time to grow",
+        "It cooled quickly when lava reached the surface (extrusive)",
+        "It formed from compressed layers of sediment",
+        "It was changed by heat and pressure without melting"
+      ],
+      "correctIndex": 1,
+      "explanation": "Small or invisible crystals = fast cooling. Basalt is an extrusive igneous rock: lava solidified quickly at the surface, so crystals had no time to grow. Granite, with large crystals, is the slow-cooling intrusive counterpart.",
+      "difficulty": "medium",
+      "variantOf": "igneous-formation"
+    },
+    {
+      "id": "chem-earth-1-q17",
+      "stem": "A student finds a rock made of visible layers of sand grains pressed together. What type of rock is it?",
+      "choices": [
+        "Igneous",
+        "Sedimentary — the layers are compacted sediment, typical of rocks like sandstone",
+        "Metamorphic",
+        "Volcanic glass"
+      ],
+      "correctIndex": 1,
+      "explanation": "Layers of sand grains pressed and cemented together form a sedimentary rock such as sandstone. Igneous rocks crystallise from magma and metamorphic rocks are recrystallised by heat and pressure — neither forms from sediment layers.",
+      "difficulty": "easy",
+      "variantOf": "sedimentary-rocks"
+    },
+    {
+      "id": "chem-earth-1-q18",
+      "stem": "Which gas made up most of Earth's early atmosphere, released by intense volcanic activity?",
+      "choices": [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon dioxide — released, with water vapour, by volcanoes over the first billion years",
+        "Hydrogen"
+      ],
+      "correctIndex": 2,
+      "explanation": "Volcanoes released mainly CO₂, water vapour and nitrogen; there was virtually no oxygen until photosynthesising algae evolved. Nitrogen is the tempting distractor — it dominates today's atmosphere, not the early one.",
+      "difficulty": "easy",
+      "variantOf": "atmosphere-evolution"
+    },
+    {
+      "id": "chem-earth-1-q19",
+      "stem": "Which statement about the greenhouse effect is correct?",
+      "choices": [
+        "It is entirely caused by human activity",
+        "It is a natural process that keeps Earth warm enough for life — without it the average temperature would be about −18°C",
+        "It is caused by a hole in the ozone layer",
+        "It only operates during the day"
+      ],
+      "correctIndex": 1,
+      "explanation": "Greenhouse gases naturally absorb and re-emit infrared radiation, keeping Earth about 33°C warmer than it would otherwise be (+15°C instead of −18°C). Human emissions ENHANCE this natural effect — the effect itself is not man-made.",
+      "difficulty": "medium",
+      "variantOf": "greenhouse-effect"
+    },
+    {
+      "id": "chem-earth-1-q20",
+      "stem": "Why is carbon monoxide so dangerous to humans?",
+      "choices": [
+        "It has a sharp, choking smell that damages the lungs",
+        "It binds to haemoglobin in the blood, stopping oxygen from being transported around the body",
+        "It dissolves in moisture in the lungs to form an acid",
+        "It is a major cause of acid rain"
+      ],
+      "correctIndex": 1,
+      "explanation": "CO is colourless and odourless, so it gives no warning. It binds to haemoglobin about 200 times more strongly than oxygen, starving the body of O₂ — which is why incomplete combustion in poorly ventilated rooms is so dangerous.",
+      "difficulty": "easy",
+      "variantOf": "incomplete-combustion"
+    },
+    {
+      "id": "chem-earth-1-q21",
+      "stem": "Rain downwind of a coal-fired power station and a busy motorway has a pH of 4. Which two gases are mainly responsible?",
+      "choices": [
+        "Carbon dioxide and methane",
+        "Sulfur dioxide and nitrogen oxides",
+        "Carbon monoxide and water vapour",
+        "Oxygen and nitrogen"
+      ],
+      "correctIndex": 1,
+      "explanation": "SO₂ from sulfur impurities in coal and NOₓ formed in hot car engines both dissolve in rainwater to form acids. CO₂ makes rain only very slightly acidic (natural rain is about pH 5.6), so it cannot explain rain at pH 4.",
+      "difficulty": "hard",
+      "variantOf": "acid-rain"
+    },
+    {
+      "id": "chem-earth-1-q22",
+      "stem": "What is the purpose of a catalytic converter fitted to a car exhaust?",
+      "choices": [
+        "To trap soot particulates in a filter",
+        "To cool the exhaust gases before they are released",
+        "To improve the car's fuel economy",
+        "To convert toxic carbon monoxide and nitrogen monoxide into carbon dioxide and nitrogen"
+      ],
+      "correctIndex": 3,
+      "explanation": "Platinum and rhodium catalysts speed up 2CO + 2NO → 2CO₂ + N₂, turning two toxic gases into much less harmful ones. A catalytic converter does not remove CO₂ or particulates.",
+      "difficulty": "easy",
+      "variantOf": "catalytic-converter"
+    },
+    {
+      "id": "chem-earth-1-q23",
+      "stem": "Which two methods are used to desalinate seawater?",
+      "choices": [
+        "Distillation and reverse osmosis",
+        "Filtration through sand and sedimentation",
+        "Screening and chlorination",
+        "Adding fluoride and lime"
+      ],
+      "correctIndex": 0,
+      "explanation": "Distillation boils off pure water and reverse osmosis forces water through a semipermeable membrane, leaving dissolved salts behind. Filtration, sedimentation and screening remove only undissolved solids — they cannot remove dissolved salt.",
+      "difficulty": "medium",
+      "variantOf": "desalination"
+    },
+    {
+      "id": "chem-earth-1-q24",
+      "stem": "How does deforestation contribute to rising atmospheric CO₂?",
+      "choices": [
+        "Tree roots release methane as they grow",
+        "Fewer trees means less CO₂ is absorbed by photosynthesis, and felled trees are often burnt, releasing their stored carbon",
+        "Bare ground reflects more sunlight back into space",
+        "Leaves produce CO₂ while the tree is alive"
+      ],
+      "correctIndex": 1,
+      "explanation": "Living forests are carbon sinks: photosynthesis locks CO₂ into biomass. Clearing them removes that uptake, and burning or decay of the felled trees releases the stored carbon back as CO₂ — a double effect on atmospheric CO₂.",
+      "difficulty": "medium",
+      "variantOf": "co2-rise"
+    },
+    {
+      "id": "chem-earth-1-q25",
+      "stem": "Methane is far less abundant in the atmosphere than carbon dioxide. Why is it still a serious concern for climate change?",
+      "choices": [
+        "It is the main cause of acid rain",
+        "It directly destroys the ozone layer",
+        "Each methane molecule traps about 25 times more heat than a carbon dioxide molecule",
+        "It is the most abundant gas in the atmosphere"
+      ],
+      "correctIndex": 2,
+      "explanation": "Although much less abundant than CO₂, methane is a far more potent greenhouse gas — roughly 25× more warming per molecule. Major sources are cattle digestion, rice paddies and landfill sites.",
+      "difficulty": "easy",
+      "variantOf": "methane"
+    },
+    {
+      "id": "chem-earth-1-q26",
+      "stem": "Which pair correctly shows a rock and the metamorphic rock it becomes under heat and pressure?",
+      "choices": [
+        "Sandstone → slate",
+        "Shale → slate",
+        "Granite → marble",
+        "Limestone → gneiss"
+      ],
+      "correctIndex": 1,
+      "explanation": "Shale recrystallises into slate under heat and pressure. The other pairs are mismatched: limestone → marble and granite → gneiss are the correct transformations.",
+      "difficulty": "easy",
+      "variantOf": "metamorphic-rocks"
+    },
+    {
+      "id": "chem-earth-1-q27",
+      "stem": "Which change would reduce a household's carbon footprint the most?",
+      "choices": [
+        "Recycling all paper, glass and plastic",
+        "Switching to a renewable electricity tariff and improving home insulation",
+        "Washing clothes at higher temperatures so less water is used",
+        "Leaving devices on standby instead of switching them off"
+      ],
+      "correctIndex": 1,
+      "explanation": "Home heating and electricity are a household's biggest emission sources, so cutting demand (insulation) and decarbonising supply (renewables) save the most CO₂. Recycling helps but saves far less; hotter washes and standby power increase energy use.",
+      "difficulty": "hard",
+      "variantOf": "carbon-footprint"
     }
   ]
 }

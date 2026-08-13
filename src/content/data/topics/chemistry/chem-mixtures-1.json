@@ -162,7 +162,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Filtration uses filter paper — liquid passes through, insoluble solid stays as residue.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "filtration-technique"
     },
     {
       "id": "chem-mixtures-1-q2",
@@ -175,7 +176,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Simple distillation collects pure water as distillate. Filtration wouldn't work (salt is dissolved, not insoluble). Evaporation would lose the water.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "distillation-choice"
     },
     {
       "id": "chem-mixtures-1-q3",
@@ -188,7 +190,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Rf = 3 ÷ 12 = 0.25. Always between 0 and 1.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "rf-calculation"
     },
     {
       "id": "chem-mixtures-1-q4",
@@ -201,7 +204,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Pen ink is itself a mixture of dyes that would dissolve and separate, interfering with the results. Pencil (graphite) is insoluble.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "chromatography-pencil-baseline"
     },
     {
       "id": "chem-mixtures-1-q5",
@@ -214,7 +218,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Both are liquids with close boiling points. Fractional distillation provides repeated condensation/vaporisation cycles to separate them cleanly.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "distillation-choice"
     },
     {
       "id": "chem-mixtures-1-q6",
@@ -227,7 +232,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Slow cooling gives particles time to find the lowest-energy positions in the growing crystal lattice → larger, more ordered crystals. Rapid cooling traps particles randomly → small, impure crystals.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "crystallisation-principles"
     },
     {
       "id": "chem-mixtures-1-q7",
@@ -240,7 +246,8 @@
       ],
       "correctIndex": 1,
       "explanation": "A separating funnel separates immiscible liquids by density. Water (denser) is drained through the tap; oil remains.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "separating-funnel"
     },
     {
       "id": "chem-mixtures-1-q8",
@@ -253,7 +260,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Step 1: Magnet removes iron. Step 2: Add water to dissolve salt. Step 3: Filter — sand stays. Step 4: Evaporate/crystallise filtrate → salt.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "multi-step-separation"
     },
     {
       "id": "chem-mixtures-1-q9",
@@ -266,7 +274,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Water enters at the bottom and exits at the top. This counter-current flow ensures the coolest water meets the vapour at the point where it's about to exit, maximising condensation.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "distillation-condenser"
     },
     {
       "id": "chem-mixtures-1-q10",
@@ -279,7 +288,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Same Rf suggests they COULD be the same, but confirmation requires running the chromatography again with a different solvent — different substances can coincidentally have the same Rf in one solvent.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "rf-interpretation"
     },
     {
       "id": "chem-mixtures-1-q11",
@@ -292,7 +302,8 @@
       ],
       "correctIndex": 1,
       "explanation": "If the spots are in the solvent, they dissolve and mix into the bulk solvent — no separation occurs. The spots must be above the solvent so the mobile phase carries them upwards.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "chromatography-setup"
     },
     {
       "id": "chem-mixtures-1-q12",
@@ -305,7 +316,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Evaporation loses the solvent and can trap impurities in the solid crust. If heated too strongly, some solids decompose thermally. Crystallisation preserves purity and solvent.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "crystallisation-principles"
     },
     {
       "id": "chem-mixtures-1-q13",
@@ -318,7 +330,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Impurities disrupt the crystal lattice → lower melting point and broader melting range.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "purity-melting-point"
     },
     {
       "id": "chem-mixtures-1-q14",
@@ -331,7 +344,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Crude oil is separated into fractions (petrol, kerosene, diesel, bitumen) based on boiling point ranges in a fractionating tower.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "crude-oil-fractional-distillation"
     },
     {
       "id": "chem-mixtures-1-q15",
@@ -344,7 +358,203 @@
       ],
       "correctIndex": 1,
       "explanation": "A spot at the same height (same Rf) suggests one component is the known dye. The other spots are different substances in the mixture.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "chromatogram-identification"
+    },
+    {
+      "id": "chem-mixtures-1-q16",
+      "stem": "A student stirs sand into water and the sand settles at the bottom. Which technique separates the sand from the water?",
+      "choices": [
+        "Filtration",
+        "Evaporation",
+        "Distillation",
+        "Chromatography"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sand is insoluble in water, so filter paper traps it as the residue while the water passes through as the filtrate. Evaporation and distillation recover dissolved solids or liquids, not insoluble ones.",
+      "difficulty": "easy",
+      "variantOf": "filtration-technique"
+    },
+    {
+      "id": "chem-mixtures-1-q17",
+      "stem": "In filtration, what is the liquid that passes through the filter paper called?",
+      "choices": [
+        "The residue",
+        "The filtrate",
+        "The distillate",
+        "The precipitate"
+      ],
+      "correctIndex": 1,
+      "explanation": "The filtrate is the liquid that passes through the paper; the solid trapped on it is the residue. A distillate is collected in distillation, not filtration.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-mixtures-1-q18",
+      "stem": "A student draws the chromatography baseline with an ink pen instead of a pencil. What is the most likely result?",
+      "choices": [
+        "The paper tears along the baseline",
+        "The ink dissolves in the solvent and produces extra spots, spoiling the chromatogram",
+        "The solvent stops travelling up the paper",
+        "Nothing — ink and pencil behave identically"
+      ],
+      "correctIndex": 1,
+      "explanation": "Pen ink is a mixture of soluble dyes, so it dissolves into the rising solvent and separates into spots of its own, mixing with the sample's results. Pencil graphite is insoluble and stays put.",
+      "difficulty": "easy",
+      "variantOf": "chromatography-pencil-baseline"
+    },
+    {
+      "id": "chem-mixtures-1-q19",
+      "stem": "Which mixture is best separated using a separating funnel?",
+      "choices": [
+        "Salt dissolved in water",
+        "Vegetable oil and water",
+        "Ethanol and water",
+        "Two coloured dyes dissolved in water"
+      ],
+      "correctIndex": 1,
+      "explanation": "A separating funnel works on immiscible liquids that form layers by density — oil floats on water, so the denser water can be drained off through the tap. Ethanol and water are miscible, and dissolved solids or dyes need other methods.",
+      "difficulty": "easy",
+      "variantOf": "separating-funnel"
+    },
+    {
+      "id": "chem-mixtures-1-q20",
+      "stem": "Crude oil is separated into useful fractions such as petrol, diesel and bitumen by:",
+      "choices": [
+        "Filtration",
+        "Fractional distillation",
+        "Crystallisation",
+        "Magnetic separation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Crude oil is a mixture of hydrocarbons with different boiling points. In a fractionating tower the vapours condense at different heights, separating the mixture into fractions by boiling range.",
+      "difficulty": "easy",
+      "variantOf": "crude-oil-fractional-distillation"
+    },
+    {
+      "id": "chem-mixtures-1-q21",
+      "stem": "When preparing pure hydrated copper sulfate crystals, why is the solution NOT evaporated to dryness?",
+      "choices": [
+        "Evaporating to dryness would take too long",
+        "Heating to dryness can drive off the water of crystallisation and damage the crystals, so heating is stopped at the crystallisation point",
+        "Copper sulfate boils away with the water",
+        "Dryness makes the crystals redissolve"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hydrated salts lose their water of crystallisation on strong heating, leaving a powdery anhydrous solid instead of well-formed blue crystals. Gentle evaporation to saturation followed by slow cooling protects them.",
+      "difficulty": "medium",
+      "variantOf": "crystallisation-principles"
+    },
+    {
+      "id": "chem-mixtures-1-q22",
+      "stem": "In a chromatogram, a dye spot travels 4 cm while the solvent front travels 10 cm. What is the Rf value of the dye?",
+      "choices": [
+        "2.5",
+        "0.4",
+        "0.04",
+        "40"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rf = distance moved by the spot ÷ distance moved by the solvent front = 4 ÷ 10 = 0.4. Rf is always between 0 and 1, so 2.5 and 40 are impossible.",
+      "difficulty": "medium",
+      "variantOf": "rf-calculation"
+    },
+    {
+      "id": "chem-mixtures-1-q23",
+      "stem": "A mixture contains two miscible liquids with boiling points of 78°C and 83°C. Which technique separates them most effectively?",
+      "choices": [
+        "Simple distillation",
+        "Fractional distillation — the fractionating column gives repeated condensation and re-evaporation, so the close boiling points can be resolved",
+        "Separating funnel",
+        "Filtration"
+      ],
+      "correctIndex": 1,
+      "explanation": "The liquids are miscible, so a separating funnel fails, and their boiling points are too close for simple distillation — much of the higher-boiling liquid would co-distil. A fractionating column separates them cleanly.",
+      "difficulty": "medium",
+      "variantOf": "distillation-choice"
+    },
+    {
+      "id": "chem-mixtures-1-q24",
+      "stem": "In a paper chromatography experiment, the baseline spots are dipped below the surface of the solvent. What happens?",
+      "choices": [
+        "The spots travel up the paper faster",
+        "The spots dissolve straight into the solvent in the tank, so no separation occurs on the paper",
+        "The Rf values of the spots increase",
+        "The paper dissolves in the solvent"
+      ],
+      "correctIndex": 1,
+      "explanation": "The samples must be carried up the dry paper by the rising solvent (the mobile phase). Submerged spots simply dissolve into the bulk solvent and are lost, so no chromatogram forms.",
+      "difficulty": "medium",
+      "variantOf": "chromatography-setup"
+    },
+    {
+      "id": "chem-mixtures-1-q25",
+      "stem": "A pure compound melts sharply at 80°C. An impure sample of the same compound is most likely to melt:",
+      "choices": [
+        "Exactly at 80°C",
+        "Sharply at a temperature above 80°C",
+        "Over a range of temperatures below 80°C, for example 74-79°C",
+        "Only after all the impurities have evaporated"
+      ],
+      "correctIndex": 2,
+      "explanation": "Impurities disrupt the regular crystal lattice, so melting begins below the true melting point and spreads over a range. A sharp melting point at the expected value indicates purity.",
+      "difficulty": "medium",
+      "variantOf": "purity-melting-point"
+    },
+    {
+      "id": "chem-mixtures-1-q26",
+      "stem": "The colouring from a sweet is run by chromatography next to three known dyes. The sample gives two spots: one level with known dye B and one that matches none of the known dyes. What can be concluded?",
+      "choices": [
+        "The sweet contains only dye B",
+        "The sweet contains dye B plus at least one other, unidentified dye",
+        "The sweet contains all three known dyes",
+        "The experiment has failed"
+      ],
+      "correctIndex": 1,
+      "explanation": "The spot level with dye B has the same Rf, suggesting dye B is present. The unmatched spot shows a second component that is none of the reference dyes — the colouring is a mixture.",
+      "difficulty": "medium",
+      "variantOf": "chromatogram-identification"
+    },
+    {
+      "id": "chem-mixtures-1-q27",
+      "stem": "A mixture contains sugar, sand and iron filings. Which sequence separates all three components cleanly?",
+      "choices": [
+        "Distil the mixture to collect the sugar",
+        "Use a magnet to remove the iron → add water and stir to dissolve the sugar → filter off the sand → crystallise the filtrate to recover the sugar",
+        "Add water, then distil the whole mixture to separate the sugar from the sand",
+        "Run the dry mixture through paper chromatography"
+      ],
+      "correctIndex": 1,
+      "explanation": "Each step exploits a different physical property: magnetism removes the iron, water dissolves only the sugar, filtration traps the insoluble sand, and crystallising the filtrate recovers pure sugar crystals.",
+      "difficulty": "hard",
+      "variantOf": "multi-step-separation"
+    },
+    {
+      "id": "chem-mixtures-1-q28",
+      "stem": "During a distillation, the cooling water is connected to enter at the TOP of the condenser and leave at the bottom. What is the likely effect?",
+      "choices": [
+        "Cooling improves because the water flows faster",
+        "The condenser jacket cannot fill completely, so cooling is less efficient and some vapour may escape uncondensed",
+        "The distillate becomes contaminated with tap water",
+        "There is no effect — the direction of flow does not matter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Water entering at the top drains straight out under gravity, leaving air gaps in the jacket. Bottom-in, top-out keeps the jacket full and gives counter-current flow, so the coolest water meets the vapour where it is about to leave.",
+      "difficulty": "hard",
+      "variantOf": "distillation-condenser"
+    },
+    {
+      "id": "chem-mixtures-1-q29",
+      "stem": "Two food dyes, X and Y, have the same Rf value (0.6) in water, but in ethanol X has Rf 0.4 and Y has Rf 0.8. What can be concluded?",
+      "choices": [
+        "X and Y must be the same substance",
+        "X and Y are different substances — matching Rf values in one solvent can be coincidence, but different Rf values in a second solvent confirm they differ",
+        "The experiment in water failed",
+        "Rf values cannot depend on the solvent used"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rf depends on both the substance and the solvent. Equal Rf in one solvent only suggests a possible match; clearly different Rf values under identical conditions show the two dyes are different substances.",
+      "difficulty": "hard",
+      "variantOf": "rf-interpretation"
     }
   ]
 }

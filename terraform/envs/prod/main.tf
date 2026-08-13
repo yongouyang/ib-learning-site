@@ -75,7 +75,8 @@ variable "site_origins" {
   description = "Public site origins for Function URL CORS. Hardcoded to the known distribution/domain URLs: deriving them from the site modules would create a dependency cycle (distribution ↔ /api/* behavior ↔ feedback module). Keep ALL entries — dropping the dev origin breaks Mark with AI on the dev URL."
   type        = list(string)
   default = [
-    "https://d2c1g77zfmjpm3.cloudfront.net", # DEV
+    "https://d2c1g77zfmjpm3.cloudfront.net", # DEV (cloudfront.net URL)
+    "https://dev.octavlearning.com",         # DEV custom subdomain
     "https://octavlearning.com",             # PROD apex
     "https://www.octavlearning.com",         # pre-redirect direct hits
   ]
@@ -121,13 +122,16 @@ module "feedback_api" {
 }
 
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
-# /api/* proxy behavior to the feedback Lambda. This is the pre-cutover
-# instance (cloudfront.net URL only) — no custom domain, no renames, no
-# state moves; the default variable values keep it byte-identical.
+# /api/* proxy behavior to the feedback Lambda. Custom domain: the
+# dev.octavlearning.com alias with its dedicated ACM cert (round 2 of the
+# dev-subdomain cutover — the cert must be ISSUED before this attaches, so it
+# was created in round 1). The cloudfront.net URL keeps working alongside.
 module "site" {
   source = "../../modules/site"
 
   feedback_origin_domain = module.feedback_api.function_url_domain
+  domain_names           = ["dev.octavlearning.com"]
+  acm_certificate_arn    = aws_acm_certificate.dev.arn
 }
 
 # PROD: separate bucket + distribution fronting octavlearning.com (apex + www

@@ -119,7 +119,7 @@ memorizing a seen set.
 
 ### Phase 4 — Full KS3 rollout
 
-1. Remaining 9 chem topics (group expansion only — generators already exist), then remaining math + physics topics, then biology + english (authored variant groups only — bio gets at most genetics/magnification/quadrat generators, english none).
+1. ✅ **Chem done 2026-08-13**: all 9 remaining chem topics group-expanded (12–14 groups, 27–29 q each; 2 templates wired in chem-periodic-1). Next: remaining math + physics topics, then biology + english (authored variant groups only — bio gets at most genetics/magnification/quadrat generators, english none).
 2. Per-subject batches with user review (D4).
 3. Revisit paper-set count per course (currently 1 set each) once drilling is live — separate decision.
 
