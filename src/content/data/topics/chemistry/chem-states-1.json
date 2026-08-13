@@ -162,7 +162,8 @@
       ],
       "correctIndex": 1,
       "explanation": "In gases, particles have large spaces between them — they can be pushed closer together. In solids, particles are already in contact.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "particle-model"
     },
     {
       "id": "chem-states-1-q2",
@@ -175,7 +176,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The plateau in a heating curve represents latent heat — energy goes into overcoming forces between particles, not raising temperature.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "latent-heat-plateau"
     },
     {
       "id": "chem-states-1-q3",
@@ -188,7 +190,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Sublimation bypasses the liquid phase. CO₂ (dry ice) and iodine sublime at room temperature.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "state-change-definitions"
     },
     {
       "id": "chem-states-1-q4",
@@ -201,7 +204,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Lighter particles diffuse faster. NH₃ travels further in the same time, so the white NH₄Cl ring forms nearer to the HCl source.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "diffusion-particle-mass"
     },
     {
       "id": "chem-states-1-q5",
@@ -214,7 +218,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Boyle's Law: P₁V₁ = P₂V₂. 100 × 50 = P₂ × 25. P₂ = 200 kPa. Halve the volume → double the pressure.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "boyles-law-calculation"
     },
     {
       "id": "chem-states-1-q6",
@@ -227,7 +232,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Evaporation removes the most energetic particles from the liquid surface. The remaining liquid has lower average kinetic energy → cooler temperature.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "evaporation-cooling"
     },
     {
       "id": "chem-states-1-q7",
@@ -240,7 +246,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Boiling occurs when vapour pressure = external pressure. At altitude, there's less air above you → lower pressure → boiling occurs below 100°C.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "boiling-point-pressure"
     },
     {
       "id": "chem-states-1-q8",
@@ -253,7 +260,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Impurities disrupt the crystal structure (lower melting point) and make it harder for particles to escape (raise boiling point). E.g., salt on icy roads.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "impurities-melting-boiling"
     },
     {
       "id": "chem-states-1-q9",
@@ -266,7 +274,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Liquid particles are still touching (fixed volume) but can move relative to each other (no fixed shape). Forces are intermediate between solids and gases.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "particle-model"
     },
     {
       "id": "chem-states-1-q10",
@@ -279,7 +288,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Sublimation = solid → gas. Deposition = gas → solid. Frost forming on a cold surface is deposition of water vapour.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "state-change-definitions"
     },
     {
       "id": "chem-states-1-q11",
@@ -292,7 +302,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Increased temperature → increased kinetic energy of gas particles → more collisions (frequency and force) → higher pressure at constant volume.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "gas-pressure-application"
     },
     {
       "id": "chem-states-1-q12",
@@ -305,7 +316,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The model assumes all particles are identical spheres with no forces between them (or simple forces). Reality: different shapes, sizes, and complex intermolecular forces.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "particle-model"
     },
     {
       "id": "chem-states-1-q13",
@@ -318,7 +330,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Latent heat of vaporisation > latent heat of fusion. Completely freeing particles from each other (boiling) requires more energy than just freeing them from fixed positions (melting).",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "latent-heat-comparison"
     },
     {
       "id": "chem-states-1-q14",
@@ -331,7 +344,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Higher temperature = more kinetic energy = faster particle movement = particles spread through the available space more rapidly.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "diffusion-rate-factors"
     },
     {
       "id": "chem-states-1-q15",
@@ -344,7 +358,190 @@
       ],
       "correctIndex": 2,
       "explanation": "At constant volume, increasing temperature → particles gain kinetic energy → collide more frequently and forcefully with walls → pressure rises.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "gas-pressure-temperature"
+    },
+    {
+      "id": "chem-states-1-q16",
+      "stem": "Water vapour in the air forms droplets on the outside of a cold glass. What is this change of state called?",
+      "choices": [
+        "Evaporation",
+        "Condensation — gas to liquid",
+        "Freezing",
+        "Sublimation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Condensation is the change from gas to liquid. Water vapour loses energy on contact with the cold surface and turns back into liquid droplets.",
+      "difficulty": "easy",
+      "variantOf": "state-change-definitions"
+    },
+    {
+      "id": "chem-states-1-q17",
+      "stem": "Why is salt spread on roads in icy weather?",
+      "choices": [
+        "Salt raises the freezing point of water",
+        "Salt lowers the freezing point of water, so ice melts even below 0°C",
+        "Salt absorbs the ice like a sponge",
+        "Salt warms up the road surface"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dissolved salt is an impurity: it lowers water's freezing point, so ice turns back into liquid even when the air is a few degrees below 0°C.",
+      "difficulty": "easy",
+      "variantOf": "impurities-melting-boiling"
+    },
+    {
+      "id": "chem-states-1-q18",
+      "stem": "Why is diffusion much faster in gases than in liquids?",
+      "choices": [
+        "Gas particles are smaller than liquid particles",
+        "Gas particles move faster and have more space to travel through",
+        "Liquids cannot diffuse at all",
+        "Gas particles attract each other more strongly"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gas particles move rapidly with large gaps between them, so they spread through the available space quickly. Liquid particles are close together and move more slowly, so diffusion is slower.",
+      "difficulty": "easy",
+      "variantOf": "diffusion-rate-factors"
+    },
+    {
+      "id": "chem-states-1-q19",
+      "stem": "On a cooling curve, the temperature stays constant while a liquid freezes, even though the substance keeps losing heat to the surroundings. Why?",
+      "choices": [
+        "The substance stops losing energy during freezing",
+        "Energy is released as particles form intermolecular bonds — this balances the heat lost, so the temperature does not fall",
+        "The thermometer cannot measure below room temperature",
+        "Freezing gives the particles extra kinetic energy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Freezing is the reverse of melting: as bonds form between particles, latent heat is given out. This released energy replaces the heat lost to the surroundings, holding the temperature at the freezing point until all the liquid has solidified.",
+      "difficulty": "medium",
+      "variantOf": "latent-heat-plateau"
+    },
+    {
+      "id": "chem-states-1-q20",
+      "stem": "A sealed syringe contains gas at 150 kPa and 40 cm³. The gas slowly expands to 60 cm³ at constant temperature. What is the new pressure?",
+      "choices": [
+        "90 kPa",
+        "100 kPa",
+        "150 kPa",
+        "225 kPa"
+      ],
+      "correctIndex": 1,
+      "explanation": "Boyle's Law: P₁V₁ = P₂V₂. 150 × 40 = P₂ × 60, so P₂ = 6000 ÷ 60 = 100 kPa. Larger volume → particles hit the walls less often → lower pressure.",
+      "difficulty": "medium",
+      "variantOf": "boyles-law-calculation"
+    },
+    {
+      "id": "chem-states-1-q21",
+      "stem": "A damp cloth wrapped around a water bottle helps keep the water cool on a hot day. Why?",
+      "choices": [
+        "The cloth blocks all heat from reaching the bottle",
+        "Water evaporating from the cloth removes the fastest-moving particles, lowering the average kinetic energy of the water left behind",
+        "The cloth releases cold air as it dries",
+        "Evaporation adds energy to the bottle"
+      ],
+      "correctIndex": 1,
+      "explanation": "Evaporation is a cooling process: the most energetic particles escape from the damp cloth's surface, so the water left in the cloth has a lower average kinetic energy. Heat then flows from the bottle into the cooler cloth.",
+      "difficulty": "medium",
+      "variantOf": "evaporation-cooling"
+    },
+    {
+      "id": "chem-states-1-q22",
+      "stem": "Aerosol cans carry a warning: 'do not expose to temperatures above 50°C'. In terms of particles, what is the risk?",
+      "choices": [
+        "The gas particles expand and split the can open",
+        "Heating makes the gas particles move faster, so they collide with the can walls more often and more forcefully — the pressure may rise until the can bursts",
+        "The metal of the can melts at 50°C",
+        "Heat turns the gas into a liquid, which overflows"
+      ],
+      "correctIndex": 1,
+      "explanation": "At constant volume, raising the temperature increases the kinetic energy of the gas particles. More frequent and more forceful collisions with the walls mean higher pressure, which can exceed what the can is built to withstand.",
+      "difficulty": "medium",
+      "variantOf": "gas-pressure-temperature"
+    },
+    {
+      "id": "chem-states-1-q23",
+      "stem": "Which statement about evaporation is correct?",
+      "choices": [
+        "It happens only at the boiling point",
+        "It happens at any temperature, but only at the liquid's surface",
+        "It produces bubbles throughout the liquid",
+        "It occurs only in pure water"
+      ],
+      "correctIndex": 1,
+      "explanation": "Evaporation occurs at all temperatures because the fastest particles at the surface can always escape. Bubbles forming throughout the liquid describe boiling, which happens only at the boiling point.",
+      "difficulty": "medium",
+      "variantOf": "evaporation-vs-boiling"
+    },
+    {
+      "id": "chem-states-1-q24",
+      "stem": "A pan of water is heated until bubbles of gas form throughout the liquid and rise to the surface. The temperature stays at 100°C. This process is best described as:",
+      "choices": [
+        "Evaporation, because gas is leaving the liquid",
+        "Boiling, because it happens throughout the liquid at a constant, specific temperature",
+        "Condensation, because gas is moving upwards",
+        "Sublimation, because no temperature change occurs"
+      ],
+      "correctIndex": 1,
+      "explanation": "Boiling takes place throughout the whole liquid — bubbles form within it — at one specific temperature. Evaporation happens only at the surface and at any temperature.",
+      "difficulty": "medium",
+      "variantOf": "evaporation-vs-boiling"
+    },
+    {
+      "id": "chem-states-1-q25",
+      "stem": "At the same temperature, which of these gases diffuses fastest?",
+      "choices": [
+        "Carbon dioxide (CO₂, Mᵣ=44)",
+        "Oxygen (O₂, Mᵣ=32)",
+        "Ammonia (NH₃, Mᵣ=17)",
+        "Chlorine (Cl₂, Mᵣ=71)"
+      ],
+      "correctIndex": 2,
+      "explanation": "At a given temperature, lighter particles move faster on average, so the gas with the lowest Mᵣ diffuses fastest. NH₃ (Mᵣ=17) is the lightest gas listed.",
+      "difficulty": "hard",
+      "variantOf": "diffusion-particle-mass"
+    },
+    {
+      "id": "chem-states-1-q26",
+      "stem": "A pressure cooker cooks food faster than an open pan. Why?",
+      "choices": [
+        "It traps heat, so less energy is wasted",
+        "The increased pressure raises water's boiling point above 100°C, so the food cooks at a higher temperature",
+        "Steam conducts electricity better than liquid water",
+        "The high pressure physically breaks the food apart"
+      ],
+      "correctIndex": 1,
+      "explanation": "Boiling starts when vapour pressure equals external pressure. Raising the pressure inside the cooker pushes the boiling point above 100°C, and food cooks faster at the higher temperature — the reverse of the high-altitude effect.",
+      "difficulty": "hard",
+      "variantOf": "boiling-point-pressure"
+    },
+    {
+      "id": "chem-states-1-q27",
+      "stem": "A weather balloon is only partly filled with helium at launch. As it rises, the balloon swells and may eventually burst. Why?",
+      "choices": [
+        "The helium heats up and its particles multiply",
+        "External air pressure falls with altitude, so the higher pressure inside the balloon pushes the walls outwards until the rubber fails",
+        "UV radiation weakens the helium particles",
+        "Gravity pulls harder on the balloon at high altitude"
+      ],
+      "correctIndex": 1,
+      "explanation": "Atmospheric pressure decreases with altitude. With less external pressure balancing it, the internal gas pressure expands the balloon; the volume grows until the material can stretch no further and the balloon bursts.",
+      "difficulty": "hard",
+      "variantOf": "gas-pressure-application"
+    },
+    {
+      "id": "chem-states-1-q28",
+      "stem": "Steam at 100°C causes much worse burns than boiling water at 100°C. Why?",
+      "choices": [
+        "Steam particles are larger than water particles",
+        "Steam releases a large amount of latent heat when it condenses on the skin, before the resulting water even begins to cool",
+        "Steam is at a higher temperature than boiling water",
+        "Boiling water evaporates before it touches the skin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Condensing steam gives out the latent heat of vaporisation — the same large quantity of energy that makes boiling the longer plateau on a heating curve. The skin absorbs this energy first, then more heat as the condensed water cools from 100°C.",
+      "difficulty": "hard",
+      "variantOf": "latent-heat-comparison"
     }
   ]
 }

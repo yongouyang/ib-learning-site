@@ -6,6 +6,16 @@
 
 ---
 
+## 2026-08-13 — Variations Phase 4 chem batch: all 12 chem topics now expanded
+
+Git HEAD: `afb336a` (branch `develop`, tree dirty: 9 chem topic JSONs + plan doc + this entry — committed at session end)
+Done: Phase 4 item 1 — the remaining 9 chem topics group-expanded on `develop` (user directive: no feature branch), one coder subagent per topic, Phase-3 pattern: `chem-changes-1` (13 groups, 28q), `chem-earth-1` (13/27), `chem-metals-1` (12/27), `chem-mixtures-1` (13+1 ungrouped/29), `chem-organic-1` (13/29), `chem-periodic-1` (13/29 + 2 templates: chem-electron-config + chem-ion-formation), `chem-rates-1` (13/28), `chem-states-1` (13/28), `chem-working-scientifically-1` (14/29). Existing q1–q15 ids/stems untouched everywhere (only `variantOf` added). No new generators forced — only chem-periodic-1 had skills matching the existing six. **Independent verification swarm** (3 fresh agents, read-only) re-derived all 119 new answers: 0 factual errors, 2 minor findings fixed by parent: chem-states-1-q20 "sealed balloon"→"sealed syringe" (Boyle's-law framing), chem-mixtures-1-q17 ungrouped (terminology recall ≠ technique-choice skill; explicit 1-member groups trip the audit — ungrouped singletons don't). Plan doc updated (Phase 4 chem ✅).
+Verified: validate:content ✅, audit:content 0/0 ✅, vitest 350/350 ✅, lint 0 errors (16 pre-existing warnings) ✅, quiz/journey e2e 39 passed / 3 skipped ✅.
+Next: Phase 4 continues — math + physics remainder (authored groups; generators exist), then bio/english (authored only). Standing: branch protection on `main` (user); SSM for DeepSeek key; §8 launch checks; nav feature via `phase1-nav-restructure.patch` + UX-review pass.
+Notes: judgment calls logged per topic in the subagent reports — eyeball-worthy: chem-rates-1 merged tangent-method into rate-calculation group; chem-organic-1 is 7 easy groups (recall-heavy, mirrors chem-acids-1); chem-working-scientifically-1 at 14 groups (genuinely 14 skills). Mid-flight sibling writes caused transient audit warnings during the parallel run — final tree is 0/0; don't trust audit output captured while a swarm is writing.
+
+---
+
 ## 2026-08-13 — dev.octavlearning.com LIVE (round 2: alias + routing CNAME)
 
 Git HEAD: `f444d33` (origin/develop after PR #3 merge), tree dirty: AGENTS.md + PROGRESS.md modified (this session's doc updates), untracked as before

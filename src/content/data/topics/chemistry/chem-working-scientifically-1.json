@@ -127,7 +127,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The independent variable is the one deliberately changed — here the temperature of the acid. The time is dependent (it is measured), while mass and volume are control variables.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "identify-variables"
     },
     {
       "id": "chem-working-scientifically-1-q2",
@@ -140,7 +141,8 @@
       ],
       "correctIndex": 2,
       "explanation": "The dependent variable is what you measure in response to the change — the time for the reaction to finish. Concentration is independent; flask size and room temperature should be controlled.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "identify-variables"
     },
     {
       "id": "chem-working-scientifically-1-q3",
@@ -153,7 +155,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Keeping control variables constant makes the test valid: any change in the dependent variable must then be caused by the independent variable alone.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "control-variables-purpose"
     },
     {
       "id": "chem-working-scientifically-1-q4",
@@ -166,7 +169,8 @@
       ],
       "correctIndex": 2,
       "explanation": "A prediction states what you expect to happen to the dependent variable when the independent variable changes. The first option is background science, not a prediction.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "identify-prediction"
     },
     {
       "id": "chem-working-scientifically-1-q5",
@@ -179,7 +183,8 @@
       ],
       "correctIndex": 2,
       "explanation": "A hypothesis is an explanation grounded in scientific knowledge that can be tested experimentally — it is much more than an uncheckable guess.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "hypothesis-definition"
     },
     {
       "id": "chem-working-scientifically-1-q6",
@@ -192,7 +197,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Planning starts with the question to be answered. Variables, prediction, equipment and method all follow from it; graphs, means and conclusions come after the data is collected.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "planning-first-step"
     },
     {
       "id": "chem-working-scientifically-1-q7",
@@ -205,7 +211,8 @@
       ],
       "correctIndex": 3,
       "explanation": "A method is a set of instructions: precise steps with named apparatus and quantities let another scientist reproduce the experiment and check the results.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "method-purpose"
     },
     {
       "id": "chem-working-scientifically-1-q8",
@@ -218,7 +225,8 @@
       ],
       "correctIndex": 1,
       "explanation": "A hazard is something that can cause harm, like the acid. The risk is the chance of it actually causing harm, and a precaution is an action taken to reduce that risk.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "hazard-definition"
     },
     {
       "id": "chem-working-scientifically-1-q9",
@@ -231,7 +239,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Pointing the tube away and wearing goggles are precautions that reduce the chance of hot liquid harming anyone. The other options all increase the risk.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "risk-precaution"
     },
     {
       "id": "chem-working-scientifically-1-q10",
@@ -244,7 +253,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Temperature can take any value within a range, so it is continuous. A count of bubbles is discrete, while colour and metal type are categoric.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "continuous-data"
     },
     {
       "id": "chem-working-scientifically-1-q11",
@@ -257,7 +267,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Categoric data takes word values, such as colours. Masses and temperatures are continuous numbers, and bubble counts are discrete numbers.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "categoric-data"
     },
     {
       "id": "chem-working-scientifically-1-q12",
@@ -270,7 +281,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Both temperature and mass dissolved are continuous variables, so a line graph with a line of best fit is the correct choice.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "choose-graph"
     },
     {
       "id": "chem-working-scientifically-1-q13",
@@ -283,7 +295,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The independent variable (the one you changed) goes on the x-axis, and the dependent variable (the one you measured) goes on the y-axis.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "graph-axes"
     },
     {
       "id": "chem-working-scientifically-1-q14",
@@ -296,7 +309,8 @@
       ],
       "correctIndex": 2,
       "explanation": "The mean is the total divided by the number of results: $(4.2 + 4.5 + 4.8) \\div 3 = 13.5 \\div 3 = 4.5$ s. There are no outliers to exclude.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "calculate-mean"
     },
     {
       "id": "chem-working-scientifically-1-q15",
@@ -309,7 +323,204 @@
       ],
       "correctIndex": 3,
       "explanation": "Every reading is shifted by the same amount ($0.2$ g), which is the signature of a systematic error. Repeating readings will not fix it — the balance must be reset to zero.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "error-types"
+    },
+    {
+      "id": "chem-working-scientifically-1-q16",
+      "stem": "A student investigates how the temperature of water affects the time taken for a salt to dissolve. Which of these is a control variable?",
+      "choices": [
+        "The temperature of the water",
+        "The time taken for the salt to dissolve",
+        "The volume of water used",
+        "The colour of the solution"
+      ],
+      "correctIndex": 2,
+      "explanation": "Control variables are kept the same — here the volume of water (and the mass of salt). The temperature is the independent variable and the dissolving time is the dependent variable.",
+      "difficulty": "medium",
+      "variantOf": "identify-variables"
+    },
+    {
+      "id": "chem-working-scientifically-1-q17",
+      "stem": "In a fair test, a student keeps the volume of acid and the mass of magnesium the same in every repeat. Why is this done?",
+      "choices": [
+        "So that any change in the results must be caused by the independent variable",
+        "So that less equipment is needed",
+        "So that the experiment can be finished sooner",
+        "So that the results are easier to plot on a graph"
+      ],
+      "correctIndex": 0,
+      "explanation": "Keeping every other factor constant makes the test valid: only the independent variable can then be responsible for any change in the dependent variable.",
+      "difficulty": "easy",
+      "variantOf": "control-variables-purpose"
+    },
+    {
+      "id": "chem-working-scientifically-1-q18",
+      "stem": "A student writes: \"If the concentration of the acid is doubled, then the volume of gas collected in one minute will increase, because there are more particles available to collide.\" What has the student written?",
+      "choices": [
+        "A hypothesis",
+        "A conclusion",
+        "A prediction",
+        "A control variable"
+      ],
+      "correctIndex": 2,
+      "explanation": "The statement says how the dependent variable (volume of gas) will change when the independent variable (concentration) changes — that is a prediction. A hypothesis is the underlying explanation, and a conclusion comes after the results.",
+      "difficulty": "hard",
+      "variantOf": "identify-prediction"
+    },
+    {
+      "id": "chem-working-scientifically-1-q19",
+      "stem": "Which of these is the best description of a hypothesis?",
+      "choices": [
+        "A testable explanation, based on scientific knowledge, for how or why something happens",
+        "A table of the results collected during the experiment",
+        "A list of safety precautions for the experiment",
+        "A statement of the apparatus needed for the method"
+      ],
+      "correctIndex": 0,
+      "explanation": "A hypothesis explains how or why something happens using scientific ideas, and it must be possible to test it by experiment. Tables, precautions and apparatus lists belong to other parts of an investigation.",
+      "difficulty": "easy",
+      "variantOf": "hypothesis-definition"
+    },
+    {
+      "id": "chem-working-scientifically-1-q20",
+      "stem": "Before writing a method, what should a student do FIRST when planning an investigation?",
+      "choices": [
+        "Choose the colours for the graph of the results",
+        "Decide what question the investigation will answer",
+        "Calculate the mean of the repeat readings",
+        "Write the evaluation of the method"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every plan starts with the question to be answered — the variables, prediction, equipment and method all follow from it. Graphs, means and evaluations all come after the data has been collected.",
+      "difficulty": "easy",
+      "variantOf": "planning-first-step"
+    },
+    {
+      "id": "chem-working-scientifically-1-q21",
+      "stem": "A good method names the apparatus and gives exact volumes, masses and times. The main reason for this is so that...",
+      "choices": [
+        "the method looks neat in a lab book",
+        "another student can repeat the experiment and check the results",
+        "a results table is no longer needed",
+        "the experiment can be done without control variables"
+      ],
+      "correctIndex": 1,
+      "explanation": "Precise instructions let someone else reproduce the experiment and get similar results — that is the test of a good method. Vague steps like \"heat it and see\" cannot be repeated reliably.",
+      "difficulty": "medium",
+      "variantOf": "method-purpose"
+    },
+    {
+      "id": "chem-working-scientifically-1-q22",
+      "stem": "A Bunsen burner flame can cause burns. In scientific language, the flame itself is best described as a...",
+      "choices": [
+        "risk",
+        "precaution",
+        "hazard",
+        "variable"
+      ],
+      "correctIndex": 2,
+      "explanation": "A hazard is something that can cause harm, such as the flame. The risk is the chance of it actually burning someone; standing up and tying back hair are precautions that reduce that risk.",
+      "difficulty": "easy",
+      "variantOf": "hazard-definition"
+    },
+    {
+      "id": "chem-working-scientifically-1-q23",
+      "stem": "Which action reduces the RISK of harm when diluting a corrosive acid?",
+      "choices": [
+        "Wearing goggles and adding the acid slowly to the water",
+        "Working as quickly as possible so less acid is handled",
+        "Smelling the acid carefully to check how strong it is",
+        "Adding the water to the concentrated acid"
+      ],
+      "correctIndex": 0,
+      "explanation": "Goggles protect the eyes from splashes, and adding acid to water lets the larger volume of water absorb the heat released. Adding water to acid can make the mixture boil and spit — never smell chemicals directly either.",
+      "difficulty": "medium",
+      "variantOf": "risk-precaution"
+    },
+    {
+      "id": "chem-working-scientifically-1-q24",
+      "stem": "Which of these is an example of continuous data?",
+      "choices": [
+        "The number of drops of acid added",
+        "The mass of gas produced",
+        "The colour of the indicator at the end",
+        "The type of metal used"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mass can take any value within a range, so it is continuous. A count of drops is discrete (whole numbers only), while colour and metal type are categoric.",
+      "difficulty": "medium",
+      "variantOf": "continuous-data"
+    },
+    {
+      "id": "chem-working-scientifically-1-q25",
+      "stem": "Which set contains only categoric data?",
+      "choices": [
+        "magnesium, zinc, iron",
+        "$3$ g, $5$ g, $7$ g",
+        "$15$ s, $25$ s, $35$ s",
+        "$4$ drops, $8$ drops, $12$ drops"
+      ],
+      "correctIndex": 0,
+      "explanation": "Categoric data takes word values, such as the names of metals. Masses and times are continuous numbers, and a count of drops is discrete — numeric, but not categoric.",
+      "difficulty": "hard",
+      "variantOf": "categoric-data"
+    },
+    {
+      "id": "chem-working-scientifically-1-q26",
+      "stem": "A student counts the bubbles produced when three different metals — magnesium, zinc and iron — each react with acid. What is the best way to present these results?",
+      "choices": [
+        "A line graph with a line of best fit",
+        "A bar chart with gaps between the bars",
+        "A pie chart showing the bubbles as proportions of a whole",
+        "A line graph joining the points dot-to-dot"
+      ],
+      "correctIndex": 1,
+      "explanation": "The type of metal is categoric (the independent variable), so a bar chart with gaps between the bars is correct. A line graph is only used when both variables are continuous.",
+      "difficulty": "medium",
+      "variantOf": "choose-graph"
+    },
+    {
+      "id": "chem-working-scientifically-1-q27",
+      "stem": "On a line graph of experimental results, which variable is plotted on the vertical (y) axis?",
+      "choices": [
+        "The control variable",
+        "The independent variable",
+        "The dependent variable",
+        "The variable measured first"
+      ],
+      "correctIndex": 2,
+      "explanation": "The dependent variable (the one you measured) goes on the y-axis, and the independent variable (the one you changed) goes on the x-axis.",
+      "difficulty": "easy",
+      "variantOf": "graph-axes"
+    },
+    {
+      "id": "chem-working-scientifically-1-q28",
+      "stem": "Three repeat readings for the mass of gas produced are $6.1$ g, $6.4$ g and $6.7$ g. What is the mean mass?",
+      "choices": [
+        "$19.2$ g",
+        "$6.4$ g",
+        "$6.7$ g",
+        "$6.3$ g"
+      ],
+      "correctIndex": 1,
+      "explanation": "The mean is the total divided by the number of results: $(6.1 + 6.4 + 6.7) \\div 3 = 19.2 \\div 3 = 6.4$ g. The total ($19.2$ g) is a common slip — remember to divide by $3$.",
+      "difficulty": "medium",
+      "variantOf": "calculate-mean"
+    },
+    {
+      "id": "chem-working-scientifically-1-q29",
+      "stem": "A student's reaction time when using a stopwatch makes each timing unpredictably a little longer or shorter than it should be. What kind of error is this?",
+      "choices": [
+        "A systematic error",
+        "An outlier",
+        "A random error",
+        "A parallax error"
+      ],
+      "correctIndex": 2,
+      "explanation": "The error shifts each reading by a different, unpredictable amount — that is a random error, and taking repeats and a mean reduces its effect. A systematic error would shift every reading the same way.",
+      "difficulty": "hard",
+      "variantOf": "error-types"
     }
   ]
 }
