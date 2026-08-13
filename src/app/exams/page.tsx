@@ -10,14 +10,11 @@ export default function ExamsPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6">
-      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Mock Exams' }]} />
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-2">Mock Exams</h1>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
-          Timed practice papers — one countdown for the whole paper, unanswered questions
-          count as incorrect when time runs out. All papers are non-calculator.
-        </p>
-      </div>
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Mock Exams' }]} currentAsHeading />
+      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+        Timed practice papers — one countdown for the whole paper, unanswered questions
+        count as incorrect when time runs out. All papers are non-calculator.
+      </p>
 
       {/* Cross-link to Diagnostics — natural pair: diagnose weak areas → practice with exams.
           Stacked layout mirrors the home "Not sure where to start?" card (icon + heading +

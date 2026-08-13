@@ -12,9 +12,10 @@ test.describe('Diagnostics', () => {
     await expect(page.getByRole('link', { name: /DP Applications & Interpretation/ })).toBeVisible();
   });
 
-  test('homepage shows the diagnostic CTA when there are no weak areas', async ({ page }) => {
+  test('homepage hero shows the diagnostic CTA for first-time visitors', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByText('Not sure where to start?')).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Master secondary school/ })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Start with a free diagnostic/ })).toBeVisible();
     await page.getByRole('link', { name: /Start with a free diagnostic/ }).click();
     await page.waitForURL('/diagnostics');
     await expect(page.getByRole('heading', { name: 'Diagnostic Tests', level: 1 })).toBeVisible();

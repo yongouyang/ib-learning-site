@@ -3,7 +3,8 @@ import { test, expect } from '@playwright/test';
 test.describe('Home page', () => {
   test('should show the subject grid', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Octav Learning' })).toBeVisible();
+    // Hero h1 (first-time visitor state) — the logo is no longer a heading.
+    await expect(page.getByRole('heading', { name: /Master secondary school/ })).toBeVisible();
 
     // 5 subject cards — use heading within links
     await expect(page.getByRole('heading', { name: 'Subjects' })).toBeVisible();

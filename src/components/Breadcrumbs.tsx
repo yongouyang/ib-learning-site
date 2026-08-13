@@ -11,7 +11,9 @@ export interface BreadcrumbItem {
 // Trail like: Home › Biology › Cell Structure › Quiz
 // The last item is the current page (not linked). Long labels truncate so the
 // trail stays on one line on phone-width screens.
-export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+// `currentAsHeading` renders the current-page item as the page's <h1>, for
+// pages where a separate title would just duplicate the breadcrumb text.
+export function Breadcrumbs({ items, currentAsHeading = false }: { items: BreadcrumbItem[]; currentAsHeading?: boolean }) {
   return (
     <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-sm mb-4 min-w-0">
       {items.map((item, idx) => {
@@ -20,12 +22,18 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
           <span key={idx} className="flex items-center gap-1 min-w-0">
             {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-gray-400 dark:text-gray-600 shrink-0" aria-hidden="true" />}
             {isLast || !item.href ? (
-              <span
-                aria-current={isLast ? 'page' : undefined}
-                className="text-gray-500 dark:text-gray-400 truncate max-w-[45vw] md:max-w-xs"
-              >
-                {item.label}
-              </span>
+              isLast && currentAsHeading ? (
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 truncate max-w-[45vw] md:max-w-xs">
+                  {item.label}
+                </h1>
+              ) : (
+                <span
+                  aria-current={isLast ? 'page' : undefined}
+                  className="text-gray-500 dark:text-gray-400 truncate max-w-[45vw] md:max-w-xs"
+                >
+                  {item.label}
+                </span>
+              )
             ) : (
               <Link
                 href={item.href}

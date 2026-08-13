@@ -25,8 +25,26 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://octavlearning.com'),
-  title: 'Octav Learning',
-  description: 'Learn and practise for IB exams',
+  title: {
+    default: 'Octav Learning',
+    template: '%s · Octav Learning',
+  },
+  description:
+    'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+  openGraph: {
+    title: 'Octav Learning',
+    description:
+      'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+    url: 'https://octavlearning.com',
+    siteName: 'Octav Learning',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Octav Learning',
+    description:
+      'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+  },
   appleWebApp: {
     capable: true,
     title: 'Octav Learning',
