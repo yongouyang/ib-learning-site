@@ -6,6 +6,26 @@
 
 ---
 
+## 2026-08-13 — dev.octavlearning.com LIVE (round 2: alias + routing CNAME)
+
+Git HEAD: `f444d33` (origin/develop after PR #3 merge), tree dirty: AGENTS.md + PROGRESS.md modified (this session's doc updates), untracked as before
+Done: resumed from round-1 pause — pulled develop (had to remove a stale `.git/index.lock` from the crashed 23:48 session; no git process was running), cert `e66435b3` confirmed ISSUED. PR #3 (`feature/dev-subdomain-alias`, commit `434cf2a`) merged by user: `module.site` gains `domain_names = ["dev.octavlearning.com"]` + `acm_certificate_arn = aws_acm_certificate.dev.arn`, `https://dev.octavlearning.com` added to `site_origins` (feedback CORS) — terraform/envs/prod/main.tf. CI deploy `f444d33` green; alias attached to `E1BMVEW6YOKNUY` (background poller watched it land). User added routing CNAME `dev` → `d2c1g77zfmjpm3.cloudfront.net` (gray cloud). AGENTS.md deploy bullet updated: DEV = dev.octavlearning.com (cloudfront.net URL still works alongside).
+Verified (all ✅): CI run green; apex 200 + title "Octav Learning"; TLS CN=dev.octavlearning.com (Amazon RSA 2048 M04, exp 2027-02-25); deep link /subjects/math 200; sw.js no-cache; old cloudfront.net URL 200; `/api/feedback` `{configured:true}` from the new origin with correct `access-control-allow-origin`.
+Next: standing items unchanged — branch protection on `main` (user); SSM for DeepSeek key; §8 launch checks; nav feature returns via `phase1-nav-restructure.patch` on its own branch + UX-review pass. Phase 4 variation batches OR landing ship list when content work resumes.
+Notes: PWA installs/progress on the cloudfront.net URL don't migrate to the new origin (same as prod cutover — impact nil). Commit of AGENTS.md + PROGRESS.md pending user go-ahead.
+
+---
+
+## 2026-08-13 — dev.octavlearning.com round 1 done: cert PENDING→(expected ISSUED overnight)
+
+Git HEAD: `c93a7ad` (origin/develop; **local develop is behind — pull on resume**), tree clean apart from untracked `.agents/`, `skills-lock.json`, `phase1-nav-restructure.patch`
+Done: dev-subdomain plan agreed (dedicated ACM cert, NOT a SAN on the prod cert — a SAN change replaces the prod cert and pulls PROD into the change cone). PR #2 (`feature/dev-subdomain`, commit `376dfc9`) merged: `aws_acm_certificate.dev` (us-east-1, DNS validation) + `acm_dev_validation_records` output in `terraform/envs/prod/main.tf`; CI deploy applied it, cert created `e66435b3-c2bc-4ea3-bdd6-84c96cb95f41`. User added the CloudFlare validation CNAME — first attempt didn't resolve (name/content mangled, likely the missing `jkddzztszm` middle label in the target); second attempt verified correct via dig on authoritative NS: `_a2a7a3c43a1f62756612b3cd3f621727.dev` → `_a85e9594741f7698f12210270743678b.jkddzztszm.acm-validations.aws.` (gray cloud). Cert was PENDING_VALIDATION at pause time, DNS correct — ACM re-check cadence, expected ISSUED within the hour.
+Verified: terraform fmt/validate ✅ (local, no apply); PR #2 CI green (user confirmed); DNS resolution of the validation record ✅.
+Next (resume here): (1) `git pull` on develop; (2) check cert ISSUED (`aws acm list-certificates --region us-east-1`); (3) implement PR 2: `module.site` gains `domain_names = ["dev.octavlearning.com"]` + `acm_certificate_arn = aws_acm_certificate.dev.arn`, add `https://dev.octavlearning.com` to `site_origins` (feedback CORS) — branch `feature/dev-subdomain-alias`, push, PR link for user (gh CLI NOT installed); (4) after PR 2 deploys: user adds routing CNAME `dev` → `d2c1g77zfmjpm3.cloudfront.net` (gray cloud); (5) verify per plan (200 + title, TLS CN, deep link, /api/feedback configured from new origin, sw.js no-cache, cloudfront.net URL still works); (6) update AGENTS.md deploy bullet (DEV = dev.octavlearning.com). Standing: user D4 review of chem diffs is moot (Phase 3 committed `35a3207`); branch protection on `main` (user); SSM for DeepSeek key; §8 launch checks; nav feature returns via `phase1-nav-restructure.patch` on its own branch + UX-review pass.
+Notes: 10-min cert watcher cron was running during the session — DELETED at pause (no auto PR-2 overnight); re-check manually on resume. CloudFlare gotcha for future records: the ACM validation target has THREE labels before `.acm-validations.aws.` — dropping the middle one silently breaks validation.
+
+---
+
 ## 2026-08-12 — DeepSeek nav reverted; develop tree = Phase 3 only, all gates green
 
 Git HEAD: `2a87ff7` (branch `develop`, tree dirty: Phase 3 + test-hardening changes only)
