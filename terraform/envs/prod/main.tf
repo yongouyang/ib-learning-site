@@ -82,6 +82,23 @@ variable "site_origins" {
   ]
 }
 
+# Accounts feature (docs/architecture-evolution-plan.md §6.4) — values come
+# from GitHub secrets/variables via CI (same pattern as feedback_env); the
+# defaults keep a local plan/validate self-contained but are overridden by the
+# deploy jobs. Shared across DEV and PROD (single-state setup, like the
+# feedback Lambda).
+variable "dynamodb_table_prefix" {
+  description = "Prefix for the accounts-feature DynamoDB tables (octav-users, octav-sessions, octav-otp-codes, octav-progress). Set via the DYNAMODB_TABLE_PREFIX repo variable."
+  type        = string
+  default     = "octav"
+}
+
+variable "ses_from_address" {
+  description = "SES from-address for OTP emails (must be on the verified octavlearning.com domain). Set via the SES_FROM_ADDRESS repo secret."
+  type        = string
+  default     = "noreply@octavlearning.com"
+}
+
 # ACM cert for octavlearning.com (apex + www), DNS-validated. Lives at the
 # root (not the site module) so only the PROD site instance references it —
 # the DEV distribution keeps the CloudFront default cert. Validated via two
@@ -119,6 +136,23 @@ module "feedback_api" {
   zip_path           = "${path.module}/../../../lambda/feedback/dist/feedback-lambda.zip"
   environment        = var.feedback_env
   cors_allow_origins = var.site_origins
+}
+
+# Accounts feature — Phase 0 (docs/architecture-evolution-plan.md §6): the
+# DynamoDB tables + SES domain identity only. No Lambdas yet — those land with
+# their phases (auth/progress/leaderboard) and consume these module outputs.
+# Shared between DEV and PROD like the feedback Lambda.
+module "dynamodb" {
+  source = "../../modules/dynamodb"
+
+  name_prefix = var.dynamodb_table_prefix
+}
+
+module "ses" {
+  source = "../../modules/ses"
+
+  domain       = "octavlearning.com"
+  from_address = var.ses_from_address
 }
 
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
@@ -206,4 +240,32 @@ output "acm_dev_validation_records" {
     for dvo in aws_acm_certificate.dev.domain_validation_options :
     dvo.domain_name => { name = dvo.resource_record_name, value = dvo.resource_record_value }
   }
+}
+
+# Accounts feature — Phase 0 outputs (docs/architecture-evolution-plan.md §6).
+# The SES values are the one-time manual CloudFlare records; the table map is
+# a reference for the phase Lambdas' env vars.
+output "dynamodb_tables" {
+  description = "Accounts-feature DynamoDB table names → ARNs."
+  value = {
+    users     = { name = module.dynamodb.users_table_name, arn = module.dynamodb.users_table_arn }
+    sessions  = { name = module.dynamodb.sessions_table_name, arn = module.dynamodb.sessions_table_arn }
+    otp_codes = { name = module.dynamodb.otp_codes_table_name, arn = module.dynamodb.otp_codes_table_arn }
+    progress  = { name = module.dynamodb.progress_table_name, arn = module.dynamodb.progress_table_arn }
+  }
+}
+
+output "ses_domain_identity_arn" {
+  description = "ARN of the verified SES domain identity."
+  value       = module.ses.domain_identity_arn
+}
+
+output "ses_verification_token" {
+  description = "SES domain verification TXT value for CloudFlare (record name _amazonses.octavlearning.com, gray cloud / DNS only)."
+  value       = module.ses.verification_token
+}
+
+output "ses_dkim_tokens" {
+  description = "Three SES DKIM tokens. For each token X, add a CloudFlare CNAME X._domainkey.octavlearning.com → X.dkim.amazonses.com (gray cloud / DNS only)."
+  value       = module.ses.dkim_tokens
 }

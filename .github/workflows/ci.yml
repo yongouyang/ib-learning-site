@@ -205,6 +205,10 @@ jobs:
       # and rejects multi-line values / curly quotes. Unset secret = {}
       # = unconfigured (GET {configured:false}, POST 501, "Mark with AI" hidden).
       TF_VAR_feedback_env: ${{ secrets.FEEDBACK_ENV || '{}' }}
+      # Accounts feature (Phase 0): DynamoDB table prefix (repo variable) and
+      # SES from-address (repo secret). Defaults match terraform/envs/prod.
+      TF_VAR_dynamodb_table_prefix: ${{ vars.DYNAMODB_TABLE_PREFIX || 'octav' }}
+      TF_VAR_ses_from_address: ${{ secrets.SES_FROM_ADDRESS || 'noreply@octavlearning.com' }}
 
     steps:
       - name: Checkout
@@ -287,6 +291,10 @@ jobs:
       SITE_BUCKET: iblearn-prod-site-305655353474
       DISTRIBUTION_ID: EYC8IOH4L9SXT
       TF_VAR_feedback_env: ${{ secrets.FEEDBACK_ENV || '{}' }}
+      # Accounts feature (Phase 0): DynamoDB table prefix (repo variable) and
+      # SES from-address (repo secret). Defaults match terraform/envs/prod.
+      TF_VAR_dynamodb_table_prefix: ${{ vars.DYNAMODB_TABLE_PREFIX || 'octav' }}
+      TF_VAR_ses_from_address: ${{ secrets.SES_FROM_ADDRESS || 'noreply@octavlearning.com' }}
 
     steps:
       - name: Checkout
