@@ -2,9 +2,22 @@
 # domain and provisions DKIM so OTP emails deliver reliably. Phase 0 = identity
 # only — the OTP auth Lambda (Phase B) is the consumer; moving SES out of the
 # sandbox (production access) is a MANUAL AWS console step, NOT managed here.
+# SES has NO endpoint in ap-east-1 (email.ap-east-1.amazonaws.com doesn't
+# resolve — the first CI apply failed on exactly this), so the caller must
+# pass an ap-southeast-1 provider via the `providers` meta-argument.
 # SPF + DMARC are manual apex TXT records too (not Terraform): check
 # `dig TXT <domain>` first — if an SPF record already exists, merge
 # `include:amazonses.com` into it; a second SPF TXT breaks SPF entirely.
+
+terraform {
+  required_providers {
+    aws = {
+      source                = "hashicorp/aws"
+      version               = "~> 6.0"
+      configuration_aliases = [aws]
+    }
+  }
+}
 
 variable "domain" {
   description = "Sending domain to verify in SES. DKIM/SPF/DMARC records are added manually in CloudFlare (see outputs)."

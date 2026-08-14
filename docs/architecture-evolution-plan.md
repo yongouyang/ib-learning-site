@@ -98,7 +98,7 @@ Rationale:
 4. Lowest risk and cost; can always migrate to Option B later if server-side rendering becomes necessary.
 5. All 4 features can be implemented as Lambda Function URLs behind `/api/*`, exactly like `/api/feedback` today.
 
-**Constraint 2 — ap-east-1 region.** SES (email sending) is available in ap-east-1 but has fewer sending stats/quotas initially. DynamoDB is fully available. This is fine for the current scale.
+**Constraint 2 — ap-east-1 region.** SES (email sending) is NOT available in ap-east-1 — `email.ap-east-1.amazonaws.com` does not resolve (verified by the Phase 0 apply failure, 2026-08-14). The SES domain identity therefore lives in ap-southeast-1, passed into `module.ses` via a provider alias in `terraform/envs/prod/main.tf`. DynamoDB is fully available. This is fine for the current scale.
 
 **Constraint 3 — No local terraform apply (user directive).** All applies are CI-only because `FEEDBACK_ENV` lives only in the GitHub secret. New secrets (SES, DynamoDB table names, JWT signing keys) will need the same treatment — added as GitHub secrets/variables, passed through terraform, no local applies.
 

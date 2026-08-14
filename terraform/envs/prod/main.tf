@@ -57,6 +57,23 @@ provider "aws" {
   }
 }
 
+# SES has no ap-east-1 endpoint (email.ap-east-1.amazonaws.com does not
+# resolve — the first accounts Phase 0 apply failed on this), so the SES
+# domain identity lives in ap-southeast-1 (Singapore — closest SES region to
+# the Hong Kong users). Passed into module.ses via `providers`.
+provider "aws" {
+  alias  = "ap_southeast_1"
+  region = "ap-southeast-1"
+
+  default_tags {
+    tags = {
+      Project     = "IBLearn"
+      ManagedBy   = "terraform"
+      Environment = "prod"
+    }
+  }
+}
+
 # Must match the region of the bootstrap state bucket (see backend above).
 variable "region" {
   description = "Home region (matches the bootstrap state bucket region)."
@@ -150,6 +167,12 @@ module "dynamodb" {
 
 module "ses" {
   source = "../../modules/ses"
+
+  # SES is not available in ap-east-1 (no email.ap-east-1.amazonaws.com
+  # endpoint) — the identity/DKIM live in ap-southeast-1.
+  providers = {
+    aws = aws.ap_southeast_1
+  }
 
   domain       = "octavlearning.com"
   from_address = var.ses_from_address
