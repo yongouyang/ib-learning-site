@@ -25,8 +25,26 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://octavlearning.com'),
-  title: 'Octav Learning',
-  description: 'Learn and practise for IB exams',
+  title: {
+    default: 'Octav Learning',
+    template: '%s · Octav Learning',
+  },
+  description:
+    'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+  openGraph: {
+    title: 'Octav Learning',
+    description:
+      'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+    url: 'https://octavlearning.com',
+    siteName: 'Octav Learning',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Octav Learning',
+    description:
+      'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+  },
   appleWebApp: {
     capable: true,
     title: 'Octav Learning',
@@ -69,6 +87,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </header>
             <div className="flex-1 flex flex-col">
+              {/* Mobile floating theme toggle — desktop has it in the header.
+                  44px target (ThemeToggle size=lg), solid bg + rounded-xl to match
+                  the button/chip radius token and stay legible over scrolling content. */}
+              <div className="md:hidden fixed top-4 right-4 z-40">
+                <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+                  <ThemeToggle size="lg" />
+                </div>
+              </div>
               <main className="flex-1 pb-24 md:pb-0">{children}</main>
               <footer className="px-6 pt-4 pb-24 md:pb-4 text-center text-xs text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-800 space-y-1">
                 <p>

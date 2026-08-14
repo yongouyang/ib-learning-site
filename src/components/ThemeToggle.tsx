@@ -15,8 +15,16 @@ const labels = {
   system: 'System',
 };
 
-export function ThemeToggle() {
+// 'md' = desktop header (mouse-driven, 36px is fine); 'lg' = mobile floating
+// toggle (touch-driven, must meet the 44px floor).
+const sizeClasses = {
+  md: { button: 'w-9 h-9', icon: 'w-5 h-5' },
+  lg: { button: 'w-11 h-11', icon: 'w-6 h-6' },
+};
+
+export function ThemeToggle({ size = 'md' }: { size?: 'md' | 'lg' }) {
   const { theme, setTheme, mounted } = useTheme();
+  const s = sizeClasses[size];
 
   // Avoid hydration mismatch: don't render until mounted.
   if (!mounted) {
@@ -24,10 +32,10 @@ export function ThemeToggle() {
       <button
         type="button"
         aria-label="Theme"
-        className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-500 dark:text-gray-400 opacity-0"
+        className={`${s.button} flex items-center justify-center rounded-lg text-gray-500 dark:text-gray-400 opacity-0`}
         disabled
       >
-        <Sun className="w-5 h-5" />
+        <Sun className={s.icon} />
       </button>
     );
   }
@@ -46,9 +54,9 @@ export function ThemeToggle() {
       onClick={() => setTheme(next[theme])}
       aria-label={`Current theme: ${labels[theme]}. Click to switch.`}
       title={`Theme: ${labels[theme]} (click to switch)`}
-      className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      className={`${s.button} flex items-center justify-center rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors`}
     >
-      <Icon className="w-5 h-5" />
+      <Icon className={s.icon} />
     </button>
   );
 }
