@@ -13,11 +13,12 @@ const USER = {
   ],
 };
 
-const { meMock, verifyOtpMock, logoutMock, updateAccountMock } = vi.hoisted(() => ({
+const { meMock, verifyOtpMock, logoutMock, updateAccountMock, setOnUnauthorizedMock } = vi.hoisted(() => ({
   meMock: vi.fn(),
   verifyOtpMock: vi.fn(),
   logoutMock: vi.fn(),
   updateAccountMock: vi.fn(),
+  setOnUnauthorizedMock: vi.fn(),
 }));
 
 vi.mock('@/lib/auth-client', () => ({
@@ -25,6 +26,7 @@ vi.mock('@/lib/auth-client', () => ({
   verifyOtp: verifyOtpMock,
   logout: logoutMock,
   updateAccount: updateAccountMock,
+  setOnUnauthorized: setOnUnauthorizedMock,
 }));
 
 // Probe component that exposes the context value to assertions.
@@ -56,6 +58,7 @@ beforeEach(() => {
   verifyOtpMock.mockReset();
   logoutMock.mockReset();
   updateAccountMock.mockReset();
+  setOnUnauthorizedMock.mockReset();
 });
 
 function renderProvider() {
@@ -149,5 +152,88 @@ describe('AuthContext', () => {
 
     expect(updateAccountMock).toHaveBeenCalledWith({ displayName: 'New Name' });
     expect(probe.user?.displayName).toBe('New Name');
+  });
+
+  it('a rejected me() still flips loaded and treats the user as logged out (H4)', async () => {
+    meMock.mockRejectedValue(new Error('lambda 500'));
+    renderProvider();
+
+    await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
+    expect(screen.getByTestId('user').textContent).toBe('null');
+  });
+
+  it('a stale mount me() cannot overwrite a completed login (H4)', async () => {
+    let resolveMe: (value: unknown) => void = () => {};
+    meMock.mockReturnValue(new Promise((resolve) => { resolveMe = resolve; }));
+    verifyOtpMock.mockResolvedValue(USER);
+    renderProvider();
+
+    // Login completes while the mount me() is still in flight.
+    await act(async () => {
+      await probe.login('a@example.com', '123456');
+    });
+    expect(screen.getByTestId('user').textContent).toBe('a@example.com');
+
+    // The stale me() now resolves null — it must NOT clear the fresh user.
+    await act(async () => {
+      resolveMe(null);
+      await Promise.resolve();
+    });
+    expect(screen.getByTestId('user').textContent).toBe('a@example.com');
+  });
+
+  it('an authenticated call returning 401 clears the user via the notification hook (M5a)', async () => {
+    meMock.mockResolvedValue(USER);
+    renderProvider();
+    await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
+    expect(screen.getByTestId('user').textContent).toBe('a@example.com');
+
+    // The context registered a handler on mount.
+    const handler = setOnUnauthorizedMock.mock.calls[0]?.[0] as (() => void) | undefined;
+    expect(handler).toBeTypeOf('function');
+
+    act(() => {
+      handler?.();
+    });
+    expect(screen.getByTestId('user').textContent).toBe('null');
+    expect(store['octav_active_profile']).toBeUndefined();
+  });
+
+  it('logout clears local state even when the server request fails (M5b)', async () => {
+    meMock.mockResolvedValue(USER);
+    store['octav_active_profile'] = 'p2';
+    renderProvider();
+    await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
+
+    logoutMock.mockRejectedValue(new Error('network down'));
+    await act(async () => {
+      await expect(probe.logout()).rejects.toThrow('network down');
+    });
+
+    // Local state is cleared regardless; the failure is surfaced to callers.
+    expect(screen.getByTestId('user').textContent).toBe('null');
+    expect(store['octav_active_profile']).toBeUndefined();
+  });
+
+  it('a slow me() resolving after logout must not re-apply the user (round 2)', async () => {
+    let resolveMe: (value: unknown) => void = () => {};
+    meMock.mockReturnValue(new Promise((resolve) => { resolveMe = resolve; }));
+    logoutMock.mockResolvedValue(undefined);
+    renderProvider();
+
+    // Log out while the mount me() is still in flight.
+    await act(async () => {
+      await probe.logout();
+    });
+    expect(screen.getByTestId('user').textContent).toBe('null');
+
+    // The stale me() resolves with a user AFTER the logout — generation
+    // bumping in clearLocalSession must discard it.
+    await act(async () => {
+      resolveMe(USER);
+      await Promise.resolve();
+    });
+    await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
+    expect(screen.getByTestId('user').textContent).toBe('null');
   });
 });

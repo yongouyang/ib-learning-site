@@ -39,6 +39,24 @@ export function getAuthDeps(env: Record<string, string | undefined> = process.en
   const testMode = env.AUTH_TEST_MODE === '1';
   const dummyMode = storageKind === 'dummy' && emailKind === 'dummy';
 
+  // Fail closed (review M1 + round 4): inside a Lambda, dummy wiring AND a
+  // leaked NODE_ENV=test are only ever intentional under an explicit opt-in —
+  // one bad env value must not enable the deterministic 123456 code,
+  // in-memory storage, or test-gated behavior in production.
+  const inLambda = Boolean(env.AWS_LAMBDA_FUNCTION_NAME);
+  if (inLambda && env.AUTH_ALLOW_DUMMY !== '1') {
+    if (storageKind === 'dummy' || emailKind === 'dummy') {
+      throw new Error(
+        '[auth] refusing dummy wiring inside AWS Lambda — set AUTH_ALLOW_DUMMY=1 explicitly only for non-production testing'
+      );
+    }
+    if (env.NODE_ENV === 'test') {
+      throw new Error(
+        '[auth] refusing NODE_ENV=test inside AWS Lambda — test-mode env must not leak into production; set AUTH_ALLOW_DUMMY=1 explicitly only for non-production testing'
+      );
+    }
+  }
+
   let storage: AuthDeps['storage'];
   if (storageKind === 'dummy') {
     storage = getSharedDummyStorage();
@@ -52,6 +70,7 @@ export function getAuthDeps(env: Record<string, string | undefined> = process.en
       sessions: requiredEnv(env, 'AUTH_SESSIONS_TABLE'),
       otp: requiredEnv(env, 'AUTH_OTP_TABLE'),
       progress: requiredEnv(env, 'AUTH_PROGRESS_TABLE'),
+      rateLimits: requiredEnv(env, 'AUTH_RATE_LIMITS_TABLE'),
     });
   } else {
     throw new Error(`[auth] AUTH_STORAGE must be "dummy" or "dynamodb" (got "${storageKind}")`);

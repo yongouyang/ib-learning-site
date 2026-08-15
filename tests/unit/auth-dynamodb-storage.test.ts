@@ -21,13 +21,18 @@ function mockClient(handler?: (cmd: CommandLike) => unknown): DynamoDBDocumentCl
   } as unknown as DynamoDBDocumentClient;
 }
 
-function makeStorage(handler: (cmd: CommandLike) => unknown = () => ({})) {
-  return new DynamoAuthStorage(mockClient(handler), {
-    users: 'octav-users',
-    sessions: 'octav-sessions',
-    otp: 'octav-otp-codes',
-    progress: 'octav-progress',
-  });
+function makeStorage(handler: (cmd: CommandLike) => unknown = () => ({}), clock?: () => number) {
+  return new DynamoAuthStorage(
+    mockClient(handler),
+    {
+      users: 'octav-users',
+      sessions: 'octav-sessions',
+      otp: 'octav-otp-codes',
+      progress: 'octav-progress',
+      rateLimits: 'octav-rate-limits',
+    },
+    clock
+  );
 }
 
 function lastCommand(calls: CommandLike[]): CommandLike {
@@ -136,7 +141,7 @@ describe('DynamoAuthStorage', () => {
     expect(calls.every((c) => c.constructor.name === 'GetCommand')).toBe(true);
   });
 
-  it('updateSession and updateOtp send targeted updates', async () => {
+  it('updateSession sends a targeted update', async () => {
     const calls: CommandLike[] = [];
     const s = makeStorage((cmd) => {
       calls.push(cmd);
@@ -148,14 +153,122 @@ describe('DynamoAuthStorage', () => {
       Key: { sessionId: 's1' },
       UpdateExpression: 'SET lastAccessedAt = :laa, expiresAt = :exp',
     });
+  });
 
-    await s.updateOtp('a@example.com', { attempts: 2 });
-    expect(calls[1].input).toMatchObject({
+  it('incrementOtpAttempts sends an atomic conditional increment (H2)', async () => {
+    const calls: CommandLike[] = [];
+    const s = makeStorage((cmd) => {
+      calls.push(cmd);
+      if (cmd.constructor.name === 'UpdateCommand') return { Attributes: { attempts: 4 } };
+      return {};
+    });
+    expect(await s.incrementOtpAttempts('a@example.com', 5)).toBe(4);
+    const cmd = calls[0].input;
+    expect(cmd).toMatchObject({
       TableName: 'octav-otp-codes',
       Key: { email: 'a@example.com' },
-      UpdateExpression: 'SET attempts = :attempts',
-      ExpressionAttributeValues: { ':attempts': 2 },
+      UpdateExpression: 'SET attempts = attempts + :inc',
+      ConditionExpression: 'attribute_exists(email) AND attempts < :max',
+      ExpressionAttributeValues: { ':inc': 1, ':max': 5 },
+      ReturnValues: 'ALL_NEW',
     });
+  });
+
+  it('incrementOtpAttempts returns null on a conditional failure (lockout)', async () => {
+    const s = makeStorage(() => {
+      const err = new Error('The conditional request failed');
+      err.name = 'ConditionalCheckFailedException';
+      throw err;
+    });
+    expect(await s.incrementOtpAttempts('a@example.com', 5)).toBeNull();
+  });
+
+  it('incrementOtpAttempts rethrows non-conditional failures', async () => {
+    const s = makeStorage(() => {
+      throw new Error('AccessDeniedException');
+    });
+    await expect(s.incrementOtpAttempts('a@example.com', 5)).rejects.toThrow('AccessDeniedException');
+  });
+
+  it('incrementOtpRequestCount writes an epoch-scoped bucket with a fixed-window TTL (H3 round 2)', async () => {
+    const calls: CommandLike[] = [];
+    const s = makeStorage((cmd) => {
+      calls.push(cmd);
+      return {};
+    }, () => 300_000); // 600s windows → epoch 0, expires at 600
+    expect(await s.incrementOtpRequestCount('a@example.com', 3, 600)).toBe(true);
+    const cmd = calls[0].input;
+    expect(cmd).toMatchObject({
+      TableName: 'octav-rate-limits',
+      Key: { bucket: 'otp-request:a@example.com:0' },
+      UpdateExpression: 'SET #c = if_not_exists(#c, :zero) + :inc, expiresAt = :exp',
+      ConditionExpression: 'attribute_not_exists(#c) OR #c < :limit',
+      ExpressionAttributeNames: { '#c': 'count' },
+      ExpressionAttributeValues: { ':zero': 0, ':inc': 1, ':limit': 3, ':exp': 600 },
+    });
+  });
+
+  it('incrementOtpRequestCount rolls to a NEW bucket when the window elapses (atomic reset)', async () => {
+    const calls: CommandLike[] = [];
+    let now = 300_000; // epoch 0
+    const s = makeStorage((cmd) => {
+      calls.push(cmd);
+      return {};
+    }, () => now);
+
+    await s.incrementOtpRequestCount('a@example.com', 3, 600);
+    await s.incrementOtpRequestCount('a@example.com', 3, 600);
+    expect((calls[0].input.Key as { bucket: string }).bucket).toBe('otp-request:a@example.com:0');
+    expect((calls[1].input.Key as { bucket: string }).bucket).toBe('otp-request:a@example.com:0');
+
+    now = 900_000; // window epoch 1 — brand-new item, attribute_not_exists passes
+    await s.incrementOtpRequestCount('a@example.com', 3, 600);
+    const rolled = calls[2].input;
+    expect((rolled.Key as { bucket: string }).bucket).toBe('otp-request:a@example.com:1');
+    expect(rolled.ExpressionAttributeValues).toMatchObject({ ':exp': 1200 });
+  });
+
+  it('incrementOtpRequestCount returns false when the budget is spent', async () => {
+    const s = makeStorage(() => {
+      const err = new Error('The conditional request failed');
+      err.name = 'ConditionalCheckFailedException';
+      throw err;
+    });
+    expect(await s.incrementOtpRequestCount('a@example.com', 3, 600)).toBe(false);
+  });
+
+  it('getOtp returns null for creation-claim markers (round 2: no 500 on the marker)', async () => {
+    const s = makeStorage(() => ({
+      Item: { email: 'a@example.com', marker: 'user-creation-claim', createdAt: 'now' },
+    }));
+    expect(await s.getOtp('a@example.com')).toBeNull();
+  });
+
+  it('getOtp returns null for items missing salt even with a codeHash', async () => {
+    const s = makeStorage(() => ({ Item: { email: 'a@example.com', codeHash: 'h' } }));
+    expect(await s.getOtp('a@example.com')).toBeNull();
+  });
+
+  it('claimEmailForUserCreation puts a conditional uniqueness marker (M3)', async () => {
+    const calls: CommandLike[] = [];
+    const s = makeStorage((cmd) => {
+      calls.push(cmd);
+      return {};
+    });
+    expect(await s.claimEmailForUserCreation('a@example.com')).toBe(true);
+    const cmd = calls[0].input;
+    expect(cmd.TableName).toBe('octav-otp-codes');
+    expect(cmd.ConditionExpression).toBe('attribute_not_exists(email)');
+    expect(cmd.Item).toMatchObject({ email: 'a@example.com', marker: 'user-creation-claim' });
+  });
+
+  it('claimEmailForUserCreation returns false when another login won the claim', async () => {
+    const s = makeStorage(() => {
+      const err = new Error('The conditional request failed');
+      err.name = 'ConditionalCheckFailedException';
+      throw err;
+    });
+    expect(await s.claimEmailForUserCreation('a@example.com')).toBe(false);
   });
 
   it('deleteUser/deleteSession/deleteOtp send DeleteCommands on the right tables', async () => {
@@ -217,5 +330,71 @@ describe('DynamoAuthStorage', () => {
     expect(deletes).toHaveLength(2);
     expect(deletes[0].input).toEqual({ TableName: 'octav-progress', Key: { userId: 'u1', dataType: 'quiz' } });
     expect(deletes[1].input).toEqual({ TableName: 'octav-progress', Key: { userId: 'u1', dataType: 'exam' } });
+  });
+});
+
+describe('dummy ↔ DynamoDB parity (round 2)', () => {
+  // Simulated DocumentClient implementing the exact UpdateCommand semantics of
+  // the real DynamoDB counter: attribute_not_exists OR count < limit passes,
+  // otherwise ConditionalCheckFailedException. Item state per bucket.
+  function simulatedDdb() {
+    const items = new Map<string, { count: number; expiresAt: number }>();
+    const send = async (cmd: unknown) => {
+      const { input } = cmd as {
+        input: {
+          Key: { bucket: string };
+          ExpressionAttributeValues: Record<string, number>;
+        };
+      };
+      const bucket = input.Key.bucket;
+      const limit = input.ExpressionAttributeValues[':limit'];
+      const exp = input.ExpressionAttributeValues[':exp'];
+      const item = items.get(bucket);
+      if (!item || item.count < limit) {
+        items.set(bucket, { count: (item?.count ?? 0) + 1, expiresAt: exp });
+        return {};
+      }
+      const err = new Error('The conditional request failed');
+      err.name = 'ConditionalCheckFailedException';
+      throw err;
+    };
+    return { send } as unknown as DynamoDBDocumentClient;
+  }
+
+  it('produces identical allow/deny sequences across a window roll', async () => {
+    const { InMemoryAuthStorage } = await import('@/lib/auth/dummy');
+    let now = 300_000; // epoch 0
+    const clock = () => now;
+    const dummy = new InMemoryAuthStorage(clock);
+    const ddb = new DynamoAuthStorage(
+      simulatedDdb(),
+      {
+        users: 'u', sessions: 's', otp: 'o', progress: 'p', rateLimits: 'r',
+      },
+      clock
+    );
+
+    const sequence = [true, true, true, false]; // within window: 3 allowed, 4th denied
+    const afterRoll = [true, true, true, false, false, false]; // fresh 3-budget, then denied
+
+    const dummyResults: boolean[] = [];
+    const ddbResults: boolean[] = [];
+    for (const _expected of sequence) {
+      dummyResults.push(await dummy.incrementOtpRequestCount('a@example.com', 3, 600));
+      ddbResults.push(await ddb.incrementOtpRequestCount('a@example.com', 3, 600));
+    }
+    expect(dummyResults).toEqual(sequence);
+    expect(ddbResults).toEqual(sequence);
+
+    // Window rolls: both reset atomically and allow another full budget.
+    now = 900_000; // epoch 1
+    const dummyRoll: boolean[] = [];
+    const ddbRoll: boolean[] = [];
+    for (const _expected of afterRoll) {
+      dummyRoll.push(await dummy.incrementOtpRequestCount('a@example.com', 3, 600));
+      ddbRoll.push(await ddb.incrementOtpRequestCount('a@example.com', 3, 600));
+    }
+    expect(dummyRoll).toEqual(afterRoll);
+    expect(ddbRoll).toEqual(afterRoll);
   });
 });

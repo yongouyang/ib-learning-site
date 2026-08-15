@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { z } from 'zod';
 
 // Accounts feature (Phase B) — shared types and contract constants
@@ -13,14 +14,26 @@ export const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30; // 30 days, refreshed 
 export const OTP_TTL_SECONDS = 600; // 10 minutes from creation
 export const OTP_MAX_ATTEMPTS = 5; // then the code is deleted; request a new one
 
-// Rate limits (plan §2.5): per-email and per-IP sliding windows, in-memory —
-// on serverless this is per-instance, a first line against casual abuse (the
-// same tradeoff documented for the feedback handler's limiter).
+// Rate limits (plan §2.5). The per-EMAIL request-otp budget is enforced by a
+// DURABLE DynamoDB counter via the storage interface (H3 — in-memory Maps
+// reset per Lambda instance and would multiply the email-bomb budget by the
+// instance count). The per-IP lines (request-otp + verify-otp) stay in-memory:
+// a coarse first line only — schools and carriers share IPs via NAT/CGNAT.
 export const OTP_REQUESTS_PER_EMAIL_PER_WINDOW = 3;
-// Coarse per-IP line only (the per-email limit is the per-target defense):
-// generous on purpose — schools and mobile carriers share IPs via NAT/CGNAT.
 export const OTP_REQUESTS_PER_IP_PER_WINDOW = 30;
+export const VERIFY_OTP_REQUESTS_PER_EMAIL_PER_WINDOW = 20; // enough for 2 codes × 5 attempts + margin
+export const VERIFY_OTP_REQUESTS_PER_IP_PER_WINDOW = 60;
 export const RATE_WINDOW_MS = 10 * 60_000;
+
+/**
+ * Sessions at rest are keyed by the SHA-256 of the cookie token (review M2):
+ * the cookie keeps the high-entropy raw token, DynamoDB only ever sees the
+ * hash, so a table dump is not a credential bundle. The token is a UUIDv4
+ * (122 bits) — a plain unsalted hash suffices (no offline brute force).
+ */
+export function hashSessionToken(token: string): string {
+  return createHash('sha256').update(token).digest('hex');
+}
 
 // --- Records ------------------------------------------------------------------
 
@@ -43,7 +56,7 @@ export interface UserRecord {
 }
 
 export interface SessionRecord {
-  sessionId: string; // opaque UUID, the cookie value (no JWT — plan §2.2)
+  sessionId: string; // sha256 of the cookie token (review M2) — the raw token never touches storage
   userId: string;
   email: string;
   createdAt: string; // ISO
@@ -60,6 +73,18 @@ export interface OtpRecord {
   attempts: number;
   createdAt: string; // ISO
   expiresAt: number; // epoch seconds — DynamoDB TTL on octav-otp-codes
+}
+
+/**
+ * First-account-creation uniqueness marker (review M3, round 2): it lives in
+ * the SAME octav-otp-codes item space under the email key (no codeHash), so
+ * storage MUST treat items without codeHash as "no OTP" — see getOtp. The
+ * marker is overwritten by the next request-otp and removed by deleteOtp.
+ */
+export interface EmailClaimMarker {
+  email: string;
+  marker: 'user-creation-claim';
+  createdAt: string;
 }
 
 /** Public user shape returned by verify-otp/me/account — never internal-only fields. */
@@ -85,8 +110,32 @@ export interface AuthStorage {
 
   createOtp(otp: OtpRecord): Promise<void>;
   getOtp(email: string): Promise<OtpRecord | null>;
-  updateOtp(email: string, updates: { attempts: number }): Promise<void>;
+  /**
+   * Atomically increment the OTP attempt counter (review H2). Returns the new
+   * count, or null when the record is missing or already at/over `max`
+   * (lockout) — the DynamoDB implementation backs this with
+   * `SET attempts = attempts + 1` + `ConditionExpression: attempts < :max`,
+   * so N concurrent guesses cannot each ride the same read count (a
+   * read-then-write would allow ~5×N).
+   */
+  incrementOtpAttempts(email: string, max: number): Promise<number | null>;
   deleteOtp(email: string): Promise<void>;
+
+  /**
+   * Durable request-otp per-EMAIL rate limit (review H3). Atomically
+   * increments a windowed counter (TTL'd); false = over budget. The dummy
+   * mirrors the same semantics in memory.
+   */
+  incrementOtpRequestCount(email: string, limit: number, windowSeconds: number): Promise<boolean>;
+
+  /**
+   * Atomically claim an email for FIRST account creation (review M3) — a
+   * uniqueness marker that serializes two concurrent logins for the same new
+   * email inside the GSI propagation window, so only one userId is created.
+   * True = this caller won; false = another caller already claimed (the
+   * handler then re-queries the email GSI for the winner's user row).
+   */
+  claimEmailForUserCreation(email: string): Promise<boolean>;
 
   // Progress table (Phase C is the real consumer; §9 Q8 export/delete needs
   // the plumbing now so erase/portability work from day one).

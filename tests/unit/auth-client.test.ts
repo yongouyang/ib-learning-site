@@ -10,6 +10,7 @@ import {
   exportData,
   deleteAccount,
   AuthApiError,
+  setOnUnauthorized,
 } from '@/lib/auth-client';
 
 const fetchMock = vi.fn();
@@ -153,5 +154,28 @@ describe('auth-client', () => {
 
     expect(fetchMock.mock.calls[0][0]).toBe('/api/auth/delete');
     expect(fetchMock.mock.calls[0][1].method).toBe('POST');
+  });
+
+  it('notifies the unauthorized handler when an authenticated call returns 401 (M5a)', async () => {
+    const onUnauthorized = vi.fn();
+    setOnUnauthorized(onUnauthorized);
+    fetchMock.mockResolvedValue(jsonBody({ error: 'Not authenticated.' }, 401, false));
+
+    await expect(updateAccount({ displayName: 'X' })).rejects.toBeInstanceOf(AuthApiError);
+    expect(onUnauthorized).toHaveBeenCalledTimes(1);
+
+    // Cleanup: other tests must not see this handler.
+    setOnUnauthorized(null);
+  });
+
+  it('does not notify the unauthorized handler for non-401 failures', async () => {
+    const onUnauthorized = vi.fn();
+    setOnUnauthorized(onUnauthorized);
+    fetchMock.mockResolvedValue(jsonBody({ error: 'Bad request' }, 400, false));
+
+    await expect(updateAccount({ displayName: 'X' })).rejects.toBeInstanceOf(AuthApiError);
+    expect(onUnauthorized).not.toHaveBeenCalled();
+
+    setOnUnauthorized(null);
   });
 });

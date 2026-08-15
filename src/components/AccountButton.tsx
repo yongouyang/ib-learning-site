@@ -19,10 +19,13 @@ export function AccountButton({ variant }: { variant: 'desktop' | 'mobile' }) {
   const { user, activeProfile, setActiveProfile, logout } = useAuth();
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   const close = useCallback(() => setOpen(false), []);
 
-  // Custom popover: close on click outside the trigger/menu or on Escape.
+  // Custom popover: close on click outside the trigger/menu or on Escape,
+  // returning focus to the trigger (review low) so keyboard users don't get
+  // dropped at the top of the page.
   useEffect(() => {
     if (!open) return;
 
@@ -32,7 +35,10 @@ export function AccountButton({ variant }: { variant: 'desktop' | 'mobile' }) {
       }
     }
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === 'Escape') {
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
     }
 
     document.addEventListener('mousedown', onPointerDown);
@@ -44,6 +50,17 @@ export function AccountButton({ variant }: { variant: 'desktop' | 'mobile' }) {
       document.removeEventListener('keydown', onKeyDown);
     };
   }, [open]);
+
+  async function handleSignOut() {
+    close();
+    try {
+      await logout(); // clears local state regardless; rethrows on failure
+    } catch (err) {
+      // The UI is already logged out; surface the server-side failure so it
+      // isn't silent — the cookie may still be valid until it expires.
+      console.error('[auth] sign-out request failed:', err instanceof Error ? err.message : err);
+    }
+  }
 
   // Logged out (and the first-paint state while the session loads — same
   // hydration-swap convention as ProgressContext; no skeleton needed).
@@ -74,6 +91,7 @@ export function AccountButton({ variant }: { variant: 'desktop' | 'mobile' }) {
   const trigger =
     variant === 'mobile' ? (
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-label="Account menu"
@@ -85,6 +103,7 @@ export function AccountButton({ variant }: { variant: 'desktop' | 'mobile' }) {
       </button>
     ) : (
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
@@ -151,10 +170,7 @@ export function AccountButton({ variant }: { variant: 'desktop' | 'mobile' }) {
           </Link>
           <button
             type="button"
-            onClick={async () => {
-              close();
-              await logout();
-            }}
+            onClick={handleSignOut}
             className="w-full min-h-[44px] text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
           >
             Sign out

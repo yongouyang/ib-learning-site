@@ -18,8 +18,17 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [resending, setResending] = useState(false);
+  // Resend cooldown (review M5c): 30s between code sends — two impatient
+  // clicks used to burn 2 of the 3-per-10-min budget and self-lock the user.
+  const RESEND_COOLDOWN_MS = 30_000;
+  const [resendAllowedAt, setResendAllowedAt] = useState(0);
+  const [nowTick, setNowTick] = useState(() => Date.now());
 
-  // Already signed in → go home.
+  useEffect(() => {
+    const id = setInterval(() => setNowTick(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
   useEffect(() => {
     if (loaded && user) router.replace('/');
   }, [loaded, user, router]);
@@ -30,6 +39,7 @@ export default function LoginPage() {
     setBusy(true);
     try {
       await requestOtp(email);
+      setResendAllowedAt(Date.now() + RESEND_COOLDOWN_MS);
       setStep('code');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Could not send your code. Please try again.');
@@ -57,6 +67,7 @@ export default function LoginPage() {
     setResending(true);
     try {
       await requestOtp(email);
+      setResendAllowedAt(Date.now() + RESEND_COOLDOWN_MS);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Could not send your code. Please try again.');
     } finally {
@@ -175,10 +186,14 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={handleResend}
-                  disabled={resending}
+                  disabled={resending || nowTick < resendAllowedAt}
                   className="inline-flex items-center justify-start py-2 min-h-[44px] text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 disabled:opacity-60 transition-colors"
                 >
-                  {resending ? 'Sending…' : 'Resend code'}
+                  {resending
+                    ? 'Sending…'
+                    : nowTick < resendAllowedAt
+                      ? `Resend code (${Math.ceil((resendAllowedAt - nowTick) / 1000)}s)`
+                      : 'Resend code'}
                 </button>
                 <button
                   type="button"

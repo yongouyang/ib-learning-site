@@ -110,10 +110,16 @@ resource "aws_lambda_function_url" "feedback" {
 
 # NONE auth needs explicit public invoke permissions — since 2026 BOTH
 # actions are required (urls-auth docs): InvokeFunctionUrl plus
-# InvokeFunction with the InvokedViaFunctionUrl condition. The AWS provider
-# 5.x cannot express the second statement (invoked_via_function_url arrived
-# in provider 6.x), so it is added via the CLI; statement-id is stable, so
-# re-runs are idempotent replacements.
+# InvokeFunction with the InvokedViaFunctionUrl condition. The pinned provider
+# 6.x CAN express the second statement natively (invoked_via_function_url is
+# in aws_lambda_permission's schema — verified against the 6.58.0 provider
+# schema, round 3; aws_lambda_function_url with NONE auth auto-adds the
+# statement on creation), but the CLI provisioner is retained deliberately:
+# it matches the deployed state and its remove-then-add is idempotent.
+# TRACKED MIGRATION (docs/PROGRESS.md "Next"): switch to the native attribute
+# — existing out-of-band statements need state surgery first. statement-id is
+# per-function; add-permission alone would fail with ResourceConflictException
+# on an existing statement.
 resource "aws_lambda_permission" "function_url" {
   action                 = "lambda:InvokeFunctionUrl"
   function_name          = aws_lambda_function.feedback.function_name
@@ -122,10 +128,19 @@ resource "aws_lambda_permission" "function_url" {
 }
 
 resource "terraform_data" "function_url_invoke_permission" {
-  input = aws_lambda_function.feedback.function_name
+  # `triggers_replace` (NOT `input`) on last_modified: changing `input` is an
+  # in-place update and create-time local-exec provisioners NEVER run on
+  # in-place updates, so a Lambda recreated under the same name would lose the
+  # InvokedViaFunctionUrl statement and 403 the Function URL. triggers_replace
+  # REPLACES this resource whenever the function changes, forcing the
+  # provisioner to re-run; the remove-then-add keeps every re-run idempotent.
+  triggers_replace = aws_lambda_function.feedback.last_modified
 
   provisioner "local-exec" {
     command = <<-EOT
+      aws lambda remove-permission \
+        --function-name ${aws_lambda_function.feedback.function_name} \
+        --statement-id AllowInvokeViaFunctionUrl >/dev/null 2>&1 || true
       aws lambda add-permission \
         --function-name ${aws_lambda_function.feedback.function_name} \
         --statement-id AllowInvokeViaFunctionUrl \

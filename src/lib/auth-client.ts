@@ -37,6 +37,17 @@ export class AuthApiError extends Error {
   }
 }
 
+// Mid-session expiry notification (review M5a): any authenticated call that
+// comes back 401 clears the local login state via this handler. AuthContext
+// registers it on mount; it stays null outside the provider (plain fetch
+// callers, tests).
+type UnauthorizedHandler = () => void;
+let onUnauthorized: UnauthorizedHandler | null = null;
+
+export function setOnUnauthorized(handler: UnauthorizedHandler | null): void {
+  onUnauthorized = handler;
+}
+
 async function parseError(res: Response): Promise<AuthApiError> {
   let message = 'Something went wrong. Please try again.';
   try {
@@ -55,7 +66,10 @@ async function requestJson<T>(path: string, init?: RequestInit): Promise<T> {
     ...init,
     headers: { 'Content-Type': 'application/json', ...(init?.headers ?? {}) },
   });
-  if (!res.ok) throw await parseError(res);
+  if (!res.ok) {
+    if (res.status === 401) onUnauthorized?.();
+    throw await parseError(res);
+  }
   if (res.status === 204) return undefined as T;
   return (await res.json()) as T;
 }

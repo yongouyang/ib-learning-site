@@ -198,7 +198,9 @@ function AccountContent({ user }: { user: AuthUser }) {
       document.body.appendChild(a);
       a.click();
       a.remove();
-      URL.revokeObjectURL(url);
+      // Deferred revoke: revoking synchronously can cancel the download in
+      // Firefox before it starts (review low).
+      setTimeout(() => URL.revokeObjectURL(url), 1_000);
     } catch (err) {
       setExportError(err instanceof Error ? err.message : 'Could not export your data.');
     } finally {
@@ -209,13 +211,21 @@ function AccountContent({ user }: { user: AuthUser }) {
   async function handleDelete() {
     setDeleting(true);
     setDeleteError(null);
+    // Delete and refresh are split (review low): a refresh failure after a
+    // successful delete must not report "Could not delete your account."
     try {
       await deleteAccountRequest();
-      await refresh(); // clear the now-invalid session from the header; the
-      // unauthenticated guard above then redirects to /login.
     } catch (err) {
       setDeleteError(err instanceof Error ? err.message : 'Could not delete your account.');
       setDeleting(false);
+      return;
+    }
+    try {
+      await refresh(); // clear the now-invalid session from the header; the
+      // unauthenticated guard above then redirects to /login.
+    } catch {
+      // refresh() never throws (it treats errors as logged-out), but even a
+      // hypothetical failure here must not undo the successful delete.
     }
   }
 
@@ -240,6 +250,7 @@ function AccountContent({ user }: { user: AuthUser }) {
             <input
               id="displayName"
               type="text"
+              maxLength={40}
               value={displayName}
               onChange={(e) => {
                 setDisplayName(e.target.value);
@@ -276,6 +287,7 @@ function AccountContent({ user }: { user: AuthUser }) {
                   <input
                     type="text"
                     value={renameValue}
+                    maxLength={40}
                     onChange={(e) => setRenameValue(e.target.value)}
                     aria-label={`Rename ${profile.displayName}`}
                     className={`${inputClass} flex-1`}
@@ -330,6 +342,7 @@ function AccountContent({ user }: { user: AuthUser }) {
             <input
               id="addName"
               type="text"
+              maxLength={40}
               value={addName}
               onChange={(e) => {
                 setAddName(e.target.value);

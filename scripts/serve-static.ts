@@ -9,6 +9,7 @@
 import http from 'node:http';
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
+import { bodyForMethod } from './request-body-gating';
 
 const outDir = path.resolve(process.cwd(), 'out');
 const portArg = process.argv.indexOf('--port');
@@ -77,7 +78,9 @@ async function handleApiRoute(
   const webReq = new Request(`http://localhost:${port}${urlPath}`, {
     method: req.method,
     headers,
-    body: body.length > 0 ? body : undefined,
+    // Only body-able methods may carry a body — `new Request` throws for
+    // GET/HEAD with one (review M4, same gating as the Lambda adapter).
+    body: bodyForMethod(req.method, body.length > 0 ? body : undefined),
   });
   const handler = req.method === 'POST' ? route.POST : route.GET;
   if (!handler) {
@@ -87,7 +90,15 @@ async function handleApiRoute(
   }
   const webRes = await handler(webReq);
 
-  res.writeHead(webRes.status, Object.fromEntries(webRes.headers.entries()));
+  const responseHeaders = Object.fromEntries(webRes.headers.entries());
+  // getSetCookie() preserves every Set-Cookie header — entries() collapses
+  // them (review M4; Node accepts an array value for set-cookie here).
+  const setCookies = webRes.headers.getSetCookie();
+  if (setCookies.length > 0) {
+    (responseHeaders as Record<string, string | string[]>)['set-cookie'] = setCookies;
+  }
+
+  res.writeHead(webRes.status, responseHeaders);
   res.end(Buffer.from(await webRes.arrayBuffer()));
 }
 

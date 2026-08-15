@@ -113,6 +113,30 @@ resource "aws_dynamodb_table" "progress" {
   }
 }
 
+# --- octav-rate-limits ---------------------------------------------------------
+# Durable per-email request-otp counter (docs/architecture-evolution-plan.md
+# §2.5 rate limiting): PK `bucket` — the FIXED-WINDOW rate-limit key
+# `otp-request:<email>:<window-epoch>` (the epoch in the key makes the counter
+# reset atomically when the window rolls, round 2);
+# TTL `expiresAt` cleans up old window items. On-demand billing — the
+# request-otp path is low-volume but bursty. No GSI: the counter is read and
+# updated by bucket key only.
+resource "aws_dynamodb_table" "rate_limits" {
+  name         = "${var.name_prefix}-rate-limits"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "bucket"
+
+  attribute {
+    name = "bucket"
+    type = "S"
+  }
+
+  ttl {
+    attribute_name = "expiresAt"
+    enabled        = true
+  }
+}
+
 # --- Outputs (table names + ARNs for the phase Lambdas' env vars) ---------------
 
 output "users_table_name" {
@@ -153,4 +177,14 @@ output "progress_table_name" {
 output "progress_table_arn" {
   description = "octav-progress table ARN."
   value       = aws_dynamodb_table.progress.arn
+}
+
+output "rate_limits_table_name" {
+  description = "octav-rate-limits table name."
+  value       = aws_dynamodb_table.rate_limits.name
+}
+
+output "rate_limits_table_arn" {
+  description = "octav-rate-limits table ARN."
+  value       = aws_dynamodb_table.rate_limits.arn
 }

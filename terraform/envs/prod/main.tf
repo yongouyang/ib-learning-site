@@ -199,22 +199,24 @@ module "auth_api" {
 
   cors_allow_origins = var.site_origins
 
-  users_table_arn     = module.dynamodb.users_table_arn
-  sessions_table_arn  = module.dynamodb.sessions_table_arn
-  otp_codes_table_arn = module.dynamodb.otp_codes_table_arn
-  progress_table_arn  = module.dynamodb.progress_table_arn
-  ses_identity_arn    = module.ses.domain_identity_arn
+  users_table_arn       = module.dynamodb.users_table_arn
+  sessions_table_arn    = module.dynamodb.sessions_table_arn
+  otp_codes_table_arn   = module.dynamodb.otp_codes_table_arn
+  progress_table_arn    = module.dynamodb.progress_table_arn
+  rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+  ses_identity_arn      = module.ses.domain_identity_arn
 
   environment = merge(
     {
-      AUTH_STORAGE        = "dynamodb"
-      AUTH_EMAIL          = "ses"
-      AUTH_USERS_TABLE    = module.dynamodb.users_table_name
-      AUTH_SESSIONS_TABLE = module.dynamodb.sessions_table_name
-      AUTH_OTP_TABLE      = module.dynamodb.otp_codes_table_name
-      AUTH_PROGRESS_TABLE = module.dynamodb.progress_table_name
-      AUTH_SES_REGION     = "ap-southeast-1"
-      SES_FROM_ADDRESS    = var.ses_from_address
+      AUTH_STORAGE           = "dynamodb"
+      AUTH_EMAIL             = "ses"
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      AUTH_OTP_TABLE         = module.dynamodb.otp_codes_table_name
+      AUTH_PROGRESS_TABLE    = module.dynamodb.progress_table_name
+      AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+      AUTH_SES_REGION        = "ap-southeast-1"
+      SES_FROM_ADDRESS       = var.ses_from_address
     },
     var.auth_env,
   )
