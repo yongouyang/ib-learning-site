@@ -12,7 +12,7 @@ export default defineConfig([
     'playwright-report/',
     'test-results/',
     'illustration-previews/',
-    'lambda/feedback/dist/',
+    'lambda/*/dist/',
     'public/',
     'tools/data/',
   ]),

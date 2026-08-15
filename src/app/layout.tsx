@@ -4,9 +4,11 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { ProgressProvider } from '@/context/ProgressContext';
 import { ThemeProvider } from '@/context/ThemeContext';
+import { AuthProvider } from '@/context/AuthContext';
 import { Nav } from '@/components/Nav';
 import { HeaderNav } from '@/components/HeaderNav';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { AccountButton } from '@/components/AccountButton';
 import { ServiceWorkerRegistration } from '@/components/ServiceWorkerRegistration';
 import { OfflineBanner } from '@/components/OfflineBanner';
 import { UpdateToast } from '@/components/UpdateToast';
@@ -74,6 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className={`${geistSans.className} min-h-screen flex flex-col`}>
         <ThemeProvider>
+          <AuthProvider>
           <ProgressProvider>
             <header className="hidden md:flex items-center justify-between px-6 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950">
               <Link href="/" className="flex items-center">
@@ -83,15 +86,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
               <div className="flex items-center gap-2">
                 <HeaderNav />
+                <AccountButton variant="desktop" />
                 <ThemeToggle />
               </div>
             </header>
             <div className="flex-1 flex flex-col">
-              {/* Mobile floating theme toggle — desktop has it in the header.
-                  44px target (ThemeToggle size=lg), solid bg + rounded-xl to match
-                  the button/chip radius token and stay legible over scrolling content. */}
+              {/* Mobile floating account + theme cluster — desktop has both in the
+                  header. 44px targets (AccountButton mobile + ThemeToggle size=lg),
+                  solid bg + rounded-xl to match the button/chip radius token and
+                  stay legible over scrolling content. */}
               <div className="md:hidden fixed top-4 right-4 z-40">
-                <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+                <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 flex items-center">
+                  <AccountButton variant="mobile" />
                   <ThemeToggle size="lg" />
                 </div>
               </div>
@@ -113,6 +119,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <OfflineBanner />
             <UpdateToast />
           </ProgressProvider>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

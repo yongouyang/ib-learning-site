@@ -6,6 +6,10 @@ test.describe('Flashcards page', () => {
 
     // First card is visible — the deck donut and counter are shown
     await expect(page.getByRole('heading', { name: 'Nucleus' })).toBeVisible();
+    // Next 16 streaming leaves React's shell (<div hidden id="S:0">) holding
+    // a duplicate copy of the page for a beat after first paint — wait for it
+    // to be removed so the assertions below see exactly one copy.
+    await expect(page.locator('[id="S:0"]')).toHaveCount(0);
     await expect(page.getByText('1/12')).toBeVisible();
     await expect(page.getByRole('img', { name: /Flashcards:/ })).toBeVisible();
 

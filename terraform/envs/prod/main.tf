@@ -116,6 +116,13 @@ variable "ses_from_address" {
   default     = "noreply@octavlearning.com"
 }
 
+variable "auth_env" {
+  description = "Auth Lambda env overrides via CI TF_VAR_auth_env (AUTH_ENV secret); empty = base wiring below."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
 # ACM cert for octavlearning.com (apex + www), DNS-validated. Lives at the
 # root (not the site module) so only the PROD site instance references it —
 # the DEV distribution keeps the CloudFront default cert. Validated via two
@@ -178,6 +185,41 @@ module "ses" {
   from_address = var.ses_from_address
 }
 
+# Auth API (Phase B — docs/architecture-evolution-plan.md §6): the email-OTP
+# Lambda + Function URL. Consumes the DynamoDB table names/ARNs and the SES
+# identity ARN. Base wiring below always selects the real dynamodb/ses
+# implementations; var.auth_env (CI AUTH_ENV secret) can override/add — leave
+# it empty to use these defaults. SES has no ap-east-1 endpoint, so
+# AUTH_SES_REGION points the SESv2 client at ap-southeast-1 (where the
+# identity lives); the function itself still runs in ap-east-1.
+module "auth_api" {
+  source = "../../modules/auth_api"
+
+  zip_path = "${path.module}/../../../lambda/auth/dist/auth-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  users_table_arn     = module.dynamodb.users_table_arn
+  sessions_table_arn  = module.dynamodb.sessions_table_arn
+  otp_codes_table_arn = module.dynamodb.otp_codes_table_arn
+  progress_table_arn  = module.dynamodb.progress_table_arn
+  ses_identity_arn    = module.ses.domain_identity_arn
+
+  environment = merge(
+    {
+      AUTH_STORAGE        = "dynamodb"
+      AUTH_EMAIL          = "ses"
+      AUTH_USERS_TABLE    = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE = module.dynamodb.sessions_table_name
+      AUTH_OTP_TABLE      = module.dynamodb.otp_codes_table_name
+      AUTH_PROGRESS_TABLE = module.dynamodb.progress_table_name
+      AUTH_SES_REGION     = "ap-southeast-1"
+      SES_FROM_ADDRESS    = var.ses_from_address
+    },
+    var.auth_env,
+  )
+}
+
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
 # /api/* proxy behavior to the feedback Lambda. Custom domain: the
 # dev.octavlearning.com alias with its dedicated ACM cert (round 2 of the
@@ -187,6 +229,7 @@ module "site" {
   source = "../../modules/site"
 
   feedback_origin_domain = module.feedback_api.function_url_domain
+  auth_origin_domain     = module.auth_api.function_url_domain
   domain_names           = ["dev.octavlearning.com"]
   acm_certificate_arn    = aws_acm_certificate.dev.arn
 }
@@ -199,6 +242,7 @@ module "site_prod" {
 
   name_prefix            = "iblearn-prod"
   feedback_origin_domain = module.feedback_api.function_url_domain
+  auth_origin_domain     = module.auth_api.function_url_domain
   domain_names           = ["octavlearning.com", "www.octavlearning.com"]
   acm_certificate_arn    = aws_acm_certificate.site.arn
   redirect_from_host     = "www.octavlearning.com"
@@ -238,6 +282,10 @@ output "site_prod_distribution_domain" {
 
 output "feedback_function_url" {
   value = module.feedback_api.function_url
+}
+
+output "auth_function_url" {
+  value = module.auth_api.function_url
 }
 
 output "github_deploy_role_arn" {

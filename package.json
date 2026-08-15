@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:static": "bash scripts/build-static.sh",
-    "build:lambda": "bash scripts/build-lambda-feedback.sh",
+    "build:lambda": "bash scripts/build-lambdas.sh",
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run",
@@ -29,6 +29,9 @@
     "security": "npm run security:sast && npm run security:sca"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1111.0",
+    "@aws-sdk/client-sesv2": "^3.1111.0",
+    "@aws-sdk/lib-dynamodb": "^3.1111.0",
     "framer-motion": "^12.40.0",
     "katex": "^0.17.0",
     "lucide-react": "^1.18.0",

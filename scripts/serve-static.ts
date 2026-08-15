@@ -47,17 +47,22 @@ function resolveFile(urlPath: string): string | null {
   return null;
 }
 
-type FeedbackRoute = {
-  GET: (req: Request) => Promise<Response>;
-  POST: (req: Request) => Promise<Response>;
+type ApiRoute = {
+  GET?: (req: Request) => Promise<Response>;
+  POST?: (req: Request) => Promise<Response>;
 };
 
-async function handleFeedback(req: http.IncomingMessage, res: http.ServerResponse) {
-  // Computed specifier on purpose: `next build` type-checks this script while
-  // build-static.sh has src/app/api stashed aside, so a static import path
-  // would fail to resolve at build time.
-  const routeModule = '../src/app/api/feedback/route';
-  const route = (await import(routeModule)) as FeedbackRoute;
+// Delegate one /api path to the real Next route handler — computed specifier
+// on purpose: `next build` type-checks this script while build-static.sh has
+// src/app/api stashed aside, so a static import path would fail to resolve at
+// build time.
+async function handleApiRoute(
+  modulePath: string,
+  urlPath: string,
+  req: http.IncomingMessage,
+  res: http.ServerResponse
+) {
+  const route = (await import(modulePath)) as ApiRoute;
 
   const chunks: Buffer[] = [];
   for await (const chunk of req) chunks.push(chunk as Buffer);
@@ -69,24 +74,53 @@ async function handleFeedback(req: http.IncomingMessage, res: http.ServerRespons
   }
   headers.set('x-forwarded-for', req.socket.remoteAddress ?? 'local');
 
-  const webReq = new Request(`http://localhost:${port}/api/feedback`, {
+  const webReq = new Request(`http://localhost:${port}${urlPath}`, {
     method: req.method,
     headers,
     body: body.length > 0 ? body : undefined,
   });
   const handler = req.method === 'POST' ? route.POST : route.GET;
+  if (!handler) {
+    res.writeHead(405, { 'content-type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Method not allowed' }));
+    return;
+  }
   const webRes = await handler(webReq);
 
   res.writeHead(webRes.status, Object.fromEntries(webRes.headers.entries()));
   res.end(Buffer.from(await webRes.arrayBuffer()));
 }
 
+// /api/auth/* → the real Next route handlers, mirroring the CloudFront
+// /api/auth/* behavior → auth Lambda (architecture-evolution-plan.md §6.3).
+// One module per endpoint, same shapes as src/app/api/auth/*/route.ts.
+const AUTH_ROUTES: Record<string, string> = {
+  '/api/auth/request-otp': '../src/app/api/auth/request-otp/route',
+  '/api/auth/verify-otp': '../src/app/api/auth/verify-otp/route',
+  '/api/auth/logout': '../src/app/api/auth/logout/route',
+  '/api/auth/me': '../src/app/api/auth/me/route',
+  '/api/auth/account': '../src/app/api/auth/account/route',
+  '/api/auth/sessions': '../src/app/api/auth/sessions/route',
+  '/api/auth/sessions/revoke': '../src/app/api/auth/sessions/revoke/route',
+  '/api/auth/export': '../src/app/api/auth/export/route',
+  '/api/auth/delete': '../src/app/api/auth/delete/route',
+};
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url ?? '/', `http://localhost:${port}`);
 
   if (url.pathname === '/api/feedback') {
-    handleFeedback(req, res).catch((err) => {
+    handleApiRoute('../src/app/api/feedback/route', '/api/feedback', req, res).catch((err) => {
       console.error('[serve-static] /api/feedback error:', err);
+      res.writeHead(500, { 'content-type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Internal error' }));
+    });
+    return;
+  }
+  const authRoute = AUTH_ROUTES[url.pathname];
+  if (authRoute) {
+    handleApiRoute(authRoute, url.pathname, req, res).catch((err) => {
+      console.error(`[serve-static] ${url.pathname} error:`, err);
       res.writeHead(500, { 'content-type': 'application/json' });
       res.end(JSON.stringify({ error: 'Internal error' }));
     });
@@ -113,5 +147,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(`[serve-static] Serving out/ + /api/feedback on http://localhost:${port}`);
+  console.log(`[serve-static] Serving out/ + /api/feedback + /api/auth/* on http://localhost:${port}`);
 });
