@@ -39,7 +39,7 @@ Reuse existing tokens; don't invent new ones without adding them here first.
 The app deliberately has **asymmetric chrome** — this is a design decision, not a bug:
 
 - **Desktop (`md:` and up):** persistent top header (`layout.tsx`, `hidden md:flex`) with logo (`h-6`, light/dark SVG swap), `HeaderNav` links, and `ThemeToggle`.
-- **Mobile (`< md`):** no top header. The only persistent chrome is the fixed bottom nav (`Nav.tsx`, `h-16` + `safe-area-bottom`). `<main>` carries `pb-24 md:pb-0` so content clears it.
+- **Mobile (`< md`):** no top header. The only persistent chrome is the fixed bottom nav (`Nav.tsx`, `h-16` + `safe-area-bottom`). `<main>` carries `pb-24 md:pb-0` so content clears it. Since 2026-08 (accounts feature), a small fixed top-right pill (account button + theme toggle, 44px targets, `bg-white dark:bg-gray-900 rounded-xl shadow-sm border`) is the second piece of persistent mobile chrome — pages whose content reaches the top-right corner on mobile must clear it (the login page uses `pt-20`).
 
 Consequences:
 

@@ -209,6 +209,8 @@ jobs:
       # SES from-address (repo secret). Defaults match terraform/envs/prod.
       TF_VAR_dynamodb_table_prefix: ${{ vars.DYNAMODB_TABLE_PREFIX || 'octav' }}
       TF_VAR_ses_from_address: ${{ secrets.SES_FROM_ADDRESS || 'noreply@octavlearning.com' }}
+      # Auth Lambda env overrides; unset = base wiring from envs/prod.
+      TF_VAR_auth_env: ${{ secrets.AUTH_ENV || '{}' }}
 
     steps:
       - name: Checkout
@@ -226,7 +228,9 @@ jobs:
       - name: Build static export
         run: npm run build:static
 
-      - name: Build feedback Lambda zip
+      # One script builds both zips (feedback + auth) — terraform consumes
+      # each bundle's own source_code_hash.
+      - name: Build Lambda zips (feedback + auth)
         run: npm run build:lambda
 
       - name: Configure AWS credentials (OIDC)
@@ -266,6 +270,9 @@ jobs:
           curl -fsS "$SITE_URL/" > /dev/null
           curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
           curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
+          # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
+          # match the status code instead).
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
           echo "Smoke checks passed."
 
   # PROD deploy (main branch) — octavlearning.com on the dedicated bucket +
@@ -295,6 +302,8 @@ jobs:
       # SES from-address (repo secret). Defaults match terraform/envs/prod.
       TF_VAR_dynamodb_table_prefix: ${{ vars.DYNAMODB_TABLE_PREFIX || 'octav' }}
       TF_VAR_ses_from_address: ${{ secrets.SES_FROM_ADDRESS || 'noreply@octavlearning.com' }}
+      # Auth Lambda env overrides; unset = base wiring from envs/prod.
+      TF_VAR_auth_env: ${{ secrets.AUTH_ENV || '{}' }}
 
     steps:
       - name: Checkout
@@ -312,7 +321,9 @@ jobs:
       - name: Build static export
         run: npm run build:static
 
-      - name: Build feedback Lambda zip
+      # One script builds both zips (feedback + auth) — terraform consumes
+      # each bundle's own source_code_hash.
+      - name: Build Lambda zips (feedback + auth)
         run: npm run build:lambda
 
       - name: Configure AWS credentials (OIDC)
@@ -350,6 +361,9 @@ jobs:
           curl -fsS "$SITE_URL/" > /dev/null
           curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
           curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
+          # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
+          # match the status code instead).
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
           # www → apex 301 (redirect lives in the PROD URL-rewrite Function).
           curl -fsS -o /dev/null -w '%{http_code}' https://www.octavlearning.com/ | grep -q '^301$'
           echo "Smoke checks passed."
