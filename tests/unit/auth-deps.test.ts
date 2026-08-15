@@ -38,6 +38,7 @@ describe('getAuthDeps', () => {
         AUTH_SESSIONS_TABLE: 's',
         AUTH_OTP_TABLE: 'o',
         AUTH_PROGRESS_TABLE: 'p',
+        AUTH_RATE_LIMITS_TABLE: 'r',
         SES_FROM_ADDRESS: 'noreply@octavlearning.com',
       }).dummyMode
     ).toBe(false);
@@ -51,6 +52,7 @@ describe('getAuthDeps', () => {
       AUTH_SESSIONS_TABLE: 'octav-sessions',
       AUTH_OTP_TABLE: 'octav-otp-codes',
       AUTH_PROGRESS_TABLE: 'octav-progress',
+      AUTH_RATE_LIMITS_TABLE: 'octav-rate-limits',
       SES_FROM_ADDRESS: 'noreply@octavlearning.com',
     });
     expect(deps.storage).toBeInstanceOf(DynamoAuthStorage);
@@ -63,6 +65,19 @@ describe('getAuthDeps', () => {
     ).toThrow(/AUTH_SESSIONS_TABLE/);
   });
 
+  it('throws when the rate-limits table name is missing', () => {
+    expect(() =>
+      getAuthDeps({
+        AUTH_STORAGE: 'dynamodb',
+        AUTH_EMAIL: 'dummy',
+        AUTH_USERS_TABLE: 'u',
+        AUTH_SESSIONS_TABLE: 's',
+        AUTH_OTP_TABLE: 'o',
+        AUTH_PROGRESS_TABLE: 'p',
+      })
+    ).toThrow(/AUTH_RATE_LIMITS_TABLE/);
+  });
+
   it('throws when SES is selected without a from-address', () => {
     expect(() => getAuthDeps({ AUTH_STORAGE: 'dummy', AUTH_EMAIL: 'ses' })).toThrow(/SES_FROM_ADDRESS/);
   });
@@ -70,5 +85,67 @@ describe('getAuthDeps', () => {
   it('throws on unknown kinds', () => {
     expect(() => getAuthDeps({ AUTH_STORAGE: 'postgres' })).toThrow(/AUTH_STORAGE/);
     expect(() => getAuthDeps({ AUTH_EMAIL: 'sendgrid' })).toThrow(/AUTH_EMAIL/);
+  });
+
+  describe('fail-closed dummy wiring in AWS Lambda (M1)', () => {
+    it('refuses dummy storage inside a Lambda without the opt-in', () => {
+      expect(() =>
+        getAuthDeps({ AWS_LAMBDA_FUNCTION_NAME: 'iblearn-auth', AUTH_STORAGE: 'dummy', AUTH_EMAIL: 'ses' })
+      ).toThrow(/refusing dummy wiring/);
+    });
+
+    it('refuses dummy email inside a Lambda without the opt-in', () => {
+      expect(() =>
+        getAuthDeps({
+          AWS_LAMBDA_FUNCTION_NAME: 'iblearn-auth',
+          AUTH_STORAGE: 'dynamodb',
+          AUTH_EMAIL: 'dummy',
+          AUTH_USERS_TABLE: 'u',
+          AUTH_SESSIONS_TABLE: 's',
+          AUTH_OTP_TABLE: 'o',
+          AUTH_PROGRESS_TABLE: 'p',
+          AUTH_RATE_LIMITS_TABLE: 'r',
+        })
+      ).toThrow(/refusing dummy wiring/);
+    });
+
+    it('allows dummy wiring in a Lambda only with AUTH_ALLOW_DUMMY=1', () => {
+      const deps = getAuthDeps({ AWS_LAMBDA_FUNCTION_NAME: 'x', AUTH_ALLOW_DUMMY: '1' });
+      expect(deps.storage).toBeInstanceOf(InMemoryAuthStorage);
+      expect(deps.emailSender).toBeInstanceOf(DummyEmailSender);
+    });
+
+    it('refuses NODE_ENV=test inside a Lambda without the opt-in (round 4)', () => {
+      expect(() =>
+        getAuthDeps({
+          AWS_LAMBDA_FUNCTION_NAME: 'iblearn-auth',
+          NODE_ENV: 'test',
+          AUTH_STORAGE: 'dynamodb',
+          AUTH_EMAIL: 'ses',
+          AUTH_USERS_TABLE: 'u',
+          AUTH_SESSIONS_TABLE: 's',
+          AUTH_OTP_TABLE: 'o',
+          AUTH_PROGRESS_TABLE: 'p',
+          AUTH_RATE_LIMITS_TABLE: 'r',
+          SES_FROM_ADDRESS: 'noreply@octavlearning.com',
+        })
+      ).toThrow(/NODE_ENV=test/);
+    });
+
+    it('allows NODE_ENV=test inside a Lambda only with AUTH_ALLOW_DUMMY=1', () => {
+      const deps = getAuthDeps({ AWS_LAMBDA_FUNCTION_NAME: 'x', NODE_ENV: 'test', AUTH_ALLOW_DUMMY: '1' });
+      expect(deps.storage).toBeInstanceOf(InMemoryAuthStorage);
+      expect(deps.emailSender).toBeInstanceOf(DummyEmailSender);
+    });
+
+    it('allows NODE_ENV=test outside a Lambda (vitest/dev)', () => {
+      const deps = getAuthDeps({ NODE_ENV: 'test', AUTH_STORAGE: 'dummy', AUTH_EMAIL: 'dummy' });
+      expect(deps.storage).toBeInstanceOf(InMemoryAuthStorage);
+    });
+
+    it('allows dummy wiring outside a Lambda (dev server) without any opt-in', () => {
+      const deps = getAuthDeps({ AUTH_STORAGE: 'dummy', AUTH_EMAIL: 'dummy' });
+      expect(deps.storage).toBeInstanceOf(InMemoryAuthStorage);
+    });
   });
 });

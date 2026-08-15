@@ -7,7 +7,10 @@ import {
   RATE_WINDOW_MS,
   SESSION_COOKIE_NAME,
   SESSION_MAX_AGE_SECONDS,
+  VERIFY_OTP_REQUESTS_PER_EMAIL_PER_WINDOW,
+  VERIFY_OTP_REQUESTS_PER_IP_PER_WINDOW,
   accountUpdateSchema,
+  hashSessionToken,
   requestOtpSchema,
   revokeSessionSchema,
   verifyOtpSchema,
@@ -26,38 +29,65 @@ import { getAuthDeps } from './deps';
 // delegate here. Dependencies (storage + email) are injected so unit tests
 // pass fresh in-memory dummies; the route/lambda call sites use getAuthDeps().
 //
-// Security measures (§2.5): OTP 6 digits, 10-min TTL, max 5 attempts,
-// 3 requests/10 min per email (+ per-IP line), no email enumeration (always
-// the same 200), httpOnly+Secure+SameSite=Lax cookie, opaque session ids, no
-// JWT, SHA-256(OTP) with per-code salt, constant-time comparison.
+// Security measures (§2.5 + review fixes): OTP 6 digits, 10-min TTL, max 5
+// attempts enforced by an ATOMIC counter increment (H2), a durable
+// DynamoDB-backed per-email request-otp budget (H3), in-memory per-IP lines
+// keyed on the LAST X-Forwarded-For entry (H1 — CloudFront appends the real
+// viewer IP), no email enumeration, httpOnly+Secure+SameSite=Lax 30-day
+// sliding cookie (refreshed on access, M7), sessions keyed by sha256(token)
+// at rest (M2), first-account creation serialized by a uniqueness claim
+// (M3), SHA-256(OTP) with per-code salt, constant-time comparison, and
+// Cache-Control: no-store on every response (M7).
 
 const DUMMY_TEST_CODE = '123456'; // deterministic default under test mode + dummy deps
+const EMAIL_CLAIM_RETRIES = 5; // GSI propagation retries after losing the creation claim (M3)
 
-// --- Rate limiting (in-memory per-instance, same tradeoff as the feedback
-// --- handler's limiter: a first line, not a hard quota).
+const sleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
 
-const emailWindow = new Map<string, number[]>();
-const ipWindow = new Map<string, number[]>();
+// --- Rate limiting -------------------------------------------------------------
+// In-memory per-IP + verify-otp windows (per-instance, first line — the
+// durable per-EMAIL request-otp budget lives in the storage layer, H3).
+
+const ipRequestWindow = new Map<string, number[]>();
+const verifyEmailWindow = new Map<string, number[]>();
+const verifyIpWindow = new Map<string, number[]>();
 
 function isWindowLimited(map: Map<string, number[]>, key: string, limit: number, now: number): boolean {
   const hits = (map.get(key) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
-  map.set(key, hits);
-  if (hits.length >= limit) return true;
+  if (hits.length === 0 && map.has(key)) map.delete(key); // evict idle keys
+  if (hits.length >= limit) {
+    map.set(key, hits);
+    return true;
+  }
   hits.push(now);
+  map.set(key, hits);
   return false;
+}
+
+// Under test mode with dummy deps the e2e suite shares one server IP for
+// every test — relax the coarse per-IP lines so unrelated tests never 429.
+function relaxedIpLimit(deps: AuthDeps, base: number): number {
+  return deps.testMode && deps.dummyMode ? 10_000 : base;
 }
 
 // --- Request plumbing ---------------------------------------------------------
 
 function clientIp(req: Request): string {
   const fwd = req.headers.get('x-forwarded-for');
-  return fwd?.split(',')[0]?.trim() || 'local';
+  if (!fwd) return 'local';
+  const parts = fwd.split(',').map((p) => p.trim()).filter(Boolean);
+  // CloudFront APPENDS the real viewer IP to any client-supplied XFF, so the
+  // LAST entry is the trusted value; earlier entries are client-controlled
+  // and trivially spoofable (review H1).
+  return parts[parts.length - 1] ?? 'local';
 }
 
-function sessionIdFromCookie(req: Request): string | null {
+function sessionTokenFromCookie(req: Request): string | null {
   const cookie = req.headers.get('cookie');
   if (!cookie) return null;
-  for (const part of cookie.split(';')) {
+  // Split on both separators: Function URLs / some proxies join duplicate
+  // Cookie headers with ", " rather than ";" (review low).
+  for (const part of cookie.split(/[;,]\s*/)) {
     const [name, ...rest] = part.trim().split('=');
     if (name === SESSION_COOKIE_NAME) return rest.join('=') || null;
   }
@@ -70,9 +100,9 @@ function cookieIsSecure(req: Request): boolean {
   return url.protocol === 'https:' || url.hostname === 'localhost' || url.hostname === '127.0.0.1';
 }
 
-function sessionCookieValue(sessionId: string, req: Request): string {
+function sessionCookieValue(token: string, req: Request): string {
   const secure = cookieIsSecure(req) ? '; Secure' : '';
-  return `${SESSION_COOKIE_NAME}=${sessionId}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${SESSION_MAX_AGE_SECONDS}${secure}`;
+  return `${SESSION_COOKIE_NAME}=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${SESSION_MAX_AGE_SECONDS}${secure}`;
 }
 
 function clearedCookieValue(req: Request): string {
@@ -85,16 +115,23 @@ function withCookie(res: Response, cookie: string): Response {
   return res;
 }
 
+/** Every auth response is built here so Cache-Control: no-store is uniform (M7). */
+function json(body: unknown, status = 200): Response {
+  const res = Response.json(body, { status });
+  res.headers.set('Cache-Control', 'no-store');
+  return res;
+}
+
 async function parseJson(req: Request): Promise<{ body: unknown; error: Response | null }> {
   try {
     return { body: await req.json(), error: null };
   } catch {
-    return { body: null, error: Response.json({ error: 'Invalid JSON body' }, { status: 400 }) };
+    return { body: null, error: json({ error: 'Invalid JSON body' }, 400) };
   }
 }
 
 function schemaError(): Response {
-  return Response.json({ error: 'Invalid request' }, { status: 400 });
+  return json({ error: 'Invalid request' }, 400);
 }
 
 // --- OTP ----------------------------------------------------------------------
@@ -148,51 +185,40 @@ async function newUserFor(email: string, now: string): Promise<UserRecord> {
   };
 }
 
-async function createSessionRecord(
-  userId: string,
-  email: string,
-  req: Request,
-  now: string
-): Promise<SessionRecord> {
-  return {
-    sessionId: randomUUID(),
-    userId,
-    email,
-    createdAt: now,
-    lastAccessedAt: now,
-    expiresAt: Math.floor(Date.now() / 1000) + SESSION_MAX_AGE_SECONDS,
-    userAgent: req.headers.get('user-agent') ?? '',
-    ip: clientIp(req),
-  };
-}
-
 /** Resolve the authenticated user from the request cookie, or return a 401. */
 async function requireAuth(
   req: Request,
   deps: AuthDeps
-): Promise<{ user: UserRecord; session: SessionRecord } | { response: Response }> {
-  const sessionId = sessionIdFromCookie(req);
-  if (!sessionId) return { response: Response.json({ error: 'Not authenticated.' }, { status: 401 }) };
+): Promise<
+  | { user: UserRecord; session: SessionRecord; refreshCookie: string }
+  | { response: Response }
+> {
+  const token = sessionTokenFromCookie(req);
+  if (!token) return { response: json({ error: 'Not authenticated.' }, 401) };
 
+  // Storage only ever sees the token hash (review M2).
+  const sessionId = hashSessionToken(token);
   const session = await deps.storage.getSession(sessionId);
   if (!session || session.expiresAt <= Math.floor(Date.now() / 1000)) {
     if (session) await deps.storage.deleteSession(sessionId);
-    return { response: Response.json({ error: 'Not authenticated.' }, { status: 401 }) };
+    return { response: json({ error: 'Not authenticated.' }, 401) };
   }
 
   const user = await deps.storage.getUserById(session.userId);
   if (!user) {
     await deps.storage.deleteSession(sessionId);
-    return { response: Response.json({ error: 'Not authenticated.' }, { status: 401 }) };
+    return { response: json({ error: 'Not authenticated.' }, 401) };
   }
 
-  // Sliding expiry (plan §2.2): refresh lastAccessedAt + TTL on every access.
+  // Sliding expiry (plan §2.2): refresh lastAccessedAt + TTL on every access,
+  // and re-issue the cookie so daily users aren't hard-logged-out at day 30
+  // (review M7).
   await deps.storage.updateSession(sessionId, {
     lastAccessedAt: new Date().toISOString(),
     expiresAt: Math.floor(Date.now() / 1000) + SESSION_MAX_AGE_SECONDS,
   });
 
-  return { user, session };
+  return { user, session, refreshCookie: sessionCookieValue(token, req) };
 }
 
 // --- Endpoints (§2.4) ---------------------------------------------------------
@@ -221,11 +247,18 @@ export async function handleRequestOtp(req: Request, deps: AuthDeps = getAuthDep
   const now = Date.now();
 
   // Rate limit before spending anything (sending an email or writing a code).
-  if (isWindowLimited(emailWindow, `email:${email}`, OTP_REQUESTS_PER_EMAIL_PER_WINDOW, now)) {
-    return Response.json({ error: 'Too many requests. Try again in 10 minutes.' }, { status: 429 });
+  // Per-EMAIL budget is the durable DynamoDB counter (H3); per-IP stays the
+  // coarse in-memory line.
+  const emailAllowed = await deps.storage.incrementOtpRequestCount(
+    email,
+    OTP_REQUESTS_PER_EMAIL_PER_WINDOW,
+    RATE_WINDOW_MS / 1000
+  );
+  if (!emailAllowed) {
+    return json({ error: 'Too many requests. Try again in 10 minutes.' }, 429);
   }
-  if (isWindowLimited(ipWindow, `ip:${clientIp(req)}`, OTP_REQUESTS_PER_IP_PER_WINDOW, now)) {
-    return Response.json({ error: 'Too many requests. Try again in 10 minutes.' }, { status: 429 });
+  if (isWindowLimited(ipRequestWindow, `ip:${clientIp(req)}`, relaxedIpLimit(deps, OTP_REQUESTS_PER_IP_PER_WINDOW), now)) {
+    return json({ error: 'Too many requests. Try again in 10 minutes.' }, 429);
   }
 
   const code = generateOtpCode(deps, injected);
@@ -245,10 +278,10 @@ export async function handleRequestOtp(req: Request, deps: AuthDeps = getAuthDep
     // Don't leave an unsent code behind — the user would get "invalid code".
     await deps.storage.deleteOtp(email);
     console.error('[auth] OTP email failed:', err instanceof Error ? err.message : err);
-    return Response.json({ error: 'Could not send your code. Please try again.' }, { status: 502 });
+    return json({ error: 'Could not send your code. Please try again.' }, 502);
   }
 
-  return Response.json({ message: 'If an account exists, a code has been sent.' });
+  return json({ message: 'If an account exists, a code has been sent.' });
 }
 
 /** POST /api/auth/verify-otp — first login auto-creates the account (plan §2.4). */
@@ -259,59 +292,105 @@ export async function handleVerifyOtp(req: Request, deps: AuthDeps = getAuthDeps
   const parsed = verifyOtpSchema.safeParse(body);
   if (!parsed.success) return schemaError();
   const { email, otp } = parsed.data;
+  const now = Date.now();
+
+  // verify-otp has its own budgets (review H2) — the 5-attempt lockout is per
+  // code, so a per-email line stops unlimited code churn against one inbox.
+  if (isWindowLimited(verifyEmailWindow, `email:${email}`, VERIFY_OTP_REQUESTS_PER_EMAIL_PER_WINDOW, now)) {
+    return json({ error: 'Too many attempts. Try again in 10 minutes.' }, 429);
+  }
+  if (isWindowLimited(verifyIpWindow, `ip:${clientIp(req)}`, relaxedIpLimit(deps, VERIFY_OTP_REQUESTS_PER_IP_PER_WINDOW), now)) {
+    return json({ error: 'Too many attempts. Try again in 10 minutes.' }, 429);
+  }
 
   const record = await deps.storage.getOtp(email);
-  if (!record) return Response.json({ error: 'Invalid or expired code.' }, { status: 400 });
+  if (!record) return json({ error: 'Invalid or expired code.' }, 400);
 
-  const expired = record.expiresAt <= Math.floor(Date.now() / 1000);
+  const expired = record.expiresAt <= Math.floor(now / 1000);
   const locked = record.attempts >= OTP_MAX_ATTEMPTS;
   if (expired || locked) {
     await deps.storage.deleteOtp(email);
     return expired
-      ? Response.json({ error: 'Invalid or expired code.' }, { status: 400 })
-      : Response.json({ error: 'Too many attempts. Request a new code.' }, { status: 429 });
+      ? json({ error: 'Invalid or expired code.' }, 400)
+      : json({ error: 'Too many attempts. Request a new code.' }, 429);
   }
 
   if (!otpMatches(otp, record)) {
-    const attempts = record.attempts + 1;
+    // Atomic counter increment (review H2): the storage layer's
+    // condition-guarded increment makes concurrent guesses share ONE counter
+    // instead of N parallel read-then-writes widening the window to ~5×N.
+    const attempts = await deps.storage.incrementOtpAttempts(email, OTP_MAX_ATTEMPTS);
+    if (attempts === null) {
+      // null = record missing OR a user-creation-claim MARKER (round 3): a
+      // marker belongs to an in-flight first login — deleting it here would
+      // let a concurrent wrong guess destroy the uniqueness claim and reopen
+      // the duplicate-account race. A missing OTP is already gone, and a
+      // locked one is deleted by the path that set it, so 429 WITHOUT delete.
+      return json({ error: 'Too many attempts. Request a new code.' }, 429);
+    }
     if (attempts >= OTP_MAX_ATTEMPTS) {
       await deps.storage.deleteOtp(email);
-      return Response.json({ error: 'Too many attempts. Request a new code.' }, { status: 429 });
+      return json({ error: 'Too many attempts. Request a new code.' }, 429);
     }
-    await deps.storage.updateOtp(email, { attempts });
-    return Response.json({ error: 'Invalid or expired code.' }, { status: 400 });
+    return json({ error: 'Invalid or expired code.' }, 400);
   }
 
   // Success — the code is single-use.
   await deps.storage.deleteOtp(email);
 
-  const now = new Date().toISOString();
+  const nowIso = new Date().toISOString();
   let user = await deps.storage.getUserByEmail(email);
   if (!user) {
-    user = await newUserFor(email, now);
-    await deps.storage.createUser(user);
+    // First login: serialize account creation with a uniqueness claim (M3) so
+    // two concurrent verifies for the same new email cannot create two
+    // userIds inside the users-GSI propagation window.
+    const claimed = await deps.storage.claimEmailForUserCreation(email);
+    if (claimed) {
+      user = await newUserFor(email, nowIso);
+      await deps.storage.createUser(user);
+    } else {
+      for (let i = 0; i < EMAIL_CLAIM_RETRIES; i++) {
+        await sleep(25 * (i + 1));
+        user = await deps.storage.getUserByEmail(email);
+        if (user) break;
+      }
+      if (!user) {
+        return json({ error: 'Account is being created. Try again in a moment.' }, 503);
+      }
+    }
   } else {
-    await deps.storage.updateUser(user.userId, { lastLoginAt: now });
+    await deps.storage.updateUser(user.userId, { lastLoginAt: nowIso });
   }
 
-  const session = await createSessionRecord(user.userId, user.email, req, now);
-  await deps.storage.createSession(session);
+  // The cookie carries the raw high-entropy token; storage only sees its
+  // sha256 (review M2).
+  const token = randomUUID();
+  await deps.storage.createSession({
+    sessionId: hashSessionToken(token),
+    userId: user.userId,
+    email: user.email,
+    createdAt: nowIso,
+    lastAccessedAt: nowIso,
+    expiresAt: Math.floor(now / 1000) + SESSION_MAX_AGE_SECONDS,
+    userAgent: req.headers.get('user-agent') ?? '',
+    ip: clientIp(req),
+  });
 
-  return withCookie(Response.json({ user: publicUser(user) }), sessionCookieValue(session.sessionId, req));
+  return withCookie(json({ user: publicUser(user) }), sessionCookieValue(token, req));
 }
 
 /** POST /api/auth/logout — clears the cookie and deletes the session. */
 export async function handleLogout(req: Request, deps: AuthDeps = getAuthDeps()): Promise<Response> {
-  const sessionId = sessionIdFromCookie(req);
-  if (sessionId) await deps.storage.deleteSession(sessionId);
-  return withCookie(Response.json({ message: 'Logged out.' }), clearedCookieValue(req));
+  const token = sessionTokenFromCookie(req);
+  if (token) await deps.storage.deleteSession(hashSessionToken(token));
+  return withCookie(json({ message: 'Logged out.' }), clearedCookieValue(req));
 }
 
 /** GET /api/auth/me — called on app load to check login state. */
 export async function handleMe(req: Request, deps: AuthDeps = getAuthDeps()): Promise<Response> {
   const auth = await requireAuth(req, deps);
   if ('response' in auth) return auth.response;
-  return Response.json({ user: publicUser(auth.user) });
+  return withCookie(json({ user: publicUser(auth.user) }), auth.refreshCookie);
 }
 
 /** POST /api/auth/account — update displayName and/or child profiles (full replace). */
@@ -325,13 +404,13 @@ export async function handleAccountPost(req: Request, deps: AuthDeps = getAuthDe
   const parsed = accountUpdateSchema.safeParse(body);
   if (!parsed.success) return schemaError();
   if (!parsed.data.displayName && !parsed.data.childProfiles) {
-    return Response.json({ error: 'Nothing to update.' }, { status: 400 });
+    return json({ error: 'Nothing to update.' }, 400);
   }
 
   const user = await deps.storage.updateUser(auth.user.userId, parsed.data);
-  if (!user) return Response.json({ error: 'Not authenticated.' }, { status: 401 });
+  if (!user) return json({ error: 'Not authenticated.' }, 401);
 
-  return Response.json({ user: publicUser(user) });
+  return withCookie(json({ user: publicUser(user) }), auth.refreshCookie);
 }
 
 /** GET /api/auth/sessions — the user's devices via the sessions GSI (plan §2.2). */
@@ -340,18 +419,22 @@ export async function handleSessionsGet(req: Request, deps: AuthDeps = getAuthDe
   if ('response' in auth) return auth.response;
 
   const sessions = await deps.storage.listSessionsByUser(auth.user.userId);
-  const current = sessionIdFromCookie(req);
+  const currentToken = sessionTokenFromCookie(req);
+  const currentHash = currentToken ? hashSessionToken(currentToken) : null;
   const sorted = [...sessions].sort((a, b) => b.lastAccessedAt.localeCompare(a.lastAccessedAt));
 
-  return Response.json({
+  const res = json({
     sessions: sorted.map((s) => ({
+      // The stored id is the sha256 of the cookie token (M2) — safe to expose
+      // (it cannot be used as a cookie) and stable for revocation.
       sessionId: s.sessionId,
       createdAt: s.createdAt,
       lastAccessedAt: s.lastAccessedAt,
       userAgent: s.userAgent,
-      current: s.sessionId === current,
+      current: s.sessionId === currentHash,
     })),
   });
+  return withCookie(res, auth.refreshCookie);
 }
 
 /** POST /api/auth/sessions/revoke — revoke a session; clearing the current one logs out. */
@@ -365,16 +448,17 @@ export async function handleRevokeSession(req: Request, deps: AuthDeps = getAuth
   const parsed = revokeSessionSchema.safeParse(body);
   if (!parsed.success) return schemaError();
 
+  // The client sends the stored (hashed) id it got from GET /sessions.
   const target = await deps.storage.getSession(parsed.data.sessionId);
   if (!target || target.userId !== auth.user.userId) {
-    return Response.json({ error: 'Session not found.' }, { status: 404 });
+    return json({ error: 'Session not found.' }, 404);
   }
   await deps.storage.deleteSession(target.sessionId);
 
-  let res = Response.json({ message: 'Session revoked.' });
-  if (target.sessionId === sessionIdFromCookie(req)) {
-    res = withCookie(res, clearedCookieValue(req));
-  }
+  const currentToken = sessionTokenFromCookie(req);
+  const isCurrent = currentToken !== null && target.sessionId === hashSessionToken(currentToken);
+  let res = json({ message: 'Session revoked.' });
+  res = withCookie(res, isCurrent ? clearedCookieValue(req) : auth.refreshCookie);
   return res;
 }
 
@@ -388,12 +472,20 @@ export async function handleExportGet(req: Request, deps: AuthDeps = getAuthDeps
     deps.storage.listProgressByUser(auth.user.userId),
   ]);
 
-  return Response.json({
+  // Session ids are deliberately EXCLUDED (review M2): the export must not be
+  // a credential bundle — live ids have no business in a downloadable file.
+  const res = json({
     exportedAt: new Date().toISOString(),
     user: auth.user,
-    sessions,
+    sessions: sessions.map((s) => ({
+      createdAt: s.createdAt,
+      lastAccessedAt: s.lastAccessedAt,
+      userAgent: s.userAgent,
+      ip: s.ip,
+    })),
     progress,
   });
+  return withCookie(res, auth.refreshCookie);
 }
 
 /** POST /api/auth/delete — right to erasure (§9 Q8): account + all data. */
@@ -407,5 +499,5 @@ export async function handleDeleteAccount(req: Request, deps: AuthDeps = getAuth
   await deps.storage.deleteProgressByUser(auth.user.userId);
   await deps.storage.deleteUser(auth.user.userId);
 
-  return withCookie(Response.json({ message: 'Account deleted.' }), clearedCookieValue(req));
+  return withCookie(json({ message: 'Account deleted.' }), clearedCookieValue(req));
 }

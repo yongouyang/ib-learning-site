@@ -273,6 +273,15 @@ jobs:
           # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
           # match the status code instead).
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
+          # request-otp writes the OTP to DynamoDB + attempts SES send — catches
+          # missing table/index IAM. 200 = email accepted; 502 = SES send failed
+          # (expected while the account is in SES sandbox); 429 = the durable
+          # per-email budget was consumed (proves the DynamoDB path works — a
+          # deploy retry within 10 min of a previous run trips it); 500 = real
+          # failure. Tighten to strict `^200$` once SES production access
+          # (ap-southeast-1) is granted — see docs/architecture-evolution-plan.md §6.5.
+          AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"ci-probe@example.com"}' "$SITE_URL/api/auth/request-otp")
+          echo "$AUTH_OTP_STATUS" | grep -qE '^(200|429|502)$'
           echo "Smoke checks passed."
 
   # PROD deploy (main branch) — octavlearning.com on the dedicated bucket +
@@ -364,6 +373,15 @@ jobs:
           # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
           # match the status code instead).
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
+          # request-otp writes the OTP to DynamoDB + attempts SES send — catches
+          # missing table/index IAM. 200 = email accepted; 502 = SES send failed
+          # (expected while the account is in SES sandbox); 429 = the durable
+          # per-email budget was consumed (proves the DynamoDB path works — a
+          # deploy retry within 10 min of a previous run trips it); 500 = real
+          # failure. Tighten to strict `^200$` once SES production access
+          # (ap-southeast-1) is granted — see docs/architecture-evolution-plan.md §6.5.
+          AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"ci-probe@example.com"}' "$SITE_URL/api/auth/request-otp")
+          echo "$AUTH_OTP_STATUS" | grep -qE '^(200|429|502)$'
           # www → apex 301 (redirect lives in the PROD URL-rewrite Function).
           curl -fsS -o /dev/null -w '%{http_code}' https://www.octavlearning.com/ | grep -q '^301$'
           echo "Smoke checks passed."

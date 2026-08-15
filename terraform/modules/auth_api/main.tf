@@ -49,6 +49,11 @@ variable "progress_table_arn" {
   type        = string
 }
 
+variable "rate_limits_table_arn" {
+  description = "DynamoDB ARN of the rate-limits table (octav-rate-limits) — the durable per-email request-otp counter (docs/architecture-evolution-plan.md §2.5). No GSI, so only the bare ARN is granted."
+  type        = string
+}
+
 variable "ses_identity_arn" {
   description = "SES domain identity ARN (ap-southeast-1) — the resource ses:SendEmail is scoped to."
   type        = string
@@ -85,8 +90,12 @@ resource "aws_iam_role_policy_attachment" "auth_basic" {
 
 # Least-privilege data policy: the four accounts-feature tables (Get/Put/
 # Update/Delete/Query — no scans or table-level ops) plus SendEmail on the
-# verified SES identity only. Inline so there is no standalone policy ARN to
-# manage or leak into other roles.
+# verified SES identity only. Query targets GSI1 (getUserByEmail on users,
+# listSessionsByUser on sessions), and DynamoDB authorizes index queries
+# against <table-arn>/index/<name>, so every table also grants its /index/*
+# ARN (all four for symmetry — otp-codes/progress have no GSI). The
+# rate-limits table has no GSI, so only its bare ARN is granted. Inline so
+# there is no standalone policy ARN to manage or leak into other roles.
 data "aws_iam_policy_document" "auth" {
   statement {
     actions = [
@@ -98,9 +107,14 @@ data "aws_iam_policy_document" "auth" {
     ]
     resources = [
       var.users_table_arn,
+      "${var.users_table_arn}/index/*",
       var.sessions_table_arn,
+      "${var.sessions_table_arn}/index/*",
       var.otp_codes_table_arn,
+      "${var.otp_codes_table_arn}/index/*",
       var.progress_table_arn,
+      "${var.progress_table_arn}/index/*",
+      var.rate_limits_table_arn,
     ]
   }
 
@@ -137,7 +151,10 @@ resource "aws_lambda_function" "auth" {
   handler       = "index.handler"
   memory_size   = 256
   timeout       = 10
-  filename      = var.zip_path
+  # Caps concurrent instances so a runaway OTP-bomb wave can't multiply the
+  # in-memory per-IP line (docs/architecture-evolution-plan.md §2.5).
+  reserved_concurrent_executions = 10
+  filename                       = var.zip_path
   # Hash of the zip: Terraform only pushes new code when the bundle changes.
   source_code_hash = filebase64sha256(var.zip_path)
 
@@ -172,10 +189,16 @@ resource "aws_lambda_function_url" "auth" {
 
 # NONE auth needs explicit public invoke permissions — since 2026 BOTH
 # actions are required (urls-auth docs): InvokeFunctionUrl plus
-# InvokeFunction with the InvokedViaFunctionUrl condition. The AWS provider
-# 5.x cannot express the second statement (invoked_via_function_url arrived
-# in provider 6.x), so it is added via the CLI; statement-id is stable (and
-# per-function), so re-runs are idempotent replacements.
+# InvokeFunction with the InvokedViaFunctionUrl condition. The pinned provider
+# 6.x CAN express the second statement natively (invoked_via_function_url is
+# in aws_lambda_permission's schema — verified against the 6.58.0 provider
+# schema, round 3; aws_lambda_function_url with NONE auth auto-adds the
+# statement on creation), but the CLI provisioner is retained deliberately:
+# it matches the deployed state and its remove-then-add is idempotent.
+# TRACKED MIGRATION (docs/PROGRESS.md "Next"): switch to the native attribute
+# — existing out-of-band statements need state surgery first. statement-id is
+# per-function; add-permission alone would fail with ResourceConflictException
+# on an existing statement.
 resource "aws_lambda_permission" "function_url" {
   action                 = "lambda:InvokeFunctionUrl"
   function_name          = aws_lambda_function.auth.function_name
@@ -184,10 +207,19 @@ resource "aws_lambda_permission" "function_url" {
 }
 
 resource "terraform_data" "function_url_invoke_permission" {
-  input = aws_lambda_function.auth.function_name
+  # `triggers_replace` (NOT `input`) on last_modified: changing `input` is an
+  # in-place update and create-time local-exec provisioners NEVER run on
+  # in-place updates, so a Lambda recreated under the same name would lose the
+  # InvokedViaFunctionUrl statement and 403 the Function URL. triggers_replace
+  # REPLACES this resource whenever the function changes, forcing the
+  # provisioner to re-run; the remove-then-add keeps every re-run idempotent.
+  triggers_replace = aws_lambda_function.auth.last_modified
 
   provisioner "local-exec" {
     command = <<-EOT
+      aws lambda remove-permission \
+        --function-name ${aws_lambda_function.auth.function_name} \
+        --statement-id AllowInvokeViaFunctionUrl >/dev/null 2>&1 || true
       aws lambda add-permission \
         --function-name ${aws_lambda_function.auth.function_name} \
         --statement-id AllowInvokeViaFunctionUrl \

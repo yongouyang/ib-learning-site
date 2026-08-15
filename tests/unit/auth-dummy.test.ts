@@ -81,7 +81,7 @@ describe('InMemoryAuthStorage', () => {
     expect(await s.listSessionsByUser('u1')).toHaveLength(1);
   });
 
-  it('OTP records: create/get/update/delete by email', async () => {
+  it('OTP records: create/get/increment-attempts/delete by email', async () => {
     const s = new InMemoryAuthStorage();
     const otp: OtpRecord = {
       email: 'a@example.com', codeHash: 'hash', salt: 'salt',
@@ -90,16 +90,78 @@ describe('InMemoryAuthStorage', () => {
     await s.createOtp(otp);
     expect((await s.getOtp('a@example.com'))?.codeHash).toBe('hash');
 
-    await s.updateOtp('a@example.com', { attempts: 3 });
-    expect((await s.getOtp('a@example.com'))!.attempts).toBe(3);
+    expect(await s.incrementOtpAttempts('a@example.com', 5)).toBe(1);
+    expect(await s.incrementOtpAttempts('a@example.com', 5)).toBe(2);
+    expect((await s.getOtp('a@example.com'))!.attempts).toBe(2);
+
+    // Missing records → null (lockout semantics).
+    expect(await s.incrementOtpAttempts('missing@example.com', 5)).toBeNull();
 
     await s.deleteOtp('a@example.com');
     expect(await s.getOtp('a@example.com')).toBeNull();
   });
 
-  it('updateOtp and updateSession are no-ops for missing keys', async () => {
+  it('incrementOtpAttempts returns null for missing keys and at max', async () => {
     const s = new InMemoryAuthStorage();
-    await expect(s.updateOtp('missing@example.com', { attempts: 1 })).resolves.toBeUndefined();
+    expect(await s.incrementOtpAttempts('missing@example.com', 5)).toBeNull();
+
+    await s.createOtp({
+      email: 'locked@example.com', codeHash: 'h', salt: 's', attempts: 5,
+      createdAt: new Date().toISOString(), expiresAt: Math.floor(Date.now() / 1000) + 600,
+    });
+    expect(await s.incrementOtpAttempts('locked@example.com', 5)).toBeNull();
+  });
+
+  it('incrementOtpRequestCount enforces the fixed window and resets when it rolls', async () => {
+    // Injectable clock (round 2): 600s windows, epoch-aligned.
+    let now = 300_000; // inside window epoch 0 (0–600s)
+    const s = new InMemoryAuthStorage(() => now);
+    for (let i = 0; i < 3; i++) {
+      expect(await s.incrementOtpRequestCount('a@example.com', 3, 600)).toBe(true);
+    }
+    expect(await s.incrementOtpRequestCount('a@example.com', 3, 600)).toBe(false);
+    // A different email has its own bucket.
+    expect(await s.incrementOtpRequestCount('b@example.com', 3, 600)).toBe(true);
+
+    // Window rolls → the counter resets atomically (new epoch key) — no
+    // dependence on any TTL deletion.
+    now = 900_000; // window epoch 1
+    expect(await s.incrementOtpRequestCount('a@example.com', 3, 600)).toBe(true);
+    expect(await s.incrementOtpRequestCount('a@example.com', 3, 600)).toBe(true);
+    expect(await s.incrementOtpRequestCount('a@example.com', 3, 600)).toBe(true);
+    expect(await s.incrementOtpRequestCount('a@example.com', 3, 600)).toBe(false);
+  });
+
+  it('claimEmailForUserCreation grants exactly one winner per email and the marker occupies the OTP slot', async () => {
+    const s = new InMemoryAuthStorage();
+    expect(await s.claimEmailForUserCreation('a@example.com')).toBe(true);
+    expect(await s.claimEmailForUserCreation('a@example.com')).toBe(false);
+    expect(await s.claimEmailForUserCreation('b@example.com')).toBe(true);
+
+    // The marker lives in the OTP item space: getOtp returns null (round 2 —
+    // a blind cast here made verify-otp 500) and deleteOtp removes it.
+    expect(await s.getOtp('a@example.com')).toBeNull();
+    await s.deleteOtp('a@example.com');
+    expect(await s.claimEmailForUserCreation('a@example.com')).toBe(true);
+
+    // A real OTP overwrites the marker (unconditional put), and the claim
+    // then loses — mirroring DynamoDB.
+    await s.createOtp({
+      email: 'b@example.com', codeHash: 'h', salt: 's', attempts: 0,
+      createdAt: new Date().toISOString(), expiresAt: Math.floor(Date.now() / 1000) + 600,
+    });
+    expect(await s.getOtp('b@example.com')).not.toBeNull();
+    expect(await s.claimEmailForUserCreation('b@example.com')).toBe(false);
+  });
+
+  it('incrementOtpAttempts is marker-safe: null for items without codeHash/attempts', async () => {
+    const s = new InMemoryAuthStorage();
+    await s.claimEmailForUserCreation('marker@example.com');
+    expect(await s.incrementOtpAttempts('marker@example.com', 5)).toBeNull();
+  });
+
+  it('updateSession is a no-op for missing keys', async () => {
+    const s = new InMemoryAuthStorage();
     await expect(s.updateSession('missing', { lastAccessedAt: '', expiresAt: 0 })).resolves.toBeUndefined();
   });
 

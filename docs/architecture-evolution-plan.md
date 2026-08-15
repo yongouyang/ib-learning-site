@@ -799,7 +799,7 @@ The CI deploy job (`ci.yml`) gains:
 
 1. Verify the sending domain (`octavlearning.com`) in SES — add DKIM CNAME records in CloudFlare.
 2. Verify the from-address (`noreply@octavlearning.com` or `login@octavlearning.com`).
-3. Request production access for SES in ap-east-1 (default is sandbox — can only send to verified addresses).
+3. Request production access for SES in **ap-southeast-1** (default is sandbox — can only send to verified addresses). Note: the first request was denied 2026-08-15 (case 178672296800802) — re-apply with a concrete use-case description; sandbox sends to verified addresses work meanwhile.
 4. OTP email template: branded HTML, 6-digit code, "expires in 10 minutes", Octav Learning logo.
 
 ---
