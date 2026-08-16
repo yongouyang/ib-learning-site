@@ -1,6 +1,7 @@
 # Architecture Evolution Plan — Octav Learning
 
-> **Status:** Draft for review (2026-08-12). Not yet implemented.
+> **Status:** Approved for implementation (2026-08-14). **Phase 0 (DynamoDB + SES), Phase B (auth + account management), and Phase C (progress sync) implemented and merged to `develop` as of 2026-08-16** — see the Phase C checklist (§7) and `docs/PROGRESS.md`. Remaining: Phase A (analytics), Phase D (leaderboard), SES production access (pre-launch blocker).
+> Decisions locked 2026-08-14: Option A — static export + Lambda Function URLs (Constraint 1); custom email-OTP auth (§2); parent → child account model (§2.6, Q1); first milestone = Phase B (auth + account management) + Phase C (progress sync). Analytics (Phase A) and leaderboard (Phase D) deferred; entitlements (`future-tech-stack-evolution.md` §2.9) deferred to subscription design time.
 > **Author:** Senior architect review (direct analysis, not sub-agent — team resource limit hit)
 > **Scope:** Email+OTP auth, server-side progress persistence, anonymous leaderboard, web analytics
 >
@@ -840,12 +841,12 @@ Phase D: Leaderboard (Feature 3)   ← depends on auth + progress
 
 | Step | What | Risk | Verify |
 |------|------|------|-------|
-| B1 | Terraform: create DynamoDB tables (users, sessions, otp-codes) + SES + Auth Lambda | Medium (infra) | `terraform plan` clean, tables created |
-| B2 | Implement Auth Lambda: request-otp, verify-otp, logout, me endpoints | Medium (security) | Unit tests for OTP flow, rate limiting |
-| B3 | Verify SES domain (DKIM in CloudFlare) + request production access | Low (operational) | Can send test email |
-| B4 | Client: add `AuthContext` (parallel to ProgressContext), login modal, "Sign in" button | Low | E2E: can request OTP, verify, see logged-in state |
-| B5 | Client: profile picker for parent → child profiles | Low | E2E: can switch profiles |
-| B6 | CI: add new secrets + Lambda build steps + smoke checks | Low | Deploy succeeds, smoke passes |
+| B1 ✅ | Terraform: DynamoDB tables (users, sessions, otp-codes + progress, Phase 0) + SES + Auth Lambda (`terraform/modules/{dynamodb,ses,auth_api}`) | Medium (infra) | CI apply landed — tables/identity live |
+| B2 ✅ | Auth Lambda: request-otp, verify-otp, logout, me + account mgmt (export/delete/sessions) — shared handler `src/lib/auth/http-handler.ts`, 4 rounds of review hardening | Medium (security) | 515+ auth unit tests, auth e2e 9/9 |
+| B3 ⚠️ | SES domain verified (DKIM SUCCESS, MAIL FROM SUCCESS, ap-southeast-1) — **production access DENIED 2026-08-15 (case 178672296800802), re-apply needed; pre-launch blocker** | Low (operational) | Sandbox sends to verified addresses work |
+| B4 ✅ | Client: `AuthContext`, `/login` page (email-OTP), `AccountButton` in header | Low | auth e2e: request OTP → verify → logged-in state |
+| B5 ✅ | Client: profile picker for parent → child profiles (`/account` page) | Low | account e2e incl. profile switching |
+| B6 ✅ | CI: `AUTH_ENV` secret + `build-lambdas` (3 zips) + `/api/auth/request-otp` smoke (200/429/502) | Low | deploys green on develop |
 
 **Key risk:** breaking the existing anonymous (localStorage-only) flow. Mitigation: auth is additive — if not logged in, everything works as today.
 
@@ -913,6 +914,8 @@ Is the primary use case a parent who manages multiple children's profiles, or in
 - Whether progress data needs a profile-switcher in the UI
 
 **Recommendation:** Start with parent→child (the stated requirement), but design the data model so a "student" is just a parent with one child profile (themselves).
+
+**Resolved 2026-08-14:** parent→child, per the recommendation.
 
 ### Q2: Should analytics be self-hosted or SaaS?
 Self-hosted Umami (Lambda + DynamoDB) keeps all data in your AWS account and costs ~$0-3/mo. Umami Cloud ($9/mo) is zero-management but data lives on their servers.

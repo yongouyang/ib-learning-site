@@ -1,3 +1,11 @@
+# IBLearn Progress Log
+
+> Append-only journal of work sessions. **Newest entry at the top.**
+> Read the last 2–3 entries before starting work; append one entry when done.
+> See `AGENTS.md` for the entry format rules.
+
+---
+
 ## 2026-08-16 — Phase C PR CI fix: offline e2e race on slow runners
 Git HEAD: `2621f34` (feature/progress-sync, tree clean)
 Done: PR e2e failed in CI only — "offline quiz attempt flushes when back online" (`hasLocalTopicAttempt` false on all 3 retries; 204 passed). Root cause: the quiz's SSR answer buttons appear BEFORE the client /me round-trip resolves on slow runners, so `setOffline(true)` killed the in-flight /me → auth fell back to logged-out (review H4) → the attempt landed in the anonymous `iblearn_progress` blob instead of `octav_progress:<uid>:<pid>`. Reproduced locally with a 1.5s `page.route` delay on /api/auth/me (fails without the fix, passes with). Fix: wait for the signed-in "Me" header button (renders only once the session resolved) before going offline — tests/e2e/progress-sync.spec.ts, no app-code change (me-failure→logged-out is by design).
@@ -40,6 +48,28 @@ Verified: terraform state list shows module.dynamodb (4 tables) + module.ses (id
 Next: **SES production access was DENIED, not pending** — ReviewDetails.Status=DENIED, case 178672296800802 (user: review in SES console → Account dashboard, re-apply with stronger use-case). Sandbox can still send to verified addresses, so B2 (Auth Lambda: request-otp/verify-otp/logout/me per §2.4) is NOT blocked — next code task. Then B4/B5 client work. Standing: branch protection on `main` (user), SSM for DeepSeek key, nav patch, Phase 3 daily-use polish, Phase 4 a11y audit.
 Notes: support API unavailable on Basic plan — denial reason only visible in console/email. Plan §6.5 step 3 region fixed to ap-southeast-1 this session. B2 spec: 6-digit OTP, 10-min TTL, max 5 attempts, 3 req/10min/email+IP, HttpOnly Secure SameSite=Lax `octav_session` cookie, opaque session ids, ULID user ids, no JWT.
 
+---
+
+## 2026-08-14 — Accounts/architecture decisions locked (docs reconciled)
+
+Git HEAD: `f802a6a` (branch `develop`, tree dirty: 3 docs modified — awaiting user commit go-ahead)
+Done: discussed future tech-stack evolution for account registration/management; locked 4 decisions — (1) UI/server split = Option A: static export + Lambda Function URLs behind `/api/*` (reconciles the contradiction between `future-tech-stack-evolution.md` §2.1 "B or C" and `architecture-evolution-plan.md` Constraint 1 "Option A"); (2) auth = custom email-OTP (§2.1a), Clerk fallback only if social login/passkeys become requirements; (3) account model = parent → child profiles (solo student = parent with one profile); (4) first milestone = accounts + progress sync (architecture-plan Phases B+C). Updated `future-tech-stack-evolution.md` (§2.1, §2.1a, §2.8, §4, §5 decisions 1–3+6) and `architecture-evolution-plan.md` (status → approved, Q1 resolved). Entitlements (§2.9) deferred to subscription design.
+Verified: n/a — docs only.
+Next: turn architecture-plan Phases 0/B/C into a concrete implementation plan (terraform: DynamoDB tables + SES + auth/progress Lambdas; new secrets via GitHub, CI-only applies). **SES production-access request + DKIM/SPF/DMARC in CloudFlare has multi-day lead — start in Phase 0.** Standing: branch protection on `main` (user); SSM for DeepSeek key (fold into Phase 0 secrets work); §8 launch checks; nav feature via `phase1-nav-restructure.patch` + UX-review pass; Phase 4 math/physics remainder.
+Notes: serverful Next.js (Option B) stays a documented later path, triggered only by premium-content gating (question JSON ships in the static bundle) or SSR needs. Option A's earlier Lambda@Edge framing was rejected — API-layer Lambdas, no page-level gating.
+
+---
+
+## 2026-08-14 — future-tech-stack-evolution.md refreshed + entitlements/auth design discussion
+
+Git HEAD: `f802a6a` (branch `develop`, tree dirty: docs/future-tech-stack-evolution.md modified + this entry — awaiting user commit go-ahead)
+Done: updated the tech-stack evolution doc for everything since 2026-08-08 — snapshot table (DeepSeek live, nodejs24.x, octavlearning.com PROD + dev.octavlearning.com DEV, 350 vitest, e2e+security as deploy gates, variations engine), §2.5 AI feedback (DeepSeek live; remaining = caching + per-user quotas), §2.6/2.7 (variations engine covers much of "fresh practice" without LLM), NEW §2.9 feature toggles & entitlements (two axes: rollout toggle vs entitlement; DynamoDB Feature/Entitlement model; `/api/me` + EntitlementsContext + LockedFeature UI; server-side enforcement caveat — static export ships all question JSON), migration path + decisions updated (auth decision now includes custom email-OTP, §2.1a; AI-provider decision resolved).
+Verified: n/a — docs only.
+Next: user reactions to §2.1a (custom auth) and §2.9 (entitlements) → decide before migration Step 1. Phase 4 math/physics remainder queued. Standing unchanged.
+Notes: key open design point for subscriptions — premium *content* (question JSON) currently ships in the static bundle; premium *features* (AI marking, sync) are server-gateable today. Decide at subscription design time.
+
+---
+
 ## 2026-08-13 — Phase 2: hero + Why Octav Learning + hydration crossfade + metadata (+ returning-user redesign)
 
 Git HEAD: `1724cc5` (branch `feature/ui-ux-daily-fluency`, tree dirty: Phase 2 uncommitted)
@@ -47,23 +77,6 @@ Done: home page now splits first-time vs returning. **First-time** (no activity)
 Verified: lint 0 errors ✅, vitest 37 files 354/354 ✅ (+4 getNextAction tests), build ✅, e2e app+diagnostics Desktop Chrome 22/22 ✅, first-time/returning assertions (iPhone SE + Desktop) 6/6 ✅, metadata confirmed in served HTML ✅. **UX-review subagent pass**: 3 HIGH (hard-cut crossfade → added exit; feature-enumerating subhead → benefit statement; CTA sub-label contrast `text-blue-200`→`text-blue-50`) + 2 MEDIUM + 4 LOW all fixed. Waived: CLS height delta (full vs compact) inherent to approach A; "Math" matches subjects.json; h1 swaps post-hydration for returning users.
 Next: Phase 3 — daily-use polish (AnimatePresence exits on dashboard cards, reduced-motion gating, loading skeletons, Lucide subject icons replacing emoji). Phase 4 — a11y audit (keyboard nav, screen reader pass, parents page). Still standing: branch protection on `main`, SSM for DeepSeek key.
 Notes: "returning user" = has prior study activity (lastStudyDate), NOT auth — future registration keeps this signal (new account w/ no activity → onboarding). `phase1-nav-restructure.patch` untracked stale artifact — delete. JSON parse errors in early e2e runs were stale `.next` cache.
-Notes: `phase1-nav-restructure.patch` still untracked (stale shelf artifact — delete or ignore). Hero crossfade has an accepted CLS tradeoff; if it bothers returning users, the fix is approach C (cookie gate) later.
-# IBLearn Progress Log
-
-> Append-only journal of work sessions. **Newest entry at the top.**
-> Read the last 2–3 entries before starting work; append one entry when done.
-> See `AGENTS.md` for the entry format rules.
-
----
-
-Verified: lint 0 errors ✅, vitest 36/36 files 350/350 ✅, build ✅, e2e Desktop Chrome 28/28 (app+exams+diagnostics+theme+mobile-nav) ✅, e2e theme+mobile-nav iPhone SE/iPad Pro 9 passed ✅. **UX-review subagent pass** (fresh context, findings): 1 HIGH (toggle 36px < 44px floor → fixed via size prop), 3 MEDIUM (first-timer gate misclassified flashcard-only users → fixed via lastStudyDate; exams heading `<p>`→`<h2>`; benefit-named CTAs), 2 LOW (solid bg + rounded-xl toggle). **Theme-toggle overlap measured programmatically**: toggle bbox x=258–304 vs logo right=199 (59px gap), breadcrumbs/headings left-aligned → no visual collision at 320px viewport; only full-width empty block h1s geometrically overlap. `tests/e2e/diagnostics.spec.ts` copy refs updated to match British spelling + new CTA.
-Next: Phase 2 — hero + landing experience (hero, Why Octav pillars, hydration crossfade approach A, metadata fix). Phase 3 — daily-use polish (AnimatePresence exits, reduced-motion, skeletons, sticky continue bar, Lucide subject icons). Phase 4 — a11y audit.
-Notes: waived (conscious): inline CTA links (~20px hit area) are a pre-existing pattern, not introduced here — revisit in Phase 3 when cards get AnimatePresence. Pre-existing debt carried to Phase 2: home `<h1>` still wraps the logo image (anti-pattern table). ThemeToggle now takes a `size` prop — the mobile wrapper is the only `fixed` element, keep it that way.
-# IBLearn Progress Log
-
-> Append-only journal of work sessions. **Newest entry at the top.**
-> Read the last 2–3 entries before starting work; append one entry when done.
-> See `AGENTS.md` for the entry format rules.
 
 ---
 
@@ -97,6 +110,16 @@ Notes: 10-min cert watcher cron was running during the session — DELETED at pa
 
 ---
 
+## 2026-08-12 — Phase 1 navigation restructure + UX-review pass complete
+
+Git HEAD: `35a3207` (branch `feature/ui-ux-daily-fluency`, tree dirty: Phase 1 changes uncommitted)
+Done: nav restructured 3→4 destinations (Learn/Review/Exams/Progress; Exams icon `BookCheck`). ThemeToggle removed from mobile bottom nav (`Nav.tsx`) → floating button at `fixed top-4 right-4 z-40`, solid `bg-white dark:bg-gray-900 rounded-xl`, `ThemeToggle size="lg"` (44px target; new size prop, desktop header keeps `md`/36px). "Not sure where to start?" gated on `userProgress.lastStudyDate === null` (true first-timer — covers flashcard/exam/ladder-only users, not just quiz attempts). Added "All caught up!" green card (`Test yourself under timed conditions` CTA) for returning users with zero weak topics. Exams page Diagnostics banner (`<h2>` "Diagnose before you practise." + benefit-named CTA) → Diagnostics now reachable from home/progress/exams. Copy fixes: "Practise all weak areas" (British verb), benefit-named CTAs ("Start with a free diagnostic").
+Verified: lint 0 errors ✅, vitest 36/36 files 350/350 ✅, build ✅, e2e Desktop Chrome 28/28 (app+exams+diagnostics+theme+mobile-nav) ✅, e2e theme+mobile-nav iPhone SE/iPad Pro 9 passed ✅. **UX-review subagent pass** (fresh context, findings): 1 HIGH (toggle 36px < 44px floor → fixed via size prop), 3 MEDIUM (first-timer gate misclassified flashcard-only users → fixed via lastStudyDate; exams heading `<p>`→`<h2>`; benefit-named CTAs), 2 LOW (solid bg + rounded-xl toggle). **Theme-toggle overlap measured programmatically**: toggle bbox x=258–304 vs logo right=199 (59px gap), breadcrumbs/headings left-aligned → no visual collision at 320px viewport; only full-width empty block h1s geometrically overlap. `tests/e2e/diagnostics.spec.ts` copy refs updated to match British spelling + new CTA.
+Next: Phase 2 — hero + landing experience (hero, Why Octav pillars, hydration crossfade approach A, metadata fix). Phase 3 — daily-use polish (AnimatePresence exits, reduced-motion, skeletons, sticky continue bar, Lucide subject icons). Phase 4 — a11y audit.
+Notes: waived (conscious): inline CTA links (~20px hit area) are a pre-existing pattern, not introduced here — revisit in Phase 3 when cards get AnimatePresence. Pre-existing debt carried to Phase 2: home `<h1>` still wraps the logo image (anti-pattern table). ThemeToggle now takes a `size` prop — the mobile wrapper is the only `fixed` element, keep it that way.
+
+---
+
 ## 2026-08-12 — DeepSeek nav reverted; develop tree = Phase 3 only, all gates green
 
 Git HEAD: `2a87ff7` (branch `develop`, tree dirty: Phase 3 + test-hardening changes only)
@@ -112,26 +135,6 @@ Notes: DeepSeek's reverted nav test changes meant nav.test.tsx is back to expect
 Git HEAD: `2a87ff7` (branch `feature/ui-ux-daily-fluency` [created by user's parallel DeepSeek session, based at develop tip], tree dirty: Phase 3 + nav-restructure changes uncommitted together)
 Done: user merged two sessions' work into one tree; ran the full gate suite over the mix. DeepSeek's nav restructure = 4-slot nav (Learn/Review/**Exams**/Progress, `nav-items.ts`), theme toggle out of mobile bottom nav → floating `md:hidden` pill top-right in `layout.tsx`, home cards gated on `loaded` (first-timer vs all-caught-up split — handles the hydration flicker correctly), Exams↔Diagnostics cross-links, nav tests updated. Fixed 4 issues found by e2e: (1) DeepSeek dropped `?filter=due` from home due-deck links — **real regression** (link says "2 due" but opened the full deck), restored `page.tsx:80`; (2) DeepSeek reworded the due-card heading, breaking the e2e text contract — reverted to "N flashcards due for review" (`page.tsx:74`); (3) `quiz-difficulty.spec.ts` `getByText('1/3')` tripped strict mode on iPhone SE — **pre-existing on clean develop** (bisected via stash), root cause: React streaming Suspense leaves a hidden page copy in `<div hidden id="S:0">` under `<body>` — scoped both counter assertions to `main`; (4) `app.spec.ts:153` same flake class (client-side nav overlap sees study+quiz h2s) — scoped quiz-heading assertion to `main`.
 Verified: validate:content ✅, audit:content 0/0 ✅, validate:illustrations + layout ✅, vitest 350/350 ✅, lint 0 errors ✅, build ✅, full e2e run 1: 572 passed/4 failed (all 4 diagnosed above); targeted reruns of all 4: green; full e2e run 2 after fixes: 575 passed + 1 flake (app.spec:153, passes on rerun, then hardened); full e2e run 3 (final): **576 passed, 0 failed** ✅.
-Next: user D4-reviews the three chem topic diffs + DeepSeek's nav change → decide commit split (Phase 3 vs nav feature) on `feature/ui-ux-daily-fluency`. Then Phase 4 batches OR rest of landing ship list. Still standing: branch protection on `main` (user), SSM for DeepSeek key, §8 launch checks. Watch item: floating mobile theme toggle may overlap page content — check in the UX-review pass when the branch's surfaces get screenshotted.
-Notes: e2e strict-mode lesson — any `getByText`/`getByRole` on a client-navigated page should be scoped to `main` (hidden `S:0` Suspense duplicates are a Next 16 / React streaming behavior). Turbopack refuses a `node_modules` symlink pointing outside the project root (worktree testing needs a real install). `.agents/` + `skills-lock.json` untracked (session tooling).
-
----
-
-## 2026-08-12 — Variations Phase 3: 6 chem generators + 3 chem topics group-expanded
-
-Git HEAD: `2a87ff7` (branch `develop`, tree dirty: Phase 3 changes uncommitted — awaiting user D4 content review)
-Done: Phase 3 items 1+2 (partial). **Six table-driven chem generators** in `src/content/generators/` (draw/build split, registered; subagent-built, parent hand-verified one instance each): `chem-electron-config` (Z=1–20, both directions, medium), `chem-ion-formation` (charge + ion-config modes, medium), `chem-isotope-ram` (weighted mean, hard), `chem-half-life` (remaining + elapsed modes, hard), `chem-ph-ratio` (10^ΔpH acidic + alkaline, hard), `chem-compound-naming` (ionic criss-cross + covalent prefixes, medium). New shared helpers in `utils.ts`: `uniqueDistractors` (string analogue; throws if table can't supply 3 unique — loud > duplicates), `aufbauShells`, unicode super/subscript helpers. **Group expansion** (one subagent per topic, existing question ids untouched): `chem-atomic-1` 15→24 q, 11 groups, 4 templates; `chem-bonding-1` 15→29 q, 13 groups, 1 template; `chem-acids-1` 15→27 q, 13 groups, 1 template. Templates join groups of matching difficulty (validator-enforced). Electron-config strings normalized to no-space `2,8,1` house form in chem-atomic-1. `docs/question-variations-plan.md` updated (item 1 ✅; remaining 9 chem topics → Phase 4 queue).
-Verified: validate:content ✅, audit:content 0/0 ✅, vitest 350/350 (61 generator tests incl. KaTeX strict sweep + 200-seed param-space sweeps) ✅, lint 0 errors ✅, build ✅, e2e quiz/journey specs 13 passed ✅, template materialization script (correct answers + reseed redraws) ✅, prod-build smoke — 3 chem quiz pages + subject page 200 ✅.
-Next: user D4-reviews the three topic diffs → commit. Then Phase 4 batches (remaining 9 chem topics group expansion, then math/physics remainder) OR landing ship list (nav fix → hero/pillars/metadata; decide hydration-flicker first). Still standing: branch protection on `main` (user), SSM for DeepSeek key, §8 launch checks on prod domain. Backlog: group-mastery UI surface.
-Notes: `.agents/` + `skills-lock.json` untracked (session tooling artifacts — not ours to commit). Deviation accepted: generator ion-config stems say "the ion it forms" (no −ide anion-name field in the params schema). The audit's ≥3-easy/≥3-hard per-group minimums drove group counts to 11–13/topic (above the ~10 hint) — fine.
-
----
-
-## 2026-08-12 — Mixed-tree verification (Phase 3 + DeepSeek nav) + 4 test fixes
-
-Git HEAD: `2a87ff7` (branch `feature/ui-ux-daily-fluency` [created by user's parallel DeepSeek session, based at develop tip], tree dirty: Phase 3 + nav-restructure changes uncommitted together)
-Done: user merged two sessions' work into one tree; ran the full gate suite over the mix. DeepSeek's nav restructure = 4-slot nav (Learn/Review/**Exams**/Progress, `nav-items.ts`), theme toggle out of mobile bottom nav → floating `md:hidden` pill top-right in `layout.tsx`, home cards gated on `loaded` (first-timer vs all-caught-up split — handles the hydration flicker correctly), Exams↔Diagnostics cross-links, nav tests updated. Fixed 4 issues found by e2e: (1) DeepSeek dropped `?filter=due` from home due-deck links — **real regression** (link says "2 due" but opened the full deck), restored `page.tsx:80`; (2) DeepSeek reworded the due-card heading, breaking the e2e text contract — reverted to "N flashcards due for review" (`page.tsx:74`); (3) `quiz-difficulty.spec.ts` `getByText('1/3')` tripped strict mode on iPhone SE — **pre-existing on clean develop** (bisected via stash), root cause: React streaming Suspense leaves a hidden page copy in `<div hidden id="S:0">` under `<body>` — scoped both counter assertions to `main`; (4) `app.spec.ts:153` same flake class (client-side nav overlap sees study+quiz h2s) — scoped quiz-heading assertion to `main`.
-Verified: validate:content ✅, audit:content 0/0 ✅, validate:illustrations + layout ✅, vitest 350/350 ✅, lint 0 errors ✅, build ✅, full e2e run 1: 572 passed/4 failed (all 4 diagnosed above); targeted reruns of all 4: green; full e2e run 2 after fixes: 575 passed + 1 flake (app.spec:153, passes on rerun, then hardened); full e2e run 3 (final): pending at entry time.
 Next: user D4-reviews the three chem topic diffs + DeepSeek's nav change → decide commit split (Phase 3 vs nav feature) on `feature/ui-ux-daily-fluency`. Then Phase 4 batches OR rest of landing ship list. Still standing: branch protection on `main` (user), SSM for DeepSeek key, §8 launch checks. Watch item: floating mobile theme toggle may overlap page content — check in the UX-review pass when the branch's surfaces get screenshotted.
 Notes: e2e strict-mode lesson — any `getByText`/`getByRole` on a client-navigated page should be scoped to `main` (hidden `S:0` Suspense duplicates are a Next 16 / React streaming behavior). Turbopack refuses a `node_modules` symlink pointing outside the project root (worktree testing needs a real install). `.agents/` + `skills-lock.json` untracked (session tooling).
 
