@@ -28,6 +28,12 @@ variable "auth_origin_domain" {
   default     = ""
 }
 
+variable "progress_origin_domain" {
+  description = "Lambda Function URL domain for the progress API (progress_api module output). When set, adds the /api/progress/* behavior; empty = API not wired."
+  type        = string
+  default     = ""
+}
+
 variable "domain_names" {
   description = "Custom domain aliases (apex + www). Empty = cloudfront.net default cert only. First entry is the canonical host."
   type        = list(string)
@@ -244,6 +250,22 @@ resource "aws_cloudfront_distribution" "site" {
     }
   }
 
+  # Origin 4 (optional): progress Lambda Function URL (Phase C) — created only
+  # once the API is wired (progress_origin_domain non-empty).
+  dynamic "origin" {
+    for_each = var.progress_origin_domain != "" ? [var.progress_origin_domain] : []
+    content {
+      origin_id   = "lambda-progress"
+      domain_name = origin.value
+      custom_origin_config {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.2"]
+      }
+    }
+  }
+
   # /api/auth/* → auth Lambda, never cached, all viewer data forwarded. This
   # more specific pattern MUST precede the /api/* behavior below — CloudFront
   # matches ordered behaviors top-down, so /api/auth/* must win over /api/*.
@@ -252,6 +274,24 @@ resource "aws_cloudfront_distribution" "site" {
     content {
       path_pattern             = "/api/auth/*"
       target_origin_id         = "lambda-auth"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # /api/progress/* → progress Lambda, never cached, all viewer data forwarded.
+  # Same specificity as /api/auth/* — both are more specific than /api/* and
+  # must be listed before it; their order relative to each other doesn't
+  # matter (the patterns don't overlap), so progress follows auth.
+  dynamic "ordered_cache_behavior" {
+    for_each = var.progress_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/progress/*"
+      target_origin_id         = "lambda-progress"
       viewer_protocol_policy   = "redirect-to-https"
       allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
       cached_methods           = ["GET", "HEAD"]

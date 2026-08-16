@@ -853,12 +853,12 @@ Phase D: Leaderboard (Feature 3)   ← depends on auth + progress
 
 | Step | What | Risk | Verify |
 |------|------|------|-------|
-| C1 | Terraform: create `octav-progress` table + Progress Lambda | Medium (infra) | Table created, Lambda responds |
-| C2 | Implement Progress Lambda: GET /api/progress, POST /api/progress/sync | Medium (data correctness) | Unit tests for merge logic, idempotency |
-| C3 | Client: add SyncManager (background queue + flush) | Medium (offline UX) | E2E: offline → online → events sync correctly |
-| C4 | Client: modify ProgressContext to fetch/merge server data on login | Medium (merge conflicts) | E2E: login → server data appears, no duplicates |
-| C5 | Migration: first-login bulk upload of localStorage data | Low | E2E: existing progress migrates on first login |
-| C6 | CI: smoke checks for progress API | Low | Post-deploy smoke passes |
+| C1 ✅ | Terraform: `octav-progress` table (Phase 0, pre-existing) + Progress Lambda (`terraform/modules/progress_api`, modeled on auth_api incl. index-ARN IAM + triggers_replace provisioner; `/api/progress/*` CloudFront behavior in both site modules) | Medium (infra) | fmt/validate/plan clean (11 add / 7 change / 2 destroy), no apply |
+| C2 ✅ | Progress Lambda: GET /api/progress, POST /api/progress/sync, GET /api/progress/_health (shared handler `src/lib/progress/http-handler.ts`; session identity via shared `resolveSession`; per-profile SKs; atomic conditional writes; zod budgets) | Medium (data correctness) | 74 progress unit tests incl. IDOR, idempotent replay, parity dummy↔DynamoDB |
+| C3 ✅ | Client: SyncManager background queue (`src/lib/sync-manager.ts`) — localStorage primary, 30s debounce, online/visibility flush, backoff, silent failures; SW already bypasses /api | Medium (offline UX) | e2e offline→online + sync-manager unit tests |
+| C4 ✅ | Client: ProgressContext fetches/merges server data on login (`src/lib/progress-merge.ts` — union by attemptId, ladder max, flashcard LWW, META per-field max) | Medium (merge conflicts) | e2e cross-device merge + progress-merge unit tests |
+| C5 ✅ | Migration: first-login bulk upload of anonymous `iblearn_progress`, server-side `migrationCompletedAt` META marker (exactly-once), idempotent replays | Low | e2e first-login migration (no duplicates) + marker unit test |
+| C6 ✅ | CI: `/api/progress/_health` smoke in both deploy jobs (unauthenticated DynamoDB probe — 200 only) | Low | plan/validate; smoke asserts the real IAM failure class |
 
 **Key risk:** offline UX regression. Mitigation: localStorage remains the primary store; server sync is background-only. If sync fails, the app works exactly as today.
 

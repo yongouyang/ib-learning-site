@@ -123,6 +123,13 @@ variable "auth_env" {
   sensitive   = true
 }
 
+variable "progress_env" {
+  description = "Progress Lambda env overrides via CI TF_VAR_progress_env (PROGRESS_ENV secret); empty = base wiring below. No new secret is required — the base wiring already names the shared DynamoDB tables."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
 # ACM cert for octavlearning.com (apex + www), DNS-validated. Lives at the
 # root (not the site module) so only the PROD site instance references it —
 # the DEV distribution keeps the CloudFront default cert. Validated via two
@@ -222,6 +229,36 @@ module "auth_api" {
   )
 }
 
+# Progress API (Phase C — docs/architecture-evolution-plan.md §3): the
+# cross-device sync Lambda + Function URL. Consumes the shared users/sessions/
+# progress table names/ARNs from module.dynamodb. Base wiring below always
+# selects the real dynamodb implementation; var.progress_env (CI
+# PROGRESS_ENV secret) can override/add — leave it empty to use these
+# defaults. NO new secret is required: session validation + progress storage
+# both live on the same Phase 0 tables the auth Lambda already uses, so the
+# base wiring below is complete on its own.
+module "progress_api" {
+  source = "../../modules/progress_api"
+
+  zip_path = "${path.module}/../../../lambda/progress/dist/progress-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  users_table_arn    = module.dynamodb.users_table_arn
+  sessions_table_arn = module.dynamodb.sessions_table_arn
+  progress_table_arn = module.dynamodb.progress_table_arn
+
+  environment = merge(
+    {
+      PROGRESS_STORAGE    = "dynamodb"
+      AUTH_USERS_TABLE    = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE = module.dynamodb.sessions_table_name
+      AUTH_PROGRESS_TABLE = module.dynamodb.progress_table_name
+    },
+    var.progress_env,
+  )
+}
+
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
 # /api/* proxy behavior to the feedback Lambda. Custom domain: the
 # dev.octavlearning.com alias with its dedicated ACM cert (round 2 of the
@@ -232,6 +269,7 @@ module "site" {
 
   feedback_origin_domain = module.feedback_api.function_url_domain
   auth_origin_domain     = module.auth_api.function_url_domain
+  progress_origin_domain = module.progress_api.function_url_domain
   domain_names           = ["dev.octavlearning.com"]
   acm_certificate_arn    = aws_acm_certificate.dev.arn
 }
@@ -245,6 +283,7 @@ module "site_prod" {
   name_prefix            = "iblearn-prod"
   feedback_origin_domain = module.feedback_api.function_url_domain
   auth_origin_domain     = module.auth_api.function_url_domain
+  progress_origin_domain = module.progress_api.function_url_domain
   domain_names           = ["octavlearning.com", "www.octavlearning.com"]
   acm_certificate_arn    = aws_acm_certificate.site.arn
   redirect_from_host     = "www.octavlearning.com"
@@ -288,6 +327,10 @@ output "feedback_function_url" {
 
 output "auth_function_url" {
   value = module.auth_api.function_url
+}
+
+output "progress_function_url" {
+  value = module.progress_api.function_url
 }
 
 output "github_deploy_role_arn" {

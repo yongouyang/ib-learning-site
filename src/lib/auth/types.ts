@@ -177,7 +177,11 @@ export const accountUpdateSchema = z.object({
   childProfiles: z
     .array(
       z.object({
-        profileId: z.string().min(1).max(64),
+        // Same charset as the progress payload ids (round 3, completing the
+        // round-1 L7 requirement): '#' (and ':') in a profileId would break
+        // the progress SK parsing — a stored bad id makes that profile
+        // permanently unsyncable (every batch 400s). Reject at the source.
+        profileId: z.string().regex(/^[A-Za-z0-9_-]+$/).min(1).max(64),
         displayName: z.string().trim().min(1).max(40),
         stage: z.enum(['ks3', 'igcse', 'dp']),
       })

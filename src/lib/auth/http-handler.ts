@@ -5,7 +5,6 @@ import {
   OTP_REQUESTS_PER_IP_PER_WINDOW,
   OTP_TTL_SECONDS,
   RATE_WINDOW_MS,
-  SESSION_COOKIE_NAME,
   SESSION_MAX_AGE_SECONDS,
   VERIFY_OTP_REQUESTS_PER_EMAIL_PER_WINDOW,
   VERIFY_OTP_REQUESTS_PER_IP_PER_WINDOW,
@@ -21,6 +20,12 @@ import {
   type UserRecord,
 } from './types';
 import { getAuthDeps } from './deps';
+import {
+  clearedCookieValue,
+  resolveSession,
+  sessionCookieValue,
+  sessionTokenFromCookie,
+} from './session';
 
 // Phase B — framework-agnostic auth handler. The single source of truth for
 // the /api/auth/* contract (docs/architecture-evolution-plan.md §2.4):
@@ -80,34 +85,6 @@ function clientIp(req: Request): string {
   // LAST entry is the trusted value; earlier entries are client-controlled
   // and trivially spoofable (review H1).
   return parts[parts.length - 1] ?? 'local';
-}
-
-function sessionTokenFromCookie(req: Request): string | null {
-  const cookie = req.headers.get('cookie');
-  if (!cookie) return null;
-  // Split on both separators: Function URLs / some proxies join duplicate
-  // Cookie headers with ", " rather than ";" (review low).
-  for (const part of cookie.split(/[;,]\s*/)) {
-    const [name, ...rest] = part.trim().split('=');
-    if (name === SESSION_COOKIE_NAME) return rest.join('=') || null;
-  }
-  return null;
-}
-
-/** Secure cookies only over https (localhost counts as a trustworthy origin). */
-function cookieIsSecure(req: Request): boolean {
-  const url = new URL(req.url);
-  return url.protocol === 'https:' || url.hostname === 'localhost' || url.hostname === '127.0.0.1';
-}
-
-function sessionCookieValue(token: string, req: Request): string {
-  const secure = cookieIsSecure(req) ? '; Secure' : '';
-  return `${SESSION_COOKIE_NAME}=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${SESSION_MAX_AGE_SECONDS}${secure}`;
-}
-
-function clearedCookieValue(req: Request): string {
-  const secure = cookieIsSecure(req) ? '; Secure' : '';
-  return `${SESSION_COOKIE_NAME}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0${secure}`;
 }
 
 function withCookie(res: Response, cookie: string): Response {
@@ -193,32 +170,17 @@ async function requireAuth(
   | { user: UserRecord; session: SessionRecord; refreshCookie: string }
   | { response: Response }
 > {
-  const token = sessionTokenFromCookie(req);
-  if (!token) return { response: json({ error: 'Not authenticated.' }, 401) };
-
-  // Storage only ever sees the token hash (review M2).
-  const sessionId = hashSessionToken(token);
-  const session = await deps.storage.getSession(sessionId);
-  if (!session || session.expiresAt <= Math.floor(Date.now() / 1000)) {
-    if (session) await deps.storage.deleteSession(sessionId);
+  // Shared session validation (src/lib/auth/session.ts — the progress handler
+  // authenticates the same way; ONE source of truth).
+  const resolution = await resolveSession(req, deps.storage);
+  if (!resolution.ok) {
     return { response: json({ error: 'Not authenticated.' }, 401) };
   }
-
-  const user = await deps.storage.getUserById(session.userId);
-  if (!user) {
-    await deps.storage.deleteSession(sessionId);
-    return { response: json({ error: 'Not authenticated.' }, 401) };
-  }
-
-  // Sliding expiry (plan §2.2): refresh lastAccessedAt + TTL on every access,
-  // and re-issue the cookie so daily users aren't hard-logged-out at day 30
-  // (review M7).
-  await deps.storage.updateSession(sessionId, {
-    lastAccessedAt: new Date().toISOString(),
-    expiresAt: Math.floor(Date.now() / 1000) + SESSION_MAX_AGE_SECONDS,
-  });
-
-  return { user, session, refreshCookie: sessionCookieValue(token, req) };
+  return {
+    user: resolution.user,
+    session: resolution.session,
+    refreshCookie: resolution.refreshCookie,
+  };
 }
 
 // --- Endpoints (§2.4) ---------------------------------------------------------

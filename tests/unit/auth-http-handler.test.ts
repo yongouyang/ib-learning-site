@@ -669,6 +669,39 @@ describe('POST /api/auth/account', () => {
       expect(res.status).toBe(400);
     }
   });
+
+  it('rejects profileIds outside [A-Za-z0-9_-] (round 3: unsyncable ids)', async () => {
+    const t = makeDeps();
+    const { token } = await loginAs(t, uniqueEmail());
+    const cookie = { cookie: `octav_session=${token}` };
+
+    // '#' (and ':' / spaces / control chars) would break the progress SK
+    // parsing — a stored bad id makes that profile permanently unsyncable.
+    for (const profileId of ['bad#profile', 'has space', 'colon:id', 'ctrl\u0007char', '']) {
+      const res = await handleAccountPost(
+        jsonRequest(
+          'POST',
+          'https://x.test/api/auth/account',
+          { childProfiles: [{ profileId, displayName: 'A', stage: 'ks3' }] },
+          cookie
+        ),
+        t.deps
+      );
+      expect(res.status, `profileId ${JSON.stringify(profileId)} should be rejected`).toBe(400);
+    }
+
+    // Valid charset (letters, digits, '-' and '_') still accepted.
+    const ok = await handleAccountPost(
+      jsonRequest(
+        'POST',
+        'https://x.test/api/auth/account',
+        { childProfiles: [{ profileId: 'p_alex-2', displayName: 'A', stage: 'ks3' }] },
+        cookie
+      ),
+      t.deps
+    );
+    expect(ok.status).toBe(200);
+  });
 });
 
 describe('GET /api/auth/sessions', () => {
