@@ -81,6 +81,14 @@ test.describe('progress sync', () => {
 
     await page.goto('/subjects/math/math-yr7-equations/quiz?difficulty=easy');
     await expect(page.getByRole('button').filter({ hasText: /^A\./ }).first()).toBeVisible();
+    // The answer buttons come from the SSR HTML, so on a slow runner they can
+    // appear BEFORE the client's /me round-trip resolves. Cutting the network
+    // at that point kills the in-flight /me, auth falls back to logged-out
+    // (review H4), and the completed attempt lands in the ANONYMOUS
+    // iblearn_progress blob instead of the namespaced octav_progress:* key —
+    // the assertion below then fails. The signed-in "Me" header button only
+    // renders once the session resolved, so wait for it before going offline.
+    await expect(page.locator('header').getByRole('button', { name: 'Me', exact: true })).toBeVisible();
     await page.context().setOffline(true);
 
     await completeQuiz(page);
