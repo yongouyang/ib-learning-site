@@ -178,3 +178,33 @@ Unit tests to create in tests/unit/ (REQUIRED in A1, not deferred to A7 — vite
 
 Verification (must all pass before reporting done): npm test green (coverage gates included), npx tsc --noEmit clean, npx eslint on changed files 0 errors. Then add a PROGRESS.md entry (AGENTS.md format, newest at top): "2026-08-16 — Phase A A1: shared analytics module (src/lib/analytics/) + unit tests". Leave the working tree dirty for user review; do NOT commit. Report files created + test counts.
 ```
+
+### A2 prompt (for DeepSeek)
+
+```
+Task: Phase A (Analytics) A2 — routes + Lambda entry + build wiring. Read docs/phase-a-analytics-plan.md first (A2 section), plus AGENTS.md and the top PROGRESS.md entry. Work on develop (pull latest — A1, the src/lib/analytics/ module, is merged at d309b89).
+
+Scope: wire the A1 module into the dev/e2e and production request paths. NO client code (A3), NO instrumentation (A4), NO terraform (A6), NO new handler logic — A1's http-handler.ts is the single source of truth; everything here is thin delegation.
+
+Pattern sources (mirror exactly):
+- src/app/api/progress/route.ts, src/app/api/progress/sync/route.ts, src/app/api/progress/_health/route.ts — the 7-line Next route delegates
+- lambda/progress/index.ts — the thin Lambda adapter (ROUTES map over lambda/shared/lambda-adapter.ts)
+- tests/unit/auth-routes.test.ts — the route-delegation test pattern
+- scripts/serve-static.ts — the AUTH_ROUTES / PROGRESS_ROUTES delegation maps
+
+Changes:
+1. Next routes (dev/e2e path), each a thin delegate with the same comment style as the progress routes:
+   - src/app/api/analytics/event/route.ts    → POST → handleAnalyticsEvent
+   - src/app/api/analytics/summary/route.ts  → GET → handleAnalyticsSummary
+   - src/app/api/analytics/_health/route.ts  → GET → handleAnalyticsHealth
+2. lambda/analytics/index.ts — thin adapter mirroring lambda/progress/index.ts exactly: ROUTES map { '/api/analytics/event': { POST }, '/api/analytics/summary': { GET }, '/api/analytics/_health': { GET } } → the A1 handlers; same 404/405/500 plumbing via lambda/shared/lambda-adapter.ts. Comment header notes CloudFront routes /api/analytics/* here (A6) and that dev/e2e uses the Next routes.
+3. scripts/build-lambdas.sh — add: build_one "analytics" "lambda/analytics/index.ts" (4th zip).
+4. scripts/serve-static.ts — add an ANALYTICS_ROUTES map (the 3 paths → '../src/app/api/analytics/<x>/route') and include it in the lookup alongside AUTH_ROUTES/PROGRESS_ROUTES.
+5. tests/unit/analytics-routes.test.ts — mirror tests/unit/auth-routes.test.ts: assert each Next route delegates to its handler (dummy deps; POST a valid page_view envelope → 204; GET _health → 200; GET summary without session → 401). This is REQUIRED, not optional — the vitest coverage gate on src/app/api/** (85% lines) would fail otherwise.
+
+Notes:
+- scripts/build-static.sh stashes the whole src/app/api dir during static export — the new routes are covered automatically, no change needed there.
+- The Lambda's IAM/env wiring is A6 (terraform); lambda/analytics running locally is NOT part of A2.
+
+Verification (all must pass): npm run build:lambda → FOUR zips (feedback, auth, progress, analytics); npm test green; npx tsc --noEmit clean; npx eslint on changed files 0 errors. Manual smoke: npm run dev, then `curl -s -o /dev/null -w "%{http_code}" -X POST localhost:<port>/api/analytics/event -H 'content-type: application/json' -d '{"name":"page_view","props":{},"url":"http://localhost/","sessionId":"s1","clientTs":"<now ISO>"}'` → 204, and `curl localhost:<port>/api/analytics/_health` → {"ok":true} (dummy mode, zero AWS). Then add the PROGRESS.md entry (AGENTS.md format, newest at top): "2026-08-17 — Phase A A2: analytics routes + lambda/analytics + 4th zip + serve-static". Leave the tree dirty; do NOT commit. Report files changed + smoke results.
+```
