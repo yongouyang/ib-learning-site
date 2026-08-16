@@ -60,11 +60,10 @@ Discussed 2026-08-14 as a serious alternative to Clerk. Passwordless OTP sideste
 
 **What needs to change:**
 
-- **Client-side:** Plausible (privacy-first, lightweight, no cookie banner needed) or PostHog (product analytics, feature flags, session replays — powerful for understanding student behavior on quiz/diagnostic flows). Plausible is enough for marketing; PostHog wins for product analytics.
-- **Server-side events:** Key actions (quiz completion, exam results, AI feedback usage) should emit server-side events for reliability. This requires an API endpoint → another Lambda or the same server hosting accounts.
-- **Architecture impact:** Small. A `<Script>` tag in `layout.tsx` for Plausible, or a PostHog provider. No server change needed for basic analytics; advanced (server-side events) needs an API.
+- **Client-side + server-side (decided 2026-08-16):** custom first-party analytics — `src/lib/analytics.ts` `trackEvent()` via `navigator.sendBeacon` to `/api/analytics/event` → analytics Lambda → `octav-analytics-events` (raw events + daily aggregates). Anonymous-only: per-tab sessionStorage session id, no fingerprint, DNT honored. Dashboard = in-app `/admin/analytics` page. Full design: `docs/phase-a-analytics-plan.md`. (The earlier Plausible/PostHog framing is superseded; PostHog remains the migration option if product-analytics needs — funnels, session replay — ever outgrow the custom dashboard.)
+- **Architecture impact:** Small — a 4th Lambda + 1 DynamoDB table on the existing Lambda Function URL pattern (`/api/analytics/*` CloudFront behavior), reusing the progress stack's exact shape.
 
-**Recommendation:** Start with Plausible (simple, cheap, no GDPR headache). Add server-side event logging when the API layer exists.
+**Recommendation (decided 2026-08-16):** custom Lambda + DynamoDB build — see `docs/phase-a-analytics-plan.md` (phases A0–A8).
 
 ---
 
@@ -285,7 +284,7 @@ Entitlements are normally *derived* from tier (`tier → featureId[]` mapping li
 | **2. Progress sync ✅** | localStorage → DynamoDB with union/ladder-max/flashcard-LWW merge + `/api/progress/*` (offline-first SyncManager, first-login migration) — **done 2026-08-15/16 (Phase C), merged 2026-08-16** | Step 0 | Medium |
 
 **First milestone (decided 2026-08-14): Steps 0–2 together** (accounts + progress sync) — **shipped to `develop` 2026-08-16; live on DEV, pending PROD (`main`) promotion and SES production access.** Entitlements (§2.9) deferred to subscription design time.
-| **3. Analytics** | Plausible script + server-side event Lambda | None (can parallel) | Low |
+| **3. Analytics** | Custom analytics Lambda + `octav-analytics-events` (raw events + daily aggregates), `/api/analytics/*` CloudFront behavior, in-app `/admin/analytics` dashboard — decided 2026-08-16, see docs/phase-a-analytics-plan.md | None (can parallel) | Low |
 | **4. Subscriptions + entitlements** | Stripe webhook + `/api/subscriptions` + `EntitlementsContext` + `LockedFeature` UI (§2.9) | Steps 1, 2 | High |
 | **5. AI feedback (prod)** | ~~Configure provider key~~ **Done 2026-08-09 (DeepSeek).** Remaining: caching layer + per-user quotas | None (live) | Low |
 | **6. Practice generation** | Generation Lambda + staging pipeline + admin review | None (can parallel) | Medium |

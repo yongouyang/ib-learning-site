@@ -590,24 +590,17 @@ To find the user's own rank: `Query` the partition counting items with score > u
 | **Custom (CloudFront logs + Lambda + DynamoDB/QA)** | Fully custom | Fully controllable | ~$1-5/mo (CloudFront logs + processing) | N/A | High (build event schema, pipeline, dashboard) |
 | **Google Analytics 4** | SaaS | Cookies, privacy concerns | Free | ❌ | Low but privacy risk |
 
-### 5.2 Recommendation: Umami (self-hosted on AWS)
+### 5.2 Recommendation: custom Lambda + DynamoDB (decided 2026-08-16, supersedes the earlier Umami framing)
 
-**Why Umami?**
-1. **Privacy-first:** cookieless, anonymous, GDPR/COPPA-friendly out of the box. No PII collected. Perfect for an education platform with minors.
-2. **Self-hosted:** runs as a single Node.js app — deploy as a Lambda + DynamoDB (or RDS PostgreSQL) behind CloudFront, same pattern as the feedback Lambda.
-3. **Low cost:** at family-use scale, DynamoDB on-demand + Lambda = ~$1-3/mo.
-4. **Simple integration:** one `<script>` tag or a small React hook. Events are sent via `navigator.sendBeacon` (doesn't block page load).
-5. **Dashboard included:** Umami has a built-in dashboard (page views, referrers, devices, event tracking). No need to build a custom dashboard.
-6. **No vendor lock-in:** open-source (MIT). Can migrate to PostHog later if more advanced features (funnels, session replay) are needed.
+**Superseding decision.** The earlier §5.2 recommended Umami self-hosted on AWS. That framing assumed Umami could run as a Lambda + DynamoDB app — it cannot: Umami is a Next.js + Prisma application that requires PostgreSQL/MySQL. Running real Umami means App Runner/ECS + RDS (~$25–45/mo) plus a new infra shape (long-running service + relational database) that nothing else in this project uses. Re-decided 2026-08-16: build a small custom analytics stack instead.
 
-**Why not PostHog?**
-- More powerful (funnels, session replay, feature flags) but heavier to self-host (requires ClickHouse, Kafka, PostgreSQL — significant infra).
-- Overkill for the current need (user journey + behavior analysis).
-- Can migrate to PostHog later if analytics needs grow.
+**Custom build (locked):**
+1. **Reuses the existing stack exactly:** collect API on the established Lambda Function URL pattern (CloudFront `/api/analytics/*` behavior → Lambda → DynamoDB) — the same shape as the feedback/auth/progress stacks, including the controllable-dummy directive (in-memory dummy for dev/e2e, real DynamoDB adapter in the Lambda).
+2. **Low cost:** at family-use scale, Lambda + DynamoDB on-demand = ~$0–1/mo (vs ~$25–45/mo for Umami's App Runner/ECS + RDS footprint).
+3. **Privacy-first:** cookieless (per-tab `sessionStorage` session id, no fingerprint, DNT honored) — no cookie banner needed.
+4. **Trade-off vs Umami:** we build the dashboard ourselves — an in-app `/admin/analytics` page (session-gated to an admin email allowlist); Umami's built-in dashboard is the main thing we give up.
 
-**Why not Plausible?**
-- Excellent for page-view analytics but limited custom event tracking (you can send custom events but the dashboard is page-view-centric).
-- Umami has better custom event support, which is needed for tracking quiz starts, flashcard sessions, etc.
+**Authoritative design:** `docs/phase-a-analytics-plan.md` (locked decisions, A0–A8 phases, event taxonomy, data model, API surface).
 
 ### 5.3 Events to track
 
@@ -666,48 +659,49 @@ pwa_offline_banner_shown: {}
 
 | Requirement | Implementation |
 |-------------|---------------|
-| **No cookies** | Umami is cookieless — uses a fingerprint hash that rotates. No cookie banner needed. |
+| **No cookies** | Cookieless (custom build, like Umami): per-tab `sessionStorage` session id, no fingerprint, `navigator.doNotTrack` honored. No cookie banner needed. |
 | **No PII** | Analytics events contain only anonymous IDs (session ID, not email). Auth events use `emailDomain` not full email. |
-| **COPPA** | No tracking of children under 13 without parental consent. Since parents register and create child profiles, analytics are enabled only after registration. Anonymous (pre-login) tracking is page-view only (no custom events with PII). |
+| **COPPA** | No tracking of children under 13 without parental consent. All analytics events are anonymous-only (locked decision 3): per-tab session id, no profile/userId linkage, no PII in props — pre-login and post-login events carry no personal information, so no consent gating is needed. |
 | **GDPR** | No cookies → no consent banner required under ePrivacy Directive. Data is stored in ap-east-1 (user can request deletion). |
-| **Data retention** | Umami retains data for a configurable period (default: unlimited; recommend 12 months). |
+| **Data retention** | Raw events TTL 90 days; daily aggregates TTL 400 days (12-month reporting). |
 
 ### 5.5 Session attribution
 
 ```
-Anonymous user (pre-login):
-  Umami assigns an anonymous session ID (cookieless fingerprint)
-  Page views + CTA clicks tracked
+Anonymous only (locked decision 3 — supersedes the earlier Umami
+identify flow): every event carries a per-tab sessionStorage UUID
+created lazily. No persistent visitor id, no fingerprint, no userId
+attribution, no identify-on-login.
 
-User logs in:
-  Auth Lambda sends an `identify` event to Umami with { userId, role }
-  Umami links the anonymous session to the userId
-  Future events are attributed to the userId
-
-Result: full user journey from first visit → registration → learning activity,
-  with anonymous-to-known attribution.
+Pre-login and post-login events both stay anonymous; the dashboard
+reports aggregate counts (events, pages, referrers), not user journeys.
 ```
 
 ### 5.6 Infrastructure
 
-**Self-hosted Umami on AWS:**
+**Custom analytics stack (decided 2026-08-16 — full design in docs/phase-a-analytics-plan.md):**
 
 ```
-CloudFront /api/analytics/*  →  Lambda Function URL (Umami tracker API)
-                                  ├── DynamoDB: octav-analytics-events
-                                  │   (or PostgreSQL Aurora Serverless for richer queries)
-                                  └── Lambda: octav-analytics (Umami Node.js app)
+Browser: POST /api/analytics/event (sendBeacon, fire-and-forget, offline = drop)
+    │
+    ▼
+CloudFront /api/analytics/* behavior (before /api/*)
+    │
+    ▼
+analytics Lambda (Function URL; shared handler src/lib/analytics/http-handler.ts;
+dev/e2e: Next routes src/app/api/analytics/*)
+    │
+    ├── DynamoDB: octav-analytics-events — raw events (TTL 90d)
+    │              + daily aggregate counters (TTL 400d; 12-month reporting)
+    └── octav-rate-limits — per-IP ingest budget (reused fixed-window pattern)
 
-Umami dashboard:
-  Served from the same Lambda at /api/analytics/dashboard (protected by basic auth or Umami's built-in auth)
-  Or: deploy Umami separately on a small EC2 / App Runner instance with an RDS PostgreSQL
+GET /api/analytics/summary?days=7|30|90 — session-gated, admin email allowlist
+    └── /admin/analytics — static-export page, client-side fetch after auth
 ```
-
-**Simpler alternative:** Use Umami Cloud ($9/mo) initially — no infra to manage, migrate to self-hosted when event volume justifies it.
 
 **Client integration:**
 ```typescript
-// src/lib/analytics.ts
+// src/lib/analytics.ts — full client design in docs/phase-a-analytics-plan.md (A3)
 export function trackEvent(name: string, props?: Record<string, unknown>) {
   if (typeof window === 'undefined') return;
   navigator.sendBeacon('/api/analytics/event', JSON.stringify({ name, props, url: location.href, referrer: document.referrer }));
@@ -730,7 +724,7 @@ trackEvent('quiz_started', { subjectId: 'math', topicId: 'math-yr7-algebra-1', s
 | `octav-otp-codes` | DynamoDB table (on-demand) | OTP storage (TTL 10m) | $0.00 |
 | `octav-progress` | DynamoDB table (on-demand) | Progress persistence | $0.00-0.50 |
 | `octav-leaderboard` | DynamoDB table (on-demand) | Leaderboard scores | $0.00 |
-| `octav-analytics-events` | DynamoDB table (on-demand) | Analytics events (if self-hosted Umami) | $0.00-1.00 |
+| `octav-analytics-events` | DynamoDB table (on-demand) | Analytics events (raw + daily aggregates, TTL 90d/400d) | $0.00-1.00 |
 | Auth Lambda | Lambda Function URL | `/api/auth/*` endpoints | $0.00 (free tier) |
 | Progress Lambda | Lambda Function URL | `/api/progress/*` endpoints | $0.00 |
 | Leaderboard Lambda | Lambda Function URL | `/api/leaderboard/*` endpoints | $0.00 |
@@ -753,7 +747,7 @@ terraform/
 │   ├── auth_api/        (NEW — Auth Lambda + Function URL + SES)
 │   ├── progress_api/    (NEW — Progress Lambda + Function URL)
 │   ├── leaderboard_api/ (NEW — Leaderboard Lambda + Function URL + EventBridge)
-│   └── analytics_api/   (NEW — Analytics Lambda + Function URL, or Umami cloud config)
+│   └── analytics_api/   (NEW — Analytics Lambda + Function URL)
 ├── envs/
 │   ├── prod/            (existing — composes all modules)
 │   └── dev/             (NEW or shared — compose for DEV environment)
@@ -785,10 +779,10 @@ New GitHub secrets/variables needed:
 Secrets:
   SES_FROM_ADDRESS         — e.g. "noreply@octavlearning.com"
   JWT_SIGNING_KEY          — (if using JWT for inter-Lambda auth; not needed if using cookies only)
-  UMAMI_SITE_ID            — (if using Umami cloud)
 
 Variables:
   DYNAMODB_TABLE_PREFIX    — e.g. "octav" (or "iblearn" to match existing naming)
+  ANALYTICS_ADMIN_EMAILS   — admin email allowlist for GET /api/analytics/summary
 ```
 
 The CI deploy job (`ci.yml`) gains:
@@ -825,17 +819,21 @@ Phase D: Leaderboard (Feature 3)   ← depends on auth + progress
 - Progress sync depends on auth (need a userId to store progress against).
 - Leaderboard depends on both auth (userId) and progress (XP/score computation).
 
-### Phase A — Analytics (1-2 weeks)
+### Phase A — Analytics (plan: docs/phase-a-analytics-plan.md, phases A0–A8)
 
 | Step | What | Risk | Verify |
 |------|------|------|-------|
-| A1 | Choose Umami cloud vs self-hosted | Low (reversible) | Cost comparison |
-| A2 | Add `src/lib/analytics.ts` with `trackEvent()` | None | Unit test event shapes |
-| A3 | Add event tracking to key user flows (quiz, flashcard, exam, diagnostic, CTA clicks) | Low | Umami dashboard shows events |
-| A4 | If self-hosted: deploy Umami Lambda + DynamoDB + CloudFront behavior | Medium (infra) | Dashboard loads, events appear |
-| A5 | Add analytics smoke check to CI deploy | None | Post-deploy smoke passes |
+| A0 | Docs reconciliation: §5/§7 corrected to the custom-build decision (this checklist) | None | Markdown consistent; this doc points at the plan |
+| A1 | Shared analytics module `src/lib/analytics/` (types, dummy, DynamoDB adapter, http-handler, deps) | Low | Unit tests incl. dummy↔DynamoDB parity |
+| A2 | Next routes + `lambda/analytics` + build-lambdas (4th zip) + serve-static delegation | Low | build:lambda green |
+| A3 | Client `src/lib/analytics.ts` + `AnalyticsTracker` (page views; DNT no-op) | Low | Unit tests (sendBeacon, session id lifecycle) |
+| A4 | Instrument the §5.3 taxonomy at each call site | Low | e2e intercepts /api/analytics/event |
+| A5 | `/admin/analytics` dashboard (summary fetch, 7/30/90-day toggle) | Low | e2e admin/403/logged-out states |
+| A6 | Terraform: `octav-analytics-events` table + `analytics_api` module + `/api/analytics/*` behavior | Medium (infra) | fmt/validate; CI apply |
+| A7 | Tests (unit + `tests/e2e/analytics.spec.ts`) | Low | npm test + e2e green |
+| A8 | Gates + docs: build:lambda (4 zips), AGENTS.md bullet, plan rows checked | Low | Full gates |
 
-**Doesn't break anything:** the static export, PWA, and offline UX are unchanged. Analytics events are fire-and-forget (sendBeacon doesn't block).
+**Doesn't break anything:** the static export, PWA, and offline UX are unchanged. Analytics events are fire-and-forget (sendBeacon doesn't block); offline events drop (no queue — accepted).
 
 ### Phase B — Auth (2-3 weeks)
 
@@ -898,7 +896,7 @@ All 4 phases are additive — none require changing `output: 'export'`:
 | R6 | **OTP abuse** (mass OTP requests drain SES quota or harass email owners) | Medium | Medium | Rate limiting (3 per 10 min per email+IP). SES sandbox initially (verified recipients only). Monitor sending volume. |
 | R7 | **Session security** (cookie theft, session fixation) | Low | High | HTTP-only + Secure + SameSite=Lax cookie. Opaque session ID (not JWT). Server-side revocation. Rotate session ID on login. |
 | R8 | **Data loss during migration** (localStorage → server sync loses data) | Low | High | localStorage is never cleared during migration. Server data is additive. First-login bulk upload. Extensive merge tests. |
-| R9 | **Vendor lock-in** (Umami cloud or analytics SaaS) | Low | Low | Umami is open-source (MIT). Can self-host or migrate to PostHog. Analytics data is event logs (portable). |
+| R9 | **Vendor lock-in** (analytics SaaS) | Low | Low | Removed by the custom-build decision (2026-08-16): no SaaS dependency; events are portable DynamoDB rows. |
 | R10 | **Local terraform apply wipes new resources** (the existing FEEDBACK_ENV issue extends to new secrets) | Medium | High | All new secrets go to GitHub secrets, not local. Local terraform `plan`/`validate`/`fmt` only (existing policy). CI-only applies. |
 | R11 | **CloudFront behavior limit** (too many /api/* behaviors) | Very Low | Medium | CloudFront allows up to 25 cache behaviors per distribution. Current: 2 (default + /api/feedback). Adding 4 more = 6 total. Well within limit. |
 | R12 | **Leaderboard gaming** (users cheat for high scores) | Low | Low | Scores derived from server-side event log (not client-reported). Quiz/exam scoring is server-validated. Rate limit quiz completions. |
@@ -918,9 +916,8 @@ Is the primary use case a parent who manages multiple children's profiles, or in
 **Resolved 2026-08-14:** parent→child, per the recommendation.
 
 ### Q2: Should analytics be self-hosted or SaaS?
-Self-hosted Umami (Lambda + DynamoDB) keeps all data in your AWS account and costs ~$0-3/mo. Umami Cloud ($9/mo) is zero-management but data lives on their servers.
 
-**Recommendation:** Start with Umami Cloud for speed (1-day setup), migrate to self-hosted when you want full data ownership or when event volume exceeds the free tier.
+**Resolved 2026-08-16:** neither — custom Lambda + DynamoDB build. Umami requires PostgreSQL/MySQL (Next.js + Prisma) and cannot run on Lambda + DynamoDB; Umami Cloud ($9/mo) sends data off-AWS. See §5.2 and docs/phase-a-analytics-plan.md.
 
 ### Q3: Should the leaderboard be real-time or daily-batched?
 Real-time (DynamoDB atomic updates on every quiz completion) gives instant gratification but more write load. Daily-batched (compute scores once per day) is cheaper but less exciting.
@@ -936,7 +933,7 @@ All current users are presumably in Asia (ap-east-1 / Hong Kong). If expanding t
 ### Q6: Should anonymous (pre-login) users be tracked in analytics?
 Tracking anonymous page views helps understand the conversion funnel (landing page → sign-up). But if minors are browsing without parental consent, tracking may raise COPPA concerns.
 
-**Recommendation:** Track anonymous page views (no PII, cookieless) but NOT custom events (quiz scores etc.) for unauthenticated users. Custom events fire only after login.
+**Resolved 2026-08-16:** track everything anonymously — the anonymous-only decision (§5.5, locked decision 3) removes the COPPA concern that motivated gating: events carry no PII, no persistent id, and no user linkage, so custom events (quiz etc.) may fire pre-login too. Supersedes the earlier "custom events only after login" recommendation.
 
 ### Q7: Email delivery — use SES directly or a transactional email service (Resend, Postmark)?
 SES is cheapest ($0.10/1000 emails) but requires domain verification and deliverability management. Resend/Postmark are easier to set up and have better deliverability but cost more ($1-20/mo depending on volume).
@@ -999,7 +996,7 @@ lambda/
 ├── leaderboard/           (NEW)
 │   ├── index.ts
 │   └── dist/
-└── analytics/             (NEW — only if self-hosting Umami)
+└── analytics/             (NEW — analytics module + Lambda adapter)
     ├── index.ts
     └── dist/
 

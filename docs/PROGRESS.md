@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-16 — Phase A analytics: direction locked (custom Lambda + DynamoDB), docs reconciled (A0)
+Git HEAD: `2a7573e` (develop, tree dirty: A0 docs only)
+Done: Phase A analytics re-decided 2026-08-16 as a CUSTOM Lambda + DynamoDB build (docs/phase-a-analytics-plan.md, phases A0–A8). A0 docs reconciliation: architecture-evolution-plan.md §5.2 rewritten (Umami is Next.js + Prisma and requires PostgreSQL/MySQL — real Umami = App Runner/ECS + RDS ~$25–45/mo; custom collect API + event table = ~$0–1/mo on the existing Lambda Function URL pattern, reusing the progress stack shape), §5.6 diagram + Umami-Cloud alternative replaced with the custom stack (event POST → `/api/analytics/*` behavior → Lambda → octav-analytics-events raw + daily aggregates; summary GET admin-allowlisted; /admin/analytics static page), §5.4 privacy rows updated (cookieless per-tab sessionStorage id + DNT honored; raw events TTL 90d / daily aggregates TTL 400d), §5.5 attribution corrected to anonymous-only (supersedes the Umami identify flow), §7 Phase A table re-scoped to plan phases A0–A8 (nothing checked), §6 table/module-tree/CI-secrets rows, §8 R9 and §9 Q2 updated. future-tech-stack-evolution.md §4 Step 3 row → custom design. Locked decisions: custom build; full §5.3 taxonomy; anonymous-only attribution; in-app /admin/analytics dashboard.
+Verified: docs-only — no gates run (no code/terraform/tests touched); re-grepped both docs for stray Umami framing.
+Next: A1 shared analytics module (`src/lib/analytics/`) via a fresh prompt.
+Notes: review follow-up (same changeset, Kimi session) closed the 3 residuals DeepSeek flagged/left: future-tech-stack-evolution.md §2.2 (Plausible recommendation → custom build), §9 Q6 (pre-login custom-event gating → resolved: anonymous-only attribution removes the COPPA concern), §5.4 COPPA row (aligned to anonymous-only). §5.5 was corrected by DeepSeek beyond the enumerated prompt scope (Umami identify flow → anonymous-only) — verified correct per locked decision 3.
+
+---
+
 ## 2026-08-16 — deploy-dev fix: reserved Lambda concurrency impossible with account quota 10
 Git HEAD: `26c4e70` (develop, tree clean before this entry)
 Done: deploy-dev failed on the first develop push carrying Phase B/C — `PutFunctionConcurrency` 400 "decreases account's UnreservedConcurrentExecution below its minimum value of [10]" on BOTH `iblearn-auth` and `iblearn-progress`. Root cause: the account's ap-east-1 concurrent-executions quota (Service Quotas L-B99A9384) is **10 total** (reduced new-account quota), and AWS requires ≥10 to stay unreserved — so ANY `reserved_concurrent_executions` is impossible right now (verified: quota value 10.0, adjustable; all 4 functions have no reservation — auth's `= 10` from Phase B round-1 H3 had never actually applied). Fix: `reserved_concurrent_executions` is now a module variable (default null = unmanaged) in `terraform/modules/auth_api` + `terraform/modules/progress_api`, with the quota rationale in the variable description; re-enable (e.g. 10) only after a Service Quotas increase. AGENTS.md terraform bullet updated to match.
