@@ -3,7 +3,8 @@ import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { SESv2Client } from '@aws-sdk/client-sesv2';
 import { DynamoAuthStorage } from './dynamodb-storage';
 import { SesEmailSender } from './ses-sender';
-import { DummyEmailSender, InMemoryAuthStorage } from './dummy';
+import { DummyEmailSender } from './dummy';
+import { getSharedDummyUniverse } from '../progress/deps';
 import type { AuthDeps } from './types';
 
 // Dependency wiring for the auth handler (the feedback handler's getFeedbackProvider
@@ -15,15 +16,12 @@ import type { AuthDeps } from './types';
 // Defaults are the dummies: local dev and e2e work with zero AWS resources and
 // zero emails (controllable-dummy directive, AGENTS.md). The terraform
 // auth_api module always sets the real wiring for the prod Lambda.
-
-// One shared in-memory dummy per process so dev-server state survives between
-// requests (resets on restart). Unit tests never call getAuthDeps — they pass
-// fresh dummies straight into the handlers.
-let sharedDummyStorage: InMemoryAuthStorage | null = null;
-function getSharedDummyStorage(): InMemoryAuthStorage {
-  if (!sharedDummyStorage) sharedDummyStorage = new InMemoryAuthStorage();
-  return sharedDummyStorage;
-}
+//
+// The dummy singleton is the SHARED in-memory universe owned by
+// src/lib/progress/deps.ts: the progress handler (Phase C) must see the
+// sessions the auth handler writes, exactly like both Lambdas share the same
+// DynamoDB tables in production. Unit tests never call getAuthDeps — they
+// pass fresh dummies straight into the handlers.
 
 function requiredEnv(env: Record<string, string | undefined>, name: string): string {
   const value = env[name];
@@ -59,7 +57,7 @@ export function getAuthDeps(env: Record<string, string | undefined> = process.en
 
   let storage: AuthDeps['storage'];
   if (storageKind === 'dummy') {
-    storage = getSharedDummyStorage();
+    storage = getSharedDummyUniverse();
   } else if (storageKind === 'dynamodb') {
     const documentClient = DynamoDBDocumentClient.from(
       new DynamoDBClient({ region: env.AUTH_DYNAMODB_REGION ?? env.AWS_REGION ?? 'ap-east-1' }),

@@ -45,6 +45,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     ++generation.current;
     setUser(null);
     setActiveProfileId(null);
+    // The session is DEFINITIVELY cleared: settle `loaded` here so a logout
+    // that races the initial me() can't strand the UI on the skeleton (the
+    // superseded me() no longer settles it — refresh() guards on generation).
+    setLoaded(true);
     try {
       localStorage.removeItem(ACTIVE_PROFILE_KEY);
     } catch {
@@ -64,10 +68,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // redirects and the logged-out experience renders (review H4).
       if (gen === generation.current) setUser(null);
     } finally {
-      // `loaded` is a render gate, not session data — always settle it, even
-      // when this call was superseded (a logout during the round-trip must
-      // not leave the UI on the skeleton forever — round 2).
-      setLoaded(true);
+      // Settle `loaded` ONLY from the CURRENT generation. A superseded me()
+      // must NOT flip it: its finally would briefly expose (loaded=true,
+      // user=null) — which the ProgressContext identity effect reads as a
+      // genuine logout and PURGES the pending sync queue on a plain reload
+      // (StrictMode's second refresh() supersedes the first me() — round 2,
+      // found by the reload e2e). Logout settles `loaded` itself via
+      // clearLocalSession, so a superseded call can't strand the skeleton.
+      if (gen === generation.current) setLoaded(true);
     }
   }, []);
 

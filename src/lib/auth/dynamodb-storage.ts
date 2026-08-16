@@ -39,12 +39,62 @@ function isConditionalFailure(err: unknown): boolean {
   return (err as { name?: string } | null)?.name === 'ConditionalCheckFailedException';
 }
 
+/**
+ * The session-validation subset of the auth tables, factored out so the
+ * progress Lambda (Phase C) can authenticate with the SAME implementation
+ * WITHOUT needing the OTP/rate-limit table names it never touches.
+ * DynamoAuthStorage delegates its four session methods here — one source of
+ * truth for session reads/writes across both lambdas.
+ */
+export class DynamoSessionStorage {
+  constructor(
+    private readonly client: DynamoDBDocumentClient,
+    private readonly tables: { users: string; sessions: string }
+  ) {}
+
+  async getUserById(userId: string): Promise<UserRecord | null> {
+    const res = await this.client.send(
+      new GetCommand({ TableName: this.tables.users, Key: { userId } })
+    );
+    return (res.Item as UserRecord | undefined) ?? null;
+  }
+
+  async getSession(sessionId: string): Promise<SessionRecord | null> {
+    const res = await this.client.send(
+      new GetCommand({ TableName: this.tables.sessions, Key: { sessionId } })
+    );
+    return (res.Item as SessionRecord | undefined) ?? null;
+  }
+
+  async updateSession(sessionId: string, updates: { lastAccessedAt: string; expiresAt: number }): Promise<void> {
+    await this.client.send(
+      new UpdateCommand({
+        TableName: this.tables.sessions,
+        Key: { sessionId },
+        UpdateExpression: 'SET lastAccessedAt = :laa, expiresAt = :exp',
+        ExpressionAttributeValues: { ':laa': updates.lastAccessedAt, ':exp': updates.expiresAt },
+      })
+    );
+  }
+
+  async deleteSession(sessionId: string): Promise<void> {
+    await this.client.send(new DeleteCommand({ TableName: this.tables.sessions, Key: { sessionId } }));
+  }
+}
+
 export class DynamoAuthStorage implements AuthStorage {
+  private readonly sessionsStore: DynamoSessionStorage;
+
   constructor(
     private readonly client: DynamoDBDocumentClient,
     private readonly tables: TableNames,
     private readonly clock: () => number = Date.now
-  ) {}
+  ) {
+    this.sessionsStore = new DynamoSessionStorage(client, {
+      users: tables.users,
+      sessions: tables.sessions,
+    });
+  }
 
   // --- Users ------------------------------------------------------------------
 
@@ -61,11 +111,8 @@ export class DynamoAuthStorage implements AuthStorage {
     return (res.Items?.[0] as UserRecord | undefined) ?? null;
   }
 
-  async getUserById(userId: string): Promise<UserRecord | null> {
-    const res = await this.client.send(
-      new GetCommand({ TableName: this.tables.users, Key: { userId } })
-    );
-    return (res.Item as UserRecord | undefined) ?? null;
+  getUserById(userId: string): Promise<UserRecord | null> {
+    return this.sessionsStore.getUserById(userId);
   }
 
   async createUser(user: UserRecord): Promise<void> {
@@ -122,25 +169,15 @@ export class DynamoAuthStorage implements AuthStorage {
   }
 
   async getSession(sessionId: string): Promise<SessionRecord | null> {
-    const res = await this.client.send(
-      new GetCommand({ TableName: this.tables.sessions, Key: { sessionId } })
-    );
-    return (res.Item as SessionRecord | undefined) ?? null;
+    return this.sessionsStore.getSession(sessionId);
   }
 
   async updateSession(sessionId: string, updates: { lastAccessedAt: string; expiresAt: number }): Promise<void> {
-    await this.client.send(
-      new UpdateCommand({
-        TableName: this.tables.sessions,
-        Key: { sessionId },
-        UpdateExpression: 'SET lastAccessedAt = :laa, expiresAt = :exp',
-        ExpressionAttributeValues: { ':laa': updates.lastAccessedAt, ':exp': updates.expiresAt },
-      })
-    );
+    return this.sessionsStore.updateSession(sessionId, updates);
   }
 
   async deleteSession(sessionId: string): Promise<void> {
-    await this.client.send(new DeleteCommand({ TableName: this.tables.sessions, Key: { sessionId } }));
+    return this.sessionsStore.deleteSession(sessionId);
   }
 
   async listSessionsByUser(userId: string): Promise<SessionRecord[]> {
@@ -260,14 +297,25 @@ export class DynamoAuthStorage implements AuthStorage {
   // --- Progress (Phase C is the real consumer; §9 Q8 plumbing) ----------------
 
   async listProgressByUser(userId: string): Promise<unknown[]> {
-    const res = await this.client.send(
-      new QueryCommand({
-        TableName: this.tables.progress,
-        KeyConditionExpression: 'userId = :userId',
-        ExpressionAttributeValues: { ':userId': userId },
-      })
-    );
-    return res.Items ?? [];
+    // Paginated (round 3, matching the progress adapter): a single Query page
+    // caps at 1MB — account export and delete-account go through this method,
+    // so a truncated read would silently drop the user's data. Loop
+    // LastEvaluatedKey to collect every page.
+    const items: unknown[] = [];
+    let lastKey: Record<string, unknown> | undefined;
+    do {
+      const res = await this.client.send(
+        new QueryCommand({
+          TableName: this.tables.progress,
+          KeyConditionExpression: 'userId = :userId',
+          ExpressionAttributeValues: { ':userId': userId },
+          ...(lastKey ? { ExclusiveStartKey: lastKey } : {}),
+        })
+      );
+      items.push(...(res.Items ?? []));
+      lastKey = res.LastEvaluatedKey;
+    } while (lastKey);
+    return items;
   }
 
   async deleteProgressByUser(userId: string): Promise<void> {

@@ -117,6 +117,14 @@ const AUTH_ROUTES: Record<string, string> = {
   '/api/auth/delete': '../src/app/api/auth/delete/route',
 };
 
+// /api/progress/* → the real Next route handlers, mirroring the CloudFront
+// /api/progress/* behavior → progress Lambda (architecture-evolution-plan.md §3).
+const PROGRESS_ROUTES: Record<string, string> = {
+  '/api/progress': '../src/app/api/progress/route',
+  '/api/progress/sync': '../src/app/api/progress/sync/route',
+  '/api/progress/_health': '../src/app/api/progress/_health/route',
+};
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url ?? '/', `http://localhost:${port}`);
 
@@ -128,7 +136,7 @@ const server = http.createServer((req, res) => {
     });
     return;
   }
-  const authRoute = AUTH_ROUTES[url.pathname];
+  const authRoute = AUTH_ROUTES[url.pathname] ?? PROGRESS_ROUTES[url.pathname];
   if (authRoute) {
     handleApiRoute(authRoute, url.pathname, req, res).catch((err) => {
       console.error(`[serve-static] ${url.pathname} error:`, err);
@@ -158,5 +166,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(`[serve-static] Serving out/ + /api/feedback + /api/auth/* on http://localhost:${port}`);
+  console.log(`[serve-static] Serving out/ + /api/feedback + /api/auth/* + /api/progress/* on http://localhost:${port}`);
 });

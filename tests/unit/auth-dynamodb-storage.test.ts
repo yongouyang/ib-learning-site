@@ -311,6 +311,32 @@ describe('DynamoAuthStorage', () => {
     expect(cmd.input).toMatchObject({ TableName: 'octav-progress', KeyConditionExpression: 'userId = :userId' });
   });
 
+  it('listProgressByUser loops LastEvaluatedKey pages (round 3: export/delete completeness)', async () => {
+    const queries: CommandLike[] = [];
+    const s = makeStorage((cmd) => {
+      if (cmd.constructor.name === 'QueryCommand') {
+        queries.push(cmd);
+        if (queries.length === 1) {
+          return {
+            Items: [
+              { userId: 'u1', dataType: 'a' },
+              { userId: 'u1', dataType: 'b' },
+            ],
+            LastEvaluatedKey: { userId: 'u1', dataType: 'b' },
+          };
+        }
+        return { Items: [{ userId: 'u1', dataType: 'c' }] };
+      }
+      return {};
+    });
+
+    const items = await s.listProgressByUser('u1');
+    expect(items.map((i) => (i as { dataType: string }).dataType)).toEqual(['a', 'b', 'c']);
+    expect(queries).toHaveLength(2);
+    expect(queries[0].input.ExclusiveStartKey).toBeUndefined();
+    expect(queries[1].input.ExclusiveStartKey).toEqual({ userId: 'u1', dataType: 'b' });
+  });
+
   it('deleteProgressByUser deletes each progress item', async () => {
     const calls: CommandLike[] = [];
     const s = makeStorage((cmd) => {
@@ -330,6 +356,31 @@ describe('DynamoAuthStorage', () => {
     expect(deletes).toHaveLength(2);
     expect(deletes[0].input).toEqual({ TableName: 'octav-progress', Key: { userId: 'u1', dataType: 'quiz' } });
     expect(deletes[1].input).toEqual({ TableName: 'octav-progress', Key: { userId: 'u1', dataType: 'exam' } });
+  });
+
+  it('deleteProgressByUser deletes items from EVERY page (round 3: no truncation)', async () => {
+    const calls: CommandLike[] = [];
+    let queryCount = 0;
+    const s = makeStorage((cmd) => {
+      calls.push(cmd);
+      if (cmd.constructor.name === 'QueryCommand') {
+        queryCount += 1;
+        if (queryCount === 1) {
+          return {
+            Items: [
+              { userId: 'u1', dataType: 'quiz' },
+              { userId: 'u1', dataType: 'exam' },
+            ],
+            LastEvaluatedKey: { userId: 'u1', dataType: 'exam' },
+          };
+        }
+        return { Items: [{ userId: 'u1', dataType: 'ladder' }] };
+      }
+      return {};
+    });
+    await s.deleteProgressByUser('u1');
+    const deletes = calls.filter((c) => c.constructor.name === 'DeleteCommand');
+    expect(deletes.map((d) => (d.input.Key as { dataType: string }).dataType)).toEqual(['quiz', 'exam', 'ladder']);
   });
 });
 

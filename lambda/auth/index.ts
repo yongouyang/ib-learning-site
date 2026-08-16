@@ -9,6 +9,13 @@ import {
   handleSessionsGet,
   handleVerifyOtp,
 } from '../../src/lib/auth/http-handler';
+import {
+  METHODS_WITH_BODY,
+  toLambdaResult,
+  toWebRequest,
+  type FunctionUrlEvent,
+  type LambdaHttpResult,
+} from '../shared/lambda-adapter';
 
 // Production auth Lambda (docs/architecture-evolution-plan.md §6): thin adapter
 // between the Lambda Function URL event shape (HTTP API v2) and the shared
@@ -24,23 +31,6 @@ import {
 // value), and the X-Forwarded-For handling discriminates between the two
 // network topologies this function serves (see resolveForwardedFor below).
 
-interface FunctionUrlEvent {
-  rawPath?: string;
-  rawQueryString?: string;
-  headers?: Record<string, string | undefined>;
-  body?: string;
-  isBase64Encoded?: boolean;
-  requestContext?: { http?: { method?: string; sourceIp?: string } };
-}
-
-interface LambdaHttpResult {
-  statusCode: number;
-  headers: Record<string, string>;
-  cookies?: string[]; // Set-Cookie values (HTTP API v2 `cookies` field)
-  body: string;
-  isBase64Encoded: boolean;
-}
-
 type RouteHandler = (req: Request) => Promise<Response>;
 
 // path → { method → handler } — every mutation is POST (§2.5), reads are GET.
@@ -55,11 +45,6 @@ const ROUTES: Record<string, Partial<Record<string, RouteHandler>>> = {
   '/api/auth/export': { GET: handleExportGet },
   '/api/auth/delete': { POST: handleDeleteAccount },
 };
-
-// NOTE: scripts/request-body-gating.ts (serve-static) has an inline mirror of
-// this set — the two MUST stay in sync (no cross-import; keep the esbuild
-// bundle self-contained).
-const METHODS_WITH_BODY = new Set(['POST', 'PUT', 'PATCH', 'DELETE']);
 
 // --- X-Forwarded-For resolution (round 3) -------------------------------------
 //
@@ -286,21 +271,12 @@ export function resolveForwardedFor(headers: Headers, sourceIp: string | undefin
 }
 
 export const handler = async (event: FunctionUrlEvent): Promise<LambdaHttpResult> => {
-  const method = event.requestContext?.http?.method ?? 'GET';
-  const host = event.headers?.host ?? 'localhost';
-  const path = event.rawPath ?? '/';
-  const query = event.rawQueryString ? `?${event.rawQueryString}` : '';
-  const url = `https://${host}${path}${query}`;
-
-  const headers = new Headers();
-  for (const [key, value] of Object.entries(event.headers ?? {})) {
-    if (value !== undefined) headers.set(key, value);
-  }
+  const { url, method, headers, body } = toWebRequest(event);
 
   ensureCloudFrontIpCheckerLoaded();
   resolveForwardedFor(headers, event.requestContext?.http?.sourceIp);
 
-  const route = ROUTES[path];
+  const route = ROUTES[event.rawPath ?? '/'];
   let response: Response;
   if (!route) {
     response = Response.json({ error: 'Not found' }, { status: 404 });
@@ -310,14 +286,6 @@ export const handler = async (event: FunctionUrlEvent): Promise<LambdaHttpResult
       response = Response.json({ error: 'Method not allowed' }, { status: 405 });
     } else {
       try {
-        // Only forward a body for methods that permit one — `new Request` with
-        // a body on GET/HEAD throws (review M4).
-        const body =
-          METHODS_WITH_BODY.has(method) && event.body !== undefined
-            ? event.isBase64Encoded
-              ? Buffer.from(event.body, 'base64').toString('utf-8')
-              : event.body
-            : undefined;
         response = await handlerForMethod(new Request(url, { method, headers, body }));
       } catch (err) {
         console.error('[auth] handler error:', err instanceof Error ? err.message : err);
@@ -329,24 +297,6 @@ export const handler = async (event: FunctionUrlEvent): Promise<LambdaHttpResult
   return toLambdaResult(response);
 };
 
-/**
- * Convert a Response to the Lambda Function URL (HTTP API v2) result shape.
- * Set-Cookie values go in the dedicated `cookies` array — folding them into
- * the headers map with ", " joins is not reliably client-parseable, so any
- * future second cookie would break login/logout in prod only (round 2).
- * Exported for adapter unit tests.
- */
-export async function toLambdaResult(response: Response): Promise<LambdaHttpResult> {
-  const headers = Object.fromEntries(response.headers.entries());
-  delete headers['set-cookie']; // any entry-side copy must not double up with `cookies`
-
-  const cookies = response.headers.getSetCookie();
-
-  return {
-    statusCode: response.status,
-    headers,
-    cookies: cookies.length > 0 ? cookies : undefined,
-    body: await response.text(),
-    isBase64Encoded: false,
-  };
-}
+// Re-exported for the adapter unit tests (the shared implementation lives in
+// lambda/shared/lambda-adapter.ts — one source of truth for both lambdas).
+export { toLambdaResult, METHODS_WITH_BODY };
