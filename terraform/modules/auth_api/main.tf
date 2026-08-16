@@ -59,6 +59,12 @@ variable "ses_identity_arn" {
   type        = string
 }
 
+variable "reserved_concurrent_executions" {
+  description = "Reserved concurrency for the auth Lambda (brute-force/cost cap). Default null = unmanaged, because the account's ap-east-1 concurrent-executions quota is 10 (L-B99A9384) and ANY reservation would push unreserved below AWS's minimum of 10. Set (e.g. 10) only after a Service Quotas increase."
+  type        = number
+  default     = null
+}
+
 data "aws_caller_identity" "current" {}
 # Declared for symmetry with other modules; not currently referenced.
 data "aws_region" "current" {}
@@ -153,7 +159,8 @@ resource "aws_lambda_function" "auth" {
   timeout       = 10
   # Caps concurrent instances so a runaway OTP-bomb wave can't multiply the
   # in-memory per-IP line (docs/architecture-evolution-plan.md §2.5).
-  reserved_concurrent_executions = 10
+  # null by default — see the variable's description (account quota is 10).
+  reserved_concurrent_executions = var.reserved_concurrent_executions
   filename                       = var.zip_path
   # Hash of the zip: Terraform only pushes new code when the bundle changes.
   source_code_hash = filebase64sha256(var.zip_path)

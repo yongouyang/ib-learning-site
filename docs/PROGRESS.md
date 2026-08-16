@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-16 — deploy-dev fix: reserved Lambda concurrency impossible with account quota 10
+Git HEAD: `26c4e70` (develop, tree clean before this entry)
+Done: deploy-dev failed on the first develop push carrying Phase B/C — `PutFunctionConcurrency` 400 "decreases account's UnreservedConcurrentExecution below its minimum value of [10]" on BOTH `iblearn-auth` and `iblearn-progress`. Root cause: the account's ap-east-1 concurrent-executions quota (Service Quotas L-B99A9384) is **10 total** (reduced new-account quota), and AWS requires ≥10 to stay unreserved — so ANY `reserved_concurrent_executions` is impossible right now (verified: quota value 10.0, adjustable; all 4 functions have no reservation — auth's `= 10` from Phase B round-1 H3 had never actually applied). Fix: `reserved_concurrent_executions` is now a module variable (default null = unmanaged) in `terraform/modules/auth_api` + `terraform/modules/progress_api`, with the quota rationale in the variable description; re-enable (e.g. 10) only after a Service Quotas increase. AGENTS.md terraform bullet updated to match.
+Verified: `terraform fmt -check -recursive` clean, `terraform validate` clean (envs/prod, -backend=false init). No unit test pins the attribute (grep). vitest/e2e NOT run — terraform-only change; CI build-and-test covers the full gates on push.
+Next: push → deploy-dev should pass the apply (the partially-created progress Lambda + octav-rate-limits table from the failed run are fine — next apply continues). **Optional: request quota increase L-B99A9384 10 → 100+ (user decision — outward-facing AWS request) then set the module variables.** Standing unchanged: SES production access (pre-launch blocker); leaderboard (Phase D); native invoked_via_function_url migration.
+Notes: the reserved-concurrency brute-force/cost cap (Phase B H3) is therefore NOT active in AWS — the durable DynamoDB fixed-window rate limiter is the real throttle meanwhile. Also this session earlier: docs-sync commit `26c4e70` (PROGRESS.md merge-corruption repair + architecture/tech-stack staleness updates) — see that commit message.
+
+---
+
 ## 2026-08-16 — Phase C PR CI fix: offline e2e race on slow runners
 Git HEAD: `2621f34` (feature/progress-sync, tree clean)
 Done: PR e2e failed in CI only — "offline quiz attempt flushes when back online" (`hasLocalTopicAttempt` false on all 3 retries; 204 passed). Root cause: the quiz's SSR answer buttons appear BEFORE the client /me round-trip resolves on slow runners, so `setOffline(true)` killed the in-flight /me → auth fell back to logged-out (review H4) → the attempt landed in the anonymous `iblearn_progress` blob instead of `octav_progress:<uid>:<pid>`. Reproduced locally with a 1.5s `page.route` delay on /api/auth/me (fails without the fix, passes with). Fix: wait for the signed-in "Me" header button (renders only once the session resolved) before going offline — tests/e2e/progress-sync.spec.ts, no app-code change (me-failure→logged-out is by design).
