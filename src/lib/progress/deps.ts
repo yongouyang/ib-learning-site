@@ -1,5 +1,6 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
+import { InMemoryAnalyticsStorage } from '../analytics/dummy';
 import { DynamoSessionStorage } from '../auth/dynamodb-storage';
 import { DynamoProgressStorage } from './dynamodb-storage';
 import { InMemoryProgressStorage } from './dummy';
@@ -19,12 +20,15 @@ export interface ProgressDeps {
 
 // ONE in-memory universe shared with the AUTH deps (auth routes write
 // sessions into it; progress routes read them back) — the dev/e2e stand-in
-// for the shared DynamoDB tables. Unit tests never call getProgressDeps;
-// they construct fresh dummies directly.
+// for the shared DynamoDB tables. It is constructed as the ANALYTICS dummy
+// (which extends this class) so the Phase A analytics handler shares the SAME
+// universe too: a dummy-OTP login resolves for /api/analytics/summary in
+// dev/e2e. Unit tests never call getProgressDeps; they construct fresh
+// dummies directly.
 let sharedUniverse: InMemoryProgressStorage | null = null;
 
 export function getSharedDummyUniverse(): InMemoryProgressStorage {
-  if (!sharedUniverse) sharedUniverse = new InMemoryProgressStorage();
+  if (!sharedUniverse) sharedUniverse = new InMemoryAnalyticsStorage();
   return sharedUniverse;
 }
 
