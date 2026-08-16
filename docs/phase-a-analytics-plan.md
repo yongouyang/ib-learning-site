@@ -142,3 +142,39 @@ Context: Phase A analytics has been re-decided as a CUSTOM Lambda + DynamoDB bui
 
 Constraints: docs-only — do NOT touch code, terraform, or tests. Follow the existing docs' tone/format (terse, factual, ISO dates). Do not commit; leave the working tree dirty for user review. Report the exact sections changed.
 ```
+
+### A1 prompt (for DeepSeek)
+
+```
+Task: Phase A (Analytics) A1 — the shared analytics module src/lib/analytics/. Read docs/phase-a-analytics-plan.md FIRST (it is the authoritative design: data model, event schema, API surface), plus AGENTS.md and the top 2 entries of docs/PROGRESS.md. Work on develop (pull latest — A0 docs are merged).
+
+Scope: build the server-side analytics module + its unit tests. NO Next routes, NO lambda/ entry, NO client code, NO terraform — those are A2/A3/A6.
+
+Pattern sources (read these and mirror them exactly — same structure, same conventions, same comment style):
+- src/lib/progress/types.ts, dummy.ts, dynamodb-storage.ts, http-handler.ts, deps.ts — the module shape to copy
+- src/lib/auth/session.ts — resolveSession(req, storage); storage needs getSession(sessionId)
+- src/lib/auth/dynamodb-storage.ts incrementOtpRequestCount + src/lib/auth/dummy.ts — the fixed-window rate-limiter pattern (window epoch in the bucket key, single UpdateCommand, dummy mirrors with injectable clock)
+- src/lib/progress/deps.ts — getSharedDummyUniverse() (the in-memory universe shared with auth so dummy-OTP login sessions resolve in dev/e2e)
+- tests/unit/progress-parity.test.ts — the dummy↔simulated-DDB parity harness pattern
+- zod v4 is used (see src/lib/progress/types.ts for the house schema style)
+
+Files to create:
+1. src/lib/analytics/types.ts — zod schemas per the plan: 17-name enum; per-name props schemas from architecture-evolution-plan.md §5.3 (bounded: strings ≤120 chars, numbers sane-capped; auth_otp_requested carries emailDomain only); envelope { name, props, url, referrer, sessionId, clientTs }. Types for the raw event item, aggregate item, and the summary response.
+2. src/lib/analytics/dummy.ts — InMemoryAnalyticsStorage: recordEvent (raw append + aggregate increments), incrementAnalyticsEventCount(ip, limit, windowSeconds) fixed-window budget (mirror the auth dummy, injectable clock), getSummary(days) reading the in-memory aggregates. Mirrors the aggregate ADD semantics exactly.
+3. src/lib/analytics/dynamodb-storage.ts — DynamoAnalyticsStorage: recordEvent = 1 PutCommand (raw: k="ev", s="<date>#<ts>#<uuid>", attrs name/props/host/sessionId/ua≤80 chars, expiresAt = now+90d epoch seconds) + 1 UpdateCommand per aggregate kind (k="agg", s="<date>#<kind>#<key>", kinds event/page/referrer/host, ADD #c :one upsert, expiresAt = now+400d); incrementAnalyticsEventCount against the rate-limits table (bucket "analytics:<ip>:<epoch>"); getSummary = ONE Query k="agg", s BETWEEN oldest-date# and today#~ — loops LastEvaluatedKey (never truncates, per the listProgressByUser lesson). Server-side normalization BEFORE write: url → path-only (strip query+hash), referrer → host-only or "direct", empty referrer → "direct".
+4. src/lib/analytics/http-handler.ts — three handlers:
+   - POST event: body ≤4KB guard, zod envelope (400 on invalid, error message without internals), clientTs now+24h guard (400, same as progress), per-IP budget 120 events/10min via incrementAnalyticsEventCount (429 on exceed; clientIp = last X-Forwarded-For entry like the auth handler, fallback 'local'), success → 204. No session lookup — public endpoint.
+   - GET summary?days=7|30|90 (default 30, 400 on other values): resolveSession via src/lib/auth/session.ts (401 when no session); admin iff the session user's email ∈ ANALYTICS_ADMIN_EMAILS env (comma-separated, case-insensitive) → 403 otherwise. Returns { days, dailySeries (per event name per date), topPages (≤20), topReferrers (≤10), totals, hosts }.
+   - GET _health: unauthenticated Limit-1 Query probe on the events table → 200 {ok:true} only (mirrors progress _health).
+5. src/lib/analytics/deps.ts — getAnalyticsDeps(env): ANALYTICS_STORAGE = "dummy" (default) | "dynamodb"; same fail-closed guard as auth/progress (inside AWS Lambda, dummy wiring or NODE_ENV=test refused unless AUTH_ALLOW_DUMMY=1). Dummy mode: analytics storage + session resolution BOTH against getSharedDummyUniverse() from ../progress/deps (so a dummy-OTP login resolves for /summary). Dynamodb mode: DynamoDBDocumentClient (region AUTH_DYNAMODB_REGION ?? AWS_REGION ?? ap-east-1), DynamoAnalyticsStorage with requiredEnv ANALYTICS_TABLE + AUTH_RATE_LIMITS_TABLE, and DynamoSessionStorage (users/sessions only, from src/lib/auth/dynamodb-storage) for resolveSession.
+
+Unit tests to create in tests/unit/ (REQUIRED in A1, not deferred to A7 — vitest coverage gates on src/lib/** (90% lines / 85% branches) fail if the module ships untested):
+- analytics-types.test.ts — schema edges (unknown event name, oversized strings, bad clientTs, per-name props validation)
+- analytics-dummy.test.ts — raw+aggregate recording, fixed-window budget across window rollover, getSummary shapes
+- analytics-dynamodb-storage.test.ts — mock DocumentClient: assert Put/Update command shapes (keys, ADD expression, ExpressionAttributeNames/Values, TTL values, table names), summary Query (BETWEEN, LastEvaluatedKey loop), rate-limit bucket key format
+- analytics-parity.test.ts — dummy vs INDEPENDENT simulated DocumentClient (re-implement the ADD-upsert semantics from scratch like tests/unit/progress-parity.test.ts): identical event sequences → identical aggregates and identical budget allow/deny sequences
+- analytics-http-handler.test.ts — 400 invalid envelope, 400 far-future clientTs, 429 after 120 events from one IP, 204 success, summary 401 (no session) / 403 (non-admin) / 200 (admin; seed the shared dummy universe via a dummy-OTP login like tests/unit/auth-routes.test.ts does), days param validation, _health 200
+- analytics-deps.test.ts — dummy default, dynamodb wiring requires env names, fail-closed in Lambda without AUTH_ALLOW_DUMMY=1
+
+Verification (must all pass before reporting done): npm test green (coverage gates included), npx tsc --noEmit clean, npx eslint on changed files 0 errors. Then add a PROGRESS.md entry (AGENTS.md format, newest at top): "2026-08-16 — Phase A A1: shared analytics module (src/lib/analytics/) + unit tests". Leave the working tree dirty for user review; do NOT commit. Report files created + test counts.
+```
