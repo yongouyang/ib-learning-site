@@ -31,3 +31,4 @@ build_one() {
 build_one "feedback" "lambda/feedback/index.ts"
 build_one "auth" "lambda/auth/index.ts"
 build_one "progress" "lambda/progress/index.ts"
+build_one "analytics" "lambda/analytics/index.ts"

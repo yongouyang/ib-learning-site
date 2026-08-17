@@ -125,6 +125,14 @@ const PROGRESS_ROUTES: Record<string, string> = {
   '/api/progress/_health': '../src/app/api/progress/_health/route',
 };
 
+// /api/analytics/* → the real Next route handlers, mirroring the CloudFront
+// /api/analytics/* behavior → analytics Lambda (docs/phase-a-analytics-plan.md).
+const ANALYTICS_ROUTES: Record<string, string> = {
+  '/api/analytics/event': '../src/app/api/analytics/event/route',
+  '/api/analytics/summary': '../src/app/api/analytics/summary/route',
+  '/api/analytics/_health': '../src/app/api/analytics/_health/route',
+};
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url ?? '/', `http://localhost:${port}`);
 
@@ -136,7 +144,7 @@ const server = http.createServer((req, res) => {
     });
     return;
   }
-  const authRoute = AUTH_ROUTES[url.pathname] ?? PROGRESS_ROUTES[url.pathname];
+  const authRoute = AUTH_ROUTES[url.pathname] ?? PROGRESS_ROUTES[url.pathname] ?? ANALYTICS_ROUTES[url.pathname];
   if (authRoute) {
     handleApiRoute(authRoute, url.pathname, req, res).catch((err) => {
       console.error(`[serve-static] ${url.pathname} error:`, err);
@@ -166,5 +174,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(`[serve-static] Serving out/ + /api/feedback + /api/auth/* + /api/progress/* on http://localhost:${port}`);
+  console.log(`[serve-static] Serving out/ + /api/feedback + /api/auth/* + /api/progress/* + /api/analytics/* on http://localhost:${port}`);
 });
