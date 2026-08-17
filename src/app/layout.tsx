@@ -10,6 +10,7 @@ import { HeaderNav } from '@/components/HeaderNav';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { AccountButton } from '@/components/AccountButton';
 import { ServiceWorkerRegistration } from '@/components/ServiceWorkerRegistration';
+import { AnalyticsTracker } from '@/components/AnalyticsTracker';
 import { OfflineBanner } from '@/components/OfflineBanner';
 import { UpdateToast } from '@/components/UpdateToast';
 
@@ -116,6 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Nav />
             </div>
             <ServiceWorkerRegistration />
+            <AnalyticsTracker />
             <OfflineBanner />
             <UpdateToast />
           </ProgressProvider>

@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-17 — Phase A A3: client analytics library + page-view tracker
+Git HEAD: `1fc99bc` (develop, tree dirty: A3 client + tests)
+Done: A3 per docs/phase-a-analytics-plan.md — `src/lib/analytics.ts` (trackEvent/trackPageView; sendBeacon → fetch keepalive fallback when absent/returns false; silent catch, never throws into app code; no-op on `navigator.doNotTrack === '1'`; per-tab session id = `crypto.randomUUID()` in sessionStorage `octav_analytics_session`, lazy on first event, in-memory fallback when storage throws; raw url/referrer, server normalizes; SSR-safe — window/navigator only touched inside functions). `src/components/AnalyticsTracker.tsx` ('use client', renders null; page_view on mount + every usePathname change; skips /admin/*), mounted in `src/app/layout.tsx` beside ServiceWorkerRegistration. Tests: `tests/unit/analytics-client.test.ts` (12 — beacon happy path asserting the envelope passes the SERVER `analyticsEventSchema`, fetch fallback ×2, DNT no-op, lazy/stable/randomUUID session id, storage-throws fallback, beacon-throw + fetch-reject silent catch, no-window SSR import) and `tests/unit/analytics-tracker.test.tsx` (5 — mount fire, pathname-change refire, no refire on same path, /admin skip, renders nothing; next/navigation mocked per the nav.test.tsx pattern).
+Verified: npm test **710/710** (66 files, +17); `npx tsc --noEmit` clean; eslint on changed files **0 errors** (2 pre-existing `<img>` warnings in layout.tsx, untouched lines); `npm run build` green; `npm run build:static` green after `rm -rf .next` (out/ produced, api stash restored). Coverage: src/lib/analytics.ts **100%/100%**, AnalyticsTracker.tsx **100%/100%** — the only test:coverage threshold errors remain the pre-existing components/** + app/api/** gaps (CI gate is plain npm test).
+Next: A4 — instrument the taxonomy (quiz/flashcard/diagnostic/exam/AI-marking/CTA/search/auth/PWA call sites).
+Notes: NO UX-review screenshot pass — AnalyticsTracker renders nothing (no user-visible surface). Gotcha: `next build` then `build:static` against the SAME `.next` fails type-check on stale `.next/dev/types/validator.ts` referencing the stashed api routes — wipe `.next` between the two (pre-existing interplay, not A3).
+
+---
+
 ## 2026-08-17 — Phase A A2: analytics routes + lambda/analytics + 4th zip + serve-static
 Git HEAD: `9a8352d` (develop, tree dirty: A2 wiring)
 Done: wired the A1 module into both request paths (docs/phase-a-analytics-plan.md A2) — thin delegation only, no handler logic. `src/app/api/analytics/event/route.ts` (POST → handleAnalyticsEvent), `summary/route.ts` (GET → handleAnalyticsSummary), `_health/route.ts` (GET → handleAnalyticsHealth). `lambda/analytics/index.ts` — ROUTES map over lambda/shared/lambda-adapter.ts, mirrors lambda/progress/index.ts exactly (404/405/500 plumbing). `scripts/build-lambdas.sh` — 4th `build_one "analytics"`. `scripts/serve-static.ts` — ANALYTICS_ROUTES map in the delegation lookup. `tests/unit/analytics-routes.test.ts` — default-dummy-deps smoke: event 204/400, summary 401, _health 200 {ok:true}.
