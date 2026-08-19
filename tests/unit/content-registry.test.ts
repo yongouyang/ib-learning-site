@@ -6,7 +6,7 @@ const EXPECTED_TOPIC_COUNTS: Partial<Record<SubjectId, number>> = {
   math: 76,
   biology: 14,
   chemistry: 13,
-  english: 25,
+  english: 34,
   physics: 14,
   geography: 10,
   history: 11,

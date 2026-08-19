@@ -107,6 +107,15 @@ import eng_reading_1_json from './data/topics/english/eng-reading-1.json';
 import eng_speaking_1_json from './data/topics/english/eng-speaking-1.json';
 import eng_spelling_1_json from './data/topics/english/eng-spelling-1.json';
 import eng_spoken_language_1_json from './data/topics/english/eng-spoken-language-1.json';
+import eng_yr7_graphic_novels_json from './data/topics/english/eng-yr7-graphic-novels.json';
+import eng_yr7_identity_autobiography_json from './data/topics/english/eng-yr7-identity-autobiography.json';
+import eng_yr7_short_story_json from './data/topics/english/eng-yr7-short-story.json';
+import eng_yr8_modern_drama_json from './data/topics/english/eng-yr8-modern-drama.json';
+import eng_yr8_short_story_writing_json from './data/topics/english/eng-yr8-short-story-writing.json';
+import eng_yr9_close_reading_json from './data/topics/english/eng-yr9-close-reading.json';
+import eng_yr9_descriptive_writing_json from './data/topics/english/eng-yr9-descriptive-writing.json';
+import eng_yr9_letters_interviews_json from './data/topics/english/eng-yr9-letters-interviews.json';
+import eng_yr9_war_poetry_json from './data/topics/english/eng-yr9-war-poetry.json';
 // Biology topics
 import bio_body_1_json from './data/topics/biology/bio-body-1.json';
 import bio_cell_1_json from './data/topics/biology/bio-cell-1.json';
@@ -341,6 +350,15 @@ const eng_reading_1: Topic = topicSchema.parse(eng_reading_1_json);
 const eng_speaking_1: Topic = topicSchema.parse(eng_speaking_1_json);
 const eng_spelling_1: Topic = topicSchema.parse(eng_spelling_1_json);
 const eng_spoken_language_1: Topic = topicSchema.parse(eng_spoken_language_1_json);
+const eng_yr7_graphic_novels: Topic = topicSchema.parse(eng_yr7_graphic_novels_json);
+const eng_yr7_identity_autobiography: Topic = topicSchema.parse(eng_yr7_identity_autobiography_json);
+const eng_yr7_short_story: Topic = topicSchema.parse(eng_yr7_short_story_json);
+const eng_yr8_modern_drama: Topic = topicSchema.parse(eng_yr8_modern_drama_json);
+const eng_yr8_short_story_writing: Topic = topicSchema.parse(eng_yr8_short_story_writing_json);
+const eng_yr9_close_reading: Topic = topicSchema.parse(eng_yr9_close_reading_json);
+const eng_yr9_descriptive_writing: Topic = topicSchema.parse(eng_yr9_descriptive_writing_json);
+const eng_yr9_letters_interviews: Topic = topicSchema.parse(eng_yr9_letters_interviews_json);
+const eng_yr9_war_poetry: Topic = topicSchema.parse(eng_yr9_war_poetry_json);
 const bio_body_1: Topic = topicSchema.parse(bio_body_1_json);
 const bio_cell_1: Topic = topicSchema.parse(bio_cell_1_json);
 const bio_classification_1: Topic = topicSchema.parse(bio_classification_1_json);
@@ -483,7 +501,7 @@ const englishSubject: Subject = {
   name: englishMeta.name,
   icon: englishMeta.icon,
   accentColor: englishMeta.accentColor,
-  topics: [eng_creative_1, eng_creative_2, eng_critical_reading_1, eng_drama_shakespeare, eng_essay_1, eng_essay_2, eng_figurative_1, eng_grammar_1, eng_grammar_2, eng_media_visual_literacy, eng_myths_legends, eng_narrative_1, eng_nonfiction_1, eng_nonfiction_writing_1, eng_novel_study_1, eng_persuasive_1, eng_persuasive_speaking_1, eng_poetry_1, eng_poetry_2, eng_poetry_writing_1, eng_punctuation_1, eng_reading_1, eng_speaking_1, eng_spelling_1, eng_spoken_language_1],
+  topics: [eng_creative_1, eng_creative_2, eng_critical_reading_1, eng_drama_shakespeare, eng_essay_1, eng_essay_2, eng_figurative_1, eng_grammar_1, eng_grammar_2, eng_media_visual_literacy, eng_myths_legends, eng_narrative_1, eng_nonfiction_1, eng_nonfiction_writing_1, eng_novel_study_1, eng_persuasive_1, eng_persuasive_speaking_1, eng_poetry_1, eng_poetry_2, eng_poetry_writing_1, eng_punctuation_1, eng_reading_1, eng_speaking_1, eng_spelling_1, eng_spoken_language_1, eng_yr7_graphic_novels, eng_yr7_identity_autobiography, eng_yr7_short_story, eng_yr8_modern_drama, eng_yr8_short_story_writing, eng_yr9_close_reading, eng_yr9_descriptive_writing, eng_yr9_letters_interviews, eng_yr9_war_poetry],
 };
 const biologySubject: Subject = {
   id: biologyMeta.id as SubjectId,
