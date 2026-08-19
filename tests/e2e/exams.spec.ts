@@ -6,10 +6,11 @@ test.describe('Mock exams', () => {
     await page.goto('/exams');
     await expect(page.getByRole('heading', { name: 'Mock Exams', level: 1 })).toBeVisible();
 
-    // 8 course cards; math courses have 2 papers, others 1 → 12 paper links.
+    // 13 course cards; math courses have 2 papers, others 1 → 17 paper links.
     const papers = page.getByRole('link').filter({ hasText: /min · 20 questions/ });
-    await expect(papers).toHaveCount(12);
+    await expect(papers).toHaveCount(17);
     await expect(page.getByRole('heading', { name: 'Math — Year 7' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Geography — KS3' })).toBeVisible();
     await expect(page.getByText('Paper 2 — extended response')).toBeVisible();
     // Fresh browser context → nothing attempted yet.
     await expect(page.getByText('Not attempted').first()).toBeVisible();

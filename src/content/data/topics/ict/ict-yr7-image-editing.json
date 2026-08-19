@@ -1,0 +1,316 @@
+{
+  "id": "ict-yr7-image-editing",
+  "subjectId": "ict",
+  "title": "Image Editing & Photomontage",
+  "description": "How digital images work and how to edit them — pixels and resolution, raster and vector graphics, layers, selections and masks, colour adjustments, photomontage, file formats, and using images legally and ethically.",
+  "stage": "ks3",
+  "year": 7,
+  "notes": [
+    {
+      "id": "ict-yr7-image-editing-n1",
+      "heading": "Pixels and Resolution",
+      "body": "Every digital photo is built from pixels — tiny squares of a single colour, arranged in a grid. Zoom in far enough on any photo and you will see them. An image's resolution is its size in pixels, written as width × height: a 1920 × 1080 image has 1920 columns and 1080 rows of pixels, just over 2 million pixels (2 megapixels) in total. More pixels means more detail but a larger file. Resolution sets a hard limit on editing: shrinking an image is safe because you are throwing detail away, but enlarging a small image forces the computer to invent extra pixels by guessing (interpolation), so the result looks soft or blocky — pixelated. This is why a tiny logo grabbed from a website looks terrible printed on a poster. For printing, images need around 300 pixels per inch; screens are happy with far fewer, so an image that looks sharp on a phone may still be too small to print well."
+    },
+    {
+      "id": "ict-yr7-image-editing-n2",
+      "heading": "Raster vs Vector — and the Right File Format",
+      "body": "There are two fundamentally different ways to store an image. Raster (bitmap) images are grids of pixels — every photo is a raster image. They capture rich, photographic detail but lose quality when enlarged. Vector images are stored as mathematical descriptions of shapes — points, lines, curves and fills — so they can be scaled to any size, from a business card to a billboard, and stay perfectly crisp. Logos, icons and flat illustrations are best made as vectors. Each family has its formats. JPEG (or JPG) is a raster format using lossy compression: it throws away some detail to make photos dramatically smaller, ideal for websites and email, but it cannot store transparency and repeated re-saving degrades quality. PNG is a raster format using lossless compression — no detail is lost, and it supports transparent backgrounds, making it the choice for logos, screenshots and graphics with see-through areas, at the cost of bigger files than JPEG. SVG is the standard vector format for the web: tiny files, infinite scaling, but only for drawn artwork, never photos."
+    },
+    {
+      "id": "ict-yr7-image-editing-n3",
+      "heading": "Working with Layers",
+      "body": "Layers are the single most important idea in image editing. Think of the image as a stack of transparent sheets: the background photo on the bottom sheet, some text on the sheet above, a cut-out object on another. Each layer can be edited, moved, hidden or deleted without touching the others, so a mistake on one element never ruins the whole composition. The layers panel shows the stack; the top layer hides whatever is beneath it, so reordering layers changes what appears in front. You can also lower a layer's opacity (transparency) to blend it with what is underneath — useful for ghosted backgrounds or subtle shadows. Because layers are so valuable, editors save work-in-progress in a layered project format; flattening (merging everything into one layer) is done only when exporting the final JPEG or PNG, because a flattened image can never be separated back into its parts."
+    },
+    {
+      "id": "ict-yr7-image-editing-n4",
+      "heading": "Selections and Masks",
+      "body": "To edit just part of an image you first select it. The marquee tools select rectangles and ellipses; the lasso lets you draw a freehand outline; the magic wand selects areas of similar colour — one click on a plain blue sky selects the whole sky, and a tolerance setting controls how similar colours must be before they are included. Selections can be inverted (select everything except the current selection), which is a handy trick for isolating a subject against a plain background. Once a subject is selected you face a choice: the eraser deletes pixels permanently, while a mask hides them. A layer mask is a greyscale map attached to a layer — white reveals, black conceals, and painting on the mask with black hides parts of the layer without destroying them. Masks are non-destructive: paint with white to bring a hidden area back at any time. Professionals almost always mask rather than erase. Softening (feathering) the edge of a selection or mask avoids a harsh, cut-out look."
+    },
+    {
+      "id": "ict-yr7-image-editing-n5",
+      "heading": "Crop, Resize and Colour Adjustment",
+      "body": "Three everyday edits transform most photos. Cropping cuts away the edges of an image — use it to remove distractions and improve composition, for example placing the subject roughly a third of the way across the frame (the rule of thirds) rather than dead centre. Cropping reduces the pixel dimensions, so it cannot add detail back. Resizing (resampling) changes the pixel dimensions of the whole image: downscaling for a web page makes files load faster, while upscaling invents pixels and blurs the image — always work from the largest original you have. Colour and tone adjustments include brightness (overall lightness), contrast (the gap between light and dark), saturation (colour intensity — push it too far and skin turns orange), and hue (shifting colours around the spectrum). Adjustments are best made subtly and, where the software allows, on adjustment layers so the original stays untouched. The golden rule: always keep an unedited copy of the original file."
+    },
+    {
+      "id": "ict-yr7-image-editing-n6",
+      "heading": "Combining Images: Photomontage",
+      "body": "A photomontage is a new image built by combining parts of several photographs — a person placed in front of a famous landmark, or a fantastical scene assembled from ordinary snapshots. The workflow brings together everything in this topic: import each source image as its own layer; use selections and masks to cut out the elements you need; arrange the layer stack so foreground objects sit above the background; then make the composite convincing. Realism is the hard part. The cut-out must match its new surroundings in scale (a giant head on a tiny body instantly looks wrong), perspective (the camera angle of the subject should match the scene), lighting (shadows must fall in the same direction and highlights be equally bright), and colour (a subject shot in warm evening light pasted into a cold blue scene needs a colour adjustment to blend in). Adding a soft painted shadow layer under a pasted object is one of the most effective tricks for grounding it in the scene. Plan the composition before cutting anything out — a rough sketch saves hours."
+    },
+    {
+      "id": "ict-yr7-image-editing-n7",
+      "heading": "Copyright and Ethical Image Use",
+      "body": "Finding an image online does not make it free to use. In most countries, the person who creates an image automatically owns the copyright, and copying it without permission is unlawful even if there is no © symbol. To use images legitimately: look for Creative Commons (CC) licences, where creators grant permission in advance under stated conditions — many require attribution (crediting the creator), some forbid commercial use or modifications; use royalty-free stock libraries, where the site licence permits reuse; or use public-domain material whose copyright has expired. Downloading from a search engine's image results is not a licence of any kind. Ethics go beyond the law. Photographs of people require their consent, and editing someone's photo to mock or embarrass them is harmful however it was obtained. Because editing tools make convincing fakes easy, manipulated images can spread misinformation — a responsible editor never presents a doctored image as real, and a responsible viewer asks whether a surprising image has been altered before believing or sharing it."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ict-yr7-image-editing-f1",
+      "term": "Pixel",
+      "definition": "The smallest single-colour square in a digital image; images are grids of pixels.",
+      "example": "Zooming far into a photo reveals the individual pixels it is made from."
+    },
+    {
+      "id": "ict-yr7-image-editing-f2",
+      "term": "Resolution",
+      "definition": "The size of an image measured in pixels (width × height); more pixels means more detail and a bigger file.",
+      "example": "A 1920 × 1080 image has just over 2 megapixels."
+    },
+    {
+      "id": "ict-yr7-image-editing-f3",
+      "term": "Raster (bitmap) image",
+      "definition": "An image stored as a grid of pixels; it loses quality and becomes pixelated when enlarged.",
+      "example": "Photographs from a phone camera are raster images."
+    },
+    {
+      "id": "ict-yr7-image-editing-f4",
+      "term": "Vector image",
+      "definition": "An image stored as mathematical descriptions of shapes, so it scales to any size without losing quality.",
+      "example": "A company logo is best drawn as a vector so it is crisp on both a pen and a billboard."
+    },
+    {
+      "id": "ict-yr7-image-editing-f5",
+      "term": "Layer",
+      "definition": "One transparent sheet in an image stack; layers can be edited, moved, hidden or reordered independently.",
+      "example": "Keeping text on its own layer lets you change the wording without touching the photo beneath."
+    },
+    {
+      "id": "ict-yr7-image-editing-f6",
+      "term": "Mask",
+      "definition": "A greyscale map attached to a layer where white reveals and black conceals, hiding pixels without deleting them.",
+      "example": "Painting black on a mask hides the background around a cut-out subject, and painting white brings it back."
+    },
+    {
+      "id": "ict-yr7-image-editing-f7",
+      "term": "JPEG",
+      "definition": "A raster format using lossy compression to make photo files small; it cannot store transparency.",
+      "example": "Photos on a website are usually JPEGs because they download quickly."
+    },
+    {
+      "id": "ict-yr7-image-editing-f8",
+      "term": "PNG",
+      "definition": "A lossless raster format that supports transparent backgrounds, at the cost of larger files than JPEG.",
+      "example": "A logo with a see-through background is saved as a PNG."
+    },
+    {
+      "id": "ict-yr7-image-editing-f9",
+      "term": "SVG",
+      "definition": "The standard vector file format for the web — infinitely scalable, but only for drawn artwork, not photos.",
+      "example": "Icons and logos on websites are often SVG files."
+    },
+    {
+      "id": "ict-yr7-image-editing-f10",
+      "term": "Cropping",
+      "definition": "Cutting away the edges of an image to remove distractions and improve composition.",
+      "example": "Cropping to place the subject a third of the way across the frame follows the rule of thirds."
+    },
+    {
+      "id": "ict-yr7-image-editing-f11",
+      "term": "Creative Commons (CC)",
+      "definition": "Licences where creators give advance permission to reuse their work under stated conditions, such as attribution.",
+      "example": "A CC photo on a school poster still requires the photographer's name to be credited."
+    },
+    {
+      "id": "ict-yr7-image-editing-f12",
+      "term": "Photomontage",
+      "definition": "A composite image made by combining parts of several photographs into one scene.",
+      "example": "Cutting out a photo of yourself and placing it on a summit photo to make a poster."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-yr7-image-editing-q1",
+      "stem": "What is a pixel?",
+      "choices": [
+        "A type of image file",
+        "The smallest single-colour square that makes up a digital image",
+        "A tool for drawing freehand selections",
+        "A measure of how fast an image downloads"
+      ],
+      "correctIndex": 1,
+      "explanation": "Raster images are grids of pixels, each one a single colour. Enough tiny squares viewed together blend into a continuous-looking photograph.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-image-editing-q2",
+      "stem": "Which file format can store a transparent background?",
+      "choices": [
+        "JPEG",
+        "PNG",
+        "Both JPEG and PNG",
+        "Neither — transparency needs special hardware"
+      ],
+      "correctIndex": 1,
+      "explanation": "PNG supports transparency (an alpha channel); JPEG does not. That is why logos and cut-out graphics for websites are saved as PNG rather than JPEG.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-image-editing-q3",
+      "stem": "In image editing, what is a layer?",
+      "choices": [
+        "A filter that darkens the whole image",
+        "One transparent sheet in a stack, editable without affecting the others",
+        "The printed version of a digital image",
+        "A copy of the file stored online"
+      ],
+      "correctIndex": 1,
+      "explanation": "Layers let you treat each element — background, text, cut-outs — as an independent transparent sheet, so edits to one never damage the rest of the composition.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-image-editing-q4",
+      "stem": "Which format uses lossy compression, discarding some detail to keep photo files small?",
+      "choices": [
+        "PNG",
+        "SVG",
+        "JPEG",
+        "GIF animation"
+      ],
+      "correctIndex": 2,
+      "explanation": "JPEG is lossy: it throws away detail the eye barely notices, making photos much smaller. PNG is lossless and SVG is a vector format, so neither fits the description.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-image-editing-q5",
+      "stem": "You find a striking photo through an image search. Who usually owns the right to copy it?",
+      "choices": [
+        "No one — anything online is free to use",
+        "The search engine that found it",
+        "The person who created the image, unless they have licensed it for reuse",
+        "Whoever downloads it first"
+      ],
+      "correctIndex": 2,
+      "explanation": "Copyright belongs automatically to the creator, with or without a © symbol. You need their permission or a licence such as Creative Commons before reusing the image.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-image-editing-q6",
+      "stem": "A club wants a logo that will be printed on pens and also on a huge banner. Why should the artwork be a vector?",
+      "choices": [
+        "Vectors always have more colours than photos",
+        "Vectors are stored as mathematical shapes, so they stay crisp at any size",
+        "Vectors are smaller than every raster file",
+        "Printers refuse to print raster images"
+      ],
+      "correctIndex": 1,
+      "explanation": "A vector is described by points, lines and curves rather than pixels, so enlarging it to banner size just redraws the shapes — no pixelation. A raster logo would blur when scaled up.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-image-editing-q7",
+      "stem": "Why are photographs on websites usually saved as JPEG rather than PNG?",
+      "choices": [
+        "JPEG supports transparency and PNG does not",
+        "JPEG's lossy compression makes photographic files much smaller, so pages load faster",
+        "JPEG never loses any detail",
+        "PNG files cannot be displayed in browsers"
+      ],
+      "correctIndex": 1,
+      "explanation": "For photos, JPEG's lossy compression shrinks files dramatically with little visible quality loss, improving page speed. PNG is lossless and better for graphics and transparency, but its photo files are far bigger.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-image-editing-q8",
+      "stem": "Why do editors prefer cutting out a subject with a mask instead of the eraser tool?",
+      "choices": [
+        "Masks make the file smaller",
+        "Masking hides pixels non-destructively, so hidden areas can be brought back later",
+        "The eraser cannot follow curved edges",
+        "Masks automatically improve the lighting"
+      ],
+      "correctIndex": 1,
+      "explanation": "The eraser deletes pixels permanently; a mask only conceals them. Painting white back over the mask restores anything hidden, which makes experimenting and correcting mistakes safe.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-image-editing-q9",
+      "stem": "What is the difference between cropping and resizing an image?",
+      "choices": [
+        "Cropping cuts away edges to reframe the image; resizing changes the pixel dimensions of the whole image",
+        "Cropping changes the colours; resizing changes the format",
+        "They are two names for the same tool",
+        "Cropping is only for vector images; resizing is only for raster"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cropping removes border areas (and their pixels) to improve composition, while resizing scales every pixel dimension up or down. Both permanently reduce detail when they shrink the image.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-image-editing-q10",
+      "stem": "What does the magic wand tool select when you click on an area of plain blue sky?",
+      "choices": [
+        "Only the exact pixel you clicked",
+        "A rectangle around the sky",
+        "All connected pixels of a similar colour to the one clicked",
+        "Every blue pixel in every layer at once"
+      ],
+      "correctIndex": 2,
+      "explanation": "The magic wand grows a selection across neighbouring pixels whose colour is similar enough (within the tolerance setting) to the clicked pixel — ideal for plain backgrounds like skies.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-image-editing-q11",
+      "stem": "A flat, two-colour icon must appear on a website at many different sizes, always perfectly sharp. Which format is the best choice?",
+      "choices": [
+        "JPEG, because it compresses well",
+        "PNG, because it is lossless",
+        "SVG, because as a vector it scales to any size without losing quality",
+        "A very high-resolution raster file"
+      ],
+      "correctIndex": 2,
+      "explanation": "SVG is a vector format: the icon is stored as shapes, so every size is rendered crisply from one tiny file. Even a high-resolution raster blurs once scaled beyond its original pixels.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-image-editing-q12",
+      "stem": "You paste a cut-out photo of a person, shot in warm evening sunlight, into a cold blue snow scene. Which set of fixes makes the montage most convincing?",
+      "choices": [
+        "Enlarge the person and add a bright outline",
+        "Adjust the person's colours towards the scene's tones, match the scale and perspective, and paint a soft shadow consistent with the scene's light",
+        "Increase the saturation of both images",
+        "Flatten the image immediately so the layers merge"
+      ],
+      "correctIndex": 1,
+      "explanation": "Believable montages match lighting direction, colour temperature, scale and perspective, and ground pasted objects with shadows. Colour-shifting the warm subject towards the cool scene is essential; outlines and saturation only expose the edit.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-image-editing-q13",
+      "stem": "A 300 × 200 pixel photo is enlarged to fill an A3 poster and looks blocky and blurred. What is the cause?",
+      "choices": [
+        "The printer ran out of ink",
+        "The JPEG format always prints badly",
+        "The image had too few pixels for that size, so the computer had to invent extra pixels by guessing",
+        "The image contained too many layers"
+      ],
+      "correctIndex": 2,
+      "explanation": "Raster images have fixed pixel counts. Stretching 60,000 pixels over a large poster forces interpolation to fabricate detail, producing pixelation and blur. Printing needs a high-resolution original (around 300 pixels per inch).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-image-editing-q14",
+      "stem": "A classmate uses a photo labelled \"Creative Commons — attribution required\" in a school slideshow but does not credit the photographer. What is the problem?",
+      "choices": [
+        "None — Creative Commons means no conditions apply",
+        "The licence allows reuse only if the creator is credited, so omitting attribution breaks the licence terms",
+        "Creative Commons images can never be used in schools",
+        "The slideshow must be deleted from the internet"
+      ],
+      "correctIndex": 1,
+      "explanation": "CC licences grant permission in advance but carry stated conditions; the attribution condition requires naming the creator. Using the image without credit breaches the licence, so the fix is simply to add the credit.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-image-editing-q15",
+      "stem": "In the layers panel, a text layer sits below the background photo layer. What will you see on the canvas, and why?",
+      "choices": [
+        "The text on top, because text always displays above photos",
+        "No text — higher layers hide the content of layers beneath them",
+        "The text blended at 50% opacity with the photo",
+        "An error message asking you to reorder the layers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Layers are painted from the bottom of the stack upwards, so the opaque photo on top completely covers the text beneath it. Dragging the text layer above the photo layer reveals it.",
+      "difficulty": "hard"
+    }
+  ]
+}

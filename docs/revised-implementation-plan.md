@@ -2,7 +2,7 @@
 
 > Supersedes the roadmap portions of `ib-books-analysis-and-implementation-plan.md`.
 > Benchmarks: Revision Village (RV), researched 2026-07-21 (sources cited inline); merged with the DeepSeek platform analysis (`content-resource-platforms-analysis_deepseek_v4_pro.md`, 2026-07-21) covering Save My Exams and PapaCambridge.
-> Student context: GSIS — UK KS3 in Y7–Y9 (from Aug 2026), Cambridge IGCSE in Y10–Y11, IBDP in Y12–Y13.
+> Student context: a Hong Kong international school — UK KS3 in Y7–Y9 (from Aug 2026), Cambridge IGCSE in Y10–Y11, IBDP in Y12–Y13.
 > Tech stack: unchanged (Next.js 15 static + later serverless API route, React 19, Tailwind, KaTeX, Vitest/Playwright, Vercel).
 
 ---
@@ -225,7 +225,7 @@ Adopt the RV visual language as tokens in `tailwind.config.ts` and `globals.css`
 - No auth/accounts/subscriptions (future AWS phase).
 - No native mobile app (PWA first).
 - No real IB/CAIE past-paper PDFs (copyright).
-- No MYP content track (GSIS uses UK KS3/IGCSE — existing `ibLevel: "MYP"` labels get remapped to KS3/stage tags).
+- No MYP content track (the school uses UK KS3/IGCSE — existing `ibLevel: "MYP"` labels get remapped to KS3/stage tags).
 - No Bootcamps/video content (out of scope for a single-author project).
 - No subjects beyond Math, English, Biology, Chemistry, Physics — Economics/Business/TOK and others noted as possible future additions only (user decision).
 

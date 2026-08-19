@@ -1,0 +1,316 @@
+{
+  "id": "ict-yr9-microprocessors",
+  "subjectId": "ict",
+  "title": "Microprocessors: From Code to Circuit",
+  "description": "The input-process-output model, what a microcontroller is, pins and GPIO, digital versus analog signals, sensors and actuators, writing and flashing control programs, designing a useful device, and electrical safety basics.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "ict-yr9-microprocessors-n1",
+      "heading": "The Input-Process-Output Model",
+      "body": "Every computer system — from a laptop to a washing machine — can be understood with one simple model: input, process, output. Input is data entering the system from the outside world: a key pressed, a button pushed, a temperature reading, light hitting a sensor. Process is what the computer does with that data: running a program that makes decisions and calculations. Output is the result delivered back to the world: text on a screen, a motor spinning, an LED lighting, a buzzer sounding. A microwave oven is a perfect example: the keypad and door switch are inputs, the control chip processes your time and power settings, and the magnetron, turntable motor and display are outputs. The model is a design tool, not just a description: when you plan any device, list its inputs, decide the processing rules ('if temperature is above 30°C, then…'), and choose the outputs — before touching any code or hardware. Most real systems are loops, not one-shot pipelines: a thermostat continuously senses temperature (input), compares it with the target (process), and switches the heating (output), over and over. Programs mirror this with a forever loop that reads inputs, decides, and drives outputs."
+    },
+    {
+      "id": "ict-yr9-microprocessors-n2",
+      "heading": "What Is a Microcontroller?",
+      "body": "A microprocessor is the chip that does the processing — the CPU. A microcontroller is a complete tiny computer on a single chip: processor, memory and input/output connections all together, designed to be embedded inside a product and run one program. Your laptop processor is powerful and general-purpose, running an operating system and hundreds of programs; a microcontroller is small, cheap, uses very little power, and runs a single control program forever. They are everywhere: washing machines, microwaves, toys, remote controls, traffic lights, car engine management — there are far more microcontrollers in the world than PCs. Educational boards such as the BBC micro:bit package a microcontroller with beginner-friendly extras: built-in LEDs, buttons, sensors, easy-to-clip edge connectors, and simple programming from a browser. That makes them ideal for learning physical computing — writing code that senses and controls the real world. The workflow difference from ordinary programming is important: you write code on a computer, then transfer it to the board, where it runs independently even after being unplugged from the computer (as long as it has power). The program is stored in the chip's flash memory, so it restarts every time the board powers up."
+    },
+    {
+      "id": "ict-yr9-microprocessors-n3",
+      "heading": "Pins and GPIO",
+      "body": "A microcontroller talks to the outside world through pins — the metal contacts on the chip or board edge. GPIO stands for general-purpose input/output: pins that your program can configure to be either an input or an output, rather than being hard-wired to one job. Set a pin as an input and the program can read whether a connected button is pressed; set it as an output and the program can switch a connected LED on or off. Boards label their pins (pin0, pin1, and so on, or numbered GPIO pins) and your code refers to those labels. Some pins are special: power pins supply voltage to your components, and ground (GND) pins complete the circuit — every circuit needs a path back to ground or nothing works. Many GPIO pins are dual-nature: they can operate digitally (just HIGH/on or LOW/off) or, on pins that support it, read analog values (a range of voltages) from sensors. Wiring matters: an LED connected between a GPIO pin and ground lights when the pin goes HIGH, but it needs a small resistor in series to limit the current or the LED — or the pin — can be damaged. The practical discipline: check a board's pinout diagram before connecting anything, because not every pin can do every job."
+    },
+    {
+      "id": "ict-yr9-microprocessors-n4",
+      "heading": "Digital and Analog Signals",
+      "body": "The world's signals come in two kinds, and control boards deal with both. A digital signal has only two states: on or off, HIGH or LOW, 1 or 0. A push button is digital — pressed or not; a standard LED output is digital — lit or dark. An analog signal varies smoothly across a range, like a dimmer rather than a switch: the voltage from a light sensor rises gradually as brightness increases, and a temperature sensor's voltage slides up and down with the heat. Microcontrollers are digital machines at heart, so reading analog signals requires conversion: an analog-to-digital converter (ADC) measures the incoming voltage and turns it into a number your program can use — often a reading between 0 and 1023, where 0 means no voltage and 1023 means full voltage. Your code then compares that number against thresholds: 'if the light reading is below 200, it is dark — turn the lamp on'. Going the other way, boards can fake analog output with pulse-width modulation (PWM): switching a digital pin on and off extremely fast so that, for example, an LED receives power only half the time and appears dimmer. The rule of thumb: buttons and switches are digital; light, temperature, sound and position are usually analog and need an ADC reading."
+    },
+    {
+      "id": "ict-yr9-microprocessors-n5",
+      "heading": "Sensors and Actuators",
+      "body": "Sensors and actuators are the two halves of physical computing: sensors are input devices that measure the physical world, and actuators are output devices that change it. Common sensors for school projects include: push buttons (digital input — pressed or not), light-dependent resistors and light sensors (analog — brightness level), temperature sensors (analog — heat), motion sensors (digital — movement detected or not), and sound sensors. Common actuators include: LEDs (light), buzzers and speakers (sound), motors (movement — spinning a fan, driving wheels) and servos (precise angular movement, like a barrier arm). The vocabulary keeps designs clear: a sensor converts a physical quantity into an electrical signal the processor can read; an actuator converts an electrical signal from the processor into physical action. Putting the halves together makes a real system. An automatic night light: light sensor (input) → program compares the reading with a darkness threshold (process) → LED or lamp (output). A doorbell: button (input) → program (process) → buzzer (output). A fan heater guard: temperature sensor → program → motor switched off if too hot. When designing, choose components to match the job: need to know 'how much'? — analog sensor; need 'yes or no'? — digital sensor; need motion, light or sound out? — pick the matching actuator."
+    },
+    {
+      "id": "ict-yr9-microprocessors-n6",
+      "heading": "Writing and Flashing Control Programs",
+      "body": "Control programs for a microcontroller follow a simple, repeating shape: read the inputs, make decisions, drive the outputs — inside a loop that runs forever. In MakeCode-style blocks or MicroPython the pattern looks like: `while True:` (or a 'forever' block) containing `reading = pin1.read_analog()` to get a sensor value, an `if reading < 200:` decision, and `pin0.write_digital(1)` to switch an output on, with `write_digital(0)` in the `else` to switch it off. The values are just numbers: digital writes use 1 for on and 0 for off, and analog reads return a range like 0–1023. Flashing is the step that moves your program from the computer onto the board: connect by USB, the board appears like a memory stick, you compile and copy the program file across, and the board resets and starts running it immediately — then keeps running it whenever it has power. Debugging embedded code is different from screen-based code because there is no console on the device: use the board's LED display to show readings while testing, change one thing at a time, and test each part separately — first prove the sensor gives sensible readings, then prove the output switches, then connect them with logic. Simulation helps too: browser-based simulators let you test the program's logic before any hardware is involved, catching mistakes while they are still free to fix."
+    },
+    {
+      "id": "ict-yr9-microprocessors-n7",
+      "heading": "Designing a Useful Device — Safely",
+      "body": "Good device design starts from a problem, not from the technology. The process: identify a genuine need (a plant that keeps drying out, a bag left open in the dark), write a short success criterion ('lights a warning when soil moisture drops below a set level'), choose inputs, processing rules and outputs to meet it, build the simplest version that works, test it against the criterion, then improve in iterations. Evaluate honestly against the original need — does it actually help, is it reliable, what would the next version add? Safety is part of design, not an afterthought. The good news: board projects run on low-voltage DC power (3–5 volts from USB or batteries), which is safe to handle — that is exactly why schools use them rather than mains electricity. The rules that still matter: never experiment with mains (wall socket) electricity; check wiring against the pinout diagram before powering up, because a short circuit — power connected straight to ground — can destroy components or the board; use resistors with LEDs to limit current; keep circuits away from water and metal jewellery; never force connectors; and unplug power before changing wiring. Heat is the warning sign: if a component gets hot, disconnect power immediately and find the wiring mistake. Low voltage makes mistakes cheap to learn from — as long as you follow the routine: wire with power off, double-check, then power on."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ict-yr9-microprocessors-f1",
+      "term": "Input-process-output model",
+      "definition": "The basic model of any computer system: data enters (input), the program makes decisions with it (process), and a result is delivered to the world (output).",
+      "example": "Microwave: keypad presses in, control chip times and powers, magnetron and display act."
+    },
+    {
+      "id": "ict-yr9-microprocessors-f2",
+      "term": "Microcontroller",
+      "definition": "A complete small computer on one chip — processor, memory and I/O — embedded in a product to run a single control program.",
+      "example": "The chip inside a washing machine that runs the wash cycles."
+    },
+    {
+      "id": "ict-yr9-microprocessors-f3",
+      "term": "GPIO",
+      "definition": "General-purpose input/output — pins a program can configure as either inputs or outputs to connect sensors and actuators.",
+      "example": "Setting pin0 as an output to drive an LED, and pin1 as an input to read a button."
+    },
+    {
+      "id": "ict-yr9-microprocessors-f4",
+      "term": "Digital signal",
+      "definition": "A signal with only two states: on or off, HIGH or LOW, 1 or 0.",
+      "example": "A push button is either pressed or not — there is no in-between."
+    },
+    {
+      "id": "ict-yr9-microprocessors-f5",
+      "term": "Analog signal",
+      "definition": "A signal that varies smoothly across a range of values, like a dimmer rather than a switch.",
+      "example": "A light sensor's voltage rising gradually as the room gets brighter."
+    },
+    {
+      "id": "ict-yr9-microprocessors-f6",
+      "term": "ADC (analog-to-digital converter)",
+      "definition": "Hardware that measures an analog voltage and converts it into a number a program can use, such as 0–1023.",
+      "example": "Reading `pin1.read_analog()` and getting 180 when the room is dark."
+    },
+    {
+      "id": "ict-yr9-microprocessors-f7",
+      "term": "Sensor",
+      "definition": "An input device that converts a physical quantity — light, temperature, movement, sound — into an electrical signal.",
+      "example": "A temperature sensor feeding heat readings into a fan-control program."
+    },
+    {
+      "id": "ict-yr9-microprocessors-f8",
+      "term": "Actuator",
+      "definition": "An output device that converts an electrical signal from the processor into physical action — light, sound or movement.",
+      "example": "A motor spinning a fan when the program switches its pin on."
+    },
+    {
+      "id": "ict-yr9-microprocessors-f9",
+      "term": "Flashing",
+      "definition": "Transferring a compiled program from the computer onto the microcontroller's memory, where it runs on every power-up.",
+      "example": "Copying the program file to the board over USB so it starts running immediately."
+    },
+    {
+      "id": "ict-yr9-microprocessors-f10",
+      "term": "PWM (pulse-width modulation)",
+      "definition": "Faking an analog output by switching a digital pin on and off very fast, so the average power — and brightness or speed — can be varied.",
+      "example": "Dimming an LED by powering it only half of each rapid cycle."
+    },
+    {
+      "id": "ict-yr9-microprocessors-f11",
+      "term": "Ground (GND)",
+      "definition": "The return connection every circuit needs to complete the path for current; components connect between a pin and ground.",
+      "example": "An LED wired from a GPIO pin through a resistor to GND lights when the pin goes HIGH."
+    },
+    {
+      "id": "ict-yr9-microprocessors-f12",
+      "term": "Short circuit",
+      "definition": "A wiring fault that connects power straight to ground with no component in between, which can destroy parts — avoided by checking wiring before powering up.",
+      "example": "A loose wire bridging the power and ground pins, making the board instantly hot."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-yr9-microprocessors-q1",
+      "stem": "In the input-process-output model, which part does a temperature sensor belong to?",
+      "choices": [
+        "Input — it feeds data about the world into the system",
+        "Process — it runs the program",
+        "Output — it displays results",
+        "Storage — it saves the readings"
+      ],
+      "correctIndex": 0,
+      "explanation": "A sensor measures a physical quantity and sends it into the system, so it is an input device. Processing is the program's decision-making, and output is the action that results.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q2",
+      "stem": "What is a microcontroller?",
+      "choices": [
+        "A very large mainframe computer",
+        "A complete small computer on one chip — processor, memory and I/O — embedded in a product to run a single control program",
+        "A screen for displaying sensor readings",
+        "A type of battery used in laptops"
+      ],
+      "correctIndex": 1,
+      "explanation": "A microcontroller packs CPU, memory and input/output onto one cheap, low-power chip, designed to be built into devices like washing machines and toys and run one program forever.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q3",
+      "stem": "What does GPIO stand for, and what does it let a program do?",
+      "choices": [
+        "General-purpose input/output — configure pins as either inputs or outputs",
+        "Guided power in/out — choose the battery type",
+        "Graphical program interface object — draw the code blocks",
+        "Ground pin input only — connect everything to ground"
+      ],
+      "correctIndex": 0,
+      "explanation": "GPIO pins are not hard-wired to one job: your program decides whether each pin reads a sensor (input) or drives an actuator (output), which is what makes control boards so flexible.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q4",
+      "stem": "Which of these is a digital signal?",
+      "choices": [
+        "The smoothly varying voltage from a light sensor",
+        "A button that is either pressed or not pressed",
+        "The gradual change in a temperature reading through the day",
+        "The volume of music fading in"
+      ],
+      "correctIndex": 1,
+      "explanation": "Digital signals have exactly two states — on/off, HIGH/LOW, 1/0 — and a push button fits perfectly. Light, temperature and volume all vary smoothly across a range, so they are analog.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q5",
+      "stem": "What does 'flashing' a program mean?",
+      "choices": [
+        "Making an LED blink on and off",
+        "Deleting the program from the computer",
+        "Transferring the compiled program onto the microcontroller's memory so it runs there",
+        "Running the program inside a browser simulator"
+      ],
+      "correctIndex": 2,
+      "explanation": "Flashing copies the program from the computer to the board's flash memory — usually by USB drag-and-drop — after which the board runs it independently on every power-up.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q6",
+      "stem": "A program reads a light sensor with `pin1.read_analog()` and gets values from 0 to 1023. Why does it get a number rather than just 'light' or 'dark'?",
+      "choices": [
+        "Light sensors are digital devices with 1023 buttons",
+        "The sensor produces an analog voltage, and the board's analog-to-digital converter turns that voltage into a number in a fixed range",
+        "The pin is broken and returns random values",
+        "All programs store text as numbers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Light level is analog — a smoothly varying voltage. The ADC measures it and reports a number (here 0–1023), so your code can apply thresholds like 'below 200 means dark'.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q7",
+      "stem": "An automatic night light should turn an LED on when the room gets dark. Using the input-process-output model, which design is correct?",
+      "choices": [
+        "Input: LED; Process: measure brightness; Output: light sensor",
+        "Input: light sensor; Process: compare the reading with a darkness threshold; Output: LED switched on or off",
+        "Input: buzzer; Process: play music; Output: light sensor",
+        "Input: battery; Process: none needed; Output: the room"
+      ],
+      "correctIndex": 1,
+      "explanation": "The sensor is the input, the threshold comparison is the processing rule ('if reading below threshold, it is dark'), and the LED is the output actuator. Sensors never go on the output side.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q8",
+      "stem": "Why does an LED wired to a GPIO pin need a resistor in series with it?",
+      "choices": [
+        "To make the LED a brighter colour",
+        "To convert the digital signal to analog",
+        "To limit the current so the LED and the pin are not damaged",
+        "To store charge for when the power is off"
+      ],
+      "correctIndex": 2,
+      "explanation": "An LED with no resistor draws too much current, which can burn out the LED or damage the microcontroller's pin. A small series resistor limits the current to a safe level.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q9",
+      "stem": "Which loop structure best matches how a thermostat-style control program should run?",
+      "choices": [
+        "Read the temperature once at start-up, decide once, then end the program",
+        "A forever loop: read the sensor, compare with the target, switch the output, and repeat continuously",
+        "No loop at all — outputs switch themselves",
+        "A loop that only runs when nobody is in the room"
+      ],
+      "correctIndex": 1,
+      "explanation": "Control systems must react to a changing world, so they cycle forever: sense, decide, act, repeat. A one-shot read would leave the output frozen whatever the temperature did next.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q10",
+      "stem": "You want a motor to spin at half speed, but the pin can only output fully on or fully off. Which technique achieves this?",
+      "choices": [
+        "Pulse-width modulation — switching the pin on and off very fast so the motor receives power only part of the time",
+        "Using two batteries stacked together",
+        "Reading the pin as analog instead",
+        "Painting the motor a lighter colour"
+      ],
+      "correctIndex": 0,
+      "explanation": "PWM rapidly pulses a digital pin; the average power depends on the on/off ratio, so a 50% duty cycle delivers about half power. It is how boards fake analog output for speed and brightness control.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q11",
+      "stem": "Your program should sound a buzzer when a button is pressed. You flash it, but the buzzer sounds all the time. The code says `if pin1.read_digital() == 0:` then buzzer on. The button wiring reads 1 when pressed. What is wrong?",
+      "choices": [
+        "The buzzer is broken and must be replaced",
+        "The condition is inverted: the code triggers on 0 (not pressed) while the circuit reports 1 when pressed — the comparison should be `== 1`",
+        "Buzzer pins cannot be controlled by programs",
+        "The board needs a faster processor"
+      ],
+      "correctIndex": 1,
+      "explanation": "The logic is backwards: the program acts when the pin reads 0, but the wiring gives 1 on a press. Matching the condition to the actual signal — `== 1` — fixes it. Checking what values the input really produces is a core debugging habit.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q12",
+      "stem": "You finish wiring a new circuit on your board. Which power-up routine follows good electrical safety practice?",
+      "choices": [
+        "Power on immediately — waiting wastes time",
+        "Check the wiring against the pinout diagram while power is off, confirm no wire bridges power and ground, then apply power and watch for heat",
+        "Connect it to a wall socket for extra power",
+        "Add extra wires so current has more paths to choose from"
+      ],
+      "correctIndex": 1,
+      "explanation": "Wire with power off, double-check against the pinout (especially for short circuits between power and ground), then power on and feel for heat — the warning sign of a wiring fault. Mains electricity is never part of board projects.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q13",
+      "stem": "A plant-monitor project should light a warning LED when soil gets too dry. Which plan best follows the design process?",
+      "choices": [
+        "Buy the most expensive board first, then decide what it should do",
+        "Define the need and success criterion, choose a moisture sensor as input and an LED as output, write the threshold rule, build the simplest working version, test against the criterion, then improve",
+        "Skip testing because the code compiled without errors",
+        "Start by designing the final product's packaging"
+      ],
+      "correctIndex": 1,
+      "explanation": "Good design starts from the problem and a testable success criterion, then picks inputs, rules and outputs to meet it, builds simply, tests honestly, and iterates. Compiling proves syntax, not that the device works.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q14",
+      "stem": "Why do control boards run user programs from a low-voltage USB or battery supply instead of mains electricity?",
+      "choices": [
+        "Mains electricity cannot power LEDs",
+        "Low-voltage DC is safe to handle and mistakes are cheap to learn from, while mains voltage is dangerous and unnecessary for these small circuits",
+        "Batteries make programs run faster",
+        "USB cables are longer than mains cables"
+      ],
+      "correctIndex": 1,
+      "explanation": "Board projects use 3–5 V DC precisely because it is safe for beginners and enough for sensors, LEDs and small motors. Mains voltage can kill and offers no benefit for this scale of circuit.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-microprocessors-q15",
+      "stem": "A board project has no screen to print debugging messages. What is the best way to test why the light sensor logic misbehaves?",
+      "choices": [
+        "Give up — embedded programs cannot be debugged",
+        "Rewrite the entire program from scratch without testing",
+        "Use the board's LED display to show the actual sensor readings, and test each part — sensor reading, then output switching, then the logic connecting them — one at a time",
+        "Hold the board up to the light and guess"
+      ],
+      "correctIndex": 2,
+      "explanation": "Without a console, use what the board has: display readings on its LEDs, and isolate each stage. Proving the sensor works, then the output, then the logic, narrows any fault to one small piece.",
+      "difficulty": "hard"
+    }
+  ]
+}

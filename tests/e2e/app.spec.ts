@@ -6,9 +6,9 @@ test.describe('Home page', () => {
     // Hero h1 (first-time visitor state) — the logo is no longer a heading.
     await expect(page.getByRole('heading', { name: /Master secondary school/ })).toBeVisible();
 
-    // 5 subject cards — use heading within links
+    // 10 subject cards — use heading within links
     await expect(page.getByRole('heading', { name: 'Subjects' })).toBeVisible();
-    for (const subject of ['Math', 'English', 'Biology', 'Chemistry', 'Physics']) {
+    for (const subject of ['Math', 'English', 'Biology', 'Chemistry', 'Physics', 'Geography', 'History', 'ICT', 'Chinese', 'German']) {
       await expect(page.getByRole('heading', { name: subject })).toBeVisible();
     }
   });

@@ -1,0 +1,316 @@
+{
+  "id": "math-yr7-number-bases",
+  "subjectId": "math",
+  "title": "Number Bases & Binary",
+  "description": "How place value works in any base — binary place values, converting between binary and base 10, why computers use binary, and a first look at hexadecimal.",
+  "stage": "ks3",
+  "year": 7,
+  "notes": [
+    {
+      "id": "math-yr7-number-bases-n1",
+      "heading": "Place Value in Base 10 (Recap)",
+      "body": "📌 Definition\nBase 10 (also called denary) is our everyday number system. It uses ten digits: $0, 1, 2, \\ldots, 9$. The position of a digit tells you its value — each place is worth ten times the place immediately to its right.\n\n🔑 How it works\nThe place values are powers of ten:\n$$\\ldots, \\ 10^3 = 1000, \\ 10^2 = 100, \\ 10^1 = 10, \\ 10^0 = 1$$\nSo a number like $4307$ really means:\n$$4307 = 4 \\times 1000 + 3 \\times 100 + 0 \\times 10 + 7 \\times 1$$\n\n💡 Worked Example\nWhat is the value of the digit $6$ in the number $56214$?\n\nThe $6$ sits in the thousands column, so it is worth $6 \\times 1000 = 6000$ — not just $6$.\n\n📎 Key Points to Remember\n• Moving one place to the left multiplies a digit's value by $10$.\n• A $0$ is a placeholder: the $0$ in $4307$ shows there are no tens, and without it the other digits would shift.\n• Every whole number can be broken into its place-value parts, and the parts add back to the original number.\n\n⚠️ Common Mistake\nGiving the face value of a digit instead of its place value. The digit $6$ in $56214$ is worth $6000$, not $6$.\n\n✅ Check\nSplit the number into parts and add them: $50000 + 6000 + 200 + 10 + 4 = 56214$ — it matches."
+    },
+    {
+      "id": "math-yr7-number-bases-n2",
+      "heading": "What Is a Number Base?",
+      "body": "📌 Definition\nA number base (or radix) is the number of different digits a counting system uses — and the amount each place multiplies by as you move left.\n\n• Base 10 (denary): ten digits, $0$–$9$; places multiply by $10$.\n• Base 2 (binary): two digits, $0$ and $1$; places multiply by $2$.\n• Base 16 (hexadecimal): sixteen digits; places multiply by $16$.\n\n🔑 How it works\nAny whole number can be written in any base — only the symbols change, not the value. A small subscript shows which base is meant: $1011_2$ is binary, while $25_{10}$ is ordinary base 10.\n\nCounting shows the pattern. In base 10, when a column fills up we carry to the next column: $8, 9, 10, 11, \\ldots$\n\nBinary fills up much faster because there are only two digits:\n$$0, \\ 1, \\ 10, \\ 11, \\ 100, \\ 101, \\ 110, \\ 111, \\ 1000, \\ldots$$\nEach of these is a perfectly good number: $10_2$ means \"one two and no ones\" — the value we call two.\n\n💡 Worked Example\nWhat comes after $111_2$ in binary?\n\nEvery column is full, so we carry all the way: the next number is $1000_2$ (which is $8$ in base 10).\n\n📎 Key Points to Remember\n• A base-$b$ system uses exactly $b$ different digits, from $0$ up to $b - 1$.\n• The same value looks different in different bases: $8_{10} = 1000_2$.\n• Subscripts avoid confusion when more than one base is being used.\n\n⚠️ Common Mistake\nReading $10_2$ as \"ten\". In binary there is no digit $2$–$9$, so $10_2$ is the value two. Say it as \"one-zero\" to stay safe."
+    },
+    {
+      "id": "math-yr7-number-bases-n3",
+      "heading": "Binary Place Values",
+      "body": "📌 Definition\nIn binary (base 2) the place values are powers of two instead of powers of ten. Reading from the right, each place is worth DOUBLE the one before it:\n$$\\ldots, \\ 2^5 = 32, \\ 2^4 = 16, \\ 2^3 = 8, \\ 2^2 = 4, \\ 2^1 = 2, \\ 2^0 = 1$$\n\n🔑 How it works\n• A binary number is built from digits called bits (binary digits), each $0$ or $1$.\n• A $1$ in a place means \"include this place value\"; a $0$ means \"leave it out\".\n• Example: $1101_2$ has place values $8, 4, 2, 1$ under its digits, so it includes $8 + 4 + 1$.\n\n💡 Worked Example 1\nWhat is the value of the leftmost $1$ in $10000_2$?\n\nCount places from the right: $1, 2, 4, 8, 16$. The leftmost digit is in the fifth place, worth $2^4 = 16$.\n\n💡 Worked Example 2\nWhat is the largest number you can write with four bits?\n\nFill every place with a $1$: $1111_2 = 8 + 4 + 2 + 1 = 15$. Notice that $15 = 2^4 - 1$ — four bits give $2^4 = 16$ different values ($0$ to $15$).\n\n📎 Key Points to Remember\n• Learn the first powers of two by heart: $1, 2, 4, 8, 16, 32, 64, 128, 256$.\n• The rightmost place is always worth $1$ (since $2^0 = 1$).\n• $n$ bits can represent $2^n$ different values, from $0$ up to $2^n - 1$.\n\n⚠️ Common Mistake\nNumbering the places $1, 2, 3, 4, \\ldots$ instead of $1, 2, 4, 8, \\ldots$ Each binary place is double the previous one, not one more.\n\n✅ Check\nEach place value should be double the one on its right: $1, 2, 4, 8, 16$ doubles correctly every step."
+    },
+    {
+      "id": "math-yr7-number-bases-n4",
+      "heading": "Converting Binary to Base 10",
+      "body": "📌 Definition\nTo convert a binary number to base 10, add up the place values of every digit that is a $1$.\n\n🔑 How it works\n1. Write the binary number down.\n2. Label each digit with its place value, starting from $1$ on the RIGHT and doubling each step left.\n3. Add the place values that sit above a $1$; ignore the ones above a $0$.\n\n💡 Worked Example 1\nConvert $1101_2$ to base 10.\n\nPlace values: $8, 4, 2, 1$ above the digits $1, 1, 0, 1$.\n$$1101_2 = 8 + 4 + 0 + 1 = 13$$\n\n💡 Worked Example 2\nConvert $10110_2$ to base 10.\n\nPlace values: $16, 8, 4, 2, 1$ above the digits $1, 0, 1, 1, 0$.\n$$10110_2 = 16 + 0 + 4 + 2 + 0 = 22$$\n\n📎 Key Points to Remember\n• Always label place values starting from the RIGHT with $1$.\n• Only the digits that are $1$ contribute to the total.\n• More bits means bigger numbers: the leftmost place of a 6-bit number is worth $32$.\n\n⚠️ Common Mistake\nStarting the place values from the left, or starting them at $2$ instead of $1$. Both scramble every conversion — always begin with $1$ at the right-hand end.\n\n✅ Check\nThe answer must be odd if the binary number ends in $1$ (the units place is worth $1$) and even if it ends in $0$. $1101_2$ ends in $1$ and $13$ is odd — consistent."
+    },
+    {
+      "id": "math-yr7-number-bases-n5",
+      "heading": "Converting Base 10 to Binary",
+      "body": "📌 Definition\nTwo reliable methods turn a base-10 number into binary: repeated division by $2$ (reading the remainders) and place-value subtraction (taking away the largest powers of two that fit).\n\n🔑 How it works — repeated division\n1. Divide the number by $2$ and record the remainder ($0$ or $1$).\n2. Divide the answer by $2$ again, recording the new remainder.\n3. Keep going until you reach $0$.\n4. Read the remainders from BOTTOM to TOP — that is the binary number.\n\n💡 Worked Example 1\nConvert $13$ to binary.\n\n$13 \\div 2 = 6$ remainder $1$\n$6 \\div 2 = 3$ remainder $0$\n$3 \\div 2 = 1$ remainder $1$\n$1 \\div 2 = 0$ remainder $1$\n\nReading upwards: $13 = 1101_2$.\n\n🔑 How it works — place-value subtraction\n1. Find the largest power of two that is not bigger than the number; write a $1$ and subtract it.\n2. Move to the next power down: if it fits into what is left, write $1$ and subtract; if not, write $0$.\n3. Continue down to $1$.\n\n💡 Worked Example 2\nConvert $45$ to binary.\n\n$45 - 32 = 13$ → $1$ in the $32$s place\n$16$ does not fit into $13$ → $0$\n$13 - 8 = 5$ → $1$ in the $8$s place\n$5 - 4 = 1$ → $1$ in the $4$s place\n$2$ does not fit into $1$ → $0$\n$1 - 1 = 0$ → $1$ in the $1$s place\n\nSo $45 = 101101_2$.\n\n📎 Key Points to Remember\n• Repeated division: remainders read UPWARD.\n• Subtraction method: work from the LARGEST power of two downward.\n• Both methods must give the same answer.\n\n⚠️ Common Mistake\nReading the remainders top-to-bottom. That gives the digits in reverse — $13$ would wrongly come out as $1011_2$ (which is $11$).\n\n✅ Check\nConvert your answer back: $101101_2 = 32 + 8 + 4 + 1 = 45$ — it matches."
+    },
+    {
+      "id": "math-yr7-number-bases-n6",
+      "heading": "Why Computers Use Binary",
+      "body": "📌 Definition\nComputers store and process everything — numbers, text, images, sound, video — using binary, because their circuits are built from millions of tiny switches that each have exactly two states: ON or OFF.\n\n🔑 How it works\n• A switch that is ON can represent $1$; OFF represents $0$.\n• Each single binary digit is called a bit. A group of $8$ bits is a byte.\n• Two states are far more reliable than ten: a circuit only has to tell \"high voltage\" from \"low voltage\", so small electrical fluctuations do not corrupt the data.\n• Logic circuits combine bits using simple rules, and every operation a computer performs — from addition to displaying this page — is built from those rules.\n\n💡 Worked Example\nHow many different values can one byte ($8$ bits) represent?\n$$2^8 = 256 \\text{ values, from } 0 \\text{ to } 255$$\nThat is why many systems — like the red, green and blue levels in a digital colour — use numbers from $0$ to $255$.\n\n📎 Key Points to Remember\n• Binary matches the two-state nature of electronic switches.\n• Reliability, not speed for humans, is the reason computers use base 2.\n• A bit is one binary digit; a byte is eight bits.\n\n⚠️ Common Mistake\nThinking computers \"prefer\" binary because it is simpler maths. The maths is the same — the choice is driven by hardware: two states are easy and dependable to build and detect.\n\n✅ Check\nAny device that stores data in two distinct states (magnetised/not magnetised, pit/no pit on a disc) is using binary thinking."
+    },
+    {
+      "id": "math-yr7-number-bases-n7",
+      "heading": "Hexadecimal — A First Look",
+      "body": "📌 Definition\nHexadecimal is base 16. It needs sixteen digits, so after $0$–$9$ it borrows letters:\n$$0, 1, 2, \\ldots, 9, \\ A, B, C, D, E, F$$\nwhere $A = 10$, $B = 11$, $C = 12$, $D = 13$, $E = 14$ and $F = 15$.\n\n🔑 How it works\n• Hexadecimal is popular in computing because ONE hex digit matches exactly FOUR bits: $2^4 = 16$.\n• So $F_{16} = 15 = 1111_2$, and $A_{16} = 10 = 1010_2$.\n• Long binary strings become short and readable: $10101100_2$ splits into $1010$ and $1100$, which are $A$ and $C$ — so the value is $AC_{16}$.\n\n💡 Worked Example\nWrite the binary number $00101100_2$ in hexadecimal.\n\nSplit into two groups of four bits: $0010$ and $1100$.\n$0010_2 = 2$ and $1100_2 = 12 = C$.\nSo $00101100_2 = 2C_{16}$.\n\nWhere you will meet it: memory addresses, error codes, and colour codes on the web (for example, pure red is written #FF0000 — the FF is a byte written in hex).\n\n📎 Key Points to Remember\n• Base 16 uses digits $0$–$9$ plus letters $A$–$F$.\n• Each hex digit stands for exactly four binary digits.\n• Hex is a human-friendly shorthand for binary — computers still work in bits.\n\n⚠️ Common Mistake\nTreating $A$–$F$ as letters with no value. In hexadecimal they are digits: $F$ is worth $15$, so $10_{16}$ is sixteen, not ten.\n\n✅ Check\nConvert each hex digit to four bits and back: $C = 12 = 1100_2$ and $1100_2 = 8 + 4 = 12$ — consistent."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr7-number-bases-f1",
+      "term": "Base (radix)",
+      "definition": "The number of different digits a counting system uses, and the amount each place value multiplies by.",
+      "example": "Base 10 uses ten digits $0$–$9$; base 2 uses two digits, $0$ and $1$."
+    },
+    {
+      "id": "math-yr7-number-bases-f2",
+      "term": "Denary (base 10)",
+      "definition": "The everyday number system with digits $0$–$9$, where each place is worth ten times the place to its right.",
+      "example": "$4307 = 4 \\times 1000 + 3 \\times 100 + 0 \\times 10 + 7 \\times 1$."
+    },
+    {
+      "id": "math-yr7-number-bases-f3",
+      "term": "Binary (base 2)",
+      "definition": "A number system using only the digits $0$ and $1$, where each place value is a power of two.",
+      "example": "$1101_2 = 8 + 4 + 1 = 13$ in base 10."
+    },
+    {
+      "id": "math-yr7-number-bases-f4",
+      "term": "Bit",
+      "definition": "A single binary digit — a $0$ or a $1$. Short for \"binary digit\".",
+      "example": "$1011_2$ is a 4-bit number."
+    },
+    {
+      "id": "math-yr7-number-bases-f5",
+      "term": "Byte",
+      "definition": "A group of $8$ bits, able to represent $2^8 = 256$ different values.",
+      "example": "One byte can hold any whole number from $0$ to $255$."
+    },
+    {
+      "id": "math-yr7-number-bases-f6",
+      "term": "Binary place values",
+      "definition": "From the right: $1, 2, 4, 8, 16, 32, \\ldots$ — each place is double the one before it.",
+      "example": "In $10110_2$ the leftmost digit sits in the $16$s place."
+    },
+    {
+      "id": "math-yr7-number-bases-f7",
+      "term": "Binary to base 10",
+      "definition": "Label each digit with its place value starting at $1$ on the right, then add the values above every $1$.",
+      "example": "$10110_2 = 16 + 4 + 2 = 22$."
+    },
+    {
+      "id": "math-yr7-number-bases-f8",
+      "term": "Base 10 to binary — repeated division",
+      "definition": "Divide by $2$ repeatedly, record each remainder, then read the remainders from bottom to top.",
+      "example": "$13$ gives remainders $1, 0, 1, 1$, read upward as $1101_2$."
+    },
+    {
+      "id": "math-yr7-number-bases-f9",
+      "term": "Base 10 to binary — place-value subtraction",
+      "definition": "Repeatedly subtract the largest power of two that fits, writing $1$ where it fits and $0$ where it does not.",
+      "example": "$45 = 32 + 8 + 4 + 1 = 101101_2$."
+    },
+    {
+      "id": "math-yr7-number-bases-f10",
+      "term": "Hexadecimal (base 16)",
+      "definition": "A base-16 system using digits $0$–$9$ and letters $A$–$F$ for the values $10$ to $15$.",
+      "example": "$F_{16} = 15$ and $2C_{16} = 00101100_2$."
+    },
+    {
+      "id": "math-yr7-number-bases-f11",
+      "term": "Number of values from n bits",
+      "definition": "$n$ bits can represent $2^n$ different values, from $0$ up to $2^n - 1$.",
+      "example": "$4$ bits give $2^4 = 16$ values, from $0$ to $15$."
+    },
+    {
+      "id": "math-yr7-number-bases-f12",
+      "term": "Why computers use binary",
+      "definition": "Electronic circuits have two reliable states (on/off), matching the two binary digits and making data hard to corrupt.",
+      "example": "A switch ON represents $1$ and OFF represents $0$; eight switches store one byte."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr7-number-bases-q1",
+      "stem": "How many different digits does the binary system use?",
+      "choices": [
+        "1",
+        "2",
+        "8",
+        "10"
+      ],
+      "correctIndex": 1,
+      "explanation": "Binary is base 2, so it uses exactly two digits: $0$ and $1$. Base 10 is the system with ten digits.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-yr7-number-bases-q2",
+      "stem": "What is a bit?",
+      "choices": [
+        "A group of eight binary digits",
+        "A single binary digit, $0$ or $1$",
+        "The base-10 value of a binary number",
+        "The leftmost digit of any number"
+      ],
+      "correctIndex": 1,
+      "explanation": "A bit is one binary digit (short for binary digit). Eight bits together make a byte, which is the first option.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-yr7-number-bases-q3",
+      "stem": "Convert $1011_2$ to base 10.",
+      "choices": [
+        "$9$",
+        "$11$",
+        "$13$",
+        "$1011$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Place values $8, 4, 2, 1$ sit above $1, 0, 1, 1$, so $1011_2 = 8 + 0 + 2 + 1 = 11$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-yr7-number-bases-q4",
+      "stem": "Convert $11010_2$ to base 10.",
+      "choices": [
+        "$22$",
+        "$24$",
+        "$26$",
+        "$34$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The place values are $16, 8, 4, 2, 1$; the $1$s sit above $16$, $8$ and $2$, giving $16 + 8 + 2 = 26$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-yr7-number-bases-q5",
+      "stem": "Convert $25$ to binary.",
+      "choices": [
+        "$11001_2$",
+        "$10101_2$",
+        "$11100_2$",
+        "$10011_2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$25 = 16 + 8 + 1$, so there are $1$s in the $16$, $8$ and $1$ places: $11001_2$. Checking: $11001_2 = 16 + 8 + 1 = 25$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-yr7-number-bases-q6",
+      "stem": "Convert $50$ to binary.",
+      "choices": [
+        "$110010_2$",
+        "$101010_2$",
+        "$111010_2$",
+        "$110100_2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$50 = 32 + 16 + 2$, giving $110010_2$. The distractors convert to $42$, $58$ and $52$ — check by adding the place values back.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-yr7-number-bases-q7",
+      "stem": "In binary, the place values run $1, 2, 4, 8, 16, \\ldots$ from the right. What is the next place value after $16$?",
+      "choices": [
+        "$17$",
+        "$20$",
+        "$32$",
+        "$64$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Each binary place is double the one before it, so the place after $16$ is $2 \\times 16 = 32$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-yr7-number-bases-q8",
+      "stem": "What is the largest number that can be written using exactly four bits?",
+      "choices": [
+        "$9$",
+        "$15$",
+        "$16$",
+        "$31$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Four bits all set to $1$ give $1111_2 = 8 + 4 + 2 + 1 = 15$, which is $2^4 - 1$. Four bits give $16$ values in total, but counting starts at $0$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-yr7-number-bases-q9",
+      "stem": "Why do computers use binary rather than base 10?",
+      "choices": [
+        "Binary numbers are shorter to write down",
+        "Binary was invented before base 10",
+        "Electronic circuits have two reliable states, on and off, which match the two binary digits",
+        "Humans find binary calculations faster"
+      ],
+      "correctIndex": 2,
+      "explanation": "Circuits only need to distinguish two states (high or low voltage), which map directly onto $1$ and $0$ and resist electrical noise. Binary numbers are actually longer than base-10 ones.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-yr7-number-bases-q10",
+      "stem": "In hexadecimal, what value does the digit $A$ represent?",
+      "choices": [
+        "$1$",
+        "$10$",
+        "$11$",
+        "$16$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Hexadecimal continues past $9$ with letters: $A = 10$, $B = 11$, up to $F = 15$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-yr7-number-bases-q11",
+      "stem": "Convert $101101_2$ to base 10.",
+      "choices": [
+        "$41$",
+        "$45$",
+        "$53$",
+        "$37$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Six bits mean place values $32, 16, 8, 4, 2, 1$. The $1$s are above $32$, $8$, $4$ and $1$: $32 + 8 + 4 + 1 = 45$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-yr7-number-bases-q12",
+      "stem": "Convert $77$ to binary.",
+      "choices": [
+        "$1001101_2$",
+        "$1001011_2$",
+        "$1011001_2$",
+        "$1001110_2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$77 = 64 + 8 + 4 + 1$, so the $64$, $8$, $4$ and $1$ places get a $1$: $1001101_2$. The other options convert to $75$, $89$ and $78$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-yr7-number-bases-q13",
+      "stem": "Which statement is always true about an odd number written in binary?",
+      "choices": [
+        "It ends in $0$",
+        "It ends in $1$",
+        "It has an even number of digits",
+        "It begins with $0$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every binary place value except the units place is even, so a number is odd exactly when its units digit is $1$. For example, $13 = 1101_2$ ends in $1$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-yr7-number-bases-q14",
+      "stem": "The hexadecimal digit $B$ is written as which four-bit binary value?",
+      "choices": [
+        "$1010_2$",
+        "$1011_2$",
+        "$1100_2$",
+        "$1110_2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$B = 11$, and one hex digit equals four bits: $11 = 8 + 2 + 1 = 1011_2$. Option A is $10$ (hex $A$) and $1100_2$ is $12$ (hex $C$).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-yr7-number-bases-q15",
+      "stem": "Convert $1000000_2$ to base 10.",
+      "choices": [
+        "$32$",
+        "$64$",
+        "$100$",
+        "$128$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The single $1$ is in the seventh place from the right, worth $2^6 = 64$. Each extra zero on the right doubles the value: $1, 10_2 = 2, 100_2 = 4, \\ldots, 1000000_2 = 64$.",
+      "difficulty": "medium"
+    }
+  ]
+}

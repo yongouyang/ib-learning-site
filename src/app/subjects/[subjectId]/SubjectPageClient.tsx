@@ -9,6 +9,7 @@ import { useProgress } from '@/context/ProgressContext';
 import { getRecentAverageScore } from '@/lib/progress-store';
 import { filterTopics, TopicFilterState } from '@/lib/topic-filter';
 import { groupTopicsByStage } from '@/lib/topic-groups';
+import { subjectEmoji } from '@/lib/subject-emoji';
 import { TopicFilter } from '@/components/TopicFilter';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import InlineMath from '@/components/InlineMath';
@@ -25,7 +26,7 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
 
   if (!subject) return <p className="p-6">Subject not found.</p>;
 
-  const emoji = subjectId === 'math' ? '📐' : subjectId === 'english' ? '📖' : subjectId === 'biology' ? '🌿' : subjectId === 'chemistry' ? '🧪' : '⚛️';
+  const emoji = subjectEmoji(subjectId);
   const filteredTopics = filterTopics(subject.topics, filter);
   const groups = groupTopicsByStage(filteredTopics);
   let cardIndex = 0;

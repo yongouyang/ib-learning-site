@@ -1,6 +1,17 @@
 import { z } from 'zod';
 
-export const subjectIdSchema = z.enum(['english', 'math', 'biology', 'chemistry', 'physics']);
+export const subjectIdSchema = z.enum([
+  'english',
+  'math',
+  'biology',
+  'chemistry',
+  'physics',
+  'geography',
+  'history',
+  'ict',
+  'chinese',
+  'german',
+]);
 
 export const stageSchema = z.enum(['ks3', 'igcse', 'dp']);
 

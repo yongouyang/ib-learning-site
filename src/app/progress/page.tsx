@@ -10,6 +10,7 @@ import { getCardStats } from '@/lib/flashcard-scheduler';
 import DualRingDonut from '@/components/DualRingDonut';
 import { InstallAppButton } from '@/components/InstallAppButton';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { subjectEmoji } from '@/lib/subject-emoji';
 
 export default function ProgressPage() {
   const { userProgress, topicProgress, flashcardProgress } = useProgress();
@@ -93,7 +94,7 @@ export default function ProgressPage() {
           <div key={subject.id} className="card p-4 mb-3 border-l-4" style={{ borderLeftColor: subject.accentColor }}>
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <span>{subject.id === 'math' ? '📐' : subject.id === 'english' ? '📖' : subject.id === 'biology' ? '🌿' : subject.id === 'chemistry' ? '🧪' : '⚛️'}</span>
+                <span>{subjectEmoji(subject.id)}</span>
                 <span className="font-semibold text-gray-900 dark:text-gray-50">{subject.name}</span>
               </div>
               <div className="flex items-center gap-3">

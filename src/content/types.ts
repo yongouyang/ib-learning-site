@@ -1,4 +1,14 @@
-export type SubjectId = 'english' | 'math' | 'biology' | 'chemistry' | 'physics';
+export type SubjectId =
+  | 'english'
+  | 'math'
+  | 'biology'
+  | 'chemistry'
+  | 'physics'
+  | 'geography'
+  | 'history'
+  | 'ict'
+  | 'chinese'
+  | 'german';
 
 export type Stage = 'ks3' | 'igcse' | 'dp';
 

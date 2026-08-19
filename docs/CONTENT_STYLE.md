@@ -36,7 +36,7 @@ Every topic carries a curriculum taxonomy (replacing the old `ibLevel` field):
 
 ## Topic ID conventions for new topics
 
-- KS3: `<subject>-yr<7|8|9>-<slug>` (e.g. `math-yr9-quadratics`); `<subject>-<slug>-1` for KS3 science/English.
+- KS3: `<subject>-yr<7|8|9>-<slug>` (e.g. `math-yr9-quadratics`, `geo-yr8-plate-tectonics`, `hist-yr8-ww1`, `ict-yr7-python-basics`, `chin-yr7-greetings-names`, `germ-yr8-food-drink`); `<subject>-<slug>-1` for KS3 science/English topics that span years (no `year` field).
 - IGCSE: `<subject>-igcse-<slug>` (e.g. `bio-igcse-enzymes`).
 - DP: `<subject>-dp-<course>-<slug>` (e.g. `math-dp-ai-sequences`, `math-dp-aa-proof`, `phys-dp-kinematics`).
 

@@ -103,6 +103,6 @@ Implemented per `docs/custom-domain-cutover-plan.md` (two-distribution DEV/PROD 
 
 ## 10. Prerequisites & open questions
 
-- **AWS account**: assumed to exist (user: "no domain yet" — domain, not account). If not, step 0: create account, enable MFA on root, create an admin IAM user/Identity Center user for running Terraform locally. Region: default `ap-east-1` (Hong Kong, near GSIS users) — CloudFront is global anyway; confirm before bootstrap since state bucket region is sticky.
+- **AWS account**: assumed to exist (user: "no domain yet" — domain, not account). If not, step 0: create account, enable MFA on root, create an admin IAM user/Identity Center user for running Terraform locally. Region: default `ap-east-1` (Hong Kong, near the target users) — CloudFront is global anyway; confirm before bootstrap since state bucket region is sticky.
 - **Moonshot API key**: still open (unchanged). Lambda deploys and behaves correctly without it (501 → button hidden).
 - **GitHub**: repo is `yongouyang/ib-learning-site`, default working branch `develop` — the OIDC trust is scoped to exactly that.

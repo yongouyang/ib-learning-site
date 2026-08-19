@@ -9,6 +9,7 @@ import { getWeakTopics } from '@/lib/weak-point-analyzer';
 import { getRecentAverageScore } from '@/lib/progress-store';
 import { getDueTopics } from '@/lib/flashcard-scheduler';
 import { getNextAction } from '@/lib/home-next-action';
+import { subjectEmoji } from '@/lib/subject-emoji';
 import { Hero } from '@/components/Hero';
 
 // "Why Octav Learning" — the three steps of the journey, each emphasising its
@@ -98,7 +99,7 @@ export default function HomePage() {
               return (
                 <Link key={`${tp.subjectId}:${tp.topicId}`} href={`/subjects/${tp.subjectId}/${tp.topicId}/quiz`}
                   className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 py-1">
-                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: meta.color }} />
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: meta?.color }} />
                   <span className="flex-1">{tp.topicTitle}</span>
                   <span className="text-orange-600 dark:text-orange-400 font-medium">{Math.round(getRecentAverageScore(tp.attempts) * 100)}%</span>
                 </Link>
@@ -125,7 +126,7 @@ export default function HomePage() {
               return (
                 <Link key={`${t.subjectId}:${t.topicId}`} href={`/subjects/${t.subjectId}/${t.topicId}/flashcards?filter=due`}
                   className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 py-1">
-                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: meta.color }} />
+                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: meta?.color }} />
                   <span className="flex-1">{t.topicTitle}</span>
                   <span className="text-green-600 dark:text-green-400 font-medium">{t.dueCount} due</span>
                 </Link>
@@ -170,7 +171,7 @@ export default function HomePage() {
                 className="card p-4 h-full block hover:shadow-md transition-shadow active:scale-[0.98] group"
                 style={{ borderTopWidth: 4, borderTopColor: subject.accentColor }}
               >
-                <span className="text-2xl mb-1 block" aria-hidden="true">{subject.id === 'math' ? '📐' : subject.id === 'english' ? '📖' : subject.id === 'biology' ? '🌿' : subject.id === 'chemistry' ? '🧪' : '⚛️'}</span>
+                <span className="text-2xl mb-1 block" aria-hidden="true">{subjectEmoji(subject.id)}</span>
                 <h3 className="font-semibold text-gray-900 dark:text-gray-50">{subject.name}</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{subject.topics.length} topics</p>
                 <div className="flex items-center justify-between">

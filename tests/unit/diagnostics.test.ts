@@ -7,7 +7,7 @@ import {
 } from '@/lib/diagnostics';
 
 describe('getDiagnosticCourses', () => {
-  it('exposes the 8 course groupings with topics and questions', () => {
+  it('exposes the 13 course groupings with topics and questions', () => {
     const courses = getDiagnosticCourses();
     expect(courses.map((c) => c.id)).toEqual([
       'math-y7',
@@ -18,6 +18,11 @@ describe('getDiagnosticCourses', () => {
       'bio-ks3',
       'chem-ks3',
       'phys-ks3',
+      'geog-ks3',
+      'hist-ks3',
+      'ict-ks3',
+      'chin-ks3',
+      'germ-ks3',
     ]);
     for (const course of courses) {
       expect(course.topicCount).toBeGreaterThan(0);

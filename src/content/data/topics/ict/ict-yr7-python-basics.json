@@ -1,0 +1,316 @@
+{
+  "id": "ict-yr7-python-basics",
+  "subjectId": "ict",
+  "title": "Python Programming: First Steps",
+  "description": "Writing your first Python programs — printing and input, variables and data types, arithmetic and string operations, comments, if/elif/else selection, while loops, and how to read error messages.",
+  "stage": "ks3",
+  "year": 7,
+  "notes": [
+    {
+      "id": "ict-yr7-python-basics-n1",
+      "heading": "Writing and Running Programs",
+      "body": "A program is a list of instructions that the computer carries out in order, from top to bottom. In Python you type your instructions (called statements) into an editor such as IDLE, Thonny or an online Python editor, save the file with a .py extension, and run it. The traditional first program is a single line: `print(\"Hello, world!\")`. The print() function displays whatever is inside its brackets in the output window. Text given to print must be wrapped in speech marks, while numbers need none: `print(2 + 3)` outputs 5. Lines that the computer should ignore — notes to yourself and other programmers — are called comments and begin with a hash: `# this line does nothing`. Good comments explain why the code does something, not just what it does, and they become essential as programs grow. Because Python runs statements in sequence, the order of your lines matters exactly as much as the order of steps in a recipe."
+    },
+    {
+      "id": "ict-yr7-python-basics-n2",
+      "heading": "Input and Variables",
+      "body": "Programs become interesting when they remember things and respond to the user. A variable is a named storage box for a value. You create one with the assignment operator, a single equals sign: `score = 0` stores 0 in a box called score, and later `score = score + 1` replaces the contents. Variable names can contain letters, digits and underscores, must not start with a digit, and are case-sensitive — Score and score are two different variables. Choose meaningful names like total_price rather than x or thing2; you are writing for humans as well as the computer. To get data from the user, use input(): `name = input(\"What is your name? \")` displays the prompt, waits for the user to type, and stores whatever they typed in name. Crucially, input() always returns a string (text), even when the user types digits — the next note explains why that matters."
+    },
+    {
+      "id": "ict-yr7-python-basics-n3",
+      "heading": "Data Types: int, float and str",
+      "body": "Every value in Python has a data type. Whole numbers are integers (int): 7, -3, 1000. Numbers with a decimal point are floats (float): 3.5, -0.1. Text is a string (str), always written in speech marks: \"Hello\", \"42\". The speech marks change everything — \"42\" is text that happens to contain digits, not a number you can calculate with. You can check any value's type with type(), for example type(\"42\") reports str. Because input() always gives you a string, you must convert it before doing arithmetic: `age = int(input(\"Age? \"))` converts the typed text into an integer (use float() if a decimal point is possible), and str() converts the other way when you want to join a number onto a message. Forgetting the conversion is the most common beginner bug: entering 5 for both inputs of a badly written adder prints 55, because joining two strings together is concatenation, not addition."
+    },
+    {
+      "id": "ict-yr7-python-basics-n4",
+      "heading": "Arithmetic and String Operations",
+      "body": "Python does arithmetic with the operators +, -, * and /, following the normal mathematical order of operations, with brackets to override it: (2 + 3) * 4 is 20. Three more operators earn their keep. `//` is floor division — 17 // 5 is 3, the whole number of times 5 fits into 17. `%` is the remainder (modulo) — 17 % 5 is 2, what is left over; this is the classic test for even numbers, because n % 2 is 0 exactly when n is even. `**` raises to a power — 2 ** 10 is 1024. Note that ordinary division with / always returns a float: 10 / 2 is 2.0, not 2. Strings have their own operations: + joins strings (concatenation), so \"red\" + \"fish\" is \"redfish\", and * repeats a string, so \"Ha\" * 3 is \"HaHaHa\". Mixing types without converting causes an error — \"Score: \" + 5 fails because Python refuses to guess whether you wanted text or arithmetic; \"Score: \" + str(5) works."
+    },
+    {
+      "id": "ict-yr7-python-basics-n5",
+      "heading": "Selection with if, elif and else",
+      "body": "Selection lets a program make decisions and respond differently to different data. The pattern is: `if condition:` then an indented block that runs only when the condition is true; optionally one or more `elif condition:` (else-if) branches checked in turn; and an optional `else:` block that catches everything left over. Conditions are built with comparison operators: == (equal to — two equals signs, because one means assignment), != (not equal), <, >, <= and >=. A typical grade converter reads: if score >= 70 print \"Distinction\", elif score >= 50 print \"Pass\", else print \"Try again\". Two things trip up beginners. First, indentation: the indented lines (conventionally four spaces) are the body of the branch, and Python enforces this strictly. Second, order: only the first true branch runs, so checking score >= 50 before score >= 70 means nobody can ever reach Distinction — put the most specific conditions first."
+    },
+    {
+      "id": "ict-yr7-python-basics-n6",
+      "heading": "Repeating with while Loops",
+      "body": "A loop repeats instructions so you do not have to write them out many times. A while loop repeats its indented body as long as its condition stays true: it checks the condition, runs the body, then checks again. A countdown looks like this: `count = 5` then `while count > 0:` print the value and `count = count - 1`. That last line is the update step, and forgetting it creates an infinite loop — the condition never becomes false, so the program runs forever (stop it with Ctrl+C). A good while loop has three parts: initialise a variable before the loop, test it in the condition, and change it inside the body. While loops shine when you cannot know in advance how many repetitions are needed: keep asking for a password until it matches, keep rolling a die until a six appears, or keep asking quiz questions until the player types \"quit\". Before running a loop, trace it on paper with the variable's values to check it will eventually stop."
+    },
+    {
+      "id": "ict-yr7-python-basics-n7",
+      "heading": "Common Errors and How to Read Them",
+      "body": "Error messages are not the computer being cross — they are precise clues, and learning to read them is a core programming skill. The traceback tells you the file and the line number where Python gave up, plus the error type and a short description; start reading at the last line. The usual suspects: SyntaxError means Python could not even parse the line — a missing closing bracket or speech mark, a forgotten colon after if or while, or a stray character; note that the real mistake is sometimes on the line above the one reported. NameError means you used a name Python does not know — usually a misspelled variable, or a variable used before it was created (spelling and capitalisation must match exactly). TypeError means you mixed incompatible types, classically adding a string to an integer without converting with int() or str(). IndentationError means your blocks are not lined up consistently. When debugging, change one thing at a time and re-run, use print() to check what variables actually contain, and explain the code line by line to an imaginary listener — you will often hear the bug yourself."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ict-yr7-python-basics-f1",
+      "term": "Variable",
+      "definition": "A named storage box that holds a value your program can read and change.",
+      "example": "score = 0 creates a variable called score holding 0."
+    },
+    {
+      "id": "ict-yr7-python-basics-f2",
+      "term": "print()",
+      "definition": "The function that displays a value in the output window.",
+      "example": "print(\"Hello\") outputs the text Hello."
+    },
+    {
+      "id": "ict-yr7-python-basics-f3",
+      "term": "input()",
+      "definition": "The function that shows a prompt and returns whatever the user types — always as a string.",
+      "example": "name = input(\"Your name? \") stores the typed text in name."
+    },
+    {
+      "id": "ict-yr7-python-basics-f4",
+      "term": "int",
+      "definition": "The data type for whole numbers, positive or negative, with no decimal point.",
+      "example": "7, -3 and 1000 are all ints."
+    },
+    {
+      "id": "ict-yr7-python-basics-f5",
+      "term": "float",
+      "definition": "The data type for numbers that include a decimal point.",
+      "example": "3.5 and -0.1 are floats; ordinary division like 10 / 2 returns the float 2.0."
+    },
+    {
+      "id": "ict-yr7-python-basics-f6",
+      "term": "str (string)",
+      "definition": "The data type for text, always written inside speech marks.",
+      "example": "\"42\" is a string, so \"4\" + \"2\" gives \"42\", not 6."
+    },
+    {
+      "id": "ict-yr7-python-basics-f7",
+      "term": "Comment",
+      "definition": "A note in the code that Python ignores, beginning with a hash symbol.",
+      "example": "# convert the age to a number explains the next line without running."
+    },
+    {
+      "id": "ict-yr7-python-basics-f8",
+      "term": "Selection",
+      "definition": "Running different blocks of code depending on whether conditions are true, using if, elif and else.",
+      "example": "if score >= 50: print(\"Pass\") else: print(\"Try again\")"
+    },
+    {
+      "id": "ict-yr7-python-basics-f9",
+      "term": "Condition",
+      "definition": "An expression that is either true or false, built with comparison operators such as ==, !=, <, >, <=, >=.",
+      "example": "age >= 13 is true when age holds 13 or more."
+    },
+    {
+      "id": "ict-yr7-python-basics-f10",
+      "term": "while loop",
+      "definition": "A loop that repeats its indented body for as long as its condition remains true.",
+      "example": "while count > 0: repeats until count drops to zero."
+    },
+    {
+      "id": "ict-yr7-python-basics-f11",
+      "term": "Infinite loop",
+      "definition": "A loop whose condition never becomes false, so it repeats forever.",
+      "example": "while x > 0: with no line changing x inside the loop never stops."
+    },
+    {
+      "id": "ict-yr7-python-basics-f12",
+      "term": "SyntaxError",
+      "definition": "The error Python reports when it cannot parse your code at all — a missing bracket, quote or colon.",
+      "example": "if score > 10 with no colon causes a SyntaxError."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-yr7-python-basics-q1",
+      "stem": "What does `print(2 + 3)` output?",
+      "choices": [
+        "2 + 3",
+        "5",
+        "\"5\"",
+        "23"
+      ],
+      "correctIndex": 1,
+      "explanation": "With no speech marks, 2 + 3 is arithmetic, so Python calculates it and prints the result 5. Wrapping it in quotes would print the characters 2 + 3 instead.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-python-basics-q2",
+      "stem": "Which symbol starts a comment in Python?",
+      "choices": [
+        "//",
+        "#",
+        "/*",
+        "--"
+      ],
+      "correctIndex": 1,
+      "explanation": "Python comments begin with the hash symbol #; everything after it on that line is ignored when the program runs. The // style belongs to other languages such as JavaScript.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-python-basics-q3",
+      "stem": "A user types 25 in response to `input(\"Age? \")`. What data type does input() return?",
+      "choices": [
+        "int",
+        "float",
+        "str",
+        "It depends on what the user types"
+      ],
+      "correctIndex": 2,
+      "explanation": "input() always returns a string, even when the user types digits. You must convert it yourself, for example with int(), before doing arithmetic with it.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-python-basics-q4",
+      "stem": "Which of these is a valid Python variable name?",
+      "choices": [
+        "2nd_score",
+        "total-score",
+        "playerName",
+        "my score"
+      ],
+      "correctIndex": 2,
+      "explanation": "Variable names may contain letters, digits and underscores only: they cannot start with a digit (2nd_score) or contain hyphens or spaces. playerName is valid.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-python-basics-q5",
+      "stem": "What does `print(\"7\" + \"7\")` output?",
+      "choices": [
+        "14",
+        "77",
+        "7 7",
+        "An error, because you cannot add numbers"
+      ],
+      "correctIndex": 1,
+      "explanation": "The speech marks make both values strings, and + on strings means concatenation — joining them end to end — so the output is the text 77, not the number 14.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-python-basics-q6",
+      "stem": "What is the value of `17 % 5`?",
+      "choices": [
+        "3",
+        "3.4",
+        "2",
+        "0"
+      ],
+      "correctIndex": 2,
+      "explanation": "The % operator gives the remainder after division: 5 goes into 17 three times (15) with 2 left over, so 17 % 5 is 2. The 3 would be the answer to 17 // 5 (floor division).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-python-basics-q7",
+      "stem": "What does the expression `int(\"3\") + 2` evaluate to?",
+      "choices": [
+        "\"32\"",
+        "5",
+        "\"5\"",
+        "A TypeError"
+      ],
+      "correctIndex": 1,
+      "explanation": "int(\"3\") converts the string to the integer 3, and 3 + 2 is ordinary addition giving the integer 5. Without the conversion, \"3\" + 2 would raise a TypeError.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-python-basics-q8",
+      "stem": "score holds 45. What does this code print? `if score >= 50: print(\"Pass\")` followed by `else: print(\"Try again\")`",
+      "choices": [
+        "Pass",
+        "Try again",
+        "Nothing — 45 is neither",
+        "An error message"
+      ],
+      "correctIndex": 1,
+      "explanation": "The condition 45 >= 50 is false, so the if branch is skipped and the else branch runs, printing Try again. The else block is the catch-all for when every earlier condition fails.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-python-basics-q9",
+      "stem": "What is the difference between `=` and `==` in Python?",
+      "choices": [
+        "They mean the same thing; either can be used anywhere",
+        "= assigns a value to a variable; == compares two values for equality",
+        "= compares values; == assigns values",
+        "== is only used inside print()"
+      ],
+      "correctIndex": 1,
+      "explanation": "A single equals assigns: score = 10 stores 10 in score. A double equals compares: score == 10 asks whether score currently holds 10, giving true or false — which is what if and while conditions need.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-python-basics-q10",
+      "stem": "How many times does this loop print? `x = 0`, then `while x < 3:` with the body `print(x)` and `x = x + 1`",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "Forever — it never stops"
+      ],
+      "correctIndex": 1,
+      "explanation": "The body runs for x = 0, 1 and 2, printing three times. After the third pass x becomes 3, the condition 3 < 3 is false, and the loop ends. The update line x = x + 1 is what prevents an infinite loop.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-python-basics-q11",
+      "stem": "This code reports a SyntaxError: `if score > 10` on one line, then an indented `print(\"Well done\")` on the next. What is missing?",
+      "choices": [
+        "Speech marks around score",
+        "A colon at the end of the if line",
+        "Brackets around score > 10",
+        "An else block is always required"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every if, elif, else and while header must end with a colon to introduce the indented block. Writing if score > 10: fixes the error; brackets around the condition are optional in Python.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-python-basics-q12",
+      "stem": "`age = input(\"Age? \")` followed by `print(age + 1)` raises a TypeError. Why?",
+      "choices": [
+        "input() must be converted to an integer with int() before arithmetic, because it returns a string",
+        "print() cannot display numbers",
+        "age is not a legal variable name",
+        "The prompt must not contain a question mark"
+      ],
+      "correctIndex": 0,
+      "explanation": "input() returns a string, and Python refuses to add a string and an integer. The fix is age = int(input(\"Age? \")) so the typed text becomes a number before the addition.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-python-basics-q13",
+      "stem": "Why does this loop never stop? `x = 1`, then `while x > 0:` with body `print(x)` and `x = x + 1`",
+      "choices": [
+        "print() resets x to zero each time",
+        "x starts at 1 and only ever increases, so the condition x > 0 stays true forever",
+        "while loops always run forever by design",
+        "The indentation of the body is wrong"
+      ],
+      "correctIndex": 1,
+      "explanation": "The update moves x in the wrong direction: starting at 1 and adding 1 each pass means x is always greater than 0. Either count down (x = x - 1) or change the condition so it can eventually become false.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-python-basics-q14",
+      "stem": "What does this code print? `n = 3`, then `while n > 0:` with body `print(n)` and `n = n - 1`",
+      "choices": [
+        "3, 2, 1",
+        "3, 2, 1, 0",
+        "1, 2, 3",
+        "3, 3, 3 forever"
+      ],
+      "correctIndex": 0,
+      "explanation": "The body prints before subtracting, so it prints 3, then 2, then 1. After printing 1, n becomes 0, the condition 0 > 0 is false, and the loop stops — 0 is never printed.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-python-basics-q15",
+      "stem": "A grade checker checks `if score >= 50: print(\"Pass\")` first, then `elif score >= 70: print(\"Distinction\")`. A student scores 80 but only sees \"Pass\". Why?",
+      "choices": [
+        "elif can only be used with numbers below 70",
+        "Only the first true branch runs: 80 >= 50 is true, so the elif is never checked — the Distinction test must come first",
+        "The score variable must be a float for elif to work",
+        "else must be present for elif to run"
+      ],
+      "correctIndex": 1,
+      "explanation": "Python checks branches in order and stops at the first true one. Since 80 satisfies score >= 50, the Pass branch runs and Distinction is unreachable. Order conditions from most to least specific.",
+      "difficulty": "hard"
+    }
+  ]
+}

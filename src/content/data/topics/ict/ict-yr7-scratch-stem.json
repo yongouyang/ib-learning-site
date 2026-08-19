@@ -1,0 +1,316 @@
+{
+  "id": "ict-yr7-scratch-stem",
+  "subjectId": "ict",
+  "title": "Scratch & Physical Computing (STEM)",
+  "description": "Creating interactive projects in Scratch — sprites and coordinates, events, loops, selection, variables, broadcasting and sensing — and connecting code to the physical world with simple input controllers.",
+  "stage": "ks3",
+  "year": 7,
+  "notes": [
+    {
+      "id": "ict-yr7-scratch-stem-n1",
+      "heading": "Sprites, the Stage and Coordinates",
+      "body": "A Scratch project plays out on the stage — the rectangular area where the action happens — and the actors are sprites: characters or objects, each with its own scripts (code), costumes (appearances) and sounds. The stage is 480 steps wide and 360 steps tall, mapped by a coordinate grid with its origin at the centre: x runs from -240 at the left edge to 240 at the right edge, and y runs from -180 at the bottom to 180 at the top. The centre of the stage is (0, 0), so x = 100, y = 50 is right of centre and above it, while negative x values are to the left and negative y values below. Motion blocks use this grid: `go to x: 0 y: 0` teleports a sprite to the centre, `change x by 10` slides it right, and `move 10 steps` moves it in whatever direction it is currently pointing — a sprite facing right (direction 90°) that moves 10 steps increases its x by 10, while one facing left decreases x. Negative numbers and the coordinate grid here are exactly the same maths you use in a four-quadrant graph."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-n2",
+      "heading": "Events and Sequences",
+      "body": "Scratch scripts do not run until something triggers them, and that trigger is an event block — a block with a rounded top that nothing can attach above. The most common is `when green flag clicked`, which starts the script when the project's green flag is pressed; others include `when this sprite clicked` and `when space key pressed`. Beneath the event block, the rest of the script is a sequence: instructions that run in order from top to bottom, exactly as written. Order matters just as it does in a recipe — a script that says \"say Hello, then move 10 steps\" behaves differently from one that moves first and speaks second, and a script that forgets to `go to` its starting position will begin wherever the sprite was left last time. It is good practice to begin every script with setup blocks (position, size, direction, showing the sprite) so the project behaves the same on every run. Several scripts can share one event, and they all start at the same moment — which is how sprites act simultaneously."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-n3",
+      "heading": "Loops: Repeating Instructions",
+      "body": "A loop repeats a set of blocks so you do not have to stack the same instructions over and over. Scratch offers three useful shapes. `repeat 10` runs its contents exactly ten times — ideal when you know the count in advance, such as drawing a square: repeat 4 times, move 100 steps, turn 90 degrees. `forever` repeats without end — perfect for animation and game loops that should run for the whole project, like continuously checking whether the player has caught the star. `repeat until` repeats until a condition becomes true — for example repeat until the sprite touches the finish line. Loops can be nested (a loop inside a loop): repeat 3 times { repeat 4 times { move 10 steps } } moves 10 steps twelve times in total, because the inner loop runs fully on every pass of the outer one. Inside a forever loop, small waits or short movements keep motion smooth; without any pause, some loops run so fast the sprite flickers or the browser works needlessly hard."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-n4",
+      "heading": "Selection and Variables",
+      "body": "Selection lets a script make decisions. The `if … then` block runs its contents only when its hexagonal condition is true — if the sprite is touching the edge, then bounce. The `if … then … else` block offers two paths: if the answer is correct, say \"Well done!\", else say \"Try again\". Conditions usually come from sensing blocks (touching?, key pressed?) or comparison operators (score > 10). A variable is a named value the project remembers — score, lives, timer. You create one in the Variables category, `set score to 0` gives it a starting value, and `change score by 1` adds to it; the variable can be displayed on the stage as a counter. Two habits prevent most bugs: initialise every variable at the start (a leftover score from the previous run is a classic error), and make sure the change block is inside the loop or if-block where the event happens — a change placed just outside a forever loop runs once and stops, so the score never updates."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-n5",
+      "heading": "Broadcasting Messages",
+      "body": "Sprites often need to coordinate: when the player reaches the door, the door should open and the level-2 backdrop should appear. Sprites cannot see each other's scripts, so Scratch provides messages. One script uses `broadcast level-up`, and any sprite (including the stage) with a matching `when I receive level-up` script springs into action. A broadcast is like a school announcement over the tannoy: it is sent out generally, and only those listening for that exact message respond — several sprites can react to the same broadcast at once, each doing something different. This makes broadcasts ideal for scene changes (broadcast show-menu hides the game sprites and shows the menu), for chaining cut-scenes in order, and for restarting games cleanly (broadcast reset tells every sprite to return to its start position). Name messages meaningfully — game-over rather than message1 — because a project with a dozen vague message names becomes impossible to debug. Broadcasting is also the cleanest way to replace duplicated code: instead of copying a script into five sprites, broadcast one message they all listen for."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-n6",
+      "heading": "Sensing: Getting Input",
+      "body": "Interactive projects respond to the player, and Scratch's sensing blocks are how scripts notice the world. Keyboard input uses `when space key pressed` events or the condition `key space pressed?` inside a loop — the event version fires once per press, while checking the condition inside a forever loop detects a key held down continuously, which is what you want for steering a character. Mouse input comes from blocks like `mouse x` and `mouse y` (a sprite can forever point towards or follow the pointer) and `mouse down?`. Collision sensing detects contact: `touching sprite?`, `touching color?` (handy for walls drawn in a particular colour) and `color … is touching …?`. The `ask … and wait` block opens a text box and stores the reply in the built-in `answer` variable — the standard way to build quizzes and chat-style interactions. All of these follow the input → process → output pattern you will meet everywhere in computing: the project takes input (a key press, an answer), processes it (checks a condition, updates a variable), and produces output (movement, sound, a changed score)."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-n7",
+      "heading": "Physical Computing and Planning a Project",
+      "body": "Physical computing connects your code to the real world. Simple input boards — the Makey Makey style of controller is the best-known example — plug into a computer and pretend to be a keyboard: you clip one wire to a banana (or foil, or a graphite drawing — anything slightly conductive) and hold another wire connected to earth, and touching the banana completes a tiny electrical circuit through your body, which the board reports to the computer as a key press. Your Scratch project cannot tell the difference between the space bar and a banana wired to act as the space bar, so a fruit piano or a foil game controller is just a normal key-press script with a physical twist. Boards such as the micro:bit go further, adding built-in buttons, tilt sensors, LEDs and the ability to drive output devices like motors and lights — inputs and outputs in the physical world. Whether your project is on screen or in the physical world, build it the engineering way: plan first (what should it do? sketch the sprites, inputs and rules), build a small piece, then test it. Use a simple test table — what I did, what I expected, what actually happened — and fix one problem at a time. Testing with real users early catches confusing controls long before the final deadline, and each round of fixing and improving is called iteration."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ict-yr7-scratch-stem-f1",
+      "term": "Sprite",
+      "definition": "A character or object in a Scratch project, with its own scripts, costumes and sounds.",
+      "example": "The cat that appears in every new Scratch project is a sprite."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-f2",
+      "term": "Stage",
+      "definition": "The 480 × 360 step area where sprites act, mapped with x and y coordinates centred on (0, 0).",
+      "example": "x = 240 is the right edge of the stage; y = -180 is the bottom."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-f3",
+      "term": "Coordinates",
+      "definition": "A pair of numbers (x, y) giving a position — x for left/right, y for up/down.",
+      "example": "go to x: 0 y: 0 places a sprite at the centre of the stage."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-f4",
+      "term": "Event",
+      "definition": "A trigger that starts a script, shown as a rounded-topped hat block.",
+      "example": "when green flag clicked starts the script when the project is run."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-f5",
+      "term": "Sequence",
+      "definition": "Instructions that run one after another in the exact order they are written.",
+      "example": "say Hello, then move 10 steps — swapping the order changes what happens."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-f6",
+      "term": "Loop",
+      "definition": "A block that repeats the instructions inside it.",
+      "example": "repeat 4 { move 100 steps, turn 90 degrees } draws a square."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-f7",
+      "term": "forever block",
+      "definition": "A loop that repeats its contents without end until the project is stopped.",
+      "example": "forever { if touching star then change score by 1 } keeps checking during a whole game."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-f8",
+      "term": "Variable",
+      "definition": "A named value the project remembers and can display on the stage.",
+      "example": "set score to 0 at the start, then change score by 1 for each point."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-f9",
+      "term": "Broadcast",
+      "definition": "A message one script sends so that every sprite with a matching when I receive script reacts.",
+      "example": "broadcast game-over makes all sprites switch to their ending scripts."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-f10",
+      "term": "Sensing block",
+      "definition": "A block that detects input or contact, such as key presses, the mouse position, or touching another sprite.",
+      "example": "touching color red? can detect whether a racer has hit a wall."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-f11",
+      "term": "Physical computing",
+      "definition": "Connecting code to real-world inputs and outputs, such as a controller that turns touching a banana into a key press.",
+      "example": "A fruit piano where each banana plays a different note when touched."
+    },
+    {
+      "id": "ict-yr7-scratch-stem-f12",
+      "term": "Test table",
+      "definition": "A simple record of each test — what you did, what you expected, and what actually happened — used to find and fix bugs.",
+      "example": "Pressed left arrow; expected the sprite to move left; it moved right — the direction was set to 90 not -90."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-yr7-scratch-stem-q1",
+      "stem": "Where on the Scratch stage is the point (0, 0)?",
+      "choices": [
+        "The top-left corner",
+        "The exact centre",
+        "The bottom-right corner",
+        "Wherever the sprite was drawn"
+      ],
+      "correctIndex": 1,
+      "explanation": "The stage is centred on the origin: x runs from -240 to 240 and y from -180 to 180, so (0, 0) sits exactly in the middle.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q2",
+      "stem": "In Scratch, what is a sprite?",
+      "choices": [
+        "The background image of the stage",
+        "A character or object with its own scripts, costumes and sounds",
+        "A type of loop block",
+        "The tool for drawing shapes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sprites are the actors of a project — each can carry its own code, looks and sounds. The background belongs to the stage, not to a sprite.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q3",
+      "stem": "Which block is most commonly used to start a script when the project runs?",
+      "choices": [
+        "forever",
+        "broadcast start",
+        "when green flag clicked",
+        "go to x: 0 y: 0"
+      ],
+      "correctIndex": 2,
+      "explanation": "when green flag clicked is the standard event hat block that triggers a script when the green flag starts the project. forever is a loop and go to is a motion block — neither can start a script.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q4",
+      "stem": "What does the script repeat 10 { move 5 steps } do?",
+      "choices": [
+        "Moves the sprite 5 steps once",
+        "Moves the sprite 50 steps in total, in ten bursts of 5",
+        "Moves the sprite 10 steps in total",
+        "Repeats forever until the sprite is clicked"
+      ],
+      "correctIndex": 1,
+      "explanation": "The repeat block runs its contents exactly 10 times, and 10 × 5 steps = 50 steps altogether. A repeat with a number always ends; only forever keeps going.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q5",
+      "stem": "What is a variable used for in a Scratch game?",
+      "choices": [
+        "To change a sprite's costume",
+        "To store a named value such as score or lives that scripts can read and update",
+        "To draw the stage backdrop",
+        "To make sprites invisible"
+      ],
+      "correctIndex": 1,
+      "explanation": "A variable is a named box for a value — set it at the start and change it as the game plays, for example adding a point each time the player scores.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q6",
+      "stem": "A sprite is pointing right (direction 90°) at position x = 30, y = 0. After move 10 steps, what is its position?",
+      "choices": [
+        "x = 30, y = 10",
+        "x = 40, y = 0",
+        "x = 20, y = 0",
+        "x = 30, y = -10"
+      ],
+      "correctIndex": 1,
+      "explanation": "move steps travels in the direction the sprite faces. Facing right means x increases by 10 while y stays the same, so the sprite arrives at x = 40, y = 0.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q7",
+      "stem": "What does a broadcast message let you do?",
+      "choices": [
+        "Send your project to a friend over the internet",
+        "Coordinate sprites: one script broadcasts a message and every matching when I receive script responds",
+        "Print the project on paper",
+        "Record sound for a sprite"
+      ],
+      "correctIndex": 1,
+      "explanation": "Broadcasting is Scratch's announcement system: the broadcast block sends a named message, and any sprite listening for that exact message runs its script — ideal for scene changes and resets.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q8",
+      "stem": "A script reads: if touching star then change score by 1, else play sound Oops. What happens when the sprite is NOT touching the star?",
+      "choices": [
+        "The score increases by 1",
+        "The Oops sound plays",
+        "The sprite disappears",
+        "Nothing at all can happen"
+      ],
+      "correctIndex": 1,
+      "explanation": "An if … then … else block always runs exactly one branch: the then part when the condition is true, the else part when it is false. Not touching the star makes the condition false, so the else branch plays the sound.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q9",
+      "stem": "What is the difference between repeat 10 and repeat until touching finish line?",
+      "choices": [
+        "repeat 10 runs a fixed number of times; repeat until keeps looping until its condition becomes true",
+        "repeat 10 is faster than repeat until",
+        "repeat until runs exactly ten times",
+        "There is no difference — they are interchangeable"
+      ],
+      "correctIndex": 0,
+      "explanation": "A counted repeat ends after a set number of passes, which you know in advance. repeat until ends when something happens — so the number of repetitions depends on events, such as how long the racer takes to reach the line.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q10",
+      "stem": "Which sensing condition is the best choice for detecting that a racing-car sprite has hit a wall drawn in red?",
+      "choices": [
+        "key space pressed?",
+        "touching color red?",
+        "mouse down?",
+        "ask and wait"
+      ],
+      "correctIndex": 1,
+      "explanation": "touching color …? checks whether the sprite overlaps pixels of a chosen colour, which suits drawn walls and tracks. The other options sense key presses, mouse clicks and typed answers — none detect collisions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q11",
+      "stem": "A sprite at x = 200 points right and runs move 100 steps. What happens, and why does it matter for a game?",
+      "choices": [
+        "It stops at x = 240 because sprites can never leave the stage",
+        "It moves to x = 300 — beyond the right edge (x = 240) — so it is mostly or fully out of view and the game may need to handle that",
+        "It wraps around to the left edge automatically",
+        "It moves up instead because the stage is only 240 wide"
+      ],
+      "correctIndex": 1,
+      "explanation": "Scratch lets coordinates go past the stage edges, so x becomes 300 and the sprite slides out of sight. Games must check for edges — with if on edge bounce or coordinate tests — rather than assuming sprites stay visible.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q12",
+      "stem": "How many steps in total does this script move? repeat 3 { repeat 4 { move 10 steps } }",
+      "choices": [
+        "12",
+        "70",
+        "120",
+        "34"
+      ],
+      "correctIndex": 2,
+      "explanation": "The inner loop moves 4 × 10 = 40 steps on each pass, and the outer loop runs it 3 times, giving 3 × 40 = 120 steps. Multiplying nested repeats (3 × 4 × 10) is the quick way to trace them.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q13",
+      "stem": "A catch game should add 1 point every time the cat touches a fish, but the score never rises above 1. The script is: forever { if touching fish then { say Gotcha! } } change score by 1. What is the bug?",
+      "choices": [
+        "The change score by 1 block sits outside the if block (and after the forever loop), so it does not run when the cat touches the fish",
+        "Score variables cannot go above 1 in Scratch",
+        "The fish sprite needs a broadcast before the score can change",
+        "say Gotcha! deletes the score variable"
+      ],
+      "correctIndex": 0,
+      "explanation": "Blocks attached after a forever loop never run, and even inside the loop the change must be within the if so it happens only on contact. Moving change score by 1 inside the if touching fish branch fixes it.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q14",
+      "stem": "A Makey Makey-style board lets a Scratch piano play a note when you touch a banana. How does touching fruit press a key?",
+      "choices": [
+        "The banana sends a wireless signal to the computer",
+        "Your body and the conductive banana complete a tiny electrical circuit between two clips, and the board reports that closed circuit to the computer as a key press",
+        "The board photographs your hand and guesses which note you want",
+        "The fruit's sweetness powers the circuit"
+      ],
+      "correctIndex": 1,
+      "explanation": "The board watches for a closed circuit between an input clip and the earth clip. Slightly conductive objects — fruit, foil, graphite — plus your body complete that loop when touched, and the board translates it into a normal key press Scratch can sense.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-scratch-stem-q15",
+      "stem": "Why is a test table (what I did / what I expected / what happened) better than just playing your project and hoping it works?",
+      "choices": [
+        "It makes the project run faster",
+        "It forces you to test on purpose, compare expected with actual behaviour, and record bugs so you can fix them one at a time",
+        "Teachers require one for every project",
+        "It automatically fixes the bugs it finds"
+      ],
+      "correctIndex": 1,
+      "explanation": "Systematic testing means deciding in advance what should happen, so surprises are visible and logged rather than missed. Recording each failure lets you fix one bug at a time and re-test — the iteration cycle at the heart of every engineering project.",
+      "difficulty": "hard"
+    }
+  ]
+}

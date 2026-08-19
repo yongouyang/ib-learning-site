@@ -1,0 +1,316 @@
+{
+  "id": "ict-yr8-3d-design",
+  "subjectId": "ict",
+  "title": "3D Design & Animation",
+  "description": "Working in three dimensions — coordinates and views, modelling with extrude and transform tools, combining and subtracting shapes, materials and lighting, cameras, rendering, keyframe animation, and real-world uses.",
+  "stage": "ks3",
+  "year": 8,
+  "notes": [
+    {
+      "id": "ict-yr8-3d-design-n1",
+      "heading": "3D Coordinates and Views",
+      "body": "Two-dimensional design uses two axes: x (left–right) and y (up–down). Three-dimensional design adds a third axis, z, representing depth (towards or away from you). Every point in a 3D scene is described by three coordinates — its position along each axis. Because a flat screen cannot show depth directly, 3D software offers several standard views: front, side, and top (the orthographic views, which show the object flat-on with no perspective distortion, like engineering drawings), plus a perspective view that mimics how the eye sees, with distant objects appearing smaller. Moving between views constantly is a core habit: an object that looks perfectly placed in the front view may be floating far behind its target in the side view, because the front view hides the z-axis. Good modellers check placement in at least two views before moving on. Most software also shows a grid on the ground plane and snaps objects to it, which helps keep models aligned and measured — essential if the model will ever be 3D printed or combined with other models."
+    },
+    {
+      "id": "ict-yr8-3d-design-n2",
+      "heading": "Basic Modelling: Extrude, Move, Rotate, Scale, Group",
+      "body": "Almost every 3D model begins as a primitive — a basic shape such as a cube, sphere, cylinder or cone — that you then transform. The four fundamental transforms are: move (change position along the axes), rotate (turn around an axis, measured in degrees), and scale (make bigger or smaller — uniformly, or stretched along one axis). Extrude is the other essential tool: it takes a flat 2D outline (a profile) and pulls it out into depth, turning a circle into a cylinder or a drawn letter into solid text. Many complex objects are just profiles extruded and then refined — think of a vase as a curvy outline spun or pulled into 3D. Grouping locks several objects together so they move, rotate and scale as one unit; you group the wheels, body and windows of a car so repositioning the car does not leave a wheel behind. Related ideas: duplicating reuses work (model one chair leg, copy it three times), and alignment tools place objects precisely relative to each other. Precision matters — dragging by eye is fine for sketching, but typing exact values gives models that actually fit together."
+    },
+    {
+      "id": "ict-yr8-3d-design-n3",
+      "heading": "Combining and Subtracting Shapes",
+      "body": "Boolean operations build complex models by combining simple ones. There are three main operations: union (join two shapes into one solid), subtract (use one shape to cut a hole or chunk out of another), and intersect (keep only the volume where two shapes overlap). Subtraction is how everyday features are made: a mug is a cylinder with a smaller cylinder subtracted to hollow it out, plus a torus for the handle; a window in a wall is a box subtracted from a bigger box; holes, grooves, archways and slots are all cuts. The order matters — you need a solid first, then cutting shapes positioned through it. Beginners often make the mistake of combining shapes that merely touch or slightly overlap instead of properly intersecting, which produces thin walls or gaps that confuse 3D printers. Keep models watertight (solid, with no holes in the surface) if they will be printed. Booleans also encourage good planning: instead of sculpting a complicated object from one lump, break it down in your head into added blocks and cut-away parts — the same decomposition skill used in programming."
+    },
+    {
+      "id": "ict-yr8-3d-design-n4",
+      "heading": "Materials, Colours and Lighting",
+      "body": "A grey model holds the shape; materials and light make it believable. A material defines how a surface responds to light: its colour, whether it is matte or shiny, rough or smooth, transparent or opaque, metallic or plastic. The same sphere reads as a rubber ball, a steel ball bearing, or a soap bubble purely through its material. Textures are image maps wrapped onto a surface — a photo of bricks wrapped around a box makes a wall. Lighting is just as important as the model itself. Common setups include a key light (the main light, casting the strongest shadows), a fill light (softer, lifting the dark side), and a back or rim light (behind the subject, outlining its edge). Shadows anchor objects to the ground — without them, models appear to float. Ambient settings control the overall brightness of the scene, and the background colour or image sets the mood. The classic beginner scene — one harsh light and flat grey materials — looks lifeless; adding a second softer light and a subtle material immediately improves it. Experiment, because lighting changes nothing about the geometry yet transforms how it feels."
+    },
+    {
+      "id": "ict-yr8-3d-design-n5",
+      "heading": "Cameras and Rendering",
+      "body": "A 3D scene is only data until it is rendered: the software calculates, pixel by pixel, how light interacts with every surface, and produces a finished 2D image or video frame. The scene's virtual camera decides what appears in that image — its position, the direction it points, and its focal length (a wide angle shows lots of scene with dramatic perspective; a long lens flattens and zooms). Composition rules from photography apply: use the rule of thirds, give moving subjects space to move into, and avoid cutting objects awkwardly at the frame edge. Rendering is a trade-off between quality and time: high resolution, soft shadows, reflections and transparency all multiply the calculation time, and a few seconds of animation can mean hours of rendering. That is why designers work with fast, rough preview renders while building, and only switch to full quality for the final output. Before an expensive final render, check everything in a cheap preview — camera framing, missing textures, objects accidentally hidden — because discovering a mistake after two hours of rendering is a painful way to learn."
+    },
+    {
+      "id": "ict-yr8-3d-design-n6",
+      "heading": "Simple 3D Animation: Keyframes and Camera Moves",
+      "body": "3D animation is built on keyframes. You do not move the object in every frame; instead you set key poses at important moments — for example, a ball at the top of its bounce at frame 1 and squashed on the ground at frame 12 — and the software automatically calculates the in-between positions, a process called interpolation or tweening. Almost any property can be keyframed: position, rotation, scale, material colour, and light intensity. Timing controls feel: few frames between keyframes gives fast, snappy motion; many frames gives slow, heavy motion. Camera moves are animated the same way — keyframe the camera's position at the start and end, and the software glides it smoothly, creating pans (side-to-side sweeps), zooms, and orbiting shots around a model. Beginners should keep animation simple: one clear movement, eased gently at the start and end rather than starting and stopping instantly, which looks robotic. Preview the animation as a rough playblast or viewport playback before rendering; motion problems are obvious when watched but invisible in still frames."
+    },
+    {
+      "id": "ict-yr8-3d-design-n7",
+      "heading": "Real-World Uses of 3D Design",
+      "body": "3D design skills feed directly into major industries. Product design: designers model everything from phones to furniture in 3D before anything is manufactured, testing how parts fit and look, and the same files drive 3D printers to make prototypes overnight instead of waiting weeks for factory samples. Games and film: entire worlds, characters and creatures are modelled, textured, lit and animated in 3D software — the animated films you watch are scenes like yours, just with larger teams and longer render times. Architecture and engineering: buildings are designed in 3D so clients can walk through them virtually before construction, and engineers simulate stress on parts to find weak points before anything is built. Medicine uses 3D models from scans to plan surgery and print custom implants. Advertising uses 3D to show products from impossible angles or before the product exists. The workflow is always similar — plan, model, refine, light, render — so the small habits you practise now (checking multiple views, grouping logically, previewing before rendering) are the same ones professionals rely on every day."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ict-yr8-3d-design-f1",
+      "term": "z-axis",
+      "definition": "The third coordinate axis in 3D space, representing depth — towards or away from the viewer — alongside x (left–right) and y (up–down).",
+      "example": "An object at the same x and y position can still be far behind another because its z coordinate differs."
+    },
+    {
+      "id": "ict-yr8-3d-design-f2",
+      "term": "Orthographic view",
+      "definition": "A flat-on view (front, side or top) that shows an object with no perspective distortion, like an engineering drawing.",
+      "example": "The top view reveals that a table leg is offset from the corner even though the front view looked correct."
+    },
+    {
+      "id": "ict-yr8-3d-design-f3",
+      "term": "Extrude",
+      "definition": "A modelling tool that pulls a flat 2D outline out into depth, turning a profile into a solid 3D shape.",
+      "example": "Drawing a star outline and extruding it produces a solid star-shaped block."
+    },
+    {
+      "id": "ict-yr8-3d-design-f4",
+      "term": "Scale (transform)",
+      "definition": "Resizing an object along one or more axes; uniform scaling keeps proportions, non-uniform scaling stretches or squashes.",
+      "example": "Scaling a sphere along only the y-axis turns it into an egg shape."
+    },
+    {
+      "id": "ict-yr8-3d-design-f5",
+      "term": "Group",
+      "definition": "Locking several objects together so they move, rotate and scale as a single unit.",
+      "example": "Grouping a car's body, wheels and windows so repositioning the car moves everything together."
+    },
+    {
+      "id": "ict-yr8-3d-design-f6",
+      "term": "Boolean operations",
+      "definition": "Modelling operations that combine solids: union (join), subtract (cut one shape out of another), and intersect (keep only the overlap).",
+      "example": "Subtracting a small cylinder from a larger one hollows it out into a mug shape."
+    },
+    {
+      "id": "ict-yr8-3d-design-f7",
+      "term": "Watertight",
+      "definition": "Describes a solid 3D model with no holes or gaps in its surface — required for successful 3D printing.",
+      "example": "Two cubes that only touch along an edge are not watertight; a printer cannot produce the thin join reliably."
+    },
+    {
+      "id": "ict-yr8-3d-design-f8",
+      "term": "Material",
+      "definition": "The set of properties defining how a surface responds to light — colour, shininess, roughness, transparency, metallic look.",
+      "example": "The same sphere becomes a rubber ball or a steel bearing depending on its material."
+    },
+    {
+      "id": "ict-yr8-3d-design-f9",
+      "term": "Texture",
+      "definition": "An image wrapped onto a 3D surface to give it detailed surface appearance without extra modelling.",
+      "example": "Wrapping a photograph of bricks around a box to create a convincing wall."
+    },
+    {
+      "id": "ict-yr8-3d-design-f10",
+      "term": "Rendering",
+      "definition": "The process where software calculates light, materials and camera view pixel by pixel to produce a finished 2D image or frame.",
+      "example": "A few seconds of high-quality animation can take hours to render, so previews use fast low-quality settings."
+    },
+    {
+      "id": "ict-yr8-3d-design-f11",
+      "term": "Keyframe",
+      "definition": "A recorded pose or value at a chosen frame; the software interpolates the in-between frames automatically.",
+      "example": "Keyframe a ball high at frame 1 and on the ground at frame 12, and the bounce is calculated for you."
+    },
+    {
+      "id": "ict-yr8-3d-design-f12",
+      "term": "Key light",
+      "definition": "The main, strongest light in a scene, casting the dominant shadows; usually supported by a softer fill light and a back light.",
+      "example": "A lamp placed to one side of a model acts as the key light, with a dimmer lamp softening the dark side."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-yr8-3d-design-q1",
+      "stem": "What does the z-axis represent in a 3D scene?",
+      "choices": [
+        "Height (up and down)",
+        "Depth — towards and away from the viewer",
+        "Left and right movement",
+        "The brightness of an object"
+      ],
+      "correctIndex": 1,
+      "explanation": "The x-axis is left–right, the y-axis is up–down, and the z-axis adds depth. Together the three coordinates pin down any point in 3D space.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-3d-design-q2",
+      "stem": "What does the extrude tool do?",
+      "choices": [
+        "Paints a texture onto a surface",
+        "Pulls a flat 2D outline out into depth to create a solid 3D shape",
+        "Deletes everything outside the camera view",
+        "Copies an object four times in a row"
+      ],
+      "correctIndex": 1,
+      "explanation": "Extruding takes a 2D profile — a circle, a star, a drawn letter — and extends it along the depth axis, producing a solid. It is one of the fastest ways to build models from simple outlines.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-3d-design-q3",
+      "stem": "Why would you group the parts of a modelled car?",
+      "choices": [
+        "So they all change to the same colour automatically",
+        "So the body, wheels and windows move, rotate and scale together as one unit",
+        "So the file takes up less storage space",
+        "So the model renders faster"
+      ],
+      "correctIndex": 1,
+      "explanation": "Grouping locks objects together for transforms. Without grouping, moving the car body would leave the wheels floating where they were.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-3d-design-q4",
+      "stem": "Which Boolean operation would hollow out a solid cylinder to make a mug shape?",
+      "choices": [
+        "Union",
+        "Subtract",
+        "Intersect",
+        "Extrude"
+      ],
+      "correctIndex": 1,
+      "explanation": "Subtract uses one shape to cut volume out of another — a smaller cylinder cut from a larger one leaves a hollow mug. Union joins shapes, intersect keeps only the overlap, and extrude is not a Boolean operation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-3d-design-q5",
+      "stem": "A model looks correctly positioned in the front view, but in the render it floats far behind the table it should sit on. What went wrong?",
+      "choices": [
+        "The front view hides the z-axis (depth), so the placement error was invisible there — the side or top view would have shown it",
+        "The model is too shiny",
+        "The camera is broken and must be replaced",
+        "Front views always display objects in the wrong place"
+      ],
+      "correctIndex": 0,
+      "explanation": "Each orthographic view shows only two of the three axes. Checking placement in at least two views — front and side, or front and top — catches depth errors that a single view conceals.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-3d-design-q6",
+      "stem": "What is the difference between a material and a texture?",
+      "choices": [
+        "There is no difference; they are two names for colour",
+        "A material defines how a surface responds to light (colour, shininess, transparency); a texture is an image wrapped onto the surface for detail",
+        "A texture only works on spheres; a material works on everything else",
+        "A material is the wireframe; a texture is the rendered model"
+      ],
+      "correctIndex": 1,
+      "explanation": "Materials set the surface's light behaviour — a matte red or a polished chrome. Textures layer image detail (bricks, wood grain) on top. A realistic wall usually needs both: a brick texture plus a rough, non-shiny material.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-3d-design-q7",
+      "stem": "In a three-point lighting setup, what is the job of the fill light?",
+      "choices": [
+        "To cast the strongest shadows in the scene",
+        "To soften and lift the dark side of the subject created by the key light",
+        "To outline the subject from behind",
+        "To light only the background"
+      ],
+      "correctIndex": 1,
+      "explanation": "The key light is the main light; the fill is a softer light on the opposite side that lifts harsh shadows so detail is not lost in blackness. The back or rim light outlines the subject's edge from behind.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-3d-design-q8",
+      "stem": "Why do designers render quick, low-quality previews while working instead of always rendering at full quality?",
+      "choices": [
+        "Low-quality renders use different materials that are easier to edit",
+        "Full-quality rendering takes far longer, so cheap previews let them check framing and mistakes quickly and reserve slow renders for final output",
+        "Preview renders are the only kind the software can save",
+        "High quality is only needed for black-and-white images"
+      ],
+      "correctIndex": 1,
+      "explanation": "Rendering time grows enormously with resolution, shadows, reflections and transparency. Fast previews give immediate feedback during building; discovering a misplaced object after an hour-long final render wastes real time.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-3d-design-q9",
+      "stem": "In keyframe animation, what does the software do between two keyframes?",
+      "choices": [
+        "Nothing — the object teleports from one keyframe to the next",
+        "It interpolates (tweens), automatically calculating the in-between positions or values",
+        "It asks the animator to draw every middle frame by hand",
+        "It deletes the object until the next keyframe"
+      ],
+      "correctIndex": 1,
+      "explanation": "Interpolation is the whole point of keyframes: you set the important poses — a door closed at frame 1, open at frame 30 — and the software computes the smooth transition between them.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-3d-design-q10",
+      "stem": "A door animation starts moving instantly at full speed and stops dead at the last frame, and it looks robotic. What is the best improvement?",
+      "choices": [
+        "Add more doors",
+        "Ease the motion — accelerate gently at the start and slow down before the end, and simplify to one clear movement",
+        "Render at a higher resolution",
+        "Make the door a brighter colour"
+      ],
+      "correctIndex": 1,
+      "explanation": "Real objects accelerate and decelerate. Gentle easing at the start and end of a movement, plus keeping the animation to one clear action, makes motion feel natural; instant start-stop looks mechanical.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr8-3d-design-q11",
+      "stem": "An architect's client wants to understand a proposed new building before construction begins. Which use of 3D design fits best?",
+      "choices": [
+        "Print a 2D floor plan and describe the rest verbally",
+        "Build a 3D model with materials and lighting so the client can take a virtual walkthrough and see the spaces from inside and out",
+        "Wait until construction is finished, then take photographs",
+        "Show the client the raw coordinate data of every wall"
+      ],
+      "correctIndex": 1,
+      "explanation": "Virtual walkthroughs of rendered 3D models let clients experience a building before it exists, catching design problems early. Flat plans and raw data do not communicate space and light to a non-specialist.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-3d-design-q12",
+      "stem": "You need a hole straight through a wall model for a window. The wall is a box. Which modelling plan works?",
+      "choices": [
+        "Paint a black rectangle on the wall to look like a hole",
+        "Position a second box through the wall and use Boolean subtract with it as the cutting shape",
+        "Scale the wall to zero thickness",
+        "Move the camera inside the wall"
+      ],
+      "correctIndex": 1,
+      "explanation": "A hole is removed volume: place a cutting box where the window goes, passing fully through the wall, then subtract. Painting a black patch only changes appearance — the wall is still solid — and scaling destroys the wall itself.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr8-3d-design-q13",
+      "stem": "A 3D print of your model fails — the slicer reports the model is 'not watertight'. What does this mean, and what is the fix?",
+      "choices": [
+        "The model is made of water; dry it out",
+        "The model's surface has holes or edges where shapes only touch instead of properly joining; combine them with a proper union or fix the gaps",
+        "The printer is out of ink",
+        "The model is too colourful for the printer"
+      ],
+      "correctIndex": 1,
+      "explanation": "Watertight means a completely closed solid with no gaps. Shapes that merely touch or overlap slightly leave thin or open seams a printer cannot interpret; a proper Boolean union fuses them into one clean solid.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr8-3d-design-q14",
+      "stem": "Which sequence best describes the standard 3D workflow used from school projects to professional studios?",
+      "choices": [
+        "Render, then model, then plan",
+        "Plan, model, refine with materials and lighting, preview, then render final output",
+        "Animate first, then design the models to match",
+        "Buy assets, then delete the plan"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every 3D pipeline runs the same way: plan what you are building, model the geometry, add materials and light, check with fast previews, and only then commit to the slow final render.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-3d-design-q15",
+      "stem": "A game studio wants a row of twenty identical lampposts along a street. What is the most efficient modelling approach?",
+      "choices": [
+        "Model all twenty lampposts from scratch, one at a time",
+        "Model one lamppost carefully, then duplicate it nineteen times and position the copies",
+        "Photograph a lamppost and paste the photo twenty times",
+        "Use one lamppost and stretch it to cover the whole street"
+      ],
+      "correctIndex": 1,
+      "explanation": "Duplication reuses good work: one well-made lamppost, copied and placed, is faster and guarantees consistency. Stretching one object would distort it, and photos are not 3D models that can sit correctly in the scene.",
+      "difficulty": "medium"
+    }
+  ]
+}

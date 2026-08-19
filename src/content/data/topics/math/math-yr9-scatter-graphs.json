@@ -1,0 +1,316 @@
+{
+  "id": "math-yr9-scatter-graphs",
+  "subjectId": "math",
+  "title": "Scatter Graphs & Bivariate Data",
+  "description": "Plotting and interpreting scatter graphs — correlation types and strength, lines of best fit, interpolation vs extrapolation, and why correlation does not prove causation.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "math-yr9-scatter-graphs-n1",
+      "heading": "Bivariate Data and Scatter Graphs",
+      "body": "📌 Definition\nBivariate data means data where TWO variables are measured for each item or person — for example, each student's height AND mass, or each day's temperature AND ice-cream sales. Data with only one variable (like the heights of a class) is called univariate.\n\n🔑 How it works\nA scatter graph plots bivariate data as points: one variable goes on the horizontal axis ($x$) and the other on the vertical axis ($y$). Each point represents ONE item, and the overall pattern of points reveals whether the two variables are connected.\n\n• Scatter graphs are used to spot relationships — they do not join the dots.\n• One variable is plotted per axis; the points are not connected in order.\n• The pattern of the cloud of points is what matters, not individual points.\n\n💡 Worked Example\nA researcher records the hours of revision and the test score for each of $20$ students. Which graph suits this data?\n\nEach student supplies a pair of values (revision hours, score) — this is bivariate data, so a scatter graph is the right choice. Bar charts and pie charts only display one variable at a time.\n\n📎 Key Points to Remember\n• Bivariate = two variables per item; univariate = one.\n• Each point on a scatter graph represents one item's pair of values.\n• Use a scatter graph when you want to investigate a relationship between two numerical variables.\n\n⚠️ Common Mistake\nJoining the points in order like a line graph. Scatter graph points are individual items, not a sequence — the connection between them is the pattern, not a line.\n\n✅ Check\nAsk: \"Does each item give me two numbers?\" If yes, a scatter graph can display it."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-n2",
+      "heading": "Plotting and Reading Scatter Graphs",
+      "body": "📌 Definition\nPlotting a scatter graph means marking one cross for each data pair, treating the first variable as the $x$-coordinate and the second as the $y$-coordinate.\n\n🔑 How it works\n1. Choose which variable goes on each axis, and label both axes with units.\n2. Pick a scale for each axis that spreads the data out — the axes do not need to use the same scale, and neither has to start at $0$.\n3. Plot each pair $(x, y)$ as a small cross. Do not join the crosses.\n\nReading a value: to find the $y$-value paired with a given $x$-value, find $x$ on the horizontal axis, go straight up to the cross, then across to the vertical axis.\n\n💡 Worked Example\nA point on a scatter graph of car age against value sits at $(6, 4200)$. What does it tell you?\n\nThe point represents ONE car that is $6$ years old and worth £4200. It says nothing directly about other cars — only the whole cloud of points shows the trend.\n\n📎 Key Points to Remember\n• Always label axes with the variable name and its units.\n• Scales are chosen for clarity; different scales on the two axes are normal.\n• Each cross = one item from the data set.\n\n⚠️ Common Mistake\nSwapping the coordinates: plotting (age, value) as (value, age) flips the whole pattern. Decide which variable is $x$ before you start and stay consistent.\n\n✅ Check\nCount your crosses — there should be exactly one per data pair, no more, no fewer."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-n3",
+      "heading": "Types of Correlation",
+      "body": "📌 Definition\nCorrelation describes the relationship shown by the pattern of points on a scatter graph.\n\n• Positive correlation: as one variable increases, the other tends to increase. The points drift upward from left to right.\n• Negative correlation: as one variable increases, the other tends to decrease. The points drift downward from left to right.\n• No correlation: no pattern — the points are scattered randomly, so one variable tells you nothing about the other.\n\n🔑 How it works\nLook at the overall drift of the cloud of points, ignoring odd exceptions:\n• Upward slope → positive.\n• Downward slope → negative.\n• No slope at all → no correlation.\n\n💡 Worked Example 1\nA graph of hours of sunshine against ice-cream sales shows points drifting upward. Positive correlation — sunnier days tend to bring more sales.\n\n💡 Worked Example 2\nA graph of a car's age against its value shows points drifting downward. Negative correlation — older cars tend to be worth less.\n\n💡 Worked Example 3\nA graph of shoe size against test score shows a random scatter. No correlation — foot size tells you nothing about test performance.\n\n📎 Key Points to Remember\n• Correlation describes the TENDENCY in the data, not a rule every point obeys.\n• The words to use are positive, negative, or no correlation.\n• Individual exceptions do not destroy a correlation.\n\n⚠️ Common Mistake\nClaiming \"no correlation\" just because the points are not perfectly in line. Real data is messy — a clear upward drift with some scatter is still positive correlation.\n\n✅ Check\nCover the graph and ask: if I knew the $x$-value, could I make a reasonable guess at $y$? If yes, there is correlation."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-n4",
+      "heading": "Strength of Correlation and Outliers",
+      "body": "📌 Definition\nCorrelation can be strong or weak, depending on how closely the points hug an imaginary straight line.\n\n• Strong correlation: points lie close to a straight line — knowing $x$ lets you predict $y$ accurately.\n• Weak correlation: points show the same general direction but are widely scattered — predictions are rough.\n\nAn outlier is a point that does not fit the pattern of the rest of the data — it sits far from the main cloud.\n\n🔑 How it works\n• Describe correlation with two words: direction (positive/negative) and strength (strong/weak) — e.g. \"strong positive correlation\".\n• The closer the points are to a straight line, the stronger the correlation.\n• Outliers are often genuine unusual cases, but they can also come from measurement or recording errors — they are worth investigating.\n\n💡 Worked Example\nTwo classes plot height against arm span. Class A's points lie almost exactly on a rising line; Class B's points rise but are very spread out.\n\nBoth show positive correlation, but Class A's is strong and Class B's is weak. Height predicts arm span far more reliably in Class A.\n\n📎 Key Points to Remember\n• Strength is about scatter around the line, not steepness of the line.\n• An outlier should be noted, and usually left out when judging the pattern.\n• Strong correlation makes estimates more reliable; weak correlation makes them rough.\n\n⚠️ Common Mistake\nThinking a steep line means strong correlation. Strength depends on how tightly packed the points are, not the angle of the trend.\n\n✅ Check\nImagine drawing a thin ellipse around the cloud of points: a narrow ellipse means strong correlation, a fat one means weak."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-n5",
+      "heading": "Line of Best Fit",
+      "body": "📌 Definition\nA line of best fit is a straight line drawn through the points on a scatter graph that follows the trend of the data. It summarises the relationship between the two variables.\n\n🔑 How it works\nDraw the line by eye so that:\n1. It follows the direction of the correlation.\n2. There are roughly equal numbers of points above and below the line.\n3. It passes as close to as many points as possible — ideally through the middle of the cloud (through or near the point $(\\bar{x}, \\bar{y})$, the mean of each variable).\n4. Outliers are ignored when placing the line.\n\nThe line does NOT have to pass through any actual data points, and it should not be forced through the origin unless the data demands it.\n\n💡 Worked Example\nA scatter graph of hours of practice against points scored shows positive correlation. Describe how to draw the line of best fit.\n\nDraw a straight line sloping upward, balanced so about half the crosses sit above it and half below, running through the centre of the cloud — ignoring the one player with low practice but a freak high score (the outlier).\n\n📎 Key Points to Remember\n• By eye, straight, balanced, through the middle of the cloud.\n• The line summarises the trend; individual points may sit off it.\n• Ignore outliers when deciding where the line goes.\n\n⚠️ Common Mistake\nJoining the first point to the last point, or forcing the line through every cross. A line of best fit represents the overall trend, not individual data points.\n\n✅ Check\nCount points either side of your line — a big imbalance means the line needs shifting."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-n6",
+      "heading": "Using the Line: Interpolation and Extrapolation",
+      "body": "📌 Definition\nOnce a line of best fit is drawn, it can be used to ESTIMATE values that were not measured.\n\n• Interpolation: estimating a value INSIDE the range of the data. This is generally reliable, especially when correlation is strong.\n• Extrapolation: estimating a value OUTSIDE the range of the data, by extending the line. This is unreliable, because the trend may not continue.\n\n🔑 How it works\nTo estimate $y$ for a given $x$: find $x$ on the horizontal axis, move vertically to the line of best fit, then horizontally to read off $y$.\n\n💡 Worked Example 1\nA graph shows test scores for students who revised between $0$ and $10$ hours. Estimate the score for $6$ hours of revision.\n\n$6$ hours lies inside the data range — this is interpolation. Read across from the line of best fit; the estimate is trustworthy if the correlation is strong.\n\n💡 Worked Example 2\nThe same graph is used to predict the score for $30$ hours of revision.\n\n$30$ hours lies far outside the range — this is extrapolation. The trend cannot be trusted to continue (scores cannot rise forever; they are capped at $100\\%$), so the prediction is unreliable.\n\n📎 Key Points to Remember\n• Interpolation = within the data range = usually reliable.\n• Extrapolation = beyond the data range = unreliable; the trend may bend or stop.\n• Reliability also depends on the strength of the correlation and the amount of data.\n\n⚠️ Common Mistake\nAssuming the line of best fit can be extended forever. Straight-line trends in real data almost always level off or change beyond the measured range.\n\n✅ Check\nBefore quoting an estimate, ask: \"Was there data near this value?\" If not, say the estimate is an extrapolation and may be unreliable."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-n7",
+      "heading": "Correlation Is Not Causation",
+      "body": "📌 Definition\nJust because two variables are correlated does NOT mean one causes the other. Correlation shows that two variables move together; causation means a change in one directly produces a change in the other.\n\n🔑 How it works\nWhen two variables correlate, there are several possible explanations:\n1. $x$ really does cause $y$.\n2. $y$ causes $x$ (the direction is the other way round).\n3. A THIRD factor causes both (a lurking variable).\n4. The link is pure coincidence.\n\n💡 Worked Example\nIce-cream sales and the number of drownings show strong positive correlation. Does eating ice cream cause drownings?\n\nNo. A lurking variable — hot weather — causes both: more people buy ice cream AND more people go swimming on hot days. Neither variable causes the other.\n\n💡 Worked Example 2\nTowns with more firefighters tend to have larger fires. Do firefighters cause bigger fires?\n\nNo — bigger fires need more firefighters sent to them. The size of the fire is the third factor driving both numbers.\n\n📎 Key Points to Remember\n• Always consider a lurking (third) variable before claiming cause and effect.\n• To claim causation you need more than a graph — a controlled experiment or a known mechanism.\n• In exams, the safe wording is: \"there is correlation, but this does not prove one variable causes the other.\"\n\n⚠️ Common Mistake\nWriting \"the graph proves that $x$ causes $y$\". A scatter graph can never prove causation on its own — it only shows association.\n\n✅ Check\nAsk: \"Could something else be driving both variables?\" If yes, correlation is all you can claim."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-yr9-scatter-graphs-f1",
+      "term": "Bivariate data",
+      "definition": "Data where two variables are recorded for each item, displayed as pairs $(x, y)$ on a scatter graph.",
+      "example": "Recording both the height and the mass of each student in a class."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-f2",
+      "term": "Univariate data",
+      "definition": "Data involving only one variable per item; shown with bar charts or pie charts, not scatter graphs.",
+      "example": "The favourite colour of each pupil in a class."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-f3",
+      "term": "Scatter graph",
+      "definition": "A graph of bivariate data where each point represents one item's pair of values; points are not joined.",
+      "example": "Plotting hours of revision against test score, one cross per student."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-f4",
+      "term": "Positive correlation",
+      "definition": "As one variable increases, the other tends to increase; the points drift upward from left to right.",
+      "example": "Hours of sunshine against ice-cream sales."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-f5",
+      "term": "Negative correlation",
+      "definition": "As one variable increases, the other tends to decrease; the points drift downward from left to right.",
+      "example": "The age of a car against its value."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-f6",
+      "term": "No correlation",
+      "definition": "No pattern in the points — one variable gives no information about the other.",
+      "example": "Shoe size plotted against test score."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-f7",
+      "term": "Strong vs weak correlation",
+      "definition": "How closely the points hug a straight line: close together means strong, widely scattered means weak.",
+      "example": "Height against arm span usually shows strong positive correlation."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-f8",
+      "term": "Outlier",
+      "definition": "A point that lies far from the pattern of the rest of the data; ignored when drawing the line of best fit.",
+      "example": "A tall student with very short arms sits far below the trend line of a height–arm-span graph."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-f9",
+      "term": "Line of best fit",
+      "definition": "A straight line drawn by eye through the middle of the data cloud, with roughly equal numbers of points above and below.",
+      "example": "A rising line through the centre of a revision-vs-score graph, used to estimate scores."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-f10",
+      "term": "Interpolation",
+      "definition": "Estimating a value within the range of the data using the line of best fit — generally reliable.",
+      "example": "Using data from $0$–$10$ hours of revision to estimate the score for $6$ hours."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-f11",
+      "term": "Extrapolation",
+      "definition": "Estimating a value beyond the range of the data by extending the line of best fit — unreliable, as the trend may not continue.",
+      "example": "Predicting a score for $30$ hours of revision when the data only covers $0$–$10$ hours."
+    },
+    {
+      "id": "math-yr9-scatter-graphs-f12",
+      "term": "Correlation does not imply causation",
+      "definition": "Two variables moving together does not prove one causes the other; a lurking third factor may drive both.",
+      "example": "Ice-cream sales and drownings both rise in hot weather — neither causes the other."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-yr9-scatter-graphs-q1",
+      "stem": "What does a scatter graph display?",
+      "choices": [
+        "How one quantity changes over time",
+        "The relationship between two variables",
+        "The proportion of a total in each category",
+        "The frequency of data in equal class intervals"
+      ],
+      "correctIndex": 1,
+      "explanation": "A scatter graph plots pairs of values, one point per item, to reveal a relationship between two variables. Time series use line graphs, proportions use pie charts, and frequencies use bar charts.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q2",
+      "stem": "Which of these is an example of bivariate data?",
+      "choices": [
+        "The heights of the students in a class",
+        "The number of goals scored by each team in a league",
+        "The revision time and test score of each student",
+        "The favourite subject of each pupil in Year 9"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bivariate data records two variables per item — here, revision time AND test score for each student. The other options record only one variable per item.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q3",
+      "stem": "On a scatter graph, the points drift upward from left to right and lie very close to a straight line. How should the correlation be described?",
+      "choices": [
+        "Strong positive correlation",
+        "Weak positive correlation",
+        "Strong negative correlation",
+        "No correlation"
+      ],
+      "correctIndex": 0,
+      "explanation": "An upward drift means positive correlation, and points close to a straight line mean the correlation is strong.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q4",
+      "stem": "A scatter graph of daily temperature against hot-chocolate sales shows points drifting downward, widely scattered. What does this tell you?",
+      "choices": [
+        "No correlation — the scatter proves the variables are unrelated",
+        "Strong positive correlation",
+        "Weak negative correlation — colder days tend to bring higher sales, but with lots of variation",
+        "Strong negative correlation — temperature perfectly determines sales"
+      ],
+      "correctIndex": 2,
+      "explanation": "A downward drift indicates negative correlation; wide scatter makes it weak rather than strong. Real data always has variation, so the relationship is a tendency, not a rule.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q5",
+      "stem": "What is an outlier on a scatter graph?",
+      "choices": [
+        "The point with the largest $x$-value",
+        "A point that lies far from the pattern of the rest of the data",
+        "The point where the line of best fit crosses the $y$-axis",
+        "Any point that does not lie exactly on the line of best fit"
+      ],
+      "correctIndex": 1,
+      "explanation": "An outlier breaks the overall pattern by sitting far from the data cloud. Most points sit off the line of best fit without being outliers.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q6",
+      "stem": "Which rule should you follow when drawing a line of best fit?",
+      "choices": [
+        "It must pass through the first and last data points",
+        "It must pass through the origin",
+        "It should follow the trend with roughly equal numbers of points above and below it",
+        "It should pass through as many data points as possible, even if that means curving it"
+      ],
+      "correctIndex": 2,
+      "explanation": "A line of best fit is straight, follows the correlation, and balances points on either side. It need not go through the origin or any particular data point.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q7",
+      "stem": "A scatter graph shows the masses and heights of $30$ adults. Using the line of best fit to estimate the height of an adult whose mass lies between the smallest and largest masses recorded is an example of what?",
+      "choices": [
+        "Extrapolation",
+        "Interpolation",
+        "Causation",
+        "An outlier"
+      ],
+      "correctIndex": 1,
+      "explanation": "The estimate is made inside the range of the recorded masses, which is interpolation — generally reliable when correlation is strong.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q8",
+      "stem": "Data on the engine size and fuel consumption of cars was collected for engines from $1.0$ to $3.0$ litres. Why is it unreliable to use the line of best fit to predict fuel consumption for a $5.0$-litre engine?",
+      "choices": [
+        "Because the correlation is negative",
+        "Because $5.0$ litres is an outlier",
+        "Because the prediction is extrapolation — the trend may not continue beyond the data range",
+        "Because the line of best fit cannot be drawn for engines above $3.0$ litres"
+      ],
+      "correctIndex": 2,
+      "explanation": "$5.0$ litres lies outside the $1.0$–$3.0$ range of the data, so the estimate is extrapolation; the relationship could change for much larger engines, making the prediction unreliable.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q9",
+      "stem": "A graph of ice-cream sales against sunglasses sales shows strong positive correlation. What is the best conclusion?",
+      "choices": [
+        "Buying ice cream causes people to buy sunglasses",
+        "Buying sunglasses causes people to buy ice cream",
+        "A third factor, such as sunny weather, probably increases both",
+        "The two variables are completely unrelated"
+      ],
+      "correctIndex": 2,
+      "explanation": "Correlation is not causation: sunny weather is a lurking variable that raises both sales. Neither product plausibly causes purchases of the other.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q10",
+      "stem": "Two scatter graphs both show positive correlation. Graph P's points lie almost on a straight line; Graph Q's points are widely spread around the same trend. Which statement is correct?",
+      "choices": [
+        "Graph P shows strong correlation and Graph Q shows weak correlation",
+        "Graph Q shows stronger correlation because it has more spread",
+        "Both graphs show the same strength of correlation",
+        "Graph Q shows no correlation because the points are spread out"
+      ],
+      "correctIndex": 0,
+      "explanation": "Strength measures how tightly points cluster around a straight line. Graph P's tight cluster is strong correlation; Graph Q's scatter with the same direction is weak positive correlation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q11",
+      "stem": "A student plots the mass of a pumpkin against the number of seeds inside it and finds weak positive correlation. Which conclusion is most reliable?",
+      "choices": [
+        "Heavier pumpkins always contain more seeds",
+        "Heavier pumpkins tend to contain more seeds, but the number varies a lot",
+        "Mass and seed number are unrelated",
+        "The number of seeds causes the pumpkin's mass"
+      ],
+      "correctIndex": 1,
+      "explanation": "Weak positive correlation means a real but inconsistent tendency — heavier pumpkins tend to have more seeds with plenty of exceptions. \"Always\" overstates it, and correlation cannot establish causation.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q12",
+      "stem": "A line of best fit is drawn for data showing the height of a sunflower each week from week $1$ to week $8$. Which estimate is the MOST reliable?",
+      "choices": [
+        "The height at week $4$",
+        "The height at week $9$",
+        "The height at week $16$",
+        "The height at week $0$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Week $4$ lies inside the data range (interpolation). All the others lie outside it (extrapolation), and week $16$ is furthest out — sunflowers stop growing, so the trend certainly breaks.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q13",
+      "stem": "A council notices that towns with more police officers record more crimes, and concludes that police cause crime. What is the flaw in this reasoning?",
+      "choices": [
+        "There is no correlation between the variables",
+        "The data must contain outliers, so the correlation is false",
+        "Correlation does not prove causation — larger towns have both more police and more crime",
+        "The line of best fit was drawn incorrectly"
+      ],
+      "correctIndex": 2,
+      "explanation": "Town size is a lurking variable: bigger towns need more police and also record more crime. The correlation is real, but it cannot by itself show that one variable causes the other.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q14",
+      "stem": "A scatter graph has an outlier far above the main cloud of points. What should you do when drawing the line of best fit and estimating values?",
+      "choices": [
+        "Ignore the outlier when placing the line, and note it as a point that does not fit the pattern",
+        "Make sure the line passes through the outlier so all data is included",
+        "Delete the outlier from the graph so it cannot be seen",
+        "Draw a curve through every point including the outlier"
+      ],
+      "correctIndex": 0,
+      "explanation": "Outliers are ignored when positioning the line of best fit because they distort the trend, but they should still be plotted and noted — they may be genuine unusual cases or errors worth investigating.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q15",
+      "stem": "When reading an estimate from a scatter graph using the line of best fit, what is the correct procedure for a given $x$-value?",
+      "choices": [
+        "Find the nearest data point and read off its $y$-value",
+        "Go up from the $x$-value to the line of best fit, then across to the $y$-axis",
+        "Average the two nearest $y$-values in the data table",
+        "Go across from the $y$-axis to the steepest part of the data cloud"
+      ],
+      "correctIndex": 1,
+      "explanation": "Estimates come from the line, not individual points: move vertically from the $x$-value to the line of best fit, then horizontally to read the corresponding $y$-value.",
+      "difficulty": "medium"
+    }
+  ]
+}

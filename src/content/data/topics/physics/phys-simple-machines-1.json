@@ -1,0 +1,316 @@
+{
+  "id": "phys-simple-machines-1",
+  "subjectId": "physics",
+  "title": "Simple Machines: Levers, Pulleys & Gears",
+  "description": "How machines trade force against distance — moments, the three classes of lever, fixed and movable pulleys, gear ratios, and mechanical advantage in real devices.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "phys-simple-machines-1-n1",
+      "heading": "What a Machine Does — The Force/Distance Trade-Off",
+      "body": "A machine is any device that makes a task easier by changing a force. Machines can: make a force bigger (a small effort moves a larger load), change the direction of a force (pull down to lift up), or increase the distance or speed of movement. The crucial physics is that you never get something for nothing: a machine that multiplies force makes you move the effort through a GREATER distance. Energy is conserved — the work you put in (effort force × effort distance) is at least as big as the useful work you get out (load force × load distance). In real machines some input energy is always wasted as heat through friction, so the work out is slightly less than the work in. Example: with a lever you might push down with 50 N over 1.2 m to lift a 300 N rock by 0.2 m — force is multiplied by 6, but the distance moved is divided by 6. Force-multiplying machines include levers, movable pulleys, ramps, and wedges; distance/speed-multiplying machines include bicycle cranks and class 3 levers."
+    },
+    {
+      "id": "phys-simple-machines-1-n2",
+      "heading": "Moments Recap — The Turning Effect of a Force",
+      "body": "Every lever machine works through moments. The moment (turning effect) of a force about a pivot is: $$\\text{moment} = \\text{force} \\times \\text{perpendicular distance from pivot}$$ with units of newton-metres (N·m). Two consequences drive all lever physics: (1) the same force gives a bigger moment if it acts further from the pivot — this is why door handles are placed far from the hinges and why long spanners loosen tight bolts; (2) a small force far from the pivot can balance a large force close to the pivot. At balance (equilibrium), the clockwise and anticlockwise moments are equal: $$F_1 \\times d_1 = F_2 \\times d_2$$ Worked example: a 30 kg child exerts a weight of about 300 N and sits 1.5 m from the seesaw pivot, giving a moment of $300 \\times 1.5 = 450$ N·m. An adult weighing 600 N balances this by sitting just $450 \\div 600 = 0.75$ m from the pivot. The force must be PERPENDICULAR to the distance line — a push at an angle has a smaller effective moment."
+    },
+    {
+      "id": "phys-simple-machines-1-n3",
+      "heading": "The Three Classes of Levers",
+      "body": "A lever is a rigid bar that turns about a fixed pivot (the fulcrum). The effort is the force you apply; the load is the force you move. Levers are sorted into three classes by the relative positions of fulcrum, load, and effort. Class 1: fulcrum BETWEEN effort and load — examples: seesaw, crowbar, scissors, pliers. Can multiply force (effort far from fulcrum) or distance. Class 2: LOAD between fulcrum and effort — examples: wheelbarrow, nutcracker, bottle opener. The effort arm is always longer than the load arm, so class 2 levers always multiply force at the cost of distance. Class 3: EFFORT between fulcrum and load — examples: tweezers, fishing rod, your forearm (elbow = fulcrum, biceps = effort, object in hand = load). The effort arm is shorter, so class 3 levers multiply DISTANCE and speed, not force — a small biceps movement sweeps the hand through a large arc. Memory trick — \"FLE\": whichever of Fulcrum, Load, Effort is in the middle names the class (1, 2, 3 respectively)."
+    },
+    {
+      "id": "phys-simple-machines-1-n4",
+      "heading": "Pulleys — Fixed, Movable, and Block and Tackle",
+      "body": "A pulley is a wheel with a grooved rim that a rope runs over. Fixed pulley: the wheel is anchored (e.g. at the top of a flagpole). It does NOT multiply force — you pull down with the same force as the load's weight — but it changes the DIRECTION of the force, which is often far more convenient and safer. Movable pulley: the wheel moves WITH the load, and the load is supported by two rope segments. Each segment carries half the weight, so the effort is halved — but you must pull twice as much rope to lift the load by a given height. Block and tackle: combinations of fixed and movable pulleys in two blocks. The force multiplication equals the number of rope segments supporting the moving block: four supporting segments means the effort is one quarter of the load, and four metres of rope must be pulled to raise the load one metre. Real pulley systems are slightly less efficient than the ideal because of friction in the wheels and the weight of the moving block itself. Uses: cranes, lifts, sailing rigs, and gym machines."
+    },
+    {
+      "id": "phys-simple-machines-1-n5",
+      "heading": "Gears — Ratios and Direction",
+      "body": "Gears are toothed wheels that mesh together so that when one turns, the other must turn. Two key effects: (1) Direction — two meshed gears rotate in OPPOSITE directions; add an idler gear between them to restore the original direction. (2) Speed and force — when a small gear drives a larger gear, the larger gear turns more SLOWLY but with MORE turning force (torque); when a large gear drives a smaller one, the small gear spins faster but with less force. The gear ratio is set by the numbers of teeth: a 10-tooth gear driving a 40-tooth gear gives a ratio of 1:4 — the big gear turns at one quarter of the speed with (ideally) four times the torque. Bicycle gears are the everyday example: a small rear sprocket gives high speed on the flat (more wheel turns per pedal turn), while a large rear sprocket gives the extra turning force needed to climb hills. Like all machines, gears conserve energy — you trade rotational speed for torque or vice versa, losing a little to friction between the teeth."
+    },
+    {
+      "id": "phys-simple-machines-1-n6",
+      "heading": "Mechanical Advantage",
+      "body": "Mechanical advantage (MA) measures how much a machine multiplies force: $$\\text{mechanical advantage} = \\dfrac{\\text{load}}{\\text{effort}}$$ An MA greater than 1 means the machine multiplies force (small effort moves big load); an MA less than 1 means it multiplies distance or speed instead. Examples: a lever where the effort arm is three times the load arm has an ideal MA of 3; a movable pulley with two supporting rope segments has an ideal MA of 2; a block and tackle with four segments has an ideal MA of 4. The trade-off is exact in an ideal machine: if the MA is 3, the effort must move three times as far as the load, because work in equals work out. Worked example: a worker uses a block and tackle to lift a 1200 N engine with an effort of 400 N. The MA is $1200 \\div 400 = 3$, so three rope segments support the load and the rope must be pulled 3 m for every 1 m the engine rises. Efficiency reduces real MA below the ideal: wasted work against friction means the actual effort must be a little larger than the ideal value."
+    },
+    {
+      "id": "phys-simple-machines-1-n7",
+      "heading": "Real-World Applications",
+      "body": "Simple machines are everywhere, usually in combination. Levers: scissors and pliers are pairs of class 1 levers; a wheelbarrow is a class 2 lever letting a gardener shift heavy soil; your forearm is a class 3 lever trading muscle force for hand speed. Pulleys: cranes on building sites use block and tackle systems to lift steel beams; window blinds and flagpoles use single fixed pulleys to redirect force; car engines use pulley belts to drive alternators. Gears: bicycles use gear ratios to match pedalling to terrain; a hand drill uses gears to spin the bit faster than the handle; wind turbines use gearboxes to speed up the slow rotation of the blades for the generator. Hydraulic systems — car brakes, digger arms, dentists' chairs — are close cousins, using liquid pressure to multiply force. In every case the same analysis applies: identify where force is being multiplied and where distance or speed is being traded, then check with moments or mechanical advantage. Complex machines such as bicycles and cranes are just systems of these three basic machines chained together."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-simple-machines-1-f1",
+      "term": "Machine",
+      "definition": "A device that makes a task easier by changing the size, direction, or speed of a force — never by creating energy.",
+      "example": "A crowbar lets a small push pry up a heavy paving slab."
+    },
+    {
+      "id": "phys-simple-machines-1-f2",
+      "term": "Moment",
+      "definition": "The turning effect of a force: $\\text{moment} = \\text{force} \\times \\text{perpendicular distance from the pivot}$, in N·m.",
+      "example": "A 300 N weight 1.5 m from the pivot gives a moment of 450 N·m."
+    },
+    {
+      "id": "phys-simple-machines-1-f3",
+      "term": "Principle of moments",
+      "definition": "At balance, clockwise moments equal anticlockwise moments: $F_1 \\times d_1 = F_2 \\times d_2$.",
+      "example": "A heavy adult sits closer to a seesaw's pivot to balance a lighter child further out."
+    },
+    {
+      "id": "phys-simple-machines-1-f4",
+      "term": "Class 1 lever",
+      "definition": "Fulcrum between effort and load; can multiply force or distance depending on arm lengths.",
+      "example": "Seesaw, crowbar, scissors."
+    },
+    {
+      "id": "phys-simple-machines-1-f5",
+      "term": "Class 2 lever",
+      "definition": "Load between fulcrum and effort; always multiplies force at the cost of distance.",
+      "example": "Wheelbarrow, nutcracker, bottle opener."
+    },
+    {
+      "id": "phys-simple-machines-1-f6",
+      "term": "Class 3 lever",
+      "definition": "Effort between fulcrum and load; multiplies distance and speed, not force.",
+      "example": "Tweezers, fishing rod, the human forearm."
+    },
+    {
+      "id": "phys-simple-machines-1-f7",
+      "term": "Fixed pulley",
+      "definition": "An anchored pulley that changes the direction of a force without multiplying it.",
+      "example": "Pulling down on a rope to raise a flag up a flagpole."
+    },
+    {
+      "id": "phys-simple-machines-1-f8",
+      "term": "Movable pulley",
+      "definition": "A pulley that moves with the load; two rope segments share the weight, halving the effort but doubling the rope pulled.",
+      "example": "A 200 N load can be lifted with about 100 N of effort."
+    },
+    {
+      "id": "phys-simple-machines-1-f9",
+      "term": "Block and tackle",
+      "definition": "Combined fixed and movable pulleys; the force multiplication equals the number of rope segments supporting the moving block.",
+      "example": "Four supporting segments lift a 1200 N engine with 300 N of effort (ideal)."
+    },
+    {
+      "id": "phys-simple-machines-1-f10",
+      "term": "Gear ratio",
+      "definition": "The ratio of teeth on two meshed gears; a small gear driving a large gear trades speed for turning force.",
+      "example": "10 teeth driving 40 teeth gives a 1:4 ratio — quarter speed, roughly four times the torque."
+    },
+    {
+      "id": "phys-simple-machines-1-f11",
+      "term": "Mechanical advantage",
+      "definition": "$\\text{MA} = \\dfrac{\\text{load}}{\\text{effort}}$ — how many times a machine multiplies force.",
+      "example": "Lifting a 600 N load with a 200 N effort means MA = 3."
+    },
+    {
+      "id": "phys-simple-machines-1-f12",
+      "term": "Force/distance trade-off",
+      "definition": "A machine that multiplies force makes the effort move through a proportionally greater distance, because energy is conserved.",
+      "example": "With MA = 4, you pull 4 m of rope to lift the load 1 m."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-simple-machines-1-q1",
+      "stem": "What is the formula for the moment of a force?",
+      "choices": [
+        "$\\text{moment} = \\text{force} \\div \\text{distance}$",
+        "$\\text{moment} = \\text{force} \\times \\text{perpendicular distance from the pivot}$",
+        "$\\text{moment} = \\text{mass} \\times \\text{acceleration}$",
+        "$\\text{moment} = \\text{force} \\times \\text{area}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Moment equals force multiplied by the perpendicular distance from the pivot, measured in N·m. The other formulas are for acceleration, pressure, and invented combinations.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-simple-machines-1-q2",
+      "stem": "Why is a door handle placed as far as possible from the hinges?",
+      "choices": [
+        "So the door weighs less",
+        "To reduce friction in the hinges",
+        "A given force produces the largest moment when applied furthest from the pivot",
+        "So two people can push at once"
+      ],
+      "correctIndex": 2,
+      "explanation": "Moment = force × perpendicular distance, so maximising the distance from the hinge (the pivot) maximises the turning effect of your push.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-simple-machines-1-q3",
+      "stem": "What does a single fixed pulley do?",
+      "choices": [
+        "Halves the effort needed to lift a load",
+        "Changes the direction of the force without multiplying it",
+        "Doubles the speed of the load",
+        "Multiplies the force by two"
+      ],
+      "correctIndex": 1,
+      "explanation": "A fixed pulley only redirects the force — you pull down to lift up, with effort equal to the load's weight. Force multiplication needs a movable pulley.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-simple-machines-1-q4",
+      "stem": "When two gears mesh together, how do they rotate?",
+      "choices": [
+        "In the same direction",
+        "In opposite directions",
+        "The driven gear does not rotate",
+        "Both always at the same speed"
+      ],
+      "correctIndex": 1,
+      "explanation": "Meshed gears always rotate in opposite directions; an extra idler gear is added when the same direction is needed. Speeds differ unless the gears have equal teeth.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-simple-machines-1-q5",
+      "stem": "Mechanical advantage is defined as which ratio?",
+      "choices": [
+        "$\\text{effort} \\div \\text{load}$",
+        "$\\text{load} \\div \\text{effort}$",
+        "$\\text{distance} \\div \\text{force}$",
+        "$\\text{work done} \\div \\text{time taken}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "MA = load ÷ effort tells you how many times the machine multiplies force. Work ÷ time is power, and the other ratios have no standard meaning here.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-simple-machines-1-q6",
+      "stem": "A 20 N force acts perpendicular to a lever, 0.5 m from the pivot. What is the moment?",
+      "choices": [
+        "$10$ N·m",
+        "$40$ N·m",
+        "$20.5$ N·m",
+        "$0.025$ N·m"
+      ],
+      "correctIndex": 0,
+      "explanation": "Moment = force × perpendicular distance = $20 \\times 0.5 = 10$ N·m. Multiplying the wrong way round gives the distractor 40.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-simple-machines-1-q7",
+      "stem": "A wheelbarrow is which class of lever, and why is it useful for lifting heavy loads?",
+      "choices": [
+        "Class 1 — the fulcrum is in the middle",
+        "Class 3 — it multiplies speed",
+        "Class 2 — the load is between fulcrum and effort, so it always multiplies force",
+        "Not a lever at all — it uses pulleys"
+      ],
+      "correctIndex": 2,
+      "explanation": "In a wheelbarrow the wheel is the fulcrum, the load sits in the basin, and your arms supply the effort — load in the middle makes it class 2, which always gives a mechanical advantage greater than 1.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-simple-machines-1-q8",
+      "stem": "A movable pulley supports a 400 N load with two rope segments. Ideally, what effort is needed, and how much rope must be pulled to raise the load 0.5 m?",
+      "choices": [
+        "$400$ N; $0.5$ m of rope",
+        "$200$ N; $0.5$ m of rope",
+        "$200$ N; $1.0$ m of rope",
+        "$800$ N; $1.0$ m of rope"
+      ],
+      "correctIndex": 2,
+      "explanation": "Two segments share the weight, halving the effort to 200 N; the trade-off is pulling twice the distance — 1.0 m of rope for a 0.5 m rise.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-simple-machines-1-q9",
+      "stem": "A 15-tooth gear drives a 45-tooth gear. Compared with the small gear, the large gear turns at what speed and with what turning force?",
+      "choices": [
+        "Three times as fast, with three times the force",
+        "One third of the speed, with about three times the turning force",
+        "The same speed, with the same force",
+        "One third of the speed, with one third of the force"
+      ],
+      "correctIndex": 1,
+      "explanation": "The gear ratio is 15:45 = 1:3, so the big gear turns three times slower but with roughly three times the torque — the usual speed-for-force trade.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-simple-machines-1-q10",
+      "stem": "A worker lifts a 900 N crate with a block and tackle using an effort of 300 N. What is the mechanical advantage?",
+      "choices": [
+        "$0.33$",
+        "$3$",
+        "$600$",
+        "$1200$"
+      ],
+      "correctIndex": 1,
+      "explanation": "MA = load ÷ effort = $900 \\div 300 = 3$. The crate rises one metre for every three metres of rope pulled.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-simple-machines-1-q11",
+      "stem": "On a seesaw, a child weighing 300 N sits 2.0 m from the pivot. How far from the pivot must an adult weighing 800 N sit to balance it?",
+      "choices": [
+        "$0.75$ m",
+        "$1.5$ m",
+        "$5.3$ m",
+        "$2.7$ m"
+      ],
+      "correctIndex": 0,
+      "explanation": "Balancing moments: $300 \\times 2.0 = 600$ N·m, so the adult sits at $600 \\div 800 = 0.75$ m. Heavier people sit closer to the pivot.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-simple-machines-1-q12",
+      "stem": "The human forearm is a class 3 lever: the elbow is the fulcrum, the biceps applies effort close to the elbow, and the load is in the hand. What is the advantage of this arrangement, given that it needs a LARGE muscle force?",
+      "choices": [
+        "It multiplies force, letting the hand lift more than the muscle pulls",
+        "It multiplies distance and speed — a small biceps contraction moves the hand through a large, fast arc",
+        "It removes the need for a pivot",
+        "It conserves energy by doing less work"
+      ],
+      "correctIndex": 1,
+      "explanation": "With the effort between fulcrum and load, the effort arm is short, so the arm trades muscle force for range and speed of hand movement — ideal for throwing and catching, not for force multiplication.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-simple-machines-1-q13",
+      "stem": "A machine has an ideal mechanical advantage of 5, but in practice an effort of 260 N is needed to lift a 1000 N load. What best explains the difference?",
+      "choices": [
+        "The machine creates extra energy as it works",
+        "Friction and the weight of moving parts waste some input energy, so the real effort exceeds the ideal 200 N",
+        "The load becomes heavier when lifted quickly",
+        "Mechanical advantage only applies to pulleys, not this machine"
+      ],
+      "correctIndex": 1,
+      "explanation": "The ideal effort would be $1000 \\div 5 = 200$ N. Real machines lose useful work to friction and moving-part weights, so the actual effort (260 N) is always higher than the ideal.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-simple-machines-1-q14",
+      "stem": "A cyclist changes from a small rear sprocket to a large rear sprocket before a steep hill. What is the effect?",
+      "choices": [
+        "Each pedal turn drives the wheel further, increasing speed up the hill",
+        "Each pedal turn gives the wheel more turning force but less rotation, making climbing easier but slower",
+        "The gears no longer mesh, reducing friction",
+        "The chain reverses direction, helping the bike climb"
+      ],
+      "correctIndex": 1,
+      "explanation": "Driving a larger rear sprocket raises the gear ratio: more torque at the wheel per pedal turn, at the cost of wheel speed — exactly the force/distance trade-off needed on hills.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-simple-machines-1-q15",
+      "stem": "Scissors cutting thick card use long handles and short blades. Which combination of lever principles explains why this design works well?",
+      "choices": [
+        "Class 3 lever layout that multiplies the speed of the blades",
+        "Class 1 levers with effort arms longer than load arms, giving a moment advantage that multiplies force at the cutting point",
+        "Fixed pulley action that redirects the squeezing force",
+        "A gear ratio of 1:1 that keeps forces equal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Scissors are paired class 1 levers with the pivot (screw) in the middle. Long handles mean the effort acts far from the pivot while the card sits close to it, so the cutting force at the blades greatly exceeds the squeeze force.",
+      "difficulty": "hard"
+    }
+  ]
+}

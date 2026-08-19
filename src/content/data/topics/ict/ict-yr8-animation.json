@@ -1,0 +1,316 @@
+{
+  "id": "ict-yr8-animation",
+  "subjectId": "ict",
+  "title": "Stop-Frame Animation",
+  "description": "How stop-frame animation works — frames per second, storyboarding, onion skinning, camera and lighting setup, adding sound and titles, exporting, and reviewing your work.",
+  "stage": "ks3",
+  "year": 8,
+  "notes": [
+    {
+      "id": "ict-yr8-animation-n1",
+      "heading": "What Stop-Frame Animation Is",
+      "body": "Stop-frame animation (also called stop-motion) is a technique where physical objects — clay models, toys, paper cut-outs, even people — are photographed one frame at a time. Between each photograph the animator moves the object a tiny amount. When the frames are played back in rapid sequence, the eye blends them into the illusion of movement, an effect called persistence of vision. The technique is over a century old: early filmmakers used it for special effects in the silent era, and it went on to power famous television characters made from clay and felt, as well as feature films built frame by frame over years of production. Today anyone with a tablet or phone and a stop-frame app can make one. Different materials give different styles: clay animation (plasticine models that can be reshaped), cut-out animation (flat paper characters moved on a background), pixilation (real people moved frame by frame), and object animation (everyday items like Lego bricks or fruit). What they all share is patience: a ten-second clip can need well over a hundred individual photographs."
+    },
+    {
+      "id": "ict-yr8-animation-n2",
+      "heading": "Frames Per Second and Smoothness",
+      "body": "The frame rate, measured in frames per second (fps), is how many still images are shown each second. Cinema films traditionally run at 24 fps and television at 25 or 30 fps. Stop-frame animators often work at 12 fps — half of 24 — photographing each position twice (called shooting on twos) to halve the work while still looking smooth. The key relationship: more frames per second with smaller movements between them gives smoother motion; fewer frames with bigger jumps looks jerky and stuttered. You can calculate the frames you need: a 15-second animation at 12 fps requires 15 × 12 = 180 frames. Consistency matters as much as quantity — if the object moves 2 mm in one frame and 20 mm in the next, the motion will lurch. Skilled animators also vary timing for effect: fast actions use fewer frames, slow dramatic moments use more. When planning, decide your frame rate first and stick to it, because mixing rates within one project produces uneven, unprofessional-looking playback."
+    },
+    {
+      "id": "ict-yr8-animation-n3",
+      "heading": "Storyboarding and Planning",
+      "body": "No good animation starts with the camera. Planning saves hours of wasted shooting, because re-shooting stop-frame is painfully slow. A storyboard is a sequence of rough sketches — one box per key moment — showing what happens, in what order, from which camera viewpoint. Under each sketch you note the action, any dialogue or sound, and roughly how long the shot lasts. Keep the story extremely simple: at 12 fps, a 20-second film is about 240 frames, so one clear idea with a beginning, middle and end is plenty. Alongside the storyboard, prepare your assets: build the characters and the set, and check they are sturdy enough to survive hundreds of small adjustments. Think about how the character will move — a walking cycle, a jump, a wave — and practise the movement before filming. Decide where the camera will be and never plan shots you cannot physically achieve with your setup. A shot list, which breaks the storyboard into the individual takes you need to film, keeps production organised and lets you tick off progress."
+    },
+    {
+      "id": "ict-yr8-animation-n4",
+      "heading": "Onion Skinning and Keeping Motion Consistent",
+      "body": "Onion skinning is a feature of stop-frame apps that shows a faint, semi-transparent ghost of the previous frame overlaid on the live camera view. It lets you see exactly how far you moved the character last time, so you can make the next movement match — small, even steps instead of accidental jumps. Without onion skinning you are working blind, and motion quickly becomes uneven. Use it to check three things: the distance moved since the last frame, the position of body parts that should not have moved (a head drifting when only an arm should move), and whether the whole set has been accidentally nudged. Related good habits: keep the camera locked firmly in place, mark the positions of characters with tape or chalk if they leave the scene and return, and review the last few frames regularly — most apps let you flick back through what you have shot. If a frame is wrong (your hand in shot, a bumped prop), delete just that frame and retake it rather than accepting the flaw; one bad frame flashes visibly at playback speed."
+    },
+    {
+      "id": "ict-yr8-animation-n5",
+      "heading": "Camera and Lighting Setup",
+      "body": "The two enemies of stop-frame quality are camera wobble and changing light. The camera or tablet must be completely immobile: mount it on a tripod, a stand, or a stack of books taped down, and trigger the shutter with a timer, remote, or the app's capture button so your finger never touches the device mid-shoot. Lock the focus and exposure if the app allows it, so the camera does not refocus or re-brighten between frames — autofocus hunting creates flicker and soft frames. Lighting must stay constant for the entire shoot. Never rely on daylight from a window: clouds moving across the sun change brightness and colour between frames, producing flicker in the final film. Instead, close the curtains and use one or two desk lamps in fixed positions. Check for shadows — your own body leaning over the set casts a moving shadow — and for reflective surfaces that catch the lamps differently as objects move. Take a test photo, walk away for a minute, take another, and compare: if the two shots differ in brightness, fix your lighting before you start for real."
+    },
+    {
+      "id": "ict-yr8-animation-n6",
+      "heading": "Adding Sound and Titles",
+      "body": "Sound transforms a silent sequence of frames into a film. There are three layers to consider. Dialogue and narration can be recorded with a microphone — record in a quiet room, speak clearly, and keep the microphone the same distance away for consistent volume. Sound effects (footsteps, doors, whooshes) can be recorded yourself or taken from a library, and they should be timed to match the action frame by frame; a footstep that lands half a second late is instantly noticeable. Music sets the mood but must sit quietly underneath dialogue — lower its volume so speech stays clear. Whatever audio you use, respect copyright: use your own recordings, the app's built-in library, or music licensed for reuse, and never rip a favourite chart song into a school project. Titles and credits complete the film: an opening title card names the film and a closing credit sequence lists who did what and where the music came from. Keep title text on screen long enough to be read twice, use a legible font, and check spelling — credits with mistakes look worse than no credits at all."
+    },
+    {
+      "id": "ict-yr8-animation-n7",
+      "heading": "Exporting, Sharing, and Reviewing",
+      "body": "Exporting converts your project into a single video file, usually MP4, which any device can play. Choose a sensible resolution — 1080p is plenty for a school project — and check the exported frame rate matches what you shot at. Always watch the exported file all the way through before sharing it: exporting is where missing frames, silent audio, or cut-off endings reveal themselves. When sharing online, follow safe practice: get a teacher's or parent's approval, avoid showing your face or naming your school, and never include other people in the film without their permission. Reviewing is the final skill. Watch your film critically and ask: Is the motion smooth, or are there jumps? Does the light flicker? Is the story clear to someone who has never seen it before? Is the sound balanced? Show it to someone else and note where they look confused or bored — their reaction tells you more than your own. Write down two or three specific improvements for next time, such as smaller movements between frames or a locked exposure. Every professional animator reviews their work the same way; the improvement cycle is what separates a first attempt from a polished film."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ict-yr8-animation-f1",
+      "term": "Stop-frame animation",
+      "definition": "An animation technique where physical objects are photographed one frame at a time, moved slightly between shots, and played back in sequence to create the illusion of movement.",
+      "example": "A plasticine character photographed 240 times, with tiny adjustments between each photo, becomes a 20-second film."
+    },
+    {
+      "id": "ict-yr8-animation-f2",
+      "term": "Persistence of vision",
+      "definition": "The effect by which the eye blends a rapid sequence of still images into the appearance of continuous motion.",
+      "example": "Individual photos of a waving hand merge into smooth waving when played at 12 frames per second."
+    },
+    {
+      "id": "ict-yr8-animation-f3",
+      "term": "Frame rate (fps)",
+      "definition": "The number of still images shown per second of playback; higher rates with smaller movements give smoother motion.",
+      "example": "Cinema runs at 24 fps; stop-frame projects often use 12 fps to halve the work."
+    },
+    {
+      "id": "ict-yr8-animation-f4",
+      "term": "Shooting on twos",
+      "definition": "Photographing each position twice so the film plays at half the camera frame rate, saving work while still looking smooth.",
+      "example": "Capturing 12 unique poses per second of film but playing at 24 fps by doubling each frame."
+    },
+    {
+      "id": "ict-yr8-animation-f5",
+      "term": "Storyboard",
+      "definition": "A sequence of rough sketches, one per key moment, showing the action, camera view, dialogue and timing before filming begins.",
+      "example": "Six boxes showing a ball rolling in, a character tripping over it, and the character shrugging at the camera."
+    },
+    {
+      "id": "ict-yr8-animation-f6",
+      "term": "Onion skinning",
+      "definition": "A stop-frame app feature that overlays a faint ghost of the previous frame on the live view so movements stay small and consistent.",
+      "example": "Seeing last frame's arm position lets you move the arm the same small distance again."
+    },
+    {
+      "id": "ict-yr8-animation-f7",
+      "term": "Pixilation",
+      "definition": "A stop-frame style where real people are photographed frame by frame and moved between shots, making them appear to glide or fly.",
+      "example": "A student slides across the floor without apparently walking, photographed one shuffle at a time."
+    },
+    {
+      "id": "ict-yr8-animation-f8",
+      "term": "Flicker",
+      "definition": "Distracting changes in brightness between frames, usually caused by changing daylight or automatic camera exposure.",
+      "example": "A cloud crosses the sun mid-shoot and the finished film pulses light and dark."
+    },
+    {
+      "id": "ict-yr8-animation-f9",
+      "term": "Shot list",
+      "definition": "A checklist breaking the storyboard into the individual takes to film, used to organise production and track progress.",
+      "example": "Shot 3: close-up of the character's surprised face, about 2 seconds, 24 frames."
+    },
+    {
+      "id": "ict-yr8-animation-f10",
+      "term": "Cut-out animation",
+      "definition": "A stop-frame style using flat paper or card characters and props moved on a background.",
+      "example": "Paper fish with movable fins swimming across a painted seabed, moved a few millimetres per frame."
+    },
+    {
+      "id": "ict-yr8-animation-f11",
+      "term": "Credits",
+      "definition": "The closing sequence naming the people who made the film and the sources of any music or sound used.",
+      "example": "\"Animation: Sam · Music: in-app library track 'Sunny Day'\" shown for five seconds at the end."
+    },
+    {
+      "id": "ict-yr8-animation-f12",
+      "term": "Exporting",
+      "definition": "Converting a finished project into a single video file (usually MP4) that can be played and shared on any device.",
+      "example": "Exporting at 1080p, 12 fps, then watching the whole file to check nothing is missing before sharing."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-yr8-animation-q1",
+      "stem": "What creates the illusion of movement in stop-frame animation?",
+      "choices": [
+        "A video camera recording continuously",
+        "A rapid sequence of still photographs, each with the object moved slightly, played back in order",
+        "A computer generating every frame from scratch",
+        "A projector speeding up a live performance"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stop-frame works by photographing an object, moving it a tiny amount, photographing it again, and repeating. Played back quickly, persistence of vision blends the stills into motion. Continuous video recording is a different technique entirely.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-animation-q2",
+      "stem": "What does fps stand for in animation?",
+      "choices": [
+        "Frames per second",
+        "Films per shoot",
+        "Frames per scene",
+        "Fixed picture speed"
+      ],
+      "correctIndex": 0,
+      "explanation": "fps means frames per second — how many still images are displayed each second. Cinema uses 24 fps; stop-frame projects commonly use 12 fps.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-animation-q3",
+      "stem": "What is the purpose of a storyboard?",
+      "choices": [
+        "To add sound effects after filming",
+        "To plan the sequence of shots, action and timing before any filming starts",
+        "To hold the camera steady during shooting",
+        "To export the finished film to MP4"
+      ],
+      "correctIndex": 1,
+      "explanation": "A storyboard is a planning tool: rough sketches of each key moment with notes on action, dialogue and timing. Planning first avoids wasting hours re-shooting a stop-frame sequence that does not work.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-animation-q4",
+      "stem": "What does onion skinning show you in a stop-frame app?",
+      "choices": [
+        "A transparent ghost of the previous frame over the live camera view",
+        "A preview of the final exported video",
+        "The layers of paper in a cut-out model",
+        "A graph of the frame rate over time"
+      ],
+      "correctIndex": 0,
+      "explanation": "Onion skinning overlays a faint image of the last captured frame on the live view, so you can judge exactly how far to move the character next and keep the motion even.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-animation-q5",
+      "stem": "A 15-second animation is shot at 12 frames per second. How many frames are needed?",
+      "choices": [
+        "27",
+        "180",
+        "360",
+        "1500"
+      ],
+      "correctIndex": 1,
+      "explanation": "Frames needed = seconds × fps = 15 × 12 = 180. This kind of calculation shows why stop-frame is time-consuming and why planning matters before you start shooting.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-animation-q6",
+      "stem": "Why should you avoid relying on window daylight when shooting a stop-frame film?",
+      "choices": [
+        "Daylight is too dim for cameras to detect",
+        "Clouds and the moving sun change the light between frames, causing flicker in the final film",
+        "Windows reflect the animator's face into every frame",
+        "Daylight damages the camera sensor over long shoots"
+      ],
+      "correctIndex": 1,
+      "explanation": "Natural light is uncontrolled: a passing cloud changes brightness and colour mid-shoot, and the finished film flickers distractingly. Fixed lamps in a curtained room keep light constant across hundreds of frames.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-animation-q7",
+      "stem": "Halfway through a shoot, the playback looks jerky — the character moves smoothly for a second, then jumps. What is the most likely cause?",
+      "choices": [
+        "The frame rate was set too high",
+        "Movements between frames were inconsistent in size, so some frames show a much bigger jump",
+        "The camera took too many photos",
+        "The character model is too colourful"
+      ],
+      "correctIndex": 1,
+      "explanation": "Smooth motion needs small, even movements each frame. If the character is moved 2 mm for ten frames then 2 cm for one, that big step appears as a lurch. Onion skinning helps keep movement sizes consistent.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-animation-q8",
+      "stem": "Which setup best prevents camera movement during a stop-frame shoot?",
+      "choices": [
+        "Holding the tablet firmly in both hands for every shot",
+        "Mounting the device on a tripod or stand and triggering the shutter with a timer or remote",
+        "Asking a friend to hold the camera very still",
+        "Placing the device on a cushion next to the set"
+      ],
+      "correctIndex": 1,
+      "explanation": "The camera must be completely immobile across hundreds of frames. A fixed mount plus a hands-free shutter (timer, remote or in-app button) removes the two main sources of wobble: holding the device and tapping the screen.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-animation-q9",
+      "stem": "When adding music underneath recorded dialogue, what should you do to the music's volume?",
+      "choices": [
+        "Raise it so the music is clearly the loudest element",
+        "Lower it so the dialogue stays clear and easy to hear",
+        "Mute it whenever any character blinks",
+        "Match it exactly to the dialogue volume"
+      ],
+      "correctIndex": 1,
+      "explanation": "Music should support the film, not compete with speech. Dropping the music level under dialogue keeps the words intelligible; equal or louder music buries the narration and confuses the audience.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-animation-q10",
+      "stem": "Which of these is an acceptable music choice for a school stop-frame film that will be shared online?",
+      "choices": [
+        "A chart-topping song copied from a streaming service",
+        "A track from the app's built-in library or music licensed for reuse",
+        "Any song, as long as the film is short",
+        "A film soundtrack recorded off the television"
+      ],
+      "correctIndex": 1,
+      "explanation": "Copyright applies to music. Built-in libraries and reuse-licensed tracks are cleared for use; commercial songs and film soundtracks are not, even in short clips. Recording your own music is another safe option.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-animation-q11",
+      "stem": "Why do animators 'shoot on twos' (photographing each position twice)?",
+      "choices": [
+        "To double the brightness of each frame",
+        "To halve the number of unique poses needed while the film still plays smoothly at the higher frame rate",
+        "To make the camera focus twice as accurately",
+        "To back up every photo in case one is deleted"
+      ],
+      "correctIndex": 1,
+      "explanation": "Shooting on twos means 12 unique poses fill a second of 24 fps playback. It halves the photographing work — a huge saving over a long shoot — while still looking smooth to the eye.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr8-animation-q12",
+      "stem": "Your finished film has a visible pulse of brightness every few seconds, though the lamps never moved. What is the most likely technical cause?",
+      "choices": [
+        "The camera's auto-exposure adjusted itself between frames as objects moved",
+        "The film was exported at too high a resolution",
+        "The storyboard had too many shots",
+        "The music track was too loud"
+      ],
+      "correctIndex": 0,
+      "explanation": "Auto-exposure re-measures the light for every photo; as a character moves and blocks or reflects light differently, the camera brightens or darkens frames, creating flicker. Locking exposure (and focus) before shooting prevents it.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr8-animation-q13",
+      "stem": "In one frame out of 200, your hand appears at the edge of the shot. What is the best fix?",
+      "choices": [
+        "Re-shoot the entire film from the beginning",
+        "Delete just that frame and retake it, checking it matches the frames around it",
+        "Leave it — one frame is too fast to notice",
+        "Add loud music at that moment to distract viewers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Stop-frame apps let you remove and retake individual frames. At 12 fps a single bad frame lasts about a twelfth of a second — very visible as a flash — but re-shooting everything wastes the good work already done.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr8-animation-q14",
+      "stem": "A teammate wants to plan a 2-minute epic with five characters and three sets for a first stop-frame project. What is the best advice?",
+      "choices": [
+        "Go ahead — ambition always produces the best films",
+        "Scale down: one simple story with a beginning, middle and end, one or two characters, and one set — a 20-second film already needs around 240 frames",
+        "Film it all in one continuous shot to save planning time",
+        "Replace the characters with text slides to save effort"
+      ],
+      "correctIndex": 1,
+      "explanation": "Two minutes at 12 fps is roughly 1,440 carefully staged photographs — unrealistic for a first project. A short, simple, well-executed film teaches all the same skills and actually gets finished.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr8-animation-q15",
+      "stem": "Before sharing your animation online, which checklist is most appropriate?",
+      "choices": [
+        "Watch the exported file fully, get an adult's approval, make sure no one appears without permission, and avoid identifying your school",
+        "Share immediately — editing finished means the film is ready",
+        "Add everyone's full names to the credits so viewers know who is in it",
+        "Post it to as many accounts as possible to maximise views"
+      ],
+      "correctIndex": 0,
+      "explanation": "Safe sharing means checking the export actually works, getting permission from anyone who appears, and protecting personal information like your school or full name. Speed and reach should never override these checks.",
+      "difficulty": "easy"
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "id": "ict-yr8-python-next",
+  "subjectId": "ict",
+  "title": "Python Programming: Next Steps",
+  "description": "Building on the basics — for loops and range(), lists, string methods, functions with parameters and return values, scope, the random module, debugging, and planning before you code.",
+  "stage": "ks3",
+  "year": 8,
+  "notes": [
+    {
+      "id": "ict-yr8-python-next-n1",
+      "heading": "For Loops and range()",
+      "body": "A for loop repeats a block of code a set number of times — this is called definite iteration, because you know how many repetitions there will be before the loop starts. In Python, a for loop is usually paired with the `range()` function. `range(5)` produces the numbers 0, 1, 2, 3, 4 — note it starts at 0 and stops before 5. `range(2, 8)` produces 2 to 7, and `range(0, 10, 2)` counts in steps of 2: 0, 2, 4, 6, 8. A typical loop looks like this: `for i in range(5):` followed by an indented block such as `print(i)`. The loop variable (`i` here) takes each value from the range in turn. Compare this with a while loop, which repeats while a condition is true and may run zero, one, or many times. Use a for loop when you know the count in advance (e.g. print a table of ten rows); use a while loop when you repeat until something changes (e.g. keep asking until the password is correct). Nested for loops — one loop inside another — are useful for grids and tables: the inner loop runs completely once for every single pass of the outer loop."
+    },
+    {
+      "id": "ict-yr8-python-next-n2",
+      "heading": "Lists: Storing Collections of Data",
+      "body": "A list stores many values in one variable, written with square brackets: `scores = [12, 7, 19, 4]`. Each value is called an item or element, and each has an index — its position, starting at 0. So `scores[0]` is 12 and `scores[3]` is 4; negative indexes count from the end, so `scores[-1]` is 4. Lists are mutable: you can change an item with `scores[1] = 9`, add one to the end with `scores.append(6)`, or remove one with `scores.remove(12)`. Useful built-ins include `len(scores)` for the number of items and `in` to test membership (`7 in scores` gives `True` or `False`). The classic pattern is iterating through a list with a for loop: `for score in scores:` then `print(score)` — the loop variable takes each item in turn, no indexing needed. Lists can hold any type: strings, numbers, even other lists. A common mistake is an index out of range error: a list of length 4 has valid indexes 0 to 3 only, so `scores[4]` crashes the program."
+    },
+    {
+      "id": "ict-yr8-python-next-n3",
+      "heading": "String Methods",
+      "body": "A string is a sequence of characters, and Python gives you built-in methods — functions that belong to the string — to inspect and change it. `len(\"hello\")` gives 5. Case methods: `name.upper()` returns the string in capitals, `name.lower()` in lower case, `name.capitalize()` with only the first letter capitalised. Searching and testing: `name.startswith(\"A\")` and `name.endswith(\"z\")` return `True` or `False`; `text.find(\"cat\")` returns the index of the first match or -1 if not found. Cleaning input: `answer.strip()` removes whitespace from both ends — essential when checking typed input. Replacing and splitting: `text.replace(\"a\", \"o\")` swaps characters, and `sentence.split(\" \")` splits a sentence into a list of words. You can also index a string like a list — `word[0]` is its first character — and slice it: `word[0:3]` gives the first three characters. Important: strings are immutable, so methods return a new string; they do not change the original. `name.upper()` alone does nothing useful — you must store the result: `name = name.upper()`."
+    },
+    {
+      "id": "ict-yr8-python-next-n4",
+      "heading": "Defining Functions: Parameters and Return Values",
+      "body": "A function is a named, reusable block of code that you define once and call as many times as you like. Define one with `def`, a name, brackets, and a colon: `def greet():` then an indented body. Functions can take parameters — placeholder variables listed in the brackets — so `def square(n):` can work with any number passed in. When you call `square(5)`, the value 5 is an argument that fills the parameter `n`. The `return` keyword sends a result back to the caller: `def square(n):` with `return n * n` means `answer = square(5)` stores 25. This is a crucial distinction: `print()` displays a value on screen for a human, while `return` hands a value back so the program can keep using it. Functions help you decompose a big problem into small, testable pieces and avoid repeating yourself — the DRY principle (Don't Repeat Yourself). Name functions with verbs that say what they do (`calculate_total`, `get_valid_input`), and keep each function focused on one job. Code inside a function only runs when the function is called, not when it is defined."
+    },
+    {
+      "id": "ict-yr8-python-next-n5",
+      "heading": "Scope: Local and Global Variables",
+      "body": "Scope means where in a program a variable exists and can be used. A variable created inside a function is local to that function: it is born when the function runs and disappears when the function ends. Code outside the function cannot see it — trying to use a local variable after the function finishes causes a `NameError`. A variable created in the main body of the program (outside all functions) is global: every function can read it, but changing it inside a function is restricted and usually a bad idea. Why does scope matter? It prevents accidents. Two functions can each use a local variable called `total` without interfering with each other, because each `total` lives only inside its own function. The safe way to get data out of a function is `return`, and the safe way to get data in is parameters — not reaching for global variables. Beginners often write a function that calculates a result in a local variable and then try to print that variable from the main program; the fix is to `return` the result and store it: `result = my_function()`."
+    },
+    {
+      "id": "ict-yr8-python-next-n6",
+      "heading": "The random Module and Debugging Strategies",
+      "body": "Python's standard library contains modules of ready-made code. The random module is loaded with `import random` and is essential for games and simulations. Key functions: `random.randint(1, 6)` returns a whole number from 1 to 6 inclusive — perfect for a dice roll; `random.choice([\"rock\", \"paper\", \"scissors\"])` picks a random item from a list; `random.shuffle(deck)` mixes a list in place; `random.random()` returns a decimal between 0.0 and 1.0. Debugging is the process of finding and fixing errors. When Python crashes, it prints a traceback: read it from the bottom up — the last line names the error type (e.g. `IndexError`, `NameError`, `TypeError`) and the line above shows where it happened. Print debugging means inserting temporary `print()` statements to reveal the values of variables at key moments, so you can see where the program's behaviour diverges from your expectation. Other strategies: test small pieces of code separately, check loop boundaries (off-by-one errors are common), and explain your code line by line to a rubber duck or a friend — saying it out loud often exposes the flaw."
+    },
+    {
+      "id": "ict-yr8-python-next-n7",
+      "heading": "Planning Before You Code",
+      "body": "Professional programmers spend more time thinking than typing. Jumping straight into code usually produces a tangled mess that has to be rewritten. Before coding, decompose the problem: break it into smaller sub-problems that can each be solved and tested on their own. For a number-guessing game the sub-problems might be: pick a secret number, get a guess from the user, compare and give feedback, count attempts, and loop until correct. Next, design each part with pseudocode — plain-English steps — or a flowchart showing decisions and loops. Decide what data you need: which variables, of what type, and whether a list is needed. Write the smallest piece first, test it, then add the next piece — this is iterative development, and it means you always have a working program, just a growing one. Finally, test against a simple test plan: normal inputs, boundary values (the smallest and largest allowed), and invalid inputs (letters where numbers are expected). A program that only works when the user behaves perfectly is not finished."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ict-yr8-python-next-f1",
+      "term": "For loop",
+      "definition": "A loop that repeats a block of code a fixed, known number of times — definite iteration.",
+      "example": "`for i in range(3): print(i)` prints 0, 1, 2."
+    },
+    {
+      "id": "ict-yr8-python-next-f2",
+      "term": "range()",
+      "definition": "A function that generates a sequence of numbers for a loop; it starts at the first value and stops before the end value.",
+      "example": "`range(2, 8)` gives 2, 3, 4, 5, 6, 7 — not 8."
+    },
+    {
+      "id": "ict-yr8-python-next-f3",
+      "term": "Index",
+      "definition": "The numbered position of an item in a list or string, starting at 0.",
+      "example": "In `[\"a\", \"b\", \"c\"]`, the item `\"b\"` is at index 1."
+    },
+    {
+      "id": "ict-yr8-python-next-f4",
+      "term": "append()",
+      "definition": "A list method that adds one new item to the end of the list.",
+      "example": "`scores.append(9)` makes `[3, 5]` into `[3, 5, 9]`."
+    },
+    {
+      "id": "ict-yr8-python-next-f5",
+      "term": "String method",
+      "definition": "A built-in function belonging to a string, called with a dot, that returns information about or a modified copy of the string.",
+      "example": "`\"Hello\".lower()` returns `\"hello\"`; the original string is unchanged."
+    },
+    {
+      "id": "ict-yr8-python-next-f6",
+      "term": "Parameter",
+      "definition": "A placeholder variable listed in a function's definition that receives a value when the function is called.",
+      "example": "In `def square(n):`, `n` is the parameter; calling `square(4)` gives `n` the value 4."
+    },
+    {
+      "id": "ict-yr8-python-next-f7",
+      "term": "return",
+      "definition": "The keyword that sends a result back from a function to the code that called it, ending the function.",
+      "example": "`return n * n` lets `answer = square(4)` store 16 in `answer`."
+    },
+    {
+      "id": "ict-yr8-python-next-f8",
+      "term": "Local variable",
+      "definition": "A variable created inside a function that exists only while that function runs and cannot be used outside it.",
+      "example": "A variable `total` made inside `def add():` causes a NameError if the main program tries to print it."
+    },
+    {
+      "id": "ict-yr8-python-next-f9",
+      "term": "Global variable",
+      "definition": "A variable created in the main body of a program, outside all functions, which functions can read.",
+      "example": "`level = 1` at the top of a program can be read inside any function."
+    },
+    {
+      "id": "ict-yr8-python-next-f10",
+      "term": "random.randint(a, b)",
+      "definition": "A function from the random module that returns a random whole number between a and b, including both ends.",
+      "example": "`random.randint(1, 6)` simulates a dice roll: 1, 2, 3, 4, 5 or 6."
+    },
+    {
+      "id": "ict-yr8-python-next-f11",
+      "term": "Traceback",
+      "definition": "The error report Python prints when a program crashes, naming the error type and the line where it happened; read it from the bottom up.",
+      "example": "The last line `IndexError: list index out of range` tells you a list index was too big."
+    },
+    {
+      "id": "ict-yr8-python-next-f12",
+      "term": "Decomposition",
+      "definition": "Breaking a large problem into smaller sub-problems that can each be solved and tested separately before combining them.",
+      "example": "A quiz program decomposes into: load questions, ask one question, check the answer, keep score."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-yr8-python-next-q1",
+      "stem": "What numbers does `range(5)` produce when used in a for loop?",
+      "choices": [
+        "1, 2, 3, 4, 5",
+        "0, 1, 2, 3, 4",
+        "0, 1, 2, 3, 4, 5",
+        "5 only"
+      ],
+      "correctIndex": 1,
+      "explanation": "`range(5)` starts at 0 by default and stops before 5, producing 0, 1, 2, 3, 4 — five numbers in total, so the loop body runs five times.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-python-next-q2",
+      "stem": "Given `names = [\"Ana\", \"Ben\", \"Cho\"]`, what is the value of `names[1]`?",
+      "choices": [
+        "Ana",
+        "Ben",
+        "Cho",
+        "An error, because 1 is out of range"
+      ],
+      "correctIndex": 1,
+      "explanation": "List indexes start at 0, so `names[0]` is \"Ana\" and `names[1]` is \"Ben\". \"Cho\" is at index 2.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-python-next-q3",
+      "stem": "Which line adds the value 8 to the end of a list called `scores`?",
+      "choices": [
+        "`scores.add(8)`",
+        "`scores.append(8)`",
+        "`append(scores, 8)`",
+        "`scores[8] = 8`"
+      ],
+      "correctIndex": 1,
+      "explanation": "The list method for adding one item to the end is `append()`, called on the list with a dot. `add()` is a set method, and `scores[8] = 8` would try to write to index 8, which may not exist.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-python-next-q4",
+      "stem": "What does `\"Python\".upper()` return?",
+      "choices": [
+        "python",
+        "Python",
+        "PYTHON",
+        "It changes the original string to capitals"
+      ],
+      "correctIndex": 2,
+      "explanation": "`upper()` returns a new string with every letter capitalised — \"PYTHON\". Strings are immutable, so the original is not changed; the method returns the new version.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-python-next-q5",
+      "stem": "In `def double(x): return x * 2`, what is `x` called?",
+      "choices": [
+        "An argument",
+        "A parameter",
+        "A global variable",
+        "A module"
+      ],
+      "correctIndex": 1,
+      "explanation": "`x` is a parameter — the placeholder in the function definition. The actual value passed in a call, such as the 7 in `double(7)`, is the argument.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-python-next-q6",
+      "stem": "A function calculates a total but the main program cannot print it because 'total is not defined'. What is the most likely cause and fix?",
+      "choices": [
+        "`total` is local to the function; the function should `return` it and the caller should store the result",
+        "The print statement is in the wrong font; change the editor settings",
+        "`total` must be spelled in capitals to be used outside a function",
+        "The function was imported from the wrong module; re-import it"
+      ],
+      "correctIndex": 0,
+      "explanation": "Variables made inside a function are local and vanish when the function ends. The fix is to `return total` from the function and capture it with something like `t = my_function()` in the main program.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-python-next-q7",
+      "stem": "Which expression correctly simulates rolling an ordinary six-sided dice?",
+      "choices": [
+        "`random.randint(0, 6)`",
+        "`random.randint(1, 6)`",
+        "`random.choice(1, 6)`",
+        "`randint.random(1, 6)`"
+      ],
+      "correctIndex": 1,
+      "explanation": "`random.randint(1, 6)` returns a whole number from 1 to 6 inclusive, matching dice faces. `randint(0, 6)` wrongly includes 0, and `choice` takes a list, not two numbers.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-python-next-q8",
+      "stem": "Your program crashes with this traceback ending: `IndexError: list index out of range` on the line `print(items[4])`. The list has 4 items. What is wrong?",
+      "choices": [
+        "Nothing — index 4 is valid for a 4-item list",
+        "The valid indexes are 0 to 3, so index 4 does not exist",
+        "The list is empty, so no index works",
+        "`print` cannot be used with lists"
+      ],
+      "correctIndex": 1,
+      "explanation": "A list of length 4 has indexes 0, 1, 2, 3. Asking for index 4 is one past the end — a classic off-by-one error. The traceback's final line tells you both the error type and where it occurred.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-python-next-q9",
+      "stem": "What is the main difference between `print()` and `return` inside a function?",
+      "choices": [
+        "`print()` is faster than `return`",
+        "`print()` displays a value on screen; `return` sends a value back to the caller so the program can use it",
+        "`return` only works with numbers",
+        "`print()` ends the function; `return` does not"
+      ],
+      "correctIndex": 1,
+      "explanation": "`print()` only shows output to a human and gives the caller nothing to work with. `return` hands a value back so it can be stored, compared, or used in further calculations — and it also ends the function.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-python-next-q10",
+      "stem": "A user types `  yes  ` with extra spaces around it, and your check `if answer == \"yes\"` fails. Which fix is most appropriate?",
+      "choices": [
+        "Use `answer.strip()` (and possibly `lower()`) before comparing",
+        "Rewrite the question so users cannot type spaces",
+        "Change the comparison to `if answer = \"yes\"`",
+        "Put the comparison inside a for loop"
+      ],
+      "correctIndex": 0,
+      "explanation": "`strip()` removes leading and trailing whitespace, so `\"  yes  \".strip()` becomes `\"yes\"`. Cleaning input before comparing makes the check robust; `=` alone is assignment, not comparison.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr8-python-next-q11",
+      "stem": "Why do programmers decompose a problem before writing code?",
+      "choices": [
+        "It makes the program run faster on any computer",
+        "Smaller sub-problems can each be planned, coded and tested separately, making the whole program easier to build and debug",
+        "It is required by the Python interpreter",
+        "It removes the need for any testing later"
+      ],
+      "correctIndex": 1,
+      "explanation": "Decomposition turns one hard problem into several manageable pieces. Each piece can be built and tested on its own, so bugs are easier to isolate and you always have working code as the project grows.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr8-python-next-q12",
+      "stem": "What does this code print? `total = 0` then a loop `for i in range(1, 4): total = total + i` then `print(total)`.",
+      "choices": [
+        "3",
+        "4",
+        "6",
+        "10"
+      ],
+      "correctIndex": 2,
+      "explanation": "`range(1, 4)` produces 1, 2, 3 (it stops before 4). Adding them to the running total gives 0 + 1 + 2 + 3 = 6. This accumulator pattern — a total updated inside a loop — is extremely common.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr8-python-next-q13",
+      "stem": "A program has `count = 0` inside `def roll_dice():`, and `roll_dice()` is called three times. Another function tries to read `count` and fails. Which statement best explains what is happening?",
+      "choices": [
+        "`count` resets to 0 each call and is local, so no other function can see it; the value should be returned or managed outside",
+        "Functions cannot be called more than once in Python",
+        "The dice module is missing, breaking all variables",
+        "`count` is a reserved word and can never be used"
+      ],
+      "correctIndex": 0,
+      "explanation": "A local variable is recreated fresh every time the function runs and is invisible outside it. To keep a value across calls, the function should `return` it and the main program should store and update it between calls.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr8-python-next-q14",
+      "stem": "Which approach is the best example of debugging a program that adds the wrong scores together?",
+      "choices": [
+        "Delete the whole program and start again from scratch",
+        "Insert temporary `print()` statements showing each score and the running total, run it, and compare the values with what you expect",
+        "Add more features so the bug matters less",
+        "Change every variable name in case one is misspelled"
+      ],
+      "correctIndex": 1,
+      "explanation": "Print debugging reveals the actual values inside the program at each step. Comparing them with expected values pinpoints the line where behaviour goes wrong. Rewriting everything or renaming blindly wastes time and hides the real cause.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr8-python-next-q15",
+      "stem": "You are planning a number-guessing game. Which is the best first development step, following iterative development?",
+      "choices": [
+        "Write the entire game in one session, then test it all at the end",
+        "Design the graphics and sound effects first because they are the most visible",
+        "Build and test the smallest piece — for example picking a secret number and checking one guess — before adding looping and attempt counting",
+        "Copy a complete game from the internet and change the colours"
+      ],
+      "correctIndex": 2,
+      "explanation": "Iterative development means starting with the smallest working piece, testing it, then growing the program feature by feature. This keeps the program working at every stage and makes bugs far easier to find.",
+      "difficulty": "hard"
+    }
+  ]
+}

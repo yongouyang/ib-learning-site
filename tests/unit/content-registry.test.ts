@@ -2,19 +2,27 @@ import { describe, it, expect } from 'vitest';
 import { getSubjects, getSubject, getTopic } from '@/content/registry';
 import type { SubjectId } from '@/content/types';
 
-const EXPECTED_TOPIC_COUNTS: Record<SubjectId, number> = {
-  math: 74,
-  biology: 13,
-  chemistry: 12,
+const EXPECTED_TOPIC_COUNTS: Partial<Record<SubjectId, number>> = {
+  math: 76,
+  biology: 14,
+  chemistry: 13,
   english: 25,
-  physics: 13,
+  physics: 14,
+  geography: 10,
+  history: 11,
+  ict: 12,
+  chinese: 20,
+  german: 13,
 };
 
 describe('content-registry', () => {
-  it('should have 5 subjects', () => {
+  it('should have 10 subjects', () => {
     const subjects = getSubjects();
-    expect(subjects).toHaveLength(5);
-    expect(subjects.map(s => s.id).sort()).toEqual(['biology', 'chemistry', 'english', 'math', 'physics']);
+    expect(subjects).toHaveLength(10);
+    expect(subjects.map(s => s.id).sort()).toEqual([
+      'biology', 'chemistry', 'chinese', 'english', 'geography',
+      'german', 'history', 'ict', 'math', 'physics',
+    ]);
   });
 
   it('should get a subject by id', () => {

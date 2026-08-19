@@ -2,13 +2,14 @@ import { test, expect } from '@playwright/test';
 
 // Phase 2: diagnostics — index, a full run, and weak-area seeding.
 test.describe('Diagnostics', () => {
-  test('index lists the 8 course diagnostics', async ({ page }) => {
+  test('index lists the 13 course diagnostics', async ({ page }) => {
     await page.goto('/diagnostics');
     await expect(page.getByRole('heading', { name: 'Diagnostic Tests', level: 1 })).toBeVisible();
 
     const links = page.getByRole('link', { name: /questions · \d+ topics/ });
-    await expect(links).toHaveCount(8);
+    await expect(links).toHaveCount(13);
     await expect(page.getByRole('link', { name: /Math — Year 7/ })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Geography — KS3/ })).toBeVisible();
     await expect(page.getByRole('link', { name: /DP Applications & Interpretation/ })).toBeVisible();
   });
 
