@@ -54,8 +54,8 @@ variable "rate_limits_table_arn" {
   type        = string
 }
 
-variable "ses_identity_arn" {
-  description = "SES domain identity ARN (ap-southeast-1) — the resource ses:SendEmail is scoped to."
+variable "ses_from_address" {
+  description = "Verified FROM address (e.g. noreply@octavlearning.com) — the ses:FromAddress condition value the Lambda's ses:SendEmail is restricted to."
   type        = string
 }
 
@@ -95,8 +95,10 @@ resource "aws_iam_role_policy_attachment" "auth_basic" {
 }
 
 # Least-privilege data policy: the four accounts-feature tables (Get/Put/
-# Update/Delete/Query — no scans or table-level ops) plus SendEmail on the
-# verified SES identity only. Query targets GSI1 (getUserByEmail on users,
+# Update/Delete/Query — no scans or table-level ops) plus SendEmail restricted
+# to the verified FROM address (resource "*" — SES sandbox authorizes against
+# the recipient identity ARN too; see the statement comment). Query targets
+# GSI1 (getUserByEmail on users,
 # listSessionsByUser on sessions), and DynamoDB authorizes index queries
 # against <table-arn>/index/<name>, so every table also grants its /index/*
 # ARN (all four for symmetry — otp-codes/progress have no GSI). The
@@ -126,7 +128,19 @@ data "aws_iam_policy_document" "auth" {
 
   statement {
     actions   = ["ses:SendEmail"]
-    resources = [var.ses_identity_arn]
+    resources = ["*"]
+
+    # Resource "*" is required: in SES sandbox mode, SendEmail authorization is
+    # evaluated against the RECIPIENT identity ARN as well as the sender's, so
+    # scoping resources to the domain identity ARN made every sandbox send fail
+    # with AccessDenied (2026-08-19 incident). The FromAddress condition keeps
+    # the policy least-privilege on the sender side — the role can only send
+    # from the verified noreply address.
+    condition {
+      test     = "StringEquals"
+      variable = "ses:FromAddress"
+      values   = [var.ses_from_address]
+    }
   }
 }
 

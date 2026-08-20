@@ -113,6 +113,12 @@ Free-response sets live in `src/content/data/papers/<courseId>/<courseId>-set-<n
 - Do not end content lines with a single `\` (Markdown hard break) — the renderer does not interpret it and the audit flags it.
 - Inline `$...$` is rendered by KaTeX everywhere content is displayed: note bodies and headings, quiz stems, choices and explanations, flashcards, and topic descriptions. Display `$$...$$` is only supported in note bodies, on one line or as a multi-line block closed by a later `$$` line.
 
+## Bold
+
+- `**bold**` is rendered in every field that supports inline math (note bodies/headings, stems, choices, explanations, flashcards, descriptions, paper stems/model answers/markscheme points).
+- Pairs must be balanced on a single line, with plain text inside: no nested `*`, and never span `$...$` math (write `**midpoint** $M$`, not `**midpoint $M$**`).
+- `audit:content` flags unpaired, empty (`****`), or math-spanning markers (`unbalanced_bold`).
+
 ## IDs
 
 - IDs must be unique within a topic and across the whole project.

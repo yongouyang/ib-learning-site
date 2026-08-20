@@ -194,7 +194,8 @@ module "ses" {
 
 # Auth API (Phase B — docs/architecture-evolution-plan.md §6): the email-OTP
 # Lambda + Function URL. Consumes the DynamoDB table names/ARNs and the SES
-# identity ARN. Base wiring below always selects the real dynamodb/ses
+# FROM address (IAM sender restriction). Base wiring below always selects the
+# real dynamodb/ses
 # implementations; var.auth_env (CI AUTH_ENV secret) can override/add — leave
 # it empty to use these defaults. SES has no ap-east-1 endpoint, so
 # AUTH_SES_REGION points the SESv2 client at ap-southeast-1 (where the
@@ -211,7 +212,7 @@ module "auth_api" {
   otp_codes_table_arn   = module.dynamodb.otp_codes_table_arn
   progress_table_arn    = module.dynamodb.progress_table_arn
   rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
-  ses_identity_arn      = module.ses.domain_identity_arn
+  ses_from_address      = var.ses_from_address
 
   environment = merge(
     {
