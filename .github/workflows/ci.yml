@@ -209,6 +209,10 @@ jobs:
       # SES from-address (repo secret). Defaults match terraform/envs/prod.
       TF_VAR_dynamodb_table_prefix: ${{ vars.DYNAMODB_TABLE_PREFIX || 'octav' }}
       TF_VAR_ses_from_address: ${{ secrets.SES_FROM_ADDRESS || 'noreply@octavlearning.com' }}
+      # Email provider selection + key as a single-line JSON map with straight
+      # quotes ({"NAME":"resend","API_KEY":"..."}). Unset = {} = fall back to
+      # the base AUTH_EMAIL wiring (ses).
+      TF_VAR_email_provider: ${{ secrets.EMAIL_PROVIDER || '{}' }}
       # Auth Lambda env overrides; unset = base wiring from envs/prod.
       TF_VAR_auth_env: ${{ secrets.AUTH_ENV || '{}' }}
       # Progress Lambda env overrides (Phase C); optional — unset = base
@@ -320,6 +324,10 @@ jobs:
       # SES from-address (repo secret). Defaults match terraform/envs/prod.
       TF_VAR_dynamodb_table_prefix: ${{ vars.DYNAMODB_TABLE_PREFIX || 'octav' }}
       TF_VAR_ses_from_address: ${{ secrets.SES_FROM_ADDRESS || 'noreply@octavlearning.com' }}
+      # Email provider selection + key as a single-line JSON map with straight
+      # quotes ({"NAME":"resend","API_KEY":"..."}). Unset = {} = fall back to
+      # the base AUTH_EMAIL wiring (ses).
+      TF_VAR_email_provider: ${{ secrets.EMAIL_PROVIDER || '{}' }}
       # Auth Lambda env overrides; unset = base wiring from envs/prod.
       TF_VAR_auth_env: ${{ secrets.AUTH_ENV || '{}' }}
       # Progress Lambda env overrides (Phase C); optional — unset = base

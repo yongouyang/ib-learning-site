@@ -2,6 +2,7 @@ import { describe, it, expect, afterEach, vi } from 'vitest';
 import { getAuthDeps } from '@/lib/auth/deps';
 import { DynamoAuthStorage } from '@/lib/auth/dynamodb-storage';
 import { SesEmailSender } from '@/lib/auth/ses-sender';
+import { ResendEmailSender } from '@/lib/auth/resend-sender';
 import { DummyEmailSender, InMemoryAuthStorage } from '@/lib/auth/dummy';
 
 describe('getAuthDeps', () => {
@@ -85,6 +86,64 @@ describe('getAuthDeps', () => {
   it('throws on unknown kinds', () => {
     expect(() => getAuthDeps({ AUTH_STORAGE: 'postgres' })).toThrow(/AUTH_STORAGE/);
     expect(() => getAuthDeps({ AUTH_EMAIL: 'sendgrid' })).toThrow(/AUTH_EMAIL/);
+  });
+
+  describe('EMAIL_PROVIDER selection (provider-swap seam)', () => {
+    it('selects Resend from EMAIL_PROVIDER and overrides AUTH_EMAIL', () => {
+      const deps = getAuthDeps({
+        AUTH_EMAIL: 'ses',
+        EMAIL_PROVIDER: JSON.stringify({ NAME: 'resend', API_KEY: 're_test' }),
+      });
+      expect(deps.emailSender).toBeInstanceOf(ResendEmailSender);
+    });
+
+    it('honors NAME case-insensitively', () => {
+      const deps = getAuthDeps({
+        EMAIL_PROVIDER: JSON.stringify({ NAME: 'RESEND', API_KEY: 're_x' }),
+      });
+      expect(deps.emailSender).toBeInstanceOf(ResendEmailSender);
+    });
+
+    it('selects SES from EMAIL_PROVIDER NAME=ses', () => {
+      const deps = getAuthDeps({
+        EMAIL_PROVIDER: JSON.stringify({ NAME: 'ses' }),
+        SES_FROM_ADDRESS: 'noreply@octavlearning.com',
+      });
+      expect(deps.emailSender).toBeInstanceOf(SesEmailSender);
+    });
+
+    it('requires API_KEY when NAME is resend', () => {
+      expect(() =>
+        getAuthDeps({ EMAIL_PROVIDER: JSON.stringify({ NAME: 'resend' }) })
+      ).toThrow(/EMAIL_PROVIDER.API_KEY/);
+    });
+
+    it('fails closed on malformed JSON', () => {
+      expect(() => getAuthDeps({ EMAIL_PROVIDER: '{not json' })).toThrow(/valid single-line JSON/);
+    });
+
+    it('fails closed on an unknown NAME', () => {
+      expect(() =>
+        getAuthDeps({ EMAIL_PROVIDER: JSON.stringify({ NAME: 'mailgun' }) })
+      ).toThrow(/EMAIL_PROVIDER.NAME/);
+    });
+
+    it('falls back to AUTH_EMAIL when EMAIL_PROVIDER is unset or "{}"', () => {
+      expect(getAuthDeps({}).emailSender).toBeInstanceOf(DummyEmailSender);
+      expect(
+        getAuthDeps({ EMAIL_PROVIDER: '{}', AUTH_EMAIL: 'dummy' }).emailSender
+      ).toBeInstanceOf(DummyEmailSender);
+      expect(() => getAuthDeps({ EMAIL_PROVIDER: '{}', AUTH_EMAIL: 'ses' })).toThrow(/SES_FROM_ADDRESS/);
+    });
+
+    it('refuses NAME=dummy inside a Lambda without the opt-in', () => {
+      expect(() =>
+        getAuthDeps({
+          AWS_LAMBDA_FUNCTION_NAME: 'iblearn-auth',
+          EMAIL_PROVIDER: JSON.stringify({ NAME: 'dummy' }),
+        })
+      ).toThrow(/refusing dummy wiring/);
+    });
   });
 
   describe('fail-closed dummy wiring in AWS Lambda (M1)', () => {

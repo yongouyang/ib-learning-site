@@ -116,6 +116,13 @@ variable "ses_from_address" {
   default     = "noreply@octavlearning.com"
 }
 
+variable "email_provider" {
+  description = "Email provider JSON {\"NAME\":\"resend|ses|dummy\",\"API_KEY\":\"...\"} set via the EMAIL_PROVIDER repo secret (single-line, straight quotes). \"{}\" = fall back to the AUTH_EMAIL base wiring (ses)."
+  type        = string
+  default     = "{}"
+  sensitive   = true
+}
+
 variable "auth_env" {
   description = "Auth Lambda env overrides via CI TF_VAR_auth_env (AUTH_ENV secret); empty = base wiring below."
   type        = map(string)
@@ -225,6 +232,7 @@ module "auth_api" {
       AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
       AUTH_SES_REGION        = "ap-southeast-1"
       SES_FROM_ADDRESS       = var.ses_from_address
+      EMAIL_PROVIDER         = var.email_provider
     },
     var.auth_env,
   )

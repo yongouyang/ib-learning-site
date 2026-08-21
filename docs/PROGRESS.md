@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-21 — Email provider swap: SES → Resend (post-denial)
+Git HEAD: `084004b` (develop, tree dirty: Resend swap uncommitted)
+Done: SES production access was denied twice, so OTP delivery is provider-swapped to **Resend** (option b, PROGRESS.md 2026-08-18). Code: new `src/lib/auth/resend-sender.ts` (`ResendEmailSender`, one `POST api.resend.com/emails`, injected `fetch` — no new dependency); templates extracted to `src/lib/auth/otp-email.ts` (shared with `ses-sender.ts`); `src/lib/auth/deps.ts` parses `EMAIL_PROVIDER` `{"NAME":"resend|ses|dummy","API_KEY":"..."}` (precedence over `AUTH_EMAIL`, fail-closed on malformed JSON/unknown NAME). Plumbing: terraform `email_provider` var + `EMAIL_PROVIDER` Lambda env (`terraform/envs/prod/main.tf`); CI `TF_VAR_email_provider: secrets.EMAIL_PROVIDER` in both deploy jobs. Docs updated: AGENTS.md (deploy/CI/CD/accounts bullets), architecture-evolution-plan §6.5/B3/Q7, future-tech-stack-evolution. SES sandbox + `terraform/modules/ses` kept dormant; re-appeal submitted.
+Verified: npm test **744/744** (+11: 3 resend-sender, 8 EMAIL_PROVIDER deps), tsc clean, eslint clean, terraform fmt/validate clean, read-only plan shows only the auth Lambda env update + provisioner re-run (+ known FEEDBACK_ENV artifact), `npm run build:lambda` all 4 zips. Resend domain verified + 2 test emails delivered (user, Gmail + second address).
+Next: (1) commit/push develop → deploy-dev applies `EMAIL_PROVIDER` → verify OTP to Gmail+Hotmail on dev → promote main. (2) tighten CI smoke 200/429/502 → strict 200/429 once Resend verified. (3) track SES re-appeal outcome (flip secret to `{"NAME":"ses"}` or `{}` to fall back). (4) prior queue: topic ordering, Phase A A4.
+Notes: `EMAIL_PROVIDER` secret convention = single-line JSON straight quotes (AGENTS.md). From-address reuses `SES_FROM_ADDRESS` (`noreply@octavlearning.com`). No local terraform apply (CI-only). Resend free tier 3,000/mo covers OTP volume.
+
+---
+
 ## 2026-08-21 — StudyNoteBody: Markdown pipe tables render as real `<table>`
 Git HEAD: `9bad944` (develop, tree dirty: component + tests + .gitignore uncommitted)
 Done: closed the 2026-08-20 finding — `src/components/StudyNoteBody.tsx` now detects a pipe-table block (header `| a | b |` + separator `^\|[\s:|-]+\|$` + body rows) and renders a real `<table>` (`<thead><th>` / `<tbody><td>`), consumed in one pass via `splitTableRow`/`isTableSeparator` helpers. Cells go through `renderInlineMath` (bold + inline KaTeX preserved); ragged rows are padded/truncated to the header width; a `|` line with no separator falls through to the paragraph branch. Styling: `overflow-x-auto` wrapper, `w-full border-collapse text-sm`, `border-gray-200 dark:border-gray-700`, header `bg-gray-50 dark:bg-gray-800 font-semibold`, body `text-gray-700 dark:text-gray-300 align-top`. Added 5 tests to `tests/unit/study-note-body.test.tsx`; added `/ux-screenshots/` to `.gitignore`. No content changes.
