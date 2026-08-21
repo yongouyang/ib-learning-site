@@ -46,3 +46,53 @@ describe('StudyNoteBody ** bold', () => {
     expect(html).toContain('**unclosed');
   });
 });
+
+describe('StudyNoteBody Markdown pipe tables', () => {
+  const count = (html: string, tag: string) => (html.match(new RegExp(tag, 'g')) || []).length;
+
+  it('renders a 3-column vocab table as <table> with <th> headers and one <td> per body cell', () => {
+    const body = '| Chinese | Pinyin | English |\n|---|---|---|\n| 你好 | nǐ hǎo | hello |\n| 您好 | nín hǎo | hello (polite) |';
+    const html = renderToStaticMarkup(createElement(StudyNoteBody, { body }));
+    expect(html).toContain('<table');
+    expect(html).toContain('<thead>');
+    expect(html).toContain('<tbody>');
+    expect(count(html, '<th[\\s>]')).toBe(3);
+    expect(count(html, '<td[\\s>]')).toBe(6);
+    expect(html).not.toContain('|');
+    expect(html).not.toContain('---');
+  });
+
+  it('renders **bold** and inline $...$ inside table cells', () => {
+    const body = '| Term | Meaning |\n|---|---|\n| **coefficient** | number multiplying $x$ |';
+    const html = renderToStaticMarkup(createElement(StudyNoteBody, { body }));
+    expect(html).toContain('<table');
+    expect(html).toContain('>coefficient</strong>');
+    expect(html).toContain('katex');
+    expect(html).not.toContain('**');
+  });
+
+  it('keeps content before and after the table as paragraphs', () => {
+    const body = 'Intro paragraph\n\n| A | B |\n|---|---|\n| 1 | 2 |\n\nOutro paragraph';
+    const html = renderToStaticMarkup(createElement(StudyNoteBody, { body }));
+    expect(html).toContain('<p');
+    expect(html).toContain('Intro paragraph');
+    expect(html).toContain('Outro paragraph');
+    expect(html).toContain('<table');
+  });
+
+  it('treats a | line without a separator row as a plain paragraph fallback', () => {
+    const body = '| a | b |\nnot a separator';
+    const html = renderToStaticMarkup(createElement(StudyNoteBody, { body }));
+    expect(html).not.toContain('<table');
+    expect(html).toContain('| a | b |');
+  });
+
+  it('handles ragged rows (fewer/more cells than the header) without crashing', () => {
+    const body = '| A | B | C |\n|---|---|---|\n| 1 | 2 |\n| 3 | 4 | 5 | 6 |';
+    const html = renderToStaticMarkup(createElement(StudyNoteBody, { body }));
+    expect(html).toContain('<table');
+    // Both body rows render 3 cells: the short row is padded, the extra 4th cell is ignored.
+    expect(count(html, '<td[\\s>]')).toBe(6);
+    expect(html).not.toContain('>6<');
+  });
+});

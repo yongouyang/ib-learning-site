@@ -3,6 +3,22 @@
 import MathExpression from './MathExpression';
 import { renderInlineMath } from './InlineMath';
 
+// Splits a pipe-table row (already trimmed; starts and ends with '|') into its
+// trimmed cell strings. A trailing empty cell (e.g. "...||") is dropped here and
+// recovered by the renderer's `row[ci] ?? ''` padding.
+function splitTableRow(line: string): string[] {
+  return line
+    .slice(1, -1)
+    .split('|')
+    .map((cell) => cell.trim());
+}
+
+// True when a trimmed line is a valid Markdown table separator row: cells made
+// only of '-', ':', spaces and the inner '|' separators (e.g. "|---|---|---|").
+function isTableSeparator(line: string | undefined): boolean {
+  return !!line && /^\|[\s:|-]+\|$/.test(line.trim());
+}
+
 export default function StudyNoteBody({ body }: { body: string }) {
   const lines = body.split('\n');
   const elements: React.ReactNode[] = [];
@@ -97,6 +113,57 @@ export default function StudyNoteBody({ body }: { body: string }) {
       if (listType !== 'ol') flushList();
       listType = 'ol';
       currentList.push(numberedMatch[2]);
+      continue;
+    }
+
+    // Markdown pipe table: header line | a | b | immediately followed by a
+    // separator row |---|---|, then zero or more body rows | ... |. Consume the
+    // whole block here. A | line with no valid separator falls through to the
+    // default paragraph branch (never crashes, never drops content).
+    if (trimmed.startsWith('|') && trimmed.endsWith('|') && isTableSeparator(lines[i + 1])) {
+      flushList();
+      const headerCells = splitTableRow(trimmed);
+      const bodyRows: string[][] = [];
+      let j = i + 2;
+      while (j < lines.length) {
+        const row = lines[j].trim();
+        if (!row.startsWith('|') || !row.endsWith('|')) break;
+        bodyRows.push(splitTableRow(row));
+        j++;
+      }
+      elements.push(
+        <div key={`table-${key++}`} className="my-2 overflow-x-auto">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr>
+                {headerCells.map((cell, ci) => (
+                  <th
+                    key={ci}
+                    className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-left font-semibold text-gray-900 dark:text-gray-100"
+                  >
+                    {renderInlineMath(cell)}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {bodyRows.map((row, ri) => (
+                <tr key={ri}>
+                  {headerCells.map((_, ci) => (
+                    <td
+                      key={ci}
+                      className="border border-gray-200 dark:border-gray-700 px-2 py-1 align-top text-left text-gray-700 dark:text-gray-300"
+                    >
+                      {renderInlineMath(row[ci] ?? '')}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+      i = j - 1;
       continue;
     }
 
