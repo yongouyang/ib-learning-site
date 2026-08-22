@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-22 — Analytics A8: docs check-off
+Git HEAD: `3e5deba` (develop, tree dirty)
+Done: Phase A marked complete in the docs. `docs/architecture-evolution-plan.md` §7 Phase A checklist rows A0–A8 now ✅ with verification evidence (test counts, e2e results, plan summary, deploy date); `docs/phase-a-analytics-plan.md` status header → "✅ Complete (2026-08-22)"; AGENTS.md analytics bullet gains the dummy-able note + the `X-Forwarded-Host` host-split note. All gates (build:lambda 4 zips, npm test 745/745, tsc/eslint/build, e2e 613 passed, terraform fmt/validate/plan) were verified in the A5/A6/A7 + host-fix sessions — this change is docs-only.
+Verified: docs-only — no gates re-run (markdown edits only).
+Next: (1) promote `main` when ready → prod analytics + dashboard; watch the dev/prod "Traffic split" after real traffic. (2) standing queue: WAF on both distros, durable `/api/progress/sync` rate limit, CI smoke tighten 200|429|502→200|429, topic ordering, SES re-appeal outcome.
+Notes: analytics is now fully shipped (A0–A8) on dev.
+
+---
+
 ## 2026-08-22 — Fix analytics host attribution (dev/prod traffic split)
 Git HEAD: `cc07ce5` (develop, tree dirty)
 Done: `src/lib/analytics/http-handler.ts` now stores the ORIGINAL viewer host from the `X-Forwarded-Host` header instead of `requestUrl.hostname`. CloudFront's `/api/*` origin request policy (managed `AllViewerExceptHostHeader`, `b689b0a8-…`) rewrites `Host` to the Function URL origin domain — the old code would have stored the SAME analytics-Lambda domain for both `dev.octavlearning.com` and `octavlearning.com`, collapsing the dashboard's "Traffic split" (`hosts` aggregate) into one row. Fallback unchanged for direct Function URL hits / the dev Next route. Regression test added (`analytics-http-handler.test.ts` — x-forwarded-host wins).

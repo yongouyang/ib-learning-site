@@ -1,6 +1,6 @@
 # Phase A — Analytics: custom Lambda + DynamoDB (self-hosted, AWS)
 
-> **Status:** Approved direction (2026-08-16). Implementation delegated per-phase (A0, A1, …) via prompts — see "Implementation prompts" at the bottom.
+> **Status:** ✅ Complete (2026-08-22) — A0–A8 implemented, tested, deployed to DEV and verified live (dashboard confirmed by the user). See `docs/PROGRESS.md` 2026-08-22 entries (A4 instrumentation, A5/A6/A7 dashboard+terraform+e2e, host-split fix). The "Implementation prompts" below were the per-phase execution plans.
 > Companion to `architecture-evolution-plan.md` §5 (Analytics Architecture) — this document **supersedes §5.2/§5.6's Umami framing** (Umami requires PostgreSQL/MySQL; it cannot run on Lambda + DynamoDB).
 
 ## Locked decisions (2026-08-16)

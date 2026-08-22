@@ -823,15 +823,15 @@ Phase D: Leaderboard (Feature 3)   ← depends on auth + progress
 
 | Step | What | Risk | Verify |
 |------|------|------|-------|
-| A0 | Docs reconciliation: §5/§7 corrected to the custom-build decision (this checklist) | None | Markdown consistent; this doc points at the plan |
-| A1 | Shared analytics module `src/lib/analytics/` (types, dummy, DynamoDB adapter, http-handler, deps) | Low | Unit tests incl. dummy↔DynamoDB parity |
-| A2 | Next routes + `lambda/analytics` + build-lambdas (4th zip) + serve-static delegation | Low | build:lambda green |
-| A3 | Client `src/lib/analytics.ts` + `AnalyticsTracker` (page views; DNT no-op) | Low | Unit tests (sendBeacon, session id lifecycle) |
-| A4 | Instrument the §5.3 taxonomy at each call site | Low | e2e intercepts /api/analytics/event |
-| A5 | `/admin/analytics` dashboard (summary fetch, 7/30/90-day toggle) | Low | e2e admin/403/logged-out states |
-| A6 | Terraform: `octav-analytics-events` table + `analytics_api` module + `/api/analytics/*` behavior | Medium (infra) | fmt/validate; CI apply |
-| A7 | Tests (unit + `tests/e2e/analytics.spec.ts`) | Low | npm test + e2e green |
-| A8 | Gates + docs: build:lambda (4 zips), AGENTS.md bullet, plan rows checked | Low | Full gates |
+| A0 ✅ | Docs reconciliation: §5/§7 corrected to the custom-build decision (this checklist) | None | Markdown consistent; this doc points at the plan; plan status updated |
+| A1 ✅ | Shared analytics module `src/lib/analytics/` (types, dummy, DynamoDB adapter, http-handler, deps) | Low | Unit tests incl. dummy↔DynamoDB parity (analytics-types/dummy/ddb/parity/handler/deps/routes) |
+| A2 ✅ | Next routes + `lambda/analytics` + build-lambdas (4th zip) + serve-static delegation | Low | build:lambda green (4 zips); analytics-routes tests |
+| A3 ✅ | Client `src/lib/analytics.ts` + `AnalyticsTracker` (page views; DNT no-op) | Low | analytics-client (12) + analytics-tracker (5) unit tests; e2e page_view on navigation |
+| A4 ✅ | Instrument the §5.3 taxonomy at each call site (2026-08-22, commit cdb6e00) | Low | e2e intercepts /api/analytics/event — quiz flow fires quiz_started/quiz_completed |
+| A5 ✅ | `/admin/analytics` dashboard (summary fetch, 7/30/90 toggle, Tailwind-only charts) | Low | e2e admin/403/logged-out states (analytics.spec 15/15 across 3 devices) |
+| A6 ✅ | Terraform: `octav-analytics-events` table + `analytics_api` module + `/api/analytics/*` behavior (both distros) | Medium (infra) | fmt/validate clean; read-only plan 9 add / 6 change / 0 destroy; deployed 2026-08-22 — dashboard verified live by user |
+| A7 ✅ | Tests (unit + `tests/e2e/analytics.spec.ts`) | Low | npm test 745/745; analytics spec 15/15; full e2e suite 613 passed / 41 skipped |
+| A8 ✅ | Gates + docs: build:lambda (4 zips), AGENTS.md analytics bullet, plan rows checked | Low | Full gates green (tsc/eslint/build/terraform/e2e) |
 
 **Doesn't break anything:** the static export, PWA, and offline UX are unchanged. Analytics events are fire-and-forget (sendBeacon doesn't block); offline events drop (no queue — accepted).
 
