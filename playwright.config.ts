@@ -83,6 +83,14 @@ export default defineConfig({
       AUTH_STORAGE: 'dummy',
       AUTH_EMAIL: 'dummy',
       AUTH_TEST_MODE: '1',
+      // Phase A (analytics): analytics runs against the in-memory dummy storage
+      // (shared universe with auth, so the dummy-OTP session resolves for
+      // /summary); the admin allowlist makes admin@example.com authorized.
+      // PROGRESS_STORAGE is pinned explicitly for hermeticity (progress deps
+      // default to dummy anyway — same shared universe).
+      ANALYTICS_STORAGE: 'dummy',
+      ANALYTICS_ADMIN_EMAILS: 'admin@example.com',
+      PROGRESS_STORAGE: 'dummy',
     },
   },
 });

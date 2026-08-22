@@ -208,3 +208,77 @@ Notes:
 
 Verification (all must pass): npm run build:lambda → FOUR zips (feedback, auth, progress, analytics); npm test green; npx tsc --noEmit clean; npx eslint on changed files 0 errors. Manual smoke: npm run dev, then `curl -s -o /dev/null -w "%{http_code}" -X POST localhost:<port>/api/analytics/event -H 'content-type: application/json' -d '{"name":"page_view","props":{},"url":"http://localhost/","sessionId":"s1","clientTs":"<now ISO>"}'` → 204, and `curl localhost:<port>/api/analytics/_health` → {"ok":true} (dummy mode, zero AWS). Then add the PROGRESS.md entry (AGENTS.md format, newest at top): "2026-08-17 — Phase A A2: analytics routes + lambda/analytics + 4th zip + serve-static". Leave the tree dirty; do NOT commit. Report files changed + smoke results.
 ```
+
+### A5 prompt (for DeepSeek)
+
+```
+Task: Phase A (Analytics) A5 — the in-app admin dashboard at /admin/analytics. Read docs/phase-a-analytics-plan.md FIRST (A5 section + "API surface" + "Event schema" summary shape), plus AGENTS.md and the top 2 entries of docs/PROGRESS.md. Work on develop (A1–A4 are merged — the A4 instrumentation just landed, commit cdb6e00). This is a CLIENT page only; the /api/analytics/summary endpoint already exists (A1/A2) and needs NO backend change.
+
+Scope: ONE new file, src/app/admin/analytics/page.tsx — a static-export-compatible client page. NO terraform, NO lambda, NO nav entry, NO new dependencies (charts are plain Tailwind divs — no chart library).
+
+How the endpoint works (read src/lib/analytics/http-handler.ts handleAnalyticsSummary to confirm): GET /api/analytics/summary?days=7|30|90 (default 30; other values → 400). It requires a session (401 when none) AND the session user's email ∈ ANALYTICS_ADMIN_EMAILS comma-separated allowlist (403 otherwise). On success it returns the AnalyticsSummary shape from src/lib/analytics/types.ts:
+  { days: number, dailySeries: Record<eventName, Record<'YYYY-MM-DD', count>>, topPages: {path,count}[], topReferrers: {referrer,count}[], totals: Record<eventName, count>, hosts: Record<host, count> }
+The response ALSO sets a Set-Cookie (session refresh), so fetch MUST use credentials:'same-origin' (mirror src/lib/auth-client.ts, which uses `fetch(url, { credentials: 'same-origin' })`).
+
+Auth state (src/context/AuthContext.tsx): the hook exposes `{ user, loaded }` — `loaded` is the flag (NOT "authLoaded"; the plan's "waits for authLoaded" is loose wording). Mirror src/app/account/page.tsx's guard exactly: `if (!loaded) return null; if (!user) <sign-in prompt linking to /login>`. On a 403 response body `{error:'Not authorized.'}`, render a friendly "You don't have access to analytics." state (do NOT auto-redirect). On 401 render the sign-in prompt. Any other fetch/network failure → a small "Couldn't load analytics." error with a Retry button.
+
+Page behavior:
+1. Days toggle: three buttons 7 / 30 / 90 (default 30), refetching summary?days=N on change; show the active one as pressed. Keep the previous data on screen while refetching (no full-screen skeleton flash — a subtle "loading" affordance only).
+2. Render, top to bottom, all Tailwind-only (max-w-2xl card layout matching the account page; text-sm; every color class needs a dark: variant):
+   a. Header + the days toggle.
+   b. "Traffic by day" — for the `page_view` series, a CSS bar chart: a flex row of bars, one per date in ascending order, height proportional to count (divs, max height ~160px), date labels under bars. Empty series → "No page views in this window." This is the "how many visits" answer.
+   c. "Sign-ups" stat — the `auth_login_completed` total for the window (read from totals), shown as a number next to a label. (Registrations = auth_login_completed; auth_otp_requested is requests, not accounts.)
+   d. "Events" table — totals per event name, sorted desc (label each name human-readably, e.g. `quiz_completed` → "Quiz completed").
+   e. "Top pages" — topPages list (path + count), and "Top referrers" — topReferrers list.
+   f. "Traffic split" — hosts map (prod vs dev origin), one line per host with its count.
+3. Accessibility: single <h1>; the bar chart is decorative (aria-hidden) with an adjacent visually-hidden/visible summary of the same numbers; use <table> with <thead> for the events list; buttons have aria-pressed for the toggle.
+
+Notes:
+- AnalyticsTracker (src/components/AnalyticsTracker.tsx) already skips /admin/* paths — no page_view pollution, no change needed.
+- /admin/analytics is a fixed path (no generateStaticParams) — the static export prerenders it as a client page; the data loads client-side after auth, so this is fine.
+- There is NO existing /admin directory — create it. Do NOT add it to Nav (direct URL only, per the plan).
+
+Verification (all must pass): npx tsc --noEmit clean; npx eslint src/app/admin/analytics/page.tsx 0 errors; npm run build green (the static export must include /admin/analytics without error). Optional manual smoke: `ANALYTICS_ADMIN_EMAILS=you@example.com AUTH_STORAGE=dummy AUTH_EMAIL=dummy AUTH_TEST_MODE=1 npm run dev`, sign in with that email (dummy code 123456), visit /admin/analytics, confirm the dashboard renders (seed some events first by browsing + taking a quiz; page_view/quiz_completed should appear). Then add the PROGRESS.md entry (newest at top): "2026-08-22 — Phase A A5: /admin/analytics dashboard". Leave the tree dirty; do NOT commit. Report the file created + verification results.
+```
+
+### A6 prompt (for DeepSeek)
+
+```
+Task: Phase A (Analytics) A6 — deploy the analytics Lambda + table + CloudFront behavior (terraform only, mirrors progress_api). Read docs/phase-a-analytics-plan.md FIRST (A6 section + architecture diagram + "Notes & accepted trade-offs"), plus AGENTS.md (Terraform bullet: NO local terraform apply — CI-only; local fmt/validate/plan are OK; AWS_PROFILE=ib-learning-site) and the top 2 PROGRESS.md entries. Work on develop (A1–A5 merged). The A1/A2 code already exists and needs NO change — this is purely terraform + CI wiring.
+
+Pattern sources (copy these exactly — same structure, names, comments):
+- terraform/modules/progress_api/main.tf — the module template for analytics_api (Lambda + Function URL + least-privilege IAM + logs + the aws_lambda_permission.function_url + terraform_data provisioner with triggers_replace = <lambda>.last_modified convention). KEEP the provisioner block verbatim; it is the established convention (round 3, matches deployed state).
+- terraform/modules/dynamodb/main.tf — where the new table lands; copy the rate_limits table block as the shape reference.
+- terraform/modules/site/main.tf — the progress origin block (variable + origin, ~lines 25–36, 254–266) and the /api/progress/* ordered_cache_behavior (~lines 290–305); copy both for analytics.
+- terraform/envs/prod/main.tf — the module "progress_api" call (~lines 244–270) + the two site module calls' progress_origin_domain wiring (~lines 281, 295).
+- .github/workflows/ci.yml — TF_VAR_progress_env + the progress smoke step; mirror for analytics.
+
+Env vars the analytics Lambda consumes (from src/lib/analytics/deps.ts — read it to confirm): ANALYTICS_STORAGE ("dynamodb"), AUTH_USERS_TABLE, AUTH_SESSIONS_TABLE, ANALYTICS_TABLE (the events table), AUTH_RATE_LIMITS_TABLE, ANALYTICS_ADMIN_EMAILS. Region uses AUTH_DYNAMODB_REGION ?? AWS_REGION ?? ap-east-1 (no extra var needed — the Lambda runs in ap-east-1).
+
+IAM (least-privilege, mirror progress_api's per-statement style; derive actions from src/lib/analytics/dynamodb-storage.ts):
+- octav-analytics-events table: dynamodb:PutItem (raw event), dynamodb:UpdateItem (aggregate ADD upserts), dynamodb:Query (getSummary over k="agg" AND the _health Limit-1 probe). No GetItem/DeleteItem/Scan. No GSI (single table, PK k + SK s) — no /index/* grant needed.
+- octav-rate-limits table: dynamodb:UpdateItem ONLY (incrementAnalyticsEventCount bucket).
+- octav-users table: dynamodb:GetItem ONLY (session validation getUserById).
+- octav-sessions table: dynamodb:GetItem + dynamodb:UpdateItem + dynamodb:DeleteItem (resolveSession — same as progress_api).
+
+Changes:
+1. terraform/modules/dynamodb/main.tf: add resource "aws_dynamodb_table" "analytics_events" — name "${var.name_prefix}-analytics-events", PAY_PER_REQUEST, hash_key "k" (S), range_key "s" (S), ttl { attribute_name = "expiresAt"; enabled = true }. Add outputs analytics_events_table_name and analytics_events_table_arn (mirror the existing output style).
+2. terraform/modules/analytics_api/main.tf (NEW): copy progress_api and adapt — resource/role/log-group names "iblearn-analytics" (name_prefix var, default "iblearn"); zip_path to the analytics zip; variables users_table_arn, sessions_table_arn, analytics_events_table_arn, rate_limits_table_arn, cors_allow_origins, reserved_concurrent_executions (default null, same quota note), environment (map, sensitive). The data-policy statements as specified above. Lambda function_name "${var.name_prefix}-analytics", runtime nodejs24.x, arm64, 256 MB, timeout 10, handler index.handler, source_code_hash filebase64sha256(zip_path). Function URL CORS allow_methods ["GET","POST"], allow_headers ["content-type"]. Outputs function_url + function_url_domain + function_name (mirror progress). Comment header notes CloudFront routes /api/analytics/* here and that dev/e2e uses the Next routes.
+3. terraform/modules/site/main.tf: add variable "analytics_origin_domain" (default ""), an origin block for it (copy the progress origin), and an ordered_cache_behavior with path_pattern "/api/analytics/*" target_origin_id "lambda-analytics" — placed BEFORE the /api/* behavior (ordered behaviors are matched top-down; the comment in the auth/progress blocks explains this). Cached GET/HEAD only, cache policy caching-disabled, origin request all-except-host (copy the progress block verbatim, changing the names).
+4. terraform/envs/prod/main.tf:
+   a. Add variables: analytics_env (map(string), default {}, sensitive — "Analytics Lambda env overrides via CI TF_VAR_analytics_env (ANALYTICS_ENV secret); empty = base wiring below") and analytics_admin_emails (string, default "" — "Comma-separated admin email allowlist for /api/analytics/summary; set via the ANALYTICS_ADMIN_EMAILS repo variable").
+   b. Add module "analytics_api": source "../../modules/analytics_api"; zip_path analytics zip; environment = merge({ ANALYTICS_STORAGE="dynamodb", AUTH_USERS_TABLE=module.dynamodb.users_table_name, AUTH_SESSIONS_TABLE=module.dynamodb.sessions_table_name, ANALYTICS_TABLE=module.dynamodb.analytics_events_table_name, AUTH_RATE_LIMITS_TABLE=module.dynamodb.rate_limits_table_name, ANALYTICS_ADMIN_EMAILS=var.analytics_admin_emails }, var.analytics_env); users/sessions/analytics_events/rate_limits table arns; cors_allow_origins = var.site_origins. (Read the progress_api call + the site module's origin wiring to get the exact merge/ARN style.)
+   c. In BOTH site module calls (module "site" dev and module "site_prod" prod), add analytics_origin_domain = module.analytics_api.function_url_domain.
+5. .github/workflows/ci.yml — in BOTH deploy jobs' env: TF_VAR_analytics_env: ${{ secrets.ANALYTICS_ENV || '{}' }} and TF_VAR_analytics_admin_emails: ${{ vars.ANALYTICS_ADMIN_EMAILS || '' }}. Add a smoke step next to the progress/auth smoke: `GET $SITE_URL/api/analytics/_health` must return 200 (mirror the existing curl smoke's format).
+6. (Optional, defer-able) Update AGENTS.md with the analytics Lambda/behavior bullet; the smoke-200 note; and that ANALYTICS_ADMIN_EMAILS is a repo VARIABLE.
+
+Notes:
+- NO local terraform apply (CI-only rule). Local `terraform fmt -check -recursive` and `terraform validate` (in terraform/envs/prod, after `terraform init -backend=false` if needed) are the local checks; a read-only `AWS_PROFILE=ib-learning-site terraform plan` is allowed and should show: 1 table added, 1 Lambda + URL + IAM + log group added, both CloudFront distributions gain the /api/analytics/* behavior + origin. NO destroy of anything existing.
+- Do NOT add reserved_concurrent_executions (leave null — the ap-east-1 quota is 10, same as auth/progress).
+- The 4th Lambda shares the region quota; analytics ingest is the cheapest handler — no concern (plan "Notes & accepted trade-offs").
+- `npm run build:lambda` must already produce lambda/analytics/dist/analytics-lambda.zip (A2) — the zip_path references it; no new build step.
+
+Verification (all must pass before reporting done): terraform fmt -check -recursive clean; terraform validate in terraform/envs/prod clean; read-only terraform plan shows only the expected additions (and the KNOWN local-plan FEEDBACK_ENV env diff artifact — ignore it); npm run build:lambda (4 zips); npm test still green (no code change, sanity only). Do NOT apply, do NOT commit — leave the tree dirty for user review and CI deploy on push. Add a PROGRESS.md entry (newest at top): "2026-08-22 — Phase A A6: analytics terraform (table + Lambda + /api/analytics/* behavior)". Report exact resources added + plan summary.
+```
+
+

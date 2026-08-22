@@ -137,6 +137,34 @@ resource "aws_dynamodb_table" "rate_limits" {
   }
 }
 
+# --- octav-analytics-events ---------------------------------------------------
+# Phase A analytics (docs/phase-a-analytics-plan.md): single table, two item
+# kinds (PK `k`, SK `s`): raw events (k="ev", s="<date>#<ts>#<uuid>", TTL
+# now+90d) and daily aggregate counters (k="agg", s="<date>#<kind>#<key>",
+# TTL now+400d). The ingest rate budget shares octav-rate-limits (fixed-window
+# bucket pattern) — no GSI: the dashboard reads one bounded Query on k="agg".
+resource "aws_dynamodb_table" "analytics_events" {
+  name         = "${var.name_prefix}-analytics-events"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "k"
+  range_key    = "s"
+
+  attribute {
+    name = "k"
+    type = "S"
+  }
+
+  attribute {
+    name = "s"
+    type = "S"
+  }
+
+  ttl {
+    attribute_name = "expiresAt"
+    enabled        = true
+  }
+}
+
 # --- Outputs (table names + ARNs for the phase Lambdas' env vars) ---------------
 
 output "users_table_name" {
@@ -187,4 +215,14 @@ output "rate_limits_table_name" {
 output "rate_limits_table_arn" {
   description = "octav-rate-limits table ARN."
   value       = aws_dynamodb_table.rate_limits.arn
+}
+
+output "analytics_events_table_name" {
+  description = "octav-analytics-events table name."
+  value       = aws_dynamodb_table.analytics_events.name
+}
+
+output "analytics_events_table_arn" {
+  description = "octav-analytics-events table ARN."
+  value       = aws_dynamodb_table.analytics_events.arn
 }

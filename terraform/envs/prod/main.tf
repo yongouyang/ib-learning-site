@@ -137,6 +137,19 @@ variable "progress_env" {
   sensitive   = true
 }
 
+variable "analytics_env" {
+  description = "Analytics Lambda env overrides via CI TF_VAR_analytics_env (ANALYTICS_ENV secret); empty = base wiring below."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
+variable "analytics_admin_emails" {
+  description = "Comma-separated admin email allowlist for GET /api/analytics/summary. Set via the ANALYTICS_ADMIN_EMAILS repo variable (not a secret — it is an allowlist, not a credential)."
+  type        = string
+  default     = ""
+}
+
 # ACM cert for octavlearning.com (apex + www), DNS-validated. Lives at the
 # root (not the site module) so only the PROD site instance references it —
 # the DEV distribution keeps the CloudFront default cert. Validated via two
@@ -268,6 +281,37 @@ module "progress_api" {
   )
 }
 
+# Analytics API (Phase A — docs/phase-a-analytics-plan.md): the ingest/summary
+# Lambda. Consumes the analytics events table + the shared rate-limits table
+# (ingest budget) + users/sessions (summary session validation). Base wiring
+# below always selects the real dynamodb implementation; var.analytics_env (CI
+# ANALYTICS_ENV secret) can override/add — leave it empty to use these
+# defaults. ANALYTICS_ADMIN_EMAILS comes from the repo variable (set in CI).
+module "analytics_api" {
+  source = "../../modules/analytics_api"
+
+  zip_path = "${path.module}/../../../lambda/analytics/dist/analytics-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  users_table_arn            = module.dynamodb.users_table_arn
+  sessions_table_arn         = module.dynamodb.sessions_table_arn
+  analytics_events_table_arn = module.dynamodb.analytics_events_table_arn
+  rate_limits_table_arn      = module.dynamodb.rate_limits_table_arn
+
+  environment = merge(
+    {
+      ANALYTICS_STORAGE      = "dynamodb"
+      ANALYTICS_TABLE        = module.dynamodb.analytics_events_table_name
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+      ANALYTICS_ADMIN_EMAILS = var.analytics_admin_emails
+    },
+    var.analytics_env,
+  )
+}
+
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
 # /api/* proxy behavior to the feedback Lambda. Custom domain: the
 # dev.octavlearning.com alias with its dedicated ACM cert (round 2 of the
@@ -276,11 +320,12 @@ module "progress_api" {
 module "site" {
   source = "../../modules/site"
 
-  feedback_origin_domain = module.feedback_api.function_url_domain
-  auth_origin_domain     = module.auth_api.function_url_domain
-  progress_origin_domain = module.progress_api.function_url_domain
-  domain_names           = ["dev.octavlearning.com"]
-  acm_certificate_arn    = aws_acm_certificate.dev.arn
+  feedback_origin_domain  = module.feedback_api.function_url_domain
+  auth_origin_domain      = module.auth_api.function_url_domain
+  progress_origin_domain  = module.progress_api.function_url_domain
+  analytics_origin_domain = module.analytics_api.function_url_domain
+  domain_names            = ["dev.octavlearning.com"]
+  acm_certificate_arn     = aws_acm_certificate.dev.arn
 }
 
 # PROD: separate bucket + distribution fronting octavlearning.com (apex + www
@@ -289,13 +334,14 @@ module "site" {
 module "site_prod" {
   source = "../../modules/site"
 
-  name_prefix            = "iblearn-prod"
-  feedback_origin_domain = module.feedback_api.function_url_domain
-  auth_origin_domain     = module.auth_api.function_url_domain
-  progress_origin_domain = module.progress_api.function_url_domain
-  domain_names           = ["octavlearning.com", "www.octavlearning.com"]
-  acm_certificate_arn    = aws_acm_certificate.site.arn
-  redirect_from_host     = "www.octavlearning.com"
+  name_prefix             = "iblearn-prod"
+  feedback_origin_domain  = module.feedback_api.function_url_domain
+  auth_origin_domain      = module.auth_api.function_url_domain
+  progress_origin_domain  = module.progress_api.function_url_domain
+  analytics_origin_domain = module.analytics_api.function_url_domain
+  domain_names            = ["octavlearning.com", "www.octavlearning.com"]
+  acm_certificate_arn     = aws_acm_certificate.site.arn
+  redirect_from_host      = "www.octavlearning.com"
 }
 
 # GitHub Actions OIDC provider + deploy role — short-lived tokens only,
