@@ -117,7 +117,13 @@ export async function handleAnalyticsEvent(
     props: event.props as Record<string, unknown>,
     urlPath: normalizeUrlPath(event.url),
     referrer: normalizeReferrer(event.referrer),
-    host: requestUrl.hostname,
+    // CloudFront's /api/* origin request policy (AllViewerExceptHostHeader)
+    // rewrites `Host` to the origin (Function URL) domain and preserves the
+    // ORIGINAL viewer host in `X-Forwarded-Host` — read that so the dev
+    // (dev.octavlearning.com) vs prod (octavlearning.com) traffic split stays
+    // real. Fallback: direct Function URL hits (origin domain) and the
+    // dev/e2e Next route (localhost).
+    host: req.headers.get('x-forwarded-host') ?? requestUrl.hostname,
     sessionId: event.sessionId,
     ua: (req.headers.get('user-agent') ?? '').slice(0, ANALYTICS_MAX_UA),
     clientTs: event.clientTs,

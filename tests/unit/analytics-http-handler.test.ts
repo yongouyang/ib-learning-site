@@ -119,6 +119,16 @@ describe('POST /api/analytics/event', () => {
     expect(summary.topReferrers).toEqual([{ referrer: 'www.google.com', count: 1 }]);
   });
 
+  it('records the ORIGINAL viewer host from x-forwarded-host (dev/prod split)', async () => {
+    // CloudFront rewrites Host to the origin and forwards the real viewer host
+    // in X-Forwarded-Host (AllViewerExceptHostHeader policy) — the stored host
+    // must be the viewer host, not the Function URL origin domain.
+    const t = makeDeps();
+    const res = await postEvent(t, envelope(), { 'x-forwarded-host': 'dev.octavlearning.com' });
+    expect(res.status).toBe(204);
+    expect(rawEvents(t.storage)[0].host).toBe('dev.octavlearning.com');
+  });
+
   it('rejects invalid envelopes with a generic 400 and records nothing', async () => {
     const t = makeDeps();
     const cases: unknown[] = [

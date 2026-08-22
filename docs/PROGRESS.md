@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-22 — Fix analytics host attribution (dev/prod traffic split)
+Git HEAD: `cc07ce5` (develop, tree dirty)
+Done: `src/lib/analytics/http-handler.ts` now stores the ORIGINAL viewer host from the `X-Forwarded-Host` header instead of `requestUrl.hostname`. CloudFront's `/api/*` origin request policy (managed `AllViewerExceptHostHeader`, `b689b0a8-…`) rewrites `Host` to the Function URL origin domain — the old code would have stored the SAME analytics-Lambda domain for both `dev.octavlearning.com` and `octavlearning.com`, collapsing the dashboard's "Traffic split" (`hosts` aggregate) into one row. Fallback unchanged for direct Function URL hits / the dev Next route. Regression test added (`analytics-http-handler.test.ts` — x-forwarded-host wins).
+Verified: npm test **745/745** (+1), tsc clean, eslint clean, `npm run build:lambda` (analytics zip rebuilt).
+Next: unchanged (A8 finish, ANALYTICS_ADMIN_EMAILS repo variable, WAF/progress rate-limit queue).
+Notes: x-forwarded-host is CloudFront-added (viewer Host) and only used for analytics attribution — spoofing it pollutes the split, not security.
+
+---
+
 ## 2026-08-22 — Analytics A5/A6 + A7 e2e: dashboard, terraform deploy, analytics e2e
 Git HEAD: `cdb6e00` (develop, tree dirty: A5/A6/A7 uncommitted)
 Done: finished Phase A — A5: `src/app/admin/analytics/page.tsx` dashboard (static client page, no chart lib — Tailwind CSS bars; 7/30/90 toggle; page_view daily chart + sign-ins stat + events table + top pages/referrers + dev/prod hosts split; 401/403/error states; single h1 via Breadcrumbs currentAsHeading). A6: terraform — `octav-analytics-events` table (PK k/SK s, TTL) + outputs; new `terraform/modules/analytics_api` (iblearn-analytics Lambda + Function URL + least-privilege IAM: events Put/Update/Query, rate-limits Update, users Get, sessions Get/Update/Delete; provisioner convention; reserved_concurrency null); site module `analytics_origin_domain` var + origin + `/api/analytics/*` behavior BEFORE `/api/*` (both distros); envs/prod `analytics_env`/`analytics_admin_emails` vars + module + both site calls; ci.yml `TF_VAR_analytics_env` + `TF_VAR_analytics_admin_emails` + `/api/analytics/_health` smoke in BOTH deploy jobs. A7 e2e: `tests/e2e/analytics.spec.ts` (page_view fires on navigation; quiz flow fires quiz_started/quiz_completed via `/api/analytics/event` interception; dashboard logged-out prompt / non-admin 403 / admin renders) + playwright config pins `ANALYTICS_STORAGE=dummy`, `ANALYTICS_ADMIN_EMAILS=admin@example.com`, `PROGRESS_STORAGE=dummy`. AGENTS.md updated (analytics handler-contract bullet; FOUR lambdas).
