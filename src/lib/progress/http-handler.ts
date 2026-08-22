@@ -1,5 +1,7 @@
 import { resolveSession } from '../auth/session';
 import {
+  PROGRESS_SYNC_LIMIT_PER_WINDOW,
+  PROGRESS_SYNC_WINDOW_SECONDS,
   TOPIC_ATTEMPTS_READ_CAP,
   syncRequestSchema,
   type ExamAttemptItem,
@@ -238,6 +240,20 @@ export async function handleProgressSync(
   const profileIds = new Set(parsed.data.events.map((e) => e.profileId));
   if (profileIds.size !== 1 || !validProfiles.has([...profileIds][0])) {
     return json({ error: 'Invalid request' }, 400);
+  }
+
+  // Durable per-user sync budget (fixed-window bucket in octav-rate-limits).
+  // Checked AFTER payload validation so a genuine 400 (the client's drop-chunk
+  // contract) is never shadowed by a 429, and BEFORE any write so an
+  // over-budget user doesn't burn write capacity. The client treats 429 as
+  // transient (backoff + retry, queue preserved) — no data is lost.
+  const allowed = await deps.storage.incrementProgressSyncCount(
+    auth.user.userId,
+    PROGRESS_SYNC_LIMIT_PER_WINDOW,
+    PROGRESS_SYNC_WINDOW_SECONDS
+  );
+  if (!allowed) {
+    return json({ error: 'Too many syncs — try again in a few minutes.' }, 429);
   }
 
   // The whole batch is validated before anything is written: a malformed

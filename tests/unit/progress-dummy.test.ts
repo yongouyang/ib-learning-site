@@ -207,3 +207,24 @@ describe('InMemoryProgressStorage — listing/deletion', () => {
     expect(await s.listProgressByUser(USER_ID)).toEqual([]);
   });
 });
+
+describe('InMemoryProgressStorage — durable sync budget', () => {
+  it('incrementProgressSyncCount enforces a fixed-window budget and resets atomically on rollover', async () => {
+    let now = Date.parse('2026-08-15T10:00:00Z');
+    const s = new InMemoryProgressStorage(() => now);
+    expect(await s.incrementProgressSyncCount('u1', 2, 600)).toBe(true);
+    expect(await s.incrementProgressSyncCount('u1', 2, 600)).toBe(true);
+    expect(await s.incrementProgressSyncCount('u1', 2, 600)).toBe(false); // budget spent
+    now += 601_000; // next fixed window → fresh bucket
+    expect(await s.incrementProgressSyncCount('u1', 2, 600)).toBe(true);
+    expect(await s.incrementProgressSyncCount('u1', 2, 600)).toBe(true);
+    expect(await s.incrementProgressSyncCount('u1', 2, 600)).toBe(false); // spent again
+  });
+
+  it('budget is per-user (a second user has their own bucket)', async () => {
+    const s = new InMemoryProgressStorage();
+    expect(await s.incrementProgressSyncCount('u1', 1, 600)).toBe(true);
+    expect(await s.incrementProgressSyncCount('u1', 1, 600)).toBe(false);
+    expect(await s.incrementProgressSyncCount('u2', 1, 600)).toBe(true);
+  });
+});

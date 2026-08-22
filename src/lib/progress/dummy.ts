@@ -20,6 +20,23 @@ import type {
 
 export class InMemoryProgressStorage extends InMemoryAuthStorage implements ProgressStorage {
   private readonly progressItems = new Map<string, ProgressItem[]>();
+  // Durable sync-budget mirror: fixed-window counter map. The clock is the
+  // BASE class's (protected, shared with the analytics dummy via the
+  // constructor chain) so one injectable clock drives every limiter.
+  private readonly syncCounters = new Map<string, number>();
+
+  async incrementProgressSyncCount(userId: string, limit: number, windowSeconds: number): Promise<boolean> {
+    // Fixed-window budget with the window epoch IN the key — the counter
+    // resets atomically when the window rolls (the previous bucket is simply
+    // never read again). Mirrors the DynamoDB bucket design.
+    const windowMs = windowSeconds * 1000;
+    const epoch = Math.floor(this.clock() / windowMs);
+    const key = `progress-sync:${userId}:${epoch}`;
+    const count = this.syncCounters.get(key) ?? 0;
+    if (count >= limit) return false;
+    this.syncCounters.set(key, count + 1);
+    return true;
+  }
 
   async listProgressByUser(userId: string): Promise<ProgressItem[]> {
     return [...(this.progressItems.get(userId) ?? [])];

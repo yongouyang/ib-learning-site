@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-22 — Durable per-user rate limit on POST /api/progress/sync
+Git HEAD: `8742e8f` (develop, tree dirty)
+Done: added a durable fixed-window per-user sync budget (**120 syncs / 10 min**, bucket `progress-sync:<userId>:<epoch>` in `octav-rate-limits`) to the sync write path. `ProgressStorage.incrementProgressSyncCount` added to DDB (one conditional UpdateCommand, TTL = window end — the auth/analytics limiter pattern) and the dummy (mirror with the SHARED injectable clock: `InMemoryAuthStorage`'s clock made `protected` so the whole auth→progress→analytics universe chain uses one clock). Handler: 429 after payload/profileId validation, BEFORE any write (client already treats 429 as transient → backoff+retry, no data loss). Terraform: `progress_api` gains `rate_limits_table_arn` + `dynamodb:UpdateItem` grant; `envs/prod` wires `AUTH_RATE_LIMITS_TABLE`. No new secret, no CI change.
+Verified: npm test **751/751** (+6: 2 DDB command shapes, 2 dummy, 1 parity across a window roll, 1 handler 429-no-write; deps missing-table case), tsc clean, eslint clean, `build:lambda` all 4 zips, terraform fmt/validate clean, read-only plan: progress IAM policy + progress Lambda env changes only (plus the known auth/analytics/feedback secret-env artifacts + 3 provisioner re-runs — all expected; 3 add / 5 change / 3 destroy).
+Next: push develop → deploy-dev applies (progress Lambda + IAM gain the rate-limits wiring). Standing queue: WAF on both distros, CI smoke tighten 200|429|502→200|429, topic ordering, SES re-appeal.
+Notes: constants `PROGRESS_SYNC_LIMIT_PER_WINDOW`/`PROGRESS_SYNC_WINDOW_SECONDS` in `src/lib/progress/types.ts`; GET /api/progress intentionally not rate-limited (authenticated read of own data).
+
+---
+
 ## 2026-08-22 — Analytics A8: docs check-off
 Git HEAD: `3e5deba` (develop, tree dirty)
 Done: Phase A marked complete in the docs. `docs/architecture-evolution-plan.md` §7 Phase A checklist rows A0–A8 now ✅ with verification evidence (test counts, e2e results, plan summary, deploy date); `docs/phase-a-analytics-plan.md` status header → "✅ Complete (2026-08-22)"; AGENTS.md analytics bullet gains the dummy-able note + the `X-Forwarded-Host` host-split note. All gates (build:lambda 4 zips, npm test 745/745, tsc/eslint/build, e2e 613 passed, terraform fmt/validate/plan) were verified in the A5/A6/A7 + host-fix sessions — this change is docs-only.

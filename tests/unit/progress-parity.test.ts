@@ -28,6 +28,7 @@ const PROFILE_ID = 'p1';
 function simulatedDdb() {
   const items = new Map<string, Record<string, unknown>>();
   const keyOf = (userId: string, dataType: string) => `${userId}\u0000${dataType}`;
+  const buckets = new Map<string, number>(); // octav-rate-limits fixed-window counters
   let queryCount = 0;
 
   const fail = () => {
@@ -60,6 +61,18 @@ function simulatedDdb() {
     }
 
     if (cmd.constructor.name === 'UpdateCommand') {
+      // Sync-budget bucket (octav-rate-limits): keyed by bucket, not
+      // userId/dataType — fixed-window counter, `attribute_not_exists(#c) OR
+      // #c < :limit`.
+      if (input.Key.bucket !== undefined) {
+        const bucket = input.Key.bucket as string;
+        const limit = input.ExpressionAttributeValues[':limit'] as number;
+        const count = buckets.get(bucket) ?? 0;
+        if (count >= limit) fail();
+        buckets.set(bucket, count + 1);
+        return {};
+      }
+
       const k = keyOf(input.Key.userId, input.Key.dataType);
 
       if ((input.UpdateExpression as string).startsWith('SET #lvls.#lvl')) {
@@ -275,7 +288,7 @@ describe('dummy ↔ DynamoDB progress parity (rule 2)', () => {
     const ddb = await runSequence(
       new DynamoProgressStorage(
         sim,
-        { users: 'u', sessions: 's', progress: 'p' },
+        { users: 'u', sessions: 's', progress: 'p', rateLimits: 'rl' },
         { getSession: async () => null, getUserById: async () => null, updateSession: async () => {}, deleteSession: async () => {} }
       )
     );
@@ -314,5 +327,48 @@ describe('dummy ↔ DynamoDB progress parity (rule 2)', () => {
       profileId: PROFILE_ID,
       courseId: 'math-y7',
     });
+  });
+});
+
+describe('sync-budget parity (dummy ↔ simulated DDB)', () => {
+  it('produces identical allow/deny sequences across a window roll', async () => {
+    const T0 = Date.parse('2026-08-15T10:00:00Z');
+    let now = T0;
+    const clock = () => now;
+    const sessionSubset = {
+      getSession: async () => null,
+      getUserById: async () => null,
+      updateSession: async () => {},
+      deleteSession: async () => {},
+    };
+
+    const dummy = new InMemoryProgressStorage(clock);
+    const ddb = new DynamoProgressStorage(
+      simulatedDdb(),
+      { users: 'u', sessions: 's', progress: 'p', rateLimits: 'rl' },
+      sessionSubset,
+      clock
+    );
+
+    const dummyResults: boolean[] = [];
+    const ddbResults: boolean[] = [];
+    const step = async (storage: ProgressStorage, out: boolean[]) => {
+      out.push(await storage.incrementProgressSyncCount(USER_ID, 3, 600));
+    };
+
+    // Window 1 (limit 3): allow, allow, allow, deny.
+    for (let i = 0; i < 4; i++) {
+      await step(dummy, dummyResults);
+      await step(ddb, ddbResults);
+    }
+    // Roll into window 2: fresh bucket → allow, allow.
+    now += 601_000;
+    for (let i = 0; i < 2; i++) {
+      await step(dummy, dummyResults);
+      await step(ddb, ddbResults);
+    }
+
+    expect(dummyResults).toEqual(ddbResults);
+    expect(dummyResults).toEqual([true, true, true, false, true, true]);
   });
 });

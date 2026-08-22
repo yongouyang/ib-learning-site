@@ -128,6 +128,19 @@ describe('POST /api/progress/sync', () => {
     expect(res.status).toBe(401);
   });
 
+  it('returns 429 when the durable per-user sync budget is spent', async () => {
+    // Stub the storage's budget check closed so the handler's 429 path is
+    // exercised deterministically (the budget semantics themselves are covered
+    // by the storage + parity tests).
+    t.storage.incrementProgressSyncCount = async () => false;
+    const profileId = user.childProfiles[0].profileId;
+    const res = await sync(syncBody([quizEvent(profileId, 'attempt-budgeted')]));
+    expect(res.status).toBe(429);
+    expect((await res.json()).error).toMatch(/Too many syncs/);
+    // The 429 fires BEFORE any write — nothing was persisted.
+    expect(await t.storage.listProgressByUser(user.userId)).toEqual([]);
+  });
+
   it('stores a quiz attempt and serves it back via GET', async () => {
     const profileId = user.childProfiles[0].profileId;
     const res = await sync(syncBody([quizEvent(profileId, 'attempt-1')]));

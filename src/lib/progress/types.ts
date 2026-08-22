@@ -101,6 +101,11 @@ export const PROGRESS_MAX_QUESTION_RESULTS = 200;
 export const PROGRESS_MAX_ID_LENGTH = 64;
 export const PROGRESS_MAX_TITLE_LENGTH = 120;
 export const TOPIC_ATTEMPTS_READ_CAP = 50; // latest 50 returned per topic (plan §3.2)
+// Durable per-user sync budget (fixed-window, octav-rate-limits): ~1 sync per
+// 5s sustained is far above any legit pattern (a session syncs a handful of
+// times; the first-login migration is a few chunked syncs).
+export const PROGRESS_SYNC_LIMIT_PER_WINDOW = 120;
+export const PROGRESS_SYNC_WINDOW_SECONDS = 600; // 10 minutes
 
 // --- Storage interface ---------------------------------------------------------
 
@@ -125,6 +130,15 @@ export interface ProgressStorage {
    * immediately.
    */
   probeProgressTable(): Promise<void>;
+
+  /**
+   * Durable fixed-window per-user sync budget (octav-rate-limits bucket
+   * `progress-sync:<userId>:<epoch>`): true = within budget, false = limit
+   * reached for the current window (the handler 429s). Same pattern as the
+   * auth/analytics limiters — the window epoch in the key makes the counter
+   * reset ATOMICALLY when the window rolls.
+   */
+  incrementProgressSyncCount(userId: string, limit: number, windowSeconds: number): Promise<boolean>;
 
   /** Atomic + idempotent: attribute_not_exists on the item SK. false = already applied. */
   putTopicAttempt(item: TopicAttemptItem): Promise<boolean>;

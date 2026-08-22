@@ -29,7 +29,7 @@ function mockClient(handler?: (cmd: CommandLike) => unknown): DynamoDBDocumentCl
   } as unknown as DynamoDBDocumentClient;
 }
 
-const TABLES = { users: 'octav-users', sessions: 'octav-sessions', progress: 'octav-progress' };
+const TABLES = { users: 'octav-users', sessions: 'octav-sessions', progress: 'octav-progress', rateLimits: 'octav-rate-limits' };
 
 function makeStorage(handler: (cmd: CommandLike) => unknown = () => ({})) {
   return new DynamoProgressStorage(mockClient(handler), TABLES, {
@@ -209,6 +209,40 @@ describe('DynamoProgressStorage — command shapes', () => {
     await s.mergeMeta(meta({ lastStudyDate: '' }));
     const fields = calls.map((c) => (c.input.ExpressionAttributeNames as Record<string, string>)['#f']);
     expect(fields).toEqual(['totalStars', 'currentStreakDays']);
+  });
+
+  it('incrementProgressSyncCount sends one conditional Update on the rate-limits bucket', async () => {
+    const calls: CommandLike[] = [];
+    const s = makeStorage((cmd) => {
+      calls.push(cmd);
+      return {};
+    });
+    expect(await s.incrementProgressSyncCount('u1', 120, 600)).toBe(true);
+    expect(calls).toHaveLength(1);
+    const cmd = calls[0];
+    expect(cmd.constructor.name).toBe('UpdateCommand');
+    expect(cmd.input).toMatchObject({
+      TableName: 'octav-rate-limits',
+      UpdateExpression: 'SET #c = if_not_exists(#c, :zero) + :inc, expiresAt = :exp',
+      ConditionExpression: 'attribute_not_exists(#c) OR #c < :limit',
+      ExpressionAttributeNames: { '#c': 'count' },
+    });
+    const values = cmd.input.ExpressionAttributeValues as Record<string, number>;
+    expect(values[':inc']).toBe(1);
+    expect(values[':limit']).toBe(120);
+    // TTL = end of the current fixed window (600s epochs).
+    expect(values[':exp']).toBe((Math.floor(Date.now() / 600_000) + 1) * 600);
+    // Bucket key is fixed-window: progress-sync:<userId>:<epoch>.
+    const bucket = (cmd.input.Key as Record<string, string>).bucket;
+    expect(bucket).toMatch(/^progress-sync:u1:\d+$/);
+  });
+
+  it('incrementProgressSyncCount returns false on a conditional failure (budget spent)', async () => {
+    const s = makeStorage((cmd) => {
+      if (cmd.constructor.name === 'UpdateCommand') throw conditionalFailure();
+      return {};
+    });
+    expect(await s.incrementProgressSyncCount('u1', 120, 600)).toBe(false);
   });
 
   it('setMigrationCompleted sends an exactly-once marker update', async () => {

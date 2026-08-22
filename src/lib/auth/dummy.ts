@@ -23,7 +23,10 @@ export class InMemoryAuthStorage implements AuthStorage {
   private readonly progressByUser = new Map<string, unknown[]>();
   private readonly otpRequests = new Map<string, number>();
 
-  constructor(private readonly clock: () => number = Date.now) {}
+  // `protected` (not private) so the progress/analytics subclasses can read
+  // the SAME clock for their fixed-window limiters — one injectable clock for
+  // the whole shared universe, no per-subclass copies.
+  constructor(protected readonly clock: () => number = Date.now) {}
 
   async getUserByEmail(email: string): Promise<UserRecord | null> {
     const userId = this.usersByEmail.get(email);

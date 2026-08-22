@@ -253,12 +253,13 @@ module "auth_api" {
 
 # Progress API (Phase C — docs/architecture-evolution-plan.md §3): the
 # cross-device sync Lambda + Function URL. Consumes the shared users/sessions/
-# progress table names/ARNs from module.dynamodb. Base wiring below always
-# selects the real dynamodb implementation; var.progress_env (CI
+# progress/rate-limits table names/ARNs from module.dynamodb. Base wiring below
+# always selects the real dynamodb implementation; var.progress_env (CI
 # PROGRESS_ENV secret) can override/add — leave it empty to use these
 # defaults. NO new secret is required: session validation + progress storage
-# both live on the same Phase 0 tables the auth Lambda already uses, so the
-# base wiring below is complete on its own.
+# both live on the same Phase 0 tables the auth Lambda already uses, and the
+# durable sync budget shares octav-rate-limits, so the base wiring below is
+# complete on its own.
 module "progress_api" {
   source = "../../modules/progress_api"
 
@@ -266,16 +267,18 @@ module "progress_api" {
 
   cors_allow_origins = var.site_origins
 
-  users_table_arn    = module.dynamodb.users_table_arn
-  sessions_table_arn = module.dynamodb.sessions_table_arn
-  progress_table_arn = module.dynamodb.progress_table_arn
+  users_table_arn       = module.dynamodb.users_table_arn
+  sessions_table_arn    = module.dynamodb.sessions_table_arn
+  progress_table_arn    = module.dynamodb.progress_table_arn
+  rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
 
   environment = merge(
     {
-      PROGRESS_STORAGE    = "dynamodb"
-      AUTH_USERS_TABLE    = module.dynamodb.users_table_name
-      AUTH_SESSIONS_TABLE = module.dynamodb.sessions_table_name
-      AUTH_PROGRESS_TABLE = module.dynamodb.progress_table_name
+      PROGRESS_STORAGE       = "dynamodb"
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      AUTH_PROGRESS_TABLE    = module.dynamodb.progress_table_name
+      AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
     },
     var.progress_env,
   )

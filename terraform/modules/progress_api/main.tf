@@ -4,13 +4,14 @@
 # Next routes under /api/progress/*. Session validation reuses the shared
 # resolveSession (src/lib/auth/session.ts) over the SAME users/sessions tables
 # the auth Lambda uses, and progress items land in the octav-progress
-# single-table (userId PK + dataType SK). Env vars it consumes
-# (src/lib/progress/deps.ts): PROGRESS_STORAGE selects the real (dynamodb)
-# wiring, AUTH_USERS_TABLE/AUTH_SESSIONS_TABLE/AUTH_PROGRESS_TABLE name the
-# tables. Deploys fine unconfigured (PROGRESS_STORAGE defaults to the dummy),
-# but production always sets the real wiring via merge in envs/prod. No SES /
-# otp / rate-limits grants here — the progress handler never touches those
-# tables (it only validates sessions and reads/writes progress).
+# single-table (userId PK + dataType SK). The durable per-user sync budget
+# touches octav-rate-limits (fixed-window bucket — UpdateItem only). Env vars
+# it consumes (src/lib/progress/deps.ts): PROGRESS_STORAGE selects the real
+# (dynamodb) wiring, AUTH_USERS_TABLE/AUTH_SESSIONS_TABLE/AUTH_PROGRESS_TABLE/
+# AUTH_RATE_LIMITS_TABLE name the tables. Deploys fine unconfigured
+# (PROGRESS_STORAGE defaults to the dummy), but production always sets the
+# real wiring via merge in envs/prod. No SES / otp grants here — the progress
+# path never sends email and never reads OTPs.
 
 variable "name_prefix" {
   type    = string
@@ -23,7 +24,7 @@ variable "zip_path" {
 }
 
 variable "environment" {
-  description = "Lambda env vars: PROGRESS_STORAGE / AUTH_USERS_TABLE / AUTH_SESSIONS_TABLE / AUTH_PROGRESS_TABLE (see src/lib/progress/deps.ts). Empty = dummy wiring."
+  description = "Lambda env vars: PROGRESS_STORAGE / AUTH_USERS_TABLE / AUTH_SESSIONS_TABLE / AUTH_PROGRESS_TABLE / AUTH_RATE_LIMITS_TABLE (see src/lib/progress/deps.ts). Empty = dummy wiring."
   type        = map(string)
   default     = {}
   sensitive   = true
@@ -46,6 +47,11 @@ variable "sessions_table_arn" {
 
 variable "progress_table_arn" {
   description = "DynamoDB ARN of the progress table (octav-progress)."
+  type        = string
+}
+
+variable "rate_limits_table_arn" {
+  description = "DynamoDB ARN of the rate-limits table (octav-rate-limits) — the durable per-user sync budget bucket."
   type        = string
 }
 
@@ -138,6 +144,18 @@ data "aws_iam_policy_document" "progress" {
     resources = [
       var.progress_table_arn,
       "${var.progress_table_arn}/index/*",
+    ]
+  }
+
+  # rate limits — the durable per-user sync budget: incrementProgressSyncCount
+  # is ONE conditional UpdateCommand on the fixed-window bucket key
+  # (progress-sync:<userId>:<epoch>).
+  statement {
+    actions = [
+      "dynamodb:UpdateItem",
+    ]
+    resources = [
+      var.rate_limits_table_arn,
     ]
   }
 }

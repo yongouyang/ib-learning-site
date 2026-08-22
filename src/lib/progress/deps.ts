@@ -68,7 +68,9 @@ export function getProgressDeps(env: Record<string, string | undefined> = proces
     );
     // Session validation uses the SAME session-store implementation the auth
     // Lambda uses (one source of truth) — only the tables it touches, so the
-    // progress Lambda needs no OTP/rate-limit table names.
+    // progress Lambda needs no OTP table name. The durable sync budget DOES
+    // touch octav-rate-limits (the fixed-window bucket), so its name is wired
+    // here too.
     const sessionStore = new DynamoSessionStorage(documentClient, {
       users: requiredEnv(env, 'AUTH_USERS_TABLE'),
       sessions: requiredEnv(env, 'AUTH_SESSIONS_TABLE'),
@@ -80,6 +82,7 @@ export function getProgressDeps(env: Record<string, string | undefined> = proces
           users: requiredEnv(env, 'AUTH_USERS_TABLE'),
           sessions: requiredEnv(env, 'AUTH_SESSIONS_TABLE'),
           progress: requiredEnv(env, 'AUTH_PROGRESS_TABLE'),
+          rateLimits: requiredEnv(env, 'AUTH_RATE_LIMITS_TABLE'),
         },
         sessionStore
       ),

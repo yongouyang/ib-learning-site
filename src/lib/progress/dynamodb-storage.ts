@@ -33,6 +33,7 @@ interface TableNames {
   users: string;
   sessions: string;
   progress: string;
+  rateLimits: string;
 }
 
 /** Session subset delegate (same implementation the auth handler uses). */
@@ -51,7 +52,8 @@ export class DynamoProgressStorage implements ProgressStorage {
   constructor(
     private readonly client: DynamoDBDocumentClient,
     private readonly tables: TableNames,
-    private readonly sessionStorage: SessionSubset
+    private readonly sessionStorage: SessionSubset,
+    private readonly clock: () => number = Date.now
   ) {}
 
   // --- Session subset (delegated — src/lib/auth/session.ts) --------------------
@@ -108,6 +110,41 @@ export class DynamoProgressStorage implements ProgressStorage {
         Limit: 1,
       })
     );
+  }
+
+  // --- Durable sync budget (octav-rate-limits) --------------------------------
+
+  async incrementProgressSyncCount(userId: string, limit: number, windowSeconds: number): Promise<boolean> {
+    // Fixed-window counter with the window epoch IN the bucket key (the auth /
+    // analytics limiter pattern): each window is a fresh item, so the counter
+    // resets ATOMICALLY in a single UpdateCommand when the window rolls — no
+    // dependence on TTL deletion (best-effort, up to ~48h lag).
+    const windowMs = windowSeconds * 1000;
+    const epoch = Math.floor(this.clock() / windowMs);
+    const bucket = `progress-sync:${userId}:${epoch}`;
+    try {
+      await this.client.send(
+        new UpdateCommand({
+          TableName: this.tables.rateLimits,
+          Key: { bucket },
+          UpdateExpression: 'SET #c = if_not_exists(#c, :zero) + :inc, expiresAt = :exp',
+          // Condition evaluates the PRE-update item: syncs 1..limit succeed
+          // and limit+1 fails — but only within THIS window's bucket.
+          ConditionExpression: 'attribute_not_exists(#c) OR #c < :limit',
+          ExpressionAttributeNames: { '#c': 'count' },
+          ExpressionAttributeValues: {
+            ':zero': 0,
+            ':inc': 1,
+            ':limit': limit,
+            ':exp': (epoch + 1) * windowSeconds, // TTL: end of this epoch window
+          },
+        })
+      );
+      return true;
+    } catch (err) {
+      if (isConditionalFailure(err)) return false;
+      throw err;
+    }
   }
 
   async deleteProgressByUser(userId: string): Promise<void> {

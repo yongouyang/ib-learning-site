@@ -42,6 +42,15 @@ describe('getProgressDeps', () => {
         AUTH_OTP_TABLE: 'o',
       })
     ).toThrow(/AUTH_PROGRESS_TABLE/);
+    // Everything except the durable-budget table name → that name is required.
+    expect(() =>
+      getProgressDeps({
+        PROGRESS_STORAGE: 'dynamodb',
+        AUTH_USERS_TABLE: 'u',
+        AUTH_SESSIONS_TABLE: 's',
+        AUTH_PROGRESS_TABLE: 'p',
+      })
+    ).toThrow(/AUTH_RATE_LIMITS_TABLE/);
   });
 
   it('throws on an unknown storage kind', () => {
