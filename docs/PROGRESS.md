@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-22 — Fix child-profile save 500 ("Internal error") + analytics test time-bomb
+Git HEAD: `496988a` (develop, tree dirty: fixes uncommitted)
+Done: fixed a genuine DynamoDB defect found live on dev — saving a child profile (and any account update: rename/remove/display-name) 500'd with "Internal error". Root cause (CloudWatch `/aws/lambda/iblearn-auth`): `DynamoAuthStorage.updateUser` put `:userId` in `ExpressionAttributeValues` but never referenced it in the UpdateExpression (userId is the Key), and DynamoDB rejects unused expression values ("Value provided in ExpressionAttributeValues unused in expressions"). Removed the unused `:userId`; corrected `auth-dynamodb-storage.test.ts` which had *asserted* the buggy shape, and added a regression guard (every `:placeholder` in values must be referenced by Update/Condition expressions). Also fixed a pre-existing time-bombed `analytics-http-handler.test.ts` summary test (seeded 2026-08-15/16 dates vs the real clock) by pinning an injectable clock — it had started failing at the 2026-08-22 date rollover and would have blocked CI.
+Verified: npm test **744/744**, tsc clean, eslint clean (both changed test files + storage), `npm run build:lambda` (auth zip rebuilt with the fix). e2e not re-run (server-side change, no UI delta).
+Next: push develop → deploy-dev → re-test child-profile add/rename/remove on dev (should now 200) → then the standing Resend verification (OTP on dev Gmail/Hotmail) + promote main. Then tighten CI smoke 200|429|502→200|429; SES re-appeal outcome.
+Notes: the dummy `InMemoryAuthStorage.updateUser` just sets a map, so it never mirrored this DynamoDB-only failure — hence the unit-suite gap; the parity test style (dummy↔DDB) does NOT cover unused ExpressionAttributeValues, only real DynamoDB / the new placeholder-reference guard does.
+
+---
+
 ## 2026-08-21 — Email provider swap: SES → Resend (post-denial)
 Git HEAD: `084004b` (develop, tree dirty: Resend swap uncommitted)
 Done: SES production access was denied twice, so OTP delivery is provider-swapped to **Resend** (option b, PROGRESS.md 2026-08-18). Code: new `src/lib/auth/resend-sender.ts` (`ResendEmailSender`, one `POST api.resend.com/emails`, injected `fetch` — no new dependency); templates extracted to `src/lib/auth/otp-email.ts` (shared with `ses-sender.ts`); `src/lib/auth/deps.ts` parses `EMAIL_PROVIDER` `{"NAME":"resend|ses|dummy","API_KEY":"..."}` (precedence over `AUTH_EMAIL`, fail-closed on malformed JSON/unknown NAME). Plumbing: terraform `email_provider` var + `EMAIL_PROVIDER` Lambda env (`terraform/envs/prod/main.tf`); CI `TF_VAR_email_provider: secrets.EMAIL_PROVIDER` in both deploy jobs. Docs updated: AGENTS.md (deploy/CI/CD/accounts bullets), architecture-evolution-plan §6.5/B3/Q7, future-tech-stack-evolution. SES sandbox + `terraform/modules/ses` kept dormant; re-appeal submitted.

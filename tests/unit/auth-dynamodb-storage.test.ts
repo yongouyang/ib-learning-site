@@ -116,9 +116,22 @@ describe('DynamoAuthStorage', () => {
       UpdateExpression: 'SET #dn = :dn',
       ConditionExpression: 'attribute_exists(userId)',
       ExpressionAttributeNames: { '#dn': 'displayName' },
-      ExpressionAttributeValues: { ':userId': 'u1', ':dn': 'New' },
+      ExpressionAttributeValues: { ':dn': 'New' },
       ReturnValues: 'ALL_NEW',
     });
+
+    // Regression (2026-08-22): every :placeholder in ExpressionAttributeValues
+    // must be referenced by UpdateExpression/ConditionExpression — DynamoDB
+    // rejects unused values ("Value provided in ExpressionAttributeValues
+    // unused in expressions"), which 500'd the child-profile save.
+    const values = (cmd.input.ExpressionAttributeValues ?? {}) as Record<string, unknown>;
+    const used = new Set<string>();
+    for (const m of `${cmd.input.UpdateExpression} ${cmd.input.ConditionExpression}`.matchAll(/:([A-Za-z0-9_]+)/g)) {
+      used.add(m[1]);
+    }
+    for (const key of Object.keys(values)) {
+      expect(used.has(key.slice(1)), `unused ExpressionAttributeValues key ${key}`).toBe(true);
+    }
 
     calls.length = 0;
     const withProfiles = await s.updateUser('u1', {

@@ -32,8 +32,11 @@ interface TestDeps {
   analyticsDeps: AnalyticsDeps;
 }
 
-function makeDeps(adminEmails = ''): TestDeps {
-  const storage = new InMemoryAnalyticsStorage();
+function makeDeps(adminEmails = '', clock?: () => number): TestDeps {
+  // A fixed clock pins getSummary's "now" so the seeded-dates tests below stay
+  // deterministic instead of drifting with the real calendar (they broke once
+  // the seeded 2026-08-15/16 dates aged out of the 7-day window).
+  const storage = new InMemoryAnalyticsStorage(clock);
   const sender = new DummyEmailSender();
   return {
     storage,
@@ -215,7 +218,7 @@ describe('GET /api/analytics/summary', () => {
   });
 
   it('returns the summary for seeded events with the requested days window', async () => {
-    const t = makeDeps('boss@example.com');
+    const t = makeDeps('boss@example.com', () => Date.parse('2026-08-16T12:00:00.000Z'));
     const admin = await login(t, 'boss@example.com');
 
     await t.storage.recordEvent({

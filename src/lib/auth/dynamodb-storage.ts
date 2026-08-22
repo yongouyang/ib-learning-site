@@ -124,7 +124,12 @@ export class DynamoAuthStorage implements AuthStorage {
     updates: { displayName?: string; childProfiles?: ChildProfile[]; lastLoginAt?: string }
   ): Promise<UserRecord | null> {
     const sets: string[] = [];
-    const values: Record<string, unknown> = { ':userId': userId };
+    // The userId is the partition key (Key), NOT an expression value — leaving
+    // an unused ':userId' here makes DynamoDB reject the update with "Value
+    // provided in ExpressionAttributeValues unused in expressions" (seen live
+    // 2026-08-22 on the child-profile save). Values must contain only the
+    // placeholders referenced by the SET/Condition expressions below.
+    const values: Record<string, unknown> = {};
     const names: Record<string, string> = {};
 
     if (updates.displayName !== undefined) {
