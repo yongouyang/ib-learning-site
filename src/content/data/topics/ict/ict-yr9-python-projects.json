@@ -1,0 +1,316 @@
+{
+  "id": "ict-yr9-python-projects",
+  "subjectId": "ict",
+  "title": "Python: Problem Solving & Projects",
+  "description": "From coder to developer — decomposition and abstraction, flowcharts and pseudocode, dictionaries and nested data, file handling, robust input with validation and try/except, testing with edge cases, and iterative project development.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "ict-yr9-python-projects-n1",
+      "heading": "Decomposition and Abstraction",
+      "body": "The two thinking skills that separate a project developer from someone who just writes code are decomposition and abstraction. Decomposition means breaking a complex problem into smaller, manageable sub-problems, each of which can be solved — and tested — independently. A revision-quiz project decomposes into: store the questions, ask one question, check an answer, track the score, show results, and handle replay. Each sub-problem might decompose further: 'check an answer' includes normalising the user's input before comparing. Abstraction is the partner skill: hiding unnecessary detail so you can focus on what matters. When you call `len(scores)` you use abstraction — you do not think about how Python counts the items internally. In your own code, writing a function `check_answer(guess, correct)` is abstraction: the rest of the program uses it without caring how it works inside. Together these skills let you hold a large project in your head: decompose the problem until each piece is small enough to write confidently, then build each piece behind a clean function interface so the pieces snap together like building blocks."
+    },
+    {
+      "id": "ict-yr9-python-projects-n2",
+      "heading": "Flowcharts and Pseudocode",
+      "body": "Before writing Python, design the logic in a form that is quick to draw and easy to change. Pseudocode is structured plain English that looks like code but is not tied to any language's exact syntax: 'SET score TO 0; REPEAT 5 TIMES: ASK question; IF answer correct THEN ADD 1 TO score'. It lets you check the logic — order of steps, decisions, loops — before worrying about brackets and colons. Flowcharts show the same logic visually using standard symbols: ovals for start and stop (terminators), rectangles for processes, diamonds for decisions with yes/no branches, parallelograms for input and output, and arrows connecting the flow. A flowchart makes loops and branches visible at a glance, which is exactly where logic errors hide. The discipline is to design first and code second: translating a correct flowchart into Python is nearly mechanical, but debugging logic and syntax at the same time is miserable. When reviewing someone else's design, trace it with a pencil: walk through with a concrete example input and check the flowchart produces the expected output before any code exists."
+    },
+    {
+      "id": "ict-yr9-python-projects-n3",
+      "heading": "Dictionaries and Nested Data",
+      "body": "A list finds items by position; a dictionary finds them by a meaningful key. `player = {\"name\": \"Ada\", \"score\": 12, \"lives\": 3}` stores key–value pairs: the key \"name\" maps to the value \"Ada\". You read a value by its key — `player[\"score\"]` gives 12 — and update or add entries the same way: `player[\"score\"] = 15` or `player[\"level\"] = 2`. Looking up a key that does not exist raises a `KeyError`; `player.get(\"xp\")` returns `None` instead, which is safer for optional data. Dictionaries are ideal whenever data has named fields rather than a natural order: a word-frequency counter, a stock list, a settings file. Real data is usually nested — structures inside structures. A quiz can be a list of dictionaries: each item is `{\"question\": \"...\", \"answer\": \"...\"}`, and you loop the list and read `item[\"question\"]`. A leaderboard can be a dictionary of dictionaries. The rule for sanity: build nested structures one level at a time, and print the structure while developing so you can see exactly what shape you created — most bugs with nested data are just confusion about which level you are on."
+    },
+    {
+      "id": "ict-yr9-python-projects-n4",
+      "heading": "Reading and Writing Files",
+      "body": "Variables vanish when a program ends; files let data survive between runs — a high-score table, saved progress, a settings list. Python treats a file as a sequence of text lines. The pattern has three steps: open the file with a mode, do the reading or writing, then close it. `open(\"scores.txt\", \"r\")` opens for reading, `\"w\"` opens for writing (and wipes the existing contents!), `\"a\"` opens for appending to the end without erasing. Reading: loop over the file object line by line, or use `readlines()` to get a list of lines. Writing: `f.write(\"Ada,120\\n\")` — note you add the newline yourself. The modern, safe pattern uses `with`: `with open(\"scores.txt\", \"r\") as f:` — the file closes automatically even if an error occurs, so data cannot be left half-written. Common practical issue: everything read from a file is a string, so scores must be converted with `int()` before comparisons, and structured data is often stored one record per line with commas between fields, split apart with `line.split(\",\")`. File paths and missing files cause errors, which is why file code pairs naturally with try/except."
+    },
+    {
+      "id": "ict-yr9-python-projects-n5",
+      "heading": "Robust Input: Validation and try/except",
+      "body": "Users type surprising things: letters instead of numbers, nothing at all, 9999 when 1–3 was offered. A robust program never crashes and never accepts nonsense — it checks input and asks again. Validation means testing input against rules before using it. Type checking: `input()` always returns a string, so numeric input needs converting with `int()`. Range checking: is the menu choice between 1 and 4? Presence checking: did the user just press Enter? The validation loop pattern repeats until input is acceptable: ask, check, and if invalid, explain and ask again. The conversion `int(answer)` crashes with a `ValueError` if the user types 'three', which is where exception handling comes in: `try:` the risky conversion, `except ValueError:` print a friendly message and loop again. try/except turns a crash into a controlled response — the program catches the specific error, handles it, and carries on. Two rules keep it honest: catch the specific error you expect (a bare `except:` hides bugs you never intended to catch), and tell the user what went wrong and what to do instead — 'Please enter a whole number' beats silence or a wall of traceback."
+    },
+    {
+      "id": "ict-yr9-python-projects-n6",
+      "heading": "Testing: Test Plans and Edge Cases",
+      "body": "Testing is not running the program once and declaring victory; it is deliberately trying to break it with a test plan — a written list of tests, each with the input you will give, the result you expect, and the result you actually get. Good test plans cover three categories. Normal (typical) data: the inputs the program is designed for — a valid menu choice, a correct answer. Boundary (extreme) data: values at the very edges of what is allowed — if a guess must be 1–100, test 1 and 100 (should work) and 0 and 101 (should be rejected); boundary bugs are the most common kind. Erroneous (invalid) data: input that should never be accepted — letters in a number field, an empty name, a negative age — where the correct behaviour is a helpful message, not a crash. Each failure tells you exactly where to look, which is why planned tests beat random poking. Keep the test plan and re-run it after every change: fixing one bug often creates another, and regression testing — checking that old features still work — is what catches it. Testing does not prove a program is perfect; it proves it handles everything you thought to try, which is why thinking hard about edge cases is the real skill."
+    },
+    {
+      "id": "ict-yr9-python-projects-n7",
+      "heading": "Iterative Development on a Mini-Project",
+      "body": "Professional software is grown, not written in one pass. Iterative development means building a small working version first, then improving it in cycles: plan, build a piece, test it, review, repeat. Take a quiz project. Iteration 1: one hard-coded question asked once, answer checked — crude but working end to end. Iteration 2: a list of question dictionaries and a loop asking them all, with a score. Iteration 3: robust input handling and a results message. Iteration 4: save high scores to a file. At every stage the program runs, so there is never a moment where nothing works and everything is broken. The habits that make this possible: keep each version saved (or use version control) so you can retreat from a failed experiment; write functions with single jobs so each iteration changes one place; test after every iteration, not at the end; and keep a simple to-do list of features, ordered so the risky or important ones come first. The final review matters too: against the original goal, what works, what would you refactor — restructure without changing behaviour — and what would the next iteration add? That reflective loop is the actual job of a software developer."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ict-yr9-python-projects-f1",
+      "term": "Decomposition",
+      "definition": "Breaking a complex problem into smaller sub-problems that can each be solved and tested independently.",
+      "example": "A quiz splits into: store questions, ask a question, check an answer, track score, save high scores."
+    },
+    {
+      "id": "ict-yr9-python-projects-f2",
+      "term": "Abstraction",
+      "definition": "Hiding unnecessary detail behind a simple interface so you can focus on what something does, not how it works inside.",
+      "example": "Calling `check_answer(guess, correct)` without worrying about how the comparison happens internally."
+    },
+    {
+      "id": "ict-yr9-python-projects-f3",
+      "term": "Pseudocode",
+      "definition": "Structured plain English that describes a program's logic — steps, decisions, loops — without any language's exact syntax.",
+      "example": "REPEAT 5 TIMES: ASK question; IF answer correct THEN ADD 1 TO score."
+    },
+    {
+      "id": "ict-yr9-python-projects-f4",
+      "term": "Flowchart decision symbol",
+      "definition": "A diamond shape in a flowchart representing a yes/no question, with one branch per possible answer.",
+      "example": "A diamond labelled 'answer correct?' branches to 'add to score' (yes) or 'show correct answer' (no)."
+    },
+    {
+      "id": "ict-yr9-python-projects-f5",
+      "term": "Dictionary",
+      "definition": "A Python structure storing key–value pairs, where values are looked up by a meaningful key rather than a numeric position.",
+      "example": "`player = {\"name\": \"Ada\", \"score\": 12}`; `player[\"score\"]` gives 12."
+    },
+    {
+      "id": "ict-yr9-python-projects-f6",
+      "term": "Nested data",
+      "definition": "Data structures containing other data structures — a list of dictionaries, or a dictionary of dictionaries — modelling real, layered information.",
+      "example": "A quiz as a list where each item is `{\"question\": \"...\", \"answer\": \"...\"}`."
+    },
+    {
+      "id": "ict-yr9-python-projects-f7",
+      "term": "File modes r / w / a",
+      "definition": "The modes for opening a file: \"r\" read, \"w\" write (erases existing content), \"a\" append to the end without erasing.",
+      "example": "`open(\"scores.txt\", \"a\")` adds a new high score without wiping the old ones."
+    },
+    {
+      "id": "ict-yr9-python-projects-f8",
+      "term": "with statement",
+      "definition": "The safe pattern for file handling that closes the file automatically, even if an error occurs partway through.",
+      "example": "`with open(\"data.txt\", \"r\") as f:` guarantees the file is closed when the block ends."
+    },
+    {
+      "id": "ict-yr9-python-projects-f9",
+      "term": "Validation",
+      "definition": "Checking user input against rules — type, range, presence — before the program uses it, rejecting anything unacceptable.",
+      "example": "Rejecting a menu choice of 9 when only 1–4 exist, and asking again with an explanation."
+    },
+    {
+      "id": "ict-yr9-python-projects-f10",
+      "term": "try / except",
+      "definition": "Python's exception handling: the `try` block runs risky code, and `except` catches a specific error so the program responds gracefully instead of crashing.",
+      "example": "`try: n = int(answer)` `except ValueError: print(\"Enter a whole number\")`."
+    },
+    {
+      "id": "ict-yr9-python-projects-f11",
+      "term": "Boundary test data",
+      "definition": "Test values at the very edges of the allowed range — the largest, smallest, and just outside — where bugs most often hide.",
+      "example": "For a guess of 1–100: test 1 and 100 (valid) plus 0 and 101 (should be rejected)."
+    },
+    {
+      "id": "ict-yr9-python-projects-f12",
+      "term": "Iterative development",
+      "definition": "Building a small working version first, then improving it in cycles of plan–build–test–review, so the program always runs.",
+      "example": "Quiz v1 asks one hard-coded question; v2 loops a question list; v3 adds validation; v4 saves high scores."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-yr9-python-projects-q1",
+      "stem": "What is decomposition in problem solving?",
+      "choices": [
+        "Deleting old code to save memory",
+        "Breaking a complex problem into smaller sub-problems that can each be solved and tested separately",
+        "Translating Python into machine code",
+        "Compressing a file so it loads faster"
+      ],
+      "correctIndex": 1,
+      "explanation": "Decomposition divides one big, intimidating problem into pieces small enough to build and test individually, then combines the pieces. It is the first step in planning any project.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-python-projects-q2",
+      "stem": "In a flowchart, which shape represents a decision with yes/no branches?",
+      "choices": [
+        "Oval",
+        "Rectangle",
+        "Parallelogram",
+        "Diamond"
+      ],
+      "correctIndex": 3,
+      "explanation": "Diamonds are decisions with one branch per answer. Ovals mark start/stop, rectangles are processes, and parallelograms are input/output.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-python-projects-q3",
+      "stem": "Given `player = {\"name\": \"Ada\", \"score\": 12}`, what does `player[\"score\"]` return?",
+      "choices": [
+        "\"Ada\"",
+        "12",
+        "\"score\"",
+        "An error, because dictionaries need numeric indexes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dictionaries look values up by key, not position. The key \"score\" maps to the value 12; `player[\"name\"]` would return \"Ada\".",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-python-projects-q4",
+      "stem": "Which file mode opens a file for writing but erases everything already in it?",
+      "choices": [
+        "\"r\"",
+        "\"w\"",
+        "\"a\"",
+        "\"rw\""
+      ],
+      "correctIndex": 1,
+      "explanation": "\"w\" opens for writing and wipes existing content; \"a\" appends without erasing; \"r\" is read-only. Opening a high-score file with \"w\" by accident destroys the saved scores.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-python-projects-q5",
+      "stem": "A quiz stores its questions as a list where each item is `{\"question\": \"...\", \"answer\": \"...\"}`. What is this structure called?",
+      "choices": [
+        "A tuple of tuples",
+        "A string method",
+        "Nested data — a list of dictionaries",
+        "A class hierarchy"
+      ],
+      "correctIndex": 2,
+      "explanation": "Structures inside structures are nested data. Here each dictionary holds one question's fields, and the list holds all the dictionaries, so a loop can process every question in turn.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-python-projects-q6",
+      "stem": "Why is `with open(\"data.txt\", \"r\") as f:` preferred over calling `open()` and `close()` separately?",
+      "choices": [
+        "It reads the file twice as fast",
+        "It closes the file automatically even if an error happens, so data cannot be left half-written or locked",
+        "It works with binary files only",
+        "It encrypts the file contents"
+      ],
+      "correctIndex": 1,
+      "explanation": "The `with` block guarantees cleanup: however the block ends — normally or via an error — the file is closed. Manually written `close()` calls are skipped when an exception occurs, leaving files in a bad state.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-python-projects-q7",
+      "stem": "A program does `age = int(input(\"Age? \"))` and a user types 'twelve'. What happens, and what is the robust fix?",
+      "choices": [
+        "It works fine, converting the word to 12",
+        "A ValueError crash; wrap the conversion in try/except ValueError and re-ask with a clear message",
+        "A SyntaxError; the input function needs different brackets",
+        "The computer restarts; there is no fix"
+      ],
+      "correctIndex": 1,
+      "explanation": "`int()` cannot parse 'twelve', so it raises ValueError. try/except catches that specific error, prints something helpful like 'Please enter digits', and loops to ask again — no crash.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-python-projects-q8",
+      "stem": "A guess must be between 1 and 100. Which set of tests best follows a boundary-testing approach?",
+      "choices": [
+        "Only 50, because it is a typical guess",
+        "1, 100, 0 and 101 — the valid edges plus the first invalid value on each side",
+        "Every number from 1 to 100, one test each",
+        "Just 0, because negative testing is all that matters"
+      ],
+      "correctIndex": 1,
+      "explanation": "Boundary tests probe the edges where off-by-one errors hide: 1 and 100 must be accepted, 0 and 101 must be rejected. Testing only the middle value misses the classic `>` versus `>=` bug at the edges.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-python-projects-q9",
+      "stem": "Scores are read from a file with `line.split(\",\")` giving `[\"Ada\", \"120\"]`. Comparing `parts[1] > \"95\"` behaves strangely. Why?",
+      "choices": [
+        "Files cannot contain commas",
+        "Everything read from a file is a string; convert with `int(parts[1])` before numeric comparison",
+        "The list has the fields in the wrong order and cannot be fixed",
+        "Comparison operators do not work in loops"
+      ],
+      "correctIndex": 1,
+      "explanation": "File input arrives as text, so \"120\" is a string and string comparison follows character order, not numeric value. Converting with `int()` before comparing gives correct numeric behaviour.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr9-python-projects-q10",
+      "stem": "Why is catching a specific exception like `except ValueError:` better than a bare `except:`?",
+      "choices": [
+        "Specific exceptions run faster",
+        "A bare except swallows every error — including bugs you never expected — making them invisible; catching the expected error handles it while letting real bugs still surface",
+        "Bare except only works in Python 2",
+        "Specific exceptions print friendlier tracebacks"
+      ],
+      "correctIndex": 1,
+      "explanation": "try/except is for errors you anticipate, like bad user input. A bare except also catches typos, missing files and logic bugs, hiding them silently. Catching exactly what you expect keeps honest error reporting everywhere else.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr9-python-projects-q11",
+      "stem": "Which order best describes iterative development of a quiz project?",
+      "choices": [
+        "Build every feature, then test everything once at the very end",
+        "One working question first; then loop over many questions; then add validation; then add file saving — testing after each stage",
+        "Write the user interface first, then invent questions to fit it",
+        "Save high scores first, then decide what the program does"
+      ],
+      "correctIndex": 1,
+      "explanation": "Iterative development grows a working program in tested cycles, so you never face a huge untested codebase. Each iteration adds one capability to a program that already runs.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-python-projects-q12",
+      "stem": "A teammate writes `if player[\"xp\"] > 10` but 'xp' is optional and often missing from the dictionary. What is the cleanest fix?",
+      "choices": [
+        "Wrap the whole program in try/except KeyError and ignore all failures",
+        "Use `player.get(\"xp\", 0)` so a missing key safely returns a default of 0",
+        "Rename the key to something shorter",
+        "Convert the dictionary to a list first"
+      ],
+      "correctIndex": 1,
+      "explanation": "`get()` with a default handles optional keys gracefully: `player.get(\"xp\", 0)` returns 0 when 'xp' is absent, so the comparison works without crashing and without hiding unrelated errors.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr9-python-projects-q13",
+      "stem": "What is the main benefit of designing logic in pseudocode or a flowchart before writing Python?",
+      "choices": [
+        "It makes the final program run faster",
+        "Logic errors — wrong order, missing branches — can be spotted and fixed cheaply before you are also fighting Python's syntax",
+        "Teachers require it for all projects",
+        "Pseudocode automatically converts into working Python"
+      ],
+      "correctIndex": 1,
+      "explanation": "Changing a flowchart box costs seconds; changing tangled code costs much more. Designing first separates 'is the logic right?' from 'is the syntax right?', and you should never debug both at once.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-python-projects-q14",
+      "stem": "After fixing a bug in your answer-checking function, what should you do next?",
+      "choices": [
+        "Delete the test plan — the bug is fixed so it is no longer needed",
+        "Re-run the whole test plan, because the fix may have broken features that previously worked (regression testing)",
+        "Only re-test the exact input that triggered the original bug",
+        "Add three new features immediately to take advantage of the fix"
+      ],
+      "correctIndex": 1,
+      "explanation": "Fixes often have side effects. Re-running the full plan — regression testing — confirms the bug is gone AND that nothing else regressed. Testing only the original failing input misses new damage elsewhere.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr9-python-projects-q15",
+      "stem": "Which is the best example of abstraction in your own project code?",
+      "choices": [
+        "Writing every step of the quiz in one long main block so nothing is hidden",
+        "Writing a `check_answer(guess, correct)` function so the rest of the program uses it without needing to know how the comparison works",
+        "Copying the checking code into ten different places",
+        "Using single-letter variable names so the code is shorter"
+      ],
+      "correctIndex": 1,
+      "explanation": "A well-named function hides detail behind a simple interface: callers supply a guess and a correct answer and get back a result. If the checking logic later improves (say, accepting synonyms), only one place changes.",
+      "difficulty": "medium"
+    }
+  ]
+}

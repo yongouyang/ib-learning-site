@@ -4,6 +4,7 @@
   "title": "Metals, Reactivity & Extraction",
   "description": "The reactivity series, displacement reactions, metal extraction from ores, alloys, corrosion, and metal properties explained by bonding.",
   "stage": "ks3",
+  "year": 8,
   "notes": [
     {
       "id": "chem-metals-1-n1",
@@ -162,7 +163,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Displacement: a more reactive metal (Zn) replaces a less reactive metal (Cu) from its compound.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "displacement-rule"
     },
     {
       "id": "chem-metals-1-q2",
@@ -175,7 +177,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Metals above carbon in the reactivity series hold onto oxygen too strongly. Carbon cannot reduce them — electrolysis is required.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "electrolysis-extraction"
     },
     {
       "id": "chem-metals-1-q3",
@@ -188,7 +191,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Without cryolite, the extreme temperature needed would make extraction economically unviable. Cryolite is a flux.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "cryolite-role"
     },
     {
       "id": "chem-metals-1-q4",
@@ -201,7 +205,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Galvanising provides both barrier AND sacrificial protection. If scratched, zinc still corrodes preferentially.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "sacrificial-scratched"
     },
     {
       "id": "chem-metals-1-q5",
@@ -214,7 +219,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Alloying introduces atoms of different sizes into the lattice. This disrupts the sliding planes — when force is applied, layers cannot glide smoothly.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "alloy-hardness"
     },
     {
       "id": "chem-metals-1-q6",
@@ -227,7 +233,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Sacrificial metal must be MORE reactive than iron. Magnesium is above iron in the reactivity series → it corrodes preferentially.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "sacrificial-metal-choice"
     },
     {
       "id": "chem-metals-1-q7",
@@ -240,7 +247,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Aluminium's oxide layer is non-porous and tightly bound. Rust is porous and flakes off, constantly exposing fresh iron to attack.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "protective-oxide"
     },
     {
       "id": "chem-metals-1-q8",
@@ -253,7 +261,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Fe₂O₃ loses oxygen → reduced to Fe. CO gains oxygen → oxidised to CO₂. OIL RIG: Oxidation Is Loss (of electrons); Reduction Is Gain.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "redox-extraction"
     },
     {
       "id": "chem-metals-1-q9",
@@ -266,7 +275,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Gold's extreme unreactivity means it does not form ores (compounds). It is found as pure metal nuggets — no chemical extraction needed.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "native-metals"
     },
     {
       "id": "chem-metals-1-q10",
@@ -279,7 +289,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Rusting requires BOTH O₂ and H₂O. Experiments show: iron in dry air (O₂ but no water) → no rust. Iron in boiled water with oil layer (water but no O₂) → no rust.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "rusting-conditions"
     },
     {
       "id": "chem-metals-1-q11",
@@ -292,7 +303,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Electrolysis of molten Al₂O₃ requires temperatures of ~950°C (even with cryolite) and massive electrical current to reduce Al³⁺ to Al.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "electrolysis-extraction"
     },
     {
       "id": "chem-metals-1-q12",
@@ -305,7 +317,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Only a more reactive metal can displace a less reactive one. Cu is less reactive than Fe → no displacement.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "displacement-rule"
     },
     {
       "id": "chem-metals-1-q13",
@@ -318,7 +331,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Transition metals form coloured ions (Cu²⁺ blue, Fe²⁺ green, Fe³⁺ brown) and are excellent catalysts. Group 1 compounds are white/colourless.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "transition-metal-properties"
     },
     {
       "id": "chem-metals-1-q14",
@@ -331,7 +345,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Salt water is an electrolyte — it facilitates the flow of electrons in the electrochemical rusting process, dramatically accelerating corrosion.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "rust-acceleration"
     },
     {
       "id": "chem-metals-1-q15",
@@ -344,7 +359,176 @@
       ],
       "correctIndex": 1,
       "explanation": "Alloying introduces atoms of different radii. These disrupt the regular planes of atoms, increasing resistance to deformation (hardness).",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "alloy-hardness"
+    },
+    {
+      "id": "chem-metals-1-q16",
+      "stem": "Magnesium ribbon is placed in zinc sulfate solution. What happens?",
+      "choices": [
+        "No reaction — zinc sulfate is already a compound",
+        "Magnesium displaces zinc: Mg + ZnSO₄ → MgSO₄ + Zn, because magnesium is more reactive",
+        "Zinc displaces magnesium from the ribbon",
+        "The magnesium melts and sinks"
+      ],
+      "correctIndex": 1,
+      "explanation": "Magnesium is above zinc in the reactivity series, so it displaces Zn²⁺ ions from solution. Grey zinc metal coats the ribbon.",
+      "difficulty": "medium",
+      "variantOf": "displacement-rule"
+    },
+    {
+      "id": "chem-metals-1-q17",
+      "stem": "Cryolite (Na₃AlF₆) is mixed with aluminium oxide before electrolysis. Its purpose is to:",
+      "choices": [
+        "Raise the melting point so the cell runs hotter",
+        "Lower the melting point of the mixture from ~2050°C to ~950°C, saving energy",
+        "Act as the positive electrode",
+        "React with impurities to purify the aluminium"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cryolite acts as a flux, lowering the working temperature dramatically. This cuts the enormous energy cost of melting pure Al₂O₃.",
+      "difficulty": "easy",
+      "variantOf": "cryolite-role"
+    },
+    {
+      "id": "chem-metals-1-q18",
+      "stem": "Steel is harder than pure iron because:",
+      "choices": [
+        "Iron atoms naturally form weak bonds",
+        "Carbon atoms are a different size from iron atoms and disrupt the layers, so the layers cannot slide easily",
+        "Steel contains stronger metallic bonds than iron",
+        "Carbon makes the iron magnetic"
+      ],
+      "correctIndex": 1,
+      "explanation": "Small carbon atoms fit between the iron atoms and distort the regular lattice planes, blocking the layers from slipping over each other.",
+      "difficulty": "medium",
+      "variantOf": "alloy-hardness"
+    },
+    {
+      "id": "chem-metals-1-q19",
+      "stem": "Blocks of which metal, bolted to a steel ship's hull, would protect it sacrificially?",
+      "choices": [
+        "Zinc — it is more reactive than iron, so it corrodes first",
+        "Copper",
+        "Tin",
+        "Silver"
+      ],
+      "correctIndex": 0,
+      "explanation": "The sacrificial metal must be above iron in the reactivity series. Zinc oxidises preferentially, protecting the steel hull even where it is scratched.",
+      "difficulty": "medium",
+      "variantOf": "sacrificial-metal-choice"
+    },
+    {
+      "id": "chem-metals-1-q20",
+      "stem": "Zinc is extracted by heating zinc oxide with carbon: 2ZnO + C → 2Zn + CO₂. Which substance is oxidised?",
+      "choices": [
+        "ZnO — it loses oxygen",
+        "Carbon — it gains oxygen to form CO₂",
+        "Zn — it is the product",
+        "CO₂ — it contains oxygen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Carbon gains oxygen (C → CO₂), so it is oxidised — it is the reducing agent. ZnO loses oxygen and is reduced to zinc.",
+      "difficulty": "medium",
+      "variantOf": "redox-extraction"
+    },
+    {
+      "id": "chem-metals-1-q21",
+      "stem": "Silver is sometimes found native (as the pure metal) in the Earth's crust, but sodium never is. Why?",
+      "choices": [
+        "Sodium is too rare to form deposits",
+        "Silver is unreactive enough to exist uncombined, whereas sodium is so reactive it always occurs in compounds",
+        "Only magnetic metals occur native",
+        "Sodium melts before it can form nuggets"
+      ],
+      "correctIndex": 1,
+      "explanation": "Only metals low in the reactivity series (Ag, Au, Pt) occur native. Highly reactive metals like sodium are always found combined in compounds.",
+      "difficulty": "medium",
+      "variantOf": "native-metals"
+    },
+    {
+      "id": "chem-metals-1-q22",
+      "stem": "An iron nail is left in a sealed container of dry air (oxygen present, no water). What happens to the nail?",
+      "choices": [
+        "It rusts quickly",
+        "It rusts slowly",
+        "It does not rust — rusting needs both oxygen and water",
+        "It gradually turns into steel"
+      ],
+      "correctIndex": 2,
+      "explanation": "Rusting requires water as well as oxygen. With no moisture present, the nail stays bright indefinitely.",
+      "difficulty": "easy",
+      "variantOf": "rusting-conditions"
+    },
+    {
+      "id": "chem-metals-1-q23",
+      "stem": "Which experiment would produce rust on an iron nail fastest?",
+      "choices": [
+        "Nail in boiled water sealed with a layer of oil",
+        "Nail in a dry, sealed container of air",
+        "Nail half-dipped in ordinary tap water, open to the air",
+        "Nail in completely dry oxygen gas"
+      ],
+      "correctIndex": 2,
+      "explanation": "Only the half-dipped nail has access to BOTH oxygen (from the air) and water at the waterline — the two essential conditions for rusting.",
+      "difficulty": "easy",
+      "variantOf": "rusting-conditions"
+    },
+    {
+      "id": "chem-metals-1-q24",
+      "stem": "Compared with Group 1 metals, transition metals typically:",
+      "choices": [
+        "Are soft enough to cut with a knife",
+        "Have high melting points and high densities",
+        "React violently with cold water",
+        "Must be stored under oil"
+      ],
+      "correctIndex": 1,
+      "explanation": "Transition metals are hard, dense and have high melting points. Group 1 metals are soft, low-density and extremely reactive with water.",
+      "difficulty": "easy",
+      "variantOf": "transition-metal-properties"
+    },
+    {
+      "id": "chem-metals-1-q25",
+      "stem": "A scratched galvanised (zinc-coated) steel bucket does not rust at the scratch, but a scratched tin-plated steel can rusts faster than a plain one. Why?",
+      "choices": [
+        "Tin is more reactive than iron",
+        "Zinc is above iron in the reactivity series and corrodes sacrificially, but tin is below iron — at a scratch the iron corrodes preferentially",
+        "Zinc paint simply seals better than tin",
+        "Tin reacts with the contents of the can"
+      ],
+      "correctIndex": 1,
+      "explanation": "Zinc acts as a sacrificial anode even when the coating is broken. Tin is less reactive than iron, so once the barrier is scratched the exposed iron rusts faster than it would uncoated.",
+      "difficulty": "hard",
+      "variantOf": "sacrificial-scratched"
+    },
+    {
+      "id": "chem-metals-1-q26",
+      "stem": "Copper roofs slowly develop a green patina over many years, yet the copper underneath stays sound. Why?",
+      "choices": [
+        "Copper does not react with anything in the air",
+        "The green layer of copper compounds adheres to the surface and protects the metal beneath, like aluminium's oxide layer",
+        "The patina is a form of rust that has turned green",
+        "Rainwater washes all corrosion products away"
+      ],
+      "correctIndex": 1,
+      "explanation": "The patina (basic copper carbonate) is a tough, adherent layer that seals the surface — unlike iron's flaky rust, which constantly exposes fresh metal.",
+      "difficulty": "hard",
+      "variantOf": "protective-oxide"
+    },
+    {
+      "id": "chem-metals-1-q27",
+      "stem": "Two identical iron nails are placed in separate beakers — one in distilled water, one in seawater. The nail in seawater rusts much faster. Why?",
+      "choices": [
+        "Seawater contains more dissolved oxygen than distilled water",
+        "Dissolved salts make the water a better electrolyte, speeding up the electron transfer in rusting",
+        "Salt reacts directly with iron to form rust",
+        "Seawater is always warmer than distilled water"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dissolved salt raises the conductivity of the water, accelerating the electrochemical corrosion process. The oxygen content is not higher in seawater.",
+      "difficulty": "hard",
+      "variantOf": "rust-acceleration"
     }
   ]
 }

@@ -17,6 +17,7 @@ import {
   type DifficultyFilter,
 } from '@/lib/quiz-utils';
 import { materializeTemplates } from '@/lib/generators';
+import { trackEvent } from '@/lib/analytics';
 
 interface QuizPageClientProps {
   subjectId: string;
@@ -36,6 +37,7 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
   // Per-question outcomes for the current session, flushed into recordAttempt
   // on completion (feeds variant-group mastery in src/lib/mastery.ts).
   const resultsRef = useRef<QuestionResult[]>([]);
+  const startedAtRef = useRef<number>(Date.now());
 
   // Templates make a topic grouped even without authored variantOf groups —
   // each template instance occupies a group slot (its variantOf, or solo).
@@ -50,6 +52,16 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
   useEffect(() => {
     if (grouped) setSessionSeed(`${topicId}:${difficulty}:${randomSeed()}`);
   }, [grouped, topicId, difficulty]);
+
+  // A quiz session begins on mount and again whenever the question set changes
+  // (difficulty switch or "new question set") — the same boundaries QuizGame's
+  // key remounts on.
+  useEffect(() => {
+    if (!topic) return;
+    startedAtRef.current = Date.now();
+    trackEvent('quiz_started', { subjectId, topicId, source: 'topic_page' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [subjectId, topicId, difficulty, sessionSeed]);
 
   const handleNewSet = () => {
     resultsRef.current = [];
@@ -127,6 +139,13 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
         }}
         onComplete={(correctCount, totalCount) => {
           recordAttempt(topicId, subjectId as SubjectId, topic.title, subjectId, correctCount, totalCount, resultsRef.current);
+          trackEvent('quiz_completed', {
+            subjectId,
+            topicId,
+            correctCount,
+            totalCount,
+            durationSeconds: Math.round((Date.now() - startedAtRef.current) / 1000),
+          });
           resultsRef.current = [];
         }}
         onNewSet={grouped ? handleNewSet : undefined}

@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   auditContent,
+  findBoldIssues,
   findLatexIssues,
   type AuditTopic,
 } from "../../scripts/audit-content";
@@ -402,5 +403,67 @@ describe("auditContent variant-group rules", () => {
     const result = auditContent({ topics: [topic] });
     expect(result.issues.filter((i) => i.type === "variant_group")).toHaveLength(0);
     expect(result.issues.filter((i) => i.type === "difficulty_distribution")).toHaveLength(0);
+  });
+});
+
+describe("findBoldIssues", () => {
+  it("accepts balanced ** bold segments, including mid-word and several per line", () => {
+    expect(findBoldIssues("A **variable** is a letter. **ein**steigen")).toHaveLength(0);
+    expect(findBoldIssues("**Key Points:** remember **this** and **that**")).toHaveLength(0);
+  });
+
+  it("flags an unpaired ** marker", () => {
+    expect(findBoldIssues("A **variable is a letter")).toHaveLength(1);
+    expect(findBoldIssues("A **variable is a letter")[0]).toContain("unpaired");
+  });
+
+  it("flags an odd number of markers even when some pair up", () => {
+    expect(findBoldIssues("**ok** trailing **")).toHaveLength(1);
+  });
+
+  it("flags empty **** markers", () => {
+    const issues = findBoldIssues("empty **** here");
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toContain("unpaired");
+  });
+
+  it("flags bold spanning math (unsupported by the renderer)", () => {
+    const issues = findBoldIssues("The **value $x+1$ here** matters");
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toContain("spans math");
+  });
+
+  it("does not flag ** inside $...$ math", () => {
+    expect(findBoldIssues("Compute $x**2$ carefully")).toHaveLength(0);
+  });
+
+  it("does not flag bold across separate lines (pairs must be per-line)", () => {
+    expect(findBoldIssues("**start\nend**")).toHaveLength(1);
+  });
+});
+
+describe("auditContent unbalanced_bold rule", () => {
+  it("warns on unpaired ** in a note body", () => {
+    const topic = makeTopic({
+      id: "bold-topic",
+      subjectId: "german",
+      notes: [{ id: "bold-topic-n1", heading: "Note 1", body: "Say **gern without closing." }],
+    });
+    const result = auditContent({ topics: [topic] });
+    const issues = result.issues.filter((i) => i.type === "unbalanced_bold");
+    expect(issues).toHaveLength(1);
+    expect(issues[0].severity).toBe("warning");
+    expect(issues[0].location).toContain("bold-topic/notes[0].body");
+  });
+
+  it("accepts balanced ** bold in any text field", () => {
+    const topic = makeTopic({
+      id: "bold-ok",
+      subjectId: "chinese",
+      notes: [{ id: "bold-ok-n1", heading: "Note 1", body: "**戴** means to wear." }],
+      flashcards: [{ id: "f1", term: "**hěn**", definition: "Very (adverb)." }],
+    });
+    const result = auditContent({ topics: [topic] });
+    expect(result.issues.filter((i) => i.type === "unbalanced_bold")).toHaveLength(0);
   });
 });

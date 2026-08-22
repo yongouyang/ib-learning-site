@@ -9,6 +9,8 @@ import { getRecentAverageScore } from '@/lib/progress-store';
 import { getCardStats } from '@/lib/flashcard-scheduler';
 import DualRingDonut from '@/components/DualRingDonut';
 import { InstallAppButton } from '@/components/InstallAppButton';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { subjectEmoji } from '@/lib/subject-emoji';
 
 export default function ProgressPage() {
   const { userProgress, topicProgress, flashcardProgress } = useProgress();
@@ -18,23 +20,29 @@ export default function ProgressPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6">
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-6">My Progress</h1>
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'My Progress' }]} currentAsHeading />
 
       {/* Overall stats */}
       <div className="grid grid-cols-3 gap-3 mb-6">
-        <div className="card p-4 text-center">
-          <Star className="w-6 h-6 mx-auto mb-1 text-yellow-500" />
-          <div className="text-xl font-black text-gray-900 dark:text-gray-50">{userProgress.totalStars}</div>
+        <div className="card p-3 text-center">
+          <div className="flex items-center justify-center gap-1.5 mb-0.5">
+            <Star className="w-4 h-4 text-yellow-500 shrink-0" aria-hidden="true" />
+            <span className="text-xl font-black text-gray-900 dark:text-gray-50">{userProgress.totalStars}</span>
+          </div>
           <div className="text-xs text-gray-500 dark:text-gray-400">Total Stars</div>
         </div>
-        <div className="card p-4 text-center">
-          <Flame className="w-6 h-6 mx-auto mb-1 text-orange-500" />
-          <div className="text-xl font-black text-gray-900 dark:text-gray-50">{userProgress.currentStreakDays}</div>
+        <div className="card p-3 text-center">
+          <div className="flex items-center justify-center gap-1.5 mb-0.5">
+            <Flame className="w-4 h-4 text-orange-500 shrink-0" aria-hidden="true" />
+            <span className="text-xl font-black text-gray-900 dark:text-gray-50">{userProgress.currentStreakDays}</span>
+          </div>
           <div className="text-xs text-gray-500 dark:text-gray-400">Day Streak</div>
         </div>
-        <div className="card p-4 text-center">
-          <CheckCircle2 className="w-6 h-6 mx-auto mb-1 text-green-500" />
-          <div className="text-xl font-black text-gray-900 dark:text-gray-50">{attemptedTopics}</div>
+        <div className="card p-3 text-center">
+          <div className="flex items-center justify-center gap-1.5 mb-0.5">
+            <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" aria-hidden="true" />
+            <span className="text-xl font-black text-gray-900 dark:text-gray-50">{attemptedTopics}</span>
+          </div>
           <div className="text-xs text-gray-500 dark:text-gray-400">Topics Done</div>
         </div>
       </div>
@@ -86,7 +94,7 @@ export default function ProgressPage() {
           <div key={subject.id} className="card p-4 mb-3 border-l-4" style={{ borderLeftColor: subject.accentColor }}>
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <span>{subject.id === 'math' ? '📐' : subject.id === 'english' ? '📖' : subject.id === 'biology' ? '🌿' : subject.id === 'chemistry' ? '🧪' : '⚛️'}</span>
+                <span>{subjectEmoji(subject.id)}</span>
                 <span className="font-semibold text-gray-900 dark:text-gray-50">{subject.name}</span>
               </div>
               <div className="flex items-center gap-3">

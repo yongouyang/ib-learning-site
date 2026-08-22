@@ -1,11 +1,12 @@
 'use client';
 
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { getSubject } from '@/content/registry';
 import { useProgress } from '@/context/ProgressContext';
 import QuizGame from '@/components/QuizGame';
 import { buildDiagnosticQuestions, getDiagnosticCourse } from '@/lib/diagnostics';
 import type { MixedReviewQuestion } from '@/lib/mixed-review';
+import { trackEvent } from '@/lib/analytics';
 
 interface DiagnosticRunnerClientProps {
   courseId: string;
@@ -27,6 +28,10 @@ export default function DiagnosticRunnerClient({ courseId }: DiagnosticRunnerCli
   const outcomes = useRef(new Map<string, boolean>());
   const recorded = useRef(false);
 
+  useEffect(() => {
+    trackEvent('diagnostic_started', { courseId });
+  }, [courseId]);
+
   const handleQuestionResult = (questionId: string, correct: boolean) => {
     outcomes.current.set(questionId, correct);
   };
@@ -45,6 +50,8 @@ export default function DiagnosticRunnerClient({ courseId }: DiagnosticRunnerCli
       if (correct) agg.correct += 1;
       perTopic.set(key, agg);
     }
+    // Same < 70% threshold as src/lib/weak-point-analyzer.ts.
+    let weakAreaCount = 0;
     for (const agg of perTopic.values()) {
       recordAttempt(
         agg.topicId,
@@ -54,7 +61,13 @@ export default function DiagnosticRunnerClient({ courseId }: DiagnosticRunnerCli
         agg.correct,
         agg.total
       );
+      if (agg.total > 0 && agg.correct / agg.total < 0.7) weakAreaCount += 1;
     }
+    trackEvent('diagnostic_completed', {
+      courseId,
+      topicCount: perTopic.size,
+      weakAreaCount,
+    });
   };
 
   if (!course || questions.length === 0) {

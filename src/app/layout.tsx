@@ -4,10 +4,13 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { ProgressProvider } from '@/context/ProgressContext';
 import { ThemeProvider } from '@/context/ThemeContext';
+import { AuthProvider } from '@/context/AuthContext';
 import { Nav } from '@/components/Nav';
 import { HeaderNav } from '@/components/HeaderNav';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { AccountButton } from '@/components/AccountButton';
 import { ServiceWorkerRegistration } from '@/components/ServiceWorkerRegistration';
+import { AnalyticsTracker } from '@/components/AnalyticsTracker';
 import { OfflineBanner } from '@/components/OfflineBanner';
 import { UpdateToast } from '@/components/UpdateToast';
 
@@ -25,8 +28,26 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://octavlearning.com'),
-  title: 'Octav Learning',
-  description: 'Learn and practise for IB exams',
+  title: {
+    default: 'Octav Learning',
+    template: '%s · Octav Learning',
+  },
+  description:
+    'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+  openGraph: {
+    title: 'Octav Learning',
+    description:
+      'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+    url: 'https://octavlearning.com',
+    siteName: 'Octav Learning',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Octav Learning',
+    description:
+      'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+  },
   appleWebApp: {
     capable: true,
     title: 'Octav Learning',
@@ -56,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className={`${geistSans.className} min-h-screen flex flex-col`}>
         <ThemeProvider>
+          <AuthProvider>
           <ProgressProvider>
             <header className="hidden md:flex items-center justify-between px-6 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950">
               <Link href="/" className="flex items-center">
@@ -65,10 +87,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
               <div className="flex items-center gap-2">
                 <HeaderNav />
+                <AccountButton variant="desktop" />
                 <ThemeToggle />
               </div>
             </header>
             <div className="flex-1 flex flex-col">
+              {/* Mobile floating account + theme cluster — desktop has both in the
+                  header. 44px targets (AccountButton mobile + ThemeToggle size=lg),
+                  solid bg + rounded-xl to match the button/chip radius token and
+                  stay legible over scrolling content. */}
+              <div className="md:hidden fixed top-4 right-4 z-40">
+                <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 flex items-center">
+                  <AccountButton variant="mobile" />
+                  <ThemeToggle size="lg" />
+                </div>
+              </div>
               <main className="flex-1 pb-24 md:pb-0">{children}</main>
               <footer className="px-6 pt-4 pb-24 md:pb-4 text-center text-xs text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-800 space-y-1">
                 <p>
@@ -84,9 +117,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Nav />
             </div>
             <ServiceWorkerRegistration />
+            <AnalyticsTracker />
             <OfflineBanner />
             <UpdateToast />
           </ProgressProvider>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

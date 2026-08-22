@@ -1,17 +1,19 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Shuffle, Target } from 'lucide-react';
 import { useProgress } from '@/context/ProgressContext';
 import QuizGame from '@/components/QuizGame';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import {
   buildMixedReviewQuestions,
   MIXED_REVIEW_TOPIC_ID,
   MIXED_REVIEW_SUBJECT_ID,
   MIXED_REVIEW_TITLE,
 } from '@/lib/mixed-review';
+import { trackEvent } from '@/lib/analytics';
 
 export default function MixedReviewClient() {
   const searchParams = useSearchParams();
@@ -23,6 +25,16 @@ export default function MixedReviewClient() {
     [topicProgress, mode]
   );
 
+  const startedAt = useRef(Date.now());
+  useEffect(() => {
+    startedAt.current = Date.now();
+    trackEvent('quiz_started', {
+      subjectId: MIXED_REVIEW_SUBJECT_ID,
+      topicId: MIXED_REVIEW_TOPIC_ID,
+      source: 'mixed_review',
+    });
+  }, [mode]);
+
   const handleComplete = (correctCount: number, totalCount: number) => {
     recordAttempt(
       MIXED_REVIEW_TOPIC_ID,
@@ -32,6 +44,13 @@ export default function MixedReviewClient() {
       correctCount,
       totalCount
     );
+    trackEvent('quiz_completed', {
+      subjectId: MIXED_REVIEW_SUBJECT_ID,
+      topicId: MIXED_REVIEW_TOPIC_ID,
+      correctCount,
+      totalCount,
+      durationSeconds: Math.round((Date.now() - startedAt.current) / 1000),
+    });
   };
 
   const modes = [
@@ -39,9 +58,23 @@ export default function MixedReviewClient() {
     { key: 'random', href: '/mixed-review', label: 'All topics', icon: Shuffle },
   ];
 
+  // What the two modes actually do, stated plainly so the difference is visible
+  // while practising (not just on the results screen).
+  const isFallback = mode === 'weak' && !usedWeakTopics;
+  const description =
+    mode === 'weak'
+      ? usedWeakTopics
+        ? `Focused on your weak areas — questions from the ${weakTopicCount} topic${weakTopicCount !== 1 ? 's' : ''} you scored below 70% on.`
+        : weakTopicCount === 0
+          ? 'No weak areas found yet — questions are drawn from all topics instead.'
+          : 'Could not build a weak-area review — questions are drawn from all topics instead.'
+      : 'A random mix of easy, medium and hard questions from all topics.';
+
   return (
     <div className="max-w-lg mx-auto px-4 py-6">
-      <div className="flex gap-2 mb-4" role="group" aria-label="Review mode">
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Mixed Review' }]} currentAsHeading />
+
+      <div className="flex gap-2 mb-3" role="group" aria-label="Review mode">
         {modes.map((m) => {
           const Icon = m.icon;
           const active = mode === m.key;
@@ -63,19 +96,20 @@ export default function MixedReviewClient() {
         })}
       </div>
 
-      {mode === 'weak' && !usedWeakTopics && (
-        <div className="card p-3 mb-4 bg-yellow-50 dark:bg-yellow-950 border-yellow-200 dark:border-yellow-900 text-sm text-yellow-800 dark:text-yellow-300">
-          {weakTopicCount === 0
-            ? 'No weak areas found yet. Practising random questions instead.'
-            : 'Could not build a weak-area review. Practising random questions instead.'}
-        </div>
-      )}
+      <p
+        className={`mb-4 text-sm ${
+          isFallback
+            ? 'card p-3 bg-yellow-50 dark:bg-yellow-950 border-yellow-200 dark:border-yellow-900 text-yellow-800 dark:text-yellow-300'
+            : 'text-gray-500 dark:text-gray-400'
+        }`}
+      >
+        {description}
+      </p>
 
       <QuizGame
         subtitle={mode === 'weak' && usedWeakTopics ? 'Focused on your weak areas' : 'Questions from all topics'}
         backHref="/progress"
         backLabel="Back to Progress"
-        breadcrumbs={[{ href: '/', label: 'Home' }, { label: 'Mixed Review' }]}
         questions={questions.map((q) => q.question)}
         shuffleSeed={questions.map((q) => q.question.id).join(',')}
         enableTimer={false}

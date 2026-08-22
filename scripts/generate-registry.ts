@@ -147,7 +147,7 @@ ${metaDeclarations}
 
 ${subjectBuildLines.join('\n')}
 
-const subjects: Record<SubjectId, Subject> = {
+const subjects: Partial<Record<SubjectId, Subject>> = {
 ${subjectsRecordEntries}
 };
 
@@ -163,7 +163,7 @@ export function getTopic(subjectId: SubjectId, topicId: string) {
   return subjects[subjectId]?.topics.find((t) => t.id === topicId);
 }
 
-export const subjectMeta: Record<SubjectId, { name: string; icon: string; color: string }> = {
+export const subjectMeta: Partial<Record<SubjectId, { name: string; icon: string; color: string }>> = {
 ${subjectMetaRecordEntries}
 };
 

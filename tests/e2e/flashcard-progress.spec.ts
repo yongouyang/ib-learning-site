@@ -19,6 +19,8 @@ function seedProgress(extra: Record<string, unknown> = {}) {
 test.describe('Flashcard progress', () => {
   test('self-sorting persists across reloads and updates the donut', async ({ page }) => {
     await page.goto('/subjects/biology/bio-cell-1/flashcards');
+    // Wait out the Next 16 streaming shell (hidden S:0 copy) before clicking.
+    await expect(page.locator('[id="S:0"]')).toHaveCount(0);
     await page.locator('.card').filter({ hasText: 'Tap to flip' }).click();
     await page.getByRole('button', { name: /I know this/i }).click();
     await expect(page.getByText('2/12')).toBeVisible();

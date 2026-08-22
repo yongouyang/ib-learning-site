@@ -4,6 +4,7 @@
   "title": "Rates of Reaction",
   "description": "How to measure and change reaction rates — collision theory, factors affecting rate, catalysts, and interpreting rate graphs.",
   "stage": "ks3",
+  "year": 9,
   "notes": [
     {
       "id": "chem-rates-1-n1",
@@ -162,7 +163,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Higher temperature increases both collision frequency AND the proportion of particles exceeding the activation energy barrier.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "collision-theory-temperature"
     },
     {
       "id": "chem-rates-1-q2",
@@ -175,7 +177,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Crushing increases surface area. More particles are available at the solid-liquid interface for collisions with acid particles.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "surface-area-effect"
     },
     {
       "id": "chem-rates-1-q3",
@@ -188,7 +191,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Catalysts lower the activation energy by offering an alternative mechanism. They are NOT consumed and do NOT change reactant energies.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "catalyst-properties"
     },
     {
       "id": "chem-rates-1-q4",
@@ -201,7 +205,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The plateau means no more product is being formed. The limiting reactant is completely consumed — the reaction has finished.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "rate-graph-plateau"
     },
     {
       "id": "chem-rates-1-q5",
@@ -214,7 +219,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Rate = amount ÷ time = 48 ÷ 20 = 2.4 cm³/s.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "rate-calculation"
     },
     {
       "id": "chem-rates-1-q6",
@@ -227,7 +233,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Higher temperature → faster rate → steeper initial gradient. But same amount of limiting reactant → same final amount of product → same plateau height.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "rate-graph-comparison"
     },
     {
       "id": "chem-rates-1-q7",
@@ -240,7 +247,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Increasing container volume without adding more reactant DILUTES the solution → lower concentration → slower rate. All other options increase rate.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "rate-factor-identification"
     },
     {
       "id": "chem-rates-1-q8",
@@ -253,7 +261,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Catalysts change the PATHWAY (lowering activation energy) but not the starting point (reactants) or end point (products). Therefore the yield is unchanged.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "catalyst-no-yield-change"
     },
     {
       "id": "chem-rates-1-q9",
@@ -266,7 +275,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The sulfur precipitate (solid S) makes the solution cloudy. Higher temperature → faster rate → precipitate appears sooner → cross disappears in less time.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "thiosulfate-experiment"
     },
     {
       "id": "chem-rates-1-q10",
@@ -279,7 +289,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Gradient = Δy/Δx = amount of product formed per unit time = rate. The initial gradient is the steepest because reactant concentrations are highest.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "gradient-rate-meaning"
     },
     {
       "id": "chem-rates-1-q11",
@@ -292,7 +303,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Enzymes are proteins. High temperatures break the bonds maintaining their 3D shape (denaturation). The active site is deformed → substrate no longer fits → no catalysis.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "enzyme-behaviour"
     },
     {
       "id": "chem-rates-1-q12",
@@ -305,7 +317,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Increasing pressure compresses the gas → particles are closer together → higher concentration → more frequent collisions per unit time.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "pressure-gas-rate"
     },
     {
       "id": "chem-rates-1-q13",
@@ -318,7 +331,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Higher temperature flattens and shifts the distribution to the right. The key point: the area under the curve beyond the activation energy line increases dramatically.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "maxwell-boltzmann"
     },
     {
       "id": "chem-rates-1-q14",
@@ -331,7 +345,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Catalysts are NOT consumed. MnO₂ remains at the end — it can be recovered by filtration and used again for another batch of H₂O₂.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "catalyst-properties"
     },
     {
       "id": "chem-rates-1-q15",
@@ -344,7 +359,190 @@
       ],
       "correctIndex": 1,
       "explanation": "For instantaneous rate at a specific time, draw a tangent touching the curve at that point. The tangent's gradient = rate at that instant.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "rate-calculation"
+    },
+    {
+      "id": "chem-rates-1-q16",
+      "stem": "Hydrogen peroxide decomposes slowly at room temperature but much faster when warmed to 40°C. Using collision theory, the best explanation is:",
+      "choices": [
+        "The heat makes the hydrogen peroxide molecules break apart on their own",
+        "The particles gain kinetic energy, so they collide more often and a greater proportion of collisions have enough energy to react",
+        "The heat lowers the activation energy of the reaction",
+        "Warming increases the concentration of the hydrogen peroxide"
+      ],
+      "correctIndex": 1,
+      "explanation": "Higher temperature gives particles more kinetic energy: collisions are more frequent AND more of them exceed the activation energy. Temperature does not change the activation energy or the concentration.",
+      "difficulty": "medium",
+      "variantOf": "collision-theory-temperature"
+    },
+    {
+      "id": "chem-rates-1-q17",
+      "stem": "A whole antacid tablet fizzes slowly in water, but a crushed tablet fizzes much faster. Why?",
+      "choices": [
+        "Crushing the tablet makes it more concentrated",
+        "Crushing exposes a larger surface area, so more particles can collide with the water each second",
+        "The crushed tablet is warmer than the whole tablet",
+        "Small pieces react faster because they contain a catalyst"
+      ],
+      "correctIndex": 1,
+      "explanation": "Breaking a solid into smaller pieces increases its surface area. More particles are available at the surface for collisions, so successful collisions happen more frequently and the rate rises.",
+      "difficulty": "easy",
+      "variantOf": "surface-area-effect"
+    },
+    {
+      "id": "chem-rates-1-q18",
+      "stem": "Which statement about catalysts is correct?",
+      "choices": [
+        "Catalysts are used up during the reaction",
+        "A catalyst increases the amount of product formed",
+        "A catalyst speeds up a reaction and is chemically unchanged at the end",
+        "Only enzymes can act as catalysts"
+      ],
+      "correctIndex": 2,
+      "explanation": "A catalyst provides a lower-activation-energy pathway and is not consumed — it is chemically unchanged when the reaction ends. It speeds up the reaction but does not change the yield.",
+      "difficulty": "easy",
+      "variantOf": "catalyst-properties"
+    },
+    {
+      "id": "chem-rates-1-q19",
+      "stem": "A mass vs time graph for marble chips reacting with acid slopes downwards and then becomes horizontal. The horizontal section shows that:",
+      "choices": [
+        "The reaction is still speeding up",
+        "The gas syringe is full",
+        "The reaction has finished — the limiting reactant is used up, so no more CO₂ escapes",
+        "The balance has stopped working"
+      ],
+      "correctIndex": 2,
+      "explanation": "The mass stops falling when no more carbon dioxide is being produced — the limiting reactant has been completely consumed and the reaction is complete.",
+      "difficulty": "easy",
+      "variantOf": "rate-graph-plateau"
+    },
+    {
+      "id": "chem-rates-1-q20",
+      "stem": "In a mass-loss experiment, the mass falls by 1.2 g in 40 seconds. What is the average rate of mass loss?",
+      "choices": [
+        "0.03 g/s",
+        "0.3 g/s",
+        "33 g/s",
+        "48 g/s"
+      ],
+      "correctIndex": 0,
+      "explanation": "Rate = change in mass ÷ time = 1.2 ÷ 40 = 0.03 g/s. Dividing time by mass (40 ÷ 1.2 ≈ 33) inverts the calculation.",
+      "difficulty": "medium",
+      "variantOf": "rate-calculation"
+    },
+    {
+      "id": "chem-rates-1-q21",
+      "stem": "A student reacts 1 g of powdered calcium carbonate with excess hydrochloric acid, then repeats with 1 g of large marble chips in the same excess acid. How do the two product vs time graphs compare?",
+      "choices": [
+        "The powder graph is steeper at first and reaches a higher plateau",
+        "The chips graph is steeper because larger pieces react more",
+        "The powder graph is steeper initially, but both level off at the same final amount of product",
+        "Both graphs are identical because the same mass is used"
+      ],
+      "correctIndex": 2,
+      "explanation": "Powder has a greater surface area, so it reacts faster (steeper initial gradient). But both samples contain the same mass of CaCO₃ and the acid is in excess, so both produce the same total amount of product — the same plateau.",
+      "difficulty": "hard",
+      "variantOf": "rate-graph-comparison"
+    },
+    {
+      "id": "chem-rates-1-q22",
+      "stem": "Which change will increase the rate of reaction between magnesium ribbon and dilute hydrochloric acid?",
+      "choices": [
+        "Use a more concentrated acid",
+        "Use a larger beaker",
+        "Dilute the acid with water",
+        "Cool the acid in an ice bath"
+      ],
+      "correctIndex": 0,
+      "explanation": "A more concentrated acid has more particles per unit volume → more frequent collisions → faster rate. Cooling slows the reaction, diluting lowers the concentration, and a larger beaker changes nothing about the reactants.",
+      "difficulty": "medium",
+      "variantOf": "rate-factor-identification"
+    },
+    {
+      "id": "chem-rates-1-q23",
+      "stem": "On an energy profile diagram, how does adding a catalyst change the diagram?",
+      "choices": [
+        "The activation energy hump is lower, but the energy difference between reactants and products stays the same",
+        "The products move to a lower energy level",
+        "The activation energy hump is higher",
+        "Both the reactants and the products move to higher energy levels"
+      ],
+      "correctIndex": 0,
+      "explanation": "A catalyst provides an alternative pathway with a lower activation energy — only the hump shrinks. The energies of reactants and products (and therefore ΔH) are unchanged, so the yield is unchanged too.",
+      "difficulty": "hard",
+      "variantOf": "catalyst-no-yield-change"
+    },
+    {
+      "id": "chem-rates-1-q24",
+      "stem": "In the sodium thiosulfate and hydrochloric acid experiment, a student times how long a cross under the flask takes to disappear. What causes the cross to disappear?",
+      "choices": [
+        "The acid dissolves the ink in the cross",
+        "The solution boils and the steam hides the cross",
+        "A precipitate of sulfur forms, making the mixture cloudy enough to hide the cross",
+        "The sodium thiosulfate turns black"
+      ],
+      "correctIndex": 2,
+      "explanation": "The reaction produces solid sulfur as a fine precipitate. As more sulfur forms, the mixture becomes increasingly cloudy until the cross can no longer be seen through it.",
+      "difficulty": "medium",
+      "variantOf": "thiosulfate-experiment"
+    },
+    {
+      "id": "chem-rates-1-q25",
+      "stem": "On a graph of gas volume collected against time, what does a steeper curve show?",
+      "choices": [
+        "A faster reaction — more gas is being produced each second",
+        "A larger total amount of gas",
+        "A higher temperature",
+        "A longer reaction time"
+      ],
+      "correctIndex": 0,
+      "explanation": "Gradient = change in volume ÷ change in time = rate of gas production. A steeper gradient means gas is being produced more quickly — a faster reaction.",
+      "difficulty": "easy",
+      "variantOf": "gradient-rate-meaning"
+    },
+    {
+      "id": "chem-rates-1-q26",
+      "stem": "An enzyme-catalysed reaction is very slow at 5°C but speeds up again when warmed to 37°C. This shows that at 5°C:",
+      "choices": [
+        "The enzyme has been denatured",
+        "The enzyme has been killed",
+        "The substrate has frozen",
+        "The enzyme is intact but less active — particles move slowly at low temperature, so enzyme-substrate collisions are rare"
+      ],
+      "correctIndex": 3,
+      "explanation": "Low temperature slows the reaction because particles have less kinetic energy and collide less often. The enzyme is NOT denatured — denaturation permanently destroys the active site, and warming would not restore the activity.",
+      "difficulty": "medium",
+      "variantOf": "enzyme-behaviour"
+    },
+    {
+      "id": "chem-rates-1-q27",
+      "stem": "The Haber process is run at high pressure. In terms of collision theory, this increases the rate because:",
+      "choices": [
+        "The high pressure lowers the activation energy",
+        "The high pressure gives each particle more energy",
+        "Compressing the gases pushes the particles closer together, so collisions happen more frequently",
+        "The high pressure turns the gases into liquids"
+      ],
+      "correctIndex": 2,
+      "explanation": "Higher pressure squeezes the same number of gas particles into a smaller volume — effectively a higher concentration — so collisions between reactant particles are more frequent. It does not change the activation energy or the particles' energy.",
+      "difficulty": "medium",
+      "variantOf": "pressure-gas-rate"
+    },
+    {
+      "id": "chem-rates-1-q28",
+      "stem": "On a Maxwell-Boltzmann distribution curve, what changes when a catalyst is added?",
+      "choices": [
+        "The curve shifts to higher energies",
+        "The curve becomes taller and narrower",
+        "The activation energy line moves to the left, so a larger proportion of particles now have enough energy to react",
+        "The total number of particles increases"
+      ],
+      "correctIndex": 2,
+      "explanation": "A catalyst lowers the activation energy, so on the distribution the Ea line moves left: more particles have energy ≥ Ea and can react. The curve itself does not move — the particles' energies only change with temperature.",
+      "difficulty": "hard",
+      "variantOf": "maxwell-boltzmann"
     }
   ]
 }

@@ -1,0 +1,316 @@
+{
+  "id": "ict-yr9-understanding-ai",
+  "subjectId": "ict",
+  "title": "Understanding AI",
+  "description": "What AI is and is not, how machine learning turns data into models, supervised versus unsupervised learning, AI in everyday life, generative AI's strengths and limits, bias in training data, and the ethics, privacy and responsible-use questions to ask of any AI application.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "ict-yr9-understanding-ai-n1",
+      "heading": "What AI Is — and What It Is Not",
+      "body": "Artificial intelligence (AI) is the branch of computing that builds systems able to perform tasks that normally need human intelligence: recognising faces, understanding speech, translating languages, recommending videos, spotting spam. The key idea is that these systems are not following a fixed list of hand-written rules for every situation — they have learned patterns from examples. It is just as important to know what AI is not. It is not conscious, and it does not understand the world the way you do. A chess-playing program has no idea what a game is; it computes strong moves. A chatbot does not know facts the way you know them; it predicts plausible text. AI also is not magic or perfect: every system has limits, makes confident-sounding mistakes, and only works well inside the range of situations it was built for. A useful working definition for this topic: AI is software that improves its performance on a task by finding patterns in data, rather than by following only explicit instructions written by a programmer. Keeping this realistic picture in mind — powerful pattern-matching, not a thinking mind — helps you judge every AI claim you meet."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-n2",
+      "heading": "Machine Learning: Data, Training and Models",
+      "body": "Machine learning (ML) is the main way modern AI is built, and it rests on three ideas: data, training and the model. Instead of writing rules like 'if the email contains the word prize, mark it spam', developers show the computer thousands of example emails already labelled spam or not-spam — that collection is the training data. Training is the process where a learning algorithm adjusts the internal settings of a model, over and over, so that its predictions match the labels in the training data more and more closely. The model is the result: the learned patterns, stored as numbers, that can make predictions about new, unseen examples. A spam filter's model might learn that certain words, senders and layouts strongly predict junk mail. Quality beats quantity: a model trained on messy, wrong or one-sided data will learn messy, one-sided patterns — 'garbage in, garbage out'. And training is not the same as memorising: a good model generalises, meaning it handles new examples it never saw in training. A model that only works on its own training data has overfitted — like a student who memorised past papers but cannot answer a fresh question."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-n3",
+      "heading": "Supervised and Unsupervised Learning",
+      "body": "At concept level, most machine learning fits one of two styles, and the difference is whether the training data comes with answers. Supervised learning trains on labelled examples — each input comes with the correct output. Show a model 50,000 photos labelled 'cat' or 'dog' and it learns to classify new photos; show it houses with their sizes and sale prices and it learns to predict a price from a size. Classification (sorting into categories) and prediction of numbers are the classic supervised tasks. Unsupervised learning works with unlabelled data: the algorithm is given examples with no answers and must find structure on its own. A music app might cluster listeners into groups with similar tastes without anyone ever naming those groups; a shop might group products that tend to be bought together. Neither style is 'better' — they answer different questions. Supervised learning needs lots of accurately labelled data, which is expensive to produce, but gives you direct answers to the question you trained for. Unsupervised learning can explore raw data cheaply and reveal patterns nobody expected, but it cannot tell you what the groups mean — interpreting the structure is still a human job."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-n4",
+      "heading": "Everyday AI: Recommendations, Vision and Language",
+      "body": "You already use AI many times a day, usually without noticing. Recommendation systems are the most familiar: video, music and shopping platforms predict what you will want next from your history plus the behaviour of millions of similar users. They are trained to keep you watching, listening or buying — useful, but worth remembering their goal is engagement, not your wellbeing, which is why feeds can push ever-more-extreme content. Computer vision lets machines interpret images and video: unlocking your phone with your face, automatic number-plate readers, apps that identify plants, and systems that flag tumours in medical scans. Language AI handles text and speech: voice assistants turning speech into commands, machine translation between languages, autocorrect predicting your next word, and spam filters reading your email. Each of these is a narrow system, excellent at one task and useless outside it — the face recogniser cannot translate French. When you evaluate an everyday AI, ask three questions: what data was it trained on, what is it optimising for, and what happens when it is wrong? A wrong video suggestion is harmless; a wrong medical scan reading is not — the stakes of the mistake decide how much trust the system deserves."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-n5",
+      "heading": "Generative AI: Strengths and Limits",
+      "body": "Generative AI creates new content — text, images, music, code — rather than just classifying or recommending. Large language models are trained on enormous collections of text to predict what word should come next; from that simple-sounding skill emerge the abilities to answer questions, draft essays, summarise documents and write code. Image generators do something similar with pixels, producing a picture from a written description. The strengths are real: speed (a first draft in seconds), breadth (decent knowledge across many topics), and usefulness as a brainstorming partner or explainer that adapts to your level. The limits matter just as much. A language model does not look facts up — it generates text that sounds plausible, so it can produce hallucinations: confident, fluent, completely false statements, including invented book references and fake quotes. Its knowledge has a cut-off date, it cannot truly check its own work, and it reflects the biases in its training text. Images can contain subtle errors — extra fingers, impossible shadows. The responsible habits follow directly: use generative AI as a starting point and assistant, never as an unquestionable authority; verify important facts against reliable sources; and be transparent about when and how you used it, especially in schoolwork."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-n6",
+      "heading": "Bias in Training Data",
+      "body": "A model learns whatever patterns exist in its training data — including the unfair ones. Bias enters in several ways. Unrepresentative data: early face-recognition systems trained mostly on lighter-skinned faces performed far worse on darker skin, because the data did not represent everyone. Historical bias: if a company trains a hiring tool on ten years of past hiring decisions, and those decisions favoured one group, the model faithfully learns that favouritism — it automates yesterday's discrimination at scale. Labelling bias: human labellers bring their own assumptions when they tag the training examples. Even the choice of what to measure can embed bias: optimising a feed for 'engagement' quietly rewards outrage because outrage engages. The consequences are not abstract: biased AI has misidentified people in policing, downgraded CVs, and given different groups different loan offers. Fighting bias is an engineering duty, not an afterthought: audit the training data for representation, test the model's accuracy separately for different groups, keep humans in the loop for high-stakes decisions, and provide a way to appeal a decision. The habit for you as a user: when an AI system treats people differently, ask whether the data — not some neutral logic — is the real reason."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-n7",
+      "heading": "Ethics, Privacy and Responsible Use",
+      "body": "Powerful tools come with obligations, and AI raises questions society is still answering. Privacy: AI systems are hungry for data, and your photos, messages, voice and browsing history can all become training material — check what an app collects, whether it is shared or sold, and whether you can opt out or delete it. Think twice before pasting personal information — yours or anyone else's — into a chatbot. Deepfakes: generative AI can synthesise a realistic face or voice, enabling fraud and bullying; never create or share fake content of a real person, and treat suspicious audio or video with scepticism. Transparency and consent: people should know when they are talking to a machine and when AI influenced a decision about them. Work and creativity: AI changes jobs and raises questions about whose work trained the generators. Accountability: when an AI system causes harm, someone — the developer, the deployer — must be answerable; 'the algorithm did it' is not an excuse. When you research a specific AI application, structure your investigation around: what task it performs, what data it needs and where that data comes from, who benefits and who could be harmed, what happens when it makes a mistake, and what rules or laws apply. Using AI responsibly yourself means verifying outputs, respecting others' data and likenesses, following your school's rules on AI in assignments, and staying curious about how these systems actually work."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ict-yr9-understanding-ai-f1",
+      "term": "Artificial intelligence (AI)",
+      "definition": "Software that performs tasks normally requiring human intelligence by learning patterns from data, rather than following only hand-written rules.",
+      "example": "A spam filter that learned which emails are junk from thousands of labelled examples."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-f2",
+      "term": "Machine learning",
+      "definition": "Building AI by training a model on examples so it improves at a task, instead of programming every rule explicitly.",
+      "example": "Showing a system 50,000 labelled cat and dog photos so it learns to classify new photos itself."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-f3",
+      "term": "Model",
+      "definition": "The learned result of training — patterns stored as numbers that let the AI make predictions about new, unseen data.",
+      "example": "After training, the spam filter's model scores each incoming email for how junk-like it looks."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-f4",
+      "term": "Training data",
+      "definition": "The collection of examples a learning algorithm learns from; its quality and representativeness decide the model's quality.",
+      "example": "Thousands of emails already labelled spam or not-spam, used to train a filter."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-f5",
+      "term": "Supervised learning",
+      "definition": "Training on labelled examples — each input comes with the correct answer — so the model learns to predict labels for new inputs.",
+      "example": "Learning to predict a house's price from examples of sizes paired with actual sale prices."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-f6",
+      "term": "Unsupervised learning",
+      "definition": "Finding structure in unlabelled data — grouping similar items without being told what the groups are.",
+      "example": "A music app clustering listeners with similar tastes into groups nobody named in advance."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-f7",
+      "term": "Classification",
+      "definition": "A supervised task where the model sorts an input into one of a set of categories.",
+      "example": "Deciding whether a photo shows a cat or a dog."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-f8",
+      "term": "Recommendation system",
+      "definition": "AI that predicts what content or products a user will want next, from their history and the behaviour of similar users.",
+      "example": "A video platform suggesting the next clip based on what you and similar viewers watched."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-f9",
+      "term": "Generative AI",
+      "definition": "AI that creates new content — text, images, music, code — rather than only classifying or recommending existing things.",
+      "example": "A chatbot drafting an essay plan, or an image tool painting a picture from a written description."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-f10",
+      "term": "Hallucination",
+      "definition": "A confident, fluent but false statement produced by generative AI, which generates plausible text rather than looking up facts.",
+      "example": "A chatbot inventing a book — with a realistic title and author — that does not exist."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-f11",
+      "term": "Bias (in AI)",
+      "definition": "Unfair patterns a model learns from unrepresentative, historically skewed or badly labelled training data.",
+      "example": "A face-recognition system trained mostly on lighter-skinned faces failing on darker skin."
+    },
+    {
+      "id": "ict-yr9-understanding-ai-f12",
+      "term": "Deepfake",
+      "definition": "Synthetic audio, image or video of a real person, generated by AI to look and sound authentic.",
+      "example": "A fabricated video clip that appears to show a celebrity saying something they never said."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-yr9-understanding-ai-q1",
+      "stem": "Which statement best describes what modern AI actually is?",
+      "choices": [
+        "Software that learns patterns from data to perform tasks that normally need human intelligence",
+        "A conscious computer mind that understands the world like a person",
+        "A database that stores every fact ever written",
+        "Any program that runs very quickly"
+      ],
+      "correctIndex": 0,
+      "explanation": "Modern AI is powerful pattern-matching learned from data — it is not conscious and does not understand meaning the way humans do. Recognising this keeps its abilities and limits in proportion.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q2",
+      "stem": "In machine learning, what is training data?",
+      "choices": [
+        "The code a programmer writes to fix bugs",
+        "The collection of examples the algorithm learns patterns from",
+        "The electricity used while the computer runs",
+        "The final answer the AI gives a user"
+      ],
+      "correctIndex": 1,
+      "explanation": "Training data is the set of examples — often labelled — from which the learning algorithm adjusts the model. Its quality and representativeness largely decide how well the final model works.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q3",
+      "stem": "What makes learning 'supervised'?",
+      "choices": [
+        "A teacher watches the computer while it runs",
+        "The computer is never allowed to make mistakes",
+        "Each training example comes labelled with the correct answer",
+        "The program asks the user to approve every prediction"
+      ],
+      "correctIndex": 2,
+      "explanation": "In supervised learning every input in the training set is paired with its correct output — labelled photos, houses with their prices — so the model can learn the mapping from input to answer.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q4",
+      "stem": "A video app suggesting what you should watch next is an example of which everyday AI?",
+      "choices": [
+        "A recommendation system",
+        "A deepfake generator",
+        "An operating system",
+        "A spell checker"
+      ],
+      "correctIndex": 0,
+      "explanation": "Recommendation systems predict what you will want next from your history and the behaviour of similar users — the core technology behind video, music and shopping suggestions.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q5",
+      "stem": "A music-streaming service groups its listeners into clusters with similar tastes, without anyone defining the groups beforehand. Which kind of learning is this?",
+      "choices": [
+        "Supervised learning, because music is involved",
+        "Unsupervised learning, because it found structure in unlabelled data",
+        "No learning at all — grouping is always done by hand",
+        "Generative learning, because the groups are new"
+      ],
+      "correctIndex": 1,
+      "explanation": "No labelled answers were given — the algorithm discovered the clusters on its own from listening data. Finding hidden structure in unlabelled data is the definition of unsupervised learning.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q6",
+      "stem": "Why can a chatbot state something false with total confidence?",
+      "choices": [
+        "It is programmed to lie on difficult questions",
+        "It predicts plausible-sounding text rather than checking facts, so fluent nonsense (a hallucination) can slip out",
+        "Its training data is deleted every night",
+        "Confidence and accuracy are always linked in software"
+      ],
+      "correctIndex": 1,
+      "explanation": "A language model generates text that statistically fits the conversation; it does not verify statements against sources. That is why hallucinations — confident, wrong answers — happen and why important facts must be checked.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q7",
+      "stem": "A hiring tool trained on ten years of a company's past recruitment decisions starts rejecting CVs from a particular group far more often. What is the most likely cause?",
+      "choices": [
+        "The tool became conscious and developed opinions",
+        "Historical bias — the model faithfully learned the unfair patterns present in the past decisions it was trained on",
+        "CVs contain too many words for the AI to read",
+        "The internet connection filtered certain surnames"
+      ],
+      "correctIndex": 1,
+      "explanation": "Models reproduce the patterns in their training data. If past hiring favoured one group, the model learns that favouritism and automates it — historical bias in data becomes systematic discrimination at scale.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q8",
+      "stem": "A model scores 99% on the exact examples it was trained on but performs poorly on new examples. What is this problem called, and what does it mean?",
+      "choices": [
+        "Overfitting — the model memorised the training data instead of learning patterns that generalise",
+        "Underfitting — the model needs even more memorisation",
+        "Deepfaking — the data was synthetic",
+        "Encryption — the new data is locked away"
+      ],
+      "correctIndex": 0,
+      "explanation": "Overfitting means the model fitted its training examples so closely — memorising quirks and all — that it fails to generalise to fresh data, like a student who memorised past papers but cannot answer a new question.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q9",
+      "stem": "Your friend pastes their full name, home address and a parent's work details into a chatbot to get help with a form. Which responsible-use principle are they breaking?",
+      "choices": [
+        "None — chatbots are completely private by law",
+        "Privacy — personal data shared with an AI service may be stored, reviewed or reused, so sensitive information should not be pasted in",
+        "Decomposition — the form should be broken into sub-problems first",
+        "Compression — the details should be zipped before sending"
+      ],
+      "correctIndex": 1,
+      "explanation": "AI services may keep and process whatever you type, and data breaches or reuse for training are real risks. Responsible use means sharing the minimum personal information — yours or anyone else's.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q10",
+      "stem": "Why is 'the algorithm decided, so it must be fair' a weak defence of an AI decision?",
+      "choices": [
+        "Algorithms always run too slowly to be fair",
+        "Algorithms are always written by unfair people",
+        "An algorithm reproduces whatever patterns are in its data and design — including biased ones — so its output needs auditing, testing and human accountability, not blind trust",
+        "Fairness is impossible to define for any decision"
+      ],
+      "correctIndex": 2,
+      "explanation": "An AI system's decisions come from its training data and design choices, both made by humans and both able to embed bias. High-stakes decisions need testing across groups, human oversight and a way to appeal.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q11",
+      "stem": "A face-recognition system works well for lighter-skinned faces but fails often on darker skin. Which fix best addresses the root cause rather than a symptom?",
+      "choices": [
+        "Ask affected users to stand in brighter light forever",
+        "Retrain and test the system with training data that properly represents all skin tones, and measure accuracy per group",
+        "Remove the accuracy testing so failures stop being reported",
+        "Add more computing power so the model runs faster"
+      ],
+      "correctIndex": 1,
+      "explanation": "The root cause is unrepresentative training data. Fixing it means collecting data that represents everyone and auditing accuracy separately for each group — speed and lighting tweaks only mask the underlying bias.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q12",
+      "stem": "You are researching an AI that grades student essays automatically. Which set of questions forms the strongest evaluation?",
+      "choices": [
+        "Only 'Is it fast?' and 'Is it cheap?'",
+        "What data trained it and does it represent all students? Who benefits and who could be harmed? What happens when it misgrades, and can a student appeal? Is its accuracy audited across different groups?",
+        "Only whether the company's website looks professional",
+        "Whether it uses the newest possible computer chips"
+      ],
+      "correctIndex": 1,
+      "explanation": "A solid AI investigation covers data provenance and representation, winners and losers, failure modes and appeal routes, and accountability. Cost and speed matter but say nothing about fairness or reliability.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q13",
+      "stem": "A classmate uses generative AI to create a realistic fake audio clip of a teacher saying something rude, and shares it as a joke. Why is this a serious problem, not just a prank?",
+      "choices": [
+        "Audio files use too much storage to be a joke",
+        "It is only a problem if the teacher finds out",
+        "It is a deepfake: fabricated media of a real person that can damage their reputation, constitutes bullying, and may break the law and school rules — consent and honesty apply to synthetic media",
+        "Jokes require at least three people to be funny"
+      ],
+      "correctIndex": 2,
+      "explanation": "Deepfakes put words in a real person's mouth without consent. Even 'jokes' can humiliate, mislead viewers who believe them, and cause real harm — which is why creating or sharing them is an ethical and often disciplinary violation.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q14",
+      "stem": "What does it mean to say that recommendation systems are 'optimising for engagement'?",
+      "choices": [
+        "They are designed to keep you watching or scrolling as long as possible, which can push extreme content, even if that is not best for you",
+        "They are engaged to be married to the user",
+        "They only recommend content your friends have already watched",
+        "They check every video's facts before recommending it"
+      ],
+      "correctIndex": 0,
+      "explanation": "The model's goal is engagement — watch time, clicks — because that drives the platform's business. Content that provokes strong reactions engages well, so the system can drift towards extremes; knowing the goal helps you judge the suggestions.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr9-understanding-ai-q15",
+      "stem": "Which task is the best fit for supervised learning?",
+      "choices": [
+        "Finding unexpected groups of shoppers in data with no labels",
+        "Writing a brand-new poem from scratch",
+        "Predicting whether an email is spam, using 100,000 emails already labelled spam or not-spam",
+        "Choosing the fastest route using only a printed paper map"
+      ],
+      "correctIndex": 2,
+      "explanation": "Spam detection with labelled examples is the textbook supervised task: inputs paired with correct answers, learning to classify new emails. Grouping unlabelled shoppers is unsupervised; writing a poem is generative; a paper map involves no learning.",
+      "difficulty": "easy"
+    }
+  ]
+}

@@ -56,6 +56,38 @@ import {
   draw as drawPower,
   type PowerParams,
 } from '@/content/generators/phys-power';
+import {
+  draw as drawElectronConfig,
+  build as buildElectronConfig,
+  type ElectronConfigParams,
+} from '@/content/generators/chem-electron-config';
+import {
+  draw as drawIonFormation,
+  build as buildIonFormation,
+  type IonFormationParams,
+} from '@/content/generators/chem-ion-formation';
+import {
+  draw as drawIsotopeRam,
+  build as buildIsotopeRam,
+  type IsotopeRamParams,
+} from '@/content/generators/chem-isotope-ram';
+import {
+  draw as drawHalfLife,
+  build as buildHalfLife,
+  type HalfLifeParams,
+} from '@/content/generators/chem-half-life';
+import {
+  draw as drawPhRatio,
+  build as buildPhRatio,
+  type PhRatioParams,
+} from '@/content/generators/chem-ph-ratio';
+import {
+  draw as drawCompoundNaming,
+  build as buildCompoundNaming,
+  type CompoundNamingParams,
+} from '@/content/generators/chem-compound-naming';
+import { chargeSuperscript } from '@/content/generators/utils';
+import katex from 'katex';
 
 // The param tables wired into the pilot topic JSONs.
 const linearParams: LinearEquationParams = { a: [2, 3, 4, 5, 6], b: [1, 2, 3, 5, 7, 9], x: [2, 3, 4, 5, 6, 7, 8, 9] };
@@ -79,6 +111,15 @@ function expectInvariants(out: GeneratorOutput) {
   expect(out.explanation).not.toBe(out.stem);
   for (const text of [out.stem, out.explanation, ...choices]) {
     expect(text).not.toMatch(/undefined|NaN|Infinity/);
+  }
+  // Every $...$ KaTeX segment must parse under strict mode.
+  for (const text of [out.stem, out.explanation, ...choices]) {
+    for (const segment of text.match(/\$[^$]+\$/g) ?? []) {
+      const latex = segment.slice(1, -1);
+      expect(() =>
+        katex.renderToString(latex, { strict: true, throwOnError: true })
+      ).not.toThrow();
+    }
   }
 }
 
@@ -471,9 +512,401 @@ describe('phys-power', () => {
   });
 });
 
+// ---------------------------------------------------------------------------
+// Phase 3 chemistry generators. Param tables mirror what the topic JSONs will
+// plausibly contain (all Z = 1..20 for electron config).
+
+const CHEM_ELEMENTS = [
+  { symbol: 'H', name: 'hydrogen', z: 1 },
+  { symbol: 'He', name: 'helium', z: 2 },
+  { symbol: 'Li', name: 'lithium', z: 3 },
+  { symbol: 'Be', name: 'beryllium', z: 4 },
+  { symbol: 'B', name: 'boron', z: 5 },
+  { symbol: 'C', name: 'carbon', z: 6 },
+  { symbol: 'N', name: 'nitrogen', z: 7 },
+  { symbol: 'O', name: 'oxygen', z: 8 },
+  { symbol: 'F', name: 'fluorine', z: 9 },
+  { symbol: 'Ne', name: 'neon', z: 10 },
+  { symbol: 'Na', name: 'sodium', z: 11 },
+  { symbol: 'Mg', name: 'magnesium', z: 12 },
+  { symbol: 'Al', name: 'aluminium', z: 13 },
+  { symbol: 'Si', name: 'silicon', z: 14 },
+  { symbol: 'P', name: 'phosphorus', z: 15 },
+  { symbol: 'S', name: 'sulfur', z: 16 },
+  { symbol: 'Cl', name: 'chlorine', z: 17 },
+  { symbol: 'Ar', name: 'argon', z: 18 },
+  { symbol: 'K', name: 'potassium', z: 19 },
+  { symbol: 'Ca', name: 'calcium', z: 20 },
+];
+
+const electronConfigParams: ElectronConfigParams = { elements: CHEM_ELEMENTS };
+
+const ionFormationParams: IonFormationParams = {
+  elements: [
+    { symbol: 'Na', name: 'sodium', z: 11, group: 1 },
+    { symbol: 'K', name: 'potassium', z: 19, group: 1 },
+    { symbol: 'Mg', name: 'magnesium', z: 12, group: 2 },
+    { symbol: 'Ca', name: 'calcium', z: 20, group: 2 },
+    { symbol: 'Al', name: 'aluminium', z: 13, group: 13 },
+    { symbol: 'O', name: 'oxygen', z: 8, group: 16 },
+    { symbol: 'S', name: 'sulfur', z: 16, group: 16 },
+    { symbol: 'F', name: 'fluorine', z: 9, group: 17 },
+    { symbol: 'Cl', name: 'chlorine', z: 17, group: 17 },
+  ],
+};
+
+const isotopeRamParams: IsotopeRamParams = {
+  pairs: [
+    { element: 'chlorine', symbol: 'Cl', massA: 35, massB: 37, abundanceA: 75 },
+    { element: 'copper', symbol: 'Cu', massA: 63, massB: 65, abundanceA: 69 },
+    { element: 'boron', symbol: 'B', massA: 10, massB: 11, abundanceA: 20 },
+    { element: 'bromine', symbol: 'Br', massA: 79, massB: 81, abundanceA: 51 },
+    { element: 'neon', symbol: 'Ne', massA: 20, massB: 22, abundanceA: 90 },
+  ],
+};
+
+const halfLifeParams: HalfLifeParams = {
+  isotopes: [
+    { name: 'iodine-131', halfLife: 8, unit: 'days', startMass: 100 },
+    { name: 'carbon-14', halfLife: 5700, unit: 'years', startMass: 80 },
+    { name: 'radon-222', halfLife: 3.8, unit: 'days', startMass: 64 },
+    { name: 'cobalt-60', halfLife: 5.3, unit: 'years', startMass: 200 },
+  ],
+  halfLives: [2, 3, 4],
+};
+
+const phRatioParams: PhRatioParams = { deltaPowers: [1, 2, 3] };
+
+const compoundNamingParams: CompoundNamingParams = {
+  ionic: [
+    { cationSymbol: 'Al', cationName: 'aluminium', cationCharge: 3, anionSymbol: 'O', anionName: 'oxide', anionCharge: 2, formula: 'Al₂O₃', name: 'aluminium oxide' },
+    { cationSymbol: 'Mg', cationName: 'magnesium', cationCharge: 2, anionSymbol: 'O', anionName: 'oxide', anionCharge: 2, formula: 'MgO', name: 'magnesium oxide' },
+    { cationSymbol: 'Na', cationName: 'sodium', cationCharge: 1, anionSymbol: 'Cl', anionName: 'chloride', anionCharge: 1, formula: 'NaCl', name: 'sodium chloride' },
+    { cationSymbol: 'Ca', cationName: 'calcium', cationCharge: 2, anionSymbol: 'Cl', anionName: 'chloride', anionCharge: 1, formula: 'CaCl₂', name: 'calcium chloride' },
+    { cationSymbol: 'K', cationName: 'potassium', cationCharge: 1, anionSymbol: 'O', anionName: 'oxide', anionCharge: 2, formula: 'K₂O', name: 'potassium oxide' },
+  ],
+  covalent: [
+    { formula: 'N₂O₄', name: 'dinitrogen tetroxide' },
+    { formula: 'SO₃', name: 'sulfur trioxide' },
+    { formula: 'SO₂', name: 'sulfur dioxide' },
+    { formula: 'CO₂', name: 'carbon dioxide' },
+    { formula: 'CO', name: 'carbon monoxide' },
+    { formula: 'NO₂', name: 'nitrogen dioxide' },
+  ],
+};
+
+// Independent recomputation helpers (no imports from the generators' logic).
+function testAufbau(z: number): number[] {
+  const caps = [2, 8, 8, 2];
+  const shells: number[] = [];
+  let left = z;
+  for (const cap of caps) {
+    if (left <= 0) break;
+    shells.push(Math.min(cap, left));
+    left -= cap;
+  }
+  return shells;
+}
+
+function testGroupCharge(group: number): number {
+  if (group === 1) return 1;
+  if (group === 2) return 2;
+  if (group === 13) return 3;
+  if (group === 16) return -2;
+  return -1;
+}
+
+function testCrissCross(catSym: string, catCharge: number, anSym: string, anCharge: number): string {
+  const g = (a: number, b: number): number => (b ? g(b, a % b) : a);
+  const h = g(catCharge, anCharge);
+  const SUBS = '₀₁₂₃₄₅₆₇₈₉';
+  const sub = (n: number) =>
+    n > 1 ? String(n).split('').map((d) => SUBS[Number(d)]).join('') : '';
+  return `${catSym}${sub(anCharge / h)}${anSym}${sub(catCharge / h)}`;
+}
+
+describe('chem-electron-config', () => {
+  it('params schema accepts the Z=1..20 table', () => {
+    expect(() => GENERATORS['chem-electron-config'].paramsSchema.parse(electronConfigParams)).not.toThrow();
+  });
+
+  it('sweep: correct answer matches an independent Aufbau in both modes', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 200; i++) {
+      const rng = createRng(`sweep:chem-electron-config:${i}`);
+      const v = drawElectronConfig(electronConfigParams, rng);
+      modes.add(v.mode);
+      const out = buildElectronConfig(v, rng);
+      expectInvariants(out);
+      expect(out.correct).toBe(v.mode === 'to-config' ? testAufbau(v.z).join(',') : v.name);
+    }
+    expect(modes).toEqual(new Set(['to-config', 'to-element']));
+  });
+
+  it('spot: sodium (Z=11) is 2,8,1', () => {
+    const out = buildElectronConfig(
+      { mode: 'to-config', symbol: 'Na', name: 'sodium', z: 11, shells: [2, 8, 1], nameCandidates: [], namePool: [] },
+      createRng('spot:ec')
+    );
+    expect(out.correct).toBe('2,8,1');
+    expectInvariants(out);
+  });
+
+  it('spot: config 2,8,8,1 identifies potassium', () => {
+    const out = buildElectronConfig(
+      { mode: 'to-element', symbol: 'K', name: 'potassium', z: 19, shells: [2, 8, 8, 1], nameCandidates: ['argon', 'calcium'], namePool: CHEM_ELEMENTS.map((e) => e.name) },
+      createRng('spot:ec2')
+    );
+    expect(out.correct).toBe('potassium');
+    expectInvariants(out);
+  });
+
+  it('K/Ca distractors include the 2,8,9 / 2,8,10 period-confusion trap', () => {
+    const k = buildElectronConfig(
+      { mode: 'to-config', symbol: 'K', name: 'potassium', z: 19, shells: [2, 8, 8, 1], nameCandidates: [], namePool: [] },
+      createRng('spot:ec3')
+    );
+    expect(k.correct).toBe('2,8,8,1');
+    expect(k.distractors).toContain('2,8,9');
+  });
+});
+
+describe('chem-ion-formation', () => {
+  it('params schema accepts the groups 1/2/13/16/17 table', () => {
+    expect(() => GENERATORS['chem-ion-formation'].paramsSchema.parse(ionFormationParams)).not.toThrow();
+  });
+
+  it('sweep: correct ion and ion config match the group rules', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 200; i++) {
+      const rng = createRng(`sweep:chem-ion-formation:${i}`);
+      const v = drawIonFormation(ionFormationParams, rng);
+      modes.add(v.mode);
+      const out = buildIonFormation(v, rng);
+      expectInvariants(out);
+      const charge = testGroupCharge(v.group);
+      if (v.mode === 'ion-charge') {
+        expect(out.correct).toBe(`${v.symbol}${chargeSuperscript(Math.abs(charge), charge > 0 ? '+' : '-')}`);
+      } else {
+        expect(out.correct).toBe(testAufbau(v.z - charge).join(','));
+      }
+    }
+    expect(modes).toEqual(new Set(['ion-charge', 'ion-config']));
+  });
+
+  it('spot: sodium forms Na⁺', () => {
+    const out = buildIonFormation(
+      { mode: 'ion-charge', symbol: 'Na', name: 'sodium', z: 11, group: 1 },
+      createRng('spot:ion1')
+    );
+    expect(out.correct).toBe('Na⁺');
+    expectInvariants(out);
+  });
+
+  it('spot: chloride ion is 2,8,8 and the atom config is a distractor', () => {
+    const out = buildIonFormation(
+      { mode: 'ion-config', symbol: 'Cl', name: 'chlorine', z: 17, group: 17 },
+      createRng('spot:ion2')
+    );
+    expect(out.correct).toBe('2,8,8');
+    expect(out.distractors).toContain('2,8,7');
+    expectInvariants(out);
+  });
+});
+
+describe('chem-isotope-ram', () => {
+  it('params schema accepts the isotope-pair table', () => {
+    expect(() => GENERATORS['chem-isotope-ram'].paramsSchema.parse(isotopeRamParams)).not.toThrow();
+  });
+
+  it('sweep: correct answer is the weighted mean rounded to 1 dp', () => {
+    for (let i = 0; i < 200; i++) {
+      const rng = createRng(`sweep:chem-isotope-ram:${i}`);
+      const v = drawIsotopeRam(isotopeRamParams, rng);
+      const out = buildIsotopeRam(v, rng);
+      expectInvariants(out);
+      const raw = (v.abundanceA * v.massA + v.abundanceB * v.massB) / 100;
+      expect(out.correct).toBe(fmtNumber(Math.round(raw * 10) / 10));
+      expect(v.abundanceA + v.abundanceB).toBe(100);
+    }
+  });
+
+  it('spot: chlorine 75/25 gives 35.5', () => {
+    const out = buildIsotopeRam(
+      { element: 'chlorine', symbol: 'Cl', massA: 35, massB: 37, abundanceA: 75, abundanceB: 25 },
+      createRng('spot:ram')
+    );
+    expect(out.correct).toBe('35.5');
+    expect(out.stem).toContain('³⁵Cl');
+    expectInvariants(out);
+  });
+});
+
+describe('chem-half-life', () => {
+  it('params schema accepts the isotope table', () => {
+    expect(() => GENERATORS['chem-half-life'].paramsSchema.parse(halfLifeParams)).not.toThrow();
+  });
+
+  it('sweep: remaining mass is start/2^n; elapsed is n half-lives', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 200; i++) {
+      const rng = createRng(`sweep:chem-half-life:${i}`);
+      const v = drawHalfLife(halfLifeParams, rng);
+      modes.add(v.mode);
+      const out = buildHalfLife(v, rng);
+      expectInvariants(out);
+      if (v.mode === 'remaining') {
+        expect(out.correct).toBe(`${fmtNumber(v.startMass / 2 ** v.n)} g`);
+      } else {
+        const elapsed = v.n * v.halfLife;
+        expect(out.correct).toBe(`${fmtNumber(elapsed)} ${elapsed === 1 ? v.unit.slice(0, -1) : v.unit}`);
+      }
+    }
+    expect(modes).toEqual(new Set(['remaining', 'elapsed']));
+  });
+
+  it('spot: iodine-131, 100 g, 8-day half-life, 3 half-lives leaves 12.5 g', () => {
+    const out = buildHalfLife(
+      { mode: 'remaining', name: 'iodine-131', halfLife: 8, unit: 'days', startMass: 100, n: 3 },
+      createRng('spot:hl')
+    );
+    expect(out.correct).toBe('12.5 g');
+    expectInvariants(out);
+  });
+
+  it('spot (inverse): 12.5 g from 100 g of iodine-131 means 24 days', () => {
+    const out = buildHalfLife(
+      { mode: 'elapsed', name: 'iodine-131', halfLife: 8, unit: 'days', startMass: 100, n: 3 },
+      createRng('spot:hl2')
+    );
+    expect(out.correct).toBe('24 days');
+    expect(out.stem).toContain('12.5 g remains');
+    expectInvariants(out);
+  });
+});
+
+describe('chem-ph-ratio', () => {
+  it('params schema accepts the delta table', () => {
+    expect(() => GENERATORS['chem-ph-ratio'].paramsSchema.parse(phRatioParams)).not.toThrow();
+  });
+
+  it('sweep: correct factor is 10^delta in both modes, pH values in range', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 200; i++) {
+      const rng = createRng(`sweep:chem-ph-ratio:${i}`);
+      const v = drawPhRatio(phRatioParams, rng);
+      modes.add(v.mode);
+      const out = buildPhRatio(v, rng);
+      expectInvariants(out);
+      expect(out.correct).toBe(fmtNumber(10 ** v.delta));
+      expect(v.phHigh - v.phLow).toBe(v.delta);
+      if (v.mode === 'acidic') {
+        expect(v.phHigh).toBeLessThanOrEqual(7);
+      } else {
+        expect(v.phLow).toBeGreaterThanOrEqual(7);
+      }
+    }
+    expect(modes).toEqual(new Set(['acidic', 'alkaline']));
+  });
+
+  it('spot: pH 6 vs pH 3 is 1000 times more acidic', () => {
+    const out = buildPhRatio(
+      { mode: 'acidic', delta: 3, phLow: 3, phHigh: 6 },
+      createRng('spot:ph')
+    );
+    expect(out.correct).toBe('1000');
+    expect(out.distractors).toContain('3');
+    expectInvariants(out);
+  });
+
+  it('includeAlkaline: false forces the acidic mode', () => {
+    for (let i = 0; i < 20; i++) {
+      const v = drawPhRatio({ deltaPowers: [2], includeAlkaline: false }, createRng(`phf:${i}`));
+      expect(v.mode).toBe('acidic');
+    }
+  });
+});
+
+describe('chem-compound-naming', () => {
+  it('params schema accepts the ionic/covalent tables and every ionic entry is charge-consistent', () => {
+    expect(() => GENERATORS['chem-compound-naming'].paramsSchema.parse(compoundNamingParams)).not.toThrow();
+    for (const entry of compoundNamingParams.ionic) {
+      expect(testCrissCross(entry.cationSymbol, entry.cationCharge, entry.anionSymbol, entry.anionCharge)).toBe(entry.formula);
+    }
+  });
+
+  it('sweep: correct answer matches criss-cross / the covalent table entry', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 200; i++) {
+      const rng = createRng(`sweep:chem-compound-naming:${i}`);
+      const v = drawCompoundNaming(compoundNamingParams, rng);
+      modes.add(v.mode);
+      const out = buildCompoundNaming(v, rng);
+      expectInvariants(out);
+      if (v.mode === 'ionic-formula') {
+        const e = v.ionic!;
+        expect(out.correct).toBe(testCrissCross(e.cationSymbol, e.cationCharge, e.anionSymbol, e.anionCharge));
+      } else if (v.mode === 'covalent-name') {
+        expect(out.correct).toBe(v.covalent!.name);
+      } else {
+        expect(out.correct).toBe(v.covalent!.formula);
+      }
+    }
+    expect(modes).toEqual(new Set(['ionic-formula', 'covalent-name', 'covalent-formula']));
+  });
+
+  it('spot: Al³⁺ and O²⁻ give Al₂O₃', () => {
+    const out = buildCompoundNaming(
+      {
+        mode: 'ionic-formula',
+        ionic: compoundNamingParams.ionic[0],
+        covalent: null,
+        ionicFormulaPool: compoundNamingParams.ionic.map((e) => e.formula),
+        covalentNamePool: [],
+        covalentFormulaPool: [],
+      },
+      createRng('spot:cn1')
+    );
+    expect(out.correct).toBe('Al₂O₃');
+    expect(out.distractors).toContain('Al₃O₂');
+    expectInvariants(out);
+  });
+
+  it('spot: N₂O₄ is dinitrogen tetroxide, and the reverse gives N₂O₄', () => {
+    const base = {
+      ionic: null,
+      covalent: compoundNamingParams.covalent[0],
+      ionicFormulaPool: [],
+      covalentNamePool: compoundNamingParams.covalent.map((e) => e.name),
+      covalentFormulaPool: compoundNamingParams.covalent.map((e) => e.formula),
+    };
+    const toName = buildCompoundNaming({ ...base, mode: 'covalent-name' as const }, createRng('spot:cn2'));
+    expect(toName.correct).toBe('dinitrogen tetroxide');
+    expectInvariants(toName);
+    const toFormula = buildCompoundNaming({ ...base, mode: 'covalent-formula' as const }, createRng('spot:cn3'));
+    expect(toFormula.correct).toBe('N₂O₄');
+    expectInvariants(toFormula);
+  });
+
+  it('throws when the requested modes have no table entries', () => {
+    expect(() =>
+      GENERATORS['chem-compound-naming'].generate(
+        { ionic: compoundNamingParams.ionic, covalent: [], modes: ['covalent-name'] },
+        createRng('cn:empty')
+      )
+    ).toThrow(/chem-compound-naming/);
+  });
+});
+
 describe('registry', () => {
-  it('registers all 12 pilot generators under kebab-case ids matching their module contract', () => {
+  it('registers all 18 generators under kebab-case ids matching their module contract', () => {
     expect(Object.keys(GENERATORS).sort()).toEqual([
+      'chem-compound-naming',
+      'chem-electron-config',
+      'chem-half-life',
+      'chem-ion-formation',
+      'chem-isotope-ram',
+      'chem-ph-ratio',
       'math-fraction-arithmetic',
       'math-linear-equation',
       'math-percent-of-amount',

@@ -1,0 +1,316 @@
+{
+  "id": "chem-ion-tests-1",
+  "subjectId": "chemistry",
+  "title": "Testing for Ions",
+  "description": "Qualitative tests that identify ions — flame tests for metal cations, sodium hydroxide precipitate tests, silver nitrate tests for halides, and the sulfate, carbonate, and ammonium tests.",
+  "stage": "ks3",
+  "year": 9,
+  "notes": [
+    {
+      "id": "chem-ion-tests-1-n1",
+      "heading": "Why Test for Ions? Qualitative Analysis",
+      "body": "Ionic compounds contain positive ions (cations, usually metals or ammonium) and negative ions (anions, such as chloride, sulfate, or carbonate). Qualitative analysis means identifying WHICH ions are present, without measuring how much of each there is. Each test in this topic gives a characteristic, observable result — a flame colour, a coloured precipitate, or a gas — that acts like a fingerprint for a particular ion. A precipitate is an insoluble solid that forms when two solutions are mixed; its colour and behaviour identify the ion. Good practice matters throughout: use clean equipment to avoid contamination, add reagents a little at a time so you can watch changes develop, and always record the exact colour you see (\"pale blue\", not just \"blue\"). No single test proves identity beyond doubt — confirming an unknown usually means combining results, e.g. a flame test for the cation plus a silver nitrate test for the anion identifies a salt completely."
+    },
+    {
+      "id": "chem-ion-tests-1-n2",
+      "heading": "Flame Tests for Metal Cations",
+      "body": "Some metal ions give a characteristic colour to a Bunsen burner flame. Procedure: (1) Dip a nichrome (or platinum) wire loop into concentrated hydrochloric acid to clean it, then into the solid sample. (2) Hold the loop in the blue (roaring) Bunsen flame. (3) Observe the flame colour. The acid cleans the wire and converts the sample into volatile metal chlorides; nichrome is used because it is unreactive and gives no flame colour of its own. Results to learn: lithium Li⁺ — crimson (deep red); sodium Na⁺ — yellow (golden); potassium K⁺ — lilac; calcium Ca²⁺ — brick-red (orange-red); copper(II) Cu²⁺ — blue-green. Advantages: fast and needing only a tiny sample. Limitations: colours can be hard to tell apart (brick-red vs crimson), a mixture of ions gives mixed colours, and the intense yellow of sodium swamps other colours — even a trace of sodium contamination masks a lilac potassium flame. Because flame tests identify the METAL only, a second test is needed to find the anion."
+    },
+    {
+      "id": "chem-ion-tests-1-n3",
+      "heading": "Sodium Hydroxide Precipitation Tests",
+      "body": "Many metal cations form an insoluble, coloured metal hydroxide when sodium hydroxide solution is added to a solution of their salt. Procedure: dissolve the sample in water, add a few drops of NaOH solution, and observe the precipitate. Key results: copper(II) Cu²⁺ — blue precipitate of copper(II) hydroxide, Cu(OH)₂; iron(II) Fe²⁺ — green precipitate of iron(II) hydroxide; iron(III) Fe³⁺ — brown (rust-orange) precipitate of iron(III) hydroxide. Aluminium Al³⁺, calcium Ca²⁺, and magnesium Mg²⁺ all give a WHITE precipitate, so the test cannot tell them apart directly — a useful extension is that aluminium hydroxide dissolves again in excess NaOH while the others do not. Ammonium ions NH₄⁺ give no precipitate at all with NaOH (instead they release ammonia gas when warmed — see the ammonium test). Example equations: CuSO₄(aq) + 2NaOH(aq) → Cu(OH)₂(s) + Na₂SO₄(aq); FeCl₃(aq) + 3NaOH(aq) → Fe(OH)₃(s) + 3NaCl(aq). Learning tip: memorise the trio in order of iron oxidation state — blue for copper, green for iron(II), brown for iron(III)."
+    },
+    {
+      "id": "chem-ion-tests-1-n4",
+      "heading": "Testing for Halides with Silver Nitrate",
+      "body": "Halide ions (chloride Cl⁻, bromide Br⁻, iodide I⁻) are detected with silver nitrate solution, which forms an insoluble silver halide precipitate. Procedure: (1) Dissolve the sample and add a few drops of dilute NITRIC acid first — this removes interfering ions such as carbonate or hydroxide that would also give precipitates with silver nitrate and confuse the result. (2) Add silver nitrate solution, AgNO₃. (3) Observe the precipitate colour. Results: chloride Cl⁻ — WHITE precipitate of silver chloride, AgCl; bromide Br⁻ — CREAM precipitate of silver bromide, AgBr; iodide I⁻ — YELLOW precipitate of silver iodide, AgI. Example equation: NaCl(aq) + AgNO₃(aq) → AgCl(s) + NaNO₃(aq). The three silver halides get steadily darker down the group: white → cream → yellow. Why nitric acid specifically? It acidifies without introducing chloride ions — using hydrochloric acid would add Cl⁻ and guarantee a false white precipitate. The white AgCl precipitate also darkens in light as it decomposes, a classic confirmatory observation."
+    },
+    {
+      "id": "chem-ion-tests-1-n5",
+      "heading": "The Sulfate Test with Barium Chloride",
+      "body": "Sulfate ions, SO₄²⁻, are detected using barium chloride solution, BaCl₂. Procedure: (1) Add dilute hydrochloric acid to the sample solution first — this reacts away any carbonate ions, which would otherwise give a white barium carbonate precipitate and mimic a positive result. (2) Add barium chloride solution. (3) A WHITE precipitate of barium sulfate confirms sulfate ions are present. Equation: BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + 2NaCl(aq), or as an ionic equation: Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s). Key facts: barium sulfate is completely insoluble, so even a small amount of sulfate gives a visible cloudiness; the precipitate is white and does not dissolve in the added acid — that insolubility in acid is exactly what distinguishes it from barium carbonate, which would fizz and dissolve. Common confusions: the sulfate test uses barium chloride (white precipitate), while the halide test uses silver nitrate (white/cream/yellow precipitates) — do not mix up which reagent goes with which anion."
+    },
+    {
+      "id": "chem-ion-tests-1-n6",
+      "heading": "The Carbonate Test with Dilute Acid and Limewater",
+      "body": "Carbonate ions, CO₃²⁻, are detected by reaction with dilute acid. Procedure: (1) Add dilute hydrochloric acid (or dilute nitric acid) to the solid or solution. (2) Look for effervescence — fizzing as a gas is given off. (3) Bubble the gas through limewater (calcium hydroxide solution). If the limewater turns MILKY (cloudy white), the gas is carbon dioxide and carbonate was present. Equations: CaCO₃(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l) + CO₂(g); then CO₂(g) + Ca(OH)₂(aq) → CaCO₃(s) + H₂O(l) — the milky colour is actually a fine precipitate of calcium carbonate reforming. Why two stages? Fizzing alone is not enough: acids also release hydrogen from reactive metals, and other gases exist. Only CO₂ turns limewater milky, so the limewater step is what CONFIRMS the gas. Caution: hydrogen carbonates (HCO₃⁻) also pass this test, and bubbling CO₂ for too long turns the milky limewater clear again as soluble calcium hydrogen carbonate forms — a classic exam subtlety. This same limewater test is the standard test for carbon dioxide wherever it appears in the course."
+    },
+    {
+      "id": "chem-ion-tests-1-n7",
+      "heading": "The Ammonium Test and Choosing the Right Test",
+      "body": "Ammonium ions, NH₄⁺, are found in fertilisers and cleaning products. Test: add sodium hydroxide solution to the sample and WARM the mixture gently. Ammonium compounds release ammonia gas, NH₃: NH₄Cl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l) + NH₃(g). Ammonia is detected by holding a piece of damp red litmus paper in the gas — it turns BLUE, because ammonia is the only common alkaline gas. (Do not confuse: no precipitate forms in this test — ammonium is the cation that gives a gas with NaOH, not a solid.) Choosing tests for an unknown salt: start with a flame test for the cation; use NaOH if the flame test is inconclusive or the ion gives no flame colour; then test for the anion — carbonate (acid + limewater), sulfate (HCl + barium chloride), or halide (nitric acid + silver nitrate). Worked example: an unknown salt gives a lilac flame and a cream precipitate with acidified silver nitrate — the cation is potassium and the anion is bromide, so the salt is potassium bromide, KBr. Always acidify before the silver nitrate and barium chloride tests to remove carbonate interference."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-ion-tests-1-f1",
+      "term": "Flame test procedure",
+      "definition": "Clean a nichrome wire in concentrated hydrochloric acid, dip it in the sample, and hold it in a blue Bunsen flame to observe the colour.",
+      "example": "Nichrome is unreactive and colourless in a flame, so it does not mask the sample's colour."
+    },
+    {
+      "id": "chem-ion-tests-1-f2",
+      "term": "Flame colours: Li, Na, K",
+      "definition": "Lithium burns crimson, sodium burns yellow, and potassium burns lilac in a flame test.",
+      "example": "A lilac flame identifies potassium ions, K⁺."
+    },
+    {
+      "id": "chem-ion-tests-1-f3",
+      "term": "Flame colours: Ca and Cu",
+      "definition": "Calcium gives a brick-red (orange-red) flame and copper(II) gives a blue-green flame.",
+      "example": "Fireworks owe their red colours to strontium or calcium and their greens to copper compounds."
+    },
+    {
+      "id": "chem-ion-tests-1-f4",
+      "term": "NaOH test — copper(II)",
+      "definition": "Cu²⁺ ions give a blue precipitate of copper(II) hydroxide when sodium hydroxide solution is added.",
+      "example": "CuSO₄(aq) + 2NaOH(aq) → Cu(OH)₂(s) + Na₂SO₄(aq)."
+    },
+    {
+      "id": "chem-ion-tests-1-f5",
+      "term": "NaOH test — iron(II) and iron(III)",
+      "definition": "Fe²⁺ gives a green precipitate and Fe³⁺ gives a brown (rust) precipitate of iron hydroxide with sodium hydroxide.",
+      "example": "Green = iron(II), brown = iron(III) — the higher oxidation state gives the darker precipitate."
+    },
+    {
+      "id": "chem-ion-tests-1-f6",
+      "term": "Halide test",
+      "definition": "Acidify with dilute nitric acid, then add silver nitrate: chloride gives a white precipitate, bromide cream, iodide yellow.",
+      "example": "NaCl(aq) + AgNO₃(aq) → AgCl(s) + NaNO₃(aq) — a white precipitate."
+    },
+    {
+      "id": "chem-ion-tests-1-f7",
+      "term": "Why acidify before testing for halides/sulfates",
+      "definition": "Dilute acid removes carbonate and hydroxide ions, which would otherwise form misleading precipitates with silver nitrate or barium chloride.",
+      "example": "Nitric acid is used before AgNO₃ — hydrochloric acid would add chloride and cause a false positive."
+    },
+    {
+      "id": "chem-ion-tests-1-f8",
+      "term": "Sulfate test",
+      "definition": "Add dilute hydrochloric acid then barium chloride solution; a white precipitate of barium sulfate confirms SO₄²⁻ ions.",
+      "example": "BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s) + 2NaCl(aq)."
+    },
+    {
+      "id": "chem-ion-tests-1-f9",
+      "term": "Carbonate test",
+      "definition": "Add dilute acid: effervescence occurs, and the gas turns limewater milky, confirming carbonate ions.",
+      "example": "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂; the CO₂ clouds the limewater."
+    },
+    {
+      "id": "chem-ion-tests-1-f10",
+      "term": "Limewater test for CO₂",
+      "definition": "Carbon dioxide turns limewater (calcium hydroxide solution) milky by forming a fine calcium carbonate precipitate.",
+      "example": "CO₂ + Ca(OH)₂ → CaCO₃ + H₂O."
+    },
+    {
+      "id": "chem-ion-tests-1-f11",
+      "term": "Ammonium test",
+      "definition": "Warm the sample with sodium hydroxide; ammonium ions release ammonia gas, which turns damp red litmus paper blue.",
+      "example": "NH₄Cl + NaOH → NaCl + H₂O + NH₃ — ammonia is the only common alkaline gas."
+    },
+    {
+      "id": "chem-ion-tests-1-f12",
+      "term": "Precipitate",
+      "definition": "An insoluble solid that forms when two solutions react; its colour identifies the ion present.",
+      "example": "Blue Cu(OH)₂ precipitate proves Cu²⁺ ions in the sodium hydroxide test."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-ion-tests-1-q1",
+      "stem": "Which flame colour does sodium give in a flame test?",
+      "choices": [
+        "Lilac",
+        "Yellow",
+        "Brick-red",
+        "Crimson"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sodium gives an intense yellow flame. Lithium is crimson, potassium is lilac, and calcium is brick-red.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-ion-tests-1-q2",
+      "stem": "A sample gives a lilac flame in a flame test. Which ion is present?",
+      "choices": [
+        "Lithium, Li⁺",
+        "Sodium, Na⁺",
+        "Potassium, K⁺",
+        "Copper(II), Cu²⁺"
+      ],
+      "correctIndex": 2,
+      "explanation": "Potassium produces a lilac flame. Copper(II) gives blue-green, lithium crimson, and sodium yellow.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-ion-tests-1-q3",
+      "stem": "What is observed when sodium hydroxide solution is added to a solution containing copper(II) ions?",
+      "choices": [
+        "A green precipitate",
+        "A brown precipitate",
+        "A white precipitate",
+        "A blue precipitate"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cu²⁺ ions form blue copper(II) hydroxide, Cu(OH)₂. Green indicates Fe²⁺ and brown indicates Fe³⁺.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-ion-tests-1-q4",
+      "stem": "In the test for halide ions, which reagent is added after acidifying the solution?",
+      "choices": [
+        "Barium chloride solution",
+        "Silver nitrate solution",
+        "Sodium hydroxide solution",
+        "Limewater"
+      ],
+      "correctIndex": 1,
+      "explanation": "Halides are detected with silver nitrate, which forms coloured silver halide precipitates. Barium chloride is the sulfate test reagent.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-ion-tests-1-q5",
+      "stem": "Adding dilute acid to a carbonate produces a gas. How is this gas identified?",
+      "choices": [
+        "It relights a glowing splint",
+        "It turns limewater milky",
+        "It turns damp red litmus paper blue",
+        "It burns with a squeaky pop"
+      ],
+      "correctIndex": 1,
+      "explanation": "The gas is carbon dioxide, which turns limewater milky. A glowing splint tests for oxygen, the pop tests for hydrogen, and the litmus change detects ammonia.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-ion-tests-1-q6",
+      "stem": "Why is a nichrome wire used for flame tests?",
+      "choices": [
+        "It melts at a low temperature, releasing the sample",
+        "It is unreactive and gives no flame colour of its own",
+        "It dissolves in hydrochloric acid to clean itself",
+        "It makes the flame burn hotter"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nichrome is inert in the flame, so any colour seen comes from the sample, not the wire. It does not melt or dissolve under test conditions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ion-tests-1-q7",
+      "stem": "A solution gives a white precipitate when dilute nitric acid and then silver nitrate are added. Which ion is present?",
+      "choices": [
+        "Chloride, Cl⁻",
+        "Bromide, Br⁻",
+        "Iodide, I⁻",
+        "Sulfate, SO₄²⁻"
+      ],
+      "correctIndex": 0,
+      "explanation": "Silver chloride is white; silver bromide is cream and silver iodide is yellow. Sulfate would not precipitate with silver nitrate — it needs barium chloride.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ion-tests-1-q8",
+      "stem": "What is the correct sequence for the sulfate test, and what is the positive result?",
+      "choices": [
+        "Add nitric acid, then silver nitrate; white precipitate",
+        "Add dilute hydrochloric acid, then barium chloride; white precipitate",
+        "Add sodium hydroxide and warm; damp red litmus turns blue",
+        "Add barium chloride, then limewater; solution turns milky"
+      ],
+      "correctIndex": 1,
+      "explanation": "Acidifying with HCl removes carbonate interference, then BaCl₂ precipitates white barium sulfate if sulfate is present. Option A describes the chloride test.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ion-tests-1-q9",
+      "stem": "Why is dilute nitric acid — not hydrochloric acid — added before the silver nitrate test?",
+      "choices": [
+        "Nitric acid is a stronger acid",
+        "Hydrochloric acid would add chloride ions and give a false white precipitate",
+        "Nitric acid makes the precipitate more colourful",
+        "Hydrochloric acid reacts violently with silver nitrate"
+      ],
+      "correctIndex": 1,
+      "explanation": "HCl contains chloride ions, the very ion being tested for, so it would always produce a white AgCl precipitate. Nitric acid acidifies without introducing halides.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ion-tests-1-q10",
+      "stem": "How would you test a fertiliser for ammonium ions?",
+      "choices": [
+        "Add acid and bubble the gas through limewater",
+        "Do a flame test and look for a lilac flame",
+        "Add silver nitrate and look for a cream precipitate",
+        "Warm with sodium hydroxide and test the gas with damp red litmus paper"
+      ],
+      "correctIndex": 3,
+      "explanation": "Warming an ammonium compound with NaOH releases ammonia gas, which turns damp red litmus blue. Ammonium gives no flame colour and no halide precipitate.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ion-tests-1-q11",
+      "stem": "An unknown solution gives a green precipitate with sodium hydroxide. Which ion is most likely present, and what is the precipitate?",
+      "choices": [
+        "Cu²⁺; copper(II) hydroxide",
+        "Fe³⁺; iron(III) hydroxide",
+        "Fe²⁺; iron(II) hydroxide",
+        "Ca²⁺; calcium hydroxide"
+      ],
+      "correctIndex": 2,
+      "explanation": "A green precipitate is the fingerprint of iron(II): Fe²⁺ forms green Fe(OH)₂. Copper gives blue, iron(III) brown, and calcium white.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ion-tests-1-q12",
+      "stem": "An unknown salt gives a yellow flame and a white precipitate with acidified silver nitrate solution. What is the salt?",
+      "choices": [
+        "Sodium chloride",
+        "Potassium chloride",
+        "Sodium sulfate",
+        "Calcium bromide"
+      ],
+      "correctIndex": 0,
+      "explanation": "The yellow flame identifies sodium and the white AgNO₃ precipitate identifies chloride. Potassium would burn lilac, sulfate needs barium chloride to precipitate, and bromide gives a cream precipitate.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-ion-tests-1-q13",
+      "stem": "A student tests a solution for sulfate by adding barium chloride without acidifying first, and sees a white precipitate. Why might this conclusion be wrong?",
+      "choices": [
+        "Barium sulfate is yellow, so the precipitate must be something else",
+        "Carbonate ions also give a white precipitate with barium chloride, so sulfate is not confirmed",
+        "Barium chloride only works if the solution is warm",
+        "The white precipitate proves chloride ions instead"
+      ],
+      "correctIndex": 1,
+      "explanation": "Barium carbonate is also white and insoluble, so unacidified samples containing carbonate give a false positive. Adding dilute HCl first fizzes away any carbonate, leaving only sulfate to precipitate.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-ion-tests-1-q14",
+      "stem": "Three solutions are known to contain sodium chloride, sodium bromide, and sodium iodide. Which single test distinguishes all three, and how?",
+      "choices": [
+        "Flame test — each gives a different flame colour",
+        "Sodium hydroxide — each gives a different coloured precipitate",
+        "Dilute acid — each produces a different amount of fizzing",
+        "Nitric acid then silver nitrate — white, cream, and yellow precipitates respectively"
+      ],
+      "correctIndex": 3,
+      "explanation": "All three contain sodium, so flame tests are identical (yellow), and NaOH gives no precipitate. Only the silver halide precipitate colours — white for chloride, cream for bromide, yellow for iodide — tell them apart.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-ion-tests-1-q15",
+      "stem": "A white solid fizzes with dilute hydrochloric acid, and the gas turns limewater milky. The same solid gives a brick-red flame. What is the solid?",
+      "choices": [
+        "Calcium sulfate",
+        "Sodium carbonate",
+        "Copper(II) carbonate",
+        "Calcium carbonate"
+      ],
+      "correctIndex": 3,
+      "explanation": "Fizzing plus milky limewater proves carbonate ions; the brick-red flame proves calcium. Sodium would burn yellow, copper blue-green, and sulfate does not fizz with acid.",
+      "difficulty": "hard"
+    }
+  ]
+}

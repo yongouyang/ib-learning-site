@@ -19,6 +19,7 @@ export type IssueType =
   | "latex_unicode"
   | "empty_flashcard"
   | "stray_backslash"
+  | "unbalanced_bold"
   | "missing_difficulty"
   | "difficulty_distribution"
   | "variant_group"
@@ -174,6 +175,30 @@ export function findStrayBackslashes(text: string): string[] {
     }
   }
   return flagged;
+}
+
+// Flags invalid ** bold markup (rendered by renderInlineMath in
+// src/components/InlineMath.tsx). A valid segment is **...** on one line with
+// plain text inside — no nested "*", no "$" (bold must not span math). Empty
+// (****) and unpaired markers render literally, so they are flagged here.
+export function findBoldIssues(text: string): string[] {
+  const issues: string[] = [];
+  // A pair whose content contains "$" spans math — the renderer can't bold it.
+  for (const match of text.matchAll(/\*\*([^*\n]+?)\*\*/g)) {
+    if (match[1].includes("$")) {
+      issues.push(
+        `Bold segment spans math (unsupported): "${match[0].slice(0, 60)}"`,
+      );
+    }
+  }
+  // Strip inline math first so ** inside $...$ (e.g. $x**2$) is not flagged,
+  // then remove valid pairs; any ** left over is unpaired or empty (****).
+  const withoutMath = text.replace(/\$[^$\n]+\$/g, "");
+  const unpaired = withoutMath.replace(/\*\*[^*\n]+?\*\*/g, "").match(/\*\*/g);
+  if (unpaired) {
+    issues.push(`${unpaired.length} unpaired "**" marker(s)`);
+  }
+  return issues;
 }
 
 interface LatexIssue {
@@ -557,6 +582,40 @@ export function auditContent(input: AuditInput): AuditResult {
     });
   }
 
+  // Invalid ** bold markup (unpaired, empty, or spanning math renders literally)
+  for (const topic of topics) {
+    for (const field of extractTextFields(topic)) {
+      for (const message of findBoldIssues(field.value)) {
+        issues.push({
+          type: "unbalanced_bold",
+          severity: "warning",
+          location: `${location(topic)}/${field.path}`,
+          message,
+        });
+      }
+    }
+  }
+  for (const paper of papers) {
+    const fields: TextField[] = [];
+    paper.questions.forEach((q, idx) => {
+      fields.push({ path: `questions[${idx}].stem`, value: q.stem });
+      fields.push({ path: `questions[${idx}].modelAnswer`, value: q.modelAnswer });
+      q.markscheme.forEach((point, pidx) => {
+        fields.push({ path: `questions[${idx}].markscheme[${pidx}]`, value: point });
+      });
+    });
+    for (const field of fields) {
+      for (const message of findBoldIssues(field.value)) {
+        issues.push({
+          type: "unbalanced_bold",
+          severity: "warning",
+          location: `papers/${paper.id}/${field.path}`,
+          message,
+        });
+      }
+    }
+  }
+
   const totalQuestions = topics.reduce(
     (sum, topic) => sum + topic.questions.length,
     0,
@@ -705,6 +764,8 @@ function issueTypeLabel(type: IssueType): string {
       return "Empty flashcard term/definition";
     case "stray_backslash":
       return "Lines ending with a stray backslash";
+    case "unbalanced_bold":
+      return "Unpaired or invalid ** bold markers";
     case "missing_difficulty":
       return "Questions without a difficulty tag";
     case "difficulty_distribution":

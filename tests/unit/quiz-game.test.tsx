@@ -175,7 +175,7 @@ describe('QuizGame', () => {
         vi.advanceTimersByTime(3500);
       });
 
-      expect(onComplete).toHaveBeenCalledWith(1, 2);
+      expect(onComplete).toHaveBeenCalledWith(1, 2, true);
       expect(onQuestionResult).toHaveBeenCalledWith('q1', true);
       expect(onQuestionResult).toHaveBeenCalledWith('q2', false);
       expect(screen.getByRole('heading', { name: /Quiz Complete!/i })).toBeInTheDocument();

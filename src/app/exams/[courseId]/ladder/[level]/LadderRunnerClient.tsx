@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useProgress } from '@/context/ProgressContext';
 import QuizGame from '@/components/QuizGame';
 import { getCourse } from '@/lib/courses';
 import { buildLadderQuestions, getLadderLevel, isLevelUnlocked, LADDER_UNLOCK_SCORE } from '@/lib/ladder';
+import { trackEvent } from '@/lib/analytics';
 
 interface LadderRunnerClientProps {
   courseId: string;
@@ -19,11 +20,23 @@ export default function LadderRunnerClient({ courseId, level }: LadderRunnerClie
   // Deterministic build (seeded by course+level) — safe to compute during SSR.
   const questions = useMemo(() => buildLadderQuestions(courseId, level), [courseId, level]);
   const recorded = useRef(false);
+  const startedAt = useRef(Date.now());
+
+  useEffect(() => {
+    trackEvent('quiz_started', { subjectId: 'ladder', topicId: courseId, source: 'ladder' });
+  }, [courseId]);
 
   const handleComplete = (correctCount: number, totalCount: number) => {
     if (recorded.current) return;
     recorded.current = true;
     recordLadder(courseId, level, correctCount / Math.max(totalCount, 1));
+    trackEvent('quiz_completed', {
+      subjectId: 'ladder',
+      topicId: courseId,
+      correctCount,
+      totalCount,
+      durationSeconds: Math.round((Date.now() - startedAt.current) / 1000),
+    });
   };
 
   if (!course || !levelDef || questions.length === 0) {

@@ -4,6 +4,7 @@
   "title": "Atomic Structure",
   "description": "The building blocks of matter — protons, neutrons, electrons, isotopes, ions, electron configuration, and how our understanding of the atom evolved.",
   "stage": "ks3",
+  "year": 9,
   "notes": [
     {
       "id": "chem-atomic-1-n1",
@@ -162,7 +163,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Neutrons = mass number − atomic number = 16 − 8 = 8. This is oxygen.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "subatomic-particle-count"
     },
     {
       "id": "chem-atomic-1-q2",
@@ -175,20 +177,22 @@
       ],
       "correctIndex": 2,
       "explanation": "The number of protons (atomic number) is unique to each element. Change the number of protons, and you change the element.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "element-identity"
     },
     {
       "id": "chem-atomic-1-q3",
       "stem": "What is the electron configuration of aluminium (atomic number 13)?",
       "choices": [
-        "2, 8, 3",
-        "2, 11",
-        "3, 8, 2",
-        "2, 8, 8"
+        "2,8,3",
+        "2,11",
+        "3,8,2",
+        "2,8,8"
       ],
       "correctIndex": 0,
       "explanation": "Shell 1 = 2, Shell 2 = 8, Shell 3 = 3. Total = 2 + 8 + 3 = 13 electrons.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "electron-configuration"
     },
     {
       "id": "chem-atomic-1-q4",
@@ -201,7 +205,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Isotopes have the same atomic number (protons) but different mass numbers due to different numbers of neutrons.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "isotopes-definition"
     },
     {
       "id": "chem-atomic-1-q5",
@@ -214,7 +219,8 @@
       ],
       "correctIndex": 1,
       "explanation": "A neutral atom has equal numbers of positive protons and negative electrons, so the overall charge is zero.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "neutral-atom-relationships"
     },
     {
       "id": "chem-atomic-1-q6",
@@ -227,7 +233,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Aᵣ = (75 × 35 + 25 × 37) ÷ 100 = (2625 + 925) ÷ 100 = 35.5. This is why chlorine's atomic mass on the periodic table is not a whole number.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "isotope-ram"
     },
     {
       "id": "chem-atomic-1-q7",
@@ -240,7 +247,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Charge = protons − electrons = 12 − 10 = +2. Magnesium lost 2 electrons to form a +2 cation.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "ion-formation"
     },
     {
       "id": "chem-atomic-1-q8",
@@ -253,7 +261,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Most alpha particles passed straight through → atom is mostly empty space. A few bounced back → there must be a tiny, dense, positive centre (the nucleus).",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "atomic-models"
     },
     {
       "id": "chem-atomic-1-q9",
@@ -266,7 +275,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Sodium has 1 electron in its outer shell. By losing that electron, it achieves the stable 2,8 configuration of neon — easier than gaining 7 electrons.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "ion-formation"
     },
     {
       "id": "chem-atomic-1-q10",
@@ -279,7 +289,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Alpha particles are large and heavy (helium nuclei). They are the least penetrating — stopped by a few cm of air or a sheet of paper — but the most ionising.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "radiation-penetration"
     },
     {
       "id": "chem-atomic-1-q11",
@@ -292,20 +303,22 @@
       ],
       "correctIndex": 1,
       "explanation": "Mass number (39) minus atomic number (19) = 20 neutrons. Protons = 19; electrons (neutral atom) = 19.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "subatomic-particle-count"
     },
     {
       "id": "chem-atomic-1-q12",
       "stem": "Which electron configuration represents a noble gas?",
       "choices": [
-        "2, 8, 1",
-        "2, 8, 7",
-        "2, 8, 8",
-        "2, 8, 2"
+        "2,8,1",
+        "2,8,7",
+        "2,8,8",
+        "2,8,2"
       ],
       "correctIndex": 2,
       "explanation": "Noble gases (Group 18) have full outer shells — 2,8,8 is argon. Full outer shells make noble gases extremely unreactive.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "electron-configuration"
     },
     {
       "id": "chem-atomic-1-q13",
@@ -318,7 +331,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Chlorine (2,8,7) gains 1 electron to become Cl⁻ with configuration 2,8,8 — the same as argon. It gains 1 electron, so the charge is −1.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "ion-formation"
     },
     {
       "id": "chem-atomic-1-q14",
@@ -331,7 +345,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The plum pudding model predicted that alpha particles would pass through with only slight deflection — like bullets through pudding. Rutherford observed some bouncing back, which required a concentrated positive charge (the nucleus).",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "atomic-models-evidence"
     },
     {
       "id": "chem-atomic-1-q15",
@@ -344,7 +359,207 @@
       ],
       "correctIndex": 1,
       "explanation": "24 days ÷ 8 days per half-life = 3 half-lives. After 1: 50 g. After 2: 25 g. After 3: 12.5 g remains.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "half-life"
+    },
+    {
+      "id": "chem-atomic-1-q16",
+      "stem": "An atom of ²⁷₁₃Al (aluminium) has how many neutrons?",
+      "choices": [
+        "13",
+        "14",
+        "27",
+        "40"
+      ],
+      "correctIndex": 1,
+      "explanation": "Neutrons = mass number − atomic number = 27 − 13 = 14. Protons = 13; electrons (neutral atom) = 13.",
+      "difficulty": "medium",
+      "variantOf": "subatomic-particle-count"
+    },
+    {
+      "id": "chem-atomic-1-q17",
+      "stem": "Two atoms have the same number of protons but different numbers of neutrons. Are they atoms of the same element?",
+      "choices": [
+        "Yes — the number of protons alone defines the element",
+        "No — different numbers of neutrons means different elements",
+        "Only if they also have the same mass number",
+        "Only if they have the same number of electrons"
+      ],
+      "correctIndex": 0,
+      "explanation": "Element identity depends only on the number of protons (atomic number). Atoms with the same protons but different neutrons are isotopes of the same element.",
+      "difficulty": "easy",
+      "variantOf": "element-identity"
+    },
+    {
+      "id": "chem-atomic-1-q18",
+      "stem": "¹²C and ¹⁴C are isotopes of carbon. What do they have in common?",
+      "choices": [
+        "The same number of neutrons",
+        "The same number of protons",
+        "The same mass number",
+        "The same physical properties"
+      ],
+      "correctIndex": 1,
+      "explanation": "Both have 6 protons — that is what makes them carbon. ¹²C has 6 neutrons and ¹⁴C has 8, so their mass numbers and physical properties differ.",
+      "difficulty": "easy",
+      "variantOf": "isotopes-definition"
+    },
+    {
+      "id": "chem-atomic-1-q19",
+      "stem": "A neutral atom of nitrogen has 7 protons. How many electrons does it have?",
+      "choices": [
+        "7",
+        "14",
+        "0",
+        "It depends on the number of neutrons"
+      ],
+      "correctIndex": 0,
+      "explanation": "In a neutral atom, electrons = protons, so nitrogen has 7 electrons. The 14 option confuses electrons with the mass number (7 protons + 7 neutrons).",
+      "difficulty": "easy",
+      "variantOf": "neutral-atom-relationships"
+    },
+    {
+      "id": "chem-atomic-1-q20",
+      "stem": "Boron has two isotopes: 20% ¹⁰B and 80% ¹¹B. What is its relative atomic mass?",
+      "choices": [
+        "10",
+        "10.8",
+        "11",
+        "10.5"
+      ],
+      "correctIndex": 1,
+      "explanation": "Aᵣ = (20 × 10 + 80 × 11) ÷ 100 = (200 + 880) ÷ 100 = 10.8. The 10.5 option is the plain average of 10 and 11 — it ignores the abundances.",
+      "difficulty": "hard",
+      "variantOf": "isotope-ram"
+    },
+    {
+      "id": "chem-atomic-1-q21",
+      "stem": "In Rutherford's gold foil experiment, why did most alpha particles pass straight through the foil?",
+      "choices": [
+        "The atom is mostly empty space",
+        "Alpha particles are too small to be deflected",
+        "Gold atoms carry no charge",
+        "The foil was too thin to contain atoms"
+      ],
+      "correctIndex": 0,
+      "explanation": "The nucleus is tiny compared to the whole atom, so almost every alpha particle travelled through empty space without going near a nucleus.",
+      "difficulty": "easy",
+      "variantOf": "atomic-models"
+    },
+    {
+      "id": "chem-atomic-1-q22",
+      "stem": "Which sequence shows the atomic models in the correct chronological order?",
+      "choices": [
+        "Dalton (solid sphere) → Thomson (plum pudding) → Rutherford (nuclear) → Bohr (electron shells)",
+        "Thomson (plum pudding) → Dalton (solid sphere) → Bohr (electron shells) → Rutherford (nuclear)",
+        "Dalton (solid sphere) → Rutherford (nuclear) → Thomson (plum pudding) → Bohr (electron shells)",
+        "Bohr (electron shells) → Rutherford (nuclear) → Thomson (plum pudding) → Dalton (solid sphere)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dalton proposed solid spheres (1803); Thomson's plum pudding followed his discovery of the electron (1897); Rutherford's nuclear model came from the gold foil experiment (1911); Bohr added electron shells (1913).",
+      "difficulty": "hard",
+      "variantOf": "atomic-models-evidence"
+    },
+    {
+      "id": "chem-atomic-1-q23",
+      "stem": "Which type of radiation is so penetrating that only thick lead or concrete reduces it significantly?",
+      "choices": [
+        "Gamma (γ)",
+        "Alpha (α)",
+        "Beta (β)",
+        "None — all are stopped by paper"
+      ],
+      "correctIndex": 0,
+      "explanation": "Gamma rays are electromagnetic waves, not particles, so they interact weakly with matter — the most penetrating type. Beta is stopped by a few mm of aluminium; alpha by paper.",
+      "difficulty": "easy",
+      "variantOf": "radiation-penetration"
+    },
+    {
+      "id": "chem-atomic-1-q24",
+      "stem": "The half-life of carbon-14 is about 5,700 years. A sample starts with 80 g of carbon-14. How much remains after 17,100 years?",
+      "choices": [
+        "10 g",
+        "20 g",
+        "26.7 g",
+        "40 g"
+      ],
+      "correctIndex": 0,
+      "explanation": "17,100 ÷ 5,700 = 3 half-lives. After 1: 40 g. After 2: 20 g. After 3: 10 g remains. The 26.7 g option wrongly divides by 3 instead of halving three times.",
+      "difficulty": "hard",
+      "variantOf": "half-life"
+    }
+  ],
+  "templates": [
+    {
+      "generator": "chem-electron-config",
+      "variantOf": "electron-configuration",
+      "params": {
+        "elements": [
+          { "symbol": "H", "name": "hydrogen", "z": 1 },
+          { "symbol": "He", "name": "helium", "z": 2 },
+          { "symbol": "Li", "name": "lithium", "z": 3 },
+          { "symbol": "Be", "name": "beryllium", "z": 4 },
+          { "symbol": "B", "name": "boron", "z": 5 },
+          { "symbol": "C", "name": "carbon", "z": 6 },
+          { "symbol": "N", "name": "nitrogen", "z": 7 },
+          { "symbol": "O", "name": "oxygen", "z": 8 },
+          { "symbol": "F", "name": "fluorine", "z": 9 },
+          { "symbol": "Ne", "name": "neon", "z": 10 },
+          { "symbol": "Na", "name": "sodium", "z": 11 },
+          { "symbol": "Mg", "name": "magnesium", "z": 12 },
+          { "symbol": "Al", "name": "aluminium", "z": 13 },
+          { "symbol": "Si", "name": "silicon", "z": 14 },
+          { "symbol": "P", "name": "phosphorus", "z": 15 },
+          { "symbol": "S", "name": "sulfur", "z": 16 },
+          { "symbol": "Cl", "name": "chlorine", "z": 17 },
+          { "symbol": "Ar", "name": "argon", "z": 18 },
+          { "symbol": "K", "name": "potassium", "z": 19 },
+          { "symbol": "Ca", "name": "calcium", "z": 20 }
+        ]
+      }
+    },
+    {
+      "generator": "chem-ion-formation",
+      "variantOf": "ion-formation",
+      "params": {
+        "elements": [
+          { "symbol": "Na", "name": "sodium", "z": 11, "group": 1 },
+          { "symbol": "K", "name": "potassium", "z": 19, "group": 1 },
+          { "symbol": "Mg", "name": "magnesium", "z": 12, "group": 2 },
+          { "symbol": "Ca", "name": "calcium", "z": 20, "group": 2 },
+          { "symbol": "Al", "name": "aluminium", "z": 13, "group": 13 },
+          { "symbol": "O", "name": "oxygen", "z": 8, "group": 16 },
+          { "symbol": "S", "name": "sulfur", "z": 16, "group": 16 },
+          { "symbol": "F", "name": "fluorine", "z": 9, "group": 17 },
+          { "symbol": "Cl", "name": "chlorine", "z": 17, "group": 17 }
+        ]
+      }
+    },
+    {
+      "generator": "chem-isotope-ram",
+      "variantOf": "isotope-ram",
+      "params": {
+        "pairs": [
+          { "element": "chlorine", "symbol": "Cl", "massA": 35, "massB": 37, "abundanceA": 75 },
+          { "element": "copper", "symbol": "Cu", "massA": 63, "massB": 65, "abundanceA": 69 },
+          { "element": "boron", "symbol": "B", "massA": 10, "massB": 11, "abundanceA": 20 },
+          { "element": "bromine", "symbol": "Br", "massA": 79, "massB": 81, "abundanceA": 51 },
+          { "element": "neon", "symbol": "Ne", "massA": 20, "massB": 22, "abundanceA": 90 }
+        ]
+      }
+    },
+    {
+      "generator": "chem-half-life",
+      "variantOf": "half-life",
+      "params": {
+        "isotopes": [
+          { "name": "iodine-131", "halfLife": 8, "unit": "days", "startMass": 100 },
+          { "name": "carbon-14", "halfLife": 5700, "unit": "years", "startMass": 80 },
+          { "name": "radon-222", "halfLife": 3.8, "unit": "days", "startMass": 64 },
+          { "name": "cobalt-60", "halfLife": 5.3, "unit": "years", "startMass": 200 }
+        ],
+        "halfLives": [2, 3, 4]
+      }
     }
   ]
 }

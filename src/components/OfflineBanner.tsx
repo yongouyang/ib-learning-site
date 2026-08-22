@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useOnlineStatus } from '@/hooks/useOnlineStatus';
+import { trackEvent } from '@/lib/analytics';
 
 // Subtle, dismissible strip shown while offline. Sits above the mobile bottom
 // nav (h-16) on small screens; the nav is hidden from md up, so the banner
@@ -15,6 +16,11 @@ export function OfflineBanner() {
   useEffect(() => {
     if (isOnline) setDismissed(false);
   }, [isOnline]);
+
+  // Analytics A4: attribute the offline banner each time it appears.
+  useEffect(() => {
+    if (!isOnline && !dismissed) trackEvent('pwa_offline_banner_shown');
+  }, [isOnline, dismissed]);
 
   if (isOnline || dismissed) return null;
 

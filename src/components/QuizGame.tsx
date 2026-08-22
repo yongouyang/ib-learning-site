@@ -47,7 +47,8 @@ interface QuizGameProps {
    */
   timerMode?: 'per-question' | 'overall';
   shuffleSeed?: string;
-  onComplete: (correctCount: number, totalCount: number) => void;
+  /** `timedOut` is true when the overall-mode countdown expired (exam mode). */
+  onComplete: (correctCount: number, totalCount: number, timedOut?: boolean) => void;
   /** Called once per answered question (correct=false on timeout). */
   onQuestionResult?: (questionId: string, correct: boolean) => void;
   /**
@@ -130,7 +131,7 @@ export default function QuizGame({
     for (let i = currentIndex; i < shuffledQuestions.length; i++) {
       onQuestionResult?.(shuffledQuestions[i].id, false);
     }
-    onComplete(correctCount, shuffledQuestions.length);
+    onComplete(correctCount, shuffledQuestions.length, true);
     setIsComplete(true);
   }, [isComplete, currentIndex, shuffledQuestions, correctCount, onComplete, onQuestionResult]);
 

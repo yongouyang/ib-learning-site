@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Layers, Pencil, SearchX } from 'lucide-react';
 import { getSubject } from '@/content/registry';
@@ -9,9 +9,11 @@ import { useProgress } from '@/context/ProgressContext';
 import { getRecentAverageScore } from '@/lib/progress-store';
 import { filterTopics, TopicFilterState } from '@/lib/topic-filter';
 import { groupTopicsByStage } from '@/lib/topic-groups';
+import { subjectEmoji } from '@/lib/subject-emoji';
 import { TopicFilter } from '@/components/TopicFilter';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import InlineMath from '@/components/InlineMath';
+import { trackEvent } from '@/lib/analytics';
 import type { SubjectId } from '@/content/types';
 
 interface SubjectPageClientProps {
@@ -23,9 +25,29 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
   const { topicProgress } = useProgress();
   const [filter, setFilter] = useState<TopicFilterState>({ query: '', stage: 'all' });
 
+  // Analytics A4: debounce the topic search so a burst of keystrokes is one
+  // `search_performed` event; the result count is recomputed at fire time.
+  const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (!subject || !filter.query.trim()) return;
+    if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
+    searchTimerRef.current = setTimeout(() => {
+      trackEvent('search_performed', {
+        query: filter.query.trim(),
+        resultCount: filterTopics(subject.topics, filter).length,
+      });
+    }, 400);
+    return () => {
+      if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
+    };
+    // Debounce keyed on the query only — re-running on every `filter`/`subject`
+    // change would defeat the debounce.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filter.query]);
+
   if (!subject) return <p className="p-6">Subject not found.</p>;
 
-  const emoji = subjectId === 'math' ? '📐' : subjectId === 'english' ? '📖' : subjectId === 'biology' ? '🌿' : subjectId === 'chemistry' ? '🧪' : '⚛️';
+  const emoji = subjectEmoji(subjectId);
   const filteredTopics = filterTopics(subject.topics, filter);
   const groups = groupTopicsByStage(filteredTopics);
   let cardIndex = 0;

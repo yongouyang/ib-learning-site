@@ -57,6 +57,23 @@ provider "aws" {
   }
 }
 
+# SES has no ap-east-1 endpoint (email.ap-east-1.amazonaws.com does not
+# resolve — the first accounts Phase 0 apply failed on this), so the SES
+# domain identity lives in ap-southeast-1 (Singapore — closest SES region to
+# the Hong Kong users). Passed into module.ses via `providers`.
+provider "aws" {
+  alias  = "ap_southeast_1"
+  region = "ap-southeast-1"
+
+  default_tags {
+    tags = {
+      Project     = "IBLearn"
+      ManagedBy   = "terraform"
+      Environment = "prod"
+    }
+  }
+}
+
 # Must match the region of the bootstrap state bucket (see backend above).
 variable "region" {
   description = "Home region (matches the bootstrap state bucket region)."
@@ -75,10 +92,62 @@ variable "site_origins" {
   description = "Public site origins for Function URL CORS. Hardcoded to the known distribution/domain URLs: deriving them from the site modules would create a dependency cycle (distribution ↔ /api/* behavior ↔ feedback module). Keep ALL entries — dropping the dev origin breaks Mark with AI on the dev URL."
   type        = list(string)
   default = [
-    "https://d2c1g77zfmjpm3.cloudfront.net", # DEV
+    "https://d2c1g77zfmjpm3.cloudfront.net", # DEV (cloudfront.net URL)
+    "https://dev.octavlearning.com",         # DEV custom subdomain
     "https://octavlearning.com",             # PROD apex
     "https://www.octavlearning.com",         # pre-redirect direct hits
   ]
+}
+
+# Accounts feature (docs/architecture-evolution-plan.md §6.4) — values come
+# from GitHub secrets/variables via CI (same pattern as feedback_env); the
+# defaults keep a local plan/validate self-contained but are overridden by the
+# deploy jobs. Shared across DEV and PROD (single-state setup, like the
+# feedback Lambda).
+variable "dynamodb_table_prefix" {
+  description = "Prefix for the accounts-feature DynamoDB tables (octav-users, octav-sessions, octav-otp-codes, octav-progress). Set via the DYNAMODB_TABLE_PREFIX repo variable."
+  type        = string
+  default     = "octav"
+}
+
+variable "ses_from_address" {
+  description = "SES from-address for OTP emails (must be on the verified octavlearning.com domain). Set via the SES_FROM_ADDRESS repo secret."
+  type        = string
+  default     = "noreply@octavlearning.com"
+}
+
+variable "email_provider" {
+  description = "Email provider JSON {\"NAME\":\"resend|ses|dummy\",\"API_KEY\":\"...\"} set via the EMAIL_PROVIDER repo secret (single-line, straight quotes). \"{}\" = fall back to the AUTH_EMAIL base wiring (ses)."
+  type        = string
+  default     = "{}"
+  sensitive   = true
+}
+
+variable "auth_env" {
+  description = "Auth Lambda env overrides via CI TF_VAR_auth_env (AUTH_ENV secret); empty = base wiring below."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
+variable "progress_env" {
+  description = "Progress Lambda env overrides via CI TF_VAR_progress_env (PROGRESS_ENV secret); empty = base wiring below. No new secret is required — the base wiring already names the shared DynamoDB tables."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
+variable "analytics_env" {
+  description = "Analytics Lambda env overrides via CI TF_VAR_analytics_env (ANALYTICS_ENV secret); empty = base wiring below."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
+variable "analytics_admin_emails" {
+  description = "Comma-separated admin email allowlist for GET /api/analytics/summary. Set via the ANALYTICS_ADMIN_EMAILS repo variable (not a secret — it is an allowlist, not a credential)."
+  type        = string
+  default     = ""
 }
 
 # ACM cert for octavlearning.com (apex + www), DNS-validated. Lives at the
@@ -95,6 +164,21 @@ resource "aws_acm_certificate" "site" {
   lifecycle { create_before_destroy = true }
 }
 
+# ACM cert for dev.octavlearning.com (DEV custom subdomain). Deliberately a
+# SEPARATE cert from the prod one: adding a SAN to the prod cert would replace
+# it (new ARN) and pull the PROD distribution into the change cone. Validated
+# via one manual CloudFlare CNAME (output below) — keep that record forever,
+# ACM auto-renewal re-checks it. Two-round sequencing (same as the prod
+# cutover): this cert must exist and be ISSUED before module.site can attach
+# the alias, so the alias + cert reference land in a follow-up change.
+resource "aws_acm_certificate" "dev" {
+  provider          = aws.us_east_1
+  domain_name       = "dev.octavlearning.com"
+  validation_method = "DNS"
+
+  lifecycle { create_before_destroy = true }
+}
+
 # Feedback API first: the site module needs its Function URL domain to wire
 # the CloudFront /api/* behavior.
 module "feedback_api" {
@@ -105,14 +189,146 @@ module "feedback_api" {
   cors_allow_origins = var.site_origins
 }
 
+# Accounts feature — Phase 0 (docs/architecture-evolution-plan.md §6): the
+# DynamoDB tables + SES domain identity only. No Lambdas yet — those land with
+# their phases (auth/progress/leaderboard) and consume these module outputs.
+# Shared between DEV and PROD like the feedback Lambda.
+module "dynamodb" {
+  source = "../../modules/dynamodb"
+
+  name_prefix = var.dynamodb_table_prefix
+}
+
+module "ses" {
+  source = "../../modules/ses"
+
+  # SES is not available in ap-east-1 (no email.ap-east-1.amazonaws.com
+  # endpoint) — the identity/DKIM live in ap-southeast-1.
+  providers = {
+    aws = aws.ap_southeast_1
+  }
+
+  domain       = "octavlearning.com"
+  from_address = var.ses_from_address
+}
+
+# Auth API (Phase B — docs/architecture-evolution-plan.md §6): the email-OTP
+# Lambda + Function URL. Consumes the DynamoDB table names/ARNs and the SES
+# FROM address (IAM sender restriction). Base wiring below always selects the
+# real dynamodb/ses
+# implementations; var.auth_env (CI AUTH_ENV secret) can override/add — leave
+# it empty to use these defaults. SES has no ap-east-1 endpoint, so
+# AUTH_SES_REGION points the SESv2 client at ap-southeast-1 (where the
+# identity lives); the function itself still runs in ap-east-1.
+module "auth_api" {
+  source = "../../modules/auth_api"
+
+  zip_path = "${path.module}/../../../lambda/auth/dist/auth-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  users_table_arn       = module.dynamodb.users_table_arn
+  sessions_table_arn    = module.dynamodb.sessions_table_arn
+  otp_codes_table_arn   = module.dynamodb.otp_codes_table_arn
+  progress_table_arn    = module.dynamodb.progress_table_arn
+  rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+  ses_from_address      = var.ses_from_address
+
+  environment = merge(
+    {
+      AUTH_STORAGE           = "dynamodb"
+      AUTH_EMAIL             = "ses"
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      AUTH_OTP_TABLE         = module.dynamodb.otp_codes_table_name
+      AUTH_PROGRESS_TABLE    = module.dynamodb.progress_table_name
+      AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+      AUTH_SES_REGION        = "ap-southeast-1"
+      SES_FROM_ADDRESS       = var.ses_from_address
+      EMAIL_PROVIDER         = var.email_provider
+    },
+    var.auth_env,
+  )
+}
+
+# Progress API (Phase C — docs/architecture-evolution-plan.md §3): the
+# cross-device sync Lambda + Function URL. Consumes the shared users/sessions/
+# progress/rate-limits table names/ARNs from module.dynamodb. Base wiring below
+# always selects the real dynamodb implementation; var.progress_env (CI
+# PROGRESS_ENV secret) can override/add — leave it empty to use these
+# defaults. NO new secret is required: session validation + progress storage
+# both live on the same Phase 0 tables the auth Lambda already uses, and the
+# durable sync budget shares octav-rate-limits, so the base wiring below is
+# complete on its own.
+module "progress_api" {
+  source = "../../modules/progress_api"
+
+  zip_path = "${path.module}/../../../lambda/progress/dist/progress-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  users_table_arn       = module.dynamodb.users_table_arn
+  sessions_table_arn    = module.dynamodb.sessions_table_arn
+  progress_table_arn    = module.dynamodb.progress_table_arn
+  rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+
+  environment = merge(
+    {
+      PROGRESS_STORAGE       = "dynamodb"
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      AUTH_PROGRESS_TABLE    = module.dynamodb.progress_table_name
+      AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+    },
+    var.progress_env,
+  )
+}
+
+# Analytics API (Phase A — docs/phase-a-analytics-plan.md): the ingest/summary
+# Lambda. Consumes the analytics events table + the shared rate-limits table
+# (ingest budget) + users/sessions (summary session validation). Base wiring
+# below always selects the real dynamodb implementation; var.analytics_env (CI
+# ANALYTICS_ENV secret) can override/add — leave it empty to use these
+# defaults. ANALYTICS_ADMIN_EMAILS comes from the repo variable (set in CI).
+module "analytics_api" {
+  source = "../../modules/analytics_api"
+
+  zip_path = "${path.module}/../../../lambda/analytics/dist/analytics-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  users_table_arn            = module.dynamodb.users_table_arn
+  sessions_table_arn         = module.dynamodb.sessions_table_arn
+  analytics_events_table_arn = module.dynamodb.analytics_events_table_arn
+  rate_limits_table_arn      = module.dynamodb.rate_limits_table_arn
+
+  environment = merge(
+    {
+      ANALYTICS_STORAGE      = "dynamodb"
+      ANALYTICS_TABLE        = module.dynamodb.analytics_events_table_name
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+      ANALYTICS_ADMIN_EMAILS = var.analytics_admin_emails
+    },
+    var.analytics_env,
+  )
+}
+
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
-# /api/* proxy behavior to the feedback Lambda. This is the pre-cutover
-# instance (cloudfront.net URL only) — no custom domain, no renames, no
-# state moves; the default variable values keep it byte-identical.
+# /api/* proxy behavior to the feedback Lambda. Custom domain: the
+# dev.octavlearning.com alias with its dedicated ACM cert (round 2 of the
+# dev-subdomain cutover — the cert must be ISSUED before this attaches, so it
+# was created in round 1). The cloudfront.net URL keeps working alongside.
 module "site" {
   source = "../../modules/site"
 
-  feedback_origin_domain = module.feedback_api.function_url_domain
+  feedback_origin_domain  = module.feedback_api.function_url_domain
+  auth_origin_domain      = module.auth_api.function_url_domain
+  progress_origin_domain  = module.progress_api.function_url_domain
+  analytics_origin_domain = module.analytics_api.function_url_domain
+  domain_names            = ["dev.octavlearning.com"]
+  acm_certificate_arn     = aws_acm_certificate.dev.arn
 }
 
 # PROD: separate bucket + distribution fronting octavlearning.com (apex + www
@@ -121,11 +337,14 @@ module "site" {
 module "site_prod" {
   source = "../../modules/site"
 
-  name_prefix            = "iblearn-prod"
-  feedback_origin_domain = module.feedback_api.function_url_domain
-  domain_names           = ["octavlearning.com", "www.octavlearning.com"]
-  acm_certificate_arn    = aws_acm_certificate.site.arn
-  redirect_from_host     = "www.octavlearning.com"
+  name_prefix             = "iblearn-prod"
+  feedback_origin_domain  = module.feedback_api.function_url_domain
+  auth_origin_domain      = module.auth_api.function_url_domain
+  progress_origin_domain  = module.progress_api.function_url_domain
+  analytics_origin_domain = module.analytics_api.function_url_domain
+  domain_names            = ["octavlearning.com", "www.octavlearning.com"]
+  acm_certificate_arn     = aws_acm_certificate.site.arn
+  redirect_from_host      = "www.octavlearning.com"
 }
 
 # GitHub Actions OIDC provider + deploy role — short-lived tokens only,
@@ -164,6 +383,14 @@ output "feedback_function_url" {
   value = module.feedback_api.function_url
 }
 
+output "auth_function_url" {
+  value = module.auth_api.function_url
+}
+
+output "progress_function_url" {
+  value = module.progress_api.function_url
+}
+
 output "github_deploy_role_arn" {
   description = "Set as the AWS_DEPLOY_ROLE_ARN variable in GitHub repo settings (Settings → Secrets and variables → Actions → Variables)."
   value       = module.ci.role_arn
@@ -177,4 +404,42 @@ output "acm_validation_records" {
     for dvo in aws_acm_certificate.site.domain_validation_options :
     dvo.domain_name => { name = dvo.resource_record_name, value = dvo.resource_record_value }
   }
+}
+
+# The one-time manual CloudFlare CNAME that validates the dev subdomain cert
+# (dev.octavlearning.com cutover, round 1).
+output "acm_dev_validation_records" {
+  description = "DNS validation CNAME for the dev.octavlearning.com cert (CloudFlare, gray cloud / DNS only)."
+  value = {
+    for dvo in aws_acm_certificate.dev.domain_validation_options :
+    dvo.domain_name => { name = dvo.resource_record_name, value = dvo.resource_record_value }
+  }
+}
+
+# Accounts feature — Phase 0 outputs (docs/architecture-evolution-plan.md §6).
+# The SES values are the one-time manual CloudFlare records; the table map is
+# a reference for the phase Lambdas' env vars.
+output "dynamodb_tables" {
+  description = "Accounts-feature DynamoDB table names → ARNs."
+  value = {
+    users     = { name = module.dynamodb.users_table_name, arn = module.dynamodb.users_table_arn }
+    sessions  = { name = module.dynamodb.sessions_table_name, arn = module.dynamodb.sessions_table_arn }
+    otp_codes = { name = module.dynamodb.otp_codes_table_name, arn = module.dynamodb.otp_codes_table_arn }
+    progress  = { name = module.dynamodb.progress_table_name, arn = module.dynamodb.progress_table_arn }
+  }
+}
+
+output "ses_domain_identity_arn" {
+  description = "ARN of the verified SES domain identity."
+  value       = module.ses.domain_identity_arn
+}
+
+output "ses_verification_token" {
+  description = "SES domain verification TXT value for CloudFlare (record name _amazonses.octavlearning.com, gray cloud / DNS only)."
+  value       = module.ses.verification_token
+}
+
+output "ses_dkim_tokens" {
+  description = "Three SES DKIM tokens. For each token X, add a CloudFlare CNAME X._domainkey.octavlearning.com → X.dkim.amazonses.com (gray cloud / DNS only)."
+  value       = module.ses.dkim_tokens
 }

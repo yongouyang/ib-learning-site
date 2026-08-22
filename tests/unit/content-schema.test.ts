@@ -37,11 +37,16 @@ describe('content schema validation', () => {
   describe('subjects.json', () => {
     it('should validate all subject metadata', () => {
       const result = subjectMetaSchema.array().parse(subjectsMeta);
-      expect(result).toHaveLength(5);
+      expect(result).toHaveLength(10);
       expect(result.map((s) => s.id).sort()).toEqual([
         'biology',
         'chemistry',
+        'chinese',
         'english',
+        'geography',
+        'german',
+        'history',
+        'ict',
         'math',
         'physics',
       ]);
@@ -61,7 +66,7 @@ describe('content schema validation', () => {
     });
 
     it('should reject a topic with invalid subjectId', () => {
-      const invalid = { ...validTopic, subjectId: 'history' };
+      const invalid = { ...validTopic, subjectId: 'art' };
       expect(() => topicSchema.parse(invalid)).toThrow();
     });
 

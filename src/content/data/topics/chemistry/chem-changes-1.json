@@ -4,6 +4,7 @@
   "title": "Chemical Reactions & Equations",
   "description": "How to identify chemical vs physical changes, write word and symbol equations, balance equations, and understand energy changes in reactions.",
   "stage": "ks3",
+  "year": 8,
   "notes": [
     {
       "id": "chem-changes-1-n1",
@@ -162,7 +163,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Melting is a change of state — still H₂O. No new substance is formed. All changes of state are physical.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "physical-change-identify"
     },
     {
       "id": "chem-changes-1-q2",
@@ -175,7 +177,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Gas production (not boiling) and permanent colour changes indicate new substances forming — these are chemical changes.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "chemical-change-evidence"
     },
     {
       "id": "chem-changes-1-q3",
@@ -188,7 +191,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Exothermic = 'heat out.' Energy is released to surroundings → temperature rises.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "exo-endo-temperature"
     },
     {
       "id": "chem-changes-1-q4",
@@ -201,7 +205,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Temperature dropping = absorbing energy from surroundings = endothermic.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "exo-endo-temperature"
     },
     {
       "id": "chem-changes-1-q5",
@@ -214,7 +219,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Conservation of mass: 10 − 4.4 = 5.6 g. The gas is still mass — it just escaped. Total mass was 10 g.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "conservation-mass-calculation"
     },
     {
       "id": "chem-changes-1-q6",
@@ -227,7 +233,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Left: 2Na, 2Cl. Right: 2Na, 2Cl. Balanced. Never change NaCl to NaCl₂ — that would be a different compound.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "balancing-simple"
     },
     {
       "id": "chem-changes-1-q7",
@@ -240,7 +247,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The 'extra' mass is oxygen from the air that combined with magnesium. In a sealed container, total mass would remain constant.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "conservation-mass-open-system"
     },
     {
       "id": "chem-changes-1-q8",
@@ -253,7 +261,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Zinc is more reactive than copper. It displaces Cu from CuSO₄ solution. Copper metal appears; blue solution fades.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "reaction-type-identify"
     },
     {
       "id": "chem-changes-1-q9",
@@ -266,7 +275,8 @@
       ],
       "correctIndex": 2,
       "explanation": "One compound (CaCO₃) breaks down into simpler substances (CaO + CO₂) when heated — thermal decomposition.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "reaction-type-identify"
     },
     {
       "id": "chem-changes-1-q10",
@@ -279,7 +289,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Breaking bonds ALWAYS takes energy. Even if the overall reaction releases energy (exothermic), you still need initial energy to break reactant bonds.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "activation-energy"
     },
     {
       "id": "chem-changes-1-q11",
@@ -292,7 +303,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The reaction can go both ways: heat drives off water; adding water restores the hydrated form. This is a classic reversible reaction.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "reversible-reaction"
     },
     {
       "id": "chem-changes-1-q12",
@@ -305,7 +317,8 @@
       ],
       "correctIndex": 1,
       "explanation": "C: balanced (1 each). H: 4 on left → need 2H₂O (4H on right). O: 2 from 2O₂ → 2+2=4 on right (1 in CO₂ + 1 in each H₂O). ✓",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "balancing-combustion"
     },
     {
       "id": "chem-changes-1-q13",
@@ -318,7 +331,8 @@
       ],
       "correctIndex": 1,
       "explanation": "(s) = solid precipitate. AgCl is insoluble and appears as a white solid when the two clear solutions are mixed.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "state-symbol-meaning"
     },
     {
       "id": "chem-changes-1-q14",
@@ -331,7 +345,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Sodium is a solid metal, water is liquid, NaOH dissolves (aq), and hydrogen is a gas that bubbles off.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "state-symbols-assign"
     },
     {
       "id": "chem-changes-1-q15",
@@ -344,7 +359,190 @@
       ],
       "correctIndex": 1,
       "explanation": "Equilibrium is dynamic — reactions don't stop. The forward reaction rate = reverse reaction rate. Concentrations are constant (but not necessarily equal).",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "dynamic-equilibrium"
+    },
+    {
+      "id": "chem-changes-1-q16",
+      "stem": "Which of these is a physical change?",
+      "choices": [
+        "Toast burning",
+        "Salt dissolving in water",
+        "Milk turning sour",
+        "A nail rusting"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dissolving makes no new substance — the salt can be recovered by evaporating the water. Burning, souring and rusting all produce new substances, so they are chemical changes.",
+      "difficulty": "easy",
+      "variantOf": "physical-change-identify"
+    },
+    {
+      "id": "chem-changes-1-q17",
+      "stem": "During an experiment, two colourless solutions are mixed. Which observation is the BEST evidence that a chemical change has occurred?",
+      "choices": [
+        "The liquids mixed completely to give one uniform solution",
+        "Bubbles of gas formed and a white solid (precipitate) appeared",
+        "The total volume equalled the sum of the two starting volumes",
+        "The mixture stayed clear and colourless"
+      ],
+      "correctIndex": 1,
+      "explanation": "Gas given off (not boiling) and a precipitate mean new substances have formed — classic signs of a chemical change. Mixing, volume additivity and staying colourless tell us nothing about new substances.",
+      "difficulty": "medium",
+      "variantOf": "chemical-change-evidence"
+    },
+    {
+      "id": "chem-changes-1-q18",
+      "stem": "An instant cold pack for sports injuries feels cold when activated. The process inside the pack is:",
+      "choices": [
+        "Exothermic — it releases energy",
+        "Endothermic — it absorbs energy from the surroundings",
+        "Combustion",
+        "Neutralisation"
+      ],
+      "correctIndex": 1,
+      "explanation": "The pack feels cold because the process (e.g. ammonium nitrate dissolving) takes energy in from its surroundings — including your skin. Energy absorbed from surroundings = endothermic.",
+      "difficulty": "easy",
+      "variantOf": "exo-endo-temperature"
+    },
+    {
+      "id": "chem-changes-1-q19",
+      "stem": "28 g of iron reacts completely with sulfur to produce 44 g of iron sulfide. What mass of sulfur reacted?",
+      "choices": [
+        "16 g",
+        "28 g",
+        "44 g",
+        "72 g"
+      ],
+      "correctIndex": 0,
+      "explanation": "Conservation of mass: mass of product = total mass of reactants, so sulfur = 44 − 28 = 16 g. 28 g + 16 g = 44 g ✓",
+      "difficulty": "medium",
+      "variantOf": "conservation-mass-calculation"
+    },
+    {
+      "id": "chem-changes-1-q20",
+      "stem": "Which is the correctly balanced equation for magnesium reacting with hydrochloric acid?",
+      "choices": [
+        "Mg + HCl → MgCl₂ + H₂",
+        "Mg + 2HCl → MgCl₂ + H₂",
+        "2Mg + 2HCl → 2MgCl₂ + H₂",
+        "Mg + 2HCl → MgCl₂ + 2H₂"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mg balances at 1 on each side. MgCl₂ contains 2 Cl and H₂ contains 2 H, so 2HCl is needed on the left: 2H and 2Cl on both sides. The other options leave H or Cl unbalanced.",
+      "difficulty": "medium",
+      "variantOf": "balancing-simple"
+    },
+    {
+      "id": "chem-changes-1-q21",
+      "stem": "A student heats 50 g of calcium carbonate in an open crucible. Afterwards the solid weighs only 28 g. Why does this NOT violate the law of conservation of mass?",
+      "choices": [
+        "Heating destroys some of the mass",
+        "The crucible absorbed the missing mass",
+        "Carbon dioxide gas escaped — the 'lost' 22 g is the CO₂, so the total mass is unchanged",
+        "Conservation of mass only applies to physical changes"
+      ],
+      "correctIndex": 2,
+      "explanation": "CaCO₃ → CaO + CO₂. The missing 50 − 28 = 22 g is carbon dioxide that escaped into the air. Counting the gas, 50 g of reactant gives 28 g + 22 g = 50 g of products.",
+      "difficulty": "medium",
+      "variantOf": "conservation-mass-open-system"
+    },
+    {
+      "id": "chem-changes-1-q22",
+      "stem": "CH₄ + 2O₂ → CO₂ + 2H₂O. What type of reaction is this?",
+      "choices": [
+        "Neutralisation",
+        "Combustion",
+        "Thermal decomposition",
+        "Precipitation"
+      ],
+      "correctIndex": 1,
+      "explanation": "Methane burns in oxygen to give carbon dioxide and water. The pattern fuel + O₂ → CO₂ + H₂O is complete combustion.",
+      "difficulty": "easy",
+      "variantOf": "reaction-type-identify"
+    },
+    {
+      "id": "chem-changes-1-q23",
+      "stem": "Petrol vapour burns violently, yet the petrol-air mixture in a car's engine does not ignite until the spark plug fires. What does this show?",
+      "choices": [
+        "Petrol combustion is endothermic overall",
+        "Petrol can only react with pure oxygen, not air",
+        "Even a very exothermic reaction needs activation energy to break bonds before it can start",
+        "The engine block absorbs all the heat of the reaction"
+      ],
+      "correctIndex": 2,
+      "explanation": "Combustion of petrol is strongly exothermic, but the reactant bonds must still be broken first — that initial energy input is the activation energy. The spark supplies it; without it the mixture is stable.",
+      "difficulty": "hard",
+      "variantOf": "activation-energy"
+    },
+    {
+      "id": "chem-changes-1-q24",
+      "stem": "Heating ammonium chloride produces ammonia and hydrogen chloride gases; on cooling, the gases recombine to form the solid again. This is best described as:",
+      "choices": [
+        "An irreversible thermal decomposition",
+        "A reversible reaction: NH₄Cl(s) ⇌ NH₃(g) + HCl(g)",
+        "A displacement reaction",
+        "A combustion reaction"
+      ],
+      "correctIndex": 1,
+      "explanation": "The products re-form the reactant when conditions change — the reaction goes both ways, which is the definition of a reversible reaction, shown with the ⇌ symbol.",
+      "difficulty": "medium",
+      "variantOf": "reversible-reaction"
+    },
+    {
+      "id": "chem-changes-1-q25",
+      "stem": "Balance: __C₂H₆ + __O₂ → __CO₂ + __H₂O",
+      "choices": [
+        "C₂H₆ + 3O₂ → 2CO₂ + 3H₂O",
+        "2C₂H₆ + 7O₂ → 4CO₂ + 6H₂O",
+        "C₂H₆ + 2O₂ → 2CO₂ + 2H₂O",
+        "2C₂H₆ + 5O₂ → 4CO₂ + 6H₂O"
+      ],
+      "correctIndex": 1,
+      "explanation": "Balance C first (2CO₂), then H (3H₂O). The right side then has 4 + 3 = 7 O atoms, needing 7/2 O₂ on the left; doubling every coefficient clears the fraction. Check: C 4 = 4, H 12 = 12, O 14 = 14 ✓",
+      "difficulty": "hard",
+      "variantOf": "balancing-combustion"
+    },
+    {
+      "id": "chem-changes-1-q26",
+      "stem": "In the equation HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l), what does the state symbol (aq) mean?",
+      "choices": [
+        "A gas at room temperature",
+        "A pure liquid",
+        "Dissolved in water (an aqueous solution)",
+        "A solid suspended in water"
+      ],
+      "correctIndex": 2,
+      "explanation": "(aq) = aqueous — the substance is dissolved in water. HCl, NaOH and NaCl are all in solution; only the water produced is a pure liquid, (l).",
+      "difficulty": "easy",
+      "variantOf": "state-symbol-meaning"
+    },
+    {
+      "id": "chem-changes-1-q27",
+      "stem": "Which correctly gives state symbols for the reaction CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂?",
+      "choices": [
+        "CaCO₃(s) + 2HCl(aq) → CaCl₂(aq) + H₂O(l) + CO₂(g)",
+        "CaCO₃(aq) + 2HCl(l) → CaCl₂(s) + H₂O(l) + CO₂(aq)",
+        "CaCO₃(s) + 2HCl(aq) → CaCl₂(s) + H₂O(g) + CO₂(aq)",
+        "CaCO₃(l) + 2HCl(g) → CaCl₂(aq) + H₂O(aq) + CO₂(g)"
+      ],
+      "correctIndex": 0,
+      "explanation": "Calcium carbonate is an insoluble solid, hydrochloric acid is used as an aqueous solution, calcium chloride dissolves (aq), water is a liquid and carbon dioxide bubbles off as a gas.",
+      "difficulty": "hard",
+      "variantOf": "state-symbols-assign"
+    },
+    {
+      "id": "chem-changes-1-q28",
+      "stem": "A reversible reaction in a sealed flask reaches equilibrium with 40% reactants and 60% products. Which statement is correct?",
+      "choices": [
+        "The reaction has stopped because it is complete",
+        "The reaction will continue until only products remain",
+        "Forward and reverse rates are equal — the 40:60 ratio stays constant because both reactions keep going",
+        "Equilibrium requires 50% reactants and 50% products"
+      ],
+      "correctIndex": 2,
+      "explanation": "At dynamic equilibrium the forward and reverse reactions run at equal rates, so concentrations stay constant — but they do not have to be equal. A 40:60 split is perfectly stable.",
+      "difficulty": "medium",
+      "variantOf": "dynamic-equilibrium"
     }
   ]
 }

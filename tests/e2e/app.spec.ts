@@ -3,11 +3,12 @@ import { test, expect } from '@playwright/test';
 test.describe('Home page', () => {
   test('should show the subject grid', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Octav Learning' })).toBeVisible();
+    // Hero h1 (first-time visitor state) — the logo is no longer a heading.
+    await expect(page.getByRole('heading', { name: /Master secondary school/ })).toBeVisible();
 
-    // 5 subject cards — use heading within links
+    // 10 subject cards — use heading within links
     await expect(page.getByRole('heading', { name: 'Subjects' })).toBeVisible();
-    for (const subject of ['Math', 'English', 'Biology', 'Chemistry', 'Physics']) {
+    for (const subject of ['Math', 'English', 'Biology', 'Chemistry', 'Physics', 'Geography', 'History', 'ICT', 'Chinese', 'German']) {
       await expect(page.getByRole('heading', { name: subject })).toBeVisible();
     }
   });
@@ -160,8 +161,11 @@ test.describe('Quiz flow', () => {
     await page.getByRole('link', { name: /Take Quiz/i }).click();
     await page.waitForURL('/subjects/math/math-dp-ai-sequences/quiz');
 
-    // Quiz page should have a question stem heading visible
-    await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
+    // Quiz page should have a question stem heading visible (scoped to <main>:
+    // during the client-side transition from the study page, React keeps the
+    // outgoing tree in a hidden Suspense segment, so an unscoped lookup can see
+    // both pages' h2s and trip strict mode).
+    await expect(page.locator('main').getByRole('heading', { level: 2 })).toBeVisible();
     // Should have choice buttons with A., B., etc.
     await expect(page.getByRole('button').filter({ hasText: /^A\./ }).first()).toBeVisible();
     // Should have a breadcrumb trail: Home / Math / Sequences & Series / Quiz

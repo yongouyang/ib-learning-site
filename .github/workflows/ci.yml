@@ -205,6 +205,24 @@ jobs:
       # and rejects multi-line values / curly quotes. Unset secret = {}
       # = unconfigured (GET {configured:false}, POST 501, "Mark with AI" hidden).
       TF_VAR_feedback_env: ${{ secrets.FEEDBACK_ENV || '{}' }}
+      # Accounts feature (Phase 0): DynamoDB table prefix (repo variable) and
+      # SES from-address (repo secret). Defaults match terraform/envs/prod.
+      TF_VAR_dynamodb_table_prefix: ${{ vars.DYNAMODB_TABLE_PREFIX || 'octav' }}
+      TF_VAR_ses_from_address: ${{ secrets.SES_FROM_ADDRESS || 'noreply@octavlearning.com' }}
+      # Email provider selection + key as a single-line JSON map with straight
+      # quotes ({"NAME":"resend","API_KEY":"..."}). Unset = {} = fall back to
+      # the base AUTH_EMAIL wiring (ses).
+      TF_VAR_email_provider: ${{ secrets.EMAIL_PROVIDER || '{}' }}
+      # Auth Lambda env overrides; unset = base wiring from envs/prod.
+      TF_VAR_auth_env: ${{ secrets.AUTH_ENV || '{}' }}
+      # Progress Lambda env overrides (Phase C); optional — unset = base
+      # dynamodb wiring from envs/prod (no new secret required).
+      TF_VAR_progress_env: ${{ secrets.PROGRESS_ENV || '{}' }}
+      # Analytics Lambda env overrides (Phase A); optional — unset = base
+      # dynamodb wiring from envs/prod (no new secret required).
+      TF_VAR_analytics_env: ${{ secrets.ANALYTICS_ENV || '{}' }}
+      # Analytics /summary admin email allowlist (repo variable, not a secret).
+      TF_VAR_analytics_admin_emails: ${{ vars.ANALYTICS_ADMIN_EMAILS || '' }}
 
     steps:
       - name: Checkout
@@ -222,7 +240,9 @@ jobs:
       - name: Build static export
         run: npm run build:static
 
-      - name: Build feedback Lambda zip
+      # One script builds both zips (feedback + auth) — terraform consumes
+      # each bundle's own source_code_hash.
+      - name: Build Lambda zips (feedback + auth)
         run: npm run build:lambda
 
       - name: Configure AWS credentials (OIDC)
@@ -262,6 +282,26 @@ jobs:
           curl -fsS "$SITE_URL/" > /dev/null
           curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
           curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
+          # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
+          # match the status code instead).
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
+          # request-otp writes the OTP to DynamoDB + attempts SES send — catches
+          # missing table/index IAM. 200 = email accepted; 502 = SES send failed
+          # (expected while the account is in SES sandbox); 429 = the durable
+          # per-email budget was consumed (proves the DynamoDB path works — a
+          # deploy retry within 10 min of a previous run trips it); 500 = real
+          # failure. Tighten to strict `^200$` once SES production access
+          # (ap-southeast-1) is granted — see docs/architecture-evolution-plan.md §6.5.
+          AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"ci-probe@example.com"}' "$SITE_URL/api/auth/request-otp")
+          echo "$AUTH_OTP_STATUS" | grep -qE '^(200|429|502)$'
+          # /api/progress/_health performs an unauthenticated DynamoDB Query on
+          # octav-progress with a fixed probe key — exercises the REAL failure
+          # class (missing table / missing Query grant) with zero data exposure.
+          # Only 200 proves the path; 401 is impossible (no auth required) and
+          # 500 = table/IAM problem.
+          curl -fsS "$SITE_URL/api/progress/_health" | grep -q '"ok":true'
+          # /api/analytics/_health — same failure-class probe as progress.
+          curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
           echo "Smoke checks passed."
 
   # PROD deploy (main branch) — octavlearning.com on the dedicated bucket +
@@ -287,6 +327,24 @@ jobs:
       SITE_BUCKET: iblearn-prod-site-305655353474
       DISTRIBUTION_ID: EYC8IOH4L9SXT
       TF_VAR_feedback_env: ${{ secrets.FEEDBACK_ENV || '{}' }}
+      # Accounts feature (Phase 0): DynamoDB table prefix (repo variable) and
+      # SES from-address (repo secret). Defaults match terraform/envs/prod.
+      TF_VAR_dynamodb_table_prefix: ${{ vars.DYNAMODB_TABLE_PREFIX || 'octav' }}
+      TF_VAR_ses_from_address: ${{ secrets.SES_FROM_ADDRESS || 'noreply@octavlearning.com' }}
+      # Email provider selection + key as a single-line JSON map with straight
+      # quotes ({"NAME":"resend","API_KEY":"..."}). Unset = {} = fall back to
+      # the base AUTH_EMAIL wiring (ses).
+      TF_VAR_email_provider: ${{ secrets.EMAIL_PROVIDER || '{}' }}
+      # Auth Lambda env overrides; unset = base wiring from envs/prod.
+      TF_VAR_auth_env: ${{ secrets.AUTH_ENV || '{}' }}
+      # Progress Lambda env overrides (Phase C); optional — unset = base
+      # dynamodb wiring from envs/prod (no new secret required).
+      TF_VAR_progress_env: ${{ secrets.PROGRESS_ENV || '{}' }}
+      # Analytics Lambda env overrides (Phase A); optional — unset = base
+      # dynamodb wiring from envs/prod (no new secret required).
+      TF_VAR_analytics_env: ${{ secrets.ANALYTICS_ENV || '{}' }}
+      # Analytics /summary admin email allowlist (repo variable, not a secret).
+      TF_VAR_analytics_admin_emails: ${{ vars.ANALYTICS_ADMIN_EMAILS || '' }}
 
     steps:
       - name: Checkout
@@ -304,7 +362,9 @@ jobs:
       - name: Build static export
         run: npm run build:static
 
-      - name: Build feedback Lambda zip
+      # One script builds both zips (feedback + auth) — terraform consumes
+      # each bundle's own source_code_hash.
+      - name: Build Lambda zips (feedback + auth)
         run: npm run build:lambda
 
       - name: Configure AWS credentials (OIDC)
@@ -342,6 +402,28 @@ jobs:
           curl -fsS "$SITE_URL/" > /dev/null
           curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
           curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
+          # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
+          # match the status code instead).
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
+          # request-otp writes the OTP to DynamoDB + attempts SES send — catches
+          # missing table/index IAM. 200 = email accepted; 502 = SES send failed
+          # (expected while the account is in SES sandbox); 429 = the durable
+          # per-email budget was consumed (proves the DynamoDB path works — a
+          # deploy retry within 10 min of a previous run trips it); 500 = real
+          # failure. Tighten to strict `^200$` once SES production access
+          # (ap-southeast-1) is granted — see docs/architecture-evolution-plan.md §6.5.
+          AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"ci-probe@example.com"}' "$SITE_URL/api/auth/request-otp")
+          echo "$AUTH_OTP_STATUS" | grep -qE '^(200|429|502)$'
+          # /api/progress/_health performs an unauthenticated DynamoDB Query on
+          # octav-progress with a fixed probe key — exercises the REAL failure
+          # class (missing table / missing Query grant) with zero data exposure.
+          # Only 200 proves the path; 401 is impossible (no auth required) and
+          # 500 = table/IAM problem.
+          curl -fsS "$SITE_URL/api/progress/_health" | grep -q '"ok":true'
+          # /api/analytics/_health performs an unauthenticated DynamoDB Query on
+          # octav-analytics-events with a fixed probe key — same failure-class
+          # probe as progress (missing table / missing Query grant → 500).
+          curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
           # www → apex 301 (redirect lives in the PROD URL-rewrite Function).
           curl -fsS -o /dev/null -w '%{http_code}' https://www.octavlearning.com/ | grep -q '^301$'
           echo "Smoke checks passed."

@@ -1,0 +1,316 @@
+{
+  "id": "ict-yr7-web-html-css",
+  "subjectId": "ict",
+  "title": "Building Websites with HTML, CSS & JavaScript",
+  "description": "How the web works and how to build your own site — browsers and servers, HTML structure and tags, multi-page navigation, CSS styling and the box model, a first taste of JavaScript, and organising your files.",
+  "stage": "ks3",
+  "year": 7,
+  "notes": [
+    {
+      "id": "ict-yr7-web-html-css-n1",
+      "heading": "How the Web Works",
+      "body": "The World Wide Web runs on a request-and-response conversation between two pieces of software. The browser on your device (Chrome, Safari, Edge) is the client; a web server is a computer that stores website files and sends them out on demand. When you type a URL — a web address such as https://www.example.com/news/article1 — the browser breaks it into parts: the protocol (https, the secure version of the rules for transferring web pages), the domain name (www.example.com, which the DNS phone-book service translates into the server's numeric IP address), and the path to a particular page (/news/article1). The browser sends an HTTP request to the server; the server finds the files and sends them back; the browser then renders them — interpreting the HTML, CSS and JavaScript to draw the page on your screen. Keep three easily confused terms straight: a web page is a single document, a website is a collection of linked pages, and a search engine is just another website that helps you find other sites — typing an address into the browser is not the same as searching."
+    },
+    {
+      "id": "ict-yr7-web-html-css-n2",
+      "heading": "HTML Document Structure",
+      "body": "HTML (HyperText Markup Language) describes the structure and content of a page using tags — keywords in angle brackets that usually come in pairs: an opening tag like `<p>` and a closing tag with a slash like `</p>`, wrapping the content they describe. Every proper HTML page has the same skeleton. `<!DOCTYPE html>` on the first line declares the document type. Everything sits inside `<html>…</html>`, split into two sections: the `<head>` holds information about the page — the character set, links to stylesheets, and `<title>`, whose text appears on the browser tab rather than on the page itself; the `<body>` holds everything the visitor actually sees. Tags nest inside one another like Russian dolls, and must close in the reverse order they opened: `<p><b>bold text</b></p>` is correct, while `<p><b>bold text</p></b>` is misnested and broken. Comments `<!-- like this -->` let you leave notes in the code that the browser ignores. HTML defines what things are — a heading, a paragraph, a link — not how they look; appearance is CSS's job."
+    },
+    {
+      "id": "ict-yr7-web-html-css-n3",
+      "heading": "Common HTML Tags",
+      "body": "A small set of tags covers most of a beginner's page. Headings run from `<h1>` (the main heading — one per page) down to `<h6>` for sub-sub-sections; `<p>` marks a paragraph. A hyperlink is made with the anchor tag and its href attribute: `<a href=\"https://example.com\">Visit Example</a>` — the attribute gives the destination, the text between the tags is what the visitor clicks. Images use `<img>`, which has no closing tag and no content: `<img src=\"cat.jpg\" alt=\"A tabby cat asleep on a chair\">`. The src attribute points at the image file, and the alt attribute provides alternative text — essential for screen readers used by visually impaired visitors, and shown if the image fails to load. Lists come in two flavours: `<ul>` (unordered — bullet points) and `<ol>` (ordered — numbered), and every item inside either is wrapped in `<li>` (list item). Choosing tags by meaning — a real heading tag for a heading, not just big bold text — keeps pages accessible and helps search engines understand your content."
+    },
+    {
+      "id": "ict-yr7-web-html-css-n4",
+      "heading": "Multi-Page Sites and File Organisation",
+      "body": "A website is a folder of linked files, and organisation matters from the start. A tidy small site keeps its pages in the main folder (often with the homepage named index.html, the file servers deliver by default), images in an images subfolder, and stylesheets in a css subfolder. Pages are connected with relative links — href values that describe the path from the current file rather than a full web address: from the homepage, `href=\"hobbies.html\"` opens a page in the same folder, and `href=\"images/logo.png\"` reaches into a subfolder; from a page inside a subfolder, `../` means \"go up one level\", so `href=\"../index.html\"` links back home. Relative links keep working when the whole folder is moved or uploaded to a server, which absolute paths on your own hard drive would not. File names should be lowercase with no spaces (use hyphens: my-hobbies.html) — some servers treat capitals and lowercase as different names, so MyPage.html and mypage.html can be different files. Planning the site map — which pages exist and how they link — before writing code saves constant rework."
+    },
+    {
+      "id": "ict-yr7-web-html-css-n5",
+      "heading": "CSS: Selectors, Colours and Fonts",
+      "body": "CSS (Cascading Style Sheets) controls how a page looks, keeping style separate from the HTML's structure. The cleanest way to apply it is a separate .css file connected with a `<link>` tag in the head, so one stylesheet can restyle every page at once. CSS is written as rules: a selector chooses which elements to style, followed by declarations in curly braces, each a property and a value — `p { color: navy; font-size: 16px; }` makes all paragraphs navy and 16 pixels tall. Selectors come in several strengths: an element selector like `h1` targets every h1; a class selector, written with a dot, targets any elements you have labelled — `class=\"highlight\"` in the HTML is styled by `.highlight { background-color: yellow; }`; and an id selector, written with a hash, targets one unique element. Colours can be named (tomato, steelblue) or written as hex codes like #FFD700 — six hexadecimal digits mixing red, green and blue. Font choices use font-family with fallbacks: `font-family: Verdana, sans-serif;` tells the browser to use Verdana if available, otherwise any sans-serif font. When two rules fight over the same element, the more specific selector wins — a class beats a plain element selector."
+    },
+    {
+      "id": "ict-yr7-web-html-css-n6",
+      "heading": "The Box Model",
+      "body": "CSS treats every element on the page as a rectangular box, and understanding that box explains most layout puzzles. From the inside out, each box has four layers: the content (the text or image itself), padding (space between the content and the border — think of it as cushioning inside the parcel), the border (a visible or invisible edge), and margin (transparent space outside the border that pushes neighbouring boxes away). Padding and margin are the pair beginners mix up: padding grows the box from within, so `padding: 10px` keeps text off the edges of a coloured background; margin pushes other elements away, so `margin-top: 20px` adds a gap above a heading. The sizes stack when you calculate how wide a box really is: a box with 100px of content, 10px padding on each side and a 2px border each side occupies 100 + 20 + 4 = 124 pixels across. Borders are set with a single shorthand like `border: 2px solid black;` — thickness, style, colour. Browser developer tools let you hover over any element on any website and see its box model diagram, which is a great way to explore how real pages are built."
+    },
+    {
+      "id": "ict-yr7-web-html-css-n7",
+      "heading": "A Taste of JavaScript",
+      "body": "If HTML provides a page's structure and CSS its style, JavaScript provides its behaviour — the interactivity. The classic first example is a button that pops up a message: `<button onclick=\"alert('Well done!')\">Click me</button>` — clicking it runs the JavaScript instruction alert(), which displays a pop-up box. JavaScript can also change a page after it has loaded: finding an element and rewriting its text, hiding or revealing sections, or responding to events such as clicks, key presses and mouse movements. For Year 7 the goal is simply to experience the three-layer way of thinking: HTML says what is on the page (a button), CSS says how it looks (large, green, rounded corners), and JavaScript says what it does (show a congratulation message). Scripts can sit inside `<script>` tags at the end of the body or in a separate .js file linked the same way stylesheets are. You do not need to memorise JavaScript yet — but when a website reacts to you without reloading, that is JavaScript at work, and now you know how to peek at it with the browser's developer tools."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ict-yr7-web-html-css-f1",
+      "term": "HTML",
+      "definition": "HyperText Markup Language — describes the structure and content of a web page using tags.",
+      "example": "<p>This is a paragraph.</p>"
+    },
+    {
+      "id": "ict-yr7-web-html-css-f2",
+      "term": "URL",
+      "definition": "The address of a resource on the web, made of a protocol, a domain name and a path.",
+      "example": "In https://www.example.com/news/article1, /news/article1 is the path."
+    },
+    {
+      "id": "ict-yr7-web-html-css-f3",
+      "term": "Web server",
+      "definition": "A computer that stores website files and sends them to browsers in response to HTTP requests.",
+      "example": "When you visit a site, your browser requests the page files from its server."
+    },
+    {
+      "id": "ict-yr7-web-html-css-f4",
+      "term": "Tag",
+      "definition": "An HTML keyword in angle brackets, usually in an opening and closing pair, that marks up content.",
+      "example": "<h1>My Page</h1> marks My Page as the main heading."
+    },
+    {
+      "id": "ict-yr7-web-html-css-f5",
+      "term": "Hyperlink",
+      "definition": "A clickable link to another page or site, made with the anchor tag and an href attribute.",
+      "example": "<a href=\"hobbies.html\">My hobbies</a> links to a page in the same folder."
+    },
+    {
+      "id": "ict-yr7-web-html-css-f6",
+      "term": "alt attribute",
+      "definition": "Alternative text describing an image, read aloud by screen readers and shown if the image fails to load.",
+      "example": "<img src=\"cat.jpg\" alt=\"A tabby cat asleep on a chair\">"
+    },
+    {
+      "id": "ict-yr7-web-html-css-f7",
+      "term": "CSS",
+      "definition": "Cascading Style Sheets — the language that controls a page's appearance, kept separate from the HTML.",
+      "example": "p { color: navy; } turns all paragraphs navy."
+    },
+    {
+      "id": "ict-yr7-web-html-css-f8",
+      "term": "Selector",
+      "definition": "The start of a CSS rule that chooses which elements the rule styles.",
+      "example": "h1 targets every heading 1; .highlight targets every element with class=\"highlight\"."
+    },
+    {
+      "id": "ict-yr7-web-html-css-f9",
+      "term": "Class",
+      "definition": "A reusable label added to HTML elements so a CSS class selector (a dot plus the name) can style them.",
+      "example": "class=\"warning\" on three paragraphs is styled once by .warning { color: red; }"
+    },
+    {
+      "id": "ict-yr7-web-html-css-f10",
+      "term": "Padding",
+      "definition": "Space inside an element's box, between its content and its border.",
+      "example": "padding: 10px keeps a box's text from touching its coloured edges."
+    },
+    {
+      "id": "ict-yr7-web-html-css-f11",
+      "term": "Margin",
+      "definition": "Transparent space outside an element's border that pushes neighbouring elements away.",
+      "example": "margin-top: 20px leaves a gap above a heading."
+    },
+    {
+      "id": "ict-yr7-web-html-css-f12",
+      "term": "JavaScript",
+      "definition": "The language that adds behaviour and interactivity to a web page, alongside HTML (structure) and CSS (style).",
+      "example": "<button onclick=\"alert('Hi!')\"> runs JavaScript when the button is clicked."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-yr7-web-html-css-q1",
+      "stem": "What is HTML's job on a web page?",
+      "choices": [
+        "To control the colours and fonts",
+        "To describe the structure and content of the page",
+        "To make the page interactive",
+        "To store the page's files on a server"
+      ],
+      "correctIndex": 1,
+      "explanation": "HTML marks up what things are — headings, paragraphs, links, images. Appearance belongs to CSS and behaviour to JavaScript.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q2",
+      "stem": "Which tag creates the largest, most important heading?",
+      "choices": [
+        "<h6>",
+        "<heading>",
+        "<h1>",
+        "<title>"
+      ],
+      "correctIndex": 2,
+      "explanation": "Headings run from h1 (largest, the main heading) down to h6 (smallest). The title tag names the browser tab, not a visible on-page heading.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q3",
+      "stem": "Which tag creates a hyperlink?",
+      "choices": [
+        "<link>",
+        "<a>",
+        "<href>",
+        "<url>"
+      ],
+      "correctIndex": 1,
+      "explanation": "The anchor tag <a> with an href attribute makes a link, for example <a href=\"page2.html\">Next page</a>. The link tag has a different job — attaching stylesheets in the head.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q4",
+      "stem": "Which language controls a page's colours, fonts and spacing?",
+      "choices": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "HTTP"
+      ],
+      "correctIndex": 1,
+      "explanation": "CSS (Cascading Style Sheets) is the styling language. HTTP is the transfer protocol that delivers files, not a language for describing pages at all.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q5",
+      "stem": "What does JavaScript add to a web page?",
+      "choices": [
+        "Structure",
+        "Style",
+        "Behaviour and interactivity",
+        "A domain name"
+      ],
+      "correctIndex": 2,
+      "explanation": "JavaScript responds to events such as clicks and key presses, changing the page without reloading. Structure is HTML's role and style is CSS's.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q6",
+      "stem": "Which of these is a correct, accessible image element?",
+      "choices": [
+        "<img>cat.jpg</img>",
+        "<img src=\"cat.jpg\" alt=\"A tabby cat asleep\">",
+        "<image src=\"cat.jpg\" alt=\"A tabby cat asleep\">",
+        "<img href=\"cat.jpg\" alt=\"A tabby cat asleep\">"
+      ],
+      "correctIndex": 1,
+      "explanation": "img has no closing tag and takes the file path in its src attribute; the alt attribute supplies the accessible description. There is no image tag, and href belongs to anchors, not images.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q7",
+      "stem": "Why does the alt attribute matter even if the image loads perfectly?",
+      "choices": [
+        "It makes the image load faster",
+        "Screen readers speak it aloud so visually impaired visitors know what the image shows",
+        "It sets the image's width and height",
+        "It is required by law for all decorative images"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alternative text is the accessibility lifeline for images: screen readers announce it, and it appears if the file fails to load. It has no effect on speed or size.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q8",
+      "stem": "What is the difference between padding and margin?",
+      "choices": [
+        "Padding is inside the border between content and edge; margin is outside the border, pushing neighbours away",
+        "Padding is for text; margin is for images",
+        "Margin is inside the border; padding is outside",
+        "They are two names for the same property"
+      ],
+      "correctIndex": 0,
+      "explanation": "In the box model the order from inside out is content, padding, border, margin. Padding cushions the content within the box; margin creates space between this box and others.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q9",
+      "stem": "In the URL https://www.bbc.co.uk/newsround, which part is the domain name?",
+      "choices": [
+        "https",
+        "www.bbc.co.uk",
+        "/newsround",
+        "The whole address is the domain"
+      ],
+      "correctIndex": 1,
+      "explanation": "A URL splits into protocol (https), domain name (www.bbc.co.uk — translated by DNS into the server's IP address) and path (/newsround).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q10",
+      "stem": "Which CSS rule styles every element labelled class=\"highlight\"?",
+      "choices": [
+        "highlight { color: red; }",
+        "#highlight { color: red; }",
+        ".highlight { color: red; }",
+        "<highlight> { color: red; }"
+      ],
+      "correctIndex": 2,
+      "explanation": "Class selectors begin with a dot, so .highlight matches any element carrying class=\"highlight\". A hash selector (#highlight) targets an id, which must be unique on the page.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q11",
+      "stem": "Where does the text inside the <title> tag appear?",
+      "choices": [
+        "As the main heading at the top of the page",
+        "On the browser's tab (and in search results), not on the page itself",
+        "In the footer of the page",
+        "In the address bar as the URL"
+      ],
+      "correctIndex": 1,
+      "explanation": "title lives in the head, which holds information about the page rather than visible content. Browsers show it on the tab; the visible main heading is an h1 in the body.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q12",
+      "stem": "What is wrong with this line: <p><b>Important!</p></b> ?",
+      "choices": [
+        "The exclamation mark must be escaped",
+        "The tags are misnested — b opened inside p, so b must close before p: <p><b>Important!</b></p>",
+        "b cannot be used for bold text",
+        "p is not a real HTML tag"
+      ],
+      "correctIndex": 1,
+      "explanation": "Tags must close in the reverse order they opened, like nested brackets. Since b opened inside p, the correct order closes b first, then p. The b tag (or the more meaningful strong tag) is valid for bold text.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q13",
+      "stem": "A page inside your site's articles folder needs to link back to index.html in the main folder. Which href works?",
+      "choices": [
+        "href=\"index.html\"",
+        "href=\"../index.html\"",
+        "href=\"/articles/index.html\"",
+        "href=\"C:\\Users\\me\\index.html\""
+      ],
+      "correctIndex": 1,
+      "explanation": "../ means go up one folder level, so from articles/ the relative link ../index.html reaches the homepage. A bare index.html looks inside the articles folder, and a hard-drive path breaks as soon as the site is uploaded.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q14",
+      "stem": "A box has 100px of content, 10px padding on each side, and a 2px border on each side. How wide is it on screen (ignoring margin)?",
+      "choices": [
+        "100px",
+        "112px",
+        "124px",
+        "120px"
+      ],
+      "correctIndex": 2,
+      "explanation": "Add every layer on both sides: 100 + (10 + 10) padding + (2 + 2) border = 124px. Forgetting that padding and border count on both the left and the right is the classic mistake.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-web-html-css-q15",
+      "stem": "An element selector paints all paragraphs blue, but one paragraph has class=\"alert\" with a rule .alert { color: red; }. What colour is that paragraph, and why?",
+      "choices": [
+        "Blue — the element rule was written first",
+        "Red — a class selector is more specific than an element selector, so it wins the conflict",
+        "Purple — the two colours blend",
+        "Black — conflicting rules cancel each other out"
+      ],
+      "correctIndex": 1,
+      "explanation": "When CSS rules conflict, the more specific selector takes priority. A class selector outranks a plain element selector, so the alert paragraph is red while all the others stay blue.",
+      "difficulty": "hard"
+    }
+  ]
+}

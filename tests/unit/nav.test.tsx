@@ -1,7 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Nav } from '@/components/Nav';
-import { ThemeProvider } from '@/context/ThemeContext';
 
 vi.mock('next/navigation', () => ({
   usePathname: () => '/',
@@ -18,30 +17,26 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 describe('Nav', () => {
-  it('renders navigation items with Lucide icons', () => {
-    render(
-      <ThemeProvider>
-        <Nav />
-      </ThemeProvider>
-    );
+  it('renders four navigation items with Lucide icons', () => {
+    render(<Nav />);
 
     expect(screen.getByRole('link', { name: /Learn/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Review/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Exams/i })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Progress/i })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Current theme:/i })).toBeInTheDocument();
+
+    // ThemeToggle moved out of Nav (floating button in layout).
+    expect(screen.queryByRole('button', { name: /Current theme:/i })).not.toBeInTheDocument();
 
     // Lucide icons render as inline SVGs inside the nav items.
-    const learnLink = screen.getByRole('link', { name: /Learn/i });
-    const progressLink = screen.getByRole('link', { name: /Progress/i });
-    expect(learnLink.querySelector('svg')).toBeInTheDocument();
-    expect(progressLink.querySelector('svg')).toBeInTheDocument();
+    for (const name of ['Learn', 'Review', 'Exams', 'Progress']) {
+      const link = screen.getByRole('link', { name: new RegExp(name, 'i') });
+      expect(link.querySelector('svg')).toBeInTheDocument();
+    }
   });
 
   it('marks the current page as active', () => {
-    render(
-      <ThemeProvider>
-        <Nav />
-      </ThemeProvider>
-    );
+    render(<Nav />);
     const learnLink = screen.getByRole('link', { name: /Learn/i });
     expect(learnLink).toHaveClass('text-blue-600');
   });

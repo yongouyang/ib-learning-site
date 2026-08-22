@@ -1,0 +1,316 @@
+{
+  "id": "ict-yr7-spreadsheets",
+  "subjectId": "ict",
+  "title": "Data Modelling with Spreadsheets",
+  "description": "How spreadsheets store, calculate and present data — cells and ranges, formulas and functions, sorting and filtering, charts, and building a simple budget model.",
+  "stage": "ks3",
+  "year": 7,
+  "notes": [
+    {
+      "id": "ict-yr7-spreadsheets-n1",
+      "heading": "Cells, Rows, Columns and Ranges",
+      "body": "A spreadsheet is a grid for storing and calculating data. The vertical divisions are columns, labelled with letters (A, B, C …), and the horizontal divisions are rows, labelled with numbers (1, 2, 3 …). Where a column and a row meet is a cell, and every cell has a unique cell reference made from its column letter and row number — for example B3 is the cell in column B, row 3. The cell you are currently working in is called the active cell, and its reference appears in the name box. A range is a rectangular block of cells written with a colon between the top-left and bottom-right corners: A1:A10 is a single-column range of ten cells, while B2:D5 is a block three columns wide and four rows tall (12 cells). Ranges matter because functions such as SUM and AVERAGE operate on a whole range at once. A single spreadsheet file (a workbook) can contain several worksheets — separate tabs of grids — which lets you keep related data, such as a budget for each month, in one file."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-n2",
+      "heading": "Entering Data and Data Types",
+      "body": "Spreadsheets treat what you type differently depending on its data type. Text (also called labels) is anything the spreadsheet cannot treat as a number — names, titles, postcodes. By default text aligns to the left of the cell. Numbers (values) align to the right and can be used in calculations. Dates and times are stored as special numbers so you can, for example, subtract one date from another to find the number of days between them. A key idea is that formatting only changes how a value is displayed, not the value itself: formatting a cell as currency shows £4.50, but the stored value is still 4.5, and setting two decimal places does not round the underlying number. Watch out for numbers accidentally stored as text — if you type a space or an apostrophe before a number, it left-aligns and formulas ignore it. This is a common reason a SUM total comes out wrong. Checking alignment (left = probably text, right = number) is a quick debugging habit."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-n3",
+      "heading": "Formulas and Cell References",
+      "body": "A formula is an instruction that calculates a value, and every formula begins with an equals sign: =. After the equals sign you write a calculation using operators + (add), - (subtract), * (multiply) and / (divide), for example =A1+B1. Spreadsheets follow the normal mathematical order of operations — multiplication and division before addition and subtraction — and you can use brackets to control it: =(A1+B1)/2 averages two cells, whereas =A1+B1/2 divides only B1 by 2 before adding A1. The real power comes from using cell references instead of typing the numbers themselves. If you write =A1+B1 and later change the value in A1, the result updates automatically — the spreadsheet recalculates every dependent formula instantly. This is what makes a spreadsheet a model rather than a calculator. You can also copy a formula to other cells (for example dragging the fill handle down a column), and the references adjust to their new position — see the note on absolute references for when you do not want them to."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-n4",
+      "heading": "Essential Functions: SUM, AVERAGE, MAX, MIN, COUNT",
+      "body": "A function is a pre-built calculation with a name, used inside a formula. The core set for Year 7: SUM(range) adds every number in the range — =SUM(B2:B20) is far quicker and less error-prone than =B2+B3+B4+…; AVERAGE(range) adds the numbers and divides by how many there are; MAX(range) returns the largest value and MIN(range) the smallest — useful for questions like \"who scored highest?\"; COUNT(range) counts how many cells in the range contain numbers, ignoring empty cells and text. Its close relative COUNTA counts all non-empty cells, including text. COUNTIF(range, criteria) counts only the cells that match a condition: =COUNTIF(C2:C30, \"Pass\") counts how many students passed, and =COUNTIF(B2:B30, \">50\") counts how many values are over 50 (note the speech marks around the condition). Choosing the right function is part of modelling: totals point to SUM, \"how many\" questions point to COUNT or COUNTIF, and comparisons of extremes point to MAX and MIN."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-n5",
+      "heading": "Sorting and Filtering",
+      "body": "Sorting rearranges the rows of a table into a chosen order — A to Z or Z to A for text, smallest to largest or largest to smallest for numbers. The golden rule is to select the whole table (or let the spreadsheet detect it) so that entire rows move together; if you select only one column, that column is reordered while the others stay put, scrambling every record — a class list sorted by score alone would attach the wrong scores to names. You can also sort on multiple levels: for example, sort by form group, then within each form by surname. Filtering is different: it temporarily hides the rows you are not interested in and shows only those matching a condition, such as only the Year 7 students or only items costing under £5. Nothing is deleted — the row numbers turn blue or skip to show rows are hidden, and clearing the filter brings everything back. Sorting answers \"what order?\" questions; filtering answers \"show me just these\" questions."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-n6",
+      "heading": "Choosing the Right Chart",
+      "body": "A chart turns numbers into a picture, but only if you pick the right type for the question you are answering. Bar and column charts compare amounts across separate categories — favourite sports of a class, rainfall in different cities. Line charts show how one quantity changes over time — temperature across a week, your savings month by month — because the joined points emphasise trend. Pie charts show parts of a whole (percentages that add to 100%), but only work well with a handful of categories; with ten slices a pie becomes unreadable and a bar chart is better. Scatter graphs plot pairs of numbers to reveal a relationship between two variables, such as height against arm span. Whatever the type, a good chart has a clear title and labelled axes so the reader knows what they are looking at. Be alert to misleading charts: truncating the value axis (starting at 50 instead of 0) makes small differences look enormous, and 3-D effects distort the apparent size of bars and slices."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-n7",
+      "heading": "Building a Budget Model and Absolute References",
+      "body": "A classic Year 7 project is a simple budget model: one column lists income (pocket money, birthday money), another lists expenses (snacks, apps, savings), with SUM formulas for each total and a final formula such as =B10-C10 for the money left over. Because every total is a formula referencing cells, you can ask \"what-if\" questions — what if I spend £2 less on snacks? — change one input, and the whole model recalculates. Copying formulas introduces a subtlety. When you copy a formula like =A2*B1 down a column, the relative references adjust to =A3*B2, =A4*B3 and so on. To stop a reference adjusting, you make it absolute by typing a dollar sign before its column letter and row number — so the rate cell B1 is written with both locked. You use an absolute reference when many formulas must all point at one fixed input, for example a VAT rate or an exchange rate stored in a single cell: write the rate once, refer to that cell in absolute form everywhere, and updating the rate updates every calculation at once. A1 is fully relative, a fully absolute reference locks both column and row, and mixed forms lock only one of them. Test your model by typing values whose results you can predict, and by checking it handles changes without breaking."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "ict-yr7-spreadsheets-f1",
+      "term": "Cell",
+      "definition": "A single box in a spreadsheet grid where a column and a row intersect, identified by its cell reference.",
+      "example": "Cell B3 sits in column B, row 3."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-f2",
+      "term": "Range",
+      "definition": "A rectangular block of cells written as the top-left and bottom-right references separated by a colon.",
+      "example": "A1:A10 is ten cells in one column; B2:D5 is a 3 × 4 block."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-f3",
+      "term": "Formula",
+      "definition": "An instruction that calculates a value; every formula begins with an equals sign.",
+      "example": "=A1+B1 adds the values in cells A1 and B1."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-f4",
+      "term": "Function",
+      "definition": "A named, pre-built calculation used inside a formula, usually applied to a range.",
+      "example": "SUM, AVERAGE, MAX, MIN and COUNT are all functions."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-f5",
+      "term": "SUM",
+      "definition": "Function that adds together all the numbers in a range.",
+      "example": "=SUM(B2:B20) totals every value from B2 to B20."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-f6",
+      "term": "AVERAGE",
+      "definition": "Function that adds the numbers in a range and divides by how many there are, giving the mean.",
+      "example": "=AVERAGE(C1:C5) for 4, 8, 6, 10, 2 returns 6."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-f7",
+      "term": "COUNTIF",
+      "definition": "Function that counts only the cells in a range that match a given condition.",
+      "example": "=COUNTIF(C2:C30, \"Pass\") counts how many cells contain the word Pass."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-f8",
+      "term": "Sorting",
+      "definition": "Rearranging whole rows of a table into a chosen order (A–Z, smallest to largest, and so on).",
+      "example": "Sorting a class list by score from largest to smallest puts the top scorer first."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-f9",
+      "term": "Filtering",
+      "definition": "Temporarily hiding rows that do not match a condition, without deleting any data.",
+      "example": "Filtering a shopping list to show only items under £5."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-f10",
+      "term": "Relative reference",
+      "definition": "A normal cell reference that automatically adjusts when a formula is copied to a new cell.",
+      "example": "Copying =A1+B1 down one row turns it into =A2+B2."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-f11",
+      "term": "Absolute reference",
+      "definition": "A cell reference locked with dollar signs so it never changes when the formula is copied.",
+      "example": "A formula like =A2*B1 with B1 locked as an absolute reference keeps pointing at B1 (the VAT rate) however far down it is copied."
+    },
+    {
+      "id": "ict-yr7-spreadsheets-f12",
+      "term": "Data type",
+      "definition": "The kind of data in a cell — text, number, or date — which controls how it is displayed and whether formulas can use it.",
+      "example": "A number accidentally stored as text left-aligns and is ignored by SUM."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ict-yr7-spreadsheets-q1",
+      "stem": "What must every spreadsheet formula begin with?",
+      "choices": [
+        "A plus sign (+)",
+        "An equals sign (=)",
+        "A dollar sign",
+        "Speech marks (\")"
+      ],
+      "correctIndex": 1,
+      "explanation": "The equals sign tells the spreadsheet to calculate rather than display what you typed as text. Typing A1+B1 without it just shows the characters A1+B1.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q2",
+      "stem": "Which cell is at column D, row 7?",
+      "choices": [
+        "7D",
+        "D:7",
+        "D7",
+        "7-D"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cell references are always written as the column letter followed by the row number, so column D and row 7 gives D7.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q3",
+      "stem": "Which function adds up all the numbers in the range A1:A15?",
+      "choices": [
+        "TOTAL(A1:A15)",
+        "ADD(A1:A15)",
+        "SUM(A1:A15)",
+        "COUNT(A1:A15)"
+      ],
+      "correctIndex": 2,
+      "explanation": "SUM is the built-in function for totalling a range. COUNT only counts how many cells contain numbers, and TOTAL and ADD are not spreadsheet functions.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q4",
+      "stem": "Cell A1 contains 4 and cell B1 contains 6. What does the formula =A1+B1*2 calculate?",
+      "choices": [
+        "20",
+        "16",
+        "14",
+        "10"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiplication happens before addition: B1*2 = 12, then 4 + 12 = 16. The answer 20 comes from wrongly adding 4 + 6 first.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q5",
+      "stem": "Which chart type is usually best for showing how a value changes over time, such as temperature across a week?",
+      "choices": [
+        "Pie chart",
+        "Line chart",
+        "Bar chart",
+        "Scatter graph"
+      ],
+      "correctIndex": 1,
+      "explanation": "Line charts join data points in time order, which emphasises the trend. Pie charts only show parts of a whole and bar charts compare separate categories.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q6",
+      "stem": "Which formula correctly calculates the mean of the values in cells C1 to C5?",
+      "choices": [
+        "=C1+C2+C3+C4+C5/5",
+        "=AVERAGE(C1:C5)",
+        "=MEAN(C1-C5)",
+        "=AVERAGE(C1+C5)"
+      ],
+      "correctIndex": 1,
+      "explanation": "AVERAGE(C1:C5) sums the whole range and divides by the number of values. Option A divides only C5 by 5 because division happens before the additions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q7",
+      "stem": "What does the formula =COUNTIF(B2:B30, \">50\") do?",
+      "choices": [
+        "Adds up all values in B2:B30 that are greater than 50",
+        "Counts how many cells in B2:B30 contain a value greater than 50",
+        "Counts all 29 cells in the range",
+        "Highlights every value over 50 in red"
+      ],
+      "correctIndex": 1,
+      "explanation": "COUNTIF counts matching cells — it never adds their values. The condition \">50\" must be in speech marks because it contains an operator.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q8",
+      "stem": "A student selects only the Score column of a table and sorts it from largest to smallest. What happens to the table of names and scores?",
+      "choices": [
+        "Each name stays with its correct score because sorting is always safe",
+        "The scores are reordered but the names stay put, so scores are matched to the wrong names",
+        "The spreadsheet refuses to sort and shows an error",
+        "The name column is automatically sorted as well"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sorting only the selected column moves those values while other columns stay fixed, scrambling the records. You must select the whole table so entire rows move together.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q9",
+      "stem": "Cell D2 contains the formula =B2*＄C＄1. If it is copied down into D3, what does the formula in D3 become?",
+      "choices": [
+        "=B3*＄C＄1",
+        "=B3*C2",
+        "=B2*＄C＄1",
+        "=＄B＄3*C1"
+      ],
+      "correctIndex": 0,
+      "explanation": "The relative reference B2 adjusts one row down to B3, but the dollar signs lock ＄C＄1 in place. This is exactly how you reuse one fixed input, like a tax rate, in many rows.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q10",
+      "stem": "Why is it better to write =A1+B1 rather than typing the answer (for example =8) directly into the cell?",
+      "choices": [
+        "Formulas are displayed in a larger font",
+        "The result recalculates automatically whenever the values in A1 or B1 change",
+        "Typed answers are always rounded incorrectly",
+        "Cell references use less memory than numbers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Referencing cells turns the sheet into a model: change an input and every dependent formula updates instantly. A typed answer is frozen and silently becomes wrong when data changes.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q11",
+      "stem": "In a budget model, total income is in cell B10 and the individual expenses are in cells C2 to C9. Which formula calculates the money left over?",
+      "choices": [
+        "=SUM(B10:C9)",
+        "=B10-SUM(C2:C9)",
+        "=SUM(B10-C2:C9)",
+        "=B10-COUNT(C2:C9)"
+      ],
+      "correctIndex": 1,
+      "explanation": "You must total the expenses first with SUM(C2:C9), then subtract that total from the income in B10. SUM(B10:C9) would add the income to the expenses instead.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q12",
+      "stem": "What is a cell range?",
+      "choices": [
+        "A single cell that can hold more than one value",
+        "A rectangular block of cells written with a colon, such as A1:B10",
+        "The total of all the numbers in a column",
+        "A chart that compares two columns"
+      ],
+      "correctIndex": 1,
+      "explanation": "A range is any rectangular selection of cells, written as the top-left and bottom-right references joined by a colon. Functions like SUM and AVERAGE act on ranges.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q13",
+      "stem": "Cells A1 to A5 contain 12, 8, the text \"N/A\", 15, and 6. What does =COUNT(A1:A5) return?",
+      "choices": [
+        "5",
+        "41",
+        "4",
+        "3"
+      ],
+      "correctIndex": 2,
+      "explanation": "COUNT only counts cells containing numbers. Four of the five cells hold numbers; the text \"N/A\" is ignored. Use COUNTA if you want to count all non-empty cells.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q14",
+      "stem": "When is a pie chart a good choice?",
+      "choices": [
+        "When comparing twenty different categories",
+        "When showing how a quantity changes over several months",
+        "When showing parts of a whole with only a few categories, such as how a class's votes split between three options",
+        "When showing the relationship between two measured variables"
+      ],
+      "correctIndex": 2,
+      "explanation": "Pie charts show proportions that add up to 100% and stay readable only with a handful of slices. Trends over time need a line chart and relationships between variables need a scatter graph.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-yr7-spreadsheets-q15",
+      "stem": "A discount rate of 20% is stored in cell E1, and prices are listed in A2:A30. Which formula in B2 can be copied straight down to B30 to apply the discount to every price?",
+      "choices": [
+        "=A2*E1",
+        "=A2*(1-＄E＄1)",
+        "=＄A＄2*(1-E1)",
+        "=A2*(1-E1)"
+      ],
+      "correctIndex": 1,
+      "explanation": "The price reference A2 must stay relative so it moves to A3, A4 … as the formula fills down, while the rate must be the absolute reference ＄E＄1 so every row uses the same discount cell. Option D fails because E1 drifts to E2, E3 when copied.",
+      "difficulty": "hard"
+    }
+  ]
+}

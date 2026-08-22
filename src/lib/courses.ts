@@ -50,6 +50,31 @@ export const COURSES: Course[] = [
     title: 'Physics — KS3',
     matches: (t) => t.subjectId === 'physics' && t.stage === 'ks3',
   },
+  {
+    id: 'geog-ks3',
+    title: 'Geography — KS3',
+    matches: (t) => t.subjectId === 'geography' && t.stage === 'ks3',
+  },
+  {
+    id: 'hist-ks3',
+    title: 'History — KS3',
+    matches: (t) => t.subjectId === 'history' && t.stage === 'ks3',
+  },
+  {
+    id: 'ict-ks3',
+    title: 'ICT — KS3',
+    matches: (t) => t.subjectId === 'ict' && t.stage === 'ks3',
+  },
+  {
+    id: 'chin-ks3',
+    title: 'Chinese — KS3',
+    matches: (t) => t.subjectId === 'chinese' && t.stage === 'ks3',
+  },
+  {
+    id: 'germ-ks3',
+    title: 'German — KS3',
+    matches: (t) => t.subjectId === 'german' && t.stage === 'ks3',
+  },
 ];
 
 export function getCourse(id: string): Course | undefined {

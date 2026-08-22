@@ -30,8 +30,11 @@ test.describe('Quiz difficulty features', () => {
     const group = page.getByRole('group', { name: 'Filter by difficulty' });
     await expect(group.getByRole('link', { name: /Hard \(3\)/ })).toHaveAttribute('aria-pressed', 'true');
 
-    // Question counter reflects the filtered pool (3 hard questions)
-    await expect(page.getByText('1/3')).toBeVisible();
+    // Question counter reflects the filtered pool (3 hard questions).
+    // Scoped to <main>: React's streaming Suspense leaves a hidden copy of the
+    // page in <div hidden id="S:0"> under <body>, and an unscoped text lookup
+    // trips strict mode on it.
+    await expect(page.locator('main').getByText('1/3')).toBeVisible();
 
     const card = page.locator('.card').first();
     await expect(card.getByText('hard', { exact: true })).toBeVisible();
@@ -42,7 +45,7 @@ test.describe('Quiz difficulty features', () => {
     await choice.click();
     const nextBtn = page.getByRole('button', { name: /Next Question/ });
     await nextBtn.evaluate((el) => (el as HTMLElement).click());
-    await expect(page.getByText('2/3')).toBeVisible();
+    await expect(page.locator('main').getByText('2/3')).toBeVisible();
     await expect(page.locator('.card').first().getByText('hard', { exact: true })).toBeVisible();
   });
 

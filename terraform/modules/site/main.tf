@@ -22,6 +22,24 @@ variable "feedback_origin_domain" {
   default     = ""
 }
 
+variable "auth_origin_domain" {
+  description = "Lambda Function URL domain for the auth API (auth_api module output). When set, adds the /api/auth/* behavior; empty = API not wired."
+  type        = string
+  default     = ""
+}
+
+variable "progress_origin_domain" {
+  description = "Lambda Function URL domain for the progress API (progress_api module output). When set, adds the /api/progress/* behavior; empty = API not wired."
+  type        = string
+  default     = ""
+}
+
+variable "analytics_origin_domain" {
+  description = "Lambda Function URL domain for the analytics API (analytics_api module output). When set, adds the /api/analytics/* behavior; empty = API not wired."
+  type        = string
+  default     = ""
+}
+
 variable "domain_names" {
   description = "Custom domain aliases (apex + www). Empty = cloudfront.net default cert only. First entry is the canonical host."
   type        = list(string)
@@ -219,6 +237,106 @@ resource "aws_cloudfront_distribution" "site" {
         origin_protocol_policy = "https-only"
         origin_ssl_protocols   = ["TLSv1.2"]
       }
+    }
+  }
+
+  # Origin 3 (optional): auth Lambda Function URL (Phase B) — created only
+  # once the API is wired (auth_origin_domain non-empty).
+  dynamic "origin" {
+    for_each = var.auth_origin_domain != "" ? [var.auth_origin_domain] : []
+    content {
+      origin_id   = "lambda-auth"
+      domain_name = origin.value
+      custom_origin_config {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.2"]
+      }
+    }
+  }
+
+  # Origin 4 (optional): progress Lambda Function URL (Phase C) — created only
+  # once the API is wired (progress_origin_domain non-empty).
+  dynamic "origin" {
+    for_each = var.progress_origin_domain != "" ? [var.progress_origin_domain] : []
+    content {
+      origin_id   = "lambda-progress"
+      domain_name = origin.value
+      custom_origin_config {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.2"]
+      }
+    }
+  }
+
+  # Origin 5 (optional): analytics Lambda Function URL (Phase A) — created only
+  # once the API is wired (analytics_origin_domain non-empty).
+  dynamic "origin" {
+    for_each = var.analytics_origin_domain != "" ? [var.analytics_origin_domain] : []
+    content {
+      origin_id   = "lambda-analytics"
+      domain_name = origin.value
+      custom_origin_config {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.2"]
+      }
+    }
+  }
+
+  # /api/auth/* → auth Lambda, never cached, all viewer data forwarded. This
+  # more specific pattern MUST precede the /api/* behavior below — CloudFront
+  # matches ordered behaviors top-down, so /api/auth/* must win over /api/*.
+  dynamic "ordered_cache_behavior" {
+    for_each = var.auth_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/auth/*"
+      target_origin_id         = "lambda-auth"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # /api/progress/* → progress Lambda, never cached, all viewer data forwarded.
+  # Same specificity as /api/auth/* — both are more specific than /api/* and
+  # must be listed before it; their order relative to each other doesn't
+  # matter (the patterns don't overlap), so progress follows auth.
+  dynamic "ordered_cache_behavior" {
+    for_each = var.progress_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/progress/*"
+      target_origin_id         = "lambda-progress"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # /api/analytics/* → analytics Lambda, never cached, all viewer data
+  # forwarded. More specific than /api/* and must be listed BEFORE it
+  # (CloudFront matches ordered behaviors top-down).
+  dynamic "ordered_cache_behavior" {
+    for_each = var.analytics_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/analytics/*"
+      target_origin_id         = "lambda-analytics"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
     }
   }
 

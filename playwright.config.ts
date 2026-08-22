@@ -76,6 +76,21 @@ export default defineConfig({
       // (_testResponse) for per-case control (see docs/phase-5-implementation-plan.md).
       FEEDBACK_PROVIDER: 'dummy',
       FEEDBACK_TEST_MODE: '1',
+      // Phase B (accounts): auth runs against the real /api/auth/* routes with
+      // the in-memory dummy storage + dummy email sender. AUTH_TEST_MODE=1 gives
+      // the deterministic default code 123456 and enables _testCode injection
+      // (only honored with dummy deps — never with DynamoDB/SES).
+      AUTH_STORAGE: 'dummy',
+      AUTH_EMAIL: 'dummy',
+      AUTH_TEST_MODE: '1',
+      // Phase A (analytics): analytics runs against the in-memory dummy storage
+      // (shared universe with auth, so the dummy-OTP session resolves for
+      // /summary); the admin allowlist makes admin@example.com authorized.
+      // PROGRESS_STORAGE is pinned explicitly for hermeticity (progress deps
+      // default to dummy anyway — same shared universe).
+      ANALYTICS_STORAGE: 'dummy',
+      ANALYTICS_ADMIN_EMAILS: 'admin@example.com',
+      PROGRESS_STORAGE: 'dummy',
     },
   },
 });
