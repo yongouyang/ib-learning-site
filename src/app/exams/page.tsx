@@ -3,6 +3,7 @@ import { FileText, FileSignature, Clock, ArrowRight, TrendingUp, ClipboardList }
 import { getExamCourses, examId } from '@/lib/exams';
 import { getPapersForCourse } from '@/content/registry';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { CtaLink } from '@/components/CtaLink';
 import PaperScore from './PaperScore';
 
 export default function ExamsPage() {
@@ -29,12 +30,13 @@ export default function ExamsPage() {
             <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
               A short diagnostic pinpoints your weak areas, so you target exactly what needs work.
             </p>
-            <Link
+            <CtaLink
+              ctaId="exams_to_diagnostics"
               href="/diagnostics"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200"
             >
               Start with a free diagnostic <ArrowRight className="w-4 h-4" />
-            </Link>
+            </CtaLink>
           </div>
         </div>
       </div>

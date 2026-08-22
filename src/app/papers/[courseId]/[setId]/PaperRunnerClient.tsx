@@ -11,6 +11,7 @@ import { orderQuestionsByDifficulty } from '@/lib/quiz-utils';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import InlineMath from '@/components/InlineMath';
 import { DIFFICULTY_CHIP_CLASSES } from '@/components/difficulty-chip';
+import { trackEvent } from '@/lib/analytics';
 
 interface PaperRunnerClientProps {
   paper: Paper;
@@ -66,6 +67,10 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
       .then((json) => setAiConfigured(Boolean(json.configured)))
       .catch(() => setAiConfigured(false));
   }, []);
+
+  useEffect(() => {
+    trackEvent('exam_started', { courseId: paper.courseId, paperId: paper.id });
+  }, [paper.courseId, paper.id]);
 
   const startedAt = useRef(Date.now());
   const recorded = useRef(false);
@@ -139,8 +144,16 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
       totalCount: totalMarks,
       secondsUsed: answeringSeconds.current,
     });
+    trackEvent('exam_completed', {
+      courseId: paper.courseId,
+      paperId: paper.id,
+      correctCount: achieved,
+      totalCount: totalMarks,
+      secondsUsed: answeringSeconds.current,
+      timedOut: timeExpired,
+    });
     setIsComplete(true);
-  }, [ordered, outcomes, paper.id, recordExam, totalMarks]);
+  }, [ordered, outcomes, paper.id, paper.courseId, recordExam, totalMarks, timeExpired]);
 
   const handleMarkWithAi = async () => {
     if (!question || aiState === 'loading') return;
@@ -176,6 +189,12 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
         aiFeedback: json.feedback,
       }));
       setAiState('idle');
+      trackEvent('paper_marked_with_ai', {
+        courseId: paper.courseId,
+        paperId: paper.id,
+        questionCount: 1,
+        totalMarks: question.marks,
+      });
     } catch {
       setAiError('The AI marker is unavailable right now — mark yourself below.');
       setAiState('error');

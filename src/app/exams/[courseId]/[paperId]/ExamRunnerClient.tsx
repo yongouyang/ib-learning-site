@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useProgress } from '@/context/ProgressContext';
 import QuizGame from '@/components/QuizGame';
 import { buildExamQuestions, examId, getExamPaper } from '@/lib/exams';
 import { getCourse } from '@/lib/courses';
+import { trackEvent } from '@/lib/analytics';
 
 interface ExamRunnerClientProps {
   courseId: string;
@@ -22,16 +23,22 @@ export default function ExamRunnerClient({ courseId, paperId }: ExamRunnerClient
   const startedAt = useRef(Date.now());
   const recorded = useRef(false);
 
-  const handleComplete = (correctCount: number, totalCount: number) => {
+  useEffect(() => {
+    trackEvent('exam_started', { courseId, paperId });
+  }, [courseId, paperId]);
+
+  const handleComplete = (correctCount: number, totalCount: number, timedOut = false) => {
     if (recorded.current) return;
     recorded.current = true;
+    const secondsUsed = Math.round((Date.now() - startedAt.current) / 1000);
     recordExam({
       examId: examId(courseId, paperId),
       date: new Date().toISOString(),
       correctCount,
       totalCount,
-      secondsUsed: Math.round((Date.now() - startedAt.current) / 1000),
+      secondsUsed,
     });
+    trackEvent('exam_completed', { courseId, paperId, correctCount, totalCount, secondsUsed, timedOut });
   };
 
   if (!course || !paper || questions.length === 0) {

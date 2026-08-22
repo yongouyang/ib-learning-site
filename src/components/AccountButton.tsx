@@ -5,6 +5,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { Check, ChevronDown, CircleUserRound, UserRound } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import type { ChildProfile } from '@/lib/auth-client';
+import { trackEvent } from '@/lib/analytics';
 
 const STAGE_LABELS: Record<ChildProfile['stage'], string> = {
   ks3: 'KS3',
@@ -53,6 +54,7 @@ export function AccountButton({ variant }: { variant: 'desktop' | 'mobile' }) {
 
   async function handleSignOut() {
     close();
+    trackEvent('auth_logout');
     try {
       await logout(); // clears local state regardless; rethrows on failure
     } catch (err) {

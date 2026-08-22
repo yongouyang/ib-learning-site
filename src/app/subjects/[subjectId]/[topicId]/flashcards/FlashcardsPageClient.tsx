@@ -12,6 +12,7 @@ import { filterDeck, getCardStats, parseDeckFilter, type DeckFilter } from '@/li
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import InlineMath from '@/components/InlineMath';
 import DualRingDonut from '@/components/DualRingDonut';
+import { trackEvent } from '@/lib/analytics';
 
 interface FlashcardsPageClientProps {
   subjectId: string;
@@ -46,6 +47,12 @@ export default function FlashcardsPageClient({ subjectId, topicId }: FlashcardsP
     setSessionKnown(0);
     setSessionLearning(0);
   }, [filter]);
+
+  // A flashcard session is bounded by the deck filter (the same boundary that
+  // resets the session state above).
+  useEffect(() => {
+    trackEvent('flashcard_session_started', { subjectId, topicId, filter });
+  }, [subjectId, topicId, filter]);
 
   // Filtered decks need the stored progress, which only exists after the
   // first client-side load — wait for `loaded` before building them.
@@ -94,8 +101,18 @@ export default function FlashcardsPageClient({ subjectId, topicId }: FlashcardsP
     if (status === 'known') setSessionKnown((n) => n + 1);
     else setSessionLearning((n) => n + 1);
     setIsFlipped(false);
-    if (currentIndex < deck.length - 1) setCurrentIndex((i) => i + 1);
-    else setIsComplete(true);
+    if (currentIndex < deck.length - 1) {
+      setCurrentIndex((i) => i + 1);
+    } else {
+      setIsComplete(true);
+      trackEvent('flashcard_session_completed', {
+        subjectId,
+        topicId,
+        cardsReviewed: deck.length,
+        knownCount: sessionKnown + (status === 'known' ? 1 : 0),
+        learningCount: sessionLearning + (status === 'learning' ? 1 : 0),
+      });
+    }
   };
 
   if (isComplete) {

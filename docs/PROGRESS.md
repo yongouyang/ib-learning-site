@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-22 — Analytics A4: instrument the event taxonomy
+Git HEAD: `5295453` (develop, tree dirty: A4 instrumentation uncommitted)
+Done: wired the 17-event analytics taxonomy (`src/lib/analytics/types.ts`) into every call site (plan §A4). `quiz_started`/`quiz_completed` in `QuizPageClient` (source `topic_page`, incl. duration), `MixedReviewClient` (`mixed_review`), `LadderRunnerClient` (`ladder`); `flashcard_session_started/completed` in `FlashcardsPageClient`; `diagnostic_started/completed` (topicCount + weakAreaCount <70%) in `DiagnosticRunnerClient`; `exam_started/completed` (incl. `timedOut` — added the flag to `QuizGame.onComplete`) in `ExamRunnerClient` + `PaperRunnerClient`; `paper_marked_with_ai` (per-question) in `PaperRunnerClient`; `auth_otp_requested` (email domain only)/`auth_login_completed` (role) in `login/page.tsx`; `auth_logout` in `AccountButton`; `pwa_installed` (`appinstalled`) in `ServiceWorkerRegistration`; `pwa_offline_banner_shown` in `OfflineBanner`; `search_performed` (debounced) in `SubjectPageClient`; `cta_clicked` via new `src/components/CtaLink.tsx` (used by Hero, home dashboard cards, exams→diagnostics cross-link). `tests/unit/quiz-game.test.tsx` updated for the new `timedOut` arg.
+Verified: npm test **744/744**, `npx tsc --noEmit` clean, eslint clean, `npm run build` green (CtaLink client-in-server usage fine).
+Next: A5 admin dashboard (`/admin/analytics`), A6 terraform (table+Lambda+`/api/analytics/*` behavior) so events are actually ingested in prod, A7 analytics tests/e2e. NOTE: events are no-ops (404, silently dropped) until A6 lands.
+Notes: diagnostic fires its dedicated `diagnostic_*` events, not `quiz_*`, to avoid double counting (the `diagnostic` quiz-source enum value stays available). Ladder/mixed-review use synthetic ids (`subjectId:'ladder'`, `MIXED_REVIEW_*`) in quiz events.
+
+---
+
 ## 2026-08-22 — Account: edit child-profile stage (rename → edit)
 Git HEAD: `fb27c28` (develop, tree dirty: account-page change uncommitted)
 Done: the child-profile "Rename" flow only edited the name, so stage could not be changed. `src/app/account/page.tsx` now edits name **and** stage: the edit row gains a stage `<select>` (KS3/IGCSE/IB DP), the flow is relabelled "Rename"→"Edit" (`startEdit`/`saveEdit`, `editName`/`editStage`), and `saveEdit` passes `stage` through `updateAccount` (full-replace `childProfiles`). `tests/e2e/auth.spec.ts` updated: the "profile picker and account settings" test now changes Alex's stage to `dp` and asserts the "IB DP" badge appears.

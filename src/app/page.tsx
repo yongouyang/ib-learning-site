@@ -11,6 +11,7 @@ import { getDueTopics } from '@/lib/flashcard-scheduler';
 import { getNextAction } from '@/lib/home-next-action';
 import { subjectEmoji } from '@/lib/subject-emoji';
 import { Hero } from '@/components/Hero';
+import { CtaLink } from '@/components/CtaLink';
 
 // "Why Octav Learning" — the three steps of the journey, each emphasising its
 // value. First-time visitors only: returning students already know the loop.
@@ -107,10 +108,10 @@ export default function HomePage() {
             })}
           </div>
           <div className="mt-3 pt-3 border-t border-orange-200/60 dark:border-orange-900/60">
-            <Link href="/mixed-review?mode=weak"
+            <CtaLink ctaId="home_to_mixed_review_weak" href="/mixed-review?mode=weak"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-700 dark:text-orange-300 hover:text-orange-800 dark:hover:text-orange-200">
               Practise all weak areas in mixed review <ArrowRight className="w-4 h-4" />
-            </Link>
+            </CtaLink>
           </div>
         </div>
       )}
@@ -144,10 +145,10 @@ export default function HomePage() {
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
             No weak topics right now. Try a timed mock exam or explore a new subject.
           </p>
-          <Link href="/exams"
+          <CtaLink ctaId="home_to_exams" href="/exams"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-green-700 dark:text-green-300 hover:text-green-800 dark:hover:text-green-200">
             Test yourself under timed conditions <ArrowRight className="w-4 h-4" />
-          </Link>
+          </CtaLink>
         </div>
       )}
 

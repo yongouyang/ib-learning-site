@@ -4,6 +4,16 @@ import { useEffect, useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { requestOtp } from '@/lib/auth-client';
+import { trackEvent } from '@/lib/analytics';
+
+// Analytics auth events carry the email DOMAIN only — never the address. A
+// null return means "no valid domain" (e.g. the user hasn't typed '@' yet).
+function emailDomainOf(email: string): string | null {
+  const at = email.lastIndexOf('@');
+  if (at < 0 || at === email.length - 1) return null;
+  const domain = email.slice(at + 1).toLowerCase();
+  return /^[A-Za-z0-9.-]+$/.test(domain) ? domain : null;
+}
 
 const inputClass =
   'w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-3 text-sm text-gray-900 dark:text-gray-50 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500';
@@ -37,6 +47,8 @@ export default function LoginPage() {
     e?.preventDefault();
     setError(null);
     setBusy(true);
+    const domain = emailDomainOf(email);
+    if (domain) trackEvent('auth_otp_requested', { emailDomain: domain });
     try {
       await requestOtp(email);
       setResendAllowedAt(Date.now() + RESEND_COOLDOWN_MS);
@@ -53,7 +65,8 @@ export default function LoginPage() {
     setError(null);
     setBusy(true);
     try {
-      await login(email, code);
+      const next = await login(email, code);
+      trackEvent('auth_login_completed', { role: next.role });
       router.replace('/');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Invalid or expired code.');
@@ -65,6 +78,8 @@ export default function LoginPage() {
   async function handleResend() {
     setError(null);
     setResending(true);
+    const domain = emailDomainOf(email);
+    if (domain) trackEvent('auth_otp_requested', { emailDomain: domain });
     try {
       await requestOtp(email);
       setResendAllowedAt(Date.now() + RESEND_COOLDOWN_MS);

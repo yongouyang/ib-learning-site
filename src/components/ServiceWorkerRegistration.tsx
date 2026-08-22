@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { trackEvent } from '@/lib/analytics';
 
 // Registers /sw.js once per page load. Production only, so it never fights
 // `next dev` or Playwright's dev server; a failed registration is non-fatal.
@@ -24,6 +25,14 @@ export function ServiceWorkerRegistration() {
     }
     window.addEventListener('load', register);
     return () => window.removeEventListener('load', register);
+  }, []);
+
+  // PWA install attribution (analytics A4) — fires when the browser reports
+  // the app was added to the home screen / installed.
+  useEffect(() => {
+    const onInstalled = () => trackEvent('pwa_installed');
+    window.addEventListener('appinstalled', onInstalled);
+    return () => window.removeEventListener('appinstalled', onInstalled);
   }, []);
 
   return null;

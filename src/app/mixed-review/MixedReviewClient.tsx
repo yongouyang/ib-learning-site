@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Shuffle, Target } from 'lucide-react';
@@ -13,6 +13,7 @@ import {
   MIXED_REVIEW_SUBJECT_ID,
   MIXED_REVIEW_TITLE,
 } from '@/lib/mixed-review';
+import { trackEvent } from '@/lib/analytics';
 
 export default function MixedReviewClient() {
   const searchParams = useSearchParams();
@@ -24,6 +25,16 @@ export default function MixedReviewClient() {
     [topicProgress, mode]
   );
 
+  const startedAt = useRef(Date.now());
+  useEffect(() => {
+    startedAt.current = Date.now();
+    trackEvent('quiz_started', {
+      subjectId: MIXED_REVIEW_SUBJECT_ID,
+      topicId: MIXED_REVIEW_TOPIC_ID,
+      source: 'mixed_review',
+    });
+  }, [mode]);
+
   const handleComplete = (correctCount: number, totalCount: number) => {
     recordAttempt(
       MIXED_REVIEW_TOPIC_ID,
@@ -33,6 +44,13 @@ export default function MixedReviewClient() {
       correctCount,
       totalCount
     );
+    trackEvent('quiz_completed', {
+      subjectId: MIXED_REVIEW_SUBJECT_ID,
+      topicId: MIXED_REVIEW_TOPIC_ID,
+      correctCount,
+      totalCount,
+      durationSeconds: Math.round((Date.now() - startedAt.current) / 1000),
+    });
   };
 
   const modes = [
