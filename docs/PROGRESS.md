@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-22 — Account: edit child-profile stage (rename → edit)
+Git HEAD: `fb27c28` (develop, tree dirty: account-page change uncommitted)
+Done: the child-profile "Rename" flow only edited the name, so stage could not be changed. `src/app/account/page.tsx` now edits name **and** stage: the edit row gains a stage `<select>` (KS3/IGCSE/IB DP), the flow is relabelled "Rename"→"Edit" (`startEdit`/`saveEdit`, `editName`/`editStage`), and `saveEdit` passes `stage` through `updateAccount` (full-replace `childProfiles`). `tests/e2e/auth.spec.ts` updated: the "profile picker and account settings" test now changes Alex's stage to `dp` and asserts the "IB DP" badge appears.
+Verified: npm test **744/744**, tsc clean, eslint clean (1 pre-existing `react-hooks/set-state-in-effect` warning on the untouched `loadSessions` effect), e2e `auth.spec.ts` **9/9** (Desktop Chrome). Full 3-device e2e matrix deferred to CI.
+Next: push develop → deploy-dev → verify profile stage edit on dev → then the standing Resend OTP check (Gmail/Hotmail) + promote main; tighten CI smoke 200|429|502→200|429; SES re-appeal outcome.
+Notes: the server schema (`accountUpdateSchema`) already accepted `stage` — only the UI was missing the control; no backend change. UX-review visual pass waived (this model can't read images); the edit row is responsive (flex-1 + w-full, no fixed widths).
+
+---
+
 ## 2026-08-22 — Fix child-profile save 500 ("Internal error") + analytics test time-bomb
 Git HEAD: `496988a` (develop, tree dirty: fixes uncommitted)
 Done: fixed a genuine DynamoDB defect found live on dev — saving a child profile (and any account update: rename/remove/display-name) 500'd with "Internal error". Root cause (CloudWatch `/aws/lambda/iblearn-auth`): `DynamoAuthStorage.updateUser` put `:userId` in `ExpressionAttributeValues` but never referenced it in the UpdateExpression (userId is the Key), and DynamoDB rejects unused expression values ("Value provided in ExpressionAttributeValues unused in expressions"). Removed the unused `:userId`; corrected `auth-dynamodb-storage.test.ts` which had *asserted* the buggy shape, and added a regression guard (every `:placeholder` in values must be referenced by Update/Condition expressions). Also fixed a pre-existing time-bombed `analytics-http-handler.test.ts` summary test (seeded 2026-08-15/16 dates vs the real clock) by pinning an injectable clock — it had started failing at the 2026-08-22 date rollover and would have blocked CI.

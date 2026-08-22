@@ -71,12 +71,15 @@ test.describe('auth', () => {
     await page.locator('#account-menu').getByRole('button', { name: /Alex/ }).click();
     await expect(page.locator('header').getByRole('button', { name: 'Alex' })).toBeVisible();
 
-    // Rename the active profile from account settings → header reflects it.
+    // Edit the active profile (name + stage) from account settings → header
+    // and the stage badge reflect the changes.
     await page.goto('/account');
-    await page.getByRole('button', { name: 'Rename Alex' }).click();
-    await page.getByLabel('Rename Alex').fill('Parent One');
+    await page.getByRole('button', { name: 'Edit Alex' }).click();
+    await page.getByLabel('Edit Alex').fill('Parent One');
+    await page.getByLabel('Stage for Alex').selectOption('dp');
     await page.getByRole('button', { name: 'Save', exact: true }).click();
     await expect(page.locator('header').getByRole('button', { name: 'Parent One' })).toBeVisible();
+    await expect(page.locator('li', { hasText: 'Parent One' }).getByText('IB DP', { exact: true })).toBeVisible();
   });
 
   test('sessions list shows the current device with no revoke on it', async ({ page }) => {

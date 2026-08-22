@@ -50,8 +50,9 @@ function AccountContent({ user }: { user: AuthUser }) {
   const [savingProfile, setSavingProfile] = useState(false);
 
   // Child profiles
-  const [renamingId, setRenamingId] = useState<string | null>(null);
-  const [renameValue, setRenameValue] = useState('');
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editName, setEditName] = useState('');
+  const [editStage, setEditStage] = useState<Stage>('ks3');
   const [addName, setAddName] = useState('');
   const [addStage, setAddStage] = useState<Stage>('ks3');
   const [profilesError, setProfilesError] = useState<string | null>(null);
@@ -108,14 +109,15 @@ function AccountContent({ user }: { user: AuthUser }) {
 
   // --- Child profiles --------------------------------------------------------
 
-  function startRename(profile: ChildProfile) {
-    setRenamingId(profile.profileId);
-    setRenameValue(profile.displayName);
+  function startEdit(profile: ChildProfile) {
+    setEditingId(profile.profileId);
+    setEditName(profile.displayName);
+    setEditStage(profile.stage);
     setProfilesError(null);
   }
 
-  async function saveRename(profileId: string) {
-    const trimmed = renameValue.trim();
+  async function saveEdit(profileId: string) {
+    const trimmed = editName.trim();
     if (!trimmed) {
       setProfilesError('Please enter a name.');
       return;
@@ -123,11 +125,13 @@ function AccountContent({ user }: { user: AuthUser }) {
     setSavingProfiles(true);
     setProfilesError(null);
     try {
-      const next = user.childProfiles.map((p) => (p.profileId === profileId ? { ...p, displayName: trimmed } : p));
+      const next = user.childProfiles.map((p) =>
+        p.profileId === profileId ? { ...p, displayName: trimmed, stage: editStage } : p
+      );
       await updateAccount({ childProfiles: next });
-      setRenamingId(null);
+      setEditingId(null);
     } catch (err) {
-      setProfilesError(err instanceof Error ? err.message : 'Could not rename this profile.');
+      setProfilesError(err instanceof Error ? err.message : 'Could not update this profile.');
     } finally {
       setSavingProfiles(false);
     }
@@ -282,19 +286,31 @@ function AccountContent({ user }: { user: AuthUser }) {
         <ul className="space-y-1 mb-4">
           {user.childProfiles.map((profile) => (
             <li key={profile.profileId} className="flex items-center gap-2 py-1">
-              {renamingId === profile.profileId ? (
+              {editingId === profile.profileId ? (
                 <>
-                  <input
-                    type="text"
-                    value={renameValue}
-                    maxLength={40}
-                    onChange={(e) => setRenameValue(e.target.value)}
-                    aria-label={`Rename ${profile.displayName}`}
-                    className={`${inputClass} flex-1`}
-                  />
+                  <div className="flex-1 space-y-2">
+                    <input
+                      type="text"
+                      value={editName}
+                      maxLength={40}
+                      onChange={(e) => setEditName(e.target.value)}
+                      aria-label={`Edit ${profile.displayName}`}
+                      className={`${inputClass} w-full`}
+                    />
+                    <select
+                      value={editStage}
+                      onChange={(e) => setEditStage(e.target.value as Stage)}
+                      aria-label={`Stage for ${profile.displayName}`}
+                      className={`${inputClass} w-full`}
+                    >
+                      <option value="ks3">KS3</option>
+                      <option value="igcse">IGCSE</option>
+                      <option value="dp">IB DP</option>
+                    </select>
+                  </div>
                   <button
                     type="button"
-                    onClick={() => saveRename(profile.profileId)}
+                    onClick={() => saveEdit(profile.profileId)}
                     disabled={savingProfiles}
                     className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
                   >
@@ -309,13 +325,13 @@ function AccountContent({ user }: { user: AuthUser }) {
                   </span>
                   <button
                     type="button"
-                    onClick={() => startRename(profile)}
+                    onClick={() => startEdit(profile)}
                     disabled={savingProfiles}
-                    aria-label={`Rename ${profile.displayName}`}
+                    aria-label={`Edit ${profile.displayName}`}
                     className="shrink-0 inline-flex items-center justify-center gap-1.5 px-2 min-w-[44px] min-h-[44px] rounded-xl text-xs font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                   >
                     <Pencil className="w-4 h-4" aria-hidden="true" />
-                    <span className="hidden sm:inline">Rename</span>
+                    <span className="hidden sm:inline">Edit</span>
                   </button>
                   <button
                     type="button"
