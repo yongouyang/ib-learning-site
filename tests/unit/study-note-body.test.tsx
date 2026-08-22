@@ -96,3 +96,15 @@ describe('StudyNoteBody Markdown pipe tables', () => {
     expect(html).not.toContain('>6<');
   });
 });
+
+describe('StudyNoteBody headerless tables', () => {
+  it('omits <thead> when every header cell is empty (headerless grid)', () => {
+    const body = '| | | | |\n|---|---|---|---|\n| b | p | m | f |\n| d | t | n | l |';
+    const html = renderToStaticMarkup(createElement(StudyNoteBody, { body }));
+    expect(html).toContain('<table');
+    expect(html).not.toContain('<thead>');
+    expect(html).not.toContain('<th');
+    expect((html.match(/<td[\s>]/g) || []).length).toBe(8);
+    expect(html).not.toContain('|');
+  });
+});
