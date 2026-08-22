@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-22 — Decision: skip AWS WAF for now (app-layer limiters remain)
+Git HEAD: `ad0ed80` (develop)
+Done: evaluated AWS WAF for both CloudFront distributions — ONE shared us-east-1 Web ACL covers dev+prod (association is free; cost is per-ACL). Tiers costed from the AWS pricing page: C ~$6/mo (rate-based rule only), A ~$7/mo (rate + AWS-managed IP reputation list), B ~$28–30/mo (+ AWSManagedRulesCommonRuleSet, ~21 rules). **User decision: skip WAF for now** — no extra cost; the existing durable app-layer limiters (auth per-email, analytics per-IP, progress per-user) + zod validation + per-IP ingest budgets remain the protection. Implementable on request (terraform: `modules/waf` + `web_acl_id` on the site module + both module calls; in-place distro updates, no recreation).
+Verified: decision only — no gates run.
+Next: standing queue minus WAF: CI smoke tighten 200|429|502→200|429, topic ordering, SES re-appeal outcome.
+Notes: WAF is defense-in-depth, not a limiter replacement; revisit if attack/bot traffic shows up (Tier A is the recommended entry point).
+
+---
+
 ## 2026-08-22 — Durable per-user rate limit on POST /api/progress/sync
 Git HEAD: `8742e8f` (develop, tree dirty)
 Done: added a durable fixed-window per-user sync budget (**120 syncs / 10 min**, bucket `progress-sync:<userId>:<epoch>` in `octav-rate-limits`) to the sync write path. `ProgressStorage.incrementProgressSyncCount` added to DDB (one conditional UpdateCommand, TTL = window end — the auth/analytics limiter pattern) and the dummy (mirror with the SHARED injectable clock: `InMemoryAuthStorage`'s clock made `protected` so the whole auth→progress→analytics universe chain uses one clock). Handler: 429 after payload/profileId validation, BEFORE any write (client already treats 429 as transient → backoff+retry, no data loss). Terraform: `progress_api` gains `rate_limits_table_arn` + `dynamodb:UpdateItem` grant; `envs/prod` wires `AUTH_RATE_LIMITS_TABLE`. No new secret, no CI change.
