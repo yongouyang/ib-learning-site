@@ -24,6 +24,7 @@ const USER = {
   email: 'a@example.com',
   displayName: 'Alex',
   role: 'parent' as const,
+  tier: 'free' as const,
   childProfiles: [{ profileId: 'p1', displayName: 'Me', stage: 'ks3' as const }],
 };
 
@@ -78,10 +79,10 @@ describe('auth-client', () => {
     await expect(me()).resolves.toBeNull();
   });
 
-  it('me() returns the user on 200', async () => {
-    fetchMock.mockResolvedValue(jsonBody({ user: USER }));
+  it('me() returns the user and entitlements on 200 (E1)', async () => {
+    fetchMock.mockResolvedValue(jsonBody({ user: USER, entitlements: ['ai-marking'] }));
 
-    await expect(me()).resolves.toEqual(USER);
+    await expect(me()).resolves.toEqual({ user: USER, entitlements: ['ai-marking'] });
   });
 
   it('non-ok responses throw AuthApiError with the server message', async () => {

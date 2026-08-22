@@ -62,6 +62,17 @@ test.describe('PWA (production build)', () => {
   });
 
   test('offline hides the Mark with AI button on a paper page', async ({ page, context }) => {
+    // Phase E2: the AI button requires a session — sign in with the dummy OTP
+    // (AUTH_TEST_MODE=1 in the webServer env) so the online assertion exercises
+    // the real gate, not the logged-out prompt.
+    await page.goto('/login');
+    await page.getByLabel('Email').fill(`pwa-${Date.now()}@example.com`);
+    await page.getByRole('button', { name: 'Send sign-in code' }).click();
+    await expect(page.getByText(/Enter the 6-digit code/)).toBeVisible();
+    await page.getByLabel('6-digit code').fill('123456');
+    await page.getByRole('button', { name: 'Verify code' }).click();
+    await expect(page).toHaveURL('/');
+
     await page.goto('/papers/math-y7/math-y7-set-1');
     await waitForServiceWorker(page);
     await page.reload();

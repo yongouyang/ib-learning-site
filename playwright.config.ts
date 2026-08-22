@@ -76,6 +76,11 @@ export default defineConfig({
       // (_testResponse) for per-case control (see docs/phase-5-implementation-plan.md).
       FEEDBACK_PROVIDER: 'dummy',
       FEEDBACK_TEST_MODE: '1',
+      // Phase E2: the AI-mark quota/session wiring runs against the shared
+      // in-memory dummy universe (default anyway — pinned for hermeticity), so
+      // dummy-OTP sessions resolve for /api/feedback and the _testAiMarkUsed /
+      // _testTier injections are honored.
+      FEEDBACK_STORAGE: 'dummy',
       // Phase B (accounts): auth runs against the real /api/auth/* routes with
       // the in-memory dummy storage + dummy email sender. AUTH_TEST_MODE=1 gives
       // the deterministic default code 123456 and enables _testCode injection

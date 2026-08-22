@@ -10,6 +10,7 @@ import {
   updateAccount as updateAccountRequest,
   setOnUnauthorized,
 } from '@/lib/auth-client';
+import { featuresForTier, type FeatureId } from '@/lib/entitlements/features';
 
 // The account's active profile is a UI preference (which child's view you're
 // in) — persisted locally, following the `octav_*` key convention for accounts.
@@ -19,6 +20,8 @@ interface AuthContextType {
   user: AuthUser | null;
   /** False until the first me() round-trip completes (after mount). */
   loaded: boolean;
+  /** Phase E1: the session's entitlements from me() ([] when logged out). */
+  entitlements: FeatureId[];
   activeProfileId: string | null;
   activeProfile: ChildProfile | null;
   login: (email: string, otp: string) => Promise<AuthUser>;
@@ -33,6 +36,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [loaded, setLoaded] = useState(false);
+  const [entitlements, setEntitlements] = useState<FeatureId[]>([]);
   const [activeProfileId, setActiveProfileId] = useState<string | null>(null);
   // Generation counter (review H4): a me() that STARTED before a completed
   // login must never apply its (stale, likely null) result over the fresh
@@ -44,6 +48,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // a 401-clear must not re-apply a stale user (round 2).
     ++generation.current;
     setUser(null);
+    setEntitlements([]);
     setActiveProfileId(null);
     // The session is DEFINITIVELY cleared: settle `loaded` here so a logout
     // that races the initial me() can't strand the UI on the skeleton (the
@@ -61,12 +66,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const next = await meRequest();
       if (gen !== generation.current) return; // superseded by a newer call
-      setUser(next);
+      setUser(next?.user ?? null);
+      setEntitlements(next?.entitlements ?? []);
     } catch {
       // /me failures (network, 500, wrong Lambda) must not strand the UI on
       // the loading skeleton forever — treat as logged-out so the guard
       // redirects and the logged-out experience renders (review H4).
-      if (gen === generation.current) setUser(null);
+      if (gen === generation.current) {
+        setUser(null);
+        setEntitlements([]);
+      }
     } finally {
       // Settle `loaded` ONLY from the CURRENT generation. A superseded me()
       // must NOT flip it: its finally would briefly expose (loaded=true,
@@ -111,6 +120,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     ++generation.current; // invalidate any in-flight mount me() (review H4)
     const next = await verifyOtp(email, otp);
     setUser(next);
+    // verify-otp doesn't carry entitlements (me() only — plan E1); derive them
+    // from the fresh user's tier via the SAME map the server uses. The next
+    // refresh() re-syncs from the authoritative me() payload.
+    setEntitlements(featuresForTier(next.tier));
     setLoaded(true);
     return next;
   }, []);
@@ -157,7 +170,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, loaded, activeProfileId, activeProfile, login, logout, refresh, updateAccount, setActiveProfile }}
+      value={{ user, loaded, entitlements, activeProfileId, activeProfile, login, logout, refresh, updateAccount, setActiveProfile }}
     >
       {children}
     </AuthContext.Provider>

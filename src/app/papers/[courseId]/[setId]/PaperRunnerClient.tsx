@@ -6,9 +6,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, RotateCcw, CheckSquare, Square, Sparkles } from 'lucide-react';
 import type { FreeResponseQuestion, Paper } from '@/content/types';
 import { useProgress } from '@/context/ProgressContext';
+import { useAuth } from '@/context/AuthContext';
+import { useEntitlements } from '@/context/EntitlementsContext';
+import { AI_MARK_FREE_MONTHLY_QUOTA } from '@/lib/entitlements/features';
+import { isFreePaperSet } from '@/lib/entitlements/exam-access';
 import { getCourse } from '@/lib/courses';
 import { orderQuestionsByDifficulty } from '@/lib/quiz-utils';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { LockedFeature } from '@/components/LockedFeature';
 import InlineMath from '@/components/InlineMath';
 import { DIFFICULTY_CHIP_CLASSES } from '@/components/difficulty-chip';
 import { trackEvent } from '@/lib/analytics';
@@ -27,13 +32,31 @@ interface QuestionOutcome {
   aiFeedback?: string;
 }
 
+// Phase E3 — "first set per course free" (entitlement-policy §Tier 2): later
+// sets stay visible behind the LockedFeature premium tease (UX-only gate). The
+// wrapper keeps every hook inside the runner itself.
+export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
+  if (isFreePaperSet(paper.id)) return <PaperRunner paper={paper} />;
+  return (
+    <LockedFeature
+      feature="exam-sets-full"
+      title="Full exam sets"
+      benefit="Set 1 is free — Premium unlocks every set for this course, upper ladder levels and timed mock mode."
+    >
+      <PaperRunner paper={paper} />
+    </LockedFeature>
+  );
+}
+
 // Two phases, like a real exam: a TIMED answering phase (free navigation,
 // answers editable until submit) followed by an UNTIMED review phase (model
 // answer, AI marking, self-ticks). The clock never runs during review, so
 // reading feedback and self-marking don't eat exam time.
-export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
+function PaperRunner({ paper }: PaperRunnerClientProps) {
   const course = getCourse(paper.courseId);
   const { recordExam } = useProgress();
+  const { user, loaded: authLoaded } = useAuth();
+  const { has } = useEntitlements();
 
   // Easy -> hard with deterministic intra-band shuffle (same rule as MC quizzes).
   const ordered = useMemo(
@@ -57,14 +80,26 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
   // Phase 5 — AI marking (review phase only). The button only appears when
   // the route reports a configured provider; students can always override
   // the AI's ticks.
+  // Phase E2 — login gate + monthly quota: logged-out sessions get a sign-in
+  // prompt, an exhausted quota gets the premium tease, and a logged-in free
+  // session sees "N marks left this month" from the GET quota state.
   const [aiConfigured, setAiConfigured] = useState(false);
   const [aiState, setAiState] = useState<'idle' | 'loading' | 'error'>('idle');
   const [aiError, setAiError] = useState<string | null>(null);
+  const [aiRemaining, setAiRemaining] = useState<number | null>(null);
+  const [aiResetAt, setAiResetAt] = useState<string | null>(null);
+  // Account-level gate discovered from a POST (401/429-quota) — persists
+  // across questions within the review (it's not per-question state).
+  const [aiGate, setAiGate] = useState<'login' | 'quota' | null>(null);
 
   useEffect(() => {
     fetch('/api/feedback')
       .then((res) => res.json())
-      .then((json) => setAiConfigured(Boolean(json.configured)))
+      .then((json) => {
+        setAiConfigured(Boolean(json.configured));
+        if (typeof json.remaining === 'number') setAiRemaining(json.remaining);
+        if (typeof json.resetAt === 'string') setAiResetAt(json.resetAt);
+      })
       .catch(() => setAiConfigured(false));
   }, []);
 
@@ -90,6 +125,13 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
   const currentOutcome: QuestionOutcome | undefined = question
     ? outcomes[question.id] ?? blankOutcome(currentIndex)
     : undefined;
+
+  // Quota-reset date for the exhausted-state tease ("They reset on 1 September").
+  const aiResetLabel = useMemo(() => {
+    if (!aiResetAt) return null;
+    const d = new Date(aiResetAt);
+    return Number.isNaN(d.getTime()) ? null : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long' });
+  }, [aiResetAt]);
 
   const updateOutcome = (qid: string, updater: (o: QuestionOutcome) => QuestionOutcome) => {
     setOutcomes((prev) => {
@@ -173,6 +215,23 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
         }),
       });
       if (!res.ok) {
+        if (res.status === 401) {
+          // Session missing/expired mid-review — swap to the sign-in prompt.
+          setAiGate('login');
+          setAiState('idle');
+          return;
+        }
+        if (res.status === 429) {
+          const body = (await res.json().catch(() => null)) as { error?: string; resetAt?: string } | null;
+          if (body?.error === 'quota_exceeded') {
+            // Monthly quota spent — upgrade tease (not "try again later").
+            if (body.resetAt) setAiResetAt(body.resetAt);
+            setAiRemaining(0);
+            setAiGate('quota');
+            setAiState('idle');
+            return;
+          }
+        }
         setAiError(
           res.status === 429
             ? 'The AI marker is busy — try again in a minute, or mark yourself below.'
@@ -182,6 +241,8 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
         return;
       }
       const json = await res.json();
+      // The server charged one mark — reflect it without a refetch.
+      setAiRemaining((r) => (r === null ? null : Math.max(0, r - 1)));
       updateOutcome(question.id, (o) => ({
         ...o,
         ticks: json.perPoint.map((p: { awarded: boolean }) => p.awarded),
@@ -388,16 +449,51 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
                       </p>
                       <p>{currentOutcome!.aiFeedback}</p>
                     </div>
+                  ) : aiGate === 'login' || (authLoaded && !user) ? (
+                    // E2 login gate — the prompt is the whole AI row; self-marking below is untouched.
+                    <Link
+                      href="/login"
+                      className="w-full inline-flex items-center justify-center gap-1.5 py-3 rounded-lg bg-purple-600 text-white font-medium text-sm hover:bg-purple-700 transition-colors"
+                    >
+                      <Sparkles className="w-4 h-4" />
+                      Sign in to use AI marking — {AI_MARK_FREE_MONTHLY_QUOTA} free marks/month
+                    </Link>
+                  ) : aiGate === 'quota' || (aiRemaining === 0 && !has('ai-marking-unlimited')) ? (
+                    // E2 quota exhausted — premium tease in the LockedFeature copy style.
+                    <div className="p-3 rounded-lg bg-purple-50 dark:bg-purple-950 border border-purple-200 dark:border-purple-900 text-sm text-purple-900 dark:text-purple-200 text-center">
+                      <p className="font-semibold mb-1">You&apos;ve used all {AI_MARK_FREE_MONTHLY_QUOTA} free AI marks this month</p>
+                      <p>
+                        {aiResetLabel ? <>They reset on {aiResetLabel}. </> : null}
+                        Premium gives you unlimited AI marking.
+                      </p>
+                      <Link
+                        href="/pricing"
+                        className="mt-2 inline-flex items-center justify-center rounded-xl bg-purple-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-700"
+                      >
+                        See Premium plans
+                      </Link>
+                    </div>
                   ) : (
                     <button
                       onClick={handleMarkWithAi}
                       disabled={aiState === 'loading'}
-                      className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-purple-600 text-white font-medium text-sm hover:bg-purple-700 transition-colors disabled:opacity-60 disabled:cursor-wait"
+                      className="w-full inline-flex items-center justify-center gap-1.5 py-3 rounded-lg bg-purple-600 text-white font-medium text-sm hover:bg-purple-700 transition-colors disabled:opacity-60 disabled:cursor-wait"
                     >
                       <Sparkles className="w-4 h-4" />
                       {aiState === 'loading' ? 'Marking…' : 'Mark with AI'}
                     </button>
                   )}
+                  {/* E2 quota state — under the button AND the feedback card,
+                      so a successful mark visibly decrements it. (aiRemaining is
+                      only ever set from an authenticated GET.) */}
+                  {aiRemaining !== null &&
+                    !has('ai-marking-unlimited') &&
+                    aiGate === null &&
+                    aiRemaining > 0 && (
+                      <p className="mt-1.5 text-xs text-center text-gray-500 dark:text-gray-400">
+                        {aiRemaining === 1 ? '1 mark' : `${aiRemaining} marks`} left this month
+                      </p>
+                    )}
                   {aiState === 'error' && aiError && (
                     <p className="mt-2 text-sm text-amber-700 dark:text-amber-300">{aiError}</p>
                   )}

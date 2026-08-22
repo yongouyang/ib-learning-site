@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
+import { tierSchema, type Tier } from '../entitlements/features';
 
 // Accounts feature (Phase B) — shared types and contract constants
 // (docs/architecture-evolution-plan.md §2). The auth http-handler is the
@@ -50,9 +51,23 @@ export interface UserRecord {
   email: string; // lowercased
   displayName: string;
   role: 'parent' | 'student';
+  // Phase E0: entitlement tier (docs/entitlement-policy.md). Default "free" on
+  // registration; set manually (admin grant) until Stripe lands in E4.
+  tier: Tier;
   childProfiles: ChildProfile[]; // parent→child model (plan §2.6); a solo student is a parent with one "Me" profile
   createdAt: string; // ISO
   lastLoginAt: string; // ISO
+}
+
+/**
+ * Phase E0: user rows written before the tier attribute existed read back as
+ * "free" — existing users need no migration. Anything other than a stored
+ * "premium" fails closed to "free" (a corrupted/unknown tier must never
+ * accidentally grant premium features).
+ */
+export function withTierDefault(user: UserRecord): UserRecord {
+  const parsed = tierSchema.safeParse(user.tier);
+  return parsed.success ? user : { ...user, tier: 'free' };
 }
 
 export interface SessionRecord {
@@ -88,7 +103,7 @@ export interface EmailClaimMarker {
 }
 
 /** Public user shape returned by verify-otp/me/account — never internal-only fields. */
-export type PublicUser = Pick<UserRecord, 'userId' | 'email' | 'displayName' | 'role' | 'childProfiles'>;
+export type PublicUser = Pick<UserRecord, 'userId' | 'email' | 'displayName' | 'role' | 'tier' | 'childProfiles'>;
 
 // --- Dependency interfaces (controllable dummies, AGENTS.md) -------------------
 

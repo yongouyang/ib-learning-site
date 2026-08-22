@@ -5,6 +5,7 @@ import './globals.css';
 import { ProgressProvider } from '@/context/ProgressContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { AuthProvider } from '@/context/AuthContext';
+import { EntitlementsProvider } from '@/context/EntitlementsContext';
 import { Nav } from '@/components/Nav';
 import { HeaderNav } from '@/components/HeaderNav';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -78,6 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${geistSans.className} min-h-screen flex flex-col`}>
         <ThemeProvider>
           <AuthProvider>
+          <EntitlementsProvider>
           <ProgressProvider>
             <header className="hidden md:flex items-center justify-between px-6 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950">
               <Link href="/" className="flex items-center">
@@ -121,6 +123,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <OfflineBanner />
             <UpdateToast />
           </ProgressProvider>
+          </EntitlementsProvider>
           </AuthProvider>
         </ThemeProvider>
       </body>

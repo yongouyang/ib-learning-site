@@ -30,6 +30,15 @@ vi.mock('@/context/ProgressContext', () => ({
   useProgress: () => ({ recordExam }),
 }));
 
+// Phase E2: PaperRunnerClient reads auth + entitlements for the AI-marking
+// gate (login prompt / quota tease / remaining count).
+vi.mock('@/context/AuthContext', () => ({
+  useAuth: () => ({ user: null, loaded: true }),
+}));
+vi.mock('@/context/EntitlementsContext', () => ({
+  useEntitlements: () => ({ has: () => false, loaded: true }),
+}));
+
 const paper: Paper = {
   id: 'math-y7-set-1',
   courseId: 'math-y7',

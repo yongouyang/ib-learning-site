@@ -4,6 +4,26 @@ import { test, expect } from '@playwright/test';
 // + FEEDBACK_TEST_MODE=1 (see playwright.config.ts), so tests exercise the REAL
 // /api/feedback route with zero tokens. Per-case responses are injected by
 // rewriting the outgoing POST body with `_testResponse` via page.route.
+//
+// Phase E2: POST /api/feedback requires a session, so the marking tests sign
+// in first — AUTH_STORAGE/AUTH_EMAIL=dummy + AUTH_TEST_MODE=1 give the
+// deterministic code 123456 for any email (the auth.spec.ts pattern), and the
+// feedback quota lives in the SAME shared dummy universe.
+
+function uniqueEmail() {
+  return `test-${Date.now()}-${Math.random().toString(36).slice(2)}@example.com`;
+}
+
+async function signIn(page: import('@playwright/test').Page) {
+  await page.goto('/login');
+  await page.getByLabel('Email').fill(uniqueEmail());
+  await page.getByRole('button', { name: 'Send sign-in code' }).click();
+  await expect(page.getByText(/Enter the 6-digit code/)).toBeVisible();
+  await page.getByLabel('6-digit code').fill('123456');
+  await page.getByRole('button', { name: 'Verify code' }).click();
+  await expect(page).toHaveURL('/');
+}
+
 test.describe('AI feedback', () => {
   // Answer q1, click through the rest of the answering phase, submit — the
   // untimed review phase (with the AI button) starts back at q1.
@@ -22,6 +42,7 @@ test.describe('AI feedback', () => {
   }
 
   test('default dummy flow: marks all points and shows canned feedback', async ({ page }) => {
+    await signIn(page);
     await answerFirstQuestionAndEnterReview(page);
 
     await page.getByRole('button', { name: /Mark with AI/i }).click();
@@ -53,6 +74,7 @@ test.describe('AI feedback', () => {
       return route.fulfill({ response });
     });
 
+    await signIn(page);
     await answerFirstQuestionAndEnterReview(page);
     await page.getByRole('button', { name: /Mark with AI/i }).click();
 
@@ -79,6 +101,7 @@ test.describe('AI feedback', () => {
       return route.fulfill({ response });
     });
 
+    await signIn(page);
     await answerFirstQuestionAndEnterReview(page);
     await page.getByRole('button', { name: /Mark with AI/i }).click();
 
@@ -94,6 +117,7 @@ test.describe('AI feedback', () => {
       return route.fulfill({ status: 429, json: { error: 'Rate limit exceeded' } });
     });
 
+    await signIn(page);
     await answerFirstQuestionAndEnterReview(page);
     await page.getByRole('button', { name: /Mark with AI/i }).click();
 

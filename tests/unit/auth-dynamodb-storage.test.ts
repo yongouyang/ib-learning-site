@@ -300,6 +300,40 @@ describe('DynamoAuthStorage', () => {
     ]);
   });
 
+  it('getUserByEmail/getUserById read a missing tier attribute back as "free" (E0: no migration)', async () => {
+    // Legacy pre-E0 rows have no tier attribute at all.
+    const s = makeStorage((cmd) => {
+      if (cmd.constructor.name === 'QueryCommand') return { Items: [{ userId: 'u1', email: 'a@example.com' }] };
+      if (cmd.constructor.name === 'GetCommand') return { Item: { userId: 'u1', email: 'a@example.com' } };
+      return {};
+    });
+    expect((await s.getUserByEmail('a@example.com'))?.tier).toBe('free');
+    expect((await s.getUserById('u1'))?.tier).toBe('free');
+  });
+
+  it('a stored premium tier round-trips on both read paths', async () => {
+    const s = makeStorage((cmd) => {
+      if (cmd.constructor.name === 'QueryCommand') return { Items: [{ userId: 'u1', tier: 'premium' }] };
+      if (cmd.constructor.name === 'GetCommand') return { Item: { userId: 'u1', tier: 'premium' } };
+      return {};
+    });
+    expect((await s.getUserByEmail('a@example.com'))?.tier).toBe('premium');
+    expect((await s.getUserById('u1'))?.tier).toBe('premium');
+  });
+
+  it('an unknown stored tier fails closed to "free" (never accidentally premium)', async () => {
+    const s = makeStorage(() => ({ Item: { userId: 'u1', tier: 'gold' } }));
+    expect((await s.getUserById('u1'))?.tier).toBe('free');
+  });
+
+  it('updateUser normalizes a missing tier on the returned record', async () => {
+    const s = makeStorage((cmd) => {
+      if (cmd.constructor.name === 'UpdateCommand') return { Attributes: { userId: 'u1', displayName: 'New' } };
+      return {};
+    });
+    expect((await s.updateUser('u1', { displayName: 'New' }))?.tier).toBe('free');
+  });
+
   it('listSessionsByUser queries the sessions GSI1', async () => {
     const calls: CommandLike[] = [];
     const s = makeStorage((cmd) => {
@@ -460,5 +494,42 @@ describe('dummy ↔ DynamoDB parity (round 2)', () => {
     }
     expect(dummyRoll).toEqual(afterRoll);
     expect(ddbRoll).toEqual(afterRoll);
+  });
+
+  it('tier reads (E0): a missing attribute reads back as "free" in BOTH adapters, premium round-trips in both', async () => {
+    const { InMemoryAuthStorage } = await import('@/lib/auth/dummy');
+    const tables = { users: 'u', sessions: 's', otp: 'o', progress: 'p', rateLimits: 'r' };
+    const legacyItem = { userId: 'u1', email: 'a@example.com' }; // pre-E0 row: no tier
+    const ddb = new DynamoAuthStorage(
+      mockClient((cmd) => {
+        if (cmd.constructor.name === 'GetCommand') return { Item: legacyItem };
+        if (cmd.constructor.name === 'QueryCommand') return { Items: [legacyItem] };
+        return {};
+      }),
+      tables
+    );
+    const dummy = new InMemoryAuthStorage();
+    await dummy.createUser(legacyItem as unknown as UserRecord);
+
+    expect((await dummy.getUserById('u1'))!.tier).toBe('free');
+    expect((await ddb.getUserById('u1'))!.tier).toBe('free');
+    expect((await dummy.getUserByEmail('a@example.com'))!.tier).toBe('free');
+    expect((await ddb.getUserByEmail('a@example.com'))!.tier).toBe('free');
+
+    const premiumItem = { ...legacyItem, userId: 'u2', email: 'b@example.com', tier: 'premium' };
+    const ddbPremium = new DynamoAuthStorage(
+      mockClient((cmd) => {
+        if (cmd.constructor.name === 'GetCommand') return { Item: premiumItem };
+        if (cmd.constructor.name === 'QueryCommand') return { Items: [premiumItem] };
+        return {};
+      }),
+      tables
+    );
+    await dummy.createUser(premiumItem as unknown as UserRecord);
+
+    expect((await dummy.getUserById('u2'))!.tier).toBe('premium');
+    expect((await ddbPremium.getUserById('u2'))!.tier).toBe('premium');
+    expect((await dummy.getUserByEmail('b@example.com'))!.tier).toBe('premium');
+    expect((await ddbPremium.getUserByEmail('b@example.com'))!.tier).toBe('premium');
   });
 });

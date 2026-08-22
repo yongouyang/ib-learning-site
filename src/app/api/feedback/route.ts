@@ -5,8 +5,8 @@ import { handleFeedbackGet, handleFeedbackPost } from '@/lib/feedback/http-handl
 // in src/lib/feedback/http-handler.ts — shared 1:1 with the Lambda. Key is
 // server-side only (FEEDBACK_API_KEY, never NEXT_PUBLIC_).
 
-export async function GET() {
-  return handleFeedbackGet();
+export async function GET(req: Request) {
+  return handleFeedbackGet(req);
 }
 
 export async function POST(req: Request) {

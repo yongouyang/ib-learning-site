@@ -1,4 +1,5 @@
 import type { AuthStorage, EmailClaimMarker, EmailSender, OtpRecord, SessionRecord, UserRecord } from './types';
+import { withTierDefault } from './types';
 
 // In-memory dummy for the accounts feature — the controllable-dummy directive
 // (AGENTS.md): dev and e2e run against this with zero AWS resources and zero
@@ -30,11 +31,14 @@ export class InMemoryAuthStorage implements AuthStorage {
 
   async getUserByEmail(email: string): Promise<UserRecord | null> {
     const userId = this.usersByEmail.get(email);
-    return userId ? (this.users.get(userId) ?? null) : null;
+    const user = userId ? (this.users.get(userId) ?? null) : null;
+    // Phase E0: mirror DynamoDB — a missing tier reads back as "free".
+    return user ? withTierDefault(user) : null;
   }
 
   async getUserById(userId: string): Promise<UserRecord | null> {
-    return this.users.get(userId) ?? null;
+    const user = this.users.get(userId) ?? null;
+    return user ? withTierDefault(user) : null;
   }
 
   async createUser(user: UserRecord): Promise<void> {
@@ -55,7 +59,7 @@ export class InMemoryAuthStorage implements AuthStorage {
       ...(updates.lastLoginAt !== undefined ? { lastLoginAt: updates.lastLoginAt } : {}),
     };
     this.users.set(userId, updated);
-    return { ...updated, childProfiles: updated.childProfiles.map((p) => ({ ...p })) };
+    return withTierDefault({ ...updated, childProfiles: updated.childProfiles.map((p) => ({ ...p })) });
   }
 
   async deleteUser(userId: string): Promise<void> {

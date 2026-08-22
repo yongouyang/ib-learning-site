@@ -61,8 +61,12 @@ describe('ProgressContext — logged-in reconciliation (round 2)', () => {
     email: 'user@example.com',
     displayName: 'User',
     role: 'parent',
+    tier: 'free',
     childProfiles: [{ profileId: 'p1', displayName: 'Me', stage: 'ks3' }],
   } as const;
+
+  // me() resolves the E1 payload shape: { user, entitlements }.
+  const meResult = () => ({ user: USER, entitlements: ['ai-marking'] });
 
   const emptyBlob = () =>
     JSON.stringify({
@@ -78,7 +82,7 @@ describe('ProgressContext — logged-in reconciliation (round 2)', () => {
   const okJson = (body: unknown) => ({ ok: true, status: 200, json: async () => body });
 
   beforeEach(() => {
-    meMock.mockResolvedValue(USER);
+    meMock.mockResolvedValue(meResult());
     fetchMock.mockReset();
     vi.stubGlobal('fetch', fetchMock);
   });
@@ -344,7 +348,7 @@ describe('ProgressContext — logged-in reconciliation (round 2)', () => {
     // The FIRST (superseded) me() resolves: loaded must NOT settle, and the
     // queue must survive.
     act(() => {
-      resolvers[0](USER);
+      resolvers[0](meResult());
     });
     await act(async () => {}); // flush the superseded continuation
     expect(screen.getByTestId('loaded').textContent).toBe('false');
@@ -354,7 +358,7 @@ describe('ProgressContext — logged-in reconciliation (round 2)', () => {
     // The CURRENT me() resolves: identity effect runs logged-in and the queue
     // flushes to the server.
     act(() => {
-      resolvers[1](USER);
+      resolvers[1](meResult());
     });
     await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
     await waitFor(() => {

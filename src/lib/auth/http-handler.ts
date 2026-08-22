@@ -26,6 +26,7 @@ import {
   sessionCookieValue,
   sessionTokenFromCookie,
 } from './session';
+import { featuresForTier } from '../entitlements/features';
 
 // Phase B — framework-agnostic auth handler. The single source of truth for
 // the /api/auth/* contract (docs/architecture-evolution-plan.md §2.4):
@@ -134,8 +135,8 @@ function generateOtpCode(deps: AuthDeps, injected: string | undefined): string {
 // --- Account helpers ----------------------------------------------------------
 
 function publicUser(user: UserRecord): PublicUser {
-  const { userId, email, displayName, role, childProfiles } = user;
-  return { userId, email, displayName, role, childProfiles: childProfiles.map((p) => ({ ...p })) };
+  const { userId, email, displayName, role, tier, childProfiles } = user;
+  return { userId, email, displayName, role, tier, childProfiles: childProfiles.map((p) => ({ ...p })) };
 }
 
 function displayNameFromEmail(email: string): string {
@@ -156,6 +157,7 @@ async function newUserFor(email: string, now: string): Promise<UserRecord> {
     email,
     displayName: displayNameFromEmail(email),
     role: 'parent',
+    tier: 'free', // Phase E0 — registration default; upgraded manually until E4
     childProfiles: [defaultChildProfile()],
     createdAt: now,
     lastLoginAt: now,
@@ -352,7 +354,13 @@ export async function handleLogout(req: Request, deps: AuthDeps = getAuthDeps())
 export async function handleMe(req: Request, deps: AuthDeps = getAuthDeps()): Promise<Response> {
   const auth = await requireAuth(req, deps);
   if ('response' in auth) return auth.response;
-  return withCookie(json({ user: publicUser(auth.user) }), auth.refreshCookie);
+  // Phase E1: entitlements derived from the user's tier via the E0 map — the
+  // server is the ONE source of truth (the client renders gates from this
+  // list; every premium API re-checks server-side anyway).
+  return withCookie(
+    json({ user: publicUser(auth.user), entitlements: featuresForTier(auth.user.tier) }),
+    auth.refreshCookie
+  );
 }
 
 /** POST /api/auth/account — update displayName and/or child profiles (full replace). */

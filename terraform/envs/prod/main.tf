@@ -180,13 +180,31 @@ resource "aws_acm_certificate" "dev" {
 }
 
 # Feedback API first: the site module needs its Function URL domain to wire
-# the CloudFront /api/* behavior.
+# the CloudFront /api/* behavior. Phase E2: the handler authenticates (shared
+# resolveSession over users/sessions) and enforces the monthly AI-mark quota
+# in octav-rate-limits, so the base wiring below selects the real dynamodb
+# storage and names the shared tables — var.feedback_env (the FEEDBACK_ENV
+# secret) only needs the provider config (FEEDBACK_PROVIDER etc.) and can
+# still override anything.
 module "feedback_api" {
   source = "../../modules/feedback_api"
 
   zip_path           = "${path.module}/../../../lambda/feedback/dist/feedback-lambda.zip"
-  environment        = var.feedback_env
   cors_allow_origins = var.site_origins
+
+  users_table_arn       = module.dynamodb.users_table_arn
+  sessions_table_arn    = module.dynamodb.sessions_table_arn
+  rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+
+  environment = merge(
+    {
+      FEEDBACK_STORAGE       = "dynamodb"
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+    },
+    var.feedback_env,
+  )
 }
 
 # Accounts feature — Phase 0 (docs/architecture-evolution-plan.md §6): the

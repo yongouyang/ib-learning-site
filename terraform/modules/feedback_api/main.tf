@@ -2,6 +2,16 @@
 # The function is a thin adapter around src/lib/feedback/http-handler.ts —
 # same contract as the Next route. Deploys fine unconfigured (no provider env):
 # GET returns { configured: false }, POST 501, UI hides "Mark with AI".
+#
+# Phase E2 (docs/entitlement-implementation-plan.md): the handler now
+# authenticates via the shared resolveSession (src/lib/auth/session.ts) over
+# the SAME users/sessions tables the auth Lambda uses, and enforces the
+# monthly AI-mark quota as a fixed-window bucket in octav-rate-limits
+# (aimark:<userId>:<YYYY-MM>). Env vars it consumes (src/lib/feedback/deps.ts):
+# FEEDBACK_STORAGE selects the real (dynamodb) wiring;
+# AUTH_USERS_TABLE/AUTH_SESSIONS_TABLE/AUTH_RATE_LIMITS_TABLE name the tables.
+# No SES / otp grants here — the feedback path never sends email and never
+# reads OTPs.
 
 variable "name_prefix" {
   type    = string
@@ -14,7 +24,7 @@ variable "zip_path" {
 }
 
 variable "environment" {
-  description = "Lambda env vars: FEEDBACK_PROVIDER / FEEDBACK_API_KEY / FEEDBACK_MODEL / FEEDBACK_BASE_URL / FEEDBACK_RATE_LIMIT_* (see src/lib/feedback). Empty = unconfigured."
+  description = "Lambda env vars: FEEDBACK_STORAGE / AUTH_USERS_TABLE / AUTH_SESSIONS_TABLE / AUTH_RATE_LIMITS_TABLE / FEEDBACK_PROVIDER / FEEDBACK_API_KEY / FEEDBACK_MODEL / FEEDBACK_BASE_URL / FEEDBACK_RATE_LIMIT_* (see src/lib/feedback)."
   type        = map(string)
   default     = {}
   sensitive   = true
@@ -23,6 +33,21 @@ variable "environment" {
 variable "cors_allow_origins" {
   description = "Function URL CORS origins (the CloudFront site URL; requests are same-origin via the /api/* behavior, so this is belt-and-braces)."
   type        = list(string)
+}
+
+variable "users_table_arn" {
+  description = "DynamoDB ARN of the users table (octav-users) — session validation (E2)."
+  type        = string
+}
+
+variable "sessions_table_arn" {
+  description = "DynamoDB ARN of the sessions table (octav-sessions) — session validation (E2)."
+  type        = string
+}
+
+variable "rate_limits_table_arn" {
+  description = "DynamoDB ARN of the rate-limits table (octav-rate-limits) — the durable monthly AI-mark quota bucket (E2)."
+  type        = string
 }
 
 data "aws_caller_identity" "current" {}
@@ -48,11 +73,66 @@ resource "aws_iam_role" "feedback" {
   assume_role_policy = data.aws_iam_policy_document.lambda_assume.json
 }
 
-# AWS-managed basic policy: CloudWatch Logs write access only. The function
-# needs nothing else (it calls an external LLM API over HTTPS).
+# AWS-managed basic policy: CloudWatch Logs write access only. DynamoDB access
+# comes from the inline policy below (E2 — session validation + quota).
 resource "aws_iam_role_policy_attachment" "feedback_basic" {
   role       = aws_iam_role.feedback.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+}
+
+# Least-privilege data policy (Phase E2): only the tables the feedback handler
+# touches — three statements, one per table, so each grant's caller is
+# documented inline. Mirrors the session-validation subset progress_api
+# grants. No SES, no otp-codes, no progress table — the feedback path never
+# sends email, never reads OTPs, and never touches progress items. Inline so
+# there is no standalone policy ARN to manage or leak into other roles.
+data "aws_iam_policy_document" "feedback" {
+  # users — session validation: resolveSession → getUserById reads the user
+  # row by PK (GetItem) ONLY. No Query: the feedback path never looks up users
+  # by email (getUserByEmail is auth-only), so users GSI1 is not granted.
+  statement {
+    actions = [
+      "dynamodb:GetItem",
+    ]
+    resources = [
+      var.users_table_arn,
+    ]
+  }
+
+  # sessions — resolveSession: getSession reads by PK (GetItem), the 30-day
+  # TTL slide writes lastAccessedAt/expiresAt (UpdateItem), and DeleteItem
+  # clears the expired/orphaned session row resolveSession deletes before it
+  # 401s. No Query: the feedback path never lists a user's devices.
+  statement {
+    actions = [
+      "dynamodb:GetItem",
+      "dynamodb:UpdateItem",
+      "dynamodb:DeleteItem",
+    ]
+    resources = [
+      var.sessions_table_arn,
+    ]
+  }
+
+  # rate limits — the durable monthly AI-mark quota (E2):
+  # incrementAiMarkCount is ONE conditional UpdateCommand on the bucket key
+  # (aimark:<userId>:<YYYY-MM>); getAiMarkCount (the GET quota-state read) is
+  # a GetItem on the same bucket.
+  statement {
+    actions = [
+      "dynamodb:GetItem",
+      "dynamodb:UpdateItem",
+    ]
+    resources = [
+      var.rate_limits_table_arn,
+    ]
+  }
+}
+
+resource "aws_iam_role_policy" "feedback" {
+  name   = "feedback"
+  role   = aws_iam_role.feedback.name
+  policy = data.aws_iam_policy_document.feedback.json
 }
 
 # --- Logs ---------------------------------------------------------------------
@@ -85,10 +165,11 @@ resource "aws_lambda_function" "feedback" {
     variables = var.environment
   }
 
-  # Ensure the role can write logs and the log group exists before the first
-  # invocation.
+  # Ensure the role can write logs, the data policy is attached, and the log
+  # group exists before the first invocation.
   depends_on = [
     aws_iam_role_policy_attachment.feedback_basic,
+    aws_iam_role_policy.feedback,
     aws_cloudwatch_log_group.feedback,
   ]
 }

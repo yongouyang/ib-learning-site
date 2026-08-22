@@ -13,6 +13,7 @@ import type {
   SessionRecord,
   UserRecord,
 } from './types';
+import { withTierDefault } from './types';
 
 // Production storage adapter: the auth handler's AuthStorage contract on the
 // Phase 0 DynamoDB tables (terraform/modules/dynamodb) —
@@ -56,7 +57,9 @@ export class DynamoSessionStorage {
     const res = await this.client.send(
       new GetCommand({ TableName: this.tables.users, Key: { userId } })
     );
-    return (res.Item as UserRecord | undefined) ?? null;
+    const item = (res.Item as UserRecord | undefined) ?? null;
+    // Phase E0: a missing tier attribute reads back as "free" — no migration.
+    return item ? withTierDefault(item) : null;
   }
 
   async getSession(sessionId: string): Promise<SessionRecord | null> {
@@ -108,7 +111,9 @@ export class DynamoAuthStorage implements AuthStorage {
         Limit: 1,
       })
     );
-    return (res.Items?.[0] as UserRecord | undefined) ?? null;
+    const item = (res.Items?.[0] as UserRecord | undefined) ?? null;
+    // Phase E0: a missing tier attribute reads back as "free" — no migration.
+    return item ? withTierDefault(item) : null;
   }
 
   getUserById(userId: string): Promise<UserRecord | null> {
@@ -160,7 +165,8 @@ export class DynamoAuthStorage implements AuthStorage {
         ReturnValues: 'ALL_NEW',
       })
     );
-    return (res.Attributes as UserRecord | undefined) ?? null;
+    const updated = (res.Attributes as UserRecord | undefined) ?? null;
+    return updated ? withTierDefault(updated) : null;
   }
 
   async deleteUser(userId: string): Promise<void> {

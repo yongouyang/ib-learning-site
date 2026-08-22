@@ -84,8 +84,13 @@ Never set `FEEDBACK_TEST_MODE` in production (the route logs a loud warning if i
 POST /api/feedback
 { stem, markscheme[], modelAnswer, studentAnswer, maxMarks }
 → 200 { marks, perPoint: [{ point, awarded, comment }], feedback }
-→ 400 invalid payload · 429 rate limited · 501 not configured · 502 provider failure
-GET  /api/feedback → { configured: boolean }
+→ 400 invalid payload · 401 { error: "login_required" } (E2 — session required)
+· 429 { error: "quota_exceeded", resetAt } (monthly quota spent) / rate limited
+· 501 not configured · 502 provider failure
+GET  /api/feedback → { configured: boolean }                       (anonymous)
+GET  /api/feedback → { configured, remaining, resetAt }            (with session — E2 quota state)
 ```
 
 `perPoint.length === markscheme.length` and `marks === count(awarded)` are enforced by the route — the LLM cannot inflate scores. Students can always override AI ticks in the UI; self-marking remains the source of truth for recorded marks.
+
+Phase E2 (entitlements): POST requires a session and charges a durable monthly quota — bucket `aimark:<userId>:<YYYY-MM>` in `octav-rate-limits`, 30 marks/calendar-month free tier, 1,000/month premium safety cap (checked BEFORE any LLM call, so an exhausted quota never spends money). Deps seam: `src/lib/feedback/deps.ts` (`FEEDBACK_STORAGE=dummy|dynamodb`, fail-closed in Lambda like the auth/progress deps; dummy joins the shared in-memory universe). Test-mode injection keys `_testAiMarkUsed` / `_testTier` (alongside `_testResponse`) are honored ONLY with `FEEDBACK_TEST_MODE=1` + dummy storage. The feedback Lambda's IAM gained users GetItem, sessions Get/Update/Delete, rate-limits Get/Update (terraform/modules/feedback_api).
