@@ -1,0 +1,100 @@
+{
+  "id": "math-dp-ai-set-2",
+  "courseId": "math-dp-ai",
+  "title": "Practice Set 2",
+  "durationMinutes": 35,
+  "questions": [
+    {
+      "id": "math-dp-ai-set-2-q1",
+      "stem": "The complex number $z$ is given by $z = (3 + 2i) + (1 - 5i)$. (a) Write $z$ in the form $a + bi$. (b) Find the modulus of $z$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: real and imaginary parts collected correctly, $z = 4 - 3i$",
+        "A1: $|z| = \\sqrt{4^{2} + (-3)^{2}} = 5$"
+      ],
+      "modelAnswer": "(a) Add real parts and imaginary parts separately: $z = (3 + 1) + (2 - 5)i = 4 - 3i$. (b) The modulus is $|z| = \\sqrt{4^{2} + (-3)^{2}} = \\sqrt{16 + 9} = \\sqrt{25} = 5$. This is a $3$-$4$-$5$ right-angled triangle in the complex plane.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-ai-set-2-q2",
+      "stem": "Let $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 2 & 0 \\\\ 1 & 5 \\end{pmatrix}$. Find the product $AB$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: row-by-column products set up, e.g. top-left $= 1 \\times 2 + 2 \\times 1$",
+        "A1: $AB = \\begin{pmatrix} 4 & 10 \\\\ 10 & 20 \\end{pmatrix}$"
+      ],
+      "modelAnswer": "Multiply each row of $A$ by each column of $B$: top-left $= 1 \\times 2 + 2 \\times 1 = 4$; top-right $= 1 \\times 0 + 2 \\times 5 = 10$; bottom-left $= 3 \\times 2 + 4 \\times 1 = 10$; bottom-right $= 3 \\times 0 + 4 \\times 5 = 20$. So $AB = \\begin{pmatrix} 4 & 10 \\\\ 10 & 20 \\end{pmatrix}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-ai-set-2-q3",
+      "stem": "Write down the exact value of (a) $\\tan 45^{\\circ}$ and (b) $\\sin 60^{\\circ}$.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $\\tan 45^{\\circ} = 1$",
+        "B1: $\\sin 60^{\\circ} = \\dfrac{\\sqrt{3}}{2}$"
+      ],
+      "modelAnswer": "From the exact-value results: (a) $\\tan 45^{\\circ} = 1$ (in an isosceles right-angled triangle the two shorter sides are equal, so opposite $\\div$ adjacent $= 1$). (b) $\\sin 60^{\\circ} = \\dfrac{\\sqrt{3}}{2}$, from half of an equilateral triangle of side $2$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-ai-set-2-q4",
+      "stem": "Show that the equation $2x^{2} - 4x + 3 = 0$ has no real roots.",
+      "marks": 2,
+      "markscheme": [
+        "M1: discriminant computed: $\\Delta = (-4)^{2} - 4(2)(3)$",
+        "A1: $\\Delta = -8 < 0$, hence no real roots"
+      ],
+      "modelAnswer": "The discriminant is $\\Delta = b^{2} - 4ac = (-4)^{2} - 4 \\times 2 \\times 3 = 16 - 24 = -8$. Since $\\Delta < 0$, the quadratic has no real roots (the graph of $y = 2x^{2} - 4x + 3$ never crosses the $x$-axis).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-ai-set-2-q5",
+      "stem": "A particle starts with initial velocity $u = 3$ m s$^{-1}$ and moves in a straight line with constant acceleration $a = 2$ m s$^{-2}$. (a) Find its velocity after $t = 5$ seconds. (b) Find the distance it travels in the first $5$ seconds.",
+      "marks": 3,
+      "markscheme": [
+        "M1: $v = u + at$ with correct substitution, $3 + 2 \\times 5$",
+        "A1: $v = 13$ m s$^{-1}$",
+        "A1: $s = ut + \\dfrac{1}{2}at^{2} = 15 + 25 = 40$ m"
+      ],
+      "modelAnswer": "(a) Using $v = u + at$: $v = 3 + 2 \\times 5 = 13$ m s$^{-1}$. (b) Using $s = ut + \\dfrac{1}{2}at^{2}$: $s = 3 \\times 5 + \\dfrac{1}{2} \\times 2 \\times 5^{2} = 15 + 25 = 40$ m.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-ai-set-2-q6",
+      "stem": "Find the coefficient of $x^{2}$ in the expansion of $(2 + x)^{4}$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: binomial structure used, e.g. the $x^{2}$ term is $\\binom{4}{2} 2^{2} x^{2}$ or Pascal's row $1, 4, 6, 4, 1$ applied",
+        "A1: the term is $6 \\times 4 \\times x^{2} = 24x^{2}$",
+        "A1: coefficient $= 24$"
+      ],
+      "modelAnswer": "In $(2 + x)^{4}$, the $x^{2}$ term comes from choosing $x$ from two brackets and $2$ from the other two. There are $\\binom{4}{2} = 6$ ways to do this, so the term is $6 \\times 2^{2} \\times x^{2} = 6 \\times 4x^{2} = 24x^{2}$. The coefficient of $x^{2}$ is $24$. (Full expansion check: $16 + 32x + 24x^{2} + 8x^{3} + x^{4}$.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-ai-set-2-q7",
+      "stem": "A study of $30$ commuters records $x$, the number of days per week they work from home, and $y$, their monthly fuel cost in ＄. The values of $x$ range from $0$ to $5$, and the product moment correlation coefficient is $r = -0.92$. (a) Describe the correlation. (b) Comment on the reliability of estimating the fuel cost for a commuter with $x = 3$. (c) Comment on using the model to predict the fuel cost for $x = 12$.",
+      "marks": 3,
+      "markscheme": [
+        "B1: strong negative correlation — more days working from home is associated with lower fuel costs",
+        "B1: $x = 3$ lies inside the observed range ($0$ to $5$), so interpolation gives a reliable estimate",
+        "B1: $x = 12$ lies outside the observed range, so extrapolation is unreliable (the trend cannot be trusted there)"
+      ],
+      "modelAnswer": "(a) Since $r = -0.92$ is close to $-1$, there is a strong negative correlation: commuters who work from home more days tend to have lower monthly fuel costs, as expected since they drive less. (b) $x = 3$ is within the data range of $0$ to $5$, so this is interpolation; with such a strong correlation the estimate is reasonably reliable. (c) $x = 12$ is far outside the observed range — indeed impossible, as a week has only $7$ days — so this is extrapolation; the linear trend cannot be trusted that far out and the prediction is unreliable.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-ai-set-2-q8",
+      "stem": "A small business models its weekly profit (in ＄) by the function $P(x) = -x^{2} + 8x - 12$, where $x$ is the price charged per item. Find the price that maximises the weekly profit, and the maximum profit.",
+      "marks": 3,
+      "markscheme": [
+        "M1: completes the square, $-(x - 4)^{2} + 4$, or differentiates, $P'(x) = -2x + 8 = 0$",
+        "A1: price $x = 4$ (＄)",
+        "A1: maximum profit $= 4$ (＄)"
+      ],
+      "modelAnswer": "Complete the square: $P(x) = -(x^{2} - 8x) - 12 = -(x - 4)^{2} + 16 - 12 = -(x - 4)^{2} + 4$. Since $-(x - 4)^{2} \\leq 0$, the maximum value is $4$, occurring when $x = 4$. Alternatively, $P'(x) = -2x + 8 = 0$ gives $x = 4$, and $P(4) = -16 + 32 - 12 = 4$. The maximum profit is ＄4, at a price of ＄4 per item.",
+      "difficulty": "hard"
+    }
+  ]
+}

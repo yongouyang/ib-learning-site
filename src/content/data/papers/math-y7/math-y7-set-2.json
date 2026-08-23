@@ -1,0 +1,100 @@
+{
+  "id": "math-y7-set-2",
+  "courseId": "math-y7",
+  "title": "Practice Set 2",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "math-y7-set-2-q1",
+      "stem": "Work out $-8 + 15 - 12$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: correct working with negatives, e.g. $-8 + 15 = 7$",
+        "A1: $-5$"
+      ],
+      "modelAnswer": "Work from left to right: $-8 + 15 = 7$ (the numbers have different signs, so subtract $8$ from $15$ and keep the sign of the larger). Then $7 - 12 = -5$. Answer: $-5$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y7-set-2-q2",
+      "stem": "Consider the numbers $12$ and $18$. (a) Find their highest common factor (HCF). (b) Find their lowest common multiple (LCM). (c) Are $12$ and $18$ coprime? Give a reason.",
+      "marks": 3,
+      "markscheme": [
+        "B1: HCF $= 6$",
+        "B1: LCM $= 36$",
+        "B1: not coprime, because they share a factor greater than $1$ (HCF is $6$)"
+      ],
+      "modelAnswer": "Factors of $12$: $1, 2, 3, 4, 6, 12$. Factors of $18$: $1, 2, 3, 6, 9, 18$. The largest factor they share is $6$, so HCF $= 6$. Multiples of $12$: $12, 24, 36, \\ldots$ Multiples of $18$: $18, 36, \\ldots$ The smallest multiple they share is $36$, so LCM $= 36$. Two numbers are coprime only when their HCF is $1$; since the HCF is $6$, $12$ and $18$ are not coprime.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y7-set-2-q3",
+      "stem": "(a) Work out $3.6 \\times 0.4$. (b) Work out $7.2 \\div 0.9$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: $36 \\times 4 = 144$ with the decimal point placed correctly",
+        "A1: (a) $1.44$",
+        "B1: (b) $7.2 \\div 0.9 = 8$"
+      ],
+      "modelAnswer": "(a) Ignore the decimals first: $36 \\times 4 = 144$. There are two decimal places in total (one in each number), so the answer is $1.44$. (b) Multiply both numbers by $10$ to make an easier division: $72 \\div 9 = 8$. Answers: $1.44$ and $8$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y7-set-2-q4",
+      "stem": "$a = 4$ and $b = -3$. Work out the value of $2a - b^2$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: correct substitution, $2(4) - (-3)^2$",
+        "A1: $-1$"
+      ],
+      "modelAnswer": "Substitute the values: $2a - b^2 = 2(4) - (-3)^2 = 8 - 9 = -1$. Note that $(-3)^2 = 9$, since squaring a negative number gives a positive result. Answer: $-1$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-set-2-q5",
+      "stem": "A bag contains $4$ red counters, $5$ blue counters and $1$ green counter. One counter is picked at random. Work out the probability that it is NOT blue.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $10$ counters in total and $5$ of them are not blue",
+        "A1: $\\dfrac{5}{10} = \\dfrac{1}{2}$"
+      ],
+      "modelAnswer": "There are $4 + 5 + 1 = 10$ counters in total. The counters that are not blue are the $4$ red and $1$ green, so $5$ favourable outcomes. Probability $= \\dfrac{5}{10} = \\dfrac{1}{2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-set-2-q6",
+      "stem": "The mean of the five numbers $3, 7, 8, 12$ and $x$ is $7$. Work out the value of $x$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: total of the five numbers $= 5 \\times 7 = 35$",
+        "A1: $3 + 7 + 8 + 12 = 30$",
+        "A1: $x = 5$"
+      ],
+      "modelAnswer": "If the mean of $5$ numbers is $7$, their total must be $5 \\times 7 = 35$. The four known numbers add to $3 + 7 + 8 + 12 = 30$. So $x = 35 - 30 = 5$. Check: $30 + 5 = 35$ and $35 \\div 5 = 7$ ✓",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-set-2-q7",
+      "stem": "Convert $2.4$ km into centimetres.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $2.4$ km $= 2400$ m (multiplying by $1000$)",
+        "A1: $240\\,000$ cm (multiplying by $100$ again)"
+      ],
+      "modelAnswer": "There are $1000$ m in $1$ km, so $2.4$ km $= 2.4 \\times 1000 = 2400$ m. There are $100$ cm in $1$ m, so $2400$ m $= 2400 \\times 100 = 240\\,000$ cm. Answer: $240\\,000$ cm.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y7-set-2-q8",
+      "stem": "Estimate the value of $\\dfrac{58.3 \\times 4.9}{2.1}$. Show clearly how you get your estimate.",
+      "marks": 3,
+      "markscheme": [
+        "M1: rounds each number to $1$ significant figure: $60$, $5$ and $2$",
+        "A1: $\\dfrac{60 \\times 5}{2}$",
+        "A1: $150$"
+      ],
+      "modelAnswer": "Round each number to $1$ significant figure: $58.3 \\approx 60$, $4.9 \\approx 5$ and $2.1 \\approx 2$. Then estimate $\\dfrac{60 \\times 5}{2} = \\dfrac{300}{2} = 150$. The estimate is $150$ (the exact value is about $136$, so this is a sensible overestimate).",
+      "difficulty": "hard"
+    }
+  ]
+}

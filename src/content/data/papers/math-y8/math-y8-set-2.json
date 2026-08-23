@@ -1,0 +1,100 @@
+{
+  "id": "math-y8-set-2",
+  "courseId": "math-y8",
+  "title": "Practice Set 2",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "math-y8-set-2-q1",
+      "stem": "A straight line has equation $y = 3x - 4$. State (a) the gradient of the line and (b) the $y$-intercept of the line.",
+      "marks": 2,
+      "markscheme": [
+        "B1: gradient $= 3$",
+        "B1: $y$-intercept $= -4$ (accept $(0, -4)$)"
+      ],
+      "modelAnswer": "The equation is in the form $y = mx + c$, where $m$ is the gradient and $c$ is the $y$-intercept. Comparing $y = 3x - 4$ with $y = mx + c$: the gradient is $3$ and the $y$-intercept is $-4$, so the line crosses the $y$-axis at $(0, -4)$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y8-set-2-q2",
+      "stem": "A circle has radius $5$ cm. Work out its circumference, leaving your answer in terms of $\\pi$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $C = 2\\pi r$ with $r = 5$ substituted",
+        "A1: $10\\pi$ cm (units required)"
+      ],
+      "modelAnswer": "Circumference $= 2\\pi r = 2 \\times \\pi \\times 5 = 10\\pi$. Answer: $10\\pi$ cm (about $31.4$ cm if evaluated).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y8-set-2-q3",
+      "stem": "The $n$th term of a sequence is $5n - 2$. Write down the first three terms of the sequence.",
+      "marks": 2,
+      "markscheme": [
+        "B1: first two terms correct: $3$ and $8$",
+        "B1: all three terms correct: $3, 8, 13$"
+      ],
+      "modelAnswer": "Substitute $n = 1, 2, 3$ into $5n - 2$: $5(1) - 2 = 3$, $5(2) - 2 = 8$ and $5(3) - 2 = 13$. The first three terms are $3, 8, 13$ (each term is $5$ more than the previous one, matching the common difference $5$).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y8-set-2-q4",
+      "stem": "A train travels $180$ km in $2$ hours. (a) Calculate its average speed in km/h. (b) Convert this speed into m/s.",
+      "marks": 3,
+      "markscheme": [
+        "M1: speed $=$ distance $\\div$ time, $180 \\div 2$",
+        "A1: $90$ km/h",
+        "A1: $25$ m/s (e.g. $90\\,000 \\div 3600$)"
+      ],
+      "modelAnswer": "(a) Average speed $= \\dfrac{180}{2} = 90$ km/h. (b) In $1$ hour the train covers $90\\,000$ m, and $1$ hour is $3600$ s, so the speed is $\\dfrac{90\\,000}{3600} = 25$ m/s. Answers: $90$ km/h and $25$ m/s.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y8-set-2-q5",
+      "stem": "The table shows the scores of $10$ students in a quiz. Score $1$: frequency $3$; score $2$: frequency $4$; score $3$: frequency $2$; score $4$: frequency $1$. Calculate the mean score.",
+      "marks": 3,
+      "markscheme": [
+        "M1: total of all scores $= (1 \\times 3) + (2 \\times 4) + (3 \\times 2) + (4 \\times 1) = 21$",
+        "M1: divides by the total frequency, $10$",
+        "A1: mean $= 2.1$"
+      ],
+      "modelAnswer": "Multiply each score by its frequency: $1 \\times 3 = 3$, $2 \\times 4 = 8$, $3 \\times 2 = 6$ and $4 \\times 1 = 4$. The total of all scores is $3 + 8 + 6 + 4 = 21$. Divide by the number of students: $\\dfrac{21}{10} = 2.1$. The mean score is $2.1$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y8-set-2-q6",
+      "stem": "Rectangle A measures $6$ cm by $4$ cm. Rectangle B is mathematically similar to rectangle A, and its shorter side is $10$ cm. Work out the length of the longer side of rectangle B.",
+      "marks": 3,
+      "markscheme": [
+        "M1: scale factor $= 10 \\div 4 = 2.5$",
+        "A1: $6 \\times 2.5$",
+        "A1: $15$ cm (units required)"
+      ],
+      "modelAnswer": "Similar shapes have corresponding sides in the same ratio. The shorter sides correspond: scale factor $= \\dfrac{10}{4} = 2.5$. So the longer side of rectangle B is $6 \\times 2.5 = 15$ cm. Check: $\\dfrac{10}{4} = \\dfrac{15}{6} = 2.5$ ✓",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y8-set-2-q7",
+      "stem": "Work out $(3 \\times 10^{4}) \\times (2 \\times 10^{5})$, giving your answer in standard form.",
+      "marks": 2,
+      "markscheme": [
+        "M1: multiplies the numbers and adds the powers of ten: $6 \\times 10^{4+5}$",
+        "A1: $6 \\times 10^{9}$"
+      ],
+      "modelAnswer": "Multiply the number parts and the powers of ten separately: $(3 \\times 2) \\times (10^{4} \\times 10^{5}) = 6 \\times 10^{4+5} = 6 \\times 10^{9}$. Since $6$ lies between $1$ and $10$, this is already in standard form.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y8-set-2-q8",
+      "stem": "A semicircle has radius $4$ cm. (a) Work out the length of its curved edge. (b) Work out its area. Leave both answers in terms of $\\pi$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: curved edge $=$ half a circumference, $\\dfrac{2 \\times \\pi \\times 4}{2}$ or $\\pi \\times 4$",
+        "A1: (a) $4\\pi$ cm",
+        "A1: (b) area $= \\dfrac{\\pi \\times 4^{2}}{2} = 8\\pi$ cm$^{2}$"
+      ],
+      "modelAnswer": "(a) The curved edge is half the circumference of the full circle: $\\dfrac{2\\pi r}{2} = \\pi r = 4\\pi$ cm. (b) The area is half the area of the full circle: $\\dfrac{\\pi r^{2}}{2} = \\dfrac{\\pi \\times 16}{2} = 8\\pi$ cm$^{2}$. Answers: $4\\pi$ cm and $8\\pi$ cm$^{2}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

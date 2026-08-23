@@ -9,8 +9,16 @@ test.describe('Practice papers', () => {
     await expect(setLink).toBeVisible();
     await expect(setLink.getByText(/30 min · 8 questions · 20 marks/)).toBeVisible();
     await expect(setLink.getByText('Not attempted')).toBeVisible();
-    // All 8 courses now have a set.
-    await expect(page.locator('a[href^="/papers/"]')).toHaveCount(8);
+    // All 8 courses have two sets — set 1 free, set 2 behind the premium lock
+    // (Phase E3): 16 set rows in the DOM.
+    await expect(page.locator('a[href^="/papers/"]')).toHaveCount(16);
+
+    // Set 2 renders as a locked row for anonymous visitors: the preview links
+    // exist in the DOM (one per course) but are inert/aria-hidden, so they are
+    // NOT accessible links, and each course gets a premium tease card.
+    await expect(page.locator('a[href$="-set-2"]')).toHaveCount(8);
+    await expect(page.getByRole('link', { name: /Practice Set 2/ })).toHaveCount(0);
+    await expect(page.getByRole('link', { name: 'See Premium plans' })).toHaveCount(8);
   });
 
   test('a full two-phase run records the result', async ({ page }) => {
