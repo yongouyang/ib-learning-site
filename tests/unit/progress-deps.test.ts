@@ -2,11 +2,19 @@ import { describe, it, expect } from 'vitest';
 import { getProgressDeps, getSharedDummyUniverse } from '@/lib/progress/deps';
 import { DynamoProgressStorage } from '@/lib/progress/dynamodb-storage';
 import { InMemoryProgressStorage } from '@/lib/progress/dummy';
+import { InMemoryLeaderboardStorage } from '@/lib/leaderboard/dummy';
+import { DynamoLeaderboardStorage } from '@/lib/leaderboard/dynamodb-storage';
 
 describe('getProgressDeps', () => {
   it('defaults to the shared dummy universe', () => {
     const deps = getProgressDeps({});
     expect(deps.storage).toBeInstanceOf(InMemoryProgressStorage);
+  });
+
+  it('dummy wiring passes the SAME universe as leaderboardStorage (D4)', () => {
+    const deps = getProgressDeps({});
+    expect(deps.leaderboardStorage).toBeInstanceOf(InMemoryLeaderboardStorage);
+    expect(deps.leaderboardStorage).toBe(deps.storage);
   });
 
   it('getSharedDummyUniverse returns the SAME instance across calls', () => {
@@ -26,6 +34,20 @@ describe('getProgressDeps', () => {
       AUTH_RATE_LIMITS_TABLE: 'r',
     });
     expect(deps.storage).toBeInstanceOf(DynamoProgressStorage);
+    // D4: LEADERBOARD_TABLE absent → awarding disabled (terraform lands in D7).
+    expect(deps.leaderboardStorage).toBeUndefined();
+  });
+
+  it('wires DynamoLeaderboardStorage when LEADERBOARD_TABLE is set (D4)', () => {
+    const deps = getProgressDeps({
+      PROGRESS_STORAGE: 'dynamodb',
+      AUTH_USERS_TABLE: 'u',
+      AUTH_SESSIONS_TABLE: 's',
+      AUTH_PROGRESS_TABLE: 'p',
+      AUTH_RATE_LIMITS_TABLE: 'r',
+      LEADERBOARD_TABLE: 'octav-leaderboard',
+    });
+    expect(deps.leaderboardStorage).toBeInstanceOf(DynamoLeaderboardStorage);
   });
 
   it('throws on a missing table name, mentioning the missing name', () => {

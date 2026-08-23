@@ -12,9 +12,9 @@ import type {
   ExamAttemptItem,
 } from '@/lib/progress/types';
 
-// Rule 2 (the key test): the in-memory dummy must produce the SAME boolean
-// outcomes and the SAME persisted state as the DynamoDB adapter for an
-// identical operation sequence. The simulated DocumentClient below is an
+// Rule 2 (the key test): the in-memory dummy must produce the SAME outcomes
+// (attempt booleans, D4 write-signal objects, bucket amounts) and the SAME
+// persisted state as the DynamoDB adapter for an identical operation sequence. The simulated DocumentClient below is an
 // INDEPENDENT re-implementation of DynamoDB's conditional semantics (it never
 // calls the adapter) — items are keyed by (userId, dataType) and each
 // condition is evaluated directly. If the dummy's mirror ever drifts from the
@@ -53,19 +53,42 @@ function simulatedDdb() {
 
       // Flashcards: attribute_not_exists(lastReviewed) OR lastReviewed <= :ts.
       // (A missing item satisfies attribute_not_exists(lastReviewed).)
+      // ReturnValues ALL_OLD (D4): the PRE-put item comes back with the write.
       const ts = input.ExpressionAttributeValues[':ts'] as string;
       const existing = items.get(k);
       if (existing && (existing.lastReviewed as string) > ts) fail();
       items.set(k, { ...item });
-      return {};
+      return { Attributes: existing };
     }
 
     if (cmd.constructor.name === 'UpdateCommand') {
-      // Sync-budget bucket (octav-rate-limits): keyed by bucket, not
-      // userId/dataType — fixed-window counter, `attribute_not_exists(#c) OR
-      // #c < :limit`.
+      // Rate-limits buckets (octav-rate-limits): keyed by bucket, not
+      // userId/dataType.
       if (input.Key.bucket !== undefined) {
         const bucket = input.Key.bucket as string;
+
+        if ((input.UpdateExpression as string).startsWith('ADD #c :delta')) {
+          // D4 xpday: daily-cap bucket — `attribute_not_exists(#c) OR #c < :cap`,
+          // ReturnValues ALL_NEW. The FULL delta commits while under the cap
+          // (the bucket may overshoot by one delta).
+          const cap = input.ExpressionAttributeValues[':cap'] as number;
+          const delta = input.ExpressionAttributeValues[':delta'] as number;
+          const count = buckets.get(bucket) ?? 0;
+          if (count >= cap) fail();
+          const newCount = count + delta;
+          buckets.set(bucket, newCount);
+          return { Attributes: { bucket, count: newCount } };
+        }
+
+        if ((input.UpdateExpression as string).startsWith('ADD #c :one')) {
+          // D4 xp-topic: repeat ordinal — unconditional ADD 1, ALL_NEW.
+          const newCount = (buckets.get(bucket) ?? 0) + 1;
+          buckets.set(bucket, newCount);
+          return { Attributes: { bucket, count: newCount } };
+        }
+
+        // Sync-budget bucket: fixed-window counter, `attribute_not_exists(#c)
+        // OR #c < :limit`.
         const limit = input.ExpressionAttributeValues[':limit'] as number;
         const count = buckets.get(bucket) ?? 0;
         if (count >= limit) fail();
@@ -77,23 +100,24 @@ function simulatedDdb() {
 
       if ((input.UpdateExpression as string).startsWith('SET #lvls.#lvl')) {
         // Ladder: attribute_not_exists(levels.#lvl) OR levels.#lvl.bestScore < :score.
+        // ReturnValues ALL_OLD (D4): the PRE-update item comes back with the write.
         const lvl = input.ExpressionAttributeNames['#lvl'] as string;
         const val = input.ExpressionAttributeValues[':val'];
         const score = input.ExpressionAttributeValues[':score'] as number;
-        const existing = items.get(k) ?? {};
-        const levels = { ...((existing.levels as Record<string, unknown>) ?? {}) };
+        const before = items.get(k);
+        const levels = { ...((before?.levels as Record<string, unknown>) ?? {}) };
         const stored = levels[lvl] as { bestScore: number } | undefined;
         if (stored && stored.bestScore >= score) fail();
         levels[lvl] = val;
         items.set(k, {
-          ...existing,
+          ...(before ?? {}),
           userId: input.Key.userId,
           dataType: input.Key.dataType,
           levels,
           profileId: input.ExpressionAttributeValues[':pid'],
           courseId: input.ExpressionAttributeValues[':cid'],
         });
-        return {};
+        return { Attributes: before };
       }
 
       if ((input.UpdateExpression as string).startsWith('SET migrationCompletedAt')) {
@@ -168,7 +192,11 @@ function simulatedDdb() {
     throw new Error(`unexpected command: ${cmd.constructor.name}`);
   };
 
-  return { send, get queryCount() { return queryCount; } } as unknown as DynamoDBDocumentClient & { queryCount: number };
+  return {
+    send,
+    buckets,
+    get queryCount() { return queryCount; },
+  } as unknown as DynamoDBDocumentClient & { queryCount: number; buckets: Map<string, number> };
 }
 
 // --- Item factories -----------------------------------------------------------
@@ -240,8 +268,8 @@ function meta(overrides: Partial<ProgressMetaItem> = {}): ProgressMetaItem {
 
 // --- One operation sequence, driven against either storage --------------------
 
-async function runSequence(storage: ProgressStorage): Promise<{ results: boolean[]; state: ProgressItem[] }> {
-  const results: boolean[] = [];
+async function runSequence(storage: ProgressStorage): Promise<{ results: unknown[]; state: ProgressItem[] }> {
+  const results: unknown[] = [];
 
   // (a) attempt puts incl. duplicate replay.
   results.push(await storage.putTopicAttempt(topicAttempt('a1')));
@@ -293,7 +321,8 @@ describe('dummy ↔ DynamoDB progress parity (rule 2)', () => {
       )
     );
 
-    // Core parity: every conditional outcome matches.
+    // Core parity: every conditional outcome matches (attempt booleans and
+    // the D4 write-signal objects alike).
     expect(dummy.results).toEqual(ddb.results);
 
     // The simulated table pages every 2 items — the adapter MUST have looped
@@ -370,5 +399,75 @@ describe('sync-budget parity (dummy ↔ simulated DDB)', () => {
 
     expect(dummyResults).toEqual(ddbResults);
     expect(dummyResults).toEqual([true, true, true, false, true, true]);
+  });
+});
+
+describe('XP bucket parity (dummy ↔ simulated DDB) — D4', () => {
+  const TABLES = { users: 'u', sessions: 's', progress: 'p', rateLimits: 'rl' };
+  const sessionSubset = {
+    getSession: async () => null,
+    getUserById: async () => null,
+    updateSession: async () => {},
+    deleteSession: async () => {},
+  };
+
+  function makePair() {
+    const clock = () => Date.parse('2026-08-15T10:00:00Z');
+    const sim = simulatedDdb();
+    return {
+      dummy: new InMemoryProgressStorage(clock),
+      ddb: new DynamoProgressStorage(sim, TABLES, sessionSubset, clock),
+      sim,
+    };
+  }
+
+  it('incrementXpDayBucket: identical awarded amounts — boundary clamp, overshoot, at-cap failure, next-day reset', async () => {
+    const { dummy, ddb, sim } = makePair();
+    const dummyResults: number[] = [];
+    const ddbResults: number[] = [];
+    const step = async (storage: ProgressStorage, out: number[], delta: number, date = '2026-08-15') =>
+      out.push(await storage.incrementXpDayBucket(PROFILE_ID, date, delta, 500));
+
+    // 400 so far + 150 delta → 100 awarded; the bucket commits the FULL 150
+    // (documented overshoot to 550 — plan §4.1).
+    await step(dummy, dummyResults, 400);
+    await step(ddb, ddbResults, 400);
+    await step(dummy, dummyResults, 150);
+    await step(ddb, ddbResults, 150);
+    // At/over the cap → condition failure → 0 awarded (bucket keeps counting).
+    await step(dummy, dummyResults, 10);
+    await step(ddb, ddbResults, 10);
+
+    expect(dummyResults).toEqual(ddbResults);
+    expect(dummyResults).toEqual([400, 100, 0]);
+    expect(sim.buckets.get('xpday:p1:2026-08-15')).toBe(550); // overshoot committed
+
+    // A new UTC day is a fresh bucket (the date is IN the key).
+    await step(dummy, dummyResults, 10, '2026-08-16');
+    await step(ddb, ddbResults, 10, '2026-08-16');
+    expect(dummyResults).toEqual(ddbResults);
+    expect(dummyResults[3]).toBe(10);
+  });
+
+  it('incrementXpDayBucket: bucket isolation per profile', async () => {
+    const { dummy, ddb } = makePair();
+    for (const storage of [dummy, ddb]) {
+      expect(await storage.incrementXpDayBucket('p1', '2026-08-15', 500, 500)).toBe(500);
+      expect(await storage.incrementXpDayBucket('p1', '2026-08-15', 1, 500)).toBe(0); // p1 at cap
+      expect(await storage.incrementXpDayBucket('p2', '2026-08-15', 1, 500)).toBe(1); // p2 unaffected
+    }
+  });
+
+  it('incrementXpTopicBucket: identical 1-based ordinals, isolated per profile/topic/week', async () => {
+    const { dummy, ddb, sim } = makePair();
+    for (const storage of [dummy, ddb]) {
+      expect(await storage.incrementXpTopicBucket('p1', 'algebra', '2026-W33')).toBe(1);
+      expect(await storage.incrementXpTopicBucket('p1', 'algebra', '2026-W33')).toBe(2);
+      expect(await storage.incrementXpTopicBucket('p1', 'algebra', '2026-W33')).toBe(3);
+      expect(await storage.incrementXpTopicBucket('p2', 'algebra', '2026-W33')).toBe(1); // other profile
+      expect(await storage.incrementXpTopicBucket('p1', 'geometry', '2026-W33')).toBe(1); // other topic
+      expect(await storage.incrementXpTopicBucket('p1', 'algebra', '2026-W34')).toBe(1); // other week
+    }
+    expect(sim.buckets.get('xp-topic:p1:algebra:2026-W33')).toBe(3);
   });
 });

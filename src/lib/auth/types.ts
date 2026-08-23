@@ -44,6 +44,14 @@ export interface ChildProfile {
   profileId: string;
   displayName: string;
   stage: Stage;
+  // Phase D (docs/leaderboard-plan.md §5): per-profile leaderboard opt-in.
+  // Absent = not opted in (no migration needed for pre-D3 user rows). The
+  // accountUpdateSchema write path + UI land in D5; the D3 read handler
+  // reports leaderboardOptIn ?? false. The handle is normally derived
+  // deterministically from the profileId (leaderboard/handles.ts); a stored
+  // leaderboardHandle exists only for the one allowed change.
+  leaderboardOptIn?: boolean;
+  leaderboardHandle?: string;
 }
 
 export interface UserRecord {

@@ -1,7 +1,9 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { DynamoSessionStorage } from '../auth/dynamodb-storage';
-import { InMemoryFeedbackStorage } from '../feedback/dummy';
+import { InMemoryLeaderboardStorage } from '../leaderboard/dummy';
+import { DynamoLeaderboardStorage } from '../leaderboard/dynamodb-storage';
+import type { LeaderboardStorage } from '../leaderboard/types';
 import { DynamoProgressStorage } from './dynamodb-storage';
 import type { ProgressStorage } from './types';
 
@@ -15,20 +17,34 @@ import type { ProgressStorage } from './types';
 
 export interface ProgressDeps {
   storage: ProgressStorage;
+  /**
+   * Phase D4 (docs/leaderboard-plan.md §6): XP accrual target inside the sync
+   * handler. Undefined = awarding DISABLED (DynamoDB wiring without a
+   * LEADERBOARD_TABLE env — the terraform env lands in D7). Opted-out
+   * profiles skip all bucket/leaderboard writes regardless.
+   */
+  leaderboardStorage?: LeaderboardStorage;
+  /**
+   * Clock (epoch ms) for the D4 week/day attribution — XP always credits the
+   * CURRENT week on the SERVER clock at sync time (plan §4.1), never the
+   * client event date. Defaults to Date.now; unit tests inject a frozen clock.
+   */
+  clock?: () => number;
 }
 
 // ONE in-memory universe shared with the AUTH deps (auth routes write
 // sessions into it; progress routes read them back) — the dev/e2e stand-in
-// for the shared DynamoDB tables. It is constructed as the FEEDBACK dummy
-// (which extends analytics, which extends this class) so the Phase A
-// analytics handler AND the Phase E2 feedback handler share the SAME universe
-// too: a dummy-OTP login resolves for /api/analytics/summary AND
-// /api/feedback in dev/e2e. Unit tests never call getProgressDeps; they
-// construct fresh dummies directly.
-let sharedUniverse: InMemoryFeedbackStorage | null = null;
+// for the shared DynamoDB tables. It is constructed as the LEADERBOARD dummy
+// (which extends feedback → analytics → progress → auth) so the Phase A
+// analytics handler, the Phase E2 feedback handler AND the Phase D
+// leaderboard handler share the SAME universe too: a dummy-OTP login resolves
+// for /api/analytics/summary, /api/feedback AND /api/leaderboard in dev/e2e.
+// Unit tests never call getProgressDeps; they construct fresh dummies
+// directly.
+let sharedUniverse: InMemoryLeaderboardStorage | null = null;
 
-export function getSharedDummyUniverse(): InMemoryFeedbackStorage {
-  if (!sharedUniverse) sharedUniverse = new InMemoryFeedbackStorage();
+export function getSharedDummyUniverse(): InMemoryLeaderboardStorage {
+  if (!sharedUniverse) sharedUniverse = new InMemoryLeaderboardStorage();
   return sharedUniverse;
 }
 
@@ -59,7 +75,10 @@ export function getProgressDeps(env: Record<string, string | undefined> = proces
   }
 
   if (kind === 'dummy') {
-    return { storage: getSharedDummyUniverse() };
+    // The shared universe IS an InMemoryLeaderboardStorage — the D4 award hook
+    // writes leaderboard rows into the same universe the sync writes progress.
+    const universe = getSharedDummyUniverse();
+    return { storage: universe, leaderboardStorage: universe };
   }
   if (kind === 'dynamodb') {
     const documentClient = DynamoDBDocumentClient.from(
@@ -75,17 +94,24 @@ export function getProgressDeps(env: Record<string, string | undefined> = proces
       users: requiredEnv(env, 'AUTH_USERS_TABLE'),
       sessions: requiredEnv(env, 'AUTH_SESSIONS_TABLE'),
     });
+    const tables = {
+      users: requiredEnv(env, 'AUTH_USERS_TABLE'),
+      sessions: requiredEnv(env, 'AUTH_SESSIONS_TABLE'),
+      progress: requiredEnv(env, 'AUTH_PROGRESS_TABLE'),
+      rateLimits: requiredEnv(env, 'AUTH_RATE_LIMITS_TABLE'),
+    };
+    // D4: LEADERBOARD_TABLE is OPTIONAL until the terraform wiring lands (D7)
+    // — absent = XP awarding disabled, sync unaffected.
+    const leaderboardTable = env.LEADERBOARD_TABLE;
     return {
-      storage: new DynamoProgressStorage(
-        documentClient,
-        {
-          users: requiredEnv(env, 'AUTH_USERS_TABLE'),
-          sessions: requiredEnv(env, 'AUTH_SESSIONS_TABLE'),
-          progress: requiredEnv(env, 'AUTH_PROGRESS_TABLE'),
-          rateLimits: requiredEnv(env, 'AUTH_RATE_LIMITS_TABLE'),
-        },
-        sessionStore
-      ),
+      storage: new DynamoProgressStorage(documentClient, tables, sessionStore),
+      leaderboardStorage: leaderboardTable
+        ? new DynamoLeaderboardStorage(
+            documentClient,
+            { users: tables.users, sessions: tables.sessions, leaderboard: leaderboardTable },
+            sessionStore
+          )
+        : undefined,
     };
   }
   throw new Error(`[progress] PROGRESS_STORAGE must be "dummy" or "dynamodb" (got "${kind}")`);
