@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-23 — Leaderboard (Phase D) design doc — what/how + Duolingo recipe
+Git HEAD: `ded271a` (develop, tree dirty: new doc uncommitted)
+Done: wrote `docs/leaderboard-plan.md` — the Phase D design (supersedes architecture-evolution-plan §4 sketch). Research pass on Duolingo leagues + leaderboard literature (weekly small-cohort XP contests, relative-vs-absolute board evidence, demotivation/anxiety findings) distilled into §2; design locked around: weekly XP ranked server-side from ACCEPTED sync writes only (cheat-resistant, idempotent — no new write endpoint), stage-scope default board + top-100 + caller neighbourhood view, opt-in per child profile with deterministic adjective-animal handles, daily 500 XP cap + diminishing repeats, free-with-login never-premium (policy), minors' privacy table (COPPA/GDPR-K opt-in, erasure GSI). Infra: new `octav-leaderboard` table (PK scopeWeek / SK profileId + user-index GSI), fifth read-only leaderboard Lambda, XP accrual hook in progress `applyEvent`. Build sequence D1–D8 with done-criteria; leagues/cohorts/subjects boards explicitly deferred behind a density gate (~120 weekly opt-ins per stage); 2 new analytics events defined.
+Verified: docs-only — no gates run (no code changed).
+Next: user review of the plan's open questions (§12: XP weights, daily cap, global board in MVP, last-week retention) → then D1. Standing queue unchanged: CI smoke tighten, topic ordering, SES re-appeal, E4 Stripe.
+Notes: key delta vs the old §4 sketch — no EventBridge reset job (week key derived at read/write + TTL), leaderboard Lambda is READ-only (writes ride the existing sync path's idempotency), per-subject/course boards deferred (density), and promotion/demotion leagues deferred until cohort density exists.
+
+---
+
 ## 2026-08-23 — /login return-URL (?next=) + fullwidth-＄ currency fix (garbled \$ content)
 Git HEAD: `008b46b` (develop, tree dirty: this change uncommitted)
 Done: (1) Return-URL: new `src/lib/safe-redirect.ts` (`sanitizeReturnPath` open-redirect guard: same-site paths only, rejects `//`, `\`, control chars, /login; `loginHref` builder). `/login` reads `?next=` and redirects there after verify + when already signed in (client moved to `src/app/login/login-client.tsx` behind `<Suspense>` for static export). Prompts now carry the return path: header `AccountButton` (usePathname), PaperRunnerClient AI-marking sign-in prompt, `/admin/analytics` both prompts. (2) Content: KaTeX `\$` currency garbles via renderInlineMath's `$...$` splitter (mis-paired delimiters math-ify prose); replaced with fullwidth ＄ across 9 math topics (money-finance full rewrite; equations, yr8-sequences, negative-numbers, explog, dp-sequences, descriptive-statistics, probability, ratio-myp). New `escaped_dollar` audit warning (`findEscapedDollarIssues`) + unit tests; AGENTS.md convention updated (currency = ＄ even in math).
