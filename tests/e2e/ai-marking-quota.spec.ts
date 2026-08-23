@@ -43,11 +43,32 @@ test.describe('AI marking gate + quota (E2)', () => {
     await expect(page.getByRole('button', { name: /Mark with AI/i })).toHaveCount(0);
     const prompt = page.getByRole('link', { name: /Sign in to use AI marking — 30 free marks\/month/i });
     await expect(prompt).toBeVisible();
-    await expect(prompt).toHaveAttribute('href', '/login');
+    // Return-URL: the prompt carries the current paper as ?next= so the user
+    // lands back here after signing in.
+    await expect(prompt).toHaveAttribute('href', '/login?next=%2Fpapers%2Fmath-y7%2Fmath-y7-set-1');
 
     // Self-marking stays available in every state.
     await page.locator('button[aria-pressed="false"]').first().click();
     await expect(page.getByRole('button', { name: /Next Question \(1\/2 marks\)/ })).toBeVisible();
+  });
+
+  test('logged out: signing in from the AI prompt returns to the same paper', async ({ page }) => {
+    await answerFirstQuestionAndEnterReview(page);
+
+    await page.getByRole('link', { name: /Sign in to use AI marking — 30 free marks\/month/i }).click();
+    await expect(page).toHaveURL(/\/login\?next=%2Fpapers%2Fmath-y7%2Fmath-y7-set-1/);
+
+    await page.getByLabel('Email').fill(uniqueEmail());
+    await page.getByRole('button', { name: 'Send sign-in code' }).click();
+    await expect(page.getByText(/Enter the 6-digit code/)).toBeVisible();
+    await page.getByLabel('6-digit code').fill('123456');
+    await page.getByRole('button', { name: 'Verify code' }).click();
+
+    // Back on the SAME paper (not `/`). The runner restarts in its answering
+    // phase (review state is component-local), so assert the answering UI —
+    // the point is the return-URL, proven by the URL + a usable runner.
+    await expect(page).toHaveURL('/papers/math-y7/math-y7-set-1');
+    await expect(page.getByLabel(/Your answer/i)).toBeVisible();
   });
 
   test('logged in: quota decrements after a successful mark', async ({ page }) => {

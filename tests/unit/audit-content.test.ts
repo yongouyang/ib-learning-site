@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   auditContent,
   findBoldIssues,
+  findEscapedDollarIssues,
   findLatexIssues,
   type AuditTopic,
 } from "../../scripts/audit-content";
@@ -465,5 +466,68 @@ describe("auditContent unbalanced_bold rule", () => {
     });
     const result = auditContent({ topics: [topic] });
     expect(result.issues.filter((i) => i.type === "unbalanced_bold")).toHaveLength(0);
+  });
+});
+
+describe("findEscapedDollarIssues", () => {
+  it("accepts plain text and fullwidth ＄ currency", () => {
+    expect(findEscapedDollarIssues("A pen costs ＄2.45.")).toHaveLength(0);
+    expect(findEscapedDollarIssues("No money here, just $x+1$ math.")).toHaveLength(0);
+  });
+
+  it("flags a KaTeX-escaped dollar", () => {
+    const issues = findEscapedDollarIssues("A pen costs $\\$2.45$.");
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toContain("fullwidth ＄");
+  });
+
+  it("counts multiple escaped dollars in one message", () => {
+    const issues = findEscapedDollarIssues("$\\$2.45$ and $\\$3.85$");
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toContain("2 escaped dollar(s)");
+  });
+});
+
+describe("auditContent escaped_dollar rule", () => {
+  it("warns on an escaped dollar in a question stem", () => {
+    const topic = makeTopic({
+      id: "dollar-topic",
+      subjectId: "math",
+      questions: [
+        {
+          id: "dollar-topic-q1",
+          stem: "A pen costs $\\$2.45$. What is it?",
+          choices: ["A", "B", "C", "D"],
+          correctIndex: 0,
+          explanation: "This is a sufficiently long explanation for the dollar question.",
+          difficulty: "easy",
+        },
+      ],
+    });
+    const result = auditContent({ topics: [topic] });
+    const issues = result.issues.filter((i) => i.type === "escaped_dollar");
+    expect(issues).toHaveLength(1);
+    expect(issues[0].severity).toBe("warning");
+    expect(issues[0].location).toContain("dollar-topic/questions[0].stem");
+  });
+
+  it("accepts fullwidth ＄ currency in any text field", () => {
+    const topic = makeTopic({
+      id: "dollar-ok",
+      subjectId: "math",
+      notes: [{ id: "dollar-ok-n1", heading: "Note 1", body: "It costs ＄12.45 in total." }],
+      questions: [
+        {
+          id: "dollar-ok-q1",
+          stem: "A pen costs ＄2.45 and a book ＄3.85. Total?",
+          choices: ["＄5.30", "＄6.30", "＄5.40", "＄6.40"],
+          correctIndex: 1,
+          explanation: "Add the two prices: ＄2.45 + ＄3.85 = ＄6.30.",
+          difficulty: "easy",
+        },
+      ],
+    });
+    const result = auditContent({ topics: [topic] });
+    expect(result.issues.filter((i) => i.type === "escaped_dollar")).toHaveLength(0);
   });
 });

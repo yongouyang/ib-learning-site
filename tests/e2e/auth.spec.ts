@@ -30,6 +30,47 @@ test.describe('auth', () => {
     await expect(page.locator('header').getByRole('button', { name: 'Me', exact: true })).toBeVisible();
   });
 
+  test('a signed-in visitor hitting /login?next= is sent straight to next', async ({ page }) => {
+    await signIn(page, uniqueEmail()); // lands on /
+    await page.goto('/login?next=%2Fpricing');
+    await expect(page).toHaveURL('/pricing');
+  });
+
+  test('?next= returns the user to the calling page after sign-in', async ({ page }) => {
+    await page.goto('/login?next=%2Fpricing');
+    await page.getByLabel('Email').fill(uniqueEmail());
+    await page.getByRole('button', { name: 'Send sign-in code' }).click();
+    await expect(page.getByText(/Enter the 6-digit code/)).toBeVisible();
+    await page.getByLabel('6-digit code').fill('123456');
+    await page.getByRole('button', { name: 'Verify code' }).click();
+    await expect(page).toHaveURL('/pricing');
+  });
+
+  test('unsafe ?next= values fall back to the home page', async ({ page }) => {
+    // Protocol-relative open-redirect attempt must be rejected.
+    await page.goto('/login?next=%2F%2Fevil.example%2Fphish');
+    await page.getByLabel('Email').fill(uniqueEmail());
+    await page.getByRole('button', { name: 'Send sign-in code' }).click();
+    await expect(page.getByText(/Enter the 6-digit code/)).toBeVisible();
+    await page.getByLabel('6-digit code').fill('123456');
+    await page.getByRole('button', { name: 'Verify code' }).click();
+    await expect(page).toHaveURL('/');
+  });
+
+  test('header sign-in link carries the current page as next', async ({ page, isMobile }) => {
+    test.skip(isMobile, 'desktop header flow');
+    await page.goto('/pricing');
+    await page.locator('header').getByRole('link', { name: 'Sign in' }).click();
+    await expect(page).toHaveURL(/\/login\?next=%2Fpricing/);
+
+    await page.getByLabel('Email').fill(uniqueEmail());
+    await page.getByRole('button', { name: 'Send sign-in code' }).click();
+    await expect(page.getByText(/Enter the 6-digit code/)).toBeVisible();
+    await page.getByLabel('6-digit code').fill('123456');
+    await page.getByRole('button', { name: 'Verify code' }).click();
+    await expect(page).toHaveURL('/pricing');
+  });
+
   test('wrong code shows an error and stays on the code step', async ({ page }) => {
     await page.goto('/login');
     await page.getByLabel('Email').fill(uniqueEmail());

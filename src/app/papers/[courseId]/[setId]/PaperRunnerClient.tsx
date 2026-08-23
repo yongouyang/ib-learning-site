@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, RotateCcw, CheckSquare, Square, Sparkles } from 'lucide-react';
 import type { FreeResponseQuestion, Paper } from '@/content/types';
@@ -10,6 +11,7 @@ import { useAuth } from '@/context/AuthContext';
 import { useEntitlements } from '@/context/EntitlementsContext';
 import { AI_MARK_FREE_MONTHLY_QUOTA } from '@/lib/entitlements/features';
 import { isFreePaperSet } from '@/lib/entitlements/exam-access';
+import { loginHref } from '@/lib/safe-redirect';
 import { getCourse } from '@/lib/courses';
 import { orderQuestionsByDifficulty } from '@/lib/quiz-utils';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -57,6 +59,9 @@ function PaperRunner({ paper }: PaperRunnerClientProps) {
   const { recordExam } = useProgress();
   const { user, loaded: authLoaded } = useAuth();
   const { has } = useEntitlements();
+  // Return-URL for the AI-marking sign-in prompt — after signing in the user
+  // lands back on THIS paper, not at `/`.
+  const pathname = usePathname();
 
   // Easy -> hard with deterministic intra-band shuffle (same rule as MC quizzes).
   const ordered = useMemo(
@@ -452,7 +457,7 @@ function PaperRunner({ paper }: PaperRunnerClientProps) {
                   ) : aiGate === 'login' || (authLoaded && !user) ? (
                     // E2 login gate — the prompt is the whole AI row; self-marking below is untouched.
                     <Link
-                      href="/login"
+                      href={loginHref(pathname ?? '/')}
                       className="w-full inline-flex items-center justify-center gap-1.5 py-3 rounded-lg bg-purple-600 text-white font-medium text-sm hover:bg-purple-700 transition-colors"
                     >
                       <Sparkles className="w-4 h-4" />

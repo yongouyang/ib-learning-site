@@ -20,6 +20,7 @@ export type IssueType =
   | "empty_flashcard"
   | "stray_backslash"
   | "unbalanced_bold"
+  | "escaped_dollar"
   | "missing_difficulty"
   | "difficulty_distribution"
   | "variant_group"
@@ -175,6 +176,21 @@ export function findStrayBackslashes(text: string): string[] {
     }
   }
   return flagged;
+}
+
+// Flags escaped dollars (\$) anywhere in content. The client renderer
+// (renderInlineMath in src/components/InlineMath.tsx) splits text on $...$
+// pairs with a naive regex that does NOT understand KaTeX's \$ escape, so a
+// single \$ mis-pairs the surrounding delimiters and garbles the text (the
+// math-yr7-money-finance "＄2.45" ladder bug, fixed 2026-08-22). Currency
+// amounts are written with the fullwidth ＄ (U+FF04) as plain text instead —
+// the splitter never treats it as a delimiter.
+export function findEscapedDollarIssues(text: string): string[] {
+  const matches = text.match(/\\\$/g);
+  if (!matches) return [];
+  return [
+    `${matches.length} escaped dollar(s) "\\$" — renderInlineMath garbles these; write currency with the fullwidth ＄ instead`,
+  ];
 }
 
 // Flags invalid ** bold markup (rendered by renderInlineMath in
@@ -616,6 +632,40 @@ export function auditContent(input: AuditInput): AuditResult {
     }
   }
 
+  // Escaped dollars (\$) — garbled by renderInlineMath (see findEscapedDollarIssues)
+  for (const topic of topics) {
+    for (const field of extractTextFields(topic)) {
+      for (const message of findEscapedDollarIssues(field.value)) {
+        issues.push({
+          type: "escaped_dollar",
+          severity: "warning",
+          location: `${location(topic)}/${field.path}`,
+          message,
+        });
+      }
+    }
+  }
+  for (const paper of papers) {
+    const fields: TextField[] = [];
+    paper.questions.forEach((q, idx) => {
+      fields.push({ path: `questions[${idx}].stem`, value: q.stem });
+      fields.push({ path: `questions[${idx}].modelAnswer`, value: q.modelAnswer });
+      q.markscheme.forEach((point, pidx) => {
+        fields.push({ path: `questions[${idx}].markscheme[${pidx}]`, value: point });
+      });
+    });
+    for (const field of fields) {
+      for (const message of findEscapedDollarIssues(field.value)) {
+        issues.push({
+          type: "escaped_dollar",
+          severity: "warning",
+          location: `papers/${paper.id}/${field.path}`,
+          message,
+        });
+      }
+    }
+  }
+
   const totalQuestions = topics.reduce(
     (sum, topic) => sum + topic.questions.length,
     0,
@@ -766,6 +816,8 @@ function issueTypeLabel(type: IssueType): string {
       return "Lines ending with a stray backslash";
     case "unbalanced_bold":
       return "Unpaired or invalid ** bold markers";
+    case "escaped_dollar":
+      return "Escaped dollars (\\$) garbled by the renderer";
     case "missing_difficulty":
       return "Questions without a difficulty tag";
     case "difficulty_distribution":

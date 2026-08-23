@@ -222,15 +222,15 @@
     },
     {
       "id": "math-dp-probability-prb-q8",
-      "stem": "A game costs \\$4 to play. The prize $W$ has $P(W=0)=0.5$, $P(W=2)=0.3$, $P(W=10)=0.2$. What is the expected profit?",
+      "stem": "A game costs ＄4 to play. The prize $W$ has $P(W=0)=0.5$, $P(W=2)=0.3$, $P(W=10)=0.2$. What is the expected profit?",
       "choices": [
-        "Gain \\$2.60",
-        "Loss \\$1.40",
-        "Loss \\$4.00",
-        "Gain \\$1.40"
+        "Gain ＄2.60",
+        "Loss ＄1.40",
+        "Loss ＄4.00",
+        "Gain ＄1.40"
       ],
       "correctIndex": 1,
-      "explanation": "$E(W)=0\\times0.5+2\\times0.3+10\\times0.2=0+0.6+2.0=\\$2.60$. Expected profit $= E(W)-4.00 = 2.60-4.00 = -\\$1.40$ (a loss of \\$1.40).",
+      "explanation": "$E(W)=0\\times0.5+2\\times0.3+10\\times0.2=0+0.6+2.0=2.60$, a gain of ＄2.60. Expected profit $= E(W)-4.00 = 2.60-4.00 = -1.40$, a loss of ＄1.40.",
       "difficulty": "medium"
     },
     {

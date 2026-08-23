@@ -1,10 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Check, ChevronDown, CircleUserRound, UserRound } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import type { ChildProfile } from '@/lib/auth-client';
+import { loginHref } from '@/lib/safe-redirect';
 import { trackEvent } from '@/lib/analytics';
 
 const STAGE_LABELS: Record<ChildProfile['stage'], string> = {
@@ -21,6 +23,9 @@ export function AccountButton({ variant }: { variant: 'desktop' | 'mobile' }) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  // Sign in from the header returns you to the page you were on (?next=).
+  const pathname = usePathname();
+  const signInHref = loginHref(pathname ?? '/');
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -70,7 +75,7 @@ export function AccountButton({ variant }: { variant: 'desktop' | 'mobile' }) {
     if (variant === 'mobile') {
       return (
         <Link
-          href="/login"
+          href={signInHref}
           aria-label="Sign in"
           className="w-11 h-11 flex items-center justify-center rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
         >
@@ -80,7 +85,7 @@ export function AccountButton({ variant }: { variant: 'desktop' | 'mobile' }) {
     }
     return (
       <Link
-        href="/login"
+        href={signInHref}
         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950 transition-colors"
       >
         Sign in

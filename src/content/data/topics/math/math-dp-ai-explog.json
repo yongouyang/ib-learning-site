@@ -25,7 +25,7 @@
     {
       "id": "math-dp-explog-ell-n3",
       "heading": "Growth and Decay Models",
-      "body": "Many real-world quantities change by a constant percentage over equal time intervals. Exponential models capture this perfectly.\n\n📌 Definition\nThe general exponential growth or decay model is:\n\n$$N(t) = N_0 \\cdot e^{kt}$$\n\nwhere:\n    $N_0 = $ initial amount at $t = 0$\n    $k = $ growth constant ($k > 0$ for growth, $k < 0$ for decay)\n    $t = $ time\n\n🔑 Key Formulas\nHalf-life (for decay):\n\n$$T_{1/2} = \\dfrac{\\ln(2)}{|k|}$$\n\nContinuous compound interest:\n\n$$A = P \\cdot e^{rt}$$\n\nwhere $P = $ principal, $r = $ annual rate (as a decimal), $t = $ time in years\n\nPercentage growth/decay model:\n\n$$N(t) = N_0 \\cdot \\left(1 \\pm \\dfrac{p}{100}\\right)^t$$\n\n💡 Worked Example 1\nThe number of bacteria in a culture is modelled by $N(t) = 200e^{0.15t}$, where $t$ is in hours. How many hours until the population reaches 800?\n\n  Step 1: Set up the equation\n    $200e^{0.15t} = 800$\n\n  Step 2: Isolate the exponential\n    $e^{0.15t} = 4$\n\n  Step 3: Take natural logs of both sides\n    $0.15t = \\ln(4) \\approx 1.386$\n\n  Step 4: Solve for $t$\n    $t \\approx \\dfrac{1.386}{0.15} \\approx 9.24$ hours\n\n💡 Worked Example 2\nA car worth $\\$25,000$ depreciates by $8\\%$ each year. Its value is $V(t) = 25000(0.92)^t$. How many years until it is worth half its original value?\n\n  Step 1: Set up the equation\n    $25000(0.92)^t = 12500$\n\n  Step 2: Simplify\n    $0.92^t = 0.5$\n\n  Step 3: Take logs\n    $t \\cdot \\ln(0.92) = \\ln(0.5)$\n\n  Step 4: Solve\n    $t = \\dfrac{\\ln(0.5)}{\\ln(0.92)} \\approx 8.31$ years\n\n📎 Key Points to Remember\n• In decay, the quantity approaches zero but never actually reaches it\n• Half-life is the time for a quantity to reduce to half its initial value\n• For percentage change per period, use the base $\\left(1 + \\dfrac{r}{100}\\right)$ or $\\left(1 - \\dfrac{r}{100}\\right)$\n• Always check whether a question asks for simple or compound interest\n\n⚠️ Common Mistake\nUsing a linear model for percentage change. A car losing $8\\%$ per year is NOT $V = 25000 - 0.08(25000)t$. The correct model is $V = 25000(0.92)^t$, because each year you lose $8\\%$ of the current value, not the original value."
+      "body": "Many real-world quantities change by a constant percentage over equal time intervals. Exponential models capture this perfectly.\n\n📌 Definition\nThe general exponential growth or decay model is:\n\n$$N(t) = N_0 \\cdot e^{kt}$$\n\nwhere:\n    $N_0 = $ initial amount at $t = 0$\n    $k = $ growth constant ($k > 0$ for growth, $k < 0$ for decay)\n    $t = $ time\n\n🔑 Key Formulas\nHalf-life (for decay):\n\n$$T_{1/2} = \\dfrac{\\ln(2)}{|k|}$$\n\nContinuous compound interest:\n\n$$A = P \\cdot e^{rt}$$\n\nwhere $P = $ principal, $r = $ annual rate (as a decimal), $t = $ time in years\n\nPercentage growth/decay model:\n\n$$N(t) = N_0 \\cdot \\left(1 \\pm \\dfrac{p}{100}\\right)^t$$\n\n💡 Worked Example 1\nThe number of bacteria in a culture is modelled by $N(t) = 200e^{0.15t}$, where $t$ is in hours. How many hours until the population reaches 800?\n\n  Step 1: Set up the equation\n    $200e^{0.15t} = 800$\n\n  Step 2: Isolate the exponential\n    $e^{0.15t} = 4$\n\n  Step 3: Take natural logs of both sides\n    $0.15t = \\ln(4) \\approx 1.386$\n\n  Step 4: Solve for $t$\n    $t \\approx \\dfrac{1.386}{0.15} \\approx 9.24$ hours\n\n💡 Worked Example 2\nA car worth ＄25,000 depreciates by $8\\%$ each year. Its value is $V(t) = 25000(0.92)^t$. How many years until it is worth half its original value?\n\n  Step 1: Set up the equation\n    $25000(0.92)^t = 12500$\n\n  Step 2: Simplify\n    $0.92^t = 0.5$\n\n  Step 3: Take logs\n    $t \\cdot \\ln(0.92) = \\ln(0.5)$\n\n  Step 4: Solve\n    $t = \\dfrac{\\ln(0.5)}{\\ln(0.92)} \\approx 8.31$ years\n\n📎 Key Points to Remember\n• In decay, the quantity approaches zero but never actually reaches it\n• Half-life is the time for a quantity to reduce to half its initial value\n• For percentage change per period, use the base $\\left(1 + \\dfrac{r}{100}\\right)$ or $\\left(1 - \\dfrac{r}{100}\\right)$\n• Always check whether a question asks for simple or compound interest\n\n⚠️ Common Mistake\nUsing a linear model for percentage change. A car losing $8\\%$ per year is NOT $V = 25000 - 0.08(25000)t$. The correct model is $V = 25000(0.92)^t$, because each year you lose $8\\%$ of the current value, not the original value."
     },
     {
       "id": "math-dp-explog-ell-n4",
@@ -40,7 +40,7 @@
     {
       "id": "math-dp-explog-ell-n6",
       "heading": "Applications of Exponential and Logarithmic Models",
-      "body": "Exponential and logarithmic functions model many real-world situations beyond simple growth and decay.\n\n📌 Definition: pH\nThe pH of a solution measures acidity using a logarithmic scale:\n\n$$\\text{pH} = -\\log_{10}\\left([H^+]\\right)$$\n\nwhere $[H^+]$ is the hydrogen ion concentration in mol/L.\n\n🔑 How it works\nA lower pH means a higher concentration of hydrogen ions and a more acidic solution. Because the scale is logarithmic, each whole-number decrease in pH means the acidity is $10$ times greater.\n\n💡 Worked Example 1\nFind the pH of a solution with $[H^+] = 2.5 \\times 10^{-4}$ mol/L.\n\n  Step 1: Substitute into the formula\n    $\\text{pH} = -\\log_{10}(2.5 \\times 10^{-4})$\n\n  Step 2: Evaluate\n    $\\text{pH} \\approx 3.60$\n\n💡 Worked Example 2\nA savings account pays $4.5\\%$ annual interest compounded continuously. If $\\$1000$ is invested, how much is in the account after $10$ years?\n\n  Step 1: Use the continuous compound interest formula\n    $A = Pe^{rt}$\n\n  Step 2: Substitute values\n    $A = 1000e^{0.045 \\times 10}$\n\n  Step 3: Evaluate\n    $A = 1000e^{0.45} \\approx \\$1568.31$\n\n📎 Key Points to Remember\n• Logarithmic scales compress huge ranges into manageable numbers\n• A difference of $1$ on the pH scale means a $10$-fold change in acidity\n• Continuous compounding uses $A = Pe^{rt}$, while periodic compounding uses $A = P\\left(1 + \\dfrac{r}{n}\\right)^{nt}$\n• Earthquake magnitudes and sound intensity also use logarithmic scales\n\n⚠️ Common Mistake\nForgetting that a logarithmic scale is multiplicative, not additive. A change from pH $3$ to pH $2$ is a $10$-fold increase in acidity, not a $1$-fold increase."
+      "body": "Exponential and logarithmic functions model many real-world situations beyond simple growth and decay.\n\n📌 Definition: pH\nThe pH of a solution measures acidity using a logarithmic scale:\n\n$$\\text{pH} = -\\log_{10}\\left([H^+]\\right)$$\n\nwhere $[H^+]$ is the hydrogen ion concentration in mol/L.\n\n🔑 How it works\nA lower pH means a higher concentration of hydrogen ions and a more acidic solution. Because the scale is logarithmic, each whole-number decrease in pH means the acidity is $10$ times greater.\n\n💡 Worked Example 1\nFind the pH of a solution with $[H^+] = 2.5 \\times 10^{-4}$ mol/L.\n\n  Step 1: Substitute into the formula\n    $\\text{pH} = -\\log_{10}(2.5 \\times 10^{-4})$\n\n  Step 2: Evaluate\n    $\\text{pH} \\approx 3.60$\n\n💡 Worked Example 2\nA savings account pays $4.5\\%$ annual interest compounded continuously. If ＄1000 is invested, how much is in the account after $10$ years?\n\n  Step 1: Use the continuous compound interest formula\n    $A = Pe^{rt}$\n\n  Step 2: Substitute values\n    $A = 1000e^{0.045 \\times 10}$\n\n  Step 3: Evaluate\n    $A = 1000e^{0.45} \\approx 1568.31$ (about ＄1568.31)\n\n📎 Key Points to Remember\n• Logarithmic scales compress huge ranges into manageable numbers\n• A difference of $1$ on the pH scale means a $10$-fold change in acidity\n• Continuous compounding uses $A = Pe^{rt}$, while periodic compounding uses $A = P\\left(1 + \\dfrac{r}{n}\\right)^{nt}$\n• Earthquake magnitudes and sound intensity also use logarithmic scales\n\n⚠️ Common Mistake\nForgetting that a logarithmic scale is multiplicative, not additive. A change from pH $3$ to pH $2$ is a $10$-fold increase in acidity, not a $1$-fold increase."
     },
     {
       "id": "math-dp-explog-ell-n7",
@@ -77,7 +77,7 @@
       "id": "math-dp-explog-ell-f5",
       "term": "Continuous compound interest",
       "definition": "$A=Pe^{rt}$",
-      "example": "$P=\\$2000$, $r=3\\%$, $t=10 \\rightarrow \\approx \\$2699.72$"
+      "example": "$P=$ ＄2000, $r=3\\%$, $t=10 \\rightarrow A \\approx$ ＄2699.72"
     },
     {
       "id": "math-dp-explog-ell-f6",
@@ -113,7 +113,7 @@
       "id": "math-dp-explog-ell-f11",
       "term": "Periodic compound interest",
       "definition": "$A = P\\left(1 + \\dfrac{r}{n}\\right)^{nt}$",
-      "example": "$\\$1000$ at $6\\%$ compounded monthly for $1$ year gives $1000\\left(1 + \\dfrac{0.06}{12}\\right)^{12} \\approx \\$1061.68$."
+      "example": "＄1000 at $6\\%$ compounded monthly for $1$ year gives $1000\\left(1 + \\dfrac{0.06}{12}\\right)^{12} \\approx 1061.68$, about ＄1061.68."
     },
     {
       "id": "math-dp-explog-ell-f12",
@@ -205,7 +205,7 @@
     },
     {
       "id": "math-dp-explog-ell-q7",
-      "stem": "A car worth $\\$25,000$ depreciates by $8\\%$ each year. Its value after $t$ years is $V(t)=25000(0.92)^t$. How many years until it is worth half its original value?",
+      "stem": "A car worth ＄25,000 depreciates by $8\\%$ each year. Its value after $t$ years is $V(t)=25000(0.92)^t$. How many years until it is worth half its original value?",
       "choices": [
         "$4.2$ yr",
         "$6.2$ yr",
@@ -213,7 +213,7 @@
         "$12.5$ yr"
       ],
       "correctIndex": 2,
-      "explanation": "Half of $\\$25,000$ is $\\$12,500$. Solve $25000(0.92)^t=12500 \\rightarrow 0.92^t=0.5 \\rightarrow t=\\dfrac{\\ln 0.5}{\\ln 0.92} \\approx 8.31$ years.",
+      "explanation": "Half of ＄25,000 is ＄12,500. Solve $25000(0.92)^t=12500 \\rightarrow 0.92^t=0.5 \\rightarrow t=\\dfrac{\\ln 0.5}{\\ln 0.92} \\approx 8.31$ years.",
       "difficulty": "medium",
       "calculator": true
     },
