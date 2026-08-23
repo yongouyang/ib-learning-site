@@ -6,6 +6,13 @@
 
 ---
 
+## 2026-08-23 — Supportability features plan written + dev/prod differentiation implemented
+Git HEAD: `c9fcc88` (papers-set-2, tree dirty: PROGRESS.md + plan doc)
+Done: (1) Dev/prod differentiation: dev icons with "DEV" badge (8 new SVG+PNG files), dev manifest, `DevEnvironmentIndicator` (red rim + icon link swapping), `HeaderLogo` (dev-aware logo), `isDevEnvironment()` runtime hostname check, `generate-icons.mjs` extended for dev PNGs. (2) Wrote `docs/supportability-features-plan.md` — three features: daily analytics report (EventBridge + Lambda + Resend, 7pm HKT), DynamoDB CRUD dashboard (admin Lambda + /admin/dynamodb page), Contact Us (floating button + DynamoDB + Resend + CloudFlare Email Routing guide). Plan reviewed by user, ready for implementation.
+Verified: tsc clean; eslint 0/0 on changed files; npm test 981/981; build:static with dev assets in out/; e2e app.spec.ts 19/19 + auth.spec.ts 13/13; manual localhost verification (red rim + DEV icons visible).
+Next: Feature 2 (CRUD Dashboard) → Feature 1 (Analytics Report) → Feature 3 (Contact Us), per plan.
+Notes: implementation order: CRUD dashboard first (establishes admin Lambda pattern), then analytics report (reuses email sending), then contact us (new table + frontend). CloudFlare Email Routing for info@octavlearning.com is a manual step — guide in the plan doc.
+
 ## 2026-08-23 — Practice papers set 2 for all 8 courses (first E3-locked content)
 Git HEAD: `dc4c7bf` (papers-set-2 with origin/develop merged; tree dirty: content + tests uncommitted)
 Done: authored `<courseId>-set-2.json` for bio-ks3, chem-ks3, eng-ks3, math-dp-ai, math-y7, math-y8, math-y9, phys-ks3 — 8 original questions each, exactly 20 marks, easy→hard ramp, 6–8 distinct course topics per set; English set has an original stimulus passage with all markscheme quotes verbatim in it. Regenerated registry (16 papers). E3 locks now visible: /papers shows each set-2 row as an inert locked preview behind the per-course "Full exam sets" tease; /exams gains compact lock rows + set-2 cross-link previews. Tests updated: papers.spec.ts (16 DOM set rows; set-2 inert/inaccessible for anonymous + 8 tease cards), exams.spec.ts (anonymous: 8 accessible free-response links + 8 inert set-2 previews + 8 compact lock rows; premium-mocked: 16 accessible free-response links).
