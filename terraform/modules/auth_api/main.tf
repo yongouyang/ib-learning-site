@@ -4,7 +4,10 @@
 # consumes (src/lib/auth/deps.ts): AUTH_STORAGE/AUTH_EMAIL select the real
 # (dynamodb/ses) wiring, AUTH_USERS_TABLE/AUTH_SESSIONS_TABLE/AUTH_OTP_TABLE/
 # AUTH_PROGRESS_TABLE name the tables, AUTH_SES_REGION + SES_FROM_ADDRESS the
-# email sender. Deploys fine unconfigured (AUTH_STORAGE/AUTH_EMAIL default to
+# email sender. Phase D5 (docs/leaderboard-plan.md §7): LEADERBOARD_TABLE
+# enables leaderboard row erasure (opt-out + account deletion — Query on the
+# user-index GSI + DeleteItem grant below). Deploys fine unconfigured
+# (AUTH_STORAGE/AUTH_EMAIL default to
 # the dummies), but production always sets the real wiring via merge in envs/prod.
 
 variable "name_prefix" {
@@ -51,6 +54,11 @@ variable "progress_table_arn" {
 
 variable "rate_limits_table_arn" {
   description = "DynamoDB ARN of the rate-limits table (octav-rate-limits) — the durable per-email request-otp counter (docs/architecture-evolution-plan.md §2.5). No GSI, so only the bare ARN is granted."
+  type        = string
+}
+
+variable "leaderboard_table_arn" {
+  description = "DynamoDB ARN of the leaderboard table (octav-leaderboard) — D5 opt-out erasure + account-deletion erasure (docs/leaderboard-plan.md §6/§7: Query the user-index GSI, DeleteItem per row; one grant, two callers)."
   type        = string
 }
 
@@ -126,10 +134,33 @@ data "aws_iam_policy_document" "auth" {
     ]
   }
 
+  # leaderboard — Phase D erasure (docs/leaderboard-plan.md §6/§7), one grant
+  # pair for both callers: account deletion and the D5 opt-out both run
+  # deleteEntriesByUser — a paginated Query on the user-index GSI, then
+  # DeleteItem per matching row on the table. This Lambda never reads boards
+  # (the leaderboard Lambda's job) and never writes XP (the progress Lambda's
+  # job), so no table-level Query/GetItem/UpdateItem.
+  statement {
+    actions = [
+      "dynamodb:Query",
+    ]
+    resources = [
+      "${var.leaderboard_table_arn}/index/*",
+    ]
+  }
+
+  statement {
+    actions = [
+      "dynamodb:DeleteItem",
+    ]
+    resources = [
+      var.leaderboard_table_arn,
+    ]
+  }
+
   statement {
     actions   = ["ses:SendEmail"]
     resources = ["*"]
-
     # Resource "*" is required: in SES sandbox mode, SendEmail authorization is
     # evaluated against the RECIPIENT identity ARN as well as the sender's, so
     # scoping resources to the domain identity ARN made every sandbox send fail

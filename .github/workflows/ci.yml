@@ -302,6 +302,9 @@ jobs:
           curl -fsS "$SITE_URL/api/progress/_health" | grep -q '"ok":true'
           # /api/analytics/_health — same failure-class probe as progress.
           curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
+          # /api/leaderboard/_health — same failure-class probe on
+          # octav-leaderboard (Phase D; missing table/Query grant → 500).
+          curl -fsS "$SITE_URL/api/leaderboard/_health" | grep -q '"ok":true'
           echo "Smoke checks passed."
 
   # PROD deploy (main branch) — octavlearning.com on the dedicated bucket +
@@ -424,6 +427,9 @@ jobs:
           # octav-analytics-events with a fixed probe key — same failure-class
           # probe as progress (missing table / missing Query grant → 500).
           curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
+          # /api/leaderboard/_health — same failure-class probe on
+          # octav-leaderboard (Phase D; missing table/Query grant → 500).
+          curl -fsS "$SITE_URL/api/leaderboard/_health" | grep -q '"ok":true'
           # www → apex 301 (redirect lives in the PROD URL-rewrite Function).
           curl -fsS -o /dev/null -w '%{http_code}' https://www.octavlearning.com/ | grep -q '^301$'
           echo "Smoke checks passed."

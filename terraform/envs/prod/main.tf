@@ -250,6 +250,7 @@ module "auth_api" {
   otp_codes_table_arn   = module.dynamodb.otp_codes_table_arn
   progress_table_arn    = module.dynamodb.progress_table_arn
   rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+  leaderboard_table_arn = module.dynamodb.leaderboard_table_arn
   ses_from_address      = var.ses_from_address
 
   environment = merge(
@@ -261,9 +262,13 @@ module "auth_api" {
       AUTH_OTP_TABLE         = module.dynamodb.otp_codes_table_name
       AUTH_PROGRESS_TABLE    = module.dynamodb.progress_table_name
       AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
-      AUTH_SES_REGION        = "ap-southeast-1"
-      SES_FROM_ADDRESS       = var.ses_from_address
-      EMAIL_PROVIDER         = var.email_provider
+      # D5 opt-out erasure (docs/leaderboard-plan.md §7): without this the
+      # auth deps leave leaderboardStorage undefined and row deletion is a
+      # no-op.
+      LEADERBOARD_TABLE = module.dynamodb.leaderboard_table_name
+      AUTH_SES_REGION   = "ap-southeast-1"
+      SES_FROM_ADDRESS  = var.ses_from_address
+      EMAIL_PROVIDER    = var.email_provider
     },
     var.auth_env,
   )
@@ -289,6 +294,7 @@ module "progress_api" {
   sessions_table_arn    = module.dynamodb.sessions_table_arn
   progress_table_arn    = module.dynamodb.progress_table_arn
   rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+  leaderboard_table_arn = module.dynamodb.leaderboard_table_arn
 
   environment = merge(
     {
@@ -297,9 +303,37 @@ module "progress_api" {
       AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
       AUTH_PROGRESS_TABLE    = module.dynamodb.progress_table_name
       AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+      # D4 XP award hook (docs/leaderboard-plan.md §6): without this the
+      # progress deps leave leaderboardStorage undefined and awarding is
+      # disabled (sync unaffected).
+      LEADERBOARD_TABLE = module.dynamodb.leaderboard_table_name
     },
     var.progress_env,
   )
+}
+
+# Leaderboard API (Phase D — docs/leaderboard-plan.md §6): the READ-ONLY board
+# Lambda + Function URL (board + public teaser + _health). Consumes the shared
+# users/sessions tables (session validation) and the octav-leaderboard table.
+# Base wiring below always selects the real dynamodb implementation; no
+# overrides variable — there is nothing secret in this wiring.
+module "leaderboard_api" {
+  source = "../../modules/leaderboard_api"
+
+  zip_path = "${path.module}/../../../lambda/leaderboard/dist/leaderboard-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  users_table_arn       = module.dynamodb.users_table_arn
+  sessions_table_arn    = module.dynamodb.sessions_table_arn
+  leaderboard_table_arn = module.dynamodb.leaderboard_table_arn
+
+  environment = {
+    LEADERBOARD_STORAGE = "dynamodb"
+    AUTH_USERS_TABLE    = module.dynamodb.users_table_name
+    AUTH_SESSIONS_TABLE = module.dynamodb.sessions_table_name
+    LEADERBOARD_TABLE   = module.dynamodb.leaderboard_table_name
+  }
 }
 
 # Analytics API (Phase A — docs/phase-a-analytics-plan.md): the ingest/summary
@@ -341,12 +375,13 @@ module "analytics_api" {
 module "site" {
   source = "../../modules/site"
 
-  feedback_origin_domain  = module.feedback_api.function_url_domain
-  auth_origin_domain      = module.auth_api.function_url_domain
-  progress_origin_domain  = module.progress_api.function_url_domain
-  analytics_origin_domain = module.analytics_api.function_url_domain
-  domain_names            = ["dev.octavlearning.com"]
-  acm_certificate_arn     = aws_acm_certificate.dev.arn
+  feedback_origin_domain    = module.feedback_api.function_url_domain
+  auth_origin_domain        = module.auth_api.function_url_domain
+  progress_origin_domain    = module.progress_api.function_url_domain
+  analytics_origin_domain   = module.analytics_api.function_url_domain
+  leaderboard_origin_domain = module.leaderboard_api.function_url_domain
+  domain_names              = ["dev.octavlearning.com"]
+  acm_certificate_arn       = aws_acm_certificate.dev.arn
 }
 
 # PROD: separate bucket + distribution fronting octavlearning.com (apex + www
@@ -355,14 +390,15 @@ module "site" {
 module "site_prod" {
   source = "../../modules/site"
 
-  name_prefix             = "iblearn-prod"
-  feedback_origin_domain  = module.feedback_api.function_url_domain
-  auth_origin_domain      = module.auth_api.function_url_domain
-  progress_origin_domain  = module.progress_api.function_url_domain
-  analytics_origin_domain = module.analytics_api.function_url_domain
-  domain_names            = ["octavlearning.com", "www.octavlearning.com"]
-  acm_certificate_arn     = aws_acm_certificate.site.arn
-  redirect_from_host      = "www.octavlearning.com"
+  name_prefix               = "iblearn-prod"
+  feedback_origin_domain    = module.feedback_api.function_url_domain
+  auth_origin_domain        = module.auth_api.function_url_domain
+  progress_origin_domain    = module.progress_api.function_url_domain
+  analytics_origin_domain   = module.analytics_api.function_url_domain
+  leaderboard_origin_domain = module.leaderboard_api.function_url_domain
+  domain_names              = ["octavlearning.com", "www.octavlearning.com"]
+  acm_certificate_arn       = aws_acm_certificate.site.arn
+  redirect_from_host        = "www.octavlearning.com"
 }
 
 # GitHub Actions OIDC provider + deploy role — short-lived tokens only,
@@ -409,6 +445,10 @@ output "progress_function_url" {
   value = module.progress_api.function_url
 }
 
+output "leaderboard_function_url" {
+  value = module.leaderboard_api.function_url
+}
+
 output "github_deploy_role_arn" {
   description = "Set as the AWS_DEPLOY_ROLE_ARN variable in GitHub repo settings (Settings → Secrets and variables → Actions → Variables)."
   value       = module.ci.role_arn
@@ -440,10 +480,11 @@ output "acm_dev_validation_records" {
 output "dynamodb_tables" {
   description = "Accounts-feature DynamoDB table names → ARNs."
   value = {
-    users     = { name = module.dynamodb.users_table_name, arn = module.dynamodb.users_table_arn }
-    sessions  = { name = module.dynamodb.sessions_table_name, arn = module.dynamodb.sessions_table_arn }
-    otp_codes = { name = module.dynamodb.otp_codes_table_name, arn = module.dynamodb.otp_codes_table_arn }
-    progress  = { name = module.dynamodb.progress_table_name, arn = module.dynamodb.progress_table_arn }
+    users       = { name = module.dynamodb.users_table_name, arn = module.dynamodb.users_table_arn }
+    sessions    = { name = module.dynamodb.sessions_table_name, arn = module.dynamodb.sessions_table_arn }
+    otp_codes   = { name = module.dynamodb.otp_codes_table_name, arn = module.dynamodb.otp_codes_table_arn }
+    progress    = { name = module.dynamodb.progress_table_name, arn = module.dynamodb.progress_table_arn }
+    leaderboard = { name = module.dynamodb.leaderboard_table_name, arn = module.dynamodb.leaderboard_table_arn }
   }
 }
 
