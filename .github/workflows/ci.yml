@@ -304,6 +304,9 @@ jobs:
           curl -fsS "$SITE_URL/api/progress/_health" | grep -q '"ok":true'
           # /api/analytics/_health — same failure-class probe as progress.
           curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
+          # /api/leaderboard/_health — same failure-class probe on
+          # octav-leaderboard (Phase D; missing table/Query grant → 500).
+          curl -fsS "$SITE_URL/api/leaderboard/_health" | grep -q '"ok":true'
           # /api/admin/_health performs an unauthenticated ListTables probe —
           # exercises the admin Lambda's ListTables IAM grant (missing grant /
           # region → 500). Same failure-class probe as progress/analytics.
@@ -432,6 +435,9 @@ jobs:
           # octav-analytics-events with a fixed probe key — same failure-class
           # probe as progress (missing table / missing Query grant → 500).
           curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
+          # /api/leaderboard/_health — same failure-class probe on
+          # octav-leaderboard (Phase D; missing table/Query grant → 500).
+          curl -fsS "$SITE_URL/api/leaderboard/_health" | grep -q '"ok":true'
           # /api/admin/_health performs an unauthenticated ListTables probe —
           # exercises the admin Lambda's ListTables IAM grant (missing grant /
           # region → 500). Same failure-class probe as progress/analytics.

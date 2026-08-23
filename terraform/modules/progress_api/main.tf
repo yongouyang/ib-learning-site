@@ -5,13 +5,16 @@
 # resolveSession (src/lib/auth/session.ts) over the SAME users/sessions tables
 # the auth Lambda uses, and progress items land in the octav-progress
 # single-table (userId PK + dataType SK). The durable per-user sync budget
-# touches octav-rate-limits (fixed-window bucket — UpdateItem only). Env vars
+# touches octav-rate-limits (fixed-window bucket — UpdateItem only). Phase D4
+# (docs/leaderboard-plan.md §6): the XP award hook inside sync is the SINGLE
+# writer to octav-leaderboard (atomic addXp UpdateItem) — the leaderboard
+# Lambda itself is read-only. Env vars
 # it consumes (src/lib/progress/deps.ts): PROGRESS_STORAGE selects the real
 # (dynamodb) wiring, AUTH_USERS_TABLE/AUTH_SESSIONS_TABLE/AUTH_PROGRESS_TABLE/
-# AUTH_RATE_LIMITS_TABLE name the tables. Deploys fine unconfigured
-# (PROGRESS_STORAGE defaults to the dummy), but production always sets the
-# real wiring via merge in envs/prod. No SES / otp grants here — the progress
-# path never sends email and never reads OTPs.
+# AUTH_RATE_LIMITS_TABLE/LEADERBOARD_TABLE name the tables. Deploys fine
+# unconfigured (PROGRESS_STORAGE defaults to the dummy), but production always
+# sets the real wiring via merge in envs/prod. No SES / otp grants here — the
+# progress path never sends email and never reads OTPs.
 
 variable "name_prefix" {
   type    = string
@@ -52,6 +55,11 @@ variable "progress_table_arn" {
 
 variable "rate_limits_table_arn" {
   description = "DynamoDB ARN of the rate-limits table (octav-rate-limits) — the durable per-user sync budget bucket."
+  type        = string
+}
+
+variable "leaderboard_table_arn" {
+  description = "DynamoDB ARN of the leaderboard table (octav-leaderboard) — the D4 XP award hook's atomic addXp target (docs/leaderboard-plan.md §6: the progress Lambda is the SINGLE writer)."
   type        = string
 }
 
@@ -149,13 +157,29 @@ data "aws_iam_policy_document" "progress" {
 
   # rate limits — the durable per-user sync budget: incrementProgressSyncCount
   # is ONE conditional UpdateCommand on the fixed-window bucket key
-  # (progress-sync:<userId>:<epoch>).
+  # (progress-sync:<userId>:<epoch>). The D4 daily-cap / repeat-ordinal buckets
+  # (xpday:/xp-topic:, docs/leaderboard-plan.md §4.1) share this table — the
+  # same UpdateItem grant covers them.
   statement {
     actions = [
       "dynamodb:UpdateItem",
     ]
     resources = [
       var.rate_limits_table_arn,
+    ]
+  }
+
+  # leaderboard — the D4 XP award hook's addXp is ONE atomic UpdateCommand
+  # (ADD xp, if_not_exists for handle/userId/cohortId/expiresAt) per earning
+  # sync event (docs/leaderboard-plan.md §6: the progress Lambda is the SINGLE
+  # writer; the leaderboard Lambda is read-only, the auth Lambda deletes).
+  # Table ARN only — no GSI queries here.
+  statement {
+    actions = [
+      "dynamodb:UpdateItem",
+    ]
+    resources = [
+      var.leaderboard_table_arn,
     ]
   }
 }

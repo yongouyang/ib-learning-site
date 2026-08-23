@@ -102,10 +102,13 @@ test.describe('auth', () => {
 
     // Add a profile.
     await page.goto('/account');
+    // The Leaderboard section also renders profile names/stages — scope
+    // profile-list assertions to the Child profiles section.
+    const childProfiles = page.locator('section', { has: page.getByRole('heading', { name: 'Child profiles' }) });
     await page.getByLabel('Name', { exact: true }).fill('Alex');
     await page.getByLabel('Stage').selectOption('igcse');
     await page.getByRole('button', { name: 'Add profile' }).click();
-    await expect(page.getByText('Alex', { exact: true })).toBeVisible();
+    await expect(childProfiles.getByText('Alex', { exact: true })).toBeVisible();
 
     // Switch to it from the header menu → trigger label updates.
     await page.locator('header').getByRole('button', { name: 'Me', exact: true }).click();
@@ -120,7 +123,7 @@ test.describe('auth', () => {
     await page.getByLabel('Stage for Alex').selectOption('dp');
     await page.getByRole('button', { name: 'Save', exact: true }).click();
     await expect(page.locator('header').getByRole('button', { name: 'Parent One' })).toBeVisible();
-    await expect(page.locator('li', { hasText: 'Parent One' }).getByText('IB DP', { exact: true })).toBeVisible();
+    await expect(childProfiles.locator('li', { hasText: 'Parent One' }).getByText('IB DP', { exact: true })).toBeVisible();
   });
 
   test('sessions list shows the current device with no revoke on it', async ({ page }) => {

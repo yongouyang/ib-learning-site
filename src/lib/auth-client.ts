@@ -10,6 +10,11 @@ export interface ChildProfile {
   profileId: string;
   displayName: string;
   stage: Stage;
+  /** Phase D5 (docs/leaderboard-plan.md §4.3): per-profile leaderboard opt-in.
+   *  Absent = not opted in. The handle is present once set (deterministic
+   *  default stored at opt-in; changeable once). */
+  leaderboardOptIn?: boolean;
+  leaderboardHandle?: string;
 }
 
 export interface AuthUser {

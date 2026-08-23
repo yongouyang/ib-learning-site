@@ -40,3 +40,15 @@ export function handleForProfile(profileId: string): string {
 }
 
 export const HANDLE_WORD_COUNTS = { adjectives: ADJECTIVES.length, animals: ANIMALS.length } as const;
+
+// Custom handles (plan §4.3 "changeable once", D5): 2–24 chars, letters plus
+// spaces/hyphens/apostrophes, a letter at both ends ("Mary-Jane O'Brien" yes;
+// emoji/digits/leading punctuation no — handles appear on a public board).
+// Shared by the auth zod schema (server) and the account page (client) — this
+// module must stay browser-safe (pure TS, no node imports).
+export const LEADERBOARD_HANDLE_RE = /^[A-Za-z][A-Za-z '-]{0,22}[A-Za-z]$/;
+
+/** True when `value` (already trimmed) is an acceptable custom handle. */
+export function isValidLeaderboardHandle(value: string): boolean {
+  return LEADERBOARD_HANDLE_RE.test(value);
+}

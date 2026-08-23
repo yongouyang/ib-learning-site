@@ -1,6 +1,8 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import { tierSchema, type Tier } from '../entitlements/features';
+import { LEADERBOARD_HANDLE_RE } from '../leaderboard/handles';
+import type { LeaderboardStorage } from '../leaderboard/types';
 
 // Accounts feature (Phase B) — shared types and contract constants
 // (docs/architecture-evolution-plan.md §2). The auth http-handler is the
@@ -174,6 +176,14 @@ export interface EmailSender {
 export interface AuthDeps {
   storage: AuthStorage;
   emailSender: EmailSender;
+  /**
+   * Phase D5 (docs/leaderboard-plan.md §7): opt-out erasure target — when a
+   * profile's leaderboardOptIn flips true→false, its leaderboard rows are
+   * deleted via deleteEntriesByUser(userId, profileId). Undefined = erasure
+   * DISABLED (DynamoDB wiring without a LEADERBOARD_TABLE env — terraform
+   * grants land in D7); the account update still succeeds.
+   */
+  leaderboardStorage?: LeaderboardStorage;
   /** AUTH_TEST_MODE=1: deterministic default code + _testCode injection. */
   testMode: boolean;
   /** True only when storage AND email are the in-memory dummies — the ONLY
@@ -207,6 +217,13 @@ export const accountUpdateSchema = z.object({
         profileId: z.string().regex(/^[A-Za-z0-9_-]+$/).min(1).max(64),
         displayName: z.string().trim().min(1).max(40),
         stage: z.enum(['ks3', 'igcse', 'dp']),
+        // Phase D5 (docs/leaderboard-plan.md §4.3/§5): per-profile leaderboard
+        // opt-in. Both optional — the handler MERGES them with the stored
+        // values so an account-page save that doesn't touch the leaderboard
+        // never silently wipes the opt-in state (the childProfiles array is
+        // otherwise a full replace).
+        leaderboardOptIn: z.boolean().optional(),
+        leaderboardHandle: z.string().trim().regex(LEADERBOARD_HANDLE_RE).optional(),
       })
     )
     .min(1)

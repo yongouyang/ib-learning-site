@@ -1,5 +1,6 @@
-# DynamoDB module (docs/architecture-evolution-plan.md §2.3/§3.2, §6.1):
-# the four accounts-feature tables, all on-demand (pay-per-request) billing —
+# DynamoDB module (docs/architecture-evolution-plan.md §2.3/§3.2, §6.1 +
+# docs/leaderboard-plan.md §5): the accounts-feature tables plus the Phase D
+# leaderboard table, all on-demand (pay-per-request) billing —
 # $0 until used, no capacity planning. No Lambdas here; those land with their
 # phases and consume these tables via the outputs below.
 
@@ -165,6 +166,51 @@ resource "aws_dynamodb_table" "analytics_events" {
   }
 }
 
+# --- octav-leaderboard ---------------------------------------------------------
+# Phase D leaderboard (docs/leaderboard-plan.md §5): one row per
+# (profile, scope, week) — PK scopeWeek ("<scope>#<weekKey>#<cohortId>"), SK
+# entry (the profileId). XP is an atomic ADD target; expiresAt (week end + 14d)
+# TTLs finished boards. The user-index GSI (PK userId) powers right-to-erasure
+# deletes (account deletion + opt-out, via the auth Lambda). On-demand billing
+# — a board partition is tens-to-hundreds of items, read fully and ranked
+# in-Lambda (DynamoDB can't sort on the xp attribute).
+resource "aws_dynamodb_table" "leaderboard" {
+  name         = "${var.name_prefix}-leaderboard"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "scopeWeek"
+  range_key    = "entry"
+
+  attribute {
+    name = "scopeWeek"
+    type = "S"
+  }
+
+  attribute {
+    name = "entry"
+    type = "S"
+  }
+
+  attribute {
+    name = "userId"
+    type = "S"
+  }
+
+  global_secondary_index {
+    name            = "user-index"
+    projection_type = "ALL"
+
+    key_schema {
+      attribute_name = "userId"
+      key_type       = "HASH"
+    }
+  }
+
+  ttl {
+    attribute_name = "expiresAt"
+    enabled        = true
+  }
+}
+
 # --- Outputs (table names + ARNs for the phase Lambdas' env vars) ---------------
 
 output "users_table_name" {
@@ -225,4 +271,19 @@ output "analytics_events_table_name" {
 output "analytics_events_table_arn" {
   description = "octav-analytics-events table ARN."
   value       = aws_dynamodb_table.analytics_events.arn
+}
+
+output "leaderboard_table_name" {
+  description = "octav-leaderboard table name."
+  value       = aws_dynamodb_table.leaderboard.name
+}
+
+output "leaderboard_table_arn" {
+  description = "octav-leaderboard table ARN."
+  value       = aws_dynamodb_table.leaderboard.arn
+}
+
+output "leaderboard_user_index_name" {
+  description = "octav-leaderboard erasure GSI name (PK userId)."
+  value       = "user-index"
 }

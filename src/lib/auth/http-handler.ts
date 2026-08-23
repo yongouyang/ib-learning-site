@@ -27,6 +27,7 @@ import {
   sessionTokenFromCookie,
 } from './session';
 import { featuresForTier } from '../entitlements/features';
+import { handleForProfile } from '../leaderboard/handles';
 
 // Phase B — framework-agnostic auth handler. The single source of truth for
 // the /api/auth/* contract (docs/architecture-evolution-plan.md §2.4):
@@ -363,6 +364,81 @@ export async function handleMe(req: Request, deps: AuthDeps = getAuthDeps()): Pr
   );
 }
 
+/** The schema-parsed childProfile shape (leaderboard fields optional). */
+interface IncomingChildProfile {
+  profileId: string;
+  displayName: string;
+  stage: ChildProfile['stage'];
+  leaderboardOptIn?: boolean;
+  leaderboardHandle?: string;
+}
+
+/**
+ * Phase D5 (docs/leaderboard-plan.md §4.3/§7): merge the incoming
+ * childProfiles array with the stored leaderboard state.
+ *
+ * - Carry-over: an incoming profile that omits leaderboardOptIn /
+ *   leaderboardHandle keeps the stored values.
+ * - Handle ("changeable once"): the effective handle is the provided one
+ *   (schema-validated) ?? stored ?? handleForProfile(profileId). A provided
+ *   handle that DIFFERS from the stored one is allowed only while no custom
+ *   handle was ever set (stored undefined or equal to the deterministic
+ *   default) — a second change attempt is rejected ({ handleLocked }). The
+ *   handle is stored at opt-in time and KEPT on opt-out, so a profile that
+ *   rejoins keeps its identity (it restarts from 0 XP — rows were erased).
+ * - Erasure: profiles that flipped true→false, or were REMOVED from the array
+ *   while opted in, are reported in erasedProfileIds — the caller deletes
+ *   their leaderboard rows (plan §7: leaving deletes rows immediately; a
+ *   removed profile must not linger on a board either).
+ */
+function mergeLeaderboardFields(
+  incoming: IncomingChildProfile[],
+  stored: ChildProfile[]
+): { profiles: ChildProfile[]; erasedProfileIds: string[] } | { handleLocked: true } {
+  const profiles: ChildProfile[] = [];
+  const erasedProfileIds: string[] = [];
+
+  for (const p of incoming) {
+    const prior = stored.find((s) => s.profileId === p.profileId);
+    const storedOptIn = prior?.leaderboardOptIn ?? false;
+    const storedHandle = prior?.leaderboardHandle;
+
+    const optIn = p.leaderboardOptIn ?? storedOptIn;
+
+    let handle = storedHandle;
+    if (p.leaderboardHandle !== undefined && p.leaderboardHandle !== storedHandle) {
+      // One change ever: a stored CUSTOM handle (anything other than the
+      // deterministic default) is locked. Re-submitting the SAME handle is a
+      // no-op, not a change.
+      if (storedHandle !== undefined && storedHandle !== handleForProfile(p.profileId)) {
+        return { handleLocked: true };
+      }
+      handle = p.leaderboardHandle;
+    }
+    if (optIn && handle === undefined) handle = handleForProfile(p.profileId);
+
+    if (storedOptIn && !optIn) erasedProfileIds.push(p.profileId);
+
+    profiles.push({
+      profileId: p.profileId,
+      displayName: p.displayName,
+      stage: p.stage,
+      ...(optIn ? { leaderboardOptIn: true } : {}),
+      ...(handle !== undefined ? { leaderboardHandle: handle } : {}),
+    });
+  }
+
+  // A profile REMOVED from the array while opted in is erased too — otherwise
+  // its rows would linger on the board until TTL with no way to remove them.
+  for (const s of stored) {
+    if (s.leaderboardOptIn === true && !incoming.some((p) => p.profileId === s.profileId)) {
+      erasedProfileIds.push(s.profileId);
+    }
+  }
+
+  return { profiles, erasedProfileIds };
+}
+
 /** POST /api/auth/account — update displayName and/or child profiles (full replace). */
 export async function handleAccountPost(req: Request, deps: AuthDeps = getAuthDeps()): Promise<Response> {
   const auth = await requireAuth(req, deps);
@@ -377,8 +453,40 @@ export async function handleAccountPost(req: Request, deps: AuthDeps = getAuthDe
     return json({ error: 'Nothing to update.' }, 400);
   }
 
-  const user = await deps.storage.updateUser(auth.user.userId, parsed.data);
+  // Phase D5 (docs/leaderboard-plan.md §4.3/§7): the childProfiles write is a
+  // full REPLACE, so the leaderboard fields are merged with the stored values
+  // first — a save that doesn't touch the leaderboard must never silently
+  // wipe a profile's opt-in or handle.
+  let childProfiles: ChildProfile[] | undefined;
+  let erasedProfileIds: string[] = [];
+  if (parsed.data.childProfiles) {
+    const merged = mergeLeaderboardFields(parsed.data.childProfiles, auth.user.childProfiles);
+    if ('handleLocked' in merged) {
+      return json({ error: 'This leaderboard handle has already been changed once and cannot be changed again.' }, 400);
+    }
+    childProfiles = merged.profiles;
+    erasedProfileIds = merged.erasedProfileIds;
+  }
+
+  const user = await deps.storage.updateUser(auth.user.userId, {
+    displayName: parsed.data.displayName,
+    childProfiles,
+  });
   if (!user) return json({ error: 'Not authenticated.' }, 401);
+
+  // Opt-out erasure (plan §7): a profile that left the leaderboard (or was
+  // removed while opted in) loses its leaderboard rows immediately. Erasure
+  // failure must NOT fail the account update (same tolerance as the D4 award
+  // hook) — the opt-out state is durable and rows can be cleaned up later.
+  if (deps.leaderboardStorage) {
+    for (const profileId of erasedProfileIds) {
+      try {
+        await deps.leaderboardStorage.deleteEntriesByUser(auth.user.userId, profileId);
+      } catch (err) {
+        console.error('[auth] leaderboard opt-out erasure failed:', err instanceof Error ? err.message : err);
+      }
+    }
+  }
 
   return withCookie(json({ user: publicUser(user) }), auth.refreshCookie);
 }
