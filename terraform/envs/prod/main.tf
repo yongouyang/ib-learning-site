@@ -150,6 +150,13 @@ variable "analytics_admin_emails" {
   default     = ""
 }
 
+variable "admin_env" {
+  description = "Admin Lambda env overrides via CI TF_VAR_admin_env (ADMIN_ENV secret); empty = base wiring below."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
 # ACM cert for octavlearning.com (apex + www), DNS-validated. Lives at the
 # root (not the site module) so only the PROD site instance references it —
 # the DEV distribution keeps the CloudFront default cert. Validated via two
@@ -333,6 +340,30 @@ module "analytics_api" {
   )
 }
 
+# Admin CRUD dashboard API (Feature 2 — docs/supportability-features-plan.md):
+# the broad admin DynamoDB browser Lambda. Reuses the shared users/sessions
+# tables for session validation and the ANALYTICS_ADMIN_EMAILS allowlist for the
+# admin gate. Base wiring below always selects the real dynamodb implementation;
+# var.admin_env (CI ADMIN_ENV secret) can override/add — leave it empty to use
+# these defaults.
+module "admin_api" {
+  source = "../../modules/admin_api"
+
+  zip_path = "${path.module}/../../../lambda/admin/dist/admin-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  environment = merge(
+    {
+      ADMIN_STORAGE          = "dynamodb"
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      ANALYTICS_ADMIN_EMAILS = var.analytics_admin_emails
+    },
+    var.admin_env,
+  )
+}
+
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
 # /api/* proxy behavior to the feedback Lambda. Custom domain: the
 # dev.octavlearning.com alias with its dedicated ACM cert (round 2 of the
@@ -345,6 +376,7 @@ module "site" {
   auth_origin_domain      = module.auth_api.function_url_domain
   progress_origin_domain  = module.progress_api.function_url_domain
   analytics_origin_domain = module.analytics_api.function_url_domain
+  admin_origin_domain     = module.admin_api.function_url_domain
   domain_names            = ["dev.octavlearning.com"]
   acm_certificate_arn     = aws_acm_certificate.dev.arn
 }
@@ -360,6 +392,7 @@ module "site_prod" {
   auth_origin_domain      = module.auth_api.function_url_domain
   progress_origin_domain  = module.progress_api.function_url_domain
   analytics_origin_domain = module.analytics_api.function_url_domain
+  admin_origin_domain     = module.admin_api.function_url_domain
   domain_names            = ["octavlearning.com", "www.octavlearning.com"]
   acm_certificate_arn     = aws_acm_certificate.site.arn
   redirect_from_host      = "www.octavlearning.com"
