@@ -1,0 +1,100 @@
+{
+  "id": "math-y9-set-2",
+  "courseId": "math-y9",
+  "title": "Practice Set 2",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "math-y9-set-2-q1",
+      "stem": "Work out (a) $4^{-2}$ and (b) $27^{\\dfrac{1}{3}}$.",
+      "marks": 2,
+      "markscheme": [
+        "B1: (a) $4^{-2} = \\dfrac{1}{16}$",
+        "B1: (b) $27^{\\dfrac{1}{3}} = 3$"
+      ],
+      "modelAnswer": "(a) A negative power means a reciprocal: $4^{-2} = \\dfrac{1}{4^{2}} = \\dfrac{1}{16}$. (b) A power of $\\dfrac{1}{3}$ means the cube root: $27^{\\dfrac{1}{3}} = \\sqrt[3]{27} = 3$, since $3 \\times 3 \\times 3 = 27$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y9-set-2-q2",
+      "stem": "The graph of $y = x^{2} - 4x + 3$ crosses the $x$-axis at two points. Find the coordinates of these two points.",
+      "marks": 2,
+      "markscheme": [
+        "M1: factorises $x^{2} - 4x + 3 = 0$, e.g. $(x - 1)(x - 3) = 0$",
+        "A1: $(1, 0)$ and $(3, 0)$ both correct"
+      ],
+      "modelAnswer": "On the $x$-axis, $y = 0$, so solve $x^{2} - 4x + 3 = 0$. Find two numbers that multiply to $3$ and add to $-4$: they are $-1$ and $-3$. So $(x - 1)(x - 3) = 0$, giving $x = 1$ or $x = 3$. The crossing points are $(1, 0)$ and $(3, 0)$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y9-set-2-q3",
+      "stem": "A right-angled triangle has shorter sides of $6$ cm and $8$ cm. Calculate the length of the hypotenuse.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $h^{2} = 6^{2} + 8^{2}$ (Pythagoras' theorem)",
+        "A1: $10$ cm (units required)"
+      ],
+      "modelAnswer": "By Pythagoras' theorem, $h^{2} = 6^{2} + 8^{2} = 36 + 64 = 100$. So $h = \\sqrt{100} = 10$. The hypotenuse is $10$ cm — this is the $3, 4, 5$ right-angled triangle doubled.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-y9-set-2-q4",
+      "stem": "A straight line has equation $y = -2x + 5$. (a) State the gradient of the line. (b) Find the point where the line crosses the $x$-axis.",
+      "marks": 2,
+      "markscheme": [
+        "B1: gradient $= -2$",
+        "A1: crosses the $x$-axis at $x = 2.5$, i.e. $(2.5, 0)$"
+      ],
+      "modelAnswer": "(a) Comparing $y = -2x + 5$ with $y = mx + c$, the gradient is $-2$. (b) On the $x$-axis, $y = 0$: $0 = -2x + 5$, so $2x = 5$ and $x = 2.5$. The line crosses the $x$-axis at $(2.5, 0)$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y9-set-2-q5",
+      "stem": "A scatter graph shows the age (in years) and price (in ＄) of $12$ used cars. The ages range from $1$ to $12$ years, and the graph shows negative correlation. (a) Describe what negative correlation means in this context. (b) Explain why it would not be reliable to use the scatter graph to predict the price of a $20$-year-old car.",
+      "marks": 3,
+      "markscheme": [
+        "B1: as the age of the car increases, its price tends to decrease",
+        "B1: $20$ years is outside the range of the data (ages $1$ to $12$)",
+        "B1: the trend may not continue beyond the observed range, so extrapolation is unreliable"
+      ],
+      "modelAnswer": "(a) Negative correlation means that as the age of a car increases, its price tends to fall — older cars are generally worth less. (b) The data only cover ages from $1$ to $12$ years, so a $20$-year-old car lies outside the observed range. Predicting outside the data range is extrapolation, and the trend may not continue (very old cars may level off in price or even become valuable), so the prediction would not be reliable.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y9-set-2-q6",
+      "stem": "(a) Write $x^{2} - 6x + 11$ in the form $(x - p)^{2} + q$, where $p$ and $q$ are integers. (b) Hence write down the coordinates of the turning point of the graph $y = x^{2} - 6x + 11$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: halves the coefficient of $x$, giving $(x - 3)^{2}$",
+        "A1: $(x - 3)^{2} + 2$",
+        "A1: turning point $(3, 2)$"
+      ],
+      "modelAnswer": "(a) Halve the coefficient of $x$: $(x - 3)^{2} = x^{2} - 6x + 9$. To get back to $x^{2} - 6x + 11$, add $2$: $x^{2} - 6x + 11 = (x - 3)^{2} + 2$. Check: $(x - 3)^{2} + 2 = x^{2} - 6x + 9 + 2$ ✓ (b) Since $(x - 3)^{2} \\geq 0$, the smallest value of $y$ is $2$, when $x = 3$. The turning point (a minimum) is $(3, 2)$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-y9-set-2-q7",
+      "stem": "A cuboid measures $3$ cm by $4$ cm by $12$ cm. Calculate the length of the longest straight rod that fits inside the cuboid.",
+      "marks": 3,
+      "markscheme": [
+        "M1: diagonal of the $3 \\times 4$ base: $\\sqrt{3^{2} + 4^{2}} = 5$ cm",
+        "M1: space diagonal: $\\sqrt{5^{2} + 12^{2}}$",
+        "A1: $13$ cm (units required)"
+      ],
+      "modelAnswer": "Apply Pythagoras' theorem twice. First, the diagonal across the $3$ cm by $4$ cm base: $\\sqrt{3^{2} + 4^{2}} = \\sqrt{9 + 16} = \\sqrt{25} = 5$ cm. Then the space diagonal uses this diagonal and the $12$ cm height: $\\sqrt{5^{2} + 12^{2}} = \\sqrt{25 + 144} = \\sqrt{169} = 13$ cm. The longest rod is $13$ cm.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-y9-set-2-q8",
+      "stem": "The line $y = x - 2$ intersects the curve $y = x^{2} - 5x + 6$ at two points. Find the coordinates of both intersection points.",
+      "marks": 3,
+      "markscheme": [
+        "M1: sets the equations equal and rearranges: $x^{2} - 6x + 8 = 0$",
+        "A1: factorises to $(x - 2)(x - 4) = 0$, so $x = 2$ or $x = 4$",
+        "A1: intersection points $(2, 0)$ and $(4, 2)$"
+      ],
+      "modelAnswer": "At the intersection points the $y$-values are equal: $x^{2} - 5x + 6 = x - 2$. Rearrange: $x^{2} - 6x + 8 = 0$. Factorise: $(x - 2)(x - 4) = 0$, so $x = 2$ or $x = 4$. Substitute into $y = x - 2$: when $x = 2$, $y = 0$; when $x = 4$, $y = 2$. Check on the curve: $2^{2} - 5(2) + 6 = 0$ ✓ and $4^{2} - 5(4) + 6 = 2$ ✓. The points are $(2, 0)$ and $(4, 2)$.",
+      "difficulty": "hard"
+    }
+  ]
+}

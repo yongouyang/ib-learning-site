@@ -1,0 +1,100 @@
+{
+  "id": "phys-ks3-set-2",
+  "courseId": "phys-ks3",
+  "title": "Practice Set 2",
+  "durationMinutes": 25,
+  "questions": [
+    {
+      "id": "phys-ks3-set-2-q1",
+      "stem": "A ball is lifted from the floor onto a shelf. (a) Name the energy store that increases as the ball is lifted. (b) State the main energy transfer as the ball falls back off the shelf.",
+      "marks": 2,
+      "markscheme": [
+        "B1: gravitational potential energy (store) increases",
+        "B1: gravitational potential energy is transferred to kinetic energy as it falls"
+      ],
+      "modelAnswer": "(a) As the ball is lifted higher, energy is transferred to its gravitational potential energy store. (b) As it falls, the main energy transfer is from the gravitational potential store to the kinetic energy store — the ball speeds up as it loses height. (On impact, the energy transfers to thermal and sound energy of the surroundings.)",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-ks3-set-2-q2",
+      "stem": "A ray of light hits a plane mirror with an angle of incidence of $35^{\\circ}$. State the angle of reflection, and name the law you have used.",
+      "marks": 2,
+      "markscheme": [
+        "B1: angle of reflection $= 35^{\\circ}$",
+        "B1: the law of reflection (angle of incidence $=$ angle of reflection)"
+      ],
+      "modelAnswer": "By the law of reflection, the angle of incidence equals the angle of reflection, with both angles measured from the normal. Since the angle of incidence is $35^{\\circ}$, the angle of reflection is also $35^{\\circ}$. (Remember these angles are measured between the ray and the normal to the surface, not between the ray and the mirror itself.)",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-ks3-set-2-q3",
+      "stem": "Explain, in terms of particles, why a gas can be compressed easily but a solid cannot.",
+      "marks": 2,
+      "markscheme": [
+        "B1: gas particles are far apart with large spaces between them",
+        "B1: solid particles are closely packed in a fixed/regular arrangement, so there is (almost) no space to squeeze them closer"
+      ],
+      "modelAnswer": "In a gas the particles are far apart with large empty spaces between them, so the particles can be pushed closer together — the gas compresses. In a solid the particles are already closely packed in a fixed, regular arrangement and almost touch, so there is no room to squeeze them closer and the solid cannot be compressed.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-ks3-set-2-q4",
+      "stem": "A force of $120$ N acts on an area of $0.4$ m$^{2}$. Calculate the pressure.",
+      "marks": 2,
+      "markscheme": [
+        "M1: pressure $=$ force $\\div$ area, $120 \\div 0.4$",
+        "A1: $300$ Pa (units required)"
+      ],
+      "modelAnswer": "Use $p = \\dfrac{F}{A}$: $p = \\dfrac{120}{0.4} = 300$. The pressure is $300$ Pa (pascals), where $1$ Pa $= 1$ N/m$^{2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-ks3-set-2-q5",
+      "stem": "A book of mass $2$ kg is lifted $3$ m above the ground. Taking $g = 10$ N/kg, calculate the gravitational potential energy gained by the book.",
+      "marks": 3,
+      "markscheme": [
+        "M1: GPE $= mgh$ (formula recalled)",
+        "A1: correct substitution, $2 \\times 10 \\times 3$",
+        "A1: $60$ J (units required)"
+      ],
+      "modelAnswer": "Use GPE $= mgh$: GPE $= 2 \\times 10 \\times 3 = 60$. The book gains $60$ J of gravitational potential energy.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-ks3-set-2-q6",
+      "stem": "A lever is used to lift a load. The effort is applied $2$ m from the pivot and the load is $0.5$ m from the pivot. (a) Calculate the mechanical advantage of the lever. (b) Calculate the effort force needed to lift a $200$ N load.",
+      "marks": 3,
+      "markscheme": [
+        "M1: mechanical advantage $= 2 \\div 0.5$ (effort distance $\\div$ load distance)",
+        "A1: mechanical advantage $= 4$",
+        "A1: effort $= 200 \\div 4 = 50$ N"
+      ],
+      "modelAnswer": "(a) Mechanical advantage $= \\dfrac{\\text{effort distance from pivot}}{\\text{load distance from pivot}} = \\dfrac{2}{0.5} = 4$. (b) Mechanical advantage also equals $\\dfrac{\\text{load}}{\\text{effort}}$, so effort $= \\dfrac{200}{4} = 50$ N. The lever lets a $50$ N effort lift a $200$ N load — but the effort must move $4$ times as far as the load.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-ks3-set-2-q7",
+      "stem": "The Moon moves in a nearly circular orbit around the Earth. Explain why the Moon keeps orbiting instead of flying off in a straight line.",
+      "marks": 3,
+      "markscheme": [
+        "B1: without a force, the Moon would move in a straight line at constant velocity (its velocity is along the tangent)",
+        "B1: the Earth's gravitational pull provides an inward (centripetal) force on the Moon",
+        "B1: this force continually changes the direction of the Moon's velocity, keeping it in orbit"
+      ],
+      "modelAnswer": "If no force acted on the Moon, it would move in a straight line at constant velocity (Newton's first law) — at any instant its velocity is along the tangent to its orbit. The Earth's gravitational attraction provides a continuous inward (centripetal) force on the Moon. This force does not stop the Moon; instead it continually changes the direction of the Moon's velocity, bending its path into an orbit around the Earth.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-ks3-set-2-q8",
+      "stem": "Wind turbines and coal-fired power stations both generate electricity. State one advantage of wind turbines over coal, with a reason, and one disadvantage, with a reason.",
+      "marks": 3,
+      "markscheme": [
+        "B1: advantage, e.g. wind is renewable / produces no carbon dioxide while generating",
+        "B1: reason, e.g. wind is not used up / no combustion, so no extra greenhouse gases",
+        "B1: disadvantage with reason, e.g. wind is intermittent — turbines stop when the wind drops, so supply is unreliable / visual or noise impact on local people"
+      ],
+      "modelAnswer": "Advantage: wind is a renewable resource and wind turbines produce no carbon dioxide while generating, because no fuel is burnt — unlike coal, which releases greenhouse gases and will eventually run out. Disadvantage: wind is intermittent — when the wind drops, the turbines generate little or no power, so the supply is unreliable and needs backup; some people also object to the visual impact and noise of turbines near their homes.",
+      "difficulty": "hard"
+    }
+  ]
+}
