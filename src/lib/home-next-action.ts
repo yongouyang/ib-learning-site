@@ -1,4 +1,4 @@
-import type { FlashcardProgress, TopicProgress } from '@/content/types';
+import type { TopicProgress } from '@/content/types';
 import type { DueTopic } from './flashcard-scheduler';
 import { getWeakTopics } from './weak-point-analyzer';
 
