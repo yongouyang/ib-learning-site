@@ -1,6 +1,10 @@
 # Leaderboard Plan (Phase D) — Healthy Competition at Octav Learning
 
-> **Status:** Draft for review (2026-08-23). Supersedes and sharpens the Phase D
+> **Status:** Reviewed 2026-08-23 (draft + review amendments applied — daily-cap /
+> repeat-cap storage in §4.1/§5, flashcard ALL_OLD detection, diagnostic XP dropped
+> (no sync event exists), week attribution pinned to sync time, public teaser
+> endpoint in §6, immediate opt-out delete in §7, §12 open questions resolved).
+> Supersedes and sharpens the Phase D
 > sketch in `architecture-evolution-plan.md` §4. Policy anchor: the leaderboard is
 > **free-with-login, never premium** (`entitlement-policy.md` Tier 1).
 > Objective: promote healthy competition and increase weekly usage (activation,
@@ -97,9 +101,15 @@ Distilled mechanics and why they work:
 1. **Healthy over addictive.** Opt-in, pseudonymous, neighbourhood view, personal
    bests, no public bottom-shaming, one-click exit. The leaderboard should make
    the middle of the pack feel *close*, not hopeless.
-2. **Server-computed, cheat-resistant.** Scores derive ONLY from server-validated
-   progress events (the sync path), never from client-reported totals. Mitigates
-   risk R12 in `architecture-evolution-plan.md` §8.
+2. **Server-computed, cheat-bounded.** Scores derive ONLY from server-validated
+   progress events (the sync path), never from client-reported totals. Be honest
+   about the limit: the sync schema accepts the client's `correctCount` (capped at
+   500/attempt), so a determined user with a session cookie can fabricate
+   attempts — server-side award prevents replay-doubling, and the daily cap +
+   sync rate limit bound the damage to ≤ 500 XP/day/profile, but answers are not
+   server-verified. That is the right trade at this stake level; revisit if
+   boards ever carry rewards. Mitigates risk R12 in
+   `architecture-evolution-plan.md` §8.
 3. **Weekly seasons.** Reset every Monday 00:00 UTC. Fresh contest, new users can
    win, no permanent leaders.
 4. **Free with login, never premium** (policy). Anonymous visitors see a teaser
@@ -123,18 +133,48 @@ XP event values (server-side, on accepted sync writes only):
   exam/paper attempt  20 × correctCount            (+ 40 bonus if 100%)
   ladder level pass   30 × level                   (max-wins already enforced)
   flashcard "known"   2 per newly-known card
-  diagnostic complete 50 (once per course)
 ```
 
-Caps to keep it healthy and cheat-resistant:
+(No diagnostic line: the sync schema has no diagnostic event today — only
+`quizAttempt` / `examResult` / `ladderResult` / `flashcardResult`. Diagnostics
+either ride `examResult` or need a fifth event type; both are follow-ups, not
+MVP. Revisit the 50-XP diagnostic bonus when that event exists.)
+
+Caps to keep it healthy and bound cheating:
 - **Daily soft cap: 500 XP per profile per day.** Anything beyond still records
   progress but earns no leaderboard XP — removes the farming incentive without
   punishing genuine cramming (the progress page still shows everything).
+  Storage: fixed-window bucket `xpday:<profileId>:<YYYY-MM-DD>` in
+  `octav-rate-limits` (TTL ~2 d), one conditional increment on the award path —
+  the `aimark:<userId>:<YYYY-MM>` pattern from Phase E2, no new table.
 - **Diminishing repeats:** re-attempting the *same* topic quiz earns half XP from
-  the 3rd attempt and zero from the 6th — mastery, not grinding.
+  the 3rd attempt and zero from the 6th — mastery, not grinding. Storage: a
+  per-topic-per-week attempt counter bucket
+  `xp-topic:<profileId>:<topicId>:<weekKey>` (TTL ~10 d), one conditional
+  increment whose returned ordinal picks the multiplier (1, 1, 0.5, 0.5, 0.5,
+  then 0) — no read of the progress table in the hot sync path, keeping the
+  one-conditional-command-per-write invariant.
+- **Flashcard "newly-known" detection:** the LWW `putFlashcard` UpdateCommand
+  returns `ReturnValues: ALL_OLD`, so the prior status is available in the same
+  write — award 2 XP only on a not-known → known transition. No extra read.
+- **Ladder award:** `updateLadderLevel` is already a conditional per-level max —
+  award only when the write reports an improvement (a first clear or a higher
+  score that would newly pass), not on every replayed/lower score.
 - All inputs are already budgeted/validated by the sync schema
   (`src/lib/progress/types.ts`), and the sync endpoint already has a durable
   per-user rate limit — the XP pipeline inherits both protections.
+
+**Applied-vs-replay plumbing (D4 prerequisite):** `applyEvent` currently returns
+`void` and discards the storage layer's "already applied" / "improved" signals
+(e.g. `putTopicAttempt` returns false on a replay). D4 must surface a per-event
+`applied: boolean` (or delta) so XP is awarded only on writes that actually
+changed state — this is the entire idempotency argument of §5.
+
+**Week attribution:** XP always credits the CURRENT week, keyed off the server
+clock at sync time — never the client-reported event `date`. Late-synced work
+earns in the week it syncs. This is slightly unfair to offline users but makes
+finished boards immutable (last week's rows are still within TTL when the sync
+arrives; letting a client date write into them would rewrite history).
 
 Streak and total stars stay on the user's own Progress page (per the §4.1
 recommendation in the architecture plan) — they are personal metrics, not
@@ -144,7 +184,11 @@ competition metrics.
 
 Default view: **your stage** (KS3 / IGCSE / DP) — students compete with true
 peers, which is the fairest comparison and matches the course structure in
-`src/lib/courses.ts`. Toggle to **Global**.
+`src/lib/courses.ts`. **Global is deferred with the cohorts** (§12 Q3: at
+launch density a global board is a 5-person list — harmless but thin, and
+stage-only halves the write amplification to one UpdateItem per earning
+event). The data model keeps the `global` scope available so adding it later
+is a config change, not a migration.
 
 Deferred (need density): per-subject and per-course boards. At today's
 family-scale user counts a per-course board would list 2 people; stage + global
@@ -204,10 +248,11 @@ Why this shape:
   scale a board partition is tens-to-hundreds of items, so this is milliseconds
   and costs one read. If a board ever grows past ~1k entries, add a
   `xpBucket` sort-key redesign or a weekly rank-materialisation job — not before.
-- One row per (profile, scope, week): a profile on the KS3 stage board AND the
-  global board writes two rows per earning event (atomic `ADD xp`). Two
-  UpdateItems per XP-earning sync — negligible cost, and each board stays a
-  self-contained partition.
+- One row per (profile, scope, week): MVP ships stage-scope only (§12 Q3), so
+  one UpdateItem per XP-earning sync. When Global is added, a profile on the
+  KS3 stage board AND the global board writes two rows per earning event
+  (atomic `ADD xp`) — negligible cost, and each board stays a self-contained
+  partition.
 - `attribute_not_exists`-style conditional writes are NOT needed here — XP is
   idempotent because it is derived from *already-idempotent* sync writes: the
   progress handler applies each event at most once (replays are no-ops), and we
@@ -243,6 +288,7 @@ src/app/leaderboard/page.tsx            (static client page, like /admin/analyti
 | Endpoint | Auth | Behaviour |
 |----------|------|-----------|
 | `GET /api/leaderboard?scope=stage:ks3&week=current\|prev&profileId=<p>` | session | Top 100 + caller's neighbourhood (2 above / self / 2 below) + caller's rank & XP + week metadata. `profileId` validated against the session user's childProfiles (same rule as progress). |
+| `GET /api/leaderboard/teaser?scope=stage:ks3` | none | Public: top-3 handles + XP only (no ranks beyond 3, no neighbourhood) — powers the logged-out conversion card in §7. Handles are pseudonymous by design, so this leaks no PII; keep it read-cheap (Limit 3 Query). |
 | `GET /api/leaderboard/_health` | none | Unauthenticated Limit-1 Query smoke probe (the progress/analytics `_health` pattern). |
 
 No write endpoints — XP accrues inside the **progress sync handler**: after
@@ -261,9 +307,12 @@ the fifth Lambda.
 `leaderboard_api` module (Function URL + least-privilege IAM: leaderboard
 Query/Get + users/sessions session-validation grants, NO write grants — writes
 come from the *progress* Lambda, which gains `dynamodb:UpdateItem` on
-`octav-leaderboard`); `site` module `/api/leaderboard/*` behavior listed before
-`/api/*`; both deploy jobs gain the `_health` smoke assertion; account-deletion
-path gains leaderboard erasure via the user-index GSI.
+`octav-leaderboard` AND on `octav-rate-limits` for the `xpday:` / `xp-topic:`
+cap buckets — it already has UpdateItem there); `site` module
+`/api/leaderboard/*` behavior listed before `/api/*`; both deploy jobs gain the
+`_health` smoke assertion; the **auth** Lambda gains Query (user-index GSI) +
+DeleteItem on `octav-leaderboard` for BOTH account-deletion erasure and
+opt-out row removal (one grant, two callers).
 
 ## 7. Client UX
 
@@ -271,9 +320,9 @@ path gains leaderboard erasure via the user-index GSI.
   `/leaderboard` — decide in D4; a dedicated page is cleaner for sharing/SEO and
   matches the "own surface" rule for UX review). Entry copy: "Leaderboard".
 - **Board view:**
-  - Header: scope toggle (Your stage ▾ / Global), week label + countdown
-    ("resets Monday 00:00 UTC"), and a "Last week" link while the previous board
-    is alive.
+  - Header: stage label (your profile's stage — Global toggle arrives with
+    cohorts, §4.2), week label + localised countdown ("resets Monday morning"),
+    and a "Last week" link while the previous board is alive.
   - Top-3 podium, then the caller's neighbourhood window (the relative-board
     pattern from the HKU findings). Each row: rank, handle, XP. Caller's row
     highlighted.
@@ -281,12 +330,18 @@ path gains leaderboard erasure via the user-index GSI.
     Personal-best framing keeps it self-referential.
 - **Not opted in (logged in):** value-prop card — "See how you compare this
   week. Anonymous handle, opt out any time." with a per-profile opt-in button.
-- **Logged out:** teaser — top-3 handles of one stage board (handles are public
-  by design; no PII) + "Create a free account to join". This is the
-  anonymous→account conversion hook the entitlement policy intends.
-- **Opted in:** "Leave leaderboard" in the row's overflow / account page;
-  leaving hides the entry immediately (soft: keep XP row, filter at read) and
-  deletes it at week end.
+- **Logged out:** teaser card powered by the public
+  `GET /api/leaderboard/teaser` endpoint — top-3 handles of one stage board
+  (handles are public by design; no PII) + "Create a free account to join".
+  This is the anonymous→account conversion hook the entitlement policy intends.
+- **Opted in:** "Leave leaderboard" in the row's overflow / account page.
+  Leaving **deletes the profile's current-week rows immediately** via the same
+  erasure plumbing as account deletion (the auth Lambda handles
+  `POST /api/auth/account`, so it gains `DeleteItem` on `octav-leaderboard` +
+  Query on the user-index GSI — shared with the delete-account path, one grant
+  covering both). No soft-filter at read: rows are gone, not hidden. Re-joining
+  in the same week restarts from 0 XP — acceptable, and it closes the
+  leave-and-rejoin-to-reset-rank exploit.
 - Copy voice per `docs/UX_GUIDELINES.md`: celebrate effort, never shame rank
   ("You're 30 XP away from #5", not "You're losing").
 
@@ -297,7 +352,7 @@ path gains leaderboard erasure via the user-index GSI.
 | COPPA / GDPR-K | Opt-in per child profile by the parent account; pseudonymous handles; no PII on the board; erasure hook wired into account deletion (GSI delete). |
 | Bullying / contact | No messaging, no profile pages, no friend graph at launch — handle + number only. |
 | Demotivation | Neighbourhood view, personal bests, weekly reset, no public bottom, opt-out always visible. |
-| Cheating | Server-derived XP only; daily cap; diminishing repeats; sync rate limit inherited. |
+| Cheating | Server-awarded XP only (replay-safe); daily cap; diminishing repeats; sync rate limit inherited. Bounded, not prevented — client-reported `correctCount` is trusted within schema caps (§3.2); revisit if boards ever carry rewards. |
 | Anxiety | No push notifications about rank in MVP; countdown yes, guilt-trip never. |
 
 ## 9. Instrumentation (extend the Phase A taxonomy)
@@ -317,7 +372,7 @@ Success-metric queries (§1) run off these + existing `quiz_completed` /
 | D1 | Pure core: `types.ts` (week keys, XP tables, caps), `xp.ts`, `handles.ts` + unit tests | Low | XP math & week math fully tested (parity-style pure helpers) |
 | D2 | Storage: `octav-leaderboard` table design in dummy + `dynamodb-storage.ts`, parity tests | Medium | dummy↔DDB parity on addXp/topN/neighbourhood/erasure |
 | D3 | Handler: `GET /api/leaderboard` + `_health`, session/profile validation, Next route + Lambda + deps seam (fail-closed) | Medium | Unit tests cover 200/400/401/501 paths, smoke probe |
-| D4 | XP accrual hook in progress `applyEvent` (accepted-writes-only) + daily cap + diminishing repeats | Medium | Replayed syncs award zero; caps enforced; existing progress tests stay green |
+| D4 | XP accrual hook in progress `applyEvent` (accepted-writes-only) + daily cap + diminishing repeats + applied-signal plumbing (§4.1) | Medium | applyEvent surfaces per-event applied/improved; replayed syncs award zero; caps enforced; existing progress tests stay green |
 | D5 | Opt-in surface: `accountUpdateSchema` + account page UI + deterministic handle | Low | E2E: opt in → handle shown → appears on board |
 | D6 | Client page `/leaderboard` (board, neighbourhood, opt-in/out, logged-out teaser) + UX-review pass | Medium | E2E across 3 devices; UX subagent pass (mobile+desktop × light/dark × states) |
 | D7 | Terraform: table + GSI, `leaderboard_api` module, progress-Lambda write grant, `/api/leaderboard/*` behavior, `_health` smoke in both deploy jobs, erasure wiring | Medium (infra) | CI deploy-dev green; smoke passes on dev |
@@ -338,14 +393,24 @@ plan's estimate.
 - Real-time updates (fetch-on-view + a 60s client refresh is plenty).
 - Email/notification nudges about rank (anxiety risk; revisit with care).
 
-## 12. Open questions
+## 12. Open questions — resolved in review (2026-08-23)
 
-1. **XP weights** in §4.1 — are quizzes (10/correct) vs exams (20/correct) the
-   right relative value? Exams are rarer and harder; current weighting favours
-   them. Confirm before D1.
-2. **Daily cap 500 XP** — roughly 25 perfect quiz questions; sane for KS3?
-3. **Stage boards only, or include Global in MVP?** Global at low density is a
-   5-person list; harmless but thin. Recommend shipping stage-only first.
-4. **Last-week board retention** — 7 days readable is free via TTL; longer needs
-   an archive read pattern. Keep 7?
-5. Countdown timezone — board resets 00:00 UTC; UI should localise the label.
+1. **XP weights** — keep 10/quiz-correct and 20/exam-correct (+ perfection
+   bonuses); ladder stays 30 × level. The diagnostic 50-XP line is dropped from
+   MVP (no diagnostic sync event exists).
+2. **Daily cap 500 XP** — keep. ≈ 50 correct quiz answers a day is a genuine
+   hard-working day for KS3; the cap only bites farms.
+3. **Stage boards only, or Global in MVP?** — **stage-only.** Global is deferred
+   with the cohorts; the data model keeps the scope available (§4.2).
+4. **Last-week board retention** — keep 7 days readable via TTL. Longer needs an
+   archive read pattern; not worth it now.
+5. **Countdown timezone** — board resets Monday 00:00 UTC; the UI localises the
+   label ("resets Monday 9am your time").
+
+Resolved during the same review (details inline): week attribution = sync-time
+current week only (§4.1); logged-out teaser gets a public
+`GET /api/leaderboard/teaser` endpoint (§6/§7); opt-out deletes current-week
+rows immediately via the auth Lambda's erasure grant (§7); daily-cap and
+repeat-cap state live in `octav-rate-limits` buckets, not the leaderboard table
+(§4.1); stage switching mid-week is allowed — the profile simply starts earning
+into its new stage's board from zero (no transfer, no cleanup).

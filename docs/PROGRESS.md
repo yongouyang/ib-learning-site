@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-08-23 — Leaderboard plan review: amendments written into docs/leaderboard-plan.md
+Git HEAD: `d423945` (develop, tree dirty: doc amendments uncommitted)
+Done: full review of Qwen's `docs/leaderboard-plan.md` against the actual sync/progress code, amendments written into the doc in place. Verified claims that hold: per-event applied/replay signals exist in storage (`putTopicAttempt` false on replay), `correctCount` schema-capped at 500. Fixed gaps: (1) "cheat-resistant" → "cheat-bounded" (correctCount is client-reported; caps bound damage to ≤500 XP/day, answers not server-verified); (2) daily-cap + diminishing-repeat state now specified — `xpday:` / `xp-topic:` buckets in octav-rate-limits (one conditional increment each, no hot-path reads); (3) flashcard newly-known via `ReturnValues: ALL_OLD` on the existing LWW write; (4) diagnostic 50-XP line dropped — no diagnostic sync event exists (only quizAttempt/examResult/ladderResult/flashcardResult); (5) `applyEvent` returns void and discards applied signals — D4 must plumb them (now a stated prerequisite); (6) week attribution pinned to server-clock sync time (finished boards immutable); (7) logged-out teaser contradiction resolved via new public `GET /api/leaderboard/teaser` endpoint; (8) opt-out deletes current-week rows immediately via the auth Lambda (gains Query+DeleteItem on octav-leaderboard, shared with account-erasure) — also closes the leave/rejoin rank-reset exploit; (9) Global board deferred with cohorts (stage-only MVP, one UpdateItem per event); all 5 §12 open questions resolved. Terraform deltas updated accordingly.
+Verified: docs-only — coherence grep for stale phrasing clean; no code changed, no gates run.
+Next: user sign-off on the amended plan → D1 (pure core: types/xp/handles + unit tests). Standing queue unchanged: CI smoke tighten, topic ordering, SES re-appeal, E4 Stripe.
+Notes: if boards ever carry rewards, revisit server-side answer verification (the "bounded not prevented" caveat in §3.2).
+
+---
+
 ## 2026-08-23 — CI lint-warning fixes + Phase E dev smoke verification
 Git HEAD: `96f2716` (develop, pushed)
 Done: silenced the 3 CI build-and-test warnings — dropped the unused `FlashcardProgress` type import in `src/lib/home-next-action.ts` (leftover from the landing redesign), added the repo's standard `eslint-disable-next-line @next/next/no-img-element` markers to the two deliberate plain-`<img>` header logos in `src/app/layout.tsx`. Then verified the Phase E deploy on dev end to end: feedback Lambda env carries `FEEDBACK_STORAGE=dynamodb` + all three table names with the DeepSeek provider config preserved (LastModified post-push, so CI applied it); IAM role policy = users GetItem / sessions Get+Update+Delete / rate-limits Get+Update exactly as terraformed. Dev smoke: `GET /api/feedback` → 200 `{configured:true}`; `POST /api/feedback` valid payload, no cookie → **401 `login_required`** (E2 gate live); invalid payload → 400 before the gate (ordering correct); `GET /api/auth/me` → 401; `/pricing`, `/login`, `/login?next=`, `/exams` all 200; pricing page shows the coming-soon line.
