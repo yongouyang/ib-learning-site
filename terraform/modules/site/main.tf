@@ -40,6 +40,12 @@ variable "analytics_origin_domain" {
   default     = ""
 }
 
+variable "admin_origin_domain" {
+  description = "Lambda Function URL domain for the admin API (admin_api module output). When set, adds the /api/admin/* behavior; empty = API not wired."
+  type        = string
+  default     = ""
+}
+
 variable "leaderboard_origin_domain" {
   description = "Lambda Function URL domain for the leaderboard API (leaderboard_api module output). When set, adds the /api/leaderboard/* behavior; empty = API not wired."
   type        = string
@@ -294,7 +300,23 @@ resource "aws_cloudfront_distribution" "site" {
     }
   }
 
-  # Origin 6 (optional): leaderboard Lambda Function URL (Phase D) — created
+  # Origin 6 (optional): admin Lambda Function URL (Feature 2) — created only
+  # once the API is wired (admin_origin_domain non-empty).
+  dynamic "origin" {
+    for_each = var.admin_origin_domain != "" ? [var.admin_origin_domain] : []
+    content {
+      origin_id   = "lambda-admin"
+      domain_name = origin.value
+      custom_origin_config {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.2"]
+      }
+    }
+  }
+
+  # Origin 7 (optional): leaderboard Lambda Function URL (Phase D) — created
   # only once the API is wired (leaderboard_origin_domain non-empty).
   dynamic "origin" {
     for_each = var.leaderboard_origin_domain != "" ? [var.leaderboard_origin_domain] : []
@@ -353,6 +375,22 @@ resource "aws_cloudfront_distribution" "site" {
     content {
       path_pattern             = "/api/analytics/*"
       target_origin_id         = "lambda-analytics"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # /api/admin/* → admin Lambda, never cached, all viewer data forwarded. More
+  # specific than /api/* and must be listed BEFORE it (Feature 2).
+  dynamic "ordered_cache_behavior" {
+    for_each = var.admin_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/admin/*"
+      target_origin_id         = "lambda-admin"
       viewer_protocol_policy   = "redirect-to-https"
       allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
       cached_methods           = ["GET", "HEAD"]

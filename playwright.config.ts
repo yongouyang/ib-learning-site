@@ -94,8 +94,14 @@ export default defineConfig({
       // PROGRESS_STORAGE is pinned explicitly for hermeticity (progress deps
       // default to dummy anyway — same shared universe).
       ANALYTICS_STORAGE: 'dummy',
-      ANALYTICS_ADMIN_EMAILS: 'admin@example.com',
+      // Multiple allowlisted admin emails so parallel tests that sign in as an
+      // admin never collide on one email's dummy-OTP code.
+      ANALYTICS_ADMIN_EMAILS: 'admin@example.com,admin2@example.com,admin3@example.com,admin4@example.com,admin5@example.com',
       PROGRESS_STORAGE: 'dummy',
+      // Feature 2 (admin CRUD dashboard): runs against the in-memory admin
+      // dummy (seeded octav-* tables) with the same admin allowlist as the
+      // analytics dashboard.
+      ADMIN_STORAGE: 'dummy',
     },
   },
 });

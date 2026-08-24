@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useCallback, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { Download, Trash2, Pencil, Plus, Trophy } from 'lucide-react';
+import Link from 'next/link';
+import { Download, Trash2, Pencil, Plus, BarChart3, Database, Trophy } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import {
   AuthUser,
@@ -78,6 +79,25 @@ function AccountContent({ user }: { user: AuthUser }) {
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
+
+  // Admin console (Feature 2) — gated to allowlisted admins so the installed
+  // PWA has an in-app path to the direct-URL-only admin pages.
+  const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    fetch('/api/admin/access', { credentials: 'same-origin' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((body: { admin?: boolean } | null) => {
+        if (active) setIsAdmin(body ? body.admin === true : false);
+      })
+      .catch(() => {
+        if (active) setIsAdmin(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const loadSessions = useCallback(async () => {
     setSessionsLoading(true);
@@ -344,6 +364,28 @@ function AccountContent({ user }: { user: AuthUser }) {
           </div>
         </form>
       </section>
+
+      {/* Admin console (admins only — in-app path to the direct-URL admin pages) */}
+      {isAdmin === true && (
+        <section className="card p-6 mb-4" aria-label="Admin console">
+          <h2 className="text-base font-semibold text-gray-900 dark:text-gray-50 mb-1">Admin console</h2>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Internal tools for site administrators.</p>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <Link
+              href="/admin/analytics"
+              className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
+              <BarChart3 className="w-4 h-4" aria-hidden="true" /> Analytics
+            </Link>
+            <Link
+              href="/admin/dynamodb"
+              className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
+              <Database className="w-4 h-4" aria-hidden="true" /> DynamoDB
+            </Link>
+          </div>
+        </section>
+      )}
 
       {/* Child profiles */}
       <section className="card p-6 mb-4">
