@@ -106,7 +106,7 @@ describe('POST /api/auth/request-otp', () => {
     expect(await first.json()).toEqual({ message: 'If an account exists, a code has been sent.' });
 
     await t.storage.createUser({
-      userId: 'u1', email, displayName: 'Known', role: 'parent',
+      userId: 'u1', email, displayName: 'Known', role: 'parent', tier: 'free',
       childProfiles: [{ profileId: 'p1', displayName: 'Me', stage: 'ks3' }],
       createdAt: new Date().toISOString(), lastLoginAt: new Date().toISOString(),
     });
@@ -296,6 +296,14 @@ describe('POST /api/auth/verify-otp', () => {
     expect(await t.storage.getOtp(email)).toBeNull();
   });
 
+  it('registers new accounts on the free tier (E0)', async () => {
+    const res = await handleVerifyOtp(jsonRequest('POST', 'https://x.test/api/auth/verify-otp', { email, otp: DUMMY_CODE }), t.deps);
+    expect(res.status).toBe(200);
+    const { user } = await res.json();
+    expect(user.tier).toBe('free');
+    expect((await t.storage.getUserByEmail(email))!.tier).toBe('free');
+  });
+
   it('omits Secure on plain-http non-localhost origins', async () => {
     const res = await handleVerifyOtp(
       jsonRequest('POST', 'http://intranet.test/api/auth/verify-otp', { email, otp: DUMMY_CODE }),
@@ -349,7 +357,7 @@ describe('POST /api/auth/verify-otp', () => {
 
   it('updates lastLoginAt for a returning user without duplicating the account', async () => {
     await t.storage.createUser({
-      userId: 'existing', email, displayName: 'Returning', role: 'parent',
+      userId: 'existing', email, displayName: 'Returning', role: 'parent', tier: 'free',
       childProfiles: [{ profileId: 'p1', displayName: 'Me', stage: 'dp' }],
       createdAt: '2026-01-01T00:00:00.000Z', lastLoginAt: '2026-01-01T00:00:00.000Z',
     });
@@ -539,6 +547,61 @@ describe('GET /api/auth/me', () => {
     const res = await handleMe(new Request('https://x.test/api/auth/me'), t.deps);
     expect(res.status).toBe(401);
     expect(await res.json()).toEqual({ error: 'Not authenticated.' });
+  });
+
+  it('includes entitlements derived from the tier (E1) — free user', async () => {
+    const t = makeDeps();
+    const { token } = await loginAs(t, uniqueEmail());
+    const res = await handleMe(
+      new Request('https://x.test/api/auth/me', { headers: { cookie: `octav_session=${token}` } }),
+      t.deps
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.user.tier).toBe('free');
+    expect(body.entitlements).toEqual(['ai-marking']);
+  });
+
+  it('includes the full entitlement list for a premium user (E1)', async () => {
+    const t = makeDeps();
+    const { token, user } = await loginAs(t, uniqueEmail());
+    // Admin grant (pre-Stripe, tier is set manually): overwrite the stored row.
+    const stored = await t.storage.getUserById(user.userId);
+    await t.storage.createUser({ ...stored!, tier: 'premium' });
+
+    const res = await handleMe(
+      new Request('https://x.test/api/auth/me', { headers: { cookie: `octav_session=${token}` } }),
+      t.deps
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.user.tier).toBe('premium');
+    expect(body.entitlements).toEqual(['ai-marking', 'ai-marking-unlimited', 'exam-sets-full']);
+  });
+
+  it('a pre-E0 user row WITHOUT a tier attribute reads back as free (no migration)', async () => {
+    const t = makeDeps();
+    const email = uniqueEmail();
+    // Simulate a legacy row: no tier field at all.
+    await t.storage.createUser({
+      userId: 'legacy', email, displayName: 'Legacy', role: 'parent',
+      childProfiles: [{ profileId: 'p1', displayName: 'Me', stage: 'ks3' }],
+      createdAt: '2026-01-01T00:00:00.000Z', lastLoginAt: '2026-01-01T00:00:00.000Z',
+    } as UserRecord);
+    await t.storage.createSession({
+      sessionId: hashSessionToken('legacy-token'), userId: 'legacy', email,
+      createdAt: new Date().toISOString(), lastAccessedAt: new Date().toISOString(),
+      expiresAt: Math.floor(Date.now() / 1000) + 600, userAgent: 'test', ip: '127.0.0.1',
+    });
+
+    const res = await handleMe(
+      new Request('https://x.test/api/auth/me', { headers: { cookie: 'octav_session=legacy-token' } }),
+      t.deps
+    );
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.user.tier).toBe('free');
+    expect(body.entitlements).toEqual(['ai-marking']);
   });
 
   it('returns the user and refreshes the session TTL', async () => {

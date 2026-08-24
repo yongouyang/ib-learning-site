@@ -5,6 +5,7 @@ import './globals.css';
 import { ProgressProvider } from '@/context/ProgressContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { AuthProvider } from '@/context/AuthContext';
+import { EntitlementsProvider } from '@/context/EntitlementsContext';
 import { Nav } from '@/components/Nav';
 import { HeaderNav } from '@/components/HeaderNav';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -13,6 +14,8 @@ import { ServiceWorkerRegistration } from '@/components/ServiceWorkerRegistratio
 import { AnalyticsTracker } from '@/components/AnalyticsTracker';
 import { OfflineBanner } from '@/components/OfflineBanner';
 import { UpdateToast } from '@/components/UpdateToast';
+import { HeaderLogo } from '@/components/HeaderLogo';
+import { DevEnvironmentIndicator } from '@/components/DevEnvironmentIndicator';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -78,13 +81,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${geistSans.className} min-h-screen flex flex-col`}>
         <ThemeProvider>
           <AuthProvider>
+          <EntitlementsProvider>
           <ProgressProvider>
             <header className="hidden md:flex items-center justify-between px-6 py-3 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950">
-              <Link href="/" className="flex items-center">
-                {/* Plain <img>: local SVGs get no next/image optimisation (see StudyNoteIllustration). */}
-                <img src="/icons/icon-primary-light-background.svg" alt="Octav Learning" className="h-6 w-auto dark:hidden" />
-                <img src="/icons/icon-inverse-dark-background.svg" alt="Octav Learning" className="h-6 w-auto hidden dark:block" />
-              </Link>
+              <HeaderLogo />
               <div className="flex items-center gap-2">
                 <HeaderNav />
                 <AccountButton variant="desktop" />
@@ -120,7 +120,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <AnalyticsTracker />
             <OfflineBanner />
             <UpdateToast />
+            <DevEnvironmentIndicator />
           </ProgressProvider>
+          </EntitlementsProvider>
           </AuthProvider>
         </ThemeProvider>
       </body>

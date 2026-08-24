@@ -40,6 +40,18 @@ variable "analytics_origin_domain" {
   default     = ""
 }
 
+variable "admin_origin_domain" {
+  description = "Lambda Function URL domain for the admin API (admin_api module output). When set, adds the /api/admin/* behavior; empty = API not wired."
+  type        = string
+  default     = ""
+}
+
+variable "leaderboard_origin_domain" {
+  description = "Lambda Function URL domain for the leaderboard API (leaderboard_api module output). When set, adds the /api/leaderboard/* behavior; empty = API not wired."
+  type        = string
+  default     = ""
+}
+
 variable "domain_names" {
   description = "Custom domain aliases (apex + www). Empty = cloudfront.net default cert only. First entry is the canonical host."
   type        = list(string)
@@ -197,6 +209,30 @@ resource "aws_cloudfront_function" "url_rewrite" {
   EOT
 }
 
+# The analytics handler derives the viewer host (dev vs prod traffic split)
+# from X-Forwarded-Host, but the AllViewerExceptHostHeader origin request
+# policy does NOT make CloudFront deliver the original viewer Host — verified
+# on dev 2026-08-24: every analytics event was attributed to the
+# *.lambda-url.* origin domain, so the split collapsed to one host. This
+# viewer-request Function copies the viewer's Host into X-Forwarded-Host
+# (which the policy then forwards, since it is not Host), restoring the real
+# dev/prod attribution. Associated ONLY with /api/analytics/* — no other API
+# handler reads the viewer host.
+resource "aws_cloudfront_function" "api_host_header" {
+  name    = "${var.name_prefix}-api-host-header"
+  runtime = "cloudfront-js-2.0"
+  comment = "Preserve the viewer Host as X-Forwarded-Host for /api/analytics/*"
+  publish = true
+
+  code = <<-EOT
+    function handler(event) {
+      var request = event.request;
+      request.headers['x-forwarded-host'] = { value: request.headers.host.value };
+      return request;
+    }
+  EOT
+}
+
 # --- Distribution -------------------------------------------------------------
 
 # AWS managed cache policy IDs (global constants, not region-specific).
@@ -288,6 +324,38 @@ resource "aws_cloudfront_distribution" "site" {
     }
   }
 
+  # Origin 6 (optional): admin Lambda Function URL (Feature 2) — created only
+  # once the API is wired (admin_origin_domain non-empty).
+  dynamic "origin" {
+    for_each = var.admin_origin_domain != "" ? [var.admin_origin_domain] : []
+    content {
+      origin_id   = "lambda-admin"
+      domain_name = origin.value
+      custom_origin_config {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.2"]
+      }
+    }
+  }
+
+  # Origin 7 (optional): leaderboard Lambda Function URL (Phase D) — created
+  # only once the API is wired (leaderboard_origin_domain non-empty).
+  dynamic "origin" {
+    for_each = var.leaderboard_origin_domain != "" ? [var.leaderboard_origin_domain] : []
+    content {
+      origin_id   = "lambda-leaderboard"
+      domain_name = origin.value
+      custom_origin_config {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.2"]
+      }
+    }
+  }
+
   # /api/auth/* → auth Lambda, never cached, all viewer data forwarded. This
   # more specific pattern MUST precede the /api/* behavior below — CloudFront
   # matches ordered behaviors top-down, so /api/auth/* must win over /api/*.
@@ -296,6 +364,26 @@ resource "aws_cloudfront_distribution" "site" {
     content {
       path_pattern             = "/api/auth/*"
       target_origin_id         = "lambda-auth"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # Bare /api/progress (exact path, no wildcard) → progress Lambda. A
+  # "/api/progress/*" pattern requires the trailing slash segment, so without
+  # this behavior the bare path falls through to /api/* → the FEEDBACK Lambda
+  # (silently breaking GET /api/progress merge-on-login snapshots in prod/dev
+  # since Phase C — surfaced by the Phase D7 smoke, 2026-08-24). Listed
+  # immediately before its /* sibling; both must precede /api/*.
+  dynamic "ordered_cache_behavior" {
+    for_each = var.progress_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/progress"
+      target_origin_id         = "lambda-progress"
       viewer_protocol_policy   = "redirect-to-https"
       allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
       cached_methods           = ["GET", "HEAD"]
@@ -325,12 +413,69 @@ resource "aws_cloudfront_distribution" "site" {
 
   # /api/analytics/* → analytics Lambda, never cached, all viewer data
   # forwarded. More specific than /api/* and must be listed BEFORE it
-  # (CloudFront matches ordered behaviors top-down).
+  # (CloudFront matches ordered behaviors top-down). The api_host_header
+  # viewer-request Function preserves the viewer Host as X-Forwarded-Host so
+  # the analytics handler records the real dev/prod host (the managed
+  # AllViewerExceptHostHeader policy alone does not deliver it).
   dynamic "ordered_cache_behavior" {
     for_each = var.analytics_origin_domain != "" ? [1] : []
     content {
       path_pattern             = "/api/analytics/*"
       target_origin_id         = "lambda-analytics"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_host_header.arn
+      }
+    }
+  }
+
+  # Bare /api/leaderboard (exact path) → leaderboard Lambda. Same fall-through
+  # bug as /api/progress: without it, the board endpoint GET /api/leaderboard
+  # hits the feedback Lambda (surfaced by the Phase D7 smoke, 2026-08-24).
+  dynamic "ordered_cache_behavior" {
+    for_each = var.leaderboard_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/leaderboard"
+      target_origin_id         = "lambda-leaderboard"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # /api/admin/* → admin Lambda, never cached, all viewer data forwarded. More
+  # specific than /api/* and must be listed BEFORE it (Feature 2).
+  dynamic "ordered_cache_behavior" {
+    for_each = var.admin_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/admin/*"
+      target_origin_id         = "lambda-admin"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # /api/leaderboard/* → leaderboard Lambda, never cached, all viewer data
+  # forwarded. More specific than /api/* and must be listed BEFORE it
+  # (CloudFront matches ordered behaviors top-down).
+  dynamic "ordered_cache_behavior" {
+    for_each = var.leaderboard_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/leaderboard/*"
+      target_origin_id         = "lambda-leaderboard"
       viewer_protocol_policy   = "redirect-to-https"
       allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
       cached_methods           = ["GET", "HEAD"]

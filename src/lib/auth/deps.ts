@@ -1,11 +1,12 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { SESv2Client } from '@aws-sdk/client-sesv2';
-import { DynamoAuthStorage } from './dynamodb-storage';
+import { DynamoAuthStorage, DynamoSessionStorage } from './dynamodb-storage';
 import { SesEmailSender } from './ses-sender';
 import { ResendEmailSender } from './resend-sender';
 import { DummyEmailSender } from './dummy';
 import { getSharedDummyUniverse } from '../progress/deps';
+import { DynamoLeaderboardStorage } from '../leaderboard/dynamodb-storage';
 import type { AuthDeps } from './types';
 
 // Dependency wiring for the auth handler (the feedback handler's getFeedbackProvider
@@ -87,8 +88,13 @@ export function getAuthDeps(env: Record<string, string | undefined> = process.en
   }
 
   let storage: AuthDeps['storage'];
+  let leaderboardStorage: AuthDeps['leaderboardStorage'];
   if (storageKind === 'dummy') {
-    storage = getSharedDummyUniverse();
+    // The shared universe IS an InMemoryLeaderboardStorage — opt-out erasure
+    // (D5) deletes rows from the same universe the D4 award hook writes to.
+    const universe = getSharedDummyUniverse();
+    storage = universe;
+    leaderboardStorage = universe;
   } else if (storageKind === 'dynamodb') {
     const documentClient = DynamoDBDocumentClient.from(
       new DynamoDBClient({ region: env.AUTH_DYNAMODB_REGION ?? env.AWS_REGION ?? 'ap-east-1' }),
@@ -101,6 +107,21 @@ export function getAuthDeps(env: Record<string, string | undefined> = process.en
       progress: requiredEnv(env, 'AUTH_PROGRESS_TABLE'),
       rateLimits: requiredEnv(env, 'AUTH_RATE_LIMITS_TABLE'),
     });
+    // D5: LEADERBOARD_TABLE is OPTIONAL until the terraform wiring lands (D7)
+    // — absent = opt-out erasure disabled, account updates unaffected.
+    const leaderboardTable = env.LEADERBOARD_TABLE;
+    if (leaderboardTable) {
+      const tables = {
+        users: requiredEnv(env, 'AUTH_USERS_TABLE'),
+        sessions: requiredEnv(env, 'AUTH_SESSIONS_TABLE'),
+        leaderboard: leaderboardTable,
+      };
+      leaderboardStorage = new DynamoLeaderboardStorage(
+        documentClient,
+        tables,
+        new DynamoSessionStorage(documentClient, { users: tables.users, sessions: tables.sessions })
+      );
+    }
   } else {
     throw new Error(`[auth] AUTH_STORAGE must be "dummy" or "dynamodb" (got "${storageKind}")`);
   }
@@ -127,5 +148,5 @@ export function getAuthDeps(env: Record<string, string | undefined> = process.en
     throw new Error(`[auth] AUTH_EMAIL must be "dummy" or "ses", or EMAIL_PROVIDER.NAME must be set (got "${emailKind}")`);
   }
 
-  return { storage, emailSender, testMode, dummyMode };
+  return { storage, emailSender, leaderboardStorage, testMode, dummyMode };
 }

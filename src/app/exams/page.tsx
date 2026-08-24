@@ -4,10 +4,13 @@ import { getExamCourses, examId } from '@/lib/exams';
 import { getPapersForCourse } from '@/content/registry';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CtaLink } from '@/components/CtaLink';
+import { LockedFeature } from '@/components/LockedFeature';
+import { splitPaperSetsByAccess } from '@/lib/entitlements/exam-access';
 import PaperScore from './PaperScore';
 
 export default function ExamsPage() {
   const courses = getExamCourses();
+  const totalPapers = courses.reduce((n, course) => n + course.papers.length, 0);
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6">
@@ -41,51 +44,99 @@ export default function ExamsPage() {
         </div>
       </div>
 
+      {/* Phase E3 — ONE page-level premium pitch (copy voice: say it once);
+          each course card below only carries a compact lock row. */}
+      <div className="mb-6">
+        <LockedFeature
+          feature="exam-sets-full"
+          title="Timed mock mode"
+          benefit="One countdown for the whole paper, just like the real thing. Premium unlocks timed mocks, every practice set and upper ladder levels."
+        >
+          <p className="text-xs text-gray-500 dark:text-gray-400">
+            {totalPapers} timed mock papers across {courses.length} courses
+          </p>
+        </LockedFeature>
+      </div>
+
       <div className="grid gap-3">
-        {courses.map((course) => (
-          <div key={course.id} className="card p-4">
-            <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-3">{course.title}</h2>
-            <div className="space-y-2">
-              {course.papers.map((paper) => (
-                <Link
-                  key={paper.paperId}
-                  href={`/exams/${course.id}/${paper.paperId}`}
-                  className="flex items-center gap-3 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
-                >
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 shrink-0">
-                    <FileText className="w-4 h-4" />
-                  </span>
-                  <span className="flex-1">
-                    <span className="block text-sm font-medium text-gray-900 dark:text-gray-50">{paper.title}</span>
-                    <span className="block text-xs text-gray-500 dark:text-gray-400">
-                      <Clock className="w-3 h-3 inline mr-1" aria-hidden="true" />
-                      {paper.durationMinutes} min · 20 questions
-                    </span>
-                  </span>
-                  <PaperScore examId={examId(course.id, paper.paperId)} />
-                  <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-gray-500 dark:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
-                </Link>
-              ))}
-            </div>
-            <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 flex flex-wrap gap-x-4 gap-y-1.5">
-              <Link
-                href={`/exams/${course.id}/ladder`}
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200"
+        {courses.map((course) => {
+          // Phase E3 — timed mock mode is Premium and paper sets beyond the
+          // first are Premium (entitlement-policy §Tier 2); both stay visible
+          // behind the LockedFeature tease. The ladder link stays free
+          // (levels 1–2 are free).
+          const sets = splitPaperSetsByAccess(getPapersForCourse(course.id));
+          return (
+            <div key={course.id} className="card p-4">
+              <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-3">{course.title}</h2>
+              <LockedFeature
+                feature="exam-sets-full"
+                title="Timed mock mode"
+                benefit="One countdown for the whole paper, just like the real thing. Premium unlocks timed mocks for every course."
+                compact
               >
-                <TrendingUp className="w-4 h-4" /> Revision Ladder — 5 levels
-              </Link>
-              {getPapersForCourse(course.id).map((set) => (
+                <div className="space-y-2">
+                  {course.papers.map((paper) => (
+                    <Link
+                      key={paper.paperId}
+                      href={`/exams/${course.id}/${paper.paperId}`}
+                      className="flex items-center gap-3 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
+                    >
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 shrink-0">
+                        <FileText className="w-4 h-4" />
+                      </span>
+                      <span className="flex-1">
+                        <span className="block text-sm font-medium text-gray-900 dark:text-gray-50">{paper.title}</span>
+                        <span className="block text-xs text-gray-500 dark:text-gray-400">
+                          <Clock className="w-3 h-3 inline mr-1" aria-hidden="true" />
+                          {paper.durationMinutes} min · 20 questions
+                        </span>
+                      </span>
+                      <PaperScore examId={examId(course.id, paper.paperId)} />
+                      <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-gray-500 dark:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
+                    </Link>
+                  ))}
+                </div>
+              </LockedFeature>
+              <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 flex flex-wrap gap-x-4 gap-y-1.5">
                 <Link
-                  key={set.id}
-                  href={`/papers/${set.courseId}/${set.id}`}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
+                  href={`/exams/${course.id}/ladder`}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200"
                 >
-                  <FileSignature className="w-4 h-4" /> {set.title} — free-response
+                  <TrendingUp className="w-4 h-4" /> Revision Ladder — 5 levels
                 </Link>
-              ))}
+                {sets.free.map((set) => (
+                  <Link
+                    key={set.id}
+                    href={`/papers/${set.courseId}/${set.id}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
+                  >
+                    <FileSignature className="w-4 h-4" /> {set.title} — free-response
+                  </Link>
+                ))}
+              </div>
+              {sets.locked.length > 0 && (
+                <LockedFeature
+                  feature="exam-sets-full"
+                  title="Full exam sets"
+                  benefit={`Set 1 is free — unlock all ${sets.free.length + sets.locked.length} free-response sets for this course.`}
+                  compact
+                >
+                  <div className="flex flex-wrap gap-x-4 gap-y-1.5 mt-1.5">
+                    {sets.locked.map((set) => (
+                      <Link
+                        key={set.id}
+                        href={`/papers/${set.courseId}/${set.id}`}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
+                      >
+                        <FileSignature className="w-4 h-4" /> {set.title} — free-response
+                      </Link>
+                    ))}
+                  </div>
+                </LockedFeature>
+              )}
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

@@ -4,6 +4,13 @@
 //                 dir/index.html resolution, 404 → /404.html with 404 status)
 //   /api/feedback → the real Next route handler (like the /api/* Lambda
 //                 behavior; the Lambda ports this handler 1:1 in Session 3)
+// The API route maps below mirror the CloudFront ordered cache behaviors in
+// terraform/modules/site/main.tf — INCLUDING the exact-path (no wildcard)
+// behaviors for the bare /api/progress and /api/leaderboard: a "/*" pattern
+// requires the trailing slash segment, so CloudFront needs an exact-path
+// behavior per API root or the bare path falls through to /api/* (feedback).
+// Here the bare paths intentionally route to the REAL handlers — dev/e2e must
+// not reproduce CloudFront's historical fall-through bug.
 // Run with tsx so the handler's `@/` imports resolve via tsconfig paths.
 
 import http from 'node:http';
@@ -56,7 +63,10 @@ type ApiRoute = {
 // Delegate one /api path to the real Next route handler — computed specifier
 // on purpose: `next build` type-checks this script while build-static.sh has
 // src/app/api stashed aside, so a static import path would fail to resolve at
-// build time.
+// build time. urlPath must include the query string (the leaderboard board
+// endpoint takes ?week=&profileId=&scope=, analytics summary ?days=) — the
+// CloudFront behaviors forward the full query string via
+// AllViewerExceptHostHeader, so the stand-in must too.
 async function handleApiRoute(
   modulePath: string,
   urlPath: string,
@@ -117,8 +127,9 @@ const AUTH_ROUTES: Record<string, string> = {
   '/api/auth/delete': '../src/app/api/auth/delete/route',
 };
 
-// /api/progress/* → the real Next route handlers, mirroring the CloudFront
-// /api/progress/* behavior → progress Lambda (architecture-evolution-plan.md §3).
+// /api/progress (+/sync, +/_health) → the real Next route handlers, mirroring
+// the CloudFront /api/progress exact-path + /api/progress/* behaviors →
+// progress Lambda (architecture-evolution-plan.md §3).
 const PROGRESS_ROUTES: Record<string, string> = {
   '/api/progress': '../src/app/api/progress/route',
   '/api/progress/sync': '../src/app/api/progress/sync/route',
@@ -133,6 +144,23 @@ const ANALYTICS_ROUTES: Record<string, string> = {
   '/api/analytics/_health': '../src/app/api/analytics/_health/route',
 };
 
+// /api/leaderboard (+/teaser, +/_health) → the real Next route handlers,
+// mirroring the CloudFront /api/leaderboard exact-path + /api/leaderboard/*
+// behaviors → leaderboard Lambda (Phase D; docs/leaderboard-plan.md).
+const LEADERBOARD_ROUTES: Record<string, string> = {
+  '/api/leaderboard': '../src/app/api/leaderboard/route',
+  '/api/leaderboard/teaser': '../src/app/api/leaderboard/teaser/route',
+  '/api/leaderboard/_health': '../src/app/api/leaderboard/_health/route',
+};
+
+// /api/admin/* → the real Next route handlers, mirroring the CloudFront
+// /api/admin/* behavior → admin Lambda (supportability-features-plan.md).
+const ADMIN_ROUTES: Record<string, string> = {
+  '/api/admin/dynamodb': '../src/app/api/admin/dynamodb/route',
+  '/api/admin/access': '../src/app/api/admin/access/route',
+  '/api/admin/_health': '../src/app/api/admin/_health/route',
+};
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url ?? '/', `http://localhost:${port}`);
 
@@ -144,9 +172,9 @@ const server = http.createServer((req, res) => {
     });
     return;
   }
-  const authRoute = AUTH_ROUTES[url.pathname] ?? PROGRESS_ROUTES[url.pathname] ?? ANALYTICS_ROUTES[url.pathname];
+  const authRoute = AUTH_ROUTES[url.pathname] ?? PROGRESS_ROUTES[url.pathname] ?? ANALYTICS_ROUTES[url.pathname] ?? LEADERBOARD_ROUTES[url.pathname] ?? ADMIN_ROUTES[url.pathname];
   if (authRoute) {
-    handleApiRoute(authRoute, url.pathname, req, res).catch((err) => {
+    handleApiRoute(authRoute, url.pathname + url.search, req, res).catch((err) => {
       console.error(`[serve-static] ${url.pathname} error:`, err);
       res.writeHead(500, { 'content-type': 'application/json' });
       res.end(JSON.stringify({ error: 'Internal error' }));
@@ -174,5 +202,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(`[serve-static] Serving out/ + /api/feedback + /api/auth/* + /api/progress/* + /api/analytics/* on http://localhost:${port}`);
+  console.log(`[serve-static] Serving out/ + /api/feedback + /api/auth/* + /api/progress* + /api/analytics/* + /api/leaderboard* + /api/admin/* on http://localhost:${port}`);
 });

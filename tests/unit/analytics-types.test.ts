@@ -44,6 +44,8 @@ const validProps: Record<(typeof ANALYTICS_EVENT_NAMES)[number], Record<string, 
   auth_logout: {},
   pwa_installed: {},
   pwa_offline_banner_shown: {},
+  leaderboard_viewed: { scope: 'stage:ks3', week: '2026-W34' },
+  leaderboard_membership_changed: { action: 'join', scope: 'stage:ks3' },
 };
 
 describe('analyticsEventSchema', () => {
@@ -74,6 +76,25 @@ describe('analyticsEventSchema', () => {
     expect(
       analyticsEventSchema.safeParse(envelope({ name: 'auth_otp_requested', props: { emailDomain: 'example.com' } })).success
     ).toBe(true);
+  });
+
+  it('leaderboard events (D8): rejects bad scope, week key and action', () => {
+    const viewed = (props: Record<string, unknown>) =>
+      analyticsEventSchema.safeParse(envelope({ name: 'leaderboard_viewed', props })).success;
+    expect(viewed({ scope: 'stage:ks3', week: '2026-W34' })).toBe(true);
+    expect(viewed({ scope: 'global', week: '2026-W01' })).toBe(true);
+    expect(viewed({ scope: 'ks3', week: '2026-W34' })).toBe(false); // not a scope
+    expect(viewed({ scope: 'stage:ks3', week: '2026-08-19' })).toBe(false); // not a week key
+    expect(viewed({ scope: 'stage:ks3', week: '2026-W1' })).toBe(false); // unpadded
+    expect(viewed({ week: '2026-W34' })).toBe(false); // scope required
+
+    const membership = (props: Record<string, unknown>) =>
+      analyticsEventSchema.safeParse(envelope({ name: 'leaderboard_membership_changed', props })).success;
+    expect(membership({ action: 'join', scope: 'stage:dp' })).toBe(true);
+    expect(membership({ action: 'leave', scope: 'stage:igcse' })).toBe(true);
+    expect(membership({ action: 'opt_in', scope: 'stage:ks3' })).toBe(false); // plan §9: join|leave
+    expect(membership({ action: 'join', scope: 'nope' })).toBe(false);
+    expect(membership({ action: 'join' })).toBe(false); // scope required
   });
 
   it('rejects oversized strings and insane counts', () => {

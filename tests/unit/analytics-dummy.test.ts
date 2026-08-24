@@ -119,6 +119,7 @@ describe('InMemoryAnalyticsStorage misc', () => {
       email: 'a@example.com',
       displayName: 'A',
       role: 'parent',
+      tier: 'free',
       childProfiles: [],
       createdAt: 'now',
       lastLoginAt: 'now',

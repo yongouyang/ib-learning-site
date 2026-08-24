@@ -56,4 +56,17 @@ describe('progress Lambda IAM policy (static)', () => {
     expect(progress).toContain('"dynamodb:UpdateItem"');
     expect(progress).toContain('"dynamodb:DeleteItem"');
   });
+
+  it('grants UpdateItem on octav-leaderboard (the D4 addXp single-writer grant — table only, no reads, no GSI)', () => {
+    const leaderboard = statementAfter('# leaderboard — the D4 XP award hook');
+    expect(leaderboard).toContain('"dynamodb:UpdateItem"');
+    expect(leaderboard).toContain('var.leaderboard_table_arn');
+    // Single-writer invariant (plan §6): the progress Lambda writes XP but
+    // never reads boards or touches the erasure GSI.
+    expect(leaderboard).not.toContain('"dynamodb:Query"');
+    expect(leaderboard).not.toContain('"dynamodb:GetItem"');
+    expect(leaderboard).not.toContain('"dynamodb:PutItem"');
+    expect(leaderboard).not.toContain('"dynamodb:DeleteItem"');
+    expect(leaderboard).not.toContain('index/*');
+  });
 });

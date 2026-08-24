@@ -1,4 +1,14 @@
 import { resolveSession } from '../auth/session';
+import type { ChildProfile } from '../auth/types';
+import { LADDER_UNLOCK_SCORE } from '../ladder';
+import { handleForProfile } from '../leaderboard/handles';
+import {
+  LEADERBOARD_DAILY_XP_CAP,
+  stageScope,
+  weekKeyFor,
+  type LeaderboardStorage,
+} from '../leaderboard/types';
+import { rawXp } from '../leaderboard/xp';
 import {
   PROGRESS_SYNC_LIMIT_PER_WINDOW,
   PROGRESS_SYNC_WINDOW_SECONDS,
@@ -14,7 +24,7 @@ import {
   type ProfileProgressSnapshot,
   type TopicAttemptItem,
 } from './types';
-import { getProgressDeps } from './deps';
+import { getProgressDeps, type ProgressDeps } from './deps';
 
 // Phase C — framework-agnostic progress handler. Single source of truth for
 // the /api/progress/* contract (docs/architecture-evolution-plan.md §3.3):
@@ -31,6 +41,11 @@ import { getProgressDeps } from './deps';
 // never duplicated). Conflict rule: topic/exam attempts append by attemptId;
 // ladder levels max-wins; flashcards last-write-wins by lastReviewed; META
 // per-field max (stars/streak/lastStudyDate).
+//
+// Phase D4: after an event's write reports applied/improved, XP accrues for
+// OPTED-IN profiles only (docs/leaderboard-plan.md §4.1/§6) — daily-cap and
+// repeat buckets in octav-rate-limits, one addXp on octav-leaderboard. Award
+// failures log and never fail the sync (progress durability outranks XP).
 
 /** Every response is built here so Cache-Control: no-store is uniform. */
 function json(body: unknown, status = 200): Response {
@@ -141,11 +156,23 @@ function buildSnapshots(items: ProgressItem[]): Record<string, ProfileProgressSn
   return snapshots;
 }
 
+// Phase D4 (docs/leaderboard-plan.md §4.1/§6): applyEvent surfaces the
+// storage layer's applied/improved signals instead of discarding them — XP is
+// awarded ONLY on writes that actually changed state, which is the entire
+// idempotency argument of plan §5 (replayed syncs award zero).
+
+/** What the storage layer reported for one event (the D4 plumbing). */
+type EventOutcome =
+  | { type: 'quizAttempt'; applied: boolean }
+  | { type: 'examResult'; applied: boolean }
+  | { type: 'ladderResult'; improved: boolean; previousBestScore: number | null }
+  | { type: 'flashcardResult'; applied: boolean; previousStatus: 'known' | 'learning' | null };
+
 async function applyEvent(
   event: ProgressEvent,
   userId: string,
   storage: ProgressStorage
-): Promise<void> {
+): Promise<EventOutcome> {
   switch (event.type) {
     case 'quizAttempt': {
       const item: TopicAttemptItem = {
@@ -162,8 +189,8 @@ async function applyEvent(
         totalCount: event.totalCount,
         ...(event.questionResults ? { questionResults: event.questionResults } : {}),
       };
-      await storage.putTopicAttempt(item); // false = already applied (replay)
-      return;
+      const applied = await storage.putTopicAttempt(item); // false = already applied (replay)
+      return { type: event.type, applied };
     }
     case 'examResult': {
       const item: ExamAttemptItem = {
@@ -177,8 +204,8 @@ async function applyEvent(
         totalCount: event.totalCount,
         secondsUsed: event.secondsUsed,
       };
-      await storage.putExamAttempt(item);
-      return;
+      const applied = await storage.putExamAttempt(item);
+      return { type: event.type, applied };
     }
     case 'ladderResult': {
       const item: LadderItem = {
@@ -188,8 +215,13 @@ async function applyEvent(
         courseId: event.courseId,
         levels: {},
       };
-      await storage.updateLadderLevel(item, event.level, event.score, event.date);
-      return;
+      const { improved, previousBestScore } = await storage.updateLadderLevel(
+        item,
+        event.level,
+        event.score,
+        event.date
+      );
+      return { type: event.type, improved, previousBestScore };
     }
     case 'flashcardResult': {
       const item: FlashcardItem = {
@@ -201,10 +233,93 @@ async function applyEvent(
         lastReviewed: event.date,
         knownStreak: event.knownStreak,
       };
-      await storage.putFlashcard(item);
-      return;
+      const { applied, previousStatus } = await storage.putFlashcard(item);
+      return { type: event.type, applied, previousStatus };
     }
   }
+}
+
+/** Everything the D4 award hook needs for one sync batch (all server-clock derived). */
+interface AwardContext {
+  userId: string;
+  profile: ChildProfile; // guaranteed leaderboardOptIn === true by the caller
+  storage: ProgressStorage;
+  leaderboard: LeaderboardStorage;
+  nowMs: number; // deps clock — server time at sync (plan §4.1 week attribution)
+  weekKey: string;
+  dateUtc: string; // YYYY-MM-DD of nowMs, UTC
+}
+
+/**
+ * D4 XP accrual (plan §4.1/§6 — the single-writer invariant: XP accrues
+ * INSIDE the progress sync handler, only for accepted writes, only for
+ * opted-in profiles). Returns the XP actually credited (0 for replays,
+ * non-improvements, daily-capped amounts). Week/day attribution comes from
+ * the SERVER clock at sync time — never the client event date.
+ */
+async function awardEventXp(
+  event: ProgressEvent,
+  outcome: EventOutcome,
+  ctx: AwardContext
+): Promise<number> {
+  let raw = 0;
+  switch (event.type) {
+    case 'quizAttempt': {
+      if (outcome.type !== 'quizAttempt' || !outcome.applied) return 0;
+      // Diminishing repeats: the bucket's returned ordinal (1-based weekly
+      // attempt number) picks the multiplier — one conditional increment, no
+      // read of the progress table (plan §4.1).
+      const ordinal = await ctx.storage.incrementXpTopicBucket(event.profileId, event.topicId, ctx.weekKey);
+      raw = rawXp({
+        kind: 'quiz',
+        correctCount: event.correctCount,
+        totalCount: event.totalCount,
+        topicAttemptOrdinal: ordinal,
+      });
+      break;
+    }
+    case 'examResult': {
+      if (outcome.type !== 'examResult' || !outcome.applied) return 0;
+      raw = rawXp({ kind: 'exam', correctCount: event.correctCount, totalCount: event.totalCount });
+      break;
+    }
+    case 'ladderResult': {
+      if (outcome.type !== 'ladderResult' || !outcome.improved) return 0;
+      // Award only a FIRST clear: the new score passes the ladder unlock
+      // threshold AND no prior passing score existed (a higher re-clear of an
+      // already-passed level earns nothing).
+      if (event.score < LADDER_UNLOCK_SCORE) return 0;
+      if (outcome.previousBestScore !== null && outcome.previousBestScore >= LADDER_UNLOCK_SCORE) return 0;
+      raw = rawXp({ kind: 'ladder', level: event.level });
+      break;
+    }
+    case 'flashcardResult': {
+      if (outcome.type !== 'flashcardResult' || !outcome.applied) return 0;
+      // 2 XP per newly-known card: a not-known → known transition (the
+      // putFlashcard ALL_OLD signal). A card that lapses to learning and is
+      // re-learned transitions again and earns again.
+      if (event.status !== 'known' || outcome.previousStatus === 'known') return 0;
+      raw = rawXp({ kind: 'flashcard', newlyKnown: 1 });
+      break;
+    }
+  }
+  if (raw <= 0) return 0;
+
+  // Daily soft cap: the bucket commits the full delta but reports how much of
+  // it is still awardable (0 at/over the cap).
+  const awarded = await ctx.storage.incrementXpDayBucket(event.profileId, ctx.dateUtc, raw, LEADERBOARD_DAILY_XP_CAP);
+  if (awarded <= 0) return 0;
+
+  await ctx.leaderboard.addXp({
+    userId: ctx.userId,
+    profileId: event.profileId,
+    handle: ctx.profile.leaderboardHandle ?? handleForProfile(event.profileId),
+    scope: stageScope(ctx.profile.stage),
+    weekKey: ctx.weekKey,
+    xp: awarded,
+    earnedAt: new Date(ctx.nowMs).toISOString(),
+  });
+  return awarded;
 }
 
 /** GET /api/progress — full per-profile snapshot for merge-on-login. */
@@ -223,7 +338,7 @@ export async function handleProgressGet(
 /** POST /api/progress/sync — batch push of local events (single profile per batch). */
 export async function handleProgressSync(
   req: Request,
-  deps: { storage: ProgressStorage } = getProgressDeps()
+  deps: ProgressDeps = getProgressDeps()
 ): Promise<Response> {
   const auth = await resolveSession(req, deps.storage);
   if (!auth.ok) return NOT_AUTHENTICATED();
@@ -261,8 +376,37 @@ export async function handleProgressSync(
   const profileId = [...profileIds][0];
   const now = new Date().toISOString();
 
+  // D4 XP award context: ONLY for an opted-in profile (absent leaderboardOptIn
+  // = opted out — no XP, no bucket writes, no leaderboard rows) and only when
+  // a leaderboard storage is wired (LEADERBOARD_TABLE absent = awarding
+  // disabled until D7). All attribution keys derive from the deps CLOCK
+  // (server time at sync — never the client event dates, plan §4.1).
+  const profile = auth.user.childProfiles.find((p) => p.profileId === profileId);
+  let awardCtx: AwardContext | null = null;
+  if (deps.leaderboardStorage && profile?.leaderboardOptIn === true) {
+    const nowMs = (deps.clock ?? Date.now)();
+    awardCtx = {
+      userId: auth.user.userId,
+      profile,
+      storage: deps.storage,
+      leaderboard: deps.leaderboardStorage,
+      nowMs,
+      weekKey: weekKeyFor(nowMs),
+      dateUtc: new Date(nowMs).toISOString().slice(0, 10),
+    };
+  }
+
   for (const event of parsed.data.events) {
-    await applyEvent(event, auth.user.userId, deps.storage);
+    const outcome = await applyEvent(event, auth.user.userId, deps.storage);
+    if (awardCtx) {
+      try {
+        await awardEventXp(event, outcome, awardCtx);
+      } catch (err) {
+        // Progress durability outranks XP (plan §6): a leaderboard/bucket
+        // failure must NOT fail the sync — the progress write already landed.
+        console.error('[progress] leaderboard XP award failed:', err instanceof Error ? err.message : err);
+      }
+    }
   }
 
   const metaItem: ProgressMetaItem = {

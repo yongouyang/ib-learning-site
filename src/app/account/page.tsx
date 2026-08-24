@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useCallback, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { Download, Trash2, Pencil, Plus } from 'lucide-react';
+import Link from 'next/link';
+import { Download, Trash2, Pencil, Plus, BarChart3, Database, Trophy } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import {
   AuthUser,
@@ -14,6 +15,9 @@ import {
   exportData as exportDataRequest,
   deleteAccount as deleteAccountRequest,
 } from '@/lib/auth-client';
+import { handleForProfile, isValidLeaderboardHandle } from '@/lib/leaderboard/handles';
+import { stageScope } from '@/lib/leaderboard/types';
+import { trackEvent } from '@/lib/analytics';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 const STAGE_LABELS: Record<Stage, string> = {
@@ -58,6 +62,14 @@ function AccountContent({ user }: { user: AuthUser }) {
   const [profilesError, setProfilesError] = useState<string | null>(null);
   const [savingProfiles, setSavingProfiles] = useState(false);
 
+  // Leaderboard (Phase D5 — docs/leaderboard-plan.md §7)
+  const [leaderboardBusyId, setLeaderboardBusyId] = useState<string | null>(null);
+  const [leaderboardError, setLeaderboardError] = useState<{ profileId: string; text: string } | null>(null);
+  const [leaderboardAnnouncement, setLeaderboardAnnouncement] = useState<string | null>(null);
+  const [editingHandleId, setEditingHandleId] = useState<string | null>(null);
+  const [handleDraft, setHandleDraft] = useState('');
+  const [handleError, setHandleError] = useState<string | null>(null);
+
   // Sessions
   const [sessions, setSessions] = useState<SessionInfo[]>([]);
   const [sessionsLoading, setSessionsLoading] = useState(true);
@@ -69,6 +81,25 @@ function AccountContent({ user }: { user: AuthUser }) {
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
+
+  // Admin console (Feature 2) — gated to allowlisted admins so the installed
+  // PWA has an in-app path to the direct-URL-only admin pages.
+  const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    fetch('/api/admin/access', { credentials: 'same-origin' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((body: { admin?: boolean } | null) => {
+        if (active) setIsAdmin(body ? body.admin === true : false);
+      })
+      .catch(() => {
+        if (active) setIsAdmin(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const loadSessions = useCallback(async () => {
     setSessionsLoading(true);
@@ -172,6 +203,68 @@ function AccountContent({ user }: { user: AuthUser }) {
       setProfilesError(err instanceof Error ? err.message : 'Could not add this profile.');
     } finally {
       setSavingProfiles(false);
+    }
+  }
+
+  // --- Leaderboard (Phase D5) ---------------------------------------------------
+
+  /** Patch one profile's leaderboard fields through the full-replace update. */
+  async function updateLeaderboard(
+    profile: ChildProfile,
+    patch: { leaderboardOptIn?: boolean; leaderboardHandle?: string }
+  ): Promise<boolean> {
+    setLeaderboardBusyId(profile.profileId);
+    // `savingProfiles` is the ONE shared busy flag for every childProfiles
+    // mutation (both sections build a full-replace payload from `user`, so a
+    // concurrent second write would silently drop the first one's change).
+    setSavingProfiles(true);
+    setLeaderboardError(null);
+    try {
+      const next = user.childProfiles.map((p) =>
+        p.profileId === profile.profileId ? { ...p, ...patch } : p
+      );
+      await updateAccount({ childProfiles: next });
+      if (patch.leaderboardOptIn !== undefined) {
+        const handle = profile.leaderboardHandle ?? handleForProfile(profile.profileId);
+        setLeaderboardAnnouncement(
+          patch.leaderboardOptIn
+            ? `${profile.displayName} is on the leaderboard as ${handle}.`
+            : `${profile.displayName} left the leaderboard.`
+        );
+        // D8 (plan §9): fire only on success; the scope follows the profile's stage.
+        trackEvent('leaderboard_membership_changed', {
+          action: patch.leaderboardOptIn ? 'join' : 'leave',
+          scope: stageScope(profile.stage),
+        });
+      }
+      return true;
+    } catch (err) {
+      setLeaderboardError({
+        profileId: profile.profileId,
+        text: err instanceof Error ? err.message : 'Could not update leaderboard settings.',
+      });
+      return false;
+    } finally {
+      setLeaderboardBusyId(null);
+      setSavingProfiles(false);
+    }
+  }
+
+  function startHandleEdit(profile: ChildProfile) {
+    setEditingHandleId(profile.profileId);
+    setHandleDraft(profile.leaderboardHandle ?? handleForProfile(profile.profileId));
+    setHandleError(null);
+    setLeaderboardError(null);
+  }
+
+  async function saveHandle(profile: ChildProfile) {
+    const trimmed = handleDraft.trim();
+    if (!isValidLeaderboardHandle(trimmed)) {
+      setHandleError('Use 2–24 characters: letters, spaces, hyphens or apostrophes.');
+      return;
+    }
+    if (await updateLeaderboard(profile, { leaderboardHandle: trimmed })) {
+      setEditingHandleId(null);
     }
   }
 
@@ -279,6 +372,28 @@ function AccountContent({ user }: { user: AuthUser }) {
         </form>
       </section>
 
+      {/* Admin console (admins only — in-app path to the direct-URL admin pages) */}
+      {isAdmin === true && (
+        <section className="card p-6 mb-4" aria-label="Admin console">
+          <h2 className="text-base font-semibold text-gray-900 dark:text-gray-50 mb-1">Admin console</h2>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Internal tools for site administrators.</p>
+          <div className="grid gap-2 sm:grid-cols-2">
+            <Link
+              href="/admin/analytics"
+              className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
+              <BarChart3 className="w-4 h-4" aria-hidden="true" /> Analytics
+            </Link>
+            <Link
+              href="/admin/dynamodb"
+              className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
+              <Database className="w-4 h-4" aria-hidden="true" /> DynamoDB
+            </Link>
+          </div>
+        </section>
+      )}
+
       {/* Child profiles */}
       <section className="card p-6 mb-4">
         <h2 className="text-base font-semibold text-gray-900 dark:text-gray-50 mb-4">Child profiles</h2>
@@ -293,6 +408,7 @@ function AccountContent({ user }: { user: AuthUser }) {
                       type="text"
                       value={editName}
                       maxLength={40}
+                      autoFocus
                       onChange={(e) => setEditName(e.target.value)}
                       aria-label={`Edit ${profile.displayName}`}
                       className={`${inputClass} w-full`}
@@ -393,6 +509,151 @@ function AccountContent({ user }: { user: AuthUser }) {
             {profilesError}
           </p>
         )}
+      </section>
+
+      {/* Leaderboard */}
+      <section className="card p-6 mb-4">
+        <h2 className="text-base font-semibold text-gray-900 dark:text-gray-50 mb-1">Leaderboard</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+          See how you compare this week. Anonymous handle, opt out any time.
+        </p>
+        {/* Announces join/leave swaps (the "Appearing as…" state change) to
+            assistive tech without duplicating the visible copy. */}
+        <p aria-live="polite" className="sr-only">
+          {leaderboardAnnouncement}
+        </p>
+
+        <ul className="space-y-4">
+          {user.childProfiles.map((profile) => {
+            const optedIn = profile.leaderboardOptIn === true;
+            const handle = profile.leaderboardHandle ?? handleForProfile(profile.profileId);
+            // A handle differing from the deterministic default is the ONE
+            // allowed custom change (docs/leaderboard-plan.md §4.3).
+            const customHandleSet = profile.leaderboardHandle !== undefined && profile.leaderboardHandle !== handleForProfile(profile.profileId);
+            const busy = leaderboardBusyId === profile.profileId;
+            return (
+              <li
+                key={profile.profileId}
+                className="pt-4 first:pt-0 border-t first:border-t-0 border-gray-100 dark:border-gray-800"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="flex-1 min-w-0 truncate text-sm font-medium text-gray-900 dark:text-gray-50">
+                    {profile.displayName}
+                  </span>
+                  <span className="shrink-0 text-xs font-medium px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
+                    {STAGE_LABELS[profile.stage]}
+                  </span>
+                </div>
+
+                {optedIn ? (
+                  <div className="mt-2 space-y-2">
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      Appearing as{' '}
+                      <span className="font-medium text-gray-900 dark:text-gray-50">{handle}</span>
+                    </p>
+
+                    {editingHandleId === profile.profileId ? (
+                      <div className="space-y-2">
+                        <input
+                          type="text"
+                          value={handleDraft}
+                          maxLength={24}
+                          autoFocus
+                          placeholder="Your leaderboard handle"
+                          onChange={(e) => {
+                            setHandleDraft(e.target.value);
+                            if (handleError) setHandleError(null);
+                          }}
+                          aria-label={`New leaderboard handle for ${profile.displayName}`}
+                          className={inputClass}
+                        />
+                        {handleError && (
+                          <p role="alert" className="text-sm text-red-600 dark:text-red-400">
+                            {handleError}
+                          </p>
+                        )}
+                        <div className="flex flex-wrap gap-2">
+                          <button
+                            type="button"
+                            onClick={() => saveHandle(profile)}
+                            disabled={savingProfiles}
+                            aria-busy={busy}
+                            className="inline-flex items-center justify-center px-3 py-2 min-h-[44px] rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                          >
+                            {busy ? 'Saving…' : 'Save handle'}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setEditingHandleId(null)}
+                            disabled={savingProfiles}
+                            className="inline-flex items-center justify-center px-3 py-2 min-h-[44px] rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-60 transition-colors"
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex flex-wrap items-center gap-2">
+                        {!customHandleSet && (
+                          <button
+                            type="button"
+                            onClick={() => startHandleEdit(profile)}
+                            disabled={savingProfiles}
+                            aria-label={busy ? undefined : `Change leaderboard handle for ${profile.displayName}`}
+                            aria-busy={busy}
+                            className="inline-flex items-center justify-center px-3 py-2 min-h-[44px] rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                          >
+                            Change handle
+                          </button>
+                        )}
+                        <button
+                          type="button"
+                          onClick={() => updateLeaderboard(profile, { leaderboardOptIn: false })}
+                          disabled={savingProfiles}
+                          aria-label={busy ? undefined : `Leave leaderboard for ${profile.displayName}`}
+                          aria-busy={busy}
+                          className="inline-flex items-center justify-center px-3 py-2 min-h-[44px] rounded-xl text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                        >
+                          {busy ? 'Leaving…' : 'Leave leaderboard'}
+                        </button>
+                      </div>
+                    )}
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      {customHandleSet
+                        ? "You've used your one handle change — it's locked in."
+                        : 'You can change your handle once.'}{' '}
+                      Leaving removes you from this week&apos;s board — rejoin any time, starting from 0 XP.
+                    </p>
+                  </div>
+                ) : (
+                  <div className="mt-2 space-y-2">
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      You&apos;ll appear as{' '}
+                      <span className="font-medium text-gray-900 dark:text-gray-50">{handle}</span>
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => updateLeaderboard(profile, { leaderboardOptIn: true })}
+                      disabled={savingProfiles}
+                      aria-label={busy ? undefined : `Join leaderboard for ${profile.displayName}`}
+                      aria-busy={busy}
+                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                    >
+                      <Trophy className="w-4 h-4" aria-hidden="true" />
+                      {busy ? 'Joining…' : 'Join leaderboard'}
+                    </button>
+                  </div>
+                )}
+
+                {leaderboardError?.profileId === profile.profileId && (
+                  <p role="alert" className="text-sm text-red-600 dark:text-red-400 mt-2">
+                    {leaderboardError.text}
+                  </p>
+                )}
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
       {/* Sessions */}

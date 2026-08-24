@@ -77,6 +77,21 @@ export class InMemoryAnalyticsStorage extends InMemoryProgressStorage implements
     return buildSummary(aggregates, days, this.clockFn());
   }
 
+  /**
+   * Raw aggregate rows whose sort-key date is within [fromDate, toDate]
+   * (inclusive, UTC "YYYY-MM-DD") — the Feature 1 analytics-report read. The
+   * DynamoDB adapter pre-filters with BETWEEN; the dummy returns everything
+   * and the PURE buildReport filters — idempotent either way (parity).
+   */
+  getAggregatesBetween(fromDate: string, toDate: string): Array<{ s: string; count: number }> {
+    return [...this.aggregates.entries()]
+      .map(([s, count]) => ({ s, count }))
+      .filter(({ s }) => {
+        const date = s.split('#')[0];
+        return date >= fromDate && date <= toDate;
+      });
+  }
+
   async probeAnalyticsTable(): Promise<void> {
     // The in-memory dummy has no IAM/table to fail — the probe is a no-op
     // (its DynamoDB counterpart performs the Limit-1 Query).

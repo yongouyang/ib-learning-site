@@ -30,6 +30,47 @@ test.describe('auth', () => {
     await expect(page.locator('header').getByRole('button', { name: 'Me', exact: true })).toBeVisible();
   });
 
+  test('a signed-in visitor hitting /login?next= is sent straight to next', async ({ page }) => {
+    await signIn(page, uniqueEmail()); // lands on /
+    await page.goto('/login?next=%2Fpricing');
+    await expect(page).toHaveURL('/pricing');
+  });
+
+  test('?next= returns the user to the calling page after sign-in', async ({ page }) => {
+    await page.goto('/login?next=%2Fpricing');
+    await page.getByLabel('Email').fill(uniqueEmail());
+    await page.getByRole('button', { name: 'Send sign-in code' }).click();
+    await expect(page.getByText(/Enter the 6-digit code/)).toBeVisible();
+    await page.getByLabel('6-digit code').fill('123456');
+    await page.getByRole('button', { name: 'Verify code' }).click();
+    await expect(page).toHaveURL('/pricing');
+  });
+
+  test('unsafe ?next= values fall back to the home page', async ({ page }) => {
+    // Protocol-relative open-redirect attempt must be rejected.
+    await page.goto('/login?next=%2F%2Fevil.example%2Fphish');
+    await page.getByLabel('Email').fill(uniqueEmail());
+    await page.getByRole('button', { name: 'Send sign-in code' }).click();
+    await expect(page.getByText(/Enter the 6-digit code/)).toBeVisible();
+    await page.getByLabel('6-digit code').fill('123456');
+    await page.getByRole('button', { name: 'Verify code' }).click();
+    await expect(page).toHaveURL('/');
+  });
+
+  test('header sign-in link carries the current page as next', async ({ page, isMobile }) => {
+    test.skip(isMobile, 'desktop header flow');
+    await page.goto('/pricing');
+    await page.locator('header').getByRole('link', { name: 'Sign in' }).click();
+    await expect(page).toHaveURL(/\/login\?next=%2Fpricing/);
+
+    await page.getByLabel('Email').fill(uniqueEmail());
+    await page.getByRole('button', { name: 'Send sign-in code' }).click();
+    await expect(page.getByText(/Enter the 6-digit code/)).toBeVisible();
+    await page.getByLabel('6-digit code').fill('123456');
+    await page.getByRole('button', { name: 'Verify code' }).click();
+    await expect(page).toHaveURL('/pricing');
+  });
+
   test('wrong code shows an error and stays on the code step', async ({ page }) => {
     await page.goto('/login');
     await page.getByLabel('Email').fill(uniqueEmail());
@@ -61,10 +102,13 @@ test.describe('auth', () => {
 
     // Add a profile.
     await page.goto('/account');
+    // The Leaderboard section also renders profile names/stages — scope
+    // profile-list assertions to the Child profiles section.
+    const childProfiles = page.locator('section', { has: page.getByRole('heading', { name: 'Child profiles' }) });
     await page.getByLabel('Name', { exact: true }).fill('Alex');
     await page.getByLabel('Stage').selectOption('igcse');
     await page.getByRole('button', { name: 'Add profile' }).click();
-    await expect(page.getByText('Alex', { exact: true })).toBeVisible();
+    await expect(childProfiles.getByText('Alex', { exact: true })).toBeVisible();
 
     // Switch to it from the header menu → trigger label updates.
     await page.locator('header').getByRole('button', { name: 'Me', exact: true }).click();
@@ -79,7 +123,7 @@ test.describe('auth', () => {
     await page.getByLabel('Stage for Alex').selectOption('dp');
     await page.getByRole('button', { name: 'Save', exact: true }).click();
     await expect(page.locator('header').getByRole('button', { name: 'Parent One' })).toBeVisible();
-    await expect(page.locator('li', { hasText: 'Parent One' }).getByText('IB DP', { exact: true })).toBeVisible();
+    await expect(childProfiles.locator('li', { hasText: 'Parent One' }).getByText('IB DP', { exact: true })).toBeVisible();
   });
 
   test('sessions list shows the current device with no revoke on it', async ({ page }) => {

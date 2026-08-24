@@ -1,5 +1,8 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
+import { tierSchema, type Tier } from '../entitlements/features';
+import { LEADERBOARD_HANDLE_RE } from '../leaderboard/handles';
+import type { LeaderboardStorage } from '../leaderboard/types';
 
 // Accounts feature (Phase B) — shared types and contract constants
 // (docs/architecture-evolution-plan.md §2). The auth http-handler is the
@@ -43,6 +46,14 @@ export interface ChildProfile {
   profileId: string;
   displayName: string;
   stage: Stage;
+  // Phase D (docs/leaderboard-plan.md §5): per-profile leaderboard opt-in.
+  // Absent = not opted in (no migration needed for pre-D3 user rows). The
+  // accountUpdateSchema write path + UI land in D5; the D3 read handler
+  // reports leaderboardOptIn ?? false. The handle is normally derived
+  // deterministically from the profileId (leaderboard/handles.ts); a stored
+  // leaderboardHandle exists only for the one allowed change.
+  leaderboardOptIn?: boolean;
+  leaderboardHandle?: string;
 }
 
 export interface UserRecord {
@@ -50,9 +61,23 @@ export interface UserRecord {
   email: string; // lowercased
   displayName: string;
   role: 'parent' | 'student';
+  // Phase E0: entitlement tier (docs/entitlement-policy.md). Default "free" on
+  // registration; set manually (admin grant) until Stripe lands in E4.
+  tier: Tier;
   childProfiles: ChildProfile[]; // parent→child model (plan §2.6); a solo student is a parent with one "Me" profile
   createdAt: string; // ISO
   lastLoginAt: string; // ISO
+}
+
+/**
+ * Phase E0: user rows written before the tier attribute existed read back as
+ * "free" — existing users need no migration. Anything other than a stored
+ * "premium" fails closed to "free" (a corrupted/unknown tier must never
+ * accidentally grant premium features).
+ */
+export function withTierDefault(user: UserRecord): UserRecord {
+  const parsed = tierSchema.safeParse(user.tier);
+  return parsed.success ? user : { ...user, tier: 'free' };
 }
 
 export interface SessionRecord {
@@ -88,7 +113,7 @@ export interface EmailClaimMarker {
 }
 
 /** Public user shape returned by verify-otp/me/account — never internal-only fields. */
-export type PublicUser = Pick<UserRecord, 'userId' | 'email' | 'displayName' | 'role' | 'childProfiles'>;
+export type PublicUser = Pick<UserRecord, 'userId' | 'email' | 'displayName' | 'role' | 'tier' | 'childProfiles'>;
 
 // --- Dependency interfaces (controllable dummies, AGENTS.md) -------------------
 
@@ -151,6 +176,14 @@ export interface EmailSender {
 export interface AuthDeps {
   storage: AuthStorage;
   emailSender: EmailSender;
+  /**
+   * Phase D5 (docs/leaderboard-plan.md §7): opt-out erasure target — when a
+   * profile's leaderboardOptIn flips true→false, its leaderboard rows are
+   * deleted via deleteEntriesByUser(userId, profileId). Undefined = erasure
+   * DISABLED (DynamoDB wiring without a LEADERBOARD_TABLE env — terraform
+   * grants land in D7); the account update still succeeds.
+   */
+  leaderboardStorage?: LeaderboardStorage;
   /** AUTH_TEST_MODE=1: deterministic default code + _testCode injection. */
   testMode: boolean;
   /** True only when storage AND email are the in-memory dummies — the ONLY
@@ -184,6 +217,13 @@ export const accountUpdateSchema = z.object({
         profileId: z.string().regex(/^[A-Za-z0-9_-]+$/).min(1).max(64),
         displayName: z.string().trim().min(1).max(40),
         stage: z.enum(['ks3', 'igcse', 'dp']),
+        // Phase D5 (docs/leaderboard-plan.md §4.3/§5): per-profile leaderboard
+        // opt-in. Both optional — the handler MERGES them with the stored
+        // values so an account-page save that doesn't touch the leaderboard
+        // never silently wipes the opt-in state (the childProfiles array is
+        // otherwise a full replace).
+        leaderboardOptIn: z.boolean().optional(),
+        leaderboardHandle: z.string().trim().regex(LEADERBOARD_HANDLE_RE).optional(),
       })
     )
     .min(1)

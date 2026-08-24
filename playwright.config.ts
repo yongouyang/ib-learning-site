@@ -76,6 +76,11 @@ export default defineConfig({
       // (_testResponse) for per-case control (see docs/phase-5-implementation-plan.md).
       FEEDBACK_PROVIDER: 'dummy',
       FEEDBACK_TEST_MODE: '1',
+      // Phase E2: the AI-mark quota/session wiring runs against the shared
+      // in-memory dummy universe (default anyway — pinned for hermeticity), so
+      // dummy-OTP sessions resolve for /api/feedback and the _testAiMarkUsed /
+      // _testTier injections are honored.
+      FEEDBACK_STORAGE: 'dummy',
       // Phase B (accounts): auth runs against the real /api/auth/* routes with
       // the in-memory dummy storage + dummy email sender. AUTH_TEST_MODE=1 gives
       // the deterministic default code 123456 and enables _testCode injection
@@ -89,8 +94,14 @@ export default defineConfig({
       // PROGRESS_STORAGE is pinned explicitly for hermeticity (progress deps
       // default to dummy anyway — same shared universe).
       ANALYTICS_STORAGE: 'dummy',
-      ANALYTICS_ADMIN_EMAILS: 'admin@example.com',
+      // Multiple allowlisted admin emails so parallel tests that sign in as an
+      // admin never collide on one email's dummy-OTP code.
+      ANALYTICS_ADMIN_EMAILS: 'admin@example.com,admin2@example.com,admin3@example.com,admin4@example.com,admin5@example.com',
       PROGRESS_STORAGE: 'dummy',
+      // Feature 2 (admin CRUD dashboard): runs against the in-memory admin
+      // dummy (seeded octav-* tables) with the same admin allowlist as the
+      // analytics dashboard.
+      ADMIN_STORAGE: 'dummy',
     },
   },
 });

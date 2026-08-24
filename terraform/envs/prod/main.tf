@@ -150,6 +150,20 @@ variable "analytics_admin_emails" {
   default     = ""
 }
 
+variable "admin_env" {
+  description = "Admin Lambda env overrides via CI TF_VAR_admin_env (ADMIN_ENV secret); empty = base wiring below."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
+variable "analytics_report_env" {
+  description = "Analytics-report Lambda env overrides via CI TF_VAR_analytics_report_env (ANALYTICS_REPORT_ENV secret); empty = base wiring below (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from the shared repo secret/variable)."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
 # ACM cert for octavlearning.com (apex + www), DNS-validated. Lives at the
 # root (not the site module) so only the PROD site instance references it —
 # the DEV distribution keeps the CloudFront default cert. Validated via two
@@ -180,13 +194,31 @@ resource "aws_acm_certificate" "dev" {
 }
 
 # Feedback API first: the site module needs its Function URL domain to wire
-# the CloudFront /api/* behavior.
+# the CloudFront /api/* behavior. Phase E2: the handler authenticates (shared
+# resolveSession over users/sessions) and enforces the monthly AI-mark quota
+# in octav-rate-limits, so the base wiring below selects the real dynamodb
+# storage and names the shared tables — var.feedback_env (the FEEDBACK_ENV
+# secret) only needs the provider config (FEEDBACK_PROVIDER etc.) and can
+# still override anything.
 module "feedback_api" {
   source = "../../modules/feedback_api"
 
   zip_path           = "${path.module}/../../../lambda/feedback/dist/feedback-lambda.zip"
-  environment        = var.feedback_env
   cors_allow_origins = var.site_origins
+
+  users_table_arn       = module.dynamodb.users_table_arn
+  sessions_table_arn    = module.dynamodb.sessions_table_arn
+  rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+
+  environment = merge(
+    {
+      FEEDBACK_STORAGE       = "dynamodb"
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+    },
+    var.feedback_env,
+  )
 }
 
 # Accounts feature — Phase 0 (docs/architecture-evolution-plan.md §6): the
@@ -232,6 +264,7 @@ module "auth_api" {
   otp_codes_table_arn   = module.dynamodb.otp_codes_table_arn
   progress_table_arn    = module.dynamodb.progress_table_arn
   rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+  leaderboard_table_arn = module.dynamodb.leaderboard_table_arn
   ses_from_address      = var.ses_from_address
 
   environment = merge(
@@ -243,9 +276,13 @@ module "auth_api" {
       AUTH_OTP_TABLE         = module.dynamodb.otp_codes_table_name
       AUTH_PROGRESS_TABLE    = module.dynamodb.progress_table_name
       AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
-      AUTH_SES_REGION        = "ap-southeast-1"
-      SES_FROM_ADDRESS       = var.ses_from_address
-      EMAIL_PROVIDER         = var.email_provider
+      # D5 opt-out erasure (docs/leaderboard-plan.md §7): without this the
+      # auth deps leave leaderboardStorage undefined and row deletion is a
+      # no-op.
+      LEADERBOARD_TABLE = module.dynamodb.leaderboard_table_name
+      AUTH_SES_REGION   = "ap-southeast-1"
+      SES_FROM_ADDRESS  = var.ses_from_address
+      EMAIL_PROVIDER    = var.email_provider
     },
     var.auth_env,
   )
@@ -271,6 +308,7 @@ module "progress_api" {
   sessions_table_arn    = module.dynamodb.sessions_table_arn
   progress_table_arn    = module.dynamodb.progress_table_arn
   rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+  leaderboard_table_arn = module.dynamodb.leaderboard_table_arn
 
   environment = merge(
     {
@@ -279,9 +317,37 @@ module "progress_api" {
       AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
       AUTH_PROGRESS_TABLE    = module.dynamodb.progress_table_name
       AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+      # D4 XP award hook (docs/leaderboard-plan.md §6): without this the
+      # progress deps leave leaderboardStorage undefined and awarding is
+      # disabled (sync unaffected).
+      LEADERBOARD_TABLE = module.dynamodb.leaderboard_table_name
     },
     var.progress_env,
   )
+}
+
+# Leaderboard API (Phase D — docs/leaderboard-plan.md §6): the READ-ONLY board
+# Lambda + Function URL (board + public teaser + _health). Consumes the shared
+# users/sessions tables (session validation) and the octav-leaderboard table.
+# Base wiring below always selects the real dynamodb implementation; no
+# overrides variable — there is nothing secret in this wiring.
+module "leaderboard_api" {
+  source = "../../modules/leaderboard_api"
+
+  zip_path = "${path.module}/../../../lambda/leaderboard/dist/leaderboard-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  users_table_arn       = module.dynamodb.users_table_arn
+  sessions_table_arn    = module.dynamodb.sessions_table_arn
+  leaderboard_table_arn = module.dynamodb.leaderboard_table_arn
+
+  environment = {
+    LEADERBOARD_STORAGE = "dynamodb"
+    AUTH_USERS_TABLE    = module.dynamodb.users_table_name
+    AUTH_SESSIONS_TABLE = module.dynamodb.sessions_table_name
+    LEADERBOARD_TABLE   = module.dynamodb.leaderboard_table_name
+  }
 }
 
 # Analytics API (Phase A — docs/phase-a-analytics-plan.md): the ingest/summary
@@ -315,6 +381,56 @@ module "analytics_api" {
   )
 }
 
+# Admin CRUD dashboard API (Feature 2 — docs/supportability-features-plan.md):
+# the broad admin DynamoDB browser Lambda. Reuses the shared users/sessions
+# tables for session validation and the ANALYTICS_ADMIN_EMAILS allowlist for the
+# admin gate. Base wiring below always selects the real dynamodb implementation;
+# var.admin_env (CI ADMIN_ENV secret) can override/add — leave it empty to use
+# these defaults.
+module "admin_api" {
+  source = "../../modules/admin_api"
+
+  zip_path = "${path.module}/../../../lambda/admin/dist/admin-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  environment = merge(
+    {
+      ADMIN_STORAGE          = "dynamodb"
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      ANALYTICS_ADMIN_EMAILS = var.analytics_admin_emails
+    },
+    var.admin_env,
+  )
+}
+
+# Daily analytics report (Feature 1 — docs/supportability-features-plan.md): an
+# EventBridge-SCHEDULED Lambda (cron 0 11 * * ? * = 7pm HKT), NOT an HTTP API —
+# no Function URL, no CloudFront behavior. It Query-reads the aggregate rows on
+# octav-analytics-events and emails the report to every ANALYTICS_ADMIN_EMAILS
+# recipient via Resend (EMAIL_PROVIDER — the SAME repo secret the auth Lambda
+# uses). Base wiring below selects the real dynamodb implementation; if
+# EMAIL_PROVIDER were unset, the Lambda FAILS CLOSED at invocation (deps refuse
+# a no-op sender in dynamodb mode) — the report is never silently dropped.
+module "analytics_report" {
+  source = "../../modules/analytics_report"
+
+  zip_path = "${path.module}/../../../lambda/analytics-report/dist/analytics-report-lambda.zip"
+
+  analytics_events_table_arn = module.dynamodb.analytics_events_table_arn
+
+  environment = merge(
+    {
+      ANALYTICS_REPORT_STORAGE = "dynamodb"
+      ANALYTICS_TABLE          = module.dynamodb.analytics_events_table_name
+      EMAIL_PROVIDER           = var.email_provider
+      ANALYTICS_ADMIN_EMAILS   = var.analytics_admin_emails
+    },
+    var.analytics_report_env,
+  )
+}
+
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
 # /api/* proxy behavior to the feedback Lambda. Custom domain: the
 # dev.octavlearning.com alias with its dedicated ACM cert (round 2 of the
@@ -323,12 +439,14 @@ module "analytics_api" {
 module "site" {
   source = "../../modules/site"
 
-  feedback_origin_domain  = module.feedback_api.function_url_domain
-  auth_origin_domain      = module.auth_api.function_url_domain
-  progress_origin_domain  = module.progress_api.function_url_domain
-  analytics_origin_domain = module.analytics_api.function_url_domain
-  domain_names            = ["dev.octavlearning.com"]
-  acm_certificate_arn     = aws_acm_certificate.dev.arn
+  feedback_origin_domain    = module.feedback_api.function_url_domain
+  auth_origin_domain        = module.auth_api.function_url_domain
+  progress_origin_domain    = module.progress_api.function_url_domain
+  analytics_origin_domain   = module.analytics_api.function_url_domain
+  leaderboard_origin_domain = module.leaderboard_api.function_url_domain
+  admin_origin_domain       = module.admin_api.function_url_domain
+  domain_names              = ["dev.octavlearning.com"]
+  acm_certificate_arn       = aws_acm_certificate.dev.arn
 }
 
 # PROD: separate bucket + distribution fronting octavlearning.com (apex + www
@@ -337,14 +455,16 @@ module "site" {
 module "site_prod" {
   source = "../../modules/site"
 
-  name_prefix             = "iblearn-prod"
-  feedback_origin_domain  = module.feedback_api.function_url_domain
-  auth_origin_domain      = module.auth_api.function_url_domain
-  progress_origin_domain  = module.progress_api.function_url_domain
-  analytics_origin_domain = module.analytics_api.function_url_domain
-  domain_names            = ["octavlearning.com", "www.octavlearning.com"]
-  acm_certificate_arn     = aws_acm_certificate.site.arn
-  redirect_from_host      = "www.octavlearning.com"
+  name_prefix               = "iblearn-prod"
+  feedback_origin_domain    = module.feedback_api.function_url_domain
+  auth_origin_domain        = module.auth_api.function_url_domain
+  progress_origin_domain    = module.progress_api.function_url_domain
+  analytics_origin_domain   = module.analytics_api.function_url_domain
+  leaderboard_origin_domain = module.leaderboard_api.function_url_domain
+  admin_origin_domain       = module.admin_api.function_url_domain
+  domain_names              = ["octavlearning.com", "www.octavlearning.com"]
+  acm_certificate_arn       = aws_acm_certificate.site.arn
+  redirect_from_host        = "www.octavlearning.com"
 }
 
 # GitHub Actions OIDC provider + deploy role — short-lived tokens only,
@@ -391,6 +511,10 @@ output "progress_function_url" {
   value = module.progress_api.function_url
 }
 
+output "leaderboard_function_url" {
+  value = module.leaderboard_api.function_url
+}
+
 output "github_deploy_role_arn" {
   description = "Set as the AWS_DEPLOY_ROLE_ARN variable in GitHub repo settings (Settings → Secrets and variables → Actions → Variables)."
   value       = module.ci.role_arn
@@ -422,10 +546,11 @@ output "acm_dev_validation_records" {
 output "dynamodb_tables" {
   description = "Accounts-feature DynamoDB table names → ARNs."
   value = {
-    users     = { name = module.dynamodb.users_table_name, arn = module.dynamodb.users_table_arn }
-    sessions  = { name = module.dynamodb.sessions_table_name, arn = module.dynamodb.sessions_table_arn }
-    otp_codes = { name = module.dynamodb.otp_codes_table_name, arn = module.dynamodb.otp_codes_table_arn }
-    progress  = { name = module.dynamodb.progress_table_name, arn = module.dynamodb.progress_table_arn }
+    users       = { name = module.dynamodb.users_table_name, arn = module.dynamodb.users_table_arn }
+    sessions    = { name = module.dynamodb.sessions_table_name, arn = module.dynamodb.sessions_table_arn }
+    otp_codes   = { name = module.dynamodb.otp_codes_table_name, arn = module.dynamodb.otp_codes_table_arn }
+    progress    = { name = module.dynamodb.progress_table_name, arn = module.dynamodb.progress_table_arn }
+    leaderboard = { name = module.dynamodb.leaderboard_table_name, arn = module.dynamodb.leaderboard_table_arn }
   }
 }
 

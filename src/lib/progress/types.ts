@@ -109,6 +109,21 @@ export const PROGRESS_SYNC_WINDOW_SECONDS = 600; // 10 minutes
 
 // --- Storage interface ---------------------------------------------------------
 
+/** Phase D4 write signals (docs/leaderboard-plan.md §4.1 "Applied-vs-replay plumbing"). */
+export interface FlashcardWriteResult {
+  /** false = stale (an older write lost the LWW race — replay/no-op). */
+  applied: boolean;
+  /** Card status BEFORE this write; null = no prior row. Only meaningful when applied. */
+  previousStatus: 'known' | 'learning' | null;
+}
+
+export interface LadderWriteResult {
+  /** false = an equal-or-better score was already stored (replay/no-op). */
+  improved: boolean;
+  /** Stored best BEFORE this write; null = first write for that level. Only meaningful when improved. */
+  previousBestScore: number | null;
+}
+
 // Session-validation subset (one source of truth: src/lib/auth/session.ts)
 // plus the progress ops. The DynamoDB adapter composes DynamoAuthStorage for
 // the session subset; the dummy implements everything in one in-memory
@@ -143,19 +158,46 @@ export interface ProgressStorage {
   /** Atomic + idempotent: attribute_not_exists on the item SK. false = already applied. */
   putTopicAttempt(item: TopicAttemptItem): Promise<boolean>;
   putExamAttempt(item: ExamAttemptItem): Promise<boolean>;
-  /** LWW per card guarded by a monotonic lastReviewed condition. false = stale (older write). */
-  putFlashcard(item: FlashcardItem): Promise<boolean>;
-  /** Atomic max-wins per level. false = an equal-or-better score exists (treated as applied). */
+  /**
+   * LWW per card guarded by a monotonic lastReviewed condition. applied=false
+   * = stale (older write). previousStatus is the card's status BEFORE this
+   * write (the D4 "newly known" signal); null = no prior row. Only meaningful
+   * when applied — a rejected (stale) write reports previousStatus null.
+   */
+  putFlashcard(item: FlashcardItem): Promise<FlashcardWriteResult>;
+  /**
+   * Atomic max-wins per level. improved=false = an equal-or-better score exists
+   * (treated as applied). previousBestScore is the stored best BEFORE this
+   * write (the D4 "first clear" signal); null = first write for that level.
+   * Only meaningful when improved — a rejected write reports null.
+   */
   updateLadderLevel(
     item: LadderItem,
     level: number,
     bestScore: number,
     completedAt: string
-  ): Promise<boolean>;
+  ): Promise<LadderWriteResult>;
   /** Conditional per-field max-merge. false = nothing better to store (no-op success). */
   mergeMeta(item: ProgressMetaItem): Promise<boolean>;
   /** C5 idempotency marker: true exactly once per profile. */
   setMigrationCompleted(userId: string, profileId: string, completedAt: string): Promise<boolean>;
+
+  /**
+   * Phase D4 daily-XP-cap bucket (octav-rate-limits `xpday:<profileId>:<dateUtc>`,
+   * TTL ~2d — the aimark: precedent): ONE conditional command, `ADD #c :delta`
+   * with `attribute_not_exists(#c) OR #c < :cap`, ReturnValues ALL_NEW. Returns
+   * how much of `delta` is still awardable under the cap — 0 when the bucket is
+   * already at/over the cap (condition failure). The bucket itself may
+   * overshoot the cap by one delta (documented, harmless — plan §4.1).
+   */
+  incrementXpDayBucket(profileId: string, dateUtc: string, delta: number, cap: number): Promise<number>;
+  /**
+   * Phase D4 diminishing-repeats bucket (octav-rate-limits
+   * `xp-topic:<profileId>:<topicId>:<weekKey>`, TTL ~10d): ONE unconditional
+   * `ADD #c 1`, ReturnValues ALL_NEW — returns the new count, i.e. the 1-based
+   * weekly attempt ordinal that picks the repeatMultiplier.
+   */
+  incrementXpTopicBucket(profileId: string, topicId: string, weekKey: string): Promise<number>;
 }
 
 // --- Wire schemas (POST /api/progress/sync) ------------------------------------

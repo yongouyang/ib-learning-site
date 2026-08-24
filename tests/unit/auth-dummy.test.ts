@@ -8,6 +8,7 @@ function makeUser(userId: string, email: string): UserRecord {
     email,
     displayName: 'Test',
     role: 'parent',
+    tier: 'free',
     childProfiles: [{ profileId: `p-${userId}`, displayName: 'Me', stage: 'ks3' }],
     createdAt: new Date().toISOString(),
     lastLoginAt: new Date().toISOString(),
@@ -34,6 +35,22 @@ describe('InMemoryAuthStorage', () => {
     expect((await s.getUserById('u1'))?.userId).toBe('u1');
     expect((await s.getUserByEmail('a@example.com'))?.userId).toBe('u1');
     expect(await s.getUserByEmail('missing@example.com')).toBeNull();
+  });
+
+  it('tier (E0): premium round-trips; a stored row WITHOUT tier reads back as "free" (DynamoDB parity)', async () => {
+    const s = new InMemoryAuthStorage();
+    await s.createUser({ ...makeUser('u1', 'a@example.com'), tier: 'premium' });
+    expect((await s.getUserById('u1'))?.tier).toBe('premium');
+    expect((await s.getUserByEmail('a@example.com'))?.tier).toBe('premium');
+
+    // Legacy pre-E0 row: no tier attribute (cast simulates the old shape).
+    const legacy = makeUser('u2', 'b@example.com') as Partial<UserRecord>;
+    delete legacy.tier;
+    await s.createUser(legacy as UserRecord);
+    expect((await s.getUserById('u2'))?.tier).toBe('free');
+    expect((await s.getUserByEmail('b@example.com'))?.tier).toBe('free');
+    // updateUser normalizes the returned record too.
+    expect((await s.updateUser('u2', { displayName: 'X' }))?.tier).toBe('free');
   });
 
   it('updateUser returns null for unknown users and applies partial updates', async () => {

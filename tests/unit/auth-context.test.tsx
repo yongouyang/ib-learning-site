@@ -7,11 +7,18 @@ const USER = {
   email: 'a@example.com',
   displayName: 'Alex',
   role: 'parent' as const,
+  tier: 'free' as const,
   childProfiles: [
     { profileId: 'p1', displayName: 'Me', stage: 'ks3' as const },
     { profileId: 'p2', displayName: 'Kid', stage: 'igcse' as const },
   ],
 };
+
+// me() resolves the E1 payload shape: { user, entitlements }.
+const meResult = (
+  user: Omit<typeof USER, 'tier'> & { tier: 'free' | 'premium' },
+  entitlements: string[] = ['ai-marking']
+) => ({ user, entitlements });
 
 const { meMock, verifyOtpMock, logoutMock, updateAccountMock, setOnUnauthorizedMock } = vi.hoisted(() => ({
   meMock: vi.fn(),
@@ -38,6 +45,7 @@ function Probe() {
       <span data-testid="loaded">{String(probe.loaded)}</span>
       <span data-testid="user">{probe.user?.email ?? 'null'}</span>
       <span data-testid="active">{probe.activeProfile?.profileId ?? 'null'}</span>
+      <span data-testid="entitlements">{probe.entitlements.join(',')}</span>
     </div>
   );
 }
@@ -71,7 +79,7 @@ function renderProvider() {
 
 describe('AuthContext', () => {
   it('starts logged out, then loads the session after mount (loaded flips)', async () => {
-    meMock.mockResolvedValue(USER);
+    meMock.mockResolvedValue(meResult(USER));
     renderProvider();
 
     expect(screen.getByTestId('loaded').textContent).toBe('false');
@@ -106,7 +114,7 @@ describe('AuthContext', () => {
   });
 
   it('logout() clears the user and the active-profile key', async () => {
-    meMock.mockResolvedValue(USER);
+    meMock.mockResolvedValue(meResult(USER));
     store['octav_active_profile'] = 'p1';
     renderProvider();
     await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
@@ -122,7 +130,7 @@ describe('AuthContext', () => {
   });
 
   it('setActiveProfile persists and clamps unknown ids to the first profile', async () => {
-    meMock.mockResolvedValue(USER);
+    meMock.mockResolvedValue(meResult(USER));
     renderProvider();
     await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
 
@@ -140,7 +148,7 @@ describe('AuthContext', () => {
   });
 
   it('updateAccount passes through and sets the user', async () => {
-    meMock.mockResolvedValue(USER);
+    meMock.mockResolvedValue(meResult(USER));
     const updated = { ...USER, displayName: 'New Name' };
     updateAccountMock.mockResolvedValue(updated);
     renderProvider();
@@ -183,7 +191,7 @@ describe('AuthContext', () => {
   });
 
   it('an authenticated call returning 401 clears the user via the notification hook (M5a)', async () => {
-    meMock.mockResolvedValue(USER);
+    meMock.mockResolvedValue(meResult(USER));
     renderProvider();
     await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
     expect(screen.getByTestId('user').textContent).toBe('a@example.com');
@@ -200,7 +208,7 @@ describe('AuthContext', () => {
   });
 
   it('logout clears local state even when the server request fails (M5b)', async () => {
-    meMock.mockResolvedValue(USER);
+    meMock.mockResolvedValue(meResult(USER));
     store['octav_active_profile'] = 'p2';
     renderProvider();
     await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
@@ -213,6 +221,40 @@ describe('AuthContext', () => {
     // Local state is cleared regardless; the failure is surfaced to callers.
     expect(screen.getByTestId('user').textContent).toBe('null');
     expect(store['octav_active_profile']).toBeUndefined();
+  });
+
+  it('exposes the entitlements from the me() payload (E1)', async () => {
+    meMock.mockResolvedValue(meResult({ ...USER, tier: 'premium' }, ['ai-marking', 'ai-marking-unlimited', 'exam-sets-full']));
+    renderProvider();
+
+    await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
+    expect(screen.getByTestId('entitlements').textContent).toBe('ai-marking,ai-marking-unlimited,exam-sets-full');
+  });
+
+  it('login() derives entitlements from the fresh user tier (verify-otp has no entitlements field)', async () => {
+    meMock.mockResolvedValue(null);
+    verifyOtpMock.mockResolvedValue({ ...USER, tier: 'premium' });
+    renderProvider();
+    await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
+    expect(screen.getByTestId('entitlements').textContent).toBe('');
+
+    await act(async () => {
+      await probe.login('a@example.com', '123456');
+    });
+    expect(screen.getByTestId('entitlements').textContent).toBe('ai-marking,ai-marking-unlimited,exam-sets-full');
+  });
+
+  it('logout clears the entitlements along with the user', async () => {
+    meMock.mockResolvedValue(meResult(USER));
+    renderProvider();
+    await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
+    expect(screen.getByTestId('entitlements').textContent).toBe('ai-marking');
+
+    logoutMock.mockResolvedValue(undefined);
+    await act(async () => {
+      await probe.logout();
+    });
+    expect(screen.getByTestId('entitlements').textContent).toBe('');
   });
 
   it('a slow me() resolving after logout must not re-apply the user (round 2)', async () => {
@@ -230,7 +272,7 @@ describe('AuthContext', () => {
     // The stale me() resolves with a user AFTER the logout — generation
     // bumping in clearLocalSession must discard it.
     await act(async () => {
-      resolveMe(USER);
+      resolveMe(meResult(USER));
       await Promise.resolve();
     });
     await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));

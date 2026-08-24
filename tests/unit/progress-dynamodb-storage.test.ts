@@ -136,34 +136,47 @@ describe('DynamoProgressStorage — command shapes', () => {
     });
   });
 
-  it('putFlashcard sends a monotonic lastReviewed condition', async () => {
+  it('putFlashcard sends a monotonic lastReviewed condition with ReturnValues ALL_OLD (D4)', async () => {
     const calls: CommandLike[] = [];
     const s = makeStorage((cmd) => {
       calls.push(cmd);
       return {};
     });
     const item = flashcard('2026-08-15T10:00:00.000Z');
-    expect(await s.putFlashcard(item)).toBe(true);
+    expect(await s.putFlashcard(item)).toEqual({ applied: true, previousStatus: null });
     expect(calls[0].input).toEqual({
       TableName: 'octav-progress',
       Item: item,
       ConditionExpression: 'attribute_not_exists(lastReviewed) OR lastReviewed <= :ts',
+      ReturnValues: 'ALL_OLD',
       ExpressionAttributeValues: { ':ts': '2026-08-15T10:00:00.000Z' },
     });
   });
 
-  it('updateLadderLevel sends a max-wins Update on levels.#lvl', async () => {
+  it('putFlashcard surfaces the prior status from ALL_OLD (D4 newly-known signal)', async () => {
+    const s = makeStorage(() => ({ Attributes: { status: 'learning' } }));
+    expect(await s.putFlashcard(flashcard('2026-08-15T10:00:00.000Z'))).toEqual({
+      applied: true,
+      previousStatus: 'learning',
+    });
+  });
+
+  it('updateLadderLevel sends a max-wins Update on levels.#lvl with ReturnValues ALL_OLD (D4)', async () => {
     const calls: CommandLike[] = [];
     const s = makeStorage((cmd) => {
       calls.push(cmd);
       return {};
     });
-    expect(await s.updateLadderLevel(ladder(), 3, 0.75, '2026-08-16T10:00:00.000Z')).toBe(true);
+    expect(await s.updateLadderLevel(ladder(), 3, 0.75, '2026-08-16T10:00:00.000Z')).toEqual({
+      improved: true,
+      previousBestScore: null,
+    });
     expect(calls[0].input).toEqual({
       TableName: 'octav-progress',
       Key: { userId: USER_ID, dataType: `LADDER#${PROFILE_ID}#math-y7` },
       UpdateExpression: 'SET #lvls.#lvl = :val, profileId = :pid, courseId = :cid',
       ConditionExpression: 'attribute_not_exists(#lvls.#lvl) OR #lvls.#lvl.bestScore < :score',
+      ReturnValues: 'ALL_OLD',
       ExpressionAttributeNames: { '#lvls': 'levels', '#lvl': '3' },
       ExpressionAttributeValues: {
         ':val': { bestScore: 0.75, completedAt: '2026-08-16T10:00:00.000Z' },
@@ -171,6 +184,14 @@ describe('DynamoProgressStorage — command shapes', () => {
         ':pid': PROFILE_ID,
         ':cid': 'math-y7',
       },
+    });
+  });
+
+  it('updateLadderLevel surfaces the prior best from ALL_OLD (D4 first-clear signal)', async () => {
+    const s = makeStorage(() => ({ Attributes: { levels: { '3': { bestScore: 0.5, completedAt: 'd0' } } } }));
+    expect(await s.updateLadderLevel(ladder(), 3, 0.75, 'd1')).toEqual({
+      improved: true,
+      previousBestScore: 0.5,
     });
   });
 
@@ -385,17 +406,24 @@ describe('DynamoProgressStorage — command shapes', () => {
     expect(deletes[1].input).toEqual({ TableName: 'octav-progress', Key: { userId: USER_ID, dataType: 'FLASHCARD#b' } });
   });
 
-  it('progress ops never set ReturnValues (unlike the auth adapter)', async () => {
+  it('progress ops set ReturnValues ONLY where the D4 signals need it (ALL_OLD on flashcard/ladder)', async () => {
     const calls: CommandLike[] = [];
     const s = makeStorage((cmd) => {
       calls.push(cmd);
       return {};
     });
     await s.putTopicAttempt(topicAttempt('a1'));
+    await s.putFlashcard(flashcard('d0'));
     await s.updateLadderLevel(ladder(), 1, 0.5, 'd1');
     await s.mergeMeta(meta());
     await s.setMigrationCompleted(USER_ID, PROFILE_ID, 'd2');
-    expect(calls.every((c) => c.input.ReturnValues === undefined)).toBe(true);
+    // D4: the LWW flashcard Put and the ladder max-wins Update carry ALL_OLD so
+    // the prior state comes back with the SAME write (no extra read).
+    expect(calls[0].input.ReturnValues).toBeUndefined(); // putTopicAttempt
+    expect(calls[1].input.ReturnValues).toBe('ALL_OLD'); // putFlashcard
+    expect(calls[2].input.ReturnValues).toBe('ALL_OLD'); // updateLadderLevel
+    expect(calls[3].input.ReturnValues).toBeUndefined(); // mergeMeta (field 1)
+    expect(calls[6].input.ReturnValues).toBeUndefined(); // setMigrationCompleted
   });
 });
 
@@ -408,18 +436,24 @@ describe('DynamoProgressStorage — conditional-failure paths', () => {
     expect(await s.putExamAttempt(examAttempt('e1'))).toBe(false);
   });
 
-  it('putFlashcard returns false on a stale (older) write', async () => {
+  it('putFlashcard reports not-applied on a stale (older) write', async () => {
     const s = makeStorage(() => {
       throw conditionalFailure();
     });
-    expect(await s.putFlashcard(flashcard('2026-08-15T10:00:00.000Z'))).toBe(false);
+    expect(await s.putFlashcard(flashcard('2026-08-15T10:00:00.000Z'))).toEqual({
+      applied: false,
+      previousStatus: null,
+    });
   });
 
-  it('updateLadderLevel returns false on an equal-or-better score', async () => {
+  it('updateLadderLevel reports not-improved on an equal-or-better score', async () => {
     const s = makeStorage(() => {
       throw conditionalFailure();
     });
-    expect(await s.updateLadderLevel(ladder(), 1, 0.5, 'd1')).toBe(false);
+    expect(await s.updateLadderLevel(ladder(), 1, 0.5, 'd1')).toEqual({
+      improved: false,
+      previousBestScore: null,
+    });
   });
 
   it('mergeMeta returns false when no field improves (conditional max set)', async () => {
@@ -448,6 +482,92 @@ describe('DynamoProgressStorage — conditional-failure paths', () => {
     await expect(s.setMigrationCompleted(USER_ID, PROFILE_ID, 'd')).rejects.toThrow('AccessDeniedException');
     await expect(s.listProgressByUser(USER_ID)).rejects.toThrow('AccessDeniedException');
     await expect(s.getMeta(USER_ID, PROFILE_ID)).rejects.toThrow('AccessDeniedException');
+  });
+});
+
+describe('DynamoProgressStorage — XP buckets (D4)', () => {
+  const NOW = Date.parse('2026-08-15T10:00:00Z');
+
+  function makeBucketStorage(handler: (cmd: CommandLike) => unknown = () => ({})) {
+    return new DynamoProgressStorage(
+      mockClient(handler),
+      TABLES,
+      {
+        getSession: async () => null,
+        getUserById: async () => null,
+        updateSession: async () => {},
+        deleteSession: async () => {},
+      },
+      () => NOW
+    );
+  }
+
+  it('incrementXpDayBucket sends ONE conditional ADD on the xpday bucket with ReturnValues ALL_NEW', async () => {
+    const calls: CommandLike[] = [];
+    const s = makeBucketStorage((cmd) => {
+      calls.push(cmd);
+      return { Attributes: { count: 150 } };
+    });
+    const awarded = await s.incrementXpDayBucket('p1', '2026-08-15', 150, 500);
+    // ALL_NEW count 150 − delta 150 = 0 prior → the full delta is awardable.
+    expect(awarded).toBe(150);
+    expect(calls).toHaveLength(1);
+    expect(calls[0].constructor.name).toBe('UpdateCommand');
+    expect(calls[0].input).toEqual({
+      TableName: 'octav-rate-limits',
+      Key: { bucket: 'xpday:p1:2026-08-15' },
+      UpdateExpression: 'ADD #c :delta SET expiresAt = :exp',
+      ConditionExpression: 'attribute_not_exists(#c) OR #c < :cap',
+      ReturnValues: 'ALL_NEW',
+      ExpressionAttributeNames: { '#c': 'count' },
+      ExpressionAttributeValues: {
+        ':delta': 150,
+        ':cap': 500,
+        ':exp': Math.floor(NOW / 1000) + 2 * 24 * 60 * 60, // TTL ~2d
+      },
+    });
+  });
+
+  it('incrementXpDayBucket clamps the award at the cap boundary (400 + 150 → 100)', async () => {
+    const s = makeBucketStorage(() => ({ Attributes: { count: 550 } }));
+    expect(await s.incrementXpDayBucket('p1', '2026-08-15', 150, 500)).toBe(100);
+  });
+
+  it('incrementXpDayBucket returns 0 on a conditional failure (bucket at cap)', async () => {
+    const s = makeBucketStorage(() => {
+      throw conditionalFailure();
+    });
+    expect(await s.incrementXpDayBucket('p1', '2026-08-15', 150, 500)).toBe(0);
+  });
+
+  it('incrementXpTopicBucket sends ONE unconditional ADD on the xp-topic bucket and returns the ordinal', async () => {
+    const calls: CommandLike[] = [];
+    const s = makeBucketStorage((cmd) => {
+      calls.push(cmd);
+      return { Attributes: { count: 3 } };
+    });
+    expect(await s.incrementXpTopicBucket('p1', 'algebra', '2026-W33')).toBe(3);
+    expect(calls).toHaveLength(1);
+    expect(calls[0].constructor.name).toBe('UpdateCommand');
+    expect(calls[0].input).toEqual({
+      TableName: 'octav-rate-limits',
+      Key: { bucket: 'xp-topic:p1:algebra:2026-W33' },
+      UpdateExpression: 'ADD #c :one SET expiresAt = :exp',
+      ReturnValues: 'ALL_NEW',
+      ExpressionAttributeNames: { '#c': 'count' },
+      ExpressionAttributeValues: {
+        ':one': 1,
+        ':exp': Math.floor(NOW / 1000) + 10 * 24 * 60 * 60, // TTL ~10d
+      },
+    });
+  });
+
+  it('bucket ops rethrow non-conditional failures (never silently swallowed)', async () => {
+    const s = makeBucketStorage(() => {
+      throw new Error('AccessDeniedException');
+    });
+    await expect(s.incrementXpDayBucket('p1', '2026-08-15', 10, 500)).rejects.toThrow('AccessDeniedException');
+    await expect(s.incrementXpTopicBucket('p1', 'algebra', '2026-W33')).rejects.toThrow('AccessDeniedException');
   });
 });
 

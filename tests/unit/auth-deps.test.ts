@@ -4,6 +4,18 @@ import { DynamoAuthStorage } from '@/lib/auth/dynamodb-storage';
 import { SesEmailSender } from '@/lib/auth/ses-sender';
 import { ResendEmailSender } from '@/lib/auth/resend-sender';
 import { DummyEmailSender, InMemoryAuthStorage } from '@/lib/auth/dummy';
+import { InMemoryLeaderboardStorage } from '@/lib/leaderboard/dummy';
+import { DynamoLeaderboardStorage } from '@/lib/leaderboard/dynamodb-storage';
+
+const DDB_ENV = {
+  AUTH_STORAGE: 'dynamodb',
+  AUTH_EMAIL: 'dummy',
+  AUTH_USERS_TABLE: 'u',
+  AUTH_SESSIONS_TABLE: 's',
+  AUTH_OTP_TABLE: 'o',
+  AUTH_PROGRESS_TABLE: 'p',
+  AUTH_RATE_LIMITS_TABLE: 'r',
+};
 
 describe('getAuthDeps', () => {
   afterEach(() => {
@@ -86,6 +98,25 @@ describe('getAuthDeps', () => {
   it('throws on unknown kinds', () => {
     expect(() => getAuthDeps({ AUTH_STORAGE: 'postgres' })).toThrow(/AUTH_STORAGE/);
     expect(() => getAuthDeps({ AUTH_EMAIL: 'sendgrid' })).toThrow(/AUTH_EMAIL/);
+  });
+
+  describe('leaderboardStorage wiring (D5 — opt-out erasure)', () => {
+    it('dummy wiring passes the SAME shared universe as leaderboardStorage', () => {
+      const deps = getAuthDeps({});
+      expect(deps.leaderboardStorage).toBeInstanceOf(InMemoryLeaderboardStorage);
+      expect(deps.leaderboardStorage).toBe(deps.storage);
+    });
+
+    it('dynamodb wiring without LEADERBOARD_TABLE leaves erasure disabled (pre-D7)', () => {
+      const deps = getAuthDeps(DDB_ENV);
+      expect(deps.storage).toBeInstanceOf(DynamoAuthStorage);
+      expect(deps.leaderboardStorage).toBeUndefined();
+    });
+
+    it('dynamodb wiring with LEADERBOARD_TABLE constructs the real adapter', () => {
+      const deps = getAuthDeps({ ...DDB_ENV, LEADERBOARD_TABLE: 'octav-leaderboard' });
+      expect(deps.leaderboardStorage).toBeInstanceOf(DynamoLeaderboardStorage);
+    });
   });
 
   describe('EMAIL_PROVIDER selection (provider-swap seam)', () => {

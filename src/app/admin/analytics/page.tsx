@@ -40,6 +40,8 @@ const EVENT_LABELS: Record<string, string> = {
   auth_logout: 'Sign-outs',
   pwa_installed: 'PWA installs',
   pwa_offline_banner_shown: 'Offline banners shown',
+  leaderboard_viewed: 'Leaderboard views',
+  leaderboard_membership_changed: 'Leaderboard joins/leaves',
 };
 
 type Status = 'loading' | 'ok' | 'forbidden' | 'unauthenticated' | 'error';
@@ -90,7 +92,7 @@ export default function AdminAnalyticsPage() {
         <div className="card p-8 text-center">
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Sign in to view analytics.</p>
           <Link
-            href="/login"
+            href="/login?next=%2Fadmin%2Fanalytics"
             className="inline-flex items-center justify-center gap-1.5 py-3 px-4 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors"
           >
             Sign in
@@ -142,7 +144,7 @@ export default function AdminAnalyticsPage() {
             Your session has expired — sign in again to view analytics.
           </p>
           <Link
-            href="/login"
+            href="/login?next=%2Fadmin%2Fanalytics"
             className="inline-flex items-center justify-center gap-1.5 py-3 px-4 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-700 transition-colors"
           >
             Sign in

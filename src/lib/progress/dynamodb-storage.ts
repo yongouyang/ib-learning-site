@@ -7,10 +7,18 @@ import {
   type DynamoDBDocumentClient,
 } from '@aws-sdk/lib-dynamodb';
 import type { SessionRecord, UserRecord } from '../auth/types';
+import {
+  XP_DAY_BUCKET_TTL_SECONDS,
+  XP_TOPIC_BUCKET_TTL_SECONDS,
+  xpDayBucketKey,
+  xpTopicBucketKey,
+} from '../leaderboard/types';
 import type {
   ExamAttemptItem,
   FlashcardItem,
+  FlashcardWriteResult,
   LadderItem,
+  LadderWriteResult,
   ProgressItem,
   ProgressMetaItem,
   ProgressStorage,
@@ -24,10 +32,14 @@ import type {
 // SK dataType). Every write is a single conditional command — atomic and
 // idempotent (rule 6):
 //   putTopicAttempt/putExamAttempt  Put     attribute_not_exists(dataType)
-//   putFlashcard                    Put     lastReviewed monotonic (LWW)
-//   updateLadderLevel               Update  levels.#lvl missing OR worse score
+//   putFlashcard                    Put     lastReviewed monotonic (LWW),
+//                                           ReturnValues ALL_OLD (D4 prior status)
+//   updateLadderLevel               Update  levels.#lvl missing OR worse score,
+//                                           ReturnValues ALL_OLD (D4 prior best)
 //   mergeMeta                       Update  per-field max condition
 //   setMigrationCompleted           Update  attribute_not_exists(marker)
+//   incrementXpDayBucket            Update  ADD with cap condition (octav-rate-limits)
+//   incrementXpTopicBucket          Update  ADD, unconditional (octav-rate-limits)
 
 interface TableNames {
   users: string;
@@ -147,6 +159,61 @@ export class DynamoProgressStorage implements ProgressStorage {
     }
   }
 
+  // --- Phase D4 XP buckets (octav-rate-limits — docs/leaderboard-plan.md §4.1) ---
+
+  async incrementXpDayBucket(profileId: string, dateUtc: string, delta: number, cap: number): Promise<number> {
+    // Daily soft cap, ONE conditional command (the aimark: pattern): the date
+    // is IN the bucket key, so the counter resets atomically each UTC day; the
+    // TTL is cleanup only. The condition evaluates the PRE-update count, so a
+    // bucket already at/over the cap rejects the write → 0 awardable.
+    // Otherwise the write commits the FULL delta (the bucket may overshoot the
+    // cap by one delta — documented, harmless) and ALL_NEW gives the new
+    // count, from which the awardable amount is derived:
+    //   preCount = newCount - delta;  awarded = min(delta, max(0, cap - preCount)).
+    try {
+      const res = await this.client.send(
+        new UpdateCommand({
+          TableName: this.tables.rateLimits,
+          Key: { bucket: xpDayBucketKey(profileId, dateUtc) },
+          UpdateExpression: 'ADD #c :delta SET expiresAt = :exp',
+          ConditionExpression: 'attribute_not_exists(#c) OR #c < :cap',
+          ReturnValues: 'ALL_NEW',
+          ExpressionAttributeNames: { '#c': 'count' },
+          ExpressionAttributeValues: {
+            ':delta': delta,
+            ':cap': cap,
+            ':exp': Math.floor(this.clock() / 1000) + XP_DAY_BUCKET_TTL_SECONDS,
+          },
+        })
+      );
+      const newCount = (res.Attributes as { count?: number } | undefined)?.count ?? 0;
+      return Math.min(delta, Math.max(0, cap - (newCount - delta)));
+    } catch (err) {
+      if (isConditionalFailure(err)) return 0;
+      throw err;
+    }
+  }
+
+  async incrementXpTopicBucket(profileId: string, topicId: string, weekKey: string): Promise<number> {
+    // Diminishing-repeats counter, ONE unconditional ADD: ALL_NEW returns the
+    // new count — the 1-based weekly attempt ordinal for repeatMultiplier.
+    // The weekKey is IN the bucket key, so the counter resets each week.
+    const res = await this.client.send(
+      new UpdateCommand({
+        TableName: this.tables.rateLimits,
+        Key: { bucket: xpTopicBucketKey(profileId, topicId, weekKey) },
+        UpdateExpression: 'ADD #c :one SET expiresAt = :exp',
+        ReturnValues: 'ALL_NEW',
+        ExpressionAttributeNames: { '#c': 'count' },
+        ExpressionAttributeValues: {
+          ':one': 1,
+          ':exp': Math.floor(this.clock() / 1000) + XP_TOPIC_BUCKET_TTL_SECONDS,
+        },
+      })
+    );
+    return (res.Attributes as { count?: number } | undefined)?.count ?? 0;
+  }
+
   async deleteProgressByUser(userId: string): Promise<void> {
     const items = await this.listProgressByUser(userId);
     await Promise.all(
@@ -179,22 +246,28 @@ export class DynamoProgressStorage implements ProgressStorage {
     return this.putIfAbsent(item);
   }
 
-  async putFlashcard(item: FlashcardItem): Promise<boolean> {
+  async putFlashcard(item: FlashcardItem): Promise<FlashcardWriteResult> {
     // LWW per card: an older review must not overwrite a newer one; an equal
     // timestamp re-writes the same values (idempotent replay). The condition
     // evaluates the PRE-put item, so the stored copy is never regressed.
+    // ReturnValues ALL_OLD (D4): the prior status comes back with the SAME
+    // write — no extra read to detect a not-known → known transition.
     try {
-      await this.client.send(
+      const res = await this.client.send(
         new PutCommand({
           TableName: this.tables.progress,
           Item: item,
           ConditionExpression: 'attribute_not_exists(lastReviewed) OR lastReviewed <= :ts',
+          ReturnValues: 'ALL_OLD',
           ExpressionAttributeValues: { ':ts': item.lastReviewed },
         })
       );
-      return true;
+      const old = res.Attributes as FlashcardItem | undefined;
+      return { applied: true, previousStatus: old?.status ?? null };
     } catch (err) {
-      if (isConditionalFailure(err)) return false;
+      // A rejected (stale) write has no readable prior state — report null
+      // (previousStatus is only meaningful when applied).
+      if (isConditionalFailure(err)) return { applied: false, previousStatus: null };
       throw err;
     }
   }
@@ -204,20 +277,23 @@ export class DynamoProgressStorage implements ProgressStorage {
     level: number,
     bestScore: number,
     completedAt: string
-  ): Promise<boolean> {
+  ): Promise<LadderWriteResult> {
     // Atomic max-wins per level. Missing level → set; stored worse score →
     // overwrite; stored equal-or-better → conditional failure (treated as
     // already applied — replay of a synced event cannot regress or duplicate).
     // profileId/courseId are persisted alongside levels so the read path can
-    // key the ladder map without parsing the SK.
+    // key the ladder map without parsing the SK. ReturnValues ALL_OLD (D4):
+    // the stored pre-write best comes back with the SAME command — no extra
+    // read to detect a first pass.
     const levelKey = String(level);
     try {
-      await this.client.send(
+      const res = await this.client.send(
         new UpdateCommand({
           TableName: this.tables.progress,
           Key: { userId: item.userId, dataType: item.dataType },
           UpdateExpression: 'SET #lvls.#lvl = :val, profileId = :pid, courseId = :cid',
           ConditionExpression: 'attribute_not_exists(#lvls.#lvl) OR #lvls.#lvl.bestScore < :score',
+          ReturnValues: 'ALL_OLD',
           ExpressionAttributeNames: { '#lvls': 'levels', '#lvl': levelKey },
           ExpressionAttributeValues: {
             ':val': { bestScore, completedAt },
@@ -227,9 +303,12 @@ export class DynamoProgressStorage implements ProgressStorage {
           },
         })
       );
-      return true;
+      const old = res.Attributes as LadderItem | undefined;
+      return { improved: true, previousBestScore: old?.levels?.[levelKey]?.bestScore ?? null };
     } catch (err) {
-      if (isConditionalFailure(err)) return false;
+      // A rejected (not-improved) write has no readable prior state — report
+      // null (previousBestScore is only meaningful when improved).
+      if (isConditionalFailure(err)) return { improved: false, previousBestScore: null };
       throw err;
     }
   }

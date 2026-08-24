@@ -1,0 +1,100 @@
+{
+  "id": "chem-ks3-set-2",
+  "courseId": "chem-ks3",
+  "title": "Practice Set 2",
+  "durationMinutes": 25,
+  "questions": [
+    {
+      "id": "chem-ks3-set-2-q1",
+      "stem": "A sodium atom has $11$ electrons arranged $2, 8, 1$. State the group and the period of sodium in the periodic table.",
+      "marks": 2,
+      "markscheme": [
+        "B1: group $1$ (one electron in the outer shell)",
+        "B1: period $3$ (three electron shells)"
+      ],
+      "modelAnswer": "The group number is the number of electrons in the outer shell, so with $1$ outer electron sodium is in group $1$. The period number is the number of electron shells, so with three shells ($2, 8, 1$) sodium is in period $3$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-ks3-set-2-q2",
+      "stem": "A gas collected in a test tube burns with a squeaky pop when a lit splint is held at the mouth of the tube. In a separate flame test, a sample gives a yellow flame. (a) Name the gas. (b) Name the metal ion shown by the yellow flame.",
+      "marks": 2,
+      "markscheme": [
+        "B1: hydrogen (the squeaky pop test)",
+        "B1: sodium ions (yellow flame)"
+      ],
+      "modelAnswer": "(a) The gas is hydrogen — the classic test for hydrogen is that it burns with a squeaky pop when a lit splint is brought to it. (b) A yellow flame in a flame test identifies sodium ions.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-ks3-set-2-q3",
+      "stem": "The metals zinc, copper and magnesium are each added to dilute hydrochloric acid. List the three metals in order of reactivity, most reactive first.",
+      "marks": 2,
+      "markscheme": [
+        "B1: magnesium is the most reactive",
+        "B1: full order: magnesium, zinc, copper"
+      ],
+      "modelAnswer": "From the reactivity series, magnesium is above zinc, and zinc is above copper (copper is below hydrogen, so it barely reacts with dilute acids). The order, most reactive first, is: magnesium, zinc, copper.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-ks3-set-2-q4",
+      "stem": "Sodium chloride has a high melting point of $801$°C. Explain why, referring to its structure and bonding.",
+      "marks": 2,
+      "markscheme": [
+        "B1: giant ionic lattice with strong electrostatic attraction between oppositely charged ions",
+        "B1: a lot of energy (high temperature) is needed to overcome these attractions"
+      ],
+      "modelAnswer": "Sodium chloride has a giant ionic lattice structure: positive sodium ions and negative chloride ions are held together by strong electrostatic attractions in all directions. Melting requires these strong attractions to be overcome so the ions can move, which needs a large amount of energy — hence the high melting point of $801$°C.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ks3-set-2-q5",
+      "stem": "Three groups repeat the same experiment and record masses of product of $4.2$ g, $4.9$ g and $4.3$ g. The $4.9$ g result is anomalous. (a) Explain what anomalous means. (b) Calculate the mean mass, excluding the anomalous result.",
+      "marks": 3,
+      "markscheme": [
+        "B1: anomalous means the result does not fit with the others (an outlier)",
+        "M1: mean $= (4.2 + 4.3) \\div 2$",
+        "A1: $4.25$ g (units required)"
+      ],
+      "modelAnswer": "(a) An anomalous result is one that does not fit in with the other results — it is an outlier, probably caused by a mistake in that trial. (b) Excluding the $4.9$ g result, the mean is $\\dfrac{4.2 + 4.3}{2} = \\dfrac{8.5}{2} = 4.25$ g.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ks3-set-2-q6",
+      "stem": "Complete the word equation for the reaction between calcium carbonate and hydrochloric acid: calcium carbonate $+$ hydrochloric acid $\\rightarrow$ ___ $+$ ___ $+$ ___",
+      "marks": 3,
+      "markscheme": [
+        "B1: calcium chloride (the salt)",
+        "B1: water",
+        "B1: carbon dioxide"
+      ],
+      "modelAnswer": "When a carbonate reacts with an acid, the products are a salt, water and carbon dioxide. Here the salt is calcium chloride (calcium from the carbonate, chloride from the acid), so: calcium carbonate $+$ hydrochloric acid $\\rightarrow$ calcium chloride $+$ water $+$ carbon dioxide. (The fizzing seen in this reaction is the carbon dioxide.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-ks3-set-2-q7",
+      "stem": "Crude oil is separated into useful fractions by fractional distillation. Explain how the process works, referring to the fractionating column and boiling points.",
+      "marks": 3,
+      "markscheme": [
+        "B1: the crude oil is heated until it evaporates/vaporises and the vapours rise up the fractionating column",
+        "B1: the column is hot at the bottom and cooler at the top",
+        "B1: fractions condense at different heights because they have different boiling points"
+      ],
+      "modelAnswer": "The crude oil is heated until most of it evaporates, and the vapours enter the bottom of the fractionating column. The column has a temperature gradient: hot at the bottom and cooler at the top. Each fraction condenses back into a liquid at the height where the temperature matches its boiling point — fractions with high boiling points condense near the bottom, and fractions with low boiling points condense near the top — so the fractions can be collected separately.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-ks3-set-2-q8",
+      "stem": "State the approximate percentage of nitrogen and the approximate percentage of oxygen in clean, dry air, and name one other gas present in the air.",
+      "marks": 3,
+      "markscheme": [
+        "B1: about $78\\%$ (accept $75$–$80\\%$) nitrogen",
+        "B1: about $20$–$21\\%$ oxygen",
+        "B1: one other gas, e.g. argon (noble gases) or carbon dioxide"
+      ],
+      "modelAnswer": "Clean, dry air is approximately $78\\%$ nitrogen and $21\\%$ oxygen. Most of the remaining $1\\%$ is argon (a noble gas), with small amounts of carbon dioxide and other gases. (Water vapour is also present in real air, in variable amounts.)",
+      "difficulty": "hard"
+    }
+  ]
+}

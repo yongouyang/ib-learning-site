@@ -223,6 +223,12 @@ jobs:
       TF_VAR_analytics_env: ${{ secrets.ANALYTICS_ENV || '{}' }}
       # Analytics /summary admin email allowlist (repo variable, not a secret).
       TF_VAR_analytics_admin_emails: ${{ vars.ANALYTICS_ADMIN_EMAILS || '' }}
+      # Admin Lambda env overrides (Feature 2); optional — unset = base wiring.
+      TF_VAR_admin_env: ${{ secrets.ADMIN_ENV || '{}' }}
+      # Analytics-report Lambda env overrides (Feature 1); optional — unset =
+      # base wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from
+      # the shared secret/variable above).
+      TF_VAR_analytics_report_env: ${{ secrets.ANALYTICS_REPORT_ENV || '{}' }}
 
     steps:
       - name: Checkout
@@ -285,6 +291,12 @@ jobs:
           # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
           # match the status code instead).
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
+          # Bare-path routing regression guard (2026-08-24): a CloudFront
+          # "/api/x/*" pattern does NOT match the bare "/api/x", which used to
+          # fall through to /api/* → the feedback Lambda (200 {"configured"}).
+          # Unauthenticated bare GETs must 401 from the REAL handlers.
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/progress" | grep -q '^401$'
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/leaderboard" | grep -q '^401$'
           # request-otp writes the OTP to DynamoDB + attempts SES send — catches
           # missing table/index IAM. 200 = email accepted; 502 = SES send failed
           # (expected while the account is in SES sandbox); 429 = the durable
@@ -302,6 +314,13 @@ jobs:
           curl -fsS "$SITE_URL/api/progress/_health" | grep -q '"ok":true'
           # /api/analytics/_health — same failure-class probe as progress.
           curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
+          # /api/leaderboard/_health — same failure-class probe on
+          # octav-leaderboard (Phase D; missing table/Query grant → 500).
+          curl -fsS "$SITE_URL/api/leaderboard/_health" | grep -q '"ok":true'
+          # /api/admin/_health performs an unauthenticated ListTables probe —
+          # exercises the admin Lambda's ListTables IAM grant (missing grant /
+          # region → 500). Same failure-class probe as progress/analytics.
+          curl -fsS "$SITE_URL/api/admin/_health" | grep -q '"ok":true'
           echo "Smoke checks passed."
 
   # PROD deploy (main branch) — octavlearning.com on the dedicated bucket +
@@ -345,6 +364,12 @@ jobs:
       TF_VAR_analytics_env: ${{ secrets.ANALYTICS_ENV || '{}' }}
       # Analytics /summary admin email allowlist (repo variable, not a secret).
       TF_VAR_analytics_admin_emails: ${{ vars.ANALYTICS_ADMIN_EMAILS || '' }}
+      # Admin Lambda env overrides (Feature 2); optional — unset = base wiring.
+      TF_VAR_admin_env: ${{ secrets.ADMIN_ENV || '{}' }}
+      # Analytics-report Lambda env overrides (Feature 1); optional — unset =
+      # base wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from
+      # the shared secret/variable above).
+      TF_VAR_analytics_report_env: ${{ secrets.ANALYTICS_REPORT_ENV || '{}' }}
 
     steps:
       - name: Checkout
@@ -405,6 +430,12 @@ jobs:
           # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
           # match the status code instead).
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
+          # Bare-path routing regression guard (2026-08-24): a CloudFront
+          # "/api/x/*" pattern does NOT match the bare "/api/x", which used to
+          # fall through to /api/* → the feedback Lambda (200 {"configured"}).
+          # Unauthenticated bare GETs must 401 from the REAL handlers.
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/progress" | grep -q '^401$'
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/leaderboard" | grep -q '^401$'
           # request-otp writes the OTP to DynamoDB + attempts SES send — catches
           # missing table/index IAM. 200 = email accepted; 502 = SES send failed
           # (expected while the account is in SES sandbox); 429 = the durable
@@ -424,6 +455,13 @@ jobs:
           # octav-analytics-events with a fixed probe key — same failure-class
           # probe as progress (missing table / missing Query grant → 500).
           curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
+          # /api/leaderboard/_health — same failure-class probe on
+          # octav-leaderboard (Phase D; missing table/Query grant → 500).
+          curl -fsS "$SITE_URL/api/leaderboard/_health" | grep -q '"ok":true'
+          # /api/admin/_health performs an unauthenticated ListTables probe —
+          # exercises the admin Lambda's ListTables IAM grant (missing grant /
+          # region → 500). Same failure-class probe as progress/analytics.
+          curl -fsS "$SITE_URL/api/admin/_health" | grep -q '"ok":true'
           # www → apex 301 (redirect lives in the PROD URL-rewrite Function).
           curl -fsS -o /dev/null -w '%{http_code}' https://www.octavlearning.com/ | grep -q '^301$'
           echo "Smoke checks passed."

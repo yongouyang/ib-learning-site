@@ -1,4 +1,5 @@
-import type { FeedbackProvider, MarkRequest, MarkResult } from './types';
+import { InMemoryAnalyticsStorage } from '../analytics/dummy';
+import { aiMarkBucket, type FeedbackProvider, type FeedbackStorage, type MarkRequest, type MarkResult } from './types';
 
 // Dummy AI feedback provider (Phase 5 testing mindset): deterministic,
 // zero-token, controllable. Used for local development, e2e, and
@@ -34,5 +35,39 @@ export function dummyDefaultFromEnv(env: NodeJS.ProcessEnv = process.env): MarkR
     return JSON.parse(raw) as MarkResult;
   } catch {
     return undefined;
+  }
+}
+
+// In-memory feedback dummy (Phase E2) — the controllable-dummy directive
+// (AGENTS.md): dev and e2e run against this with zero AWS resources. It
+// EXTENDS the analytics dummy (which extends progress, which extends auth), so
+// the ONE shared in-memory universe serves auth sessions, progress items,
+// analytics events AND the AI-mark quota — the dev/e2e stand-in for the shared
+// DynamoDB tables: a dummy-OTP login resolves end-to-end for /api/feedback.
+// The quota counter mirrors the DynamoDB adapter's semantics EXACTLY (the
+// month key is IN the bucket key, so the counter resets atomically when the
+// calendar month rolls) — the parity test drives both against a simulated
+// DynamoDB implementation.
+
+export class InMemoryFeedbackStorage extends InMemoryAnalyticsStorage implements FeedbackStorage {
+  private readonly aiMarkCounts = new Map<string, number>(); // bucket key → count
+
+  async incrementAiMarkCount(userId: string, limit: number, monthKey: string): Promise<boolean> {
+    const key = aiMarkBucket(userId, monthKey);
+    const count = this.aiMarkCounts.get(key) ?? 0;
+    if (count >= limit) return false;
+    this.aiMarkCounts.set(key, count + 1);
+    return true;
+  }
+
+  async getAiMarkCount(userId: string, monthKey: string): Promise<number> {
+    return this.aiMarkCounts.get(aiMarkBucket(userId, monthKey)) ?? 0;
+  }
+
+  // Test hook (the _testCode precedent): only reachable via the handler under
+  // FEEDBACK_TEST_MODE=1 + dummy storage — lets e2e force a quota-exhausted
+  // state without 30 real marks.
+  async setAiMarkCount(userId: string, monthKey: string, count: number): Promise<void> {
+    this.aiMarkCounts.set(aiMarkBucket(userId, monthKey), count);
   }
 }

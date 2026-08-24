@@ -123,6 +123,9 @@ export default function StudyNoteBody({ body }: { body: string }) {
     if (trimmed.startsWith('|') && trimmed.endsWith('|') && isTableSeparator(lines[i + 1])) {
       flushList();
       const headerCells = splitTableRow(trimmed);
+      // Some tables are headerless grids authored with an empty header row
+      // (`| | | | |`) — drop the <thead> so no phantom empty band renders.
+      const hasHeader = headerCells.some((cell) => cell !== '');
       const bodyRows: string[][] = [];
       let j = i + 2;
       while (j < lines.length) {
@@ -134,18 +137,20 @@ export default function StudyNoteBody({ body }: { body: string }) {
       elements.push(
         <div key={`table-${key++}`} className="my-2 overflow-x-auto">
           <table className="w-full border-collapse text-sm">
-            <thead>
-              <tr>
-                {headerCells.map((cell, ci) => (
-                  <th
-                    key={ci}
-                    className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-left font-semibold text-gray-900 dark:text-gray-100"
-                  >
-                    {renderInlineMath(cell)}
-                  </th>
-                ))}
-              </tr>
-            </thead>
+            {hasHeader && (
+              <thead>
+                <tr>
+                  {headerCells.map((cell, ci) => (
+                    <th
+                      key={ci}
+                      className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-left font-semibold text-gray-900 dark:text-gray-100"
+                    >
+                      {renderInlineMath(cell)}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+            )}
             <tbody>
               {bodyRows.map((row, ri) => (
                 <tr key={ri}>

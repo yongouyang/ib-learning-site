@@ -105,13 +105,19 @@ describe('InMemoryProgressStorage — attempts', () => {
 });
 
 describe('InMemoryProgressStorage — flashcards', () => {
-  it('newer overwrites, older returns false leaving the stored copy, equal re-writes true', async () => {
+  it('newer overwrites, older is rejected leaving the stored copy, equal re-writes as applied', async () => {
     const s = new InMemoryProgressStorage();
 
-    expect(await s.putFlashcard(flashcard('2026-08-15T12:00:00.000Z', 'known', 2))).toBe(true);
+    expect(await s.putFlashcard(flashcard('2026-08-15T12:00:00.000Z', 'known', 2))).toEqual({
+      applied: true,
+      previousStatus: null, // no prior row
+    });
 
     // Older review must not overwrite a newer one.
-    expect(await s.putFlashcard(flashcard('2026-08-15T11:00:00.000Z', 'learning', 0))).toBe(false);
+    expect(await s.putFlashcard(flashcard('2026-08-15T11:00:00.000Z', 'learning', 0))).toEqual({
+      applied: false,
+      previousStatus: null, // rejected write — only meaningful when applied
+    });
     const afterOlder = (await s.listProgressByUser(USER_ID)).find((i) =>
       i.dataType.startsWith('FLASHCARD#')
     ) as FlashcardItem;
@@ -119,11 +125,18 @@ describe('InMemoryProgressStorage — flashcards', () => {
     expect(afterOlder.knownStreak).toBe(2);
     expect(afterOlder.lastReviewed).toBe('2026-08-15T12:00:00.000Z');
 
-    // Equal timestamp re-writes the same values (idempotent replay) → true.
-    expect(await s.putFlashcard(flashcard('2026-08-15T12:00:00.000Z', 'known', 2))).toBe(true);
+    // Equal timestamp re-writes the same values (idempotent replay) → applied,
+    // with the prior status surfaced (the D4 ALL_OLD signal).
+    expect(await s.putFlashcard(flashcard('2026-08-15T12:00:00.000Z', 'known', 2))).toEqual({
+      applied: true,
+      previousStatus: 'known',
+    });
 
     // Newer overwrites.
-    expect(await s.putFlashcard(flashcard('2026-08-16T12:00:00.000Z', 'known', 3))).toBe(true);
+    expect(await s.putFlashcard(flashcard('2026-08-16T12:00:00.000Z', 'known', 3))).toEqual({
+      applied: true,
+      previousStatus: 'known',
+    });
     const final = (await s.listProgressByUser(USER_ID)).find((i) =>
       i.dataType.startsWith('FLASHCARD#')
     ) as FlashcardItem;
@@ -133,14 +146,14 @@ describe('InMemoryProgressStorage — flashcards', () => {
 });
 
 describe('InMemoryProgressStorage — ladder', () => {
-  it('missing level sets, better overwrites, equal/worse returns false (no regression)', async () => {
+  it('missing level sets, better overwrites, equal/worse not improved (no regression)', async () => {
     const s = new InMemoryProgressStorage();
     const item = ladder();
 
-    expect(await s.updateLadderLevel(item, 1, 0.5, 'd1')).toBe(true); // missing → set
-    expect(await s.updateLadderLevel(item, 1, 0.9, 'd2')).toBe(true); // better → overwrite
-    expect(await s.updateLadderLevel(item, 1, 0.9, 'd3')).toBe(false); // equal → false
-    expect(await s.updateLadderLevel(item, 1, 0.7, 'd4')).toBe(false); // worse → false
+    expect(await s.updateLadderLevel(item, 1, 0.5, 'd1')).toEqual({ improved: true, previousBestScore: null }); // missing → set
+    expect(await s.updateLadderLevel(item, 1, 0.9, 'd2')).toEqual({ improved: true, previousBestScore: 0.5 }); // better → overwrite
+    expect(await s.updateLadderLevel(item, 1, 0.9, 'd3')).toEqual({ improved: false, previousBestScore: null }); // equal → rejected
+    expect(await s.updateLadderLevel(item, 1, 0.7, 'd4')).toEqual({ improved: false, previousBestScore: null }); // worse → rejected
 
     const stored = (await s.listProgressByUser(USER_ID)).find(
       (i) => i.dataType === item.dataType

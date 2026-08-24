@@ -2,12 +2,19 @@
 // /api/auth/* contract (see src/lib/auth/http-handler.ts for the server side).
 // Plain fetch with same-origin credentials (the session cookie) and JSON bodies.
 
+import type { FeatureId, Tier } from '@/lib/entitlements/features';
+
 export type Stage = 'ks3' | 'igcse' | 'dp';
 
 export interface ChildProfile {
   profileId: string;
   displayName: string;
   stage: Stage;
+  /** Phase D5 (docs/leaderboard-plan.md §4.3): per-profile leaderboard opt-in.
+   *  Absent = not opted in. The handle is present once set (deterministic
+   *  default stored at opt-in; changeable once). */
+  leaderboardOptIn?: boolean;
+  leaderboardHandle?: string;
 }
 
 export interface AuthUser {
@@ -15,6 +22,7 @@ export interface AuthUser {
   email: string;
   displayName: string;
   role: 'parent' | 'student';
+  tier: Tier;
   childProfiles: ChildProfile[];
 }
 
@@ -96,13 +104,21 @@ export async function logout(): Promise<void> {
   await requestJson<{ message: string }>('/api/auth/logout', { method: 'POST' });
 }
 
+/**
+ * GET /api/auth/me payload (Phase E1): the user plus their entitlements —
+ * the server derives the list from the tier and is the single source of truth.
+ */
+export interface MeResult {
+  user: AuthUser;
+  entitlements: FeatureId[];
+}
+
 /** GET /api/auth/me — resolves null when unauthenticated (401). */
-export async function me(): Promise<AuthUser | null> {
+export async function me(): Promise<MeResult | null> {
   const res = await fetch('/api/auth/me', { credentials: 'same-origin' });
   if (res.status === 401) return null;
   if (!res.ok) throw await parseError(res);
-  const body = (await res.json()) as { user: AuthUser };
-  return body.user;
+  return (await res.json()) as MeResult;
 }
 
 /** POST /api/auth/account — displayName and/or childProfiles (full replace). */

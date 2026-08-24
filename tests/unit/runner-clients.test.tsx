@@ -70,6 +70,13 @@ vi.mock('@/context/ProgressContext', () => ({
   }),
 }));
 
+// Phase E3: the exam/ladder runners gate premium surfaces on entitlements.
+// These tests cover behaviour BEHIND the gate, so the mock grants everything
+// (the lock/unlock rendering itself lives in exam-gating.test.tsx).
+vi.mock('@/context/EntitlementsContext', () => ({
+  useEntitlements: () => ({ has: () => true, loaded: true }),
+}));
+
 // Questions are shuffled by QuizGame's seed, so read the current stem to know
 // which fixture question is on screen: q1's correct choice is index 0, q2's is 1.
 function currentCorrectIndex(): number {

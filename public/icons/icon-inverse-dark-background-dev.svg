@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 48" width="260" height="48">
+  <!-- Dev variant of icon-inverse-dark-background.svg: header logo (dark
+       mode) with a "DEV" badge after the wordmark. -->
+  <defs>
+    <linearGradient id="grad-inverse-dev" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <!-- Icon -->
+  <rect x="4" y="4" width="40" height="40" rx="10" fill="url(#grad-inverse-dev)"/>
+  <svg x="4" y="4" width="40" height="40" viewBox="0 0 72 72">
+    <ellipse cx="36" cy="38" rx="22" ry="26" stroke="white" stroke-width="6" fill="none"/>
+    <rect x="24" y="44" width="5" height="8" rx="1" fill="white" opacity="0.5"/>
+    <rect x="31" y="38" width="5" height="14" rx="1" fill="white" opacity="0.7"/>
+    <rect x="38" y="30" width="5" height="22" rx="1" fill="white" opacity="0.85"/>
+    <rect x="45" y="22" width="5" height="30" rx="1" fill="white"/>
+    <path d="M47 20L50 18L49 22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="52" cy="16" r="3" fill="#fbbf24"/>
+  </svg>
+  <!-- Wordmark -->
+  <text x="52" y="32" font-size="24" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" letter-spacing="-0.3">
+    <tspan font-weight="600" fill="#f8fafc">Octav</tspan>
+    <tspan font-weight="300" fill="#94a3b8" dx="8">Learning</tspan>
+  </text>
+  <!-- DEV badge -->
+  <rect x="224" y="15" width="32" height="18" rx="4" fill="#ef4444"/>
+  <text x="240" y="28" text-anchor="middle" font-size="10" font-weight="700" font-family="system-ui, -apple-system, sans-serif" fill="white">DEV</text>
+</svg>

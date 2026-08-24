@@ -1,8 +1,11 @@
 import { InMemoryAuthStorage } from '../auth/dummy';
+import { xpDayBucketKey, xpTopicBucketKey } from '../leaderboard/types';
 import type {
   ExamAttemptItem,
   FlashcardItem,
+  FlashcardWriteResult,
   LadderItem,
+  LadderWriteResult,
   ProgressItem,
   ProgressMetaItem,
   ProgressStorage,
@@ -38,6 +41,27 @@ export class InMemoryProgressStorage extends InMemoryAuthStorage implements Prog
     return true;
   }
 
+  // Phase D4 XP buckets (docs/leaderboard-plan.md §4.1): one counter map for
+  // both bucket families. The date/weekKey is IN the key, so counters reset
+  // by keying — no TTL bookkeeping in memory (the TTL is cleanup-only in DDB
+  // too). Semantics mirror the adapter EXACTLY (parity-tested).
+  private readonly xpBuckets = new Map<string, number>();
+
+  async incrementXpDayBucket(profileId: string, dateUtc: string, delta: number, cap: number): Promise<number> {
+    const key = xpDayBucketKey(profileId, dateUtc);
+    const count = this.xpBuckets.get(key) ?? 0;
+    if (count >= cap) return 0; // condition failure path
+    this.xpBuckets.set(key, count + delta);
+    return Math.min(delta, Math.max(0, cap - count));
+  }
+
+  async incrementXpTopicBucket(profileId: string, topicId: string, weekKey: string): Promise<number> {
+    const key = xpTopicBucketKey(profileId, topicId, weekKey);
+    const count = (this.xpBuckets.get(key) ?? 0) + 1;
+    this.xpBuckets.set(key, count);
+    return count;
+  }
+
   async listProgressByUser(userId: string): Promise<ProgressItem[]> {
     return [...(this.progressItems.get(userId) ?? [])];
   }
@@ -70,15 +94,17 @@ export class InMemoryProgressStorage extends InMemoryAuthStorage implements Prog
     return this.putIfAbsent(item);
   }
 
-  async putFlashcard(item: FlashcardItem): Promise<boolean> {
+  async putFlashcard(item: FlashcardItem): Promise<FlashcardWriteResult> {
     // LWW per card with a monotonic lastReviewed condition: an OLDER review
     // must not overwrite a newer one; an equal timestamp re-writes the same
-    // values (idempotent replay).
+    // values (idempotent replay). Mirrors the adapter's ReturnValues ALL_OLD:
+    // the PRIOR status is reported with the write (null on a rejected write —
+    // only meaningful when applied).
     const items = this.itemsFor(item.userId);
     const existing = items.find((i) => i.dataType === item.dataType) as FlashcardItem | undefined;
-    if (existing && existing.lastReviewed > item.lastReviewed) return false;
+    if (existing && existing.lastReviewed > item.lastReviewed) return { applied: false, previousStatus: null };
     this.replaceItem(item);
-    return true;
+    return { applied: true, previousStatus: existing?.status ?? null };
   }
 
   async updateLadderLevel(
@@ -86,19 +112,21 @@ export class InMemoryProgressStorage extends InMemoryAuthStorage implements Prog
     level: number,
     bestScore: number,
     completedAt: string
-  ): Promise<boolean> {
+  ): Promise<LadderWriteResult> {
     // Atomic max-wins per level: a stored equal-or-better score makes the
     // update fail (treated as already-applied) — the same semantics as the
     // DynamoDB condition `attribute_not_exists(levels.#lvl) OR
-    // levels.#lvl.bestScore < :score`.
+    // levels.#lvl.bestScore < :score`. Mirrors the adapter's ReturnValues
+    // ALL_OLD: the PRIOR best is reported with the write (null on a rejected
+    // write — only meaningful when improved).
     const items = this.itemsFor(item.userId);
     const existing = items.find((i) => i.dataType === item.dataType) as LadderItem | undefined;
     const stored = existing?.levels[String(level)];
-    if (stored && stored.bestScore >= bestScore) return false;
+    if (stored && stored.bestScore >= bestScore) return { improved: false, previousBestScore: null };
     const levels = { ...(existing?.levels ?? {}) };
     levels[String(level)] = { bestScore, completedAt };
     this.replaceItem({ ...(existing ?? item), levels } as LadderItem);
-    return true;
+    return { improved: true, previousBestScore: stored?.bestScore ?? null };
   }
 
   async mergeMeta(item: ProgressMetaItem): Promise<boolean> {
