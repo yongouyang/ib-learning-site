@@ -153,6 +153,14 @@ const LEADERBOARD_ROUTES: Record<string, string> = {
   '/api/leaderboard/_health': '../src/app/api/leaderboard/_health/route',
 };
 
+// /api/admin/* → the real Next route handlers, mirroring the CloudFront
+// /api/admin/* behavior → admin Lambda (supportability-features-plan.md).
+const ADMIN_ROUTES: Record<string, string> = {
+  '/api/admin/dynamodb': '../src/app/api/admin/dynamodb/route',
+  '/api/admin/access': '../src/app/api/admin/access/route',
+  '/api/admin/_health': '../src/app/api/admin/_health/route',
+};
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url ?? '/', `http://localhost:${port}`);
 
@@ -164,7 +172,7 @@ const server = http.createServer((req, res) => {
     });
     return;
   }
-  const authRoute = AUTH_ROUTES[url.pathname] ?? PROGRESS_ROUTES[url.pathname] ?? ANALYTICS_ROUTES[url.pathname] ?? LEADERBOARD_ROUTES[url.pathname];
+  const authRoute = AUTH_ROUTES[url.pathname] ?? PROGRESS_ROUTES[url.pathname] ?? ANALYTICS_ROUTES[url.pathname] ?? LEADERBOARD_ROUTES[url.pathname] ?? ADMIN_ROUTES[url.pathname];
   if (authRoute) {
     handleApiRoute(authRoute, url.pathname + url.search, req, res).catch((err) => {
       console.error(`[serve-static] ${url.pathname} error:`, err);
@@ -194,5 +202,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(`[serve-static] Serving out/ + /api/feedback + /api/auth/* + /api/progress* + /api/analytics/* + /api/leaderboard* on http://localhost:${port}`);
+  console.log(`[serve-static] Serving out/ + /api/feedback + /api/auth/* + /api/progress* + /api/analytics/* + /api/leaderboard* + /api/admin/* on http://localhost:${port}`);
 });
