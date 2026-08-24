@@ -15,6 +15,8 @@ import {
   deleteAccount as deleteAccountRequest,
 } from '@/lib/auth-client';
 import { handleForProfile, isValidLeaderboardHandle } from '@/lib/leaderboard/handles';
+import { stageScope } from '@/lib/leaderboard/types';
+import { trackEvent } from '@/lib/analytics';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 const STAGE_LABELS: Record<Stage, string> = {
@@ -209,6 +211,11 @@ function AccountContent({ user }: { user: AuthUser }) {
             ? `${profile.displayName} is on the leaderboard as ${handle}.`
             : `${profile.displayName} left the leaderboard.`
         );
+        // D8 (plan §9): fire only on success; the scope follows the profile's stage.
+        trackEvent('leaderboard_membership_changed', {
+          action: patch.leaderboardOptIn ? 'join' : 'leave',
+          scope: stageScope(profile.stage),
+        });
       }
       return true;
     } catch (err) {

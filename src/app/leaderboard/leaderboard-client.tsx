@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Trophy } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
@@ -8,6 +8,8 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { loginHref } from '@/lib/safe-redirect';
 import { handleForProfile } from '@/lib/leaderboard/handles';
 import { formatResetLocal } from '@/lib/leaderboard/format';
+import { stageScope } from '@/lib/leaderboard/types';
+import { trackEvent } from '@/lib/analytics';
 import type {
   LeaderboardBoardResponse,
   LeaderboardRow,
@@ -101,6 +103,16 @@ export default function LeaderboardClient() {
   const [teaser, setTeaser] = useState<LeaderboardTeaserResponse | null>(null);
   const [teaserStatus, setTeaserStatus] = useState<FetchStatus>('loading');
 
+  // D8 (plan §9): leaderboard_viewed fires ONCE per (scope, weekKey) — the
+  // 60s interval refresh and StrictMode's double-effect must not re-fire it.
+  const lastViewedRef = useRef<string | null>(null);
+  const trackViewed = useCallback((scope: string, weekKey: string) => {
+    const key = `${scope}#${weekKey}`;
+    if (lastViewedRef.current === key) return;
+    lastViewedRef.current = key;
+    trackEvent('leaderboard_viewed', { scope, week: weekKey });
+  }, []);
+
   const loadBoard = useCallback(async (pid: string, w: 'current' | 'prev', background = false) => {
     if (!background) setBoardStatus('loading');
     try {
@@ -111,12 +123,14 @@ export default function LeaderboardClient() {
         setBoardStatus('error');
         return;
       }
-      setBoard((await res.json()) as LeaderboardBoardResponse);
+      const data = (await res.json()) as LeaderboardBoardResponse;
+      setBoard(data);
       setBoardStatus('ok');
+      trackViewed(data.scope, data.weekKey);
     } catch {
       setBoardStatus('error');
     }
-  }, []);
+  }, [trackViewed]);
 
   // Fetch on view / on profile or week change.
   useEffect(() => {
@@ -166,6 +180,7 @@ export default function LeaderboardClient() {
         if (!cancelled) {
           setTeaser(data);
           setTeaserStatus('ok');
+          trackViewed(data.scope, data.weekKey);
         }
       })
       .catch(() => {
@@ -174,7 +189,7 @@ export default function LeaderboardClient() {
     return () => {
       cancelled = true;
     };
-  }, [loaded, userId]);
+  }, [loaded, userId, trackViewed]);
 
   async function join() {
     if (!user || !profile) return;
@@ -188,6 +203,8 @@ export default function LeaderboardClient() {
           p.profileId === profile.profileId ? { ...p, leaderboardOptIn: true } : p
         ),
       });
+      // D8: fire only on success; the scope follows the profile's stage.
+      trackEvent('leaderboard_membership_changed', { action: 'join', scope: stageScope(profile.stage) });
       await loadBoard(profile.profileId, week, true);
     } catch (err) {
       setJoinError(err instanceof Error ? err.message : 'Could not join the leaderboard.');
