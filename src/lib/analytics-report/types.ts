@@ -48,6 +48,8 @@ export const ANALYTICS_REPORT_EVENT_LABELS: Record<string, string> = {
   auth_logout: 'Sign-outs',
   pwa_installed: 'PWA installs',
   pwa_offline_banner_shown: 'Offline banners shown',
+  leaderboard_viewed: 'Leaderboard views',
+  leaderboard_membership_changed: 'Leaderboard joins/leaves',
 };
 
 /** The folded report — every number in the email derives from this. */

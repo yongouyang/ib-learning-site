@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildReport, ANALYTICS_REPORT_TOP_PAGES } from '@/lib/analytics-report/types';
+import { buildReport, ANALYTICS_REPORT_EVENT_LABELS, ANALYTICS_REPORT_TOP_PAGES } from '@/lib/analytics-report/types';
 import type { AnalyticsAggregateItem } from '@/lib/analytics/types';
 
 // PURE buildReport math — the parity anchor for the report (same discipline as
@@ -80,5 +80,12 @@ describe('buildReport', () => {
     ];
     const data = buildReport(rows, OPTS);
     expect(Object.keys(data.totals)).toEqual(['auth_login_completed', 'auth_logout', 'page_view']);
+  });
+});
+
+describe('ANALYTICS_REPORT_EVENT_LABELS', () => {
+  it('mirrors the dashboard labels incl. the Phase D8 leaderboard events', () => {
+    expect(ANALYTICS_REPORT_EVENT_LABELS.leaderboard_viewed).toBe('Leaderboard views');
+    expect(ANALYTICS_REPORT_EVENT_LABELS.leaderboard_membership_changed).toBe('Leaderboard joins/leaves');
   });
 });
