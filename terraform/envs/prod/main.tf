@@ -157,6 +157,13 @@ variable "admin_env" {
   sensitive   = true
 }
 
+variable "analytics_report_env" {
+  description = "Analytics-report Lambda env overrides via CI TF_VAR_analytics_report_env (ANALYTICS_REPORT_ENV secret); empty = base wiring below (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from the shared repo secret/variable)."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
 # ACM cert for octavlearning.com (apex + www), DNS-validated. Lives at the
 # root (not the site module) so only the PROD site instance references it —
 # the DEV distribution keeps the CloudFront default cert. Validated via two
@@ -395,6 +402,32 @@ module "admin_api" {
       ANALYTICS_ADMIN_EMAILS = var.analytics_admin_emails
     },
     var.admin_env,
+  )
+}
+
+# Daily analytics report (Feature 1 — docs/supportability-features-plan.md): an
+# EventBridge-SCHEDULED Lambda (cron 0 11 * * ? * = 7pm HKT), NOT an HTTP API —
+# no Function URL, no CloudFront behavior. It Query-reads the aggregate rows on
+# octav-analytics-events and emails the report to every ANALYTICS_ADMIN_EMAILS
+# recipient via Resend (EMAIL_PROVIDER — the SAME repo secret the auth Lambda
+# uses). Base wiring below selects the real dynamodb implementation; if
+# EMAIL_PROVIDER were unset, the Lambda FAILS CLOSED at invocation (deps refuse
+# a no-op sender in dynamodb mode) — the report is never silently dropped.
+module "analytics_report" {
+  source = "../../modules/analytics_report"
+
+  zip_path = "${path.module}/../../../lambda/analytics-report/dist/analytics-report-lambda.zip"
+
+  analytics_events_table_arn = module.dynamodb.analytics_events_table_arn
+
+  environment = merge(
+    {
+      ANALYTICS_REPORT_STORAGE = "dynamodb"
+      ANALYTICS_TABLE          = module.dynamodb.analytics_events_table_name
+      EMAIL_PROVIDER           = var.email_provider
+      ANALYTICS_ADMIN_EMAILS   = var.analytics_admin_emails
+    },
+    var.analytics_report_env,
   )
 }
 
