@@ -209,6 +209,30 @@ resource "aws_cloudfront_function" "url_rewrite" {
   EOT
 }
 
+# The analytics handler derives the viewer host (dev vs prod traffic split)
+# from X-Forwarded-Host, but the AllViewerExceptHostHeader origin request
+# policy does NOT make CloudFront deliver the original viewer Host — verified
+# on dev 2026-08-24: every analytics event was attributed to the
+# *.lambda-url.* origin domain, so the split collapsed to one host. This
+# viewer-request Function copies the viewer's Host into X-Forwarded-Host
+# (which the policy then forwards, since it is not Host), restoring the real
+# dev/prod attribution. Associated ONLY with /api/analytics/* — no other API
+# handler reads the viewer host.
+resource "aws_cloudfront_function" "api_host_header" {
+  name    = "${var.name_prefix}-api-host-header"
+  runtime = "cloudfront-js-2.0"
+  comment = "Preserve the viewer Host as X-Forwarded-Host for /api/analytics/*"
+  publish = true
+
+  code = <<-EOT
+    function handler(event) {
+      var request = event.request;
+      request.headers['x-forwarded-host'] = { value: request.headers.host.value };
+      return request;
+    }
+  EOT
+}
+
 # --- Distribution -------------------------------------------------------------
 
 # AWS managed cache policy IDs (global constants, not region-specific).
@@ -389,7 +413,10 @@ resource "aws_cloudfront_distribution" "site" {
 
   # /api/analytics/* → analytics Lambda, never cached, all viewer data
   # forwarded. More specific than /api/* and must be listed BEFORE it
-  # (CloudFront matches ordered behaviors top-down).
+  # (CloudFront matches ordered behaviors top-down). The api_host_header
+  # viewer-request Function preserves the viewer Host as X-Forwarded-Host so
+  # the analytics handler records the real dev/prod host (the managed
+  # AllViewerExceptHostHeader policy alone does not deliver it).
   dynamic "ordered_cache_behavior" {
     for_each = var.analytics_origin_domain != "" ? [1] : []
     content {
@@ -401,6 +428,10 @@ resource "aws_cloudfront_distribution" "site" {
       compress                 = true
       cache_policy_id          = local.cache_policy_caching_disabled
       origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_host_header.arn
+      }
     }
   }
 
