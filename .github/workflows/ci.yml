@@ -225,6 +225,10 @@ jobs:
       TF_VAR_analytics_admin_emails: ${{ vars.ANALYTICS_ADMIN_EMAILS || '' }}
       # Admin Lambda env overrides (Feature 2); optional — unset = base wiring.
       TF_VAR_admin_env: ${{ secrets.ADMIN_ENV || '{}' }}
+      # Analytics-report Lambda env overrides (Feature 1); optional — unset =
+      # base wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from
+      # the shared secret/variable above).
+      TF_VAR_analytics_report_env: ${{ secrets.ANALYTICS_REPORT_ENV || '{}' }}
 
     steps:
       - name: Checkout
@@ -356,6 +360,10 @@ jobs:
       TF_VAR_analytics_admin_emails: ${{ vars.ANALYTICS_ADMIN_EMAILS || '' }}
       # Admin Lambda env overrides (Feature 2); optional — unset = base wiring.
       TF_VAR_admin_env: ${{ secrets.ADMIN_ENV || '{}' }}
+      # Analytics-report Lambda env overrides (Feature 1); optional — unset =
+      # base wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from
+      # the shared secret/variable above).
+      TF_VAR_analytics_report_env: ${{ secrets.ANALYTICS_REPORT_ENV || '{}' }}
 
     steps:
       - name: Checkout
