@@ -291,6 +291,12 @@ jobs:
           # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
           # match the status code instead).
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
+          # Bare-path routing regression guard (2026-08-24): a CloudFront
+          # "/api/x/*" pattern does NOT match the bare "/api/x", which used to
+          # fall through to /api/* → the feedback Lambda (200 {"configured"}).
+          # Unauthenticated bare GETs must 401 from the REAL handlers.
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/progress" | grep -q '^401$'
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/leaderboard" | grep -q '^401$'
           # request-otp writes the OTP to DynamoDB + attempts SES send — catches
           # missing table/index IAM. 200 = email accepted; 502 = SES send failed
           # (expected while the account is in SES sandbox); 429 = the durable
@@ -424,6 +430,12 @@ jobs:
           # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
           # match the status code instead).
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
+          # Bare-path routing regression guard (2026-08-24): a CloudFront
+          # "/api/x/*" pattern does NOT match the bare "/api/x", which used to
+          # fall through to /api/* → the feedback Lambda (200 {"configured"}).
+          # Unauthenticated bare GETs must 401 from the REAL handlers.
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/progress" | grep -q '^401$'
+          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/leaderboard" | grep -q '^401$'
           # request-otp writes the OTP to DynamoDB + attempts SES send — catches
           # missing table/index IAM. 200 = email accepted; 502 = SES send failed
           # (expected while the account is in SES sandbox); 429 = the durable

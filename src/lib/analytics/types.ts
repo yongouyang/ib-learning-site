@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import type { SessionRecord, UserRecord } from '../auth/types';
+import { LEADERBOARD_SCOPES, WEEK_KEY_RE } from '../leaderboard/types';
 
 // Phase A — analytics types (docs/phase-a-analytics-plan.md — the
 // authoritative design). Single-table data model on octav-analytics-events
@@ -46,6 +47,9 @@ export const ANALYTICS_EVENT_NAMES = [
   'auth_logout',
   'pwa_installed',
   'pwa_offline_banner_shown',
+  // Phase D8 (docs/leaderboard-plan.md §9): leaderboard engagement.
+  'leaderboard_viewed',
+  'leaderboard_membership_changed',
 ] as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENT_NAMES)[number];
@@ -131,6 +135,18 @@ const perNameProps: Record<AnalyticsEventName, z.ZodTypeAny> = {
   auth_logout: z.object({}),
   pwa_installed: z.object({}),
   pwa_offline_banner_shown: z.object({}),
+  // Phase D8 (docs/leaderboard-plan.md §9): scope is one of the leaderboard
+  // scopes (stage boards + the deferred global); week is an ISO week key
+  // ("2026-W35"). membership_changed uses ONE event with an action prop (plan
+  // §9's opt_in/opt_out pair).
+  leaderboard_viewed: z.object({
+    scope: z.enum(LEADERBOARD_SCOPES),
+    week: z.string().regex(WEEK_KEY_RE),
+  }),
+  leaderboard_membership_changed: z.object({
+    action: z.enum(['join', 'leave']),
+    scope: z.enum(LEADERBOARD_SCOPES),
+  }),
 };
 
 // Envelope fields shared by every branch. url is reduced to path-only
@@ -152,7 +168,7 @@ export interface AnalyticsEvent {
 }
 
 // Envelope + per-name props validation (zod v4's discriminatedUnion typing
-// cannot express a programmatically-built 17-member tuple, so the props are
+// cannot express a programmatically-built 19-member tuple, so the props are
 // validated in a superRefine against the per-name schemas above — the same
 // outcome, one error message).
 export const analyticsEventSchema: z.ZodType<AnalyticsEvent> = z

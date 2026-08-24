@@ -40,6 +40,8 @@ const EVENT_LABELS: Record<string, string> = {
   auth_logout: 'Sign-outs',
   pwa_installed: 'PWA installs',
   pwa_offline_banner_shown: 'Offline banners shown',
+  leaderboard_viewed: 'Leaderboard views',
+  leaderboard_membership_changed: 'Leaderboard joins/leaves',
 };
 
 type Status = 'loading' | 'ok' | 'forbidden' | 'unauthenticated' | 'error';
