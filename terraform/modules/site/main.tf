@@ -327,6 +327,26 @@ resource "aws_cloudfront_distribution" "site" {
     }
   }
 
+  # Bare /api/progress (exact path, no wildcard) → progress Lambda. A
+  # "/api/progress/*" pattern requires the trailing slash segment, so without
+  # this behavior the bare path falls through to /api/* → the FEEDBACK Lambda
+  # (silently breaking GET /api/progress merge-on-login snapshots in prod/dev
+  # since Phase C — surfaced by the Phase D7 smoke, 2026-08-24). Listed
+  # immediately before its /* sibling; both must precede /api/*.
+  dynamic "ordered_cache_behavior" {
+    for_each = var.progress_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/progress"
+      target_origin_id         = "lambda-progress"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
   # /api/progress/* → progress Lambda, never cached, all viewer data forwarded.
   # Same specificity as /api/auth/* — both are more specific than /api/* and
   # must be listed before it; their order relative to each other doesn't
@@ -353,6 +373,23 @@ resource "aws_cloudfront_distribution" "site" {
     content {
       path_pattern             = "/api/analytics/*"
       target_origin_id         = "lambda-analytics"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # Bare /api/leaderboard (exact path) → leaderboard Lambda. Same fall-through
+  # bug as /api/progress: without it, the board endpoint GET /api/leaderboard
+  # hits the feedback Lambda (surfaced by the Phase D7 smoke, 2026-08-24).
+  dynamic "ordered_cache_behavior" {
+    for_each = var.leaderboard_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/leaderboard"
+      target_origin_id         = "lambda-leaderboard"
       viewer_protocol_policy   = "redirect-to-https"
       allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
       cached_methods           = ["GET", "HEAD"]
