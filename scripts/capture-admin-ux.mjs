@@ -71,6 +71,11 @@ const SHOTS = [
   { file: 'desktop-dark.png', viewport: { width: 1280, height: 800 }, theme: 'dark', page: '/admin/dynamodb' },
   { file: 'mobile-light.png', viewport: { width: 375, height: 812 }, theme: 'light', page: '/admin/dynamodb' },
   { file: 'mobile-dark.png', viewport: { width: 375, height: 812 }, theme: 'dark', page: '/admin/dynamodb' },
+  // Query op with the schema-derived prefill (the "default input" state).
+  { file: 'query-desktop-light.png', viewport: { width: 1280, height: 800 }, theme: 'light', page: '/admin/dynamodb', query: true },
+  { file: 'query-desktop-dark.png', viewport: { width: 1280, height: 800 }, theme: 'dark', page: '/admin/dynamodb', query: true },
+  { file: 'query-mobile-light.png', viewport: { width: 375, height: 812 }, theme: 'light', page: '/admin/dynamodb', query: true },
+  { file: 'query-mobile-dark.png', viewport: { width: 375, height: 812 }, theme: 'dark', page: '/admin/dynamodb', query: true },
   { file: 'account-desktop-light.png', viewport: { width: 1280, height: 800 }, theme: 'light', page: '/account' },
   { file: 'account-desktop-dark.png', viewport: { width: 1280, height: 800 }, theme: 'dark', page: '/account' },
   { file: 'account-mobile-light.png', viewport: { width: 375, height: 812 }, theme: 'light', page: '/account' },
@@ -93,6 +98,16 @@ try {
     // Wait for async content: the table dropdown (dynamodb) or the account page.
     if (s.page === '/admin/dynamodb') {
       await page.locator('#admin-table option[value^="octav-"]').first().waitFor({ state: 'attached' });
+      if (s.query) {
+        await page.selectOption('#admin-op', 'query');
+        // The prefill fills KeyConditionExpression + values from the table schema.
+        await page.waitForFunction(
+          () => {
+            const el = document.querySelector('#admin-expr');
+            return el !== null && (el.value || '').includes('= :pk');
+          }
+        );
+      }
     } else {
       await page.getByRole('heading', { name: 'Admin console' }).waitFor();
     }

@@ -7,8 +7,8 @@ import {
   UpdateCommand,
   type DynamoDBDocumentClient,
 } from '@aws-sdk/lib-dynamodb';
-import { ListTablesCommand } from '@aws-sdk/client-dynamodb';
-import type { AdminScanResult, AdminStorage } from './types';
+import { DescribeTableCommand, ListTablesCommand } from '@aws-sdk/client-dynamodb';
+import type { AdminScanResult, AdminStorage, AdminTableDescription } from './types';
 import { ADMIN_SCAN_LIMIT_DEFAULT } from './types';
 
 // DynamoDB-backed admin CRUD storage (Feature 2). Thin passthrough to the AWS
@@ -22,6 +22,19 @@ export class DynamoAdminStorage implements AdminStorage {
   async listTables(): Promise<string[]> {
     const out = await this.client.send(new ListTablesCommand({}));
     return out.TableNames ?? [];
+  }
+
+  async describeTable(table: string): Promise<AdminTableDescription> {
+    // DescribeTable is issued via the CLIENT (not DocumentClient) command —
+    // the response's KeySchema is already plain typed data.
+    const out = await this.client.send(new DescribeTableCommand({ TableName: table }));
+    return {
+      table,
+      keySchema: (out.Table?.KeySchema ?? []).map((el) => ({
+        attributeName: el.AttributeName as string,
+        keyType: el.KeyType as 'HASH' | 'RANGE',
+      })),
+    };
   }
 
   async scan(
