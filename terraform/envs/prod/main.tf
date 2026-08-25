@@ -164,6 +164,13 @@ variable "analytics_report_env" {
   sensitive   = true
 }
 
+variable "contact_env" {
+  description = "Contact Lambda env overrides via CI TF_VAR_contact_env (CONTACT_ENV secret); empty = base wiring below (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from the shared repo secret/variable)."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
 # ACM cert for octavlearning.com (apex + www), DNS-validated. Lives at the
 # root (not the site module) so only the PROD site instance references it —
 # the DEV distribution keeps the CloudFront default cert. Validated via two
@@ -431,6 +438,43 @@ module "analytics_report" {
   )
 }
 
+# Contact Us API (Feature 3 — docs/supportability-features-plan.md §C5): the
+# PUBLIC contact-form Lambda + Function URL (POST /api/contact + _health).
+# Consumes the shared users/sessions tables (optional session attribution via
+# resolveSession), octav-rate-limits (the per-IP fixed-window budget), and the
+# octav-contact table. EMAIL_PROVIDER (NAME must be "resend" — the deps fail
+# closed otherwise) + ANALYTICS_ADMIN_EMAILS come from the SAME repo
+# secret/variable the auth + analytics-report Lambdas use — no new secret. Base
+# wiring below always selects the real dynamodb implementation; var.contact_env
+# (CI CONTACT_ENV secret) can override/add — leave it empty to use these
+# defaults.
+module "contact_api" {
+  source = "../../modules/contact_api"
+
+  zip_path = "${path.module}/../../../lambda/contact/dist/contact-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  users_table_arn       = module.dynamodb.users_table_arn
+  sessions_table_arn    = module.dynamodb.sessions_table_arn
+  rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+  contact_table_arn     = module.dynamodb.contact_table_arn
+
+  environment = merge(
+    {
+      CONTACT_STORAGE        = "dynamodb"
+      CONTACT_TABLE          = module.dynamodb.contact_table_name
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+      EMAIL_PROVIDER         = var.email_provider
+      ANALYTICS_ADMIN_EMAILS = var.analytics_admin_emails
+      SES_FROM_ADDRESS       = var.ses_from_address
+    },
+    var.contact_env,
+  )
+}
+
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
 # /api/* proxy behavior to the feedback Lambda. Custom domain: the
 # dev.octavlearning.com alias with its dedicated ACM cert (round 2 of the
@@ -445,6 +489,7 @@ module "site" {
   analytics_origin_domain   = module.analytics_api.function_url_domain
   leaderboard_origin_domain = module.leaderboard_api.function_url_domain
   admin_origin_domain       = module.admin_api.function_url_domain
+  contact_origin_domain     = module.contact_api.function_url_domain
   domain_names              = ["dev.octavlearning.com"]
   acm_certificate_arn       = aws_acm_certificate.dev.arn
 }
@@ -462,6 +507,7 @@ module "site_prod" {
   analytics_origin_domain   = module.analytics_api.function_url_domain
   leaderboard_origin_domain = module.leaderboard_api.function_url_domain
   admin_origin_domain       = module.admin_api.function_url_domain
+  contact_origin_domain     = module.contact_api.function_url_domain
   domain_names              = ["octavlearning.com", "www.octavlearning.com"]
   acm_certificate_arn       = aws_acm_certificate.site.arn
   redirect_from_host        = "www.octavlearning.com"
@@ -515,6 +561,10 @@ output "leaderboard_function_url" {
   value = module.leaderboard_api.function_url
 }
 
+output "contact_function_url" {
+  value = module.contact_api.function_url
+}
+
 output "github_deploy_role_arn" {
   description = "Set as the AWS_DEPLOY_ROLE_ARN variable in GitHub repo settings (Settings → Secrets and variables → Actions → Variables)."
   value       = module.ci.role_arn
@@ -551,6 +601,7 @@ output "dynamodb_tables" {
     otp_codes   = { name = module.dynamodb.otp_codes_table_name, arn = module.dynamodb.otp_codes_table_arn }
     progress    = { name = module.dynamodb.progress_table_name, arn = module.dynamodb.progress_table_arn }
     leaderboard = { name = module.dynamodb.leaderboard_table_name, arn = module.dynamodb.leaderboard_table_arn }
+    contact     = { name = module.dynamodb.contact_table_name, arn = module.dynamodb.contact_table_arn }
   }
 }
 

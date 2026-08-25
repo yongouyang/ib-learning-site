@@ -794,7 +794,7 @@ The CI deploy job (`ci.yml`) gains:
 
 1. Verify the sending domain (`octavlearning.com`) in SES — add DKIM CNAME records in CloudFlare.
 2. Verify the from-address (`noreply@octavlearning.com` or `login@octavlearning.com`).
-3. Request production access for SES in **ap-southeast-1** (default is sandbox — can only send to verified addresses). Note: denied 2026-08-15 and 2026-08-18 (case 178672296800802) — **superseded 2026-08-21: email provider-swapped to Resend** (`EMAIL_PROVIDER` env seam); the SES sandbox + identity stay dormant while a re-appeal is open.
+3. Request production access for SES in **ap-southeast-1** (default is sandbox — can only send to verified addresses). Note: denied 2026-08-15 and 2026-08-18 (case 178672296800802) — **superseded 2026-08-21: email provider-swapped to Resend** (`EMAIL_PROVIDER` env seam); the SES sandbox + identity stay dormant — no further appeals (denied 3×; user decision 2026-08-25: revisit only with substantial AWS account usage).
 4. OTP email template: branded HTML, 6-digit code, "expires in 10 minutes", Octav Learning logo.
 
 ---
@@ -841,7 +841,7 @@ Phase D: Leaderboard (Feature 3)   ← depends on auth + progress
 |------|------|------|-------|
 | B1 ✅ | Terraform: DynamoDB tables (users, sessions, otp-codes + progress, Phase 0) + SES + Auth Lambda (`terraform/modules/{dynamodb,ses,auth_api}`) | Medium (infra) | CI apply landed — tables/identity live |
 | B2 ✅ | Auth Lambda: request-otp, verify-otp, logout, me + account mgmt (export/delete/sessions) — shared handler `src/lib/auth/http-handler.ts`, 4 rounds of review hardening | Medium (security) | 515+ auth unit tests, auth e2e 9/9 |
-| B3 ✅ | SES domain verified (DKIM SUCCESS, MAIL FROM SUCCESS, ap-southeast-1). Production access DENIED 2026-08-15 (case 178672296800802) → **provider-swapped to Resend 2026-08-21** (`EMAIL_PROVIDER` env seam; SES kept dormant, re-appeal open) | Low (operational) | Resend delivers to any recipient; OTP flow verified |
+| B3 ✅ | SES domain verified (DKIM SUCCESS, MAIL FROM SUCCESS, ap-southeast-1). Production access DENIED 2026-08-15 (case 178672296800802) → **provider-swapped to Resend 2026-08-21** (`EMAIL_PROVIDER` env seam; SES kept dormant — no further appeals, user decision 2026-08-25) | Low (operational) | Resend delivers to any recipient; OTP flow verified |
 | B4 ✅ | Client: `AuthContext`, `/login` page (email-OTP), `AccountButton` in header | Low | auth e2e: request OTP → verify → logged-in state |
 | B5 ✅ | Client: profile picker for parent → child profiles (`/account` page) | Low | account e2e incl. profile switching |
 | B6 ✅ | CI: `AUTH_ENV` secret + `build-lambdas` (3 zips) + `/api/auth/request-otp` smoke (200/429/502) | Low | deploys green on develop |
@@ -938,7 +938,7 @@ Tracking anonymous page views helps understand the conversion funnel (landing pa
 ### Q7: Email delivery — use SES directly or a transactional email service (Resend, Postmark)?
 SES is cheapest ($0.10/1000 emails) but requires domain verification and deliverability management. Resend/Postmark are easier to set up and have better deliverability but cost more ($1-20/mo depending on volume).
 
-**Resolved 2026-08-21 — provider-swapped to Resend:** SES production access was denied twice, so delivery moved to Resend via the `EMAIL_PROVIDER` env seam (`src/lib/auth/deps.ts`; `{"NAME":"resend","API_KEY":"..."}`). Resend's free tier (3,000/mo) covers the OTP volume. The SES sandbox + `terraform/modules/ses` are kept dormant while a re-appeal is open; flipping back later is a one-line env change.
+**Resolved 2026-08-21 — provider-swapped to Resend:** SES production access was denied twice, so delivery moved to Resend via the `EMAIL_PROVIDER` env seam (`src/lib/auth/deps.ts`; `{"NAME":"resend","API_KEY":"..."}`). Resend's free tier (3,000/mo) covers the OTP volume. The SES sandbox + `terraform/modules/ses` are kept dormant; a third appeal was denied and the user decided (2026-08-25) not to appeal again unless the account gains substantial AWS usage — flipping back later is a one-line env change.
 
 ### Q8: Should progress data be exportable (data portability / right-to-erasure)?
 GDPR requires the ability to export and delete user data. This means:

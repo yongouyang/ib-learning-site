@@ -16,6 +16,7 @@ import { OfflineBanner } from '@/components/OfflineBanner';
 import { UpdateToast } from '@/components/UpdateToast';
 import { HeaderLogo } from '@/components/HeaderLogo';
 import { DevEnvironmentIndicator } from '@/components/DevEnvironmentIndicator';
+import { ContactButton } from '@/components/ContactButton';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -121,6 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <OfflineBanner />
             <UpdateToast />
             <DevEnvironmentIndicator />
+            <ContactButton />
           </ProgressProvider>
           </EntitlementsProvider>
           </AuthProvider>

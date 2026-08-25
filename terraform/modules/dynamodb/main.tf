@@ -211,6 +211,29 @@ resource "aws_dynamodb_table" "leaderboard" {
   }
 }
 
+# --- octav-contact -------------------------------------------------------------
+# Feature 3 Contact Us (docs/supportability-features-plan.md §"Data model —
+# octav-contact"): one item per message — PK messageId (UUID v4, generated
+# server-side), expiresAt TTLs messages at createdAt + 365 days. No SK, no GSI:
+# writes are append-only Puts by PK and admin reads go through the Feature 2
+# CRUD dashboard (Scan). On-demand billing — the volume is a handful of
+# messages a day.
+resource "aws_dynamodb_table" "contact" {
+  name         = "${var.name_prefix}-contact"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "messageId"
+
+  attribute {
+    name = "messageId"
+    type = "S"
+  }
+
+  ttl {
+    attribute_name = "expiresAt"
+    enabled        = true
+  }
+}
+
 # --- Outputs (table names + ARNs for the phase Lambdas' env vars) ---------------
 
 output "users_table_name" {
@@ -286,4 +309,14 @@ output "leaderboard_table_arn" {
 output "leaderboard_user_index_name" {
   description = "octav-leaderboard erasure GSI name (PK userId)."
   value       = "user-index"
+}
+
+output "contact_table_name" {
+  description = "octav-contact table name."
+  value       = aws_dynamodb_table.contact.name
+}
+
+output "contact_table_arn" {
+  description = "octav-contact table ARN."
+  value       = aws_dynamodb_table.contact.arn
 }
