@@ -1,4 +1,4 @@
-import type { AdminScanResult, AdminStorage } from './types';
+import type { AdminKeySchemaElement, AdminScanResult, AdminStorage, AdminTableDescription } from './types';
 import { ADMIN_SCAN_LIMIT_DEFAULT } from './types';
 
 // In-memory admin CRUD dummy — the controllable-dummy directive (AGENTS.md):
@@ -25,6 +25,30 @@ const SEED: Record<string, Array<Record<string, unknown>>> = {
 };
 
 /**
+ * Key schemas for the seeded tables — mirrors the REAL octav-* schemas
+ * (terraform/modules/dynamodb) so the dashboard prefills the same query
+ * defaults in dev/e2e as in prod. Keep in sync when tables are added.
+ */
+const SEED_SCHEMAS: Record<string, AdminKeySchemaElement[]> = {
+  'octav-users': [{ attributeName: 'userId', keyType: 'HASH' }],
+  'octav-sessions': [{ attributeName: 'sessionId', keyType: 'HASH' }],
+  'octav-otp-codes': [{ attributeName: 'email', keyType: 'HASH' }],
+  'octav-progress': [
+    { attributeName: 'userId', keyType: 'HASH' },
+    { attributeName: 'dataType', keyType: 'RANGE' },
+  ],
+  'octav-rate-limits': [{ attributeName: 'bucket', keyType: 'HASH' }],
+  'octav-analytics-events': [
+    { attributeName: 'k', keyType: 'HASH' },
+    { attributeName: 's', keyType: 'RANGE' },
+  ],
+  'octav-leaderboard': [
+    { attributeName: 'scopeWeek', keyType: 'HASH' },
+    { attributeName: 'entry', keyType: 'RANGE' },
+  ],
+};
+
+/**
  * A write that mutates an item in place. Throws a DynamoDB-shaped error for
  * the "no item with this key" case so the handler reports it like prod would.
  */
@@ -47,6 +71,19 @@ export class InMemoryAdminStorage implements AdminStorage {
 
   async listTables(): Promise<string[]> {
     return [...this.tables.keys()];
+  }
+
+  async describeTable(table: string): Promise<AdminTableDescription> {
+    // Unknown table → the same ResourceNotFoundException shape the DDB adapter
+    // produces for a missing table (handler maps it to a 400).
+    const schema = SEED_SCHEMAS[table];
+    if (!schema) {
+      throw Object.assign(new Error(`Cannot do operations on a non-existent table`), {
+        name: 'ResourceNotFoundException',
+        code: 'ResourceNotFoundException',
+      });
+    }
+    return { table, keySchema: schema.map((el) => ({ ...el })) };
   }
 
   async scan(

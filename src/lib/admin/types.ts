@@ -9,6 +9,7 @@
 /** The single POST /api/admin/dynamodb operation set. */
 export type AdminOperation =
   | 'listTables'
+  | 'describeTable'
   | 'scan'
   | 'query'
   | 'get'
@@ -42,9 +43,22 @@ export interface AdminScanResult {
   lastEvaluatedKey?: Record<string, unknown>;
 }
 
+/** One element of a table's primary-key schema (DescribeTable KeySchema). */
+export interface AdminKeySchemaElement {
+  attributeName: string;
+  keyType: 'HASH' | 'RANGE';
+}
+
+/** Table metadata the dashboard uses to prefill query defaults. */
+export interface AdminTableDescription {
+  table: string;
+  keySchema: AdminKeySchemaElement[];
+}
+
 /** Storage seam — the DynamoDB adapter in prod, the seeded dummy in dev/e2e. */
 export interface AdminStorage {
   listTables(): Promise<string[]>;
+  describeTable(table: string): Promise<AdminTableDescription>;
   scan(
     table: string,
     limit?: number,

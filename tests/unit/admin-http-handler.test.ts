@@ -104,6 +104,28 @@ describe('POST /api/admin/dynamodb — operations', () => {
     expect((await res.json()).result).toEqual(['octav-users']);
   });
 
+  it('describeTable returns the table key schema (query-default prefill)', async () => {
+    const t = makeDeps('boss@example.com');
+    const admin = await login(t, 'boss@example.com');
+    const res = await post(t, { operation: 'describeTable', table: 'octav-analytics-events' }, admin.cookie);
+    expect(res.status).toBe(200);
+    expect((await res.json()).result).toEqual({
+      table: 'octav-analytics-events',
+      keySchema: [
+        { attributeName: 'k', keyType: 'HASH' },
+        { attributeName: 's', keyType: 'RANGE' },
+      ],
+    });
+  });
+
+  it('describeTable 400s without a table', async () => {
+    const t = makeDeps('boss@example.com');
+    const admin = await login(t, 'boss@example.com');
+    const res = await post(t, { operation: 'describeTable' }, admin.cookie);
+    expect(res.status).toBe(400);
+    expect((await res.json()).error).toBe('table is required');
+  });
+
   it('scan returns seeded items and respects the limit', async () => {
     const t = makeDeps('boss@example.com');
     const admin = await login(t, 'boss@example.com');

@@ -27,6 +27,28 @@ describe('DynamoAdminStorage', () => {
     expect(send).toHaveBeenCalledTimes(1);
   });
 
+  it('describeTable issues DescribeTableCommand and maps KeySchema', async () => {
+    const { client, send } = makeClient();
+    send.mockResolvedValueOnce({
+      Table: {
+        TableName: 'octav-progress',
+        KeySchema: [
+          { AttributeName: 'userId', KeyType: 'HASH' },
+          { AttributeName: 'dataType', KeyType: 'RANGE' },
+        ],
+      },
+    });
+    const s = new DynamoAdminStorage(client);
+    expect(await s.describeTable('octav-progress')).toEqual({
+      table: 'octav-progress',
+      keySchema: [
+        { attributeName: 'userId', keyType: 'HASH' },
+        { attributeName: 'dataType', keyType: 'RANGE' },
+      ],
+    });
+    expect(inputOf(send.mock.calls[0] as never)).toEqual({ TableName: 'octav-progress' });
+  });
+
   it('scan sends ScanCommand with table, limit and optional ExclusiveStartKey', async () => {
     const { client, send } = makeClient();
     send.mockResolvedValueOnce({ Items: [{ id: 'u1' }], Count: 1, LastEvaluatedKey: { id: 'u1' } });

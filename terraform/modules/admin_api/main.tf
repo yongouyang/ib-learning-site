@@ -86,10 +86,12 @@ data "aws_iam_policy_document" "admin" {
   }
 
   # Full CRUD on every octav-* table. The wildcard covers current + future
-  # tables sharing the octav- prefix.
+  # tables sharing the octav- prefix. DescribeTable powers the dashboard's
+  # query-default prefill (the client needs each table's key schema).
   statement {
     sid = "OctavCrud"
     actions = [
+      "dynamodb:DescribeTable",
       "dynamodb:Scan",
       "dynamodb:Query",
       "dynamodb:GetItem",

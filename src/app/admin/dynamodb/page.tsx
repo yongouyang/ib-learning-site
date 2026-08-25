@@ -14,11 +14,21 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 type Operation = 'scan' | 'query' | 'get' | 'put' | 'update' | 'delete';
 type Status = 'loading' | 'idle' | 'ok' | 'forbidden' | 'unauthenticated' | 'error';
 
+/** Table key schema returned by the describeTable operation (server type mirror). */
+interface KeySchemaElement {
+  attributeName: string;
+  keyType: 'HASH' | 'RANGE';
+}
+interface TableDescription {
+  table: string;
+  keySchema: KeySchemaElement[];
+}
+
 const OPERATIONS: Operation[] = ['scan', 'query', 'get', 'put', 'update', 'delete'];
 
 const OPERATION_HELP: Record<Operation, string> = {
   scan: 'Return up to 50 items from the table (optionally continue with the Next button).',
-  query: 'Items by key condition — e.g. pk = :pk [AND sk BETWEEN :a AND :b]. Provide ExpressionAttributeValues as JSON.',
+  query: 'Items by key condition — the hash-key equality is prefilled from the table schema; edit the value and optionally add more clauses (e.g. AND sk BETWEEN :a AND :b).',
   get: 'One item by primary key (JSON).',
   put: 'Upsert a full item (JSON) — replaces an existing item with the same key.',
   update: 'Patch an item — UpdateExpression (e.g. SET tier = :t) + key JSON + ExpressionAttributeValues JSON.',
@@ -27,7 +37,22 @@ const OPERATION_HELP: Record<Operation, string> = {
 
 const inputCls =
   'w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm text-gray-900 dark:text-gray-50 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500';
+const inputErrorCls =
+  'w-full rounded-xl border border-red-400 dark:border-red-500 bg-white dark:bg-gray-900 text-sm text-gray-900 dark:text-gray-50 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-500';
 const labelCls = 'block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1';
+const fieldErrorCls = 'mt-1 text-xs text-red-600 dark:text-red-400';
+
+/** A parse/validation failure tied to ONE form field (the "highlighted fields").
+ * The field key is the state name ('keyJson' | 'expr' | 'exprValuesJson' | 'itemJson'). */
+class FieldError extends Error {
+  constructor(
+    public readonly field: string,
+    message: string
+  ) {
+    super(message);
+    this.name = 'FieldError';
+  }
+}
 
 export default function AdminDynamoPage() {
   const { user, loaded } = useAuth();
@@ -44,7 +69,9 @@ export default function AdminDynamoPage() {
   const [status, setStatus] = useState<Status>('idle');
   const [result, setResult] = useState<unknown>(null);
   const [errorMsg, setErrorMsg] = useState('');
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [lastEvaluatedKey, setLastEvaluatedKey] = useState<Record<string, unknown> | undefined>();
+  const [schemas, setSchemas] = useState<Record<string, TableDescription>>({});
   const [busy, setBusy] = useState(false);
 
   const loadTables = useCallback(async () => {
@@ -71,12 +98,57 @@ export default function AdminDynamoPage() {
     if (loaded && user) void loadTables();
   }, [loaded, user, loadTables]);
 
-  /** Parse a JSON textarea; throws with a friendly message. */
-  const parseJson = (raw: string, what: string): Record<string, unknown> => {
-    if (!raw.trim()) throw new Error(`${what} is required`);
-    const parsed = JSON.parse(raw);
+  /** Fetch + cache the selected table's key schema (for query defaults). */
+  const loadSchema = useCallback(
+    async (tbl: string) => {
+      if (!tbl || schemas[tbl]) return;
+      try {
+        const res = await fetch('/api/admin/dynamodb', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ operation: 'describeTable', table: tbl }),
+        });
+        if (!res.ok) return; // non-fatal: the query form just lacks a prefill
+        const body = (await res.json()) as { result?: TableDescription };
+        if (body.result) setSchemas((prev) => ({ ...prev, [tbl]: body.result as TableDescription }));
+      } catch {
+        // non-fatal
+      }
+    },
+    [schemas]
+  );
+
+  useEffect(() => {
+    if (table) void loadSchema(table);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [table]);
+
+  /**
+   * Prefill the query form from the table's real key schema (hash-key equality
+   * with a placeholder value) so a fresh query RUNS instead of erroring with
+   * empty required fields. Only fills fields the user hasn't touched, and only
+   * for the query operation.
+   */
+  useEffect(() => {
+    if (operation !== 'query') return;
+    const hash = schemas[table]?.keySchema.find((k) => k.keyType === 'HASH');
+    if (!hash) return;
+    setExpr((prev) => (prev ? prev : `${hash.attributeName} = :pk`));
+    setExprValuesJson((prev) => (prev ? prev : '{\n  ":pk": ""\n}'));
+  }, [operation, table, schemas]);
+
+  /** Parse a JSON textarea; throws a FieldError naming the failing field. */
+  const parseJson = (raw: string, field: string, what: string): Record<string, unknown> => {
+    if (!raw.trim()) throw new FieldError(field, `${what} is required`);
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      throw new FieldError(field, `${what} is not valid JSON`);
+    }
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
-      throw new Error(`${what} must be a JSON object`);
+      throw new FieldError(field, `${what} must be a JSON object`);
     }
     return parsed as Record<string, unknown>;
   };
@@ -87,15 +159,15 @@ export default function AdminDynamoPage() {
       case 'scan':
         return { operation, ...base, exclusiveStartKey };
       case 'query':
-        return { operation, ...base, expression: expr, expressionValues: parseJson(exprValuesJson, 'ExpressionAttributeValues'), exclusiveStartKey };
+        return { operation, ...base, expression: expr, expressionValues: parseJson(exprValuesJson, 'exprValuesJson', 'ExpressionAttributeValues'), exclusiveStartKey };
       case 'get':
-        return { operation, ...base, key: parseJson(keyJson, 'Key') };
+        return { operation, ...base, key: parseJson(keyJson, 'keyJson', 'Key') };
       case 'put':
-        return { operation, ...base, item: parseJson(itemJson, 'Item') };
+        return { operation, ...base, item: parseJson(itemJson, 'itemJson', 'Item') };
       case 'update':
-        return { operation, ...base, key: parseJson(keyJson, 'Key'), expression: expr, expressionValues: parseJson(exprValuesJson, 'ExpressionAttributeValues') };
+        return { operation, ...base, key: parseJson(keyJson, 'keyJson', 'Key'), expression: expr, expressionValues: parseJson(exprValuesJson, 'exprValuesJson', 'ExpressionAttributeValues') };
       case 'delete':
-        return { operation, ...base, key: parseJson(keyJson, 'Key') };
+        return { operation, ...base, key: parseJson(keyJson, 'keyJson', 'Key') };
     }
   };
 
@@ -104,6 +176,7 @@ export default function AdminDynamoPage() {
       if (!table) return;
       setBusy(true);
       setErrorMsg('');
+      setFieldErrors({});
       try {
         const res = await fetch('/api/admin/dynamodb', {
           method: 'POST',
@@ -123,8 +196,14 @@ export default function AdminDynamoPage() {
         setResult(body.result);
         setLastEvaluatedKey(body.result?.lastEvaluatedKey);
         setStatus('ok');
-      } catch {
-        setErrorMsg('Invalid JSON — check the highlighted fields.');
+      } catch (err) {
+        if (err instanceof FieldError) {
+          setFieldErrors({ [err.field]: err.message });
+          setErrorMsg('Fix the highlighted field(s) below.');
+        } else {
+          setFieldErrors({});
+          setErrorMsg('Unexpected error');
+        }
         setStatus('error');
       } finally {
         setBusy(false);
@@ -196,7 +275,14 @@ export default function AdminDynamoPage() {
                     id="admin-table"
                     className={inputCls}
                     value={table}
-                    onChange={(e) => setTable(e.target.value)}
+                    onChange={(e) => {
+                      setTable(e.target.value);
+                      // Expressions bind to a table's schema — drop the
+                      // previous table's draft (the query prefill re-runs).
+                      setExpr('');
+                      setExprValuesJson('');
+                      setFieldErrors({});
+                    }}
                   >
                     {tables.length === 0 && <option value="">(no octav-* tables)</option>}
                     {tables.map((t) => (
@@ -251,11 +337,16 @@ export default function AdminDynamoPage() {
                   <textarea
                     id="admin-key"
                     rows={2}
-                    className={inputCls + ' font-mono'}
+                    className={(fieldErrors.keyJson ? inputErrorCls : inputCls) + ' font-mono'}
                     value={keyJson}
                     onChange={(e) => setKeyJson(e.target.value)}
                     placeholder='{"id": "user-1"}'
+                    aria-invalid={Boolean(fieldErrors.keyJson)}
+                    aria-describedby={fieldErrors.keyJson ? 'admin-key-error' : undefined}
                   />
+                  {fieldErrors.keyJson && (
+                    <p id="admin-key-error" className={fieldErrorCls}>{fieldErrors.keyJson}</p>
+                  )}
                 </div>
               )}
               {(operation === 'query' || operation === 'update') && (
@@ -266,11 +357,16 @@ export default function AdminDynamoPage() {
                   <textarea
                     id="admin-expr"
                     rows={2}
-                    className={inputCls + ' font-mono'}
+                    className={(fieldErrors.expr ? inputErrorCls : inputCls) + ' font-mono'}
                     value={expr}
                     onChange={(e) => setExpr(e.target.value)}
                     placeholder={operation === 'query' ? 'id = :id' : 'SET tier = :t'}
+                    aria-invalid={Boolean(fieldErrors.expr)}
+                    aria-describedby={fieldErrors.expr ? 'admin-expr-error' : undefined}
                   />
+                  {fieldErrors.expr && (
+                    <p id="admin-expr-error" className={fieldErrorCls}>{fieldErrors.expr}</p>
+                  )}
                 </div>
               )}
               {(operation === 'query' || operation === 'update') && (
@@ -279,11 +375,16 @@ export default function AdminDynamoPage() {
                   <textarea
                     id="admin-expr-values"
                     rows={2}
-                    className={inputCls + ' font-mono'}
+                    className={(fieldErrors.exprValuesJson ? inputErrorCls : inputCls) + ' font-mono'}
                     value={exprValuesJson}
                     onChange={(e) => setExprValuesJson(e.target.value)}
-                    placeholder='{":id": {"S": "user-1"}}'
+                    placeholder='{":pk": "user-1"}'
+                    aria-invalid={Boolean(fieldErrors.exprValuesJson)}
+                    aria-describedby={fieldErrors.exprValuesJson ? 'admin-expr-values-error' : undefined}
                   />
+                  {fieldErrors.exprValuesJson && (
+                    <p id="admin-expr-values-error" className={fieldErrorCls}>{fieldErrors.exprValuesJson}</p>
+                  )}
                 </div>
               )}
               {operation === 'put' && (
@@ -292,11 +393,16 @@ export default function AdminDynamoPage() {
                   <textarea
                     id="admin-item"
                     rows={4}
-                    className={inputCls + ' font-mono'}
+                    className={(fieldErrors.itemJson ? inputErrorCls : inputCls) + ' font-mono'}
                     value={itemJson}
                     onChange={(e) => setItemJson(e.target.value)}
                     placeholder='{"id": "user-9", "email": "new@example.com", "tier": "free"}'
+                    aria-invalid={Boolean(fieldErrors.itemJson)}
+                    aria-describedby={fieldErrors.itemJson ? 'admin-item-error' : undefined}
                   />
+                  {fieldErrors.itemJson && (
+                    <p id="admin-item-error" className={fieldErrorCls}>{fieldErrors.itemJson}</p>
+                  )}
                 </div>
               )}
             </div>

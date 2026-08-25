@@ -44,7 +44,7 @@ export function isAdminEmail(email: string, adminEmails: string): boolean {
 const recordSchema = z.record(z.string(), z.unknown());
 
 const adminRequestSchema = z.object({
-  operation: z.enum(['listTables', 'scan', 'query', 'get', 'put', 'update', 'delete']),
+  operation: z.enum(['listTables', 'describeTable', 'scan', 'query', 'get', 'put', 'update', 'delete']),
   table: z.string().optional(),
   key: recordSchema.optional(),
   expression: z.string().optional(),
@@ -65,6 +65,7 @@ function validateOperation(op: AdminRequest): string | null {
 
   switch (op.operation) {
     case 'listTables':
+    case 'describeTable':
     case 'scan':
       return null;
     case 'query':
@@ -99,6 +100,8 @@ async function dispatch(op: AdminRequest, storage: AdminDeps['storage']): Promis
     case 'listTables':
       // Filter + sort server-side so non-octav table names never leak.
       return (await storage.listTables()).filter((t) => ADMIN_TABLE_PATTERN.test(t)).sort();
+    case 'describeTable':
+      return storage.describeTable(op.table as string);
     case 'scan':
       return storage.scan(op.table as string, op.limit, op.exclusiveStartKey);
     case 'query':

@@ -18,6 +18,22 @@ describe('InMemoryAdminStorage', () => {
     expect(await s.listTables()).toEqual(['octav-users']);
   });
 
+  it('describeTable returns the REAL schema map for a seeded table (query prefill parity)', async () => {
+    const s = new InMemoryAdminStorage(seed);
+    expect(await s.describeTable('octav-analytics-events')).toEqual({
+      table: 'octav-analytics-events',
+      keySchema: [
+        { attributeName: 'k', keyType: 'HASH' },
+        { attributeName: 's', keyType: 'RANGE' },
+      ],
+    });
+  });
+
+  it('describeTable throws ResourceNotFoundException for an unknown table', async () => {
+    const s = new InMemoryAdminStorage(seed);
+    await expect(s.describeTable('octav-nope')).rejects.toMatchObject({ name: 'ResourceNotFoundException' });
+  });
+
   it('scan honors limit and reports lastEvaluatedKey when more remain', async () => {
     const s = new InMemoryAdminStorage(seed);
     const page = await s.scan('octav-users', 2);
