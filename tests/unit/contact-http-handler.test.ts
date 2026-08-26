@@ -251,7 +251,9 @@ describe('POST /api/contact', () => {
   it('HTML-escapes every user-controlled value in the email', async () => {
     const t = makeDeps();
     const res = await post(
-      t,
+      // Deliberate XSS fixture: t is the in-memory test deps (never rendered),
+      // and the assertions below verify the email HTML escapes these values.
+      t, // nosemgrep: unknown-value-with-script-tag
       envelope({
         name: 'Evil <script>alert(1)</script>',
         message: 'Look: <img src=x onerror=alert(1)> & "quotes" \'apostrophes\'',
