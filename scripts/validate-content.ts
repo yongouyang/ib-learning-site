@@ -164,6 +164,8 @@ export function checkTemplates(topic: ValidatedTopic): string[] {
   return errors;
 }
 
+import { ORDER_FILE, checkTopicOrder } from './topic-order';
+
 interface Failure {
   file: string;
   errors: string[];
@@ -191,6 +193,18 @@ function validateSubjects() {
   }
 }
 
+// Per-subject order.json (curated pedagogical topic order) must list every
+// topic id exactly once — strict, so a new topic without an order entry fails.
+function validateTopicOrder(subjectDir: string, subjectPath: string, files: string[]) {
+  const orderPath = path.join(subjectPath, ORDER_FILE);
+  const errors = checkTopicOrder(subjectDir, orderPath, files);
+  if (errors.length > 0) {
+    failures.push({ file: relative(orderPath), errors });
+  } else {
+    console.log(`✓ ${relative(orderPath)}`);
+  }
+}
+
 function validateTopics() {
   const subjectDirs = fs.readdirSync(TOPICS_DIR).filter((name) => {
     const full = path.join(TOPICS_DIR, name);
@@ -199,7 +213,11 @@ function validateTopics() {
 
   for (const subjectDir of subjectDirs) {
     const subjectPath = path.join(TOPICS_DIR, subjectDir);
-    const files = fs.readdirSync(subjectPath).filter((f) => f.endsWith('.json'));
+    const files = fs
+      .readdirSync(subjectPath)
+      .filter((f) => f.endsWith('.json') && f !== ORDER_FILE);
+
+    validateTopicOrder(subjectDir, subjectPath, files);
 
     for (const file of files) {
       const filePath = path.join(subjectPath, file);

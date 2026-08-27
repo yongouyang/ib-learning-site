@@ -98,7 +98,9 @@ export default function SubjectPageClient({ subjectId }: SubjectPageClientProps)
               key={topic.id}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: idx * 0.05 }}
+              // Cap the stagger: an uncapped idx*0.05 delay leaves cards near the
+              // bottom of long pages (math has 76) invisible for seconds.
+              transition={{ duration: 0.25, delay: Math.min(idx, 12) * 0.05 }}
               className="card p-4 border-l-4"
               style={{ borderLeftColor: subject.accentColor }}
             >
