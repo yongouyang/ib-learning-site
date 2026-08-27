@@ -18,7 +18,7 @@ function discoverTopicsWithIllustrations(): TopicInfo[] {
   for (const subject of subjects) {
     const dir = path.join(topicsDir, subject.id);
     if (!fs.existsSync(dir)) continue;
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json'));
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !== 'order.json');
     for (const file of files) {
       const data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
       const illustrationCount = data.notes.filter((n: { illustration?: unknown }) => n.illustration).length;
