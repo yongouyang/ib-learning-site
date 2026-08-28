@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { ORDER_FILE, sortFilesByOrder } from './topic-order';
 
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const TOPICS_DIR = path.join(PROJECT_ROOT, 'src', 'content', 'data', 'topics');
@@ -51,10 +52,13 @@ function main(): void {
     }
 
     const subjectPath = path.join(TOPICS_DIR, subjectId);
-    const files = fs
-      .readdirSync(subjectPath)
-      .filter((f) => f.endsWith('.json'))
-      .sort((a, b) => a.localeCompare(b));
+    const files = sortFilesByOrder(
+      subjectId,
+      path.join(subjectPath, ORDER_FILE),
+      fs
+        .readdirSync(subjectPath)
+        .filter((f) => f.endsWith('.json') && f !== ORDER_FILE),
+    );
 
     importLines.push(generateComment(subjectMeta));
     const variableNames: string[] = [];

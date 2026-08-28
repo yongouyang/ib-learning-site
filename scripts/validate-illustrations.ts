@@ -105,7 +105,7 @@ function validateReferences() {
 
   for (const subjectDir of subjectDirs) {
     const subjectPath = path.join(topicsDir, subjectDir);
-    const files = fs.readdirSync(subjectPath).filter((f) => f.endsWith('.json'));
+    const files = fs.readdirSync(subjectPath).filter((f) => f.endsWith('.json') && f !== 'order.json');
 
     for (const file of files) {
       const filePath = path.join(subjectPath, file);

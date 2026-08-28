@@ -34,6 +34,10 @@ Every topic carries a curriculum taxonomy (replacing the old `ibLevel` field):
 
 `npm run validate:content` enforces consistency (year ⇒ ks3, core/extended ⇒ igcse, sl/hl ⇒ dp, course required for igcse/dp, strand ⇒ ks3 english).
 
+## Topic ordering
+
+Each subject directory has an `order.json`: a JSON array of every topic id in curated pedagogical order (e.g. `["math-yr7-calculations", "math-yr7-decimals", ...]`). `npm run generate:registry` emits each subject's topics in that sequence, so the subject-page groups, diagnostics pools and mixed-review all share it. The check is strict — unknown, duplicate, or missing ids fail both `generate:registry` and `validate:content`, so adding a topic means appending its id to the right spot in `order.json`. Sequence within each displayed group: foundations/intro first, building to advanced (KS3 year groups render 7 → 8 → 9 regardless; the list order only controls position *within* a group).
+
 ## Topic ID conventions for new topics
 
 - KS3: `<subject>-yr<7|8|9>-<slug>` (e.g. `math-yr9-quadratics`, `geo-yr8-plate-tectonics`, `hist-yr8-ww1`, `ict-yr7-python-basics`, `chin-yr7-greetings-names`, `germ-yr8-food-drink`); `<subject>-<slug>-1` for KS3 science/English topics that span years (no `year` field).

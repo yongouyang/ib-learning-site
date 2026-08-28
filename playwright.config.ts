@@ -102,6 +102,10 @@ export default defineConfig({
       // dummy (seeded octav-* tables) with the same admin allowlist as the
       // analytics dashboard.
       ADMIN_STORAGE: 'dummy',
+      // Feature 3 (Contact Us): runs against the in-memory contact dummy —
+      // the shared universe, so dummy-OTP sessions resolve and the per-IP
+      // rate limit is real (contact.spec.ts is serial for this reason).
+      CONTACT_STORAGE: 'dummy',
     },
   },
 });

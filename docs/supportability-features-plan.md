@@ -1,6 +1,6 @@
 # Supportability Features — Implementation Plan
 
-> **Status:** Draft — awaiting review before implementation.
+> **Status:** Implemented — Feature 2 (2026-08-23), Feature 1 (2026-08-24), Feature 3 (2026-08-25). Remaining: the manual CloudFlare Email Routing step (Feature 3) and post-deploy verification.
 > Three independent features to improve day-to-day operations and user support:
 > 1. **Daily analytics report** — emailed HTML snapshot of the admin dashboard at 7pm HKT
 > 2. **DynamoDB CRUD dashboard** — admin web UI for browsing/editing all DynamoDB tables

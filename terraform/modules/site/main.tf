@@ -52,6 +52,12 @@ variable "leaderboard_origin_domain" {
   default     = ""
 }
 
+variable "contact_origin_domain" {
+  description = "Lambda Function URL domain for the contact API (contact_api module output). When set, adds the /api/contact + /api/contact/* behaviors; empty = API not wired."
+  type        = string
+  default     = ""
+}
+
 variable "domain_names" {
   description = "Custom domain aliases (apex + www). Empty = cloudfront.net default cert only. First entry is the canonical host."
   type        = list(string)
@@ -68,6 +74,12 @@ variable "redirect_from_host" {
   description = "Host to 301-redirect to the first domain_names entry (e.g. www → apex). Empty = no redirect (DEV keeps today's behavior)."
   type        = string
   default     = ""
+}
+
+variable "dev_brand_rewrite" {
+  description = "DEV only: the url_rewrite Function also maps the PWA manifest + head icon paths to their DEV-badged variants, so dev installs/tabs are visually distinct from prod. Replaces the old client-side head mutation in DevEnvironmentIndicator, which fought Next's head reconciliation and left duplicate <link rel=\"manifest\"> tags. Prod keeps this false (byte-identical function code)."
+  type        = bool
+  default     = false
 }
 
 # Account ID keeps the bucket name globally unique without hardcoding it.
@@ -158,7 +170,31 @@ resource "aws_s3_bucket_policy" "site" {
 # byte-identical to the pre-cutover function (zero-diff guarantee). Kept as a
 # separate local because `%{if}` directives leak their line's leading
 # whitespace into the output.
+#
+# dev_brand is the same pattern for the DEV-badged PWA manifest/icon rewrite
+# (dev_brand_rewrite variable): empty for PROD, so its function code stays
+# byte-identical to the pre-dev-brand one.
 locals {
+  dev_brand = (
+    var.dev_brand_rewrite ? <<-JS
+      // DEV brand rewrite (dev_brand_rewrite): serve the DEV-badged variants
+      // of the PWA manifest + head icons so an installed dev PWA and dev
+      // browser tabs are visually distinct from prod. Runs before the .html
+      // mapping; all mapped paths contain a dot, so they pass through it.
+      var devBrandMap = {
+        '/manifest.webmanifest': '/manifest-dev.webmanifest',
+        '/icons/icon-favicon-app-icon.svg': '/icons/icon-favicon-app-icon-dev.svg',
+        '/icons/icon-192.png': '/icons/icon-192-dev.png',
+        '/icons/icon-512.png': '/icons/icon-512-dev.png',
+        '/icons/icon-maskable-512.png': '/icons/icon-maskable-512-dev.png',
+        '/icons/apple-touch-icon.png': '/icons/apple-touch-icon-dev.png'
+      };
+      if (devBrandMap[request.uri]) {
+        request.uri = devBrandMap[request.uri];
+      }
+    JS
+    : ""
+  )
   www_redirect = (
     var.redirect_from_host != "" ? <<-JS
       // ${var.redirect_from_host} → apex 301 (custom domain cutover, plan §2).
@@ -195,7 +231,7 @@ resource "aws_cloudfront_function" "url_rewrite" {
   code = <<-EOT
     function handler(event) {
       var request = event.request;
-    ${local.www_redirect}  var uri = request.uri;
+    ${local.dev_brand}${local.www_redirect}  var uri = request.uri;
       if (uri !== '/' && uri.endsWith('/')) {
         // No dir/index.html in this export — map /foo/ → /foo.html.
         request.uri = uri.slice(0, -1) + '.html';
@@ -356,6 +392,22 @@ resource "aws_cloudfront_distribution" "site" {
     }
   }
 
+  # Origin 8 (optional): contact Lambda Function URL (Feature 3) — created
+  # only once the API is wired (contact_origin_domain non-empty).
+  dynamic "origin" {
+    for_each = var.contact_origin_domain != "" ? [var.contact_origin_domain] : []
+    content {
+      origin_id   = "lambda-contact"
+      domain_name = origin.value
+      custom_origin_config {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.2"]
+      }
+    }
+  }
+
   # /api/auth/* → auth Lambda, never cached, all viewer data forwarded. This
   # more specific pattern MUST precede the /api/* behavior below — CloudFront
   # matches ordered behaviors top-down, so /api/auth/* must win over /api/*.
@@ -476,6 +528,46 @@ resource "aws_cloudfront_distribution" "site" {
     content {
       path_pattern             = "/api/leaderboard/*"
       target_origin_id         = "lambda-leaderboard"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # Bare /api/contact (exact path) → contact Lambda. Same fall-through bug
+  # class as /api/progress and /api/leaderboard: a "/api/contact/*" pattern
+  # requires the trailing slash segment, so without this behavior the bare
+  # POST /api/contact (the form's submit target) would fall through to /api/*
+  # → the FEEDBACK Lambda (surfaced by the Phase D7 smoke, 2026-08-24).
+  dynamic "ordered_cache_behavior" {
+    for_each = var.contact_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/contact"
+      target_origin_id         = "lambda-contact"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # /api/contact/* → contact Lambda, never cached, all viewer data forwarded.
+  # More specific than /api/* and must be listed BEFORE it (CloudFront matches
+  # ordered behaviors top-down). No api_host_header association: the contact
+  # handler rate-limits per IP via x-forwarded-for — CloudFront APPENDS the
+  # real viewer IP to XFF on origin requests automatically (the handler reads
+  # the LAST entry, the analytics rule), so no viewer-request Function is
+  # needed (unlike analytics, it never reads the viewer host).
+  dynamic "ordered_cache_behavior" {
+    for_each = var.contact_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/contact/*"
+      target_origin_id         = "lambda-contact"
       viewer_protocol_policy   = "redirect-to-https"
       allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
       cached_methods           = ["GET", "HEAD"]

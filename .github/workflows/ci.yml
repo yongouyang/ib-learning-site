@@ -229,6 +229,10 @@ jobs:
       # base wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from
       # the shared secret/variable above).
       TF_VAR_analytics_report_env: ${{ secrets.ANALYTICS_REPORT_ENV || '{}' }}
+      # Contact Lambda env overrides (Feature 3); optional — unset = base
+      # wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from the
+      # shared secret/variable above).
+      TF_VAR_contact_env: ${{ secrets.CONTACT_ENV || '{}' }}
 
     steps:
       - name: Checkout
@@ -321,6 +325,11 @@ jobs:
           # exercises the admin Lambda's ListTables IAM grant (missing grant /
           # region → 500). Same failure-class probe as progress/analytics.
           curl -fsS "$SITE_URL/api/admin/_health" | grep -q '"ok":true'
+          # /api/contact/_health performs an unauthenticated DynamoDB GetItem
+          # probe on octav-contact (fixed probe key) — same failure-class
+          # probe (missing table / missing GetItem grant / EMAIL_PROVIDER not
+          # resend → 500; Feature 3).
+          curl -fsS "$SITE_URL/api/contact/_health" | grep -q '"ok":true'
           echo "Smoke checks passed."
 
   # PROD deploy (main branch) — octavlearning.com on the dedicated bucket +
@@ -370,6 +379,10 @@ jobs:
       # base wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from
       # the shared secret/variable above).
       TF_VAR_analytics_report_env: ${{ secrets.ANALYTICS_REPORT_ENV || '{}' }}
+      # Contact Lambda env overrides (Feature 3); optional — unset = base
+      # wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from the
+      # shared secret/variable above).
+      TF_VAR_contact_env: ${{ secrets.CONTACT_ENV || '{}' }}
 
     steps:
       - name: Checkout
@@ -462,6 +475,11 @@ jobs:
           # exercises the admin Lambda's ListTables IAM grant (missing grant /
           # region → 500). Same failure-class probe as progress/analytics.
           curl -fsS "$SITE_URL/api/admin/_health" | grep -q '"ok":true'
+          # /api/contact/_health performs an unauthenticated DynamoDB GetItem
+          # probe on octav-contact (fixed probe key) — same failure-class
+          # probe (missing table / missing GetItem grant / EMAIL_PROVIDER not
+          # resend → 500; Feature 3).
+          curl -fsS "$SITE_URL/api/contact/_health" | grep -q '"ok":true'
           # www → apex 301 (redirect lives in the PROD URL-rewrite Function).
           curl -fsS -o /dev/null -w '%{http_code}' https://www.octavlearning.com/ | grep -q '^301$'
           echo "Smoke checks passed."

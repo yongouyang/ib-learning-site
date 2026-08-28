@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import katex from "katex";
+import { ORDER_FILE } from "./topic-order";
 import {
   topicSchema,
   paperSchema,
@@ -703,7 +704,7 @@ export function loadTopicsFromDisk(topicsDir: string): LoadResult {
     const subjectPath = path.join(topicsDir, subjectDir);
     const files = fs
       .readdirSync(subjectPath)
-      .filter((f) => f.endsWith(".json"));
+      .filter((f) => f.endsWith(".json") && f !== ORDER_FILE);
 
     for (const file of files) {
       const filePath = path.join(subjectPath, file);

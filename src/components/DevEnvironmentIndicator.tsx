@@ -4,9 +4,15 @@ import { useEffect, useState } from 'react';
 import { isDevEnvironment } from '@/lib/env';
 
 /**
- * On dev environments swaps the favicon, apple-touch-icon, and manifest links
- * in the document head to their dev variants, then renders a fixed red border
- * overlay so the environment is unmistakable at a glance.
+ * On dev environments renders a fixed red border overlay + DEV label so the
+ * environment is unmistakable at a glance.
+ *
+ * The DEV-badged PWA manifest / favicon / touch-icon variants are served at
+ * the CDN edge instead (dev_brand_rewrite in the site module's url_rewrite
+ * CloudFront Function, dev distribution only). Mutating the metadata-managed
+ * head links client-side fought Next's head reconciliation and left TWO
+ * <link rel="manifest"> tags (pwa.spec.ts "manifest is served and linked").
+ * localhost therefore keeps the prod icons — the rim is the local dev signal.
  *
  * In prod this component renders nothing and the effect is a no-op.
  *
@@ -21,30 +27,6 @@ export function DevEnvironmentIndicator() {
     if (isDevEnvironment()) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time client-side env detection
       setDev(true);
-
-      // Swap favicon.
-      const favicon = document.querySelector<HTMLLinkElement>(
-        'link[rel="icon"][type="image/svg+xml"]',
-      );
-      if (favicon) {
-        favicon.href = '/icons/icon-favicon-app-icon-dev.svg';
-      }
-
-      // Swap apple-touch-icon.
-      const appleIcon = document.querySelector<HTMLLinkElement>(
-        'link[rel="apple-touch-icon"]',
-      );
-      if (appleIcon) {
-        appleIcon.href = '/icons/apple-touch-icon-dev.png';
-      }
-
-      // Swap manifest.
-      const manifest = document.querySelector<HTMLLinkElement>(
-        'link[rel="manifest"]',
-      );
-      if (manifest) {
-        manifest.href = '/manifest-dev.webmanifest';
-      }
     }
   }, []);
 
