@@ -492,6 +492,7 @@ module "site" {
   contact_origin_domain     = module.contact_api.function_url_domain
   domain_names              = ["dev.octavlearning.com"]
   acm_certificate_arn       = aws_acm_certificate.dev.arn
+  dev_brand_rewrite         = true
 }
 
 # PROD: separate bucket + distribution fronting octavlearning.com (apex + www

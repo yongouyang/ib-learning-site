@@ -76,6 +76,12 @@ variable "redirect_from_host" {
   default     = ""
 }
 
+variable "dev_brand_rewrite" {
+  description = "DEV only: the url_rewrite Function also maps the PWA manifest + head icon paths to their DEV-badged variants, so dev installs/tabs are visually distinct from prod. Replaces the old client-side head mutation in DevEnvironmentIndicator, which fought Next's head reconciliation and left duplicate <link rel=\"manifest\"> tags. Prod keeps this false (byte-identical function code)."
+  type        = bool
+  default     = false
+}
+
 # Account ID keeps the bucket name globally unique without hardcoding it.
 data "aws_caller_identity" "current" {}
 
@@ -164,7 +170,31 @@ resource "aws_s3_bucket_policy" "site" {
 # byte-identical to the pre-cutover function (zero-diff guarantee). Kept as a
 # separate local because `%{if}` directives leak their line's leading
 # whitespace into the output.
+#
+# dev_brand is the same pattern for the DEV-badged PWA manifest/icon rewrite
+# (dev_brand_rewrite variable): empty for PROD, so its function code stays
+# byte-identical to the pre-dev-brand one.
 locals {
+  dev_brand = (
+    var.dev_brand_rewrite ? <<-JS
+      // DEV brand rewrite (dev_brand_rewrite): serve the DEV-badged variants
+      // of the PWA manifest + head icons so an installed dev PWA and dev
+      // browser tabs are visually distinct from prod. Runs before the .html
+      // mapping; all mapped paths contain a dot, so they pass through it.
+      var devBrandMap = {
+        '/manifest.webmanifest': '/manifest-dev.webmanifest',
+        '/icons/icon-favicon-app-icon.svg': '/icons/icon-favicon-app-icon-dev.svg',
+        '/icons/icon-192.png': '/icons/icon-192-dev.png',
+        '/icons/icon-512.png': '/icons/icon-512-dev.png',
+        '/icons/icon-maskable-512.png': '/icons/icon-maskable-512-dev.png',
+        '/icons/apple-touch-icon.png': '/icons/apple-touch-icon-dev.png'
+      };
+      if (devBrandMap[request.uri]) {
+        request.uri = devBrandMap[request.uri];
+      }
+    JS
+    : ""
+  )
   www_redirect = (
     var.redirect_from_host != "" ? <<-JS
       // ${var.redirect_from_host} → apex 301 (custom domain cutover, plan §2).
@@ -201,7 +231,7 @@ resource "aws_cloudfront_function" "url_rewrite" {
   code = <<-EOT
     function handler(event) {
       var request = event.request;
-    ${local.www_redirect}  var uri = request.uri;
+    ${local.dev_brand}${local.www_redirect}  var uri = request.uri;
       if (uri !== '/' && uri.endsWith('/')) {
         // No dir/index.html in this export — map /foo/ → /foo.html.
         request.uri = uri.slice(0, -1) + '.html';
