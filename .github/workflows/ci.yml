@@ -301,15 +301,17 @@ jobs:
           # Unauthenticated bare GETs must 401 from the REAL handlers.
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/progress" | grep -q '^401$'
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/leaderboard" | grep -q '^401$'
-          # request-otp writes the OTP to DynamoDB + attempts SES send — catches
-          # missing table/index IAM. 200 = email accepted; 502 = SES send failed
-          # (expected while the account is in SES sandbox); 429 = the durable
-          # per-email budget was consumed (proves the DynamoDB path works — a
-          # deploy retry within 10 min of a previous run trips it); 500 = real
-          # failure. Tighten to strict `^200$` once SES production access
-          # (ap-southeast-1) is granted — see docs/architecture-evolution-plan.md §6.5.
-          AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"ci-probe@example.com"}' "$SITE_URL/api/auth/request-otp")
-          echo "$AUTH_OTP_STATUS" | grep -qE '^(200|429|502)$'
+          # request-otp writes the OTP to DynamoDB + sends via Resend — catches
+          # missing table/index IAM and provider misconfig. 200 = email
+          # accepted; 429 = the durable per-email budget was consumed (proves
+          # the DynamoDB path works — a deploy retry within 10 min of a
+          # previous run trips it); anything else (incl. 502 provider
+          # rejection, 500) = real failure. The probe address is Resend's
+          # magic delivered@resend.dev (simulated delivery) — example.com
+          # recipients are rejected with 422 (2026-08-28: the old
+          # ci-probe@example.com probe silently 502'd on every deploy).
+          AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"delivered@resend.dev"}' "$SITE_URL/api/auth/request-otp")
+          echo "$AUTH_OTP_STATUS" | grep -qE '^(200|429)$'
           # /api/progress/_health performs an unauthenticated DynamoDB Query on
           # octav-progress with a fixed probe key — exercises the REAL failure
           # class (missing table / missing Query grant) with zero data exposure.
@@ -449,15 +451,17 @@ jobs:
           # Unauthenticated bare GETs must 401 from the REAL handlers.
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/progress" | grep -q '^401$'
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/leaderboard" | grep -q '^401$'
-          # request-otp writes the OTP to DynamoDB + attempts SES send — catches
-          # missing table/index IAM. 200 = email accepted; 502 = SES send failed
-          # (expected while the account is in SES sandbox); 429 = the durable
-          # per-email budget was consumed (proves the DynamoDB path works — a
-          # deploy retry within 10 min of a previous run trips it); 500 = real
-          # failure. Tighten to strict `^200$` once SES production access
-          # (ap-southeast-1) is granted — see docs/architecture-evolution-plan.md §6.5.
-          AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"ci-probe@example.com"}' "$SITE_URL/api/auth/request-otp")
-          echo "$AUTH_OTP_STATUS" | grep -qE '^(200|429|502)$'
+          # request-otp writes the OTP to DynamoDB + sends via Resend — catches
+          # missing table/index IAM and provider misconfig. 200 = email
+          # accepted; 429 = the durable per-email budget was consumed (proves
+          # the DynamoDB path works — a deploy retry within 10 min of a
+          # previous run trips it); anything else (incl. 502 provider
+          # rejection, 500) = real failure. The probe address is Resend's
+          # magic delivered@resend.dev (simulated delivery) — example.com
+          # recipients are rejected with 422 (2026-08-28: the old
+          # ci-probe@example.com probe silently 502'd on every deploy).
+          AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"delivered@resend.dev"}' "$SITE_URL/api/auth/request-otp")
+          echo "$AUTH_OTP_STATUS" | grep -qE '^(200|429)$'
           # /api/progress/_health performs an unauthenticated DynamoDB Query on
           # octav-progress with a fixed probe key — exercises the REAL failure
           # class (missing table / missing Query grant) with zero data exposure.
