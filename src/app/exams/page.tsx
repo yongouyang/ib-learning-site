@@ -79,7 +79,7 @@ export default function ExamsPage() {
                     <Link
                       key={paper.paperId}
                       href={`/exams/${course.id}/${paper.paperId}`}
-                      className="flex items-center gap-3 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
+                      className="flex items-center gap-3 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 pressable group"
                     >
                       <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 shrink-0">
                         <FileText className="w-4 h-4" />

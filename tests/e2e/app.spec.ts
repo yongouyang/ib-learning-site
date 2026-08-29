@@ -33,13 +33,15 @@ test.describe('Home page', () => {
     await expect(page.getByText('Total Stars')).toBeVisible();
   });
 
-  test('subject cards use subject accent colour on top border', async ({ page }) => {
+  test('subject cards carry the subject accent colour on the icon tile', async ({ page }) => {
     await page.goto('/');
     const mathCard = page.getByRole('link').filter({ has: page.getByRole('heading', { name: 'Math' }) });
     await expect(mathCard).toBeVisible();
-    const borderTopColor = await mathCard.evaluate((el) => getComputedStyle(el).borderTopColor);
-    // Tailwind blue-500 / #3B82F6 in rgb
-    expect(borderTopColor).toBe('rgb(59, 130, 246)');
+    const tile = mathCard.locator('span[aria-hidden="true"]').first();
+    const bg = await tile.evaluate((el) => getComputedStyle(el).backgroundColor);
+    // color-mix(in srgb, #3B82F6 14%, transparent) — Chromium serializes the
+    // resolved mix in color(srgb …) form: #3B82F6 = 59/130/246 per channel at 14% alpha
+    expect(bg).toMatch(/^color\(srgb 0\.23137\d? 0\.50980\d? 0\.96470\d? \/ 0\.14\)$/);
   });
 
   test('footer shows the trademark disclaimer', async ({ page }) => {

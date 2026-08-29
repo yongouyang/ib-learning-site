@@ -32,7 +32,7 @@ Reuse existing tokens; don't invent new ones without adding them here first.
 | Hero scale (home) | h1 `text-3xl md:text-4xl`; subhead `text-base text-gray-600 dark:text-gray-400`, `max-w-2xl` | approved in the landing review |
 
 - **Dark mode is not optional.** Every colour utility needs its `dark:` pair; both themes must be checked in review (see the UX-review pass below).
-- Interactive feedback convention: `hover:shadow-md transition-shadow` + `active:scale-[0.98]` on tappable cards; `transition-colors` on links/buttons.
+- Interactive feedback convention: the `.pressable` class (globals.css) — instant pointer-down `scale(0.97)` at 100ms ease-out plus colour/shadow transitions — on tappable cards and row links (Apple fluid-interfaces style; replaces the older `hover:shadow-md transition-shadow` + `active:scale-[0.98]` combo, don't mix both on one element). Entrance animations use critically-damped springs (`{ type: 'spring', bounce: 0, duration: ~0.5 }`), and `MotionProvider` (MotionConfig `reducedMotion="user"` in layout.tsx) gates ALL framer-motion animations on the OS reduced-motion setting.
 
 ## Mobile vs desktop chrome
 

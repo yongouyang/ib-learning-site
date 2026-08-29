@@ -13,7 +13,7 @@ function SetRow({ paper }: { paper: Paper }) {
   return (
     <Link
       href={`/papers/${paper.courseId}/${paper.id}`}
-      className="flex items-center gap-3 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
+      className="flex items-center gap-3 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 pressable group"
     >
       <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400 shrink-0">
         <FileSignature className="w-4 h-4" />

@@ -166,15 +166,29 @@ export default function HomePage() {
               key={subject.id}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: idx * 0.05 }}
+              // Critically-damped spring (Apple: bounce 0, response ~0.5s) —
+              // physical settle instead of a scripted tween.
+              transition={{ type: 'spring', bounce: 0, duration: 0.5, delay: Math.min(idx, 12) * 0.04 }}
             >
               <Link href={`/subjects/${subject.id}`}
-                className="card p-4 h-full block hover:shadow-md transition-shadow active:scale-[0.98] group"
-                style={{ borderTopWidth: 4, borderTopColor: subject.accentColor }}
+                className="card p-4 h-full block hover:shadow-md pressable group"
               >
-                <span className="text-2xl mb-1 block" aria-hidden="true">{subjectEmoji(subject.id)}</span>
-                <h3 className="font-semibold text-gray-900 dark:text-gray-50">{subject.name}</h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{subject.topics.length} topics</p>
+                <div className="flex items-center gap-3 mb-2">
+                  <span
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-[14px] text-2xl shrink-0"
+                    style={{
+                      backgroundColor: `color-mix(in srgb, ${subject.accentColor} 14%, transparent)`,
+                      boxShadow: `inset 0 0 0 1px color-mix(in srgb, ${subject.accentColor} 22%, transparent)`,
+                    }}
+                    aria-hidden="true"
+                  >
+                    {subjectEmoji(subject.id)}
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-gray-900 dark:text-gray-50">{subject.name}</h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{subject.topics.length} topics</p>
+                  </div>
+                </div>
                 <div className="flex items-center justify-between">
                   <div className="flex gap-0.5">
                     {[0, 1, 2].map((i) => (
