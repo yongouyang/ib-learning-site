@@ -15,10 +15,12 @@ test.describe('Practice papers', () => {
 
     // Set 2 renders as a locked row for anonymous visitors: the preview links
     // exist in the DOM (one per course) but are inert/aria-hidden, so they are
-    // NOT accessible links, and each course gets a premium tease card.
+    // NOT accessible links. ONE page-level premium card makes the pitch
+    // (copy voice: say it once); each course gets a compact lock row.
     await expect(page.locator('a[href$="-set-2"]')).toHaveCount(13);
     await expect(page.getByRole('link', { name: /Practice Set 2/ })).toHaveCount(0);
-    await expect(page.getByRole('link', { name: 'See Premium plans' })).toHaveCount(13);
+    await expect(page.getByRole('link', { name: 'See Premium plans' })).toHaveCount(1);
+    await expect(page.getByRole('link', { name: /Premium · Full exam sets/ })).toHaveCount(13);
   });
 
   test('a full two-phase run records the result', async ({ page }) => {
