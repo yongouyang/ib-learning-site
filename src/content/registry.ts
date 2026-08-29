@@ -238,15 +238,24 @@ import bio_ks3_bio_ks3_set_2_json from './data/papers/bio-ks3/bio-ks3-set-2.json
 // chem-ks3 practice sets
 import chem_ks3_chem_ks3_set_1_json from './data/papers/chem-ks3/chem-ks3-set-1.json';
 import chem_ks3_chem_ks3_set_2_json from './data/papers/chem-ks3/chem-ks3-set-2.json';
+// chin-ks3 practice sets
+import chin_ks3_chin_ks3_set_1_json from './data/papers/chin-ks3/chin-ks3-set-1.json';
+import chin_ks3_chin_ks3_set_2_json from './data/papers/chin-ks3/chin-ks3-set-2.json';
 // eng-ks3 practice sets
 import eng_ks3_eng_ks3_set_1_json from './data/papers/eng-ks3/eng-ks3-set-1.json';
 import eng_ks3_eng_ks3_set_2_json from './data/papers/eng-ks3/eng-ks3-set-2.json';
 // geog-ks3 practice sets
 import geog_ks3_geog_ks3_set_1_json from './data/papers/geog-ks3/geog-ks3-set-1.json';
 import geog_ks3_geog_ks3_set_2_json from './data/papers/geog-ks3/geog-ks3-set-2.json';
+// germ-ks3 practice sets
+import germ_ks3_germ_ks3_set_1_json from './data/papers/germ-ks3/germ-ks3-set-1.json';
+import germ_ks3_germ_ks3_set_2_json from './data/papers/germ-ks3/germ-ks3-set-2.json';
 // hist-ks3 practice sets
 import hist_ks3_hist_ks3_set_1_json from './data/papers/hist-ks3/hist-ks3-set-1.json';
 import hist_ks3_hist_ks3_set_2_json from './data/papers/hist-ks3/hist-ks3-set-2.json';
+// ict-ks3 practice sets
+import ict_ks3_ict_ks3_set_1_json from './data/papers/ict-ks3/ict-ks3-set-1.json';
+import ict_ks3_ict_ks3_set_2_json from './data/papers/ict-ks3/ict-ks3-set-2.json';
 // math-dp-ai practice sets
 import math_dp_ai_math_dp_ai_set_1_json from './data/papers/math-dp-ai/math-dp-ai-set-1.json';
 import math_dp_ai_math_dp_ai_set_2_json from './data/papers/math-dp-ai/math-dp-ai-set-2.json';
@@ -485,12 +494,18 @@ const bio_ks3_bio_ks3_set_1: Paper = paperSchema.parse(bio_ks3_bio_ks3_set_1_jso
 const bio_ks3_bio_ks3_set_2: Paper = paperSchema.parse(bio_ks3_bio_ks3_set_2_json);
 const chem_ks3_chem_ks3_set_1: Paper = paperSchema.parse(chem_ks3_chem_ks3_set_1_json);
 const chem_ks3_chem_ks3_set_2: Paper = paperSchema.parse(chem_ks3_chem_ks3_set_2_json);
+const chin_ks3_chin_ks3_set_1: Paper = paperSchema.parse(chin_ks3_chin_ks3_set_1_json);
+const chin_ks3_chin_ks3_set_2: Paper = paperSchema.parse(chin_ks3_chin_ks3_set_2_json);
 const eng_ks3_eng_ks3_set_1: Paper = paperSchema.parse(eng_ks3_eng_ks3_set_1_json);
 const eng_ks3_eng_ks3_set_2: Paper = paperSchema.parse(eng_ks3_eng_ks3_set_2_json);
 const geog_ks3_geog_ks3_set_1: Paper = paperSchema.parse(geog_ks3_geog_ks3_set_1_json);
 const geog_ks3_geog_ks3_set_2: Paper = paperSchema.parse(geog_ks3_geog_ks3_set_2_json);
+const germ_ks3_germ_ks3_set_1: Paper = paperSchema.parse(germ_ks3_germ_ks3_set_1_json);
+const germ_ks3_germ_ks3_set_2: Paper = paperSchema.parse(germ_ks3_germ_ks3_set_2_json);
 const hist_ks3_hist_ks3_set_1: Paper = paperSchema.parse(hist_ks3_hist_ks3_set_1_json);
 const hist_ks3_hist_ks3_set_2: Paper = paperSchema.parse(hist_ks3_hist_ks3_set_2_json);
+const ict_ks3_ict_ks3_set_1: Paper = paperSchema.parse(ict_ks3_ict_ks3_set_1_json);
+const ict_ks3_ict_ks3_set_2: Paper = paperSchema.parse(ict_ks3_ict_ks3_set_2_json);
 const math_dp_ai_math_dp_ai_set_1: Paper = paperSchema.parse(math_dp_ai_math_dp_ai_set_1_json);
 const math_dp_ai_math_dp_ai_set_2: Paper = paperSchema.parse(math_dp_ai_math_dp_ai_set_2_json);
 const math_y7_math_y7_set_1: Paper = paperSchema.parse(math_y7_math_y7_set_1_json);
@@ -624,7 +639,7 @@ export const subjectMeta: Partial<Record<SubjectId, { name: string; icon: string
   german: { name: germanMeta.name, icon: germanMeta.icon, color: germanMeta.accentColor },
 };
 
-const papers: Paper[] = [bio_ks3_bio_ks3_set_1, bio_ks3_bio_ks3_set_2, chem_ks3_chem_ks3_set_1, chem_ks3_chem_ks3_set_2, eng_ks3_eng_ks3_set_1, eng_ks3_eng_ks3_set_2, geog_ks3_geog_ks3_set_1, geog_ks3_geog_ks3_set_2, hist_ks3_hist_ks3_set_1, hist_ks3_hist_ks3_set_2, math_dp_ai_math_dp_ai_set_1, math_dp_ai_math_dp_ai_set_2, math_y7_math_y7_set_1, math_y7_math_y7_set_2, math_y8_math_y8_set_1, math_y8_math_y8_set_2, math_y9_math_y9_set_1, math_y9_math_y9_set_2, phys_ks3_phys_ks3_set_1, phys_ks3_phys_ks3_set_2];
+const papers: Paper[] = [bio_ks3_bio_ks3_set_1, bio_ks3_bio_ks3_set_2, chem_ks3_chem_ks3_set_1, chem_ks3_chem_ks3_set_2, chin_ks3_chin_ks3_set_1, chin_ks3_chin_ks3_set_2, eng_ks3_eng_ks3_set_1, eng_ks3_eng_ks3_set_2, geog_ks3_geog_ks3_set_1, geog_ks3_geog_ks3_set_2, germ_ks3_germ_ks3_set_1, germ_ks3_germ_ks3_set_2, hist_ks3_hist_ks3_set_1, hist_ks3_hist_ks3_set_2, ict_ks3_ict_ks3_set_1, ict_ks3_ict_ks3_set_2, math_dp_ai_math_dp_ai_set_1, math_dp_ai_math_dp_ai_set_2, math_y7_math_y7_set_1, math_y7_math_y7_set_2, math_y8_math_y8_set_1, math_y8_math_y8_set_2, math_y9_math_y9_set_1, math_y9_math_y9_set_2, phys_ks3_phys_ks3_set_1, phys_ks3_phys_ks3_set_2];
 
 export function getAllPapers(): Paper[] {
   return papers;

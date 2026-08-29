@@ -1,0 +1,100 @@
+{
+  "id": "ict-ks3-set-1",
+  "courseId": "ict-ks3",
+  "title": "Practice Set 1",
+  "durationMinutes": 25,
+  "questions": [
+    {
+      "id": "ict-ks3-set-1-q1",
+      "stem": "(a) State what this Python line outputs: print(\"3\" + \"5\"). (b) Explain why the output is not 8.",
+      "marks": 2,
+      "markscheme": [
+        "B1: the output is 35",
+        "B1: the speech marks make both values strings, and + on strings means concatenation (joining), not addition"
+      ],
+      "modelAnswer": "(a) The program outputs 35. (b) The speech marks turn 3 and 5 into strings (text), and the + operator on strings means concatenation — joining them end to end — so \"3\" + \"5\" gives the text 35 rather than the arithmetic sum 8. To get 8, both values would need to be numbers: print(3 + 5).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-ks3-set-1-q2",
+      "stem": "(a) Which HTML tag marks the main heading of a web page? (b) Where does the text inside the <title> tag appear?",
+      "marks": 2,
+      "markscheme": [
+        "B1: (a) the <h1> tag",
+        "B1: (b) on the browser tab (and in search results), not on the page itself"
+      ],
+      "modelAnswer": "(a) The main heading uses the <h1> tag — headings run from h1 (largest, one per page) down to h6. (b) The <title> lives in the head section, which holds information about the page, so its text appears on the browser's tab and in search results — never as visible content on the page itself.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-ks3-set-1-q3",
+      "stem": "(a) In machine learning, what is training data? (b) What makes a learning task 'supervised'?",
+      "marks": 2,
+      "markscheme": [
+        "B1: training data is the collection of examples the learning algorithm learns patterns from",
+        "B1: supervised means every training example comes labelled with the correct answer"
+      ],
+      "modelAnswer": "(a) Training data is the collection of examples — such as thousands of emails already marked spam or not-spam — from which the learning algorithm adjusts a model so its predictions improve. (b) Learning is supervised when every training example is labelled with the correct answer, so the model can learn the mapping from input to output, as with photos labelled 'cat' or 'dog'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-ks3-set-1-q4",
+      "stem": "In a spreadsheet, cell A1 contains 4 and cell B1 contains 6. (a) Calculate the value of the formula =A1+B1*2. (b) Calculate the value of =(A1+B1)*2. (c) Explain why the two formulas give different results.",
+      "marks": 3,
+      "markscheme": [
+        "M1: applies the correct order of operations — multiplication before addition",
+        "A1: (a) 16",
+        "A1: (b) 20, because the brackets force the addition to happen first"
+      ],
+      "modelAnswer": "(a) Spreadsheets follow the normal order of operations, so multiplication happens before addition: B1*2 is 12, then A1 + 12 gives 16. (b) The brackets override the order: A1+B1 is 10, and 10*2 gives 20. (c) The two formulas differ because brackets change which operation runs first — without them, only B1 is multiplied before the addition.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-ks3-set-1-q5",
+      "stem": "Trace this Python code and state exactly what it prints: total = 0, then a loop for i in range(2, 6): with the indented body total = total + i, then after the loop print(total).",
+      "marks": 2,
+      "markscheme": [
+        "B1: the output is 14",
+        "B1: range(2, 6) produces 2, 3, 4, 5 — it stops before the end value — so the total is 2 + 3 + 4 + 5"
+      ],
+      "modelAnswer": "The loop runs with i taking each value from range(2, 6), which produces 2, 3, 4 and 5 — a range stops before its end value. Tracing the accumulator: total starts at 0, then becomes 2, then 5, then 9, then 14. The loop ends and print(total) outputs 14.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-ks3-set-1-q6",
+      "stem": "A student designs an automatic greenhouse fan that switches on when the air gets too hot. Using the input-process-output model, describe each of the three stages of this system.",
+      "marks": 3,
+      "markscheme": [
+        "B1: input — a temperature sensor feeding heat readings into the microcontroller",
+        "B1: process — the program compares the reading with a threshold ('if above the limit, it is too hot')",
+        "B1: output — an actuator (the fan motor) switched on or off by the program"
+      ],
+      "modelAnswer": "Input: a temperature sensor measures the heat and sends an analog reading into the microcontroller. Process: the control program compares that reading with a set threshold — if the temperature is above the limit, it decides the greenhouse is too hot. Output: the program drives an actuator, switching the fan motor on when the threshold is exceeded and off again when the air cools. The whole cycle repeats forever inside a loop, sense-decide-act.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-ks3-set-1-q7",
+      "stem": "Trace this Python code and state exactly what it prints: x = 1, then while x < 5: with the indented body print(x) and x = x + 2. Explain why the loop stops.",
+      "marks": 3,
+      "markscheme": [
+        "B1: the values printed are 1 and 3",
+        "B1: the loop body runs twice, with x increasing by 2 each pass (1, then 3, then 5)",
+        "B1: the loop stops because x becomes 5, making the condition 5 < 5 false"
+      ],
+      "modelAnswer": "Trace: x starts at 1. The condition 1 < 5 is true, so the body prints 1 and x becomes 3. The condition 3 < 5 is true, so it prints 3 and x becomes 5. Now the condition 5 < 5 is false, so the loop ends before printing again. The complete output is therefore 1 on one line and 3 on the next — the update step x = x + 2 is what guarantees the condition eventually fails, preventing an infinite loop.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-ks3-set-1-q8",
+      "stem": "A student models a mug in 3D software, starting from a solid cylinder, and wants to 3D print the result. (a) Explain which Boolean operation hollows out the cylinder, and how. (b) Explain which Boolean operation attaches a separately modelled handle. (c) State why the finished model must be 'watertight' before printing.",
+      "marks": 3,
+      "markscheme": [
+        "B1: subtract — a smaller cylinder is positioned inside the solid one and cut out of it, leaving a hollow cup",
+        "B1: union — joins the handle and the cup into one fused solid",
+        "B1: watertight means a fully closed solid with no gaps or thin touching seams, which a 3D printer needs to interpret the model"
+      ],
+      "modelAnswer": "(a) Boolean subtract: a smaller cylinder is placed inside the solid cylinder, passing down through its top, and used as the cutting shape — removing that volume hollows the mug out. (b) Boolean union: the handle (for example a torus) is fused with the cup so they become one solid rather than two touching pieces. (c) The model must be watertight — a completely closed solid with no holes or gaps — because shapes that merely touch or slightly overlap leave thin or open seams that a 3D printer's slicer cannot interpret reliably.",
+      "difficulty": "hard"
+    }
+  ]
+}

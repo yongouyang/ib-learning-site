@@ -1,0 +1,100 @@
+{
+  "id": "ict-ks3-set-2",
+  "courseId": "ict-ks3",
+  "title": "Practice Set 2",
+  "durationMinutes": 25,
+  "questions": [
+    {
+      "id": "ict-ks3-set-2-q1",
+      "stem": "(a) In Scratch, what is a sprite? (b) What does the block go to x: 0 y: 0 do?",
+      "marks": 2,
+      "markscheme": [
+        "B1: a character or object in the project, with its own scripts, costumes and sounds",
+        "B1: it moves (teleports) the sprite to the centre of the stage, the point (0, 0)"
+      ],
+      "modelAnswer": "(a) A sprite is a character or object in a Scratch project — each one carries its own scripts (code), costumes (appearances) and sounds. (b) The block go to x: 0 y: 0 teleports the sprite to the exact centre of the stage, because the stage's coordinate grid is centred on the origin (0, 0).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-ks3-set-2-q2",
+      "stem": "(a) In video production, what is a shot list? (b) What is the purpose of a wide (establishing) shot at the start of a scene?",
+      "marks": 2,
+      "markscheme": [
+        "B1: a numbered checklist of every shot to film — framing, location and action — ticked off during the shoot",
+        "B1: it shows the whole location so the audience knows where the scene is set"
+      ],
+      "modelAnswer": "(a) A shot list is the practical filming document: every shot numbered with its framing (wide or close), location and the action or lines it covers, so the crew can film out of story order and tick off coverage without missing anything. (b) An establishing shot is a wide view of the whole location shown at the start of a scene, orienting the audience before closer shots focus on people and detail.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-ks3-set-2-q3",
+      "stem": "For each case, name the best image file format and give one reason: (a) a photograph for a website, where small file size matters; (b) a club logo that needs a transparent background.",
+      "marks": 2,
+      "markscheme": [
+        "B1: (a) JPEG — its lossy compression makes photographic files much smaller",
+        "B1: (b) PNG — it supports transparent backgrounds and is lossless"
+      ],
+      "modelAnswer": "(a) JPEG: its lossy compression discards detail the eye barely notices, shrinking photo files dramatically so web pages load faster. (b) PNG: it is lossless and, unlike JPEG, can store a transparent background, which a logo needs to sit cleanly over different coloured page backgrounds.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "ict-ks3-set-2-q4",
+      "stem": "A stop-frame animation lasts 20 seconds and plays at 12 frames per second. (a) Calculate how many frames must be photographed. (b) Name the app feature that overlays a ghost of the previous frame on the live view, and explain how it helps the animator.",
+      "marks": 3,
+      "markscheme": [
+        "M1: correct method — frames = seconds × frames per second",
+        "A1: 20 × 12 = 240 frames",
+        "B1: onion skinning — it shows how far the character moved last time, so movements stay small and even"
+      ],
+      "modelAnswer": "(a) Frames needed = seconds × fps = 20 × 12 = 240 frames — which is why stop-frame is so time-consuming. (b) The feature is onion skinning: a faint, semi-transparent ghost of the previous frame overlaid on the live camera view. It lets the animator see exactly how far the character was moved last time and match that step, keeping the motion smooth and consistent instead of jerky.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-ks3-set-2-q5",
+      "stem": "A Python program contains scores = [12, 7, 19, 4]. (a) State the value of scores[2]. (b) State what happens when the program runs print(scores[4]), and why.",
+      "marks": 2,
+      "markscheme": [
+        "B1: (a) 19 (indexes start at 0, so index 2 is the third item)",
+        "B1: (b) an IndexError — a 4-item list has valid indexes 0 to 3 only, so index 4 does not exist"
+      ],
+      "modelAnswer": "(a) List indexes start at 0, so scores[0] is 12, scores[1] is 7 and scores[2] is 19. (b) print(scores[4]) crashes with an IndexError: list index out of range. A list of length 4 has valid indexes 0, 1, 2 and 3 only — asking for index 4 is one past the end, a classic off-by-one error.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-ks3-set-2-q6",
+      "stem": "A quiz program saves high scores to a file. (a) Which file mode — \"r\", \"w\" or \"a\" — should be used to add a new score without erasing the old ones? (b) The program runs age = int(input(\"Age? \")) and a user types the word twelve. What error occurs? (c) Explain how try/except makes this input robust.",
+      "marks": 3,
+      "markscheme": [
+        "B1: (a) mode \"a\" (append) — \"w\" would wipe the existing contents",
+        "B1: (b) a ValueError, because int() cannot convert the word twelve into a number",
+        "B1: (c) try runs the risky conversion and except ValueError catches the crash, so the program prints a helpful message and asks again instead of stopping"
+      ],
+      "modelAnswer": "(a) Mode \"a\" (append): it adds the new score at the end without erasing what is already saved — opening with \"w\" would wipe the file. (b) A ValueError: int() cannot parse the word twelve, so the conversion fails and the program crashes. (c) Wrapping the conversion in try/except turns the crash into a controlled response: the try block attempts int(answer), and except ValueError catches that specific error, prints a friendly message such as 'Please enter digits', and the validation loop asks again — the program never crashes and never accepts nonsense.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "ict-ks3-set-2-q7",
+      "stem": "A company trains an AI hiring tool on ten years of its past recruitment decisions. The finished tool rejects CVs from one particular group far more often than others. (a) Explain the most likely cause. (b) Describe TWO things the company should do to fix the problem properly.",
+      "marks": 3,
+      "markscheme": [
+        "B1: historical bias — the model faithfully learned the unfair patterns present in the past decisions it was trained on",
+        "B1: fix 1 — rebuild/audit the training data so it fairly represents all groups rather than copying past discrimination",
+        "B1: fix 2 — test the model's accuracy separately for different groups, and keep humans in the loop with a way to appeal decisions"
+      ],
+      "modelAnswer": "(a) The cause is historical bias in the training data. A model learns whatever patterns exist in its examples, so if ten years of past hiring decisions favoured one group, the tool faithfully learns that favouritism and automates yesterday's discrimination at scale. (b) First, the company must fix the root cause: audit and rebuild the training data so it represents all applicants fairly, rather than encoding past prejudice. Second, it must test the model's accuracy separately for each group and keep humans in the loop for these high-stakes decisions, with a clear way for rejected applicants to appeal — blind trust in 'the algorithm' is not a defence.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "ict-ks3-set-2-q8",
+      "stem": "A Scratch script reads: when green flag clicked, set score to 0, then repeat 4 { change score by 2 }. (a) State the final value of score, showing how you traced it. (b) In another project, the block change score by 1 is attached immediately AFTER a forever loop instead of inside it. Explain why the score never changes.",
+      "marks": 3,
+      "markscheme": [
+        "B1: (a) the final score is 8",
+        "B1: trace — the repeat runs its body exactly 4 times, adding 2 each time: 0, 2, 4, 6, 8",
+        "B1: (b) a forever loop never ends, so any block attached after it is never reached — the change must be inside the loop (or its if block)"
+      ],
+      "modelAnswer": "(a) The final value of score is 8. Trace: score is set to 0, then the repeat 4 loop runs its body exactly four times, and each pass adds 2 — score goes 0, 2, 4, 6 and finally 8. (b) A forever loop repeats without end, so the script never moves on to any block attached after it: the change score by 1 block is simply never reached. The fix is to move the change block inside the forever loop (and inside the if block that detects the scoring event), so it runs each time the condition is met.",
+      "difficulty": "hard"
+    }
+  ]
+}
