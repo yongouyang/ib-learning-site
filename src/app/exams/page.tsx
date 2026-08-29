@@ -100,7 +100,7 @@ export default function ExamsPage() {
               <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 flex flex-wrap gap-x-4 gap-y-1.5">
                 <Link
                   href={`/exams/${course.id}/ladder`}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200"
+                  className="inline-flex items-center gap-1.5 py-3 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200"
                 >
                   <TrendingUp className="w-4 h-4" /> Revision Ladder — 5 levels
                 </Link>
@@ -108,7 +108,7 @@ export default function ExamsPage() {
                   <Link
                     key={set.id}
                     href={`/papers/${set.courseId}/${set.id}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
+                    className="inline-flex items-center gap-1.5 py-3 text-sm font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
                   >
                     <FileSignature className="w-4 h-4" /> {set.title} — free-response
                   </Link>
@@ -126,7 +126,7 @@ export default function ExamsPage() {
                       <Link
                         key={set.id}
                         href={`/papers/${set.courseId}/${set.id}`}
-                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
+                        className="inline-flex items-center gap-1.5 py-3 text-sm font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
                       >
                         <FileSignature className="w-4 h-4" /> {set.title} — free-response
                       </Link>

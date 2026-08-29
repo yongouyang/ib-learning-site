@@ -346,7 +346,7 @@ function PaperRunner({ paper }: PaperRunnerClientProps) {
         { href: '/', label: 'Home' },
         { href: '/papers', label: 'Practice Papers' },
         { label: `${course?.title ?? paper.courseId} ${paper.title}` },
-      ]} />
+      ]} currentAsHeading />
 
       {/* Progress bar */}
       <div className="flex items-center gap-3 mb-6">
