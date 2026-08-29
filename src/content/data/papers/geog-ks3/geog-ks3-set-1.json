@@ -1,0 +1,100 @@
+{
+  "id": "geog-ks3-set-1",
+  "courseId": "geog-ks3",
+  "title": "Practice Set 1",
+  "durationMinutes": 25,
+  "questions": [
+    {
+      "id": "geog-ks3-set-1-q1",
+      "stem": "A hiker gives the 6-figure grid reference of a campsite as 352471. (a) In which 1 km grid square does the campsite lie? (b) How far north of the northing line 47 is the campsite, in metres?",
+      "marks": 2,
+      "markscheme": [
+        "B1: the 4-figure grid square is 3547",
+        "B1: 100 m (the final digit 1 means one-tenth of a 1 km square north)"
+      ],
+      "modelAnswer": "(a) Read the easting first, then the northing: easting 35 and northing 47 give the 4-figure square 3547. (b) The sixth digit, 1, means one-tenth of the way north across the square; one-tenth of 1 km is 100 m, so the campsite is about 100 m north of northing line 47.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "geog-ks3-set-1-q2",
+      "stem": "Explain the difference between weather and climate.",
+      "marks": 2,
+      "markscheme": [
+        "B1: weather is the day-to-day (short-term) condition of the atmosphere at a place",
+        "B1: climate is the average weather of a place measured over a long period (usually at least 30 years)"
+      ],
+      "modelAnswer": "Weather is the day-to-day condition of the atmosphere at a particular place — temperature, rain and wind that can change within hours. Climate is the average weather of a place measured over a long period, usually at least 30 years. A useful saying is: climate is what you expect; weather is what you get.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "geog-ks3-set-1-q3",
+      "stem": "(a) Name the river erosion process in which stones carried by the river knock against each other and break into smaller, rounder pieces. (b) Name the feature found where two rivers meet.",
+      "marks": 2,
+      "markscheme": [
+        "B1: (a) attrition",
+        "B1: (b) a confluence"
+      ],
+      "modelAnswer": "(a) Attrition: stones in the river's load collide with each other, breaking into smaller, smoother and rounder pieces — which is why angular boulders upstream become rounded pebbles downstream. (b) A confluence is the point where a tributary joins the main river (where two rivers meet).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "geog-ks3-set-1-q4",
+      "stem": "Two fictional towns are being compared. Brackenford has a population of 90 000 living in an area of 300 km². Millvale has a population of 50 000 living in an area of 100 km². (a) Calculate the population density of each town. (b) State which town is more densely populated.",
+      "marks": 3,
+      "markscheme": [
+        "M1: correct method — population density = population ÷ area",
+        "A1: Brackenford 300 people per km²",
+        "A1: Millvale 500 people per km², so Millvale is more densely populated"
+      ],
+      "modelAnswer": "Population density = population ÷ area. Brackenford: 90 000 ÷ 300 = 300 people per km². Millvale: 50 000 ÷ 100 = 500 people per km². Millvale is therefore more densely populated, even though its total population is smaller — density depends on both the number of people and the area they occupy.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "geog-ks3-set-1-q5",
+      "stem": "Explain why powerful earthquakes, but never volcanoes, occur at a conservative plate boundary.",
+      "marks": 3,
+      "markscheme": [
+        "B1: at a conservative boundary the two plates slide sideways past each other",
+        "B1: no crust is created or destroyed and no rock melts, so there is no magma to feed volcanoes",
+        "B1: friction makes the plates jam; pressure builds until they jerk free, releasing energy as an earthquake"
+      ],
+      "modelAnswer": "At a conservative (transform) boundary, two plates slide sideways past each other. No crust is created and none is destroyed or melted, so no magma is produced — which is why there are no volcanoes. However, the plates do not slide smoothly: friction makes them jam, pressure builds up over years, and when they suddenly jerk free the released energy shakes the ground as a powerful earthquake, as on the San Andreas Fault.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "geog-ks3-set-1-q6",
+      "stem": "State whether each of the following is climate change mitigation or adaptation: (a) replacing a coal-fired power station with a wind farm; (b) building a sea wall to protect a low-lying town from rising seas.",
+      "marks": 2,
+      "markscheme": [
+        "B1: (a) mitigation — it cuts greenhouse gas emissions, tackling the cause of climate change",
+        "B1: (b) adaptation — it copes with an effect already underway rather than reducing emissions"
+      ],
+      "modelAnswer": "(a) Mitigation: the wind farm replaces fossil-fuel electricity, cutting CO2 emissions and so tackling the cause of climate change. (b) Adaptation: the sea wall does not reduce any emissions; it protects the town against sea-level rise, an effect of climate change that is already happening. A good memory aid: mitigation avoids the unmanageable, adaptation manages the unavoidable.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "geog-ks3-set-1-q7",
+      "stem": "The climate station at the fictional town of Solara records average monthly temperatures between 18 °C and 39 °C, and total annual rainfall of just 120 mm, almost all of it falling in two months. (a) Identify the biome most likely to surround Solara. (b) Describe ONE adaptation of plants and ONE adaptation of animals in this biome, explaining how each helps survival.",
+      "marks": 3,
+      "markscheme": [
+        "B1: hot desert (annual rainfall well under 250 mm with high temperatures)",
+        "B1: valid plant adaptation with explanation, e.g. spines instead of leaves reduce water loss / swollen stems store water / wide shallow roots absorb rare rain quickly",
+        "B1: valid animal adaptation with explanation, e.g. nocturnal behaviour avoids daytime heat / burrowing underground escapes the heat / large ears radiate body heat"
+      ],
+      "modelAnswer": "(a) Solara's extremely low rainfall (120 mm, far below the 250 mm desert threshold) and high temperatures identify it as a hot desert. (b) Plants such as cacti have spines instead of leaves, which sharply reduces water loss, and store water in swollen stems. Animals cope with the heat by being nocturnal — staying in cool burrows during the scorching day and coming out at night — while species such as the fennec fox use huge ears to radiate body heat away.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "geog-ks3-set-1-q8",
+      "stem": "Explain why GDP per capita on its own can be a misleading measure of a country's development, and describe how the Human Development Index (HDI) gives a broader picture.",
+      "marks": 3,
+      "markscheme": [
+        "B1: GDP per capita is an average that hides inequality — a few very rich people can make a mostly poor country look wealthy",
+        "B1: it measures only income and ignores health, education, equality, freedom and the environment",
+        "B1: HDI combines income (GNI per capita) with life expectancy (health) and years of schooling (education) in a single score from 0 to 1"
+      ],
+      "modelAnswer": "GDP per capita is simply total income divided by population, so it is an average that hides inequality: a country with a small wealthy elite can look rich on paper while most people are poor. It also measures only money, saying nothing about health, education, equality, freedom or the environment — all part of development. The HDI gives a broader picture by combining three dimensions — income (GNI per capita), health (life expectancy) and education (years of schooling) — into one score between 0 and 1, so a country cannot score highly on wealth alone.",
+      "difficulty": "hard"
+    }
+  ]
+}
