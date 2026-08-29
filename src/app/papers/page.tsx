@@ -57,6 +57,20 @@ export default function PapersPage() {
         </p>
       </div>
 
+      {/* Phase E3 — ONE page-level premium pitch (copy voice: say it once);
+          each course card below only carries a compact lock row. */}
+      <div className="mb-6">
+        <LockedFeature
+          feature="exam-sets-full"
+          title="Full exam sets"
+          benefit="Set 1 of every course is free. Premium unlocks every set, timed mock mode and upper ladder levels."
+        >
+          <p className="text-xs text-gray-500 dark:text-gray-400">
+            {papers.length} free-response sets across {byCourse.size} courses — Set 1 of each course is free
+          </p>
+        </LockedFeature>
+      </div>
+
       <div className="grid gap-3">
         {Array.from(byCourse.entries()).map(([courseId, coursePapers]) => {
           const course = getCourse(courseId);
@@ -74,6 +88,7 @@ export default function PapersPage() {
                   feature="exam-sets-full"
                   title="Full exam sets"
                   benefit={`Set 1 is free — unlock all ${free.length + locked.length} sets for this course, upper ladder levels and timed mock mode.`}
+                  compact
                 >
                   <div className="space-y-2 mt-2">
                     {locked.map((paper) => <SetRow key={paper.id} paper={paper} />)}

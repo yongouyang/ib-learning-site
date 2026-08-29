@@ -48,8 +48,8 @@ test.describe('Mock exams', () => {
     await expect(papers).toHaveCount(17);
     await expect(page.getByRole('link', { name: 'See Premium plans' })).toHaveCount(0);
     await expect(page.getByText('Paper 2 — extended response')).toBeVisible();
-    // Both practice sets per course are unlocked cross-links too (8 courses × 2).
-    await expect(page.getByRole('link', { name: /— free-response/ })).toHaveCount(16);
+    // Both practice sets per course are unlocked cross-links too (13 courses × 2).
+    await expect(page.getByRole('link', { name: /— free-response/ })).toHaveCount(26);
     // Fresh browser context → nothing attempted yet.
     await expect(page.getByText('Not attempted').first()).toBeVisible();
 
@@ -93,13 +93,13 @@ test.describe('Mock exams', () => {
     await page.goto('/exams');
     const links = page.getByRole('link', { name: /— free-response/ });
     // Set 1 stays free on every course with papers. The locked set-2 rows exist
-    // in the DOM (8 inert previews) but are aria-hidden, so they are NOT
+    // in the DOM (13 inert previews) but are aria-hidden, so they are NOT
     // accessible links for anonymous visitors…
-    await expect(links).toHaveCount(8);
-    await expect(page.locator('a[href$="-set-2"]').filter({ hasText: /— free-response/ })).toHaveCount(8);
+    await expect(links).toHaveCount(13);
+    await expect(page.locator('a[href$="-set-2"]').filter({ hasText: /— free-response/ })).toHaveCount(13);
     await expect(page.getByRole('link', { name: /Practice Set 2 — free-response/ })).toHaveCount(0);
     // …and each course's locked sets sit behind a compact premium lock row.
-    await expect(page.getByRole('link', { name: /Premium · Full exam sets/ })).toHaveCount(8);
+    await expect(page.getByRole('link', { name: /Premium · Full exam sets/ })).toHaveCount(13);
     await links.first().click();
     await page.waitForURL('**/papers/math-y7/math-y7-set-1');
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
