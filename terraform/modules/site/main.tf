@@ -222,6 +222,36 @@ locals {
   )
 }
 
+# --- DEV noindex (viewer-response Function; DEV distribution only) -------------
+# dev.octavlearning.com serves a full clone of the site (~800 pages) on its own bucket and
+# distribution with NO indexability control, so every ranking signal is split across two
+# hosts — and staging can be indexed before prod. Fixed at the edge, on the dev instance
+# only, gated by the same dev_brand_rewrite flag as the PWA branding rewrite: the build
+# artefact stays identical between environments (docs/seo-technical-plan.md §4.3).
+#
+# Deliberately an HTTP header and NOT a robots.txt Disallow: `noindex` only works if a
+# crawler can FETCH the page, and the robots.txt object is shared with prod (which must keep
+# advertising the sitemap). Also not a client-side head mutation — a crawler that does not
+# run JS would never see it, and the 2026-08-28 duplicate-manifest incident is the precedent
+# for keeping DevEnvironmentIndicator out of head management.
+resource "aws_cloudfront_function" "dev_noindex" {
+  count   = var.dev_brand_rewrite ? 1 : 0
+  name    = "${var.name_prefix}-dev-noindex"
+  runtime = "cloudfront-js-2.0"
+  comment = "DEV only: X-Robots-Tag noindex,follow so the dev environment never enters the search indexes"
+  publish = true
+
+  # Header keys in the CloudFront Functions headers object are lowercase; an absent entry is
+  # created by assignment, so no pre-existing x-robots-tag is required.
+  code = <<-EOT
+    function handler(event) {
+      var response = event.response;
+      response.headers['x-robots-tag'] = { value: "noindex, follow" };
+      return response;
+    }
+  EOT
+}
+
 resource "aws_cloudfront_function" "url_rewrite" {
   name    = "${var.name_prefix}-url-rewrite"
   runtime = "cloudfront-js-2.0"
@@ -606,6 +636,16 @@ resource "aws_cloudfront_distribution" "site" {
     function_association {
       event_type   = "viewer-request"
       function_arn = aws_cloudfront_function.url_rewrite.arn
+    }
+
+    # DEV only: X-Robots-Tag on every page the default behavior serves. /api/* behaviors are
+    # separate and deliberately untouched — they are APIs, not indexable documents.
+    dynamic "function_association" {
+      for_each = var.dev_brand_rewrite ? [aws_cloudfront_function.dev_noindex[0].arn] : []
+      content {
+        event_type   = "viewer-response"
+        function_arn = function_association.value
+      }
     }
   }
 
