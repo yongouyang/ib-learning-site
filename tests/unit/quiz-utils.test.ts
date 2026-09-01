@@ -92,12 +92,15 @@ describe('parseDifficultyFilter', () => {
 });
 
 describe('stratifiedSample', () => {
+  // NOTE: not `vi.stubGlobal('Math', { ...Math, random })` — Math's properties
+  // are non-enumerable, so that spread leaves an object with ONLY `random` and
+  // any Math.abs / Math.floor on the code path dies. Spy on random instead.
   beforeEach(() => {
-    vi.stubGlobal('Math', { ...Math, random: vi.fn(() => 0.5) });
+    vi.spyOn(Math, 'random').mockReturnValue(0.5);
   });
 
   afterEach(() => {
-    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
   });
 
   it('picks the requested number per band', () => {
@@ -138,6 +141,32 @@ describe('stratifiedSample', () => {
   it('returns everything when the pool is smaller than the target total', () => {
     const tiny = [makeQuestion('e1', 'easy'), makeQuestion('m1', 'medium')];
     expect(stratifiedSample(tiny, { easy: 3, medium: 4, hard: 3 })).toHaveLength(2);
+  });
+
+  it('is deterministic for a seed and never touches Math.random', () => {
+    const big = [
+      ...Array.from({ length: 12 }, (_, i) => makeQuestion(`e${i}`, 'easy')),
+      ...Array.from({ length: 12 }, (_, i) => makeQuestion(`m${i}`, 'medium')),
+      ...Array.from({ length: 12 }, (_, i) => makeQuestion(`h${i}`, 'hard')),
+    ];
+    const a = stratifiedSample(big, { easy: 3, medium: 4, hard: 3 }, (q) => q.difficulty, 'session-1');
+    const b = stratifiedSample(big, { easy: 3, medium: 4, hard: 3 }, (q) => q.difficulty, 'session-1');
+    expect(a.map((q) => q.id)).toEqual(b.map((q) => q.id));
+    expect(Math.random).not.toHaveBeenCalled();
+    // A different seed draws a different set (the point of reseeding per session).
+    const c = stratifiedSample(big, { easy: 3, medium: 4, hard: 3 }, (q) => q.difficulty, 'session-2');
+    expect(c.map((q) => q.id)).not.toEqual(a.map((q) => q.id));
+    // Still a valid stratified sample.
+    expect(a).toHaveLength(10);
+    expect(a.filter((q) => q.difficulty === 'easy')).toHaveLength(3);
+  });
+
+  it('does not mutate the input pool', () => {
+    const pool = Array.from({ length: 6 }, (_, i) => makeQuestion(`m${i}`, 'medium'));
+    const before = pool.map((q) => q.id);
+    stratifiedSample(pool, { medium: 4 }, (q) => q.difficulty, 's');
+    stratifiedSample(pool, { medium: 4 }, (q) => q.difficulty);
+    expect(pool.map((q) => q.id)).toEqual(before);
   });
 });
 
