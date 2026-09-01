@@ -4,6 +4,19 @@ import { getExamCourses, examId } from '@/lib/exams';
 import { getPapersForCourse } from '@/content/registry';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CtaLink } from '@/components/CtaLink';
+import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo/page-meta';
+
+/**
+ * The exam-tier shop window: the ladder and the free paper set are indexable, the timed
+ * mocks behind them are not (§1.2), so this is the page that should rank for
+ * "IGCSE mock exams" / "KS3 maths tests" and carry the funnel.
+ */
+export const metadata: Metadata = pageMeta({
+  path: '/exams',
+  title: 'Mock exams & revision ladder',
+  description: 'Timed mock exams, a five-level revision ladder and free-response practice papers with tick-point mark schemes and model answers — for KS3, IGCSE and IB DP. Levels 1–2 and the first paper set per course are free.',
+});
 import { LockedFeature } from '@/components/LockedFeature';
 import { splitPaperSetsByAccess } from '@/lib/entitlements/exam-access';
 import PaperScore from './PaperScore';

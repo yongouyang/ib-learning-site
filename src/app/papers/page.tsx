@@ -7,6 +7,14 @@ import { LockedFeature } from '@/components/LockedFeature';
 import { splitPaperSetsByAccess } from '@/lib/entitlements/exam-access';
 import type { Paper } from '@/content/types';
 import PaperScore from '@/app/exams/PaperScore';
+import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo/page-meta';
+
+export const metadata: Metadata = pageMeta({
+  path: '/papers',
+  title: 'Practice papers with mark schemes',
+  description: 'Original free-response papers for every Octav Learning course, each with a tick-point mark scheme and a model answer per question — the paper-1 style practice KS3, IGCSE and IB DP students actually need.',
+});
 
 function SetRow({ paper }: { paper: Paper }) {
   const totalMarks = paper.questions.reduce((sum, q) => sum + q.marks, 0);

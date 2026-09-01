@@ -1,5 +1,8 @@
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { getSubjects } from '@/content/registry';
+import { metaForTool } from '@/lib/seo/meta';
+import { findTopic } from '@/lib/seo/topic-ref';
 import FlashcardsPageClient from './FlashcardsPageClient';
 
 export function generateStaticParams() {
@@ -10,6 +13,15 @@ export function generateStaticParams() {
     }
   }
   return params;
+}
+
+/** noindex, follow + canonical to /study — see the quiz page note; never in a sitemap. */
+export async function generateMetadata(props: {
+  params: Promise<{ subjectId: string; topicId: string }>;
+}): Promise<Metadata> {
+  const { subjectId, topicId } = await props.params;
+  const found = findTopic(subjectId, topicId);
+  return found ? metaForTool(found.topic, found.subjectName, 'flashcards') : {};
 }
 
 export default async function FlashcardsPage(props: { params: Promise<{ subjectId: string; topicId: string }> }) {
