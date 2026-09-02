@@ -79,9 +79,13 @@ async function main() {
     const children = [...idxTxt.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
     if (!children.length) fail('/sitemap/index.xml declares zero children');
     for (const child of children) {
-      const r = await fetch(child, { headers: { 'user-agent': 'octav-seo-verify' } });
+      // Child <loc>s are absolute PROD URLs by design (a sitemap is canonical to
+      // the production origin even when served from dev) — so fetch them on the
+      // requested origin, and judge foreignness against SITE.origin.
+      const childPath = child.replace(SITE.origin, '') || '/';
+      const r = await get(childPath);
       const xml = r.ok ? await r.text() : '';
-      if (!r.ok) fail(`sitemap child ${child} → HTTP ${r.status}`);
+      if (!r.ok) fail(`sitemap child ${childPath} on ${origin} → HTTP ${r.status}`);
       else if (!/<url>/.test(xml)) fail(`sitemap child ${child} has no <url> entries`);
       else
         for (const loc of [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1])) {
