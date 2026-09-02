@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { NextAction } from '@/lib/home-next-action';
 import { CtaLink } from '@/components/CtaLink';
@@ -46,7 +47,18 @@ export function Hero({ isReturning, nextAction }: HeroProps) {
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
           >
-            <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-3">KS3 · IGCSE · IB DP</p>
+            {/* Discovery links into the tier hubs (plan §4.4 item 3): the hubs give
+                study pages a ≤3-click path from home. IGCSE stays unlinked — the tier
+                has no content yet, so it has no route. */}
+            <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-3">
+              <Link href="/ks3" className="hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+                KS3
+              </Link>
+              {' · IGCSE · '}
+              <Link href="/ibdp" className="hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+                IB DP
+              </Link>
+            </p>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-50 mb-3">
               Master secondary school — from KS3 to IB.
             </h1>

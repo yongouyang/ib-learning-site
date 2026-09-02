@@ -12,6 +12,8 @@ import {
   tierSubjectPath,
 } from '@/lib/seo/curriculum';
 import { alternatesFor, HREFLANG_PHASE, LOCALES, PUBLISHED_LOCALES } from '@/lib/seo/hreflang';
+import { metaForTierHub, metaForTierSubject, tierSubjects } from '@/lib/seo/hubs';
+import { INDEXABLE_ROBOTS } from '@/lib/seo/page-meta';
 import { SITE } from '@/lib/seo/site';
 
 const subjects = getSubjects();
@@ -74,6 +76,65 @@ describe('seo/curriculum — labels, codes, paths', () => {
     }
     const ks3Math = topics.find((t) => t.stage === 'ks3' && t.subjectId === 'math')!;
     expect(tierSubjectPath('ks3', ks3Math.subjectId)).toBe('/ks3/math');
+  });
+});
+
+describe('seo/hubs — tier hub routes (S3)', () => {
+  it('tier hubs are indexable, self-canonical and carry the hreflang group', () => {
+    for (const tier of ['ks3', 'ibdp'] as const) {
+      const meta = metaForTierHub(tier);
+      const path = tierHubPath(tier);
+      expect(meta.robots).toEqual(INDEXABLE_ROBOTS);
+      const alternates = meta.alternates as { canonical: string; languages: Record<string, string> };
+      expect(alternates.canonical).toBe(path);
+      // hreflang is emitted on hub URLs only — must be the self-referencing H0 group
+      expect(alternates.languages).toEqual(alternatesFor(path));
+      expect(alternates.languages['x-default']).toBe(`${SITE.origin}${path}`);
+      // title shape "KS3 revision" / "IB DP revision", brand-free half (layout template appends the brand)
+      expect(typeof meta.title).toBe('string');
+      expect(meta.title as string).toBe(`${TIERS[tier].label} revision`);
+      expect(meta.title as string).not.toContain(SITE.name);
+      expect(typeof meta.description).toBe('string');
+    }
+  });
+
+  it('tier×subject hubs are "TIER <Subject>" and indexable with hreflang', () => {
+    const math = metaForTierSubject('ks3', 'math')!;
+    expect(math.title).toBe('KS3 Maths'); // subjectSeoName: Math → Maths in metadata
+    const alternates = math.alternates as { canonical: string; languages: Record<string, string> };
+    expect(alternates.canonical).toBe('/ks3/math');
+    expect(alternates.languages).toEqual(alternatesFor('/ks3/math'));
+    expect(math.robots).toEqual(INDEXABLE_ROBOTS);
+
+    const dpMath = metaForTierSubject('ibdp', 'math')!;
+    expect(dpMath.title).toBe('IB DP Maths');
+    expect((dpMath.alternates as { canonical: string }).canonical).toBe('/ibdp/math');
+
+    // empty tier / unknown subject → undefined → the route does not exist
+    expect(metaForTierSubject('igcse', 'math')).toBeUndefined();
+    expect(metaForTierSubject('ks3', 'no-such-subject')).toBeUndefined();
+  });
+
+  it('derives the hub route set from the registry — no hardcoding, no empty-tier routes', () => {
+    const ks3 = tierSubjects('ks3');
+    const registryKs3Subjects = subjects.filter((s) => s.topics.some((t) => tierOfTopic(t) === 'ks3')).map((s) => s.id);
+    expect(ks3.map((h) => h.subject.id)).toEqual(registryKs3Subjects);
+
+    // the IGCSE tier is empty today: zero hub children, so no /igcse route may exist
+    expect(tierSubjects('igcse')).toEqual([]);
+  });
+
+  it('the IBDP hub set covers every dp topic in the registry (course derivation misses nothing)', () => {
+    const dpTopics = topics.filter((t) => t.stage === 'dp');
+    expect(dpTopics.length).toBeGreaterThan(0);
+    const hubs = tierSubjects('ibdp');
+    const covered = new Set(hubs.flatMap((h) => h.topics.map((t) => t.id)));
+    for (const t of dpTopics) expect(covered.has(t.id), `dp topic ${t.id} has no hub route`).toBe(true);
+    // hub topics are exactly the dp topics of their subject, in registry order
+    for (const hub of hubs) {
+      const registryTopics = subjects.find((s) => s.id === hub.subject.id)!.topics.filter((t) => t.stage === 'dp');
+      expect(hub.topics.map((t) => t.id)).toEqual(registryTopics.map((t) => t.id));
+    }
   });
 });
 
