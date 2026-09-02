@@ -334,6 +334,15 @@ jobs:
           curl -fsS "$SITE_URL/api/contact/_health" | grep -q '"ok":true'
           echo "Smoke checks passed."
 
+      # The origin-facing SEO gate (scripts/verify-seo-live.ts): the local
+      # --verify gate proves the BUILD; this proves the DEPLOY — sitemap
+      # files actually reachable, every submitted URL live + indexable,
+      # noindex contract intact, edge headers right, and the origin serving
+      # THIS build. Caught the 2026-09-02 gap where public/sitemap/ never
+      # shipped. --all sweeps every sitemap URL (~311 GETs, our own origin).
+      - name: Live SEO verification (dev)
+        run: npm run verify:seo:live -- --env=dev --origin=https://dev.octavlearning.com --all
+
   # PROD deploy (main branch) — octavlearning.com on the dedicated bucket +
   # distribution (docs/custom-domain-cutover-plan.md). Same terraform state
   # and apply as deploy-dev; only the sync/invalidation/smoke targets differ.
@@ -487,3 +496,8 @@ jobs:
           # www → apex 301 (redirect lives in the PROD URL-rewrite Function).
           curl -fsS -o /dev/null -w '%{http_code}' https://www.octavlearning.com/ | grep -q '^301$'
           echo "Smoke checks passed."
+
+      # Same origin-facing gate as deploy-dev, against the apex (see the
+      # comment there for what it proves and why it exists).
+      - name: Live SEO verification (prod)
+        run: npm run verify:seo:live -- --all

@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:static": "bash scripts/build-static.sh",
+    "build:static": "npm run generate:sitemaps && bash scripts/build-static.sh && npm run verify:sitemaps",
     "build:lambda": "bash scripts/build-lambdas.sh",
     "start": "next start",
     "lint": "eslint .",
