@@ -153,8 +153,9 @@ async function main() {
       if (/noindex/i.test(robots)) return fail(`${path} is in the sitemap but marked noindex`);
       // metadataBase is pinned to the prod origin, so EVERY environment canonicals to prod —
       // on dev that is the point (noindex header + canonical → prod = the textbook staging
-      // pattern). Assert against SITE.origin, never the requested host.
-      const expected = `${SITE.origin}${path}`;
+      // pattern). Assert against SITE.origin, never the requested host. The root renders
+      // without a trailing slash (Next normalises '/'), which is the same document.
+      const expected = path === '/' ? SITE.origin : `${SITE.origin}${path}`;
       if (canonical !== expected)
         return fail(`${path} canonical is ${canonical || 'absent'}, expected ${expected}`);
       if (title.length > 65) fail(`${path} title is ${title.length} chars (Google clips ~60): "${title}"`);

@@ -118,12 +118,23 @@ test.describe('SEO metadata wiring', () => {
   });
 
   test('every rendered title carries the brand exactly once', async ({ page }) => {
-    for (const path of ['/pricing', '/terms', '/subjects/english', '/exams', '/papers', '/diagnostics']) {
+    for (const path of ['/pricing', '/terms', '/subjects/english', '/exams', '/papers', '/diagnostics', '/', '/account']) {
       const h = await head(page, path);
       const occurrences = h.title.split('Octav Learning').length - 1;
       expect(occurrences, `${path}: "${h.title}"`).toBeLessThanOrEqual(1);
       expect(occurrences, `${path} must name the brand once`).toBe(1);
     }
+  });
+
+  test('the homepage is indexable with a self-canonical and an absolute brand title', async ({ page }) => {
+    // The one page of 809 that shipped with neither robots nor canonical while page.tsx
+    // was 'use client' (found by scripts/verify-seo-live.ts). The server-wrapper fix must
+    // not regress: exact title, index robots, canonical on the apex.
+    const h = await head(page, '/');
+    expect(h.title).toBe('Octav Learning');
+    expect(h.robots).toContain('index');
+    expect(h.robots).not.toContain('noindex');
+    expect(h.canonical).toBe('https://octavlearning.com');
   });
 
   test('no page title overruns the SERP width budget on an indexable page', async ({ page }) => {

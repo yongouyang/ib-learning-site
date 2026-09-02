@@ -155,3 +155,26 @@ describe('seo/hreflang', () => {
     for (const l of PUBLISHED_LOCALES) expect(LOCALES[l].path).toBeDefined();
   });
 });
+
+describe('seo — metadata exports on the formerly client-only pages', () => {
+  it('the homepage exports an absolute brand title, self-canonical and index robots', async () => {
+    // page.tsx was 'use client' and therefore shipped with NO robots meta and NO canonical
+    // (found live by scripts/verify-seo-live.ts). The server wrapper must export all three,
+    // and the title must be ABSOLUTE — the root template would double a templated brand.
+    const { metadata } = await import('@/app/page');
+    expect(metadata.title).toEqual({ absolute: 'Octav Learning' });
+    expect(metadata.robots).toEqual(INDEXABLE_ROBOTS);
+    const alternates = metadata.alternates as { canonical: string };
+    expect(alternates.canonical).toBe('/');
+    expect(typeof metadata.description).toBe('string');
+  });
+
+  it('the /account layout title is brand-free (the template appends the brand once)', async () => {
+    // "Octav Learning account" + template = "Octav Learning account · Octav Learning" —
+    // the live defect. pageMeta's contract is a brand-free half.
+    const { metadata } = await import('@/app/account/layout');
+    expect(typeof metadata.title).toBe('string');
+    expect(metadata.title as string).toBe('Your account');
+    expect(metadata.title as string).not.toContain(SITE.name);
+  });
+});

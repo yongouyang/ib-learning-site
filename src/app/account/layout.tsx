@@ -11,7 +11,7 @@ import { pageMeta } from '@/lib/seo/page-meta';
  */
 export const metadata: Metadata = pageMeta({
   path: '/account',
-  title: 'Octav Learning account',
+  title: 'Your account',
   description: 'Your Octav Learning account: profiles, subscription, progress sync, data export and deletion.',
   indexable: false,
 });
