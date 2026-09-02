@@ -11,6 +11,14 @@ export function hashString(str: string): number {
   return Math.abs(hash);
 }
 
+// Seed for a fresh, non-reproducible session (quiz draws, template values).
+// Call it from an effect or an event handler, NEVER during render: a value that
+// changes between the server render and hydration blows the tree away
+// (React hydration mismatch).
+export function randomSeed(): string {
+  return Math.random().toString(36).slice(2);
+}
+
 // mulberry32 PRNG seeded from hashString — pure 32-bit integer arithmetic via
 // Math.imul/>>>, so low bits mix properly. (The previous LCG did
 // `state * 1103515245` in double precision: for typical hashes the product
@@ -114,18 +122,28 @@ export function sampleVariantGroups(questions: Question[], seed: string): Questi
 // Stratified random sample: pick `targets[level]` items from each difficulty
 // band (untagged counts as medium). When a band runs short, the deficit is
 // filled from the leftovers of all bands so the total is still reached.
-// Non-deterministic (Math.random) — for quiz-session sampling, not SSR.
+// Pass `seed` for a deterministic draw (same pool + same seed => same set);
+// without it the sample uses Math.random. Anything that can be server-rendered
+// MUST pass a seed — see src/app/mixed-review/MixedReviewClient.tsx, which keeps
+// the first render seeded deterministically and only reseeds on mount, so the
+// prerendered HTML and the hydration render agree.
 export function stratifiedSample<T>(
   pool: T[],
   targets: Partial<Record<Difficulty, number>>,
   getDifficulty: (item: T) => Difficulty | undefined = (item) =>
-    (item as { difficulty?: Difficulty }).difficulty
+    (item as { difficulty?: Difficulty }).difficulty,
+  seed?: string
 ): T[] {
+  const shuffle = <U,>(items: U[], key: string): U[] => {
+    const copy = [...items];
+    if (seed) return seededShuffle(copy, `${seed}:${key}`);
+    return copy.sort(() => Math.random() - 0.5);
+  };
   const total = Object.values(targets).reduce((sum, n) => sum + n, 0);
   const bands: Record<Difficulty, T[]> = { easy: [], medium: [], hard: [] };
   for (const item of pool) bands[getDifficulty(item) ?? 'medium'].push(item);
   for (const level of DIFFICULTY_LEVELS) {
-    bands[level].sort(() => Math.random() - 0.5);
+    bands[level] = shuffle(bands[level], level);
   }
   const picked: T[] = [];
   const leftovers: T[] = [];
@@ -134,6 +152,5 @@ export function stratifiedSample<T>(
     picked.push(...bands[level].slice(0, want));
     leftovers.push(...bands[level].slice(want));
   }
-  leftovers.sort(() => Math.random() - 0.5);
-  return [...picked, ...leftovers].slice(0, total);
+  return [...picked, ...shuffle(leftovers, 'leftovers')].slice(0, total);
 }

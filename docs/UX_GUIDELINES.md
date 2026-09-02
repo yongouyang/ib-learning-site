@@ -32,7 +32,7 @@ Reuse existing tokens; don't invent new ones without adding them here first.
 | Hero scale (home) | h1 `text-3xl md:text-4xl`; subhead `text-base text-gray-600 dark:text-gray-400`, `max-w-2xl` | approved in the landing review |
 
 - **Dark mode is not optional.** Every colour utility needs its `dark:` pair; both themes must be checked in review (see the UX-review pass below).
-- Interactive feedback convention: `hover:shadow-md transition-shadow` + `active:scale-[0.98]` on tappable cards; `transition-colors` on links/buttons.
+- Interactive feedback convention: the `.pressable` class (globals.css) — instant pointer-down `scale(0.97)` at 100ms ease-out plus colour/shadow transitions — on tappable cards and row links (Apple fluid-interfaces style; replaces the older `hover:shadow-md transition-shadow` + `active:scale-[0.98]` combo, don't mix both on one element). Entrance animations use critically-damped springs (`{ type: 'spring', bounce: 0, duration: ~0.5 }`), and `MotionProvider` (MotionConfig `reducedMotion="user"` in layout.tsx) gates ALL framer-motion animations on the OS reduced-motion setting.
 
 ## Mobile vs desktop chrome
 
@@ -47,6 +47,7 @@ Consequences:
 - Nav items are shared by both bars via `src/components/nav-items.ts` — edit that one file, never the two nav components separately.
 - Bottom-nav slots are precious. **Navigation slots are for destinations, not settings/actions** — don't add non-destination toggles to the nav. (Current theme-toggle slot is a known violation, slated for removal in the landing ship list.)
 - Touch targets: full-height nav slots (64px) and `py-3` CTAs (~44px) are the floor; don't ship smaller.
+- **Fixed mobile chrome must be reserved as `scroll-padding`** (`globals.css`, `@media (max-width: 767.98px)`): bottom `calc(4rem + env(safe-area-inset-bottom) + 1rem)` for the nav, top `calc(1rem + 3rem)` for the floating pill. Anything the browser scrolls to an edge — anchor jumps, find-in-page, scroll restoration, `scrollIntoView` — otherwise lands UNDER that chrome: invisible and unclickable. This is not only cosmetic: it made Playwright's mobile e2e clicks fail with "subtree intercepts pointer events" (2026-09-01). `pb-24` on `<main>`/`<footer>` fixes the static overlap; only scroll padding fixes the scrolled-to edge. Keep both in sync when the nav or pill changes size.
 
 ## Accessibility checklist
 

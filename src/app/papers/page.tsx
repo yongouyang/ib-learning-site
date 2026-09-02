@@ -7,13 +7,21 @@ import { LockedFeature } from '@/components/LockedFeature';
 import { splitPaperSetsByAccess } from '@/lib/entitlements/exam-access';
 import type { Paper } from '@/content/types';
 import PaperScore from '@/app/exams/PaperScore';
+import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo/page-meta';
+
+export const metadata: Metadata = pageMeta({
+  path: '/papers',
+  title: 'Practice papers with mark schemes',
+  description: 'Original free-response papers for every Octav Learning course, each with a tick-point mark scheme and a model answer per question — the paper-1 style practice KS3, IGCSE and IB DP students actually need.',
+});
 
 function SetRow({ paper }: { paper: Paper }) {
   const totalMarks = paper.questions.reduce((sum, q) => sum + q.marks, 0);
   return (
     <Link
       href={`/papers/${paper.courseId}/${paper.id}`}
-      className="flex items-center gap-3 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
+      className="flex items-center gap-3 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 pressable group"
     >
       <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400 shrink-0">
         <FileSignature className="w-4 h-4" />

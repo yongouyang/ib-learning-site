@@ -48,7 +48,7 @@ export function LockedFeature({
         </div>
         <Link
           href="/pricing"
-          className="mt-1 -ml-2 inline-flex items-center gap-1.5 px-2 py-2 rounded-lg text-xs font-semibold text-gray-500 dark:text-gray-400 transition-colors hover:text-blue-700 dark:hover:text-blue-300"
+          className="mt-1 -ml-2 inline-flex items-center gap-1.5 px-2 py-3.5 rounded-lg text-xs font-semibold text-gray-500 dark:text-gray-400 transition-colors hover:text-blue-700 dark:hover:text-blue-300"
         >
           <Lock className="w-3.5 h-3.5" aria-hidden="true" />
           Premium · {title}

@@ -110,9 +110,13 @@ test.describe('PWA (production build)', () => {
     // "hidden before the event" is not stable here (that state is covered by
     // tests/unit/pwa-install-app-button.test.tsx instead).
     await page.goto('/progress');
-    await page.evaluate(() => {
-      window.dispatchEvent(new Event('beforeinstallprompt'));
-    });
-    await expect(page.getByRole('button', { name: /install app/i })).toBeVisible();
+    // The listener is attached by the hook's mount effect, which can land AFTER
+    // the load event on a streamed page — a single dispatch then falls on the
+    // floor (this made the test fail deterministically on a warm static build).
+    // Re-dispatch until the button shows up.
+    await expect(async () => {
+      await page.evaluate(() => window.dispatchEvent(new Event('beforeinstallprompt')));
+      await expect(page.getByRole('button', { name: /install app/i })).toBeVisible({ timeout: 500 });
+    }).toPass({ timeout: 15_000 });
   });
 });

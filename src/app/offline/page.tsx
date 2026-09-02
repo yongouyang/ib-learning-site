@@ -1,9 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { pageMeta } from '@/lib/seo/page-meta';
 
-export const metadata: Metadata = {
-  title: 'Offline — Octav Learning',
-};
+// noindex: this shell is what the service worker serves when a page is unavailable, so
+// indexing it would put an "you are offline" page in the search results.
+export const metadata: Metadata = pageMeta({
+  path: '/offline',
+  title: 'You are offline',
+  description: 'Octav Learning keeps the pages you have opened available offline. Reconnect to load anything else.',
+  indexable: false,
+});
 
 export default function OfflinePage() {
   return (

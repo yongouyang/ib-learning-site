@@ -1,15 +1,19 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { pageMeta } from '@/lib/seo/page-meta';
 
 // Phase E1 stub — the real pricing page (plans, payment) lands with E4
 // (docs/entitlement-implementation-plan.md). For now it states the agreed
 // tier split (docs/entitlement-policy.md) so LockedFeature's link resolves.
 
-export const metadata: Metadata = {
-  title: 'Pricing — Octav Learning',
-  description: 'Free and Premium plans for KS3, IGCSE and IB DP study on Octav Learning.',
-};
+// The root layout's title.template appends " · Octav Learning"; a title that already
+// contains the brand renders it twice (the live defect this replaces).
+export const metadata: Metadata = pageMeta({
+  path: '/pricing',
+  title: 'Pricing — free and Premium study plans',
+  description: 'What is free on Octav Learning and what Premium adds: illustrated notes, flashcards, quizzes and diagnostics are free; timed mock exams, the full paper sets and unlimited AI marking are Premium.',
+});
 
 export default function PricingPage() {
   return (

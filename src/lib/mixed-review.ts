@@ -1,7 +1,7 @@
 import { Question, TopicProgress, SubjectId } from '@/content/types';
 import { getSubjects } from '@/content/registry';
 import { getWeakTopics } from '@/lib/weak-point-analyzer';
-import { stratifiedSample } from '@/lib/quiz-utils';
+import { stratifiedSample, seededShuffle } from '@/lib/quiz-utils';
 
 export const MIXED_REVIEW_TOPIC_ID = 'mixed-review';
 export const MIXED_REVIEW_SUBJECT_ID: SubjectId = 'math';
@@ -19,7 +19,10 @@ export interface MixedReviewQuestion {
 
 export function buildMixedReviewQuestions(
   topicProgress: TopicProgress[],
-  mode: 'random' | 'weak' = 'random'
+  mode: 'random' | 'weak' = 'random',
+  // Deterministic draw seed. Omit for the old Math.random behaviour; pass one
+  // from a component that can be server-rendered (see MixedReviewClient).
+  seed?: string
 ): { questions: MixedReviewQuestion[]; usedWeakTopics: boolean; weakTopicCount: number } {
   const all: MixedReviewQuestion[] = [];
   getSubjects().forEach((subject) => {
@@ -49,11 +52,13 @@ export function buildMixedReviewQuestions(
     }
   }
 
-  const questions = stratifiedSample(pool, MIXED_REVIEW_BAND_TARGETS, (mq) => mq.question.difficulty);
+  const questions = stratifiedSample(pool, MIXED_REVIEW_BAND_TARGETS, (mq) => mq.question.difficulty, seed);
 
   if (questions.length === 0) {
     // Ultimate fallback: any available question.
-    const fallback = all.sort(() => Math.random() - 0.5).slice(0, MIXED_REVIEW_COUNT);
+    const fallback = seed
+      ? seededShuffle(all, `${seed}:fallback`).slice(0, MIXED_REVIEW_COUNT)
+      : all.sort(() => Math.random() - 0.5).slice(0, MIXED_REVIEW_COUNT);
     return { questions: fallback, usedWeakTopics: false, weakTopicCount };
   }
 

@@ -13,6 +13,7 @@ import {
   hasVariantGroups,
   orderQuestionsByDifficulty,
   parseDifficultyFilter,
+  randomSeed,
   sampleVariantGroups,
   type DifficultyFilter,
 } from '@/lib/quiz-utils';
@@ -22,10 +23,6 @@ import { trackEvent } from '@/lib/analytics';
 interface QuizPageClientProps {
   subjectId: string;
   topicId: string;
-}
-
-function randomSeed(): string {
-  return Math.random().toString(36).slice(2);
 }
 
 export default function QuizPageClient({ subjectId, topicId }: QuizPageClientProps) {

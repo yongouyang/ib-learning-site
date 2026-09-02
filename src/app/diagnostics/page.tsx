@@ -2,6 +2,15 @@ import Link from 'next/link';
 import { ClipboardList, ArrowRight } from 'lucide-react';
 import { getDiagnosticCourses } from '@/lib/diagnostics';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo/page-meta';
+
+/** Tier-0 (never gated, docs/entitlement-policy.md) → indexable. */
+export const metadata: Metadata = pageMeta({
+  path: '/diagnostics',
+  title: 'Diagnostic tests — find your gaps',
+  description: 'A short cross-topic diagnostic for every Octav Learning course: a few minutes of questions, then a topic-by-topic breakdown of what to revise first, with a suggested starting point.',
+});
 
 export default function DiagnosticsPage() {
   const courses = getDiagnosticCourses();

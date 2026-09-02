@@ -6,6 +6,7 @@ import { ProgressProvider } from '@/context/ProgressContext';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { AuthProvider } from '@/context/AuthContext';
 import { EntitlementsProvider } from '@/context/EntitlementsContext';
+import { MotionProvider } from '@/components/MotionProvider';
 import { Nav } from '@/components/Nav';
 import { HeaderNav } from '@/components/HeaderNav';
 import { ThemeToggle } from '@/components/ThemeToggle';
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className={`${geistSans.className} min-h-screen flex flex-col`}>
         <ThemeProvider>
+          <MotionProvider>
           <AuthProvider>
           <EntitlementsProvider>
           <ProgressProvider>
@@ -126,6 +128,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </ProgressProvider>
           </EntitlementsProvider>
           </AuthProvider>
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

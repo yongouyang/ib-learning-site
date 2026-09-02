@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo/page-meta';
 
-export const metadata: Metadata = {
-  title: 'Terms of Use — Octav Learning',
-  description: 'Terms of use and content licensing for Octav Learning.',
-};
+export const metadata: Metadata = pageMeta({
+  path: '/terms',
+  title: 'Terms of use',
+  description: 'The terms that apply to Octav Learning, including what you may and may not do with the notes, flashcards and questions.',
+});
 
 export default function TermsPage() {
   return (

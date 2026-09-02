@@ -8,6 +8,22 @@
     font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
 
+  /* The mobile chrome floats ON TOP of the page: the bottom nav (Nav.tsx) and
+     the top-right account/theme pill (layout.tsx). Anything the browser scrolls
+     to an edge therefore lands underneath it — anchor jumps ("Browse
+     subjects"), find-in-page, scroll restoration, and every element Playwright
+     scrolls into view before clicking. Reserving both bands as scroll padding
+     makes scroll-into-view stop short of them. Only below `md`, where that chrome
+     is rendered — desktop chrome is in flow and needs no reserve. */
+  @media (max-width: 767.98px) {
+    html {
+      /* nav h-16 + the iOS home-indicator inset, plus a little air. */
+      scroll-padding-bottom: calc(4rem + env(safe-area-inset-bottom) + 1rem);
+      /* the floating pill: top-4 (1rem) + its 44px controls. */
+      scroll-padding-top: calc(1rem + 3rem);
+    }
+  }
+
   /* KaTeX math inherits the surrounding text colour so it stays visible in dark mode */
   .katex {
     @apply text-inherit;
@@ -21,5 +37,37 @@
 @layer components {
   .card {
     @apply bg-white rounded-2xl shadow-sm border border-gray-100 dark:bg-gray-900 dark:border-gray-800;
+  }
+
+  /* Apple-style press feedback (fluid interfaces: respond on pointer-down,
+     instantly). Use INSTEAD of transition-colors / transition-shadow on the
+     same element — this covers those properties too, so they don't fight. */
+  .pressable {
+    transition:
+      transform 100ms ease-out,
+      box-shadow 150ms ease-out,
+      background-color 150ms ease-out,
+      color 150ms ease-out,
+      border-color 150ms ease-out;
+  }
+  .pressable:active {
+    transform: scale(0.97);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pressable {
+      transition: box-shadow 150ms ease-out, background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out;
+    }
+    .pressable:active {
+      transform: none;
+    }
+  }
+}
+
+@layer utilities {
+  /* Referenced by the mobile bottom Nav. A no-op until the viewport meta gains
+     `viewport-fit=cover` (then it keeps the tabs clear of the iOS home
+     indicator); defined here so the class isn't dead. */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }

@@ -23,6 +23,9 @@
     "render:illustrations": "node scripts/render-illustrations.mjs",
     "audit:content": "tsx scripts/audit-content.ts",
     "generate:registry": "tsx scripts/generate-registry.ts",
+    "generate:sitemaps": "tsx scripts/generate-sitemaps.ts",
+    "check:sitemaps": "tsx scripts/generate-sitemaps.ts --check",
+    "verify:sitemaps": "tsx scripts/generate-sitemaps.ts --verify",
     "test:coverage": "vitest run --coverage",
     "security:sast": "semgrep scan --config p/typescript --config p/react --config p/security-audit --config p/secrets --error",
     "security:sca": "osv-scanner scan -r .",
@@ -60,5 +63,8 @@
     "tsx": "^4.22.4",
     "typescript": "^5",
     "vitest": "^4.1.8"
+  },
+  "overrides": {
+    "postcss-selector-parser": "^6.1.3"
   }
 }

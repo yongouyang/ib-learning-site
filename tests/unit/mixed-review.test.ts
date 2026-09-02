@@ -3,15 +3,14 @@ import { buildMixedReviewQuestions, MIXED_REVIEW_COUNT } from '@/lib/mixed-revie
 import type { TopicProgress } from '@/content/types';
 
 describe('buildMixedReviewQuestions', () => {
+  // NOTE: `vi.stubGlobal('Math', { ...Math, random })` would leave Math with no
+  // other methods (its properties are non-enumerable) — spy instead.
   beforeEach(() => {
-    vi.stubGlobal('Math', {
-      ...Math,
-      random: vi.fn(() => 0.5),
-    });
+    vi.spyOn(Math, 'random').mockReturnValue(0.5);
   });
 
   afterEach(() => {
-    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
   });
 
   it('returns random questions from all topics by default', () => {
@@ -59,5 +58,35 @@ describe('buildMixedReviewQuestions', () => {
     expect(count('easy')).toBe(3);
     expect(count('medium')).toBe(4);
     expect(count('hard')).toBe(3);
+  });
+
+  // SSR/hydration contract: with a seed the draw is pure, so the prerendered
+  // HTML and the hydration render show the same question (MixedReviewClient
+  // keeps the seed deterministic until it reseeds on the client).
+  it('draws the same set for the same seed without touching Math.random', () => {
+    const a = buildMixedReviewQuestions([], 'random', 'weak:abc');
+    const b = buildMixedReviewQuestions([], 'random', 'weak:abc');
+    const c = buildMixedReviewQuestions([], 'random', 'weak:def');
+    expect(a.questions.map((q) => q.question.id)).toEqual(b.questions.map((q) => q.question.id));
+    expect(a.questions.map((q) => q.question.id)).not.toEqual(c.questions.map((q) => q.question.id));
+    expect(Math.random).not.toHaveBeenCalled();
+    expect(a.questions).toHaveLength(MIXED_REVIEW_COUNT);
+  });
+
+  it('is deterministic in weak mode for a seed', () => {
+    const weakProgress: TopicProgress[] = [
+      {
+        topicId: 'math-yr7-calculations',
+        subjectId: 'math',
+        topicTitle: 'Written Calculations',
+        subjectTitle: 'math',
+        attempts: [{ date: new Date().toISOString(), correctCount: 1, totalCount: 10 }],
+      },
+    ];
+    const a = buildMixedReviewQuestions(weakProgress, 'weak', 'seed-1');
+    const b = buildMixedReviewQuestions(weakProgress, 'weak', 'seed-1');
+    expect(a.usedWeakTopics).toBe(true);
+    expect(a.questions.map((q) => q.question.id)).toEqual(b.questions.map((q) => q.question.id));
+    expect(a.questions.every((q) => q.topicId === 'math-yr7-calculations')).toBe(true);
   });
 });

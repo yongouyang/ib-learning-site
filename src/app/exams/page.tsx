@@ -4,6 +4,19 @@ import { getExamCourses, examId } from '@/lib/exams';
 import { getPapersForCourse } from '@/content/registry';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { CtaLink } from '@/components/CtaLink';
+import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo/page-meta';
+
+/**
+ * The exam-tier shop window: the ladder and the free paper set are indexable, the timed
+ * mocks behind them are not (§1.2), so this is the page that should rank for
+ * "IGCSE mock exams" / "KS3 maths tests" and carry the funnel.
+ */
+export const metadata: Metadata = pageMeta({
+  path: '/exams',
+  title: 'Mock exams & revision ladder',
+  description: 'Timed mock exams, a five-level revision ladder and free-response practice papers with tick-point mark schemes and model answers — for KS3, IGCSE and IB DP. Levels 1–2 and the first paper set per course are free.',
+});
 import { LockedFeature } from '@/components/LockedFeature';
 import { splitPaperSetsByAccess } from '@/lib/entitlements/exam-access';
 import PaperScore from './PaperScore';
@@ -79,7 +92,7 @@ export default function ExamsPage() {
                     <Link
                       key={paper.paperId}
                       href={`/exams/${course.id}/${paper.paperId}`}
-                      className="flex items-center gap-3 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group"
+                      className="flex items-center gap-3 p-2.5 rounded-lg bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 pressable group"
                     >
                       <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 shrink-0">
                         <FileText className="w-4 h-4" />
@@ -100,7 +113,7 @@ export default function ExamsPage() {
               <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-800 flex flex-wrap gap-x-4 gap-y-1.5">
                 <Link
                   href={`/exams/${course.id}/ladder`}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200"
+                  className="inline-flex items-center gap-1.5 py-3 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200"
                 >
                   <TrendingUp className="w-4 h-4" /> Revision Ladder — 5 levels
                 </Link>
@@ -108,7 +121,7 @@ export default function ExamsPage() {
                   <Link
                     key={set.id}
                     href={`/papers/${set.courseId}/${set.id}`}
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
+                    className="inline-flex items-center gap-1.5 py-3 text-sm font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
                   >
                     <FileSignature className="w-4 h-4" /> {set.title} — free-response
                   </Link>
@@ -126,7 +139,7 @@ export default function ExamsPage() {
                       <Link
                         key={set.id}
                         href={`/papers/${set.courseId}/${set.id}`}
-                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
+                        className="inline-flex items-center gap-1.5 py-3 text-sm font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-200"
                       >
                         <FileSignature className="w-4 h-4" /> {set.title} — free-response
                       </Link>

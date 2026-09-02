@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Shuffle, Target } from 'lucide-react';
@@ -13,16 +13,37 @@ import {
   MIXED_REVIEW_SUBJECT_ID,
   MIXED_REVIEW_TITLE,
 } from '@/lib/mixed-review';
+import { randomSeed } from '@/lib/quiz-utils';
 import { trackEvent } from '@/lib/analytics';
 
 export default function MixedReviewClient() {
   const searchParams = useSearchParams();
   const mode = searchParams.get('mode') === 'weak' ? 'weak' : 'random';
-  const { topicProgress, recordAttempt } = useProgress();
+  const { topicProgress, recordAttempt, loaded } = useProgress();
+
+  // Draw seed: deterministic during SSR/first render (hydration-safe — an
+  // unseeded Math.random sample made the prerendered question and the hydrated
+  // one disagree, which throws the whole tree away), then reseeded from an
+  // effect so each visit still draws a fresh mix. Same shape as the topic quiz
+  // (QuizPageClient); the key on QuizGame below is what swaps in the new set.
+  const [sessionSeed, setSessionSeed] = useState(mode);
+  // A mode switch is a deliberate new session; progress arriving is not, so it
+  // must never clobber answers already given (touchedRef).
+  const touchedRef = useRef(false);
+  useEffect(() => {
+    setSessionSeed(`${mode}:${randomSeed()}`);
+  }, [mode]);
+  // Progress is localStorage/server-merged, so the first draw above sees none of
+  // it — re-draw once it lands, or "weak areas" would silently mix in everything.
+  useEffect(() => {
+    if (!loaded || touchedRef.current) return;
+    setSessionSeed(`${mode}:${randomSeed()}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loaded]);
 
   const { questions, usedWeakTopics, weakTopicCount } = useMemo(
-    () => buildMixedReviewQuestions(topicProgress, mode),
-    [topicProgress, mode]
+    () => buildMixedReviewQuestions(topicProgress, mode, sessionSeed),
+    [topicProgress, mode, sessionSeed]
   );
 
   const startedAt = useRef(Date.now());
@@ -107,11 +128,13 @@ export default function MixedReviewClient() {
       </p>
 
       <QuizGame
+        key={sessionSeed}
         subtitle={mode === 'weak' && usedWeakTopics ? 'Focused on your weak areas' : 'Questions from all topics'}
         backHref="/progress"
         backLabel="Back to Progress"
         questions={questions.map((q) => q.question)}
         shuffleSeed={questions.map((q) => q.question.id).join(',')}
+        onQuestionResult={() => { touchedRef.current = true; }}
         enableTimer={false}
         onComplete={handleComplete}
       />
