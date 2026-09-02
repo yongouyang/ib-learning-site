@@ -43,8 +43,9 @@ export interface PageMetaInput {
   /** false → noindex, follow. Default true. */
   indexable?: boolean;
   /**
-   * True for pages that must not carry the templated brand either (none today):
-   * keeps the option local instead of inviting a second title convention.
+   * True for pages that must not carry the templated brand: keeps the option local
+   * instead of inviting a second title convention. The homepage is the one consumer —
+   * its title IS the bare brand, so the template would double it.
    */
   absolute?: boolean;
   /**

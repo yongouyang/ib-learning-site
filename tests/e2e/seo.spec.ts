@@ -74,6 +74,41 @@ test.describe('SEO metadata wiring', () => {
     }
   });
 
+  test('tier hubs render 200, indexable, self-canonical and hreflang-bearing', async ({ page, request }) => {
+    // The URL set the sitemap's core.xml promises (docs/seo-technical-plan.md S3).
+    const hubs = [
+      ['/ks3', 'KS3 revision · Octav Learning'],
+      ['/ks3/math', 'KS3 Maths · Octav Learning'],
+      ['/ks3/english', 'KS3 English · Octav Learning'],
+      ['/ibdp', 'IB DP revision · Octav Learning'],
+      ['/ibdp/math', 'IB DP Maths · Octav Learning'],
+    ] as const;
+    for (const [path, title] of hubs) {
+      const res = await request.get(path);
+      expect(res.status(), `${path} must be a live page`).toBe(200);
+      const h = await head(page, path);
+      expect(h.title, path).toBe(title);
+      expect(h.robots, path).toContain('index');
+      expect(h.robots, path).not.toContain('noindex');
+      expect(h.canonical, path).toBe(`https://octavlearning.com${path}`);
+      // hreflang is emitted on hub URLs only — the H0 self-referencing group
+      const xDefault = await page.getAttribute('link[rel="alternate"][hreflang="x-default"]', 'href');
+      const enGb = await page.getAttribute('link[rel="alternate"][hreflang="en-GB"]', 'href');
+      expect(xDefault, path).toBe(`https://octavlearning.com${path}`);
+      expect(enGb, path).toBe(`https://octavlearning.com${path}`);
+    }
+    // Hubs index the study pages (internal-link depth ≤ 3, plan §4.4 item 3)
+    await page.goto('/ks3/math', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('a[href="/subjects/math/math-yr7-angles/study"]').first()).toBeVisible();
+    await page.goto('/ibdp/math', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('a[href^="/subjects/math/math-dp-ai-"]').first()).toBeVisible();
+  });
+
+  test('the empty IGCSE tier has no route', async ({ request }) => {
+    expect((await request.get('/igcse')).status()).toBe(404);
+    expect((await request.get('/igcse/math')).status()).toBe(404);
+  });
+
   test('app and internal surfaces are noindex, follow', async ({ page }) => {
     for (const path of ['/login', '/mixed-review', '/leaderboard', '/account', '/progress', '/offline']) {
       const h = await head(page, path);
@@ -83,12 +118,23 @@ test.describe('SEO metadata wiring', () => {
   });
 
   test('every rendered title carries the brand exactly once', async ({ page }) => {
-    for (const path of ['/pricing', '/terms', '/subjects/english', '/exams', '/papers', '/diagnostics']) {
+    for (const path of ['/pricing', '/terms', '/subjects/english', '/exams', '/papers', '/diagnostics', '/', '/account']) {
       const h = await head(page, path);
       const occurrences = h.title.split('Octav Learning').length - 1;
       expect(occurrences, `${path}: "${h.title}"`).toBeLessThanOrEqual(1);
       expect(occurrences, `${path} must name the brand once`).toBe(1);
     }
+  });
+
+  test('the homepage is indexable with a self-canonical and an absolute brand title', async ({ page }) => {
+    // The one page of 809 that shipped with neither robots nor canonical while page.tsx
+    // was 'use client' (found by scripts/verify-seo-live.ts). The server-wrapper fix must
+    // not regress: exact title, index robots, canonical on the apex.
+    const h = await head(page, '/');
+    expect(h.title).toBe('Octav Learning');
+    expect(h.robots).toContain('index');
+    expect(h.robots).not.toContain('noindex');
+    expect(h.canonical).toBe('https://octavlearning.com');
   });
 
   test('no page title overruns the SERP width budget on an indexable page', async ({ page }) => {

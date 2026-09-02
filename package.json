@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:static": "bash scripts/build-static.sh",
+    "build:static": "npm run generate:sitemaps && bash scripts/build-static.sh && npm run verify:sitemaps",
     "build:lambda": "bash scripts/build-lambdas.sh",
     "start": "next start",
     "lint": "eslint .",
@@ -26,6 +26,7 @@
     "generate:sitemaps": "tsx scripts/generate-sitemaps.ts",
     "check:sitemaps": "tsx scripts/generate-sitemaps.ts --check",
     "verify:sitemaps": "tsx scripts/generate-sitemaps.ts --verify",
+    "verify:seo:live": "tsx scripts/verify-seo-live.ts",
     "test:coverage": "vitest run --coverage",
     "security:sast": "semgrep scan --config p/typescript --config p/react --config p/security-audit --config p/secrets --error",
     "security:sca": "osv-scanner scan -r .",
