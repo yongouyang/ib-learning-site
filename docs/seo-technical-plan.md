@@ -1318,7 +1318,7 @@ it must be the viewer-response event.
 | **S2b** | `robots.ts` v2 (`Sitemap:` line + inventory) — **do not land before S3**, or 13 sitemap URLs 404 on day one (§1.5a) | 0.5 d | `npm run generate:sitemaps && npm run build:static && npm run verify:sitemaps && npm run test:e2e:static`; add `check:sitemaps` + `verify:sitemaps` to the CI `build-and-test` job |
 | **S3** | Tier hub routes `/ks3`, `/ibdp`, `/ks3/<subject>`, `/ibdp/<course>` (+ `/igcse` when content exists) — unblocks S2b | 2–3 d | content-free tier → **do not create the route**; UX-review subagent pass (mobile/desktop × light/dark) per `AGENTS.md` |
 | **S4** | JSON-LD: org graph + `Course` + `BreadcrumbList` (§2) | 1 d | LD+JSON parse test over `out/**/*.html`; Rich Results Test + Bing validator on 3 sample URLs |
-| **S5** | IndexNow + verification + GSC/CLUE submission (§4.4–4.5) | 0.5 d | CI secret `INDEXNOW_KEY`; watch "Discovered – currently not indexed" ratio |
+| **S5** | IndexNow + verification + GSC/CLUE submission (§4.4–4.5) — **IndexNow half DONE 2026-09-03** (`scripts/ping-indexnow.mjs`, `ping:indexnow`, key-file + ping steps in both deploy jobs, gated on the `INDEXNOW_KEY` secret; key generated, awaiting the secret + a deploy). Remaining, user-owned: GSC/Bing verification (DNS preferred) + `sitemap/index.xml` submission in both consoles | 0.5 d | CI secret `INDEXNOW_KEY`; watch "Discovered – currently not indexed" ratio |
 | **S6** | IGCSE content (blocking prerequisite for the `/igcse/` leg of this plan) | — | the largest real SEO upside here: IGCSE is the highest-volume international-school query family and we currently have **0** pages for it |
 
 ## 6. What actually landed, and what the build taught us
