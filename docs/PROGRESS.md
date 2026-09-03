@@ -6,6 +6,15 @@
 
 ---
 
+## 2026-09-03 — S5 DONE: GSC verified + sitemap submitted; Bing imported (48 h lag)
+Git HEAD: `3d06c9c` (develop)
+Done: user completed the console half of S5 — GSC **domain** property `octavlearning.com` verified via DNS TXT at the registrar (DNS lives outside Route53/terraform, per plan §4.4 item 5's DNS-preferred route), `https://octavlearning.com/sitemap/index.xml` submitted successfully; Bing Webmaster Tools imported from GSC (Bing warns imported-site data/reports take up to 48 h — user re-checks over the weekend). Plan §5 S5 row marked DONE.
+Verified: user-reported console success; IndexNow half already proven live end-to-end earlier today (CI run 223).
+Next: user confirms Bing import data landed (weekend); watch GSC "Discovered – currently not indexed" ratio over coming weeks; then S4 JSON-LD, og:image design decision. Standing queue unchanged.
+Notes: S5 is the last sitemap/discovery plumbing — remaining SEO upside is S4 (JSON-LD entity clarity) and S6 (IGCSE content, the biggest one).
+
+---
+
 ## 2026-09-03 — S5 IndexNow LIVE end-to-end; GSC/Bing steps queued for user
 Git HEAD: `9ff3044` (main; committed `c142432` on develop, pushed, merged to main, pushed)
 Done: IndexNow half of S5 per plan §4.4 item 4: (1) `scripts/ping-indexnow.mjs` + `ping:indexnow` npm script — reads `public/sitemap/index.xml`, remaps child `<loc>`s onto `--origin` (the verify:seo:live trick; sitemap locs are absolute prod URLs by design), POSTs to `api.indexnow.org/indexnow`, no-ops when `INDEXNOW_KEY` is unset (so the CI step is unconditional), exits 1 on non-200/202. (2) `ci.yml` both deploy jobs: `INDEXNOW_KEY` env from the secret, a `Write IndexNow key file` step (`printf %s "$INDEXNOW_KEY" > out/$INDEXNOW_KEY.txt`) BEFORE `Sync static site to S3` (the sync is `--delete`, so the file must be in `out/` first), and `Ping IndexNow` right after `Invalidate CloudFront`. (3) Generated the 32-hex key locally; user added it as the `INDEXNOW_KEY` repo secret (`gh` CLI not installed locally). (4) AGENTS.md CI bullet + plan §5 S5 row updated.
