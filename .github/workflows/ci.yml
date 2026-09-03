@@ -233,6 +233,8 @@ jobs:
       # wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from the
       # shared secret/variable above).
       TF_VAR_contact_env: ${{ secrets.CONTACT_ENV || '{}' }}
+      # IndexNow key (32-hex, S5). Unset = key-file + ping steps no-op.
+      INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY || '' }}
 
     steps:
       - name: Checkout
@@ -274,6 +276,13 @@ jobs:
           terraform init -input=false
           terraform apply -input=false -auto-approve
 
+      # IndexNow verification file (S5): <KEY>.txt must be served from the
+      # site root and contain the key verbatim. Written into out/ BEFORE the
+      # sync because the sync runs with --delete. No-op until the secret exists.
+      - name: Write IndexNow key file
+        if: env.INDEXNOW_KEY != ''
+        run: printf '%s' "$INDEXNOW_KEY" > "out/$INDEXNOW_KEY.txt"
+
       - name: Sync static site to S3
         run: |
           aws s3 sync out/ s3://$SITE_BUCKET --delete \
@@ -286,6 +295,12 @@ jobs:
 
       - name: Invalidate CloudFront
         run: aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+
+      # IndexNow ping (S5) — tell Bing/Yandex the child sitemaps changed,
+      # straight after the invalidation. The script no-ops when INDEXNOW_KEY
+      # is unset and goes red on a non-200/202 response.
+      - name: Ping IndexNow
+        run: node scripts/ping-indexnow.mjs --origin=$SITE_URL
 
       - name: Smoke check
         run: |
@@ -394,6 +409,8 @@ jobs:
       # wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from the
       # shared secret/variable above).
       TF_VAR_contact_env: ${{ secrets.CONTACT_ENV || '{}' }}
+      # IndexNow key (32-hex, S5). Unset = key-file + ping steps no-op.
+      INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY || '' }}
 
     steps:
       - name: Checkout
@@ -433,6 +450,13 @@ jobs:
           terraform init -input=false
           terraform apply -input=false -auto-approve
 
+      # IndexNow verification file (S5): <KEY>.txt must be served from the
+      # site root and contain the key verbatim. Written into out/ BEFORE the
+      # sync because the sync runs with --delete. No-op until the secret exists.
+      - name: Write IndexNow key file
+        if: env.INDEXNOW_KEY != ''
+        run: printf '%s' "$INDEXNOW_KEY" > "out/$INDEXNOW_KEY.txt"
+
       - name: Sync static site to S3
         run: |
           aws s3 sync out/ s3://$SITE_BUCKET --delete \
@@ -445,6 +469,12 @@ jobs:
 
       - name: Invalidate CloudFront
         run: aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+
+      # IndexNow ping (S5) — tell Bing/Yandex the child sitemaps changed,
+      # straight after the invalidation. The script no-ops when INDEXNOW_KEY
+      # is unset and goes red on a non-200/202 response.
+      - name: Ping IndexNow
+        run: node scripts/ping-indexnow.mjs --origin=$SITE_URL
 
       - name: Smoke check
         run: |

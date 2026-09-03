@@ -27,6 +27,7 @@
     "check:sitemaps": "tsx scripts/generate-sitemaps.ts --check",
     "verify:sitemaps": "tsx scripts/generate-sitemaps.ts --verify",
     "verify:seo:live": "tsx scripts/verify-seo-live.ts",
+    "ping:indexnow": "node scripts/ping-indexnow.mjs",
     "test:coverage": "vitest run --coverage",
     "security:sast": "semgrep scan --config p/typescript --config p/react --config p/security-audit --config p/secrets --error",
     "security:sca": "osv-scanner scan -r .",
