@@ -15,6 +15,8 @@ import { alternatesFor, HREFLANG_PHASE, LOCALES, PUBLISHED_LOCALES } from '@/lib
 import { metaForTierHub, metaForTierSubject, tierSubjects } from '@/lib/seo/hubs';
 import { INDEXABLE_ROBOTS } from '@/lib/seo/page-meta';
 import { SITE } from '@/lib/seo/site';
+import { orgNodes } from '@/lib/seo/organization';
+import { courseNode, breadcrumbNode } from '@/lib/seo/course';
 
 const subjects = getSubjects();
 const topics: (Topic & { subjectName: string })[] = subjects.flatMap((s) =>
@@ -176,5 +178,55 @@ describe('seo — metadata exports on the formerly client-only pages', () => {
     expect(typeof metadata.title).toBe('string');
     expect(metadata.title as string).toBe('Your account');
     expect(metadata.title as string).not.toContain(SITE.name);
+  });
+});
+
+describe('seo JSON-LD node builders (S4)', () => {
+  it('orgNodes round-trips as valid JSON-LD and anchors the organization + website', () => {
+    const nodes = orgNodes();
+    const parsed = JSON.parse(JSON.stringify(nodes));
+    expect(parsed).toHaveLength(2);
+    const types = parsed.map((n: any) => n['@type']).sort();
+    expect(types).toEqual(['EducationalOrganization', 'WebSite']);
+    expect(parsed[0]['@id']).toBe(`${SITE.origin}/#organization`);
+    expect(parsed[1].publisher['@id']).toBe(`${SITE.origin}/#organization`);
+    // disambiguation is truthful: we prepare for, never award, a credential
+    expect(parsed[0].disambiguatingDescription).toMatch(/not endorsed by or affiliated/);
+  });
+
+  it('courseNode round-trips and references the org provider by @id', () => {
+    for (const t of topics) {
+      const node = JSON.parse(JSON.stringify(courseNode(t, null)));
+      expect(node['@type']).toBe('Course');
+      expect(node.courseCode).toBe(courseCodeFor(t));
+      expect(node.provider['@id']).toBe(`${SITE.origin}/#organization`);
+      expect(node.hasCourseInstance.courseMode).toBe('online');
+      // no dateModified when lastModified is null
+      expect(node.dateModified).toBeUndefined();
+    }
+  });
+
+  it('emits educationalCredentialAwarded only where a credential exists (KS3 -> none)', () => {
+    for (const t of topics) {
+      const node = JSON.parse(JSON.stringify(courseNode(t, null)));
+      if (credentialFor(t) === null) {
+        expect(node.educationalCredentialAwarded).toBeUndefined();
+      } else {
+        expect(node.educationalCredentialAwarded.name).toBe(credentialFor(t));
+      }
+    }
+  });
+
+  it('breadcrumbNode has a 4-step Home -> tier -> subject -> topic trail', () => {
+    for (const t of topics) {
+      const node = JSON.parse(JSON.stringify(breadcrumbNode(t, t.subjectName)));
+      expect(node['@type']).toBe('BreadcrumbList');
+      const items = node.itemListElement;
+      expect(items).toHaveLength(4);
+      expect(items[0]).toMatchObject({ position: 1, name: 'Home', item: `${SITE.origin}/` });
+      expect(items[3]).toMatchObject({ position: 4, name: t.title });
+      // positions are sequential 1..4
+      items.forEach((it: any, i: number) => expect(it.position).toBe(i + 1));
+    }
   });
 });

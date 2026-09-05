@@ -13,6 +13,8 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { AccountButton } from '@/components/AccountButton';
 import { ServiceWorkerRegistration } from '@/components/ServiceWorkerRegistration';
 import { AnalyticsTracker } from '@/components/AnalyticsTracker';
+import { JsonLd } from '@/components/json-ld';
+import { orgNodes } from '@/lib/seo/organization';
 import { OfflineBanner } from '@/components/OfflineBanner';
 import { UpdateToast } from '@/components/UpdateToast';
 import { HeaderLogo } from '@/components/HeaderLogo';
@@ -120,6 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Nav />
             </div>
             <ServiceWorkerRegistration />
+            <JsonLd nodes={orgNodes()} />
             <AnalyticsTracker />
             <OfflineBanner />
             <UpdateToast />
