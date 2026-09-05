@@ -11,9 +11,10 @@ import type {
   ChildProfile,
   OtpRecord,
   SessionRecord,
+  SubscriptionFields,
   UserRecord,
 } from './types';
-import { withTierDefault } from './types';
+import { SUBSCRIPTION_UPDATE_FIELDS, withTierDefault } from './types';
 
 // Production storage adapter: the auth handler's AuthStorage contract on the
 // Phase 0 DynamoDB tables (terraform/modules/dynamodb) —
@@ -126,7 +127,7 @@ export class DynamoAuthStorage implements AuthStorage {
 
   async updateUser(
     userId: string,
-    updates: { displayName?: string; childProfiles?: ChildProfile[]; lastLoginAt?: string }
+    updates: { displayName?: string; childProfiles?: ChildProfile[]; lastLoginAt?: string } & SubscriptionFields
   ): Promise<UserRecord | null> {
     const sets: string[] = [];
     // The userId is the partition key (Key), NOT an expression value — leaving
@@ -151,6 +152,16 @@ export class DynamoAuthStorage implements AuthStorage {
       sets.push('#lla = :lla');
       values[':lla'] = updates.lastLoginAt;
       names['#lla'] = 'lastLoginAt';
+    }
+    // E4 billing state cached from Stripe (plan §6.3). Only the fields actually
+    // present are SET — an update that omits them cannot blank cached state.
+    for (const [field, token] of SUBSCRIPTION_UPDATE_FIELDS) {
+      const value = updates[field];
+      if (value !== undefined) {
+        sets.push(`#${token} = :${token}`);
+        values[`:${token}`] = value;
+        names[`#${token}`] = field;
+      }
     }
     if (sets.length === 0) return this.getUserById(userId);
 

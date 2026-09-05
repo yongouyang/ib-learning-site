@@ -1,5 +1,13 @@
-import type { AuthStorage, EmailClaimMarker, EmailSender, OtpRecord, SessionRecord, UserRecord } from './types';
-import { withTierDefault } from './types';
+import type {
+  AuthStorage,
+  EmailClaimMarker,
+  EmailSender,
+  OtpRecord,
+  SessionRecord,
+  SubscriptionFields,
+  UserRecord,
+} from './types';
+import { SUBSCRIPTION_UPDATE_FIELDS, withTierDefault } from './types';
 
 // In-memory dummy for the accounts feature — the controllable-dummy directive
 // (AGENTS.md): dev and e2e run against this with zero AWS resources and zero
@@ -48,15 +56,23 @@ export class InMemoryAuthStorage implements AuthStorage {
 
   async updateUser(
     userId: string,
-    updates: { displayName?: string; childProfiles?: UserRecord['childProfiles']; lastLoginAt?: string }
+    updates: { displayName?: string; childProfiles?: UserRecord['childProfiles']; lastLoginAt?: string } & SubscriptionFields
   ): Promise<UserRecord | null> {
     const existing = this.users.get(userId);
     if (!existing) return null;
+    // E4 billing fields: pass through only the ones actually present, so an
+    // update that omits them cannot blank a cached subscription state.
+    const billing: SubscriptionFields = {};
+    for (const [field] of SUBSCRIPTION_UPDATE_FIELDS) {
+      const value = updates[field];
+      if (value !== undefined) (billing as Record<string, unknown>)[field] = value;
+    }
     const updated: UserRecord = {
       ...existing,
       ...(updates.displayName !== undefined ? { displayName: updates.displayName } : {}),
       ...(updates.childProfiles !== undefined ? { childProfiles: updates.childProfiles.map((p) => ({ ...p })) } : {}),
       ...(updates.lastLoginAt !== undefined ? { lastLoginAt: updates.lastLoginAt } : {}),
+      ...billing,
     };
     this.users.set(userId, updated);
     return withTierDefault({ ...updated, childProfiles: updated.childProfiles.map((p) => ({ ...p })) });

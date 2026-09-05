@@ -56,7 +56,69 @@ export interface ChildProfile {
   leaderboardHandle?: string;
 }
 
-export interface UserRecord {
+// --- E4 subscriptions (docs/stripe-subscriptions-plan.md §6.3) -------------
+
+export type SubscriptionStatus = 'trialing' | 'active' | 'past_due' | 'canceled' | 'incomplete';
+export type SubscriptionPlan = 'monthly' | 'annual';
+
+/**
+ * Billing state cached on the user row. **Stripe is the source of truth** — this
+ * is a cache the webhook keeps fresh, and that GET /api/subscriptions/status
+ * re-reads from Stripe whenever it is stale (plan §6.4.1). Every field is
+ * optional, so rows written before E4 read back unchanged and need no migration.
+ *
+ * No card data lives here: we never touch the PAN or the CVV. Only the
+ * non-sensitive display metadata below (brand + last4) is stored — which is what
+ * keeps us in PCI SAQ A (plan §4).
+ */
+export interface SubscriptionFields {
+  stripeCustomerId?: string;
+  stripeSubscriptionId?: string;
+  subscriptionStatus?: SubscriptionStatus;
+  subscriptionPlan?: SubscriptionPlan;
+  currentPeriodEnd?: string; // ISO
+  trialEndsAt?: string; // ISO
+  cancelAtPeriodEnd?: boolean;
+  cardBrand?: string;
+  cardLast4?: string;
+  cardExpMonth?: number;
+  cardExpYear?: number;
+}
+
+/**
+ * The scalar billing fields `updateUser` passes through, paired with the short
+ * token used to build DynamoDB expression names/values. Kept here (not in
+ * src/lib/subscriptions) so the auth storage never imports the subscriptions
+ * module.
+ */
+export const SUBSCRIPTION_UPDATE_FIELDS: Array<[keyof SubscriptionFields, string]> = [
+  ['stripeCustomerId', 'sci'],
+  ['stripeSubscriptionId', 'ssi'],
+  ['subscriptionStatus', 'sst'],
+  ['subscriptionPlan', 'spl'],
+  ['currentPeriodEnd', 'cpe'],
+  ['trialEndsAt', 'tea'],
+  ['cancelAtPeriodEnd', 'cap'],
+  ['cardBrand', 'cbr'],
+  ['cardLast4', 'cl4'],
+  ['cardExpMonth', 'cem'],
+  ['cardExpYear', 'cey'],
+];
+
+/**
+ * Tier derived from the cached billing state (plan §6.4.1).
+ *
+ * `past_due` stays premium on purpose — Stripe is retrying the card, and a
+ * failed payment should not instantly strip access. `cancel_at_period_end` does
+ * NOT appear here: it does not change `status`, so a user who cancels on day 3
+ * of a trial correctly keeps premium until the trial boundary, and it is the
+ * `customer.subscription.deleted` event at that boundary that downgrades them.
+ */
+export function tierFromSubscription(status: SubscriptionStatus | undefined): Tier {
+  return status === 'trialing' || status === 'active' || status === 'past_due' ? 'premium' : 'free';
+}
+
+export interface UserRecord extends SubscriptionFields {
   userId: string; // ULID-shaped opaque string (crypto.randomUUID here)
   email: string; // lowercased
   displayName: string;
@@ -123,7 +185,7 @@ export interface AuthStorage {
   createUser(user: UserRecord): Promise<void>;
   updateUser(
     userId: string,
-    updates: { displayName?: string; childProfiles?: ChildProfile[]; lastLoginAt?: string }
+    updates: { displayName?: string; childProfiles?: ChildProfile[]; lastLoginAt?: string } & SubscriptionFields
   ): Promise<UserRecord | null>;
   deleteUser(userId: string): Promise<void>;
 

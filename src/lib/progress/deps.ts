@@ -1,7 +1,7 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { DynamoSessionStorage } from '../auth/dynamodb-storage';
-import { InMemoryContactStorage } from '../contact/dummy';
+import { InMemorySubscriptionsStorage } from '../subscriptions/dummy';
 import { DynamoLeaderboardStorage } from '../leaderboard/dynamodb-storage';
 import type { LeaderboardStorage } from '../leaderboard/types';
 import { DynamoProgressStorage } from './dynamodb-storage';
@@ -34,18 +34,19 @@ export interface ProgressDeps {
 
 // ONE in-memory universe shared with the AUTH deps (auth routes write
 // sessions into it; progress routes read them back) — the dev/e2e stand-in
-// for the shared DynamoDB tables. It is constructed as the CONTACT dummy
-// (which extends leaderboard → feedback → analytics → progress → auth) so the
-// Phase A analytics handler, the Phase E2 feedback handler, the Phase D
-// leaderboard handler AND the Feature 3 contact handler share the SAME
-// universe too: a dummy-OTP login resolves for /api/analytics/summary,
-// /api/feedback, /api/leaderboard AND /api/contact in dev/e2e.
+// for the shared DynamoDB tables. It is constructed as the SUBSCRIPTIONS dummy
+// (which extends contact → leaderboard → feedback → analytics → progress →
+// auth) so the Phase A analytics handler, the Phase E2 feedback handler, the
+// Phase D leaderboard handler, the Feature 3 contact handler AND the E4
+// subscriptions handler share the SAME universe too: a dummy-OTP login
+// resolves for /api/analytics/summary, /api/feedback, /api/leaderboard,
+// /api/contact AND /api/subscriptions in dev/e2e.
 // Unit tests never call getProgressDeps; they construct fresh dummies
 // directly.
-let sharedUniverse: InMemoryContactStorage | null = null;
+let sharedUniverse: InMemorySubscriptionsStorage | null = null;
 
-export function getSharedDummyUniverse(): InMemoryContactStorage {
-  if (!sharedUniverse) sharedUniverse = new InMemoryContactStorage();
+export function getSharedDummyUniverse(): InMemorySubscriptionsStorage {
+  if (!sharedUniverse) sharedUniverse = new InMemorySubscriptionsStorage();
   return sharedUniverse;
 }
 
