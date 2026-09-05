@@ -310,53 +310,68 @@ jobs:
 
       - name: Smoke check
         run: |
-          curl -fsS "$SITE_URL/" > /dev/null
-          curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
-          curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
-          # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
-          # match the status code instead).
-          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
-          # Bare-path routing regression guard (2026-08-24): a CloudFront
-          # "/api/x/*" pattern does NOT match the bare "/api/x", which used to
-          # fall through to /api/* → the feedback Lambda (200 {"configured"}).
-          # Unauthenticated bare GETs must 401 from the REAL handlers.
-          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/progress" | grep -q '^401$'
-          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/leaderboard" | grep -q '^401$'
-          # request-otp writes the OTP to DynamoDB + sends via Resend — catches
-          # missing table/index IAM and provider misconfig.
-          #
-          # DEV deliberately differs from prod here (docs/stripe-subscriptions-plan.md
-          # §6.8): the DEV allowlist gate rejects any address that is not in
-          # DEV_ALLOWED_EMAILS, and the Resend probe address is intentionally NOT on
-          # that list — so the expected status on DEV is 403, and that 403 is itself
-          # the proof the gate is live. It also means an unset DEV_ALLOWED_EMAILS
-          # (gate inert → 200/429) fails this deploy loudly rather than leaving dev
-          # silently open. Do NOT "fix" a red run by adding the probe address to the
-          # allowlist; that reopens the hole the gate exists to close.
-          # The deploy-prod job keeps asserting 200/429.
-          AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"delivered@resend.dev"}' "$SITE_URL/api/auth/request-otp")
-          echo "$AUTH_OTP_STATUS" | grep -q '^403$'
-          # /api/progress/_health performs an unauthenticated DynamoDB Query on
-          # octav-progress with a fixed probe key — exercises the REAL failure
-          # class (missing table / missing Query grant) with zero data exposure.
-          # Only 200 proves the path; 401 is impossible (no auth required) and
-          # 500 = table/IAM problem.
-          curl -fsS "$SITE_URL/api/progress/_health" | grep -q '"ok":true'
-          # /api/analytics/_health — same failure-class probe as progress.
-          curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
-          # /api/leaderboard/_health — same failure-class probe on
-          # octav-leaderboard (Phase D; missing table/Query grant → 500).
-          curl -fsS "$SITE_URL/api/leaderboard/_health" | grep -q '"ok":true'
-          # /api/admin/_health performs an unauthenticated ListTables probe —
-          # exercises the admin Lambda's ListTables IAM grant (missing grant /
-          # region → 500). Same failure-class probe as progress/analytics.
-          curl -fsS "$SITE_URL/api/admin/_health" | grep -q '"ok":true'
-          # /api/contact/_health performs an unauthenticated DynamoDB GetItem
-          # probe on octav-contact (fixed probe key) — same failure-class
-          # probe (missing table / missing GetItem grant / EMAIL_PROVIDER not
-          # resend → 500; Feature 3).
-          curl -fsS "$SITE_URL/api/contact/_health" | grep -q '"ok":true'
-          echo "Smoke checks passed."
+          # Retry the whole block: immediately after a "/*" CloudFront
+          # invalidation a transient edge error or connection blip can make a
+          # single curl fail. A bounded retry absorbs that without masking a
+          # real regression (which fails all attempts and keeps this step red).
+          smoke_ok=0
+          for attempt in 1 2 3 4 5; do
+            if {
+              curl -fsS "$SITE_URL/" > /dev/null
+              curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
+              curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
+              # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
+              # match the status code instead).
+              curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
+              # Bare-path routing regression guard (2026-08-24): a CloudFront
+              # "/api/x/*" pattern does NOT match the bare "/api/x", which used to
+              # fall through to /api/* → the feedback Lambda (200 {"configured"}).
+              # Unauthenticated bare GETs must 401 from the REAL handlers.
+              curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/progress" | grep -q '^401$'
+              curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/leaderboard" | grep -q '^401$'
+              # request-otp writes the OTP to DynamoDB + sends via Resend — catches
+              # missing table/index IAM and provider misconfig.
+              #
+              # DEV deliberately differs from prod here (docs/stripe-subscriptions-plan.md
+              # §6.8): the DEV allowlist gate rejects any address that is not in
+              # DEV_ALLOWED_EMAILS, and the Resend probe address is intentionally NOT on
+              # that list — so the expected status on DEV is 403, and that 403 is itself
+              # the proof the gate is live. It also means an unset DEV_ALLOWED_EMAILS
+              # (gate inert → 200/429) fails this deploy loudly rather than leaving dev
+              # silently open. Do NOT "fix" a red run by adding the probe address to the
+              # allowlist; that reopens the hole the gate exists to close.
+              # The deploy-prod job keeps asserting 200/429.
+              AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"delivered@resend.dev"}' "$SITE_URL/api/auth/request-otp")
+              echo "$AUTH_OTP_STATUS" | grep -q '^403$'
+              # /api/progress/_health performs an unauthenticated DynamoDB Query on
+              # octav-progress with a fixed probe key — exercises the REAL failure
+              # class (missing table / missing Query grant) with zero data exposure.
+              # Only 200 proves the path; 401 is impossible (no auth required) and
+              # 500 = table/IAM problem.
+              curl -fsS "$SITE_URL/api/progress/_health" | grep -q '"ok":true'
+              # /api/analytics/_health — same failure-class probe as progress.
+              curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
+              # /api/leaderboard/_health — same failure-class probe on
+              # octav-leaderboard (Phase D; missing table/Query grant → 500).
+              curl -fsS "$SITE_URL/api/leaderboard/_health" | grep -q '"ok":true'
+              # /api/admin/_health performs an unauthenticated ListTables probe —
+              # exercises the admin Lambda's ListTables IAM grant (missing grant /
+              # region → 500). Same failure-class probe as progress/analytics.
+              curl -fsS "$SITE_URL/api/admin/_health" | grep -q '"ok":true'
+              # /api/contact/_health performs an unauthenticated DynamoDB GetItem
+              # probe on octav-contact (fixed probe key) — same failure-class
+              # probe (missing table / missing GetItem grant / EMAIL_PROVIDER not
+              # resend → 500; Feature 3).
+              curl -fsS "$SITE_URL/api/contact/_health" | grep -q '"ok":true'
+            }; then
+              smoke_ok=1
+              echo "Smoke checks passed."
+              break
+            fi
+            echo "Smoke attempt $attempt failed, retrying in 5s..."
+            sleep 5
+          done
+          test "$smoke_ok" -eq 1
 
       # The origin-facing SEO gate (scripts/verify-seo-live.ts): the local
       # --verify gate proves the BUILD; this proves the DEPLOY — sitemap
@@ -492,54 +507,69 @@ jobs:
 
       - name: Smoke check
         run: |
-          curl -fsS "$SITE_URL/" > /dev/null
-          curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
-          curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
-          # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
-          # match the status code instead).
-          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
-          # Bare-path routing regression guard (2026-08-24): a CloudFront
-          # "/api/x/*" pattern does NOT match the bare "/api/x", which used to
-          # fall through to /api/* → the feedback Lambda (200 {"configured"}).
-          # Unauthenticated bare GETs must 401 from the REAL handlers.
-          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/progress" | grep -q '^401$'
-          curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/leaderboard" | grep -q '^401$'
-          # request-otp writes the OTP to DynamoDB + sends via Resend — catches
-          # missing table/index IAM and provider misconfig. 200 = email
-          # accepted; 429 = the durable per-email budget was consumed (proves
-          # the DynamoDB path works — a deploy retry within 10 min of a
-          # previous run trips it); anything else (incl. 502 provider
-          # rejection, 500) = real failure. The probe address is Resend's
-          # magic delivered@resend.dev (simulated delivery) — example.com
-          # recipients are rejected with 422 (2026-08-28: the old
-          # ci-probe@example.com probe silently 502'd on every deploy).
-          AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"delivered@resend.dev"}' "$SITE_URL/api/auth/request-otp")
-          echo "$AUTH_OTP_STATUS" | grep -qE '^(200|429)$'
-          # /api/progress/_health performs an unauthenticated DynamoDB Query on
-          # octav-progress with a fixed probe key — exercises the REAL failure
-          # class (missing table / missing Query grant) with zero data exposure.
-          # Only 200 proves the path; 401 is impossible (no auth required) and
-          # 500 = table/IAM problem.
-          curl -fsS "$SITE_URL/api/progress/_health" | grep -q '"ok":true'
-          # /api/analytics/_health performs an unauthenticated DynamoDB Query on
-          # octav-analytics-events with a fixed probe key — same failure-class
-          # probe as progress (missing table / missing Query grant → 500).
-          curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
-          # /api/leaderboard/_health — same failure-class probe on
-          # octav-leaderboard (Phase D; missing table/Query grant → 500).
-          curl -fsS "$SITE_URL/api/leaderboard/_health" | grep -q '"ok":true'
-          # /api/admin/_health performs an unauthenticated ListTables probe —
-          # exercises the admin Lambda's ListTables IAM grant (missing grant /
-          # region → 500). Same failure-class probe as progress/analytics.
-          curl -fsS "$SITE_URL/api/admin/_health" | grep -q '"ok":true'
-          # /api/contact/_health performs an unauthenticated DynamoDB GetItem
-          # probe on octav-contact (fixed probe key) — same failure-class
-          # probe (missing table / missing GetItem grant / EMAIL_PROVIDER not
-          # resend → 500; Feature 3).
-          curl -fsS "$SITE_URL/api/contact/_health" | grep -q '"ok":true'
-          # www → apex 301 (redirect lives in the PROD URL-rewrite Function).
-          curl -fsS -o /dev/null -w '%{http_code}' https://www.octavlearning.com/ | grep -q '^301$'
-          echo "Smoke checks passed."
+          # Retry the whole block: immediately after a "/*" CloudFront
+          # invalidation a transient edge error or connection blip can make a
+          # single curl fail. A bounded retry absorbs that without masking a
+          # real regression (which fails all attempts and keeps this step red).
+          smoke_ok=0
+          for attempt in 1 2 3 4 5; do
+            if {
+              curl -fsS "$SITE_URL/" > /dev/null
+              curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
+              curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
+              # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
+              # match the status code instead).
+              curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/auth/me" | grep -q '^401$'
+              # Bare-path routing regression guard (2026-08-24): a CloudFront
+              # "/api/x/*" pattern does NOT match the bare "/api/x", which used to
+              # fall through to /api/* → the feedback Lambda (200 {"configured"}).
+              # Unauthenticated bare GETs must 401 from the REAL handlers.
+              curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/progress" | grep -q '^401$'
+              curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/leaderboard" | grep -q '^401$'
+              # request-otp writes the OTP to DynamoDB + sends via Resend — catches
+              # missing table/index IAM and provider misconfig. 200 = email
+              # accepted; 429 = the durable per-email budget was consumed (proves
+              # the DynamoDB path works — a deploy retry within 10 min of a
+              # previous run trips it); anything else (incl. 502 provider
+              # rejection, 500) = real failure. The probe address is Resend's
+              # magic delivered@resend.dev (simulated delivery) — example.com
+              # recipients are rejected with 422 (2026-08-28: the old
+              # ci-probe@example.com probe silently 502'd on every deploy).
+              AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"delivered@resend.dev"}' "$SITE_URL/api/auth/request-otp")
+              echo "$AUTH_OTP_STATUS" | grep -qE '^(200|429)$'
+              # /api/progress/_health performs an unauthenticated DynamoDB Query on
+              # octav-progress with a fixed probe key — exercises the REAL failure
+              # class (missing table / missing Query grant) with zero data exposure.
+              # Only 200 proves the path; 401 is impossible (no auth required) and
+              # 500 = table/IAM problem.
+              curl -fsS "$SITE_URL/api/progress/_health" | grep -q '"ok":true'
+              # /api/analytics/_health performs an unauthenticated DynamoDB Query on
+              # octav-analytics-events with a fixed probe key — same failure-class
+              # probe as progress (missing table / missing Query grant → 500).
+              curl -fsS "$SITE_URL/api/analytics/_health" | grep -q '"ok":true'
+              # /api/leaderboard/_health — same failure-class probe on
+              # octav-leaderboard (Phase D; missing table/Query grant → 500).
+              curl -fsS "$SITE_URL/api/leaderboard/_health" | grep -q '"ok":true'
+              # /api/admin/_health performs an unauthenticated ListTables probe —
+              # exercises the admin Lambda's ListTables IAM grant (missing grant /
+              # region → 500). Same failure-class probe as progress/analytics.
+              curl -fsS "$SITE_URL/api/admin/_health" | grep -q '"ok":true'
+              # /api/contact/_health performs an unauthenticated DynamoDB GetItem
+              # probe on octav-contact (fixed probe key) — same failure-class
+              # probe (missing table / missing GetItem grant / EMAIL_PROVIDER not
+              # resend → 500; Feature 3).
+              curl -fsS "$SITE_URL/api/contact/_health" | grep -q '"ok":true'
+              # www → apex 301 (redirect lives in the PROD URL-rewrite Function).
+              curl -fsS -o /dev/null -w '%{http_code}' https://www.octavlearning.com/ | grep -q '^301$'
+            }; then
+              smoke_ok=1
+              echo "Smoke checks passed."
+              break
+            fi
+            echo "Smoke attempt $attempt failed, retrying in 5s..."
+            sleep 5
+          done
+          test "$smoke_ok" -eq 1
 
       # Same origin-facing gate as deploy-dev, against the apex (see the
       # comment there for what it proves and why it exists).

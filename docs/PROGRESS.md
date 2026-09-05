@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-09-05 — CI: smoke check retry (dev deploy flake fix)
+Git HEAD: `f279e2f` (develop, tree dirty; this entry + ci.yml fix uncommitted)
+Done: `deploy-dev` (and `deploy-prod` for symmetry) Smoke-check step now wraps all curls in a bounded retry loop (5 attempts, 5s backoff) instead of a single `curl -fsS` with no retry. Diagnosed a dev-deploy failure whose only symptom was `curl -fsS "$SITE_URL/"` exit 1 at the Smoke step. Ruled out a regression: my E4.2 push only adds API-route handlers + the subscriptions module + a Lambda zip; `build:static` stashes `src/app/api` aside so the static export (and the homepage HTML) is untouched, and the live dev homepage returns **200** now. Root cause = transient curl blip immediately after the `/*` CloudFront invalidation (no retry in the step).
+Verified: js-yaml parses the workflow (7 jobs intact); both smoke `run:` blocks pass `bash -n`; synthetic run confirms a persistent failure still fails all 5 attempts and keeps the step red (retry does NOT mask real regressions). Not deployed yet — CI runs it on next push/dispatch.
+Next: re-run deploy-dev to confirm green; if it still fails, the failure is real (not a flake) and needs infra investigation, not more retries. Standing queue otherwise unchanged (E4.2 infra terraform + STRIPE_ENV secret, E4.3 UI, E4.4 webhook hardening, E4.5 soft-launch, E5).
+Notes: a flaky smoke must NOT be "fixed" by loosening assertions (e.g. dropping the 403 gate check) — that would reopen the DEV allowlist hole or hide a real outage. The retry is the right layer; the assertions stay strict.
+
+---
+
 ## 2026-09-05 — E4.2 billing endpoints + Lambda (handler slice, uncommitted)
 Git HEAD: `3e70db5` (develop; data-model+dummy already committed, this slice on top)
 Done: **E4.2 handler layer complete** (plan §6.2). New `src/lib/subscriptions/http-handler.ts` (`handleCheckoutPost` 401/403/400/409/429/503/502, `handlePortalPost` 409 `no_billing_account`, `handleStatusGet` stale re-read, `handleWebhookPost` signature→idempotency→applyEvent re-read, `handleSubscriptionsHealth` table-probe+`STRIPE_ENV`), Next routes `src/app/api/subscriptions/{route,checkout,portal,status,_health}.ts`, `lambda/subscriptions/index.ts` (bare path = webhook), `scripts/serve-static.ts` + `scripts/build-lambdas.sh` wired. Supporting changes: `auth/types.ts` `tierFromSubscription` + `updateUser` accepts `tier`; `auth/dummy.ts` + `auth/dynamodb-storage.ts` tier passthrough; `auth/dev-gate.ts` `isProdRequest`; `subscriptions/{types,deps}.ts` budgets/config/`resolveStripeMode`/`originForRequest`/stale. **27 handler tests** green (401/403/400/409/429/503, webhook accept+reject+idempotency, stale self-heal, downgrade leak-close, `_health`). Root-cause of an earlier all-red run was a test-harness bug (handler calls missing `ctx.deps`), NOT src; fixed and cleaned.
