@@ -91,6 +91,38 @@ Implemented on the Checkout Session as `subscription_data.trial_period_days: 14`
 - Switching to `payment_method_collection=if_required` later is a one-line change if conversion data
   ever argues for it.
 
+### 2.2.1 No-charge guarantees (cancelling during the trial)
+
+You are right that this is the crux: **no refund should ever be needed**, because with
+`trial_period_days` Stripe does not create a chargeable invoice until the trial ends. Cancelling
+before then means the scheduled charge never happens. Concretely:
+
+| Moment | Stripe state | Charge? | Our tier |
+|---|---|---|---|
+| Checkout completed | `trialing`, card saved | **no invoice, no charge** | premium |
+| Day 3, user cancels | `trialing`, `cancel_at_period_end=true` | **no charge** | premium (until day 14) |
+| Day 14, cancelled trial ends | subscription ends, `customer.subscription.deleted` | **no charge** | → free |
+| Day 14, not cancelled | `active`, invoice created + charged | charged | premium |
+
+**Cancellation semantics we will implement:** cancel sets **`cancel_at_period_end = true`**, not an
+immediate delete. The customer keeps the trial access they were promised, the subscription ends at the
+trial boundary, and **no invoice is ever generated**. Stripe documents this as the subscription
+completing "the duration of time the customer has already paid for" — for a trial that duration is the
+trial, and the amount was zero. Reactivation before the boundary is `cancel_at_period_end = false`.
+
+**Guard rails against the erroneous-charge / dispute scenario you raised:**
+
+1. **Never create an upfront charge.** `trial_period_days` on the Checkout Session is the only
+    mechanism; we never pass an upfront line item and never call `invoice.pay()` ourselves.
+2. **Trial reminder email.** Stripe fires `customer.subscription.trial_will_end` **three days before**
+   the trial ends (Stripe can email the customer from this). We also surface "trial ends on <date>"
+   and the saved card (brand + last4) in `/account` so the upcoming charge is never a surprise.
+3. **One-click cancel** via the Customer Portal, linked from `/account`.
+4. **Safety net for the `if_required` path** (only if we ever switch to it): set
+   `trial_settings.end_behavior.missing_payment_method = cancel`, so a trial ending with no card
+   cancels instead of erroring.
+5. **Reconciliation, not blind trust** — see §6.4.1. Stripe remains the source of truth.
+
 ### 2.3 What Premium unlocks
 
 Unchanged from `docs/entitlement-policy.md`:
@@ -311,6 +343,32 @@ Rules:
    (or from the event's subscription object) rather than assuming an update sequence.
 4. **Fail loudly, retry safely** — return non-2xx on unhandled errors so Stripe retries; return 200
    for events we intentionally ignore.
+
+### 6.4.1 Tier sync, cancellation, and reconciliation
+
+**Status → tier mapping** (single source of truth, server-side):
+
+| `subscriptionStatus` | tier |
+|---|---|
+| `trialing` | **premium** |
+| `active` | **premium** |
+| `past_due` | premium (grace — Stripe is retrying; do not punish a failed card instantly) |
+| `canceled`, `incomplete`, absent | **free** |
+
+Note `cancel_at_period_end = true` does **not** change `status` — the subscription stays `trialing`
+until the boundary. So a user who cancels on day 3 correctly keeps premium until day 14, and the
+`customer.subscription.deleted` event at the boundary is what downgrades them. Access ends *because*
+the subscription ended, not because we raced the cancel click.
+
+**The failure mode to defend against:** a missed or failed webhook leaves a cancelled user on premium
+forever (revenue leak, and the opposite of the dispute risk). Two mitigations:
+
+1. **Stripe is the source of truth; DynamoDB is a cache.** `GET /api/subscriptions/status` re-reads
+   from Stripe whenever the cached copy is **stale** — i.e. `trialEndsAt` or `currentPeriodEnd` is in
+   the past — and writes the corrected state back. This self-heals after any webhook gap without
+   needing a cron job.
+2. **Idempotent handlers** (§6.4 rule 2) so Stripe's retries are harmless, plus alerting on repeated
+   webhook failures.
 
 ### 6.5 Entitlement enforcement
 
