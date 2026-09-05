@@ -183,9 +183,19 @@ export interface AuthStorage {
   getUserByEmail(email: string): Promise<UserRecord | null>;
   getUserById(userId: string): Promise<UserRecord | null>;
   createUser(user: UserRecord): Promise<void>;
+  /**
+   * `tier` is writable because the E4 webhook DERIVES it from the Stripe
+   * subscription status (plan §6.3) — tier stays the single entitlement source
+   * of truth, and this is the only path that changes it automatically.
+   */
   updateUser(
     userId: string,
-    updates: { displayName?: string; childProfiles?: ChildProfile[]; lastLoginAt?: string } & SubscriptionFields
+    updates: {
+      displayName?: string;
+      childProfiles?: ChildProfile[];
+      lastLoginAt?: string;
+      tier?: Tier;
+    } & SubscriptionFields
   ): Promise<UserRecord | null>;
   deleteUser(userId: string): Promise<void>;
 

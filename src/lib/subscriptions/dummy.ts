@@ -1,6 +1,8 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { InMemoryContactStorage } from '../contact/dummy';
 import type { SubscriptionFields, UserRecord } from '../auth/types';
+import type { Tier } from '../entitlements/features';
+import { subscriptionRateLimitBucket } from './types';
 import type {
   CheckoutSession,
   CreateCheckoutParams,
@@ -236,6 +238,16 @@ export class DummyStripeClient implements StripeClient {
 // no-ops (plan §6.4 rule 2).
 export class InMemorySubscriptionsStorage extends InMemoryContactStorage implements SubscriptionsStorage {
   private readonly processedEvents = new Set<string>();
+  private readonly sessionCounters = new Map<string, number>(); // bucket key → count
+  // The base clock is private, so keep our own copy seeded with the same one
+  // (the contact dummy's precedent) — the inherited limiters and this one stay
+  // aligned under a frozen test clock.
+  private readonly subsClock: () => number;
+
+  constructor(clock: () => number = Date.now) {
+    super(clock);
+    this.subsClock = clock;
+  }
 
   async markEventProcessed(eventId: string): Promise<boolean> {
     if (this.processedEvents.has(eventId)) return false;
@@ -243,7 +255,26 @@ export class InMemorySubscriptionsStorage extends InMemoryContactStorage impleme
     return true;
   }
 
-  async updateUser(userId: string, updates: SubscriptionFields): Promise<UserRecord | null> {
+  async updateUser(
+    userId: string,
+    updates: SubscriptionFields & { tier?: Tier }
+  ): Promise<UserRecord | null> {
     return super.updateUser(userId, updates);
+  }
+
+  async incrementSessionBudget(userId: string, limit: number, windowSeconds: number): Promise<boolean> {
+    // Fixed-window budget with the window epoch IN the key — the DynamoDB
+    // adapter resets atomically when the window rolls; here the previous bucket
+    // is simply never read again.
+    const key = subscriptionRateLimitBucket(userId, this.subsClock(), windowSeconds);
+    const count = this.sessionCounters.get(key) ?? 0;
+    if (count >= limit) return false;
+    this.sessionCounters.set(key, count + 1);
+    return true;
+  }
+
+  async probeTable(): Promise<void> {
+    // The in-memory dummy has no IAM grant or table to fail — the probe is a
+    // no-op (its DynamoDB counterpart performs the GetItem).
   }
 }

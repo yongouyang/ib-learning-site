@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Bundle every Lambda (feedback + auth + progress + analytics + leaderboard +
-# admin + analytics-report + contact) into a zip for Terraform
+# admin + analytics-report + contact + subscriptions) into a zip for Terraform
 # (docs/aws-deployment-plan.md §5, docs/architecture-evolution-plan.md §6.4).
 # CI runs the same script before apply. Each zip is byte-identical for
 # identical source (mtime normalized) so source_code_hash only changes when
@@ -37,3 +37,4 @@ build_one "leaderboard" "lambda/leaderboard/index.ts"
 build_one "admin" "lambda/admin/index.ts"
 build_one "analytics-report" "lambda/analytics-report/index.ts"
 build_one "contact" "lambda/contact/index.ts"
+build_one "subscriptions" "lambda/subscriptions/index.ts"

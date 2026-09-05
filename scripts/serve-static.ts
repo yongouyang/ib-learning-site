@@ -170,6 +170,18 @@ const CONTACT_ROUTES: Record<string, string> = {
   '/api/contact/_health': '../src/app/api/contact/_health/route',
 };
 
+// /api/subscriptions (the Stripe webhook, exact path) + its sub-paths → the
+// real Next route handlers, mirroring the CloudFront /api/subscriptions +
+// /api/subscriptions/* behaviors → subscriptions Lambda (E4.2,
+// docs/stripe-subscriptions-plan.md §6.2).
+const SUBSCRIPTIONS_ROUTES: Record<string, string> = {
+  '/api/subscriptions': '../src/app/api/subscriptions/route',
+  '/api/subscriptions/checkout': '../src/app/api/subscriptions/checkout/route',
+  '/api/subscriptions/portal': '../src/app/api/subscriptions/portal/route',
+  '/api/subscriptions/status': '../src/app/api/subscriptions/status/route',
+  '/api/subscriptions/_health': '../src/app/api/subscriptions/_health/route',
+};
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url ?? '/', `http://localhost:${port}`);
 
@@ -181,7 +193,7 @@ const server = http.createServer((req, res) => {
     });
     return;
   }
-  const authRoute = AUTH_ROUTES[url.pathname] ?? PROGRESS_ROUTES[url.pathname] ?? ANALYTICS_ROUTES[url.pathname] ?? LEADERBOARD_ROUTES[url.pathname] ?? ADMIN_ROUTES[url.pathname] ?? CONTACT_ROUTES[url.pathname];
+  const authRoute = AUTH_ROUTES[url.pathname] ?? PROGRESS_ROUTES[url.pathname] ?? ANALYTICS_ROUTES[url.pathname] ?? LEADERBOARD_ROUTES[url.pathname] ?? ADMIN_ROUTES[url.pathname] ?? CONTACT_ROUTES[url.pathname] ?? SUBSCRIPTIONS_ROUTES[url.pathname];
   if (authRoute) {
     handleApiRoute(authRoute, url.pathname + url.search, req, res).catch((err) => {
       console.error(`[serve-static] ${url.pathname} error:`, err);
@@ -211,5 +223,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(`[serve-static] Serving out/ + /api/feedback + /api/auth/* + /api/progress* + /api/analytics/* + /api/leaderboard* + /api/admin/* + /api/contact* on http://localhost:${port}`);
+  console.log(`[serve-static] Serving out/ + /api/feedback + /api/auth/* + /api/progress* + /api/analytics/* + /api/leaderboard* + /api/admin/* + /api/contact* + /api/subscriptions* on http://localhost:${port}`);
 });

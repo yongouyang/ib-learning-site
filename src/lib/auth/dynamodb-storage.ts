@@ -127,7 +127,12 @@ export class DynamoAuthStorage implements AuthStorage {
 
   async updateUser(
     userId: string,
-    updates: { displayName?: string; childProfiles?: ChildProfile[]; lastLoginAt?: string } & SubscriptionFields
+    updates: {
+      displayName?: string;
+      childProfiles?: ChildProfile[];
+      lastLoginAt?: string;
+      tier?: UserRecord['tier'];
+    } & SubscriptionFields
   ): Promise<UserRecord | null> {
     const sets: string[] = [];
     // The userId is the partition key (Key), NOT an expression value — leaving
@@ -152,6 +157,11 @@ export class DynamoAuthStorage implements AuthStorage {
       sets.push('#lla = :lla');
       values[':lla'] = updates.lastLoginAt;
       names['#lla'] = 'lastLoginAt';
+    }
+    if (updates.tier !== undefined) {
+      sets.push('#tier = :tier');
+      values[':tier'] = updates.tier;
+      names['#tier'] = 'tier';
     }
     // E4 billing state cached from Stripe (plan §6.3). Only the fields actually
     // present are SET — an update that omits them cannot blank cached state.

@@ -23,6 +23,19 @@ export function isDevRequest(req: Request): boolean {
   return req.headers.get(DEV_ENV_HEADER)?.trim().toLowerCase() === 'dev';
 }
 
+/**
+ * True only when the request arrived through the PROD distribution.
+ *
+ * Deliberately STRICT and not merely `!isDevRequest`: this is the signal that
+ * authorises LIVE Stripe keys (plan §6.1), so a missing or unrecognised header
+ * — local `next dev`, the Next route handlers, the e2e suite, a stripped proxy
+ * — must resolve to the NON-live side. Fail-safe by construction: the only way
+ * to reach live money is an explicit, CloudFront-overwritten `prod` marker.
+ */
+export function isProdRequest(req: Request): boolean {
+  return req.headers.get(DEV_ENV_HEADER)?.trim().toLowerCase() === 'prod';
+}
+
 /** Comma-separated allowlist -> trimmed, lowercased, deduped, empties dropped. */
 export function parseAllowedEmails(raw: string | undefined): string[] {
   return [

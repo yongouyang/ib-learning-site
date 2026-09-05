@@ -56,7 +56,12 @@ export class InMemoryAuthStorage implements AuthStorage {
 
   async updateUser(
     userId: string,
-    updates: { displayName?: string; childProfiles?: UserRecord['childProfiles']; lastLoginAt?: string } & SubscriptionFields
+    updates: {
+      displayName?: string;
+      childProfiles?: UserRecord['childProfiles'];
+      lastLoginAt?: string;
+      tier?: UserRecord['tier'];
+    } & SubscriptionFields
   ): Promise<UserRecord | null> {
     const existing = this.users.get(userId);
     if (!existing) return null;
@@ -72,6 +77,7 @@ export class InMemoryAuthStorage implements AuthStorage {
       ...(updates.displayName !== undefined ? { displayName: updates.displayName } : {}),
       ...(updates.childProfiles !== undefined ? { childProfiles: updates.childProfiles.map((p) => ({ ...p })) } : {}),
       ...(updates.lastLoginAt !== undefined ? { lastLoginAt: updates.lastLoginAt } : {}),
+      ...(updates.tier !== undefined ? { tier: updates.tier } : {}),
       ...billing,
     };
     this.users.set(userId, updated);
