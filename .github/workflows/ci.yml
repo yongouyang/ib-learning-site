@@ -200,6 +200,12 @@ jobs:
       SITE_URL: https://d2c1g77zfmjpm3.cloudfront.net
       SITE_BUCKET: iblearn-site-305655353474
       DISTRIBUTION_ID: E1BMVEW6YOKNUY
+      # DEV environment access gate (docs/stripe-subscriptions-plan.md §6.8):
+      # accounts allowed to use the DEV environment's /api/*. Must be passed by
+      # BOTH deploy jobs — they apply the same Terraform root, so a job that
+      # omits it would wipe the value back to empty. Empty leaves the gate
+      # inert, which the request-otp smoke assertion below catches.
+      TF_VAR_dev_allowed_emails: ${{ secrets.DEV_ALLOWED_EMAILS || '' }}
       # Feedback Lambda env (FEEDBACK_PROVIDER / FEEDBACK_API_KEY / ...) as a
       # single-line JSON map with straight quotes — terraform parses it as HCL
       # and rejects multi-line values / curly quotes. Unset secret = {}
@@ -317,16 +323,19 @@ jobs:
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/progress" | grep -q '^401$'
           curl -sS -o /dev/null -w '%{http_code}' "$SITE_URL/api/leaderboard" | grep -q '^401$'
           # request-otp writes the OTP to DynamoDB + sends via Resend — catches
-          # missing table/index IAM and provider misconfig. 200 = email
-          # accepted; 429 = the durable per-email budget was consumed (proves
-          # the DynamoDB path works — a deploy retry within 10 min of a
-          # previous run trips it); anything else (incl. 502 provider
-          # rejection, 500) = real failure. The probe address is Resend's
-          # magic delivered@resend.dev (simulated delivery) — example.com
-          # recipients are rejected with 422 (2026-08-28: the old
-          # ci-probe@example.com probe silently 502'd on every deploy).
+          # missing table/index IAM and provider misconfig.
+          #
+          # DEV deliberately differs from prod here (docs/stripe-subscriptions-plan.md
+          # §6.8): the DEV allowlist gate rejects any address that is not in
+          # DEV_ALLOWED_EMAILS, and the Resend probe address is intentionally NOT on
+          # that list — so the expected status on DEV is 403, and that 403 is itself
+          # the proof the gate is live. It also means an unset DEV_ALLOWED_EMAILS
+          # (gate inert → 200/429) fails this deploy loudly rather than leaving dev
+          # silently open. Do NOT "fix" a red run by adding the probe address to the
+          # allowlist; that reopens the hole the gate exists to close.
+          # The deploy-prod job keeps asserting 200/429.
           AUTH_OTP_STATUS=$(curl -sS -o /dev/null -w '%{http_code}' -X POST -H 'content-type: application/json' -d '{"email":"delivered@resend.dev"}' "$SITE_URL/api/auth/request-otp")
-          echo "$AUTH_OTP_STATUS" | grep -qE '^(200|429)$'
+          echo "$AUTH_OTP_STATUS" | grep -q '^403$'
           # /api/progress/_health performs an unauthenticated DynamoDB Query on
           # octav-progress with a fixed probe key — exercises the REAL failure
           # class (missing table / missing Query grant) with zero data exposure.
@@ -380,6 +389,11 @@ jobs:
       SITE_URL: https://octavlearning.com
       SITE_BUCKET: iblearn-prod-site-305655353474
       DISTRIBUTION_ID: EYC8IOH4L9SXT
+      # DEV environment access gate (docs/stripe-subscriptions-plan.md §6.8).
+      # The Lambdas are SHARED between dev and prod, so this is the same
+      # allowlist either way — it must be passed by both jobs or a deploy from
+      # the other branch would wipe it back to empty.
+      TF_VAR_dev_allowed_emails: ${{ secrets.DEV_ALLOWED_EMAILS || '' }}
       TF_VAR_feedback_env: ${{ secrets.FEEDBACK_ENV || '{}' }}
       # Accounts feature (Phase 0): DynamoDB table prefix (repo variable) and
       # SES from-address (repo secret). Defaults match terraform/envs/prod.

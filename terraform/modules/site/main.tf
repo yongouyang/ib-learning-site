@@ -308,6 +308,42 @@ locals {
   # Origin request policy: forward everything except Host (the Function URL
   # requires its own Host header).
   origin_request_all_except_host = "b689b0a8-53d0-40ab-baf2-68738e2966ac"
+  # This distribution's environment label, injected into the api_env_header
+  # Function below. Derived from the same flag that drives the DEV brand
+  # rewrite, so the two can never drift apart.
+  env_label = var.dev_brand_rewrite ? "dev" : "prod"
+}
+
+# DEV/PROD environment marker for the /api/* handlers
+# (docs/stripe-subscriptions-plan.md §6.8).
+#
+# The DEV and PROD distributions are served by the SAME Lambdas, so a handler
+# cannot otherwise tell which environment a request came from — and the DEV
+# allowlist gate must not be spoofable. This viewer-request Function sets
+# X-Octav-Env to this distribution's label, OVERWRITING any client-supplied
+# value.
+#
+# The overwrite is the whole point, in both directions:
+#   - without it on DEV, a client sends "x-octav-env: prod" and walks straight
+#     past the DEV allowlist gate;
+#   - without it on PROD, a client sends "x-octav-env: dev" and every
+#     non-allowlisted user gets a 403 — a trivially triggerable outage on
+#     production. So BOTH distributions get this Function, not just dev.
+resource "aws_cloudfront_function" "api_env_header" {
+  name    = "${var.name_prefix}-api-env-header"
+  runtime = "cloudfront-js-2.0"
+  comment = "Set X-Octav-Env to this distribution's environment label (dev|prod), overwriting client values"
+  publish = true
+
+  code = <<-EOT
+    function handler(event) {
+      var request = event.request;
+      // Unconditional assignment: creates the entry when absent and REPLACES
+      // it when the client supplied one. Header keys are lowercase.
+      request.headers['x-octav-env'] = { value: "${local.env_label}" };
+      return request;
+    }
+  EOT
 }
 
 resource "aws_cloudfront_distribution" "site" {
@@ -452,6 +488,10 @@ resource "aws_cloudfront_distribution" "site" {
       compress                 = true
       cache_policy_id          = local.cache_policy_caching_disabled
       origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
     }
   }
 
@@ -472,6 +512,10 @@ resource "aws_cloudfront_distribution" "site" {
       compress                 = true
       cache_policy_id          = local.cache_policy_caching_disabled
       origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
     }
   }
 
@@ -490,6 +534,10 @@ resource "aws_cloudfront_distribution" "site" {
       compress                 = true
       cache_policy_id          = local.cache_policy_caching_disabled
       origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
     }
   }
 
@@ -512,6 +560,10 @@ resource "aws_cloudfront_distribution" "site" {
       origin_request_policy_id = local.origin_request_all_except_host
       function_association {
         event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
+      function_association {
+        event_type   = "viewer-request"
         function_arn = aws_cloudfront_function.api_host_header.arn
       }
     }
@@ -531,6 +583,10 @@ resource "aws_cloudfront_distribution" "site" {
       compress                 = true
       cache_policy_id          = local.cache_policy_caching_disabled
       origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
     }
   }
 
@@ -547,6 +603,10 @@ resource "aws_cloudfront_distribution" "site" {
       compress                 = true
       cache_policy_id          = local.cache_policy_caching_disabled
       origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
     }
   }
 
@@ -564,6 +624,10 @@ resource "aws_cloudfront_distribution" "site" {
       compress                 = true
       cache_policy_id          = local.cache_policy_caching_disabled
       origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
     }
   }
 
@@ -583,6 +647,10 @@ resource "aws_cloudfront_distribution" "site" {
       compress                 = true
       cache_policy_id          = local.cache_policy_caching_disabled
       origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
     }
   }
 
@@ -604,6 +672,10 @@ resource "aws_cloudfront_distribution" "site" {
       compress                 = true
       cache_policy_id          = local.cache_policy_caching_disabled
       origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
     }
   }
 
@@ -620,6 +692,10 @@ resource "aws_cloudfront_distribution" "site" {
       compress                 = true
       cache_policy_id          = local.cache_policy_caching_disabled
       origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
     }
   }
 

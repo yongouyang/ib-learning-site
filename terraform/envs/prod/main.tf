@@ -150,6 +150,20 @@ variable "analytics_admin_emails" {
   default     = ""
 }
 
+# DEV environment access gate (docs/stripe-subscriptions-plan.md §6.8): the DEV
+# and PROD distributions share the same Lambdas, so without this allowlist
+# anyone who finds dev.octavlearning.com can use the app against production
+# data. Set via the DEV_ALLOWED_EMAILS repo secret (TF_VAR_dev_allowed_emails).
+# EMPTY LEAVES THE GATE INERT by design — a missing value must not brick
+# staging. The deploy-dev smoke test is the guard from the other side: it
+# asserts 403 on request-otp, so an unset value turns that smoke red.
+variable "dev_allowed_emails" {
+  description = "Comma-separated allowlist of accounts permitted to use the DEV environment's /api/*. Set via the DEV_ALLOWED_EMAILS repo secret; empty = gate inert."
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
 variable "admin_env" {
   description = "Admin Lambda env overrides via CI TF_VAR_admin_env (ADMIN_ENV secret); empty = base wiring below."
   type        = map(string)
@@ -223,6 +237,7 @@ module "feedback_api" {
       AUTH_USERS_TABLE       = module.dynamodb.users_table_name
       AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
       AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+      DEV_ALLOWED_EMAILS     = var.dev_allowed_emails
     },
     var.feedback_env,
   )
@@ -286,10 +301,11 @@ module "auth_api" {
       # D5 opt-out erasure (docs/leaderboard-plan.md §7): without this the
       # auth deps leave leaderboardStorage undefined and row deletion is a
       # no-op.
-      LEADERBOARD_TABLE = module.dynamodb.leaderboard_table_name
-      AUTH_SES_REGION   = "ap-southeast-1"
-      SES_FROM_ADDRESS  = var.ses_from_address
-      EMAIL_PROVIDER    = var.email_provider
+      LEADERBOARD_TABLE  = module.dynamodb.leaderboard_table_name
+      AUTH_SES_REGION    = "ap-southeast-1"
+      SES_FROM_ADDRESS   = var.ses_from_address
+      EMAIL_PROVIDER     = var.email_provider
+      DEV_ALLOWED_EMAILS = var.dev_allowed_emails
     },
     var.auth_env,
   )
@@ -327,7 +343,8 @@ module "progress_api" {
       # D4 XP award hook (docs/leaderboard-plan.md §6): without this the
       # progress deps leave leaderboardStorage undefined and awarding is
       # disabled (sync unaffected).
-      LEADERBOARD_TABLE = module.dynamodb.leaderboard_table_name
+      LEADERBOARD_TABLE  = module.dynamodb.leaderboard_table_name
+      DEV_ALLOWED_EMAILS = var.dev_allowed_emails
     },
     var.progress_env,
   )
@@ -354,6 +371,7 @@ module "leaderboard_api" {
     AUTH_USERS_TABLE    = module.dynamodb.users_table_name
     AUTH_SESSIONS_TABLE = module.dynamodb.sessions_table_name
     LEADERBOARD_TABLE   = module.dynamodb.leaderboard_table_name
+    DEV_ALLOWED_EMAILS  = var.dev_allowed_emails
   }
 }
 
@@ -383,6 +401,7 @@ module "analytics_api" {
       AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
       AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
       ANALYTICS_ADMIN_EMAILS = var.analytics_admin_emails
+      DEV_ALLOWED_EMAILS     = var.dev_allowed_emails
     },
     var.analytics_env,
   )
@@ -407,6 +426,7 @@ module "admin_api" {
       AUTH_USERS_TABLE       = module.dynamodb.users_table_name
       AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
       ANALYTICS_ADMIN_EMAILS = var.analytics_admin_emails
+      DEV_ALLOWED_EMAILS     = var.dev_allowed_emails
     },
     var.admin_env,
   )
