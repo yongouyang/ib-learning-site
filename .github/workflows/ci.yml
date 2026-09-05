@@ -314,8 +314,18 @@ jobs:
           # invalidation a transient edge error or connection blip can make a
           # single curl fail. A bounded retry absorbs that without masking a
           # real regression (which fails all attempts and keeps this step red).
+          # Retry the whole block: immediately after a "/*" CloudFront invalidation
+          # a transient edge error or connection blip can make a single curl fail.
+          # Retry once after 5s and once more after 10s; a real regression still
+          # fails both retries and keeps this step red (assertions are unchanged).
           smoke_ok=0
-          for attempt in 1 2 3 4 5; do
+          attempt=0
+          for delay in "" 5 10; do
+            attempt=$((attempt + 1))
+            if [ -n "$delay" ]; then
+              echo "Smoke attempt $attempt failed, retrying in ${delay}s..."
+              sleep "$delay"
+            fi
             if {
               curl -fsS "$SITE_URL/" > /dev/null
               curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
@@ -368,8 +378,6 @@ jobs:
               echo "Smoke checks passed."
               break
             fi
-            echo "Smoke attempt $attempt failed, retrying in 5s..."
-            sleep 5
           done
           test "$smoke_ok" -eq 1
 
@@ -511,8 +519,18 @@ jobs:
           # invalidation a transient edge error or connection blip can make a
           # single curl fail. A bounded retry absorbs that without masking a
           # real regression (which fails all attempts and keeps this step red).
+          # Retry the whole block: immediately after a "/*" CloudFront invalidation
+          # a transient edge error or connection blip can make a single curl fail.
+          # Retry once after 5s and once more after 10s; a real regression still
+          # fails both retries and keeps this step red (assertions are unchanged).
           smoke_ok=0
-          for attempt in 1 2 3 4 5; do
+          attempt=0
+          for delay in "" 5 10; do
+            attempt=$((attempt + 1))
+            if [ -n "$delay" ]; then
+              echo "Smoke attempt $attempt failed, retrying in ${delay}s..."
+              sleep "$delay"
+            fi
             if {
               curl -fsS "$SITE_URL/" > /dev/null
               curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
@@ -566,8 +584,6 @@ jobs:
               echo "Smoke checks passed."
               break
             fi
-            echo "Smoke attempt $attempt failed, retrying in 5s..."
-            sleep 5
           done
           test "$smoke_ok" -eq 1
 
