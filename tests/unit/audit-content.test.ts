@@ -4,6 +4,7 @@ import {
   findBoldIssues,
   findEscapedDollarIssues,
   findLatexIssues,
+  findMultiDisplayMath,
   type AuditTopic,
 } from "../../scripts/audit-content";
 import type { Question } from "@/content/types";
@@ -283,6 +284,33 @@ describe("auditContent", () => {
     expect(result.summary.totalTopics).toBe(2);
     expect(result.summary.totalQuestions).toBe(3);
     expect(result.summary.averageQuestionsPerTopic).toBe(1.5);
+  });
+});
+
+describe("findMultiDisplayMath", () => {
+  it("accepts a body where each display block is on its own line", () => {
+    expect(
+      findMultiDisplayMath("Intro text\n\n$$a = b$$\n\n$$c = d$$\n\nMore text"),
+    ).toHaveLength(0);
+  });
+
+  it("flags a line that crams two display blocks together", () => {
+    const body = "Text $$x = 1$$ and $$y = 2$$ more text.";
+    const issues = findMultiDisplayMath(body);
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toContain("$$x = 1$$");
+  });
+
+  it("flags three display blocks on one line but not inline-only lines", () => {
+    expect(findMultiDisplayMath("$$a$$ $$b$$ $$c$$")).toHaveLength(1);
+    // inline math carries no $$ delimiter, so multiple $...$ on a line is fine
+    expect(findMultiDisplayMath("$a = 1$ and $b = 2$")).toHaveLength(0);
+  });
+
+  it("catches the exact production regression (matrices worked example)", () => {
+    const body =
+      "Let $$A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$$ and $$B = \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix}$$";
+    expect(findMultiDisplayMath(body)).toHaveLength(1);
   });
 });
 
