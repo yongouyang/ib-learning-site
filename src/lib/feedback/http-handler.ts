@@ -1,4 +1,5 @@
 import { resolveSession } from '../auth/session';
+import { devGateDenied, DEV_GATE_ERROR } from '../auth/dev-gate';
 import {
   AI_MARK_PREMIUM_MONTHLY_CAP,
   aiMarkQuotaForTier,
@@ -130,6 +131,7 @@ export async function handleFeedbackPost(
   // truth with auth/progress/analytics).
   const auth = await resolveSession(req, deps.storage);
   if (!auth.ok) return json({ error: 'login_required' }, 401);
+  if (devGateDenied(req, auth.user.email)) return json({ error: DEV_GATE_ERROR }, 403);
 
   // Provider wiring check BEFORE charging quota (E2 refinement): constructing
   // the provider costs nothing (no LLM call), and a 501 on an unconfigured

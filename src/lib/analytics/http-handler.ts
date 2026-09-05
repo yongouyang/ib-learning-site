@@ -1,4 +1,5 @@
 import { resolveSession } from '../auth/session';
+import { devGateDenied, DEV_GATE_ERROR } from '../auth/dev-gate';
 import { getAnalyticsDeps } from './deps';
 import type { AnalyticsDeps } from './deps';
 import {
@@ -148,6 +149,7 @@ export async function handleAnalyticsSummary(
 
   const auth = await resolveSession(req, deps.storage);
   if (!auth.ok) return json({ error: 'Not authenticated.' }, 401);
+  if (devGateDenied(req, auth.user.email)) return json({ error: DEV_GATE_ERROR }, 403);
 
   if (!isAdminEmail(auth.user.email, deps.adminEmails)) {
     return json({ error: 'Not authorized.' }, 403);

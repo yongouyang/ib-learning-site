@@ -26,6 +26,7 @@ import {
   sessionCookieValue,
   sessionTokenFromCookie,
 } from './session';
+import { devGateDenied, devGateDeniesEmail, DEV_GATE_ERROR } from './dev-gate';
 import { featuresForTier } from '../entitlements/features';
 import { handleForProfile } from '../leaderboard/handles';
 
@@ -179,6 +180,9 @@ async function requireAuth(
   if (!resolution.ok) {
     return { response: json({ error: 'Not authenticated.' }, 401) };
   }
+  if (devGateDenied(req, resolution.user.email)) {
+    return { response: json({ error: DEV_GATE_ERROR }, 403) };
+  }
   return {
     user: resolution.user,
     session: resolution.session,
@@ -209,6 +213,15 @@ export async function handleRequestOtp(req: Request, deps: AuthDeps = getAuthDep
   }
 
   const email = parsed.data.email;
+
+  // DEV gate: reject a non-allowlisted address BEFORE spending anything (OTP
+  // counters, email send). Unlike prod's deliberate "always 200, no
+  // enumeration" response, DEV returns an explicit 403 — a private staging
+  // environment should fail loudly. See docs/stripe-subscriptions-plan.md §6.8.
+  if (devGateDeniesEmail(req, email)) {
+    return json({ error: DEV_GATE_ERROR }, 403);
+  }
+
   const now = Date.now();
 
   // Rate limit before spending anything (sending an email or writing a code).

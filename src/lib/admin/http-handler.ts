@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { resolveSession } from '../auth/session';
+import { devGateDenied, DEV_GATE_ERROR } from '../auth/dev-gate';
 import { getAdminDeps } from './deps';
 import type { AdminDeps } from './deps';
 import type { AdminRequest } from './types';
@@ -155,6 +156,7 @@ export async function handleAdminDynamo(
 
   const auth = await resolveSession(req, deps.sessionStorage);
   if (!auth.ok) return json({ error: 'Not authenticated.' }, 401);
+  if (devGateDenied(req, auth.user.email)) return json({ error: DEV_GATE_ERROR }, 403);
   if (!isAdminEmail(auth.user.email, deps.adminEmails)) {
     return json({ error: 'Not authorized.' }, 403);
   }
@@ -208,5 +210,6 @@ export async function handleAdminAccess(
 ): Promise<Response> {
   const auth = await resolveSession(req, deps.sessionStorage);
   if (!auth.ok) return json({ error: 'Not authenticated.' }, 401);
+  if (devGateDenied(req, auth.user.email)) return json({ error: DEV_GATE_ERROR }, 403);
   return withCookie(json({ admin: isAdminEmail(auth.user.email, deps.adminEmails) }), auth.refreshCookie);
 }

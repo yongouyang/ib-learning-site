@@ -1,4 +1,5 @@
 import { resolveSession } from '../auth/session';
+import { devGateDenied, DEV_GATE_ERROR } from '../auth/dev-gate';
 import type { ChildProfile } from '../auth/types';
 import { getLeaderboardDeps } from './deps';
 import type { LeaderboardDeps } from './deps';
@@ -62,6 +63,7 @@ export async function handleLeaderboardBoard(
 ): Promise<Response> {
   const auth = await resolveSession(req, deps.storage);
   if (!auth.ok) return NOT_AUTHENTICATED();
+  if (devGateDenied(req, auth.user.email)) return json({ error: DEV_GATE_ERROR }, 403);
 
   const url = new URL(req.url);
 

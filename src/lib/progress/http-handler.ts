@@ -1,4 +1,5 @@
 import { resolveSession } from '../auth/session';
+import { devGateDenied, DEV_GATE_ERROR } from '../auth/dev-gate';
 import type { ChildProfile } from '../auth/types';
 import { LADDER_UNLOCK_SCORE } from '../ladder';
 import { handleForProfile } from '../leaderboard/handles';
@@ -329,6 +330,7 @@ export async function handleProgressGet(
 ): Promise<Response> {
   const auth = await resolveSession(req, deps.storage);
   if (!auth.ok) return NOT_AUTHENTICATED();
+  if (devGateDenied(req, auth.user.email)) return json({ error: DEV_GATE_ERROR }, 403);
 
   const items = await deps.storage.listProgressByUser(auth.user.userId);
   const res = json({ profiles: buildSnapshots(items) });
@@ -342,6 +344,7 @@ export async function handleProgressSync(
 ): Promise<Response> {
   const auth = await resolveSession(req, deps.storage);
   if (!auth.ok) return NOT_AUTHENTICATED();
+  if (devGateDenied(req, auth.user.email)) return json({ error: DEV_GATE_ERROR }, 403);
 
   const { body, error } = await parseJson(req);
   if (error) return error;
