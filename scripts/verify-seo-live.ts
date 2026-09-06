@@ -56,8 +56,22 @@ const decode = (s: string) =>
  *  the first version of this check matched `\btimes\b` and falsely failed a Chinese page. */
 const mathLeak = (s: string) => /[$\\]/.test(s);
 
+/**
+ * One retry after 1s. A single transient ECONNRESET from our own origin aborted the whole
+ * gate once (328-page prod run) and reported a green deploy as red. ONE retry only: a real
+ * outage still fails every attempt, so this never masks a genuine regression.
+ */
+async function fetchRetry(url: string, init?: RequestInit): Promise<Response> {
+  try {
+    return await fetch(url, init);
+  } catch {
+    await new Promise((r) => setTimeout(r, 1000));
+    return fetch(url, init);
+  }
+}
+
 async function get(path: string, redirect = 'manual' as RequestRedirect): Promise<Response> {
-  return fetch(`${origin}${path}`, { redirect, headers: { 'user-agent': 'octav-seo-verify' } });
+  return fetchRetry(`${origin}${path}`, { redirect, headers: { 'user-agent': 'octav-seo-verify' } });
 }
 
 async function main() {
@@ -103,11 +117,11 @@ async function main() {
   const host = origin.replace(/^https?:\/\//, '');
   const prodHost = new URL(SITE.origin).hostname;
   if (host === prodHost) {
-    const www = await fetch(`https://www.${host}/`, { redirect: 'manual', headers: { 'user-agent': 'octav-seo-verify' } });
+    const www = await fetchRetry(`https://www.${host}/`, { redirect: 'manual', headers: { 'user-agent': 'octav-seo-verify' } });
     const loc = www.headers.get('location') ?? '';
     if (www.status === 301 && loc === `https://${host}/`) ok(`www → apex 301 → ${loc}`);
     else fail(`https://www.${host}/ should 301 to https://${host}/ (got ${www.status} → ${loc || 'none'})`);
-    const insecure = await fetch(`http://${host}/`, { redirect: 'manual', headers: { 'user-agent': 'octav-seo-verify' } });
+    const insecure = await fetchRetry(`http://${host}/`, { redirect: 'manual', headers: { 'user-agent': 'octav-seo-verify' } });
     if (insecure.status === 301 && insecure.headers.get('location') === `https://${host}/`) ok(`http → https 301`);
     else fail(`http://${host}/ should 301 to https://${host}/ (got ${insecure.status})`);
   } else {
@@ -139,7 +153,7 @@ async function main() {
     let checked = 0;
     await pool(picked, CONCURRENCY, async (path) => {
       const url = `${origin}${path}`;
-      const res = await fetch(url, { headers: { 'user-agent': 'octav-seo-verify' } });
+      const res = await fetchRetry(url, { headers: { 'user-agent': 'octav-seo-verify' } });
       const html = res.ok ? await res.text() : '';
       checked++;
       const at = (re: RegExp) => re.exec(html)?.[1];
@@ -181,7 +195,7 @@ async function main() {
       wantAll ? 40 : 12,
     );
     await pool(toolSample, CONCURRENCY, async (path) => {
-      const res = await fetch(`${origin}${path}`, { headers: { 'user-agent': 'octav-seo-verify' } });
+      const res = await fetchRetry(`${origin}${path}`, { headers: { 'user-agent': 'octav-seo-verify' } });
       const html = res.ok ? await res.text() : '';
       const robots = /<meta name="robots" content="([^"]*)"/.exec(html)?.[1] ?? '';
       const canonical = /<link rel="canonical" href="([^"]*)"/.exec(html)?.[1] ?? '';
@@ -210,7 +224,7 @@ async function main() {
           /<meta name="robots" content="([^"]*)"/.exec(html)?.[1] ?? '',
           /<link rel="canonical" href="([^"]*)"/.exec(html)?.[1]?.replace(SITE.origin, '') ?? '',
         ].join('|');
-      const res = await fetch(`${origin}${path}`, { headers: { 'user-agent': 'octav-seo-verify' } });
+      const res = await fetchRetry(`${origin}${path}`, { headers: { 'user-agent': 'octav-seo-verify' } });
       const html = res.ok ? await res.text() : '';
       if (sig(local) !== sig(html))
         fail(`${path} differs from the local build — ${origin} is serving a STALE deploy\n      build: ${sig(local)}\n      live:  ${sig(html)}`);

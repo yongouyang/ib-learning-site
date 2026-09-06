@@ -1,0 +1,61 @@
+check 1: /igcse -> 404
+check 2: /igcse -> 404
+check 3: /igcse -> 404
+check 4: /igcse -> 404
+check 5: /igcse -> 404
+check 6: /igcse -> 404
+check 7: /igcse -> 404
+check 8: /igcse -> 404
+check 9: /igcse -> 404
+check 10: /igcse -> 404
+check 11: /igcse -> 404
+check 12: /igcse -> 404
+check 13: /igcse -> 404
+check 14: /igcse -> 404
+check 15: /igcse -> 404
+check 16: /igcse -> 404
+check 17: /igcse -> 404
+check 18: /igcse -> 404
+check 19: /igcse -> 404
+check 20: /igcse -> 404
+check 21: /igcse -> 404
+check 22: /igcse -> 404
+check 23: /igcse -> 404
+check 24: /igcse -> 404
+check 25: /igcse -> 200
+
+> ib-learning-site@0.1.0 verify:seo:live
+> tsx scripts/verify-seo-live.ts --all
+
+SEO live verification → https://octavlearning.com (env: prod)
+
+[1] Deployed artefacts
+  ✓ /robots.txt 200, 29 lines
+  ✓ /sitemap/index.xml 200 + application/xml
+  ✓ 5 child sitemap(s) parsed, 328 URLs
+[2] Redirect + header topology
+  ✓ www → apex 301 → https://octavlearning.com/
+  ✓ http → https 301
+  ✓ PROD sends no x-robots-tag (nothing is globally suppressed)
+[3] Page-level metadata
+node:internal/deps/undici/undici:15141
+      Error.captureStackTrace(err);
+            ^
+
+TypeError: fetch failed
+    at node:internal/deps/undici/undici:15141:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async <anonymous> (/Users/yongouyang/projects/ib-learning-site/scripts/verify-seo-live.ts:142:19)
+    at async <anonymous> (/Users/yongouyang/projects/ib-learning-site/scripts/verify-seo-live.ts:284:9)
+    at async Promise.all (index 1)
+    at async pool (/Users/yongouyang/projects/ib-learning-site/scripts/verify-seo-live.ts:280:3)
+    at async main (/Users/yongouyang/projects/ib-learning-site/scripts/verify-seo-live.ts:140:5) {
+  [cause]: Error: read ECONNRESET
+      at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20) {
+    errno: -54,
+    code: 'ECONNRESET',
+    syscall: 'read'
+  }
+}
+
+Node.js v22.23.0
