@@ -224,7 +224,7 @@ export default function AdminDynamoPage() {
   if (!user) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-6">
-        <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'DynamoDB' }]} currentAsHeading />
+        <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/account', label: 'Account', hideOnMobile: true }, { label: 'DynamoDB' }]} currentAsHeading />
         <div className="card p-8 text-center">
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Sign in to use the admin console.</p>
           <Link
@@ -240,7 +240,7 @@ export default function AdminDynamoPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">
-      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'DynamoDB' }]} currentAsHeading />
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/account', label: 'Account', hideOnMobile: true }, { label: 'DynamoDB' }]} currentAsHeading />
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
         Admin DynamoDB browser — full CRUD on the octav-* tables. No nav link: reachable only by this URL.
       </p>

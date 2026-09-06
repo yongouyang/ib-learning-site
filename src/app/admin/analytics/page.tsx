@@ -88,7 +88,7 @@ export default function AdminAnalyticsPage() {
   if (!user) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-6">
-        <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Analytics' }]} currentAsHeading />
+        <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/account', label: 'Account', hideOnMobile: true }, { label: 'Analytics' }]} currentAsHeading />
         <div className="card p-8 text-center">
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Sign in to view analytics.</p>
           <Link
@@ -110,7 +110,7 @@ export default function AdminAnalyticsPage() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6">
-      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Analytics' }]} currentAsHeading />
+      <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/account', label: 'Account', hideOnMobile: true }, { label: 'Analytics' }]} currentAsHeading />
       <div className="flex justify-end mb-4">
         <div className="inline-flex rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden shrink-0">
           {DAYS.map((d) => (

@@ -80,4 +80,19 @@ test.describe('analytics', () => {
     await expect(page.getByRole('heading', { name: 'Analytics' })).toBeVisible();
     await expect(page.getByText('Traffic by day')).toBeVisible();
   });
+
+  test('admin dashboard: breadcrumb goes back to Account, which re-enters the console', async ({ page }) => {
+    await signIn(page, 'admin2@example.com'); // distinct admin per test — the dummy per-IP OTP budget is shared
+    await page.goto('/admin/analytics');
+    await expect(page.getByRole('heading', { name: 'Analytics' })).toBeVisible();
+
+    // Back via the breadcrumb trail (was Home-only before the fix).
+    await page.getByRole('navigation', { name: 'Breadcrumb' }).getByRole('link', { name: 'Account' }).click();
+    await expect(page).toHaveURL('/account');
+
+    // The Admin console section on /account is the in-app re-entry path.
+    await page.getByRole('link', { name: 'Analytics', exact: true }).click();
+    await expect(page).toHaveURL('/admin/analytics');
+    await expect(page.getByRole('heading', { name: 'Analytics' })).toBeVisible();
+  });
 });

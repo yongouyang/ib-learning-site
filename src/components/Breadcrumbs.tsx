@@ -6,6 +6,8 @@ import { ChevronRight, Home } from 'lucide-react';
 export interface BreadcrumbItem {
   href?: string;
   label: string;
+  /** Drop this intermediate crumb below `sm` so the current-page h1 keeps clear of the fixed top-right pill at phone widths. */
+  hideOnMobile?: boolean;
 }
 
 // Trail like: Home › Biology › Cell Structure › Quiz
@@ -19,7 +21,7 @@ export function Breadcrumbs({ items, currentAsHeading = false }: { items: Breadc
       {items.map((item, idx) => {
         const isLast = idx === items.length - 1;
         return (
-          <span key={idx} className="flex items-center gap-1 min-w-0">
+          <span key={idx} className={`flex items-center gap-1 min-w-0 ${item.hideOnMobile ? 'hidden sm:flex' : ''}`}>
             {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-gray-400 dark:text-gray-600 shrink-0" aria-hidden="true" />}
             {isLast || !item.href ? (
               isLast && currentAsHeading ? (

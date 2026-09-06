@@ -56,6 +56,16 @@ test.describe('admin dynamodb dashboard', () => {
     expect(options.some((t) => t.startsWith('octav-'))).toBe(true);
   });
 
+  test('breadcrumb goes back to Account (was Home-only before the fix)', async ({ page }) => {
+    await signIn(page, ADMIN[0]);
+    await page.goto('/admin/dynamodb');
+    await expect(page.getByRole('heading', { name: 'DynamoDB' })).toBeVisible();
+    await page.getByRole('navigation', { name: 'Breadcrumb' }).getByRole('link', { name: 'Account' }).click();
+    await expect(page).toHaveURL('/account');
+    // And the Admin console section links back to this console.
+    await expect(page.getByRole('link', { name: 'DynamoDB', exact: true })).toHaveAttribute('href', '/admin/dynamodb');
+  });
+
   test('admin can scan a table and see its items in the result table', async ({ page }) => {
     await signIn(page, ADMIN[1]);
     await page.goto('/admin/dynamodb');
