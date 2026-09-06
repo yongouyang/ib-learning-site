@@ -7,13 +7,14 @@ import {
 } from '@/lib/diagnostics';
 
 describe('getDiagnosticCourses', () => {
-  it('exposes the 13 course groupings with topics and questions', () => {
+  it('exposes the 14 course groupings with topics and questions', () => {
     const courses = getDiagnosticCourses();
     expect(courses.map((c) => c.id)).toEqual([
       'math-y7',
       'math-y8',
       'math-y9',
       'math-dp-ai',
+      'math-igcse',
       'eng-ks3',
       'bio-ks3',
       'chem-ks3',

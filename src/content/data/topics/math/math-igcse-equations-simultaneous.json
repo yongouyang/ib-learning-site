@@ -1,0 +1,316 @@
+{
+  "id": "math-igcse-equations-simultaneous",
+  "subjectId": "math",
+  "title": "Linear and Simultaneous Equations",
+  "description": "Solving linear equations, rearranging formulae to change the subject, and solving pairs of simultaneous linear equations by elimination and substitution.",
+  "stage": "igcse",
+  "course": "0580",
+  "notes": [
+    {
+      "id": "math-igcse-equations-simultaneous-eq-n1",
+      "heading": "Solving One- and Two-Step Equations",
+      "body": "📌 Definition\nA **solution** of an equation is a value of the unknown that makes both sides equal. Solving means finding that value.\n\n🔑 How it works\nUndo operations in reverse order using **inverse operations**, keeping the equation balanced by doing the same thing to both sides:\n• undo $+$ with $-$, undo $-$ with $+$\n• undo $\\times$ with $\\div$, undo $\\div$ with $\\times$\n\n💡 Worked Example 1 (one step)\nSolve $x + 7 = 12$.\n\nSubtract $7$ from both sides: $x = 12 - 7 = 5$.\n\n💡 Worked Example 2 (two steps)\nSolve $2x + 1 = 9$.\n\nUndo the $+1$ first: $2x = 8$. Then undo the $\\times 2$: $x = 4$.\n\n💡 Worked Example 3\nSolve $-2x = 10$.\n\nDivide both sides by $-2$: $x = -5$. A negative coefficient gives a negative solution.\n\n⚠️ Common Mistake\nDividing only part of one side. From $2x + 1 = 9$ you cannot write $x + 1 = 4.5$ by dividing just the $2x$; every term on both sides must be divided.\n\n📎 Key Points to Remember\n• Undo addition or subtraction before multiplication or division.\n• Whatever you do to one side, do to the other.\n• Check by substituting your answer back into the original equation."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-n2",
+      "heading": "Equations with the Unknown on Both Sides",
+      "body": "📌 Definition\nWhen the unknown appears on both sides, collect all unknown terms on one side and all numbers on the other before solving.\n\n🔑 How it works\nMove $x$-terms across the equals sign by subtracting (or adding) them from **both** sides — a term that crosses the equals sign changes sign.\n\n💡 Worked Example 1\nSolve $5x - 3 = 2x + 9$.\n\nSubtract $2x$ from both sides: $3x - 3 = 9$. Add $3$: $3x = 12$. Divide by $3$: $x = 4$.\n\n💡 Worked Example 2\nSolve $4x + 5 = 9x - 10$.\n\nSubtract $4x$: $5 = 5x - 10$. Add $10$: $15 = 5x$, so $x = 3$. Keeping the $x$-coefficient positive avoids negatives.\n\n⚠️ Common Mistake\nSubtracting the wrong way round: $2x - 5x$ gives $-3x$, not $3x$. If a negative coefficient appears, keep going carefully — $-3x = -12$ still gives $x = 4$.\n\n📎 Key Points to Remember\n• Every term carries its own sign when it moves.\n• Prefer to move the smaller $x$-term toward the larger.\n• Check by substituting into **both** sides of the original."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-n3",
+      "heading": "Equations with Brackets and Fractions",
+      "body": "📌 Definition\nBrackets and fraction bars hide the real structure of an equation. Expand or clear the denominator first, then solve as usual.\n\n🔑 How it works\n• Brackets: expand first, or divide both sides by the outside number if it divides the other side exactly.\n• Fractions: multiply **every term** by the denominator. With one fraction on each side, cross-multiply.\n\n💡 Worked Example 1\nSolve $4(x - 2) = 12$.\n\nExpand: $4x - 8 = 12$, so $4x = 20$ and $x = 5$. (Faster: divide by $4$ first to get $x - 2 = 3$.)\n\n💡 Worked Example 2\nSolve $\\dfrac{x + 3}{2} = 8$.\n\nMultiply both sides by $2$: $x + 3 = 16$, so $x = 13$.\n\n💡 Worked Example 3\nSolve $\\dfrac{2x - 1}{3} = \\dfrac{x + 2}{4}$.\n\nCross-multiply: $4(2x - 1) = 3(x + 2)$, so $8x - 4 = 3x + 6$, giving $5x = 10$ and $x = 2$.\n\n⚠️ Common Mistake\nA fraction bar brackets its numerator. From $\\dfrac{x+3}{2} = 8$ the result is $x + 3 = 16$, **not** $x + 3 = 8 \\times 2$ applied to only part of the top — and never just $x + 3 = 8$.\n\n📎 Key Points to Remember\n• Expand brackets before collecting terms.\n• Clearing a denominator means multiplying the whole of both sides.\n• Cross-multiplying works only when each side is a single fraction."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-n4",
+      "heading": "Rearranging Formulae",
+      "body": "📌 Definition\nThe **subject** of a formula is the variable written alone on one side, as $x$ is in $x = 4y + 1$. To **rearrange** means to make a different letter the subject.\n\n🔑 How it works\nUse the same inverse operations as solving, in reverse order: undo addition and subtraction first, then multiplication and division.\n\n💡 Worked Example 1\n$v = u + at$. Make $a$ the subject.\n\nSubtract $u$: $v - u = at$. Divide by $t$: $a = \\dfrac{v - u}{t}$.\n\n💡 Worked Example 2\n$y = 3x + 2$. Make $x$ the subject.\n\nSubtract $2$: $y - 2 = 3x$. Divide by $3$: $x = \\dfrac{y - 2}{3}$.\n\n💡 Worked Example 3\n$A = \\dfrac{1}{2}(a + b)h$. Make $h$ the subject.\n\nMultiply by $2$: $2A = (a+b)h$. Divide by $(a+b)$: $h = \\dfrac{2A}{a + b}$.\n\n⚠️ Common Mistake\nDividing only part of an expression. From $y = 3x + 2$ writing $x = \\dfrac{y}{3} - 2$ is wrong — the $2$ must be removed **before** dividing by $3$, because division applies to the whole of $y - 2$.\n\n📎 Key Points to Remember\n• Undo addition/subtraction before multiplication/division.\n• Brackets matter: $\\dfrac{y-2}{3}$ is not $\\dfrac{y}{3} - 2$.\n• Check by substituting numbers into the original and your rearrangement."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-n5",
+      "heading": "Understanding Simultaneous Equations",
+      "body": "📌 Definition\n**Simultaneous equations** are two (or more) equations that must be true at the same time. Their solution is the pair of values that satisfies every equation in the set.\n\n🔑 How it works\nEach linear equation in $x$ and $y$ is a straight line. The solution is where the lines cross, so:\n• different gradients → one unique solution;\n• parallel lines (same gradient, different intercept) → **no solution**;\n• the same line written twice → infinitely many solutions.\n\n💡 Worked Example 1 — checking\nIs $x = 3$, $y = 2$ a solution of $3x + y = 11$ and $2x - y = 4$?\n\nFirst equation: $3(3) + 2 = 11$ ✓. Second: $2(3) - 2 = 4$ ✓. Both hold, so it is the solution.\n\n💡 Worked Example 2 — no solution\n$x + y = 3$ and $x + y = 8$ cannot both be true: the same quantity cannot equal $3$ and $8$. These parallel lines never meet.\n\n⚠️ Common Mistake\nChecking a candidate solution in only one of the equations. A pair that fits one line but not the other is not a solution of the simultaneous set.\n\n📎 Key Points to Remember\n• A solution must satisfy **every** equation in the set.\n• Two linear equations usually have exactly one solution.\n• Always substitute back into the original equations to check."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-n6",
+      "heading": "Solving by Elimination",
+      "body": "📌 Definition\n**Elimination** means adding or subtracting the two equations so that one unknown cancels, leaving a single-variable equation.\n\n🔑 How it works\n• If a letter has equal coefficients with opposite signs, **add** the equations.\n• If a letter has equal coefficients with the same sign, **subtract** them.\n• Otherwise, multiply one or both equations first to create matching coefficients.\n\n💡 Worked Example 1 (direct)\nSolve $3x + y = 11$ and $2x - y = 4$.\n\nThe $y$ terms are $+y$ and $-y$, so add: $5x = 15$, giving $x = 3$. Substitute back: $9 + y = 11$, so $y = 2$.\n\n💡 Worked Example 2 (scale first)\nSolve $3x + 2y = 12$ and $x + 4y = 14$.\n\nDouble the first equation: $6x + 4y = 24$. Subtract the second: $5x = 10$, so $x = 2$. Then $2 + 4y = 14$ gives $y = 3$.\n\n⚠️ Common Mistake\nWhen scaling, multiplying only some of the terms of an equation — every term, including the right-hand side, must be multiplied. Also subtract carefully: $(6x + 4y) - (x + 4y) = 5x$, but the numbers subtract the same way.\n\n📎 Key Points to Remember\n• Choose to eliminate the letter whose coefficients are easiest to match.\n• Same signs → subtract; opposite signs → add.\n• Finish by substituting to find the second unknown, then check in the **other** equation."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-n7",
+      "heading": "Solving by Substitution",
+      "body": "📌 Definition\n**Substitution** means replacing one unknown from the first equation into the second, so the second equation contains only one unknown.\n\n🔑 How it works\nUse this method when one equation already says $y = \\ldots$ (or can easily be rearranged to).\n\n💡 Worked Example\nSolve $y = 2x + 1$ and $3x + 2y = 16$.\n\nSubstitute $2x + 1$ for $y$: $3x + 2(2x + 1) = 16$.\n\nExpand: $3x + 4x + 2 = 16$, so $7x = 14$ and $x = 2$.\n\nBack-substitute: $y = 2(2) + 1 = 5$. The solution is $x = 2$, $y = 5$.\n\n💡 Which method when?\nIf neither equation has a lone subject, elimination is usually quicker. If one equation is already $y = mx + c$ and the other is not, substitution is natural.\n\n⚠️ Common Mistake\nSubstituting the expression for $y$ back into the equation it came from — that gives a true statement with no information. It must go into the **other** equation.\n\n📎 Key Points to Remember\n• Substitute into the unused equation, then solve the one unknown.\n• Keep brackets when substituting an expression.\n• Check the final pair in both original equations."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f1",
+      "term": "Solution of an equation",
+      "definition": "A value of the unknown that makes the left-hand side equal the right-hand side.",
+      "example": "$x = 4$ solves $2x + 1 = 9$ because $2(4) + 1 = 9$."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f2",
+      "term": "Inverse operations",
+      "definition": "Operations that undo each other: $+$ with $-$, $\\times$ with $\\div$.",
+      "example": "To undo $3x = 12$, divide both sides by $3$."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f3",
+      "term": "Balancing method",
+      "definition": "Whatever operation you apply to one side of an equation, apply identically to the other side.",
+      "example": "From $x - 5 = 5$, add $5$ to both sides: $x = 10$."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f4",
+      "term": "Subject of a formula",
+      "definition": "The variable written alone on one side of the formula.",
+      "example": "In $A = \\pi r^2$, the subject is $A$."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f5",
+      "term": "Rearranging",
+      "definition": "Changing which variable is the subject, using inverse operations in reverse order.",
+      "example": "$v = u + at$ rearranges to $a = \\dfrac{v-u}{t}$."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f6",
+      "term": "Fraction bar as brackets",
+      "definition": "The numerator of a fraction is treated as if bracketed when clearing denominators.",
+      "example": "$\\dfrac{x+3}{2} = 8$ becomes $x + 3 = 16$, not $x + 3 = 8$."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f7",
+      "term": "Simultaneous equations",
+      "definition": "Two or more equations that must all be true for the same values of the unknowns.",
+      "example": "$x = 2, y = 3$ satisfies both $x + y = 5$ and $x - y = -1$."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f8",
+      "term": "Point of intersection",
+      "definition": "The coordinates where two lines cross — the solution of their simultaneous equations.",
+      "example": "Lines $y = x + 1$ and $y = 3x - 3$ meet at $(2, 3)$."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f9",
+      "term": "Elimination method",
+      "definition": "Add or subtract the equations (scaling first if needed) so one unknown cancels.",
+      "example": "$3x + y = 11$ and $2x - y = 4$ add to $5x = 15$."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f10",
+      "term": "Substitution method",
+      "definition": "Replace one unknown with its expression from the other equation, then solve.",
+      "example": "$y = 2x + 1$ into $3x + 2y = 16$ gives $7x + 2 = 16$."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f11",
+      "term": "No solution",
+      "definition": "Parallel lines (same gradient, different intercept) never meet, so the equations have no simultaneous solution.",
+      "example": "$x + y = 3$ and $x + y = 8$ have no solution."
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-f12",
+      "term": "Infinitely many solutions",
+      "definition": "Two equations describing the same line are satisfied by every point on it.",
+      "example": "$x + y = 3$ and $2x + 2y = 6$ have infinitely many solutions."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q1",
+      "stem": "Solve $x + 7 = 12$.",
+      "choices": [
+        "$x = 5$",
+        "$x = -5$",
+        "$x = 19$",
+        "$x = -19$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract $7$ from both sides: $x = 12 - 7 = 5$. Addition is undone by subtraction, and the answer checks because $5 + 7 = 12$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q2",
+      "stem": "Solve $3x = 21$.",
+      "choices": [
+        "$x = 18$",
+        "$x = 7$",
+        "$x = 63$",
+        "$x = 6$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Divide both sides by $3$: $x = 21 \\div 3 = 7$. Multiplication is undone by division; $x = 63$ comes from multiplying instead of dividing.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q3",
+      "stem": "Solve $2x + 1 = 9$.",
+      "choices": [
+        "$x = 5$",
+        "$x = 4.5$",
+        "$x = 4$",
+        "$x = 17$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Undo the $+1$ first: $2x = 8$. Then divide by $2$: $x = 4$. Dividing first gives the trap $4.5$; working $2x = 10$ from $9 + 1$ gives $5$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q4",
+      "stem": "Solve $-2x = 10$.",
+      "choices": [
+        "$x = 5$",
+        "$x = -20$",
+        "$x = 20$",
+        "$x = -5$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Divide both sides by $-2$: $x = 10 \\div (-2) = -5$. A positive divided by a negative is negative, so $x = 5$ has the wrong sign.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q5",
+      "stem": "Solve $5x - 3 = 2x + 9$.",
+      "choices": [
+        "$x = 2$",
+        "$x = 4$",
+        "$x = 6$",
+        "$x = \\dfrac{12}{7}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Subtract $2x$ from both sides: $3x - 3 = 9$. Add $3$: $3x = 12$, so $x = 4$. The trap $\\dfrac{12}{7}$ comes from adding the $x$-terms ($7x = 12$) instead of subtracting.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q6",
+      "stem": "Solve $4(x - 2) = 12$.",
+      "choices": [
+        "$x = 1$",
+        "$x = 3$",
+        "$x = 5$",
+        "$x = 4$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Expand: $4x - 8 = 12$, so $4x = 20$ and $x = 5$. The trap $x = 1$ comes from writing $4x - 8 = 12$ as $4x = 4$; $x = 3$ stops at $x - 2 = 3$ without adding the $2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q7",
+      "stem": "Solve $\\dfrac{x + 3}{2} = 8$.",
+      "choices": [
+        "$x = 13$",
+        "$x = 19$",
+        "$x = 5$",
+        "$x = 16$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply both sides by $2$: $x + 3 = 16$, then subtract $3$: $x = 13$. The fraction bar brackets the numerator, so the whole of $x + 3$ equals $16$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q8",
+      "stem": "Solve $\\dfrac{2x - 1}{3} = \\dfrac{x + 2}{4}$.",
+      "choices": [
+        "$x = 1$",
+        "$x = 4$",
+        "$x = 6$",
+        "$x = 2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cross-multiply: $4(2x - 1) = 3(x + 2)$, so $8x - 4 = 3x + 6$. Then $5x = 10$ and $x = 2$. Check: left side $\\dfrac{3}{3} = 1$, right side $\\dfrac{4}{4} = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q9",
+      "stem": "Rearrange $v = u + at$ to make $a$ the subject.",
+      "choices": [
+        "$a = \\dfrac{v - u}{t}$",
+        "$a = \\dfrac{t}{v - u}$",
+        "$a = v - u - t$",
+        "$a = (v - u)t$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Subtract $u$ from both sides: $v - u = at$. Then divide by $t$: $a = \\dfrac{v-u}{t}$. Both inverse operations are needed — undoing the addition before the multiplication.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q10",
+      "stem": "Rearrange $y = 3x + 2$ to make $x$ the subject.",
+      "choices": [
+        "$x = \\dfrac{y}{3} - 2$",
+        "$x = \\dfrac{y + 2}{3}$",
+        "$x = \\dfrac{y - 2}{3}$",
+        "$x = 3y - 2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Subtract $2$ first: $y - 2 = 3x$. Then divide by $3$: $x = \\dfrac{y-2}{3}$. The option $\\dfrac{y}{3} - 2$ divides before subtracting, which applies the $3$ to only part of the expression.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q11",
+      "stem": "Solve the simultaneous equations $3x + y = 11$ and $2x - y = 4$.",
+      "choices": [
+        "$x = 2,\\ y = 3$",
+        "$x = 3,\\ y = 2$",
+        "$x = 3,\\ y = -2$",
+        "$x = 5,\\ y = -4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The $y$ terms have opposite signs, so add the equations: $5x = 15$, giving $x = 3$. Substituting back: $9 + y = 11$, so $y = 2$. Check in the second equation: $2(3) - 2 = 4$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q12",
+      "stem": "Solve the simultaneous equations $3x + 2y = 12$ and $x + 4y = 14$.",
+      "choices": [
+        "$x = 3,\\ y = 2$",
+        "$x = 1,\\ y = 4.5$",
+        "$x = 4,\\ y = 0$",
+        "$x = 2,\\ y = 3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Double the first equation: $6x + 4y = 24$. Subtract the second: $5x = 10$, so $x = 2$. Then $2 + 4y = 14$ gives $y = 3$. Check in the first: $3(2) + 2(3) = 6 + 6 = 12$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q13",
+      "stem": "Solve the simultaneous equations $y = 2x + 1$ and $3x + 2y = 16$ by substitution.",
+      "choices": [
+        "$x = 5,\\ y = 2$",
+        "$x = 1,\\ y = 3$",
+        "$x = 2,\\ y = 5$",
+        "$x = 2,\\ y = -5$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Substitute $y = 2x+1$ into the second equation: $3x + 2(2x + 1) = 16$, so $7x + 2 = 16$ and $x = 2$. Then $y = 2(2) + 1 = 5$. Check: $3(2) + 2(5) = 6 + 10 = 16$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q14",
+      "stem": "Rearrange $y = \\dfrac{2x + 1}{x - 3}$ to make $x$ the subject.",
+      "choices": [
+        "$x = \\dfrac{3y - 1}{y + 2}$",
+        "$x = \\dfrac{3y + 1}{y - 2}$",
+        "$x = \\dfrac{1 - 3y}{y - 2}$",
+        "$x = \\dfrac{y + 1}{y - 2}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiply by $(x-3)$: $y(x-3) = 2x+1$, so $xy - 3y = 2x + 1$. Collect $x$-terms: $xy - 2x = 3y + 1$. Factorise: $x(y-2) = 3y+1$, so $x = \\dfrac{3y+1}{y-2}$. Check with $x=2$: $y = \\dfrac{5}{-1} = -5$, and $\\dfrac{3(-5)+1}{-5-2} = \\dfrac{-14}{-7} = 2$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-equations-simultaneous-eq-q15",
+      "stem": "Which pair of simultaneous equations has no solution?",
+      "choices": [
+        "$x + y = 3$ and $x - y = 1$",
+        "$2x + y = 5$ and $x - y = 1$",
+        "$3x + 2y = 7$ and $x + 2y = 3$",
+        "$x + y = 3$ and $2x + 2y = 8$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Multiplying $x + y = 3$ by $2$ gives $2x + 2y = 6$, which contradicts $2x + 2y = 8$: the lines are parallel and never meet. Each other pair has different gradients, so each has exactly one solution.",
+      "difficulty": "hard"
+    }
+  ]
+}

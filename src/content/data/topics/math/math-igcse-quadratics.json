@@ -1,0 +1,317 @@
+{
+  "id": "math-igcse-quadratics",
+  "subjectId": "math",
+  "title": "Quadratics: Formula, Completing the Square and Roots",
+  "description": "Solving quadratic equations with the formula and by completing the square (including a leading coefficient), reading the discriminant, and forming a quadratic from its roots (IGCSE Extended).",
+  "stage": "igcse",
+  "course": "0580",
+  "level": "extended",
+  "notes": [
+    {
+      "id": "math-igcse-quadratics-quad-n1",
+      "heading": "Standard Form and the Discriminant",
+      "body": "Every method in this topic starts by putting the equation in standard form and reading off three numbers.\n\n📌 Definition\nA quadratic equation in standard form is $ax^2 + bx + c = 0$ with $a \\neq 0$. The **discriminant** is the expression $b^2 - 4ac$.\n\n🔑 How it works\nThe discriminant tells you the nature of the roots before you solve anything:\n\n$$b^2 - 4ac > 0 \\Rightarrow \\text{two distinct real roots}$$\n\n$$b^2 - 4ac = 0 \\Rightarrow \\text{one repeated real root}$$\n\n$$b^2 - 4ac < 0 \\Rightarrow \\text{no real roots}$$\n\n💡 Worked Example\nFor $3x^2 - 5x + 2 = 0$: $a = 3$, $b = -5$, $c = 2$.\n\nDiscriminant $= (-5)^2 - 4 \\times 3 \\times 2 = 25 - 24 = 1$, which is positive, so there are two distinct real roots.\n\n⚠️ Common Mistake\nDropping the sign of $b$. Here $b = -5$, and $b^2 = 25$ because squaring removes the minus — but in the formula the term $-b$ becomes $+5$.\n\n📎 Key Points to Remember\n• Move everything to one side first: $3x^2 = 5x - 2$ becomes $3x^2 - 5x + 2 = 0$.\n• A missing term means a zero coefficient: $x^2 - 9 = 0$ has $b = 0$.\n• The discriminant is under the square root in the formula — that is why it controls the roots."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-n2",
+      "heading": "The Quadratic Formula",
+      "body": "The formula solves any quadratic, factorisable or not.\n\n🔑 How it works\n\n$$x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n\n1. Write the equation in standard form and note $a$, $b$, $c$ with their signs.\n2. Compute the discriminant $b^2 - 4ac$.\n3. Substitute, then take the $+$ and the $-$ separately to get both roots.\n\n💡 Worked Example\nSolve $2x^2 + 5x - 3 = 0$.\n\nHere $a = 2$, $b = 5$, $c = -3$.\n\nDiscriminant $= 5^2 - 4 \\times 2 \\times (-3) = 25 + 24 = 49$, and $\\sqrt{49} = 7$.\n\n$$x = \\dfrac{-5 \\pm 7}{4}$$\n\nSo $x = \\dfrac{-5 + 7}{4} = \\dfrac{2}{4} = \\dfrac{1}{2}$ or $x = \\dfrac{-5 - 7}{4} = \\dfrac{-12}{4} = -3$.\n\n⚠️ Common Mistake\nWriting $-4ac$ as subtraction when $c$ is negative: $-4 \\times 2 \\times (-3)$ is $+24$, not $-24$.\n\n📎 Key Points to Remember\n• Keep the $\\pm$ until the very end — it is what produces two roots.\n• If the discriminant is not a perfect square, leave the answer in surd form or round only at the end.\n• Check by substituting one root back into the original equation."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-n3",
+      "heading": "Completing the Square (Leading Coefficient 1)",
+      "body": "Completing the square rewrites a quadratic as a perfect square plus a constant, which then solves itself.\n\n🔑 How it works\nThe identity behind it is:\n\n$$x^2 + bx = \\left(x + \\dfrac{b}{2}\\right)^2 - \\left(\\dfrac{b}{2}\\right)^2$$\n\nHalve the coefficient of $x$, square it, and subtract that square again to keep the value unchanged.\n\n💡 Worked Example 1 — Rewrite\n$x^2 + 8x + 10 = (x + 4)^2 - 16 + 10 = (x + 4)^2 - 6$.\n\n💡 Worked Example 2 — Solve\nSolve $x^2 - 6x + 2 = 0$.\n\n$(x - 3)^2 - 9 + 2 = 0$, so $(x - 3)^2 - 7 = 0$ and $(x - 3)^2 = 7$.\n\n$x - 3 = \\pm\\sqrt{7}$, giving $x = 3 \\pm \\sqrt{7}$.\n\n⚠️ Common Mistake\nForgetting the subtracted square: $(x + 4)^2$ on its own expands to $x^2 + 8x + 16$, which is not the original expression.\n\n📎 Key Points to Remember\n• Halve $b$ for the bracket, then subtract the square of that half.\n• Solving gives a $\\pm$ square root — two roots, just like the formula.\n• Surd answers such as $3 \\pm \\sqrt{7}$ are exact and preferred in Extended."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-n4",
+      "heading": "Completing the Square with a Leading Coefficient",
+      "body": "When $a \\neq 1$, factor $a$ out of the $x$-terms before completing the square, and carry it through.\n\n🔑 How it works\n\n$$ax^2 + bx + c = a\\left(x^2 + \\dfrac{b}{a}x\\right) + c = a\\left(x + \\dfrac{b}{2a}\\right)^2 - a\\left(\\dfrac{b}{2a}\\right)^2 + c$$\n\nIn practice: factor, complete inside the bracket, then multiply the subtracted square back out by $a$.\n\n💡 Worked Example\nWrite $2x^2 + 4x - 3$ in the form $a(x + p)^2 + q$.\n\n$2x^2 + 4x - 3 = 2(x^2 + 2x) - 3 = 2\\left[(x + 1)^2 - 1\\right] - 3 = 2(x + 1)^2 - 2 - 3 = 2(x + 1)^2 - 5$.\n\n💡 Worked Example 2 — Solve from the form\n$2(x + 1)^2 - 5 = 0$ gives $(x + 1)^2 = \\dfrac{5}{2}$, so $x = -1 \\pm \\sqrt{\\dfrac{5}{2}}$.\n\n⚠️ Common Mistake\nLeaving the subtracted square inside the bracket unmultiplied: the $-1$ must become $-2$ once the outer $2$ is distributed.\n\n📎 Key Points to Remember\n• The $a$ in front of the bracket stays in the final form $a(x + p)^2 + q$.\n• Every constant inside the bracket gets multiplied by $a$ on the way out.\n• If the equation side is $0$, dividing through by $a$ first is an equally valid route."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-n5",
+      "heading": "Reading the Discriminant",
+      "body": "The discriminant answers nature-of-roots questions in one line, with no solving at all.\n\n🔑 How it works\nCompute $b^2 - 4ac$ and compare with zero. Equal (repeated) roots happen exactly when the discriminant is zero — this is how unknown-coefficient questions are solved.\n\n💡 Worked Example 1\n$x^2 + 6x + 9 = 0$: discriminant $= 36 - 36 = 0$, so there is one repeated root, $x = -3$.\n\n💡 Worked Example 2\n$x^2 + x + 1 = 0$: discriminant $= 1 - 4 = -3 < 0$, so there are no real roots. The graph never touches the $x$-axis.\n\n💡 Worked Example 3 — Unknown coefficient\n$kx^2 + 8x + 4 = 0$ has equal roots. Then $8^2 - 4 \\times k \\times 4 = 0$, so $64 - 16k = 0$ and $k = 4$.\n\n⚠️ Common Mistake\nUsing $b^2 - 4ac$ with $a$, $c$ from an equation that is not in standard form. Rearrange first.\n\n📎 Key Points to Remember\n• Positive: two roots. Zero: one repeated root. Negative: no real roots.\n• 'Equal roots' and 'repeated root' both mean discriminant $= 0$.\n• The discriminant is also the expression under the square root in the formula."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-n6",
+      "heading": "Forming a Quadratic from its Roots",
+      "body": "Roots determine the equation, because each root $r$ contributes a factor $(x - r)$.\n\n🔑 How it works\nFor roots $r_1$ and $r_2$:\n\n$$(x - r_1)(x - r_2) = x^2 - (r_1 + r_2)x + r_1 r_2 = 0$$\n\nEquivalently, for $ax^2 + bx + c = 0$ the sum of the roots is $-\\dfrac{b}{a}$ and the product is $\\dfrac{c}{a}$.\n\n💡 Worked Example 1\nRoots $3$ and $-5$: sum $= -2$, product $= -15$.\n\nEquation: $x^2 - (-2)x + (-15) = 0$, that is $x^2 + 2x - 15 = 0$.\n\n💡 Worked Example 2 — Fractional roots\nRoots $\\dfrac{1}{2}$ and $-3$: sum $= -\\dfrac{5}{2}$, product $= -\\dfrac{3}{2}$.\n\n$x^2 + \\dfrac{5}{2}x - \\dfrac{3}{2} = 0$, and doubling every term clears the fractions: $2x^2 + 5x - 3 = 0$.\n\n⚠️ Common Mistake\nSign slips in the sum: the middle term is MINUS the sum of the roots, so roots $3$ and $-5$ give $+2x$, not $-2x$.\n\n📎 Key Points to Remember\n• Factor route and sum-product route must agree — use one to check the other.\n• Any non-zero multiple of the equation has the same roots; integer coefficients are the usual form.\n• Sum of roots $= -b/a$, product $= c/a$ also reads roots off a given equation."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-n7",
+      "heading": "Choosing a Method, and Final Checks",
+      "body": "Extended papers reward picking the fastest valid route and checking the answer costs nothing.\n\n🔑 How it works\n• 'Solve' with nice numbers: factorise if obvious, otherwise the formula.\n• 'Solve, giving answers in surd form' or 'exact': completing the square or the formula, left unrounded.\n• 'Write in the form $a(x+p)^2 + q$' or 'find the minimum point': completing the square.\n• 'Nature of the roots' or 'equal roots': discriminant only.\n• 'Find the equation with these roots': sum and product.\n\n💡 Worked Example\nSolve $x^2 + 4x + 1 = 0$ exactly.\n\nDiscriminant $= 16 - 4 = 12$, so $\\sqrt{12} = 2\\sqrt{3}$ and\n\n$$x = \\dfrac{-4 \\pm 2\\sqrt{3}}{2} = -2 \\pm \\sqrt{3}$$\n\n✅ Check\nSum of the roots $(-2 + \\sqrt{3}) + (-2 - \\sqrt{3}) = -4 = -b/a$, and their product $= 4 - 3 = 1 = c/a$. Both match, so the roots are right.\n\n⚠️ Common Mistake\nRounding surd answers when the question says exact, or simplifying $\\sqrt{12}$ to $\\sqrt{12}$ instead of $2\\sqrt{3}$ and losing the final mark."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-quadratics-quad-f1",
+      "term": "Standard form of a quadratic",
+      "definition": "ax^2 + bx + c = 0 with a not equal to 0.",
+      "example": "3x^2 = 5x - 2 rearranges to 3x^2 - 5x + 2 = 0, so a = 3, b = -5, c = 2."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-f2",
+      "term": "Quadratic formula",
+      "definition": "x = (-b +/- sqrt(b^2 - 4ac)) / (2a).",
+      "example": "2x^2 + 5x - 3 = 0 gives x = (-5 +/- 7)/4, so x = 1/2 or x = -3."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-f3",
+      "term": "Discriminant",
+      "definition": "The expression b^2 - 4ac; it decides how many real roots a quadratic has.",
+      "example": "For 3x^2 - 5x + 2 = 0 the discriminant is 25 - 24 = 1, so two distinct real roots."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-f4",
+      "term": "Discriminant equal to zero",
+      "definition": "Exactly one repeated real root; also the condition for 'equal roots' questions.",
+      "example": "x^2 + 6x + 9 = 0 has discriminant 0 and the repeated root x = -3."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-f5",
+      "term": "Discriminant negative",
+      "definition": "No real roots; the graph never crosses the x-axis.",
+      "example": "x^2 + x + 1 = 0 has discriminant 1 - 4 = -3, so no real roots."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-f6",
+      "term": "Completing the square identity",
+      "definition": "x^2 + bx = (x + b/2)^2 - (b/2)^2: halve the x-coefficient, then subtract its square.",
+      "example": "x^2 + 8x + 10 = (x + 4)^2 - 16 + 10 = (x + 4)^2 - 6."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-f7",
+      "term": "Completing the square with a leading coefficient",
+      "definition": "Factor a out of the x-terms first, complete inside the bracket, then multiply the subtracted square back out by a.",
+      "example": "2x^2 + 4x - 3 = 2[(x + 1)^2 - 1] - 3 = 2(x + 1)^2 - 5."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-f8",
+      "term": "Sum of the roots",
+      "definition": "For ax^2 + bx + c = 0 the roots add to -b/a.",
+      "example": "4x^2 - 8x + 1 = 0: sum of roots = 8/4 = 2."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-f9",
+      "term": "Product of the roots",
+      "definition": "For ax^2 + bx + c = 0 the roots multiply to c/a.",
+      "example": "4x^2 - 8x + 1 = 0: product of roots = 1/4."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-f10",
+      "term": "Forming a quadratic from roots",
+      "definition": "x^2 - (sum of roots)x + (product of roots) = 0, or multiply the factors (x - r1)(x - r2).",
+      "example": "Roots 2 and -7 give x^2 + 5x - 14 = 0."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-f11",
+      "term": "Exact (surd) roots",
+      "definition": "When the discriminant is not a perfect square, leave roots with the square root sign instead of rounding.",
+      "example": "x^2 - 6x + 2 = 0 gives x = 3 +/- sqrt(7)."
+    },
+    {
+      "id": "math-igcse-quadratics-quad-f12",
+      "term": "Why the plus-minus matters",
+      "definition": "The +/- in the formula (and when square-rooting both sides) is what produces the two roots; dropping it loses one.",
+      "example": "(x - 3)^2 = 7 gives x - 3 = +sqrt(7) AND x - 3 = -sqrt(7)."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-quadratics-quad-q1",
+      "stem": "In the equation $3x^2 - 5x + 2 = 0$, what are the values of $a$, $b$ and $c$?",
+      "choices": [
+        "$a = 3$, $b = -5$, $c = 2$",
+        "$a = 3$, $b = 5$, $c = 2$",
+        "$a = -5$, $b = 3$, $c = 2$",
+        "$a = 3$, $b = -5$, $c = -2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Read straight off standard form ax^2 + bx + c = 0, keeping signs: the x-term is -5x, so b = -5.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q2",
+      "stem": "What is the discriminant of $x^2 + 6x + 9 = 0$?",
+      "choices": [
+        "$0$",
+        "$36$",
+        "$45$",
+        "$-36$"
+      ],
+      "correctIndex": 0,
+      "explanation": "b^2 - 4ac = 36 - 4 x 1 x 9 = 36 - 36 = 0, which means one repeated root.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q3",
+      "stem": "A quadratic has discriminant $-7$. How many real roots does it have?",
+      "choices": [
+        "None",
+        "Two",
+        "One",
+        "Three"
+      ],
+      "correctIndex": 0,
+      "explanation": "A negative discriminant means the square root in the formula is of a negative number, so there are no real roots.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q4",
+      "stem": "What are the roots of $x^2 - 9 = 0$?",
+      "choices": [
+        "$x = 3$ or $x = -3$",
+        "$x = 9$ or $x = -9$",
+        "$x = 3$ only",
+        "$x = 81$ or $x = -81$"
+      ],
+      "correctIndex": 0,
+      "explanation": "x^2 = 9, and taking the square root gives both x = 3 and x = -3 because both square to 9.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q5",
+      "stem": "Solve $x^2 + 5x + 4 = 0$ using the quadratic formula.",
+      "choices": [
+        "$x = -1$ or $x = -4$",
+        "$x = 1$ or $x = 4$",
+        "$x = -2$ or $x = -2$",
+        "$x = 1$ or $x = -4$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Discriminant = 25 - 16 = 9, so x = (-5 +/- 3)/2, giving x = -1 and x = -4.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q6",
+      "stem": "Solve $2x^2 + 5x - 3 = 0$ using the quadratic formula.",
+      "choices": [
+        "$x = \\dfrac{1}{2}$ or $x = -3$",
+        "$x = -\\dfrac{1}{2}$ or $x = 3$",
+        "$x = 3$ or $x = -\\dfrac{1}{2}$",
+        "$x = \\dfrac{3}{2}$ or $x = -1$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Discriminant = 25 + 24 = 49, so x = (-5 +/- 7)/4, giving x = 2/4 = 1/2 and x = -12/4 = -3.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q7",
+      "stem": "Solve $3x^2 - 7x + 2 = 0$ using the quadratic formula.",
+      "choices": [
+        "$x = 2$ or $x = \\dfrac{1}{3}$",
+        "$x = -2$ or $x = -\\dfrac{1}{3}$",
+        "$x = 2$ or $x = 3$",
+        "$x = \\dfrac{1}{2}$ or $x = 3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Discriminant = 49 - 24 = 25, so x = (7 +/- 5)/6, giving x = 12/6 = 2 and x = 2/6 = 1/3.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q8",
+      "stem": "Write $x^2 + 8x + 10$ in the form $(x + p)^2 + q$.",
+      "choices": [
+        "$(x + 4)^2 - 6$",
+        "$(x + 4)^2 + 6$",
+        "$(x + 8)^2 - 6$",
+        "$(x + 4)^2 - 16$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Halve 8 to get 4, square it to get 16, then x^2 + 8x + 10 = (x + 4)^2 - 16 + 10 = (x + 4)^2 - 6.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q9",
+      "stem": "Solve $x^2 - 6x + 2 = 0$ by completing the square, giving answers in surd form.",
+      "choices": [
+        "$x = 3 \\pm \\sqrt{7}$",
+        "$x = 3 \\pm \\sqrt{11}$",
+        "$x = -3 \\pm \\sqrt{7}$",
+        "$x = 6 \\pm \\sqrt{7}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "(x - 3)^2 - 9 + 2 = 0 gives (x - 3)^2 = 7, so x - 3 = +/- sqrt(7) and x = 3 +/- sqrt(7).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q10",
+      "stem": "Which equation has roots $2$ and $-7$?",
+      "choices": [
+        "$x^2 + 5x - 14 = 0$",
+        "$x^2 - 5x - 14 = 0$",
+        "$x^2 + 5x + 14 = 0$",
+        "$x^2 - 5x + 14 = 0$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sum of roots = -5 and product = -14, so the equation is x^2 - (-5)x + (-14) = 0, that is x^2 + 5x - 14 = 0.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q11",
+      "stem": "What is the product of the roots of $4x^2 - 8x + 1 = 0$?",
+      "choices": [
+        "$\\dfrac{1}{4}$",
+        "$2$",
+        "$-2$",
+        "$4$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The product of the roots is c/a = 1/4. The sum would be -b/a = 2, which is a different quantity.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q12",
+      "stem": "Solve $x^2 + 4x + 1 = 0$, giving your answers in exact surd form.",
+      "choices": [
+        "$x = -2 \\pm \\sqrt{3}$",
+        "$x = -4 \\pm \\sqrt{12}$",
+        "$x = 2 \\pm \\sqrt{3}$",
+        "$x = -2 \\pm \\sqrt{12}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Discriminant = 16 - 4 = 12, so x = (-4 +/- sqrt(12))/2 = (-4 +/- 2 sqrt(3))/2 = -2 +/- sqrt(3). Option 2 forgets to divide the surd by 2 and to simplify sqrt(12).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q13",
+      "stem": "Write $2x^2 + 4x - 3$ in the form $a(x + p)^2 + q$.",
+      "choices": [
+        "$2(x + 1)^2 - 5$",
+        "$2(x + 2)^2 - 5$",
+        "$2(x + 1)^2 - 3$",
+        "$(2x + 1)^2 - 5$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Factor first: 2(x^2 + 2x) - 3 = 2[(x + 1)^2 - 1] - 3 = 2(x + 1)^2 - 2 - 3 = 2(x + 1)^2 - 5. The -3 alone (option 3) forgets to multiply the subtracted square by the outer 2.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q14",
+      "stem": "The equation $kx^2 + 8x + 4 = 0$ has two equal roots. What is the value of $k$?",
+      "choices": [
+        "$4$",
+        "$2$",
+        "$8$",
+        "$16$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Equal roots means the discriminant is zero: 64 - 16k = 0, so k = 4.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-quadratics-quad-q15",
+      "stem": "Which equation with integer coefficients has roots $\\dfrac{1}{2}$ and $-3$?",
+      "choices": [
+        "$2x^2 + 5x - 3 = 0$",
+        "$2x^2 - 5x - 3 = 0$",
+        "$x^2 + 5x - 3 = 0$",
+        "$2x^2 + 5x + 3 = 0$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sum of roots = -5/2 and product = -3/2, giving x^2 + (5/2)x - 3/2 = 0; doubling every term gives 2x^2 + 5x - 3 = 0. Check by factorising: (2x - 1)(x + 3).",
+      "difficulty": "hard"
+    }
+  ]
+}

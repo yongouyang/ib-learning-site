@@ -82,6 +82,8 @@ test.describe('analytics', () => {
   });
 
   test('admin dashboard: breadcrumb goes back to Account, which re-enters the console', async ({ page }) => {
+    // the Account crumb is hidden below sm by design (Breadcrumbs hideOnMobile), so the round-trip is a >=640px behaviour
+    test.skip((page.viewportSize()?.width ?? 1280) < 640, 'Account crumb hidden below sm');
     await signIn(page, 'admin2@example.com'); // distinct admin per test — the dummy per-IP OTP budget is shared
     await page.goto('/admin/analytics');
     await expect(page.getByRole('heading', { name: 'Analytics' })).toBeVisible();

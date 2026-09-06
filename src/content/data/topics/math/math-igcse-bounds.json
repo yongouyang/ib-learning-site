@@ -1,0 +1,323 @@
+{
+  "id": "math-igcse-bounds",
+  "subjectId": "math",
+  "title": "Upper and Lower Bounds",
+  "description": "Finding upper and lower bounds of rounded values, combining bounds through addition, subtraction, multiplication and division, and stating results to an appropriate accuracy (IGCSE Extended).",
+  "stage": "igcse",
+  "course": "0580",
+  "level": "extended",
+  "notes": [
+    {
+      "id": "math-igcse-bounds-bnd-n1",
+      "heading": "What a Bound Is",
+      "body": "Every rounded measurement hides a range of possible true values. The bounds are the ends of that range.\n\n📌 Definition\nThe **lower bound** is the smallest value that would round to the stated value. The **upper bound** is the smallest value that would NOT round up to it — the true value can reach the lower bound but never quite reaches the upper bound.\n\n🔑 How it works\nRounding to a given degree of accuracy can move a value by at most half of that degree. So:\n\n$$\\text{lower bound} = \\text{stated value} - \\dfrac{\\text{degree of accuracy}}{2}$$\n\n$$\\text{upper bound} = \\text{stated value} + \\dfrac{\\text{degree of accuracy}}{2}$$\n\n💡 Worked Example\nA length is $62$ cm, measured to the nearest centimetre. The degree of accuracy is $1$ cm, so half of it is $0.5$ cm.\n\nLower bound $= 62 - 0.5 = 61.5$ cm. Upper bound $= 62 + 0.5 = 62.5$ cm.\n\n📎 Key Points to Remember\n• The bounds are written as $61.5 \\leq L < 62.5$: inclusive below, exclusive above.\n• Always halve the degree of accuracy, never use it whole.\n• The upper bound itself rounds UP to $63$, which is why it is excluded.\n\n✅ Check\n$62.4$ rounds to $62$, and $61.5$ rounds to $62$, but $62.5$ rounds to $63$ — exactly the interval above."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-n2",
+      "heading": "Bounds for Decimal Places and Significant Figures",
+      "body": "The method never changes — only the degree of accuracy does.\n\n🔑 How it works\n1. Identify what the value was rounded to: nearest whole number, $1$ decimal place, $2$ significant figures, nearest ten, and so on.\n2. The degree of accuracy is the place value of the last retained digit.\n3. Add and subtract half of it.\n\n💡 Worked Example 1 — One decimal place\nA mass is $3.4$ kg to $1$ d.p. The last retained digit is a tenth, so the degree of accuracy is $0.1$ kg and half of it is $0.05$ kg.\n\nBounds: $3.35 \\leq m < 3.45$ kg.\n\n💡 Worked Example 2 — Significant figures\nA crowd is $240$ people to $2$ significant figures. The second significant figure is a ten, so the degree of accuracy is $10$ and half of it is $5$.\n\nBounds: $235 \\leq n < 245$ people.\n\n⚠️ Common Mistake\nFor $3.4$ to $1$ d.p. students write $3.3$ and $3.5$. Those are a whole tenth away, not half a tenth. The bounds are $3.35$ and $3.45$.\n\n📎 Key Points to Remember\n• Nearest integer: $\\pm 0.5$. One d.p.: $\\pm 0.05$. Two d.p.: $\\pm 0.005$.\n• For significant figures, find the place value of the last significant digit first.\n• Nearest ten: $\\pm 5$. Nearest hundred: $\\pm 50$."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-n3",
+      "heading": "Bounds of Sums and Differences",
+      "body": "When two rounded values are combined, the bounds of the result come from combining the bounds — but not always in the obvious pairing.\n\n🔑 How it works\nFor $a$ and $b$ with lower bounds $a_{min}, b_{min}$ and upper bounds $a_{max}, b_{max}$:\n\n$$\\text{max of } (a + b) = a_{max} + b_{max}$$\n\n$$\\text{min of } (a + b) = a_{min} + b_{min}$$\n\n$$\\text{max of } (a - b) = a_{max} - b_{min}$$\n\n$$\\text{min of } (a - b) = a_{min} - b_{max}$$\n\n💡 Worked Example\n$a = 7.2$ and $b = 3.8$, each to $1$ d.p., so $7.15 \\leq a < 7.25$ and $3.75 \\leq b < 3.85$.\n\nMax of $a + b = 7.25 + 3.85 = 11.1$. Min of $a + b = 7.15 + 3.75 = 10.9$.\n\nMax of $a - b = 7.25 - 3.75 = 3.5$. Min of $a - b = 7.15 - 3.85 = 3.3$.\n\n⚠️ Common Mistake\nTaking the min of $a - b$ as $a_{min} - b_{min}$. Subtracting the SMALLEST $b$ makes the difference BIGGER, so the minimum difference needs the biggest $b$.\n\n📎 Key Points to Remember\n• Sums pair like with like: max with max, min with min.\n• Differences pair opposites: max minus min, min minus max.\n• Write both bounds down before combining anything."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-n4",
+      "heading": "Bounds of Products and Quotients",
+      "body": "The same pairing logic extends to multiplication and division.\n\n🔑 How it works\n\n$$\\text{max of } (a \\times b) = a_{max} \\times b_{max}$$\n\n$$\\text{min of } (a \\times b) = a_{min} \\times b_{min}$$\n\n$$\\text{max of } (a \\div b) = a_{max} \\div b_{min}$$\n\n$$\\text{min of } (a \\div b) = a_{min} \\div b_{max}$$\n\n💡 Worked Example\nUsing $a = 7.2$ and $b = 3.8$ to $1$ d.p. again:\n\nMax of $a \\times b = 7.25 \\times 3.85 = 27.9125$.\n\nMin of $a \\div b = 7.15 \\div 3.85 = 1.8571\\ldots$ (about $1.86$ to $3$ s.f.).\n\n⚠️ Common Mistake\nDividing max by max for the maximum quotient. Dividing by a SMALLER number gives a BIGGER result, so the maximum quotient divides by the lower bound of $b$.\n\n📎 Key Points to Remember\n• Products pair like with like, exactly as sums do.\n• Quotients pair opposites, exactly as differences do.\n• Keep full calculator accuracy until the very last step."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-n5",
+      "heading": "Bounds in Formulas",
+      "body": "Exam questions usually hide the combination inside a formula such as speed, area or density.\n\n🔑 How it works\n1. Write down the bounds of every rounded quantity.\n2. Decide whether you need the maximum or minimum of the result.\n3. Choose the pairing from the rules for sums, differences, products and quotients.\n\n💡 Worked Example\nA rectangle measures $9.5$ cm by $4.2$ cm, each to $1$ d.p. Find the maximum possible area.\n\nBounds: $9.45 \\leq l < 9.55$ and $4.15 \\leq w < 4.25$.\n\nArea is a product, so the maximum uses both upper bounds:\n\n$$\\text{max area} = 9.55 \\times 4.25 = 40.5875 \\text{ cm}^2$$\n\n💡 Worked Example 2\nA journey covers $120$ m to $2$ s.f. in $8.4$ s to $1$ d.p. Find the minimum possible speed.\n\nBounds: $115 \\leq d < 125$ and $8.35 \\leq t < 8.45$.\n\nSpeed is a quotient, so the minimum uses the smallest distance over the biggest time:\n\n$$\\text{min speed} = 115 \\div 8.45 = 13.609\\ldots \\text{ m/s}$$\n\n📎 Key Points to Remember\n• Translate the formula into operations first, then apply the pairing rules.\n• Maximum of a quotient: biggest top, smallest bottom.\n• Minimum of a quotient: smallest top, biggest bottom."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-n6",
+      "heading": "Stating an Answer to Appropriate Accuracy",
+      "body": "Once you have bounds for a calculated value, you must round it to an accuracy the bounds actually support.\n\n🔑 How it works\nRound the upper bound and the lower bound to a candidate accuracy (nearest integer, $1$ d.p., $2$ s.f. and so on). The appropriate accuracy is the COARSEST one at which both bounds round to the SAME value — going finer would claim precision the data does not have.\n\n💡 Worked Example\n$x = 6.42$ to $3$ s.f. and $y = 1.7$ to $2$ s.f., so $6.415 \\leq x < 6.425$ and $1.65 \\leq y < 1.75$.\n\nMax of $xy = 6.425 \\times 1.75 = 11.24375$. Min of $xy = 6.415 \\times 1.65 = 10.58475$.\n\nTo $1$ d.p.: $11.2$ and $10.6$ — different, so $1$ d.p. is too fine.\n\nTo the nearest integer: $11$ and $11$ — the same, so the product to appropriate accuracy is $11$.\n\n⚠️ Common Mistake\nQuoting the full calculator display ($10.9\\ldots$ or $11.24375$) as the answer. The bounds show the second digit is genuinely uncertain.\n\n📎 Key Points to Remember\n• Test accuracies from fine to coarse and stop at the first agreement.\n• The agreed rounded value is the answer, not the raw midpoint.\n• Coarser still would also agree, but throws away justified precision."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-n7",
+      "heading": "Bounds Checklist and Pitfalls",
+      "body": "Bounds questions are method marks waiting to be collected — most losses come from a handful of repeated slips.\n\n⚠️ Common Mistake\n1. Forgetting to halve the degree of accuracy ($74$ to the nearest cm gives $73.5$ and $74.5$, not $73$ and $75$).\n2. Writing $\\leq$ at the top end: the correct interval is $73.5 \\leq L < 74.5$.\n3. Pairing min with min for a difference or quotient minimum.\n4. Rounding bounds themselves before combining them, which silently narrows the interval.\n\n🔑 How it works — the four-line routine\n1. State both bounds of every rounded value, unrounded.\n2. Name the operation (sum, difference, product, quotient).\n3. Pick the pairing from the rules.\n4. Combine, then round once at the end if the question asks for appropriate accuracy.\n\n💡 Worked Example\n$a = 12$ to the nearest integer and $b = 5.0$ to $1$ d.p. Find the maximum of $a \\div b$ to $3$ s.f.\n\nBounds: $11.5 \\leq a < 12.5$ and $4.95 \\leq b < 5.05$.\n\nQuotient maximum: $12.5 \\div 4.95 = 2.5252\\ldots$, which is $2.53$ to $3$ s.f.\n\n✅ Check\nThe minimum would be $11.5 \\div 5.05 = 2.2772\\ldots$, comfortably below the maximum — a quick sanity check that the pairing was the right way round."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-bounds-bnd-f1",
+      "term": "Lower bound",
+      "definition": "The smallest value that would round to the stated value: stated value minus half the degree of accuracy.",
+      "example": "62 cm to the nearest cm has lower bound 61.5 cm."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-f2",
+      "term": "Upper bound",
+      "definition": "The smallest value that would NOT round to the stated value: stated value plus half the degree of accuracy.",
+      "example": "62 cm to the nearest cm has upper bound 62.5 cm."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-f3",
+      "term": "Bound interval notation",
+      "definition": "Bounds are written lower-bound <= value < upper-bound: inclusive at the bottom, exclusive at the top.",
+      "example": "74 to the nearest integer: 73.5 <= x < 74.5."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-f4",
+      "term": "Bounds to 1 decimal place",
+      "definition": "The degree of accuracy is 0.1, so add and subtract 0.05.",
+      "example": "3.4 to 1 d.p.: 3.35 <= m < 3.45."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-f5",
+      "term": "Bounds to significant figures",
+      "definition": "The degree of accuracy is the place value of the last significant digit; halve it for the bounds.",
+      "example": "240 to 2 s.f.: the last significant digit is a ten, so 235 <= n < 245."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-f6",
+      "term": "Maximum of a sum",
+      "definition": "Add the two upper bounds.",
+      "example": "a < 7.25 and b < 3.85 gives max(a+b) = 11.1."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-f7",
+      "term": "Minimum of a difference",
+      "definition": "Subtract the upper bound of the second quantity from the lower bound of the first.",
+      "example": "min(a-b) = 7.15 - 3.85 = 3.3."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-f8",
+      "term": "Maximum of a product",
+      "definition": "Multiply the two upper bounds.",
+      "example": "max(a x b) = 7.25 x 3.85 = 27.9125."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-f9",
+      "term": "Maximum of a quotient",
+      "definition": "Divide the upper bound of the numerator by the lower bound of the denominator.",
+      "example": "max(a / b) = 7.25 / 3.75 = 1.9333..."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-f10",
+      "term": "Minimum of a quotient",
+      "definition": "Divide the lower bound of the numerator by the upper bound of the denominator.",
+      "example": "min(a / b) = 7.15 / 3.85 = 1.8571..."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-f11",
+      "term": "Appropriate accuracy",
+      "definition": "The coarsest rounding at which the upper and lower bounds of a result agree; quote that rounded value.",
+      "example": "Bounds 10.58475 and 11.24375 both give 11 to the nearest integer, so the answer is 11."
+    },
+    {
+      "id": "math-igcse-bounds-bnd-f12",
+      "term": "Why the upper bound is excluded",
+      "definition": "The upper bound itself rounds up to the next stated value, so the true value must stay strictly below it.",
+      "example": "62.5 rounds to 63, not 62, so 62.5 cannot be a true value of 62 to the nearest cm."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-bounds-bnd-q1",
+      "stem": "A length is $74$ cm, measured to the nearest centimetre. What is its lower bound?",
+      "choices": [
+        "$73.5$ cm",
+        "$73$ cm",
+        "$73.9$ cm",
+        "$74.5$ cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "The degree of accuracy is 1 cm, so subtract half of it: 74 - 0.5 = 73.5 cm.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q2",
+      "stem": "A length is $74$ cm, measured to the nearest centimetre. What is its upper bound?",
+      "choices": [
+        "$74.5$ cm",
+        "$74$ cm",
+        "$75$ cm",
+        "$73.5$ cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "The degree of accuracy is 1 cm, so add half of it: 74 + 0.5 = 74.5 cm. The true length stays strictly below this.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q3",
+      "stem": "A mass is $3.6$ kg, measured to $1$ decimal place. What is its lower bound?",
+      "choices": [
+        "$3.55$ kg",
+        "$3.5$ kg",
+        "$3.65$ kg",
+        "$3.1$ kg"
+      ],
+      "correctIndex": 0,
+      "explanation": "To 1 d.p. the degree of accuracy is 0.1 kg, so subtract half of it: 3.6 - 0.05 = 3.55 kg.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q4",
+      "stem": "Which inequality represents $x = 50$ correct to the nearest ten?",
+      "choices": [
+        "$45 \\leq x < 55$",
+        "$40 \\leq x < 60$",
+        "$49.5 \\leq x < 50.5$",
+        "$45 < x \\leq 55$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The degree of accuracy is 10, so the bounds are 50 - 5 = 45 and 50 + 5 = 55, inclusive below and exclusive above.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q5",
+      "stem": "A crowd is estimated as $240$ people to $2$ significant figures. What is the lower bound?",
+      "choices": [
+        "$235$",
+        "$239.5$",
+        "$230$",
+        "$245$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The second significant figure is a ten, so the degree of accuracy is 10 and the lower bound is 240 - 5 = 235.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q6",
+      "stem": "$a = 7.2$ and $b = 3.8$, each to $1$ decimal place. What is the maximum possible value of $a + b$?",
+      "choices": [
+        "$11.1$",
+        "$10.9$",
+        "$11$",
+        "$11.05$"
+      ],
+      "correctIndex": 0,
+      "explanation": "A sum is biggest when both values are biggest: 7.25 + 3.85 = 11.1.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q7",
+      "stem": "$a = 7.2$ and $b = 3.8$, each to $1$ decimal place. What is the minimum possible value of $a - b$?",
+      "choices": [
+        "$3.3$",
+        "$3.5$",
+        "$3.4$",
+        "$3.45$"
+      ],
+      "correctIndex": 0,
+      "explanation": "A difference is smallest with the smallest a and the biggest b: 7.15 - 3.85 = 3.3.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q8",
+      "stem": "$a = 7.2$ and $b = 3.8$, each to $1$ decimal place. What is the maximum possible value of $a \\times b$?",
+      "choices": [
+        "$27.9125$",
+        "$27.36$",
+        "$27.55$",
+        "$28.0125$"
+      ],
+      "correctIndex": 0,
+      "explanation": "A product is biggest when both factors are biggest: 7.25 x 3.85 = 27.9125.",
+      "difficulty": "medium",
+      "calculator": true
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q9",
+      "stem": "$a = 7.2$ and $b = 3.8$, each to $1$ decimal place. What is the minimum possible value of $a \\div b$, to $3$ significant figures?",
+      "choices": [
+        "$1.86$",
+        "$1.93$",
+        "$1.85$",
+        "$1.90$"
+      ],
+      "correctIndex": 0,
+      "explanation": "A quotient is smallest with the smallest numerator and biggest denominator: 7.15 / 3.85 = 1.8571..., which is 1.86 to 3 s.f. The distractor 1.93 is the maximum, 7.25 / 3.75.",
+      "difficulty": "medium",
+      "calculator": true
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q10",
+      "stem": "$a = 7.2$ and $b = 3.8$, each to $1$ decimal place. What is the maximum possible value of $a - b$?",
+      "choices": [
+        "$3.5$",
+        "$3.3$",
+        "$3.4$",
+        "$3.55$"
+      ],
+      "correctIndex": 0,
+      "explanation": "A difference is biggest with the biggest a and the smallest b: 7.25 - 3.75 = 3.5.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q11",
+      "stem": "A rectangle measures $9.5$ cm by $4.2$ cm, each to $1$ decimal place. What is the maximum possible area?",
+      "choices": [
+        "$40.5875$ cm$^2$",
+        "$39.9$ cm$^2$",
+        "$39.2175$ cm$^2$",
+        "$40.6325$ cm$^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Area is a product, so use both upper bounds: 9.55 x 4.25 = 40.5875 cm squared.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q12",
+      "stem": "A rectangle measures $9.5$ cm by $4.2$ cm, each to $1$ decimal place. What is the minimum possible area?",
+      "choices": [
+        "$39.2175$ cm$^2$",
+        "$40.5875$ cm$^2$",
+        "$39.9$ cm$^2$",
+        "$38.5175$ cm$^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Area is a product, so the minimum uses both lower bounds: 9.45 x 4.15 = 39.2175 cm squared.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q13",
+      "stem": "$x = 6.42$ to $3$ significant figures and $y = 1.7$ to $2$ significant figures. What is the product $xy$ stated to an appropriate accuracy?",
+      "choices": [
+        "$11$",
+        "$11.2$",
+        "$10.6$",
+        "$10.9$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The bounds are 6.415 <= x < 6.425 and 1.65 <= y < 1.75, giving a max product of 11.24375 and a min of 10.58475. To 1 d.p. these disagree (11.2 vs 10.6), but to the nearest integer both give 11, so 11 is the appropriate accuracy.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q14",
+      "stem": "$a = 12$ to the nearest integer and $b = 5.0$ to $1$ decimal place. What is the maximum possible value of $a \\div b$, to $3$ significant figures?",
+      "choices": [
+        "$2.53$",
+        "$2.28$",
+        "$2.52$",
+        "$2.40$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The bounds are 11.5 <= a < 12.5 and 4.95 <= b < 5.05. The maximum quotient is 12.5 / 4.95 = 2.5252..., which is 2.53 to 3 s.f. The distractor 2.28 is the minimum, 11.5 / 5.05.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-igcse-bounds-bnd-q15",
+      "stem": "Which combination of bounds gives the maximum possible value of $a \\div b$?",
+      "choices": [
+        "Upper bound of $a$ divided by lower bound of $b$",
+        "Upper bound of $a$ divided by upper bound of $b$",
+        "Lower bound of $a$ divided by lower bound of $b$",
+        "Lower bound of $a$ divided by upper bound of $b$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Dividing by a smaller number gives a bigger result, so the largest quotient pairs the biggest numerator with the smallest denominator.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -44,8 +44,7 @@ test.describe('SEO metadata wiring', () => {
 
   test('subject page names every tier it actually has content in', async ({ page }) => {
     const h = await head(page, '/subjects/math');
-    expect(h.title).toBe('Maths revision notes — KS3 & IB DP · Octav Learning');
-    expect(h.title).not.toContain('IGCSE'); // no IGCSE content: the title must not claim it
+    expect(h.title).toBe('Maths revision notes — KS3 & IGCSE & IB DP · Octav Learning');
     expect(h.canonical).toBe('https://octavlearning.com/subjects/math');
   });
 
@@ -104,9 +103,15 @@ test.describe('SEO metadata wiring', () => {
     await expect(page.locator('a[href^="/subjects/math/math-dp-ai-"]').first()).toBeVisible();
   });
 
-  test('the empty IGCSE tier has no route', async ({ request }) => {
-    expect((await request.get('/igcse')).status()).toBe(404);
-    expect((await request.get('/igcse/math')).status()).toBe(404);
+  test('the IGCSE tier hubs are live and indexable since the maths pilot', async ({ page, request }) => {
+    expect((await request.get('/igcse')).status()).toBe(200);
+    expect((await request.get('/igcse/math')).status()).toBe(200);
+    for (const path of ['/igcse', '/igcse/math']) {
+      const h = await head(page, path);
+      expect(h.robots, `${path} must be indexable`).not.toContain('noindex');
+    }
+    // a subject with no igcse topics still has no hub route
+    expect((await request.get('/igcse/biology')).status()).toBe(404);
   });
 
   test('app and internal surfaces are noindex, follow', async ({ page }) => {

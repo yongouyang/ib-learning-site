@@ -132,7 +132,7 @@ describe('subject hub metadata', () => {
     const t = String(metaForSubject(math).title);
     expect(t).toContain('KS3');
     expect(t).toContain('IB DP');
-    expect(t).not.toContain('IGCSE'); // no IGCSE content yet
+    expect(t).toContain('IGCSE'); // IGCSE maths pilot landed (docs/igcse-pilot-plan.md)
     expect(displayWidth(`${t}${BRAND_SUFFIX}`)).toBeLessThanOrEqual(TITLE_BUDGET);
   });
 });

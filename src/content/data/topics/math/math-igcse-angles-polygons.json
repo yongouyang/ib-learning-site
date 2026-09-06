@@ -1,0 +1,316 @@
+{
+  "id": "math-igcse-angles-polygons",
+  "subjectId": "math",
+  "title": "Angles and Polygons",
+  "description": "Angle facts for straight lines, parallel lines, triangles and quadrilaterals, plus interior and exterior angle sums of polygons.",
+  "stage": "igcse",
+  "course": "0580",
+  "notes": [
+    {
+      "id": "math-igcse-angles-polygons-n1",
+      "heading": "Angle Facts on a Line and at a Point",
+      "body": "📌 Definition\nWe measure angles in degrees ($^\\circ$). Three basic angle facts come from straight lines and points.\n\n🔑 Key Concept\n• Angles on a straight line add up to $180^\\circ$.\n• Angles at a point add up to $360^\\circ$.\n• Vertically opposite angles (formed where two straight lines cross) are equal.\n\n💡 Worked Example 1 — angles on a line\nTwo angles lie on a straight line and one of them is $63^\\circ$. Find the other.\n\n$$180^\\circ - 63^\\circ = 117^\\circ$$\n\n💡 Worked Example 2 — angles at a point\nThree angles at a point are $95^\\circ$, $130^\\circ$ and $x$. Their total must be $360^\\circ$:\n\n$$x = 360^\\circ - 95^\\circ - 130^\\circ = 135^\\circ$$\n\n⚠️ Common Mistake\nReaching for $90^\\circ$ because a line \"looks upright\". A straight-line angle is $180^\\circ$; $90^\\circ$ is only for right angles.\n\n✅ Check\nTwo angles on a line are $4x$ and $x$: $5x = 180$, so $x = 36$ and the angles are $144^\\circ$ and $36^\\circ$."
+    },
+    {
+      "id": "math-igcse-angles-polygons-n2",
+      "heading": "Parallel Lines: F, Z and U Angles",
+      "body": "📌 Definition\nA transversal is a line that cuts across two (or more) other lines. When the two lines are parallel, three pairs of angles have fixed relationships.\n\n🔑 Key Concept\nFor parallel lines cut by a transversal:\n• Corresponding angles (\"F\" angles) are equal.\n• Alternate angles (\"Z\" angles) are equal.\n• Co-interior angles (\"U\" or \"C\" angles) add up to $180^\\circ$.\n\n💡 Worked Example 1\nLine $a$ is parallel to line $b$, and one of the angles at the transversal is $70^\\circ$. Then every angle in the diagram is either $70^\\circ$ or $110^\\circ$: its corresponding and alternate partners are $70^\\circ$, and its co-interior partner is $180^\\circ - 70^\\circ = 110^\\circ$.\n\n💡 Worked Example 2 — solving with parallel-line angles\nTwo co-interior angles are $x$ and $3x - 20^\\circ$. Find $x$.\n\n$$x + 3x - 20^\\circ = 180^\\circ \\implies 4x = 200^\\circ \\implies x = 50^\\circ$$\n\nThe two angles are $50^\\circ$ and $130^\\circ$.\n\n⚠️ Common Mistake\nUsing these facts when the lines are NOT parallel. Only use F/Z/U facts when the diagram shows the parallel arrows on both lines.\n\n✅ Tip\nTrace the shape of the letter with your pencil: the \"F\" hides corresponding angles, the \"Z\" hides alternate angles, the \"U\" hides co-interior angles."
+    },
+    {
+      "id": "math-igcse-angles-polygons-n3",
+      "heading": "Angles in Triangles",
+      "body": "📌 Definition\nThe three interior angles of any triangle add up to $180^\\circ$.\n\n🔑 Key Concept\n• Triangle angle sum: $180^\\circ$.\n• Isosceles triangle: the two base angles (opposite the equal sides) are equal.\n• Equilateral triangle: all angles are $60^\\circ$.\n• Exterior angle of a triangle = sum of the two interior angles NOT adjacent to it.\n\n💡 Worked Example 1\nTwo angles of a triangle are $40^\\circ$ and $65^\\circ$. The third is $180^\\circ - 40^\\circ - 65^\\circ = 75^\\circ$.\n\n💡 Worked Example 2 — isosceles\nAn isosceles triangle has a top (apex) angle of $40^\\circ$. The two base angles are equal, so each is\n\n$$\\frac{180^\\circ - 40^\\circ}{2} = 70^\\circ$$\n\n💡 Worked Example 3 — exterior angle\nThe two angles remote from an exterior angle are $50^\\circ$ and $60^\\circ$, so the exterior angle is $110^\\circ$. (Check: the interior angle next to it is $70^\\circ$, and $110^\\circ + 70^\\circ = 180^\\circ$ on a straight line.)\n\n⚠️ Common Misconception\nAssuming a triangle is isosceles because two angles \"look similar\". Use only the tick marks on the sides, or worked-out values.\n\n✅ Check\nA triangle has angles $x$, $2x$ and $2x$: $5x = 180$, so $x = 36$ and the angles are $36^\\circ$, $72^\\circ$, $72^\\circ$."
+    },
+    {
+      "id": "math-igcse-angles-polygons-n4",
+      "heading": "Angles in Quadrilaterals",
+      "body": "📌 Definition\nA quadrilateral is any four-sided shape. Its four interior angles add up to $360^\\circ$.\n\n🔑 How it works\nOne diagonal splits any quadrilateral into two triangles, and $180^\\circ + 180^\\circ = 360^\\circ$.\nFor special quadrilaterals: in a parallelogram, opposite angles are equal and adjacent angles add up to $180^\\circ$.\n\n💡 Worked Example 1\nThree angles of a quadrilateral are $85^\\circ$, $110^\\circ$ and $95^\\circ$. The fourth angle is\n\n$$360^\\circ - 85^\\circ - 110^\\circ - 95^\\circ = 70^\\circ$$\n\n💡 Worked Example 2 — parallelogram\nOne angle of a parallelogram is $60^\\circ$. The opposite angle is also $60^\\circ$, and each adjacent angle is $180^\\circ - 60^\\circ = 120^\\circ$.\n\n⚠️ Common Mistake\nMixing up the totals: triangles use $180^\\circ$, quadrilaterals use $360^\\circ$. A four-sided shape never has an angle sum of $180^\\circ$.\n\n✅ Check\nA kite has angles $80^\\circ$, $80^\\circ$ and $40^\\circ$; the fourth is $360^\\circ - 200^\\circ = 160^\\circ$."
+    },
+    {
+      "id": "math-igcse-angles-polygons-n5",
+      "heading": "Interior Angle Sums of Polygons",
+      "body": "📌 Definition\nA polygon with $n$ sides can be split into $(n-2)$ triangles by drawing all diagonals from one vertex.\n\n🔑 Key Formula\nThe sum of the interior angles of an $n$-sided polygon is\n\n$$S = (n-2) \\times 180^\\circ$$\n\n💡 Worked Example 1 — finding the sum\nPentagon: $(5-2) \\times 180^\\circ = 540^\\circ$. Hexagon: $(6-2) \\times 180^\\circ = 720^\\circ$.\n\n💡 Worked Example 2 — finding the number of sides\nA polygon has interior angle sum $1260^\\circ$. Then $n - 2 = 1260 \\div 180 = 7$, so the polygon has $9$ sides.\n\n📎 Key Points to Remember\n• Triangle $180^\\circ$, quadrilateral $360^\\circ$, pentagon $540^\\circ$, hexagon $720^\\circ$ — worth memorising.\n• The sum always increases by $180^\\circ$ per extra side.\n\n⚠️ Common Mistake\nWriting $n-1$ instead of $n-2$ triangles. Test the formula on a triangle: $(3-2) \\times 180^\\circ = 180^\\circ$ — it must work."
+    },
+    {
+      "id": "math-igcse-angles-polygons-n6",
+      "heading": "Exterior Angles and Regular Polygons",
+      "body": "📌 Definition\nAn exterior angle is the turn at one vertex as you walk once around the polygon. At any vertex, interior + exterior $= 180^\\circ$ (they lie on a straight line).\n\n🔑 Key Concept\n• The exterior angles of ANY convex polygon add up to $360^\\circ$.\n• For a regular polygon with $n$ sides: exterior angle $= 360^\\circ \\div n$ and interior angle $= 180^\\circ - \\frac{360^\\circ}{n}$.\n\n💡 Worked Example 1 — regular octagon\nExterior angle: $360^\\circ \\div 8 = 45^\\circ$. Interior angle: $180^\\circ - 45^\\circ = 135^\\circ$.\n\n💡 Worked Example 2 — working backwards\nA regular polygon has interior angles of $150^\\circ$. Each exterior angle is $180^\\circ - 150^\\circ = 30^\\circ$, so\n\n$$n = \\frac{360^\\circ}{30^\\circ} = 12$$\n\nThe polygon is a regular dodecagon (12 sides).\n\n✅ Check\nRegular nonagon: exterior $40^\\circ$, interior $140^\\circ$ — and $(9-2) \\times 180^\\circ = 1260^\\circ = 9 \\times 140^\\circ$. ✓"
+    },
+    {
+      "id": "math-igcse-angles-polygons-n7",
+      "heading": "Angle Reasoning in Compound Diagrams",
+      "body": "📌 Definition\nA compound diagram mixes several shapes. The marks (ticks for equal sides, arrows for parallel lines, squares for right angles) tell you which facts are allowed.\n\n🔑 How to work through one\n1. Mark every angle you can already name.\n2. Look for isosceles triangles, straight lines and parallel lines.\n3. Step from angle to angle, giving a reason at each step (\"angle sum of a triangle\", \"alternate angles, AB ∥ CD\", ...).\n\n💡 Worked Example 1 — square with an equilateral triangle\nAn equilateral triangle is drawn inside a square on one of its sides. At a shared corner, the angle between a triangle side and the square side is $90^\\circ - 60^\\circ = 30^\\circ$.\n\n💡 Worked Example 2 — ratio angles\nThe angles of a triangle are in the ratio $2 : 3 : 4$. The $9$ equal parts add to $180^\\circ$, so one part is $20^\\circ$ and the angles are $40^\\circ$, $60^\\circ$ and $80^\\circ$.\n\n⚠️ Common Mistake\nNever claim two angles are equal \"because they look the same size\". Diagrams are NOT drawn to scale in IGCSE unless the question says so — every statement needs a geometry reason.\n\n✅ Tip\nIf a question says \"Give reasons for your answer\", write the name of the angle fact next to each step — that is where the method marks are."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-angles-polygons-f1",
+      "term": "Angles on a straight line",
+      "definition": "Add up to $180^\\circ$.",
+      "example": "$63^\\circ + 117^\\circ = 180^\\circ$."
+    },
+    {
+      "id": "math-igcse-angles-polygons-f2",
+      "term": "Angles at a point",
+      "definition": "Add up to $360^\\circ$.",
+      "example": "$100^\\circ + 120^\\circ + 140^\\circ = 360^\\circ$."
+    },
+    {
+      "id": "math-igcse-angles-polygons-f3",
+      "term": "Vertically opposite angles",
+      "definition": "Equal — formed where two straight lines cross.",
+      "example": "If one pair is $70^\\circ$, the opposite angle is also $70^\\circ$."
+    },
+    {
+      "id": "math-igcse-angles-polygons-f4",
+      "term": "Corresponding (F) angles",
+      "definition": "Equal when a transversal cuts parallel lines.",
+      "example": "A $70^\\circ$ angle at line $a$ matches $70^\\circ$ at line $b$."
+    },
+    {
+      "id": "math-igcse-angles-polygons-f5",
+      "term": "Alternate (Z) angles",
+      "definition": "Equal when a transversal cuts parallel lines.",
+      "example": "A $70^\\circ$ angle on one side of the transversal pairs with $70^\\circ$ on the other."
+    },
+    {
+      "id": "math-igcse-angles-polygons-f6",
+      "term": "Co-interior (U) angles",
+      "definition": "Add up to $180^\\circ$ when lines are parallel.",
+      "example": "$70^\\circ + 110^\\circ = 180^\\circ$."
+    },
+    {
+      "id": "math-igcse-angles-polygons-f7",
+      "term": "Triangle angle sum",
+      "definition": "The three interior angles add to $180^\\circ$.",
+      "example": "$40^\\circ + 65^\\circ + 75^\\circ = 180^\\circ$."
+    },
+    {
+      "id": "math-igcse-angles-polygons-f8",
+      "term": "Isosceles base angles",
+      "definition": "The angles opposite the two equal sides are equal.",
+      "example": "Apex $40^\\circ$ gives base angles of $70^\\circ$ each."
+    },
+    {
+      "id": "math-igcse-angles-polygons-f9",
+      "term": "Exterior angle of a triangle",
+      "definition": "Equals the sum of the two remote interior angles.",
+      "example": "$50^\\circ + 60^\\circ = 110^\\circ$ exterior angle."
+    },
+    {
+      "id": "math-igcse-angles-polygons-f10",
+      "term": "Quadrilateral angle sum",
+      "definition": "The four interior angles add to $360^\\circ$.",
+      "example": "$85^\\circ + 110^\\circ + 95^\\circ + 70^\\circ = 360^\\circ$."
+    },
+    {
+      "id": "math-igcse-angles-polygons-f11",
+      "term": "Polygon interior angle sum",
+      "definition": "$(n-2) \\times 180^\\circ$ for an $n$-sided polygon.",
+      "example": "Hexagon: $(6-2) \\times 180^\\circ = 720^\\circ$."
+    },
+    {
+      "id": "math-igcse-angles-polygons-f12",
+      "term": "Exterior angles of a polygon",
+      "definition": "Always add to $360^\\circ$; a regular $n$-gon has exterior angle $360^\\circ \\div n$.",
+      "example": "Regular octagon exterior: $360^\\circ \\div 8 = 45^\\circ$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-angles-polygons-q1",
+      "stem": "Two angles lie on a straight line. One of them is $63^\\circ$. What is the other?",
+      "choices": [
+        "$63^\\circ$",
+        "$117^\\circ$",
+        "$127^\\circ$",
+        "$137^\\circ$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Angles on a straight line add up to $180^\\circ$, so the other angle is $180^\\circ - 63^\\circ = 117^\\circ$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q2",
+      "stem": "Three of the angles at a point are $90^\\circ$, $120^\\circ$ and $100^\\circ$. What is the fourth?",
+      "choices": [
+        "$50^\\circ$",
+        "$80^\\circ$",
+        "$60^\\circ$",
+        "$40^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Angles at a point add up to $360^\\circ$. The three given angles total $310^\\circ$, so the fourth is $360^\\circ - 310^\\circ = 50^\\circ$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q3",
+      "stem": "Two angles of a triangle are $55^\\circ$ and $60^\\circ$. What is the third angle?",
+      "choices": [
+        "$60^\\circ$",
+        "$65^\\circ$",
+        "$120^\\circ$",
+        "$115^\\circ$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The angles of a triangle add up to $180^\\circ$: $180^\\circ - 55^\\circ - 60^\\circ = 65^\\circ$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q4",
+      "stem": "What is the sum of the interior angles of a hexagon?",
+      "choices": [
+        "$720^\\circ$",
+        "$900^\\circ$",
+        "$540^\\circ$",
+        "$1080^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "A hexagon has $n = 6$ sides, so the interior angle sum is $(6-2) \\times 180^\\circ = 720^\\circ$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q5",
+      "stem": "What is the size of each exterior angle of a regular decagon (10 sides)?",
+      "choices": [
+        "$30^\\circ$",
+        "$18^\\circ$",
+        "$144^\\circ$",
+        "$36^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The exterior angles of any polygon total $360^\\circ$. For a regular decagon each exterior angle is $360^\\circ \\div 10 = 36^\\circ$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q6",
+      "stem": "Line $a$ is parallel to line $b$. A transversal makes an angle of $74^\\circ$ with line $a$. What is the co-interior (U) angle with it at line $b$?",
+      "choices": [
+        "$116^\\circ$",
+        "$86^\\circ$",
+        "$106^\\circ$",
+        "$74^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Co-interior angles between parallel lines add up to $180^\\circ$: $180^\\circ - 74^\\circ = 106^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q7",
+      "stem": "An isosceles triangle has a top angle of $48^\\circ$. What is the size of each base angle?",
+      "choices": [
+        "$72^\\circ$",
+        "$48^\\circ$",
+        "$68^\\circ$",
+        "$66^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The base angles are equal and all three angles total $180^\\circ$, so each base angle is $(180^\\circ - 48^\\circ) \\div 2 = 66^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q8",
+      "stem": "Three angles of a quadrilateral are $88^\\circ$, $97^\\circ$ and $121^\\circ$. Find the fourth angle.",
+      "choices": [
+        "$46^\\circ$",
+        "$64^\\circ$",
+        "$76^\\circ$",
+        "$54^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Quadrilateral angles total $360^\\circ$. The three given angles sum to $306^\\circ$, so the fourth is $360^\\circ - 306^\\circ = 54^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q9",
+      "stem": "A polygon has interior angles that add up to $900^\\circ$. How many sides does it have?",
+      "choices": [
+        "8",
+        "9",
+        "6",
+        "7"
+      ],
+      "correctIndex": 3,
+      "explanation": "Solve $(n-2) \\times 180^\\circ = 900^\\circ$: $n - 2 = 900 \\div 180 = 5$, so $n = 7$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q10",
+      "stem": "A triangle has an exterior angle. The two interior angles remote from it are $45^\\circ$ and $70^\\circ$. What is the exterior angle?",
+      "choices": [
+        "$65^\\circ$",
+        "$125^\\circ$",
+        "$115^\\circ$",
+        "$130^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The exterior angle of a triangle equals the sum of the two remote interior angles: $45^\\circ + 70^\\circ = 115^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q11",
+      "stem": "Each interior angle of a regular polygon is $144^\\circ$. How many sides does the polygon have?",
+      "choices": [
+        "9",
+        "8",
+        "12",
+        "10"
+      ],
+      "correctIndex": 3,
+      "explanation": "Each exterior angle is $180^\\circ - 144^\\circ = 36^\\circ$, and the number of sides is $360^\\circ \\div 36^\\circ = 10$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q12",
+      "stem": "The angles of a triangle are in the ratio $2 : 3 : 4$. What is the largest angle?",
+      "choices": [
+        "$80^\\circ$",
+        "$60^\\circ$",
+        "$72^\\circ$",
+        "$40^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The ratio has $2+3+4 = 9$ equal parts totalling $180^\\circ$, so one part is $20^\\circ$ and the largest angle is $4 \\times 20^\\circ = 80^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q13",
+      "stem": "$AB$ is parallel to $CD$. Point $P$ lies between the two lines so that angle $ABP = 35^\\circ$ and angle $DCP = 42^\\circ$. What is angle $BPC$?",
+      "choices": [
+        "$77^\\circ$",
+        "$83^\\circ$",
+        "$67^\\circ$",
+        "$143^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Draw a line through $P$ parallel to $AB$ and $CD$. The new line splits angle $BPC$ into two alternate angles of $35^\\circ$ and $42^\\circ$, so angle $BPC = 35^\\circ + 42^\\circ = 77^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q14",
+      "stem": "A regular pentagon and an equilateral triangle share one full side. At an endpoint of that side, what is the angle between a side of the triangle and a side of the pentagon?",
+      "choices": [
+        "$42^\\circ$",
+        "$52^\\circ$",
+        "$60^\\circ$",
+        "$48^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Each interior angle of a regular pentagon is $108^\\circ$ and each angle of an equilateral triangle is $60^\\circ$. The angle between them is $108^\\circ - 60^\\circ = 48^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-angles-polygons-q15",
+      "stem": "The four angles of a quadrilateral are $x$, $2x$, $3x$ and $4x$. What is the largest angle?",
+      "choices": [
+        "$72^\\circ$",
+        "$96^\\circ$",
+        "$144^\\circ$",
+        "$120^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Quadrilateral angles total $360^\\circ$: $x + 2x + 3x + 4x = 10x = 360^\\circ$, so $x = 36^\\circ$ and the largest angle is $4x = 144^\\circ$.",
+      "difficulty": "hard"
+    }
+  ]
+}

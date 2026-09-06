@@ -1,0 +1,316 @@
+{
+  "id": "math-igcse-probability",
+  "subjectId": "math",
+  "title": "Probability",
+  "description": "Calculating probabilities of single events on a 0 to 1 scale, using complementary events, possibility spaces and two-way tables for equally likely outcomes.",
+  "stage": "igcse",
+  "course": "0580",
+  "notes": [
+    {
+      "id": "math-igcse-probability-prob-n1",
+      "heading": "📌 What Is Probability?",
+      "body": "Probability measures how likely an event is, on a scale from $0$ to $1$:\n\n$$0 \\leq P(E) \\leq 1$$\n\n📌 Definition\nA probability of $0$ means the event is impossible; a probability of $1$ means it is certain. Values in between describe how likely the event is.\n\nFor outcomes that are all equally likely,\n\n$$P(E) = \\dfrac{\\text{number of favourable outcomes}}{\\text{number of possible outcomes}}$$\n\nThe phrase 'equally likely' does the real work: the formula only applies when every outcome has the same chance, like a fair die or a well-shuffled deck."
+    },
+    {
+      "id": "math-igcse-probability-prob-n2",
+      "heading": "🔑 How it works: Writing Probabilities",
+      "body": "Count the favourable outcomes, count the total outcomes, then write the fraction in its simplest form.\n\nA standard six-sided die has $6$ equally likely outcomes. The probability of rolling a $4$ is $\\dfrac{1}{6}$. The probability of rolling an even number is $\\dfrac{3}{6} = \\dfrac{1}{2}$ — always simplify.\n\n⚠️ Common Mistake\nProbabilities can be written as fractions, decimals or percentages, but a probability can never be greater than $1$. An answer like $\\dfrac{7}{6}$ or $120\\%$ means something has been miscounted. And an answer like '$50\\%$ chance, so the next toss must be heads' confuses likelihood with certainty — random events have no memory."
+    },
+    {
+      "id": "math-igcse-probability-prob-n3",
+      "heading": "💡 Worked Example: One Die",
+      "body": "A fair six-sided die is rolled once. Find each probability.\n\n🔑 How it works\n(a) P(multiple of 3): the favourable outcomes are $3$ and $6$ — that is $2$ of $6$, so $P = \\dfrac{2}{6} = \\dfrac{1}{3}$.\n\n(b) P(number greater than 6): there are no favourable outcomes, so $P = \\dfrac{0}{6} = 0$ — impossible.\n\n(c) P(number less than 7): every outcome qualifies, so $P = \\dfrac{6}{6} = 1$ — certain.\n\n✅ Check\nParts (b) and (c) show the ends of the probability scale. If an exam answer is exactly $0$ or exactly $1$, say so in words as well: 'impossible' or 'certain'."
+    },
+    {
+      "id": "math-igcse-probability-prob-n4",
+      "heading": "🔑 How it works: Complementary Events",
+      "body": "The event 'not $E$' is called the complement of $E$, and the two always add up to $1$:\n\n$$P(\\text{not } E) = 1 - P(E)$$\n\n💡 Worked Example\nIf $P(\\text{rain}) = 0.3$, then $P(\\text{no rain}) = 1 - 0.3 = 0.7$.\n\nFor a die, $P(\\text{not a six}) = 1 - \\dfrac{1}{6} = \\dfrac{5}{6}$ — the same answer as counting the $5$ favourable outcomes directly.\n\n📎 Key Points to Remember\nThe complement shortcut is worth most when 'not' covers many outcomes: to find the probability of at least one six when two dice are rolled, it is faster to compute $1 - P(\\text{no sixes})$ than to count every favourable outcome."
+    },
+    {
+      "id": "math-igcse-probability-prob-n5",
+      "heading": "💡 Worked Example: Possibility Spaces",
+      "body": "A possibility space lists every possible outcome. Two coins are tossed: the space is HH, HT, TH, TT — four equally likely outcomes, because a head-then-tail is a different result from tail-then-head.\n\n🔑 How it works\nP(two heads) = $\\dfrac{1}{4}$.\n\nP(one head and one tail) = $\\dfrac{2}{4} = \\dfrac{1}{2}$ — HT and TH both count.\n\nFor two dice, the possibility space has $6 \\times 6 = 36$ equally likely outcomes, usually drawn as a grid. A total of $8$ arises from $(2,6)$, $(3,5)$, $(4,4)$, $(5,3)$, $(6,2)$ — five outcomes — so $P(\\text{total } 8) = \\dfrac{5}{36}$.\n\n✅ Check\nNotice $\\dfrac{5}{36}$ cannot be 'cleaned up' to $\\dfrac{1}{6}$: sixths would need $6$ of the $36$ outcomes. Count carefully on the grid."
+    },
+    {
+      "id": "math-igcse-probability-prob-n6",
+      "heading": "⚠️ Common Mistakes with Possibility Spaces",
+      "body": "⚠️ Common Mistake\n1. **Merging HT and TH.** With two coins there are $4$ outcomes, not $3$. 'One head, one tail' has probability $\\dfrac{1}{2}$, not $\\dfrac{1}{3}$.\n\n2. **Using 21 for two dice.** Totals run from 2 to 12 — that is $11$ values — but the $36$ equally likely *outcomes* are the pairs, and different totals come from different numbers of pairs.\n\n3. **Assuming equally likely when they are not.** A bag with $5$ red, $3$ blue and $2$ green counters: colours are not equally likely, so use the counts — $P(\\text{blue}) = \\dfrac{3}{10}$.\n\n4. **Not simplifying.** IGCSE mark schemes usually require the fraction in its simplest form; $\\dfrac{2}{6}$ may not earn the final mark."
+    },
+    {
+      "id": "math-igcse-probability-prob-n7",
+      "heading": "📎 Two-Way Tables and Key Points",
+      "body": "📌 Definition\nA two-way table organises outcomes by two characteristics, such as subject and gender. The whole sample space is the grand total, so\n\n$$P(\\text{a cell}) = \\dfrac{\\text{cell frequency}}{\\text{grand total}}$$\n\n💡 Worked Example\nOf $30$ students, $12$ boys study science, $3$ boys study arts, $8$ girls study science and $7$ girls study arts. A student is chosen at random: P(a girl who studies arts) = $\\dfrac{7}{30}$.\n\n📎 Key Points to Remember\nDivide by the grand total ($30$), not by a row total ($15$ girls) — the difference is exactly what these questions test. The probabilities of every cell in a complete table add up to $1$."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-probability-prob-f1",
+      "term": "Probability of an event (equally likely outcomes)",
+      "definition": "Number of favourable outcomes divided by number of possible outcomes.",
+      "example": "P(rolling a 4) = 1/6 for a fair die."
+    },
+    {
+      "id": "math-igcse-probability-prob-f2",
+      "term": "Equally likely",
+      "definition": "Every outcome has the same chance of occurring — required before using the count-over-count formula.",
+      "example": "A fair die is equally likely; a bag with 5 red and 1 blue counter is not."
+    },
+    {
+      "id": "math-igcse-probability-prob-f3",
+      "term": "Probability scale",
+      "definition": "Probabilities run from 0 to 1 inclusive — never negative, never above 1.",
+      "example": "P(event) = 0.5 means an even chance."
+    },
+    {
+      "id": "math-igcse-probability-prob-f4",
+      "term": "Impossible and certain",
+      "definition": "An impossible event has probability 0; a certain event has probability 1.",
+      "example": "P(rolling 7 on one die) = 0; P(rolling less than 7) = 1."
+    },
+    {
+      "id": "math-igcse-probability-prob-f5",
+      "term": "Complementary events",
+      "definition": "P(not E) = 1 − P(E); an event and its complement always sum to 1.",
+      "example": "If P(rain) = 0.3, P(no rain) = 0.7."
+    },
+    {
+      "id": "math-igcse-probability-prob-f6",
+      "term": "Possibility space",
+      "definition": "The list of all possible outcomes of an experiment.",
+      "example": "Two coins tossed: HH, HT, TH, TT."
+    },
+    {
+      "id": "math-igcse-probability-prob-f7",
+      "term": "Two coins outcomes",
+      "definition": "HT and TH are different outcomes — the space has 4 equally likely outcomes, not 3.",
+      "example": "P(one of each) = 2/4 = 1/2."
+    },
+    {
+      "id": "math-igcse-probability-prob-f8",
+      "term": "Two dice outcomes",
+      "definition": "Two dice give 6 × 6 = 36 equally likely ordered pairs.",
+      "example": "P(total of 8) = 5/36."
+    },
+    {
+      "id": "math-igcse-probability-prob-f9",
+      "term": "Probabilities sum to 1",
+      "definition": "Over a complete possibility space, all outcome probabilities add up to 1.",
+      "example": "Spinner with only red, blue, green, yellow: P(red) + P(blue) + P(green) + P(yellow) = 1."
+    },
+    {
+      "id": "math-igcse-probability-prob-f10",
+      "term": "Probability from a two-way table",
+      "definition": "Divide the cell frequency by the grand total.",
+      "example": "7 girls study arts out of 30 students: P(girl studying arts) = 7/30."
+    },
+    {
+      "id": "math-igcse-probability-prob-f11",
+      "term": "'At least one' shortcut",
+      "definition": "P(at least one) = 1 − P(none), which is usually faster than counting many favourable outcomes.",
+      "example": "Two dice: P(at least one six) = 1 − 25/36 = 11/36."
+    },
+    {
+      "id": "math-igcse-probability-prob-f12",
+      "term": "Simplest form",
+      "definition": "Exam probabilities must be written as fully simplified fractions.",
+      "example": "Write 1/3, not 2/6."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-probability-prob-q1",
+      "stem": "A fair coin is tossed once. What is the probability of getting a head?",
+      "choices": [
+        "1",
+        "1/2",
+        "1/4",
+        "0"
+      ],
+      "correctIndex": 1,
+      "explanation": "A fair coin has two equally likely outcomes, head or tail, so P(head) = 1/2.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-probability-prob-q2",
+      "stem": "What is the probability of an impossible event?",
+      "choices": [
+        "1",
+        "0.5",
+        "0",
+        "It cannot be determined"
+      ],
+      "correctIndex": 2,
+      "explanation": "An impossible event has no favourable outcomes, so its probability is exactly 0 on the scale from 0 to 1.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-probability-prob-q3",
+      "stem": "A spinner has four equal sections coloured red, blue, green and yellow. What is P(red)?",
+      "choices": [
+        "1/2",
+        "1/4",
+        "1",
+        "3/4"
+      ],
+      "correctIndex": 1,
+      "explanation": "The sections are equal, so the four colours are equally likely: P(red) = 1/4.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-probability-prob-q4",
+      "stem": "A standard six-sided die is rolled once. What is the probability of rolling a number greater than 6?",
+      "choices": [
+        "1/6",
+        "1",
+        "0",
+        "7/6"
+      ],
+      "correctIndex": 2,
+      "explanation": "The highest possible score is 6, so there are no favourable outcomes — the event is impossible and P = 0. A value like 7/6 is not even a valid probability.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-probability-prob-q5",
+      "stem": "A standard six-sided die is rolled once. What is the probability of rolling a multiple of 3?",
+      "choices": [
+        "1/6",
+        "1/3",
+        "1/2",
+        "2/3"
+      ],
+      "correctIndex": 1,
+      "explanation": "The multiples of 3 on a die are 3 and 6 — two favourable outcomes out of six, so P = 2/6 = 1/3 in its simplest form.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-probability-prob-q6",
+      "stem": "A bag contains 5 red counters, 3 blue counters and 2 green counters. One counter is drawn at random. What is P(not blue)?",
+      "choices": [
+        "3/10",
+        "7/10",
+        "3/5",
+        "2/5"
+      ],
+      "correctIndex": 1,
+      "explanation": "There are 10 counters and 7 that are not blue, so P(not blue) = 7/10. Equivalently, 1 − P(blue) = 1 − 3/10 = 7/10. The answer 3/10 is P(blue), the complement.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-probability-prob-q7",
+      "stem": "Two fair coins are tossed. What is the probability of getting two heads?",
+      "choices": [
+        "1/2",
+        "1/4",
+        "1/3",
+        "3/4"
+      ],
+      "correctIndex": 1,
+      "explanation": "The possibility space is HH, HT, TH, TT — four equally likely outcomes — and only HH is favourable, so P = 1/4. Thinking there are only 3 outcomes merges HT with TH, which is the classic error.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-probability-prob-q8",
+      "stem": "Two fair dice are rolled. What is the probability that the total is 8?",
+      "choices": [
+        "5/36",
+        "1/6",
+        "6/36",
+        "7/36"
+      ],
+      "correctIndex": 0,
+      "explanation": "The favourable ordered pairs are (2,6), (3,5), (4,4), (5,3), (6,2) — five of the 36 equally likely outcomes — so P = 5/36, which does not simplify.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-probability-prob-q9",
+      "stem": "The probability that it rains tomorrow is 0.3. What is the probability that it does not rain?",
+      "choices": [
+        "0.3",
+        "0.7",
+        "0.5",
+        "1.3"
+      ],
+      "correctIndex": 1,
+      "explanation": "An event and its complement sum to 1, so P(no rain) = 1 − 0.3 = 0.7. The value 1.3 is impossible — probabilities never exceed 1.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-probability-prob-q10",
+      "stem": "One card is drawn from a well-shuffled pack of 52 playing cards. What is the probability of drawing a face card (jack, queen or king)?",
+      "choices": [
+        "1/13",
+        "3/13",
+        "3/4",
+        "12/13"
+      ],
+      "correctIndex": 1,
+      "explanation": "Each of the four suits has a jack, queen and king, giving 12 favourable cards out of 52: P = 12/52 = 3/13 in simplest form.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-probability-prob-q11",
+      "stem": "Two fair dice are rolled. What is the probability of getting at least one six?",
+      "choices": [
+        "1/6",
+        "11/36",
+        "12/36",
+        "1/36"
+      ],
+      "correctIndex": 1,
+      "explanation": "Outcomes with a six on the first die: 6. On the second die: 6. The pair (6,6) is in both counts, so favourable = 6 + 6 − 1 = 11, giving 11/36. Adding 1/6 + 1/6 to get 12/36 double-counts (6,6).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-probability-prob-q12",
+      "stem": "In a class of 30 students, 12 boys study science, 3 boys study arts, 8 girls study science and 7 girls study arts. One student is chosen at random. What is the probability that the student is a girl who studies arts?",
+      "choices": [
+        "7/15",
+        "7/30",
+        "15/30",
+        "8/30"
+      ],
+      "correctIndex": 1,
+      "explanation": "The possibility space is all 30 students, and 7 of them are girls studying arts, so P = 7/30. The 7/15 answer divides by the girls' row total, which would only apply once a girl is known to have been chosen.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-probability-prob-q13",
+      "stem": "A biased spinner can land on red, blue, green or yellow. P(red) = 0.25, P(blue) = 0.35 and P(green) = 0.2. What is P(yellow)?",
+      "choices": [
+        "0.2",
+        "0.8",
+        "0.1",
+        "0.25"
+      ],
+      "correctIndex": 0,
+      "explanation": "The four outcomes form a complete possibility space, so their probabilities sum to 1: P(yellow) = 1 − (0.25 + 0.35 + 0.2) = 1 − 0.8 = 0.2.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-probability-prob-q14",
+      "stem": "A bag contains 27 counters, each red or blue. If P(not blue) = 8/9, how many blue counters are there?",
+      "choices": [
+        "3",
+        "24",
+        "9",
+        "6"
+      ],
+      "correctIndex": 0,
+      "explanation": "P(blue) = 1 − 8/9 = 1/9, so the number of blue counters is 27 × 1/9 = 3. The 24 is the number of red counters — the complement.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-probability-prob-q15",
+      "stem": "Two fair dice are rolled. What is the probability that the total is greater than 10?",
+      "choices": [
+        "1/12",
+        "1/6",
+        "5/36",
+        "1/4"
+      ],
+      "correctIndex": 0,
+      "explanation": "Totals greater than 10 are 11 and 12, from the pairs (5,6), (6,5) and (6,6) — three of the 36 equally likely outcomes, so P = 3/36 = 1/12.",
+      "difficulty": "hard"
+    }
+  ]
+}

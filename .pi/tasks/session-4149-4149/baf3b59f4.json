@@ -1,0 +1,19 @@
+{
+  "id": "baf3b59f4",
+  "name": "full e2e per-project runs",
+  "command": "cd /Users/yongouyang/projects/ib-learning-site && npx playwright test --project='iPhone SE' --workers=1 2>&1 | tail -4 && echo ===DESKTOP=== && npx playwright test --project='Desktop Chrome' --workers=1 2>&1 | tail -4",
+  "status": "failed",
+  "outputPath": ".pi/tasks/session-4149-4149/baf3b59f4.output",
+  "cwd": "/Users/yongouyang/projects/ib-learning-site",
+  "startTime": 1788687938701,
+  "endTime": 1788688296895,
+  "exitCode": 1,
+  "signal": null,
+  "pid": 27499,
+  "bytesWritten": 322,
+  "isAgent": false,
+  "error": "Exited with code 1",
+  "notified": true,
+  "notifyOnCompletion": true,
+  "triggerOnCompletion": true
+}

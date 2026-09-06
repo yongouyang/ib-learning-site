@@ -1,0 +1,100 @@
+{
+  "id": "math-igcse-set-1",
+  "courseId": "math-igcse",
+  "title": "Practice Set 1",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "math-igcse-set-1-q1",
+      "stem": "Work out $\\dfrac{2}{5} + \\dfrac{1}{4}$. Give your answer as a single fraction in its simplest form.",
+      "marks": 2,
+      "markscheme": [
+        "M1: common denominator 20 with both fractions converted ($\\dfrac{8}{20}$ and $\\dfrac{5}{20}$ seen)",
+        "A1: $\\dfrac{13}{20}$"
+      ],
+      "modelAnswer": "The lowest common denominator of 5 and 4 is 20, so $\\dfrac{2}{5} = \\dfrac{8}{20}$ and $\\dfrac{1}{4} = \\dfrac{5}{20}$. Adding: $\\dfrac{8}{20} + \\dfrac{5}{20} = \\dfrac{13}{20}$, which is already in its simplest form. Answer: $\\dfrac{13}{20}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-set-1-q2",
+      "stem": "Work out $15\\%$ of $240$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: valid method ($240 \\times 0.15$, or $10\\% = 24$ and $5\\% = 12$)",
+        "A1: $36$"
+      ],
+      "modelAnswer": "$10\\%$ of $240$ is $24$ and $5\\%$ is half of that, $12$. So $15\\%$ is $24 + 12 = 36$. Answer: $36$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-set-1-q3",
+      "stem": "Two angles on a straight line are $74^\\circ$ and $x^\\circ$. Work out $x$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: uses angles on a straight line sum to $180^\\circ$",
+        "A1: $106$"
+      ],
+      "modelAnswer": "Angles on a straight line add up to $180^\\circ$, so $x = 180 - 74 = 106$. Answer: $x = 106$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-set-1-q4",
+      "stem": "Solve the simultaneous equations $2x + 3y = 18$ and $x - y = 4$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: valid elimination or substitution setup (e.g. multiplying the second equation by 3)",
+        "M1: correct solution of one variable ($x = 6$ or $y = 2$)",
+        "A1: both values correct: $x = 6$, $y = 2$"
+      ],
+      "modelAnswer": "From $x - y = 4$, $x = y + 4$. Substitute: $2(y + 4) + 3y = 18$, so $5y + 8 = 18$, $5y = 10$, $y = 2$. Then $x = 2 + 4 = 6$. Check: $2(6) + 3(2) = 12 + 6 = 18$. Answer: $x = 6$, $y = 2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-set-1-q5",
+      "stem": "A cylinder has radius $3$ cm and height $10$ cm. Work out its volume, giving your answer to 3 significant figures.",
+      "marks": 2,
+      "markscheme": [
+        "M1: substitutes into $V = \\pi r^2 h$ ($\\pi \\times 9 \\times 10$ seen)",
+        "A1: $283$ (cm$^3$; accept $282.6$ to $282.74$ or $90\\pi$)"
+      ],
+      "modelAnswer": "$V = \\pi r^2 h = \\pi \\times 3^2 \\times 10 = 90\\pi = 282.74\\ldots$ cm$^3$. To 3 significant figures: $283$ cm$^3$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-set-1-q6",
+      "stem": "Ten students recorded how many books they read last month: three students read $2$ books, five students read $3$ books and two students read $4$ books. Work out the mean number of books read.",
+      "marks": 2,
+      "markscheme": [
+        "M1: sums value $\\times$ frequency ($6 + 15 + 8 = 29$ seen)",
+        "A1: $2.9$"
+      ],
+      "modelAnswer": "Total books $= 2 \\times 3 + 3 \\times 5 + 4 \\times 2 = 6 + 15 + 8 = 29$. Total students $= 3 + 5 + 2 = 10$. Mean $= 29 \\div 10 = 2.9$ books.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-set-1-q7",
+      "stem": "A rectangle measures $7.4$ cm by $3.2$ cm, each correct to 1 decimal place. Work out the upper bound of the area of the rectangle. Give your answer to 3 significant figures.",
+      "marks": 3,
+      "markscheme": [
+        "B1: both upper bounds stated ($7.45$ and $3.25$)",
+        "M1: multiplies the two upper bounds",
+        "A1: $24.2$ (cm$^2$; accept $24.2125$ or $24.21$)"
+      ],
+      "modelAnswer": "Upper bounds: $7.45$ cm and $3.25$ cm. Maximum area $= 7.45 \\times 3.25 = 24.2125$ cm$^2$, which is $24.2$ cm$^2$ to 3 significant figures.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-set-1-q8",
+      "stem": "Solve the quadratic equation $2x^2 - 5x - 3 = 0$ by factorisation.",
+      "marks": 4,
+      "markscheme": [
+        "M1: valid factorisation attempt with product $-6$ and sum $-5$ identified",
+        "M1: correct factors $(2x + 1)(x - 3)$",
+        "M1: sets each factor to zero",
+        "A1: both solutions $x = 3$ and $x = -\\dfrac{1}{2}$"
+      ],
+      "modelAnswer": "We need two numbers with product $2 \\times -3 = -6$ and sum $-5$: they are $-6$ and $1$. So $2x^2 - 6x + x - 3 = 2x(x - 3) + 1(x - 3) = (2x + 1)(x - 3) = 0$. Hence $x = -\\dfrac{1}{2}$ or $x = 3$.",
+      "difficulty": "hard"
+    }
+  ]
+}

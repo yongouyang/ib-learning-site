@@ -1,0 +1,316 @@
+{
+  "id": "math-igcse-area-volume",
+  "subjectId": "math",
+  "title": "Area and Volume",
+  "description": "Areas of common shapes and compound regions, unit conversions, and volume and surface area of cuboids, prisms and cylinders.",
+  "stage": "igcse",
+  "course": "0580",
+  "notes": [
+    {
+      "id": "math-igcse-area-volume-n1",
+      "heading": "Units of Area and Volume",
+      "body": "📌 Definition\nArea is measured in square units (mm², cm², m²) and volume in cubic units (mm³, cm³, m³).\n\n🔑 Key Concept\nUnit conversions for area and volume do NOT use the ordinary factor:\n• $1\\ \\text{m} = 100\\ \\text{cm}$, so $1\\ \\text{m}^2 = 100 \\times 100 = 10\\,000\\ \\text{cm}^2$\n• $1\\ \\text{m}^3 = 100 \\times 100 \\times 100 = 1\\,000\\,000\\ \\text{cm}^3$\n• $1\\ \\text{cm}^2 = 100\\ \\text{mm}^2$ and $1\\ \\text{cm}^3 = 1000\\ \\text{mm}^3$\n\n💡 Worked Example 1\nConvert $3.5\\ \\text{m}^2$ into $\\text{cm}^2$: $3.5 \\times 10\\,000 = 35\\,000\\ \\text{cm}^2$.\n\n💡 Worked Example 2\nConvert $45\\,000\\ \\text{cm}^2$ into $\\text{m}^2$: $45\\,000 \\div 10\\,000 = 4.5\\ \\text{m}^2$.\n\n⚠️ Common Mistake\nMultiplying by $100$ (the length factor) when converting square units. Ask yourself: \"Is this length, area or volume?\" — then use the factor once, twice or three times.\n\n✅ Check\n$2\\ \\text{m}^3 = 2\\,000\\,000\\ \\text{cm}^3$."
+    },
+    {
+      "id": "math-igcse-area-volume-n2",
+      "heading": "Rectangles, Triangles and Parallelograms",
+      "body": "📌 Definition\nThree of the most-used area formulas:\n\n$$A = lw \\quad \\text{(rectangle)}$$\n\n$$A = \\frac{1}{2}bh \\quad \\text{(triangle)}$$\n\n$$A = bh \\quad \\text{(parallelogram)}$$\n\n🔑 Key Concept\nFor triangles and parallelograms, $h$ must be the PERPENDICULAR height — measured at right angles to the base, never the slant side.\n\n💡 Worked Example 1 — triangle\nA triangle has base $9\\ \\text{cm}$ and perpendicular height $5\\ \\text{cm}$:\n\n$$A = \\frac{1}{2} \\times 9 \\times 5 = 22.5\\ \\text{cm}^2$$\n\n💡 Worked Example 2 — parallelogram\nA parallelogram has base $8\\ \\text{cm}$, perpendicular height $6\\ \\text{cm}$ and a slant side of $7\\ \\text{cm}$. The slant side is a distractor:\n\n$$A = 8 \\times 6 = 48\\ \\text{cm}^2$$\n\n⚠️ Common Mistake\nUsing the slant side as the height, or forgetting the $\\frac{1}{2}$ in the triangle formula.\n\n✅ Check\nA rectangle $7\\ \\text{cm} \\times 4\\ \\text{cm}$ has area $28\\ \\text{cm}^2$; a triangle with the same base and height has half that: $14\\ \\text{cm}^2$."
+    },
+    {
+      "id": "math-igcse-area-volume-n3",
+      "heading": "Trapeziums and Compound Shapes",
+      "body": "📌 Definition\nA trapezium has one pair of parallel sides. Its area uses both parallel lengths $a$ and $b$ and the perpendicular height $h$:\n\n$$A = \\frac{1}{2}(a+b)h$$\n\n🔑 Key Concept\nFor compound (composite) shapes:\n1. SPLIT the shape into rectangles/triangles and add the areas, or\n2. EXTEND it into a big rectangle and SUBTRACT the missing pieces.\n\n💡 Worked Example 1 — trapezium\nParallel sides of $10\\ \\text{cm}$ and $6\\ \\text{cm}$, height $4\\ \\text{cm}$:\n\n$$A = \\frac{1}{2}(10+6) \\times 4 = 32\\ \\text{cm}^2$$\n\n💡 Worked Example 2 — subtract the notch\nAn L-shape is a $12\\ \\text{cm} \\times 8\\ \\text{cm}$ rectangle with a $4\\ \\text{cm} \\times 3\\ \\text{cm}$ corner cut out: $12 \\times 8 - 4 \\times 3 = 96 - 12 = 84\\ \\text{cm}^2$.\n\n⚠️ Common Mistake\nIn the trapezium formula, pairing a parallel side with a non-perpendicular side, or adding ALL four sides instead of only the two PARALLEL sides.\n\n✅ Check\nA trapezium with equal parallel sides ($a = b$) behaves like a rectangle: $\\frac{1}{2}(a+a)h = ah$."
+    },
+    {
+      "id": "math-igcse-area-volume-n4",
+      "heading": "Circles and Cylinders",
+      "body": "📌 Definition\nFor a circle of radius $r$:\n\n$$C = 2\\pi r \\quad \\text{(circumference)}, \\qquad A = \\pi r^2 \\quad \\text{(area)}$$\n\nA cylinder of radius $r$ and height $h$ is a prism with a circular cross-section:\n\n$$V = \\pi r^2 h$$\n\n🔑 Key Concept\nIf you are given the DIAMETER, halve it first: $r = d \\div 2$. Use $\\pi \\approx 3.142$ (or the π key) and round only at the end.\n\n💡 Worked Example 1\nCircle of radius $5\\ \\text{cm}$: area $= 25\\pi \\approx 78.5\\ \\text{cm}^2$; circumference $= 10\\pi \\approx 31.4\\ \\text{cm}$.\n\n💡 Worked Example 2 — from diameter\nA circle has diameter $6\\ \\text{cm}$, so $r = 3\\ \\text{cm}$ and area $= 9\\pi \\approx 28.3\\ \\text{cm}^2$.\n\n💡 Worked Example 3 — cylinder\nRadius $3\\ \\text{cm}$, height $7\\ \\text{cm}$: $V = \\pi \\times 3^2 \\times 7 = 63\\pi \\approx 197.9\\ \\text{cm}^3$.\n\n⚠️ Common Mistake\nSquaring the diameter instead of the radius — the answer is four times too big.\n\n✅ Check\n$\\pi r^2$ with $r = 4$ gives $16\\pi \\approx 50.3$; the circumference $8\\pi \\approx 25.1$ — area is the larger number once $r > 2$."
+    },
+    {
+      "id": "math-igcse-area-volume-n5",
+      "heading": "Prisms: Volume = Cross-section × Length",
+      "body": "📌 Definition\nA prism is a solid with a constant cross-section: every slice parallel to the ends is identical. Triangular prisms, cuboids and cylinders are all prisms.\n\n🔑 Key Formula\n\n$$V = \\text{cross-sectional area} \\times \\text{length}$$\n\n💡 Worked Example 1 — triangular prism\nThe cross-section is a right-angled triangle with legs $5\\ \\text{cm}$ and $12\\ \\text{cm}$, and the prism is $8\\ \\text{cm}$ long.\n\n$$\\text{Cross-section} = \\frac{1}{2} \\times 5 \\times 12 = 30\\ \\text{cm}^2, \\qquad V = 30 \\times 8 = 240\\ \\text{cm}^3$$\n\n💡 Worked Example 2 — trapezoidal prism\nA trough has a trapezium cross-section with parallel sides $6\\ \\text{cm}$ and $10\\ \\text{cm}$ and height $3\\ \\text{cm}$, and it is $10\\ \\text{cm}$ long:\n\n$$\\text{Cross-section} = \\frac{1}{2}(6+10) \\times 3 = 24\\ \\text{cm}^2, \\qquad V = 24 \\times 10 = 240\\ \\text{cm}^3$$\n\n⚠️ Common Mistake\nApplying \"length × width × height\" to a triangular prism. Find the AREA OF THE END first, then multiply by how long the solid is.\n\n✅ Tip\nA prism lying on its side is still the same prism — rotate it in your sketch so the cross-section faces you."
+    },
+    {
+      "id": "math-igcse-area-volume-n6",
+      "heading": "Surface Area",
+      "body": "📌 Definition\nThe surface area of a solid is the total area of all its faces — imagine carefully opening the solid flat and measuring the net.\n\n🔑 Key Formulas\nCuboid with length $l$, width $w$, height $h$:\n\n$$A = 2(lw + lh + wh)$$\n\nCylinder with radius $r$ and height $h$ (two circles plus the curved rectangle):\n\n$$A = 2\\pi r^2 + 2\\pi rh$$\n\n💡 Worked Example 1 — cuboid\nCuboid $4\\ \\text{cm} \\times 5\\ \\text{cm} \\times 6\\ \\text{cm}$:\n\n$$A = 2(20 + 24 + 30) = 148\\ \\text{cm}^2$$\n\n💡 Worked Example 2 — cylinder\nRadius $2\\ \\text{cm}$, height $10\\ \\text{cm}$: two circles give $2 \\times \\pi \\times 2^2 = 8\\pi$; the curved face gives $2\\pi \\times 2 \\times 10 = 40\\pi$; total $48\\pi \\approx 150.8\\ \\text{cm}^2$.\n\n⚠️ Common Mistake\nForgetting a face: a closed cylinder has THREE surfaces (two circles + one curve), and a cuboid has six faces in three equal pairs.\n\n✅ Check\nSurface area is always measured in SQUARE units (cm²), never cubic ones."
+    },
+    {
+      "id": "math-igcse-area-volume-n7",
+      "heading": "Problem Solving with Area and Volume",
+      "body": "📌 Definition\nIGCSE problems wrap area and volume in real contexts: painting walls, laying tiles, filling tanks, laying turf. The maths is the same — the marks are for unit care.\n\n🔑 How to work\n1. Draw or label the shape, splitting compound parts if needed.\n2. Make all measurements use the SAME units before calculating.\n3. Compute the area or volume, then answer the actual question (cost, number of tiles, tins of paint...).\n4. Round sensibly UP when you buy materials — you cannot buy half a tin.\n\n💡 Worked Example 1 — paint\nA wall is $6\\ \\text{m} \\times 3\\ \\text{m} = 18\\ \\text{m}^2$. One tin covers $10\\ \\text{m}^2$ per coat. You need $18 \\div 10 = 1.8$ tins of coverage, so buy $2$ tins.\n\n💡 Worked Example 2 — tiles\nA floor measures $3\\ \\text{m} \\times 2.4\\ \\text{m} = 7.2\\ \\text{m}^2 = 72\\,000\\ \\text{cm}^2$. Each tile is $30\\ \\text{cm} \\times 20\\ \\text{cm} = 600\\ \\text{cm}^2$. Number of tiles:\n\n$$72\\,000 \\div 600 = 120$$\n\n⚠️ Common Mistake\nDividing metres² by centimetres² — convert first, or the answer is out by a factor of $10\\,000$.\n\n✅ Tip\nSanity-check the final answer: 120 tiles for a small room is believable; 12 or 12 000 is not."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-area-volume-f1",
+      "term": "Area of a rectangle",
+      "definition": "Length × width.",
+      "example": "$7\\ \\text{cm} \\times 4\\ \\text{cm} = 28\\ \\text{cm}^2$."
+    },
+    {
+      "id": "math-igcse-area-volume-f2",
+      "term": "Area of a triangle",
+      "definition": "Half × base × perpendicular height.",
+      "example": "$\\frac{1}{2} \\times 9 \\times 5 = 22.5$."
+    },
+    {
+      "id": "math-igcse-area-volume-f3",
+      "term": "Area of a parallelogram",
+      "definition": "Base × perpendicular height (not the slant side).",
+      "example": "$8 \\times 6 = 48\\ \\text{cm}^2$."
+    },
+    {
+      "id": "math-igcse-area-volume-f4",
+      "term": "Area of a trapezium",
+      "definition": "Half × (sum of parallel sides) × height.",
+      "example": "$\\frac{1}{2}(10+6) \\times 4 = 32$."
+    },
+    {
+      "id": "math-igcse-area-volume-f5",
+      "term": "Area of a circle",
+      "definition": "$\\pi r^2$.",
+      "example": "$r = 5$: $25\\pi \\approx 78.5\\ \\text{cm}^2$."
+    },
+    {
+      "id": "math-igcse-area-volume-f6",
+      "term": "Circumference of a circle",
+      "definition": "$2\\pi r$.",
+      "example": "$r = 5$: $10\\pi \\approx 31.4\\ \\text{cm}$."
+    },
+    {
+      "id": "math-igcse-area-volume-f7",
+      "term": "Square metres to square centimetres",
+      "definition": "Multiply by $10\\,000$.",
+      "example": "$3.5\\ \\text{m}^2 = 35\\,000\\ \\text{cm}^2$."
+    },
+    {
+      "id": "math-igcse-area-volume-f8",
+      "term": "Cubic metres to cubic centimetres",
+      "definition": "Multiply by $1\\,000\\,000$.",
+      "example": "$2\\ \\text{m}^3 = 2\\,000\\,000\\ \\text{cm}^3$."
+    },
+    {
+      "id": "math-igcse-area-volume-f9",
+      "term": "Volume of any prism",
+      "definition": "Cross-sectional area × length.",
+      "example": "Triangle $30\\ \\text{cm}^2$, length $8$: $240\\ \\text{cm}^3$."
+    },
+    {
+      "id": "math-igcse-area-volume-f10",
+      "term": "Volume of a cylinder",
+      "definition": "$\\pi r^2 h$.",
+      "example": "$r = 3$, $h = 7$: $63\\pi \\approx 197.9\\ \\text{cm}^3$."
+    },
+    {
+      "id": "math-igcse-area-volume-f11",
+      "term": "Surface area of a cuboid",
+      "definition": "$2(lw + lh + wh)$.",
+      "example": "$4,5,6$: $2(20+24+30) = 148\\ \\text{cm}^2$."
+    },
+    {
+      "id": "math-igcse-area-volume-f12",
+      "term": "Surface area of a cylinder",
+      "definition": "$2\\pi r^2 + 2\\pi rh$.",
+      "example": "$r = 2$, $h = 10$: $48\\pi \\approx 150.8\\ \\text{cm}^2$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-area-volume-q1",
+      "stem": "What is the area of a rectangle measuring $9\\ \\text{cm}$ by $7\\ \\text{cm}$?",
+      "choices": [
+        "$16\\ \\text{cm}^2$",
+        "$63\\ \\text{cm}^2$",
+        "$32\\ \\text{cm}^2$",
+        "$54\\ \\text{cm}^2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Area of a rectangle = length × width: $9 \\times 7 = 63\\ \\text{cm}^2$. ($32$ is the perimeter.)",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-area-volume-q2",
+      "stem": "A triangle has base $10\\ \\text{cm}$ and perpendicular height $6\\ \\text{cm}$. What is its area?",
+      "choices": [
+        "$30\\ \\text{cm}^2$",
+        "$20\\ \\text{cm}^2$",
+        "$60\\ \\text{cm}^2$",
+        "$16\\ \\text{cm}^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Triangle area = $\\frac{1}{2} \\times$ base × height = $\\frac{1}{2} \\times 10 \\times 6 = 30\\ \\text{cm}^2$. Forgetting the half gives the distractor $60$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-area-volume-q3",
+      "stem": "What is the area of a circle with radius $4\\ \\text{cm}$? (Take $\\pi \\approx 3.142$)",
+      "choices": [
+        "$100.5\\ \\text{cm}^2$",
+        "$50.3\\ \\text{cm}^2$",
+        "$12.6\\ \\text{cm}^2$",
+        "$25.1\\ \\text{cm}^2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Area = $\\pi r^2 = 16\\pi \\approx 50.3\\ \\text{cm}^2$. ($25.1$ is the circumference, $12.6$ uses $4\\pi$.)",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-area-volume-q4",
+      "stem": "A cuboid measures $2\\ \\text{cm} \\times 3\\ \\text{cm} \\times 4\\ \\text{cm}$. What is its volume?",
+      "choices": [
+        "$24\\ \\text{cm}^3$",
+        "$12\\ \\text{cm}^3$",
+        "$9\\ \\text{cm}^3$",
+        "$26\\ \\text{cm}^3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Volume of a cuboid = length × width × height = $2 \\times 3 \\times 4 = 24\\ \\text{cm}^3$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-area-volume-q5",
+      "stem": "A trapezium has parallel sides of $8\\ \\text{cm}$ and $5\\ \\text{cm}$, and a perpendicular height of $6\\ \\text{cm}$. What is its area?",
+      "choices": [
+        "$78\\ \\text{cm}^2$",
+        "$31\\ \\text{cm}^2$",
+        "$44\\ \\text{cm}^2$",
+        "$39\\ \\text{cm}^2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Area = $\\frac{1}{2}(a+b)h = \\frac{1}{2}(8+5) \\times 6 = 39\\ \\text{cm}^2$. ($78$ forgets the half.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-area-volume-q6",
+      "stem": "What is the circumference of a circle with diameter $10\\ \\text{cm}$? (Take $\\pi \\approx 3.142$)",
+      "choices": [
+        "$78.5\\ \\text{cm}$",
+        "$62.8\\ \\text{cm}$",
+        "$31.4\\ \\text{cm}$",
+        "$15.7\\ \\text{cm}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Circumference = $\\pi d = 10\\pi \\approx 31.4\\ \\text{cm}$. ($78.5$ is the area; $15.7$ halves the circumference.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-area-volume-q7",
+      "stem": "Convert $4.8\\ \\text{m}^2$ into $\\text{cm}^2$.",
+      "choices": [
+        "$480\\,000\\ \\text{cm}^2$",
+        "$48\\ \\text{cm}^2$",
+        "$4\\,800\\ \\text{cm}^2$",
+        "$48\\,000\\ \\text{cm}^2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$1\\ \\text{m}^2 = 10\\,000\\ \\text{cm}^2$, so $4.8\\ \\text{m}^2 = 4.8 \\times 10\\,000 = 48\\,000\\ \\text{cm}^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-area-volume-q8",
+      "stem": "A solid cylinder has radius $3\\ \\text{cm}$ and height $5\\ \\text{cm}$. What is its volume? (Take $\\pi \\approx 3.142$)",
+      "choices": [
+        "$150.8\\ \\text{cm}^3$",
+        "$94.2\\ \\text{cm}^3$",
+        "$565.5\\ \\text{cm}^3$",
+        "$141.4\\ \\text{cm}^3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Volume = $\\pi r^2 h = \\pi \\times 9 \\times 5 = 45\\pi \\approx 141.4\\ \\text{cm}^3$. ($94.2$ is the curved surface, $150.8$ the total surface area.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-area-volume-q9",
+      "stem": "A triangular prism has a right-angled triangular cross-section with legs $3\\ \\text{cm}$ and $4\\ \\text{cm}$, and it is $10\\ \\text{cm}$ long. What is its volume?",
+      "choices": [
+        "$120\\ \\text{cm}^3$",
+        "$70\\ \\text{cm}^3$",
+        "$30\\ \\text{cm}^3$",
+        "$60\\ \\text{cm}^3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cross-section area = $\\frac{1}{2} \\times 3 \\times 4 = 6\\ \\text{cm}^2$, so volume = $6 \\times 10 = 60\\ \\text{cm}^3$. ($120$ forgets the half.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-area-volume-q10",
+      "stem": "What is the total surface area of a closed cuboid measuring $3\\ \\text{cm} \\times 4\\ \\text{cm} \\times 5\\ \\text{cm}$?",
+      "choices": [
+        "$60\\ \\text{cm}^2$",
+        "$47\\ \\text{cm}^2$",
+        "$94\\ \\text{cm}^2$",
+        "$100\\ \\text{cm}^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$A = 2(lw + lh + wh) = 2(12 + 15 + 20) = 94\\ \\text{cm}^2$. ($60$ is the volume.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-area-volume-q11",
+      "stem": "An L-shaped region is a $10\\ \\text{cm} \\times 6\\ \\text{cm}$ rectangle with a $4\\ \\text{cm} \\times 3\\ \\text{cm}$ rectangular corner removed. What is its area?",
+      "choices": [
+        "$52\\ \\text{cm}^2$",
+        "$60\\ \\text{cm}^2$",
+        "$44\\ \\text{cm}^2$",
+        "$48\\ \\text{cm}^2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Big rectangle $10 \\times 6 = 60$; cut-out $4 \\times 3 = 12$; compound area $= 60 - 12 = 48\\ \\text{cm}^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-area-volume-q12",
+      "stem": "A parallelogram has base $12\\ \\text{cm}$, perpendicular height $5\\ \\text{cm}$ and slant sides of $7\\ \\text{cm}$. What is its area?",
+      "choices": [
+        "$60\\ \\text{cm}^2$",
+        "$84\\ \\text{cm}^2$",
+        "$30\\ \\text{cm}^2$",
+        "$42\\ \\text{cm}^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Parallelogram area = base × PERPENDICULAR height = $12 \\times 5 = 60\\ \\text{cm}^2$. The slant side $7$ is a distractor ($12 \\times 7 = 84$ is wrong).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-area-volume-q13",
+      "stem": "A closed cylinder has radius $3\\ \\text{cm}$ and height $5\\ \\text{cm}$. What is its total surface area? (Take $\\pi \\approx 3.142$)",
+      "choices": [
+        "$150.8\\ \\text{cm}^2$",
+        "$141.4\\ \\text{cm}^2$",
+        "$94.2\\ \\text{cm}^2$",
+        "$169.6\\ \\text{cm}^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$A = 2\\pi r^2 + 2\\pi rh = 18\\pi + 30\\pi = 48\\pi \\approx 150.8\\ \\text{cm}^2$. ($94.2$ misses the two circular ends; $141.4$ is the volume.)",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-area-volume-q14",
+      "stem": "A floor measures $4.5\\ \\text{m}$ by $3\\ \\text{m}$. Square-based tiles measuring $15\\ \\text{cm}$ by $10\\ \\text{cm}$ are used to cover it. How many tiles are needed?",
+      "choices": [
+        "1800",
+        "90",
+        "450",
+        "900"
+      ],
+      "correctIndex": 3,
+      "explanation": "Floor: $4.5 \\times 3 = 13.5\\ \\text{m}^2 = 135\\,000\\ \\text{cm}^2$. Each tile: $15 \\times 10 = 150\\ \\text{cm}^2$. Tiles $= 135\\,000 \\div 150 = 900$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-area-volume-q15",
+      "stem": "A solid cube has total surface area $150\\ \\text{cm}^2$. What is its volume?",
+      "choices": [
+        "$75\\ \\text{cm}^3$",
+        "$150\\ \\text{cm}^3$",
+        "$125\\ \\text{cm}^3$",
+        "$25\\ \\text{cm}^3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A cube has 6 equal faces, so each face is $150 \\div 6 = 25\\ \\text{cm}^2$ and the edge is $5\\ \\text{cm}$. Volume $= 5^3 = 125\\ \\text{cm}^3$.",
+      "difficulty": "hard"
+    }
+  ]
+}

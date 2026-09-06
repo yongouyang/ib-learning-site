@@ -112,8 +112,12 @@ describe('seo/hubs — tier hub routes (S3)', () => {
     expect(dpMath.title).toBe('IB DP Maths');
     expect((dpMath.alternates as { canonical: string }).canonical).toBe('/ibdp/math');
 
-    // empty tier / unknown subject → undefined → the route does not exist
-    expect(metaForTierSubject('igcse', 'math')).toBeUndefined();
+    // the IGCSE leg landed with the maths pilot (docs/igcse-pilot-plan.md)
+    const igcseMath = metaForTierSubject('igcse', 'math')!;
+    expect(igcseMath.title).toBe('IGCSE Maths');
+    expect((igcseMath.alternates as { canonical: string }).canonical).toBe('/igcse/math');
+    expect(igcseMath.robots).toEqual(INDEXABLE_ROBOTS);
+    // unknown subject → undefined → the route does not exist
     expect(metaForTierSubject('ks3', 'no-such-subject')).toBeUndefined();
   });
 
@@ -122,8 +126,9 @@ describe('seo/hubs — tier hub routes (S3)', () => {
     const registryKs3Subjects = subjects.filter((s) => s.topics.some((t) => tierOfTopic(t) === 'ks3')).map((s) => s.id);
     expect(ks3.map((h) => h.subject.id)).toEqual(registryKs3Subjects);
 
-    // the IGCSE tier is empty today: zero hub children, so no /igcse route may exist
-    expect(tierSubjects('igcse')).toEqual([]);
+    // the IGCSE tier is live since the maths pilot: exactly the subjects with igcse topics
+    const registryIgcseSubjects = subjects.filter((s) => s.topics.some((t) => tierOfTopic(t) === 'igcse')).map((s) => s.id);
+    expect(tierSubjects('igcse').map((h) => h.subject.id)).toEqual(registryIgcseSubjects);
   });
 
   it('the IBDP hub set covers every dp topic in the registry (course derivation misses nothing)', () => {

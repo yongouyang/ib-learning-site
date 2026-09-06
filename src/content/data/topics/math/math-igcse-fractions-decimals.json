@@ -1,0 +1,316 @@
+{
+  "id": "math-igcse-fractions-decimals",
+  "subjectId": "math",
+  "title": "Fractions and Decimals",
+  "description": "Operating with fractions, mixed numbers and decimals, and converting recurring decimals to fractions for IGCSE Maths 0580.",
+  "stage": "igcse",
+  "course": "0580",
+  "notes": [
+    {
+      "id": "math-igcse-fractions-decimals-fd-n1",
+      "heading": "Fractions, Mixed Numbers and Equivalents",
+      "body": "📌 Definition\nA fraction shows a part of a whole. The top number is the **numerator** and the bottom number is the **denominator**.\n\n🔑 How it works\n• A proper fraction has a numerator smaller than its denominator, such as $\\dfrac{3}{4}$.\n• An improper fraction has a numerator at least as large, such as $\\dfrac{11}{4}$.\n• A mixed number combines a whole number and a fraction, such as $2\\dfrac{3}{4}$.\n\nEquivalent fractions are made by multiplying or dividing the top and bottom by the same number. Simplify by dividing both by the highest common factor.\n\n💡 Worked Example 1 — Simplify\n$\\dfrac{12}{18}$: divide top and bottom by $6$ to get $\\dfrac{2}{3}$.\n\n💡 Worked Example 2 — Mixed to improper\n$2\\dfrac{3}{4} = \\dfrac{2 \\times 4 + 3}{4} = \\dfrac{11}{4}$\n\n📎 Key Points to Remember\n• $\\dfrac{6}{9}$ simplifies to $\\dfrac{2}{3}$; stop only when no common factor remains.\n• To turn an improper fraction back into a mixed number, divide: $\\dfrac{11}{4} = 2\\dfrac{3}{4}$.\n\n✅ Check\n$5\\dfrac{1}{2} = \\dfrac{11}{2}$."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-n2",
+      "heading": "Multiplying and Dividing Fractions",
+      "body": "🔑 How it works\nMultiply straight across, cancelling common factors first if you can:\n\n$$\\dfrac{a}{b} \\times \\dfrac{c}{d} = \\dfrac{ac}{bd}$$\n\nTo divide, multiply by the reciprocal (flip the second fraction):\n\n$$\\dfrac{a}{b} \\div \\dfrac{c}{d} = \\dfrac{a}{b} \\times \\dfrac{d}{c}$$\n\n💡 Worked Example 1\n$\\dfrac{3}{4} \\div \\dfrac{2}{5} = \\dfrac{3}{4} \\times \\dfrac{5}{2} = \\dfrac{15}{8} = 1\\dfrac{7}{8}$\n\n💡 Worked Example 2 — Mixed numbers first convert\n$2\\dfrac{1}{3} \\times 1\\dfrac{1}{4} = \\dfrac{7}{3} \\times \\dfrac{5}{4} = \\dfrac{35}{12}$\n\n⚠️ Common Mistake\nNever divide top by top and bottom by bottom. $\\dfrac{3}{4} \\div \\dfrac{2}{5}$ is not $\\dfrac{6}{20}$; dividing by a fraction makes the answer **bigger**, and $\\dfrac{15}{8}$ is indeed bigger than $\\dfrac{3}{4}$.\n\n📎 Key Points to Remember\n• Convert mixed numbers to improper fractions before multiplying or dividing.\n• The reciprocal of $\\dfrac{p}{q}$ is $\\dfrac{q}{p}$, and their product is $1$.\n\n✅ Check\n$\\dfrac{1}{2} \\times \\dfrac{1}{3} = \\dfrac{1}{6}$."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-n3",
+      "heading": "Adding and Subtracting Fractions",
+      "body": "🔑 How it works\nFractions can only be added or subtracted when the denominators match. Find the lowest common denominator (LCD), rewrite each fraction as an equivalent one, then add or subtract the numerators.\n\n💡 Worked Example 1\n$\\dfrac{2}{3} + \\dfrac{3}{4} = \\dfrac{8}{12} + \\dfrac{9}{12} = \\dfrac{17}{12} = 1\\dfrac{5}{12}$\n\n💡 Worked Example 2 — With a mixed number\n$1\\dfrac{1}{2} - \\dfrac{2}{5} = \\dfrac{3}{2} - \\dfrac{2}{5} = \\dfrac{15}{10} - \\dfrac{4}{10} = \\dfrac{11}{10}$\n\n⚠️ Common Mistake\nDo not add the denominators. $\\dfrac{2}{3} + \\dfrac{3}{4}$ is definitely not $\\dfrac{5}{7}$ — the sum must be bigger than $\\dfrac{2}{3}$, and $\\dfrac{5}{7}$ is smaller than $\\dfrac{2}{3}$, which shows the error immediately.\n\n📎 Key Points to Remember\n• The LCD of $b$ and $d$ is their lowest common multiple.\n• Keep the answer as an improper fraction unless a mixed number is asked for.\n\n✅ Check\n$\\dfrac{1}{2} + \\dfrac{1}{4} = \\dfrac{3}{4}$."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-n4",
+      "heading": "Fractions and Order of Operations",
+      "body": "🔑 How it works\nThe word **of** always means multiply: $\\dfrac{2}{3}$ of $12$ is $\\dfrac{2}{3} \\times 12 = 8$. Brackets, then powers, then division and multiplication, then addition and subtraction (BODMAS) apply to fractions exactly as they do to whole numbers.\n\n💡 Worked Example\nWork out $\\dfrac{1}{2} + \\dfrac{1}{3} \\times \\dfrac{3}{4}$.\n\nMultiply first: $\\dfrac{1}{3} \\times \\dfrac{3}{4} = \\dfrac{1}{4}$.\n\nThen add: $\\dfrac{1}{2} + \\dfrac{1}{4} = \\dfrac{3}{4}$.\n\n⚠️ Common Mistake\nWorking strictly left to right gives $\\dfrac{5}{6} \\times \\dfrac{3}{4} = \\dfrac{5}{8}$, which is wrong. Multiplication before addition is not optional.\n\n📎 Key Points to Remember\n• A fraction bar acts as a bracket: $\\dfrac{1 + 5}{2} = 3$, not $1 + 2.5$ read term by term from a flat expression.\n• 'Of' followed by a bracket: $\\dfrac{1}{2}$ of $(3 + 5) = 4$.\n\n✅ Check\n$\\dfrac{3}{4}$ of $20 = 15$."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-n5",
+      "heading": "Multiplying and Dividing with Decimals",
+      "body": "🔑 How it works\nMultiplying by $10$, $100$ or $1000$ moves the digits one, two or three places to the left; dividing moves them the other way.\n\nFor decimal × decimal: ignore the decimal points, multiply the whole numbers, then count **total** decimal places in the question and put that many in the answer.\n\nFor decimal ÷ decimal: multiply both numbers by the same power of $10$ until the divisor is a whole number.\n\n💡 Worked Example 1\n$0.7 \\times 0.06$: $7 \\times 6 = 42$, and the question has $1 + 2 = 3$ decimal places, so the answer is $0.042$.\n\n💡 Worked Example 2\n$4.8 \\div 0.08 = 480 \\div 8 = 60$ (both multiplied by $100$).\n\n⚠️ Common Mistake\nDividing $4.8 \\div 0.08$ and getting $6$ happens when only the divisor is converted. Whatever you do to the bottom, do to the top.\n\n📎 Key Points to Remember\n• $0.7 \\times 0.06$ is smaller than both numbers — multiplying by something less than $1$ shrinks the result.\n• Estimate first: $4.8 \\div 0.08$ is roughly $5 \\div 0.1 = 50$, so $60$ is believable and $0.6$ is not.\n\n✅ Check\n$0.5 \\times 0.5 = 0.25$."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-n6",
+      "heading": "Converting Terminating Decimals and Fractions",
+      "body": "🔑 How it works\nThe final decimal place gives the denominator: tenths, hundredths, thousandths. Then simplify.\n\n$$0.65 = \\dfrac{65}{100} = \\dfrac{13}{20}$$\n\nTo go the other way, divide numerator by denominator: $\\dfrac{3}{8} = 3 \\div 8 = 0.375$.\n\n💡 Worked Example 1 — Learn these\n$0.125 = \\dfrac{1}{8}$, $0.375 = \\dfrac{3}{8}$, $0.625 = \\dfrac{5}{8}$, $0.875 = \\dfrac{7}{8}$.\n\n💡 Worked Example 2\nWrite $\\dfrac{7}{20}$ as a decimal: $\\dfrac{7}{20} = \\dfrac{35}{100} = 0.35$.\n\n⚠️ Common Mistake\n$0.045$ is $\\dfrac{45}{1000} = \\dfrac{9}{200}$, not $\\dfrac{45}{100}$. Count the decimal places carefully.\n\n📎 Key Points to Remember\n• A terminating decimal always converts to a fraction whose denominator is $10$, $100$, $1000$, …\n• Simplify fully: $\\dfrac{65}{100} \\to \\dfrac{13}{20}$, stopping at $\\dfrac{65}{100}$ loses the mark.\n\n✅ Check\n$0.25 = \\dfrac{1}{4}$ and $0.75 = \\dfrac{3}{4}$."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-n7",
+      "heading": "Recurring Decimals as Fractions",
+      "body": "📌 Definition\nA recurring decimal has digits that repeat forever, written with a bar or dots: $0.\\overline{7} = 0.7777\\ldots$\n\n🔑 How it works\nUse algebra. Set the decimal equal to $x$, multiply so the repeating parts line up, then subtract to kill the repetition.\n\n💡 Worked Example 1 — One recurring digit\nLet $x = 0.\\overline{7}$.\n\n$10x = 7.\\overline{7}$\n\nSubtract: $10x - x = 7.\\overline{7} - 0.\\overline{7}$, so $9x = 7$ and $x = \\dfrac{7}{9}$.\n\n💡 Worked Example 2 — Non-recurring lead digit\nLet $x = 0.1\\overline{6}$.\n\n$10x = 1.\\overline{6}$ and $100x = 16.\\overline{6}$\n\nSubtract: $90x = 15$, so $x = \\dfrac{15}{90} = \\dfrac{1}{6}$.\n\n⚠️ Common Mistake\n$0.\\overline{9} = 1$ exactly, not 'almost 1'. The method proves it: $9x = 9$, so $x = 1$.\n\n📎 Key Points to Remember\n• One recurring digit over $9$, two over $99$: $0.\\overline{4} = \\dfrac{4}{9}$, $0.\\overline{45} = \\dfrac{45}{99} = \\dfrac{5}{11}$.\n• If a non-recurring part appears first, use two multiples and subtract, as in Worked Example 2.\n\n✅ Check\n$\\dfrac{1}{3} = 0.\\overline{3}$."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-fractions-decimals-fd-f1",
+      "term": "Numerator",
+      "definition": "The top number of a fraction: how many parts are taken.",
+      "example": "In 3/4 the numerator is 3."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-f2",
+      "term": "Equivalent fractions",
+      "definition": "Fractions with the same value, made by multiplying or dividing top and bottom by the same number.",
+      "example": "2/3 = 4/6 = 12/18."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-f3",
+      "term": "Mixed number to improper fraction",
+      "definition": "Multiply the whole by the denominator, add the numerator, keep the denominator.",
+      "example": "2 3/4 = (2 x 4 + 3)/4 = 11/4."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-f4",
+      "term": "Reciprocal",
+      "definition": "One over the number; for a fraction, swap top and bottom. A number times its reciprocal is 1.",
+      "example": "The reciprocal of 3/5 is 5/3."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-f5",
+      "term": "Multiplying fractions",
+      "definition": "Multiply numerators together and denominators together; cancel common factors first when possible.",
+      "example": "2/3 x 3/4 = 6/12 = 1/2."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-f6",
+      "term": "Dividing fractions",
+      "definition": "Multiply by the reciprocal of the second fraction.",
+      "example": "3/4 ÷ 2/5 = 3/4 x 5/2 = 15/8."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-f7",
+      "term": "Adding fractions",
+      "definition": "Rewrite with the lowest common denominator, then add the numerators; never add the denominators.",
+      "example": "2/3 + 3/4 = 8/12 + 9/12 = 17/12."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-f8",
+      "term": "'Of' means multiply",
+      "definition": "A fraction followed by 'of' is a multiplication, done before any addition in the chain.",
+      "example": "2/3 of 12 = 2/3 x 12 = 8."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-f9",
+      "term": "Decimals and powers of 10",
+      "definition": "Multiplying by 10, 100, 1000 moves the digits one, two, three places left; dividing moves them right.",
+      "example": "4.8 x 100 = 480."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-f10",
+      "term": "Decimal places in a product",
+      "definition": "Multiply as whole numbers, then the answer has as many decimal places as the two factors together.",
+      "example": "0.7 x 0.06 = 0.042 (1 + 2 = 3 decimal places)."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-f11",
+      "term": "Terminating decimal to fraction",
+      "definition": "Use 10, 100 or 1000 as the denominator according to the last decimal place, then simplify.",
+      "example": "0.65 = 65/100 = 13/20."
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-f12",
+      "term": "Recurring decimal to fraction",
+      "definition": "Set it equal to x, multiply so the repeating parts align, subtract, and solve for x.",
+      "example": "x = 0.777... gives 10x = 7.777..., so 9x = 7 and x = 7/9."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-fractions-decimals-fd-q1",
+      "stem": "Fully simplify $\\dfrac{12}{18}$.",
+      "choices": [
+        "$\\dfrac{2}{3}$",
+        "$\\dfrac{3}{4}$",
+        "$\\dfrac{4}{6}$",
+        "$\\dfrac{6}{9}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The highest common factor of 12 and 18 is 6, so divide both by 6 to get 2/3. The options 4/6 and 6/9 are equivalent but not fully simplified.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q2",
+      "stem": "Write $2\\dfrac{3}{4}$ as an improper fraction.",
+      "choices": [
+        "$\\dfrac{11}{4}$",
+        "$\\dfrac{6}{4}$",
+        "$\\dfrac{9}{4}$",
+        "$\\dfrac{5}{4}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply the whole number by the denominator and add the numerator: (2 x 4 + 3)/4 = 11/4. Getting 6/4 means multiplying the numerator by the whole instead of the denominator.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q3",
+      "stem": "Work out $\\dfrac{1}{2} \\times \\dfrac{1}{3}$.",
+      "choices": [
+        "$\\dfrac{1}{6}$",
+        "$\\dfrac{5}{6}$",
+        "$\\dfrac{1}{5}$",
+        "$\\dfrac{2}{5}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply straight across: top 1 x 1 = 1, bottom 2 x 3 = 6, giving 1/6. Adding gives 5/6, and adding the denominators gives 1/5; neither is correct for multiplication.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q4",
+      "stem": "Work out $\\dfrac{3}{4} \\div \\dfrac{2}{5}$.",
+      "choices": [
+        "$\\dfrac{15}{8}$",
+        "$\\dfrac{3}{10}$",
+        "$\\dfrac{8}{15}$",
+        "$\\dfrac{6}{5}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Divide by multiplying by the reciprocal: 3/4 x 5/2 = 15/8 = 1 7/8. Multiplying straight across instead gives 6/20 = 3/10, a common error.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q5",
+      "stem": "Work out $\\dfrac{2}{3} + \\dfrac{3}{4}$.",
+      "choices": [
+        "$\\dfrac{17}{12}$",
+        "$\\dfrac{5}{7}$",
+        "$\\dfrac{11}{12}$",
+        "$\\dfrac{7}{12}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The LCD is 12: 2/3 = 8/12 and 3/4 = 9/12, so the sum is 17/12. Adding tops and bottoms separately gives the classic wrong answer 5/7.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q6",
+      "stem": "Work out $1\\dfrac{1}{2} - \\dfrac{2}{5}$.",
+      "choices": [
+        "$\\dfrac{11}{10}$",
+        "$1\\dfrac{3}{5}$",
+        "$1\\dfrac{1}{5}$",
+        "$\\dfrac{9}{10}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Convert first: 3/2 - 2/5. The LCD is 10, giving 15/10 - 4/10 = 11/10 = 1 1/10. Subtracting tops and bottoms separately gives nonsense like 9/10.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q7",
+      "stem": "Work out $0.7 \\times 0.06$.",
+      "choices": [
+        "0.042",
+        "0.42",
+        "4.2",
+        "0.0042"
+      ],
+      "correctIndex": 0,
+      "explanation": "7 x 6 = 42, and the two factors have 1 + 2 = 3 decimal places between them, so the answer is 0.042.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q8",
+      "stem": "Work out $4.8 \\div 0.08$.",
+      "choices": [
+        "60",
+        "6",
+        "0.6",
+        "600"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply both numbers by 100 to make the divisor whole: 480 ÷ 8 = 60. Converting only the divisor gives the wrong answer 6.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q9",
+      "stem": "Write $0.65$ as a fraction in its simplest form.",
+      "choices": [
+        "$\\dfrac{13}{20}$",
+        "$\\dfrac{65}{10}$",
+        "$\\dfrac{13}{100}$",
+        "$\\dfrac{13}{4}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "0.65 is 65 hundredths: 65/100. Dividing top and bottom by 5 gives 13/20.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q10",
+      "stem": "Which fraction equals $0.\\overline{7}$?",
+      "choices": [
+        "$\\dfrac{7}{9}$",
+        "$\\dfrac{7}{10}$",
+        "$\\dfrac{1}{7}$",
+        "$\\dfrac{7}{90}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Let x = 0.777... Then 10x = 7.777..., so 9x = 7 and x = 7/9. A single recurring digit always goes over 9, not 10.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q11",
+      "stem": "Which fraction equals $0.1\\overline{6}$?",
+      "choices": [
+        "$\\dfrac{1}{6}$",
+        "$\\dfrac{4}{25}$",
+        "$\\dfrac{16}{99}$",
+        "$\\dfrac{1}{5}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Let x = 0.1666... Then 10x = 1.666... and 100x = 16.666..., so 90x = 15, giving x = 15/90 = 1/6. Reading it as a terminating decimal gives the distractor 16/100 = 4/25.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q12",
+      "stem": "Work out $\\dfrac{1}{2} + \\dfrac{1}{3} \\times \\dfrac{3}{4}$.",
+      "choices": [
+        "$\\dfrac{3}{4}$",
+        "$\\dfrac{5}{8}$",
+        "$\\dfrac{7}{12}$",
+        "$\\dfrac{5}{12}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiplication comes first: 1/3 x 3/4 = 1/4, then 1/2 + 1/4 = 3/4. Working left to right gives 5/6 x 3/4 = 5/8, which ignores the order of operations.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q13",
+      "stem": "Work out $2\\dfrac{1}{3} \\times 1\\dfrac{1}{4} \\div \\dfrac{1}{2}$.",
+      "choices": [
+        "$\\dfrac{35}{6}$",
+        "$\\dfrac{35}{12}$",
+        "$\\dfrac{7}{6}$",
+        "$\\dfrac{35}{2}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Convert: 7/3 x 5/4 ÷ 1/2 = 7/3 x 5/4 x 2 = 70/12 = 35/6 = 5 5/6. Stopping at 35/12 forgets that dividing by 1/2 means doubling.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q14",
+      "stem": "Write $0.25$ as a fraction in its simplest form.",
+      "choices": [
+        "$\\dfrac{1}{4}$",
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{1}{25}$",
+        "$\\dfrac{25}{10}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "0.25 is 25/100, and dividing top and bottom by 25 gives 1/4.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-fractions-decimals-fd-q15",
+      "stem": "What is the reciprocal of $\\dfrac{3}{5}$?",
+      "choices": [
+        "$\\dfrac{5}{3}$",
+        "$\\dfrac{3}{5}$",
+        "$\\dfrac{1}{5}$",
+        "$5$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The reciprocal flips the fraction: 1 ÷ 3/5 = 5/3. Check: 3/5 x 5/3 = 1.",
+      "difficulty": "easy"
+    }
+  ]
+}

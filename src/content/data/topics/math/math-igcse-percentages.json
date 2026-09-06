@@ -1,0 +1,315 @@
+{
+  "id": "math-igcse-percentages",
+  "subjectId": "math",
+  "title": "Percentages",
+  "description": "Percentage multipliers, percentage of an amount, increase and decrease, and writing one quantity as a percentage of another for IGCSE Maths 0580.",
+  "stage": "igcse",
+  "course": "0580",
+  "notes": [
+    {
+      "id": "math-igcse-percentages-pcti-n1",
+      "heading": "Percentages Refresher: Out of 100",
+      "body": "📌 Definition\nA percentage is a fraction of $100$. The word per cent means 'for each hundred', so $p\\%$ is the same as $\\dfrac{p}{100}$.\n\n🔑 How it works\nAt IGCSE you are expected to move between the three forms instantly:\n\n$$p\\% = \\dfrac{p}{100} = p \\div 100$$\n\n💡 Worked Example 1\n$40\\% = \\dfrac{40}{100} = \\dfrac{2}{5} = 0.4$\n\n💡 Worked Example 2\nWrite $0.7$ as a percentage: $0.7 \\times 100 = 70\\%$.\n\n📎 Key Points to Remember\n• $100\\%$ is the whole amount; $0\\%$ is nothing.\n• Learn the common equivalents: $12.5\\% = \\dfrac{1}{8}$, $37.5\\% = \\dfrac{3}{8}$, $66\\dfrac{2}{3}\\% = \\dfrac{2}{3}$.\n\n✅ Check\n$\\dfrac{3}{8} = 0.375 = 37.5\\%$."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-n2",
+      "heading": "The Multiplier Method",
+      "body": "📌 Definition\nA percentage multiplier is the decimal you multiply by to find a percentage of an amount, or to apply an increase or decrease in one step.\n\n🔑 How it works\nThere are three multipliers to master:\n• Find $p\\%$ of an amount: multiply by $\\dfrac{p}{100}$.\n• Increase by $p\\%$: multiply by $1 + \\dfrac{p}{100}$.\n• Decrease by $p\\%$: multiply by $1 - \\dfrac{p}{100}$.\n\n💡 Worked Example 1\nFind $15\\%$ of $240$: $240 \\times 0.15 = 36$.\n\n💡 Worked Example 2\nIncrease $250$ by $24\\%$: multiplier $1.24$, so $250 \\times 1.24 = 310$.\n\n⚠️ Common Mistake\nA decrease of $8\\%$ uses multiplier $0.92$, not $0.8$. The $8$ is the percentage, so $8\\% = 0.08$ and $1 - 0.08 = 0.92$.\n\n📎 Key Points to Remember\n• One multiplier does the whole job — no need to find the part and then add or subtract.\n• The multiplier for an increase is greater than $1$; for a decrease it is between $0$ and $1$.\n\n✅ Check\nAn increase of $8\\%$ has multiplier $1.08$."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-n3",
+      "heading": "Finding a Percentage of an Amount",
+      "body": "🔑 How it works\nEither use the multiplier directly, or build the percentage from $10\\%$ and $1\\%$ pieces — the building method is faster for mental work and shows examiners your reasoning.\n\n💡 Worked Example 1 — Building pieces\nFind $15\\%$ of $240$.\n\n$10\\%$ of $240 = 24$ and $5\\%$ is half of that, so $12$.\n\n$15\\% = 24 + 12 = 36$.\n\n💡 Worked Example 2 — Non-integer percentage\nFind $7.5\\%$ of $360$.\n\n$7.5\\% = 0.075$, so $360 \\times 0.075 = 27$.\n\n💡 Worked Example 3\nFind $5\\%$ of $180$: $10\\%$ of $180 = 18$, half of that is $9$.\n\n⚠️ Common Mistake\n$7.5\\%$ of a number is NOT $7.5$ times the number. Percentages below $100\\%$ always produce answers below the original amount.\n\n📎 Key Points to Remember\n• $5\\%$ = half of $10\\%$. $2.5\\%$ = half of $5\\%$.\n• Estimate first to catch decimal-point errors.\n\n✅ Check\n$20\\%$ of $95 = 19$."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-n4",
+      "heading": "Percentage Increase and Decrease",
+      "body": "🔑 How it works\nApply the correct multiplier once to the original amount:\n\n$$\\text{new amount} = \\text{original} \\times \\left(1 \\pm \\dfrac{p}{100}\\right)$$\n\nUse $+$ for an increase and $-$ for a decrease.\n\n💡 Worked Example 1 — Decrease\nReduce $320$ by $15\\%$.\n\nMultiplier $= 1 - 0.15 = 0.85$, so $320 \\times 0.85 = 272$.\n\n💡 Worked Example 2 — Discount in context\nA shirt costs £45 and is reduced by $20\\%$ in a sale.\n\nMultiplier $= 0.80$, so the sale price is $45 \\times 0.8 = \\pounds36$.\n\n⚠️ Common Mistake\nFinding $20\\%$ of £45 as £9 and stopping — the question asks for the sale price, £36, not the discount.\n\n📎 Key Points to Remember\n• 'Reduced by', 'decreased by', 'discount of' all mean the same multiplier pattern.\n• 'More than', 'increased by', 'added to' use the greater-than-one multiplier.\n\n✅ Check\nIncreasing £60 by $10\\%$ gives £66."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-n5",
+      "heading": "One Quantity as a Percentage of Another",
+      "body": "📌 Definition\nTo write one quantity as a percentage of another, divide the first by the second and multiply by $100$.\n\n$$\\text{percentage} = \\dfrac{\\text{part}}{\\text{whole}} \\times 100$$\n\n🔑 How it works\nBoth quantities must be in the **same units** before you divide.\n\n💡 Worked Example 1\nA student scores $42$ out of $60$.\n\n$\\dfrac{42}{60} \\times 100 = 0.7 \\times 100 = 70\\%$\n\n💡 Worked Example 2 — Different units\nWhat is $40$ cm as a percentage of $2$ m?\n\n$2$ m $= 200$ cm, so $\\dfrac{40}{200} \\times 100 = 20\\%$.\n\n⚠️ Common Mistake\nDividing the whole by the part, or forgetting to convert metres to centimetres. The 'of' number always goes on the bottom.\n\n📎 Key Points to Remember\n• 'X as a percentage of Y' means $\\dfrac{X}{Y} \\times 100$.\n• If the answer must be sensible, ask: is the part smaller than the whole? Then the percentage must be below $100\\%$.\n\n✅ Check\n$\\dfrac{3}{8}$ of a quantity is $37.5\\%$ of it."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-n6",
+      "heading": "Percentage Profit and Loss",
+      "body": "📌 Definition\nProfit = selling price − buying price. Loss = buying price − selling price. The percentage is always worked out against the **buying price** (the original cost).\n\n$$\\text{percentage profit} = \\dfrac{\\text{profit}}{\\text{cost price}} \\times 100$$\n\n💡 Worked Example 1\nA shop buys a radio for £80 and sells it for £100.\n\nProfit $= 100 - 80 = 20$, so percentage profit $= \\dfrac{20}{80} \\times 100 = 25\\%$.\n\n💡 Worked Example 2\nA phone bought for £220 is sold for £187.\n\nLoss $= 220 - 187 = 33$, so percentage loss $= \\dfrac{33}{220} \\times 100 = 15\\%$.\n\n⚠️ Common Mistake\nDividing by the selling price. For the radio, $\\dfrac{20}{100}$ gives 20%, which is wrong — profit percentage uses the cost price.\n\n📎 Key Points to Remember\n• Profit percentage can exceed $100\\%$ when the selling price more than doubles the cost.\n• 'Loss' means the selling price is smaller; state the answer as a positive percentage loss.\n\n✅ Check\nBuying for £50 and selling for £60 is a 20% profit."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-n7",
+      "heading": "Successive Percentage Changes",
+      "body": "📌 Definition\nWhen two percentage changes happen one after the other, the second one applies to the **new** amount, not the original.\n\n🔑 How it works\nMultiply the multipliers together to get the overall multiplier.\n\n💡 Worked Example 1\nA price of £200 is reduced by $10\\%$ and then by $20\\%$.\n\nOverall multiplier $= 0.9 \\times 0.8 = 0.72$, so the final price is $200 \\times 0.72 = \\pounds144$.\n\n💡 Worked Example 2 — The classic trap\nA price increases by $25\\%$ and then decreases by $25\\%$.\n\nMultiplier $= 1.25 \\times 0.75 = 0.9375$, a net **decrease** of $6.25\\%$. The changes do not cancel.\n\n⚠️ Common Misconception\nAdding the percentages ($10\\% + 20\\% = 30\\%$ off) is wrong because the second reduction is taken from a smaller amount. The true total reduction in Example 1 is $28\\%$.\n\n📎 Key Points to Remember\n• Chain the multipliers, then convert back to a percentage change.\n• An increase followed by the same percentage decrease always ends below the original amount.\n\n✅ Check\n$10\\%$ up then $10\\%$ down gives multiplier $1.1 \\times 0.9 = 0.99$, a 1% decrease."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-percentages-pcti-f1",
+      "term": "Percentage",
+      "definition": "A fraction of 100; p% means p/100."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-f2",
+      "term": "Multiplier for p% of an amount",
+      "definition": "Multiply the amount by p/100.",
+      "example": "15% of 240 = 240 x 0.15 = 36."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-f3",
+      "term": "Multiplier for an increase of p%",
+      "definition": "Multiply by 1 + p/100.",
+      "example": "Increase by 8%: multiplier 1.08."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-f4",
+      "term": "Multiplier for a decrease of p%",
+      "definition": "Multiply by 1 - p/100.",
+      "example": "Decrease by 8%: multiplier 0.92, not 0.08 or 0.8."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-f5",
+      "term": "One quantity as a percentage of another",
+      "definition": "Divide the first by the second (same units) and multiply by 100.",
+      "example": "42 out of 60 = (42/60) x 100 = 70%."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-f6",
+      "term": "5% of an amount",
+      "definition": "Find 10% and halve it.",
+      "example": "5% of 180: 10% = 18, half = 9."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-f7",
+      "term": "Common fraction as a percentage",
+      "definition": "1/8 = 12.5%, 3/8 = 37.5%, 2/3 = 66 2/3%.",
+      "example": "3/8 of 200 = 75."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-f8",
+      "term": "Percentage profit",
+      "definition": "Profit divided by the cost price, times 100.",
+      "example": "Buy £80, sell £100: (20/80) x 100 = 25%."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-f9",
+      "term": "Percentage loss",
+      "definition": "Loss divided by the cost price, times 100.",
+      "example": "Buy £220, sell £187: (33/220) x 100 = 15%."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-f10",
+      "term": "Discount",
+      "definition": "A reduction of p% means paying (100 - p)% of the original price.",
+      "example": "20% off £45: pay 45 x 0.8 = £36."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-f11",
+      "term": "Successive percentage changes",
+      "definition": "Multiply the two multipliers together to get the overall multiplier.",
+      "example": "10% off then 20% off: 0.9 x 0.8 = 0.72, so 28% off overall."
+    },
+    {
+      "id": "math-igcse-percentages-pcti-f12",
+      "term": "Increase then same decrease",
+      "definition": "Never returns to the original: the result is a net decrease of (p/100) squared as a percentage.",
+      "example": "Up 25% then down 25%: 1.25 x 0.75 = 0.9375, a 6.25% decrease."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-percentages-pcti-q1",
+      "stem": "Work out $15\\%$ of $240$.",
+      "choices": [
+        "36",
+        "3.6",
+        "24",
+        "360"
+      ],
+      "correctIndex": 0,
+      "explanation": "10% of 240 is 24 and 5% is half of that, 12, so 15% is 24 + 12 = 36. Equivalently 240 x 0.15 = 36.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q2",
+      "stem": "Write $0.7$ as a percentage.",
+      "choices": [
+        "70%",
+        "7%",
+        "0.7%",
+        "700%"
+      ],
+      "correctIndex": 0,
+      "explanation": "To convert a decimal to a percentage, multiply by 100: 0.7 x 100 = 70%.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q3",
+      "stem": "Which fraction is equal to $40\\%$?",
+      "choices": [
+        "$\\dfrac{2}{5}$",
+        "$\\dfrac{4}{25}$",
+        "$\\dfrac{2}{3}$",
+        "$\\dfrac{40}{25}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "40% = 40/100 = 2/5 after dividing top and bottom by 20. Note 4/25 is 16%, a common distractor from halving incorrectly.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q4",
+      "stem": "Work out $5\\%$ of $180$.",
+      "choices": [
+        "9",
+        "18",
+        "36",
+        "90"
+      ],
+      "correctIndex": 0,
+      "explanation": "10% of 180 is 18, and 5% is half of 10%, so the answer is 9.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q5",
+      "stem": "Which multiplier increases an amount by $8\\%$?",
+      "choices": [
+        "1.08",
+        "1.8",
+        "0.08",
+        "0.92"
+      ],
+      "correctIndex": 0,
+      "explanation": "An increase of 8% uses 1 + 8/100 = 1.08. Using 1.8 applies an 80% increase, and 0.92 is the multiplier for a decrease of 8%.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q6",
+      "stem": "Increase $250$ by $24\\%$.",
+      "choices": [
+        "310",
+        "274",
+        "290",
+        "314"
+      ],
+      "correctIndex": 0,
+      "explanation": "The multiplier is 1.24, and 250 x 1.24 = 310. Check: 10% of 250 is 25, so 24% is a bit under a quarter, 60, and 250 + 60 = 310.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q7",
+      "stem": "Reduce $320$ by $15\\%$.",
+      "choices": [
+        "272",
+        "270",
+        "280",
+        "48"
+      ],
+      "correctIndex": 0,
+      "explanation": "The multiplier is 0.85, and 320 x 0.85 = 272. Finding 15% of 320 gives 48, but that is the decrease, not the final amount.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q8",
+      "stem": "A student scores $42$ out of $60$. What is this as a percentage?",
+      "choices": [
+        "70%",
+        "14%",
+        "72%",
+        "84%"
+      ],
+      "correctIndex": 0,
+      "explanation": "Divide the part by the whole and multiply by 100: (42/60) x 100 = 0.7 x 100 = 70%.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q9",
+      "stem": "In a sale, a shirt costing £45 is reduced by $20\\%$. What is the sale price?",
+      "choices": [
+        "£36",
+        "£9",
+        "£25",
+        "£35"
+      ],
+      "correctIndex": 0,
+      "explanation": "A 20% reduction means paying 80% of the price: 45 x 0.8 = £36. The option £9 is the discount itself, a common trap.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q10",
+      "stem": "Write $\\dfrac{3}{8}$ as a percentage.",
+      "choices": [
+        "37.5%",
+        "38%",
+        "3.75%",
+        "62.5%"
+      ],
+      "correctIndex": 0,
+      "explanation": "3 divided by 8 is 0.375, and 0.375 x 100 = 37.5%. Remember that 1/8 = 12.5%, so 3/8 = 3 x 12.5% = 37.5%.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q11",
+      "stem": "Work out $7.5\\%$ of $360$.",
+      "choices": [
+        "27",
+        "2.7",
+        "270",
+        "45"
+      ],
+      "correctIndex": 0,
+      "explanation": "7.5% = 0.075, and 360 x 0.075 = 27. Check: 10% of 360 is 36 and 2.5% is 9, and 36 - 9 = 27.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q12",
+      "stem": "A shop buys a radio for £80 and sells it for £100. What is the percentage profit?",
+      "choices": [
+        "25%",
+        "20%",
+        "80%",
+        "125%"
+      ],
+      "correctIndex": 0,
+      "explanation": "Profit = 100 - 80 = 20. Percentage profit uses the cost price: (20/80) x 100 = 25%. The distractor 20% comes from dividing by the selling price.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q13",
+      "stem": "A phone bought for £220 is sold at a loss, for £187. What is the percentage loss?",
+      "choices": [
+        "15%",
+        "17.6%",
+        "18.2%",
+        "33%"
+      ],
+      "correctIndex": 0,
+      "explanation": "Loss = 220 - 187 = 33. Percentage loss = (33/220) x 100 = 15%. The option 17.6% divides by the selling price instead of the cost price.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q14",
+      "stem": "A jacket priced at £200 is reduced by 10%, and then the reduced price is reduced by a further 20%. What is the final price?",
+      "choices": [
+        "£144",
+        "£140",
+        "£150",
+        "£160"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply the multipliers: 0.9 x 0.8 = 0.72, so the final price is 200 x 0.72 = £144. Simply adding the percentages (30% off, giving £140) ignores that the second reduction applies to the smaller price.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-percentages-pcti-q15",
+      "stem": "A price increases by $25\\%$ and then decreases by $25\\%$. What is the overall percentage change?",
+      "choices": [
+        "A decrease of 6.25%",
+        "No change",
+        "An increase of 6.25%",
+        "A decrease of 5%"
+      ],
+      "correctIndex": 0,
+      "explanation": "The overall multiplier is 1.25 x 0.75 = 0.9375, which is 93.75% of the original, a decrease of 6.25%. The two changes do not cancel because the decrease is taken from the larger, increased amount.",
+      "difficulty": "hard"
+    }
+  ]
+}

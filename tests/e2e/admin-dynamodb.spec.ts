@@ -57,6 +57,8 @@ test.describe('admin dynamodb dashboard', () => {
   });
 
   test('breadcrumb goes back to Account (was Home-only before the fix)', async ({ page }) => {
+    // the Account crumb is hidden below sm by design (Breadcrumbs hideOnMobile), so the round-trip is a >=640px behaviour
+    test.skip((page.viewportSize()?.width ?? 1280) < 640, 'Account crumb hidden below sm');
     await signIn(page, ADMIN[0]);
     await page.goto('/admin/dynamodb');
     await expect(page.getByRole('heading', { name: 'DynamoDB' })).toBeVisible();

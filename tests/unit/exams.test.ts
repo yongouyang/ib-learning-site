@@ -62,9 +62,9 @@ describe('buildExamQuestions', () => {
 });
 
 describe('getExamCourses', () => {
-  it('lists all 13 courses with their papers', () => {
+  it('lists all 14 courses with their papers', () => {
     const courses = getExamCourses();
-    expect(courses).toHaveLength(13);
+    expect(courses).toHaveLength(14);
     expect(courses.every((c) => c.papers.length >= 1)).toBe(true);
   });
 });

@@ -1,0 +1,316 @@
+{
+  "id": "math-igcse-statistics-averages",
+  "subjectId": "math",
+  "title": "Statistics: Averages",
+  "description": "Finding and comparing the mean, median, mode and range, including from frequency tables, and choosing the best average for a situation.",
+  "stage": "igcse",
+  "course": "0580",
+  "notes": [
+    {
+      "id": "math-igcse-statistics-averages-stats-n1",
+      "heading": "Averages: Mean, Median and Mode",
+      "body": "An average is a single number that represents a whole set of data. There are three of them, and each answers a slightly different question.\n\n📌 Definition\nThe **mean** is the total of the data values divided by the number of values.\n\nThe **median** is the middle value when the data are written in order of size.\n\nThe **mode** is the value that appears most often.\n\nThe **range** is not an average — it measures spread:\n\n$$\\text{range} = \\text{largest value} - \\text{smallest value}$$\n\nIn an exam, the word average on its own usually means the mean, but many questions ask you to choose the best average for a situation — that skill is covered in the last note."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-n2",
+      "heading": "🔑 How it works: Calculating the Mean",
+      "body": "To find the mean, add up all the data values, then divide by how many values there are:\n\n$$\\text{mean} = \\dfrac{\\text{sum of all data values}}{\\text{number of values}}$$\n\nFor the data $4$, $7$, $3$, $7$, $9$, $12$ the sum is $42$ and there are $6$ values, so the mean is $42 \\div 6 = 7$.\n\n⚠️ Common Mistake\nRearranging the formula is just as important: total = mean × number of values. If a question tells you the mean of 5 numbers is 12, their total is $5 \\times 12 = 60$ — that fact unlocks many exam questions."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-n3",
+      "heading": "💡 Worked Example: All Three Averages at Once",
+      "body": "Find the mean, median, mode and range of $3$, $6$, $6$, $9$, $10$, $14$.\n\n🔑 Key Concept\nWork through them in a fixed order so you never reuse the wrong list: sum for the mean, ordered list for the median, counts for the mode, extremes for the range.\n\nMean: the sum is $48$ with $6$ values, so $48 \\div 6 = 8$.\n\nMedian: the data are already in order; with $6$ values the median is the average of the 3rd and 4th, $\\dfrac{6 + 9}{2} = 7.5$.\n\nMode: $6$ appears twice — more than any other value.\n\nRange: $14 - 3 = 11$.\n\n✅ Check\nNotice the mean ($8$) and median ($7.5$) are close. When they differ a lot, a spread-out or extreme value is usually involved — keep that instinct for the 'best average' question later."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-n4",
+      "heading": "🔑 How it works: Finding the Median",
+      "body": "The golden rule for the median: **write the data in order of size first**.\n\n📌 Definition\nWith $n$ values, the median sits at position $\\dfrac{n + 1}{2}$ of the ordered list.\n\nOdd count — $2$, $4$, $5$, $7$, $9$: position $\\dfrac{5+1}{2} = 3$, so the median is $5$.\n\nEven count — $2$, $4$, $5$, $7$, $9$, $11$: positions 3 and 4 straddle the middle, so take the mean of the two middle values: $\\dfrac{5 + 7}{2} = 6$.\n\n⚠️ Common Mistake\nFinding the median of an unordered list. In $12$, $9$, $7$, $15$, $10$, $8$ the middle-looking number is not the median — ordered, the list is $7$, $8$, $9$, $10$, $12$, $15$ and the median is $\\dfrac{9 + 10}{2} = 9.5$."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-n5",
+      "heading": "💡 Worked Example: Frequency Tables",
+      "body": "📌 Definition\nFrom a frequency table:\n\n$$\\text{mean} = \\dfrac{\\text{sum of } (\\text{value} \\times \\text{frequency})}{\\text{total frequency}}$$\n\nTen students reported how many books they read last month. The frequency table shows: value $1$ (frequency $6$), value $2$ (frequency $2$), value $3$ (frequency $1$), value $4$ (frequency $1$).\n\n🔑 How it works\nTotal frequency is $6 + 2 + 1 + 1 = 10$, so there are $10$ data values. Sum of value × frequency: $1 \\times 6 + 2 \\times 2 + 3 \\times 1 + 4 \\times 1 = 17$. Mean: $17 \\div 10 = 1.7$.\n\nMode: the value with the largest frequency — $1$ book (frequency $6$), not '$6$'.\n\nMedian: the $\\dfrac{10+1}{2} = 5.5$th value, so average the 5th and 6th values of the ordered list — both are $1$ — median $= 1$.\n\n✅ Check\nThe mean ($1.7$) is pulled above the median ($1$) by the few large values. That gap is exactly what 'choose the best average' questions are testing."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-n6",
+      "heading": "⚠️ Common Mistakes with Averages",
+      "body": "Four mistakes cost the most marks on IGCSE statistics papers:\n\n⚠️ Common Mistake\n1. **Median without ordering.** The median of $5$, $2$, $9$, $7$, $3$ is found from $2$, $3$, $5$, $7$, $9$ — the answer is $5$, not $9$.\n\n2. **Averaging the value column of a frequency table.** For values $0$, $1$, $2$, $3$ the mean is not $\\dfrac{0+1+2+3}{4} = 1.5$ unless every value occurred equally often. Multiply by the frequencies first.\n\n3. **Quoting the frequency as the mode.** If size $7$ has frequency $12$, the mode is $7$ — $12$ is just how often it occurred.\n\n4. **Dividing by the number of categories.** The mean divides the total by the total frequency, not by how many rows the table has."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-n7",
+      "heading": "📎 Choosing the Best Average",
+      "body": "Each average has a job:\n\n📌 Key Points to Remember\nThe **mean** uses every value, so it is the standard choice for further calculations — but one extreme value drags it along.\n\nThe **median** is barely affected by outliers, so it is the best 'typical value' when the data contain extremes — house prices in a street with one mansion, salaries in a company with a few very high earners.\n\nThe **mode** is the most popular value — the right choice for 'best-selling', 'most common' or categorical data like favourite colours.\n\n💡 Worked Example\nA café's daily takings for a week are ＄120, ＄135, ＄128, ＄140, ＄132, ＄125, ＄650 (a wedding booking). Mean: the total is $1430$, so the mean is $1430 \\div 7 \\approx$ ＄204 — nobody's typical day. Median $= $ ＄132 — genuinely typical. Exam answers should always name the average and give a reason, e.g. 'the median, because the mean is affected by the one very high day'."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-statistics-averages-stats-f1",
+      "term": "Mean",
+      "definition": "The sum of all data values divided by the number of values.",
+      "example": "Data 4, 7, 9, 6, 4: sum 30, five values, mean 6."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-f2",
+      "term": "Median",
+      "definition": "The middle value of an ordered list (or the mean of the two middle values when the count is even).",
+      "example": "2, 4, 5, 7, 9 has median 5."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-f3",
+      "term": "Mode",
+      "definition": "The value that appears most often in a data set.",
+      "example": "In 2, 5, 5, 3, 1, 5, 2 the mode is 5."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-f4",
+      "term": "Range",
+      "definition": "Largest value minus smallest value — a measure of spread, not an average.",
+      "example": "Data 8, 3, 11, 6 has range 11 − 3 = 8."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-f5",
+      "term": "Frequency",
+      "definition": "How many times a value occurs in a data set.",
+      "example": "If five students chose size 7, the frequency of size 7 is 5."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-f6",
+      "term": "Mean from a frequency table",
+      "definition": "Sum each value multiplied by its frequency, then divide by the total frequency.",
+      "example": "Values 0, 1, 2, 3 with frequencies 2, 5, 4, 1: mean = 16 ÷ 12 ≈ 1.33."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-f7",
+      "term": "Median position",
+      "definition": "For n values, the median sits at position (n + 1) ÷ 2 of the ordered list.",
+      "example": "14 values: position 7.5, so average the 7th and 8th values."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-f8",
+      "term": "Mode of a frequency table",
+      "definition": "The value with the largest frequency — not the largest frequency itself.",
+      "example": "Size 7 worn by 12 students has mode 7, not 12."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-f9",
+      "term": "Best average with outliers",
+      "definition": "The median — it is barely affected by one extreme value.",
+      "example": "Salaries with a few very high earners: quote the median as typical."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-f10",
+      "term": "Best average for 'most popular'",
+      "definition": "The mode — the most frequently occurring value.",
+      "example": "A shop deciding which shoe size to restock uses the mode."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-f11",
+      "term": "Total from the mean",
+      "definition": "Total = mean × number of values — rearranging the mean formula.",
+      "example": "Mean of 6 numbers is 10, so their total is 60."
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-f12",
+      "term": "Effect on the mean of changing every value",
+      "definition": "Adding k to every value adds k to the mean; multiplying every value by k multiplies the mean by k.",
+      "example": "Mean of 5 numbers is 12; multiply each by 3 and the new mean is 36."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-statistics-averages-stats-q1",
+      "stem": "What is the mean of 4, 7, 9, 6, 4?",
+      "choices": [
+        "6",
+        "5",
+        "30",
+        "7"
+      ],
+      "correctIndex": 0,
+      "explanation": "The sum is 4 + 7 + 9 + 6 + 4 = 30 and there are 5 values, so the mean is 30 ÷ 5 = 6. Choosing 30 is the total, not the mean.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q2",
+      "stem": "What is the mode of 2, 5, 5, 3, 1, 5, 2?",
+      "choices": [
+        "2",
+        "3",
+        "5",
+        "1"
+      ],
+      "correctIndex": 2,
+      "explanation": "The mode is the most frequent value. 5 appears three times, more than any other value, so the mode is 5.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q3",
+      "stem": "What is the range of 8, 3, 11, 6?",
+      "choices": [
+        "11",
+        "8",
+        "3",
+        "5"
+      ],
+      "correctIndex": 1,
+      "explanation": "Range = largest − smallest = 11 − 3 = 8. 11 and 3 are just the extremes themselves, not the range.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q4",
+      "stem": "What is the median of 5, 2, 9, 7, 3?",
+      "choices": [
+        "7",
+        "9",
+        "5",
+        "3"
+      ],
+      "correctIndex": 2,
+      "explanation": "Order the data first: 2, 3, 5, 7, 9. With 5 values the median is the 3rd, which is 5. Taking the middle of the unordered list is the classic trap here.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q5",
+      "stem": "What is the median of 12, 9, 7, 15, 10, 8?",
+      "choices": [
+        "9",
+        "10",
+        "9.5",
+        "11"
+      ],
+      "correctIndex": 2,
+      "explanation": "Ordered: 7, 8, 9, 10, 12, 15. With 6 values, the median is the mean of the 3rd and 4th values: (9 + 10) ÷ 2 = 9.5.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q6",
+      "stem": "What is the mean of the first five multiples of 6?",
+      "choices": [
+        "18",
+        "15",
+        "24",
+        "90"
+      ],
+      "correctIndex": 0,
+      "explanation": "The multiples are 6, 12, 18, 24, 30 with total 90. Mean = 90 ÷ 5 = 18. For a symmetric list like this, the mean equals the middle value.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q7",
+      "stem": "A frequency table shows values 0, 1, 2, 3 with frequencies 2, 5, 4, 1. What is the mean, correct to 2 decimal places?",
+      "choices": [
+        "1.33",
+        "1.5",
+        "1.6",
+        "4"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sum of value × frequency = 0×2 + 1×5 + 2×4 + 3×1 = 16; total frequency = 12; mean = 16 ÷ 12 ≈ 1.33. The 1.5 comes from averaging the values and ignoring the frequencies.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q8",
+      "stem": "In a class, shoe sizes were recorded: size 6 worn by 8 students, size 7 by 12 students, size 8 by 9 students. What is the mode?",
+      "choices": [
+        "6",
+        "7",
+        "8",
+        "12"
+      ],
+      "correctIndex": 1,
+      "explanation": "The mode is the value with the largest frequency. Size 7 has frequency 12, the highest, so the mode is 7 — not 12, which is the frequency itself.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q9",
+      "stem": "The mean of six numbers is 10. One number is removed and the mean of the remaining five is 9. What number was removed?",
+      "choices": [
+        "9",
+        "10",
+        "15",
+        "21"
+      ],
+      "correctIndex": 2,
+      "explanation": "The original total is 6 × 10 = 60; the remaining total is 5 × 9 = 45. The removed number is 60 − 45 = 15. Always convert means back into totals.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q10",
+      "stem": "Three numbers have a mean of 8. Two of them are 5 and 9. What is the third number?",
+      "choices": [
+        "10",
+        "8",
+        "14",
+        "12"
+      ],
+      "correctIndex": 0,
+      "explanation": "The total must be 3 × 8 = 24. The two known numbers total 14, so the third is 24 − 14 = 10.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q11",
+      "stem": "A company wants to quote a 'typical' salary. A few executives earn far more than all other staff. Which average is most suitable?",
+      "choices": [
+        "The mean",
+        "The median",
+        "The mode",
+        "The range"
+      ],
+      "correctIndex": 1,
+      "explanation": "The median is barely affected by extreme values, so it stays representative of a typical worker. The mean would be inflated by the few very high executive salaries.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q12",
+      "stem": "Values 1, 2, 3, 4 have frequencies 3, 5, 4, 2. What is the median?",
+      "choices": [
+        "2",
+        "3",
+        "2.5",
+        "8"
+      ],
+      "correctIndex": 0,
+      "explanation": "There are 14 values, so the median is the mean of the 7th and 8th. In order, positions 1–3 are 1 and positions 4–8 are 2, so both the 7th and 8th values are 2 — median 2. Averaging 2 and 3 ignores the frequencies.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q13",
+      "stem": "A team of 4 players scores an average of 12 goals each. A second team of 6 players averages 17 goals each. What is the combined mean for all 10 players?",
+      "choices": [
+        "15",
+        "14.5",
+        "29",
+        "14"
+      ],
+      "correctIndex": 0,
+      "explanation": "Totals: 4 × 12 = 48 and 6 × 17 = 102, giving 150 goals over 10 players, so the combined mean is 15. Averaging the two means (14.5) wrongly treats the groups as equal size.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q14",
+      "stem": "Five scores are 3, 5, 6, 8 and x. If the median is 6, what must be true about x?",
+      "choices": [
+        "x = 6",
+        "x ≥ 6",
+        "x ≤ 6",
+        "x ≥ 8"
+      ],
+      "correctIndex": 1,
+      "explanation": "The median is the 3rd value when ordered. If x ≥ 6 the ordered list starts 3, 5, 6 and the median is 6. If x were between 5 and 6, x itself would be the middle value instead. So x ≥ 6 — equality is allowed but not forced.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-statistics-averages-stats-q15",
+      "stem": "The mean of five numbers is 12. Each number is multiplied by 3 and then 2 is subtracted. What is the new mean?",
+      "choices": [
+        "34",
+        "36",
+        "38",
+        "32"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiplying every value by 3 multiplies the mean by 3 (12 × 3 = 36); subtracting 2 from every value subtracts 2 from the mean, giving 34. Apply each operation to the mean in turn.",
+      "difficulty": "hard"
+    }
+  ]
+}

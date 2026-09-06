@@ -61,6 +61,16 @@ import math_yr9_3d_geometry_json from './data/topics/math/math-yr9-3d-geometry.j
 import math_pythagoras_myp_json from './data/topics/math/math-pythagoras-myp.json';
 import math_trig_basic_myp_json from './data/topics/math/math-trig-basic-myp.json';
 import math_yr9_scatter_graphs_json from './data/topics/math/math-yr9-scatter-graphs.json';
+import math_igcse_fractions_decimals_json from './data/topics/math/math-igcse-fractions-decimals.json';
+import math_igcse_percentages_json from './data/topics/math/math-igcse-percentages.json';
+import math_igcse_bounds_json from './data/topics/math/math-igcse-bounds.json';
+import math_igcse_algebraic_manipulation_json from './data/topics/math/math-igcse-algebraic-manipulation.json';
+import math_igcse_equations_simultaneous_json from './data/topics/math/math-igcse-equations-simultaneous.json';
+import math_igcse_quadratics_json from './data/topics/math/math-igcse-quadratics.json';
+import math_igcse_angles_polygons_json from './data/topics/math/math-igcse-angles-polygons.json';
+import math_igcse_area_volume_json from './data/topics/math/math-igcse-area-volume.json';
+import math_igcse_statistics_averages_json from './data/topics/math/math-igcse-statistics-averages.json';
+import math_igcse_probability_json from './data/topics/math/math-igcse-probability.json';
 import math_dp_ai_sequences_json from './data/topics/math/math-dp-ai-sequences.json';
 import math_dp_ai_exponents_json from './data/topics/math/math-dp-ai-exponents.json';
 import math_dp_ai_binomial_json from './data/topics/math/math-dp-ai-binomial.json';
@@ -259,6 +269,9 @@ import ict_ks3_ict_ks3_set_2_json from './data/papers/ict-ks3/ict-ks3-set-2.json
 // math-dp-ai practice sets
 import math_dp_ai_math_dp_ai_set_1_json from './data/papers/math-dp-ai/math-dp-ai-set-1.json';
 import math_dp_ai_math_dp_ai_set_2_json from './data/papers/math-dp-ai/math-dp-ai-set-2.json';
+// math-igcse practice sets
+import math_igcse_math_igcse_set_1_json from './data/papers/math-igcse/math-igcse-set-1.json';
+import math_igcse_math_igcse_set_2_json from './data/papers/math-igcse/math-igcse-set-2.json';
 // math-y7 practice sets
 import math_y7_math_y7_set_1_json from './data/papers/math-y7/math-y7-set-1.json';
 import math_y7_math_y7_set_2_json from './data/papers/math-y7/math-y7-set-2.json';
@@ -328,6 +341,16 @@ const math_yr9_3d_geometry: Topic = topicSchema.parse(math_yr9_3d_geometry_json)
 const math_pythagoras_myp: Topic = topicSchema.parse(math_pythagoras_myp_json);
 const math_trig_basic_myp: Topic = topicSchema.parse(math_trig_basic_myp_json);
 const math_yr9_scatter_graphs: Topic = topicSchema.parse(math_yr9_scatter_graphs_json);
+const math_igcse_fractions_decimals: Topic = topicSchema.parse(math_igcse_fractions_decimals_json);
+const math_igcse_percentages: Topic = topicSchema.parse(math_igcse_percentages_json);
+const math_igcse_bounds: Topic = topicSchema.parse(math_igcse_bounds_json);
+const math_igcse_algebraic_manipulation: Topic = topicSchema.parse(math_igcse_algebraic_manipulation_json);
+const math_igcse_equations_simultaneous: Topic = topicSchema.parse(math_igcse_equations_simultaneous_json);
+const math_igcse_quadratics: Topic = topicSchema.parse(math_igcse_quadratics_json);
+const math_igcse_angles_polygons: Topic = topicSchema.parse(math_igcse_angles_polygons_json);
+const math_igcse_area_volume: Topic = topicSchema.parse(math_igcse_area_volume_json);
+const math_igcse_statistics_averages: Topic = topicSchema.parse(math_igcse_statistics_averages_json);
+const math_igcse_probability: Topic = topicSchema.parse(math_igcse_probability_json);
 const math_dp_ai_sequences: Topic = topicSchema.parse(math_dp_ai_sequences_json);
 const math_dp_ai_exponents: Topic = topicSchema.parse(math_dp_ai_exponents_json);
 const math_dp_ai_binomial: Topic = topicSchema.parse(math_dp_ai_binomial_json);
@@ -508,6 +531,8 @@ const ict_ks3_ict_ks3_set_1: Paper = paperSchema.parse(ict_ks3_ict_ks3_set_1_jso
 const ict_ks3_ict_ks3_set_2: Paper = paperSchema.parse(ict_ks3_ict_ks3_set_2_json);
 const math_dp_ai_math_dp_ai_set_1: Paper = paperSchema.parse(math_dp_ai_math_dp_ai_set_1_json);
 const math_dp_ai_math_dp_ai_set_2: Paper = paperSchema.parse(math_dp_ai_math_dp_ai_set_2_json);
+const math_igcse_math_igcse_set_1: Paper = paperSchema.parse(math_igcse_math_igcse_set_1_json);
+const math_igcse_math_igcse_set_2: Paper = paperSchema.parse(math_igcse_math_igcse_set_2_json);
 const math_y7_math_y7_set_1: Paper = paperSchema.parse(math_y7_math_y7_set_1_json);
 const math_y7_math_y7_set_2: Paper = paperSchema.parse(math_y7_math_y7_set_2_json);
 const math_y8_math_y8_set_1: Paper = paperSchema.parse(math_y8_math_y8_set_1_json);
@@ -535,7 +560,7 @@ const mathSubject: Subject = {
   name: mathMeta.name,
   icon: mathMeta.icon,
   accentColor: mathMeta.accentColor,
-  topics: [math_yr7_calculations, math_yr7_negative_numbers, math_yr7_factors_multiples, math_yr7_rounding_estimation, math_fractions_1, math_yr7_decimals, math_yr7_percentages, math_yr7_number_bases, math_yr7_money_finance, math_algebra_1, math_yr7_substitution, math_yr7_algebraic_expressions, math_yr7_equations, math_yr7_sequences, math_yr7_measures_conversions, math_yr7_angles, math_geometry_1, math_yr7_area_perimeter, math_yr7_nets_3d_shapes, math_yr7_volume_surface_area, math_yr7_transformations, math_yr7_constructions_loci, math_yr7_bearings_scale, math_yr7_data, math_yr7_probability, math_yr7_venn_sets, math_statistics_1, math_yr8_standard_form, math_yr8_percentages_ratio_proportion, math_yr8_sequences, math_yr8_factorising, math_yr8_linear_equations, math_yr8_straight_line_graphs, math_yr8_angles_parallel_polygons, math_yr8_circles, math_yr8_transformations, math_yr8_congruence_similarity, math_yr8_pythagoras, math_yr8_volume_surface_area, math_yr8_compound_measures, math_yr8_statistics_averages, math_yr8_probability_trees, math_powers_myp, math_yr9_standard_form, math_yr9_surds, math_yr9_error_intervals, math_ratio_myp, math_linear_myp, math_inequalities_myp, math_simultaneous_myp, math_yr9_quadratic_expressions, math_yr9_quadratic_graphs, math_yr9_3d_geometry, math_pythagoras_myp, math_trig_basic_myp, math_yr9_scatter_graphs, math_dp_ai_sequences, math_dp_ai_exponents, math_dp_ai_binomial, math_dp_ai_functions, math_dp_ai_quadratics, math_dp_ai_explog, math_dp_ai_trig, math_dp_ai_vectors, math_dp_ai_voronoi_diagrams, math_dp_ai_descriptive_statistics, math_dp_ai_probability, math_dp_ai_correlation_regression, math_dp_ai_hypothesis_testing, math_dp_ai_differentiation, math_dp_ai_integration, math_dp_ai_kinematics, math_dp_ai_complex_numbers, math_dp_ai_matrices, math_dp_ai_graph_theory, math_dp_ai_poisson_distribution],
+  topics: [math_yr7_calculations, math_yr7_negative_numbers, math_yr7_factors_multiples, math_yr7_rounding_estimation, math_fractions_1, math_yr7_decimals, math_yr7_percentages, math_yr7_number_bases, math_yr7_money_finance, math_algebra_1, math_yr7_substitution, math_yr7_algebraic_expressions, math_yr7_equations, math_yr7_sequences, math_yr7_measures_conversions, math_yr7_angles, math_geometry_1, math_yr7_area_perimeter, math_yr7_nets_3d_shapes, math_yr7_volume_surface_area, math_yr7_transformations, math_yr7_constructions_loci, math_yr7_bearings_scale, math_yr7_data, math_yr7_probability, math_yr7_venn_sets, math_statistics_1, math_yr8_standard_form, math_yr8_percentages_ratio_proportion, math_yr8_sequences, math_yr8_factorising, math_yr8_linear_equations, math_yr8_straight_line_graphs, math_yr8_angles_parallel_polygons, math_yr8_circles, math_yr8_transformations, math_yr8_congruence_similarity, math_yr8_pythagoras, math_yr8_volume_surface_area, math_yr8_compound_measures, math_yr8_statistics_averages, math_yr8_probability_trees, math_powers_myp, math_yr9_standard_form, math_yr9_surds, math_yr9_error_intervals, math_ratio_myp, math_linear_myp, math_inequalities_myp, math_simultaneous_myp, math_yr9_quadratic_expressions, math_yr9_quadratic_graphs, math_yr9_3d_geometry, math_pythagoras_myp, math_trig_basic_myp, math_yr9_scatter_graphs, math_igcse_fractions_decimals, math_igcse_percentages, math_igcse_bounds, math_igcse_algebraic_manipulation, math_igcse_equations_simultaneous, math_igcse_quadratics, math_igcse_angles_polygons, math_igcse_area_volume, math_igcse_statistics_averages, math_igcse_probability, math_dp_ai_sequences, math_dp_ai_exponents, math_dp_ai_binomial, math_dp_ai_functions, math_dp_ai_quadratics, math_dp_ai_explog, math_dp_ai_trig, math_dp_ai_vectors, math_dp_ai_voronoi_diagrams, math_dp_ai_descriptive_statistics, math_dp_ai_probability, math_dp_ai_correlation_regression, math_dp_ai_hypothesis_testing, math_dp_ai_differentiation, math_dp_ai_integration, math_dp_ai_kinematics, math_dp_ai_complex_numbers, math_dp_ai_matrices, math_dp_ai_graph_theory, math_dp_ai_poisson_distribution],
 };
 const englishSubject: Subject = {
   id: englishMeta.id as SubjectId,
@@ -639,7 +664,7 @@ export const subjectMeta: Partial<Record<SubjectId, { name: string; icon: string
   german: { name: germanMeta.name, icon: germanMeta.icon, color: germanMeta.accentColor },
 };
 
-const papers: Paper[] = [bio_ks3_bio_ks3_set_1, bio_ks3_bio_ks3_set_2, chem_ks3_chem_ks3_set_1, chem_ks3_chem_ks3_set_2, chin_ks3_chin_ks3_set_1, chin_ks3_chin_ks3_set_2, eng_ks3_eng_ks3_set_1, eng_ks3_eng_ks3_set_2, geog_ks3_geog_ks3_set_1, geog_ks3_geog_ks3_set_2, germ_ks3_germ_ks3_set_1, germ_ks3_germ_ks3_set_2, hist_ks3_hist_ks3_set_1, hist_ks3_hist_ks3_set_2, ict_ks3_ict_ks3_set_1, ict_ks3_ict_ks3_set_2, math_dp_ai_math_dp_ai_set_1, math_dp_ai_math_dp_ai_set_2, math_y7_math_y7_set_1, math_y7_math_y7_set_2, math_y8_math_y8_set_1, math_y8_math_y8_set_2, math_y9_math_y9_set_1, math_y9_math_y9_set_2, phys_ks3_phys_ks3_set_1, phys_ks3_phys_ks3_set_2];
+const papers: Paper[] = [bio_ks3_bio_ks3_set_1, bio_ks3_bio_ks3_set_2, chem_ks3_chem_ks3_set_1, chem_ks3_chem_ks3_set_2, chin_ks3_chin_ks3_set_1, chin_ks3_chin_ks3_set_2, eng_ks3_eng_ks3_set_1, eng_ks3_eng_ks3_set_2, geog_ks3_geog_ks3_set_1, geog_ks3_geog_ks3_set_2, germ_ks3_germ_ks3_set_1, germ_ks3_germ_ks3_set_2, hist_ks3_hist_ks3_set_1, hist_ks3_hist_ks3_set_2, ict_ks3_ict_ks3_set_1, ict_ks3_ict_ks3_set_2, math_dp_ai_math_dp_ai_set_1, math_dp_ai_math_dp_ai_set_2, math_igcse_math_igcse_set_1, math_igcse_math_igcse_set_2, math_y7_math_y7_set_1, math_y7_math_y7_set_2, math_y8_math_y8_set_1, math_y8_math_y8_set_2, math_y9_math_y9_set_1, math_y9_math_y9_set_2, phys_ks3_phys_ks3_set_1, phys_ks3_phys_ks3_set_2];
 
 export function getAllPapers(): Paper[] {
   return papers;
