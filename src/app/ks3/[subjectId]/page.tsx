@@ -37,18 +37,20 @@ export default async function Ks3SubjectHubPage(props: { params: Promise<{ subje
           { href: tierHubPath('ks3'), label: TIERS.ks3.label },
           { label: title },
         ]}
+        currentAsHeading
       />
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-2">{title}</h1>
       <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
         {hub.topics.length} Key Stage 3 {subjectSeoName(hub.subject.name)} topics, in curriculum order — open one to start studying.
       </p>
       <div className="space-y-6">
         {groups.map((group) => (
           <section key={group.key} aria-label={group.label}>
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
-              {group.label}
-              <span className="ml-1.5 font-normal normal-case">({group.topics.length})</span>
-            </h2>
+            {groups.length > 1 && (
+              <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
+                {group.label}
+                <span className="ml-1.5 font-normal normal-case">({group.topics.length})</span>
+              </h2>
+            )}
             <div className="space-y-3">
               {group.topics.map((topic) => (
                 <Link

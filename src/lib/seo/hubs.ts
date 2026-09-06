@@ -12,7 +12,7 @@ import { pageMeta } from './page-meta';
  * tier×subject children. The URL set is derived, never hardcoded, and mirrors the
  * sitemap generator's child emission (scripts/generate-sitemaps.ts coreEntries) so
  * `verify:sitemaps` can never report a hub 404. An empty tier or a subject with no
- * topics in the tier yields NO route — IGCSE has zero topics today.
+ * topics in the tier yields NO route.
  */
 
 export interface TierSubjectHub {
@@ -75,11 +75,13 @@ export function metaForTierHub(tier: TierKey): Metadata {
   const description =
     tier === 'ks3'
       ? `${count} KS3 topics across ${hubs.length} subjects — illustrated notes, flashcards and marked quizzes for Years 7–9. Free to start.`
-      : `${count} IB Diploma Programme topics — illustrated notes, flashcards and practice questions with worked answers. Free to start.`;
+      : tier === 'igcse'
+        ? `${count} IGCSE topics across ${hubs.length} ${hubs.length === 1 ? 'subject' : 'subjects'} — illustrated notes, flashcards and marked quizzes. Free to start.`
+        : `${count} IB Diploma Programme topics — illustrated notes, flashcards and practice questions with worked answers. Free to start.`;
   return hubMeta(tierHubPath(tier), `${label} revision`, description);
 }
 
-/** /ks3/<subjectId> | /ibdp/<subjectId> — tier×subject hub ("KS3 Maths"). Undefined when the subject has no topics in the tier (→ no route). */
+/** /ks3/<subjectId> | /igcse/<subjectId> | /ibdp/<subjectId> — tier×subject hub ("KS3 Maths"). Undefined when the subject has no topics in the tier (→ no route). */
 export function metaForTierSubject(tier: TierKey, subjectId: string): Metadata | undefined {
   const hub = tierSubject(tier, subjectId);
   if (!hub) return undefined;
@@ -88,6 +90,8 @@ export function metaForTierSubject(tier: TierKey, subjectId: string): Metadata |
   const description =
     tier === 'ks3'
       ? `${hub.topics.length} KS3 ${seo} topics — illustrated notes, flashcards and a marked quiz on every topic. Free to start.`
-      : `${hub.topics.length} IB DP ${seo} topics — illustrated notes, flashcards and practice questions with worked answers. Free to start.`;
+      : tier === 'igcse'
+        ? `${hub.topics.length} IGCSE ${seo} topics — illustrated notes, flashcards and a marked quiz on every topic. Free to start.`
+        : `${hub.topics.length} IB DP ${seo} topics — illustrated notes, flashcards and practice questions with worked answers. Free to start.`;
   return hubMeta(tierSubjectPath(tier, hub.subject.id), `${label} ${seo}`, description);
 }

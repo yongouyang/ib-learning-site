@@ -22,7 +22,7 @@ export default function IbdpHubPage() {
       <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
         IB Diploma Programme topics with illustrated notes, flashcards and practice questions — pick a subject to start.
       </p>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         {hubs.map(({ subject, topics }) => (
           <Link
             key={subject.id}

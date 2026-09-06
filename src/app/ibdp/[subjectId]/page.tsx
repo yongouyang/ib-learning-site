@@ -41,18 +41,20 @@ export default async function IbdpSubjectHubPage(props: { params: Promise<{ subj
           { href: tierHubPath('ibdp'), label: TIERS.ibdp.label },
           { label: title },
         ]}
+        currentAsHeading
       />
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-2">{title}</h1>
       <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
         {hub.topics.length} IB Diploma Programme {subjectSeoName(hub.subject.name)} topics — open one to start studying.
       </p>
       <div className="space-y-6">
         {sections.map(({ course, topics }) => (
           <section key={course.id} aria-label={course.title}>
-            <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
-              {course.title}
-              <span className="ml-1.5 font-normal normal-case">({topics.length})</span>
-            </h2>
+            {sections.length > 1 && (
+              <h2 className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
+                {course.title}
+                <span className="ml-1.5 font-normal normal-case">({topics.length})</span>
+              </h2>
+            )}
             <div className="space-y-3">
               {topics.map((topic) => (
                 <Link

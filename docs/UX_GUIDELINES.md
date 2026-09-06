@@ -12,6 +12,7 @@ This document defines the UX standards for Octav Learning's UI. It exists so a s
 - Standard page wrapper: `max-w-2xl mx-auto px-4 py-6` (progress, exams, diagnostics, papers, study, quiz).
 - Wider only where content justifies it: subject pages `max-w-3xl`, home `max-w-4xl` (widest — home has primacy).
 - Pages stack full-width `.card` blocks vertically; grids (subject cards, pillars) are 1-col on mobile, multi-col from `sm:`/`md:`.
+- Breadcrumb trail: when the trail's last crumb duplicates the page `<h1>`, use `<Breadcrumbs currentAsHeading />` (the last item becomes the `<h1>`) rather than rendering both. Do not demote a hub `<h1>` (e.g. "KS3 revision") into the trail just to match its crumb ("KS3") — they are not duplicates there.
 - Don't introduce new container widths or page-level background colours.
 
 ## Design tokens

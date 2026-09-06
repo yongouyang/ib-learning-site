@@ -100,6 +100,12 @@ describe('seo/hubs — tier hub routes (S3)', () => {
     }
   });
 
+  it('IGCSE tier-hub descriptions carry IGCSE copy, not IB Diploma', () => {
+    const igcse = metaForTierHub('igcse');
+    expect(igcse.description as string).toContain('IGCSE');
+    expect(igcse.description as string).not.toContain('IB Diploma Programme');
+  });
+
   it('tier×subject hubs are "TIER <Subject>" and indexable with hreflang', () => {
     const math = metaForTierSubject('ks3', 'math')!;
     expect(math.title).toBe('KS3 Maths'); // subjectSeoName: Math → Maths in metadata
@@ -117,6 +123,9 @@ describe('seo/hubs — tier hub routes (S3)', () => {
     expect(igcseMath.title).toBe('IGCSE Maths');
     expect((igcseMath.alternates as { canonical: string }).canonical).toBe('/igcse/math');
     expect(igcseMath.robots).toEqual(INDEXABLE_ROBOTS);
+    // regression guard: IGCSE descriptions must not inherit the IB Diploma copy
+    expect(igcseMath.description as string).toContain('IGCSE');
+    expect(igcseMath.description as string).not.toContain('IB DP');
     // unknown subject → undefined → the route does not exist
     expect(metaForTierSubject('ks3', 'no-such-subject')).toBeUndefined();
   });

@@ -21,7 +21,7 @@ export default function Ks3HubPage() {
       <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
         Every Key Stage 3 subject with illustrated notes, flashcards and quizzes for Years 7–9 — pick a subject to start.
       </p>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         {hubs.map(({ subject, topics }) => (
           <Link
             key={subject.id}

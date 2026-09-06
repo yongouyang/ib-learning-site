@@ -25,7 +25,10 @@ export function Breadcrumbs({ items, currentAsHeading = false }: { items: Breadc
             {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-gray-400 dark:text-gray-600 shrink-0" aria-hidden="true" />}
             {isLast || !item.href ? (
               isLast && currentAsHeading ? (
-                <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 truncate max-w-[45vw] md:max-w-xs">
+                <h1
+                  aria-current="page"
+                  className="text-2xl font-bold text-gray-900 dark:text-gray-50 truncate max-w-[45vw] md:max-w-xs"
+                >
                   {item.label}
                 </h1>
               ) : (
