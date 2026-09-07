@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-09-07 — Tier-hub polish PROMOTED TO PROD (main = fe7ff06, corrected IGCSE copy live)
+Git HEAD: `fe7ff06` (main and develop both; tree clean)
+Done: ff-merged `develop → main` (`7b3dad7..fe7ff06`, direct push — no `gh` CLI locally, same mechanism as the previous promotion) and pushed; `deploy-prod` CI ran the full pipeline. Pre-merge probe confirmed dev already served the corrected description. Background watcher polled `octavlearning.com/igcse` and confirmed the flip from "10 IB Diploma Programme topics…" to "10 IGCSE topics across 1 subject…" after 18 minutes; `/igcse/math` spot-check also serves "10 IGCSE Maths topics…". This closes the tier-hub-polish entry's first Next item (nit-4 copy fix now on prod).
+Verified: live prod probes on `/igcse` + `/igcse/math` (above); deploy-prod's own gates (build:static, verify:sitemaps, smoke, `verify:seo:live --all`) ran in CI — a red deploy would not have invalidated/swapped the copy, and the corrected descriptions serving proves the new build reached S3+CloudFront.
+Next: human visual UX pass on the 28-shot hub contact sheet (the waived dark-contrast + 375px-pill items, plus standing 375px chrome nits: contact bubble/footer overlap, 5th nav label). Then choose the next content/feature session: IGCSE wave 2 (circle theorems / trig / vectors / functions / histograms) or illustrations backlog (100 topics). E4.2 infra (`subscriptions_api` module + CloudFront behaviours + `STRIPE_ENV`) stays blocked on user-owned E4.0 Stripe account — module can be drafted (local plan/validate only) in the meantime. Standing: og:image, native InvokedViaFunctionUrl, reserved_concurrent_executions (quota-blocked).
+Notes: prod copy flip took ~18 min from push (faster than the ~25 min the pilot promotion took). No new defects observed.
+
+---
+
 ## 2026-09-07 — Tier-hub polish SHIPPED (3 waived nits + IGCSE copy bug), on `develop`
 Git HEAD: `b6568170f`-ish (working tree; this entry uncommitted until the commit) — branch `develop`
 Done: executed `docs/tier-hub-polish-plan.md` in one commit. **Nit 1** (lone-group `h2` restates `h1`): `groups.length > 1` / `sections.length > 1` guard on all three `[subjectId]` pages — single-group `/igcse/math`, `/ibdp/math` now drop the redundant heading; multi-group `/ks3/math` (Years 7–9) and `/ks3/english` correctly keep theirs. **Nit 2** (last crumb ≡ `h1`): `currentAsHeading` on the three `[subjectId]` pages, separate `<h1>` removed; the three tier-hub pages left alone (their crumb "KS3" ≠ `h1` "KS3 revision", as intended). **Nit 3** (mobile 2-col grid): `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3` on the three hub pages. **Nit 4 (found during planning)**: `hubs.ts` had no `igcse` description branch so `/igcse` + `/igcse/math` shipped "IB Diploma Programme"/"IB DP" copy in their indexable meta descriptions — added the branch (and the same on `metaForTierSubject`), updated two stale comments. `Breadcrumbs.tsx` heading branch now sets `aria-current="page"` (11 existing pages benefit). New `scripts/capture-hub-ux.mjs` (public-page sibling of `capture-admin-ux.mjs`) regenerated the 28-shot contact sheet (gitignored).
