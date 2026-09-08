@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-09-07 — IGCSE wave-2 plan drafted (docs/igcse-wave2-plan.md); LATENT DEFECT: math-igcse-set-2 = 21 marks
+Git HEAD: `d0ff68b` (develop, tree dirty — plan doc + this entry uncommitted)
+Done: traced the wave-2 surface before planning: pilot machinery all live (10 topics, /igcse hubs, math-igcse matcher already covers new 0580 topics — NO courses.ts change; hub descriptions dynamic). User locked 4 decisions via questionnaire: maths 0580 only / the 5 named strands / trig splits into TWO topics (right-angled level-omitted + advanced extended — a mixed topic can't carry one honest level tag) / paper set 3 IN, illustrations out (backlog 100→106). Syllabus tags verified against the official 2025–2027 PDF: functions (E2.13), non-right-angled trig (E6.4/E6.5), circle theorems, vectors, histograms all Extended supplement; right-angled trig + Pythagoras Core. Plan = Phase 0 validator hardening + set-2 fix (own commit) → 3×2 swarm → parent integration (order.json 16-block, set 3, counts) → gates (expect 233 topics / 29 papers / **334 indexable**) → single ship commit; UX full pass WAIVED (content-only, no chrome) with 4 spot screenshots as artefact.
+Verified: plan doc only — no code changed. **Found while sweeping all 28 paper sets: `math-igcse-set-2.json` totals 21 marks (2+2+2+2+2+3+4+4), violating CONTENT_STYLE's "exactly 20"; all 27 other sets total 20; `validate-content.ts` has NO total-marks rule — that's why the pilot gate passed it.** Phase 0 adds that rule + a control-char scan rule (the pilot's tab-mangled \text class) and fixes set-2 (drop 1 mark + 1 markscheme point from the last question).
+Next: execute Phase 0 (small, independent, unblocks nothing else but fixes a live premium surface), then Phase A swarm when scheduled. Standing queue otherwise unchanged: E4.2 infra terraform (Stripe-account-blocked), human visual UX pass on hub contact sheet, illustrations (100 topics), og:image, native InvokedViaFunctionUrl, reserved_concurrent_executions (quota-blocked).
+Notes: (1) papers.spec.ts:22-23 lock-row counts need COMPUTING at integration (per-set vs per-course rendering — don't guess 14→15). (2) diagnostics.spec stays 14 courses — no new course. (3) e2e per-project --workers=1 only (shared-dummy OTP budget). (4) swarm model choice open: pilot's flash:low children shipped all-zero correctIndex + JSON-escape corruption; session model or mandatory parent spot-checks.
+
+---
+
 ## 2026-09-07 — Tier-hub polish PROMOTED TO PROD (main = fe7ff06, corrected IGCSE copy live)
 Git HEAD: `fe7ff06` (main and develop both; tree clean)
 Done: ff-merged `develop → main` (`7b3dad7..fe7ff06`, direct push — no `gh` CLI locally, same mechanism as the previous promotion) and pushed; `deploy-prod` CI ran the full pipeline. Pre-merge probe confirmed dev already served the corrected description. Background watcher polled `octavlearning.com/igcse` and confirmed the flip from "10 IB Diploma Programme topics…" to "10 IGCSE topics across 1 subject…" after 18 minutes; `/igcse/math` spot-check also serves "10 IGCSE Maths topics…". This closes the tier-hub-polish entry's first Next item (nit-4 copy fix now on prod).
