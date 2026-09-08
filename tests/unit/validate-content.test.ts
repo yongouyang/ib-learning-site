@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { checkStageConsistency, checkTemplates, checkVariantGroups } from '../../scripts/validate-content';
+import { checkControlChars, checkStageConsistency, checkTemplates, checkVariantGroups } from '../../scripts/validate-content';
 import type { ValidatedTopic } from '@/content/schema';
 
 function makeTopic(overrides: Partial<ValidatedTopic> = {}): ValidatedTopic {
@@ -217,5 +217,19 @@ describe('checkTemplates', () => {
     expect(errors).toHaveLength(1);
     expect(errors[0]).toContain('does not match');
     expect(errors[0]).toContain('easy-group');
+  });
+});
+
+describe('checkControlChars', () => {
+  it('flags a TAB parsed from a single-backslash \\text (the swarm defect class)', () => {
+    const hits = checkControlChars({ notes: [{ body: 'Area = \text{cm} squared' }] });
+    expect(hits).toHaveLength(1);
+    expect(hits[0]).toContain('notes[0].body');
+    expect(hits[0]).toContain('TAB');
+  });
+  it('accepts newlines and plain strings; reports one hit per string with paths', () => {
+    expect(checkControlChars({ a: 'fine\nmulti-line', b: ['ok', { c: 'x\rx' }] })).toEqual([
+      'b[1].c: control character CR at index 1 — JSON escape corruption?',
+    ]);
   });
 });

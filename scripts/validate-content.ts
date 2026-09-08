@@ -166,6 +166,32 @@ export function checkTemplates(topic: ValidatedTopic): string[] {
 
 import { ORDER_FILE, checkTopicOrder } from './topic-order';
 
+// Control-char scan (docs/igcse-wave2-plan.md §5): the IGCSE swarm's worst defect
+// class — a single-backslash `\text` in JSON parses to a literal TAB, and strict
+// KaTeX checks render it as whitespace and pass. No code point < 32 is legitimate
+// in content except \n (multi-line note bodies).
+export function checkControlChars(value: unknown, pathStr = '', hits: string[] = []): string[] {
+  if (typeof value === 'string') {
+    for (let i = 0; i < value.length; i++) {
+      const cp = value.codePointAt(i)!;
+      if (cp < 32 && cp !== 10) {
+        const label = cp === 9 ? 'TAB' : cp === 13 ? 'CR' : `U+${cp.toString(16).padStart(4, '0')}`;
+        hits.push(`${pathStr || 'root'}: control character ${label} at index ${i} — JSON escape corruption?`);
+        break; // one hit per string is enough to locate the file and path
+      }
+    }
+    return hits;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((v, i) => checkControlChars(v, `${pathStr}[${i}]`, hits));
+  } else if (value && typeof value === 'object') {
+    for (const [k, v] of Object.entries(value)) {
+      checkControlChars(v, pathStr ? `${pathStr}.${k}` : k, hits);
+    }
+  }
+  return hits;
+}
+
 interface Failure {
   file: string;
   errors: string[];
@@ -227,6 +253,12 @@ function validateTopics() {
         parsed = JSON.parse(raw);
       } catch (err) {
         recordFailure(filePath, err);
+        continue;
+      }
+
+      const controlHits = checkControlChars(parsed);
+      if (controlHits.length > 0) {
+        failures.push({ file: relative(filePath), errors: controlHits.slice(0, 5) });
         continue;
       }
 
@@ -295,6 +327,16 @@ function validatePapers() {
 
       const paper = result.data;
       const errors: string[] = [];
+      const controlHits = checkControlChars(parsed);
+      if (controlHits.length > 0) {
+        errors.push(...controlHits.slice(0, 5));
+      }
+      // Exactly 20 marks per set (docs/CONTENT_STYLE.md "Practice papers") — the
+      // math-igcse-set-2 defect class: 21 shipped because nothing enforced it.
+      const totalMarks = paper.questions.reduce((sum, q) => sum + q.marks, 0);
+      if (totalMarks !== 20) {
+        errors.push(`questions total ${totalMarks} marks — every practice set must total exactly 20`);
+      }
       if (paper.courseId !== courseDir) {
         errors.push(`courseId "${paper.courseId}" does not match folder "${courseDir}"`);
       }
