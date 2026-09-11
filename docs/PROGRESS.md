@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-09-11 — OSV scanner fix: dependency patch bumps (6 vulns cleared)
+Git HEAD: `bedac81` (develop, tree dirty — package.json + package-lock.json to commit)
+Done: bumped next ^16.3.0→^16.3.3 (GHSA-2xp9-vwfh-vxw4 9.5, GHSA-p293-qw3h-jr36 9.0), vitest ^4.1.8→^4.1.11 (+ @vitest/mocker 4.1.11, GHSA-82fw-gwwq-j7x9), transitive sharp 0.35.3→0.35.4 (GHSA-rgj7-g3m4-5g8c) and js-yaml 4.3.1→4.3.2 (GHSA-2883-xcg3-v3hh) via lockfile refresh. sharp NOT added as a direct dep (stays transitive under next).
+Verified: `osv-scanner --lockfile=package-lock.json` → No issues found; `npm test` 114 files / 1268 tests pass on vitest 4.1.11; `npm run build` succeeds on next 16.3.3.
+Next: commit + push to develop and confirm the CI osv-scanner job goes green. Unrelated: e2e suites not re-run (patch bumps only).
+Notes: npm 10.9.8 arborist crashes with "Cannot read properties of null (reading 'edgesOut')" when resolving vitest 4.1.11's optional peers (canvas/jsdom/msw) against the OLD lockfile — workaround was `npx -y npm@latest install --package-lock-only` once; after the lockfile updated, stock `npm install` works again. If it recurs, use the newer-npm-via-npx trick, don't hand-edit the lock.
+
+---
+
 ## 2026-09-08 — IGCSE wave 2: ALL gates green (334 indexable), single ship commit pushed — dev/prod live verify pending
 Git HEAD: `34ae363` (develop, pushed; the wip checkpoint `94d228a` was squashed into this ONE commit via `git reset --soft e4ad874` per plan §6 — origin/develop was at e4ad874 so the push was a fast-forward, no force)
 Done: **Phase B** per docs/igcse-wave2-plan.md — 6 topic files restored from `wip/igcse-wave2-topics`; order.json IGCSE block = plan §3 16-id sequence (verified exact, no dupes); `generate:registry` → 233 topics / 29 papers; `math-igcse-set-3.json` authored (8 qs, 20 marks = 2+2+2+2+3+3+3+3, 3e/3m/2h, 6 distinct wave-2 topics, ALL non-calculator per CONTENT_STYLE §"Practice papers" — the cosine-rule-with-cos50° idea became ½·8·10·sin30°=20; every answer re-derived by hand; `a[href$="-set-3"]` inert-locked on papers index); §7 churn: registry math 86→92, papers.spec rows 28→29, exams.spec free-response links 28→29, **lock rows stay 14** (component renders ONE compact LockedFeature per course, not per set), diagnostics untouched.
