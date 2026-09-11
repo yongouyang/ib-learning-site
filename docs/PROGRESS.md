@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-09-12 — Hub contact-sheet UX pass DONE (model-reviewed; 5 fixes, 1 waiver)
+Git HEAD: `095caec` (develop; this entry + the 5-file chrome fix to commit)
+Done: regenerated the 28-shot hub contact sheet (`scripts/capture-hub-ux.mjs` → gitignored `ux-screenshots/hub/`, 3 runs: before/after/final) and reviewed the PNGs in-session (model CAN render images). Fixed: (1) tier crumb `hideOnMobile: true` on the 3 `[subjectId]` hub pages — breadcrumb-h1 no longer truncates to "IGCSE Ma…"/"KS3 Englis…" under the top-right pill at 375px; (2) DEV badge `bottom-20 md:bottom-2` — stopped covering the 5th nav label on mobile dev (the old "red active pill" nit WAS the DEV badge, prod was never affected); (3) footer `pb-24`→`pb-36` mobile — legal text clears the floating "?" bubble at rest; (4) single-group hubs shipped h1→h3 (a11y skip) — card titles now render `h2` when `groups.length === 1` (`CardTitle` const on the 3 pages; multi-group hubs keep h2 group + h3 cards); (5) footer legal text `text-gray-400 dark:text-gray-500` → `text-gray-500 dark:text-gray-400` (was ~2.3:1 / ~4.1:1, below AA at 12px). WAIVED (conscious): "?" bubble overlaps footer text in a ~904–940px desktop width band at full scroll — pre-existing, cosmetic, fix costs dead space on every desktop page.
+Verified: fresh-context `reviewer` subagent read the post-fix PNGs + diff — all fixes hold, no new violations (it timed out mid-report but the full findings list survived in its output log); pixel spot-checks of h1/nav/footer crops; `tsc --noEmit` ✓, eslint ✓ on touched files, unit 1268/1268 ✓. NOT re-run: e2e (heading assertions only cover /subjects/* + multi-group KS3 hub, both untouched).
+Next: commit + push (chrome change → deploy-dev); then wave-2 promotion chain (verify:seo:live --env=dev → ff develop→main → --all → delete wip branch). Standing queue unchanged: illustrations 106, og:image, E4.2 draft (Stripe-blocked), `.pi/tasks/` gitignore, native InvokedViaFunctionUrl.
+Notes: (1) the reviewer's h1→h3 + footer-contrast findings were NOT in the earlier waived list — the contact-sheet pass earns its keep; keep running it model-side. (2) reviewer subagent 30-min timeout hit while streaming its report — retrieve findings from the run's output-0.log, don't re-run. (3) never run `tsc --noEmit` while capture-hub-ux's dev server is up (stale `.next/dev/types` errors).
+
+---
+
 ## 2026-09-11 — OSV scanner fix: dependency patch bumps (6 vulns cleared)
 Git HEAD: `bedac81` (develop, tree dirty — package.json + package-lock.json to commit)
 Done: bumped next ^16.3.0→^16.3.3 (GHSA-2xp9-vwfh-vxw4 9.5, GHSA-p293-qw3h-jr36 9.0), vitest ^4.1.8→^4.1.11 (+ @vitest/mocker 4.1.11, GHSA-82fw-gwwq-j7x9), transitive sharp 0.35.3→0.35.4 (GHSA-rgj7-g3m4-5g8c) and js-yaml 4.3.1→4.3.2 (GHSA-2883-xcg3-v3hh) via lockfile refresh. sharp NOT added as a direct dep (stays transitive under next).

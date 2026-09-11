@@ -39,10 +39,10 @@ export function DevEnvironmentIndicator() {
         aria-hidden="true"
         className="fixed inset-0 pointer-events-none z-[9999] border-[3px] border-red-500"
       />
-      {/* DEV label — bottom-right corner. */}
+      {/* DEV label — bottom-right corner; above the mobile bottom nav so it never covers the 5th nav label. */}
       <div
         aria-hidden="true"
-        className="fixed bottom-2 right-2 pointer-events-none z-[10000] bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded select-none"
+        className="fixed bottom-20 md:bottom-2 right-2 pointer-events-none z-[10000] bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded select-none"
       >
         DEV
       </div>

@@ -108,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
               </div>
               <main className="flex-1 pb-24 md:pb-0">{children}</main>
-              <footer className="px-6 pt-4 pb-24 md:pb-4 text-center text-xs text-gray-400 dark:text-gray-500 border-t border-gray-100 dark:border-gray-800 space-y-1">
+              <footer className="px-6 pt-4 pb-36 md:pb-4 text-center text-xs text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-gray-800 space-y-1">
                 <p>
                   &copy; {new Date().getFullYear()} Octav Learning. All rights reserved.{' '}
                   <Link href="/terms" className="underline hover:text-gray-600 dark:hover:text-gray-300 transition-colors">

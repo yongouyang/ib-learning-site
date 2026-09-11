@@ -28,13 +28,15 @@ export default async function IgcseSubjectHubPage(props: { params: Promise<{ sub
   if (!hub) notFound();
   const title = `${TIERS.igcse.label} ${subjectSeoName(hub.subject.name)}`;
   const groups = groupTopicsByStage(hub.topics);
+  // Single-group hubs skip the group h2 (it would restate the h1), so card titles take the h2 slot to keep heading order sequential.
+  const CardTitle = groups.length > 1 ? 'h3' : 'h2';
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
       <Breadcrumbs
         items={[
           { href: '/', label: 'Home' },
-          { href: tierHubPath('igcse'), label: TIERS.igcse.label },
+          { href: tierHubPath('igcse'), label: TIERS.igcse.label, hideOnMobile: true },
           { label: title },
         ]}
         currentAsHeading
@@ -59,7 +61,7 @@ export default async function IgcseSubjectHubPage(props: { params: Promise<{ sub
                   className="card p-4 border-l-4 block hover:shadow-md pressable"
                   style={{ borderLeftColor: hub.subject.accentColor }}
                 >
-                  <h3 className="font-semibold text-gray-900 dark:text-gray-50 mb-1">{topic.title}</h3>
+                  <CardTitle className="font-semibold text-gray-900 dark:text-gray-50 mb-1">{topic.title}</CardTitle>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     <InlineMath text={topic.description} />
                   </p>
