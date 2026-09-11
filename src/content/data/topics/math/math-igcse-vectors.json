@@ -1,0 +1,317 @@
+{
+  "id": "math-igcse-vectors",
+  "subjectId": "math",
+  "title": "Vectors: Column Vectors and Vector Geometry",
+  "description": "Add, subtract and scale column vectors, find magnitudes, and use position vectors, ratios and parallel-vector tests for collinearity and velocity questions (Cambridge IGCSE 0580 Extended).",
+  "stage": "igcse",
+  "course": "0580",
+  "level": "extended",
+  "notes": [
+    {
+      "id": "math-igcse-vectors-n1",
+      "heading": "Column Vectors and Their Components",
+      "body": "📌 Definition\nA vector has both size and direction. At IGCSE we write vectors as columns, for example\n\n$$\\mathbf{a} = \\begin{pmatrix} 3 \\\\ -2 \\end{pmatrix}$$\n\nThe top component counts how far right (left is negative) and the bottom counts how far up (down is negative). AB means 'the vector from A to B'."
+    },
+    {
+      "id": "math-igcse-vectors-n2",
+      "heading": "Adding Vectors",
+      "body": "📌 Definition\nAdd matching components:\n\n$$\\begin{pmatrix} a \\\\ b \\end{pmatrix} + \\begin{pmatrix} c \\\\ d \\end{pmatrix} = \\begin{pmatrix} a + c \\\\ b + d \\end{pmatrix}$$\n\n🔑 How it works\nAddition follows the triangle law: 'from A to B, then from B to C' gives AC = AB + BC. Two vectors are equal only when both components match.\n\n💡 Worked Example\n$\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$ + $\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$ = $\\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix}$."
+    },
+    {
+      "id": "math-igcse-vectors-n3",
+      "heading": "Subtracting: the Vector from A to B",
+      "body": "📌 Definition\nSubtract matching components, and remember:\n\n$$\\vec{{AB}} = \\vec{{OB}} - \\vec{{OA}}$$\n\n🔑 How it works\nAB answers 'how do I get from A to B?' - destination minus start. Reversing a vector negates it: BA = -AB. The classic slip is writing OA - OB, which points the wrong way.\n\n💡 Worked Example\nOA = $\\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$ and OB = $\\begin{pmatrix} 7 \\\\ 4 \\end{pmatrix}$ give AB = $\\begin{pmatrix} 5 \\\\ 3 \\end{pmatrix}$."
+    },
+    {
+      "id": "math-igcse-vectors-n4",
+      "heading": "Scalar Multiplication and Magnitude",
+      "body": "📌 Definition\nMultiplying a vector by the scalar k scales every component by k; a negative k reverses the direction. The magnitude comes from Pythagoras:\n\n$$\\lvert \\mathbf{a} \\rvert = \\sqrt{x^2 + y^2} \\text{ for } \\mathbf{a} = \\begin{pmatrix} x \\\\ y \\end{pmatrix}$$\n\n💡 Worked Example\n3 $\\begin{pmatrix} 5 \\\\ -2 \\end{pmatrix}$ = $\\begin{pmatrix} 15 \\\\ -6 \\end{pmatrix}$, and the magnitude of $\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$ is $\\sqrt{9 + 16}$ = 5."
+    },
+    {
+      "id": "math-igcse-vectors-n5",
+      "heading": "Parallel Vectors are Scalar Multiples",
+      "body": "📌 Definition\nTwo vectors are parallel exactly when one is a scalar multiple of the other: a = k b.\n\n🔑 How it works\nBoth components must give the SAME k. A negative k still means parallel - just in the opposite direction.\n\n💡 Worked Example\n$\\begin{pmatrix} -4 \\\\ 6 \\end{pmatrix}$ = -2 x $\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}$ because -2 x 2 = -4 and -2 x -3 = 6, so the vectors are parallel with k = -2."
+    },
+    {
+      "id": "math-igcse-vectors-n6",
+      "heading": "Position Vectors: Midpoints, Ratios and Collinearity",
+      "body": "📌 Definition\nThe position vector of a point is the vector from the origin to it. The midpoint of A and B has position vector (OA + OB) / 2, and a point P with AP : PB = 2 : 1 has OP = OA + (2/3) AB.\n\n🔑 How it works\nFor ratio m : n travel the fraction m / (m + n) of the way along AB. To prove A, B and C collinear, show AB is a scalar multiple of AC - and state that the two segments share point A.\n\n💡 Worked Example\nA(1, 2), B(7, 8): AB = $\\begin{pmatrix} 6 \\\\ 6 \\end{pmatrix}$, AP = (2/3) x $\\begin{pmatrix} 6 \\\\ 6 \\end{pmatrix}$ = $\\begin{pmatrix} 4 \\\\ 4 \\end{pmatrix}$, so OP = $\\begin{pmatrix} 5 \\\\ 6 \\end{pmatrix}$."
+    },
+    {
+      "id": "math-igcse-vectors-n7",
+      "heading": "Velocity is a Vector",
+      "body": "📌 Definition\nVelocity carries direction as well as size, so displacement = velocity x time, component by component.\n\n🔑 How it works\nWhen two motions act together - a boat and a current - add the velocity vectors first. Multiply by whole seconds.\n\n💡 Worked Example\nVelocity $\\begin{pmatrix} 3 \\\\ -4 \\end{pmatrix}$ m/s for 5 s gives displacement $\\begin{pmatrix} 15 \\\\ -20 \\end{pmatrix}$ m, a distance of 5 x $\\sqrt{9 + 16}$ = 25 m from the start."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-vectors-f1",
+      "term": "Column vector",
+      "definition": "Top component: how far right. Bottom component: how far up.",
+      "example": "4 left and 1 up is $\\begin{pmatrix} -4 \\\\ 1 \\end{pmatrix}$."
+    },
+    {
+      "id": "math-igcse-vectors-f2",
+      "term": "Vector addition",
+      "definition": "Add matching components.",
+      "example": "$\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$ + $\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$ = $\\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix}$"
+    },
+    {
+      "id": "math-igcse-vectors-f3",
+      "term": "Vector subtraction",
+      "definition": "Subtract matching components; BA = -AB.",
+      "example": "$\\begin{pmatrix} 5 \\\\ -2 \\end{pmatrix}$ - $\\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}$ = $\\begin{pmatrix} 4 \\\\ -5 \\end{pmatrix}$"
+    },
+    {
+      "id": "math-igcse-vectors-f4",
+      "term": "Vector from A to B",
+      "definition": "AB = OB - OA: destination minus start.",
+      "example": "OA = $\\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$, OB = $\\begin{pmatrix} 7 \\\\ 4 \\end{pmatrix}$ gives AB = $\\begin{pmatrix} 5 \\\\ 3 \\end{pmatrix}$"
+    },
+    {
+      "id": "math-igcse-vectors-f5",
+      "term": "Scalar multiplication",
+      "definition": "Multiply every component by k; negative k reverses direction.",
+      "example": "-2 x $\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}$ = $\\begin{pmatrix} -4 \\\\ 6 \\end{pmatrix}$"
+    },
+    {
+      "id": "math-igcse-vectors-f6",
+      "term": "Magnitude",
+      "definition": "Pythagoras on the components.",
+      "example": "| $\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$ | = 5"
+    },
+    {
+      "id": "math-igcse-vectors-f7",
+      "term": "Parallel test",
+      "definition": "One vector is a scalar multiple of the other, with the same k on both components.",
+      "example": "$\\begin{pmatrix} -4 \\\\ 6 \\end{pmatrix}$ = -2 x $\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}$"
+    },
+    {
+      "id": "math-igcse-vectors-f8",
+      "term": "Position vector",
+      "definition": "The vector from the origin O to the point.",
+      "example": "Point (3, -2) has position vector $\\begin{pmatrix} 3 \\\\ -2 \\end{pmatrix}$"
+    },
+    {
+      "id": "math-igcse-vectors-f9",
+      "term": "Midpoint",
+      "definition": "Half the sum of the two position vectors.",
+      "example": "A(2, 5) and B(8, 1) give midpoint $\\begin{pmatrix} 5 \\\\ 3 \\end{pmatrix}$"
+    },
+    {
+      "id": "math-igcse-vectors-f10",
+      "term": "Division in the ratio 2 : 1",
+      "definition": "OP = OA + (2/3) AB - travel two-thirds of the way.",
+      "example": "A(1, 2), B(7, 8) give P(5, 6)"
+    },
+    {
+      "id": "math-igcse-vectors-f11",
+      "term": "Collinear points",
+      "definition": "AB is a scalar multiple of AC (or BC), and the segments share a point.",
+      "example": "AB = $\\begin{pmatrix} 2 \\\\ 6 \\end{pmatrix}$ and AC = $\\begin{pmatrix} 4 \\\\ 12 \\end{pmatrix}$ = 2AB"
+    },
+    {
+      "id": "math-igcse-vectors-f12",
+      "term": "Displacement from velocity",
+      "definition": "Multiply the velocity vector by the time.",
+      "example": "Velocity $\\begin{pmatrix} 3 \\\\ -4 \\end{pmatrix}$ m/s for 5 s gives $\\begin{pmatrix} 15 \\\\ -20 \\end{pmatrix}$ m"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-vectors-q1",
+      "stem": "Work out $\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$ + $\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$.",
+      "choices": [
+        "$\\begin{pmatrix} 2 \\\\ 2 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 3 \\\\ 8 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 6 \\\\ 4 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Add matching components: 3 + 1 = 4 and 4 + 2 = 6.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-vectors-q2",
+      "stem": "Work out 3 $\\begin{pmatrix} 5 \\\\ -2 \\end{pmatrix}$.",
+      "choices": [
+        "$\\begin{pmatrix} 15 \\\\ 6 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 15 \\\\ -2 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 15 \\\\ -6 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 8 \\\\ 1 \\end{pmatrix}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Multiply BOTH components by 3: 3 x 5 = 15 and 3 x -2 = -6. The bottom is easy to forget.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-vectors-q3",
+      "stem": "Find the magnitude of $\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$.",
+      "choices": [
+        "1",
+        "25",
+        "5",
+        "7"
+      ],
+      "correctIndex": 2,
+      "explanation": "Pythagoras: sqrt(3^2 + 4^2) = sqrt(25) = 5. (25 is the square, not the length.)",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-vectors-q4",
+      "stem": "The vector $\\begin{pmatrix} -4 \\\\ 6 \\end{pmatrix}$ is a scalar multiple of $\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}$. What is the scalar?",
+      "choices": [
+        "-3",
+        "2",
+        "-2",
+        "3"
+      ],
+      "correctIndex": 2,
+      "explanation": "-2 x $\\begin{pmatrix} 2 \\\\ -3 \\end{pmatrix}$ = $\\begin{pmatrix} -4 \\\\ 6 \\end{pmatrix}$ (check both components: -2 x 2 = -4 and -2 x -3 = 6). The vectors are parallel but point the opposite way.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-vectors-q5",
+      "stem": "With respect to origin O, OA = $\\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$ and OB = $\\begin{pmatrix} 7 \\\\ 4 \\end{pmatrix}$. Find AB.",
+      "choices": [
+        "$\\begin{pmatrix} 9 \\\\ 5 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 5 \\\\ -3 \\end{pmatrix}$",
+        "$\\begin{pmatrix} -5 \\\\ -3 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 5 \\\\ 3 \\end{pmatrix}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "AB = OB - OA = $\\begin{pmatrix} 5 \\\\ 3 \\end{pmatrix}$. Destination minus start; $\\begin{pmatrix} -5 \\\\ -3 \\end{pmatrix}$ is the reverse vector BA.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-vectors-q6",
+      "stem": "a = $\\begin{pmatrix} -3 \\\\ 5 \\end{pmatrix}$ and b = $\\begin{pmatrix} 4 \\\\ -2 \\end{pmatrix}$. Work out a - b.",
+      "choices": [
+        "$\\begin{pmatrix} 7 \\\\ -7 \\end{pmatrix}$",
+        "$\\begin{pmatrix} -7 \\\\ 7 \\end{pmatrix}$",
+        "$\\begin{pmatrix} -7 \\\\ 3 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "-3 - 4 = -7 for the top, and 5 - (-2) = 7 for the bottom. Watch the double negative.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-vectors-q7",
+      "stem": "a = $\\begin{pmatrix} 1 \\\\ -2 \\end{pmatrix}$ and b = $\\begin{pmatrix} -2 \\\\ 3 \\end{pmatrix}$. Work out 2a + 3b.",
+      "choices": [
+        "$\\begin{pmatrix} 8 \\\\ -5 \\end{pmatrix}$",
+        "$\\begin{pmatrix} -5 \\\\ 4 \\end{pmatrix}$",
+        "$\\begin{pmatrix} -4 \\\\ 5 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 4 \\\\ -5 \\end{pmatrix}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "2a = $\\begin{pmatrix} 2 \\\\ -4 \\end{pmatrix}$ and 3b = $\\begin{pmatrix} -6 \\\\ 9 \\end{pmatrix}$, which sum to $\\begin{pmatrix} -4 \\\\ 5 \\end{pmatrix}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-vectors-q8",
+      "stem": "A has position vector $\\begin{pmatrix} 2 \\\\ 5 \\end{pmatrix}$ and B has position vector $\\begin{pmatrix} 8 \\\\ 1 \\end{pmatrix}$. Find the position vector of the midpoint of AB.",
+      "choices": [
+        "$\\begin{pmatrix} 3 \\\\ 2 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 6 \\\\ 4 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 10 \\\\ 6 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 5 \\\\ 3 \\end{pmatrix}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Average the position vectors: (2 + 8)/2 = 5 and (5 + 1)/2 = 3.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-vectors-q9",
+      "stem": "A = $\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$ and B = $\\begin{pmatrix} 7 \\\\ 8 \\end{pmatrix}$ are position vectors. P lies on AB with AP : PB = 2 : 1. Find the position vector of P.",
+      "choices": [
+        "$\\begin{pmatrix} 5 \\\\ 6 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 6 \\\\ 7 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 4 \\\\ 4 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "AB = $\\begin{pmatrix} 6 \\\\ 6 \\end{pmatrix}$, AP = (2/3) x $\\begin{pmatrix} 6 \\\\ 6 \\end{pmatrix}$ = $\\begin{pmatrix} 4 \\\\ 4 \\end{pmatrix}$, so OP = $\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$ + $\\begin{pmatrix} 4 \\\\ 4 \\end{pmatrix}$ = $\\begin{pmatrix} 5 \\\\ 6 \\end{pmatrix}$. (4,4 is AP, not the position vector.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-vectors-q10",
+      "stem": "A particle moves with constant velocity $\\begin{pmatrix} 3 \\\\ -4 \\end{pmatrix}$ m/s. How far is it from its starting point after 5 seconds?",
+      "choices": [
+        "25 m",
+        "35 m",
+        "20 m",
+        "5 m"
+      ],
+      "correctIndex": 0,
+      "explanation": "Displacement = 5 x $\\begin{pmatrix} 3 \\\\ -4 \\end{pmatrix}$ = $\\begin{pmatrix} 15 \\\\ -20 \\end{pmatrix}$ m, and its magnitude is sqrt(15^2 + 20^2) = 25 m - or 5 s x 5 m/s speed.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-vectors-q11",
+      "stem": "In triangle OAB, M is the midpoint of AB. OA = $\\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix}$ and OB = $\\begin{pmatrix} 2 \\\\ -2 \\end{pmatrix}$. Find OM.",
+      "choices": [
+        "$\\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 1 \\\\ 4 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 3 \\\\ 2 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 6 \\\\ 4 \\end{pmatrix}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "OM = (OA + OB) / 2 = $\\begin{pmatrix} 6 \\\\ 4 \\end{pmatrix}$ / 2 = $\\begin{pmatrix} 3 \\\\ 2 \\end{pmatrix}$. Subtracting first instead gives the (1,4) trap.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-vectors-q12",
+      "stem": "OA = $\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$, OB = $\\begin{pmatrix} 3 \\\\ 8 \\end{pmatrix}$ and OC = $\\begin{pmatrix} 5 \\\\ 14 \\end{pmatrix}$ are position vectors, and A, B and C lie on a straight line. Which statement shows this?",
+      "choices": [
+        "AB = 2AC",
+        "AC = 2AB",
+        "AC = 4AB",
+        "AC = 3AB"
+      ],
+      "correctIndex": 1,
+      "explanation": "AB = $\\begin{pmatrix} 2 \\\\ 6 \\end{pmatrix}$ and AC = $\\begin{pmatrix} 4 \\\\ 12 \\end{pmatrix}$ = 2 x $\\begin{pmatrix} 2 \\\\ 6 \\end{pmatrix}$. One vector being a scalar multiple of the other, sharing point A, proves collinearity.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-vectors-q13",
+      "stem": "OA = $\\begin{pmatrix} 3 \\\\ 6 \\end{pmatrix}$ and OB = $\\begin{pmatrix} 12 \\\\ 15 \\end{pmatrix}$ are position vectors. C lies on AB with AC : CB = 1 : 2. Find the position vector of C.",
+      "choices": [
+        "$\\begin{pmatrix} 8 \\\\ 12 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 7 \\\\ 11 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 5 \\\\ 9 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 6 \\\\ 9 \\end{pmatrix}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "AB = $\\begin{pmatrix} 9 \\\\ 9 \\end{pmatrix}$; AC = (1/3) x $\\begin{pmatrix} 9 \\\\ 9 \\end{pmatrix}$ = $\\begin{pmatrix} 3 \\\\ 3 \\end{pmatrix}$; OC = $\\begin{pmatrix} 3 \\\\ 6 \\end{pmatrix}$ + $\\begin{pmatrix} 3 \\\\ 3 \\end{pmatrix}$ = $\\begin{pmatrix} 6 \\\\ 9 \\end{pmatrix}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-vectors-q14",
+      "stem": "The vector $\\begin{pmatrix} 8 \\\\ k \\end{pmatrix}$ has magnitude 17, where k is positive. Find k.",
+      "choices": [
+        "25",
+        "9",
+        "12",
+        "15"
+      ],
+      "correctIndex": 3,
+      "explanation": "k^2 = 17^2 - 8^2 = 289 - 64 = 225, so k = 15 - the 8, 15, 17 Pythagorean triple.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-vectors-q15",
+      "stem": "A boat sails with velocity $\\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$ m/s in still water while the current flows at $\\begin{pmatrix} 1 \\\\ -2 \\end{pmatrix}$ m/s. What is the magnitude of the boat's actual velocity?",
+      "choices": [
+        "7 m/s",
+        "5 m/s",
+        "$\\sqrt{26}$ m/s",
+        "$\\sqrt{10}$ m/s"
+      ],
+      "correctIndex": 2,
+      "explanation": "Resultant velocity = $\\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$ + $\\begin{pmatrix} 1 \\\\ -2 \\end{pmatrix}$ = $\\begin{pmatrix} 5 \\\\ 1 \\end{pmatrix}$ m/s, magnitude sqrt(25 + 1) = $\\sqrt{26}$ m/s (about 5.1 m/s).",
+      "difficulty": "hard"
+    }
+  ]
+}

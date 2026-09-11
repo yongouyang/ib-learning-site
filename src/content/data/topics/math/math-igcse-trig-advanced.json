@@ -1,0 +1,313 @@
+{
+  "id": "math-igcse-trig-advanced",
+  "subjectId": "math",
+  "title": "Trigonometry for Any Triangle: Sine Rule, Cosine Rule and Area",
+  "description": "The sine rule and cosine rule for non-right-angled triangles, the area formula half ab sin C, and two-step problems including 3D diagonals (IGCSE Maths 0580 Extended).",
+  "stage": "igcse",
+  "course": "0580",
+  "level": "extended",
+  "notes": [
+    {
+      "id": "math-igcse-trig-advanced-n1",
+      "heading": "Naming Sides and Angles in Any Triangle",
+      "body": "📌 Definition\nIn triangle $ABC$ the angles are capital $A$, $B$, $C$ and each side takes the LOWERCASE letter of the angle it faces: side $a$ is opposite angle $A$, side $b$ opposite $B$, side $c$ opposite $C$.\n\n🔑 How it works\nDraw the triangle, write the letters at the corners, then label each side by the angle straight across from it. Every rule in this topic is a statement about matched (side, opposite-angle) PAIRS.\n\n💡 Worked Example\nIf you know angle $A$ and side $a$, you already hold one complete pair — exactly what the sine rule needs.\n\n⚠️ Common Mistake\nLabelling a side by the angle it touches instead of the angle it faces. Side $a$ must NOT touch angle $A$.\n\n📎 Key Points to Remember\n• The angles of any triangle sum to $180^\\circ$ — use this to find the third angle the moment two are known.\n• The largest side is opposite the largest angle, and the smallest side opposite the smallest angle: a free sanity check on answers.\n\n✅ Check\nIn a triangle with angles $35^\\circ$, $65^\\circ$ and $80^\\circ$, the longest side is the one opposite $80^\\circ$."
+    },
+    {
+      "id": "math-igcse-trig-advanced-n2",
+      "heading": "The Sine Rule for a Missing Side",
+      "body": "📌 Definition\nThe sine rule links each side to the sine of its opposite angle:\n\n$$\\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C}$$\n\nIt works for ANY triangle, not just right-angled ones.\n\n🔑 How it works\nUse it when you have a complete PAIR (a side and its opposite angle) plus one more angle:\n1. Match the unknown side with its opposite angle.\n2. Rearrange into $\\text{unknown} = \\dfrac{\\text{known side} \\times \\sin(\\text{its angle})}{\\sin(\\text{paired angle})}$.\n\n💡 Worked Example\nAngles $A = 35^\\circ$ and $B = 65^\\circ$ with side $a = 10$ cm. Then\n\n$$b = \\dfrac{10 \\times \\sin 65^\\circ}{\\sin 35^\\circ} = 15.8 \\; \\text{cm}$$\n\n⚠️ Common Mistake\nMultiplying by the wrong sine. The side you KNOW goes on top of the fraction, multiplied by the sine of the angle you WANT.\n\n📎 Key Points to Remember\n• You always need one side-and-its-opposite-angle pair to start.\n• Bigger angles face bigger sides — if your answer reverses the order, the sines were swapped.\n\n✅ Check\nWith $a = 6$, $A = 30^\\circ$, $B = 90^\\circ$: $b = 6 \\sin 90^\\circ \\div \\sin 30^\\circ = 6 \\div 0.5 = 12$."
+    },
+    {
+      "id": "math-igcse-trig-advanced-n3",
+      "heading": "The Sine Rule for a Missing Angle",
+      "body": "📌 Definition\nSolve the sine rule for an angle by TURNING THE FRACTIONS UPSIDE DOWN:\n\n$$\\dfrac{\\sin A}{a} = \\dfrac{\\sin B}{b} = \\dfrac{\\sin C}{c}$$\n\nThen $\\sin A = \\dfrac{a \\times \\sin B}{b}$ and $A = \\sin^{-1}(\\text{that value})$, in degree mode.\n\n🔑 How it works\nYou need a complete pair plus one more side. The angle you want is the one OPPOSITE that extra side.\n\n💡 Worked Example\n$a = 9$, $A = 40^\\circ$, $b = 7$. Then $\\sin B = \\dfrac{7 \\times \\sin 40^\\circ}{9} = 0.500$, so $B = 30.0^\\circ$.\n\n⚠️ Common Mistake\nApplying $\\sin^{-1}$ to a ratio built from the WRONG sides — the sides must be the one you want the angle for, and the one from your complete pair.\n\n📎 Key Points to Remember\n• $\\sin^{-1}$ on a calculator always returns an ACUTE angle here, which is what IGCSE asks for; if the triangle clearly has an obtuse angle instead, subtract the calculator answer from $180^\\circ$.\n• A safer existence check: the wanted angle must be smaller than $180^\\circ$ minus the angles already known.\n\n✅ Check\nIn the worked example $b = 7$ is shorter than $a = 9$, so $B = 30.0^\\circ$ being smaller than $A = 40^\\circ$ is exactly right."
+    },
+    {
+      "id": "math-igcse-trig-advanced-n4",
+      "heading": "The Cosine Rule for a Missing Side",
+      "body": "📌 Definition\nWhen you know TWO SIDES and the angle BETWEEN them, the cosine rule finds the third side:\n\n$$a^2 = b^2 + c^2 - 2bc \\cos A$$\n\nThe angle $A$ must be the INCLUDED angle — sitting between the two known sides.\n\n🔑 How it works\n1. Check the angle you have is between the two sides you have.\n2. Substitute carefully, keeping every sign.\n3. Take the square root at the end (the formula gives $a^2$, not $a$).\n\n💡 Worked Example\n$b = 5$, $c = 8$, $A = 60^\\circ$: $a^2 = 25 + 64 - 2 \\times 5 \\times 8 \\times \\cos 60^\\circ = 89 - 40 = 49$, so $a = 7$.\n\n💡 Worked Example 2 — Obtuse angle\n$b = 6$, $c = 10$, $A = 120^\\circ$: here $\\cos 120^\\circ = -0.5$, so $-2 \\times 6 \\times 10 \\times (-0.5)$ becomes $+60$ and\n\n$$a^2 = 36 + 100 + 60 = 196, \\qquad a = 14$$\n\n⚠️ Common Mistake\nForgetting that cos of an OBTUSE angle is negative: the minus sign in the formula then turns into a plus, so the side opposite an obtuse angle always beats both others.\n\n📎 Key Points to Remember\n• When $A = 90^\\circ$ the term $2bc \\cos A$ vanishes and the rule becomes Pythagoras — a good memory hook.\n• Square-root at the end: leaving $a^2 = 49$ as the answer drops the final mark.\n\n✅ Check\nAn obtuse angle of $120^\\circ$ must sit opposite the longest side: 14 is indeed longer than 6 and 10."
+    },
+    {
+      "id": "math-igcse-trig-advanced-n5",
+      "heading": "The Cosine Rule for a Missing Angle",
+      "body": "📌 Definition\nWith ALL THREE SIDES known, rearrange the cosine rule to find an angle:\n\n$$\\cos A = \\dfrac{b^2 + c^2 - a^2}{2bc}$$\n\nHere $a$ — the side you want the angle OPPOSITE — stands alone on top with the minus sign.\n\n🔑 How it works\n1. Put the wanted angle's opposite side into $a$ (the one being subtracted).\n2. Work out the fraction, then press $\\cos^{-1}$ in degree mode.\n\n💡 Worked Example\n$a = 7$, $b = 5$, $c = 3$: $\\cos A = \\dfrac{25 + 9 - 49}{2 \\times 5 \\times 3} = \\dfrac{-15}{30} = -0.5$, so\n\n$$A = \\cos^{-1}(-0.5) = 120^\\circ$$\n\n⚠️ Common Mistake\nA NEGATIVE value for $\\cos A$ means an OBTUSE angle between $90^\\circ$ and $180^\\circ$ — $\\cos^{-1}$ on a correct calculator returns it directly, so do not 'fix' the minus away.\n\n📎 Key Points to Remember\n• Only the cosine rule (not the sine rule) can find an angle from three sides.\n• The largest angle of a triangle is opposite the longest side — start there if the question asks for the biggest angle.\n\n✅ Check\nIf the three sides give $\\cos A = -0.5$, the angle is $120^\\circ$, and every other angle in that triangle must be acute."
+    },
+    {
+      "id": "math-igcse-trig-advanced-n6",
+      "heading": "Area of Any Triangle: Half ab sin C",
+      "body": "📌 Definition\nFor any triangle, given two sides and the angle BETWEEN them:\n\n$$\\text{area} = \\dfrac{1}{2} \\times a \\times b \\times \\sin C$$\n\nwhere $C$ is the included angle between sides $a$ and $b$. The letters can be renamed freely — what matters is two sides and their included angle.\n\n🔑 How it works\nCompare with 'half base times height': $b \\sin C$ is precisely the perpendicular height, which is why the formula works for slanted triangles.\n\n💡 Worked Example\nSides $7$ cm and $9$ cm with included angle $50^\\circ$: area $= 0.5 \\times 7 \\times 9 \\times \\sin 50^\\circ = 24.1$ cm².\n\n💡 Worked Example 2 — Equilateral triangle\nAll angles are $60^\\circ$, so side $8$: area $= 0.5 \\times 8 \\times 8 \\times \\sin 60^\\circ = 27.7$ cm².\n\n⚠️ Common Mistake\nPlugging a NON-included angle. If the angle is not between the two sides, find or compute the one that is first.\n\n📎 Key Points to Remember\n• Keep the $0.5$ — a missing factor of $2$ is the most common error mark lost here.\n• Units are square (cm²), because area multiplies two lengths.\n\n✅ Check\nSides $6$ and $10$ with included angle $120^\\circ$: area $= 0.5 \\times 6 \\times 10 \\times \\sin 120^\\circ \\approx 26.0$ cm²."
+    },
+    {
+      "id": "math-igcse-trig-advanced-n7",
+      "heading": "Which Rule, and Two-Step Problems",
+      "body": "🔑 How it works\nMatch the data you have to the tool:\n• pair (side + opposite angle) plus another angle or side → **sine rule**;\n• two sides and the included angle, wanting the third side → **cosine rule**;\n• three sides, wanting any angle → **cosine rule**;\n• two sides and included angle, wanting area → **half ab sin C**;\n• nothing above? Find the third angle with the $180^\\circ$ sum first — it often creates the pair you need.\n\n💡 Worked Example — two steps\nAngles $A = 35^\\circ$, $B = 65^\\circ$, side $a = 10$ cm: the third angle is $C = 180^\\circ - 35^\\circ - 65^\\circ = 80^\\circ$, then the sine rule gives $c = \\dfrac{10 \\times \\sin 80^\\circ}{\\sin 35^\\circ} = 17.2$ cm.\n\n💡 Worked Example 2 — 3D\nTo find the angle a cuboid's diagonal makes with its base: first get the base diagonal (a right-angled triangle in the floor), then take a vertical cross-section and use $\\tan$ = height / base-diagonal. Every 3D trig question is two flat right-angled triangles wearing a trench coat.\n\n⚠️ Common Mistake\nBlindly trying the cosine rule without an included angle, or the sine rule with no completed pair — the data decides, not habit.\n\n📎 Key Points to Remember\n• Round only at the END; keep full calculator accuracy between steps.\n• Sanity-check with the order: biggest angle ↔ biggest side.\n\n✅ Check\nGiven sides $9$ and $12$ with included angle $40^\\circ$, first find the third side with the cosine rule — then decide which rule unlocks the angles."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-trig-advanced-f1",
+      "term": "Side-angle naming",
+      "definition": "In triangle ABC, side a is opposite angle A, side b opposite B, side c opposite C.",
+      "example": "Side a never touches corner A."
+    },
+    {
+      "id": "math-igcse-trig-advanced-f2",
+      "term": "Sine rule (side form)",
+      "definition": "a/sin A = b/sin B = c/sin C.",
+      "example": "A=30, a=6, B=90: b = 6 x sin 90 / sin 30 = 12."
+    },
+    {
+      "id": "math-igcse-trig-advanced-f3",
+      "term": "Sine rule (angle form)",
+      "definition": "Flip it: sin A/a = sin B/b = sin C/c, then use the inverse sine.",
+      "example": "a=9, A=40, b=7: sin B = 7 x sin 40 / 9 = 0.500, B = 30.0 deg."
+    },
+    {
+      "id": "math-igcse-trig-advanced-f4",
+      "term": "When to use the sine rule",
+      "definition": "When a side and its opposite angle are both known (a complete pair), plus one more side or angle."
+    },
+    {
+      "id": "math-igcse-trig-advanced-f5",
+      "term": "Cosine rule (side form)",
+      "definition": "a squared = b squared + c squared - 2bc cos A, with A the included angle.",
+      "example": "b=5, c=8, A=60: a^2 = 25+64-80(0.5) = 49, so a = 7."
+    },
+    {
+      "id": "math-igcse-trig-advanced-f6",
+      "term": "Cosine rule (angle form)",
+      "definition": "cos A = (b^2 + c^2 - a^2) / 2bc, where a is the side opposite the wanted angle.",
+      "example": "a=7, b=5, c=3: cos A = (25+9-49)/30 = -0.5, A = 120 deg."
+    },
+    {
+      "id": "math-igcse-trig-advanced-f7",
+      "term": "When to use the cosine rule",
+      "definition": "Two sides and their INCLUDED angle (for the third side), or all three sides (for an angle)."
+    },
+    {
+      "id": "math-igcse-trig-advanced-f8",
+      "term": "Obtuse cosine",
+      "definition": "Cos of an obtuse angle is negative, so -2bc cos A becomes a PLUS and the answer grows.",
+      "example": "A=120, b=6, c=10: a^2 = 36+100+60 = 196, a = 14."
+    },
+    {
+      "id": "math-igcse-trig-advanced-f9",
+      "term": "Area formula",
+      "definition": "Area = half x a x b x sin C, for two sides a and b and their INCLUDED angle C.",
+      "example": "Sides 7 and 9, included 50 deg: 0.5 x 7 x 9 x sin 50 = 24.1 cm squared."
+    },
+    {
+      "id": "math-igcse-trig-advanced-f10",
+      "term": "Cosine rule and Pythagoras",
+      "definition": "At an included angle of 90 degrees the cosine rule collapses to Pythagoras, because 2bc cos 90 = 0."
+    },
+    {
+      "id": "math-igcse-trig-advanced-f11",
+      "term": "Third-angle move",
+      "definition": "Angles total 180 degrees: knowing two angles means the third, which often creates the pair the sine rule needs."
+    },
+    {
+      "id": "math-igcse-trig-advanced-f12",
+      "term": "3D strategy",
+      "definition": "Reduce a 3D problem to two flat right-angled triangles: a diagonal in the base plane, then a vertical section using that diagonal.",
+      "example": "Cuboid base 10 by 7, height 6: base diagonal 12.21, then angle with base = tan^-1(6/12.21) = 26.2 deg."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-trig-advanced-q1",
+      "stem": "In triangle $ABC$, sides $a$, $b$ and $c$ are named so that side $a$ is",
+      "choices": [
+        "the side touching angle $A$ on the right",
+        "the longest side",
+        "the side opposite angle $A$",
+        "the base of the triangle"
+      ],
+      "correctIndex": 2,
+      "explanation": "Each side takes the lowercase letter of the angle it FACES. Side a is opposite angle A and does not touch it — that pairing is what makes the rules work.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q2",
+      "stem": "In a triangle, $A = 30^\\circ$, $a = 6$ cm and $B = 90^\\circ$. Use the sine rule to find $b$.",
+      "choices": [
+        "12 cm",
+        "3 cm",
+        "9 cm",
+        "6.9 cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "b = a x sin B / sin A = 6 x sin 90 / sin 30 = 6 x 1 / 0.5 = 12 cm. The option 3 cm comes from multiplying by sin 30 instead of dividing.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q3",
+      "stem": "A triangle has sides $b = 8$ cm and $c = 10$ cm with included angle $A = 30^\\circ$. What is its area?",
+      "choices": [
+        "34.6 cm²",
+        "40 cm²",
+        "80 cm²",
+        "20 cm²"
+      ],
+      "correctIndex": 3,
+      "explanation": "Area = 0.5 x 8 x 10 x sin 30 = 0.5 x 80 x 0.5 = 20 cm squared. The 40 option forgets the half, 80 forgets both the half and the sine, and 34.6 uses cos instead of sin.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q4",
+      "stem": "In the cosine rule $a^2 = b^2 + c^2 - 2bc \\cos A$, setting $A = 90^\\circ$ gives",
+      "choices": [
+        "$a^2 = b^2 + c^2 + 2bc$",
+        "$a^2 = b^2 + c^2$",
+        "$a^2 = b^2 - c^2$",
+        "$a^2 = 2bc$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cos 90 = 0, so the entire 2bc term disappears and the cosine rule collapses to Pythagoras. That is why the sine and cosine rules generalise right-angled trig to every triangle.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q5",
+      "stem": "To use the cosine rule to find side $a$, the information you need is",
+      "choices": [
+        "sides $b$ and $c$ and the included angle $A$",
+        "any two sides and any angle",
+        "sides $b$ and $c$ and the angle opposite one of them",
+        "two angles and one side"
+      ],
+      "correctIndex": 0,
+      "explanation": "The cosine rule for a side needs two sides and the angle BETWEEN them (the included angle). Two angles and a side is instead the territory of the sine rule.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q6",
+      "stem": "In a triangle, $a = 9$ cm, $A = 40^\\circ$ and $b = 7$ cm. Use the sine rule to find angle $B$, to 1 decimal place.",
+      "choices": [
+        "150.0°",
+        "60.0°",
+        "30.0°",
+        "13.5°"
+      ],
+      "correctIndex": 2,
+      "explanation": "sin B = 7 x sin 40 / 9 = 0.500, so B = sin^-1(0.5) = 30.0 deg. Side b is shorter than side a, so angle B must be smaller than angle A = 40 deg: the 150 deg option is impossible.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q7",
+      "stem": "A triangle has $b = 5$ cm, $c = 8$ cm and included angle $A = 60^\\circ$. Find side $a$.",
+      "choices": [
+        "9.43 cm",
+        "7 cm",
+        "11.4 cm",
+        "49 cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "a^2 = 25 + 64 - 2 x 5 x 8 x cos 60 = 89 - 40 = 49, so a = 7 cm. The option 49 forgets the square root, and 9.43 comes from leaving out the 2bc cos A term.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q8",
+      "stem": "A triangle has $b = 6$ cm, $c = 10$ cm and included angle $A = 120^\\circ$. Find side $a$, correct to 3 significant figures.",
+      "choices": [
+        "8.72 cm",
+        "18.9 cm",
+        "10.2 cm",
+        "14.0 cm"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cos 120 = -0.5, so a^2 = 36 + 100 - 2 x 6 x 10 x (-0.5) = 136 + 60 = 196 and a = 14.0 cm. The option 8.72 cm comes from treating cos 120 as +0.5.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q9",
+      "stem": "A triangle has sides $a = 7$ cm, $b = 5$ cm and $c = 3$ cm. Find the size of angle $A$.",
+      "choices": [
+        "120°",
+        "60°",
+        "90°",
+        "135°"
+      ],
+      "correctIndex": 0,
+      "explanation": "cos A = (25 + 9 - 49) / (2 x 5 x 3) = -15/30 = -0.5, giving A = cos^-1(-0.5) = 120 deg. A negative cosine means the angle is obtuse; 60 deg is the sign error.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q10",
+      "stem": "A triangle has two sides of $7$ cm and $9$ cm, and the angle between them is $50^\\circ$. What is its area, to 3 significant figures?",
+      "choices": [
+        "20.3 cm²",
+        "31.5 cm²",
+        "24.1 cm²",
+        "48.3 cm²"
+      ],
+      "correctIndex": 2,
+      "explanation": "Area = 0.5 x 7 x 9 x sin 50 = 31.5 x 0.766 = 24.1 cm squared. The option 20.3 uses cos 50 instead of sin 50, 31.5 is the product of the half and the sides without the sine, and 48.3 omits the factor 0.5.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q11",
+      "stem": "An equilateral triangle has sides of length $8$ cm. What is its area, to 3 significant figures?",
+      "choices": [
+        "32.0 cm²",
+        "27.7 cm²",
+        "55.4 cm²",
+        "22.1 cm²"
+      ],
+      "correctIndex": 1,
+      "explanation": "All angles of an equilateral triangle are 60 deg, so area = 0.5 x 8 x 8 x sin 60 = 32 x 0.866 = 27.7 cm squared. The option 32.0 drops the sine, and 55.4 doubles the answer.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q12",
+      "stem": "In a triangle, $A = 35^\\circ$, $B = 65^\\circ$ and $a = 10$ cm. Find side $b$, correct to 3 significant figures.",
+      "choices": [
+        "6.33 cm",
+        "17.2 cm",
+        "12.9 cm",
+        "15.8 cm"
+      ],
+      "correctIndex": 3,
+      "explanation": "b = 10 x sin 65 / sin 35 = 15.8 cm. The option 17.2 is side c (opposite the third angle, 80 deg), and 6.33 flips the sines upside down.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q13",
+      "stem": "A triangle has sides of $6$ cm and $10$ cm, and the angle between them is $120^\\circ$. Work out the third side and the area.",
+      "choices": [
+        "third side 14.0 cm, area 26.0 cm²",
+        "third side 8.72 cm, area 26.0 cm²",
+        "third side 14.0 cm, area 52.0 cm²",
+        "third side 18.9 cm, area 30.0 cm²"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cos 120 = -0.5, so a^2 = 36 + 100 + 60 = 196 and a = 14.0 cm; area = 0.5 x 6 x 10 x sin 120 = 26.0 cm squared. The 52.0 option omits the factor 0.5, and 8.72 uses +0.5 for cos 120.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q14",
+      "stem": "A cuboid has a rectangular base $10$ cm by $7$ cm and height $6$ cm. A rope runs in a straight line from a corner of the base to the diagonally opposite top corner. What angle, to 1 decimal place, does the rope make with the base?",
+      "choices": [
+        "31.0°",
+        "40.6°",
+        "26.2°",
+        "24.8°"
+      ],
+      "correctIndex": 2,
+      "explanation": "The base diagonal is the square root of 100 + 49 = 12.21 cm (a right-angled triangle in the floor). The rope, that diagonal and the vertical height 6 form a second right-angled triangle: tan of the angle = 6/12.21, giving 26.2 deg. The 31.0 and 40.6 options use a single base edge instead of the diagonal.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-trig-advanced-q15",
+      "stem": "In a triangle, two of the angles are $55^\\circ$ and $65^\\circ$, and the side opposite the $55^\\circ$ angle is $9$ cm. What is the length of the LONGEST side, to 3 significant figures?",
+      "choices": [
+        "8.13 cm",
+        "9.96 cm",
+        "9.51 cm",
+        "11.6 cm"
+      ],
+      "correctIndex": 1,
+      "explanation": "The third angle is 180 - 55 - 65 = 60 deg, so the largest angle is 65 deg and the longest side faces it: 9 x sin 65 / sin 55 = 9.96 cm. The option 9.51 cm is the side opposite the 60 deg angle (the middle side), and 8.13 cm comes from swapping the sines.",
+      "difficulty": "hard"
+    }
+  ]
+}

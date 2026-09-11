@@ -1,0 +1,100 @@
+{
+  "id": "math-igcse-set-3",
+  "courseId": "math-igcse",
+  "title": "Practice Set 3",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "math-igcse-set-3-q1",
+      "stem": "In a histogram, the class with interval width $10$ has a frequency of $24$. Work out the frequency density for this class.",
+      "marks": 2,
+      "markscheme": [
+        "M1: uses frequency density = frequency ÷ class width",
+        "A1: $2.4$"
+      ],
+      "modelAnswer": "Frequency density is frequency divided by class width: $24 \\div 10 = 2.4$. The bar height is $2.4$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-set-3-q2",
+      "stem": "In a right-angled triangle, the side opposite an angle $\\theta$ has length $5$ cm and the side adjacent to $\\theta$ has length $12$ cm. Work out the length of the hypotenuse, and give $\\sin \\theta$ as a fraction.",
+      "marks": 2,
+      "markscheme": [
+        "M1: hypotenuse $= 13$ (using Pythagoras)",
+        "A1: $\\sin \\theta = \\dfrac{5}{13}$"
+      ],
+      "modelAnswer": "The hypotenuse is $\\sqrt{5^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$ cm. Sine is opposite over hypotenuse, so $\\sin \\theta = \\dfrac{5}{13}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-set-3-q3",
+      "stem": "The function $f$ is defined by $f(x) = 3x - 5$. Work out $f(4)$, and find the inverse function $f^{-1}(x)$.",
+      "marks": 2,
+      "markscheme": [
+        "A1: $f(4) = 7$",
+        "A1: $f^{-1}(x) = \\dfrac{x + 5}{3}$ (accept $\\dfrac{1}{3}(x+5)$ or $\\dfrac{x}{3} + \\dfrac{5}{3}$)"
+      ],
+      "modelAnswer": "$f(4) = 3 \\times 4 - 5 = 7$. For the inverse, start with $y = 3x - 5$ and solve for $x$: $x = \\dfrac{y + 5}{3}$, so $f^{-1}(x) = \\dfrac{x + 5}{3}$. Check: $f^{-1}(7) = \\dfrac{7+5}{3} = 4$, which undoes $f(4) = 7$ as expected.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-set-3-q4",
+      "stem": "Point A has position vector $\\begin{pmatrix} 2 \\\\ -1 \\end{pmatrix}$ and point B has position vector $\\begin{pmatrix} 8 \\\\ 5 \\end{pmatrix}$. Find the vector $\\overrightarrow{AB}$ and work out its magnitude, giving your answer in its simplest surd form.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $\\overrightarrow{AB} = \\begin{pmatrix} 6 \\\\ 6 \\end{pmatrix}$ (B minus A)",
+        "A1: magnitude $= \\sqrt{72} = 6\\sqrt{2}$ (accept $\\approx 8.49$ with surd form seen)"
+      ],
+      "modelAnswer": "$\\overrightarrow{AB} = \\begin{pmatrix} 8 - 2 \\\\ 5 - (-1) \\end{pmatrix} = \\begin{pmatrix} 6 \\\\ 6 \\end{pmatrix}$. Magnitude $= \\sqrt{6^2 + 6^2} = \\sqrt{72} = \\sqrt{36 \\times 2} = 6\\sqrt{2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-set-3-q5",
+      "stem": "A triangle has two sides of lengths $8$ cm and $10$ cm, and the angle between these two sides is $30^\\circ$. Work out the area of the triangle.",
+      "marks": 3,
+      "markscheme": [
+        "M1: states or uses area $= \\dfrac{1}{2}ab\\sin C$",
+        "M1: substitutes correctly with $\\sin 30^\\circ = 0.5$",
+        "A1: area $= 20$ cm$^2$"
+      ],
+      "modelAnswer": "Area $= \\dfrac{1}{2}ab\\sin C = \\dfrac{1}{2} \\times 8 \\times 10 \\times \\sin 30^\\circ$. Since $\\sin 30^\\circ = 0.5$, area $= \\dfrac{1}{2} \\times 80 \\times 0.5 = 20$ cm$^2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-set-3-q6",
+      "stem": "Points A, B and C lie on a circle with centre O, and C lies on the major arc AB. The angle $\\widehat{AOB} = 118^\\circ$. (a) Work out the angle $\\widehat{ACB}$. (b) The segments OA and OC are drawn. Work out the angle $\\widehat{OAC}$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: angle at the centre is twice the angle at the circumference, used for $\\widehat{ACB}$",
+        "A1: $\\widehat{ACB} = 59^\\circ$",
+        "A1: $\\widehat{OAC} = 31^\\circ$ (from triangle OAC isosceles: $(180 - 118) \\div 2$)"
+      ],
+      "modelAnswer": "(a) The angle at the circumference is half the angle at the centre standing on the same arc AB, so $\\widehat{ACB} = 118^\\circ \\div 2 = 59^\\circ$. (b) OA and OC are both radii, so triangle OAC is isosceles and the two base angles are equal: $\\widehat{OAC} = \\widehat{OCA} = (180^\\circ - 118^\\circ) \\div 2 = 31^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-set-3-q7",
+      "stem": "The times, in minutes, that students spent reading one evening are shown in a histogram. The bar for the class $0 < t \\le 20$ has height $0.4$, the bar for the class $20 < t \\le 50$ has height $0.6$, and the bar for the class $50 < t \\le 90$ has height $0.25$. Work out the total number of students in the group.",
+      "marks": 3,
+      "markscheme": [
+        "M1: frequency = bar height × class width, applied to each class",
+        "A1: two of the three frequencies $8$, $18$ and $10$ seen",
+        "A1: total number of students $= 36$"
+      ],
+      "modelAnswer": "Frequency equals height times width for each bar. Class $0 < t \\le 20$: width $20$, frequency $0.4 \\times 20 = 8$. Class $20 < t \\le 50$: width $30$, frequency $0.6 \\times 30 = 18$. Class $50 < t \\le 90$: width $40$, frequency $0.25 \\times 40 = 10$. Total: $8 + 18 + 10 = 36$ students.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-set-3-q8",
+      "stem": "The functions $f$ and $g$ are defined by $f(x) = 2x - 3$ and $g(x) = x^2 + 1$. (a) Work out the value of $gf(2)$. (b) Work out the value of $ff(5)$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: $f(2) = 1$ seen",
+        "A1: $gf(2) = g(1) = 2$",
+        "A1: $ff(5) = 11$ (via $f(5) = 7$)"
+      ],
+      "modelAnswer": "(a) Work inside out: $f(2) = 2 \\times 2 - 3 = 1$, then $gf(2) = g(1) = 1^2 + 1 = 2$. (b) $f(5) = 2 \\times 5 - 3 = 7$, then $ff(5) = f(7) = 2 \\times 7 - 3 = 11$.",
+      "difficulty": "hard"
+    }
+  ]
+}

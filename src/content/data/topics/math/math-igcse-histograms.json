@@ -1,0 +1,257 @@
+{
+  "id": "math-igcse-histograms",
+  "subjectId": "math",
+  "title": "Histograms: Frequency Density and Unequal Class Widths",
+  "description": "Histograms with unequal class widths: class width, frequency density, area represents frequency, reading frequencies back, and the tallest-bar trap for IGCSE Maths 0580 Extended.",
+  "stage": "igcse",
+  "course": "0580",
+  "level": "extended",
+  "notes": [
+    {
+      "id": "math-igcse-histograms-n1",
+      "heading": "What a Histogram Is",
+      "body": "📌 Definition\nA histogram looks like a bar chart, but the data is continuous and grouped into class intervals, and the **area** of each bar represents the frequency. The horizontal axis is the variable itself (measured continuously), and the vertical axis is frequency density.\n\n🔑 How it works\nIn a normal bar chart the height shows the frequency. In a histogram the bars can have different widths, so height alone would lie — instead the height is adjusted so that width × height always equals the frequency.\n\n💡 Worked Example 1\nIf one class is $0 < t \\le 10$ and the next is $10 < t \\le 40$, the second bar is three times as wide as the first, so its height must be scaled down for the areas to tell the truth about frequencies.\n\n⚠️ Common Mistake\nConfusing the two charts: bar charts have equal-width bars for discrete categories, histograms have possibly unequal widths for continuous data.\n\n📎 Key Points to Remember\n• Area of bar = frequency.\n• Vertical axis label on a histogram: frequency density.\n\n✅ Check\nA histogram for times taken, grouped as $0 < t \\le 10$, $10 < t \\le 40$, uses unequal widths."
+    },
+    {
+      "id": "math-igcse-histograms-n2",
+      "heading": "Class Width",
+      "body": "📌 Definition\nThe class width is the upper class boundary minus the lower class boundary.\n\n$$\\text{class width} = \\text{upper boundary} - \\text{lower boundary}$$\n\n🔑 How it works\nRead each class interval from the boundary numbers printed on the horizontal axis; subtract to get the width.\n\n💡 Worked Example 1\nThe class $20 < h \\le 50$ has width $50 - 20 = 30$.\n\n💡 Worked Example 2\nThe class $0 < t \\le 10$ has width $10 - 0 = 10$. So a histogram with classes $0 < t \\le 10$ and $10 < t \\le 40$ has bars of width 10 and width 30 — unequal.\n\n⚠️ Common Mistake\nCounting class limits wrongly, or subtracting the previous lower boundary instead of the class's own boundaries. Each class uses its own pair of numbers.\n\n📎 Key Points to Remember\n• Width comes from the axis boundaries, never from the frequency.\n• Unequal class widths are exactly why frequency density is needed.\n\n✅ Check\nThe class $12 < x \\le 20$ has width 8."
+    },
+    {
+      "id": "math-igcse-histograms-n3",
+      "heading": "Frequency Density: The Height of a Bar",
+      "body": "📌 Definition\nFrequency density is the frequency per single unit of class width:\n\n$$\\text{frequency density} = \\dfrac{\\text{frequency}}{\\text{class width}}$$\n\n🔑 How it works\nDivide each class's frequency by its own class width. That result is the height of the bar to draw.\n\n💡 Worked Example 1\nA class of width 3 has frequency 24, so frequency density $= 24 \\div 3 = 8$.\n\n💡 Worked Example 2\nA class of width 6 has frequency 15, so frequency density $= 15 \\div 6 = 2.5$.\n\n⚠️ Common Mistake\nWriting density as width ÷ frequency — it is frequency ÷ width. A density is a rate: 'how many data values per one unit along the axis'.\n\n📎 Key Points to Remember\n• Density can be a decimal; that is fine.\n• Equal widths would give densities proportional to frequencies — which is why simple bar charts can skip the conversion.\n\n✅ Check\nFrequency 40 in a class of width 10 gives a density of 4."
+    },
+    {
+      "id": "math-igcse-histograms-n4",
+      "heading": "Drawing a Histogram from a Table",
+      "body": "🔑 How it works\nGive each class its width, divide frequency by width for the height, then draw one bar per class sitting exactly on its interval with no gaps.\n\n💡 Worked Example\nTable: $0 < w \\le 10$, frequency 40; $10 < w \\le 30$, frequency 50; $30 < w \\le 35$, frequency 20.\n\nWidths are 10, 20 and 5, so the densities are $40 \\div 10 = 4$, $50 \\div 20 = 2.5$ and $20 \\div 5 = 4$. Draw bars of height 4, 2.5 and 4 over those intervals.\n\n⚠️ Common Mistake\nLeaving gaps between bars. Histogram bars touch because the variable is continuous; gaps belong to bar charts of discrete categories.\n\n📎 Key Points to Remember\n• One width, one division per class.\n• Label axes: variable along the bottom, frequency density up the side.\n\n✅ Check\nThe three bars above have areas $10 \\times 4 = 40$, $20 \\times 2.5 = 50$ and $5 \\times 4 = 20$ — the frequencies."
+    },
+    {
+      "id": "math-igcse-histograms-n5",
+      "heading": "Reading Frequencies Back from a Histogram",
+      "body": "📌 Definition\nBecause area represents frequency, recovering a frequency means multiplying the bar's height by its width:\n\n$$\\text{frequency} = \\text{height} \\times \\text{class width}$$\n\n🔑 How it works\nTake the density from the vertical axis and the width from the horizontal axis boundaries, and multiply.\n\n💡 Worked Example 1\nA bar covering $10 < t \\le 30$ has height 2.5. Width $= 20$, so frequency $= 2.5 \\times 20 = 50$.\n\n💡 Worked Example 2\nTo find the total number of data values, work out each bar's area and add: $40 + 50 + 20 = 110$.\n\n⚠️ Common Mistake\nReading the height off the vertical axis and calling it the frequency. It is only the frequency when the width is exactly 1.\n\n📎 Key Points to Remember\n• Height × width = frequency, always.\n• Total frequency = sum of all bar areas.\n\n✅ Check\nA bar of height 3 covering $0 < d \\le 28$ has frequency $3 \\times 28 = 84$."
+    },
+    {
+      "id": "math-igcse-histograms-n6",
+      "heading": "The Tallest-Bar Trap",
+      "body": "📌 Definition\nOn a histogram the tallest bar is the most **dense** class, not necessarily the class with the most data values.\n\n🔑 How it works\nCompare classes by area (height × width), never by height alone, whenever the widths differ.\n\n💡 Worked Example\nClass $0 < t \\le 10$ has height 5: area $5 \\times 10 = 50$. Class $10 < t \\le 40$ has height 2: area $2 \\times 30 = 60$. The shorter bar actually contains more data — 60 values against 50.\n\n⚠️ Common Mistake\nSaying 'the tallest bar is the most popular'. That is only safe when all bars share one width.\n\n📎 Key Points to Remember\n• Equal widths: heights rank the frequencies correctly.\n• Unequal widths: only areas rank them.\n\n✅ Check\nWidth 10, height 5 versus width 30, height 2: the second class wins 60 to 50."
+    },
+    {
+      "id": "math-igcse-histograms-n7",
+      "heading": "Comparing Distributions by Shape",
+      "body": "📌 Definition\nThe overall shape of a histogram tells you how the data is spread. A long tail stretching to the right (towards the larger values) is called positive skew; a long tail to the left is negative skew.\n\n🔑 How it works\nLook at where the tall, wide bars sit. If most of the area — hence most of the data — is on the left and a thin tail trails right, the values are mostly low with a few high outliers.\n\n💡 Worked Example 1\nA histogram of 100 swimmers' reaction times has bars getting shorter to the right with a long right tail. Most swimmers took a short time, a few took much longer; the mean is pulled above the typical value.\n\n💡 Worked Example 2\nTwo histograms of the same variable: A piles its area at the low end with a right tail, B is roughly symmetric. A has more values below the middle than B.\n\n⚠️ Common Mistake\nReading skew from the tallest bar alone — shape uses the whole distribution of area.\n\n📎 Key Points to Remember\n• Right tail → positive skew → most values low.\n• Left tail → negative skew → most values high.\n\n✅ Check\nLong tail to the right means most data values sit at the low end."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-histograms-f1",
+      "term": "Histogram",
+      "definition": "A chart for continuous grouped data where the area of each bar represents the frequency.",
+      "example": "Times grouped as 0 < t ≤ 10 and 10 < t ≤ 40 are drawn as a histogram."
+    },
+    {
+      "id": "math-igcse-histograms-f2",
+      "term": "Class width",
+      "definition": "Upper class boundary minus lower class boundary.",
+      "example": "The class 20 < h ≤ 50 has width 30."
+    },
+    {
+      "id": "math-igcse-histograms-f3",
+      "term": "Frequency density",
+      "definition": "Frequency divided by class width — the height of a histogram bar.",
+      "example": "Frequency 24 over width 3 gives density 8."
+    },
+    {
+      "id": "math-igcse-histograms-f4",
+      "term": "Area = frequency",
+      "definition": "Bar height × bar width equals the class frequency.",
+      "example": "Height 2.5 × width 20 = frequency 50."
+    },
+    {
+      "id": "math-igcse-histograms-f5",
+      "term": "Why the vertical axis is frequency density",
+      "definition": "Unequal widths mean height alone would mislead; density rescales so areas match frequencies.",
+      "example": "A class of width 30 with frequency 60 draws at height 2, not 60."
+    },
+    {
+      "id": "math-igcse-histograms-f6",
+      "term": "Reading a frequency back off",
+      "definition": "Find the bar's area: multiply its height by its class width.",
+      "example": "Height 3 across 0 < d ≤ 28 gives 84 data values."
+    },
+    {
+      "id": "math-igcse-histograms-f7",
+      "term": "Tallest-bar trap",
+      "definition": "With unequal widths the tallest bar is the densest class, not the most frequent one.",
+      "example": "Width 10 height 5 (area 50) loses to width 30 height 2 (area 60)."
+    },
+    {
+      "id": "math-igcse-histograms-f8",
+      "term": "Total frequency",
+      "definition": "Add the areas of all the bars.",
+      "example": "Areas 40, 50 and 20 total 110 data values."
+    },
+    {
+      "id": "math-igcse-histograms-f9",
+      "term": "Positive skew",
+      "definition": "A long tail to the right: most values sit at the low end with a few high ones.",
+      "example": "Reaction times: most swimmers fast, a few very slow."
+    },
+    {
+      "id": "math-igcse-histograms-f10",
+      "term": "Negative skew",
+      "definition": "A long tail to the left: most values sit at the high end with a few low ones.",
+      "example": "Exam marks piled near full marks with a handful of very low ones."
+    },
+    {
+      "id": "math-igcse-histograms-f11",
+      "term": "Unequal widths rule",
+      "definition": "Treat every class separately: its own width, its own density division.",
+      "example": "Widths 10, 20, 5 need three separate frequency ÷ width calculations."
+    },
+    {
+      "id": "math-igcse-histograms-f12",
+      "term": "Units of frequency density",
+      "definition": "Data values per one unit of the variable on the horizontal axis.",
+      "example": "Density 4 for lengths in cm means 4 values per centimetre of class."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-histograms-q1",
+      "stem": "A class in a histogram is $20 < h \\le 50$. What is its class width?",
+      "choices": ["70", "30", "20", "50"],
+      "correctIndex": 1,
+      "explanation": "Width = upper boundary − lower boundary = $50 - 20 = 30$. The option 70 adds the boundaries instead of subtracting.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-histograms-q2",
+      "stem": "A class has frequency 24 and class width 3. What is the frequency density?",
+      "choices": ["6", "5", "8", "72"],
+      "correctIndex": 2,
+      "explanation": "Density = frequency ÷ width = $24 \\div 3 = 8$. The option 72 multiplies instead of dividing; 6 swaps the numbers.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-histograms-q3",
+      "stem": "A class has frequency 15 and class width 6. What is the frequency density?",
+      "choices": ["0.4", "9", "36", "2.5"],
+      "correctIndex": 3,
+      "explanation": "$15 \\div 6 = 2.5$. A density may be a decimal; 0.4 is width ÷ frequency, the division the wrong way round.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-histograms-q4",
+      "stem": "In a histogram, what does the area of each bar represent?",
+      "choices": ["The frequency of the class", "The class width", "The frequency density", "The total of all frequencies"],
+      "correctIndex": 0,
+      "explanation": "Area = frequency, which is why the vertical axis is frequency density: height × width must come back to the class frequency.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-histograms-q5",
+      "stem": "The class $0 < t \\le 10$ has frequency 40. What height is its bar on a histogram?",
+      "choices": ["40", "4", "0.25", "10"],
+      "correctIndex": 1,
+      "explanation": "Height = density = $40 \\div 10 = 4$. The width here is 10, not 40 — do not divide by the frequency.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-histograms-q6",
+      "stem": "A bar covers the class $30 < m \\le 45$ and has height 2. What is the frequency?",
+      "choices": ["15", "22", "30", "45"],
+      "correctIndex": 2,
+      "explanation": "Width = $45 - 30 = 15$, and frequency = height × width = $2 \\times 15 = 30$. Reading 15 stops after finding the width.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-histograms-q7",
+      "stem": "A histogram has three bars: width 10 with height 4, width 20 with height 2.5, and width 10 with height 6. How many data values are there in total?",
+      "choices": ["100", "90", "120", "150"],
+      "correctIndex": 3,
+      "explanation": "Areas: $10 \\times 4 = 40$, $20 \\times 2.5 = 50$, $10 \\times 6 = 60$. Total = $40 + 50 + 60 = 150$. Adding heights instead of areas gives 12.5 — meaningless here.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-histograms-q8",
+      "stem": "A histogram has a bar for $0 < t \\le 10$ at height 5 and a bar for $10 < t \\le 40$ at height 2. Which class contains more data values?",
+      "choices": [
+        "The class $0 < t \\le 10$",
+        "The class $10 < t \\le 40$",
+        "They contain exactly the same number",
+        "It cannot be determined from the heights and widths"
+      ],
+      "correctIndex": 1,
+      "explanation": "Areas decide: $5 \\times 10 = 50$ but $2 \\times 30 = 60$. The shorter, wider class wins — the tallest-bar trap in action.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-histograms-q9",
+      "stem": "The class $12 < x \\le 20$ has frequency 36. What is its frequency density?",
+      "choices": ["0.22", "4", "4.5", "288"],
+      "correctIndex": 2,
+      "explanation": "Width = $20 - 12 = 8$, density = $36 \\div 8 = 4.5$. The option 4 divides $36 \\div 8$ badly; 288 multiplies.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-histograms-q10",
+      "stem": "A histogram of 100 swimmers' times has bars that shrink towards the right with a long tail at the high end. Where do most swimmers' times lie?",
+      "choices": [
+        "At the high end, in the tail",
+        "At the low end, away from the tail",
+        "Exactly in the middle of the range",
+        "Spread evenly across all classes"
+      ],
+      "correctIndex": 1,
+      "explanation": "A right-hand tail (positive skew) means most of the area — hence most values — sits at the low end, with a few slow times stretching the tail.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-histograms-q11",
+      "stem": "Class $0 < d \\le 15$ has frequency 45 and class $15 < d \\le 45$ has frequency 120. What is the difference between their frequency densities?",
+      "choices": ["1", "7", "45", "8"],
+      "correctIndex": 0,
+      "explanation": "Densities: $45 \\div 15 = 3$ and $120 \\div 30 = 4$; the difference is $4 - 3 = 1$. The option 8 is 4 + 3; 45 compares frequencies, not densities.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-histograms-q12",
+      "stem": "A class has width 28 and frequency 84. What height must its bar have?",
+      "choices": ["0.33", "28", "3", "2352"],
+      "correctIndex": 2,
+      "explanation": "Height = density = $84 \\div 28 = 3$. Check: $3 \\times 28 = 84$. The option 0.33 inverts the division; 2352 multiplies.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-histograms-q13",
+      "stem": "A histogram of 100 masses has a bar for $0 < m \\le 10$ at height 4 and a bar for $10 < m \\le 40$ at height 2. What percentage of the values are greater than 10?",
+      "choices": ["60%", "40%", "25%", "30%"],
+      "correctIndex": 0,
+      "explanation": "Values above 10: $2 \\times 30 = 60$. Out of 100, that is 60%. The option 40% is the count below 10 ($4 \\times 10$) read as a percentage of the wrong class.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-histograms-q14",
+      "stem": "A class $40 < d \\le 48$ has a frequency density of 3.5. What is its frequency?",
+      "choices": ["6.5", "28", "24", "3.2"],
+      "correctIndex": 1,
+      "explanation": "Width = $48 - 40 = 8$, and frequency = density × width = $3.5 \\times 8 = 28$. The option 6.5 adds instead of multiplying.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-histograms-q15",
+      "stem": "A histogram has bars of height 5 covering $0 < x \\le 8$, height 2.5 covering $8 < x \\le 28$, and height 4 covering $28 < x \\le 33$. Which class holds the most data values?",
+      "choices": [
+        "$0 < x \\le 8$",
+        "$8 < x \\le 28$",
+        "$28 < x \\le 33$",
+        "Cannot be determined without the frequencies"
+      ],
+      "correctIndex": 1,
+      "explanation": "Areas: $5 \\times 8 = 40$, $2.5 \\times 20 = 50$, $4 \\times 5 = 20$. The middle class holds 50 — the *shortest* bar, because its width of 20 compensates.",
+      "difficulty": "hard"
+    }
+  ]
+}

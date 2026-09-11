@@ -1,0 +1,317 @@
+{
+  "id": "math-igcse-circle-theorems",
+  "subjectId": "math",
+  "title": "Circle Theorems: Angles in Circles",
+  "description": "Use the IGCSE circle theorems - centre and circumference angles, angles in a semicircle, cyclic quadrilaterals, tangents and the alternate segment theorem - to work out unknown angles in circle diagrams (Cambridge 0580 Extended).",
+  "stage": "igcse",
+  "course": "0580",
+  "level": "extended",
+  "notes": [
+    {
+      "id": "math-igcse-circle-theorems-n1",
+      "heading": "The Parts of a Circle You Must Name",
+      "body": "📌 Definition\nA chord is a straight line joining two points on the circumference. A tangent touches the circle at exactly one point. An arc is part of the circumference.\n\n🔑 How it works\nA sector is the 'pizza slice' bounded by two radii and an arc; a segment is the region between a chord and an arc. Examiners expect this vocabulary to be exact - a line from the centre to the circle is a radius, not a tangent.\n\n💡 Worked Example\nIf chord AB passes through the centre O then AB is a diameter, the longest chord, and it cuts the circle into two semicircles."
+    },
+    {
+      "id": "math-igcse-circle-theorems-n2",
+      "heading": "Angle at the Centre is Twice the Angle at the Circumference",
+      "body": "📌 Definition\nTwo angles standing on the same arc - one at the centre O, one at the circumference - satisfy: centre = 2 x circumference.\n\n🔑 How it works\nIf A and B are on the circle and C is on the major arc AB, then angle ACB is half of angle AOB. When C sits on the MINOR arc AB instead, it stands on the major arc, so you must use the reflex angle at O - that is why such angles come out obtuse.\n\n💡 Worked Example\nAngle AOB = 130$^\\circ$ with C on the major arc: ACB = 130 / 2 = 65$^\\circ$. With C on the minor arc instead: (360 - 130) / 2 = 115$^\\circ$."
+    },
+    {
+      "id": "math-igcse-circle-theorems-n3",
+      "heading": "Angles in the Same Segment are Equal",
+      "body": "📌 Definition\nAngle ACB = angle ADB whenever C and D lie on the same arc cut off by chord AB.\n\n🔑 How it works\nBoth angles stand on the same chord and the same arc, and both are half of the same centre angle - so they must equal each other. Look for two triangles sharing base AB with their apexes on the same side of it.\n\n💡 Worked Example\nIf angle DAC = 42$^\\circ$ stands on chord DC, then any other angle standing on DC from the same arc - say angle DBC - is also 42$^\\circ$."
+    },
+    {
+      "id": "math-igcse-circle-theorems-n4",
+      "heading": "Angle in a Semicircle is a Right Angle",
+      "body": "📌 Definition\nIf AB is a diameter and C is any other point on the circle, then angle ACB = 90$^\\circ$.\n\n🔑 How it works\nThe diameter makes a straight angle of 180$^\\circ$ at the centre, and the circumference angle halves it. Spotting the diameter therefore gives you a free right angle, and the rest of the triangle follows from the angle sum of 180$^\\circ$.\n\n💡 Worked Example\nAB is a diameter and angle CAB = 35$^\\circ$. Then angle ABC = 180 - 90 - 35 = 55$^\\circ$."
+    },
+    {
+      "id": "math-igcse-circle-theorems-n5",
+      "heading": "Cyclic Quadrilaterals",
+      "body": "📌 Definition\nA quadrilateral with all four vertices on the circle is cyclic. Its opposite angles sum to 180$^\\circ$.\n\n🔑 How it works\nIn cyclic quadrilateral ABCD, angle A + angle C = 180$^\\circ$ and angle B + angle D = 180$^\\circ$. When the angles are given algebraically this produces a linear equation immediately.\n\n💡 Worked Example\nAngle A = (x + 10)$^\\circ$ and angle C = (2x - 40)$^\\circ$. Then (x + 10) + (2x - 40) = 180, so 3x = 210 and x = 70."
+    },
+    {
+      "id": "math-igcse-circle-theorems-n6",
+      "heading": "Tangents: The Two Facts That Do Most of the Work",
+      "body": "📌 Definition\n(1) A tangent is perpendicular to the radius drawn to the point of contact. (2) The two tangent lengths from the same external point are equal.\n\n🔑 How it works\nFact 1 hands you a 90$^\\circ$ the moment a tangent meets the radius (or diameter) at the circle. Fact 2 makes an isosceles triangle between the external point and the two points of contact, so its base angles are equal.\n\n💡 Worked Example\nTangents PA and PB with angle APB = 40$^\\circ$. Since PA = PB, triangle PAB is isosceles: angle PAB = (180 - 40) / 2 = 70$^\\circ$. And PA = 7 cm gives PB = 7 cm."
+    },
+    {
+      "id": "math-igcse-circle-theorems-n7",
+      "heading": "The Alternate Segment Theorem",
+      "body": "📌 Definition\nThe angle between a tangent and a chord, measured at the point of contact, equals the angle that the chord subtends in the alternate segment.\n\n🔑 How it works\nThe tangent at A meets chord AB at some angle. Any point C on the far arc gives angle ACB equal to that tangent-chord angle. The chord cuts the circle into two segments, and you use the one on the opposite side from the marked angle. Examiners like wrapping algebra or a centre-angle step around it.\n\n💡 Worked Example\nThe tangent at A makes 58$^\\circ$ with chord AB and C is on the major arc: angle ACB = 58$^\\circ$. If the two angles are given as 3x and x + 40$^\\circ$, then 3x = x + 40 gives x = 20."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-circle-theorems-f1",
+      "term": "Chord",
+      "definition": "A straight line joining two points on the circumference.",
+      "example": "If a chord passes through O it is a diameter."
+    },
+    {
+      "id": "math-igcse-circle-theorems-f2",
+      "term": "Tangent",
+      "definition": "A line touching the circle at exactly one point; perpendicular to the radius at that point.",
+      "example": "Tangent at T meets radius OT at 90$^\\circ$."
+    },
+    {
+      "id": "math-igcse-circle-theorems-f3",
+      "term": "Sector vs segment",
+      "definition": "A sector is two radii plus an arc (pizza slice); a segment is a chord plus an arc (crust slice).",
+      "example": "Cutting along a chord leaves two segments."
+    },
+    {
+      "id": "math-igcse-circle-theorems-f4",
+      "term": "Centre and circumference angles",
+      "definition": "The angle at the centre is twice the angle at the circumference on the same arc.",
+      "example": "AOB = 130$^\\circ$ gives ACB = 65$^\\circ$ with C on the major arc."
+    },
+    {
+      "id": "math-igcse-circle-theorems-f5",
+      "term": "Angles in the same segment",
+      "definition": "Angles standing on the same chord from the same arc are equal.",
+      "example": "DAC = DBC = 42$^\\circ$."
+    },
+    {
+      "id": "math-igcse-circle-theorems-f6",
+      "term": "Angle in a semicircle",
+      "definition": "A diameter subtends 90$^\\circ$ at any other point of the circle.",
+      "example": "AB diameter, CAB = 35$^\\circ$ gives ABC = 55$^\\circ$."
+    },
+    {
+      "id": "math-igcse-circle-theorems-f7",
+      "term": "Cyclic quadrilateral",
+      "definition": "Opposite angles of a four-point-inside-circle quadrilateral sum to 180$^\\circ$.",
+      "example": "A = 110$^\\circ$ gives C = 70$^\\circ$."
+    },
+    {
+      "id": "math-igcse-circle-theorems-f8",
+      "term": "Tangents from an external point",
+      "definition": "The two tangent lengths from the same outside point are equal.",
+      "example": "PA = 7 cm gives PB = 7 cm."
+    },
+    {
+      "id": "math-igcse-circle-theorems-f9",
+      "term": "Alternate segment theorem",
+      "definition": "The tangent-chord angle equals the angle subtended in the alternate segment.",
+      "example": "Tangent-chord angle 58$^\\circ$ gives ACB = 58$^\\circ$."
+    },
+    {
+      "id": "math-igcse-circle-theorems-f10",
+      "term": "Point on the minor arc",
+      "definition": "A circumference angle at a point on the minor arc uses the reflex centre angle.",
+      "example": "Minor AOB = 130$^\\circ$: (360 - 130) / 2 = 115$^\\circ$."
+    },
+    {
+      "id": "math-igcse-circle-theorems-f11",
+      "term": "Radii make isosceles triangles",
+      "definition": "OA = OB, so angles OAB and OBA are equal - find the centre angle first.",
+      "example": "OAB = 35$^\\circ$ gives AOB = 110$^\\circ$, then ACB = 55$^\\circ$."
+    },
+    {
+      "id": "math-igcse-circle-theorems-f12",
+      "term": "Circle-theorem exam tactic",
+      "definition": "Mark the centre, every radius, any diameter and any tangent first; each unlocks a theorem.",
+      "example": "Tangent plus radius at the contact point is a free 90$^\\circ$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-circle-theorems-q1",
+      "stem": "A, B and C are points on a circle with centre O. Angle AOB = 130$^\\circ$ and C lies on the major arc AB. Work out angle ACB.",
+      "choices": [
+        "130$^\\circ$",
+        "260$^\\circ$",
+        "65$^\\circ$",
+        "80$^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The angle at the circumference is half the angle at the centre on the same arc: 130 / 2 = 65$^\\circ$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q2",
+      "stem": "AB is a diameter of a circle and C is a point on the circumference. Angle CAB = 35$^\\circ$. Work out angle ABC.",
+      "choices": [
+        "145$^\\circ$",
+        "55$^\\circ$",
+        "65$^\\circ$",
+        "45$^\\circ$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Angle ACB = 90$^\\circ$ (angle in a semicircle), so ABC = 180 - 90 - 35 = 55$^\\circ$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q3",
+      "stem": "ABCD is a cyclic quadrilateral. Angle DAB = 110$^\\circ$. Work out angle BCD.",
+      "choices": [
+        "110$^\\circ$",
+        "70$^\\circ$",
+        "90$^\\circ$",
+        "250$^\\circ$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Opposite angles of a cyclic quadrilateral sum to 180$^\\circ$: BCD = 180 - 110 = 70$^\\circ$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q4",
+      "stem": "PT is a tangent to a circle with centre O, touching the circle at T, and OT is a radius. Work out angle OTP.",
+      "choices": [
+        "60$^\\circ$",
+        "It depends on the radius",
+        "90$^\\circ$",
+        "45$^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A tangent is perpendicular to the radius at the point of contact, so OTP = 90$^\\circ$ whatever else the diagram shows.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q5",
+      "stem": "From a point P outside a circle, two tangents PA and PB touch the circle at A and B. If PA = 7 cm, what is PB?",
+      "choices": [
+        "7 cm",
+        "3.5 cm",
+        "It depends on the radius",
+        "14 cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "The two tangent lengths from the same external point are equal, so PB = PA = 7 cm.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q6",
+      "stem": "Points A, B, C and D lie on a circle. Angles DAC and DBC both stand on chord DC, with A and B on the same arc. Angle DAC = 42$^\\circ$. Work out angle DBC.",
+      "choices": [
+        "48$^\\circ$",
+        "21$^\\circ$",
+        "84$^\\circ$",
+        "42$^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Angles in the same segment (same chord, same arc) are equal, so DBC = 42$^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q7",
+      "stem": "ABCD is a cyclic quadrilateral with angle DAB = (x + 10)$^\\circ$ and angle BCD = (2x - 40)$^\\circ$. Work out the value of x.",
+      "choices": [
+        "50",
+        "60",
+        "80",
+        "70"
+      ],
+      "correctIndex": 3,
+      "explanation": "Opposite angles sum to 180$^\\circ$: (x + 10) + (2x - 40) = 180, so 3x - 30 = 180 and x = 70.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q8",
+      "stem": "A, B and C lie on a circle with centre O. OA and OB are radii, angle OAB = 35$^\\circ$, and C lies on the major arc AB. Work out angle ACB.",
+      "choices": [
+        "35$^\\circ$",
+        "110$^\\circ$",
+        "70$^\\circ$",
+        "55$^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Triangle OAB is isosceles (radii equal), so AOB = 180 - 35 - 35 = 110$^\\circ$; the circumference angle is half of that: 55$^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q9",
+      "stem": "A tangent is drawn at point A on a circle, and AB is a chord. The angle between the tangent and chord AB is 58$^\\circ$. C is a point on the major arc AB. Work out angle ACB.",
+      "choices": [
+        "61$^\\circ$",
+        "116$^\\circ$",
+        "58$^\\circ$",
+        "32$^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Alternate segment theorem: the angle in the alternate segment equals the tangent-chord angle, so ACB = 58$^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q10",
+      "stem": "A and B lie on a circle with centre O and the minor angle AOB = 130$^\\circ$. C is a point on the MINOR arc AB. Work out angle ACB.",
+      "choices": [
+        "65$^\\circ$",
+        "130$^\\circ$",
+        "115$^\\circ$",
+        "230$^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "C on the minor arc stands on the major arc, whose angle at the centre is the reflex 360 - 130 = 230$^\\circ$; half of it is 115$^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q11",
+      "stem": "PA and PB are tangents to a circle from the external point P, touching at A and B. Angle APB = 40$^\\circ$. Work out angle PAB.",
+      "choices": [
+        "40$^\\circ$",
+        "70$^\\circ$",
+        "140$^\\circ$",
+        "50$^\\circ$"
+      ],
+      "correctIndex": 1,
+      "explanation": "PA = PB (equal tangent lengths), so triangle PAB is isosceles: PAB = (180 - 40) / 2 = 70$^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q12",
+      "stem": "The tangent at A meets chord AB at an angle of 3x. Angle ACB, where C is on the major arc AB, is (x + 40)$^\\circ$. Work out the minor angle AOB at the centre.",
+      "choices": [
+        "100$^\\circ$",
+        "60$^\\circ$",
+        "150$^\\circ$",
+        "120$^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Alternate segment: 3x = x + 40, so x = 20 and ACB = 60$^\\circ$. The centre angle on the same arc is twice it: AOB = 120$^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q13",
+      "stem": "AB is a diameter of a circle, and ABCD is a cyclic quadrilateral. Angle CAB = 25$^\\circ$. Work out angle ADC.",
+      "choices": [
+        "125$^\\circ$",
+        "155$^\\circ$",
+        "115$^\\circ$",
+        "65$^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Angle ACB = 90$^\\circ$ (angle in a semicircle), so ABC = 180 - 90 - 25 = 65$^\\circ$; opposite angles of cyclic quadrilateral ABCD give ADC = 180 - 65 = 115$^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q14",
+      "stem": "A, B and C lie on a circle with centre O. Point C lies on the minor arc AB and angle ACB = 115$^\\circ$. Work out the minor angle AOB.",
+      "choices": [
+        "230$^\\circ$",
+        "115$^\\circ$",
+        "120$^\\circ$",
+        "130$^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Angle ACB uses the reflex angle at the centre: reflex AOB = 2 x 115 = 230$^\\circ$, so the minor angle is 360 - 230 = 130$^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-circle-theorems-q15",
+      "stem": "A and B lie on a circle with centre O and angle AOB = 120$^\\circ$. The tangent at A meets the line BO produced beyond O at P, so B, O and P lie in that order on a straight line. Work out angle APO.",
+      "choices": [
+        "60$^\\circ$",
+        "20$^\\circ$",
+        "30$^\\circ$",
+        "45$^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Angle AOP = 180 - 120 = 60$^\\circ$ (straight line BOP) and angle OAP = 90$^\\circ$ (tangent perpendicular to radius), so APO = 180 - 90 - 60 = 30$^\\circ$.",
+      "difficulty": "hard"
+    }
+  ]
+}

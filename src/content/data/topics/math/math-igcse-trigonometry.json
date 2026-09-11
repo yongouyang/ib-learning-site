@@ -1,0 +1,314 @@
+{
+  "id": "math-igcse-trigonometry",
+  "subjectId": "math",
+  "title": "Right-Angled Trigonometry: Sin, Cos and Tan",
+  "description": "Labelling opposite, adjacent and hypotenuse, the ratios SOHCAHTOA, finding missing sides and angles, angles of elevation and depression, and exact values for IGCSE Maths 0580.",
+  "stage": "igcse",
+  "course": "0580",
+  "notes": [
+    {
+      "id": "math-igcse-trigonometry-n1",
+      "heading": "Labelling the Sides: Hypotenuse, Opposite and Adjacent",
+      "body": "📌 Definition\nTrigonometry compares the **sides** of a right-angled triangle with one of its acute angles. The three sides are named relative to the angle you pick:\n• The **hypotenuse** is the side opposite the right angle — always the longest side, and it never changes.\n• The **opposite** side is the side facing your chosen angle.\n• The **adjacent** side is the remaining side, next to the angle (but not the hypotenuse).\n\n🔑 How it works\nLabel the angle first, then ask: which side is straight across from it (opposite)? Which side touches it but is not the hypotenuse (adjacent)?\n\n💡 Worked Example\nIn a triangle right-angled at B, with angle A at the other end of base AB: the hypotenuse is AC, the side opposite angle A is BC, and AB is adjacent to angle A.\n\n⚠️ Common Mistake\nSwapping opposite and adjacent. If you relabel the OTHER acute angle, opposite and adjacent swap — the hypotenuse stays the same.\n\n📎 Key Points to Remember\n• Labelling depends on WHICH angle you are working with.\n• The right angle itself is never the labelled angle.\n\n✅ Check\nFor the same triangle seen from angle C instead of angle A: does BC become the adjacent side?"
+    },
+    {
+      "id": "math-igcse-trigonometry-n2",
+      "heading": "The Three Ratios: SOHCAHTOA",
+      "body": "📌 Definition\nFor an acute angle $\\theta$ in a right-angled triangle:\n\n$$\\sin \\theta = \\dfrac{\\text{opposite}}{\\text{hypotenuse}}, \\quad \\cos \\theta = \\dfrac{\\text{adjacent}}{\\text{hypotenuse}}, \\quad \\tan \\theta = \\dfrac{\\text{opposite}}{\\text{adjacent}}$$\n\nThe memory hook is **SOHCAHTOA**: Sin = Opposite/Hypotenuse, Cos = Adjacent/Hypotenuse, Tan = Opposite/Adjacent.\n\n🔑 How it works\nEach ratio is a single number fixed by the angle: every right-angled triangle with the same acute angle gives the same ratio, however big the triangle is.\n\n💡 Worked Example\nA triangle has opposite $6$ and hypotenuse $10$ for angle $\\theta$: $\\sin \\theta = \\dfrac{6}{10} = 0.6$.\n\n⚠️ Common Mistake\nUsing a ratio that divides by zero-length or placing the hypotenuse on the bottom of tan — tan never involves the hypotenuse.\n\n📎 Key Points to Remember\n• sin, cos and tan of an angle are RATIOS (pure numbers), not lengths.\n• $\\sin \\theta$ and $\\cos \\theta$ of an acute angle sit between $0$ and $1$; $\\tan \\theta$ can exceed $1$.\n\n✅ Check\nIf adjacent $= 8$ and hypotenuse $= 17$, then $\\cos \\theta = 8 \\div 17 \\approx 0.471$."
+    },
+    {
+      "id": "math-igcse-trigonometry-n3",
+      "heading": "Choosing the Right Ratio",
+      "body": "🔑 How it works\nPick the ratio that joins the two sides you care about — ignore the third side entirely:\n• opposite and hypotenuse involve $\\sin$;\n• adjacent and hypotenuse involve $\\cos$;\n• opposite and adjacent involve $\\tan$.\n\n💡 Worked Example 1\nYou know the angle and the hypotenuse, and want the opposite side: use $\\text{opp} = \\text{hyp} \\times \\sin \\theta$.\n\n💡 Worked Example 2\nYou know both shorter sides (opposite and adjacent) and want the angle: use $\\tan$.\n\n⚠️ Common Mistake\nReaching for sin by habit. Read the two sides FIRST, then let the pairing choose the ratio.\n\n📎 Key Points to Remember\n• Label the triangle from the marked angle before choosing anything.\n• One ratio involves each PAIR of sides, so the pairing always decides uniquely.\n\n✅ Check\nAngle $50^\\circ$, hypotenuse $14$, find the side next to the angle: which ratio uses adjacent and hypotenuse?"
+    },
+    {
+      "id": "math-igcse-trigonometry-n4",
+      "heading": "Finding a Missing Side",
+      "body": "🔑 How it works\nLabel the sides, choose the ratio, substitute, then multiply or divide:\n• Known angle and hypotenuse, want opposite: $x = \\text{hyp} \\times \\sin \\theta$.\n• Known angle and hypotenuse, want adjacent: $x = \\text{hyp} \\times \\cos \\theta$.\n• Known angle and adjacent, want opposite: $x = \\text{adj} \\times \\tan \\theta$.\n\n💡 Worked Example 1\nHypotenuse $12$, angle $30^\\circ$, opposite side $x$: $x = 12 \\sin 30^\\circ = 12 \\times 0.5 = 6$ cm.\n\n💡 Worked Example 2\nHypotenuse $14$, angle $50^\\circ$, adjacent side $x$: $x = 14 \\cos 50^\\circ \\approx 9.00$ cm.\n\n⚠️ Common Mistake\nDividing instead of multiplying. With the hypotenuse known and a shorter side wanted, you MULTIPLY by the ratio (a value below 1), so the answer must be smaller than the hypotenuse.\n\n📎 Key Points to Remember\n• Write the ratio word first (SOH), then put numbers in — it prevents top/bottom slips.\n• Estimate sanity: the hypotenuse must stay the longest side.\n\n✅ Check\nA ladder problem gives $6 \\sin 62^\\circ \\approx 5.30$ — slightly over half of 6, because $\\sin 62^\\circ$ is roughly $0.88$."
+    },
+    {
+      "id": "math-igcse-trigonometry-n5",
+      "heading": "Finding a Missing Angle",
+      "body": "📌 Definition\nThe inverse ratios work backwards from a ratio to its angle: if $\\sin \\theta = k$ then $\\theta = \\sin^{-1} k$ (read as 'sin inverse of k'). Likewise $\\cos^{-1}$ and $\\tan^{-1}$.\n\n🔑 How it works\n1. Form the ratio from the two known sides.\n2. Apply the matching inverse on the calculator in **degree mode**.\n\n$$\\theta = \\tan^{-1}\\left(\\dfrac{\\text{opp}}{\\text{adj}}\\right)$$\n\n💡 Worked Example 1\nOpposite $7$, hypotenuse $14$: $\\sin \\theta = 0.5$, so $\\theta = \\sin^{-1} 0.5 = 30^\\circ$.\n\n💡 Worked Example 2\nOpposite $4.5$, adjacent $6$: $\\tan \\theta = 0.75$, so $\\theta = \\tan^{-1} 0.75 \\approx 36.9^\\circ$.\n\n⚠️ Common Mistake\nCalculator in RAD mode: $\\sin^{-1} 0.5$ returns $0.524$ (radians) instead of $30^\\circ$. Check the mode before every trig calculation.\n\n📎 Key Points to Remember\n• $\\sin^{-1} \\theta$ notation means the INVERSE function, not $1/\\sin$.\n• An answer of $0$ to $90$ degrees in degree mode is plausible for an acute angle.\n\n✅ Check\n$\\cos^{-1} 0.5 = 60^\\circ$ — because $\\cos 60^\\circ = 0.5$."
+    },
+    {
+      "id": "math-igcse-trigonometry-n6",
+      "heading": "Angles of Elevation and Depression",
+      "body": "📌 Definition\nAn **angle of elevation** is measured UP from the horizontal line at the observer's eye to look at something higher. An **angle of depression** is measured DOWN from the horizontal to look at something lower.\n\n🔑 How it works\nBoth angles sit at the horizontal, never at the vertical. Draw a light dashed horizontal through the observer, then put the angle between it and the line of sight. The situation always forms a right-angled triangle:\n• looking up from distance $d$ at height $h$: $\\tan(\\text{elevation}) = h \\div d$\n• same triangle seen from the object: the angle of depression from the top equals the angle of elevation from the bottom (horizontal lines are parallel, so the angles are alternate).\n\n💡 Worked Example\nFrom flat ground $20$ m from the foot of a vertical tower, the angle of elevation of the top is $35^\\circ$: $h = 20 \\tan 35^\\circ \\approx 14.0$ m.\n\n⚠️ Common Mistake\nMeasuring the depression angle from the vertical cliff or wall instead of the horizontal — that gives the complement of the real angle.\n\n📎 Key Points to Remember\n• 'Angle of elevation' always means from the horizontal looking up.\n• Observer height (eye level) must be ADDED to the triangle's height.\n\n✅ Check\nAn angle of depression of $18^\\circ$ to a boat $25$ m out gives a cliff height $25 \\tan 18^\\circ \\approx 8.12$ m."
+    },
+    {
+      "id": "math-igcse-trigonometry-n7",
+      "heading": "Exact Values and the Range of Sin and Cos",
+      "body": "📌 Definition\nSome angles have exact trig values worth memorising:\n\n$$\\sin 0^\\circ = 0, \\; \\sin 30^\\circ = 0.5, \\; \\sin 45^\\circ \\approx 0.707, \\; \\sin 60^\\circ \\approx 0.866, \\; \\sin 90^\\circ = 1$$\n\n$$\\cos 0^\\circ = 1, \\; \\cos 30^\\circ \\approx 0.866, \\; \\cos 45^\\circ \\approx 0.707, \\; \\cos 60^\\circ = 0.5, \\; \\cos 90^\\circ = 0$$\n\n$$\\tan 0^\\circ = 0, \\; \\tan 30^\\circ \\approx 0.577, \\; \\tan 45^\\circ = 1, \\; \\tan 60^\\circ \\approx 1.732$$\n\n🔑 How it works\nAs an acute angle grows from $0^\\circ$ to $90^\\circ$: $\\sin$ rises from $0$ to $1$, $\\cos$ falls from $1$ to $0$, and $\\tan$ rises from $0$ and grows past $1$ beyond $45^\\circ$. Cos takes the mirror image of sin: $\\cos \\theta = \\sin(90^\\circ - \\theta)$.\n\n💡 Worked Example\nBecause $\\cos \\theta = \\sin(90^\\circ - \\theta)$, the value $\\cos 63^\\circ$ equals $\\sin 27^\\circ$. Given $\\sin 27^\\circ = 0.454$, so $\\cos 63^\\circ = 0.454$.\n\n⚠️ Common Mistake\nA screen shows $\\sin \\theta = 1.4$ and students press on — no angle (acute or otherwise) has sine above $1$, so something is wrong with the triangle labels or the arithmetic.\n\n📎 Key Points to Remember\n• For acute angles: $0 < \\sin \\theta < 1$ and $0 < \\cos \\theta < 1$; $\\tan 45^\\circ = 1$ is the crossing point.\n• $\\sin$ and $\\cos$ of complementary angles swap: $\\sin 30^\\circ = \\cos 60^\\circ$.\n• Exact values appear in non-calculator papers — learn the table above.\n\n✅ Check\n$\\tan 45^\\circ = 1$ because the opposite and adjacent sides are equal in a $45^\\circ$-$45^\\circ$-$90^\\circ$ triangle."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-trigonometry-f1",
+      "term": "Hypotenuse",
+      "definition": "The side opposite the right angle; the longest side of a right-angled triangle.",
+      "example": "In a triangle right-angled at B, the side AC is the hypotenuse."
+    },
+    {
+      "id": "math-igcse-trigonometry-f2",
+      "term": "SOH",
+      "definition": "sin of an angle = opposite divided by hypotenuse.",
+      "example": "Opposite 6, hypotenuse 10: sin = 0.6."
+    },
+    {
+      "id": "math-igcse-trigonometry-f3",
+      "term": "CAH",
+      "definition": "cos of an angle = adjacent divided by hypotenuse.",
+      "example": "Adjacent 8, hypotenuse 17: cos = 8/17 = 0.471 (3 s.f.)."
+    },
+    {
+      "id": "math-igcse-trigonometry-f4",
+      "term": "TOA",
+      "definition": "tan of an angle = opposite divided by adjacent.",
+      "example": "Opposite 5, adjacent 12: tan = 5/12 = 0.417 (3 s.f.)."
+    },
+    {
+      "id": "math-igcse-trigonometry-f5",
+      "term": "Choosing a ratio",
+      "definition": "Use the ratio that joins the two sides you know or want: opp-hyp is sin, adj-hyp is cos, opp-adj is tan."
+    },
+    {
+      "id": "math-igcse-trigonometry-f6",
+      "term": "Finding a missing side",
+      "definition": "Side = hypotenuse x sin (or cos) of the angle, or adjacent x tan.",
+      "example": "Hypotenuse 12, angle 30 deg: opposite = 12 x 0.5 = 6."
+    },
+    {
+      "id": "math-igcse-trigonometry-f7",
+      "term": "Finding a missing angle",
+      "definition": "Build the ratio, then use the matching inverse function in degree mode.",
+      "example": "sin = 0.5, so the angle is sin^-1(0.5) = 30 deg."
+    },
+    {
+      "id": "math-igcse-trigonometry-f8",
+      "term": "Degree mode",
+      "definition": "Calculator setting so inverse trig returns degrees; rad mode returns numbers like 0.524 instead of 30.",
+      "example": "sin^-1(0.5) = 0.524 means the calculator is in rad mode."
+    },
+    {
+      "id": "math-igcse-trigonometry-f9",
+      "term": "Angle of elevation",
+      "definition": "Angle measured up from the horizontal at the observer's eye to a higher object."
+    },
+    {
+      "id": "math-igcse-trigonometry-f10",
+      "term": "Angle of depression",
+      "definition": "Angle measured down from the horizontal to a lower object; it equals the matching angle of elevation from the object back to the eye.",
+      "example": "Depression 18 deg from a cliff to a boat 25 m away: height = 25 x tan(18) = 8.12 m."
+    },
+    {
+      "id": "math-igcse-trigonometry-f11",
+      "term": "Exact values",
+      "definition": "sin 30 = 0.5, sin 45 = 0.707, sin 60 = 0.866, tan 45 = 1, with cos mirroring sin in reverse.",
+      "example": "cos 60 = sin 30 = 0.5."
+    },
+    {
+      "id": "math-igcse-trigonometry-f12",
+      "term": "Size constraint",
+      "definition": "For any angle, sin and cos never exceed 1 in size; tan can. A 'sin' value above 1 signals an error.",
+      "example": "Opposite 8 over hypotenuse 5 is impossible: the opposite side cannot beat the hypotenuse."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-trigonometry-q1",
+      "stem": "In a right-angled triangle, the hypotenuse is",
+      "choices": [
+        "the side next to the right angle",
+        "the side opposite the right angle",
+        "always the shortest side",
+        "always the base of the triangle"
+      ],
+      "correctIndex": 1,
+      "explanation": "The hypotenuse faces the right angle and is always its longest side. It never changes when the acute angles are relabelled.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-trigonometry-q2",
+      "stem": "A right-angled triangle has an angle $\\theta$ with opposite side $6$ cm and hypotenuse $10$ cm. What is $\\sin \\theta$?",
+      "choices": [
+        "0.6",
+        "0.8",
+        "1.67",
+        "0.36"
+      ],
+      "correctIndex": 0,
+      "explanation": "SOH: sin = opposite/hypotenuse = 6/10 = 0.6. The option 0.8 is cos of the same angle (adjacent 8 over hypotenuse 10).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-trigonometry-q3",
+      "stem": "For an angle $\\theta$ in a right-angled triangle, the adjacent side is $8$ cm and the hypotenuse is $17$ cm. What is $\\cos \\theta$, correct to 3 decimal places?",
+      "choices": [
+        "2.125",
+        "1.875",
+        "0.471",
+        "0.882"
+      ],
+      "correctIndex": 2,
+      "explanation": "CAH: cos = adjacent/hypotenuse = 8/17 = 0.471. The option 2.125 flips the fraction, and 0.882 is the sine (opposite 15 over hypotenuse 17).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-trigonometry-q4",
+      "stem": "A right-angled triangle has an angle $\\theta$ with opposite side $5$ cm and adjacent side $12$ cm. What is $\\tan \\theta$ to 3 decimal places?",
+      "choices": [
+        "2.400",
+        "0.385",
+        "2.600",
+        "0.417"
+      ],
+      "correctIndex": 3,
+      "explanation": "TOA: tan = opposite/adjacent = 5/12 = 0.417. The option 2.400 is the fraction upside down, and 0.385 is sin (5 over the 13 cm hypotenuse).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-trigonometry-q5",
+      "stem": "What is the exact value of $\\tan 45^\\circ$?",
+      "choices": [
+        "0",
+        "1",
+        "0.5",
+        "$\\sqrt{2}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "In a 45-45-90 triangle the opposite and adjacent sides are equal, so tan 45 = 1. It is the crossing point where tan passes through 1.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-trigonometry-q6",
+      "stem": "A right-angled triangle has hypotenuse $12$ cm and one acute angle of $30^\\circ$. What is the length of the side opposite the $30^\\circ$ angle?",
+      "choices": [
+        "6 cm",
+        "10.4 cm",
+        "6.9 cm",
+        "24 cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Opposite = hypotenuse x sin of the angle = 12 x sin 30 = 12 x 0.5 = 6 cm. The option 10.4 cm is 12 cos 30, the other side.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trigonometry-q7",
+      "stem": "In a right-angled triangle the hypotenuse is $14$ cm and one acute angle is $50^\\circ$. What is the length of the side ADJACENT to the $50^\\circ$ angle, to 3 significant figures?",
+      "choices": [
+        "10.7",
+        "11.7",
+        "16.7",
+        "9.00"
+      ],
+      "correctIndex": 3,
+      "explanation": "Adjacent = hypotenuse x cos = 14 x cos 50 = 9.00 cm. The option 10.7 is 14 sin 50, the opposite side, and 16.7 is 14 tan 50.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trigonometry-q8",
+      "stem": "A right-angled triangle has an angle $\\theta$ with opposite side $7$ cm and hypotenuse $14$ cm. Work out $\\theta$.",
+      "choices": [
+        "60°",
+        "45°",
+        "30°",
+        "20°"
+      ],
+      "correctIndex": 2,
+      "explanation": "sin of the angle = 7/14 = 0.5, so the angle = sin^-1(0.5) = 30 deg. The option 60 deg is the OTHER acute angle of the triangle.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trigonometry-q9",
+      "stem": "A ramp rises $4.5$ m vertically over a horizontal distance of $6$ m. What angle does the ramp make with the horizontal, to 1 decimal place?",
+      "choices": [
+        "36.9°",
+        "53.1°",
+        "0.75°",
+        "33.4°"
+      ],
+      "correctIndex": 0,
+      "explanation": "The rise is opposite and the run is adjacent, so tan of the angle = 4.5/6 = 0.75, giving tan^-1(0.75) = 36.9 deg. The 53.1 deg option is the angle with the vertical.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trigonometry-q10",
+      "stem": "From a point on level ground $20$ m from the foot of a vertical tower, the angle of elevation of the top of the tower is $35^\\circ$. How tall is the tower, to 3 significant figures?",
+      "choices": [
+        "11.5 m",
+        "14.0 m",
+        "16.4 m",
+        "28.6 m"
+      ],
+      "correctIndex": 1,
+      "explanation": "Height is opposite the 35 deg angle and the 20 m ground distance is adjacent, so height = 20 x tan 35 = 14.0 m. The option 11.5 m uses sin, which would be the slant distance, not the height.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trigonometry-q11",
+      "stem": "From the top of a vertical cliff, the angle of depression of a boat is $18^\\circ$. The boat is $25$ m (horizontally) from the foot of the cliff. How high is the cliff, to 3 significant figures?",
+      "choices": [
+        "7.73 m",
+        "23.8 m",
+        "77.0 m",
+        "8.12 m"
+      ],
+      "correctIndex": 3,
+      "explanation": "The angle of depression equals the angle of elevation from the boat, so cliff height = 25 x tan 18 = 8.12 m. The option 7.73 m comes from using sin with the horizontal distance.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-trigonometry-q12",
+      "stem": "An observer whose eye level is $1.5$ m above horizontal ground stands $30$ m from the foot of a vertical flagpole. The angle of elevation of the top of the pole from the observer's eye is $50^\\circ$. How tall is the flagpole, to 3 significant figures?",
+      "choices": [
+        "34.3 m",
+        "35.8 m",
+        "37.3 m",
+        "38.8 m"
+      ],
+      "correctIndex": 2,
+      "explanation": "Height above eye level = 30 x tan 50 = 35.8 m, then ADD the eye level: total = 35.8 + 1.5 = 37.3 m. The option 34.3 m wrongly subtracts the eye level instead of adding it.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-trigonometry-q13",
+      "stem": "Which of these has the greatest value?",
+      "choices": [
+        "$\\tan 65^\\circ$",
+        "$\\sin 65^\\circ$",
+        "$\\cos 65^\\circ$",
+        "$\\sin 25^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "tan 65 is about 2.14: tan exceeds 1 for any angle above 45 deg, while sin and cos stay below 1. The trap option sin 25 actually equals cos 65 (about 0.423), and sin 65 is about 0.906 — both below tan 65.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-trigonometry-q14",
+      "stem": "A ladder $6$ m long leans against a vertical wall. The ladder makes an angle of $62^\\circ$ with the horizontal ground. How far up the wall does the ladder reach, to 3 significant figures?",
+      "choices": [
+        "2.82 m",
+        "5.30 m",
+        "11.3 m",
+        "6.80 m"
+      ],
+      "correctIndex": 1,
+      "explanation": "The wall height is OPPOSITE the 62 deg angle and the ladder is the hypotenuse, so height = 6 x sin 62 = 5.30 m. The option 2.82 m is 6 cos 62, the distance of the foot from the wall.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-trigonometry-q15",
+      "stem": "Given that $\\sin 27^\\circ = 0.454$, what is the value of $\\cos 63^\\circ$?",
+      "choices": [
+        "0.545",
+        "0.891",
+        "2.20",
+        "0.454"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cos is the mirror of sin: cos of an angle equals sin of (90 minus that angle), and 90 - 63 = 27, so cos 63 = sin 27 = 0.454. The option 0.891 is cos 27 itself.",
+      "difficulty": "hard"
+    }
+  ]
+}

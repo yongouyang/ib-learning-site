@@ -9,9 +9,9 @@ test.describe('Practice papers', () => {
     await expect(setLink).toBeVisible();
     await expect(setLink.getByText(/30 min · 8 questions · 20 marks/)).toBeVisible();
     await expect(setLink.getByText('Not attempted')).toBeVisible();
-    // All 14 courses have two sets — set 1 free, set 2 behind the premium lock
-    // (Phase E3): 28 set rows in the DOM.
-    await expect(page.locator('a[href^="/papers/"]')).toHaveCount(28);
+    // 14 courses × 2 sets, plus IGCSE Maths' third set (wave 2) — 29 set rows
+    // in the DOM.
+    await expect(page.locator('a[href^="/papers/"]')).toHaveCount(29);
 
     // Set 2 renders as a locked row for anonymous visitors: the preview links
     // exist in the DOM (one per course) but are inert/aria-hidden, so they are

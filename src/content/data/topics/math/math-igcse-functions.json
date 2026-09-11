@@ -1,0 +1,267 @@
+{
+  "id": "math-igcse-functions",
+  "subjectId": "math",
+  "title": "Functions: Notation, Composite and Inverse Functions",
+  "description": "Function notation f(x), solving f(a) = b, domain and range, composite functions fg(x), and inverse functions f⁻¹(x) for IGCSE Maths 0580 Extended.",
+  "stage": "igcse",
+  "course": "0580",
+  "level": "extended",
+  "notes": [
+    {
+      "id": "math-igcse-functions-n1",
+      "heading": "The Function Machine: f(x) Notation",
+      "body": "📌 Definition\nA function is a rule that turns each input $x$ into exactly one output. The notation $f(x)$ means 'the output of function f when the input is $x$'.\n\n🔑 How it works\nTo evaluate a function, substitute the input value for $x$ everywhere it appears in the rule, then calculate.\n\n💡 Worked Example 1\n$f(x) = 4x - 1$, so $f(3) = 4 \\times 3 - 1 = 11$.\n\n💡 Worked Example 2\n$g(x) = x^2 + 2$, so $g(4) = 4^2 + 2 = 16 + 2 = 18$. Square first, then add.\n\n⚠️ Common Mistake\n$f(3)$ is not $3f$ and does not mean 'f times 3' — the $3$ is an input, not a multiplier.\n\n📎 Key Points to Remember\n• $f(3)$ is a single number: the output when $x = 3$.\n• Each function has its own rule; letters like f, g, h are just names.\n\n✅ Check\nIf $h(x) = 3x$ then $h(5) = 15$."
+    },
+    {
+      "id": "math-igcse-functions-n2",
+      "heading": "Solving f(a) = b",
+      "body": "🔑 How it works\nTo find the input that produces a given output, set the rule equal to the output and solve the resulting equation.\n\n💡 Worked Example 1\n$f(x) = 3x$ and $f(a) = 21$. Then $3a = 21$, so $a = 7$.\n\n💡 Worked Example 2\n$f(x) = 5x - 3$ and $f(a) = 27$. Then $5a - 3 = 27$, so $5a = 30$ and $a = 6$.\n\n⚠️ Common Mistake\nDividing the wrong way: from $5a - 3 = 27$ you must add 3 before dividing, giving $a = 30 \\div 5$, not $a = 27 \\div 5$.\n\n📎 Key Points to Remember\n• 'f of a equals b' is just an equation in disguise — solve it as usual.\n• If the rule squares $x$, expect two solutions: $x^2 = 9$ gives $x = 3$ or $x = -3$.\n\n✅ Check\n$f(x) = 2x + 1$ with $f(a) = 15$ gives $a = 7$."
+    },
+    {
+      "id": "math-igcse-functions-n3",
+      "heading": "Mapping Diagrams: Inputs and Outputs",
+      "body": "📌 Definition\nA mapping diagram shows inputs connected by arrows to the outputs they produce. Each input has exactly one output, but an output may receive arrows from more than one input.\n\n🔑 How it works\nRead the mapping as (input, output) pairs. A function that sends two different inputs to the same output is called many-to-one.\n\n💡 Worked Example 1\nThe rule 'add 7' maps $2 \\mapsto 9$, $5 \\mapsto 12$ and $10 \\mapsto 17$. Every input has its own output: this is one-to-one.\n\n💡 Worked Example 2\nThe squaring rule maps both $3 \\mapsto 9$ and $-3 \\mapsto 9$. Two arrows land on 9, so squaring is many-to-one.\n\n⚠️ Common Mistake\nSaying '9 maps to 3 and also to -3'. The arrows go from inputs to outputs: under squaring, 9 maps to 81. It is the *output* 9 that has two inputs.\n\n📎 Key Points to Remember\n• One input → exactly one output (that is what makes it a function).\n• A many-to-one function has no inverse function unless the domain is restricted.\n\n✅ Check\nUnder the rule 'multiply by 2', the input 6 maps to the output 12."
+    },
+    {
+      "id": "math-igcse-functions-n4",
+      "heading": "Domain and Range",
+      "body": "📌 Definition\nThe domain is the set of inputs the function is allowed to use. The range is the complete set of outputs it produces from that domain.\n\n🔑 How it works\nApply the rule to every value in the domain and collect the results, writing each output once. From a graph, the domain is the set of x-values covered and the range is the set of y-values covered.\n\n💡 Worked Example 1\n$f(x) = x^2$ with domain $\\{-2, 0, 3\\}$ gives range $\\{0, 4, 9\\}$ — note $-2$ does not appear in the range.\n\n💡 Worked Example 2\n$f(x) = x^2 - 2$ on the integer domain $-3 \\le x \\le 2$. The outputs are $7, 2, -1, -2, -1, 2$, so the range is $\\{-2, -1, 2, 7\\}$: smallest value $-2$ at $x = 0$, largest value $7$ at $x = -3$.\n\n⚠️ Common Mistake\nFor squaring rules, the largest output does not have to come from the largest x — $(-3)^2 - 2 = 7$ beats $2^2 - 2 = 2$.\n\n📎 Key Points to Remember\n• Domain: inputs. Range: outputs.\n• List each range value only once, even if two inputs share an output.\n\n✅ Check\n$f(x) = x^2$ on the domain $\\{1, 2\\}$ has range $\\{1, 4\\}$."
+    },
+    {
+      "id": "math-igcse-functions-n5",
+      "heading": "Composite Functions: fg(x)",
+      "body": "📌 Definition\nA composite function applies two functions one after the other. $fg(x)$ means $f(g(x))$: do $g$ first, then feed its output into $f$.\n\n🔑 How it works\nWork from the inside out. Evaluate the inner function first, then substitute its result into the outer function.\n\n$$fg(x) = f(g(x)) \\quad \\text{but} \\quad gf(x) = g(f(x))$$\n\n💡 Worked Example 1\n$f(x) = 2x + 1$ and $g(x) = x - 3$. Then $fg(4) = f(1) = 2 \\times 1 + 1 = 3$.\n\n💡 Worked Example 2\nWith the same pair, $gf(4) = g(9) = 9 - 3 = 6$. Since $6 \\ne 3$, the order of composition matters.\n\n💡 Worked Example 3\n$f(x) = 2x$ and $g(x) = x + 5$. Then $fg(x) = 2(x + 5) = 2x + 10$, while $gf(x) = 2x + 5$.\n\n⚠️ Common Mistake\n$fg(x)$ is not $f(x) \\times g(x)$. It is one function applied after another, not a product.\n\n📎 Key Points to Remember\n• Inside function first.\n• $fg$ and $gf$ are usually different."
+    },
+    {
+      "id": "math-igcse-functions-n6",
+      "heading": "Inverse Functions: f⁻¹(x)",
+      "body": "📌 Definition\nThe inverse function $f^{-1}(x)$ undoes what $f$ does. If $f$ maps $a$ to $b$, then $f^{-1}$ maps $b$ back to $a$.\n\n$$f^{-1}(f(x)) = x$$\n\n🔑 How it works\nTo invert $f(x) = ax + b$, reverse the operations in the reverse order: subtract $b$, then divide by $a$.\n\n💡 Worked Example 1\n$f(x) = 3x + 6$. Undo: subtract 6, divide by 3, so $f^{-1}(x) = \\dfrac{x - 6}{3}$.\n\n💡 Worked Example 2\nCheck with $x = 2$: $f(2) = 12$, and $f^{-1}(12) = \\dfrac{12 - 6}{3} = 2$ — back where we started.\n\n⚠️ Common Mistake\n$f^{-1}(x)$ does not mean $\\dfrac{1}{f(x)}$. The $-1$ names the inverse; it is not a power or a reciprocal.\n\n📎 Key Points to Remember\n• Undo in reverse order: the last operation done is the first one undone.\n• Only one-to-one functions have inverse functions."
+    },
+    {
+      "id": "math-igcse-functions-n7",
+      "heading": "Chaining and Solving: ff(x) and Mixed Questions",
+      "body": "🔑 How it works\nExam questions chain these ideas: evaluate a composite, solve $f(a) = b$, or find $a$ from $ff(a)$ by applying the rule to itself, bracketed carefully.\n\n💡 Worked Example 1\n$f(x) = 2x + 1$ and $ff(a) = 43$. Then $f(f(a)) = 2(2a + 1) + 1 = 4a + 3$, so $4a + 3 = 43$, giving $a = 10$.\n\n💡 Worked Example 2\n$f(x) = 4x - 2$ and $g(x) = x^2 + 1$. Then $f(g(3)) = f(10) = 38$, but $g(f(3)) = g(10) = 101$. Same functions, different order, very different answers.\n\n⚠️ Common Mistake\nExpanding $2(2a + 1) + 1$ as $4a + 1$ — the outer '× 2' hits the whole bracket, and the outer '+ 1' still needs adding: $4a + 3$.\n\n📎 Key Points to Remember\n• Always work in brackets, innermost first.\n• Re-derive: plug your answer back through the chain to check it lands on the given output.\n\n✅ Check\nWith $f(x) = 2x + 1$: $ff(1) = f(3) = 7$, which matches $4(1) + 3 = 7$."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-igcse-functions-f1",
+      "term": "f(x)",
+      "definition": "The output of function f when the input is x.",
+      "example": "f(x) = 4x - 1 gives f(3) = 11."
+    },
+    {
+      "id": "math-igcse-functions-f2",
+      "term": "Evaluating a function",
+      "definition": "Substitute the input value for x in the rule, then calculate.",
+      "example": "g(x) = x² + 2 gives g(4) = 16 + 2 = 18."
+    },
+    {
+      "id": "math-igcse-functions-f3",
+      "term": "Solving f(a) = b",
+      "definition": "Set the rule equal to the output and solve the equation for a.",
+      "example": "3a = 21 gives a = 7."
+    },
+    {
+      "id": "math-igcse-functions-f4",
+      "term": "Mapping diagram",
+      "definition": "A diagram of arrows from inputs to outputs; each input has exactly one output.",
+      "example": "The rule 'add 7' maps 2 ↦ 9 and 5 ↦ 12."
+    },
+    {
+      "id": "math-igcse-functions-f5",
+      "term": "Domain",
+      "definition": "The set of inputs a function is allowed to use.",
+      "example": "The domain {-2, 0, 3} has three inputs."
+    },
+    {
+      "id": "math-igcse-functions-f6",
+      "term": "Range",
+      "definition": "The complete set of outputs the function produces from its domain.",
+      "example": "x² on {-2, 0, 3} has range {0, 4, 9}."
+    },
+    {
+      "id": "math-igcse-functions-f7",
+      "term": "Composite function fg(x)",
+      "definition": "f of g of x: apply the inside function g first, then apply f to its output.",
+      "example": "With f(x) = 2x + 1, g(x) = x - 3: fg(4) = f(1) = 3."
+    },
+    {
+      "id": "math-igcse-functions-f8",
+      "term": "Order matters in composition",
+      "definition": "fg and gf are usually different functions.",
+      "example": "With f(x) = 2x + 1, g(x) = x - 3: fg(4) = 3 but gf(4) = 6."
+    },
+    {
+      "id": "math-igcse-functions-f9",
+      "term": "Inverse function f⁻¹(x)",
+      "definition": "The function that undoes f: if f maps a to b, f⁻¹ maps b back to a.",
+      "example": "f(2) = 12 means f⁻¹(12) = 2."
+    },
+    {
+      "id": "math-igcse-functions-f10",
+      "term": "Finding the inverse of ax + b",
+      "definition": "Reverse the operations in reverse order: subtract b, then divide by a.",
+      "example": "f(x) = 3x + 6 gives f⁻¹(x) = (x - 6) / 3."
+    },
+    {
+      "id": "math-igcse-functions-f11",
+      "term": "f⁻¹(f(x)) = x",
+      "definition": "A function composed with its inverse returns the original input.",
+      "example": "f(x) = 2x: f⁻¹(f(5)) = f⁻¹(10) = 5."
+    },
+    {
+      "id": "math-igcse-functions-f12",
+      "term": "Many-to-one functions have no inverse",
+      "definition": "If two inputs share an output, no function can undo it uniquely.",
+      "example": "Squaring sends 3 and -3 both to 9, so it has no inverse over all numbers."
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-igcse-functions-q1",
+      "stem": "Here is the function $f(x) = 4x - 1$. Work out $f(3)$.",
+      "choices": ["2", "11", "12", "43"],
+      "correctIndex": 1,
+      "explanation": "Substitute: $f(3) = 4 \\times 3 - 1 = 11$. The option 12 comes from forgetting to subtract 1; 43 reverses the operations.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-functions-q2",
+      "stem": "Here is the function $g(x) = x^2 + 2$. Work out $g(4)$.",
+      "choices": ["16", "8", "18", "20"],
+      "correctIndex": 2,
+      "explanation": "$g(4) = 4^2 + 2 = 16 + 2 = 18$. The option 16 forgets to add 2, and 20 squares the result instead of the input.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-functions-q3",
+      "stem": "What does $f(5)$ mean?",
+      "choices": [
+        "5 multiplied by f",
+        "The value of x when the output is 5",
+        "The number of outputs of the function",
+        "The output of the function when the input is 5"
+      ],
+      "correctIndex": 3,
+      "explanation": "f(5) is the output produced when 5 is fed into the rule of f. It is not f × 5, and the input 5 appears at the start of the mapping, not the end.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-functions-q4",
+      "stem": "$h(x) = 3x$ and $h(a) = 21$. Work out the value of $a$.",
+      "choices": ["7", "18", "24", "63"],
+      "correctIndex": 0,
+      "explanation": "$3a = 21$, so $a = 21 \\div 3 = 7$. The option 63 multiplies instead of dividing — a sign of mixing up which operation undoes 'times 3'.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-functions-q5",
+      "stem": "$p(x) = x + 7$. Since $p(2) = 9$, what is $p^{-1}(9)$?",
+      "choices": ["7", "2", "9", "16"],
+      "correctIndex": 1,
+      "explanation": "The inverse undoes the original mapping, so $p^{-1}(9) = 2$: it returns the input that produced 9. The option 16 applies the rule again instead of undoing it.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-igcse-functions-q6",
+      "stem": "$f(x) = 5x - 3$ and $f(a) = 27$. Work out the value of $a$.",
+      "choices": ["5", "4.8", "6", "30"],
+      "correctIndex": 2,
+      "explanation": "$5a - 3 = 27$, so $5a = 30$ and $a = 6$. Divide only after adding 3; 4.8 comes from $27 \\div 5 - 3$-style scrambling of the order.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-functions-q7",
+      "stem": "$f(x) = x^2$ with domain $\\{-2, 0, 3\\}$. Write down the range.",
+      "choices": [
+        "$\\{-2, 0, 3\\}$",
+        "$\\{0, 2, 3\\}$",
+        "$\\{4, 9\\}$",
+        "$\\{0, 4, 9\\}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Each input is squared: $(-2)^2 = 4$, $0^2 = 0$, $3^2 = 9$, so the range is $\\{0, 4, 9\\}$. Dropping 0 forgets the middle input.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-functions-q8",
+      "stem": "$f(x) = 2x + 1$ and $g(x) = x - 3$. Work out $fg(4)$.",
+      "choices": ["3", "6", "9", "7"],
+      "correctIndex": 0,
+      "explanation": "Inside first: $g(4) = 1$, then $f(1) = 2 \\times 1 + 1 = 3$. The option 6 is $gf(4)$, the composition in the wrong order.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-functions-q9",
+      "stem": "Using $f(x) = 2x + 1$ and $g(x) = x - 3$ from the previous question, work out $gf(4)$.",
+      "choices": ["3", "6", "8", "12"],
+      "correctIndex": 1,
+      "explanation": "$f(4) = 9$, then $g(9) = 9 - 3 = 6$. Notice $gf(4) = 6$ differs from $fg(4) = 3$: order of composition matters.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-functions-q10",
+      "stem": "$f(x) = 3x + 6$. Find $f^{-1}(x)$.",
+      "choices": [
+        "$\\dfrac{x + 6}{3}$",
+        "$3x - 6$",
+        "$\\dfrac{x - 6}{3}$",
+        "$\\dfrac{x}{3} + 6$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Undo 'times 3, add 6' in reverse: subtract 6, divide by 3, so $f^{-1}(x) = \\dfrac{x - 6}{3}$. Check: $f(2) = 12$ and $f^{-1}(12) = 2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-functions-q11",
+      "stem": "$f(x) = 2x$ and $g(x) = x + 5$. Find an expression for $fg(x)$.",
+      "choices": [
+        "$2x + 5$",
+        "$2x - 10$",
+        "$x + 10$",
+        "$2x + 10$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$fg(x) = f(x + 5) = 2(x + 5) = 2x + 10$. The option $2x + 5$ is $gf(x)$, and $x + 10$ misplaces the doubling.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-igcse-functions-q12",
+      "stem": "$f(x) = 4x - 2$ and $g(x) = x^2 + 1$. Work out $f(g(3))$.",
+      "choices": ["38", "101", "12", "34"],
+      "correctIndex": 0,
+      "explanation": "$g(3) = 3^2 + 1 = 10$, then $f(10) = 4 \\times 10 - 2 = 38$. The option 101 is $g(f(3))$, the reverse order; 34 forgets the +1 inside $g$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-functions-q13",
+      "stem": "$f(x) = 3x - 5$. Find $f^{-1}(x)$.",
+      "choices": [
+        "$\\dfrac{x - 5}{3}$",
+        "$\\dfrac{x + 5}{3}$",
+        "$\\dfrac{3}{x - 5}$",
+        "$\\dfrac{5 - x}{3}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Undo 'times 3, subtract 5' in reverse: add 5, divide by 3, so $f^{-1}(x) = \\dfrac{x + 5}{3}$. Check with $x = 4$: $f(4) = 7$ and $f^{-1}(7) = 4$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-functions-q14",
+      "stem": "$f(x) = x^2 - 2$ on the integer domain $-3 \\le x \\le 2$. What is the smallest value in the range?",
+      "choices": ["7", "-1", "-2", "2"],
+      "correctIndex": 2,
+      "explanation": "The outputs are $7, 2, -1, -2, -1, 2$, so the smallest is $-2$, produced at $x = 0$. The largest |input| gives the biggest square, but the *smallest* output sits at the turning point.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-igcse-functions-q15",
+      "stem": "$f(x) = 2x + 1$ and $ff(a) = 43$. Work out the value of $a$.",
+      "choices": ["3", "10.5", "21", "10"],
+      "correctIndex": 3,
+      "explanation": "$f(f(a)) = 2(2a + 1) + 1 = 4a + 3$. Solve $4a + 3 = 43$: $a = 10$. The option 21 solves the rule only once; 10.5 comes from expanding wrongly as $4a + 1$.",
+      "difficulty": "hard"
+    }
+  ]
+}
