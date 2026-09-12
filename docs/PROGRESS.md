@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-09-12 — IGCSE wave 2 + UX pass LIVE IN PROD; wip branch deleted — wave-2 chain CLOSED
+Git HEAD: `7704e9c` (main = develop = 7704e9c, tree clean; ff-promoted `fe7ff06..7704e9c`, 7 commits: wave-2 content, OSV dep bumps, hub UX pass)
+Done: user-directed direct ff-promotion after confirming develop's CI run fully green (incl. deploy-dev + its live dev SEO gate — that covered the chain's `verify:seo:live --env=dev` step). deploy-prod run 34669785605 **completed/success** (its own `verify:seo:live --all` = the prod gate). Deleted `wip/igcse-wave2-topics` local + origin. Live prod probes: `/igcse/math` 200 with all 16 topics incl. circle theorems / vectors / both trigs / histograms, card titles rendering as `h2` (single-group fix live), `/papers/math-igcse/math-igcse-set-3` 200.
+Verified: CI deploy-prod green (build:static, verify:sitemaps, smoke, verify:seo:live --all); prod origin probes above. NOT run locally: verify:seo:live --all (CI's gate is the same script against the same origin — re-running locally adds nothing).
+Next: standing queue — illustrations backlog (106), og:image, E4.2 infra draft (Stripe-blocked), `.pi/tasks/` gitignore, native `invoked_via_function_url` migration, reserved_concurrent_executions (quota-blocked). Wave-2 chain has no remaining items.
+Notes: (1) paper set URLs are `/papers/<course>/<course>-set-N`, NOT `/exams/.../paper-N` — my first two probes 404'd on wrong paths, not missing pages. (2) promote-by-ff-push remains the mechanism (no gh CLI locally).
+
+---
+
 ## 2026-09-12 — Hub contact-sheet UX pass DONE (model-reviewed; 5 fixes, 1 waiver)
 Git HEAD: `095caec` (develop; this entry + the 5-file chrome fix to commit)
 Done: regenerated the 28-shot hub contact sheet (`scripts/capture-hub-ux.mjs` → gitignored `ux-screenshots/hub/`, 3 runs: before/after/final) and reviewed the PNGs in-session (model CAN render images). Fixed: (1) tier crumb `hideOnMobile: true` on the 3 `[subjectId]` hub pages — breadcrumb-h1 no longer truncates to "IGCSE Ma…"/"KS3 Englis…" under the top-right pill at 375px; (2) DEV badge `bottom-20 md:bottom-2` — stopped covering the 5th nav label on mobile dev (the old "red active pill" nit WAS the DEV badge, prod was never affected); (3) footer `pb-24`→`pb-36` mobile — legal text clears the floating "?" bubble at rest; (4) single-group hubs shipped h1→h3 (a11y skip) — card titles now render `h2` when `groups.length === 1` (`CardTitle` const on the 3 pages; multi-group hubs keep h2 group + h3 cards); (5) footer legal text `text-gray-400 dark:text-gray-500` → `text-gray-500 dark:text-gray-400` (was ~2.3:1 / ~4.1:1, below AA at 12px). WAIVED (conscious): "?" bubble overlaps footer text in a ~904–940px desktop width band at full scroll — pre-existing, cosmetic, fix costs dead space on every desktop page.
