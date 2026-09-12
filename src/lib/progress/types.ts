@@ -216,7 +216,7 @@ const idField = () => z.string().regex(/^[A-Za-z0-9_-]+$/).min(1).max(PROGRESS_M
 // Client clocks are untrusted: a far-future date would permanently block that
 // item's LWW/append ordering (e.g. a 9999 flashcard review wins every compare
 // forever). Allow 24h of skew, reject the rest (round 2).
-const MAX_CLOCK_SKEW_MS = 24 * 60 * 60 * 1000;
+export const MAX_CLOCK_SKEW_MS = 24 * 60 * 60 * 1000;
 const clientDate = () =>
   z.iso.datetime().refine(
     (d) => new Date(d).getTime() <= Date.now() + MAX_CLOCK_SKEW_MS,

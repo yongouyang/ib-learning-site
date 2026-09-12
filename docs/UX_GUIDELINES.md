@@ -46,7 +46,7 @@ Consequences:
 
 - On mobile the page body must carry branding — there is no header wordmark. Don't rely on chrome being visible.
 - Nav items are shared by both bars via `src/components/nav-items.ts` — edit that one file, never the two nav components separately.
-- Bottom-nav slots are precious. **Navigation slots are for destinations, not settings/actions** — don't add non-destination toggles to the nav. (Current theme-toggle slot is a known violation, slated for removal in the landing ship list.)
+- Bottom-nav slots are precious. **Navigation slots are for destinations, not settings/actions** — don't add non-destination toggles to the nav. (The old theme-toggle nav slot was removed; the toggle lives in the desktop header + the mobile top-right pill.)
 - Touch targets: full-height nav slots (64px) and `py-3` CTAs (~44px) are the floor; don't ship smaller.
 - **Fixed mobile chrome must be reserved as `scroll-padding`** (`globals.css`, `@media (max-width: 767.98px)`): bottom `calc(4rem + env(safe-area-inset-bottom) + 1rem)` for the nav, top `calc(1rem + 3rem)` for the floating pill. Anything the browser scrolls to an edge — anchor jumps, find-in-page, scroll restoration, `scrollIntoView` — otherwise lands UNDER that chrome: invisible and unclickable. This is not only cosmetic: it made Playwright's mobile e2e clicks fail with "subtree intercepts pointer events" (2026-09-01). `pb-24` on `<main>`/`<footer>` fixes the static overlap; only scroll padding fixes the scrolled-to edge. Keep both in sync when the nav or pill changes size.
 
@@ -61,7 +61,7 @@ Run through this for any UI-surface change:
 - [ ] Navigation uses `<a>`/`Link`; actions use `<button>`. Don't fake one with the other.
 - [ ] Decorative icons/emoji are `aria-hidden` (lucide icons already are; emoji in link text are the known exception).
 - [ ] Form inputs have visible focus styles and associated labels/placeholders that survive dark mode.
-- [ ] Animations respect reduced motion. We use framer-motion entrances that are **currently not gated** on `useReducedMotion()` — known debt; don't add new ungated animation, and prefer gating when touching animated components.
+- [ ] Animations respect reduced motion. `MotionProvider` (`MotionConfig reducedMotion="user"`, layout.tsx) gates ALL framer-motion animation on the OS setting — keep new animation inside it; raw CSS animation needs its own `prefers-reduced-motion` guard.
 - [ ] **Progress-gated UI:** `ProgressContext` loads in a `useEffect`, so first paint is always the no-progress state and gated content swaps in after hydration. Any first-time/returning split must handle this without a jarring full-block swap (known constraint from the landing review — decide the handling before building gated heroes/cards).
 
 ## Copy voice

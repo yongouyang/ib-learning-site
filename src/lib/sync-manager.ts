@@ -1,5 +1,5 @@
 import type { ProgressEvent } from './progress/types';
-import { PROGRESS_MAX_EVENTS_PER_SYNC } from './progress/types';
+import { MAX_CLOCK_SKEW_MS, PROGRESS_MAX_EVENTS_PER_SYNC } from './progress/types';
 import { getUserProgress, setSyncEventHook } from './progress-store';
 import { toSyncClientMeta } from './progress-merge';
 
@@ -185,6 +185,18 @@ export async function flush(): Promise<void> {
       }
 
       if (res.status === 400) {
+        // Clock-poison recovery (known issue 2026-08-16): a device clock >24h
+        // fast stamped stored event dates the server must reject. The 400 body
+        // carries serverNow — clamp the chunk's out-of-window dates (and
+        // clientMeta.lastStudyDate) into the accepted window, persist, and
+        // retry THIS chunk. Self-limiting: once clamped, a second 400 clamps
+        // nothing and falls through to the terminal drop below.
+        const rejected = (await res.json().catch(() => null)) as { serverNow?: string } | null;
+        if (rejected?.serverNow && clampChunkToServerWindow(chunk, clientMeta, rejected.serverNow)) {
+          writeQueue(entries); // chunk entries are references into `entries`
+          console.debug('[sync] re-stamped clock-poisoned dates, retrying chunk');
+          continue;
+        }
         // Terminal: schema rejection. After client-side chunking this means a
         // corrupted queue entry or a real contract bug — drop this chunk, log,
         // and NEVER retry the identical payload.
@@ -213,6 +225,36 @@ export async function flush(): Promise<void> {
   } finally {
     inFlight = false;
   }
+}
+
+/**
+ * Clamp every date in the chunk that exceeds serverNow + MAX_CLOCK_SKEW_MS down
+ * to exactly that cap (preserving order for dates inside the window). Returns
+ * true if anything changed — the caller retries the chunk once; a no-op return
+ * means the 400 was NOT clock poison and the chunk must be dropped. Pure-ish:
+ * mutates the passed event objects (they are the queued objects).
+ */
+function clampChunkToServerWindow(
+  chunk: QueueEntry[],
+  clientMeta: { lastStudyDate?: string | null },
+  serverNow: string,
+): boolean {
+  const serverMs = new Date(serverNow).getTime();
+  if (Number.isNaN(serverMs)) return false;
+  const cap = new Date(serverMs + MAX_CLOCK_SKEW_MS).toISOString();
+  let changed = false;
+  for (const { event } of chunk) {
+    const dated = event as { date?: string };
+    if (typeof dated.date === 'string' && dated.date > cap) {
+      dated.date = cap;
+      changed = true;
+    }
+  }
+  if (clientMeta.lastStudyDate && clientMeta.lastStudyDate > cap) {
+    clientMeta.lastStudyDate = cap;
+    changed = true;
+  }
+  return changed;
 }
 
 /**

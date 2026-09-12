@@ -350,7 +350,10 @@ export async function handleProgressSync(
   if (error) return error;
 
   const parsed = syncRequestSchema.safeParse(body);
-  if (!parsed.success) return json({ error: 'Invalid request' }, 400);
+  // serverNow lets a client whose device clock poisoned its stored event dates
+  // (known issue 2026-08-16) re-stamp them into the accepted window and retry
+  // once, instead of silently dropping the same chunk on every login forever.
+  if (!parsed.success) return json({ error: 'Invalid request', serverNow: new Date().toISOString() }, 400);
 
   // Rule 5: profileId is data — every event must target one of THIS user's
   // child profiles (a foreign profileId, including another account's, is 400).

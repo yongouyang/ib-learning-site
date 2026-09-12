@@ -17,17 +17,33 @@ export interface BreadcrumbItem {
 // pages where a separate title would just duplicate the breadcrumb text.
 export function Breadcrumbs({ items, currentAsHeading = false }: { items: BreadcrumbItem[]; currentAsHeading?: boolean }) {
   return (
-    <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-sm mb-4 min-w-0">
+    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm mb-4 min-w-0">
       {items.map((item, idx) => {
         const isLast = idx === items.length - 1;
         return (
-          <span key={idx} className={`flex items-center gap-1 min-w-0 ${item.hideOnMobile ? 'hidden sm:flex' : ''}`}>
-            {idx > 0 && <ChevronRight className="w-3.5 h-3.5 text-gray-400 dark:text-gray-600 shrink-0" aria-hidden="true" />}
+          <span
+            key={idx}
+            className={`flex items-center gap-1 min-w-0 ${item.hideOnMobile ? 'hidden sm:flex' : ''} ${
+              // On phones the heading takes its own full-width line BELOW the
+              // fixed top-right pill (mt clears it) — an inline 45vw box that
+              // starts after the crumbs still runs under the pill.
+              isLast && currentAsHeading ? 'max-sm:basis-full max-sm:mt-9' : ''
+            }`}
+          >
+            {idx > 0 && (
+              <ChevronRight
+                className={`w-3.5 h-3.5 text-gray-400 dark:text-gray-600 shrink-0 ${isLast && currentAsHeading ? 'max-sm:hidden' : ''}`}
+                aria-hidden="true"
+              />
+            )}
             {isLast || !item.href ? (
               isLast && currentAsHeading ? (
                 <h1
                   aria-current="page"
-                  className="text-2xl font-bold text-gray-900 dark:text-gray-50 truncate max-w-[45vw] md:max-w-xs"
+                  // No `truncate`, no mobile width cap: on phones the heading
+                  // sits on its own full-width line (see span classes), so a
+                  // wrapped title beats an elided or narrow-boxed one.
+                  className="text-2xl font-bold text-gray-900 dark:text-gray-50 md:max-w-xs"
                 >
                   {item.label}
                 </h1>

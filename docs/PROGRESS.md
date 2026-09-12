@@ -4,6 +4,15 @@
 
 ---
 
+## 2026-09-12 — Round: clock-poison sync recovery + mobile heading wrap (bug-fix round)
+Git HEAD: `7ec2686` (main = develop; this round to commit)
+Done: **(1) known issue 2026-08-16 FIXED** — a >24h-fast device clock poisoned stored event dates so every re-upload 400'd and the chunk was silently dropped on every login forever. Now the sync 400 body carries `serverNow` (http-handler); sync-manager clamps chunk dates + `clientMeta.lastStudyDate` to `serverNow + MAX_CLOCK_SKEW_MS` (exported from types), persists, retries the chunk ONCE — self-limiting: a second 400 clamps nothing and falls through to the terminal drop. 2 new sync-manager tests (re-stamp+retry drains; clean-date 400 still drops) + handler test pins `serverNow` in the skew 400. **(2)** Breadcrumbs `currentAsHeading` h1 on mobile now takes its own full-width line below the fixed pill (`max-sm:basis-full max-sm:mt-9`, chevron hidden, `truncate` + 45vw cap removed from the h1) — paper-runner titles ("Math — IGCSE 0580 Practice Set 1") were elided/under-pill at 375px; hubs keep one-line trails on desktop. Artefacts: `ux-screenshots/paper-h1/` (2 shots) + regenerated hub sheet. **(3)** UX_GUIDELINES stale lines corrected (reduced-motion IS gated via MotionProvider; theme-toggle nav slot long gone). `.pi/tasks/` housekeeping item was already stale (gitignored + untracked).
+Verified: unit **1270/1270** (+2), tsc ✓, eslint ✓ touched files, e2e per-project --workers=1 **Desktop 254 passed / iPhone SE 241 passed** (first attempt collided with the capture script on webServer port 3233 — re-ran after capture finished; `| tail` had masked the failure exit code, now grepped EXIT= lines). Pixel-checked paper + hub heading crops both themes.
+Next: push (deploy-dev+prod gates). Standing queue: illustrations 106, og:image, E4.2 draft (Stripe-blocked), native invoked_via_function_url, reserved_concurrent_executions (quota-blocked), octav-progress compaction (no symptom).
+Notes: (1) playwright webServer port == capture-hub-ux port (3233) — never run capture and e2e concurrently. (2) pipe-masked exit codes bit me: use explicit EXIT= echoes in bg e2e runs. (3) the clamp preserves in-window dates untouched, so borderline-legit +24h-skew events are NOT rewritten.
+
+---
+
 ## 2026-09-12 — IGCSE wave 2 + UX pass LIVE IN PROD; wip branch deleted — wave-2 chain CLOSED
 Git HEAD: `7704e9c` (main = develop = 7704e9c, tree clean; ff-promoted `fe7ff06..7704e9c`, 7 commits: wave-2 content, OSV dep bumps, hub UX pass)
 Done: user-directed direct ff-promotion after confirming develop's CI run fully green (incl. deploy-dev + its live dev SEO gate — that covered the chain's `verify:seo:live --env=dev` step). deploy-prod run 34669785605 **completed/success** (its own `verify:seo:live --all` = the prod gate). Deleted `wip/igcse-wave2-topics` local + origin. Live prod probes: `/igcse/math` 200 with all 16 topics incl. circle theorems / vectors / both trigs / histograms, card titles rendering as `h2` (single-group fix live), `/papers/math-igcse/math-igcse-set-3` 200.

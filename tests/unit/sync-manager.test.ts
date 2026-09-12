@@ -271,3 +271,38 @@ describe('sync-manager backoff', () => {
     debug.mockRestore();
   });
 });
+
+describe('sync-manager clock-poison recovery (known issue 2026-08-16)', () => {
+  const SERVER_NOW = '2026-06-01T12:00:00.000Z';
+  const CAP = new Date(new Date(SERVER_NOW).getTime() + 24 * 60 * 60 * 1000).toISOString();
+
+  it('re-stamps far-future event dates from the 400 serverNow and retries once', async () => {
+    initSyncManager(() => ({ userId: 'u1', profileId: 'p1' }));
+    const poisoned = flashcardEvent('c1');
+    poisoned.date = '2030-01-01T00:00:00.000Z';
+    seedQueue([{ userId: 'u1', profileId: 'p1', event: poisoned }]);
+
+    fetchMock
+      .mockResolvedValueOnce({ status: 400, json: async () => ({ error: 'Invalid request', serverNow: SERVER_NOW }) })
+      .mockResolvedValueOnce({ status: 200, json: async () => ({ synced: 1 }) });
+
+    await flushNow();
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    const retry = JSON.parse(fetchMock.mock.calls[1][1].body as string);
+    expect(retry.events[0].date).toBe(CAP);
+    expect(readQueue()).toEqual([]);
+  });
+
+  it('drops the chunk when the 400 carries serverNow but no date is out of window', async () => {
+    initSyncManager(() => ({ userId: 'u1', profileId: 'p1' }));
+    seedQueue([{ userId: 'u1', profileId: 'p1', event: flashcardEvent('c1') }]);
+
+    fetchMock.mockResolvedValue({ status: 400, json: async () => ({ error: 'Invalid request', serverNow: SERVER_NOW }) });
+
+    await flushNow();
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(readQueue()).toEqual([]); // terminal drop, no retry loop
+  });
+});

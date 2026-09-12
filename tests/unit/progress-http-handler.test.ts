@@ -221,9 +221,12 @@ describe('POST /api/progress/sync', () => {
   it('rejects round-2 hardening cases: clock skew, id charset, huge totals (400)', async () => {
     const profileId = user.childProfiles[0].profileId;
 
-    // A client clock > 24h ahead of the server is rejected (skew clamp).
+    // A client clock > 24h ahead of the server is rejected (skew clamp), and
+    // the 400 body carries serverNow so the client can re-stamp + retry once.
     const skewed = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString();
-    expect((await sync(syncBody([quizEvent(profileId, 'skew-1', { date: skewed })]))).status).toBe(400);
+    const skewRes = await sync(syncBody([quizEvent(profileId, 'skew-1', { date: skewed })]));
+    expect(skewRes.status).toBe(400);
+    expect(new Date((await skewRes.json()).serverNow).getTime()).not.toBeNaN();
 
     // Ids must match /^[A-Za-z0-9_-]+$/ — '#' (and friends) are rejected.
     expect((await sync(syncBody([quizEvent(profileId, 'bad#id')]))).status).toBe(400);
