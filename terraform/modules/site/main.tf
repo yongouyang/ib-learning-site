@@ -88,6 +88,17 @@ variable "dev_brand_rewrite" {
   default     = false
 }
 
+variable "env_label" {
+  description = "This distribution's environment label, stamped into the X-Octav-Env header on every /api/* request (dev|prod). It is the ONLY signal the shared Lambdas have for which environment a request came from, and it now gates money: a `prod` label is what authorises the LIVE Stripe key set (plan §6.1), while anything else resolves test. Passed EXPLICITLY per instance — it used to be derived from dev_brand_rewrite (a PWA-branding flag), which meant dropping that branding flag would silently relabel DEV as prod and let dev requests resolve live keys. Default 'prod' is the fail-safe: a caller that forgets the variable gets the stricter side, and every non-prod distribution must opt in explicitly."
+  type        = string
+  default     = "prod"
+
+  validation {
+    condition     = contains(["dev", "prod"], var.env_label)
+    error_message = "env_label must be exactly \"dev\" or \"prod\" — the Lambda compares the header to the literal string, and a typo would silently resolve the test key set."
+  }
+}
+
 # Account ID keeps the bucket name globally unique without hardcoding it.
 data "aws_caller_identity" "current" {}
 
@@ -315,9 +326,9 @@ locals {
   # requires its own Host header).
   origin_request_all_except_host = "b689b0a8-53d0-40ab-baf2-68738e2966ac"
   # This distribution's environment label, injected into the api_env_header
-  # Function below. Derived from the same flag that drives the DEV brand
-  # rewrite, so the two can never drift apart.
-  env_label = var.dev_brand_rewrite ? "dev" : "prod"
+  # Function below. Set EXPLICITLY via var.env_label — see that variable for why
+  # it must not be derived from a branding flag.
+  env_label = var.env_label
 }
 
 # DEV/PROD environment marker for the /api/* handlers

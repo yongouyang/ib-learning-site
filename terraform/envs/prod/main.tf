@@ -551,9 +551,14 @@ module "site" {
   admin_origin_domain         = module.admin_api.function_url_domain
   contact_origin_domain       = module.contact_api.function_url_domain
   subscriptions_origin_domain = module.subscriptions_api.function_url_domain
-  domain_names                = ["dev.octavlearning.com"]
-  acm_certificate_arn         = aws_acm_certificate.dev.arn
-  dev_brand_rewrite           = true
+  # Stamped into X-Octav-Env: drives the DEV allowlist AND the Stripe key-set
+  # selection (LIVE keys require the literal "prod"). Explicit, NOT derived
+  # from dev_brand_rewrite — that coupling meant dropping the DEV branding flag
+  # would have silently relabelled this distribution as prod.
+  env_label           = "dev"
+  domain_names        = ["dev.octavlearning.com"]
+  acm_certificate_arn = aws_acm_certificate.dev.arn
+  dev_brand_rewrite   = true
 }
 
 # PROD: separate bucket + distribution fronting octavlearning.com (apex + www
@@ -571,6 +576,7 @@ module "site_prod" {
   admin_origin_domain         = module.admin_api.function_url_domain
   contact_origin_domain       = module.contact_api.function_url_domain
   subscriptions_origin_domain = module.subscriptions_api.function_url_domain
+  env_label                   = "prod"
   domain_names                = ["octavlearning.com", "www.octavlearning.com"]
   acm_certificate_arn         = aws_acm_certificate.site.arn
   redirect_from_host          = "www.octavlearning.com"

@@ -91,4 +91,24 @@ describe('subscriptions Lambda IAM policy (static) — least-privilege', () => {
     // billing call (and every Stripe delivery) would hit the feedback Lambda.
     expect(fallback).toBeGreaterThan(wildcard);
   });
+
+  it('takes the env marker from an EXPLICIT var, never from a branding flag', () => {
+    // X-Octav-Env is what authorises the LIVE key set. It used to be derived
+    // from dev_brand_rewrite — a PWA-branding flag — so removing that branding
+    // would have silently relabelled DEV as prod and let dev requests resolve
+    // live keys. Pin the decoupling: the label must come from var.env_label,
+    // and both instances must set it explicitly.
+    const siteTf = readFileSync(path.join(process.cwd(), 'terraform/modules/site/main.tf'), 'utf8');
+    expect(siteTf).toContain('env_label = var.env_label');
+    expect(siteTf).not.toMatch(/env_label\s*=\s*var\.dev_brand_rewrite/);
+    // Fail-safe default: a caller that forgets it gets the STRICTER side.
+    const envLabelVar = siteTf.slice(siteTf.indexOf('variable "env_label"'));
+    expect(envLabelVar).toMatch(/default\s*=\s*"prod"/);
+    // And a typo cannot pick a third side (the Lambda string-compares the header).
+    expect(envLabelVar).toContain('contains(["dev", "prod"], var.env_label)');
+
+    const envTf = readFileSync(path.join(process.cwd(), 'terraform/envs/prod/main.tf'), 'utf8');
+    expect(envTf).toMatch(/env_label\s*=\s*"dev"/);
+    expect(envTf).toMatch(/env_label\s*=\s*"prod"/);
+  });
 });
