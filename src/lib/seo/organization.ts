@@ -21,8 +21,7 @@ export function orgNodes() {
       },
       // PWA source icon is a square mark on a light field — the safe asset for a logo signal.
       image: { '@id': `${SITE.origin}/#logo` },
-      description:
-        'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for UK Key Stage 3, IGCSE and the IB Diploma Programme, across ten subjects.',
+      description: SITE.description,
       disambiguatingDescription:
         'An independent online study resource. Octav Learning is not an IB World School, not a Cambridge Assessment International Education exam centre, and awards no qualifications; it is not endorsed by or affiliated with the IBO or CAIE.',
       // We prepare students FOR a credential; we never award one. Saying so in markup keeps the

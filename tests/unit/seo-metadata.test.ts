@@ -7,7 +7,9 @@ import { LADDER_LEVELS } from '@/lib/ladder';
 import { getExamCourses } from '@/lib/exams';
 import { metaForTopic, metaForTool, metaForSubject, subjectSeoName, titleQualifier } from '@/lib/seo/meta';
 import { courseQualifier, metaForDiagnostic, metaForLadderOverview, metaForLadderLevel, metaForMockPaper, metaForPaperSet } from '@/lib/seo/assessments';
-import { BRAND_SUFFIX, DESC_BUDGET, TITLE_BUDGET } from '@/lib/seo/page-meta';
+import { BRAND_SUFFIX, DESC_BUDGET, TITLE_BUDGET, pageMeta } from '@/lib/seo/page-meta';
+import { orgNodes } from '@/lib/seo/organization';
+import { SITE } from '@/lib/seo/site';
 import { displayWidth, plainText, clipToWidth } from '@/lib/seo/text';
 
 const subjects = getSubjects();
@@ -178,5 +180,29 @@ describe('assessment metadata follows the entitlement code, not a copy of it', (
       expect(robotsOf(metaForLadderOverview(id)!).index).toBe(true);
       expect(renderedDesc(metaForDiagnostic(id)!).length).toBeGreaterThan(60);
     }
+  });
+});
+
+describe('site-wide copy has ONE source (the 2026-09-13 stale-description fix)', () => {
+  it('keeps SITE.description inside the SERP clip budget and off the old subject list', () => {
+    expect(SITE.description.length).toBeLessThanOrEqual(DESC_BUDGET);
+    // The layout/page/JSON-LD copies used to say "Math, English and the Sciences"
+    // while subjects.json lists ten — the drift is what this pin exists to catch.
+    expect(SITE.description).not.toMatch(/English and the Sciences/);
+    expect(SITE.description).toMatch(/ten subjects/);
+  });
+
+  it('feeds the JSON-LD Organization node from SITE.description', () => {
+    const org = orgNodes()[0] as { description?: string };
+    expect(org.description).toBe(SITE.description);
+  });
+
+  it('asks for a large social card everywhere (an og:image now exists)', () => {
+    const cards = [
+      pageMeta({ path: '/', title: 'Octav Learning', description: SITE.description }),
+      metaForTopic(topics[0].topic, topics[0].subjectName),
+      metaForTool(topics[0].topic, topics[0].subjectName, 'quiz'),
+    ];
+    for (const m of cards) expect((m.twitter as { card?: string })?.card).toBe('summary_large_image');
   });
 });

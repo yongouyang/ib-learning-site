@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import HomePageClient from '@/components/HomePageClient';
 import { pageMeta } from '@/lib/seo/page-meta';
+import { SITE } from '@/lib/seo/site';
 
 /**
  * The homepage is the one page of 809 that shipped with NO robots meta and NO canonical:
@@ -15,8 +16,7 @@ import { pageMeta } from '@/lib/seo/page-meta';
 export const metadata: Metadata = pageMeta({
   path: '/',
   title: 'Octav Learning',
-  description:
-    'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+  description: SITE.description,
   absolute: true,
 });
 

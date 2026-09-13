@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import type { Subject, Topic } from '@/content/types';
-import { SITE } from './site';
+import { SITE, SOCIAL_IMAGE } from './site';
 import { STUDY_PATH, TIERS, curriculumLabel, tierOfTopic } from './curriculum';
 import { clipToWidth, displayWidth, plainText } from './text';
 
@@ -88,6 +88,7 @@ function ogWithBrand(title: string, description: string, path: string): Metadata
     title: `${title} · ${SITE.name}`,
     description,
     siteName: SITE.name,
+    images: [SOCIAL_IMAGE],
   };
 }
 
@@ -108,7 +109,7 @@ export function metaForTopic(topic: Topic, subjectName: string): Metadata {
     alternates: { canonical: path },
     robots: OPEN_ROBOTS,
     openGraph: ogWithBrand(title, description, path),
-    twitter: { card: 'summary', title, description },
+    twitter: { card: 'summary_large_image', title, description, images: [{ url: SOCIAL_IMAGE.url, alt: SOCIAL_IMAGE.alt }] },
   };
 }
 
@@ -136,7 +137,7 @@ export function metaForTool(topic: Topic, subjectName: string, tool: 'quiz' | 'f
     alternates: { canonical: STUDY_PATH(topic) },
     robots: { index: false, follow: true },
     openGraph: ogWithBrand(qualified, description, STUDY_PATH(topic)),
-    twitter: { card: 'summary', title: qualified, description },
+    twitter: { card: 'summary_large_image', title: qualified, description, images: [{ url: SOCIAL_IMAGE.url, alt: SOCIAL_IMAGE.alt }] },
   };
 }
 
@@ -164,6 +165,6 @@ export function metaForSubject(subject: Subject): Metadata {
     alternates: { canonical: path },
     robots: OPEN_ROBOTS,
     openGraph: ogWithBrand(title, description, path),
-    twitter: { card: 'summary', title: `${title} · ${SITE.name}`, description },
+    twitter: { card: 'summary_large_image', title: `${title} · ${SITE.name}`, description, images: [{ url: SOCIAL_IMAGE.url, alt: SOCIAL_IMAGE.alt }] },
   };
 }

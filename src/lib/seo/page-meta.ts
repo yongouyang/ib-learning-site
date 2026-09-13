@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SITE } from './site';
+import { SITE, SOCIAL_IMAGE } from './site';
 import { clipToWidth, displayWidth, plainText } from './text';
 
 /**
@@ -76,7 +76,13 @@ export function pageMeta({ path, title, description, indexable = true, absolute 
       title: fullTitle,
       description: desc,
       siteName: SITE.name,
+      images: [SOCIAL_IMAGE],
     },
-    twitter: { card: 'summary', title: fullTitle, description: desc },
+    twitter: {
+      card: 'summary_large_image',
+      title: fullTitle,
+      description: desc,
+      images: [{ url: SOCIAL_IMAGE.url, alt: SOCIAL_IMAGE.alt }],
+    },
   };
 }

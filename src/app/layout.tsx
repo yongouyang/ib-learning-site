@@ -15,6 +15,7 @@ import { ServiceWorkerRegistration } from '@/components/ServiceWorkerRegistratio
 import { AnalyticsTracker } from '@/components/AnalyticsTracker';
 import { JsonLd } from '@/components/json-ld';
 import { orgNodes } from '@/lib/seo/organization';
+import { SITE, SOCIAL_IMAGE } from '@/lib/seo/site';
 import { OfflineBanner } from '@/components/OfflineBanner';
 import { UpdateToast } from '@/components/UpdateToast';
 import { HeaderLogo } from '@/components/HeaderLogo';
@@ -39,21 +40,22 @@ export const metadata: Metadata = {
     default: 'Octav Learning',
     template: '%s · Octav Learning',
   },
-  description:
-    'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+  description: SITE.description,
   openGraph: {
     title: 'Octav Learning',
-    description:
-      'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+    description: SITE.description,
     url: 'https://octavlearning.com',
     siteName: 'Octav Learning',
     type: 'website',
+    images: [SOCIAL_IMAGE],
   },
   twitter: {
-    card: 'summary',
+    // large image = the 1200x630 card in public/og/ (SOCIAL_IMAGE in lib/seo/site.ts),
+    // else X renders the 1:1 thumbnail crop.
+    card: 'summary_large_image',
     title: 'Octav Learning',
-    description:
-      'Illustrated notes, smart flashcards, diagnostic tests and timed mock exams for KS3, IGCSE and IB DP — across Math, English and the Sciences.',
+    description: SITE.description,
+    images: [{ url: SOCIAL_IMAGE.url, alt: SOCIAL_IMAGE.alt }],
   },
   appleWebApp: {
     capable: true,
