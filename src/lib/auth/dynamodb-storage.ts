@@ -86,6 +86,113 @@ export class DynamoSessionStorage {
   }
 }
 
+/**
+ * Build the SET clause for a user-row update. Extracted so the subscriptions
+ * adapter (E4.2) can write billing state + tier onto the SAME row without
+ * duplicating the per-field merge — its Lambda has no OTP/progress table names
+ * and must not need a full DynamoAuthStorage to write one tier field.
+ * Returns null when there is nothing to set.
+ */
+export function buildUserUpdateExpression(
+  updates: {
+    displayName?: string;
+    childProfiles?: ChildProfile[];
+    lastLoginAt?: string;
+    tier?: UserRecord['tier'];
+  } & SubscriptionFields
+): { sets: string[]; values: Record<string, unknown>; names: Record<string, string> } {
+  const sets: string[] = [];
+  // The userId is the partition key (Key), NOT an expression value — leaving
+  // an unused ':userId' here makes DynamoDB reject the update with "Value
+  // provided in ExpressionAttributeValues unused in expressions" (seen live
+  // 2026-08-22 on the child-profile save). Values must contain only the
+  // placeholders referenced by the SET/Condition expressions below.
+  const values: Record<string, unknown> = {};
+  const names: Record<string, string> = {};
+
+  if (updates.displayName !== undefined) {
+    sets.push('#dn = :dn');
+    values[':dn'] = updates.displayName;
+    names['#dn'] = 'displayName';
+  }
+  if (updates.childProfiles !== undefined) {
+    sets.push('#cp = :cp');
+    values[':cp'] = updates.childProfiles;
+    names['#cp'] = 'childProfiles';
+  }
+  if (updates.lastLoginAt !== undefined) {
+    sets.push('#lla = :lla');
+    values[':lla'] = updates.lastLoginAt;
+    names['#lla'] = 'lastLoginAt';
+  }
+  if (updates.tier !== undefined) {
+    sets.push('#tier = :tier');
+    values[':tier'] = updates.tier;
+    names['#tier'] = 'tier';
+  }
+  // E4 billing state cached from Stripe (plan §6.3). Only the fields actually
+  // present are SET — an update that omits them cannot blank cached state.
+  for (const [field, token] of SUBSCRIPTION_UPDATE_FIELDS) {
+    const value = updates[field];
+    if (value !== undefined) {
+      sets.push(`#${token} = :${token}`);
+      values[`:${token}`] = value;
+      names[`#${token}`] = field;
+    }
+  }
+
+  return { sets, values, names };
+}
+
+/**
+ * The user-row writer used by non-auth Lambdas (subscriptions E4.2). Same
+ * conditional per-field merge as DynamoAuthStorage.updateUser, but only ever
+ * touches the users table, so its module needs no otp/progress table names.
+ */
+export class DynamoUserWriter {
+  constructor(
+    private readonly client: DynamoDBDocumentClient,
+    private readonly usersTable: string
+  ) {}
+
+  async updateUser(
+    userId: string,
+    updates: {
+      displayName?: string;
+      childProfiles?: ChildProfile[];
+      lastLoginAt?: string;
+      tier?: UserRecord['tier'];
+    } & SubscriptionFields
+  ): Promise<UserRecord | null> {
+    const { sets, values, names } = buildUserUpdateExpression(updates);
+    if (sets.length === 0) {
+      const res = await this.client.send(new GetCommand({ TableName: this.usersTable, Key: { userId } }));
+      const item = (res.Item as UserRecord | undefined) ?? null;
+      return item ? withTierDefault(item) : null;
+    }
+    try {
+      const res = await this.client.send(
+        new UpdateCommand({
+          TableName: this.usersTable,
+          Key: { userId },
+          UpdateExpression: `SET ${sets.join(', ')}`,
+          ExpressionAttributeValues: values,
+          ExpressionAttributeNames: names,
+          ConditionExpression: 'attribute_exists(userId)',
+          ReturnValues: 'ALL_NEW',
+        })
+      );
+      const updated = (res.Attributes as UserRecord | undefined) ?? null;
+      return updated ? withTierDefault(updated) : null;
+    } catch (err) {
+      // No such user (deleted account): the caller acknowledges rather than
+      // retries — the auth adapter's behaviour, kept identical here.
+      if (isConditionalFailure(err)) return null;
+      throw err;
+    }
+  }
+}
+
 export class DynamoAuthStorage implements AuthStorage {
   private readonly sessionsStore: DynamoSessionStorage;
 
@@ -134,45 +241,7 @@ export class DynamoAuthStorage implements AuthStorage {
       tier?: UserRecord['tier'];
     } & SubscriptionFields
   ): Promise<UserRecord | null> {
-    const sets: string[] = [];
-    // The userId is the partition key (Key), NOT an expression value — leaving
-    // an unused ':userId' here makes DynamoDB reject the update with "Value
-    // provided in ExpressionAttributeValues unused in expressions" (seen live
-    // 2026-08-22 on the child-profile save). Values must contain only the
-    // placeholders referenced by the SET/Condition expressions below.
-    const values: Record<string, unknown> = {};
-    const names: Record<string, string> = {};
-
-    if (updates.displayName !== undefined) {
-      sets.push('#dn = :dn');
-      values[':dn'] = updates.displayName;
-      names['#dn'] = 'displayName';
-    }
-    if (updates.childProfiles !== undefined) {
-      sets.push('#cp = :cp');
-      values[':cp'] = updates.childProfiles;
-      names['#cp'] = 'childProfiles';
-    }
-    if (updates.lastLoginAt !== undefined) {
-      sets.push('#lla = :lla');
-      values[':lla'] = updates.lastLoginAt;
-      names['#lla'] = 'lastLoginAt';
-    }
-    if (updates.tier !== undefined) {
-      sets.push('#tier = :tier');
-      values[':tier'] = updates.tier;
-      names['#tier'] = 'tier';
-    }
-    // E4 billing state cached from Stripe (plan §6.3). Only the fields actually
-    // present are SET — an update that omits them cannot blank cached state.
-    for (const [field, token] of SUBSCRIPTION_UPDATE_FIELDS) {
-      const value = updates[field];
-      if (value !== undefined) {
-        sets.push(`#${token} = :${token}`);
-        values[`:${token}`] = value;
-        names[`#${token}`] = field;
-      }
-    }
+    const { sets, values, names } = buildUserUpdateExpression(updates);
     if (sets.length === 0) return this.getUserById(userId);
 
     const res = await this.client.send(

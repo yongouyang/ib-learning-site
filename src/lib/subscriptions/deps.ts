@@ -1,5 +1,9 @@
 import { getSharedDummyUniverse } from '../progress/deps';
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
+import { DynamoSessionStorage, DynamoUserWriter } from '../auth/dynamodb-storage';
 import { DummyStripeClient } from './dummy';
+import { DynamoSubscriptionsStorage } from './dynamodb-storage';
 import { StripeRestClient } from './stripe-rest';
 import {
   parseStripeEnv,
@@ -137,14 +141,43 @@ export function getSubscriptionsDeps(
   }
 
   if (kind === 'dynamodb') {
-    // The DynamoDB subscriptions storage adapter lands with the live client
-    // (E4.2 follow-up): it needs the real table names plus the rate-limit and
-    // event-ledger grants. The seam and the faithful dummy are in place so the
-    // handler, routes and tests are buildable and testable now.
-    throw new Error(
-      '[subscriptions] dynamodb storage is not wired yet (E4.2 follow-up: subscriptions dynamodb-storage adapter + live Stripe client)'
+    // Real wiring: session validation and the user-row write are delegated to
+    // the SAME DynamoSessionStorage/DynamoAuthStorage the other Lambdas use, so
+    // there is one implementation of the session TTL slide and the per-field
+    // user merge. Only the webhook ledger and the session budget are new.
+    const client = DynamoDBDocumentClient.from(new DynamoDBClient({}), {
+      marshallOptions: { removeUndefinedValues: true },
+    });
+    const users = requiredEnv(env, 'AUTH_USERS_TABLE');
+    const sessions = requiredEnv(env, 'AUTH_SESSIONS_TABLE');
+    const sessionStore = new DynamoSessionStorage(client, { users, sessions });
+    const userWriter = new DynamoUserWriter(client, users);
+    const storage = new DynamoSubscriptionsStorage(
+      client,
+      { users, sessions, rateLimits: requiredEnv(env, 'AUTH_RATE_LIMITS_TABLE') },
+      sessionStore,
+      userWriter
     );
+    return {
+      storage,
+      stripeFor,
+      stripeModeFor,
+      stripeConfig,
+      configuredStripeMode,
+      trialDays,
+      clock: Date.now,
+      testMode: env.SUBSCRIPTIONS_TEST_MODE === '1',
+      dummyMode: false,
+    };
   }
 
   throw new Error(`[subscriptions] SUBSCRIPTIONS_STORAGE must be "dummy" or "dynamodb" (got "${kind}")`);
+}
+
+/** Fail LOUD at construction: a missing table name must break the deploy smoke,
+ *  not silently degrade billing (the FEEDBACK_ENV incident class). */
+function requiredEnv(env: Record<string, string | undefined>, name: string): string {
+  const value = env[name];
+  if (!value) throw new Error(`[subscriptions] ${name} is required when using the real AWS wiring`);
+  return value;
 }
