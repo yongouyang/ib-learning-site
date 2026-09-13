@@ -179,6 +179,26 @@ export class StripeRestClient implements StripeClient {
         customer_email: params.email,
         // Decision 10 (2026-09-05): collect the card up front.
         payment_method_collection: 'always',
+        // Managed Payments: Stripe is the MERCHANT OF RECORD and handles
+        // indirect-tax compliance (VAT/GST/sales tax) in 80+ countries, plus
+        // fraud and disputes. Sent EXPLICITLY rather than relying on the
+        // account default — verified 2026-09-13 that this account defaults to
+        // enabled (a session created without the flag comes back
+        // managed_payments.enabled=true, and it is what makes the product's
+        // tax_code mandatory). Explicit here so a future default change cannot
+        // silently move who is liable for the tax.
+        //
+        // Constraint it imposes: with managed payments on, subscriptions may
+        // only be created through Checkout (or Payment Links) — so if the
+        // Customer Portal is ever configured to allow PLAN SWITCHING, verify
+        // with Stripe first, since that creates a subscription outside
+        // Checkout. Cancel/payment-method/invoice-history are unaffected.
+        //
+        // No `Stripe-Version` pin: Stripe's guide suggests a preview version
+        // for this parameter, but the account's default version already
+        // accepts and returns it, and pinning a preview would also freeze the
+        // webhook/subscription payload shapes for no benefit here.
+        'managed_payments[enabled]': 'true',
         client_reference_id: params.userId,
         metadata: { userId: params.userId, plan: params.plan },
         line_items: [{ price: this.priceIds[params.plan], quantity: 1 }],

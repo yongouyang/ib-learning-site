@@ -78,6 +78,16 @@ describe('StripeRestClient — checkout session', () => {
     // §2.2.1: a trial that ends with no usable card must cancel, not convert.
     expect(params.get('subscription_data[trial_settings][end_behavior][missing_payment_method]')).toBe('cancel');
     expect(params.get('success_url')).toBe('https://octavlearning.com/account?billing=updated');
+    // Managed Payments explicitly on: Stripe is the merchant of record and owns
+    // indirect-tax compliance. Verified against the live test account that this
+    // is ALSO the account default (a session without the flag returns
+    // managed_payments.enabled=true) — sending it makes the tax stance
+    // deliberate rather than inherited, and it is what requires the product's
+    // tax_code above.
+    expect(params.get('managed_payments[enabled]')).toBe('true');
+    // No Stripe-Version pin: the account default accepts this parameter, and a
+    // preview pin would freeze webhook payload shapes too (see the client).
+    expect((calls[0].init.headers as Record<string, string>)['Stripe-Version']).toBeUndefined();
   });
 
   it('surfaces Stripe\'s own error message on a rejected call', async () => {
