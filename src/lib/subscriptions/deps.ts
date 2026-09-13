@@ -1,5 +1,6 @@
 import { getSharedDummyUniverse } from '../progress/deps';
 import { DummyStripeClient } from './dummy';
+import { StripeRestClient } from './stripe-rest';
 import {
   parseStripeEnv,
   resolveStripeMode,
@@ -86,19 +87,37 @@ export function getSubscriptionsDeps(
   // in-memory universe.
   const dummy = new DummyStripeClient({ webhookSecret: env.STRIPE_WEBHOOK_SECRET });
 
+  // Real clients are built lazily and cached for the process: one per key set
+  // (two at most), so a warm Lambda does not rebuild an HTTPS client per request.
+  const rest = new Map<'test' | 'live', StripeRestClient>();
+  const restFor = (mode: 'test' | 'live'): StripeRestClient => {
+    const cached = rest.get(mode);
+    if (cached) return cached;
+    const keys = mode === 'live' ? stripeConfig.live : stripeConfig.test;
+    if (!keys) throw new Error(`[subscriptions] no ${mode} key set — resolveStripeMode should not have selected it`);
+    const client = new StripeRestClient({
+      secretKey: keys.secretKey,
+      webhookSecret: keys.webhookSecret,
+      priceIds: keys.priceIds,
+    });
+    rest.set(mode, client);
+    return client;
+  };
+
   const stripeModeFor = (req: Request): ResolvedStripeMode =>
     resolveStripeMode(req, configuredStripeMode, stripeConfig);
 
   const stripeFor = (req: Request): StripeClient | null => {
     const mode = stripeModeFor(req);
     if (mode === 'dummy') return dummy;
-    // E4.2 follow-up: the live Stripe REST client (checkout sessions, portal,
-    // subscription reads, webhook verification) lands with the Stripe account
-    // (E4.0). Billing reports unavailable until then rather than half-working.
-    console.error(
-      `[subscriptions] STRIPE_MODE=${mode} resolved but the live Stripe client is not wired yet (E4.2 follow-up) — billing unavailable`
-    );
-    return null;
+    try {
+      return restFor(mode);
+    } catch (err) {
+      // Only reachable if the config and the mode disagree — report unavailable
+      // rather than 500 every billing request.
+      console.error('[subscriptions]', err instanceof Error ? err.message : err);
+      return null;
+    }
   };
 
   const trialDays = Number(env.STRIPE_TRIAL_DAYS ?? 14);
