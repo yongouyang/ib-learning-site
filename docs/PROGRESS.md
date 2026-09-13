@@ -4,6 +4,32 @@
 
 ---
 
+## 2026-09-14 — Deploy was dead: OIDC trust didn't know about GitHub environments
+Git HEAD: `e91ddf7` (develop, tree dirty)
+Done: Every deploy job failed at `configure-aws-credentials` (12× `Not authorized to perform
+  sts:AssumeRoleWithWebIdentity`). Cause: e91ddf7 added `environment: DEV` / `environment: PROD` to
+  the deploy jobs, and GitHub then issues sub `repo:yongouyang/ib-learning-site:environment:DEV`
+  *instead of* `repo:…:ref:refs/heads/develop` (docs: the branch form applies "only if the job
+  doesn't reference an environment") — the live role only trusts the ref forms (verified with
+  `aws iam get-role`). Fix: `terraform/modules/ci` gained `github_environments` and the sub
+  condition is now `concat(refs, environments)`; new static guard
+  `tests/unit/ci-oidc-trust.test.ts` pins ci.yml's `environment:` names to the terraform defaults.
+  The live role was updated out-of-band with `aws iam update-assume-role-policy` (same JSON the
+  targeted plan produced) — the CI apply cannot fix a role CI can't assume.
+Verified: `terraform fmt -check` + `terraform validate` (envs/prod) pass; targeted
+  `plan -target=module.ci` shows exactly ONE change (`aws_iam_role.github_deploy`, others no-op);
+  `npx vitest run tests/unit/ci-oidc-trust.test.ts` 3 passed; `aws iam get-role` confirms the live
+  policy now lists all four subjects. NOT yet verified end-to-end: no deploy has run since the fix.
+Next: push to `develop` and let `deploy-dev` run (or dispatch `deploy_only=true` for the fast half —
+  it reaches `configure-aws-credentials` in seconds, which is the actual proof). Optional hardening:
+  GitHub environment deployment-branch rules (DEV→develop, PROD→main), since the environment sub
+  form no longer pins the branch itself.
+Notes: any future job that needs an environment secret MUST be listed in `github_environments` —
+  the branch list alone will not authorize it. The terraform fix must be COMMITTED before the next
+  deploy: the old code's apply would revert the live trust policy to ref-only.
+
+---
+
 ## 2026-09-13 — Publishable key arrives → the browser half is PROVEN, and it found a real defect (`appearance`) plus a local-vs-CI trap
 Git HEAD: `b088a1c` at the time of writing (develop, tree dirty, uncommitted — same session as the two
 entries below); the work landed in this session as the commit titled *feat(billing): embedded Checkout that

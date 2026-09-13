@@ -2,6 +2,14 @@
 # role. Trust is scoped to exactly one repo + the deploy branches (develop for
 # DEV, main for PROD — custom-domain-cutover-plan.md §4) — no stored AWS keys
 # in GitHub, short-lived OIDC tokens only.
+#
+# Two subject forms must both be trusted: a job WITHOUT `environment:` gets
+# `…:ref:refs/heads/<branch>`, a job WITH one gets `…:environment:<NAME>`
+# instead (GitHub docs, "Filtering for a specific branch": the branch form
+# applies "only if the job doesn't reference an environment"). The deploy jobs
+# declare the DEV/PROD environments (for the environment secrets), so they use
+# the environment form — matching only the branch form is what made every
+# deploy fail with `Not authorized to perform sts:AssumeRoleWithWebIdentity`.
 
 variable "name_prefix" {
   type    = string
@@ -15,9 +23,15 @@ variable "github_repo" {
 }
 
 variable "github_branches" {
-  description = "Branches allowed to assume the deploy role (develop = DEV deploys, main = PROD deploys)."
+  description = "Branches allowed to assume the deploy role without a GitHub environment (develop = DEV deploys, main = PROD deploys)."
   type        = list(string)
   default     = ["develop", "main"]
+}
+
+variable "github_environments" {
+  description = "GitHub Environments allowed to assume the deploy role — names exactly as declared in ci.yml (`environment: DEV|PROD`), case-sensitive."
+  type        = list(string)
+  default     = ["DEV", "PROD"]
 }
 
 data "aws_caller_identity" "current" {}
@@ -55,7 +69,10 @@ data "aws_iam_policy_document" "github_assume" {
     condition {
       test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = [for b in var.github_branches : "repo:${var.github_repo}:ref:refs/heads/${b}"]
+      values = concat(
+        [for b in var.github_branches : "repo:${var.github_repo}:ref:refs/heads/${b}"],
+        [for e in var.github_environments : "repo:${var.github_repo}:environment:${e}"],
+      )
     }
   }
 }
