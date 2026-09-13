@@ -185,6 +185,13 @@ variable "contact_env" {
   sensitive   = true
 }
 
+variable "stripe_env" {
+  description = "The subscriptions Lambda's STRIPE_ENV value, via CI TF_VAR_stripe_env (STRIPE_ENV secret): ONE single-line JSON carrying BOTH key sets (SECRET_KEY_TEST / WEBHOOK_SECRET_TEST / PRICE_MONTHLY_TEST / PRICE_ANNUAL_TEST and the _LIVE equivalents). A JSON STRING, not an env-override map like contact_env — the secret's value IS the variable's value. Empty = billing answers 503 and _health returns 500, i.e. a missing/partial secret goes RED at deploy time rather than at the first real checkout (the FEEDBACK_ENV incident class). MUST be single-line with straight quotes: terraform parses it as HCL and rejects multi-line/curly quotes."
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
 # ACM cert for octavlearning.com (apex + www), DNS-validated. Lives at the
 # root (not the site module) so only the PROD site instance references it —
 # the DEV distribution keeps the CloudFront default cert. Validated via two
@@ -495,6 +502,39 @@ module "contact_api" {
   )
 }
 
+# Subscriptions / billing Lambda + Function URL (E4.2): Stripe Checkout, the
+# Customer Portal, billing status and the Stripe webhook — behind the
+# /api/subscriptions + /api/subscriptions/* behaviors. ONE secret (STRIPE_ENV)
+# carries both the test and live key sets; the Lambda picks per request from the
+# CloudFront-overwritten X-Octav-Env marker, and REFUSES to serve a prod request
+# from test keys. It needs no new table: the user row, the sessions and the
+# webhook ledger all live in the shared users/sessions/rate-limits tables.
+module "subscriptions_api" {
+  source = "../../modules/subscriptions_api"
+
+  zip_path = "${path.module}/../../../lambda/subscriptions/dist/subscriptions-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  users_table_arn       = module.dynamodb.users_table_arn
+  sessions_table_arn    = module.dynamodb.sessions_table_arn
+  rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+
+  environment = {
+    # Both of these MUST be real: dummy storage/stripe is refused inside AWS
+    # Lambda, so an unset SUBSCRIPTIONS_STORAGE would throw on every request.
+    # STRIPE_MODE is a CAPABILITY, not the answer — "test" still lets a prod
+    # request resolve the live key set first.
+    SUBSCRIPTIONS_STORAGE  = "dynamodb"
+    STRIPE_MODE            = "test"
+    STRIPE_ENV             = var.stripe_env
+    AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+    AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+    AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+    DEV_ALLOWED_EMAILS     = var.dev_allowed_emails
+  }
+}
+
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
 # /api/* proxy behavior to the feedback Lambda. Custom domain: the
 # dev.octavlearning.com alias with its dedicated ACM cert (round 2 of the
@@ -503,16 +543,17 @@ module "contact_api" {
 module "site" {
   source = "../../modules/site"
 
-  feedback_origin_domain    = module.feedback_api.function_url_domain
-  auth_origin_domain        = module.auth_api.function_url_domain
-  progress_origin_domain    = module.progress_api.function_url_domain
-  analytics_origin_domain   = module.analytics_api.function_url_domain
-  leaderboard_origin_domain = module.leaderboard_api.function_url_domain
-  admin_origin_domain       = module.admin_api.function_url_domain
-  contact_origin_domain     = module.contact_api.function_url_domain
-  domain_names              = ["dev.octavlearning.com"]
-  acm_certificate_arn       = aws_acm_certificate.dev.arn
-  dev_brand_rewrite         = true
+  feedback_origin_domain      = module.feedback_api.function_url_domain
+  auth_origin_domain          = module.auth_api.function_url_domain
+  progress_origin_domain      = module.progress_api.function_url_domain
+  analytics_origin_domain     = module.analytics_api.function_url_domain
+  leaderboard_origin_domain   = module.leaderboard_api.function_url_domain
+  admin_origin_domain         = module.admin_api.function_url_domain
+  contact_origin_domain       = module.contact_api.function_url_domain
+  subscriptions_origin_domain = module.subscriptions_api.function_url_domain
+  domain_names                = ["dev.octavlearning.com"]
+  acm_certificate_arn         = aws_acm_certificate.dev.arn
+  dev_brand_rewrite           = true
 }
 
 # PROD: separate bucket + distribution fronting octavlearning.com (apex + www
@@ -521,17 +562,18 @@ module "site" {
 module "site_prod" {
   source = "../../modules/site"
 
-  name_prefix               = "iblearn-prod"
-  feedback_origin_domain    = module.feedback_api.function_url_domain
-  auth_origin_domain        = module.auth_api.function_url_domain
-  progress_origin_domain    = module.progress_api.function_url_domain
-  analytics_origin_domain   = module.analytics_api.function_url_domain
-  leaderboard_origin_domain = module.leaderboard_api.function_url_domain
-  admin_origin_domain       = module.admin_api.function_url_domain
-  contact_origin_domain     = module.contact_api.function_url_domain
-  domain_names              = ["octavlearning.com", "www.octavlearning.com"]
-  acm_certificate_arn       = aws_acm_certificate.site.arn
-  redirect_from_host        = "www.octavlearning.com"
+  name_prefix                 = "iblearn-prod"
+  feedback_origin_domain      = module.feedback_api.function_url_domain
+  auth_origin_domain          = module.auth_api.function_url_domain
+  progress_origin_domain      = module.progress_api.function_url_domain
+  analytics_origin_domain     = module.analytics_api.function_url_domain
+  leaderboard_origin_domain   = module.leaderboard_api.function_url_domain
+  admin_origin_domain         = module.admin_api.function_url_domain
+  contact_origin_domain       = module.contact_api.function_url_domain
+  subscriptions_origin_domain = module.subscriptions_api.function_url_domain
+  domain_names                = ["octavlearning.com", "www.octavlearning.com"]
+  acm_certificate_arn         = aws_acm_certificate.site.arn
+  redirect_from_host          = "www.octavlearning.com"
 }
 
 # GitHub Actions OIDC provider + deploy role — short-lived tokens only,
@@ -584,6 +626,10 @@ output "leaderboard_function_url" {
 
 output "contact_function_url" {
   value = module.contact_api.function_url
+}
+
+output "subscriptions_function_url" {
+  value = module.subscriptions_api.function_url
 }
 
 output "github_deploy_role_arn" {

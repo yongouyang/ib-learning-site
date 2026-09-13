@@ -58,6 +58,12 @@ variable "contact_origin_domain" {
   default     = ""
 }
 
+variable "subscriptions_origin_domain" {
+  description = "Lambda Function URL domain for the subscriptions API (subscriptions_api module output). When set, adds the /api/subscriptions + /api/subscriptions/* behaviors; empty = billing not wired. The EXACT path matters: Stripe's webhook POSTs the bare path, which a /*-only pattern would NOT match."
+  type        = string
+  default     = ""
+}
+
 variable "domain_names" {
   description = "Custom domain aliases (apex + www). Empty = cloudfront.net default cert only. First entry is the canonical host."
   type        = list(string)
@@ -474,6 +480,22 @@ resource "aws_cloudfront_distribution" "site" {
     }
   }
 
+  # Origin 9 (optional): subscriptions Lambda Function URL (E4.2) — created
+  # only once the API is wired (subscriptions_origin_domain non-empty).
+  dynamic "origin" {
+    for_each = var.subscriptions_origin_domain != "" ? [var.subscriptions_origin_domain] : []
+    content {
+      origin_id   = "lambda-subscriptions"
+      domain_name = origin.value
+      custom_origin_config {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.2"]
+      }
+    }
+  }
+
   # /api/auth/* → auth Lambda, never cached, all viewer data forwarded. This
   # more specific pattern MUST precede the /api/* behavior below — CloudFront
   # matches ordered behaviors top-down, so /api/auth/* must win over /api/*.
@@ -666,6 +688,55 @@ resource "aws_cloudfront_distribution" "site" {
     content {
       path_pattern             = "/api/contact/*"
       target_origin_id         = "lambda-contact"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
+    }
+  }
+
+  # Bare /api/subscriptions (exact path) → subscriptions Lambda. This is where
+  # STRIPE POSTS ITS WEBHOOK, and a "/api/subscriptions/*" pattern requires the
+  # trailing slash segment — so without this behavior every webhook delivery
+  # would fall through to /api/* → the FEEDBACK Lambda (the same fall-through
+  # that broke the bare /api/contact form target, Phase D7 smoke, 2026-08-24).
+  # The api_env_header Function sets X-Octav-Env here too: it is what selects
+  # the test vs live Stripe key set per request (plan §6.1), so a prod webhook
+  # verifies against the live signing secret and a dev one against test.
+  dynamic "ordered_cache_behavior" {
+    for_each = var.subscriptions_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/subscriptions"
+      target_origin_id         = "lambda-subscriptions"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+      function_association {
+        event_type   = "viewer-request"
+        function_arn = aws_cloudfront_function.api_env_header.arn
+      }
+    }
+  }
+
+  # /api/subscriptions/* → subscriptions Lambda (checkout / portal / status /
+  # _health). More specific than /api/* and must be listed BEFORE it (CloudFront
+  # matches ordered behaviors top-down). No api_host_header association: billing
+  # never reads the viewer host — return URLs come from the X-Octav-Env marker
+  # (originForRequest), precisely because CloudFront does not forward Host here.
+  dynamic "ordered_cache_behavior" {
+    for_each = var.subscriptions_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/subscriptions/*"
+      target_origin_id         = "lambda-subscriptions"
       viewer_protocol_policy   = "redirect-to-https"
       allowed_methods          = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
       cached_methods           = ["GET", "HEAD"]

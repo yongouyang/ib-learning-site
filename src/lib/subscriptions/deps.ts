@@ -2,6 +2,7 @@ import { getSharedDummyUniverse } from '../progress/deps';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { DynamoSessionStorage, DynamoUserWriter } from '../auth/dynamodb-storage';
+import { isProdRequest } from '../auth/dev-gate';
 import { DummyStripeClient } from './dummy';
 import { DynamoSubscriptionsStorage } from './dynamodb-storage';
 import { StripeRestClient } from './stripe-rest';
@@ -113,6 +114,29 @@ export function getSubscriptionsDeps(
 
   const stripeFor = (req: Request): StripeClient | null => {
     const mode = stripeModeFor(req);
+    // FAIL CLOSED — two ways a resolved mode can be wrong once a real mode is
+    // configured (i.e. inside the deployed Lambda):
+    //
+    //  1. mode === 'dummy' means STRIPE_ENV is missing/incomplete for the
+    //     configured mode. Serving the in-memory dummy would hand out FAKE
+    //     checkout URLs that 404 in Stripe, so answer 503 instead.
+    //  2. a PROD request resolving to 'test' means the live key set is absent
+    //     while the test set exists. resolveStripeMode is deliberately allowed
+    //     to fall back to test (it cannot know which distribution the Lambda
+    //     is behind beyond the marker), but falling back on PROD would open
+    //     test-mode Checkout sessions for real customers — no charge, no
+    //     revenue, no error. 503 is the honest answer.
+    //
+    // Local dev/e2e (configuredStripeMode 'dummy') are untouched: they keep the
+    // controllable dummy, which is the whole point of the seam.
+    if (configuredStripeMode !== 'dummy' && mode === 'dummy') {
+      console.error('[subscriptions] no usable key set for the configured Stripe mode — billing unavailable');
+      return null;
+    }
+    if (configuredStripeMode !== 'dummy' && isProdRequest(req) && mode !== 'live') {
+      console.error('[subscriptions] PROD request resolved to test keys (no live key set in STRIPE_ENV) — refusing');
+      return null;
+    }
     if (mode === 'dummy') return dummy;
     try {
       return restFor(mode);
