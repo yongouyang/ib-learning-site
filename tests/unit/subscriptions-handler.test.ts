@@ -165,7 +165,7 @@ describe('POST /api/subscriptions/checkout', () => {
     expect(last).toBe(429);
   });
 
-  it('returns the checkout URL on success and sets origin from the marker', async () => {
+  it('returns the checkout client secret (plus the dummy URL) on success and sets origin from the marker', async () => {
     const ctx = makeCtx();
     const { cookie } = await login(ctx);
     const res = await handleCheckoutPost(
@@ -174,8 +174,10 @@ describe('POST /api/subscriptions/checkout', () => {
     );
     expect(res.status).toBe(200);
     const body = await res.json();
-    // The dummy returns a checkout URL verbatim; the real Stripe URL embeds the
-    // (marker-derived) success target, which originForRequest covers in isolation.
+    // The embedded form mounts from client_secret — that is the contract. `url`
+    // only exists because the DUMMY also produces a hosted-style URL for local
+    // runs without a Stripe.js publishable key; a real form session has none.
+    expect(body.client_secret).toBeTruthy();
     expect(body.url).toContain('checkout.stripe.com');
   });
 

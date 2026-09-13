@@ -36,10 +36,13 @@ async function startTrial(stripe: DummyStripeClient, params = checkout()) {
 }
 
 describe('DummyStripeClient — checkout + trial', () => {
-  it('creates a checkout session with a hosted URL', async () => {
+  it('creates a checkout session with a client secret (and the hosted-style URL dev needs)', async () => {
     const { stripe } = setup();
     const session = await stripe.createCheckoutSession(checkout());
     expect(session.id).toMatch(/^cs_dummy_/);
+    // The embedded form mounts from the secret; the URL is only the local
+    // fallback for a run with no Stripe.js publishable key.
+    expect(session.clientSecret).toContain('_secret');
     expect(session.url).toContain('checkout.stripe.com');
   });
 

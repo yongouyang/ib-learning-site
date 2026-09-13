@@ -8,6 +8,7 @@
 //
 //   node scripts/stripe-sandbox.mjs setup   # create test product + 2 prices, write .env.local
 //   node scripts/stripe-sandbox.mjs check   # log in, create a real Checkout Session, wait for the tier flip
+//                                           # (pay it in the embedded form at /pricing — a form session has no url)
 //
 // Setup reads STRIPE_TEST_SECRET_KEY from .env.local (add it yourself — the
 // script never prints key material). The webhook secret comes from
@@ -212,8 +213,14 @@ async function check() {
   });
   const body = await checkout.json();
   if (checkout.status !== 200) throw new Error(`checkout failed: HTTP ${checkout.status} ${JSON.stringify(body)}`);
-  console.log(`\nREAL Stripe Checkout Session created:\n  ${body.url}`);
-  console.log(`  (verify metadata: ${body.id ? `stripe checkout sessions retrieve ${body.id}` : 'n/a'})`);
+  // Since the embedded Checkout form (2026-09-14) a real session returns a
+  // CLIENT SECRET and no url: the form is mounted inside /pricing from that
+  // secret, so the click-through happens in the browser, not at a Stripe URL.
+  if (!body.client_secret) throw new Error(`checkout returned no client_secret: ${JSON.stringify(body)}`);
+  const sessionId = String(body.client_secret).split('_secret')[0];
+  console.log(`\nREAL Stripe Checkout Session created:\n  ${sessionId}`);
+  console.log(`  (verify metadata: stripe checkout sessions retrieve ${sessionId})`);
+  console.log(`  Now open ${ORIGIN}/pricing and pay in the embedded form.`);
 
   console.log('\nPaying with 4242 4242 4242 4242 (any future expiry / CVC / postcode) flips the tier.');
   console.log('Waiting up to 5 minutes for the webhook + tier flip...\n');

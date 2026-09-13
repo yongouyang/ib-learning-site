@@ -15,6 +15,7 @@ import {
   hasLiveSubscription,
   isBillingStateStale,
   originForRequest,
+  type CheckoutSession,
   type StripeClient,
   type StripeEvent,
   type StripeSubscription,
@@ -29,7 +30,7 @@ import {
 // handlers.
 //
 // Endpoint table (plan §6.2):
-//   POST /api/subscriptions/checkout  session          -> { url }
+//   POST /api/subscriptions/checkout  session          -> { client_secret, url? }
 //   POST /api/subscriptions/portal    session          -> { url }
 //   GET  /api/subscriptions/status    session          -> billing state
 //   POST /api/subscriptions           Stripe signature -> webhook receiver
@@ -149,23 +150,35 @@ export async function handleCheckoutPost(
   if (!call.ok) return withCookie(call.response, refreshCookie);
 
   const origin = originForRequest(req);
-  let sessionUrl: string;
+  let created: CheckoutSession;
   try {
-    const created = await call.stripe.createCheckoutSession({
+    created = await call.stripe.createCheckoutSession({
       userId: user.userId,
       email: user.email,
       plan: parsed.data.plan,
-      // E4.3 reads ?billing=updated to confirm the trial started.
+      // The embedded form redirects here after a successful payment (it is sent
+      // as `return_url` — ui_mode=form rejects success_url). E4.3 reads
+      // ?billing=updated to confirm the trial started.
       successUrl: `${origin}/account?billing=updated`,
       cancelUrl: `${origin}/pricing`,
       trialDays: deps.trialDays,
     });
-    sessionUrl = created.url;
   } catch (err) {
     return stripeFailure('createCheckoutSession', err);
   }
 
-  return withCookie(json({ url: sessionUrl, plan: parsed.data.plan, trialDays: deps.trialDays }), refreshCookie);
+  // The client mounts the embedded form from `client_secret`. `url` is present
+  // only in dev/e2e (the dummy's hosted fallback, used when no Stripe.js
+  // publishable key is configured) — the real client returns none.
+  return withCookie(
+    json({
+      client_secret: created.clientSecret,
+      ...(created.url ? { url: created.url } : {}),
+      plan: parsed.data.plan,
+      trialDays: deps.trialDays,
+    }),
+    refreshCookie
+  );
 }
 
 // ---------------------------------------------------------------------------

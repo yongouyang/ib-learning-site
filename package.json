@@ -17,7 +17,7 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:sweep": "npm run build && E2E_PROD=1 RUN_TOPIC_SWEEP=1 npm run test:e2e -- tests/e2e/topic-journeys.spec.ts --project='Desktop Chrome'",
-    "test:e2e:static": "npm run build:static && E2E_STATIC=1 E2E_PROD=1 playwright test",
+    "test:e2e:static": "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY= npm run build:static && E2E_STATIC=1 E2E_PROD=1 playwright test",
     "validate:content": "tsx scripts/validate-content.ts",
     "validate:illustrations": "tsx scripts/validate-illustrations.ts",
     "validate:illustration-layout": "node scripts/diagnose-illustrations.mjs",

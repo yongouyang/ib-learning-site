@@ -25,6 +25,24 @@ import type {
 const STRIPE_API = 'https://api.stripe.com/v1';
 
 /**
+ * Pinned API version. Sent as the `Stripe-Version` header on every call — this
+ * class is our "Stripe client", so the pin belongs here.
+ *
+ * WHICH VERSION, WHY THIS ONE (verified against the live test account 2026-09-13):
+ *   * 2026-03-25.dahlia is the release that RENAMED `stripe.initEmbeddedCheckout()`
+ *     to `stripe.createEmbeddedCheckoutPage()` — the client call this integration
+ *     makes — and it is also the release where the ui_mode values moved from
+ *     `embedded`/`hosted` to `embedded_page`/`hosted_page` (passing the old names
+ *     now returns "no longer supported. Use …" — measured). Pinning means an API
+ *     rename cannot silently break the browser side.
+ *   * NO beta flag: `custom_checkout_payment_form_preview=v1` belongs to
+ *     `ui_mode=form`, which this account CANNOT use (see managed_payments below).
+ *   * Stripe REJECTS an unknown version string outright ("Invalid Stripe API
+ *     version" — measured), so this is a checkable value, not decoration.
+ */
+export const STRIPE_API_VERSION = '2026-03-25.dahlia';
+
+/**
  * Reject a webhook whose signed timestamp is older than this — Stripe's own
  * default tolerance. Without it a captured delivery could be replayed forever
  * (the event-id ledger in storage catches duplicates, but only after the
@@ -163,6 +181,7 @@ export class StripeRestClient implements StripeClient {
         headers: {
           Authorization: `Bearer ${this.secretKey}`,
           'Content-Type': 'application/x-www-form-urlencoded',
+          'Stripe-Version': STRIPE_API_VERSION,
         },
         body,
         signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
@@ -199,35 +218,48 @@ export class StripeRestClient implements StripeClient {
       trial_settings: { end_behavior: { missing_payment_method: 'cancel' } },
     };
 
+    // Embedded Checkout (`ui_mode: embedded_page`) — Stripe's own checkout UI in
+    // an iframe on OUR page, so card data still never touches this origin. Why
+    // not the custom form SDK (`ui_mode: form`): it is INCOMPATIBLE with Managed
+    // Payments, and Managed Payments is the arrangement this account wants. All
+    // four facts below were MEASURED against the live test account
+    // (2026-09-13), not taken from docs — the docs never mention the first one:
+    //   * `ui_mode=form` + Managed Payments -> 400 "Managed Payments currently
+    //     only supports ui_mode: hosted_page and ui_mode: embedded_page". So the
+    //     choice is embedded_page OR giving up Stripe's merchant-of-record/tax
+    //     handling. This account keeps it ON.
+    //   * `ui_mode=embedded_page` + Managed Payments -> 200, with
+    //     `managed_payments.enabled=true` and
+    //     `automatic_tax.liability.type="stripe"`: Stripe remains the merchant of
+    //     record and owns indirect-tax compliance (registration and filing), plus
+    //     fraud and disputes. Sent EXPLICITLY rather than trusting the account
+    //     default, so a future default change cannot silently move who is liable
+    //     for the tax — and so the product's tax_code stays mandatory and correct.
+    //   * `success_url` AND `cancel_url` are rejected with ui_mode=embedded_page
+    //     ("`success_url` is not supported with `ui_mode: embedded_page`"): the
+    //     post-payment destination is `return_url`, which is why params.successUrl
+    //     is sent there and params.cancelUrl is deliberately not sent at all.
+    //   * While Managed Payments is on, subscriptions may only be created through
+    //     Checkout (or Payment Links) — so do NOT enable Customer-Portal PLAN
+    //     SWITCHING without checking with Stripe first. Cancel / payment method /
+    //     invoice history are unaffected.
     const created = await this.call('/checkout/sessions', {
       method: 'POST',
       params: {
+        ui_mode: 'embedded_page',
         mode: 'subscription',
-        success_url: params.successUrl,
-        cancel_url: params.cancelUrl,
-        customer_email: params.email,
+        return_url: params.successUrl,
         // Decision 10 (2026-09-05): collect the card up front.
         payment_method_collection: 'always',
-        // Managed Payments: Stripe is the MERCHANT OF RECORD and handles
-        // indirect-tax compliance (VAT/GST/sales tax) in 80+ countries, plus
-        // fraud and disputes. Sent EXPLICITLY rather than relying on the
-        // account default — verified 2026-09-13 that this account defaults to
-        // enabled (a session created without the flag comes back
-        // managed_payments.enabled=true, and it is what makes the product's
-        // tax_code mandatory). Explicit here so a future default change cannot
-        // silently move who is liable for the tax.
-        //
-        // Constraint it imposes: with managed payments on, subscriptions may
-        // only be created through Checkout (or Payment Links) — so if the
-        // Customer Portal is ever configured to allow PLAN SWITCHING, verify
-        // with Stripe first, since that creates a subscription outside
-        // Checkout. Cancel/payment-method/invoice-history are unaffected.
-        //
-        // No `Stripe-Version` pin: Stripe's guide suggests a preview version
-        // for this parameter, but the account's default version already
-        // accepts and returns it, and pinning a preview would also freeze the
-        // webhook/subscription payload shapes for no benefit here.
-        'managed_payments[enabled]': 'true',
+        billing_address_collection: 'auto',
+        phone_number_collection: { enabled: false },
+        automatic_tax: { enabled: true },
+        submit_type: 'auto',
+        // Labels this integration in the Dashboard so its conversion can be
+        // measured separately from any other Checkout integration.
+        integration_identifier: 'custom_embedded_web_0001',
+        managed_payments: { enabled: true },
+        customer_email: params.email,
         client_reference_id: params.userId,
         metadata: { userId: params.userId, plan: params.plan },
         line_items: [{ price: this.priceIds[params.plan], quantity: 1 }],
@@ -235,9 +267,13 @@ export class StripeRestClient implements StripeClient {
       },
     });
 
-    const url = created.url;
-    if (typeof url !== 'string' || !url) throw new Error('[stripe] checkout session returned no url');
-    return { id: String(created.id ?? ''), url };
+    // An embedded session returns a client SECRET and no url — the client hands it
+    // to Stripe.js to mount Stripe's checkout (see BillingPanel).
+    const clientSecret = created.client_secret;
+    if (typeof clientSecret !== 'string' || !clientSecret) {
+      throw new Error('[stripe] checkout session returned no client_secret');
+    }
+    return { id: String(created.id ?? ''), clientSecret };
   }
 
   async createPortalSession(params: { customerId: string; returnUrl: string }): Promise<{ url: string }> {

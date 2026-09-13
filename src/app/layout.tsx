@@ -85,6 +85,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className={`${geistSans.className} min-h-screen flex flex-col`}>
+        {/* Stripe.js — the `dahlia` build plus the checkout-form beta are what
+            the embedded Checkout form in BillingPanel needs, and PCI requires it
+            be loaded from Stripe's own domain (never bundled or self-hosted).
+            React hoists an async script into <head>; it is one extra request,
+            and no other page can mount the form without it. */}
+        <script src="https://js.stripe.com/dahlia/stripe.js" async />
         <ThemeProvider>
           <MotionProvider>
           <AuthProvider>

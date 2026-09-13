@@ -106,6 +106,17 @@ export default defineConfig({
       // the shared universe, so dummy-OTP sessions resolve and the per-IP
       // rate limit is real (contact.spec.ts is serial for this reason).
       CONTACT_STORAGE: 'dummy',
+      // E4 (Stripe subscriptions): the Checkout panel picks its path from this
+      // BUILD-time key, so it must be PINNED here rather than inherited from the
+      // developer's .env.local. An empty string WINS over .env.local (@next/env
+      // only fills keys absent from process.env, and "" counts as present), which
+      // keeps e2e on the deterministic dummy path — billing.spec asserts the
+      // no-key fallback (POST → follow the returned url), while the embedded path
+      // is covered by unit tests (Stripe stubbed) and
+      // scripts/check-embedded-checkout.mjs (real test mode). Without this pin a
+      // local run with a real pk in .env.local behaves differently from CI and
+      // billing.spec fails — which is exactly what happened on 2026-09-13.
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: '',
     },
   },
 });

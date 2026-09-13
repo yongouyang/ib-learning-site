@@ -22,7 +22,18 @@ export type PlanPriceIds = Record<SubscriptionPlan, string>;
 
 export interface CheckoutSession {
   id: string;
-  url: string;
+  /**
+   * Handoff for Embedded Checkout (`ui_mode=embedded_page`) — the client gives it
+   * to Stripe.js, which mounts Stripe's hosted checkout in an iframe. An embedded
+   * session returns NO `url`, so this is the only value the real client produces.
+   */
+  clientSecret: string;
+  /**
+   * Hosted-checkout URL. Produced by the dev/e2e DUMMY only, which is what lets
+   * a local run without a Stripe.js publishable key stay clickable — the real
+   * client has nothing to put here.
+   */
+  url?: string;
 }
 
 /** The trimmed Stripe subscription shape we actually act on. Timestamps are
@@ -70,7 +81,12 @@ export interface CreateCheckoutParams {
   userId: string;
   email: string;
   plan: SubscriptionPlan;
+  /** Post-payment destination. Sent as `return_url` — an embedded session REJECTS
+   *  `success_url`, and Checkout redirects here instead. */
   successUrl: string;
+  /** Dead for Embedded Checkout (`cancel_url` is rejected with
+   *  `ui_mode=embedded_page`). Kept on the seam because the caller computes it for
+   *  the dummy's hosted fallback URL; the real client deliberately never sends it. */
   cancelUrl: string;
   trialDays: number;
 }

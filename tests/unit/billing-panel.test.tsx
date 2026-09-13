@@ -60,6 +60,7 @@ beforeEach(() => {
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
 });
 
 describe('BillingPanel — free user', () => {
@@ -206,5 +207,131 @@ describe('BillingPanel — API refusals surface honestly', () => {
 
     expect(await screen.findByText(/couldn’t take your first payment/i)).toBeInTheDocument();
     expect(screen.queryByText(/retrying your card/i)).not.toBeInTheDocument();
+  });
+});
+
+// Embedded Checkout (ui_mode=embedded_page): with a publishable key present the
+// panel mounts Stripe's own checkout in an iframe from the session's client
+// secret instead of navigating to a hosted page. Verified against the live test
+// account that the SERVER half works (an embedded_page session with Managed
+// Payments returns client_secret and automatic_tax.liability=stripe); this pins
+// the client half — the option names (`createEmbeddedCheckoutPage` and the
+// function-shaped `fetchClientSecret`, both of which the 2026-03-25.dahlia API
+// renamed from the older `initEmbeddedCheckout`/`clientSecret`), that the session
+// POST happens INSIDE fetchClientSecret rather than on click, that the container
+// id Stripe mounts into still exists, and that Cancel destroys the instance.
+describe('BillingPanel — embedded Checkout', () => {
+  type EmbeddedOptions = {
+    fetchClientSecret: () => Promise<string>;
+    /** Must stay absent — see the assertion below. */
+    appearance?: unknown;
+  };
+
+  const mountMock = vi.fn();
+  const destroyMock = vi.fn();
+
+  async function renderWithStripe(key: string | undefined) {
+    if (key) vi.stubEnv('NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY', key);
+    vi.resetModules(); // module-scope key read — must be re-imported after stubbing
+    const { BillingPanel: Panel } = await import('@/components/BillingPanel');
+
+    const options: EmbeddedOptions[] = [];
+    const stripeCtor = vi.fn(() => ({
+      createEmbeddedCheckoutPage(opts: EmbeddedOptions) {
+        options.push(opts);
+        return { mount: mountMock, destroy: destroyMock };
+      },
+    }));
+    vi.stubGlobal('Stripe', stripeCtor);
+    render(<Panel variant="pricing" />);
+    return { stripeCtor, options };
+  }
+
+  beforeEach(() => {
+    mountMock.mockClear();
+    destroyMock.mockClear();
+  });
+
+  it('mounts Stripe checkout into #checkout-form, fetching the secret only when Stripe asks for it', async () => {
+    const calls = mockFetch(statusBody(), { status: 200, body: { client_secret: 'cs_test_x_secret' } });
+    const { stripeCtor, options } = await renderWithStripe('pk_test_probe');
+
+    await userEvent.click(await screen.findByRole('button', { name: /\$20 per month/i }));
+
+    // The plan buttons give way to the container Stripe's snippet mounts into…
+    await waitFor(() => expect(document.getElementById('checkout-form')).toBeTruthy());
+    expect(screen.queryByRole('button', { name: /\$200 per year/i })).not.toBeInTheDocument();
+    expect(assign).not.toHaveBeenCalled();
+    await waitFor(() => expect(mountMock).toHaveBeenCalledWith('#checkout-form'));
+
+    // No beta flag: that belongs to ui_mode=form, which Managed Payments forbids.
+    expect(stripeCtor).toHaveBeenCalledWith('pk_test_probe');
+    // And NO `appearance`: embedded checkout rejects that option outright —
+    // "Invalid initEmbeddedCheckout(options) parameter: appearance is not an
+    // accepted parameter" — which broke the whole mount until it was removed
+    // (found by scripts/check-embedded-checkout.mjs against real test mode).
+    expect(options[0]?.appearance).toBeUndefined();
+    expect(Object.keys(options[0]!)).toEqual(['fetchClientSecret']);
+
+    // The session is created by fetchClientSecret, not by the click — one
+    // session per click, and Stripe can re-call it when one expires.
+    expect(calls.filter((c) => c.init?.method === 'POST')).toHaveLength(0);
+    await expect(options[0]!.fetchClientSecret()).resolves.toBe('cs_test_x_secret');
+    const posted = calls.filter((c) => c.init?.method === 'POST');
+    expect(posted[0]?.url).toBe('/api/subscriptions/checkout');
+    expect(JSON.parse(String(posted[0]?.init?.body))).toEqual({ plan: 'monthly' });
+
+    // Cancel tears the iframe down and brings the plans back.
+    await userEvent.click(screen.getByRole('button', { name: /cancel/i }));
+    await waitFor(() => expect(destroyMock).toHaveBeenCalled());
+    expect(await screen.findByRole('button', { name: /\$20 per month/i })).toBeInTheDocument();
+  });
+
+  it('shows the server\u2019s refusal inside the checkout branch, not nowhere', async () => {
+    // A 503 (billing not configured) arrives while Stripe is asking for the
+    // client secret — before this branch rendered `error`, that message was set
+    // and never displayed.
+    mockFetch(statusBody(), { status: 503, body: { error: 'billing_unavailable' } });
+    const { options } = await renderWithStripe('pk_test_probe');
+
+    await userEvent.click(await screen.findByRole('button', { name: /\$20 per month/i }));
+    await waitFor(() => expect(options[0]).toBeTruthy());
+    await expect(options[0]!.fetchClientSecret()).rejects.toThrow(/checkout_unavailable/);
+    expect(await screen.findByRole('alert')).toHaveTextContent(/not taking payments just yet/i);
+  });
+
+  it('falls back to the hosted URL (and never touches Stripe.js) without a publishable key', async () => {
+    // The dev/e2e dummy returns a URL alongside the secret, which is what keeps
+    // a local run clickable and the e2e suite green.
+    mockFetch(statusBody(), { status: 200, body: { client_secret: 'cs_dummy_secret', url: 'https://checkout.stripe.com/dummy/cs_1' } });
+    const { stripeCtor } = await renderWithStripe(undefined);
+
+    await userEvent.click(await screen.findByRole('button', { name: /\$20 per month/i }));
+
+    await waitFor(() => expect(assign).toHaveBeenCalledWith('https://checkout.stripe.com/dummy/cs_1'));
+    expect(stripeCtor).not.toHaveBeenCalled();
+  });
+
+  it('gives up on a Stripe.js script that is present but never loads (blocked by an ad blocker)', async () => {
+    // Regression: the wait listened for the script's load/error events only. A
+    // script that ALREADY failed before the click (blockers block js.stripe.com;
+    // this was reproduced by aborting the request in the UX capture) fires
+    // neither, so the promise never settled and the user sat in front of an
+    // empty box with no message — for ever.
+    vi.resetModules();
+    const { whenStripeReady } = await import('@/components/BillingPanel');
+    const dead = document.createElement('script');
+    dead.src = 'https://js.stripe.com/dahlia/stripe.js'; // never fires load or error
+    document.head.appendChild(dead);
+    try {
+      delete (window as { Stripe?: unknown }).Stripe;
+      await expect(whenStripeReady(50)).resolves.toBeNull();
+    } finally {
+      dead.remove();
+    }
+    // And it still resolves the real constructor when the script DID load.
+    const ctor = vi.fn();
+    vi.stubGlobal('Stripe', ctor);
+    await expect(whenStripeReady(50)).resolves.toBe(ctor);
   });
 });

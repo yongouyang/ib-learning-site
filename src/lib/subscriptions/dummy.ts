@@ -72,7 +72,10 @@ export class DummyStripeClient implements StripeClient {
   async createCheckoutSession(params: CreateCheckoutParams): Promise<CheckoutSession> {
     const id = this.nextId('cs');
     this.pendingCheckout.set(id, { ...params, id });
-    return { id, url: `https://checkout.stripe.com/dummy/${id}` };
+    // BOTH handoffs on purpose: `clientSecret` mirrors the real form session,
+    // while `url` is the hosted-style escape hatch a local run needs when no
+    // Stripe.js publishable key is configured (see BillingPanel).
+    return { id, clientSecret: `${id}_secret_dummy`, url: `https://checkout.stripe.com/dummy/${id}` };
   }
 
   /**

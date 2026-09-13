@@ -32,6 +32,10 @@ const ENV = {
   FEEDBACK_PROVIDER: 'dummy',
   FEEDBACK_TEST_MODE: '1',
   CONTACT_STORAGE: 'dummy',
+  // Baked into the dev build at compile time (Next inlines NEXT_PUBLIC_*). A
+  // placeholder on purpose: js.stripe.com is BLOCKED for the form states and
+  // window.Stripe is stubbed, so no Stripe call can happen from this script.
+  NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: 'pk_test_capture_ux',
 };
 
 const BASE_STATUS = {
@@ -157,7 +161,45 @@ const STATES = [
   // flagged that no shot existed for either, so nobody had ever SEEN them).
   { name: 'pricing-loading', page: '/pricing', target: 'page', waitFor: 'Premium', hang: true },
   { name: 'pricing-error', page: '/pricing', target: 'page', waitFor: 'Premium', error: 500 },
+  // The embedded Checkout branch (2026-09-13). Stripe's iframe cannot be
+  // captured without a real publishable key, so the SDK is STUBBED and paints a
+  // labelled placeholder: this reviews the branch's own chrome (copy, container,
+  // Cancel, spacing) — not Stripe's checkout.
+  {
+    name: 'pricing-checkout-form',
+    page: '/pricing',
+    target: 'page',
+    waitFor: 'Premium',
+    status: BASE_STATUS,
+    clickPlan: true,
+    stubStripe: 'ok',
+  },
+  {
+    name: 'pricing-checkout-form-error',
+    page: '/pricing',
+    target: 'page',
+    waitFor: 'Premium',
+    status: BASE_STATUS,
+    clickPlan: true,
+    stubStripe: 'fail',
+  },
 ];
+
+/** The slice of Stripe.js the panel uses, faked: mount() paints a labelled box
+ *  where the iframe would be (or nothing, for the 'fail' state). */
+const STRIPE_STUB = `
+  window.Stripe = () => ({
+    createEmbeddedCheckoutPage: () => ({
+      mount: (sel) => {
+        const el = typeof sel === 'string' ? document.querySelector(sel) : sel;
+        if (el) el.innerHTML = '<div style="height:520px;border:1px dashed #9ca3af;border-radius:8px;' +
+          'display:flex;align-items:center;justify-content:center;color:#6b7280;font:14px system-ui">' +
+          '[stubbed Stripe embedded checkout — plan, card + billing address]</div>';
+      },
+      destroy: () => {},
+    }),
+  });
+`;
 
 async function waitForServer(timeoutMs = 180000) {
   console.log('waiting for dev server on', BASE);
@@ -176,7 +218,11 @@ async function waitForServer(timeoutMs = 180000) {
   throw new Error('Dev server did not become ready in time');
 }
 
-const server = spawn('npx', ['next', 'dev', '--port', String(PORT)], {
+// Spawn the local Next binary DIRECTLY, not through npx: the wrapper re-parents
+// the real next-server, so killing the npx pid leaves an orphan running and the
+// next script/e2e run dies with "Another next dev server is already running".
+const NEXT_BIN = path.join('node_modules', 'next', 'dist', 'bin', 'next');
+const server = spawn(process.execPath, [NEXT_BIN, 'dev', '--port', String(PORT)], {
   env: ENV,
   stdio: ['ignore', openSync(SERVER_LOG, 'a'), openSync(SERVER_LOG, 'a')],
   detached: true,
@@ -233,10 +279,40 @@ try {
             );
           }
 
+          if (st.stubStripe) {
+            // js.stripe.com must not load: the stub below is what defines
+            // window.Stripe, and for 'fail' nothing does (the error branch).
+            await page.route('**://js.stripe.com/**', (route) => route.abort());
+            if (st.stubStripe === 'ok') await page.addInitScript(STRIPE_STUB);
+            await page.route('**/api/subscriptions/checkout', (route) =>
+              route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify({ client_secret: 'cs_test_capture_secret' }),
+              })
+            );
+          }
+
           await page.goto(BASE); // establish the origin before localStorage
           await page.evaluate((t) => localStorage.setItem('iblearn-theme', t), theme);
           await page.goto(`${BASE}${st.page}`);
           await page.getByRole('heading', { name: st.waitFor }).first().waitFor();
+          if (st.clickPlan) {
+            await page.getByRole('button', { name: /\$20 per month/i }).click();
+            // 'attached', not 'visible': the container is empty until Stripe's
+            // iframe (or our error message) paints, and Playwright treats a
+            // zero-size element as hidden — the first version of this wait
+            // timed out on a branch that HAD rendered.
+            await page.locator('#checkout-form').waitFor({ state: 'attached' });
+            // Wait for THIS branch's message by TEXT, not role: the page already
+            // has other role=alert elements (offline banner, update toast), and
+            // the first version of this wait matched one of those — so it
+            // screenshotted 0.6s after the click, before the SDK-load bound (5s)
+            // had even elapsed, and the shot showed no message at all.
+            if (st.stubStripe === 'fail') {
+              await page.getByText(/Couldn’t load the checkout/i).waitFor();
+            }
+          }
           await page.waitForTimeout(st.hang ? 400 : 600);
 
           // Always capture the CHANGED SURFACE (the card), never the full page:
@@ -265,5 +341,9 @@ try {
   console.error('Failed to capture screenshots:', err instanceof Error ? err.message : err);
   process.exitCode = 1;
 } finally {
-  server.kill('SIGTERM');
+  try {
+    if (server.pid) process.kill(-server.pid, 'SIGTERM');
+  } catch {
+    /* already gone */
+  }
 }

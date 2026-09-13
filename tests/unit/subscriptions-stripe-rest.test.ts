@@ -48,8 +48,8 @@ function sign(payload: string, opts: { timestamp?: number; secret?: string } = {
 }
 
 describe('StripeRestClient — checkout session', () => {
-  it('puts metadata and the trial on subscription_data, and collects the card up front', async () => {
-    const { client, calls } = makeClient({ responses: [jsonResponse({ id: 'cs_1', url: 'https://checkout.stripe.test/cs_1' })] });
+  it('creates an EMBEDDED PAGE session that keeps Managed Payments on, using the Checkout Studio parameters', async () => {
+    const { client, calls } = makeClient({ responses: [jsonResponse({ id: 'cs_1', client_secret: 'cs_1_secret', url: null })] });
 
     const session = await client.createCheckoutSession({
       userId: 'user-1',
@@ -60,14 +60,36 @@ describe('StripeRestClient — checkout session', () => {
       trialDays: 14,
     });
 
-    expect(session).toEqual({ id: 'cs_1', url: 'https://checkout.stripe.test/cs_1' });
+    // An embedded session returns a client secret and NO url — Stripe.js mounts
+    // the checkout from it (the hosted checkout URL is gone).
+    expect(session).toEqual({ id: 'cs_1', clientSecret: 'cs_1_secret' });
     expect(calls[0].url).toBe('https://api.stripe.com/v1/checkout/sessions');
     expect(calls[0].init.method).toBe('POST');
-    expect((calls[0].init.headers as Record<string, string>).Authorization).toBe(`Bearer ${SECRET}`);
+    const headers = calls[0].init.headers as Record<string, string>;
+    expect(headers.Authorization).toBe(`Bearer ${SECRET}`);
+    // 2026-03-25.dahlia is the release that renamed initEmbeddedCheckout to
+    // createEmbeddedCheckoutPage (the client call this pairs with). No beta
+    // flag: custom_checkout_payment_form_preview belongs to ui_mode=form, which
+    // Managed Payments forbids.
+    expect(headers['Stripe-Version']).toBe('2026-03-25.dahlia');
 
-    const body = String(calls[0].init.body);
-    const params = new URLSearchParams(body);
+    const params = new URLSearchParams(String(calls[0].init.body));
     expect(params.get('mode')).toBe('subscription');
+    // embedded_page, NOT form: the form SDK is incompatible with Managed
+    // Payments, and Managed Payments is the arrangement this account wants
+    // (verified live: form+MP -> 400, embedded_page+MP -> 200).
+    expect(params.get('ui_mode')).toBe('embedded_page');
+    // ui_mode=embedded_page REJECTS success_url/cancel_url (Stripe answers 400
+    // naming them), so the post-payment destination rides on return_url.
+    expect(params.get('return_url')).toBe('https://octavlearning.com/account?billing=updated');
+    expect(params.get('success_url')).toBeNull();
+    expect(params.get('cancel_url')).toBeNull();
+    // Checkout Studio field intents — sent exactly as configured.
+    expect(params.get('billing_address_collection')).toBe('auto');
+    expect(params.get('phone_number_collection[enabled]')).toBe('false');
+    expect(params.get('automatic_tax[enabled]')).toBe('true');
+    expect(params.get('submit_type')).toBe('auto');
+    expect(params.get('integration_identifier')).toBe('custom_embedded_web_0001');
     expect(params.get('payment_method_collection')).toBe('always');
     expect(params.get('customer_email')).toBe('parent@example.com');
     expect(params.get('line_items[0][price]')).toBe(PRICES.annual);
@@ -77,17 +99,26 @@ describe('StripeRestClient — checkout session', () => {
     expect(params.get('subscription_data[trial_period_days]')).toBe('14');
     // §2.2.1: a trial that ends with no usable card must cancel, not convert.
     expect(params.get('subscription_data[trial_settings][end_behavior][missing_payment_method]')).toBe('cancel');
-    expect(params.get('success_url')).toBe('https://octavlearning.com/account?billing=updated');
-    // Managed Payments explicitly on: Stripe is the merchant of record and owns
-    // indirect-tax compliance. Verified against the live test account that this
-    // is ALSO the account default (a session without the flag returns
-    // managed_payments.enabled=true) — sending it makes the tax stance
-    // deliberate rather than inherited, and it is what requires the product's
-    // tax_code above.
+    // Managed Payments ON, sent explicitly: Stripe stays the MERCHANT OF RECORD
+    // and owns indirect-tax registration/filing (the session comes back with
+    // automatic_tax.liability.type="stripe"). Explicit so a future account
+    // default change cannot silently move who is liable for the tax — and so the
+    // product's tax_code stays mandatory and correct.
     expect(params.get('managed_payments[enabled]')).toBe('true');
-    // No Stripe-Version pin: the account default accepts this parameter, and a
-    // preview pin would freeze webhook payload shapes too (see the client).
-    expect((calls[0].init.headers as Record<string, string>)['Stripe-Version']).toBeUndefined();
+  });
+
+  it('fails loudly when a session comes back without a client secret', async () => {
+    const { client } = makeClient({ responses: [jsonResponse({ id: 'cs_1', url: 'https://checkout.stripe.test/cs_1' })] });
+    await expect(
+      client.createCheckoutSession({
+        userId: 'u',
+        email: 'a@b.c',
+        plan: 'monthly',
+        successUrl: 'https://x/y',
+        cancelUrl: 'https://x/z',
+        trialDays: 14,
+      })
+    ).rejects.toThrow(/no client_secret/);
   });
 
   it('surfaces Stripe\'s own error message on a rejected call', async () => {

@@ -189,6 +189,11 @@ jobs:
       github.ref == 'refs/heads/develop' &&
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
+    # The DEV GitHub ENVIRONMENT (uppercase — environment names are
+    # case-sensitive in the API/UI) carries the browser publishable key as an
+    # environment secret, and a job only sees environment secrets if it declares
+    # the environment.
+    environment: DEV
     permissions:
       id-token: write
       contents: read
@@ -246,6 +251,12 @@ jobs:
       TF_VAR_stripe_env: ${{ secrets.STRIPE_ENV || '' }}
       # IndexNow key (32-hex, S5). Unset = key-file + ping steps no-op.
       INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY || '' }}
+      # Stripe publishable key for the embedded Checkout (browser-side). Next
+      # inlines NEXT_PUBLIC_* at BUILD time, so build:static — not the Lambda env —
+      # is what needs it. One secret per ENVIRONMENT, because one key cannot be
+      # both test and live. Unset/empty = the plan buttons say "not taking
+      # payments yet" (honest, not broken).
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY || '' }}
 
     steps:
       - name: Checkout
@@ -259,6 +270,20 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Assert the browser publishable key is wired
+        # The embedded Checkout's publishable key is a BUILD-time value (Next
+        # inlines NEXT_PUBLIC_*), supplied by the DEV environment's secret. If the
+        # environment name does not match the one holding the secret, the value is
+        # silently EMPTY: CI stays green, the deploy succeeds, and every plan
+        # button on the site is a dead end. That is the failure this asserts away.
+        # PROD gets the equivalent check with the live-key promotion, because prod
+        # legitimately has no publishable key until the account goes live.
+        run: |
+          if [ -z "$NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY" ]; then
+            echo "::error::NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY is empty — add the secret to the DEV environment (or fix the environment name)"
+            exit 1
+          fi
 
       - name: Build static export
         run: npm run build:static
@@ -421,6 +446,11 @@ jobs:
       github.ref == 'refs/heads/main' &&
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
+    # The PROD GitHub ENVIRONMENT (uppercase — environment names are
+    # case-sensitive) carries its own browser publishable key. GitHub creates the
+    # environment on first use, so this line is safe before that secret exists;
+    # it is also the natural home for future protection rules on this deploy.
+    environment: PROD
     permissions:
       id-token: write
       contents: read
@@ -473,6 +503,12 @@ jobs:
       TF_VAR_stripe_env: ${{ secrets.STRIPE_ENV || '' }}
       # IndexNow key (32-hex, S5). Unset = key-file + ping steps no-op.
       INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY || '' }}
+      # Stripe publishable key for the embedded Checkout (browser-side). Next
+      # inlines NEXT_PUBLIC_* at BUILD time, so build:static — not the Lambda env —
+      # is what needs it. One secret per ENVIRONMENT, because one key cannot be
+      # both test and live. Unset/empty = the plan buttons say "not taking
+      # payments yet" (honest, not broken).
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY || '' }}
 
     steps:
       - name: Checkout
