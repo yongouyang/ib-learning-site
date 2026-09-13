@@ -3,6 +3,9 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { DynamoSessionStorage, DynamoUserWriter } from '../auth/dynamodb-storage';
 import { isProdRequest } from '../auth/dev-gate';
+import { DummyReportSender } from '../analytics-report/dummy-sender';
+import { ResendReportSender } from '../analytics-report/resend-sender';
+import type { ReportEmailSender } from '../analytics-report/types';
 import { DummyStripeClient } from './dummy';
 import { DynamoSubscriptionsStorage } from './dynamodb-storage';
 import { StripeRestClient } from './stripe-rest';
@@ -42,6 +45,11 @@ export interface SubscriptionsDeps {
    */
   stripeFor(req: Request): StripeClient | null;
   stripeModeFor(req: Request): ResolvedStripeMode;
+  /**
+   * Trial-ending reminder sender (E4.4). Null = email not configured, in which
+   * case the webhook logs the skip and continues (see the deps comment).
+   */
+  emailSender: ReportEmailSender | null;
   /** Parsed STRIPE_ENV — `_health` asserts it is usable (Q2). */
   stripeConfig: StripeConfig;
   /** The configured capability, before per-request selection. */
@@ -150,9 +158,30 @@ export function getSubscriptionsDeps(
 
   const trialDays = Number(env.STRIPE_TRIAL_DAYS ?? 14);
 
+  // Trial-ending reminder email (E4.4). Deliberately OPTIONAL, unlike the
+  // contact Lambda's notification sender: a missing provider must not make every
+  // webhook throw (billing would stop working because email wasn't configured).
+  // Absent → null → the handler logs that it skipped the reminder. Unusable
+  // values still fail LOUD at construction (a typo must not silently disable
+  // the one email that prevents a surprise charge). In the real wiring the
+  // sender must be the Resend one, for the same reason contact enforces it.
+  const emailProvider = parseEmailProvider(env);
+  let emailSender: ReportEmailSender | null = null;
+  if (emailProvider.name === 'dummy') {
+    emailSender = new DummyReportSender();
+  } else if (emailProvider.name === 'resend') {
+    if (!emailProvider.apiKey) throw new Error('[subscriptions] EMAIL_PROVIDER.API_KEY is required when NAME is "resend"');
+    emailSender = new ResendReportSender(emailProvider.apiKey, env.SES_FROM_ADDRESS ?? 'noreply@octavlearning.com');
+  } else if (kind === 'dynamodb') {
+    // Real AWS wiring with no provider at all: allowed (billing works, no
+    // reminders) but recorded loudly, because it is silently user-visible.
+    console.warn('[subscriptions] EMAIL_PROVIDER is not configured — trial-ending reminders will be skipped');
+  }
+
   if (kind === 'dummy') {
     return {
       storage: getSharedDummyUniverse(),
+      emailSender,
       stripeFor,
       stripeModeFor,
       stripeConfig,
@@ -184,6 +213,7 @@ export function getSubscriptionsDeps(
     );
     return {
       storage,
+      emailSender,
       stripeFor,
       stripeModeFor,
       stripeConfig,
@@ -196,6 +226,29 @@ export function getSubscriptionsDeps(
   }
 
   throw new Error(`[subscriptions] SUBSCRIPTIONS_STORAGE must be "dummy" or "dynamodb" (got "${kind}")`);
+}
+
+// EMAIL_PROVIDER JSON ({"NAME","API_KEY"}) — the same format and fail-closed
+// rules the contact/analytics-report deps use. Missing/empty/"{}" = no provider.
+function parseEmailProvider(env: Record<string, string | undefined>): {
+  name: string | null;
+  apiKey: string | null;
+} {
+  const raw = env.EMAIL_PROVIDER;
+  if (!raw || raw === '{}' || raw === '') return { name: null, apiKey: null };
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error('[subscriptions] EMAIL_PROVIDER must be a valid single-line JSON object');
+  }
+  const obj = (parsed ?? {}) as Record<string, unknown>;
+  const name = typeof obj.NAME === 'string' && obj.NAME ? obj.NAME.toLowerCase() : null;
+  const apiKey = typeof obj.API_KEY === 'string' && obj.API_KEY ? obj.API_KEY : null;
+  if (name && !['resend', 'dummy'].includes(name)) {
+    throw new Error(`[subscriptions] EMAIL_PROVIDER.NAME must be "resend" or "dummy" (got "${name}")`);
+  }
+  return { name, apiKey };
 }
 
 /** Fail LOUD at construction: a missing table name must break the deploy smoke,

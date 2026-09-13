@@ -42,6 +42,12 @@ export interface StripeSubscription {
    * object never had it expanded. The UI hides the line in that case.
    */
   card: { brand: string | null; last4: string; expMonth: number | null; expYear: number | null } | null;
+  /**
+   * The subscription's price, for the trial-ending reminder email (E4.4), which
+   * must state the amount before charging. Null when not expanded/unknown — the
+   * email copy then falls back to naming the date only.
+   */
+  price: { unitAmount: number | null; currency: string | null; interval: string | null } | null;
 }
 
 export type StripeEventType =

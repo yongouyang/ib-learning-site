@@ -272,3 +272,64 @@ output "function_url_domain" {
 output "function_name" {
   value = aws_lambda_function.subscriptions.function_name
 }
+
+# --- Alerting (E4.4, plan §6.4.1 mitigation 2) --------------------------------
+#
+# The failure this exists for: Stripe delivers, the Lambda throws, the customer
+# has paid and the entitlement never moves. Stripe retries for ~3 days and then
+# gives up — silently. Without an alarm nobody finds out until the customer
+# complains, which is the most expensive kind of billing bug.
+#
+# CloudWatch alarms on the function's own `Errors` metric, so this needs no code
+# and no extra IAM. `treat_missing_data = "notBreaching"` because a quiet hour
+# with no deliveries must not read as an incident.
+variable "alert_emails" {
+  description = "Addresses subscribed to the webhook-failure alarm. Empty = the alarm still exists (visible in CloudWatch) but notifies nobody — deliberate, so the module can be applied before an address is chosen."
+  type        = list(string)
+  default     = []
+}
+
+variable "error_alarm_threshold" {
+  description = "Lambda errors within one evaluation period that trigger the alarm. 3 in 5 minutes: above the noise floor of a single malformed event, below a real outage."
+  type        = number
+  default     = 3
+}
+
+resource "aws_sns_topic" "subscriptions_alerts" {
+  name = "${var.name_prefix}-subscriptions-alerts"
+}
+
+# Email subscriptions need a ONE-TIME confirmation click by the recipient —
+# until someone clicks, SNS reports the subscription as pending and the alarm
+# notifies nobody. Documented here because the alarm looks armed either way.
+resource "aws_sns_topic_subscription" "subscriptions_alerts_email" {
+  for_each = toset(var.alert_emails)
+
+  topic_arn = aws_sns_topic.subscriptions_alerts.arn
+  protocol  = "email"
+  endpoint  = each.value
+}
+
+resource "aws_cloudwatch_metric_alarm" "subscriptions_errors" {
+  alarm_name          = "${var.name_prefix}-subscriptions-webhook-errors"
+  alarm_description   = "The subscriptions Lambda is erroring — Stripe deliveries (or billing API calls) are failing. Check /aws/lambda/${var.name_prefix}-subscriptions and the stripe-event ledger."
+  namespace           = "AWS/Lambda"
+  metric_name         = "Errors"
+  statistic           = "Sum"
+  period              = 300
+  evaluation_periods  = 1
+  threshold           = var.error_alarm_threshold
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+  treat_missing_data  = "notBreaching"
+
+  dimensions = {
+    FunctionName = aws_lambda_function.subscriptions.function_name
+  }
+
+  alarm_actions = [aws_sns_topic.subscriptions_alerts.arn]
+  ok_actions    = [aws_sns_topic.subscriptions_alerts.arn]
+}
+
+output "alerts_topic_arn" {
+  value = aws_sns_topic.subscriptions_alerts.arn
+}

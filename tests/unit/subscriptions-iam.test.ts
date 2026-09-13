@@ -92,6 +92,26 @@ describe('subscriptions Lambda IAM policy (static) — least-privilege', () => {
     expect(fallback).toBeGreaterThan(wildcard);
   });
 
+  it('alarms on webhook failures and can actually reach a human (E4.4)', () => {
+    // The failure this guards: Stripe delivers, the Lambda throws, the customer
+    // has paid and the entitlement never moves — Stripe retries for ~3 days and
+    // then gives up SILENTLY. Pin that the alarm exists, watches the function's
+    // own Errors metric, and has an action attached.
+    expect(subsTf).toContain('resource "aws_cloudwatch_metric_alarm" "subscriptions_errors"');
+    expect(subsTf).toContain('metric_name         = "Errors"');
+    expect(subsTf).toMatch(/alarm_actions\s*=\s*\[aws_sns_topic\.subscriptions_alerts\.arn\]/);
+    // A quiet hour with no deliveries must not read as an incident.
+    expect(subsTf).toContain('treat_missing_data  = "notBreaching"');
+    // The dimension must come from the resource, never a hardcoded name.
+    expect(subsTf).toContain('FunctionName = aws_lambda_function.subscriptions.function_name');
+
+    // An alarm with nobody subscribed is silent by construction: the dev/prod
+    // wiring must derive the addresses from the existing admin variable.
+    const envTf = readFileSync(path.join(process.cwd(), 'terraform/envs/prod/main.tf'), 'utf8');
+    expect(envTf).toMatch(/alert_emails\s*=\s*\[for e in split\(",", var\.analytics_admin_emails\)/);
+    expect(subsTf).toContain('resource "aws_sns_topic_subscription" "subscriptions_alerts_email"');
+  });
+
   it('takes the env marker from an EXPLICIT var, never from a branding flag', () => {
     // X-Octav-Env is what authorises the LIVE key set. It used to be derived
     // from dev_brand_rewrite — a PWA-branding flag — so removing that branding

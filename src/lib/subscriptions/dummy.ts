@@ -100,6 +100,9 @@ export class DummyStripeClient implements StripeClient {
       // and Stripe's magic test card is 4242, so the local/dev/e2e billing line
       // exercises the same code path and shape as production.
       card: { brand: 'visa', last4: '4242', expMonth: 12, expYear: 2034 },
+      // Mirrors what the real client reads from the expanded price, so the
+      // trial-ending reminder email renders an amount locally too.
+      price: pending.plan === 'annual' ? { unitAmount: 20000, currency: 'usd', interval: 'year' } : { unitAmount: 2000, currency: 'usd', interval: 'month' },
     };
     this.subscriptions.set(sub.id, sub);
 

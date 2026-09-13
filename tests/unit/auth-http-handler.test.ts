@@ -11,6 +11,7 @@ import {
   handleDeleteAccount,
 } from '@/lib/auth/http-handler';
 import { DummyEmailSender, InMemoryAuthStorage } from '@/lib/auth/dummy';
+import { featuresForTier } from '@/lib/entitlements/features';
 import { OTP_MAX_ATTEMPTS, SESSION_MAX_AGE_SECONDS, hashSessionToken } from '@/lib/auth/types';
 import type { AuthDeps, SessionRecord, UserRecord } from '@/lib/auth/types';
 
@@ -272,7 +273,6 @@ describe('POST /api/auth/verify-otp', () => {
     expect(user.email).toBe(email);
     expect(user.userId).toBeTruthy();
     expect(user.role).toBe('parent');
-    // Q1 resolution: a student is a parent with one "Me" profile.
     expect(user.childProfiles).toHaveLength(1);
     expect(user.childProfiles[0].displayName).toBe('Me');
 
@@ -294,6 +294,20 @@ describe('POST /api/auth/verify-otp', () => {
     // Account persisted; code consumed (single-use).
     expect(await t.storage.getUserByEmail(email)).not.toBeNull();
     expect(await t.storage.getOtp(email)).toBeNull();
+  });
+
+  it('returns the SERVER-derived entitlements on login (E4.4)', async () => {
+    // The client used to derive these from `user.tier` via featuresForTier, i.e.
+    // a second source of truth for access. The login payload now carries the
+    // same list me() does, so the client only ever renders what the server says.
+    const res = await handleVerifyOtp(jsonRequest('POST', 'https://x.test/api/auth/verify-otp', { email, otp: DUMMY_CODE }), t.deps);
+    const body = await res.json();
+    expect(body.user.tier).toBe('free');
+    expect(Array.isArray(body.entitlements)).toBe(true);
+    // Free tier's list is exactly what the E0 map says — not a subset, not extra.
+    expect(body.entitlements).toEqual(featuresForTier('free'));
+    expect(body.entitlements).toContain('ai-marking');
+    expect(body.entitlements).not.toContain('ai-marking-unlimited');
   });
 
   it('registers new accounts on the free tier (E0)', async () => {

@@ -53,15 +53,17 @@ describe('auth-client', () => {
     expect(result).toEqual({ message: 'sent' });
   });
 
-  it('verifyOtp POSTs email+otp and returns the user', async () => {
-    fetchMock.mockResolvedValue(jsonBody({ user: USER }));
+  it('verifyOtp POSTs email+otp and returns the user WITH the server entitlements (E4.4)', async () => {
+    fetchMock.mockResolvedValue(jsonBody({ user: USER, entitlements: ['ai-marking', 'exam-sets-full'] }));
 
-    const user = await verifyOtp('a@example.com', '123456');
+    const result = await verifyOtp('a@example.com', '123456');
 
     expect(fetchMock.mock.calls[0][0]).toBe('/api/auth/verify-otp');
     expect(fetchMock.mock.calls[0][1].method).toBe('POST');
     expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toEqual({ email: 'a@example.com', otp: '123456' });
-    expect(user).toEqual(USER);
+    // The login response is a SECOND source of entitlements next to me(); the
+    // whole payload must pass through so the client never re-derives them.
+    expect(result).toEqual({ user: USER, entitlements: ['ai-marking', 'exam-sets-full'] });
   });
 
   it('logout POSTs to the logout endpoint', async () => {

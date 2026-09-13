@@ -36,12 +36,21 @@ function uniqueEmail(): string {
   return `sub-${counter}@example.com`;
 }
 
+interface SentEmail {
+  to: string[];
+  subject: string;
+  html: string;
+  text: string;
+}
+
 interface TestCtx {
   storage: InMemorySubscriptionsStorage;
   stripe: DummyStripeClient;
   deps: SubscriptionsDeps;
   authDeps: AuthDeps;
   clock: () => number;
+  /** Everything the webhook tried to send (E4.4 trial reminders). */
+  sent: SentEmail[];
 }
 
 function makeCtx(opts: { webhookSecret?: string; clock?: () => number } = {}): TestCtx {
@@ -51,8 +60,17 @@ function makeCtx(opts: { webhookSecret?: string; clock?: () => number } = {}): T
   const clockSec = () => Math.floor(clockMs() / 1000);
   const storage = new InMemorySubscriptionsStorage(clockMs);
   const stripe = new DummyStripeClient({ clock: clockSec, webhookSecret: opts.webhookSecret ?? 'whsec_test' });
+  // Capturing sender rather than the no-op dummy: the trial-ending reminder is
+  // USER-VISIBLE behaviour, so the tests assert what actually went out.
+  const sent: SentEmail[] = [];
+  const emailSender = {
+    async send(args: SentEmail): Promise<void> {
+      sent.push(args);
+    },
+  };
   const deps: SubscriptionsDeps = {
     storage,
+    emailSender,
     // The handler and the test share the ONE dummy instance — see header.
     stripeFor: () => stripe,
     stripeModeFor: () => 'dummy',
@@ -64,7 +82,7 @@ function makeCtx(opts: { webhookSecret?: string; clock?: () => number } = {}): T
     dummyMode: true,
   };
   const authDeps: AuthDeps = { storage, emailSender: new DummyEmailSender(), testMode: true, dummyMode: true };
-  return { storage, stripe, deps, authDeps, clock: clockMs };
+  return { storage, stripe, deps, authDeps, clock: clockMs, sent };
 }
 
 function req(method: string, url: string, body?: unknown, headers: Record<string, string> = {}): Request {
@@ -310,6 +328,95 @@ describe('POST /api/subscriptions (webhook)', () => {
       body: raw,
     });
   }
+
+  it('sends ONE trial-ending reminder on trial_will_end, naming date, amount and card (E4.4)', async () => {
+    const ctx = makeCtx();
+    const { userId } = await login(ctx, 'reminder@example.com');
+    const sub = await seedTrial(ctx, userId);
+    const reminder = ctx.stripe
+      .advanceTo(T0 / 1000 + 12 * 24 * 60 * 60) // ≥3 days before the trial boundary
+      .find((e) => e.type === 'customer.subscription.trial_will_end');
+    expect(reminder).toBeTruthy();
+
+    const res = await handleWebhookPost(webhookRequest(reminder, 'whsec_test'), ctx.deps);
+    expect(res.status).toBe(200);
+    expect(await res.json()).toMatchObject({ received: true });
+
+    expect(ctx.sent).toHaveLength(1);
+    const mail = ctx.sent[0];
+    // The whole point of the email: no surprise charge.
+    expect(mail.to).toEqual(['reminder@example.com']);
+    expect(mail.subject).toMatch(/trial ends on/i);
+    for (const body of [mail.text, mail.html]) {
+      expect(body).toContain('US$20.00'); // the amount about to be charged
+      expect(body).toMatch(/Visa ending 4242/); // which card
+      expect(body).toContain('/account'); // where to cancel
+    }
+    expect(mail.text).toMatch(/Nothing is charged before then/);
+    // The date must not appear twice in the charge sentence (a copy defect the
+    // rendered-email review caught, not a unit test).
+    expect(mail.text).toContain("On that date we'll charge US$20.00 to Visa ending 4242.");
+    expect(sub.id).toBeTruthy();
+  });
+
+  it('never double-sends when Stripe redelivers the same reminder (ledger)', async () => {
+    const ctx = makeCtx();
+    const { userId } = await login(ctx, 'replay@example.com');
+    await seedTrial(ctx, userId);
+    const reminder = ctx.stripe
+      .advanceTo(T0 / 1000 + 12 * 24 * 60 * 60)
+      .find((e) => e.type === 'customer.subscription.trial_will_end')!;
+
+    await handleWebhookPost(webhookRequest(reminder, 'whsec_test'), ctx.deps);
+    const replay = await handleWebhookPost(webhookRequest(reminder, 'whsec_test'), ctx.deps);
+
+    expect(await replay.json()).toMatchObject({ received: true, duplicate: true });
+    expect(ctx.sent).toHaveLength(1); // still exactly one
+  });
+
+  it('skips the reminder (without failing the webhook) when no email provider is configured', async () => {
+    const ctx = makeCtx();
+    const { userId } = await login(ctx, 'nomail@example.com');
+    await seedTrial(ctx, userId);
+    const reminder = ctx.stripe
+      .advanceTo(T0 / 1000 + 12 * 24 * 60 * 60)
+      .find((e) => e.type === 'customer.subscription.trial_will_end')!;
+
+    // The tier write must still land: email is best-effort, billing is not.
+    const res = await handleWebhookPost(webhookRequest(reminder, 'whsec_test'), {
+      ...ctx.deps,
+      emailSender: null,
+    });
+
+    expect(res.status).toBe(200);
+    expect(ctx.sent).toHaveLength(0);
+    const user = await ctx.storage.getUserById(userId);
+    expect(user?.subscriptionStatus).toBe('trialing');
+  });
+
+  it('does not mail a reminder whose trial already converted (out-of-order delivery)', async () => {
+    // Stripe does not guarantee event ordering (plan §6.4 rule 3), so a
+    // trial_will_end can arrive AFTER the trial converted. Telling that customer
+    // "your trial ends on X" would be wrong, so the handler re-reads state and
+    // stays quiet. (Found by writing this test: cancelAtPeriodEnd does NOT
+    // change status — the dummy is right, my first attempt at the race was not.)
+    const ctx = makeCtx();
+    const { userId } = await login(ctx, 'converted@example.com');
+    const sub = await seedTrial(ctx, userId);
+    ctx.stripe.advanceTo(T0 / 1000 + 15 * 24 * 60 * 60); // past the boundary → active
+    expect(ctx.stripe.findByUserId(userId)?.status).toBe('active');
+
+    const late = {
+      id: 'evt_late_reminder',
+      type: 'customer.subscription.trial_will_end',
+      created: T0 / 1000,
+      data: { object: { id: sub.id } },
+    };
+    const res = await handleWebhookPost(webhookRequest(late, 'whsec_test'), ctx.deps);
+
+    expect(res.status).toBe(200);
+    expect(ctx.sent).toHaveLength(0);
+  });
 
   it('rejects a missing and an invalid signature (400)', async () => {
     const ctx = makeCtx();

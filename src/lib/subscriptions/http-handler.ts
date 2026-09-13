@@ -2,8 +2,10 @@ import { resolveSession } from '../auth/session';
 import { DEV_GATE_ERROR, devGateDenied } from '../auth/dev-gate';
 import type { UserRecord } from '../auth/types';
 import { tierFromSubscription } from '../auth/types';
+import { formatAmount, formatChargeDate, renderTrialEndingEmail } from './email';
 import { getSubscriptionsDeps, type SubscriptionsDeps } from './deps';
 import {
+  isoFromEpochSeconds,
   CHECKOUT_MAX_BODY_BYTES,
   SUBSCRIPTION_SESSIONS_PER_WINDOW,
   SUBSCRIPTION_WINDOW_SECONDS,
@@ -303,6 +305,51 @@ function subscriptionIdFromEvent(event: StripeEvent): string | null {
 }
 
 /**
+ * Trial-ending reminder (E4.4). Stripe fires `trial_will_end` ~3 days before a
+ * trial converts; this is the email that stops the first charge being a
+ * surprise (plan §2.2 guard rail), so it names the card, the date and the
+ * amount, and points at /account to cancel.
+ *
+ * BEST EFFORT by design: the tier write has already succeeded, so a mail
+ * provider outage must never turn into a failed webhook (which would make
+ * Stripe retry the whole event and, worse, look like a billing failure). The
+ * event-id ledger already makes a redelivered event a no-op, so this cannot
+ * double-send on a retry.
+ */
+async function sendTrialEndingReminder(
+  sub: StripeSubscription,
+  user: UserRecord,
+  origin: string,
+  deps: SubscriptionsDeps
+): Promise<void> {
+  if (!deps.emailSender) {
+    console.warn(`[subscriptions] trial ending for ${sub.id} but EMAIL_PROVIDER is not configured — reminder skipped`);
+    return;
+  }
+  // A converted or cancelled subscription must not get "your trial ends" copy.
+  if (sub.status !== 'trialing' || !sub.trial_end) return;
+
+  const chargeDate = formatChargeDate(isoFromEpochSeconds(sub.trial_end));
+  const cardLine = user.cardLast4
+    ? `${user.cardBrand ? user.cardBrand[0].toUpperCase() + user.cardBrand.slice(1) : 'Card'} ending ${user.cardLast4}`
+    : null;
+  const { subject, html, text } = renderTrialEndingEmail({
+    displayName: user.displayName,
+    chargeDate,
+    amountLabel: formatAmount(sub.price?.unitAmount, sub.price?.currency),
+    cardLine,
+    planLabel: sub.metadata.plan === 'annual' ? 'Annual' : 'Monthly',
+    accountUrl: `${origin}/account`,
+  });
+  try {
+    await deps.emailSender.send({ to: [user.email], subject, html, text });
+    console.log(`[subscriptions] trial reminder sent for ${sub.id} (charge ${chargeDate})`);
+  } catch (err) {
+    console.error('[subscriptions] trial reminder failed to send:', err instanceof Error ? err.message : err);
+  }
+}
+
+/**
  * Apply one event. Always RE-READS the subscription from Stripe instead of
  * trusting the event payload: Stripe does not guarantee delivery order
  * (plan §6.4 rule 3), so a stale snapshot must never overwrite newer state.
@@ -310,6 +357,7 @@ function subscriptionIdFromEvent(event: StripeEvent): string | null {
 async function applyEvent(
   event: StripeEvent,
   stripe: StripeClient,
+  origin: string,
   deps: SubscriptionsDeps
 ): Promise<'applied' | 'ignored'> {
   const subscriptionId = subscriptionIdFromEvent(event);
@@ -338,6 +386,9 @@ async function applyEvent(
     // never apply.
     console.warn(`[subscriptions] no user ${userId} for ${event.type} — acknowledged without applying`);
     return 'ignored';
+  }
+  if (event.type === 'customer.subscription.trial_will_end') {
+    await sendTrialEndingReminder(sub, updated, origin, deps);
   }
   return 'applied';
 }
@@ -378,7 +429,7 @@ export async function handleWebhookPost(
   }
 
   try {
-    const result = await applyEvent(event, stripe, deps);
+    const result = await applyEvent(event, stripe, originForRequest(req), deps);
     return json({ received: true, ...(result === 'ignored' ? { ignored: true } : {}) });
   } catch (err) {
     // Rule 4: fail loudly so Stripe retries. (The event id is already marked

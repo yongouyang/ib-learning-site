@@ -99,7 +99,7 @@ describe('AuthContext', () => {
 
   it('login() verifies and sets the user', async () => {
     meMock.mockResolvedValue(null);
-    verifyOtpMock.mockResolvedValue(USER);
+    verifyOtpMock.mockResolvedValue({ user: USER, entitlements: ['ai-marking'] });
     renderProvider();
     await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
 
@@ -173,7 +173,7 @@ describe('AuthContext', () => {
   it('a stale mount me() cannot overwrite a completed login (H4)', async () => {
     let resolveMe: (value: unknown) => void = () => {};
     meMock.mockReturnValue(new Promise((resolve) => { resolveMe = resolve; }));
-    verifyOtpMock.mockResolvedValue(USER);
+    verifyOtpMock.mockResolvedValue({ user: USER, entitlements: ['ai-marking'] });
     renderProvider();
 
     // Login completes while the mount me() is still in flight.
@@ -231,9 +231,14 @@ describe('AuthContext', () => {
     expect(screen.getByTestId('entitlements').textContent).toBe('ai-marking,ai-marking-unlimited,exam-sets-full');
   });
 
-  it('login() derives entitlements from the fresh user tier (verify-otp has no entitlements field)', async () => {
+  it('login() renders the SERVER entitlement list, never a local tier derivation (E4.4)', async () => {
+    // The decisive assertion: the server list is deliberately WRONG for this
+    // tier (`premium` would locally map to three features). If any code path
+    // still derived from tier, this would render the local list and the test
+    // would pass for the wrong reason — instead the server's list must win,
+    // because the client is not allowed to be a second source of truth.
     meMock.mockResolvedValue(null);
-    verifyOtpMock.mockResolvedValue({ ...USER, tier: 'premium' });
+    verifyOtpMock.mockResolvedValue({ user: { ...USER, tier: 'premium' }, entitlements: ['ai-marking'] });
     renderProvider();
     await waitFor(() => expect(screen.getByTestId('loaded').textContent).toBe('true'));
     expect(screen.getByTestId('entitlements').textContent).toBe('');
@@ -241,7 +246,7 @@ describe('AuthContext', () => {
     await act(async () => {
       await probe.login('a@example.com', '123456');
     });
-    expect(screen.getByTestId('entitlements').textContent).toBe('ai-marking,ai-marking-unlimited,exam-sets-full');
+    expect(screen.getByTestId('entitlements').textContent).toBe('ai-marking');
   });
 
   it('logout clears the entitlements along with the user', async () => {

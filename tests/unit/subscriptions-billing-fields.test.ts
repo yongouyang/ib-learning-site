@@ -18,6 +18,7 @@ function sub(over: Partial<StripeSubscription> = {}): StripeSubscription {
     cancel_at_period_end: false,
     metadata: { userId: 'u1', plan: 'monthly' },
     card: { brand: 'visa', last4: '4242', expMonth: 12, expYear: 2034 },
+    price: { unitAmount: 2000, currency: 'usd', interval: 'month' },
     ...over,
   };
 }

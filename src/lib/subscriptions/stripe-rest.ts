@@ -93,6 +93,19 @@ function normalizeSubscription(raw: Record<string, unknown>): StripeSubscription
   // "no card known" rather than being mistaken for an object.
   const pm = raw.default_payment_method;
   const card = pm && typeof pm === 'object' ? ((pm as { card?: Record<string, unknown> }).card ?? null) : null;
+  // Price of the first item — what the trial-ending reminder email states as the
+  // amount about to be charged. Only present when the caller expanded it.
+  const price = (() => {
+    const item = items[0] as { price?: unknown } | undefined;
+    const p = item?.price;
+    if (!p || typeof p !== 'object') return null;
+    const rec = p as { unit_amount?: unknown; currency?: unknown; recurring?: { interval?: unknown } };
+    return {
+      unitAmount: typeof rec.unit_amount === 'number' ? rec.unit_amount : null,
+      currency: typeof rec.currency === 'string' ? rec.currency : null,
+      interval: typeof rec.recurring?.interval === 'string' ? rec.recurring.interval : null,
+    };
+  })();
 
   return {
     id: String(raw.id ?? ''),
@@ -115,6 +128,7 @@ function normalizeSubscription(raw: Record<string, unknown>): StripeSubscription
             expYear: typeof card.exp_year === 'number' ? card.exp_year : null,
           }
         : null,
+    price,
   };
 }
 
@@ -242,7 +256,7 @@ export class StripeRestClient implements StripeClient {
       // the /account billing line needs brand + last4 (plan §2.2). Verified live
       // that this account's subscriptions do carry one under Managed Payments.
       const raw = await this.call(
-        `/subscriptions/${encodeURIComponent(subscriptionId)}?expand[]=default_payment_method`
+        `/subscriptions/${encodeURIComponent(subscriptionId)}?expand[]=default_payment_method&expand[]=items.data.price`
       );
       return normalizeSubscription(raw);
     } catch (err) {

@@ -10,7 +10,7 @@ import {
   updateAccount as updateAccountRequest,
   setOnUnauthorized,
 } from '@/lib/auth-client';
-import { featuresForTier, type FeatureId } from '@/lib/entitlements/features';
+import type { FeatureId } from '@/lib/entitlements/features';
 
 // The account's active profile is a UI preference (which child's view you're
 // in) — persisted locally, following the `octav_*` key convention for accounts.
@@ -118,12 +118,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = useCallback(async (email: string, otp: string): Promise<AuthUser> => {
     ++generation.current; // invalidate any in-flight mount me() (review H4)
-    const next = await verifyOtp(email, otp);
+    const { user: next, entitlements: serverEntitlements } = await verifyOtp(email, otp);
     setUser(next);
-    // verify-otp doesn't carry entitlements (me() only — plan E1); derive them
-    // from the fresh user's tier via the SAME map the server uses. The next
-    // refresh() re-syncs from the authoritative me() payload.
-    setEntitlements(featuresForTier(next.tier));
+    // E4.4: the SERVER's list, straight from the login response. The client used
+    // to derive these from `next.tier` via featuresForTier (a second source of
+    // truth for access); it must never do that again — if the server list and
+    // the tier disagree, the server wins.
+    setEntitlements(serverEntitlements);
     setLoaded(true);
     return next;
   }, []);

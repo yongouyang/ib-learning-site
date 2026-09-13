@@ -90,13 +90,18 @@ export async function requestOtp(email: string): Promise<{ message: string }> {
   });
 }
 
-/** POST /api/auth/verify-otp — first login auto-creates the account. */
-export async function verifyOtp(email: string, otp: string): Promise<AuthUser> {
-  const body = await requestJson<{ user: AuthUser }>('/api/auth/verify-otp', {
+/** POST /api/auth/verify-otp — first login auto-creates the account.
+ *  Returns the SERVER-derived entitlements alongside the user (E4.4), so a
+ *  fresh login renders gates from the same list me() provides rather than
+ *  re-deriving them from `tier` on the client. */
+export async function verifyOtp(
+  email: string,
+  otp: string
+): Promise<{ user: AuthUser; entitlements: FeatureId[] }> {
+  return requestJson<{ user: AuthUser; entitlements: FeatureId[] }>('/api/auth/verify-otp', {
     method: 'POST',
     body: JSON.stringify({ email, otp }),
   });
-  return body.user;
 }
 
 /** POST /api/auth/logout — clears the session cookie. */

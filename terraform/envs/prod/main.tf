@@ -532,7 +532,17 @@ module "subscriptions_api" {
     AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
     AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
     DEV_ALLOWED_EMAILS     = var.dev_allowed_emails
+    # Trial-ending reminder email (E4.4). Same shared secret/var the contact and
+    # auth Lambdas use — no new secret. Absent = the reminder is skipped with a
+    # log (billing keeps working); a malformed value still fails the deploy.
+    EMAIL_PROVIDER   = var.email_provider
+    SES_FROM_ADDRESS = var.ses_from_address
   }
+
+  # Alerting (E4.4, plan §6.4.1 mitigation 2): if webhooks fail, customers pay
+  # and entitlements never move — the worst silent failure in billing. This
+  # alarms on Lambda errors so a human hears about it within minutes.
+  alert_emails = [for e in split(",", var.analytics_admin_emails) : trimspace(e) if trimspace(e) != ""]
 }
 
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +

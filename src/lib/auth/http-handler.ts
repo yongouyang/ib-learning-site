@@ -354,7 +354,15 @@ export async function handleVerifyOtp(req: Request, deps: AuthDeps = getAuthDeps
     ip: clientIp(req),
   });
 
-  return withCookie(json({ user: publicUser(user) }), sessionCookieValue(token, req));
+  return withCookie(
+    // Phase E4.4: entitlements ride on the LOGIN response too, exactly as on
+    // me(). They used to be derived client-side from `user.tier` after login
+    // (`featuresForTier`), which made the client a second source of truth for
+    // access — the thing the entitlement policy says must never happen. The
+    // server derives them from the ONE map; the client only renders the list.
+    json({ user: publicUser(user), entitlements: featuresForTier(user.tier) }),
+    sessionCookieValue(token, req)
+  );
 }
 
 /** POST /api/auth/logout — clears the cookie and deletes the session. */
