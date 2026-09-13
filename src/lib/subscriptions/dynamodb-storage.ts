@@ -115,7 +115,14 @@ export class DynamoSubscriptionsStorage implements SubscriptionsStorage {
             bucket: `${LEDGER_PREFIX}${eventId}`,
             expiresAt: Math.floor(this.clock() / 1000) + EVENT_LEDGER_TTL_SECONDS,
           },
-          ConditionExpression: 'attribute_not_exists(bucket)',
+          // `bucket` is a DynamoDB RESERVED WORD, so it must be referenced
+          // through an expression attribute name. Sending the bare name fails
+          // server-side with "Invalid ConditionExpression: Attribute name is a
+          // reserved keyword" — which no mock-client test and no dummy-storage
+          // run can catch, and which returned 500 for every real Stripe
+          // delivery until the first deployed probe caught it (2026-09-13).
+          ConditionExpression: 'attribute_not_exists(#b)',
+          ExpressionAttributeNames: { '#b': 'bucket' },
         })
       );
       return true;

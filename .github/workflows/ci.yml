@@ -383,6 +383,16 @@ jobs:
               # octav-users (missing table/grant or a wiped secret → 500; E4.2).
               # It never calls Stripe, so a Stripe blip cannot fail a deploy.
               curl -fsS "$SITE_URL/api/subscriptions/_health" | grep -q '"ok":true'
+              # Signed-webhook probe (E4.2): proves the whole DELIVERY path —
+              # CloudFront routing, signature verification, the ledger's
+              # conditional write and a real Stripe re-read — which _health
+              # cannot. On 2026-09-13 _health passed while every webhook 500'd on
+              # a reserved-word ConditionExpression on the ledger PutItem, so
+              # this is the gate for that class. The payload references a
+              # nonexistent subscription, so nothing is applied.
+              # PROD joins this check in the SAME change that adds the _LIVE key
+              # set: until live keys exist a prod origin answers 503 by design.
+              STRIPE_ENV='${{ secrets.STRIPE_ENV }}' node scripts/webhook-probe.mjs "$SITE_URL"
             }; then
               smoke_ok=1
               echo "Smoke checks passed."

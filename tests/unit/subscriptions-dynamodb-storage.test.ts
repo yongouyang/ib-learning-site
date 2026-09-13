@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import type { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { DynamoSessionStorage, DynamoUserWriter } from '@/lib/auth/dynamodb-storage';
 import { DynamoSubscriptionsStorage, EVENT_LEDGER_TTL_SECONDS } from '@/lib/subscriptions/dynamodb-storage';
@@ -57,12 +59,36 @@ describe('DynamoSubscriptionsStorage — webhook idempotency ledger (E4.2)', () 
       TableName: string;
       Item: { bucket: string; expiresAt: number };
       ConditionExpression: string;
+      ExpressionAttributeNames: Record<string, string>;
     };
     expect(input.TableName).toBe('octav-rate-limits');
     expect(input.Item.bucket).toBe('stripe-event:evt_1');
     expect(input.Item.expiresAt).toBe(Math.floor(T0 / 1000) + EVENT_LEDGER_TTL_SECONDS);
     // The condition IS the idempotency: a replayed delivery fails it.
-    expect(input.ConditionExpression).toBe('attribute_not_exists(bucket)');
+    // It must go through an alias because `bucket` is a DynamoDB RESERVED WORD —
+    // asserting the bare name here is what let a 500-on-every-webhook bug ship
+    // (2026-09-13), since a mock client and the dummy storage both skip the
+    // server-side validator.
+    expect(input.ConditionExpression).toBe('attribute_not_exists(#b)');
+    expect(input.ExpressionAttributeNames).toEqual({ '#b': 'bucket' });
+  });
+
+  it('aliases every reserved word it references in an expression', () => {
+    // Cheap guard for the class above: a bare reserved word inside an expression
+    // is a SERVER-side validation error, invisible to mocks. `bucket`, `count`
+    // and `status` are the reserved words this adapter touches (see the
+    // DynamoDB reserved-words list); every expression must route them through
+    // #names instead.
+    const src = readFileSync(path.join(process.cwd(), 'src/lib/subscriptions/dynamodb-storage.ts'), 'utf8');
+    const expressions = [...src.matchAll(/(?:ConditionExpression|UpdateExpression|FilterExpression|ProjectionExpression):\s*'([^']+)'/g)].map(
+      (m) => m[1]
+    );
+    expect(expressions.length).toBeGreaterThan(0);
+    for (const expr of expressions) {
+      for (const reserved of ['bucket', 'count', 'status', 'attributes']) {
+        expect(expr).not.toMatch(new RegExp(`(^|[^#A-Za-z0-9_])${reserved}\\b`));
+      }
+    }
   });
 
   it('reports a replay as "already processed" instead of throwing', async () => {
