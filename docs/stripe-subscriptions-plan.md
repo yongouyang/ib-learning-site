@@ -31,15 +31,31 @@
 
 ### 0.2 To verify during E4.0 setup (I could not confirm these from Stripe's docs)
 
-0. ✅ **VERIFIED 2026-09-13 (test mode): a product TAX CODE is required.** New Stripe accounts have
-   **Managed Payments enabled by default**, and it refuses a Checkout Session whose line item's product
-   has no `tax_code` — the API answer is literally *"Invalid line_items[0]: the product tax code is
-   missing"*. `scripts/stripe-sandbox.mjs setup` now sets `txcd_10000000` (**General - Electronically
-   Supplied Services**) on the product. This is also what Stripe Tax (decision 13) uses to pick the
-   rate per market, so the code is a **tax classification decision to confirm with the HK accountant**,
-   together with §3.2's registration questions — the script honours `STRIPE_PRODUCT_TAX_CODE` if another
-   code turns out to be right.
-   Related observation from the same run: the hosted Checkout page offered a **HKD/USD currency
+0. ✅ **VERIFIED 2026-09-13 (test mode): a product TAX CODE is required, and the code is CONFIRMED.**
+   New Stripe accounts have **Managed Payments enabled by default**, and it refuses a Checkout Session whose
+   line item's product has no `tax_code` — the API answer is literally *"Invalid line_items[0]: the product
+   tax code is missing"*. **Confirmed code (user decision 2026-09-13): `txcd_20060058` — "Training Services
+   - Self-study Web-based"** (*"Self Study web based training, not instructor led. This does not include
+   downloads or streaming of video replays."*). That describes the product better than the digital-goods
+   codes Stripe's own integration guide suggests (nothing is downloaded, and this is self-study rather than
+   SaaS): illustrated notes, flashcards and marked practice. Verified accepted by Managed Payments — a
+   session created with it returns 200 with `managed_payments.enabled=true`. `scripts/stripe-sandbox.mjs
+   setup` applies it (override with `STRIPE_PRODUCT_TAX_CODE`); the SAME code must be used when the LIVE
+   product is created, since products/prices are per-mode.
+
+   **Managed Payments is the merchant of record — this supersedes decision 13.** Querying a real test
+   session returns `automatic_tax: {"enabled":true,"liability":{"type":"stripe"},"provider":"stripe",
+   "status":"requires_location_inputs"}`, and Stripe's docs state its MoR solution *"handles sales tax, VAT,
+   and GST compliance in more than 80 countries, along with fraud prevention, dispute management, and
+   transaction-level customer support."* So the §3.2 items (registrations, filings, thresholds — decision
+   13's "Tax Complete") become Stripe's, not ours, and the accountant question changes to: is Managed
+   Payments' fee worth it, and who is named as seller to the customer? It is ON by default; opting out is
+   `managed_payments[enabled]=false` (the API accepts both — verified), which returns liability to us.
+   Knock-on constraint: while it is on, subscriptions may only be created via Checkout/Payment Links, so
+   **do not enable Portal plan switching** without checking with Stripe first (cancel / payment method /
+   invoice history are unaffected).
+
+   Related observation from the same runs: the hosted Checkout page offered a **HKD/USD currency
    selector**, i.e. local-currency presentment is on for this account. Decision 12 settles in USD, so
    whether customers may be charged in their local currency (and who carries the FX) needs a decision in
    the Stripe dashboard before soft-launch.

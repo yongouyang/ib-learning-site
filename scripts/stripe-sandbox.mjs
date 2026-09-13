@@ -43,13 +43,16 @@ const PRICES = [
 // Stripe's tax classification for the product. REQUIRED in practice: new Stripe
 // accounts have Managed Payments enabled by default, which REFUSES a Checkout
 // Session whose line item's product has no tax_code (found live 2026-09-13:
-// "Invalid line_items[0]: the product tax code is missing"). Setting it also
-// makes Stripe Tax (plan §0.1 #13) compute the right rate per market.
-// txcd_10000000 = General - Electronically Supplied Services (the standard code
-// for a subscription digital service consumed by the buyer). CONFIRM with the
-// HK accountant alongside the §3.2 registration questions — the code drives the
-// VAT/GST treatment in UK/EU/AU/UAE, not just the API's mood.
-const PRODUCT_TAX_CODE = process.env.STRIPE_PRODUCT_TAX_CODE ?? 'txcd_10000000';
+// "Invalid line_items[0]: the product tax code is missing").
+//
+// txcd_20060058 = "Training Services - Self-study Web-based": "Self Study web
+// based training, not instructor led. This does not include downloads or
+// streaming of video replays." — chosen by the user 2026-09-13, and it describes
+// the product better than the digital-goods codes the Stripe guide suggests
+// (nothing here is downloaded, and it is self-study rather than SaaS):
+// illustrated notes, flashcards and marked practice. Verified accepted by
+// Managed Payments (session created 200 with managed_payments on).
+const PRODUCT_TAX_CODE = process.env.STRIPE_PRODUCT_TAX_CODE ?? 'txcd_20060058';
 
 function readEnvFile() {
   if (!existsSync(ENV_PATH)) return {};
