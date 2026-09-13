@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { BillingPanel } from '@/components/BillingPanel';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { pageMeta } from '@/lib/seo/page-meta';
 
-// Phase E1 stub — the real pricing page (plans, payment) lands with E4
-// (docs/entitlement-implementation-plan.md). For now it states the agreed
-// tier split (docs/entitlement-policy.md) so LockedFeature's link resolves.
+// The tier split (docs/entitlement-policy.md) is stated statically; the CTAs are
+// the E4.3 client component, which reads live billing state from
+// /api/subscriptions/status and hides itself when billing is unconfigured (prod,
+// until a LIVE key set exists) instead of offering a button that 503s.
 
 // The root layout's title.template appends " · Octav Learning"; a title that already
 // contains the brand renders it twice (the live defect this replaces).
@@ -21,7 +23,8 @@ export default function PricingPage() {
       <Breadcrumbs items={[{ href: '/', label: 'Home' }, { label: 'Pricing' }]} />
       <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-2">Pricing</h1>
       <p className="text-base text-gray-600 dark:text-gray-400 max-w-2xl mb-6">
-        Everything you need to start is free. Premium is on its way.
+        Everything you need to start is free. Premium adds unlimited AI marking and the full exam tier — the
+        first 14 days are free.
       </p>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -37,14 +40,12 @@ export default function PricingPage() {
 
         <section className="card p-5">
           <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-1">Premium</h2>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Coming soon.</p>
-          <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Everything, for one student or a whole family.</p>
+          <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
             <li>Unlimited AI marking on your free-response answers</li>
             <li>The full practice-exam tier: every paper set, upper ladder levels, timed mock mode</li>
           </ul>
-          <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">
-            We&apos;re not taking payments yet — Premium is coming soon.
-          </p>
+          <BillingPanel variant="pricing" />
         </section>
       </div>
 

@@ -108,6 +108,55 @@ describe('StripeRestClient — checkout session', () => {
 });
 
 describe('StripeRestClient — subscription reads', () => {
+  it('expands the payment method and maps the card for the billing line', async () => {
+    // Found by the E4.3 UX review: card fields were declared and rendered but
+    // never fetched or stored, so /account's "Visa ending 4242" line could not
+    // ever render in production. Verified against the live test account that
+    // Managed Payments subscriptions DO carry a default_payment_method.
+    const calls: { url: string; init: RequestInit }[] = [];
+    const fetchImpl = vi.fn(async (url: string | URL, init?: RequestInit) => {
+      calls.push({ url: String(url), init: init ?? {} });
+      return jsonResponse({
+        id: 'sub_1',
+        customer: 'cus_1',
+        status: 'trialing',
+        cancel_at_period_end: false,
+        metadata: { userId: 'user-1', plan: 'monthly' },
+        items: { data: [{ current_period_end: 1800000000 }] },
+        default_payment_method: { id: 'pm_1', card: { brand: 'visa', last4: '4242', exp_month: 12, exp_year: 2034 } },
+      });
+    });
+    const client = new StripeRestClient({
+      secretKey: SECRET,
+      webhookSecret: WEBHOOK_SECRET,
+      priceIds: PRICES,
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+    });
+
+    const sub = await client.retrieveSubscription('sub_1');
+
+    expect(calls[0].url).toContain('expand[]=default_payment_method');
+    expect(sub?.card).toEqual({ brand: 'visa', last4: '4242', expMonth: 12, expYear: 2034 });
+  });
+
+  it('treats an UNEXPANDED payment-method id as no card known', async () => {
+    // Without the expand, Stripe returns the bare string `pm_…` — mistaking that
+    // for an object would crash the mapper.
+    const { client } = makeClient({
+      responses: [
+        jsonResponse({
+          id: 'sub_1',
+          customer: 'cus_1',
+          status: 'active',
+          cancel_at_period_end: false,
+          metadata: { userId: 'user-1', plan: 'monthly' },
+          default_payment_method: 'pm_1',
+        }),
+      ],
+    });
+    await expect(client.retrieveSubscription('sub_1')).resolves.toMatchObject({ card: null });
+  });
+
   it('reads current_period_end from the subscription items when the top level omits it', async () => {
     // Stripe's 2025 API versions moved current_period_end onto the items; a
     // version bump must not silently turn every renewal date into epoch 0.

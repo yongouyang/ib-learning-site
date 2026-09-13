@@ -18,6 +18,7 @@ import {
 import { handleForProfile, isValidLeaderboardHandle } from '@/lib/leaderboard/handles';
 import { stageScope } from '@/lib/leaderboard/types';
 import { trackEvent } from '@/lib/analytics';
+import { BillingPanel } from '@/components/BillingPanel';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 const STAGE_LABELS: Record<Stage, string> = {
@@ -509,6 +510,15 @@ function AccountContent({ user }: { user: AuthUser }) {
             {profilesError}
           </p>
         )}
+      </section>
+
+      {/* Billing (E4.3) — plan, trial/renewal state and the Stripe Portal. */}
+      <section className="card p-6 mb-4">
+        <h2 className="text-base font-semibold text-gray-900 dark:text-gray-50 mb-1">Billing</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+          Manage your Premium subscription, card and invoices.
+        </p>
+        <BillingPanel variant="account" />
       </section>
 
       {/* Leaderboard */}

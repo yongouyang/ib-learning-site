@@ -194,6 +194,26 @@ describe('POST /api/subscriptions/portal', () => {
 });
 
 describe('GET /api/subscriptions/status', () => {
+  it('tells the UI whether billing is actually wired (billingAvailable)', async () => {
+    // The pricing page shows Checkout buttons only when a Stripe client resolves
+    // for THIS request. Prod is false until a LIVE key set exists — otherwise the
+    // page would offer a button whose only possible answer is 503.
+    const ctx = makeCtx();
+    const { cookie } = await login(ctx);
+
+    const wired = await handleStatusGet(
+      req('GET', 'https://x/api/subscriptions/status', undefined, { cookie }),
+      ctx.deps
+    );
+    expect(await wired.json()).toMatchObject({ billingAvailable: true });
+
+    const unwired = await handleStatusGet(
+      req('GET', 'https://x/api/subscriptions/status', undefined, { cookie }),
+      { ...ctx.deps, stripeFor: () => null }
+    );
+    expect(await unwired.json()).toMatchObject({ billingAvailable: false });
+  });
+
   it('returns the cached billing view', async () => {
     const ctx = makeCtx();
     const { cookie, userId } = await login(ctx);

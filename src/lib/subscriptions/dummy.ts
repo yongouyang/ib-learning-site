@@ -96,6 +96,10 @@ export class DummyStripeClient implements StripeClient {
       trial_end: trialEnd,
       cancel_at_period_end: false,
       metadata: { userId: pending.userId, plan: pending.plan },
+      // The dummy collects a card at checkout (payment_method_collection=always)
+      // and Stripe's magic test card is 4242, so the local/dev/e2e billing line
+      // exercises the same code path and shape as production.
+      card: { brand: 'visa', last4: '4242', expMonth: 12, expYear: 2034 },
     };
     this.subscriptions.set(sub.id, sub);
 

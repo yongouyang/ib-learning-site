@@ -35,6 +35,13 @@ export interface StripeSubscription {
   trial_end: number | null;
   cancel_at_period_end: boolean;
   metadata: { userId: string; plan: SubscriptionPlan };
+  /**
+   * Card summary for the /account billing line (plan §2.2 guard rail 2: show the
+   * customer which card will be charged). Null when Stripe has no payment method
+   * attached — e.g. a subscription created without one, or a webhook event whose
+   * object never had it expanded. The UI hides the line in that case.
+   */
+  card: { brand: string | null; last4: string; expMonth: number | null; expYear: number | null } | null;
 }
 
 export type StripeEventType =
@@ -281,6 +288,19 @@ export function billingFieldsFromSubscription(sub: StripeSubscription): Subscrip
     // survive. isBillingStateStale below is written to tolerate that residue.
     ...(sub.trial_end !== null ? { trialEndsAt: isoFromEpochSeconds(sub.trial_end) } : {}),
     cancelAtPeriodEnd: sub.cancel_at_period_end,
+    // Card summary for the billing line (plan §2.2). Written only when Stripe
+    // actually has one, so an absent card never blanks a previously stored one
+    // (the per-field merge skips undefined). Sub-fields follow the trialEndsAt
+    // rule too: omitted rather than written as undefined, so the stored row has
+    // no half-populated card.
+    ...(sub.card
+      ? {
+          ...(sub.card.brand !== null ? { cardBrand: sub.card.brand } : {}),
+          cardLast4: sub.card.last4,
+          ...(sub.card.expMonth !== null ? { cardExpMonth: sub.card.expMonth } : {}),
+          ...(sub.card.expYear !== null ? { cardExpYear: sub.card.expYear } : {}),
+        }
+      : {}),
     tier: tierFromSubscription(sub.status),
   };
 }

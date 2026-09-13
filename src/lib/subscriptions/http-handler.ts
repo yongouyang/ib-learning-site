@@ -205,12 +205,18 @@ export async function handlePortalPost(
 // GET /api/subscriptions/status
 // ---------------------------------------------------------------------------
 
-/** The billing view for /account. Card fields are display metadata only. */
-function statusPayload(user: UserRecord) {
+/** The billing view for /account. Card fields are display metadata only.
+ *  `billingAvailable` tells the UI whether a Stripe client actually resolves for
+ *  THIS request, so /pricing can show "not taking payments yet" instead of a
+ *  button that 503s. It is deliberately derived from `stripeFor(req)` — the same
+ *  seam the endpoints use — rather than re-deriving the mode here, so the UI and
+ *  the API can never disagree. Prod is false until a LIVE key set exists. */
+function statusPayload(user: UserRecord, billingAvailable: boolean) {
   return {
     plan: user.subscriptionPlan ?? null,
     status: user.subscriptionStatus ?? null,
     tier: user.tier,
+    billingAvailable,
     currentPeriodEnd: user.currentPeriodEnd ?? null,
     trialEndsAt: user.trialEndsAt ?? null,
     cancelAtPeriodEnd: user.cancelAtPeriodEnd ?? false,
@@ -267,7 +273,7 @@ export async function handleStatusGet(
     }
   }
 
-  return withCookie(json(statusPayload(user)), refreshCookie);
+  return withCookie(json(statusPayload(user, deps.stripeFor(req) !== null)), refreshCookie);
 }
 
 // ---------------------------------------------------------------------------

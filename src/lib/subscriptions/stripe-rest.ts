@@ -88,6 +88,12 @@ function normalizeSubscription(raw: Record<string, unknown>): StripeSubscription
     .sort((a, b) => b - a)[0];
   const metadata = (raw.metadata ?? {}) as Record<string, unknown>;
 
+  // The payment method only arrives when the caller expanded it (see
+  // retrieveSubscription); an unexpanded id string is deliberately treated as
+  // "no card known" rather than being mistaken for an object.
+  const pm = raw.default_payment_method;
+  const card = pm && typeof pm === 'object' ? ((pm as { card?: Record<string, unknown> }).card ?? null) : null;
+
   return {
     id: String(raw.id ?? ''),
     customer: typeof raw.customer === 'string' ? raw.customer : String((raw.customer as { id?: string })?.id ?? ''),
@@ -100,6 +106,15 @@ function normalizeSubscription(raw: Record<string, unknown>): StripeSubscription
       userId: typeof metadata.userId === 'string' ? metadata.userId : '',
       plan: (metadata.plan === 'annual' ? 'annual' : 'monthly') as StripeSubscription['metadata']['plan'],
     },
+    card:
+      card && typeof card.last4 === 'string'
+        ? {
+            brand: typeof card.brand === 'string' ? card.brand : null,
+            last4: card.last4,
+            expMonth: typeof card.exp_month === 'number' ? card.exp_month : null,
+            expYear: typeof card.exp_year === 'number' ? card.exp_year : null,
+          }
+        : null,
   };
 }
 
@@ -223,7 +238,12 @@ export class StripeRestClient implements StripeClient {
 
   async retrieveSubscription(subscriptionId: string): Promise<StripeSubscription | null> {
     try {
-      const raw = await this.call(`/subscriptions/${encodeURIComponent(subscriptionId)}`);
+      // Expand the payment method: it arrives as a bare `pm_…` id otherwise, and
+      // the /account billing line needs brand + last4 (plan §2.2). Verified live
+      // that this account's subscriptions do carry one under Managed Payments.
+      const raw = await this.call(
+        `/subscriptions/${encodeURIComponent(subscriptionId)}?expand[]=default_payment_method`
+      );
       return normalizeSubscription(raw);
     } catch (err) {
       // A subscription Stripe no longer knows is a normal end-of-life state

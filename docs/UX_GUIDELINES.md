@@ -25,6 +25,8 @@ Reuse existing tokens; don't invent new ones without adding them here first.
 | `.card` | `bg-white rounded-2xl shadow-sm border border-gray-100`; dark: `bg-gray-900 border-gray-800` | every content block (globals.css) |
 | Primary action | `bg-blue-600 text-white`; dark hover/active per surrounding code | primary CTA, active nav (`blue-600`/`blue-400`) |
 | Semantic: weak / needs practice | orange tones | dashboard "Needs Practice" |
+| Semantic: error / destructive | `text-red-600 dark:text-red-400` | inline form + action errors (Account, Billing) |
+| Semantic: warning | `text-amber-700 dark:text-amber-400` | subscription problems (failed payment, unfinished first payment) — must always be accompanied by words, never colour alone |
 | Semantic: due / flashcards | green tones | dashboard "flashcards due" |
 | Semantic: onboarding / info | blue tones | "Not sure where to start?" |
 | Subject accents | hex in `src/content/data/subjects.json` `accentColor` (math `#3B82F6`, english `#7B5EA7`, biology `#22C55E`, chemistry `#F97316`, physics `#EF4444`) | borders, progress bars, dots — via inline `style`, never hardcode per-page |
