@@ -19,7 +19,9 @@
 //   2. node scripts/stripe-sandbox.mjs setup          # fills in the price ids
 //   3. stripe listen --forward-to localhost:3000/api/subscriptions   # prints whsec_...
 //   4. paste that whsec_ into .env.local
-//   5. npm run dev
+//   5. AUTH_TEST_MODE=1 AUTH_STORAGE=dummy npm run dev
+//      (AUTH_TEST_MODE=1 is what makes the dummy OTP the deterministic 123456 —
+//      playwright.config.ts sets it for e2e; a plain `npm run dev` withholds the code)
 //   6. node scripts/stripe-sandbox.mjs check          # prints a Checkout URL
 //   7. pay with 4242 4242 4242 4242 (any future expiry, any CVC, any postcode)
 //      — the script polls and confirms the tier flip.
@@ -37,6 +39,17 @@ const PRICES = [
   { plan: 'monthly', amount: 2000, interval: 'month', envKey: 'STRIPE_TEST_PRICE_MONTHLY' },
   { plan: 'annual', amount: 20000, interval: 'year', envKey: 'STRIPE_TEST_PRICE_ANNUAL' },
 ];
+
+// Stripe's tax classification for the product. REQUIRED in practice: new Stripe
+// accounts have Managed Payments enabled by default, which REFUSES a Checkout
+// Session whose line item's product has no tax_code (found live 2026-09-13:
+// "Invalid line_items[0]: the product tax code is missing"). Setting it also
+// makes Stripe Tax (plan §0.1 #13) compute the right rate per market.
+// txcd_10000000 = General - Electronically Supplied Services (the standard code
+// for a subscription digital service consumed by the buyer). CONFIRM with the
+// HK accountant alongside the §3.2 registration questions — the code drives the
+// VAT/GST treatment in UK/EU/AU/UAE, not just the API's mood.
+const PRODUCT_TAX_CODE = process.env.STRIPE_PRODUCT_TAX_CODE ?? 'txcd_10000000';
 
 function readEnvFile() {
   if (!existsSync(ENV_PATH)) return {};
@@ -85,9 +98,24 @@ async function setup() {
   if (!productId) {
     const product = await stripe('/products', {
       method: 'POST',
-      params: { name: 'Octav Learning Premium', description: 'Unlimited AI marking and the full exam tier.' },
+      params: {
+        name: 'Octav Learning Premium',
+        description: 'Unlimited AI marking and the full exam tier.',
+        tax_code: PRODUCT_TAX_CODE,
+      },
     });
     productId = product.id;
+  } else {
+    // Repair a product created before the tax code was known (the Managed
+    // Payments requirement above) so a rerun is self-healing, not just idempotent.
+    const current = products.data.find((p) => p.id === productId);
+    if (current?.tax_code !== PRODUCT_TAX_CODE) {
+      await stripe(`/products/${productId}`, {
+        method: 'POST',
+        params: { tax_code: PRODUCT_TAX_CODE },
+      });
+      console.log(`  set product tax_code -> ${PRODUCT_TAX_CODE}`);
+    }
   }
 
   const ids = {};
@@ -158,14 +186,19 @@ async function check() {
   const email = `sandbox-${Date.now()}@example.com`;
 
   const health = await session('/api/subscriptions/_health');
-  console.log(`_health: HTTP ${health.status} ${await health.text()}`);
+  // NOTE: `_health` routes live in underscore-prefixed folders, which Next treats as
+  // PRIVATE (unroutable) — so this 404s in dev even though the handler works. In
+  // production the same path is served by the Lambda via CloudFront. Logged, not fatal.
+  console.log(`_health: HTTP ${health.status} (dev route 404s by design — underscore folder)`);
 
   await session('/api/auth/request-otp', { method: 'POST', body: JSON.stringify({ email }) });
   const verify = await session('/api/auth/verify-otp', {
     method: 'POST',
     body: JSON.stringify({ email, otp: '123456' }), // dummy OTP (dev/e2e universe)
   });
-  if (verify.status() !== 200) throw new Error(`login failed: HTTP ${verify.status()} ${await verify.text()}`);
+  // Response.status is a PROPERTY (Playwright's APIResponse.status() is a method —
+  // do not copy that convention here).
+  if (verify.status !== 200) throw new Error(`login failed: HTTP ${verify.status} ${await verify.text()}`);
 
   const before = await (await session('/api/subscriptions/status')).json();
   console.log(`before: tier=${before.tier} status=${before.status}`);
@@ -175,7 +208,7 @@ async function check() {
     body: JSON.stringify({ plan: 'monthly' }),
   });
   const body = await checkout.json();
-  if (checkout.status() !== 200) throw new Error(`checkout failed: HTTP ${checkout.status()} ${JSON.stringify(body)}`);
+  if (checkout.status !== 200) throw new Error(`checkout failed: HTTP ${checkout.status} ${JSON.stringify(body)}`);
   console.log(`\nREAL Stripe Checkout Session created:\n  ${body.url}`);
   console.log(`  (verify metadata: ${body.id ? `stripe checkout sessions retrieve ${body.id}` : 'n/a'})`);
 

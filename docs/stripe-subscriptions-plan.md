@@ -31,6 +31,19 @@
 
 ### 0.2 To verify during E4.0 setup (I could not confirm these from Stripe's docs)
 
+0. ✅ **VERIFIED 2026-09-13 (test mode): a product TAX CODE is required.** New Stripe accounts have
+   **Managed Payments enabled by default**, and it refuses a Checkout Session whose line item's product
+   has no `tax_code` — the API answer is literally *"Invalid line_items[0]: the product tax code is
+   missing"*. `scripts/stripe-sandbox.mjs setup` now sets `txcd_10000000` (**General - Electronically
+   Supplied Services**) on the product. This is also what Stripe Tax (decision 13) uses to pick the
+   rate per market, so the code is a **tax classification decision to confirm with the HK accountant**,
+   together with §3.2's registration questions — the script honours `STRIPE_PRODUCT_TAX_CODE` if another
+   code turns out to be right.
+   Related observation from the same run: the hosted Checkout page offered a **HKD/USD currency
+   selector**, i.e. local-currency presentment is on for this account. Decision 12 settles in USD, so
+   whether customers may be charged in their local currency (and who carries the FX) needs a decision in
+   the Stripe dashboard before soft-launch.
+
 1. **Individual + HKID (decision 11).** Stripe's HK requirements page is JS-rendered and I could not
    read it directly. Confirm the **Individual / sole proprietor** option appears at signup and that
    **HKID + proof of address** are accepted. If Stripe requires a registered company instead, the
