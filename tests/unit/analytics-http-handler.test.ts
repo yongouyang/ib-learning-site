@@ -91,7 +91,12 @@ function rawEvents(storage: InMemoryAnalyticsStorage): RawAnalyticsEventItem[] {
 
 describe('POST /api/analytics/event', () => {
   it('accepts a valid event (204) and records the SERVER-normalized payload', async () => {
-    const t = makeDeps();
+    // Aggregate rows are bucketed by the EVENT's date (2026-08-15 here) while
+    // getSummary(30) windows on the CLOCK's date, so leaving the clock real
+    // makes this assertion expire the day the seeded day falls out of the
+    // window — which it did on 2026-09-14 (develop's `npm test` went red with
+    // `{}` instead of `{ page_view: 1 }`). Pin the clock to the seeded day.
+    const t = makeDeps('', () => Date.parse('2026-08-15T12:00:00.000Z'));
     const res = await postEvent(
       t,
       envelope({
