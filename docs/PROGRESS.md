@@ -4,6 +4,47 @@
 
 ---
 
+## 2026-09-14 — "Did I load the latest build?" — deploy identity, a real update signal, and a force refresh
+Git HEAD: `b746d88` (develop, tree dirty)
+Done: The user asked how to force-refresh DEV/PROD on an iPhone and how to tell whether a
+  stale PWA was loaded. Root cause of the confusion: `UpdateToast` only watched for a
+  WAITING SERVICE WORKER, and `sw.js` never changes per deploy (CACHE_VERSION is bumped
+  only when the caching strategy changes), so after every content deploy the app was
+  silent while the SW served the OLD html from its cache first (stale-while-revalidate).
+  Three changes: (1) `build-static.sh` writes `out/version.json` (`{id:<git short sha>
+  [,builtAt]}`, from `git rev-parse --short HEAD`) AND exports the same id as
+  `NEXT_PUBLIC_BUILD_ID`, which Next inlines — so the browser knows what it is RUNNING and
+  one small fetch says what is DEPLOYED. (2) `UpdateToast` gained that second signal
+  (checked on mount + `visibilitychange`, because iOS resumes the PWA rather than
+  reloading) and its Refresh now clears **Cache Storage** before reloading — a plain
+  reload would replay the old build, since the SW answers navigations from its cache.
+  (3) BOTH deploy smoke blocks assert `$SITE_URL/version.json` matches the commit being
+  deployed, so "the sync/invalidation did not land this build" is a red deploy within
+  seconds instead of a mystery on a phone.
+Verified: vitest **1356/1356** (122 files; +4 build-change cases in pwa-update-toast),
+  tsc clean, eslint 0 errors (29 pre-existing warnings); `build:static` produced
+  `out/version.json` = `{"id":"b746d88"}` with `"b746d88"` present in the emitted chunk
+  (the inlined id) and equal to git HEAD; the new smoke line was extracted and RUN — green
+  against a served `out/`, RED today against dev.octavlearning.com (`404` — the file ships
+  with the next build); `ci.yml` re-parsed with `yaml` (both jobs carry the assert) and both
+  smoke blocks pass `bash -n`; pwa e2e (static export, `E2E_STATIC=1 E2E_PROD=1`) **6/6**
+  including the new "a new deploy is surfaced even though sw.js never changes" case, and
+  the negative proof (check disabled) makes that same case FAIL.
+Next: (1) push — the first deploy after this one ships `version.json`, so the smoke assert
+  turns green and the toast starts telling you when you are stale. (2) USER: promote to
+  `main` once the live-price check is clean, then the real-card click-through. (3) Standing
+  queue: illustrations 106, traffic/SEO depth, content depth.
+Notes: **Force-refresh recipes for the operator's iPhone (no code needed):** in the
+  installed PWA there is no reload button — swipe up to kill it and reopen TWICE (the first
+  load revalidates the SW cache, the second shows the new build), or with the toast in place
+  just tap **Refresh**. In Safari: Settings → Safari → Advanced → Website Data → search the
+  domain → delete (the only way to clear an installed SW). To check what is deployed from a
+  computer: `curl -s https://dev.octavlearning.com/version.json` vs `git log -1 --format=%h`.
+  The version fetch uses `?t=<now>` + `cache: 'no-store'` because CloudFront serves `out/`
+  objects with a 300s TTL — a bare `/version.json` would be up to 5 minutes stale.
+
+---
+
 ## 2026-09-14 — Live promotion wiring: the three deferred gates land with the LIVE keys
 Git HEAD: `aee1c7e` (develop, tree dirty)
 Done: The user put all four `_LIVE` fields in the repo secret `STRIPE_ENV` and the
