@@ -4,7 +4,45 @@
 
 ---
 
-## 2026-09-14 — iPhone bug reports: iOS input auto-zoom (3 bugs, one cause), a mistyped Stripe price, and a red `npm test`
+## 2026-09-14 — Live promotion wiring: the three deferred gates land with the LIVE keys
+Git HEAD: `aee1c7e` (develop, tree dirty)
+Done: The user put all four `_LIVE` fields in the repo secret `STRIPE_ENV` and the
+  `STRIPE_PUBLISHABLE_KEY` secret in the GitHub `PROD` environment, so the three gates
+  that were explicitly deferred until live keys existed are now built: (1)
+  `handleSubscriptionsHealth` requires the **LIVE** key set for a request carrying
+  `X-Octav-Env: prod` — keyed off the MARKER, not `STRIPE_MODE` (which is `test` in the
+  Lambda env, so a mode-based check would have let the prod probe pass on test keys,
+  i.e. exactly the outage it exists to catch); it is the deploy-time twin of
+  `stripeFor`'s existing runtime refusal. (2) The PROD deploy job asserts
+  `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` is `pk_live_…` (`pk_test_…` on prod = silent
+  TEST-MODE checkout for real customers) — both assert snippets were EXTRACTED FROM
+  THE YAML AND RUN against empty / `pk_test_…` / `pk_live_…` to prove they fail where
+  they should. (3) `scripts/webhook-probe.mjs` gained `STRIPE_PROBE_MODE=live` (one
+  secret holds both sets — DEV verifies TEST, PROD verifies LIVE) and a per-price
+  **tax-code** assertion (Managed Payments 400s any session whose product has none),
+  now wired into BOTH smoke blocks.
+Verified: vitest **1352/1352** (122 files; +1 new health case), tsc clean, eslint 0 errors
+  (29 pre-existing warnings), `ci.yml` re-parsed with `yaml` (7 jobs, both deploy jobs
+  carry environment + key assert + probe), probe run against DEV: both sandbox prices
+  `ok … exists at Stripe` **and** `ok … product has a tax code (txcd_20060058)`, signed
+  delivery 200, unsigned 400; with `STRIPE_PROBE_MODE=live` and a test-only secret it
+  refuses with exit 2, and a bogus mode exits 2.
+Next: (1) push this to `develop` — deploy-dev then validates the LIVE prices + tax codes
+  in the same run that applies the secret, BEFORE `main` is touched. (2) Promote to
+  `main` once that is green, then one real-card click-through on `/pricing` (cancel +
+  refund) to prove the live money path. (3) Standing queue: illustrations 106, traffic/SEO
+  depth, content depth.
+Notes: **Ordering:** with live keys in the secret, ANY deploy applies them to the ONE
+  shared Lambda, after which the prod origin resolves LIVE. Prod's already-deployed
+  frontend has an EMPTY publishable key, so its plan buttons fail closed (no key → no
+  session → no charge) — safe, but nothing is sellable until prod is rebuilt from
+  `main`. **The live account is a DIFFERENT account id** (`acct_1UDQFOQugHqfqkHy`) from
+  the sandbox that holds every `price_`/`we_`/`whsec_` we have so far
+  (`acct_1UDQFaJb0a9Fh6tv`, which every test id embeds as `Jb0a9Fh6tv`) — no test object
+  is reusable live, and the id suffix is a quick way to tell which account an id came
+  from. Still owed by the user: the live `_health`+probe verification on prod after the
+  promote.
+
 Git HEAD: `040e5d5` (develop, tree dirty)
 Done: **Bugs 1–3 were one cause:** iOS/iPadOS Safari scales the whole page when a
   text control under 16px takes focus, and the scale survives navigation. (1) the contact

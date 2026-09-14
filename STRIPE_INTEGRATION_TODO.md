@@ -259,15 +259,37 @@ into the deployed config silently 400s every delivery.
 
 ### 7. Go-live checklist (in order)
 
-1. Activate the Stripe account (charges + payouts).
-2. Step 4: live product + 2 prices **with the tax code**.
-3. Live webhook endpoint + `WEBHOOK_SECRET_LIVE` (step 6).
-4. `STRIPE_ENV` gains `SECRET_KEY_LIVE`, `WEBHOOK_SECRET_LIVE`,
+1. ✅ Activate the Stripe account (charges + payouts).
+2. ✅ Step 4: live product + 2 prices **with the tax code**.
+3. ✅ Live webhook endpoint + `WEBHOOK_SECRET_LIVE` (step 6).
+4. ✅ `STRIPE_ENV` gained `SECRET_KEY_LIVE`, `WEBHOOK_SECRET_LIVE`,
    `PRICE_MONTHLY_LIVE`, `PRICE_ANNUAL_LIVE` (all four, or the key set is ignored).
-5. `STRIPE_PUBLISHABLE_KEY` secret in the **prod** environment (step 1).
-6. Flip the deferred `_health` gate so a deploy fails when the LIVE key set is
-   incomplete, and add the prod webhook probe (tracked in `docs/PROGRESS.md`).
-7. Deploy, then click through `/pricing` once with a real card (refund it).
+5. ✅ `STRIPE_PUBLISHABLE_KEY` secret in the **PROD** environment (step 1).
+6. ✅ Deploy-time gates, done 2026-09-14 (they were the deferred items):
+   * `_health` requires the **LIVE** key set for a request arriving with the
+     `X-Octav-Env: prod` marker — the deploy-time twin of `stripeFor`'s runtime
+     refusal, so a missing/partial live set reds the deploy instead of 503-ing
+     customers. DEV stays on the test set (it deploys before live keys exist).
+   * The PROD deploy job asserts `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` starts with
+     `pk_live_` — a test key baked into a prod build opens TEST-MODE checkout for
+     real customers: no charge, no revenue, no error message.
+   * `scripts/webhook-probe.mjs` runs in BOTH smoke blocks and now also checks
+     (a) each configured price id exists at Stripe and (b) its product carries a
+     tax code, and takes `STRIPE_PROBE_MODE=live` so the PROD smoke signs with the
+     live secret. The DEV smoke checks both key sets' prices, so a live typo goes
+     red on the next `develop` push — before `main`.
+7. ⏳ Deploy to `main`, then click through `/pricing` once with a real card
+   (then cancel + refund it). Verify: the charge appears in live mode, `tier`
+   flips to `premium`, `GET /api/subscriptions/status` reports `plan`/`status`,
+   and the trial-end email path is exercised (it fires on
+   `customer.subscription.trial_will_end`).
+
+**Ordering matters once live keys are in the secret:** any deploy (either branch)
+applies `STRIPE_ENV` to the ONE shared Lambda. Prod then resolves LIVE mode. Until
+prod is rebuilt with the live publishable key, prod's plan buttons fail closed
+(no key → the panel reports “not taking payments”), so nothing can be charged by
+accident — but nothing can be sold either. Deploy `develop` first (it validates
+the live prices/tax codes), then promote to `main`.
 
 ### 8. Optional polish
 
