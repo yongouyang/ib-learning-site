@@ -478,17 +478,46 @@ describe('POST /api/subscriptions (webhook)', () => {
 });
 
 describe('GET /api/subscriptions/_health', () => {
+  const devReq = () => req('GET', 'https://x/api/subscriptions/_health', undefined, { 'x-octav-env': 'dev' });
+  const prodReq = () => req('GET', 'https://x/api/subscriptions/_health', undefined, { 'x-octav-env': 'prod' });
+  const liveSet = {
+    secretKey: 'sk_live_x',
+    webhookSecret: 'whsec_live_x',
+    priceIds: { monthly: 'price_live_m', annual: 'price_live_a' },
+  };
+
   it('passes when dummy and fails on a missing key set', async () => {
     const good = makeCtx();
     expect((await handleSubscriptionsHealth(req('GET', 'https://x/api/subscriptions/_health'), good.deps)).status).toBe(200);
 
     const broken = makeCtx();
     broken.deps = { ...broken.deps, configuredStripeMode: 'test', stripeConfig: { ok: true } }; // no test key set
-    expect((await handleSubscriptionsHealth(req('GET', 'https://x/api/subscriptions/_health'), broken.deps)).status).toBe(500);
+    expect((await handleSubscriptionsHealth(devReq(), broken.deps)).status).toBe(500);
 
     const malformed = makeCtx();
     malformed.deps = { ...malformed.deps, stripeConfig: { ok: false, error: 'bad json' } };
-    expect((await handleSubscriptionsHealth(req('GET', 'https://x/api/subscriptions/_health'), malformed.deps)).status).toBe(500);
+    expect((await handleSubscriptionsHealth(devReq(), malformed.deps)).status).toBe(500);
+  });
+
+  // The deploy smoke probes each distribution at its own origin, and the two
+  // have DIFFERENT requirements: a PROD request must resolve to the live set
+  // (otherwise customers get 503s from stripeFor's prod refusal), while a DEV
+  // request is happy with the test set. Keying the requirement off STRIPE_MODE
+  // alone would make the prod probe pass on test keys — i.e. exactly the outage
+  // it exists to catch.
+  it('requires the LIVE set for a PROD request, whatever STRIPE_MODE says', async () => {
+    const ctx = makeCtx();
+    const testSet = {
+      secretKey: 'sk_test_x',
+      webhookSecret: 'whsec_test_x',
+      priceIds: { monthly: 'price_test_m', annual: 'price_test_a' },
+    };
+    const testOnly = { ok: true, test: testSet };
+
+    expect((await handleSubscriptionsHealth(prodReq(), { ...ctx.deps, configuredStripeMode: 'test', stripeConfig: testOnly })).status).toBe(500);
+    expect((await handleSubscriptionsHealth(prodReq(), { ...ctx.deps, configuredStripeMode: 'test', stripeConfig: { ...testOnly, live: liveSet } })).status).toBe(200);
+    // DEV is unaffected by a missing live set — it deploys before the live keys exist.
+    expect((await handleSubscriptionsHealth(devReq(), { ...ctx.deps, configuredStripeMode: 'test', stripeConfig: testOnly })).status).toBe(200);
   });
 });
 

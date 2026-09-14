@@ -2,7 +2,11 @@
 // `_health` alone cannot be.
 //
 //   STRIPE_ENV='{"SECRET_KEY_TEST":"…","WEBHOOK_SECRET_TEST":"…",…}' \
-//     node scripts/webhook-probe.mjs https://dev.octavlearning.com
+//     [STRIPE_PROBE_MODE=live] node scripts/webhook-probe.mjs https://dev.octavlearning.com
+//
+// STRIPE_PROBE_MODE picks which key set to sign with, because the same secret
+// carries BOTH sets and the DEV distribution verifies against TEST while PROD
+// verifies against LIVE (default: test).
 //
 // Why: on 2026-09-13 the deploy smoke went GREEN while every Stripe webhook
 // returned 500. `_health` proved routing, IAM and the secret, but the first
@@ -50,12 +54,25 @@ function stripeEnv() {
 
 const env = stripeEnv();
 
+/** Which key set this run signs with (the two distributions verify different
+ *  ones). Defaults to test, so every existing invocation keeps its behaviour. */
+const probeMode = (process.env.STRIPE_PROBE_MODE ?? 'test').trim().toLowerCase();
+if (probeMode !== 'test' && probeMode !== 'live') {
+  console.error(`STRIPE_PROBE_MODE must be test or live (got "${probeMode}")`);
+  process.exit(2);
+}
+
 function webhookSecret() {
   // The DEV distribution resolves the TEST key set; the PROD distribution
-  // resolves LIVE. A prod origin with no live keys answers 503 by design, so
-  // this probe is wired into the DEV deploy job first and joins PROD in the same
-  // change that adds the _LIVE key set (see docs/PROGRESS.md).
-  return env.WEBHOOK_SECRET_TEST ?? env.WEBHOOK_SECRET_LIVE;
+  // resolves LIVE. A prod origin with no live keys answers 503 by design, which
+  // is why PROD only joins this probe in the change that adds the _LIVE set.
+  const suffix = probeMode.toUpperCase();
+  const secret = env[`WEBHOOK_SECRET_${suffix}`];
+  if (!secret) {
+    console.error(`STRIPE_ENV carries no WEBHOOK_SECRET_${suffix} — cannot sign a ${probeMode}-mode delivery.`);
+    process.exit(2);
+  }
+  return secret;
 }
 
 const secret = webhookSecret();
@@ -104,19 +121,37 @@ async function checkPrices() {
   for (const { name, id, key } of checks) {
     let detail = '';
     let ok = false;
+    let taxCode = '(unknown)';
     try {
-      const res = await fetch(`https://api.stripe.com/v1/prices/${encodeURIComponent(id)}`, {
+      // expand the product: Managed Payments REFUSES a Checkout Session whose
+      // product has no tax code, so a live price created without it turns every
+      // live checkout into a 400 — a failure worth catching here rather than in
+      // front of a paying customer. (Test mode caught the same rule on 2026-09-13.)
+      const res = await fetch(`https://api.stripe.com/v1/prices/${encodeURIComponent(id)}?expand[]=product`, {
         headers: { authorization: `Bearer ${key}` },
         signal: AbortSignal.timeout(20_000),
       });
       ok = res.ok;
-      if (!ok) detail = (await res.json().catch(() => null))?.error?.message ?? `HTTP ${res.status}`;
+      if (ok) {
+        const price = await res.json();
+        taxCode = price.tax_code ?? price.product?.tax_code ?? null;
+      } else {
+        detail = (await res.json().catch(() => null))?.error?.message ?? `HTTP ${res.status}`;
+      }
     } catch (err) {
       detail = err instanceof Error ? err.message : String(err);
     }
     console.log(`  ${ok ? 'ok   ' : 'FAIL '} ${name} exists at Stripe (${id}) ${detail}`);
     if (!ok) {
       console.log('        Re-paste the id from Stripe; a customer only finds out when they pay.');
+      failures++;
+      continue;
+    }
+    const taxOk = typeof taxCode === 'string' && taxCode.length > 0;
+    console.log(`  ${taxOk ? 'ok   ' : 'FAIL '} ${name}'s product has a tax code (${taxCode || 'none'})`);
+    if (!taxOk) {
+      console.log('        Managed Payments rejects every Checkout Session without one — set');
+      console.log('        tax code txcd_20060058 (Training Services – Self-study Web-based).');
       failures++;
     }
   }

@@ -1,5 +1,5 @@
 import { resolveSession } from '../auth/session';
-import { DEV_GATE_ERROR, devGateDenied } from '../auth/dev-gate';
+import { DEV_GATE_ERROR, devGateDenied, isProdRequest } from '../auth/dev-gate';
 import type { UserRecord } from '../auth/types';
 import { tierFromSubscription } from '../auth/types';
 import { formatAmount, formatChargeDate, renderTrialEndingEmail } from './email';
@@ -459,7 +459,7 @@ export async function handleWebhookPost(
 // ---------------------------------------------------------------------------
 
 export async function handleSubscriptionsHealth(
-  _req: Request,
+  req: Request,
   deps: SubscriptionsDeps = getSubscriptionsDeps()
 ): Promise<Response> {
   // Q2: prove BOTH the table/IAM grants and that STRIPE_ENV is usable, without
@@ -469,11 +469,21 @@ export async function handleSubscriptionsHealth(
     return json({ ok: false }, 500);
   }
   if (deps.configuredStripeMode !== 'dummy') {
-    const keySet = deps.configuredStripeMode === 'live' ? deps.stripeConfig.live : deps.stripeConfig.test;
+    // A PROD request must resolve to the LIVE set, so the requirement comes from
+    // the marker, not from STRIPE_MODE. The deploy smoke probes each distribution
+    // at its own origin: DEV asserts the test set, PROD asserts the live set.
+    //
+    // This is the deploy-time twin of the runtime refusal in deps.ts — a missing
+    // or PARTIAL live set makes resolveStripeMode fall back to `test`, and
+    // stripeFor() then answers 503 to every real customer. Without this, that
+    // outage is only discoverable by a customer clicking a plan; `_health`
+    // (unauthenticated, one GetItem) turns it into a red deploy instead.
+    const required = isProdRequest(req) ? 'live' : deps.configuredStripeMode === 'live' ? 'live' : 'test';
+    const keySet = required === 'live' ? deps.stripeConfig.live : deps.stripeConfig.test;
     if (!keySet) {
       // A wiped or partial secret must go red at deploy time, not at the first
       // real checkout — the FEEDBACK_ENV incident class.
-      console.error(`[subscriptions] health: STRIPE_ENV has no ${deps.configuredStripeMode} key set`);
+      console.error(`[subscriptions] health: STRIPE_ENV has no ${required} key set`);
       return json({ ok: false }, 500);
     }
   }
