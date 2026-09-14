@@ -50,10 +50,32 @@ test.describe('contact', () => {
     await expect(page.getByRole('button', { name: 'Get help' })).toBeVisible();
 
     const dialog = await openModal(page);
-    await expect(dialog.getByLabel('Name')).toBeFocused();
+    // The PANEL takes focus, not the Name field: focusing an input on open
+    // raises the iPhone keyboard over half the sheet before the user has read
+    // it. Tab from here reaches the fields (the focus trap starts at the panel).
+    await expect(dialog).toBeFocused();
     await expect(dialog.getByLabel('Email')).toBeVisible();
     await expect(dialog.getByLabel('Subject')).toBeVisible();
     await expect(dialog.getByLabel('Message')).toBeVisible();
+
+    // iOS Safari scales the WHOLE page when a text control under 16px takes
+    // focus, and that scale survives navigation — a 14px field made this sheet
+    // wider than the phone, and left the home page enlarged after the login OTP
+    // step. Touch viewports must therefore render 16px controls; the mouse
+    // design size stays 14px. Nothing else fails visibly if this regresses.
+    const sizes = await Promise.all(
+      ['Name', 'Subject', 'Message'].map((label) =>
+        dialog.getByLabel(label).evaluate((el) => parseFloat(getComputedStyle(el).fontSize))
+      )
+    );
+    const touch = await page.evaluate(() => matchMedia('(hover: none)').matches);
+    expect(sizes).toEqual(touch ? [16, 16, 16] : [14, 14, 14]);
+
+    // The panel is the focus target but is not itself tabbable, so Shift+Tab
+    // from it must wrap to the last control instead of walking out of the
+    // dialog into the page behind the backdrop.
+    await page.keyboard.press('Shift+Tab');
+    await expect(dialog.getByRole('button', { name: 'Send message' })).toBeFocused();
 
     // Character counter tracks the message.
     await dialog.getByLabel('Message').fill('Hello');

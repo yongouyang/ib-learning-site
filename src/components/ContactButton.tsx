@@ -64,7 +64,6 @@ export function ContactButton() {
 
   const triggerRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-  const nameInputRef = useRef<HTMLInputElement>(null);
 
   const openModal = useCallback(() => {
     // Fresh form on every open; logged-in users get name/email pre-filled.
@@ -89,7 +88,14 @@ export function ContactButton() {
   useEffect(() => {
     if (!open) return;
     const raf = requestAnimationFrame(() => setMounted(true));
-    nameInputRef.current?.focus();
+    // Focus the PANEL, not its first input: on iPhone, focusing a text field
+    // raises the keyboard before the user has read anything and (with the old
+    // 14px fields) zoomed the page, covering half the form. The dialog itself is
+    // the focus target the dialog pattern asks for; Tab reaches the fields from
+    // here. preventScroll: nothing needs to move to reveal a fixed-position
+    // sheet, and letting the browser "scroll it into view" can nudge the page
+    // behind the backdrop.
+    panelRef.current?.focus({ preventScroll: true });
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
@@ -117,6 +123,12 @@ export function ContactButton() {
       const first = focusables[0];
       const last = focusables[focusables.length - 1];
       if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (e.shiftKey && document.activeElement === panelRef.current) {
+        // The panel is the initial focus target (see the open effect) but is not
+        // in `focusables` (tabIndex=-1), so without this Shift+Tab would walk
+        // out of the dialog into the page behind the backdrop.
         e.preventDefault();
         last.focus();
       } else if (!e.shiftKey && document.activeElement === last) {
@@ -197,7 +209,8 @@ export function ContactButton() {
             id="contact-dialog"
             aria-modal="true"
             aria-labelledby="contact-title"
-            className={`relative w-full md:max-w-md max-h-[85vh] overflow-y-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-t-2xl md:rounded-2xl shadow-lg p-6 motion-safe:transition-transform ${mounted ? 'translate-y-0' : 'translate-y-full md:translate-y-4'}`}
+            tabIndex={-1}
+            className={`relative w-full md:max-w-md max-h-[85vh] overflow-y-auto bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-t-2xl md:rounded-2xl shadow-lg p-6 outline-none motion-safe:transition-transform ${mounted ? 'translate-y-0' : 'translate-y-full md:translate-y-4'}`}
           >
             <h2 id="contact-title" className="text-xl font-bold text-gray-900 dark:text-gray-50">
               Contact us
@@ -220,7 +233,6 @@ export function ContactButton() {
                   Name
                 </label>
                 <input
-                  ref={nameInputRef}
                   id="contact-name"
                   type="text"
                   value={name}

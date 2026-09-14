@@ -24,6 +24,31 @@
     }
   }
 
+  /* iOS/iPadOS Safari scales the WHOLE PAGE when a text control smaller than
+     16px takes focus, and the scale SURVIVES navigation — going back to the
+     home page after the login OTP step left the page visibly enlarged, and the
+     contact form's auto-focused Name field made the sheet wider than the phone.
+     Two user-facing bugs, one cause: the 14px `text-sm` every field class
+     carries. Pin text-entry controls to 16px on touch devices and up to the
+     tablet breakpoint (a wide iPad with a trackpad reports `hover: hover`, so
+     the width clause is what actually covers iPads); desktop with a mouse
+     keeps the 14px design size.
+
+     `!important` is deliberate: the class-based utilities in the later layer
+     beat the bare `select`/`textarea` selectors by specificity (the `input`
+     selector alone would win, but one consistent declaration for all three is
+     worth more than the extra `:not()` gymnastics — and it keeps this rule
+     correct if the project ever moves to Tailwind v4 cascade layers). NOT fixed
+     with `user-scalable=no`/`maximum-scale=1` — iOS ignores it for pinch-zoom
+     and it would break zoom for everyone who needs it. */
+  @media (hover: none), (max-width: 1023.98px) {
+    input:not([type='checkbox']):not([type='radio']),
+    select,
+    textarea {
+      font-size: 1rem !important;
+    }
+  }
+
   /* KaTeX math inherits the surrounding text colour so it stays visible in dark mode */
   .katex {
     @apply text-inherit;
