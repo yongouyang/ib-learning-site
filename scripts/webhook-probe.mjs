@@ -15,10 +15,12 @@
 // What one run proves, in order:
 //   1. CloudFront routes /api/subscriptions (bare path) to the subscriptions
 //      Lambda, and X-Octav-Env makes it resolve the right key set;
-//   2. our signature verification accepts a correctly signed payload;
-//   3. the ledger's conditional write SUCCEEDS (IAM + expression validity);
-//   4. a real Stripe API call is made (the handler re-reads the subscription);
-//   5. an unsigned request is rejected — catching a routing regression where
+//   2. every price id in STRIPE_ENV actually exists at Stripe (added 2026-09-14
+//      after a paste typo made monthly checkout 502 while annual worked);
+//   3. our signature verification accepts a correctly signed payload;
+//   4. the ledger's conditional write SUCCEEDS (IAM + expression validity);
+//   5. a real Stripe API call is made (the handler re-reads the subscription);
+//   6. an unsigned request is rejected — catching a routing regression where
 //      the feedback Lambda answers instead (it would 400 with its own schema).
 //
 // Safe to run anywhere: the payload references a subscription that does not
@@ -32,24 +34,28 @@ if (!origin) {
   process.exit(2);
 }
 
-function webhookSecret() {
+function stripeEnv() {
   const raw = process.env.STRIPE_ENV;
   if (!raw) {
     console.error('STRIPE_ENV is not set — the probe signs with the deployed webhook secret.');
     process.exit(2);
   }
-  let parsed;
   try {
-    parsed = JSON.parse(raw);
+    return JSON.parse(raw);
   } catch {
     console.error('STRIPE_ENV is not valid JSON (single-line, straight quotes).');
     process.exit(2);
   }
+}
+
+const env = stripeEnv();
+
+function webhookSecret() {
   // The DEV distribution resolves the TEST key set; the PROD distribution
   // resolves LIVE. A prod origin with no live keys answers 503 by design, so
   // this probe is wired into the DEV deploy job first and joins PROD in the same
   // change that adds the _LIVE key set (see docs/PROGRESS.md).
-  return parsed.WEBHOOK_SECRET_TEST ?? parsed.WEBHOOK_SECRET_LIVE;
+  return env.WEBHOOK_SECRET_TEST ?? env.WEBHOOK_SECRET_LIVE;
 }
 
 const secret = webhookSecret();
@@ -72,6 +78,49 @@ const t = Math.floor(Date.now() / 1000);
 const signature = `t=${t},v1=${createHmac('sha256', secret).update(`${t}.${payload}`).digest('hex')}`;
 
 let failures = 0;
+
+/** Every configured price id must exist at Stripe. A wrong id surfaces ONLY
+ *  when a customer clicks a plan (502 "No such price"), and `_health` proves
+ *  merely that the key set is COMPLETE — so on 2026-09-14 monthly checkout was
+ *  dead on DEV because `PRICE_MONTHLY_TEST` was `price_1UF2vWj0a9…`, two
+ *  characters dropped while pasting into the repo secret, while annual (pasted
+ *  correctly) worked. This is that gate: the secret is checked against Stripe
+ *  in the same run that applies it to the Lambda. */
+async function checkPrices() {
+  const checks = [];
+  for (const mode of ['TEST', 'LIVE']) {
+    const key = env[`SECRET_KEY_${mode}`];
+    if (!key) continue;
+    for (const plan of ['MONTHLY', 'ANNUAL']) {
+      const id = env[`PRICE_${plan}_${mode}`];
+      if (id) checks.push({ name: `PRICE_${plan}_${mode}`, id, key });
+    }
+  }
+  if (checks.length === 0) {
+    console.log('  FAIL  STRIPE_ENV carries no price ids to check');
+    failures++;
+    return;
+  }
+  for (const { name, id, key } of checks) {
+    let detail = '';
+    let ok = false;
+    try {
+      const res = await fetch(`https://api.stripe.com/v1/prices/${encodeURIComponent(id)}`, {
+        headers: { authorization: `Bearer ${key}` },
+        signal: AbortSignal.timeout(20_000),
+      });
+      ok = res.ok;
+      if (!ok) detail = (await res.json().catch(() => null))?.error?.message ?? `HTTP ${res.status}`;
+    } catch (err) {
+      detail = err instanceof Error ? err.message : String(err);
+    }
+    console.log(`  ${ok ? 'ok   ' : 'FAIL '} ${name} exists at Stripe (${id}) ${detail}`);
+    if (!ok) {
+      console.log('        Re-paste the id from Stripe; a customer only finds out when they pay.');
+      failures++;
+    }
+  }
+}
 
 async function check(name, init, expect) {
   let status = 0;
@@ -102,6 +151,7 @@ async function check(name, init, expect) {
 }
 
 console.log(`webhook probe against ${origin} (event ${eventId})`);
+await checkPrices();
 await check(
   'signed delivery is accepted and applied-or-ignored',
   { method: 'POST', headers: { 'content-type': 'application/json', 'stripe-signature': signature }, body: payload },
@@ -110,7 +160,7 @@ await check(
 await check('unsigned delivery is rejected', { method: 'POST', body: '{}' }, { status: 400, match: /missing_signature/ });
 
 if (failures) {
-  console.log(`\nFAILED: ${failures} webhook probe check(s) failed against ${origin}`);
+  console.log(`\nFAILED: ${failures} subscriptions probe check(s) failed against ${origin}`);
   process.exit(1);
 }
 console.log('\nSigned-webhook path verified end to end.');
