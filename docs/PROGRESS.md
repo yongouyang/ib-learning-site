@@ -4,6 +4,43 @@
 
 ---
 
+## 2026-09-14 — iPhone bug reports: iOS input auto-zoom (3 bugs, one cause), a mistyped Stripe price, and a red `npm test`
+Git HEAD: `040e5d5` (develop, tree dirty)
+Done: **Bugs 1–3 were one cause:** iOS/iPadOS Safari scales the whole page when a
+  text control under 16px takes focus, and the scale survives navigation. (1) the contact
+  sheet auto-focused its 14px Name field on open → keyboard over half the form + a
+  page-zoomed "too wide" sheet; (2) fixed by focusing the dialog panel (`tabIndex={-1}`,
+  `preventScroll`, Shift+Tab now wraps inside the trap instead of escaping to the trigger);
+  (3) all text-entry controls are now 16px on `@media (hover: none), (max-width: 1023.98px)`
+  in `globals.css` — so the login email/OTP fields no longer zoom the page that then stayed
+  enlarged on the home page. **Bug 4** was data, not code: DEV's `STRIPE_ENV` secret held
+  `PRICE_MONTHLY_TEST=price_1UF2vWj0a9…` (the `Jb` dropped while pasting) so every monthly
+  checkout 502'd ("No such price"; CloudWatch 09-13T13:52Z + 09-14T02:14Z) while annual
+  created a real session — **USER ACTION: paste `price_1UF2vWJb0a9Fh6tvumgjYuf0` and re-run
+  `deploy-dev`** (written up in `STRIPE_INTEGRATION_TODO.md` §1b). `scripts/webhook-probe.mjs`
+  now checks every configured price id against `GET /v1/prices/<id>` — a deploy gate that
+  `_health` (key-set completeness only) cannot be.
+Verified: vitest **1351/1351** (122 files), tsc clean, eslint 0 errors (29 pre-existing
+  warnings), contact e2e **4/4 × 3 projects**, app e2e **57/57**, `generate:sitemaps` +
+  `build:static` + `verify:sitemaps` **334/334** (twice, incl. the final code). Probe run
+  against DEV: PASS with the correct ids, **exit 1 with the mistyped id** (gate proven).
+  UX: contact modal 12 shots + login 4 shots (375px touch / 1280px × light+dark) — panel
+  375 = viewport, `scrollWidth` 375, fields 16px mobile / 14px desktop; fresh-context review
+  (8 findings: 1 fixed before retrieval, 3 adopted, 4 waived — see Notes).
+Next: (1) USER — the price-id secret fix above. (2) Standing queue: illustrations 106,
+  traffic/SEO depth, content depth, PROD publishable key + live price ids.
+Notes: **`tests/unit/analytics-http-handler.test.ts` was ALREADY red on develop** — a calendar
+  time bomb (its seeded 2026-08-15 aggregate fell out of `getSummary(30)`'s window exactly
+  today); pinned the clock, otherwise unrelated to this work. Waived, deliberately: the OTP
+  field drops 18px→16px on touch (one size for all fields beats an `#otp` exception); the
+  contact panel's `outline-none` (APG-sanctioned — the panel is a focus *target*, not a Tab
+  stop); the triplicated `inputClass` string (pre-existing, hoist as its own change); the
+  dev-only DEV badge overlapping the char counter. Residual: an iPad ≥1024px CSS with an
+  external trackpad reports `hover: hover`, so its fields stay 14px. `build:static` stashes
+  `src/app/api/**` while it runs — never `git add` during one.
+
+---
+
 ## 2026-09-14 — Deploy was dead: OIDC trust didn't know about GitHub environments
 Git HEAD: `e91ddf7` (develop, tree dirty)
 Done: Every deploy job failed at `configure-aws-credentials` (12× `Not authorized to perform

@@ -123,6 +123,28 @@ before the secret exists is harmless.
 `/pricing` signed in on dev and click a plan — Stripe's checkout must appear **in the
 page**, not as a redirect.
 
+### 1b. Price ids in `STRIPE_ENV` — one was mistyped, now gated
+
+The repo secret `STRIPE_ENV` is the **only** copy of the price ids that the Lambda
+sees (`.env.local` and the Stripe Dashboard can both be right while it is wrong).
+On 2026-09-14 `PRICE_MONTHLY_TEST` held `price_1UF2vWj0a9Fh6tvumgjYuf0` — the `Jb`
+dropped while pasting — so **every monthly checkout answered 502** (`No such price`)
+on dev while annual worked. Nothing caught it: `_health` only proves the key set is
+*complete*, and a bad id only surfaces when a customer clicks a plan.
+
+| Field | Correct value |
+|-------|---------------|
+| `PRICE_MONTHLY_TEST` | `price_1UF2vWJb0a9Fh6tvumgjYuf0` |
+| `PRICE_ANNUAL_TEST` | `price_1UF2vXJb0a9Fh6tvDLKzTmM0` |
+
+**Fix:** update the repo secret with the corrected JSON (keep it one line, straight
+quotes) and re-run `deploy-dev`. **Gate:** `scripts/webhook-probe.mjs` now checks
+every configured price id against `GET /v1/prices/<id>` on each deploy — verified to
+fail with the mistyped id (`FAIL PRICE_MONTHLY_TEST exists at Stripe … No such price`,
+exit 1) and to pass with the correct one. Copy the ids from the Dashboard rather than
+retyping them; a price id is `price_` + a 24-character account-scoped token and a
+single dropped character is indistinguishable from a valid-but-deleted price.
+
 ### 2. Confirm Managed Payments is on (and read what it commits you to)
 
 Dashboard → **Settings → Managed payments** (`.../settings/managed-payments`).
