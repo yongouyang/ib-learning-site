@@ -102,6 +102,37 @@ test.describe('PWA (production build)', () => {
     await expect(page.getByRole('button', { name: /Mark with AI/i })).toHaveCount(0);
   });
 
+  test('a new deploy is surfaced even though sw.js itself never changes', async ({ page }) => {
+    // A normal deploy does NOT touch sw.js (CACHE_VERSION is bumped only when the
+    // caching *strategy* changes), so the waiting-worker signal cannot see it —
+    // the toast used to be silent for every content deploy, which made a stale
+    // PWA indistinguishable from a fresh one on an iPhone (reported 2026-09-14).
+    // The second signal is the deployed /version.json vs the id inlined in the
+    // bundle. Stubbed here so the test does not depend on the server mode: out/
+    // has a real version.json, `next start` has none.
+    await page.route('**/version.json*', (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({ id: 'a-different-build', builtAt: '2026-09-14T00:00:00Z' }),
+      })
+    );
+    let navigations = 0;
+    page.on('framenavigated', (frame) => {
+      if (frame === page.mainFrame()) navigations++;
+    });
+
+    await page.goto('/');
+    await waitForServiceWorker(page);
+    const toast = page.getByRole('status').filter({ hasText: /new version/i });
+    await expect(toast).toBeVisible();
+
+    // Refresh must actually reload the page, not just dismiss the toast.
+    const before = navigations;
+    await toast.getByRole('button', { name: 'Refresh' }).click();
+    await expect.poll(() => navigations).toBeGreaterThan(before);
+  });
+
   test('install button appears when installation is offered', async ({ page, isMobile }) => {
     test.skip(isMobile, 'Mobile projects report an iOS UA, which uses the manual-instructions variant');
 

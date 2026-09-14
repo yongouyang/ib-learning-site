@@ -358,6 +358,14 @@ jobs:
             fi
             if {
               curl -fsS "$SITE_URL/" > /dev/null
+              # The origin must be serving THIS commit's build. version.json is
+              # written by build-static.sh from git HEAD and ships with out/, so a
+              # mismatch means the sync/invalidation did not land this build (or a
+              # cached predecessor is still being served) — the same class the SEO
+              # gate guards, but checked in seconds and independent of content. The
+              # browser compares that file against the id inlined in the bundle to
+              # decide whether to offer "new version — Refresh".
+              curl -fsS "$SITE_URL/version.json" | grep -q "\"$(git rev-parse --short HEAD)\""
               curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
               curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
               # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so
@@ -615,6 +623,14 @@ jobs:
             fi
             if {
               curl -fsS "$SITE_URL/" > /dev/null
+              # The origin must be serving THIS commit's build. version.json is
+              # written by build-static.sh from git HEAD and ships with out/, so a
+              # mismatch means the sync/invalidation did not land this build (or a
+              # cached predecessor is still being served) — the same class the SEO
+              # gate guards, but checked in seconds and independent of content. The
+              # browser compares that file against the id inlined in the bundle to
+              # decide whether to offer "new version — Refresh".
+              curl -fsS "$SITE_URL/version.json" | grep -q "\"$(git rev-parse --short HEAD)\""
               curl -fsS "$SITE_URL/subjects/math/math-algebra-1/study" > /dev/null
               curl -fsS "$SITE_URL/api/feedback" | grep -q '"configured"'
               # Unauthenticated /api/auth/me must 401 (-f would fail on 401, so

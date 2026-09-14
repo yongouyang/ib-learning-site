@@ -206,3 +206,72 @@ describe('UpdateToast', () => {
     expect(reload).toHaveBeenCalledTimes(1);
   });
 });
+
+// A normal DEPLOY never touches sw.js (CACHE_VERSION is bumped only when the
+// caching strategy changes), so the waiting-worker signal cannot see it. These
+// cases pin the other signal: the deployed /version.json versus the id baked
+// into the running bundle. Without it a stale PWA was indistinguishable from a
+// fresh one — the exact confusion reported from an iPhone on 2026-09-14.
+describe('UpdateToast — build change', () => {
+  const originalFetch = globalThis.fetch;
+  const originalCaches = (globalThis as { caches?: unknown }).caches;
+
+  beforeEach(() => {
+    vi.stubEnv('NODE_ENV', 'production');
+    vi.stubEnv('NEXT_PUBLIC_BUILD_ID', 'sha-running');
+    // No SW at all: this signal must not depend on one.
+    delete (navigator as { serviceWorker?: unknown }).serviceWorker;
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    globalThis.fetch = originalFetch;
+    if (originalCaches === undefined) delete (globalThis as { caches?: unknown }).caches;
+    else (globalThis as { caches?: unknown }).caches = originalCaches;
+  });
+
+  function stubVersion(id: string | null) {
+    globalThis.fetch = vi.fn(async () =>
+      id === null
+        ? new Response('nope', { status: 404 })
+        : new Response(JSON.stringify({ id, builtAt: '2026-09-14T00:00:00Z' }), { status: 200 })
+    ) as unknown as typeof fetch;
+  }
+
+  it('warns when the deployed build differs from the running one', async () => {
+    stubVersion('sha-deployed');
+    render(<UpdateToast />);
+    await act(async () => {});
+    expect(screen.getByRole('status')).toHaveTextContent(/new version/i);
+  });
+
+  it('stays silent when the deployed build is the one running', async () => {
+    stubVersion('sha-running');
+    render(<UpdateToast />);
+    await act(async () => {});
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+  });
+
+  it('stays silent when the version check fails (offline)', async () => {
+    stubVersion(null);
+    render(<UpdateToast />);
+    await act(async () => {});
+    expect(screen.queryByRole('status')).not.toBeInTheDocument();
+  });
+
+  it('Refresh clears Cache Storage before reloading, so the SW cannot replay the old build', async () => {
+    stubVersion('sha-deployed');
+    const reload = vi.fn();
+    Object.defineProperty(window, 'location', { configurable: true, value: { ...window.location, reload } });
+    const del = vi.fn(async () => true);
+    (globalThis as { caches?: unknown }).caches = { keys: async () => ['iblearn-v1'], delete: del };
+
+    render(<UpdateToast />);
+    await act(async () => {});
+    fireEvent.click(screen.getByRole('button', { name: /refresh/i }));
+    await act(async () => {});
+
+    expect(del).toHaveBeenCalledWith('iblearn-v1');
+    expect(reload).toHaveBeenCalledTimes(1);
+  });
+});
