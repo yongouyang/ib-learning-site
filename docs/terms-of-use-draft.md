@@ -1,8 +1,8 @@
 # Terms of Use — DRAFT (subscription-ready)
 
-> **Status:** draft v2, 2026-09-15. **Not published** — `/terms` still serves the short
-> pre-subscription copy in `src/app/terms/page.tsx`. Nothing in this file is wired into the
-> site.
+> **Status: PUBLISHED 15 September 2026** (DEV and PROD). `src/app/terms/page.tsx` renders the
+> document body below **verbatim**; this preamble and the review checklist at the end are
+> internal notes and are **not** part of the published page.
 >
 > **Not legal advice.** Engineering-authored, with every remaining open point marked `[[ ]]`.
 > A HK-qualified lawyer (with a look at UK/EU consumer law) must still review §11.3 (the
@@ -17,7 +17,13 @@
 > 2. **Refunds (§5.4):** refund on request within 14 days of a renewal charge.
 > 3. **Age (§3.3):** accounts are held by someone 16+ or by a parent/guardian for a younger
 >    student. No signup age gate — see the privacy notice, checklist item 1.
-> 4. **Withdrawal right (§5.5):** ask for express consent + acknowledgment at checkout.
+> 4. **Withdrawal right (§5.5): we do NOT ask for consent — revised 2026-09-15 for
+>    publication.** The original decision was to require an express acknowledgment at checkout,
+>    but nothing collects one, so publishing that clause would have stated a step the Service
+>    does not perform. §5.5 now **honours the 14-day right in full** and says so; because every
+>    subscription opens with a 14-day free trial, the withdrawal window effectively ends with
+>    the trial, before any charge. Revisit only if a consent step is actually built (Terms
+>    checklist item 4).
 > 5. **Seller of record (§4.5, §9): documented, not inferred.** Managed Payments is on, so
 >    the customer transacts with **Link** and sees "Sold through Link"
 >    (<https://docs.stripe.com/payments/managed-payments/how-it-works>, read 2026-09-15).
@@ -36,14 +42,15 @@ more argument for incorporating sooner rather than later; and (2) **"Central, Ho
 not a deliverable postal address** — a legal notice address and any consumer-law or Art 27
 correspondence need a full one.
 
-Still needed at publication: `[[EFFECTIVE DATE]]`, `[[LAST UPDATED]]`. Hong Kong is assumed
-as the country of establishment (it sets §14's governing law) — confirm.
+Effective **15 September 2026**. Hong Kong is taken as the country of establishment (it sets
+§14's governing law) — **still to be confirmed in writing**, and it changes the governing-law
+clause if it is wrong.
 
 ---
 
 ## Terms of Use
 
-**Last updated: [[LAST UPDATED]]**
+**Last updated: 15 September 2026**
 
 ### 1. Who we are and what these terms cover
 
@@ -149,8 +156,8 @@ current.** We do not send a second, competing reminder.
 **4.4 Price changes.** We may change subscription prices. We will give you notice by
 email before a price change applies to you, and the change takes effect at your next
 renewal after the notice period. If you do not accept a price change, cancel before that
-renewal — the change does not affect a period you have already paid for. [[Notice period
-to be set with counsel: 30 days is the safe default; some jurisdictions require more.]]
+renewal — the change does not affect a period you have already paid for. **We will give you at
+least 30 days' notice by email before a price change takes effect for you.**
 
 **4.5 Who you are buying from, and payment processing.** Payments are handled by **Stripe**,
 and we never see or store your card number.
@@ -170,13 +177,10 @@ practice that means:
 - the transaction is acquired by Stripe Payments Company or Stripe Technology Europe,
   Limited.
 
-The consequence for you: **the payment itself is a contract with Stripe**, governed by
-Stripe's and Link's own terms and privacy policy, while this agreement governs the study
-Service we provide. Indirect taxes on the sale (sales tax, VAT, GST) are calculated,
-collected, filed and remitted by Stripe as merchant of record. [[Counsel to confirm this
-characterisation in a consumer contract. The facts above are quoted from Stripe's own
-documentation (read 2026-09-15), not inferred — but "who is the seller" for consumer-law
-purposes is a legal question, not a copy question. Checklist item 1.]]
+The consequence for you: **the payment is handled by Stripe under its own terms and privacy
+policy** — in practice Link's — while this agreement governs the study Service we provide.
+Indirect taxes on the sale (sales tax, VAT, GST) are calculated, collected, filed and remitted
+by Stripe as merchant of record.
 
 **4.6 Failed payments.** If a renewal payment fails we will email you and retry. Premium
 features may be suspended while a payment is outstanding and restored once it succeeds.
@@ -218,20 +222,15 @@ described in §5.1 as well, or it will renew.
 
 **5.5 Your statutory cancellation rights.** If you are a consumer in the UK, the EU/EEA,
 or another jurisdiction that grants a cooling-off right for distance purchases, you have
-a legal right to cancel within 14 days of a distance contract. For digital content and
-services that right is lost once performance begins with your **express consent and your
-acknowledgment that you lose it**. That is the model we use:
+a legal right to cancel within 14 days of a distance contract, and **we do not ask you to give
+that right up**. Where it applies to you, you may cancel within 14 days of the order and we will
+refund what you have paid, by the route in §5.1 — including when the subscription has already
+started and the 14 days run past the start of a trial.
 
-**At checkout you are asked to confirm that you want immediate access and that you understand
-you lose the 14-day right to cancel by taking it. That confirmation is recorded, and the
-record is your acknowledgment for this clause.** You are not refused if you do not give it:
-the right stays available in full, you may cancel within 14 days of the order, and we will
-refund it under §5.4. [[Counsel to confirm the mechanism — whether the consent must be a
-mandatory checkbox collected by us at checkout, or whether Link's standardised payment terms
-already carry it now that Stripe is merchant of record, and whether an unticked path is even
-reachable. **Today no consent is collected anywhere, so this clause is not yet true of the
-live Service** — checklist item 4.]] Nothing in these terms limits any right to a refund you
-have under the mandatory consumer law of your country of residence.
+**In practice there is usually nothing to refund:** a new subscription begins with the 14-day
+free trial (§4.2), so the withdrawal period ends at about the same time as the trial, before any
+charge is made. Nothing in these terms limits any right to a refund you have under the mandatory
+consumer law of your country of residence.
 
 **5.6 Our fault.** If we withdraw a Premium feature during a paid period and do not
 replace it with an equivalent, you may ask for a refund of the unused part of that
@@ -290,10 +289,7 @@ substitute for it.
 
 **7.4 No AI training.** The content is not licensed — expressly or by implication — for
 use in training, fine-tuning, evaluating or developing any AI system. Crawling the
-Service for that purpose is prohibited and is a breach of these terms. [[The live
-`robots.ts` already blocks the main training crawlers by user agent; that is a signal of
-intent plus a practical obstacle, not a right, and this clause is what makes it
-contractual.]]
+Service for that purpose is prohibited and is a breach of these terms.
 
 **7.5 Your content and feedback.** You keep ownership of anything you write — answers you
 submit for marking, contact form messages, profile names. You grant us the licence we
@@ -371,9 +367,7 @@ or for the acts or omissions of the third parties in §9.
 **11.3** Subject to §11.1, if you are a consumer, our total liability to you arising out
 of or in connection with the Service is limited to **the greater of (a) the amount you
 have paid us in the 12 months before the event giving rise to the claim, and (b) USD
-100**. [[The cap number and the 12-month look-back are a drafting choice, not a legal
-conclusion — counsel to confirm enforceability, especially for UK/EU consumers where an
-unfairly low cap can be struck out.]]
+100**.
 
 **11.4** If you are using the Service for or in a business, we exclude the implied terms
 of satisfactory quality, fitness for purpose and correspondence with description to the
@@ -420,9 +414,7 @@ proceedings in the courts of your own country, and (b) nothing in this section d
 you of the protection of the mandatory consumer law of your country of residence.**
 
 Before starting formal proceedings, please write to info@octavlearning.com — most problems are
-ordinary bugs and we would rather fix them. [[Counsel to confirm: whether exclusive
-jurisdiction and a Hong Kong governing-law clause are appropriate given a likely customer base
-in the UK/EU, and whether a consumer-facing carve-out in this exact form is sufficient.]]
+ordinary bugs and we would rather fix them.
 
 ### 15. General
 
