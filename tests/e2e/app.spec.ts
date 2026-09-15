@@ -248,7 +248,28 @@ test.describe('Content protection', () => {
     await footer.getByRole('link', { name: /terms of use/i }).click();
     await page.waitForURL('/terms');
     await expect(page.getByRole('heading', { name: /terms of use/i })).toBeVisible();
-    await expect(page.getByText(/may not be scraped, harvested/i)).toBeVisible();
-    await expect(page.locator('main').getByText(/not endorsed by or affiliated with the International Baccalaureate Organization/i)).toBeVisible();
+    // These assert the RULES, not one sentence of them. /terms now renders
+    // docs/terms-of-use-draft.md (see src/components/LegalDocument.tsx), so the exact
+    // wording is expected to change — but a copy edit must not be able to silently drop
+    // the content-protection or non-affiliation clauses this test exists to guard. The
+    // original assertions pinned the pre-2026-09-15 sentences and failed the moment the
+    // published Terms landed; the unit test alongside this one guards clause LOSS.
+    await expect(page.getByText(/scrape, crawl, harvest/i)).toBeVisible();
+    await expect(page.getByText(/for use in training, fine-tuning/i)).toBeVisible();
+    await expect(
+      page
+        .locator('main')
+        .getByText(/not endorsed by, affiliated with, or connected to the International Baccalaureate Organization/i)
+    ).toBeVisible();
+  });
+
+  test('footer links to the Privacy Notice, which is a published page', async ({ page }) => {
+    // The notice is new (2026-09-15) and the footer is its only entry point, so this is
+    // the test that would catch the link or the route disappearing.
+    await page.goto('/');
+    await page.locator('footer').getByRole('link', { name: /privacy notice/i }).click();
+    await page.waitForURL('/privacy');
+    await expect(page.getByRole('heading', { name: /privacy notice/i })).toBeVisible();
+    await expect(page.getByText(/we do not sell personal data/i)).toBeVisible();
   });
 });

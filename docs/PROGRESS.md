@@ -88,7 +88,16 @@ Verified: unit **1369/1369**, tsc clean, lint **29 problems / 0 errors** (the pr
   unchanged); `build:static` + `verify:sitemaps` → *"verify ok: 335 sitemap URLs all live +
   indexable; 335 indexable pages all submitted, titles unique; 550 noindex excluded"* (334→335 is
   `/privacy`); both pages prerender (`out/privacy.html` 138KB, `out/terms.html` 107KB) and
-  `/privacy` is in `core.xml`. **The first UX review BLOCKED with four P1 copy defects** — two
+  `/privacy` is in `core.xml`. **CORRECTION (same session, after the push): the first CI run for
+  this work (`6477e83`) FAILED** — `e2e` on all three devices, because
+  `tests/e2e/app.spec.ts` pinned the pre-2026-09-15 `/terms` sentences VERBATIM
+  (`/may not be scraped, harvested/i` and `/not endorsed by or affiliated with…/`). The published
+  Terms state those same rules in different words, so the assertions now match the RULES
+  (scraping/harvesting, AI-training, non-affiliation) instead of one sentence of them, with a new
+  test that the footer links to `/privacy` — and the lesson is recorded: replacing a page's copy
+  turns any copy-pinned e2e test into a deploy blocker, and **`billing.spec.ts` alone was green, so
+  only the FULL suite would have caught it.** The "billing e2e 4/4" line above is true but was an
+  incomplete gate — the full run is what the deploy uses. **The first UX review BLOCKED with four P1 copy defects** — two
   literal `(link)` placeholders live on `/terms`, plus an internal `DPIA`/`checklist item 2`
   sentence and a maintainer runbook in `/privacy` §12 — and two same-class P2s (`checklist item 4`,
   an "open item" aside). All fixed; the runbook **moved** into the internal checklist (privacy item
