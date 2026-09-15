@@ -72,9 +72,17 @@ describe('subscriptions Lambda IAM policy (static) — least-privilege', () => {
     const envTf = readFileSync(path.join(process.cwd(), 'terraform/envs/prod/main.tf'), 'utf8');
     // dummy storage/stripe is REFUSED inside AWS Lambda (deps.ts) — both of
     // these being real is what stops every request throwing at construction.
-    expect(envTf).toContain('SUBSCRIPTIONS_STORAGE  = "dynamodb"');
+    // Whitespace-tolerant on purpose: `terraform fmt` owns the alignment inside these
+    // env maps and reflows it whenever a key is added (it did, when BILLING_DISABLED_ENVS
+    // landed), so pinning the padding makes this fail for a reason that has nothing to do
+    // with the wiring it protects.
+    expect(envTf).toMatch(/SUBSCRIPTIONS_STORAGE\s+= "dynamodb"/);
     expect(envTf).toMatch(/STRIPE_MODE\s+= "test"/); // capability: prod still resolves live first
-    expect(envTf).toContain('STRIPE_ENV             = var.stripe_env');
+    expect(envTf).toMatch(/STRIPE_ENV\s+= var\.stripe_env/);
+    // PROD IS OFF SALE (2026-09-15): new subscriptions are refused in production until the
+    // legal text and the server-side premium content are finished. A deliberate tripwire,
+    // not a formatting check — deleting this line is what re-opens prod.
+    expect(envTf).toMatch(/BILLING_DISABLED_ENVS\s+= "prod"/);
     // The ledger + budget + tier write all name real tables.
     expect(envTf).toContain('AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name');
     expect(envTf).toContain('AUTH_USERS_TABLE       = module.dynamodb.users_table_name');

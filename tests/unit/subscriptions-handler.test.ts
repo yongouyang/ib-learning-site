@@ -53,7 +53,7 @@ interface TestCtx {
   sent: SentEmail[];
 }
 
-function makeCtx(opts: { webhookSecret?: string; clock?: () => number } = {}): TestCtx {
+function makeCtx(opts: { webhookSecret?: string; clock?: () => number; billingDisabledEnvs?: string[] } = {}): TestCtx {
   // The dummy Stripe client works in SECONDS; the handler's `clock` (staleness
   // checks) works in MILLISECONDS. Keep the two conventions separate.
   const clockMs = opts.clock ?? (() => T0);
@@ -80,6 +80,7 @@ function makeCtx(opts: { webhookSecret?: string; clock?: () => number } = {}): T
     clock: clockMs,
     testMode: false,
     dummyMode: true,
+    billingDisabledEnvs: opts.billingDisabledEnvs ?? [],
   };
   const authDeps: AuthDeps = { storage, emailSender: new DummyEmailSender(), testMode: true, dummyMode: true };
   return { storage, stripe, deps, authDeps, clock: clockMs, sent };
@@ -232,6 +233,68 @@ describe('GET /api/subscriptions/status', () => {
       { ...ctx.deps, stripeFor: () => null }
     );
     expect(await unwired.json()).toMatchObject({ billingAvailable: false });
+  });
+
+  it('closes PROD to new subscriptions without closing dev or the webhook', async () => {
+    // The switch that took prod off sale (2026-09-15) while the legal text and the
+    // premium-content work finish. Keyed off the CloudFront marker, because ONE Lambda
+    // serves both distributions — so it cannot be done by blanking the live key set
+    // (dev would go down with it, and the deploy's key-set gates would go red).
+    const ctx = makeCtx({ billingDisabledEnvs: ['prod'] });
+    const { cookie } = await login(ctx);
+    const prodMarker = { cookie, 'x-octav-env': 'prod' };
+    const devMarker = { cookie, 'x-octav-env': 'dev' };
+
+    // PROD: status says unavailable (which is what hides the plans in the UI) …
+    const prodStatus = await handleStatusGet(
+      req('GET', 'https://x/api/subscriptions/status', undefined, prodMarker),
+      ctx.deps
+    );
+    expect(await prodStatus.json()).toMatchObject({ billingAvailable: false });
+
+    // … and the API refuses, so hiding the button is not the only defence.
+    const prodCheckout = await handleCheckoutPost(
+      req('POST', 'https://x/api/subscriptions/checkout', { plan: 'monthly' }, prodMarker),
+      ctx.deps
+    );
+    expect(prodCheckout.status).toBe(503);
+    expect(await prodCheckout.json()).toMatchObject({ error: 'billing_disabled' });
+
+    // DEV keeps working on the same Lambda: the switch is per-environment, not global.
+    const devStatus = await handleStatusGet(
+      req('GET', 'https://x/api/subscriptions/status', undefined, devMarker),
+      ctx.deps
+    );
+    expect(await devStatus.json()).toMatchObject({ billingAvailable: true });
+
+    // A MARKER-LESS request (local dev, the Next routes, e2e) is the third label
+    // `local`, which is not in the list — so local development stays open. Pinned here
+    // because folding `local` into `dev` would silently close `next dev`.
+    const localStatus = await handleStatusGet(
+      req('GET', 'https://x/api/subscriptions/status', undefined, { cookie }),
+      ctx.deps
+    );
+    expect(await localStatus.json()).toMatchObject({ billingAvailable: true });
+    const localCheckout = await handleCheckoutPost(
+      req('POST', 'https://x/api/subscriptions/checkout', { plan: 'monthly' }, { cookie }),
+      ctx.deps
+    );
+    expect(localCheckout.status).not.toBe(503);
+
+    // THE WEBHOOK STAYS OPEN. Closing it would mean prod no longer verifies Stripe
+    // signatures — silently dropping cancellations for anyone who did subscribe — and
+    // the deploy's live webhook probe would fail. A bad signature must still be refused
+    // with Stripe's own error, not with a "billing disabled" 503, which proves the
+    // webhook path never consulted the switch.
+    const webhook = await handleWebhookPost(
+      req('POST', 'https://x/api/subscriptions', '{"id":"evt_1"}', {
+        'x-octav-env': 'prod',
+        'stripe-signature': 't=1,v1=deadbeef',
+      }),
+      ctx.deps
+    );
+    expect(webhook.status).toBe(400);
+    expect(await webhook.json()).toMatchObject({ error: 'invalid_signature' });
   });
 
   it('returns the cached billing view', async () => {

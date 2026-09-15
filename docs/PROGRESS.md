@@ -4,6 +4,68 @@
 
 ---
 
+## 2026-09-15 — PROD taken off sale: `BILLING_DISABLED_ENVS=prod`
+Git HEAD: `6477e83` (develop, tree dirty)
+Done: Production is closed to **new** subscriptions while the legal text is polished and
+  premium content moves server-side (the owner's call — prod went live with real payments the
+  same morning). Mechanism: **`BILLING_DISABLED_ENVS = "prod"`** in the subscriptions Lambda
+  env (`terraform/envs/prod/main.tf`) plus a pure `billingDisabled(req, disabledEnvs)`
+  (`subscriptions/types.ts`) keyed off the SAME CloudFront `X-Octav-Env` marker as key
+  selection — because ONE Lambda serves both distributions. Exactly two gates:
+  `handleCheckoutPost` → 503 `billing_disabled` (placed before `beginStripeCall`, so a closed
+  environment cannot burn the user's session budget) and `handleStatusGet` →
+  `billingAvailable: false`, which is what makes the UI hide the plans. `BillingPanel` loads
+  Stripe.js only when `status.billingAvailable` is true (a closed env therefore sets no
+  `__stripe_mid`, keeping privacy §12 true there), reuses the existing "Premium is coming
+  soon" branch, and **the subscribed branch was moved ABOVE the closed-environment branch** —
+  a review finding, see below. Docs: `AGENTS.md`, `STRIPE_INTEGRATION_TODO.md` §8 item 8 (the
+  explicit re-open checklist), and the terraform comment ("delete this line and deploy").
+Verified: unit **1372/1372**, tsc clean, lint 29/0, **billing e2e 4/4** (billing is ENABLED
+  there, which is what proves the unset default end-to-end), `terraform validate` +
+  `fmt -check` clean. Fresh-context review verdict: **"OK with notes — no P0"**; it
+  independently confirmed that no path through our API or the prod marker reaches
+  `createCheckoutSession` (checkout is the only session creator, it is gated before budget, the
+  marker is CloudFront-overwritten on both distributions, and the repo references no Payment
+  Link) and that the prod smoke stays green (it asserts `_health`, the live signed webhook
+  probe, `version.json` and www→301 — none of which needs a checkout).
+Findings, fixed or handed over: (1) **P1, fixed** — the first version early-returned on
+  `!billingAvailable` BEFORE the subscribed branch, so an existing prod subscriber would have
+  seen "Your Premium access is active." with no plan, renewal date, card line or **Manage
+  billing** button: it would have taken away the Portal the ungated design deliberately kept
+  for them. Reordered (block move, not a loosened `if` — the loose variant would hand plan
+  buttons to a *lapsed* user and reload Stripe.js on click) and pinned by a new test.
+  (2) **P2, fixed** — the switch's third label was undocumented: a marker-less request (local
+  dev, e2e, the Next routes) is `local`, so `BILLING_DISABLED_ENVS=dev` does NOT cover
+  `next dev`; documented and pinned by a test. (3) **A gate caught a real interaction:**
+  `terraform fmt` re-aligned the env map (my comment split the `=` alignment group) and
+  `tests/unit/subscriptions-iam.test.ts` pinned that exact padding — assertions made
+  whitespace-tolerant (fmt owns the alignment) and extended with a tripwire for
+  `BILLING_DISABLED_ENVS = "prod"`, so removing the off-sale line is a deliberate act.
+  (4) **Handed to the operator, Stripe-side and unreachable from the repo:** Checkout Sessions
+  created during today's live window stay completable for their lifetime (~24h) — cancel any
+  open ones; a live **Payment Link** would bypass this switch entirely (none referenced in the
+  repo, only the Dashboard can confirm); and Customer-Portal **plan switching must stay OFF**,
+  or the Portal becomes a second route to a new subscription.
+Next: (1) push → `deploy-dev` — that alone closes prod, because terraform applies to the ONE
+  shared Lambda, so no promotion to `main` is needed. (2) USER: the three Dashboard checks
+  above. (3) Then the polish this buys time for: counsel on the published positions, the three
+  unmet obligations in the documents' checklists, and premium content server-side
+  (`docs/premium-content-protection-plan.md`). (4) Re-open only via `STRIPE_INTEGRATION_TODO.md`
+  §8 item 8. (5) Standing queue: illustrations 106, traffic/SEO depth, content depth.
+Notes: **what the switch deliberately does NOT do matters for anyone tempted to "simplify" it.**
+  Blanking the `_LIVE` keys was rejected: one Lambda serves both distributions, so dev would go
+  down with prod and the deploy's key-set gates (`_health` for the prod marker, the live
+  webhook probe) would go red — the very gates that catch a lost key set. Routing the switch
+  through `resolveStripeMode` was rejected too, because that seam also feeds the WEBHOOK: prod
+  would stop verifying real Stripe signatures (silently dropping a cancellation for anyone who
+  did subscribe) and the live probe would fail. So the **webhook and the Portal stay live on the
+  real keys** — new sales stop, existing subscribers can still cancel, real events still land.
+  Prod's *UI* self-corrects from `GET /status` with no rebuild needed; the bundle prod serves
+  today still injects Stripe.js on every page (it is the pre-scoping build), so prod only
+  becomes cookie-free on the next promotion to `main`.
+
+---
+
 ## 2026-09-15 — Legal pages live: `/privacy` created, `/terms` replaced (and the first review blocked them)
 Git HEAD: `91bbe9d` (develop, tree dirty)
 Done: Published both documents as real pages: `src/app/privacy/page.tsx` (**new** — the site had

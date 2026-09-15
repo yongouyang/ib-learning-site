@@ -316,7 +316,8 @@ describe('BillingPanel — embedded Checkout', () => {
     // Scope guard (2026-09-15): the script used to sit in the root layout, so
     // every page — and every visitor — carried Stripe's __stripe_mid device
     // cookie. It is now injected by the panel, on the two pages that can mount a
-    // payment form, only when there is a key to mount one with.
+    // payment form, only when there is a key to mount one with AND the server says
+    // billing is available for this environment.
     const scripts = () => document.querySelectorAll('script[src*="js.stripe.com"]');
     try {
       // Earlier renders in this file injected the script imperatively. React
@@ -328,8 +329,10 @@ describe('BillingPanel — embedded Checkout', () => {
       await renderWithStripe(undefined);
       expect(scripts()).toHaveLength(0); // hosted-URL fallback: Stripe.js is dead weight
 
+      // The injection waits for `billingAvailable`, so the status call must resolve.
+      mockFetch(statusBody());
       await renderWithStripe('pk_test_scope');
-      expect(scripts()).toHaveLength(1);
+      await waitFor(() => expect(scripts()).toHaveLength(1));
 
       // Idempotent: Strict Mode double-invokes effects, and two panels can be on
       // screen at once. A second script would be a second request and a second cookie.
@@ -337,6 +340,67 @@ describe('BillingPanel — embedded Checkout', () => {
       ensureStripeScript();
       ensureStripeScript();
       expect(scripts()).toHaveLength(1);
+    } finally {
+      scripts().forEach((s) => s.remove());
+    }
+  });
+
+  it('keeps a subscriber\'s billing state and Portal when the environment is closed to NEW subscriptions', async () => {
+    // The switch that takes an environment off sale (BILLING_DISABLED_ENVS) leaves the
+    // Customer Portal live on purpose so an existing subscriber can still cancel. That
+    // only works if the SUBSCRIBED branch renders before the closed-environment branch:
+    // the first version returned early on `!billingAvailable` and left a prod subscriber
+    // with "Your Premium access is active." and no Manage-billing button at all.
+    const scripts = () => document.querySelectorAll('script[src*="js.stripe.com"]');
+    scripts().forEach((s) => s.remove());
+    try {
+      mockFetch(
+        statusBody({
+          billingAvailable: false,
+          status: 'active',
+          tier: 'premium',
+          plan: 'monthly',
+          currentPeriodEnd: '2026-10-15T00:00:00.000Z',
+          card: { brand: 'visa', last4: '4242', expMonth: 4, expYear: 2029 },
+        }),
+        { status: 200, body: { url: 'https://billing.stripe.com/session/1' } }
+      );
+      await renderWithStripe('pk_live_scope');
+
+      const portal = await screen.findByRole('button', { name: /manage billing/i });
+      expect(portal).toBeInTheDocument();
+      // …and the rest of the billing view is still there, not just the button.
+      expect(screen.getByText(/Renews/i)).toBeInTheDocument();
+      expect(screen.getByText(/4242/)).toBeInTheDocument();
+      expect(screen.queryByText(/not taking payments/i)).toBeNull();
+
+      // Clicking it reaches the Portal endpoint rather than failing closed.
+      await userEvent.click(portal);
+      await waitFor(() => expect(assign).toHaveBeenCalledWith('https://billing.stripe.com/session/1'));
+
+      // A closed environment must stay cookie-free even here: no plan click happened,
+      // so nothing may have injected Stripe.js.
+      await new Promise((r) => setTimeout(r, 50));
+      expect(scripts()).toHaveLength(0);
+    } finally {
+      scripts().forEach((s) => s.remove());
+    }
+  });
+
+  it('loads no Stripe.js and offers no plans when this environment is closed to new subscriptions', async () => {
+    // prod while BILLING_DISABLED_ENVS=prod. The server refuses the checkout, but
+    // loading Stripe.js there anyway would still set __stripe_mid for visitors who
+    // cannot buy anything — which is precisely what the privacy notice says does not
+    // happen, and the panel is what keeps that true.
+    const scripts = () => document.querySelectorAll('script[src*="js.stripe.com"]');
+    scripts().forEach((s) => s.remove());
+    try {
+      mockFetch(statusBody({ billingAvailable: false }));
+      await renderWithStripe('pk_live_scope');
+      expect(await screen.findByText(/not taking payments/i)).toBeInTheDocument();
+      expect(screen.queryByRole('button', { name: /per month/i })).toBeNull();
+      await new Promise((r) => setTimeout(r, 50)); // give any stray effect a chance
+      expect(scripts()).toHaveLength(0);
     } finally {
       scripts().forEach((s) => s.remove());
     }

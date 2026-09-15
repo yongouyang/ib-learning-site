@@ -283,13 +283,29 @@ into the deployed config silently 400s every delivery.
    flips to `premium`, `GET /api/subscriptions/status` reports `plan`/`status`,
    and the trial-end email path is exercised (it fires on
    `customer.subscription.trial_will_end`).
+8. ⏳ **RE-OPEN PROD (added 2026-09-15):** production was taken off sale while the legal
+   text and the premium-content work finish. Until the line
+   `BILLING_DISABLED_ENVS = "prod"` is **deleted** from the subscriptions Lambda env in
+   `terraform/envs/prod/main.tf`, prod serves no checkout (503 `billing_disabled`), reports
+   `billingAvailable: false`, shows "Premium is coming soon" instead of plans and billing
+   details on `/pricing` and `/account`, and loads no Stripe.js. Confirm prod is still
+   behaving that way with
+   `curl -s https://octavlearning.com/api/subscriptions/_health` (keys stay valid, so this
+   must be `{"ok":true}` — it proves the Lambda is healthy AND that we are choosing not to
+   sell, rather than having lost the keys) and by signing in on prod and visiting `/pricing`.
+   **Do not re-enable until:** (a) counsel has been through the liability cap, governing law,
+   §4.5 and the 30-day notice, (b) the Art 27 representative and the AI-provider DPA are
+   resolved, and (c) premium content is server-side rather than shipped in the client bundle
+   (`docs/premium-content-protection-plan.md`).
 
 **Ordering matters once live keys are in the secret:** any deploy (either branch)
-applies `STRIPE_ENV` to the ONE shared Lambda. Prod then resolves LIVE mode. Until
-prod is rebuilt with the live publishable key, prod's plan buttons fail closed
-(no key → the panel reports “not taking payments”), so nothing can be charged by
-accident — but nothing can be sold either. Deploy `develop` first (it validates
-the live prices/tax codes), then promote to `main`.
+applies `STRIPE_ENV` to the ONE shared Lambda. Prod then resolves LIVE mode. **From
+2026-09-15 that is true but moot: `BILLING_DISABLED_ENVS = "prod"` makes the Lambda refuse
+NEW checkouts for prod-marker requests while the webhook and Portal stay live — which is why
+the phrase above is no longer "nothing can be sold" by accident but *nothing is sold at
+all, on purpose*, and why re-opening prod is an explicit deletion of that line rather than a
+side effect of deploying.** Deploy `develop` first (it validates the live prices/tax codes),
+then promote to `main`.
 
 ### 8. Optional polish
 

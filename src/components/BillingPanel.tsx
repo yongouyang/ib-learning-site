@@ -155,12 +155,19 @@ export function BillingPanel({ variant }: { variant: 'pricing' | 'account' }) {
   // bounds the wait, so this is not correctness — it is the difference the old
   // site-wide <head> script used to make for free, now paid for only here.
   //
-  // Gated on the key: with no publishable key the panel follows the dummy's
-  // hosted URL and never touches Stripe.js, so fetching it would be a third-party
-  // request — and Stripe's device cookies — for nothing.
+  // Gated twice, and both matter:
+  //  * no publishable key ⇒ the panel follows the dummy's hosted URL and never
+  //    touches Stripe.js, so loading it would be a third-party request — and Stripe's
+  //    device cookies — for nothing;
+  //  * `billingAvailable` false ⇒ this environment is closed to new subscriptions
+  //    (BILLING_DISABLED_ENVS), so there is no form to mount and Stripe.js must not
+  //    load. Without this the closed environment would still set __stripe_mid, which
+  //    is exactly the cookie reach the privacy notice §12 says is limited to the two
+  //    pages that can take a payment.
+  const billingAvailable = status?.billingAvailable === true;
   useEffect(() => {
-    if (PUBLISHABLE_KEY) ensureStripeScript();
-  }, []);
+    if (PUBLISHABLE_KEY && billingAvailable) ensureStripeScript();
+  }, [billingAvailable]);
 
   const load = useCallback(async () => {
     try {
@@ -354,20 +361,15 @@ export function BillingPanel({ variant }: { variant: 'pricing' | 'account' }) {
     ? `${status.card.brand ? status.card.brand[0].toUpperCase() + status.card.brand.slice(1) : 'Card'} ending ${status.card.last4}`
     : null;
 
-  // --- Not configured (prod until a LIVE key set exists) ----------------------
-
-  if (!status.billingAvailable) {
-    return (
-      <p className="text-sm text-gray-600 dark:text-gray-400">
-        {status.tier === 'premium'
-          ? 'Your Premium access is active.'
-          : "We're not taking payments yet — Premium is coming soon."}
-      </p>
-    );
-  }
-
   // --- Subscribed -------------------------------------------------------------
-
+  //
+  // ORDER MATTERS: this branch comes BEFORE the closed-environment branch below and
+  // must stay there. The switch that closes an environment to NEW subscriptions
+  // (BILLING_DISABLED_ENVS) leaves the Customer Portal live on purpose, so anyone who
+  // did subscribe can still cancel — and the Portal button exists only in this branch.
+  // Returning early on `!billingAvailable` first (the original order) took away an
+  // existing subscriber's plan, renewal date, card line and their only route to the
+  // Portal — the opposite of the intent. Found in review, 2026-09-15.
   if (status.status && status.status !== 'canceled') {
     const trialing = status.status === 'trialing';
     const when = trialing ? status.trialEndsAt : status.currentPeriodEnd;
@@ -413,6 +415,22 @@ export function BillingPanel({ variant }: { variant: 'pricing' | 'account' }) {
           </p>
         )}
       </div>
+    );
+  }
+
+  // --- Closed to new subscriptions --------------------------------------------
+  //
+  // Reached only by a NON-subscriber (canceled, or never subscribed — a live one
+  // returned above). This covers both "no key set for this environment" and "this
+  // environment is deliberately closed" (BILLING_DISABLED_ENVS): the server reports
+  // both as `billingAvailable: false`, and the UI must not offer plans it cannot sell.
+  if (!status.billingAvailable) {
+    return (
+      <p className="text-sm text-gray-600 dark:text-gray-400">
+        {status.tier === 'premium'
+          ? 'Your Premium access is active.'
+          : "We're not taking payments yet — Premium is coming soon."}
+      </p>
     );
   }
 
