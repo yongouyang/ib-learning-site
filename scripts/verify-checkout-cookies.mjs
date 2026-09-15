@@ -129,16 +129,24 @@ if (!SKIP_REMOTE) {
 
   await browser.close();
 
-  const stripeOwn = added(measurements.bare.mine, measurements.plain.mine).filter((n) =>
+  const panelPages = added(measurements.bare.mine, measurements.plain.mine).filter((n) =>
     n.startsWith('__stripe')
   );
-  const anyNew = added(measurements.bare.mine, measurements.plain.mine);
+  const homepageStripe = measurements.home.mine.filter((n) => n.startsWith('__stripe'));
   console.log('\nVERDICT (live origin):');
-  console.log(`   cookies set by our own code (Stripe.js blocked): ${measurements.bare.mine.join(', ') || 'none'}`);
-  console.log(`   NEW on our origin once Stripe.js loads: ${anyNew.join(', ') || 'none'}`);
-  console.log(`   Stripe fraud cookies on OUR domain: ${stripeOwn.join(', ') || 'NONE'}`);
   console.log(
-    `   => §12's "one essential first-party cookie" is ${anyNew.length === 0 ? 'ACCURATE as far as this test can see' : 'FALSE and must be rewritten'}`
+    `   cookies set by our own code (Stripe.js blocked): ${measurements.bare.mine.join(', ') || 'none'}`
+  );
+  console.log(
+    `   appear once a billing panel loads Stripe.js: ${panelPages.join(', ') || 'none'}  (expected — see §12's table)`
+  );
+  console.log(
+    `   Stripe cookies on a page with NO billing panel (/): ${homepageStripe.join(', ') || 'NONE'}`
+  );
+  console.log(
+    homepageStripe.length === 0
+      ? '   => §12 holds: the Stripe cookies exist only where a payment form does.'
+      : '   => §12 is FALSE for pages with no billing panel and must be rewritten.'
   );
 }
 

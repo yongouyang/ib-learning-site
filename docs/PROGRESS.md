@@ -25,7 +25,12 @@ Verified: tsc clean; **unit 1356/1356** (billing-panel 17/17 incl. the new guard
   `/` **no Stripe cookies**, `/pricing` + `/account` yes, mounting the checkout adds no further
   first-party cookie. **UX review** — fresh-context `reviewer`, 44 screenshots (every billing
   state × mobile/tablet/desktop × light/dark) against `docs/UX_GUIDELINES.md`: *"OK with notes"*,
-  **no UX defect in the changed surfaces**.
+  **no UX defect in the changed surfaces**. **Deployed-origin confirmation:** once `deploy-dev`
+  served `0d4f3e2`, part A against `dev.octavlearning.com` shows `/pricing` carrying
+  `__stripe_mid`/`__stripe_sid` and `/` carrying **none** — §12 holds at the edge, not just
+  locally. Part A's own verdict line was stale (it judged the *homepage* by comparing
+  blocked-vs-allowed on `/pricing`, so it still printed the retired "FALSE and must be
+  rewritten" conclusion); it now reports the homepage explicitly.
 Findings, fixed or waived: (1) stale comments in `BillingPanel` ("loaded in the root layout") and
   in the guard script — **fixed**; (2) "the invariant has no automated test" — **already fixed
   mid-review** (the guard test landed while the reviewer was reading the file; they flagged the
@@ -35,8 +40,8 @@ Findings, fixed or waived: (1) stale comments in `BillingPanel` ("loaded in the 
   spinner/live region is a visual change that needs its own UX pass, so it is a follow-up, not a
   rider; (4) **waived**: the fixed "?" pill appears inside the tablet element-scoped crops — a
   screenshot crop boundary, not layout overlap.
-Next: (1) push → `deploy-dev`, then re-run part A against dev so the *deployed* origin confirms
-  what §12 claims. (2) Publish `/privacy` before `/terms`; the four counsel items stand. (3) The
+Next: (1) promote to `main` when convenient — DEV is green on `0d4f3e2` and PROD is still on the
+  pre-scoping build. (2) Publish `/privacy` before `/terms`; the four counsel items stand. (3) The
   waived empty-box window (aria-busy/live region) as its own small ticket. (4) Standing queue:
   illustrations 106, traffic/SEO depth, content depth.
 Notes: the UX screenshots were captured **before** the `PUBLISHABLE_KEY` gate landed — inert for
