@@ -4,6 +4,42 @@
 
 ---
 
+## 2026-09-15 — Cookie claim measured and rewritten; operator details filled in
+Git HEAD: `d117f6a` (develop, tree dirty)
+Done: (1) **New check `scripts/verify-checkout-cookies.mjs`** — drives a real Chromium against
+  the live origin with `js.stripe.com` blocked vs allowed and against a local server with a real
+  test-mode checkout mounted, printing `document.cookie` + the full cookie jar at each step.
+  (2) **Privacy §12 rewritten around the measurement — the draft's claim was FALSE.** Measured
+  on `dev.octavlearning.com` 2026-09-15: signed out with Stripe.js blocked the site sets **no
+  cookies at all**; once Stripe.js loads, `__stripe_mid` (12 months) and `__stripe_sid` (30 min)
+  are set **on our own domain on every page — the homepage included**, not only at checkout;
+  our own `octav_session` is confirmed `HttpOnly; SameSite=Lax; Secure` (30 days); mounting the
+  embedded checkout adds **no** further first-party cookie, only third-party ones inside Stripe's
+  iframe (`m@m.stripe.com`, plus hCaptcha `__cf_bm`/`hmt_id`/`__cflb`). §12 now carries the
+  cookie table, the third-party disclosure and the re-check command. (3) Operator details filled
+  in: **Octav Learning**, **Central, Hong Kong**. (4) Privacy checklist item 8 marked done with
+  the follow-up it implies: scope the Stripe.js `<script>` in `src/app/layout.tsx` to `/pricing`
+  + `/account` so those cookies stop appearing site-wide — that makes the strictly-necessary
+  argument much stronger and §12 simpler.
+Verified: the measurement itself is the verification (exit 0; artefacts in
+  `ux-screenshots/checkout-cookies/`, gitignored). First run **failed honestly**: `waitUntil:
+  'networkidle'` never fires on this PWA (service worker + analytics beacons), so step 2 timed
+  out — the script now lands on `domcontentloaded` + a fixed settle window, with the reason
+  recorded in a comment. Docs-only change beyond the new script, so no other gate re-run.
+Next: (1) USER — decide the Stripe.js scoping (one script tag) before publishing §12; the
+  cookie table must then be re-measured. (2) Publish `/privacy` before `/terms`. (3) The four
+  open counsel items (liability cap, governing law, withdrawal-consent mechanism, transfer
+  instruments) + the DPIA + the Art 27 representative. (4) Sole-proprietor caveats now recorded
+  in both docs: the trading name is not the legal person, and "Central, Hong Kong" is not a
+  deliverable address. (5) Standing queue: illustrations 106, traffic/SEO depth, content depth.
+Notes: **`/usr/bin/git` is broken in this environment** — `xcode-select` points at
+  `/Applications/Xcode.app` whose licence was never accepted, so the shim dies with a licence
+  error on every call (`git --version` included). Work around it with
+  `/Library/Developer/CommandLineTools/usr/bin/git`, or fix it with `sudo xcodebuild -license`
+  (or `sudo xcode-select -s /Library/Developer/CommandLineTools`).
+
+---
+
 ## 2026-09-15 — Legal docs: the four decisions applied, seller-of-record answered, one claim failed
 Git HEAD: `e43f42c` (develop, tree dirty)
 Done: Both documents existed already (previous session); this session applied the four

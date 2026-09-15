@@ -27,10 +27,17 @@
 > linked from the checkout flow and the confirmation email so it is pre-contractual
 > information, not a footer link nobody reads.
 
-Fill-ins still needed from the operator: `[[FULL LEGAL NAME]]` (the individual),
-`[[BUSINESS ADDRESS]]`, `[[EFFECTIVE DATE]]`, `[[LAST UPDATED]]`, and confirmation that
-**Hong Kong** is the country you are established in (it sets §14's governing law). The
-contact address is known and already filled in: `info@octavlearning.com`.
+Operator details filled in, as supplied: the name is **Octav Learning** and the address is
+**Central, Hong Kong**. Two caveats to settle before publication, both flagged in the
+checklists rather than left implicit: (1) **a sole proprietorship has no separate legal
+personality** — strictly the contracting party is the individual behind it, so naming the
+trading name leaves the counterparty ambiguous if it ever has to be enforced, which is one
+more argument for incorporating sooner rather than later; and (2) **"Central, Hong Kong" is
+not a deliverable postal address** — a legal notice address and any consumer-law or Art 27
+correspondence need a full one.
+
+Still needed at publication: `[[EFFECTIVE DATE]]`, `[[LAST UPDATED]]`. Hong Kong is assumed
+as the country of establishment (it sets §14's governing law) — confirm.
 
 ---
 
@@ -40,8 +47,8 @@ contact address is known and already filled in: `info@octavlearning.com`.
 
 ### 1. Who we are and what these terms cover
 
-Octav Learning ("we", "us", "our") is operated by [[FULL LEGAL NAME]], a sole proprietor
-established in Hong Kong with a business address at [[BUSINESS ADDRESS]]. You can contact us
+Octav Learning ("we", "us", "our") is the trading name of a sole proprietorship established
+in Hong Kong, with a business address at Central, Hong Kong. You can contact us
 at info@octavlearning.com.
 
 We intend to bring the Service into a Hong Kong limited company as it grows. If that
@@ -443,9 +450,8 @@ that our group companies and contractors may rely on §11.
 
 ### 16. Contact
 
-[[FULL LEGAL NAME]], trading as Octav Learning
-[[BUSINESS ADDRESS]]
-Hong Kong
+Octav Learning
+Central, Hong Kong
 
 Contact: info@octavlearning.com
 

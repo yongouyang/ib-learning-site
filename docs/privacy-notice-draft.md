@@ -32,11 +32,18 @@
 > 90d/400d analytics TTLs, 365d contact, leaderboard week-end +14d, the 40d AI-mark bucket,
 > the 30d sessions, `HttpOnly; SameSite=Lax; Secure` on the session cookie and the three
 > `localStorage` keys all still match the code. **One claim did not survive: §12's "one
-> essential cookie"** — see there.
+> essential cookie"** — measured on the live origin with `scripts/verify-checkout-cookies.mjs`
+> and rewritten: Stripe.js sets `__stripe_mid`/`__stripe_sid` on our own domain on *every*
+> page, so §12 now lists all three cookies and the third-party ones inside the checkout iframe.
 
-Fill-ins still needed from the operator: `[[FULL LEGAL NAME]]`, `[[BUSINESS ADDRESS]]`,
-`[[EFFECTIVE DATE]]`. The privacy contact is `info@octavlearning.com`, already filled in
-below.
+Operator details filled in as supplied: the controller is **Octav Learning**, Central, Hong
+Kong. Two caveats carried forward from the Terms (see its checklist): a sole proprietorship
+has no separate legal personality, and "Central, Hong Kong" is not a deliverable postal
+address — both need settling before publication, the second one because it is the address any
+data-protection authority or data subject would write to.
+
+Still needed at publication: `[[EFFECTIVE DATE]]`. The privacy contact is
+`info@octavlearning.com`, already filled in below.
 
 ---
 
@@ -49,11 +56,10 @@ with, how long it is kept, and what you can ask us to do with it.
 
 ### 1. Who is responsible for your data
 
-[[FULL LEGAL NAME]] ("we", "us", "our"), trading as Octav Learning, of [[BUSINESS
-ADDRESS]], Hong Kong, is the data controller — the person who decides why and how your
-personal data is used — for the Service at octavlearning.com and its subdomains. We have not
-appointed a data protection officer; privacy questions, requests and complaints go to the
-contact below and we aim to answer within 30 days.
+Octav Learning ("we", "us", "our"), of Central, Hong Kong, is the data controller — the person
+who decides why and how your personal data is used — for the Service at octavlearning.com and
+its subdomains. We have not appointed a data protection officer; privacy questions, requests
+and complaints go to the contact below and we aim to answer within 30 days.
 
 We intend to bring the Service into a Hong Kong limited company as it grows. If we do, that
 company becomes the data controller, we will tell you before it happens, and this notice will
@@ -327,22 +333,48 @@ relevant authority as required by law.
 
 ### 12. Cookies
 
-We use **one essential first-party cookie**: the session cookie that keeps you signed in. It
-is set when you sign in (or when a one-time code is exchanged) and cleared when you sign out.
-We do not use advertising cookies, third-party analytics cookies or cross-site tracking
-cookies.
+**These are all the cookies we set, measured rather than assumed** (see the method note
+below):
 
-**[[This section is not yet true, and must not be published as it stands.]]** Stripe.js is
-loaded from `js.stripe.com` on **every page of the site** (not only the pricing and account
-pages) because the embedded checkout needs it; Stripe documents `__stripe_mid` and
-`__stripe_sid` as fraud-prevention cookies that Stripe.js sets on the merchant's own domain.
-If those are being set here, this section's "one cookie" claim is wrong, and a cookie consent
-banner may still not be needed (strictly-necessary fraud prevention is exempt under PECR) but
-they must be **named**. Check with a real browser and a real checkout — read `document.cookie`
-on the origin before, during and after the payment flow, and reconcile the result with the
-Stripe.js and Link network traffic — then rewrite this section around what is actually set.
-Checklist item 8.]] Theme preference and offline progress use `localStorage`, described in
-§3.3.
+| Cookie | Set by | Lifetime | Flags | Why it exists |
+|---|---|---|---|---|
+| `octav_session` | us | 30 days; cleared when you sign out | `HttpOnly`, `SameSite=Lax`, `Secure` over HTTPS | Keeps you signed in. Set only when you sign in. |
+| `__stripe_mid` | Stripe.js | 12 months | `SameSite=Strict`, not `HttpOnly` | Stripe's fraud-prevention device identifier. **Set on every page**, because Stripe.js is loaded site-wide for the embedded checkout — including pages where you are not paying. |
+| `__stripe_sid` | Stripe.js | 30 minutes | `SameSite=Strict`, not `HttpOnly` | Stripe's short-lived counterpart to the above. |
+
+If you are not signed in and Stripe.js is blocked, the site sets **no cookies at all**. We do
+not use advertising cookies, and we run no third-party analytics.
+
+**Third-party cookies.** Nothing third-party is set while you browse. When you actually open
+the checkout, Stripe's embedded iframe — and the hCaptcha challenge it uses for bot and risk
+detection — set their own cookies in that iframe's own context: `m` on `m.stripe.com`, and
+`__cf_bm`, `hmt_id` and `__cflb` on `hcaptcha.com`. Those are set by Stripe in its own
+context rather than by us on our domain, and they do not follow you around our site; but they
+are not nothing, so they are listed here.
+
+**Do we need a consent banner?** Every cookie above is **strictly necessary** for something
+you asked for: `octav_session` to stay signed in, the two Stripe cookies to take a payment
+safely, and the checkout-flow cookies to process that payment at all. There is no advertising
+or analytics cookie to opt into, so there is nothing to consent to. [[Counsel to confirm one
+point, because it is an argument we could lose: `__stripe_mid` and `__stripe_sid` are set on
+**every page**, not only on the pages where a payment is being made, which weakens the
+"essential to the service you requested" position. The fix is technical and small — load
+Stripe.js only on `/pricing` and `/account` (one script tag in `src/app/layout.tsx`, already
+listed as optional polish in `STRIPE_INTEGRATION_TODO.md` §8) — and it would let this section
+be simpler and the strictly-necessary claim much stronger. Decide before publishing this
+section, and keep it in step with whatever the browser actually does.]]
+
+**How this was measured, so it can be re-checked:** `node scripts/verify-checkout-cookies.mjs`
+drives a real Chromium against the live origin with the `js.stripe.com` request blocked and
+then allowed, and against a local server with a real test-mode checkout mounted, printing
+`document.cookie` and the full cookie jar at each step. Run on **2026-09-15**: zero cookies
+signed out with Stripe.js blocked; `__stripe_mid`/`__stripe_sid` present on `/pricing` *and*
+on the homepage once Stripe.js loads; no further first-party cookie when the checkout mounts;
+third-party cookies only inside the checkout. **Re-run it after any change to payments,
+analytics or the script tags, and update the table above.**
+
+Theme preference and offline progress use `localStorage`, described in §3.3 — that is not a
+cookie and is not sent to us.
 
 ### 13. Automated processing and AI
 
@@ -359,9 +391,8 @@ takes effect. Previous versions are kept so you can see what changed and when.
 
 ### 15. Contact
 
-[[FULL LEGAL NAME]], trading as Octav Learning
-[[BUSINESS ADDRESS]]
-Hong Kong
+Octav Learning
+Central, Hong Kong
 
 Privacy contact (no DPO has been appointed; this is the data controller directly):
 info@octavlearning.com
@@ -404,10 +435,15 @@ ones that can fail an audit.
    the configured provider; if the provider can change without notice, either name the current
    one in-app or keep a dated list. Either way the user must be able to find out who receives
    their answer text — and if the answer is "a provider in the PRC", say so.
-8. **Verify the cookies (§12) — the one factual claim that failed today's re-check.** A real
-   browser, a real checkout, `document.cookie` before/during/after, plus the Stripe.js and
-   Link network traffic. Rewrite §12 around what is actually set; do not publish the current
-   sentence.
+8. **Verify the cookies (§12)** — **done 2026-09-15** with
+   `node scripts/verify-checkout-cookies.mjs`, and **the claim failed**: Stripe.js sets
+   `__stripe_mid` (12 months) and `__stripe_sid` (30 minutes) on our own domain on **every
+   page**, not only at checkout, on top of our own `octav_session`. §12 has been rewritten
+   around the measurement, including the third-party cookies that appear inside the checkout
+   iframe (`m.stripe.com`, hCaptcha). **Follow-up worth doing before publishing:** scope the
+   Stripe.js `<script>` in `src/app/layout.tsx` to `/pricing` + `/account`, which confines
+   those cookies to the payment pages and makes the strictly-necessary argument much
+   stronger (and §12 simpler). Whatever is decided, re-run the script and update the table.
 9. **Publish route.** A `/privacy` page linked from the footer, the signup screen, the
    checkout screen and the account page; sitemap/indexable per the SEO conventions in
    `src/lib/seo/*`. The checkout link is a **Dashboard setting** (Stripe → Settings →
