@@ -21,32 +21,55 @@ import type { ReactNode } from 'react';
 // If the documents ever need richer formatting, replace this with a real markdown
 // dependency rather than extending the parser.
 
-const INLINE =
-  /\[\[([^\]]*)\]\]|\*\*([^*]+)\*\*|`([^`]+)`|\[([^\]]+)\]\(([^)]+)\)|<((?:https?):\/\/[^>]+)>|\*([^*]+)\*/g;
+// Installed per call by inline() below — see the note there on recursion.
+//
+// LIMITATION worth knowing before you nest any markup: `**bold**` cannot wrap a code span
+// that itself contains an asterisk, because the bold pattern's content is `[^*]+` and stops
+// at the `*`. The one place this bit us is the statement descriptor `LINK.COM*` — a code span
+// there must NOT be bolded (it renders as literal `**` plus a stray backtick). The unit test's
+// backtick needle catches the symptom.
+const INLINE_SOURCE =
+  /\[\[([^\]]*)\]\]|\*\*([^*]+)\*\*|`([^`]+)`|\[([^\]]+)\]\(([^)]+)\)|<((?:https?):\/\/[^>]+)>|\*([^*]+)\*/;
 
 /** Bold, code, links, italics. `[[ … ]]` renders as plain text: it must never appear
  *  in a published document, and the unit test is what enforces that (rendering it
- *  prominently here would decorate a defect instead of hiding it). */
+ *  prominently here would decorate a defect instead of hiding it).
+ *
+ *  A FRESH regex per call, deliberately. This function recurses — bold containing code
+ *  or a link is normal legal copy — and a shared module-level `/g` regex would have its
+ *  `lastIndex` clobbered by the inner call, which skips or repeats text with no error.
+ *  (The first shipped version did not recurse at all, so a bolded run containing code
+ *  rendered literal backticks.) */
 function inline(text: string, key: string): ReactNode[] {
   const out: ReactNode[] = [];
   let last = 0;
   let n = 0;
   let m: RegExpExecArray | null;
-  INLINE.lastIndex = 0;
-  while ((m = INLINE.exec(text)) !== null) {
+  const re = new RegExp(INLINE_SOURCE.source, 'g');
+  while ((m = re.exec(text)) !== null) {
     if (m.index > last) out.push(text.slice(last, m.index));
     const k = `${key}-${n++}`;
     if (m[1] !== undefined) {
       out.push(m[1]);
     } else if (m[2] !== undefined) {
+      // Recurse: bold containing code or a link is normal copy here, and the inner text
+      // cannot contain `*` (the pattern forbids it), so it cannot re-match this branch.
       out.push(
         <strong key={k} className="font-semibold text-gray-900 dark:text-gray-100">
-          {m[2]}
+          {inline(m[2], k)}
         </strong>
       );
     } else if (m[3] !== undefined) {
       out.push(
-        <code key={k} className="bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5 text-[0.85em]">
+        // break-words wraps a long token once its cell is already constrained (a URL,
+        // `SameSite=Strict`). What it does NOT do: overflow-wrap:break-word leaves
+        // min-content width unchanged, so it cannot make a table narrower — that is why
+        // the §12 table was cut to four columns instead. If a table must shrink further,
+        // `[overflow-wrap:anywhere]` (or fewer columns) is the mechanism, not this class.
+        <code
+          key={k}
+          className="bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5 text-[0.85em] break-words"
+        >
           {m[3]}
         </code>
       );
@@ -87,7 +110,12 @@ export function legalBody(markdown: string, title: string): string {
   const start = markdown.indexOf(`## ${title}`);
   const end = markdown.indexOf('## Before publication');
   const body = markdown.slice(start === -1 ? 0 : start, end === -1 ? undefined : end);
-  return body.replace(/^##\s+.*\n?/, '');
+  return body
+    .replace(/^##\s+.*\n?/, '')
+    // The `---` that separates the document from the checklist lands at the end of
+    // the slice, and renders as a hairline sitting right on top of the footer's own
+    // border — two parallel rules ~40px apart at the foot of every legal page.
+    .replace(/\n\s*---\s*\n?\s*$/, '\n');
 }
 
 export function LegalDocument({ source }: { source: string }) {
@@ -118,10 +146,18 @@ export function LegalDocument({ source }: { source: string }) {
       // readers, and worse than the page it replaced. Levels map down one step
       // because the page supplies the h1 (the document title).
       const Tag = level >= 4 ? 'h3' : 'h2';
+      // A long document needs a heading bigger than the body it introduces: at
+      // text-base a section heading was 2px larger than 14px prose, which across 16
+      // sections and ~40 run-in sub-parts reads as one continuous wall.
+      //
+      // `pt-4`, not `mt-8`: the container's `space-y-4` sets margins on every following
+      // sibling at higher specificity, so an mt-* here is dead code (it was, briefly) and
+      // every gap collapsed to a uniform 16px. Padding is untouched by space-y, so this is
+      // what actually produces the 32px break before a section.
       const cls =
         level >= 4
-          ? 'text-sm font-semibold text-gray-900 dark:text-gray-50 mt-5 mb-1'
-          : 'text-base font-semibold text-gray-900 dark:text-gray-50 mt-6 mb-2';
+          ? 'text-sm font-semibold text-gray-900 dark:text-gray-50 pt-2'
+          : 'text-lg font-semibold text-gray-900 dark:text-gray-50 pt-4';
       blocks.push(
         <Tag key={k++} className={cls}>
           {inline(text, `h${k}`)}
@@ -218,5 +254,7 @@ export function LegalDocument({ source }: { source: string }) {
     blocks.push(<p key={k++}>{inline(para.join(' '), `p${k}`)}</p>);
   }
 
-  return <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300">{blocks}</div>;
+  // space-y-4, not space-y-3: 12px between blocks is indistinguishable from the
+  // paragraph leading at 14px/20px, which flattens a 7,700px document into a wall.
+  return <div className="space-y-4 text-sm text-gray-700 dark:text-gray-300">{blocks}</div>;
 }

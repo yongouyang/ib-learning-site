@@ -71,8 +71,8 @@ By using the Service you accept these terms. If you do not accept them, do not u
 Service. **If you are under the age at which you can enter a contract in your country,
 a parent or guardian must accept these terms for you** (see §3.3).
 
-Our handling of personal data is described separately in our **Privacy Notice**
-(link), which forms part of these terms.
+Our handling of personal data is described separately in our [Privacy Notice](/privacy),
+which forms part of these terms.
 
 ### 2. Accounts
 
@@ -153,11 +153,10 @@ Australia it sends those notices before the 6- and 12-month anniversaries even w
 optional reminders are switched off. **It is your responsibility to keep that email address
 current.** We do not send a second, competing reminder.
 
-**4.4 Price changes.** We may change subscription prices. We will give you notice by
-email before a price change applies to you, and the change takes effect at your next
-renewal after the notice period. If you do not accept a price change, cancel before that
-renewal — the change does not affect a period you have already paid for. **We will give you at
-least 30 days' notice by email before a price change takes effect for you.**
+**4.4 Price changes.** We may change subscription prices. **We will give you at least 30 days'
+notice by email before a price change takes effect for you**, and the change applies from your
+next renewal after that notice. If you do not accept a price change, cancel before that
+renewal — the change does not affect a period you have already paid for.
 
 **4.5 Who you are buying from, and payment processing.** Payments are handled by **Stripe**,
 and we never see or store your card number.
@@ -167,8 +166,7 @@ practice that means:
 
 - at checkout, and on receipts, invoices and refund notices, the customer deals with
   **Link** (Stripe's consumer product), and a purchase appears as **"Sold through Link"**;
-- the charge on your statement appears as **`LINK.COM*`** followed by our statement
-  descriptor;
+- the charge on your statement appears as `LINK.COM*` followed by our statement descriptor;
 - **Stripe**, not us, handles payment- and subscription-related customer support, fraud
   prevention, disputes and chargebacks, and it can issue a refund without our approval in
   some cases (see §5.4);
@@ -399,8 +397,9 @@ not run its course, we will refund the unused part.
 ### 13. Changes to these terms
 
 We may update these terms to reflect changes in the Service, the law, or how we operate.
-The current version is always at (link). If a change materially affects your rights or
-your subscription, we will tell you by email or in-app before it takes effect, and if you
+The current version is always at [octavlearning.com/terms](/terms). If a change materially
+affects your rights or your subscription, we will tell you by email or in-app before it takes
+effect, and if you
 do not accept it you may cancel as described in §5 — the change will not apply to a
 period you have already paid for. Continuing to use the Service after a change takes
 effect means you accept the updated terms.
@@ -504,13 +503,26 @@ the top of this file); items 4–10 are what is left before publication.
     `src/app/pricing/page.tsx` (what is free, trial length), the Privacy Notice (processors,
     retention), and this file must not disagree about prices, quota numbers (30/month free,
     1000/month safety cap) or trial length (14 days).
+12. **Copy hygiene for the published slice — the defect class that blocked the first
+    publication attempt (2026-09-15).** Everything between the document heading and
+    `## Before publication` is shipped to users verbatim, so it must read as user-facing prose:
+    no `(link)` placeholders (use a real markdown link), no `checklist item N`, no `DPIA`/`TODO`,
+    no instructions to maintainers ("re-run the script", "see the method note below"), and no
+    `[[ … ]]`. `tests/unit/legal-pages.test.tsx` now fails on this whole class — if it fails,
+    fix the *document*, never the assertion.
 
 **Parity list — sentences that are currently aspirational, i.e. the Service does not do what
 the clause says.** Keep this list empty or keep the clause honest:
 
-1. §5.5 (item 4 above) — no consent is collected at checkout today.
+1. ~~§5.5 — no consent is collected at checkout~~ — **resolved 2026-09-15 by rewriting the
+   clause, not by building the step.** §5.5 no longer claims a recorded acknowledgment; it
+   honours the 14-day withdrawal right in full. Accepted consequence: a customer who cancels
+   inside 14 days gets a refund, which with a 14-day free trial is close to nil exposure. If a
+   consent step is ever built, switch §5.5 back to the waiver wording *and* check it is really
+   collected before publishing that claim.
 2. §11.3 / §11.4 — the cap and the business-use exclusions have not been reviewed by a
-   lawyer.
-3. §13 "the current version is always at (link)" — `/terms` still serves the old copy, so
-   there is no published version to point at yet.
-4. §4.4 — no price-change notice period is stated, so a price change has no defined notice.
+   lawyer. **They are published as drafted**, which was a conscious decision on 2026-09-15, not
+   an oversight.
+3. ~~§13 "the current version is always at …"~~ — linked to `/terms`. Superseded: before
+   publication this said there was no published version to point at.
+4. ~~§4.4 — no price-change notice period is stated~~ — **now states 30 days' email notice.**

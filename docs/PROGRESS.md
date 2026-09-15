@@ -4,6 +4,83 @@
 
 ---
 
+## 2026-09-15 — Legal pages live: `/privacy` created, `/terms` replaced (and the first review blocked them)
+Git HEAD: `91bbe9d` (develop, tree dirty)
+Done: Published both documents as real pages: `src/app/privacy/page.tsx` (**new** — the site had
+  **no** privacy notice while PROD has been taking real payments since that morning) and `/terms`
+  rewritten from the 53-line four-section page. Both render the reviewed markdown
+  (`docs/*.md`) verbatim through `src/components/LegalDocument.tsx` — one source of truth, so what
+  a lawyer reads is what ships — with `legalBody()` stripping the internal preamble and checklist;
+  footer links both pages; `/privacy` added to `coreEntries()`; the throwaway preview routes and
+  draft renderer deleted (`/preview/*` now 404s). **All 11 drafted open items resolved for
+  publication:** 9 by drafting (30-day price-change notice; liability cap published as drafted; HK
+  law + consumer carve-out; §4.5 keeps Stripe's documented facts without my legal
+  characterisation; privacy §5.4/§12 facts kept) and 2 by decision — **§5.5 now honours the 14-day
+  withdrawal right in full** instead of claiming a consent step nothing performs, and **the Art 27
+  representative is omitted rather than claimed**. Two flags became facts: **§9 states there is no
+  backup/PITR at all** (verified: no `point_in_time_recovery` and no AWS Backup plan on any
+  application table) and §8 names only instruments that exist (Resend SCCs; Stripe DPA + Data
+  Transfers Addendum + EU–US DPF; AWS DPA) while saying plainly the PRC AI-marking transfer has
+  none.
+Verified: unit **1369/1369**, tsc clean, lint **29 problems / 0 errors** (the pre-existing count,
+  unchanged); `build:static` + `verify:sitemaps` → *"verify ok: 335 sitemap URLs all live +
+  indexable; 335 indexable pages all submitted, titles unique; 550 noindex excluded"* (334→335 is
+  `/privacy`); both pages prerender (`out/privacy.html` 138KB, `out/terms.html` 107KB) and
+  `/privacy` is in `core.xml`. **The first UX review BLOCKED with four P1 copy defects** — two
+  literal `(link)` placeholders live on `/terms`, plus an internal `DPIA`/`checklist item 2`
+  sentence and a maintainer runbook in `/privacy` §12 — and two same-class P2s (`checklist item 4`,
+  an "open item" aside). All fixed; the runbook **moved** into the internal checklist (privacy item
+  13); a copy-hygiene item added to the Terms checklist (item 12); `tests/unit/legal-pages.test.tsx`
+  extended to fail on that whole class. **Rewriting §5.5 briefly introduced a fresh false claim**
+  ("the marking screen tells you…") — caught by grepping the UI *before* publishing, and replaced
+  with what the marking call actually sends (question, markscheme, model answer, answer text, no
+  identity: `src/lib/feedback/openai-compatible.ts`); the absent in-app note is now a recorded
+  to-do. **Two tables overflowed 375px, not the one the reviewer estimated** (measured: §7
+  processors 399/343, §12 cookies 413/343 — the last column was unreachable without a swipe):
+  cookies is now 4 columns, the processors code span is gone, `code` spans are `break-words`, and
+  all six tables measure 343/343 with no page-level horizontal scroll. Renderer defects found by the
+  capture and the review: headings were styled `<p>`s so the published pages had **no `h1`/`h2` at
+  all** (the capture's `getByRole('heading')` wait is what caught it), `h2` too flat for a 7,700px
+  document (`text-lg mt-8`), `space-y-3`≈line-height (`space-y-4`), and an orphan trailing `<hr>` on
+  every legal page. Second review pass on the corrected pages: **OK with notes** — all four P1s
+  independently verified fixed (each reproduced), and it found two more residues of the same
+  class. **Both taken:** §5.4's published heading carried "(decided 2026-09-15)", and the bold
+  branch did not recurse, so `**Set only on `/pricing` …**` rendered literal backticks — the
+  recursion had to instantiate the regex PER CALL, because a shared module-level `/g` regex has
+  its `lastIndex` clobbered by the inner call (the reviewer's one-line suggestion would have
+  introduced silent text loss). Closing that exposed a third case the new `'`'` needle caught:
+  the statement descriptor `LINK.COM*` is a code span **containing an asterisk** wrapped in bold,
+  which `**([^*]+)**` cannot span — fixed in the copy and documented as a parser limitation.
+  Also taken from the same pass: §4.4 stated the price-change rule twice (the first time without
+  the 30-day minimum); the h2 `mt-8` was **dead code** (`space-y-4` outranks it — specificity
+  0,3,0 vs 0,1,0) so section breaks now come from `pt-4`; and the `break-words` comment overstated
+  the property (it cannot reduce min-content width — cutting the table to four columns is what
+  fixed the overflow). Guard needles added: `'`'`, `'decided 2026'`, `'**'`, and a failure now
+  reports *where* it found the leak. **Final local gates: unit 1369/1369, tsc clean, lint 29
+  problems / 0 errors, `build:static` + `verify:sitemaps` green (335 indexable, titles unique),
+  10 fresh artefacts.** **A third review pass was NOT run** — the changes since the second pass
+  are copy edits plus one CSS class, checked mechanically instead (0 backticks, 0 stray `**`,
+  h2 padding-top 16px computed, 0 overflowing tables on either page). That is stronger evidence
+  than a screenshot for these specific claims, but it is not a fresh reviewer's eyes and should
+  not be recorded as one.
+Next: (1) push → `deploy-dev`, then confirm `/privacy` is live and in the sitemap at the edge.
+  (2) USER: put the Terms + Privacy URLs in **Stripe → Settings → Checkout** (pre-contractual
+  information belongs at checkout — a Dashboard setting, no code) and consider a signup-screen
+  link (the footer already shows both there). (3) Counsel still owed: the liability cap, governing
+  law, §4.5's characterisation, the 30-day notice — **the published text carries positions counsel
+  has not seen**, which was the deliberate trade for closing the Art 13 gap while payments are
+  live. (4) Unmet obligations now tracked in the documents' own checklists: EU/UK Art 27
+  representative, a DPA with the PRC AI provider, the in-app "no personal details" note, the DPIA.
+  (5) Ops call: enable DynamoDB PITR — today a bad write has no recovery path, and §9 says so
+  publicly. (6) Standing queue: illustrations 106, traffic/SEO depth, content depth.
+Notes: the documents are now the *published* source of truth, so a copy edit there ships to users:
+  re-run the gates (`npm test` covers the clause-loss and internal-register classes) and
+  `node scripts/capture-legal-ux.mjs` (it accepts `--base=` to reuse a running dev server, because
+  Next 16 refuses a second one for the same directory). The interim `...-draft.md` filenames are
+  kept on purpose — the preamble flags them as published and the checklist is the work queue.
+
+---
+
 ## 2026-09-15 — Stripe.js scoped out of the root layout (the cookie leak closed)
 Git HEAD: `ce96290` (develop, tree dirty)
 Done: `src/app/layout.tsx` no longer carries the `js.stripe.com` script. `ensureStripeScript()`

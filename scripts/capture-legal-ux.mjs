@@ -104,7 +104,14 @@ try {
       await page.evaluate((t) => localStorage.setItem('iblearn-theme', t), theme);
       await page.goto(`${BASE}/privacy`);
       await page.getByText('These are all the cookies we set').first().waitFor();
-      const section = page.locator('div.overflow-x-auto').first();
+      // Target the COOKIES table by its content, not `.first()`: there are six
+      // overflow-x-auto wrappers on this page and the first is §3.1's data table, so
+      // the close-up was of the wrong table — the one construct these artefacts exist
+      // to check (a 4-column table at 375px) went unphotographed.
+      const section = page
+        .locator('div.overflow-x-auto')
+        .filter({ has: page.locator('table', { hasText: 'octav_session' }) })
+        .first();
       await section.scrollIntoViewIfNeeded();
       await page.waitForTimeout(300);
       const file = `privacy-cookie-table-mobile-${theme}.png`;

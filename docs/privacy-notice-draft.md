@@ -152,7 +152,7 @@ for what is entered into that profile.
 stage, and their study activity. We do not ask for a child's email address, date of birth,
 school or address.
 
-**5.4 Who may hold an account (decided 2026-09-15).** **An account must be held by someone
+**5.4 Who may hold an account.** **An account must be held by someone
 aged 16 or over, or by a parent or legal guardian on a younger student's behalf**, and a
 student under 16 uses the Service through a child profile inside that adult's account. The
 same rule is stated in §3.3 of our Terms of Use.
@@ -163,9 +163,10 @@ confirmation turns out to be untrue. We state the model rather than implying a c
 perform.
 
 **5.5 AI marking and children's free text.** Answers a child submits are sent to a
-third-party AI provider (§6.3, §7). Because that is free text written by a child, it must
-be covered by the DPIA in checklist item 2, and the in-app prompt should tell the user not
-to include personal details.
+third-party AI provider (§6.3, §7). What we send is the question, the markscheme or model
+answer and the text of the answer — **no name, no email address, nothing that identifies the
+child.** It is still free text written by a child, so please do not put personal details in an
+answer: that text leaves our system and we cannot recall it once it has.
 
 **5.6 The leaderboard is opt-in and off by default.** It shows a generated or chosen
 handle and a score, not a real name, and is never enabled for a child profile unless the
@@ -214,7 +215,7 @@ by a data-processing agreement and may use your data only to provide its service
 | **Amazon Web Services** (`ap-east-1` — Hong Kong) | Hosting: static site delivery (S3 + CloudFront), and the databases and functions behind accounts, progress, analytics, leaderboard, contact and subscriptions | Everything we hold, at rest and in transit |
 | **Resend** | Delivers sign-in codes and service emails | Your email address and the content of the email |
 | **Stripe** (and its consumer product **Link**) | **Merchant of record** for Managed Payments transactions: checkout, billing, invoices, receipts, trial and renewal emails, refunds, disputes, fraud prevention and payment support. Because it is the merchant of record it is **not merely our processor** for the payment itself — Stripe's and Link's own terms and privacy notice govern that part of the transaction (§4.5 of the Terms of Use). | Your email address, name, billing address, payment method details, subscription state, and the transaction history Link keeps so you can manage orders at <https://link.com>. You can also ask Stripe to delete your transaction data and Link account: that cancels any subscription and prompts Stripe to tell us. |
-| **AI marking provider** (`OPENAI_COMPATIBLE_BASE_URL`; **currently DeepSeek, a provider established in the PRC**) | Generates the feedback for "Mark with AI" | The question, markscheme/model answer and your answer text — never your identity |
+| **AI marking provider** — the AI service we use; **currently DeepSeek, a provider established in the PRC** | Generates the feedback for "Mark with AI" | The question, markscheme/model answer and your answer text — never your identity |
 | **Cloudflare Email Routing** | Forwards mail sent to our `info@` address | Sender address and message content |
 | **GitHub** | Code hosting and automated deployment. No customer data is stored here. | Build and deployment metadata only |
 | **IndexNow / search engines** | Tells search engines when pages change, so new content can be found | URLs only |
@@ -226,7 +227,7 @@ and your data would remain subject to this notice.
 
 The AI provider row above matters more than its one line suggests: **answer text written by a
 child leaves Hong Kong for a provider in the PRC**, which is the most sensitive transfer in
-this notice. See §8, and checklist item 4.
+this notice. See §8.
 
 **We do not sell personal data, and we do not share it with advertising networks or data
 brokers.**
@@ -245,8 +246,7 @@ and what covers them:
 1. **To the AI provider, currently DeepSeek, established in the PRC** — the free-text answer
    of a child (§6.3). Because no adequacy decision covers the PRC, this is the transfer a parent
    is most likely to ask about. It is made under that provider's standard terms, and we do not
-   claim a data-processing addendum with that provider that we cannot point to. This transfer is
-   recorded as an open item and not a settled one.
+   claim a data-processing addendum with that provider that we cannot point to.
 2. **To the United States — Resend for email, and Stripe Payments Company where it is the
    acquiring entity** — covered by the **Standard Contractual Clauses** in Resend's
    data-processing addendum, and by Stripe's data-processing addendum and Data Transfers
@@ -316,20 +316,17 @@ relevant authority as required by law.
 
 ### 12. Cookies
 
-**These are all the cookies we set, measured rather than assumed** (see the method note
-below):
+**These are all the cookies we set:**
 
-| Cookie | Set by | Lifetime | Flags | Why it exists |
-|---|---|---|---|---|
-| `octav_session` | us | 30 days; cleared when you sign out | `HttpOnly`, `SameSite=Lax`, `Secure` over HTTPS | Keeps you signed in. Set only when you sign in. |
-| `__stripe_mid` | Stripe.js | 12 months | `SameSite=Strict`, not `HttpOnly` | Stripe's fraud-prevention device identifier. **Set only on `/pricing` and `/account`**, the two pages that can show a payment form. |
-| `__stripe_sid` | Stripe.js | 30 minutes | `SameSite=Strict`, not `HttpOnly` | Stripe's short-lived counterpart to the above. |
+| Cookie | Set by | Lifetime | Why it exists, and its flags |
+|---|---|---|---|
+| `octav_session` | us | 30 days; cleared when you sign out | Keeps you signed in. `HttpOnly`, `SameSite=Lax`, `Secure` over HTTPS. Set only when you sign in. |
+| `__stripe_mid` | Stripe.js | 12 months | Stripe's fraud-prevention device identifier. `SameSite=Strict`, not `HttpOnly`. **Set only on `/pricing` and `/account`**, the two pages that can show a payment form. |
+| `__stripe_sid` | Stripe.js | 30 minutes | Stripe's short-lived counterpart to the one above. `SameSite=Strict`, not `HttpOnly`. |
 
 **On every other page — the notes, the quizzes, the exams, the homepage — the site sets no
 cookies at all unless you are signed in**, in which case only `octav_session`. We do not use
-advertising cookies and we run no third-party analytics. (Until 2026-09-15 Stripe.js was loaded
-site-wide, so the two Stripe cookies appeared on every page for every visitor. That is fixed —
-see the measurement below, which records both states.)
+advertising cookies and we run no third-party analytics.
 
 **Third-party cookies.** Nothing third-party is set while you browse. When you actually open
 the checkout, Stripe's embedded iframe — and the hCaptcha challenge it uses for bot and risk
@@ -342,17 +339,6 @@ are not nothing, so they are listed here.
 you asked for: `octav_session` to stay signed in, the two Stripe cookies to take a payment
 safely, and the checkout-flow cookies to process that payment at all. There is no advertising or analytics cookie to opt into, so there is nothing to consent to, and
 we show no cookie banner.
-
-**How this was measured, so it can be re-checked:** `node scripts/verify-checkout-cookies.mjs`
-drives a real Chromium with the `js.stripe.com` request blocked and then allowed, against the
-live origin and against a local server with a real test-mode checkout mounted, printing
-`document.cookie` and the full cookie jar at each step. Measured **2026-09-15**: before the fix
-`__stripe_mid`/`__stripe_sid` appeared on the homepage; after it, `/` reports **no Stripe
-cookies** while `/pricing` and `/account` still do and the embedded checkout still mounts —
-exactly what the table above says. The check now **fails** if a page with no billing panel
-pulls Stripe.js, or if `/account` stops pulling it, so this section cannot silently drift back.
-**Re-run it after any change to payments, analytics or the script tags, and update the table
-above.**
 
 Theme preference and offline progress use `localStorage`, described in §3.3 — that is not a
 cookie and is not sent to us.
@@ -437,7 +423,11 @@ ones that can fail an audit.
    checkout screen and the account page; sitemap/indexable per the SEO conventions in
    `src/lib/seo/*`. The checkout link is a **Dashboard setting** (Stripe → Settings →
    Checkout accepts custom terms-of-service and privacy URLs), not code. Note that
-   `src/app/layout.tsx` currently links only `/terms` in the footer.
+   `src/app/layout.tsx` now links **both** `/terms` and `/privacy` in the footer, and
+   `/privacy` is in `coreEntries()` of `scripts/generate-sitemaps.ts`. **Still missing, and
+   legally the more important half:** a link on the signup screen and at checkout (the
+   checkout link is a Stripe Dashboard setting — Checkout → custom terms-of-service and
+   privacy URLs), because that is where the email address and the payment are collected.
 10. **Appoint and name an EU and UK representative (§1) — STILL OPEN, and now deliberately
     NOT claimed in the published notice.** GDPR Art 27 and UK GDPR Art 27 require a
     representative in those territories for a controller established outside them. None is
@@ -451,3 +441,20 @@ ones that can fail an audit.
 12. **Consistency sweep** against `docs/terms-of-use-draft.md`, `docs/entitlement-policy.md`
     and `src/app/pricing/page.tsx` — student-data wording, quota numbers, trial length and the
     premium split must match everywhere.
+13. **The cookie table's source of truth (§12) — re-check it with
+    `node scripts/verify-checkout-cookies.mjs`.** That script drives a real Chromium with
+    `js.stripe.com` blocked and then allowed, against the live origin and against a local
+    server with a real test-mode checkout mounted, printing `document.cookie` and the full
+    cookie jar at each step. Measured 2026-09-15: before the Stripe.js scoping fix
+    `__stripe_mid`/`__stripe_sid` appeared on the homepage; after it `/` reports no Stripe
+    cookies while `/pricing` + `/account` still do and the checkout still mounts. The script
+    **fails** if a page with no billing panel pulls Stripe.js, or if `/account` stops pulling
+    it — so re-run it after any change to payments, analytics or the script tags, and update
+    the §12 table. *(This runbook used to sit inside §12 itself; it was moved here because a
+    published notice is not a place for maintainer instructions — see the copy-hygiene item at
+    the end of the Terms checklist.)*
+14. **Add the in-app note the notice used to promise.** §5.5 was drafted when an in-app prompt
+    on the marking screen was an intention (“the in-app prompt should tell the user not to
+    include personal details”); no such copy exists in the UI, so the published text now only
+    *advises* the reader. Adding that note to the marking screen is a small, real improvement
+    in a children's product that sends free text to a third party.
