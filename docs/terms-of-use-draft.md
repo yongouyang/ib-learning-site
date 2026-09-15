@@ -1,21 +1,36 @@
 # Terms of Use — DRAFT (subscription-ready)
 
-> **Status:** draft for review, 2026-09-14. **Not published** — `/terms` still serves the
-> short pre-subscription copy in `src/app/terms/page.tsx`. Nothing in this file is wired
-> into the site.
+> **Status:** draft v2, 2026-09-15. **Not published** — `/terms` still serves the short
+> pre-subscription copy in `src/app/terms/page.tsx`. Nothing in this file is wired into the
+> site.
 >
-> **Not legal advice.** This is an engineering-authored draft with every decision point
-> marked `[[ ]]`. It needs a review by a qualified lawyer (HK-qualified, with a look at
-> UK/EU consumer law) before it is published — the subscription clauses, the consumer
-> withdrawal handling, and the liability cap are exactly the parts that cannot be
-> self-drafted.
+> **Not legal advice.** Engineering-authored, with every remaining open point marked `[[ ]]`.
+> A HK-qualified lawyer (with a look at UK/EU consumer law) must still review §11.3 (the
+> liability cap), §14 (governing law) and §5.5 (how the withdrawal-right consent is actually
+> collected) before publication — those cannot be self-drafted.
 >
-> On publication the published copy replaces `src/app/terms/page.tsx`, and the same text
-> should be linked from the Checkout flow and the confirmation email so it is
-> pre-contractual information, not a footer link nobody reads.
+> **Decisions taken 2026-09-15** (this is why the text below reads as it does):
+> 1. **Contracting party: a sole proprietorship.** The individual trading as "Octav
+>    Learning", established in Hong Kong, replacing this with a HK limited company once
+>    revenue justifies incorporation. §15.3 already permits the transfer; checklist item 9
+>    is the swap procedure.
+> 2. **Refunds (§5.4):** refund on request within 14 days of a renewal charge.
+> 3. **Age (§3.3):** accounts are held by someone 16+ or by a parent/guardian for a younger
+>    student. No signup age gate — see the privacy notice, checklist item 1.
+> 4. **Withdrawal right (§5.5):** ask for express consent + acknowledgment at checkout.
+> 5. **Seller of record (§4.5, §9): documented, not inferred.** Managed Payments is on, so
+>    the customer transacts with **Link** and sees "Sold through Link"
+>    (<https://docs.stripe.com/payments/managed-payments/how-it-works>, read 2026-09-15).
+>    Counsel should still confirm how a consumer contract characterises that.
+>
+> On publication the published copy replaces `src/app/terms/page.tsx`, and the same text is
+> linked from the checkout flow and the confirmation email so it is pre-contractual
+> information, not a footer link nobody reads.
 
-Fill-ins: `[[LEGAL ENTITY]]`, `[[REGISTERED ADDRESS]]`, `[[JURISDICTION OF
-INCORPORATION]]`, `[[CONTACT EMAIL]]`, `[[EFFECTIVE DATE]]`, `[[LAST UPDATED]]`.
+Fill-ins still needed from the operator: `[[FULL LEGAL NAME]]` (the individual),
+`[[BUSINESS ADDRESS]]`, `[[EFFECTIVE DATE]]`, `[[LAST UPDATED]]`, and confirmation that
+**Hong Kong** is the country you are established in (it sets §14's governing law). The
+contact address is known and already filled in: `info@octavlearning.com`.
 
 ---
 
@@ -25,9 +40,13 @@ INCORPORATION]]`, `[[CONTACT EMAIL]]`, `[[EFFECTIVE DATE]]`, `[[LAST UPDATED]]`.
 
 ### 1. Who we are and what these terms cover
 
-Octav Learning ("we", "us", "our") is operated by [[LEGAL ENTITY]], a company
-incorporated in [[JURISDICTION OF INCORPORATION]] with its registered address at
-[[REGISTERED ADDRESS]]. You can contact us at [[CONTACT EMAIL]].
+Octav Learning ("we", "us", "our") is operated by [[FULL LEGAL NAME]], a sole proprietor
+established in Hong Kong with a business address at [[BUSINESS ADDRESS]]. You can contact us
+at info@octavlearning.com.
+
+We intend to bring the Service into a Hong Kong limited company as it grows. If that
+happens we will tell you by email or in-app before it does, the company will take over these
+terms unchanged, and this paragraph and §16 will name it. See §15.3.
 
 These terms are a legal agreement between you and us. They apply to the website at
 octavlearning.com, every subdomain of it (including dev.octavlearning.com), the
@@ -48,7 +67,7 @@ cross-device progress sync, exam and ladder history, the leaderboard, and AI mar
 
 **2.2** We sign you in with a one-time code emailed to the address you give us. You must
 give us an email address you actually control. You are responsible for everything done
-through your account, and you must tell us promptly at [[CONTACT EMAIL]] if you believe
+through your account, and you must tell us promptly at info@octavlearning.com if you believe
 someone else has access to it.
 
 **2.3 Parent and student accounts; child profiles.** One account may hold several
@@ -78,12 +97,18 @@ every paper set after the first free set per course, the upper revision-ladder l
 and timed mock mode. The current feature split is described on the pricing page; we may
 change *what is included in which tier* as described in §3.4.
 
-**3.3 Age.** The Service is designed for secondary-school students and is normally
-purchased by, or on behalf of, a parent or guardian. If you are below the age of
-majority where you live, you may only use the Service with the involvement of a parent
-or guardian who accepts these terms on your behalf, and **you may only start a Premium
-subscription if you are old enough to enter a contract where you live**. We may ask for
-confirmation of parental consent and may suspend an account if it is not given.
+**3.3 Age, and who may hold an account.** The Service is designed for secondary-school
+students. **An account must be held by someone aged 16 or over, or by a parent or legal
+guardian on a younger student's behalf.** A student under 16 uses the Service through a
+child profile inside an adult's account, not through an account of their own.
+
+By creating an account you confirm that you are 16 or over, or that you are the parent or
+legal guardian of every child profile you add and that you accept these terms for that
+child. **We do not currently verify age or ask for proof of parental consent at signup** — we
+rely on that confirmation, and we may ask for evidence and suspend an account if a
+confirmation turns out to be untrue. **You may only start a Premium subscription if you are
+old enough to enter a binding contract where you live**: a purchase by an under-16 is
+voidable by their parent or guardian, so buy it on the adult account.
 
 **3.4 Changes to the free and Premium split.** We may add, remove or move features
 between the free and Premium tiers. We will not move a feature you are paying for out of
@@ -93,12 +118,11 @@ described in §13.
 ### 4. Premium subscriptions, and what you are charged
 
 **4.1 Plans.** Premium is offered as a **monthly** or **annual** subscription, at the
-prices shown on the pricing page at the moment you order. Prices are in US dollars
-unless the checkout page says otherwise, and **exclude or include applicable taxes
-according to what the checkout page shows you at the time of purchase** — the amount you
-see before you confirm is the amount you are charged. [[Confirm with counsel how the
-checkout displays tax and who the seller of record is — see the review checklist, item
-1.]]
+prices shown on the pricing page at the moment you order. The list price is in US dollars;
+**the checkout may show it in your local currency and with tax added or included depending
+on where you are** — the amount shown immediately before you confirm is the amount you are
+charged. Taxes on the sale are calculated, collected, filed and remitted by Stripe as
+merchant of record (§4.5).
 
 **4.2 Free trial.** New subscriptions may start with a **14-day free trial**. **No
 charge is made during the trial**, but a payment method is collected when the trial
@@ -108,9 +132,12 @@ trial and you will not be charged; see §5.
 **4.3 Automatic renewal.** **Your subscription renews automatically** at the end of each
 billing period — monthly, or yearly for an annual plan — at the price in force, using the
 payment method on file, until you cancel. A renewal charge is taken on the day after the
-current period ends. We will remind you before a trial converts to a paid subscription
-and before a renewal charge is taken, using the email address on your account. **It is
-your responsibility to keep that email address current.**
+current period ends. **Stripe sends the reminder emails** — a trial-ending reminder (for any
+trial longer than 7 days, so our 14-day trial always gets one) and the upcoming-renewal
+notice — from Link, to the address on your subscription; for customers in the UK and
+Australia it sends those notices before the 6- and 12-month anniversaries even when the
+optional reminders are switched off. **It is your responsibility to keep that email address
+current.** We do not send a second, competing reminder.
 
 **4.4 Price changes.** We may change subscription prices. We will give you notice by
 email before a price change applies to you, and the change takes effect at your next
@@ -118,13 +145,31 @@ renewal after the notice period. If you do not accept a price change, cancel bef
 renewal — the change does not affect a period you have already paid for. [[Notice period
 to be set with counsel: 30 days is the safe default; some jurisdictions require more.]]
 
-**4.5 Payment processing.** Payments are handled by **Stripe**. We never see or store
-your card number. Your payment details are provided directly to Stripe and are governed
-by Stripe's own terms and privacy policy. [[Confirm with counsel: under Stripe Managed
-Payments, Stripe is the merchant of record for indirect tax and (depending on
-configuration) may be the seller of record on the customer's statement and invoice. If
-so, this clause and §9 must say plainly who the customer is buying from. Do not publish
-this section before that is settled.]]
+**4.5 Who you are buying from, and payment processing.** Payments are handled by **Stripe**,
+and we never see or store your card number.
+
+**Managed Payments is enabled, which makes Stripe the merchant of record for the sale.** In
+practice that means:
+
+- at checkout, and on receipts, invoices and refund notices, the customer deals with
+  **Link** (Stripe's consumer product), and a purchase appears as **"Sold through Link"**;
+- the charge on your statement appears as **`LINK.COM*`** followed by our statement
+  descriptor;
+- **Stripe**, not us, handles payment- and subscription-related customer support, fraud
+  prevention, disputes and chargebacks, and it can issue a refund without our approval in
+  some cases (see §5.4);
+- you can view and manage orders, cancel or change a subscription and update your card at
+  <https://link.com> as well as through your account page with us (§5.1);
+- the transaction is acquired by Stripe Payments Company or Stripe Technology Europe,
+  Limited.
+
+The consequence for you: **the payment itself is a contract with Stripe**, governed by
+Stripe's and Link's own terms and privacy policy, while this agreement governs the study
+Service we provide. Indirect taxes on the sale (sales tax, VAT, GST) are calculated,
+collected, filed and remitted by Stripe as merchant of record. [[Counsel to confirm this
+characterisation in a consumer contract. The facts above are quoted from Stripe's own
+documentation (read 2026-09-15), not inferred — but "who is the seller" for consumer-law
+purposes is a legal question, not a copy question. Checklist item 1.]]
 
 **4.6 Failed payments.** If a renewal payment fails we will email you and retry. Premium
 features may be suspended while a payment is outstanding and restored once it succeeds.
@@ -136,9 +181,11 @@ later month, it ends on the last day of that month.
 
 ### 5. Cancelling and refunds
 
-**5.1 How to cancel.** You can cancel at any time, yourself, from the billing section of
-your account page — no email, no phone call, no reason required. You will be taken to
-Stripe's customer portal to confirm. We do not require you to contact us to cancel.
+**5.1 How to cancel.** You can cancel at any time, yourself, from the billing section of your
+account page — no email, no phone call, no reason required; Stripe's customer portal confirms
+it. Because Stripe is the merchant of record (§4.5) you can also manage or cancel the
+subscription directly at <https://link.com> using the same email address. **We do not require
+you to contact us to cancel**, and cancelling by either route stops the next renewal.
 
 **5.2 What cancelling does.** Cancelling **stops the next renewal**. It does not
 immediately end the subscription: Premium features stay available until the end of the
@@ -150,22 +197,34 @@ never charged again.**
 no charge is made at all. The trial simply ends; Premium features stay available until
 the trial's original end date.
 
-**5.4 Refunds.** [[Decision required — see checklist item 2.]] Our intended policy is:
-**cancel any time; refund on request within 14 days of a renewal** — i.e. we would rather
-refund a renewal than argue about it. This is intended as a minimum on top of, not a
-replacement for, any statutory rights.
+**5.4 Refunds.** **Our policy: cancel at any time, and ask us for a refund within 14 days of a
+renewal charge and we will refund it** — we would rather refund a renewal than argue about
+it. That is a minimum on top of, not a replacement for, your statutory rights (§5.5).
+
+Because Stripe is the merchant of record, refund requests also reach Stripe: a customer can
+ask [Link support](https://support.link.com/topics/sold-through-link) for a refund, Stripe may
+issue one without our approval, and it can refund a transaction up to 60 days old in certain
+cases. When a refund is issued the indirect tax the customer paid is included in it, although
+Stripe may be required to remit the original tax in some jurisdictions and will reduce our
+balance accordingly. **A refund does not by itself cancel a subscription** — cancel as
+described in §5.1 as well, or it will renew.
 
 **5.5 Your statutory cancellation rights.** If you are a consumer in the UK, the EU/EEA,
 or another jurisdiction that grants a cooling-off right for distance purchases, you have
-a legal right to cancel within 14 days of a distance contract. Digital services are
-subject to a specific rule: that right is lost when you begin to use the digital content
-with your express consent and acknowledgment that you lose the right. [[Decision
-required — see checklist item 3: whether we (a) ask for the express consent +
-acknowledgment at checkout so the statutory right is waived on immediate access — the
-normal approach for a service with a free trial — or (b) do not ask, and therefore
-honour the 14-day withdrawal right in full. Either way the chosen wording must appear at
-checkout, not only here.]] Nothing in these terms limits any right to a refund you have
-under the mandatory consumer law of your country of residence.
+a legal right to cancel within 14 days of a distance contract. For digital content and
+services that right is lost once performance begins with your **express consent and your
+acknowledgment that you lose it**. That is the model we use:
+
+**At checkout you are asked to confirm that you want immediate access and that you understand
+you lose the 14-day right to cancel by taking it. That confirmation is recorded, and the
+record is your acknowledgment for this clause.** You are not refused if you do not give it:
+the right stays available in full, you may cancel within 14 days of the order, and we will
+refund it under §5.4. [[Counsel to confirm the mechanism — whether the consent must be a
+mandatory checkbox collected by us at checkout, or whether Link's standardised payment terms
+already carry it now that Stripe is merchant of record, and whether an unticked path is even
+reachable. **Today no consent is collected anywhere, so this clause is not yet true of the
+live Service** — checklist item 4.]] Nothing in these terms limits any right to a refund you
+have under the mandatory consumer law of your country of residence.
 
 **5.6 Our fault.** If we withdraw a Premium feature during a paid period and do not
 replace it with an equivalent, you may ask for a refund of the unused part of that
@@ -270,11 +329,14 @@ they are, may change or disappear, and may be less reliable than the rest of the
 
 The Service relies on third parties, including cloud hosting and databases, an email
 delivery provider, our payment processor, and an AI provider for the marking feature. We
-choose them carefully and describe them in the Privacy Notice. Their acts and omissions
-are outside our control, and the terms and privacy policies of those providers apply to
-their own parts of the Service. [[If counsel confirms Stripe is the seller of record
-under Managed Payments, this section must state clearly which parts of the transaction
-are contracted with Stripe rather than with us.]]
+choose them carefully and describe them in the Privacy Notice.
+
+**Which part you contract with whom:** the **payment and subscription** side of a Premium
+purchase — checkout, the charge, receipts and invoices, refunds, disputes and payment support
+— is contracted with **Stripe**, not with us (§4.5 explains how that appears to you).
+Everything else — the notes, quizzes, practice papers, AI marking and your account — is
+contracted with us under these terms. The acts and omissions of our providers are outside our
+control, and their own terms and privacy policies apply to their parts of the Service.
 
 ### 10. Disclaimers
 
@@ -344,17 +406,16 @@ effect means you accept the updated terms.
 
 ### 14. Governing law and disputes
 
-These terms are governed by the laws of **[[Hong Kong / the jurisdiction of
-[[LEGAL ENTITY]]]]**, and the courts of that jurisdiction have exclusive jurisdiction,
+These terms are governed by the laws of **Hong Kong**, and the courts of Hong Kong have
+exclusive jurisdiction,
 **except that (a) if you are a consumer resident elsewhere, you may also bring
 proceedings in the courts of your own country, and (b) nothing in this section deprives
 you of the protection of the mandatory consumer law of your country of residence.**
 
-Before starting formal proceedings, please write to [[CONTACT EMAIL]] — most problems are
+Before starting formal proceedings, please write to info@octavlearning.com — most problems are
 ordinary bugs and we would rather fix them. [[Counsel to confirm: whether exclusive
-jurisdiction and an HK governing-law clause are appropriate given the likely customer
-base in the UK/EU, and whether a consumer-facing carve-out in this exact form is
-sufficient.]]
+jurisdiction and a Hong Kong governing-law clause are appropriate given a likely customer base
+in the UK/EU, and whether a consumer-facing carve-out in this exact form is sufficient.]]
 
 ### 15. General
 
@@ -363,9 +424,11 @@ force.
 
 **15.2** Our failure to enforce a provision is not a waiver of it.
 
-**15.3** You may not transfer your rights under these terms. We may transfer ours to
-another business, and will tell you if we do; your rights are not reduced by the
-transfer.
+**15.3** You may not transfer your rights under these terms. We may transfer ours to another
+business — **including to a company we incorporate to carry on the Service, which we intend to
+do as it grows** — and will tell you by email or in-app before it happens. Your rights are not
+reduced by the transfer, the new operator takes these terms on unchanged, and the Privacy
+Notice will name it.
 
 **15.4** These terms, together with the Privacy Notice and the pricing information shown
 at checkout, are the entire agreement between us about the Service.
@@ -380,48 +443,76 @@ that our group companies and contractors may rely on §11.
 
 ### 16. Contact
 
-[[LEGAL ENTITY]]
-[[REGISTERED ADDRESS]]
-[[CONTACT EMAIL]]
+[[FULL LEGAL NAME]], trading as Octav Learning
+[[BUSINESS ADDRESS]]
+Hong Kong
+
+Contact: info@octavlearning.com
 
 ---
 
 ## Before publication — review checklist
 
-Work through these in order; the first three are the ones that must be settled *before*
-any real card is charged.
+Work through these in order. Items 1–3 were settled on 2026-09-15 (the decisions are at
+the top of this file); items 4–10 are what is left before publication.
 
-1. **Who is the seller of record?** Stripe Managed Payments is on, which makes Stripe
-   the merchant of record for indirect tax and gives them the fraud/dispute role.
-   Establish in writing (Stripe docs or support, not inference) whether a customer's
-   counterparty for the *payment* is Stripe or us, what appears on their statement and
-   invoice, and which entity's terms govern the payment. §4.5, §9 and the checkout-page
-   wording all depend on the answer, and getting it wrong is a chargeback and a tax
-   exposure, not a copy problem.
-2. **Refund policy (§5.4).** Decide and commit: "no refunds, cancel to stop renewal"
-   (common for monthly SaaS, and defensible) versus the drafted "refund on request within
-   14 days of a renewal" (friendlier, fewer disputes). Whichever is chosen must match
-   what the pricing page and `/account` say.
-3. **Statutory withdrawal right (§5.5).** Choose between asking for the express consent
-   + acknowledgment at checkout (waives the 14-day digital-content right, standard for a
-   trial) or honouring it in full. This decides whether Checkout needs an extra consent
-   checkbox and whether `custom_text`/consent wording must change in
-   `src/lib/subscriptions/stripe-rest.ts`.
-4. **Price-change notice period (§4.4)** and **renewal reminder wording** — align with
-   Stripe's own trial-will-end / upcoming-invoice emails so the customer does not get two
-   conflicting notices.
-5. **Tax display at checkout (§4.1).** With Managed Payments and automatic tax on, the
-   checkout shows tax-inclusive or tax-exclusive amounts depending on the customer's
-   location. The terms must not state a rule the checkout contradicts.
-6. **Liability cap (§11.3)** — confirm the number is enforceable against UK/EU consumers.
-7. **Governing law (§14)** — confirm HK exclusive jurisdiction plus the consumer carve-out
-   is appropriate for a UK/EU-majority customer base.
+1. ~~Who is the seller of record?~~ **Answered 2026-09-15, from Stripe's documentation
+   rather than inference** (`docs.stripe.com/payments/managed-payments/how-it-works`):
+   the customer sees **Link** as the merchant of record and purchases as "Sold through
+   Link", the statement reads `LINK.COM* …`, and Stripe owns payment support, refunds,
+   disputes and the tax filing. §4.5, §9 and §11 were rewritten from that. **Still open:**
+   counsel to confirm how a consumer contract characterises it ("the payment is a contract
+   with Stripe" is our reading, not a lawyer's), which is also what decides whether Link's
+   standardised checkout terms already carry the withdrawal-right consent — see item 4.
+2. ~~Refund policy~~ **Decided: refund on request within 14 days of a renewal charge**
+   (§5.4). Must be mirrored in `/pricing` and the `/account` billing copy.
+3. ~~Age model~~ **Decided: accounts 16+, or parent/guardian-held for younger students**
+   (§3.3). No signup age gate, and §3.3 says so plainly rather than implying a check we do
+   not perform. The matching privacy-notice clause is its checklist item 1.
+4. **Withdrawal-right consent (§5.5) — the one clause that is not yet true of the live
+   Service.** The decision is to collect express consent + acknowledgment at checkout, but
+   nothing collects it today, so §5.5 describes a step that does not happen. Two candidate
+   mechanisms: Stripe Checkout **`consent_collection` + `custom_text`** in
+   `src/lib/subscriptions/stripe-rest.ts`, or the **custom terms-of-service URL in
+   Dashboard → Settings → Checkout** (the checkout footer already displays standardised
+   payment terms and accepts our own ToS/privacy links — a Dashboard setting, no code).
+   Resolve with counsel *and* implement before publishing this clause; until then the
+   honest wording is standing item 1 in the parity list below.
+5. **Price-change notice period (§4.4)** and **renewal-reminder wording** — now that §4.3
+   states that Stripe/Link sends the reminders, §4.4 must not promise that *we* will, and
+   the notice period still needs a number (30 days is the safe default).
+6. **Liability cap (§11.3)** — the bigger question now that the contracting party is a
+   **sole proprietor**: the cap protects an individual's personal assets, so counsel should
+   confirm the number is enforceable against UK/EU consumers *and* whether incorporating
+   should be pulled forward before any real volume (see item 9).
+7. **Governing law (§14)** — Hong Kong law and exclusive HK jurisdiction plus the consumer
+   carve-out. Counsel to confirm this is appropriate for a UK/EU-majority customer base,
+   and whether an EU/UK consumer is better served by a closer forum.
 8. **Publish it in the right places.** Replacing `/terms` is necessary but not sufficient:
    the terms must also be reachable from the signup screen, the checkout screen and the
-   receipt email. Add the link at checkout when the consent wording is settled.
-9. **Versioning.** Record an effective date and keep prior versions; a paywalled product
-   needs to be able to show which terms a given subscription was sold under.
-10. **Consistency sweep** after publication: `docs/entitlement-policy.md` (tier split),
-    `src/app/pricing/page.tsx` (what is free, trial length), the Privacy Notice
-    (processors, retention), and this file must not disagree about prices, quota numbers
-    (30/month free, 1000/month safety cap) or trial length (14 days).
+   receipt email. The checkout link is a Dashboard setting (item 4); the receipt/invoice
+   emails are sent by Link, so confirm whether they carry our ToS link at all — if they do
+   not, the pre-contractual-information argument rests on the checkout page alone.
+9. **Incorporation is a planned event, not a hypothetical — prepare for the swap.** The
+   Terms must name the operator, so incorporating means editing §1, §15.3 and §16, the
+   Privacy Notice's controller clause, the Stripe account's business details, the AWS/domain
+   ownership, and the effective date. Decide the revenue threshold in advance, and enter the
+   company details in §16 on the day it happens rather than leaving the sole-proprietor
+   wording to drift.
+10. **Versioning.** Record an effective date and keep prior versions; a paywalled product
+    needs to be able to show which terms a given subscription was sold under. Prior versions
+    matter more than usual here precisely because the operator entity is expected to change.
+11. **Consistency sweep** after publication: `docs/entitlement-policy.md` (tier split),
+    `src/app/pricing/page.tsx` (what is free, trial length), the Privacy Notice (processors,
+    retention), and this file must not disagree about prices, quota numbers (30/month free,
+    1000/month safety cap) or trial length (14 days).
+
+**Parity list — sentences that are currently aspirational, i.e. the Service does not do what
+the clause says.** Keep this list empty or keep the clause honest:
+
+1. §5.5 (item 4 above) — no consent is collected at checkout today.
+2. §11.3 / §11.4 — the cap and the business-use exclusions have not been reviewed by a
+   lawyer.
+3. §13 "the current version is always at (link)" — `/terms` still serves the old copy, so
+   there is no published version to point at yet.
+4. §4.4 — no price-change notice period is stated, so a price change has no defined notice.

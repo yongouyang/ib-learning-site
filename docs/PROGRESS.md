@@ -4,6 +4,61 @@
 
 ---
 
+## 2026-09-15 — Legal docs: the four decisions applied, seller-of-record answered, one claim failed
+Git HEAD: `e43f42c` (develop, tree dirty)
+Done: Both documents existed already (previous session); this session applied the four
+  decisions and folded in newly-established facts. `docs/terms-of-use-draft.md` 454→518
+  lines, `docs/privacy-notice-draft.md` →426. **Decisions:** contracting party = **a sole
+  proprietor in Hong Kong** (individual trading as Octav Learning, to be replaced by a HK
+  limited company once revenue justifies it — §1/§15.3 now say so); **refunds** = refund on
+  request within 14 days of a renewal; **age** = accounts 16+ or parent/guardian-held, with
+  **no signup age gate** (stated honestly in both docs rather than implied); **withdrawal
+  right** = collect express consent at checkout. **Seller of record answered from Stripe's own
+  docs, not inferred** (`docs.stripe.com/payments/managed-payments/how-it-works`, read today):
+  the customer transacts with **Link**, purchases show as “Sold through Link”, the statement
+  reads `LINK.COM* …`, Stripe owns payment support / refunds / disputes / fraud / the tax
+  filing, and a customer can cancel or erase via link.com — which rewrote Terms §4.3/§4.5/§5.1/
+  §5.4/§9/§11, Privacy §7/§9. Also found: the checkout footer takes a **custom ToS + privacy
+  URL from Checkout settings** — a Dashboard setting, so the checkout links need no code.
+  `.gitignore`: `/.pi/tasks/` → **`/.pi/`** (that is why `?? .pi/delegate/` kept appearing).
+  Newly required *because* the controller is an individual in HK: **GDPR Art 27 + UK GDPR
+  Art 27 representatives** (none appointed — a real task, now Privacy checklist item 10), and
+  the **PRC transfer of children's free-text answers** (DeepSeek) called out as the most
+  sensitive transfer.
+Verified: **re-ran the documents' own checklist item 5 — every factual claim against the code
+  — and all but one hold**: 30/1000 AI quotas (`features.ts`), 14-day trial
+  (`STRIPE_TRIAL_DAYS`), free split = 1 paper set/course + ladder 1–2 (`exam-access.ts`),
+  TTLs 90d/400d analytics, 365d contact, leaderboard week-end +14d, 40d AI-mark bucket, 30d
+  sessions, cookie `HttpOnly; SameSite=Lax; Secure` (`auth/session.ts`), the three
+  `localStorage` keys. **One FAILED: Privacy §12's “we use one essential cookie”.** Stripe.js
+  is loaded from `js.stripe.com` on **every page** (`src/app/layout.tsx:93`) and Stripe
+  documents `__stripe_mid`/`__stripe_sid` fraud-prevention cookies set on the merchant's own
+  domain; nothing in the repo has ever read `document.cookie`, so the claim is untested. §12
+  now carries a must-not-publish-as-is flag plus the exact verification method (real browser +
+  real checkout, `document.cookie` before/during/after, reconciled against the Stripe.js/Link
+  traffic). Cross-reference audit of **every** “checklist item N” pointer after renumbering:
+  four were stale, all fixed. Placeholder sweep: only the operator's four facts remain
+  (`FULL LEGAL NAME`, `BUSINESS ADDRESS`, `EFFECTIVE DATE`/`LAST UPDATED`). **No `src/` change,
+  so no gate was re-run** (validate:content / audit / vitest / e2e unaffected — stated, not
+  implied).
+Next: (1) USER — the four facts, then `/privacy` + the real `/terms` can be built as pages.
+  (2) **Publish the privacy notice before the T&C** — it is the live Art 13 gap and only §5 and
+  §8 genuinely need counsel; the T&C's liability cap and governing law can wait. (3) Counsel:
+  liability cap (§11.3, bigger now that assets are personal), governing law (§14), the
+  withdrawal-consent mechanism, and the transfer instruments. (4) Verify the cookies (Privacy
+  item 8) and implement the checkout consent (Terms item 4) — §5.5 is not true of the live
+  Service until then, and PROD takes real payments as of today. (5) DPIA (Privacy item 2) and
+  the Art 27 representative (item 10). (6) Standing queue: illustrations 106, traffic/SEO
+  depth, content depth.
+Notes: **The Terms §11.3 cap now protects an individual's personal assets**, which is the
+  strongest argument for pulling incorporation earlier than “once revenue justifies it” — noted
+  in both checklists. The `[[ ]]` placeholders that remain are deliberate (set at publication),
+  not oversights; `.pi/` is ignored from this commit so the tree is clean. Both documents are
+  still **drafts and unpublished** — `/terms` still serves the old short page and `/privacy`
+  does not exist.
+
+---
+
 ## 2026-09-15 — Stripe go-live: `develop` → `main` promoted, live checkout in PROD
 Git HEAD: `0cce7de` (develop, tree dirty)
 Done: Fast-forwarded `main` to the DEV-verified `0cce7de` (`git push origin develop:main` →

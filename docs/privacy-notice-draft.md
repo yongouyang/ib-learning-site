@@ -1,27 +1,42 @@
 # Privacy Notice — DRAFT
 
-> **Status:** draft for review, 2026-09-14. **Not published** — there is currently
-> **no privacy policy anywhere on the site** (`/privacy` does not exist; the footer links
-> only `/terms`). That is a live gap: the Service already collects personal data
-> (email addresses, children's profile names, study records) and already sends free-text
-> answers to a third-party AI provider, and a privacy notice is a legal requirement for
-> UK/EU users under GDPR Art 13 and expected practice under HK PDPO (PCPD guidance on
-> personal data collection statements).
+> **Status:** draft v2, 2026-09-15. **Not published** — there is still **no privacy policy
+> anywhere on the site** (`/privacy` does not exist; the footer links only `/terms`). This is
+> the live legal gap, and it got sharper on 2026-09-15: **PROD now takes real payments.** The
+> Service already collects personal data (email addresses, children's profile names, study
+> records) and sends free-text answers to a third-party AI provider; a notice is required for
+> UK/EU users under GDPR Art 13 and expected under HK PDPO (PCPD guidance on personal data
+> collection statements). **Publishing this notice should not wait for the Terms to be
+> finalised** — §5 and §8 are the only sections that genuinely need counsel, and both can be
+> published with those flags resolved rather than the whole notice withheld.
 >
-> **Not legal advice.** Every decision point is marked `[[ ]]`. The two sections that
-> genuinely need a lawyer are §5 (children — this is a minors' product with an AI feature
-> that ingests free text, which is a DPIA trigger) and §8 (international transfers, since
-> the primary data store is in Hong Kong).
+> **Not legal advice.** Every remaining open point is marked `[[ ]]`. The two sections that
+> genuinely need a lawyer are §5 (children — a minors' product with an AI feature that
+> ingests free text, a DPIA trigger) and §8 (international transfers, since the primary data
+> store is in Hong Kong and the AI provider is in the PRC).
 >
-> **Accuracy is the whole point.** A privacy notice that does not match what the code
-> does is worse than none: it is evidence of a misrepresentation. §3, §6, §7 and §9 below
-> were written from the actual implementation (file paths given inline) and **every
-> processor, field and retention period must be re-checked against the code whenever any
-> of them changes.** A stale privacy notice is a defect to fix, not a document to leave
-> alone.
+> **Accuracy is the whole point.** A privacy notice that does not match what the code does is
+> worse than none: it is evidence of a misrepresentation. §3, §6, §7 and §9 were written from
+> the actual implementation (file paths inline) and **every processor, field and retention
+> period must be re-checked whenever any of them changes.** A stale notice is a defect to fix,
+> not a document to leave alone.
+>
+> **Decisions taken 2026-09-15:** (1) the controller is a **sole proprietor in Hong Kong**, to
+> be replaced by a HK limited company as revenue justifies it; (2) **age: accounts are 16+,
+> or parent/guardian-held for younger students, with no signup age gate** — §5.4 now states
+> that instead of leaving the model open; (3) the seller-of-record question is **answered from
+> Stripe's documentation** (§7), not inferred.
+>
+> **Verified 2026-09-15** (checklist item 5 — the full field/TTL re-check): the 30/1000 AI
+> quotas, the 14-day trial, the free split (1 paper set per course, ladder levels 1–2), the
+> 90d/400d analytics TTLs, 365d contact, leaderboard week-end +14d, the 40d AI-mark bucket,
+> the 30d sessions, `HttpOnly; SameSite=Lax; Secure` on the session cookie and the three
+> `localStorage` keys all still match the code. **One claim did not survive: §12's "one
+> essential cookie"** — see there.
 
-Fill-ins: `[[LEGAL ENTITY]]`, `[[REGISTERED ADDRESS]]`, `[[CONTACT EMAIL]]`,
-`[[DPO OR PRIVACY CONTACT]]`, `[[EFFECTIVE DATE]]`.
+Fill-ins still needed from the operator: `[[FULL LEGAL NAME]]`, `[[BUSINESS ADDRESS]]`,
+`[[EFFECTIVE DATE]]`. The privacy contact is `info@octavlearning.com`, already filled in
+below.
 
 ---
 
@@ -34,12 +49,21 @@ with, how long it is kept, and what you can ask us to do with it.
 
 ### 1. Who is responsible for your data
 
-[[LEGAL ENTITY]] ("we", "us", "our"), [[REGISTERED ADDRESS]], is the data controller —
-the organisation that decides why and how your personal data is used — for the Service at
-octavlearning.com and its subdomains.
+[[FULL LEGAL NAME]] ("we", "us", "our"), trading as Octav Learning, of [[BUSINESS
+ADDRESS]], Hong Kong, is the data controller — the person who decides why and how your
+personal data is used — for the Service at octavlearning.com and its subdomains. We have not
+appointed a data protection officer; privacy questions, requests and complaints go to the
+contact below and we aim to answer within 30 days.
 
-Privacy questions, requests and complaints: **[[DPO OR PRIVACY CONTACT]]**
-([[CONTACT EMAIL]]). We aim to answer any request within 30 days.
+We intend to bring the Service into a Hong Kong limited company as it grows. If we do, that
+company becomes the data controller, we will tell you before it happens, and this notice will
+name it. Your rights and the way we handle your data do not change because of it.
+
+**If you are in the UK, the EU or the EEA:** we are established outside the Union, so
+[[GDPR Art 27 and UK GDPR Art 27 require us to designate a representative in the EU and in the
+UK and to name them here with contact details. **Not yet appointed** — this is a live
+requirement and it arises directly from the controller being an individual established in Hong
+Kong. Checklist item 10.]]
 
 ### 2. The short version
 
@@ -133,14 +157,20 @@ for what is entered into that profile.
 stage, and their study activity. We do not ask for a child's email address, date of birth,
 school or address.
 
-**5.4 Age of consent.** [[Decision required — see checklist item 1.]] Where GDPR applies,
-the age at which a child can consent to an information-society service varies by country:
-13 in the UK, and between 13 and 16 in EU member states. Our current sign-in flow does not
-ask for an age and does not ask for verifiable parental consent, and neither GDPR Art 8
-nor the UK's Age Appropriate Design Code is satisfied by that alone. The options — an age
-gate at signup, a "parent's email" field for under-16s, or a documented decision to
-restrict accounts to 13+ / 16+ and state it in the terms — must be settled with counsel
-before this notice is published.
+**5.4 Who may hold an account (decided 2026-09-15).** **An account must be held by someone
+aged 16 or over, or by a parent or legal guardian on a younger student's behalf**, and a
+student under 16 uses the Service through a child profile inside that adult's account. The
+same rule is stated in §3.3 of our Terms of Use.
+
+**We do not verify age, and we do not ask for proof of parental consent, at signup** — we rely
+on the account holder's confirmation, and we may ask for evidence and close an account if a
+confirmation turns out to be untrue. We state the model rather than implying a check we do not
+perform. [[Counsel to confirm two things, both checklist items 1 and 2: (a) that relying on
+performance of a contract rather than consent is the right basis for the under-16s who use the
+Service through a parent-held account, given that GDPR Art 8's parental-consent rule attaches
+specifically to consent; and (b) that the ICO's Age Appropriate Design Code — which applies to
+services likely to be accessed by children in the UK whatever the lawful basis — is satisfied
+by the design as it stands, or which high-privacy defaults it calls for.]]
 
 **5.5 AI marking and children's free text.** Answers a child submits are sent to a
 third-party AI provider (§6.3, §7). Because that is free text written by a child, it must
@@ -193,16 +223,20 @@ by a data-processing agreement and may use your data only to provide its service
 |---|---|---|
 | **Amazon Web Services** (`ap-east-1` — Hong Kong) | Hosting: static site delivery (S3 + CloudFront), and the databases and functions behind accounts, progress, analytics, leaderboard, contact and subscriptions | Everything we hold, at rest and in transit |
 | **Resend** | Delivers sign-in codes and service emails | Your email address and the content of the email |
-| **Stripe** | Payment processing, subscription billing, invoices, trial and renewal emails | Your email address, name, billing address, payment method details, subscription state. **Under Stripe's Managed Payments product Stripe is the merchant of record for tax and handles payment-related tax compliance — see checklist item 3.** |
-| **AI marking provider** (configured as `openai-compatible`; currently DeepSeek) | Generates the feedback for "Mark with AI" | The question, markscheme/model answer and your answer text — never your identity |
+| **Stripe** (and its consumer product **Link**) | **Merchant of record** for Managed Payments transactions: checkout, billing, invoices, receipts, trial and renewal emails, refunds, disputes, fraud prevention and payment support. Because it is the merchant of record it is **not merely our processor** for the payment itself — Stripe's and Link's own terms and privacy notice govern that part of the transaction (§4.5 of the Terms of Use). | Your email address, name, billing address, payment method details, subscription state, and the transaction history Link keeps so you can manage orders at <https://link.com>. You can also ask Stripe to delete your transaction data and Link account: that cancels any subscription and prompts Stripe to tell us. |
+| **AI marking provider** (`OPENAI_COMPATIBLE_BASE_URL`; **currently DeepSeek, a provider established in the PRC**) | Generates the feedback for "Mark with AI" | The question, markscheme/model answer and your answer text — never your identity |
 | **Cloudflare Email Routing** | Forwards mail sent to our `info@` address | Sender address and message content |
 | **GitHub** | Code hosting and automated deployment. No customer data is stored here. | Build and deployment metadata only |
 | **IndexNow / search engines** | Tells search engines when pages change, so new content can be found | URLs only |
 
 We may also disclose data if compelled by law, to enforce our Terms of Use, to protect
 the rights and safety of users or the public, or as part of a reorganisation of the
-business — in which case we would tell you and your data would remain subject to this
-notice.
+business — including the incorporation described in §1 — in which case we would tell you
+and your data would remain subject to this notice.
+
+The AI provider row above matters more than its one line suggests: **answer text written by a
+child leaves Hong Kong for a provider in the PRC**, which is the most sensitive transfer in
+this notice. See §8, and checklist item 4.
 
 **We do not sell personal data, and we do not share it with advertising networks or data
 brokers.**
@@ -214,14 +248,26 @@ Our primary data store and application infrastructure are in **Hong Kong**
 Kingdom, the EU or elsewhere, so using the Service can involve transferring your data
 outside your country.
 
-[[Decision required — see checklist item 4.]] Where UK/EU GDPR applies to a transfer to a
-country without an adequacy decision (Hong Kong does not have one for the UK/EU), the
-transfer needs a lawful mechanism: an adequacy regulation, the UK International Data
-Transfer Agreement / EU Standard Contractual Clauses, or a valid derogation. Each
-provider's standard terms in §7 need to be checked for which mechanism they rely on, and
-that mechanism must be named here rather than described vaguely. The same exercise is
-needed under HK PDPO s.33 — **not yet in force in Hong Kong, but the PCPD expects
-equivalent safeguards and it could commence.**
+[[Operator/counsel: the instrument that actually covers each transfer must be named here
+before publication — checklist item 4.]] Where UK/EU GDPR applies to a transfer to a
+country without an adequacy decision (Hong Kong does not have one for the UK/EU), the transfer
+needs a lawful mechanism: an adequacy regulation, the UK International Data Transfer Agreement
+/ EU Standard Contractual Clauses, or a valid derogation. Each provider's standard terms in §7
+must be checked for which mechanism it relies on, and **that mechanism must be named here**
+rather than described vaguely. The transfers that actually matter, in order of sensitivity:
+
+1. **Hong Kong → PRC (the AI provider, currently DeepSeek)** — the free-text answer of a
+   child (§6.3). No adequacy decision, and this is the transfer a parent is most likely to
+   object to. It needs the chosen mechanism named, and it belongs in the DPIA.
+2. **Hong Kong → United States (Resend for email; Stripe Payments Company if it is the
+   acquiring entity)** — SCCs/IDTA plus a transfer-risk assessment.
+3. **Hong Kong → EU/UK (Stripe Technology Europe, if it is the acquiring entity)** — covered
+   by the EU's own framework where the processor is in the Union.
+
+The same exercise is needed under HK PDPO s.33 — **not yet in force in Hong Kong, but the PCPD
+expects equivalent safeguards and it could commence.** Finally, a controller established
+outside the UK/EU and offering services to people there must also have a **representative** in
+those jurisdictions; see §1 and checklist item 10.
 
 ### 9. How long we keep it
 
@@ -235,12 +281,12 @@ equivalent safeguards and it could commence.**
 | Leaderboard entries | Per weekly season; previous seasons expire about 14 days after the week ends. Opting out removes your row immediately. |
 | Analytics events | Raw events: 90 days. Daily aggregates: about 400 days. |
 | Contact-form messages | 365 days |
-| Billing and tax records | Held by Stripe, and by us as required by tax and accounting law |
+| Billing and tax records | Held by **Stripe**, as merchant of record, under its own notice and its own legal retention duties (we hold only the Stripe customer and subscription identifiers needed to know who is entitled to Premium). Deleting your Link account or asking Stripe to erase your transaction data cancels your subscription and does not depend on us. |
 | Rate-limit counters (including IP-keyed abuse counters) | Minutes to hours, expiring automatically |
 | Backups | Replaced on a rolling basis [[confirm the actual window with counsel — do not state a number we cannot verify]] |
 
 You can delete your account and its data yourself from your account page, or by asking
-us at [[CONTACT EMAIL]]. Deleting an account removes profiles, progress, exam and
+us at info@octavlearning.com. Deleting an account removes profiles, progress, exam and
 leaderboard records. We may keep limited records where the law requires it (for example
 tax records of a payment) or to establish, exercise or defend a legal claim.
 
@@ -259,7 +305,7 @@ You have the right to:
 - **complain** to a supervisory authority. In the UK that is the Information
   Commissioner's Office (ico.org.uk); in the EU/EEA, your national authority; in Hong
   Kong, the Privacy Commissioner for Personal Data (PCPD, pcpd.org.hk). We would prefer
-  you came to us first — write to [[CONTACT EMAIL]] — but you do not have to.
+  you came to us first — write to info@octavlearning.com — but you do not have to.
 
 We will respond within one month (HK PDPO: 40 days), and we will not charge you for a
 reasonable request.
@@ -281,15 +327,22 @@ relevant authority as required by law.
 
 ### 12. Cookies
 
-We use **one essential first-party cookie**: the session cookie that keeps you signed in.
-It is set when you sign in (or when a one-time code is exchanged) and cleared when you
-sign out. We do not use advertising cookies, third-party analytics cookies, or
-cross-site tracking cookies, and there is no cookie consent banner because there is
-nothing non-essential to consent to. **[[If Stripe's embedded checkout sets its own
-cookies on our pages, or if any advertising or third-party analytics is ever introduced,
-this section is no longer accurate and a consent mechanism becomes necessary — re-check
-at every payments or analytics change.]]** Theme preference and offline progress use
-`localStorage`, described in §3.3.
+We use **one essential first-party cookie**: the session cookie that keeps you signed in. It
+is set when you sign in (or when a one-time code is exchanged) and cleared when you sign out.
+We do not use advertising cookies, third-party analytics cookies or cross-site tracking
+cookies.
+
+**[[This section is not yet true, and must not be published as it stands.]]** Stripe.js is
+loaded from `js.stripe.com` on **every page of the site** (not only the pricing and account
+pages) because the embedded checkout needs it; Stripe documents `__stripe_mid` and
+`__stripe_sid` as fraud-prevention cookies that Stripe.js sets on the merchant's own domain.
+If those are being set here, this section's "one cookie" claim is wrong, and a cookie consent
+banner may still not be needed (strictly-necessary fraud prevention is exempt under PECR) but
+they must be **named**. Check with a real browser and a real checkout — read `document.cookie`
+on the origin before, during and after the payment flow, and reconcile the result with the
+Stripe.js and Link network traffic — then rewrite this section around what is actually set.
+Checklist item 8.]] Theme preference and offline progress use `localStorage`, described in
+§3.3.
 
 ### 13. Automated processing and AI
 
@@ -306,49 +359,68 @@ takes effect. Previous versions are kept so you can see what changed and when.
 
 ### 15. Contact
 
-[[LEGAL ENTITY]]
-[[REGISTERED ADDRESS]]
-Privacy contact: [[DPO OR PRIVACY CONTACT]] — [[CONTACT EMAIL]]
+[[FULL LEGAL NAME]], trading as Octav Learning
+[[BUSINESS ADDRESS]]
+Hong Kong
+
+Privacy contact (no DPO has been appointed; this is the data controller directly):
+info@octavlearning.com
 
 ---
 
 ## Before publication — review checklist
 
-A privacy notice is only worth publishing if it is true. Work through these; items 1–4
-are the ones that can fail an audit.
+A privacy notice is only worth publishing if it is true. Work through these; items 1–4 are the
+ones that can fail an audit.
 
-1. **Age and parental consent (§5.4).** Decide the model: age gate at signup, verifiable
-   parental consent for under-16s, or restricted to 13+/16+ with that stated in the
-   Terms. Today the flow does neither, and this is the single largest gap in the current
-   design. This decision also feeds §5.2, §5.3 and the Terms §3.3.
-2. **DPIA (data protection impact assessment).** Required here: children's data plus an
-   AI feature that processes free text. It should cover the AI-marking data flow, the
-   leaderboard's child-visibility question, and the analytics events. Keep the DPIA with
-   this notice so the two can be read together.
-3. **Who is the seller of record under Stripe Managed Payments** (also Terms checklist
-   item 1). It decides whether Stripe is a processor of ours or an independent controller
-   (or the merchant of record) for the payment transaction, and therefore what §7 must
-   say. This is not a wording preference — it changes the legal analysis.
-4. **Transfer mechanism (§8).** Name the actual mechanism per provider, and check each
-   provider's DPA is signed and current. Do not publish "we use appropriate safeguards";
-   name the instrument.
-5. **Re-verify the whole field list against the code** before publishing, and again after
-   any change to auth, progress, analytics, leaderboard, contact or subscriptions. The
-   sources used for §3–§9 are: `src/lib/auth/types.ts`, `src/lib/progress/*`,
+1. **Age and parental consent (§5.4)** — **decided 2026-09-15: accounts are 16+, or
+   parent/guardian-held for younger students, with no signup age gate.** What is left is the
+   confirmation, not the decision: that contract (not consent) is the right basis for the
+   under-16s reached through a parent-held account, and that the UK's Age Appropriate Design
+   Code is satisfied by the design as it stands. §5.2, §5.3 and the Terms §3.3 already match.
+2. **DPIA (data protection impact assessment).** Still required, and not started: children's
+   data plus an AI feature that processes free text. It should cover the AI-marking data flow
+   (including the PRC transfer), the leaderboard's child-visibility question and the analytics
+   events. Keep it with this notice so the two can be read together.
+3. **Who is the seller of record** — **answered 2026-09-15 from Stripe's documentation**
+   (`docs.stripe.com/payments/managed-payments/how-it-works`): Link is the merchant of record,
+   purchases show as "Sold through Link", and Stripe owns support, refunds, disputes and the
+   tax filing. §7 and §9 were rewritten from that. **What is left:** counsel to confirm whether
+   Stripe is a processor or an independent controller for that transaction — it changes the
+   analysis, not the wording.
+4. **Transfer mechanism (§8).** Name the actual instrument per provider and confirm each
+   provider's DPA is signed and current. Do not publish "we use appropriate safeguards". The
+   PRC transfer of children's answer text is the one to settle first.
+5. **Re-verify the whole field list against the code** — **done 2026-09-15**, results at the
+   top of this file. Sources: `src/lib/auth/types.ts`, `src/lib/progress/*`,
    `src/lib/analytics/http-handler.ts`, `src/lib/leaderboard/*`, `src/lib/contact/*`,
    `src/lib/subscriptions/*`, `terraform/modules/dynamodb/main.tf` (retention/TTLs),
-   `src/lib/auth/session.ts` (cookie).
-6. **Confirm the retention numbers (§9)** — in particular backups, and the interaction
-   between deleting an account and Stripe's own record-keeping duties (tax law may
-   require Stripe to keep invoice records; Stripe's notice, not ours, governs those).
-7. **Decide whether the AI provider can be named.** This draft names DeepSeek because
-   that is the configured provider (`OPENAI_COMPATIBLE_BASE_URL`); if the provider can
-   change without notice, name it as "our AI marking provider" and keep a current list, or
-   state that the provider is named in-app. Either way the user must be able to find out
-   who receives their answer text.
-8. **Publish route.** A `/privacy` page linked from the footer, the signup screen, the
+   `src/lib/auth/session.ts` (cookie). Repeat after any change to auth, progress, analytics,
+   leaderboard, contact or subscriptions.
+6. **Confirm the retention numbers (§9)** — in particular the backup window (still unstated,
+   correctly) and the interaction between deleting an account and Stripe's own record-keeping
+   as merchant of record.
+7. **Decide whether the AI provider can be named.** This draft names DeepSeek because that is
+   the configured provider; if the provider can change without notice, either name the current
+   one in-app or keep a dated list. Either way the user must be able to find out who receives
+   their answer text — and if the answer is "a provider in the PRC", say so.
+8. **Verify the cookies (§12) — the one factual claim that failed today's re-check.** A real
+   browser, a real checkout, `document.cookie` before/during/after, plus the Stripe.js and
+   Link network traffic. Rewrite §12 around what is actually set; do not publish the current
+   sentence.
+9. **Publish route.** A `/privacy` page linked from the footer, the signup screen, the
    checkout screen and the account page; sitemap/indexable per the SEO conventions in
-   `src/lib/seo/*`. Note `src/app/layout.tsx` currently links only `/terms` in the footer.
-9. **Consistency sweep** against `docs/terms-of-use-draft.md`, `docs/entitlement-policy.md`
-   and `src/app/pricing/page.tsx` — student-data wording, quota numbers, trial length and
-   the premium split must match everywhere.
+   `src/lib/seo/*`. The checkout link is a **Dashboard setting** (Stripe → Settings →
+   Checkout accepts custom terms-of-service and privacy URLs), not code. Note that
+   `src/app/layout.tsx` currently links only `/terms` in the footer.
+10. **Appoint and name an EU and UK representative (§1).** Newly required because the
+    controller is an individual established in Hong Kong offering services to people in the
+    UK/EU: GDPR Art 27 and UK GDPR Art 27 both require a representative in those territories,
+    named in this notice. This is a concrete task with a real deadline, not a wording choice.
+11. **Incorporation is a planned event — prepare the swap.** On incorporation, the controller
+    clause (§1), the Stripe account's business details, the AWS/domain ownership, the Terms'
+    §1/§15.3/§16 and the effective date all change together. Decide the revenue threshold in
+    advance so this is a scheduled edit rather than a drift.
+12. **Consistency sweep** against `docs/terms-of-use-draft.md`, `docs/entitlement-policy.md`
+    and `src/app/pricing/page.tsx` — student-data wording, quota numbers, trial length and the
+    premium split must match everywhere.
