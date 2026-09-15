@@ -69,5 +69,5 @@ next-env.d.ts
 # UX-review screenshot artefacts (kept out of the repo)
 /ux-screenshots/
 
-# pi agent task scratch (session logs, regenerable)
-/.pi/tasks/
+# pi agent scratch (session logs, delegated-task state — regenerable)
+/.pi/
