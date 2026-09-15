@@ -1,177 +1,259 @@
-# Premium content protection & server-side rendering — intention note
+# Premium content protection & server-side content delivery — decision record
 
-> **Status:** intention only, 2026-09-14. **No implementation, no code change, no
-> decision taken.** This file exists so the next session that picks this up starts from
-> measured facts instead of a vague worry, and so the trade-offs are visible before
-> anyone refactors the build.
+> **Status: DECIDED 2026-09-16.** Branch `feature/server-side-rendering`, HEAD `71b6fe6`, tree
+> clean at measurement time (this file and `docs/PROGRESS.md` are the only changes).
+> This supersedes the 2026-09-14 intention note (same file). Every figure in §2 was **re-measured
+> against a fresh `npm run build:static` on 2026-09-16** (`out/version.json` → `71b6fe6`), because
+> the `out/` directory that the first revision was measured against turned out to be three weeks
+> stale (2026-08-23) and its page counts were wrong.
 >
-> The question this note answers: *can premium content be kept out of a scraper's reach,
-> and what would it actually cost?*
+> **No code has changed yet.** This file records decisions and the target design; §5 is the work queue.
+>
+> **Decisions: §1 · Measurements: §2 · Why not full SSR: §3 · Target design: §4 · Phases: §5 ·
+> Gotchas: §6 · Gates: §7 · Ceiling: §8 · Not doing: §9**
 
 ---
 
-## 1. Why this is being asked
+## 1. Decisions (2026-09-16)
 
-Two separate concerns get bundled together; they have very different answers.
+Two concerns get bundled together; they have different answers and are therefore phased (§5).
 
-1. **Premium leakage.** Content that customers pay for is currently downloadable by
-   anyone. That is a revenue-integrity problem, and there is a real fix.
-2. **General scraping of all content.** Free notes/questions being harvested by bots,
-   competitors and AI trainers. Partly addressable, and partly **in direct conflict with
-   the acquisition strategy** — the free content *is* the SEO funnel
-   (`docs/entitlement-policy.md`: notes/flashcards/quizzes are never gated, precisely
-   because BBC Bitesize gives them away).
+| # | Question | Decision |
+|---|---|---|
+| 1 | **What must be true when this is done** | **All three, phased**: (a) anonymous URL-guessing of premium sets is closed, (b) bulk pulls by a paying subscriber are throttled and attributable, (c) free-content harvesting stops being a one-request job |
+| 2 | **Architecture** | **Keep the static export; deliver content from a session-gated API.** No per-request HTML rendering of the site. Premium question/markscheme data leaves the build |
+| 3 | **SEO boundary** | **Only study (notes) pages stay prerendered with content.** Quiz/flashcards are already `noindex`; diagnostics, ladder 1–2 and paper set 1 become metadata shells served by the same public content API |
+| 4 | **Premium content at request time** | **Bundled into the content Lambda at build time** (esbuild, like the other 9 Lambdas) — content deploys atomically with the code that serves it; no extra IAM, no cold-start fetch, no second source of truth |
+| 5 | **Free content API posture** | **Edge-cached, with the per-IP budget applied on origin misses** — normal users hit cache; a first-seen bulk harvest from one IP is rate-limited |
+| 6 | **Offline** | **The service worker caches free content only.** Premium payloads are never cached; `/api/` stays skipped for them |
 
-**Decision to make up front: which of the two is the goal.** They lead to opposite
-actions. Locking down free content would undo the SEO plan that
-`docs/seo-technical-plan.md` and the sitemap work are built on. Protecting *premium*
-content is compatible with everything.
+Consequence of decision 2, worth stating plainly: **"server-side rendering" here means
+server-side content delivery, not per-request HTML rendering.** The protection ceiling is identical
+(§8) and the cost is a fraction of a hosting migration. It also deletes the 5.1 MB site-wide chunk
+(§2), which is plausibly the largest Core Web Vitals win available to this site.
 
 ---
 
-## 2. Measured current state (2026-09-14)
-
-Facts, not impressions — these were checked against the built output in `out/`, not
-inferred from the code.
+## 2. Measured state (fresh build, 2026-09-16, HEAD `71b6fe6`)
 
 | Fact | Evidence |
 |---|---|
-| The site is a **full static export**: 886 prerendered `.html` files plus Next's RSC payload `.txt` twins for every route | `find out -name '*.html' \| wc -l` → 886; `out/papers/…/…-set-2.html` and `.txt` both exist |
-| **Every premium paper set is a public static page.** `math-y9-set-2` (a premium set — sets 2+ are locked by `isFreePaperSet`) is a 48 KB HTML file containing the questions **and the markschemes**, fetchable with no session at all | `grep -c markscheme out/papers/math-y9/math-y9-set-2.html` → 8 matches; the `.txt` RSC twin also carries it |
-| Question/markscheme data is also **compiled into the client JS chunks**, so even deleting the HTML would not remove it from `_next/static` | `grep -rl markscheme out/_next/static/chunks/*.js` → matches |
-| Illustrations ship as **directly fetchable static assets** (`public/images/<subject>/*.svg`) | `docs/ILLUSTRATION_GUIDELINES.md`; served straight from S3 |
-| **The "locked" UI is honest about being cosmetic**: `LockedFeature` is a conversion surface, explicitly not a security boundary | `docs/entitlement-policy.md` "Enforcement constraint"; `src/components/LockedFeature.tsx` |
-| What **is** already enforced server-side: AI-mark quota, subscription tier, progress identity | `src/lib/entitlements/*`, `src/lib/subscriptions/http-handler.ts` |
-| Existing anti-scraping posture: `robots.txt` blocks bulk **AI-training** crawlers but deliberately allows search and answer-engine crawlers; premium surfaces are `noindex, follow`; per-IP rate limits on the public write endpoints | `src/app/robots.ts`, `src/lib/seo/page-meta.ts`, `docs/seo-technical-plan.md` §4.1 |
+| **886** prerendered `.html` files, plus **4,426** RSC payload `.txt` files | `find out -name '*.html' \| wc -l` |
+| **One 5.1 MB chunk is loaded site-wide** — `out/_next/static/chunks/0r3e9qb8mo18-.js` (4.6 MB of source text), referenced by **858 of 886** pages **including `/`** | `<script src="/_next/static/chunks/0r3e9qb8mo18-.js" async crossorigin>` in `out/index.html`; `grep -rl` over `out/**/*.html` |
+| **That chunk contains complete premium papers** — stem, `markscheme` and `modelAnswer` for `math-y9-set-2` all present | escape-insensitive search for the paper's own strings; see the probe note in §6.6 |
+| **Every premium set is also a public HTML page** with its markschemes (`out/papers/math-y9/math-y9-set-2.html`, 8 `markscheme` occurrences) and an RSC twin carrying the same | `curl`-equivalent read of `out/` |
+| The whole `_next/static/chunks` directory is **6.9 MB**, so one GET retrieves essentially the entire product | `du -sh` |
+| **334 indexable / 550 noindex** pages; `verify:sitemaps --verify` green | build output, `--verify` line |
+| Content: **233 topics**, **2,796 flashcards**, **29 paper sets = 14 free (set 1) + 15 premium** (14× set 2, 1× set 3), **5.7 MB** of topic/paper JSON | filesystem + JSON parse |
+| The registry is **one eager module**: 233 static `import … from './data/topics/…'`, with `subjects`/`papers` as module-scope values reachable from the exported accessors — so **no import can be tree-shaken** | `src/content/registry.ts` |
+| Client entry points into the whole bank: `HomePageClient.tsx` (`getSubjects`), `progress/page.tsx` (`getSubjects`), `SubjectPageClient.tsx` (`getSubject`), plus quiz/flashcards/study/diagnostics/mixed-review via `src/lib/*` | `grep -rln "content/registry"`, cross-checked for `'use client'` |
+| `src/lib/courses.ts` alone has **12 importers, 4 of them client components** (`PaperRunnerClient`, `ExamRunnerClient`, `LadderRunnerClient`, `LadderOverviewClient`) | `grep -rl "@/lib/courses"` |
+| **Already enforced server-side:** AI-mark quota, subscription tier, progress identity, session resolution | `src/lib/{entitlements,subscriptions,progress}/` |
+| **`LockedFeature` is honest about being cosmetic** | `docs/entitlement-policy.md` "Enforcement constraint"; `src/components/LockedFeature.tsx` |
+| The SW already refuses to cache anything under `/api/` | `public/sw.js` → `if (url.pathname.startsWith('/api/')) return;` |
 
-**Conclusion from the measurements:** today, a premium subscription buys *convenience and
-freshness*, not exclusivity. Anyone who knows the URL pattern
-(`/papers/<course>/<course>-set-N`) can read every paid paper set. That is the concrete
-thing worth fixing, and the fix is architectural, not cosmetic.
-
----
-
-## 3. The honest ceiling
-
-**No content that a browser renders can be made un-copyable.** Any protection scheme is
-a cost multiplier, not a lock:
-
-- Anything sent to a legitimately entitled logged-in user can be copied by that user.
-  Anti-scraping defends against *automated bulk* extraction and casual URL-guessing, not
-  against a determined subscriber.
-- Realistic goals, in order of value: (1) stop the anonymous URL-guessing leak, which is
-  the current actual hole; (2) make bulk extraction rate-limited, detectable and
-  attributable; (3) make leaks traceable and actionable legally; (4) never let mere
-  scraping break the site for real users.
-
-Worth saying plainly in any future session: **chasing (4)-level DRM on an educational
-site is a bad trade.** Effort here has a better home in content depth.
+**Conclusion.** Today a premium subscription buys convenience and freshness, not exclusivity. A
+single public URL that the homepage itself loads contains every premium mark scheme, and the same
+content is separately readable from each premium page with no session.
 
 ---
 
-## 4. The options, against this repo's actual constraints
+## 3. Why not full SSR (Option B, rejected)
 
-### Constraints that any option must respect
+True per-request rendering of premium routes is the strongest *structural* answer, but:
 
-- **`output: 'export'` is load-bearing.** The whole deploy chain assumes it:
-  `build-static.sh` (which also stashes `src/app/api/` aside and writes `out/version.json`),
-  the S3 + CloudFront + URL-rewrite-Function topology, `scripts/serve-static.ts`, the
-  `test:e2e:static` pre-deploy gate, `verify:sitemaps --verify`, and the hand-rolled
-  service worker. Dropping the export is not a page change — it is a hosting-model
-  change, and `docs/future-tech-stack-evolution.md` already discusses it as such.
-- **The PWA caches HTML aggressively** and serves navigations cache-first
-  (stale-while-revalidate). Any gated content that reaches the browser risks being
-  **written into a shared cache on a device** and replayed offline. Per-user gated content
-  and an offline cache are in genuine tension; the SW's exclusions are the place to
-  resolve it.
-- **SEO.** Free surfaces must stay prerendered and indexable. Premium surfaces are
-  already `noindex, follow`, so removing their static HTML costs nothing in search.
-- **The free/premium split lives in code** (`isFreePaperSet`, `isFreeLadderLevel`) and is
-  derived, never hardcoded. Any gating must key off those, not off a new list of paths.
+- **The ceiling is identical** (§8). A subscriber receives the content either way; SSR changes the
+  delivery mechanism, not what an entitled browser can copy.
+- **The cost is the hosting model.** `output: 'export'` is load-bearing across `build-static.sh`
+  (which stashes `src/app/api/`), the S3 + CloudFront + URL-rewrite-Function topology,
+  `scripts/serve-static.ts`, `test:e2e:static`, `verify:sitemaps --verify` and the hand-rolled SW.
 
-### Option A — Stop shipping premium payloads; fetch them from a session-gated API
+Option B remains the documented later migration (see `docs/future-tech-stack-evolution.md` §2.2 and
+its 2026-08-14 decision to stay static). Revisit it only if the residual exposure in §8 turns out to
+matter commercially — that is a data question, not a code question.
 
-Keep the static export exactly as it is for every page shell, but **stop the premium
-question and markscheme data from being part of the build**, and deliver it at runtime
-from a new session-gated endpoint (the pattern already used for progress, subscriptions
-and AI marking: handler in `src/lib/<x>/http-handler.ts`, Next route for dev/e2e,
-Lambda behind a CloudFront behaviour for prod).
-
-- **Kills the current leak outright**: `/papers/…/…-set-2.html` becomes a shell that
-  shows the `LockedFeature` tease until the API says the session is entitled.
-- Reuses machinery that already exists and is already reviewed (session resolution,
-  entitlement check, IAM, terraform module pattern, dummy-dependency tests).
-- Costs: a new Lambda surface; a loading state on premium pages; the offline PWA must
-  **not** cache the fetched payload; the e2e-static harness needs the new endpoint.
-- **Residual exposure:** an entitled subscriber's browser still receives the content. That
-  is the ceiling in §3 and it should be stated as accepted, not chased.
-
-### Option B — Server-render premium routes only (true SSR)
-
-Render premium HTML per-request behind an entitlement check (Lambda@Edge / origin
-Lambda / on-demand rendering), so no premium bytes exist in `out/` at all.
-
-- Strongest *structural* protection available, and the option the entitlement policy
-  points at when it says "decide at subscription build time".
-- Cost is the whole hosting story: the export has to be dropped or split, `build-static`,
-  the pre-deploy gates, the static e2e suite and the sitemap `--verify` step all need a
-  story for it. This is a multi-session architecture change, not an enhancement.
-- **Recommendation for the future session: Option A first.** It closes the measured hole
-  for a fraction of the cost. Option B only becomes worth it if Option A's residual
-  exposure (entitled users) turns out to matter commercially — which is a data question,
-  not a code question.
-
-### Option C — Make leaks traceable (complements A or B)
-
-Per-session personalisation of premium payloads — an invisible per-session marker, or
-per-user question ordering — so a leaked copy can be traced to the account that leaked
-it. Cheap relative to its deterrent value, and it also makes the Terms' anti-resale
-clause enforceable in practice rather than aspirational. Requires a privacy-note note
-(the marker is account-linked; see `docs/privacy-notice-draft.md` §6.3 for the
-neighbouring AI-mark disclosure).
-
-### Option D — Deterrence and detection (cheap, do regardless)
-
-- **Detection:** per-session request-rate anomaly detection on the premium endpoints
-  (the rate-limit table and fixed-window pattern already exist), plus monitoring for
-  copies of distinctive content phrases appearing elsewhere.
-- **Response readiness:** a documented takedown path, and the anti-scraping and
-  no-AI-training clauses already drafted in `docs/terms-of-use-draft.md` §6–§7. Legal
-  footing is what makes the technical work worth anything.
-- **robots.txt:** already blocks the main training crawlers by user agent. Keep the
-  deliberate allowance of search and answer engines — that is the SEO funnel, and blocking
-  it would cost more than the scraping it prevents.
-- **Illustrations:** if SVG assets are being taken, the cost of that is low and the
-  remedy is legal, not technical — do not build asset protection machinery for it.
+**Hybrid (static public + Lambda-SSR for `/papers/*` and `/exams/*`) was also rejected**: two origins
+and a permanently split routing story, for the same ceiling.
 
 ---
 
-## 5. Open questions for the future session
+## 4. Target design
 
-Not answers — the list of things that must be decided before any implementation starts.
+```
+  /, /subjects,       ───▶  S3 static export
+  study pages                indexable content: notes page bodies ONLY (the SEO funnel)
+                             everything else: shell + metadata
 
-1. **Which problem are we solving** — premium leakage, or scraping in general (§1)?
-2. **What is the acceptable residual exposure?** If "an entitled subscriber can copy it"
-   is unacceptable, only Option B is on the table, and the hosting migration comes with
-   it. If it is acceptable, Option A plus D is a day or two of work against existing
-   patterns.
-3. **Does the free tier stay wide open** for SEO, as the entitlement policy says? If not,
-   the SEO plan needs rewriting first, not the build.
-4. **Offline behaviour.** Does premium content need to work offline at all? If not, the SW
-   must explicitly exclude premium payloads. If yes, Option A's protection is materially
-   weaker (the payload is cached on-device) and that trade needs to be made explicitly.
-5. **Does anything need to change for the AI-marked free-text path** — the entitlement
-   already checks server-side, so probably not, but the quota and the content gate should
-   be reviewed together so they do not diverge.
-6. **Commercial signal.** Any actual evidence of paid content being copied (support
-   emails, referrer logs, quoted content found elsewhere) — if there is none, the priority
-   ordering of this whole document changes.
+  quiz / flashcards /
+  diagnostics /
+  ladder 1–2 /
+  paper set 1         ───▶  /api/content/public/*    edge-cached
+                             questions, flashcards, composed sets
+                             per-IP budget applied on ORIGIN MISSES
+
+  paper sets 2+ /
+  mock exams /
+  ladder 3–5          ───▶  /api/content/premium/*   private, no-store
+                             SEPARATE behaviour + SEPARATE cache policy
+                             session + exam-sets-full check → not_entitled otherwise
+
+                             ▲
+                        content Lambda — topic/paper JSON bundled at build time
+```
+
+### 4.1 The forcing change: split the generated registry
+
+`src/content/registry.ts` is one eager module, so *any* client import drags in all 233 topics and
+every paper. That single fact is the 5.1 MB chunk. `scripts/generate-registry.ts` therefore emits
+two modules:
+
+- **`registry.meta.ts`** — **client-safe.** Subjects (`id/name/icon/accentColor`) and, per topic:
+  `id, subjectId, title, description, stage, year?, course?, level?, strand?`. Plus paper metadata:
+  `id, courseId, title, durationMinutes, questionCount, totalMarks`.
+- **`registry.content.ts`** — **server-only.** All 233 JSON imports (notes, flashcards, questions,
+  templates) and paper questions + mark schemes. Imported by server page components and by the
+  content Lambda; **never** by a client component.
+
+Four fields beyond the obvious metadata are **forced by existing consumers** — do not drop them:
+
+| Field | Forced by |
+|---|---|
+| `flashcardIds[]` | `getCardStats` iterates `topic.flashcards` for ids only, feeding the homepage "due today" card and `/progress`. 2,796 ids ≈ 78 KB — cheap, and cheaper than inferring ids from the `<topicId>-f<n>` convention (which no validator enforces) |
+| `questionCount` + `totalMarks` | `metaForPaperSet` builds its description from `paper.questions.length` + summed marks |
+| `stage` / `year` / `course` / `level` / `strand` | `filterTopics` and `COURSES.matches` filter on taxonomy, not content |
+
+`src/lib/courses.ts` moves to metadata types (its `matches` predicates only read taxonomy).
+
+### 4.2 Premium page flow
+
+1. The page component reads **paper metadata only** and renders a shell.
+2. While entitlements are unresolved → a **neutral skeleton**, never the lock (the `LockedFeature`
+   no-flash rule: a gate must not flash over content the user may be entitled to).
+3. `has('exam-sets-full')` false → the tease, **no request made**.
+4. true → `GET /api/content/premium/papers/<courseId>/<setId>`; 401 → login prompt + tease.
+
+### 4.3 Service worker
+
+Public content responses are cached (stale-while-revalidate) so offline quizzes keep working; the
+premium prefix stays excluded. Cache keyed by the existing build identity (`NEXT_PUBLIC_BUILD_ID` /
+`out/version.json`) so a content fix is not pinned in a user's Cache Storage. Cache *strategy*
+changes here → `CACHE_VERSION` bump (per `AGENTS.md`, exactly what that constant is for).
 
 ---
 
-## 6. What this note deliberately does not do
+## 5. Phases
 
-- It does not change any code, page, terraform module, SW, or build script.
-- It does not commit to Option A or B.
-- It does not propose DRM, obfuscation, canvas rendering, screenshot blocking, or
-  per-page watermarks — all of which harm legitimate users more than they harm scrapers.
+### Phase 1 — kill the bulk artifact, close the anonymous leak
+
+- [ ] Split the registry (§4.1); `scripts/generate-registry.ts` emits both modules; update
+      `tests/unit/content-registry.test.ts` and `content-schema.test.ts`, which assert the current
+      single-module shape.
+- [ ] Thread `TopicMeta`/`SubjectMeta` through the client surfaces; content-typed modules become
+      server-only. This is the bulk of the phase (§6.7).
+- [ ] Free pages receive content as **props from their server page component** — HTML unchanged, no
+      API yet, but the 5.1 MB chunk disappears.
+- [ ] Premium sets: metadata shell (§4.2) + `GET /api/content/premium/papers/<courseId>/<setId>`
+      gated on session + `exam-sets-full`.
+- [ ] New surface, following the contact/leaderboard template end to end:
+      `src/lib/content/{http-handler,deps,dummy}.ts`, the dev/e2e Next route, `lambda/content/`,
+      `terraform/modules/content_api`, both CloudFront behaviours, `scripts/serve-static.ts`'s path
+      map, and the `build-lambdas.sh` list (9 → 10).
+- [ ] `GET /api/content/_health` asserts `topicCount > 0` — catches an esbuild that silently dropped
+      the JSON, which a DynamoDB-style probe would not.
+
+### Phase 2 — throttling and attribution
+
+- [ ] Per-account fixed-window budget on the premium endpoint (the `octav-rate-limits` pattern);
+      per-IP on misses.
+- [ ] Anomaly logging when one session pulls many sets; this is what makes decision 1(b) real.
+- [ ] Optional per-session marker in premium payloads for attribution — **requires a privacy-note
+      change** (account-linked marker; cf. `docs/privacy-notice-draft.md` §6.3).
+
+### Phase 3 — the bank leaves the HTML too
+
+- [ ] `/api/content/public/*` for questions, flashcards and composed sets.
+- [ ] Move composition server-side: `buildQuestionSet` + `materializeTemplates` behind the Lambda.
+      The seeds are already explicit and stable (`exam:<course>:<paperId>`,
+      `ladder:<course>:<level>`), so in-flight assessments do not shift; the client "New Question
+      Set" reseed must pass its seed to the server.
+- [ ] Quiz / flashcards / diagnostics / ladder 1–2 / paper set 1 become shells (decision 3).
+- [ ] SW caches the public prefix only; `CACHE_VERSION` bump.
+
+Phase 3 is what makes mock exams and upper ladder levels genuinely non-derivable. Until it lands,
+they are recomputable from public data: `src/lib/exams.ts` and `src/lib/ladder.ts` both call
+`buildQuestionSet` on the same free topic bank the quizzes use, with published seeds.
+
+---
+
+## 6. Gotchas, highest severity first
+
+1. **Cache-policy collision — the one that would leak paid content site-wide.** Public content is
+   edge-cached; if a premium response ever shares that policy, CloudFront serves mark schemes to
+   anonymous users *from cache*, i.e. the exact bug this work exists to fix. Separate path prefixes,
+   separate behaviours, separate cache policies; premium always `private, no-store`. Pin it with a
+   test (the `tests/unit/subscriptions-iam.test.ts` precedent).
+2. **RSC twin serialisation.** Passing a whole `paper` object to a client component re-serialises the
+   mark schemes into **both** the HTML and the `.txt` payload. Shells pass metadata only.
+3. **SW cache staleness.** Caching public content changes the strategy (`CACHE_VERSION` bump) and
+   needs build-id keying, or a content correction never reaches returning users.
+4. **Four sync points** must agree, and nothing currently forces them to:
+   `build-static.sh`'s `src/app/api/` stash, `serve-static.ts`'s path→route map,
+   `build-lambdas.sh`'s function list, and the terraform behaviours/behaviour ordering.
+5. **`generate:registry` becomes a two-module generator**, and the registry/schema unit tests assert
+   today's shape.
+6. **Measurement trap: backslash escaping.** A naive `grep` for a LaTeX-bearing string from the
+   parsed JSON misses, because the bundle stores `\\dfrac` where Python's `json.load` gives
+   `\dfrac`. Two probes in the first revision of this note returned a false "clean". **Strip
+   backslashes from both sides, or search an ASCII-only phrase**, before concluding anything about
+   what is or is not in `out/`.
+7. **The type-threading cost is the real bulk of Phase 1.** `Topic` (content-bearing) is the type
+   threaded through client UI, including four client components that reach the bank through
+   `src/lib/courses.ts`. Wide and mechanical, not deep — but not a small diff.
+8. **Bundled content means content fixes ride a Lambda rebuild.** CI already rebuilds every Lambda on
+   every deploy, so this is accepted; note it so nobody is surprised later.
+
+---
+
+## 7. Gates
+
+**The invariant worth having** (cheap, and it covers chunks, HTML and `.txt` twins at once): for
+every **premium** paper JSON, assert that none of its `markscheme`/`modelAnswer` strings appears
+anywhere under `out/`. It fails the moment anyone re-serialises content, whatever the cause. Add a
+companion assertion that no chunk contains a topic question stem.
+
+Plus:
+
+- The content Lambda's `_health` probe (which all other Lambdas already have).
+- A pinned terraform/IAM test for the content module and its behaviour ordering.
+- A SW guard test: the premium prefix is never cached.
+- Existing gates stay green and unchanged: `generate:registry`, `validate:content`,
+  `validate:illustrations*`, `audit:content`, `npm test`, `test:e2e`, `test:e2e:static`,
+  `verify:sitemaps --verify`.
+
+---
+
+## 8. The honest ceiling (unchanged from the 2026-09-14 note)
+
+**Nothing a browser renders can be made un-copyable.** Any scheme here is a cost multiplier, not a
+lock. Realistic goals, in value order:
+
+1. Stop the anonymous URL-guessing leak — the actual hole today.
+2. Make bulk extraction rate-limited, detectable and attributable.
+3. Make leaks traceable and actionable legally.
+4. Never let scraping break the site for real users.
+
+Chasing (3)-level DRM on an educational site is a bad trade; effort has a better home in content
+depth. **Accepted residual exposure: an entitled subscriber can copy what they receive.** Decision 2
+was taken with that accepted.
+
+---
+
+## 9. What this does not do
+
+- It does not change any code yet — §5 is the queue.
+- It does not drop `output: 'export'`, split the codebase across origins, or move to a serverful
+  deployment (§3).
+- It does not lock down free content as a secrecy measure: free content stays public by design
+  (decision 5 is a throttling measure, not a paywall).
+- It does not propose DRM, obfuscation, canvas rendering, screenshot blocking or per-page
+  watermarks — all of which harm legitimate users more than they harm scrapers.

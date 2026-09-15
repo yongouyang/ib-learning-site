@@ -4,6 +4,31 @@
 
 ---
 
+## 2026-09-16 — Premium content protection: decisions taken, design fixed, measurements corrected
+Git HEAD: `71b6fe6` (feature/server-side-rendering, dirty — docs only)
+Done: rewrote `docs/premium-content-protection-plan.md` from the 2026-09-14 intention note into a
+  DECISION RECORD (§1 six decisions, §4 target design, §5 phases 1–3, §6 gotchas, §7 gates). Chosen:
+  keep the static export + session-gated content API (no per-request SSR — same ceiling, fraction of
+  the cost); only study/notes pages stay prerendered with content; premium JSON bundled into a new
+  content Lambda; free content edge-cached with per-IP budget on origin misses; SW caches free only.
+  Re-measured everything against a fresh `build:static` — the previous `out/` was from 2026-08-23 and
+  its counts were wrong. **The leak is bigger than the old note recorded: one 5.1 MB chunk
+  (`0r3e9qb8mo18-.js`) is loaded by 858 of 886 pages *including the homepage* and carries complete
+  premium papers (stem + markscheme + modelAnswer for `math-y9-set-2`).** Root cause: `registry.ts`
+  is one eager module (233 static JSON imports, module-scope `subjects`/`papers` → nothing tree-shakes).
+Verified: `npm run build:static` green — **334 indexable / 550 noindex**, `verify:sitemaps` ok; all
+  figures in the doc re-taken from that build. No unit/e2e run (no code changed).
+Next: Phase 1, in two independently testable halves — (a) the registry split (`registry.meta.ts`
+  client-safe vs `registry.content.ts` server-only) + threading `TopicMeta` through client surfaces,
+  which is mechanical and invisible; then (b) the premium shell + gated `/api/content/premium/*`
+  endpoint. Decide whether both land in one session. Phase 2 = premium throttling/attribution;
+  Phase 3 = the free bank leaves the HTML too.
+Notes: measurement trap that produced a false "clean" twice — grepping a LaTeX-bearing string from
+  parsed JSON misses in bundles (`\\dfrac` in source vs `\dfrac` in Python); strip backslashes from
+  both sides or search an ASCII-only phrase. Phase 3 is what makes mock exams / ladder 3–5 genuinely
+  non-derivable; today both are `buildQuestionSet` samples of the FREE bank with published seeds.
+  Accepted residual exposure: an entitled subscriber can copy what they receive.
+
 ## 2026-09-15 — Stripe.js scoped out of the root layout (the cookie leak closed)
 Git HEAD: `ce96290` (develop, tree dirty)
 Done: `src/app/layout.tsx` no longer carries the `js.stripe.com` script. `ensureStripeScript()`
