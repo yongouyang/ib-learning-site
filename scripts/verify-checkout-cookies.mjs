@@ -4,20 +4,25 @@
  * `docs/privacy-notice-draft.md` §12: "We use one essential first-party cookie …
  * no third-party analytics cookies or cross-site tracking cookies."
  *
- * Why it needs a real browser: `Stripe.js` is loaded on EVERY page from the root
- * layout (`src/app/layout.tsx`) and Stripe documents `__stripe_mid` / `__stripe_sid`
- * as fraud-prevention cookies it sets on the MERCHANT's domain — so the "one
- * cookie" sentence may already be false on every page, not just at checkout. No
- * unit test can see that; only reading `document.cookie` can.
+ * Why it needs a real browser: Stripe documents `__stripe_mid` / `__stripe_sid` as
+ * fraud-prevention cookies it sets on the MERCHANT's domain, and until 2026-09-15
+ * Stripe.js was a `<head>` script in the root layout (`src/app/layout.tsx`), so
+ * those cookies landed on every page for every visitor — which made §12's "one
+ * cookie" sentence false in a way no unit test can see. Only reading
+ * `document.cookie` can. It is now injected by the billing panel (that fix is what
+ * `ensureStripeScript()` in `src/components/BillingPanel.tsx` does), and this script
+ * guards the result: part B fails if a page with no billing panel sets a `__stripe`
+ * cookie, or if `/account` has a panel and Stripe.js never loads.
  *
  * It measures three states, with the Stripe.js request blocked to get a baseline:
  *   1. our own cookies (Stripe.js blocked — what the app sets by itself)
- *   2. + Stripe.js loaded on a plain page (site-wide <head> script)
+ *   2. + Stripe.js loaded, i.e. a billing panel on screen
  *   3. + a real embedded Checkout mounted (test mode, dummy auth)
  * and reports third-party cookies seen in the browser separately, since the
  * notice's claim is about OUR pages.
  *
- * This is a MEASUREMENT, not a gate: it exits non-zero only if a step fails.
+ * Part A is a MEASUREMENT of whatever is deployed (it does not fail on what it
+ * finds); part B is a GATE and exits non-zero on a broken invariant.
  *
  * Run:  node scripts/verify-checkout-cookies.mjs                       (both parts)
  *       node scripts/verify-checkout-cookies.mjs --skip-local          (live origin only)
@@ -105,7 +110,7 @@ if (!SKIP_REMOTE) {
   measurements.bare = report('Stripe.js BLOCKED, /pricing', await snapshot(barePage, bare), REMOTE);
   await bare.close();
 
-  // 2. Stripe.js allowed on a plain page (this is the site-wide <head> script).
+  // 2. Stripe.js allowed on the page that injects it (a billing panel is on screen).
   const plain = await browser.newContext();
   const plainPage = await plain.newPage();
   plainPage.setDefaultTimeout(60_000);
@@ -187,6 +192,20 @@ if (!SKIP_LOCAL) {
       page.setDefaultTimeout(40_000);
       const block = (r) => r.abort();
 
+      // THE INVARIANT THIS CHECK GUARDS (since 2026-09-15): a page with no billing
+      // panel must not pull Stripe.js at all, so Stripe's device cookies never
+      // reach a visitor who is not paying. Before the fix the root layout loaded
+      // it on every page and this step saw __stripe_mid on the homepage.
+      await settle(page, `${BASE}/`, { ms: 4000 });
+      const homepage = report('signed out, / (no billing panel)', await snapshot(page, context), BASE);
+      const homepageStripe = homepage.mine.filter((n) => n.startsWith('__stripe'));
+      if (homepageStripe.length > 0) {
+        console.error(
+          `FAIL: Stripe.js is loading on a page with no billing panel — ${homepageStripe.join(', ')}`
+        );
+        problems++;
+      }
+
       await page.route('**://js.stripe.com/**', block);
       await page.goto(`${BASE}/login`);
       await page.getByLabel('Email').fill(`cookie-check-${Date.now()}@example.com`);
@@ -200,6 +219,17 @@ if (!SKIP_LOCAL) {
       await page.unroute('**://js.stripe.com/**', block);
       await settle(page, `${BASE}/pricing`, { reload: true, ms: 6000 });
       const plain = report('signed in /pricing, Stripe.js ALLOWED', await snapshot(page, context), BASE);
+
+      // /account carries the other billing panel, so Stripe.js IS expected here.
+      await settle(page, `${BASE}/account`, { ms: 6000 });
+      const account = report('signed in /account (billing panel)', await snapshot(page, context), BASE);
+      const accountHasStripe = account.mine.some((n) => n.startsWith('__stripe'));
+      if (!accountHasStripe) {
+        console.error(
+          'FAIL: /account has a billing panel but Stripe.js never loaded — the checkout cannot mount there.'
+        );
+        problems++;
+      }
 
       let during = null;
       try {
@@ -220,6 +250,7 @@ if (!SKIP_LOCAL) {
       }
 
       console.log('\nVERDICT (local checkout):');
+      console.log(`   / (no billing panel): ${homepageStripe.join(', ') || 'no Stripe cookies'}`);
       console.log(`   our own cookies: ${baseline.mine.join(', ') || 'none'}`);
       const afterStripe = added(baseline.mine, plain.mine);
       console.log(`   NEW once Stripe.js loads: ${afterStripe.join(', ') || 'none'}`);

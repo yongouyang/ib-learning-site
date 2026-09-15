@@ -85,12 +85,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className={`${geistSans.className} min-h-screen flex flex-col`}>
-        {/* Stripe.js — the `dahlia` build plus the checkout-form beta are what
-            the embedded Checkout form in BillingPanel needs, and PCI requires it
-            be loaded from Stripe's own domain (never bundled or self-hosted).
-            React hoists an async script into <head>; it is one extra request,
-            and no other page can mount the form without it. */}
-        <script src="https://js.stripe.com/dahlia/stripe.js" async />
+        {/* Stripe.js is deliberately NOT loaded here any more. It used to be, on
+            every page, and that made Stripe set its fraud cookies
+            (`__stripe_mid` / `__stripe_sid` — a 12-month device identifier) on
+            our origin for visitors who never went near a payment form: measured
+            2026-09-15, see docs/privacy-notice-draft.md §12. BillingPanel owns
+            the dependency, so the script lives there and loads on /pricing and
+            /account only. PCI still requires Stripe's own domain — never bundle
+            or self-host it. */}
         <ThemeProvider>
           <MotionProvider>
           <AuthProvider>

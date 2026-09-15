@@ -51,8 +51,9 @@ const SECONDARY_BASE =
 
 // --- Embedded Checkout -------------------------------------------------------
 //
-// Stripe.js is loaded in the root layout's <head> straight from Stripe's domain
-// (app/layout.tsx) — never bundled or self-hosted, which is the PCI requirement.
+// Stripe.js is injected by ensureStripeScript() below, straight from Stripe's own
+// domain — never bundled or self-hosted, which is the PCI requirement — and only
+// where a payment form can actually be mounted.
 // Checkout itself is Stripe's own UI in an iframe, so card data never touches
 // this origin (SAQ A); the only handoff is the session's client secret from
 // POST /api/subscriptions/checkout.
@@ -94,8 +95,30 @@ declare global {
   }
 }
 
-/** The head script is `async`, so on a cold load `window.Stripe` may not exist
- *  yet when the user clicks a plan. Resolve when it does — event, not polling.
+/** Inject Stripe.js — from Stripe's own domain, which PCI requires (never
+ *  bundle or self-host it) — and only on the pages that can mount a payment
+ *  form.
+ *
+ *  Why it is not in the root layout any more: loaded site-wide, Stripe.js sets
+ *  `__stripe_mid` (a 12-month device identifier) and `__stripe_sid` on OUR
+ *  origin for every visitor, including one who never opens a payment form — and
+ *  that is what turns "essential to the service you asked for" into an argument
+ *  we can lose under PECR. Measured 2026-09-15; docs/privacy-notice-draft.md §12
+ *  and scripts/verify-checkout-cookies.mjs reproduce it.
+ *
+ *  Idempotent (React Strict Mode double-invokes effects, and two panels must not
+ *  mean two scripts), and safe to call during SSR. */
+export function ensureStripeScript(): void {
+  if (typeof document === 'undefined') return;
+  if (document.querySelector('script[src*="js.stripe.com"]')) return;
+  const script = document.createElement('script');
+  script.src = 'https://js.stripe.com/dahlia/stripe.js';
+  script.async = true;
+  document.head.appendChild(script);
+}
+
+/** Stripe.js is `async`, so on a cold load `window.Stripe` may not exist yet
+ *  when the user clicks a plan. Resolve when it does — event, not polling.
  *
  *  The timeout is NOT decoration: a blocked script (ad blockers commonly block
  *  js.stripe.com; measured in the UX capture, where an aborted request left this
@@ -104,6 +127,7 @@ declare global {
  *  no message for ever. */
 export function whenStripeReady(timeoutMs = 5000): Promise<StripeConstructor | null> {
   if (window.Stripe) return Promise.resolve(window.Stripe);
+  ensureStripeScript();
   const script = document.querySelector<HTMLScriptElement>('script[src*="js.stripe.com"]');
   if (!script) return Promise.resolve(null);
   return new Promise((resolve) => {
@@ -125,6 +149,18 @@ export function BillingPanel({ variant }: { variant: 'pricing' | 'account' }) {
    *  below owns the space, and the effect mounts Stripe's checkout into it. */
   const [checkoutPlan, setCheckoutPlan] = useState<Plan | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
+
+  // Start fetching Stripe.js as soon as a billing panel is on screen rather than
+  // on the first plan click. The click path already waits (whenStripeReady) and
+  // bounds the wait, so this is not correctness — it is the difference the old
+  // site-wide <head> script used to make for free, now paid for only here.
+  //
+  // Gated on the key: with no publishable key the panel follows the dummy's
+  // hosted URL and never touches Stripe.js, so fetching it would be a third-party
+  // request — and Stripe's device cookies — for nothing.
+  useEffect(() => {
+    if (PUBLISHABLE_KEY) ensureStripeScript();
+  }, []);
 
   const load = useCallback(async () => {
     try {

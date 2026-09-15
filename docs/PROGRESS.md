@@ -4,6 +4,48 @@
 
 ---
 
+## 2026-09-15 — Stripe.js scoped out of the root layout (the cookie leak closed)
+Git HEAD: `ce96290` (develop, tree dirty)
+Done: `src/app/layout.tsx` no longer carries the `js.stripe.com` script. `ensureStripeScript()`
+  in `src/components/BillingPanel.tsx` injects it instead (idempotent, still from Stripe's own
+  domain — PCI), called from a `useEffect` at panel mount and from `whenStripeReady()`, so
+  Stripe.js now loads on `/pricing` + `/account` only. **Gated on `PUBLISHABLE_KEY`**: with no
+  key the panel follows the dummy's hosted URL and never uses Stripe.js, so loading it would be
+  a third-party request *plus* Stripe's device cookies for nothing — found while writing the
+  test, not in review. Guards: `scripts/verify-checkout-cookies.mjs` part B now **fails** if a
+  page with no billing panel sets a `__stripe` cookie, or if `/account` stops loading it; and
+  `tests/unit/billing-panel.test.tsx` gained a case (no key → no script; called twice → exactly
+  one). Docs in the same change: privacy §12 table + claims + checklist item 8, `AGENTS.md`,
+  `STRIPE_INTEGRATION_TODO.md` §8 (closed), and 2 stale comments a reviewer caught.
+Verified: tsc clean; **unit 1356/1356** (billing-panel 17/17 incl. the new guard); **billing e2e
+  4/4** (`billing.spec.ts`, Desktop Chrome, incl. the keyless hosted-URL path); **`npm run lint`
+  29 problems / 0 errors — the pre-existing count, unchanged**;
+  `node scripts/check-embedded-checkout.mjs` PASS (real test-mode session, `client_secret=true`,
+  one `js.stripe.com` iframe mounted, checkout rendered); `verify-checkout-cookies.mjs` part B:
+  `/` **no Stripe cookies**, `/pricing` + `/account` yes, mounting the checkout adds no further
+  first-party cookie. **UX review** — fresh-context `reviewer`, 44 screenshots (every billing
+  state × mobile/tablet/desktop × light/dark) against `docs/UX_GUIDELINES.md`: *"OK with notes"*,
+  **no UX defect in the changed surfaces**.
+Findings, fixed or waived: (1) stale comments in `BillingPanel` ("loaded in the root layout") and
+  in the guard script — **fixed**; (2) "the invariant has no automated test" — **already fixed
+  mid-review** (the guard test landed while the reviewer was reading the file; they flagged the
+  concurrency themselves); (3) **waived**: the checkout container is empty for the SDK's resolve
+  window (≤5s, bounded by `whenStripeReady`, exits to a message + Cancel) — pre-existing, and this
+  change's delta is only when the download *starts*, which the eager mount-load restores; a
+  spinner/live region is a visual change that needs its own UX pass, so it is a follow-up, not a
+  rider; (4) **waived**: the fixed "?" pill appears inside the tablet element-scoped crops — a
+  screenshot crop boundary, not layout overlap.
+Next: (1) push → `deploy-dev`, then re-run part A against dev so the *deployed* origin confirms
+  what §12 claims. (2) Publish `/privacy` before `/terms`; the four counsel items stand. (3) The
+  waived empty-box window (aria-busy/live region) as its own small ticket. (4) Standing queue:
+  illustrations 106, traffic/SEO depth, content depth.
+Notes: the UX screenshots were captured **before** the `PUBLISHABLE_KEY` gate landed — inert for
+  them, because `capture-billing-ux.mjs` sets a `pk_test_…` placeholder, so injection still
+  happens and the gate is pixel-invisible. Privacy §12 is now a claim the code enforces: re-run
+  the guard script after any payments, analytics or script-tag change.
+
+---
+
 ## 2026-09-15 — Cookie claim measured and rewritten; operator details filled in
 Git HEAD: `d117f6a` (develop, tree dirty)
 Done: (1) **New check `scripts/verify-checkout-cookies.mjs`** — drives a real Chromium against

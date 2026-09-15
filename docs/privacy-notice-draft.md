@@ -32,9 +32,11 @@
 > 90d/400d analytics TTLs, 365d contact, leaderboard week-end +14d, the 40d AI-mark bucket,
 > the 30d sessions, `HttpOnly; SameSite=Lax; Secure` on the session cookie and the three
 > `localStorage` keys all still match the code. **One claim did not survive: §12's "one
-> essential cookie"** — measured on the live origin with `scripts/verify-checkout-cookies.mjs`
-> and rewritten: Stripe.js sets `__stripe_mid`/`__stripe_sid` on our own domain on *every*
-> page, so §12 now lists all three cookies and the third-party ones inside the checkout iframe.
+> essential cookie"** — measured with `scripts/verify-checkout-cookies.mjs` and rewritten:
+> Stripe.js set `__stripe_mid`/`__stripe_sid` on our own domain on *every* page, so §12 now
+> lists all three cookies plus the third-party ones inside the checkout iframe — **and the
+> loading itself was fixed** (`ensureStripeScript()` in `BillingPanel`), so those two cookies
+> now exist only on `/pricing` + `/account`, which is what §12 now claims.
 
 Operator details filled in as supplied: the controller is **Octav Learning**, Central, Hong
 Kong. Two caveats carried forward from the Terms (see its checklist): a sole proprietorship
@@ -339,11 +341,14 @@ below):
 | Cookie | Set by | Lifetime | Flags | Why it exists |
 |---|---|---|---|---|
 | `octav_session` | us | 30 days; cleared when you sign out | `HttpOnly`, `SameSite=Lax`, `Secure` over HTTPS | Keeps you signed in. Set only when you sign in. |
-| `__stripe_mid` | Stripe.js | 12 months | `SameSite=Strict`, not `HttpOnly` | Stripe's fraud-prevention device identifier. **Set on every page**, because Stripe.js is loaded site-wide for the embedded checkout — including pages where you are not paying. |
+| `__stripe_mid` | Stripe.js | 12 months | `SameSite=Strict`, not `HttpOnly` | Stripe's fraud-prevention device identifier. **Set only on `/pricing` and `/account`**, the two pages that can show a payment form. |
 | `__stripe_sid` | Stripe.js | 30 minutes | `SameSite=Strict`, not `HttpOnly` | Stripe's short-lived counterpart to the above. |
 
-If you are not signed in and Stripe.js is blocked, the site sets **no cookies at all**. We do
-not use advertising cookies, and we run no third-party analytics.
+**On every other page — the notes, the quizzes, the exams, the homepage — the site sets no
+cookies at all unless you are signed in**, in which case only `octav_session`. We do not use
+advertising cookies and we run no third-party analytics. (Until 2026-09-15 Stripe.js was loaded
+site-wide, so the two Stripe cookies appeared on every page for every visitor. That is fixed —
+see the measurement below, which records both states.)
 
 **Third-party cookies.** Nothing third-party is set while you browse. When you actually open
 the checkout, Stripe's embedded iframe — and the hCaptcha challenge it uses for bot and risk
@@ -355,23 +360,25 @@ are not nothing, so they are listed here.
 **Do we need a consent banner?** Every cookie above is **strictly necessary** for something
 you asked for: `octav_session` to stay signed in, the two Stripe cookies to take a payment
 safely, and the checkout-flow cookies to process that payment at all. There is no advertising
-or analytics cookie to opt into, so there is nothing to consent to. [[Counsel to confirm one
-point, because it is an argument we could lose: `__stripe_mid` and `__stripe_sid` are set on
-**every page**, not only on the pages where a payment is being made, which weakens the
-"essential to the service you requested" position. The fix is technical and small — load
-Stripe.js only on `/pricing` and `/account` (one script tag in `src/app/layout.tsx`, already
-listed as optional polish in `STRIPE_INTEGRATION_TODO.md` §8) — and it would let this section
-be simpler and the strictly-necessary claim much stronger. Decide before publishing this
-section, and keep it in step with whatever the browser actually does.]]
+or analytics cookie to opt into, so there is nothing to consent to. [[Counsel to confirm, though the position is
+much stronger than it was: until 2026-09-15 Stripe.js loaded on every page, so these cookies
+reached visitors who never opened a payment form; it is now injected only where a payment form
+exists (`ensureStripeScript()` in `BillingPanel`), which puts them squarely in "essential to
+the service you requested". The two residual questions are (a) a 12-month lifetime is far
+longer than taking a payment needs, and (b) the hCaptcha cookies inside the checkout are set
+by a third party we do not choose per transaction. If either looks wrong, the answer is a
+consent banner for those specific cookies — not for the session cookie.]]
 
 **How this was measured, so it can be re-checked:** `node scripts/verify-checkout-cookies.mjs`
-drives a real Chromium against the live origin with the `js.stripe.com` request blocked and
-then allowed, and against a local server with a real test-mode checkout mounted, printing
-`document.cookie` and the full cookie jar at each step. Run on **2026-09-15**: zero cookies
-signed out with Stripe.js blocked; `__stripe_mid`/`__stripe_sid` present on `/pricing` *and*
-on the homepage once Stripe.js loads; no further first-party cookie when the checkout mounts;
-third-party cookies only inside the checkout. **Re-run it after any change to payments,
-analytics or the script tags, and update the table above.**
+drives a real Chromium with the `js.stripe.com` request blocked and then allowed, against the
+live origin and against a local server with a real test-mode checkout mounted, printing
+`document.cookie` and the full cookie jar at each step. Measured **2026-09-15**: before the fix
+`__stripe_mid`/`__stripe_sid` appeared on the homepage; after it, `/` reports **no Stripe
+cookies** while `/pricing` and `/account` still do and the embedded checkout still mounts —
+exactly what the table above says. The check now **fails** if a page with no billing panel
+pulls Stripe.js, or if `/account` stops pulling it, so this section cannot silently drift back.
+**Re-run it after any change to payments, analytics or the script tags, and update the table
+above.**
 
 Theme preference and offline progress use `localStorage`, described in §3.3 — that is not a
 cookie and is not sent to us.
@@ -435,15 +442,15 @@ ones that can fail an audit.
    the configured provider; if the provider can change without notice, either name the current
    one in-app or keep a dated list. Either way the user must be able to find out who receives
    their answer text — and if the answer is "a provider in the PRC", say so.
-8. **Verify the cookies (§12)** — **done 2026-09-15** with
-   `node scripts/verify-checkout-cookies.mjs`, and **the claim failed**: Stripe.js sets
-   `__stripe_mid` (12 months) and `__stripe_sid` (30 minutes) on our own domain on **every
-   page**, not only at checkout, on top of our own `octav_session`. §12 has been rewritten
-   around the measurement, including the third-party cookies that appear inside the checkout
-   iframe (`m.stripe.com`, hCaptcha). **Follow-up worth doing before publishing:** scope the
-   Stripe.js `<script>` in `src/app/layout.tsx` to `/pricing` + `/account`, which confines
-   those cookies to the payment pages and makes the strictly-necessary argument much
-   stronger (and §12 simpler). Whatever is decided, re-run the script and update the table.
+8. **Verify the cookies (§12)** — **done 2026-09-15**, in two steps. First the claim **failed**:
+   Stripe.js set `__stripe_mid` (12 months) and `__stripe_sid` (30 minutes) on our own domain
+   on **every page**, not only at checkout. Then it was **fixed**: `ensureStripeScript()` in
+   `BillingPanel` injects Stripe.js on the two pages that can mount a payment form, and the
+   re-measure shows `/` clean while `/pricing` + `/account` still get Stripe.js and the
+   embedded checkout still mounts. §12 was rewritten around both measurements, including the
+   third-party cookies inside the checkout iframe (`m.stripe.com`, hCaptcha). Re-run
+   `node scripts/verify-checkout-cookies.mjs` — it now fails if a page without a billing panel
+   pulls Stripe.js.
 9. **Publish route.** A `/privacy` page linked from the footer, the signup screen, the
    checkout screen and the account page; sitemap/indexable per the SEO conventions in
    `src/lib/seo/*`. The checkout link is a **Dashboard setting** (Stripe → Settings →

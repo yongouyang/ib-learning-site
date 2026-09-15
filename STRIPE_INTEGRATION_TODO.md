@@ -304,9 +304,16 @@ the live prices/tax codes), then promote to `main`.
   settles on USD, so decide in the Dashboard whether customers may be charged in
   their local currency and who carries the FX (flagged in
   `docs/stripe-subscriptions-plan.md` §0.2).
-* **Stripe.js is loaded site-wide** (one async request on every page, per the
-  integration guide's `<head>` requirement). Scoping it to `/pricing` + `/account`
-  is a small, safe follow-up if you care about the extra request.
+* ✅ **Stripe.js is now scoped to `/pricing` + `/account`** (2026-09-15). It used to be
+  a `<head>` script in the root layout on every page, which made Stripe set
+  `__stripe_mid` (a 12-month device identifier) and `__stripe_sid` on our origin for
+  visitors who never opened a payment form — measured, see
+  `docs/privacy-notice-draft.md` §12. `ensureStripeScript()` in `BillingPanel` (the only
+  consumer) injects it on mount now, so it is still one async request, just on the two
+  pages that can actually mount the form. Guarded by
+  `scripts/verify-checkout-cookies.mjs`, which fails if a page without a billing panel
+  pulls Stripe.js. The integration guide's `<head>` requirement is satisfied — the
+  script is still loaded from Stripe's own domain, just not from the shared layout.
 * **Blocked Stripe.js.** Ad blockers block `js.stripe.com` for a minority of
   users; the panel then shows *“Couldn’t load the checkout”* after a bounded 5s
   wait (it cannot hang silently — that was a real defect found and fixed here).

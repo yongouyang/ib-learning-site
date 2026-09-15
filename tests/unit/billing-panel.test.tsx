@@ -312,6 +312,36 @@ describe('BillingPanel — embedded Checkout', () => {
     expect(stripeCtor).not.toHaveBeenCalled();
   });
 
+  it('injects Stripe.js only when the embedded checkout is reachable, and only once', async () => {
+    // Scope guard (2026-09-15): the script used to sit in the root layout, so
+    // every page — and every visitor — carried Stripe's __stripe_mid device
+    // cookie. It is now injected by the panel, on the two pages that can mount a
+    // payment form, only when there is a key to mount one with.
+    const scripts = () => document.querySelectorAll('script[src*="js.stripe.com"]');
+    try {
+      // Earlier renders in this file injected the script imperatively. React
+      // Testing Library's cleanup unmounts components; it does not remove a
+      // <script> we appended to head ourselves, and that script is meant to
+      // outlive the component in a real page load.
+      scripts().forEach((s) => s.remove());
+
+      await renderWithStripe(undefined);
+      expect(scripts()).toHaveLength(0); // hosted-URL fallback: Stripe.js is dead weight
+
+      await renderWithStripe('pk_test_scope');
+      expect(scripts()).toHaveLength(1);
+
+      // Idempotent: Strict Mode double-invokes effects, and two panels can be on
+      // screen at once. A second script would be a second request and a second cookie.
+      const { ensureStripeScript } = await import('@/components/BillingPanel');
+      ensureStripeScript();
+      ensureStripeScript();
+      expect(scripts()).toHaveLength(1);
+    } finally {
+      scripts().forEach((s) => s.remove());
+    }
+  });
+
   it('gives up on a Stripe.js script that is present but never loads (blocked by an ad blocker)', async () => {
     // Regression: the wait listened for the script's load/error events only. A
     // script that ALREADY failed before the click (blockers block js.stripe.com;
