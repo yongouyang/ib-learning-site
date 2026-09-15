@@ -4,6 +4,80 @@
 
 ---
 
+## 2026-09-15 — Stripe go-live: `develop` → `main` promoted, live checkout in PROD
+Git HEAD: `0cce7de` (develop, tree dirty)
+Done: Fast-forwarded `main` to the DEV-verified `0cce7de` (`git push origin develop:main` →
+  `ef98615..0cce7de`; develop was 26 ahead / 0 behind, so no merge commit and no divergence).
+  PROD now serves the E4 billing UI + embedded Checkout built against the LIVE publishable
+  key. No `src/` change this session — the promotion was the whole change.
+Verified: main CI run **34966273243** for `0cce7de` → **success** (Semgrep, OSV, build-and-test,
+  validate:illustrations, e2e iPhone SE/iPad Pro/Desktop Chrome, **deploy-prod** success,
+  `deploy-dev` skipped). That job carries the `pk_live_` prefix assert, `_health` demanding
+  the LIVE key set for `X-Octav-Env: prod`, the signed **live** webhook probe
+  (`STRIPE_PROBE_MODE=live`: live price ids exist AND carry `txcd_20060058`, plus real
+  delivery through CloudFront into verification + the ledger write), www→apex 301 and
+  `verify:seo:live --all`. Independently, from the edge: `/version.json` =
+  `{"id":"0cce7de"}` (poll 40 of a bounded watcher), `_health` → `{"ok":true}`, unsigned
+  `POST /api/subscriptions` → 400, www → 301. The precondition (live-price check) had already
+  passed in the DEV deploy of this same commit — `checkPrices()` iterates TEST *and* LIVE
+  unconditionally, so a live typo reds `develop` before `main` is touched.
+Next: (1) USER — click the SNS confirmation: `iblearn-subscriptions-alerts` →
+  yong.ouyang@gmail.com was `PendingConfirmation` this session (`aws sns list-subscriptions`),
+  so the webhook-failure alarm is armed but reaches nobody. (2) USER — confirm the live-mode
+  endpoint targets `https://octavlearning.com/api/subscriptions` with the 7 events. (3) USER —
+  the real-card click-through (checklist item 7's second half): charge lands in live mode,
+  `tier` flips to `premium`, `GET /api/subscriptions/status` reports plan/status, then cancel +
+  refund and exercise the `trial_will_end` email. (4) Unpublished legal drafts (`/privacy`
+  absent, `/terms` still the old short page) — live money now sits behind that gap. (5) Standing
+  queue: illustrations 106, traffic/SEO depth, content depth.
+Notes: `.env.local` carries only the `_TEST` key set, so the LIVE secret/webhook secret exist
+  **only** in the repo secret — the live probe is verifiable via CI, never locally. PROD stops
+  failing closed from today: real cards can be charged. `.pi/` is untracked and not gitignored
+  (agent session state) — decide whether to ignore it.
+
+---
+
+## 2026-09-14 — Legal drafts (T&C + privacy notice) and the premium-content-protection intention note
+Git HEAD: `0cce7de` (develop, tree dirty)
+Done: Three NEW docs, no code/site change (the user asked for documentation only; nothing
+  was wired into `src/`). (1) `docs/terms-of-use-draft.md` — subscription-ready T&C:
+  accounts/child profiles, free-vs-premium split, 14-day trial + auto-renewal + price
+  changes, Stripe payment handling, cancel-at-period-end + refund policy, a §6 acceptable
+  use list (anti-scraping / anti-bulk-download / no-paywall-circumvention / no AI
+  training), IP + licence grant, educational-resource disclaimers, liability cap, HK
+  governing law with a consumer carve-out. (2) `docs/privacy-notice-draft.md` — full
+  notice written from the ACTUAL implementation (fields, processes, retention TTLs cited
+  with file paths): data categories, UK/EU lawful bases, a dedicated children's section,
+  processor table (AWS ap-east-1, Resend, Stripe, the AI-marking provider, Cloudflare,
+  IndexNow), international transfers, retention, rights, the single essential cookie.
+  (3) `docs/premium-content-protection-plan.md` — intention only: measured exposure,
+  the honest ceiling, options A–D, open questions. Both legal docs carry `[[ ]]`
+  placeholders and a "before publication" checklist; **they are drafts, not legal advice,
+  and are NOT published** — `/terms` still serves the old short page and `/privacy` does
+  not exist.
+Verified: docs-only — no gate run (nothing under `src/`, `public/`, `terraform/` or
+  `tests/` was touched, so validate:content / audit / vitest / e2e are unaffected).
+  Measured facts used in the protection note WERE verified against `out/`:
+  `grep -c markscheme out/papers/math-y9/math-y9-set-2.html` → 8 (a premium set-2 page is
+  a public 48KB static file with its markschemes), and the same data is in
+  `out/_next/static/chunks/*.js`; 886 prerendered HTML files.
+Next: (1) user's own queue: finish the STRIPE_ENV / post-dev-deploy smoke fix, then the
+  real-card click-through. (2) Legal review of the two drafts; the blocking decisions are
+  seller-of-record under Managed Payments, age-gate/parental-consent model, statutory
+  withdrawal handling, and the transfer mechanism — all listed in the checklists. (3)
+  Publishing means replacing `src/app/terms/page.tsx` and adding `/privacy` + a footer
+  link (currently only `/terms` is linked). (4) Premium protection: decide Option A
+  (session-gated premium payloads) vs B (SSR) in a future session — no work started.
+Notes: **A privacy policy is a live legal gap**: the site collects emails, children's
+  profile names and study records today, and sends free-text answers to a third-party AI
+  provider, with NO privacy notice anywhere on the site. Scope of the notes: the two
+  checklists are the work queue, not commentary — read them before editing the drafts.
+  The protection note records the strategic tension to settle first: locking down FREE
+  content contradicts the SEO funnel strategy that `entitlement-policy.md` deliberately
+  chose.
+
+---
+
 ## 2026-09-14 — "Did I load the latest build?" — deploy identity, a real update signal, and a force refresh
 Git HEAD: `b746d88` (develop, tree dirty)
 Done: The user asked how to force-refresh DEV/PROD on an iPhone and how to tell whether a
