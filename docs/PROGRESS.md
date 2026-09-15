@@ -46,10 +46,22 @@ Findings, fixed or handed over: (1) **P1, fixed** — the first version early-re
   open ones; a live **Payment Link** would bypass this switch entirely (none referenced in the
   repo, only the Dashboard can confirm); and Customer-Portal **plan switching must stay OFF**,
   or the Portal becomes a second route to a new subscription.
-Next: (1) push → `deploy-dev` — that alone closes prod, because terraform applies to the ONE
-  shared Lambda, so no promotion to `main` is needed. (2) USER: the three Dashboard checks
-  above. (3) Then the polish this buys time for: counsel on the published positions, the three
-  unmet obligations in the documents' checklists, and premium content server-side
+**Verified AFTER the deploy** (`310a957`, dev serving it): the switch is live on the shared
+  Lambda — `aws lambda get-function-configuration` reports `BILLING_DISABLED_ENVS = 'prod'` (only
+  that key was read; the other 9 were not printed) — and BOTH origins still answer
+  `{"ok":true}` on `/api/subscriptions/_health`, which is the evidence that the live keys are
+  intact and that we are choosing not to sell rather than having lost them. The legal pages are
+  live on dev (`/terms` 200, `/privacy` 200, in `core.xml`, footer links both, and a leak sweep of
+  the deployed HTML finds none). **Prod's static build is still `0cce7de`**, so prod has no
+  `/privacy` yet (404) and **still sets `__stripe_mid`/`__stripe_sid` on the homepage** — measured
+  with `verify-checkout-cookies.mjs --origin=https://octavlearning.com`, whose verdict for that
+  origin is literally "§12 is FALSE for pages with no billing panel" while dev's is clean. That is
+  the pre-scoping build, not a regression.
+Next: (1) **promote to `main`** — the off-sale state is already applied (the dev deploy touched the
+  ONE shared Lambda), but prod needs the promotion to get `/privacy`, the new `/terms`, and the
+  Stripe.js scoping that stops the homepage cookies above. (2) USER: the three Dashboard checks
+  in the notes. (3) Then the polish this buys time for: counsel on the published positions, the
+  three unmet obligations in the documents' checklists, and premium content server-side
   (`docs/premium-content-protection-plan.md`). (4) Re-open only via `STRIPE_INTEGRATION_TODO.md`
   §8 item 8. (5) Standing queue: illustrations 106, traffic/SEO depth, content depth.
 Notes: **what the switch deliberately does NOT do matters for anyone tempted to "simplify" it.**
