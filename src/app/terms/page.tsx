@@ -1,53 +1,29 @@
 import type { Metadata } from 'next';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { LegalDocument, legalBody } from '@/components/LegalDocument';
 import { pageMeta } from '@/lib/seo/page-meta';
 
+// The published Terms of Use. The copy lives in docs/terms-of-use-draft.md (the file
+// a lawyer reviews is the file this page shows), rendered by <LegalDocument>, which
+// has a unit test asserting no clause can be dropped silently.
+//
+// Adding or renaming a section here means re-running the quality gates: the sitemap
+// entry is in scripts/generate-sitemaps.ts (coreEntries) and the live SEO check
+// asserts this URL stays live and indexable.
 export const metadata: Metadata = pageMeta({
   path: '/terms',
   title: 'Terms of use',
-  description: 'The terms that apply to Octav Learning, including what you may and may not do with the notes, flashcards and questions.',
+  description:
+    'The terms that apply to Octav Learning: accounts, free and Premium subscriptions, trials, renewals, refunds, acceptable use, and what you may do with the notes, flashcards and questions.',
 });
 
 export default function TermsPage() {
+  const source = readFileSync(join(process.cwd(), 'docs', 'terms-of-use-draft.md'), 'utf8');
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-6">Terms of Use</h1>
-
-      <div className="space-y-4 text-sm text-gray-700 dark:text-gray-300">
-        <section>
-          <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-1">Content ownership</h2>
-          <p>
-            All study notes, flashcards, quizzes, practice papers, markschemes, and illustrations on
-            Octav Learning are original works created for this site and are protected by copyright. All
-            rights reserved.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-1">Permitted use</h2>
-          <p>
-            You may use Octav Learning for personal, non-commercial study. You may not copy, republish,
-            redistribute, or sell any part of the content, in whole or in part, without prior
-            written permission.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-1">No AI training</h2>
-          <p>
-            The content on this site may not be scraped, harvested, or otherwise used to train,
-            fine-tune, or evaluate machine-learning models or AI systems.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="font-semibold text-gray-900 dark:text-gray-50 mb-1">Independence</h2>
-          <p>
-            Octav Learning is an independent study resource and is not endorsed by or affiliated with the
-            International Baccalaureate Organization (IBO) or Cambridge Assessment International
-            Education (CAIE).
-          </p>
-        </section>
-      </div>
+      <LegalDocument source={legalBody(source, 'Terms of Use')} />
     </div>
   );
 }

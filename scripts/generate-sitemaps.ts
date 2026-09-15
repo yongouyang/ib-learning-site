@@ -63,6 +63,7 @@ function coreEntries(): Entry[] {
     { url: abs('/'), lastmod: newest([...topicLastmod.values(), gitDate('src/app/page.tsx')]), changeFrequency: 'weekly', priority: 1, alternates: alternatesFor('/') },
     { url: abs('/pricing'), lastmod: gitDate('src/app/pricing/page.tsx'), changeFrequency: 'monthly', priority: 0.7, alternates: alternatesFor('/pricing') },
     { url: abs('/terms'), lastmod: gitDate('src/app/terms/page.tsx'), changeFrequency: 'yearly', priority: 0.2 },
+    { url: abs('/privacy'), lastmod: gitDate('src/app/privacy/page.tsx'), changeFrequency: 'yearly', priority: 0.2 },
   ];
   for (const tier of liveTiers) {
     const seg = TIERS[tier].segment;

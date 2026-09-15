@@ -54,6 +54,13 @@ export interface SubscriptionsDeps {
   stripeConfig: StripeConfig;
   /** The configured capability, before per-request selection. */
   configuredStripeMode: ResolvedStripeMode;
+  /**
+   * Environments closed to NEW subscriptions, from `BILLING_DISABLED_ENVS`
+   * (comma-separated; labels are `prod`, `dev` and `local` — `local` is a MARKER-LESS
+   * request, i.e. `next dev`, the Next routes and e2e). Empty = enabled everywhere.
+   * See `billingDisabled()` for why this is not done by blanking the key set.
+   */
+  billingDisabledEnvs: string[];
   /** Trial length in days (plan §2.2: 14). */
   trialDays: number;
   clock: () => number;
@@ -157,6 +164,14 @@ export function getSubscriptionsDeps(
   };
 
   const trialDays = Number(env.STRIPE_TRIAL_DAYS ?? 14);
+  // "prod" (the value envs/prod terraform sets) closes NEW subscriptions in production
+  // while leaving dev working on test keys — see billingDisabled(). Note the third
+  // label: a MARKER-LESS request (local dev, e2e, the Next routes) is "local", so
+  // disabling "dev" does not cover `next dev`.
+  const billingDisabledEnvs = (env.BILLING_DISABLED_ENVS ?? '')
+    .split(',')
+    .map((entry) => entry.trim().toLowerCase())
+    .filter(Boolean);
 
   // Trial-ending reminder email (E4.4). Deliberately OPTIONAL, unlike the
   // contact Lambda's notification sender: a missing provider must not make every
@@ -190,6 +205,7 @@ export function getSubscriptionsDeps(
       clock: Date.now,
       testMode: env.SUBSCRIPTIONS_TEST_MODE === '1',
       dummyMode: true,
+      billingDisabledEnvs,
     };
   }
 
@@ -222,6 +238,7 @@ export function getSubscriptionsDeps(
       clock: Date.now,
       testMode: env.SUBSCRIPTIONS_TEST_MODE === '1',
       dummyMode: false,
+      billingDisabledEnvs,
     };
   }
 

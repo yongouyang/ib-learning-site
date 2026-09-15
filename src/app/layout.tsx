@@ -123,6 +123,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   &copy; {new Date().getFullYear()} Octav Learning. All rights reserved.{' '}
                   <Link href="/terms" className="underline hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
                     Terms of Use
+                  </Link>{' '}
+                  <Link href="/privacy" className="underline hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                    Privacy Notice
                   </Link>
                 </p>
                 <p>

@@ -525,9 +525,18 @@ module "subscriptions_api" {
     # Lambda, so an unset SUBSCRIPTIONS_STORAGE would throw on every request.
     # STRIPE_MODE is a CAPABILITY, not the answer — "test" still lets a prod
     # request resolve the live key set first.
-    SUBSCRIPTIONS_STORAGE  = "dynamodb"
-    STRIPE_MODE            = "test"
-    STRIPE_ENV             = var.stripe_env
+    SUBSCRIPTIONS_STORAGE = "dynamodb"
+    STRIPE_MODE           = "test"
+    STRIPE_ENV            = var.stripe_env
+    # PROD is closed to NEW subscriptions while the legal text and the premium-content
+    # work are finished (2026-09-15). Requests carrying the prod marker get no checkout,
+    # and /pricing + /account show "Premium is coming soon" instead of plans and billing
+    # details — the panel reads that from GET /api/subscriptions/status, so it takes effect
+    # without rebuilding prod. The WEBHOOK and the Customer Portal stay live, so anyone who
+    # did subscribe can still cancel, and the LIVE key-set gates (_health, the deploy smoke)
+    # stay meaningful: the keys are valid, we simply do not sell with them yet.
+    # RE-ENABLING STRIPE IN PROD = delete this line and deploy.
+    BILLING_DISABLED_ENVS  = "prod"
     AUTH_USERS_TABLE       = module.dynamodb.users_table_name
     AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
     AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name

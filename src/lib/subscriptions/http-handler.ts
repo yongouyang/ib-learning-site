@@ -10,6 +10,7 @@ import {
   SUBSCRIPTION_SESSIONS_PER_WINDOW,
   SUBSCRIPTION_WINDOW_SECONDS,
   WEBHOOK_MAX_BODY_BYTES,
+  billingDisabled,
   billingFieldsFromSubscription,
   checkoutRequestSchema,
   hasLiveSubscription,
@@ -146,6 +147,15 @@ export async function handleCheckoutPost(
     return withCookie(json({ error: 'already_subscribed' }, 409), refreshCookie);
   }
 
+  // Closed to NEW subscriptions in this environment (BILLING_DISABLED_ENVS). Checked
+  // BEFORE beginStripeCall so a closed environment cannot consume the user's session
+  // budget, and returning 503 rather than 403 because the honest reading is "billing is
+  // not available here", which is also what the UI is told. The WEBHOOK and the Portal
+  // are deliberately NOT gated — see billingDisabled() for why.
+  if (billingDisabled(req, deps.billingDisabledEnvs)) {
+    return withCookie(json({ error: 'billing_disabled' }, 503), refreshCookie);
+  }
+
   const call = await beginStripeCall(req, deps, user.userId);
   if (!call.ok) return withCookie(call.response, refreshCookie);
 
@@ -225,7 +235,10 @@ export async function handlePortalPost(
  *  THIS request, so /pricing can show "not taking payments yet" instead of a
  *  button that 503s. It is deliberately derived from `stripeFor(req)` — the same
  *  seam the endpoints use — rather than re-deriving the mode here, so the UI and
- *  the API can never disagree. Prod is false until a LIVE key set exists. */
+ *  the API can never disagree. Prod is false until a LIVE key set exists, AND false
+ *  whenever this environment is closed to new subscriptions by
+ *  `BILLING_DISABLED_ENVS` (see billingDisabled) — which is how production shows
+ *  "Premium is coming soon" instead of plans, with no rebuild needed. */
 function statusPayload(user: UserRecord, billingAvailable: boolean) {
   return {
     plan: user.subscriptionPlan ?? null,
@@ -288,7 +301,15 @@ export async function handleStatusGet(
     }
   }
 
-  return withCookie(json(statusPayload(user, deps.stripeFor(req) !== null)), refreshCookie);
+  return withCookie(
+    json(
+      statusPayload(
+        user,
+        deps.stripeFor(req) !== null && !billingDisabled(req, deps.billingDisabledEnvs)
+      )
+    ),
+    refreshCookie
+  );
 }
 
 // ---------------------------------------------------------------------------

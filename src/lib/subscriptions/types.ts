@@ -279,6 +279,33 @@ export function resolveStripeMode(
   return 'dummy';
 }
 
+/**
+ * Environments closed to NEW subscriptions, from `BILLING_DISABLED_ENVS`
+ * (comma-separated, e.g. `prod`). Keyed off the same CloudFront marker as key
+ * selection, because ONE Lambda serves both distributions — so "close billing in
+ * production" cannot be done by blanking the live key set: dev would go down with it
+ * and the prod deploy's key-set gates would go red, which is exactly what those gates
+ * exist to prevent.
+ *
+ * WHY THIS IS DELIBERATELY NARROW — it does not change `resolveStripeMode`:
+ * that seam drives EVERY endpoint, the webhook included. A dummy mode would make prod
+ * stop verifying Stripe signatures (silently dropping cancellations for anyone who did
+ * subscribe), and the deploy's live webhook probe would fail. So this refuses the
+ * CHECKOUT POST and tells the UI to hide its buttons; the webhook and the Customer
+ * Portal keep working on the real keys, so an existing subscriber can still cancel.
+ *
+ * Absent/empty = enabled everywhere, which is what dev, e2e and the Next routes get.
+ *
+ * The three labels are `prod`, `dev` and `local` (the last being a MARKER-LESS request:
+ * `next dev`, the Next route handlers and e2e) — so `BILLING_DISABLED_ENVS=dev` does not
+ * cover local development; use `local` for that.
+ */
+export function billingDisabled(req: Request, disabledEnvs: readonly string[]): boolean {
+  if (disabledEnvs.length === 0) return false;
+  const label = isProdRequest(req) ? 'prod' : isDevRequest(req) ? 'dev' : 'local';
+  return disabledEnvs.includes(label);
+}
+
 // ---------------------------------------------------------------------------
 // Billing state mapping + staleness
 // ---------------------------------------------------------------------------

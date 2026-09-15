@@ -29,6 +29,166 @@ Notes: measurement trap that produced a false "clean" twice — grepping a LaTeX
   non-derivable; today both are `buildQuestionSet` samples of the FREE bank with published seeds.
   Accepted residual exposure: an entitled subscriber can copy what they receive.
 
+## 2026-09-15 — PROD taken off sale: `BILLING_DISABLED_ENVS=prod`
+Git HEAD: `6477e83` (develop, tree dirty)
+Done: Production is closed to **new** subscriptions while the legal text is polished and
+  premium content moves server-side (the owner's call — prod went live with real payments the
+  same morning). Mechanism: **`BILLING_DISABLED_ENVS = "prod"`** in the subscriptions Lambda
+  env (`terraform/envs/prod/main.tf`) plus a pure `billingDisabled(req, disabledEnvs)`
+  (`subscriptions/types.ts`) keyed off the SAME CloudFront `X-Octav-Env` marker as key
+  selection — because ONE Lambda serves both distributions. Exactly two gates:
+  `handleCheckoutPost` → 503 `billing_disabled` (placed before `beginStripeCall`, so a closed
+  environment cannot burn the user's session budget) and `handleStatusGet` →
+  `billingAvailable: false`, which is what makes the UI hide the plans. `BillingPanel` loads
+  Stripe.js only when `status.billingAvailable` is true (a closed env therefore sets no
+  `__stripe_mid`, keeping privacy §12 true there), reuses the existing "Premium is coming
+  soon" branch, and **the subscribed branch was moved ABOVE the closed-environment branch** —
+  a review finding, see below. Docs: `AGENTS.md`, `STRIPE_INTEGRATION_TODO.md` §8 item 8 (the
+  explicit re-open checklist), and the terraform comment ("delete this line and deploy").
+Verified: unit **1372/1372**, tsc clean, lint 29/0, **billing e2e 4/4** (billing is ENABLED
+  there, which is what proves the unset default end-to-end), `terraform validate` +
+  `fmt -check` clean. Fresh-context review verdict: **"OK with notes — no P0"**; it
+  independently confirmed that no path through our API or the prod marker reaches
+  `createCheckoutSession` (checkout is the only session creator, it is gated before budget, the
+  marker is CloudFront-overwritten on both distributions, and the repo references no Payment
+  Link) and that the prod smoke stays green (it asserts `_health`, the live signed webhook
+  probe, `version.json` and www→301 — none of which needs a checkout).
+Findings, fixed or handed over: (1) **P1, fixed** — the first version early-returned on
+  `!billingAvailable` BEFORE the subscribed branch, so an existing prod subscriber would have
+  seen "Your Premium access is active." with no plan, renewal date, card line or **Manage
+  billing** button: it would have taken away the Portal the ungated design deliberately kept
+  for them. Reordered (block move, not a loosened `if` — the loose variant would hand plan
+  buttons to a *lapsed* user and reload Stripe.js on click) and pinned by a new test.
+  (2) **P2, fixed** — the switch's third label was undocumented: a marker-less request (local
+  dev, e2e, the Next routes) is `local`, so `BILLING_DISABLED_ENVS=dev` does NOT cover
+  `next dev`; documented and pinned by a test. (3) **A gate caught a real interaction:**
+  `terraform fmt` re-aligned the env map (my comment split the `=` alignment group) and
+  `tests/unit/subscriptions-iam.test.ts` pinned that exact padding — assertions made
+  whitespace-tolerant (fmt owns the alignment) and extended with a tripwire for
+  `BILLING_DISABLED_ENVS = "prod"`, so removing the off-sale line is a deliberate act.
+  (4) **Handed to the operator, Stripe-side and unreachable from the repo:** Checkout Sessions
+  created during today's live window stay completable for their lifetime (~24h) — cancel any
+  open ones; a live **Payment Link** would bypass this switch entirely (none referenced in the
+  repo, only the Dashboard can confirm); and Customer-Portal **plan switching must stay OFF**,
+  or the Portal becomes a second route to a new subscription.
+**Verified AFTER the deploy** (`310a957`, dev serving it): the switch is live on the shared
+  Lambda — `aws lambda get-function-configuration` reports `BILLING_DISABLED_ENVS = 'prod'` (only
+  that key was read; the other 9 were not printed) — and BOTH origins still answer
+  `{"ok":true}` on `/api/subscriptions/_health`, which is the evidence that the live keys are
+  intact and that we are choosing not to sell rather than having lost them. The legal pages are
+  live on dev (`/terms` 200, `/privacy` 200, in `core.xml`, footer links both, and a leak sweep of
+  the deployed HTML finds none). **Prod's static build is still `0cce7de`**, so prod has no
+  `/privacy` yet (404) and **still sets `__stripe_mid`/`__stripe_sid` on the homepage** — measured
+  with `verify-checkout-cookies.mjs --origin=https://octavlearning.com`, whose verdict for that
+  origin is literally "§12 is FALSE for pages with no billing panel" while dev's is clean. That is
+  the pre-scoping build, not a regression.
+Next: (1) **promote to `main`** — the off-sale state is already applied (the dev deploy touched the
+  ONE shared Lambda), but prod needs the promotion to get `/privacy`, the new `/terms`, and the
+  Stripe.js scoping that stops the homepage cookies above. (2) USER: the three Dashboard checks
+  in the notes. (3) Then the polish this buys time for: counsel on the published positions, the
+  three unmet obligations in the documents' checklists, and premium content server-side
+  (`docs/premium-content-protection-plan.md`). (4) Re-open only via `STRIPE_INTEGRATION_TODO.md`
+  §8 item 8. (5) Standing queue: illustrations 106, traffic/SEO depth, content depth.
+Notes: **what the switch deliberately does NOT do matters for anyone tempted to "simplify" it.**
+  Blanking the `_LIVE` keys was rejected: one Lambda serves both distributions, so dev would go
+  down with prod and the deploy's key-set gates (`_health` for the prod marker, the live
+  webhook probe) would go red — the very gates that catch a lost key set. Routing the switch
+  through `resolveStripeMode` was rejected too, because that seam also feeds the WEBHOOK: prod
+  would stop verifying real Stripe signatures (silently dropping a cancellation for anyone who
+  did subscribe) and the live probe would fail. So the **webhook and the Portal stay live on the
+  real keys** — new sales stop, existing subscribers can still cancel, real events still land.
+  Prod's *UI* self-corrects from `GET /status` with no rebuild needed; the bundle prod serves
+  today still injects Stripe.js on every page (it is the pre-scoping build), so prod only
+  becomes cookie-free on the next promotion to `main`.
+
+---
+
+## 2026-09-15 — Legal pages live: `/privacy` created, `/terms` replaced (and the first review blocked them)
+Git HEAD: `91bbe9d` (develop, tree dirty)
+Done: Published both documents as real pages: `src/app/privacy/page.tsx` (**new** — the site had
+  **no** privacy notice while PROD has been taking real payments since that morning) and `/terms`
+  rewritten from the 53-line four-section page. Both render the reviewed markdown
+  (`docs/*.md`) verbatim through `src/components/LegalDocument.tsx` — one source of truth, so what
+  a lawyer reads is what ships — with `legalBody()` stripping the internal preamble and checklist;
+  footer links both pages; `/privacy` added to `coreEntries()`; the throwaway preview routes and
+  draft renderer deleted (`/preview/*` now 404s). **All 11 drafted open items resolved for
+  publication:** 9 by drafting (30-day price-change notice; liability cap published as drafted; HK
+  law + consumer carve-out; §4.5 keeps Stripe's documented facts without my legal
+  characterisation; privacy §5.4/§12 facts kept) and 2 by decision — **§5.5 now honours the 14-day
+  withdrawal right in full** instead of claiming a consent step nothing performs, and **the Art 27
+  representative is omitted rather than claimed**. Two flags became facts: **§9 states there is no
+  backup/PITR at all** (verified: no `point_in_time_recovery` and no AWS Backup plan on any
+  application table) and §8 names only instruments that exist (Resend SCCs; Stripe DPA + Data
+  Transfers Addendum + EU–US DPF; AWS DPA) while saying plainly the PRC AI-marking transfer has
+  none.
+Verified: unit **1369/1369**, tsc clean, lint **29 problems / 0 errors** (the pre-existing count,
+  unchanged); `build:static` + `verify:sitemaps` → *"verify ok: 335 sitemap URLs all live +
+  indexable; 335 indexable pages all submitted, titles unique; 550 noindex excluded"* (334→335 is
+  `/privacy`); both pages prerender (`out/privacy.html` 138KB, `out/terms.html` 107KB) and
+  `/privacy` is in `core.xml`. **CORRECTION (same session, after the push): the first CI run for
+  this work (`6477e83`) FAILED** — `e2e` on all three devices, because
+  `tests/e2e/app.spec.ts` pinned the pre-2026-09-15 `/terms` sentences VERBATIM
+  (`/may not be scraped, harvested/i` and `/not endorsed by or affiliated with…/`). The published
+  Terms state those same rules in different words, so the assertions now match the RULES
+  (scraping/harvesting, AI-training, non-affiliation) instead of one sentence of them, with a new
+  test that the footer links to `/privacy` — and the lesson is recorded: replacing a page's copy
+  turns any copy-pinned e2e test into a deploy blocker, and **`billing.spec.ts` alone was green, so
+  only the FULL suite would have caught it.** The "billing e2e 4/4" line above is true but was an
+  incomplete gate — the full run is what the deploy uses. **The first UX review BLOCKED with four P1 copy defects** — two
+  literal `(link)` placeholders live on `/terms`, plus an internal `DPIA`/`checklist item 2`
+  sentence and a maintainer runbook in `/privacy` §12 — and two same-class P2s (`checklist item 4`,
+  an "open item" aside). All fixed; the runbook **moved** into the internal checklist (privacy item
+  13); a copy-hygiene item added to the Terms checklist (item 12); `tests/unit/legal-pages.test.tsx`
+  extended to fail on that whole class. **Rewriting §5.5 briefly introduced a fresh false claim**
+  ("the marking screen tells you…") — caught by grepping the UI *before* publishing, and replaced
+  with what the marking call actually sends (question, markscheme, model answer, answer text, no
+  identity: `src/lib/feedback/openai-compatible.ts`); the absent in-app note is now a recorded
+  to-do. **Two tables overflowed 375px, not the one the reviewer estimated** (measured: §7
+  processors 399/343, §12 cookies 413/343 — the last column was unreachable without a swipe):
+  cookies is now 4 columns, the processors code span is gone, `code` spans are `break-words`, and
+  all six tables measure 343/343 with no page-level horizontal scroll. Renderer defects found by the
+  capture and the review: headings were styled `<p>`s so the published pages had **no `h1`/`h2` at
+  all** (the capture's `getByRole('heading')` wait is what caught it), `h2` too flat for a 7,700px
+  document (`text-lg mt-8`), `space-y-3`≈line-height (`space-y-4`), and an orphan trailing `<hr>` on
+  every legal page. Second review pass on the corrected pages: **OK with notes** — all four P1s
+  independently verified fixed (each reproduced), and it found two more residues of the same
+  class. **Both taken:** §5.4's published heading carried "(decided 2026-09-15)", and the bold
+  branch did not recurse, so `**Set only on `/pricing` …**` rendered literal backticks — the
+  recursion had to instantiate the regex PER CALL, because a shared module-level `/g` regex has
+  its `lastIndex` clobbered by the inner call (the reviewer's one-line suggestion would have
+  introduced silent text loss). Closing that exposed a third case the new `'`'` needle caught:
+  the statement descriptor `LINK.COM*` is a code span **containing an asterisk** wrapped in bold,
+  which `**([^*]+)**` cannot span — fixed in the copy and documented as a parser limitation.
+  Also taken from the same pass: §4.4 stated the price-change rule twice (the first time without
+  the 30-day minimum); the h2 `mt-8` was **dead code** (`space-y-4` outranks it — specificity
+  0,3,0 vs 0,1,0) so section breaks now come from `pt-4`; and the `break-words` comment overstated
+  the property (it cannot reduce min-content width — cutting the table to four columns is what
+  fixed the overflow). Guard needles added: `'`'`, `'decided 2026'`, `'**'`, and a failure now
+  reports *where* it found the leak. **Final local gates: unit 1369/1369, tsc clean, lint 29
+  problems / 0 errors, `build:static` + `verify:sitemaps` green (335 indexable, titles unique),
+  10 fresh artefacts.** **A third review pass was NOT run** — the changes since the second pass
+  are copy edits plus one CSS class, checked mechanically instead (0 backticks, 0 stray `**`,
+  h2 padding-top 16px computed, 0 overflowing tables on either page). That is stronger evidence
+  than a screenshot for these specific claims, but it is not a fresh reviewer's eyes and should
+  not be recorded as one.
+Next: (1) push → `deploy-dev`, then confirm `/privacy` is live and in the sitemap at the edge.
+  (2) USER: put the Terms + Privacy URLs in **Stripe → Settings → Checkout** (pre-contractual
+  information belongs at checkout — a Dashboard setting, no code) and consider a signup-screen
+  link (the footer already shows both there). (3) Counsel still owed: the liability cap, governing
+  law, §4.5's characterisation, the 30-day notice — **the published text carries positions counsel
+  has not seen**, which was the deliberate trade for closing the Art 13 gap while payments are
+  live. (4) Unmet obligations now tracked in the documents' own checklists: EU/UK Art 27
+  representative, a DPA with the PRC AI provider, the in-app "no personal details" note, the DPIA.
+  (5) Ops call: enable DynamoDB PITR — today a bad write has no recovery path, and §9 says so
+  publicly. (6) Standing queue: illustrations 106, traffic/SEO depth, content depth.
+Notes: the documents are now the *published* source of truth, so a copy edit there ships to users:
+  re-run the gates (`npm test` covers the clause-loss and internal-register classes) and
+  `node scripts/capture-legal-ux.mjs` (it accepts `--base=` to reuse a running dev server, because
+  Next 16 refuses a second one for the same directory). The interim `...-draft.md` filenames are
+  kept on purpose — the preamble flags them as published and the checklist is the work queue.
+
+---
+
 ## 2026-09-15 — Stripe.js scoped out of the root layout (the cookie leak closed)
 Git HEAD: `ce96290` (develop, tree dirty)
 Done: `src/app/layout.tsx` no longer carries the `js.stripe.com` script. `ensureStripeScript()`
