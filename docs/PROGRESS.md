@@ -4,6 +4,55 @@
 
 ---
 
+## 2026-09-16 — Premium Phase 1b closed out: two UX-review passes, and the leak gate green
+Git HEAD: `8dd867c` (develop, tree clean)
+Done: **UX-review pass 1 = BLOCKED** with two P1s, both real and both fixed: the premium page had no
+  `<h1>`, no breadcrumb and never named the course its copy referred to (the free set-1 control has
+  all three) — every `PremiumPaperShell` branch now renders one shared `<Breadcrumbs … currentAsHeading>`;
+  and the 401 card was the only sign-in prompt in the repo without a return path — now
+  `loginHref(usePathname())`. P2s taken: `LockedFeature.children` is optional so a caller with nothing
+  to preview renders no empty dimmed wrapper, and the metadata preview is a plain readable card
+  (dimmed it measured ~1.7:1 **and** sat inside `aria-hidden`); one skeleton definition shaped like the
+  runner's first screen; visible `role="status"` loading text instead of an sr-only region that mounts
+  with its text and never flips `aria-busy`; `motion-safe:animate-pulse`; the `/mixed-review` Suspense
+  fallback now matches the client's loading card class-for-class; weak mode retries once **unfiltered**
+  when the filtered draw is refused (a stale id list used to 404 forever), which also makes the
+  previously-dead "Could not build a weak-area review" copy reachable. **Pass 2 = OK with notes**, both
+  P1s independently verified fixed, and its four "clean surface" P2s taken too: the 403 copy no longer
+  advises signing out (the server reads the tier from the user's own record, so a just-upgraded user
+  cannot get a 403 and the stale case needs a reload); the preview's lead line no longer repeats the h1;
+  the error card gained a **Try again** button and status-agnostic copy (it was the last dead end and
+  mislabelled every failure as a connection problem); the weak-fallback banner and the results subtitle
+  no longer contradict each other; and the two URL-driven toggle sets in this change's blast radius
+  (mixed-review modes, quiz difficulty chips) use `aria-current="page"` instead of `aria-pressed`,
+  which `role=link` ignores.
+Verified: **`audit:leaks` HARD 60 files → 0** and TIGHTENED green (1408 unit tests + `build:static` +
+  `verify:sitemaps` 335/335 all re-run after the fixes: **1413/1413**, tsc clean, lint 29/0); e2e
+  papers + mixed-review 8/8 and the full Desktop Chrome project at CI parity (`--workers=1`) **260
+  passed / 0 failed**; **38 screenshots** in `ux-screenshots/content/` now cover every reachable state,
+  including the four pass 1 could not see (401 / 403 / fetching / skeleton, captured by forging the
+  `me()` response — the same shape as a production-issue reproduction) and the weak-fallback banner
+  (seeded stale progress + a forced 404 on the filtered path). The chunks loaded by `index.html` are
+  1.20 MB / 12 and the whole chunks directory is 1.85 MB (was 6.49 MB).
+Next: (1) **promote `develop` → `main`** (prod is still on `0cce7de`): the e2e + static gates are green
+  here, so the promotion is a ff-merge + push; it is what gives prod `/privacy`, the Stripe.js scoping
+  AND the closed premium leak. (2) Then re-opening sales is the one-line toggle
+  (`STRIPE_INTEGRATION_TODO.md` §8 item 8). (3) Standing queue: illustrations 106, traffic/SEO depth,
+  content depth.
+Notes: **waivers, recorded because UX_GUIDELINES requires it** — (a) the breadcrumb-as-h1 caps at
+  `md:max-w-xs`, so a long "course + set" heading wraps on desktop with the chevron between the lines:
+  pre-existing shared chrome, identical on the free control page, and changing it affects every
+  breadcrumb surface → its own chrome-wide pass. (b) The skeleton's placeholders are below the 3:1
+  non-text bar even after a one-step tone bump (decorative placeholder; the reviewer's alternative was
+  an explicit waiver). (c) The mixed-review mode toggle is ~36px tall, under the 44px floor:
+  pre-existing app-wide (`py-2` chips on the quiz too) → a consistent separate change. **A dev-only
+  `SyntaxError: Unexpected end of JSON input` is logged for `page: '/papers'` during e2e runs** — every
+  `JSON.parse` on that path is inside a `try`, all specs pass, and it is not attributable to this
+  change; recorded as an observation rather than guessed at. The `me()`-forging capture technique is the
+  cheap way to shoot session-dependent states (401/403) without dummy-auth env in the capture server.
+
+---
+
 ## 2026-09-16 — Premium content Phase 1b (step 3+4): gated content API, and the leak gate is GREEN
 Git HEAD: `91df58f` (develop, tree clean)
 Done: **Step 3 — the content Lambda (10th)** and its two surfaces. New `src/lib/content/{types,
