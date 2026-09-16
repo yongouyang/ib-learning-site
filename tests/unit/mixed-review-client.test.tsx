@@ -69,6 +69,8 @@ const optionLabels = (container: HTMLElement) =>
   [...container.querySelectorAll('button')].map((b) => b.textContent ?? '').slice(0, 4);
 
 const fetchUrls: string[] = [];
+// Serve the first N requests with a failure (used for the weak-mode dead-end retry).
+let failures: unknown[] = [];
 
 describe('MixedReviewClient — server draw, hydration safety and session stability', () => {
   beforeEach(() => {
@@ -76,10 +78,12 @@ describe('MixedReviewClient — server draw, hydration safety and session stabil
     progressState = [];
     modeParam = 'random';
     fetchUrls.length = 0;
+    failures = [];
     vi.stubGlobal(
       'fetch',
       vi.fn(async (url: string) => {
         fetchUrls.push(String(url));
+        if (failures.length > 0) failures.shift();
         return { ok: true, status: 200, json: async () => ({ questions: QUESTIONS }) } as unknown as Response;
       })
     );
@@ -144,6 +148,38 @@ describe('MixedReviewClient — server draw, hydration safety and session stabil
     await new Promise((resolve) => setTimeout(resolve, 20));
 
     expect(optionLabels(view.container)).toEqual(before);
+  });
+
+  it('falls back to all topics when the weak-topic draw is refused (a stale id list must not dead-end)', async () => {
+    modeParam = 'weak';
+    progressState = [WEAK]; // so the ids ARE sent
+    // EVERY request that carries the stale id is refused (failing only the first would be unfaithful:
+    // with a stale id list the filtered draw can never succeed), while the unfiltered retry works.
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async (url: string) => {
+        fetchUrls.push(String(url));
+        const ok = !String(url).includes('/math-yr7-calculations');
+        return {
+          ok,
+          status: ok ? 200 : 404,
+          json: async () => (ok ? { questions: QUESTIONS } : { error: 'no_questions' }),
+        } as unknown as Response;
+      })
+    );
+
+    const view = render(<MixedReviewClient />);
+    await waitFor(() => expect(fetchUrls.length).toBeGreaterThan(1), { timeout: 5_000 });
+    // The first attempt carried the ids; the retry dropped them.
+    expect(fetchUrls[0]).toContain('/math-yr7-calculations');
+    // (Before progress lands the seed is the bare mode string, so the retry ends at /mixed-review/weak
+    // with no id segment — that absence IS the contract being asserted.)
+    expect(fetchUrls.some((u) => u.endsWith('/mixed-review/weak'))).toBe(true);
+    // …and the copy now describes what actually happened.
+    await waitFor(() =>
+      expect(view.container.textContent).toMatch(/Could not build a weak-area review/)
+    );
+    await waitFor(() => expect(optionLabels(view.container).length).toBe(4), { timeout: 5_000 });
   });
 
   it('re-draws from the weak topics when progress arrives before any answer', async () => {

@@ -32,8 +32,18 @@ const SHOTS = [
   // Free control shot: the answer box is an aria-label, so it needs getByLabel — getByText cannot see
   // accessible names (the first version of this script timed out on exactly that).
   { name: 'premium-set-free-control', path: '/papers/math-y7/math-y7-set-1', waitForLabel: /Your answer/i },
+  // The skeleton state (entitlements still resolving). Only reachable while /api/auth/me is in flight,
+  // so this shot delays that response and photographs the aria-busy block the reviewer could not see.
+  { name: 'premium-set-skeleton', path: '/papers/math-y7/math-y7-set-2', waitForSelector: '[aria-busy="true"]', delayAuthMe: true },
   { name: 'mixed-review', path: '/mixed-review', waitFor: /Q\.|Loading mixed review/ },
   { name: 'mixed-review-weak', path: '/mixed-review?mode=weak', waitFor: /Focused on your weak areas|No weak areas found yet/ },
+  // The two cards the first review pass could not see. They only render for a session the CLIENT
+  // believes is entitled, so the shot signs in through the dummy OTP flow and patches the me()
+  // response's entitlements (the user object itself stays the server's), then makes the content fetch
+  // answer 401 / 403. That is also exactly the production-issue reproduction path for these states.
+  { name: 'premium-set-401', path: '/papers/math-y7/math-y7-set-2', waitFor: 'Sign in to open this set', asEntitled: true, paperStatus: 401 },
+  { name: 'premium-set-403', path: '/papers/math-y7/math-y7-set-2', waitFor: 'Not included in your plan', asEntitled: true, paperStatus: 403 },
+  { name: 'premium-set-fetching', path: '/papers/math-y7/math-y7-set-2', waitForSelector: '[aria-busy="true"]', asEntitled: true, paperStatus: 'slow' },
 ];
 const VIEWPORTS = {
   mobile: { w: 375, h: 1400 },
@@ -81,10 +91,54 @@ try {
           await page.goto(BASE);
           // Theme is a localStorage preference read on mount; set it, then load the page.
           await page.evaluate((t) => localStorage.setItem('iblearn-theme', t), theme);
+          if (shot.asEntitled) {
+            // Forge the me() response (a capture-only stub, not a session): the shell only fetches the
+            // paper once the CLIENT believes it is entitled, and the two cards under review are exactly
+            // what an entitled client sees when the SERVER disagrees (401 expired session / 403 stale
+            // tier). Routing me() avoids needing dummy-auth env in this capture server.
+            await page.route('**/api/auth/me', async (route) => {
+              await route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify({
+                  user: {
+                    userId: 'capture-user',
+                    email: 'capture@example.com',
+                    displayName: 'Capture',
+                    role: 'student',
+                    tier: 'premium',
+                    childProfiles: [],
+                  },
+                  entitlements: ['ai-marking', 'ai-marking-unlimited', 'exam-sets-full'],
+                }),
+              });
+            });
+            await page.route('**/api/content/premium/**', async (route) => {
+              if (shot.paperStatus === 'slow') {
+                await new Promise((r) => setTimeout(r, 8000));
+                await route.continue();
+                return;
+              }
+              await route.fulfill({
+                status: shot.paperStatus,
+                contentType: 'application/json',
+                body: JSON.stringify({ error: shot.paperStatus === 401 ? 'login_required' : 'not_entitled' }),
+              });
+            });
+          }
+          if (shot.delayAuthMe) {
+            // Hold the entitlements response so the skeleton is on screen long enough to photograph.
+            await page.route('**/api/auth/me', async (route) => {
+              await new Promise((r) => setTimeout(r, 8000));
+              await route.continue();
+            });
+          }
           await page.goto(`${BASE}${shot.path}`);
-          const waiter = shot.waitForLabel
-            ? page.getByLabel(shot.waitForLabel).first()
-            : page.getByText(shot.waitFor).first();
+          const waiter = shot.waitForSelector
+            ? page.locator(shot.waitForSelector).first()
+            : shot.waitForLabel
+              ? page.getByLabel(shot.waitForLabel).first()
+              : page.getByText(shot.waitFor).first();
           await waiter.waitFor();
           await page.waitForTimeout(700);
           const file = `${shot.name}-${vpName}-${theme}.png`;

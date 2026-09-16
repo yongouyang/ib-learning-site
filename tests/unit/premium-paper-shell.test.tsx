@@ -18,6 +18,11 @@ vi.mock('../../src/app/papers/[courseId]/[setId]/PaperRunnerClient', () => ({
   default: ({ paper }: { paper: { id: string } }) => <div data-testid="paper-runner">{paper.id}</div>,
 }));
 
+// usePathname drives the 401 card's return path (loginHref), so it needs a value here.
+vi.mock('next/navigation', () => ({
+  usePathname: () => '/papers/math-y9/math-y9-set-2',
+}));
+
 import PremiumPaperShell from '@/app/papers/[courseId]/[setId]/PremiumPaperShell';
 
 const META: PaperMeta = {
@@ -83,13 +88,45 @@ describe('PremiumPaperShell', () => {
     expect(screen.getByTestId('paper-runner').textContent).toBe('math-y9-set-2');
   });
 
-  it('degrades a 401 to a sign-in prompt (the server is the gate)', async () => {
+  it('degrades a 401 to a sign-in prompt that RETURNS the user here (the server is the gate)', async () => {
     loadedState = true;
     entitled = true;
     fetchStatus = 401;
     render(<PremiumPaperShell courseId="math-y9" setId="math-y9-set-2" meta={META} />);
     await waitFor(() => expect(screen.getByText(/Sign in to open this set/)).toBeTruthy());
     expect(screen.queryByTestId('paper-runner')).toBeNull();
+    // A bare /login would drop an expired session on the home page after signing in.
+    expect(screen.getByRole('link', { name: 'Sign in' }).getAttribute('href')).toBe(
+      '/login?next=%2Fpapers%2Fmath-y9%2Fmath-y9-set-2'
+    );
+  });
+
+  // The reviewer's P1: the premium page had no h1, no breadcrumb and never named the course, while the
+  // free set-1 page (the control) had all three. Every state must carry the same chrome.
+  it.each([
+    ['unresolved (skeleton)', false, false],
+    ['not entitled (tease)', true, false],
+    ['entitled but fetching', true, true],
+  ])('renders the breadcrumb chrome and exactly one h1 in the %s state', async (_name, loaded, isEntitled) => {
+    loadedState = loaded;
+    entitled = isEntitled;
+    render(<PremiumPaperShell courseId="math-y9" setId="math-y9-set-2" meta={META} />);
+    const headings = screen.getAllByRole('heading', { level: 1 });
+    expect(headings).toHaveLength(1);
+    expect(headings[0].textContent).toBe('Math — Year 9 Practice Set 2');
+    expect(screen.getByRole('link', { name: 'Practice Papers' })).toBeTruthy();
+  });
+
+  it('shows the public metadata preview as readable text, outside any aria-hidden wrapper', async () => {
+    loadedState = true;
+    entitled = false;
+    render(<PremiumPaperShell courseId="math-y9" setId="math-y9-set-2" meta={META} />);
+    await waitFor(() => expect(screen.getByText(/Full exam sets/)).toBeTruthy());
+    // Dimming it measured ~1.7:1 contrast AND put it inside aria-hidden, so AT heard no evidence of
+    // value at all. Nothing here needs protecting: it is the page's own public metadata.
+    const stats = screen.getByText(/8 questions · 20 marks/);
+    expect(stats.closest('[aria-hidden="true"]')).toBeNull();
+    expect(stats.closest('[inert]')).toBeNull();
   });
 
   it('degrades a 403 to an honest "not in your plan" card (a stale client tier must not read as an error)', async () => {

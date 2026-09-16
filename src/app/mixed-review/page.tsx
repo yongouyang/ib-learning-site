@@ -14,7 +14,21 @@ export const metadata: Metadata = pageMeta({
 
 export default function MixedReviewPage() {
   return (
-    <Suspense fallback={<div className="max-w-lg mx-auto px-4 py-8 text-center text-gray-500 dark:text-gray-400">Loading mixed review…</div>}>
+    // The fallback matches MixedReviewClient's own loading card class-for-class: a bare div here made
+    // the sentence visibly pop from plain text into a white card the moment the client took over.
+    <Suspense
+      fallback={
+        <div className="max-w-lg mx-auto px-4 py-8">
+          <p
+            className="card p-6 text-center text-gray-500 dark:text-gray-400"
+            role="status"
+            aria-busy="true"
+          >
+            Loading mixed review…
+          </p>
+        </div>
+      }
+    >
       <MixedReviewClient />
     </Suspense>
   );

@@ -34,7 +34,12 @@ export function LockedFeature({
    * already made the pitch (copy voice: say it once).
    */
   compact?: boolean;
-  children: ReactNode;
+  /**
+   * The visible-but-inert preview. OPTIONAL: a caller whose gate has nothing to preview (the premium
+   * paper shell shows public metadata as a normal card and only needs the CTA) omits it, and no empty
+   * dimmed wrapper is rendered.
+   */
+  children?: ReactNode;
 }) {
   const { has, loaded } = useEntitlements();
 
@@ -61,10 +66,12 @@ export function LockedFeature({
     <div className="relative">
       {/* inert + aria-hidden: the preview is visual only — keyboard and screen
           readers go straight to the lock message below. */}
-      <div inert aria-hidden="true" className="pointer-events-none select-none opacity-40">
-        {children}
-      </div>
-      <div className="card p-5 mt-3 text-center">
+      {children ? (
+        <div inert aria-hidden="true" className="pointer-events-none select-none opacity-40">
+          {children}
+        </div>
+      ) : null}
+      <div className={`card p-5 text-center${children ? ' mt-3' : ''}`}>
         <p className="text-sm font-semibold text-blue-600 dark:text-blue-400">Premium</p>
         <p className="mt-1 font-bold text-gray-900 dark:text-gray-50">{title}</p>
         <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{benefit}</p>

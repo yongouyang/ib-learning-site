@@ -61,6 +61,8 @@ export default function MixedReviewClient() {
 
   const [questions, setQuestions] = useState<MixedReviewQuestion[]>([]);
   const [drawFailed, setDrawFailed] = useState(false);
+  // True only when the weak-topic request was refused and the retry from all topics is what rendered.
+  const [weakDrawFellBack, setWeakDrawFellBack] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -68,19 +70,44 @@ export default function MixedReviewClient() {
     // unencoded on purpose — `encodeURIComponent` would turn the seed's colon into %3A, which the
     // server's validator rejects. The path (not a query string) is also what makes the edge cache key
     // cover every input that changes the response.
+    const drawPath = (ids: string) => `/api/content/public/mixed-review/${sessionSeed}${ids}`;
     const ids = usedWeakTopics ? `/${weakIdsKey}` : '';
-    fetch(`/api/content/public/mixed-review/${sessionSeed}${ids}`)
-      .then(async (res) => {
-        if (!res.ok) throw new Error(String(res.status));
-        return res.json() as Promise<{ questions: MixedReviewQuestion[] }>;
-      })
-      .then((body) => {
+
+    const load = async (path: string): Promise<MixedReviewQuestion[]> => {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error(String(res.status));
+      const body = (await res.json()) as { questions: MixedReviewQuestion[] };
+      if (body.questions.length === 0) throw new Error('empty');
+      return body.questions;
+    };
+
+    load(drawPath(ids))
+      .then((drawn) => {
         if (cancelled) return;
         setDrawFailed(false);
-        setQuestions(body.questions);
+        setWeakDrawFellBack(false);
+        setQuestions(drawn);
       })
-      .catch(() => {
-        if (!cancelled) {
+      .catch(async () => {
+        // Weak mode sends up to 40 ids from LOCAL progress, so a stale id list (progress from an older
+        // content revision) empties the pool server-side and 404s. Retrying the SAME ids on reload —
+        // which is what the old copy told the user to do — could never work, so fall back to all
+        // topics once and say so.
+        if (!usedWeakTopics) {
+          if (!cancelled) {
+            setQuestions([]);
+            setDrawFailed(true);
+          }
+          return;
+        }
+        try {
+          const drawn = await load(drawPath(''));
+          if (cancelled) return;
+          setDrawFailed(false);
+          setWeakDrawFellBack(true);
+          setQuestions(drawn);
+        } catch {
+          if (cancelled) return;
           setQuestions([]);
           setDrawFailed(true);
         }
@@ -127,10 +154,12 @@ export default function MixedReviewClient() {
 
   // What the two modes actually do, stated plainly so the difference is visible
   // while practising (not just on the results screen).
-  const isFallback = mode === 'weak' && !usedWeakTopics;
+  // Both fallbacks are now reachable and distinct: no weak topics yet, and (after the retry) a weak
+  // draw the server could not build. `weakTopicCount > 0` alone used to make the second arm dead code.
+  const isFallback = mode === 'weak' && (!usedWeakTopics || weakDrawFellBack);
   const description =
     mode === 'weak'
-      ? usedWeakTopics
+      ? usedWeakTopics && !weakDrawFellBack
         ? `Focused on your weak areas — questions from the ${weakTopicCount} topic${weakTopicCount !== 1 ? 's' : ''} you scored below 70% on.`
         : weakTopicCount === 0
           ? 'No weak areas found yet — questions are drawn from all topics instead.'
@@ -174,8 +203,16 @@ export default function MixedReviewClient() {
       </p>
 
       {!draw ? (
-        <p className="card p-6 text-center text-gray-500 dark:text-gray-400">
-          {drawFailed ? 'Could not load mixed review — reload the page to try again.' : 'Loading mixed review…'}
+        <p
+          className="card p-6 text-center text-gray-500 dark:text-gray-400"
+          role="status"
+          aria-busy={!drawFailed}
+        >
+          {drawFailed
+            ? mode === 'weak'
+              ? 'Could not load mixed review — switch to All topics, or reload to try again.'
+              : 'Could not load mixed review — reload the page to try again.'
+            : 'Loading mixed review…'}
         </p>
       ) : (
       <QuizGame
