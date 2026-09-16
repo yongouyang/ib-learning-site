@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { Subject, SubjectId, Topic } from '@/content/types';
 import { getSubjects } from '@/content/registry';
 import { COURSES, getCourseTopics } from '../courses';
+import { getAllContentTopics } from '@/content/registry.content';
 import { TIERS, tierHubPath, tierOfTopic, tierSubjectPath, type TierKey } from './curriculum';
 import { alternatesFor } from './hreflang';
 import { subjectSeoName } from './meta';
@@ -32,7 +33,7 @@ export function tierSubjects(tier: TierKey): TierSubjectHub[] {
   if (tier === 'ibdp') {
     const seen = new Set<string>();
     for (const course of COURSES) {
-      for (const topic of getCourseTopics(course)) {
+      for (const topic of getCourseTopics(getAllContentTopics(), course)) {
         if (tierOfTopic(topic) !== tier || seen.has(topic.id)) continue;
         seen.add(topic.id);
         const list = topicsBySubject.get(topic.subjectId) ?? [];

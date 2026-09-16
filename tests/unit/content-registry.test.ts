@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { getSubjects, getSubject, getTopic } from '@/content/registry';
+import {
+  getAllContentTopics,
+  getContentSubject,
+  getContentTopic,
+} from '@/content/registry.content';
+import { getAllPapersContent, getPaperContent, getPapersForCourseContent } from '@/content/registry.papers';
 import type { SubjectId } from '@/content/types';
 
 const EXPECTED_TOPIC_COUNTS: Partial<Record<SubjectId, number>> = {
@@ -46,6 +52,27 @@ describe('content-registry', () => {
 
   it('should return undefined for unknown topic', () => {
     expect(getTopic('math', 'nonexistent')).toBeUndefined();
+  });
+
+  describe('content halves (Phase 1a — docs/premium-content-protection-plan.md §4.4)', () => {
+    it('registry.content exposes the same content the eager registry did', () => {
+      const eager = getTopic('math', 'math-yr7-calculations');
+      const content = getContentTopic('math', 'math-yr7-calculations');
+      expect(content).toEqual(eager);
+      expect(getContentTopic('math', 'nonexistent')).toBeUndefined();
+      expect(getContentSubject('math')!.topics).toHaveLength(EXPECTED_TOPIC_COUNTS.math!);
+      expect(getAllContentTopics()).toHaveLength(Object.values(EXPECTED_TOPIC_COUNTS).reduce((a, b) => a + b, 0));
+    });
+
+    it('registry.papers exposes papers with their mark schemes', () => {
+      const papers = getAllPapersContent();
+      expect(papers).toHaveLength(29);
+      const set = getPaperContent('math-y9', 'math-y9-set-2')!;
+      expect(set.questions.length).toBeGreaterThan(0);
+      expect(set.questions[0].markscheme.length).toBe(set.questions[0].marks);
+      expect(getPaperContent('math-y9', 'nope')).toBeUndefined();
+      expect(getPapersForCourseContent('math-y9').every((p) => p.courseId === 'math-y9')).toBe(true);
+    });
   });
 
   describe('topic counts', () => {

@@ -1,4 +1,5 @@
 import { getCourse, getCourseTopics } from '@/lib/courses';
+import { getAllContentTopics } from '@/content/registry.content';
 import { DIFFICULTY_LEVELS, seededShuffle } from '@/lib/quiz-utils';
 import type { Difficulty } from '@/content/types';
 import type { MixedReviewQuestion } from '@/lib/mixed-review';
@@ -25,7 +26,7 @@ export function buildQuestionSet(options: QuestionSetOptions): MixedReviewQuesti
   if (!course) return [];
 
   const length = Object.values(targets).reduce((sum, n) => sum + n, 0);
-  const topics = seededShuffle(getCourseTopics(course), `${seed}:topics`);
+  const topics = seededShuffle(getCourseTopics(getAllContentTopics(), course), `${seed}:topics`);
 
   // Bucket each topic's questions by band (untagged = medium), deterministically
   // shuffled within the bucket.

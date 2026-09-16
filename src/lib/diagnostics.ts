@@ -1,4 +1,5 @@
 import { COURSES, getCourseTopics } from '@/lib/courses';
+import { getAllContentTopics } from '@/content/registry.content';
 import { buildQuestionSet } from '@/lib/question-sets';
 import type { MixedReviewQuestion } from '@/lib/mixed-review';
 
@@ -26,7 +27,7 @@ export function getDiagnosticCourses(): DiagnosticCourseInfo[] {
   return COURSES.map((course) => ({
     id: course.id,
     title: course.title,
-    topicCount: getCourseTopics(course).length,
+    topicCount: getCourseTopics(getAllContentTopics(), course).length,
     questionCount: buildDiagnosticQuestions(course.id).length,
   }));
 }

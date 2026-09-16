@@ -1,12 +1,11 @@
-import { Topic } from '@/content/types';
-import { getSubjects } from '@/content/registry';
+import type { TopicTaxonomy } from '@/content/types';
 
 // Shared course groupings — consumed by diagnostics (/diagnostics), mock exams
 // (/exams) and the revision ladder. Add IGCSE entries here when content lands.
 export interface Course {
   id: string;
   title: string;
-  matches: (topic: Topic) => boolean;
+  matches: (topic: TopicTaxonomy) => boolean;
 }
 
 export const COURSES: Course[] = [
@@ -86,6 +85,11 @@ export function getCourse(id: string): Course | undefined {
   return COURSES.find((c) => c.id === id);
 }
 
-export function getCourseTopics(course: Course): Topic[] {
-  return getSubjects().flatMap((s) => s.topics).filter(course.matches);
+/**
+ * Pure since Phase 1a (docs/premium-content-protection-plan.md §4.4): the caller supplies the topic
+ * list it already holds, so this module never reaches into the content registry and stays safe to
+ * import from a client component. Generic over the taxonomy, so content callers get `Topic[]` back.
+ */
+export function getCourseTopics<T extends TopicTaxonomy>(topics: readonly T[], course: Course): T[] {
+  return topics.filter(course.matches);
 }

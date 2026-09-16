@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getSubject } from '@/content/registry';
 import type { Paper, SubjectId } from '@/content/types';
 import { COURSES, getCourse, getCourseTopics } from '@/lib/courses';
+import { getAllContentTopics } from '@/content/registry.content';
 import { DIAGNOSTIC_LENGTH } from '@/lib/diagnostics';
 import { getExamPaper } from '@/lib/exams';
 import { getLadderLevel } from '@/lib/ladder';
@@ -26,7 +27,7 @@ import { pageMeta } from './page-meta';
 export function courseQualifier(courseId: string): string | null {
   const course = getCourse(courseId);
   if (!course) return null;
-  const [first] = getCourseTopics(course);
+  const [first] = getCourseTopics(getAllContentTopics(), course);
   if (!first) {
     // Defensive: with the order.json contract every course has topics.
     return pageCourseFallback(course.title);
@@ -43,7 +44,7 @@ export function metaForDiagnostic(courseId: string): Metadata | null {
   const qualifier = courseQualifier(courseId);
   const course = getCourse(courseId);
   if (!qualifier || !course) return null;
-  const topicCount = getCourseTopics(course).length;
+  const topicCount = getCourseTopics(getAllContentTopics(), course).length;
   return pageMeta({
     path: `/diagnostics/${courseId}`,
     title: `${qualifier} diagnostic test`,
