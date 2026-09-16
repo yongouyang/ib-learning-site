@@ -4,6 +4,42 @@
 
 ---
 
+## 2026-09-16 — PROD promoted to `aa9ff6a` and verified at the edge; premium-protection plan reviewed
+Git HEAD: `e6e58bb` (develop, tree clean)
+Done: ff-promoted `develop → main` (`0cce7de..aa9ff6a`, 11 commits — the legal pages, the Stripe.js
+  scoping, the off-sale switch; direct ff push, no `gh` CLI locally). Also reviewed the new
+  `docs/premium-content-protection-plan.md` and re-measured its §2 rather than trusting it.
+Verified: prod `version.json` → `aa9ff6a` (38 polls, ~19 min); **`/privacy` 404 → 200** and `/terms`
+  200, both with real `<h1>`; `/privacy` in `core.xml`; sitemap total **335** (core 29 / ks3 197 /
+  igcse 16 / ibdp 20 / assessments 73); all `_health` probes `"ok":true`; homepage HTML contains
+  **0** `js.stripe.com`; `verify-checkout-cookies.mjs --origin=https://octavlearning.com` PART A →
+  "§12 holds". Off-sale intact after the apply: `BILLING_DISABLED_ENVS = "prod"` in the promoted
+  terraform **and** live on the shared Lambda. Local: unit **1372/1372**, `validate:content` ✓,
+  `audit:content` 0/0. Plan review reproduced: the 4.8 MB chunk is referenced by **858/886** pages
+  incl. `/` and holds 21/28 of `math-y9-set-2`'s stem/markscheme/modelAnswer strings (the set's own
+  `.html` + `.txt` hold the same); `study.html` (283 KB) does carry the notes, so the SEO funnel
+  survives decision 3; quiz/flashcards/diagnostics/ladder HTML are **already** content-free shells
+  (`useSearchParams` → the Suspense fallback is what prerenders).
+Next: (1) **Decide Q1** — which phase re-opens prod sales (Phase 1 if the bar is "anonymous leak
+  closed"; Phase 2/3 otherwise) — and write it into `STRIPE_INTEGRATION_TODO.md` §8 item 8. (2) Q2
+  (free surfaces in Phase 1: props vs straight to the public API — props puts free questions into
+  HTML/`.txt` on ~487 pages, which contradicts decision 3's letter) and **Q3** (Phase 3 buys only
+  throttling: measured, the sole free surface with questions in HTML today is paper set 1 = 14
+  indexable pages; consider edge rate-limiting instead of an API) are open. (3) Q4: §4.1 names only
+  `courses.ts` — `exams/ladder/diagnostics/mixed-review/question-sets` are client-reachable registry
+  consumers too and each needs a split decision. (4) Then **Phase 1a** (registry split + `TopicMeta`
+  threading) with the escape-insensitive leak gate (§7) in the same commit. (5) USER: Terms+Privacy
+  URLs into Stripe Checkout settings; Portal plan switching OFF; cancel stale Checkout Sessions.
+  (6) Standing queue: illustrations 106, traffic/SEO depth, content depth.
+Notes: **Q5 — the leak gate must strip backslashes on both sides** (a plain grep for a LaTeX-bearing
+  string found 0 of 28 hits; after stripping, 21/28), and it should also fail if a chunk re-grows.
+  The `/api/*` catch-all forwards any unknown `/api/…` path to the feedback Lambda, which answers
+  `200 {"configured":true}` — so every `_health` probe must keep grepping for a body field the wrong
+  Lambda cannot produce (CI already does: `"ok":true`); the content API's probe should assert
+  `topicCount > 0` for the same reason.
+
+---
+
 ## 2026-09-16 — Premium content protection: decisions taken, design fixed, measurements corrected
 Git HEAD: `71b6fe6` (feature/server-side-rendering, dirty — docs only)
 Done: rewrote `docs/premium-content-protection-plan.md` from the 2026-09-14 intention note into a
