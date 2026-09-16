@@ -29,7 +29,9 @@ mkdirSync(OUT, { recursive: true });
 // `waitFor` is the text that proves the state actually rendered before the shutter.
 const SHOTS = [
   { name: 'premium-set-tease', path: '/papers/math-y7/math-y7-set-2', waitFor: 'See Premium plans' },
-  { name: 'premium-set-free-control', path: '/papers/math-y7/math-y7-set-1', waitFor: 'Your answer' },
+  // Free control shot: the answer box is an aria-label, so it needs getByLabel — getByText cannot see
+  // accessible names (the first version of this script timed out on exactly that).
+  { name: 'premium-set-free-control', path: '/papers/math-y7/math-y7-set-1', waitForLabel: /Your answer/i },
   { name: 'mixed-review', path: '/mixed-review', waitFor: /Q\.|Loading mixed review/ },
   { name: 'mixed-review-weak', path: '/mixed-review?mode=weak', waitFor: /Focused on your weak areas|No weak areas found yet/ },
 ];
@@ -80,7 +82,9 @@ try {
           // Theme is a localStorage preference read on mount; set it, then load the page.
           await page.evaluate((t) => localStorage.setItem('iblearn-theme', t), theme);
           await page.goto(`${BASE}${shot.path}`);
-          const waiter = typeof shot.waitFor === 'string' ? page.getByText(shot.waitFor).first() : page.getByText(shot.waitFor).first();
+          const waiter = shot.waitForLabel
+            ? page.getByLabel(shot.waitForLabel).first()
+            : page.getByText(shot.waitFor).first();
           await waiter.waitFor();
           await page.waitForTimeout(700);
           const file = `${shot.name}-${vpName}-${theme}.png`;
