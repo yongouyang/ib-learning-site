@@ -17,7 +17,7 @@ test.describe('Quiz difficulty features', () => {
 
     const group = page.getByRole('group', { name: 'Filter by difficulty' });
     await expect(group).toBeVisible();
-    await expect(group.getByRole('link', { name: /All \(15\)/ })).toHaveAttribute('aria-pressed', 'true');
+    await expect(group.getByRole('link', { name: /All \(15\)/ })).toHaveAttribute('aria-current', 'page');
     await expect(group.getByRole('link', { name: /Easy \(\d+\)/ })).toBeVisible();
     await expect(group.getByRole('link', { name: /Medium \(\d+\)/ })).toBeVisible();
     await expect(group.getByRole('link', { name: /Hard \(\d+\)/ })).toBeVisible();
@@ -28,7 +28,7 @@ test.describe('Quiz difficulty features', () => {
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
 
     const group = page.getByRole('group', { name: 'Filter by difficulty' });
-    await expect(group.getByRole('link', { name: /Hard \(3\)/ })).toHaveAttribute('aria-pressed', 'true');
+    await expect(group.getByRole('link', { name: /Hard \(3\)/ })).toHaveAttribute('aria-current', 'page');
 
     // Question counter reflects the filtered pool (3 hard questions).
     // Scoped to <main>: React's streaming Suspense leaves a hidden copy of the
