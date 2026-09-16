@@ -9,8 +9,13 @@
 >
 > **No code has changed yet.** This file records decisions and the target design; §5 is the work queue.
 >
-> **Decisions: §1 · Measurements: §2 · Why not full SSR: §3 · Target design: §4 · Phases: §5 ·
-> Gotchas: §6 · Gates: §7 · Ceiling: §8 · Not doing: §9**
+> **Second decision round 2026-09-16** (owner answers, recorded in §1.1): free surfaces stay exactly as
+> they are, mixed review gets the only public content endpoint, Phase 1b covers paper sets 2+ only,
+> and the free bank does **not** leave the HTML (Phase 3 withdrawn). §4.4 is the module-by-module
+> split decision that Phase 1a executes.
+>
+> **Decisions: §1 · Measurements: §2 · Why not full SSR: §3 · Target design: §4 (split decisions §4.4) ·
+> Phases: §5 · Gotchas: §6 · Gates: §7 · Ceiling: §8 · Not doing: §9**
 
 ---
 
@@ -31,6 +36,17 @@ Consequence of decision 2, worth stating plainly: **"server-side rendering" here
 server-side content delivery, not per-request HTML rendering.** The protection ceiling is identical
 (§8) and the cost is a fraction of a hosting migration. It also deletes the 5.1 MB site-wide chunk
 (§2), which is plausibly the largest Core Web Vitals win available to this site.
+
+### 1.1 Follow-up decisions (2026-09-16, second round)
+
+| # | Question | Decision |
+|---|---|---|
+| 7 | **What stays free** | **Everything that is free today, unchanged and prerendered**: notes, flashcards, each topic's **full** question bank (15–29 questions; **no topic has 10** — 207 of 233 have exactly 15, and the quiz serves all of them with difficulty filters), diagnostics, ladder levels 1–2 and paper set 1. No free surface is gated, throttled or re-shaped. |
+| 8 | **Mixed review's data** | **One public read endpoint** (`/api/content/public/…`, edge-cached, free topics only) is the *only* runtime API for free content. Its justification is **functionality, not throttling**: mixed review composes across every topic the user has studied, so its input cannot be known at build time. Every other free surface keeps content passed at build time. |
+| 9 | **Phase 1b scope** | **Paper sets 2+ only (15 sets).** Mock exams (17) and ladder 3–5 (39) stay UX-gated. They are *sampled from the free bank with published seeds*, so they remain recomputable from public data however they are delivered — that is a **content** problem (premium needs its own question pool), not a delivery one, and it is accepted here. |
+| 10 | **Phase 3** | **Withdrawn.** The free bank does **not** leave the HTML: goal 1(c) is dropped, so nothing is shelled and no public content API exists for quizzes, flashcards, diagnostics, ladder 1–2 or paper set 1. Free pages keep delivered-by-build content, which is also the SEO position (decision 3's "only study pages" line is thereby narrowed to *premium only*). |
+| 11 | **Re-opening prod billing** | **Not gated on this work.** The off-sale switch is an independent toggle that is testable in DEV; no phase→re-open mapping is needed while the target is a PROD-ready state (security · content richness · performance). |
+| 12 | **Boundary enforcement** | The leak gate (§7) is the enforcement mechanism, **not** the `server-only` package (a new dependency for a boundary the output check already proves). Naming convention for content-bearing server modules: `*.server.ts` / `registry.content.ts`; the gate fails if any of them reaches a shipped chunk. |
 
 ---
 
@@ -105,14 +121,16 @@ and a permanently split routing story, for the same ceiling.
 
 `src/content/registry.ts` is one eager module, so *any* client import drags in all 233 topics and
 every paper. That single fact is the 5.1 MB chunk. `scripts/generate-registry.ts` therefore emits
-two modules:
+three modules (the module-by-module reasoning is §4.4):
 
 - **`registry.meta.ts`** — **client-safe.** Subjects (`id/name/icon/accentColor`) and, per topic:
   `id, subjectId, title, description, stage, year?, course?, level?, strand?`. Plus paper metadata:
   `id, courseId, title, durationMinutes, questionCount, totalMarks`.
-- **`registry.content.ts`** — **server-only.** All 233 JSON imports (notes, flashcards, questions,
-  templates) and paper questions + mark schemes. Imported by server page components and by the
-  content Lambda; **never** by a client component.
+- **`registry.content.ts`** — **server-only.** All 233 topic JSON imports (notes, flashcards,
+  questions, templates). Imported by server page components (and, from Phase 1b, by the content
+  Lambda); **never** by a client component except through the one lazy, temporary mixed-review chunk.
+- **`registry.papers.ts`** — **server-only, premium.** Paper questions + mark schemes. Its only
+  legitimate importer is the premium API handler in the content Lambda.
 
 Four fields beyond the obvious metadata are **forced by existing consumers** — do not drop them:
 
@@ -122,7 +140,34 @@ Four fields beyond the obvious metadata are **forced by existing consumers** —
 | `questionCount` + `totalMarks` | `metaForPaperSet` builds its description from `paper.questions.length` + summed marks |
 | `stage` / `year` / `course` / `level` / `strand` | `filterTopics` and `COURSES.matches` filter on taxonomy, not content |
 
-`src/lib/courses.ts` moves to metadata types (its `matches` predicates only read taxonomy).
+`src/lib/courses.ts` stays client-safe and its `matches` predicates keep reading taxonomy only; what
+changes is that `getCourseTopics` takes the topic list instead of fetching it (§4.4).
+
+### 4.4 Module split decisions (Phase 1a's work list)
+
+Measured from the code, not from the type names. "Client-safe" means the module may be imported by a
+`'use client'` file; "server" means it may not, and the gate in §7 proves it stayed out of the bundle.
+
+| Module | Today | Decision | Client transport after the split |
+|---|---|---|---|
+| `src/content/registry.ts` | one eager module, 233 static JSON imports, 266 imports total | **Split three ways** by the generator: `registry.meta.ts` (subjects + topic metadata + `flashcardIds` + paper metadata) · `registry.content.ts` (topic notes/flashcards/questions/templates) · `registry.papers.ts` (paper questions + markschemes) | meta imported directly by clients; content arrives as props (§4.1) |
+| `src/lib/courses.ts` (12 importers, 4 client) | `COURSES`/`getCourse` are pure metadata, but `getCourseTopics(course)` calls `getSubjects()` internally | **Stays client-safe; make it pure**: `getCourseTopics(topics, course)` | callers pass the topic list they already hold (metadata callers pass meta topics, composers pass content topics) — **no new module** |
+| `src/lib/question-sets.ts` (`buildQuestionSet`) | imports `courses` → registry | **server-only** (`question-sets.server.ts`); it is composition, and every consumer is a composer (below) | n/a — never imported by a client |
+| `src/lib/exams.ts` | definitions + `buildExamQuestions` mixed in one file | **Split**: `ExamPaper` definitions, `getExamPapers`, `getExamCourses`, `examId` stay client-safe; `buildExamQuestions` moves to `exams.server.ts` | `papers/[courseId]/[paperId]/page.tsx` composes at build time and passes the question array to `ExamRunnerClient` (seed `exam:<course>:<paperId>` is deterministic, so the built page is stable) |
+| `src/lib/ladder.ts` | same shape | **Split**: `LADDER_LEVELS`, `getLadderLevel`, `isLevelUnlocked` (pure over a progress record) stay; `buildLadderQuestions` → `ladder.server.ts` | `ladder/[level]/page.tsx` composes → props to `LadderRunnerClient`. Levels 1–2 are free **and indexable**, so their content legitimately lands in HTML |
+| `src/lib/diagnostics.ts` | same shape | **Split**: `DIAGNOSTIC_*`, `getDiagnosticCourse(s)` stay; `buildDiagnosticQuestions` → `diagnostics.server.ts` | `diagnostics/[courseId]/page.tsx` composes → props to `DiagnosticRunnerClient` (free + indexable, same as ladder 1–2) |
+| `src/lib/mixed-review.ts` | types + `buildMixedReviewQuestions` (calls `getSubjects` + weak-topic analysis) | **Split**: `MixedReviewQuestion` type and the band/count constants stay client-safe (they are imported as *types* by exam/ladder/diagnostic clients, which is erased anyway); the builder moves behind the **public endpoint** (decision 8) | `MixedReviewClient` → `GET /api/content/public/mixed-review?topicIds=…`; until that endpoint exists (Phase 1b) the client keeps a **lazy code-split** import of the free-topic content module so the other 885 pages stay light |
+| `src/lib/flashcard-scheduler.ts` (`getCardStats`, `getDueTopics`) | already argument-driven, but takes a whole `Topic` | **No module split**: it reads only `flashcards[].id`/`id`/`title`/`subjectId`/`length` | feed it `TopicMeta` (registry.meta carries `flashcardIds` and `flashcardCount`) — the caller adapts, not the signature |
+| `src/lib/generators.ts` (`materializeTemplates`) | needs `topic.templates` + `@/content/generators` code | **Unchanged**: the generator *definitions* are code (a few KB), not content | templates arrive with the topic props; the quiz's "New Question Set" reseed stays client-side over its own topic |
+| `src/lib/seo/{assessments,hubs}.ts` | call `getCourseTopics` for `topicCount` / first-topic copy | **Unchanged** once `getCourseTopics` is pure | pass metadata topics (counts and titles only) |
+
+Two consequences worth stating before anyone starts:
+
+- **Phase 1a needs no Lambda and no API.** Composition moves to build time for every free surface; mixed
+  review is the one exception and it is handled by a temporary lazy chunk until Phase 1b's public route.
+- **The paper content module (`registry.papers.ts`) must have exactly two importers**: the premium API
+  handler in the content Lambda, and nothing under `src/app/**` that renders a client component. The
+  premium shell page reads *metadata only*. This is what the §7 gate asserts.
 
 ### 4.2 Premium page flow
 
@@ -143,23 +188,44 @@ changes here → `CACHE_VERSION` bump (per `AGENTS.md`, exactly what that consta
 
 ## 5. Phases
 
-### Phase 1 — kill the bulk artifact, close the anonymous leak
+### Phase 1a — the split and the props (no Lambda, no API)
 
-- [ ] Split the registry (§4.1); `scripts/generate-registry.ts` emits both modules; update
-      `tests/unit/content-registry.test.ts` and `content-schema.test.ts`, which assert the current
-      single-module shape.
-- [ ] Thread `TopicMeta`/`SubjectMeta` through the client surfaces; content-typed modules become
-      server-only. This is the bulk of the phase (§6.7).
-- [ ] Free pages receive content as **props from their server page component** — HTML unchanged, no
-      API yet, but the 5.1 MB chunk disappears.
-- [ ] Premium sets: metadata shell (§4.2) + `GET /api/content/premium/papers/<courseId>/<setId>`
-      gated on session + `exam-sets-full`.
+The whole of §4.4, in one independently testable commit. Ships the performance win and closes the
+anonymous premium leak in HTML and `.txt`; it changes nothing a user can see.
+
+- [ ] `scripts/generate-registry.ts` emits three modules (§4.4): `registry.meta.ts`,
+      `registry.content.ts`, `registry.papers.ts`. Update `tests/unit/content-registry.test.ts` and
+      `content-schema.test.ts`, which assert today's single-module shape.
+- [ ] Make `getCourseTopics(topics, course)` pure; `courses.ts` stays client-safe.
+- [ ] Split `exams/ladder/diagnostics/mixed-review` per §4.4; `question-sets.ts` becomes server-only.
+- [ ] Move composition into the three runner pages (`exams/[courseId]/[paperId]`,
+      `exams/[courseId]/ladder/[level]`, `diagnostics/[courseId]`) and pass the composed array as props.
+- [ ] Free pages receive content as props from their server page component
+      (`study`, `quiz`, `flashcards`, `papers/<set>`). Note the two HTML outcomes, both acceptable:
+      pages whose client component calls `useSearchParams` (quiz, mixed review) still prerender the
+      Suspense fallback, while the others (study, papers, diagnostics, ladder) render the content into
+      HTML — free content is public, and for the indexable ones (diagnostics, ladder 1–2, set 1) more
+      crawlable text is a gain, not a loss.
+- [ ] Mixed review: lazy code-split import of the free-topic content module as the interim transport
+      (Phase 1b replaces it with the public route).
+- [ ] Premium sets: metadata-only shell (§4.2). No API yet — until 1b lands, a locked set shows the
+      tease and makes no request.
+- [ ] `npm run audit:leaks` (§7) written, green, and wired into CI.
+
+### Phase 1b — the content Lambda (premium sets + mixed review's public route)
+
 - [ ] New surface, following the contact/leaderboard template end to end:
       `src/lib/content/{http-handler,deps,dummy}.ts`, the dev/e2e Next route, `lambda/content/`,
-      `terraform/modules/content_api`, both CloudFront behaviours, `scripts/serve-static.ts`'s path
-      map, and the `build-lambdas.sh` list (9 → 10).
+      `terraform/modules/content_api`, **both** CloudFront behaviours with **separate** cache policies
+      (gotcha 1), `scripts/serve-static.ts`'s path map, and the `build-lambdas.sh` list (9 → 10).
+- [ ] `GET /api/content/premium/papers/<courseId>/<setId>` — session + `exam-sets-full`, `private,
+      no-store`, `not_entitled` otherwise.
+- [ ] `GET /api/content/public/mixed-review?topicIds=…` — free topics only, edge-cached, per-IP
+      budget on **origin misses** (decision 5). Wire `MixedReviewClient` to it and drop the lazy chunk.
 - [ ] `GET /api/content/_health` asserts `topicCount > 0` — catches an esbuild that silently dropped
       the JSON, which a DynamoDB-style probe would not.
+
+### Phase 2 — throttling and attribution
 
 ### Phase 2 — throttling and attribution
 
@@ -169,19 +235,18 @@ changes here → `CACHE_VERSION` bump (per `AGENTS.md`, exactly what that consta
 - [ ] Optional per-session marker in premium payloads for attribution — **requires a privacy-note
       change** (account-linked marker; cf. `docs/privacy-notice-draft.md` §6.3).
 
-### Phase 3 — the bank leaves the HTML too
+### Phase 3 — WITHDRAWN (decision 10)
 
-- [ ] `/api/content/public/*` for questions, flashcards and composed sets.
-- [ ] Move composition server-side: `buildQuestionSet` + `materializeTemplates` behind the Lambda.
-      The seeds are already explicit and stable (`exam:<course>:<paperId>`,
-      `ladder:<course>:<level>`), so in-flight assessments do not shift; the client "New Question
-      Set" reseed must pass its seed to the server.
-- [ ] Quiz / flashcards / diagnostics / ladder 1–2 / paper set 1 become shells (decision 3).
-- [ ] SW caches the public prefix only; `CACHE_VERSION` bump.
+Goal 1(c) is dropped: the free bank stays in the HTML, so there is no public content API for
+questions, flashcards, diagnostics, ladder 1–2 or paper set 1, no shell conversion and no SW cache
+strategy change for them. Only phases 1–2 remain.
 
-Phase 3 is what makes mock exams and upper ladder levels genuinely non-derivable. Until it lands,
-they are recomputable from public data: `src/lib/exams.ts` and `src/lib/ladder.ts` both call
-`buildQuestionSet` on the same free topic bank the quizzes use, with published seeds.
+What this leaves undone, stated plainly so it is a decision rather than an oversight: mock exams and
+ladder 3–5 are recomputable from public data (`exams.ts`/`ladder.ts` call `buildQuestionSet` over the
+free topic bank with published seeds). Their delivery is now uniform — premium paper sets are the
+gated surface — but secrecy is not. The fix, if it is ever wanted, is **content**: a premium-only
+question pool those surfaces sample instead of the free bank. That is authoring work, not
+architecture, and it is out of scope here (see §8's ceiling).
 
 ---
 
@@ -206,9 +271,10 @@ they are recomputable from public data: `src/lib/exams.ts` and `src/lib/ladder.t
    `\dfrac`. Two probes in the first revision of this note returned a false "clean". **Strip
    backslashes from both sides, or search an ASCII-only phrase**, before concluding anything about
    what is or is not in `out/`.
-7. **The type-threading cost is the real bulk of Phase 1.** `Topic` (content-bearing) is the type
-   threaded through client UI, including four client components that reach the bank through
-   `src/lib/courses.ts`. Wide and mechanical, not deep — but not a small diff.
+7. **The type-threading cost is the real bulk of Phase 1a.** `Topic` (content-bearing) is the type
+   threaded through client UI, including the client components that reach the bank through
+   `src/lib/courses.ts` and the four composers (§4.4). Wide and mechanical, not deep — but not a
+   small diff; it is why 1a and 1b are separate commits.
 8. **Bundled content means content fixes ride a Lambda rebuild.** CI already rebuilds every Lambda on
    every deploy, so this is accepted; note it so nobody is surprised later.
 
@@ -217,9 +283,21 @@ they are recomputable from public data: `src/lib/exams.ts` and `src/lib/ladder.t
 ## 7. Gates
 
 **The invariant worth having** (cheap, and it covers chunks, HTML and `.txt` twins at once): for
-every **premium** paper JSON, assert that none of its `markscheme`/`modelAnswer` strings appears
-anywhere under `out/`. It fails the moment anyone re-serialises content, whatever the cause. Add a
-companion assertion that no chunk contains a topic question stem.
+every **premium** paper JSON, assert that none of its `stem`/`markscheme`/`modelAnswer` strings
+appears anywhere under `out/`. It fails the moment anyone re-serialises content, whatever the cause.
+
+Implementation notes that are not optional:
+
+- **Escape-insensitive comparison** (gotcha 6): strip backslashes from *both* sides. A plain grep for
+  a LaTeX-bearing string measured **0 of 28** hits where the real figure was **21 of 28** — two probes
+  in the first revision of this note returned a false "clean" that way.
+- **Two tiers, because the mixed-review lazy chunk legitimately carries free topic stems**: (a) HARD —
+  no premium paper string anywhere under `out/`; (b) TIGHTENED — the chunk referenced by
+  `out/index.html` (the site-wide one) must contain no topic question stem either **and must stay
+  under 1 MB**, which is the tripwire for the 4.8 MB regression returning.
+- **Run it as `npm run audit:leaks`, not as a library test**: it needs a built `out/`, so it belongs
+  beside `verify:sitemaps` in the deploy path. Wire it into CI **in the Phase 1a commit**, once it is
+  green; until then it is a measurement tool that reports the failing baseline.
 
 Plus:
 
@@ -251,6 +329,10 @@ was taken with that accepted.
 ## 9. What this does not do
 
 - It does not change any code yet — §5 is the queue.
+- It does not decide when prod billing re-opens (decision 11): the switch is a toggle, testable in DEV.
+- It does not protect mock exams or ladder 3–5 from derivation, and it does not gate them server-side
+  (decision 9) — they are sampled from the free bank, so secrecy would need a premium-only question
+  pool.
 - It does not drop `output: 'export'`, split the codebase across origins, or move to a serverful
   deployment (§3).
 - It does not lock down free content as a secrecy measure: free content stays public by design
