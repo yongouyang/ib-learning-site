@@ -4,6 +4,42 @@
 
 ---
 
+## 2026-09-16 — Premium content Phase 1b (step 3+4): gated content API, and the leak gate is GREEN
+Git HEAD: `91df58f` (develop, tree clean)
+Done: **Step 3 — the content Lambda (10th)** and its two surfaces. New `src/lib/content/{types,
+  http-handler,deps,dummy,dynamodb-storage}.ts`, `src/app/api/content/[[...slug]]/route.ts`,
+  `lambda/content/`, `terraform/modules/content_api` (content BUNDLED at build time — 7.0 MB source /
+  1.6 MB zip — so there is no content table and the IAM grant set is the smallest in the repo).
+  `modules/site` gained THREE behaviours: `/api/content/premium/*` (caching DISABLED),
+  `/api/content/public/*` (edge-cached) and `/api/content/*` (catch-all, so the `_health` probe cannot
+  fall through to the feedback Lambda). **`GET /api/content/premium/papers/<course>/<set>`** = session +
+  `exam-sets-full`, `private, no-store` (401 anonymous / 403 free / 404 unknown).
+  **`GET /api/content/public/mixed-review/<seed>[/<topicIds>]`** = free topics only, edge-cached,
+  per-IP budget on origin misses; the seed AND ids ride the PATH because the managed cache policy
+  ignores query strings. `PremiumPaperShell` passes metadata only and fetches once entitlements
+  resolve; `mixed-review-draw.ts` moved the draw server-side and the client's lazy chunk is gone.
+  **Step 4:** `audit:leaks` now runs inside `build:static`, so both deploys carry the gate.
+Verified: **`audit:leaks` HARD 60 files → 0, TIGHTENED green**; `index.html`'s chunks 1.20 MB / 12, and
+  the whole chunks directory **6.49 MB → 1.85 MB**; unit **1408/1408** (30 new: content-handler
+  contract incl. the 401/403/404 matrix and the per-IP budget, content-iam cache/ordering pins,
+  premium-paper-shell states); tsc clean; lint **29 problems / 0 errors** (baseline held); terraform
+  `fmt -check` + `validate` clean; `build:static` + `verify:sitemaps` 335/335; e2e papers +
+  mixed-review specs updated (the premium-set e2e asserts the paper's own prose appears NOWHERE in the
+  delivered page — its first version failed because the page's public description legitimately says
+  "model answer", which is why it now probes the paper's text).
+Next: (1) **UX-review pass on the two changed surfaces** (`/papers/<course>/<set>-2` shell states,
+  `/mixed-review`) per AGENTS — screenshots + a fresh-context reviewer. (2) The full e2e suite + a
+  `test:e2e:static` run before promoting. (3) Then re-opening sales is a one-line prod toggle
+  (`STRIPE_INTEGRATION_TODO.md` §8 item 8) with the premium content now genuinely gated.
+Notes: **`LockedFeature` could not express the server-403 state** — it re-reads the same stale client
+  entitlements and would render the paper unlocked; the shell therefore has a separate "not included
+  in your plan" card. The **premium/public cache-policy split is the one mistake that would leak paid
+  content site-wide** (CloudFront serving mark schemes from cache), so `content-iam.test.ts` pins both
+  the behaviour order and the policy ids. **Prod is still on `0cce7de`** — promote only after the e2e
+  + static runs and the UX pass.
+
+---
+
 ## 2026-09-16 — Premium content Phase 1a (steps 1–2): registry split + metadata threading
 Git HEAD: `f7ab115` (develop, tree clean)
 Done: **Step 1** (`5a7bbab`) `generate-registry.ts` also emits `registry.content.ts` (topic bodies) and
