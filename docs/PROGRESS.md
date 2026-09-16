@@ -4,6 +4,41 @@
 
 ---
 
+## 2026-09-16 — Premium content Phase 1a (steps 1–2): registry split + metadata threading
+Git HEAD: `f7ab115` (develop, tree clean)
+Done: **Step 1** (`5a7bbab`) `generate-registry.ts` also emits `registry.content.ts` (topic bodies) and
+  `registry.papers.ts` (questions + mark schemes), both server-only; `getCourseTopics(topics, course)`
+  became pure and generic over a new `TopicTaxonomy`, so `src/lib/courses.ts` no longer imports the
+  registry. **Step 2** (`f7ab115`) `registry.ts` is now **metadata only** (`TopicMeta`/`SubjectMeta`/
+  `PaperMeta` inlined literals, no JSON imports) + `npm run check:registry` staleness guard; composition
+  moved behind `diagnostics/exams/ladder.server.ts` and `lib/question-sets.server.ts` with the composed
+  arrays passed as **props** from the runner pages; study/quiz/flashcards/papers pass content as props;
+  homepage, /progress, subject pages, `seo/*` and the tier hubs are metadata-only; `getCardStats` takes
+  ids, `getDueTopics` takes `TopicMeta`; mixed review's draw moved to
+  `src/app/mixed-review/build-mixed-review.ts`, reached by **dynamic import** only.
+Verified: `build:static` + `verify:sitemaps` green (335/335 indexable, titles unique); unit
+  **1381/1381**; tsc clean; lint **29 problems / 0 errors** (baseline); `validate:content` +
+  `audit:content` 0/0; `check:registry` ok. **Measured win on a fresh build:** the chunks loaded by
+  `index.html` went from a single 4.6 MB shared chunk carrying every topic and premium paper to
+  **1.20 MB across 13 chunks with no topic content**; `audit:leaks` HARD fell 63 → **60 files, all
+  premium paper pages, zero chunks** (TIGHTENED now green). The gate had two bugs a real build exposed
+  — line-start-only windowing and window- instead of substring-subtraction, both of which made a
+  free/premium shared sentence look like a leak; fixed and pinned in `tests/unit/audit-leaks.test.ts`.
+Next: **Step 3 = Phase 1b** — content Lambda (`src/lib/content/{http-handler,deps,dummy}.ts`, Next
+  route, `lambda/content/`, `terraform/modules/content_api`, both CloudFront behaviours with separate
+  cache policies, `serve-static` map, `build-lambdas.sh` 9→10), premium shell + gated
+  `GET /api/content/premium/papers/<course>/<set>` (this is what removes the remaining 60 files),
+  mixed-review switched from the lazy chunk to `GET /api/content/public/mixed-review`, `_health`
+  asserting `topicCount > 0`. Then **step 4**: wire `npm run audit:leaks` into CI once green.
+Notes: **the premium shell deliberately did NOT ship in 1a** — a metadata-only premium page with no
+  API would show a tease or a dead skeleton to an *entitled* subscriber, so the shell and its endpoint
+  land together in 1b; **do not promote `main` before 1b then**, or prod loses premium set access.
+  The mixed-review lazy chunk is temporary (1b replaces it) and is why the leak gate's TIGHTENED tier
+  checks only the chunks `index.html` loads. `audit:leaks` needs a built `out/` and is **not wired into
+  CI yet** on purpose.
+
+---
+
 ## 2026-09-16 — PROD promoted to `aa9ff6a` and verified at the edge; premium-protection plan reviewed
 Git HEAD: `e6e58bb` (develop, tree clean)
 Done: ff-promoted `develop → main` (`0cce7de..aa9ff6a`, 11 commits — the legal pages, the Stripe.js
