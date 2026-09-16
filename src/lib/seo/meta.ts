@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import type { Subject, Topic } from '@/content/types';
+import type { SubjectMeta, TopicMeta } from '@/content/types';
 import { SITE, SOCIAL_IMAGE } from './site';
 import { STUDY_PATH, TIERS, curriculumLabel, tierOfTopic } from './curriculum';
 import { clipToWidth, displayWidth, plainText } from './text';
@@ -29,7 +29,7 @@ export function subjectSeoName(name: string): string {
 }
 
 /** Tiers this subject actually has content in, in curriculum order — never hardcoded. */
-export function subjectTierLabels(subject: Subject): string[] {
+export function subjectTierLabels(subject: SubjectMeta): string[] {
   const present = new Set(subject.topics.map((t) => tierOfTopic(t)));
   return (['ks3', 'igcse', 'ibdp'] as const).filter((t) => present.has(t)).map((t) => TIERS[t].label);
 }
@@ -40,7 +40,7 @@ export function subjectTierLabels(subject: Subject): string[] {
  * the individual topic — picking the first topic's level would stamp an arbitrary SL/HL
  * onto a page that covers both.
  */
-export function titleQualifier(topic: Topic, subjectName: string, includeLevel = true): string {
+export function titleQualifier(topic: TopicMeta, subjectName: string, includeLevel = true): string {
   const subject = subjectSeoName(subjectName);
   if (topic.stage === 'ks3') return topic.year ? `KS3 Year ${topic.year} ${subject}` : `KS3 ${subject}`;
   if (topic.stage === 'igcse') return `IGCSE ${subject}`;
@@ -55,7 +55,7 @@ export function titleQualifier(topic: Topic, subjectName: string, includeLevel =
  * TOPIC half only, because the curriculum tail is the part that carries the query intent
  * ("KS3", "Year 7", "IB DP AI") and must survive.
  */
-function composeTopicTitle(topic: Topic, subjectName: string, label?: string, budget = TITLE_BUDGET): string {
+function composeTopicTitle(topic: TopicMeta, subjectName: string, label?: string, budget = TITLE_BUDGET): string {
   const qualifier = titleQualifier(topic, subjectName);
   const suffix = `${label ? ` ${label}` : ''} — ${qualifier}`;
   const room = Math.max(16, budget - displayWidth(suffix));
@@ -63,11 +63,11 @@ function composeTopicTitle(topic: Topic, subjectName: string, label?: string, bu
 }
 
 /** Counts sentence, built first so it is never the thing that gets clipped away. */
-function countsSentence(topic: Topic): string {
-  return `${topic.notes.length} illustrated notes, ${topic.flashcards.length} flashcards and ${topic.questions.length} practice questions with answers.`;
+function countsSentence(topic: TopicMeta): string {
+  return `${topic.noteCount} illustrated notes, ${topic.flashcardCount} flashcards and ${topic.questionCount} practice questions with answers.`;
 }
 
-function topicDescription(topic: Topic, lead: string): string {
+function topicDescription(topic: TopicMeta, lead: string): string {
   const counts = countsSentence(topic);
   const room = Math.max(24, DESC_BUDGET - displayWidth(counts) - 1);
   return `${clipToWidth(plainText(lead), room)} ${counts}`;
@@ -93,7 +93,7 @@ function ogWithBrand(title: string, description: string, path: string): Metadata
 }
 
 /** The indexed canonical leaf: /subjects/<subject>/<topic>/study */
-export function metaForTopic(topic: Topic, subjectName: string): Metadata {
+export function metaForTopic(topic: TopicMeta, subjectName: string): Metadata {
   const path = STUDY_PATH(topic);
   const title = composeTopicTitle(topic, subjectName);
   const description = topicDescription(
@@ -120,15 +120,15 @@ export function metaForTopic(topic: Topic, subjectName: string): Metadata {
  * readable and the links keep passing equity to /study (a robots.txt Disallow would
  * strand them as "Indexed, though blocked").
  */
-export function metaForTool(topic: Topic, subjectName: string, tool: 'quiz' | 'flashcards'): Metadata {
+export function metaForTool(topic: TopicMeta, subjectName: string, tool: 'quiz' | 'flashcards'): Metadata {
   const isQuiz = tool === 'quiz';
   const qualifier = titleQualifier(topic, subjectName);
   // noindex page → TOOL_TITLE_BUDGET instead of the SERP budget: nothing truncates it in a
   // search snippet, so the whole topic name is worth keeping for the tab and history list.
   const qualified = composeTopicTitle(topic, subjectName, isQuiz ? 'quiz' : 'flashcards', TOOL_TITLE_BUDGET);
   const description = isQuiz
-    ? topicDescription(topic, `Test yourself on ${plainText(topic.title)} with ${topic.questions.length} ${qualifier} questions, instant marking and worked explanations.`)
-    : topicDescription(topic, `Learn ${plainText(topic.title)} with ${topic.flashcards.length} ${qualifier} flashcards, graded by what you already know.`);
+    ? topicDescription(topic, `Test yourself on ${plainText(topic.title)} with ${topic.questionCount} ${qualifier} questions, instant marking and worked explanations.`)
+    : topicDescription(topic, `Learn ${plainText(topic.title)} with ${topic.flashcardCount} ${qualifier} flashcards, graded by what you already know.`);
   return {
     title: { absolute: qualified },
     description,
@@ -142,7 +142,7 @@ export function metaForTool(topic: Topic, subjectName: string, tool: 'quiz' | 'f
 }
 
 /** /subjects/<subjectId> — the cross-curriculum subject index (Y7 → IB DP in one place). */
-export function metaForSubject(subject: Subject): Metadata {
+export function metaForSubject(subject: SubjectMeta): Metadata {
   const subjectSeo = subjectSeoName(subject.name);
   const tierLabels = subjectTierLabels(subject);
   const tiers = subject.topics.map((t) => tierOfTopic(t));

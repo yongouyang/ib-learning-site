@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { getSubjects } from '@/content/registry';
+import { getContentSubjects } from '@/content/registry.content';
 import type { Topic } from '@/content/types';
 import {
   TIERS,
@@ -19,7 +20,9 @@ import { orgNodes } from '@/lib/seo/organization';
 import { courseNode, breadcrumbNode } from '@/lib/seo/course';
 
 const subjects = getSubjects();
-const topics: (Topic & { subjectName: string })[] = subjects.flatMap((s) =>
+// Content topics (notes included) for the JSON-LD builders; the metadata registry supplies the
+// subject names. Phase 1a split the two, so this file reads both deliberately.
+const topics: (Topic & { subjectName: string })[] = getContentSubjects().flatMap((s) =>
   s.topics.map((t) => ({ ...t, subjectName: s.name })),
 );
 

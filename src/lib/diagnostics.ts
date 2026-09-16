@@ -1,7 +1,4 @@
-import { COURSES, getCourseTopics } from '@/lib/courses';
-import { getAllContentTopics } from '@/content/registry.content';
-import { buildQuestionSet } from '@/lib/question-sets';
-import type { MixedReviewQuestion } from '@/lib/mixed-review';
+import { COURSES } from '@/lib/courses';
 
 // One short cross-topic diagnostic per course grouping. Results are recorded
 // as per-topic quiz attempts so the weak-areas system is seeded immediately
@@ -23,22 +20,5 @@ export function getDiagnosticCourse(id: string) {
   return COURSES.find((c) => c.id === id);
 }
 
-export function getDiagnosticCourses(): DiagnosticCourseInfo[] {
-  return COURSES.map((course) => ({
-    id: course.id,
-    title: course.title,
-    topicCount: getCourseTopics(getAllContentTopics(), course).length,
-    questionCount: buildDiagnosticQuestions(course.id).length,
-  }));
-}
-
-// Deterministic (seeded) so server and client renders match and a retake sees
-// the same set. Diagnostics sample the full pool (calculator-tagged included);
-// the non-calculator policy applies to exams and the ladder, not here.
-export function buildDiagnosticQuestions(courseId: string): MixedReviewQuestion[] {
-  return buildQuestionSet({
-    courseId,
-    targets: { ...DIAGNOSTIC_BAND_TARGETS },
-    seed: `diagnostic:${courseId}`,
-  });
-}
+// getDiagnosticCourses + buildDiagnosticQuestions live in diagnostics.server.ts: they read the
+// topic content bank (docs/premium-content-protection-plan.md §4.4).

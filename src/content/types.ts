@@ -117,6 +117,7 @@ export interface TopicMeta extends TopicTaxonomy {
    */
   flashcardIds: string[];
   flashcardCount: number;
+  noteCount: number;
   questionCount: number;
 }
 

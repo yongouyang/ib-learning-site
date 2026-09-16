@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ClipboardList, ArrowRight } from 'lucide-react';
-import { getDiagnosticCourses } from '@/lib/diagnostics';
+import { getDiagnosticCourses } from '@/lib/diagnostics.server';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
 import { pageMeta } from '@/lib/seo/page-meta';

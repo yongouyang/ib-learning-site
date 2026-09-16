@@ -1,9 +1,9 @@
-import type { EnglishStrand, Topic } from '@/content/types';
+import type { EnglishStrand, TopicTaxonomy } from '@/content/types';
 
-export interface TopicGroup {
+export interface TopicGroup<T> {
   key: string;
   label: string;
-  topics: Topic[];
+  topics: T[];
 }
 
 // KS3 English strand grouping (statutory strands); only applied when topics carry
@@ -20,9 +20,9 @@ const STRAND_ORDER: { strand: EnglishStrand; label: string }[] = [
  * that carry one, e.g. English; then unassigned), then IGCSE, then IB DP.
  * Empty groups are omitted.
  */
-export function groupTopicsByStage(topics: Topic[]): TopicGroup[] {
-  const groups: TopicGroup[] = [];
-  const push = (key: string, label: string, list: Topic[]) => {
+export function groupTopicsByStage<T extends TopicTaxonomy>(topics: T[]): TopicGroup<T>[] {
+  const groups: TopicGroup<T>[] = [];
+  const push = (key: string, label: string, list: T[]) => {
     if (list.length > 0) groups.push({ key, label, topics: list });
   };
 

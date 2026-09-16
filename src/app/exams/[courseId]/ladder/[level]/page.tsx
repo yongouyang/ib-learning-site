@@ -2,6 +2,7 @@ import { COURSES } from '@/lib/courses';
 import type { Metadata } from 'next';
 import { LADDER_LEVELS } from '@/lib/ladder';
 import { metaForLadderLevel } from '@/lib/seo/assessments';
+import { buildLadderQuestions } from '@/lib/ladder.server';
 import LadderRunnerClient from './LadderRunnerClient';
 
 export function generateStaticParams() {
@@ -24,6 +25,12 @@ export async function generateMetadata(props: {
 
 export default async function LadderLevelPage(props: { params: Promise<{ courseId: string; level: string }> }) {
   const params = await props.params;
-  const level = Number.parseInt(params.level, 10);
-  return <LadderRunnerClient courseId={params.courseId} level={Number.isNaN(level) ? 0 : level} />;
+  const level = Number.isNaN(Number.parseInt(params.level, 10)) ? 0 : Number.parseInt(params.level, 10);
+  return (
+    <LadderRunnerClient
+      courseId={params.courseId}
+      level={level}
+      questions={buildLadderQuestions(params.courseId, level)}
+    />
+  );
 }

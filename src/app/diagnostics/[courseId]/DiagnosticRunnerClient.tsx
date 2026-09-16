@@ -4,23 +4,19 @@ import { useEffect, useMemo, useRef } from 'react';
 import { getSubject } from '@/content/registry';
 import { useProgress } from '@/context/ProgressContext';
 import QuizGame from '@/components/QuizGame';
-import { buildDiagnosticQuestions, getDiagnosticCourse } from '@/lib/diagnostics';
+import { getDiagnosticCourse } from '@/lib/diagnostics';
 import type { MixedReviewQuestion } from '@/lib/mixed-review';
 import { trackEvent } from '@/lib/analytics';
 
 interface DiagnosticRunnerClientProps {
   courseId: string;
+  /** Composed at build time by the server page (Phase 1a) — the client never reads the bank. */
+  questions: MixedReviewQuestion[];
 }
 
-export default function DiagnosticRunnerClient({ courseId }: DiagnosticRunnerClientProps) {
+export default function DiagnosticRunnerClient({ courseId, questions }: DiagnosticRunnerClientProps) {
   const course = getDiagnosticCourse(courseId);
   const { recordAttempt } = useProgress();
-
-  // Deterministic build (seeded by courseId) — safe to compute during SSR.
-  const questions: MixedReviewQuestion[] = useMemo(
-    () => buildDiagnosticQuestions(courseId),
-    [courseId]
-  );
   const byId = useMemo(() => new Map(questions.map((q) => [q.question.id, q])), [questions]);
 
   // Per-question outcomes, fanned out into per-topic attempts on completion so

@@ -33,7 +33,8 @@
     "security:sast": "semgrep scan --config p/typescript --config p/react --config p/security-audit --config p/secrets --error",
     "security:sca": "osv-scanner scan -r .",
     "security": "npm run security:sast && npm run security:sca",
-    "audit:leaks": "tsx scripts/audit-leaks.ts"
+    "audit:leaks": "tsx scripts/audit-leaks.ts",
+    "check:registry": "tsx scripts/generate-registry.ts --check"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.1111.0",

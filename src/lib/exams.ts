@@ -1,7 +1,5 @@
 import { COURSES } from '@/lib/courses';
-import { buildQuestionSet } from '@/lib/question-sets';
 import type { Difficulty } from '@/content/types';
-import type { MixedReviewQuestion } from '@/lib/mixed-review';
 
 // Mock exam papers per course grouping (Phase 3). ALL papers are
 // non-calculator (user decision): the sampler excludes calculator-tagged
@@ -62,15 +60,4 @@ export function examId(courseId: string, paperId: string): string {
   return `${courseId}:${paperId}`;
 }
 
-// Deterministic per (course, paper) — retakes see the same set (v1 policy,
-// same as diagnostics). Non-calculator questions only.
-export function buildExamQuestions(courseId: string, paperId: string): MixedReviewQuestion[] {
-  const paper = getExamPaper(courseId, paperId);
-  if (!paper) return [];
-  return buildQuestionSet({
-    courseId,
-    targets: { ...paper.targets },
-    seed: `exam:${courseId}:${paperId}`,
-    excludeCalculator: true,
-  });
-}
+// buildExamQuestions lives in exams.server.ts — it reads the topic content bank (§4.4).

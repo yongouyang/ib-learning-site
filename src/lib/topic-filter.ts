@@ -1,4 +1,4 @@
-import type { Stage, Topic } from '@/content/types';
+import type { Stage } from '@/content/types';
 
 export type StageFilter = 'all' | Stage;
 
@@ -7,10 +7,11 @@ export interface TopicFilterState {
   stage: StageFilter;
 }
 
-export function filterTopics(
-  topics: Topic[],
+/** Generic so metadata topics (SubjectPageClient) and content topics both keep their type. */
+export function filterTopics<T extends { title: string; description: string; stage: Stage }>(
+  topics: T[],
   { query, stage }: TopicFilterState,
-): Topic[] {
+): T[] {
   const normalizedQuery = query.trim().toLowerCase();
 
   return topics.filter((topic) => {

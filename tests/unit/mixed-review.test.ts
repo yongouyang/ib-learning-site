@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { buildMixedReviewQuestions, MIXED_REVIEW_COUNT } from '@/lib/mixed-review';
+import { MIXED_REVIEW_COUNT } from '@/lib/mixed-review';
+import { buildMixedReviewQuestions } from '@/app/mixed-review/build-mixed-review';
 import type { TopicProgress } from '@/content/types';
 
 describe('buildMixedReviewQuestions', () => {

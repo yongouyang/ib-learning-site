@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-import { getSubject } from '@/content/registry';
-import type { Paper, SubjectId } from '@/content/types';
+import { getSubject, getSubjects } from '@/content/registry';
+import type { PaperMeta, SubjectId } from '@/content/types';
 import { COURSES, getCourse, getCourseTopics } from '@/lib/courses';
-import { getAllContentTopics } from '@/content/registry.content';
 import { DIAGNOSTIC_LENGTH } from '@/lib/diagnostics';
 import { getExamPaper } from '@/lib/exams';
 import { getLadderLevel } from '@/lib/ladder';
@@ -27,7 +26,7 @@ import { pageMeta } from './page-meta';
 export function courseQualifier(courseId: string): string | null {
   const course = getCourse(courseId);
   if (!course) return null;
-  const [first] = getCourseTopics(getAllContentTopics(), course);
+  const [first] = getCourseTopics(getSubjects().flatMap((s) => s.topics), course);
   if (!first) {
     // Defensive: with the order.json contract every course has topics.
     return pageCourseFallback(course.title);
@@ -44,7 +43,7 @@ export function metaForDiagnostic(courseId: string): Metadata | null {
   const qualifier = courseQualifier(courseId);
   const course = getCourse(courseId);
   if (!qualifier || !course) return null;
-  const topicCount = getCourseTopics(getAllContentTopics(), course).length;
+  const topicCount = getCourseTopics(getSubjects().flatMap((s) => s.topics), course).length;
   return pageMeta({
     path: `/diagnostics/${courseId}`,
     title: `${qualifier} diagnostic test`,
@@ -96,9 +95,8 @@ export function metaForMockPaper(courseId: string, paperId: string): Metadata | 
 }
 
 /** /papers/<courseId>/<setId> — set 1 per course is free (indexable); sets 2+ are not. */
-export function metaForPaperSet(paper: Paper): Metadata {
+export function metaForPaperSet(paper: PaperMeta): Metadata {
   const qualifier = courseQualifier(paper.courseId) ?? pageCourseFallback(paper.courseId);
-  const marks = paper.questions.reduce((sum, question) => sum + question.marks, 0);
   // The set number belongs in the title: without it set-1 and set-2 of a course are
   // byte-identical strings (caught by the duplicate-title check over out/*.html).
   const setNumber = /-set-(\d+)$/.exec(paper.id)?.[1] ?? '';
@@ -107,7 +105,7 @@ export function metaForPaperSet(paper: Paper): Metadata {
     // Marks live in the description: with the brand suffix this title has ~43 cells, and
     // "— 20 marks" was what got clipped away (e2e seo.spec caught it).
     title: `${qualifier} practice paper set ${setNumber}`,
-    description: `${paper.questions.length} free-response ${qualifier} questions worth ${marks} marks, with a tick-point mark scheme and a model answer for every question${paper.durationMinutes ? `, in ${paper.durationMinutes} minutes` : ''}.`,
+    description: `${paper.questionCount} free-response ${qualifier} questions worth ${paper.totalMarks} marks, with a tick-point mark scheme and a model answer for every question${paper.durationMinutes ? `, in ${paper.durationMinutes} minutes` : ''}.`,
     indexable: isFreePaperSet(paper.id),
   });
 }

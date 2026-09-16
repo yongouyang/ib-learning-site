@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildQuestionSet } from '@/lib/question-sets';
+import { buildQuestionSet } from '@/lib/question-sets.server';
 
 describe('buildQuestionSet', () => {
   it('builds a set with the requested length and band counts', () => {

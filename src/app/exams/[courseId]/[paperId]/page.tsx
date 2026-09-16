@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getExamCourses } from '@/lib/exams';
+import { buildExamQuestions } from '@/lib/exams.server';
 import { metaForMockPaper } from '@/lib/seo/assessments';
 import ExamRunnerClient from './ExamRunnerClient';
 
@@ -24,5 +25,11 @@ export async function generateMetadata(props: {
 
 export default async function ExamPage(props: { params: Promise<{ courseId: string; paperId: string }> }) {
   const params = await props.params;
-  return <ExamRunnerClient courseId={params.courseId} paperId={params.paperId} />;
+  return (
+    <ExamRunnerClient
+      courseId={params.courseId}
+      paperId={params.paperId}
+      questions={buildExamQuestions(params.courseId, params.paperId)}
+    />
+  );
 }

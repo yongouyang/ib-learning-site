@@ -1,10 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import {
-  buildDiagnosticQuestions,
-  getDiagnosticCourse,
-  getDiagnosticCourses,
-  DIAGNOSTIC_LENGTH,
-} from '@/lib/diagnostics';
+import { getDiagnosticCourse, DIAGNOSTIC_LENGTH } from '@/lib/diagnostics';
+import { buildDiagnosticQuestions, getDiagnosticCourses } from '@/lib/diagnostics.server';
 
 describe('getDiagnosticCourses', () => {
   it('exposes the 14 course groupings with topics and questions', () => {

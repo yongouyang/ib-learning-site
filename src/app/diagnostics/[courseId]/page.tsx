@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getDiagnosticCourses } from '@/lib/diagnostics';
+import { buildDiagnosticQuestions, getDiagnosticCourses } from '@/lib/diagnostics.server';
 import { metaForDiagnostic } from '@/lib/seo/assessments';
 import DiagnosticRunnerClient from './DiagnosticRunnerClient';
 
@@ -18,5 +18,10 @@ export async function generateMetadata(props: {
 
 export default async function DiagnosticPage(props: { params: Promise<{ courseId: string }> }) {
   const params = await props.params;
-  return <DiagnosticRunnerClient courseId={params.courseId} />;
+  return (
+    <DiagnosticRunnerClient
+      courseId={params.courseId}
+      questions={buildDiagnosticQuestions(params.courseId)}
+    />
+  );
 }

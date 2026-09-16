@@ -3,36 +3,46 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Layers, Pencil } from 'lucide-react';
-import { getSubject, getTopic } from '@/content/registry';
-import type { SubjectId } from '@/content/types';
+import type { ConceptNote } from '@/content/types';
 import StudyNoteBody from '@/components/StudyNoteBody';
 import StudyNoteIllustration from '@/components/StudyNoteIllustration';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import InlineMath from '@/components/InlineMath';
 
+/**
+ * Phase 1a: the notes arrive from the server page. They are free content (and the SEO funnel), so
+ * they still prerender into this page's HTML — they simply no longer ride the site-wide JS chunk.
+ */
 interface StudyPageClientProps {
   subjectId: string;
   topicId: string;
+  topicTitle: string;
+  subjectName: string;
+  description: string;
+  notes: ConceptNote[];
 }
 
-export default function StudyPageClient({ subjectId, topicId }: StudyPageClientProps) {
-  const topic = getTopic(subjectId as SubjectId, topicId);
-  const subject = getSubject(subjectId as SubjectId);
-
-  if (!topic) return <div className="p-6 text-center text-gray-500 dark:text-gray-400">Topic not found.</div>;
+export default function StudyPageClient({
+  subjectId,
+  topicId,
+  topicTitle,
+  subjectName,
+  description,
+  notes,
+}: StudyPageClientProps) {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6">
       <Breadcrumbs items={[
         { href: '/', label: 'Home' },
-        { href: `/subjects/${subjectId}`, label: subject?.name ?? subjectId },
-        { label: topic.title },
+        { href: `/subjects/${subjectId}`, label: subjectName },
+        { label: topicTitle },
       ]} />
-      <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-1">{topic.title}</h1>
-      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6"><InlineMath text={topic.description} /></p>
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-1">{topicTitle}</h1>
+      <p className="text-sm text-gray-500 dark:text-gray-400 mb-6"><InlineMath text={description} /></p>
 
       <div className="space-y-4">
-        {topic.notes.map((note, idx) => (
+        {notes.map((note, idx) => (
           <motion.div
             key={note.id}
             initial={{ opacity: 0, y: 12 }}

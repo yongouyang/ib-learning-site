@@ -84,7 +84,7 @@ export default function ProgressPage() {
         // Flashcard Seen/Known across the subject's decks (Phase 6).
         const cardStats = subject.topics.reduce(
           (acc, topic) => {
-            const stats = getCardStats(topic, flashcardProgress);
+            const stats = getCardStats(topic.flashcardIds, flashcardProgress);
             return { seen: acc.seen + stats.seen, known: acc.known + stats.known, total: acc.total + stats.total };
           },
           { seen: 0, known: 0, total: 0 }

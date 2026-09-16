@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import type { Metadata } from 'next';
 import { getSubjects, getAllPapers } from '@/content/registry';
-import type { Topic } from '@/content/types';
+import { getAllContentTopics } from '@/content/registry.content';
+import type { TopicMeta } from '@/content/types';
 import { isFreeLadderLevel, isFreePaperSet } from '@/lib/entitlements/exam-access';
 import { LADDER_LEVELS } from '@/lib/ladder';
 import { getExamCourses } from '@/lib/exams';
@@ -13,7 +14,7 @@ import { SITE } from '@/lib/seo/site';
 import { displayWidth, plainText, clipToWidth } from '@/lib/seo/text';
 
 const subjects = getSubjects();
-const topics: { topic: Topic; subjectName: string }[] = subjects.flatMap((s) =>
+const topics: { topic: TopicMeta; subjectName: string }[] = subjects.flatMap((s) =>
   s.topics.map((t) => ({ topic: t, subjectName: s.name })),
 );
 
@@ -27,11 +28,15 @@ const robotsOf = (m: Metadata): Record<string, unknown> => (m.robots ?? {}) as R
 
 describe('plainText — metadata never leaks KaTeX', () => {
   it('renders every metadata-bearing content string without math syntax', () => {
-    // 217 topics × (title, description, 7 note headings) — a literal `$`/`\` in a meta
-    // tag reads as junk in the SERP and invites Google to rewrite the title.
+    // 217 topics × (title, description) plus the 7 note headings each, which ride the JSON-LD
+    // `teaches` list — a literal `$`/`\` in a meta tag reads as junk in the SERP and invites Google
+    // to rewrite the title. (Headings are content, so they come from registry.content.)
     const strings: string[] = [];
     for (const { topic } of topics) {
-      strings.push(topic.title, topic.description, ...topic.notes.map((n) => n.heading));
+      strings.push(topic.title, topic.description);
+    }
+    for (const content of getAllContentTopics()) {
+      strings.push(...content.notes.map((n) => n.heading));
     }
     expect(strings.length).toBeGreaterThan(1800);
     for (const s of strings) {
@@ -84,9 +89,9 @@ describe('topic page metadata (217 indexed leaves)', () => {
     for (const { topic, subjectName } of topics.slice(0, 40)) {
       const d = renderedDesc(metaForTopic(topic, subjectName));
       expect(displayWidth(d)).toBeLessThanOrEqual(DESC_BUDGET);
-      expect(d).toContain(`${topic.notes.length} illustrated notes`);
-      expect(d).toContain(`${topic.flashcards.length} flashcards`);
-      expect(d).toContain(`${topic.questions.length} practice questions`);
+      expect(d).toContain(`${topic.noteCount} illustrated notes`);
+      expect(d).toContain(`${topic.flashcardCount} flashcards`);
+      expect(d).toContain(`${topic.questionCount} practice questions`);
     }
   });
 

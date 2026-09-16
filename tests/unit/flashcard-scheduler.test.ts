@@ -8,26 +8,13 @@ import {
   parseDeckFilter,
   getDueTopics,
 } from '@/lib/flashcard-scheduler';
-import type { Flashcard, FlashcardProgress, Topic } from '@/content/types';
+import type { Flashcard, FlashcardProgress } from '@/content/types';
 
 const NOW = new Date('2026-07-25T12:00:00Z');
 const daysAgo = (n: number) => new Date(NOW.getTime() - n * 86_400_000).toISOString();
 
 function card(id: string): Flashcard {
   return { id, term: `Term ${id}`, definition: `Definition ${id}` };
-}
-
-function makeTopic(flashcards: Flashcard[]): Topic {
-  return {
-    id: 'topic-1',
-    subjectId: 'math',
-    title: 'Test Topic',
-    description: 'A topic.',
-    stage: 'ks3',
-    notes: [],
-    flashcards,
-    questions: [],
-  };
 }
 
 describe('intervalDaysForStreak', () => {
@@ -68,7 +55,7 @@ describe('getCardStats / filterDeck / getDueTopics', () => {
   };
 
   it('computes seen/known/learning/due counts', () => {
-    const stats = getCardStats(makeTopic(cards), progress, NOW);
+    const stats = getCardStats(cards.map((c) => c.id), progress, NOW);
     expect(stats).toEqual({ total: 5, seen: 3, known: 2, learning: 1, due: 2 });
   });
 
@@ -86,8 +73,14 @@ describe('getCardStats / filterDeck / getDueTopics', () => {
   });
 
   it('lists due topics descending, excluding zero-due topics', () => {
-    const topicA = { ...makeTopic(cards), id: 'topic-a', title: 'A' };
-    const topicB = { ...makeTopic(cards.slice(0, 1)), id: 'topic-b', title: 'B' }; // c1 known, not due
+    const source = (id: string, title: string, ids: string[]) => ({
+      id,
+      subjectId: 'math' as const,
+      title,
+      flashcardIds: ids,
+    });
+    const topicA = source('topic-a', 'A', cards.map((c) => c.id));
+    const topicB = source('topic-b', 'B', ['c1']); // c1 known, not due
     const due = getDueTopics([topicA, topicB], progress, NOW);
     expect(due).toHaveLength(1);
     expect(due[0].topicId).toBe('topic-a');

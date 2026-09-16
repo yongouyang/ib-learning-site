@@ -41,14 +41,6 @@ const QUESTIONS: MixedReviewQuestion[] = [
     topicTitle: 'Topic One',
   },
 ];
-vi.mock('@/lib/exams', async (importActual) => ({
-  ...(await importActual<typeof import('@/lib/exams')>()),
-  buildExamQuestions: () => QUESTIONS,
-}));
-vi.mock('@/lib/ladder', async (importActual) => ({
-  ...(await importActual<typeof import('@/lib/ladder')>()),
-  buildLadderQuestions: () => QUESTIONS,
-}));
 
 // --- per-test entitlement + progress state ---
 let grantedFeatures: string[] = [];
@@ -101,7 +93,7 @@ beforeEach(() => {
 
 describe('ExamRunnerClient (timed mock mode)', () => {
   it('shows the premium tease when exam-sets-full is missing', () => {
-    render(<ExamRunnerClient courseId="math-y7" paperId="paper-1" />);
+    render(<ExamRunnerClient courseId="math-y7" paperId="paper-1" questions={QUESTIONS} />);
     expect(screen.getByText('Premium')).toBeInTheDocument();
     expect(screen.getByText('Timed mock mode')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'See Premium plans' })).toHaveAttribute('href', '/pricing');
@@ -116,14 +108,14 @@ describe('ExamRunnerClient (timed mock mode)', () => {
 
   it('renders the quiz untouched for premium sessions', () => {
     grantedFeatures = PREMIUM;
-    render(<ExamRunnerClient courseId="math-y7" paperId="paper-1" />);
+    render(<ExamRunnerClient courseId="math-y7" paperId="paper-1" questions={QUESTIONS} />);
     expect(screen.queryByText('Premium')).toBeNull();
     expect(screen.getByRole('button', { name: /A1/ })).toBeInTheDocument();
   });
 
   it('never flashes the lock while entitlements are still resolving', () => {
     entitlementsLoaded = false;
-    render(<ExamRunnerClient courseId="math-y7" paperId="paper-1" />);
+    render(<ExamRunnerClient courseId="math-y7" paperId="paper-1" questions={QUESTIONS} />);
     expect(screen.queryByText('Premium')).toBeNull();
     expect(screen.getByRole('button', { name: /A1/ })).toBeInTheDocument();
   });
@@ -156,7 +148,7 @@ describe('LadderOverviewClient (upper levels)', () => {
 describe('LadderRunnerClient (upper levels)', () => {
   it('shows the premium tease on a score-unlocked upper level when the feature is missing', () => {
     ladderProgressState = { 'math-y7': { 2: { bestScore: 0.8, completedAt: 'x' } } };
-    render(<LadderRunnerClient courseId="math-y7" level={3} />);
+    render(<LadderRunnerClient courseId="math-y7" level={3} questions={QUESTIONS} />);
     expect(screen.getByText('Upper ladder levels')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'See Premium plans' })).toBeInTheDocument();
     // Score status shows LIVE above the tease (never ghosted in the preview).
@@ -166,7 +158,7 @@ describe('LadderRunnerClient (upper levels)', () => {
   });
 
   it('names both gates when an upper level is premium-gated AND score-locked', () => {
-    render(<LadderRunnerClient courseId="math-y7" level={3} />);
+    render(<LadderRunnerClient courseId="math-y7" level={3} questions={QUESTIONS} />);
     expect(screen.getByText(/Premium level — you'll also need 60% or more on Level 2/)).toBeInTheDocument();
     expect(screen.getByText('Upper ladder levels')).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /A1/ })).toBeNull();
@@ -175,13 +167,13 @@ describe('LadderRunnerClient (upper levels)', () => {
   it('premium sessions run a score-unlocked upper level', () => {
     grantedFeatures = PREMIUM;
     ladderProgressState = { 'math-y7': { 2: { bestScore: 0.8, completedAt: 'x' } } };
-    render(<LadderRunnerClient courseId="math-y7" level={3} />);
+    render(<LadderRunnerClient courseId="math-y7" level={3} questions={QUESTIONS} />);
     expect(screen.queryByText('Premium')).toBeNull();
     expect(screen.getByRole('button', { name: /A1/ })).toBeInTheDocument();
   });
 
   it('free levels are never premium-gated', () => {
-    render(<LadderRunnerClient courseId="math-y7" level={2} />);
+    render(<LadderRunnerClient courseId="math-y7" level={2} questions={QUESTIONS} />);
     expect(screen.queryByText('Premium')).toBeNull();
     // Score-gate still applies on free levels.
     expect(screen.getByText(/This level is locked/)).toBeInTheDocument();

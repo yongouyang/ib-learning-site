@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { getSubjects } from '@/content/registry';
+import { getContentTopic } from '@/content/registry.content';
+import type { SubjectId } from '@/content/types';
 import { metaForTopic } from '@/lib/seo/meta';
 import { findTopic } from '@/lib/seo/topic-ref';
 import { courseNode, breadcrumbNode } from '@/lib/seo/course';
@@ -32,11 +34,21 @@ export async function generateMetadata(props: {
 export default async function StudyPage(props: { params: Promise<{ subjectId: string; topicId: string }> }) {
   const params = await props.params;
   const found = findTopic(params.subjectId, params.topicId);
-  if (!found) return <StudyPageClient subjectId={params.subjectId} topicId={params.topicId} />;
+  const topic = getContentTopic(params.subjectId as SubjectId, params.topicId);
+  if (!found || !topic) {
+    return <div className="p-6 text-center text-gray-500 dark:text-gray-400">Topic not found.</div>;
+  }
   return (
     <>
-      <JsonLd nodes={[courseNode(found.topic, null), breadcrumbNode(found.topic, found.subjectName)]} />
-      <StudyPageClient subjectId={params.subjectId} topicId={params.topicId} />
+      <JsonLd nodes={[courseNode(topic, null), breadcrumbNode(topic, found.subjectName)]} />
+      <StudyPageClient
+        subjectId={params.subjectId}
+        topicId={params.topicId}
+        topicTitle={topic.title}
+        subjectName={found.subjectName}
+        description={topic.description}
+        notes={topic.notes}
+      />
     </>
   );
 }

@@ -42,19 +42,8 @@ const QUESTIONS: MixedReviewQuestion[] = [
   },
 ];
 
-// --- lib mocks: deterministic small sets ---
-vi.mock('@/lib/diagnostics', async (importActual) => ({
-  ...(await importActual<typeof import('@/lib/diagnostics')>()),
-  buildDiagnosticQuestions: () => QUESTIONS,
-}));
-vi.mock('@/lib/exams', async (importActual) => ({
-  ...(await importActual<typeof import('@/lib/exams')>()),
-  buildExamQuestions: () => QUESTIONS,
-}));
-vi.mock('@/lib/ladder', async (importActual) => ({
-  ...(await importActual<typeof import('@/lib/ladder')>()),
-  buildLadderQuestions: () => QUESTIONS,
-}));
+// Phase 1a: composition moved to the server pages, so the runners take the questions as a prop and
+// there is nothing left to mock.
 
 // --- progress context mock (per-test spies) ---
 const recordAttempt = vi.fn();
@@ -104,7 +93,7 @@ describe('DiagnosticRunnerClient', () => {
   });
 
   it('fans results out into one attempt per topic', async () => {
-    render(<DiagnosticRunnerClient courseId="math-y7" />);
+    render(<DiagnosticRunnerClient courseId="math-y7" questions={QUESTIONS} />);
 
     // First question correct, second wrong (whichever order the shuffle gives).
     await answerCurrentCorrectly();
@@ -131,7 +120,7 @@ describe('ExamRunnerClient', () => {
 
   it('records the result once, even after Try Again', async () => {
     const user = userEvent.setup();
-    render(<ExamRunnerClient courseId="math-y7" paperId="paper-1" />);
+    render(<ExamRunnerClient courseId="math-y7" paperId="paper-1" questions={QUESTIONS} />);
 
     await answerCurrentCorrectly();
     await answerCurrentCorrectly();
@@ -157,13 +146,13 @@ describe('LadderRunnerClient', () => {
   });
 
   it('blocks locked levels from direct access', () => {
-    render(<LadderRunnerClient courseId="math-y7" level={3} />);
+    render(<LadderRunnerClient courseId="math-y7" level={3} questions={QUESTIONS} />);
     expect(screen.getByText(/This level is locked/)).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /A1/ })).not.toBeInTheDocument();
   });
 
   it('records the score fraction on completion when unlocked', async () => {
-    render(<LadderRunnerClient courseId="math-y7" level={1} />);
+    render(<LadderRunnerClient courseId="math-y7" level={1} questions={QUESTIONS} />);
 
     await answerCurrentCorrectly();
     await answerCurrentWrongly();
@@ -174,7 +163,7 @@ describe('LadderRunnerClient', () => {
 
   it('unlocks when the previous level meets the threshold', () => {
     ladderProgressState = { 'math-y7': { 2: { bestScore: 0.8, completedAt: 'x' } } };
-    render(<LadderRunnerClient courseId="math-y7" level={3} />);
+    render(<LadderRunnerClient courseId="math-y7" level={3} questions={QUESTIONS} />);
     expect(screen.queryByText(/This level is locked/)).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Q (one|two)/i })).toBeInTheDocument();
   });

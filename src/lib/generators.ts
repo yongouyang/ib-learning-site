@@ -1,4 +1,4 @@
-import type { Question, Topic } from '@/content/types';
+import type { Question, TopicTemplate } from '@/content/types';
 import { getGenerator } from '@/content/generators';
 import { createRng } from './quiz-utils';
 
@@ -12,7 +12,8 @@ export function templateQuestionId(index: number, generatorId: string): string {
   return `tpl:${index}:${generatorId}`;
 }
 
-export function materializeTemplates(topic: Topic, seed: string): Question[] {
+/** Structural param: the quiz passes `{ id, templates }` from props, server callers pass a Topic. */
+export function materializeTemplates(topic: { id: string; templates?: TopicTemplate[] }, seed: string): Question[] {
   return (topic.templates ?? []).map((tpl, index) => {
     const generator = getGenerator(tpl.generator);
     if (!generator) {

@@ -1,8 +1,7 @@
 import React from 'react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import type { TopicProgress } from '@/content/types';
-import type { MixedReviewQuestion } from '@/lib/mixed-review';
 
 // --- framer-motion mock (same pattern as runner-clients.test.tsx) ---
 const motionPropKeys = new Set([
@@ -23,45 +22,19 @@ vi.mock('framer-motion', () => ({
   AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
 
-const QUESTIONS: MixedReviewQuestion[] = [
-  {
-    question: { id: 'q1', stem: 'Q one?', choices: ['A1', 'B1', 'C1', 'D1'], correctIndex: 0, explanation: 'Expl one.', difficulty: 'easy' },
-    topicId: 'topic-one',
-    subjectId: 'math',
-    topicTitle: 'Topic One',
-  },
-  {
-    question: { id: 'q2', stem: 'Q two?', choices: ['A2', 'B2', 'C2', 'D2'], correctIndex: 1, explanation: 'Expl two.', difficulty: 'hard' },
-    topicId: 'topic-two',
-    subjectId: 'math',
-    topicTitle: 'Topic Two',
-  },
-];
-
-const PROGRESS: TopicProgress[] = [];
+const WEAK: TopicProgress = {
+  topicId: 'math-yr7-calculations',
+  subjectId: 'math',
+  topicTitle: 'Written Calculations',
+  subjectTitle: 'Math',
+  attempts: [{ date: '2026-09-01T10:00:00.000Z', correctCount: 1, totalCount: 10 }],
+};
+let progressState: TopicProgress[] = [];
 let loadedState = false;
-const buildMixedReviewQuestions = vi.fn(
-  (
-    _progress: TopicProgress[],
-    _mode: 'random' | 'weak',
-    _seed?: string
-  ) => ({
-    questions: QUESTIONS,
-    usedWeakTopics: true,
-    weakTopicCount: 1,
-  })
-);
-vi.mock('@/lib/mixed-review', async (importActual) => ({
-  ...(await importActual<typeof import('@/lib/mixed-review')>()),
-  buildMixedReviewQuestions: (
-    progress: TopicProgress[],
-    mode: 'random' | 'weak',
-    seed?: string
-  ) => buildMixedReviewQuestions(progress, mode, seed),
-}));
+
 vi.mock('@/lib/analytics', () => ({ trackEvent: vi.fn() }));
 vi.mock('@/context/ProgressContext', () => ({
-  useProgress: () => ({ topicProgress: PROGRESS, recordAttempt: vi.fn(), loaded: loadedState }),
+  useProgress: () => ({ topicProgress: progressState, recordAttempt: vi.fn(), loaded: loadedState }),
 }));
 vi.mock('next/navigation', () => ({
   useSearchParams: () => new URLSearchParams('mode=weak'),
@@ -70,53 +43,64 @@ vi.mock('next/navigation', () => ({
 import MixedReviewClient from '@/app/mixed-review/MixedReviewClient';
 import { userEvent } from '@testing-library/user-event';
 
-// /mixed-review is prerendered (static export) and hydrated, so the draw that
-// happens during RENDER must be reproducible on both sides: an unseeded
-// Math.random() sample made the server and client disagree and React threw the
-// whole tree away ("Hydration failed because the server rendered text didn't
-// match the client" — seen in the CI e2e console). The freshness draw belongs in
-// an effect, after hydration.
-describe('MixedReviewClient render-phase purity (hydration safety)', () => {
+// /mixed-review is prerendered (static export) and hydrated. Phase 1a moved its draw into a lazily
+// imported module (so the topic content bank stays out of the shared chunks) and seeds it from an
+// effect, which makes the hydration story structural: NOTHING is drawn during render, so the server
+// and the first client paint are the same loading state. An unseeded Math.random() sample in render
+// used to make them disagree and React threw the whole tree away ("Hydration failed because the
+// server rendered text didn't match the client"). No builder mock here on purpose — the real draw is
+// the thing under test.
+const optionLabels = (container: HTMLElement) =>
+  [...container.querySelectorAll('button')].map((b) => b.textContent ?? '').slice(0, 4);
+
+describe('MixedReviewClient — lazy draw, hydration safety and session stability', () => {
   beforeEach(() => {
-    vi.clearAllMocks();
     loadedState = false;
+    progressState = [];
   });
 
-  it('draws with a deterministic seed on the first render (what SSR renders too)', () => {
-    render(<MixedReviewClient />);
-    const [progress, mode, seed] = buildMixedReviewQuestions.mock.calls[0];
-    expect(progress).toBe(PROGRESS);
-    expect(mode).toBe('weak');
-    expect(seed).toBe('weak'); // === the mode, no per-session randomness
-  });
-  it('reseeds once after mount so each visit still gets a fresh mix', async () => {
-    render(<MixedReviewClient />);
-    const firstSeed = buildMixedReviewQuestions.mock.calls[0][2];
-    // Deterministic for hydration first, then a per-session seed from an effect.
-    await waitFor(() => {
-      const seeds = buildMixedReviewQuestions.mock.calls.map((c) => c[2]);
-      expect(seeds.some((s) => s !== firstSeed && /^weak:.+/.test(s ?? ''))).toBe(true);
-    });
+  it('draws nothing during render: the prerendered paint is the loading state, twice over', () => {
+    const first = render(<MixedReviewClient />);
+    const firstPaint = first.container.innerHTML;
+    expect(screen.getByText(/Loading mixed review/)).toBeTruthy();
+
+    const second = render(<MixedReviewClient />);
+    expect(second.container.innerHTML).toBe(firstPaint);
   });
 
-  it('does not clobber an in-progress session when the profile progress lands late', async () => {
+  it('renders a real question set once the lazy module resolves', async () => {
     const view = render(<MixedReviewClient />);
-    await waitFor(() => expect(buildMixedReviewQuestions.mock.calls.length).toBeGreaterThan(1));
+    await waitFor(() => expect(optionLabels(view.container).length).toBe(4), { timeout: 10_000 });
+    expect(screen.queryByText(/Loading mixed review/)).toBeNull();
+  });
+
+  it('keeps an in-progress session when the profile progress lands late', async () => {
+    const view = render(<MixedReviewClient />);
+    await waitFor(() => expect(optionLabels(view.container).length).toBe(4), { timeout: 10_000 });
+    const before = optionLabels(view.container);
+
     // Answer the first question — the session is now live.
     await userEvent.click(view.container.querySelectorAll('button')[0]);
-    const callsBefore = buildMixedReviewQuestions.mock.calls.length;
     // …then the (slow) auth/progress resolution arrives.
     loadedState = true;
     view.rerender(<MixedReviewClient />);
-    expect(buildMixedReviewQuestions.mock.calls).toHaveLength(callsBefore);
+    await new Promise((resolve) => setTimeout(resolve, 20));
+
+    expect(optionLabels(view.container)).toEqual(before);
   });
 
-  it('draws the weak-topic set again when progress arrives before any answer', async () => {
+  it('draws the weak-topic set when progress arrives before any answer', async () => {
     const view = render(<MixedReviewClient />);
-    await waitFor(() => expect(buildMixedReviewQuestions.mock.calls.length).toBeGreaterThan(1));
-    const callsBefore = buildMixedReviewQuestions.mock.calls.length;
+    await waitFor(() => expect(optionLabels(view.container).length).toBe(4), { timeout: 10_000 });
+    // First draw ran before progress existed, so weak mode fell back to all topics.
+    expect(view.container.textContent).toMatch(/No weak areas found yet/);
+
     loadedState = true;
+    progressState = [WEAK];
     view.rerender(<MixedReviewClient />);
-    expect(buildMixedReviewQuestions.mock.calls.length).toBeGreaterThan(callsBefore);
+
+    // The late-arriving progress forces a fresh draw — visible as the focused description.
+    await waitFor(() => expect(view.container.textContent).toMatch(/Focused on your weak areas/), { timeout: 10_000 });
+    expect(optionLabels(view.container).length).toBe(4);
   });
 });

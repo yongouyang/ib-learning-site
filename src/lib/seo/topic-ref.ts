@@ -1,5 +1,5 @@
 import { getSubject, getTopic } from '@/content/registry';
-import type { SubjectId, Topic } from '@/content/types';
+import type { SubjectId, TopicMeta } from '@/content/types';
 
 /**
  * Registry lookup for the /subjects/[subjectId]/[topicId] segment pair, resolved once so
@@ -12,7 +12,7 @@ import type { SubjectId, Topic } from '@/content/types';
 export function findTopic(
   subjectId: string,
   topicId: string,
-): { topic: Topic; subjectName: string } | null {
+): { topic: TopicMeta; subjectName: string } | null {
   const subject = getSubject(subjectId as SubjectId);
   const topic = subject && getTopic(subjectId as SubjectId, topicId);
   return topic && subject ? { topic, subjectName: subject.name } : null;

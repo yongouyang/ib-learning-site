@@ -3,10 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { getSubject, getTopic } from '@/content/registry';
 import { useProgress } from '@/context/ProgressContext';
 import QuizGame from '@/components/QuizGame';
-import type { QuestionResult, SubjectId } from '@/content/types';
+import type { Question, QuestionResult, SubjectId, TopicTemplate } from '@/content/types';
 import {
   DIFFICULTY_LEVELS,
   filterQuestionsByDifficulty,
@@ -20,16 +19,30 @@ import {
 import { materializeTemplates } from '@/lib/generators';
 import { trackEvent } from '@/lib/analytics';
 
+/**
+ * Phase 1a: authored questions and templates arrive from the server page, so the quiz no longer
+ * pulls the whole content bank into a client chunk. Templates stay client-side because "New Question
+ * Set" materialises fresh variants locally (src/lib/generators.ts is code, not content).
+ */
 interface QuizPageClientProps {
   subjectId: string;
   topicId: string;
+  topicTitle: string;
+  subjectName: string;
+  questions: Question[];
+  templates?: TopicTemplate[];
 }
 
-export default function QuizPageClient({ subjectId, topicId }: QuizPageClientProps) {
+export default function QuizPageClient({
+  subjectId,
+  topicId,
+  topicTitle,
+  subjectName,
+  questions,
+  templates,
+}: QuizPageClientProps) {
   const searchParams = useSearchParams();
   const difficulty = parseDifficultyFilter(searchParams.get('difficulty'));
-  const topic = getTopic(subjectId as SubjectId, topicId);
-  const subject = getSubject(subjectId as SubjectId);
   const { recordAttempt } = useProgress();
   // Per-question outcomes for the current session, flushed into recordAttempt
   // on completion (feeds variant-group mastery in src/lib/mastery.ts).
@@ -38,9 +51,7 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
 
   // Templates make a topic grouped even without authored variantOf groups —
   // each template instance occupies a group slot (its variantOf, or solo).
-  const grouped = topic
-    ? hasVariantGroups(topic.questions) || (topic.templates?.length ?? 0) > 0
-    : false;
+  const grouped = hasVariantGroups(questions) || (templates?.length ?? 0) > 0;
 
   // Session seed: deterministic during SSR/first render (hydration-safe), then
   // reseeded client-side on mount for grouped topics so every visit — and every
@@ -54,10 +65,8 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
   // (difficulty switch or "new question set") — the same boundaries QuizGame's
   // key remounts on.
   useEffect(() => {
-    if (!topic) return;
     startedAtRef.current = Date.now();
     trackEvent('quiz_started', { subjectId, topicId, source: 'topic_page' });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subjectId, topicId, difficulty, sessionSeed]);
 
   const handleNewSet = () => {
@@ -65,12 +74,10 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
     setSessionSeed(`${topicId}:${difficulty}:${randomSeed()}`);
   };
 
-  if (!topic) return <div className="p-6 text-center text-gray-500 dark:text-gray-400">Topic not found.</div>;
-
   // Authored questions plus one materialized instance per template (seeded by
   // sessionSeed, so "new question set" redraws fresh values). Difficulty chip
   // counts below intentionally cover authored questions only.
-  const pool = [...topic.questions, ...materializeTemplates(topic, sessionSeed)];
+  const pool = [...questions, ...materializeTemplates({ id: topicId, templates }, sessionSeed)];
   const filtered = filterQuestionsByDifficulty(pool, difficulty);
   // Grouped topics: one question per variant group (~10 per session). Topics
   // without groups keep the legacy behavior — every question, every session.
@@ -81,11 +88,11 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
   const ordered = orderQuestionsByDifficulty(sessionQuestions, sessionSeed);
 
   const filters: { key: DifficultyFilter; label: string }[] = [
-    { key: 'all', label: `All (${topic.questions.length})` },
+    { key: 'all', label: `All (${questions.length})` },
     ...DIFFICULTY_LEVELS.map((level) => ({
       key: level as DifficultyFilter,
       label: `${level[0].toUpperCase()}${level.slice(1)} (${
-        topic.questions.filter((q) => (q.difficulty ?? 'medium') === level).length
+        questions.filter((q) => (q.difficulty ?? 'medium') === level).length
       })`,
     })),
   ];
@@ -125,8 +132,8 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
         backLabel="Back to Topics"
         breadcrumbs={[
           { href: '/', label: 'Home' },
-          { href: `/subjects/${subjectId}`, label: subject?.name ?? subjectId },
-          { href: `/subjects/${subjectId}/${topicId}/study`, label: topic.title },
+          { href: `/subjects/${subjectId}`, label: subjectName },
+          { href: `/subjects/${subjectId}/${topicId}/study`, label: topicTitle },
           { label: 'Quiz' },
         ]}
         enableTimer={true}
@@ -135,7 +142,7 @@ export default function QuizPageClient({ subjectId, topicId }: QuizPageClientPro
           resultsRef.current.push({ questionId, correct });
         }}
         onComplete={(correctCount, totalCount) => {
-          recordAttempt(topicId, subjectId as SubjectId, topic.title, subjectId, correctCount, totalCount, resultsRef.current);
+          recordAttempt(topicId, subjectId as SubjectId, topicTitle, subjectId, correctCount, totalCount, resultsRef.current);
           trackEvent('quiz_completed', {
             subjectId,
             topicId,

@@ -1,8 +1,12 @@
-import { Question, TopicProgress, SubjectId } from '@/content/types';
-import { getSubjects } from '@/content/registry';
-import { getWeakTopics } from '@/lib/weak-point-analyzer';
-import { stratifiedSample, seededShuffle } from '@/lib/quiz-utils';
+import { Question, SubjectId } from '@/content/types';
 
+/**
+ * Constants and types for mixed review — deliberately content-free, because five other modules
+ * import this file for `MixedReviewQuestion` alone (exams, ladder, diagnostics, question-sets, and
+ * the mixed-review client). The draw itself lives in
+ * `src/app/mixed-review/build-mixed-review.ts`, which is reached only through a dynamic import so
+ * the content bank stays out of the shared chunks (docs/premium-content-protection-plan.md §4.4).
+ */
 export const MIXED_REVIEW_TOPIC_ID = 'mixed-review';
 export const MIXED_REVIEW_SUBJECT_ID: SubjectId = 'math';
 export const MIXED_REVIEW_TITLE = 'Mixed Review';
@@ -15,52 +19,4 @@ export interface MixedReviewQuestion {
   topicId: string;
   subjectId: SubjectId;
   topicTitle: string;
-}
-
-export function buildMixedReviewQuestions(
-  topicProgress: TopicProgress[],
-  mode: 'random' | 'weak' = 'random',
-  // Deterministic draw seed. Omit for the old Math.random behaviour; pass one
-  // from a component that can be server-rendered (see MixedReviewClient).
-  seed?: string
-): { questions: MixedReviewQuestion[]; usedWeakTopics: boolean; weakTopicCount: number } {
-  const all: MixedReviewQuestion[] = [];
-  getSubjects().forEach((subject) => {
-    subject.topics.forEach((topic) => {
-      topic.questions.forEach((question) => {
-        all.push({
-          question,
-          topicId: topic.id,
-          subjectId: subject.id,
-          topicTitle: topic.title,
-        });
-      });
-    });
-  });
-
-  let pool = [...all];
-  let usedWeakTopics = false;
-  let weakTopicCount = 0;
-
-  if (mode === 'weak') {
-    const weakTopics = getWeakTopics(topicProgress);
-    weakTopicCount = weakTopics.length;
-    if (weakTopics.length > 0) {
-      const weakKeys = new Set(weakTopics.map((tp) => `${tp.subjectId}:${tp.topicId}`));
-      pool = all.filter((q) => weakKeys.has(`${q.subjectId}:${q.topicId}`));
-      usedWeakTopics = true;
-    }
-  }
-
-  const questions = stratifiedSample(pool, MIXED_REVIEW_BAND_TARGETS, (mq) => mq.question.difficulty, seed);
-
-  if (questions.length === 0) {
-    // Ultimate fallback: any available question.
-    const fallback = seed
-      ? seededShuffle(all, `${seed}:fallback`).slice(0, MIXED_REVIEW_COUNT)
-      : all.sort(() => Math.random() - 0.5).slice(0, MIXED_REVIEW_COUNT);
-    return { questions: fallback, usedWeakTopics: false, weakTopicCount };
-  }
-
-  return { questions, usedWeakTopics, weakTopicCount };
 }

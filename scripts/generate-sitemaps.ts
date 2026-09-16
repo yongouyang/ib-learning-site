@@ -16,6 +16,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync
 import { execFileSync } from 'node:child_process';
 
 import { getAllPapers, getSubjects } from '../src/content/registry';
+import { getAllContentTopics } from '../src/content/registry.content';
 import { COURSES } from '../src/lib/courses';
 import { FREE_LADDER_LEVELS, isFreePaperSet } from '../src/lib/entitlements/exam-access';
 import { SITE } from '../src/lib/seo/site';
@@ -27,6 +28,14 @@ const GOOGLE_URL_LIMIT = 45_000; // spec limit 50 000; chunk early
 const MODE = process.argv.includes('--check') ? 'check' : process.argv.includes('--verify') ? 'verify' : 'write';
 
 const subjects = getSubjects();
+
+/** Image-sitemap entries: the only thing the sitemap needs that metadata does not carry. */
+const illustrationsByTopic = new Map(
+  getAllContentTopics().map((topic) => [
+    topic.id,
+    topic.notes.filter((n) => n.illustration).slice(0, 8).map((n) => n.illustration!.src),
+  ]),
+);
 const topics = subjects.flatMap((s) => s.topics.map((t) => ({ ...t, subjectName: s.name })));
 type Row = (typeof topics)[number];
 
@@ -87,7 +96,7 @@ function tierEntries(tier: TierKey): Entry[] {
     lastmod: topicLastmod.get(t.id),
     changeFrequency: 'monthly',
     priority: 0.7,
-    images: t.notes.filter((n) => n.illustration).slice(0, 8).map((n) => `${SITE.origin}${n.illustration!.src}`),
+    images: (illustrationsByTopic.get(t.id) ?? []).map((src) => `${SITE.origin}${src}`),
   }));
 }
 

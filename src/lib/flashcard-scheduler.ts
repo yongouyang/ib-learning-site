@@ -1,4 +1,4 @@
-import type { Flashcard, FlashcardProgress, Topic } from '@/content/types';
+import type { FlashcardProgress, SubjectId } from '@/content/types';
 
 // Phase 6 — spaced repetition for flashcards (fixed interval ladder,
 // SM-2 simplified). Learning cards are always due; known cards come due
@@ -27,22 +27,27 @@ export interface CardStats {
   due: number;
 }
 
+/**
+ * Ids only, since Phase 1a (docs/premium-content-protection-plan.md §4.4): callers pass
+ * `topic.flashcards` (content pages) or `topic.flashcardIds` (metadata pages: homepage, /progress),
+ * so the scheduler stays usable from a client component without the content bank.
+ */
 export function getCardStats(
-  topic: Topic,
+  cardIds: readonly string[],
   progress: Record<string, FlashcardProgress>,
   now: Date = new Date()
 ): CardStats {
   let seen = 0;
   let known = 0;
   let due = 0;
-  for (const card of topic.flashcards) {
-    const p = progress[card.id];
+  for (const id of cardIds) {
+    const p = progress[id];
     if (!p) continue;
     seen += 1;
     if (p.status === 'known') known += 1;
     if (isCardDue(p, now)) due += 1;
   }
-  return { total: topic.flashcards.length, seen, known, learning: seen - known, due };
+  return { total: cardIds.length, seen, known, learning: seen - known, due };
 }
 
 export type DeckFilter = 'all' | 'learning' | 'due';
@@ -54,12 +59,12 @@ export function parseDeckFilter(value: string | null): DeckFilter {
 
 // Build the deck for a filter. 'learning' = explicitly marked learning;
 // 'due' = learning ∪ overdue known. Never-seen cards are only in 'all'.
-export function filterDeck(
-  flashcards: Flashcard[],
+export function filterDeck<T extends { id: string }>(
+  flashcards: T[],
   progress: Record<string, FlashcardProgress>,
   filter: DeckFilter,
   now: Date = new Date()
-): Flashcard[] {
+): T[] {
   if (filter === 'all') return flashcards;
   if (filter === 'learning') return flashcards.filter((c) => progress[c.id]?.status === 'learning');
   return flashcards.filter((c) => isCardDue(progress[c.id], now));
@@ -67,14 +72,22 @@ export function filterDeck(
 
 export interface DueTopic {
   topicId: string;
-  subjectId: Topic['subjectId'];
+  subjectId: SubjectId;
   topicTitle: string;
   dueCount: number;
 }
 
+/** What getDueTopics needs: TopicMeta satisfies it directly. */
+export interface DueTopicSource {
+  id: string;
+  subjectId: SubjectId;
+  title: string;
+  flashcardIds: readonly string[];
+}
+
 // Due counts across all topics, descending — feeds the homepage "Flashcards due" card.
 export function getDueTopics(
-  topics: Topic[],
+  topics: readonly DueTopicSource[],
   progress: Record<string, FlashcardProgress>,
   now: Date = new Date()
 ): DueTopic[] {
@@ -83,7 +96,7 @@ export function getDueTopics(
       topicId: topic.id,
       subjectId: topic.subjectId,
       topicTitle: topic.title,
-      dueCount: getCardStats(topic, progress, now).due,
+      dueCount: getCardStats(topic.flashcardIds, progress, now).due,
     }))
     .filter((t) => t.dueCount > 0)
     .sort((a, b) => b.dueCount - a.dueCount);

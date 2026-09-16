@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { getExamPapers, getExamPaper, getExamCourses, buildExamQuestions, examId } from '@/lib/exams';
+import { getExamPapers, getExamPaper, getExamCourses, examId } from '@/lib/exams';
+import { buildExamQuestions } from '@/lib/exams.server';
 import { COURSES } from '@/lib/courses';
 
 describe('exam paper definitions', () => {

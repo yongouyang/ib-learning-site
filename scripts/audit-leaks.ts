@@ -47,11 +47,19 @@ function* contentStrings(value: Json, key: string | null = null): Generator<stri
   }
 }
 
-/** Windows are 48-char fragments of backslash-stripped, whitespace-collapsed CONTENT lines. */
-export function windowsFromText(text: string, out: Set<string> = new Set()): Set<string> {
+/**
+ * Windows are 48-char fragments of backslash-stripped, whitespace-collapsed CONTENT lines.
+ *
+ * `step` matters and this is not a micro-optimisation: taking only the FIRST window of each line
+ * (step = line length) made a sentence shared mid-paragraph between a free topic and a premium paper
+ * read as a premium-only leak, because the topic's line begins elsewhere. Sampling every `step`
+ * characters across the line removes that whole false-positive class, and a verbatim occurrence in a
+ * document always contains the offset-0 window, so nothing is lost on the detection side.
+ */
+export function windowsFromText(text: string, out: Set<string> = new Set(), step = 1): Set<string> {
   for (const rawLine of text.split('\n')) {
     const line = rawLine.split('\\').join('').replace(/\s+/g, ' ').trim();
-    if (line.length >= WINDOW) out.add(line.slice(0, WINDOW));
+    for (let i = 0; i + WINDOW <= line.length; i += step) out.add(line.slice(i, i + WINDOW));
   }
   return out;
 }
@@ -60,10 +68,45 @@ export function windowsFromText(text: string, out: Set<string> = new Set()): Set
  *  a bundle stores `\\\\dfrac` where the parsed JSON holds `\dfrac`. */
 export const normalizeDocument = (text: string): string => text.split('\\').join('');
 
-export function collectWindows(values: Iterable<string>): Set<string> {
+export function collectWindows(values: Iterable<string>, step = 1): Set<string> {
   const out = new Set<string>();
-  for (const value of values) windowsFromText(value, out);
+  for (const value of values) windowsFromText(value, out, step);
   return out;
+}
+
+/** Every window of `windows` that occurs in `text` (normalised like scanText). Rolling hash, no
+ *  allocation per position. */
+export function findPresentWindows(text: string, windows: Set<string>): Set<string> {
+  const found = new Set<string>();
+  const haystack = normalizeDocument(text);
+  if (haystack.length < WINDOW) return found;
+  const hashOf = (value: string, start: number): number => {
+    let h = 0;
+    for (let i = start; i < start + WINDOW; i += 1) h = (Math.imul(h, 31) + value.charCodeAt(i)) | 0;
+    return h >>> 0;
+  };
+  let power = 1;
+  for (let i = 1; i < WINDOW; i += 1) power = (Math.imul(power, 31) | 0) >>> 0;
+  const byHash = new Map<number, string[]>();
+  for (const w of windows) {
+    if (w.length !== WINDOW) continue;
+    const key = hashOf(w, 0);
+    const bucket = byHash.get(key);
+    if (bucket) bucket.push(w);
+    else byHash.set(key, [w]);
+  }
+  let h = hashOf(haystack, 0);
+  for (let i = 0; i + WINDOW <= haystack.length; i += 1) {
+    if (i > 0) {
+      h = (Math.imul(h - Math.imul(haystack.charCodeAt(i - 1), power), 31) + haystack.charCodeAt(i + WINDOW - 1)) >>> 0;
+    }
+    const bucket = byHash.get(h >>> 0);
+    if (bucket) {
+      const slice = haystack.slice(i, i + WINDOW);
+      for (const w of bucket) if (w === slice) found.add(w);
+    }
+  }
+  return found;
 }
 
 /** Rolling-hash scan: returns the first window found in `text`, or null. Normalisation happens HERE
@@ -142,20 +185,25 @@ function main() {
   const papers = readJsonDir(PAPERS_DIR);
   const freePaperIds = new Set(papers.filter((p) => isFreeSet(path.basename(p.id, '.json'))).map((p) => p.id));
 
-  const freeWindows = collectWindows([
+  // Free corpus = every topic plus the free paper sets. A premium phrase that ALSO occurs here is
+  // not evidence of anything (papers reuse note sentences), so it is subtracted — by *substring*
+  // occurrence, not by equal windows, which is what the mid-paragraph case needs.
+  const freeCorpus = [
     ...topics.flatMap((t) => [...contentStrings(t.data)]),
     ...papers.filter((p) => freePaperIds.has(p.id)).flatMap((p) => [...contentStrings(p.data)]),
-  ]);
-  const topicContentWindows = collectWindows(topics.flatMap((t) => [...contentStrings(t.data)]));
-  const premiumOnly = collectWindows(
+  ].join('\n');
+  const topicContentWindows = collectWindows(topics.flatMap((t) => [...contentStrings(t.data)]), 32);
+  const premiumWindows = collectWindows(
     papers.filter((p) => !freePaperIds.has(p.id)).flatMap((p) => [...contentStrings(p.data)]),
+    8,
   );
-  for (const w of freeWindows) premiumOnly.delete(w);
+  const sharedWithFreeCorpus = findPresentWindows(freeCorpus, premiumWindows);
+  const premiumOnly = new Set([...premiumWindows].filter((w) => !sharedWithFreeCorpus.has(w)));
 
   const files = walk(outDir);
   const bytes = files.reduce((sum, f) => sum + fs.statSync(f).size, 0);
   console.log(`\nscanning ${files.length} generated files (${(bytes / 1e6).toFixed(1)} MB) under ${path.relative(ROOT, outDir)}/`);
-  console.log(`windows: ${premiumOnly.size} premium-only · ${topicContentWindows.size} topic-content · ${freeWindows.size} free-corpus\n`);
+  console.log(`windows: ${premiumOnly.size} of ${premiumWindows.size} premium (rest shared with the free corpus) · ${topicContentWindows.size} topic-content\n`);
 
   const hits: { file: string; window: string }[] = [];
   for (const file of files) {

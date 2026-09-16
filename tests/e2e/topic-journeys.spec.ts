@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { getSubjects } from '../../src/content/registry';
+import { getAllContentTopics } from '../../src/content/registry.content';
 
 // This sweep is intentionally skipped by default because it exercises every topic and is slower
 // than the regular e2e suite. Run it with RUN_TOPIC_SWEEP=1 (ideally against a production build).
@@ -11,9 +11,11 @@ test.setTimeout(300000);
 test('every topic can load study, flashcards and quiz pages', async ({ page }) => {
   const failures: string[] = [];
 
-  for (const subject of getSubjects()) {
-    for (const topic of subject.topics) {
-      const basePath = `/subjects/${subject.id}/${topic.id}`;
+  // Content topics: the sweep asserts on question and flashcard counts, which metadata no longer
+  // carries (Phase 1a).
+  for (const topic of getAllContentTopics()) {
+    {
+      const basePath = `/subjects/${topic.subjectId}/${topic.id}`;
 
       try {
         // 1. Study page renders and exposes the action links
@@ -46,7 +48,7 @@ test('every topic can load study, flashcards and quiz pages', async ({ page }) =
           await expect(page.getByRole('heading', { name: 'Quiz Complete!' })).toBeVisible({ timeout: 10000 });
         }
       } catch (error) {
-        failures.push(`${subject.name} › ${topic.title}: ${(error as Error).message.split('\n')[0]}`);
+        failures.push(`${topic.subjectId} › ${topic.title}: ${(error as Error).message.split('\n')[0]}`);
       }
     }
   }

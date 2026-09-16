@@ -1,6 +1,9 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { getSubjects } from '@/content/registry';
+import { getContentTopic } from '@/content/registry.content';
+import type { SubjectId } from '@/content/types';
+import { getSubject } from '@/content/registry';
 import { metaForTool } from '@/lib/seo/meta';
 import { findTopic } from '@/lib/seo/topic-ref';
 import QuizPageClient from './QuizPageClient';
@@ -31,9 +34,21 @@ export async function generateMetadata(props: {
 
 export default async function QuizPage(props: { params: Promise<{ subjectId: string; topicId: string }> }) {
   const params = await props.params;
+  const topic = getContentTopic(params.subjectId as SubjectId, params.topicId);
+  const subjectName = getSubject(params.subjectId as SubjectId)?.name ?? params.subjectId;
+  if (!topic) {
+    return <div className="p-6 text-center text-gray-500 dark:text-gray-400">Topic not found.</div>;
+  }
   return (
     <Suspense fallback={<div className="max-w-lg mx-auto px-4 py-8 text-center text-gray-500 dark:text-gray-400">Loading quiz…</div>}>
-      <QuizPageClient subjectId={params.subjectId} topicId={params.topicId} />
+      <QuizPageClient
+        subjectId={params.subjectId}
+        topicId={params.topicId}
+        topicTitle={topic.title}
+        subjectName={subjectName}
+        questions={topic.questions}
+        templates={topic.templates}
+      />
     </Suspense>
   );
 }

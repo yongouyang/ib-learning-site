@@ -3,10 +3,10 @@ import {
   LADDER_LEVELS,
   LADDER_LENGTH,
   LADDER_UNLOCK_SCORE,
-  buildLadderQuestions,
   getLadderLevel,
   isLevelUnlocked,
 } from '@/lib/ladder';
+import { buildLadderQuestions } from '@/lib/ladder.server';
 
 describe('ladder definitions', () => {
   it('has 5 levels, each summing to the ladder length', () => {

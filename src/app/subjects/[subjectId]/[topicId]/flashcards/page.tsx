@@ -1,6 +1,8 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
-import { getSubjects } from '@/content/registry';
+import { getSubject, getSubjects } from '@/content/registry';
+import { getContentTopic } from '@/content/registry.content';
+import type { SubjectId } from '@/content/types';
 import { metaForTool } from '@/lib/seo/meta';
 import { findTopic } from '@/lib/seo/topic-ref';
 import FlashcardsPageClient from './FlashcardsPageClient';
@@ -26,9 +28,20 @@ export async function generateMetadata(props: {
 
 export default async function FlashcardsPage(props: { params: Promise<{ subjectId: string; topicId: string }> }) {
   const params = await props.params;
+  const topic = getContentTopic(params.subjectId as SubjectId, params.topicId);
+  const subjectName = getSubject(params.subjectId as SubjectId)?.name ?? params.subjectId;
+  if (!topic) {
+    return <div className="p-6 text-center text-gray-500 dark:text-gray-400">No flashcards available.</div>;
+  }
   return (
     <Suspense fallback={<div className="max-w-md mx-auto px-4 py-8 text-center text-gray-500 dark:text-gray-400">Loading flashcards…</div>}>
-      <FlashcardsPageClient subjectId={params.subjectId} topicId={params.topicId} />
+      <FlashcardsPageClient
+        subjectId={params.subjectId}
+        topicId={params.topicId}
+        topicTitle={topic.title}
+        subjectName={subjectName}
+        flashcards={topic.flashcards}
+      />
     </Suspense>
   );
 }

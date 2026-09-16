@@ -291,6 +291,12 @@ Implementation notes that are not optional:
 - **Escape-insensitive comparison** (gotcha 6): strip backslashes from *both* sides. A plain grep for
   a LaTeX-bearing string measured **0 of 28** hits where the real figure was **21 of 28** — two probes
   in the first revision of this note returned a false "clean" that way.
+- **Sample windows across each line, not just at its start**, and subtract the free corpus by
+  *substring occurrence*. Both errors were found by running the gate on a real build: line-start-only
+  windows made a sentence shared mid-paragraph between a free topic and a premium paper read as a
+  premium-only leak (the topic's line begins elsewhere), and subtracting windows rather than
+  occurrences kept that false positive alive. `scripts/audit-leaks.ts` now does both correctly, and
+  `tests/unit/audit-leaks.test.ts` pins each one.
 - **Two tiers, because the mixed-review lazy chunk legitimately carries free topic stems**: (a) HARD —
   no premium paper string anywhere under `out/`; (b) TIGHTENED — the chunk referenced by
   `out/index.html` (the site-wide one) must contain no topic question stem either **and must stay

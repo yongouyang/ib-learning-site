@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Shuffle, Target } from 'lucide-react';
@@ -8,10 +8,10 @@ import { useProgress } from '@/context/ProgressContext';
 import QuizGame from '@/components/QuizGame';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import {
-  buildMixedReviewQuestions,
   MIXED_REVIEW_TOPIC_ID,
   MIXED_REVIEW_SUBJECT_ID,
   MIXED_REVIEW_TITLE,
+  type MixedReviewQuestion,
 } from '@/lib/mixed-review';
 import { randomSeed } from '@/lib/quiz-utils';
 import { trackEvent } from '@/lib/analytics';
@@ -41,10 +41,30 @@ export default function MixedReviewClient() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loaded]);
 
-  const { questions, usedWeakTopics, weakTopicCount } = useMemo(
-    () => buildMixedReviewQuestions(topicProgress, mode, sessionSeed),
-    [topicProgress, mode, sessionSeed]
-  );
+  // The draw needs the topic content bank, which must not sit in the shared chunks, so it is
+  // loaded on demand: ./build-mixed-review becomes its own route-scoped chunk. This is also why the
+  // first paint is a loading state rather than a question — it is still hydration-safe (server and
+  // client both render the same state) and it is what Phase 1b replaces with the public endpoint.
+  const [draw, setDraw] = useState<{
+    questions: MixedReviewQuestion[];
+    usedWeakTopics: boolean;
+    weakTopicCount: number;
+  } | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    import('./build-mixed-review').then(({ buildMixedReviewQuestions }) => {
+      if (cancelled) return;
+      setDraw(buildMixedReviewQuestions(topicProgress, mode, sessionSeed));
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [topicProgress, mode, sessionSeed]);
+
+  const usedWeakTopics = draw?.usedWeakTopics ?? false;
+  const weakTopicCount = draw?.weakTopicCount ?? 0;
+  const questions = draw?.questions ?? [];
 
   const startedAt = useRef(Date.now());
   useEffect(() => {
@@ -127,6 +147,9 @@ export default function MixedReviewClient() {
         {description}
       </p>
 
+      {!draw ? (
+        <p className="card p-6 text-center text-gray-500 dark:text-gray-400">Loading mixed review…</p>
+      ) : (
       <QuizGame
         key={sessionSeed}
         subtitle={mode === 'weak' && usedWeakTopics ? 'Focused on your weak areas' : 'Questions from all topics'}
@@ -138,6 +161,7 @@ export default function MixedReviewClient() {
         enableTimer={false}
         onComplete={handleComplete}
       />
+      )}
     </div>
   );
 }

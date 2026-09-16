@@ -3,8 +3,10 @@ import { getSubjects, getSubject, getTopic } from '@/content/registry';
 import {
   getAllContentTopics,
   getContentSubject,
+  getContentSubjects,
   getContentTopic,
 } from '@/content/registry.content';
+import type { TopicMeta } from '@/content/types';
 import { getAllPapersContent, getPaperContent, getPapersForCourseContent } from '@/content/registry.papers';
 import type { SubjectId } from '@/content/types';
 
@@ -37,13 +39,13 @@ describe('content-registry', () => {
     expect(math!.name).toBe('Math');
   });
 
-  it('should get a topic by subject and topic id', () => {
+  it('should get a topic by subject and topic id (metadata)', () => {
     const topic = getTopic('math', 'math-yr7-calculations');
     expect(topic).toBeDefined();
     expect(topic!.title).toBe('Written Calculations');
-    expect(topic!.notes.length).toBeGreaterThan(0);
-    expect(topic!.flashcards.length).toBeGreaterThan(0);
-    expect(topic!.questions.length).toBeGreaterThan(0);
+    expect(topic!.noteCount).toBeGreaterThan(0);
+    expect(topic!.flashcardCount).toBeGreaterThan(0);
+    expect(topic!.questionCount).toBeGreaterThan(0);
   });
 
   it('should return undefined for unknown subject', () => {
@@ -55,10 +57,14 @@ describe('content-registry', () => {
   });
 
   describe('content halves (Phase 1a — docs/premium-content-protection-plan.md §4.4)', () => {
-    it('registry.content exposes the same content the eager registry did', () => {
-      const eager = getTopic('math', 'math-yr7-calculations');
+    it('registry.content exposes the topic bodies, registry.ts only the metadata', () => {
+      const meta = getTopic('math', 'math-yr7-calculations');
       const content = getContentTopic('math', 'math-yr7-calculations');
-      expect(content).toEqual(eager);
+      // The split's whole point: metadata has no bodies, content has no literals to drift from.
+      expect(meta).not.toHaveProperty('questions');
+      expect(meta).not.toHaveProperty('notes');
+      expect(content!.id).toBe(meta!.id);
+      expect(content!.questions.length).toBe(meta!.questionCount);
       expect(getContentTopic('math', 'nonexistent')).toBeUndefined();
       expect(getContentSubject('math')!.topics).toHaveLength(EXPECTED_TOPIC_COUNTS.math!);
       expect(getAllContentTopics()).toHaveLength(Object.values(EXPECTED_TOPIC_COUNTS).reduce((a, b) => a + b, 0));
@@ -86,8 +92,35 @@ describe('content-registry', () => {
     );
   });
 
-  describe('content integrity', () => {
+  describe('metadata integrity', () => {
     const subjects = getSubjects();
+
+    it('every topic meta carries the counts its consumers read', () => {
+      for (const subject of subjects) {
+        for (const topic of subject.topics) {
+          expect(topic.noteCount, `${topic.id}: noteCount`).toBeGreaterThan(0);
+          expect(topic.flashcardCount, `${topic.id}: flashcardCount`).toBe(topic.flashcardIds.length);
+          expect(topic.questionCount, `${topic.id}: questionCount`).toBeGreaterThan(0);
+        }
+      }
+    });
+
+    it('metadata and content agree (the counts are not stale literals)', () => {
+      for (const topic of getAllContentTopics()) {
+        const meta = getTopic(topic.subjectId, topic.id) as TopicMeta | undefined;
+        expect(meta, `${topic.id}: missing metadata`).toBeDefined();
+        expect(meta!.noteCount).toBe(topic.notes.length);
+        expect(meta!.flashcardCount).toBe(topic.flashcards.length);
+        expect(meta!.questionCount).toBe(topic.questions.length);
+        expect(meta!.flashcardIds).toEqual(topic.flashcards.map((c) => c.id));
+        expect(meta!.title).toBe(topic.title);
+        expect(meta!.description).toBe(topic.description);
+      }
+    });
+  });
+
+  describe('content integrity (registry.content — server-side)', () => {
+    const subjects = getContentSubjects();
 
     it('every topic should have at least 1 note, 1 flashcard, and 1 question', () => {
       for (const subject of subjects) {

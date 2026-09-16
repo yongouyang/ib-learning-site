@@ -1,4 +1,4 @@
-import type { Stage, Topic } from '../../content/types';
+import type { Stage, TopicTaxonomy } from '../../content/types';
 
 export type TierKey = 'ks3' | 'igcse' | 'ibdp';
 
@@ -29,14 +29,14 @@ export const tierHubPath = (tier: TierKey) => `/${TIERS[tier].segment}`;
 export const tierSubjectPath = (tier: TierKey, subjectId: string) => `/${TIERS[tier].segment}/${subjectId}`;
 
 /** "Key Stage 3, Year 7" | "International GCSE" | "IB DP AI (SL)" — used in titles + educationalLevel. */
-export function curriculumLabel(t: Topic): string {
+export function curriculumLabel(t: TopicTaxonomy): string {
   if (t.stage === 'ks3') return t.year ? `Key Stage 3, Year ${t.year}` : 'Key Stage 3';
   if (t.stage === 'dp') return `IB DP${t.course ? ` ${t.course.toUpperCase()}` : ''}${t.level ? ` (${t.level.toUpperCase()})` : ''}`;
   return TIERS.igcse.hubTitle;
 }
 
 /** Only where a credential genuinely exists; KS3 awards nothing. */
-export const credentialFor = (t: Topic): string | null => tierMeta(t).credential;
+export const credentialFor = (t: TopicTaxonomy): string | null => tierMeta(t).credential;
 
 /**
  * Derivable, stable, never hand-written: `MATH-KS3-Y7-ANGLES`, `CHEM-KS3-Y7-STATES-1`,
@@ -45,7 +45,7 @@ export const credentialFor = (t: Topic): string | null => tierMeta(t).credential
  * discriminators are KEPT, because `bio-body-1` and `bio-body-2` must not collapse.
  * Uniqueness across the whole registry is asserted in tests/unit/seo.test.ts.
  */
-export function courseCodeFor(t: Topic): string {
+export function courseCodeFor(t: TopicTaxonomy & { id: string }): string {
   const tier = tierMeta(t);
   const subject = t.subjectId.slice(0, 4).toUpperCase();
   const stageToken = [t.subjectId, `yr${t.year ?? ''}`, `y${t.year ?? ''}`, tier.segment, 'dp', 'igcse', t.course, t.level]

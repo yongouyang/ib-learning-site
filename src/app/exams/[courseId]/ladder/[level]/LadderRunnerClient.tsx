@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useProgress } from '@/context/ProgressContext';
 import { useEntitlements } from '@/context/EntitlementsContext';
 import QuizGame from '@/components/QuizGame';
@@ -8,23 +8,23 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { LockedFeature } from '@/components/LockedFeature';
 import { LockedQuizPreview } from '@/components/LockedQuizPreview';
 import { getCourse } from '@/lib/courses';
-import { buildLadderQuestions, getLadderLevel, isLevelUnlocked, LADDER_LEVELS, LADDER_UNLOCK_SCORE } from '@/lib/ladder';
+import { getLadderLevel, isLevelUnlocked, LADDER_LEVELS, LADDER_UNLOCK_SCORE } from '@/lib/ladder';
+import type { MixedReviewQuestion } from '@/lib/mixed-review';
 import { isFreeLadderLevel, FREE_LADDER_LEVELS } from '@/lib/entitlements/exam-access';
 import { trackEvent } from '@/lib/analytics';
 
 interface LadderRunnerClientProps {
   courseId: string;
   level: number;
+  /** Composed at build time by the server page (Phase 1a) — the client never reads the bank. */
+  questions: MixedReviewQuestion[];
 }
 
-export default function LadderRunnerClient({ courseId, level }: LadderRunnerClientProps) {
+export default function LadderRunnerClient({ courseId, level, questions }: LadderRunnerClientProps) {
   const course = getCourse(courseId);
   const levelDef = getLadderLevel(level);
   const { ladderProgress, recordLadder } = useProgress();
   const { has, loaded } = useEntitlements();
-
-  // Deterministic build (seeded by course+level) — safe to compute during SSR.
-  const questions = useMemo(() => buildLadderQuestions(courseId, level), [courseId, level]);
   const recorded = useRef(false);
   const startedAt = useRef(Date.now());
 

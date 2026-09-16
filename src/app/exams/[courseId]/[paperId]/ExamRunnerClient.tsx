@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Clock } from 'lucide-react';
 import { useProgress } from '@/context/ProgressContext';
 import { useEntitlements } from '@/context/EntitlementsContext';
@@ -8,23 +8,23 @@ import QuizGame from '@/components/QuizGame';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { LockedFeature } from '@/components/LockedFeature';
 import { LockedQuizPreview } from '@/components/LockedQuizPreview';
-import { buildExamQuestions, examId, getExamPaper } from '@/lib/exams';
+import { examId, getExamPaper } from '@/lib/exams';
+import type { MixedReviewQuestion } from '@/lib/mixed-review';
 import { getCourse } from '@/lib/courses';
 import { trackEvent } from '@/lib/analytics';
 
 interface ExamRunnerClientProps {
   courseId: string;
   paperId: string;
+  /** Composed at build time by the server page (Phase 1a) — the client never reads the bank. */
+  questions: MixedReviewQuestion[];
 }
 
-export default function ExamRunnerClient({ courseId, paperId }: ExamRunnerClientProps) {
+export default function ExamRunnerClient({ courseId, paperId, questions }: ExamRunnerClientProps) {
   const course = getCourse(courseId);
   const paper = getExamPaper(courseId, paperId);
   const { recordExam } = useProgress();
   const { has, loaded } = useEntitlements();
-
-  // Deterministic build (seeded by course+paper) — safe to compute during SSR.
-  const questions = useMemo(() => buildExamQuestions(courseId, paperId), [courseId, paperId]);
 
   const startedAt = useRef(Date.now());
   const recorded = useRef(false);

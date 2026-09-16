@@ -5,8 +5,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, RotateCcw, BookOpen, Check, X } from 'lucide-react';
-import { getSubject, getTopic } from '@/content/registry';
-import type { SubjectId } from '@/content/types';
+import type { Flashcard } from '@/content/types';
 import { useProgress } from '@/context/ProgressContext';
 import { filterDeck, getCardStats, parseDeckFilter, type DeckFilter } from '@/lib/flashcard-scheduler';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
@@ -14,9 +13,13 @@ import InlineMath from '@/components/InlineMath';
 import DualRingDonut from '@/components/DualRingDonut';
 import { trackEvent } from '@/lib/analytics';
 
+/** Phase 1a: the topic's cards arrive from the server page, never from a client-side registry. */
 interface FlashcardsPageClientProps {
   subjectId: string;
   topicId: string;
+  topicTitle: string;
+  subjectName: string;
+  flashcards: Flashcard[];
 }
 
 const FILTER_LABELS: Record<DeckFilter, string> = {
@@ -25,11 +28,15 @@ const FILTER_LABELS: Record<DeckFilter, string> = {
   due: 'Due for review',
 };
 
-export default function FlashcardsPageClient({ subjectId, topicId }: FlashcardsPageClientProps) {
+export default function FlashcardsPageClient({
+  subjectId,
+  topicId,
+  topicTitle,
+  subjectName,
+  flashcards,
+}: FlashcardsPageClientProps) {
   const searchParams = useSearchParams();
   const filter = parseDeckFilter(searchParams.get('filter'));
-  const topic = getTopic(subjectId as SubjectId, topicId);
-  const subject = getSubject(subjectId as SubjectId);
   const { flashcardProgress, recordFlashcard, loaded } = useProgress();
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,19 +64,19 @@ export default function FlashcardsPageClient({ subjectId, topicId }: FlashcardsP
   // Filtered decks need the stored progress, which only exists after the
   // first client-side load — wait for `loaded` before building them.
   const deck = useMemo(
-    () => (topic && (filter === 'all' || loaded) ? filterDeck(topic.flashcards, flashcardProgress, filter) : []),
+    () => (filter === 'all' || loaded ? filterDeck(flashcards, flashcardProgress, filter) : []),
     // Deck membership is fixed for the session even as cards are marked
     // (marking a card known must not pull it out from under the user).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [topic, filter, loaded, isComplete]
+    [flashcards, filter, loaded, isComplete]
   );
 
   const stats = useMemo(
-    () => (topic ? getCardStats(topic, flashcardProgress) : null),
-    [topic, flashcardProgress]
+    () => getCardStats(flashcards.map((card) => card.id), flashcardProgress),
+    [flashcards, flashcardProgress]
   );
 
-  if (!topic || topic.flashcards.length === 0) {
+  if (flashcards.length === 0) {
     return <div className="p-6 text-center text-gray-500 dark:text-gray-400">No flashcards available.</div>;
   }
 
@@ -154,8 +161,8 @@ export default function FlashcardsPageClient({ subjectId, topicId }: FlashcardsP
     <div className="max-w-md mx-auto px-4 py-6">
       <Breadcrumbs items={[
         { href: '/', label: 'Home' },
-        { href: `/subjects/${subjectId}`, label: subject?.name ?? subjectId },
-        { href: `/subjects/${subjectId}/${topicId}/study`, label: topic.title },
+        { href: `/subjects/${subjectId}`, label: subjectName },
+        { href: `/subjects/${subjectId}/${topicId}/study`, label: topicTitle },
         { label: 'Flashcards' },
       ]} />
       <div className="flex items-center gap-3 mb-6">
