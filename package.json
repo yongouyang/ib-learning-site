@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "prebuild:static": "rm -rf .next/dev",
-    "build:static": "npm run generate:sitemaps && bash scripts/build-static.sh && npm run verify:sitemaps",
+    "build:static": "npm run generate:sitemaps && bash scripts/build-static.sh && npm run verify:sitemaps && npm run audit:leaks",
     "build:lambda": "bash scripts/build-lambdas.sh",
     "start": "next start",
     "lint": "eslint .",

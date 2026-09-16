@@ -1,7 +1,7 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { DynamoSessionStorage } from '../auth/dynamodb-storage';
-import { InMemorySubscriptionsStorage } from '../subscriptions/dummy';
+import { InMemoryContentStorage } from '../content/dummy';
 import { DynamoLeaderboardStorage } from '../leaderboard/dynamodb-storage';
 import type { LeaderboardStorage } from '../leaderboard/types';
 import { DynamoProgressStorage } from './dynamodb-storage';
@@ -43,10 +43,10 @@ export interface ProgressDeps {
 // /api/contact AND /api/subscriptions in dev/e2e.
 // Unit tests never call getProgressDeps; they construct fresh dummies
 // directly.
-let sharedUniverse: InMemorySubscriptionsStorage | null = null;
+let sharedUniverse: InMemoryContentStorage | null = null;
 
-export function getSharedDummyUniverse(): InMemorySubscriptionsStorage {
-  if (!sharedUniverse) sharedUniverse = new InMemorySubscriptionsStorage();
+export function getSharedDummyUniverse(): InMemoryContentStorage {
+  if (!sharedUniverse) sharedUniverse = new InMemoryContentStorage();
   return sharedUniverse;
 }
 
@@ -77,9 +77,9 @@ export function getProgressDeps(env: Record<string, string | undefined> = proces
   }
 
   if (kind === 'dummy') {
-    // The shared universe IS an InMemoryContactStorage (which extends the
-    // leaderboard dummy) — the D4 award hook writes leaderboard rows into the
-    // same universe the sync writes progress.
+    // The shared universe IS an InMemoryContentStorage (which extends the contact → leaderboard
+    // chain) — the D4 award hook writes leaderboard rows into the same universe the sync writes
+    // progress, and the content API reads its budget from it too.
     const universe = getSharedDummyUniverse();
     return { storage: universe, leaderboardStorage: universe };
   }

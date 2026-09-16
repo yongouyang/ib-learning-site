@@ -188,42 +188,51 @@ changes here → `CACHE_VERSION` bump (per `AGENTS.md`, exactly what that consta
 
 ## 5. Phases
 
-### Phase 1a — the split and the props (no Lambda, no API)
+### Phase 1a — LANDED 2026-09-16 (`5a7bbab` + `f7ab115`) — the split and the props
 
 The whole of §4.4, in one independently testable commit. Ships the performance win and closes the
 anonymous premium leak in HTML and `.txt`; it changes nothing a user can see.
 
-- [ ] `scripts/generate-registry.ts` emits three modules (§4.4): `registry.meta.ts`,
+- [x] `scripts/generate-registry.ts` emits three modules (§4.4): `registry.meta.ts`,
       `registry.content.ts`, `registry.papers.ts`. Update `tests/unit/content-registry.test.ts` and
       `content-schema.test.ts`, which assert today's single-module shape.
-- [ ] Make `getCourseTopics(topics, course)` pure; `courses.ts` stays client-safe.
-- [ ] Split `exams/ladder/diagnostics/mixed-review` per §4.4; `question-sets.ts` becomes server-only.
-- [ ] Move composition into the three runner pages (`exams/[courseId]/[paperId]`,
+- [x] Make `getCourseTopics(topics, course)` pure; `courses.ts` stays client-safe.
+- [x] Split `exams/ladder/diagnostics/mixed-review` per §4.4; `question-sets.ts` becomes server-only.
+- [x] Move composition into the three runner pages (`exams/[courseId]/[paperId]`,
       `exams/[courseId]/ladder/[level]`, `diagnostics/[courseId]`) and pass the composed array as props.
-- [ ] Free pages receive content as props from their server page component
+- [x] Free pages receive content as props from their server page component
       (`study`, `quiz`, `flashcards`, `papers/<set>`). Note the two HTML outcomes, both acceptable:
       pages whose client component calls `useSearchParams` (quiz, mixed review) still prerender the
       Suspense fallback, while the others (study, papers, diagnostics, ladder) render the content into
       HTML — free content is public, and for the indexable ones (diagnostics, ladder 1–2, set 1) more
       crawlable text is a gain, not a loss.
-- [ ] Mixed review: lazy code-split import of the free-topic content module as the interim transport
+- [x] Mixed review: lazy code-split import of the free-topic content module as the interim transport
       (Phase 1b replaces it with the public route).
-- [ ] Premium sets: metadata-only shell (§4.2). No API yet — until 1b lands, a locked set shows the
-      tease and makes no request.
-- [ ] `npm run audit:leaks` (§7) written, green, and wired into CI.
+- [x] Premium sets stayed on their existing delivery in 1a **on purpose**: a metadata-only premium
+      page with no API would show a tease or a dead skeleton to an *entitled* subscriber, so the shell
+      and its endpoint landed together in 1b (`PremiumPaperShell`).
+- [x] `npm run audit:leaks` (§7) written, green, and wired into CI.
 
-### Phase 1b — the content Lambda (premium sets + mixed review's public route)
+### Phase 1b — LANDED 2026-09-16 (`src/lib/content/*`, `lambda/content`, `modules/content_api`)
 
-- [ ] New surface, following the contact/leaderboard template end to end:
-      `src/lib/content/{http-handler,deps,dummy}.ts`, the dev/e2e Next route, `lambda/content/`,
-      `terraform/modules/content_api`, **both** CloudFront behaviours with **separate** cache policies
-      (gotcha 1), `scripts/serve-static.ts`'s path map, and the `build-lambdas.sh` list (9 → 10).
-- [ ] `GET /api/content/premium/papers/<courseId>/<setId>` — session + `exam-sets-full`, `private,
-      no-store`, `not_entitled` otherwise.
-- [ ] `GET /api/content/public/mixed-review?topicIds=…` — free topics only, edge-cached, per-IP
-      budget on **origin misses** (decision 5). Wire `MixedReviewClient` to it and drop the lazy chunk.
-- [ ] `GET /api/content/_health` asserts `topicCount > 0` — catches an esbuild that silently dropped
-      the JSON, which a DynamoDB-style probe would not.
+- [x] New surface, following the contact/leaderboard template end to end:
+      `src/lib/content/{types,http-handler,deps,dummy,dynamodb-storage}.ts`, the dev/e2e Next
+      catch-all route, `lambda/content/`, `terraform/modules/content_api` (10th Lambda; content
+      BUNDLED, so no content table and the smallest IAM in the repo), **three** CloudFront behaviours
+      (`premium/*` caching disabled, `public/*` edge-cached, `content/*` catch-all) with **separate**
+      cache policies (gotcha 1), `scripts/serve-static.ts` prefix branch, `build-lambdas.sh` 9 → 10.
+- [x] `GET /api/content/premium/papers/<courseId>/<setId>` — session + `exam-sets-full`, `private,
+      no-store`; 401 anonymous, 403 free tier, 404 unknown set.
+- [x] `GET /api/content/public/mixed-review/<seed>[/<topicIds>]` — free topics only, edge-cached,
+      per-IP budget on **origin misses** (decision 5); seed AND ids ride the PATH, because the managed
+      CachingOptimized policy ignores query strings (a query-string contract would serve one user's
+      draw to the next). `MixedReviewClient` is wired to it and the lazy chunk is gone.
+- [x] `GET /api/content/_health` asserts `topicCount > 0` and returns `"ok":true` (the body field is
+      what keeps the probe path-discriminating).
+- [x] **Measured outcome:** `audit:leaks` HARD went 60 files → **0** and TIGHTENED is green; the
+      chunks loaded by `index.html` are 1.20 MB across 12 chunks, and the whole chunks directory fell
+      from 6.49 MB to **1.85 MB** (the mixed-review lazy chunk is gone too). `audit:leaks` now runs
+      inside `build:static`, so both deploys carry the gate.
 
 ### Phase 2 — throttling and attribution
 

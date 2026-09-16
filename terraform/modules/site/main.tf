@@ -58,6 +58,12 @@ variable "contact_origin_domain" {
   default     = ""
 }
 
+variable "content_origin_domain" {
+  description = "Lambda Function URL domain for the content API (content_api module output). When set, adds the /api/content/premium/* (never cached), /api/content/public/* (edge-cached) and /api/content/* behaviors; empty = content API not wired."
+  type        = string
+  default     = ""
+}
+
 variable "subscriptions_origin_domain" {
   description = "Lambda Function URL domain for the subscriptions API (subscriptions_api module output). When set, adds the /api/subscriptions + /api/subscriptions/* behaviors; empty = billing not wired. The EXACT path matters: Stripe's webhook POSTs the bare path, which a /*-only pattern would NOT match."
   type        = string
@@ -504,6 +510,79 @@ resource "aws_cloudfront_distribution" "site" {
         origin_protocol_policy = "https-only"
         origin_ssl_protocols   = ["TLSv1.2"]
       }
+    }
+  }
+
+  # Origin 10 (optional): content Lambda Function URL (Phase 1b) — created only once the API is
+  # wired (content_origin_domain non-empty).
+  dynamic "origin" {
+    for_each = var.content_origin_domain != "" ? [var.content_origin_domain] : []
+    content {
+      origin_id   = "lambda-content"
+      domain_name = origin.value
+      custom_origin_config {
+        http_port              = 80
+        https_port             = 443
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.2"]
+      }
+    }
+  }
+
+  # /api/content/premium/* → content Lambda, NEVER CACHED. This is the behavior that decides
+  # whether paid mark schemes can leak: if a premium response ever shared the public cache policy
+  # below, CloudFront would serve it to anonymous viewers from cache (plan §6.1 — the one mistake
+  # that would leak paid content site-wide). Separate prefix, separate behavior, caching disabled,
+  # and the handler also sets `Cache-Control: private, no-store`.
+  dynamic "ordered_cache_behavior" {
+    for_each = var.content_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/content/premium/*"
+      target_origin_id         = "lambda-content"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # /api/content/public/* → content Lambda, EDGE-CACHED. Free content only (topic questions), never
+  # personalised, which is exactly why a shared cached copy is safe — and why the per-IP budget in
+  # the handler runs on ORIGIN MISSES only: a cache hit never invokes the function, so the budget
+  # throttles a first-seen bulk harvest without taxing normal users. The draw seed and the weak-topic
+  # ids ride in the PATH (not a query string), so the cache key covers every response-varying input
+  # under the managed CachingOptimized policy, which ignores query strings.
+  dynamic "ordered_cache_behavior" {
+    for_each = var.content_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/content/public/*"
+      target_origin_id         = "lambda-content"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_optimized
+      origin_request_policy_id = local.origin_request_all_except_host
+    }
+  }
+
+  # /api/content/* → content Lambda (the `_health` smoke probe and any future route), never cached.
+  # Listed AFTER the two specific patterns above (CloudFront matches ordered behaviors top-down) and
+  # BEFORE /api/*, or the probe would fall through to the FEEDBACK Lambda and answer
+  # `{"configured":true}` — a probe that cannot fail is worse than no probe.
+  dynamic "ordered_cache_behavior" {
+    for_each = var.content_origin_domain != "" ? [1] : []
+    content {
+      path_pattern             = "/api/content/*"
+      target_origin_id         = "lambda-content"
+      viewer_protocol_policy   = "redirect-to-https"
+      allowed_methods          = ["GET", "HEAD"]
+      cached_methods           = ["GET", "HEAD"]
+      compress                 = true
+      cache_policy_id          = local.cache_policy_caching_disabled
+      origin_request_policy_id = local.origin_request_all_except_host
     }
   }
 

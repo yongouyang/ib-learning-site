@@ -182,8 +182,25 @@ const SUBSCRIPTIONS_ROUTES: Record<string, string> = {
   '/api/subscriptions/_health': '../src/app/api/subscriptions/_health/route',
 };
 
+// /api/content/* → the real Next catch-all route, mirroring the CloudFront
+// /api/content/premium/*, /api/content/public/* and /api/content/* behaviors →
+// content Lambda (Phase 1b, docs/premium-content-protection-plan.md §4). The
+// content API is the one surface whose path carries DATA (course/set ids, draw
+// seed, weak-topic ids), so it is matched by PREFIX rather than an exact-path
+// map — the route handler parses the path itself, exactly like the Lambda does.
+const CONTENT_ROUTE = '../src/app/api/content/[[...slug]]/route';
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url ?? '/', `http://localhost:${port}`);
+
+  if (url.pathname === '/api/content' || url.pathname.startsWith('/api/content/')) {
+    handleApiRoute(CONTENT_ROUTE, url.pathname + url.search, req, res).catch((err) => {
+      console.error(`[serve-static] ${url.pathname} error:`, err);
+      res.writeHead(500, { 'content-type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Internal error' }));
+    });
+    return;
+  }
 
   if (url.pathname === '/api/feedback') {
     handleApiRoute('../src/app/api/feedback/route', '/api/feedback', req, res).catch((err) => {

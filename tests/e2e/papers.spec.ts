@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { getPaperContent } from '../../src/content/registry.papers';
 
 // Phase 4: free-response practice papers — index, self-marking flow, recorded result.
 test.describe('Practice papers', () => {
@@ -21,6 +22,36 @@ test.describe('Practice papers', () => {
     await expect(page.getByRole('link', { name: /Practice Set 2/ })).toHaveCount(0);
     await expect(page.getByRole('link', { name: 'See Premium plans' })).toHaveCount(1);
     await expect(page.getByRole('link', { name: /Premium · Full exam sets/ })).toHaveCount(14);
+  });
+
+  // Phase 1b (docs/premium-content-protection-plan.md §4): a premium set's questions and mark
+  // schemes are no longer in the build at all, so an anonymous visitor who guesses the URL gets the
+  // premium pitch and NOTHING else. `set-1`'s own text is the control: the same course page DOES
+  // carry its (free) questions.
+  test('a premium set page leaks no content to an anonymous visitor', async ({ page }) => {
+    await page.goto('/papers/math-y7/math-y7-set-2');
+    await expect(page.getByRole('link', { name: 'See Premium plans' })).toBeVisible();
+    // The runner never mounts: no answer boxes, no tick rows.
+    await expect(page.getByLabel(/Your answer/i)).toHaveCount(0);
+    await expect(page.locator('button[aria-pressed]')).toHaveCount(0);
+
+    // The real assertion: the paper's own prose must appear NOWHERE in the delivered page, hydrated
+    // DOM included. (The page's public *description* legitimately says "model answer for every
+    // question", which is why this checks the paper's text rather than a word like "model answer".)
+    const paper = getPaperContent('math-y7', 'math-y7-set-2')!;
+    const strip = (value: string) => value.split('\\').join('');
+    const probes = [
+      ...paper.questions.flatMap((q) => [q.stem, q.modelAnswer, ...q.markscheme]),
+    ]
+      .map((value) => strip(value).replace(/\s+/g, ' ').trim().slice(0, 50))
+      .filter((value) => value.length === 50);
+    expect(probes.length).toBeGreaterThan(10);
+
+    const markup = (await page.content()).split('\\').join('').replace(/\s+/g, ' ');
+    for (const probe of probes) expect(markup).not.toContain(probe);
+
+    // The inert preview is built from public metadata (this set ships 8 questions / 20 marks).
+    await expect(page.getByText(/8 questions · 20 marks/)).toBeVisible();
   });
 
   test('a full two-phase run records the result', async ({ page }) => {

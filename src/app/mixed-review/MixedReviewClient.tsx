@@ -13,6 +13,7 @@ import {
   MIXED_REVIEW_TITLE,
   type MixedReviewQuestion,
 } from '@/lib/mixed-review';
+import { getWeakTopics } from '@/lib/weak-point-analyzer';
 import { randomSeed } from '@/lib/quiz-utils';
 import { trackEvent } from '@/lib/analytics';
 
@@ -41,30 +42,55 @@ export default function MixedReviewClient() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loaded]);
 
-  // The draw needs the topic content bank, which must not sit in the shared chunks, so it is
-  // loaded on demand: ./build-mixed-review becomes its own route-scoped chunk. This is also why the
-  // first paint is a loading state rather than a question — it is still hydration-safe (server and
-  // client both render the same state) and it is what Phase 1b replaces with the public endpoint.
-  const [draw, setDraw] = useState<{
-    questions: MixedReviewQuestion[];
-    usedWeakTopics: boolean;
-    weakTopicCount: number;
-  } | null>(null);
+  // The draw happens on the SERVER (Phase 1b, docs/premium-content-protection-plan.md §1.1 decision
+  // 8): mixed review is the one free surface whose input cannot be known at build time, so it is the
+  // one runtime API for free content. The client sends the ids of its own weak topics (or none for
+  // all topics) plus the session seed, and the response is edge-cacheable because it is free content.
+  // This is also why the first paint is a loading state rather than a question: nothing is drawn
+  // during render, so the prerendered HTML and the first client paint always agree.
+  const weakTopics = mode === 'weak' ? getWeakTopics(topicProgress) : [];
+  const weakTopicCount = weakTopics.length;
+  const usedWeakTopics = mode === 'weak' && weakTopicCount > 0;
+  // The effect keys off a STRING, not the array: `topicProgress` can be a fresh reference on every
+  // render (any provider that rebuilds it would otherwise re-fetch in a loop), and a value-compared
+  // key makes that impossible. Bounded here; the server re-validates count and charset.
+  const weakIdsKey = weakTopics
+    .slice(0, 40)
+    .map((t) => t.topicId)
+    .join(',');
+
+  const [questions, setQuestions] = useState<MixedReviewQuestion[]>([]);
+  const [drawFailed, setDrawFailed] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
-    import('./build-mixed-review').then(({ buildMixedReviewQuestions }) => {
-      if (cancelled) return;
-      setDraw(buildMixedReviewQuestions(topicProgress, mode, sessionSeed));
-    });
+    // Seeds and ids are charset-restricted ([A-Za-z0-9_:.-] and [A-Za-z0-9_-]) and go in the PATH
+    // unencoded on purpose — `encodeURIComponent` would turn the seed's colon into %3A, which the
+    // server's validator rejects. The path (not a query string) is also what makes the edge cache key
+    // cover every input that changes the response.
+    const ids = usedWeakTopics ? `/${weakIdsKey}` : '';
+    fetch(`/api/content/public/mixed-review/${sessionSeed}${ids}`)
+      .then(async (res) => {
+        if (!res.ok) throw new Error(String(res.status));
+        return res.json() as Promise<{ questions: MixedReviewQuestion[] }>;
+      })
+      .then((body) => {
+        if (cancelled) return;
+        setDrawFailed(false);
+        setQuestions(body.questions);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setQuestions([]);
+          setDrawFailed(true);
+        }
+      });
     return () => {
       cancelled = true;
     };
-  }, [topicProgress, mode, sessionSeed]);
+  }, [sessionSeed, usedWeakTopics, weakIdsKey]);
 
-  const usedWeakTopics = draw?.usedWeakTopics ?? false;
-  const weakTopicCount = draw?.weakTopicCount ?? 0;
-  const questions = draw?.questions ?? [];
+  const draw = questions.length > 0 ? { questions } : null;
 
   const startedAt = useRef(Date.now());
   useEffect(() => {
@@ -148,7 +174,9 @@ export default function MixedReviewClient() {
       </p>
 
       {!draw ? (
-        <p className="card p-6 text-center text-gray-500 dark:text-gray-400">Loading mixed review…</p>
+        <p className="card p-6 text-center text-gray-500 dark:text-gray-400">
+          {drawFailed ? 'Could not load mixed review — reload the page to try again.' : 'Loading mixed review…'}
+        </p>
       ) : (
       <QuizGame
         key={sessionSeed}

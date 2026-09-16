@@ -178,6 +178,12 @@ variable "analytics_report_env" {
   sensitive   = true
 }
 
+variable "content_env" {
+  description = "Content Lambda env overrides via CI TF_VAR_content_env (CONTENT_ENV secret); empty = base wiring below (CONTENT_STORAGE=dynamodb + the three shared table names)."
+  type        = map(string)
+  default     = {}
+}
+
 variable "contact_env" {
   description = "Contact Lambda env overrides via CI TF_VAR_contact_env (CONTACT_ENV secret); empty = base wiring below (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from the shared repo secret/variable)."
   type        = map(string)
@@ -554,6 +560,34 @@ module "subscriptions_api" {
   alert_emails = [for e in split(",", var.analytics_admin_emails) : trimspace(e) if trimspace(e) != ""]
 }
 
+# Content API (Phase 1b — docs/premium-content-protection-plan.md §4/§5): the gated premium paper
+# route (/api/content/premium/*) and the public mixed-review route (/api/content/public/*). The
+# topic and paper JSON is bundled into the function at build time, so there is NO content table: the
+# only shared state it touches is the users/sessions rows (session + tier) and octav-rate-limits (the
+# public route's per-IP budget on origin misses). Base wiring below always selects the real dynamodb
+# implementation; var.content_env (CI CONTENT_ENV secret) can override/add.
+module "content_api" {
+  source = "../../modules/content_api"
+
+  zip_path = "${path.module}/../../../lambda/content/dist/content-lambda.zip"
+
+  cors_allow_origins = var.site_origins
+
+  users_table_arn       = module.dynamodb.users_table_arn
+  sessions_table_arn    = module.dynamodb.sessions_table_arn
+  rate_limits_table_arn = module.dynamodb.rate_limits_table_arn
+
+  environment = merge(
+    {
+      CONTENT_STORAGE        = "dynamodb"
+      AUTH_USERS_TABLE       = module.dynamodb.users_table_name
+      AUTH_SESSIONS_TABLE    = module.dynamodb.sessions_table_name
+      AUTH_RATE_LIMITS_TABLE = module.dynamodb.rate_limits_table_name
+    },
+    var.content_env,
+  )
+}
+
 # DEV: private S3 bucket + CloudFront distribution + URL-rewrite Function +
 # /api/* proxy behavior to the feedback Lambda. Custom domain: the
 # dev.octavlearning.com alias with its dedicated ACM cert (round 2 of the
@@ -570,6 +604,7 @@ module "site" {
   admin_origin_domain         = module.admin_api.function_url_domain
   contact_origin_domain       = module.contact_api.function_url_domain
   subscriptions_origin_domain = module.subscriptions_api.function_url_domain
+  content_origin_domain       = module.content_api.function_url_domain
   # Stamped into X-Octav-Env: drives the DEV allowlist AND the Stripe key-set
   # selection (LIVE keys require the literal "prod"). Explicit, NOT derived
   # from dev_brand_rewrite — that coupling meant dropping the DEV branding flag
@@ -595,6 +630,7 @@ module "site_prod" {
   admin_origin_domain         = module.admin_api.function_url_domain
   contact_origin_domain       = module.contact_api.function_url_domain
   subscriptions_origin_domain = module.subscriptions_api.function_url_domain
+  content_origin_domain       = module.content_api.function_url_domain
   env_label                   = "prod"
   domain_names                = ["octavlearning.com", "www.octavlearning.com"]
   acm_certificate_arn         = aws_acm_certificate.site.arn
@@ -655,6 +691,10 @@ output "contact_function_url" {
 
 output "subscriptions_function_url" {
   value = module.subscriptions_api.function_url
+}
+
+output "content_function_url" {
+  value = module.content_api.function_url
 }
 
 output "github_deploy_role_arn" {
