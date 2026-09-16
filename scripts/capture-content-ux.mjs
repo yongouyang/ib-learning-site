@@ -34,16 +34,20 @@ const SHOTS = [
   { name: 'premium-set-free-control', path: '/papers/math-y7/math-y7-set-1', waitForLabel: /Your answer/i },
   // The skeleton state (entitlements still resolving). Only reachable while /api/auth/me is in flight,
   // so this shot delays that response and photographs the aria-busy block the reviewer could not see.
-  { name: 'premium-set-skeleton', path: '/papers/math-y7/math-y7-set-2', waitForSelector: '[aria-busy="true"]', delayAuthMe: true },
+  { name: 'premium-set-skeleton', path: '/papers/math-y7/math-y7-set-2', waitFor: 'Loading this set…', delayAuthMe: true },
   { name: 'mixed-review', path: '/mixed-review', waitFor: /Q\.|Loading mixed review/ },
   { name: 'mixed-review-weak', path: '/mixed-review?mode=weak', waitFor: /Focused on your weak areas|No weak areas found yet/ },
+  // The weak-mode FALLBACK: local progress holds a weak topic (so ids are sent) but the filtered draw
+  // is refused (a stale id list, the case that used to dead-end), so the retry draws from all topics
+  // and the yellow banner says so. Seeded progress + a forced 404 on the two-segment path.
+  { name: 'mixed-review-weak-fallback', path: '/mixed-review?mode=weak', waitFor: 'Could not build a weak-area review', seedWeakProgress: true, failFiltered: true },
   // The two cards the first review pass could not see. They only render for a session the CLIENT
   // believes is entitled, so the shot signs in through the dummy OTP flow and patches the me()
   // response's entitlements (the user object itself stays the server's), then makes the content fetch
   // answer 401 / 403. That is also exactly the production-issue reproduction path for these states.
   { name: 'premium-set-401', path: '/papers/math-y7/math-y7-set-2', waitFor: 'Sign in to open this set', asEntitled: true, paperStatus: 401 },
   { name: 'premium-set-403', path: '/papers/math-y7/math-y7-set-2', waitFor: 'Not included in your plan', asEntitled: true, paperStatus: 403 },
-  { name: 'premium-set-fetching', path: '/papers/math-y7/math-y7-set-2', waitForSelector: '[aria-busy="true"]', asEntitled: true, paperStatus: 'slow' },
+  { name: 'premium-set-fetching', path: '/papers/math-y7/math-y7-set-2', waitFor: 'Loading this set…', asEntitled: true, paperStatus: 'slow' },
 ];
 const VIEWPORTS = {
   mobile: { w: 375, h: 1400 },
@@ -91,6 +95,39 @@ try {
           await page.goto(BASE);
           // Theme is a localStorage preference read on mount; set it, then load the page.
           await page.evaluate((t) => localStorage.setItem('iblearn-theme', t), theme);
+          if (shot.seedWeakProgress) {
+            await page.evaluate(() => {
+              window.localStorage.setItem(
+                'iblearn_progress',
+                JSON.stringify({
+                  version: 2,
+                  userProgress: { totalStars: 0, currentStreakDays: 0, lastStudyDate: null },
+                  topicProgress: {
+                    'math:math-yr7-calculations': {
+                      topicId: 'math-yr7-calculations',
+                      subjectId: 'math',
+                      topicTitle: 'Written Calculations',
+                      subjectTitle: 'Math',
+                      attempts: [{ date: '2026-09-01T10:00:00.000Z', correctCount: 1, totalCount: 10 }],
+                    },
+                  },
+                  examResults: [],
+                  ladderProgress: {},
+                  flashcardProgress: {},
+                })
+              );
+            });
+          }
+          if (shot.failFiltered) {
+            // Two-segment path = the id-filtered draw; the one-segment retry is left to the server.
+            await page.route('**/api/content/public/mixed-review/*/*', (route) =>
+              route.fulfill({
+                status: 404,
+                contentType: 'application/json',
+                body: JSON.stringify({ error: 'no_questions' }),
+              })
+            );
+          }
           if (shot.asEntitled) {
             // Forge the me() response (a capture-only stub, not a session): the shell only fetches the
             // paper once the CLIENT believes it is entitled, and the two cards under review are exactly

@@ -16,11 +16,11 @@ test.describe('Mixed review', () => {
     const allToggle = page.getByRole('link', { name: /All topics/i });
     await expect(weakToggle).toBeVisible();
     await expect(allToggle).toBeVisible();
-    await expect(allToggle).toHaveAttribute('aria-pressed', 'true');
+    await expect(allToggle).toHaveAttribute('aria-current', 'page');
 
     await weakToggle.click();
     await page.waitForURL('/mixed-review?mode=weak');
-    await expect(page.getByRole('link', { name: /Weak areas/i })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.getByRole('link', { name: /Weak areas/i })).toHaveAttribute('aria-current', 'page');
 
     await page.getByRole('link', { name: /All topics/i }).click();
     await page.waitForURL('/mixed-review');

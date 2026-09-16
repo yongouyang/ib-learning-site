@@ -46,6 +46,9 @@ export default function PremiumPaperShell({
   const pathname = usePathname();
   const [paper, setPaper] = useState<Paper | null>(null);
   const [failure, setFailure] = useState<'login' | 'not_entitled' | 'error' | null>(null);
+  // Bumping this re-runs the fetch, so a transitory failure (5xx, offline, a stale 404) has a control
+  // to press instead of advice the user cannot act on.
+  const [retryKey, setRetryKey] = useState(0);
 
   useEffect(() => {
     if (!entitled) return;
@@ -68,24 +71,28 @@ export default function PremiumPaperShell({
     return () => {
       cancelled = true;
     };
-  }, [entitled, courseId, setId]);
+  }, [entitled, courseId, setId, retryKey]);
 
   const heading = `${getCourse(courseId)?.title ?? courseId} ${meta.title}`;
 
   // One skeleton definition, shaped like the runner's first screen (a heading row plus a tall question
-  // card) rather than two thin bars: it is visible for the whole premium round-trip, and the loaded
-  // screen is ~7× taller, so a short block would grow the page under the reader.
-  const skeleton = (
-    <>
-      <div className="mt-2 h-7 w-3/4 rounded bg-gray-200 dark:bg-gray-800 motion-safe:animate-pulse" />
-      <div className="mt-4 h-56 rounded-xl bg-gray-100 dark:bg-gray-800/60 motion-safe:animate-pulse" />
-    </>
+  // card). Visible text, not an sr-only line: a status region that mounts with its text and an
+  // `aria-busy` that never flips to false announces nothing, so the copy is shown to everyone and
+  // matches /mixed-review's loading state. Tone is bumped one step (gray-300 / gray-700) because the
+  // placeholder is the only thing on screen under reduced motion, where the pulse does not run.
+  const loading = (
+    <div role="status">
+      <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">Loading this set…</p>
+      <div className="h-7 w-3/4 rounded bg-gray-300 dark:bg-gray-700 motion-safe:animate-pulse" />
+      <div className="mt-4 h-56 rounded-xl bg-gray-200 dark:bg-gray-800 motion-safe:animate-pulse" />
+    </div>
   );
 
+  // No title line: the breadcrumb-as-h1 above already reads "<course> <set title>", so repeating it
+  // here added nothing and left the card's only heading a <p>.
   const preview = (
     <div className="card p-5">
-      <p className="font-semibold text-gray-900 dark:text-gray-50">{meta.title}</p>
-      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+      <p className="text-sm text-gray-500 dark:text-gray-400">
         {meta.durationMinutes && (
           <>
             <Clock className="w-3 h-3 inline mr-1" aria-hidden="true" />
@@ -101,13 +108,10 @@ export default function PremiumPaperShell({
   );
 
   let body: React.ReactNode;
-  if (!loaded) {
-    body = (
-      <div role="status" aria-busy="true">
-        <span className="sr-only">Loading this set…</span>
-        {skeleton}
-      </div>
-    );
+  if (!loaded || (entitled && !paper && failure === null)) {
+    // One branch for both loading states (entitlements unresolved; entitled and fetching) — they
+    // rendered byte-identical blocks before, which is also why the status region was duplicated.
+    body = loading;
   } else if (failure === 'not_entitled') {
     // The SERVER said not_entitled while this client believed otherwise (a stale tier). LockedFeature
     // cannot express this state — it re-reads the same client entitlements and would render the paper
@@ -118,8 +122,8 @@ export default function PremiumPaperShell({
         <div className="card p-5 mt-3 text-center">
           <p className="font-bold text-gray-900 dark:text-gray-50">Not included in your plan</p>
           <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            This set is part of the exam tier. If you recently upgraded, sign out and back in to refresh
-            your access.
+            This set is part of the exam tier, which your account does not include. If you upgraded just
+            now, reload the page to pick up your new access.
           </p>
           <Link
             href="/pricing"
@@ -169,18 +173,20 @@ export default function PremiumPaperShell({
         <div className="card p-5 mt-3 text-center">
           <p className="font-bold text-gray-900 dark:text-gray-50">Could not load this set</p>
           <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            Check your connection and reload the page — your plan is unaffected.
+            Something went wrong fetching it — your plan is unaffected.
           </p>
+          <button
+            type="button"
+            onClick={() => setRetryKey((key) => key + 1)}
+            className="mt-3 inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 dark:hover:bg-blue-500"
+          >
+            Try again
+          </button>
         </div>
       </>
     );
   } else if (!paper) {
-    body = (
-      <div role="status" aria-busy="true">
-        <span className="sr-only">Loading this set…</span>
-        {skeleton}
-      </div>
-    );
+    body = loading;
   } else {
     return <PaperRunnerClient paper={paper} />;
   }

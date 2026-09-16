@@ -112,7 +112,8 @@ export default function QuizPageClient({
               <Link
                 key={f.key}
                 href={quizHref(f.key)}
-                aria-pressed={active}
+                // URL-driven Link — aria-current, not aria-pressed (role=link ignores the latter).
+                aria-current={active ? 'page' : undefined}
                 className={`flex-1 inline-flex items-center justify-center py-2 rounded-lg text-xs font-semibold transition-colors ${
                   active
                     ? 'bg-blue-600 text-white'

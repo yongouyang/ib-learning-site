@@ -178,7 +178,8 @@ export default function MixedReviewClient() {
             <Link
               key={m.key}
               href={m.href}
-              aria-pressed={active}
+              // URL-driven Link, so aria-current (not aria-pressed, which role=link ignores).
+              aria-current={active ? 'page' : undefined}
               className={`flex-1 inline-flex items-center justify-center gap-1.5 py-2 rounded-lg text-sm font-semibold transition-colors ${
                 active
                   ? 'bg-blue-600 text-white'
@@ -217,7 +218,13 @@ export default function MixedReviewClient() {
       ) : (
       <QuizGame
         key={sessionSeed}
-        subtitle={mode === 'weak' && usedWeakTopics ? 'Focused on your weak areas' : 'Questions from all topics'}
+        subtitle={
+          // The banner already says the weak draw could not be built and fell back; the results screen
+          // must not claim the opposite (it did, because usedWeakTopics stays true after the retry).
+          mode === 'weak' && usedWeakTopics && !weakDrawFellBack
+            ? 'Focused on your weak areas'
+            : 'Questions from all topics'
+        }
         backHref="/progress"
         backLabel="Back to Progress"
         questions={questions.map((q) => q.question)}

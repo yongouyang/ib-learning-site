@@ -61,8 +61,11 @@ describe('PremiumPaperShell', () => {
   });
 
   it('shows a neutral skeleton while entitlements resolve, and makes no request', () => {
-    const view = render(<PremiumPaperShell courseId="math-y9" setId="math-y9-set-2" meta={META} />);
-    expect(view.container.querySelector('[aria-busy="true"]')).toBeTruthy();
+    render(<PremiumPaperShell courseId="math-y9" setId="math-y9-set-2" meta={META} />);
+    // Visible status text, not an sr-only line: the region mounts WITH its text and never flips an
+    // aria-busy, so an sr-only version would announce nothing.
+    expect(screen.getByRole('status').textContent).toContain('Loading this set');
+    expect(screen.queryByText('Loading this set…')).toBeVisible();
     // The no-flash rule: no lock over content the user may be entitled to.
     expect(screen.queryByText(/Full exam sets/)).toBeNull();
     expect(fetchCalls).toHaveLength(0);
