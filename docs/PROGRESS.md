@@ -4,6 +4,65 @@
 
 ---
 
+## 2026-09-17 (session 2) — Data protection on the tables, and a live prod analytics-attribution bug found on the way
+Git HEAD: `fac6adf` (develop == main, tree clean; prod == dev == `fac6adf`)
+Done: **(1) Backups, the `Next` item from the review.** `terraform/modules/dynamodb/main.tf`:
+  `deletion_protection_enabled = true` on all EIGHT application tables, and `point_in_time_recovery`
+  (35-day window) on the five whose contents are not regenerable — users, progress, analytics-events,
+  leaderboard, contact. Sessions/OTP codes/rate-limits are TTL'd and regenerate, so PITR there would
+  only pay to restore counters nobody wants. `iblearn-tfstate-lock` deliberately excluded from both.
+  **(2) The paired privacy-notice edit** (`docs/privacy-notice-draft.md`): §9 said we kept no backup
+  copy at all and that *"deleting your data is not resurrected by an earlier snapshot"* — false the
+  moment PITR was switched on. The row now states the 35-day window and the erasure consequence,
+  "Last updated" moved to 17 September, and checklist item 6 records both measurements plus the rule
+  that Terraform and §9 move together. **(3) A real prod bug, found while validating the plan.**
+  `/api/analytics/*` declared TWO `viewer-request` function associations; AWS allows one per event
+  type, so CloudFront kept a different one per distribution (dev = host-header, prod = env-header).
+  Prod therefore lost the `X-Forwarded-Host` that `api_host_header` exists to preserve. Fixed by
+  declaring only the correct association (`terraform/modules/site/main.tf`).
+Verified: **Plan checked BEFORE pushing and it caught two traps.** (a) It proposed destroying the SNS
+  subscription (`for_each` key vanishes when `analytics_admin_emails` is unset locally) — a
+  local-variable artifact only; the repo variable is live (`yong.ouyang@gmail.com`), so CI keeps the
+  key. (b) The 10 Lambda diffs are the same class (local runs lack `FEEDBACK_ENV`/`AUTH_ENV`/
+  `STRIPE_ENV`) — exactly why local applies are banned. The real change set was in-place only:
+  **`0 to add, 0 to destroy`, no `must be replaced`**. After the dev deploy's apply: all 8 tables
+  `DeletionProtectionEnabled=True`; PITR `ENABLED` with `RecoveryPeriodInDays=35` on users/progress/
+  analytics-events/leaderboard/contact and `DISABLED` on sessions/otp-codes/rate-limits; tfstate-lock
+  untouched. Both distributions now carry exactly ONE viewer-request function
+  (`/api/analytics/*` → `-api-host-header` / `-prod-api-host-header`); **zero behaviours with >1**.
+  **The CloudFront fix was proven by data, not by config:** one ingest event to each origin
+  immediately after the change recorded `octavlearning.com` and `dev.octavlearning.com`, while four
+  events sent earlier the same day still read
+  `ohjdcmicsgfxz6mw55a6jz2hcu0dgtlh.lambda-url.ap-east-1.on.aws` — a clean before/after in one table.
+  The privacy notice was verified **on the published pages** of both dev and prod (35-day window
+  present, both old claims gone, internal preamble not leaked, "Last updated: 17 September 2026"),
+  and the premium contract still holds (401 + `private, no-store`, 0 mark-scheme markers in the
+  public page). Local gates: unit **1413/1413**, tsc clean, lint 29/0, `terraform fmt -check` +
+  `validate` clean, and a throwaway render test (since removed) proved §9 reaches the page.
+Next: (1) **Decide on `octav-analytics-events` retention vs the 35-day window** — the table has a 90d
+  raw-event TTL but PITR only reaches back 35 days; if older raw events matter, that is a separate
+  retention question, not a PITR one. (2) **Reopening sales** is still the one-line
+  `BILLING_DISABLED_ENVS` toggle and still the user's call (they have explicitly parked it pending a
+  product review). (3) Premium Phase 2 throttling/attribution. (4) Cleanup: the stale "Deliberately
+  NOT in this slice" block in `src/lib/subscriptions/http-handler.ts` and
+  `STRIPE_INTEGRATION_TODO.md`'s "in the document head" claim. (5) Standing queue: illustrations 106,
+  traffic/SEO depth, content depth.
+Notes: **131 production analytics events (2026-09-06 → 09-17) are permanently misattributed** and
+  cannot be repaired — the host was never recorded, only the lambda origin. Worth knowing before
+  anyone reads the dashboard's host split for that window. **The regression has a dated cause:**
+  attribution worked on BOTH origins from 2026-08-24 (the day `api_host_header` landed) until
+  2026-09-05, when commit `780cd31` ("E4.1 DEV env marker CloudFront Function") added the second
+  viewer-request association. Prod went to 0 correctly-attributed events from 09-06 while dev stayed
+  fine — which is exactly why the bug hid for twelve days: dev looked healthy and prod looked quiet.
+  **The generalisable lesson: a declared-but-silently-dropped CloudFront association is invisible in
+  both terraform state and the AWS console**, because each shows the surviving association as if it
+  were intended; only the recorded data exposed it. **Deletion protection changes the teardown
+  story** — `terraform destroy` will now fail on those tables until the flag is removed, which is the
+  point, but it is a manual step in any future teardown. The privacy notice is now a document that
+  MUST move with the Terraform; that coupling is recorded in both files.
+
+---
+
 ## 2026-09-17 — Premium Phase 1a/1b promoted to PROD: the live paid-content leak is closed
 Git HEAD: `bd143dd` (develop, tree clean; prod == dev == `bd143dd`)
 Done: The 6 unpushed commits on local `develop` (`origin/develop` was still `fcfb13f`) went out as
