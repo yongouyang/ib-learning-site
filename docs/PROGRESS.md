@@ -4,6 +4,47 @@
 
 ---
 
+## 2026-09-17 — Premium Phase 1a/1b promoted to PROD: the live paid-content leak is closed
+Git HEAD: `bd143dd` (develop, tree clean; prod == dev == `bd143dd`)
+Done: The 6 unpushed commits on local `develop` (`origin/develop` was still `fcfb13f`) went out as
+  **steps 1–3 of the review's plan**: (1) `git push origin develop` → `deploy-dev` ran the full CI
+  pipeline green; (2) `develop → main` **fast-forward** (16 commits, `aa9ff6a..bd143dd`) → `deploy-prod`;
+  (3) acceptance probes re-run against prod. **No code changed in this session** — it is a promotion of
+  the already-verified Phase 1a/1b work, and the fix for the leak the review found: prod was serving
+  `/papers/<course>/<set>-2+` to anonymous visitors with mark schemes in the HTML, and its homepage JS
+  was **5,851,613 bytes / 13 chunks** vs dev's 1,200,687. The infrastructure half was ALREADY live on
+  prod (one terraform state applies both distributions), so the promotion was the whole fix.
+Verified: **Prod leak closed, same probes as the pre-fix measurement:** premium pages
+  `math-y7-set-2` / `math-y8-set-2` / `bio-ks3-set-2` → **http 200 with 0 premium markers** (were 200
+  WITH the mark scheme); homepage chunks **12 / 1,181,927 bytes / 0 premium-phrase hits** (matches dev
+  exactly; was 13 / 5.85 MB / 1 hit). Contracts held: premium API **401 + `private, no-store` +
+  `x-cache: Error from cloudfront`**; public API **`public, max-age=300, s-maxage=3600`, Miss → Hit**
+  (the cache split still correct at the edge); `_health` `{ok, topicCount:233}`; free set-1 still 200
+  with its questions (no regression); `/privacy` `/terms` `/pricing` 200; `js.stripe.com` still absent
+  from the prod homepage; `BILLING_DISABLED_ENVS=prod` still live in the Lambda. Pre-promotion local
+  gates: unit **1413/1413**, `validate:content` 233 topics / 3765 questions, `audit:content` 0/0,
+  `check:registry` ok.
+Next: (1) **USER — click the SNS confirmation email** (`iblearn-subscriptions-alerts` is still
+  `PendingConfirmation`, so the webhook-failure alarm notifies nobody — verified by CLI).
+  (2) **Re-opening sales** is now safe and is the one-line toggle: delete `BILLING_DISABLED_ENVS = "prod"`
+  in `terraform/envs/prod/main.tf` and deploy — the gating it was waiting on is real. (3) Decide
+  **DynamoDB PITR + deletion protection** (none exist on any of the 8 tables; the privacy notice states
+  this as fact). (4) Premium Phase 2 throttling/attribution. (5) Cleanup: the stale "Deliberately NOT in
+  this slice" block in `src/lib/subscriptions/http-handler.ts` (all three items shipped) and
+  `STRIPE_INTEGRATION_TODO.md`'s "in the document head" claim. (6) Standing queue: illustrations 106
+  (recounted: 106 of 233 topics have no illustration), traffic/SEO depth, content depth.
+Notes: **The prior entry's `Next` was wrong on two counts and this session corrected them by
+  measurement, not by reading:** prod was NOT on `0cce7de` (it was `aa9ff6a`), and it did NOT need the
+  promotion for `/privacy` or the Stripe.js scoping — both were already live (`/privacy` 200; `main`
+  already had `ensureStripeScript`; prod's homepage had no `js.stripe.com`). **Only the premium leak
+  was actually outstanding.** Also worth keeping: `scripts/`-free probing is enough to falsify a
+  "deployed" claim — `version.json` plus an anonymous `curl` of one premium page decided it. And the
+  infra-vs-build split is why a tf-applying dev deploy silently prepared prod's CloudFront behaviours;
+  that is convenient here and is the same mechanism that would make a dev-only terraform mistake reach
+  prod, so treat `modules/site` changes as prod-affecting regardless of which branch triggers them.
+
+---
+
 ## 2026-09-16 — Premium Phase 1b closed out: two UX-review passes, and the leak gate green
 Git HEAD: `8dd867c` (develop, tree clean)
 Done: **UX-review pass 1 = BLOCKED** with two P1s, both real and both fixed: the premium page had no
