@@ -1,8 +1,9 @@
 # Privacy Notice — DRAFT
 
-> **Status: PUBLISHED 15 September 2026** (DEV and PROD). `src/app/privacy/page.tsx` renders the
-> document body below **verbatim**; this preamble and the review checklist at the end are
-> internal notes and are **not** part of the published page.
+> **Status: PUBLISHED 15 September 2026** (DEV and PROD); **revised 17 September 2026** (§9
+> backups). `src/app/privacy/page.tsx` renders the document body below **verbatim**; this
+> preamble and the review checklist at the end are internal notes and are **not** part of the
+> published page.
 >
 > **Not legal advice.** Every remaining open point is marked `[[ ]]`. The two sections that
 > genuinely need a lawyer are §5 (children — a minors' product with an AI feature that
@@ -31,6 +32,18 @@
 > lists all three cookies plus the third-party ones inside the checkout iframe — **and the
 > loading itself was fixed** (`ensureStripeScript()` in `BillingPanel`), so those two cookies
 > now exist only on `/pricing` + `/account`, which is what §12 now claims.
+>
+> **Revised 2026-09-17 (§9 backup row) — the first change driven by an ops decision rather
+> than a measurement.** The notice previously said we kept no backup copy of your data at all.
+> Point-in-time recovery was enabled on the five tables whose contents are not regenerable
+> (`octav-users`, `octav-progress`, `octav-analytics-events`, `octav-leaderboard`,
+> `octav-contact`) and deletion protection on all eight application tables, so §9 now states
+> the **35-day** window and what it means for erasure. The two moved together deliberately:
+> §9's old sentence — *"deleting your data is not resurrected by an earlier snapshot"* —
+> became **false** the moment PITR was switched on. The paired change is
+> `terraform/modules/dynamodb/main.tf`; re-verify with `aws dynamodb describe-continuous-backups`
+> if either side is touched. Note that this trades a privacy-framing benefit ("we cannot
+> resurrect your data") for durability — a deliberate choice, not a drift.
 
 Operator details filled in as supplied: the controller is **Octav Learning**, Central, Hong
 Kong. Two caveats carried forward from the Terms (see its checklist): a sole proprietorship
@@ -44,7 +57,7 @@ Effective **15 September 2026**. The privacy contact is `info@octavlearning.com`
 
 ## Privacy Notice
 
-**Last updated: 15 September 2026**
+**Last updated: 17 September 2026**
 
 This notice explains what personal data Octav Learning collects, why, who it is shared
 with, how long it is kept, and what you can ask us to do with it.
@@ -272,12 +285,14 @@ personal into an answer.
 | Contact-form messages | 365 days |
 | Billing and tax records | Held by **Stripe**, as merchant of record, under its own notice and its own legal retention duties (we hold only the Stripe customer and subscription identifiers needed to know who is entitled to Premium). Deleting your Link account or asking Stripe to erase your transaction data cancels your subscription and does not depend on us. |
 | Rate-limit counters (including IP-keyed abuse counters) | Minutes to hours, expiring automatically |
-| Backups | **There is currently no separate backup copy of your data.** Point-in-time recovery and scheduled backups are not enabled on our database, so deleting your data is not resurrected by an earlier snapshot. If we introduce backups for resilience, this row changes and we will say how long they are kept. |
+| Backups | Our main application tables have **point-in-time recovery** enabled, keeping a rolling **35-day** recovery window. It is a resilience measure: if data is lost to a fault or an accident, we can restore it. One consequence you should know: after you delete your account or a profile, a copy of that data can remain inside these backups for **up to 35 days** before it rolls off and is permanently deleted. **Deletion protection** is also enabled, so our tables cannot be dropped by accident. We do not keep a separate scheduled backup, and we do not keep a copy in another region. |
 
 You can delete your account and its data yourself from your account page, or by asking
 us at info@octavlearning.com. Deleting an account removes profiles, progress, exam and
-leaderboard records. We may keep limited records where the law requires it (for example
-tax records of a payment) or to establish, exercise or defend a legal claim.
+leaderboard records. That data also leaves the 35-day recovery window described above as
+the window rolls forward, so nothing of it remains recoverable after 35 days. We may keep
+limited records where the law requires it (for example tax records of a payment) or to
+establish, exercise or defend a legal claim.
 
 ### 10. Your rights
 
@@ -400,12 +415,21 @@ ones that can fail an audit.
    `src/lib/subscriptions/*`, `terraform/modules/dynamodb/main.tf` (retention/TTLs),
    `src/lib/auth/session.ts` (cookie). Repeat after any change to auth, progress, analytics,
    leaderboard, contact or subscriptions.
-6. **Retention numbers (§9) — now stated as a fact, including the absence of backups.**
-   Verified 2026-09-15: **no DynamoDB point-in-time recovery and no AWS Backup plan exists** for
-   any application table, so §9 says there is no separate backup copy rather than leaving a
-   number out. Note the two-sided consequence: it is a strong privacy statement and a
-   durability risk — a bad write or a deleted table has no recovery path. Deciding whether to
-   enable PITR is an ops call, and if it is enabled §9 must state the window.
+6. **Retention numbers (§9) — the backup position, stated as a fact each time it changed.**
+   **2026-09-15 (first measurement):** no DynamoDB point-in-time recovery and no AWS Backup plan
+   existed for any application table, so §9 said there was no separate backup copy rather than
+   leaving a number out. Recorded at the time as two-sided — a strong privacy statement and a
+   durability risk, since a bad write or a deleted table had no recovery path — together with
+   the rule that *if PITR were ever enabled, §9 must state the window*.
+   **2026-09-17 (the ops decision, taken):** the durability risk was accepted. PITR was enabled
+   on the five tables whose contents are not regenerable (`octav-users`, `octav-progress`,
+   `octav-analytics-events`, `octav-leaderboard`, `octav-contact`) and deletion protection on
+   all eight application tables (`terraform/modules/dynamodb/main.tf`); the bootstrap
+   state-lock table is deliberately excluded from both. §9's Backups row was rewritten in the
+   same change to state the 35-day window and the erasure consequence, because the old
+   sentence *"deleting your data is not resurrected by an earlier snapshot"* became false the
+   moment PITR was switched on. **Keep the Terraform and this row in step** — changing either
+   alone makes the notice a misrepresentation.
 7. **Decide whether the AI provider can be named.** This draft names DeepSeek because that is
    the configured provider; if the provider can change without notice, either name the current
    one in-app or keep a dated list. Either way the user must be able to find out who receives

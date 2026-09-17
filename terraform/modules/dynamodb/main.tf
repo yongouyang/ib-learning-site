@@ -3,6 +3,27 @@
 # leaderboard table, all on-demand (pay-per-request) billing —
 # $0 until used, no capacity planning. No Lambdas here; those land with their
 # phases and consume these tables via the outputs below.
+#
+# Data protection (2026-09-17). Two independent controls, two different
+# failure modes — deletion protection stops the TABLE being dropped,
+# point-in-time recovery (PITR) undoes bad writes and rogue deletes inside it:
+#   * `deletion_protection_enabled = true` on all EIGHT application tables, so
+#     an accidental apply, a console slip or a `terraform destroy` cannot
+#     remove production data. Deliberately NOT set on the bootstrap
+#     state-lock table (iblearn-tfstate-lock) — protecting a lock table can
+#     obstruct bootstrap re-creation, and losing a lock is not a data loss.
+#   * PITR is on only where the contents are not regenerable: users,
+#     progress, analytics-events, leaderboard, contact. Sessions, OTP codes
+#     and rate-limit counters are TTL'd and recreate themselves, so paying to
+#     restore them would be paying to recover counters nobody wants back.
+# Cost of the PITR five is ~$0.25/GB-month (ap-east-1) on ~227 KB of data —
+# effectively zero today.
+#
+# Enabling PITR changes what the privacy notice is allowed to claim (a 35-day
+# window means deleted data is restorable for that long), so
+# docs/privacy-notice-draft.md §9 is the PAIRED edit for any change here.
+# Restores are never in place: PITR always creates a NEW table, and a restore
+# does not carry over IAM policies, TTL settings or PITR itself.
 
 variable "name_prefix" {
   description = "Prefix for the table names (octav-users, octav-sessions, ...). Matches the plan's DYNAMODB_TABLE_PREFIX repo variable."
@@ -17,6 +38,12 @@ resource "aws_dynamodb_table" "users" {
   name         = "${var.name_prefix}-users"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "userId"
+
+  deletion_protection_enabled = true
+
+  point_in_time_recovery {
+    enabled = true
+  }
 
   attribute {
     name = "userId"
@@ -47,6 +74,8 @@ resource "aws_dynamodb_table" "sessions" {
   name         = "${var.name_prefix}-sessions"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "sessionId"
+
+  deletion_protection_enabled = true
 
   attribute {
     name = "sessionId"
@@ -83,6 +112,8 @@ resource "aws_dynamodb_table" "otp_codes" {
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "email"
 
+  deletion_protection_enabled = true
+
   attribute {
     name = "email"
     type = "S"
@@ -102,6 +133,12 @@ resource "aws_dynamodb_table" "progress" {
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "userId"
   range_key    = "dataType"
+
+  deletion_protection_enabled = true
+
+  point_in_time_recovery {
+    enabled = true
+  }
 
   attribute {
     name = "userId"
@@ -127,6 +164,8 @@ resource "aws_dynamodb_table" "rate_limits" {
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "bucket"
 
+  deletion_protection_enabled = true
+
   attribute {
     name = "bucket"
     type = "S"
@@ -149,6 +188,12 @@ resource "aws_dynamodb_table" "analytics_events" {
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "k"
   range_key    = "s"
+
+  deletion_protection_enabled = true
+
+  point_in_time_recovery {
+    enabled = true
+  }
 
   attribute {
     name = "k"
@@ -179,6 +224,12 @@ resource "aws_dynamodb_table" "leaderboard" {
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "scopeWeek"
   range_key    = "entry"
+
+  deletion_protection_enabled = true
+
+  point_in_time_recovery {
+    enabled = true
+  }
 
   attribute {
     name = "scopeWeek"
@@ -222,6 +273,12 @@ resource "aws_dynamodb_table" "contact" {
   name         = "${var.name_prefix}-contact"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "messageId"
+
+  deletion_protection_enabled = true
+
+  point_in_time_recovery {
+    enabled = true
+  }
 
   attribute {
     name = "messageId"
