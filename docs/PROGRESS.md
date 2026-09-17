@@ -4,6 +4,56 @@
 
 ---
 
+## 2026-09-17 (session 3) — TypeSafe review + first live measurements
+Git HEAD: `b25c1c8` (develop, tree clean) — **docs only, no code changed**
+Done: Ran the `typesafe-ai` skill over the repo; wrote `docs/typesafe-ai-reviewed.md` (new, §1–7) with a
+  **§8 measurement pass**, and added a **`## TypeSafe / Jev — when to use, when not to` section to
+  `AGENTS.md`** (placed before the `next dev`-managed block; the standing policy: use it for semantic
+  judgement — markscheme validation first, MC answer-key, candidate selection, per-item award — and never
+  for generation, arithmetic/counting, dates, already-exact computation, or parsing/rendering).
+  Headline: **one grammar, three parsers, zero tests on the one that ships** —
+  `renderInlineMath` (src/components/InlineMath.tsx:11, naive `split`, no `\$` handling) vs
+  `findLatexIssues` (scripts/audit-content.ts:243, escape-AWARE state machine) vs
+  `findStrayBackslashes`/`findMultiDisplayMath` (audit-content.ts:165,209, line-level `$$` counting).
+  So `audit:content` green ≠ "the page renders"; `findEscapedDollarIssues` is a hand-written rule
+  compensating for the divergence, and **nothing in `tests/` imports InlineMath** (0 refs across its
+  12 consumers). Ranked opportunities: (1) semantic QA over the 3,765 MC questions (`correctIndex` is
+  only range-checked, schema.ts:56), (2) free-text intent over the topic registry
+  (`topic-filter.ts:15–26` is substring-only), (3) support-bot triage, (4) the free-response marker
+  (partial fit — award half only). Rejected with reasons: a model in the render path, `plainText`,
+  `courseCodeFor`, LegalDocument, bbc-curation-map.
+  **Key set up globally** at `~/.config/typesafe/env` (600) sourced from `~/.zshrc` — `TYPESAFE_API_KEY`
+  / `TYPESAFE_BASE_URL` / `TYPESAFE_DEFAULT_MODEL`; live-verified HTTP 200 (`jev-latest` → `jev-1.13.0`).
+  Throwaway harness in `/tmp` only (`typesafe-smoke.mjs`, `typesafe-batch.mjs`) — deliberately NOT in
+  the repo.
+Verified: `npm run validate:content` green (233 topics / 3,765 questions / 0 untagged — measured, not
+  quoted). **7 questions × 3 runs against the live API (21 observations):** answer-key check
+  (Noul-per-choice) separated cleanly and effectively deterministically — correct 0.87–0.99 vs best
+  distractor 0.02–0.15, correct option won all 21, drift ≤0.02; control proved the Score scale's
+  extremes sound (trivial 0.01 / mid 0.70 / very-hard 1.98). **Difficulty Score disagrees with our tags:
+  0 of 5 `hard`-tagged questions judged hard, drift ≤0.03 (systematic, not flaky).** Cost basis: ~800 in /
+  ~95 out tokens, 240–740 ms per question for 5 batched judgments. No currency figure (pricing not
+  obtained).
+Next: (1) **The free win** — make `renderInlineMath` `\$`-aware, test it against one subject's content
+  with `throwOnError: true`, then delete `findEscapedDollarIssues` and re-check the other two rules (no
+  API key, no decisions). (2) **The answer-key half is de-risked — build it** (threshold anywhere 0.3–0.7
+  works on this sample), one subject first, hand-check the flags. (3) **Difficulty half: hand-label ~30
+  questions from one subject** and decide which side is wrong — do NOT gate it before that. Decisions in
+  `typesafe-ai-reviewed.md` §6: cost ceiling, advisory-vs-gating split, and **pinning `jev-1.13.0`**
+  (alias `jev-latest` will move; vendor documents version-specific jagged edges).
+Notes: **Two harness lessons worth keeping** — the first "ambiguity" finding (English 0.510 on the correct
+  option) was MY instruction bug, not a content defect: it read "judge **mathematical** correctness" on a
+  dialogue-tag question, and re-wording subject-neutrally moved the same option to 0.88 (vendor jagged
+  edges #1 "answers the question you wrote" and #7 "contradictory instructions"). The AGENTS.md section
+  records that as a standing rule: expect the first calibration run to find the harness, not the content.
+  A second run "failed"
+  purely on a wrong file path. Verify the input and the instruction text before reporting a content
+  defect. Also: `bio-cell-1`'s question is single-fact recall (easy per CONTENT_STYLE.md:88) yet tagged
+  `hard` — a plausible real mis-tag, the shape the hand-labelled pass should hunt. A TypeSafe integration
+  still needs a controllable dummy per the standing external-dependency rule (`src/lib/feedback/dummy.ts`).
+
+---
+
 ## 2026-09-17 (session 2) — Data protection on the tables, and a live prod analytics-attribution bug found on the way
 Git HEAD: `fac6adf` (develop == main, tree clean; prod == dev == `fac6adf`)
 Done: **(1) Backups, the `Next` item from the review.** `terraform/modules/dynamodb/main.tf`:
