@@ -670,10 +670,17 @@ resource "aws_cloudfront_distribution" "site" {
       compress                 = true
       cache_policy_id          = local.cache_policy_caching_disabled
       origin_request_policy_id = local.origin_request_all_except_host
-      function_association {
-        event_type   = "viewer-request"
-        function_arn = aws_cloudfront_function.api_env_header.arn
-      }
+      # Exactly ONE viewer-request function is allowed per cache behavior (AWS:
+      # "each event type … can have only one edge function association"). This
+      # behavior needs api_host_header, which preserves the viewer Host as
+      # X-Forwarded-Host so analytics records the real dev/prod host — verified
+      # on 2026-08-24, because the managed AllViewerExceptHostHeader origin
+      # request policy alone does not deliver it. The analytics handler does NOT
+      # read X-Octav-Env (only the auth/subscriptions dev gate does), so an
+      # api_env_header association here was both redundant and invalid. It was
+      # also harmless-looking trap: CloudFront silently keeps just one of the
+      # two, so every plan re-proposed the missing one forever (a permanent
+      # one-attribute diff that never converges).
       function_association {
         event_type   = "viewer-request"
         function_arn = aws_cloudfront_function.api_host_header.arn
