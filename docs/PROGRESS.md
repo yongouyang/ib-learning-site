@@ -14,6 +14,10 @@ Done: The 6 unpushed commits on local `develop` (`origin/develop` was still `fcf
   `/papers/<course>/<set>-2+` to anonymous visitors with mark schemes in the HTML, and its homepage JS
   was **5,851,613 bytes / 13 chunks** vs dev's 1,200,687. The infrastructure half was ALREADY live on
   prod (one terraform state applies both distributions), so the promotion was the whole fix.
+  **Then the P1 from the same review: the SNS alert path is now live.** The confirmation email had gone
+  unconfirmed for 4 days (requested 2026-09-13; SNS drops unconfirmed subscriptions after ~48h, so the
+  original link was dead) — re-sent via the console's **Request confirmation**, confirmed, and proven
+  end-to-end with `aws cloudwatch set-alarm-state` rather than assumed.
 Verified: **Prod leak closed, same probes as the pre-fix measurement:** premium pages
   `math-y7-set-2` / `math-y8-set-2` / `bio-ks3-set-2` → **http 200 with 0 premium markers** (were 200
   WITH the mark scheme); homepage chunks **12 / 1,181,927 bytes / 0 premium-phrase hits** (matches dev
@@ -23,15 +27,17 @@ Verified: **Prod leak closed, same probes as the pre-fix measurement:** premium 
   with its questions (no regression); `/privacy` `/terms` `/pricing` 200; `js.stripe.com` still absent
   from the prod homepage; `BILLING_DISABLED_ENVS=prod` still live in the Lambda. Pre-promotion local
   gates: unit **1413/1413**, `validate:content` 233 topics / 3765 questions, `audit:content` 0/0,
-  `check:registry` ok.
-Next: (1) **USER — click the SNS confirmation email** (`iblearn-subscriptions-alerts` is still
-  `PendingConfirmation`, so the webhook-failure alarm notifies nobody — verified by CLI).
-  (2) **Re-opening sales** is now safe and is the one-line toggle: delete `BILLING_DISABLED_ENVS = "prod"`
-  in `terraform/envs/prod/main.tf` and deploy — the gating it was waiting on is real. (3) Decide
+  `check:registry` ok. **SNS alert path proven, not just configured:** the subscription is CONFIRMED
+  (`…:f121db63-5bd9-4eed-a789-dc0881e1b26d`, verified by CLI, not by the console's success page); a
+  manual `set-alarm-state ALARM` on `iblearn-subscriptions-webhook-errors` published 1 message,
+  **delivered 1, failed 0** (AWS/SNS `NumberOfNotificationsDelivered` / `Failed`); the alarm returned to
+  OK on its own and the subscription survived the state churn.
+Next: (1) **Re-opening sales** is now safe and is the one-line toggle: delete `BILLING_DISABLED_ENVS =
+  "prod"` in `terraform/envs/prod/main.tf` and deploy — the gating it was waiting on is real. (2) Decide
   **DynamoDB PITR + deletion protection** (none exist on any of the 8 tables; the privacy notice states
-  this as fact). (4) Premium Phase 2 throttling/attribution. (5) Cleanup: the stale "Deliberately NOT in
+  this as fact). (3) Premium Phase 2 throttling/attribution. (4) Cleanup: the stale "Deliberately NOT in
   this slice" block in `src/lib/subscriptions/http-handler.ts` (all three items shipped) and
-  `STRIPE_INTEGRATION_TODO.md`'s "in the document head" claim. (6) Standing queue: illustrations 106
+  `STRIPE_INTEGRATION_TODO.md`'s "in the document head" claim. (5) Standing queue: illustrations 106
   (recounted: 106 of 233 topics have no illustration), traffic/SEO depth, content depth.
 Notes: **The prior entry's `Next` was wrong on two counts and this session corrected them by
   measurement, not by reading:** prod was NOT on `0cce7de` (it was `aa9ff6a`), and it did NOT need the
