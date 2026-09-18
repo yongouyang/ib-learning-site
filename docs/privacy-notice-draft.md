@@ -33,6 +33,19 @@
 > loading itself was fixed** (`ensureStripeScript()` in `BillingPanel`), so those two cookies
 > now exist only on `/pricing` + `/account`, which is what §12 now claims.
 >
+> **Revised 2026-09-18 (the premium marker) — the first notice change that ADDS a purpose rather
+> than correcting a fact.** Premium paper sets are now delivered with a leak-tracing marker: a
+> masked sign-in address, a short reference derived from the account, and the issue time, shown on
+> the paper and carried in the response data. §6.5 describes it and §9 states that nothing about it
+> is stored. The paired implementation is `handlePremiumPaperGet` in
+> `src/lib/content/http-handler.ts` (premium sets only — the free set 1 is deliberately unmarked,
+> being neither the paid asset nor reachable through that route in the UI) with the visible line in
+> `src/app/papers/[courseId]/[setId]/PaperRunnerClient.tsx`. **Do not oversell it in review:** a
+> determined leaker can crop or edit the line, so it buys attribution in the ordinary case (an
+> unscrubbed screenshot or paste) and the deterrence of being visible — not un-copyability (§8 of
+> `docs/premium-content-protection-plan.md`). A same-day correction rode with it: §6.5 pointed at
+> **§9** of the Terms for acceptable use; the correct section is **§6**.
+>
 > **Revised 2026-09-17 (§9 backup row) — the first change driven by an ops decision rather
 > than a measurement.** The notice previously said we kept no backup copy of your data at all.
 > Point-in-time recovery was enabled on the five tables whose contents are not regenerable
@@ -57,7 +70,7 @@ Effective **15 September 2026**. The privacy contact is `info@octavlearning.com`
 
 ## Privacy Notice
 
-**Last updated: 17 September 2026**
+**Last updated: 18 September 2026**
 
 This notice explains what personal data Octav Learning collects, why, who it is shared
 with, how long it is kept, and what you can ask us to do with it.
@@ -210,8 +223,20 @@ other sites, and there is no advertising or cross-site tracking anywhere in the 
 
 **6.5 Security and abuse prevention.** We use rate limits, session validation and access
 controls to prevent abuse, protect the Service, and detect attempts to scrape or overload
-it. This can involve processing IP addresses and request patterns; see also §9 of the
+it. This can involve processing IP addresses and request patterns; see also §6 of the
 Terms of Use.
+
+Premium papers also carry a **marker** naming the account they were issued to. It has three
+parts: a masked form of that account's sign-in address (the first character and the domain,
+never the whole address), a short reference derived from the account, and the time of issue.
+It is shown on the paper as a date, and all three parts are included in the data sent to your
+browser. Its
+purpose is to trace unauthorised redistribution of paid content, which the Terms of Use
+prohibit. Two limits are worth stating plainly: the reference cannot be turned back into an
+account without our own records, so the marker identifies an account rather than a person,
+and it is not used to build a profile of you, nor sold or shared with anyone else. We keep
+no separate record of it — it is created when a paper is delivered and exists only in that
+response and on that page, which is why §9 lists no retention period for it.
 
 **6.6 Service emails.** We send sign-in codes, receipts and subscription notices (trial
 ending, upcoming renewal, payment failure, cancellation confirmation). These are part of
@@ -293,6 +318,10 @@ leaderboard records. That data also leaves the 35-day recovery window described 
 the window rolls forward, so nothing of it remains recoverable after 35 days. We may keep
 limited records where the law requires it (for example tax records of a payment) or to
 establish, exercise or defend a legal claim.
+
+One item the table does not list, because we do not keep it: the **premium marker**
+described in §6.5 is computed when a paper is delivered and exists only in that response and
+on that page. Nothing about it is stored, so there is no retention period to state.
 
 ### 10. Your rights
 
@@ -482,3 +511,13 @@ ones that can fail an audit.
     include personal details”); no such copy exists in the UI, so the published text now only
     *advises* the reader. Adding that note to the marking screen is a small, real improvement
     in a children's product that sends free text to a third party.
+15. **The premium marker (§6.5, §9) must move with the code.** Re-check it by reading
+    `handlePremiumPaperGet` in `src/lib/content/http-handler.ts`: which sets are marked (premium
+    only), what the marker holds (`maskEmail` + `accountRef` + `issuedAt` in
+    `src/lib/content/types.ts`), and that **nothing is persisted** — if a marker is ever stored
+    (to answer "who pulled this set on Tuesday?" from our side), §9 gains a retention row and the
+    "we keep no separate record of it" sentence must go. Both halves are pinned:
+    `tests/unit/content-handler.test.ts` (shape, masking, premium-only, ref stability) and
+    `tests/unit/paper-runner.test.tsx` (the visible line, its UTC date, and its absence on free
+    set 1). `tests/unit/legal-pages.test.tsx` probes this clause so it cannot vanish from the
+    published page silently.

@@ -1,5 +1,6 @@
 import { resolveSession } from '../auth/session';
 import { featuresForTier } from '../entitlements/features';
+import { isFreePaperSet } from '../entitlements/exam-access';
 import { getPaperContent } from '@/content/registry.papers';
 import { getAllContentTopics } from '@/content/registry.content';
 import { drawMixedReviewQuestions } from '../mixed-review-draw';
@@ -13,11 +14,14 @@ import {
   CONTENT_PUBLIC_CACHE_CONTROL,
   CONTENT_PUBLIC_REQUESTS_PER_WINDOW,
   CONTENT_PUBLIC_WINDOW_SECONDS,
+  accountRef,
   contentAccountScope,
   contentIpScope,
   contentWindowResetAt,
+  maskEmail,
   parseMixedReviewPath,
   parsePremiumPaperPath,
+  type PremiumPaperPayload,
 } from './types';
 
 // Phase 1b — the content API (docs/premium-content-protection-plan.md §4). Framework-agnostic single
@@ -137,7 +141,19 @@ export async function handlePremiumPaperGet(
     );
   }
 
-  const res = json({ paper }, 200, CONTENT_PRIVATE_CACHE_CONTROL);
+  // Phase 2's leak-tracing marker, for PREMIUM sets only. Set 1 is free and public — its page is
+  // prerendered and never reaches this route in the UI — so stamping it would put an account
+  // identifier on content that is not the paid asset, and would widen what the notice has to describe.
+  const payload: PremiumPaperPayload = { paper };
+  if (!isFreePaperSet(ids.setId)) {
+    payload.attribution = {
+      issuedTo: maskEmail(auth.user.email),
+      ref: accountRef(userId),
+      issuedAt: new Date(deps.clock()).toISOString(),
+    };
+  }
+
+  const res = json(payload, 200, CONTENT_PRIVATE_CACHE_CONTROL);
   // Slide the session TTL exactly like every other authenticated handler (one shared resolution path).
   return withCookie(res, auth.refreshCookie);
 }

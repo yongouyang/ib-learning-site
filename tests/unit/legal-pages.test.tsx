@@ -34,7 +34,7 @@ const DOCS = [
     label: 'Privacy Notice',
     file: 'docs/privacy-notice-draft.md',
     Page: PrivacyPage,
-    probes: ['cookies', 'DeepSeek', 'lawful basis'],
+    probes: ['cookies', 'DeepSeek', 'lawful basis', 'masked'],
   },
 ] as const;
 

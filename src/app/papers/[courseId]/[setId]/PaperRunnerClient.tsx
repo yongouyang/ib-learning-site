@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Clock, RotateCcw, CheckSquare, Square, Sparkles } from 'lucide-react';
 import type { FreeResponseQuestion, Paper } from '@/content/types';
+import type { PremiumAttribution } from '@/lib/content/types';
 import { useProgress } from '@/context/ProgressContext';
 import { useAuth } from '@/context/AuthContext';
 import { useEntitlements } from '@/context/EntitlementsContext';
@@ -22,6 +23,11 @@ import { trackEvent } from '@/lib/analytics';
 
 interface PaperRunnerClientProps {
   paper: Paper;
+  /**
+   * Phase 2's leak-tracing marker, present only when the API issued this set to an account (premium
+   * sets). Free set 1 comes from the page itself and carries none.
+   */
+  attribution?: PremiumAttribution;
 }
 
 interface QuestionOutcome {
@@ -37,16 +43,41 @@ interface QuestionOutcome {
 // Phase E3 — "first set per course free" (entitlement-policy §Tier 2): later
 // sets stay visible behind the LockedFeature premium tease (UX-only gate). The
 // wrapper keeps every hook inside the runner itself.
-export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
-  if (isFreePaperSet(paper.id)) return <PaperRunner paper={paper} />;
+export default function PaperRunnerClient({ paper, attribution }: PaperRunnerClientProps) {
+  if (isFreePaperSet(paper.id)) return <PaperRunner paper={paper} attribution={attribution} />;
   return (
     <LockedFeature
       feature="exam-sets-full"
       title="Full exam sets"
       benefit="Set 1 is free — Premium unlocks every set for this course, upper ladder levels and timed mock mode."
     >
-      <PaperRunner paper={paper} />
+      <PaperRunner paper={paper} attribution={attribution} />
     </LockedFeature>
+  );
+}
+
+/**
+ * "Issued to m***@example.com · 18 Sep 2026 · ref 7f3k9q" — the visible half of the leak-tracing marker
+ * (docs/privacy-notice-draft.md §6.5). Deliberately visible and deliberately plain: its whole value is
+ * surviving a screenshot, and a user who can see it has not been tracked covertly.
+ *
+ * The date is formatted with an EXPLICIT locale and an explicit UTC timezone. Left implicit, the same
+ * timestamp renders as two different days on a UTC dev box and an ap-east-1 Lambda — and the "issue
+ * date" is not worth a timezone bug in a children's product.
+ */
+function IssuedLine({ attribution }: { attribution: PremiumAttribution }) {
+  const issued = new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(attribution.issuedAt));
+  return (
+    // `break-words`: the only field whose length varies is the domain inside `issuedTo`, and a long
+    // school domain would otherwise overflow the 375px column horizontally rather than wrapping.
+    <p className="text-xs text-gray-500 dark:text-gray-400 mb-4 break-words">
+      Issued to {attribution.issuedTo} · {issued} · ref {attribution.ref}
+    </p>
   );
 }
 
@@ -54,7 +85,7 @@ export default function PaperRunnerClient({ paper }: PaperRunnerClientProps) {
 // answers editable until submit) followed by an UNTIMED review phase (model
 // answer, AI marking, self-ticks). The clock never runs during review, so
 // reading feedback and self-marking don't eat exam time.
-function PaperRunner({ paper }: PaperRunnerClientProps) {
+function PaperRunner({ paper, attribution }: PaperRunnerClientProps) {
   const course = getCourse(paper.courseId);
   const { recordExam } = useProgress();
   const { user, loaded: authLoaded } = useAuth();
@@ -311,6 +342,8 @@ function PaperRunner({ paper }: PaperRunnerClientProps) {
         <div className="text-5xl mb-4">{stars >= 3 ? '🎉' : stars >= 2 ? '👍' : stars >= 1 ? '📚' : '💪'}</div>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-2">Paper Complete!</h1>
         <p className="text-gray-500 dark:text-gray-400 mb-6">{course?.title} · {paper.title}</p>
+        {/* Kept on the results screen too: a leaked score summary is as traceable as a leaked question. */}
+        {attribution && <IssuedLine attribution={attribution} />}
         <div className="text-4xl font-black text-blue-600 dark:text-blue-400 mb-2">{percent}%</div>
         <div className="flex justify-center gap-1 mb-6">
           {[0, 1, 2].map((i) => (
@@ -347,6 +380,8 @@ function PaperRunner({ paper }: PaperRunnerClientProps) {
         { href: '/papers', label: 'Practice Papers' },
         { label: `${course?.title ?? paper.courseId} ${paper.title}` },
       ]} currentAsHeading />
+
+      {attribution && <IssuedLine attribution={attribution} />}
 
       {/* Progress bar */}
       <div className="flex items-center gap-3 mb-6">

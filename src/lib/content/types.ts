@@ -1,7 +1,13 @@
+import { createHash } from 'node:crypto';
 import type { SessionRecord, UserRecord } from '../auth/types';
 import type { MixedReviewQuestion } from '../mixed-review';
 
 // Phase 1b — the content API (docs/premium-content-protection-plan.md §4/§5).
+//
+// SERVER-ONLY: this module holds the octav-rate-limits bucket keys and (from Phase 2) the leak-tracing
+// marker, so it imports node:crypto. Client components may take `PremiumAttribution` as a TYPE only
+// (`import type` is erased); a VALUE import from a `'use client'` file fails the build loudly rather
+// than shipping something wrong — that is the boundary working, not a bug to work around.
 //
 // Two surfaces, deliberately separate (plan §6.1 — the cache-policy collision is the one mistake
 // that would leak paid content site-wide, so they get different prefixes, different CloudFront
@@ -97,12 +103,58 @@ export function parseMixedReviewPath(
 
 // --- Response payloads -----------------------------------------------------------
 
+/**
+ * Phase 2's leak-tracing marker (plan §5, decision 1(b)). Premium papers are issued with a note of the
+ * account they went to, and the payload carries the same fact machine-readably. Three deliberate
+ * choices, each of which a reviewer should be able to re-derive:
+ *
+ *  - `issuedTo` is MASKED (first character + domain). A screenshot must not hand the world a student's
+ *    full address, and the mask plus the ref is still enough for us to name one account.
+ *  - `ref` is a truncated hash of the userId, not the id itself: opaque inside a leak, and recomputable
+ *    over `octav-users` to find its owner. It is a pointer, NOT a security control.
+ *  - `issuedAt` is the delivery time, so a leaked copy's vintage is checkable against our logs.
+ *
+ * The honest ceiling, stated in the code because a marker invites over-claiming: a determined leaker
+ * can crop the line, and any text marker can be edited. What this buys is attribution for the ordinary
+ * case — a screenshot or a paste that was not scrubbed — plus the deterrence of being visible at all.
+ * It does not make content un-copyable (plan §8).
+ */
+export interface PremiumAttribution {
+  issuedTo: string;
+  ref: string;
+  issuedAt: string;
+}
+
 /** The premium paper payload: the whole paper, questions and mark schemes included. */
 export interface PremiumPaperPayload {
   paper: unknown;
+  /** Present for premium sets only — never on the free set 1 (see handlePremiumPaperGet). */
+  attribution?: PremiumAttribution;
 }
 export interface MixedReviewPayload {
   questions: MixedReviewQuestion[];
+}
+
+/**
+ * `m***@example.com` — first character, then the domain. Total by construction: it never throws, and it
+ * degrades to a phrase rather than an empty string, because a missing email must not blank the line.
+ */
+export function maskEmail(email: string | undefined | null): string {
+  const value = (email ?? '').trim();
+  const at = value.indexOf('@');
+  if (at <= 0 || at === value.length - 1) return 'your account';
+  return `${value[0]}***@${value.slice(at + 1)}`;
+}
+
+/**
+ * Opaque account reference for the marker: the first 10 hex digits of sha256(userId).
+ *
+ * Tracing a leaked copy means hashing every row of `octav-users` and looking for this value — an
+ * instant at our size, and no lookup table to keep in sync. Storing issued markers instead would mean
+ * a new table, new IAM and a new retention row to disclose, for no extra capability here.
+ */
+export function accountRef(userId: string): string {
+  return createHash('sha256').update(userId).digest('hex').slice(0, 10);
 }
 
 // --- Storage interface -----------------------------------------------------------

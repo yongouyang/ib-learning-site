@@ -234,7 +234,7 @@ anonymous premium leak in HTML and `.txt`; it changes nothing a user can see.
       from 6.49 MB to **1.85 MB** (the mixed-review lazy chunk is gone too). `audit:leaks` now runs
       inside `build:static`, so both deploys carry the gate.
 
-### Phase 2 — throttling and attribution — LANDED 2026-09-18 (one item open)
+### Phase 2 — throttling and attribution — LANDED 2026-09-18
 
 - [x] Per-account fixed-window budget on the premium endpoint (the `octav-rate-limits` pattern).
       Keyed by ACCOUNT, not IP — a paid puller is authenticated, so the IP is the one thing they can
@@ -249,12 +249,17 @@ anonymous premium leak in HTML and `.txt`; it changes nothing a user can see.
       requests, not distinct sets — the premium corpus is 15 sets, so a full sweep is 15 requests.
       Read the line as "crossed N deliveries this hour". Storing the set ids per window is the upgrade
       if an incident ever needs the stronger claim.
-- [ ] **OPEN — per-session marker in premium payloads for attribution**, i.e. the leak-tracing half of
-      decision 1(b)+(3). Not started on purpose: it embeds an account-linked identifier in content the
-      user receives, which the privacy notice does not currently describe (§6.5 covers rate limits and
-      request patterns, not watermarking), so it is a user/legal decision, not a code one. The delta
-      would be a §6.3-style clause plus the review-checklist entry, then a marker in the premium
-      payload. Note the practical limit: a marker makes a leak *traceable*, it does not prevent one.
+- [x] **Per-session marker in premium payloads for attribution — LANDED 2026-09-18**, i.e. the
+      leak-tracing half of decision 1(b)+(3). The premium payload carries
+      `attribution: { issuedTo, ref, issuedAt }` and the runner shows `Issued to m***@example.com ·
+      18 Sep 2026 · ref 7f3k9q2ab1` in the question flow and on the results screen. Design points
+      worth keeping: `issuedTo` is masked because a screenshot must not carry a student's full
+      address; `ref` is a truncated `sha256(userId)` so tracing means hashing `octav-users` — no new
+      table, no new IAM, no retention row to disclose; free set 1 is unmarked. The privacy notice
+      moved WITH the code (§6.5 describes the marker, §9 states nothing is stored, checklist item 15
+      is the re-check) — edit them together. **The ceiling, stated in both places:** a determined
+      leaker can crop the line, so this buys attribution for an unscrubbed copy and the deterrence of
+      being visible. It is not DRM and must not be sold as one (§8).
 
 ### Phase 3 — WITHDRAWN (decision 10)
 

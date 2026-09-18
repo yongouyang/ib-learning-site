@@ -50,11 +50,39 @@ const SHOTS = [
   // Phase 2's new state: the per-account premium budget (429). Before it existed this fell into the
   // generic "Could not load this set" card, which is the sort of thing only a screenshot can catch.
   { name: 'premium-set-429', path: '/papers/math-y7/math-y7-set-2', waitFor: 'This is a speed limit', asEntitled: true, paperStatus: 429 },
+  // The issued-to marker (Phase 2, plan §5): the visible half of the leak-tracing line, in the runner
+  // itself. The premium API is forged with a small paper payload because the line's rendering does not
+  // depend on the questions, and a real entitled session needs a tier the capture server does not have.
+  { name: 'premium-set-issued', path: '/papers/math-y7/math-y7-set-2', waitFor: /Issued to/, asEntitled: true, paperStatus: 200, withAttribution: true },
+  // The SECOND call site of the same line — the results screen, whose surroundings differ (a
+  // text-center column where the stamp stacks under the course/set line, above a 4xl score). The first
+  // review pass could not attest it because the capture stopped at the answering state, so the shot is
+  // driven through submit → tick → results before the shutter.
+  { name: 'premium-set-issued-results', path: '/papers/math-y7/math-y7-set-2', waitFor: /Issued to/, asEntitled: true, paperStatus: 200, withAttribution: true, driveToResults: true },
   { name: 'premium-set-fetching', path: '/papers/math-y7/math-y7-set-2', waitFor: 'Loading this set…', asEntitled: true, paperStatus: 'slow' },
 ];
 const VIEWPORTS = {
   mobile: { w: 375, h: 1400 },
   desktop: { w: 1280, h: 1200 },
+};
+
+// Minimal paper for the issued-to shot — enough to render the runner's first screen, with the two
+// markscheme points the runner expects (marks === markscheme.length).
+const FORGED_PAPER = {
+  id: 'math-y7-set-2',
+  courseId: 'math-y7',
+  title: 'Practice Set 2',
+  durationMinutes: 45,
+  questions: [
+    {
+      id: 'forged-q1',
+      stem: 'Work out 15% of 48.',
+      marks: 2,
+      markscheme: ['M1: 10% = 4.80 and 5% = 2.40', 'A1: 7.20'],
+      modelAnswer: '15% of 48 is 7.20.',
+      difficulty: 'easy',
+    },
+  ],
 };
 
 const server = EXTERNAL
@@ -163,12 +191,22 @@ try {
                 status: shot.paperStatus,
                 contentType: 'application/json',
                 body: JSON.stringify(
-                  shot.paperStatus === 401
-                    ? { error: 'login_required' }
-                    : shot.paperStatus === 429
-                      ? // The server names the window end; the copy turns it into "about N minutes".
-                        { error: 'quota_exceeded', resetAt: new Date(Date.now() + 17 * 60_000).toISOString() }
-                      : { error: 'not_entitled' }
+                  shot.withAttribution
+                    ? {
+                        paper: FORGED_PAPER,
+                        // Shape taken from PremiumAttribution (src/lib/content/types.ts).
+                        attribution: {
+                          issuedTo: 'm***@example.com',
+                          ref: '7f3k9q2ab1',
+                          issuedAt: '2026-09-18T15:04:05.000Z',
+                        },
+                      }
+                    : shot.paperStatus === 401
+                      ? { error: 'login_required' }
+                      : shot.paperStatus === 429
+                        ? // The server names the window end; the copy turns it into "about N minutes".
+                          { error: 'quota_exceeded', resetAt: new Date(Date.now() + 17 * 60_000).toISOString() }
+                        : { error: 'not_entitled' }
                 ),
               });
             });
@@ -187,6 +225,14 @@ try {
               ? page.getByLabel(shot.waitForLabel).first()
               : page.getByText(shot.waitFor).first();
           await waiter.waitFor();
+          if (shot.driveToResults) {
+            // One question ⇒ the answering phase offers Submit & Review directly (no Next Question),
+            // and the review phase then offers See Results. Tick a point so the score is not 0%.
+            await page.getByRole('button', { name: /Submit & Review/i }).click();
+            await page.getByRole('button', { name: /M1:/i }).click();
+            await page.getByRole('button', { name: /See Results/i }).click();
+            await page.getByRole('heading', { name: /Paper Complete!/i }).waitFor();
+          }
           await page.waitForTimeout(700);
           const file = `${shot.name}-${vpName}-${theme}.png`;
           await page.screenshot({ path: path.join(OUT, file), fullPage: true });

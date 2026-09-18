@@ -172,3 +172,42 @@ describe('PaperRunnerClient', () => {
     }
   });
 });
+
+// Phase 2 — the leak-tracing marker (docs/premium-content-protection-plan.md §5). The line is the
+// VISIBLE half of it, and its whole value is surviving a screenshot, so it must be on the page wherever
+// the questions are — including the results screen — and absent when the server issued no marker.
+describe('PaperRunnerClient — the issued-to line', () => {
+  const attribution = {
+    issuedTo: 'm***@example.com',
+    ref: '7f3k9q',
+    issuedAt: '2026-09-18T23:40:12.000Z',
+  };
+
+  it('renders the marker, with the date formatted in UTC', () => {
+    render(<PaperRunnerClient paper={paper} attribution={attribution} />);
+    // 23:40 UTC is the 19th in ap-east-1 (UTC+8) and the 18th in UTC, so asserting the UTC date is the
+    // real guard: this fails on a host ahead of UTC if the format ever drops `timeZone: 'UTC'` — the
+    // developer machine — even though a UTC CI runner would not catch it.
+    // `Sept?` because ICU renders en-GB's short September as "Sept" on current Node: a Node/ICU bump
+    // must not red the suite over an abbreviation nobody reads as behaviour.
+    expect(screen.getByText(/Issued to m\*\*\*@example\.com · 18 Sept? 2026 · ref 7f3k9q/)).toBeTruthy();
+  });
+
+  it('renders no line at all without an attribution (the free set 1, served by the page)', () => {
+    render(<PaperRunnerClient paper={paper} />);
+    expect(screen.queryByText(/Issued to/)).toBeNull();
+  });
+
+  it('keeps the line on the results screen as well as the question flow', () => {
+    // The score summary is as quotable as a question, so the marker must not vanish at the end.
+    // Navigation matches the established flow: the ANSWERING phase labels its buttons plainly
+    // ("Next Question", then "Submit & Review"); the tick-count labels appear only in the review phase.
+    render(<PaperRunnerClient paper={paper} attribution={attribution} />);
+    fireEvent.click(screen.getByRole('button', { name: /Next Question/i }));
+    fireEvent.click(screen.getByRole('button', { name: /Submit & Review/i }));
+    fireEvent.click(screen.getByRole('button', { name: /Next Question \(0\/1 marks\)/i }));
+    fireEvent.click(screen.getByRole('button', { name: /See Results \(0\/2 marks\)/i }));
+    expect(screen.getByRole('heading', { name: /Paper Complete!/i })).toBeInTheDocument();
+    expect(screen.getByText(/Issued to m\*\*\*@example\.com/)).toBeTruthy();
+  });
+});

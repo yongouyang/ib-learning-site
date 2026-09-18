@@ -4,6 +4,50 @@
 
 ---
 
+## 2026-09-18 (session 3) — Phase 2's last item: the premium leak-tracing marker, with its notice
+Git HEAD: `b7c48f6` (develop; tree dirty at time of writing — this change set is not yet committed)
+Done: **Phase 2 is complete.** Premium paper sets are issued with a leak-tracing marker, so the Terms'
+  §6 prohibition on bulk copying finally has a mechanism behind it: `handlePremiumPaperGet` attaches
+  `attribution: { issuedTo, ref, issuedAt }` to **premium sets only**, and `PaperRunnerClient` shows it as
+  a muted `Issued to m***@example.com · 18 Sept 2026 · ref 7f3k9q2ab1` line under the h1 in the question
+  flow AND between the course line and the score on the results screen. `issuedTo` is deliberately
+  MASKED (first character + domain) so a screenshot never carries a full address; `ref` is the first 10
+  hex of `sha256(userId)`, a pointer we recompute over `octav-users` rather than a stored lookup table —
+  no new table, no new IAM, no retention row to disclose. Free set 1 is deliberately unmarked. The
+  client takes the marker's type by `import type` only: `src/lib/content/types.ts` now imports
+  node:crypto, so it is server-only by construction and a value import from a client file fails the build.
+  **The privacy notice moved with it** — §6.5 describes the marker (and the shown-as-a-date vs sent-in-full
+  distinction), §9 states that nothing is stored, "Last updated" moved to 18 September, and checklist
+  item 15 names exactly what to re-check. A pre-existing defect was fixed on the way: §6.5 pointed at the
+  Terms' **§9** for acceptable use; the correct section is **§6**.
+Verified: unit **1440/1440** (128 files; +8 for the marker), tsc clean, lint 29/0, `validate:content`
+  233/3765, `audit:content` 0/0, `build:lambda` OK, `build:static` green (verify:sitemaps 335/335;
+  audit:leaks HARD + TIGHTENED — the marker adds nothing under `out/`), `terraform fmt`/`validate` clean,
+  **static e2e Desktop Chrome 266 passed / 3 skipped / 0 failed**. UX: two fresh-context passes on the
+  new element. Pass 1 = PASS WITH NOTES and its P2 was a MISSING CAPTURE (the results call site), now
+  driven by `driveToResults` in `scripts/capture-content-ux.mjs` → 8 shots (`premium-set-issued-*`,
+  `premium-set-issued-results-*` × mobile/desktop × light/dark); pass 2 = PASS WITH NOTES, no P0/P1/P2,
+  the second call site attested clean. Its P3 ("the line is unexplained on the page") and the
+  overflow-headroom note were taken as `break-words` + a recorded waiver.
+Next: (1) **promote `develop` → `main`** when you want the marker live — prod is on `b7c48f6` and does NOT
+  have it, and this is the first change that publishes a newly-written legal clause, so it is your call.
+  (2) Phase 2 is now closed; the remaining queue is the standing backlog (illustrations 106, traffic/SEO
+  depth, content depth) plus the two open decisions: re-opening prod sales and HKD presentment.
+Notes: **the marker's ceiling is stated in the code, in plan §8 and in the notice, and must not be
+  oversold in review:** a determined leaker can crop or edit the line. What it buys is attribution for the
+  ordinary case (an unscrubbed screenshot or paste) plus the deterrence of being visible — never
+  un-copyability. **Waivers recorded (AGENTS requires them):** (a) the line carries no on-page
+  explanation — §6.5 is the disclosure of record, and the alternatives were worse (a `title` tooltip is
+  invisible on touch, which is the primary audience, and a 12px inline "Why?" link would be a sub-44px
+  target inside exam chrome); (b) at 375px the stamp is the widest text run on the results screen
+  (~100% of the column, zero headroom) and a long school domain would wrap to a second centred line —
+  accepted, because the 57-character minimum is inherent to the marker and 12px is already the smallest
+  sanctioned size; (c) the pre-existing breadcrumb-h1 desktop wrap (`md:max-w-xs`), unchanged and already
+  on record. **Trap for the next session:** the code and the notice are ONE change — trimming §9's
+  "we keep no separate record of it" or checklist item 15 would leave the notice describing a marker
+  that no longer exists, and `tests/unit/legal-pages.test.tsx` probes the clause so it cannot vanish
+  silently.
+
 ## 2026-09-18 (session 2, cont.) — Round 1 + Phase 2 PROMOTED TO PROD (`b7c48f6`)
 Git HEAD: `b7c48f6` (develop == main == `b7c48f6`; this entry is the docs commit on top of it)
 Done: deploy-dev green at 22:59, then `develop → main` fast-forward (`fac6adf..b7c48f6`, 7 commits) and a

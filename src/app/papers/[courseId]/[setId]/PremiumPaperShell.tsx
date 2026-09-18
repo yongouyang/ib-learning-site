@@ -10,6 +10,7 @@ import { useEntitlements } from '@/context/EntitlementsContext';
 import { getCourse } from '@/lib/courses';
 import { loginHref } from '@/lib/safe-redirect';
 import type { Paper, PaperMeta } from '@/content/types';
+import type { PremiumAttribution } from '@/lib/content/types';
 import PaperRunnerClient from './PaperRunnerClient';
 
 /**
@@ -47,6 +48,8 @@ export default function PremiumPaperShell({
   const entitled = loaded && has('exam-sets-full');
   const pathname = usePathname();
   const [paper, setPaper] = useState<Paper | null>(null);
+  // Phase 2: the leak-tracing marker the server issued with this set (premium sets only).
+  const [attribution, setAttribution] = useState<PremiumAttribution | null>(null);
   const [failure, setFailure] = useState<'login' | 'not_entitled' | 'rate_limited' | 'error' | null>(null);
   // Minutes until the premium rate-limit window rolls, resolved when the 429 arrives — never computed
   // during render (this component is prerendered, so render must stay pure).
@@ -81,12 +84,13 @@ export default function PremiumPaperShell({
           throw new Error('rate_limited');
         }
         if (!res.ok) throw new Error('error');
-        return res.json() as Promise<{ paper: Paper }>;
+        return res.json() as Promise<{ paper: Paper; attribution?: PremiumAttribution }>;
       })
       .then((body) => {
         if (cancelled) return;
         setFailure(null);
         setPaper(body.paper);
+        setAttribution(body.attribution ?? null);
       })
       .catch((err: Error) => {
         if (!cancelled) setFailure(err.message as 'login' | 'not_entitled' | 'rate_limited' | 'error');
@@ -248,7 +252,7 @@ export default function PremiumPaperShell({
   } else if (!paper) {
     body = loading;
   } else {
-    return <PaperRunnerClient paper={paper} />;
+    return <PaperRunnerClient paper={paper} attribution={attribution ?? undefined} />;
   }
 
   return (

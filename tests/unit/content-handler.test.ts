@@ -13,6 +13,8 @@ import {
   contentIpScope,
   contentRateLimitBucket,
   contentWindowResetAt,
+  accountRef,
+  maskEmail,
   parseMixedReviewPath,
   parsePremiumPaperPath,
 } from '@/lib/content/types';
@@ -325,6 +327,75 @@ describe('content API — premium per-account budget (Phase 2)', () => {
     expect(Date.parse(contentWindowResetAt(FIXED_MS, 3600))).toBe(
       (Math.floor(FIXED_MS / 3_600_000) + 1) * 3_600_000
     );
+  });
+});
+
+describe('content API — the leak-tracing marker (Phase 2)', () => {
+  // A frozen clock so `issuedAt` is assertable rather than merely well-formed.
+  const FIXED_MS = Date.parse('2026-09-18T15:04:05.000Z');
+  let storage: InMemoryContentStorage;
+  let deps: ContentDeps;
+
+  beforeEach(() => {
+    const clock = () => FIXED_MS;
+    storage = new InMemoryContentStorage(clock);
+    deps = { storage, clock };
+  });
+
+  const premiumUrl = `/api/content/premium/papers/${COURSE}/${PREMIUM_SET}`;
+
+  it('stamps a premium set with a masked, opaque, timestamped attribution', async () => {
+    const cookie = await signIn(storage, 'premium');
+    const res = await handleContentGet(get(premiumUrl, cookie), deps);
+    expect(res.headers.get('Cache-Control')).toBe(CONTENT_PRIVATE_CACHE_CONTROL);
+    const body = (await res.json()) as { attribution?: { issuedTo: string; ref: string; issuedAt: string } };
+    // signIn() creates premium@example.com / user-premium.
+    expect(body.attribution?.issuedTo).toBe('p***@example.com');
+    expect(body.attribution?.issuedAt).toBe('2026-09-18T15:04:05.000Z');
+    // The ref is an opaque pointer, not the account id — pinned as a shape, not as a value, so this
+    // test does not merely restate the hash it is meant to be checking.
+    expect(body.attribution?.ref).toMatch(/^[0-9a-f]{10}$/);
+    expect(body.attribution?.ref).not.toContain('user-premium');
+    // The paper itself is still delivered in full.
+    expect((body as unknown as { paper: { id: string } }).paper.id).toBe(PREMIUM_SET);
+  });
+
+  it('leaves the FREE set 1 unmarked (it is not the paid asset, and its page is prerendered)', async () => {
+    const cookie = await signIn(storage, 'premium');
+    const res = await handleContentGet(get(`/api/content/premium/papers/${COURSE}/${FREE_SET}`, cookie), deps);
+    const body = (await res.json()) as { attribution?: unknown };
+    expect(body.attribution).toBeUndefined();
+  });
+
+  it('gives the same account the same ref across sets and two accounts different refs', async () => {
+    // Stable-per-account is what makes a leaked copy resolve to ONE row of octav-users; distinct-per-
+    // account is what makes that resolution useful.
+    const a = await signIn(storage, 'premium', '-a');
+    const b = await signIn(storage, 'premium', '-b');
+    const refOf = async (cookie: string) => {
+      const res = await handleContentGet(get(premiumUrl, cookie), deps);
+      return ((await res.json()) as { attribution: { ref: string } }).attribution.ref;
+    };
+    const [refA, refB] = [await refOf(a), await refOf(b)];
+    expect(refA).not.toBe(refB);
+    expect(await refOf(a)).toBe(refA);
+  });
+
+  it('masks an email so a screenshot never carries a full address', () => {
+    expect(maskEmail('maya@example.com')).toBe('m***@example.com');
+    // Total by construction: a missing or malformed address must not blank the line, and must not throw.
+    expect(maskEmail('')).toBe('your account');
+    expect(maskEmail(undefined)).toBe('your account');
+    expect(maskEmail('no-at-sign')).toBe('your account');
+    expect(maskEmail('@example.com')).toBe('your account');
+    expect(maskEmail('a@')).toBe('your account');
+  });
+
+  it('derives the ref from the userId alone (a hash, never the id)', () => {
+    expect(accountRef('user-1')).toMatch(/^[0-9a-f]{10}$/);
+    expect(accountRef('user-1')).toBe(accountRef('user-1'));
+    expect(accountRef('user-1')).not.toBe(accountRef('user-2'));
+    expect(accountRef('user-1')).not.toContain('user-1');
   });
 });
 
