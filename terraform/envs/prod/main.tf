@@ -294,6 +294,12 @@ module "auth_api" {
 
   cors_allow_origins = var.site_origins
 
+  # Re-enabled 2026-09-18: the ap-east-1 concurrent-executions quota was raised
+  # 10 -> 1000, which was the only reason this stayed null. Caps auth (the
+  # unauthenticated, email-sending surface) and guarantees it capacity so a
+  # runaway spike elsewhere cannot starve logins.
+  reserved_concurrent_executions = 10
+
   users_table_arn       = module.dynamodb.users_table_arn
   sessions_table_arn    = module.dynamodb.sessions_table_arn
   otp_codes_table_arn   = module.dynamodb.otp_codes_table_arn
@@ -339,6 +345,10 @@ module "progress_api" {
   zip_path = "${path.module}/../../../lambda/progress/dist/progress-lambda.zip"
 
   cors_allow_origins = var.site_origins
+
+  # Re-enabled 2026-09-18 with the auth Lambda (quota 10 -> 1000): runaway-batch
+  # cost cap on the sync writes.
+  reserved_concurrent_executions = 10
 
   users_table_arn       = module.dynamodb.users_table_arn
   sessions_table_arn    = module.dynamodb.sessions_table_arn

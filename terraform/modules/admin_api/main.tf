@@ -38,7 +38,7 @@ variable "cors_allow_origins" {
 }
 
 variable "reserved_concurrent_executions" {
-  description = "Reserved concurrency for the admin Lambda. Default null = unmanaged, because the account's ap-east-1 concurrent-executions quota is 10 (L-B99A9384) and ANY reservation would push unreserved below AWS's minimum of 10. Set (e.g. 10) only after a Service Quotas increase."
+  description = "Reserved concurrency for the admin Lambda. Default null = unmanaged (shares the account pool — fine now that the ap-east-1 concurrent-executions quota (L-B99A9384) was raised 10 → 1000 in Sep 2026, which removed the reason this was forced to stay null). A non-null value both CAPS this function and GUARANTEES it that capacity, so set one only to isolate blast radius deliberately."
   type        = number
   default     = null
 }
