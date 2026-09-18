@@ -16,6 +16,7 @@
 import http from 'node:http';
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { bodyForMethod } from './request-body-gating';
 
 const outDir = path.resolve(process.cwd(), 'out');
@@ -74,7 +75,10 @@ async function handleApiRoute(
   req: http.IncomingMessage,
   res: http.ServerResponse
 ) {
-  const route = (await import(modulePath)) as ApiRoute;
+  // `import()` parses its argument as a URL and percent-DECODES it, which turns
+  // the `%5Fhealth` folder name back into `_health` and misses the file. Going
+  // through a real file URL re-encodes the `%` as `%25`, so the path survives.
+  const route = (await import(pathToFileURL(path.resolve(__dirname, modulePath)).href)) as ApiRoute;
 
   const chunks: Buffer[] = [];
   for await (const chunk of req) chunks.push(chunk as Buffer);
@@ -134,7 +138,7 @@ const AUTH_ROUTES: Record<string, string> = {
 const PROGRESS_ROUTES: Record<string, string> = {
   '/api/progress': '../src/app/api/progress/route',
   '/api/progress/sync': '../src/app/api/progress/sync/route',
-  '/api/progress/_health': '../src/app/api/progress/_health/route',
+  '/api/progress/_health': '../src/app/api/progress/%5Fhealth/route',
 };
 
 // /api/analytics/* → the real Next route handlers, mirroring the CloudFront
@@ -142,7 +146,7 @@ const PROGRESS_ROUTES: Record<string, string> = {
 const ANALYTICS_ROUTES: Record<string, string> = {
   '/api/analytics/event': '../src/app/api/analytics/event/route',
   '/api/analytics/summary': '../src/app/api/analytics/summary/route',
-  '/api/analytics/_health': '../src/app/api/analytics/_health/route',
+  '/api/analytics/_health': '../src/app/api/analytics/%5Fhealth/route',
 };
 
 // /api/leaderboard (+/teaser, +/_health) → the real Next route handlers,
@@ -151,7 +155,7 @@ const ANALYTICS_ROUTES: Record<string, string> = {
 const LEADERBOARD_ROUTES: Record<string, string> = {
   '/api/leaderboard': '../src/app/api/leaderboard/route',
   '/api/leaderboard/teaser': '../src/app/api/leaderboard/teaser/route',
-  '/api/leaderboard/_health': '../src/app/api/leaderboard/_health/route',
+  '/api/leaderboard/_health': '../src/app/api/leaderboard/%5Fhealth/route',
 };
 
 // /api/admin/* → the real Next route handlers, mirroring the CloudFront
@@ -159,7 +163,7 @@ const LEADERBOARD_ROUTES: Record<string, string> = {
 const ADMIN_ROUTES: Record<string, string> = {
   '/api/admin/dynamodb': '../src/app/api/admin/dynamodb/route',
   '/api/admin/access': '../src/app/api/admin/access/route',
-  '/api/admin/_health': '../src/app/api/admin/_health/route',
+  '/api/admin/_health': '../src/app/api/admin/%5Fhealth/route',
 };
 
 // /api/contact (+/_health) → the real Next route handlers, mirroring the
@@ -167,7 +171,7 @@ const ADMIN_ROUTES: Record<string, string> = {
 // supportability-features-plan.md).
 const CONTACT_ROUTES: Record<string, string> = {
   '/api/contact': '../src/app/api/contact/route',
-  '/api/contact/_health': '../src/app/api/contact/_health/route',
+  '/api/contact/_health': '../src/app/api/contact/%5Fhealth/route',
 };
 
 // /api/subscriptions (the Stripe webhook, exact path) + its sub-paths → the
@@ -179,7 +183,7 @@ const SUBSCRIPTIONS_ROUTES: Record<string, string> = {
   '/api/subscriptions/checkout': '../src/app/api/subscriptions/checkout/route',
   '/api/subscriptions/portal': '../src/app/api/subscriptions/portal/route',
   '/api/subscriptions/status': '../src/app/api/subscriptions/status/route',
-  '/api/subscriptions/_health': '../src/app/api/subscriptions/_health/route',
+  '/api/subscriptions/_health': '../src/app/api/subscriptions/%5Fhealth/route',
 };
 
 // /api/content/* → the real Next catch-all route, mirroring the CloudFront

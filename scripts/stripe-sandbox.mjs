@@ -190,10 +190,10 @@ async function check() {
   const email = `sandbox-${Date.now()}@example.com`;
 
   const health = await session('/api/subscriptions/_health');
-  // NOTE: `_health` routes live in underscore-prefixed folders, which Next treats as
-  // PRIVATE (unroutable) — so this 404s in dev even though the handler works. In
-  // production the same path is served by the Lambda via CloudFront. Logged, not fatal.
-  console.log(`_health: HTTP ${health.status} (dev route 404s by design — underscore folder)`);
+  // Reaches the Next route now that the handler lives in a `%5Fhealth` folder
+  // (Next treats a bare `_`-prefixed folder as private and unroutable, which
+  // 404'd every local probe until 2026-09-18).
+  console.log(`_health: HTTP ${health.status}`);
 
   await session('/api/auth/request-otp', { method: 'POST', body: JSON.stringify({ email }) });
   const verify = await session('/api/auth/verify-otp', {
