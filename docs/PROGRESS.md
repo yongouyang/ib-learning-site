@@ -4,6 +4,34 @@
 
 ---
 
+## 2026-09-18 (session 2, cont.) — Round 1 + Phase 2 PROMOTED TO PROD (`b7c48f6`)
+Git HEAD: `b7c48f6` (develop == main == `b7c48f6`; this entry is the docs commit on top of it)
+Done: deploy-dev green at 22:59, then `develop → main` fast-forward (`fac6adf..b7c48f6`, 7 commits) and a
+  deploy-prod that landed at 23:17. **This closed the window in which octavlearning.com served
+  `math-yr8-congruence-similarity` as ONE run-on paragraph** — the round-1 content bug was live on prod
+  from 2026-09-17 until 23:17 on 2026-09-18 — and put the Phase 2 premium budget in production.
+Verified: prod acceptance probes, all AFTER the deploy: `version.json` = `b7c48f6`; the congruence study
+  page now renders `📌 Definition` as its own marker row followed by a `<p>` (the dev shape exactly, with
+  a literal-backslash count of 214 = dev's, i.e. only legitimate LaTeX escapes remain);
+  `/api/content/_health` → `{ok:true,topicCount:233}`; premium anon → **401 + `private, no-store`**;
+  public mixed-review → **Miss then Hit** from CloudFront with `public, max-age=300, s-maxage=3600` — the
+  cache split survived the promotion; `/`, `/pricing`, `/privacy`, `/terms` and
+  `/papers/math-y9/math-y9-set-1` all 200; `js.stripe.com` still absent from the homepage; and
+  `BILLING_DISABLED_ENVS=prod` + `STRIPE_MODE=test` still on the subscriptions Lambda, so prod remains
+  deliberately off-sale. The same contract was checked on dev BEFORE promoting, which is what made the
+  fast-forward safe rather than hopeful.
+Next: (1) Phase 2's leftover — the optional per-session payload marker, which needs a privacy-note
+  clause first (user/legal decision). (2) Two decisions still open: re-opening prod sales (delete
+  `BILLING_DISABLED_ENVS = "prod"`) and the HKD-presentment call. (3) Standing queue: illustrations 106,
+  traffic/SEO depth, content depth.
+Notes: **the dev gate was real and slow** — ~18 min for dev (build → e2e matrix → terraform apply →
+  sync → smoke → live SEO), ~18 more for prod; watching `version.json` is the only progress signal
+  available without `gh` (not installed here). **Nothing in this promotion proves Phase 2's 429 on a
+  deployed origin**: that needs an entitled session and no account has one while sales are closed. The
+  server half is covered by unit tests against the real handler — the same module the Lambda bundles —
+  and the client half by the captured states; the deployed evidence is that routing, authz and the cache
+  split all still behave. Expect one more pipeline run to land this docs-only entry (a no-op apply).
+
 ## 2026-09-18 (session 2) — Premium Phase 2: the premium budget, attribution, and its UX review
 Git HEAD: `60b7c2f` (develop; tree dirty at time of writing — this change set is not yet committed)
 Done: **Phase 2 of the premium plan landed** (docs/premium-content-protection-plan.md §5): throttling and
