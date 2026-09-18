@@ -4,6 +4,39 @@
 
 ---
 
+## 2026-09-18 — Round 1: one inline-math grammar, `%5Fhealth` routing, a content typo, and the quota unblock
+Git HEAD: `e754ec6` (develop, working tree dirty — this change set is not committed yet)
+Done: **(1) Inline math has ONE grammar.** `splitInlineMath` in `src/components/InlineMath.tsx` is now
+escape-aware: `\$` (authored `\\$` in JSON) renders as `$` in prose and survives as `\$` for KaTeX
+inside math; the old naive `split` mis-paired the delimiters around it. That made the rule obsolete, so
+`escaped_dollar` is DELETED from `scripts/audit-content.ts` (plus its 5 tests). New
+`tests/unit/inline-math.test.tsx` (12 tests) tests the SHIPPING path over the whole corpus: every
+inline-math segment parses with `throwOnError: true`, every note body renders through StudyNoteBody with
+no `katex-error`, and a literal `\n` typo can't come back. **(2) It found a real content bug:**
+`math-yr8-congruence-similarity`'s 7 notes carried 46 literal `\n` (JSON `\\n` where `\n` was meant), so
+each note rendered as ONE run-on paragraph with visible backslashes — invisible to every existing gate.
+**(3) `/api/*/_health` was unreachable in dev/e2e** (verified live: six probes 404'd in `next dev`)
+because Next treats a bare `_`-prefixed folder as private; renamed to the documented `%5Fhealth` escape
+(URL unchanged) and `serve-static.ts` now imports through `pathToFileURL` — `import()` percent-DECODES
+`%5F` back to `_`, so the first rename without that fix 500'd. **(4)**
+`reserved_concurrent_executions = 10` on the auth + progress Lambdas (quota 10 → 1000 removed the
+blocker); the other 7 modules' variable descriptions no longer claim a quota of 10.
+Verified: unit **1420/1420** (128 files), tsc clean, lint 29 warnings / 0 errors (baseline),
+`validate:content` 233/3765, `audit:content` 0/0, `check:registry` ok, `build:static` green
+(verify:sitemaps 335/335; audit:leaks HARD + TIGHTENED), **static e2e Desktop Chrome 266 passed /
+3 skipped / 0 failed**, all six `_health` probes **200 in BOTH `next dev` and serve-static** (404 before),
+`terraform fmt -check` + `validate` clean, and a plan showing the two concurrency changes in-place plus
+only the known local-only SNS-subscription destroy artifact (no local apply).
+Next: commit + push to `develop`; round 1 has nothing else outstanding. Round 2 = premium Phase 2
+(throttling/attribution). Still user-blocked: re-opening prod sales, HKD presentment, analytics TTL vs
+the 35-day PITR window, the two legal items. Native `invoked_via_function_url` deliberately NOT done.
+Notes: **`\$` is legal content now** — write `\\$` in JSON; the existing fullwidth ＄ (14 files) still
+renders and was left alone. `multi_display_math` and `stray_backslash` KEEP their rules: neither is a
+stale mirror of the renderer any more (the first names a real StudyNoteBody limitation, the second a
+content-style defect). Two traps for the next session: `import()` percent-decodes, so any path holding
+`%` must go through `pathToFileURL`; and `serve-static.ts`'s route maps are the only place that knows
+the `%5Fhealth` filesystem paths.
+
 ## 2026-09-17 (session 3) — TypeSafe review + first live measurements
 Git HEAD: `b25c1c8` (develop, tree clean) — **docs only, no code changed**
 Done: Ran the `typesafe-ai` skill over the repo; wrote `docs/typesafe-ai-reviewed.md` (new, §1–7) with a

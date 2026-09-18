@@ -18,7 +18,7 @@ one call plus the client wiring. No new route, no refactor, no new dependency
 | Session created with `ui_mode=embedded_page`, Managed Payments ON, all Checkout Studio fields | [src/lib/subscriptions/stripe-rest.ts](src/lib/subscriptions/stripe-rest.ts) |
 | `POST /api/subscriptions/checkout` → `{ client_secret }` (JSON, not a redirect) | [src/lib/subscriptions/http-handler.ts](src/lib/subscriptions/http-handler.ts) |
 | Stripe's checkout mounted in the page, secret fetched by Stripe when it needs it | [src/components/BillingPanel.tsx](src/components/BillingPanel.tsx) |
-| Stripe.js loaded from Stripe's own domain, in the document head | [src/app/layout.tsx](src/app/layout.tsx) |
+| Stripe.js injected on demand (not a layout `<head>` script) | [src/components/BillingPanel.tsx](src/components/BillingPanel.tsx) |
 | Entitlement granted (unchanged, already live) | webhook → `POST /api/subscriptions` |
 
 ### Configured parameters (`fixed_by_ui`, set exactly as configured)

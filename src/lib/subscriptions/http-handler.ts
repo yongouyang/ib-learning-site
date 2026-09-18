@@ -49,13 +49,10 @@ import {
 //   * Card data never appears in a request or response body — only brand and
 //     last4 come back from Stripe, which is what keeps us in PCI SAQ A.
 //
-// Deliberately NOT in this slice:
-//   * the live Stripe REST client (needs the E4.0 account) — `stripeFor`
-//     returns null and billing answers 503 until it lands;
-//   * trial-reminder emails on `trial_will_end` (E4.5);
-//   * per-test response injection (plan §6.6). The dummy's own
-//     completeCheckoutSession/advanceTo cover unit tests; the e2e injection
-//     hook is deferred until the /account billing UI (E4.3) needs it.
+// Still open (the checklist lives in STRIPE_INTEGRATION_TODO.md §8): nothing on
+// this surface. The live REST client, the trial-ending reminder and per-test
+// response injection all shipped — the block that said otherwise outlived them
+// and was removed 2026-09-18.
 
 /** Every response is built here so Cache-Control: no-store is uniform —
  *  billing state must never be cached by CloudFront or a browser. */
