@@ -21,7 +21,6 @@ export type IssueType =
   | "empty_flashcard"
   | "stray_backslash"
   | "unbalanced_bold"
-  | "escaped_dollar"
   | "multi_display_math"
   | "missing_difficulty"
   | "difficulty_distribution"
@@ -180,32 +179,20 @@ export function findStrayBackslashes(text: string): string[] {
   return flagged;
 }
 
-// Flags escaped dollars (\$) anywhere in content. The client renderer
-// (renderInlineMath in src/components/InlineMath.tsx) splits text on $...$
-// pairs with a naive regex that does NOT understand KaTeX's \$ escape, so a
-// single \$ mis-pairs the surrounding delimiters and garbles the text (the
-// math-yr7-money-finance "＄2.45" ladder bug, fixed 2026-08-22). Currency
-// amounts are written with the fullwidth ＄ (U+FF04) as plain text instead —
-// the splitter never treats it as a delimiter.
-export function findEscapedDollarIssues(text: string): string[] {
-  const matches = text.match(/\\\$/g);
-  if (!matches) return [];
-  return [
-    `${matches.length} escaped dollar(s) "\\$" — renderInlineMath garbles these; write currency with the fullwidth ＄ instead`,
-  ];
-}
-
 // Flags invalid ** bold markup (rendered by renderInlineMath in
 // src/components/InlineMath.tsx). A valid segment is **...** on one line with
 // plain text inside — no nested "*", no "$" (bold must not span math). Empty
 // (****) and unpaired markers render literally, so they are flagged here.
 // Flags a line that crams two or more display-math ($$) blocks together.
-// renderInlineMath (src/components/InlineMath.tsx) splits text on $...$ pairs
-// with a naive regex; when two $$...$$ blocks share a line the delimiters
-// mis-pair and the whole block renders as a KaTeX ParseError (the 5 production
-// notes fixed 2026-09-03: math-dp-ai-complex-numbers, math-dp-ai-matrices x2,
-// math-yr8-linear-equations, physics-simple-machines-1). Inline $...$ on a line
-// carries no $$ delimiter, so it is not flagged here.
+// StudyNoteBody (src/components/StudyNoteBody.tsx) treats a line that starts and
+// ends with $$ as ONE block and passes everything between them to KaTeX, so a
+// second $$...$$ on the same line lands inside the first block's LaTeX and the
+// whole thing renders as a ParseError (the 5 production notes fixed 2026-09-03:
+// math-dp-ai-complex-numbers, math-dp-ai-matrices x2, math-yr8-linear-equations,
+// physics-simple-machines-1). Inline $...$ carries no $$ delimiter, so it is not
+// flagged here. This is a real StudyNoteBody limitation, not a stale mirror of
+// the renderer — tests/unit/inline-math.test.tsx would catch it too, but only at
+// render time, so the rule stays for authors running audit:content.
 export function findMultiDisplayMath(text: string): string[] {
   const flagged: string[] = [];
   for (const line of text.split("\n")) {
@@ -650,19 +637,6 @@ export function auditContent(input: AuditInput): AuditResult {
     }
   }
 
-  // Escaped dollars (\$) — garbled by renderInlineMath (see findEscapedDollarIssues)
-  for (const topic of topics) {
-    for (const field of extractTextFields(topic)) {
-      for (const message of findEscapedDollarIssues(field.value)) {
-        issues.push({
-          type: "escaped_dollar",
-          severity: "warning",
-          location: `${location(topic)}/${field.path}`,
-          message,
-        });
-      }
-    }
-  }
   // Two display-math ($$) blocks on one line mis-pairs the renderer (ParseError)
   for (const topic of topics) {
     for (const field of extractTextFields(topic)) {
@@ -686,14 +660,6 @@ export function auditContent(input: AuditInput): AuditResult {
       });
     });
     for (const field of fields) {
-      for (const message of findEscapedDollarIssues(field.value)) {
-        issues.push({
-          type: "escaped_dollar",
-          severity: "warning",
-          location: `papers/${paper.id}/${field.path}`,
-          message,
-        });
-      }
       for (const line of findMultiDisplayMath(field.value)) {
         issues.push({
           type: "multi_display_math",
@@ -855,8 +821,6 @@ function issueTypeLabel(type: IssueType): string {
       return "Lines ending with a stray backslash";
     case "unbalanced_bold":
       return "Unpaired or invalid ** bold markers";
-    case "escaped_dollar":
-      return "Escaped dollars (\\$) garbled by the renderer";
     case "multi_display_math":
       return "Two display-math ($$) blocks on one line";
     case "missing_difficulty":

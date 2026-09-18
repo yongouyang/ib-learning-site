@@ -2,19 +2,52 @@
 
 import MathExpression from './MathExpression';
 
-// Splits text on $...$ delimiters and renders those segments with KaTeX.
-// Use this anywhere content strings may contain inline LaTeX (stems, choices,
-// explanations, flashcards, descriptions) so raw "$" never reaches the page.
-// Non-math segments may contain **bold** markers (plain text inside — never
-// spanning math; audit:content's unbalanced_bold check enforces this).
+// A backslash-escaped dollar (\$, authored as "\\$" in the JSON) is a literal
+// "$": KaTeX understands it inside math and it reads as currency in prose. The
+// splitter below is character-blind, so the escape is swapped for a sentinel it
+// cannot mistake for a delimiter and undone per segment. U+E000 is a private-use
+// character, verified absent from the content corpus.
+const ESCAPED_DOLLAR = '\uE000';
+
+export interface InlineMathSegment {
+  /** Segment text — the LaTeX between the delimiters when `math` is true. */
+  value: string;
+  math: boolean;
+}
+
+/**
+ * Splits a content string on inline-math ($...$) delimiters: the ONE grammar for
+ * inline math, shared by the renderer and its tests. It used to disagree with
+ * the audit script's escape-aware copy, and `escaped_dollar` existed only to
+ * flag the difference (removed 2026-09-18).
+ *
+ * Display math ($$...$$) is handled a level up, in StudyNoteBody — it appears
+ * only in note bodies (measured: 0 occurrences in stems, choices, flashcards,
+ * explanations or mark schemes), so it is not a case here.
+ */
+export function splitInlineMath(text: string): InlineMathSegment[] {
+  return text
+    .replace(/\\\$/g, ESCAPED_DOLLAR)
+    .split(/(\$[^$\n]+\$)/)
+    .filter((part) => part !== '')
+    .map((part) =>
+      part.startsWith('$') && part.endsWith('$') && part.length > 1
+        ? { value: part.slice(1, -1).replaceAll(ESCAPED_DOLLAR, '\\$'), math: true }
+        : { value: part.replaceAll(ESCAPED_DOLLAR, '$'), math: false },
+    );
+}
+
+// Renders inline math and the **bold** markup around it. Use this anywhere
+// content strings may contain LaTeX (stems, choices, explanations, flashcards,
+// descriptions) so raw "$" never reaches the page.
 export function renderInlineMath(text: string): React.ReactNode[] {
-  const parts = text.split(/(\$[^$\n]+\$)/);
-  return parts.map((part, i) => {
-    if (part.startsWith('$') && part.endsWith('$') && part.length > 1) {
-      return <MathExpression key={i} latex={part.slice(1, -1)} />;
-    }
-    return <span key={i}>{renderBold(part)}</span>;
-  });
+  return splitInlineMath(text).map((segment, i) =>
+    segment.math ? (
+      <MathExpression key={i} latex={segment.value} />
+    ) : (
+      <span key={i}>{renderBold(segment.value)}</span>
+    ),
+  );
 }
 
 // Renders **bold** segments inside a plain-text (non-math) part. Unpaired
