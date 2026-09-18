@@ -24,7 +24,9 @@ import PaperRunnerClient from './PaperRunnerClient';
  *     evidence of value, it is already public (it is in the page <title>), and dimming it measured
  *     ~1.7:1 contrast while putting it inside `aria-hidden`.
  *  3. entitled → one GET to /api/content/premium/papers/<courseId>/<setId>; 401 → sign-in prompt,
- *     403 → an honest "not in your plan" card, anything else → an error line.
+ *     403 → an honest "not in your plan" card, 429 → the per-account speed limit (before Phase 2 this
+ *     fell into the generic error line, telling a real student clicking through sets that "something
+ *     went wrong" and leaving them to guess), anything else → an error line.
  *
  * EVERY branch renders the same breadcrumb chrome, which is also the page's <h1>
  * (`currentAsHeading`). The free set-1 page gets its chrome from PaperRunnerClient; before this the
@@ -45,7 +47,14 @@ export default function PremiumPaperShell({
   const entitled = loaded && has('exam-sets-full');
   const pathname = usePathname();
   const [paper, setPaper] = useState<Paper | null>(null);
-  const [failure, setFailure] = useState<'login' | 'not_entitled' | 'error' | null>(null);
+  const [failure, setFailure] = useState<'login' | 'not_entitled' | 'rate_limited' | 'error' | null>(null);
+  // Minutes until the premium rate-limit window rolls, resolved when the 429 arrives — never computed
+  // during render (this component is prerendered, so render must stay pure).
+  const [rateLimitResetsIn, setRateLimitResetsIn] = useState<number | null>(null);
+  // A retry is in flight. This keeps the CARD — and the pressed button, and the user's focus — mounted
+  // while the refetch runs, rather than swapping in the skeleton: the explanation stays readable, and
+  // an unmounted focused button drops focus to <body> with nothing announced (UX-review finding).
+  const [retrying, setRetrying] = useState(false);
   // Bumping this re-runs the fetch, so a transitory failure (5xx, offline, a stale 404) has a control
   // to press instead of advice the user cannot act on.
   const [retryKey, setRetryKey] = useState(0);
@@ -57,6 +66,20 @@ export default function PremiumPaperShell({
       .then(async (res) => {
         if (res.status === 401) throw new Error('login');
         if (res.status === 403) throw new Error('not_entitled');
+        if (res.status === 429) {
+          // Phase 2: the per-account premium budget. Read `resetAt` so the copy can name a time
+          // instead of saying "later" — the server already computes it (400-style parsing is not
+          // worth a failure path here: a missing field just yields the vaguer sentence).
+          const body = (await res.json().catch(() => null)) as { resetAt?: string } | null;
+          const deltaMs = body?.resetAt ? Date.parse(body.resetAt) - Date.now() : Number.NaN;
+          // Only a POSITIVE, finite delta is quoted. A device clock running ahead of the server can
+          // make it negative, and clamping that to 1 would pin the copy at "about 1 minute" for as
+          // long as the skew lasts — a number the server keeps contradicting. Say nothing precise.
+          if (!cancelled && Number.isFinite(deltaMs) && deltaMs > 0) {
+            setRateLimitResetsIn(Math.ceil(deltaMs / 60_000));
+          }
+          throw new Error('rate_limited');
+        }
         if (!res.ok) throw new Error('error');
         return res.json() as Promise<{ paper: Paper }>;
       })
@@ -66,7 +89,10 @@ export default function PremiumPaperShell({
         setPaper(body.paper);
       })
       .catch((err: Error) => {
-        if (!cancelled) setFailure(err.message as 'login' | 'not_entitled' | 'error');
+        if (!cancelled) setFailure(err.message as 'login' | 'not_entitled' | 'rate_limited' | 'error');
+      })
+      .finally(() => {
+        if (!cancelled) setRetrying(false);
       });
     return () => {
       cancelled = true;
@@ -105,6 +131,24 @@ export default function PremiumPaperShell({
         Free-response questions with a tick-point mark scheme and a model answer for every question.
       </p>
     </div>
+  );
+
+  // The retry control is shared by the two recoverable failure cards (rate limit, generic error) so
+  // they cannot drift apart: both keep the card mounted and disable the button while the refetch is in
+  // flight. Without `retrying`, pressing the button changed NOTHING on screen until the response
+  // landed — and on a repeat failure, not even then (UX-review P2-1; the error card had the same hole).
+  const retryControl = (
+    <button
+      type="button"
+      disabled={retrying}
+      onClick={() => {
+        setRetrying(true);
+        setRetryKey((key) => key + 1);
+      }}
+      className="mt-3 inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed dark:hover:bg-blue-500"
+    >
+      {retrying ? 'Checking…' : 'Try again'}
+    </button>
   );
 
   let body: React.ReactNode;
@@ -166,6 +210,28 @@ export default function PremiumPaperShell({
         </div>
       </>
     );
+  } else if (failure === 'rate_limited') {
+    // The per-account premium budget (Phase 2). Three copy rules, each from the UX-review pass:
+    //  • the headline is about the LIMIT, never about "you" — the bucket is per ACCOUNT, and an
+    //    account holds several child profiles, so three siblings can trip it between them;
+    //  • it never says "sets": the counter counts DELIVERIES, so 30 reloads of one set trip it too;
+    //  • the count and its unit are joined with a non-breaking space, because at 375px "…in about
+    //    17 / minutes." split the number from its unit across a line break.
+    body = (
+      <>
+        {preview}
+        <div className="card p-5 mt-3 text-center">
+          <p className="font-bold text-gray-900 dark:text-gray-50">This is a speed limit</p>
+          <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+            {rateLimitResetsIn
+              ? `Premium sets are limited per\u00A0account per\u00A0hour. You can open the next one in about ${rateLimitResetsIn}\u00A0minute${rateLimitResetsIn === 1 ? '' : 's'}.`
+              : 'Premium sets are limited per\u00A0account per\u00A0hour. Try again in a little while.'}{' '}
+            Your plan is unaffected.
+          </p>
+          {retryControl}
+        </div>
+      </>
+    );
   } else if (failure === 'error') {
     body = (
       <>
@@ -175,13 +241,7 @@ export default function PremiumPaperShell({
           <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
             Something went wrong fetching it — your plan is unaffected.
           </p>
-          <button
-            type="button"
-            onClick={() => setRetryKey((key) => key + 1)}
-            className="mt-3 inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 dark:hover:bg-blue-500"
-          >
-            Try again
-          </button>
+          {retryControl}
         </div>
       </>
     );

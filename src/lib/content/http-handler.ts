@@ -6,10 +6,16 @@ import { drawMixedReviewQuestions } from '../mixed-review-draw';
 import { getContentDeps, type ContentDeps } from './deps';
 import {
   CONTENT_HEALTH_PATH,
+  CONTENT_PREMIUM_REQUESTS_PER_WINDOW,
+  CONTENT_PREMIUM_ANOMALY_THRESHOLD,
+  CONTENT_PREMIUM_WINDOW_SECONDS,
   CONTENT_PRIVATE_CACHE_CONTROL,
   CONTENT_PUBLIC_CACHE_CONTROL,
   CONTENT_PUBLIC_REQUESTS_PER_WINDOW,
   CONTENT_PUBLIC_WINDOW_SECONDS,
+  contentAccountScope,
+  contentIpScope,
+  contentWindowResetAt,
   parseMixedReviewPath,
   parsePremiumPaperPath,
 } from './types';
@@ -28,6 +34,12 @@ import {
 // public route's cache policy. CloudFront would then serve a mark scheme to anonymous viewers FROM
 // CACHE. The two prefixes are separate CloudFront behaviors with separate cache policies, the
 // premium response is `private, no-store`, and tests/unit/content-iam.test.ts pins the ordering.
+//
+// Phase 2 (plan §5) added the second half of goal 1(b) — a subscriber's bulk pull is now THROTTLED
+// (a per-account fixed-window budget, charged only on a delivery that actually happens) and
+// ATTRIBUTABLE (one structured warning per account per window at a threshold below the budget, so a
+// sweep is visible while it is happening). The data policy needed no new grant: both scopes are the
+// same conditional UpdateCommand on octav-rate-limits.
 
 /** Every response carries an explicit cache policy — there is no default here on purpose. */
 function json(body: unknown, status: number, cacheControl: string): Response {
@@ -85,6 +97,46 @@ export async function handlePremiumPaperGet(
   const paper = getPaperContent(ids.courseId, ids.setId);
   if (!paper) return json({ error: 'not_found' }, 404, CONTENT_PRIVATE_CACHE_CONTROL);
 
+  // Phase 2 budget, charged AFTER the lookup on purpose: a repeated 404 or a typo'd set id must not
+  // spend a student's window, and this is the first point at which a real delivery is certain.
+  // Keyed by account, not IP — a paid puller is authenticated, so the IP is what they can rotate.
+  const userId = auth.user.userId;
+  const budget = await deps.storage.incrementContentRequestCount(
+    contentAccountScope(userId),
+    CONTENT_PREMIUM_REQUESTS_PER_WINDOW,
+    CONTENT_PREMIUM_WINDOW_SECONDS
+  );
+  if (!budget.allowed) {
+    console.warn(
+      `[content] premium budget exhausted — userId=${userId} course=${ids.courseId} setId=${ids.setId} ` +
+        `count=${budget.count}/${CONTENT_PREMIUM_REQUESTS_PER_WINDOW}`
+    );
+    // `resetAt` + the slid session cookie, exactly like the AI-mark quota's 429 (src/lib/feedback):
+    // the user IS authenticated and legitimately active, so their session must not appear to lapse.
+    return withCookie(
+      json(
+        { error: 'quota_exceeded', resetAt: contentWindowResetAt(deps.clock(), CONTENT_PREMIUM_WINDOW_SECONDS) },
+        429,
+        CONTENT_PRIVATE_CACHE_CONTROL
+      ),
+      auth.refreshCookie
+    );
+  }
+
+  if (budget.count === CONTENT_PREMIUM_ANOMALY_THRESHOLD) {
+    // Fires exactly once per account per window: the counter is incremented atomically, so only one
+    // request can observe this value.
+    //
+    // ponytail: this counts REQUESTS in the window, not distinct sets. The premium corpus is 15 sets,
+    // so a complete sweep is 15 requests — read this line as "this account crossed N premium
+    // deliveries this hour", not "it swept the corpus". Storing the requested set ids per window
+    // would be the upgrade if an incident ever needs the stronger claim.
+    console.warn(
+      `[content] premium anomaly — userId=${userId} count=${budget.count}/` +
+        `${CONTENT_PREMIUM_REQUESTS_PER_WINDOW} threshold=${CONTENT_PREMIUM_ANOMALY_THRESHOLD} setId=${ids.setId}`
+    );
+  }
+
   const res = json({ paper }, 200, CONTENT_PRIVATE_CACHE_CONTROL);
   // Slide the session TTL exactly like every other authenticated handler (one shared resolution path).
   return withCookie(res, auth.refreshCookie);
@@ -102,12 +154,12 @@ export async function handlePublicMixedReviewGet(
   deps: ContentDeps = getContentDeps(),
   input: { seed: string; topicIds: string[] | null }
 ): Promise<Response> {
-  const allowed = await deps.storage.incrementContentRequestCount(
-    clientIp(req),
+  const budget = await deps.storage.incrementContentRequestCount(
+    contentIpScope(clientIp(req)),
     CONTENT_PUBLIC_REQUESTS_PER_WINDOW,
     CONTENT_PUBLIC_WINDOW_SECONDS
   );
-  if (!allowed) {
+  if (!budget.allowed) {
     console.warn('[content] public mixed-review budget exhausted');
     return json({ error: 'quota_exceeded' }, 429, CONTENT_PRIVATE_CACHE_CONTROL);
   }

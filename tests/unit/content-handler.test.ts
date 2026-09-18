@@ -1,11 +1,18 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { InMemoryContentStorage } from '@/lib/content/dummy';
 import { handleContentGet } from '@/lib/content/http-handler';
 import type { ContentDeps } from '@/lib/content/deps';
 import {
   CONTENT_MAX_TOPIC_IDS,
+  CONTENT_PREMIUM_ANOMALY_THRESHOLD,
+  CONTENT_PREMIUM_REQUESTS_PER_WINDOW,
+  CONTENT_PREMIUM_WINDOW_SECONDS,
   CONTENT_PRIVATE_CACHE_CONTROL,
   CONTENT_PUBLIC_CACHE_CONTROL,
+  contentAccountScope,
+  contentIpScope,
+  contentRateLimitBucket,
+  contentWindowResetAt,
   parseMixedReviewPath,
   parsePremiumPaperPath,
 } from '@/lib/content/types';
@@ -24,23 +31,29 @@ const FREE_SET = 'math-y9-set-1';
 const COURSE = 'math-y9';
 
 /** A session row + user row in the dummy universe, returning the cookie the request should carry. */
-async function signIn(storage: InMemoryContentStorage, tier: 'free' | 'premium'): Promise<string> {
-  const token = `token-${tier}`;
+async function signIn(
+  storage: InMemoryContentStorage,
+  tier: 'free' | 'premium',
+  /** Distinguishes two accounts of the same tier — the premium budget is per ACCOUNT, not per tier. */
+  account = '',
+): Promise<string> {
+  const token = `token-${tier}${account}`;
+  const userId = `user-${tier}${account}`;
   const sessionId = hashSessionToken(token);
   const nowSec = Math.floor(Date.now() / 1000);
   const session: SessionRecord = {
     sessionId,
-    userId: `user-${tier}`,
+    userId,
     createdAt: new Date().toISOString(),
     lastAccessedAt: new Date().toISOString(),
     expiresAt: nowSec + 3600,
-    email: `${tier}@example.com`,
+    email: `${tier}${account}@example.com`,
     userAgent: 'vitest',
     ip: '127.0.0.1',
   };
   const user = {
-    userId: `user-${tier}`,
-    email: `${tier}@example.com`,
+    userId,
+    email: `${tier}${account}@example.com`,
     tier,
     createdAt: new Date().toISOString(),
     childProfiles: [],
@@ -192,6 +205,126 @@ describe('content API — public mixed review', () => {
       deps(storage)
     );
     expect(res.status).toBe(404);
+  });
+});
+
+describe('content API — premium per-account budget (Phase 2)', () => {
+  const FIXED_MS = Date.parse('2026-09-18T12:34:56.000Z');
+  let storage: InMemoryContentStorage;
+  let deps: ContentDeps;
+
+  beforeEach(() => {
+    // One frozen clock for BOTH the storage's bucket epoch and the handler's `resetAt`.
+    const clock = () => FIXED_MS;
+    storage = new InMemoryContentStorage(clock);
+    deps = { storage, clock };
+  });
+
+  const premiumUrl = `/api/content/premium/papers/${COURSE}/${PREMIUM_SET}`;
+
+  it('throttles an entitled account after the window budget, with resetAt and a slid session', async () => {
+    const cookie = await signIn(storage, 'premium');
+    let allowed = 0;
+    for (let i = 0; i < CONTENT_PREMIUM_REQUESTS_PER_WINDOW + 2; i += 1) {
+      const res = await handleContentGet(get(premiumUrl, cookie), deps);
+      if (res.status === 200) {
+        allowed += 1;
+        continue;
+      }
+      expect(res.status).toBe(429);
+      expect(res.headers.get('Cache-Control')).toBe(CONTENT_PRIVATE_CACHE_CONTROL);
+      // The user is authenticated and legitimately active — the session must keep sliding.
+      expect(res.headers.get('Set-Cookie')).toContain('octav_session=');
+      const body = (await res.json()) as { error: string; resetAt: string };
+      expect(body.error).toBe('quota_exceeded');
+      const resetAt = Date.parse(body.resetAt);
+      expect(resetAt).toBeGreaterThan(FIXED_MS);
+      expect(resetAt).toBeLessThanOrEqual(FIXED_MS + CONTENT_PREMIUM_WINDOW_SECONDS * 1000);
+      break;
+    }
+    expect(allowed).toBe(CONTENT_PREMIUM_REQUESTS_PER_WINDOW);
+  });
+
+  it('does not spend the budget on 401, 403 or 404 — only on a delivery that happens', async () => {
+    // 404s for an entitled account: 40 of them, well past the budget.
+    const cookie = await signIn(storage, 'premium');
+    for (let i = 0; i < 40; i += 1) {
+      const res = await handleContentGet(get(`/api/content/premium/papers/${COURSE}/math-y9-set-98`, cookie), deps);
+      expect(res.status).toBe(404);
+    }
+    // …and the account can still read a real set.
+    expect((await handleContentGet(get(premiumUrl, cookie), deps)).status).toBe(200);
+
+    // Anonymous and free-tier refusals never touch anyone's counter either.
+    for (let i = 0; i < 40; i += 1) {
+      expect((await handleContentGet(get(premiumUrl), deps)).status).toBe(401);
+    }
+    const freeCookie = await signIn(storage, 'free');
+    for (let i = 0; i < 40; i += 1) {
+      expect((await handleContentGet(get(premiumUrl, freeCookie), deps)).status).toBe(403);
+    }
+  });
+
+  it('keys the budget by account, not by IP or by tier', async () => {
+    const a = await signIn(storage, 'premium', '-a');
+    const b = await signIn(storage, 'premium', '-b');
+    // Spend A's whole window.
+    for (let i = 0; i < CONTENT_PREMIUM_REQUESTS_PER_WINDOW; i += 1) {
+      expect((await handleContentGet(get(premiumUrl, a), deps)).status).toBe(200);
+    }
+    expect((await handleContentGet(get(premiumUrl, a), deps)).status).toBe(429);
+    // B shares neither the IP nor the budget.
+    expect((await handleContentGet(get(premiumUrl, b), deps)).status).toBe(200);
+  });
+
+  it('logs one attributable anomaly warning per account per window, below the budget', async () => {
+    const cookie = await signIn(storage, 'premium');
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      for (let i = 0; i < CONTENT_PREMIUM_ANOMALY_THRESHOLD; i += 1) {
+        expect((await handleContentGet(get(premiumUrl, cookie), deps)).status).toBe(200);
+      }
+      const anomalies = warn.mock.calls.filter(([line]) => String(line).includes('premium anomaly'));
+      expect(anomalies).toHaveLength(1);
+      // Attributable: the account id is in the line, which is the whole point (plan §1 decision 1(b)).
+      expect(String(anomalies[0][0])).toContain('userId=user-premium');
+
+      // …and it does not repeat for the rest of the window.
+      for (let i = 0; i < CONTENT_PREMIUM_REQUESTS_PER_WINDOW - CONTENT_PREMIUM_ANOMALY_THRESHOLD; i += 1) {
+        await handleContentGet(get(premiumUrl, cookie), deps);
+      }
+      expect(warn.mock.calls.filter(([line]) => String(line).includes('premium anomaly'))).toHaveLength(1);
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
+  it('mirrors the DynamoDB adapter: refusals do not advance the counter and report the cap', async () => {
+    // The adapter's conditional update does not write on failure, so the item stays exactly at the
+    // limit. The dummy must agree, otherwise a log line or a future read would disagree with production.
+    const scope = contentAccountScope('user-parity');
+    const sequence: Array<{ allowed: boolean; count: number }> = [];
+    for (let i = 0; i < 4; i += 1) {
+      sequence.push(await storage.incrementContentRequestCount(scope, 2, 3600));
+    }
+    expect(sequence).toEqual([
+      { allowed: true, count: 1 },
+      { allowed: true, count: 2 },
+      { allowed: false, count: 2 },
+      { allowed: false, count: 2 },
+    ]);
+  });
+
+  it('scopes the public budget to the IP and the premium one to the account', () => {
+    expect(contentIpScope('1.2.3.4')).toBe('content:ip:1.2.3.4');
+    expect(contentAccountScope('user-1')).toBe('content:acct:user-1');
+    expect(contentRateLimitBucket(contentIpScope('1.2.3.4'), FIXED_MS, 3600)).toBe(
+      `content:ip:1.2.3.4:${Math.floor(FIXED_MS / 3_600_000)}`
+    );
+    // resetAt is the END of the window containing `now`, never a moment inside it.
+    expect(Date.parse(contentWindowResetAt(FIXED_MS, 3600))).toBe(
+      (Math.floor(FIXED_MS / 3_600_000) + 1) * 3_600_000
+    );
   });
 });
 

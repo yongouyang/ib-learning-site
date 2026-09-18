@@ -121,4 +121,16 @@ describe('the premium route is gated server-side, not in the UI', () => {
     expect(handlerTs).toContain('CONTENT_PUBLIC_CACHE_CONTROL');
     expect(handlerTs).toContain('cacheControl: string');
   });
+
+  it('charges the per-account budget only after the paper lookup (a 404 costs no budget)', () => {
+    // Phase 2. Ordering is the decision: 401 → 403 → lookup → budget → 200, so a typo'd set id or a
+    // repeated 404 cannot spend a student's window. Moving the increment above the lookup would break
+    // this and hand a scraper a way to burn an account's budget without receiving anything.
+    const lookup = handlerTs.indexOf('getPaperContent(');
+    const accountScope = handlerTs.indexOf('contentAccountScope(');
+    expect(lookup).toBeGreaterThanOrEqual(0);
+    expect(accountScope).toBeGreaterThan(lookup);
+    // …and it is the ACCOUNT scope on this route, not the IP one (a paid puller can rotate IPs).
+    expect(handlerTs).not.toContain('contentIpScope(auth.user');
+  });
 });

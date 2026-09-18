@@ -1,5 +1,5 @@
 import { InMemorySubscriptionsStorage } from '../subscriptions/dummy';
-import type { ContentStorage } from './types';
+import type { ContentBudgetResult, ContentStorage } from './types';
 import { contentRateLimitBucket } from './types';
 
 // In-memory content dummy (Phase 1b) — the controllable-dummy directive (AGENTS.md): dev and e2e run
@@ -24,11 +24,18 @@ export class InMemoryContentStorage extends InMemorySubscriptionsStorage impleme
     this.contentClock = clock;
   }
 
-  async incrementContentRequestCount(ip: string, limit: number, windowSeconds: number): Promise<boolean> {
-    const key = contentRateLimitBucket(ip, this.contentClock(), windowSeconds);
+  async incrementContentRequestCount(
+    scope: string,
+    limit: number,
+    windowSeconds: number,
+  ): Promise<ContentBudgetResult> {
+    const key = contentRateLimitBucket(scope, this.contentClock(), windowSeconds);
     const count = this.contentCounters.get(key) ?? 0;
-    if (count >= limit) return false;
+    // Refused requests do NOT advance the counter, and report the cap — the DynamoDB adapter's
+    // conditional update does not write either, so both sides agree exactly (parity pinned in
+    // tests/unit/content-handler.test.ts).
+    if (count >= limit) return { allowed: false, count: limit };
     this.contentCounters.set(key, count + 1);
-    return true;
+    return { allowed: true, count: count + 1 };
   }
 }

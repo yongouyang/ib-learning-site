@@ -1,6 +1,6 @@
 import { UpdateCommand, type DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import type { SessionRecord, UserRecord } from '../auth/types';
-import type { ContentStorage } from './types';
+import type { ContentBudgetResult, ContentStorage } from './types';
 import { contentRateLimitBucket, contentWindowEpoch } from './types';
 
 // Production content adapter (Phase 1b): the ContentStorage contract on
@@ -57,16 +57,22 @@ export class DynamoContentStorage implements ContentStorage {
     return this.sessionStorage.deleteSession(sessionId);
   }
 
-  // --- Rate budget (octav-rate-limits) -------------------------------------------
+  // --- Rate budgets (octav-rate-limits) ------------------------------------------
 
-  async incrementContentRequestCount(ip: string, limit: number, windowSeconds: number): Promise<boolean> {
+  async incrementContentRequestCount(
+    scope: string,
+    limit: number,
+    windowSeconds: number,
+  ): Promise<ContentBudgetResult> {
     // Fixed-window counter with the window epoch IN the bucket key (the auth/analytics/contact
     // pattern): each window is a fresh item, so the counter resets ATOMICALLY in a single
     // UpdateCommand when the window rolls — no dependence on TTL deletion (best-effort, up to ~48h).
+    // One statement serves both scopes: `content:ip:<ip>` (public, on origin misses) and
+    // `content:acct:<userId>` (premium, every request).
     const nowMs = this.clock();
-    const bucket = contentRateLimitBucket(ip, nowMs, windowSeconds);
+    const bucket = contentRateLimitBucket(scope, nowMs, windowSeconds);
     try {
-      await this.client.send(
+      const result = await this.client.send(
         new UpdateCommand({
           TableName: this.tables.rateLimits,
           Key: { bucket },
@@ -81,11 +87,14 @@ export class DynamoContentStorage implements ContentStorage {
             ':limit': limit,
             ':exp': (contentWindowEpoch(nowMs, windowSeconds) + 1) * windowSeconds,
           },
+          ReturnValues: 'UPDATED_NEW',
         })
       );
-      return true;
+      const count = Number(result.Attributes?.count ?? limit);
+      return { allowed: true, count };
     } catch (err) {
-      if (isConditionalFailure(err)) return false;
+      // The conditional write was refused, so the item is unchanged and sits exactly at the cap.
+      if (isConditionalFailure(err)) return { allowed: false, count: limit };
       throw err;
     }
   }

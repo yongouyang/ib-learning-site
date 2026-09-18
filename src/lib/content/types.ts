@@ -21,6 +21,26 @@ import type { MixedReviewQuestion } from '../mixed-review';
 export const CONTENT_PUBLIC_REQUESTS_PER_WINDOW = 60;
 export const CONTENT_PUBLIC_WINDOW_SECONDS = 3600;
 
+/**
+ * Premium route (Phase 2): 30 deliveries per ACCOUNT per hour.
+ *
+ * Be honest about what this buys (plan §8). The whole premium corpus is 15 sets, so an entitled
+ * subscriber can pull all of it in 15 requests — no budget that leaves the product usable can stop
+ * that, and the accepted residual is "an entitled subscriber can copy what they receive". What the
+ * budget bounds is sustained RATE (a scripted puller looping the corpus, or one account rented out
+ * to a group), and what makes an attempt visible is the anomaly log below. Keyed by account, not IP:
+ * a paid puller is authenticated, so the IP is the one thing they can rotate.
+ */
+export const CONTENT_PREMIUM_REQUESTS_PER_WINDOW = 30;
+export const CONTENT_PREMIUM_WINDOW_SECONDS = 3600;
+
+/**
+ * Emit an attributable warning once per account per window at this many premium deliveries. Set
+ * BELOW the budget on purpose: a sweep should be visible while it is happening, not only once it has
+ * been refused and the information is already lost.
+ */
+export const CONTENT_PREMIUM_ANOMALY_THRESHOLD = 10;
+
 /** Cap on the weak-topic id list a client may send (keeps the URL well under any limit). */
 export const CONTENT_MAX_TOPIC_IDS = 40;
 
@@ -97,25 +117,61 @@ export interface ContentStorage {
   deleteSession(sessionId: string): Promise<void>;
 
   /**
-   * Fixed-window per-IP budget (octav-rate-limits): true = within budget, false = limit reached for
-   * the current window. Applied on ORIGIN MISSES only — CloudFront never invokes the function for a
-   * cache hit, which is what makes the budget a harvest guard rather than a tax on normal users.
+   * Fixed-window budget on octav-rate-limits, keyed by `scope` (`content:ip:<ip>` for the public
+   * route, `content:acct:<userId>` for the premium one) plus the window epoch.
+   *
+   * The public scope sees ORIGIN MISSES only — CloudFront never invokes the function for a cache hit,
+   * which is what makes it a harvest guard rather than a tax on normal users. The premium scope sees
+   * every request, because premium responses are never cached at all.
    */
-  incrementContentRequestCount(ip: string, limit: number, windowSeconds: number): Promise<boolean>;
+  incrementContentRequestCount(scope: string, limit: number, windowSeconds: number): Promise<ContentBudgetResult>;
+}
+
+/**
+ * One fixed-window increment. `count` is the requests used in the window INCLUDING this one, which is
+ * what lets the handler log a threshold crossing. The auth/analytics limiters return a bare boolean;
+ * this one needs the count, so it returns it rather than paying for a second read. On refusal `count`
+ * is the limit: the DynamoDB conditional update does not write, so the item stays exactly at the cap
+ * (the dummy mirrors that).
+ */
+export interface ContentBudgetResult {
+  allowed: boolean;
+  count: number;
 }
 
 // --- Pure helpers (shared by BOTH storage implementations — the parity lesson) ---
+
+/** Public route scope: the viewer's IP (CloudFront appends it — see clientIp() in the handler). */
+export function contentIpScope(ip: string): string {
+  return `content:ip:${ip}`;
+}
+
+/** Premium route scope: the account, so the budget follows a user across devices and IPs. */
+export function contentAccountScope(userId: string): string {
+  return `content:acct:${userId}`;
+}
 
 /** The window epoch for an epoch-ms instant. */
 export function contentWindowEpoch(nowMs: number, windowSeconds: number = CONTENT_PUBLIC_WINDOW_SECONDS): number {
   return Math.floor(nowMs / (windowSeconds * 1000));
 }
 
-/** Bucket key `content:<ip>:<epoch>` (octav-rate-limits PK). */
+/** Bucket key `<scope>:<epoch>` (octav-rate-limits PK), e.g. `content:ip:1.2.3.4:495113`. */
 export function contentRateLimitBucket(
-  ip: string,
+  scope: string,
   nowMs: number,
   windowSeconds: number = CONTENT_PUBLIC_WINDOW_SECONDS,
 ): string {
-  return `content:${ip}:${contentWindowEpoch(nowMs, windowSeconds)}`;
+  return `${scope}:${contentWindowEpoch(nowMs, windowSeconds)}`;
+}
+
+/**
+ * ISO timestamp at which the current window rolls — the 429 body's `resetAt`, same shape and same
+ * reason as `aiMarkResetAt`: the client can say "try again at ..." instead of "try again later".
+ */
+export function contentWindowResetAt(
+  nowMs: number,
+  windowSeconds: number = CONTENT_PUBLIC_WINDOW_SECONDS,
+): string {
+  return new Date((contentWindowEpoch(nowMs, windowSeconds) + 1) * windowSeconds * 1000).toISOString();
 }

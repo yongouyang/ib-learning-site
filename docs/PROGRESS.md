@@ -4,6 +4,51 @@
 
 ---
 
+## 2026-09-18 (session 2) — Premium Phase 2: the premium budget, attribution, and its UX review
+Git HEAD: `60b7c2f` (develop; tree dirty at time of writing — this change set is not yet committed)
+Done: **Phase 2 of the premium plan landed** (docs/premium-content-protection-plan.md §5): throttling and
+  attribution for the gated content API. `incrementContentRequestCount` now takes a SCOPE
+  (`content:ip:<ip>` for public, `content:acct:<userId>` for premium — still ONE conditional
+  UpdateCommand on octav-rate-limits, so **no new IAM grant**) and returns the window count as well as
+  allow/deny, which `DynamoContentStorage` reads back with `ReturnValues: UPDATED_NEW`. The premium
+  route is charged AFTER the paper lookup (401/403/404 spend nothing), 429s with `quota_exceeded` +
+  `resetAt` and still slides the session cookie, and logs ONE attributable warning per account per
+  window at 10 — below the 30/hour budget, so a sweep shows while it happens. `PremiumPaperShell`
+  gained a dedicated 429 card, and the retry control is now SHARED with the generic error card and
+  disables/relabels in place: both cards previously changed nothing on screen when pressed (the error
+  card had the same hole, previously unreported).
+Verified: unit **1432/1432** (128 files), tsc clean, lint 29 warnings / 0 errors (baseline),
+  `validate:content` 233/3765, `audit:content` 0/0, `check:registry` ok, `terraform fmt -check` +
+  `validate` clean, `build:lambda` OK (content zip 7.0 MB), **static e2e Desktop Chrome 266 passed /
+  3 skipped / 0 failed**. UX: two fresh-context subagent passes on the new state
+  (`scripts/capture-content-ux.mjs` grew a `premium-set-429` shot; captures re-run after each fix) —
+  pass 1 PASS WITH NOTES (P2-1 the dead retry, P2-2 no test, P3s on the headline), pass 2 PASS WITH
+  NOTES with no P1/P2; I also read the re-captured mobile light+dark shots myself to confirm the
+  non-breaking-space fix (`…about 17 / minutes.` used to split the numeral from its unit).
+Next: (1) **promote `develop` → `main`** — the item round 1 left open, which now also carries Phase 2;
+  prod is STILL on `fac6adf`, i.e. still serving `math-yr8-congruence-similarity` as one run-on
+  paragraph. (2) Phase 2's leftover: the optional per-session payload marker for leak tracing — it
+  embeds an account-linked identifier in content users receive, which the privacy notice does not
+  describe, so it needs a §6.3-style clause + checklist entry first: a user/legal decision. (3) Then the
+  standing queue (illustrations 106, traffic/SEO depth, content depth).
+Notes: **the local plan read `9 to add, 10 to destroy` and that is a `build:lambda` artefact, not
+  drift** — those are the 9 `terraform_data.function_url_invoke_permission` replacements, which follow
+  `triggers_replace = <lambda>.last_modified` and therefore re-run for EVERY Lambda whenever the zips
+  are rebuilt locally (esbuild output is not byte-identical run to run). The informative part of that
+  plan: **the content_api IAM policy is unchanged** (the edit there was a comment, and a `#` comment is
+  outside the policy JSON), and the single SNS destroy is the known `analytics_admin_emails`
+  local-variable artefact. **Ceiling, stated in the code too:** the budget bounds RATE and the log makes
+  a sweep attributable; the premium corpus is 15 sets, so a subscriber can still take all of it in 15
+  requests — the accepted residual in plan §8. **Waivers recorded (AGENTS requires it):** (a) the
+  401/403/429/error cards announce nothing to a screen reader when they replace the loading status
+  region — the reviewer's one-attribute fix does NOT work (a `role="status"` that mounts WITH its text
+  announces nothing: the repo's own documented rule), and an `aria-live` on the page wrapper would
+  re-announce every mutation inside the running paper, so the real fix is its own a11y pass; (b) the 429
+  card has no secondary route link — its recovery is the named time plus the working retry, and the
+  sibling cards link out only because their problem has a `/pricing` answer; (c) two PRE-EXISTING,
+  app-wide items not introduced here: the breadcrumb-h1 desktop wrap (`md:max-w-xs`) and
+  white-on-`dark:hover:bg-blue-500` at 3.68:1.
+
 ## 2026-09-18 — Round 1: one inline-math grammar, `%5Fhealth` routing, a content typo, and the quota unblock
 Git HEAD: `e754ec6` (develop, working tree dirty — this change set is not committed yet)
 Done: **(1) Inline math has ONE grammar.** `splitInlineMath` in `src/components/InlineMath.tsx` is now

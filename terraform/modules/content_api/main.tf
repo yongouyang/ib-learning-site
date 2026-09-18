@@ -117,7 +117,9 @@ data "aws_iam_policy_document" "content" {
   }
 
   # rate limits — incrementContentRequestCount: one conditional UpdateCommand on the fixed-window
-  # bucket key (content:<ip>:<epoch>). The condition evaluates the pre-update item, so no GetItem is
+  # bucket key. BOTH scopes go through this one statement (no second grant for Phase 2): the public
+  # route's per-IP bucket (`content:ip:<ip>:<epoch>`) and the premium route's per-account bucket
+  # (`content:acct:<userId>:<epoch>`). The condition evaluates the pre-update item, so no GetItem is
   # needed (the analytics/contact precedent).
   statement {
     actions = [

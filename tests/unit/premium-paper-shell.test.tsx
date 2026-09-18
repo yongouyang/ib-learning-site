@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import type { PaperMeta } from '@/content/types';
 
 // Phase 1b — the premium shell (docs/premium-content-protection-plan.md §4.2). The states, in the
@@ -36,6 +36,10 @@ const META: PaperMeta = {
 
 let fetchCalls: string[] = [];
 let fetchStatus = 200;
+/** Response body for non-200 statuses (a 429 carries `resetAt`); null = the default paper payload. */
+let fetchBody: unknown = null;
+/** When set, the mock fetch waits on it — so a retry's in-flight state can be observed. */
+let fetchGate: Promise<void> | null = null;
 
 describe('PremiumPaperShell', () => {
   beforeEach(() => {
@@ -43,14 +47,17 @@ describe('PremiumPaperShell', () => {
     entitled = false;
     fetchCalls = [];
     fetchStatus = 200;
+    fetchBody = null;
+    fetchGate = null;
     vi.stubGlobal(
       'fetch',
       vi.fn(async (url: string) => {
         fetchCalls.push(String(url));
+        if (fetchGate) await fetchGate;
         return {
           ok: fetchStatus === 200,
           status: fetchStatus,
-          json: async () => ({ paper: { id: META.id, questions: [] } }),
+          json: async () => fetchBody ?? { paper: { id: META.id, questions: [] } },
         } as unknown as Response;
       })
     );
@@ -142,5 +149,83 @@ describe('PremiumPaperShell', () => {
     await waitFor(() => expect(screen.getByText(/Not included in your plan/)).toBeTruthy());
     expect(screen.getByText(/See Premium plans/)).toBeTruthy();
     expect(screen.queryByTestId('paper-runner')).toBeNull();
+  });
+
+  // Phase 2: the per-account premium budget answers 429. Before this branch existed, a student who
+  // clicked through sets quickly was told "Something went wrong fetching it — your plan is
+  // unaffected", which is both vague and wrong about the cause.
+  describe('429 (the per-account premium budget)', () => {
+    beforeEach(() => {
+      loadedState = true;
+      entitled = true;
+      fetchStatus = 429;
+    });
+
+    it('renders the speed-limit card, names the reset time, and offers a working retry', async () => {
+      fetchBody = { error: 'quota_exceeded', resetAt: new Date(Date.now() + 10 * 60_000 + 1_000).toISOString() };
+      render(<PremiumPaperShell courseId="math-y9" setId="math-y9-set-2" meta={META} />);
+      await waitFor(() => expect(screen.getByText(/This is a speed limit/)).toBeTruthy());
+      // The sentence is asserted POSITIVELY: a regression that dropped "per account" — the exact
+      // mis-attribution the review fixed — must not pass here. Written with plain spaces because
+      // testing-library's default normalizer collapses the rendered non-breaking spaces.
+      expect(screen.getByText(/Premium sets are limited per account per hour\./)).toBeTruthy();
+      // Structural rather than literal: the exact minute depends on when the fetch resolved.
+      expect(screen.getByText(/You can open the next one in about \d+ minutes?\./)).toBeTruthy();
+      expect(screen.getByText(/Your plan is unaffected\./)).toBeTruthy();
+      expect(screen.getByRole('button', { name: 'Try again' })).toBeTruthy();
+      expect(screen.queryByTestId('paper-runner')).toBeNull();
+      // The regression this replaced must not come back for a 429.
+      expect(screen.queryByText(/Could not load this set/)).toBeNull();
+      // Nor the old headline, which attributed an account-wide state to "you".
+      expect(screen.queryByText(/You have opened/)).toBeNull();
+    });
+
+    it('re-fetches on Try again, keeping the card and the button mounted while it runs', async () => {
+      fetchBody = { error: 'quota_exceeded', resetAt: new Date(Date.now() + 10 * 60_000 + 1_000).toISOString() };
+      render(<PremiumPaperShell courseId="math-y9" setId="math-y9-set-2" meta={META} />);
+      await waitFor(() => expect(screen.getByText(/This is a speed limit/)).toBeTruthy());
+      expect(fetchCalls).toHaveLength(1);
+
+      // Hold the retry's response open so the in-flight state is observable. The review's P2-1: the
+      // press used to leave a byte-identical screen (the button looked dead). Now it disables and
+      // relabels in place, so the card stays readable and a focused button is never unmounted.
+      let release!: () => void;
+      fetchGate = new Promise<void>((resolve) => {
+        release = resolve;
+      });
+      fireEvent.click(screen.getByRole('button', { name: 'Try again' }));
+      const checking = await screen.findByRole('button', { name: 'Checking…' });
+      expect(checking).toBeDisabled();
+      expect(screen.getByText(/Premium sets are limited per account per hour\./)).toBeTruthy();
+      await waitFor(() => expect(fetchCalls).toHaveLength(2));
+
+      release();
+      fetchGate = null;
+      // The window is still closed, so the card returns with a usable control.
+      await waitFor(() => expect(screen.getByRole('button', { name: 'Try again' })).not.toBeDisabled());
+      expect(screen.queryByTestId('paper-runner')).toBeNull();
+    });
+
+    it('never says "0 minutes" when the client clock is skewed past the reset time', async () => {
+      // The server's resetAt is in the past as far as this device is concerned. Clamping to 1 would
+      // pin the copy at "about 1 minute" for as long as the skew lasts, so the vaguer sentence wins.
+      fetchBody = { error: 'quota_exceeded', resetAt: new Date(Date.now() - 60_000).toISOString() };
+      render(<PremiumPaperShell courseId="math-y9" setId="math-y9-set-2" meta={META} />);
+      await waitFor(() => expect(screen.getByText(/Try again in a little while\./)).toBeTruthy());
+      expect(screen.queryByText(/about 1 minute\./)).toBeNull();
+    });
+
+    it('falls back to a vaguer sentence when the body carries no resetAt', async () => {
+      fetchBody = { error: 'quota_exceeded' };
+      render(<PremiumPaperShell courseId="math-y9" setId="math-y9-set-2" meta={META} />);
+      await waitFor(() => expect(screen.getByText(/Try again in a little while\./)).toBeTruthy());
+    });
+
+    it('keeps the generic error card for anything else (a 500 is not a rate limit)', async () => {
+      fetchStatus = 500;
+      render(<PremiumPaperShell courseId="math-y9" setId="math-y9-set-2" meta={META} />);
+      await waitFor(() => expect(screen.getByText(/Could not load this set/)).toBeTruthy());
+      expect(screen.queryByText(/This is a speed limit/)).toBeNull();
+    });
   });
 });

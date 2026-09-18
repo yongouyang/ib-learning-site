@@ -47,6 +47,9 @@ const SHOTS = [
   // answer 401 / 403. That is also exactly the production-issue reproduction path for these states.
   { name: 'premium-set-401', path: '/papers/math-y7/math-y7-set-2', waitFor: 'Sign in to open this set', asEntitled: true, paperStatus: 401 },
   { name: 'premium-set-403', path: '/papers/math-y7/math-y7-set-2', waitFor: 'Not included in your plan', asEntitled: true, paperStatus: 403 },
+  // Phase 2's new state: the per-account premium budget (429). Before it existed this fell into the
+  // generic "Could not load this set" card, which is the sort of thing only a screenshot can catch.
+  { name: 'premium-set-429', path: '/papers/math-y7/math-y7-set-2', waitFor: 'This is a speed limit', asEntitled: true, paperStatus: 429 },
   { name: 'premium-set-fetching', path: '/papers/math-y7/math-y7-set-2', waitFor: 'Loading this set…', asEntitled: true, paperStatus: 'slow' },
 ];
 const VIEWPORTS = {
@@ -159,7 +162,14 @@ try {
               await route.fulfill({
                 status: shot.paperStatus,
                 contentType: 'application/json',
-                body: JSON.stringify({ error: shot.paperStatus === 401 ? 'login_required' : 'not_entitled' }),
+                body: JSON.stringify(
+                  shot.paperStatus === 401
+                    ? { error: 'login_required' }
+                    : shot.paperStatus === 429
+                      ? // The server names the window end; the copy turns it into "about N minutes".
+                        { error: 'quota_exceeded', resetAt: new Date(Date.now() + 17 * 60_000).toISOString() }
+                      : { error: 'not_entitled' }
+                ),
               });
             });
           }

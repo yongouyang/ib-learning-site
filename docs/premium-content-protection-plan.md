@@ -234,15 +234,27 @@ anonymous premium leak in HTML and `.txt`; it changes nothing a user can see.
       from 6.49 MB to **1.85 MB** (the mixed-review lazy chunk is gone too). `audit:leaks` now runs
       inside `build:static`, so both deploys carry the gate.
 
-### Phase 2 — throttling and attribution
+### Phase 2 — throttling and attribution — LANDED 2026-09-18 (one item open)
 
-### Phase 2 — throttling and attribution
-
-- [ ] Per-account fixed-window budget on the premium endpoint (the `octav-rate-limits` pattern);
-      per-IP on misses.
-- [ ] Anomaly logging when one session pulls many sets; this is what makes decision 1(b) real.
-- [ ] Optional per-session marker in premium payloads for attribution — **requires a privacy-note
-      change** (account-linked marker; cf. `docs/privacy-notice-draft.md` §6.3).
+- [x] Per-account fixed-window budget on the premium endpoint (the `octav-rate-limits` pattern).
+      Keyed by ACCOUNT, not IP — a paid puller is authenticated, so the IP is the one thing they can
+      rotate. `incrementContentRequestCount` now takes a scope (`content:ip:<ip>` / `content:acct:<id>`)
+      and returns the window count, so no new IAM grant was needed. The budget is charged only after
+      the paper lookup, so a repeated 404 cannot spend a student's window; the 429 carries
+      `quota_exceeded` + `resetAt` and still slides the session cookie (the AI-mark quota precedent).
+      The public route's per-IP-on-origin-misses budget (already live since 1b) is untouched.
+- [x] Anomaly logging when one account pulls many sets: ONE attributable warning per account per
+      window at `CONTENT_PREMIUM_ANOMALY_THRESHOLD` = 10, below the 30/hour budget, so a sweep is
+      visible while it is happening rather than only once refused. **Honest ceiling:** it counts
+      requests, not distinct sets — the premium corpus is 15 sets, so a full sweep is 15 requests.
+      Read the line as "crossed N deliveries this hour". Storing the set ids per window is the upgrade
+      if an incident ever needs the stronger claim.
+- [ ] **OPEN — per-session marker in premium payloads for attribution**, i.e. the leak-tracing half of
+      decision 1(b)+(3). Not started on purpose: it embeds an account-linked identifier in content the
+      user receives, which the privacy notice does not currently describe (§6.5 covers rate limits and
+      request patterns, not watermarking), so it is a user/legal decision, not a code one. The delta
+      would be a §6.3-style clause plus the review-checklist entry, then a marker in the premium
+      payload. Note the practical limit: a marker makes a leak *traceable*, it does not prevent one.
 
 ### Phase 3 — WITHDRAWN (decision 10)
 
@@ -315,6 +327,14 @@ Implementation notes that are not optional:
   green; until then it is a measurement tool that reports the failing baseline.
 
 Plus:
+
+- **Phase 2's own gates:** `tests/unit/content-handler.test.ts` covers the budget (N deliveries then 429
+  with `resetAt`, refusals do NOT advance the counter and report the cap — the DynamoDB conditional
+  update's exact semantics, so the dummy cannot drift), that 401/403/404 spend nothing, that the budget
+  is per ACCOUNT not per IP, and that the anomaly warning fires exactly once per window with the
+  account id in it. `tests/unit/content-iam.test.ts` pins the ordering (budget AFTER the paper lookup)
+  and that the route uses the account scope. The 429 card is captured by `scripts/capture-content-ux.mjs`
+  (`premium-set-429-*`), which is how the UX-review pass can see it at all.
 
 - The content Lambda's `_health` probe (which all other Lambdas already have).
 - A pinned terraform/IAM test for the content module and its behaviour ordering.
