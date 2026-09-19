@@ -68,6 +68,14 @@ calculator: z.boolean().optional()   // math only; true = calculator expected/al
 - **calculator** (math only) = a calculator is genuinely expected for the computation; exact-form topics (e.g. surds) and mental-math questions stay untagged. KS3 is mostly untagged; DP-AI allows a GDC on **all** papers (the P1-non-calc convention applies to AA, not AI), so tag where a GDC is genuinely expected (regression, distribution probabilities, hypothesis tests, matrices, graph algorithms, numerical solving).
 - Target ≈ 30/40/30 easy/medium/hard per topic; audit requires ≥3 easy and ≥3 hard.
 
+> **Read `CONTENT_STYLE.md` "How to read the bands" before quoting these lines into a swarm
+> prompt (added 2026-09-19).** The bands are *relative to the topic as well as to its level*: the
+> ramp every topic must provide (`audit:content` ≥3 hard; `STANDARD_MIX` draws ~30% from the hard
+> band) means a recall-heavy topic tags its three least-certain questions `hard` even where none is
+> multi-step. A 2026-09-19 measurement over all 3,765 questions found that reading the levels as
+> *absolute* bands marks ~1% of the corpus hard, which cannot satisfy the rule below — so the
+> absolute wording alone is not a usable prompt.
+
 Pilot results (Session 1, tagged by hand): math-yr9-surds 4/8/3, bio-cell-1 9/3/3, eng-spelling-1 11/1/3 — all satisfy ≥3/≥3 without forcing unnatural questions, including the recall-heavy spelling topic (its "hard" band = multi-option discrimination + applied reasoning: homophones in full sentences, irregular plurals in context, spell-checker limits).
 
 ### 3.2 Quiz UI (badges, ordering, filter)

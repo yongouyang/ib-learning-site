@@ -91,6 +91,26 @@ Every question must carry a `difficulty` tag (`easy` | `medium` | `hard`); `audi
 
 Aim for roughly 30% easy / 40% medium / 30% hard per topic.
 
+**How to read the bands (added 2026-09-19).** The three levels describe what kind of thinking a
+question demands, and within a topic the questions a typical student is most likely to miss are
+the `hard` ones. But every topic must also offer a **full ramp**, and that part is enforced, not
+advisory: `audit:content` requires at least 3 easy and 3 hard questions per topic (20% of a
+15-question topic), and mock papers draw ~30% of their questions from the hard band
+(`STANDARD_MIX` = 6 of 20). So the bands are **relative to the topic as well as to its level**:
+a recall-heavy topic still tags its three least-certain questions `hard`, even where none of them
+is multi-step or in an unfamiliar context. In other words `hard` marks the **top of this topic's
+ramp** — it is not a prediction that a typical student fails the question.
+
+That is deliberate, and it is why these tags are a ramp signal rather than a difficulty
+measurement. Reading the three levels above as *absolute* bands finds only ~1% of the corpus hard
+(measured 2026-09-19 over all 3,765 questions, corroborated by a blind human pass over one
+subject), which cannot be squared with a ramp every topic is required to provide. The tag's jobs
+are the quiz ramp, the mock mix, and knowing which questions to expect a student to miss within a
+topic — it is not a claim about absolute difficulty. If a subject genuinely cannot produce three
+hard questions, that is a signal to author harder questions, not to relabel easy ones.
+Traceability: `scripts/audit-content-ai.ts` (`--mode=difficulty`) and
+`docs/content-backlog-review.md` §2.D item 3 carry the measurement and its limits.
+
 Math questions may also carry `"calculator": true` when a calculator/GDC is genuinely expected (awkward decimal arithmetic, trig lookups, regression, distribution probabilities, matrix operations, numerical solving). Omit the field otherwise — never write `"calculator": false`. KS3 is mostly non-calculator; DP-AI allows a GDC on all papers (the P1-non-calc convention is AA, not AI). The tag is math-only (`validate:content` rejects it on other subjects).
 
 ## Practice papers (free-response sets)
