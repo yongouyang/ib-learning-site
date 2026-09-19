@@ -315,5 +315,30 @@
       "explanation": "The trailing zero in $8.0$ shows the tenths digit was recorded, so the value is correct to the nearest $0.1$ cm. Writing $8$ cm would only claim the nearest centimetre.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-rounding",
+      "params": {
+        "dp": [
+          1,
+          2
+        ],
+        "sf": [
+          2,
+          3
+        ],
+        "values": [
+          3.4567,
+          2.675,
+          0.04823,
+          8.999,
+          45.62,
+          0.3721,
+          12.348,
+          7.791
+        ]
+      }
+    }
   ]
 }

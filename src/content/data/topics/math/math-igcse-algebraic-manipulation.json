@@ -312,5 +312,28 @@
       "explanation": "$(2x-3)(x+4) = 2x^2 + 5x - 12$ and $x(2x-1) = 2x^2 - x$. Subtracting: $2x^2 + 5x - 12 - (2x^2 - x) = 2x^2 + 5x - 12 - 2x^2 + x = 6x - 12$. The $x^2$ terms cancel, and subtracting $-x$ adds $+x$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-indices",
+      "params": {
+        "symbols": [
+          "x",
+          "a",
+          "y"
+        ],
+        "exponents": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "ops": [
+          "multiply",
+          "divide",
+          "power"
+        ]
+      }
+    }
   ]
 }

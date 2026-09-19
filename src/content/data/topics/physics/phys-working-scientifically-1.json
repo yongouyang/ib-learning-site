@@ -312,5 +312,26 @@
       "explanation": "Peer review is other scientists examining new research — its method, accuracy of results and conclusions — to check it is valid and free from bias before it is widely accepted.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "phys-speed",
+      "params": {
+        "distances": [
+          100,
+          400,
+          60,
+          1500,
+          200
+        ],
+        "times": [
+          20,
+          50,
+          12,
+          300,
+          40
+        ]
+      }
+    }
   ]
 }

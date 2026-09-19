@@ -2,6 +2,8 @@ import type { QuestionGenerator } from './types';
 import { mathLinearEquation } from './math-linear-equation';
 import { mathPercentOfAmount } from './math-percent-of-amount';
 import { mathFractionArithmetic } from './math-fraction-arithmetic';
+import { mathRounding } from './math-rounding';
+import { mathIndices } from './math-indices';
 import { physVIr } from './phys-v-ir';
 import { physResistanceSeries } from './phys-resistance-series';
 import { physResistanceParallel } from './phys-resistance-parallel';
@@ -11,6 +13,7 @@ import { physFuseRating } from './phys-fuse-rating';
 import { physKineticEnergy } from './phys-kinetic-energy';
 import { physEfficiency } from './phys-efficiency';
 import { physPower } from './phys-power';
+import { physSpeed } from './phys-speed';
 import { chemCompoundNaming } from './chem-compound-naming';
 import { chemElectronConfig } from './chem-electron-config';
 import { chemHalfLife } from './chem-half-life';
@@ -26,6 +29,8 @@ const all: QuestionGenerator<unknown>[] = [
   mathLinearEquation,
   mathPercentOfAmount,
   mathFractionArithmetic,
+  mathRounding,
+  mathIndices,
   physVIr,
   physResistanceSeries,
   physResistanceParallel,
@@ -35,6 +40,7 @@ const all: QuestionGenerator<unknown>[] = [
   physKineticEnergy,
   physEfficiency,
   physPower,
+  physSpeed,
   chemElectronConfig,
   chemIonFormation,
   chemIsotopeRam,

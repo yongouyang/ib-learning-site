@@ -319,5 +319,30 @@
       "explanation": "Dividing by a smaller number gives a bigger result, so the largest quotient pairs the biggest numerator with the smallest denominator.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-rounding",
+      "params": {
+        "dp": [
+          1,
+          2
+        ],
+        "sf": [
+          2,
+          3
+        ],
+        "values": [
+          3.4567,
+          2.675,
+          0.04823,
+          8.999,
+          45.62,
+          0.3721,
+          12.348,
+          7.791
+        ]
+      }
+    }
   ]
 }

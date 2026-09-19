@@ -1,5 +1,22 @@
 import { describe, it, expect } from 'vitest';
 import { createRng } from '@/lib/quiz-utils';
+import {
+  roundDp,
+  roundSf,
+  draw as drawRounding,
+  build as buildRounding,
+  type RoundingParams,
+} from '@/content/generators/math-rounding';
+import {
+  draw as drawIndices,
+  build as buildIndices,
+  type IndicesParams,
+} from '@/content/generators/math-indices';
+import {
+  draw as drawSpeed,
+  build as buildSpeed,
+  type SpeedParams,
+} from '@/content/generators/phys-speed';
 import { GENERATORS } from '@/content/generators';
 import type { GeneratorOutput } from '@/content/generators/types';
 import { fmtNumber } from '@/content/generators/utils';
@@ -899,7 +916,7 @@ describe('chem-compound-naming', () => {
 });
 
 describe('registry', () => {
-  it('registers all 18 generators under kebab-case ids matching their module contract', () => {
+  it('registers all 21 generators under kebab-case ids matching their module contract', () => {
     expect(Object.keys(GENERATORS).sort()).toEqual([
       'chem-compound-naming',
       'chem-electron-config',
@@ -908,8 +925,10 @@ describe('registry', () => {
       'chem-isotope-ram',
       'chem-ph-ratio',
       'math-fraction-arithmetic',
+      'math-indices',
       'math-linear-equation',
       'math-percent-of-amount',
+      'math-rounding',
       'phys-charge-current',
       'phys-efficiency',
       'phys-energy-kwh',
@@ -918,11 +937,198 @@ describe('registry', () => {
       'phys-power',
       'phys-resistance-parallel',
       'phys-resistance-series',
+      'phys-speed',
       'phys-v-ir',
     ]);
     for (const [key, gen] of Object.entries(GENERATORS)) {
       expect(gen.id).toBe(key);
       expect(key).toMatch(/^[a-z0-9-]+$/);
+    }
+  });
+});
+
+const roundingParams: RoundingParams = {
+  dp: [1, 2],
+  sf: [2, 3],
+  values: [3.4567, 2.675, 0.04823, 8.999, 45.62, 0.3721, 12.348],
+};
+const indicesParams: IndicesParams = {
+  symbols: ['x', 'a', 'y'],
+  exponents: [2, 3, 4, 5],
+  ops: ['multiply', 'divide', 'power'],
+};
+const speedParams: SpeedParams = {
+  distances: [100, 400, 60, 1500, 200],
+  times: [20, 50, 12, 300, 40],
+  distanceUnit: 'm',
+  timeUnit: 's',
+};
+
+describe('math-rounding', () => {
+  it('params schema requires at least one of dp / sf', () => {
+    expect(() => GENERATORS['math-rounding'].paramsSchema.parse({ values: [1.234, 2.345, 3.456] })).toThrow();
+    expect(GENERATORS['math-rounding'].paramsSchema.parse(roundingParams)).toBeTruthy();
+  });
+
+  it('rounds with the exponent trick, not naive binary rounding', () => {
+    // 2.675 is 2.6749999… in binary, so Math.round(2.675 * 100) / 100 gives 2.67.
+    expect(roundDp(2.675, 2)).toBe(2.68);
+    expect(roundDp(1.005, 2)).toBe(1.01);
+    expect(roundDp(8.999, 1)).toBe(9);
+    // 12463 to 3 s.f. needs a NEGATIVE shift; writing `e-${shift}` here produced
+    // "e--2" and silently returned NaN.
+    expect(roundSf(12463, 3)).toBe(12500);
+    expect(roundSf(12463, 2)).toBe(12000);
+    expect(roundSf(0.04823, 1)).toBe(0.05);
+    expect(roundSf(0.04823, 2)).toBe(0.048);
+  });
+
+  it('sweep: answers match the target precision, padded, with valid choices', () => {
+    for (let i = 0; i < 40; i++) {
+      const values = drawRounding(roundingParams, createRng(`round:sweep:${i}`));
+      const out = buildRounding(values, createRng(`round:sweep:${i}`));
+      expectInvariants(out);
+      if (values.mode === 'dp') {
+        // A 2-d.p. answer must show exactly two decimals ("3.40", not "3.4").
+        expect(out.correct).toMatch(new RegExp(`^\\d+\\.\\d{${values.target}}$`));
+      }
+      expect(out.correct).not.toMatch(/^-/);
+    }
+  });
+
+  it('spot: 3.4567 to 2 d.p. is 3.46, and chopping to 3.45 is offered as the trap', () => {
+    const values = { mode: 'dp' as const, target: 2, value: 3.4567, answer: roundDp(3.4567, 2) };
+    const out = buildRounding(values, createRng('round:spot'));
+    expect(out.correct).toBe('3.46');
+    expect(out.distractors).toContain('3.45');
+    expectInvariants(out);
+  });
+
+  it('does not re-round a distractor back onto the answer', () => {
+    // Regression: an earlier build passed candidates through the answer's
+    // formatter, so "rounded to 1 s.f. too finely" (2.7 for a 1 s.f. question)
+    // collapsed onto the correct "3" and the generator then threw for want of
+    // three unique choices.
+    for (let i = 0; i < 12; i++) {
+      const values = drawRounding(roundingParams, createRng(`round:collapse:${i}`));
+      const out = buildRounding(values, createRng(`round:collapse:${i}`));
+      expectInvariants(out);
+      expect(out.distractors).not.toContain(out.correct);
+    }
+  });
+});
+
+describe('math-indices', () => {
+  it('params schema accepts the symbol / exponent / op table', () => {
+    expect(GENERATORS['math-indices'].paramsSchema.parse(indicesParams)).toBeTruthy();
+  });
+
+  it('sweep: each law transforms the exponents correctly', () => {
+    for (let i = 0; i < 40; i++) {
+      const values = drawIndices(indicesParams, createRng(`idx:sweep:${i}`));
+      const out = buildIndices(values, createRng(`idx:sweep:${i}`));
+      expectInvariants(out);
+      const expected =
+        values.op === 'multiply'
+          ? values.m + values.n
+          : values.op === 'divide'
+            ? values.m - values.n
+            : values.m * values.n;
+      expect(values.answerExponent).toBe(expected);
+      // The generator renders the simplified form: x^1 is `$x$`, x^0 is `$1$`.
+      const rendered =
+        expected === 1 ? `$${values.symbol}$` : expected === 0 ? '$1$' : `$${values.symbol}^{${expected}}$`;
+      expect(out.correct).toBe(rendered);
+    }
+  });
+
+  it('never emits a negative exponent or an unsimplified x^1 / x^0', () => {
+    for (let i = 0; i < 60; i++) {
+      const values = drawIndices(indicesParams, createRng(`idx:level:${i}`));
+      const out = buildIndices(values, createRng(`idx:level:${i}`));
+      for (const choice of [out.correct, ...out.distractors]) {
+        expect(choice).not.toContain('^{-');
+      }
+      expect(out.correct).not.toBe('$x^{1}$');
+      expect(out.correct).not.toBe('$x^{0}$');
+    }
+  });
+
+  it('spot: the three laws', () => {
+    expect(buildIndices({ symbol: 'x', op: 'multiply', m: 3, n: 4, answerExponent: 7 }, createRng('idx:s1')).correct).toBe('$x^{7}$');
+    expect(buildIndices({ symbol: 'x', op: 'power', m: 3, n: 4, answerExponent: 12 }, createRng('idx:s2')).correct).toBe('$x^{12}$');
+    expect(buildIndices({ symbol: 'x', op: 'divide', m: 5, n: 2, answerExponent: 3 }, createRng('idx:s3')).correct).toBe('$x^{3}$');
+  });
+
+  it('keeps \\times inside a single math span (a split span renders it as text)', () => {
+    for (let i = 0; i < 20; i++) {
+      const values = drawIndices({ ...indicesParams, ops: ['multiply'] }, createRng(`idx:span:${i}`));
+      const out = buildIndices(values, createRng(`idx:span:${i}`));
+      expect(out.stem).toMatch(/^Simplify \$[^$]+\\times[^$]+\$\.$/);
+      expectInvariants(out);
+    }
+  });
+});
+
+describe('phys-speed', () => {
+  it('params schema pairs m with s, or km with h', () => {
+    expect(GENERATORS['phys-speed'].paramsSchema.parse(speedParams)).toBeTruthy();
+    expect(
+      GENERATORS['phys-speed'].paramsSchema.parse({ ...speedParams, distanceUnit: 'km', timeUnit: 'h' })
+    ).toBeTruthy();
+    expect(() =>
+      GENERATORS['phys-speed'].paramsSchema.parse({ ...speedParams, distanceUnit: 'm', timeUnit: 'h' })
+    ).toThrow();
+  });
+
+  it('throws instead of emitting an ugly quotient when no pair divides cleanly', () => {
+    expect(() => drawSpeed({ distances: [7], times: [3] } as SpeedParams, createRng('speed:ugly'))).toThrow(
+      /phys-speed/
+    );
+  });
+
+  it('sweep: speed = distance / time in the params unit', () => {
+    for (let i = 0; i < 30; i++) {
+      const parsed = GENERATORS['phys-speed'].paramsSchema.parse(speedParams) as SpeedParams;
+      const values = drawSpeed(parsed, createRng(`speed:sweep:${i}`));
+      const out = buildSpeed(values, createRng(`speed:sweep:${i}`));
+      expectInvariants(out);
+      expect(out.correct).toBe(`${values.speed} ${values.speedUnit}`);
+      expect(values.speed).toBeCloseTo(values.distance / values.time, 10);
+    }
+  });
+
+  it('spot: 1500 m in 300 s is 5 m/s', () => {
+    const out = buildSpeed(
+      { distance: 1500, time: 300, speed: 5, distanceUnit: 'm', timeUnit: 's', speedUnit: 'm/s', scenario: 'A runner' },
+      createRng('speed:spot')
+    );
+    expect(out.correct).toBe('5 m/s');
+    expectInvariants(out);
+  });
+
+  it('does not offer the inverted quotient (0.008 km/h is not a student error)', () => {
+    for (let i = 0; i < 20; i++) {
+      const parsed = GENERATORS['phys-speed'].paramsSchema.parse({
+        ...speedParams,
+        distanceUnit: 'km',
+        timeUnit: 'h',
+      }) as SpeedParams;
+      const values = drawSpeed(parsed, createRng(`speed:inv:${i}`));
+      const out = buildSpeed(values, createRng(`speed:inv:${i}`));
+      expect(out.distractors).not.toContain(`${values.time / values.distance} ${values.speedUnit}`);
+    }
+  });
+
+  it('keeps the scenario physically plausible for the speed drawn', () => {
+    // 60 m/s must not be described as a swimmer.
+    for (let i = 0; i < 20; i++) {
+      const values = drawSpeed(
+        { distances: [1200, 1500], times: [20, 25], distanceUnit: 'm', timeUnit: 's' },
+        createRng(`speed:plaus:${i}`),
+      );
+      const out = buildSpeed(values, createRng(`speed:plaus:${i}`));
+      expect(out.stem).not.toMatch(/swimmer|walker/);
     }
   });
 });

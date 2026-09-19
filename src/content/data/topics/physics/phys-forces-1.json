@@ -558,5 +558,27 @@
       "difficulty": "medium",
       "variantOf": "acceleration-calc"
     }
+  ],
+  "templates": [
+    {
+      "generator": "phys-speed",
+      "variantOf": "average-speed",
+      "params": {
+        "distances": [
+          100,
+          400,
+          60,
+          1500,
+          200
+        ],
+        "times": [
+          20,
+          50,
+          12,
+          300,
+          40
+        ]
+      }
+    }
   ]
 }

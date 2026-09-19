@@ -317,5 +317,30 @@
       "explanation": "Rounding gives $80 \\times 60 = 4\\,800$; the exact answer is $4\\,836$, which is about $4\\,800$.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-rounding",
+      "params": {
+        "dp": [
+          1,
+          2
+        ],
+        "sf": [
+          2,
+          3
+        ],
+        "values": [
+          3.4567,
+          2.675,
+          0.04823,
+          8.999,
+          45.62,
+          0.3721,
+          12.348,
+          7.791
+        ]
+      }
+    }
   ]
 }

@@ -4,6 +4,43 @@
 
 ---
 
+## 2026-09-19 (session 5, cont.) — C: three new generators (rounding, indices, average speed) wired into 7 topics
+Git HEAD: `982f12c` (develop, pushed; this change set on top)
+Done: **C was scoped to its leveraged half** (owner decision): build generators for the most-repeated
+  skills, wire them, then move to B. Picked the three by MEASURING recurrence in the corpus rather than
+  guessing — `math-rounding` (rounding/sig-figs appears in 23 maths topics), `math-indices` (7), and
+  `phys-speed` (8 physics topics). Each is a new file in `src/content/generators/` with its own params
+  schema, error-rule distractors and unit tests; registered in the GENERATORS map (18 -> 21). Wired into
+  **7 hosts**: `math-yr7-rounding-estimation`, `math-igcse-bounds`, `math-yr9-error-intervals` (rounding);
+  `math-powers-myp`, `math-igcse-algebraic-manipulation` (indices); `phys-working-scientifically-1` (speed);
+  and `phys-forces-1`, where the speed template **joins the existing `average-speed` group** (generator
+  difficulty `medium` == group difficulty `medium`, so the session samples one member instead of gaining
+  a question).
+Verified: `validate:content` (20-seed sweep per template), `audit:content` **0/0**, `check:registry` ok,
+  `npm test` **1484/1484** (+16: three new generator suites incl. the bug-class assertions below), tsc
+  clean, lint 29/0 (baseline), and **`npm run test:e2e:sweep` 233/233 topics passed (4.6 min)** — the
+  browser proof that every wired template reaches its session.
+Next: **(1) B — illustrations** (owner decision: >=1 figure per topic, all 106 zeros, 5 bare subjects
+  first: chinese 20, german 13, ict 12, history 11, geography 10 — each needs a first-ever
+  `public/images/<subject>/`). (2) Then A — DP Math AA SL core (~12 topics). (3) C's remaining rollout
+  (216 ungrouped topics) stays a tracked programme, not a gate.
+Notes: **testing the generators before wiring them caught four real bugs that no gate would have seen.**
+  (a) `roundSf` wrote `e-${shift}`, which for values >= 10^sf becomes "e--2" and silently returned **NaN**
+  (12463 to 3 s.f.) — the 40-instance harness caught it, and the unit test now pins 12463 -> 12500.
+  (b) The first rounding build passed distractor candidates back through the answer's formatter, so every
+  "rounded too finely" distractor collapsed onto the correct answer and the generator then **threw** for
+  want of three unique choices — distractors are now built as display strings and never re-rounded
+  ("3.40" keeps its trailing zero; "2.7" survives for a 1 s.f. question). (c) `math-indices` emitted
+  `$x^{3}$ \\times $x^{4}$` — two separate math spans, so the `\\times` would have rendered as literal
+  text in the stem; the fix is one span, and a test asserts the span shape. (d) `phys-speed`'s first
+  distractor set offered the inverted quotient, which at these magnitudes reads 0.008 km/h — useless as a
+  wrong answer (dropped), and its scenarios paired impossible physics (a swimmer at 50 m/s), now filtered
+  by plausible speed. Also fixed: `draw()` assumed the zod defaults had been applied, so a direct call
+  produced "covers 60 undefined in 20 undefined" — it now normalises units itself (generate() always
+  parses first, so this only ever bit callers and tests, but it was a footgun). **Choice notes:** the
+  exponents param must stay >= 2 (x^1 renders as x, x^0 as 1) and the divide branch deliberately has no
+  `n - m` candidate because negative indices are off-level for KS3/IGCSE.
+
 ## 2026-09-19 (session 5) — C started: 8 topics wired to existing generators; a latent e2e sweep bug found and fixed
 Git HEAD: `cd332e7` (develop, pushed; this change set on top)
 Done: **Phase 4 of `question-variations-plan` is a rollout, so C was split into its cheap half first.**

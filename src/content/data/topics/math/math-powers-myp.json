@@ -317,5 +317,28 @@
       "explanation": "$a^{-3}$ moves to the denominator as $a^3$, and $b^{-2}$ moves to the numerator as $b^2$. The coefficient $2$ stays in the numerator, giving $\\dfrac{2b^2}{a^3}$.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-indices",
+      "params": {
+        "symbols": [
+          "x",
+          "a",
+          "y"
+        ],
+        "exponents": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "ops": [
+          "multiply",
+          "divide",
+          "power"
+        ]
+      }
+    }
   ]
 }
