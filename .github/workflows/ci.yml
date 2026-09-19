@@ -97,6 +97,12 @@ jobs:
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
+        # 2026-09-18: a runner stalled here for 45 minutes and was killed, which
+        # SKIPPED deploy-dev and deploy-prod (the failure was only legible from the
+        # Actions API — a step frozen at in_progress with a null conclusion). The
+        # install normally takes ~1-2 min, so cap it and fail fast instead of
+        # blocking a deploy on a dead runner.
+        timeout-minutes: 8
 
       - name: Run e2e tests (${{ matrix.project }})
         run: npx playwright test --project="${{ matrix.project }}"
@@ -140,6 +146,8 @@ jobs:
 
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
+        # See the e2e job: this is the step that hung for 45 minutes on 2026-09-18.
+        timeout-minutes: 8
 
       - name: Validate illustrations
         run: |
