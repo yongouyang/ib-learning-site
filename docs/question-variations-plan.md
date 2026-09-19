@@ -1,6 +1,11 @@
 # Question Variations & Parameterized Templates — Implementation Plan
 
-Status: **agreed direction, pre-implementation** (decisions below confirmed with user 2026-08-10).
+Status: **in rollout — Phases 0–2 landed; Phase 4 is the remaining queue** (corrected 2026-09-19;
+"pre-implementation" was stale). `variantOf` and `templates` are in the schema and consumed
+(`src/lib/quiz-utils.ts` group sampling), 18 generators live in `src/content/generators/`, and
+**19 of 233 topics** are group-expanded (12 chem + 4 math + 3 phys — i.e. 24–29 questions each) with
+generators wired into 9 of them. Phase 4 item 2 names the rest: remaining math + physics, then
+biology + english. Decisions below confirmed with user 2026-08-10.
 
 ## Goal
 

@@ -1,7 +1,9 @@
 # Landing Page Copy Proposal — Octav Learning
 
-> **Status:** Draft for review (2026-08-11). Not yet implemented.
-> **Context:** Rebrand from IB Learn → Octav Learning (2026-08-10). The landing page currently has no value-proposition copy — only a wordmark, a stats line, and a subjects grid. This proposal adds a hero section and a "Why Octav" three-pillar strip, with copy that leans into the Octav/octave brand identity.
+> **Status:** Draft for review (2026-08-11) — **IMPLEMENTED** (corrected 2026-09-19). The hero copy and
+> the "Why Octav Learning" three-step strip are live in `src/components/Hero.tsx` and
+> `src/components/HomePageClient.tsx`. Kept as the copy record.
+> **Context:** Rebrand from IB Learn → Octav Learning (2026-08-10). ~~The landing page currently has no value-proposition copy~~ — at the time of writing the landing page had only a wordmark, a stats line, and a subjects grid. This proposal added a hero section and a "Why Octav" three-pillar strip, with copy that leans into the Octav/octave brand identity.
 
 ---
 

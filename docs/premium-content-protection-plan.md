@@ -1,5 +1,21 @@
 # Premium content protection & server-side content delivery — decision record
 
+> **Status: SHIPPED — all three phases landed.** (Header corrected 2026-09-19; it read "No code
+> has changed yet", which was true only at the moment of the 2026-09-16 decision round.) Phase 1a
+> (the registry split into metadata + the two server-only modules) and Phase 1b (premium paper sets
+> out of the build entirely, mixed review drawn server-side behind `GET
+> /api/content/public/mixed-review`) landed with the content Lambda — `terraform/modules/content_api`,
+> the 10th Lambda, fronted by the `premium/*` (caching disabled) / `public/*` (edge-cached) /
+> `content/*` behaviours. Phase 2 landed 2026-09-18: per-IP and per-account premium request budgets
+> plus the leak-tracing marker (`src/lib/content/http-handler.ts` sets `payload.attribution` for
+> premium sets only). `npm run audit:leaks` runs inside `build:static` and gates both deploys.
+> §5 is therefore a **record of the plan, not a work queue** — see `docs/PROGRESS.md` for what
+> shipped when. §7 still carries the honest ceilings.
+>
+> The block below is the original decision record, kept verbatim for provenance.
+>
+> ---
+>
 > **Status: DECIDED 2026-09-16.** Branch `feature/server-side-rendering`, HEAD `71b6fe6`, tree
 > clean at measurement time (this file and `docs/PROGRESS.md` are the only changes).
 > This supersedes the 2026-09-14 intention note (same file). Every figure in §2 was **re-measured
@@ -7,7 +23,8 @@
 > the `out/` directory that the first revision was measured against turned out to be three weeks
 > stale (2026-08-23) and its page counts were wrong.
 >
-> **No code has changed yet.** This file records decisions and the target design; §5 is the work queue.
+> ~~**No code has changed yet.**~~ **Stale — see the corrected header above.** This file records
+> decisions and the target design; §5 is the work queue.
 >
 > **Second decision round 2026-09-16** (owner answers, recorded in §1.1): free surfaces stay exactly as
 > they are, mixed review gets the only public content endpoint, Phase 1b covers paper sets 2+ only,

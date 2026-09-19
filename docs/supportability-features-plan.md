@@ -1,6 +1,7 @@
 # Supportability Features — Implementation Plan
 
-> **Status:** Implemented — Feature 2 (2026-08-23), Feature 1 (2026-08-24), Feature 3 (2026-08-25). Remaining: the manual CloudFlare Email Routing step (Feature 3) and post-deploy verification.
+> **Status:** Implemented — Feature 2 (2026-08-23), Feature 1 (2026-08-24), Feature 3 (2026-08-25). **Fully closed, including the manual steps** (corrected 2026-09-19): CloudFlare Email Routing for `info@octavlearning.com` was configured and verified live by the owner on 2026-08-28, with the post-deploy verification done in the same pass — see `docs/PROGRESS.md` for 2026-08-28.
+> **Note:** Feature 3 (Contact Us) needed no new architecture — it reuses the notification email path above.
 > Three independent features to improve day-to-day operations and user support:
 > 1. **Daily analytics report** — emailed HTML snapshot of the admin dashboard at 7pm HKT
 > 2. **DynamoDB CRUD dashboard** — admin web UI for browsing/editing all DynamoDB tables

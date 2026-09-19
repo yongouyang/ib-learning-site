@@ -1,6 +1,6 @@
 # Architecture Evolution Plan — Octav Learning
 
-> **Status:** Approved for implementation (2026-08-14). **Phase 0 (DynamoDB + SES), Phase B (auth + account management), and Phase C (progress sync) implemented and merged to `develop` as of 2026-08-16** — see the Phase C checklist (§7) and `docs/PROGRESS.md`. Remaining: Phase A (analytics), Phase D (leaderboard), SES production access (pre-launch blocker).
+> **Status:** Approved for implementation (2026-08-14). **Phases 0, B and C implemented 2026-08-16; Phase A (analytics) shipped 2026-08-22 and Phase D (leaderboard) shipped 2026-08-23** (corrected 2026-09-19 — the "Remaining" line below them was stale). **SES is no longer the email provider**: production access was denied three times, so delivery moved to Resend via the `EMAIL_PROVIDER` seam (`src/lib/auth/deps.ts`), with the SES module kept dormant — see `docs/ai-feedback.md`. See `docs/PROGRESS.md` for the phase history.
 > Decisions locked 2026-08-14: Option A — static export + Lambda Function URLs (Constraint 1); custom email-OTP auth (§2); parent → child account model (§2.6, Q1); first milestone = Phase B (auth + account management) + Phase C (progress sync). Analytics (Phase A) and leaderboard (Phase D) deferred; entitlements (`future-tech-stack-evolution.md` §2.9) deferred to subscription design time.
 > **Author:** Senior architect review (direct analysis, not sub-agent — team resource limit hit)
 > **Scope:** Email+OTP auth, server-side progress persistence, anonymous leaderboard, web analytics

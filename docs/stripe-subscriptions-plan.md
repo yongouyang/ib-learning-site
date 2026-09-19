@@ -1,6 +1,11 @@
 # E4 — Stripe Subscriptions (Implementation Plan)
 
-> Status: **DRAFT — awaiting your confirmation of §0.2 before any code.**
+> Status: **IMPLEMENTED — E4.0–E4.4 shipped, promoted 2026-09-13/14.** (Corrected 2026-09-19; the
+> "DRAFT — awaiting confirmation of §0.2 before any code" line above the fold was years-of-record
+> stale.) Code: `src/lib/subscriptions/{types,deps,dummy,http-handler,stripe-rest,dynamodb-storage}.ts`,
+> `terraform/modules/subscriptions_api` (9th Lambda), `src/app/api/subscriptions/*`, `lambda/subscriptions/`.
+> Live: keys promoted to `_LIVE` 2026-09-14; **prod checkout is closed on purpose** since 2026-09-15
+> (`BILLING_DISABLED_ENVS = "prod"`) — see §0.2 and AGENTS.md. Plan body below is the original draft.
 > Implements `docs/entitlement-implementation-plan.md` §E4 and closes the last
 > monetisation gap: today `user.tier` can only be set by a manual DynamoDB grant.
 > Companion docs: `docs/entitlement-policy.md` (tier policy),

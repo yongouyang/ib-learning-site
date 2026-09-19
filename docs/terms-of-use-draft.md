@@ -466,15 +466,18 @@ the top of this file); items 4–10 are what is left before publication.
 3. ~~Age model~~ **Decided: accounts 16+, or parent/guardian-held for younger students**
    (§3.3). No signup age gate, and §3.3 says so plainly rather than implying a check we do
    not perform. The matching privacy-notice clause is its checklist item 1.
-4. **Withdrawal-right consent (§5.5) — the one clause that is not yet true of the live
-   Service.** The decision is to collect express consent + acknowledgment at checkout, but
-   nothing collects it today, so §5.5 describes a step that does not happen. Two candidate
-   mechanisms: Stripe Checkout **`consent_collection` + `custom_text`** in
+4. ~~**Withdrawal-right consent (§5.5) — the one clause that is not yet true of the live
+   Service.**~~ **RESOLVED 2026-09-15 — and this item is stale (corrected 2026-09-19).** It
+   described the *pre-rewrite* clause. §5.5 no longer claims a recorded acknowledgment: it
+   states plainly that "**we do not ask you to give that right up**" and honours the 14-day
+   withdrawal right in full, so there is no step to build and nothing left to collect at
+   checkout. See parity-list item 1, which records the same resolution from the other side —
+   **the two now agree; do not re-open this as unbuilt work.** The candidate mechanisms below
+   are kept only as the record of what was considered.
+   (Original text: the decision was to collect express consent + acknowledgment at checkout;
+   two candidate mechanisms were Stripe Checkout **`consent_collection` + `custom_text`** in
    `src/lib/subscriptions/stripe-rest.ts`, or the **custom terms-of-service URL in
-   Dashboard → Settings → Checkout** (the checkout footer already displays standardised
-   payment terms and accepts our own ToS/privacy links — a Dashboard setting, no code).
-   Resolve with counsel *and* implement before publishing this clause; until then the
-   honest wording is standing item 1 in the parity list below.
+   Dashboard → Settings → Checkout**.)
 5. **Price-change notice period (§4.4)** and **renewal-reminder wording** — now that §4.3
    states that Stripe/Link sends the reminders, §4.4 must not promise that *we* will, and
    the notice period still needs a number (30 days is the safe default).

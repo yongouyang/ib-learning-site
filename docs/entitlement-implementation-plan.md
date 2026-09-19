@@ -1,6 +1,6 @@
 # Entitlement Implementation Plan — Octav Learning
 
-> **Status:** Drafted 2026-08-22, pending implementation. Policy: `docs/entitlement-policy.md`
+> **Status:** Drafted 2026-08-22 — **E0–E3 shipped 2026-08-22; E4 shipped 2026-09-13/14** (corrected 2026-09-19; the "pending implementation" line was stale). Client gating is live (`EntitlementsContext.has` + `LockedFeature`), the exam/ladder split is live (`src/lib/entitlements/exam-access.ts`), and the AI-mark quota is live (`aiMarkQuotaForTier`, 30 free / 1000 premium). The Phase E4 checklist below is the only part that still describes intent rather than state. Policy: `docs/entitlement-policy.md`
 > (agreed 2026-08-22 — incl. the 30 marks/month free AI-marking quota per account).
 > Machinery design: `docs/future-tech-stack-evolution.md` §2.9.
 > Follows the architecture-evolution-plan phase letters (A analytics ✅, B auth ✅,

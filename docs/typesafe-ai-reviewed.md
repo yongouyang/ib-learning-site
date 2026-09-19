@@ -1,6 +1,6 @@
 # TypeSafe Review — Where Intelligent Judgement Can Replace Fragile Code
 
-> **Status:** Findings + recommendation, **plus a first live measurement pass (§8)**. No code changed.
+> **Status:** Findings + recommendation, **plus a first live measurement pass (§8)**. **Partially acted on since** (note added 2026-09-19): §2's parser finding was fixed without any AI — `src/components/InlineMath.tsx` is escape-aware and `scripts/audit-content.ts`'s `escaped_dollar` rule was deleted 2026-09-18 (`tests/unit/inline-math.test.tsx` pins it). §3's first recommendation became `scripts/audit-content-ai.ts` (`--mode=markscheme` / `answerkey` / `difficulty`), whose live measurements are recorded in `docs/content-backlog-review.md` §2.D — and which **corrected §8.1's optimism**: the answer-key judgement is unusable on computational questions (9 of 35 maths questions flagged, every flag a hand-verified false positive, 0 of 55 in other subjects).
 > **Reviewed:** 2026-09-17 (branch `develop`, HEAD `b25c1c8`, tree clean) — via the `typesafe-ai` skill,
 > including the live docs at `docs.typesafe.ai` (primitives, build guide, API reference, confidence/routing
 > patterns, and the vendor's `model-jaggedness/jev-1.13` known-issues page).

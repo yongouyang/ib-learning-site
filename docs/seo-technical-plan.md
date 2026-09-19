@@ -1,6 +1,13 @@
 # Technical SEO Architecture — Google + Bing
 
-Authored: 2026-08-30 (senior-SEO-architect pass). Status: **proposal — no `src/` code landed yet.**
+Authored: 2026-08-30 (senior-SEO-architect pass). Status: **largely landed — corrected 2026-09-19.**
+(It read "proposal — no `src/` code landed yet", which contradicted this file's own §6 at line ~766.
+Shipped since: S0 dev-indexation, S1 per-page metadata, S2a sitemaps, **S2b** (`robots.ts` advertises
+`Sitemap: https://octavlearning.com/sitemap/index.xml`), **S3** (`/ks3`, `/ibdp`, `/igcse` tier hubs and
+their `[subjectId]` children), **S4** (JSON-LD: the Organization graph in the root layout plus `Course`
++ `EducationalOccupationalCredential` + `BreadcrumbList` in `src/lib/seo/course.ts`), and **S5** IndexNow.
+S6 (IGCSE content) also landed — the pilot and wave 2 shipped 2026-09-07/09-12. What remains in §5 is
+maintenance and depth, not construction.)
 Scope: crawl + index architecture for the static export (`out/` → S3 → CloudFront), structured
 data, international/regional targeting, robots + discovery. Non-goal: content marketing calendar.
 
@@ -1315,11 +1322,11 @@ it must be the viewer-response event.
 | ~~**S0**~~ **DONE** | Dev `X-Robots-Tag: noindex, follow` viewer-response Function on the DEV distribution only (§4.3) | — | `terraform fmt -check` ✓, `terraform validate` ✓, local `plan`: **+1 create, ~1 update on `module.site` only, `module.site_prod` absent from the diff**. Apply is CI-only, so the header itself is NOT yet verified live — `curl -I https://dev.octavlearning.com/` after the next `deploy-dev`. |
 | ~~**S1**~~ **DONE** | Per-page metadata for every route (§2.4 + §1.2) | — | 809 pages rebuilt; **298 indexable / 511 noindex**; 0 duplicate titles except the two internal `/admin` pages; 0 sitemap∩noindex conflicts; `npm test` 1192 ✓; `validate:content` ✓; `audit:content` 0/0 ✓; e2e not run (no browser binaries) |
 | ~~**S2a**~~ **DONE** | `src/lib/seo/{site,curriculum,hreflang}.ts` + `scripts/generate-sitemaps.ts` + npm scripts + `.xml` MIME + `/public/sitemap/` ignored (§1.4) | — | executed: 310 URLs across 4 urlsets + index, XML well-formed (`xml.etree` parse), `--check` green, `--verify` red on exactly the 13 unbuilt hubs, `build:static` type-check green |
-| **S2b** | `robots.ts` v2 (`Sitemap:` line + inventory) — **do not land before S3**, or 13 sitemap URLs 404 on day one (§1.5a) | 0.5 d | `npm run generate:sitemaps && npm run build:static && npm run verify:sitemaps && npm run test:e2e:static`; add `check:sitemaps` + `verify:sitemaps` to the CI `build-and-test` job |
-| **S3** | Tier hub routes `/ks3`, `/ibdp`, `/ks3/<subject>`, `/ibdp/<course>` (+ `/igcse` when content exists) — unblocks S2b | 2–3 d | content-free tier → **do not create the route**; UX-review subagent pass (mobile/desktop × light/dark) per `AGENTS.md` |
-| **S4** | JSON-LD: org graph + `Course` + `BreadcrumbList` (§2) | 1 d | LD+JSON parse test over `out/**/*.html`; Rich Results Test + Bing validator on 3 sample URLs |
+| ~~**S2b**~~ **DONE 2026-09-06** | `robots.ts` v2 (`Sitemap:` line + inventory) — **do not land before S3**, or 13 sitemap URLs 404 on day one (§1.5a) | 0.5 d | `npm run generate:sitemaps && npm run build:static && npm run verify:sitemaps && npm run test:e2e:static`; add `check:sitemaps` + `verify:sitemaps` to the CI `build-and-test` job |
+| ~~**S3**~~ **DONE 2026-09-06/07** | Tier hub routes `/ks3`, `/ibdp`, `/ks3/<subject>`, `/ibdp/<course>` (+ `/igcse` when content exists) — unblocks S2b | 2–3 d | content-free tier → **do not create the route**; UX-review subagent pass (mobile/desktop × light/dark) per `AGENTS.md` |
+| ~~**S4**~~ **DONE** | JSON-LD: org graph + `Course` + `BreadcrumbList` (§2) | 1 d | LD+JSON parse test over `out/**/*.html`; Rich Results Test + Bing validator on 3 sample URLs |
 | ~~**S5**~~ **DONE 2026-09-03** | IndexNow + verification + GSC/CLUE submission (§4.4–4.5): `scripts/ping-indexnow.mjs` + `ping:indexnow` + key-file/ping steps in both deploy jobs (gated on the `INDEXNOW_KEY` secret — set, and confirmed live end-to-end: CI run 223 `deploy-prod` green, `/<KEY>.txt` serves the key verbatim, 4 child sitemaps pinged). GSC: domain property verified via DNS TXT, `sitemap/index.xml` submitted. Bing: imported from GSC (data/reports take up to 48 h — user to confirm over the weekend) | 0.5 d | CI secret `INDEXNOW_KEY`; watch "Discovered – currently not indexed" ratio |
-| **S6** | IGCSE content (blocking prerequisite for the `/igcse/` leg of this plan) | — | the largest real SEO upside here: IGCSE is the highest-volume international-school query family and we currently have **0** pages for it |
+| ~~**S6**~~ **DONE 2026-09-12** | IGCSE content (blocking prerequisite for the `/igcse/` leg of this plan) | — | the largest real SEO upside here: IGCSE is the highest-volume international-school query family and we currently have **0** pages for it |
 
 ## 6. What actually landed, and what the build taught us
 

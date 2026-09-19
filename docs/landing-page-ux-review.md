@@ -3,7 +3,8 @@
 > **Review date:** 2026-08-11
 > **Reviewer:** UX-expert agent (spawned via team_spawn_teammate)
 > **Inputs reviewed:** `docs/landing-page-copy-proposal.md`, `src/app/page.tsx`, `src/app/layout.tsx`, nav components, subject/progress/diagnostics/exams pages, and all mockup screenshots in `docs/landing-poc/`
-> **Status:** Expert review of the copy proposal — not yet implemented.
+> **Status:** Expert review of the copy proposal — **implemented** (corrected 2026-09-19; the copy
+> shipped — see `src/components/Hero.tsx` and `src/components/HomePageClient.tsx`).
 
 ---
 
