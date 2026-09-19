@@ -565,19 +565,122 @@
       "variantOf": "naming-and-formulae",
       "params": {
         "ionic": [
-          { "cationSymbol": "Al", "cationName": "aluminium", "cationCharge": 3, "anionSymbol": "O", "anionName": "oxide", "anionCharge": 2, "formula": "Al₂O₃", "name": "aluminium oxide" },
-          { "cationSymbol": "Mg", "cationName": "magnesium", "cationCharge": 2, "anionSymbol": "O", "anionName": "oxide", "anionCharge": 2, "formula": "MgO", "name": "magnesium oxide" },
-          { "cationSymbol": "Na", "cationName": "sodium", "cationCharge": 1, "anionSymbol": "Cl", "anionName": "chloride", "anionCharge": 1, "formula": "NaCl", "name": "sodium chloride" },
-          { "cationSymbol": "Ca", "cationName": "calcium", "cationCharge": 2, "anionSymbol": "Cl", "anionName": "chloride", "anionCharge": 1, "formula": "CaCl₂", "name": "calcium chloride" },
-          { "cationSymbol": "K", "cationName": "potassium", "cationCharge": 1, "anionSymbol": "O", "anionName": "oxide", "anionCharge": 2, "formula": "K₂O", "name": "potassium oxide" }
+          {
+            "cationSymbol": "Al",
+            "cationName": "aluminium",
+            "cationCharge": 3,
+            "anionSymbol": "O",
+            "anionName": "oxide",
+            "anionCharge": 2,
+            "formula": "Al₂O₃",
+            "name": "aluminium oxide"
+          },
+          {
+            "cationSymbol": "Mg",
+            "cationName": "magnesium",
+            "cationCharge": 2,
+            "anionSymbol": "O",
+            "anionName": "oxide",
+            "anionCharge": 2,
+            "formula": "MgO",
+            "name": "magnesium oxide"
+          },
+          {
+            "cationSymbol": "Na",
+            "cationName": "sodium",
+            "cationCharge": 1,
+            "anionSymbol": "Cl",
+            "anionName": "chloride",
+            "anionCharge": 1,
+            "formula": "NaCl",
+            "name": "sodium chloride"
+          },
+          {
+            "cationSymbol": "Ca",
+            "cationName": "calcium",
+            "cationCharge": 2,
+            "anionSymbol": "Cl",
+            "anionName": "chloride",
+            "anionCharge": 1,
+            "formula": "CaCl₂",
+            "name": "calcium chloride"
+          },
+          {
+            "cationSymbol": "K",
+            "cationName": "potassium",
+            "cationCharge": 1,
+            "anionSymbol": "O",
+            "anionName": "oxide",
+            "anionCharge": 2,
+            "formula": "K₂O",
+            "name": "potassium oxide"
+          }
         ],
         "covalent": [
-          { "formula": "N₂O₄", "name": "dinitrogen tetroxide" },
-          { "formula": "SO₃", "name": "sulfur trioxide" },
-          { "formula": "SO₂", "name": "sulfur dioxide" },
-          { "formula": "CO₂", "name": "carbon dioxide" },
-          { "formula": "CO", "name": "carbon monoxide" },
-          { "formula": "NO₂", "name": "nitrogen dioxide" }
+          {
+            "formula": "N₂O₄",
+            "name": "dinitrogen tetroxide"
+          },
+          {
+            "formula": "SO₃",
+            "name": "sulfur trioxide"
+          },
+          {
+            "formula": "SO₂",
+            "name": "sulfur dioxide"
+          },
+          {
+            "formula": "CO₂",
+            "name": "carbon dioxide"
+          },
+          {
+            "formula": "CO",
+            "name": "carbon monoxide"
+          },
+          {
+            "formula": "NO₂",
+            "name": "nitrogen dioxide"
+          }
+        ]
+      }
+    },
+    {
+      "generator": "chem-ion-formation",
+      "params": {
+        "elements": [
+          {
+            "symbol": "Na",
+            "name": "sodium",
+            "z": 11,
+            "group": 1
+          },
+          {
+            "symbol": "Mg",
+            "name": "magnesium",
+            "z": 12,
+            "group": 2
+          },
+          {
+            "symbol": "Al",
+            "name": "aluminium",
+            "z": 13,
+            "group": 13
+          },
+          {
+            "symbol": "O",
+            "name": "oxygen",
+            "z": 8,
+            "group": 16
+          },
+          {
+            "symbol": "Cl",
+            "name": "chlorine",
+            "z": 17,
+            "group": 17
+          }
+        ],
+        "modes": [
+          "ion-charge"
         ]
       }
     }

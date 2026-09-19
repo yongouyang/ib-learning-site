@@ -4,6 +4,41 @@
 
 ---
 
+## 2026-09-19 (session 5) — C started: 8 topics wired to existing generators; a latent e2e sweep bug found and fixed
+Git HEAD: `cd332e7` (develop, pushed; this change set on top)
+Done: **Phase 4 of `question-variations-plan` is a rollout, so C was split into its cheap half first.**
+  Wired the already-built, already-tested generators into 8 more topics where the skill genuinely
+  matches: `math-igcse-percentages`, `math-yr8-percentages-ratio-proportion`, `math-yr7-money-finance`
+  (`math-percent-of-amount`), `math-igcse-fractions-decimals` (`math-fraction-arithmetic`),
+  `math-igcse-equations-simultaneous` + `math-simultaneous-myp` (`math-linear-equation`),
+  `phys-simple-machines-1` (`phys-power`), `chem-bonding-1` (`chem-ion-formation`). Each adds one fresh
+  question per session, redrawn per "New Question Set". 9 -> 17 templated topics.
+Verified: `validate:content` (whose 20-seed per-template sweep exercises every generator), `audit:content`
+  **0/0**, `check:registry` ok, `npm test` **1468/1468**, tsc clean, lint 29/0 (baseline), and
+  **`npm run test:e2e:sweep` = 233/233 topics passed in 4.6 min** (study + flashcards + quiz, counters
+  asserted) — the real-browser proof that each wired template reaches the session. Every generated
+  instance's key was also hand-checked (e.g. 40% of 150 = 60; 4x+2=22 -> x=5; 400 N x 5 m / 5 s = 400 W;
+  oxygen (2,6) -> O2-; SO3 = sulfur trioxide).
+Next: (1) C's larger half — Phase 4 item 2 ("remaining math + physics, then biology + english") means
+  **regrouping** ungrouped topics into ~10-12 variant groups and authoring variants, not just wiring;
+  216 topics are still ungrouped and only 18 generators exist, so this is authoring work. (2) Then B
+  (106 illustrations, 5 bare subjects first) and A (DP Math AA SL core, ~12 topics).
+Notes: **the fit check rejected two candidates and that is the point** — `phys-efficiency` was NOT wired
+  into `phys-simple-machines-1` or `phys-energy-resources-1` because its stems say a *lamp/motor/heater*
+  "takes in X J of **electrical** energy", which is false for a pulley system and for a power station; a
+  generator that produces off-topic questions is worse than no template. Similarly the chem generators are
+  already fully deployed (they were purpose-built for the 4 topics that use them), and `math-linear-equation`
+  could not join `math-yr8-linear-equations`' two-step group because the generator declares **medium** while
+  that authored group is **easy** — a live example of the difficulty drift measured earlier today, left
+  alone rather than papered over. **Latent bug fixed:** `tests/e2e/topic-journeys.spec.ts` asserted
+  `1/${topic.questions.length}` while the quiz pool is authored questions PLUS one materialized instance per
+  template, so it had already rotted for the 9 templated topics the moment templates landed — invisible
+  because the sweep is disabled by default (`RUN_TOPIC_SWEEP=1`). It now derives the session size the same
+  way the app does (pool, then one per group when grouped). **Known incoherence, deliberate:** the quiz
+  difficulty chips count authored questions only (`All (15)`) while the session then shows `1/16` —
+  documented as intentional in `QuizPageClient`, and left alone because changing it is a user-visible
+  surface change needing a UX pass.
+
 ## 2026-09-19 (session 4, cont.) — difficulty tags MEASURED: the rubric and the gates contradict each other
 Git HEAD: `b5a07b7` (develop, pushed; dev green; prod `354858c`)
 Done: finished item D's third part by measuring rather than debating it. Added `--mode=difficulty`

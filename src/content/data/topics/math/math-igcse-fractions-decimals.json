@@ -312,5 +312,31 @@
       "explanation": "The reciprocal flips the fraction: 1 ÷ 3/5 = 5/3. Check: 3/5 x 5/3 = 1.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-fraction-arithmetic",
+      "params": {
+        "den1": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          10
+        ],
+        "den2": [
+          3,
+          4,
+          5,
+          6,
+          8,
+          10,
+          12
+        ],
+        "maxNum": 5
+      }
+    }
   ]
 }

@@ -322,5 +322,31 @@
       "explanation": "Unit prices: $2$ L for £ $2.80$ is £ $1.40$/L, $1$ L is £ $1.60$/L, $3$ L is £ $1.60$/L, $5$ L is £ $1.60$/L. The lowest is £ $1.40$/L.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-percent-of-amount",
+      "params": {
+        "p": [
+          5,
+          10,
+          15,
+          20,
+          25,
+          30,
+          40,
+          60
+        ],
+        "n": [
+          30,
+          50,
+          80,
+          120,
+          150,
+          240,
+          350
+        ]
+      }
+    }
   ]
 }

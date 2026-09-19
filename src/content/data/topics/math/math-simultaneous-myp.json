@@ -317,5 +317,35 @@
       "explanation": "Infinitely many solutions occur when both equations describe exactly the same line, which means equal gradients and equal y-intercepts.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-linear-equation",
+      "params": {
+        "a": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "b": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "x": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      }
+    }
   ]
 }

@@ -1,5 +1,17 @@
 import { test, expect } from '@playwright/test';
 import { getAllContentTopics } from '../../src/content/registry.content';
+import { materializeTemplates } from '../../src/lib/generators';
+import { hasVariantGroups, groupKeyOf } from '../../src/lib/quiz-utils';
+
+// The quiz session is authored questions PLUS one materialized instance per template
+// (QuizPageClient), and a grouped topic then samples one question per variant group.
+// This spec used to assert `topic.questions.length` and so had already rotted for the
+// templated topics the moment templates landed — a defect nobody saw because the sweep
+// is disabled by default. Compute what the page actually shows instead.
+function sessionSize(topic: ReturnType<typeof getAllContentTopics>[number]): number {
+  const pool = [...topic.questions, ...materializeTemplates(topic, `${topic.id}:sweep`)];
+  return hasVariantGroups(topic.questions) ? new Set(pool.map(groupKeyOf)).size : pool.length;
+}
 
 // This sweep is intentionally skipped by default because it exercises every topic and is slower
 // than the regular e2e suite. Run it with RUN_TOPIC_SWEEP=1 (ideally against a production build).
@@ -32,8 +44,9 @@ test('every topic can load study, flashcards and quiz pages', async ({ page }) =
         await card.click();
 
         // 3. Quiz page renders and the first question can be answered
+        const total = sessionSize(topic);
         await page.goto(`${basePath}/quiz`);
-        await expect(page.getByText(`1/${topic.questions.length}`)).toBeVisible({ timeout: 10000 });
+        await expect(page.getByText(`1/${total}`)).toBeVisible({ timeout: 10000 });
         const firstChoice = page.getByRole('button').filter({ hasText: /^A\./ }).first();
         await expect(firstChoice).toBeVisible();
         await firstChoice.click();
@@ -42,8 +55,8 @@ test('every topic can load study, flashcards and quiz pages', async ({ page }) =
         await expect(nextButton).toBeVisible();
         await nextButton.click();
 
-        if (topic.questions.length > 1) {
-          await expect(page.getByText(`2/${topic.questions.length}`)).toBeVisible({ timeout: 10000 });
+        if (total > 1) {
+          await expect(page.getByText(`2/${total}`)).toBeVisible({ timeout: 10000 });
         } else {
           await expect(page.getByRole('heading', { name: 'Quiz Complete!' })).toBeVisible({ timeout: 10000 });
         }

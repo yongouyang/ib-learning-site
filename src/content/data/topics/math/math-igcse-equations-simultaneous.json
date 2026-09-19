@@ -312,5 +312,39 @@
       "explanation": "Multiplying $x + y = 3$ by $2$ gives $2x + 2y = 6$, which contradicts $2x + 2y = 8$: the lines are parallel and never meet. Each other pair has different gradients, so each has exactly one solution.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-linear-equation",
+      "params": {
+        "a": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "b": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "x": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    }
   ]
 }

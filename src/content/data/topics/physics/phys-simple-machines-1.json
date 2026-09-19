@@ -312,5 +312,36 @@
       "explanation": "Scissors are paired class 1 levers with the pivot (screw) in the middle. Long handles mean the effort acts far from the pivot while the card sits close to it, so the cutting force at the blades greatly exceeds the squeeze force.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "phys-power",
+      "params": {
+        "force": [
+          50,
+          100,
+          150,
+          200,
+          400,
+          500
+        ],
+        "distance": [
+          2,
+          4,
+          5,
+          10,
+          20,
+          50
+        ],
+        "time": [
+          2,
+          4,
+          5,
+          10,
+          20,
+          30
+        ]
+      }
+    }
   ]
 }

@@ -321,5 +321,26 @@
       "difficulty": "hard",
       "calculator": true
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-percent-of-amount",
+      "params": {
+        "p": [
+          10,
+          20,
+          25,
+          50
+        ],
+        "n": [
+          20,
+          40,
+          60,
+          80,
+          120,
+          200
+        ]
+      }
+    }
   ]
 }

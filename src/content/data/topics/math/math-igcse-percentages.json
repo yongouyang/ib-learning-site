@@ -311,5 +311,30 @@
       "explanation": "The overall multiplier is 1.25 x 0.75 = 0.9375, which is 93.75% of the original, a decrease of 6.25%. The two changes do not cancel because the decrease is taken from the larger, increased amount.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-percent-of-amount",
+      "params": {
+        "p": [
+          5,
+          10,
+          20,
+          25,
+          40,
+          50,
+          75
+        ],
+        "n": [
+          40,
+          60,
+          80,
+          120,
+          200,
+          240,
+          320
+        ]
+      }
+    }
   ]
 }
