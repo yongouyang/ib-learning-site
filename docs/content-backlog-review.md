@@ -186,21 +186,25 @@ data, which is a different job from this one.
 
 ## 3. Recommended order
 
-1. **D (quality)** — ~~smallest, highest certainty~~ **first pass done 2026-09-19** (see
-   §2.D): markscheme independence checked corpus-wide and the prefix rule gated; the MC
-   answer-key judgement measured and found unfit for computational questions. The remaining
-   D item is the difficulty-tag hand-label, which needs your read, not a tool.
+1. **D (quality) — DONE 2026-09-19.** Markscheme independence checked corpus-wide, the
+   `M`/`A`/`B` prefix rule gated, the MC answer-key judgement measured (and found unfit for
+   computational questions), the difficulty tags measured with a blind human pass, and the
+   rubric contradiction resolved in `CONTENT_STYLE.md` (commit `39e36b6`).
 2. **C (wiring)** — the generators are built and tested; this is the best
    content-per-hour available, and it lands inside an existing plan with decisions
    already locked.
-3. **B (illustrations)** — requires the density decision above, then start the 5 bare
-   subjects (66 topics) rather than scattering across maths.
-4. **A (DP AA)** — the biggest win and the biggest commitment; start it deliberately, not
-   as filler, and consider whether AI parity (~30 topics) or a smaller honest AA subset
-   is the right first cut.
+3. **B (illustrations)** — standard settled: **≥1 per topic, all 106 zeros**, bare subjects
+   first (66 in chinese/german/ict/history/geography, which need a first-ever
+   `public/images/<subject>/`), then the 40 remaining zeros in maths/english/sciences.
+   Deliberate exception: language subjects get vocab/situation posters, not diagrams.
+4. **A (DP AA)** — decided: build it, SL core first (~12 topics). Start with the syllabus map;
+   it is the biggest win and fixes a real over-claim on `/ibdp`, but treat it as a planned chain
+   (the IGCSE pilot shape), not a side quest.
 
-Items 1–3 are all *additive to what exists*; item 4 is a new course and should be a
-planned chain like the IGCSE pilot, not a side quest.
+Sequenced: **D done → C → B → A**, with two cross-cutting tasks alongside any of them — an
+AGENTS/plan-doc staleness sweep (two plan docs already claimed "nothing landed" for shipped
+work, and AGENTS.md asserted no PITR existed after it was enabled) and the `ci.yml`
+`timeout-minutes` gap that cost a 45-minute hang and skipped two deploys on 2026-09-18.
 
 ---
 
@@ -224,19 +228,29 @@ planned chain like the IGCSE pilot, not a side quest.
 
 ---
 
-## 5. Decisions this review needs from you
+## 5. Decisions (all three settled 2026-09-19)
 
-1. **Illustration standard:** ≥1 figure per topic (106 figures) or 1 per note (~1312)?
-   Recommended: the former, per subject, with the 5 bare subjects first.
-2. **DP Math AA:** commit to a planned chain (~30 topics + course entry + papers), or
-   defer it and say so on `/ibdp` so the page doesn't imply coverage it lacks?
-3. **Difficulty tags (§2.D item 3):** the rubric says `hard` = "likely to be missed" but the
-   gates force a 20–30 % quota and the content is mostly recall. Recommended: **make the
-   rubric relative** — `hard` = the topic's hardest ~20–30 %, explicitly a ramp band rather
-   than a prediction — which keeps all 950 tags, the gate and the mixes coherent for one
-   paragraph of doc. The alternatives are retagging ~950 questions (reds out
-   `audit:content`, starves the mixes) or authoring genuinely harder questions (the real
-   content ambition, and the only option that makes "hard" mean what it says).
+1. **Difficulty tags (§2.D item 3) — make the rubric relative. DONE** (`CONTENT_STYLE.md`
+   "How to read the bands", commit `39e36b6`). The bands are relative to the topic as well as
+   to its level: the ramp is enforced (`audit:content` ≥3 hard/topic; `STANDARD_MIX` draws ~30%
+   from the hard band), and reading the levels as *absolute* bands marks ~1% of the corpus hard,
+   which cannot satisfy that rule. All 950 `hard` tags stand; no gate or mix changes. The
+   phase-2 plan's swarm-prompt block now points at the ruling so the old absolute wording cannot
+   propagate into future tagging runs.
+2. **Illustration standard — ≥1 figure per topic (106 figures), bare subjects first.** No topic
+   should render with zero imagery; density stays as it is elsewhere (a 1-in-7 topic already
+   reads as finished — that is all of maths and english today). Order: the 5 bare subjects
+   (chinese 20, german 13, ict 12, history 11, geography 10 = 66), then the 40 remaining zeros
+   (maths 24, english 11, bio/chem/phys 5). Requires a first-ever `public/images/<subject>/`
+   directory for the 5 subjects. Language subjects are the deliberate exception — vocab-table
+   notes plus bilingual flashcards — so their figures should be vocab/situation posters rather
+   than diagrams.
+3. **DP Math AA — commit, SL core first (~12 topics).** Existing courses run 10–34 topics, so a
+   ~12-topic core is a full course, not a stub; the mock pool has no shortfall risk at that size
+   (the wave-2 reasoning: 16 topics × 15 questions = 240 available against 20 per paper). Chain:
+   syllabus map → authoring (7 notes / 12 cards / 15 questions each) → `courses.ts` entry +
+   `order.json` block + a paper set + the count-churn sites AGENTS.md enumerates. No route,
+   schema, sitemap or hub change needed — the IGCSE pilot machinery generalises.
 3. **Quality pass now or with new content?** Recommended: now — the markscheme pass
    covers existing content and every later item benefits.
 
