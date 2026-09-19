@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { checkControlChars, checkStageConsistency, checkTemplates, checkVariantGroups } from '../../scripts/validate-content';
+import { checkControlChars, checkMarkschemePrefixes, checkStageConsistency, checkTemplates, checkVariantGroups } from '../../scripts/validate-content';
 import type { ValidatedTopic } from '@/content/schema';
+import fs from 'fs';
+import path from 'path';
 
 function makeTopic(overrides: Partial<ValidatedTopic> = {}): ValidatedTopic {
   return {
@@ -231,5 +233,50 @@ describe('checkControlChars', () => {
     expect(checkControlChars({ a: 'fine\nmulti-line', b: ['ok', { c: 'x\rx' }] })).toEqual([
       'b[1].c: control character CR at index 1 — JSON escape corruption?',
     ]);
+  });
+});
+
+describe('checkMarkschemePrefixes', () => {
+  const paper = (points: string[][]) => ({
+    questions: points.map((markscheme, i) => ({ id: `set-1-q${i + 1}`, markscheme })),
+  });
+
+  it('accepts the documented M/A/B prefixes', () => {
+    expect(
+      checkMarkschemePrefixes(
+        paper([['M1: uses the cosine rule', 'A1: 12.7 cm', 'B1: states the assumption']]),
+      ),
+    ).toEqual([]);
+  });
+
+  it('flags a point with no type prefix, naming the question', () => {
+    const errors = checkMarkschemePrefixes(paper([['M1: sets up the equation', 'the answer is 5']]));
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('set-1-q1');
+    expect(errors[0]).toContain('lacks an M/A/B type prefix');
+  });
+
+  it('flags a malformed separator rather than guessing intent', () => {
+    expect(checkMarkschemePrefixes(paper([['M1 - wrong separator']]))).toHaveLength(1);
+  });
+
+  it('holds for every markscheme point in the corpus (the measurement, pinned)', () => {
+    // 580 points across 29 sets: M 104 / A 132 / B 344 (2026-09-19). If a future authoring
+    // pass breaks the convention, this fails here rather than in an exam marker's prompt.
+    const papersDir = path.join(process.cwd(), 'src/content/data/papers');
+    let points = 0;
+    for (const course of fs.readdirSync(papersDir)) {
+      const dir = path.join(papersDir, course);
+      if (!fs.statSync(dir).isDirectory()) continue;
+      for (const f of fs.readdirSync(dir).filter((x) => x.endsWith('.json'))) {
+        const parsed = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+        points += parsed.questions.reduce(
+          (n: number, q: { markscheme: string[] }) => n + q.markscheme.length,
+          0,
+        );
+        expect(checkMarkschemePrefixes(parsed)).toEqual([]);
+      }
+    }
+    expect(points).toBe(580);
   });
 });

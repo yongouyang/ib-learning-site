@@ -23,6 +23,8 @@
     "validate:illustration-layout": "node scripts/diagnose-illustrations.mjs",
     "render:illustrations": "node scripts/render-illustrations.mjs",
     "audit:content": "tsx scripts/audit-content.ts",
+    "audit:ai:markschemes": "tsx scripts/audit-content-ai.ts --mode=markscheme",
+    "audit:ai:answerkeys": "tsx scripts/audit-content-ai.ts --mode=answerkey --sample=30",
     "generate:registry": "tsx scripts/generate-registry.ts",
     "generate:sitemaps": "tsx scripts/generate-sitemaps.ts",
     "check:sitemaps": "tsx scripts/generate-sitemaps.ts --check",

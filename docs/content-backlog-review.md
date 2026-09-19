@@ -116,27 +116,43 @@ Measured state: **19 topics are group-expanded** (12 chem + 4 math + 3 phys) out
 The DP AI topics carry 20 questions each, but that is a different standard (a longer
 bank), not variant groups — don't count them as progress.
 
-### D. Content defects the gates cannot see
+### D. Content defects the gates cannot see — **first pass MEASURED 2026-09-19**
 
 This is the cheapest item here and the only one whose value is *student-facing
-correctness* rather than volume. Three named classes, none of them caught by anything:
+correctness* rather than volume. Three named classes, none of them caught by anything.
+Tool: `scripts/audit-content-ai.ts` (`npm run audit:ai:markschemes` / `audit:ai:answerkeys`),
+model pinned to `jev-1.13.0` and echoed into every report.
 
-1. **Markscheme independence.** 233 FR questions / **580 markscheme points** are checked
-   only for `marks === markscheme.length`. `CONTENT_STYLE.md:103` requires every point to
-   be independently awardable with every essential step covered; nothing enforces it. A
-   non-independent point marks students down silently in production. (AGENTS.md names
-   this as the highest-value AI-judgement job available.)
-2. **MC answer keys.** `correctIndex` is only range-checked 0–3
-   (`src/content/schema.ts:56`). A second defensible answer is invisible to every gate —
-   and it is the defect that actually harms a student. Measure-then-gate as a regression
-   guard for new content; expect low yield on the existing 3765 (the 2026-09-17 sample
-   found zero errors).
-3. **Difficulty tags.** AGENTS.md records that 0 of 5 `hard`-tagged questions were judged
-   hard, with drift ≤0.03 (systematic, not flaky) — one (`bio-cell-1`, single-fact
-   recall) looks like a genuine mis-tag against `CONTENT_STYLE.md:88`. The tags feed
-   `STANDARD_MIX`/`HARD_MIX` in mock papers, so a mis-tag changes what a mock looks
-   like. Blocked on a human decision, not on tooling: hand-label ~30 questions from one
-   subject and decide which side is wrong.
+1. **Markscheme independence — CHECKED, rule holds.** All 231 multi-point questions /
+   **580 markscheme points** were judged for double-counting (today the only enforcement is
+   `marks === markscheme.length`). **One candidate**, `ict-ks3-set-1-q7` (a loop-trace
+   question), hand-triaged as *adjacency, not a defect*: its three points are output /
+   pass-count / stop-reason, which is the standard awarding shape, and the model scored all
+   three elevated (0.45/0.57/0.32) — it was reading overlap between the parts, not a
+   duplicate. Clean cases score 0.07–0.11 and a deliberately planted duplicate 0.56–0.59.
+   The deterministic half is now a gate too: `validate-content.ts` rejects a markscheme
+   point without an `M`/`A`/`B` type prefix (all 580 already comply — M 104 / A 132 /
+   B 344 — so it guards new content, the same shape as the 20-mark rule).
+2. **MC answer keys — MEASURED, and the judgement is NOT fit for computational
+   questions.** A 90-question sample produced 13 findings across 9 questions, and **every
+   one was a maths question** (9 of the 35 maths questions sampled) while **all 55 sampled
+   questions across the other nine subjects were clean** (keys 0.94–0.99, best distractor
+   ≤ 0.14). All nine were hand-checked and **every key was correct** — the model fails the
+   arithmetic, then calls a distractor right or the key wrong. That is AGENTS.md's standing
+   rule (*Jev is not a calculator; it does not count reliably*), now measured on our own
+   content. **Consequence: do not gate on this, and do not use it on numeric questions** —
+   correctness of a numeric response needs exact recomputation, not a judgement. It remains
+   useful for conceptual/verbal questions (where it was clean) and as an authoring-path
+   check for new non-computational content. This also qualifies the 2026-09-17 measurement
+   in `typesafe-ai-reviewed.md` §8.1: "the correct option won all 21 observations" was
+   true of the sample it used, which did not expose the arithmetic failure mode.
+3. **Difficulty tags — still open, and still blocked on a human decision, not tooling.**
+   AGENTS.md records that 0 of 5 `hard`-tagged questions were judged hard, with drift ≤ 0.03
+   (systematic, not flaky) — one (`bio-cell-1`, single-fact recall) looks like a genuine
+   mis-tag against `CONTENT_STYLE.md:88`. The tags feed `STANDARD_MIX`/`HARD_MIX` in mock
+   papers, so a mis-tag changes what a mock looks like. Hand-label ~30 questions from one
+   subject and decide which side is wrong. **Do not build a gate on this yet** — a `Score`
+   from this model is a threshold, never a magnitude.
 
 ### E. Traffic / SEO depth
 
@@ -150,9 +166,10 @@ data, which is a different job from this one.
 
 ## 3. Recommended order
 
-1. **D (quality)** — smallest, highest certainty, improves live content, and every later
-   item adds more content that would otherwise need the same check afterwards. Do the
-   markscheme pass first; it covers all 580 points with no new content.
+1. **D (quality)** — ~~smallest, highest certainty~~ **first pass done 2026-09-19** (see
+   §2.D): markscheme independence checked corpus-wide and the prefix rule gated; the MC
+   answer-key judgement measured and found unfit for computational questions. The remaining
+   D item is the difficulty-tag hand-label, which needs your read, not a tool.
 2. **C (wiring)** — the generators are built and tested; this is the best
    content-per-hour available, and it lands inside an existing plan with decisions
    already locked.

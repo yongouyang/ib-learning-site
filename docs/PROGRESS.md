@@ -4,6 +4,43 @@
 
 ---
 
+## 2026-09-19 (session 4) — content backlog REVIEWED (measured, not quoted), then item D: the quality pass
+Git HEAD: `86e50f5` (develop; local unpushed: this entry + the review doc `adf3a73`. prod = `354858c`)
+Done: **(1) `docs/content-backlog-review.md`** — a measured inventory (233 topics / 1643 notes /
+  3765 MC / 29 sets / 233 FR / 580 markscheme points / 312 SVGs / 18 generators / 335 indexable of
+  887 pages) that decomposes the copy-pasted "standing queue" line into five sized jobs: DP Math AA
+  (**zero topics, no course entry — the only missing course**, and committed scope), illustrations
+  (**five subjects have never had a figure at all**, and "106" hides the ≥1-per-topic vs 1-per-note
+  decision: 106 figures vs ~1312), templates (18 generators, all 18 already used, in only 9 topics),
+  quality, and SEO depth. **(2) Item D — the quality pass.** `scripts/audit-content-ai.ts`: markscheme
+  independence across the whole corpus (231 questions / 580 points → **1 candidate**, `ict-ks3-set-1-q7`,
+  hand-triaged as adjacency not a defect) + an MC answer-key sample. **(3) `validate-content.ts` now
+  rejects a markscheme point without an `M`/`A`/`B` type prefix** (all 580 comply: M 104 / A 132 / B 344 —
+  it guards new content). (4) Corrected two stale "plan only, nothing landed" IGCSE plan statuses (wave 2
+  shipped 2026-09-12; the pilot 2026-09-07) — see review §4.
+Verified: `npm test` **1464/1464** (129 files; +24), tsc clean, lint 29 warnings/0 errors (baseline),
+  `validate:content` all-pass (new prefix rule included), `audit:content` 0/0, `check:registry` ok,
+  and the live-API harness self-check **3/3 fixtures** (planted duplicate detected; clean method+accuracy
+  and clean B-mark pairs not flagged).
+Next: (1) **the difficulty-tag item still needs YOU** — hand-label ~30 questions in one subject and decide
+  which side is wrong (the model disagreed with 5/5 `hard` tags at drift ≤ 0.03; do not gate on it yet).
+  (2) Then the review's order: C (wire the existing generators into the remaining 224 topics), B
+  (illustrations), A (DP Math AA as a planned chain). (3) Two decisions still open from the review §5:
+  illustration standard, and whether to commit to DP AA or stop implying it on `/ibdp`.
+Notes: **the calibration found the harness, not the content — twice.** First: the markscheme wording
+  originally asked "is this point redundant?" and scored a *clean, correct* 2-mark markscheme 0.35/0.55,
+  because it read the rubric's intended A-depends-on-M relation as redundancy; stating the convention in
+  `state` + excluding it in the criteria moved clean cases to 0.07–0.11 while a planted duplicate stayed
+  at 0.56–0.59 (the `--selftest` fixtures pin both directions). Second, and more important: **the
+  answer-key judgement is unusable on computational questions** — a 90-question sample flagged 9 of 35
+  maths questions and 0 of 55 questions in the other nine subjects, and hand-checking proved **every key
+  correct and every flag a false positive** (the model fails arithmetic, then blesses a distractor or
+  doubts the key). So it is a conceptual-question tool, never a gate; numeric correctness needs exact
+  recomputation. **The score is not a severity measure either** — a blatantly planted duplicate and a merely
+  adjacent real markscheme both land ≈0.57, so a flag means "I see overlap", and a human decides. This
+  qualifies `typesafe-ai-reviewed.md` §8.1's "correct option won all 21 observations": true of that sample,
+  which did not reach the arithmetic failure mode.
+
 ## 2026-09-18 (session 3, cont.) — the deploy needed a CI re-run (infra flake), then dev verified at the edge
 Git HEAD: `354858c` (develop; prod still `b7c48f6` — the marker is intentionally NOT promoted yet)
 Done: `354858c` went to `develop` and **the first CI attempt failed** — not on the diff: the

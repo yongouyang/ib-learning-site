@@ -170,6 +170,28 @@ import { ORDER_FILE, checkTopicOrder } from './topic-order';
 // class — a single-backslash `\text` in JSON parses to a literal TAB, and strict
 // KaTeX checks render it as whitespace and pass. No code point < 32 is legitimate
 // in content except \n (multi-line note bodies).
+/**
+ * Markscheme points are "short point per mark, prefixed by type" — M1/M2 method, A1/A2
+ * accuracy, B1/B2 independent fact (docs/CONTENT_STYLE.md "Practice papers"). The prefix
+ * is not decoration: the marking prompt relies on it to apply the M/A dependency rule, so
+ * an unprefixed point silently changes how a mark is awarded. All 580 points in the corpus
+ * pass (M 104 / A 132 / B 344, measured 2026-09-19), so this rule guards new content only.
+ */
+export const MARKSCHEME_PREFIX_RE = /^\s*(M|A|B)\d*\s*[:.]/;
+
+export function checkMarkschemePrefixes(
+  paper: { questions: { id: string; markscheme: string[] }[] },
+): string[] {
+  return paper.questions.flatMap((q) =>
+    q.markscheme
+      .filter((point) => !MARKSCHEME_PREFIX_RE.test(point))
+      .map(
+        (point) =>
+          `${q.id}: markscheme point lacks an M/A/B type prefix — "${point.slice(0, 40)}"`,
+      ),
+  );
+}
+
 export function checkControlChars(value: unknown, pathStr = '', hits: string[] = []): string[] {
   if (typeof value === 'string') {
     for (let i = 0; i < value.length; i++) {
@@ -350,6 +372,11 @@ function validatePapers() {
       const calcTagged = paper.questions.filter((q) => q.calculator);
       if (calcTagged.length > 0) {
         errors.push(`${calcTagged.length} question(s) tagged calculator:true — papers are non-calculator for now`);
+      }
+      // Markscheme point type prefixes (docs/CONTENT_STYLE.md "Practice papers").
+      const badPrefixes = checkMarkschemePrefixes(paper);
+      if (badPrefixes.length > 0) {
+        errors.push(...badPrefixes.slice(0, 5));
       }
 
       if (errors.length > 0) {
