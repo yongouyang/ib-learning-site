@@ -4,6 +4,33 @@
 
 ---
 
+## 2026-09-18 (session 3, cont.) — the deploy needed a CI re-run (infra flake), then dev verified at the edge
+Git HEAD: `354858c` (develop; prod still `b7c48f6` — the marker is intentionally NOT promoted yet)
+Done: `354858c` went to `develop` and **the first CI attempt failed** — not on the diff: the
+  `Validate illustrations` job hung **45 minutes** inside `Install Playwright Chromium` and the runner was
+  killed (the step still `in_progress`, conclusion `null`), which skipped `deploy-dev` and `deploy-prod`.
+  Everything else in attempt 1 passed, **including all three e2e projects**. A GitHub **re-run of the
+  failed jobs (attempt 2)** was green — `deploy-dev` success, dev now serves `354858c`. The same job took
+  3m19s / 3m18s in the two preceding runs, so it is a runner/network flake, not the marker change.
+Verified: **the published notice ON THE EDGE, dev (`/privacy?cb=<epoch>` to defeat the 5-minute cache),
+  which is what the "hold the promotion" decision existed for:** §6.5's marker clause present, §9's "no
+  separate record of it" present, "Last updated: 18 September 2026" present and the 17 September line
+  gone, the corrected "see also §6 of the Terms" present, and the internal preamble / "Decisions taken" /
+  "checklist item" all absent. **Prod checked the same way and still serves the 17 September notice with
+  no marker clause** — the hold held. Dev's `version.json` = `354858c`.
+Next: (1) promote `develop` → `main` when you are happy with the published clause (prod is on `b7c48f6`).
+  (2) **Consider `timeout-minutes` in `ci.yml` — there are NONE today**, and both Playwright install
+  steps (`:98` e2e, `:141` illustrations) run `npx playwright install --with-deps chromium`, so a hang
+  costs 45 minutes and blocks the deploy; an 8-minute cap turns it into a fast red. Not done here because
+  a `ci.yml` push re-runs the whole pipeline and the user chose the targeted re-run instead.
+Notes: **diagnosing CI without `gh` is possible and worth remembering** — this repo's API is readable
+  unauthenticated: `GET /repos/yongouyang/ib-learning-site/actions/runs?branch=develop` gives status and
+  conclusion per run, `.../runs/<id>/jobs` gives per-JOB conclusions (that is how the failure was
+  localised), and `.../jobs?filter=latest` shows which jobs ran in a re-run attempt. **A step frozen at
+  `in_progress` with a `null` conclusion while the job is `completed/failure` means the RUNNER was killed,
+  not that the step failed** — the distinction is what separates "re-run it" from "debug your diff".
+  Writes (re-run, dispatch) still need auth, so the retrigger stayed with the user.
+
 ## 2026-09-18 (session 3) — Phase 2's last item: the premium leak-tracing marker, with its notice
 Git HEAD: `b7c48f6` (develop; tree dirty at time of writing — this change set is not yet committed)
 Done: **Phase 2 is complete.** Premium paper sets are issued with a leak-tracing marker, so the Terms'
