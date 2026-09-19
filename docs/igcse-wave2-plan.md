@@ -1,6 +1,10 @@
 # IGCSE Wave 2 — Maths 0580 deepening (implementation plan)
 
-Status: **plan only, nothing landed.** Follows the shipped S6 pilot
+Status: **SHIPPED — plan fully executed, live in prod since 2026-09-12.** (The old
+"plan only, nothing landed" line stood stale for four days; corrected 2026-09-19.
+All 6 topics, `math-igcse-set-3`, both Phase 0 validator rules and the set-2 21→20 mark
+fix are in the repo — see `docs/content-backlog-review.md` §4. Do not re-execute.)
+Follows the shipped S6 pilot
 (`docs/igcse-pilot-plan.md`, live in prod since 2026-09-07: 10 topics, `/igcse` hubs,
 `math-igcse` course, 2 paper sets). Wave 2 inherits every mechanism the pilot built —
 no route, schema, sitemap, hubs, or courses.ts changes are needed.

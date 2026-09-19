@@ -1,6 +1,8 @@
 # S6 — IGCSE Pilot: Cambridge Maths 0580 (implementation plan)
 
-Status: **plan only, nothing landed.** Owner queue item 8 (PROGRESS.md standing queue).
+Status: **SHIPPED — pilot live in prod since 2026-09-07.** (The old "plan only, nothing
+landed" line was stale; corrected 2026-09-19. Superseded in scope by
+`docs/igcse-wave2-plan.md`, also shipped.) Owner queue item 8 (PROGRESS.md standing queue).
 Decisions locked 2026-09-06 with the user (see §0). Supersedes the one-line "pilot IGCSE
 Maths 0580" note in `docs/seo-technical-plan.md` §5 (S6 row).
 
