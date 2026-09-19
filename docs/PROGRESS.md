@@ -4,6 +4,36 @@
 
 ---
 
+## 2026-09-19 (session 4, cont.) — difficulty tags MEASURED: the rubric and the gates contradict each other
+Git HEAD: `b5a07b7` (develop, pushed; dev green; prod `354858c`)
+Done: finished item D's third part by measuring rather than debating it. Added `--mode=difficulty`
+  to `scripts/audit-content-ai.ts` (criteria lifted **verbatim** from `CONTENT_STYLE.md:88-90`, with a
+  test that parses the doc and fails if either side drifts; the shipped tag and the explanation are
+  kept OUT of `state` so the judgement is independent of the label it is compared against). Ran it over
+  all **3765** questions, then hand-labelled **30 biology questions blind** (15 of them shipped `hard`,
+  and I had not seen which) as the arbiter.
+Verified: `npm test` **1468/1468** (129 files), tsc clean, lint 29/0 (baseline), `audit:content` 0/0,
+  `validate:content` all-pass. Difficulty arithmetic: shipped **33/42/25 %** easy/medium/hard vs model
+  **42/57/1 %**; **all 28** of the model's `hard` calls fall on shipped-`hard` questions; on the 15
+  shipped-hard questions in the blind sample **both** judgements put only 3 at hard (9 medium, 3 easy);
+  agreement: shipped==mine 15/30, shipped==model 13/30, **mine==model 21/30**.
+Next: **(1) the difficulty decision is yours** — review §5 item 3: make the rubric relative (recommended:
+  `hard` = the topic's hardest ~20-30 %, a ramp band rather than a prediction), retag ~950 questions and
+  re-tune the gate + mixes, or author genuinely harder questions. (2) Then review order: C (templates),
+  B (illustrations), A (DP AA), plus the two older decisions (illustration standard, DP AA commitment).
+Notes: **the mismatch is structural, not a defect in the content or in the model.** The rubric defines
+  `hard` by an *absolute* outcome ("the questions a typical student at this level is most likely to
+  miss") while our machinery *forces a quota*: `audit:content` must pass with zero warnings and needs
+  ≥3 hard per 15-question topic (**20 %**), and `STANDARD_MIX` wants 6 of 20 (**30 %**). Ten subjects
+  landing at 22-27 % hard — recall-heavy Chinese and History included — is the signature of a quota, not
+  a measurement. **So a strict retag is not a content edit:** it reds out `audit:content` for most topics
+  and starves the mock mixes, which then silently top up from `leftovers` in `stratifiedSample`. The
+  tags' real job is shaping the quiz/mock ramp; "likely to be missed" is a prediction they were never
+  built to make. Also: my first pass paraphrased the rubric's `hard` line (dropping "the questions a
+  typical student is most likely to miss") and the verbatim re-run moved the model's hard rate from 2 %
+  to 1 % and made its hard set a strict subset of ours — the verbatim test exists so that can't drift
+  again. Advisory only: never gate on this Score.
+
 ## 2026-09-19 (session 4) — content backlog REVIEWED (measured, not quoted), then item D: the quality pass
 Git HEAD: `86e50f5` (develop; local unpushed: this entry + the review doc `adf3a73`. prod = `354858c`)
 Done: **(1) `docs/content-backlog-review.md`** — a measured inventory (233 topics / 1643 notes /

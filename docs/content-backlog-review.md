@@ -146,13 +146,33 @@ model pinned to `jev-1.13.0` and echoed into every report.
    check for new non-computational content. This also qualifies the 2026-09-17 measurement
    in `typesafe-ai-reviewed.md` §8.1: "the correct option won all 21 observations" was
    true of the sample it used, which did not expose the arithmetic failure mode.
-3. **Difficulty tags — still open, and still blocked on a human decision, not tooling.**
-   AGENTS.md records that 0 of 5 `hard`-tagged questions were judged hard, with drift ≤ 0.03
-   (systematic, not flaky) — one (`bio-cell-1`, single-fact recall) looks like a genuine
-   mis-tag against `CONTENT_STYLE.md:88`. The tags feed `STANDARD_MIX`/`HARD_MIX` in mock
-   papers, so a mis-tag changes what a mock looks like. Hand-label ~30 questions from one
-   subject and decide which side is wrong. **Do not build a gate on this yet** — a `Score`
-   from this model is a threshold, never a magnitude.
+3. **Difficulty tags — MEASURED 2026-09-19: the rubric and the gates contradict each other.**
+   Corpus-wide (`--mode=difficulty`, verbatim rubric): the shipped tags are **33/42/25 %**
+   easy/medium/hard, while the model applying `CONTENT_STYLE.md:88–90` literally calls
+   **42/57/1 %** — and **every one of its 28 `hard` calls lands on a shipped-`hard` question**
+   (it never calls an easy- or medium-tagged question hard). A blind human pass over 30
+   biology questions (15 of them shipped `hard`, none of which I had seen) agrees with the
+   model far more than with the tags: **shipped==mine 15/30, shipped==model 13/30,
+   mine==model 21/30**. On the 15 shipped-`hard` questions both judgements put only **3** at
+   hard (9 → medium, 3 → easy). So ~80 % of `hard` tags do not survive our own written rubric.
+
+   **But neither side is "wrong" — the rubric is internally inconsistent.** Its `hard`
+   criterion is *absolute* ("the questions a typical student at this level is most likely to
+   miss"), while our machinery *forces a quota*: `audit:content` must pass with zero warnings
+   and requires ≥3 hard per 15-question topic (**20 %**), and `STANDARD_MIX` asks for 6 hard in
+   a 20-question paper (**30 %**). Ten subjects shipping 22–27 % hard — recall-heavy Chinese
+   and History included — is the signature of a quota, not a measurement: for
+   vocabulary or fact-recall content there may be *no* question a typical student is likely to
+   miss, yet the gate demands three. **A strict retag is therefore not a content edit**: it
+   reds out `audit:content` for most topics and starves the mock mixes (which then fall back
+   to `leftovers` in `stratifiedSample`, silently softening every paper).
+
+   **Decision needed (see §5):** make the rubric say what the tags do (relative: the topic's
+   hardest ~20–30 %), or retag strictly and re-tune both the gate and the mixes, or author
+   genuinely harder questions. **Advisory only either way — do not gate on this model:** its
+   `Score` is a threshold, never a magnitude, and the tags' real job is shaping the quiz/mock
+   ramp, not predicting failure. Its hard set is a strict subset of ours, so it is a
+   high-precision, low-recall candidate finder if a retag is ever chosen.
 
 ### E. Traffic / SEO depth
 
@@ -210,6 +230,13 @@ planned chain like the IGCSE pilot, not a side quest.
    Recommended: the former, per subject, with the 5 bare subjects first.
 2. **DP Math AA:** commit to a planned chain (~30 topics + course entry + papers), or
    defer it and say so on `/ibdp` so the page doesn't imply coverage it lacks?
+3. **Difficulty tags (§2.D item 3):** the rubric says `hard` = "likely to be missed" but the
+   gates force a 20–30 % quota and the content is mostly recall. Recommended: **make the
+   rubric relative** — `hard` = the topic's hardest ~20–30 %, explicitly a ramp band rather
+   than a prediction — which keeps all 950 tags, the gate and the mixes coherent for one
+   paragraph of doc. The alternatives are retagging ~950 questions (reds out
+   `audit:content`, starves the mixes) or authoring genuinely harder questions (the real
+   content ambition, and the only option that makes "hard" mean what it says).
 3. **Quality pass now or with new content?** Recommended: now — the markscheme pass
    covers existing content and every later item benefits.
 

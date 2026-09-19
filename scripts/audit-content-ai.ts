@@ -44,6 +44,13 @@
  *                       questions only (where the keys scored 0.94-0.99 and the best
  *                       distractor <= 0.14); correctness of a numeric response needs exact
  *                       recomputation, not a judgement.
+ *   --mode=difficulty   ADVISORY ONLY, and not yet gateable. Asks the model to place each MC
+ *                       question on the three levels lifted verbatim from our own rubric
+ *                       (docs/CONTENT_STYLE.md "Difficulty & calculator tags"), with the
+ *                       question's shipped tag deliberately kept OUT of `state` so the
+ *                       judgement is independent of the label it is compared against. The
+ *                       score is a threshold, never a magnitude: map it with difficultyLabel
+ *                       and treat a disagreement as "read the question", not as a defect.
  *
  * Corollary, and the reason this is a script and not a gate: a flag is a prompt to read the
  * content, never a verdict. The score is not a severity measure either — the planted
@@ -89,7 +96,14 @@ export interface McQuestion {
 }
 
 export interface Answers {
-  [questionId: string]: { type: string; noul?: number; choice?: string };
+  [questionId: string]: {
+    type: string;
+    noul?: number;
+    choice?: string;
+    /** Score answers (the difficulty judgement). */
+    score?: number;
+    legend?: Record<string, string>;
+  };
 }
 
 /** The injectable seam (AGENTS.md: external dependencies get a controllable dummy). */
@@ -193,6 +207,59 @@ export function evaluateMarkscheme(
 
 // --- answer-key judgement -----------------------------------------------------------
 export const CHOICE_LETTERS = ['A', 'B', 'C', 'D'];
+
+// Difficulty levels lifted VERBATIM from docs/CONTENT_STYLE.md "Difficulty & calculator tags"
+// (markdown emphasis stripped, wording untouched — tests/unit/audit-content-ai.test.ts parses
+// the doc and fails if either side drifts). Lifting our own wording is the point: the check
+// must measure our rubric, not a model's generic idea of difficulty. The rubric also says to
+// judge relative to the topic's target level, which is why the topic travels in `state`.
+export const DIFFICULTY_LEVELS = [
+  'easy — single-fact recall or a direct definition; a student who read the notes once should get it right.',
+  'medium — apply one rule or procedure, discriminate between close options, or a short single-step calculation.',
+  'hard — multi-step procedure, prediction/application in an unfamiliar context, or fine discrimination across several options — the questions a typical student at this level is most likely to miss. (For recall-heavy subjects like science, scenario-based prediction is the hard band.)',
+];
+
+/** Maps a Score answer back to a level, using thresholds and never the raw magnitude. */
+export function difficultyLabel(score: number): 'easy' | 'medium' | 'hard' {
+  if (score < 0.5) return 'easy';
+  if (score < 1.5) return 'medium';
+  return 'hard';
+}
+
+/**
+ * Difficulty is judged from the question alone plus the topic's target level. `difficulty`
+ * and `explanation` are DELIBERATELY excluded: the tag must not anchor the judgement, and
+ * the explanation reveals how much reasoning the question actually takes.
+ */
+export function buildDifficultyRequest(
+  q: McQuestion,
+  topic: { title: string; subjectId: string; stage: string; year?: number; course?: string } | null,
+): { state: unknown; questions: Record<string, unknown> } {
+  const level = topic
+    ? [topic.stage, topic.year ? `Year ${topic.year}` : null, topic.course ? `course ${topic.course}` : null]
+        .filter(Boolean)
+        .join(' / ')
+    : 'unknown';
+  const state = {
+    topic: topic ? { title: topic.title, subject: topic.subjectId, targetLevel: level } : null,
+    question: {
+      stem: q.stem,
+      choices: q.choices.map((c, i) => `${CHOICE_LETTERS[i]}: ${c}`),
+    },
+  };
+  return {
+    state,
+    questions: {
+      difficulty: {
+        type: 'score',
+        instructions:
+          "How difficult would this question be for a student at this topic's target level " +
+          '(not on an absolute scale)?',
+        criteria: DIFFICULTY_LEVELS,
+      },
+    },
+  };
+}
 
 /**
  * One Noul per choice: "is this choice a correct answer to the question?"
@@ -327,8 +394,12 @@ export function loadPaperQuestions(): PaperQuestion[] {
   return out;
 }
 
-export function loadMcQuestions(): (McQuestion & { topic: { title: string; subjectId: string; stage: string } })[] {
-  const out: (McQuestion & { topic: { title: string; subjectId: string; stage: string } })[] = [];
+export function loadMcQuestions(): (McQuestion & {
+  topic: { title: string; subjectId: string; stage: string; year?: number; course?: string };
+})[] {
+  const out: (McQuestion & {
+    topic: { title: string; subjectId: string; stage: string; year?: number; course?: string };
+  })[] = [];
   for (const subject of fs.readdirSync(TOPICS_DIR)) {
     const dir = path.join(TOPICS_DIR, subject);
     if (!fs.statSync(dir).isDirectory()) continue;
@@ -337,7 +408,13 @@ export function loadMcQuestions(): (McQuestion & { topic: { title: string; subje
       for (const q of topic.questions) {
         out.push({
           ...q,
-          topic: { title: topic.title, subjectId: topic.subjectId, stage: topic.stage },
+          topic: {
+            title: topic.title,
+            subjectId: topic.subjectId,
+            stage: topic.stage,
+            year: topic.year,
+            course: topic.course,
+          },
         });
       }
     }
@@ -410,9 +487,10 @@ export const FIXTURES: Fixture[] = [
 
 // --- main ---------------------------------------------------------------------------
 interface Args {
-  mode: 'markscheme' | 'answerkey';
+  mode: 'markscheme' | 'answerkey' | 'difficulty';
   limit?: number;
   sample?: number;
+  subject?: string;
   threshold: number;
   selftest: boolean;
   json: string;
@@ -429,6 +507,7 @@ function parseArgs(argv: string[]): Args {
     mode: (get('mode') as Args['mode']) ?? 'markscheme',
     limit: get('limit') ? Number(get('limit')) : undefined,
     sample: get('sample') ? Number(get('sample')) : undefined,
+    subject: get('subject'),
     threshold: get('threshold') ? Number(get('threshold')) : DEFAULT_THRESHOLD,
     selftest: argv.includes('--selftest'),
     json: get('json') ?? '',
@@ -497,8 +576,30 @@ async function main(): Promise<void> {
       const tag = f.length ? `\n     ^ ${f.map((x) => `${x.label}=${fmt(x.score)}`).join(' ')}` : '';
       console.log(`  ${String(checked).padStart(3)} ${q.id} (${q.marks} marks)${tag}`);
     }
+  } else if (args.mode === 'difficulty') {
+    let qs = loadMcQuestions();
+    if (args.subject) qs = qs.filter((q) => q.topic.subjectId === args.subject);
+    qs = args.sample ? sampleEvenly(qs, args.sample) : qs;
+    console.log(`\nDifficulty judgement — ${qs.length} questions\n`);
+    for (const q of qs) {
+      const req = buildDifficultyRequest(q, q.topic);
+      const answers = await judge(req.state, req.questions);
+      const score = answers.difficulty?.score;
+      raw.push({ id: q.id, shipped: q.difficulty ?? null, score, answers });
+      checked++;
+      if (typeof score !== 'number') {
+        console.log(`  ${q.id}: no score returned`);
+        continue;
+      }
+      const label = difficultyLabel(score);
+      const agree = label === q.difficulty ? 'agree' : `DISAGREE (shipped ${q.difficulty ?? 'none'})`;
+      console.log(
+        `  ${String(checked).padStart(4)} ${q.id.padEnd(30)} model=${label.padEnd(6)} ${fmt(score)}  ${agree}`,
+      );
+    }
   } else {
     let qs = loadMcQuestions();
+    if (args.subject) qs = qs.filter((q) => q.topic.subjectId === args.subject);
     qs = args.sample ? sampleEvenly(qs, args.sample) : qs;
     console.log(`\nMC answer keys — ${qs.length} questions\n`);
     for (const q of qs) {
@@ -536,7 +637,9 @@ async function main(): Promise<void> {
         scopeNote:
           args.mode === 'answerkey'
             ? 'Findings on computational questions are dominated by model arithmetic errors (9/35 maths flagged, all hand-verified false positives 2026-09-19; 0/55 in other subjects). Hand-verify every flag.'
-            : 'Findings are semantic candidates for human triage; the score is not a severity measure.',
+            : args.mode === 'difficulty'
+              ? 'Advisory only. The score is a threshold, never a magnitude; a disagreement means "read the question", not "the tag is wrong".'
+              : 'Findings are semantic candidates for human triage; the score is not a severity measure.',
         checked,
         findings,
         raw,

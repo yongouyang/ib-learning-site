@@ -9,6 +9,9 @@ import { describe, it, expect, vi, afterEach } from 'vitest';
 import {
   buildAnswerKeyRequest,
   buildMarkschemeRequest,
+  DIFFICULTY_LEVELS,
+  buildDifficultyRequest,
+  difficultyLabel,
   evaluateAnswerKey,
   evaluateMarkscheme,
   markPrefix,
@@ -18,6 +21,8 @@ import {
   type McQuestion,
   type PaperQuestion,
 } from '../../scripts/audit-content-ai';
+import fs from 'fs';
+import path from 'path';
 
 const frq: PaperQuestion = {
   id: 'q1',
@@ -216,5 +221,55 @@ describe('makeJudge', () => {
     expect(answers.point_1.noul).toBe(0.1);
     expect(served).toBe('jev-9.9.9');
     fetchSpy.mockRestore();
+  });
+});
+
+describe('difficulty judgement', () => {
+  it('maps the score to a level with thresholds, never as a magnitude', () => {
+    expect(difficultyLabel(0.01)).toBe('easy');
+    expect(difficultyLabel(0.49)).toBe('easy');
+    expect(difficultyLabel(0.5)).toBe('medium');
+    expect(difficultyLabel(1.49)).toBe('medium');
+    expect(difficultyLabel(1.5)).toBe('hard');
+    expect(difficultyLabel(1.99)).toBe('hard');
+  });
+
+  it('keeps the criteria VERBATIM in step with the rubric doc (drift fails loudly)', () => {
+    // The check must measure OUR rubric, not a model's generic idea of difficulty — so every
+    // criterion is compared character-for-character against docs/CONTENT_STYLE.md, with only
+    // the markdown emphasis stripped. If either side is reworded, this test goes red.
+    const doc = fs.readFileSync(path.join(process.cwd(), 'docs/CONTENT_STYLE.md'), 'utf8');
+    const parsed = ['easy', 'medium', 'hard'].map((level) => {
+      const line = doc.split('\n').find((l) => l.startsWith(`- **${level}** — `));
+      if (!line) throw new Error(`rubric line for "${level}" not found`);
+      return `${level} — ${line.slice(`- **${level}** — `.length).replace(/\*/g, '')}`;
+    });
+    expect(DIFFICULTY_LEVELS).toEqual(parsed);
+  });
+
+  it('CONTAMINATION GUARD: state carries no shipped tag and no explanation', () => {
+    const req = buildDifficultyRequest({ ...mcq, difficulty: 'hard' }, {
+      title: 'Photosynthesis',
+      subjectId: 'biology',
+      stage: 'ks3',
+      year: 8,
+    });
+    // The tag must not anchor the judgement: assert the question in state is exactly
+    // stem + choices, and that the explanation (which reveals how much reasoning is needed)
+    // never travels. Note the rubric WORDING in criteria does contain the word "hard" — that
+    // is the rubric being measured, not the label being leaked.
+    const state = req.state as { question: Record<string, unknown> };
+    expect(Object.keys(state.question).sort()).toEqual(['choices', 'stem']);
+    expect(JSON.stringify(req.state)).not.toContain(mcq.explanation);
+    // ...but the topic's target level must be there: the rubric judges relative to it.
+    expect(JSON.stringify(req.state)).toContain('Year 8');
+  });
+
+  it('asks one Score question with the three rubric levels and no other', () => {
+    const req = buildDifficultyRequest(mcq, null);
+    expect(Object.keys(req.questions)).toEqual(['difficulty']);
+    const q = req.questions.difficulty as { type: string; criteria: string[] };
+    expect(q.type).toBe('score');
+    expect(q.criteria).toHaveLength(3);
   });
 });
