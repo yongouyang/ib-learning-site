@@ -9,6 +9,7 @@ describe('getDiagnosticCourses', () => {
       'math-y7',
       'math-y8',
       'math-y9',
+      'math-dp-aa',
       'math-dp-ai',
       'math-igcse',
       'eng-ks3',

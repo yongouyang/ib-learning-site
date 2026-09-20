@@ -11,7 +11,7 @@ import { getAllPapersContent, getPaperContent, getPapersForCourseContent } from 
 import type { SubjectId } from '@/content/types';
 
 const EXPECTED_TOPIC_COUNTS: Partial<Record<SubjectId, number>> = {
-  math: 92,
+  math: 95,
   biology: 14,
   chemistry: 13,
   english: 34,

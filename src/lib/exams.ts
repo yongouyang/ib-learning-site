@@ -17,7 +17,7 @@ const HARD_MIX: Record<Difficulty, number> = { easy: 3, medium: 8, hard: 9 };
 
 function papersFor(courseId: string): ExamPaper[] {
   const isMath = courseId.startsWith('math');
-  const isDp = courseId === 'math-dp-ai';
+  const isDp = courseId === 'math-dp-ai' || courseId === 'math-dp-aa';
 
   const paper1: ExamPaper = {
     courseId,

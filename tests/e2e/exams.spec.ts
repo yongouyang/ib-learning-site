@@ -15,8 +15,8 @@ test.describe('Mock exams', () => {
     // One page-level tease card (copy voice: say it once)…
     await expect(page.getByText('Timed mock mode').first()).toBeVisible();
     await expect(page.getByRole('link', { name: 'See Premium plans' })).toHaveCount(1);
-    // …and a compact lock row per course (13 courses) instead of 14 full cards.
-    await expect(page.getByRole('link', { name: /Premium · Timed mock mode/ })).toHaveCount(14);
+    // …and a compact lock row per course (15 courses) instead of 15 full cards.
+    await expect(page.getByRole('link', { name: /Premium · Timed mock mode/ })).toHaveCount(15);
     // The paper rows stay visible as an inert preview — not real links.
     await expect(page.getByRole('link').filter({ hasText: /min · 20 questions/ })).toHaveCount(0);
   });
@@ -42,12 +42,13 @@ test.describe('Mock exams', () => {
     await mockPremiumSession(page);
     await page.goto('/exams');
 
-    // 14 course cards; math courses have 2 papers, others 1 → 19 paper links,
+    // 15 course cards; math courses have 2 papers, others 1 → 21 paper links,
     // and no tease cards anywhere.
     const papers = page.getByRole('link').filter({ hasText: /min · 20 questions/ });
-    await expect(papers).toHaveCount(19);
+    await expect(papers).toHaveCount(21);
     await expect(page.getByRole('link', { name: 'See Premium plans' })).toHaveCount(0);
-    await expect(page.getByText('Paper 2 — extended response')).toBeVisible();
+    // Two DP maths courses now share the DP paper titles, so match the first.
+    await expect(page.getByText('Paper 2 — extended response').first()).toBeVisible();
     // Practice sets per course are unlocked cross-links too (14 courses × 2,
     // plus IGCSE Maths' wave-2 set 3 = 29).
     await expect(page.getByRole('link', { name: /— free-response/ })).toHaveCount(29);

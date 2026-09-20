@@ -25,6 +25,11 @@ export const COURSES: Course[] = [
     matches: (t) => t.subjectId === 'math' && t.stage === 'ks3' && t.year === 9,
   },
   {
+    id: 'math-dp-aa',
+    title: 'Math — DP Analysis & Approaches',
+    matches: (t) => t.subjectId === 'math' && t.stage === 'dp' && t.course === 'aa',
+  },
+  {
     id: 'math-dp-ai',
     title: 'Math — DP Applications & Interpretation',
     matches: (t) => t.subjectId === 'math' && t.stage === 'dp' && t.course === 'ai',

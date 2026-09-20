@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Exponents and logarithms</title>
+  <desc id="desc">The index laws for exponents beside the matching laws for logarithms, and a graph of an exponential function with its logarithm drawn as the reflection that makes them inverses.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Exponents and logarithms</text>
+  <rect x="30" y="55" width="400" height="200" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="230.0" y="77" class="subhead" text-anchor="middle">Index laws</text>
+  <text x="60" y="96" class="math">aᵐ × aⁿ = aᵐ⁺ⁿ</text>
+  <text x="60" y="126" class="math">aᵐ ÷ aⁿ = aᵐ⁻ⁿ</text>
+  <text x="60" y="156" class="math">(aᵐ)ⁿ = aᵐⁿ</text>
+  <text x="60" y="186" class="math">a⁻ⁿ = 1 / aⁿ</text>
+  <text x="60" y="216" class="math">aᵐ⁄ⁿ = ⁿ√(aᵐ)</text>
+  <rect x="470" y="55" width="400" height="200" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="670.0" y="77" class="subhead" text-anchor="middle">Logarithm laws</text>
+  <text x="500" y="96" class="math">logₐ(xy) = logₐx + logₐy</text>
+  <text x="500" y="126" class="math">logₐ(x/y) = logₐx − logₐy</text>
+  <text x="500" y="156" class="math">logₐ(xᵏ) = k logₐx</text>
+  <text x="500" y="186" class="math">logₐx = logᵇx / logᵇa</text>
+  <text x="500" y="216" class="math">logₐx = n  ⇔  aⁿ = x</text>
+  <rect x="30" y="266" width="840" height="164" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="450.0" y="288" class="subhead" text-anchor="middle">An exponential function and its logarithm are inverses</text>
+  <line x1="90" y1="410" x2="410" y2="410" stroke="#334155" stroke-width="1.4"/>
+  <line x1="90" y1="410" x2="90" y2="286" stroke="#334155" stroke-width="1.4"/>
+  <polyline points="90,390 91,390 93,389 94,389 95,388 96,388 98,388 99,387 100,387 102,386 103,386 104,385 105,385 107,384 108,384 109,383 110,383 112,382 113,382 114,381 116,381 117,380 118,380 119,379 121,379 122,378 123,377 125,377 126,376 127,376 128,375 130,374 131,373 132,373 134,372 135,371 136,371 137,370 139,369 140,368 141,368 142,367 144,366 145,365 146,364 148,363 149,363 150,362 151,361 153,360 154,359 155,358 157,357 158,356 159,355 160,354 162,353 163,352 164,350 166,349 167,348 168,347 169,346 171,345 172,343 173,342 174,341 176,340 177,338 178,337 180,335 181,334 182,333 183,331 185,330 186,328 187,327 189,325 190,323 191,322 192,320 194,318 195,317 196,315 198,313 199,311 200,309 201,307 203,305 204,303 205,301 206,299 208,297 209,295 210,293 212,291 213,288 214,286" fill="none" stroke="#2563eb" stroke-width="2.4"/>
+  <text x="325" y="306" class="math" fill="#2563eb">y = aˣ</text>
+  <polyline points="110,409 112,406 113,403 114,400 116,397 117,394 118,391 119,388 121,386 122,383 123,380 125,377 126,374 127,371 128,368 130,365 131,362 132,360 134,357 135,354 136,351 137,348 139,345 140,342 141,339 142,337 144,334 145,331 146,328 148,325 149,322 150,319 151,316 153,314 154,311 155,308 157,305 158,302 159,299 160,296 162,293 163,290 164,288" fill="none" stroke="#dc2626" stroke-width="2.4" stroke-dasharray="6 4"/>
+  <text x="325" y="376" class="math" fill="#dc2626">y = logₐx</text>
+  <text x="110" y="292" class="small">reflect in y = x to swap them</text>
+  <text x="470" y="306" class="label">Solving 5ˣ = 12: take logs of both sides,</text>
+  <text x="470" y="334" class="math">so x = log 12 ÷ log 5 ≈ 1.54</text>
+  <text x="470" y="374" class="small">Always substitute back and reject solutions that</text>
+  <text x="470" y="396" class="small">make a logarithm of zero or a negative number.</text>
+</svg>

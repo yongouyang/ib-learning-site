@@ -17,7 +17,7 @@ describe('exam paper definitions', () => {
   });
 
   it('math papers 2 lean harder than papers 1', () => {
-    for (const courseId of ['math-y7', 'math-y8', 'math-y9', 'math-dp-ai']) {
+    for (const courseId of ['math-y7', 'math-y8', 'math-y9', 'math-dp-ai', 'math-dp-aa']) {
       const p1 = getExamPaper(courseId, 'paper-1')!;
       const p2 = getExamPaper(courseId, 'paper-2')!;
       expect(p2.targets.hard).toBeGreaterThan(p1.targets.hard);
@@ -65,7 +65,7 @@ describe('buildExamQuestions', () => {
 describe('getExamCourses', () => {
   it('lists all 14 courses with their papers', () => {
     const courses = getExamCourses();
-    expect(courses).toHaveLength(14);
+    expect(courses).toHaveLength(15);
     expect(courses.every((c) => c.papers.length >= 1)).toBe(true);
   });
 });

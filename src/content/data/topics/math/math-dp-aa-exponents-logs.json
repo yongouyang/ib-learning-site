@@ -1,0 +1,325 @@
+{
+  "id": "math-dp-aa-exponents-logs",
+  "subjectId": "math",
+  "title": "Exponents and Logarithms",
+  "description": "Laws of exponents, logarithms and their laws, change of base, and exponential models",
+  "stage": "dp",
+  "course": "aa",
+  "level": "sl",
+  "notes": [
+    {
+      "id": "math-dp-aa-exponents-logs-n1",
+      "heading": "Laws of Exponents",
+      "body": "An exponent counts repeated multiplication, and the laws extend that idea to negative and fractional powers.\n\n$$\na^m \\times a^n = a^{m+n}, \\qquad \\frac{a^m}{a^n} = a^{m-n}, \\qquad (a^m)^n = a^{mn}\n$$\n$$a^0 = 1, \\qquad a^{-n} = \\frac{1}{a^n}, \\qquad a^{\\frac1n} = \\sqrt[n]{a}, \\qquad a^{\\frac{m}{n}} = \\sqrt[n]{a^m}$$\n\n💡 **Worked Example** — $\\dfrac{2^7 \\times 2^{-3}}{2^2} = 2^{7-3-2} = 2^{2} = 4$, and $27^{\\frac23} = (\\sqrt[3]{27})^2 = 3^2 = 9$.\n\n📌 Work with one base wherever possible: converting $8$ to $2^3$ or $9$ to $3^2$ turns many equations into a single comparison of exponents.",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-exponents-logs-index-and-log-laws.svg",
+        "alt": "The index laws for exponents beside the matching laws for logarithms, and a graph of an exponential function with its logarithm drawn as the reflection that makes them inverses.",
+        "caption": "A logarithm answers the question of what power the base is raised to, which is why each index law has a matching logarithm law."
+      }
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-n2",
+      "heading": "Solving Equations by Matching Bases",
+      "body": "If both sides of an equation can be written as powers of the same base, the exponents must be equal.\n\n💡 **Worked Example** — Solve $3^{2x-1} = 27$.\n$$3^{2x-1} = 3^3 \\;\\Longrightarrow\\; 2x - 1 = 3 \\;\\Longrightarrow\\; x = 2$$\n\n📌 This method needs a common base. If there is none — for example $5^x = 12$ — you need logarithms instead.\n\n⚠️ A common slip is writing $3^{2x-1} = 27$ as $2x - 1 = 27$: the exponent must be compared with the exponent, not with the value."
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-n3",
+      "heading": "What a Logarithm Is",
+      "body": "A **logarithm** answers the question *what power do I raise the base to?*\n\n$$\\log_a x = n \\iff a^n = x \\qquad (a > 0, \\; a \\neq 1, \\; x > 0)$$\n\n💡 **Worked Example** — $\\log_2 32 = 5$ because $2^5 = 32$, and $\\log_3 \\frac19 = -2$ because $3^{-2} = \\frac19$.\n\n🔑 Two bases have their own notation:\n• $\\log x$ means $\\log_{10} x$ — the **common** logarithm.\n• $\\ln x$ means $\\log_e x$ — the **natural** logarithm, with $e \\approx 2.718$.\n\n📌 A logarithm of a negative number or of zero does not exist, because a positive base never gives a negative result."
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-n4",
+      "heading": "Laws of Logarithms",
+      "body": "Logarithms turn multiplication into addition, which is exactly why they are useful.\n\n$$\\log_a(xy) = \\log_a x + \\log_a y$$\n$$\\log_a\\left(\\frac{x}{y}\\right) = \\log_a x - \\log_a y$$\n$$\\log_a(x^k) = k\\log_a x$$\n\nAlso $\\log_a a = 1$, $\\log_a 1 = 0$, and $\\log_a x = \\dfrac{\\log_b x}{\\log_b a}$ — the **change of base** rule.\n\n💡 **Worked Example** — Writing $\\log_2 40$ in terms of $\\log_2 5$:\n$$\\log_2 40 = \\log_2(8 \\times 5) = \\log_2 8 + \\log_2 5 = 3 + \\log_2 5$$\n\n⚠️ There is no rule for $\\log_a(x + y)$ — only products, quotients and powers can be split."
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-n5",
+      "heading": "Solving Exponential and Logarithmic Equations",
+      "body": "When the unknown is in the exponent and there is no common base, take logarithms of both sides.\n\n💡 **Worked Example** — Solve $5^x = 12$.\n$$x \\log 5 = \\log 12 \\;\\Longrightarrow\\; x = \\frac{\\log 12}{\\log 5} \\approx 1.54$$\n\nFor an equation containing logarithms, combine them into a single logarithm first.\n\n💡 **Worked Example** — Solve $\\log_2 x + \\log_2(x - 2) = 3$.\n$$\\log_2\\big(x(x-2)\\big) = 3 \\;\\Longrightarrow\\; x(x-2) = 8 \\;\\Longrightarrow\\; x^2 - 2x - 8 = 0$$\n$$(x-4)(x+2) = 0 \\;\\Longrightarrow\\; x = 4 \\text{ or } x = -2$$\n\n⚠️ Substituting back, $x = -2$ is **rejected** because $\\log_2(-2)$ does not exist. Always check your solutions in the original equation."
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-n6",
+      "heading": "Exponential Models",
+      "body": "Exponential models describe anything changing by a constant factor, and $e$ is the base that makes the calculus clean.\n\n$$A = A_0 e^{kt}$$\n\nHere $A_0$ is the initial amount, $k$ is the rate constant, and $t$ is time. If $k > 0$ the quantity grows; if $k < 0$ it decays.\n\n💡 **Worked Example** — A population of 400 bacteria grows by 5% per hour. Using $A = 400(1.05)^t$, after 12 hours $A \\approx 718$.\n\n🔑 Doubling time and half-life come from solving $e^{kt} = 2$ or $e^{kt} = \\frac12$, giving $t = \\frac{\\ln 2}{k}$ and $t = -\\frac{\\ln 2}{k}$ respectively.\n\n📌 A percentage change per year is a multiplier like $1.05$; continuous growth uses $e^{kt}$. Both are exponential — read which one the question intends."
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-n7",
+      "heading": "Common Errors and Exam Technique",
+      "body": "**Checklist**\n• Is there a common base? If yes, match exponents; if no, take logs.\n• After solving a logarithmic equation, substitute back and reject invalid solutions.\n• When using $\\log$, remember $\\log_a 1 = 0$ and $\\log_a a = 1$.\n\n⚠️ **Common mistakes**\n• Writing $\\log(x + y) = \\log x + \\log y$ — false.\n• Dropping the base: $\\log 12$ means $\\log_{10} 12$, which is rarely what the question wants unless it says so.\n• Losing a solution by dividing by $x$ or by a log term instead of factorising.\n• Rounding too early: keep full accuracy until the final answer.\n\n📌 Give answers to 3 significant figures unless the question specifies otherwise."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-aa-exponents-logs-f1",
+      "term": "$a^m \\times a^n$",
+      "definition": "$a^{m+n}$",
+      "example": "$2^3 \\times 2^4 = 2^7 = 128$"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-f2",
+      "term": "$a^{-n}$",
+      "definition": "$\\frac{1}{a^n}$",
+      "example": "$2^{-3} = \\frac18$"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-f3",
+      "term": "$a^{\\frac{m}{n}}$",
+      "definition": "$\\sqrt[n]{a^m}$",
+      "example": "$8^{\\frac23} = 4$"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-f4",
+      "term": "Exponential equation with a common base",
+      "definition": "Write both sides as powers of the same base, then equate exponents",
+      "example": "$3^{2x-1} = 27$ gives $x = 2$"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-f5",
+      "term": "$\\log_a x = n$",
+      "definition": "Means $a^n = x$",
+      "example": "$\\log_2 32 = 5$"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-f6",
+      "term": "$\\log x$",
+      "definition": "The common logarithm, base 10",
+      "example": "$\\log 1000 = 3$"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-f7",
+      "term": "$\\ln x$",
+      "definition": "The natural logarithm, base $e \\approx 2.718$",
+      "example": "$\\ln e^2 = 2$"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-f8",
+      "term": "Product rule for logarithms",
+      "definition": "$\\log_a(xy) = \\log_a x + \\log_a y$",
+      "example": "$\\log_2 40 = 3 + \\log_2 5$"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-f9",
+      "term": "Quotient rule for logarithms",
+      "definition": "$\\log_a\\frac{x}{y} = \\log_a x - \\log_a y$",
+      "example": "$\\log_3 9 - \\log_3 3 = 1$"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-f10",
+      "term": "Power rule for logarithms",
+      "definition": "$\\log_a x^k = k\\log_a x$",
+      "example": "$\\log 8 = 3\\log 2$"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-f11",
+      "term": "Change of base",
+      "definition": "$\\log_a x = \\frac{\\log_b x}{\\log_b a}$",
+      "example": "$\\log_5 12 = \\frac{\\log 12}{\\log 5}$"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-f12",
+      "term": "Exponential model",
+      "definition": "$A = A_0 e^{kt}$, growing when $k > 0$ and decaying when $k < 0$",
+      "example": "half-life $t = \\frac{\\ln 2}{-k}$"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-aa-exponents-logs-q1",
+      "stem": "Simplify $\\dfrac{3^8 \\times 3^{-2}}{3^{4}}$.",
+      "choices": [
+        "$3^2$",
+        "$3^6$",
+        "$3^{10}$",
+        "$3^{-2}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Add the exponents on top and subtract the one below: $8 + (-2) - 4 = 2$, so the answer is $3^2 = 9$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q2",
+      "stem": "Evaluate $\\log_3 81$.",
+      "choices": [
+        "$4$",
+        "$9$",
+        "$27$",
+        "$3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\log_3 81$ asks for the power of 3 that gives 81, and $3^4 = 81$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q3",
+      "stem": "Write $\\ln 1$ as a number.",
+      "choices": [
+        "$0$",
+        "Undefined",
+        "$1$",
+        "$e$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Any base raised to the power 0 gives 1, so $\\ln 1 = 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q4",
+      "stem": "Evaluate $16^{\\frac{3}{4}}$.",
+      "choices": [
+        "$64$",
+        "$8$",
+        "$12$",
+        "$32$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$16^{\\frac34} = (\\sqrt[4]{16})^3 = 2^3 = 8$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q5",
+      "stem": "Solve $2^{3x} = 32$.",
+      "choices": [
+        "$x = \\frac53$",
+        "$x = \\frac23$",
+        "$x = 5$",
+        "$x = \\frac35$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$32 = 2^5$, so $3x = 5$ and $x = \\frac53$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q6",
+      "stem": "Express $\\log_2 24$ in terms of $\\log_2 3$.",
+      "choices": [
+        "$8\\log_2 3$",
+        "$\\log_2 3 + 8$",
+        "$3\\log_2 3$",
+        "$3 + \\log_2 3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$24 = 8 \\times 3$ and $\\log_2 8 = 3$, so $\\log_2 24 = 3 + \\log_2 3$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q7",
+      "stem": "Solve $7^x = 30$, giving $x$ to 3 significant figures.",
+      "choices": [
+        "$2.06$",
+        "$4.29$",
+        "$1.75$",
+        "$1.56$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Taking logs gives $x = \\frac{\\log 30}{\\log 7} = \\frac{1.4771}{0.8451} \\approx 1.75$.",
+      "difficulty": "medium",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q8",
+      "stem": "Solve $\\log_5(2x - 1) = 2$.",
+      "choices": [
+        "$x = 25$",
+        "$x = 13$",
+        "$x = 12$",
+        "$x = 6$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The definition gives $2x - 1 = 5^2 = 25$, so $2x = 26$ and $x = 13$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q9",
+      "stem": "Which expression equals $\\log\\left(\\dfrac{x^3}{y}\\right)$?",
+      "choices": [
+        "$3\\log x - \\log y$",
+        "$3\\log x + \\log y$",
+        "$\\frac{\\log x^3}{\\log y}$",
+        "$3(\\log x - \\log y)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The quotient rule subtracts and the power rule brings the 3 down: $\\log x^3 - \\log y = 3\\log x - \\log y$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q10",
+      "stem": "A radioactive sample decays so that $A = 80e^{-0.04t}$ grams after $t$ years. Find its half-life to 3 significant figures.",
+      "choices": [
+        "$25.0$ years",
+        "$34.7$ years",
+        "$0.0173$ years",
+        "$17.3$ years"
+      ],
+      "correctIndex": 3,
+      "explanation": "Half-life solves $e^{-0.04t} = \\frac12$, so $t = -\\frac{\\ln 0.5}{0.04} = \\frac{0.6931}{0.04} \\approx 17.3$ years.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q11",
+      "stem": "Solve $\\log_2 x + \\log_2(x+6) = 4$.",
+      "choices": [
+        "$x = -8$",
+        "$x = 8$",
+        "$x = 2$",
+        "$x = 4$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Combining gives $\\log_2[x(x+6)] = 4$, so $x^2 + 6x = 16$ and $x^2 + 6x - 16 = 0$, i.e. $(x+8)(x-2)=0$. The root $x = -8$ is rejected because $\\log_2(-8)$ does not exist, leaving $x = 2$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q12",
+      "stem": "If $\\log_a 2 = p$ and $\\log_a 5 = q$, express $\\log_a 50$ in terms of $p$ and $q$.",
+      "choices": [
+        "$2(p + q)$",
+        "$p + 2q$",
+        "$2p + q$",
+        "$p + q$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$50 = 2 \\times 5^2$, so $\\log_a 50 = \\log_a 2 + 2\\log_a 5 = p + 2q$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q13",
+      "stem": "The number of bacteria in a culture is modelled by $N = 500e^{0.18t}$ with $t$ in hours. How many hours until the population reaches 5000?",
+      "choices": [
+        "$12.8$",
+        "$18.0$",
+        "$5.0$",
+        "$27.8$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Solve $500e^{0.18t} = 5000$: $e^{0.18t} = 10$, so $t = \\frac{\\ln 10}{0.18} \\approx \\frac{2.3026}{0.18} \\approx 12.8$ hours.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q14",
+      "stem": "Given $3^{2x} - 10(3^x) + 9 = 0$, find the positive solution for $x$.",
+      "choices": [
+        "$x = 1$",
+        "$x = 0$",
+        "$x = 3$",
+        "$x = 2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Writing $y = 3^x$ gives $y^2 - 10y + 9 = 0$, so $(y-1)(y-9)=0$ and $y = 1$ or $y = 9$. Then $3^x = 1$ gives $x = 0$ and $3^x = 9$ gives $x = 2$, so the positive solution is $x = 2$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-exponents-logs-q15",
+      "stem": "Which statement is true for all $a > 0$, $a \\neq 1$ and positive $x$, $y$?",
+      "choices": [
+        "$\\log_a\\frac{x}{y} = \\log_a x - \\log_a y$",
+        "$\\log_a x^2 = (\\log_a x)^2$",
+        "$\\log_a(x+y) = \\log_a x + \\log_a y$",
+        "$\\log_a(xy) = \\log_a x \\times \\log_a y$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The quotient rule states $\\log_a\\frac{x}{y} = \\log_a x - \\log_a y$. The other three confuse the laws: sums cannot be split, the product rule is an addition, and the power rule brings the index down as a factor.",
+      "difficulty": "hard"
+    }
+  ]
+}

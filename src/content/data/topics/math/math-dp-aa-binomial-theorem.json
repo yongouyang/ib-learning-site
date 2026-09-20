@@ -1,0 +1,329 @@
+{
+  "id": "math-dp-aa-binomial-theorem",
+  "subjectId": "math",
+  "title": "The Binomial Theorem",
+  "description": "Binomial coefficients, Pascal’s triangle, the binomial theorem and finding particular terms",
+  "stage": "dp",
+  "course": "aa",
+  "level": "sl",
+  "notes": [
+    {
+      "id": "math-dp-aa-binomial-theorem-n1",
+      "heading": "Binomial Coefficients",
+      "body": "Expanding $(a+b)^n$ by hand becomes slow very quickly, but the coefficients follow a pattern. They are the **binomial coefficients** $\\binom{n}{r}$, read as *n choose r*, and they count how many ways you can choose $r$ items from $n$.\n\n$$\\binom{n}{r} = \\frac{n!}{r!\\,(n-r)!}$$\n\n💡 **Worked Example** — $\\binom{5}{2} = \\frac{5!}{2!\\,3!} = \\frac{120}{2 \\times 6} = 10$.\n\n📌 By symmetry $\\binom{n}{r} = \\binom{n}{n-r}$, so $\\binom{5}{2} = \\binom{5}{3} = 10$. This symmetry is often the quickest route in an exam."
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-n2",
+      "heading": "Pascal's Triangle",
+      "body": "Pascal's triangle arranges the binomial coefficients in rows, where each entry is the sum of the two above it.\n\nRow $n$ gives the coefficients of $(a+b)^n$:\n• $n = 0$: $1$\n• $n = 1$: $1 \\quad 1$\n• $n = 2$: $1 \\quad 2 \\quad 1$\n• $n = 3$: $1 \\quad 3 \\quad 3 \\quad 1$\n• $n = 4$: $1 \\quad 4 \\quad 6 \\quad 4 \\quad 1$\n\n💡 **Worked Example** — $(x+2)^4 = x^4 + 4x^3(2) + 6x^2(2)^2 + 4x(2)^3 + (2)^4 = x^4 + 8x^3 + 24x^2 + 32x + 16$.\n\n🔑 Each row has $n+1$ entries, starts and ends with 1, and is symmetric.",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-binomial-theorem-pascal-and-general-term.svg",
+        "alt": "Pascal’s triangle with each row labelled by its n and giving the coefficients of that expansion, beside the binomial theorem, the general term formula and worked examples of a particular term and a constant term.",
+        "caption": "Powers of a count down while powers of b count up, and every pair of powers adds to n."
+      }
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-n3",
+      "heading": "The Binomial Theorem",
+      "body": "The **binomial theorem** gives the whole expansion in one formula:\n\n$$(a+b)^n = \\sum_{r=0}^{n} \\binom{n}{r} a^{\\,n-r} b^{\\,r}$$\n\nThe powers of $a$ count **down** from $n$ while the powers of $b$ count **up** from 0, and the powers always add to $n$.\n\n💡 **Worked Example** — Expand $(2x + 3)^3$:\n$$\\binom30 (2x)^3 + \\binom31 (2x)^2(3) + \\binom32 (2x)(3)^2 + \\binom33 (3)^3$$\n$$= 8x^3 + 3(4x^2)(3) + 3(2x)(9) + 27 = 8x^3 + 36x^2 + 54x + 27$$\n\n📌 Write the structure first with binomial coefficients, then substitute — it keeps the algebra organised."
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-n4",
+      "heading": "Finding a Particular Term",
+      "body": "The **general term** of $(a+b)^n$ is\n$$T_{r+1} = \\binom{n}{r} a^{\\,n-r} b^{\\,r}$$\n\nThe subscript is $r+1$ because $r = 0$ gives the *first* term.\n\n💡 **Worked Example** — Find the term in $x^5$ in $(x + 2)^8$.\nWe need $x^{8-r} = x^5$, so $r = 3$:\n$$T_4 = \\binom83 x^5 2^3 = 56 \\times 8 x^5 = 448x^5$$\n\n🔑 The rule in one line: *equate the power you are given to $n - r$, solve for $r$, then substitute.*\n\n📌 If the question asks for the **coefficient**, give the number only; if it asks for the **term**, include the power of $x$."
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-n5",
+      "heading": "Finding the Constant Term",
+      "body": "The constant term contains no $x$ at all, so its total power of $x$ is zero.\n\n💡 **Worked Example** — Find the constant term in $\\left(x + \\dfrac{2}{x}\\right)^6$.\n$$T_{r+1} = \\binom6r x^{6-r}\\left(2x^{-1}\\right)^{r} = \\binom6r 2^r x^{\\,6-2r}$$\nSetting $6 - 2r = 0$ gives $r = 3$, so the constant term is\n$$\\binom63 2^3 = 20 \\times 8 = 160$$\n\n⚠️ A negative power counts too: $\\frac{2}{x}$ is $2x^{-1}$, so the powers of $x$ are $6-r$ from the first bracket and $-r$ from the second.\n\n📌 Always combine the powers of $x$ into a single expression before setting it to zero."
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-n6",
+      "heading": "Estimating with the Binomial Theorem",
+      "body": "When one part is small, the first few terms of an expansion give a good estimate.\n\n💡 **Worked Example** — Estimate $1.02^{6}$ using $(1 + 0.02)^6$:\n$$1 + 6(0.02) + 15(0.02)^2 + \\cdots = 1 + 0.12 + 0.006 + \\cdots \\approx 1.126$$\n\nThe true value is about $1.1262$, so three terms already give four-figure accuracy.\n\n🔑 This is why the binomial expansion appears in approximation and error questions: when $x$ is small, $x^2$ and beyond shrink fast.\n\n📌 State how many terms you are keeping, and remember the coefficients come from the row of Pascal's triangle for that $n$."
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-n7",
+      "heading": "Common Mistakes and Exam Technique",
+      "body": "**Checklist**\n• Powers of $a$ go down and powers of $b$ go up; every pair of powers adds to $n$.\n• The number of terms is $n + 1$, so an expansion of $(a+b)^5$ has six terms.\n• Use $\\binom{n}{r}$ or Pascal's triangle, not factorials written out by hand.\n\n⚠️ **Common mistakes**\n• Forgetting that the whole term is raised to the power: in $(2x)^3$ the 2 is cubed as well, giving $8x^3$.\n• Dropping the minus signs in $(a - b)^n$ — the signs alternate.\n• Treating $T_{r+1}$ as $T_r$ and landing one term out.\n• Giving a coefficient when the question asked for a term, or the reverse.\n\n📌 If the answer looks enormous, check whether you cubed a coefficient you should have squared."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-aa-binomial-theorem-f1",
+      "term": "$\\binom{n}{r}$",
+      "definition": "$\\frac{n!}{r!(n-r)!}$, the number of ways of choosing $r$ from $n$",
+      "example": "$\\binom52 = 10$"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-f2",
+      "term": "Symmetry of binomial coefficients",
+      "definition": "$\\binom{n}{r} = \\binom{n}{n-r}$",
+      "example": "$\\binom52 = \\binom53 = 10$"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-f3",
+      "term": "Pascal's triangle",
+      "definition": "Each entry is the sum of the two above it; row $n$ gives the coefficients of $(a+b)^n$",
+      "example": "row 4 is 1, 4, 6, 4, 1"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-f4",
+      "term": "Number of terms in $(a+b)^n$",
+      "definition": "$n + 1$",
+      "example": "$(a+b)^5$ has 6 terms"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-f5",
+      "term": "Binomial theorem",
+      "definition": "$(a+b)^n = \\sum_{r=0}^{n}\\binom{n}{r}a^{n-r}b^{r}$",
+      "example": "$(x+1)^3 = x^3+3x^2+3x+1$"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-f6",
+      "term": "Powers in each term",
+      "definition": "The power of $a$ plus the power of $b$ always equals $n$",
+      "example": "in $x^5 \\cdot 2^3$ from $(x+2)^8$: $5+3=8$"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-f7",
+      "term": "General term",
+      "definition": "$T_{r+1} = \\binom{n}{r}a^{n-r}b^{r}$",
+      "example": "$r=3$ gives the 4th term"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-f8",
+      "term": "Coefficient versus term",
+      "definition": "A coefficient is just the number; a term includes the power of $x$",
+      "example": "$448x^5$ is a term, 448 a coefficient"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-f9",
+      "term": "Constant term",
+      "definition": "The term whose total power of $x$ is zero",
+      "example": "in $(x+\\frac2x)^6$ it is 160"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-f10",
+      "term": "Signs in $(a-b)^n$",
+      "definition": "Terms alternate in sign",
+      "example": "$(x-1)^3 = x^3-3x^2+3x-1$"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-f11",
+      "term": "Coefficient of a power inside a bracket",
+      "definition": "Raise the whole bracket to the power, coefficient included",
+      "example": "$(2x)^3 = 8x^3$"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-f12",
+      "term": "Small-$x$ approximation",
+      "definition": "Keep the first few terms when $x$ is small",
+      "example": "$(1.02)^6 \\approx 1.126$"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-aa-binomial-theorem-q1",
+      "stem": "Evaluate $\\binom{6}{3}$.",
+      "choices": [
+        "$20$",
+        "$18$",
+        "$120$",
+        "$15$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\binom63 = \\frac{6!}{3!3!} = \\frac{720}{6 \\times 6} = 20$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q2",
+      "stem": "How many terms are in the expansion of $(a+b)^{7}$?",
+      "choices": [
+        "$8$",
+        "$6$",
+        "$14$",
+        "$7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "An expansion of $(a+b)^n$ has $n+1$ terms, so $(a+b)^7$ has 8.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q3",
+      "stem": "What is the coefficient of $x^2$ in $(x+1)^5$?",
+      "choices": [
+        "$20$",
+        "$15$",
+        "$5$",
+        "$10$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The term in $x^2$ is $\\binom53 x^2 = 10x^2$, so the coefficient is 10.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q4",
+      "stem": "Which row of Pascal's triangle gives the coefficients of $(a+b)^4$?",
+      "choices": [
+        "$1, 5, 10, 10, 5, 1$",
+        "$1, 4, 6, 4, 1$",
+        "$1, 3, 3, 1$",
+        "$1, 4, 4, 1$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Row 4 of Pascal's triangle is 1, 4, 6, 4, 1, matching the five terms of $(a+b)^4$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q5",
+      "stem": "Find the coefficient of $x^3$ in the expansion of $(x+3)^5$.",
+      "choices": [
+        "$270$",
+        "$90$",
+        "$30$",
+        "$810$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The power of $x$ is $5-r$, so $x^3$ needs $r=2$. The term is $\\binom52 x^3 3^2 = 10 \\times 9 x^3 = 90x^3$, so the coefficient is 90.",
+      "difficulty": "medium",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q6",
+      "stem": "Find the term in $x^4$ in $(2x + 1)^6$.",
+      "choices": [
+        "$60x^4$",
+        "$192x^4$",
+        "$15x^4$",
+        "$240x^4$"
+      ],
+      "correctIndex": 3,
+      "explanation": "We need $x^{6-r} = x^4$, so $r = 2$ and the term is $\\binom62 (2x)^4 = 15 \\times 16x^4 = 240x^4$.",
+      "difficulty": "medium",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q7",
+      "stem": "Expand $(x - 2)^3$.",
+      "choices": [
+        "$x^3 - 6x^2 - 12x - 8$",
+        "$x^3 - 8$",
+        "$x^3 - 6x^2 + 12x - 8$",
+        "$x^3 + 6x^2 + 12x + 8$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Using the row 1, 3, 3, 1 with $a = x$ and $b = -2$: $x^3 + 3x^2(-2) + 3x(4) + (-8) = x^3 - 6x^2 + 12x - 8$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q8",
+      "stem": "The constant term in $\\left(x + \\dfrac{3}{x}\\right)^4$ is",
+      "choices": [
+        "$6$",
+        "$54$",
+        "$81$",
+        "$12$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The general term is $\\binom4r 3^r x^{4-2r}$, and $4 - 2r = 0$ gives $r = 2$, so the constant term is $\\binom42 3^2 = 6 \\times 9 = 54$.",
+      "difficulty": "medium",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q9",
+      "stem": "Evaluate $\\binom{10}{8}$.",
+      "choices": [
+        "$45$",
+        "$90$",
+        "$80$",
+        "$20$"
+      ],
+      "correctIndex": 0,
+      "explanation": "By symmetry $\\binom{10}{8} = \\binom{10}{2} = \\frac{10 \\times 9}{2} = 45$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q10",
+      "stem": "Use the binomial theorem to estimate $(1.01)^{10}$ to 4 decimal places.",
+      "choices": [
+        "$1.1000$",
+        "$1.1100$",
+        "$1.2100$",
+        "$1.1046$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Expand $(1+0.01)^{10}$: $1 + 10(0.01) + 45(0.0001) + 120(0.000001) = 1 + 0.1 + 0.0045 + 0.00012 \\approx 1.1046$.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q11",
+      "stem": "Find the coefficient of $x^2$ in the expansion of $(1 + 3x)^6$.",
+      "choices": [
+        "$15$",
+        "$45$",
+        "$135$",
+        "$540$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The term in $x^2$ is $\\binom62 (3x)^2 = 15 \\times 9x^2 = 135x^2$, so the coefficient is 135.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q12",
+      "stem": "In the expansion of $(3 + 2x)^n$ the coefficient of $x$ is 216. Find $n$.",
+      "choices": [
+        "$8$",
+        "$4$",
+        "$5$",
+        "$6$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The term in $x$ is $\\binom n1 3^{n-1}(2x) = 2n\\,3^{n-1}x$. Testing the options: $n=4$ gives $2(4)(27)=216$, which matches, so $n=4$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q13",
+      "stem": "The coefficient of $x^5$ in $(2 - x)^{7}$ is",
+      "choices": [
+        "$-84$",
+        "$84$",
+        "$-672$",
+        "$672$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The term is $\\binom72 2^{2}(-x)^5 = 21 \\times 4 \\times (-1)^5 x^5 = -84x^5$, so the coefficient is $-84$.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q14",
+      "stem": "Which is the third term in the expansion of $(2x - 1)^{5}$?",
+      "choices": [
+        "$40x^3$",
+        "$-80x^3$",
+        "$80x^2$",
+        "$80x^3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The third term has $r = 2$: $\\binom52 (2x)^{3}(-1)^2 = 10 \\times 8x^3 = 80x^3$.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-binomial-theorem-q15",
+      "stem": "In the expansion of $(x^2 + \\frac{1}{x})^9$, which value of $r$ gives the term in $x^6$?",
+      "choices": [
+        "$r = 5$",
+        "$r = 6$",
+        "$r = 4$",
+        "$r = 3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The general term is $\\binom9r x^{18-2r}x^{-r} = \\binom9r x^{18-3r}$. Setting $18 - 3r = 6$ gives $r = 4$.",
+      "difficulty": "hard"
+    }
+  ]
+}
