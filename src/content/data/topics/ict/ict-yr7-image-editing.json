@@ -19,7 +19,12 @@
     {
       "id": "ict-yr7-image-editing-n3",
       "heading": "Working with Layers",
-      "body": "Layers are the single most important idea in image editing. Think of the image as a stack of transparent sheets: the background photo on the bottom sheet, some text on the sheet above, a cut-out object on another. Each layer can be edited, moved, hidden or deleted without touching the others, so a mistake on one element never ruins the whole composition. The layers panel shows the stack; the top layer hides whatever is beneath it, so reordering layers changes what appears in front. You can also lower a layer's opacity (transparency) to blend it with what is underneath — useful for ghosted backgrounds or subtle shadows. Because layers are so valuable, editors save work-in-progress in a layered project format; flattening (merging everything into one layer) is done only when exporting the final JPEG or PNG, because a flattened image can never be separated back into its parts."
+      "body": "Layers are the single most important idea in image editing. Think of the image as a stack of transparent sheets: the background photo on the bottom sheet, some text on the sheet above, a cut-out object on another. Each layer can be edited, moved, hidden or deleted without touching the others, so a mistake on one element never ruins the whole composition. The layers panel shows the stack; the top layer hides whatever is beneath it, so reordering layers changes what appears in front. You can also lower a layer's opacity (transparency) to blend it with what is underneath — useful for ghosted backgrounds or subtle shadows. Because layers are so valuable, editors save work-in-progress in a layered project format; flattening (merging everything into one layer) is done only when exporting the final JPEG or PNG, because a flattened image can never be separated back into its parts.",
+      "illustration": {
+        "src": "/images/ict/ict-yr7-image-editing-image-layers-stack.svg",
+        "alt": "Four offset sheets representing image layers: a background photo at the bottom, then a cut-out object, a shadow and text above it, beside a layers panel that lists the same stack with an opacity slider.",
+        "caption": "Each layer can be edited, moved, hidden or deleted without touching the others — flattening merges them for ever, so export last."
+      }
     },
     {
       "id": "ict-yr7-image-editing-n4",

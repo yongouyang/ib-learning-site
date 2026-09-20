@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" role="img" aria-labelledby="title desc">
+  <title id="title">The Scratch stage drawn as a coordinate grid</title>
+  <desc id="desc">A rectangular stage 480 steps wide and 360 steps tall, with the origin at the centre. X runs from minus 240 on the left to 240 on the right and Y from minus 180 at the bottom to 180 at the top. A sprite sits at x 100, y 50, right of centre and above it.</desc>
+  <rect x="0" y="0" width="880" height="520" fill="#f8fafc"/>
+  <text x="440" y="36" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#0f172a">The stage is a four-quadrant coordinate grid</text>
+  <rect x="100" y="96" width="456" height="342" fill="#ffffff" stroke="#475569" stroke-width="2" rx="6"/>
+  <line x1="157" y1="96" x2="157" y2="438" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="214" y1="96" x2="214" y2="438" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="271" y1="96" x2="271" y2="438" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="328" y1="96" x2="328" y2="438" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="385" y1="96" x2="385" y2="438" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="442" y1="96" x2="442" y2="438" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="499" y1="96" x2="499" y2="438" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="100" y1="153" x2="556" y2="153" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="100" y1="210" x2="556" y2="210" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="100" y1="267" x2="556" y2="267" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="100" y1="324" x2="556" y2="324" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="100" y1="381" x2="556" y2="381" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="100" y1="267.0" x2="556" y2="267.0" stroke="#94a3b8" stroke-width="1.6"/>
+  <line x1="328.0" y1="96" x2="328.0" y2="438" stroke="#94a3b8" stroke-width="1.6"/>
+  <circle cx="423" cy="220" r="17" fill="#c7d2fe" stroke="#6366f1" stroke-width="2"/>
+  <circle cx="423" cy="220" r="4" fill="#4338ca"/>
+  <line x1="328.0" y1="267.0" x2="423" y2="220" stroke="#6366f1" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <rect x="269.4" y="220.0" width="157.2" height="19" rx="4" fill="#ffffff" opacity="0.93"/>
+  <text x="348" y="232" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#4338ca">sprite at x 100, y 50</text>
+  <text x="328.0" y="287.0" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">(0, 0)</text>
+  <text x="110" y="116" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#64748b">−240, 180</text>
+  <text x="546" y="116" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#64748b">240, 180</text>
+  <text x="110" y="428" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#64748b">−240, −180</text>
+  <text x="546" y="428" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#64748b">240, −180</text>
+  <rect x="590" y="116" width="240" height="60" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="600" y="142" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#4338ca">go to x: 0 y: 0</text>
+  <text x="600" y="164" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">teleports the sprite to the centre</text>
+  <rect x="590" y="202" width="240" height="60" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="600" y="228" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#4338ca">change x by 10</text>
+  <text x="600" y="250" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">slides the sprite right</text>
+  <rect x="590" y="288" width="240" height="60" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="600" y="314" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#4338ca">move 10 steps</text>
+  <text x="600" y="336" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">moves the way it points — 90° is right</text>
+  <rect x="590" y="378" width="240" height="50" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="600" y="408" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="600" fill="#4338ca">480 steps wide  ·  360 tall</text>
+  <rect x="40" y="436" width="800" height="64" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="440" y="462" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Negative x is to the left and negative y is below the centre — the same four-quadrant graph you use in maths.</text>
+  <text x="440" y="484" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#64748b">Each sprite has its own scripts, costumes and sounds.</text>
+</svg>

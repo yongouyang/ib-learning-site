@@ -9,7 +9,12 @@
     {
       "id": "ict-yr8-3d-design-n1",
       "heading": "3D Coordinates and Views",
-      "body": "Two-dimensional design uses two axes: x (left–right) and y (up–down). Three-dimensional design adds a third axis, z, representing depth (towards or away from you). Every point in a 3D scene is described by three coordinates — its position along each axis. Because a flat screen cannot show depth directly, 3D software offers several standard views: front, side, and top (the orthographic views, which show the object flat-on with no perspective distortion, like engineering drawings), plus a perspective view that mimics how the eye sees, with distant objects appearing smaller. Moving between views constantly is a core habit: an object that looks perfectly placed in the front view may be floating far behind its target in the side view, because the front view hides the z-axis. Good modellers check placement in at least two views before moving on. Most software also shows a grid on the ground plane and snaps objects to it, which helps keep models aligned and measured — essential if the model will ever be 3D printed or combined with other models."
+      "body": "Two-dimensional design uses two axes: x (left–right) and y (up–down). Three-dimensional design adds a third axis, z, representing depth (towards or away from you). Every point in a 3D scene is described by three coordinates — its position along each axis. Because a flat screen cannot show depth directly, 3D software offers several standard views: front, side, and top (the orthographic views, which show the object flat-on with no perspective distortion, like engineering drawings), plus a perspective view that mimics how the eye sees, with distant objects appearing smaller. Moving between views constantly is a core habit: an object that looks perfectly placed in the front view may be floating far behind its target in the side view, because the front view hides the z-axis. Good modellers check placement in at least two views before moving on. Most software also shows a grid on the ground plane and snaps objects to it, which helps keep models aligned and measured — essential if the model will ever be 3D printed or combined with other models.",
+      "illustration": {
+        "src": "/images/ict/ict-yr8-3d-design-axes-and-views.svg",
+        "alt": "A cube with x running left to right, y up and down and z indicating depth, beside four panels showing the front, side and top orthographic views and a perspective view.",
+        "caption": "The front view hides the z axis, so an object that looks well placed there can float far behind its target in the side view."
+      }
     },
     {
       "id": "ict-yr8-3d-design-n2",

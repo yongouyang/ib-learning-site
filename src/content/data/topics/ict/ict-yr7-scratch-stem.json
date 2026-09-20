@@ -9,7 +9,12 @@
     {
       "id": "ict-yr7-scratch-stem-n1",
       "heading": "Sprites, the Stage and Coordinates",
-      "body": "A Scratch project plays out on the stage — the rectangular area where the action happens — and the actors are sprites: characters or objects, each with its own scripts (code), costumes (appearances) and sounds. The stage is 480 steps wide and 360 steps tall, mapped by a coordinate grid with its origin at the centre: x runs from -240 at the left edge to 240 at the right edge, and y runs from -180 at the bottom to 180 at the top. The centre of the stage is (0, 0), so x = 100, y = 50 is right of centre and above it, while negative x values are to the left and negative y values below. Motion blocks use this grid: `go to x: 0 y: 0` teleports a sprite to the centre, `change x by 10` slides it right, and `move 10 steps` moves it in whatever direction it is currently pointing — a sprite facing right (direction 90°) that moves 10 steps increases its x by 10, while one facing left decreases x. Negative numbers and the coordinate grid here are exactly the same maths you use in a four-quadrant graph."
+      "body": "A Scratch project plays out on the stage — the rectangular area where the action happens — and the actors are sprites: characters or objects, each with its own scripts (code), costumes (appearances) and sounds. The stage is 480 steps wide and 360 steps tall, mapped by a coordinate grid with its origin at the centre: x runs from -240 at the left edge to 240 at the right edge, and y runs from -180 at the bottom to 180 at the top. The centre of the stage is (0, 0), so x = 100, y = 50 is right of centre and above it, while negative x values are to the left and negative y values below. Motion blocks use this grid: `go to x: 0 y: 0` teleports a sprite to the centre, `change x by 10` slides it right, and `move 10 steps` moves it in whatever direction it is currently pointing — a sprite facing right (direction 90°) that moves 10 steps increases its x by 10, while one facing left decreases x. Negative numbers and the coordinate grid here are exactly the same maths you use in a four-quadrant graph.",
+      "illustration": {
+        "src": "/images/ict/ict-yr7-scratch-stem-stage-coordinates.svg",
+        "alt": "The Scratch stage drawn as a grid 480 steps wide and 360 tall, with the origin at the centre and a sprite at x 100, y 50, labelled with the motion blocks that use the grid.",
+        "caption": "X runs from minus 240 to 240 and y from minus 180 to 180 — the same four-quadrant graph you use in maths."
+      }
     },
     {
       "id": "ict-yr7-scratch-stem-n2",

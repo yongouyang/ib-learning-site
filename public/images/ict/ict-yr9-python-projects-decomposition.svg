@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" role="img" aria-labelledby="title desc">
+  <title id="title">A project decomposed into separately testable sub-problems</title>
+  <desc id="desc">The revision quiz project at the top branches into six sub-problems: store the questions, ask one question, check an answer, track the score, show results and handle replay. The check an answer branch decomposes further into normalising the input and comparing it with the correct answer.</desc>
+  <rect x="0" y="0" width="880" height="520" fill="#f8fafc"/>
+  <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M 0 0 L 7 3 L 0 6 z" fill="#64748b"/></marker></defs>
+  <text x="440" y="36" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Decomposition: break it down until each piece is writable</text>
+  <rect x="330" y="84" width="220" height="50" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+  <text x="440" y="115" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="700" fill="#1e293b">Revision quiz project</text>
+  <path d="M 440 134 L 440 150 L 100 150 L 100 170" fill="none" stroke="#cbd5e1" stroke-width="1.6"/>
+  <rect x="40" y="172" width="120" height="54" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.8"/>
+  <text x="100" y="196" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">Store</text>
+  <text x="100" y="214" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">the questions</text>
+  <path d="M 440 134 L 440 150 L 236 150 L 236 170" fill="none" stroke="#cbd5e1" stroke-width="1.6"/>
+  <rect x="176" y="172" width="120" height="54" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.8"/>
+  <text x="236" y="196" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">Ask</text>
+  <text x="236" y="214" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">one question</text>
+  <path d="M 440 134 L 440 150 L 372 150 L 372 170" fill="none" stroke="#cbd5e1" stroke-width="1.6"/>
+  <rect x="312" y="172" width="120" height="54" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="1.8"/>
+  <text x="372" y="196" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">Check</text>
+  <text x="372" y="214" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">an answer</text>
+  <path d="M 440 134 L 440 150 L 508 150 L 508 170" fill="none" stroke="#cbd5e1" stroke-width="1.6"/>
+  <rect x="448" y="172" width="120" height="54" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.8"/>
+  <text x="508" y="196" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">Track</text>
+  <text x="508" y="214" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">the score</text>
+  <path d="M 440 134 L 440 150 L 644 150 L 644 170" fill="none" stroke="#cbd5e1" stroke-width="1.6"/>
+  <rect x="584" y="172" width="120" height="54" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.8"/>
+  <text x="644" y="196" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">Show</text>
+  <text x="644" y="214" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">results</text>
+  <path d="M 440 134 L 440 150 L 780 150 L 780 170" fill="none" stroke="#cbd5e1" stroke-width="1.6"/>
+  <rect x="720" y="172" width="120" height="54" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.8"/>
+  <text x="780" y="196" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">Handle</text>
+  <text x="780" y="214" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#334155">replay</text>
+  <path d="M 332 226 L 332 250" fill="none" stroke="#f97316" stroke-width="1.6"/>
+  <rect x="120" y="254" width="210" height="48" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="1.6"/>
+  <text x="225" y="283" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#7c2d12">Normalise the user input</text>
+  <rect x="350" y="254" width="210" height="48" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="1.6"/>
+  <text x="455" y="283" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#7c2d12">Compare with the correct answer</text>
+  <rect x="60" y="330" width="760" height="86" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="80" y="358" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Abstraction is the partner skill: hiding detail so you can focus on what matters.</text>
+  <text x="80" y="382" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#475569">len(scores) hides how Python counts the items, and check_answer(guess, correct)</text>
+  <text x="80" y="402" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#475569">hides how the comparison works — the pieces then snap together like building blocks.</text>
+  <rect x="40" y="436" width="800" height="64" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="440" y="462" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Decompose until each piece is small enough to write confidently, and test each piece on its own.</text>
+  <text x="440" y="484" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#64748b">Then build each one behind a clean function interface.</text>
+</svg>

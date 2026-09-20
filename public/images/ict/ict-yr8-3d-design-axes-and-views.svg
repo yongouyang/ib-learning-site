@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" role="img" aria-labelledby="title desc">
+  <title id="title">Three axes and the four standard views</title>
+  <desc id="desc">A cube drawn with x, y and z axes from its front bottom left corner, beside panels for the front, side, top and perspective views. Front, side and top are orthographic views with no perspective distortion.</desc>
+  <rect x="0" y="0" width="880" height="520" fill="#f8fafc"/>
+  <defs><marker id="a3" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M 0 0 L 7 3 L 0 6 z" fill="#475569"/></marker></defs>
+  <text x="440" y="36" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#0f172a">A flat screen shows depth with views</text>
+  <polygon points="148,266 272,266 306,232 182,232" fill="#c7d2fe" stroke="#4338ca" stroke-width="2"/>
+  <polygon points="272,334 272,266 306,232 306,300" fill="#a5b4fc" stroke="#4338ca" stroke-width="2"/>
+  <polygon points="148,334 272,334 272,266 148,266" fill="#e0e7ff" stroke="#4338ca" stroke-width="2"/>
+  <line x1="148" y1="334" x2="298" y2="334" stroke="#dc2626" stroke-width="2.5" marker-end="url(#a3)"/>
+  <line x1="148" y1="334" x2="148" y2="184" stroke="#16a34a" stroke-width="2.5" marker-end="url(#a3)"/>
+  <text x="308" y="339" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#b91c1c">x  left–right</text>
+  <text x="132" y="176" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#15803d">y  up–down</text>
+  <rect x="470" y="104" width="180" height="116" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="560" y="128" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#4338ca">Front view</text>
+  <rect x="540" y="144" width="40" height="40" fill="#e0e7ff" stroke="#4338ca" stroke-width="1.8"/>
+  <text x="560" y="200" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">x and y — depth hidden</text>
+  <rect x="670" y="104" width="180" height="116" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="760" y="128" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#4338ca">Side view</text>
+  <rect x="742" y="144" width="36" height="40" fill="#e0e7ff" stroke="#4338ca" stroke-width="1.8"/>
+  <text x="760" y="200" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">z and y</text>
+  <rect x="470" y="256" width="180" height="116" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="560" y="280" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#4338ca">Top view</text>
+  <rect x="538" y="298" width="44" height="36" fill="#e0e7ff" stroke="#4338ca" stroke-width="1.8"/>
+  <text x="560" y="352" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">x and z</text>
+  <rect x="670" y="256" width="180" height="116" rx="8" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text x="760" y="280" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#4338ca">Perspective</text>
+  <polygon points="740,336 776,336 796,300 760,300" fill="#e0e7ff" stroke="#4338ca" stroke-width="1.8"/>
+  <polygon points="776,336 796,326 796,304 776,314" fill="#c7d2fe" stroke="#4338ca" stroke-width="1.8"/>
+  <text x="760" y="352" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">distant parts look smaller</text>
+  <rect x="40" y="436" width="800" height="64" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="440" y="462" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Front, side and top are orthographic: flat-on, with no perspective distortion, like engineering drawings.</text>
+  <text x="440" y="484" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#64748b">An object placed perfectly in the front view can float far behind its target in the side view — check two views.</text>
+  <line x1="272" y1="334" x2="330" y2="276" stroke="#2563eb" stroke-width="2.5" marker-end="url(#a3)"/>
+  <text x="338" y="268" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#1d4ed8">z  depth</text>
+</svg>

@@ -24,7 +24,12 @@
     {
       "id": "ict-yr8-animation-n4",
       "heading": "Onion Skinning and Keeping Motion Consistent",
-      "body": "Onion skinning is a feature of stop-frame apps that shows a faint, semi-transparent ghost of the previous frame overlaid on the live camera view. It lets you see exactly how far you moved the character last time, so you can make the next movement match — small, even steps instead of accidental jumps. Without onion skinning you are working blind, and motion quickly becomes uneven. Use it to check three things: the distance moved since the last frame, the position of body parts that should not have moved (a head drifting when only an arm should move), and whether the whole set has been accidentally nudged. Related good habits: keep the camera locked firmly in place, mark the positions of characters with tape or chalk if they leave the scene and return, and review the last few frames regularly — most apps let you flick back through what you have shot. If a frame is wrong (your hand in shot, a bumped prop), delete just that frame and retake it rather than accepting the flaw; one bad frame flashes visibly at playback speed."
+      "body": "Onion skinning is a feature of stop-frame apps that shows a faint, semi-transparent ghost of the previous frame overlaid on the live camera view. It lets you see exactly how far you moved the character last time, so you can make the next movement match — small, even steps instead of accidental jumps. Without onion skinning you are working blind, and motion quickly becomes uneven. Use it to check three things: the distance moved since the last frame, the position of body parts that should not have moved (a head drifting when only an arm should move), and whether the whole set has been accidentally nudged. Related good habits: keep the camera locked firmly in place, mark the positions of characters with tape or chalk if they leave the scene and return, and review the last few frames regularly — most apps let you flick back through what you have shot. If a frame is wrong (your hand in shot, a bumped prop), delete just that frame and retake it rather than accepting the flaw; one bad frame flashes visibly at playback speed.",
+      "illustration": {
+        "src": "/images/ict/ict-yr8-animation-onion-skinning.svg",
+        "alt": "A camera view containing three faint ghost positions of a ball from earlier frames and the live position, with a checklist of what onion skinning is used to check.",
+        "caption": "The ghosts show how far the ball moved last time, so the next step can match — small even steps instead of accidental jumps."
+      }
     },
     {
       "id": "ict-yr8-animation-n5",

@@ -29,7 +29,12 @@
     {
       "id": "ict-yr7-python-basics-n5",
       "heading": "Selection with if, elif and else",
-      "body": "Selection lets a program make decisions and respond differently to different data. The pattern is: `if condition:` then an indented block that runs only when the condition is true; optionally one or more `elif condition:` (else-if) branches checked in turn; and an optional `else:` block that catches everything left over. Conditions are built with comparison operators: == (equal to — two equals signs, because one means assignment), != (not equal), <, >, <= and >=. A typical grade converter reads: if score >= 70 print \"Distinction\", elif score >= 50 print \"Pass\", else print \"Try again\". Two things trip up beginners. First, indentation: the indented lines (conventionally four spaces) are the body of the branch, and Python enforces this strictly. Second, order: only the first true branch runs, so checking score >= 50 before score >= 70 means nobody can ever reach Distinction — put the most specific conditions first."
+      "body": "Selection lets a program make decisions and respond differently to different data. The pattern is: `if condition:` then an indented block that runs only when the condition is true; optionally one or more `elif condition:` (else-if) branches checked in turn; and an optional `else:` block that catches everything left over. Conditions are built with comparison operators: == (equal to — two equals signs, because one means assignment), != (not equal), <, >, <= and >=. A typical grade converter reads: if score >= 70 print \"Distinction\", elif score >= 50 print \"Pass\", else print \"Try again\". Two things trip up beginners. First, indentation: the indented lines (conventionally four spaces) are the body of the branch, and Python enforces this strictly. Second, order: only the first true branch runs, so checking score >= 50 before score >= 70 means nobody can ever reach Distinction — put the most specific conditions first.",
+      "illustration": {
+        "src": "/images/ict/ict-yr7-python-basics-if-elif-else-flowchart.svg",
+        "alt": "A flowchart starting with a score of 78, testing whether the score is at least 70 and printing Distinction if so, otherwise testing whether it is at least 50 and printing Pass, otherwise printing Try again.",
+        "caption": "Only the first true branch runs, so check the most specific condition first — 50 before 70 would make Distinction unreachable."
+      }
     },
     {
       "id": "ict-yr7-python-basics-n6",
