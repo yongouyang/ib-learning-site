@@ -150,9 +150,20 @@ jobs:
         timeout-minutes: 8
 
       - name: Validate illustrations
+        # Both commands run even if the first fails, and the findings are echoed as
+        # workflow annotations: the raw job log needs repo-admin rights to read,
+        # annotations do not, so a red gate is diagnosable by anyone.
         run: |
-          npm run validate:illustrations
-          npm run validate:illustration-layout
+          set +e
+          npm run validate:illustrations 2>&1 | tee /tmp/vi.log
+          vi=${PIPESTATUS[0]}
+          npm run validate:illustration-layout 2>&1 | tee /tmp/vl.log
+          vl=${PIPESTATUS[0]}
+          if [ "$vi" -ne 0 ] || [ "$vl" -ne 0 ]; then
+            grep -v '^[[:space:]]*$' /tmp/vl.log | head -25 | sed 's/^/::error title=illustration-layout::/'
+            grep -v '^[[:space:]]*$' /tmp/vi.log | head -10 | sed 's/^/::error title=illustrations::/'
+            exit 1
+          fi
 
   # Security gates (docs/security-scanning-plan.md Phase 3) — run in
   # parallel with e2e; both block PRs and deploys. Local triage:
