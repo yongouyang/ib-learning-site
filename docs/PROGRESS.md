@@ -22,6 +22,9 @@ Done (A): **DP Math AA SL is open** — `courses.ts` gains `math-dp-aa`, `exams.
   exponents and logarithms, the binomial theorem, each with an illustration.
 Verified: generate:registry + check:registry, validate:content, audit:content **0/0**, validate:illustrations,
   **1484/1484** unit tests, tsc clean, and the app/diagnostics/exams e2e specs (28 passed, `--workers=1`).
+  `npm run build:static` exits 0 (leak gate HARD green, sitemaps verify ok: 342 URLs). **Dev is live on
+  `eb979a3`**: both new DP AA study pages 200, the new illustration 200, `/diagnostics` lists Analysis &
+  Approaches.
 Next: **nine more DP AA SL topics** — functions, quadratics, trig identities and equations, vectors,
   descriptive statistics, probability, the binomial and normal distributions, differentiation (including
   optimisation), integration (including areas). Then two practice paper sets for `math-dp-aa` (20 marks
@@ -42,6 +45,20 @@ Notes: **five defects found by rendering and looking, all invisible to both vali
   **Ordering matters in `courses.ts`:** the IBDP hub builds its topic list by iterating `COURSES`, and
   `tests/unit/seo.test.ts` asserts that order equals the registry (`order.json`) order, so a new course
   must be inserted in the position its topics occupy in `order.json`.
+  **Two deploy gates blocked this work, both invisible locally, both now diagnosable.** (1) The
+  illustrations job failed on Linux for figures that pass on macOS — the annotations added earlier this
+  session named them precisely. (2) **`npm run build:static` ends with `audit:leaks`, and two of my new
+  maths captions tripped it**: "the angle at the centre is twice the angle at the circumference" and
+  "frequency density is frequency divided by class width" are canonical definitions that are ALSO
+  verbatim in `math-igcse-set-3`'s markscheme and model answer. The gate samples 48-character windows of
+  **premium-only** text (premium windows minus everything in the free corpus) and forbids them anywhere
+  under `out/`. **Why a caption trips it while the identical note heading does not:** the free corpus is
+  built from `CONTENT_KEYS` (heading, body, stem, markscheme, …), which excludes the illustration fields,
+  so note text is subtracted as shared and caption text is not — even though the caption ships on the
+  page. Reworded on the public side; do NOT fix it by adding `alt`/`caption` to `CONTENT_KEYS`, which
+  would stop a caption genuinely copied from a premium mark scheme from ever being caught.
+  **So: a figure caption must not reuse premium mark-scheme phrasing verbatim — reword it.**
+  Also note `| tail` hides exit codes: I twice read a green-looking tail while the command had failed.
 
 ## 2026-09-20 (session 6, cont.) — B: all five bare subjects done (56 more topics); CI outage found and fixed
 Git HEAD: `4e1cebc` (develop, deployed to dev; tree clean)
