@@ -4,6 +4,45 @@
 
 ---
 
+## 2026-09-20 (session 6, cont.) — B: all five bare subjects done (56 more topics); CI outage found and fixed
+Git HEAD: `4e1cebc` (develop, deployed to dev; tree clean)
+Done: **geography + ict + history + german + chinese are now fully illustrated — 66 topics, five new
+  `public/images/<subject>/` directories.** After geography (10), this session added ict (12), history
+  (11), german (13) and chinese (20), each figure on the note where it teaches most, not mechanically
+  note 1. Content is faithful to the notes: english-only subjects get diagrams (a trench cross-section,
+  the dynastic cycle, the feudal pyramid, a D-Day beach plan, an if/elif/else flowchart, the CSS box
+  model); the language subjects get vocabulary posters (der/die/das colour-coded AND spelled out, so
+  colour is never the only signal) and the chinese set carries characters + pinyin + English together,
+  with purpose-built figures where the topic has a system to show (number building, tone contours,
+  quatrain forms, the money system).
+Verified: `validate:illustrations` + `validate:illustration-layout` clean for all 378 SVGs; `validate:content`
+  all-pass; `audit:content` **0/0**; `npm test` **1484/1484**; tsc clean; lint 29/0 baseline. Every figure
+  rendered to PNG and looked at (see Notes). **Dev is live on `4e1cebc`** and the new SVGs 200 from
+  `/images/<subject>/...` with the illustration present in the deployed topic payload.
+Next: the last 40 zero-image topics — **math 24, english 11, chemistry 2, physics 2, biology 1** (current
+  coverage 193/233). Then A — DP Math AA SL core (~12 topics).
+Notes: **the illustrations gate had been failing on develop since `ce34d5f`, so deploy-dev was SKIPPED for
+  four commits — ict, history, german and chinese content sat undeployed for hours.** Root cause: on Linux
+  the one bullet `· the control chip runs a program` measures 177px against a 166px slot, where macOS
+  measures it as fitting. **The local layout validator is optimistic by up to ~6% on some strings even
+  though it injects the vendored font** — so a locally-green figure can be CI-red. Fixed by shortening
+  that bullet. Diagnosis was blocked because the failing step's log needs repo-admin rights: `ci.yml`'s
+  illustrations job now runs both commands with `set +e`, and on failure echoes their findings as
+  `::error::` **workflow annotations**, which are readable unauthenticated — that change is what produced
+  the answer. (The job log API returns `Must have admin rights` even for this repo, and no token exists
+  locally, so annotations are the only visible channel.)
+  **Process lessons, both earned repeatedly:** (1) the render-and-look pass is load-bearing — it caught a
+  volcano on the wrong plate, a library in a flat's floor plan, a trench drawn above ground instead of dug
+  in, a bar running off-canvas, a family tree whose rows collided, indistinguishable T-shirt/jacket/coat
+  icons, a body diagram labelled onto the anatomy, inverted yes/no branch labels in a flowchart, invasion
+  arrows pointing out to sea, and two season/festival wheels whose bottom circle sat in the footer.
+  (2) **When a coordinate needs fixing, patch the GENERATOR and regenerate — never string-replace the SVG.**
+  Four separate patch attempts corrupted files here (a `44[0-9]` regex ate a title and footer, a
+  placeholder replace ate a `>`, two x-offset patches piled every term into card 1, an offset correction
+  double-counted and pushed glosses onto their neighbours). Each cost a full regenerate anyway.
+  Also: escape `&` in XML text (one raw ampersand broke a whole file), and CJK is handled fine by both
+  validators (a first for this repo).
+
 ## 2026-09-20 (session 6) — B started: geography finished, 10/10 topics illustrated
 Git HEAD: `0b4e7ff` (develop, pushed; this change set on top)
 Done: **B's first subject is complete.** Geography was the smallest of the five bare subjects (10 topics,
