@@ -20,7 +20,12 @@
     {
       "id": "math-igcse-histograms-n3",
       "heading": "Frequency Density: The Height of a Bar",
-      "body": "📌 Definition\nFrequency density is the frequency per single unit of class width:\n\n$$\\text{frequency density} = \\dfrac{\\text{frequency}}{\\text{class width}}$$\n\n🔑 How it works\nDivide each class's frequency by its own class width. That result is the height of the bar to draw.\n\n💡 Worked Example 1\nA class of width 3 has frequency 24, so frequency density $= 24 \\div 3 = 8$.\n\n💡 Worked Example 2\nA class of width 6 has frequency 15, so frequency density $= 15 \\div 6 = 2.5$.\n\n⚠️ Common Mistake\nWriting density as width ÷ frequency — it is frequency ÷ width. A density is a rate: 'how many data values per one unit along the axis'.\n\n📎 Key Points to Remember\n• Density can be a decimal; that is fine.\n• Equal widths would give densities proportional to frequencies — which is why simple bar charts can skip the conversion.\n\n✅ Check\nFrequency 40 in a class of width 10 gives a density of 4."
+      "body": "📌 Definition\nFrequency density is the frequency per single unit of class width:\n\n$$\\text{frequency density} = \\dfrac{\\text{frequency}}{\\text{class width}}$$\n\n🔑 How it works\nDivide each class's frequency by its own class width. That result is the height of the bar to draw.\n\n💡 Worked Example 1\nA class of width 3 has frequency 24, so frequency density $= 24 \\div 3 = 8$.\n\n💡 Worked Example 2\nA class of width 6 has frequency 15, so frequency density $= 15 \\div 6 = 2.5$.\n\n⚠️ Common Mistake\nWriting density as width ÷ frequency — it is frequency ÷ width. A density is a rate: 'how many data values per one unit along the axis'.\n\n📎 Key Points to Remember\n• Density can be a decimal; that is fine.\n• Equal widths would give densities proportional to frequencies — which is why simple bar charts can skip the conversion.\n\n✅ Check\nFrequency 40 in a class of width 10 gives a density of 4.",
+      "illustration": {
+        "src": "/images/math/math-igcse-histograms-frequency-density.svg",
+        "alt": "A histogram with unequal class widths of 0 to 10, 10 to 20, 20 to 40 and 40 to 60, with the frequency density labelled on each bar, showing that the tallest bar is not always the largest frequency.",
+        "caption": "Frequency density is frequency divided by class width, and the area of a bar is the frequency."
+      }
     },
     {
       "id": "math-igcse-histograms-n4",
@@ -121,7 +126,12 @@
     {
       "id": "math-igcse-histograms-q1",
       "stem": "A class in a histogram is $20 < h \\le 50$. What is its class width?",
-      "choices": ["70", "30", "20", "50"],
+      "choices": [
+        "70",
+        "30",
+        "20",
+        "50"
+      ],
       "correctIndex": 1,
       "explanation": "Width = upper boundary − lower boundary = $50 - 20 = 30$. The option 70 adds the boundaries instead of subtracting.",
       "difficulty": "easy"
@@ -129,7 +139,12 @@
     {
       "id": "math-igcse-histograms-q2",
       "stem": "A class has frequency 24 and class width 3. What is the frequency density?",
-      "choices": ["6", "5", "8", "72"],
+      "choices": [
+        "6",
+        "5",
+        "8",
+        "72"
+      ],
       "correctIndex": 2,
       "explanation": "Density = frequency ÷ width = $24 \\div 3 = 8$. The option 72 multiplies instead of dividing; 6 swaps the numbers.",
       "difficulty": "easy"
@@ -137,7 +152,12 @@
     {
       "id": "math-igcse-histograms-q3",
       "stem": "A class has frequency 15 and class width 6. What is the frequency density?",
-      "choices": ["0.4", "9", "36", "2.5"],
+      "choices": [
+        "0.4",
+        "9",
+        "36",
+        "2.5"
+      ],
       "correctIndex": 3,
       "explanation": "$15 \\div 6 = 2.5$. A density may be a decimal; 0.4 is width ÷ frequency, the division the wrong way round.",
       "difficulty": "easy"
@@ -145,7 +165,12 @@
     {
       "id": "math-igcse-histograms-q4",
       "stem": "In a histogram, what does the area of each bar represent?",
-      "choices": ["The frequency of the class", "The class width", "The frequency density", "The total of all frequencies"],
+      "choices": [
+        "The frequency of the class",
+        "The class width",
+        "The frequency density",
+        "The total of all frequencies"
+      ],
       "correctIndex": 0,
       "explanation": "Area = frequency, which is why the vertical axis is frequency density: height × width must come back to the class frequency.",
       "difficulty": "easy"
@@ -153,7 +178,12 @@
     {
       "id": "math-igcse-histograms-q5",
       "stem": "The class $0 < t \\le 10$ has frequency 40. What height is its bar on a histogram?",
-      "choices": ["40", "4", "0.25", "10"],
+      "choices": [
+        "40",
+        "4",
+        "0.25",
+        "10"
+      ],
       "correctIndex": 1,
       "explanation": "Height = density = $40 \\div 10 = 4$. The width here is 10, not 40 — do not divide by the frequency.",
       "difficulty": "easy"
@@ -161,7 +191,12 @@
     {
       "id": "math-igcse-histograms-q6",
       "stem": "A bar covers the class $30 < m \\le 45$ and has height 2. What is the frequency?",
-      "choices": ["15", "22", "30", "45"],
+      "choices": [
+        "15",
+        "22",
+        "30",
+        "45"
+      ],
       "correctIndex": 2,
       "explanation": "Width = $45 - 30 = 15$, and frequency = height × width = $2 \\times 15 = 30$. Reading 15 stops after finding the width.",
       "difficulty": "medium"
@@ -169,7 +204,12 @@
     {
       "id": "math-igcse-histograms-q7",
       "stem": "A histogram has three bars: width 10 with height 4, width 20 with height 2.5, and width 10 with height 6. How many data values are there in total?",
-      "choices": ["100", "90", "120", "150"],
+      "choices": [
+        "100",
+        "90",
+        "120",
+        "150"
+      ],
       "correctIndex": 3,
       "explanation": "Areas: $10 \\times 4 = 40$, $20 \\times 2.5 = 50$, $10 \\times 6 = 60$. Total = $40 + 50 + 60 = 150$. Adding heights instead of areas gives 12.5 — meaningless here.",
       "difficulty": "medium"
@@ -190,7 +230,12 @@
     {
       "id": "math-igcse-histograms-q9",
       "stem": "The class $12 < x \\le 20$ has frequency 36. What is its frequency density?",
-      "choices": ["0.22", "4", "4.5", "288"],
+      "choices": [
+        "0.22",
+        "4",
+        "4.5",
+        "288"
+      ],
       "correctIndex": 2,
       "explanation": "Width = $20 - 12 = 8$, density = $36 \\div 8 = 4.5$. The option 4 divides $36 \\div 8$ badly; 288 multiplies.",
       "difficulty": "medium"
@@ -211,7 +256,12 @@
     {
       "id": "math-igcse-histograms-q11",
       "stem": "Class $0 < d \\le 15$ has frequency 45 and class $15 < d \\le 45$ has frequency 120. What is the difference between their frequency densities?",
-      "choices": ["1", "7", "45", "8"],
+      "choices": [
+        "1",
+        "7",
+        "45",
+        "8"
+      ],
       "correctIndex": 0,
       "explanation": "Densities: $45 \\div 15 = 3$ and $120 \\div 30 = 4$; the difference is $4 - 3 = 1$. The option 8 is 4 + 3; 45 compares frequencies, not densities.",
       "difficulty": "hard"
@@ -219,7 +269,12 @@
     {
       "id": "math-igcse-histograms-q12",
       "stem": "A class has width 28 and frequency 84. What height must its bar have?",
-      "choices": ["0.33", "28", "3", "2352"],
+      "choices": [
+        "0.33",
+        "28",
+        "3",
+        "2352"
+      ],
       "correctIndex": 2,
       "explanation": "Height = density = $84 \\div 28 = 3$. Check: $3 \\times 28 = 84$. The option 0.33 inverts the division; 2352 multiplies.",
       "difficulty": "hard"
@@ -227,7 +282,12 @@
     {
       "id": "math-igcse-histograms-q13",
       "stem": "A histogram of 100 masses has a bar for $0 < m \\le 10$ at height 4 and a bar for $10 < m \\le 40$ at height 2. What percentage of the values are greater than 10?",
-      "choices": ["60%", "40%", "25%", "30%"],
+      "choices": [
+        "60%",
+        "40%",
+        "25%",
+        "30%"
+      ],
       "correctIndex": 0,
       "explanation": "Values above 10: $2 \\times 30 = 60$. Out of 100, that is 60%. The option 40% is the count below 10 ($4 \\times 10$) read as a percentage of the wrong class.",
       "difficulty": "hard"
@@ -235,7 +295,12 @@
     {
       "id": "math-igcse-histograms-q14",
       "stem": "A class $40 < d \\le 48$ has a frequency density of 3.5. What is its frequency?",
-      "choices": ["6.5", "28", "24", "3.2"],
+      "choices": [
+        "6.5",
+        "28",
+        "24",
+        "3.2"
+      ],
       "correctIndex": 1,
       "explanation": "Width = $48 - 40 = 8$, and frequency = density × width = $3.5 \\times 8 = 28$. The option 6.5 adds instead of multiplying.",
       "difficulty": "hard"

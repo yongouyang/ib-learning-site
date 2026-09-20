@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Expanding double brackets with an area model</title>
+  <desc id="desc">A rectangle split into four smaller rectangles shows that x plus 3 multiplied by x plus 2 gives x squared, 3x, 2x and 6, which collects to x squared plus 5x plus 6.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Expanding double brackets with an area model</text>
+  <rect x="30" y="55" width="420" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="240.0" y="77" class="subhead" text-anchor="middle">(x + 3)(x + 2)</text>
+  <rect x="110" y="130" width="260" height="240" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="240" y1="130" x2="240" y2="370" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="110" y1="250" x2="370" y2="250" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="175.0" y="196.0" class="math" text-anchor="middle">x²</text>
+  <text x="305.0" y="196.0" class="math" text-anchor="middle">3x</text>
+  <text x="175.0" y="316.0" class="math" text-anchor="middle">2x</text>
+  <text x="305.0" y="316.0" class="math" text-anchor="middle">6</text>
+  <text x="175.0" y="118" class="label" text-anchor="middle">x</text>
+  <text x="305.0" y="118" class="label" text-anchor="middle">3</text>
+  <text x="94" y="195.0" class="label" text-anchor="end">x</text>
+  <text x="94" y="315.0" class="label" text-anchor="end">2</text>
+  <text x="240" y="352" class="math" text-anchor="middle">x² + 3x + 2x + 6</text>
+  <text x="240" y="378" class="math" text-anchor="middle" fill="#2563eb">x² + 5x + 6</text>
+  <rect x="470" y="55" width="400" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="670.0" y="77" class="subhead" text-anchor="middle">The same expansion in symbols</text>
+  <text x="500" y="150" class="math">(x + 3)(x + 2)</text>
+  <text x="500" y="196" class="label">= x(x + 2) + 3(x + 2)</text>
+  <text x="500" y="242" class="label">= x² + 2x + 3x + 6</text>
+  <text x="500" y="288" class="math" fill="#2563eb">= x² + 5x + 6</text>
+  <text x="500" y="364" class="small">Collect the two x-terms at the end — 2x + 3x = 5x.</text>
+</svg>

@@ -29,7 +29,12 @@
     {
       "id": "math-igcse-statistics-averages-stats-n5",
       "heading": "💡 Worked Example: Frequency Tables",
-      "body": "📌 Definition\nFrom a frequency table:\n\n$$\\text{mean} = \\dfrac{\\text{sum of } (\\text{value} \\times \\text{frequency})}{\\text{total frequency}}$$\n\nTen students reported how many books they read last month. The frequency table shows: value $1$ (frequency $6$), value $2$ (frequency $2$), value $3$ (frequency $1$), value $4$ (frequency $1$).\n\n🔑 How it works\nTotal frequency is $6 + 2 + 1 + 1 = 10$, so there are $10$ data values. Sum of value × frequency: $1 \\times 6 + 2 \\times 2 + 3 \\times 1 + 4 \\times 1 = 17$. Mean: $17 \\div 10 = 1.7$.\n\nMode: the value with the largest frequency — $1$ book (frequency $6$), not '$6$'.\n\nMedian: the $\\dfrac{10+1}{2} = 5.5$th value, so average the 5th and 6th values of the ordered list — both are $1$ — median $= 1$.\n\n✅ Check\nThe mean ($1.7$) is pulled above the median ($1$) by the few large values. That gap is exactly what 'choose the best average' questions are testing."
+      "body": "📌 Definition\nFrom a frequency table:\n\n$$\\text{mean} = \\dfrac{\\text{sum of } (\\text{value} \\times \\text{frequency})}{\\text{total frequency}}$$\n\nTen students reported how many books they read last month. The frequency table shows: value $1$ (frequency $6$), value $2$ (frequency $2$), value $3$ (frequency $1$), value $4$ (frequency $1$).\n\n🔑 How it works\nTotal frequency is $6 + 2 + 1 + 1 = 10$, so there are $10$ data values. Sum of value × frequency: $1 \\times 6 + 2 \\times 2 + 3 \\times 1 + 4 \\times 1 = 17$. Mean: $17 \\div 10 = 1.7$.\n\nMode: the value with the largest frequency — $1$ book (frequency $6$), not '$6$'.\n\nMedian: the $\\dfrac{10+1}{2} = 5.5$th value, so average the 5th and 6th values of the ordered list — both are $1$ — median $= 1$.\n\n✅ Check\nThe mean ($1.7$) is pulled above the median ($1$) by the few large values. That gap is exactly what 'choose the best average' questions are testing.",
+      "illustration": {
+        "src": "/images/math/math-igcse-statistics-averages-mean-from-table.svg",
+        "alt": "A frequency table with columns for the value x, the frequency f and the product fx, totalling 20 and 31, giving a mean of 1.55, with a panel on choosing between mean, median and mode.",
+        "caption": "The mean is the sum of fx divided by the sum of f, and for a frequency table the median comes from running totals."
+      }
     },
     {
       "id": "math-igcse-statistics-averages-stats-n6",

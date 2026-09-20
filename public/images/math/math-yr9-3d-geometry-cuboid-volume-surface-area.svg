@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Volume and surface area of a cuboid</title>
+  <desc id="desc">A cuboid labelled with its three dimensions, the volume formula, and the net showing all six faces as rectangles.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Volume and surface area of a cuboid</text>
+  <rect x="30" y="55" width="480" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="270.0" y="77" class="subhead" text-anchor="middle">Volume and surface area</text>
+  <polygon points="120,300 300,300 300,220 120,220" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <polygon points="120,220 300,220 360,170 180,170" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+  <polygon points="300,220 360,170 360,250 300,300" fill="#a5b4fc" stroke="#2563eb" stroke-width="2"/>
+  <text x="210" y="320" class="small" text-anchor="middle">length</text>
+  <text x="96" y="266" class="small" text-anchor="middle">width</text>
+  <text x="336" y="214" class="small">height</text>
+  <text x="70" y="364" class="math" fill="#2563eb">V = l × w × h</text>
+  <text x="70" y="392" class="math" fill="#2563eb">SA = 2(lw + lh + wh)</text>
+  <rect x="530" y="55" width="340" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="700.0" y="77" class="subhead" text-anchor="middle">The net: six rectangles</text>
+  <rect x="580" y="120" width="70" height="50" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+  <rect x="650" y="120" width="70" height="50" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.4"/>
+  <rect x="720" y="120" width="70" height="50" fill="#a5b4fc" stroke="#2563eb" stroke-width="1.4"/>
+  <rect x="650" y="170" width="70" height="50" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+  <rect x="580" y="170" width="70" height="50" fill="#e0e7ff" stroke="#2563eb" stroke-width="1.4"/>
+  <rect x="720" y="170" width="70" height="50" fill="#e0e7ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="700" y="246" class="small" text-anchor="middle">three pairs of matching faces</text>
+  <text x="552" y="290" class="small">Opposite faces are identical, so</text>
+  <text x="552" y="312" class="small">find one of each pair and double.</text>
+  <text x="552" y="334" class="small"></text>
+  <text x="552" y="356" class="small">Units: area in cm², volume in cm³.</text>
+  <text x="552" y="378" class="small"></text>
+  <text x="552" y="400" class="small">A prism uses the same idea:</text>
+  <text x="552" y="422" class="small">volume = cross-section × length.</text>
+</svg>

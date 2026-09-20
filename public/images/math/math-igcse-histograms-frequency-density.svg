@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Frequency density: the height of a histogram bar</title>
+  <desc id="desc">A histogram with unequal class widths: 0 to 10, 10 to 20, 20 to 40 and 40 to 60. The area of each bar is the frequency, so frequency density equals frequency divided by class width, and the tallest bar is not always the largest frequency.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Frequency density: the height of a histogram bar</text>
+  <rect x="30" y="55" width="520" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="290.0" y="77" class="subhead" text-anchor="middle">Frequency density = frequency ÷ class width</text>
+  <line x1="80" y1="300" x2="560" y2="300" stroke="#334155" stroke-width="1.6"/>
+  <line x1="80" y1="100" x2="80" y2="300" stroke="#334155" stroke-width="1.6"/>
+  <rect x="80" y="240" width="60" height="60" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="110.0" y="232" class="math" text-anchor="middle" fill="#1d4ed8">20</text>
+  <text x="110.0" y="320" class="small" text-anchor="middle">0–10</text>
+  <rect x="140" y="210" width="60" height="90" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="170.0" y="202" class="math" text-anchor="middle" fill="#1d4ed8">30</text>
+  <text x="170.0" y="320" class="small" text-anchor="middle">10–20</text>
+  <rect x="200" y="150" width="120" height="150" fill="#a5b4fc" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="260.0" y="142" class="math" text-anchor="middle" fill="#1d4ed8">50</text>
+  <text x="260.0" y="320" class="small" text-anchor="middle">20–40</text>
+  <rect x="320" y="270" width="120" height="30" fill="#c7d2fe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="380.0" y="262" class="math" text-anchor="middle" fill="#1d4ed8">10</text>
+  <text x="380.0" y="320" class="small" text-anchor="middle">40–60</text>
+  <text x="70" y="94" class="small">frequency density</text>
+  <text x="320" y="346" class="small" text-anchor="middle">class width</text>
+  <text x="290" y="384" class="small" text-anchor="middle">f.d. = f ÷ width, and the bar AREA is the frequency.</text>
+  <rect x="570" y="55" width="300" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="720.0" y="77" class="subhead" text-anchor="middle">The tallest-bar trap</text>
+  <text x="592" y="120" class="label">The tallest bar only has the biggest</text>
+  <text x="592" y="144" class="label">frequency when the class widths are all</text>
+  <text x="592" y="168" class="label">the same.</text>
+  <text x="592" y="192" class="label"></text>
+  <text x="592" y="216" class="label">Here 20–40 has the tallest bar, but</text>
+  <text x="592" y="240" class="label">check the area before you say it has</text>
+  <text x="592" y="264" class="label">the most data.</text>
+  <text x="592" y="288" class="label"></text>
+  <text x="592" y="312" class="label">Area  = width × height</text>
+  <text x="592" y="336" class="label">      = 20 × 50 = 1000</text>
+  <text x="592" y="360" class="label"></text>
+  <text x="592" y="384" class="label">Always convert back to frequency</text>
+  <text x="592" y="408" class="label">before comparing groups.</text>
+</svg>

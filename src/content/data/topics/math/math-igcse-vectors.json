@@ -15,7 +15,12 @@
     {
       "id": "math-igcse-vectors-n2",
       "heading": "Adding Vectors",
-      "body": "📌 Definition\nAdd matching components:\n\n$$\\begin{pmatrix} a \\\\ b \\end{pmatrix} + \\begin{pmatrix} c \\\\ d \\end{pmatrix} = \\begin{pmatrix} a + c \\\\ b + d \\end{pmatrix}$$\n\n🔑 How it works\nAddition follows the triangle law: 'from A to B, then from B to C' gives AC = AB + BC. Two vectors are equal only when both components match.\n\n💡 Worked Example\n$\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$ + $\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$ = $\\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix}$."
+      "body": "📌 Definition\nAdd matching components:\n\n$$\\begin{pmatrix} a \\\\ b \\end{pmatrix} + \\begin{pmatrix} c \\\\ d \\end{pmatrix} = \\begin{pmatrix} a + c \\\\ b + d \\end{pmatrix}$$\n\n🔑 How it works\nAddition follows the triangle law: 'from A to B, then from B to C' gives AC = AB + BC. Two vectors are equal only when both components match.\n\n💡 Worked Example\n$\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$ + $\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$ = $\\begin{pmatrix} 4 \\\\ 6 \\end{pmatrix}$.",
+      "illustration": {
+        "src": "/images/math/math-igcse-vectors-adding-and-subtracting.svg",
+        "alt": "Tip-to-tail vector addition showing a plus b as the single vector joining start to finish, with a second diagram for subtracting.",
+        "caption": "Going backwards means negating, so AB is b minus a when a and b are position vectors from the origin."
+      }
     },
     {
       "id": "math-igcse-vectors-n3",

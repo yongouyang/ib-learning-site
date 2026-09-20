@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Corresponding, alternate and co-interior angles</title>
+  <desc id="desc">Three diagrams of a transversal crossing two parallel lines: F angles correspond and are equal, Z angles alternate and are equal, and the two angles inside a U shape add to 180 degrees.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Corresponding, alternate and co-interior angles</text>
+  <rect x="30" y="55" width="270" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="165.0" y="77" class="subhead" text-anchor="middle">F — corresponding</text>
+  <rect x="315" y="55" width="270" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="450.0" y="77" class="subhead" text-anchor="middle">Z — alternate</text>
+  <rect x="600" y="55" width="270" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="735.0" y="77" class="subhead" text-anchor="middle">U — co-interior</text>
+  <line x1="80" y1="140" x2="270" y2="140" stroke="#334155" stroke-width="2"/>
+  <line x1="80" y1="250" x2="270" y2="250" stroke="#334155" stroke-width="2"/>
+  <line x1="120" y1="100" x2="230" y2="290" stroke="#2563eb" stroke-width="1.8"/>
+  <path d="M 150 140 A 26 26 0 0 1 168 168" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <path d="M 198 250 A 26 26 0 0 1 216 278" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <text x="175" y="132" class="math" fill="#dc2626">a</text>
+  <text x="238" y="268" class="math" fill="#dc2626">a</text>
+  <text x="175" y="232" class="small" text-anchor="middle">same side, same position</text>
+  <line x1="365" y1="140" x2="555" y2="140" stroke="#334155" stroke-width="2"/>
+  <line x1="365" y1="250" x2="555" y2="250" stroke="#334155" stroke-width="2"/>
+  <line x1="405" y1="100" x2="515" y2="290" stroke="#2563eb" stroke-width="1.8"/>
+  <path d="M 435 140 A 26 26 0 0 0 417 168" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <path d="M 483 250 A 26 26 0 0 1 501 278" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <text x="405" y="132" class="math" fill="#dc2626">a</text>
+  <text x="523" y="268" class="math" fill="#dc2626">a</text>
+  <text x="460" y="232" class="small" text-anchor="middle">opposite sides of the Z</text>
+  <line x1="650" y1="140" x2="840" y2="140" stroke="#334155" stroke-width="2"/>
+  <line x1="650" y1="250" x2="840" y2="250" stroke="#334155" stroke-width="2"/>
+  <line x1="690" y1="100" x2="800" y2="290" stroke="#2563eb" stroke-width="1.8"/>
+  <path d="M 720 140 A 26 26 0 0 1 738 168" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <path d="M 768 250 A 26 26 0 0 0 750 222" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <text x="745" y="132" class="math" fill="#dc2626">a</text>
+  <text x="745" y="240" class="math" fill="#2563eb">b</text>
+  <text x="745" y="300" class="math" text-anchor="middle" fill="#2563eb">a + b = 180°</text>
+  <text x="450" y="420" class="small" text-anchor="middle">All three pairs only hold when the two lines are parallel — look for the arrow marks that say so.</text>
+</svg>

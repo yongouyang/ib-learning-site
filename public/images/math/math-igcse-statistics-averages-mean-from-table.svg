@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">The mean from a frequency table</title>
+  <desc id="desc">A frequency table with the value x, the frequency f and the product fx, giving the mean as the sum of fx divided by the sum of f, with a note on which average to choose.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">The mean from a frequency table</text>
+  <rect x="30" y="55" width="470" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="265.0" y="77" class="subhead" text-anchor="middle">Mean = Σfx ÷ Σf</text>
+  <rect x="70" y="86" width="330" height="34" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="125" y="110" class="math" text-anchor="middle">x</text>
+  <text x="235" y="110" class="math" text-anchor="middle">f</text>
+  <text x="345" y="110" class="math" text-anchor="middle">fx</text>
+  <rect x="70" y="124" width="330" height="34" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="125" y="148" class="math" text-anchor="middle">0</text>
+  <text x="235" y="148" class="math" text-anchor="middle">3</text>
+  <text x="345" y="148" class="math" text-anchor="middle">0</text>
+  <rect x="70" y="162" width="330" height="34" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="125" y="186" class="math" text-anchor="middle">1</text>
+  <text x="235" y="186" class="math" text-anchor="middle">7</text>
+  <text x="345" y="186" class="math" text-anchor="middle">7</text>
+  <rect x="70" y="200" width="330" height="34" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="125" y="224" class="math" text-anchor="middle">2</text>
+  <text x="235" y="224" class="math" text-anchor="middle">6</text>
+  <text x="345" y="224" class="math" text-anchor="middle">12</text>
+  <rect x="70" y="238" width="330" height="34" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="125" y="262" class="math" text-anchor="middle">3</text>
+  <text x="235" y="262" class="math" text-anchor="middle">4</text>
+  <text x="345" y="262" class="math" text-anchor="middle">12</text>
+  <rect x="70" y="276" width="330" height="34" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="125" y="300" class="math" text-anchor="middle">Total</text>
+  <text x="235" y="300" class="math" text-anchor="middle">20</text>
+  <text x="345" y="300" class="math" text-anchor="middle">31</text>
+  <text x="70" y="340" class="label">Σf = 20 and Σfx = 31</text>
+  <text x="70" y="368" class="math" fill="#2563eb">mean = 31 ÷ 20 = 1.55</text>
+  <rect x="520" y="55" width="350" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="695.0" y="77" class="subhead" text-anchor="middle">Which average?</text>
+  <text x="542" y="130" class="label">Mean — uses every value; pulled</text>
+  <text x="542" y="154" class="label">  about by extreme values.</text>
+  <text x="542" y="178" class="label"></text>
+  <text x="542" y="202" class="label">Median — the middle value; useful</text>
+  <text x="542" y="226" class="label">  when there are outliers.</text>
+  <text x="542" y="250" class="label"></text>
+  <text x="542" y="274" class="label">Mode — the most common value;</text>
+  <text x="542" y="298" class="label">  useful for categories.</text>
+  <text x="542" y="322" class="label"></text>
+  <text x="542" y="346" class="label">For a frequency table, find the</text>
+  <text x="542" y="370" class="label">median from running totals, not by</text>
+  <text x="542" y="394" class="label">listing every value.</text>
+</svg>

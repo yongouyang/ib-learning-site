@@ -29,7 +29,12 @@
     {
       "id": "math-igcse-probability-prob-n5",
       "heading": "💡 Worked Example: Possibility Spaces",
-      "body": "A possibility space lists every possible outcome. Two coins are tossed: the space is HH, HT, TH, TT — four equally likely outcomes, because a head-then-tail is a different result from tail-then-head.\n\n🔑 How it works\nP(two heads) = $\\dfrac{1}{4}$.\n\nP(one head and one tail) = $\\dfrac{2}{4} = \\dfrac{1}{2}$ — HT and TH both count.\n\nFor two dice, the possibility space has $6 \\times 6 = 36$ equally likely outcomes, usually drawn as a grid. A total of $8$ arises from $(2,6)$, $(3,5)$, $(4,4)$, $(5,3)$, $(6,2)$ — five outcomes — so $P(\\text{total } 8) = \\dfrac{5}{36}$.\n\n✅ Check\nNotice $\\dfrac{5}{36}$ cannot be 'cleaned up' to $\\dfrac{1}{6}$: sixths would need $6$ of the $36$ outcomes. Count carefully on the grid."
+      "body": "A possibility space lists every possible outcome. Two coins are tossed: the space is HH, HT, TH, TT — four equally likely outcomes, because a head-then-tail is a different result from tail-then-head.\n\n🔑 How it works\nP(two heads) = $\\dfrac{1}{4}$.\n\nP(one head and one tail) = $\\dfrac{2}{4} = \\dfrac{1}{2}$ — HT and TH both count.\n\nFor two dice, the possibility space has $6 \\times 6 = 36$ equally likely outcomes, usually drawn as a grid. A total of $8$ arises from $(2,6)$, $(3,5)$, $(4,4)$, $(5,3)$, $(6,2)$ — five outcomes — so $P(\\text{total } 8) = \\dfrac{5}{36}$.\n\n✅ Check\nNotice $\\dfrac{5}{36}$ cannot be 'cleaned up' to $\\dfrac{1}{6}$: sixths would need $6$ of the $36$ outcomes. Count carefully on the grid.",
+      "illustration": {
+        "src": "/images/math/math-igcse-probability-sample-space.svg",
+        "alt": "A six by six grid of every equally likely outcome for two dice with the sum shown in each cell, the six cells totalling 7 highlighted in red, giving a probability of six thirty-sixths, which is one sixth.",
+        "caption": "List the sample space systematically, and use the complement: the probability of not getting 7 is five sixths."
+      }
     },
     {
       "id": "math-igcse-probability-prob-n6",

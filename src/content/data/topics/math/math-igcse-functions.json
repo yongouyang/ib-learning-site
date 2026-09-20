@@ -10,7 +10,12 @@
     {
       "id": "math-igcse-functions-n1",
       "heading": "The Function Machine: f(x) Notation",
-      "body": "📌 Definition\nA function is a rule that turns each input $x$ into exactly one output. The notation $f(x)$ means 'the output of function f when the input is $x$'.\n\n🔑 How it works\nTo evaluate a function, substitute the input value for $x$ everywhere it appears in the rule, then calculate.\n\n💡 Worked Example 1\n$f(x) = 4x - 1$, so $f(3) = 4 \\times 3 - 1 = 11$.\n\n💡 Worked Example 2\n$g(x) = x^2 + 2$, so $g(4) = 4^2 + 2 = 16 + 2 = 18$. Square first, then add.\n\n⚠️ Common Mistake\n$f(3)$ is not $3f$ and does not mean 'f times 3' — the $3$ is an input, not a multiplier.\n\n📎 Key Points to Remember\n• $f(3)$ is a single number: the output when $x = 3$.\n• Each function has its own rule; letters like f, g, h are just names.\n\n✅ Check\nIf $h(x) = 3x$ then $h(5) = 15$."
+      "body": "📌 Definition\nA function is a rule that turns each input $x$ into exactly one output. The notation $f(x)$ means 'the output of function f when the input is $x$'.\n\n🔑 How it works\nTo evaluate a function, substitute the input value for $x$ everywhere it appears in the rule, then calculate.\n\n💡 Worked Example 1\n$f(x) = 4x - 1$, so $f(3) = 4 \\times 3 - 1 = 11$.\n\n💡 Worked Example 2\n$g(x) = x^2 + 2$, so $g(4) = 4^2 + 2 = 16 + 2 = 18$. Square first, then add.\n\n⚠️ Common Mistake\n$f(3)$ is not $3f$ and does not mean 'f times 3' — the $3$ is an input, not a multiplier.\n\n📎 Key Points to Remember\n• $f(3)$ is a single number: the output when $x = 3$.\n• Each function has its own rule; letters like f, g, h are just names.\n\n✅ Check\nIf $h(x) = 3x$ then $h(5) = 15$.",
+      "illustration": {
+        "src": "/images/math/math-igcse-functions-function-machine.svg",
+        "alt": "A function machine taking the input 4, applying times 2 then plus 1, and giving the output 9, with the rule written as f of x equals 2x plus 1 and a mapping diagram showing three inputs and outputs.",
+        "caption": "f is the name of the rule, x is the input and f of x is the output; each input has exactly one output."
+      }
     },
     {
       "id": "math-igcse-functions-n2",
@@ -121,7 +126,12 @@
     {
       "id": "math-igcse-functions-q1",
       "stem": "Here is the function $f(x) = 4x - 1$. Work out $f(3)$.",
-      "choices": ["2", "11", "12", "43"],
+      "choices": [
+        "2",
+        "11",
+        "12",
+        "43"
+      ],
       "correctIndex": 1,
       "explanation": "Substitute: $f(3) = 4 \\times 3 - 1 = 11$. The option 12 comes from forgetting to subtract 1; 43 reverses the operations.",
       "difficulty": "easy"
@@ -129,7 +139,12 @@
     {
       "id": "math-igcse-functions-q2",
       "stem": "Here is the function $g(x) = x^2 + 2$. Work out $g(4)$.",
-      "choices": ["16", "8", "18", "20"],
+      "choices": [
+        "16",
+        "8",
+        "18",
+        "20"
+      ],
       "correctIndex": 2,
       "explanation": "$g(4) = 4^2 + 2 = 16 + 2 = 18$. The option 16 forgets to add 2, and 20 squares the result instead of the input.",
       "difficulty": "easy"
@@ -150,7 +165,12 @@
     {
       "id": "math-igcse-functions-q4",
       "stem": "$h(x) = 3x$ and $h(a) = 21$. Work out the value of $a$.",
-      "choices": ["7", "18", "24", "63"],
+      "choices": [
+        "7",
+        "18",
+        "24",
+        "63"
+      ],
       "correctIndex": 0,
       "explanation": "$3a = 21$, so $a = 21 \\div 3 = 7$. The option 63 multiplies instead of dividing — a sign of mixing up which operation undoes 'times 3'.",
       "difficulty": "easy"
@@ -158,7 +178,12 @@
     {
       "id": "math-igcse-functions-q5",
       "stem": "$p(x) = x + 7$. Since $p(2) = 9$, what is $p^{-1}(9)$?",
-      "choices": ["7", "2", "9", "16"],
+      "choices": [
+        "7",
+        "2",
+        "9",
+        "16"
+      ],
       "correctIndex": 1,
       "explanation": "The inverse undoes the original mapping, so $p^{-1}(9) = 2$: it returns the input that produced 9. The option 16 applies the rule again instead of undoing it.",
       "difficulty": "easy"
@@ -166,7 +191,12 @@
     {
       "id": "math-igcse-functions-q6",
       "stem": "$f(x) = 5x - 3$ and $f(a) = 27$. Work out the value of $a$.",
-      "choices": ["5", "4.8", "6", "30"],
+      "choices": [
+        "5",
+        "4.8",
+        "6",
+        "30"
+      ],
       "correctIndex": 2,
       "explanation": "$5a - 3 = 27$, so $5a = 30$ and $a = 6$. Divide only after adding 3; 4.8 comes from $27 \\div 5 - 3$-style scrambling of the order.",
       "difficulty": "medium"
@@ -187,7 +217,12 @@
     {
       "id": "math-igcse-functions-q8",
       "stem": "$f(x) = 2x + 1$ and $g(x) = x - 3$. Work out $fg(4)$.",
-      "choices": ["3", "6", "9", "7"],
+      "choices": [
+        "3",
+        "6",
+        "9",
+        "7"
+      ],
       "correctIndex": 0,
       "explanation": "Inside first: $g(4) = 1$, then $f(1) = 2 \\times 1 + 1 = 3$. The option 6 is $gf(4)$, the composition in the wrong order.",
       "difficulty": "medium"
@@ -195,7 +230,12 @@
     {
       "id": "math-igcse-functions-q9",
       "stem": "Using $f(x) = 2x + 1$ and $g(x) = x - 3$ from the previous question, work out $gf(4)$.",
-      "choices": ["3", "6", "8", "12"],
+      "choices": [
+        "3",
+        "6",
+        "8",
+        "12"
+      ],
       "correctIndex": 1,
       "explanation": "$f(4) = 9$, then $g(9) = 9 - 3 = 6$. Notice $gf(4) = 6$ differs from $fg(4) = 3$: order of composition matters.",
       "difficulty": "medium"
@@ -229,7 +269,12 @@
     {
       "id": "math-igcse-functions-q12",
       "stem": "$f(x) = 4x - 2$ and $g(x) = x^2 + 1$. Work out $f(g(3))$.",
-      "choices": ["38", "101", "12", "34"],
+      "choices": [
+        "38",
+        "101",
+        "12",
+        "34"
+      ],
       "correctIndex": 0,
       "explanation": "$g(3) = 3^2 + 1 = 10$, then $f(10) = 4 \\times 10 - 2 = 38$. The option 101 is $g(f(3))$, the reverse order; 34 forgets the +1 inside $g$.",
       "difficulty": "hard"
@@ -250,7 +295,12 @@
     {
       "id": "math-igcse-functions-q14",
       "stem": "$f(x) = x^2 - 2$ on the integer domain $-3 \\le x \\le 2$. What is the smallest value in the range?",
-      "choices": ["7", "-1", "-2", "2"],
+      "choices": [
+        "7",
+        "-1",
+        "-2",
+        "2"
+      ],
       "correctIndex": 2,
       "explanation": "The outputs are $7, 2, -1, -2, -1, 2$, so the smallest is $-2$, produced at $x = 0$. The largest |input| gives the biggest square, but the *smallest* output sits at the turning point.",
       "difficulty": "hard"
@@ -258,7 +308,12 @@
     {
       "id": "math-igcse-functions-q15",
       "stem": "$f(x) = 2x + 1$ and $ff(a) = 43$. Work out the value of $a$.",
-      "choices": ["3", "10.5", "21", "10"],
+      "choices": [
+        "3",
+        "10.5",
+        "21",
+        "10"
+      ],
       "correctIndex": 3,
       "explanation": "$f(f(a)) = 2(2a + 1) + 1 = 4a + 3$. Solve $4a + 3 = 43$: $a = 10$. The option 21 solves the rule only once; 10.5 comes from expanding wrongly as $4a + 1$.",
       "difficulty": "hard"

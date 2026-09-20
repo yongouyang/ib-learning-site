@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Types of correlation in scatter graphs</title>
+  <desc id="desc">Four small scatter graphs: positive correlation rising, negative correlation falling, no correlation as a cloud, and one with an outlier marked away from the trend.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Types of correlation in scatter graphs</text>
+  <rect x="30" y="55" width="840" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="450.0" y="77" class="subhead" text-anchor="middle">Correlation describes the pattern, not the cause</text>
+  <rect x="60" y="120" width="170" height="150" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="60" y1="270" x2="230" y2="270" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="60" y1="120" x2="60" y2="270" stroke="#94a3b8" stroke-width="1.2"/>
+  <circle cx="82" cy="247" r="4" fill="#2563eb"/>
+  <circle cx="98" cy="249" r="4" fill="#2563eb"/>
+  <circle cx="114" cy="246" r="4" fill="#2563eb"/>
+  <circle cx="130" cy="260" r="4" fill="#2563eb"/>
+  <circle cx="146" cy="264" r="4" fill="#2563eb"/>
+  <circle cx="162" cy="266" r="4" fill="#2563eb"/>
+  <circle cx="178" cy="279" r="4" fill="#2563eb"/>
+  <circle cx="194" cy="277" r="4" fill="#2563eb"/>
+  <circle cx="210" cy="279" r="4" fill="#2563eb"/>
+  <text x="145.0" y="300" class="small" text-anchor="middle">positive correlation</text>
+  <rect x="266" y="120" width="170" height="150" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="266" y1="270" x2="436" y2="270" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="266" y1="120" x2="266" y2="270" stroke="#94a3b8" stroke-width="1.2"/>
+  <circle cx="288" cy="247" r="4" fill="#2563eb"/>
+  <circle cx="304" cy="240" r="4" fill="#2563eb"/>
+  <circle cx="320" cy="229" r="4" fill="#2563eb"/>
+  <circle cx="336" cy="233" r="4" fill="#2563eb"/>
+  <circle cx="352" cy="228" r="4" fill="#2563eb"/>
+  <circle cx="368" cy="222" r="4" fill="#2563eb"/>
+  <circle cx="384" cy="226" r="4" fill="#2563eb"/>
+  <circle cx="400" cy="215" r="4" fill="#2563eb"/>
+  <circle cx="416" cy="208" r="4" fill="#2563eb"/>
+  <text x="351.0" y="300" class="small" text-anchor="middle">negative correlation</text>
+  <rect x="472" y="120" width="170" height="150" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="472" y1="270" x2="642" y2="270" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="472" y1="120" x2="472" y2="270" stroke="#94a3b8" stroke-width="1.2"/>
+  <circle cx="494" cy="243" r="4" fill="#2563eb"/>
+  <circle cx="510" cy="236" r="4" fill="#2563eb"/>
+  <circle cx="526" cy="215" r="4" fill="#2563eb"/>
+  <circle cx="542" cy="242" r="4" fill="#2563eb"/>
+  <circle cx="558" cy="240" r="4" fill="#2563eb"/>
+  <circle cx="574" cy="235" r="4" fill="#2563eb"/>
+  <circle cx="590" cy="259" r="4" fill="#2563eb"/>
+  <circle cx="606" cy="239" r="4" fill="#2563eb"/>
+  <circle cx="622" cy="232" r="4" fill="#2563eb"/>
+  <text x="557.0" y="300" class="small" text-anchor="middle">no correlation</text>
+  <rect x="678" y="120" width="170" height="150" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <line x1="678" y1="270" x2="848" y2="270" stroke="#94a3b8" stroke-width="1.2"/>
+  <line x1="678" y1="120" x2="678" y2="270" stroke="#94a3b8" stroke-width="1.2"/>
+  <circle cx="700" cy="247" r="4" fill="#2563eb"/>
+  <circle cx="716" cy="249" r="4" fill="#2563eb"/>
+  <circle cx="732" cy="246" r="4" fill="#2563eb"/>
+  <circle cx="748" cy="260" r="4" fill="#2563eb"/>
+  <circle cx="764" cy="264" r="4" fill="#2563eb"/>
+  <circle cx="780" cy="266" r="4" fill="#2563eb"/>
+  <circle cx="796" cy="279" r="4" fill="#2563eb"/>
+  <circle cx="812" cy="277" r="4" fill="#2563eb"/>
+  <circle cx="828" cy="279" r="4" fill="#2563eb"/>
+  <circle cx="778" cy="150" r="5" fill="#dc2626"/>
+  <text x="790" y="154" class="small" fill="#dc2626">outlier</text>
+  <text x="763.0" y="300" class="small" text-anchor="middle">an outlier sits apart</text>
+  <text x="60" y="320" class="label">Line of best fit: draw it through the middle of the points, with roughly as many above as below.</text>
+  <text x="60" y="348" class="label">Interpolation is reading inside the data range; extrapolation goes beyond it, and is far less reliable.</text>
+  <text x="60" y="378" class="small">Correlation is not causation — a third factor may drive both, and the relationship may be coincidence.</text>
+</svg>

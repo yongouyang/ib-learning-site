@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Solving simultaneous equations by elimination</title>
+  <desc id="desc">Two equations stacked with the elimination step: subtracting gives one equation in one unknown, and the graph beside it shows the same answer as the point where the two lines cross.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Solving simultaneous equations by elimination</text>
+  <rect x="30" y="55" width="420" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="240.0" y="77" class="subhead" text-anchor="middle">Elimination</text>
+  <text x="70" y="124" class="math">3x + 2y = 16</text>
+  <text x="70" y="168" class="math">2x + 2y = 12</text>
+  <text x="70" y="212" class="small">−          −          −</text>
+  <text x="70" y="256" class="math" fill="#2563eb">x  = 4</text>
+  <text x="70" y="300" class="label">then 2(4) + 2y = 12</text>
+  <text x="70" y="344" class="label">8 + 2y = 12  →  2y = 4  →  y = 2</text>
+  <text x="70" y="388" class="math" fill="#dc2626">x = 4,  y = 2</text>
+  <text x="70" y="384" class="small">Subtract to eliminate y because the y-terms are identical.</text>
+  <rect x="470" y="55" width="400" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="670.0" y="77" class="subhead" text-anchor="middle">The same answer on a graph</text>
+  <line x1="560" y1="360" x2="810" y2="360" stroke="#334155" stroke-width="1.5"/>
+  <line x1="560" y1="120" x2="560" y2="360" stroke="#334155" stroke-width="1.5"/>
+  <text x="810" y="382" class="label" text-anchor="middle">x</text>
+  <text x="534" y="128" class="label">y</text>
+  <line x1="560" y1="200" x2="760" y2="150" stroke="#dc2626" stroke-width="2"/>
+  <line x1="560" y1="216" x2="748" y2="222" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="660" cy="175" r="5" fill="#16a34a"/>
+  <text x="672" y="168" class="math" fill="#15803d">(4, 2)</text>
+  <text x="672" y="200" class="small" fill="#dc2626">3x + 2y = 16</text>
+  <text x="672" y="222" class="small" fill="#2563eb">2x + 2y = 12</text>
+  <text x="670" y="384" class="small" text-anchor="middle">The crossing point IS the solution.</text>
+</svg>

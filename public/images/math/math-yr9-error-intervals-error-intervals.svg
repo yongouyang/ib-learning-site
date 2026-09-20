@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Error intervals for rounded values</title>
+  <desc id="desc">Three number lines showing the range of values that round to 4.7 to one decimal place, to 350 to the nearest ten, and to 1200 to two significant figures, each written as an inequality.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Error intervals for rounded values</text>
+  <rect x="30" y="55" width="840" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="450.0" y="77" class="subhead" text-anchor="middle">The rounded value is the middle of the interval</text>
+  <line x1="150" y1="130" x2="760" y2="130" stroke="#334155" stroke-width="1.6"/>
+  <line x1="150" y1="120" x2="150" y2="140" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="760" y1="120" x2="760" y2="140" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="455" y1="118" x2="455" y2="142" stroke="#2563eb" stroke-width="2.4"/>
+  <circle cx="150" cy="130" r="4" fill="#dc2626"/>
+  <circle cx="760" cy="130" r="4" fill="none" stroke="#dc2626" stroke-width="2.4"/>
+  <text x="455" y="110" class="small" text-anchor="middle">4.7 to 1 d.p.</text>
+  <text x="150" y="158" class="math" text-anchor="middle" fill="#dc2626">4.65</text>
+  <text x="760" y="158" class="math" text-anchor="middle" fill="#dc2626">4.75</text>
+  <text x="560" y="158" class="math" fill="#2563eb">4.65 ≤ x &lt; 4.75</text>
+  <line x1="150" y1="220" x2="760" y2="220" stroke="#334155" stroke-width="1.6"/>
+  <line x1="150" y1="210" x2="150" y2="230" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="760" y1="210" x2="760" y2="230" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="455" y1="208" x2="455" y2="232" stroke="#2563eb" stroke-width="2.4"/>
+  <circle cx="150" cy="220" r="4" fill="#dc2626"/>
+  <circle cx="760" cy="220" r="4" fill="none" stroke="#dc2626" stroke-width="2.4"/>
+  <text x="455" y="200" class="small" text-anchor="middle">350 to the nearest 10</text>
+  <text x="150" y="248" class="math" text-anchor="middle" fill="#dc2626">345</text>
+  <text x="760" y="248" class="math" text-anchor="middle" fill="#dc2626">355</text>
+  <text x="560" y="248" class="math" fill="#2563eb">345 ≤ x &lt; 355</text>
+  <line x1="150" y1="310" x2="760" y2="310" stroke="#334155" stroke-width="1.6"/>
+  <line x1="150" y1="300" x2="150" y2="320" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="760" y1="300" x2="760" y2="320" stroke="#94a3b8" stroke-width="1.4"/>
+  <line x1="455" y1="298" x2="455" y2="322" stroke="#2563eb" stroke-width="2.4"/>
+  <circle cx="150" cy="310" r="4" fill="#dc2626"/>
+  <circle cx="760" cy="310" r="4" fill="none" stroke="#dc2626" stroke-width="2.4"/>
+  <text x="455" y="290" class="small" text-anchor="middle">1200 to 2 s.f.</text>
+  <text x="150" y="338" class="math" text-anchor="middle" fill="#dc2626">1150</text>
+  <text x="760" y="338" class="math" text-anchor="middle" fill="#dc2626">1250</text>
+  <text x="560" y="338" class="math" fill="#2563eb">1150 ≤ x &lt; 1250</text>
+  <text x="60" y="352" class="label">The lower end is included (a solid dot) and the upper end is not (an open dot).</text>
+  <text x="60" y="380" class="small">A value that rounds UP to the boundary, like 4.75, belongs to the next interval up.</text>
+  <text x="60" y="400" class="small">Halve the degree of accuracy to get the step: 0.1 → 0.05, 10 → 5, 100 → 50.</text>
+</svg>

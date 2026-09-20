@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">The area of any triangle is half a b sin C</title>
+  <desc id="desc">A triangle with two sides and the angle between them labelled, giving the area formula, beside a table for choosing between the sine rule, the cosine rule and the area formula.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">The area of any triangle is half a b sin C</text>
+  <rect x="30" y="55" width="480" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="270.0" y="77" class="subhead" text-anchor="middle">Area = ½ab sin C</text>
+  <polygon points="90,330 430,330 300,150" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="255" y="346" class="math" fill="#1d4ed8">b</text>
+  <text x="180" y="230" class="math" fill="#1d4ed8">c</text>
+  <text x="374" y="228" class="math" fill="#1d4ed8">a</text>
+  <text x="104" y="316" class="math">A</text>
+  <text x="410" y="316" class="math">B</text>
+  <text x="296" y="140" class="math">C</text>
+  <path d="M 274 184 A 40 40 0 0 0 326 184" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <text x="300" y="206" class="math" text-anchor="middle" fill="#dc2626">C</text>
+  <text x="270" y="384" class="math" text-anchor="middle" fill="#2563eb">Area = ½ × a × b × sin C</text>
+  <rect x="530" y="55" width="340" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="700.0" y="77" class="subhead" text-anchor="middle">Which rule?</text>
+  <text x="552" y="126" class="label">Sine rule — a side and the angle</text>
+  <text x="552" y="150" class="label">opposite it, plus one more pair.</text>
+  <text x="552" y="174" class="label"></text>
+  <text x="552" y="198" class="label">Cosine rule — all three sides, or</text>
+  <text x="552" y="222" class="label">two sides and the included angle.</text>
+  <text x="552" y="246" class="label"></text>
+  <text x="552" y="270" class="label">Area — two sides and the angle</text>
+  <text x="552" y="294" class="label">between them.</text>
+  <text x="552" y="318" class="label"></text>
+  <text x="552" y="342" class="label">sin C must be the angle BETWEEN</text>
+  <text x="552" y="366" class="label">the two sides you use.</text>
+  <text x="552" y="390" class="label"></text>
+  <text x="552" y="414" class="label">Never use the sine rule on the</text>
+  <text x="552" y="438" class="label">included angle alone.</text>
+</svg>

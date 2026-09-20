@@ -24,7 +24,12 @@
     {
       "id": "math-igcse-algebraic-manipulation-am-n4",
       "heading": "Expanding Double Brackets",
-      "body": "📌 Definition\nTo expand $(a+b)(c+d)$, every term of the first bracket multiplies every term of the second bracket.\n\n🔑 How it works\nFor two brackets each of the form $(x + \\text{number})$ there is a quick pattern — the middle coefficient is the **sum** of the numbers and the constant is their **product**:\n\n$$(x + p)(x + q) = x^2 + (p+q)x + pq$$\n\n💡 Worked Example 1\nExpand $(x + 4)(x + 3)$.\n\n$x^2 + 3x + 4x + 12 = x^2 + 7x + 12$\n\n💡 Worked Example 2\nExpand $(2x - 5)(x + 2)$.\n\n$2x^2 + 4x - 5x - 10 = 2x^2 - x - 10$\n\n💡 Worked Example 3 — difference of two squares\nExpand $(x + 6)(x - 6)$.\n\n$x^2 - 6x + 6x - 36 = x^2 - 36$ — the middle terms always cancel.\n\n⚠️ Common Mistake\nMissing one of the four products. A reliable check: before collecting, expanding two brackets always produces four terms.\n\n📎 Key Points to Remember\n• $(x+p)(x+q) = x^2 + (p+q)x + pq$.\n• $(a+b)(a-b) = a^2 - b^2$ has no middle term.\n• Track signs carefully: $(-5) \\times (+2)$ contributes $-10$."
+      "body": "📌 Definition\nTo expand $(a+b)(c+d)$, every term of the first bracket multiplies every term of the second bracket.\n\n🔑 How it works\nFor two brackets each of the form $(x + \\text{number})$ there is a quick pattern — the middle coefficient is the **sum** of the numbers and the constant is their **product**:\n\n$$(x + p)(x + q) = x^2 + (p+q)x + pq$$\n\n💡 Worked Example 1\nExpand $(x + 4)(x + 3)$.\n\n$x^2 + 3x + 4x + 12 = x^2 + 7x + 12$\n\n💡 Worked Example 2\nExpand $(2x - 5)(x + 2)$.\n\n$2x^2 + 4x - 5x - 10 = 2x^2 - x - 10$\n\n💡 Worked Example 3 — difference of two squares\nExpand $(x + 6)(x - 6)$.\n\n$x^2 - 6x + 6x - 36 = x^2 - 36$ — the middle terms always cancel.\n\n⚠️ Common Mistake\nMissing one of the four products. A reliable check: before collecting, expanding two brackets always produces four terms.\n\n📎 Key Points to Remember\n• $(x+p)(x+q) = x^2 + (p+q)x + pq$.\n• $(a+b)(a-b) = a^2 - b^2$ has no middle term.\n• Track signs carefully: $(-5) \\times (+2)$ contributes $-10$.",
+      "illustration": {
+        "src": "/images/math/math-igcse-algebraic-manipulation-expanding-double-brackets.svg",
+        "alt": "A rectangle split into four smaller rectangles shows x plus 3 multiplied by x plus 2, giving x squared, 3x, 2x and 6, which collects to x squared plus 5x plus 6, with the same expansion written in symbols alongside.",
+        "caption": "The two x-terms are collected at the end: 2x + 3x = 5x."
+      }
     },
     {
       "id": "math-igcse-algebraic-manipulation-am-n5",

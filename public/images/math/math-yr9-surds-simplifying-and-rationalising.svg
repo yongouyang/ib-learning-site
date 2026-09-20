@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Simplifying and rationalising surds</title>
+  <desc id="desc">A factor tree shows root 48 as root 16 times root 3, which simplifies to 4 root 3, and the reciprocal of root 2 is rationalised by multiplying top and bottom by root 2.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Simplifying and rationalising surds</text>
+  <rect x="30" y="55" width="470" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="265.0" y="77" class="subhead" text-anchor="middle">Simplifying √48</text>
+  <text x="120" y="130" class="math" font-size="22">√48</text>
+  <line x1="140" y1="140" x2="180" y2="180" stroke="#94a3b8" stroke-width="1.6"/>
+  <line x1="140" y1="140" x2="240" y2="180" stroke="#94a3b8" stroke-width="1.6"/>
+  <text x="170" y="204" class="math" text-anchor="middle" fill="#2563eb">√16</text>
+  <text x="255" y="204" class="math" text-anchor="middle" fill="#2563eb">√3</text>
+  <text x="120" y="250" class="label">√16 = 4, and √3 cannot be simplified,</text>
+  <text x="120" y="278" class="math" fill="#2563eb">so √48 = 4√3</text>
+  <text x="120" y="320" class="small">Find the largest square factor: 48 = 16 × 3.</text>
+  <text x="120" y="346" class="small">√(ab) = √a × √b, so √16 × √3 = 4√3.</text>
+  <text x="120" y="378" class="small">Look for 4, 9, 16, 25, 36 … inside the root.</text>
+  <rect x="520" y="55" width="350" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="695.0" y="77" class="subhead" text-anchor="middle">Rationalising the denominator</text>
+  <text x="542" y="124" class="math">1 / √2</text>
+  <text x="542" y="150" class="label"></text>
+  <text x="542" y="176" class="small">multiply top and bottom by √2:</text>
+  <text x="542" y="202" class="math" fill="#2563eb">1/√2 × √2/√2 = √2 / 2</text>
+  <text x="542" y="228" class="label"></text>
+  <text x="542" y="254" class="small">Never leave a surd on the bottom</text>
+  <text x="542" y="280" class="small">of a fraction.</text>
+  <text x="542" y="306" class="label"></text>
+  <text x="542" y="332" class="math">(a + √b)(a − √b) = a² − b</text>
+  <text x="542" y="358" class="label"></text>
+  <text x="542" y="384" class="small">That is why multiplying by the</text>
+  <text x="542" y="410" class="small">conjugate clears the surd.</text>
+</svg>

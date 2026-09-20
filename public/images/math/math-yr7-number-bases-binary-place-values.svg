@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Binary place values</title>
+  <desc id="desc">The same number written in base ten and base two, with the place value columns showing that 1101 in binary is 8 plus 4 plus 0 plus 1.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Binary place values</text>
+  <rect x="30" y="55" width="480" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="270.0" y="77" class="subhead" text-anchor="middle">Compare the columns</text>
+  <text x="70" y="106" class="subhead">Base 10 (decimal)</text>
+  <rect x="70" y="120" width="84" height="46" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="112" y="152" class="math" text-anchor="middle">1000</text>
+  <text x="112" y="182" class="small" text-anchor="middle">10³</text>
+  <rect x="170" y="120" width="84" height="46" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="212" y="152" class="math" text-anchor="middle">100</text>
+  <text x="212" y="182" class="small" text-anchor="middle">10²</text>
+  <rect x="270" y="120" width="84" height="46" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="312" y="152" class="math" text-anchor="middle">10</text>
+  <text x="312" y="182" class="small" text-anchor="middle">10¹</text>
+  <rect x="370" y="120" width="84" height="46" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="412" y="152" class="math" text-anchor="middle">1</text>
+  <text x="412" y="182" class="small" text-anchor="middle">10⁰</text>
+  <text x="70" y="256" class="subhead">Base 2 (binary)</text>
+  <rect x="70" y="270" width="84" height="46" fill="#e0e7ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="112" y="302" class="math" text-anchor="middle">1</text>
+  <text x="112" y="332" class="small" text-anchor="middle">8</text>
+  <rect x="170" y="270" width="84" height="46" fill="#e0e7ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="212" y="302" class="math" text-anchor="middle">1</text>
+  <text x="212" y="332" class="small" text-anchor="middle">4</text>
+  <rect x="270" y="270" width="84" height="46" fill="#e0e7ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="312" y="302" class="math" text-anchor="middle">0</text>
+  <text x="312" y="332" class="small" text-anchor="middle">2</text>
+  <rect x="370" y="270" width="84" height="46" fill="#e0e7ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="412" y="302" class="math" text-anchor="middle">1</text>
+  <text x="412" y="332" class="small" text-anchor="middle">1</text>
+  <text x="70" y="392" class="math" fill="#2563eb">1101₂ = 8 + 4 + 0 + 1 = 13</text>
+  <rect x="530" y="55" width="340" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="700.0" y="77" class="subhead" text-anchor="middle">Why computers use binary</text>
+  <text x="552" y="126" class="label">A switch has two states: on and</text>
+  <text x="552" y="150" class="label">off, so two symbols are enough.</text>
+  <text x="552" y="174" class="label"></text>
+  <text x="552" y="198" class="label">Each column is double the one to</text>
+  <text x="552" y="222" class="label">its right: 1, 2, 4, 8, 16, 32 …</text>
+  <text x="552" y="246" class="label"></text>
+  <text x="552" y="270" class="label">To convert to binary, subtract the</text>
+  <text x="552" y="294" class="label">largest power of two that fits, then</text>
+  <text x="552" y="318" class="label">repeat.</text>
+  <text x="552" y="342" class="label"></text>
+  <text x="552" y="366" class="label">Hexadecimal groups four binary</text>
+  <text x="552" y="390" class="label">digits, and uses A–F for 10–15.</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">The multiplier method for percentage change</title>
+  <desc id="desc">A bar of 100 percent with a multiplier arrow: multiplying by 1.35 gives an increase of 35 percent, multiplying by 0.72 gives a decrease of 28 percent, and successive changes multiply together.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">The multiplier method for percentage change</text>
+  <rect x="30" y="55" width="520" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="290.0" y="77" class="subhead" text-anchor="middle">One multiplication does the whole job</text>
+  <rect x="80" y="150" width="420" height="54" fill="#dbeafe" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="290.0" y="184" class="math" text-anchor="middle">100%</text>
+  <text x="290.0" y="136" class="small" text-anchor="middle">the original amount</text>
+  <rect x="80" y="250" width="567" height="40" fill="#16a34a" opacity="0.2" stroke="#16a34a" stroke-width="1.4"/>
+  <text x="90" y="276" class="math">× 1.35  →  135%</text>
+  <text x="508" y="276" class="small">increase of 35%</text>
+  <rect x="80" y="320" width="302" height="40" fill="#dc2626" opacity="0.2" stroke="#dc2626" stroke-width="1.4"/>
+  <text x="90" y="346" class="math">× 0.72  →  72%</text>
+  <text x="508" y="346" class="small">decrease of 28%</text>
+  <text x="80" y="300" class="label">100% + 35% = 135%  →  1.35      100% − 28% = 72%  →  0.72</text>
+  <rect x="570" y="55" width="300" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="720.0" y="77" class="subhead" text-anchor="middle">Successive changes</text>
+  <text x="592" y="120" class="label">Multiply the multipliers — do</text>
+  <text x="592" y="144" class="label">not add the percentages.</text>
+  <text x="592" y="168" class="label"></text>
+  <text x="592" y="192" class="label">Up 20% then down 20% is NOT</text>
+  <text x="592" y="216" class="label">back to the start:</text>
+  <text x="592" y="240" class="label"></text>
+  <text x="592" y="264" class="label">1.20 × 0.80 = 0.96</text>
+  <text x="592" y="288" class="label"></text>
+  <text x="592" y="312" class="label">so the result is 4% LOWER</text>
+  <text x="592" y="336" class="label">than you began.</text>
+  <text x="592" y="360" class="label"></text>
+  <text x="592" y="384" class="label">For a reverse percentage, divide</text>
+  <text x="592" y="408" class="label">instead: original = new ÷ multiplier.</text>
+</svg>

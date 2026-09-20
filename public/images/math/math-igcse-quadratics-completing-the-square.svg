@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Completing the square and the turning point</title>
+  <desc id="desc">The expression x squared minus 6x plus 5 is rewritten as x minus 3 squared minus 4, which shows the turning point at 3, -4; the parabola is drawn with its vertex and line of symmetry.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Completing the square and the turning point</text>
+  <rect x="30" y="55" width="420" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="240.0" y="77" class="subhead" text-anchor="middle">x² − 6x + 5</text>
+  <text x="70" y="130" class="math">x² − 6x + 5</text>
+  <text x="70" y="172" class="label">= (x − 3)² − 9 + 5</text>
+  <text x="70" y="214" class="math" fill="#2563eb">= (x − 3)² − 4</text>
+  <text x="70" y="256" class="label"></text>
+  <text x="70" y="298" class="small">half of −6 is −3, and</text>
+  <text x="70" y="340" class="small">(−3)² = 9 must be taken back off.</text>
+  <text x="70" y="360" class="label">Turning point is (3, −4); the axis of symmetry is x = 3.</text>
+  <rect x="470" y="55" width="400" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="670.0" y="77" class="subhead" text-anchor="middle">The parabola</text>
+  <line x1="520" y1="350" x2="820" y2="350" stroke="#334155" stroke-width="1.4"/>
+  <line x1="590" y1="100" x2="590" y2="350" stroke="#334155" stroke-width="1.4"/>
+  <polyline points="581,149 582,154 583,159 584,164 585,169 586,174 587,179 588,184 589,189 590,194 591,199 592,203 593,208 594,213 595,217 596,222 597,226 598,231 599,235 600,239 601,244 602,248 603,252 604,256 605,260 606,264 607,268 608,272 609,276 610,279 611,283 612,287 613,290 614,294 615,297 616,301 617,304 618,307 619,311 620,314 621,317 622,320 623,323 624,326 625,329 626,332 627,335 628,338 629,341 630,343 631,346 632,349 728,349 729,346 730,343 731,341 732,338 733,335 734,332 735,329 736,326 737,323 738,320 739,317" fill="none" stroke="#2563eb" stroke-width="2.4"/>
+  <line x1="680" y1="100" x2="680" y2="350" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3"/>
+  <circle cx="680" cy="218" r="5" fill="#dc2626"/>
+  <text x="688" y="234.0" class="math" fill="#dc2626">(3, −4)</text>
+  <text x="684" y="114" class="small">x = 3</text>
+  <text x="820" y="372" class="label" text-anchor="end">x</text>
+</svg>

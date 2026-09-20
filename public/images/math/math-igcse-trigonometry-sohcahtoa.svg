@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Labelling a right-angled triangle: SOHCAHTOA</title>
+  <desc id="desc">A right-angled triangle with the hypotenuse, the side opposite the marked angle and the side adjacent to it labelled, the three ratios, and the letters SOHCAHTOA with what each part means.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Labelling a right-angled triangle: SOHCAHTOA</text>
+  <rect x="30" y="55" width="480" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="270.0" y="77" class="subhead" text-anchor="middle">Label from the angle you are given</text>
+  <polygon points="90,320 410,320 410,150" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <rect x="394" y="304" width="16" height="16" fill="none" stroke="#334155" stroke-width="1.6"/>
+  <path d="M 130 320 A 40 40 0 0 0 124 298" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <text x="142" y="310" class="math" fill="#dc2626">θ</text>
+  <text x="250" y="342" class="label" fill="#1d4ed8">adjacent</text>
+  <text x="422" y="240" class="label" fill="#1d4ed8">opposite</text>
+  <text x="200" y="220" class="label" fill="#1d4ed8">hypotenuse</text>
+  <text x="70" y="120" class="math">SOH   sin θ = opposite / hypotenuse</text>
+  <text x="70" y="150" class="math">CAH   cos θ = adjacent / hypotenuse</text>
+  <text x="70" y="180" class="math">TOA   tan θ = opposite / adjacent</text>
+  <text x="255" y="384" class="small" text-anchor="middle">The hypotenuse is always opposite the right angle.</text>
+  <rect x="530" y="55" width="340" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="700.0" y="77" class="subhead" text-anchor="middle">Choosing a ratio</text>
+  <text x="552" y="122" class="label">1. Mark the angle.</text>
+  <text x="552" y="145" class="label">2. Label the three sides.</text>
+  <text x="552" y="168" class="label">3. Tick the side you know and the</text>
+  <text x="552" y="191" class="label">   side you want.</text>
+  <text x="552" y="214" class="label"></text>
+  <text x="552" y="237" class="label">Known and wanted are opposite and</text>
+  <text x="552" y="260" class="label">hypotenuse → use sin.</text>
+  <text x="552" y="283" class="label"></text>
+  <text x="552" y="306" class="label">adjacent and hypotenuse → cos.</text>
+  <text x="552" y="329" class="label"></text>
+  <text x="552" y="352" class="label">opposite and adjacent → tan.</text>
+  <text x="552" y="375" class="label"></text>
+  <text x="552" y="398" class="label">Use shift-sin (sin⁻¹) to find an angle.</text>
+</svg>

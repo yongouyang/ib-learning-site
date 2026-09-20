@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">The angle at the centre is twice the angle at the circumference</title>
+  <desc id="desc">A circle with centre O, two points A and B on the circumference and a third point C also on the circumference: the angle AOB at the centre is twice the angle ACB at the circumference, both standing on the same arc AB.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">The angle at the centre is twice the angle at the circumference</text>
+  <rect x="30" y="55" width="500" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="280.0" y="77" class="subhead" text-anchor="middle">Both angles stand on the arc AB</text>
+  <circle cx="280" cy="232" r="112" fill="none" stroke="#94a3b8" stroke-width="1.6"/>
+  <circle cx="280" cy="232" r="4" fill="#334155"/>
+  <text x="290" y="250" class="math">O</text>
+  <circle cx="188" cy="168" r="4" fill="#334155"/>
+  <text x="170.25497103963292" y="163.75943912868283" class="math">A</text>
+  <circle cx="372" cy="168" r="4" fill="#334155"/>
+  <text x="381.74502896036705" y="163.7594391286828" class="math">B</text>
+  <circle cx="299" cy="342" r="4" fill="#334155"/>
+  <text x="295.4485958986962" y="360.2984683373673" class="math">C</text>
+  <line x1="280" y1="232" x2="188" y2="168" stroke="#dc2626" stroke-width="2"/>
+  <line x1="280" y1="232" x2="372" y2="168" stroke="#dc2626" stroke-width="2"/>
+  <line x1="299" y1="342" x2="188" y2="168" stroke="#2563eb" stroke-width="2"/>
+  <line x1="299" y1="342" x2="372" y2="168" stroke="#2563eb" stroke-width="2"/>
+  <path d="M 243 206 A 45 45 0 0 1 317 206" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <text x="280" y="282" class="math" text-anchor="middle" fill="#dc2626">2θ</text>
+  <path d="M 274 309 A 42 42 0 0 1 317 304" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <text x="331.4485958986962" y="340.2984683373673" class="math" fill="#2563eb">θ</text>
+  <text x="280" y="118" class="small" text-anchor="middle">O is the centre</text>
+  <text x="280" y="396" class="math" text-anchor="middle">Angle at centre = 2 × angle at circumference</text>
+  <rect x="550" y="55" width="320" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="710.0" y="77" class="subhead" text-anchor="middle">What this gives you</text>
+  <text x="572" y="120" class="label">• Given the centre angle, halve it.</text>
+  <text x="572" y="146" class="label">• Given the circumference angle, double it.</text>
+  <text x="572" y="172" class="label"></text>
+  <text x="572" y="198" class="label">• Both angles must stand on the SAME arc —</text>
+  <text x="572" y="224" class="label">  here the arc AB.</text>
+  <text x="572" y="250" class="label"></text>
+  <text x="572" y="276" class="label">• The angle in a semicircle is 90°,</text>
+  <text x="572" y="302" class="label">  because the centre angle is 180°.</text>
+  <text x="572" y="328" class="label"></text>
+  <text x="572" y="354" class="label">• Cyclic quadrilaterals: opposite angles</text>
+  <text x="572" y="380" class="label">  add to 180°.</text>
+</svg>

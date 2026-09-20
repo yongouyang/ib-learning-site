@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Volume of a prism is the cross-section times the length</title>
+  <desc id="desc">A triangular prism with its uniform cross-section shaded, labelled area A and length l, giving volume V equals A times l, beside a cylinder treated the same way.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Volume of a prism is the cross-section times the length</text>
+  <rect x="30" y="55" width="420" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="240.0" y="77" class="subhead" text-anchor="middle">Triangular prism</text>
+  <polygon points="120,300 220,300 170,220" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <line x1="120" y1="300" x2="120" y2="180" stroke="#2563eb" stroke-width="2"/>
+  <line x1="220" y1="300" x2="220" y2="180" stroke="#2563eb" stroke-width="2"/>
+  <line x1="170" y1="220" x2="170" y2="100" stroke="#2563eb" stroke-width="2"/>
+  <polygon points="120,180 220,180 170,100" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+  <line x1="120" y1="180" x2="220" y2="180" stroke="#2563eb" stroke-width="2"/>
+  <text x="146" y="272" class="math" fill="#1d4ed8">A</text>
+  <text x="232" y="250" class="math" fill="#1d4ed8">l</text>
+  <text x="170" y="348" class="small" text-anchor="middle">length l</text>
+  <text x="240" y="392" class="math" text-anchor="middle" fill="#2563eb">V = A × l</text>
+  <rect x="470" y="55" width="400" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="670.0" y="77" class="subhead" text-anchor="middle">Cylinder is a prism too</text>
+  <ellipse cx="670" cy="130" rx="80" ry="24" fill="#e0e7ff" stroke="#2563eb" stroke-width="2"/>
+  <line x1="590" y1="130" x2="590" y2="300" stroke="#2563eb" stroke-width="2"/>
+  <line x1="750" y1="130" x2="750" y2="300" stroke="#2563eb" stroke-width="2"/>
+  <ellipse cx="670" cy="300" rx="80" ry="24" fill="#e0e7ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="670" y="220" class="math" text-anchor="middle" fill="#1d4ed8">A = πr²</text>
+  <text x="766" y="220" class="math" fill="#1d4ed8">h</text>
+  <text x="670" y="362" class="math" text-anchor="middle" fill="#2563eb">V = πr²h</text>
+  <text x="670" y="392" class="small" text-anchor="middle">The cross-section is the same all the way along.</text>
+</svg>

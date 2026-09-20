@@ -20,7 +20,12 @@
     {
       "id": "math-igcse-quadratics-quad-n3",
       "heading": "Completing the Square (Leading Coefficient 1)",
-      "body": "Completing the square rewrites a quadratic as a perfect square plus a constant, which then solves itself.\n\n🔑 How it works\nThe identity behind it is:\n\n$$x^2 + bx = \\left(x + \\dfrac{b}{2}\\right)^2 - \\left(\\dfrac{b}{2}\\right)^2$$\n\nHalve the coefficient of $x$, square it, and subtract that square again to keep the value unchanged.\n\n💡 Worked Example 1 — Rewrite\n$x^2 + 8x + 10 = (x + 4)^2 - 16 + 10 = (x + 4)^2 - 6$.\n\n💡 Worked Example 2 — Solve\nSolve $x^2 - 6x + 2 = 0$.\n\n$(x - 3)^2 - 9 + 2 = 0$, so $(x - 3)^2 - 7 = 0$ and $(x - 3)^2 = 7$.\n\n$x - 3 = \\pm\\sqrt{7}$, giving $x = 3 \\pm \\sqrt{7}$.\n\n⚠️ Common Mistake\nForgetting the subtracted square: $(x + 4)^2$ on its own expands to $x^2 + 8x + 16$, which is not the original expression.\n\n📎 Key Points to Remember\n• Halve $b$ for the bracket, then subtract the square of that half.\n• Solving gives a $\\pm$ square root — two roots, just like the formula.\n• Surd answers such as $3 \\pm \\sqrt{7}$ are exact and preferred in Extended."
+      "body": "Completing the square rewrites a quadratic as a perfect square plus a constant, which then solves itself.\n\n🔑 How it works\nThe identity behind it is:\n\n$$x^2 + bx = \\left(x + \\dfrac{b}{2}\\right)^2 - \\left(\\dfrac{b}{2}\\right)^2$$\n\nHalve the coefficient of $x$, square it, and subtract that square again to keep the value unchanged.\n\n💡 Worked Example 1 — Rewrite\n$x^2 + 8x + 10 = (x + 4)^2 - 16 + 10 = (x + 4)^2 - 6$.\n\n💡 Worked Example 2 — Solve\nSolve $x^2 - 6x + 2 = 0$.\n\n$(x - 3)^2 - 9 + 2 = 0$, so $(x - 3)^2 - 7 = 0$ and $(x - 3)^2 = 7$.\n\n$x - 3 = \\pm\\sqrt{7}$, giving $x = 3 \\pm \\sqrt{7}$.\n\n⚠️ Common Mistake\nForgetting the subtracted square: $(x + 4)^2$ on its own expands to $x^2 + 8x + 16$, which is not the original expression.\n\n📎 Key Points to Remember\n• Halve $b$ for the bracket, then subtract the square of that half.\n• Solving gives a $\\pm$ square root — two roots, just like the formula.\n• Surd answers such as $3 \\pm \\sqrt{7}$ are exact and preferred in Extended.",
+      "illustration": {
+        "src": "/images/math/math-igcse-quadratics-completing-the-square.svg",
+        "alt": "The expression x squared minus 6x plus 5 rewritten as x minus 3 squared minus 4, with the parabola drawn showing its vertex at (3, minus 4) and its line of symmetry at x equals 3.",
+        "caption": "Half of minus 6 is minus 3 and its square, 9, must be taken back off; the completed square form gives the turning point directly."
+      }
     },
     {
       "id": "math-igcse-quadratics-quad-n4",

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">The function machine and f(x) notation</title>
+  <desc id="desc">An input enters a machine that applies times 2 then plus 1, giving the output; the same rule written as f(x) equals 2x plus 1, with a mapping diagram showing three inputs and their outputs.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <defs><marker id="am" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M 0 0 L 7 3 L 0 6 z" fill="#334155"/></marker></defs>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">The function machine and f(x) notation</text>
+  <rect x="30" y="55" width="500" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="280.0" y="77" class="subhead" text-anchor="middle">f(x) = 2x + 1 as a machine</text>
+  <rect x="80" y="200" width="90" height="52" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8" rx="6"/>
+  <text x="125" y="232" class="math" text-anchor="middle">4</text>
+  <line x1="180" y1="226" x2="240" y2="226" stroke="#334155" stroke-width="2" marker-end="url(#am)"/>
+  <rect x="250" y="170" width="120" height="112" fill="#e0e7ff" stroke="#2563eb" stroke-width="2" rx="8"/>
+  <text x="310" y="206" class="math" text-anchor="middle">× 2</text>
+  <text x="310" y="240" class="math" text-anchor="middle">+ 1</text>
+  <line x1="380" y1="226" x2="440" y2="226" stroke="#334155" stroke-width="2" marker-end="url(#am)"/>
+  <rect x="450" y="200" width="70" height="52" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8" rx="6"/>
+  <text x="485" y="232" class="math" text-anchor="middle">9</text>
+  <text x="125" y="190" class="small" text-anchor="middle">input</text>
+  <text x="485" y="190" class="small" text-anchor="middle">output</text>
+  <text x="310" y="320" class="math" text-anchor="middle" fill="#2563eb">f(4) = 2 × 4 + 1 = 9</text>
+  <text x="310" y="352" class="small" text-anchor="middle">f is the name of the rule; x is the input; f(x) is the output.</text>
+  <rect x="550" y="55" width="320" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="710.0" y="77" class="subhead" text-anchor="middle">Mapping diagram</text>
+  <ellipse cx="620" cy="230" rx="46" ry="100" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4"/>
+  <ellipse cx="800" cy="230" rx="46" ry="100" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4"/>
+  <text x="620" y="152" class="small" text-anchor="middle">input</text>
+  <text x="800" y="152" class="small" text-anchor="middle">output</text>
+  <text x="620" y="196" class="math" text-anchor="middle">1</text>
+  <text x="800" y="196" class="math" text-anchor="middle">3</text>
+  <line x1="646" y1="192" x2="774" y2="192" stroke="#2563eb" stroke-width="1.4" marker-end="url(#am)"/>
+  <text x="620" y="238" class="math" text-anchor="middle">2</text>
+  <text x="800" y="238" class="math" text-anchor="middle">5</text>
+  <line x1="646" y1="234" x2="774" y2="234" stroke="#2563eb" stroke-width="1.4" marker-end="url(#am)"/>
+  <text x="620" y="280" class="math" text-anchor="middle">3</text>
+  <text x="800" y="280" class="math" text-anchor="middle">7</text>
+  <line x1="646" y1="276" x2="774" y2="276" stroke="#2563eb" stroke-width="1.4" marker-end="url(#am)"/>
+  <text x="710" y="356" class="small" text-anchor="middle">Each input has exactly one output.</text>
+</svg>

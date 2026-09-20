@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Multiplying and dividing in standard form</title>
+  <desc id="desc">Two numbers in standard form multiplied by handling the powers of ten separately, then adjusting the answer so the first part sits between 1 and 10.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .small { font-size: 11px; fill: #64748b; }
+    .math { font-size: 14px; fill: #111827; font-weight: 600; }
+  </style>
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="30" y="35" class="heading">Multiplying and dividing in standard form</text>
+  <rect x="30" y="55" width="520" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="290.0" y="77" class="subhead" text-anchor="middle">Handle the numbers and the powers separately</text>
+  <text x="70" y="118" class="math">(2 × 10³) × (3 × 10⁴)</text>
+  <text x="70" y="156" class="label">= (2 × 3) × (10³ × 10⁴)</text>
+  <text x="70" y="194" class="math" fill="#2563eb">= 6 × 10⁷</text>
+  <text x="70" y="232" class="label"></text>
+  <text x="70" y="270" class="math">(5 × 10³) × (4 × 10⁴)</text>
+  <text x="70" y="308" class="label">= 20 × 10⁷</text>
+  <text x="70" y="346" class="math" fill="#dc2626">= 2 × 10⁸</text>
+  <text x="70" y="388" class="small">Adding the indices works because 10³ × 10⁴ = 10³⁺⁴.</text>
+  <rect x="570" y="55" width="300" height="355" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+  <text x="720.0" y="77" class="subhead" text-anchor="middle">Getting the form right</text>
+  <text x="592" y="120" class="label">Standard form is A × 10ⁿ with</text>
+  <text x="592" y="144" class="small">1 ≤ A &lt; 10.</text>
+  <text x="592" y="168" class="small"></text>
+  <text x="592" y="192" class="label">20 × 10⁷ is correct arithmetic</text>
+  <text x="592" y="216" class="small">but NOT standard form, so shift</text>
+  <text x="592" y="240" class="small">one power of ten:</text>
+  <text x="592" y="264" class="label"></text>
+  <text x="592" y="288" class="small">20 × 10⁷ = 2 × 10⁸</text>
+  <text x="592" y="312" class="small"></text>
+  <text x="592" y="336" class="label">Dividing: subtract the indices.</text>
+  <text x="592" y="360" class="small">Then adjust the same way.</text>
+</svg>
