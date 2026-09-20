@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Working scientifically: presenting data</title>
+  <desc id="desc">Choosing the right way to present data, drawing a line of best fit, and distinguishing accuracy, precision and the types of error.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .subtitle { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #374151; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .accent { fill: #ef4444; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="800" height="500" fill="#f8fafc"/>
+  <text x="30" y="34" class="title">Working scientifically: presenting data</text>
+  <rect x="30" y="60" width="360" height="200" rx="8" class="panel"/>
+  <text x="210.0" y="84" class="subtitle" text-anchor="middle">Choosing the presentation</text>
+  <text x="50" y="102" class="label">Bar chart</text>
+  <text x="50" y="118" class="sublabel">categorical or discrete values</text>
+  <text x="50" y="144" class="label">Line graph</text>
+  <text x="50" y="160" class="sublabel">continuous data you plotted</text>
+  <text x="50" y="186" class="label">Scatter graph</text>
+  <text x="50" y="202" class="sublabel">pairs of measurements, looking for a link</text>
+  <text x="50" y="228" class="label">Histogram</text>
+  <text x="50" y="244" class="sublabel">frequency of continuous grouped data</text>
+  <rect x="410" y="60" width="360" height="200" rx="8" class="panel"/>
+  <text x="590.0" y="84" class="subtitle" text-anchor="middle">Line of best fit</text>
+  <line x1="440" y1="240" x2="740" y2="240" stroke="#6b7280" stroke-width="1.4"/>
+  <line x1="440" y1="92" x2="440" y2="240" stroke="#6b7280" stroke-width="1.4"/>
+  <circle cx="470" cy="220" r="4.5" fill="#2563eb"/>
+  <circle cx="510" cy="200" r="4.5" fill="#2563eb"/>
+  <circle cx="610" cy="160" r="4.5" fill="#2563eb"/>
+  <circle cx="660" cy="150" r="4.5" fill="#2563eb"/>
+  <circle cx="710" cy="124" r="4.5" fill="#2563eb"/>
+  <circle cx="560" cy="120" r="4.5" fill="#f97316"/>
+  <line x1="455" y1="228" x2="730" y2="112" stroke="#ef4444" stroke-width="2.4"/>
+  <text x="556" y="152" class="sublabel">anomalous point</text>
+  <rect x="30" y="280" width="740" height="90" rx="8" class="panel"/>
+  <text x="400.0" y="304" class="subtitle" text-anchor="middle">Accuracy, precision and error</text>
+  <text x="50" y="312" class="label">Accurate means close to the true value; precise means repeatable — you can be precise and still wrong.</text>
+  <text x="50" y="334" class="label">Random error scatters results either side; reduce it by repeating and averaging.</text>
+  <text x="50" y="356" class="label">Systematic error shifts every reading the same way; check the zero and the calibration.</text>
+  <text x="30" y="404" class="sublabel">Label axes with quantity and unit, choose a sensible scale, and plot the independent variable on the x-axis.</text>
+  <text x="30" y="428" class="sublabel">An anomalous point is not simply wrong — look for a reason before ignoring it.</text>
+  <text x="30" y="456" class="sublabel">A conclusion states the relationship, quotes data as evidence, and comments on uncertainty.</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Simple machines</title>
+  <desc id="desc">The force and distance trade-off, the three classes of levers with their fulcrum, load and effort positions, and how a pulley or gear ratio trades force for distance.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .subtitle { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #374151; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .accent { fill: #ef4444; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="800" height="500" fill="#f8fafc"/>
+  <text x="30" y="34" class="title">Simple machines</text>
+  <rect x="30" y="60" width="360" height="140" rx="8" class="panel"/>
+  <text x="210.0" y="84" class="subtitle" text-anchor="middle">The trade-off</text>
+  <text x="50" y="96" class="label">A machine does not reduce the work;</text>
+  <text x="50" y="116" class="label">it reduces the FORCE you need.</text>
+  <text x="50" y="136" class="label">Force × distance stays the same, so</text>
+  <text x="50" y="156" class="label">a smaller force must move further.</text>
+  <rect x="60" y="176" width="300" height="20" rx="4" fill="#fee2e2" stroke="#ef4444" stroke-width="1.4"/>
+  <text x="210" y="190" class="sublabel" text-anchor="middle">small force × long distance</text>
+  <rect x="410" y="60" width="360" height="140" rx="8" class="panel"/>
+  <text x="590.0" y="84" class="subtitle" text-anchor="middle">Pulleys and gears</text>
+  <text x="430" y="94" class="label">Fixed pulley: changes direction only.</text>
+  <text x="430" y="112" class="label">Movable pulley: halves the force and</text>
+  <text x="430" y="130" class="label">doubles the rope pulled.</text>
+  <text x="430" y="148" class="label"></text>
+  <text x="430" y="166" class="label">Gears: the teeth ratio sets the force and</text>
+  <text x="430" y="184" class="label">speed trade-off, reversing direction.</text>
+  <text x="50" y="220" class="subtitle">First class: fulcrum in the middle (see-saw)</text>
+  <line x1="90" y1="246" x2="650" y2="246" stroke="#334155" stroke-width="3"/>
+  <circle cx="150" cy="262" r="9" fill="#16a34a"/>
+  <text x="150" y="282" class="sublabel" text-anchor="middle">fulcrum</text>
+  <circle cx="330" cy="262" r="9" fill="#dc2626"/>
+  <text x="330" y="282" class="sublabel" text-anchor="middle">load</text>
+  <circle cx="510" cy="262" r="9" fill="#2563eb"/>
+  <text x="510" y="282" class="sublabel" text-anchor="middle">effort</text>
+  <text x="50" y="304" class="subtitle">Second class: load in the middle (wheelbarrow)</text>
+  <line x1="90" y1="330" x2="650" y2="330" stroke="#334155" stroke-width="3"/>
+  <circle cx="150" cy="346" r="9" fill="#16a34a"/>
+  <text x="150" y="366" class="sublabel" text-anchor="middle">fulcrum</text>
+  <circle cx="330" cy="346" r="9" fill="#dc2626"/>
+  <text x="330" y="366" class="sublabel" text-anchor="middle">load</text>
+  <circle cx="510" cy="346" r="9" fill="#2563eb"/>
+  <text x="510" y="366" class="sublabel" text-anchor="middle">effort</text>
+  <text x="50" y="388" class="subtitle">Third class: effort in the middle (tweezers)</text>
+  <line x1="90" y1="414" x2="650" y2="414" stroke="#334155" stroke-width="3"/>
+  <circle cx="150" cy="430" r="9" fill="#2563eb"/>
+  <text x="150" y="450" class="sublabel" text-anchor="middle">effort</text>
+  <circle cx="330" cy="430" r="9" fill="#dc2626"/>
+  <text x="330" y="450" class="sublabel" text-anchor="middle">load</text>
+  <circle cx="510" cy="430" r="9" fill="#16a34a"/>
+  <text x="510" y="450" class="sublabel" text-anchor="middle">fulcrum</text>
+  <text x="50" y="472" class="sublabel">Find the fulcrum first, then see what sits between it and the effort — that tells you the class.</text>
+</svg>

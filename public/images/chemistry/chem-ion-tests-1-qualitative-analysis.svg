@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Testing for ions</title>
+  <desc id="desc">The standard qualitative tests: flame test colours for metal cations, sodium hydroxide precipitates, the silver nitrate halide test, the barium chloride sulfate test, the limewater carbonate test and the ammonia test.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .subtitle { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #374151; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .accent { fill: #f97316; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="800" height="520" fill="#f8fafc"/>
+  <text x="30" y="34" class="title">Testing for ions</text>
+  <rect x="30" y="60" width="360" height="220" rx="8" class="panel"/>
+  <text x="210.0" y="84" class="subtitle" text-anchor="middle">Flame tests: metal cations</text>
+  <circle cx="70" cy="96" r="10" fill="#dc2626" stroke="#6b7280" stroke-width="1.2"/>
+  <text x="92" y="100" class="label">lithium</text>
+  <text x="200" y="100" class="sublabel">crimson</text>
+  <circle cx="70" cy="130" r="10" fill="#facc15" stroke="#6b7280" stroke-width="1.2"/>
+  <text x="92" y="134" class="label">sodium</text>
+  <text x="200" y="134" class="sublabel">yellow</text>
+  <circle cx="70" cy="164" r="10" fill="#a855f7" stroke="#6b7280" stroke-width="1.2"/>
+  <text x="92" y="168" class="label">potassium</text>
+  <text x="200" y="168" class="sublabel">lilac</text>
+  <circle cx="70" cy="198" r="10" fill="#ea580c" stroke="#6b7280" stroke-width="1.2"/>
+  <text x="92" y="202" class="label">calcium</text>
+  <text x="200" y="202" class="sublabel">orange-red</text>
+  <circle cx="70" cy="232" r="10" fill="#16a34a" stroke="#6b7280" stroke-width="1.2"/>
+  <text x="92" y="236" class="label">copper</text>
+  <text x="200" y="236" class="sublabel">green</text>
+  <rect x="410" y="60" width="360" height="220" rx="8" class="panel"/>
+  <text x="590.0" y="84" class="subtitle" text-anchor="middle">Sodium hydroxide precipitates</text>
+  <text x="430" y="100" class="label">copper(II)</text>
+  <text x="530" y="100" class="sublabel">blue precipitate</text>
+  <text x="430" y="134" class="label">iron(II)</text>
+  <text x="530" y="134" class="sublabel">green precipitate</text>
+  <text x="430" y="168" class="label">iron(III)</text>
+  <text x="530" y="168" class="sublabel">brown precipitate</text>
+  <text x="430" y="202" class="label">aluminium</text>
+  <text x="530" y="202" class="sublabel">white, dissolves in excess</text>
+  <text x="430" y="236" class="label">calcium</text>
+  <text x="530" y="236" class="sublabel">white, insoluble</text>
+  <rect x="30" y="300" width="360" height="190" rx="8" class="panel"/>
+  <text x="210.0" y="324" class="subtitle" text-anchor="middle">Silver nitrate: halides</text>
+  <text x="50" y="340" class="label">chloride</text>
+  <text x="150" y="340" class="sublabel">white precipitate</text>
+  <text x="50" y="374" class="label">bromide</text>
+  <text x="150" y="374" class="sublabel">cream precipitate</text>
+  <text x="50" y="408" class="label">iodide</text>
+  <text x="150" y="408" class="sublabel">yellow precipitate</text>
+  <text x="50" y="462" class="sublabel">Add dilute nitric acid first, so carbonates do not give a false positive.</text>
+  <rect x="410" y="300" width="360" height="190" rx="8" class="panel"/>
+  <text x="590.0" y="324" class="subtitle" text-anchor="middle">Sulfate, carbonate and ammonium</text>
+  <text x="430" y="340" class="label">barium chloride + HCl</text>
+  <text x="430" y="356" class="sublabel">white precipitate of barium sulfate</text>
+  <text x="430" y="384" class="label">dilute acid + limewater</text>
+  <text x="430" y="400" class="sublabel">limewater turns milky (carbon dioxide)</text>
+  <text x="430" y="428" class="label">sodium hydroxide + warm</text>
+  <text x="430" y="444" class="sublabel">ammonia gas; damp red litmus turns blue</text>
+</svg>

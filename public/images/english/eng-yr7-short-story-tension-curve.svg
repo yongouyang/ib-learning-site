@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">The tension curve of a short story</title>
+  <desc id="desc">A curve rising through the opening, the complication, the crisis and the climax to a short resolution, showing that a short story starts close to the action and ends soon after the climax.</desc>
+  <rect x="0" y="0" width="800" height="500" fill="#f8fafc"/>
+  <text x="400" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="19" fill="#0f172a" text-anchor="middle" font-weight="700">Anatomy of a short story</text>
+  <line x1="70" y1="350" x2="740" y2="350" stroke="#334155" stroke-width="2"/>
+  <line x1="70" y1="350" x2="70" y2="90" stroke="#334155" stroke-width="2"/>
+  <path d="M 70,340 L 180,300 L 300,240 L 430,150 L 540,110 L 620,210 L 700,300" fill="none" stroke="#2563eb" stroke-width="3"/>
+  <line x1="125" y1="350" x2="125" y2="356" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="125" y="368" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569" text-anchor="middle">opening</text>
+  <line x1="240" y1="350" x2="240" y2="356" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="240" y="368" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569" text-anchor="middle">complication</text>
+  <line x1="365" y1="350" x2="365" y2="356" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="365" y="368" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569" text-anchor="middle">crisis</text>
+  <line x1="485" y1="350" x2="485" y2="356" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="485" y="368" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569" text-anchor="middle">climax</text>
+  <line x1="660" y1="350" x2="660" y2="356" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="660" y="368" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569" text-anchor="middle">resolution</text>
+  <circle cx="70" cy="340" r="4" fill="#2563eb"/>
+  <circle cx="180" cy="300" r="4" fill="#2563eb"/>
+  <circle cx="300" cy="240" r="4" fill="#2563eb"/>
+  <circle cx="430" cy="150" r="4" fill="#2563eb"/>
+  <circle cx="540" cy="110" r="4" fill="#2563eb"/>
+  <circle cx="620" cy="210" r="4" fill="#2563eb"/>
+  <circle cx="700" cy="300" r="4" fill="#2563eb"/>
+  <text x="60" y="84" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">tension</text>
+  <rect x="430" y="64" width="330" height="120" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="595.0" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#1e293b" text-anchor="middle" font-weight="600">Start late, finish early</text>
+  <text x="452" y="102" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" fill="#334155">Enter the story close to the trouble,</text>
+  <text x="452" y="124" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" fill="#334155">and end soon after the climax —</text>
+  <text x="452" y="146" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" fill="#334155">the reader fills in the rest.</text>
+  <rect x="40" y="410" width="740" height="60" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="60" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#334155">A short story compresses: one central conflict, few characters, and every sentence doing at least one job.</text>
+  <text x="60" y="458" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#64748b">A twist ending must be surprising and still fair — the clues were there all along.</text>
+</svg>

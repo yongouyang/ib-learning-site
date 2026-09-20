@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <title id="title">Human nutrition and a balanced diet</title>
+  <desc id="desc">The seven food groups with what each is needed for and a source, the deficiency disease for the main vitamins and minerals, and an energy balance diagram.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .subtitle { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #374151; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .accent { fill: #22c55e; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="960" height="440" fill="#f8fafc"/>
+  <text x="30" y="34" class="title">Human nutrition and a balanced diet</text>
+  <rect x="30" y="60" width="440" height="220" rx="8" class="panel"/>
+  <text x="250.0" y="84" class="subtitle" text-anchor="middle">The seven food groups</text>
+  <text x="50" y="98" class="label">Carbohydrates</text>
+  <text x="190" y="98" class="sublabel">energy</text>
+  <text x="320" y="98" class="sublabel">bread, rice, pasta</text>
+  <text x="50" y="124" class="label">Proteins</text>
+  <text x="190" y="124" class="sublabel">growth and repair</text>
+  <text x="320" y="124" class="sublabel">fish, beans, eggs</text>
+  <text x="50" y="150" class="label">Fats</text>
+  <text x="190" y="150" class="sublabel">energy store, insulation</text>
+  <text x="320" y="150" class="sublabel">oil, butter, nuts</text>
+  <text x="50" y="176" class="label">Vitamins</text>
+  <text x="190" y="176" class="sublabel">small amounts for health</text>
+  <text x="320" y="176" class="sublabel">fruit and vegetables</text>
+  <text x="50" y="202" class="label">Minerals</text>
+  <text x="190" y="202" class="sublabel">bones, teeth, blood</text>
+  <text x="320" y="202" class="sublabel">milk, leafy greens</text>
+  <text x="50" y="228" class="label">Fibre</text>
+  <text x="190" y="228" class="sublabel">keeps the gut moving</text>
+  <text x="320" y="228" class="sublabel">whole grains, veg</text>
+  <text x="50" y="254" class="label">Water</text>
+  <text x="190" y="254" class="sublabel">every reaction in the body</text>
+  <text x="320" y="254" class="sublabel">drinks and food</text>
+  <rect x="490" y="60" width="440" height="220" rx="8" class="panel"/>
+  <text x="710.0" y="84" class="subtitle" text-anchor="middle">Deficiency diseases</text>
+  <text x="510" y="102" class="label">Vitamin A</text>
+  <text x="594" y="102" class="sublabel">night blindness</text>
+  <text x="730" y="102" class="sublabel">carrots</text>
+  <text x="510" y="132" class="label">Vitamin C</text>
+  <text x="594" y="132" class="sublabel">scurvy</text>
+  <text x="730" y="132" class="sublabel">citrus fruit</text>
+  <text x="510" y="162" class="label">Vitamin D</text>
+  <text x="594" y="162" class="sublabel">rickets</text>
+  <text x="730" y="162" class="sublabel">sunlight, oily fish</text>
+  <text x="510" y="192" class="label">Iron</text>
+  <text x="594" y="192" class="sublabel">anaemia</text>
+  <text x="730" y="192" class="sublabel">red meat, spinach</text>
+  <text x="510" y="222" class="label">Calcium</text>
+  <text x="594" y="222" class="sublabel">weak bones and teeth</text>
+  <text x="730" y="222" class="sublabel">milk, cheese</text>
+  <text x="510" y="252" class="label">Iodine</text>
+  <text x="594" y="252" class="sublabel">goitre</text>
+  <text x="730" y="252" class="sublabel">seafood, iodised salt</text>
+  <rect x="30" y="300" width="440" height="110" rx="8" class="panel"/>
+  <text x="250.0" y="324" class="subtitle" text-anchor="middle">Energy balance</text>
+  <rect x="60" y="340" width="180" height="30" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="150" y="361" class="sublabel" text-anchor="middle">energy in (food)</text>
+  <rect x="270" y="340" width="170" height="30" rx="6" fill="#fee2e2" stroke="#ef4444" stroke-width="1.6"/>
+  <text x="355" y="361" class="sublabel" text-anchor="middle">energy out (activity)</text>
+  <text x="50" y="394" class="sublabel">More in than out over time means weight gain; less means weight loss.</text>
+  <rect x="490" y="300" width="440" height="110" rx="8" class="panel"/>
+  <text x="710.0" y="324" class="subtitle" text-anchor="middle">Food tests</text>
+  <text x="510" y="340" class="label">Iodine for starch</text>
+  <text x="510" y="356" class="sublabel">blue-black</text>
+  <text x="510" y="370" class="label">Benedicts for sugar</text>
+  <text x="510" y="386" class="sublabel">blue to brick red</text>
+  <text x="480" y="432" class="sublabel" text-anchor="middle">A balanced diet means the right amounts and proportions of all seven groups, not just the right ones.</text>
+</svg>

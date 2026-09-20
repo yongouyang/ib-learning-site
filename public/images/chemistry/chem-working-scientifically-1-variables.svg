@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Working scientifically</title>
+  <desc id="desc">The three kinds of variable in a fair test, with a worked example: changing the concentration of acid, measuring the time taken for a reaction, and controlling the temperature and volume.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .subtitle { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #374151; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .accent { fill: #f97316; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="800" height="520" fill="#f8fafc"/>
+  <text x="30" y="34" class="title">Working scientifically</text>
+  <rect x="30" y="60" width="740" height="150" rx="8" class="panel"/>
+  <text x="400.0" y="84" class="subtitle" text-anchor="middle">The three variables</text>
+  <rect x="50" y="96" width="220" height="98" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="160" y="124" class="label" text-anchor="middle" fill="#2563eb">Independent</text>
+  <text x="160" y="146" class="sublabel" text-anchor="middle">the one YOU change</text>
+  <text x="160" y="172" class="sublabel" text-anchor="middle">concentration of acid</text>
+  <rect x="290" y="96" width="220" height="98" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+  <text x="400" y="124" class="label" text-anchor="middle" fill="#dc2626">Dependent</text>
+  <text x="400" y="146" class="sublabel" text-anchor="middle">the one you MEASURE</text>
+  <text x="400" y="172" class="sublabel" text-anchor="middle">time for the cross to disappear</text>
+  <rect x="530" y="96" width="220" height="98" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <text x="640" y="124" class="label" text-anchor="middle" fill="#16a34a">Control</text>
+  <text x="640" y="146" class="sublabel" text-anchor="middle">everything else kept the same</text>
+  <text x="640" y="172" class="sublabel" text-anchor="middle">temperature, volume, same acid</text>
+  <rect x="30" y="230" width="360" height="180" rx="8" class="panel"/>
+  <text x="210.0" y="254" class="subtitle" text-anchor="middle">A method that can be repeated</text>
+  <text x="50" y="268" class="label">1. State the hypothesis as a prediction.</text>
+  <text x="50" y="292" class="label">2. Change one variable at a time.</text>
+  <text x="50" y="316" class="label">3. Measure the dependent variable</text>
+  <text x="50" y="340" class="label">   the same way each time.</text>
+  <text x="50" y="364" class="label">4. Repeat and take a mean.</text>
+  <text x="50" y="388" class="label">5. Record the variables you controlled.</text>
+  <rect x="410" y="230" width="360" height="180" rx="8" class="panel"/>
+  <text x="590.0" y="254" class="subtitle" text-anchor="middle">Types of data</text>
+  <text x="430" y="272" class="label">Categorical</text>
+  <text x="430" y="288" class="sublabel">labels: acid type, colour</text>
+  <text x="430" y="318" class="label">Continuous</text>
+  <text x="430" y="334" class="sublabel">any value: time, temperature, mass</text>
+  <text x="430" y="364" class="label">Discrete</text>
+  <text x="430" y="380" class="sublabel">whole numbers: number of bubbles</text>
+  <rect x="30" y="430" width="740" height="62" rx="8" class="panel"/>
+  <text x="50" y="452" class="sublabel">Hazards and risks: identify the hazard, then say how you reduce the risk.</text>
+  <text x="50" y="474" class="sublabel">A conclusion must refer back to the hypothesis and be supported by the data.</text>
+</svg>
