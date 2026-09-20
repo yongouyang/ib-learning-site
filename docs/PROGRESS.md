@@ -4,6 +4,45 @@
 
 ---
 
+## 2026-09-20 (session 7) — B closed (every topic illustrated), A opened (DP Math AA SL SL core)
+Git HEAD: `43af9d0` (develop, pushed; tree clean)
+Done: **B is complete — all 236 topics carry at least one illustration.** The last 40 zero-coverage topics:
+  maths 24 (area model for expanding brackets, F/Z/U parallel lines, a prism, bounds number lines, the
+  angle-at-centre theorem, elimination plus its graph, a fraction area model, a function machine, a
+  frequency-density histogram, the multiplier bar, a 6x6 sample space, completing the square, a frequency
+  table, half ab sin C, SOHCAHTOA, tip-to-tail vectors, binary place values, a cuboid and its net, three
+  error intervals, quadratic anatomy, parabola features, four correlation types, standard-form adjustment,
+  surd simplification), english 11 (line breaks and enjambment, root building, comic panels and gutters,
+  scene vs summary, a tension curve, a stage plan with blocking, enter-late-leave-early, the five parts of
+  a critical paragraph, the senses wheel with telling vs showing, formal letter layout, the wartime tone
+  shift), chemistry 2, physics 2 and biology 1.
+Done (A): **DP Math AA SL is open** — `courses.ts` gains `math-dp-aa`, `exams.ts` gives it the DP paper
+  titles and targets, `order.json` gains the skeleton, and three core topics are authored to the standard
+  (7 notes / 12 flashcards / 15 questions with difficulty and calculator tags): sequences and series,
+  exponents and logarithms, the binomial theorem, each with an illustration.
+Verified: generate:registry + check:registry, validate:content, audit:content **0/0**, validate:illustrations,
+  **1484/1484** unit tests, tsc clean, and the app/diagnostics/exams e2e specs (28 passed, `--workers=1`).
+Next: **nine more DP AA SL topics** — functions, quadratics, trig identities and equations, vectors,
+  descriptive statistics, probability, the binomial and normal distributions, differentiation (including
+  optimisation), integration (including areas). Then two practice paper sets for `math-dp-aa` (20 marks
+  each, marks === markscheme.length), which moves the paper count 29 → 31 and the e2e free-response
+  counts, so do them together. After that the queue is: content depth elsewhere (IGCSE 0610/0620/0625/0500
+  wave 3), the templates grouping rollout (216 ungrouped topics), and the still-open legal/monetisation items.
+Notes: **five defects found by rendering and looking, all invisible to both validators** — three DP AA
+  figures rendered `$...$` as literal source (**InlineMath is a React component, not an SVG renderer: the
+  maths house style uses plain unicode, e.g. `uₙ = u₁ + (n − 1)d`, and every one of the earlier 92 maths
+  figures already did**), one Pascal panel overflowed into its captions, and one label sat on the widest
+  row. Two XML escapes were needed too (`|r| < 1`, `&`), which is now the third time a raw `<` or `&` has
+  broken a file — escape both in SVG text.
+  **The hand-audit of my own answer keys caught four errors in eighteen questions** (two marked the wrong
+  option, one key did not match its own choices, one question had no integer solution at all). The AI
+  audit measured earlier in this work stream cannot catch these — it fails arithmetic — so new maths
+  content needs the keys checked by hand, then rotated so the correct option is spread across all four
+  positions instead of clustering on the first.
+  **Ordering matters in `courses.ts`:** the IBDP hub builds its topic list by iterating `COURSES`, and
+  `tests/unit/seo.test.ts` asserts that order equals the registry (`order.json`) order, so a new course
+  must be inserted in the position its topics occupy in `order.json`.
+
 ## 2026-09-20 (session 6, cont.) — B: all five bare subjects done (56 more topics); CI outage found and fixed
 Git HEAD: `4e1cebc` (develop, deployed to dev; tree clean)
 Done: **geography + ict + history + german + chinese are now fully illustrated — 66 topics, five new
