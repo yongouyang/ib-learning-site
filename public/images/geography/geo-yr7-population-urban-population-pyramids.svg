@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Two population pyramids compared: a fast-growing population and an ageing one</title>
+  <desc id="desc">Back-to-back bar charts of population by age group, males on the left and females on the right. The left pyramid has a wide base that narrows sharply upwards, the shape of a country with a high birth rate. The right has a narrower base and a bulge in the middle, the column shape of a country with low birth rates and an ageing population.</desc>
+
+  <rect x="0" y="0" width="900" height="520" fill="#f8fafc"/>
+  <text x="450" y="36" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#0f172a">The shape of a population tells you about its country</text>
+
+  <!-- pane: axis x=300 -->
+  <line x1="300" y1="110" x2="300" y2="320" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="286" y="122" width="14" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="300" y="122" width="16" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="30" y="138" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">75+</text>
+  <rect x="270" y="156" width="30" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="300" y="156" width="31" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="30" y="172" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">60–74</text>
+  <rect x="252" y="190" width="48" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="300" y="190" width="47" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="30" y="206" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">45–59</text>
+  <rect x="236" y="224" width="64" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="300" y="224" width="63" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="30" y="240" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">30–44</text>
+  <rect x="220" y="258" width="80" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="300" y="258" width="78" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="30" y="274" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">15–29</text>
+  <rect x="205" y="292" width="95" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="300" y="292" width="92" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="30" y="308" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">0–14</text>
+  <text x="200" y="100" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0284c7">Males</text>
+  <text x="400" y="100" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#4f46e5">Females</text>
+
+  <!-- pane: axis x=650 -->
+  <line x1="650" y1="110" x2="650" y2="320" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="624" y="122" width="26" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="650" y="122" width="32" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="770" y="138" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">75+</text>
+  <rect x="602" y="156" width="48" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="650" y="156" width="52" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="770" y="172" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">60–74</text>
+  <rect x="590" y="190" width="60" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="650" y="190" width="62" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="770" y="206" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">45–59</text>
+  <rect x="588" y="224" width="62" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="650" y="224" width="61" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="770" y="240" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">30–44</text>
+  <rect x="590" y="258" width="60" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="650" y="258" width="58" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="770" y="274" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">15–29</text>
+  <rect x="598" y="292" width="52" height="22" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+  <rect x="650" y="292" width="50" height="22" fill="#818cf8" stroke="#4f46e5" stroke-width="1"/>
+  <text x="770" y="308" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#334155">0–14</text>
+  <text x="550" y="100" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0284c7">Males</text>
+  <text x="750" y="100" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#4f46e5">Females</text>
+
+  <text x="300" y="80" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#0f172a">Rapid growth</text>
+  <text x="650" y="80" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#0f172a">Ageing population</text>
+
+  <text x="250" y="356" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#475569">Wide base, narrow top</text>
+  <text x="650" y="356" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#475569">Narrow base, bulge in the middle</text>
+  <text x="450" y="382" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#475569">Left: high birth rate. Right: low birth rate, many people living into old age.</text>
+  <rect x="120" y="400" width="660" height="76" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="450" y="428" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#0f172a">The three groups governments plan for</text>
+  <text x="450" y="456" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#475569">Young dependents 0–15  ·  Working population 16–64  ·  Elderly dependents 65+</text>
+</svg>

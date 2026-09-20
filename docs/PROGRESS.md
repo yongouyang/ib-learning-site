@@ -4,6 +4,38 @@
 
 ---
 
+## 2026-09-20 (session 6) — B started: geography finished, 10/10 topics illustrated
+Git HEAD: `0b4e7ff` (develop, pushed; this change set on top)
+Done: **B's first subject is complete.** Geography was the smallest of the five bare subjects (10 topics,
+  previously ZERO images of any kind) and now has one illustration per topic, each attached to the note
+  where it teaches most rather than mechanically to note 1: population pyramids (n2), meander → oxbow
+  (n5), the three rainfall types (n4), contour lines + cross-section (n7), the greenhouse effect (n1),
+  the three plate boundaries (n3), rainforest layers (n5), the HDI (n3), push/pull factors + intervening
+  obstacles (n2), and the urbanisation trend (n1). New directory `public/images/geography/` (10 SVGs).
+Verified: `validate:illustrations` (XML, viewBox, role, title/desc, size, and every referenced src on
+  disk), `validate:illustration-layout` **clean** for all 10, `validate:content` all-pass, `audit:content`
+  **0/0**, `npm test` **1484/1484**, tsc clean, lint 29/0 (baseline). Every figure was rendered to PNG and
+  **looked at** — see Notes: that pass found six defects the validators cannot see.
+Next: (1) the next bare subject — **ict (12)**, then history (11), german (13), chinese (20); the
+  language subjects get vocabulary/situation posters rather than diagrams. (2) Then the 40 remaining zeros
+  in maths (24), english (11), bio/chem/phys (5). (3) Then A — DP Math AA SL core.
+Notes: **the render-and-look pass is load-bearing; it caught six things the two validators passed.**
+  (a) Two centred captions collided mid-span on the pyramid figure (the vendored validator font is narrower
+  than the render font, so boxes that visibly touch still pass — the guidelines' "leave a few px of slack"
+  warning, now demonstrated). (b) On the rainfall figure, labels sat directly on the hill shapes with no
+  backing rect (guideline 6) and the frontal panel's warm/cold air wedges did not read as a front at all.
+  (c) On the plate-boundary figure I had put the volcano on the **oceanic** plate — a science error: volcanoes
+  form on the overriding continental plate — and the constructive panel's ridge was off-centre from the gap.
+  (d) On the contour figure the map's contours were symmetric while the cross-section showed an asymmetric
+  hill, so the two halves contradicted each other, and the steep/gentle labels described the map while
+  pointing at the profile. (e) On the HDI figure the "Norway ≈ 0.96" marker sat at **0.88** (a scale-sign
+  error) plus two leftover straight connector lines that read as unfinished arrows. (f) Trivial but telling:
+  a 35-character chip label overflowed its backing box because the box is sized when the chip is generated,
+  so editing the text alone silently invalidates the box — regenerate the chip, don't string-replace it.
+  **Practical rules for the remaining 96 topics:** keep label chips under ~28 characters; never place two
+  independently-centred long texts near each other; put a chip (with backing) on any label over a shape; and
+  always render + look at the PNG, because the validators prove *layout legality*, not *correctness*.
+
 ## 2026-09-19 (session 5, cont.) — C: three new generators (rounding, indices, average speed) wired into 7 topics
 Git HEAD: `982f12c` (develop, pushed; this change set on top)
 Done: **C was scoped to its leveraged half** (owner decision): build generators for the most-repeated

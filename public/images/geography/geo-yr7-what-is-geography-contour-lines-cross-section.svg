@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Contour lines shown on a map beside the cross-section they describe</title>
+  <desc id="desc">A map of a hill drawn with nested contour lines of equal height, labelled with a spot height and a triangulation pillar, next to a cross-section silhouette showing the same hill profile with close contours on the steep side and widely spaced contours on the gentle side.</desc>
+  <rect x="0" y="0" width="900" height="520" fill="#f8fafc"/>
+  <text x="450" y="36" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Contours show a flat map in three dimensions</text>
+  <rect x="40" y="66" width="380" height="330" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="230" y="92" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#0f172a">Contour map</text>
+  <ellipse cx="250" cy="250" rx="110" ry="72" fill="none" stroke="#c2410c" stroke-width="1.6"/>
+  <ellipse cx="238" cy="250" rx="72" ry="47" fill="none" stroke="#c2410c" stroke-width="1.6"/>
+  <ellipse cx="228" cy="250" rx="36" ry="23" fill="none" stroke="#c2410c" stroke-width="1.6"/>
+  <path d="M 250 236 l 0 -16" stroke="#c2410c" stroke-width="1.6"/>
+  <text x="256" y="238" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#c2410c">300</text>
+  <text x="150" y="186" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#c2410c">100</text>
+  <circle cx="236" cy="286" r="3.4" fill="#0f172a"/>
+  <text x="244" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#0f172a">245</text>
+  <path d="M 300 210 l -7 12 l 14 0 z" fill="none" stroke="#0f172a" stroke-width="1.6"/>
+  <text x="308" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#0f172a">372</text>
+  <rect x="76.2" y="360.0" width="307.7" height="19" rx="4" fill="#ffffff" opacity="0.93"/>
+  <text x="230" y="372" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#475569">closed loops = a hill, higher towards the centre</text>
+  <rect x="470" y="66" width="390" height="330" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="665" y="92" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#0f172a">Cross-section through the same hill</text>
+  <path d="M 505 340 C 560 340, 590 200, 665 176 C 740 200, 770 340, 825 340" fill="#e7e5e4" stroke="#a8a29e" stroke-width="1.5"/>
+  <line x1="505" y1="340" x2="825" y2="340" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="495" y1="340" x2="505" y2="340" stroke="#94a3b8" stroke-width="1"/>
+  <text x="490" y="344" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="400" fill="#64748b">0</text>
+  <line x1="495" y1="290" x2="505" y2="290" stroke="#94a3b8" stroke-width="1"/>
+  <text x="490" y="294" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="400" fill="#64748b">100</text>
+  <line x1="495" y1="240" x2="505" y2="240" stroke="#94a3b8" stroke-width="1"/>
+  <text x="490" y="244" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="400" fill="#64748b">200</text>
+  <line x1="495" y1="190" x2="505" y2="190" stroke="#94a3b8" stroke-width="1"/>
+  <text x="490" y="194" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="400" fill="#64748b">300</text>
+  <text x="486" y="166" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="400" fill="#64748b">m</text>
+  <line x1="600" y1="232" x2="600" y2="296" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <line x1="760" y1="264" x2="760" y2="316" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <rect x="481.4" y="304.0" width="157.2" height="19" rx="4" fill="#ffffff" opacity="0.93"/>
+  <text x="560" y="316" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#b91c1c">steep: contours close</text>
+  <rect x="664.3" y="328.0" width="191.3" height="19" rx="4" fill="#ffffff" opacity="0.93"/>
+  <text x="760" y="340" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#0369a1">gentle: contours far apart</text>
+
+  <text x="450" y="462" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#475569">Spot height (dot + number) gives the exact height of a point; a triangle marks a triangulation pillar.</text>
+  <text x="450" y="486" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#64748b">Contour lines join points of equal height above sea level, usually every 5 or 10 metres.</text>
+</svg>

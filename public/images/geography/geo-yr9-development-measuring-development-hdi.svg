@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" role="img" aria-labelledby="title desc">
+  <title id="title">Three components combine into the Human Development Index</title>
+  <desc id="desc">Three boxes labelled income, health and education feed into a single Human Development Index score between 0 and 1. The scale below marks the lowest-scoring countries at about 0.4 and Norway at about 0.96.</desc>
+  <rect x="0" y="0" width="880" height="520" fill="#f8fafc"/>
+  <text x="440" y="36" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#0f172a">No single measure tells the whole story</text>
+  <rect x="60" y="96" width="300" height="48" rx="10" fill="#ffffff" stroke="#0ea5e9" stroke-width="2"/>
+  <text x="80" y="125" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#0f172a">Income — GNI per capita</text>
+  <rect x="60" y="206" width="300" height="48" rx="10" fill="#ffffff" stroke="#22c55e" stroke-width="2"/>
+  <text x="80" y="235" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#0f172a">Health — life expectancy</text>
+  <rect x="60" y="316" width="300" height="48" rx="10" fill="#ffffff" stroke="#a16207" stroke-width="2"/>
+  <text x="80" y="345" text-anchor="start" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#0f172a">Education — years of schooling</text>
+  <path d="M 360 120 C 400 120, 420 268, 460 268" fill="none" stroke="#0ea5e9" stroke-width="2"/>
+  <path d="M 360 230 C 400 230, 420 268, 460 268" fill="none" stroke="#22c55e" stroke-width="2"/>
+  <path d="M 360 340 C 400 340, 420 268, 460 268" fill="none" stroke="#a16207" stroke-width="2"/>
+  <rect x="470" y="228" width="340" height="80" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="640" y="262" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1e3a8a">Human Development Index</text>
+  <text x="640" y="288" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="400" fill="#334155">a single score between 0 and 1</text>
+  <rect x="80" y="366" width="720" height="14" rx="7" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="80" y="366" width="288" height="14" rx="7" fill="#93c5fd"/>
+  <rect x="368" y="366" width="403" height="14" rx="7" fill="#60a5fa"/>
+  <line x1="368" y1="358" x2="368" y2="388" stroke="#1d4ed8" stroke-width="2.5"/>
+  <line x1="771" y1="358" x2="771" y2="388" stroke="#1d4ed8" stroke-width="2.5"/>
+  <text x="80" y="404" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#64748b">0</text>
+  <text x="800" y="404" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#64748b">1</text>
+  <rect x="220.7" y="404.0" width="218.6" height="19" rx="4" fill="#ffffff" opacity="0.93"/>
+  <text x="330" y="416" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#1d4ed8">lowest-scoring countries ≈ 0.4</text>
+  <rect x="598.7" y="338.0" width="102.7" height="19" rx="4" fill="#ffffff" opacity="0.93"/>
+  <text x="650" y="350" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#1d4ed8">Norway ≈ 0.96</text>
+  <rect x="80" y="440" width="720" height="60" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="440" y="464" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Averages hide inequality — a country with a few billionaires can look rich on average while most people are poor.</text>
+  <text x="440" y="486" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#64748b">Other social indicators: literacy rate, infant mortality rate, and access to clean water.</text>
+</svg>
