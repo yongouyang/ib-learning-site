@@ -1,0 +1,322 @@
+{
+  "id": "math-dp-aa-differentiation",
+  "subjectId": "math",
+  "title": "Differentiation",
+  "description": "Gradients, the power rule, standard derivatives, the chain, product and quotient rules, tangents, normals and optimisation",
+  "stage": "dp",
+  "course": "aa",
+  "level": "sl",
+  "notes": [
+    {
+      "id": "math-dp-aa-differentiation-n1",
+      "heading": "The Derivative and the Gradient Function",
+      "body": "The **derivative** of $f(x)$ is the function that gives the gradient of the curve at each point. If the point moves from $x$ to $x + h$, the chord's gradient is $\\dfrac{f(x+h) - f(x)}{h}$, and the derivative is the limit of this as $h \\to 0$:\n$$f'(x) = \\lim_{h \\to 0} \\dfrac{f(x+h) - f(x)}{h}$$\n\nWe write the derivative as $f'(x)$, $\\dfrac{dy}{dx}$ or $\\dfrac{d}{dx}$ — all three mean the same thing. The value $f'(a)$ is the gradient of the **tangent** at $x = a$.\n\n💡 **Worked Example (the idea, without the limit)** — For $y = x^2$, small values of $h$ give chord gradients $2x + h$: $h = 0.1$ gives $2x + 0.1$, $h = 0.001$ gives $2x + 0.001$. As $h \\to 0$ the gradient approaches $2x$, so $\\dfrac{dy}{dx} = 2x$.\n\n📌 A derivative is the gradient *as a function*; substituting a number into it gives the gradient at one point."
+    },
+    {
+      "id": "math-dp-aa-differentiation-n2",
+      "heading": "The Power Rule and Standard Derivatives",
+      "body": "The **power rule** is the workhorse:\n$$\\dfrac{d}{dx}\\left(x^n\\right) = nx^{n-1}$$\nIt works for any real $n$, including negative and fractional powers, and it applies term by term to sums:\n$$\\dfrac{d}{dx}\\left(ax^n + bx^m\\right) = anx^{n-1} + bmx^{m-1}$$\n\n**Standard derivatives** (on the formula booklet)\n$$\\dfrac{d}{dx}(\\sin x) = \\cos x \\qquad \\dfrac{d}{dx}(\\cos x) = -\\sin x \\qquad \\dfrac{d}{dx}(e^x) = e^x \\qquad \\dfrac{d}{dx}(\\ln x) = \\dfrac{1}{x}$$\n\n💡 **Worked Example** — Differentiate $f(x) = 4x^3 - \\dfrac{1}{x} + \\sqrt x$.\nRewrite using powers: $f(x) = 4x^3 - x^{-1} + x^{1/2}$. Then\n$$f'(x) = 12x^2 + x^{-2} + \\dfrac{1}{2}x^{-1/2} = 12x^2 + \\dfrac{1}{x^2} + \\dfrac{1}{2\\sqrt x}$$\n\n⚠️ **Common mistake** — Differentiating $\\sqrt x$ as $\\dfrac{1}{2}\\sqrt x$ rather than $\\dfrac{1}{2\\sqrt x}$. Convert roots and reciprocals to powers before differentiating."
+    },
+    {
+      "id": "math-dp-aa-differentiation-n3",
+      "heading": "The Chain Rule",
+      "body": "For a function inside another function, differentiate the outside and multiply by the derivative of the inside:\n$$\\dfrac{d}{dx}\\Big[f\\big(g(x)\\big)\\Big] = f'\\big(g(x)\\big)\\,g'(x) \\qquad \\text{or} \\qquad \\dfrac{dy}{dx} = \\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$$\n\n💡 **Worked Example** — Differentiate $y = (2x + 1)^4$.\nTake $u = 2x + 1$, so $y = u^4$ and $\\dfrac{dy}{du} = 4u^3$ while $\\dfrac{du}{dx} = 2$. Hence\n$$\\dfrac{dy}{dx} = 4(2x+1)^3 \\times 2 = 8(2x+1)^3$$\n\n💡 **With a standard function** — $\\dfrac{d}{dx}\\big[\\ln(3x+1)\\big] = \\dfrac{1}{3x+1} \\times 3 = \\dfrac{3}{3x+1}$, and $\\dfrac{d}{dx}\\big[\\sin(5x)\\big] = 5\\cos(5x)$.\n\n📌 If the inside is linear, $ax + b$, the chain rule just multiplies by the constant $a$ — that covers a large fraction of exam questions."
+    },
+    {
+      "id": "math-dp-aa-differentiation-n4",
+      "heading": "The Product and Quotient Rules",
+      "body": "For a product $y = uv$:\n$$\\dfrac{dy}{dx} = u\\dfrac{dv}{dx} + v\\dfrac{du}{dx}$$\nFor a quotient $y = \\dfrac{u}{v}$:\n$$\\dfrac{dy}{dx} = \\dfrac{v\\dfrac{du}{dx} - u\\dfrac{dv}{dx}}{v^2}$$\nLabel $u$ and $v$ explicitly, write down $\\dfrac{du}{dx}$ and $\\dfrac{dv}{dx}$ before substituting — nearly every lost mark in these questions is a substitution slip.\n\n💡 **Worked Example (product)** — Differentiate $y = xe^x$.\nWith $u = x$ and $v = e^x$: $\\dfrac{dy}{dx} = x e^x + e^x(1) = e^x(x + 1)$.\n\n💡 **Worked Example (quotient)** — Differentiate $y = \\dfrac{x+1}{x-1}$.\nWith $u = x+1$ and $v = x-1$:\n$$\\dfrac{dy}{dx} = \\dfrac{(x-1)(1) - (x+1)(1)}{(x-1)^2} = \\dfrac{-2}{(x-1)^2}$$\n\n⚠️ **Common mistake** — Reversing the numerator of the quotient rule. The derivative of the *denominator* is subtracted, so $v\\dfrac{du}{dx} - u\\dfrac{dv}{dx}$, in that order."
+    },
+    {
+      "id": "math-dp-aa-differentiation-n5",
+      "heading": "Tangents and Normals",
+      "body": "At a point on a curve:\n\n• the **tangent** has gradient $m = f'(x_1)$;\n• the **normal** is perpendicular to the tangent, so its gradient is $-\\dfrac{1}{m}$.\n\nThen use $y - y_1 = m(x - x_1)$ with the point $(x_1, y_1)$ — and remember that $y_1$ comes from substituting $x_1$ into the **original** equation, not the derivative.\n\n💡 **Worked Example** — Find the tangent to $y = x^2 - 3x$ at $x = 2$.\n$$\\dfrac{dy}{dx} = 2x - 3 \\;\\Longrightarrow\\; m = 2(2) - 3 = 1$$\nThe point is $(2, 4 - 6) = (2, -2)$, so the tangent is $y + 2 = 1(x - 2)$, that is $y = x - 4$. The normal at the same point has gradient $-1$ and equation $y + 2 = -(x-2)$, that is $y = -x$.\n\n⚠️ **Common mistake** — Using $f'(x_1)$ as the $y$-coordinate, or forgetting to negate and invert the gradient for the normal.",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-differentiation-tangent-normal.svg",
+        "alt": "The curve y = x² − 3x with the point (2, −2) marked, a tangent of gradient 1 and a normal of gradient −1 drawn through it, beside a panel of standard derivatives and the chain, product and quotient rules.",
+        "caption": "The derivative gives the tangent gradient, and the normal stands at right angles to it."
+      }
+    },
+    {
+      "id": "math-dp-aa-differentiation-n6",
+      "heading": "Stationary Points and the Second Derivative",
+      "body": "A **stationary point** is where the gradient is zero: solve $f'(x) = 0$. Classify it with the **second derivative**:\n\n• $f''(x) < 0$ — local **maximum** (the curve is bending downwards).\n• $f''(x) > 0$ — local **minimum** (the curve is bending upwards).\n• $f''(x) = 0$ — inconclusive; check the sign of $f'(x)$ on each side.\n\nThe second derivative also describes how the gradient itself is changing, and the **increasing/decreasing** question is answered by the sign of $f'$: the function increases where $f'(x) > 0$ and decreases where $f'(x) < 0$.\n\n💡 **Worked Example** — For $y = x^3 - 3x$: $\\dfrac{dy}{dx} = 3x^2 - 3 = 0$ gives $x = \\pm 1$, and $\\dfrac{d^2y}{dx^2} = 6x$.\nAt $x = 1$: $6 > 0$, so a local minimum, with value $1 - 3 = -2$.\nAt $x = -1$: $-6 < 0$, so a local maximum, with value $-1 + 3 = 2$.\n\n📌 Always give both the coordinates of a stationary point, not just the $x$-value, if the question asks where it is."
+    },
+    {
+      "id": "math-dp-aa-differentiation-n7",
+      "heading": "Optimisation, Kinematics and Exam Technique",
+      "body": "**Optimisation** — express the quantity to be maximised or minimised in one variable, differentiate, set the derivative to zero, then justify the type with the second derivative. A word problem needs the domain stated: a length cannot be negative.\n\n💡 **Worked Example** — Find the maximum value of $y = 12x - x^3$.\n$$\\dfrac{dy}{dx} = 12 - 3x^2 = 0 \\;\\Longrightarrow\\; x = \\pm 2, \\qquad \\dfrac{d^2y}{dx^2} = -6x$$\nAt $x = 2$ the second derivative is $-12 < 0$, a maximum, and $y = 24 - 8 = 16$.\n\n**Kinematics** — with displacement $s$, velocity $v$ and acceleration $a$:\n$$v = \\dfrac{ds}{dt} \\qquad a = \\dfrac{dv}{dt} = \\dfrac{d^2s}{dt^2}$$\nMaximum or minimum displacement occurs when $v = 0$; the velocity is greatest when $a = 0$.\n\n⚠️ **Common mistakes** — Assuming every stationary point is a maximum; giving $x$ when the question asked for the maximum value; and mixing units, such as differentiating a displacement in metres with respect to time in minutes and quoting the answer in m/s."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-aa-differentiation-f1",
+      "term": "Derivative meaning",
+      "definition": "The gradient function $f'(x)$; at a point it is the gradient of the tangent",
+      "example": "$y = x^2$ has $dy/dx = 2x$"
+    },
+    {
+      "id": "math-dp-aa-differentiation-f2",
+      "term": "Power rule",
+      "definition": "$\\dfrac{d}{dx}(x^n) = nx^{n-1}$",
+      "example": "$x^5$ gives $5x^4$"
+    },
+    {
+      "id": "math-dp-aa-differentiation-f3",
+      "term": "Derivative of $\\sin x$ and $\\cos x$",
+      "definition": "$\\dfrac{d}{dx}(\\sin x) = \\cos x$ and $\\dfrac{d}{dx}(\\cos x) = -\\sin x$",
+      "example": "the minus sign belongs to cosine"
+    },
+    {
+      "id": "math-dp-aa-differentiation-f4",
+      "term": "Derivative of $e^x$ and $\\ln x$",
+      "definition": "$\\dfrac{d}{dx}(e^x) = e^x$ and $\\dfrac{d}{dx}(\\ln x) = \\dfrac{1}{x}$",
+      "example": "$e^x$ is its own derivative"
+    },
+    {
+      "id": "math-dp-aa-differentiation-f5",
+      "term": "Chain rule",
+      "definition": "$\\dfrac{dy}{dx} = \\dfrac{dy}{du}\\cdot\\dfrac{du}{dx}$",
+      "example": "$(2x+1)^4$ gives $8(2x+1)^3$"
+    },
+    {
+      "id": "math-dp-aa-differentiation-f6",
+      "term": "Chain rule with a linear inside",
+      "definition": "Multiply the derivative by the coefficient of $x$",
+      "example": "$\\ln(3x+1)$ gives $\\dfrac{3}{3x+1}$"
+    },
+    {
+      "id": "math-dp-aa-differentiation-f7",
+      "term": "Product rule",
+      "definition": "$\\dfrac{d}{dx}(uv) = u\\dfrac{dv}{dx} + v\\dfrac{du}{dx}$",
+      "example": "$xe^x$ gives $e^x(x+1)$"
+    },
+    {
+      "id": "math-dp-aa-differentiation-f8",
+      "term": "Quotient rule",
+      "definition": "$\\dfrac{d}{dx}\\left(\\dfrac{u}{v}\\right) = \\dfrac{v\\dfrac{du}{dx} - u\\dfrac{dv}{dx}}{v^2}$",
+      "example": "$\\dfrac{x+1}{x-1}$ gives $\\dfrac{-2}{(x-1)^2}$"
+    },
+    {
+      "id": "math-dp-aa-differentiation-f9",
+      "term": "Gradient of the normal",
+      "definition": "$-\\dfrac{1}{m}$ where $m$ is the tangent gradient",
+      "example": "tangent gradient 2 gives normal gradient $-\\frac12$"
+    },
+    {
+      "id": "math-dp-aa-differentiation-f10",
+      "term": "Stationary point",
+      "definition": "A point where $f'(x) = 0$",
+      "example": "$x^3 - 3x$ at $x = \\pm 1$"
+    },
+    {
+      "id": "math-dp-aa-differentiation-f11",
+      "term": "Second derivative test",
+      "definition": "$f''(x) < 0$ maximum; $f''(x) > 0$ minimum",
+      "example": "$y = x^3-3x$ has a minimum at $x=1$"
+    },
+    {
+      "id": "math-dp-aa-differentiation-f12",
+      "term": "Kinematics with calculus",
+      "definition": "$v = \\dfrac{ds}{dt}$ and $a = \\dfrac{dv}{dt}$",
+      "example": "maximum displacement when $v = 0$"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-aa-differentiation-q1",
+      "stem": "Differentiate $y = x^5$.",
+      "choices": [
+        "$5x^4$",
+        "$x^4$",
+        "$5x^6$",
+        "$4x^5$"
+      ],
+      "correctIndex": 0,
+      "explanation": "By the power rule, $\\dfrac{dy}{dx} = 5x^{5-1} = 5x^4$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q2",
+      "stem": "Differentiate $y = 3x^2 + 2x$.",
+      "choices": [
+        "$6x^2 + 2$",
+        "$6x + 2$",
+        "$3x + 2$",
+        "$6x$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Differentiating term by term: $2(3x) + 2 = 6x + 2$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q3",
+      "stem": "Find $\\dfrac{d}{dx}(\\sin x)$.",
+      "choices": [
+        "$-\\cos x$",
+        "$-\\sin x$",
+        "$\\cos x$",
+        "$\\sin x$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The derivative of sine is cosine; it is the derivative of cosine that carries the minus sign.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q4",
+      "stem": "Find the gradient of the curve $y = x^2$ at the point where $x = 3$.",
+      "choices": [
+        "$3$",
+        "$9$",
+        "$2$",
+        "$6$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\dfrac{dy}{dx} = 2x$, so at $x = 3$ the gradient is 6.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q5",
+      "stem": "Differentiate $y = (2x+1)^4$.",
+      "choices": [
+        "$8(2x+1)^3$",
+        "$8(2x+1)^4$",
+        "$2(2x+1)^3$",
+        "$4(2x+1)^3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "By the chain rule, $\\dfrac{dy}{dx} = 4(2x+1)^3 \\times 2 = 8(2x+1)^3$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q6",
+      "stem": "Differentiate $y = xe^x$.",
+      "choices": [
+        "$xe^x$",
+        "$e^x(x+1)$",
+        "$xe^x + 1$",
+        "$e^x$"
+      ],
+      "correctIndex": 1,
+      "explanation": "With $u = x$ and $v = e^x$, the product rule gives $\\dfrac{dy}{dx} = xe^x + e^x = e^x(x+1)$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q7",
+      "stem": "Differentiate $y = \\dfrac{x+1}{x-1}$.",
+      "choices": [
+        "$\\dfrac{-2x}{(x-1)^2}$",
+        "$\\dfrac{1}{(x-1)^2}$",
+        "$\\dfrac{-2}{(x-1)^2}$",
+        "$\\dfrac{2}{(x-1)^2}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "With $u = x+1$ and $v = x-1$, the quotient rule gives $\\dfrac{(x-1)(1) - (x+1)(1)}{(x-1)^2} = \\dfrac{-2}{(x-1)^2}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q8",
+      "stem": "Find the equation of the tangent to the curve $y = x^2 - 3x$ at the point where $x = 2$.",
+      "choices": [
+        "$y = x + 4$",
+        "$y = 2x - 6$",
+        "$y = -x + 2$",
+        "$y = x - 4$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\dfrac{dy}{dx} = 2x - 3$, so the gradient at $x = 2$ is 1. The point is $(2, 4 - 6) = (2, -2)$, so the tangent is $y + 2 = x - 2$, that is $y = x - 4$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q9",
+      "stem": "Find the $x$-coordinate of the stationary point of $y = x^2 - 6x + 5$.",
+      "choices": [
+        "$x = 3$",
+        "$x = -3$",
+        "$x = 6$",
+        "$x = 5$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\dfrac{dy}{dx} = 2x - 6 = 0$ gives $x = 3$. Substituting back gives the minimum point $(3, -4)$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q10",
+      "stem": "Differentiate $y = \\ln(3x+1)$.",
+      "choices": [
+        "$\\dfrac{1}{3x+1}$",
+        "$\\dfrac{3}{3x+1}$",
+        "$\\dfrac{1}{3(3x+1)}$",
+        "$3\\ln(3x+1)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The chain rule gives $\\dfrac{1}{3x+1} \\times 3 = \\dfrac{3}{3x+1}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q11",
+      "stem": "The curve $y = x^3 - 3x$ has stationary points at $x = \\pm 1$. At which value of $x$ is there a local minimum?",
+      "choices": [
+        "neither is a minimum",
+        "$x = -1$",
+        "$x = 1$",
+        "both are minima"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\dfrac{d^2y}{dx^2} = 6x$, which is positive at $x = 1$ (a minimum) and negative at $x = -1$ (a maximum).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q12",
+      "stem": "Find the maximum value of $y = 12x - x^3$.",
+      "choices": [
+        "$2$",
+        "$-16$",
+        "$24$",
+        "$16$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\dfrac{dy}{dx} = 12 - 3x^2 = 0$ gives $x = \\pm 2$. Since $\\dfrac{d^2y}{dx^2} = -6x$ is negative at $x = 2$, that point is the maximum, and $y = 24 - 8 = 16$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q13",
+      "stem": "A particle has displacement $s = t^3 - 6t^2 + 9t$ for $t \\ge 0$. Find the smallest positive time at which the velocity is zero.",
+      "choices": [
+        "$t = 1$",
+        "$t = 3$",
+        "$t = 2$",
+        "$t = 0$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The velocity is $\\dfrac{ds}{dt} = 3t^2 - 12t + 9 = 3(t-1)(t-3)$, which is zero at $t = 1$ and $t = 3$. The smallest positive value is $t = 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q14",
+      "stem": "Differentiate $y = x^2\\ln x$.",
+      "choices": [
+        "$2x\\ln x$",
+        "$2x\\ln x + x$",
+        "$x + 2x\\ln x$",
+        "$\\dfrac{x^2}{\\ln x}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "With $u = x^2$ and $v = \\ln x$, the product rule gives $\\dfrac{dy}{dx} = x^2 \\cdot \\dfrac1x + (\\ln x)(2x) = x + 2x\\ln x$, which is the same as $2x\\ln x + x$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-differentiation-q15",
+      "stem": "Differentiate $y = \\sqrt x$.",
+      "choices": [
+        "$2\\sqrt x$",
+        "$\\dfrac{1}{2}x^{3/2}$",
+        "$\\dfrac{1}{2\\sqrt x}$",
+        "$\\dfrac{1}{\\sqrt x}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Writing $y = x^{1/2}$ and applying the power rule: $\\dfrac{dy}{dx} = \\dfrac12 x^{-1/2} = \\dfrac{1}{2\\sqrt x}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

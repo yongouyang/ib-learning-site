@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" role="img" aria-labelledby="title desc">
+  <title id="title">Box plot, quartiles and the outlier rule</title>
+  <desc id="desc">A box plot of a data set with the minimum, lower quartile, median, upper quartile and maximum labelled, the interquartile range drawn as a bracket between the quartiles, one outlier marked beyond the upper boundary, and a panel giving the quartile, outlier and standard deviation formulas.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 13px; fill: #111827; }
+    .small { font-size: 11px; fill: #64748b; }
+  </style>
+  <rect width="900" height="460" fill="#f8fafc" rx="12"/>
+  <text x="30" y="34" class="heading">Quartiles, the IQR and outliers</text>
+  <text x="30" y="54" class="small">The box holds the middle 50% of the data; the whiskers reach the most extreme values that are not outliers.</text>
+  <rect x="30" y="74" width="840" height="210" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+  <rect x="31" y="254" width="838" height="29" fill="#ffffff" stroke="none" rx="6"/>
+  <line x1="31" y1="254" x2="869" y2="254" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="166.8" y1="190" x2="564.4" y2="190" stroke="#475569" stroke-width="1.5"/>
+  <line x1="166.8" y1="174" x2="166.8" y2="206" stroke="#475569" stroke-width="1.5"/>
+  <line x1="252.0" y1="174" x2="252.0" y2="206" stroke="#475569" stroke-width="1.5"/>
+  <line x1="337.2" y1="174" x2="337.2" y2="206" stroke="#475569" stroke-width="1.5"/>
+  <line x1="450.8" y1="174" x2="450.8" y2="206" stroke="#475569" stroke-width="1.5"/>
+  <line x1="564.4" y1="174" x2="564.4" y2="206" stroke="#475569" stroke-width="1.5"/>
+  <rect x="252.0" y="164" width="198.8" height="52" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" rx="3"/>
+  <line x1="337.2" y1="164" x2="337.2" y2="216" stroke="#2563eb" stroke-width="2"/>
+  <line x1="166.8" y1="190" x2="564.4" y2="190" stroke="#475569" stroke-width="1.5"/>
+  <line x1="770.4" y1="183" x2="784.4" y2="197" stroke="#dc2626" stroke-width="2"/>
+  <line x1="770.4" y1="197" x2="784.4" y2="183" stroke="#dc2626" stroke-width="2"/>
+  <text x="166.8" y="150.0" class="label" text-anchor="middle">min 12</text>
+  <text x="252.0" y="150.0" class="label" text-anchor="middle">Q₁ = 18</text>
+  <text x="337.2" y="150.0" class="label" text-anchor="middle">median 24</text>
+  <text x="450.8" y="150.0" class="label" text-anchor="middle">Q₃ = 32</text>
+  <text x="564.4" y="150.0" class="label" text-anchor="middle">max 40</text>
+  <text x="777.4" y="156.0" class="label" text-anchor="middle">55 = outlier</text>
+  <line x1="252.0" y1="252" x2="450.8" y2="252" stroke="#4f46e5" stroke-width="1.5"/>
+  <line x1="252.0" y1="245" x2="252.0" y2="259" stroke="#4f46e5" stroke-width="1.5"/>
+  <line x1="450.8" y1="245" x2="450.8" y2="259" stroke="#4f46e5" stroke-width="1.5"/>
+  <rect x="313.8" y="241.0" width="75.2" height="22" rx="6" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1"/>
+  <text x="351.4" y="256.5" class="math" text-anchor="middle">IQR = 14</text>
+  <text x="546.8" y="257.0" class="small" text-anchor="start">upper boundary 32 + 1.5(14) = 53</text>
+  <text x="30.0" y="318.0" class="small" text-anchor="start">The whiskers stop at the most extreme values that lie inside the boundaries; anything beyond is drawn as a separate point.</text>
+  <text x="30.0" y="340.0" class="small" text-anchor="start">The IQR ignores the extreme values completely, which is why it is quoted instead of the range for skewed data.</text>
+  <rect x="30" y="356" width="840" height="84" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+  <text x="50.0" y="384.0" class="math" text-anchor="start">IQR = Q₃ − Q₁     ·     lower boundary = Q₁ − 1.5 IQR     ·     upper boundary = Q₃ + 1.5 IQR</text>
+  <text x="50.0" y="412.0" class="math" text-anchor="start">σ = √( Σ(x − x̄)² / n )     ·     variance = σ²     ·     compare median with IQR when the data are skewed, mean with σ when they are symmetric</text>
+</svg>

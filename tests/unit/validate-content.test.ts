@@ -261,8 +261,9 @@ describe('checkMarkschemePrefixes', () => {
   });
 
   it('holds for every markscheme point in the corpus (the measurement, pinned)', () => {
-    // 580 points across 29 sets: M 104 / A 132 / B 344 (2026-09-19). If a future authoring
-    // pass breaks the convention, this fails here rather than in an exam marker's prompt.
+    // 620 points across 31 sets: M 116 / A 156 / B 348 (2026-09-21, after the two DP AA sets).
+    // If a future authoring pass breaks the convention, this fails here rather than in an
+    // exam marker's prompt.
     const papersDir = path.join(process.cwd(), 'src/content/data/papers');
     let points = 0;
     for (const course of fs.readdirSync(papersDir)) {
@@ -277,6 +278,6 @@ describe('checkMarkschemePrefixes', () => {
         expect(checkMarkschemePrefixes(parsed)).toEqual([]);
       }
     }
-    expect(points).toBe(580);
+    expect(points).toBe(620);
   });
 });

@@ -1,0 +1,329 @@
+{
+  "id": "math-dp-aa-distributions",
+  "subjectId": "math",
+  "title": "The Binomial and Normal Distributions",
+  "description": "Discrete random variables, the binomial distribution, the normal distribution, standardising and the inverse normal",
+  "stage": "dp",
+  "course": "aa",
+  "level": "sl",
+  "notes": [
+    {
+      "id": "math-dp-aa-distributions-n1",
+      "heading": "Discrete Random Variables and Expectation",
+      "body": "A **discrete random variable** $X$ takes a finite list of values, each with a probability. The **expected value** (mean) is\n$$E(X) = \\sum x\\,P(X = x)$$\nand the **variance** is\n$$\\operatorname{Var}(X) = E(X^2) - \\big[E(X)\\big]^2$$\nwhere $E(X^2) = \\sum x^2 P(X = x)$.\n\n💡 **Worked Example** — $X$ takes values 1, 2, 3 with probabilities 0.2, 0.5, 0.3.\n$$E(X) = 1(0.2) + 2(0.5) + 3(0.3) = 2.1$$\n$$E(X^2) = 1(0.2) + 4(0.5) + 9(0.3) = 4.9 \\;\\Longrightarrow\\; \\operatorname{Var}(X) = 4.9 - 2.1^2 = 0.49$$\n\n📌 Probabilities in a distribution table always total 1; if they do not, the table is incomplete and the missing probability must be found first."
+    },
+    {
+      "id": "math-dp-aa-distributions-n2",
+      "heading": "The Binomial Distribution",
+      "body": "The binomial model counts the number of successes in a fixed number of independent trials, each with the same probability of success. Write\n$$X \\sim B(n, p)$$\nand then\n$$P(X = r) = \\binom{n}{r} p^r (1-p)^{n-r}$$\n\nThe four conditions to state or check are: a fixed number $n$ of trials; two outcomes (success or failure) each time; a constant probability $p$; and independence between trials.\n\n💡 **Worked Example** — A fair coin is tossed 4 times. With $X \\sim B(4, 0.5)$:\n$$P(X = 2) = \\binom{4}{2}(0.5)^2(0.5)^2 = 6 \\times 0.0625 = 0.375$$\n\n⚠️ **Common mistake** — Using the binomial when $p$ changes between trials. Drawing without replacement from a small population changes $p$, and the binomial model no longer applies."
+    },
+    {
+      "id": "math-dp-aa-distributions-n3",
+      "heading": "Mean and Variance of a Binomial",
+      "body": "For $X \\sim B(n, p)$ the formulas are on the formula booklet:\n$$E(X) = np \\qquad \\operatorname{Var}(X) = np(1-p)$$\n\n💡 **Worked Example** — For $X \\sim B(20, 0.3)$:\n$$E(X) = 20 \\times 0.3 = 6 \\qquad \\operatorname{Var}(X) = 20(0.3)(0.7) = 4.2$$\n\n📌 The variance is largest when $p = 0.5$ and shrinks towards zero as $p$ approaches 0 or 1 — a useful sanity check on an answer.\n\n🔑 These formulas work backwards too. Given the mean and $n$, divide to find $p$: a mean of 12 from 40 trials gives $p = 0.3$."
+    },
+    {
+      "id": "math-dp-aa-distributions-n4",
+      "heading": "The Normal Distribution",
+      "body": "A **continuous** random variable with a normal distribution is written\n$$X \\sim N(\\mu, \\sigma^2)$$\nwhere $\\mu$ is the mean and $\\sigma^2$ the **variance** (so the second number is not the standard deviation). The curve is bell-shaped and symmetric about $x = \\mu$, with total area 1 underneath it, and probabilities are areas.\n\nKey consequences of the symmetry:\n• $P(X < \\mu) = P(X > \\mu) = 0.5$.\n• $P(X > \\mu + a) = P(X < \\mu - a)$ for any $a$.\n• Median and mode both equal the mean.\n\n💡 **Worked Example** — $X \\sim N(20, 16)$ has mean 20 and standard deviation $\\sqrt{16} = 4$. Then $P(X > 20) = 0.5$ by symmetry, and $P(X > 24) = P(X < 16)$.\n\n⚠️ **Common mistake** — Reading the second parameter as the standard deviation. $N(20, 16)$ has $\\sigma = 4$, not 16."
+    },
+    {
+      "id": "math-dp-aa-distributions-n5",
+      "heading": "Standardising and the Inverse Normal",
+      "body": "Every normal variable can be converted to the **standard normal** $Z \\sim N(0, 1)$ by subtracting the mean and dividing by the standard deviation:\n$$z = \\dfrac{x - \\mu}{\\sigma}$$\nThe $z$-value says how many standard deviations $x$ sits from the mean, and the area to the left of it is unchanged by the transformation.\n\n💡 **Worked Example** — $X \\sim N(20, 16)$, so $\\sigma = 4$. For $x = 26$:\n$$z = \\dfrac{26 - 20}{4} = 1.5$$\nso $P(X < 26) = P(Z < 1.5) \\approx 0.933$.\n\n💡 **The inverse normal** — Given a probability, find the value. If $P(X < a) = 0.9$ with $\\mu = 50$ and $\\sigma = 8$, the inverse normal gives $z = 1.2816$ and therefore\n$$a = \\mu + z\\sigma = 50 + 1.2816(8) \\approx 60.25$$\n\n📌 A GDC does both directions directly: normalcdf for probabilities, and invNorm for values. Always sketch the curve and shade the region first, so you can tell whether the answer should be above or below the mean.",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-distributions-normal-and-binomial.svg",
+        "alt": "A normal curve with the mean and one standard deviation either side marked, the tail beyond one standard deviation shaded, the standardising transformation shown, and a panel of binomial conditions, formulas and an example.",
+        "caption": "The tail area is the probability, and subtracting the mean then dividing by σ converts any normal variable into the standard one."
+      }
+    },
+    {
+      "id": "math-dp-aa-distributions-n6",
+      "heading": "Working Backwards with a Distribution",
+      "body": "Questions often supply a probability and ask for a parameter. The method is to translate the sentence into a probability statement, then use the inverse function.\n\n💡 **Finding a binomial parameter** — A random variable $X \\sim B(10, p)$ has $P(X = 0) = 0.35$. Then\n$$(1-p)^{10} = 0.35 \\;\\Longrightarrow\\; 1 - p = 0.35^{0.1} \\approx 0.9006 \\;\\Longrightarrow\\; p \\approx 0.099$$\n\n💡 **Finding a normal parameter** — If $X \\sim N(\\mu, 25)$ and $P(X > 30) = 0.2$, then $\\sigma = 5$ and the $z$-value with area 0.8 to its left is $0.8416$, so $30 = \\mu + 0.8416(5)$ and $\\mu \\approx 25.8$.\n\n⚠️ **Common mistake** — Using the given probability as the area to the left when the question describes an area to the right. Sketch first, then convert with $P(X > a) = 1 - P(X < a)$."
+    },
+    {
+      "id": "math-dp-aa-distributions-n7",
+      "heading": "Choosing the Right Model, and Exam Technique",
+      "body": "**Which model?**\n• Counting successes in a fixed number of independent trials with constant $p$ — binomial, $B(n, p)$.\n• A measurement that clusters symmetrically about a mean with spread — normal, $N(\\mu, \\sigma^2)$.\n• A single event with no fixed number of trials, or a changing $p$ — neither model applies without more work.\n\n**Exam technique**\n• State the distribution before calculating, e.g. $X \\sim B(12, 0.25)$, then the command you used.\n• Give probabilities to 3 significant figures unless told otherwise.\n• For \"at least\" or \"at most\" questions, write the inequality as a sum of equalities, or use the complement to shorten it.\n• For inverse-normal questions, state the $z$-value as well as the final answer when the question asks for working.\n\n⚠️ **Common mistakes** — Treating a normal variable as discrete; using $\\sigma$ where $\\sigma^2$ belongs; and forgetting that the binomial needs a fixed number of trials before it can be applied at all."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-aa-distributions-f1",
+      "term": "Expected value of a discrete random variable",
+      "definition": "$E(X) = \\sum x\\,P(X = x)$",
+      "example": "values 1, 2, 3 with $P$ 0.2, 0.5, 0.3 give 2.1"
+    },
+    {
+      "id": "math-dp-aa-distributions-f2",
+      "term": "Variance formula",
+      "definition": "$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2$",
+      "example": "$4.9 - 2.1^2 = 0.49$"
+    },
+    {
+      "id": "math-dp-aa-distributions-f3",
+      "term": "Binomial notation",
+      "definition": "$X \\sim B(n, p)$ for $n$ independent trials with constant success probability $p$",
+      "example": "$B(4, 0.5)$ for four coin tosses"
+    },
+    {
+      "id": "math-dp-aa-distributions-f4",
+      "term": "Binomial probability",
+      "definition": "$P(X = r) = \\binom{n}{r}p^r(1-p)^{n-r}$",
+      "example": "$P(X=2) = 0.375$ for $B(4,0.5)$"
+    },
+    {
+      "id": "math-dp-aa-distributions-f5",
+      "term": "Binomial conditions",
+      "definition": "Fixed $n$, two outcomes, constant $p$, independence",
+      "example": "breaks when drawing without replacement"
+    },
+    {
+      "id": "math-dp-aa-distributions-f6",
+      "term": "Mean of a binomial",
+      "definition": "$E(X) = np$",
+      "example": "$B(20, 0.3)$ has mean 6"
+    },
+    {
+      "id": "math-dp-aa-distributions-f7",
+      "term": "Variance of a binomial",
+      "definition": "$\\operatorname{Var}(X) = np(1-p)$",
+      "example": "$20(0.3)(0.7) = 4.2$"
+    },
+    {
+      "id": "math-dp-aa-distributions-f8",
+      "term": "Normal notation",
+      "definition": "$X \\sim N(\\mu, \\sigma^2)$ — the second parameter is the variance",
+      "example": "$N(20, 16)$ has $\\sigma = 4$"
+    },
+    {
+      "id": "math-dp-aa-distributions-f9",
+      "term": "Symmetry of the normal curve",
+      "definition": "$P(X < \\mu) = P(X > \\mu) = 0.5$",
+      "example": "$P(X > \\mu + a) = P(X < \\mu - a)$"
+    },
+    {
+      "id": "math-dp-aa-distributions-f10",
+      "term": "Standardising",
+      "definition": "$z = \\dfrac{x - \\mu}{\\sigma}$",
+      "example": "$x=26$, $\\mu=20$, $\\sigma=4$ gives $z = 1.5$"
+    },
+    {
+      "id": "math-dp-aa-distributions-f11",
+      "term": "Inverse normal",
+      "definition": "Given an area, find the value: $x = \\mu + z\\sigma$",
+      "example": "$P(X<a)=0.9$ gives $z = 1.2816$"
+    },
+    {
+      "id": "math-dp-aa-distributions-f12",
+      "term": "Mean and variance of a binomial from data",
+      "definition": "Given the mean, divide by $n$ to find $p$",
+      "example": "mean 12 from $n=40$ gives $p=0.3$"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-aa-distributions-q1",
+      "stem": "A discrete random variable $X$ takes the values 1, 2 and 3 with probabilities $0.2$, $0.5$ and $0.3$. Find $E(X)$.",
+      "choices": [
+        "$2.1$",
+        "$2.5$",
+        "$3$",
+        "$2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$E(X) = 1(0.2) + 2(0.5) + 3(0.3) = 0.2 + 1 + 0.9 = 2.1$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-distributions-q2",
+      "stem": "Which of these is a condition for a binomial distribution?",
+      "choices": [
+        "the trials are dependent",
+        "the probability of success is constant",
+        "the number of trials is unlimited",
+        "the outcomes are continuous"
+      ],
+      "correctIndex": 1,
+      "explanation": "A binomial model needs a fixed number of trials, two outcomes, a constant probability of success and independence between trials.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-distributions-q3",
+      "stem": "For a normal distribution, what is $P(X > \\mu)$?",
+      "choices": [
+        "$1$",
+        "$0.25$",
+        "$0.5$",
+        "$0$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The normal curve is symmetric about its mean, so half the area lies above the mean: $P(X > \\mu) = 0.5$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-distributions-q4",
+      "stem": "For $X \\sim B(20, 0.3)$, find $E(X)$.",
+      "choices": [
+        "$4.2$",
+        "$0.6$",
+        "$14$",
+        "$6$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$E(X) = np = 20 \\times 0.3 = 6$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-distributions-q5",
+      "stem": "For $X \\sim B(20, 0.3)$, find $\\operatorname{Var}(X)$.",
+      "choices": [
+        "$4.2$",
+        "$0.21$",
+        "$6$",
+        "$2.05$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\operatorname{Var}(X) = np(1-p) = 20(0.3)(0.7) = 4.2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-distributions-q6",
+      "stem": "A fair coin is tossed 4 times. Find the probability of exactly 2 heads.",
+      "choices": [
+        "$0.5$",
+        "$0.375$",
+        "$0.25$",
+        "$0.0625$"
+      ],
+      "correctIndex": 1,
+      "explanation": "With $X \\sim B(4, 0.5)$, $P(X = 2) = \\binom42 (0.5)^2(0.5)^2 = 6 \\times 0.0625 = 0.375$.",
+      "difficulty": "medium",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-distributions-q7",
+      "stem": "Given $X \\sim N(20, 16)$, find the standardised value $z$ corresponding to $x = 26$.",
+      "choices": [
+        "$0.375$",
+        "$1.625$",
+        "$1.5$",
+        "$6$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The variance is 16, so $\\sigma = 4$. Then $z = \\dfrac{26 - 20}{4} = 1.5$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-distributions-q8",
+      "stem": "For $X \\sim N(20, 16)$, find $P(X > 24)$ to 3 significant figures.",
+      "choices": [
+        "$0.341$",
+        "$0.500$",
+        "$0.841$",
+        "$0.159$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\sigma = 4$, so 24 is one standard deviation above the mean. $P(Z > 1) = 1 - 0.8413 = 0.159$ to 3 s.f.",
+      "difficulty": "medium",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-distributions-q9",
+      "stem": "For $X \\sim B(5, 0.1)$, find $P(X = 0)$ to 3 significant figures.",
+      "choices": [
+        "$0.590$",
+        "$0.410$",
+        "$0.500$",
+        "$0.100$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$P(X = 0) = (0.9)^5 = 0.59049 \\approx 0.590$ to 3 s.f.",
+      "difficulty": "medium",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-distributions-q10",
+      "stem": "For $X \\sim B(5, 0.1)$, find $P(X \\ge 1)$ to 3 significant figures.",
+      "choices": [
+        "$0.328$",
+        "$0.410$",
+        "$0.590$",
+        "$0.500$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Using the complement, $P(X \\ge 1) = 1 - P(X = 0) = 1 - 0.9^5 = 0.40951 \\approx 0.410$.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-distributions-q11",
+      "stem": "Given $X \\sim N(50, 64)$ and $P(X < a) = 0.9$, find $a$ to 3 significant figures.",
+      "choices": [
+        "$39.7$",
+        "$64.0$",
+        "$60.3$",
+        "$58.4$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\sigma = 8$ and the $z$-value with area 0.9 to its left is 1.2816, so $a = 50 + 1.2816(8) = 60.2528 \\approx 60.3$.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-distributions-q12",
+      "stem": "For $X \\sim B(10, 0.4)$, find $P(X \\ge 8)$ to 3 significant figures.",
+      "choices": [
+        "$0.0106$",
+        "$0.166$",
+        "$0.0548$",
+        "$0.0123$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$P(X \\ge 8) = P(X = 8) + P(X = 9) + P(X = 10) = 0.010617 + 0.001573 + 0.000105 = 0.01229$, which is 0.0123 to 3 s.f.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-distributions-q13",
+      "stem": "A discrete random variable has $E(X) = 2$ and $E(X^2) = 5$. Find $\\operatorname{Var}(X)$.",
+      "choices": [
+        "$1$",
+        "$9$",
+        "$2.5$",
+        "$3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = 5 - 2^2 = 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-distributions-q14",
+      "stem": "Given $X \\sim N(50, 4)$, find $P(48 < X < 52)$ to 3 significant figures.",
+      "choices": [
+        "$0.500$",
+        "$0.683$",
+        "$0.954$",
+        "$0.341$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\sigma = 2$, so $x = 48$ and $x = 52$ correspond to $z = -1$ and $z = 1$. Then $P(-1 < Z < 1) = 0.6827 \\approx 0.683$.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-distributions-q15",
+      "stem": "A binomial random variable $X \\sim B(40, p)$ has mean 12. Find $p$.",
+      "choices": [
+        "$0.12$",
+        "$0.9$",
+        "$0.3$",
+        "$0.7$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The mean of a binomial is $np$, so $40p = 12$ and $p = 0.3$.",
+      "difficulty": "hard"
+    }
+  ]
+}

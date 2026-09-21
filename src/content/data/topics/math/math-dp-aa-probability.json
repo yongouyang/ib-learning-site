@@ -1,0 +1,324 @@
+{
+  "id": "math-dp-aa-probability",
+  "subjectId": "math",
+  "title": "Probability",
+  "description": "Sample spaces, the addition and multiplication rules, conditional probability, Venn and tree diagrams, and counting",
+  "stage": "dp",
+  "course": "aa",
+  "level": "sl",
+  "notes": [
+    {
+      "id": "math-dp-aa-probability-n1",
+      "heading": "Sample Spaces and the Complement",
+      "body": "The **sample space** $U$ is the set of all equally likely outcomes; an **event** $A$ is a subset of it. For equally likely outcomes,\n$$P(A) = \\dfrac{n(A)}{n(U)}$$\nEvery probability satisfies $0 \\le P(A) \\le 1$, and over the whole sample space $P(U) = 1$.\n\nThe **complement** $A'$ is the event that $A$ does not happen, and\n$$P(A') = 1 - P(A)$$\n\n💡 **Worked Example** — One card is drawn from a standard pack. The probability it is a heart is $\\dfrac{13}{52} = \\dfrac14$, so the probability it is not a heart is $1 - \\dfrac14 = \\dfrac34$.\n\n📌 \"At least one\" almost always means $1 - P(\\text{none})$. Reaching for the complement turns a long list of cases into a single calculation."
+    },
+    {
+      "id": "math-dp-aa-probability-n2",
+      "heading": "Combined Events and the Addition Rule",
+      "body": "For any two events,\n$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\nThe subtraction removes the outcomes counted twice, because those in both $A$ and $B$ appear in each term.\n\nIf $A$ and $B$ are **mutually exclusive**, they cannot occur together, so $P(A \\cap B) = 0$ and the rule simplifies to $P(A \\cup B) = P(A) + P(B)$.\n\n💡 **Worked Example** — $P(A) = 0.5$, $P(B) = 0.4$ and $P(A \\cap B) = 0.2$. Then\n$$P(A \\cup B) = 0.5 + 0.4 - 0.2 = 0.7$$\n\n⚠️ **Common mistake** — Adding the probabilities without subtracting the overlap, which can produce a total above 1 — a quick way to spot the error.\n\n📌 Note that \"$A$ and $B$\" means $A \\cap B$ and \"$A$ or $B$\" means $A \\cup B$; read the wording carefully before choosing a rule."
+    },
+    {
+      "id": "math-dp-aa-probability-n3",
+      "heading": "Independent Events",
+      "body": "Two events are **independent** when the occurrence of one gives no information about the other. Then\n$$P(A \\cap B) = P(A)\\,P(B)$$\nand this equation is also the **test** for independence: if $P(A \\cap B)$ equals $P(A)P(B)$, the events are independent; if not, they are not.\n\n💡 **Worked Example** — A fair coin is tossed twice. With $A$ = \"first toss is a head\" and $B$ = \"second toss is a head\":\n$$P(A \\cap B) = 0.5 \\times 0.5 = 0.25$$\n\n💡 **Testing** — If $P(A) = 0.4$, $P(B) = 0.5$ and $P(A \\cap B) = 0.2$, then $P(A)P(B) = 0.2$, so the events are independent.\n\n⚠️ **Common mistake** — Confusing mutually exclusive with independent. Mutually exclusive events with positive probability are never independent: knowing $A$ happened tells you $B$ did not, which is the strongest possible dependence."
+    },
+    {
+      "id": "math-dp-aa-probability-n4",
+      "heading": "Conditional Probability",
+      "body": "The probability of $A$ **given that** $B$ has occurred is\n$$P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)}, \\qquad P(B) \\ne 0$$\nConditioning restricts the sample space to $B$, so every probability is recalculated relative to $B$ alone. Rearranged, the same relationship gives $P(A \\cap B) = P(B)\\,P(A \\mid B)$ — often the quickest route to a joint probability.\n\n💡 **Worked Example** — $P(A \\cap B) = 0.2$ and $P(B) = 0.5$, so\n$$P(A \\mid B) = \\dfrac{0.2}{0.5} = 0.4$$\n\n🔑 With independence the conditioning changes nothing: $P(A \\mid B) = P(A)$. That is exactly what independence means, and it gives a second test for it.\n\n📌 $P(A \\mid B)$ and $P(B \\mid A)$ are different numbers in general — the condition and the event cannot be swapped."
+    },
+    {
+      "id": "math-dp-aa-probability-n5",
+      "heading": "Venn Diagrams and Two-way Tables",
+      "body": "Both tools organise the same information: they show the four regions $A$ only, $B$ only, both, and neither. The **neither** region is the one students most often forget, and it is usually what the question needs.\n\n**Filling a two-way table** — put the totals on the margins, and remember that each cell is a count of the intersection of its row and column. Convert to probabilities only at the end, by dividing by the grand total.\n\n💡 **Worked Example** — In a class of 30, 18 study maths, 12 study physics and 6 study both.\n$$n(M \\cup P) = 18 + 12 - 6 = 24 \\;\\Longrightarrow\\; n(\\text{neither}) = 6$$\nso $P(\\text{neither}) = \\dfrac{6}{30} = 0.2$.\n\n📌 A question that says \"given that\" is a conditional probability: take the denominator from the *conditioning* group, not the whole sample space.",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-probability-venn-and-rules.svg",
+        "alt": "A Venn diagram for two events inside a sample space of sixteen outcomes, showing counts in each region, beside a panel of addition, independence and conditional probability rules.",
+        "caption": "The region outside both circles is part of the sample space too, and the conditional probability divides by the conditioning group."
+      }
+    },
+    {
+      "id": "math-dp-aa-probability-n6",
+      "heading": "Tree Diagrams",
+      "body": "A tree diagram lists the outcomes stage by stage. Along each branch the probabilities multiply; branches leading to the same event are then added.\n\nFor **without replacement** problems the denominator of the second stage is one smaller, and the numerators depend on what was taken first.\n\n💡 **Worked Example** — A bag contains 3 red and 2 blue counters. Two are drawn without replacement. Find the probability that both are red.\n$$P(RR) = \\dfrac{3}{5} \\times \\dfrac{2}{4} = \\dfrac{6}{20} = \\dfrac{3}{10}$$\n\n💡 **The \"at least one\" shape** — With three independent events each having probability $0.1$ of occurring: $P(\\text{at least one}) = 1 - P(\\text{none}) = 1 - 0.9^3 = 0.271$.\n\n⚠️ **Common mistake** — Treating a without-replacement draw as independent and using the same denominator twice. Check the totals on each branch as you draw the tree."
+    },
+    {
+      "id": "math-dp-aa-probability-n7",
+      "heading": "Counting Techniques",
+      "body": "The **multiplication principle**: if one choice can be made in $m$ ways and a second in $n$ ways, the pair can be made in $mn$ ways.\n\nWhen order matters (arrangements, codes, finishing orders):\n$$^nP_r = \\dfrac{n!}{(n-r)!}$$\nWhen order does not matter (selections, committees, teams):\n$$^nC_r = \\binom{n}{r} = \\dfrac{n!}{r!\\,(n-r)!}$$\n\nThe only question to answer first is whether swapping two chosen items produces a different outcome. If yes, it is a permutation; if no, a combination — and the combination is always the smaller number.\n\n💡 **Worked Example** — From 5 people: the number of ways to choose a 2-person committee is $^5C_2 = 10$; the number of ways to appoint a president and a treasurer is $^5P_2 = 20$.\n\n📌 Use the GDC's nCr and nPr commands rather than cancelling factorials by hand — many questions are marked as calculator questions."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-aa-probability-f1",
+      "term": "Probability of a complement",
+      "definition": "$P(A') = 1 - P(A)$",
+      "example": "$P(A) = 0.35$ gives $P(A') = 0.65$"
+    },
+    {
+      "id": "math-dp-aa-probability-f2",
+      "term": "Addition rule",
+      "definition": "$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$",
+      "example": "$0.5 + 0.4 - 0.2 = 0.7$"
+    },
+    {
+      "id": "math-dp-aa-probability-f3",
+      "term": "Mutually exclusive",
+      "definition": "$P(A \\cap B) = 0$: the events cannot both occur",
+      "example": "a coin shows heads and tails"
+    },
+    {
+      "id": "math-dp-aa-probability-f4",
+      "term": "Independent events",
+      "definition": "$P(A \\cap B) = P(A)P(B)$",
+      "example": "two successive coin tosses"
+    },
+    {
+      "id": "math-dp-aa-probability-f5",
+      "term": "Independence test",
+      "definition": "Compare $P(A \\cap B)$ with $P(A)P(B)$",
+      "example": "$0.2 = 0.4 \\times 0.5$, so independent"
+    },
+    {
+      "id": "math-dp-aa-probability-f6",
+      "term": "Conditional probability",
+      "definition": "$P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)}$",
+      "example": "$0.2/0.5 = 0.4$"
+    },
+    {
+      "id": "math-dp-aa-probability-f7",
+      "term": "Multiplication form",
+      "definition": "$P(A \\cap B) = P(B)\\,P(A \\mid B)$",
+      "example": "useful when only the conditional is known"
+    },
+    {
+      "id": "math-dp-aa-probability-f8",
+      "term": "Independence in conditional form",
+      "definition": "$P(A \\mid B) = P(A)$ when $A$ and $B$ are independent",
+      "example": "conditioning gives no new information"
+    },
+    {
+      "id": "math-dp-aa-probability-f9",
+      "term": "Venn diagram regions",
+      "definition": "$A$ only, $B$ only, $A \\cap B$ and neither",
+      "example": "the \"neither\" region is the usual trap"
+    },
+    {
+      "id": "math-dp-aa-probability-f10",
+      "term": "Tree diagram rule",
+      "definition": "Multiply along a branch, add between branches",
+      "example": "$\\frac35 \\times \\frac24 = \\dfrac{3}{10}$"
+    },
+    {
+      "id": "math-dp-aa-probability-f11",
+      "term": "\"At least one\"",
+      "definition": "$1 - P(\\text{none})$",
+      "example": "$1 - 0.9^3 = 0.271$"
+    },
+    {
+      "id": "math-dp-aa-probability-f12",
+      "term": "$^nC_r$ versus $^nP_r$",
+      "definition": "$^nC_r$ ignores order; $^nP_r$ counts arrangements",
+      "example": "$^5C_2 = 10$, $^5P_2 = 20$"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-aa-probability-q1",
+      "stem": "The probability that an event $A$ occurs is $0.35$. Find $P(A')$.",
+      "choices": [
+        "$0.65$",
+        "$0.75$",
+        "$1.35$",
+        "$0.35$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The complement rule gives $P(A') = 1 - 0.35 = 0.65$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-probability-q2",
+      "stem": "A fair six-sided die is rolled once. Find the probability that the score is even.",
+      "choices": [
+        "$\\dfrac{1}{6}$",
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{1}{3}$",
+        "$\\dfrac{2}{3}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The even scores are 2, 4 and 6, so the probability is $\\dfrac{3}{6} = \\dfrac12$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-probability-q3",
+      "stem": "What does it mean for two events to be mutually exclusive?",
+      "choices": [
+        "they are independent",
+        "they have equal probabilities",
+        "they cannot occur together",
+        "one of them must occur"
+      ],
+      "correctIndex": 2,
+      "explanation": "Mutually exclusive events have no outcomes in common, so $P(A \\cap B) = 0$ and they cannot both happen.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-probability-q4",
+      "stem": "Events $A$ and $B$ are independent with $P(A) = 0.5$ and $P(B) = 0.4$. Find $P(A \\cap B)$.",
+      "choices": [
+        "$0.45$",
+        "$0.9$",
+        "$0.1$",
+        "$0.2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "For independent events, $P(A \\cap B) = P(A)P(B) = 0.5 \\times 0.4 = 0.2$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-probability-q5",
+      "stem": "Given $P(A) = 0.5$, $P(B) = 0.4$ and $P(A \\cap B) = 0.2$, find $P(A \\cup B)$.",
+      "choices": [
+        "$0.7$",
+        "$0.8$",
+        "$0.3$",
+        "$0.9$"
+      ],
+      "correctIndex": 0,
+      "explanation": "By the addition rule, $P(A \\cup B) = 0.5 + 0.4 - 0.2 = 0.7$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-probability-q6",
+      "stem": "In a class of 30 students, 18 study maths, 12 study physics and 6 study both. Find the probability that a randomly chosen student studies neither.",
+      "choices": [
+        "$0.1$",
+        "$0.2$",
+        "$0.8$",
+        "$0.6$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$n(M \\cup P) = 18 + 12 - 6 = 24$, so 6 students study neither, giving $\\dfrac{6}{30} = 0.2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-probability-q7",
+      "stem": "Given $P(A \\cap B) = 0.2$ and $P(B) = 0.5$, find $P(A \\mid B)$.",
+      "choices": [
+        "$0.1$",
+        "$0.7$",
+        "$0.4$",
+        "$0.25$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)} = \\dfrac{0.2}{0.5} = 0.4$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-probability-q8",
+      "stem": "Events $A$ and $B$ have $P(A) = 0.4$, $P(B) = 0.5$ and $P(A \\cap B) = 0.2$. Are the events independent?",
+      "choices": [
+        "no, because $P(A \\cap B) \\ne 0$",
+        "no, because the probabilities are different",
+        "it cannot be determined",
+        "yes, because $P(A)P(B) = 0.2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$P(A)P(B) = 0.4 \\times 0.5 = 0.2$, which equals $P(A \\cap B)$, so the events are independent.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-probability-q9",
+      "stem": "Evaluate $^6C_2$.",
+      "choices": [
+        "$15$",
+        "$8$",
+        "$30$",
+        "$12$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$^6C_2 = \\dfrac{6!}{2!\\,4!} = \\dfrac{6 \\times 5}{2} = 15$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-probability-q10",
+      "stem": "A bag contains 3 red and 2 blue counters. Two counters are drawn without replacement. Find the probability that both are red.",
+      "choices": [
+        "$\\dfrac{9}{25}$",
+        "$\\dfrac{3}{10}$",
+        "$\\dfrac{2}{5}$",
+        "$\\dfrac{1}{2}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The first draw is red with probability $\\dfrac35$; the second is then red with probability $\\dfrac24$. Multiplying gives $\\dfrac35 \\times \\dfrac24 = \\dfrac{6}{20} = \\dfrac{3}{10}$. (Using $\\dfrac35 \\times \\dfrac35$ would be wrong, because the draws are not independent.)",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-probability-q11",
+      "stem": "Three independent events each occur with probability $0.1$. Find the probability that at least one of them occurs.",
+      "choices": [
+        "$0.001$",
+        "$0.3$",
+        "$0.271$",
+        "$0.729$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$P(\\text{at least one}) = 1 - P(\\text{none}) = 1 - 0.9^3 = 1 - 0.729 = 0.271$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-probability-q12",
+      "stem": "In a group of 100 people, 40 are male, 25 wear glasses and 15 of those wearing glasses are male. Find the probability that a person wears glasses, given that they are male.",
+      "choices": [
+        "$0.25$",
+        "$0.15$",
+        "$0.6$",
+        "$0.375$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Conditioning on being male restricts the group to 40 people, 15 of whom wear glasses: $\\dfrac{15}{40} = 0.375$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-probability-q13",
+      "stem": "A committee of 3 is chosen from 8 students. How many different committees are possible?",
+      "choices": [
+        "$56$",
+        "$512$",
+        "$24$",
+        "$336$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Order does not matter for a committee, so use combinations: $^8C_3 = \\dfrac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-probability-q14",
+      "stem": "How many 3-letter codes can be formed from 5 different letters if no letter may be repeated?",
+      "choices": [
+        "$15$",
+        "$60$",
+        "$125$",
+        "$10$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Order matters, so use permutations: $^5P_3 = 5 \\times 4 \\times 3 = 60$. Choosing $^5C_3 = 10$ would count each code only once regardless of order.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-probability-q15",
+      "stem": "Events $A$ and $B$ are independent with $P(A) = 0.6$ and $P(B) = 0.3$. Find $P(A \\cup B)$.",
+      "choices": [
+        "$0.5$",
+        "$0.9$",
+        "$0.72$",
+        "$0.18$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Independence gives $P(A \\cap B) = 0.6 \\times 0.3 = 0.18$, so $P(A \\cup B) = 0.6 + 0.3 - 0.18 = 0.72$.",
+      "difficulty": "hard"
+    }
+  ]
+}

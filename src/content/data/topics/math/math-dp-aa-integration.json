@@ -1,0 +1,323 @@
+{
+  "id": "math-dp-aa-integration",
+  "subjectId": "math",
+  "title": "Integration",
+  "description": "Antiderivatives, definite integrals, areas under and between curves, and kinematics using integration",
+  "stage": "dp",
+  "course": "aa",
+  "level": "sl",
+  "notes": [
+    {
+      "id": "math-dp-aa-integration-n1",
+      "heading": "Integration as the Reverse of Differentiation",
+      "body": "**Integration** undoes differentiation. Since differentiating $x^{n+1}$ gives $(n+1)x^n$, reversing it gives the power rule for integration:\n$$\\int x^n \\, dx = \\dfrac{x^{n+1}}{n+1} + C, \\qquad n \\ne -1$$\nand for $n = -1$ the rule breaks down, with\n$$\\int \\dfrac{1}{x}\\, dx = \\ln|x| + C$$\n\n**Standard integrals** (on the formula booklet)\n$$\\int \\sin x\\,dx = -\\cos x + C \\qquad \\int \\cos x\\,dx = \\sin x + C \\qquad \\int e^x\\,dx = e^x + C$$\n\n💡 **Worked Example** — $\\displaystyle\\int \\left(3x^2 + \\dfrac{1}{x}\\right)dx = x^3 + \\ln|x| + C$.\n\n⚠️ **Common mistake** — Leaving out the constant of integration $C$. An indefinite integral represents a whole family of curves, differing by a vertical shift, so $C$ must be there."
+    },
+    {
+      "id": "math-dp-aa-integration-n2",
+      "heading": "Definite Integrals",
+      "body": "A **definite integral** has limits and gives a number:\n$$\\int_a^b f(x)\\,dx = F(b) - F(a)$$\nwhere $F$ is any antiderivative of $f$. The constant $C$ cancels, so it is not written in a definite integral.\n\n💡 **Worked Example** —\n$$\\int_1^3 2x\\,dx = \\Big[x^2\\Big]_1^3 = 9 - 1 = 8$$\n\nUseful properties:\n• $\\displaystyle\\int_a^b f(x)\\,dx = -\\int_b^a f(x)\\,dx$ (reversing the limits changes the sign).\n• $\\displaystyle\\int_a^a f(x)\\,dx = 0$.\n• A constant multiple or a sum can be split across the integral.\n\n📌 Do not write $+C$ in a definite integral, and do not write the limits on the antiderivative before substituting — the square-bracket notation $[F(x)]_a^b$ is the clean way to show the substitution."
+    },
+    {
+      "id": "math-dp-aa-integration-n3",
+      "heading": "Areas Under Curves",
+      "body": "When the curve lies above the $x$-axis between $x = a$ and $x = b$, the area between the curve and the axis is\n$$\\text{Area} = \\int_a^b y\\,dx$$\n\n💡 **Worked Example** — Find the area under $y = x^2 + 1$ from $x = 0$ to $x = 1$.\n$$\\int_0^1 (x^2 + 1)\\,dx = \\left[\\dfrac{x^3}{3} + x\\right]_0^1 = \\frac13 + 1 = \\frac43$$\n\n**Method for any area question:**\n1. Sketch the curve and shade the region.\n2. Find the limits — they may be given, or they may be the roots of the curve.\n3. Integrate and substitute.\n\n⚠️ **Common mistake** — Integrating with respect to the wrong variable, or omitting $dx$. Without it the integral has no meaning, and in an area question it identifies the variable along the base."
+    },
+    {
+      "id": "math-dp-aa-integration-n4",
+      "heading": "Areas Between Two Curves",
+      "body": "Between two curves the area is the integral of **upper minus lower**:\n$$\\text{Area} = \\int_a^b \\big[y_{\\text{upper}} - y_{\\text{lower}}\\big]\\,dx$$\nThe limits $a$ and $b$ are the $x$-coordinates of the **points of intersection**, found by setting the two expressions equal.\n\n💡 **Worked Example** — Find the area enclosed between $y = x$ and $y = x^2$.\nIntersections: $x = x^2$ gives $x = 0$ and $x = 1$. Between these values $x > x^2$, so $y = x$ is the upper curve:\n$$\\int_0^1 (x - x^2)\\,dx = \\left[\\dfrac{x^2}{2} - \\dfrac{x^3}{3}\\right]_0^1 = \\frac12 - \\frac13 = \\frac16$$\n\n⚠️ **Common mistake** — Integrating the curves separately and subtracting the results, which is correct only if both lie on the same side of the axis. Integrating upper minus lower is always right, so prefer it.\n\n📌 Check which curve is on top by substituting a convenient value between the intersections, not by assuming the \"nicer\" formula is higher.",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-integration-areas.svg",
+        "alt": "Three panels: the area under x² + 1 from 0 to 1 shaded, the region between y = x and y = x² shaded, and x³ from −1 to 1 with one half above and one half below the axis shaded.",
+        "caption": "Integrate upper minus lower between the intersections, and split at the axis when part of a region lies below it."
+      }
+    },
+    {
+      "id": "math-dp-aa-integration-n5",
+      "heading": "Regions Below the Axis",
+      "body": "A definite integral is a **signed** area: the part below the $x$-axis counts as negative. Geometric area is always positive, so the two coincide only when the curve stays above the axis.\n\nFor an odd function over a symmetric interval the two even disagree completely:\n$$\\int_{-1}^{1} x^3\\,dx = \\left[\\dfrac{x^4}{4}\\right]_{-1}^{1} = \\frac14 - \\frac14 = 0$$\nyet the shaded region clearly has area $\\dfrac12$.\n\n💡 **How to handle it** — Find the roots first, then integrate each section separately and take the absolute value of each piece before adding:\n$$\\text{Geometric area} = \\left|\\int_a^c y\\,dx\\right| + \\left|\\int_c^b y\\,dx\\right|$$\n\n🔑 Two marks are routinely lost here by quoting a signed integral as an area. If the question says \"find the area\", answer with a positive number; if it says \"evaluate the integral\", keep the sign."
+    },
+    {
+      "id": "math-dp-aa-integration-n6",
+      "heading": "Kinematics Using Integration",
+      "body": "Integration recovers position from rate of change:\n$$s = \\int v\\,dt + C \\qquad v = \\int a\\,dt + C$$\nThe constant is found from a **given condition**, such as the initial position.\n\n💡 **Worked Example** — A particle has velocity $v = 4t - 6$ and displacement $s = 5$ when $t = 1$. Find $s$ when $t = 3$.\n$$s = \\int (4t - 6)\\,dt = 2t^2 - 6t + C$$\nUsing $s(1) = 5$: $2 - 6 + C = 5$, so $C = 9$ and $s = 2t^2 - 6t + 9$. Then $s(3) = 18 - 18 + 9 = 9$.\n\n🔑 **Total distance is not displacement.** If the velocity changes sign in the interval, split the integral at the times when $v = 0$ and add the absolute values of the pieces — the same rule as for a region below the axis.\n\n📌 Include the constant or the units will be wrong: $s = 2t^2 - 6t$ alone would give $s(1) = -4$, contradicting the given condition."
+    },
+    {
+      "id": "math-dp-aa-integration-n7",
+      "heading": "Exam Technique and Common Mistakes",
+      "body": "**Checklist**\n• Sketch the curve before integrating for an area — it settles the limits, the upper and lower curves, and any sign change.\n• Write $dx$ in every integral; it is not decoration.\n• Definite integrals: no $+C$. Indefinite integrals: always $+C$.\n• Give exact answers unless asked for decimals, and give areas in square units.\n• Check a definite integral on the GDC; if the value has the wrong sign or magnitude, find the algebraic slip before writing the answer.\n\n⚠️ **Common mistakes** — Forgetting to raise the power by one (integrating $x^3$ as $\\dfrac{x^3}{3}$ instead of $\\dfrac{x^4}{4}$); forgetting to divide by the new power; dropping the minus sign in $\\int \\cos x\\,dx = \\sin x + C$; and using the intersection limits of the wrong pair of curves.\n\n📌 A quick sanity check on any area: if the region is visibly wider than it is tall and the answer is a tiny fraction, something is wrong with the limits or the antiderivative."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-aa-integration-f1",
+      "term": "Power rule for integration",
+      "definition": "$\\int x^n dx = \\dfrac{x^{n+1}}{n+1} + C$ for $n \\ne -1$",
+      "example": "$\\int x^3 dx = \\dfrac{x^4}{4} + C$"
+    },
+    {
+      "id": "math-dp-aa-integration-f2",
+      "term": "Integral of $\\dfrac{1}{x}$",
+      "definition": "$\\ln|x| + C$",
+      "example": "the case the power rule cannot cover"
+    },
+    {
+      "id": "math-dp-aa-integration-f3",
+      "term": "$\\int \\sin x\\,dx$",
+      "definition": "$-\\cos x + C$",
+      "example": "the minus sign is easy to lose"
+    },
+    {
+      "id": "math-dp-aa-integration-f4",
+      "term": "$\\int \\cos x\\,dx$",
+      "definition": "$\\sin x + C$",
+      "example": "$\\int_0^{\\pi/2}\\cos x\\,dx = 1$"
+    },
+    {
+      "id": "math-dp-aa-integration-f5",
+      "term": "$\\int e^x dx$",
+      "definition": "$e^x + C$",
+      "example": "$\\int_0^1 e^x dx = e - 1$"
+    },
+    {
+      "id": "math-dp-aa-integration-f6",
+      "term": "Constant of integration",
+      "definition": "Indefinite integrals need $+C$; definite integrals do not",
+      "example": "$C$ cancels in $F(b) - F(a)$"
+    },
+    {
+      "id": "math-dp-aa-integration-f7",
+      "term": "Definite integral",
+      "definition": "$\\int_a^b f(x)dx = F(b) - F(a)$",
+      "example": "$\\int_1^3 2x\\,dx = 8$"
+    },
+    {
+      "id": "math-dp-aa-integration-f8",
+      "term": "Reversing limits",
+      "definition": "$\\int_a^b f = -\\int_b^a f$",
+      "example": "$\\int_a^a f = 0$"
+    },
+    {
+      "id": "math-dp-aa-integration-f9",
+      "term": "Area under a curve",
+      "definition": "$\\int_a^b y\\,dx$ when the curve is above the axis",
+      "example": "$y = x^2+1$ from 0 to 1 gives $\\frac43$"
+    },
+    {
+      "id": "math-dp-aa-integration-f10",
+      "term": "Area between two curves",
+      "definition": "$\\int_a^b (y_{\\text{upper}} - y_{\\text{lower}})\\,dx$ with limits at the intersections",
+      "example": "$y=x$ and $y=x^2$ give $\\frac16$"
+    },
+    {
+      "id": "math-dp-aa-integration-f11",
+      "term": "Signed versus geometric area",
+      "definition": "Regions below the axis count negatively in the integral",
+      "example": "$\\int_{-1}^{1} x^3 dx = 0$ but the area is $\\frac12$"
+    },
+    {
+      "id": "math-dp-aa-integration-f12",
+      "term": "Velocity from acceleration",
+      "definition": "$v = \\int a\\,dt + C$ and $s = \\int v\\,dt + C$",
+      "example": "find $C$ from the initial condition"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-aa-integration-q1",
+      "stem": "Find $\\displaystyle\\int x^3\\,dx$.",
+      "choices": [
+        "$\\dfrac{x^4}{4} + C$",
+        "$\\dfrac{x^3}{3} + C$",
+        "$4x^4 + C$",
+        "$3x^2 + C$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Raise the power by one and divide by the new power: $\\dfrac{x^4}{4} + C$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-integration-q2",
+      "stem": "Find $\\displaystyle\\int 2x\\,dx$.",
+      "choices": [
+        "$2 + C$",
+        "$x^2 + C$",
+        "$2x^2 + C$",
+        "$\\dfrac{x^2}{2} + C$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\displaystyle\\int 2x\\,dx = 2 \\cdot \\dfrac{x^2}{2} + C = x^2 + C$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-integration-q3",
+      "stem": "Find $\\displaystyle\\int (3x^2 + 1)\\,dx$.",
+      "choices": [
+        "$x^3 + C$",
+        "$3x^3 + x + C$",
+        "$x^3 + x + C$",
+        "$6x + C$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Integrating term by term: $\\dfrac{3x^3}{3} + x + C = x^3 + x + C$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-integration-q4",
+      "stem": "Find $\\displaystyle\\int \\cos x\\,dx$.",
+      "choices": [
+        "$\\cos x + C$",
+        "$-\\cos x + C$",
+        "$-\\sin x + C$",
+        "$\\sin x + C$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The derivative of $\\sin x$ is $\\cos x$, so $\\displaystyle\\int \\cos x\\,dx = \\sin x + C$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-integration-q5",
+      "stem": "Evaluate $\\displaystyle\\int_0^2 x^2\\,dx$.",
+      "choices": [
+        "$\\dfrac{8}{3}$",
+        "$\\dfrac{4}{3}$",
+        "$8$",
+        "$4$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\left[\\dfrac{x^3}{3}\\right]_0^2 = \\dfrac{8}{3} - 0 = \\dfrac{8}{3}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-integration-q6",
+      "stem": "Evaluate $\\displaystyle\\int_1^3 2x\\,dx$.",
+      "choices": [
+        "$10$",
+        "$8$",
+        "$9$",
+        "$6$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\Big[x^2\\Big]_1^3 = 9 - 1 = 8$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-integration-q7",
+      "stem": "Find $\\displaystyle\\int \\dfrac{1}{x}\\,dx$ for $x > 0$.",
+      "choices": [
+        "$\\dfrac{x^0}{0} + C$",
+        "$-\\dfrac{1}{x^2} + C$",
+        "$\\ln x + C$",
+        "$\\dfrac{1}{2}x^2 + C$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The power rule fails for $n = -1$; the antiderivative of $\\dfrac1x$ is $\\ln x + C$ (for $x > 0$).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-integration-q8",
+      "stem": "Evaluate $\\displaystyle\\int_0^{\\pi/2} \\sin x\\,dx$.",
+      "choices": [
+        "$0$",
+        "$-1$",
+        "$\\dfrac{\\pi}{2}$",
+        "$1$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\Big[-\\cos x\\Big]_0^{\\pi/2} = -\\cos\\dfrac{\\pi}{2} + \\cos 0 = 0 + 1 = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-integration-q9",
+      "stem": "Find the area under the curve $y = x^2 + 1$ between $x = 0$ and $x = 1$.",
+      "choices": [
+        "$\\dfrac{4}{3}$",
+        "$\\dfrac{1}{3}$",
+        "$1$",
+        "$\\dfrac{2}{3}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\displaystyle\\int_0^1 (x^2+1)\\,dx = \\left[\\dfrac{x^3}{3} + x\\right]_0^1 = \\dfrac13 + 1 = \\dfrac43$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-integration-q10",
+      "stem": "Find the area of the region enclosed between the curves $y = x$ and $y = x^2$.",
+      "choices": [
+        "$\\dfrac{2}{3}$",
+        "$\\dfrac{1}{6}$",
+        "$\\dfrac{1}{3}$",
+        "$\\dfrac{1}{2}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The curves meet at $x = 0$ and $x = 1$, with $y = x$ above $y = x^2$. Then $\\displaystyle\\int_0^1 (x - x^2)\\,dx = \\dfrac12 - \\dfrac13 = \\dfrac16$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-integration-q11",
+      "stem": "Evaluate $\\displaystyle\\int_{-1}^{1} x^3\\,dx$ and state the geometric area of the region between the curve and the $x$-axis from $x = -1$ to $x = 1$.",
+      "choices": [
+        "the integral is $0$ and the area is $1$",
+        "the integral is $0$ and the area is $0$",
+        "the integral is $0$ and the area is $\\dfrac12$",
+        "the integral is $\\dfrac12$ and the area is $\\dfrac12$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\left[\\dfrac{x^4}{4}\\right]_{-1}^{1} = \\dfrac14 - \\dfrac14 = 0$, because the two halves cancel. The geometric area does not cancel: each half contributes $\\dfrac14$, giving $\\dfrac12$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-integration-q12",
+      "stem": "A particle has velocity $v = 4t - 6$ and displacement $s = 5$ when $t = 1$. Find $s$ when $t = 3$.",
+      "choices": [
+        "$0$",
+        "$-9$",
+        "$18$",
+        "$9$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$s = 2t^2 - 6t + C$, and $s(1) = 2 - 6 + C = 5$ gives $C = 9$. Then $s(3) = 18 - 18 + 9 = 9$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-integration-q13",
+      "stem": "Find the area of the region enclosed between the curve $y = 4 - x^2$ and the $x$-axis.",
+      "choices": [
+        "$\\dfrac{32}{3}$",
+        "$\\dfrac{16}{3}$",
+        "$\\dfrac{8}{3}$",
+        "$16$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The curve meets the axis at $x = \\pm 2$, so the area is $\\displaystyle\\int_{-2}^{2}(4-x^2)\\,dx = \\left[4x - \\dfrac{x^3}{3}\\right]_{-2}^{2} = \\left(8 - \\dfrac83\\right) - \\left(-8 + \\dfrac83\\right) = \\dfrac{32}{3}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-integration-q14",
+      "stem": "Evaluate $\\displaystyle\\int_0^1 e^x\\,dx$, giving your answer to 3 significant figures.",
+      "choices": [
+        "$0.72$",
+        "$1.72$",
+        "$2.72$",
+        "$1.00$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\Big[e^x\\Big]_0^1 = e - 1 \\approx 1.72$ to 3 s.f.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-integration-q15",
+      "stem": "Find the area of the region between the curve $y = 6x - x^2$ and the $x$-axis.",
+      "choices": [
+        "$72$",
+        "$12$",
+        "$36$",
+        "$18$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The curve meets the axis at $x = 0$ and $x = 6$ and is above it in between. Then $\\displaystyle\\int_0^6 (6x - x^2)\\,dx = \\left[3x^2 - \\dfrac{x^3}{3}\\right]_0^6 = 108 - 72 = 36$.",
+      "difficulty": "hard"
+    }
+  ]
+}

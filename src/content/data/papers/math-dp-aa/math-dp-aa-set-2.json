@@ -1,0 +1,109 @@
+{
+  "id": "math-dp-aa-set-2",
+  "courseId": "math-dp-aa",
+  "title": "Practice Set 2",
+  "durationMinutes": 35,
+  "questions": [
+    {
+      "id": "math-dp-aa-set-2-q1",
+      "stem": "Events $A$ and $B$ are independent with $P(A) = 0.4$ and $P(B) = 0.5$. Find $P(A \\cap B)$.",
+      "marks": 1,
+      "markscheme": [
+        "B1: $P(A \\cap B) = 0.4 \\times 0.5 = 0.2$"
+      ],
+      "modelAnswer": "For independent events the probabilities multiply, so $P(A \\cap B) = P(A)P(B) = 0.4 \\times 0.5 = 0.2$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-set-2-q2",
+      "stem": "For the data $4, 7, 9, 11, 15, 18$, find the median and the interquartile range.",
+      "marks": 2,
+      "markscheme": [
+        "A1: median $= \\dfrac{9 + 11}{2} = 10$",
+        "A1: $Q_1 = 7$, $Q_3 = 15$, so IQR $= 8$"
+      ],
+      "modelAnswer": "The data are already in order and there are six values, so the median is the mean of the third and fourth: $\\dfrac{9 + 11}{2} = 10$. The lower half is $4, 7, 9$ with median 7, and the upper half is $11, 15, 18$ with median 15. Hence the interquartile range is $15 - 7 = 8$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-set-2-q3",
+      "stem": "The random variable $X$ has a binomial distribution with $n = 10$ and $p = 0.3$. Find $P(X = 0)$ to 4 decimal places.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $P(X = 0) = (1 - 0.3)^{10}$",
+        "A1: $0.7^{10} = 0.0282$ to 4 d.p."
+      ],
+      "modelAnswer": "Using $P(X = r) = \\binom{n}{r}p^r(1-p)^{n-r}$ with $r = 0$: $P(X = 0) = \\binom{10}{0}(0.3)^0(0.7)^{10} = 0.7^{10} = 0.0282475\\ldots$, which is $0.0282$ to 4 decimal places.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-set-2-q4",
+      "stem": "Solve $3^x = 20$, giving your answer to 3 significant figures.",
+      "marks": 3,
+      "markscheme": [
+        "M1: taking logarithms of both sides",
+        "A1: $x = \\dfrac{\\ln 20}{\\ln 3}$",
+        "A1: $x = 2.73$ to 3 s.f."
+      ],
+      "modelAnswer": "Take natural logarithms of both sides: $x\\ln 3 = \\ln 20$, so $x = \\dfrac{\\ln 20}{\\ln 3} = \\dfrac{2.9957\\ldots}{1.0986\\ldots} = 2.7268\\ldots$, which is $2.73$ to 3 significant figures.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-set-2-q5",
+      "stem": "Find the coefficient of $x^3$ in the expansion of $(2 + x)^5$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: identifying the term $\\binom{5}{3}2^2 x^3$",
+        "A1: coefficient $= 40$"
+      ],
+      "modelAnswer": "The term in $x^3$ takes the $x$ from three of the five brackets and the 2 from the other two, so it is $\\binom{5}{3}(2)^2 x^3 = 10 \\times 4 x^3 = 40x^3$. The coefficient is 40.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-set-2-q6",
+      "stem": "The curve has equation $y = (3x + 2)^5$. Find $\\dfrac{dy}{dx}$, and hence find the gradient of the curve at $x = 0$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: applying the chain rule, differentiating the outside and multiplying by 3",
+        "A1: $\\dfrac{dy}{dx} = 15(3x + 2)^4$",
+        "A1: gradient at $x = 0$ is $15(2)^4 = 240$"
+      ],
+      "modelAnswer": "By the chain rule, $\\dfrac{dy}{dx} = 5(3x+2)^4 \\times 3 = 15(3x+2)^4$. At $x = 0$ this is $15(2)^4 = 15 \\times 16 = 240$, so the gradient there is 240.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-set-2-q7",
+      "stem": "The random variable $X$ is normally distributed with mean 30 and variance 25. Find $P(X > 38)$ to 3 significant figures.",
+      "marks": 3,
+      "markscheme": [
+        "M1: standardising, $z = \\dfrac{38 - 30}{5}$",
+        "A1: $z = 1.6$",
+        "A1: $P(X > 38) = 0.0548$ to 3 s.f."
+      ],
+      "modelAnswer": "The variance is 25, so the standard deviation is 5. Standardising: $z = \\dfrac{38 - 30}{5} = 1.6$. Then $P(Z > 1.6) = 1 - 0.9452 = 0.0548$ to 3 significant figures.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-set-2-q8",
+      "stem": "Find the area of the region enclosed between the curves $y = x^2$ and $y = 2x$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: limits from $x^2 = 2x$, giving 0 and 2, and integrating $(2x - x^2)$",
+        "A1: area $= \\dfrac{4}{3}$"
+      ],
+      "modelAnswer": "The curves meet where $x^2 = 2x$, that is $x(x-2) = 0$, so the limits are 0 and 2. Between them $2x \\ge x^2$, so the area is $\\displaystyle\\int_0^2 (2x - x^2)\\,dx = \\left[x^2 - \\dfrac{x^3}{3}\\right]_0^2 = 4 - \\dfrac{8}{3} = \\dfrac{4}{3}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-set-2-q9",
+      "stem": "Find the unit vector in the direction of $\\mathbf{v} = (2, -2, 1)$.",
+      "marks": 2,
+      "markscheme": [
+        "A1: $|\\mathbf{v}| = \\sqrt{4 + 4 + 1} = 3$",
+        "A1: $\\hat{\\mathbf{v}} = \\left(\\dfrac23, -\\dfrac23, \\dfrac13\\right)$"
+      ],
+      "modelAnswer": "The magnitude is $|\\mathbf{v}| = \\sqrt{2^2 + (-2)^2 + 1^2} = \\sqrt9 = 3$. Dividing each component by 3 gives the unit vector $\\left(\\dfrac23, -\\dfrac23, \\dfrac13\\right)$, which has magnitude 1.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="title desc">
+  <title id="title">The scalar product of two vectors</title>
+  <desc id="desc">A pair of vectors drawn from a common origin with the angle theta between them, and a panel listing the component and geometric forms of the scalar product together with the perpendicularity, parallelism and unit-vector conditions.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 13px; fill: #111827; }
+    .small { font-size: 11px; fill: #64748b; }
+  </style>
+  <rect width="900" height="500" fill="#f8fafc" rx="12"/>
+  <text x="30" y="34" class="heading">The scalar product</text>
+  <text x="30" y="54" class="small">The dot product turns two vectors into a number, and that number carries the angle between them.</text>
+  <rect x="30" y="74" width="420" height="340" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+  <rect x="31" y="384" width="418" height="29" fill="#ffffff" stroke="none" rx="6"/>
+  <line x1="31" y1="384" x2="449" y2="384" stroke="#e2e8f0" stroke-width="1"/>
+  <clipPath id="clip1"><rect x="32" y="76" width="416" height="306" rx="5"/></clipPath>
+  <line x1="50" y1="330" x2="440" y2="330" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="90" y1="100" x2="90" y2="360" stroke="#94a3b8" stroke-width="1"/>
+  <text x="434.0" y="346.0" class="small" text-anchor="end">x</text>
+  <text x="98.0" y="114.0" class="small">y</text>
+  <line x1="90" y1="330" x2="214.0" y2="268.0" stroke="#2563eb" stroke-width="2.4" clip-path="url(#clip1)"/>
+  <line x1="214.0" y1="268.0" x2="204.4" y2="257.8" stroke="#2563eb" stroke-width="2.4" clip-path="url(#clip1)"/>
+  <line x1="214.0" y1="268.0" x2="200.1" y2="266.4" stroke="#2563eb" stroke-width="2.4" clip-path="url(#clip1)"/>
+  <text x="220.0" y="284.0" class="math" text-anchor="start">a = (2, 1)</text>
+  <line x1="90" y1="330" x2="152.0" y2="144.0" stroke="#0891b2" stroke-width="2.4" clip-path="url(#clip1)"/>
+  <line x1="152.0" y1="144.0" x2="152.4" y2="130.0" stroke="#0891b2" stroke-width="2.4" clip-path="url(#clip1)"/>
+  <line x1="152.0" y1="144.0" x2="143.3" y2="133.0" stroke="#0891b2" stroke-width="2.4" clip-path="url(#clip1)"/>
+  <text x="162.0" y="138.0" class="math" text-anchor="start">b = (1, 3)</text>
+  <path d="M 148.0 301.0 A 65 65 0 0 0 146.0 255.0" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="168.0" y="256.0" class="small" text-anchor="start">θ</text>
+  <text x="60.0" y="400.0" class="math" text-anchor="start">a · b = |a||b| cos θ  =  a₁b₁ + a₂b₂ + a₃b₃</text>
+  <text x="240.0" y="400.0" class="small" text-anchor="start"></text>
+  <text x="30.0" y="448.0" class="small" text-anchor="start">For a = (2, 1) and b = (1, 3): a · b = 2(1) + 1(3) = 5, so the angle between them is acute.</text>
+  <text x="30.0" y="470.0" class="small" text-anchor="start">The vectors are perpendicular exactly when a · b = 0, because then cos θ = 0.</text>
+  <rect x="470" y="74" width="400" height="340" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+  <text x="492.0" y="102.0" class="subhead" text-anchor="start">The rules worth memorising</text>
+  <text x="492.0" y="138.0" class="math" text-anchor="start">a · b = |a||b| cos θ</text>
+  <text x="492.0" y="163.0" class="math" text-anchor="start">a · b = a₁b₁ + a₂b₂ + a₃b₃</text>
+  <text x="492.0" y="188.0" class="math" text-anchor="start">cos θ = (a · b) / (|a||b|)</text>
+  <text x="492.0" y="238.0" class="math" text-anchor="start">perpendicular:  a · b = 0</text>
+  <text x="492.0" y="263.0" class="math" text-anchor="start">parallel:  a = k b</text>
+  <text x="492.0" y="313.0" class="math" text-anchor="start">|a| = √(a₁² + a₂² + a₃²)</text>
+  <text x="492.0" y="338.0" class="math" text-anchor="start">unit vector:  â = a / |a|</text>
+  <text x="492.0" y="388.0" class="math" text-anchor="start">midpoint of AB:  (a + b) / 2</text>
+</svg>

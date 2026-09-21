@@ -1,0 +1,322 @@
+{
+  "id": "math-dp-aa-vectors",
+  "subjectId": "math",
+  "title": "Vectors",
+  "description": "Components, magnitude, addition, the scalar product and the angle between two vectors",
+  "stage": "dp",
+  "course": "aa",
+  "level": "sl",
+  "notes": [
+    {
+      "id": "math-dp-aa-vectors-n1",
+      "heading": "Vectors, Components and Magnitude",
+      "body": "A **vector** has both magnitude and direction; a **scalar** has magnitude only. In two dimensions we write\n$$\\mathbf{a} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} = x\\mathbf{i} + y\\mathbf{j}$$\nand in three dimensions $\\mathbf{a} = (x, y, z) = x\\mathbf{i} + y\\mathbf{j} + z\\mathbf{k}$.\n\nThe **magnitude** (length) comes from Pythagoras:\n$$|\\mathbf{a}| = \\sqrt{x^2 + y^2} \\qquad |\\mathbf{a}| = \\sqrt{x^2 + y^2 + z^2}$$\n\n💡 **Worked Example** — For $\\mathbf{a} = (3, 4)$: $|\\mathbf{a}| = \\sqrt{9 + 16} = 5$. For $\\mathbf{b} = (2, -1, 2)$: $|\\mathbf{b}| = \\sqrt{4 + 1 + 4} = 3$.\n\n📌 The vector $\\overrightarrow{AB}$ is the position vector of $B$ minus the position vector of $A$: $\\overrightarrow{AB} = \\mathbf{b} - \\mathbf{a}$. Its magnitude is the distance $AB$."
+    },
+    {
+      "id": "math-dp-aa-vectors-n2",
+      "heading": "Addition, Subtraction and Scalar Multiplication",
+      "body": "Vectors combine component by component:\n$$\\begin{pmatrix} a_1 \\\\ a_2 \\end{pmatrix} + \\begin{pmatrix} b_1 \\\\ b_2 \\end{pmatrix} = \\begin{pmatrix} a_1 + b_1 \\\\ a_2 + b_2 \\end{pmatrix} \\qquad k\\begin{pmatrix} a_1 \\\\ a_2 \\end{pmatrix} = \\begin{pmatrix} ka_1 \\\\ ka_2 \\end{pmatrix}$$\n\nGeometrically, $\\mathbf{a} + \\mathbf{b}$ is the diagonal of the parallelogram with sides $\\mathbf{a}$ and $\\mathbf{b}$ (the tip-to-tail rule), and $-\\mathbf{a}$ points in the opposite direction with the same length.\n\n💡 **Worked Example** — With $\\mathbf{a} = (1, 2)$ and $\\mathbf{b} = (2, -1)$:\n$$3\\mathbf{a} - 2\\mathbf{b} = (3, 6) - (4, -2) = (-1, 8)$$\nCheck the magnitude: $|3\\mathbf{a} - 2\\mathbf{b}| = \\sqrt{1 + 64} = \\sqrt{65}$.\n\n📌 Multiplication by a positive scalar $k$ multiplies the length by $k$ and leaves the direction unchanged; a negative $k$ reverses the direction."
+    },
+    {
+      "id": "math-dp-aa-vectors-n3",
+      "heading": "The Scalar Product",
+      "body": "The **scalar product** (dot product) of two vectors is a number, defined in two equivalent ways:\n$$\\mathbf{a} \\cdot \\mathbf{b} = |\\mathbf{a}|\\,|\\mathbf{b}|\\cos\\theta = a_1b_1 + a_2b_2 + a_3b_3$$\nwhere $\\theta$ is the angle between the vectors when placed tail to tail.\n\nThe component form is the one you use in calculations; the geometric form is the one you use to talk about angles.\n\n💡 **Worked Example** — With $\\mathbf{a} = (2, 1)$ and $\\mathbf{b} = (-1, 3)$:\n$$\\mathbf{a} \\cdot \\mathbf{b} = (2)(-1) + (1)(3) = -2 + 3 = 1$$\nIn three dimensions, $(1, 2, 2) \\cdot (3, 0, -1) = 3 + 0 - 2 = 1$.\n\n⚠️ **Common mistake** — Multiplying the magnitudes by the components, or forgetting that the result is a scalar, not a vector.",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-vectors-scalar-product.svg",
+        "alt": "Two vectors drawn from a common origin with the angle theta between them and their components labelled, beside a panel of scalar product, perpendicularity, parallelism and unit vector rules.",
+        "caption": "One number carries the angle: a · b = |a||b| cos θ and a · b = a₁b₁ + a₂b₂ + a₃b₃ say the same thing."
+      }
+    },
+    {
+      "id": "math-dp-aa-vectors-n4",
+      "heading": "The Angle Between Two Vectors",
+      "body": "Rearranging the scalar product gives the angle formula, which is on the formula booklet:\n$$\\cos\\theta = \\dfrac{\\mathbf{a} \\cdot \\mathbf{b}}{|\\mathbf{a}|\\,|\\mathbf{b}|}$$\n\n💡 **Worked Example** — Find the angle between $\\mathbf{a} = (1, 0)$ and $\\mathbf{b} = (1, 1)$.\n$$\\mathbf{a} \\cdot \\mathbf{b} = 1 \\qquad |\\mathbf{a}| = 1 \\qquad |\\mathbf{b}| = \\sqrt2$$\n$$\\cos\\theta = \\dfrac{1}{1 \\times \\sqrt2} = \\dfrac{1}{\\sqrt2} \\;\\Longrightarrow\\; \\theta = 45^\\circ$$\n\n💡 **A three-dimensional case** — For $\\mathbf{a} = (1, 2, 2)$ and $\\mathbf{b} = (2, -1, 0)$: $\\mathbf{a} \\cdot \\mathbf{b} = 2 - 2 + 0 = 0$, so the vectors are perpendicular and $\\theta = 90^\\circ$.\n\n📌 The angle is always between $0^\\circ$ and $180^\\circ$. If $\\cos\\theta$ comes out negative, the angle is obtuse — do not simply drop the sign."
+    },
+    {
+      "id": "math-dp-aa-vectors-n5",
+      "heading": "Perpendicular and Parallel Vectors",
+      "body": "Two facts cover almost every exam question about positions:\n\n• $\\mathbf{a}$ and $\\mathbf{b}$ are **perpendicular** exactly when $\\mathbf{a} \\cdot \\mathbf{b} = 0$.\n• $\\mathbf{a}$ and $\\mathbf{b}$ are **parallel** exactly when $\\mathbf{a} = k\\mathbf{b}$ for some scalar $k$.\n\n💡 **Worked Example (perpendicularity)** — Find $p$ so that $\\mathbf{a} = (2, 1, -1)$ and $\\mathbf{b} = (1, p, 3)$ are perpendicular.\n$$\\mathbf{a} \\cdot \\mathbf{b} = 2 + p - 3 = p - 1 = 0 \\;\\Longrightarrow\\; p = 1$$\n\n💡 **Worked Example (parallelism)** — $(4, -6)$ and $(6, -9)$ are parallel because $(4, -6) = \\dfrac{2}{3}(6, -9)$.\n\n⚠️ **Common mistake** — Testing parallelism with the dot product. A zero dot product means perpendicular, never parallel (only a zero vector is both, and that is a degenerate case)."
+    },
+    {
+      "id": "math-dp-aa-vectors-n6",
+      "heading": "Unit Vectors",
+      "body": "A **unit vector** has magnitude 1. The unit vector in the direction of $\\mathbf{a}$ is\n$$\\hat{\\mathbf{a}} = \\dfrac{\\mathbf{a}}{|\\mathbf{a}|}$$\nFind the magnitude, then divide each component by it. The symbols $\\mathbf{i}$, $\\mathbf{j}$, $\\mathbf{k}$ are the unit vectors along the coordinate axes.\n\n💡 **Worked Example** — Find the unit vector in the direction of $\\mathbf{a} = (1, 2, 2)$.\n$$|\\mathbf{a}| = \\sqrt{1 + 4 + 4} = 3 \\;\\Longrightarrow\\; \\hat{\\mathbf{a}} = \\left(\\dfrac{1}{3}, \\dfrac{2}{3}, \\dfrac{2}{3}\\right)$$\nCheck: $\\left(\\dfrac{1}{3}\\right)^2 + \\left(\\dfrac{2}{3}\\right)^2 + \\left(\\dfrac{2}{3}\\right)^2 = \\dfrac{1 + 4 + 4}{9} = 1$ ✓\n\n📌 Every vector can be written as magnitude times a unit vector: $\\mathbf{a} = |\\mathbf{a}|\\,\\hat{\\mathbf{a}}$. This is the standard way to answer \"find a vector of length 10 in the direction of $\\mathbf{a}$\"."
+    },
+    {
+      "id": "math-dp-aa-vectors-n7",
+      "heading": "Vector Geometry and Exam Technique",
+      "body": "Many geometry facts become one-line vector statements:\n\n• **Midpoint** of $A$ and $B$: $\\dfrac{\\mathbf{a} + \\mathbf{b}}{2}$.\n• **Distance** between two points: $|\\mathbf{b} - \\mathbf{a}|$.\n• **Collinear** points: $\\overrightarrow{AB} = k\\,\\overrightarrow{BC}$ for some scalar $k$.\n\n💡 **Worked Example** — $A$ is $(1, 2, 3)$ and $B$ is $(5, -2, 1)$. Find $\\overrightarrow{AB}$ and the position vector of the midpoint of $AB$.\n$$\\overrightarrow{AB} = (5 - 1, -2 - 2, 1 - 3) = (4, -4, -2)$$\n$$\\text{midpoint} = \\dfrac{1}{2}\\big[(1,2,3) + (5,-2,1)\\big] = (3, 0, 2)$$\nAlso $AB = \\sqrt{16 + 16 + 4} = 6$.\n\n**Exam technique**\n• Set out vectors in column or bracket notation with the components aligned; arithmetic slips dominate lost marks here.\n• State the formula you are using before substituting, especially $\\cos\\theta = \\dfrac{\\mathbf{a}\\cdot\\mathbf{b}}{|\\mathbf{a}||\\mathbf{b}|}$.\n• If a question asks for an angle, give the answer in degrees or radians as requested, to the accuracy asked for.\n• When a component is unknown, use the given condition — perpendicularity, parallelism or a stated magnitude — to build one equation."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-aa-vectors-f1",
+      "term": "Magnitude of a 2D vector",
+      "definition": "$\\sqrt{x^2 + y^2}$",
+      "example": "$(3,4)$ has magnitude 5"
+    },
+    {
+      "id": "math-dp-aa-vectors-f2",
+      "term": "Magnitude in 3D",
+      "definition": "$\\sqrt{x^2 + y^2 + z^2}$",
+      "example": "$(2,-1,2)$ has magnitude 3"
+    },
+    {
+      "id": "math-dp-aa-vectors-f3",
+      "term": "$\\overrightarrow{AB}$",
+      "definition": "The position vector of $B$ minus that of $A$",
+      "example": "$A(1,2,3)$, $B(5,-2,1)$ gives $(4,-4,-2)$"
+    },
+    {
+      "id": "math-dp-aa-vectors-f4",
+      "term": "Multiplying by a scalar",
+      "definition": "Multiplies the length by $|k|$; negative $k$ reverses direction",
+      "example": "$-\\mathbf{a}$ points the opposite way"
+    },
+    {
+      "id": "math-dp-aa-vectors-f5",
+      "term": "Scalar product (components)",
+      "definition": "$\\mathbf{a}\\cdot\\mathbf{b} = a_1b_1 + a_2b_2 + a_3b_3$",
+      "example": "$(2,1)\\cdot(-1,3) = 1$"
+    },
+    {
+      "id": "math-dp-aa-vectors-f6",
+      "term": "Scalar product (geometry)",
+      "definition": "$\\mathbf{a}\\cdot\\mathbf{b} = |\\mathbf{a}||\\mathbf{b}|\\cos\\theta$",
+      "example": "perpendicular vectors give 0"
+    },
+    {
+      "id": "math-dp-aa-vectors-f7",
+      "term": "Angle between two vectors",
+      "definition": "$\\cos\\theta = \\dfrac{\\mathbf{a}\\cdot\\mathbf{b}}{|\\mathbf{a}||\\mathbf{b}|}$",
+      "example": "$(1,0)$ and $(1,1)$ give $45^\\circ$"
+    },
+    {
+      "id": "math-dp-aa-vectors-f8",
+      "term": "Perpendicular condition",
+      "definition": "$\\mathbf{a}\\cdot\\mathbf{b} = 0$",
+      "example": "$(2,3)$ and $(3,-2)$"
+    },
+    {
+      "id": "math-dp-aa-vectors-f9",
+      "term": "Parallel condition",
+      "definition": "$\\mathbf{a} = k\\mathbf{b}$ for some scalar $k$",
+      "example": "$(4,-6)$ and $(6,-9)$"
+    },
+    {
+      "id": "math-dp-aa-vectors-f10",
+      "term": "Unit vector",
+      "definition": "$\\hat{\\mathbf{a}} = \\dfrac{\\mathbf{a}}{|\\mathbf{a}|}$",
+      "example": "$(1,2,2)$ gives $(\\frac13,\\frac23,\\frac23)$"
+    },
+    {
+      "id": "math-dp-aa-vectors-f11",
+      "term": "Midpoint of $A$ and $B$",
+      "definition": "$\\dfrac{\\mathbf{a} + \\mathbf{b}}{2}$",
+      "example": "$(1,2,3)$ and $(5,-2,1)$ give $(3,0,2)$"
+    },
+    {
+      "id": "math-dp-aa-vectors-f12",
+      "term": "Collinear points",
+      "definition": "$\\overrightarrow{AB}$ is a scalar multiple of $\\overrightarrow{BC}$",
+      "example": "$\\overrightarrow{AB} = 2\\,\\overrightarrow{BC}$"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-aa-vectors-q1",
+      "stem": "Find the magnitude of the vector $\\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$.",
+      "choices": [
+        "$5$",
+        "$7$",
+        "$25$",
+        "$\\sqrt7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$|\\mathbf{a}| = \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-vectors-q2",
+      "stem": "Given $\\mathbf{a} = (1, 2)$ and $\\mathbf{b} = (3, -1)$, find $\\mathbf{a} + \\mathbf{b}$.",
+      "choices": [
+        "$(2, -3)$",
+        "$(4, 1)$",
+        "$(3, 2)$",
+        "$(4, 3)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Add component by component: $(1 + 3, 2 + (-1)) = (4, 1)$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-vectors-q3",
+      "stem": "Which pair of vectors is perpendicular?",
+      "choices": [
+        "$(3, 2)$ and $(2, 3)$",
+        "$(1, 1)$ and $(1, 1)$",
+        "$(2, 3)$ and $(3, -2)$",
+        "$(2, 1)$ and $(1, 2)$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Only $(2, 3) \\cdot (3, -2) = 6 - 6 = 0$. The other pairs have non-zero scalar products, so they are not perpendicular.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-vectors-q4",
+      "stem": "Find the unit vector in the direction of $(0, 5)$.",
+      "choices": [
+        "$(0, 5)$",
+        "$(1, 0)$",
+        "$(5, 0)$",
+        "$(0, 1)$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The magnitude is 5, so dividing gives $\\left(\\dfrac{0}{5}, \\dfrac{5}{5}\\right) = (0, 1)$, which has magnitude 1.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-vectors-q5",
+      "stem": "Find the magnitude of $(2, -1, 2)$.",
+      "choices": [
+        "$3$",
+        "$5$",
+        "$9$",
+        "$\\sqrt5$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$|\\mathbf{a}| = \\sqrt{4 + 1 + 4} = \\sqrt9 = 3$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-vectors-q6",
+      "stem": "Given $\\mathbf{a} = (2, 1)$ and $\\mathbf{b} = (-1, 3)$, find $\\mathbf{a} \\cdot \\mathbf{b}$.",
+      "choices": [
+        "$7$",
+        "$1$",
+        "$5$",
+        "$-1$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\mathbf{a} \\cdot \\mathbf{b} = (2)(-1) + (1)(3) = -2 + 3 = 1$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-vectors-q7",
+      "stem": "Given $\\mathbf{a} = (1, 2)$ and $\\mathbf{b} = (2, -1)$, find $3\\mathbf{a} - 2\\mathbf{b}$.",
+      "choices": [
+        "$(7, 4)$",
+        "$(-1, 4)$",
+        "$(-1, 8)$",
+        "$(1, -8)$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$3\\mathbf{a} = (3, 6)$ and $2\\mathbf{b} = (4, -2)$, so $3\\mathbf{a} - 2\\mathbf{b} = (3 - 4, 6 + 2) = (-1, 8)$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-vectors-q8",
+      "stem": "Find the angle between the vectors $(1, 0)$ and $(1, 1)$.",
+      "choices": [
+        "$60^\\circ$",
+        "$90^\\circ$",
+        "$30^\\circ$",
+        "$45^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\cos\\theta = \\dfrac{1}{1 \\times \\sqrt2} = \\dfrac{1}{\\sqrt2}$, so $\\theta = 45^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-vectors-q9",
+      "stem": "Find the value of $k$ for which the vectors $(2, k)$ and $(3, -1)$ are perpendicular.",
+      "choices": [
+        "$6$",
+        "$-2$",
+        "$-6$",
+        "$2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Perpendicular means the scalar product is zero: $6 - k = 0$, so $k = 6$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-vectors-q10",
+      "stem": "Find the unit vector in the direction of $(1, 2, 2)$.",
+      "choices": [
+        "$\\left(\\dfrac23, \\dfrac13, \\dfrac23\\right)$",
+        "$\\left(\\dfrac13, \\dfrac23, \\dfrac23\\right)$",
+        "$\\left(\\dfrac15, \\dfrac25, \\dfrac25\\right)$",
+        "$\\dfrac19(1, 2, 2)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The magnitude is $\\sqrt{1 + 4 + 4} = 3$, so the unit vector is $\\left(\\dfrac13, \\dfrac23, \\dfrac23\\right)$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-vectors-q11",
+      "stem": "For $\\mathbf{a} = (1, 2)$ and $\\mathbf{b} = (3, -1)$, find $\\cos\\theta$ where $\\theta$ is the angle between them.",
+      "choices": [
+        "$\\dfrac{1}{\\sqrt5}$",
+        "$\\dfrac{1}{5}$",
+        "$\\dfrac{1}{\\sqrt{50}}$",
+        "$\\dfrac{1}{\\sqrt{10}}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\mathbf{a} \\cdot \\mathbf{b} = 3 - 2 = 1$, $|\\mathbf{a}| = \\sqrt5$ and $|\\mathbf{b}| = \\sqrt{10}$, so $\\cos\\theta = \\dfrac{1}{\\sqrt5\\sqrt{10}} = \\dfrac{1}{\\sqrt{50}}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-vectors-q12",
+      "stem": "Find the value of $p$ for which $(2, 1, -1)$ and $(1, p, 3)$ are perpendicular.",
+      "choices": [
+        "$-5$",
+        "$-1$",
+        "$5$",
+        "$1$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The scalar product must be zero: $2(1) + 1(p) + (-1)(3) = p - 1 = 0$, so $p = 1$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-vectors-q13",
+      "stem": "The vector $(3, k, 0)$ has magnitude 5. Find all possible values of $k$.",
+      "choices": [
+        "$k = \\pm 4$",
+        "$k = 4$",
+        "$k = \\pm 16$",
+        "$k = \\pm 5$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$9 + k^2 = 25$, so $k^2 = 16$ and $k = \\pm 4$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-vectors-q14",
+      "stem": "The points $A$ and $B$ have position vectors $(1, 2, 3)$ and $(5, -2, 1)$. Find the position vector of the midpoint of $AB$.",
+      "choices": [
+        "$(4, -4, -2)$",
+        "$(3, 0, 2)$",
+        "$(6, 0, 4)$",
+        "$(2, -2, -1)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The midpoint is $\\dfrac{1}{2}\\big[(1,2,3) + (5,-2,1)\\big] = \\dfrac{1}{2}(6, 0, 4) = (3, 0, 2)$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-vectors-q15",
+      "stem": "Given $\\mathbf{a} = (2, -1)$, find $|2\\mathbf{a}|$.",
+      "choices": [
+        "$4\\sqrt5$",
+        "$10$",
+        "$2\\sqrt5$",
+        "$\\sqrt5$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$|\\mathbf{a}| = \\sqrt{4 + 1} = \\sqrt5$, and multiplying a vector by 2 doubles its length, so $|2\\mathbf{a}| = 2\\sqrt5$.",
+      "difficulty": "hard"
+    }
+  ]
+}

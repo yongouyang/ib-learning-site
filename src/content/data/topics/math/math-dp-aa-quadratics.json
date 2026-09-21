@@ -1,0 +1,323 @@
+{
+  "id": "math-dp-aa-quadratics",
+  "subjectId": "math",
+  "title": "Quadratic Functions and Equations",
+  "description": "The discriminant, completing the square, roots, quadratic inequalities and optimisation",
+  "stage": "dp",
+  "course": "aa",
+  "level": "sl",
+  "notes": [
+    {
+      "id": "math-dp-aa-quadratics-n1",
+      "heading": "The Discriminant",
+      "body": "For the quadratic equation $ax^2 + bx + c = 0$ the **discriminant** is\n$$\\Delta = b^2 - 4ac$$\nIt is the part of the quadratic formula that sits under the square root, so its sign decides how many real roots there are.\n\n• $\\Delta > 0$ — two distinct real roots.\n• $\\Delta = 0$ — one repeated real root (the graph touches the $x$-axis).\n• $\\Delta < 0$ — no real roots (the graph never meets the $x$-axis).\n\n💡 **Worked Example** — $x^2 - 4x + 1 = 0$ has $\\Delta = 16 - 4 = 12 > 0$, so there are two distinct real roots, $x = 2 \\pm \\sqrt{3}$.\n\n📌 $\\Delta$ is the **discriminant of an equation**, so the equation must be written with everything on one side first: for $x^2 = 3x + 5$ use $x^2 - 3x - 5 = 0$.",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-quadratics-discriminant-cases.svg",
+        "alt": "Three parabolas against the x-axis: x² − 4 cutting it twice, x² touching it once at the origin, and x² + 4 sitting clear above it.",
+        "caption": "Two crossings, one touch, no touch — the vertex in relation to the x-axis is what the discriminant is measuring."
+      }
+    },
+    {
+      "id": "math-dp-aa-quadratics-n2",
+      "heading": "Completing the Square and the Vertex",
+      "body": "Writing $y = ax^2 + bx + c$ in the form\n$$y = a(x-h)^2 + k$$\nshows the **vertex** $(h, k)$ directly. The axis of symmetry is $x = h$.\n\nFor $a = 1$: halve the coefficient of $x$, then subtract its square. For $a \\ne 1$: take the $a$ out of the first two terms first.\n\n💡 **Worked Example** — $y = x^2 - 6x + 11$.\n$$x^2 - 6x + 11 = (x-3)^2 - 9 + 11 = (x-3)^2 + 2$$\nso the vertex is $(3, 2)$ and the minimum value of $y$ is 2.\n\n💡 **Worked Example with a leading coefficient** — $y = 2x^2 + 8x + 5 = 2(x^2 + 4x) + 5 = 2\\big[(x+2)^2 - 4\\big] + 5 = 2(x+2)^2 - 3$, so the vertex is $(-2, -3)$.\n\n⚠️ **Common mistake** — Subtracting $\\dfrac{b^2}{4a}$ but forgetting to multiply it by $a$ when the bracket is expanded. Working inside the bracket, as above, avoids the error."
+    },
+    {
+      "id": "math-dp-aa-quadratics-n3",
+      "heading": "Finding the Roots",
+      "body": "Three routes, in order of speed:\n\n• **Factorising** — best when the roots are integers, e.g. $x^2 - 5x + 6 = (x-2)(x-3)$.\n• **The quadratic formula** — always works:\n$$x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$\n• **Completing the square** — quickest when the answer is a surd and the coefficients are simple.\n\n💡 **Worked Example** — Solve $2x^2 - 4x - 1 = 0$. Then $a = 2$, $b = -4$, $c = -1$ and $\\Delta = 16 + 8 = 24$:\n$$x = \\dfrac{4 \\pm \\sqrt{24}}{4} = \\dfrac{4 \\pm 2\\sqrt{6}}{4} = 1 \\pm \\dfrac{\\sqrt{6}}{2}$$\n\nThe **sum** of the roots is $-\\dfrac{b}{a}$ and the **product** is $\\dfrac{c}{a}$ — often quicker than finding the roots themselves.\n\n📌 Give exact answers (surd form) unless the question asks for a given number of decimal places."
+    },
+    {
+      "id": "math-dp-aa-quadratics-n4",
+      "heading": "Quadratic Inequalities",
+      "body": "To solve $ax^2 + bx + c > 0$ or $< 0$: find the roots, then **sketch** the parabola and read off where it is above or below the $x$-axis.\n\nFor $a > 0$ (an upward parabola):\n• $> 0$ outside the roots: $x < \\alpha$ or $x > \\beta$.\n• $< 0$ between the roots: $\\alpha < x < \\beta$.\n\n💡 **Worked Example** — Solve $x^2 - x - 6 > 0$.\nFactorising gives $(x-3)(x+2) > 0$, so the roots are $-2$ and $3$. The parabola opens upwards, so it is above the axis outside the roots:\n$$x < -2 \\quad \\text{or} \\quad x > 3$$\n\n⚠️ **Common mistake** — Writing the answer as $-2 > x > 3$, which is empty, or copying the \"between the roots\" answer when the inequality sign asks for outside. Sketching takes five seconds and removes the ambiguity.\n\n📌 If $a < 0$, multiply through by $-1$ and **reverse the inequality sign**, or sketch the downward parabola."
+    },
+    {
+      "id": "math-dp-aa-quadratics-n5",
+      "heading": "Using the Discriminant as a Condition",
+      "body": "Many exam questions hand you a property (equal roots, tangency, no real roots) and ask for an unknown constant. The method is always the same: form a quadratic, then impose the right condition on $\\Delta$.\n\n💡 **Worked Example** — Find $k$ so that $x^2 + kx + 9 = 0$ has equal roots.\n$$\\Delta = k^2 - 36 = 0 \\;\\Longrightarrow\\; k = \\pm 6$$\n\n💡 **Tangency** — Find $c$ so that $y = 3x + c$ is tangent to $y = x^2 + x + 5$.\nSetting the two expressions equal: $x^2 + x + 5 = 3x + c$, so $x^2 - 2x + (5 - c) = 0$. Tangency means exactly one intersection, so $\\Delta = 0$:\n$$4 - 4(5 - c) = 0 \\;\\Longrightarrow\\; c = 4$$\n\n⚠️ **Common mistake** — Forgetting that $k = \\pm 6$ is two answers; a square root of a positive number is never one-signed."
+    },
+    {
+      "id": "math-dp-aa-quadratics-n6",
+      "heading": "Graph Features and Symmetry",
+      "body": "Every parabola is symmetric about the vertical line through its vertex. If the roots are $p$ and $q$, then the axis of symmetry is\n$$x = \\dfrac{p + q}{2}$$\nwhich is also the average of any two points with the same $y$-coordinate.\n\n**Sketching checklist** — the sign of $a$ (upward if $a > 0$, downward if $a < 0$); the $y$-intercept at $(0, c)$; the roots from $y = a(x-p)(x-q)$; and the vertex, which sits at the midpoint of the roots.\n\n💡 **Worked Example** — For $y = x^2 - 8x + 12$ the roots are 2 and 6, so the axis of symmetry is $x = 4$ and the vertex is $(4, 16 - 32 + 12) = (4, -4)$.\n\n🔑 Symmetry in symbols: $f(h + t) = f(h - t)$ for every $t$, where $h$ is the $x$-coordinate of the vertex. That identity is the quickest proof that a curve is symmetric about $x = h$."
+    },
+    {
+      "id": "math-dp-aa-quadratics-n7",
+      "heading": "Quadratic Optimisation and Exam Technique",
+      "body": "A quadratic has a single maximum or minimum, at its vertex — which is why quadratic models answer \"largest area\" and \"greatest profit\" questions.\n\n💡 **Worked Example** — A rectangle has perimeter 24 cm. Find the maximum area.\nLet one side be $x$; the other is $12 - x$. Then\n$$A = x(12 - x) = -(x - 6)^2 + 36$$\nso the largest possible area is 36 cm², when the rectangle is a 6 cm by 6 cm square.\n\n**Exam technique**\n• Build the expression in one variable before optimising; write down what the other variable is in terms of it.\n• Complete the square or use $x = -\\dfrac{b}{2a}$ to locate the vertex, then substitute to find the extreme value.\n• Answer the question that was asked: the value of $x$ *and* the maximum, if both are wanted.\n\n⚠️ **Common mistakes** — Giving the $x$-coordinate of the vertex as the maximum value; ignoring a practical restriction such as a positive side length; and rounding an exact surd value too early."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-aa-quadratics-f1",
+      "term": "Discriminant",
+      "definition": "$\\Delta = b^2 - 4ac$ for $ax^2 + bx + c = 0$",
+      "example": "$x^2+5x+1$ has $\\Delta = 21$"
+    },
+    {
+      "id": "math-dp-aa-quadratics-f2",
+      "term": "$\\Delta > 0$",
+      "definition": "Two distinct real roots",
+      "example": "$(x-1)(x-3) = 0$"
+    },
+    {
+      "id": "math-dp-aa-quadratics-f3",
+      "term": "$\\Delta = 0$",
+      "definition": "One repeated real root; the curve touches the $x$-axis",
+      "example": "$(x-2)^2 = 0$"
+    },
+    {
+      "id": "math-dp-aa-quadratics-f4",
+      "term": "$\\Delta < 0$",
+      "definition": "No real roots; the curve never meets the $x$-axis",
+      "example": "$x^2 + x + 1 = 0$"
+    },
+    {
+      "id": "math-dp-aa-quadratics-f5",
+      "term": "Quadratic formula",
+      "definition": "$x = \\dfrac{-b \\pm \\sqrt{b^2-4ac}}{2a}$",
+      "example": "$2x^2-4x-1=0$ gives $1 \\pm \\dfrac{\\sqrt6}{2}$"
+    },
+    {
+      "id": "math-dp-aa-quadratics-f6",
+      "term": "Vertex form",
+      "definition": "$y = a(x-h)^2 + k$ has vertex $(h, k)$",
+      "example": "$(x-3)^2+2$ has vertex $(3,2)$"
+    },
+    {
+      "id": "math-dp-aa-quadratics-f7",
+      "term": "Axis of symmetry",
+      "definition": "The vertical line through the vertex, $x = h$",
+      "example": "roots 2 and 6 give $x = 4$"
+    },
+    {
+      "id": "math-dp-aa-quadratics-f8",
+      "term": "Axis of symmetry from the roots",
+      "definition": "$x = \\dfrac{p+q}{2}$ for roots $p$ and $q$",
+      "example": "$x^2-8x+12$ has axis $x=4$"
+    },
+    {
+      "id": "math-dp-aa-quadratics-f9",
+      "term": "Sum of the roots",
+      "definition": "$-\\dfrac{b}{a}$",
+      "example": "$3x^2-12x+7$ has sum 4"
+    },
+    {
+      "id": "math-dp-aa-quadratics-f10",
+      "term": "Product of the roots",
+      "definition": "$\\dfrac{c}{a}$",
+      "example": "$2x^2+5x-3$ has product $-3/2$"
+    },
+    {
+      "id": "math-dp-aa-quadratics-f11",
+      "term": "$x^2 - x - 6 > 0$",
+      "definition": "Upward parabola, so the solution is outside the roots",
+      "example": "$x < -2$ or $x > 3$"
+    },
+    {
+      "id": "math-dp-aa-quadratics-f12",
+      "term": "Tangency condition",
+      "definition": "A line touches a curve when substituting leaves $\\Delta = 0$",
+      "example": "$y = 3x+c$ tangent to $y=x^2+x+5$ gives $c=4$"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-aa-quadratics-q1",
+      "stem": "Find the discriminant of $x^2 + 5x + 1 = 0$.",
+      "choices": [
+        "$21$",
+        "$29$",
+        "$17$",
+        "$-21$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\Delta = b^2 - 4ac = 25 - 4(1)(1) = 21$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q2",
+      "stem": "A quadratic equation has discriminant $\\Delta < 0$. How many real roots does it have?",
+      "choices": [
+        "one repeated real root",
+        "none",
+        "three",
+        "two distinct real roots"
+      ],
+      "correctIndex": 1,
+      "explanation": "A negative discriminant makes the square root in the quadratic formula undefined over the reals, so the equation has no real roots.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q3",
+      "stem": "State the vertex of the graph of $y = (x-3)^2 + 4$.",
+      "choices": [
+        "$(3, -4)$",
+        "$(4, 3)$",
+        "$(3, 4)$",
+        "$(-3, 4)$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vertex form $y = (x-h)^2 + k$ has vertex $(h, k)$, so here it is $(3, 4)$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q4",
+      "stem": "Find the axis of symmetry of the graph of $y = x^2 - 8x + 1$.",
+      "choices": [
+        "$x = -4$",
+        "$x = 8$",
+        "$x = 2$",
+        "$x = 4$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Completing the square gives $y = (x-4)^2 - 15$, so the axis of symmetry is $x = 4$. The formula $x = -\\dfrac{b}{2a} = \\dfrac{8}{2}$ gives the same value.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q5",
+      "stem": "Solve $x^2 - 5x + 6 = 0$.",
+      "choices": [
+        "$x = 2$ or $x = 3$",
+        "$x = -2$ or $x = -3$",
+        "$x = 1$ or $x = 6$",
+        "$x = -1$ or $x = -6$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Factorising gives $(x-2)(x-3) = 0$, so $x = 2$ or $x = 3$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q6",
+      "stem": "How many real roots does $2x^2 - 4x + 3 = 0$ have?",
+      "choices": [
+        "infinitely many roots",
+        "no real roots",
+        "two distinct real roots",
+        "one repeated real root"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\Delta = (-4)^2 - 4(2)(3) = 16 - 24 = -8 < 0$, so the equation has no real roots.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q7",
+      "stem": "Write $x^2 + 6x + 2$ in the form $(x+p)^2 + q$.",
+      "choices": [
+        "$(x+3)^2 - 11$",
+        "$(x+3)^2 + 2$",
+        "$(x+3)^2 - 7$",
+        "$(x+6)^2 - 34$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$(x+3)^2 = x^2 + 6x + 9$, so $x^2 + 6x + 2 = (x+3)^2 - 9 + 2 = (x+3)^2 - 7$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q8",
+      "stem": "Find the sum of the roots of $3x^2 - 12x + 7 = 0$.",
+      "choices": [
+        "$\\dfrac{7}{3}$",
+        "$12$",
+        "$-4$",
+        "$4$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The sum of the roots is $-\\dfrac{b}{a} = -\\dfrac{-12}{3} = 4$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q9",
+      "stem": "Solve the inequality $x^2 - 4x - 5 < 0$.",
+      "choices": [
+        "$-1 < x < 5$",
+        "$-5 < x < 1$",
+        "$x < -1$ or $x > 5$",
+        "$x < 5$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$(x-5)(x+1) < 0$ has roots $-1$ and 5. The parabola opens upwards, so it is below the $x$-axis between the roots: $-1 < x < 5$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q10",
+      "stem": "Find all values of $k$ for which $x^2 + kx + 16 = 0$ has equal roots.",
+      "choices": [
+        "$k = \\pm 16$",
+        "$k = \\pm 8$",
+        "$k = \\pm 4$",
+        "$k = 8$ only"
+      ],
+      "correctIndex": 1,
+      "explanation": "Equal roots need $\\Delta = k^2 - 64 = 0$, so $k^2 = 64$ and $k = \\pm 8$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q11",
+      "stem": "Find the minimum value of $2x^2 - 8x + 11$.",
+      "choices": [
+        "$5$",
+        "$11$",
+        "$3$",
+        "$-3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Completing the square: $2x^2 - 8x + 11 = 2(x-2)^2 + 3$. Since a square is never negative, the minimum is 3 (at $x = 2$).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q12",
+      "stem": "The line $y = 3x + c$ is tangent to the curve $y = x^2 + x + 5$. Find $c$.",
+      "choices": [
+        "$9$",
+        "$1$",
+        "$5$",
+        "$4$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Equating gives $x^2 + x + 5 = 3x + c$, so $x^2 - 2x + (5 - c) = 0$. Tangency means one repeated root, so $\\Delta = 4 - 4(5-c) = 0$, giving $4c = 16$ and $c = 4$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q13",
+      "stem": "Find the product of the roots of $2x^2 + 5x - 3 = 0$.",
+      "choices": [
+        "$-\\dfrac{3}{2}$",
+        "$\\dfrac{5}{2}$",
+        "$-\\dfrac{5}{2}$",
+        "$-3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The product of the roots is $\\dfrac{c}{a} = \\dfrac{-3}{2} = -\\dfrac{3}{2}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-quadratics-q14",
+      "stem": "A rectangle has perimeter 24 cm. Find the largest possible area of the rectangle.",
+      "choices": [
+        "$24 \\text{ cm}^2$",
+        "$36 \\text{ cm}^2$",
+        "$72 \\text{ cm}^2$",
+        "$144 \\text{ cm}^2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "If one side is $x$ cm the other is $(12 - x)$ cm, so $A = x(12-x) = -(x-6)^2 + 36$. The maximum area is $36 \\text{ cm}^2$, when the rectangle is a square of side 6 cm.",
+      "difficulty": "hard",
+      "calculator": true
+    },
+    {
+      "id": "math-dp-aa-quadratics-q15",
+      "stem": "Find the values of $k$ for which $x^2 + 2x + (3 - k) = 0$ has two distinct real roots.",
+      "choices": [
+        "$k \\ge 2$",
+        "$k < 2$",
+        "$k > 2$",
+        "$k > -2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Two distinct roots need $\\Delta > 0$: $4 - 4(3-k) = 4 - 12 + 4k = 4k - 8 > 0$, so $k > 2$.",
+      "difficulty": "hard"
+    }
+  ]
+}

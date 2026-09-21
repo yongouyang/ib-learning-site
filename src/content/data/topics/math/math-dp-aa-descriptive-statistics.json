@@ -1,0 +1,322 @@
+{
+  "id": "math-dp-aa-descriptive-statistics",
+  "subjectId": "math",
+  "title": "Descriptive Statistics",
+  "description": "Mean, median, quartiles, the interquartile range, standard deviation and comparing distributions",
+  "stage": "dp",
+  "course": "aa",
+  "level": "sl",
+  "notes": [
+    {
+      "id": "math-dp-aa-descriptive-statistics-n1",
+      "heading": "Measures of Central Tendency",
+      "body": "Three numbers summarise the centre of a data set:\n\n• **Mean** — the arithmetic average, $\\bar{x} = \\dfrac{\\sum x}{n}$, where $n$ is the number of values.\n• **Median** — the middle value once the data are in order (the average of the two middle values if $n$ is even).\n• **Mode** — the most frequent value; a set can have several modes or none.\n\n💡 **Worked Example** — For $3, 7, 9, 11, 15$: the mean is $\\dfrac{45}{5} = 9$ and the median is also 9.\n\n🔑 The mean uses every value, so a single **outlier** drags it; the median depends only on position and is barely affected. That difference decides which measure to quote when a distribution is skewed."
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-n2",
+      "heading": "Quartiles, the IQR and Box Plots",
+      "body": "Order the data and split it into four parts:\n\n• $Q_1$ is the **lower quartile** — the median of the lower half.\n• $Q_2$ is the **median**.\n• $Q_3$ is the **upper quartile** — the median of the upper half.\n\nThe **interquartile range** is $\\text{IQR} = Q_3 - Q_1$: the spread of the middle 50% of the data.\n\nA **box plot** shows the five-number summary — minimum, $Q_1$, median, $Q_3$, maximum — with the box from $Q_1$ to $Q_3$ and a line at the median. Whiskers run to the smallest and largest values that are not outliers.\n\n💡 **Worked Example** — For $4, 6, 9, 11, 15, 18, 21, 25$: the lower half is $4, 6, 9, 11$, so $Q_1 = \\dfrac{6+9}{2} = 7.5$; the upper half is $15, 18, 21, 25$, so $Q_3 = \\dfrac{18+21}{2} = 19.5$. Hence $\\text{IQR} = 12$.\n\n📌 The IQR is a **robust** measure: it ignores extreme values entirely, which is why box plots are used to compare skewed data sets.",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-descriptive-statistics-box-plot.svg",
+        "alt": "A box plot with the minimum, lower quartile, median, upper quartile and maximum labelled, the interquartile range bracketed, and an outlier marked beyond the upper boundary.",
+        "caption": "The box spans the middle half of the data, and anything past Q₃ + 1.5 IQR is flagged rather than included in the whisker."
+      }
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-n3",
+      "heading": "Outliers",
+      "body": "A value is treated as an **outlier** if it lies more than $1.5 \\times \\text{IQR}$ beyond the nearer quartile:\n$$\\text{lower boundary} = Q_1 - 1.5\\,\\text{IQR} \\qquad \\text{upper boundary} = Q_3 + 1.5\\,\\text{IQR}$$\n\n💡 **Worked Example** — A set has $Q_1 = 10$ and $Q_3 = 20$, so $\\text{IQR} = 10$ and $1.5\\,\\text{IQR} = 15$. The boundaries are\n$$10 - 15 = -5 \\qquad\\text{and}\\qquad 20 + 15 = 35$$\nA value of 40 lies above 35, so it is an outlier; a value of 32 does not, so it is not.\n\n⚠️ **Common mistake** — Judging an outlier by comparing it with the maximum or by eye. Compute the two boundaries, then compare.\n\n📌 Being an outlier is not by itself a reason to delete a value. It is a flag that prompts you to check the data — a measurement error is removed, a genuine extreme value is kept and reported."
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-n4",
+      "heading": "Standard Deviation and Variance",
+      "body": "The **standard deviation** measures the typical distance of a value from the mean. For a list of $n$ values,\n$$\\sigma = \\sqrt{\\dfrac{\\sum (x_i - \\bar{x})^2}{n}}$$\nand the **variance** is $\\sigma^2$. Your calculator offers two keys: $\\sigma_n$ (the population standard deviation) and $s_{n-1}$ (the sample standard deviation). DP questions specify which is wanted; if they do not, use $\\sigma_n$.\n\n💡 **Worked Example** — For $2, 4, 4, 4, 6$ the mean is 4, and the squared deviations are $4, 0, 0, 0, 4$:\n$$\\sigma^2 = \\dfrac{8}{5} = 1.6 \\;\\Longrightarrow\\; \\sigma = \\sqrt{1.6} \\approx 1.26$$\n\n⚠️ **Common mistake** — Squaring the mean instead of each deviation, or dividing by the wrong $n$. Better still: enter the list into the GDC and read $\\sigma_n$ directly, then check it is plausible against the spread of the data.\n\n📌 The standard deviation has the same units as the data, so it can be compared directly with the mean; the variance cannot."
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-n5",
+      "heading": "Grouped Data and Mid-interval Values",
+      "body": "When data arrive in classes, the individual values are lost, so every value in a class is represented by its **mid-interval value** (the average of the class boundaries).\n\nThen $\\bar{x} = \\dfrac{\\sum f x_m}{\\sum f}$, where $f$ is the frequency and $x_m$ the mid-interval value.\n\n💡 **Worked Example** —\n\n| Class | Frequency | Mid-interval $x_m$ |\n|---|---|---|\n| $0 \\le x < 10$ | 3 | 5 |\n| $10 \\le x < 20$ | 7 | 15 |\n| $20 \\le x < 30$ | 10 | 25 |\n\n$$\\bar{x} = \\dfrac{3(5) + 7(15) + 10(25)}{20} = \\dfrac{15 + 105 + 250}{20} = \\dfrac{370}{20} = 18.5$$\n\n⚠️ **Common mistake** — Using the class boundary rather than the midpoint, or using $0 \\le x < 10$ to mean $x = 10$.\n\n📌 The estimate is only as good as the mid-interval assumption: it is exact when values are spread evenly inside each class, and approximate otherwise."
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-n6",
+      "heading": "Comparing Distributions",
+      "body": "When asked to compare two distributions, comment on a **measure of centre** and a **measure of spread**, in the context of the question.\n\n• Symmetric data: compare the **mean and standard deviation**.\n• Skewed data or data with outliers: compare the **median and interquartile range**, because both are robust.\n\n💡 **Worked Example** — Set $P$ has median 8 and IQR 5; set $Q$ has median 9 and IQR 12. Then $Q$ typically has the higher values (larger median), but $P$ is much more consistent (smaller IQR).\n\n🔑 A full comparison sentence contains: which is larger, by how much, and what it means. \"The median mark is 1 higher in $Q$, so a typical student in $Q$ scored slightly higher, but $P$'s marks are more consistent.\"\n\n⚠️ **Common mistake** — Comparing only the centres, or quoting two numbers with no interpretation. Marks are awarded for the comparison, not the numbers."
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-n7",
+      "heading": "Cumulative Frequency and Percentiles",
+      "body": "A **cumulative frequency** table records a running total, so the entry in a row tells you how many values are **less than** the upper boundary of that class.\n\nPlot cumulative frequency against the class upper boundary. Then:\n• the median is at cumulative frequency $\\dfrac{n}{2}$;\n• the lower quartile is at $\\dfrac{n}{4}$;\n• the upper quartile is at $\\dfrac{3n}{4}$;\n• the $p$th percentile is at $\\dfrac{pn}{100}$.\n\n💡 **Worked Example** — With $n = 40$, the median is read at cumulative frequency 20, $Q_1$ at 10 and $Q_3$ at 30.\n\n**Exam technique**\n• Sort the data before finding the median or quartiles — the mean is the only measure that does not need ordered data.\n• State the units with every measure of centre or spread.\n• For a box-plot question, identify which feature (median, IQR, outlier) the question is really testing before doing arithmetic."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-aa-descriptive-statistics-f1",
+      "term": "Mean",
+      "definition": "The sum of the values divided by their number, $\\bar{x} = \\dfrac{\\sum x}{n}$",
+      "example": "$3,7,9,11,15$ has mean 9"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-f2",
+      "term": "Median",
+      "definition": "The middle value of the ordered data",
+      "example": "$3,7,9,11,15$ has median 9"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-f3",
+      "term": "Mode",
+      "definition": "The most frequent value",
+      "example": "$2,3,3,5,7$ has mode 3"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-f4",
+      "term": "Which measure an outlier affects",
+      "definition": "The mean, because it uses every value; the median is robust",
+      "example": "one large value drags the mean up"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-f5",
+      "term": "Quartiles",
+      "definition": "$Q_1$, $Q_2$ (median) and $Q_3$ split ordered data into four parts",
+      "example": "$4,6,9,11$ gives $Q_1 = 7.5$"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-f6",
+      "term": "Interquartile range",
+      "definition": "$\\text{IQR} = Q_3 - Q_1$, the spread of the middle 50%",
+      "example": "$Q_1=7.5$, $Q_3=19.5$ gives 12"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-f7",
+      "term": "Five-number summary",
+      "definition": "Minimum, $Q_1$, median, $Q_3$, maximum — the features a box plot shows",
+      "example": "whiskers exclude outliers"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-f8",
+      "term": "Outlier boundaries",
+      "definition": "$Q_1 - 1.5\\,\\text{IQR}$ and $Q_3 + 1.5\\,\\text{IQR}$",
+      "example": "$Q_1=10$, $Q_3=20$ gives $-5$ and 35"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-f9",
+      "term": "Standard deviation",
+      "definition": "$\\sigma = \\sqrt{\\dfrac{\\sum (x-\\bar{x})^2}{n}}$, the typical distance from the mean",
+      "example": "$2,4,4,4,6$ gives $\\sigma \\approx 1.26$"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-f10",
+      "term": "Variance",
+      "definition": "$\\sigma^2$, the square of the standard deviation",
+      "example": "$2,4,4,4,6$ has variance 1.6"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-f11",
+      "term": "Mid-interval value",
+      "definition": "The midpoint of a class, used to estimate the mean of grouped data",
+      "example": "$10 \\le x < 20$ uses $x_m = 15$"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-f12",
+      "term": "Which pair to compare",
+      "definition": "Mean and standard deviation for symmetric data; median and IQR when skewed",
+      "example": "robust measures resist outliers"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-aa-descriptive-statistics-q1",
+      "stem": "Find the median of $3, 7, 9, 11, 15$.",
+      "choices": [
+        "$9$",
+        "$11$",
+        "$15$",
+        "$7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "With five values in order, the median is the third: 9.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q2",
+      "stem": "Find the range of $4, 9, 2, 12$.",
+      "choices": [
+        "$14$",
+        "$10$",
+        "$12$",
+        "$8$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The range is the largest value minus the smallest: $12 - 2 = 10$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q3",
+      "stem": "Find the mode of $2, 3, 3, 5, 7$.",
+      "choices": [
+        "$2$",
+        "$5$",
+        "$3$",
+        "$7$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The value 3 occurs twice and every other value once, so the mode is 3.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q4",
+      "stem": "Which measure of central tendency is most affected by a single extreme value?",
+      "choices": [
+        "the median",
+        "the mode",
+        "the interquartile range",
+        "the mean"
+      ],
+      "correctIndex": 3,
+      "explanation": "The mean adds every value, so one extreme value changes it substantially; the median and mode depend only on position or frequency.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q5",
+      "stem": "The mean of five numbers is 12. Four of the numbers are $8, 10, 14, 16$. Find the fifth number.",
+      "choices": [
+        "$12$",
+        "$14$",
+        "$8$",
+        "$10$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The total is $5 \\times 12 = 60$, and the four known values total 48, so the fifth is $60 - 48 = 12$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q6",
+      "stem": "For the data $4, 6, 9, 11, 15, 18, 21, 25$, find the interquartile range.",
+      "choices": [
+        "$21$",
+        "$12$",
+        "$9$",
+        "$15$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The lower half is $4, 6, 9, 11$ so $Q_1 = 7.5$; the upper half is $15, 18, 21, 25$ so $Q_3 = 19.5$. Hence $\\text{IQR} = 19.5 - 7.5 = 12$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q7",
+      "stem": "A data set has lower quartile 10 and upper quartile 20. Find the upper boundary above which a value would be an outlier.",
+      "choices": [
+        "$20$",
+        "$30$",
+        "$35$",
+        "$45$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\text{IQR} = 20 - 10 = 10$, so the upper boundary is $Q_3 + 1.5(10) = 20 + 15 = 35$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q8",
+      "stem": "Find the variance of the data $2, 4, 4, 4, 6$.",
+      "choices": [
+        "$1.26$",
+        "$2$",
+        "$0.8$",
+        "$1.6$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The mean is 4, so the squared deviations are 4, 0, 0, 0, 4. Their total is 8 and $n = 5$, giving variance $\\dfrac{8}{5} = 1.6$. (The standard deviation is $\\sqrt{1.6} \\approx 1.26$.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q9",
+      "stem": "A constant 5 is added to every value in a data set. Which statement is correct?",
+      "choices": [
+        "the mean increases by 5 and the standard deviation is unchanged",
+        "the standard deviation increases by 5 and the mean is unchanged",
+        "both the mean and the standard deviation increase by 5",
+        "the mean is unchanged and the standard deviation increases by 5"
+      ],
+      "correctIndex": 0,
+      "explanation": "Shifting every value by 5 shifts the mean by 5 but leaves the spread, and therefore the standard deviation and IQR, exactly as they were.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q10",
+      "stem": "A data set has standard deviation 4. Every value is multiplied by 3. What is the new standard deviation?",
+      "choices": [
+        "$4$",
+        "$12$",
+        "$36$",
+        "$1.33$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Multiplying every value by 3 multiplies every deviation by 3, so the standard deviation becomes $3 \\times 4 = 12$. (The variance would be multiplied by 9.)",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q11",
+      "stem": "Estimate the mean of the grouped data: 3 values in $0 \\le x < 10$, 7 values in $10 \\le x < 20$ and 10 values in $20 \\le x < 30$.",
+      "choices": [
+        "$17$",
+        "$20$",
+        "$18.5$",
+        "$15$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Using mid-interval values 5, 15 and 25: $\\dfrac{3(5) + 7(15) + 10(25)}{20} = \\dfrac{370}{20} = 18.5$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q12",
+      "stem": "A data set of 20 values has mean 30. A further value of 100 is added to the data. Which statement best describes the effect?",
+      "choices": [
+        "both the mean and the median increase by the same amount",
+        "the mean is unchanged",
+        "the median increases by more than the mean",
+        "the mean increases and the median changes little"
+      ],
+      "correctIndex": 3,
+      "explanation": "The new mean is $\\dfrac{20(30) + 100}{21} = \\dfrac{700}{21} \\approx 33.3$, so it rises by about 3.3. The median is a positional measure, so adding one large value moves it very little.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q13",
+      "stem": "Set $A$ is $2, 3, 4, 5, 6$ and set $B$ is $4, 4, 4, 4, 4$. Which set has the greater standard deviation?",
+      "choices": [
+        "Set $A$",
+        "Set $B$",
+        "they are equal",
+        "it cannot be determined"
+      ],
+      "correctIndex": 0,
+      "explanation": "Set $B$ has every value equal to the mean, so its standard deviation is 0. Set $A$'s values are spread around its mean of 4, so its standard deviation is greater.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q14",
+      "stem": "Set $P$ has $Q_1 = 5$ and $Q_3 = 10$; set $Q$ has $Q_1 = 4$ and $Q_3 = 16$. Which set has the greater interquartile range?",
+      "choices": [
+        "Set $P$",
+        "Set $Q$",
+        "they are equal",
+        "it cannot be determined"
+      ],
+      "correctIndex": 1,
+      "explanation": "$P$ has $\\text{IQR} = 5$ and $Q$ has $\\text{IQR} = 12$, so set $Q$ has the greater interquartile range.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-descriptive-statistics-q15",
+      "stem": "A data set has mean 20 and standard deviation 4. Every value is multiplied by 2 and then 3 is added. Find the new mean and the new standard deviation.",
+      "choices": [
+        "$\\text{mean } 40$, $\\text{sd } 8$",
+        "$\\text{mean } 43$, $\\text{sd } 4$",
+        "$\\text{mean } 43$, $\\text{sd } 8$",
+        "$\\text{mean } 43$, $\\text{sd } 11$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Multiplication acts on both centre and spread: the mean becomes $2(20) = 40$ and the standard deviation $2(4) = 8$. Adding 3 then shifts the centre only, giving mean 43 and standard deviation 8.",
+      "difficulty": "hard"
+    }
+  ]
+}

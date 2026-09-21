@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-labelledby="title desc">
+  <title id="title">Tangent and normal at a point on a curve</title>
+  <desc id="desc">The curve y equals x squared minus three x with the point (2, minus 2) marked, the tangent of gradient one and the normal of gradient minus one drawn through it, beside a panel listing the standard derivatives and the chain, product and quotient rules.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 13px; fill: #111827; }
+    .small { font-size: 11px; fill: #64748b; }
+  </style>
+  <rect width="900" height="480" fill="#f8fafc" rx="12"/>
+  <text x="30" y="34" class="heading">Tangents, normals and the rules of differentiation</text>
+  <text x="30" y="54" class="small">The tangent has gradient f'(a); the normal is perpendicular to it, so its gradient is −1 / f'(a).</text>
+  <rect x="30" y="74" width="420" height="350" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+  <rect x="31" y="394" width="418" height="29" fill="#ffffff" stroke="none" rx="6"/>
+  <line x1="31" y1="394" x2="449" y2="394" stroke="#e2e8f0" stroke-width="1"/>
+  <clipPath id="clip1"><rect x="32" y="76" width="416" height="316" rx="5"/></clipPath>
+  <line x1="60" y1="220" x2="440" y2="220" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="190" y1="96" x2="190" y2="396" stroke="#94a3b8" stroke-width="1"/>
+  <text x="434.0" y="236.0" class="small" text-anchor="end">x</text>
+  <text x="198.0" y="110.0" class="small">y</text>
+  <polyline points="155.9,138.0 157.0,140.9 158.0,143.8 159.1,146.7 160.1,149.6 161.2,152.4 162.3,155.2 163.3,158.0 164.4,160.7 165.4,163.5 166.5,166.2 167.6,168.9 168.6,171.5 169.7,174.2 170.7,176.8 171.8,179.4 172.8,181.9 173.9,184.5 175.0,187.0 176.0,189.5 177.1,191.9 178.1,194.4 179.2,196.8 180.3,199.2 181.3,201.5 182.4,203.9 183.4,206.2 184.5,208.5 185.6,210.8 186.6,213.0 187.7,215.2 188.7,217.4 189.8,219.6 190.9,221.7 191.9,223.8 193.0,225.9 194.0,228.0 195.1,230.1 196.1,232.1 197.2,234.1 198.3,236.1 199.3,238.0 200.4,239.9 201.4,241.8 202.5,243.7 203.6,245.6 204.6,247.4 205.7,249.2 206.7,251.0 207.8,252.7 208.9,254.4 209.9,256.1 211.0,257.8 212.0,259.5 213.1,261.1 214.2,262.7 215.2,264.3 216.3,265.9 217.3,267.4 218.4,268.9 219.4,270.4 220.5,271.8 221.6,273.3 222.6,274.7 223.7,276.1 224.7,277.4 225.8,278.8 226.9,280.1 227.9,281.4 229.0,282.6 230.0,283.9 231.1,285.1 232.2,286.3 233.2,287.4 234.3,288.6 235.3,289.7 236.4,290.8 237.5,291.8 238.5,292.9 239.6,293.9 240.6,294.9 241.7,295.9 242.8,296.8 243.8,297.7 244.9,298.6 245.9,299.5 247.0,300.3 248.0,301.2 249.1,301.9 250.2,302.7 251.2,303.5 252.3,304.2 253.3,304.9 254.4,305.6 255.5,306.2 256.5,306.8 257.6,307.4 258.6,308.0 259.7,308.6 260.8,309.1 261.8,309.6 262.9,310.1 263.9,310.5 265.0,311.0 266.1,311.4 267.1,311.7 268.2,312.1 269.2,312.4 270.3,312.7 271.3,313.0 272.4,313.3 273.5,313.5 274.5,313.7 275.6,313.9 276.6,314.1 277.7,314.2 278.8,314.3 279.8,314.4 280.9,314.5 281.9,314.5 283.0,314.5 284.1,314.5 285.1,314.5 286.2,314.4 287.2,314.3 288.3,314.2 289.4,314.1 290.4,313.9 291.5,313.7 292.5,313.5 293.6,313.3 294.7,313.0 295.7,312.7 296.8,312.4 297.8,312.1 298.9,311.7 299.9,311.4 301.0,311.0 302.1,310.5 303.1,310.1 304.2,309.6 305.2,309.1 306.3,308.6 307.4,308.0 308.4,307.4 309.5,306.8 310.5,306.2 311.6,305.6 312.7,304.9 313.7,304.2 314.8,303.5 315.8,302.7 316.9,301.9 318.0,301.2 319.0,300.3 320.1,299.5 321.1,298.6 322.2,297.7 323.2,296.8 324.3,295.9 325.4,294.9 326.4,293.9 327.5,292.9 328.5,291.8 329.6,290.8 330.7,289.7 331.7,288.6 332.8,287.4 333.8,286.3 334.9,285.1 336.0,283.9 337.0,282.6 338.1,281.4 339.1,280.1 340.2,278.8 341.3,277.4 342.3,276.1 343.4,274.7 344.4,273.3 345.5,271.8 346.5,270.4 347.6,268.9 348.7,267.4 349.7,265.9 350.8,264.3 351.8,262.7 352.9,261.1 354.0,259.5 355.0,257.8 356.1,256.1 357.1,254.4 358.2,252.7 359.3,251.0 360.3,249.2 361.4,247.4 362.4,245.6 363.5,243.7 364.6,241.8 365.6,239.9 366.7,238.0 367.7,236.1 368.8,234.1 369.9,232.1 370.9,230.1 372.0,228.0 373.0,225.9 374.1,223.8 375.1,221.7 376.2,219.6 377.3,217.4 378.3,215.2 379.4,213.0 380.4,210.8 381.5,208.5 382.6,206.2 383.6,203.9 384.7,201.5 385.7,199.2 386.8,196.8 387.9,194.4 388.9,191.9 390.0,189.5 391.0,187.0 392.1,184.5 393.2,181.9 394.2,179.4 395.3,176.8 396.3,174.2 397.4,171.5 398.4,168.9 399.5,166.2 400.6,163.5 401.6,160.7 402.7,158.0 403.7,155.2 404.8,152.4 405.9,149.6 406.9,146.7 408.0,143.8 409.0,140.9 410.1,138.0" fill="none" stroke="#2563eb" stroke-width="2.4" clip-path="url(#clip1)"/>
+  <line x1="211.7" y1="373.3" x2="413.2" y2="236.8" stroke="#ea580c" stroke-width="2" clip-path="url(#clip1)"/>
+  <line x1="97.0" y1="157.0" x2="400.8" y2="362.8" stroke="#0891b2" stroke-width="2" stroke-dasharray="6 4" clip-path="url(#clip1)"/>
+  <circle cx="314.0" cy="304.0" r="5" fill="#111827"/>
+  <text x="324.0" y="310.0" class="math" text-anchor="start">(2, −2)</text>
+  <line x1="300" y1="118" x2="330" y2="118" stroke="#ea580c" stroke-width="2"/>>
+  <text x="338.0" y="122.0" class="math" text-anchor="start">tangent: gradient 1</text>
+  <line x1="300" y1="146" x2="330" y2="146" stroke="#0891b2" stroke-width="2" stroke-dasharray="6 4"/>>
+  <text x="338.0" y="150.0" class="math" text-anchor="start">normal: gradient −1</text>
+  <text x="30.0" y="440.0" class="small" text-anchor="start">The normal meets the tangent at right angles, so the two gradients multiply to −1.</text>
+  <text x="30.0" y="462.0" class="small" text-anchor="start">The y-coordinate comes from the original equation; only the gradient comes from the derivative.</text>
+  <rect x="470" y="74" width="400" height="350" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+  <text x="492.0" y="102.0" class="subhead" text-anchor="start">Standard derivatives</text>
+  <text x="492.0" y="130.0" class="math" text-anchor="start">xⁿ  →  n xⁿ⁻¹</text>
+  <text x="492.0" y="153.0" class="math" text-anchor="start">sin x  →  cos x</text>
+  <text x="492.0" y="176.0" class="math" text-anchor="start">cos x  →  −sin x</text>
+  <text x="492.0" y="199.0" class="math" text-anchor="start">eˣ  →  eˣ</text>
+  <text x="492.0" y="222.0" class="math" text-anchor="start">ln x  →  1/x</text>
+  <text x="492.0" y="268.0" class="subhead" text-anchor="start">Rules</text>
+  <text x="492.0" y="294.0" class="math" text-anchor="start">chain:      dy/dx = (dy/du)(du/dx)</text>
+  <text x="492.0" y="317.0" class="math" text-anchor="start">product:    (uv)' = u'v + uv'</text>
+  <text x="492.0" y="340.0" class="math" text-anchor="start">quotient:   (u/v)' = (u'v − uv')/v²</text>
+  <text x="492.0" y="386.0" class="math" text-anchor="start">stationary point: f'(x) = 0</text>
+  <text x="492.0" y="409.0" class="math" text-anchor="start">f'' &lt; 0 maximum, f'' &gt; 0 minimum</text>
+</svg>

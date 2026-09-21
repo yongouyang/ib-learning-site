@@ -1,0 +1,322 @@
+{
+  "id": "math-dp-aa-trig-identities-equations",
+  "subjectId": "math",
+  "title": "Trigonometric Identities and Equations",
+  "description": "Radians, exact values, the Pythagorean and double angle identities, and solving equations in an interval",
+  "stage": "dp",
+  "course": "aa",
+  "level": "sl",
+  "notes": [
+    {
+      "id": "math-dp-aa-trig-identities-equations-n1",
+      "heading": "Radians, Arc Length and Sector Area",
+      "body": "A **radian** is the angle at the centre of a circle that cuts off an arc equal in length to the radius. A full turn is $2\\pi$ radians, so\n$$\\pi \\text{ radians} = 180^\\circ$$\n\nWith angle $\\theta$ in **radians** and radius $r$:\n• arc length $l = r\\theta$\n• sector area $A = \\dfrac{1}{2}r^2\\theta$\n\n💡 **Worked Example** — A sector has radius 6 cm and angle $\\dfrac{\\pi}{3}$.\n$$l = 6 \\times \\dfrac{\\pi}{3} = 2\\pi \\text{ cm} \\qquad A = \\dfrac{1}{2}(36)\\left(\\dfrac{\\pi}{3}\\right) = 6\\pi \\text{ cm}^2$$\n\n⚠️ **Common mistake** — Using degrees in these formulas. They are valid for radians only: with $\\theta = 60$ the sector area would come out as $1080$, which is nonsense. Check the units before substituting.\n\n📌 To convert: degrees $\\to$ radians multiply by $\\dfrac{\\pi}{180}$; radians $\\to$ degrees multiply by $\\dfrac{180}{\\pi}$."
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-n2",
+      "heading": "The Unit Circle and Exact Values",
+      "body": "On the unit circle, the point at angle $\\theta$ measured anticlockwise from the positive $x$-axis has coordinates $(\\cos\\theta, \\sin\\theta)$, and $\\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta}$ is the gradient of the radius.\n\nBecause $\\cos\\theta$ is the $x$-coordinate, it is positive on the right half and negative on the left; $\\sin\\theta$ is the $y$-coordinate, so it is positive above the axis. In the second quadrant $\\cos\\theta < 0$ and $\\sin\\theta > 0$, and so on.\n\n**Exact values worth memorising**\n• $\\sin 30^\\circ = \\dfrac{1}{2}$, $\\cos 30^\\circ = \\dfrac{\\sqrt3}{2}$, $\\tan 30^\\circ = \\dfrac{1}{\\sqrt3}$\n• $\\sin 45^\\circ = \\cos 45^\\circ = \\dfrac{\\sqrt2}{2}$, $\\tan 45^\\circ = 1$\n• $\\sin 60^\\circ = \\dfrac{\\sqrt3}{2}$, $\\cos 60^\\circ = \\dfrac{1}{2}$, $\\tan 60^\\circ = \\sqrt3$\n\n💡 **Worked Example** — $\\sin\\dfrac{5\\pi}{6} = \\sin 150^\\circ = \\dfrac{1}{2}$, because $150^\\circ$ is the reflection of $30^\\circ$ in the $y$-axis and the sine of an angle in the second quadrant is positive.",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-trig-identities-equations-unit-circle.svg",
+        "alt": "A unit circle with the angles 30, 45 and 60 degrees marked in the first quadrant and their coordinates written as cosine and sine values, the four axis points labelled, and a panel of radian conversions, arc length and sector area formulas.",
+        "caption": "Reading the coordinates off the circle gives the exact values, the signs in each quadrant, and the second angle for any given sine or cosine."
+      }
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-n3",
+      "heading": "The Pythagorean and Quotient Identities",
+      "body": "Two identities do most of the work in this topic:\n$$\\sin^2\\theta + \\cos^2\\theta = 1 \\qquad \\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta}$$\n\nThe first comes straight from the unit circle; the second is the definition of tangent.\n\nEach rearranges into forms that convert one function into another:\n$$\\sin^2\\theta = 1 - \\cos^2\\theta \\qquad \\cos^2\\theta = 1 - \\sin^2\\theta$$\n\n💡 **Worked Example** — Given $\\sin\\theta = \\dfrac{3}{5}$ with $\\theta$ in the first quadrant, find $\\cos\\theta$ and $\\tan\\theta$.\n$$\\cos^2\\theta = 1 - \\dfrac{9}{25} = \\dfrac{16}{25} \\;\\Longrightarrow\\; \\cos\\theta = \\dfrac{4}{5} \\;\\Longrightarrow\\; \\tan\\theta = \\dfrac{3}{4}$$\n\n⚠️ **Common mistake** — Taking the positive square root without checking the quadrant. If $\\theta$ were in the second quadrant the same working would give $\\cos\\theta = -\\dfrac{4}{5}$ and $\\tan\\theta = -\\dfrac{3}{4}$."
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-n4",
+      "heading": "Double Angle Identities",
+      "body": "The double angle identities are on the formula booklet, but recognising when to use them is the skill:\n$$\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$$\n$$\\cos 2\\theta = \\cos^2\\theta - \\sin^2\\theta = 1 - 2\\sin^2\\theta = 2\\cos^2\\theta - 1$$\n\nThe three forms of $\\cos 2\\theta$ are interchangeable; choose the one that matches the other functions in the question.\n\n💡 **Worked Example** — Given $\\sin\\theta = \\dfrac{3}{5}$ and $\\cos\\theta = \\dfrac{4}{5}$:\n$$\\sin 2\\theta = 2 \\times \\dfrac{3}{5} \\times \\dfrac{4}{5} = \\dfrac{24}{25} \\qquad \\cos 2\\theta = \\dfrac{16}{25} - \\dfrac{9}{25} = \\dfrac{7}{25}$$\n\n🔑 Two uses worth spotting instantly: an expression such as $2\\sin\\theta\\cos\\theta$ *is* $\\sin 2\\theta$, and $1 - 2\\sin^2\\theta$ *is* $\\cos 2\\theta$ — collapsing either turns a hard equation into a simple one."
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-n5",
+      "heading": "Solving Equations in an Interval",
+      "body": "The calculator gives one solution; the interval usually hides more. The reliable method:\n\n1. Find the **principal** value from the calculator (or from exact values).\n2. Use the symmetry of the unit circle to find every other angle in the interval with the same sine or cosine.\n3. Check the endpoints and the required form (degrees or radians).\n\n**Symmetry rules for the standard interval**\n• $\\sin\\theta = k$: $\\theta = \\alpha$ or $\\theta = \\pi - \\alpha$.\n• $\\cos\\theta = k$: $\\theta = \\alpha$ or $\\theta = 2\\pi - \\alpha$.\n• $\\tan\\theta = k$: $\\theta = \\alpha$ or $\\theta = \\alpha + \\pi$.\n\n💡 **Worked Example** — Solve $\\sin x = \\dfrac{1}{2}$ for $0 \\le x < 2\\pi$.\nThe principal value is $x = \\dfrac{\\pi}{6}$. Sine is also positive in the second quadrant, giving $x = \\pi - \\dfrac{\\pi}{6} = \\dfrac{5\\pi}{6}$.\n$$x = \\dfrac{\\pi}{6}, \\; \\dfrac{5\\pi}{6}$$\n\n⚠️ **Common mistake** — Writing only the calculator's answer. Unless the interval is restricted to a quarter-turn, expect at least two solutions for an equation in $\\sin$ or $\\cos$."
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-n6",
+      "heading": "Proving and Simplifying Identities",
+      "body": "To prove an identity, work on **one side only** and transform it into the other. Bring everything onto a common denominator, replace $\\tan\\theta$ by $\\dfrac{\\sin\\theta}{\\cos\\theta}$, and use $\\sin^2\\theta + \\cos^2\\theta = 1$ to convert between functions.\n\n💡 **Worked Example** — Simplify $\\dfrac{1 - \\cos^2\\theta}{\\sin\\theta}$.\nSince $1 - \\cos^2\\theta = \\sin^2\\theta$,\n$$\\dfrac{1 - \\cos^2\\theta}{\\sin\\theta} = \\dfrac{\\sin^2\\theta}{\\sin\\theta} = \\sin\\theta$$\n\n💡 **A second pattern** — Simplify $\\dfrac{\\sin 2\\theta}{\\sin\\theta}$ for $\\sin\\theta \\ne 0$.\nUsing the double angle identity, $\\dfrac{\\sin 2\\theta}{\\sin\\theta} = \\dfrac{2\\sin\\theta\\cos\\theta}{\\sin\\theta} = 2\\cos\\theta$.\n\n📌 Never start by moving terms across the equals sign: that assumes the identity and proves nothing. Work down one side until it matches the other."
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-n7",
+      "heading": "Equations that Need an Identity, and Exam Technique",
+      "body": "Many equations are quadratics in disguise. The method: replace everything with one function, then factorise.\n\n💡 **Worked Example** — Solve $2\\sin^2x + \\sin x - 1 = 0$ for $0 \\le x < 2\\pi$.\nFactorising in $\\sin x$:\n$$(2\\sin x - 1)(\\sin x + 1) = 0 \\;\\Longrightarrow\\; \\sin x = \\dfrac{1}{2} \\;\\text{or}\\; \\sin x = -1$$\n$$x = \\dfrac{\\pi}{6}, \\; \\dfrac{5\\pi}{6}, \\; \\dfrac{3\\pi}{2}$$\n\n💡 **A quadratic in cosine** — Solve $2\\cos^2x = 3\\sin x$ for $0 \\le x < 2\\pi$.\nReplace $\\cos^2x$ by $1 - \\sin^2x$: $2 - 2\\sin^2x = 3\\sin x$, so $2\\sin^2x + 3\\sin x - 2 = 0$, giving $(2\\sin x - 1)(\\sin x + 2) = 0$. The second bracket is impossible, so $\\sin x = \\dfrac{1}{2}$ and $x = \\dfrac{\\pi}{6}, \\dfrac{5\\pi}{6}$.\n\n**Checklist**\n• Use one function throughout before factorising.\n• Reject impossible roots such as $\\sin x = 2$ or $\\cos x = -3$ explicitly.\n• Give every solution in the stated interval, in the stated units.\n• Check each answer satisfies the original equation, not just the simplified one."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-aa-trig-identities-equations-f1",
+      "term": "Radian",
+      "definition": "The angle that cuts off an arc equal to the radius; $2\\pi$ radians is one full turn",
+      "example": "$\\pi$ radians $= 180^\\circ$"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-f2",
+      "term": "Arc length",
+      "definition": "$l = r\\theta$ with $\\theta$ in radians",
+      "example": "$r=6$, $\\theta=\\dfrac{\\pi}{3}$ gives $l = 2\\pi$"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-f3",
+      "term": "Sector area",
+      "definition": "$A = \\dfrac{1}{2}r^2\\theta$ with $\\theta$ in radians",
+      "example": "$r=6$, $\\theta=\\dfrac{\\pi}{3}$ gives $A = 6\\pi$"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-f4",
+      "term": "Degrees to radians",
+      "definition": "Multiply by $\\dfrac{\\pi}{180}$",
+      "example": "$120^\\circ = \\dfrac{2\\pi}{3}$"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-f5",
+      "term": "Unit circle definition",
+      "definition": "The point at angle $\\theta$ is $(\\cos\\theta, \\sin\\theta)$",
+      "example": "$\\cos\\theta$ is the $x$-coordinate"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-f6",
+      "term": "$\\tan\\theta$ identically",
+      "definition": "$\\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta}$",
+      "example": "undefined when $\\cos\\theta = 0$"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-f7",
+      "term": "Pythagorean identity",
+      "definition": "$\\sin^2\\theta + \\cos^2\\theta = 1$",
+      "example": "$\\sin\\theta = \\dfrac{3}{5}$ gives $\\cos\\theta = \\dfrac{4}{5}$ in Q1"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-f8",
+      "term": "$\\sin 2\\theta$",
+      "definition": "$2\\sin\\theta\\cos\\theta$",
+      "example": "$\\sin\\theta=\\frac35$, $\\cos\\theta=\\frac45$ gives $\\dfrac{24}{25}$"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-f9",
+      "term": "Three forms of $\\cos 2\\theta$",
+      "definition": "$\\cos^2\\theta - \\sin^2\\theta = 2\\cos^2\\theta - 1 = 1 - 2\\sin^2\\theta$",
+      "example": "pick the form matching the other functions"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-f10",
+      "term": "Second solution of $\\sin\\theta = k$",
+      "definition": "$\\pi - \\alpha$ for $0 \\le \\theta < 2\\pi$",
+      "example": "$\\sin x = \\frac12$ gives $\\dfrac{\\pi}{6}$ and $\\dfrac{5\\pi}{6}$"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-f11",
+      "term": "Second solution of $\\cos\\theta = k$",
+      "definition": "$2\\pi - \\alpha$ for $0 \\le \\theta < 2\\pi$",
+      "example": "$\\cos x = \\dfrac{1}{2}$ gives $\\dfrac{\\pi}{3}$ and $\\dfrac{5\\pi}{3}$"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-f12",
+      "term": "Solving a quadratic in $\\sin x$",
+      "definition": "Use $\\cos^2x = 1 - \\sin^2x$ to reach one function, then factorise",
+      "example": "$2\\sin^2x + \\sin x - 1 = 0$"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-aa-trig-identities-equations-q1",
+      "stem": "Convert $120^\\circ$ to radians, giving your answer in terms of $\\pi$.",
+      "choices": [
+        "$\\dfrac{2\\pi}{3}$",
+        "$\\dfrac{3\\pi}{2}$",
+        "$\\dfrac{5\\pi}{6}$",
+        "$\\dfrac{\\pi}{3}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Multiply by $\\dfrac{\\pi}{180}$: $120 \\times \\dfrac{\\pi}{180} = \\dfrac{2\\pi}{3}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q2",
+      "stem": "State the exact value of $\\sin 30^\\circ$.",
+      "choices": [
+        "$\\dfrac{\\sqrt2}{2}$",
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{\\sqrt3}{2}$",
+        "$1$"
+      ],
+      "correctIndex": 1,
+      "explanation": "For the $30^\\circ$ angle in a right triangle, the side opposite is half the hypotenuse, so $\\sin 30^\\circ = \\dfrac{1}{2}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q3",
+      "stem": "Simplify $\\sin^2\\theta + \\cos^2\\theta$.",
+      "choices": [
+        "$2$",
+        "$\\tan^2\\theta$",
+        "$1$",
+        "$0$"
+      ],
+      "correctIndex": 2,
+      "explanation": "On the unit circle $\\sin^2\\theta + \\cos^2\\theta$ is the sum of the squares of the coordinates, which equals the radius squared, so it is 1 for every $\\theta$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q4",
+      "stem": "Which expression is equal to $\\cos 2\\theta$?",
+      "choices": [
+        "$1 + 2\\sin^2\\theta$",
+        "$\\sin^2\\theta - \\cos^2\\theta$",
+        "$2\\sin\\theta\\cos\\theta$",
+        "$\\cos^2\\theta - \\sin^2\\theta$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\cos 2\\theta = \\cos^2\\theta - \\sin^2\\theta$. The expression $2\\sin\\theta\\cos\\theta$ is $\\sin 2\\theta$, and $\\sin^2\\theta - \\cos^2\\theta$ is $-\\cos 2\\theta$ — the correct expression with the sign reversed.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q5",
+      "stem": "A sector has radius 5 cm and angle $0.8$ radians. Find the arc length.",
+      "choices": [
+        "$4 \\text{ cm}$",
+        "$8 \\text{ cm}$",
+        "$2.5 \\text{ cm}$",
+        "$6.25 \\text{ cm}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$l = r\\theta = 5 \\times 0.8 = 4$ cm.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q6",
+      "stem": "A sector has radius 6 cm and angle $\\dfrac{\\pi}{3}$ radians. Find its area.",
+      "choices": [
+        "$18\\pi \\text{ cm}^2$",
+        "$6\\pi \\text{ cm}^2$",
+        "$3\\pi \\text{ cm}^2$",
+        "$12\\pi \\text{ cm}^2$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$A = \\dfrac{1}{2}r^2\\theta = \\dfrac{1}{2}(36)\\left(\\dfrac{\\pi}{3}\\right) = 6\\pi$ cm².",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q7",
+      "stem": "Given $\\sin\\theta = 0.6$ and $\\theta$ is in the second quadrant, find $\\cos\\theta$.",
+      "choices": [
+        "$0.8$",
+        "$-0.6$",
+        "$-0.8$",
+        "$0.75$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\cos^2\\theta = 1 - 0.36 = 0.64$, so $\\cos\\theta = \\pm 0.8$. In the second quadrant cosine is negative, so $\\cos\\theta = -0.8$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q8",
+      "stem": "Solve $\\sin x = \\dfrac{1}{2}$ for $0 \\le x < 2\\pi$.",
+      "choices": [
+        "$x = \\dfrac{\\pi}{6}, \\dfrac{7\\pi}{6}$",
+        "$x = \\dfrac{\\pi}{3}, \\dfrac{2\\pi}{3}$",
+        "$x = \\dfrac{\\pi}{6}$ only",
+        "$x = \\dfrac{\\pi}{6}, \\dfrac{5\\pi}{6}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The principal value is $\\dfrac{\\pi}{6}$. Since sine is also positive in the second quadrant, take $x = \\pi - \\dfrac{\\pi}{6} = \\dfrac{5\\pi}{6}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q9",
+      "stem": "Simplify $2\\sin\\theta\\cos\\theta$.",
+      "choices": [
+        "$\\sin 2\\theta$",
+        "$1$",
+        "$\\cos 2\\theta$",
+        "$\\tan 2\\theta$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The double angle identity is $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$, so the expression is $\\sin 2\\theta$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q10",
+      "stem": "Solve $2\\sin^2x + \\sin x - 1 = 0$ for $0 \\le x < 2\\pi$.",
+      "choices": [
+        "$x = \\dfrac{\\pi}{6}, \\dfrac{5\\pi}{6}$",
+        "$x = \\dfrac{\\pi}{6}, \\dfrac{5\\pi}{6}, \\dfrac{3\\pi}{2}$",
+        "$x = \\dfrac{\\pi}{6}, \\dfrac{3\\pi}{2}$",
+        "$x = \\dfrac{5\\pi}{6}, \\dfrac{3\\pi}{2}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Factorising gives $(2\\sin x - 1)(\\sin x + 1) = 0$, so $\\sin x = \\dfrac{1}{2}$ (giving $\\dfrac{\\pi}{6}$ and $\\dfrac{5\\pi}{6}$) or $\\sin x = -1$ (giving $\\dfrac{3\\pi}{2}$).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q11",
+      "stem": "Given $\\sin\\theta = \\dfrac{3}{5}$ with $\\theta$ in the first quadrant, find $\\sin 2\\theta$.",
+      "choices": [
+        "$\\dfrac{12}{25}$",
+        "$-\\dfrac{24}{25}$",
+        "$\\dfrac{24}{25}$",
+        "$\\dfrac{7}{25}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "In the first quadrant $\\cos\\theta = \\dfrac{4}{5}$, so $\\sin 2\\theta = 2\\sin\\theta\\cos\\theta = 2 \\times \\dfrac{3}{5} \\times \\dfrac{4}{5} = \\dfrac{24}{25}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q12",
+      "stem": "Solve $\\cos^2x = \\cos x$ for $0 \\le x < 2\\pi$.",
+      "choices": [
+        "$x = \\dfrac{\\pi}{2}, \\dfrac{3\\pi}{2}$",
+        "$x = 0, \\dfrac{\\pi}{2}$",
+        "$x = \\dfrac{\\pi}{2}, \\pi, \\dfrac{3\\pi}{2}$",
+        "$x = 0, \\dfrac{\\pi}{2}, \\dfrac{3\\pi}{2}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Rearrange to $\\cos x(\\cos x - 1) = 0$, so $\\cos x = 0$ or $\\cos x = 1$. Cosine is zero at $\\dfrac{\\pi}{2}$ and $\\dfrac{3\\pi}{2}$, and equals 1 at $x = 0$. Dividing by $\\cos x$ would have lost the $x = \\dfrac{\\pi}{2}$ and $\\dfrac{3\\pi}{2}$ solutions.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q13",
+      "stem": "A sector of radius 4 cm has area $8 \\text{ cm}^2$. Find its angle in radians.",
+      "choices": [
+        "$1$",
+        "$2$",
+        "$4$",
+        "$0.5$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$8 = \\dfrac{1}{2}(16)\\theta = 8\\theta$, so $\\theta = 1$ radian.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q14",
+      "stem": "Simplify $\\dfrac{1 - \\cos^2\\theta}{\\sin\\theta}$, for $\\sin\\theta \\ne 0$.",
+      "choices": [
+        "$\\dfrac{1}{\\sin\\theta}$",
+        "$\\sin\\theta$",
+        "$\\cos\\theta$",
+        "$\\tan\\theta$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Using $1 - \\cos^2\\theta = \\sin^2\\theta$, the fraction becomes $\\dfrac{\\sin^2\\theta}{\\sin\\theta} = \\sin\\theta$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-trig-identities-equations-q15",
+      "stem": "Solve $\\tan x = \\sqrt3$ for $0 \\le x < 2\\pi$.",
+      "choices": [
+        "$x = \\dfrac{\\pi}{6}, \\dfrac{7\\pi}{6}$",
+        "$x = \\dfrac{\\pi}{3}$ only",
+        "$x = \\dfrac{\\pi}{3}, \\dfrac{4\\pi}{3}$",
+        "$x = \\dfrac{\\pi}{3}, \\dfrac{2\\pi}{3}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The principal value is $\\dfrac{\\pi}{3}$. Tangent repeats every $\\pi$, so the second solution in the interval is $\\dfrac{\\pi}{3} + \\pi = \\dfrac{4\\pi}{3}$.",
+      "difficulty": "hard"
+    }
+  ]
+}

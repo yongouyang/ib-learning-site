@@ -49,9 +49,9 @@ test.describe('Mock exams', () => {
     await expect(page.getByRole('link', { name: 'See Premium plans' })).toHaveCount(0);
     // Two DP maths courses now share the DP paper titles, so match the first.
     await expect(page.getByText('Paper 2 — extended response').first()).toBeVisible();
-    // Practice sets per course are unlocked cross-links too (14 courses × 2,
-    // plus IGCSE Maths' wave-2 set 3 = 29).
-    await expect(page.getByRole('link', { name: /— free-response/ })).toHaveCount(29);
+    // Practice sets per course are unlocked cross-links too (15 courses × 2,
+    // plus IGCSE Maths' wave-2 set 3 = 31).
+    await expect(page.getByRole('link', { name: /— free-response/ })).toHaveCount(31);
     // Fresh browser context → nothing attempted yet.
     await expect(page.getByText('Not attempted').first()).toBeVisible();
 

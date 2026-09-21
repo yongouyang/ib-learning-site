@@ -405,7 +405,7 @@ describe('content API — health and routing', () => {
     expect(res.status).toBe(200);
     const body = (await res.json()) as { ok: boolean; topicCount: number };
     expect(body.ok).toBe(true);
-    expect(body.topicCount).toBe(236);
+    expect(body.topicCount).toBe(245);
     // `"ok":true` is what keeps the CI probe path-discriminating — the /api/* catch-all answers
     // {"configured":true} for any unclaimed path.
     expect(JSON.stringify(body)).toContain('"ok":true');

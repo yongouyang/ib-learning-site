@@ -1,0 +1,322 @@
+{
+  "id": "math-dp-aa-functions",
+  "subjectId": "math",
+  "title": "Functions",
+  "description": "Function notation, domain and range, composite and inverse functions, and graph transformations",
+  "stage": "dp",
+  "course": "aa",
+  "level": "sl",
+  "notes": [
+    {
+      "id": "math-dp-aa-functions-n1",
+      "heading": "Function Notation, Domain and Range",
+      "body": "A **function** $f$ assigns exactly one output to each input. We write $f: x \\mapsto f(x)$, and the set of allowed inputs is the **domain**; the set of outputs actually produced is the **range**.\n\n📌 **Definition** — $f(a)$ is the **value** of $f$ at $x = a$; the graph of $f$ is the set of all points $(x, f(x))$ with $x$ in the domain.\n\n💡 **Worked Example** — For $f(x) = x^2 - 4x$ with domain $x \\in \\mathbb{R}$:\n$$f(3) = 9 - 12 = -3$$\nCompleting the square, $f(x) = (x-2)^2 - 4$, so the range is $f(x) \\ge -4$.\n\n🔑 Domain is an *input* question and range is an *output* question. When a question says \"state the range\", find the highest or lowest point of the graph and check whether the curve closes up or runs to infinity."
+    },
+    {
+      "id": "math-dp-aa-functions-n2",
+      "heading": "Finding the Domain from a Formula",
+      "body": "When no domain is given, the domain is every real number for which the formula produces a real output. Two features break it:\n\n• A **denominator** must not be zero.\n• An **even root** (square root, fourth root) must not take a negative argument.\n\n💡 **Worked Example** — Find the domain of $f(x) = \\dfrac{\\sqrt{x+1}}{x-3}$.\nThe root needs $x + 1 \\ge 0$, so $x \\ge -1$. The denominator forbids $x = 3$. Together:\n$$x \\ge -1, \\quad x \\ne 3$$\n\n⚠️ **Common mistake** — Writing $x \\ne 3$ only, or letting the square root rule vanish once a second condition is added. Every restriction the formula imposes must survive.\n\n📌 For a logarithm the argument must be strictly positive: the domain of $\\ln(5 - x)$ is $x < 5$."
+    },
+    {
+      "id": "math-dp-aa-functions-n3",
+      "heading": "Composite Functions",
+      "body": "Applying $g$ then $f$ gives the **composite** $f \\circ g$, defined by\n$$(f \\circ g)(x) = f\\big(g(x)\\big)$$\nThe function nearest the $x$ acts first: $f \\circ g$ is *\"$g$ first, then $f$\"*.\n\n💡 **Worked Example** — With $f(x) = 2x + 1$ and $g(x) = x^2$:\n$$(f \\circ g)(x) = f(x^2) = 2x^2 + 1 \\qquad (g \\circ f)(x) = g(2x+1) = (2x+1)^2$$\n\n⚠️ **Common mistake** — Assuming $f \\circ g = g \\circ f$. They are different functions in general, and the two above are a counter-example.\n\n📌 A composite is only defined where the inner function is defined *and* its output is allowed by the outer function. For $(f \\circ g)(x) = \\dfrac{1}{x-2}$ with $g(x) = x + 2$, the value $x = 0$ is excluded even though the formula simplifies neatly."
+    },
+    {
+      "id": "math-dp-aa-functions-n4",
+      "heading": "Inverse Functions",
+      "body": "The inverse $f^{-1}$ undoes $f$: it sends each output back to the input that produced it. It exists exactly when $f$ is **one-to-one** — no horizontal line meets the graph twice.\n\n**Finding the inverse takes three steps:** write $y = f(x)$; interchange $x$ and $y$; solve for $y$.\n\n💡 **Worked Example** — $f(x) = 3x - 5$.\n$$y = 3x - 5 \\;\\Longrightarrow\\; x = 3y - 5 \\;\\Longrightarrow\\; y = \\dfrac{x+5}{3}$$\nso $f^{-1}(x) = \\dfrac{x+5}{3}$. Check: $f^{-1}(f(4)) = f^{-1}(7) = 4$ ✓\n\n🔑 The domain of $f^{-1}$ is the range of $f$, and the range of $f^{-1}$ is the domain of $f$. The graph of $f^{-1}$ is the reflection of the graph of $f$ in the line $y = x$.\n\n⚠️ $f^{-1}(x)$ means the inverse function, never the reciprocal $\\dfrac{1}{f(x)}$."
+    },
+    {
+      "id": "math-dp-aa-functions-n5",
+      "heading": "Transformations: Translations and Reflections",
+      "body": "Starting from a known graph $y = f(x)$, the common transformations are:\n\n• $y = f(x) + a$ — translation by $\\begin{pmatrix} 0 \\\\ a \\end{pmatrix}$ (up for $a > 0$).\n• $y = f(x - a)$ — translation by $\\begin{pmatrix} a \\\\ 0 \\end{pmatrix}$ (**right** for $a > 0$).\n• $y = -f(x)$ — reflection in the $x$-axis.\n• $y = f(-x)$ — reflection in the $y$-axis.\n\n💡 **Worked Example** — The graph of $y = f(x)$ passes through $(4, 3)$. Then:\n• $y = f(x) + 5$ passes through $(4, 8)$.\n• $y = f(x - 2)$ passes through $(6, 3)$.\n• $y = -f(x)$ passes through $(4, -3)$.\n\n⚠️ **Common mistake** — Reading $f(x - 2)$ as a shift to the left. Inside the bracket the transformation acts *opposite* to the sign, because the new graph needs the **larger** input $x = 6$ to reuse the old output $f(4)$.",
+      "illustration": {
+        "src": "/images/math/math-dp-aa-functions-transformations.svg",
+        "alt": "Four panels showing the graph of a function drawn dashed beside y = f(x) + 2 shifted up, y = f(x − 2) shifted right, y = −f(x) reflected in the x-axis and y = 2f(x) stretched vertically.",
+        "caption": "Stretches and reflections act on the outside and behave as written; a change inside the bracket moves the graph the opposite way."
+      }
+    },
+    {
+      "id": "math-dp-aa-functions-n6",
+      "heading": "Transformations: Stretches",
+      "body": "Two stretches complete the toolkit:\n\n• $y = a\\,f(x)$ — **vertical** stretch, scale factor $a$, away from the $x$-axis. The $y$-coordinates are multiplied by $a$.\n• $y = f(kx)$ — **horizontal** stretch, scale factor $\\dfrac{1}{k}$, away from the $y$-axis. The $x$-coordinates are divided by $k$.\n\n💡 **Worked Example** — The graph of $y = f(x)$ has a maximum at $(2, 6)$.\n• $y = 3f(x)$ has a maximum at $(2, 18)$.\n• $y = f(2x)$ has a maximum at $(1, 6)$.\n\n🔑 Vertical changes act on the outside (on $y$) and do exactly what they say. Horizontal changes act on the inside (on $x$) and do the **inverse**: $f(2x)$ squashes the graph to half its width.\n\n📌 When several transformations are combined, apply them in the order the expression is built up from $f(x)$."
+    },
+    {
+      "id": "math-dp-aa-functions-n7",
+      "heading": "Rational Graphs, Asymptotes and Exam Technique",
+      "body": "For $y = \\dfrac{ax + b}{cx + d}$ the graph has a **vertical asymptote** where the denominator is zero and a **horizontal asymptote** at $y = \\dfrac{a}{c}$, found by dividing both terms by the highest power of $x$.\n\n💡 **Worked Example** — $y = \\dfrac{2x+1}{x-3}$.\n• Denominator zero: $x = 3$ is the vertical asymptote.\n• Large $x$: dividing top and bottom by $x$ gives $\\dfrac{2 + \\frac1x}{1 - \\frac3x} \\to 2$, so $y = 2$ is the horizontal asymptote.\n\n**Checklist for sketching**\n• Find the intercepts: $x = 0$ for the $y$-intercept, $y = 0$ for the $x$-intercept.\n• Mark the asymptotes as dashed lines and state them.\n• Sketch the two branches, which sit on opposite sides of the vertical asymptote.\n\n⚠️ **Common mistakes** — Joining the two branches across an asymptote; forgetting that the graph is undefined at the vertical asymptote; assuming the horizontal asymptote is a value the curve reaches."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "math-dp-aa-functions-f1",
+      "term": "Domain",
+      "definition": "The set of all allowed inputs of a function",
+      "example": "$f(x) = \\sqrt{x}$ has domain $x \\ge 0$"
+    },
+    {
+      "id": "math-dp-aa-functions-f2",
+      "term": "Range",
+      "definition": "The set of all outputs the function actually produces",
+      "example": "$f(x) = x^2$ has range $f(x) \\ge 0$"
+    },
+    {
+      "id": "math-dp-aa-functions-f3",
+      "term": "Domain of a fraction",
+      "definition": "All real $x$ except where the denominator is zero",
+      "example": "$\\dfrac{1}{x-4}$ needs $x \\ne 4$"
+    },
+    {
+      "id": "math-dp-aa-functions-f4",
+      "term": "Domain of an even root",
+      "definition": "The expression under the root must be non-negative",
+      "example": "$\\sqrt{2x-6}$ needs $x \\ge 3$"
+    },
+    {
+      "id": "math-dp-aa-functions-f5",
+      "term": "Domain of a logarithm",
+      "definition": "The argument must be strictly positive",
+      "example": "$\\ln(5-x)$ needs $x < 5$"
+    },
+    {
+      "id": "math-dp-aa-functions-f6",
+      "term": "Composite $f \\circ g$",
+      "definition": "$(f \\circ g)(x) = f(g(x))$ — apply $g$ first",
+      "example": "$f(x)=2x+1$, $g(x)=x^2$ gives $2x^2+1$"
+    },
+    {
+      "id": "math-dp-aa-functions-f7",
+      "term": "Does $f \\circ g = g \\circ f$?",
+      "definition": "Not in general — composition is not commutative",
+      "example": "$2x^2+1 \\ne (2x+1)^2$"
+    },
+    {
+      "id": "math-dp-aa-functions-f8",
+      "term": "When does $f^{-1}$ exist?",
+      "definition": "When $f$ is one-to-one (no horizontal line meets the graph twice)",
+      "example": "$f(x)=x^2$ on $x \\ge 0$ has an inverse"
+    },
+    {
+      "id": "math-dp-aa-functions-f9",
+      "term": "Finding an inverse",
+      "definition": "Write $y = f(x)$, interchange $x$ and $y$, then solve for $y$",
+      "example": "$y = 3x-5 \\Rightarrow f^{-1}(x) = \\dfrac{x+5}{3}$"
+    },
+    {
+      "id": "math-dp-aa-functions-f10",
+      "term": "Graph of $f^{-1}$",
+      "definition": "The reflection of the graph of $f$ in the line $y = x$",
+      "example": "domain and range swap over"
+    },
+    {
+      "id": "math-dp-aa-functions-f11",
+      "term": "Translation $y = f(x-a)$",
+      "definition": "Moves the graph $a$ units to the right for $a > 0$",
+      "example": "$f(x-2)$ sends $(4,3)$ to $(6,3)$"
+    },
+    {
+      "id": "math-dp-aa-functions-f12",
+      "term": "Horizontal asymptote of $\\dfrac{ax+b}{cx+d}$",
+      "definition": "$y = \\dfrac{a}{c}$, found by dividing by the highest power of $x$",
+      "example": "$\\dfrac{2x+1}{x-3}$ has asymptote $y = 2$"
+    }
+  ],
+  "questions": [
+    {
+      "id": "math-dp-aa-functions-q1",
+      "stem": "The function $f$ is defined by $f(x) = 3x - 2$. Find $f(5)$.",
+      "choices": [
+        "$13$",
+        "$17$",
+        "$15$",
+        "$10$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Substituting $x = 5$: $3(5) - 2 = 15 - 2 = 13$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-functions-q2",
+      "stem": "What is the domain of $f(x) = \\dfrac{1}{x-4}$?",
+      "choices": [
+        "$x > 4$",
+        "$x \\ne 4$",
+        "all real $x$",
+        "$x \\ge 4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The denominator is zero at $x = 4$, so that single value is excluded: the domain is all real $x$ with $x \\ne 4$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-functions-q3",
+      "stem": "The function $f(x) = x^2$ has domain $x \\in \\mathbb{R}$. State its range.",
+      "choices": [
+        "all real $y$",
+        "$y > 0$",
+        "$y \\ge 0$",
+        "$y \\le 0$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A square is never negative and every non-negative value is attained, so the range is $y \\ge 0$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-functions-q4",
+      "stem": "Given $f(x) = 2x$ and $g(x) = x + 3$, find $f\\big(g(1)\\big)$.",
+      "choices": [
+        "$7$",
+        "$6$",
+        "$5$",
+        "$8$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The inner function acts first: $g(1) = 4$, then $f(4) = 2 \\times 4 = 8$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "math-dp-aa-functions-q5",
+      "stem": "The function $f$ is defined by $f(x) = 4x - 7$. Find $f^{-1}(x)$.",
+      "choices": [
+        "$\\dfrac{x+7}{4}$",
+        "$\\dfrac{x-7}{4}$",
+        "$4x+7$",
+        "$\\dfrac{x}{4}+7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Interchange $x$ and $y$ in $y = 4x - 7$ to get $x = 4y - 7$, then $y = \\dfrac{x+7}{4}$, so $f^{-1}(x) = \\dfrac{x+7}{4}$. Check: $f^{-1}(f(2)) = f^{-1}(1) = 2$ ✓",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-functions-q6",
+      "stem": "Given $f(x) = x^2 - 3$ and $g(x) = x + 1$, find $(f \\circ g)(x)$.",
+      "choices": [
+        "$x^2 - 3x - 2$",
+        "$x^2 + 2x - 2$",
+        "$x^2 - 2$",
+        "$x^2 + 2x + 1$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$(f \\circ g)(x) = f(x+1) = (x+1)^2 - 3 = x^2 + 2x + 1 - 3 = x^2 + 2x - 2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-functions-q7",
+      "stem": "Find the domain of $f(x) = \\sqrt{2x - 6}$.",
+      "choices": [
+        "$x \\le 3$",
+        "$x \\ge 6$",
+        "$x \\ge 3$",
+        "$x > 3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The expression under the square root must be non-negative: $2x - 6 \\ge 0$ gives $x \\ge 3$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-functions-q8",
+      "stem": "The graph of $y = f(x - 2)$ is the graph of $y = f(x)$ translated",
+      "choices": [
+        "2 units down",
+        "2 units left",
+        "2 units up",
+        "2 units right"
+      ],
+      "correctIndex": 3,
+      "explanation": "Replacing $x$ by $x - 2$ shifts the graph 2 units to the right: the new graph needs the larger input $x = 2$ to reuse the old value $f(0)$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-functions-q9",
+      "stem": "Which of these functions is its own inverse?",
+      "choices": [
+        "$f(x) = \\dfrac{1}{x}$",
+        "$f(x) = x^2$",
+        "$f(x) = 2x$",
+        "$f(x) = x + 1$"
+      ],
+      "correctIndex": 0,
+      "explanation": "For $f(x) = \\dfrac{1}{x}$ the interchange step returns the same formula, so $f^{-1}(x) = \\dfrac{1}{x} = f(x)$. The others are not self-inverse.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "math-dp-aa-functions-q10",
+      "stem": "The function $f(x) = \\sqrt{x-1}$ has domain $x \\ge 1$. Find $f^{-1}(x)$, stating its domain.",
+      "choices": [
+        "$f^{-1}(x) = x^2 + 1$, $x \\in \\mathbb{R}$",
+        "$f^{-1}(x) = x^2 + 1$, $x \\ge 0$",
+        "$f^{-1}(x) = x^2 - 1$, $x \\ge 1$",
+        "$f^{-1}(x) = x^2 + 1$, $x \\ge 1$"
+      ],
+      "correctIndex": 1,
+      "explanation": "From $y = \\sqrt{x-1}$ we get $y^2 = x - 1$, so $x = y^2 + 1$ and $f^{-1}(x) = x^2 + 1$. Its domain is the range of $f$, which is $x \\ge 0$ (a square root is never negative).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-functions-q11",
+      "stem": "The function $f$ is defined by $f(x) = \\dfrac{x}{x-2}$, $x \\ne 2$. Find $f^{-1}(x)$.",
+      "choices": [
+        "$\\dfrac{x-2}{x}$",
+        "$\\dfrac{2x}{x+1}$",
+        "$\\dfrac{2x}{x-1}$",
+        "$\\dfrac{x}{x+2}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Write $y = \\dfrac{x}{x-2}$, so $y(x-2) = x$, giving $yx - x = 2y$ and $x(y-1) = 2y$. Hence $x = \\dfrac{2y}{y-1}$ and $f^{-1}(x) = \\dfrac{2x}{x-1}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-functions-q12",
+      "stem": "The graph of $y = f(x)$ passes through the point $(3, 4)$. Which point lies on the graph of $y = 2f(x) + 1$?",
+      "choices": [
+        "$(6, 4)$",
+        "$(3, 8)$",
+        "$(3, 5)$",
+        "$(3, 9)$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The $x$-coordinate is unchanged because the transformation acts on the outside. The new $y$-coordinate is $2(4) + 1 = 9$, so the point is $(3, 9)$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-functions-q13",
+      "stem": "The graph of $y = f(x)$ has a maximum point at $(4, 7)$. Find the maximum point of the graph of $y = f\\left(\\dfrac{x}{2}\\right)$.",
+      "choices": [
+        "$(8, 7)$",
+        "$(4, 3.5)$",
+        "$(8, 3.5)$",
+        "$(2, 7)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Replacing $x$ by $\\dfrac{x}{2}$ stretches the graph horizontally with scale factor 2, so the $x$-coordinate doubles to 8 while the $y$-coordinate is unchanged: $(8, 7)$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-functions-q14",
+      "stem": "Given $f(x) = \\dfrac{1}{x-2}$ and $g(x) = \\sqrt{x+2}$, state the domain of the composite $f \\circ g$.",
+      "choices": [
+        "$x > -2$",
+        "$x \\ge -2$, $x \\ne 2$",
+        "$x \\ge -2$",
+        "$x \\ne 2$ only"
+      ],
+      "correctIndex": 1,
+      "explanation": "$(f \\circ g)(x) = \\dfrac{1}{\\sqrt{x+2}-2}$. The root requires $x \\ge -2$ and the denominator requires $\\sqrt{x+2} \\ne 2$, which squares to $x + 2 \\ne 4$ and hence $x \\ne 2$. Both restrictions apply, so the domain is $x \\ge -2$ with $x \\ne 2$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "math-dp-aa-functions-q15",
+      "stem": "State the horizontal asymptote of the graph of $y = \\dfrac{2x+1}{x-3}$.",
+      "choices": [
+        "$y = 0$",
+        "$y = -\\dfrac{1}{3}$",
+        "$y = 2$",
+        "$y = 3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Divide numerator and denominator by $x$: $\\dfrac{2 + \\frac1x}{1 - \\frac3x} \\to \\dfrac{2}{1} = 2$ as $x \\to \\infty$, so the horizontal asymptote is $y = 2$. (The vertical asymptote is $x = 3$.)",
+      "difficulty": "hard"
+    }
+  ]
+}

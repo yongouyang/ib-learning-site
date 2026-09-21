@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">A Venn diagram and the probability rules</title>
+  <desc id="desc">A Venn diagram for two events A and B inside a sample space of sixteen outcomes, showing eight in A, six in B, three in both and five in neither, beside a panel listing the addition rule, the independence test and the conditional probability formula.</desc>
+  <style>
+    text { font-family: system-ui, -apple-system, sans-serif; }
+    .heading { font-size: 20px; font-weight: 600; fill: #1e293b; }
+    .subhead { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .label { font-size: 13px; fill: #374151; }
+    .math { font-size: 13px; fill: #111827; }
+    .small { font-size: 11px; fill: #64748b; }
+  </style>
+  <rect width="900" height="520" fill="#f8fafc" rx="12"/>
+  <text x="30" y="34" class="heading">Two events in one sample space</text>
+  <text x="30" y="54" class="small">Here n(U) = 16, n(A) = 8, n(B) = 6 and n(A ∩ B) = 3, so 5 outcomes lie in neither event.</text>
+  <rect x="30" y="74" width="420" height="340" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+  <rect x="31" y="384" width="418" height="29" fill="#ffffff" stroke="none" rx="6"/>
+  <line x1="31" y1="384" x2="449" y2="384" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="50" y="96" width="380" height="270" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" rx="6"/>
+  <text x="60" y="116" class="small">U</text>
+  <circle cx="180" cy="240" r="88" fill="#dbeafe" fill-opacity="0.75" stroke="#2563eb" stroke-width="1.5"/>
+  <circle cx="300" cy="240" r="88" fill="#cffafe" fill-opacity="0.6" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="120.0" y="170.0" class="subhead" text-anchor="start">A</text>
+  <text x="348.0" y="170.0" class="subhead" text-anchor="start">B</text>
+  <rect x="138.3" y="239.0" width="23.4" height="22" rx="6" fill="#ffffff" stroke="#2563eb" stroke-width="1"/>
+  <text x="150.0" y="254.5" class="math" text-anchor="middle">5</text>
+  <rect x="228.3" y="239.0" width="23.4" height="22" rx="6" fill="#ffffff" stroke="#4f46e5" stroke-width="1"/>
+  <text x="240.0" y="254.5" class="math" text-anchor="middle">3</text>
+  <rect x="318.3" y="239.0" width="23.4" height="22" rx="6" fill="#ffffff" stroke="#0891b2" stroke-width="1"/>
+  <text x="330.0" y="254.5" class="math" text-anchor="middle">3</text>
+  <rect x="195.0" y="119.0" width="90.0" height="22" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="240.0" y="134.5" class="small" text-anchor="middle">neither: 5</text>
+  <text x="240.0" y="396.0" class="math" text-anchor="middle">P(A ∪ B) = (5 + 3 + 3)/16 = 11/16 = 0.6875</text>
+  <text x="30.0" y="448.0" class="small" text-anchor="start">The 5 in neither is what most mistakes forget: it is part of the sample space but in neither event.</text>
+  <text x="30.0" y="470.0" class="small" text-anchor="start">For the conditional P(A | B) the denominator is n(B) = 6, not 16.</text>
+  <text x="30.0" y="492.0" class="small" text-anchor="start">A tree diagram shows the same information stage by stage: multiply along a branch, add between branches.</text>
+  <rect x="470" y="74" width="400" height="340" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" rx="6"/>
+  <text x="492.0" y="102.0" class="subhead" text-anchor="start">The rules</text>
+  <text x="492.0" y="140.0" class="math" text-anchor="start">P(A') = 1 − P(A)</text>
+  <text x="492.0" y="188.0" class="math" text-anchor="start">P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</text>
+  <text x="492.0" y="212.0" class="math" text-anchor="start">mutually exclusive: P(A ∩ B) = 0</text>
+  <text x="492.0" y="260.0" class="math" text-anchor="start">independent: P(A ∩ B) = P(A) P(B)</text>
+  <text x="492.0" y="308.0" class="math" text-anchor="start">P(A | B) = P(A ∩ B) / P(B)</text>
+  <text x="492.0" y="332.0" class="math" text-anchor="start">P(A ∩ B) = P(B) P(A | B)</text>
+  <text x="492.0" y="380.0" class="math" text-anchor="start">at least one: 1 − P(none)</text>
+  <text x="492.0" y="404.0" class="math" text-anchor="start">ⁿCᵣ = n! / (r!(n − r)!)</text>
+</svg>
