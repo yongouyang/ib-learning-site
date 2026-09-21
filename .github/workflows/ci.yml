@@ -34,6 +34,9 @@ jobs:
     # Skipped when the run is a deploy_only manual dispatch.
     if: ${{ inputs.deploy_only != true }}
     runs-on: ubuntu-latest
+    # Job-level cap: GitHub's default is 360 min, so a stalled runner blocks a
+    # deploy for six hours instead of failing fast. Normally ~8 min.
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -67,6 +70,9 @@ jobs:
     if: ${{ inputs.deploy_only != true }}
     runs-on: ubuntu-latest
     needs: build-and-test
+    # Normally ~12 min per device. The 8-min cap on the Playwright install step
+    # below guards the specific hang seen 2026-09-18; this caps the whole job.
+    timeout-minutes: 40
     strategy:
       # Don't cancel the other device jobs when one fails — we want the full
       # per-device picture in a single run.
@@ -122,6 +128,8 @@ jobs:
     if: ${{ inputs.deploy_only != true }}
     runs-on: ubuntu-latest
     needs: build-and-test
+    # Normally ~5 min (the Chromium install dominates).
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -172,6 +180,8 @@ jobs:
     name: Semgrep (SAST)
     if: ${{ inputs.deploy_only != true }}
     runs-on: ubuntu-latest
+    # Normally ~2 min; `pipx run` can stall on a cold cache.
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
 
@@ -186,6 +196,10 @@ jobs:
 
   # Official reusable workflow (google/osv-scanner-action). Default scan-args
   # are `--recursive ./` — covers package-lock.json AND tools/package-lock.json.
+  # No timeout-minutes here on purpose: a job that calls a reusable workflow
+  # accepts only name/uses/with/secrets/strategy/needs/if/concurrency/permissions
+  # — adding one is a workflow-file error, not a longer job. The called workflow
+  # carries its own step timeouts instead.
   osv-scanner:
     name: OSV-Scanner (SCA)
     if: ${{ inputs.deploy_only != true }}
@@ -208,6 +222,10 @@ jobs:
       github.ref == 'refs/heads/develop' &&
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
+    # Normally ~20 min (build:static + Lambdas + terraform apply + sync +
+    # smoke + verify:seo:live). Capped so a hung runner cannot sit on the
+    # `deploy` concurrency group for six hours holding back the next deploy.
+    timeout-minutes: 60
     # The DEV GitHub ENVIRONMENT (uppercase — environment names are
     # case-sensitive in the API/UI) carries the browser publishable key as an
     # environment secret, and a job only sees environment secrets if it declares
@@ -475,6 +493,9 @@ jobs:
       github.ref == 'refs/heads/main' &&
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
+    # See deploy-dev: normally ~20 min, capped so a hang cannot hold the shared
+    # `deploy` concurrency group for the 360-min default.
+    timeout-minutes: 60
     # The PROD GitHub ENVIRONMENT (uppercase — environment names are
     # case-sensitive) carries its own browser publishable key. GitHub creates the
     # environment on first use, so this line is safe before that secret exists;

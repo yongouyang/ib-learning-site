@@ -6,8 +6,9 @@ import { subjectEmoji } from '@/lib/subject-emoji';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 // Tier hub (docs/seo-technical-plan.md §1.1, step S3): indexable landing page listing
-// every subject that has IB DP content. IGCSE has no tier hub — the tier is empty and
-// the plan is explicit that an empty tier gets no route.
+// every subject that has IB DP content. Mirrored by src/app/igcse/page.tsx, which has
+// existed since 2026-09-07 — this comment claimed the IGCSE tier had no route for two
+// weeks after it shipped (false; corrected 2026-09-20).
 
 export function generateMetadata(): Metadata {
   return metaForTierHub('ibdp');

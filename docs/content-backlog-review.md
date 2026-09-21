@@ -205,10 +205,17 @@ Sequenced: **D done → C → B → A**, with two cross-cutting tasks alongside 
 AGENTS/plan-doc staleness sweep (two plan docs already claimed "nothing landed" for shipped
 work, and AGENTS.md asserted no PITR existed after it was enabled) and the `ci.yml`
 `timeout-minutes` gap that cost a 45-minute hang and skipped two deploys on 2026-09-18.
+**Both cross-cutting items are CLOSED (2026-09-20).** The staleness sweep landed in `cd332e7`
+(14 claims corrected; the two IGCSE status lines below are already fixed); the remaining stale
+comment, `src/app/ibdp/page.tsx:9-10`, was corrected 2026-09-20. Every `ci.yml` job now carries
+`timeout-minutes` (build-and-test 30, e2e 40, illustrations 30, semgrep 20, both deploys 60) —
+except `osv-scanner`, which cannot, because a reusable-workflow-call job rejects the key.
 
 ---
 
 ## 4. Stale docs found while measuring (fix or they will mislead the next session)
+
+**All three are fixed** (1–2 in `cd332e7`, 3 on 2026-09-20). Recorded here as the audit trail.
 
 1. **`docs/igcse-wave2-plan.md` — "Status: plan only, nothing landed." is false.**
    All 6 wave-2 topics exist (`math-igcse-functions`, `-circle-theorems`, `-trigonometry`,
