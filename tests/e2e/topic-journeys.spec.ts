@@ -18,7 +18,11 @@ function sessionSize(topic: ReturnType<typeof getAllContentTopics>[number]): num
 const runSweep = !!process.env.RUN_TOPIC_SWEEP;
 test.skip(!runSweep, 'Topic sweep disabled by default; set RUN_TOPIC_SWEEP=1 to enable');
 
-test.setTimeout(300000);
+// 10 min, not the 5-min default: the sweep walks EVERY topic (245 as of 2026-09-21)
+// and the corpus has outgrown the old cap — at 233 topics it finished in 4.6 min, so
+// the DP AA batch pushed it past 300s and the run died mid-sweep with an
+// aggregate-timeout cascade, not a real page failure.
+test.setTimeout(600000);
 
 test('every topic can load study, flashcards and quiz pages', async ({ page }) => {
   const failures: string[] = [];

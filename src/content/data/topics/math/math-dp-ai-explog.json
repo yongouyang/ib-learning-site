@@ -324,5 +324,28 @@
       "explanation": "Replacing $x$ with $2x$ causes a horizontal compression by factor $\\dfrac{1}{2}$. This is different from $y = 2e^x$, which is a vertical stretch.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-indices",
+      "params": {
+        "symbols": [
+          "x",
+          "a",
+          "y"
+        ],
+        "exponents": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "ops": [
+          "multiply",
+          "divide",
+          "power"
+        ]
+      }
+    }
   ]
 }

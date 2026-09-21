@@ -729,6 +729,48 @@
           }
         ]
       }
+    },
+    {
+      "generator": "chem-isotope-ram",
+      "params": {
+        "pairs": [
+          {
+            "element": "chlorine",
+            "symbol": "Cl",
+            "massA": 35,
+            "massB": 37,
+            "abundanceA": 75
+          },
+          {
+            "element": "copper",
+            "symbol": "Cu",
+            "massA": 63,
+            "massB": 65,
+            "abundanceA": 69
+          },
+          {
+            "element": "boron",
+            "symbol": "B",
+            "massA": 10,
+            "massB": 11,
+            "abundanceA": 20
+          },
+          {
+            "element": "bromine",
+            "symbol": "Br",
+            "massA": 79,
+            "massB": 81,
+            "abundanceA": 51
+          },
+          {
+            "element": "neon",
+            "symbol": "Ne",
+            "massA": 20,
+            "massB": 22,
+            "abundanceA": 90
+          }
+        ]
+      }
     }
   ]
 }

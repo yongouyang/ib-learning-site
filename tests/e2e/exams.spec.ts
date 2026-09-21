@@ -95,13 +95,13 @@ test.describe('Mock exams', () => {
     await page.goto('/exams');
     const links = page.getByRole('link', { name: /— free-response/ });
     // Set 1 stays free on every course with papers. The locked set-2 rows exist
-    // in the DOM (14 inert previews) but are aria-hidden, so they are NOT
+    // in the DOM (15 inert previews) but are aria-hidden, so they are NOT
     // accessible links for anonymous visitors…
-    await expect(links).toHaveCount(14);
-    await expect(page.locator('a[href$="-set-2"]').filter({ hasText: /— free-response/ })).toHaveCount(14);
+    await expect(links).toHaveCount(15);
+    await expect(page.locator('a[href$="-set-2"]').filter({ hasText: /— free-response/ })).toHaveCount(15);
     await expect(page.getByRole('link', { name: /Practice Set 2 — free-response/ })).toHaveCount(0);
     // …and each course's locked sets sit behind a compact premium lock row.
-    await expect(page.getByRole('link', { name: /Premium · Full exam sets/ })).toHaveCount(14);
+    await expect(page.getByRole('link', { name: /Premium · Full exam sets/ })).toHaveCount(15);
     await links.first().click();
     await page.waitForURL('**/papers/math-y7/math-y7-set-1');
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();

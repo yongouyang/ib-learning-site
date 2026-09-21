@@ -347,5 +347,52 @@
       "explanation": "The total mass of fission products + neutrons is slightly less than the original uranium + neutron mass. This 'missing mass' became energy: E=mc².",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "chem-half-life",
+      "params": {
+        "modes": [
+          "remaining"
+        ],
+        "halfLives": [
+          2,
+          3,
+          4
+        ],
+        "isotopes": [
+          {
+            "name": "carbon-14",
+            "halfLife": 5700,
+            "unit": "years",
+            "startMass": 80
+          },
+          {
+            "name": "radon-222",
+            "halfLife": 3.8,
+            "unit": "days",
+            "startMass": 64
+          },
+          {
+            "name": "protactinium-234",
+            "halfLife": 1.2,
+            "unit": "minutes",
+            "startMass": 200
+          },
+          {
+            "name": "iodine-131",
+            "halfLife": 8,
+            "unit": "days",
+            "startMass": 100
+          },
+          {
+            "name": "uranium-235",
+            "halfLife": 700,
+            "unit": "years",
+            "startMass": 320
+          }
+        ]
+      }
+    }
   ]
 }

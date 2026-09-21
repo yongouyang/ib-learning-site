@@ -317,5 +317,26 @@
       "explanation": "Stopping distance = thinking distance + braking distance = 15 m + 25 m = 40 m.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "phys-kinetic-energy",
+      "params": {
+        "m": [
+          1000,
+          1200,
+          1500,
+          800,
+          2000
+        ],
+        "v": [
+          2,
+          4,
+          6,
+          8,
+          10
+        ]
+      }
+    }
   ]
 }

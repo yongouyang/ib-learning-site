@@ -321,5 +321,28 @@
       "explanation": "The quotient rule states $\\log_a\\frac{x}{y} = \\log_a x - \\log_a y$. The other three confuse the laws: sums cannot be split, the product rule is an addition, and the power rule brings the index down as a factor.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-indices",
+      "params": {
+        "symbols": [
+          "x",
+          "a",
+          "y"
+        ],
+        "exponents": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "ops": [
+          "multiply",
+          "divide",
+          "power"
+        ]
+      }
+    }
   ]
 }

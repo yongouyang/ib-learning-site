@@ -544,5 +544,77 @@
       "difficulty": "medium",
       "variantOf": "dynamic-equilibrium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "chem-compound-naming",
+      "params": {
+        "modes": [
+          "ionic-formula"
+        ],
+        "ionic": [
+          {
+            "cationSymbol": "Na",
+            "cationName": "sodium",
+            "cationCharge": 1,
+            "anionSymbol": "Cl",
+            "anionName": "chloride",
+            "anionCharge": 1,
+            "formula": "NaCl",
+            "name": "sodium chloride"
+          },
+          {
+            "cationSymbol": "Mg",
+            "cationName": "magnesium",
+            "cationCharge": 2,
+            "anionSymbol": "Cl",
+            "anionName": "chloride",
+            "anionCharge": 1,
+            "formula": "MgCl₂",
+            "name": "magnesium chloride"
+          },
+          {
+            "cationSymbol": "Al",
+            "cationName": "aluminium",
+            "cationCharge": 3,
+            "anionSymbol": "O",
+            "anionName": "oxide",
+            "anionCharge": 2,
+            "formula": "Al₂O₃",
+            "name": "aluminium oxide"
+          },
+          {
+            "cationSymbol": "Ca",
+            "cationName": "calcium",
+            "cationCharge": 2,
+            "anionSymbol": "O",
+            "anionName": "oxide",
+            "anionCharge": 2,
+            "formula": "CaO",
+            "name": "calcium oxide"
+          },
+          {
+            "cationSymbol": "K",
+            "cationName": "potassium",
+            "cationCharge": 1,
+            "anionSymbol": "S",
+            "anionName": "sulfide",
+            "anionCharge": 2,
+            "formula": "K₂S",
+            "name": "potassium sulfide"
+          },
+          {
+            "cationSymbol": "Na",
+            "cationName": "sodium",
+            "cationCharge": 1,
+            "anionSymbol": "O",
+            "anionName": "oxide",
+            "anionCharge": 2,
+            "formula": "Na₂O",
+            "name": "sodium oxide"
+          }
+        ]
+      }
+    }
   ]
 }
