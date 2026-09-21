@@ -47,26 +47,21 @@ a defect class the validators provably cannot see — not a broken build.
 
 ## 2. The five real backlogs, with sizes
 
-### A. DP Math AA — the only missing *course* (largest gap, and committed scope)
+### A. DP Math AA — **CLOSED at the committed scope (2026-09-21)**
 
-**Zero topics. No `Course` entry. No `aa` token anywhere in `src/`.** DP Math today is
-20 topics, all `applications & interpretation`.
+**Was: zero topics, no `Course` entry.** Now: **12 topics** (the SL core: sequences and series,
+  exponents and logarithms, binomial theorem, functions, quadratics, trig identities and equations,
+  vectors, descriptive statistics, probability, binomial and normal distributions, differentiation,
+  integration), the `math-dp-aa` course wired into `courses.ts`/`exams.ts`, `order.json`, **9 new
+  figures** and **2 paper sets** — the corpus is 245 topics / 31 papers / 620 markscheme points.
 
-Evidence that this is scope and not a deliberate omission: the phase-1 decision recorded
-in PROGRESS.md was "both DP Math AA and AI", and `src/lib/seo/curriculum.ts:34` already
-formats a label for it (`IB DP AA (HL)`). `/ibdp` currently advertises "IB Diploma
-Programme topics" and lists exactly one subject — Math — whose 20 topics are all AI. A
-DP student taking AA (the larger cohort for STEM) finds nothing, on a page that says the
-site covers the Diploma.
+Scope was verified against the AA guide and two publishers rather than assumed: **SL 5.6 includes the
+  chain, product AND quotient rules**, while **volume of revolution is HL** and is deliberately absent.
+  Which is why the SL core still leaves real headroom — HL-only content, and depth to reach parity with
+  AI's 20 topics (the review's original "~30 topics" estimate). Neither is queued.
 
-Size: ~30 topics to reach parity with AI (5 × 7-note topics per syllabus area), plus
-*one line* in `courses.ts`, an `order.json` block, a paper set, and the count-churn sites
-AGENTS.md enumerates. **No route, schema, sitemap or hub change** — the pilot machinery
-already generalises.
-
-Caveat worth stating plainly: this is the most expensive item here by an order of
-magnitude, and it is the only one where the *product* claim (an IB DP site) is currently
-thinner than the marketing implies.
+Product claim: `/ibdp`'s DP Maths now has both courses, but **only on dev** — prod is ~28 commits
+  behind and still advertises AI alone. Promotion is the next step (PROGRESS main entry).
 
 ### B. Illustrations — 106 zero-coverage topics, and 5 subjects with no imagery at all
 
@@ -197,9 +192,8 @@ data, which is a different job from this one.
    first (66 in chinese/german/ict/history/geography, which need a first-ever
    `public/images/<subject>/`), then the 40 remaining zeros in maths/english/sciences.
    Deliberate exception: language subjects get vocab/situation posters, not diagrams.
-4. **A (DP AA)** — decided: build it, SL core first (~12 topics). Start with the syllabus map;
-   it is the biggest win and fixes a real over-claim on `/ibdp`, but treat it as a planned chain
-   (the IGCSE pilot shape), not a side quest.
+4. **A (DP AA)** — **DONE 2026-09-21 at the committed SL-core scope** (12 topics, 9 figures, 2 paper
+   sets). What remains is HL-only content and depth towards AI's 20 topics; neither is queued.
 
 Sequenced: **D done → C → B → A**, with two cross-cutting tasks alongside any of them — an
 AGENTS/plan-doc staleness sweep (two plan docs already claimed "nothing landed" for shipped

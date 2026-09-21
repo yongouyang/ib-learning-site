@@ -91,6 +91,15 @@ Every question must carry a `difficulty` tag (`easy` | `medium` | `hard`); `audi
 
 Aim for roughly 30% easy / 40% medium / 30% hard per topic.
 
+**Vary which choice is correct.** Spread the correct option across all four positions — aim for
+roughly 4/4/4/3 over a 15-question topic. Nothing in the gates checks this, and the DP Math AA batch
+shipped 54/39/26/16 (i.e. a third of the corpus answering "A") before the positions were rotated.
+
+**Re-derive every numeric key by hand before merge.** The AI answer-key audit is not fit for
+computational questions — it fails the arithmetic and then flags a correct key (measured 2026-09-19,
+`docs/content-backlog-review.md` §2.D item 2). The DP AA hand pass found no errors in 153 questions,
+but an earlier batch found four in eighteen.
+
 **How to read the bands (added 2026-09-19).** The three levels describe what kind of thinking a
 question demands, and within a topic the questions a typical student is most likely to miss are
 the `hard` ones. But every topic must also offer a **full ramp**, and that part is enforced, not

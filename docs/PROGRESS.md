@@ -4,6 +4,48 @@
 
 ---
 
+## 2026-09-21 (session 8) — #4 hygiene, DP Math AA SL core CLOSED, templates rollout advanced
+Git HEAD: `3f0f1cb` (develop, pushed; tree clean)
+Done: **#4 (the two cross-cutting items) closed.** Every `ci.yml` job now carries `timeout-minutes`
+  (build-and-test 30 / e2e 40 / illustrations 30 / semgrep 20 / both deploys 60) — `osv-scanner` is the
+  one exemption, because a reusable-workflow-call job rejects the key. `src/app/ibdp/page.tsx`'s
+  "IGCSE has no tier hub" comment (false since 2026-09-07) corrected; `docs/content-backlog-review.md`
+  records both cross-cutting items closed (the two IGCSE plan statuses had already been fixed by `cd332e7`).
+Done (**A closed — DP Math AA SL core complete**, commit `5633e59`): **9 new topics** (functions,
+  quadratics, trig identities/equations, vectors, descriptive statistics, probability, distributions,
+  differentiation, integration) → **12 DP AA topics**, each 7 notes / 12 flashcards / 15 questions / 1
+  figure. Plus **2 paper sets** for `math-dp-aa` (20 marks each, marks === markscheme.length). Nine new
+  SVGs, generated from computed coordinates. The corpus is 245 topics / 31 papers / 620 markscheme points.
+Done (**C advanced**, commit `3f0f1cb`): **23 → 31 of 245 topics wired to generators**, 8 topics, each
+  where the skill genuinely matches — DP AA + both DP AI exponents topics ← indices; chem-changes-1 ←
+  compound naming; chem-periodic-1 ← isotope RAM; phys-energy-1 ← kWh (joins the existing medium
+  energy-store group); phys-radioactivity-1 ← half-life (physics isotopes, `remaining` mode only);
+  phys-forces-action-1 ← kinetic energy. Deliberate skips recorded in the commit message.
+Verified: validate:content, audit:content **0/0**, validate:illustrations, validate:illustration-layout,
+  check:registry, **1484/1484** unit tests, tsc clean, lint 29/0 (baseline); `build:static` exits 0 with
+  sitemaps **352 URLs all live + indexable** and the **leak gate HARD green** (6657/6800 premium windows);
+  e2e Desktop Chrome `--workers=1`: app/diagnostics/exams/seo/papers **48 passed**, and the topic sweep
+  **245/245 in 5.1 min**. NOT run locally: the three-project e2e matrix and `test:e2e:static` (CI's job).
+Next: **(1) promote develop → main** — prod sits at `354858c` and is ~28 commits behind, so prod's DP
+  Maths is still AI-only while dev advertises AA. (2) C rollout: 31 → the remaining ~214 topics (authoring
+  param tables, no engineering). (3) Legal/monetisation stays the only real launch blocker (EU/UK Art 27
+  representative, DPA with the PRC AI-marking provider, then E4 go-live per `STRIPE_INTEGRATION_TODO.md`
+  §7). (4) Then IGCSE wave 3 (0610/0620/0625/0500) and illustration density.
+Notes: **AA SL scope was verified, not assumed** — SL 5.6 *does* include the chain, product AND quotient
+  rules (I had assumed product/quotient were HL), while volume of revolution is HL and is deliberately
+  absent. Check the syllabus before writing a course.
+  **All 153 new keys were re-derived by hand** (135 MC + 18 paper), and the correct option positions were
+  rotated to 4/4/4/3 per topic — before rotation they clustered on option A (54/39/26/16 across the nine).
+  The AI audit cannot do this: it fails arithmetic (measured 2026-09-19).
+  **`cmd | tail` in a chained command hides both the exit code and the diagnostic detail** — my first
+  verification chain reported "CHAIN OK" while two e2e specs were red. Use `set -o pipefail`, redirect to a
+  log file, then tail the file. Second time this repo has paid for that trap.
+  **Count churn is wider than the list in AGENTS.md**: this batch additionally broke
+  `content-handler.test.ts` (`topicCount`), `validate-content.test.ts` (markscheme points + M/A/B tally),
+  `papers.spec.ts` (29→31 set rows, 14→15 lock rows) and `exams.spec.ts:94` (same three counts) — and the
+  topic sweep's 300s cap, which the corpus has now outgrown (233 topics took 4.6 min). AGENTS.md now
+  carries the full site list.
+
 ## 2026-09-20 (session 7) — B closed (every topic illustrated), A opened (DP Math AA SL SL core)
 Git HEAD: `43af9d0` (develop, pushed; tree clean)
 Done: **B is complete — all 236 topics carry at least one illustration.** The last 40 zero-coverage topics:
