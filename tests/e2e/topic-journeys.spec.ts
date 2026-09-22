@@ -42,15 +42,19 @@ test('every topic can load study, flashcards and quiz pages', async ({ page }) =
 
         // 2. Flashcards page renders and the first card can be flipped
         await page.goto(`${basePath}/flashcards`);
-        await expect(page.getByText(`1/${topic.flashcards.length}`)).toBeVisible({ timeout: 10000 });
-        const card = page.locator('.card').filter({ hasText: 'Tap to flip' });
+        // `.first()`: in dev (React StrictMode) the client-only deck briefly renders twice during
+        // hydration, so a bare getByText can throw a strict-mode violation on a page that is
+        // perfectly fine — 2026-09-22's run failed 26-32 scattered topics this way. The static
+        // pattern (E2E_STATIC=1) is the authoritative run for this sweep.
+        await expect(page.getByText(`1/${topic.flashcards.length}`).first()).toBeVisible({ timeout: 10000 });
+        const card = page.locator('.card').filter({ hasText: 'Tap to flip' }).first();
         await expect(card).toBeVisible();
         await card.click();
 
         // 3. Quiz page renders and the first question can be answered
         const total = sessionSize(topic);
         await page.goto(`${basePath}/quiz`);
-        await expect(page.getByText(`1/${total}`)).toBeVisible({ timeout: 10000 });
+        await expect(page.getByText(`1/${total}`).first()).toBeVisible({ timeout: 10000 }); // same hydration duplicate as above
         const firstChoice = page.getByRole('button').filter({ hasText: /^A\./ }).first();
         await expect(firstChoice).toBeVisible();
         await firstChoice.click();
@@ -65,7 +69,15 @@ test('every topic can load study, flashcards and quiz pages', async ({ page }) =
           await expect(page.getByRole('heading', { name: 'Quiz Complete!' })).toBeVisible({ timeout: 10000 });
         }
       } catch (error) {
-        failures.push(`${topic.subjectId} › ${topic.title}: ${(error as Error).message.split('\n')[0]}`);
+        // Keep the locator detail: the first line alone ("expect(locator).toBeVisible() failed")
+        // does not say WHICH assertion broke, which is what makes this sweep slow to triage —
+        // 2026-09-22's run reported 26 failures that all read identically.
+        const lines = (error as Error).message
+          .split('\n')
+          .map((line) => line.trim())
+          .filter((line) => line.length > 0)
+          .slice(0, 4);
+        failures.push(`${topic.subjectId} › ${topic.title}: ${lines.join(' · ')}`);
       }
     }
   }
