@@ -317,5 +317,32 @@
       "explanation": "With no lid, there are five faces: base $= 20 \\times 15 = 300 \\text{ cm}^2$, front and back $= 2 \\times (20 \\times 10) = 400 \\text{ cm}^2$, sides $= 2 \\times (15 \\times 10) = 300 \\text{ cm}^2$. Total $= 300 + 400 + 300 = 1\\,000 \\text{ cm}^2$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-volume-surface-area",
+      "params": {
+        "modes": [
+          "cuboid-volume",
+          "cuboid-surface",
+          "prism-volume"
+        ],
+        "values": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          10,
+          12
+        ],
+        "units": [
+          "cm",
+          "m"
+        ],
+        "pi": "3.14"
+      }
+    }
   ]
 }

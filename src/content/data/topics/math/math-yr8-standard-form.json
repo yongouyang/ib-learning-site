@@ -328,5 +328,42 @@
       "explanation": "$7.2\\text{E}6$ means $7.2 \\times 10^6$. Move the decimal point six places to the right: $7.2 \\times 10^6 = 7\\,200\\,000$.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-standard-form",
+      "params": {
+        "modes": [
+          "to-standard",
+          "to-ordinary",
+          "multiply"
+        ],
+        "mantissas": [
+          1.5,
+          2.4,
+          3.7,
+          4.2,
+          5.6,
+          7.2,
+          8.5,
+          9.3
+        ],
+        "powers": [
+          -4,
+          -3,
+          2,
+          3,
+          5,
+          7,
+          8
+        ],
+        "partners": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    }
   ]
 }

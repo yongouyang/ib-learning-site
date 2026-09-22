@@ -318,5 +318,38 @@
       "explanation": "Areas: $5 \\times 8 = 40$, $2.5 \\times 20 = 50$, $4 \\times 5 = 20$. The middle class holds 50 — the *shortest* bar, because its width of 20 compensates.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-frequency-density",
+      "params": {
+        "modes": [
+          "density",
+          "frequency",
+          "width"
+        ],
+        "densities": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          10
+        ],
+        "widths": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          10,
+          12,
+          15,
+          20
+        ]
+      }
+    }
   ]
 }

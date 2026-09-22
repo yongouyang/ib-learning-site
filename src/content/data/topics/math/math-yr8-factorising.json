@@ -317,5 +317,34 @@
       "explanation": "The HCF is $2x$. $4xy \\div 2x = 2y$ and $-10x \\div 2x = -5$, so $4xy - 10x = 2x(2y - 5)$. The other options are not fully factorised or incorrect.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-algebra-manipulation",
+      "params": {
+        "modes": [
+          "factorise-common"
+        ],
+        "symbols": [
+          "x"
+        ],
+        "coefficients": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "constants": [
+          2,
+          3,
+          4,
+          5,
+          7,
+          9
+        ],
+        "negatives": true
+      }
+    }
   ]
 }

@@ -324,5 +324,36 @@
       "explanation": "Joined faces are no longer exposed, so subtract twice the hidden area (once for each solid).",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-volume-surface-area",
+      "params": {
+        "modes": [
+          "cuboid-volume",
+          "cuboid-surface",
+          "prism-volume",
+          "prism-surface",
+          "cylinder-volume",
+          "cylinder-curved",
+          "cylinder-surface"
+        ],
+        "values": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          10,
+          12
+        ],
+        "units": [
+          "cm",
+          "m"
+        ],
+        "pi": "3.14"
+      }
+    }
   ]
 }

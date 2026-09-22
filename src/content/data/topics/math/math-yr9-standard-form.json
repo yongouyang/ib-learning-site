@@ -317,5 +317,41 @@
       "explanation": "$0.000\\,078 \\approx 8 \\times 10^{-5}$ and $6\\,500\\,000 \\approx 7 \\times 10^6$, so the product is about $56 \\times 10^1 = 5.6 \\times 10^2 \\approx 560$. The exact answer, $507$, confirms this is sensible.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-standard-form",
+      "params": {
+        "modes": [
+          "to-standard",
+          "to-ordinary",
+          "multiply",
+          "divide"
+        ],
+        "mantissas": [
+          2.4,
+          3.5,
+          4.2,
+          6,
+          7.5,
+          8.4
+        ],
+        "powers": [
+          -9,
+          -3,
+          -2,
+          2,
+          5,
+          7,
+          20
+        ],
+        "partners": [
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    }
   ]
 }

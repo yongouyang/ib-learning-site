@@ -37,6 +37,20 @@ import {
   build as buildShape,
   type ShapeMeasureParams,
 } from '@/content/generators/math-shape-measure';
+import {
+  type StandardFormParams,
+} from '@/content/generators/math-standard-form';
+import {
+  type AlgebraManipulationParams,
+} from '@/content/generators/math-algebra-manipulation';
+import {
+  type VolumeSurfaceParams,
+} from '@/content/generators/math-volume-surface-area';
+import {
+  draw as drawFrequencyDensity,
+  build as buildFrequencyDensity,
+  type FrequencyDensityParams,
+} from '@/content/generators/math-frequency-density';
 import { GENERATORS } from '@/content/generators';
 import type { GeneratorOutput } from '@/content/generators/types';
 import { fmtNumber } from '@/content/generators/utils';
@@ -149,8 +163,12 @@ function expectInvariants(out: GeneratorOutput) {
   for (const text of [out.stem, out.explanation, ...choices]) {
     expect(text).not.toMatch(/undefined|NaN|Infinity/);
   }
-  // Every $...$ KaTeX segment must parse under strict mode.
+  // Every $...$ KaTeX segment must parse under strict mode, and the delimiters must
+  // PAIR UP: an odd number of `$` means one math span was interpolated inside
+  // another (e.g. `... so $3.6 = $3.6 \\times 10^8$$`), which the segment loop below
+  // cannot see because the first pair still parses.
   for (const text of [out.stem, out.explanation, ...choices]) {
+    expect((text.match(/\$/g) ?? []).length % 2).toBe(0);
     for (const segment of text.match(/\$[^$]+\$/g) ?? []) {
       const latex = segment.slice(1, -1);
       expect(() =>
@@ -947,7 +965,7 @@ describe('chem-compound-naming', () => {
 });
 
 describe('registry', () => {
-  it('registers all 25 generators under kebab-case ids matching their module contract', () => {
+  it('registers all 29 generators under kebab-case ids matching their module contract', () => {
     expect(Object.keys(GENERATORS).sort()).toEqual([
       'chem-compound-naming',
       'chem-electron-config',
@@ -955,15 +973,19 @@ describe('registry', () => {
       'chem-ion-formation',
       'chem-isotope-ram',
       'chem-ph-ratio',
+      'math-algebra-manipulation',
       'math-fraction-arithmetic',
+      'math-frequency-density',
       'math-indices',
       'math-linear-equation',
       'math-linear-sequence',
       'math-percent-of-amount',
       'math-rounding',
       'math-shape-measure',
+      'math-standard-form',
       'math-statistics',
       'math-substitution',
+      'math-volume-surface-area',
       'phys-charge-current',
       'phys-efficiency',
       'phys-energy-kwh',
@@ -1410,6 +1432,279 @@ describe('math-shape-measure', () => {
     for (let i = 0; i < 40; i++) {
       const out = GENERATORS['math-shape-measure'].generate(mixed, createRng(`mixed:${i}`));
       expect(out.stem).toContain('perimeter of a rectangle');
+    }
+  });
+});
+
+/** The last $...$ span of a generated string (the expression a question is about). */
+function lastMathSpan(text: string): string {
+  const spans = text.match(/\$[^$]+\$/g) ?? [];
+  return spans[spans.length - 1] ?? '';
+}
+
+/**
+ * Evaluate the small algebraic forms these generators emit (`3(x + 2)`,
+ * `(x + 4)(x - 2)`, `x^2 + x - 2`) at a value of the variable. Substituting into
+ * the STEM and into the ANSWER and comparing is real verification of a symbolic
+ * answer — far stronger than comparing strings against a second renderer.
+ */
+function evalAlgebra(text: string, x: number): number {
+  const s = text.replace(/\$/g, '').replace(/\\/g, '').replace(/\s+/g, '').replace(/×/g, '*');
+  let i = 0;
+  const peek = () => s[i];
+  const isDigit = (c: string | undefined) => c !== undefined && /[0-9.]/.test(c);
+  function factor(): number {
+    if (peek() === '(') {
+      i += 1;
+      const inner = expr();
+      i += 1; // ')'
+      return inner;
+    }
+    if (peek() === '-') {
+      i += 1;
+      return -factor();
+    }
+    let digits = '';
+    while (isDigit(peek())) digits += s[i++];
+    let value = digits === '' ? 1 : Number(digits);
+    if (peek() === 'x') {
+      i += 1;
+      if (peek() === '^') {
+        i += 1;
+        let power = '';
+        while (isDigit(peek())) power += s[i++];
+        value *= x ** Number(power);
+      } else {
+        value *= x;
+      }
+    }
+    return value;
+  }
+  function term(): number {
+    let value = factor();
+    while (i < s.length && (peek() === '(' || isDigit(peek()) || peek() === 'x')) value *= factor();
+    return value;
+  }
+  function expr(): number {
+    let value = term();
+    while (peek() === '+' || peek() === '-') {
+      const op = s[i++];
+      const right = term();
+      value = op === '+' ? value + right : value - right;
+    }
+    return value;
+  }
+  return expr();
+}
+
+describe('math-standard-form', () => {
+  const params: StandardFormParams = {
+    mantissas: [1.5, 2.4, 3.7, 4.2, 5.6, 7.2, 8.5, 9.3],
+    powers: [-4, -2, 2, 3, 5, 7],
+    partners: [1.5, 2, 2.5, 4, 5],
+    modes: ['to-standard', 'to-ordinary', 'multiply', 'divide'],
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['math-standard-form'].generate(params, createRng('golden:math-standard-form'));
+    expect(out).toEqual({
+      stem: 'Write $3.7 \\times 10^{7}$ as an ordinary number.',
+      correct: '$37\\,000\\,000$',
+      distractors: ['$370\\,000\\,000$', '$3\\,700\\,000$', '$3.7$'],
+      explanation: '$10^{7}$ moves the decimal point $7$ places right: $3.7 \\times 10^{7}$ = $37\\,000\\,000$.',
+    });
+  });
+
+  /** `$3.7 \times 10^{7}$` -> { mantissa, exponent }. */
+  function parse(text: string): { mantissa: number; exponent: number } {
+    const match = text.match(/\$(-?[\d.]+) \\times 10\^\{?(-?\d+)\}?\$/);
+    if (!match) throw new Error(`not standard form: ${text}`);
+    return { mantissa: Number(match[1]), exponent: Number(match[2]) };
+  }
+
+  it('sweep: every answer is the same number as the stem, in standard form', () => {
+    for (let i = 0; i < 100; i++) {
+      const out = GENERATORS['math-standard-form'].generate(params, createRng(`sweep:math-standard-form:${i}`));
+      expectInvariants(out);
+      const ordinary = (text: string) => Number(text.replace(/\$/g, '').replace(/\\,/g, '').replace(/,/g, ''));
+      const product = out.stem.match(/\(([\d.]+) \\times 10\^\{?(-?\d+)\}?\) (\\times|\\div) \(([\d.]+) \\times 10\^\{?(-?\d+)\}?\)/);
+      if (product) {
+        // "Simplify (a x 10^m) op (b x 10^n), giving your answer in standard form".
+        const answer = parse(out.correct);
+        const left = Number(product[1]) * 10 ** Number(product[2]);
+        const right = Number(product[4]) * 10 ** Number(product[5]);
+        const expected = product[3] === '\\times' ? left * right : left / right;
+        // Relative comparison: these magnitudes run to 10^10, where an absolute tolerance is meaningless.
+        expect((answer.mantissa * 10 ** answer.exponent) / expected).toBeCloseTo(1, 9);
+        expect(answer.mantissa).toBeGreaterThanOrEqual(1);
+        expect(answer.mantissa).toBeLessThan(10);
+      } else if (/^Write .* in standard form\.$/.test(out.stem)) {
+        // "Write 42 000 in standard form": the stem's ordinary number must equal the answer.
+        const answer = parse(out.correct);
+        expect(ordinary(lastMathSpan(out.stem)) / (answer.mantissa * 10 ** answer.exponent)).toBeCloseTo(1, 9);
+      } else {
+        // "Write a x 10^n as an ordinary number": the answer must equal that value.
+        const { mantissa, exponent } = parse(lastMathSpan(out.stem));
+        // Relative when the value is large, absolute when it is a small decimal.
+        const value = mantissa * 10 ** exponent;
+        expect(ordinary(out.correct) / value).toBeCloseTo(1, 9);
+      }
+    }
+  });
+
+  it('always normalises the mantissa into 1 <= m < 10', () => {
+    for (let i = 0; i < 80; i++) {
+      const out = GENERATORS['math-standard-form'].generate(
+        { ...params, modes: ['multiply', 'divide'] },
+        createRng(`normalise:${i}`)
+      );
+      const { mantissa, exponent } = parse(out.correct);
+      expect(mantissa).toBeGreaterThanOrEqual(1);
+      expect(mantissa).toBeLessThan(10);
+      expect(Number.isFinite(exponent)).toBe(true);
+    }
+  });
+});
+
+describe('math-algebra-manipulation', () => {
+  const params: AlgebraManipulationParams = {
+    modes: ['expand-bracket', 'factorise-common', 'expand-binomials', 'factorise-quadratic', 'difference-of-squares'],
+    symbols: ['x'],
+    coefficients: [2, 3, 4, 5],
+    constants: [2, 3, 4, 5, 7, 9],
+    negatives: true,
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['math-algebra-manipulation'].generate(params, createRng('golden:math-algebra-manipulation'));
+    expect(out).toEqual({
+      stem: 'Expand $(x + 2)(x - 1)$.',
+      correct: '$x^2 + x - 2$',
+      distractors: ['$x^2 - x - 2$', '$x^2 + 3x + 2$', '$x^2 + 2x$'],
+      explanation:
+        'Multiply every term of the first bracket by every term of the second: $x^2 + x - 2$, from $2 \\times (-1) = -2$ and $2 + (-1) = 1$.',
+    });
+  });
+
+  it('sweep: the answer is equal to the stem at every value of x', () => {
+    for (let i = 0; i < 120; i++) {
+      const out = GENERATORS['math-algebra-manipulation'].generate(params, createRng(`sweep:algebra:${i}`));
+      expectInvariants(out);
+      const stem = lastMathSpan(out.stem);
+      const answer = lastMathSpan(out.correct);
+      for (const x of [0, 1, 2, 5, -3]) {
+        expect(evalAlgebra(answer, x)).toBeCloseTo(evalAlgebra(stem, x), 9);
+      }
+    }
+  });
+
+  it('evaluator self-check (the test above is only as good as this)', () => {
+    expect(evalAlgebra('$3(x + 2)$', 4)).toBe(18);
+    expect(evalAlgebra('$x^2 + x - 2$', 3)).toBe(10);
+    expect(evalAlgebra('$(x + 4)(x - 2)$', 5)).toBe(27);
+    expect(evalAlgebra('$4x + 12$', 2)).toBe(20);
+    expect(evalAlgebra('$-x^2 + 3$', 2)).toBe(-1);
+  });
+});
+
+describe('math-volume-surface-area', () => {
+  const params: VolumeSurfaceParams = {
+    modes: ['cuboid-volume', 'cuboid-surface', 'prism-volume', 'prism-surface', 'cylinder-volume', 'cylinder-curved', 'cylinder-surface'],
+    values: [2, 3, 4, 5, 6, 8, 10, 12],
+    units: ['cm'],
+    pi: '3.14',
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['math-volume-surface-area'].generate(params, createRng('golden:math-volume-surface-area'));
+    expect(out).toEqual({
+      stem: 'Find the surface area of a cuboid with length $8\\ \\text{cm}$, width $3\\ \\text{cm}$, and height $12\\ \\text{cm}$.',
+      correct: '$312\\ \\text{cm}^2$',
+      distractors: ['$288\\ \\text{cm}^3$', '$156\\ \\text{cm}^2$', '$288\\ \\text{cm}^2$'],
+      explanation:
+        'Surface area $= 2(lw + lh + wh) = 2(24 + 96 + 36) = 312\\ \\text{cm}^2$. ($288\\ \\text{cm}^3$ is the volume.)',
+    });
+  });
+
+  it('sweep: every answer matches the formula for its mode', () => {
+    for (let i = 0; i < 120; i++) {
+      const out = GENERATORS['math-volume-surface-area'].generate(params, createRng(`sweep:volume:${i}`));
+      expectInvariants(out);
+      const answer = Number(out.correct.match(/\$([\d.]+)\\/)![1]);
+      if (out.stem.startsWith('What is the volume of a cuboid') || out.stem.startsWith('Find the surface area of a cuboid')) {
+        const dims = [...out.stem.matchAll(/\$(\d+)\\/g)].map((m) => Number(m[1]));
+        expect(dims).toHaveLength(3);
+        const [l, w, h] = dims;
+        const expected = out.stem.includes('surface area') ? 2 * (l * w + l * h + w * h) : l * w * h;
+        expect(answer).toBeCloseTo(expected, 6);
+      } else if (out.stem.includes('prism')) {
+        const dims = [...out.stem.matchAll(/\$(\d+)\\/g)].map((m) => Number(m[1]));
+        const [leg1, leg2, length] = dims;
+        const endArea = (leg1 * leg2) / 2;
+        const third = Math.sqrt(leg1 * leg1 + leg2 * leg2);
+        const expected = out.stem.includes('total surface') ? 2 * endArea + (leg1 + leg2 + third) * length : endArea * length;
+        expect(answer).toBeCloseTo(expected, 6);
+        if (out.stem.includes('total surface')) expect(Number.isInteger(answer)).toBe(true);
+      } else {
+        const dims = [...out.stem.matchAll(/\$(\d+)\\/g)].map((m) => Number(m[1]));
+        const [r, h] = dims;
+        const expected = out.stem.includes('volume')
+          ? 3.14 * r * r * h
+          : out.stem.includes('CURVED')
+            ? 2 * 3.14 * r * h
+            : 2 * 3.14 * r * h + 2 * 3.14 * r * r;
+        expect(answer).toBeCloseTo(expected, 6);
+      }
+    }
+  });
+
+  it('only offers prism surface area when the triangle has an integer hypotenuse', () => {
+    for (let i = 0; i < 60; i++) {
+      const out = GENERATORS['math-volume-surface-area'].generate(
+        { ...params, modes: ['prism-surface'], values: [3, 4, 5, 6, 8, 10] },
+        createRng(`triple:${i}`)
+      );
+      expect(Number.isInteger(Number(out.correct.match(/\$([\d.]+)\\/)![1]))).toBe(true);
+    }
+    // No Pythagorean pair anywhere -> the mode is dropped rather than throwing.
+    for (let i = 0; i < 20; i++) {
+      const out = GENERATORS['math-volume-surface-area'].generate(
+        { ...params, modes: ['prism-surface', 'cuboid-volume'], values: [2, 5, 7, 11] },
+        createRng(`noprith:${i}`)
+      );
+      expect(out.stem.startsWith('What is the volume of a cuboid')).toBe(true);
+    }
+  });
+});
+
+describe('math-frequency-density', () => {
+  const params: FrequencyDensityParams = {
+    modes: ['density', 'frequency', 'width'],
+    densities: [2, 3, 4, 5, 6, 8],
+    widths: [3, 4, 5, 8, 10, 12, 15],
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['math-frequency-density'].generate(params, createRng('golden:math-frequency-density'));
+    expect(out).toEqual({
+      stem: 'A histogram bar for a class of width 12 has a height (frequency density) of 6. What is the frequency?',
+      correct: '72',
+      distractors: ['12', '6', '18'],
+      explanation: 'Frequency = frequency density × class width = $6 \\times 12 = 72$. The option 12 stops at the class width.',
+    });
+  });
+
+  it('sweep: the answer is the drawn value the question asks for', () => {
+    for (let i = 0; i < 100; i++) {
+      const rng = createRng(`sweep:fd:${i}`);
+      const values = drawFrequencyDensity(params, rng);
+      const out = buildFrequencyDensity(values, rng);
+      expectInvariants(out);
+      const expected =
+        values.mode === 'density' ? values.density : values.mode === 'frequency' ? values.frequency : values.width;
+      expect(out.correct).toBe(String(expected));
+      // All three quantities are whole numbers however the question is asked.
+      expect(Number.isInteger(values.frequency / values.width)).toBe(true);
     }
   });
 });

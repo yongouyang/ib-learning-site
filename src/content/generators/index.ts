@@ -8,6 +8,10 @@ import { mathStatistics } from './math-statistics';
 import { mathLinearSequence } from './math-linear-sequence';
 import { mathSubstitution } from './math-substitution';
 import { mathShapeMeasure } from './math-shape-measure';
+import { mathStandardForm } from './math-standard-form';
+import { mathAlgebraManipulation } from './math-algebra-manipulation';
+import { mathFrequencyDensity } from './math-frequency-density';
+import { mathVolumeSurface } from './math-volume-surface-area';
 import { physVIr } from './phys-v-ir';
 import { physResistanceSeries } from './phys-resistance-series';
 import { physResistanceParallel } from './phys-resistance-parallel';
@@ -39,6 +43,10 @@ const all: QuestionGenerator<unknown>[] = [
   mathLinearSequence,
   mathSubstitution,
   mathShapeMeasure,
+  mathStandardForm,
+  mathAlgebraManipulation,
+  mathFrequencyDensity,
+  mathVolumeSurface,
   physVIr,
   physResistanceSeries,
   physResistanceParallel,
