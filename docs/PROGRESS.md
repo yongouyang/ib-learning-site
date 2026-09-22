@@ -4,6 +4,37 @@
 
 ---
 
+## 2026-09-22 (session 10) — C CLOSED: 12 new generators, 57/245 topics templated
+Git HEAD: `0e40993` (develop, tree clean)
+Done: built the 12 generators §2.C's gap table named and wired them — math-statistics,
+  math-linear-sequence, math-substitution, math-shape-measure, math-standard-form,
+  math-algebra-manipulation, math-frequency-density, math-volume-surface-area, phys-pressure,
+  phys-density, phys-wave-speed, phys-thermal-energy → **33 generators, all wired, 57 of 245
+  topics carry a template** (76 placements; was 21/31/45). Answers are CONSTRUCTED (a mean's
+  last value makes the total divisible, a quadratic comes from its factors, a physics energy is
+  the product its question asks for), and modes a param table cannot answer exactly are dropped
+  from the draw rather than thrown, so no session seed can break a page. Skips recorded, not
+  hidden: the three DP/IGCSE quadratic topics need a quadratic-solver generator (expand/factorise
+  is the prerequisite skill, not theirs), and 104 topics are in subjects with no generator at all.
+Verified: validate:content (34 templates × 20-seed sweep), audit:content **0/0**, check:registry,
+  tsc clean, lint 29/0 (baseline), **1524/1524** unit tests (117 generator tests);
+  `build:static` exit 0 (352 sitemap URLs all live+indexable, titles unique, 580 noindex excluded;
+  leak gate HARD green) and the topic sweep **245/245 in 5.0 min** on the static pattern.
+Next: **(1) promote develop → main** (prod is ~37 commits behind; `BILLING_DISABLED_ENVS="prod"`
+  stays, so it is a content-only promotion). (2) C's residue if wanted: a quadratic-solver
+  generator for the 3 DP/IGCSE quadratics topics; the 104 generator-less topics need
+  variant-group authoring (~20–30 questions each). (3) the legal chain → re-open prod.
+Notes: **the generator sweeps caught three shipping defects before they landed** — a
+  standard-form answer printed one digit wrong (9.3 × 1.5 = 13.95 normalised to 2 d.p. showed
+  1.4), phys-thermal-energy's last mode asked for latent heat but printed a mass, and three
+  explanations interpolated one `$...$` span inside another. `expectInvariants` now also fails on
+  an ODD number of `$` (per-segment KaTeX checks cannot see nesting) and `cleanNumbers` in
+  generators/utils.ts drops distractors that would print as repeating decimals (33.333333 Nm).
+  A new generator churns only `tests/unit/generators.test.ts`'s pinned id list — AGENTS.md records
+  that and the two invariants.
+
+---
+
 ## 2026-09-22 (session 9) — C closed as wiring (31/245); the remainder is generator coverage
 Git HEAD: `1c2e0f2` (develop, tree clean)
 Done: wired `math-algebra-1` ← `math-linear-equation` and `math-yr8-compound-measures` ← `phys-speed`

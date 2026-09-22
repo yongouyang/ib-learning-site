@@ -23,7 +23,7 @@ Read this with `docs/CONTENT_STYLE.md` (the authoring standard) and
 | Paper sets | **31** across 15 courses | 14 courses × 2 + `math-igcse` × 3 |
 | Free-response questions | **251** | 620 markscheme points; every set totals exactly 20 marks |
 | Illustrations | **430 SVG files**, **449 illustrated notes** | 0 orphans, 0 dangling references, **0 topics with no figure** |
-| Question generators | **21** in `src/content/generators/` | **all 21 are wired into content**, in **31 topics / 45 placements** |
+| Question generators | **33** in `src/content/generators/` | **all 33 are wired into content**, in **57 topics / 76 placements** |
 | Indexable / noindex pages | **352 / 580** | `verify:sitemaps` on the 2026-09-22 `build:static` (937 prerendered, 352 sitemap URLs all live + indexable, titles unique) |
 
 Per subject (topics / notes illustrated / templated):
@@ -105,53 +105,51 @@ Also note the language subjects are a genuine exception, not a backlog item: chi
 german are vocab-table notes plus bilingual flashcards — a picture per note buys less
 there than in history/geography/ICT.
 
-### C. Templates — **the wiring phase is EXHAUSTED (measured 2026-09-22); the remainder needs new generators**
+### C. Templates — **CLOSED 2026-09-22: 57 of 245 topics, 33 generators, all wired**
 
-**21 generators exist, all 21 are wired, in 31 of 245 topics (45 placements).** Two more
-landed 2026-09-22 (`math-algebra-1` ← `math-linear-equation`,
-`math-yr8-compound-measures` ← `phys-speed`), plus a distractor-quality fix in
-`math-linear-equation` (it no longer offers a repeating-decimal wrong-undo value such as
-`$x = 8.333333$`). That is the last of the *param-table* work: every remaining unwired topic
-was checked against all 21 generators by reading its question set, and the generator for its
-skill does not exist. The blocker is coverage, not authoring:
+**Measured 2026-09-22** after the session that built the 12 generators this section's gap
+table asked for: 245 topics, **57 carry a template** (76 placements), **33 generators** and
+every one of them is used.
 
-| missing generator | host topics (verified by reading their questions) | count |
+| generator (all new 2026-09-22 except the first column's note) | host topics | topics |
 |---|---|---|
-| statistics (mean/median/mode/range, incl. frequency tables) | `math-yr7-data`, `math-statistics-1`, `math-yr8-statistics-averages`, `math-igcse-statistics-averages`, `math-dp-aa-descriptive-statistics`, `math-dp-ai-descriptive-statistics` | 6 |
-| area/perimeter/circumference (rect, triangle, parallelogram, circle) | `math-yr7-area-perimeter`, `math-igcse-area-volume`, `math-yr8-circles`, `math-yr7-volume-surface-area`, `math-yr8-volume-surface-area` | 5 |
-| factorise/expand algebra | `math-yr8-factorising`, `math-yr9-quadratic-expressions`, `math-igcse-quadratics`, `math-dp-aa-quadratics`, `math-dp-ai-quadratics` | 5 |
-| nth term of a linear/arithmetic sequence | `math-yr7-sequences`, `math-yr8-sequences`, `math-dp-aa-sequences-series`, `math-dp-ai-sequences` | 4 |
-| substitution / function values | `math-yr7-substitution`, `math-igcse-functions`, `math-algebra-1` | 3 |
-| physics formulas (P=F/A, M=Fd, ρ=m/V, v=fλ, E=mcΔT) | `phys-pressure-1`, `phys-particles-1`, `phys-waves-1` | 3 |
-| standard form with a mantissa | `math-yr8-standard-form`, `math-yr9-standard-form` | 2 |
-| histogram frequency density | `math-igcse-histograms` | 1 |
+| `math-statistics` | yr7-data, statistics-1, yr8 + igcse statistics-averages, DP AA + DP AI descriptive statistics | 6 |
+| `math-linear-sequence` | yr7 + yr8 sequences, DP AA sequences-series, DP AI sequences | 4 |
+| `math-substitution` | yr7-substitution, igcse-functions, algebra-1 | 3 |
+| `math-shape-measure` | yr7-area-perimeter, igcse-area-volume, yr8-circles | 3 |
+| `math-algebra-manipulation` | yr7-algebraic-expressions, yr8-factorising, yr9-quadratic-expressions | 3 |
+| `math-standard-form` | yr8 + yr9 standard-form | 2 |
+| `math-volume-surface-area` | yr7 + yr8 volume-surface-area | 2 |
+| `math-frequency-density` | igcse-histograms | 1 |
+| `phys-pressure` | phys-pressure-1, math-yr8-compound-measures | 2 |
+| `phys-density` | phys-particles-1, math-yr8-compound-measures | 2 |
+| `phys-thermal-energy` | phys-particles-1, and phys-energy-1 by JOINING its existing hard `specific-heat-calculation` group | 2 |
+| `phys-wave-speed` | phys-waves-1 | 1 |
 
-The other **104 topics** are biology, english, history, geography, ICT, chinese and german —
-no generator of any kind exists for those subjects (the plan's position: english gets none,
-biology at most genetics/magnification/quadrat).
+Design rules the new generators share (they are the reason the answers can be trusted):
 
-**Deliberate skips recorded this session** (both are real skill mismatches, not oversights):
-* `math-yr8-linear-equations` ← `math-linear-equation`: its two-step group is tagged **easy**
-  while the generator is fixed **medium**, and `validate:content` forbids a template joining a
-  group whose band differs. Adding a second group for the same skill would import a mis-tagged
-  question, so it was left alone.
-* `math-yr8-standard-form` / `math-yr9-standard-form` ← `math-indices`: the generator has no
-  mantissa/coefficient mode, so every instance would be *strictly easier* than the topic's own
-  questions (which all carry a coefficient). That is band-softening, not a variant.
+- **Answers are constructed, never derived.** A mean's last value is chosen so the total is
+  divisible; a quadratic is generated *from its factors*; a physics energy is built as the
+  product its own question asks for; a frequency-density frequency is an integer density
+  times an integer width. A key therefore cannot disagree with the stem it ships beside.
+- **Modes a param table cannot answer exactly are dropped, not thrown.** `5.6 / 1.5` does not
+  terminate and a triangle's hypotenuse is rarely an integer, so those modes are filtered out
+  of the draw — a validation-time throw would still leave a live session able to break.
+- **Rounding conventions are stated or avoided**: circles use `pi = 3.14` (exact 2 d.p.) or
+  `22/7` with radii forced to multiples of 7; the corpus' 3 s.f. style is never mixed in.
 
-`docs/question-variations-plan.md` Phase 4 is the live plan. Phase 3 (chemistry) is fully
-landed — all 12 chem topics expanded to 24–29 questions with 12–14 variant groups — and the
-math/physics pilot is landed (4 math + 3 physics topics at 24–28 questions), so **19 topics
-are group-expanded** (12 chem + 4 math + 3 phys). Measured wiring state this session:
-**31 of 245 topics carry a template (45 placements)**.
+**What is deliberately still uncovered, and why:**
 
-**Decision needed next session — generate or author.** The ~29 topics in the table above each
-need a generator (~50 lines + a params table + unit tests, the Phase-2 pattern, after which the
-param table is trivial); the other 104 need variant-group authoring (~20–30 authored questions
-each, i.e. thousands of questions) or nothing at all. Recommended order: statistics → nth-term
-→ substitution — 13 topics from 3 generators, and all three are pure numeric work, which is
-where the generators are strongest (no symbolic reasoning, where the AI tooling has measured
-limits; see §2.D).
+- `math-igcse-quadratics`, `math-dp-aa-quadratics`, `math-dp-ai-quadratics` (3 topics): their
+  questions are the quadratic formula, completing the square, the discriminant and roots. The
+  new expand/factorise generator is the *prerequisite* skill, not the topic's own, so wiring it
+  would be band-softening. A quadratic-solver generator is the honest path and is not built.
+- `math-igcse-functions` inverse/composite questions: the substitution template covers
+  evaluation only, for the same reason.
+- The **104 topics** in biology, english, history, geography, ICT, chinese and german: no
+  generator exists for any of those subjects (the plan's position — english gets none, biology
+  at most genetics/magnification/quadrat). These are variant-group authoring work
+  (~20-30 authored questions per topic), not wiring.
 
 ### D. Content defects the gates cannot see — **first pass MEASURED 2026-09-19**
 
@@ -227,9 +225,10 @@ data, which is a different job from this one.
    `M`/`A`/`B` prefix rule gated, the MC answer-key judgement measured (and found unfit for
    computational questions), the difficulty tags measured with a blind human pass, and the
    rubric contradiction resolved in `CONTENT_STYLE.md` (commit `39e36b6`).
-2. **C (templates)** — param-table wiring **DONE 2026-09-22** (31 of 245 topics). The
-   remainder is a *generator-coverage* decision, not authoring: §2.C lists the eight missing
-   generators with their verified host topics.
+2. **C (templates) — CLOSED 2026-09-22.** 12 new generators built and wired: 33 generators,
+   all used, **57 of 245 topics** carry a template. What is left in §2.C is the quadratic
+   topics (a solver generator, deliberately not built) and the 104 topics in subjects with no
+   generator at all.
 3. **B (illustrations) — DONE 2026-09-20.** Standard settled at **≥1 figure per topic**; no
    topic is bare and every subject has imagery. Density beyond that is not queued.
 4. **A (DP AA)** — **DONE 2026-09-21 at the committed SL-core scope** (12 topics, 9 figures, 2 paper

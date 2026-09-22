@@ -1,14 +1,14 @@
 # Question Variations & Parameterized Templates — Implementation Plan
 
-Status: **the param-table wiring phase is exhausted (measured 2026-09-22); Phase 4's remainder
-is a generator-coverage decision** (status line corrected 2026-09-22; "pre-implementation" was
-stale from 2026-08). `variantOf` and `templates` are in the schema and consumed
-(`src/lib/quiz-utils.ts` group sampling); **21 generators** live in `src/content/generators/`,
-**all 21 are wired, in 31 of 245 topics** (45 placements); **19 topics are group-expanded**
-(12 chem + 4 math + 3 phys — i.e. 24–29 questions each). The remaining ~214 topics cannot be
-wired to the existing generators — verified by reading their question sets; see
-`docs/content-backlog-review.md` §2.C for the eight missing generators and their host topics.
-Decisions below confirmed with user 2026-08-10.
+Status: **CLOSED 2026-09-22 — 33 generators, all wired, 57 of 245 topics templated** (76
+placements). The 12 generators built in this session cover every skill §2.C's gap table named
+except the quadratic-solver topics; `docs/content-backlog-review.md` §2.C carries the host map,
+the construction rules the generators share, and what is deliberately left uncovered (the three
+DP/IGCSE quadratic topics, and the 104 topics in subjects that have no generator at all —
+english gets none, biology at most genetics/magnification/quadrat). `variantOf` and `templates`
+are in the schema and consumed (`src/lib/quiz-utils.ts` group sampling); **19 topics are
+group-expanded** (12 chem + 4 math + 3 phys — 24–29 questions each). Decisions below confirmed
+with user 2026-08-10.
 
 ## Goal
 
