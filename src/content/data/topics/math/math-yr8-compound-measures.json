@@ -319,5 +319,16 @@
       "explanation": "Speed is distance divided by time, so the correct relationship is $s = \\dfrac{d}{t}$.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "phys-speed",
+      "params": {
+        "distances": [120, 150, 180, 240, 300, 360],
+        "times": [2, 3, 4, 5, 6],
+        "distanceUnit": "km",
+        "timeUnit": "h"
+      }
+    }
   ]
 }

@@ -190,6 +190,17 @@ describe('math-linear-equation', () => {
     expect(out.correct).toBe('$x = 3$');
     expectInvariants(out);
   });
+
+  it('never offers a repeating-decimal distractor (the wrong-undo value is dropped when unclean)', () => {
+    // a=3, b=1 makes the "added b instead of subtracting it" candidate x + 2/3,
+    // which would print as 8.333333. Those draws must fall through to integer
+    // near-misses instead.
+    const params: LinearEquationParams = { a: [3], b: [1], x: [2, 4, 5, 7, 8] };
+    for (let i = 0; i < 50; i++) {
+      const out = GENERATORS['math-linear-equation'].generate(params, createRng(`clean:${i}`));
+      for (const choice of out.distractors) expect(choice).toMatch(/^\$x = -?\d+(\.\d{1,2})?\$$/);
+    }
+  });
 });
 
 describe('math-percent-of-amount', () => {

@@ -22,12 +22,17 @@ async function signIn(page: Page, email: string) {
 
 /** Answer every question by picking choice A; exits on the results screen. */
 async function completeQuiz(page: Page) {
-  for (let i = 0; i < 15; i++) {
+  // Loop until the results screen instead of counting questions: a topic's session size is
+  // authored questions + one instance per template (math-algebra-1 is 16 as of 2026-09-21),
+  // and a hard-coded 15 silently rots when a topic gains one.
+  for (let i = 0; i < 30; i++) {
     const choice = page.getByRole('button').filter({ hasText: /^A\./ }).first();
     if (await choice.isVisible()) await choice.click();
     const nextBtn = page.getByRole('button', { name: /Next Question|See Results/ });
     if (!(await nextBtn.isVisible())) break; // results screen
+    const label = (await nextBtn.textContent()) ?? '';
     await nextBtn.click();
+    if (/See Results/.test(label)) break;
   }
   await expect(page.getByRole('heading', { name: 'Quiz Complete!' })).toBeVisible();
 }

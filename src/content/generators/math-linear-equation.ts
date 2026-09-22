@@ -32,9 +32,15 @@ export function build(values: LinearEquationValues, rng: Rng): GeneratorOutput {
   const absB = fmtNumber(Math.abs(b));
   const undo = b >= 0 ? `Subtract ${absB}` : `Add ${absB}`;
   // Error rules: adding b instead of subtracting it, and off-by-one slips.
+  // The wrong-undo candidate (c + b) / a is only offered when it is a clean value
+  // (at most 2 d.p.). A repeating decimal such as 8.333333 does not read as a
+  // mistake a student would make and it narrows the choice to three options, so
+  // those draws fall through to the near-miss padders in the helper instead.
+  const wrongUndo = (c + b) / a;
+  const cleanWrongUndo = Math.abs(wrongUndo * 100 - Math.round(wrongUndo * 100)) < 1e-9;
   const distractorValues = uniqueNumericDistractors(
     x,
-    [(c + b) / a, x + 1, x - 1],
+    cleanWrongUndo ? [wrongUndo, x + 1, x - 1] : [x + 1, x - 1],
     rng
   );
   return {

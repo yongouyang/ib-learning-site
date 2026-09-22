@@ -317,5 +317,15 @@
       "explanation": "Substitute $x = -3$: $-2(-3) + 7 = 6 + 7 = 13$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-linear-equation",
+      "params": {
+        "a": [2, 3, 4, 5, 6],
+        "b": [1, 2, 3, 4, 5, 6],
+        "x": [2, 3, 4, 5, 6, 7, 8]
+      }
+    }
   ]
 }
