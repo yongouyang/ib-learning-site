@@ -319,5 +319,35 @@
       "explanation": "Two distinct roots need $\\Delta > 0$: $4 - 4(3-k) = 4 - 12 + 4k = 4k - 8 > 0$, so $k > 2$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-quadratic",
+      "params": {
+        "modes": [
+          "solve-formula",
+          "discriminant",
+          "roots-count",
+          "complete-square",
+          "equation-from-roots"
+        ],
+        "roots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "coefficients": [
+          1,
+          2,
+          3
+        ],
+        "negatives": true
+      }
+    }
   ]
 }

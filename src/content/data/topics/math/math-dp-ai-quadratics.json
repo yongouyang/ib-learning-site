@@ -388,5 +388,32 @@
       "explanation": "Solve $-5t^2+20t=15$, which rearranges to $t^2-4t+3=0$. This factorises as $(t-1)(t-3)=0$, so the ball is at $15$ m at $t=1$ and $t=3$. It is above $15$ m between these times, for $3-1=2$ seconds.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-quadratic",
+      "params": {
+        "modes": [
+          "solve-formula",
+          "discriminant",
+          "complete-square",
+          "equation-from-roots"
+        ],
+        "roots": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "coefficients": [
+          1,
+          2
+        ],
+        "negatives": true
+      }
+    }
   ]
 }

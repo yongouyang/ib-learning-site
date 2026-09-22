@@ -71,6 +71,11 @@ import {
   build as buildThermal,
   type ThermalEnergyParams,
 } from '@/content/generators/phys-thermal-energy';
+import {
+  draw as drawQuadratic,
+  build as buildQuadratic,
+  type QuadraticParams,
+} from '@/content/generators/math-quadratic';
 import { GENERATORS } from '@/content/generators';
 import type { GeneratorOutput } from '@/content/generators/types';
 import { fmtNumber } from '@/content/generators/utils';
@@ -985,7 +990,7 @@ describe('chem-compound-naming', () => {
 });
 
 describe('registry', () => {
-  it('registers all 33 generators under kebab-case ids matching their module contract', () => {
+  it('registers all 35 generators under kebab-case ids matching their module contract', () => {
     expect(Object.keys(GENERATORS).sort()).toEqual([
       'chem-compound-naming',
       'chem-electron-config',
@@ -1000,6 +1005,7 @@ describe('registry', () => {
       'math-linear-equation',
       'math-linear-sequence',
       'math-percent-of-amount',
+      'math-quadratic',
       'math-rounding',
       'math-shape-measure',
       'math-standard-form',
@@ -1918,5 +1924,88 @@ describe('phys-thermal-energy', () => {
       if (values.mode === 'shc-temp-change') expect(out.stem).toMatch(/By how much does its temperature rise\?$/);
       if (values.mode === 'shc-mass') expect(out.stem).toMatch(/What mass is being heated\?$/);
     }
+  });
+});
+
+describe('math-quadratic', () => {
+  const params: QuadraticParams = {
+    modes: ['solve-formula', 'discriminant', 'roots-count', 'complete-square', 'equation-from-roots'],
+    roots: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    coefficients: [1, 2, 3],
+    negatives: true,
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['math-quadratic'].generate(
+      { modes: ['solve-formula'], roots: [3, 4], coefficients: [1], negatives: false },
+      createRng('golden:math-quadratic')
+    );
+    expect(out).toEqual({
+      stem: 'Solve $x^2 - 7x + 12 = 0$ using the quadratic formula.',
+      correct: '$x = 3$ or $x = 4$',
+      distractors: ['$x = -3$ or $x = -4$', '$x = -3$ or $x = 4$', '$x = 3$'],
+      explanation:
+        'Discriminant $= b^2 - 4ac = 49 - 48 = 1$, so $x = \\dfrac{7 \\pm \\sqrt{1}}{2}$, giving $x = 3$ and $x = 4$.',
+    });
+  });
+
+  it('sweep: the constructed quadratic has exactly the roots it claims', () => {
+    for (let i = 0; i < 150; i++) {
+      const rng = createRng(`sweep:math-quadratic:${i}`);
+      const values = drawQuadratic(params, rng);
+      const out = buildQuadratic(values, rng);
+      expectInvariants(out);
+      // a x^2 + bx + c must equal a(x - r1)(x - r2) for the root-based modes.
+      if (values.mode === 'solve-formula' || values.mode === 'equation-from-roots') {
+        expect(values.b).toBe(-values.a * (values.r1 + values.r2));
+        expect(values.c).toBe(values.a * values.r1 * values.r2);
+        for (const root of [values.r1, values.r2]) {
+          expect(values.a * root * root + values.b * root + values.c).toBe(0);
+        }
+      }
+      if (values.mode === 'solve-formula') {
+        const [low, high] = [values.r1, values.r2].sort((x, y) => x - y);
+        expect(out.correct).toBe(`$x = ${low}$ or $x = ${high}$`);
+      }
+      if (values.mode === 'discriminant') {
+        expect(Number(out.correct)).toBe(values.b * values.b - 4 * values.a * values.c);
+        expect(out.stem.startsWith('What is the discriminant of $x^2')).toBe(true);
+      }
+      if (values.mode === 'roots-count') {
+        const d = values.b * values.b - 4 * values.a * values.c;
+        expect(out.correct).toBe(
+          d > 0 ? 'Two distinct real roots' : d === 0 ? 'One repeated real root' : 'No real roots'
+        );
+      }
+      if (values.mode === 'complete-square') {
+        // (x + p)^2 + q must expand to x^2 + 2px + (p^2 + q).
+        expect(values.b).toBe(2 * values.p);
+        expect(values.c).toBe(values.p * values.p + values.q);
+        if (values.q !== 0) expect(out.correct).toContain(`${values.q < 0 ? '-' : '+'} ${Math.abs(values.q)}`);
+      }
+    }
+  });
+
+  it('reaches all three discriminant signs, so roots-count is not a one-answer mode', () => {
+    const seen = new Set<string>();
+    for (let i = 0; i < 200; i++) {
+      const values = drawQuadratic({ ...params, modes: ['roots-count'] }, createRng(`signs:${i}`));
+      const d = values.b * values.b - 4 * values.a * values.c;
+      seen.add(d > 0 ? 'positive' : d === 0 ? 'zero' : 'negative');
+    }
+    expect([...seen].sort()).toEqual(['negative', 'positive', 'zero']);
+  });
+
+  it('never prints a 1 coefficient or a double negative', () => {
+    for (let i = 0; i < 150; i++) {
+      const out = GENERATORS['math-quadratic'].generate(params, createRng(`render:${i}`));
+      expect(out.stem).not.toMatch(/(^|[^0-9])1x/);
+      expect(out.explanation).not.toMatch(/- -|\+ \+|--/);
+    }
+  });
+
+  it('rejects a roots list whose values all coincide', () => {
+    expect(GENERATORS['math-quadratic'].paramsSchema.safeParse({ roots: [5, 5] }).success).toBe(false);
+    expect(GENERATORS['math-quadratic'].paramsSchema.safeParse({ roots: [5, 6] }).success).toBe(true);
   });
 });

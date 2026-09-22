@@ -11,6 +11,7 @@ import { mathShapeMeasure } from './math-shape-measure';
 import { mathStandardForm } from './math-standard-form';
 import { mathAlgebraManipulation } from './math-algebra-manipulation';
 import { mathFrequencyDensity } from './math-frequency-density';
+import { mathQuadratic } from './math-quadratic';
 import { mathVolumeSurface } from './math-volume-surface-area';
 import { physVIr } from './phys-v-ir';
 import { physResistanceSeries } from './phys-resistance-series';
@@ -50,6 +51,7 @@ const all: QuestionGenerator<unknown>[] = [
   mathStandardForm,
   mathAlgebraManipulation,
   mathFrequencyDensity,
+  mathQuadratic,
   mathVolumeSurface,
   physVIr,
   physResistanceSeries,
