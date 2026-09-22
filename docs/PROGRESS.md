@@ -13,21 +13,28 @@ Done: **`math-quadratic`** (formula, discriminant, roots-count, completing the s
   `validate-content`'s `checkTemplates` (a corpus-wide validate:content is the guard that they
   agree). That covers **all 114 topics** in the six generator-less subjects (109 both directions;
   the 5 prose decks get definition→term, where the choices are the short terms).
-  Measured: 36 generators, **174 of 245 topics templated** (193 placements), unwired 71 = maths
-  59 + chemistry 8 + physics 4, each tabulated in §2.C with the generator it needs.
+  Measured: 36 generators, **175 of 245 topics templated** (194 placements) — `math-yr9-3d-geometry`
+  was wired to the existing volume generator as well — unwired 70 = maths 58 + chemistry 8 +
+  physics 4, each tabulated in §2.C with the host topics VERIFIED by reading their questions.
 Verified: validate:content (193 templates × 20-seed sweep), audit:content **0/0**, check:registry,
   tsc clean, lint 29/0 (baseline), **1539/1539** unit tests; `build:static` exit 0 (352 sitemap URLs
   all live + indexable, titles unique, 580 noindex excluded; leak gate HARD green) and the topic
   sweep **245/245 in 5.1 min** on the static pattern — so the new drill renders on all 114 newly
   wired topics and the quadratic on the three it was built for.
 Next: **(1) promote develop → main** — content-only, `BILLING_DISABLED_ENVS="prod"` unchanged.
-  (2) If C's last 71 topics are wanted: ~12 more generators cover ~39 of them (right-triangle
-  trig, angle facts, probability, straight-line/inequalities, sine/cosine rule, calculus,
-  vectors, binomial, matrices, table-driven chemistry, refraction/weight), and ~32 are not
-  parameterizable (constructions, nets, diagram reading, hypothesis testing) → authored variant
-  groups. (3) the legal chain → re-open prod.
+  (2) If C's last 70 topics are wanted: **~20 more generators cover ~40 of them** — the verified
+  shortlist is in §2.C (Pythagoras/SOH-CAH-TOA, angle facts, circle theorems, probability,
+  straight-line graphs, calculus, vectors, binomial, matrices, surds, number bases, ratio,
+  factors/multiples, conversions, directed numbers, decimal arithmetic, similar shapes, plus two
+  modes on existing generators) — and **~30 are not parameterizable** (constructions, nets,
+  describing transformations, bearings, correlation description, and the DP AI specials: Voronoi,
+  graph theory, Poisson, hypothesis testing, distributions, complex numbers, kinematics) → they
+  need authored variant groups. (3) the legal chain → re-open prod.
 Notes: **the "104 topics" in §2.C was a wrong total — it is 114**, caught the moment the wiring
-  script measured the decks instead of trusting the number. The validator also caught two real
+  script measured the decks instead of trusting the number. The same section's "71 topics left"
+  table was first written from memory; re-reading every host's questions corrected it (circle
+  theorems are not "angle facts"; surds, number bases, ratio and the like are all mechanizable),
+  and one topic was closed outright because the existing volume generator already covered it. The validator also caught two real
   defects in the new drill before wiring: short vocabulary pairs made the explanation fall under
   the 20-character minimum (the bare "X — Y" form; now phrased), and the length cap had to apply
   to the side that becomes a CHOICE only, or the four prose decks could never drill at all.

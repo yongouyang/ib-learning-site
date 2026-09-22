@@ -23,7 +23,7 @@ Read this with `docs/CONTENT_STYLE.md` (the authoring standard) and
 | Paper sets | **31** across 15 courses | 14 courses × 2 + `math-igcse` × 3 |
 | Free-response questions | **251** | 620 markscheme points; every set totals exactly 20 marks |
 | Illustrations | **430 SVG files**, **449 illustrated notes** | 0 orphans, 0 dangling references, **0 topics with no figure** |
-| Question generators | **36** in `src/content/generators/` | **all 36 are wired into content**, in **174 topics / 193 placements** |
+| Question generators | **36** in `src/content/generators/` | **all 36 are wired into content**, in **175 topics / 194 placements** |
 | Indexable / noindex pages | **352 / 580** | `verify:sitemaps` on the 2026-09-22 `build:static` (937 prerendered, 352 sitemap URLs all live + indexable, titles unique) |
 
 Per subject (topics / notes illustrated / templated):
@@ -105,15 +105,15 @@ Also note the language subjects are a genuine exception, not a backlog item: chi
 german are vocab-table notes plus bilingual flashcards — a picture per note buys less
 there than in history/geography/ICT.
 
-### C. Templates — 174 of 245 topics carry a template; the last 71 need more generators
+### C. Templates — 175 of 245 topics carry a template; the last 70 need more generators
 
 **Measured 2026-09-22, after three sessions of generator work:**
 
 | | value |
 |---|---|
 | generators | **36**, every one wired |
-| topics with a template | **174 of 245** (193 placements) |
-| unwired topics | **71** — maths 59, chemistry 8, physics 4 |
+| topics with a template | **175 of 245** (194 placements) |
+| unwired topics | **70** — maths 58, chemistry 8, physics 4 |
 
 **What closed this session:**
 
@@ -145,30 +145,41 @@ Design rules the generators share (the reason the answers can be trusted):
   what lets a prose deck (174–210 character definitions, short terms) still drill in the
   definition→term direction.
 
-**What the last 71 topics need** (measured, not estimated — every topic's questions were read):
+**What the last 70 topics need** (each row's hosts were checked by READING their question sets,
+not inferred — an earlier version of this table lumped circle theorems in with angle facts and
+called surds unmechanizable, both wrong):
 
-| missing generator | host topics | topics |
+| missing generator | host topics (verified) | topics |
 |---|---|---|
-| right-triangle trig + Pythagoras (SOH-CAH-TOA, finding a side/angle, hypotenuse) | `math-trig-basic-myp`, `math-igcse-trigonometry`, `math-pythagoras-myp`, `math-yr8-pythagoras`, `math-yr9-3d-geometry` | 5 |
-| angle facts (straight line, parallel lines, polygon sums, triangles) | `math-yr7-angles`, `math-yr8-angles-parallel-polygons`, `math-igcse-angles-polygons`, `math-geometry-1`, `math-igcse-circle-theorems` | 5 |
-| single/combined probability (and tree diagrams) | `math-yr7-probability`, `math-igcse-probability`, `math-yr8-probability-trees`, `math-dp-ai-probability` | 4 |
-| straight-line graphs and inequalities (`y = mx + c`, gradient, midpoint) | `math-linear-myp`, `math-yr8-straight-line-graphs`, `math-inequalities-myp`, `math-yr9-quadratic-graphs` | 4 |
-| sine/cosine rule and ½ab sin C | `math-igcse-trig-advanced` | 1 |
-| calculus (differentiate / integrate a polynomial term) | `math-dp-aa-differentiation`, `math-dp-ai-differentiation`, `math-dp-aa-integration`, `math-dp-ai-integration` | 4 |
-| vectors (column add/subtract/scale, magnitude) | `math-igcse-vectors`, `math-dp-aa-vectors`, `math-dp-ai-vectors` | 3 |
-| binomial coefficients and terms | `math-dp-aa-binomial-theorem`, `math-dp-ai-binomial` | 2 |
-| matrix arithmetic (add, multiply, determinant) | `math-dp-ai-matrices` | 1 |
-| trig identities and equations | `math-dp-aa-trig-identities-equations`, `math-dp-ai-trig` | 2 |
-| table-driven chemistry (ion tests, separation methods, homologous series) | `chem-ion-tests-1`, `chem-mixtures-1`, `chem-organic-1`, `chem-metals-1` | 4 |
-| physics formulas still missing (refraction, weight, charge in a field) | `phys-light-1`, `phys-magnetism-1`, `phys-space-1`, `phys-energy-resources-1` | 4 |
-| nothing mechanizable (DP AI Voronoi/graph theory/Poisson/hypothesis testing, constructions and loci, nets, bearings, Venn, transformations, correlation, kinematics) | the remaining maths topics | ~32 |
+| Pythagoras + SOH-CAH-TOA (find a side, find an angle, distance between points) | `math-pythagoras-myp`, `math-yr8-pythagoras`, `math-trig-basic-myp`, `math-igcse-trigonometry` | 4 |
+| angle facts (straight line, angles at a point, vertically opposite, triangle/quadrilateral sums, parallel-line pairs, polygon sums) | `math-yr7-angles`, `math-yr8-angles-parallel-polygons`, `math-igcse-angles-polygons` | 3 |
+| circle theorems (one mode per theorem: angle at the centre, same segment, cyclic quadrilateral, semicircle, tangent-radius, alternate segment) | `math-igcse-circle-theorems` | 1 |
+| probability (single event, complement, sample space, AND/OR, with and without replacement) | `math-yr7-probability`, `math-igcse-probability`, `math-yr8-probability-trees` | 3 |
+| straight-line graphs (`y = mx + c`, gradient between two points, parallel lines, equation through a point) | `math-linear-myp`, `math-yr8-straight-line-graphs` | 2 |
+| calculus: power-rule differentiate, gradient at a point, integrate a polynomial, definite integral | `math-dp-aa-differentiation`, `math-dp-ai-differentiation`, `math-dp-aa-integration`, `math-dp-ai-integration` | 4 |
+| vectors (add/subtract/scale, magnitude, unit vector, dot product) | `math-igcse-vectors`, `math-dp-aa-vectors`, `math-dp-ai-vectors` | 3 |
+| binomial (nCr, a coefficient, a named term, Pascal row) | `math-dp-aa-binomial-theorem`, `math-dp-ai-binomial` | 2 |
+| matrices (order, add/multiply, determinant, singular value) | `math-dp-ai-matrices` | 1 |
+| surds (simplify, multiply/divide, add like terms) | `math-yr9-surds` | 1 |
+| number bases (binary ↔ decimal both ways, place value) | `math-yr7-number-bases` | 1 |
+| ratio and proportion (simplify a ratio, share in a ratio, direct/inverse proportion) | `math-ratio-myp` | 1 |
+| factors, multiples and primes (HCF, LCM, prime factorisation) | `math-yr7-factors-multiples` | 1 |
+| measures and conversions (length, mass, capacity, metric ↔ metric) | `math-yr7-measures-conversions` | 1 |
+| directed numbers (add, subtract, multiply, divide with negatives) | `math-yr7-negative-numbers` | 1 |
+| decimal arithmetic (add/subtract/multiply/divide, place value) | `math-yr7-decimals`, `math-yr7-calculations` | 2 |
+| similar shapes (scale factor, missing side) | `math-yr8-congruence-similarity` | 1 |
+| graph features of a quadratic (vertex, axis, roots) — extends the existing quadratic generator | `math-yr9-quadratic-graphs` | 1 |
+| linear inequalities (solve, and the sign flip) — extends the existing linear-equation generator | `math-inequalities-myp` | 1 |
+| table-driven chemistry (ion test → observation, mixture → separation method, homologous series formula) | `chem-ion-tests-1`, `chem-mixtures-1`, `chem-organic-1`, `chem-states-1` | 4 |
+| physics formulas still missing (refraction/snell, weight W = mg, orbital period) | `phys-light-1`, `phys-space-1`, `phys-magnetism-1` | 3 |
+| **not parameterizable** — constructions and loci, nets of 3-D shapes, describing a transformation, bearings and scale drawing, correlation description, Venn/set notation with prose, DP AA/AI specials (Voronoi, graph theory, Poisson, hypothesis testing, distributions, complex numbers, kinematics, correlation-regression, DP functions, DP trig identities) | the remaining topics | ~30 |
 
-So the honest position: **the last ~39 topics can be reached by ~12 more generators** (the same
-pattern as this batch — pure arithmetic, exact by construction), while **~32 are not
-parameterizable at all** (constructions, nets, diagram reading, hypothesis testing) and are
-variant-group authoring work. Nothing in this list is a blocker for promoting `develop`: the
-promotion is content, and C's product goal — a retake surfacing fresh variants — is already met
-for 174 of 245 topics.
+So the honest position: **~40 of the last 70 topics are reachable by ~20 more generators of the
+same kind** (pure arithmetic, exact by construction — several are table-driven like the chemistry
+ones), while **~30 are not parameterizable at all** (constructions, nets, diagram description,
+hypothesis testing, the DP AI specials) and are variant-group authoring work. Nothing here blocks
+promoting `develop`: the promotion is content, and C's product goal — a retake surfacing fresh
+variants — is already met for **175 of 245 topics**.
 
 ### D. Content defects the gates cannot see — **first pass MEASURED 2026-09-19**
 
@@ -244,9 +255,10 @@ data, which is a different job from this one.
    `M`/`A`/`B` prefix rule gated, the MC answer-key judgement measured (and found unfit for
    computational questions), the difficulty tags measured with a blind human pass, and the
    rubric contradiction resolved in `CONTENT_STYLE.md` (commit `39e36b6`).
-2. **C (templates) — 174 of 245 topics, 36 generators, all wired.** The quadratic solver and
-   the flashcard-fed drill closed the two items this section named. The last 71 topics are
-   tabulated in §2.C: ~39 need ~12 more generators (the same pattern), ~32 are not
+2. **C (templates) — 175 of 245 topics, 36 generators, all wired.** The quadratic solver and
+   the flashcard-fed drill closed the two items this section named, and `math-yr9-3d-geometry`
+   was wired to the existing volume generator. The last 70 topics are tabulated in §2.C with the
+   host topics VERIFIED by reading their questions: ~40 need ~20 more generators, ~30 are not
    parameterizable and need authored variant groups.
 3. **B (illustrations) — DONE 2026-09-20.** Standard settled at **≥1 figure per topic**; no
    topic is bare and every subject has imagery. Density beyond that is not queued.
