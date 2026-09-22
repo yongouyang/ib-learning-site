@@ -4,6 +4,10 @@ import { mathPercentOfAmount } from './math-percent-of-amount';
 import { mathFractionArithmetic } from './math-fraction-arithmetic';
 import { mathRounding } from './math-rounding';
 import { mathIndices } from './math-indices';
+import { mathStatistics } from './math-statistics';
+import { mathLinearSequence } from './math-linear-sequence';
+import { mathSubstitution } from './math-substitution';
+import { mathShapeMeasure } from './math-shape-measure';
 import { physVIr } from './phys-v-ir';
 import { physResistanceSeries } from './phys-resistance-series';
 import { physResistanceParallel } from './phys-resistance-parallel';
@@ -31,6 +35,10 @@ const all: QuestionGenerator<unknown>[] = [
   mathFractionArithmetic,
   mathRounding,
   mathIndices,
+  mathStatistics,
+  mathLinearSequence,
+  mathSubstitution,
+  mathShapeMeasure,
   physVIr,
   physResistanceSeries,
   physResistanceParallel,

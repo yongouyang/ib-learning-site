@@ -317,5 +317,40 @@
       "explanation": "The number sequence is $1, 5, 9, 13$, with common difference $4$. The $n$th term is $4n - 3$. For Picture $7$, $4(7) - 3 = 28 - 3 = 25$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-linear-sequence",
+      "params": {
+        "differences": [
+          2,
+          3,
+          4,
+          5,
+          10
+        ],
+        "firstTerms": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          10
+        ],
+        "termIndices": [
+          5,
+          6,
+          8,
+          10
+        ],
+        "modes": [
+          "next",
+          "nth-term",
+          "value-at-n",
+          "which-term"
+        ]
+      }
+    }
   ]
 }

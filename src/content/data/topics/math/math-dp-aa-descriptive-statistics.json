@@ -318,5 +318,24 @@
       "explanation": "Multiplication acts on both centre and spread: the mean becomes $2(20) = 40$ and the standard deviation $2(4) = 8$. Adding 3 then shifts the centre only, giving mean 43 and standard deviation 8.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-statistics",
+      "params": {
+        "modes": [
+          "mean",
+          "median",
+          "mode",
+          "range"
+        ],
+        "counts": [
+          5,
+          7
+        ],
+        "min": 2,
+        "max": 30
+      }
+    }
   ]
 }

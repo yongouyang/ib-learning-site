@@ -319,5 +319,24 @@
       "explanation": "The median is the 20th value (half of 40). Cumulative frequencies show 12 below 4 kg and 26 below 6 kg, so the 20th value lies in the class $4 \\leq m < 6$.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-statistics",
+      "params": {
+        "modes": [
+          "mean",
+          "median",
+          "mode",
+          "range"
+        ],
+        "counts": [
+          5,
+          7
+        ],
+        "min": 2,
+        "max": 60
+      }
+    }
   ]
 }

@@ -17,6 +17,26 @@ import {
   build as buildSpeed,
   type SpeedParams,
 } from '@/content/generators/phys-speed';
+import {
+  draw as drawStatistics,
+  build as buildStatistics,
+  type StatisticsParams,
+} from '@/content/generators/math-statistics';
+import {
+  draw as drawSequence,
+  build as buildSequence,
+  type LinearSequenceParams,
+} from '@/content/generators/math-linear-sequence';
+import {
+  draw as drawSubstitution,
+  build as buildSubstitution,
+  type SubstitutionParams,
+} from '@/content/generators/math-substitution';
+import {
+  draw as drawShape,
+  build as buildShape,
+  type ShapeMeasureParams,
+} from '@/content/generators/math-shape-measure';
 import { GENERATORS } from '@/content/generators';
 import type { GeneratorOutput } from '@/content/generators/types';
 import { fmtNumber } from '@/content/generators/utils';
@@ -927,7 +947,7 @@ describe('chem-compound-naming', () => {
 });
 
 describe('registry', () => {
-  it('registers all 21 generators under kebab-case ids matching their module contract', () => {
+  it('registers all 25 generators under kebab-case ids matching their module contract', () => {
     expect(Object.keys(GENERATORS).sort()).toEqual([
       'chem-compound-naming',
       'chem-electron-config',
@@ -938,8 +958,12 @@ describe('registry', () => {
       'math-fraction-arithmetic',
       'math-indices',
       'math-linear-equation',
+      'math-linear-sequence',
       'math-percent-of-amount',
       'math-rounding',
+      'math-shape-measure',
+      'math-statistics',
+      'math-substitution',
       'phys-charge-current',
       'phys-efficiency',
       'phys-energy-kwh',
@@ -1140,6 +1164,252 @@ describe('phys-speed', () => {
       );
       const out = buildSpeed(values, createRng(`speed:plaus:${i}`));
       expect(out.stem).not.toMatch(/swimmer|walker/);
+    }
+  });
+});
+
+
+
+describe('math-statistics', () => {
+  const params: StatisticsParams = { modes: ['mean', 'median', 'mode', 'range', 'missing-value'], counts: [5, 7], min: 3, max: 24 };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['math-statistics'].generate(params, createRng('golden:math-statistics'));
+    expect(out).toEqual({
+      stem: 'Seven numbers have a mean of $15$. Six of them are $13, 15, 17, 14, 17, 16$. What is the missing number?',
+      correct: '13',
+      distractors: ['15', '14', '12'],
+      explanation: 'The 7 values total $7 \\times 15 = 105$. The 6 shown values add to $92$, so the missing number is $105 - 92 = 13$.',
+    });
+  });
+
+  it('sweep: every mode matches an independent recomputation', () => {
+    for (let i = 0; i < 100; i++) {
+      const rng = createRng(`sweep:math-statistics:${i}`);
+      const values = drawStatistics(params, rng);
+      const out = buildStatistics(values, rng);
+      expectInvariants(out);
+      const list = values.values;
+      const sorted = [...list].sort((a, b) => a - b);
+      const counts = list.map((v) => list.filter((w) => w === v).length);
+      const modal = list[counts.indexOf(Math.max(...counts))];
+      const expected: Record<string, number> = {
+        mean: list.reduce((a, b) => a + b, 0) / list.length,
+        median: sorted[(list.length - 1) / 2],
+        mode: modal,
+        range: Math.max(...list) - Math.min(...list),
+        'missing-value': (values.total ?? 0) * (values.mean ?? 0) - list.reduce((a, b) => a + b, 0),
+      };
+      expect(out.correct).toBe(String(expected[values.mode]));
+    }
+  });
+
+  it('never leaves a fractional answer (that is the whole point of the construction)', () => {
+    for (let i = 0; i < 100; i++) {
+      const out = GENERATORS['math-statistics'].generate(params, createRng(`whole:${i}`));
+      expect(out.correct).toMatch(/^-?\d+$/);
+    }
+  });
+
+  it('gives the mode question a unique most-frequent value, and the median an odd-sized set', () => {
+    for (let i = 0; i < 60; i++) {
+      const values = drawStatistics({ ...params, modes: ['mode'] }, createRng(`mode:${i}`));
+      const frequency = new Map<number, number>();
+      for (const v of values.values) frequency.set(v, (frequency.get(v) ?? 0) + 1);
+      const highest = Math.max(...frequency.values());
+      expect(highest).toBeGreaterThanOrEqual(2);
+      // Exactly ONE value may carry the top frequency, or the mode is ambiguous.
+      expect([...frequency.values()].filter((f) => f === highest)).toHaveLength(1);
+    }
+    for (let i = 0; i < 60; i++) {
+      const values = drawStatistics({ ...params, modes: ['median'] }, createRng(`median:${i}`));
+      expect(values.values.length % 2).toBe(1);
+    }
+  });
+
+  it('rejects an even set size and a range too small for the constructions', () => {
+    const parses = (p: Record<string, unknown>) => GENERATORS['math-statistics'].paramsSchema.safeParse(p).success;
+    expect(parses({ counts: [4], min: 1, max: 20 })).toBe(false);
+    expect(parses({ counts: [5], min: 1, max: 3 })).toBe(false);
+    expect(parses({ counts: [5], min: 1, max: 20 })).toBe(true);
+  });
+});
+
+describe('math-linear-sequence', () => {
+  const params: LinearSequenceParams = {
+    differences: [3, 4, 5, -2, -3, -7],
+    firstTerms: [1, 2, 3, 5, 8, 12, 22, 31],
+    termIndices: [5, 8, 11, 15],
+    modes: ['next', 'nth-term', 'value-at-n', 'which-term', 'common-difference'],
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['math-linear-sequence'].generate(params, createRng('golden:math-linear-sequence'));
+    expect(out).toEqual({
+      stem: 'Find the common difference of the sequence $31, 29, 27, 25, \\dots$.',
+      correct: '-2',
+      distractors: ['2', '-1', '-3'],
+      explanation: 'Each term is found by subtracting $2$: $31 - 29 = 2$, so the common difference is $-2$.',
+    });
+  });
+
+  it('sweep: the answer is the recomputed term, and no displayed term is non-positive', () => {
+    for (let i = 0; i < 100; i++) {
+      const rng = createRng(`sweep:math-linear-sequence:${i}`);
+      const values = drawSequence(params, rng);
+      const out = buildSequence(values, rng);
+      expectInvariants(out);
+      const u = (k: number) => values.first + values.a * (k - 1);
+      const shown = out.stem.match(/\$[^$]+\$/)![0].slice(1, -1);
+      for (const raw of shown.split(',')) {
+        if (/^-?\d+$/.test(raw.trim())) expect(Number(raw)).toBeGreaterThanOrEqual(1);
+      }
+      if (values.mode === 'next') expect(out.correct).toBe(fmtNumber(u(6)));
+      if (values.mode === 'value-at-n') expect(out.correct).toBe(fmtNumber(u(values.n ?? 3)));
+      if (values.mode === 'common-difference') expect(out.correct).toBe(fmtNumber(values.a));
+      if (values.mode === 'which-term') {
+        expect(out.correct).toBe(fmtNumber(values.n ?? 3));
+        expect(Number(out.stem.match(/equals \$(\d+)\$/)![1])).toBe(u(values.n ?? 3));
+      }
+    }
+  });
+
+  it('renders the rule without a + 0 constant and without a 1 coefficient', () => {
+    for (let i = 0; i < 60; i++) {
+      const out = GENERATORS['math-linear-sequence'].generate({ ...params, modes: ['nth-term'] }, createRng(`rule:${i}`));
+      expect(out.correct).toMatch(/^\$-?\d*n( [+-] \d+)?\$$/);
+    }
+  });
+
+  it('keeps a which-term target above 1', () => {
+    for (let i = 0; i < 60; i++) {
+      const out = GENERATORS['math-linear-sequence'].generate({ ...params, modes: ['which-term'] }, createRng(`target:${i}`));
+      expect(Number(out.stem.match(/equals \$(\d+)\$/)![1])).toBeGreaterThanOrEqual(2);
+    }
+  });
+
+  it('rejects a zero common difference', () => {
+    expect(GENERATORS['math-linear-sequence'].paramsSchema.safeParse({ ...params, differences: [0] }).success).toBe(false);
+  });
+});
+
+describe('math-substitution', () => {
+  const params: SubstitutionParams = {
+    symbols: ['x', 'y', 'n'],
+    coefficients: [1, 2, 3, 4, 5],
+    constants: [-5, -3, 3, 7, 9],
+    values: [-4, -3, -2, 3, 4, 5],
+    modes: ['linear', 'quadratic'],
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['math-substitution'].generate(params, createRng('golden:math-substitution'));
+    expect(out).toEqual({
+      stem: 'If $y = -2$, what is $4y^2 + 7$?',
+      correct: '23',
+      distractors: ['-9', '-1', '71'],
+      explanation:
+        'Substitute $y = -2$: $4(-2)^2 + 7 = 4 \\times 4 + 7 = 23$. The square applies to $y$ alone, before multiplying by $4$.',
+    });
+  });
+
+  it('sweep: the answer is the evaluated expression', () => {
+    for (let i = 0; i < 100; i++) {
+      const rng = createRng(`sweep:math-substitution:${i}`);
+      const values = drawSubstitution(params, rng);
+      const out = buildSubstitution(values, rng);
+      expectInvariants(out);
+      const expected = values.mode === 'quadratic' ? values.a * values.x ** 2 + values.b : values.a * values.x + values.b;
+      expect(out.correct).toBe(fmtNumber(expected));
+    }
+  });
+
+  it('brackets the substituted value so the sign is unambiguous', () => {
+    for (let i = 0; i < 60; i++) {
+      const out = GENERATORS['math-substitution'].generate(params, createRng(`bracket:${i}`));
+      const x = Number(out.stem.match(/= (-?\d+)\$/)![1]);
+      expect(out.explanation).toContain(`(${x})`);
+      expect(out.stem).not.toMatch(/is \$1[a-z]/);
+    }
+  });
+
+  it('never shows a bare 1 coefficient', () => {
+    const out = GENERATORS['math-substitution'].generate(
+      { symbols: ['x'], coefficients: [1], constants: [7], values: [3], modes: ['linear'] },
+      createRng('coeff-one')
+    );
+    expect(out.stem).toBe('If $x = 3$, what is $x + 7$?');
+    expect(out.correct).toBe('10');
+  });
+});
+
+describe('math-shape-measure', () => {
+  const params: ShapeMeasureParams = {
+    shapes: ['rectangle', 'triangle', 'parallelogram', 'trapezium', 'circle'],
+    asks: ['area', 'perimeter', 'circumference'],
+    values: [3, 4, 5, 6, 7, 8, 10, 14],
+    units: ['cm'],
+    pi: '3.14',
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['math-shape-measure'].generate(params, createRng('golden:math-shape-measure'));
+    expect(out).toEqual({
+      stem: 'A triangle has base $14\\ \\text{cm}$ and perpendicular height $7\\ \\text{cm}$. What is its area?',
+      correct: '$49\\ \\text{cm}^2$',
+      distractors: ['$98\\ \\text{cm}^2$', '$21\\ \\text{cm}$', '$63\\ \\text{cm}^2$'],
+      explanation:
+        'Area of a triangle $= \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 14 \\times 7 = 49\\ \\text{cm}^2$. ($98\\ \\text{cm}^2$ is base × height without the half.)',
+    });
+  });
+
+  it('sweep: the answer is the shape arithmetic, and non-circles are whole numbers', () => {
+    for (let i = 0; i < 100; i++) {
+      const rng = createRng(`sweep:math-shape-measure:${i}`);
+      const values = drawShape(params, rng);
+      const out = buildShape(values, rng);
+      expectInvariants(out);
+      const [l, w, h] = values.dims;
+      const expected: Record<string, number> = {
+        rectangle: values.ask === 'area' ? l * w : 2 * (l + w),
+        triangle: (l * w) / 2,
+        parallelogram: l * w,
+        trapezium: ((l + w) * h) / 2,
+        circle: values.ask === 'area' ? values.pi * l * l : 2 * values.pi * l,
+      };
+      expect(out.correct).toContain(fmtNumber(expected[values.shape]));
+      if (values.shape !== 'circle') expect(out.correct).toMatch(/^\$\d+\\ /);
+    }
+  });
+
+  it('uses radii that are multiples of 7 when pi is 22/7', () => {
+    const twentyTwoSevenths: ShapeMeasureParams = {
+      shapes: ['circle'],
+      asks: ['area', 'circumference'],
+      values: [7, 14, 21],
+      units: ['m'],
+      pi: '22/7',
+    };
+    for (let i = 0; i < 40; i++) {
+      const out = GENERATORS['math-shape-measure'].generate(twentyTwoSevenths, createRng(`227:${i}`));
+      expect(Number(out.stem.match(/radius \$(\d+)/)![1]) % 7).toBe(0);
+      expect(out.correct).toMatch(/^\$\d+\\ \\text{(cm|m)}/);
+    }
+    const bad = GENERATORS['math-shape-measure'].paramsSchema.safeParse({ shapes: ['circle'], values: [3, 5], pi: '22/7' });
+    expect(bad.success).toBe(false);
+  });
+
+  it('falls back to an askable shape instead of throwing on a mixed param table', () => {
+    const mixed: ShapeMeasureParams = {
+      shapes: ['circle', 'rectangle'],
+      asks: ['perimeter'],
+      values: [4, 6],
+      units: ['cm'],
+      pi: '3.14',
+    };
+    for (let i = 0; i < 40; i++) {
+      const out = GENERATORS['math-shape-measure'].generate(mixed, createRng(`mixed:${i}`));
+      expect(out.stem).toContain('perimeter of a rectangle');
     }
   });
 });

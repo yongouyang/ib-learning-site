@@ -317,5 +317,45 @@
       "explanation": "$2, 5, 10, 17, 26$ has first differences $3, 5, 7, 9$ and constant second difference $2$, so it follows $T_n = n^2 + 1$ and is quadratic.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-linear-sequence",
+      "params": {
+        "differences": [
+          3,
+          4,
+          5,
+          6,
+          -2,
+          -3,
+          -4
+        ],
+        "firstTerms": [
+          2,
+          3,
+          5,
+          8,
+          12,
+          22,
+          31,
+          45
+        ],
+        "termIndices": [
+          5,
+          8,
+          10,
+          12,
+          15
+        ],
+        "modes": [
+          "next",
+          "nth-term",
+          "value-at-n",
+          "which-term",
+          "common-difference"
+        ]
+      }
+    }
   ]
 }

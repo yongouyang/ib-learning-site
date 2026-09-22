@@ -318,5 +318,38 @@
       "explanation": "$f(f(a)) = 2(2a + 1) + 1 = 4a + 3$. Solve $4a + 3 = 43$: $a = 10$. The option 21 solves the rule only once; 10.5 comes from expanding wrongly as $4a + 1$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-substitution",
+      "params": {
+        "symbols": [
+          "x"
+        ],
+        "coefficients": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "constants": [
+          -5,
+          -3,
+          3,
+          7
+        ],
+        "values": [
+          -3,
+          -2,
+          3,
+          4,
+          5
+        ],
+        "modes": [
+          "linear",
+          "quadratic"
+        ]
+      }
+    }
   ]
 }

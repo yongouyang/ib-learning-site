@@ -318,5 +318,25 @@
       "explanation": "Shop B's mean is lower ($410 < $420), but its range is much smaller ($60 < $380), so Shop B's daily profits are more consistent. The range measures spread, not the most common value.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-statistics",
+      "params": {
+        "modes": [
+          "mean",
+          "median",
+          "mode",
+          "range",
+          "missing-value"
+        ],
+        "counts": [
+          5,
+          7
+        ],
+        "min": 3,
+        "max": 40
+      }
+    }
   ]
 }

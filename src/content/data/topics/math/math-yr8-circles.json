@@ -328,5 +328,33 @@
       "explanation": "$A = \\pi r^2 = \\pi \\times 1^2 = \\pi~\\text{cm}^2$.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-shape-measure",
+      "params": {
+        "shapes": [
+          "circle"
+        ],
+        "asks": [
+          "area",
+          "circumference"
+        ],
+        "values": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          10,
+          14
+        ],
+        "units": [
+          "cm",
+          "m"
+        ]
+      }
+    }
   ]
 }

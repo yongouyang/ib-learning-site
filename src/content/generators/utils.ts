@@ -23,6 +23,16 @@ export function pickDistinct<T>(items: readonly T[], count: number, rng: Rng): T
   return out;
 }
 
+/** Fisher-Yates shuffle driven by the seeded rng — deterministic, unlike sort(() => random). */
+export function shuffle<T>(items: readonly T[], rng: Rng): T[] {
+  const out = [...items];
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
 export function gcd(a: number, b: number): number {
   let x = Math.abs(a);
   let y = Math.abs(b);

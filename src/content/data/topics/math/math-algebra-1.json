@@ -322,9 +322,65 @@
     {
       "generator": "math-linear-equation",
       "params": {
-        "a": [2, 3, 4, 5, 6],
-        "b": [1, 2, 3, 4, 5, 6],
-        "x": [2, 3, 4, 5, 6, 7, 8]
+        "a": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "b": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "x": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    {
+      "generator": "math-substitution",
+      "params": {
+        "symbols": [
+          "x",
+          "y",
+          "a",
+          "b"
+        ],
+        "coefficients": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "constants": [
+          -5,
+          -3,
+          3,
+          7,
+          9
+        ],
+        "values": [
+          -3,
+          -2,
+          2,
+          3,
+          4
+        ],
+        "modes": [
+          "linear",
+          "quadratic"
+        ]
       }
     }
   ]

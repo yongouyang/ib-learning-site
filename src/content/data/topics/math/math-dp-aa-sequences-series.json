@@ -326,5 +326,40 @@
       "explanation": "Subtract consecutive terms: $24 - 31 = -7$, and $17 - 24 = -7$ confirms it, so the common difference is $-7$.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-linear-sequence",
+      "params": {
+        "differences": [
+          3,
+          4,
+          5,
+          7,
+          -3,
+          -5
+        ],
+        "firstTerms": [
+          4,
+          6,
+          7,
+          11,
+          12,
+          31
+        ],
+        "termIndices": [
+          8,
+          10,
+          12,
+          15,
+          20
+        ],
+        "modes": [
+          "value-at-n",
+          "which-term",
+          "common-difference"
+        ]
+      }
+    }
   ]
 }

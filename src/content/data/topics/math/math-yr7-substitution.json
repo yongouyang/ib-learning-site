@@ -317,5 +317,42 @@
       "explanation": "Using $C = 15 + 0.1t$ with $t = 200$ gives $15 + 20 = 35$, so the cost is £35.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-substitution",
+      "params": {
+        "symbols": [
+          "x",
+          "y",
+          "n"
+        ],
+        "coefficients": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "constants": [
+          -5,
+          -3,
+          3,
+          7,
+          9
+        ],
+        "values": [
+          -4,
+          -3,
+          -2,
+          3,
+          4,
+          5
+        ],
+        "modes": [
+          "linear",
+          "quadratic"
+        ]
+      }
+    }
   ]
 }

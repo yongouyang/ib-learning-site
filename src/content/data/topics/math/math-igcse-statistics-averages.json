@@ -317,5 +317,26 @@
       "explanation": "Multiplying every value by 3 multiplies the mean by 3 (12 × 3 = 36); subtracting 2 from every value subtracts 2 from the mean, giving 34. Apply each operation to the mean in turn.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-statistics",
+      "params": {
+        "modes": [
+          "mean",
+          "median",
+          "mode",
+          "range",
+          "missing-value"
+        ],
+        "counts": [
+          5,
+          7,
+          9
+        ],
+        "min": 2,
+        "max": 50
+      }
+    }
   ]
 }

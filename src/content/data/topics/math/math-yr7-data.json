@@ -317,5 +317,25 @@
       "explanation": "The value 120 is much higher than the others, so it pulls the mean up. The median gives a fairer typical value because it is not strongly affected by the outlier. Range is a measure of spread, not an average.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-statistics",
+      "params": {
+        "modes": [
+          "mean",
+          "median",
+          "mode",
+          "range",
+          "missing-value"
+        ],
+        "counts": [
+          5,
+          7
+        ],
+        "min": 2,
+        "max": 20
+      }
+    }
   ]
 }
