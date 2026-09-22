@@ -317,5 +317,18 @@
       "explanation": "The correct answer is 'Introduce completely new evidence or arguments'. A conclusion should NOT:",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

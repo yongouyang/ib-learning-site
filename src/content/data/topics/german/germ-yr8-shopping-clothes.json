@@ -317,5 +317,18 @@
       "explanation": "Das Sonderangebot is the special offer — a reduced price. Im Sonderangebot means on special offer.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

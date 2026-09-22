@@ -317,5 +317,18 @@
       "explanation": "只背译文得到的是字面的意思，不是诗。想象画面、体会情感、反复朗读，才能真正走进诗歌。",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

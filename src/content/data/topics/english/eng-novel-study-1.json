@@ -317,5 +317,18 @@
       "explanation": "Good analytical writing interprets techniques, supports claims with evidence and discusses effects on meaning.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -317,5 +317,18 @@
       "explanation": "The correct answer is 'Humanise abstract topics and create emotional connection'. Anecdotes in non-fiction:",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

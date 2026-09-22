@@ -61,6 +61,14 @@ export interface TopicTemplate {
   generator: string;
   variantOf?: string;
   params?: Record<string, unknown>;
+  /**
+   * Where a template's table comes from, when it is not the params table.
+   * `'flashcards'` means the topic's own card deck is passed to the generator as
+   * `params.cards` — so a drill can never drift from the deck it drills. Both
+   * `materializeTemplates` (src/lib/generators.ts) and `checkTemplates`
+   * (scripts/validate-content.ts) perform the injection, and they must stay in step.
+   */
+  source?: 'flashcards';
 }
 
 export interface Topic {

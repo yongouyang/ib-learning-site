@@ -15,6 +15,28 @@ function authoredQuestion(id: string, variantOf?: string): Question {
   };
 }
 
+// A topic whose template is fed by its own deck (TopicTemplate.source = 'flashcards').
+function makeDeckTopic(): Topic {
+  return {
+    id: 'deck-topic',
+    subjectId: 'german',
+    title: 'Deck Topic',
+    description: 'Topic with a flashcard-sourced template.',
+    stage: 'ks3',
+    notes: [{ id: 'n1', heading: 'Note', body: 'Body.' }],
+    flashcards: [
+      { id: 'f1', term: 'der Hund', definition: 'the dog' },
+      { id: 'f2', term: 'die Katze', definition: 'the cat' },
+      { id: 'f3', term: 'das Pferd', definition: 'the horse' },
+      { id: 'f4', term: 'der Vogel', definition: 'the bird' },
+    ],
+    questions: [authoredQuestion('q1')],
+    templates: [
+      { generator: 'flashcard-match', source: 'flashcards', params: { direction: ['term-to-definition'] } },
+    ],
+  };
+}
+
 // Minimal topic with two templates: one joining an authored group, one solo.
 function makeTopic(): Topic {
   return {
@@ -126,5 +148,34 @@ describe('templatePlaceholders', () => {
     expect(mastery.get('skill-a')).toMatchObject({ outcomes: 2, streak: 2, mastered: true });
     // The solo template forms its own group.
     expect(mastery.get('solo:tpl:1:phys-fuse-rating')).toMatchObject({ outcomes: 0, mastered: false });
+  });
+});
+
+describe('flashcard-sourced templates', () => {
+  const deckTopic = makeDeckTopic();
+
+  it('injects the topic deck as params.cards, so the drill matches the deck', () => {
+    const questions = materializeTemplates(deckTopic, 'deck:seed');
+    expect(questions).toHaveLength(1);
+    const [question] = questions;
+    const terms = deckTopic.flashcards.map((card) => card.term);
+    const definitions = deckTopic.flashcards.map((card) => card.definition);
+    // The stem names a term from the deck and every choice is a definition from it.
+    expect(terms.some((term) => question.stem.includes(term))).toBe(true);
+    for (const choice of question.choices) expect(definitions).toContain(choice);
+    expect(new Set(question.choices).size).toBe(4);
+    expect(question.choices[question.correctIndex]).not.toBe('');
+  });
+
+  it('draws a different card for a different seed', () => {
+    const first = materializeTemplates(deckTopic, 'seed-a')[0];
+    const others = ['seed-b', 'seed-c', 'seed-d', 'seed-e'].map((seed) => materializeTemplates(deckTopic, seed)[0]);
+    expect(others.some((question) => question.stem !== first.stem)).toBe(true);
+  });
+
+  it('fails loudly when a flashcards-sourced template has no deck to draw from', () => {
+    const { flashcards, ...withoutDeck } = deckTopic;
+    expect(flashcards).toHaveLength(4);
+    expect(() => materializeTemplates(withoutDeck as Topic, 'no-deck')).toThrow();
   });
 });

@@ -347,5 +347,18 @@
       "explanation": "The midpiece of a sperm cell is packed with mitochondria that produce ATP through respiration. This energy powers the flagellum (tail), enabling the sperm to swim through the female reproductive tract to reach the egg.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

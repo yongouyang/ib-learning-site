@@ -317,5 +317,18 @@
       "explanation": "Only option B separates the three list items — cooking, the dog, and video games — so the meaning is unambiguous. Option A suggests the writer cooks their dog, option C splits the verb from its object, and option D turns 'pet dog' into two bizarre items. Missing or misplaced commas can completely change meaning, which is why proofreading for them matters.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

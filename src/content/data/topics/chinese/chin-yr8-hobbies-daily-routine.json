@@ -317,5 +317,18 @@
       "explanation": "喂 (wéi) signals a phone call, and 请问 ... 在家吗 politely asks whether Zhang Ming is at home.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -347,5 +347,18 @@
       "explanation": "Water leaves the cell by osmosis (moving towards the concentrated salt solution outside). The vacuole shrinks and the cell membrane pulls away from the cell wall — this is called plasmolysis.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

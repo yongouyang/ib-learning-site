@@ -317,5 +317,18 @@
       "explanation": "Systematic testing means deciding in advance what should happen, so surprises are visible and logged rather than missed. Recording each failure lets you fix one bug at a time and re-test — the iteration cycle at the heart of every engineering project.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

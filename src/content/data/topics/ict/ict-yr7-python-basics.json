@@ -317,5 +317,18 @@
       "explanation": "Python checks branches in order and stops at the first true one. Since 80 satisfies score >= 50, the Pass branch runs and Distinction is unreachable. Order conditions from most to least specific.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

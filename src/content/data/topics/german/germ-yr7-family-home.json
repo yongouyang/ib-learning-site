@@ -317,5 +317,18 @@
       "explanation": "Die Oma is feminine (meine), singular (hat, not haben), and adjectives before plural nouns take -e: kurze graue Haare, grüne Augen. The other options break one of these rules each.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

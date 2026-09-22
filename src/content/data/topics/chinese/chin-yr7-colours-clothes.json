@@ -317,5 +317,18 @@
       "explanation": "A asks the price of one skirt (多少钱？), finds 200 too expensive, and asks about another (这条呢？= and this one?) — clearly comparing prices of two skirts.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -317,5 +317,18 @@
       "explanation": "我应该怎么办？means 'what should I do?' — after listing her symptoms (unwell, headache, coughing) she is asking for advice, not for a time or place.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -317,5 +317,18 @@
       "explanation": "Foot binding — the tight binding of girls' feet to keep them small — spread among the elite from the Song era as a sign of status and marriageability. It shows how Confucian gender expectations confined women, and how customs can embody a society's values.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

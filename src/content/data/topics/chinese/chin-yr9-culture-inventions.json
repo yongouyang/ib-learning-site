@@ -317,5 +317,18 @@
       "explanation": "脸谱用颜色象征性格——红忠、白奸、黑正，观众一看脸就能判断人物的忠奸善恶，这是京剧写意的表现手法。",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

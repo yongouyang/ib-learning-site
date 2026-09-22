@@ -317,5 +317,18 @@
       "explanation": "The passive earns its place when the receiver of the action matters more than the doer — 'The castle was built in 1066' focuses on the castle, and 'The window had been broken' suits a writer who cannot or will not name who did it. It is not more exciting (usually the opposite), is wordier than the active, and no rule requires it in essays — it is a targeted choice, not a default.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -317,5 +317,18 @@
       "explanation": "With time expressions first, the verb stays second and the subject follows it: Am Montag um acht Uhr beginnt die Schule. The other options push the verb out of position two.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

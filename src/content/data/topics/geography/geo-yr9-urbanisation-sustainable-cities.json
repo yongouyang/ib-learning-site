@@ -317,5 +317,18 @@
       "explanation": "Mixed-use, compact design removes the need to travel far in the first place, while trams and cycle lanes handle the journeys that remain. Bigger roads typically fill with new traffic (induced demand) and out-of-town retail increases car dependence.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

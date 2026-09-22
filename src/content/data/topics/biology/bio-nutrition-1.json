@@ -317,5 +317,18 @@
       "explanation": "Fibre is never digested — it adds bulk that keeps the gut moving — and water is the solvent for blood and cell reactions. Neither is an energy nutrient, and neither can be stored as fat.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

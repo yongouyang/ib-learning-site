@@ -317,5 +317,18 @@
       "explanation": "A well-named function hides detail behind a simple interface: callers supply a guess and a correct answer and get back a result. If the checking logic later improves (say, accepting synonyms), only one place changes.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

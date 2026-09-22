@@ -317,5 +317,18 @@
       "explanation": "Without a console, use what the board has: display readings on its LEDs, and isolate each stage. Proving the sensor works, then the output, then the logic, narrows any fault to one small piece.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

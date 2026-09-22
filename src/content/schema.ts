@@ -73,6 +73,8 @@ export const topicTemplateSchema = z.object({
   generator: z.string().min(1),
   variantOf: z.string().min(1).optional(),
   params: z.record(z.string(), z.unknown()).optional(),
+  // `flashcards` = the topic's own deck is injected as `params.cards` (see TopicTemplate).
+  source: z.enum(['flashcards']).optional(),
 });
 
 export const topicSchema = z.object({

@@ -317,5 +317,18 @@
       "explanation": "The correct answer is 'Physiological sensations are similar — reinterpretation shifts mindset from threat to opportunity'. Reframing anxiety as excitement works because:",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

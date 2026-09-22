@@ -317,5 +317,18 @@
       "explanation": "Absagen means to cancel, and ich muss ihn absagen = I have to cancel it. Den 5. Juni gives the date (the fifth of June) — the speaker, not the dentist, is cancelling.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

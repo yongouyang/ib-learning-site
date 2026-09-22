@@ -317,5 +317,18 @@
       "explanation": "With er (he), regular verbs take the ending -t: er hört. The -e form is for ich, -st for du, and hören is the infinitive which cannot follow er.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

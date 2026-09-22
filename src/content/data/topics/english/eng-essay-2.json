@@ -317,5 +317,18 @@
       "explanation": "New evidence in a conclusion earns nothing because there is no space to analyse how it supports the thesis — the point should have been a body paragraph or left out. Techniques are fine to reference in a conclusion if already argued, and 'In conclusion' is tired but grammatical.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

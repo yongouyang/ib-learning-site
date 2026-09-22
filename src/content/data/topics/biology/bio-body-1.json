@@ -347,5 +347,18 @@
       "explanation": "Dialysis replicates kidney function by passing the patient's blood through a selectively permeable membrane in a machine. Waste products (urea, excess salts) diffuse out while blood cells and proteins are retained.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -317,5 +317,18 @@
       "explanation": "说 shuō (to speak) contains 讠, the speech radical — its meaning clue. 河 has the water radical, 林 the wood radical, and 明 contains the sun.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

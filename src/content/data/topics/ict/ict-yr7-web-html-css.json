@@ -317,5 +317,18 @@
       "explanation": "When CSS rules conflict, the more specific selector takes priority. A class selector outranks a plain element selector, so the alert paragraph is red while all the others stay blue.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

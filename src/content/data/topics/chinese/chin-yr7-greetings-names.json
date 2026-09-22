@@ -317,5 +317,18 @@
       "explanation": "不客气 literally means 'don't be polite' and is the standard reply to 谢谢, just like 'you're welcome' in English.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

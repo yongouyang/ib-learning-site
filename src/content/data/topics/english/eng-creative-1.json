@@ -317,5 +317,18 @@
       "explanation": "The correct answer is 'Limitations force creative thinking and unexpected solutions'. Constraint writing helps because:",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

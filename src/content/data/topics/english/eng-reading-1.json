@@ -317,5 +317,18 @@
       "explanation": "The correct answer is 'Subtext/implicit meaning — meaning beneath the surface'. When a text says one thing but implies another, it uses:",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

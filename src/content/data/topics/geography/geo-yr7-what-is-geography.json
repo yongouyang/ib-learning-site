@@ -317,5 +317,18 @@
       "explanation": "Where a stream cuts a valley, each contour bends into a V that points uphill (up-valley, towards higher ground). Contours that jut downhill form a spur or ridge instead — the classic 'V points up the valley' rule.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

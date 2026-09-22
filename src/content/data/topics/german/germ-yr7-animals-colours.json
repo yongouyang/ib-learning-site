@@ -317,5 +317,18 @@
       "explanation": "Several snakes = plural: die Schlange → die Schlangen, with the plural article die and the plural verb sind. Colours after sein take no ending: grün und gelb.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

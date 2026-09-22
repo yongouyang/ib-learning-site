@@ -317,5 +317,18 @@
       "explanation": "After the time word zuerst the verb möchte comes second, and both infinitives (machen, verdienen) go to the end of their clauses: Zuerst möchte ich eine Ausbildung machen und Geld verdienen.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

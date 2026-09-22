@@ -317,5 +317,18 @@
       "explanation": "Long-term responses happen over months and years and focus on preparation: safer building codes, monitoring, hazard maps and drills. Rescue, emergency shelter and field hospitals are immediate, short-term responses.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -317,5 +317,18 @@
       "explanation": "TEEL stands for Technique, Example, Effect, Link. It structures analysis by connecting visual choices to their impact and the text's purpose.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

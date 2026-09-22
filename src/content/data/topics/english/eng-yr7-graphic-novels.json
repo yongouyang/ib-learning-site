@@ -317,5 +317,18 @@
       "explanation": "Critical reading connects a visual choice (angle, size, colour) to its effect and purpose — 'why was it drawn this way?' — rather than merely registering what is shown.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

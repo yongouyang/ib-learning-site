@@ -317,5 +317,18 @@
       "explanation": "Hot deserts have exceptional sunshine for solar power, often rich oil and mineral deposits, and spectacular scenery that attracts tourists. Rice farming and forestry need far more water than deserts can supply.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

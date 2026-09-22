@@ -317,5 +317,18 @@
       "explanation": "The price reference A2 must stay relative so it moves to A3, A4 … as the formula fills down, while the rate must be the absolute reference ＄E＄1 so every row uses the same discount cell. Option D fails because E1 drifts to E2, E3 when copied.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

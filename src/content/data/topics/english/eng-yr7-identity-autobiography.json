@@ -317,5 +317,18 @@
       "explanation": "Depth beats breadth in short autobiographical writing: one well-chosen incident allows scenes, sensory detail and reflection, while a whole-life account becomes a rushed list.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -317,5 +317,18 @@
       "explanation": "讨论神话的意义在于理解它承载的价值观和古人的愿望；字数、住处细节、拼音都与文化内涵无关。",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

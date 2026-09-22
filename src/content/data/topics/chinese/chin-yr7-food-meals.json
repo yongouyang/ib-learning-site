@@ -317,5 +317,18 @@
       "explanation": "多少钱？means 'how much money?' — after ordering rice and tea and refusing extras, A is asking for the price, i.e. asking to pay.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -317,5 +317,18 @@
       "explanation": "The gesture of the second cup implies loneliness through one precise, telling detail — showing rather than telling, in very few words.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

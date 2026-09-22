@@ -317,5 +317,18 @@
       "explanation": "Natural increase is births minus deaths. When better medicine and sanitation cut deaths but traditional high birth rates persist, the gap between them is widest — so the population expands at its maximum rate until birth rates eventually fall too.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

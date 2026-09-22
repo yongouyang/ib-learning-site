@@ -317,5 +317,18 @@
       "explanation": "'Thou' means 'you' and the '-est' ending marks the verb form, so 'thou goest' translates to 'you go' or 'you are going'.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

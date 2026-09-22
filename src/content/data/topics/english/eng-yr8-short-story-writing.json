@@ -317,5 +317,18 @@
       "explanation": "Working big to small avoids polishing sentences that later get cut: shape the story first, tighten the prose second, proofread last.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

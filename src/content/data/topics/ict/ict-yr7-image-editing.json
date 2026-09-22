@@ -317,5 +317,18 @@
       "explanation": "Layers are painted from the bottom of the stack upwards, so the opaque photo on top completely covers the text beneath it. Dragging the text layer above the photo layer reveals it.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

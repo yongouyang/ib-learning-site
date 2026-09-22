@@ -317,5 +317,18 @@
       "explanation": "Naming the theme and labelling one poem 'very sad' is not analysis. The fix is to compare methods and effects: how imagery, tone and form in each poem construct its version of duty.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

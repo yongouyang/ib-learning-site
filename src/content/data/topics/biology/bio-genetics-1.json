@@ -347,5 +347,18 @@
       "explanation": "Somatic cell nuclear transfer: the nucleus of a differentiated adult cell (containing the full genome) replaces the nucleus of an egg cell. The reprogrammed egg then develops into a clone of the original donor.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

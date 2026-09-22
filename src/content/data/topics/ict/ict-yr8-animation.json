@@ -317,5 +317,18 @@
       "explanation": "Safe sharing means checking the export actually works, getting permission from anyone who appears, and protecting personal information like your school or full name. Speed and reach should never override these checks.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

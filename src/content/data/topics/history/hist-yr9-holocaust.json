@@ -317,5 +317,18 @@
       "explanation": "The Holocaust teaches the consequences of hatred left unchallenged and the power of individual moral choice. Remembrance — through Holocaust Memorial Day and survivors' testimony — keeps those lessons alive.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

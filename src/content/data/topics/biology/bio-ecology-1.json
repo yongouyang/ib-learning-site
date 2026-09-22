@@ -347,5 +347,18 @@
       "explanation": "Without natural predators, parasites, or competitors to control its population, an invasive species can reproduce exponentially, outcompete or prey on native species, and disrupt the entire ecosystem.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

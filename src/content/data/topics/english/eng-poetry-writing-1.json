@@ -317,5 +317,18 @@
       "explanation": "Redrafting means rethinking content and structure — cutting, moving and rewriting for effect. Fixing typos, punctuation and formatting is proofreading, which comes after the rewriting is done.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

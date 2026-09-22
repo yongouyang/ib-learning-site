@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useProgress } from '@/context/ProgressContext';
 import QuizGame from '@/components/QuizGame';
-import type { Question, QuestionResult, SubjectId, TopicTemplate } from '@/content/types';
+import type { Flashcard, Question, QuestionResult, SubjectId, TopicTemplate } from '@/content/types';
 import {
   DIFFICULTY_LEVELS,
   filterQuestionsByDifficulty,
@@ -31,6 +31,8 @@ interface QuizPageClientProps {
   subjectName: string;
   questions: Question[];
   templates?: TopicTemplate[];
+  /** Passed so a `source: "flashcards"` template can be fed the topic's own deck. */
+  flashcards?: Flashcard[];
 }
 
 export default function QuizPageClient({
@@ -40,6 +42,7 @@ export default function QuizPageClient({
   subjectName,
   questions,
   templates,
+  flashcards,
 }: QuizPageClientProps) {
   const searchParams = useSearchParams();
   const difficulty = parseDifficultyFilter(searchParams.get('difficulty'));
@@ -77,7 +80,7 @@ export default function QuizPageClient({
   // Authored questions plus one materialized instance per template (seeded by
   // sessionSeed, so "new question set" redraws fresh values). Difficulty chip
   // counts below intentionally cover authored questions only.
-  const pool = [...questions, ...materializeTemplates({ id: topicId, templates }, sessionSeed)];
+  const pool = [...questions, ...materializeTemplates({ id: topicId, templates, flashcards }, sessionSeed)];
   const filtered = filterQuestionsByDifficulty(pool, difficulty);
   // Grouped topics: one question per variant group (~10 per session). Topics
   // without groups keep the legacy behavior — every question, every session.

@@ -317,5 +317,18 @@
       "explanation": "This is feature-spotting: the sentence identifies alliteration and asserts it is 'effective' without saying how the d-sounds shape the mood. Adding the effect would make it analysis.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

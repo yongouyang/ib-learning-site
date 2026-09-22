@@ -317,5 +317,18 @@
       "explanation": "视觉、听觉、嗅觉、触觉并用才能让景物立体起来；只写颜色形状的描写是平面的，读者难以身临其境。",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

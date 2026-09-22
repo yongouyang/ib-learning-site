@@ -317,5 +317,18 @@
       "explanation": "Iterative development means starting with the smallest working piece, testing it, then growing the program feature by feature. This keeps the program working at every stage and makes bugs far easier to find.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -76,6 +76,11 @@ import {
   build as buildQuadratic,
   type QuadraticParams,
 } from '@/content/generators/math-quadratic';
+import {
+  draw as drawFlashcardMatch,
+  build as buildFlashcardMatch,
+  type FlashcardMatchParams,
+} from '@/content/generators/flashcard-match';
 import { GENERATORS } from '@/content/generators';
 import type { GeneratorOutput } from '@/content/generators/types';
 import { fmtNumber } from '@/content/generators/utils';
@@ -990,7 +995,7 @@ describe('chem-compound-naming', () => {
 });
 
 describe('registry', () => {
-  it('registers all 35 generators under kebab-case ids matching their module contract', () => {
+  it('registers all 36 generators under kebab-case ids matching their module contract', () => {
     expect(Object.keys(GENERATORS).sort()).toEqual([
       'chem-compound-naming',
       'chem-electron-config',
@@ -998,6 +1003,7 @@ describe('registry', () => {
       'chem-ion-formation',
       'chem-isotope-ram',
       'chem-ph-ratio',
+      'flashcard-match',
       'math-algebra-manipulation',
       'math-fraction-arithmetic',
       'math-frequency-density',
@@ -2007,5 +2013,94 @@ describe('math-quadratic', () => {
   it('rejects a roots list whose values all coincide', () => {
     expect(GENERATORS['math-quadratic'].paramsSchema.safeParse({ roots: [5, 5] }).success).toBe(false);
     expect(GENERATORS['math-quadratic'].paramsSchema.safeParse({ roots: [5, 6] }).success).toBe(true);
+  });
+});
+
+describe('flashcard-match', () => {
+  // A vocabulary deck in the shape the language topics actually use.
+  const deck = [
+    { term: 'der Hund', definition: 'the dog' },
+    { term: 'die Katze', definition: 'the cat' },
+    { term: 'das Pferd', definition: 'the horse' },
+    { term: 'der Vogel', definition: 'the bird' },
+    { term: 'das Haus', definition: 'the house' },
+    { term: 'die Schule', definition: 'the school' },
+  ];
+  const params: FlashcardMatchParams = { cards: deck, direction: ['term-to-definition', 'definition-to-term'], maxLength: 140 };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['flashcard-match'].generate(
+      { cards: deck, direction: ['term-to-definition'], maxLength: 140 },
+      createRng('golden:flashcard-match')
+    );
+    const terms = deck.map((card) => card.term);
+    const definitions = deck.map((card) => card.definition);
+    expect(terms.some((term) => out.stem.includes(term))).toBe(true);
+    expect(definitions).toContain(out.correct);
+    for (const distractor of out.distractors) expect(definitions).toContain(distractor);
+    expect(out.explanation.length).toBeGreaterThanOrEqual(20);
+  });
+
+  it('sweep: the answer is the deck pairing, and the choices are 4 distinct deck entries', () => {
+    for (let i = 0; i < 120; i++) {
+      const rng = createRng(`sweep:flashcard-match:${i}`);
+      const values = drawFlashcardMatch(params, rng);
+      const out = buildFlashcardMatch(values, rng);
+      expectInvariants(out);
+      const choices = [out.correct, ...out.distractors];
+      const pool = values.direction === 'term-to-definition' ? deck.map((c) => c.definition) : deck.map((c) => c.term);
+      for (const choice of choices) expect(pool).toContain(choice);
+      const expected = values.direction === 'term-to-definition' ? values.definition : values.term;
+      expect(out.correct).toBe(expected);
+      // The stem must ask about the correct card.
+      expect(out.stem).toContain(values.direction === 'term-to-definition' ? values.term : values.definition);
+    }
+  });
+
+  it('asks both directions, and a definition-to-term question never leaks the term as a distractor twice', () => {
+    const seen = new Set<string>();
+    for (let i = 0; i < 60; i++) {
+      const values = drawFlashcardMatch(params, createRng(`dir:${i}`));
+      seen.add(values.direction);
+      const out = buildFlashcardMatch(values, createRng(`dir:${i}`));
+      expect(new Set([out.correct, ...out.distractors]).size).toBe(4);
+    }
+    expect([...seen].sort()).toEqual(['definition-to-term', 'term-to-definition']);
+  });
+
+  it('drops choices longer than maxLength, and falls back to the shortest cards when none fit', () => {
+    const longDeck = [
+      { term: 'short-a', definition: 'a'.repeat(200) },
+      { term: 'short-b', definition: 'b'.repeat(200) },
+      { term: 'short-c', definition: 'c'.repeat(200) },
+      { term: 'short-d', definition: 'd'.repeat(200) },
+    ];
+    // Nothing fits the cap, so the four shortest cards are used instead of throwing.
+    for (let i = 0; i < 20; i++) {
+      const out = GENERATORS['flashcard-match'].generate(
+        { cards: longDeck, direction: ['term-to-definition'], maxLength: 60 },
+        createRng(`long:${i}`)
+      );
+      expect(out.correct).not.toBe('');
+      expect(longDeck.map((card) => card.definition)).toContain(out.correct);
+    }
+    const mixed = [...deck, { term: 'lang', definition: 'x'.repeat(150) }];
+    for (let i = 0; i < 40; i++) {
+      const out = GENERATORS['flashcard-match'].generate(
+        { cards: mixed, direction: ['term-to-definition'], maxLength: 140 },
+        createRng(`mix:${i}`)
+      );
+      expect(out.correct.length).toBeLessThanOrEqual(140);
+      for (const distractor of out.distractors) expect(distractor.length).toBeLessThanOrEqual(140);
+    }
+  });
+
+  it('rejects a deck with fewer than four cards', () => {
+    expect(
+      GENERATORS['flashcard-match'].paramsSchema.safeParse({ cards: deck.slice(0, 3), direction: ['term-to-definition'] }).success
+    ).toBe(false);
+    expect(
+      GENERATORS['flashcard-match'].paramsSchema.safeParse({ cards: deck, direction: ['term-to-definition'] }).success
+    ).toBe(true);
   });
 });

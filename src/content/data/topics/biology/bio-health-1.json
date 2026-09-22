@@ -347,5 +347,18 @@
       "explanation": "Pathogens adapted to the human body thrive at 37°C. In a school setting, incubating at 25°C reduces the risk of accidentally culturing dangerous human pathogens while still allowing safe bacterial species to grow.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

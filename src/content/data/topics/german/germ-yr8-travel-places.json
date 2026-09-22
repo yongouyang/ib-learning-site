@@ -317,5 +317,18 @@
       "explanation": "Wir takes waren (we were) and das Wetter (it) takes war: Wir waren ... das Wetter war. War, wart and waren must match the person of the subject.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

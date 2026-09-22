@@ -316,5 +316,18 @@
       "explanation": "The correct answer is 'Explain the EFFECT of techniques — how they create meaning'. When writing about a poem, you should:",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

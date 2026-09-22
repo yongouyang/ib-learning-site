@@ -317,5 +317,18 @@
       "explanation": "TNCs can relocate quickly, and towns dependent on a single employer are hit hard — job losses, falling local spending and empty buildings — while the company's profits still flow back to its home country. This is a core criticism of globalisation's unevenness.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

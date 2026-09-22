@@ -317,5 +317,18 @@
       "explanation": "前面 (qiánmiàn) means in front of, and 电视 comes before 在, so the TV is the thing being located: the TV is in front of the sofa.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

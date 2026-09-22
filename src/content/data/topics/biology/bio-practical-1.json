@@ -347,5 +347,18 @@
       "explanation": "Repeats enable you to (1) calculate a more representative mean, (2) spot outliers, and (3) assess how consistent your measurements are (small range = high precision). They increase the reliability of your findings.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

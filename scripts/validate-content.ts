@@ -4,6 +4,7 @@ import { topicSchema, subjectMetaSchema, paperSchema, type ValidatedTopic } from
 import { COURSES } from '../src/lib/courses';
 import { getGenerator } from '../src/content/generators';
 import { createRng } from '../src/lib/quiz-utils';
+import { withSourceTable } from '../src/lib/generators';
 
 const DATA_DIR = path.resolve(__dirname, '../src/content/data');
 const TOPICS_DIR = path.join(DATA_DIR, 'topics');
@@ -105,7 +106,9 @@ export function checkTemplates(topic: ValidatedTopic): string[] {
       errors.push(`${label}: unknown generator id — not registered in src/content/generators`);
       return;
     }
-    const parsed = generator.paramsSchema.safeParse(tpl.params ?? {});
+    // A template may take its table from the topic's own flashcards (TopicTemplate.source);
+    // src/lib/generators.ts#withSourceTable does the same injection at session time.
+    const parsed = generator.paramsSchema.safeParse(withSourceTable(tpl, topic.flashcards ?? []));
     if (!parsed.success) {
       const detail = parsed.error.issues
         .map((issue) => `${issue.path.join('.') || 'root'}: ${issue.message}`)

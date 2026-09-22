@@ -317,5 +317,18 @@
       "explanation": "The correct answer is 'Possession — belonging to the dog'. 'The dog wagged its tail.' Its means:",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

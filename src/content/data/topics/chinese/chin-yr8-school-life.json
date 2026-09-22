@@ -317,5 +317,18 @@
       "explanation": "今天是 today, 有 is have, and 中文、数学和体育 are Chinese, maths and PE joined by 和 (and). The other options change the subjects, the day, or make it negative.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

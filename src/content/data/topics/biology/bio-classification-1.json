@@ -347,5 +347,18 @@
       "explanation": "The key feature is 'no nucleus' — this means the organism is prokaryotic. Only bacteria (kingdom Monera/Prokaryota) lack a membrane-bound nucleus. All other kingdoms are eukaryotic.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

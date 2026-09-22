@@ -317,5 +317,18 @@
       "explanation": "Spam detection with labelled examples is the textbook supervised task: inputs paired with correct answers, learning to classify new emails. Grouping unlabelled shoppers is unsupervised; writing a poem is generative; a paper map involves no learning.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

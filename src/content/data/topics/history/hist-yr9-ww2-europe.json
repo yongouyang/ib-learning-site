@@ -317,5 +317,17 @@
       "explanation": "Once Germany faced the USSR, the USA and Britain together, the balance of resources was hopeless: Allied factories out-produced Germany, bombing wrecked its industry, and armies closed in from east and west until Berlin fell.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "definition-to-term"
+        ],
+        "maxLength": 60
+      }
+    }
   ]
 }

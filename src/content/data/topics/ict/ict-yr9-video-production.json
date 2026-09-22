@@ -317,5 +317,18 @@
       "explanation": "Quality video balances all three phases: planning makes filming fast and complete, a shot list prevents wasted shooting, and editing plus review is where the film is actually made. Skipping any phase shows in the result.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

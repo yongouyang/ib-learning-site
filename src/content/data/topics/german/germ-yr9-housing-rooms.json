@@ -317,5 +317,18 @@
       "explanation": "A house has features: Mein Traumhaus hat + accusative (einen großen Garten). Am Meer (an dem Meer) is the correct dative phrase for by the sea. Es gibt cannot take the house as its subject.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

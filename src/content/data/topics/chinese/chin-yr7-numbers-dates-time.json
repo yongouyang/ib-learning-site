@@ -317,5 +317,18 @@
       "explanation": "百 means hundred, so 二百 = two-hundred = 200. Twenty would be 二十 (èrshí).",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

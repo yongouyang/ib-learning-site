@@ -48,6 +48,7 @@ export default async function QuizPage(props: { params: Promise<{ subjectId: str
         subjectName={subjectName}
         questions={topic.questions}
         templates={topic.templates}
+        flashcards={topic.flashcards}
       />
     </Suspense>
   );

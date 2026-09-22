@@ -317,5 +317,18 @@
       "explanation": "Fracturing the sentence isolates each word, so the reader lingers on every beat — a fast event is stretched into slow motion, which heightens the drama. The original was already grammatical, the effect slows rather than speeds the pace, and no new information is added.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -317,5 +317,18 @@
       "explanation": "伦敦常常下雨 says it often rains in London, and 北京冬天会下雪 says it snows in Beijing in winter — only the second option matches both parts.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

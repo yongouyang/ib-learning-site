@@ -317,5 +317,18 @@
       "explanation": "Towns stood partly outside the manorial system: custom held that a runaway serf who lived in a town for a year and a day without being claimed became legally free. This made towns magnets for ambitious peasants.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

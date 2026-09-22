@@ -317,5 +317,18 @@
       "explanation": "能便宜一点儿吗？means 'can it be a bit cheaper?' — after hearing the price A is bargaining, not returning or paying yet.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

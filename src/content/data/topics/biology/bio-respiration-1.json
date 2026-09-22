@@ -347,5 +347,18 @@
       "explanation": "Long-distance events are primarily aerobic — the steady pace allows the circulatory system to deliver enough oxygen to muscles. Sprints demand energy faster than oxygen can be supplied, triggering anaerobic respiration and lactic acid build-up.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

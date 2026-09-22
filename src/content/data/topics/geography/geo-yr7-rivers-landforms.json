@@ -317,5 +317,18 @@
       "explanation": "Wetlands provide free ecosystem services: flood storage, natural water filtration, carbon storage and habitat for wildlife. Replacing these with reservoirs, treatment plants and flood defences costs far more than protecting the marsh.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

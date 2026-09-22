@@ -317,5 +317,18 @@
       "explanation": "The strongest comment completes the analytical chain: it names the technique (personification), explores connotations ('swallowed' = predator, consumption), links to effect (threat) and intention (foreshadowing danger). The other options restate the literal surface or invent motives with no textual basis — technique-spotting without meaning.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

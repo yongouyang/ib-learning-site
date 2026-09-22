@@ -317,5 +317,18 @@
       "explanation": "The pivot word 'But' marks a volta: the poem turns from imagining priceless gifts to admitting the speaker has only dreams to offer, and that contrast makes the declaration of love feel humble and sincere rather than grandiose. It is not repetition (A), an error (B), or a change of rhyme scheme (C) — the turn is one of meaning and mood.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

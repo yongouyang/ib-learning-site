@@ -317,5 +317,17 @@
       "explanation": "The Nazi vote collapsed in the prosperous years (12 seats in 1928) and exploded during the Depression (230 seats in July 1932), showing that economic despair, not ideology alone, drove voters to Hitler.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "definition-to-term"
+        ],
+        "maxLength": 60
+      }
+    }
   ]
 }

@@ -347,5 +347,18 @@
       "explanation": "Oestrogen rises during the first half of the cycle and causes the uterus lining to thicken in preparation for a possible fertilised egg.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

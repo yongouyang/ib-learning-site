@@ -317,5 +317,18 @@
       "explanation": "Versailles (1919) imposed heavy reparations, lost territory and a 'war guilt' clause on Germany. The resentment it created was exploited by the Nazis, linking the peace settlement directly to the outbreak of the Second World War in 1939 — a consequence of enormous significance.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

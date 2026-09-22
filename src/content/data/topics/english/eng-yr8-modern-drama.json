@@ -317,5 +317,18 @@
       "explanation": "Drama analysis treats the play as performance: the audience's experience, shaped by directions, structure and subtext, is the subject.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -322,5 +322,18 @@
       "explanation": "The correct answer is 'Still adaptable and culturally meaningful.' Retellings update settings, characters or messages while preserving core archetypes and themes.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

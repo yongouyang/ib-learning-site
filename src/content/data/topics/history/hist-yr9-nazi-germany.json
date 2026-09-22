@@ -317,5 +317,17 @@
       "explanation": "Education became indoctrination: textbooks were rewritten, teachers joined a Nazi organisation, and subjects from history to biology served the regime's ideology, while extra PE prepared boys for war and girls for motherhood.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "definition-to-term"
+        ],
+        "maxLength": 60
+      }
+    }
   ]
 }

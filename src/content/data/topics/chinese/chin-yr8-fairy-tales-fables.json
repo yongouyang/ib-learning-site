@@ -317,5 +317,18 @@
       "explanation": "他把一次偶然的侥幸当成必然，放弃努力、坐等好运，和守着树桩等兔子的农夫一模一样。",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

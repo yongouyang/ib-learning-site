@@ -206,6 +206,30 @@ describe('checkTemplates', () => {
     expect(errors[0]).toContain('paramsSchema');
   });
 
+  it('accepts a template whose table comes from the topic flashcards (source: "flashcards")', () => {
+    const topic = makeTopic({
+      flashcards: [
+        { id: 'f1', term: 'der Hund', definition: 'the dog' },
+        { id: 'f2', term: 'die Katze', definition: 'the cat' },
+        { id: 'f3', term: 'das Pferd', definition: 'the horse' },
+        { id: 'f4', term: 'der Vogel', definition: 'the bird' },
+      ],
+      templates: [{ generator: 'flashcard-match', source: 'flashcards', params: { direction: ['term-to-definition'] } }],
+    });
+    expect(checkTemplates(topic)).toEqual([]);
+  });
+
+  it('rejects a flashcards-sourced template when the deck cannot fill 4 choices', () => {
+    const topic = makeTopic({
+      flashcards: [{ id: 'f1', term: 'only', definition: 'one card' }],
+      templates: [{ generator: 'flashcard-match', source: 'flashcards', params: {} }],
+    });
+    const errors = checkTemplates(topic);
+    expect(errors).toHaveLength(1);
+    expect(errors[0]).toContain('flashcard-match');
+    expect(errors[0]).toContain('paramsSchema');
+  });
+
   it('rejects a template whose difficulty differs from its group', () => {
     const topic = makeTopic({
       questions: [

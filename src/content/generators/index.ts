@@ -12,6 +12,7 @@ import { mathStandardForm } from './math-standard-form';
 import { mathAlgebraManipulation } from './math-algebra-manipulation';
 import { mathFrequencyDensity } from './math-frequency-density';
 import { mathQuadratic } from './math-quadratic';
+import { flashcardMatch } from './flashcard-match';
 import { mathVolumeSurface } from './math-volume-surface-area';
 import { physVIr } from './phys-v-ir';
 import { physResistanceSeries } from './phys-resistance-series';
@@ -73,6 +74,7 @@ const all: QuestionGenerator<unknown>[] = [
   chemHalfLife,
   chemPhRatio,
   chemCompoundNaming,
+  flashcardMatch,
 ];
 
 export const GENERATORS: Record<string, QuestionGenerator<unknown>> = Object.fromEntries(

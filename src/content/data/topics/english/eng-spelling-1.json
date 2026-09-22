@@ -317,5 +317,18 @@
       "explanation": "A spell-checker only spots words that do not exist. Their, form and from are all real words, so using the wrong one passes silently — only a careful human read catches it.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

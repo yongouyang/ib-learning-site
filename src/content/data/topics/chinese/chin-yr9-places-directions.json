@@ -317,5 +317,18 @@
       "explanation": "对面 means opposite and 很近 means very near — so the library is opposite the post office and close by. 旁边 (next to) is not what was said.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

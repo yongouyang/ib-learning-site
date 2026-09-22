@@ -317,5 +317,18 @@
       "explanation": "He lists dad, mum, an older brother (哥哥) and himself — four people. Because his brother is a 哥哥 (older brother), Xiaoming must be the younger of the two children, so he is the youngest child in the family.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

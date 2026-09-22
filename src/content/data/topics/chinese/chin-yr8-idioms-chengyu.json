@@ -317,5 +317,18 @@
       "explanation": "成语贵在恰当，堆砌太多反而生硬、不真诚。用之前确认意思相符，一段用一两个最自然。",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

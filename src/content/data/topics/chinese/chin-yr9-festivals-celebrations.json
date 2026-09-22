@@ -317,5 +317,18 @@
       "explanation": "了 marks a completed trip: 去旅行了 = travelled, and 坐火车去的 = went by train — a past holiday trip by rail, not a future flight.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

@@ -317,5 +317,18 @@
       "explanation": "Most of the value in a chocolate bar comes from processing and branding, not the raw beans. Countries that add value to their raw materials capture more income, create skilled jobs and reduce dependence on unstable commodity prices.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

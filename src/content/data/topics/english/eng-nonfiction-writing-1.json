@@ -317,5 +317,18 @@
       "explanation": "The first clause raises a negative (cost) and the second answers it with positives, so the relationship is concession — 'That said' (like 'however') signals the turn. 'Therefore' and 'Consequently' wrongly claim the jobs were caused by the cost; 'Similarly' suggests the clauses make the same kind of point. Contrast connectives work in either direction: bad news first, then good.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

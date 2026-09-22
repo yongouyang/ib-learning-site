@@ -317,5 +317,18 @@
       "explanation": "Duplication reuses good work: one well-made lamppost, copied and placed, is faster and guarantees consistency. Stretching one object would distort it, and photos are not 3D models that can sit correctly in the scene.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

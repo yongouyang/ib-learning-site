@@ -347,5 +347,18 @@
       "explanation": "Soda lime absorbs CO₂, so the leaf in that flask has no CO₂ available. Without CO₂, photosynthesis cannot occur and no starch is produced. The leaf with normal air (which contains CO₂) can photosynthesise and produce starch.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

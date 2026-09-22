@@ -317,5 +317,18 @@
       "explanation": "Past emissions commit the planet to further warming and sea-level rise whatever we do next, so vulnerable places must adapt (sea walls, raised buildings, relocation) at the same time as the world mitigates to stop things getting worse.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }

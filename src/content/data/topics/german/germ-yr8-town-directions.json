@@ -317,5 +317,18 @@
       "explanation": "Entschuldigung is the polite way to get someone's attention (excuse me), and Wo ist der Marktplatz? asks where the market square is.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "flashcard-match",
+      "source": "flashcards",
+      "params": {
+        "direction": [
+          "term-to-definition",
+          "definition-to-term"
+        ],
+        "maxLength": 140
+      }
+    }
   ]
 }
