@@ -1,14 +1,13 @@
 # Question Variations & Parameterized Templates — Implementation Plan
 
-Status: **CLOSED 2026-09-22 — 33 generators, all wired, 57 of 245 topics templated** (76
-placements). The 12 generators built in this session cover every skill §2.C's gap table named
-except the quadratic-solver topics; `docs/content-backlog-review.md` §2.C carries the host map,
-the construction rules the generators share, and what is deliberately left uncovered (the three
-DP/IGCSE quadratic topics, and the 104 topics in subjects that have no generator at all —
-english gets none, biology at most genetics/magnification/quadrat). `variantOf` and `templates`
-are in the schema and consumed (`src/lib/quiz-utils.ts` group sampling); **19 topics are
-group-expanded** (12 chem + 4 math + 3 phys — 24–29 questions each). Decisions below confirmed
-with user 2026-08-10.
+Status: **174 of 245 topics carry a template, 36 generators, all wired** (measured
+2026-09-22). The last 71 topics are tabulated in `docs/content-backlog-review.md` §2.C: ~39 are
+reachable by ~12 more generators of the same kind, ~32 are not parameterizable (constructions,
+nets, diagram reading, hypothesis testing) and need authored variant groups. Two additions since
+the generator batch: `flashcard-match`, fed by each topic's OWN deck
+(`TopicTemplate.source: "flashcards"` → `params.cards`, injected by both `materializeTemplates`
+and `checkTemplates`), which covers all 114 topics in the six subjects with no skill generator;
+and `math-quadratic`. Decisions below confirmed with user 2026-08-10.
 
 ## Goal
 

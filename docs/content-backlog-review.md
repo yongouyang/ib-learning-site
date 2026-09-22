@@ -23,7 +23,7 @@ Read this with `docs/CONTENT_STYLE.md` (the authoring standard) and
 | Paper sets | **31** across 15 courses | 14 courses × 2 + `math-igcse` × 3 |
 | Free-response questions | **251** | 620 markscheme points; every set totals exactly 20 marks |
 | Illustrations | **430 SVG files**, **449 illustrated notes** | 0 orphans, 0 dangling references, **0 topics with no figure** |
-| Question generators | **33** in `src/content/generators/` | **all 33 are wired into content**, in **57 topics / 76 placements** |
+| Question generators | **36** in `src/content/generators/` | **all 36 are wired into content**, in **174 topics / 193 placements** |
 | Indexable / noindex pages | **352 / 580** | `verify:sitemaps` on the 2026-09-22 `build:static` (937 prerendered, 352 sitemap URLs all live + indexable, titles unique) |
 
 Per subject (topics / notes illustrated / templated):
@@ -105,51 +105,70 @@ Also note the language subjects are a genuine exception, not a backlog item: chi
 german are vocab-table notes plus bilingual flashcards — a picture per note buys less
 there than in history/geography/ICT.
 
-### C. Templates — **CLOSED 2026-09-22: 57 of 245 topics, 33 generators, all wired**
+### C. Templates — 174 of 245 topics carry a template; the last 71 need more generators
 
-**Measured 2026-09-22** after the session that built the 12 generators this section's gap
-table asked for: 245 topics, **57 carry a template** (76 placements), **33 generators** and
-every one of them is used.
+**Measured 2026-09-22, after three sessions of generator work:**
 
-| generator (all new 2026-09-22 except the first column's note) | host topics | topics |
-|---|---|---|
-| `math-statistics` | yr7-data, statistics-1, yr8 + igcse statistics-averages, DP AA + DP AI descriptive statistics | 6 |
-| `math-linear-sequence` | yr7 + yr8 sequences, DP AA sequences-series, DP AI sequences | 4 |
-| `math-substitution` | yr7-substitution, igcse-functions, algebra-1 | 3 |
-| `math-shape-measure` | yr7-area-perimeter, igcse-area-volume, yr8-circles | 3 |
-| `math-algebra-manipulation` | yr7-algebraic-expressions, yr8-factorising, yr9-quadratic-expressions | 3 |
-| `math-standard-form` | yr8 + yr9 standard-form | 2 |
-| `math-volume-surface-area` | yr7 + yr8 volume-surface-area | 2 |
-| `math-frequency-density` | igcse-histograms | 1 |
-| `phys-pressure` | phys-pressure-1, math-yr8-compound-measures | 2 |
-| `phys-density` | phys-particles-1, math-yr8-compound-measures | 2 |
-| `phys-thermal-energy` | phys-particles-1, and phys-energy-1 by JOINING its existing hard `specific-heat-calculation` group | 2 |
-| `phys-wave-speed` | phys-waves-1 | 1 |
+| | value |
+|---|---|
+| generators | **36**, every one wired |
+| topics with a template | **174 of 245** (193 placements) |
+| unwired topics | **71** — maths 59, chemistry 8, physics 4 |
 
-Design rules the new generators share (they are the reason the answers can be trusted):
+**What closed this session:**
+
+1. **`math-quadratic`** — solve by the formula, the discriminant, how many real roots a
+   discriminant gives, completing the square, and an equation from its roots. Wired into
+   `math-igcse-quadratics`, `math-dp-aa-quadratics`, `math-dp-ai-quadratics`. Irrational roots
+   / surd form are deliberately not mechanized (they need surd simplification).
+2. **`flashcard-match`** — a term/definition matching drill fed by **the topic's own flashcard
+   deck** (`TopicTemplate.source: "flashcards"`, injected as `params.cards` by
+   `materializeTemplates` and by `checkTemplates`). This covers **all 114 topics** in the six
+   subjects that had no generator (biology 14, english 34, history 11, geography 10, ICT 12,
+   chinese 20, german 13 — the "104" this doc carried for two sessions was simply a wrong
+   total, caught while wiring). It is a **recall drill over the deck, not a skill generator**:
+   essay craft, source analysis and map skills are still not mechanized, and the deck is the
+   single source of truth for the vocabulary so a card edit edits the drill.
+
+Design rules the generators share (the reason the answers can be trusted):
 
 - **Answers are constructed, never derived.** A mean's last value is chosen so the total is
-  divisible; a quadratic is generated *from its factors*; a physics energy is built as the
-  product its own question asks for; a frequency-density frequency is an integer density
-  times an integer width. A key therefore cannot disagree with the stem it ships beside.
+  divisible; a quadratic comes from its roots (its discriminant is then a perfect square); a
+  physics energy is the product its own question asks for; a frequency-density frequency is an
+  integer density times an integer width.
 - **Modes a param table cannot answer exactly are dropped, not thrown.** `5.6 / 1.5` does not
-  terminate and a triangle's hypotenuse is rarely an integer, so those modes are filtered out
-  of the draw — a validation-time throw would still leave a live session able to break.
-- **Rounding conventions are stated or avoided**: circles use `pi = 3.14` (exact 2 d.p.) or
-  `22/7` with radii forced to multiples of 7; the corpus' 3 s.f. style is never mixed in.
+  terminate, a triangle's hypotenuse is rarely an integer, and a deck may be too verbose — all
+  filtered out of the draw, because a validation-time throw still leaves a live session able to
+  break. A mode that would make an answer unreachable is also a bug: the discriminant modes
+  draw b and c directly, or "no real roots" could never be the answer.
+- **Only the side that becomes a CHOICE is length-capped** in the flashcard drill, which is
+  what lets a prose deck (174–210 character definitions, short terms) still drill in the
+  definition→term direction.
 
-**What is deliberately still uncovered, and why:**
+**What the last 71 topics need** (measured, not estimated — every topic's questions were read):
 
-- `math-igcse-quadratics`, `math-dp-aa-quadratics`, `math-dp-ai-quadratics` (3 topics): their
-  questions are the quadratic formula, completing the square, the discriminant and roots. The
-  new expand/factorise generator is the *prerequisite* skill, not the topic's own, so wiring it
-  would be band-softening. A quadratic-solver generator is the honest path and is not built.
-- `math-igcse-functions` inverse/composite questions: the substitution template covers
-  evaluation only, for the same reason.
-- The **104 topics** in biology, english, history, geography, ICT, chinese and german: no
-  generator exists for any of those subjects (the plan's position — english gets none, biology
-  at most genetics/magnification/quadrat). These are variant-group authoring work
-  (~20-30 authored questions per topic), not wiring.
+| missing generator | host topics | topics |
+|---|---|---|
+| right-triangle trig + Pythagoras (SOH-CAH-TOA, finding a side/angle, hypotenuse) | `math-trig-basic-myp`, `math-igcse-trigonometry`, `math-pythagoras-myp`, `math-yr8-pythagoras`, `math-yr9-3d-geometry` | 5 |
+| angle facts (straight line, parallel lines, polygon sums, triangles) | `math-yr7-angles`, `math-yr8-angles-parallel-polygons`, `math-igcse-angles-polygons`, `math-geometry-1`, `math-igcse-circle-theorems` | 5 |
+| single/combined probability (and tree diagrams) | `math-yr7-probability`, `math-igcse-probability`, `math-yr8-probability-trees`, `math-dp-ai-probability` | 4 |
+| straight-line graphs and inequalities (`y = mx + c`, gradient, midpoint) | `math-linear-myp`, `math-yr8-straight-line-graphs`, `math-inequalities-myp`, `math-yr9-quadratic-graphs` | 4 |
+| sine/cosine rule and ½ab sin C | `math-igcse-trig-advanced` | 1 |
+| calculus (differentiate / integrate a polynomial term) | `math-dp-aa-differentiation`, `math-dp-ai-differentiation`, `math-dp-aa-integration`, `math-dp-ai-integration` | 4 |
+| vectors (column add/subtract/scale, magnitude) | `math-igcse-vectors`, `math-dp-aa-vectors`, `math-dp-ai-vectors` | 3 |
+| binomial coefficients and terms | `math-dp-aa-binomial-theorem`, `math-dp-ai-binomial` | 2 |
+| matrix arithmetic (add, multiply, determinant) | `math-dp-ai-matrices` | 1 |
+| trig identities and equations | `math-dp-aa-trig-identities-equations`, `math-dp-ai-trig` | 2 |
+| table-driven chemistry (ion tests, separation methods, homologous series) | `chem-ion-tests-1`, `chem-mixtures-1`, `chem-organic-1`, `chem-metals-1` | 4 |
+| physics formulas still missing (refraction, weight, charge in a field) | `phys-light-1`, `phys-magnetism-1`, `phys-space-1`, `phys-energy-resources-1` | 4 |
+| nothing mechanizable (DP AI Voronoi/graph theory/Poisson/hypothesis testing, constructions and loci, nets, bearings, Venn, transformations, correlation, kinematics) | the remaining maths topics | ~32 |
+
+So the honest position: **the last ~39 topics can be reached by ~12 more generators** (the same
+pattern as this batch — pure arithmetic, exact by construction), while **~32 are not
+parameterizable at all** (constructions, nets, diagram reading, hypothesis testing) and are
+variant-group authoring work. Nothing in this list is a blocker for promoting `develop`: the
+promotion is content, and C's product goal — a retake surfacing fresh variants — is already met
+for 174 of 245 topics.
 
 ### D. Content defects the gates cannot see — **first pass MEASURED 2026-09-19**
 
@@ -225,10 +244,10 @@ data, which is a different job from this one.
    `M`/`A`/`B` prefix rule gated, the MC answer-key judgement measured (and found unfit for
    computational questions), the difficulty tags measured with a blind human pass, and the
    rubric contradiction resolved in `CONTENT_STYLE.md` (commit `39e36b6`).
-2. **C (templates) — CLOSED 2026-09-22.** 12 new generators built and wired: 33 generators,
-   all used, **57 of 245 topics** carry a template. What is left in §2.C is the quadratic
-   topics (a solver generator, deliberately not built) and the 104 topics in subjects with no
-   generator at all.
+2. **C (templates) — 174 of 245 topics, 36 generators, all wired.** The quadratic solver and
+   the flashcard-fed drill closed the two items this section named. The last 71 topics are
+   tabulated in §2.C: ~39 need ~12 more generators (the same pattern), ~32 are not
+   parameterizable and need authored variant groups.
 3. **B (illustrations) — DONE 2026-09-20.** Standard settled at **≥1 figure per topic**; no
    topic is bare and every subject has imagery. Density beyond that is not queued.
 4. **A (DP AA)** — **DONE 2026-09-21 at the committed SL-core scope** (12 topics, 9 figures, 2 paper
