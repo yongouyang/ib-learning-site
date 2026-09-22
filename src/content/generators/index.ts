@@ -22,6 +22,10 @@ import { physKineticEnergy } from './phys-kinetic-energy';
 import { physEfficiency } from './phys-efficiency';
 import { physPower } from './phys-power';
 import { physSpeed } from './phys-speed';
+import { physPressure } from './phys-pressure';
+import { physDensity } from './phys-density';
+import { physWaveSpeed } from './phys-wave-speed';
+import { physThermalEnergy } from './phys-thermal-energy';
 import { chemCompoundNaming } from './chem-compound-naming';
 import { chemElectronConfig } from './chem-electron-config';
 import { chemHalfLife } from './chem-half-life';
@@ -57,6 +61,10 @@ const all: QuestionGenerator<unknown>[] = [
   physEfficiency,
   physPower,
   physSpeed,
+  physPressure,
+  physDensity,
+  physWaveSpeed,
+  physThermalEnergy,
   chemElectronConfig,
   chemIonFormation,
   chemIsotopeRam,

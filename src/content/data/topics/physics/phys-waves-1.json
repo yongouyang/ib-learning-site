@@ -347,5 +347,42 @@
       "explanation": "Additive (light) mixing: R+G=Yellow, R+B=Magenta, G+B=Cyan, R+G+B=White.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "phys-wave-speed",
+      "params": {
+        "modes": [
+          "speed",
+          "wavelength",
+          "frequency",
+          "period"
+        ],
+        "frequencies": [
+          50,
+          100,
+          200,
+          250,
+          400,
+          500,
+          1000
+        ],
+        "wavelengths": [
+          0.5,
+          1,
+          2,
+          2.5,
+          3,
+          4
+        ],
+        "periods": [
+          0.02,
+          0.1,
+          0.2,
+          0.25,
+          0.5
+        ]
+      }
+    }
   ]
 }

@@ -347,5 +347,45 @@
       "explanation": "Largest area = 0.5×0.4=0.2 m². P=200/0.2=1000 Pa. Minimum pressure occurs on largest face.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "phys-pressure",
+      "params": {
+        "modes": [
+          "pressure",
+          "force",
+          "area",
+          "moment",
+          "hydraulic",
+          "lever"
+        ],
+        "forces": [
+          50,
+          100,
+          200,
+          300,
+          500,
+          1000,
+          40,
+          80
+        ],
+        "areas": [
+          0.01,
+          0.1,
+          0.25,
+          0.5,
+          2
+        ],
+        "distances": [
+          0.2,
+          0.4,
+          0.5,
+          1,
+          1.5,
+          2
+        ]
+      }
+    }
   ]
 }

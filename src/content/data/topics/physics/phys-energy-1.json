@@ -587,6 +587,40 @@
           1.5
         ]
       }
+    },
+    {
+      "generator": "phys-thermal-energy",
+      "variantOf": "specific-heat-calculation",
+      "params": {
+        "modes": [
+          "shc-energy",
+          "shc-mass",
+          "shc-temp-change"
+        ],
+        "masses": [
+          0.5,
+          1,
+          2,
+          3,
+          5
+        ],
+        "shcs": [
+          900,
+          4200,
+          390,
+          2100
+        ],
+        "deltas": [
+          10,
+          20,
+          25,
+          30,
+          50
+        ],
+        "latents": [
+          334000
+        ]
+      }
     }
   ]
 }

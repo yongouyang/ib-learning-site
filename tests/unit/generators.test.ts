@@ -51,6 +51,26 @@ import {
   build as buildFrequencyDensity,
   type FrequencyDensityParams,
 } from '@/content/generators/math-frequency-density';
+import {
+  draw as drawPressure,
+  build as buildPressure,
+  type PressureParams,
+} from '@/content/generators/phys-pressure';
+import {
+  draw as drawDensity,
+  build as buildDensity,
+  type DensityParams,
+} from '@/content/generators/phys-density';
+import {
+  draw as drawWaveSpeed,
+  build as buildWaveSpeed,
+  type WaveSpeedParams,
+} from '@/content/generators/phys-wave-speed';
+import {
+  draw as drawThermal,
+  build as buildThermal,
+  type ThermalEnergyParams,
+} from '@/content/generators/phys-thermal-energy';
 import { GENERATORS } from '@/content/generators';
 import type { GeneratorOutput } from '@/content/generators/types';
 import { fmtNumber } from '@/content/generators/utils';
@@ -965,7 +985,7 @@ describe('chem-compound-naming', () => {
 });
 
 describe('registry', () => {
-  it('registers all 29 generators under kebab-case ids matching their module contract', () => {
+  it('registers all 33 generators under kebab-case ids matching their module contract', () => {
     expect(Object.keys(GENERATORS).sort()).toEqual([
       'chem-compound-naming',
       'chem-electron-config',
@@ -987,15 +1007,19 @@ describe('registry', () => {
       'math-substitution',
       'math-volume-surface-area',
       'phys-charge-current',
+      'phys-density',
       'phys-efficiency',
       'phys-energy-kwh',
       'phys-fuse-rating',
       'phys-kinetic-energy',
       'phys-power',
+      'phys-pressure',
       'phys-resistance-parallel',
       'phys-resistance-series',
       'phys-speed',
+      'phys-thermal-energy',
       'phys-v-ir',
+      'phys-wave-speed',
     ]);
     for (const [key, gen] of Object.entries(GENERATORS)) {
       expect(gen.id).toBe(key);
@@ -1705,6 +1729,194 @@ describe('math-frequency-density', () => {
       expect(out.correct).toBe(String(expected));
       // All three quantities are whole numbers however the question is asked.
       expect(Number.isInteger(values.frequency / values.width)).toBe(true);
+    }
+  });
+});
+
+/** The number inside a `123 unit` answer string. */
+function numeric(text: string): number {
+  return Number(text.replace(/[^\d.-]/g, ''));
+}
+
+/** No printed answer or distractor may be a repeating decimal (33.333333). */
+function expectCleanNumbers(out: GeneratorOutput) {
+  for (const text of [out.correct, ...out.distractors]) {
+    const value = numeric(text);
+    if (!Number.isFinite(value)) continue;
+    expect(Math.abs(value * 1000 - Math.round(value * 1000))).toBeLessThan(1e-6);
+  }
+}
+
+describe('phys-pressure', () => {
+  const params: PressureParams = {
+    modes: ['pressure', 'force', 'area', 'moment', 'hydraulic', 'lever'],
+    forces: [50, 100, 200, 300, 500, 1000, 40, 80],
+    areas: [0.01, 0.1, 0.25, 0.5, 2],
+    distances: [0.2, 0.4, 0.5, 1, 1.5, 2],
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['phys-pressure'].generate(params, createRng('golden:phys-pressure'));
+    expect(out).toEqual({
+      stem: 'A force of 500 N acts on an area of 0.1 m². What is the pressure?',
+      correct: '5000 Pa',
+      distractors: ['50 Pa', '50000 Pa', '500 Pa'],
+      explanation:
+        'Pressure $= \\dfrac{F}{A} = \\dfrac{500\\text{ N}}{0.1\\text{ m}^2} = 5000\\text{ Pa}$. The 50 Pa option multiplies instead of dividing.',
+    });
+  });
+
+  it('sweep: every answer is the formula applied to the drawn values', () => {
+    for (let i = 0; i < 120; i++) {
+      const rng = createRng(`sweep:phys-pressure:${i}`);
+      const values = drawPressure(params, rng);
+      const out = buildPressure(values, rng);
+      expectInvariants(out);
+      expectCleanNumbers(out);
+      const expected: Record<string, number> = {
+        pressure: values.f / values.a,
+        force: values.f * values.a,
+        area: values.answer,
+        moment: values.f * values.d,
+        hydraulic: (values.f * values.b) / values.a,
+        lever: (values.f * values.d) / values.b,
+      };
+      expect(numeric(out.correct)).toBeCloseTo(expected[values.mode], 9);
+    }
+  });
+
+  it('hydraulic answers are clean and lever answers are whole numbers', () => {
+    for (let i = 0; i < 60; i++) {
+      const lever = drawPressure({ ...params, modes: ['lever'] }, createRng(`lever:${i}`));
+      expect(Number.isInteger(lever.answer)).toBe(true);
+      const hydraulic = drawPressure({ ...params, modes: ['hydraulic'] }, createRng(`hyd:${i}`));
+      expect(Math.abs(hydraulic.answer * 1000 - Math.round(hydraulic.answer * 1000))).toBeLessThan(1e-9);
+    }
+  });
+});
+
+describe('phys-density', () => {
+  const params: DensityParams = {
+    modes: ['density', 'mass', 'volume'],
+    masses: [200, 540, 270, 1350, 1000],
+    volumes: [50, 100, 200, 500],
+    densities: [0.5, 1, 2, 2.7, 8, 10],
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['phys-density'].generate(params, createRng('golden:phys-density'));
+    expect(out).toEqual({
+      stem: 'An object has a mass of 270 g and a volume of 200 cm³. What is its density?',
+      correct: '1.35 g/cm³',
+      distractors: ['54000 g/cm³', '13.5 g/cm³', '0.135 g/cm³'],
+      explanation:
+        'Density $= \\dfrac{\\text{mass}}{\\text{volume}} = \\dfrac{270\\text{ g}}{200\\text{ cm}^3} = 1.35\\text{ g/cm}^3$. The 54000 g/cm³ option multiplies instead of dividing.',
+    });
+  });
+
+  it('sweep: every answer is the formula applied to the drawn values', () => {
+    for (let i = 0; i < 100; i++) {
+      const rng = createRng(`sweep:phys-density:${i}`);
+      const values = drawDensity(params, rng);
+      const out = buildDensity(values, rng);
+      expectInvariants(out);
+      expectCleanNumbers(out);
+      const expected =
+        values.mode === 'density' ? values.mass / values.volume : values.mode === 'mass' ? values.density * values.volume : values.mass / values.density;
+      expect(numeric(out.correct)).toBeCloseTo(expected, 9);
+    }
+  });
+});
+
+describe('phys-wave-speed', () => {
+  const params: WaveSpeedParams = {
+    modes: ['speed', 'wavelength', 'frequency', 'period'],
+    frequencies: [50, 100, 200, 250, 400, 500, 1000],
+    wavelengths: [0.5, 1, 2, 2.5, 3, 4],
+    periods: [0.02, 0.1, 0.2, 0.25, 0.5],
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['phys-wave-speed'].generate(params, createRng('golden:phys-wave-speed'));
+    expect(out).toEqual({
+      stem: 'A wave travels at 1600 m/s with a frequency of 400 Hz. What is its wavelength?',
+      correct: '4 m',
+      distractors: ['640000 m', '0.25 m', '40 m'],
+      explanation:
+        'Rearranged, wavelength $= \\dfrac{\\text{speed}}{\\text{frequency}} = \\dfrac{1600}{400} = 4\\text{ m}$. The 640000 m option multiplies instead of dividing.',
+    });
+  });
+
+  it('sweep: every answer is the formula applied to the drawn values', () => {
+    for (let i = 0; i < 100; i++) {
+      const rng = createRng(`sweep:phys-wave-speed:${i}`);
+      const values = drawWaveSpeed(params, rng);
+      const out = buildWaveSpeed(values, rng);
+      expectInvariants(out);
+      expectCleanNumbers(out);
+      const expected =
+        values.mode === 'speed'
+          ? values.frequency * values.wavelength
+          : values.mode === 'wavelength'
+            ? values.wavelength
+            : values.mode === 'frequency'
+              ? 1 / values.period
+              : 1 / values.frequency;
+      expect(numeric(out.correct)).toBeCloseTo(expected, 9);
+    }
+  });
+
+  it('round-trips frequency and period', () => {
+    for (let i = 0; i < 40; i++) {
+      const fromPeriod = drawWaveSpeed({ ...params, modes: ['frequency'] }, createRng(`f:${i}`));
+      expect(fromPeriod.answer * fromPeriod.period).toBeCloseTo(1, 9);
+      const fromFrequency = drawWaveSpeed({ ...params, modes: ['period'] }, createRng(`T:${i}`));
+      expect(fromFrequency.answer * fromFrequency.frequency).toBeCloseTo(1, 9);
+    }
+  });
+});
+
+describe('phys-thermal-energy', () => {
+  const params: ThermalEnergyParams = {
+    modes: ['shc-energy', 'shc-mass', 'shc-temp-change', 'latent-energy', 'latent-mass'],
+    masses: [0.5, 1, 2, 3, 5],
+    shcs: [900, 4200, 390, 2100],
+    deltas: [10, 20, 25, 30, 50],
+    latents: [334000, 226000, 334, 226],
+  };
+
+  it('golden output for a fixed seed', () => {
+    const out = GENERATORS['phys-thermal-energy'].generate(params, createRng('golden:phys-thermal-energy'));
+    expect(out).toEqual({
+      stem: 'Changing the state of a substance with a specific latent heat of 226 J/kg needs 452 J. What mass changes state?',
+      correct: '2 kg',
+      distractors: ['102152 kg', '1 kg', '20 kg'],
+      explanation:
+        'Rearranged, mass $= \\dfrac{E}{L} = \\dfrac{452}{226} = 2\\text{ kg}$. The 1 kg option halves the mass for no reason.',
+    });
+  });
+
+  it('sweep: every answer is the formula applied to the drawn values', () => {
+    for (let i = 0; i < 100; i++) {
+      const rng = createRng(`sweep:phys-thermal:${i}`);
+      const values = drawThermal(params, rng);
+      const out = buildThermal(values, rng);
+      expectInvariants(out);
+      expectCleanNumbers(out);
+      const energy = values.mode.startsWith('latent') ? values.mass * values.latent : values.mass * values.c * values.delta;
+      const expected =
+        values.mode === 'shc-energy' || values.mode === 'latent-energy'
+          ? energy
+          : values.mode === 'shc-mass'
+            ? values.mass
+            : values.mode === 'shc-temp-change'
+              ? values.delta
+              : energy / values.latent;
+      expect(numeric(out.correct)).toBeCloseTo(expected, 9);
+      // The stem must be about the quantity the answer is.
+      if (values.mode === 'latent-mass') expect(out.stem).toMatch(/What mass changes state\?$/);
+      if (values.mode === 'shc-temp-change') expect(out.stem).toMatch(/By how much does its temperature rise\?$/);
+      if (values.mode === 'shc-mass') expect(out.stem).toMatch(/What mass is being heated\?$/);
     }
   });
 });

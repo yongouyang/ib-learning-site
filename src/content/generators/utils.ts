@@ -23,6 +23,16 @@ export function pickDistinct<T>(items: readonly T[], count: number, rng: Rng): T
   return out;
 }
 
+/**
+ * Keep only candidate values that print cleanly at `dp` decimal places.
+ * A distractor like 33.333333 or 0.740741 reads as machine-generated AND narrows
+ * the choice by looking wrong, so those candidates are dropped and
+ * uniqueNumericDistractors pads with near-miss integers instead.
+ */
+export function cleanNumbers(values: number[], dp = 3): number[] {
+  return values.filter((v) => Number.isFinite(v) && Math.abs(v * 10 ** dp - Math.round(v * 10 ** dp)) < 1e-9);
+}
+
 /** Fisher-Yates shuffle driven by the seeded rng — deterministic, unlike sort(() => random). */
 export function shuffle<T>(items: readonly T[], rng: Rng): T[] {
   const out = [...items];

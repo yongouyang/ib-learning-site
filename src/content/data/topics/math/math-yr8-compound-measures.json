@@ -324,10 +324,79 @@
     {
       "generator": "phys-speed",
       "params": {
-        "distances": [120, 150, 180, 240, 300, 360],
-        "times": [2, 3, 4, 5, 6],
+        "distances": [
+          120,
+          150,
+          180,
+          240,
+          300,
+          360
+        ],
+        "times": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
         "distanceUnit": "km",
         "timeUnit": "h"
+      }
+    },
+    {
+      "generator": "phys-pressure",
+      "params": {
+        "modes": [
+          "pressure",
+          "force",
+          "area"
+        ],
+        "forces": [
+          50,
+          100,
+          200,
+          500,
+          1000
+        ],
+        "areas": [
+          0.25,
+          0.5,
+          2,
+          4
+        ],
+        "distances": [
+          1
+        ]
+      }
+    },
+    {
+      "generator": "phys-density",
+      "params": {
+        "modes": [
+          "density",
+          "mass",
+          "volume"
+        ],
+        "masses": [
+          200,
+          270,
+          400,
+          540,
+          1000
+        ],
+        "volumes": [
+          50,
+          100,
+          200,
+          500
+        ],
+        "densities": [
+          0.5,
+          1,
+          2,
+          2.7,
+          8
+        ]
       }
     }
   ]
