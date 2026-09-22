@@ -1,6 +1,8 @@
 # Content backlog review
 
 **Measured 2026-09-19** at prod `354858c`, by reading `src/content/data/**` directly.
+**Re-measured 2026-09-22** on `develop` (245 topics): §1, §2.B and §2.C carry the current
+numbers; the closed sections keep their original audit trail.
 Every number here is reproducible from the JSON — none is quoted from an older plan.
 This doc supersedes the one-line "Standing queue: illustrations 106, traffic/SEO depth,
 content depth" that has been copy-pasted between PROGRESS entries since 2026-08: that
@@ -13,16 +15,16 @@ Read this with `docs/CONTENT_STYLE.md` (the authoring standard) and
 
 ## 1. What exists today
 
-| | Count | Note |
+| | Count (2026-09-22) | Note |
 |---|---|---|
-| Topics | **233** | 10 subjects, 3 stages |
-| Notes | **1643** | 221 topics × 7; 12 topics carry 8 (a superset, not a gap) |
-| MC questions | **3765** | mean 16.2/topic |
-| Paper sets | **29** across 14 courses | 13 courses × 2 + `math-igcse` × 3 |
-| Free-response questions | **233** | 580 markscheme points; every set totals exactly 20 marks |
-| Illustrations | **312 SVG files** | 0 orphans, 0 dangling references — the file set and the content agree exactly |
-| Question generators | **18** in `src/content/generators/` | **all 18 are wired into content**, across 9 topics |
-| Indexable URLs | **335** of 887 prerendered pages | the rest are deliberately `noindex` |
+| Topics | **245** | 10 subjects, 3 stages |
+| Notes | **1727** | 7 per topic, sometimes 8 (a superset, not a gap) |
+| MC questions | **3945** | mean 16.1/topic |
+| Paper sets | **31** across 15 courses | 14 courses × 2 + `math-igcse` × 3 |
+| Free-response questions | **251** | 620 markscheme points; every set totals exactly 20 marks |
+| Illustrations | **430 SVG files**, **449 illustrated notes** | 0 orphans, 0 dangling references, **0 topics with no figure** |
+| Question generators | **21** in `src/content/generators/` | **all 21 are wired into content**, in **31 topics / 45 placements** |
+| Indexable / noindex pages | **352 / 580** | `verify:sitemaps` on the 2026-09-22 `build:static` (937 prerendered, 352 sitemap URLs all live + indexable, titles unique) |
 
 Per subject (topics / notes illustrated / templated):
 
@@ -63,9 +65,17 @@ Scope was verified against the AA guide and two publishers rather than assumed: 
 Product claim: `/ibdp`'s DP Maths now has both courses, but **only on dev** — prod is ~28 commits
   behind and still advertises AI alone. Promotion is the next step (PROGRESS main entry).
 
-### B. Illustrations — 106 zero-coverage topics, and 5 subjects with no imagery at all
+### B. Illustrations — **CLOSED 2026-09-20** (re-verified 2026-09-22)
 
-The queue's "106" is accurate but understates the shape. Coverage is bimodal:
+**No topic renders bare: 0 of 245 topics have zero figures**, and the five subjects that had
+never had a figure (chinese, german, ict, history, geography) each own a
+`public/images/<subject>/` directory now. Measured: **430 SVG files, all referenced, 449 of
+1727 notes illustrated** — biology 92/98, chemistry 73/91, physics 80/98, maths 104/739,
+english 34/239, chinese 20/140, german 13/91, ict 12/84, history 11/77, geography 10/70.
+The sciences follow the per-note standard; the rest follow "≥1 figure per topic", which was
+the 2026-09-19 decision (§5). Density beyond that is not queued.
+
+**What the queue's old "106" referred to (kept for the audit trail).** Coverage was bimodal:
 
 - **34 topics fully illustrated (7/7)** — biology 13, chemistry 10, physics 11. The
   sciences follow a per-note standard.
@@ -95,21 +105,53 @@ Also note the language subjects are a genuine exception, not a backlog item: chi
 german are vocab-table notes plus bilingual flashcards — a picture per note buys less
 there than in history/geography/ICT.
 
-### C. Templates — 9 of 233 topics, but the generators are already paid for
+### C. Templates — **the wiring phase is EXHAUSTED (measured 2026-09-22); the remainder needs new generators**
 
-18 generators exist and are unit-tested; **all 18 are used, in only 9 topics**. So there
-is no wasted code and no generator backlog: the gap is *wiring existing generators into
-the remaining 224 topics' param tables*, which is authoring, not engineering.
+**21 generators exist, all 21 are wired, in 31 of 245 topics (45 placements).** Two more
+landed 2026-09-22 (`math-algebra-1` ← `math-linear-equation`,
+`math-yr8-compound-measures` ← `phys-speed`), plus a distractor-quality fix in
+`math-linear-equation` (it no longer offers a repeating-decimal wrong-undo value such as
+`$x = 8.333333$`). That is the last of the *param-table* work: every remaining unwired topic
+was checked against all 21 generators by reading its question set, and the generator for its
+skill does not exist. The blocker is coverage, not authoring:
 
-`docs/question-variations-plan.md` Phase 4 is the live plan, and it is **partly done and
-inaccurately described by its own status line** (see §4): Phase 3 (chemistry) is fully
-landed — all 12 chem topics expanded to 24–29 questions with 12–14 variant groups — and
-the math/physics pilot is landed (4 math + 3 physics topics at 24–28 questions). Phase 4
-item 2 names the remainder: "remaining math + physics topics, then biology + english".
+| missing generator | host topics (verified by reading their questions) | count |
+|---|---|---|
+| statistics (mean/median/mode/range, incl. frequency tables) | `math-yr7-data`, `math-statistics-1`, `math-yr8-statistics-averages`, `math-igcse-statistics-averages`, `math-dp-aa-descriptive-statistics`, `math-dp-ai-descriptive-statistics` | 6 |
+| area/perimeter/circumference (rect, triangle, parallelogram, circle) | `math-yr7-area-perimeter`, `math-igcse-area-volume`, `math-yr8-circles`, `math-yr7-volume-surface-area`, `math-yr8-volume-surface-area` | 5 |
+| factorise/expand algebra | `math-yr8-factorising`, `math-yr9-quadratic-expressions`, `math-igcse-quadratics`, `math-dp-aa-quadratics`, `math-dp-ai-quadratics` | 5 |
+| nth term of a linear/arithmetic sequence | `math-yr7-sequences`, `math-yr8-sequences`, `math-dp-aa-sequences-series`, `math-dp-ai-sequences` | 4 |
+| substitution / function values | `math-yr7-substitution`, `math-igcse-functions`, `math-algebra-1` | 3 |
+| physics formulas (P=F/A, M=Fd, ρ=m/V, v=fλ, E=mcΔT) | `phys-pressure-1`, `phys-particles-1`, `phys-waves-1` | 3 |
+| standard form with a mantissa | `math-yr8-standard-form`, `math-yr9-standard-form` | 2 |
+| histogram frequency density | `math-igcse-histograms` | 1 |
 
-Measured state: **19 topics are group-expanded** (12 chem + 4 math + 3 phys) out of 233.
-The DP AI topics carry 20 questions each, but that is a different standard (a longer
-bank), not variant groups — don't count them as progress.
+The other **104 topics** are biology, english, history, geography, ICT, chinese and german —
+no generator of any kind exists for those subjects (the plan's position: english gets none,
+biology at most genetics/magnification/quadrat).
+
+**Deliberate skips recorded this session** (both are real skill mismatches, not oversights):
+* `math-yr8-linear-equations` ← `math-linear-equation`: its two-step group is tagged **easy**
+  while the generator is fixed **medium**, and `validate:content` forbids a template joining a
+  group whose band differs. Adding a second group for the same skill would import a mis-tagged
+  question, so it was left alone.
+* `math-yr8-standard-form` / `math-yr9-standard-form` ← `math-indices`: the generator has no
+  mantissa/coefficient mode, so every instance would be *strictly easier* than the topic's own
+  questions (which all carry a coefficient). That is band-softening, not a variant.
+
+`docs/question-variations-plan.md` Phase 4 is the live plan. Phase 3 (chemistry) is fully
+landed — all 12 chem topics expanded to 24–29 questions with 12–14 variant groups — and the
+math/physics pilot is landed (4 math + 3 physics topics at 24–28 questions), so **19 topics
+are group-expanded** (12 chem + 4 math + 3 phys). Measured wiring state this session:
+**31 of 245 topics carry a template (45 placements)**.
+
+**Decision needed next session — generate or author.** The ~29 topics in the table above each
+need a generator (~50 lines + a params table + unit tests, the Phase-2 pattern, after which the
+param table is trivial); the other 104 need variant-group authoring (~20–30 authored questions
+each, i.e. thousands of questions) or nothing at all. Recommended order: statistics → nth-term
+→ substitution — 13 topics from 3 generators, and all three are pure numeric work, which is
+where the generators are strongest (no symbolic reasoning, where the AI tooling has measured
+limits; see §2.D).
 
 ### D. Content defects the gates cannot see — **first pass MEASURED 2026-09-19**
 
@@ -185,13 +227,11 @@ data, which is a different job from this one.
    `M`/`A`/`B` prefix rule gated, the MC answer-key judgement measured (and found unfit for
    computational questions), the difficulty tags measured with a blind human pass, and the
    rubric contradiction resolved in `CONTENT_STYLE.md` (commit `39e36b6`).
-2. **C (wiring)** — the generators are built and tested; this is the best
-   content-per-hour available, and it lands inside an existing plan with decisions
-   already locked.
-3. **B (illustrations)** — standard settled: **≥1 per topic, all 106 zeros**, bare subjects
-   first (66 in chinese/german/ict/history/geography, which need a first-ever
-   `public/images/<subject>/`), then the 40 remaining zeros in maths/english/sciences.
-   Deliberate exception: language subjects get vocab/situation posters, not diagrams.
+2. **C (templates)** — param-table wiring **DONE 2026-09-22** (31 of 245 topics). The
+   remainder is a *generator-coverage* decision, not authoring: §2.C lists the eight missing
+   generators with their verified host topics.
+3. **B (illustrations) — DONE 2026-09-20.** Standard settled at **≥1 figure per topic**; no
+   topic is bare and every subject has imagery. Density beyond that is not queued.
 4. **A (DP AA)** — **DONE 2026-09-21 at the committed SL-core scope** (12 topics, 9 figures, 2 paper
    sets). What remains is HL-only content and depth towards AI's 20 topics; neither is queued.
 

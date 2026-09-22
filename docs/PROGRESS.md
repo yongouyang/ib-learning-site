@@ -4,6 +4,39 @@
 
 ---
 
+## 2026-09-22 (session 9) — C closed as wiring (31/245); the remainder is generator coverage
+Git HEAD: `1c2e0f2` (develop, tree clean)
+Done: wired `math-algebra-1` ← `math-linear-equation` and `math-yr8-compound-measures` ← `phys-speed`
+  (km/h) → **31 of 245 topics** carry a template, 45 placements, all 21 generators used. Fixed the
+  distractor defect found while wiring: `math-linear-equation` offered its "added b" candidate even
+  when it printed as a repeating decimal (`$x = 8.333333$`) — now only when clean (≤2 dp), golden
+  `$x = 3.8$` kept, new unit test pins the rule. `analytics.spec.ts`'s hard-coded 15-question loop
+  removed (a template adds a session question); `topic-journeys.spec.ts` now reports the failing
+  locator and tolerates the dev hydration duplicate. Re-measured `docs/content-backlog-review.md`
+  §1/§2.B/§2.C + the variations-plan status line.
+Verified: validate:content, audit:content **0/0**, check:registry, tsc clean, lint 29/0 (baseline),
+  **1485/1485** unit tests; e2e Desktop Chrome `--workers=1` analytics + quiz-difficulty **10 passed**;
+  `build:static` exit 0 (937 pages; verify:sitemaps 352 URLs all live+indexable, titles unique, 580
+  noindex excluded; leak gate HARD green, 12 chunks 1.2 MB, no topic content); topic sweep **245/245
+  in 5.1 min** on the **static** pattern (`E2E_STATIC=1`, the authoritative run).
+Next: **(1) generate-or-author — C's real remainder.** 8 missing generators cover ~29 topics;
+  recommended order statistics → nth-term → substitution (13 topics from 3 generators, all pure
+  numeric). (2) promote develop → main (prod is 30+ commits behind; `BILLING_DISABLED_ENVS="prod"`
+  stays). (3) the legal chain (Art 27 representative, provider DPA, counsel) → delete that line to
+  re-open prod. (4) IGCSE wave 3 and illustration density stay unqueued.
+Notes: **"~214 topics of param tables" was wrong** — every remaining unwired topic was checked against
+  all 21 generators by reading its question set; the blocker is generator *coverage*, and 104 of those
+  topics are subjects with no generator at all. Deliberate skips (§2.C): `math-yr8-linear-equations`
+  (its two-step group is tagged easy, the generator is fixed medium, and a template may not join a
+  band-mismatched group) and both standard-form topics (`math-indices` has no mantissa mode, so every
+  instance would be strictly easier than the topic's own questions).
+  **The topic sweep is flaky in `next dev`** — the client-only flashcards deck transiently renders
+  twice while hydrating, so `getByText('1/N')` throws a strict-mode violation (26 then 32 scattered
+  topics, untouched ones included; a different set each run). The deck is absent from the export, so
+  it is a dev artifact; the locators are `.first()` and the static pattern is the run to trust.
+
+---
+
 ## 2026-09-21 (session 8) — #4 hygiene, DP Math AA SL core CLOSED, templates rollout advanced
 Git HEAD: `3f0f1cb` (develop, pushed; tree clean)
 Done: **#4 (the two cross-cutting items) closed.** Every `ci.yml` job now carries `timeout-minutes`
