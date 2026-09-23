@@ -4,6 +4,35 @@
 
 ---
 
+## 2026-09-23 (session 12b) — develop pushed; DEV deploy GREEN and verified at the edge
+Git HEAD: `ecf0522` (develop, pushed; tree clean)
+Done: pushed `develop` → CI run **35878038754** completed **success** (build-and-test, Semgrep,
+  osv-scan, e2e on iPad Pro / iPhone SE / Desktop Chrome, illustrations, **deploy-dev**;
+  deploy-prod skipped as expected). `https://dev.octavlearning.com/version.json` = `ecf0522`
+  (built 15:13:30Z).
+Verified (post-deploy, against the live origin): `/version.json` matches the commit; `/api/auth/me`
+  401, `/api/feedback` `{"configured":true}`, `/api/progress/_health` / `/api/analytics/_health` /
+  `/api/contact/_health` 200, leaderboard teaser 200. **Leak boundary at the edge:**
+  `/api/content/public/mixed-review/<seed>` 200 with `cache-control: public, max-age=300,
+  s-maxage=3600`, and `/api/content/premium/papers/math-igcse/set-2` (and set-1) 401
+  `login_required` with `private, no-store` — the split `tests/unit/content-iam.test.ts` pins.
+  **The new templates are live and in-session**: `1/16` on the five 15-question hosts, `1/21` on
+  `math-dp-ai-integration` (0 `.katex-error`), i.e. authored set + one generated instance.
+  `verify:seo:live --all --env=dev` PASSED: 352 sitemap URLs, DEV edge noindex header present,
+  352 indexable pages with unique titles and canonicals pinned to the apex, 40 quiz/flashcard
+  URLs noindex+canonical→/study, 12/12 sampled pages byte-identical to the local build.
+Next: **(1) promote develop → main** (prod is 41 commits behind; `BILLING_DISABLED_ENVS="prod"`
+  is the only thing keeping it off sale). (2) C's residue: 53 topics. (3) legal chain.
+Notes: **the difficulty-filter chip reads `All (15)` on a templated topic — that is correct, not a
+  missing instance.** `QuizPageClient` counts authored questions for the chips by design, while the
+  session pool is `[...questions, ...materializeTemplates(...)]`; a template also flips the topic to
+  grouped sampling, and `sampleVariantGroups` keys a template instance by its own `tpl:` id, so it
+  is always one of the session's questions. The chip is therefore not the way to confirm a template
+  landed — the `n/N` counter is (or walking the session). Also note `gh` is not installed here; the
+  run was watched through the public GitHub REST API (`/actions/runs/<id>/jobs`).
+
+---
+
 ## 2026-09-23 (session 12) — C: five more generators, 192/245 templated (41 generators)
 Git HEAD: `21f151b` (develop, tree clean) — `f5d3b57` generators+tests, `21f151b` wiring+docs
 Done: the first batch of §2.C's verified shortlist. **`math-angle-facts`** (straight line, at a
