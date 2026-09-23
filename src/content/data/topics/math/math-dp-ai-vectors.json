@@ -318,5 +318,11 @@
       "explanation": "A unit vector has magnitude $1$ and points in the same direction as the original vector. First find the magnitude: $|(6,-2,3)|=\\sqrt{36+4+9}=7$. Then divide each component by $7$ to get $\\hat{\\mathbf{v}}=\\left(\\dfrac{6}{7},-\\dfrac{2}{7},\\dfrac{3}{7}\\right)$. Unit vectors are essential for describing directions in physics and engineering.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-vectors",
+      "params": {}
+    }
   ]
 }

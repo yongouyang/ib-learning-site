@@ -317,5 +317,42 @@
       "explanation": "The vertically opposite angle is also $70^{\\circ}$. The co-interior angle adds to $180^{\\circ}$, so it is $180^{\\circ} - 70^{\\circ} = 110^{\\circ}$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-angle-facts",
+      "params": {
+        "modes": [
+          "corresponding",
+          "alternate",
+          "co-interior",
+          "triangle",
+          "quadrilateral",
+          "polygon-interior-sum",
+          "exterior-regular",
+          "interior-regular",
+          "sides-from-exterior"
+        ],
+        "angles": [
+          38,
+          47,
+          55,
+          58,
+          65,
+          70,
+          112
+        ],
+        "polygons": [
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          12
+        ]
+      }
+    }
   ]
 }

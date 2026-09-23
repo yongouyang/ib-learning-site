@@ -317,5 +317,34 @@
       "explanation": "There are 5 orange sweets, so 15 are not orange. $P(\\text{not orange})=\\dfrac{15}{20}=\\dfrac{3}{4}$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-probability",
+      "params": {
+        "modes": [
+          "single",
+          "complement",
+          "or",
+          "expected"
+        ],
+        "counts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "totals": [
+          10,
+          12,
+          15,
+          20,
+          25
+        ]
+      }
+    }
   ]
 }

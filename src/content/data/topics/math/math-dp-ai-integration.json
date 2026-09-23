@@ -388,5 +388,20 @@
       "explanation": "The curve cuts the $x$-axis where $x^3 - x = 0$, so $x(x - 1)(x + 1) = 0$ and the intersections are $x = -1, 0, 1$. The curve is below the axis on $[0, 1]$ and above on $[-1, 0]$. By symmetry the total area is $2\\int_{0}^{1} [0 - (x^3 - x)] \\, dx = 2\\int_{0}^{1} (x - x^3) \\, dx$. Evaluating gives $2\\left[\\dfrac{x^2}{2} - \\dfrac{x^4}{4}\\right]_{0}^{1} = 2\\left(\\dfrac{1}{2} - \\dfrac{1}{4}\\right) = \\dfrac{1}{2}$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-calculus",
+      "params": {
+        "modes": [
+          "integrate",
+          "definite"
+        ],
+        "powers": [
+          2,
+          3
+        ]
+      }
+    }
   ]
 }

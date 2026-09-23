@@ -320,5 +320,17 @@
       "explanation": "The hypotenuse is $\\sqrt{5^2 + 12^2} = 13$ cm, so the perimeter is $5 + 12 + 13 = 30$ cm.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-pythagoras-trig",
+      "params": {
+        "modes": [
+          "hypotenuse",
+          "leg",
+          "distance"
+        ]
+      }
+    }
   ]
 }

@@ -318,5 +318,19 @@
       "explanation": "Resultant velocity = $\\begin{pmatrix} 4 \\\\ 3 \\end{pmatrix}$ + $\\begin{pmatrix} 1 \\\\ -2 \\end{pmatrix}$ = $\\begin{pmatrix} 5 \\\\ 1 \\end{pmatrix}$ m/s, magnitude sqrt(25 + 1) = $\\sqrt{26}$ m/s (about 5.1 m/s).",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-vectors",
+      "params": {
+        "modes": [
+          "add",
+          "subtract",
+          "scale",
+          "magnitude",
+          "midpoint"
+        ]
+      }
+    }
   ]
 }

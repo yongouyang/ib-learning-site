@@ -317,5 +317,34 @@
       "explanation": "Co-interior angles between parallel lines add to $180^\\circ$. So the co-interior angle is $180^\\circ - 68^\\circ = 112^\\circ$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-angle-facts",
+      "params": {
+        "modes": [
+          "straight-line",
+          "at-a-point",
+          "vertically-opposite",
+          "corresponding",
+          "alternate",
+          "co-interior",
+          "triangle",
+          "quadrilateral",
+          "isosceles-base"
+        ],
+        "angles": [
+          20,
+          35,
+          48,
+          55,
+          62,
+          75,
+          90,
+          110,
+          130
+        ]
+      }
+    }
   ]
 }

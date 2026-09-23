@@ -388,5 +388,17 @@
       "explanation": "Let $D$ be the distance from the particle to the origin, so $D^2 = x^2 + y^2 = x^2 + x^4$. Differentiating implicitly with respect to time gives $2D\\dfrac{dD}{dt} = (2x + 4x^3)\\dfrac{dx}{dt}$. When $x = 2$, $y = 4$ and $D = \\sqrt{20} = 2\\sqrt{5}$. Substituting $\\dfrac{dx}{dt} = 3$ gives $\\dfrac{dD}{dt} = \\dfrac{(4 + 32)(3)}{2(2\\sqrt{5})} = \\dfrac{27}{\\sqrt{5}} = \\dfrac{27\\sqrt{5}}{5}$ cm/s.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-calculus",
+      "params": {
+        "modes": [
+          "differentiate",
+          "gradient",
+          "stationary"
+        ]
+      }
+    }
   ]
 }

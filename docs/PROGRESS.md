@@ -4,6 +4,47 @@
 
 ---
 
+## 2026-09-23 (session 12) — C: five more generators, 192/245 templated (41 generators)
+Git HEAD: `21f151b` (develop, tree clean) — `f5d3b57` generators+tests, `21f151b` wiring+docs
+Done: the first batch of §2.C's verified shortlist. **`math-angle-facts`** (straight line, at a
+  point, vertically opposite, **the three parallel-line pairs**, triangle/quadrilateral sums,
+  isosceles apex, and the four regular-polygon rules), **`math-probability`** (single event,
+  complement, OR, independent AND, with/without replacement, expected count),
+  **`math-pythagoras-trig`** (hypotenuse, leg, distance between points — scaled Pythagorean
+  triples — the exact 30/45/60 ratios, a side in a 30-60-90 triangle, the angle from a ratio),
+  **`math-calculus`** (differentiate, gradient at a point, integrate, definite integral on [0,u],
+  stationary point) and **`math-vectors`** (add/subtract/scale, 2-D + 3-D magnitude, dot, midpoint,
+  unit vector, perp-k). Wired into **17 topics** → **192 of 245 templated** (211 placements),
+  **41 generators, all wired**; unwired is now **53** (maths 41, chemistry 8, physics 4).
+Verified: validate:content (its 20-seed template sweep included), audit:content **0/0**,
+  check:registry, tsc clean, lint 29/0 (baseline), **1553/1553** unit tests (14 new: a sweep per
+  generator whose expected answer is recomputed independently — finite differences for
+  differentiate/integrate, a²+b²=c² for the sides, a·b=0 for perp-k); `build:static` exit 0
+  (352 sitemap URLs all live + indexable, titles unique, 580 noindex excluded; leak gate HARD
+  green) and the topic sweep **245/245 in 5.1 min** on the static pattern. Browser spot-check on
+  the export: 0 `.katex-error` and 0 horizontal overflow at 375 px.
+Next: **(1) promote develop → main** — still #1, prod is 41 commits behind and `BILLING_DISABLED_ENVS`
+  is untouched. (2) C's residue, now **53 topics**: ~23 reachable by ~13 more generators (circle
+  theorems, trig beyond 30/60, straight-line graphs, binomial, matrices, surds, number bases,
+  ratio, factors/multiples, conversions, directed numbers, decimals, similar shapes, quadratic
+  graphs + inequalities as extensions, the four chemistry tables, three physics formulas) and
+  ~30 that are not parameterizable. (3) the legal chain → re-open prod.
+Notes: **five defects the sweeps caught before merge, all invisible to a per-segment KaTeX check.**
+  (a) Four explanations put their arithmetic OUTSIDE the `$...$` they meant to be in (an unmatched
+  trailing `$`); the unit-test invariant sees that one, and the same class is why a `$...$` string
+  must never be interpolated inside another span. (b) A column vector already carries `$...$`, so
+  embedding it in `$\mathbf{a} = ...$` printed `$$\begin{pmatrix}...$$` and pushed the matrix out
+  of math mode — fixed with a delimiter-free `colLatex` for embedded use. (c) `math-probability`
+  offered `4/3` as a probability; candidates above 1 are now filtered. (d) The coordinate-distance
+  mode answered in cm. (e) The midpoint mode could draw a symmetric pair whose midpoint is the
+  origin, where the "forgot to halve" distractor IS the answer — excluded at the DRAW (root cause),
+  not padded. Two content decisions worth keeping: the parallel-line modes exist only because the
+  host questions were READ (7 of `math-yr8-angles-parallel-polygons`'s 15 are corresponding/
+  alternate/co-interior and the first draft had none), and `math-calculus` prints
+  `(n+1)k x^n + 2b x + c` so both the integral and the definite integral land on integers.
+
+---
+
 ## 2026-09-22 (session 11) — C's named remainder CLOSED: quadratics + all 114 deck subjects (174/245)
 Git HEAD: `c96e69f` (develop, tree clean)
 Done: **`math-quadratic`** (formula, discriminant, roots-count, completing the square, equation

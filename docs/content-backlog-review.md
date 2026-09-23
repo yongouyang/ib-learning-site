@@ -1,7 +1,7 @@
 # Content backlog review
 
 **Measured 2026-09-19** at prod `354858c`, by reading `src/content/data/**` directly.
-**Re-measured 2026-09-22** on `develop` (245 topics): §1, §2.B and §2.C carry the current
+**Re-measured 2026-09-23** on `develop` (245 topics): §1, §2.B and §2.C carry the current
 numbers; the closed sections keep their original audit trail.
 Every number here is reproducible from the JSON — none is quoted from an older plan.
 This doc supersedes the one-line "Standing queue: illustrations 106, traffic/SEO depth,
@@ -15,7 +15,7 @@ Read this with `docs/CONTENT_STYLE.md` (the authoring standard) and
 
 ## 1. What exists today
 
-| | Count (2026-09-22) | Note |
+| | Count (2026-09-23) | Note |
 |---|---|---|
 | Topics | **245** | 10 subjects, 3 stages |
 | Notes | **1727** | 7 per topic, sometimes 8 (a superset, not a gap) |
@@ -23,23 +23,23 @@ Read this with `docs/CONTENT_STYLE.md` (the authoring standard) and
 | Paper sets | **31** across 15 courses | 14 courses × 2 + `math-igcse` × 3 |
 | Free-response questions | **251** | 620 markscheme points; every set totals exactly 20 marks |
 | Illustrations | **430 SVG files**, **449 illustrated notes** | 0 orphans, 0 dangling references, **0 topics with no figure** |
-| Question generators | **36** in `src/content/generators/` | **all 36 are wired into content**, in **175 topics / 194 placements** |
+| Question generators | **41** in `src/content/generators/` | **all 41 are wired into content**, in **192 topics / 211 placements** |
 | Indexable / noindex pages | **352 / 580** | `verify:sitemaps` on the 2026-09-22 `build:static` (937 prerendered, 352 sitemap URLs all live + indexable, titles unique) |
 
 Per subject (topics / notes illustrated / templated):
 
-| subject | topics | ill. notes | topics w/ 0 | templated |
+| subject | topics | ill. notes | topics w/ 0 figures | templated |
 |---|---|---|---|---|
-| math | 92 | 68 (10%) | 24 | 3 |
-| english | 34 | 23 (10%) | 11 | 0 |
-| chinese | 20 | 0 | 20 | 0 |
-| chemistry | 13 | 71 (78%) | 2 | 4 |
-| physics | 14 | 78 (80%) | 2 | 2 |
-| biology | 14 | 91 (93%) | 1 | 0 |
-| german | 13 | 0 | 13 | 0 |
-| ict | 12 | 0 | 12 | 0 |
-| history | 11 | 0 | 11 | 0 |
-| geography | 10 | 0 | 10 | 0 |
+| math | 92 | 68 (10%) | 0 | 63 |
+| english | 34 | 23 (10%) | 0 | 0 |
+| chinese | 20 | 0 | 0 | 0 |
+| chemistry | 13 | 71 (78%) | 0 | 5 |
+| physics | 14 | 78 (80%) | 0 | 10 |
+| biology | 14 | 91 (93%) | 0 | 0 |
+| german | 13 | 0 | 0 | 0 |
+| ict | 12 | 0 | 0 | 0 |
+| history | 11 | 0 | 0 | 0 |
+| geography | 10 | 0 | 0 | 0 |
 
 **The gates are clean**: `validate:content` and `audit:content` both pass with zero
 warnings. So everything below is either a *coverage* gap (content that doesn't exist) or
@@ -105,17 +105,17 @@ Also note the language subjects are a genuine exception, not a backlog item: chi
 german are vocab-table notes plus bilingual flashcards — a picture per note buys less
 there than in history/geography/ICT.
 
-### C. Templates — 175 of 245 topics carry a template; the last 70 need more generators
+### C. Templates — 192 of 245 topics carry a template; the last 53 need more generators
 
-**Measured 2026-09-22, after three sessions of generator work:**
+**Measured 2026-09-23, after four sessions of generator work:**
 
 | | value |
 |---|---|
-| generators | **36**, every one wired |
-| topics with a template | **175 of 245** (194 placements) |
-| unwired topics | **70** — maths 58, chemistry 8, physics 4 |
+| generators | **41**, every one wired |
+| topics with a template | **192 of 245** (211 placements) |
+| unwired topics | **53** — maths 41, chemistry 8, physics 4 |
 
-**What closed this session:**
+**What closed in the last two sessions:**
 
 1. **`math-quadratic`** — solve by the formula, the discriminant, how many real roots a
    discriminant gives, completing the square, and an equation from its roots. Wired into
@@ -129,6 +129,27 @@ there than in history/geography/ICT.
    total, caught while wiring). It is a **recall drill over the deck, not a skill generator**:
    essay craft, source analysis and map skills are still not mechanized, and the deck is the
    single source of truth for the vocabulary so a card edit edits the drill.
+3. **`math-angle-facts`** — the missing angle from a straight line, a point, a triangle, a
+   quadrilateral, an isosceles apex and the three parallel-line pairs, plus the regular-polygon
+   rules (interior sum, one exterior angle, one interior angle, sides from an exterior angle).
+   Wired into `math-yr7-angles`, `math-yr8-angles-parallel-polygons`, `math-igcse-angles-polygons`;
+   the parallel-line modes were added after reading those hosts (7 of `math-yr8-*`'s 15 questions
+   are corresponding/alternate/co-interior, and the first draft had none of them).
+4. **`math-probability`** — a single event, the complement, "A or B", the product of two
+   independent events, two draws with and without replacement, and an expected count. Wired into
+   the three probability topics. Distractors above 1 are filtered out: 4/3 was offered once and
+   gives the answer away.
+5. **`math-pythagoras-trig`** — hypotenuse, shorter side, distance between two points (all from
+   scaled Pythagorean triples), the exact ratios of 30/45/60, a side in a 30-60-90 triangle and
+   the angle from a known ratio. Wired into the four Pythagoras/trigonometry topics; arbitrary
+   angles (sin 40°, angles of elevation) stay out — those answers are decimals by definition.
+6. **`math-calculus`** — differentiate, the gradient at a point, integrate, a definite integral
+   over [0, u] and a stationary point. Wired into the four DP differentiation/integration topics.
+   The integrand prints `(n+1)k x^n + 2b x + c` so the integral lands on integers.
+7. **`math-vectors`** — add, subtract, scale, magnitude (2-D and 3-D), dot product, midpoint,
+   unit vector, and the missing component that makes two vectors perpendicular. Wired into the
+   three vectors topics; perp-k is found by SEARCHING the param table for a divisible combination
+   rather than dividing and hoping.
 
 Design rules the generators share (the reason the answers can be trusted):
 
@@ -145,19 +166,15 @@ Design rules the generators share (the reason the answers can be trusted):
   what lets a prose deck (174–210 character definitions, short terms) still drill in the
   definition→term direction.
 
-**What the last 70 topics need** (each row's hosts were checked by READING their question sets,
+**What the last 53 topics need** (each row's hosts were checked by READING their question sets,
 not inferred — an earlier version of this table lumped circle theorems in with angle facts and
 called surds unmechanizable, both wrong):
 
 | missing generator | host topics (verified) | topics |
 |---|---|---|
-| Pythagoras + SOH-CAH-TOA (find a side, find an angle, distance between points) | `math-pythagoras-myp`, `math-yr8-pythagoras`, `math-trig-basic-myp`, `math-igcse-trigonometry` | 4 |
-| angle facts (straight line, angles at a point, vertically opposite, triangle/quadrilateral sums, parallel-line pairs, polygon sums) | `math-yr7-angles`, `math-yr8-angles-parallel-polygons`, `math-igcse-angles-polygons` | 3 |
 | circle theorems (one mode per theorem: angle at the centre, same segment, cyclic quadrilateral, semicircle, tangent-radius, alternate segment) | `math-igcse-circle-theorems` | 1 |
-| probability (single event, complement, sample space, AND/OR, with and without replacement) | `math-yr7-probability`, `math-igcse-probability`, `math-yr8-probability-trees` | 3 |
+| trig beyond 30/60 (exact-angle identities, the sine/cosine rule, area of a triangle) | `math-igcse-trig-advanced`, `math-dp-aa-trig-identities-equations`, `math-dp-ai-trig` | 3 |
 | straight-line graphs (`y = mx + c`, gradient between two points, parallel lines, equation through a point) | `math-linear-myp`, `math-yr8-straight-line-graphs` | 2 |
-| calculus: power-rule differentiate, gradient at a point, integrate a polynomial, definite integral | `math-dp-aa-differentiation`, `math-dp-ai-differentiation`, `math-dp-aa-integration`, `math-dp-ai-integration` | 4 |
-| vectors (add/subtract/scale, magnitude, unit vector, dot product) | `math-igcse-vectors`, `math-dp-aa-vectors`, `math-dp-ai-vectors` | 3 |
 | binomial (nCr, a coefficient, a named term, Pascal row) | `math-dp-aa-binomial-theorem`, `math-dp-ai-binomial` | 2 |
 | matrices (order, add/multiply, determinant, singular value) | `math-dp-ai-matrices` | 1 |
 | surds (simplify, multiply/divide, add like terms) | `math-yr9-surds` | 1 |
@@ -174,12 +191,12 @@ called surds unmechanizable, both wrong):
 | physics formulas still missing (refraction/snell, weight W = mg, orbital period) | `phys-light-1`, `phys-space-1`, `phys-magnetism-1` | 3 |
 | **not parameterizable** — constructions and loci, nets of 3-D shapes, describing a transformation, bearings and scale drawing, correlation description, Venn/set notation with prose, DP AA/AI specials (Voronoi, graph theory, Poisson, hypothesis testing, distributions, complex numbers, kinematics, correlation-regression, DP functions, DP trig identities) | the remaining topics | ~30 |
 
-So the honest position: **~40 of the last 70 topics are reachable by ~20 more generators of the
+So the honest position: **~23 of the last 53 topics are reachable by ~13 more generators of the
 same kind** (pure arithmetic, exact by construction — several are table-driven like the chemistry
 ones), while **~30 are not parameterizable at all** (constructions, nets, diagram description,
 hypothesis testing, the DP AI specials) and are variant-group authoring work. Nothing here blocks
 promoting `develop`: the promotion is content, and C's product goal — a retake surfacing fresh
-variants — is already met for **175 of 245 topics**.
+variants — is already met for **192 of 245 topics**.
 
 ### D. Content defects the gates cannot see — **first pass MEASURED 2026-09-19**
 
@@ -255,11 +272,12 @@ data, which is a different job from this one.
    `M`/`A`/`B` prefix rule gated, the MC answer-key judgement measured (and found unfit for
    computational questions), the difficulty tags measured with a blind human pass, and the
    rubric contradiction resolved in `CONTENT_STYLE.md` (commit `39e36b6`).
-2. **C (templates) — 175 of 245 topics, 36 generators, all wired.** The quadratic solver and
-   the flashcard-fed drill closed the two items this section named, and `math-yr9-3d-geometry`
-   was wired to the existing volume generator. The last 70 topics are tabulated in §2.C with the
-   host topics VERIFIED by reading their questions: ~40 need ~20 more generators, ~30 are not
-   parameterizable and need authored variant groups.
+2. **C (templates) — 192 of 245 topics, 41 generators, all wired.** The quadratic solver, the
+   flashcard-fed drill, and the angle-facts / probability / Pythagoras-trig / calculus / vectors
+   generators closed the items this section named, and `math-yr9-3d-geometry` was wired to the
+   existing volume generator. The last 53 topics are tabulated in §2.C with the host topics
+   VERIFIED by reading their questions: ~23 need ~13 more generators, ~30 are not parameterizable
+   and need authored variant groups.
 3. **B (illustrations) — DONE 2026-09-20.** Standard settled at **≥1 figure per topic**; no
    topic is bare and every subject has imagery. Density beyond that is not queued.
 4. **A (DP AA)** — **DONE 2026-09-21 at the committed SL-core scope** (12 topics, 9 figures, 2 paper

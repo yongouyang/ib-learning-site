@@ -317,5 +317,31 @@
       "explanation": "Quadrilateral angles total $360^\\circ$: $x + 2x + 3x + 4x = 10x = 360^\\circ$, so $x = 36^\\circ$ and the largest angle is $4x = 144^\\circ$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-angle-facts",
+      "params": {
+        "angles": [
+          45,
+          63,
+          70,
+          74,
+          88,
+          97,
+          121
+        ],
+        "polygons": [
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          10,
+          12
+        ]
+      }
+    }
   ]
 }

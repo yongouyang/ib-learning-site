@@ -318,5 +318,17 @@
       "explanation": "Writing $y = x^{1/2}$ and applying the power rule: $\\dfrac{dy}{dx} = \\dfrac12 x^{-1/2} = \\dfrac{1}{2\\sqrt x}$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-calculus",
+      "params": {
+        "modes": [
+          "differentiate",
+          "gradient",
+          "stationary"
+        ]
+      }
+    }
   ]
 }

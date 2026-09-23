@@ -315,5 +315,19 @@
       "explanation": "Cos is the mirror of sin: cos of an angle equals sin of (90 minus that angle), and 90 - 63 = 27, so cos 63 = sin 27 = 0.454. The option 0.891 is cos 27 itself.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-pythagoras-trig",
+      "params": {
+        "modes": [
+          "hypotenuse",
+          "leg",
+          "trig-side",
+          "trig-ratio",
+          "trig-angle"
+        ]
+      }
+    }
   ]
 }

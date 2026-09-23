@@ -317,5 +317,17 @@
       "explanation": "The altitude splits the base into two 6 cm segments, so $h=\\sqrt{10^2-6^2}=\\sqrt{64}=8$ cm.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-pythagoras-trig",
+      "params": {
+        "modes": [
+          "hypotenuse",
+          "leg",
+          "distance"
+        ]
+      }
+    }
   ]
 }

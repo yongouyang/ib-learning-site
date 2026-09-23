@@ -319,5 +319,20 @@
       "explanation": "The curve meets the axis at $x = 0$ and $x = 6$ and is above it in between. Then $\\displaystyle\\int_0^6 (6x - x^2)\\,dx = \\left[3x^2 - \\dfrac{x^3}{3}\\right]_0^6 = 108 - 72 = 36$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-calculus",
+      "params": {
+        "modes": [
+          "integrate",
+          "definite"
+        ],
+        "powers": [
+          2,
+          3
+        ]
+      }
+    }
   ]
 }

@@ -318,5 +318,11 @@
       "explanation": "$|\\mathbf{a}| = \\sqrt{4 + 1} = \\sqrt5$, and multiplying a vector by 2 doubles its length, so $|2\\mathbf{a}| = 2\\sqrt5$.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-vectors",
+      "params": {}
+    }
   ]
 }

@@ -320,5 +320,18 @@
       "explanation": "Bearings are measured clockwise from north; $180^\\circ$ is south and $270^\\circ$ is west, so $225^\\circ$ points south-west.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "math-pythagoras-trig",
+      "params": {
+        "modes": [
+          "hypotenuse",
+          "leg",
+          "trig-ratio",
+          "trig-angle"
+        ]
+      }
+    }
   ]
 }
