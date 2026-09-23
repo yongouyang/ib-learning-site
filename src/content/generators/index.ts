@@ -13,6 +13,11 @@ import { mathAlgebraManipulation } from './math-algebra-manipulation';
 import { mathFrequencyDensity } from './math-frequency-density';
 import { mathQuadratic } from './math-quadratic';
 import { flashcardMatch } from './flashcard-match';
+import { mathAngleFacts } from './math-angle-facts';
+import { mathProbability } from './math-probability';
+import { mathPythagorasTrig } from './math-pythagoras-trig';
+import { mathCalculus } from './math-calculus';
+import { mathVectors } from './math-vectors';
 import { mathVolumeSurface } from './math-volume-surface-area';
 import { physVIr } from './phys-v-ir';
 import { physResistanceSeries } from './phys-resistance-series';
@@ -75,6 +80,11 @@ const all: QuestionGenerator<unknown>[] = [
   chemPhRatio,
   chemCompoundNaming,
   flashcardMatch,
+  mathAngleFacts,
+  mathProbability,
+  mathPythagorasTrig,
+  mathCalculus,
+  mathVectors,
 ];
 
 export const GENERATORS: Record<string, QuestionGenerator<unknown>> = Object.fromEntries(

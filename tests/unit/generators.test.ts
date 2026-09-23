@@ -167,7 +167,39 @@ import {
   build as buildCompoundNaming,
   type CompoundNamingParams,
 } from '@/content/generators/chem-compound-naming';
-import { chargeSuperscript } from '@/content/generators/utils';
+import {
+  draw as drawAngle,
+  build as buildAngle,
+  paramsSchema as angleSchema,
+  type AngleFactsParams,
+} from '@/content/generators/math-angle-facts';
+import {
+  draw as drawProbability,
+  build as buildProbability,
+  paramsSchema as probabilitySchema,
+  type ProbabilityParams,
+} from '@/content/generators/math-probability';
+import {
+  draw as drawPythagoras,
+  build as buildPythagoras,
+  paramsSchema as pythagorasSchema,
+  type PythagorasParams,
+} from '@/content/generators/math-pythagoras-trig';
+import {
+  draw as drawCalculus,
+  build as buildCalculus,
+  paramsSchema as calculusSchema,
+  poly,
+  type CalculusParams,
+  type Term,
+} from '@/content/generators/math-calculus';
+import {
+  draw as drawVectors,
+  build as buildVectors,
+  paramsSchema as vectorsSchema,
+  type VectorsParams,
+} from '@/content/generators/math-vectors';
+import { chargeSuperscript, gcd } from '@/content/generators/utils';
 import katex from 'katex';
 
 // The param tables wired into the pilot topic JSONs.
@@ -995,7 +1027,7 @@ describe('chem-compound-naming', () => {
 });
 
 describe('registry', () => {
-  it('registers all 36 generators under kebab-case ids matching their module contract', () => {
+  it('registers all 41 generators under kebab-case ids matching their module contract', () => {
     expect(Object.keys(GENERATORS).sort()).toEqual([
       'chem-compound-naming',
       'chem-electron-config',
@@ -1005,18 +1037,23 @@ describe('registry', () => {
       'chem-ph-ratio',
       'flashcard-match',
       'math-algebra-manipulation',
+      'math-angle-facts',
+      'math-calculus',
       'math-fraction-arithmetic',
       'math-frequency-density',
       'math-indices',
       'math-linear-equation',
       'math-linear-sequence',
       'math-percent-of-amount',
+      'math-probability',
+      'math-pythagoras-trig',
       'math-quadratic',
       'math-rounding',
       'math-shape-measure',
       'math-standard-form',
       'math-statistics',
       'math-substitution',
+      'math-vectors',
       'math-volume-surface-area',
       'phys-charge-current',
       'phys-density',
@@ -2102,5 +2139,233 @@ describe('flashcard-match', () => {
     expect(
       GENERATORS['flashcard-match'].paramsSchema.safeParse({ cards: deck, direction: ['term-to-definition'] }).success
     ).toBe(true);
+  });
+});
+
+// Schema defaults live on the schema, not on z.infer, so the tables are parsed.
+const angleParams: AngleFactsParams = angleSchema.parse({
+  angles: [35, 48, 62, 75, 90, 110, 130],
+  polygons: [3, 4, 5, 6, 8, 9, 10, 12],
+  exteriors: [15, 20, 24, 30, 36, 40, 45, 60, 72],
+});
+
+describe('math-angle-facts', () => {
+  it('rejects an empty angle table', () => {
+    expect(() => angleSchema.parse({ angles: [] })).toThrow();
+  });
+
+  it('sweep: the missing angle is what the angle fact leaves over', () => {
+    sweep('math-angle-facts', angleParams, drawAngle, buildAngle, (v) => {
+      const { mode, a, b, c, n, answer } = v;
+      if (mode === 'straight-line' || mode === 'co-interior') expect(answer).toBe(180 - a);
+      else if (mode === 'triangle') expect(answer).toBe(180 - a - b);
+      else if (mode === 'quadrilateral' || mode === 'at-a-point') expect(answer).toBe(360 - a - b - c);
+      else if (mode === 'isosceles-base') expect(answer).toBe((180 - a) / 2);
+      else if (mode === 'polygon-interior-sum') expect(answer).toBe((n - 2) * 180);
+      else if (mode === 'exterior-regular') expect(answer).toBe(360 / n);
+      else if (mode === 'interior-regular') expect(answer).toBe(180 - 360 / n);
+      else if (mode === 'sides-from-exterior') expect(answer).toBe(360 / a);
+      // corresponding / alternate / vertically-opposite repeat the given angle
+      return mode === 'sides-from-exterior' ? String(answer) : `$${answer}^{\\circ}$`;
+    });
+  });
+
+  it('drops the per-angle polygon modes when no side count divides 360', () => {
+    // 7 sides: only the interior-sum mode can answer in whole degrees.
+    const params: AngleFactsParams = angleSchema.parse({
+      modes: ['polygon-interior-sum', 'exterior-regular', 'interior-regular'],
+      angles: [40, 60],
+      polygons: [7],
+    });
+    for (let i = 0; i < 20; i++) {
+      const out = GENERATORS['math-angle-facts'].generate(params, createRng(`poly7:${i}`));
+      expect(out.stem).toContain('7 sides');
+      expect(out.correct).toBe('$900^{\\circ}$');
+    }
+  });
+});
+
+const probabilityParams: ProbabilityParams = probabilitySchema.parse({
+  counts: [2, 3, 4, 5, 6, 7, 8],
+  totals: [10, 12, 15, 20, 25],
+  trials: [40, 50, 60, 80, 100, 120],
+});
+
+describe('math-probability', () => {
+  it('rejects a table where no count is smaller than a total', () => {
+    expect(GENERATORS['math-probability'].paramsSchema.safeParse({ counts: [8, 9], totals: [5] }).success).toBe(false);
+  });
+
+  it('sweep: the answer is the probability, in lowest terms', () => {
+    sweep('math-probability', probabilityParams, drawProbability, buildProbability, (v) => {
+      const [p, q] = v.answer;
+      if (v.mode === 'single') expect(p).toBe(v.r);
+      else if (v.mode === 'complement') expect(p).toBe(v.n - v.r);
+      else if (v.mode === 'or') expect(p).toBe(v.r + v.s);
+      else if (v.mode === 'and-independent') expect(p).toBe(v.r * v.s);
+      else if (v.mode === 'with-replacement') expect(p).toBe(v.r * v.r);
+      else if (v.mode === 'without-replacement') expect(p).toBe(v.r * (v.r - 1));
+      else expect(p).toBe((v.t * v.r) / v.n);
+      const g = gcd(p, q);
+      const num = p / g;
+      const den = q / g;
+      return den === 1 ? `$${num}$` : `$\\dfrac{${num}}{${den}}$`;
+    });
+  });
+
+  it('never offers a distractor greater than 1', () => {
+    for (let i = 0; i < 60; i++) {
+      const out = GENERATORS['math-probability'].generate(probabilityParams, createRng(`p1:${i}`));
+      for (const choice of [out.correct, ...out.distractors]) {
+        const m = choice.match(/dfrac\{(\d+)\}\{(\d+)\}/);
+        if (m) expect(Number(m[1])).toBeLessThanOrEqual(Number(m[2]));
+      }
+    }
+  });
+});
+
+const pythagorasParams: PythagorasParams = pythagorasSchema.parse({});
+
+describe('math-pythagoras-trig', () => {
+  it('rejects a triple that is not right-angled', () => {
+    expect(() => pythagorasSchema.parse({ triples: [[2, 3, 4]] })).toThrow();
+  });
+
+  it('sweep: the three sides really do satisfy a² + b² = c²', () => {
+    sweep('math-pythagoras-trig', pythagorasParams, drawPythagoras, buildPythagoras, (v) => {
+      if (v.mode === 'hypotenuse' || v.mode === 'distance') {
+        expect(v.a * v.a + v.b * v.b).toBe(v.answer * v.answer);
+        return v.mode === 'distance' ? String(v.answer) : `${v.answer} cm`;
+      }
+      if (v.mode === 'leg') {
+        const known = v.given === 0 ? v.a : v.b;
+        expect(known * known + v.answer * v.answer).toBe(v.c * v.c);
+        return `${v.answer} cm`;
+      }
+      if (v.mode === 'trig-side') return `${v.answer} cm`;
+      if (v.mode === 'trig-angle') return `$${v.answer}^{\\circ}$`;
+      return `$${v.ratio}$`;
+    });
+  });
+
+  it('never asks for a side at 45°, where the ratio is a surd', () => {
+    const params: PythagorasParams = pythagorasSchema.parse({ modes: ['trig-side'] });
+    for (let i = 0; i < 30; i++) {
+      const out = GENERATORS['math-pythagoras-trig'].generate(params, createRng(`ts:${i}`));
+      expect(out.stem).not.toMatch(/45\^/);
+    }
+  });
+});
+
+const calculusParams: CalculusParams = calculusSchema.parse({});
+
+const evalPoly = (terms: Term[], x: number): number =>
+  terms.reduce((total, t) => total + t.coef * x ** t.power, 0);
+
+describe('math-calculus', () => {
+  it('sweep: differentiating the printed curve reproduces the answer', () => {
+    const h = 1e-5;
+    sweep('math-calculus', calculusParams, drawCalculus, buildCalculus, (v) => {
+      if (v.mode === 'gradient') {
+        expect(v.answer).toBe(v.k * v.n * v.x ** (v.n - 1) + v.b);
+        return `$${v.answer}$`;
+      }
+      if (v.mode === 'definite') {
+        expect(v.answer).toBe(v.k * v.x ** (v.n + 1) + v.b * v.x ** 2);
+        return `$${v.answer}$`;
+      }
+      if (v.mode === 'stationary') {
+        expect(v.b).toBe(-2 * v.answer);
+        return `$x = ${v.answer}$`;
+      }
+      if (v.mode === 'differentiate') {
+        const curve: Term[] = [
+          { coef: v.k, power: v.n },
+          { coef: v.b, power: 1 },
+          { coef: v.c, power: 0 },
+        ];
+        const numeric = (evalPoly(curve, 2 + h) - evalPoly(curve, 2)) / h;
+        expect(numeric).toBeCloseTo(v.k * v.n * 2 ** (v.n - 1) + v.b, 2);
+        return `$${poly([{ coef: v.k * v.n, power: v.n - 1 }, { coef: v.b, power: 1 }])}$`;
+      }
+      // integrate: the printed antiderivative must differentiate back to the integrand
+      const integrand: Term[] = [
+        { coef: (v.n + 1) * v.k, power: v.n },
+        { coef: 2 * v.b, power: 1 },
+        { coef: v.c, power: 0 },
+      ];
+      const anti: Term[] = [
+        { coef: v.k, power: v.n + 1 },
+        { coef: v.b, power: 2 },
+        { coef: v.c, power: 1 },
+      ];
+      expect((evalPoly(anti, 2 + h) - evalPoly(anti, 2)) / h).toBeCloseTo(evalPoly(integrand, 2), 2);
+      return `$${poly(anti)} + C$`;
+    });
+  });
+
+  it('never prints a fractional coefficient in the integrate mode', () => {
+    const params: CalculusParams = calculusSchema.parse({ modes: ['integrate'] });
+    for (let i = 0; i < 30; i++) {
+      const out = GENERATORS['math-calculus'].generate(params, createRng(`int:${i}`));
+      for (const choice of [out.correct, ...out.distractors]) expect(choice).not.toMatch(/frac/);
+    }
+  });
+});
+
+const vectorsParams: VectorsParams = vectorsSchema.parse({});
+
+const colT = (parts: (number | string)[]): string => `$\\begin{pmatrix} ${parts.join(' \\\\ ')} \\end{pmatrix}$`;
+
+describe('math-vectors', () => {
+  it('rejects a 3-D quadruple that is not Pythagorean', () => {
+    expect(() => vectorsSchema.parse({ solids: [[1, 1, 1, 2]] })).toThrow();
+  });
+
+  it('sweep: the answer is the vector arithmetic the mode names', () => {
+    sweep('math-vectors', vectorsParams, drawVectors, buildVectors, (v) => {
+      const { mode, a, b, k, dim, answer } = v;
+      if (mode === 'add') return colT([a[0] + b[0], a[1] + b[1]]);
+      if (mode === 'subtract') return colT([a[0] - b[0], a[1] - b[1]]);
+      if (mode === 'scale') return colT([a[0] * k, a[1] * k]);
+      if (mode === 'magnitude') {
+        const parts = dim === 2 ? [a[0], a[1]] : [a[0], a[1], a[2]];
+        expect(answer * answer).toBe(parts.reduce((t, p) => t + p * p, 0));
+        return `$${answer}$`;
+      }
+      if (mode === 'dot') {
+        const parts = dim === 2 ? [a[0], a[1]] : [a[0], a[1], a[2]];
+        const others = dim === 2 ? [b[0], b[1]] : [b[0], b[1], b[2]];
+        expect(answer).toBe(parts.reduce((t, p, i) => t + p * others[i], 0));
+        return `$${answer}$`;
+      }
+      if (mode === 'midpoint') {
+        const mid = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+        const toA = (mid[0] - a[0]) ** 2 + (mid[1] - a[1]) ** 2;
+        const toB = (mid[0] - b[0]) ** 2 + (mid[1] - b[1]) ** 2;
+        expect(toA).toBe(toB);
+        return colT(mid);
+      }
+      if (mode === 'unit') {
+        expect(a[0] * a[0] + a[1] * a[1]).toBe(answer * answer);
+        const show = (num: number): string => {
+          const g = gcd(Math.abs(num), answer);
+          const q = answer / g;
+          return q === 1 ? String(num / g) : `\\dfrac{${num / g}}{${q}}`;
+        };
+        return colT([show(a[0]), show(a[1])]);
+      }
+      // perp-k: the completed pair really is perpendicular
+      expect(a[0] * b[0] + a[1] * k).toBe(0);
+      return `$k = ${k}$`;
+    });
+  });
+
+  it('never asks for the midpoint of a symmetric pair (that midpoint is the origin)', () => {
+    const params: VectorsParams = vectorsSchema.parse({ modes: ['midpoint'] });
+    for (let i = 0; i < 40; i++) {
+      const out = GENERATORS['math-vectors'].generate(params, createRng(`mid:${i}`));
+      expect(out.correct).not.toBe(colT([0, 0]));
+    }
   });
 });
