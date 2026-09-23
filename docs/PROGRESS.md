@@ -4,6 +4,37 @@
 
 ---
 
+## 2026-09-23 (session 12c) — develop → main PROMOTED (44 commits); PROD verified live
+Git HEAD: `1c4c4cb` (main, pushed; develop == main, tree clean)
+Done: promoted `develop` → `main` — a **fast-forward** (`develop..main` was empty, so no merge
+  commit and no conflict). Prod moves `354858c` → `1c4c4cb`: DP Math AA, the five bare-subject
+  illustration batches, 41 generators / 192 templated topics, and the Phase-2 content work.
+  `BILLING_DISABLED_ENVS = "prod"` is untouched, so this is a **content-only** promotion.
+Verified (post-deploy, against https://octavlearning.com): `/version.json` = `1c4c4cb`
+  (built 16:02:10Z); **www → apex 301** and **http → https 301**; PROD sends no `x-robots-tag`
+  (unlike DEV); `/api/auth/me` 401, `/api/feedback` configured, progress/analytics/contact
+  `_health` 200, leaderboard teaser 200. **Leak boundary at the prod edge:** public
+  `mixed-review` 200 `public, max-age=300, s-maxage=3600`, premium `set-2` 401 `login_required`
+  `private, no-store`. **Still off sale — verified on the deployed Lambda, not just in the repo:**
+  `aws lambda get-function-configuration iblearn-subscriptions` reports
+  `BILLING_DISABLED_ENVS = prod` (with `STRIPE_MODE = test`, `SUBSCRIPTIONS_STORAGE = dynamodb`
+  as AGENTS.md describes); `POST /api/subscriptions/checkout` answers 401 `login_required`.
+  Templated quizzes live on prod: `1/16` and `1/21`, 0 `.katex-error`.
+  `verify:seo:live --all` **PASSED**: 352 sitemap URLs, 352 indexable pages with unique titles and
+  canonicals at the apex, 40 quiz/flashcard URLs noindex+canonical→/study, 12/12 pages
+  byte-identical to the local build.
+Next: **(1) C's residue — 53 topics** (~23 reachable by ~13 more generators, ~30 needing authored
+  variant groups). (2) the legal chain (EU/UK Art 27 representative, the AI-marking provider's
+  DPA/SCCs, counsel) → then delete the `BILLING_DISABLED_ENVS` line to re-open prod.
+Notes: **prod and dev are now the same commit, so a further docs-only change would need its own
+  promotion** — this entry rides on `develop` and ships with the next one. `gh` is still absent
+  here and the GitHub REST API rate-limits unauthenticated polling fast; `/version.json` on the
+  origin is the reliable deploy signal (the deploy job asserts it matches the commit), and the
+  `aws lambda get-function-configuration` read is the way to confirm a LIVE env var rather than
+  trusting the repo.
+
+---
+
 ## 2026-09-23 (session 12b) — develop pushed; DEV deploy GREEN and verified at the edge
 Git HEAD: `ecf0522` (develop, pushed; tree clean)
 Done: pushed `develop` → CI run **35878038754** completed **success** (build-and-test, Semgrep,
