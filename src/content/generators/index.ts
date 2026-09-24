@@ -18,6 +18,10 @@ import { mathProbability } from './math-probability';
 import { mathPythagorasTrig } from './math-pythagoras-trig';
 import { mathCalculus } from './math-calculus';
 import { mathVectors } from './math-vectors';
+import { mathStraightLine } from './math-straight-line';
+import { mathBinomial } from './math-binomial';
+import { mathDecimalArithmetic } from './math-decimal-arithmetic';
+import { mathIntegerOperations } from './math-integer-operations';
 import { mathVolumeSurface } from './math-volume-surface-area';
 import { physVIr } from './phys-v-ir';
 import { physResistanceSeries } from './phys-resistance-series';
@@ -85,6 +89,10 @@ const all: QuestionGenerator<unknown>[] = [
   mathPythagorasTrig,
   mathCalculus,
   mathVectors,
+  mathStraightLine,
+  mathBinomial,
+  mathDecimalArithmetic,
+  mathIntegerOperations,
 ];
 
 export const GENERATORS: Record<string, QuestionGenerator<unknown>> = Object.fromEntries(

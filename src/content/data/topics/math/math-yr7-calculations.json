@@ -317,5 +317,105 @@
       "explanation": "First find the total area: $18 \\times 12 = 216$ m$^2$. Then divide by $8$ equal sections: $216 \\div 8 = 27$ m$^2$ per section. The distractor $216$ m$^2$ is the total area, not the area of one section.",
       "difficulty": "hard"
     }
+  ],
+  "templates":   [
+    {
+      "generator": "math-integer-operations",
+      "params": {
+        "addends": [
+          5748,
+          5236,
+          3748,
+          6205,
+          2478,
+          875,
+          672,
+          64,
+          15,
+          24
+        ],
+        "factorsA": [
+          34,
+          26,
+          64,
+          47
+        ],
+        "factorsB": [
+          7,
+          8,
+          9,
+          6
+        ],
+        "divisors": [
+          5,
+          16,
+          7,
+          12
+        ],
+        "quotients": [
+          175,
+          42,
+          86,
+          24
+        ],
+        "bidmas": [
+          [
+            5,
+            3,
+            6
+          ],
+          [
+            8,
+            4,
+            3
+          ],
+          [
+            12,
+            5,
+            6
+          ]
+        ],
+        "brackets": [
+          [
+            8,
+            4,
+            3,
+            5
+          ],
+          [
+            6,
+            5,
+            4,
+            9
+          ],
+          [
+            12,
+            3,
+            5,
+            7
+          ]
+        ],
+        "powers": [
+          [
+            3,
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            3,
+            3,
+            2
+          ],
+          [
+            7,
+            2,
+            4,
+            3
+          ]
+        ]
+      }
+    }
   ]
 }

@@ -317,5 +317,60 @@
       "explanation": "The fixed $5 is the $y$-intercept and the $2 per kilometre is the gradient, so $C=2k+5$.",
       "difficulty": "medium"
     }
+  ],
+  "templates":   [
+    {
+      "generator": "math-straight-line",
+      "params": {
+        "gradients": [
+          -4,
+          -3,
+          -2,
+          -1,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "intercepts": [
+          -7,
+          -5,
+          -3,
+          -2,
+          -1,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "xs": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "rates": [
+          15,
+          20,
+          25,
+          30,
+          40
+        ],
+        "fees": [
+          5,
+          10,
+          20,
+          30,
+          40
+        ]
+      }
+    }
   ]
 }

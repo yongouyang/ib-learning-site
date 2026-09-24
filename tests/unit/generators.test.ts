@@ -199,6 +199,34 @@ import {
   paramsSchema as vectorsSchema,
   type VectorsParams,
 } from '@/content/generators/math-vectors';
+import {
+  draw as drawStraightLine,
+  build as buildStraightLine,
+  line,
+  negativeReciprocal,
+  paramsSchema as straightLineSchema,
+  type StraightLineParams,
+} from '@/content/generators/math-straight-line';
+import {
+  choose,
+  draw as drawBinomial,
+  build as buildBinomial,
+  paramsSchema as binomialSchema,
+  pascalRow,
+  type BinomialParams,
+} from '@/content/generators/math-binomial';
+import {
+  draw as drawDecimal,
+  build as buildDecimal,
+  paramsSchema as decimalSchema,
+  type DecimalArithmeticParams,
+} from '@/content/generators/math-decimal-arithmetic';
+import {
+  draw as drawInteger,
+  build as buildInteger,
+  paramsSchema as integerSchema,
+  type IntegerOperationsParams,
+} from '@/content/generators/math-integer-operations';
 import { chargeSuperscript, gcd } from '@/content/generators/utils';
 import katex from 'katex';
 
@@ -1027,7 +1055,7 @@ describe('chem-compound-naming', () => {
 });
 
 describe('registry', () => {
-  it('registers all 41 generators under kebab-case ids matching their module contract', () => {
+  it('registers all 44 generators under kebab-case ids matching their module contract', () => {
     expect(Object.keys(GENERATORS).sort()).toEqual([
       'chem-compound-naming',
       'chem-electron-config',
@@ -1038,10 +1066,13 @@ describe('registry', () => {
       'flashcard-match',
       'math-algebra-manipulation',
       'math-angle-facts',
+      'math-binomial',
       'math-calculus',
+      'math-decimal-arithmetic',
       'math-fraction-arithmetic',
       'math-frequency-density',
       'math-indices',
+      'math-integer-operations',
       'math-linear-equation',
       'math-linear-sequence',
       'math-percent-of-amount',
@@ -1052,6 +1083,7 @@ describe('registry', () => {
       'math-shape-measure',
       'math-standard-form',
       'math-statistics',
+      'math-straight-line',
       'math-substitution',
       'math-vectors',
       'math-volume-surface-area',
@@ -2366,6 +2398,256 @@ describe('math-vectors', () => {
     for (let i = 0; i < 40; i++) {
       const out = GENERATORS['math-vectors'].generate(params, createRng(`mid:${i}`));
       expect(out.correct).not.toBe(colT([0, 0]));
+    }
+  });
+});
+
+const straightLineParams: StraightLineParams = straightLineSchema.parse({
+  gradients: [-4, -3, -2, -1, 1, 2, 3, 4, 5, 6],
+  intercepts: [-7, -5, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7],
+  xs: [1, 2, 3, 4, 5, 6],
+});
+
+/** Read a printed gradient back as a number — the sweep's independent half of the
+ *  perpendicular check (the generator's own formatter is not allowed to grade itself). */
+const printedGradient = (choice: string): number => {
+  if (choice === '$-1$') return -1;
+  if (choice === '$1$') return 1;
+  const parts = [...choice.matchAll(/\{(\d+)\}/g)];
+  const magnitude = Number(parts[parts.length - 1]?.[1]);
+  return choice.startsWith('$-\\dfrac') ? -1 / magnitude : 1 / magnitude;
+};
+
+describe('math-straight-line', () => {
+  it('rejects a zero gradient (a zero gradient is a horizontal line, not y = mx + c)', () => {
+    expect(straightLineSchema.safeParse({ gradients: [0], intercepts: [1], xs: [1, 2] }).success).toBe(false);
+  });
+
+  it('sweep: every answer is the straight-line fact the question asks for', () => {
+    sweep('math-straight-line', straightLineParams, drawStraightLine, buildStraightLine, (v) => {
+      if (v.mode === 'gradient-from-two-points') {
+        expect((v.y2 - v.y1) / (v.x2 - v.x1)).toBe(v.answerValue);
+        return `$${v.m}$`;
+      }
+      if (v.mode === 'y-intercept') return `$${v.c}$`;
+      if (v.mode === 'equation-from-gradient-and-intercept') return line(v.m, v.c);
+      if (v.mode === 'x-intercept') {
+        expect(v.m * v.answerValue + v.c).toBe(0);
+        return `$${fmtNumber(v.answerValue)}$`;
+      }
+      if (v.mode === 'parallel-through-point') {
+        const b = v.y1 - v.m * v.x1;
+        return line(v.m, b);
+      }
+      if (v.mode === 'perpendicular-gradient') {
+        expect(v.m * printedGradient(v.answer)).toBe(-1);
+        return negativeReciprocal(v.m);
+      }
+      if (v.mode === 'horizontal-line') return `$y = ${fmtNumber(v.y1)}$`;
+      if (v.mode === 'missing-coordinate') {
+        expect((v.y2 - v.answerValue) / (v.x2 - v.x1)).toBe(v.m);
+        return `$${fmtNumber(v.answerValue)}$`;
+      }
+      if (v.mode === 'point-on-line') {
+        expect(v.answerValue).toBeNaN();
+        expect(v.y1).toBe(v.m * v.x1 + v.c);
+        return `$(${fmtNumber(v.x1)}, ${fmtNumber(v.m * v.x1 + v.c)})$`;
+      }
+      return `$C = ${fmtNumber(v.rate)}h + ${fmtNumber(v.fee)}$`;
+    });
+  });
+
+  it('still offers three distinct distractors from a one-entry param table', () => {
+    // The regression for uniqueDistractors: the form-answer modes have a fixed candidate
+    // list, so a tiny table used to run out and throw mid-session.
+    const params: StraightLineParams = straightLineSchema.parse({ gradients: [1], intercepts: [1], xs: [1, 2] });
+    for (let i = 0; i < 60; i++) {
+      const out = GENERATORS['math-straight-line'].generate(params, createRng(`tiny:${i}`));
+      expect(new Set([out.correct, ...out.distractors]).size).toBe(4);
+    }
+  });
+
+  it('drops the x-intercept mode when no intercept is divisible by the gradient', () => {
+    const params: StraightLineParams = straightLineSchema.parse({
+      modes: ['x-intercept'],
+      gradients: [3],
+      intercepts: [4, 5, 7],
+      xs: [1, 2],
+    });
+    expect(() => drawStraightLine(params, createRng('xi:0'))).toThrow(/no mode is feasible/);
+  });
+});
+
+const binomialParams: BinomialParams = binomialSchema.parse({ ns: [3, 4, 5, 6, 7, 8], cs: [2, 3, 4, 5], ks: [2, 3, 4], rs: [1, 2, 3, 4, 5] });
+
+describe('math-binomial', () => {
+  it('computes nCr from factorials independently of the generator', () => {
+    expect(choose(6, 3)).toBe(20);
+    expect(choose(10, 8)).toBe(45);
+    expect(choose(5, 0)).toBe(1);
+    expect(pascalRow(4)).toBe('1, 4, 6, 4, 1');
+  });
+
+  it('sweep: every coefficient is recomputed from factorials', () => {
+    const factorial = (k: number): number => (k <= 1 ? 1 : k * factorial(k - 1));
+    const nCr = (n: number, r: number): number => Math.round(factorial(n) / (factorial(r) * factorial(n - r)));
+    sweep('math-binomial', binomialParams, drawBinomial, buildBinomial, (v) => {
+      if (v.mode === 'ncr') {
+        expect(v.answerValue).toBe(nCr(v.n, v.r));
+        return `$${fmtNumber(v.answerValue)}$`;
+      }
+      if (v.mode === 'term-count') return `$${fmtNumber(v.n + 1)}$`;
+      if (v.mode === 'coefficient-x-plus-c') {
+        expect(v.answerValue).toBe(nCr(v.n, v.r) * v.k ** (v.n - v.r));
+        return `$${fmtNumber(v.answerValue)}$`;
+      }
+      if (v.mode === 'coefficient-1-plus-kx') {
+        expect(v.answerValue).toBe(nCr(v.n, v.r) * v.k ** v.r);
+        return `$${fmtNumber(v.answerValue)}$`;
+      }
+      if (v.mode === 'coefficient-2x-plus-1') {
+        expect(v.answerValue).toBe(nCr(v.n, v.r) * 2 ** v.r);
+        return `$${fmtNumber(v.answerValue)}$`;
+      }
+      if (v.mode === 'pascal-row') {
+        const row = Array.from({ length: v.n + 1 }, (_, r) => nCr(v.n, r)).join(', ');
+        expect(v.answer).toBe(row);
+        return row;
+      }
+      if (v.mode === 'constant-term') {
+        const t = v.n / 2;
+        expect(nCr(v.n, t) * v.k ** t).toBe(v.answerValue);
+        return `$${fmtNumber(v.answerValue)}$`;
+      }
+      // sum-of-coefficients: (kx + 1)^n at x = 1
+      let sum = 0;
+      for (let r = 0; r <= v.n; r++) sum += nCr(v.n, r) * v.k ** r;
+      expect(v.answerValue).toBe(sum);
+      return `$${fmtNumber(sum)}$`;
+    });
+  });
+
+  it('never prints a fractional coefficient', () => {
+    for (let i = 0; i < 60; i++) {
+      const out = GENERATORS['math-binomial'].generate(binomialParams, createRng(`int:${i}`));
+      for (const choice of [out.correct, ...out.distractors]) expect(choice).not.toMatch(/dfrac|\.\d/);
+    }
+  });
+});
+
+const decimalParams: DecimalArithmeticParams = decimalSchema.parse({
+  hundredths: [246, 380, 437, 185, 245, 560, 700, 1250, 2405],
+  thousandths: [58, 34, 6246, 4500, 750, 125],
+  powers: [10, 100, 1000],
+  products: [
+    [6, 15],
+    [4, 25],
+    [8, 5],
+    [3, 12],
+  ],
+  quotients: [
+    [560, 7],
+    [450, 9],
+    [1260, 6],
+    [84, 4],
+  ],
+  fractions: [
+    [7, 20],
+    [3, 8],
+    [9, 25],
+    [13, 50],
+  ],
+});
+
+describe('math-decimal-arithmetic', () => {
+  it('drops the quotient mode when the decimal would not terminate', () => {
+    const params: DecimalArithmeticParams = decimalSchema.parse({
+      ...decimalParams,
+      modes: ['quotient'],
+      quotients: [[100, 3]],
+    });
+    expect(() => drawDecimal(params, createRng('q:0'))).toThrow(/no mode is feasible/);
+  });
+
+  it('sweep: the answer is recomputed from the scaled integers', () => {
+    sweep('math-decimal-arithmetic', decimalParams, drawDecimal, buildDecimal, (v) => {
+      if (v.mode === 'add') return fmtNumber((v.a + v.b) / 100);
+      if (v.mode === 'subtract') return fmtNumber((v.a - v.b) / 100);
+      if (v.mode === 'multiply-decimal-by-power') return fmtNumber((v.a * v.p) / 1000);
+      if (v.mode === 'divide-integer-by-power') return fmtNumber(v.a / v.p);
+      if (v.mode === 'product') return fmtNumber((v.a * v.b) / 1000);
+      if (v.mode === 'quotient') return fmtNumber(v.a / (10 * v.b));
+      if (v.mode === 'fraction-to-decimal') return fmtNumber(v.a / v.b);
+      return `£${fmtNumber(10 - (v.a + v.b) / 100)}`;
+    });
+  });
+
+  it('never offers a negative quantity of change', () => {
+    for (let i = 0; i < 60; i++) {
+      const out = GENERATORS['math-decimal-arithmetic'].generate(decimalParams, createRng(`change:${i}`));
+      if (out.stem.includes('change')) expect(Number(out.correct.replace('£', ''))).toBeGreaterThan(0);
+    }
+  });
+});
+
+const integerParams: IntegerOperationsParams = integerSchema.parse({
+  addends: [5748, 5236, 3748, 6205, 2478, 875, 672, 64, 15, 24],
+  factorsA: [34, 26, 64, 47],
+  factorsB: [7, 8, 9, 6],
+  divisors: [5, 16, 7, 12],
+  quotients: [175, 42, 86, 24],
+  bidmas: [
+    [5, 3, 6],
+    [8, 4, 3],
+    [12, 5, 6],
+  ],
+  brackets: [
+    [8, 4, 3, 5],
+    [6, 5, 4, 9],
+    [12, 3, 5, 7],
+  ],
+  powers: [
+    [3, 2, 3, 4],
+    [5, 3, 3, 2],
+    [7, 2, 4, 3],
+  ],
+});
+
+describe('math-integer-operations', () => {
+  it('sweep: every answer follows the printed numbers and the order of operations', () => {
+    sweep('math-integer-operations', integerParams, drawInteger, buildInteger, (v) => {
+      if (v.mode === 'place-value') {
+        const digit = Math.floor(v.a / v.place) % 10;
+        expect(v.answerValue).toBe(digit * v.place);
+        return `$${fmtNumber(digit * v.place)}$`;
+      }
+      if (v.mode === 'add') return `$${fmtNumber(v.a + v.b)}$`;
+      if (v.mode === 'subtract') {
+        expect(v.a).toBeGreaterThan(v.b);
+        return `$${fmtNumber(v.a - v.b)}$`;
+      }
+      if (v.mode === 'multiply') return `$${fmtNumber(v.a * v.b)}$`;
+      if (v.mode === 'divide') {
+        expect(v.a).toBe(v.b * v.answerValue);
+        return `$${fmtNumber(v.a / v.b)}$`;
+      }
+      if (v.mode === 'bidmas') {
+        expect(v.answerValue).toBe(v.a + v.b * v.c);
+        expect(v.answerValue).not.toBe((v.a + v.b) * v.c);
+        return `$${fmtNumber(v.a + v.b * v.c)}$`;
+      }
+      if (v.mode === 'brackets') return `$${fmtNumber((v.a + v.b) * v.c - v.d)}$`;
+      expect(v.answerValue).toBe(v.a + v.b ** v.d * v.c);
+      return `$${fmtNumber(v.a + v.b ** v.d * v.c)}$`;
+    });
+  });
+
+  it('keeps the place-value answer an integer, never a fraction of a place', () => {
+    for (let i = 0; i < 80; i++) {
+      const out = GENERATORS['math-integer-operations'].generate(integerParams, createRng(`pv:${i}`));
+      if (out.stem.startsWith('What is the value of the digit')) {
+        for (const choice of [out.correct, ...out.distractors]) expect(choice).toMatch(/^\$\d+\$$/);
+      }
     }
   });
 });

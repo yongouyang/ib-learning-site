@@ -325,5 +325,38 @@
       "explanation": "The general term is $\\binom9r x^{18-2r}x^{-r} = \\binom9r x^{18-3r}$. Setting $18 - 3r = 6$ gives $r = 4$.",
       "difficulty": "hard"
     }
+  ],
+  "templates":   [
+    {
+      "generator": "math-binomial",
+      "params": {
+        "ns": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "cs": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "ks": [
+          2,
+          3,
+          4
+        ],
+        "rs": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    }
   ]
 }
