@@ -25,6 +25,8 @@ import { mathIntegerOperations } from './math-integer-operations';
 import { mathNumberBases } from './math-number-bases';
 import { mathFactorsMultiples } from './math-factors-multiples';
 import { mathDirectedNumbers } from './math-directed-numbers';
+import { mathRatio } from './math-ratio';
+import { mathMeasures } from './math-measures';
 import { mathVolumeSurface } from './math-volume-surface-area';
 import { physVIr } from './phys-v-ir';
 import { physResistanceSeries } from './phys-resistance-series';
@@ -99,6 +101,8 @@ const all: QuestionGenerator<unknown>[] = [
   mathNumberBases,
   mathFactorsMultiples,
   mathDirectedNumbers,
+  mathRatio,
+  mathMeasures,
 ];
 
 export const GENERATORS: Record<string, QuestionGenerator<unknown>> = Object.fromEntries(

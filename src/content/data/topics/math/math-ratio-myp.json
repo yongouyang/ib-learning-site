@@ -317,5 +317,126 @@
       "explanation": "First batch: $5$ shares $= 700$ ml, so one share is $140$ ml and blue is $2 \\times 140 = 280$ ml. Second batch blue $= 3 \\times 280 = 840$ ml. Since blue is $2$ shares, one share is $420$ ml, so yellow is $5 \\times 420 = 2100$ ml.",
       "difficulty": "hard"
     }
+  ],
+  "templates":   [
+    {
+      "generator": "math-ratio",
+      "params": {
+        "ratios": [
+          [
+            3,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            72,
+            90
+          ],
+          [
+            6,
+            10
+          ]
+        ],
+        "amounts": [
+          168,
+          180,
+          240,
+          360
+        ],
+        "unitCases": [
+          [
+            9,
+            54
+          ],
+          [
+            4,
+            24
+          ],
+          [
+            6,
+            42
+          ],
+          [
+            5,
+            35
+          ]
+        ],
+        "quantities": [
+          13,
+          9,
+          7,
+          11
+        ],
+        "directCases": [
+          [
+            8,
+            28,
+            14
+          ],
+          [
+            5,
+            20,
+            9
+          ],
+          [
+            4,
+            18,
+            10
+          ]
+        ],
+        "inverseCases": [
+          [
+            5,
+            16,
+            10
+          ],
+          [
+            6,
+            12,
+            4
+          ],
+          [
+            8,
+            4,
+            16
+          ]
+        ],
+        "scales": [
+          40000,
+          25000,
+          50000,
+          100000
+        ],
+        "mapLengths": [
+          6,
+          4,
+          8,
+          3
+        ],
+        "factors": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          9
+        ]
+      }
+    }
   ]
 }

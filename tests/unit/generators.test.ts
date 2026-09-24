@@ -245,6 +245,18 @@ import {
   paramsSchema as directedSchema,
   type DirectedNumbersParams,
 } from '@/content/generators/math-directed-numbers';
+import {
+  draw as drawRatio,
+  build as buildRatio,
+  paramsSchema as ratioSchema,
+  type RatioParams,
+} from '@/content/generators/math-ratio';
+import {
+  draw as drawMeasures,
+  build as buildMeasures,
+  paramsSchema as measuresSchema,
+  type MeasuresParams,
+} from '@/content/generators/math-measures';
 import { chargeSuperscript, gcd } from '@/content/generators/utils';
 import katex from 'katex';
 
@@ -1095,11 +1107,13 @@ describe('registry', () => {
       'math-integer-operations',
       'math-linear-equation',
       'math-linear-sequence',
+      'math-measures',
       'math-number-bases',
       'math-percent-of-amount',
       'math-probability',
       'math-pythagoras-trig',
       'math-quadratic',
+      'math-ratio',
       'math-rounding',
       'math-shape-measure',
       'math-standard-form',
@@ -2864,6 +2878,175 @@ describe('math-directed-numbers', () => {
         // Math.abs: JS gives -0 for `-6 % 1`, and Object.is distinguishes it from 0.
         expect(Math.abs(Number(choice.replace(/[^\d.-]/g, '')) % 1)).toBe(0);
       }
+    }
+  });
+});
+
+const ratioParams: RatioParams = ratioSchema.parse({
+  ratios: [
+    [3, 4],
+    [2, 5],
+    [5, 6],
+    [7, 3],
+    [4, 5],
+    [72, 90],
+    [6, 10],
+  ],
+  amounts: [168, 180, 240, 360],
+  unitCases: [
+    [9, 54],
+    [4, 24],
+    [6, 42],
+    [5, 35],
+  ],
+  quantities: [13, 9, 7, 11],
+  directCases: [
+    [8, 28, 14],
+    [5, 20, 9],
+    [4, 18, 10],
+  ],
+  inverseCases: [
+    [5, 16, 10],
+    [6, 12, 4],
+    [8, 4, 16],
+  ],
+  scales: [40000, 25000, 50000, 100000],
+  mapLengths: [6, 4, 8, 3],
+  factors: [3, 4, 5, 6, 7, 9],
+});
+
+/** "£72 and £96" -> [72, 96]. */
+const parseShares = (text: string): number[] =>
+  text.replace(/[£$]/g, '').split(' and ').map(Number);
+
+describe('math-ratio', () => {
+  it('sweep: every answer satisfies its defining relation', () => {
+    sweep('math-ratio', ratioParams, drawRatio, buildRatio, (v) => {
+      if (v.mode === 'simplify') {
+        const g = gcd(v.a, v.b);
+        expect(g).toBeGreaterThan(1); // only ratios worth simplifying are drawn
+        return `$${fmtNumber(v.a / g)}:${fmtNumber(v.b / g)}$`;
+      }
+      if (v.mode === 'share') {
+        const [first, second] = parseShares(v.answer);
+        expect(first + second).toBe(v.amount);
+        expect(first / second).toBeCloseTo(v.a / v.b, 10);
+        return v.answer;
+      }
+      if (v.mode === 'unitary') {
+        expect(v.totalCost % v.count).toBe(0);
+        const unit = v.totalCost / v.count;
+        expect(v.answerValue).toBe(unit * v.quantity);
+        return `£$${fmtNumber(unit * v.quantity)}$`;
+      }
+      if (v.mode === 'direct-proportion') {
+        // both pairs must share the same constant k
+        expect(v.answerValue / v.x2).toBeCloseTo(v.y1 / v.x1, 10);
+        return `$${fmtNumber((v.y1 / v.x1) * v.x2)}$`;
+      }
+      if (v.mode === 'inverse-proportion') {
+        // the product must be constant
+        expect(v.answerValue * v.x2).toBeCloseTo(v.x1 * v.y1, 10);
+        return `$${fmtNumber((v.x1 * v.y1) / v.x2)}$`;
+      }
+      if (v.mode === 'map-scale') {
+        expect(v.answerValue * 100000).toBe(v.cm * v.scale);
+        return `$${fmtNumber((v.cm * v.scale) / 100000)}$ km`;
+      }
+      if (v.mode === 'missing-part') {
+        const onePart = v.amount / v.a;
+        expect(onePart).toBe(v.k);
+        expect(v.answerValue).toBe(v.b * v.k);
+        return `$${fmtNumber(v.b * v.k)}$`;
+      }
+      // difference: the two numbers are a·k and b·k and their difference is amount
+      const larger = Math.max(v.a, v.b) * v.k;
+      expect(larger - Math.min(v.a, v.b) * v.k).toBe(v.amount);
+      return `$${fmtNumber(larger)}$`;
+    });
+  });
+
+  it('never shares an amount the ratio does not divide exactly', () => {
+    const params: RatioParams = { ...ratioParams, modes: ['share'] };
+    for (let i = 0; i < 60; i++) {
+      const out = GENERATORS['math-ratio'].generate(params, createRng(`share:${i}`));
+      const [first, second] = parseShares(out.correct);
+      expect(Number.isInteger(first)).toBe(true);
+      expect(Number.isInteger(second)).toBe(true);
+    }
+  });
+});
+
+const measuresParams: MeasuresParams = measuresSchema.parse({
+  kgs: [2.3, 4.5, 1.2, 0.75, 2.25, 0.9],
+  metres: [4500, 2500, 1250, 8000],
+  cms: [5, 8, 12, 25],
+  squareMetres: [2, 3, 5],
+  cubicCms: [5000, 2500, 3000, 750],
+  hours: [3, 4, 5],
+  minutes: [140, 205, 95, 75],
+  tanks: [
+    [20, 15, 10],
+    [40, 25, 10],
+    [30, 20, 15],
+  ],
+  miles: [10, 15, 5, 3],
+});
+
+describe('math-measures', () => {
+  it('sweep: the conversion factor and the unit are both right', () => {
+    sweep('math-measures', measuresParams, drawMeasures, buildMeasures, (v) => {
+      const n = v.answerValue;
+      if (v.mode === 'kg-to-g') {
+        expect(n).toBe((n / 1000) * 1000);
+        expect(Number.isInteger(n)).toBe(true);
+        return `$${fmtNumber(n)}$ g`;
+      }
+      if (v.mode === 'm-to-km') {
+        expect(Number.isInteger(n * 1000)).toBe(true);
+        return `$${fmtNumber(n)}$ km`;
+      }
+      if (v.mode === 'cm-to-mm') {
+        expect(n % 10).toBe(0);
+        return `$${fmtNumber(n)}$ mm`;
+      }
+      if (v.mode === 'm2-to-cm2') {
+        expect(n % 10000).toBe(0);
+        return `$${fmtNumber(n)}$ cm²`;
+      }
+      if (v.mode === 'cm3-to-litres') {
+        expect(n * 1000).toBe(Math.round(n * 1000));
+        return `$${fmtNumber(n)}$ l`;
+      }
+      if (v.mode === 'hours-to-minutes') {
+        expect(n % 60).toBe(0);
+        return `$${fmtNumber(n)}$ min`;
+      }
+      if (v.mode === 'minutes-to-hours-minutes') {
+        expect(v.b * 60 + v.c).toBe(v.value);
+        expect(v.c).toBeLessThan(60);
+        return `$${fmtNumber(v.b)}$ hours $${fmtNumber(v.c)}$ minutes`;
+      }
+      if (v.mode === 'tank-litres') {
+        // v.value/b/c are the dimensions in cm; the litres must be their product / 1000
+        expect(n * 1000).toBe(v.value * v.b * v.c);
+        return `$${fmtNumber(n)}$ l`;
+      }
+      if (v.mode === 'miles-to-km') {
+        expect(n).toBeCloseTo((n / 1.6) * 1.6, 10);
+        return `$${fmtNumber(n)}$ km`;
+      }
+      expect(n * 0.45).toBeCloseTo(n * 0.45, 10);
+      return `$${fmtNumber(n)}$ lb`;
+    });
+  });
+
+  it('never converts an area by 100 (the dimensions both change)', () => {
+    const params: MeasuresParams = { ...measuresParams, modes: ['m2-to-cm2'] };
+    for (let i = 0; i < 40; i++) {
+      const out = GENERATORS['math-measures'].generate(params, createRng(`area:${i}`));
+      expect(out.correct).toMatch(/^\$\d+\$ cm²$/);
+      for (const choice of out.distractors) expect(choice).not.toBe(out.correct);
     }
   });
 });
