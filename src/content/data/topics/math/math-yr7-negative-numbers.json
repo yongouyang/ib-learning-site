@@ -317,5 +317,61 @@
       "explanation": "Depositing adds money and withdrawing subtracts money: $-50 + 120 - 85$. Working left to right, $-50 + 120 = 70$, then $70 - 85 = -15$. The final balance is −＄15.",
       "difficulty": "hard"
     }
+  ],
+  "templates":   [
+    {
+      "generator": "math-directed-numbers",
+      "params": {
+        "values": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9,
+          12,
+          20,
+          36
+        ],
+        "bidmas": [
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            5,
+            4,
+            3
+          ],
+          [
+            10,
+            2,
+            6
+          ]
+        ],
+        "temperatures": [
+          8,
+          12,
+          15
+        ],
+        "rises": [
+          13,
+          17,
+          20
+        ],
+        "depths": [
+          45,
+          60,
+          30
+        ],
+        "dives": [
+          28,
+          15,
+          40
+        ]
+      }
+    }
   ]
 }

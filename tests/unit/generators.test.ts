@@ -227,6 +227,24 @@ import {
   paramsSchema as integerSchema,
   type IntegerOperationsParams,
 } from '@/content/generators/math-integer-operations';
+import {
+  draw as drawNumberBases,
+  build as buildNumberBases,
+  paramsSchema as numberBasesSchema,
+  type NumberBasesParams,
+} from '@/content/generators/math-number-bases';
+import {
+  draw as drawFactors,
+  build as buildFactors,
+  paramsSchema as factorsSchema,
+  type FactorsMultiplesParams,
+} from '@/content/generators/math-factors-multiples';
+import {
+  draw as drawDirected,
+  build as buildDirected,
+  paramsSchema as directedSchema,
+  type DirectedNumbersParams,
+} from '@/content/generators/math-directed-numbers';
 import { chargeSuperscript, gcd } from '@/content/generators/utils';
 import katex from 'katex';
 
@@ -1069,12 +1087,15 @@ describe('registry', () => {
       'math-binomial',
       'math-calculus',
       'math-decimal-arithmetic',
+      'math-directed-numbers',
+      'math-factors-multiples',
       'math-fraction-arithmetic',
       'math-frequency-density',
       'math-indices',
       'math-integer-operations',
       'math-linear-equation',
       'math-linear-sequence',
+      'math-number-bases',
       'math-percent-of-amount',
       'math-probability',
       'math-pythagoras-trig',
@@ -2647,6 +2668,201 @@ describe('math-integer-operations', () => {
       const out = GENERATORS['math-integer-operations'].generate(integerParams, createRng(`pv:${i}`));
       if (out.stem.startsWith('What is the value of the digit')) {
         for (const choice of [out.correct, ...out.distractors]) expect(choice).toMatch(/^\$\d+\$$/);
+      }
+    }
+  });
+});
+
+const numberBasesParams: NumberBasesParams = numberBasesSchema.parse({
+  binaries: ['1011', '11010', '101101', '1000000', '11001', '110010'],
+  decimals: [25, 50, 77, 11, 26, 45],
+  bits: [2, 3, 4, 5, 6, 8, 10],
+  hexDigits: ['A', 'B', 'C', 'D', 'E', 'F'],
+});
+
+describe('math-number-bases', () => {
+  it('rejects a "binary" string that is not binary', () => {
+    expect(numberBasesSchema.safeParse({ binaries: ['1201'], decimals: [1, 2] }).success).toBe(false);
+  });
+
+  it('sweep: every answer is the engine-level conversion, not a table lookup', () => {
+    sweep('math-number-bases', numberBasesParams, drawNumberBases, buildNumberBases, (v) => {
+      if (v.mode === 'binary-to-decimal') {
+        expect(v.answerValue).toBe(Number.parseInt(v.binary, 2));
+        return `$${Number.parseInt(v.binary, 2)}$`;
+      }
+      if (v.mode === 'decimal-to-binary') {
+        return `$${v.decimal.toString(2)}_2$`;
+      }
+      if (v.mode === 'place-value') {
+        expect(v.answerValue).toBe(2 ** (v.exponent + 1));
+        return `$${2 ** (v.exponent + 1)}$`;
+      }
+      if (v.mode === 'max-with-bits') {
+        expect(v.answerValue).toBe(2 ** v.exponent - 1);
+        return `$${2 ** v.exponent - 1}$`;
+      }
+      if (v.mode === 'hex-digit-value') {
+        expect(v.answerValue).toBe(Number.parseInt(v.hex, 16));
+        return `$${Number.parseInt(v.hex, 16)}$`;
+      }
+      // hex-to-binary: the printed four bits must parse back to the digit
+      expect(Number.parseInt(v.binary, 2)).toBe(Number.parseInt(v.hex, 16));
+      expect(v.binary).toHaveLength(4);
+      return `$${Number.parseInt(v.hex, 16).toString(2).padStart(4, '0')}_2$`;
+    });
+  });
+});
+
+const factorsParams: FactorsMultiplesParams = factorsSchema.parse({
+  composites: [48, 60, 72, 100, 36, 90, 84, 126, 20, 42],
+  pairs: [
+    [18, 30],
+    [6, 10],
+    [36, 60],
+    [12, 18],
+    [24, 30],
+    [8, 12],
+  ],
+  multiples: [8, 6, 7, 9, 12],
+  bounds: [50, 40, 100, 30, 25],
+  numbers: [21, 35, 49, 51, 77, 121, 39],
+  squares: [144, 81, 100, 49, 36, 64],
+});
+
+describe('math-factors-multiples', () => {
+  const isPrime = (n: number): boolean => {
+    if (n < 2) return false;
+    for (let d = 2; d * d <= n; d++) if (n % d === 0) return false;
+    return true;
+  };
+  const factorCount = (n: number): number => {
+    let count = 0;
+    for (let d = 1; d <= n; d++) if (n % d === 0) count++;
+    return count;
+  };
+  const maxCommonDivisor = (a: number, b: number): number => {
+    let best = 1;
+    for (let d = 2; d <= Math.min(a, b); d++) if (a % d === 0 && b % d === 0) best = d;
+    return best;
+  };
+  const firstCommonMultiple = (a: number, b: number): number => {
+    for (let k = Math.max(a, b); ; k++) if (k % a === 0 && k % b === 0) return k;
+  };
+
+  it('sweep: factorisations multiply back, lists are complete, HCF/LCM are recomputed', () => {
+    sweep('math-factors-multiples', factorsParams, drawFactors, buildFactors, (v) => {
+      if (v.mode === 'prime-factorisation') {
+        // Independent check: parse the printed product back and require it to equal n with
+        // every base prime. A missing or extra prime cannot survive this.
+        const terms = v.answer.replace(/^\$|\$$/g, '').split(' \\times ');
+        let product = 1;
+        for (const term of terms) {
+          const power = /^(\d+)\^\{(\d+)\}$/.exec(term);
+          const [base, exponent] = power ? [Number(power[1]), Number(power[2])] : [Number(term), 1];
+          expect(isPrime(base)).toBe(true);
+          product *= base ** exponent;
+        }
+        expect(product).toBe(v.n);
+        return v.answer;
+      }
+      if (v.mode === 'factors-list') {
+        const list = v.answer.split(', ').map(Number);
+        expect(list).toEqual([...list].sort((a, b) => a - b));
+        expect(new Set(list).size).toBe(list.length);
+        for (const factor of list) expect(v.n % factor).toBe(0);
+        expect(list.length).toBe(factorCount(v.n));
+        return v.answer;
+      }
+      if (v.mode === 'hcf') {
+        expect(v.answerValue).toBe(maxCommonDivisor(v.a, v.b));
+        return `$${v.answerValue}$`;
+      }
+      if (v.mode === 'lcm') {
+        expect(v.answerValue).toBe(firstCommonMultiple(v.a, v.b));
+        return `$${v.answerValue}$`;
+      }
+      if (v.mode === 'first-multiple-above') {
+        expect(v.answerValue % v.multiple).toBe(0);
+        expect(v.answerValue).toBeGreaterThan(v.bound);
+        expect(v.answerValue - v.multiple).toBeLessThanOrEqual(v.bound);
+        return `$${v.answerValue}$`;
+      }
+      if (v.mode === 'smallest-prime-factor') {
+        let spf = v.n;
+        for (let p = 2; p <= v.n; p++) if (v.n % p === 0 && isPrime(p)) { spf = p; break; }
+        expect(v.answerValue).toBe(spf);
+        return `$${v.answerValue}$`;
+      }
+      expect(v.answerValue * v.answerValue).toBe(v.n);
+      return `$${v.answerValue}$`;
+    });
+  });
+
+  it('never prints a fractional distractor in the integer modes', () => {
+    for (let i = 0; i < 80; i++) {
+      const out = GENERATORS['math-factors-multiples'].generate(factorsParams, createRng(`int:${i}`));
+      if (out.stem.startsWith('What is the prime factorisation') || out.stem.startsWith('Which list shows')) continue;
+      for (const choice of [out.correct, ...out.distractors]) expect(choice).toMatch(/^\$\d+\$$/);
+    }
+  });
+});
+
+const directedParams: DirectedNumbersParams = directedSchema.parse({
+  values: [2, 3, 4, 5, 6, 8, 9, 12, 20, 36],
+  bidmas: [
+    [2, 3, 4],
+    [5, 4, 3],
+    [10, 2, 6],
+  ],
+  temperatures: [8, 12, 15],
+  rises: [13, 17, 20],
+  depths: [45, 60, 30],
+  dives: [28, 15, 40],
+});
+
+describe('math-directed-numbers', () => {
+  it('sweep: the printed expression and the answer always agree in sign', () => {
+    sweep('math-directed-numbers', directedParams, drawDirected, buildDirected, (v) => {
+      const degC = (n: number): string => `$${fmtNumber(n)}^\\circ\\text{C}$`;
+      if (v.mode === 'add') {
+        expect(v.answerValue).toBe(v.a + v.b);
+        return `$${fmtNumber(v.a + v.b)}$`;
+      }
+      if (v.mode === 'subtract') {
+        expect(v.answerValue).toBe(v.a - v.b);
+        return `$${fmtNumber(v.a - v.b)}$`;
+      }
+      if (v.mode === 'multiply') {
+        expect(v.answerValue).toBe(v.a * v.b);
+        return `$${fmtNumber(v.a * v.b)}$`;
+      }
+      if (v.mode === 'divide') {
+        expect(v.answerValue).toBe(v.a / v.b);
+        expect(Number.isInteger(v.answerValue)).toBe(true);
+        return `$${fmtNumber(v.a / v.b)}$`;
+      }
+      if (v.mode === 'bidmas') {
+        expect(v.answerValue).toBe(v.a + v.b * v.c);
+        expect(v.b).toBeLessThan(0);
+        return `$${fmtNumber(v.a + v.b * v.c)}$`;
+      }
+      if (v.mode === 'temperature') {
+        expect(v.answerValue).toBe(v.a + v.b);
+        return degC(v.a + v.b);
+      }
+      expect(v.answerValue).toBe(v.a + v.b);
+      return `$${fmtNumber(v.a + v.b)}$ metres`;
+    });
+  });
+
+  it('always divides exactly, so no answer is a recurring decimal', () => {
+    const params: DirectedNumbersParams = { ...directedParams, modes: ['divide'] };
+    for (let i = 0; i < 60; i++) {
+      const out = GENERATORS['math-directed-numbers'].generate(params, createRng(`div:${i}`));
+      for (const choice of [out.correct, ...out.distractors]) {
+        // Math.abs: JS gives -0 for `-6 % 1`, and Object.is distinguishes it from 0.
+        expect(Math.abs(Number(choice.replace(/[^\d.-]/g, '')) % 1)).toBe(0);
       }
     }
   });

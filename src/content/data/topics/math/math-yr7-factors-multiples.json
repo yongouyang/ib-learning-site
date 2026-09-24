@@ -317,5 +317,81 @@
       "explanation": "The largest square that divides both 24 and 30 exactly has side length equal to the HCF of 24 and 30. Factors of 24 are 1, 2, 3, 4, 6, 8, 12, 24; factors of 30 are 1, 2, 3, 5, 6, 10, 15, 30. The HCF is 6 m.",
       "difficulty": "hard"
     }
+  ],
+  "templates":   [
+    {
+      "generator": "math-factors-multiples",
+      "params": {
+        "composites": [
+          48,
+          60,
+          72,
+          100,
+          36,
+          90,
+          84,
+          126,
+          20,
+          42
+        ],
+        "pairs": [
+          [
+            18,
+            30
+          ],
+          [
+            6,
+            10
+          ],
+          [
+            36,
+            60
+          ],
+          [
+            12,
+            18
+          ],
+          [
+            24,
+            30
+          ],
+          [
+            8,
+            12
+          ]
+        ],
+        "multiples": [
+          8,
+          6,
+          7,
+          9,
+          12
+        ],
+        "bounds": [
+          50,
+          40,
+          100,
+          30,
+          25
+        ],
+        "numbers": [
+          21,
+          35,
+          49,
+          51,
+          77,
+          121,
+          39
+        ],
+        "squares": [
+          144,
+          81,
+          100,
+          49,
+          36,
+          64
+        ]
+      }
+    }
   ]
 }

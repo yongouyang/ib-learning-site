@@ -317,5 +317,45 @@
       "explanation": "The single $1$ is in the seventh place from the right, worth $2^6 = 64$. Each extra zero on the right doubles the value: $1, 10_2 = 2, 100_2 = 4, \\ldots, 1000000_2 = 64$.",
       "difficulty": "medium"
     }
+  ],
+  "templates":   [
+    {
+      "generator": "math-number-bases",
+      "params": {
+        "binaries": [
+          "1011",
+          "11010",
+          "101101",
+          "1000000",
+          "11001",
+          "110010"
+        ],
+        "decimals": [
+          25,
+          50,
+          77,
+          11,
+          26,
+          45
+        ],
+        "bits": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          10
+        ],
+        "hexDigits": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ]
+      }
+    }
   ]
 }

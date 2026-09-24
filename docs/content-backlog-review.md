@@ -23,7 +23,7 @@ Read this with `docs/CONTENT_STYLE.md` (the authoring standard) and
 | Paper sets | **31** across 15 courses | 14 courses × 2 + `math-igcse` × 3 |
 | Free-response questions | **251** | 620 markscheme points; every set totals exactly 20 marks |
 | Illustrations | **430 SVG files**, **449 illustrated notes** | 0 orphans, 0 dangling references, **0 topics with no figure** |
-| Question generators | **44** in `src/content/generators/` | **all 44 are wired into content**, in **198 topics / 217 placements** |
+| Question generators | **47** in `src/content/generators/` | **all 47 are wired into content**, in **201 topics / 220 placements** |
 | Indexable / noindex pages | **352 / 580** | `verify:sitemaps` on the 2026-09-22 `build:static` (937 prerendered, 352 sitemap URLs all live + indexable, titles unique) |
 
 Per subject (topics / notes illustrated / templated):
@@ -105,20 +105,21 @@ Also note the language subjects are a genuine exception, not a backlog item: chi
 german are vocab-table notes plus bilingual flashcards — a picture per note buys less
 there than in history/geography/ICT.
 
-### C. Templates — 198 of 245 topics carry a template; the last 47 need more generators
+### C. Templates — 201 of 245 topics carry a template; the last 44 need more generators
 
 **Measured 2026-09-23, after five sessions of generator work** (the last batch: straight-line
 graphs, binomial, decimal arithmetic and whole-number/BIDMAS operations — 4 generators, 6 maths
 topics). The count is reproducible: `Object.keys(GENERATORS).length`, and a walk of
 `templates[]` across the 245 topic files. **The "41" this doc and the test title carried until
 now was an off-by-one** — the registry held 40 generators, never 41; the measured number is
-now **44** with all four additions wired.
+now **47** with these additions and the number-bases / factors-multiples / directed-numbers
+batch wired.
 
 | | value |
 |---|---|
-| generators | **44**, every one wired |
-| topics with a template | **198 of 245** (217 placements) |
-| unwired topics | **47** — maths 35, chemistry 8, physics 4 |
+| generators | **47**, every one wired |
+| topics with a template | **201 of 245** (220 placements) |
+| unwired topics | **44** — maths 32, chemistry 8, physics 4 |
 
 **What closed in the last two sessions:**
 
@@ -171,7 +172,7 @@ Design rules the generators share (the reason the answers can be trusted):
   what lets a prose deck (174–210 character definitions, short terms) still drill in the
   definition→term direction.
 
-**What the last 47 topics need** (each row's hosts were checked by READING their question sets,
+**What the last 44 topics need** (each row's hosts were checked by READING their question sets,
 not inferred — an earlier version of this table lumped circle theorems in with angle facts and
 called surds unmechanizable, both wrong. The 2026-09-23 batch also showed the decimal row below
 was two different skills: `math-yr7-decimals` is decimal place value and computation, while
@@ -184,11 +185,8 @@ generators — `math-decimal-arithmetic` and `math-integer-operations`):
 | trig beyond 30/60 (exact-angle identities, the sine/cosine rule, area of a triangle) | `math-igcse-trig-advanced`, `math-dp-aa-trig-identities-equations`, `math-dp-ai-trig` | 3 |
 | matrices (order, add/multiply, determinant, singular value) | `math-dp-ai-matrices` | 1 |
 | surds (simplify, multiply/divide, add like terms) | `math-yr9-surds` | 1 |
-| number bases (binary ↔ decimal both ways, place value) | `math-yr7-number-bases` | 1 |
 | ratio and proportion (simplify a ratio, share in a ratio, direct/inverse proportion) | `math-ratio-myp` | 1 |
-| factors, multiples and primes (HCF, LCM, prime factorisation) | `math-yr7-factors-multiples` | 1 |
 | measures and conversions (length, mass, capacity, metric ↔ metric) | `math-yr7-measures-conversions` | 1 |
-| directed numbers (add, subtract, multiply, divide with negatives) | `math-yr7-negative-numbers` | 1 |
 | similar shapes (scale factor, missing side) | `math-yr8-congruence-similarity` | 1 |
 | graph features of a quadratic (vertex, axis, roots) — extends the existing quadratic generator | `math-yr9-quadratic-graphs` | 1 |
 | linear inequalities (solve, and the sign flip) — extends the existing linear-equation generator | `math-inequalities-myp` | 1 |
@@ -196,7 +194,7 @@ generators — `math-decimal-arithmetic` and `math-integer-operations`):
 | physics formulas still missing (refraction/snell, weight W = mg, orbital period) | `phys-light-1`, `phys-space-1`, `phys-magnetism-1` | 3 |
 | **not parameterizable** — constructions and loci, nets of 3-D shapes, describing a transformation, bearings and scale drawing, correlation description, Venn/set notation with prose, DP AA/AI specials (Voronoi, graph theory, Poisson, hypothesis testing, distributions, complex numbers, kinematics, correlation-regression, DP functions, DP trig identities) | the remaining topics | ~30 |
 
-So the honest position: **~17 of the last 47 topics are reachable by ~10 more generators of the
+So the honest position: **~17 of the last 44 topics are reachable by ~10 more generators of the
 same kind** (pure arithmetic, exact by construction — several are table-driven like the chemistry
 ones), while **~30 are not parameterizable at all** (constructions, nets, diagram description,
 hypothesis testing, the DP AI specials) and are variant-group authoring work. Nothing here blocks
@@ -331,7 +329,7 @@ That pass needs an export; it is not blocked by anything above and changes none 
 2. **C (templates) — 198 of 245 topics, 44 generators, all wired.** The quadratic solver, the
    flashcard-fed drill, the angle-facts / probability / Pythagoras-trig / calculus / vectors
    generators and the straight-line / binomial / decimal / whole-number batch closed the items
-   this section named. The last 47 topics are tabulated in §2.C with the host topics VERIFIED by
+   this section named. The last 44 topics are tabulated in §2.C with the host topics VERIFIED by
    reading their questions: ~17 need ~10 more generators, ~30 are not parameterizable and need
    authored variant groups.
 3. **B (illustrations) — DONE 2026-09-20.** Standard settled at **≥1 figure per topic**; no

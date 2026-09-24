@@ -22,6 +22,9 @@ import { mathStraightLine } from './math-straight-line';
 import { mathBinomial } from './math-binomial';
 import { mathDecimalArithmetic } from './math-decimal-arithmetic';
 import { mathIntegerOperations } from './math-integer-operations';
+import { mathNumberBases } from './math-number-bases';
+import { mathFactorsMultiples } from './math-factors-multiples';
+import { mathDirectedNumbers } from './math-directed-numbers';
 import { mathVolumeSurface } from './math-volume-surface-area';
 import { physVIr } from './phys-v-ir';
 import { physResistanceSeries } from './phys-resistance-series';
@@ -93,6 +96,9 @@ const all: QuestionGenerator<unknown>[] = [
   mathBinomial,
   mathDecimalArithmetic,
   mathIntegerOperations,
+  mathNumberBases,
+  mathFactorsMultiples,
+  mathDirectedNumbers,
 ];
 
 export const GENERATORS: Record<string, QuestionGenerator<unknown>> = Object.fromEntries(
