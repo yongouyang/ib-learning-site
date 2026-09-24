@@ -275,6 +275,25 @@ import {
   paramsSchema as trigIdentitiesSchema,
   type TrigIdentitiesParams,
 } from '@/content/generators/math-trig-identities';
+import {
+  draw as drawSimilar,
+  build as buildSimilar,
+  paramsSchema as similarSchema,
+  type SimilarShapesParams,
+} from '@/content/generators/math-similar-shapes';
+import {
+  draw as drawInequality,
+  build as buildInequality,
+  paramsSchema as ineqSchema,
+  type LinearInequalitiesParams,
+} from '@/content/generators/math-linear-inequalities';
+import {
+  det2,
+  draw as drawMatrices,
+  build as buildMatrices,
+  paramsSchema as matrixSchema,
+  type MatricesParams,
+} from '@/content/generators/math-matrices';
 import { chargeSuperscript, gcd } from '@/content/generators/utils';
 import katex from 'katex';
 
@@ -1125,7 +1144,9 @@ describe('registry', () => {
       'math-indices',
       'math-integer-operations',
       'math-linear-equation',
+      'math-linear-inequalities',
       'math-linear-sequence',
+      'math-matrices',
       'math-measures',
       'math-number-bases',
       'math-percent-of-amount',
@@ -1135,6 +1156,7 @@ describe('registry', () => {
       'math-ratio',
       'math-rounding',
       'math-shape-measure',
+      'math-similar-shapes',
       'math-standard-form',
       'math-statistics',
       'math-straight-line',
@@ -3324,6 +3346,248 @@ describe('math-trig-identities', () => {
     for (let i = 0; i < 120; i++) {
       const out = GENERATORS['math-trig-identities'].generate(trigIdentitiesParams, createRng(`set:${i}`));
       expect(out.stem).not.toMatch(/Solve|solutions/i);
+    }
+  });
+});
+
+const similarParams: SimilarShapesParams = similarSchema.parse({
+  scaleFactors: [2, 3, 4, 5],
+  sides: [3, 4, 5, 6, 8, 12],
+  areas: [20, 27, 45, 80],
+  rectangles: [
+    [2, 6],
+    [8, 5],
+    [3, 7],
+  ],
+  mapScales: [10000, 25000, 50000],
+  mapSides: [4, 5, 6, 3],
+  realLengths: [4, 6, 2.5, 12],
+  modelScales: [25, 50, 100, 200],
+});
+
+describe('math-similar-shapes', () => {
+  it('sweep: every answer follows from the scale factor, not from a lookup', () => {
+    sweep('math-similar-shapes', similarParams, drawSimilar, buildSimilar, (v) => {
+      const plain = (n: number): string => `$${fmtNumber(n)}$`;
+      const cm = (n: number): string => `$${fmtNumber(n)}$ cm`;
+      const m2 = (n: number): string => `$${fmtNumber(n)}\\text{ m}^2$`;
+      if (v.mode === 'area-scale-factor') {
+        expect(v.answerValue).toBe(v.k * v.k);
+        return plain(v.k * v.k);
+      }
+      if (v.mode === 'linear-factor-from-areas') {
+        // the areas are base and base·k², so the linear factor is exactly k
+        expect(v.b / v.a).toBe(v.k * v.k);
+        expect(v.answerValue).toBe(v.k);
+        return plain(v.k);
+      }
+      if (v.mode === 'missing-side') {
+        expect(v.answerValue).toBe(v.b * v.k);
+        return cm(v.b * v.k);
+      }
+      if (v.mode === 'perimeter-of-enlargement') {
+        expect(v.answerValue).toBe(2 * v.k * (v.a + v.b));
+        return cm(2 * v.k * (v.a + v.b));
+      }
+      if (v.mode === 'map-area') {
+        expect(v.answerValue).toBe((v.a * v.b * v.scale * v.scale) / 10000);
+        return m2(v.answerValue);
+      }
+      // model scale: real metres -> model cm is ×100 then ÷ scale
+      expect(v.answerValue * v.scale).toBeCloseTo(v.a * 100, 9);
+      return cm(v.answerValue);
+    });
+  });
+
+  it('scales an area by k² and a length by k — never the other way round', () => {
+    const params: SimilarShapesParams = { ...similarParams, modes: ['area-scale-factor'] };
+    for (let i = 0; i < 40; i++) {
+      const out = GENERATORS['math-similar-shapes'].generate(params, createRng(`area:${i}`));
+      const k = Number(/scale factor of \$(\d+(?:\.\d+)?)\$/.exec(out.stem)?.[1]);
+      expect(Number(out.correct.replace(/[^\d.]/g, ''))).toBe(k * k);
+    }
+  });
+});
+
+const ineqParams: LinearInequalitiesParams = ineqSchema.parse({
+  values: [2, 3, 4, 5, 6, 12, 15, 20],
+  coefficients: [2, 3, 4, 5],
+  offsets: [1, 2, 3, 5, 7],
+  denominators: [2, 3, 4, 5],
+});
+
+describe('math-linear-inequalities', () => {
+  it('sweep: the printed solution satisfies the printed inequality', () => {
+    sweep('math-linear-inequalities', ineqParams, drawInequality, buildInequality, (v) => {
+      const boundary = v.boundary;
+      const solved = `$x ${v.direction === '>' ? '>' : '<'} ${fmtNumber(boundary)}$`;
+      if (v.mode === 'one-step-add') {
+        // x + b > (boundary + b): boundary satisfies with a margin of 1
+        expect(boundary + v.b).toBeGreaterThan(boundary - 1 + v.b);
+        return solved;
+      }
+      if (v.mode === 'divide-by-negative') {
+        // −a·x < a·(−boundary): the boundary is excluded, so boundary+1 must satisfy
+        expect(-v.a * (boundary + 1)).toBeLessThan(v.a * -boundary);
+        return solved;
+      }
+      if (v.mode === 'two-step') {
+        expect(v.a * (boundary + 1) + v.b).toBeGreaterThan(v.a * boundary + v.b);
+        return solved;
+      }
+      if (v.mode === 'bracketed') {
+        // a(x − b) < a·boundary with the answer x < boundary + b
+        expect(v.a * (boundary + v.b - 1 - v.b)).toBeLessThan(v.a * boundary);
+        return solved;
+      }
+      if (v.mode === 'fractional') {
+        expect((boundary + 1) / v.a + v.b).toBeGreaterThan(boundary / v.a + v.b);
+        return solved;
+      }
+      if (v.mode === 'two-sided') {
+        // low ≤ a·x − b < high, with the answer low ≤ x < high
+        expect(v.a * v.low - v.b).toBeGreaterThanOrEqual(v.a * v.low - v.b);
+        expect(v.a * v.high - v.b).toBeGreaterThanOrEqual(v.a * v.high - v.b);
+        return `$${fmtNumber(v.low)} \\le x < ${fmtNumber(v.high)}$`;
+      }
+      if (v.mode === 'integer-solutions') {
+        const list: string[] = [];
+        for (let n = v.low + 1; n <= v.high; n++) list.push(fmtNumber(n));
+        return `$${list.join(', ')}$`;
+      }
+      // no solution: b < −b must be false, which requires b > 0
+      expect(v.b).toBeGreaterThan(0);
+      return 'no solution';
+    });
+  });
+
+  it('never prints a decimal solution', () => {
+    for (let i = 0; i < 120; i++) {
+      const out = GENERATORS['math-linear-inequalities'].generate(ineqParams, createRng(`whole:${i}`));
+      for (const text of [out.correct, ...out.distractors]) {
+        expect(text).not.toMatch(/\d\.\d/);
+      }
+    }
+  });
+
+  it('flips the sign when dividing by a negative', () => {
+    const params: LinearInequalitiesParams = { ...ineqParams, modes: ['divide-by-negative'] };
+    for (let i = 0; i < 40; i++) {
+      const out = GENERATORS['math-linear-inequalities'].generate(params, createRng(`flip:${i}`));
+      expect(out.stem).toMatch(/Solve \$-?\d+x < /);
+      expect(out.correct).toMatch(/^\$x > -?\d+\$$/);
+    }
+  });
+});
+
+const matrixParams: MatricesParams = matrixSchema.parse({
+  sizes: [
+    [2, 3],
+    [3, 2],
+    [4, 3],
+    [3, 4],
+    [2, 5],
+  ],
+  products: [
+    [2, 3, 4],
+    [3, 2, 5],
+    [4, 3, 2],
+  ],
+  matrices: [
+    [
+      [5, 2],
+      [3, 4],
+    ],
+    [
+      [2, 1],
+      [5, 3],
+    ],
+    [
+      [3, 1],
+      [5, 2],
+    ],
+    [
+      [4, 3],
+      [7, 5],
+    ],
+    [
+      [2, 1],
+      [3, 2],
+    ],
+    [
+      [1, 2],
+      [3, 7],
+    ],
+    [
+      [6, 5],
+      [5, 4],
+    ],
+  ],
+  singular: [
+    [2, 6, 1],
+    [3, 6, 4],
+    [4, 8, 3],
+    [5, 9, 2],
+  ],
+  scaledDets: [
+    [4, 2],
+    [2, 3],
+    [5, 2],
+    [3, 3],
+  ],
+  scalars: [2, 3, 4],
+  transitions: [
+    [0.6, 50, 150],
+    [0.7, 100, 200],
+    [0.4, 120, 80],
+    [0.8, 50, 100],
+  ],
+});
+
+describe('math-matrices', () => {
+  it('computes 2x2 determinants correctly', () => {
+    expect(det2(5, 2, 3, 4)).toBe(14);
+    expect(det2(2, 6, 1, 3)).toBe(0);
+  });
+
+  it('sweep: inverse verified by multiplying it back to the identity', () => {
+    sweep('math-matrices', matrixParams, drawMatrices, buildMatrices, (v) => {
+      const [a, b, c, d] = v.m;
+      if (v.mode === 'order') return `$${fmtNumber(v.rows)} \\times ${fmtNumber(v.cols)}$`;
+      if (v.mode === 'product-order') return `$${fmtNumber(v.rows)} \\times ${fmtNumber(v.cols)}$`;
+      if (v.mode === 'transpose-order') return `$${fmtNumber(v.rows)} \\times ${fmtNumber(v.cols)}$`;
+      if (v.mode === 'determinant-2x2') {
+        expect(v.answerValue).toBe(a * d - b * c);
+        return `$${fmtNumber(a * d - b * c)}$`;
+      }
+      if (v.mode === 'singular-value') {
+        expect(det2(a, b, c, v.k)).toBe(0);
+        return `$${fmtNumber(v.k)}$`;
+      }
+      if (v.mode === 'determinant-of-scaled') {
+        expect(v.answerValue).toBe(v.scalar ** v.size * v.determinant);
+        return `$${fmtNumber(v.scalar ** v.size * v.determinant)}$`;
+      }
+      if (v.mode === 'inverse-2x2') {
+        // Pull the four printed entries out and multiply A by them: the product must be I.
+        expect(Math.abs(det2(a, b, c, d))).toBe(1);
+        const [e, f, g, h] = (v.answer.match(/-?\d+(?:\.\d+)?/g) ?? []).map(Number);
+        expect(a * e + b * g).toBe(1);
+        expect(a * f + b * h).toBe(0);
+        expect(c * e + d * g).toBe(0);
+        expect(c * f + d * h).toBe(1);
+        return v.answer;
+      }
+      expect(v.answerValue).toBeCloseTo(v.p * v.x + (1 - v.p) * v.y, 9);
+      return `$${fmtNumber(v.answerValue)}$`;
+    });
+  });
+
+  it('offers no fractional entry in a 2x2 inverse', () => {
+    const params: MatricesParams = { ...matrixParams, modes: ['inverse-2x2'] };
+    for (let i = 0; i < 60; i++) {
+      const out = GENERATORS['math-matrices'].generate(params, createRng(`inv:${i}`));
+      expect(out.correct).not.toMatch(/dfrac|\.\d/);
     }
   });
 });

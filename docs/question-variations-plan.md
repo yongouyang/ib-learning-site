@@ -1,8 +1,8 @@
 # Question Variations & Parameterized Templates — Implementation Plan
 
-Status: **207 of 245 topics carry a template, 52 generators, all wired** (measured
-2026-09-24). The last 38 topics are tabulated in `docs/content-backlog-review.md` §2.C: ~15 are
-reachable by ~10 more generators of the same kind, ~30 are not parameterizable (constructions,
+Status: **210 of 245 topics carry a template, 55 generators, all wired** (measured
+2026-09-24). The last 35 topics are tabulated in `docs/content-backlog-review.md` §2.C: ~12 are
+reachable by ~9 more generators of the same kind, ~23 are not parameterizable (constructions,
 nets, diagram reading, hypothesis testing) and need authored variant groups. Two additions since
 the generator batch: `flashcard-match`, fed by each topic's OWN deck
 (`TopicTemplate.source: "flashcards"` → `params.cards`, injected by both `materializeTemplates`

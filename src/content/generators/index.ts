@@ -30,6 +30,9 @@ import { mathMeasures } from './math-measures';
 import { mathCircleTheorems } from './math-circle-theorems';
 import { mathTrigIdentities } from './math-trig-identities';
 import { mathTrigRules } from './math-trig-rules';
+import { mathSimilarShapes } from './math-similar-shapes';
+import { mathLinearInequalities } from './math-linear-inequalities';
+import { mathMatrices } from './math-matrices';
 import { mathVolumeSurface } from './math-volume-surface-area';
 import { physVIr } from './phys-v-ir';
 import { physResistanceSeries } from './phys-resistance-series';
@@ -109,6 +112,9 @@ const all: QuestionGenerator<unknown>[] = [
   mathCircleTheorems,
   mathTrigIdentities,
   mathTrigRules,
+  mathSimilarShapes,
+  mathLinearInequalities,
+  mathMatrices,
 ];
 
 export const GENERATORS: Record<string, QuestionGenerator<unknown>> = Object.fromEntries(
