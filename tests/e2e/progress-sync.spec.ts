@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
+import { completeQuiz } from './quiz-session';
 
 // Phase C (progress sync) e2e — offline-first background sync against the real
 // /api/progress routes running on the shared dummy universe (PROGRESS_STORAGE
@@ -17,27 +18,6 @@ async function signIn(page: Page, email: string) {
   await page.getByLabel('6-digit code').fill('123456');
   await page.getByRole('button', { name: 'Verify code' }).click();
   await expect(page).toHaveURL('/');
-}
-
-/** Answer a short quiz (easy filter) through to "Quiz Complete!". */
-async function completeQuiz(page: Page) {
-  await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
-  for (let i = 0; i < 30; i++) {
-    const choice = page.getByRole('button').filter({ hasText: /^A\./ }).first();
-    await expect(choice).toBeVisible();
-    await choice.click();
-
-    const nextBtn = page.getByRole('button', { name: /Next Question|See Results/ });
-    await expect(nextBtn).toBeVisible();
-    const label = (await nextBtn.textContent()) ?? '';
-    await nextBtn.evaluate((el) => (el as HTMLElement).click());
-
-    if (/See Results/.test(label)) {
-      await expect(page.getByRole('heading', { name: 'Quiz Complete!' })).toBeVisible();
-      return;
-    }
-  }
-  throw new Error('quiz did not complete within 30 questions');
 }
 
 /** Total topic attempts across all profiles on the server. */

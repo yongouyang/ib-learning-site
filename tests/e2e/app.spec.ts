@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { completeQuiz } from './quiz-session';
 
 test.describe('Home page', () => {
   test('should show the subject grid', async ({ page }) => {
@@ -131,25 +132,14 @@ test.describe('Quiz flow', () => {
     await page.goto('/subjects/math/math-yr7-calculations/quiz');
     await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
 
-    // Answer all questions (the topic has 15 questions after enrichment)
-    const totalQuestions = 15;
-    for (let i = 0; i < totalQuestions; i++) {
-      const choice = page.getByRole('button').filter({ hasText: /^A\./ }).first();
-      await expect(choice).toBeVisible();
-      await choice.click();
+    // Assert the session really is a quiz (a rendered question with choices), then walk it to
+    // the results screen. NOT a counted length: this topic gained a template on 2026-09-24
+    // (15 -> 16 questions) and a hard-coded 15 broke all three e2e projects. The answer loop
+    // lives in the shared helper, which expects to start on an unanswered question.
+    await expect(page.getByRole('button').filter({ hasText: /^A\./ }).first()).toBeVisible();
 
-      const nextBtn = page.getByRole('button', { name: /Next Question|See Results/ });
-      await expect(nextBtn).toBeVisible();
-      // Use JS click on small viewports where the fixed bottom nav can cover the button.
-      await nextBtn.evaluate((el) => (el as HTMLElement).click());
+    await completeQuiz(page);
 
-      if (i < totalQuestions - 1) {
-        await expect(page.getByRole('heading', { level: 2 })).toBeVisible();
-      }
-    }
-
-    // Should see results page
-    await expect(page.getByRole('heading', { name: 'Quiz Complete!' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'Back' })).toBeVisible();
   });
 

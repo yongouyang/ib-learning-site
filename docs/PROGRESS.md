@@ -45,6 +45,21 @@ Done: **four of the five queued items, in the order agreed (2 → 3 → 1 → 5)
   352 indexable pages at 2 clicks, **0 deeper than 3**; orphans 18 → 16. The systemic finding is
   written up in §2.E: **`verify:sitemaps` proves a submitted URL is live, indexable and uniquely
   titled — it cannot see that nothing links to it.**
+  **(3b) A RED CI FOUND AND FIXED — the batch-1 push failed every e2e project and skipped
+  deploy-dev.** `tests/e2e/app.spec.ts` walked `math-yr7-calculations` with a hard-coded
+  `const totalQuestions = 15`; wiring `math-integer-operations` into that topic took its session
+  from 15 to 16, so the walk stopped one question short and never reached the results screen —
+  **all three device projects, deterministically, with every content gate green.** This is the
+  churn class AGENTS.md warns about (`analytics.spec.ts`'s 15-question loop was the first
+  instance, fixed 2026-09-22) and it hit again because the fix was made in one file at a time.
+  Now **one** helper: `tests/e2e/quiz-session.ts`'s `completeQuiz(page)` walks to the results
+  screen and never counts, and all three callers (`app`, `analytics`, `progress-sync` — the last
+  two each had a private copy) use it. Two races the helper encodes, each of which cost a debug
+  cycle: **an answered question's disabled buttons stay in the DOM for a frame**, so sampling
+  `.first()` reads the OLD button and silently skips the click (the question is then never
+  answered and the run hangs on a Next button that never appears) — wait for an ENABLED choice
+  instead; and Next must be clicked through `evaluate` because the fixed bottom nav covers it on
+  the phone projects.
   **(1) Legal pack** `docs/legal-outreach-pack.md`: who owns which item, the Art 27 candidate
   questions (EU and UK are separate regimes; the representative must not become a second
   controller), the provider DPA/SCC questions **with the §8/§9 sentence each answer changes**, the
@@ -67,7 +82,11 @@ Verified: validate:content (incl. its 20-seed template sweep) ✓, audit:content
   `docs/UX_GUIDELINES.md` → **SHIP, no P0/P1** (zero visual delta: the glyphs and inherited
   styles are identical, so the row's geometry cannot have moved; AA contrast in both themes;
   pre-existing inline-link touch targets unchanged).
-Next: **(1) continue C's residue — 38 topics.** ~12 more generators cover ~15 of them: matrices
+Next: **(0) push `develop`** — five commits (batches 2 and 3 plus docs) are committed locally and
+  NOT pushed: the background push helper cannot push at all (`Please make sure you have the correct
+  access rights` — a `bg_run` shell has no SSH agent; push in the FOREGROUND), and DEV is still
+  serving `2e29104` because the run at `47419aa` was the one that failed on e2e.
+  **(1) continue C's residue — 38 topics.** ~12 more generators cover ~15 of them: matrices
   (1), surds (1), similar shapes (1), quadratic graphs + linear inequalities (2, both extensions of
   existing generators), the four chemistry tables (4) and three physics formulas (3). The other ~23
   (constructions, nets, bearings, the DP specials) are not parameterizable → authored variant
@@ -83,7 +102,14 @@ Next: **(1) continue C's residue — 38 topics.** ~12 more generators cover ~15 
   15 `ladder/2` orphans (recommended: link from the ladder hub as a locked/next-step row — level 2
   is free by contract, so `noindex` would contradict it), and only then make orphan detection part
   of `verify:sitemaps`. **(4) the legal chain** (Art 27, provider DPA, counsel) per the pack.
-Notes: **the batch-3 sweeps caught three LaTeX-delimiter defects at once, all invisible to
+Notes: **a green local test run is not the deploy gate — and the failure was invisible until
+  reproduced.** The e2e job failed on all three projects while `build-and-test`, Semgrep, OSV,
+  illustrations, `validate:content` and 1581 unit tests were green, and GitHub exposes only
+  "Process completed with exit code 1" to an unauthenticated caller (no test names, no logs), so
+  the reproduction — `CI=1 npx playwright test --project='Desktop Chrome'`, which is the only way
+  to get CI's `workers: 1` + `retries: 2` — was the only route to the cause. It was NOT the OTP
+  budget hazard that AGENTS.md describes (that was my first hypothesis and it was wrong): the
+  suite showed exactly one failing test. **The batch-3 sweeps caught three LaTeX-delimiter defects at once, all invisible to
   validate:content**: an answer's own `$…$` interpolated inside another math span (three sites,
   fixed with the delimiter-stripping helper `math-factors-multiples` already used), an extra
   delimiter after an already-formatted angle in the alternate-segment stem, and a superscript
