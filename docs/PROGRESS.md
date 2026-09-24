@@ -4,41 +4,78 @@
 
 ---
 
-## 2026-09-24 (session 13) — C resumed: 4 generators (straight line, binomial, decimals, whole-number/BIDMAS)
-Git HEAD: `4d3184e` (develop, tree clean)
-Done: the first batch of C's residue (§2.C), **44 generators / 198 of 245 templated** (217
-  placements), unwired 47 (maths 35, chemistry 8, physics 4). **`math-straight-line`** (gradient
-  between two points, y-/x-intercept, equation from m and c, parallel through a point,
-  perpendicular gradient, horizontal line, missing coordinate, point-on-line, linear cost model)
-  → `math-linear-myp`, `math-yr8-straight-line-graphs`; **`math-binomial`** (nCr, term count,
-  coefficient of (x+c)^n / (1+kx)^n / (2x+1)^n, Pascal row, constant term, sum of coefficients)
-  → both DP binomial topics; **`math-decimal-arithmetic`** (column add/subtract, ×/÷ powers of
-  ten, product, quotient, terminating fraction, change from £10) → `math-yr7-decimals`;
-  **`math-integer-operations`** (digit place value, column arithmetic, exact division, the three
-  BIDMAS shapes) → `math-yr7-calculations`. Docs corrected: content-backlog-review +
-  question-variations-plan now say the measured 44/198/217, and record that the "41 generators"
-  both carried was an off-by-one (the registry held 40).
+## 2026-09-24 (session 13) — four items advanced: C resumed, §2.E measured, legal pack, support-bot scope fixed
+Git HEAD: `79f7b54` (develop, tree clean)
+Done: **four of the five queued items, in the order agreed (2 → 3 → 1 → 5).**
+  **(2) C's residue, first batch — 4 generators, 6 maths topics** → **44 generators / 198 of 245
+  templated** (217 placements), unwired 47 (maths 35, chemistry 8, physics 4):
+  `math-straight-line` (two-point gradient, y-/x-intercept, equation from m and c, parallel
+  through a point, perpendicular gradient, horizontal line, missing coordinate, point-on-line,
+  linear cost model) → `math-linear-myp` + `math-yr8-straight-line-graphs`; `math-binomial`
+  (nCr, term count, coefficient of (x+c)^n / (1+kx)^n / (2x+1)^n, Pascal row, constant term, sum
+  of coefficients) → both DP binomial topics; `math-decimal-arithmetic` → `math-yr7-decimals`;
+  `math-integer-operations` → `math-yr7-calculations` — the backlog's single "decimal arithmetic"
+  row was **two different skills** once the hosts were read (decimals vs whole-number column
+  arithmetic + BIDMAS). Docs corrected to the measured counts, including the **off-by-one** the
+  "41 generators" figure carried (the registry held 40).
+  **(3) §2.E MEASURED and its defect fixed.** New `npm run audit:links`
+  (`scripts/audit-internal-links.ts`) reads the rendered `out/` HTML — a `.tsx` grep misses every
+  card built from the registry — and reports click depth from `/`, orphans, the least-linked hubs
+  and anchor variety. Result: **/igcse and /igcse/math (16 topics, live in PROD since 2026-09-07)
+  were indexable, in the sitemap, and linked from NOTHING** — `Hero.tsx` rendered
+  `' · IGCSE · '` as plain text under a comment that said the tier had no content yet, 17 days
+  stale. Fixed (now a `Link`) + a new `tests/e2e/seo.spec.ts` case asserting **all three** tier
+  hubs are linked from the homepage (the link, not the 200). Depth is otherwise healthy: 303 of
+  352 indexable pages at 2 clicks, **0 deeper than 3**; orphans 18 → 16. The systemic finding is
+  written up in §2.E: **`verify:sitemaps` proves a submitted URL is live, indexable and uniquely
+  titled — it cannot see that nothing links to it.**
+  **(1) Legal pack** `docs/legal-outreach-pack.md`: who owns which item, the Art 27 candidate
+  questions (EU and UK are separate regimes; the representative must not become a second
+  controller), the provider DPA/SCC questions **with the §8/§9 sentence each answer changes**, the
+  DPIA's factual half mapped to the code, and the re-open-the-shop checklist ending at the Stripe
+  Dashboard (live tax code + the 7 live webhook events). Quotes section numbers, never clause
+  text — the two notice drafts stay the single source of truth.
+  **(5) Support bot §9 DECIDED** (all nine, in `docs/support-bot-plan.md`): email-only v1
+  (**S4 webhook cut**), rule-based triage, CloudWatch deferred to v1.1, 5-min polling, 90-day
+  alert TTL, `/admin/dynamodb` acknowledgement, no mute rules, no escalation, "Open Alerts" added
+  to the daily report. v1 is now S1 → S2 → S3 → S5 → S6 with **no new external target to verify**.
 Verified: validate:content (incl. its 20-seed template sweep) ✓, audit:content **0/0** ✓,
   check:registry ✓, tsc clean, lint 29 warnings / 0 errors (baseline), **1565/1565** unit tests
-  (+12, each recomputing the answer independently); 400-seed generation sweep per generator for
-  distinct choices / paired `$` / no NaN; browser spot-check on the four wired topics at 375 px —
-  `1/16` counter on each (15 authored + 1 instance), **0 `.katex-error`, 0 horizontal overflow**.
+  (+12, each recomputing the answer independently), **13/13** `tests/e2e/seo.spec.ts`
+  (`--project='Desktop Chrome' --workers=1`), `build:static` green (352/352 sitemap URLs live +
+  indexable, titles unique, 580 noindex excluded; leak gate **HARD**), `audit:links` re-run after
+  the fix, 400-seed per-generator sweep, and a 375 px browser spot-check on the four wired topics
+  (`1/16` counter, **0 `.katex-error`, 0 overflow**). UX pass: 32-shot hub sheet
+  (`/` added — it now carries a reviewed change) reviewed by a **fresh-context subagent** against
+  `docs/UX_GUIDELINES.md` → **SHIP, no P0/P1** (zero visual delta: the glyphs and inherited
+  styles are identical, so the row's geometry cannot have moved; AA contrast in both themes;
+  pre-existing inline-link touch targets unchanged).
 Next: **(1) continue C's residue — 47 topics.** ~10 more generators cover ~17 of them: circle
-  theorems, trig rules (sine/cosine/area) + exact-angle identities, matrices, surds, number bases,
-  ratio, factors/multiples, measures/conversions, directed numbers, similar shapes, quadratic
-  graphs, linear inequalities, the four chemistry tables, three physics formulas. ~30 are not
-  parameterizable (constructions, nets, bearings, DP specials) → authored variant groups.
-  (2) item 3 — SEO depth (§2.E) needs a Search Console measurement pass. (3) the legal chain
-  (Art 27 representative, provider DPA/SCCs, counsel) → then delete `BILLING_DISABLED_ENVS`.
-  (4) item 5 — support bot (§9 decisions) / DP AA HL depth.
-Notes: **the backlog's "decimal arithmetic → math-yr7-decimals + math-yr7-calculations" row was
-  two different skills** — reading the hosts showed decimals vs whole-number column arithmetic +
-  BIDMAS — so it took two generators; a row's topic list is a hypothesis until the questions are
-  read. Two defect classes the new sweeps caught before merge: `uniqueDistractors` **throws**
-  when a form-answer mode's fixed candidate list runs out on a small param table (now every
-  string mode carries a generated `linePool`), and a place-value distractor built from
-  `place / 10` printed a **decimal** answer in an integer question (`$0.7$` for the digit 7) —
-  fixed at the candidate list. Both were caught by the 400-seed sweep, not by validate:content.
+  theorems, trig rules + exact-angle identities, matrices, surds, number bases, ratio,
+  factors/multiples, measures/conversions, directed numbers, similar shapes, quadratic graphs,
+  linear inequalities, the four chemistry tables, three physics formulas. ~30 are not
+  parameterizable → authored variant groups. **(2) build the support bot** (S1 → S2 → S3 → S5 →
+  S6; §9 is decided, nothing blocks it). **(3) the rest of §2.E**: add a footer `/pricing` link
+  **when** `BILLING_DISABLED_ENVS` goes (today the page only says "coming soon"), decide the
+  15 `ladder/2` orphans (recommended: link from the ladder hub as a locked/next-step row — level 2
+  is free by contract, so `noindex` would contradict it), and only then make orphan detection part
+  of `verify:sitemaps`. **(4) the legal chain** (Art 27, provider DPA, counsel) per the pack.
+Notes: **two waiver decisions recorded, not fixed** — (a) the three inline hero links are ~16–20 px
+  tall, under both our own 44 px floor and WCAG 2.2 SC 2.5.8's 24 px; waived because it is
+  *unchanged by this commit* (KS3/IB DP were already this size), the SC's spacing exception
+  applies (adjacent centres ≈46 px apart), and padding would desync a 14 px eyebrow from the
+  `mb-3` h1 rhythm — the same bare inline-link pattern is the codebase norm (breadcrumbs, footer
+  legal links). (b) The `Hero.tsx` comment's guard claim was narrowed to tier×subject routes: the
+  tier **hub** (`/ks3`, `/igcse`, `/ibdp`) is an unconditional route, so an emptied tier would
+  serve a live-but-empty hub, not a 404. **Two defect classes the 400-seed sweeps caught before
+  merge**, both invisible to validate:content: `uniqueDistractors` **throws** when a form-answer
+  mode's fixed candidate list runs out (every string mode now carries a generated `linePool`), and
+  a place-value distractor computed as `place / 10` printed a **decimal** in an integer question
+  (`$0.7$` for the digit 7). Also: `scripts/capture-hub-ux.mjs` waited on a breadcrumb nav that
+  the homepage does not have — adding `/` to it hung the run for 900 s; the wait is now
+  page-aware.
+
+---
 
 ---
 

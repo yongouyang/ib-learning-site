@@ -53,8 +53,10 @@ export function Hero({ isReturning, nextAction }: HeroProps) {
                 here outlived the 2026-09-07 IGCSE pilot by 17 days, and
                 `npm run audit:links` measured the cost on 2026-09-24: /igcse and
                 /igcse/math were indexable, in the sitemap, and reachable by nothing but
-                the sitemap. A tier with no topics has no route at all (hubs.ts returns
-                undefined), so the guard belongs to the data, not to this line. */}
+                the sitemap. A tier with no topics has no tier×subject route at all
+                (hubs.ts's metaForTierSubject returns undefined) — note the tier HUB itself
+                (/ks3, /igcse, /ibdp) is an unconditional route, so an emptied tier would
+                serve a live-but-empty hub rather than 404. */}
             <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-3">
               <Link href="/ks3" className="hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
                 KS3
