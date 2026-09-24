@@ -114,6 +114,17 @@ test.describe('SEO metadata wiring', () => {
     expect((await request.get('/igcse/biology')).status()).toBe(404);
   });
 
+  test('every indexable tier hub is linked from the homepage', async ({ page }) => {
+    // An indexable page that only the sitemap points at is orphaned for a crawler (and
+    // for a student): `/igcse` and `/igcse/math` held 16 topics and zero internal links
+    // until 2026-09-24 (`npm run audit:links`). Assert the LINK, not just the 200 — the
+    // sitemap gate only proves a URL is submitted.
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    for (const tier of ['/ks3', '/igcse', '/ibdp']) {
+      await expect(page.locator(`a[href="${tier}"]`).first()).toBeVisible();
+    }
+  });
+
   test('app and internal surfaces are noindex, follow', async ({ page }) => {
     for (const path of ['/login', '/mixed-review', '/leaderboard', '/account', '/progress', '/offline']) {
       const h = await head(page, path);

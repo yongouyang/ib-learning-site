@@ -48,13 +48,22 @@ export function Hero({ isReturning, nextAction }: HeroProps) {
             transition={{ duration: 0.15, ease: 'easeOut' }}
           >
             {/* Discovery links into the tier hubs (plan §4.4 item 3): the hubs give
-                study pages a ≤3-click path from home. IGCSE stays unlinked — the tier
-                has no content yet, so it has no route. */}
+                study pages a ≤3-click path from home. All three tiers are linked — the
+                "IGCSE stays unlinked, the tier has no content yet" comment that lived
+                here outlived the 2026-09-07 IGCSE pilot by 17 days, and
+                `npm run audit:links` measured the cost on 2026-09-24: /igcse and
+                /igcse/math were indexable, in the sitemap, and reachable by nothing but
+                the sitemap. A tier with no topics has no route at all (hubs.ts returns
+                undefined), so the guard belongs to the data, not to this line. */}
             <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-3">
               <Link href="/ks3" className="hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
                 KS3
               </Link>
-              {' · IGCSE · '}
+              {' · '}
+              <Link href="/igcse" className="hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+                IGCSE
+              </Link>
+              {' · '}
               <Link href="/ibdp" className="hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
                 IB DP
               </Link>

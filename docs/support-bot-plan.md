@@ -350,7 +350,26 @@ tests/unit/support-bot/
 
 ---
 
-## 9. Open Questions (Awaiting User Decision)
+## 9. Open Questions — **DECIDED 2026-09-24**
+
+> All nine were put to the owner on 2026-09-24 and answered. **The v1 scope is therefore fixed**
+> and this section is now a record, not a queue:
+>
+> | Q | Decision | Consequence for v1 |
+> |---|---|---|
+> | Q1 polling | **5 minutes** | ~288 invocations/day, negligible cost |
+> | Q2 webhook | **Email only** | **S4 (webhook delivery) is out of v1** — email via Resend is already wired and verifiable today; platform formatting returns in v1.1 with a real target URL |
+> | Q3 CloudWatch logs | **Defer to v1.1** | v1 stays on structured sources; no `logs:FilterLogEvents` grant |
+> | Q4 LLM triage | **Rule-based in v1** | no AI dependency in the alert path; the LLM only changes summary text later |
+> | Q5 alert TTL | **90 days** | matches the raw-event TTL |
+> | Q6 acknowledgement | **`/admin/dynamodb`** | no new admin UI |
+> | Q7 mute rules | **None** | resolve individual alerts by status update |
+> | Q8 escalation | **None** | one alert per signal |
+> | Q9 daily report | **Yes** | the existing report gains an "Open Alerts" section (was S6) |
+>
+> The original questions are kept verbatim below as the rationale for each choice.
+
+The questions below were answered as tabled above; read them as the reasoning, not as blockers.
 
 ### Q1. Polling Frequency
 
@@ -439,19 +458,23 @@ Should the daily analytics report (Feature 1) include an alert summary section?
 | **S1** | Types + constants + rule-based triage + dummy storage + unit tests | Medium | None |
 | **S2** | DynamoDB storage adapter + deps seam + handler core + parity tests | Medium | S1 |
 | **S3** | Resend email delivery (reuse existing sender seam) + HTML template | Low | S2 |
-| **S4** | Webhook delivery (generic JSON + Slack format) | Low | S2 |
-| **S5** | Terraform: DynamoDB table + `support_bot` module + CI wiring + smoke probe | Medium | S2–S4 |
+| **S4** | ~~Webhook delivery (generic JSON + Slack format)~~ — **cut from v1** (§9 Q2: email only) | — | — |
+| **S5** | Terraform: DynamoDB table + `support_bot` module + CI wiring + smoke probe | Medium | S2–S3 |
 | **S6** | Integration: add alert summary to daily analytics report email | Low | S5 |
+
+**v1 is therefore S1 → S2 → S3 → S5 → S6, four Lambdas' worth of conventions reused and no new
+external target to verify.** Everything that remains is already listed under v1.1 below.
 
 ### v1.1 (Post-v1, After Pipeline Proven)
 
 | Phase | Scope | Effort |
 |-------|-------|--------|
-| S7 | CloudWatch Logs polling (opt-in) | Medium |
-| S8 | DeepSeek LLM triage provider | Medium |
+| S7 | CloudWatch Logs polling (opt-in) — §9 Q3 | Medium |
+| S8 | DeepSeek LLM triage provider — §9 Q4 | Medium |
 | S9 | Dedicated `/admin/alerts` page | High |
-| S10 | Mute/suppression rules | Medium |
-| S11 | Escalation re-alerting | Medium |
+| S10 | Mute/suppression rules — §9 Q7 | Medium |
+| S11 | Escalation re-alerting — §9 Q8 | Medium |
+| S13 | Webhook delivery (generic JSON + Slack/Telegram format) — §9 Q2, cut from v1 | Low |
 | S12 | CloudFlare Email Worker → `/api/support/email-ingest` endpoint | High |
 
 ---

@@ -261,13 +261,64 @@ model pinned to `jev-1.13.0` and echoed into every report.
    ramp, not predicting failure. Its hard set is a strict subset of ours, so it is a
    high-precision, low-recall candidate finder if a retag is ever chosen.
 
-### E. Traffic / SEO depth
+### E. Traffic / SEO depth — **MEASURED 2026-09-24 (repo-side half)**
 
-Not a content gap and not measurable from the JSON — listed for completeness because the
-queue line includes it. What is known: 335 indexable of 887 pages, and PROGRESS has
-described the hubs as "thin" with weak internal linking since 2026-08. Nothing in this
-review changes that assessment; it needs its own measurement pass against Search Console
-data, which is a different job from this one.
+The queue line said this "needs its own measurement pass against Search Console data". That is
+still true for *demand* (what people search for), but it is the wrong tool for *crawl depth*:
+Search Console cannot tell you that a page nothing links to is unreachable. That half is
+measurable from the build, and now is — `npm run audit:links`
+(`scripts/audit-internal-links.ts`) reads the rendered `out/` HTML (a `.tsx` grep would miss
+every card built from the registry) and reports click depth, orphans, the least-linked hubs and
+anchor variety. **Gate-level caveat, and the systemic finding:** `verify:sitemaps` proves a
+submitted URL is live, indexable and uniquely titled — it cannot see that nothing links to it.
+Two tier hubs held 16 topics and were in the sitemap and orphaned at the same time.
+
+**Measured on the 2026-09-24 `build:static`** (352 indexable, 934 prerendered pages, 14 768
+internal links):
+
+| click depth from `/` | indexable pages | share |
+|---|---|---|
+| 0 (the homepage) | 1 | 0.3% |
+| 1 | 17 | 4.8% |
+| **2** | **303** | **86.1%** |
+| 3 | 15 | 4.3% |
+| **unlinked (no page links to it)** | **16** | **4.5%** |
+| deeper than 3 | 0 | 0% |
+
+**Depth is healthy; the defect is orphaned pages, not depth.** What the 16 are, and what each
+one actually needs:
+
+1. **`/pricing`** — zero inbound internal links. `LockedFeature`, `PremiumPaperShell` and
+   `PaperRunnerClient` are its only linkers, and **all three are conditional on entitlement**
+   (`LockedFeature` deliberately renders *unlocked* while entitlements load, so the prerender
+   emits no link at all). Recommendation: add a footer link — static, present on every page, and
+   independent of client state — but time it with the re-open of PROD: today the page says
+   "Premium is coming soon", so the crawler would index a page with nothing to act on. **Decide
+   at `BILLING_DISABLED_ENVS` removal, not now.**
+2. **15 × `/exams/<course>/ladder/2`** — indexable by design (ladder levels 1–2 are free, 3–5
+   are premium and `noindex`), but level 2 is only reachable by *completing* level 1, which is
+   client state a crawler never has. The current state is the worst of both worlds: indexable,
+   unlinked, and inconsistent with the level-3+ rule. Recommendation: **link it from the ladder
+   hub as a visible locked/next-step row** (the same lock-row pattern the exam pages already
+   use), which keeps the free tier discoverable and makes the sequence crawlable. `noindex` on
+   level 2 would contradict the "first two levels free" contract.
+
+**Fixed this session (18 → 16):** `/igcse` and `/igcse/math` — 16 topics, live in PROD since
+2026-09-07, indexable, in the sitemap, and **linked from nothing**, because `Hero.tsx` rendered
+`' · IGCSE · '` as plain text with the comment *"IGCSE stays unlinked — the tier has no content
+yet, so it has no route."* The comment was 17 days stale, and no gate could see it: the sitemap
+gate checks the 200 and the robots tag, never the inbound link. Now a `Link`, guarded by a new
+`tests/e2e/seo.spec.ts` case asserting **all three** tier hubs are linked from the homepage (the
+link, not the 200).
+
+**What is NOT a problem (measured, so it stops being re-litigated).** The site-wide chrome is not
+thin: `/terms` and `/privacy` take 935 inbound links each (the footer on every page), `/` 3180,
+`/exams` 1920, and the subject hubs 11–105. Anchor text is 1–2 distinct strings per target
+("Math", "Exams", "Privacy Notice") — expected for registry- and nav-driven linking, and not
+worth churning for keyword variation.
+
+**Search Console still owns the other half** (impressions, CTR, queries the hubs don't rank for).
+That pass needs an export; it is not blocked by anything above and changes none of it.
 
 ---
 

@@ -51,7 +51,9 @@ async function waitForServer(timeoutMs = 180000) {
   throw new Error('Dev server did not become ready in time');
 }
 
-const PAGES = ['/ks3', '/ks3/math', '/ks3/english', '/ibdp', '/ibdp/math', '/igcse', '/igcse/math'];
+// '/' is the top of the hub tree and carries the tier discovery links — the 2026-09-24
+// orphan fix (`/igcse` was unlinked) changed it, so it belongs on this sheet.
+const PAGES = ['/', '/ks3', '/ks3/math', '/ks3/english', '/ibdp', '/ibdp/math', '/igcse', '/igcse/math'];
 const SHOTS = [];
 for (const page of PAGES) {
   for (const theme of ['light', 'dark']) {
@@ -79,7 +81,12 @@ try {
     await page.setViewportSize(s.viewport);
     await page.evaluate((t) => localStorage.setItem('iblearn-theme', t), s.theme);
     await page.goto(`${BASE}${s.page}`);
-    await page.waitForSelector('nav[aria-label="Breadcrumb"]', { state: 'attached' });
+    // The homepage has no breadcrumb trail (it is the root of the trail), so wait for the
+    // element each page actually has instead of hanging on a selector that never appears.
+    await page.waitForSelector(
+      s.page === '/' ? 'h1' : 'nav[aria-label="Breadcrumb"]',
+      { state: 'attached' }
+    );
     await page.waitForTimeout(500);
     await page.screenshot({ path: path.join(OUT, s.file), fullPage: true });
     console.log('captured', s.file);

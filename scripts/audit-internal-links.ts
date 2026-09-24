@@ -120,6 +120,8 @@ for (const name of sitemapFiles) {
   const xml = readFileSync(join(SITEMAP_DIR, name), 'utf8');
   for (const m of xml.matchAll(/<loc>https?:\/\/[^/]+(\/[^<]*)<\/loc>/g)) {
     const url = m[1].length > 1 ? m[1].replace(/\/$/, '') : m[1];
+    // The sitemap index lists its own children; those are XML, not pages.
+    if (url.endsWith('.xml')) continue;
     indexable.add(url);
   }
 }
