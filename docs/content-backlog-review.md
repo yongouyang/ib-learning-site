@@ -190,9 +190,10 @@ generators — `math-decimal-arithmetic` and `math-integer-operations`):
 | physics formulas still missing (refraction/snell, weight W = mg, orbital period) | `phys-light-1`, `phys-space-1`, `phys-magnetism-1` | 3 |
 | **not parameterizable** — constructions and loci, nets of 3-D shapes, describing a transformation, bearings and scale drawing, correlation description, Venn/set notation with prose, DP AA/AI specials (Voronoi, graph theory, Poisson, hypothesis testing, distributions, complex numbers, kinematics, correlation-regression, DP functions, DP trig identities) | the remaining topics | ~30 |
 
-So the honest position: **~8 of the last 38 topics are reachable by ~5 more generators of the
-same kind** (pure arithmetic, exact by construction — several are table-driven like the chemistry
-ones), while **~30 are not parameterizable at all** (constructions, nets, diagram description,
+So the honest position: **~15 of the last 38 topics are reachable by ~12 more generators of the
+same kind** — 5 maths rows (matrices, surds, similar shapes, quadratic graphs, linear
+inequalities, two of them extensions of generators that already exist), the four chemistry tables
+and the three physics formulas — while **~23 are not parameterizable at all** (constructions, nets, diagram description,
 hypothesis testing, the DP AI specials) and are variant-group authoring work. Nothing here blocks
 promoting `develop`: the promotion is content, and C's product goal — a retake surfacing fresh
 variants — is already met for **198 of 245 topics**.

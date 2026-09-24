@@ -7,8 +7,8 @@
 ## 2026-09-24 (session 13) — four items advanced: C resumed, §2.E measured, legal pack, support-bot scope fixed
 Git HEAD: `38d9791` (develop, tree clean; this entry is the docs commit on top)
 Done: **four of the five queued items, in the order agreed (2 → 3 → 1 → 5).**
-  **(2) C's residue — 9 generators in two batches, 11 maths topics** → **49 generators / 203 of 245
-  templated** (222 placements), unwired 42 (maths 30, chemistry 8, physics 4).
+  **(2) C's residue — 12 generators in three batches, 15 maths topics** → **52 generators / 207 of
+  245 templated** (227 placements), unwired 38 (maths 26, chemistry 8, physics 4).
   *Batch 1 (4 generators, 6 topics):*
   `math-straight-line` (two-point gradient, y-/x-intercept, equation from m and c, parallel
   through a point, perpendicular gradient, horizontal line, missing coordinate, point-on-line,
@@ -25,8 +25,15 @@ Done: **four of the five queued items, in the order agreed (2 → 3 → 1 → 5)
   negative multiplier, a temperature rise, a dive) → `math-yr7-negative-numbers`; `math-ratio`
   (simplify, share, unitary, direct and inverse proportion, map scale, missing part, difference) →
   `math-ratio-myp`; `math-measures` (mass, length, area, volume, time, the two syllabus
-  approximations) → `math-yr7-measures-conversions`. Docs corrected to the measured counts,
-  including the **off-by-one** the "41 generators" figure carried (the registry held 40).
+  approximations) → `math-yr7-measures-conversions`. *Batch 3 (3 generators, 4 topics):*
+  `math-circle-theorems` (angle at the centre/circumference, minor arc, same segment, cyclic
+  quadrilateral, semicircle, tangent-radius, alternate segment, equal tangents, and the isosceles
+  triangle two tangents make) → `math-igcse-circle-theorems`; `math-trig-rules` (sine rule for a
+  side and an angle, cosine rule for a side and an angle, area) → `math-igcse-trig-advanced` +
+  `math-dp-ai-trig`; `math-trig-identities` (degrees ↔ radians, exact values at 30/45/60, a ratio
+  with its quadrant sign, sin 2θ, sector arc/area, the four identity simplifications) →
+  `math-dp-aa-trig-identities-equations` + `math-dp-ai-trig`. Docs corrected to the measured
+  counts, including the **off-by-one** the "41 generators" figure carried (the registry held 40).
   **(3) §2.E MEASURED and its defect fixed.** New `npm run audit:links`
   (`scripts/audit-internal-links.ts`) reads the rendered `out/` HTML — a `.tsx` grep misses every
   card built from the registry — and reports click depth from `/`, orphans, the least-linked hubs
@@ -49,27 +56,43 @@ Done: **four of the five queued items, in the order agreed (2 → 3 → 1 → 5)
   alert TTL, `/admin/dynamodb` acknowledgement, no mute rules, no escalation, "Open Alerts" added
   to the daily report. v1 is now S1 → S2 → S3 → S5 → S6 with **no new external target to verify**.
 Verified: validate:content (incl. its 20-seed template sweep) ✓, audit:content **0/0** ✓,
-  check:registry ✓, tsc clean, lint 29 warnings / 0 errors (baseline), **1575/1575** unit tests
-  (+22, each recomputing the answer independently), **13/13** `tests/e2e/seo.spec.ts`
+  check:registry ✓, tsc clean, lint 29 warnings / 0 errors (baseline), **1581/1581** unit tests
+  (+28, each recomputing the answer independently), **13/13** `tests/e2e/seo.spec.ts`
   (`--project='Desktop Chrome' --workers=1`), `build:static` green (352/352 sitemap URLs live +
   indexable, titles unique, 580 noindex excluded; leak gate **HARD**), `audit:links` re-run after
   the fix, 400-seed per-generator sweep, and a 375 px browser spot-check on the four wired topics
-  (`1/16` counter, **0 `.katex-error`, 0 overflow**). UX pass: 32-shot hub sheet
+  (batch 3: `1/22` on the two-template DP topic and `1/16` on the three others, **0
+  `.katex-error`**). UX pass: 32-shot hub sheet
   (`/` added — it now carries a reviewed change) reviewed by a **fresh-context subagent** against
   `docs/UX_GUIDELINES.md` → **SHIP, no P0/P1** (zero visual delta: the glyphs and inherited
   styles are identical, so the row's geometry cannot have moved; AA contrast in both themes;
   pre-existing inline-link touch targets unchanged).
-Next: **(1) continue C's residue — 42 topics.** ~15 more generators cover ~16 of them: circle
-  theorems (1), trig rules + exact-angle identities (3), matrices (1), surds (1), similar shapes
-  (1), quadratic graphs (1), linear inequalities (1), the four chemistry tables (4) and three
-  physics formulas (3). The other ~26 (constructions, nets, bearings, the DP specials) are not
-  parameterizable → authored variant groups. **(2) build the support bot** (S1 → S2 → S3 → S5 →
+Next: **(1) continue C's residue — 38 topics.** ~12 more generators cover ~15 of them: matrices
+  (1), surds (1), similar shapes (1), quadratic graphs + linear inequalities (2, both extensions of
+  existing generators), the four chemistry tables (4) and three physics formulas (3). The other ~23
+  (constructions, nets, bearings, the DP specials) are not parameterizable → authored variant
+  groups. **(1b) NEW defect found, measured, not fixed — the topic breadcrumb overflows 375 px
+  for long titles.** `math-igcse-trig-advanced` renders its breadcrumb crumb at **405 px inside a
+  375 px viewport** (horizontal scroll on the quiz page) because the last crumb prints the whole
+  topic title; **29 of 245 topics have a title over 38 characters, 15 over 44**, and the worst is
+  `math-yr8-statistics-averages` at **124 characters**. Pre-existing chrome, unrelated to the
+  templates (the title is in the JSON, untouched) — it needs a `Breadcrumbs.tsx` fix plus the
+  standing UX pass, so it is its own increment. **(2) build the support bot** (S1 → S2 → S3 → S5 →
   S6; §9 is decided, nothing blocks it). **(3) the rest of §2.E**: add a footer `/pricing` link
   **when** `BILLING_DISABLED_ENVS` goes (today the page only says "coming soon"), decide the
   15 `ladder/2` orphans (recommended: link from the ladder hub as a locked/next-step row — level 2
   is free by contract, so `noindex` would contradict it), and only then make orphan detection part
   of `verify:sitemaps`. **(4) the legal chain** (Art 27, provider DPA, counsel) per the pack.
-Notes: **the batch-2 sweeps caught a house-style inconsistency the gates cannot see** — the ratio
+Notes: **the batch-3 sweeps caught three LaTeX-delimiter defects at once, all invisible to
+  validate:content**: an answer's own `$…$` interpolated inside another math span (three sites,
+  fixed with the delimiter-stripping helper `math-factors-multiples` already used), an extra
+  delimiter after an already-formatted angle in the alternate-segment stem, and a superscript
+  printed outside its span in the minor-arc explanation. **A structural decision recorded:** the
+  generator does NOT do "solve a trig equation over an interval" — its answer is a set, and a set
+  that is one solution short is not a defect a distractor pool can make safe; those stay authored.
+  The same reasoning dropped the "estimate (1+d)^n" mode from `math-binomial` (a truncated
+  expansion can round to the true value at 4 d.p.). **Also: the batch-2 sweeps caught a house-style
+  inconsistency the gates cannot see** — the ratio
   generator's numeric answers were the only ones in the corpus NOT wrapped as math spans (the
   convention is `£$78$`, which the host questions themselves use); found by the generator unit
   test's exact-string comparison, fixed before merge. **Two waiver decisions recorded, not fixed** — (a) the three inline hero links are ~16–20 px
