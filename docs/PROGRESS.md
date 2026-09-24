@@ -4,6 +4,44 @@
 
 ---
 
+## 2026-09-24 (session 13) — C resumed: 4 generators (straight line, binomial, decimals, whole-number/BIDMAS)
+Git HEAD: `4d3184e` (develop, tree clean)
+Done: the first batch of C's residue (§2.C), **44 generators / 198 of 245 templated** (217
+  placements), unwired 47 (maths 35, chemistry 8, physics 4). **`math-straight-line`** (gradient
+  between two points, y-/x-intercept, equation from m and c, parallel through a point,
+  perpendicular gradient, horizontal line, missing coordinate, point-on-line, linear cost model)
+  → `math-linear-myp`, `math-yr8-straight-line-graphs`; **`math-binomial`** (nCr, term count,
+  coefficient of (x+c)^n / (1+kx)^n / (2x+1)^n, Pascal row, constant term, sum of coefficients)
+  → both DP binomial topics; **`math-decimal-arithmetic`** (column add/subtract, ×/÷ powers of
+  ten, product, quotient, terminating fraction, change from £10) → `math-yr7-decimals`;
+  **`math-integer-operations`** (digit place value, column arithmetic, exact division, the three
+  BIDMAS shapes) → `math-yr7-calculations`. Docs corrected: content-backlog-review +
+  question-variations-plan now say the measured 44/198/217, and record that the "41 generators"
+  both carried was an off-by-one (the registry held 40).
+Verified: validate:content (incl. its 20-seed template sweep) ✓, audit:content **0/0** ✓,
+  check:registry ✓, tsc clean, lint 29 warnings / 0 errors (baseline), **1565/1565** unit tests
+  (+12, each recomputing the answer independently); 400-seed generation sweep per generator for
+  distinct choices / paired `$` / no NaN; browser spot-check on the four wired topics at 375 px —
+  `1/16` counter on each (15 authored + 1 instance), **0 `.katex-error`, 0 horizontal overflow**.
+Next: **(1) continue C's residue — 47 topics.** ~10 more generators cover ~17 of them: circle
+  theorems, trig rules (sine/cosine/area) + exact-angle identities, matrices, surds, number bases,
+  ratio, factors/multiples, measures/conversions, directed numbers, similar shapes, quadratic
+  graphs, linear inequalities, the four chemistry tables, three physics formulas. ~30 are not
+  parameterizable (constructions, nets, bearings, DP specials) → authored variant groups.
+  (2) item 3 — SEO depth (§2.E) needs a Search Console measurement pass. (3) the legal chain
+  (Art 27 representative, provider DPA/SCCs, counsel) → then delete `BILLING_DISABLED_ENVS`.
+  (4) item 5 — support bot (§9 decisions) / DP AA HL depth.
+Notes: **the backlog's "decimal arithmetic → math-yr7-decimals + math-yr7-calculations" row was
+  two different skills** — reading the hosts showed decimals vs whole-number column arithmetic +
+  BIDMAS — so it took two generators; a row's topic list is a hypothesis until the questions are
+  read. Two defect classes the new sweeps caught before merge: `uniqueDistractors` **throws**
+  when a form-answer mode's fixed candidate list runs out on a small param table (now every
+  string mode carries a generated `linePool`), and a place-value distractor built from
+  `place / 10` printed a **decimal** answer in an integer question (`$0.7$` for the digit 7) —
+  fixed at the candidate list. Both were caught by the 400-seed sweep, not by validate:content.
+
+---
+
 ## 2026-09-23 (session 12c) — develop → main PROMOTED (44 commits); PROD verified live
 Git HEAD: `1c4c4cb` (main, pushed; develop == main, tree clean)
 Done: promoted `develop` → `main` — a **fast-forward** (`develop..main` was empty, so no merge
