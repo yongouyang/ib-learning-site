@@ -257,6 +257,24 @@ import {
   paramsSchema as measuresSchema,
   type MeasuresParams,
 } from '@/content/generators/math-measures';
+import {
+  draw as drawCircle,
+  build as buildCircle,
+  paramsSchema as circleSchema,
+  type CircleTheoremsParams,
+} from '@/content/generators/math-circle-theorems';
+import {
+  draw as drawTrigRules,
+  build as buildTrigRules,
+  paramsSchema as trigRulesSchema,
+  type TrigRulesParams,
+} from '@/content/generators/math-trig-rules';
+import {
+  draw as drawTrigIdentities,
+  build as buildTrigIdentities,
+  paramsSchema as trigIdentitiesSchema,
+  type TrigIdentitiesParams,
+} from '@/content/generators/math-trig-identities';
 import { chargeSuperscript, gcd } from '@/content/generators/utils';
 import katex from 'katex';
 
@@ -1098,6 +1116,7 @@ describe('registry', () => {
       'math-angle-facts',
       'math-binomial',
       'math-calculus',
+      'math-circle-theorems',
       'math-decimal-arithmetic',
       'math-directed-numbers',
       'math-factors-multiples',
@@ -1120,6 +1139,8 @@ describe('registry', () => {
       'math-statistics',
       'math-straight-line',
       'math-substitution',
+      'math-trig-identities',
+      'math-trig-rules',
       'math-vectors',
       'math-volume-surface-area',
       'phys-charge-current',
@@ -2769,7 +2790,7 @@ describe('math-factors-multiples', () => {
       if (v.mode === 'prime-factorisation') {
         // Independent check: parse the printed product back and require it to equal n with
         // every base prime. A missing or extra prime cannot survive this.
-        const terms = v.answer.replace(/^\$|\$$/g, '').split(' \\times ');
+        const terms = v.answer.replace(/\$/g, '').split(' \\times ');
         let product = 1;
         for (const term of terms) {
           const power = /^(\d+)\^\{(\d+)\}$/.exec(term);
@@ -3047,6 +3068,262 @@ describe('math-measures', () => {
       const out = GENERATORS['math-measures'].generate(params, createRng(`area:${i}`));
       expect(out.correct).toMatch(/^\$\d+\$ cm²$/);
       for (const choice of out.distractors) expect(choice).not.toBe(out.correct);
+    }
+  });
+});
+
+const circleParams: CircleTheoremsParams = circleSchema.parse({
+  angles: [20, 25, 30, 35, 40, 42, 45, 50, 55, 58, 60, 65, 70, 75, 80],
+  tangentAngles: [20, 30, 40, 50, 60, 70, 80],
+  lengths: [5, 6, 7, 9, 12, 14],
+});
+
+describe('math-circle-theorems', () => {
+  it('sweep: every theorem mode reproduces its own rule', () => {
+    sweep('math-circle-theorems', circleParams, drawCircle, buildCircle, (v) => {
+      const d = (n: number): string => `$${fmtNumber(n)}^{\\circ}$`;
+      if (v.mode === 'angle-at-centre') {
+        expect(v.answerValue).toBe(2 * v.a);
+        return d(2 * v.a);
+      }
+      if (v.mode === 'angle-at-circumference') {
+        // v.a is the CENTRAL angle (twice the inscribed one), so halving must be exact
+        expect(v.a % 2).toBe(0);
+        expect(v.answerValue).toBe(v.a / 2);
+        return d(v.a / 2);
+      }
+      if (v.mode === 'minor-arc') {
+        expect(v.answerValue).toBe(180 - v.a / 2);
+        return d(180 - v.a / 2);
+      }
+      if (v.mode === 'same-segment' || v.mode === 'alternate-segment') {
+        expect(v.answerValue).toBe(v.a);
+        return d(v.a);
+      }
+      if (v.mode === 'cyclic-quadrilateral') {
+        expect(v.answerValue).toBe(180 - v.a);
+        return d(180 - v.a);
+      }
+      if (v.mode === 'semicircle') {
+        expect(v.a).toBeLessThan(90);
+        expect(v.answerValue).toBe(90 - v.a);
+        return d(90 - v.a);
+      }
+      if (v.mode === 'tangent-radius') {
+        expect(v.answerValue).toBe(90);
+        return d(90);
+      }
+      if (v.mode === 'two-tangents-length') {
+        expect(v.answerValue).toBe(v.length);
+        return `$${fmtNumber(v.length)}$ cm`;
+      }
+      // two-tangents-angle: isosceles, so the base angle is (180 - t)/2 and t must be even
+      expect(v.tangent % 2).toBe(0);
+      expect(v.answerValue).toBe((180 - v.tangent) / 2);
+      return d((180 - v.tangent) / 2);
+    });
+  });
+
+  it('keeps every angle a whole number of degrees', () => {
+    for (let i = 0; i < 80; i++) {
+      const out = GENERATORS['math-circle-theorems'].generate(circleParams, createRng(`whole:${i}`));
+      for (const choice of [out.correct, ...out.distractors]) {
+        const value = Number(/^\$(\d+)/.exec(choice)?.[1]);
+        if (out.correct.includes('cm')) continue;
+        expect(Number.isInteger(value), choice).toBe(true);
+      }
+    }
+  });
+});
+
+const trigRulesParams: TrigRulesParams = trigRulesSchema.parse({
+  sineSideCases: [
+    [30, 90, 6],
+    [30, 30, 5],
+    [45, 45, 7],
+    [30, 60, 4],
+    [45, 90, 3],
+    [90, 30, 8],
+  ],
+  sineAngleCases: [
+    [30, 6, 12],
+    [30, 6, 6],
+    [45, 5, 5],
+    [90, 10, 5],
+    [30, 8, 8],
+  ],
+  cosineSideCases: [
+    [5, 8, 60],
+    [6, 6, 60],
+    [7, 15, 60],
+    [6, 10, 120],
+    [3, 5, 120],
+    [8, 8, 60],
+    [4, 4, 120],
+  ],
+  cosineAngleCases: [
+    [7, 5, 3],
+    [5, 4, 3],
+    [8, 5, 7],
+    [3, 3, 3],
+    [6, 10, 14],
+    [5, 5, 5],
+  ],
+  areaCases: [
+    [8, 10, 30],
+    [6, 10, 120],
+    [4, 5, 90],
+    [8, 8, 60],
+    [6, 10, 30],
+    [5, 5, 45],
+    [8, 6, 60],
+  ],
+});
+
+/** Read a printed exact quantity back as a number: "16\sqrt{3}" -> 27.71…, "\sqrt{2}" -> 1.41… */
+const exactNumber = (choice: string): number => {
+  const body = choice
+    .replace(/\$/g, '')
+    .replace(/\\text\{[^}]*\}/g, '')
+    .replace(/\^2/g, '')
+    .replace(/\s*(cm|cm²|cm\^2)\s*/g, '')
+    .trim();
+  const surd = /^(\d*(?:\.\d+)?)\\sqrt\{(\d)\}$/.exec(body);
+  if (surd) return (surd[1] === '' ? 1 : Number(surd[1])) * Math.sqrt(Number(surd[2]));
+  return Number(body);
+};
+
+describe('math-trig-rules', () => {
+  it('sweep: every mode satisfies its own rule numerically', () => {
+    const rad = (deg: number): number => (deg * Math.PI) / 180;
+    sweep('math-trig-rules', trigRulesParams, drawTrigRules, buildTrigRules, (v) => {
+      if (v.mode === 'sine-rule-side') {
+        // b / sin B must equal a / sin A
+        const value = exactNumber(v.answer);
+        expect(value * Math.sin(rad(v.angleA))).toBeCloseTo(v.a * Math.sin(rad(v.angleB)), 6);
+        return v.answer;
+      }
+      if (v.mode === 'sine-rule-angle') {
+        expect(Math.sin(rad(v.answerValue))).toBeCloseTo((v.b * Math.sin(rad(v.angleA))) / v.a, 6);
+        expect(v.angleA + v.answerValue).toBeLessThan(180);
+        return `$${fmtNumber(v.answerValue)}^{\\circ}$`;
+      }
+      if (v.mode === 'cosine-rule-side') {
+        const value = exactNumber(v.answer);
+        expect(value * value).toBeCloseTo(v.b * v.b + v.c * v.c - 2 * v.b * v.c * Math.cos(rad(v.angleA)), 6);
+        return v.answer;
+      }
+      if (v.mode === 'cosine-rule-angle') {
+        const cosA = (v.b * v.b + v.c * v.c - v.a * v.a) / (2 * v.b * v.c);
+        expect(Math.cos(rad(v.answerValue))).toBeCloseTo(cosA, 6);
+        return `$${fmtNumber(v.answerValue)}^{\\circ}$`;
+      }
+      // area = ½bc·sinA
+      const value = exactNumber(v.answer);
+      expect(value).toBeCloseTo(0.5 * v.b * v.c * Math.sin(rad(v.angleA)), 6);
+      return v.answer;
+    });
+  });
+
+  it('never asks for an ambiguous sine-rule angle', () => {
+    // The supplementary angle must not also make a valid triangle.
+    const params: TrigRulesParams = { ...trigRulesParams, modes: ['sine-rule-angle'] };
+    for (let i = 0; i < 80; i++) {
+      const out = GENERATORS['math-trig-rules'].generate(params, createRng(`ambiguous:${i}`));
+      const B = Number(/^\$(\d+)/.exec(out.correct)?.[1]);
+      expect(out.stem).toContain('angle $A =');
+      expect(Number.isFinite(B), out.correct).toBe(true);
+      for (const choice of [out.correct, ...out.distractors]) {
+        expect(Number.isFinite(Number(/^\$(\d+)/.exec(choice)?.[1])), choice).toBe(true);
+      }
+    }
+  });
+});
+
+const trigIdentitiesParams: TrigIdentitiesParams = trigIdentitiesSchema.parse({
+  degrees: [30, 45, 60, 90, 120, 135, 150, 180, 210, 240, 270, 300, 330, 360],
+  multiples: [1, 2, 3, 4, 5, 7, 11],
+  denominators: [2, 3, 4, 6, 9, 12],
+  radii: [2, 3, 4, 5, 6, 8, 10, 12],
+  sectorMultiples: [1, 2, 3, 4],
+  sectorDenominators: [2, 3, 4, 6],
+});
+
+describe('math-trig-identities', () => {
+  /** Independent reading of a printed kπ/n fraction. */
+  const piValue = (choice: string): number => {
+    const body = choice
+      .replace(/\$/g, '')
+      .replace(/\\text\{[^}]*\}/g, '')
+      .replace(/\^2/g, '')
+      .trim();
+    if (body === '\\pi') return Math.PI;
+    const whole = /^(\d+)\\pi$/.exec(body);
+    if (whole) return Number(whole[1]) * Math.PI;
+    const fraction = /^\\dfrac\{(\d*)\\pi\}\{(\d+)\}$/.exec(body);
+    if (fraction) return ((fraction[1] === '' ? 1 : Number(fraction[1])) * Math.PI) / Number(fraction[2]);
+    return Number.NaN;
+  };
+
+  const EXACT: Record<number, Record<string, string>> = {
+    30: { sin: '$\\dfrac{1}{2}$', cos: '$\\dfrac{\\sqrt{3}}{2}$', tan: '$\\dfrac{\\sqrt{3}}{3}$' },
+    45: { sin: '$\\dfrac{\\sqrt{2}}{2}$', cos: '$\\dfrac{\\sqrt{2}}{2}$', tan: '$1$' },
+    60: { sin: '$\\dfrac{\\sqrt{3}}{2}$', cos: '$\\dfrac{1}{2}$', tan: '$\\sqrt{3}$' },
+  };
+
+  // Re-typed from the identity list, in the same order: an independent expectation rather
+  // than a lookup into the generator's own table.
+  const IDENTITY_ANSWERS = ['$1$', '$\\sin 2\\theta$', '$\\cos^2\\theta - \\sin^2\\theta$', '$\\sin\\theta$'];
+
+  it('sweep: every exact value, sign and sector formula is re-derived here', () => {
+    sweep('math-trig-identities', trigIdentitiesParams, drawTrigIdentities, buildTrigIdentities, (v) => {
+      if (v.mode === 'degrees-to-radians') {
+        expect(piValue(v.answer)).toBeCloseTo((v.degrees * Math.PI) / 180, 9);
+        return v.answer;
+      }
+      if (v.mode === 'radians-to-degrees') {
+        expect(v.answerValue).toBe((v.radianK * 180) / v.radianN);
+        expect(Number.isInteger(v.answerValue)).toBe(true);
+        return `$${fmtNumber(v.answerValue)}^{\\circ}$`;
+      }
+      if (v.mode === 'exact-value') {
+        expect(v.answer).toBe(EXACT[v.degrees][v.fn]);
+        return EXACT[v.degrees][v.fn];
+      }
+      if (v.mode === 'ratio-with-quadrant') {
+        const [opposite, adjacent, hypotenuse] = v.triple;
+        const positive = v.quadrant === 1 || v.quadrant === 4;
+        expect(v.answerValue).toBeCloseTo((positive ? 1 : -1) * (adjacent / hypotenuse), 9);
+        expect(positive ? v.answerValue > 0 : v.answerValue < 0).toBe(true);
+        return v.answer;
+      }
+      if (v.mode === 'double-angle') {
+        const [opposite, adjacent, hypotenuse] = v.triple;
+        expect(v.answerValue).toBeCloseTo((2 * opposite * adjacent) / (hypotenuse * hypotenuse), 9);
+        return v.answer;
+      }
+      if (v.mode === 'arc-length') {
+        expect(piValue(v.answer)).toBeCloseTo((v.radius * v.radianK * Math.PI) / v.radianN, 9);
+        return v.answer;
+      }
+      if (v.mode === 'sector-area') {
+        expect(piValue(v.answer)).toBeCloseTo(
+          (0.5 * v.radius * v.radius * v.radianK * Math.PI) / v.radianN,
+          9
+        );
+        return v.answer;
+      }
+      expect(v.answer).toBe(IDENTITY_ANSWERS[v.identityIndex]);
+      return v.answer;
+    });
+  });
+
+  it('never returns a solved trig equation as a single value', () => {
+    // The equation modes are deliberately absent: their answer is a SET. Guard the absence so
+    // a future edit cannot slip one in with a one-element answer.
+    for (let i = 0; i < 120; i++) {
+      const out = GENERATORS['math-trig-identities'].generate(trigIdentitiesParams, createRng(`set:${i}`));
+      expect(out.stem).not.toMatch(/Solve|solutions/i);
     }
   });
 });

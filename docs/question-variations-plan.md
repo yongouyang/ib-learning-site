@@ -1,7 +1,7 @@
 # Question Variations & Parameterized Templates — Implementation Plan
 
-Status: **203 of 245 topics carry a template, 49 generators, all wired** (measured
-2026-09-24). The last 42 topics are tabulated in `docs/content-backlog-review.md` §2.C: ~12 are
+Status: **207 of 245 topics carry a template, 52 generators, all wired** (measured
+2026-09-24). The last 38 topics are tabulated in `docs/content-backlog-review.md` §2.C: ~8 are
 reachable by ~10 more generators of the same kind, ~30 are not parameterizable (constructions,
 nets, diagram reading, hypothesis testing) and need authored variant groups. Two additions since
 the generator batch: `flashcard-match`, fed by each topic's OWN deck
