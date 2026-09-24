@@ -36,6 +36,7 @@
     "security:sca": "osv-scanner scan -r .",
     "security": "npm run security:sast && npm run security:sca",
     "audit:leaks": "tsx scripts/audit-leaks.ts",
+    "audit:links": "tsx scripts/audit-internal-links.ts",
     "check:registry": "tsx scripts/generate-registry.ts --check"
   },
   "dependencies": {
