@@ -5,10 +5,11 @@
 ---
 
 ## 2026-09-24 (session 13) — four items advanced: C resumed, §2.E measured, legal pack, support-bot scope fixed
-Git HEAD: `79f7b54` (develop, tree clean)
+Git HEAD: `38d9791` (develop, tree clean; this entry is the docs commit on top)
 Done: **four of the five queued items, in the order agreed (2 → 3 → 1 → 5).**
-  **(2) C's residue, first batch — 4 generators, 6 maths topics** → **44 generators / 198 of 245
-  templated** (217 placements), unwired 47 (maths 35, chemistry 8, physics 4):
+  **(2) C's residue — 9 generators in two batches, 11 maths topics** → **49 generators / 203 of 245
+  templated** (222 placements), unwired 42 (maths 30, chemistry 8, physics 4).
+  *Batch 1 (4 generators, 6 topics):*
   `math-straight-line` (two-point gradient, y-/x-intercept, equation from m and c, parallel
   through a point, perpendicular gradient, horizontal line, missing coordinate, point-on-line,
   linear cost model) → `math-linear-myp` + `math-yr8-straight-line-graphs`; `math-binomial`
@@ -16,8 +17,16 @@ Done: **four of the five queued items, in the order agreed (2 → 3 → 1 → 5)
   of coefficients) → both DP binomial topics; `math-decimal-arithmetic` → `math-yr7-decimals`;
   `math-integer-operations` → `math-yr7-calculations` — the backlog's single "decimal arithmetic"
   row was **two different skills** once the hosts were read (decimals vs whole-number column
-  arithmetic + BIDMAS). Docs corrected to the measured counts, including the **off-by-one** the
-  "41 generators" figure carried (the registry held 40).
+  arithmetic + BIDMAS). *Batch 2 (5 generators, 5 topics):* `math-number-bases` (binary ↔ base 10,
+  the doubling place values, max-with-n-bits, a hex digit's value and the four bits behind it) →
+  `math-yr7-number-bases`; `math-factors-multiples` (prime factorisation, the complete factor
+  list, HCF/LCM, first multiple above a bound, smallest prime factor, square root) →
+  `math-yr7-factors-multiples`; `math-directed-numbers` (the four signed operations, BIDMAS with a
+  negative multiplier, a temperature rise, a dive) → `math-yr7-negative-numbers`; `math-ratio`
+  (simplify, share, unitary, direct and inverse proportion, map scale, missing part, difference) →
+  `math-ratio-myp`; `math-measures` (mass, length, area, volume, time, the two syllabus
+  approximations) → `math-yr7-measures-conversions`. Docs corrected to the measured counts,
+  including the **off-by-one** the "41 generators" figure carried (the registry held 40).
   **(3) §2.E MEASURED and its defect fixed.** New `npm run audit:links`
   (`scripts/audit-internal-links.ts`) reads the rendered `out/` HTML — a `.tsx` grep misses every
   card built from the registry — and reports click depth from `/`, orphans, the least-linked hubs
@@ -40,8 +49,8 @@ Done: **four of the five queued items, in the order agreed (2 → 3 → 1 → 5)
   alert TTL, `/admin/dynamodb` acknowledgement, no mute rules, no escalation, "Open Alerts" added
   to the daily report. v1 is now S1 → S2 → S3 → S5 → S6 with **no new external target to verify**.
 Verified: validate:content (incl. its 20-seed template sweep) ✓, audit:content **0/0** ✓,
-  check:registry ✓, tsc clean, lint 29 warnings / 0 errors (baseline), **1565/1565** unit tests
-  (+12, each recomputing the answer independently), **13/13** `tests/e2e/seo.spec.ts`
+  check:registry ✓, tsc clean, lint 29 warnings / 0 errors (baseline), **1575/1575** unit tests
+  (+22, each recomputing the answer independently), **13/13** `tests/e2e/seo.spec.ts`
   (`--project='Desktop Chrome' --workers=1`), `build:static` green (352/352 sitemap URLs live +
   indexable, titles unique, 580 noindex excluded; leak gate **HARD**), `audit:links` re-run after
   the fix, 400-seed per-generator sweep, and a 375 px browser spot-check on the four wired topics
@@ -50,17 +59,20 @@ Verified: validate:content (incl. its 20-seed template sweep) ✓, audit:content
   `docs/UX_GUIDELINES.md` → **SHIP, no P0/P1** (zero visual delta: the glyphs and inherited
   styles are identical, so the row's geometry cannot have moved; AA contrast in both themes;
   pre-existing inline-link touch targets unchanged).
-Next: **(1) continue C's residue — 47 topics.** ~10 more generators cover ~17 of them: circle
-  theorems, trig rules + exact-angle identities, matrices, surds, number bases, ratio,
-  factors/multiples, measures/conversions, directed numbers, similar shapes, quadratic graphs,
-  linear inequalities, the four chemistry tables, three physics formulas. ~30 are not
+Next: **(1) continue C's residue — 42 topics.** ~15 more generators cover ~16 of them: circle
+  theorems (1), trig rules + exact-angle identities (3), matrices (1), surds (1), similar shapes
+  (1), quadratic graphs (1), linear inequalities (1), the four chemistry tables (4) and three
+  physics formulas (3). The other ~26 (constructions, nets, bearings, the DP specials) are not
   parameterizable → authored variant groups. **(2) build the support bot** (S1 → S2 → S3 → S5 →
   S6; §9 is decided, nothing blocks it). **(3) the rest of §2.E**: add a footer `/pricing` link
   **when** `BILLING_DISABLED_ENVS` goes (today the page only says "coming soon"), decide the
   15 `ladder/2` orphans (recommended: link from the ladder hub as a locked/next-step row — level 2
   is free by contract, so `noindex` would contradict it), and only then make orphan detection part
   of `verify:sitemaps`. **(4) the legal chain** (Art 27, provider DPA, counsel) per the pack.
-Notes: **two waiver decisions recorded, not fixed** — (a) the three inline hero links are ~16–20 px
+Notes: **the batch-2 sweeps caught a house-style inconsistency the gates cannot see** — the ratio
+  generator's numeric answers were the only ones in the corpus NOT wrapped as math spans (the
+  convention is `£$78$`, which the host questions themselves use); found by the generator unit
+  test's exact-string comparison, fixed before merge. **Two waiver decisions recorded, not fixed** — (a) the three inline hero links are ~16–20 px
   tall, under both our own 44 px floor and WCAG 2.2 SC 2.5.8's 24 px; waived because it is
   *unchanged by this commit* (KS3/IB DP were already this size), the SC's spacing exception
   applies (adjacent centres ≈46 px apart), and padding would desync a 14 px eyebrow from the
