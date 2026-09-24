@@ -176,7 +176,7 @@ export function build(values: StandardFormValues, rng: Rng): GeneratorOutput {
   mantissa = Math.round(mantissa * 1000) / 1000;
 
   const operator = mode === 'multiply' ? '\\times' : '\\div';
-  const stem = `Simplify $(${standardForm(m1, p1).slice(1, -1)}) ${operator} (${standardForm(m2, p2).slice(1, -1)})$, giving your answer in standard form.`;
+  const stem = `Simplify $(${standardForm(m1, p1).slice(1, -1)}) ${operator} (${standardForm(m2, p2).slice(1, -1)})$. Write your answer in standard form.`;
   const correct = standardForm(mantissa, exponent);
   const combined = mode === 'multiply' ? p1 + p2 : p1 - p2;
   const candidates = [

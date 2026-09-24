@@ -60,6 +60,24 @@ Done: **four of the five queued items, in the order agreed (2 → 3 → 1 → 5)
   answered and the run hangs on a Next button that never appears) — wait for an ENABLED choice
   instead; and Next must be clicked through `evaluate` because the fixed bottom nav covers it on
   the phone projects.
+  **(3c) A SECOND RED DEPLOY, and the gate that caught it was the leak boundary.**
+  `deploy-dev` failed at **Build static export** while `build-and-test` AND all three e2e projects
+  were green — because `npm run audit:leaks` runs only INSIDE `build:static`, i.e. only in the
+  deploy jobs (deliberately: it needs the built artefacts). Its HARD tier found premium-paper text
+  in a shipped chunk: `math-circle-theorems`'s explanation used the textbook sentence *"The angle
+  at the circumference is half the angle at the centre standing on the same arc"* and **premium
+  set 3's model answer for its circle-theorems question uses that exact sentence** — a coincidental
+  shared fact, which the gate is right not to distinguish. **The free side moved, not the gate:**
+  both that sentence and a second, pre-existing collision (`math-standard-form`'s "…giving your
+  answer in standard form", which the gate had not yet reported) are reworded. **The technique is
+  worth keeping:** importing the audit's own primitives (`WINDOW`, `collectWindows`,
+  `findPresentWindows`) and sweeping every wired generator's output — params read from the topic
+  JSONs so the check cannot drift — turns a 3-minute export-per-attempt into a ~1-minute check, and
+  it is STRICTER than the gate because it explores every seed the "New Question Set" reseed can
+  reach. Measured after the fix: **0 premium-only windows across all 54 wired generators at 1200
+  seeds each**, and `build:static` green (`✓ HARD — no premium-paper content under out/`).
+  **Lesson recorded for the next content batch: run `npm run build:static` locally before pushing,
+  because it is the only local equivalent of that deploy step.**
   **(1) Legal pack** `docs/legal-outreach-pack.md`: who owns which item, the Art 27 candidate
   questions (EU and UK are separate regimes; the representative must not become a second
   controller), the provider DPA/SCC questions **with the §8/§9 sentence each answer changes**, the
@@ -88,13 +106,12 @@ Verified: validate:content (incl. its 20-seed template sweep) ✓, audit:content
   `docs/UX_GUIDELINES.md` → **SHIP, no P0/P1** (zero visual delta: the glyphs and inherited
   styles are identical, so the row's geometry cannot have moved; AA contrast in both themes;
   pre-existing inline-link touch targets unchanged).
-Next: **(0) push `develop`** — five commits (batches 2 and 3 plus docs) are committed locally and
-  NOT pushed: the background push helper cannot push at all (`Please make sure you have the correct
+Next: **(0) push `develop`** — batch 4a (matrices, similar shapes, linear inequalities) and the
+  leak rewording are committed locally and NOT pushed: the background push helper cannot push at all (`Please make sure you have the correct
   access rights` — a `bg_run` shell has no SSH agent; push in the FOREGROUND), and DEV is still
   serving `2e29104` because the run at `47419aa` was the one that failed on e2e.
-  **(1) continue C's residue — 38 topics.** ~12 more generators cover ~15 of them: matrices
-  (1), surds (1), similar shapes (1), quadratic graphs + linear inequalities (2, both extensions of
-  existing generators), the four chemistry tables (4) and three physics formulas (3). The other ~23
+  **(1) continue C's residue — 35 topics.** ~9 more generators cover ~12 of them: surds (1),
+  quadratic graphs (1), the four chemistry tables (4) and three physics formulas (3). The other ~23
   (constructions, nets, bearings, the DP specials) are not parameterizable → authored variant
   groups. **(1b) NEW defect found, measured, not fixed — the topic breadcrumb overflows 375 px
   for long titles.** `math-igcse-trig-advanced` renders its breadcrumb crumb at **405 px inside a

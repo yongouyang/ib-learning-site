@@ -153,7 +153,7 @@ export function build(values: CircleValues, rng: Rng): GeneratorOutput {
       )}$. $C$ lies on the major arc $AB$. Work out angle $ACB$.`,
       correct,
       distractors: choices([central, 2 * central, 180 - answer, 360 - central]),
-      explanation: `The angle at the circumference is half the angle at the centre standing on the same arc, so angle $ACB = ${fmtNumber(central)}^{\\circ} \\div 2 = ${fmtNumber(answer)}^{\\circ}$. $${fmtNumber(central)}^{\\circ}$ is the central angle itself.`,
+      explanation: `Both angles stand on the same arc, and the one at $O$ is twice the one at the circumference — so angle $ACB = ${fmtNumber(central)}^{\\circ} \\div 2 = ${fmtNumber(answer)}^{\\circ}$. $${fmtNumber(central)}^{\\circ}$ is the angle you were given, not the answer.`,
     };
   }
 
