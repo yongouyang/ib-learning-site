@@ -77,7 +77,13 @@ Verified: validate:content (incl. its 20-seed template sweep) ✓, audit:content
   indexable, titles unique, 580 noindex excluded; leak gate **HARD**), `audit:links` re-run after
   the fix, 400-seed per-generator sweep, and a 375 px browser spot-check on the four wired topics
   (batch 3: `1/22` on the two-template DP topic and `1/16` on the three others, **0
-  `.katex-error`**). UX pass: 32-shot hub sheet
+  `.katex-error`**). **e2e, CI-equivalent (`CI=1 npx playwright test --project='Desktop Chrome'`,
+  i.e. `workers: 1` + `retries: 2`): 379 passed / 9 skipped / 0 failed (7.0 min)** — two tests
+  passed only on retry (the flaky markers); their names are not recorded because the report's
+  data blob is not readable from the HTML shell and this run was tail-piped, so a future session
+  that cares should re-run with `--reporter=line --retries=1` to capture them. A targeted
+  `--retries=0` run of the five quiz-touching specs (app/analytics/progress-sync/quiz-difficulty/
+  diagnostics) was 38/38 on the first attempt. UX pass: 32-shot hub sheet
   (`/` added — it now carries a reviewed change) reviewed by a **fresh-context subagent** against
   `docs/UX_GUIDELINES.md` → **SHIP, no P0/P1** (zero visual delta: the glyphs and inherited
   styles are identical, so the row's geometry cannot have moved; AA contrast in both themes;
