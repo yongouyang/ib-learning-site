@@ -4,6 +4,74 @@
 
 ---
 
+## 2026-09-25 (session 14) — develop promoted to PROD (15 commits); the phone-width breadcrumb overflow found, fixed and gated
+Git HEAD: `5f19127` (develop, tree clean; this entry is the docs commit on top)
+Done: **two items, sequentially, as asked.**
+  **(1) PROD promoted** — `main` fast-forwarded `1c4c4cb → 06789a2` (15 commits, content-only;
+  `BILLING_DISABLED_ENVS = "prod"` untouched), so session 13's whole batch is live: 52 generators /
+  210 of 245 templated, the premium-collision rewording, the shared quiz walker, the IGCSE-hub link
+  fix. Note session 13's `Next: (0) push develop` was already stale when read — develop WAS pushed
+  (`06789a2`) and DEV was serving it.
+  **(2) The recorded breadcrumb defect was real but MIS-DIAGNOSED — so it was fixed at the root.**
+  The log blamed "the last crumb"; measured, the last crumb already truncated. The culprit is the
+  quiz/flashcards `study` crumb, which passes the **WHOLE topic title to a `Link` styled `shrink-0`
+  with a bare text-node label** — a flex item that can neither shrink nor wrap. Measured **878px
+  document inside a 320px viewport** (iPhone SE) on `math-yr8-statistics-averages` (124 chars, the
+  corpus max); 29 of 245 titles are at risk. Fixed in the shared component (`min-w-0`; label wrapped
+  in the `truncate max-w-[45vw] md:max-w-xs` the sibling branch already used), not at the two call
+  sites. **Guarded:** `tests/e2e/mobile-navigation.spec.ts` derives the LONGEST title FROM THE CORPUS
+  (a longer title added later is what gets tested) and asserts `scrollWidth <= clientWidth` on
+  study/quiz/flashcards — proven **failing pre-fix (878 > 321) and passing post-fix**; iPhone SE 3/3,
+  iPad Pro 2 + 1 skip, Desktop Chrome skips (not mobile).
+  **(2b) New auditor + capture script:** `npm run audit:overflow` (`scripts/audit-overflow.mjs`; exit 1
+  on any overflow, attributing each to breadcrumb/katex/other) and `scripts/capture-breadcrumb-ux.mjs`
+  (20 review screenshots, gitignored). Both derive their worst case from the corpus. The audit runs
+  against the BUILT EXPORT deliberately — a dev-server run is the only place a display-math width
+  comes out wrong. Measured **735 pages / 245 topics at 375px AND 320px: 0 breadcrumb overflows.**
+  **(2c) Two NEW, unrelated defects found and measured** (both `study` pages, both confirmed on the
+  built export at BOTH widths, so not dev artefacts; NOT fixed — each needs its own increment and UX
+  pass): `math-yr7-data` puts a 30-number raw-data list inside ONE inline math span (`$3, 5, 2, …$`)
+  → a 510px unbreakable run; `phys-simple-machines-1` has `$\text{moment} = \text{force} \times
+  \text{perpendicular distance from pivot}$` as INLINE math → a **1540px** `.katex` span in a 375px
+  viewport (page 1577px). Class: **inline math has no break opportunity, so any inline span wider
+  than its container overflows the page.**
+Verified: **prod, post-deploy:** apex `/version.json` = `06789a2`; http→https and www→apex 301; no
+  `x-robots-tag`; `/api/auth/me` 401; progress/analytics/contact/leaderboard `_health` all 200;
+  feedback `{"configured":true}`; **cache split at the edge** — public mixed-review 200
+  `public,max-age=300,s-maxage=3600` vs premium set-2 401 `private,no-store` (the first probe used a
+  seed-less URL and 404'd: the real path is `/api/content/public/mixed-review/<seed>`); off-sale
+  confirmed from the LIVE lambda (`BILLING_DISABLED_ENVS=prod`, checkout POST 401);
+  **`verify:seo:live --all` PASSED** (352 sitemap URLs, 352 indexable with unique titles + apex
+  canonicals, 40 quiz/flashcard URLs noindex→/study, 12/12 pages byte-identical to the local build).
+  **Local:** 1589/1589 unit (129 files), tsc clean, lint 35 warnings / 0 errors (baseline),
+  validate:content ✓, audit:content **0/0** ✓, check:registry ✓, `build:static` green (leak gate
+  HARD), audit:overflow as above, and static e2e Desktop Chrome **`--workers=1`: 384 passed / 1 failed
+  / 4 skipped** — the single failure is `browserContext.newPage: Test timeout of 30000ms exceeded`
+  while SETTING UP the page (harness, after 25 min of continuous running) and passes **13/13 in
+  isolation**. UX pass: 20-shot sheet reviewed by a fresh-context subagent → **SHIP, no P0/P1**.
+Next: **(1) fix the two inline-math study-page overflows** (author them as display math / split the
+  span, or give the note-body math a wrap-or-scroll container); consider a STATIC audit rule for
+  inline math spans over ~60 chars, which would catch this class without a browser. **(2) C's residue
+  — 35 unwired topics** (math 23 / chem 8 / phys 4): ~9 generators cover ~12, the other ~23 are
+  genuinely non-parameterizable → authored variant groups. **(3) the support bot** S1 → S2 → S3 → S5 →
+  S6 (§9 decided, nothing blocks). **(4) the rest of §2.E** (footer `/pricing` when billing reopens,
+  the 15 `ladder/2` orphans, then orphan detection into `verify:sitemaps`). **(5) the legal chain**
+  (Art 27, provider DPA, counsel) → then delete `BILLING_DISABLED_ENVS` to re-open prod sales.
+Notes: **the e2e hazard is a WINDOW, not a concurrency setting — corrected in AGENTS.md:** the
+  per-email OTP budget is 3 per **10 minutes** (`RATE_WINDOW_MS = 10 * 60_000`, the same fixed window
+  in the dummy AND DynamoDB storages), so omitting `--workers=1` bunches sign-ins into one window and
+  reproduces the documented failures on a **single** project (measured: 8 failed / 242 did not run,
+  every one passing in isolation). **Never pipe a Playwright run through `tail`** — that made a run
+  with 8 failures report **exit 0** and threw away the failure detail, which is why the first
+  diagnosis had to be redone from scratch. `illustrations.spec.ts` generates 245 serial tests (every
+  topic has an illustration), so ONE failure reports the rest of the chain as "did not run" — read
+  that count as its own signal, never as a pass. **Waived, both pre-existing** (UX pass): the fixed
+  top-right pill clips the flashcards crumb's ellipsis and the quiz `Hard (3)` chip; and the quiz
+  question screen has no `h1` — which is exactly why the crumb must stay readable. The reviewer's
+  "nothing pins the overflow" finding is stale: the guard landed after its screenshots were taken.
+
+---
+
 ## 2026-09-24 (session 13) — four items advanced: C resumed, §2.E measured, legal pack, support-bot scope fixed
 Git HEAD: `38d9791` (develop, tree clean; this entry is the docs commit on top)
 Done: **four of the five queued items, in the order agreed (2 → 3 → 1 → 5).**
