@@ -49,6 +49,9 @@ Verified: **prod, post-deploy:** apex `/version.json` = `06789a2`; http→https 
   / 4 skipped** — the single failure is `browserContext.newPage: Test timeout of 30000ms exceeded`
   while SETTING UP the page (harness, after 25 min of continuous running) and passes **13/13 in
   isolation**. UX pass: 20-shot sheet reviewed by a fresh-context subagent → **SHIP, no P0/P1**.
+  **DEV:** landed `ad4c01d` with `verify:seo:live --env=dev` PASSED; the fixed page then measured
+  **LIVE at dev.octavlearning.com at 320px AND 375px** (scrollWidth == clientWidth on
+  quiz/flashcards/study, where the same URL had been an 878px document).
 Next: **(1) fix the two inline-math study-page overflows** (author them as display math / split the
   span, or give the note-body math a wrap-or-scroll container); consider a STATIC audit rule for
   inline math spans over ~60 chars, which would catch this class without a browser. **(2) C's residue
