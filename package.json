@@ -37,7 +37,8 @@
     "security": "npm run security:sast && npm run security:sca",
     "audit:leaks": "tsx scripts/audit-leaks.ts",
     "audit:links": "tsx scripts/audit-internal-links.ts",
-    "check:registry": "tsx scripts/generate-registry.ts --check"
+    "check:registry": "tsx scripts/generate-registry.ts --check",
+    "audit:overflow": "node scripts/audit-overflow.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.1111.0",

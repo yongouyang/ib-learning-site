@@ -11,8 +11,11 @@ export interface BreadcrumbItem {
 }
 
 // Trail like: Home › Biology › Cell Structure › Quiz
-// The last item is the current page (not linked). Long labels truncate so the
-// trail stays on one line on phone-width screens.
+// The last item is the current page (not linked). Every crumb's label is capped
+// and ellipsised at phone widths so the trail stays INSIDE the viewport — it can
+// still wrap onto a second line (the caps are deliberately narrow enough to keep
+// the identifying part of a long crumb on the first line, which is where the
+// fixed top-right pill is not).
 // `currentAsHeading` renders the current-page item as the page's <h1>, for
 // pages where a separate title would just duplicate the breadcrumb text.
 export function Breadcrumbs({ items, currentAsHeading = false }: { items: BreadcrumbItem[]; currentAsHeading?: boolean }) {
@@ -58,10 +61,17 @@ export function Breadcrumbs({ items, currentAsHeading = false }: { items: Breadc
             ) : (
               <Link
                 href={item.href}
-                className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:underline shrink-0"
+                // NOT `shrink-0` + a bare label: a linked crumb can carry a whole
+                // topic title (the quiz/flashcards `study` crumb does), and an
+                // unshrinkable unbounded flex item overflows the viewport instead
+                // of wrapping — measured 878 px document inside a 320 px viewport
+                // (iPhone SE) on `math-yr8-statistics-averages`, whose title is
+                // the corpus maximum at 124 chars. Cap + ellipsis like the label
+                // branch above keeps every crumb to the same width.
+                className="inline-flex items-center gap-1 min-w-0 text-blue-600 dark:text-blue-400 hover:underline"
               >
-                {idx === 0 && <Home className="w-3.5 h-3.5" aria-hidden="true" />}
-                {item.label}
+                {idx === 0 && <Home className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />}
+                <span className="truncate max-w-[45vw] md:max-w-xs">{item.label}</span>
               </Link>
             )}
           </span>

@@ -1,4 +1,26 @@
 import { test, expect } from '@playwright/test';
+import fs from 'fs';
+import path from 'path';
+
+/**
+ * The longest topic title in the corpus, with its subject dir. Derived rather
+ * than hard-coded so a longer title added later is the one that gets tested.
+ */
+function longestTopic(): { subject: string; id: string; title: string } {
+  const topicsDir = path.join(process.cwd(), 'src/content/data/topics');
+  const all = fs.readdirSync(topicsDir).flatMap((subject) => {
+    const dir = path.join(topicsDir, subject);
+    if (!fs.statSync(dir).isDirectory()) return [];
+    return fs
+      .readdirSync(dir)
+      .filter((f) => f.endsWith('.json') && f !== 'order.json')
+      .map((f) => {
+        const t = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) as { id: string; title: string };
+        return { subject, id: t.id, title: t.title };
+      });
+  });
+  return all.sort((a, b) => b.title.length - a.title.length)[0];
+}
 
 test.describe('Mobile / tablet navigation', () => {
   test('bottom navigation is usable on mobile viewports', async ({ page, isMobile }) => {
@@ -19,6 +41,34 @@ test.describe('Mobile / tablet navigation', () => {
     await bottomNav.getByRole('link', { name: 'Learn' }).click();
     await page.waitForURL('/');
     await expect(page.getByRole('heading', { name: 'Subjects' })).toBeVisible();
+  });
+
+  test('long topic titles do not overflow the viewport', async ({ page, isMobile }) => {
+    test.skip(!isMobile, 'Only runs on mobile viewports');
+
+    // Regression guard for the breadcrumb defect measured 2026-09-24: quiz and
+    // flashcards print the WHOLE topic title as a mid-trail *linked* crumb, and
+    // the link was `shrink-0` with an unbounded label — a flex item that cannot
+    // shrink or wrap, so the document grew to 878px inside a 320px viewport
+    // (iPhone SE; page-level horizontal scroll on every phone). No unit test can
+    // see this: it is layout, so it needs a real viewport and a real width.
+    const topic = longestTopic();
+    expect(topic.title.length, 'the corpus still has a long title worth guarding').toBeGreaterThan(38);
+
+    for (const surface of ['study', 'quiz', 'flashcards']) {
+      await page.goto(`/subjects/${topic.subject}/${topic.id}/${surface}`);
+      await expect(page.locator('nav[aria-label="Breadcrumb"]')).toBeVisible();
+
+      const { scrollWidth, clientWidth } = await page.evaluate(() => ({
+        scrollWidth: document.documentElement.scrollWidth,
+        clientWidth: document.documentElement.clientWidth,
+      }));
+      expect(
+        scrollWidth,
+        `${surface} scrolls horizontally: document is ${scrollWidth}px wide in a ${clientWidth}px viewport ` +
+          `("${topic.title}")`,
+      ).toBeLessThanOrEqual(clientWidth + 1);
+    }
   });
 
   test('mobile topic page action buttons fit in viewport', async ({ page, isMobile }) => {
