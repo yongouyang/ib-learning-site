@@ -4,6 +4,71 @@
 
 ---
 
+## 2026-09-25 (session 14b) — “the two new defects” were ONE renderer gap leaking a literal "$" to students
+Git HEAD: `2e4e08e` (develop, tree clean; this entry is the docs commit on top)
+Done: **the two queued study-page overflows, root-caused — the symptom was bigger than the overflow.**
+  `StudyNoteBody` recognised a display block only when the line **started** with `$$`; any `$$…$$`
+  elsewhere fell through to the inline splitter, which splits on SINGLE `$` delimiters, so the doubled
+  pair became literal text and the math rendered inline. Measured on the DEPLOYED site: **64 note lines
+  across 14 topics showed students a visible `$ … $` wrapper** (screenshot-proven: `$moment = force ×
+  perpendicular distance from pivot$`), and two of those pages scrolled the whole document
+  (`phys-simple-machines-1` 1540px, `math-yr7-data` 510px). CONTENT_STYLE.md:69 had always said
+  “`$$…$$` for display”, so the authors followed the spec and the RENDERER disagreed. Fix is the new
+  `renderLineContent` (one helper, all five content branches): a mid-line `$$…$$` renders through
+  MathExpression's display mode (`block my-3 overflow-x-auto`), so a wide formula scrolls inside the
+  note instead of scrolling the page. It stays a CSS-block `<span>` — a real block inside a
+  `<p>`/`<li>` makes the browser close the paragraph during HTML parsing and desyncs hydration.
+  **Content fixes the new checks found:** `math-yr7-data`'s 30-number raw-data list sat in ONE inline
+  math span (inline math cannot wrap) → split into three; `math-yr8-congruence-similarity` rendered a
+  literal `\n` as text; **15 orphaned-punctuation sites** (the UX review's P1 blocker) — 8 periods moved
+  inside the closing delimiter (corpus precedent `\approx 4.27 \text{ m}.$$`), 5 comma-led clauses
+  reworded onto their own line, 2 redundant colons dropped; and `phys-simple-machines-1`'s
+  `questions[0].choiceB` + matching flashcard definition were **5px too wide at 320px** → shortened.
+  **`multi_display_math` is DELETED** — its premise (“two `$$` blocks on one line render as a KaTeX
+  ParseError”) is now false: its own last test case, the matrices worked example, is one of the lines
+  this fixes. That is the documented completion path for a shadow rule (as with `escaped_dollar`), and
+  **no replacement delimiter-counting rule was added** — line-based re-derivation of the renderer is
+  what produced all three. PROD: the breadcrumb fix was promoted (`main` → `90c5d84`) and verified live.
+Verified: **audit:overflow — 735 pages × 245 topics (all study/quiz/flashcards) PASS at 375px AND
+  320px** (both widths failed before: the physics page at 1540px, `math-yr7-data` at 510px); a browser
+  sweep of **all 245 study pages: 0 with a visible `$`, 0 with an orphaned punctuation leaf**; the
+  flashcards deck of the touched topic flipped 12/12 at 320px → max scrollWidth 320; **1591/1591**
+  unit tests (+7 new `study-note-body.test.tsx` cases covering mid-line blocks, the bullet case, two
+  blocks on one line, indented forms, the currency escape and an unterminated `$$`); tsc clean; lint
+  35w/0e; audit:content **0/0**; validate:content; check:registry; `build:static` green (leak gate
+  HARD + TIGHTENED); e2e on the export (study / full-topic-journey / mobile-navigation / app, Desktop
+  Chrome, `--workers=1`) **30 passed / 3 skipped / 0 failed**; UX pass on 14 card screenshots (mobile
+  light+dark, matrices also desktop) by a fresh-context subagent → **SHIP, no P0/P1 after the
+  punctuation fix**. PROD post-promotion: `/version.json` = `90c5d84`, redirects 301, cache split
+  intact, `verify:seo:live --all` PASSED, and the fixed page measured **live at 320px and 375px**
+  (`scrollWidth == clientWidth` on quiz/flashcards/study).
+Next: **(1) `math-dp-ai-vectors` has 62 missing backslashes in its note bodies** (`\overrightarrow`
+  ×31, `\sqrt` ×19, `\mathbf` ×9, `\hat` ×2, `\operatorname` ×1, across notes 0/1/2/4/5 — flashcards
+  and questions are clean), so students see the literal words `sqrt`, `mathbfi`, `overrightarrowAB`;
+  the reviewer found it in a screenshot and it is MORE severe than what this session fixed — it needs a
+  mechanical repair plus a render check, and was deliberately NOT touched here. **(2) The reviewer's
+  remaining P2s:** a too-wide embedded formula is clipped with no scroll affordance at 375px
+  (`phys-simple-machines-1`, `math-pythagoras-myp` — where the worked example's ANSWER is off-screen —
+  and `math-dp-ai-matrices`; a right-edge fade or an `aligned` line break are the options), and the
+  table-cell seam (cells still call `renderInlineMath`, so a future `$$…$$` in a cell would re-create
+  the bug — no instance today). Waived: bulleted formulas sit flush at container width. **(3) C's
+  residue — 35 unwired topics** (math 23 / chem 8 / phys 4). **(4) the support bot** S1 → S2 → S3 →
+  S5 → S6. **(5) the rest of §2.E.** **(6) the legal chain** → then delete `BILLING_DISABLED_ENVS`.
+Notes: **read the auditor's limits before trusting a PASS.** `audit:overflow` (a) does not render a quiz
+  EXPLANATION — that is where most long inline-math spans live (272 spans are ≥60 chars, dominated by
+  `questions[].explanation`), and only the opt-in `topic-journeys` (`RUN_TOPIC_SWEEP=1`) answers a
+  question at all; (b) samples **one randomly-drawn question per quiz page**, so a marginally-too-wide
+  question can flip PASS/FAIL between runs — exactly how the 320px `phys-simple-machines-1` failure
+  appeared, and why a single 320px failure is worth re-running before calling it a flake or a
+  regression; (c) must run against the BUILT EXPORT, since dev-mode rendering misreported a display-math
+  width as ~4119px. **Span length is not a width proxy** (of 272 spans ≥60 chars, exactly one page
+  overflowed) — do not add a length-based static rule; the render-time tests plus the audit are the
+  guards. Two long-standing docs inconsistencies surfaced and were left alone: CONTENT_STYLE.md:145
+  says currency is plain text (`£28`) while the corpus and AGENTS.md use `£$78$`, and
+  `docs/typesafe-ai-reviewed.md` still cites the now-deleted rule as load-bearing (it is a dated review).
+
+---
+
 ## 2026-09-25 (session 14) — develop promoted to PROD (15 commits); the phone-width breadcrumb overflow found, fixed and gated
 Git HEAD: `5f19127` (develop, tree clean; this entry is the docs commit on top)
 Done: **two items, sequentially, as asked.**
