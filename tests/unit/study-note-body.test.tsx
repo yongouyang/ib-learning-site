@@ -14,6 +14,57 @@ describe('StudyNoteBody multi-line display math ', () => {
   });
 });
 
+describe('StudyNoteBody display math embedded in a line', () => {
+  // Regression guard, measured on the deployed site 2026-09-25: a `$$...$$` that
+  // did not start its line fell through to the inline splitter, so the doubled
+  // delimiters were split as SINGLE `$` ones and printed literally — 64 note lines
+  // across 14 topics showed students "$ … $" around inline math.
+  const render = (body: string) => renderToStaticMarkup(createElement(StudyNoteBody, { body }));
+
+  it('renders mid-sentence $$ as display math and leaves no literal $ behind', () => {
+    const html = render('The moment of a force is: $$\\text{moment} = F \\times d$$ in newton-metres.');
+    expect(html).toContain('katex-display');
+    expect(html).not.toContain('$$');
+    expect(html).not.toContain('$');
+    expect(html).toContain('The moment of a force is:');
+    expect(html).toContain('in newton-metres.');
+  });
+
+  it('keeps the bullet marker when a list item embeds one', () => {
+    const html = render('• Nearest $10$: round up. $$4\\,638 \\to 4\\,640$$');
+    expect(html).toContain('<li');
+    expect(html).toContain('Nearest');
+    expect(html).toContain('katex-display');
+    expect(html).not.toContain('4\\,640$');
+    expect(html).not.toContain('$');
+  });
+
+  it('renders two blocks on one line as two display blocks', () => {
+    const html = render('Text $$x = 1$$ and $$y = 2$$ more text.');
+    expect((html.match(/katex-display/g) || []).length).toBe(2);
+    expect(html).toContain('and');
+    expect(html).toContain('more text.');
+    expect(html).not.toContain('$');
+  });
+
+  it('keeps the indented sub-step and formula-block layouts working', () => {
+    expect(render('  Step: $$x = 1$$')).toContain('katex-display');
+    expect(render('    $$x = 1$$')).toContain('katex-display');
+  });
+
+  it('leaves inline math and currency escapes untouched', () => {
+    const html = render('Cost is $\\$5$ and half of $x$.');
+    expect((html.match(/katex-display/g) || []).length).toBe(0);
+    expect(html).toContain('katex');
+    expect(html).not.toContain('$\\$5$');
+  });
+
+  it('does not treat an unterminated $$ as display math', () => {
+    const html = render('Start $$x + 1 and keep going');
+    expect(html).not.toContain('katex-display');
+  });
+});
+
 describe('StudyNoteBody ** bold', () => {
   it('renders **bold** segments as <strong>, including mid-word', () => {
     const body = 'A **variable** is a letter. **ein**steigen means to board.';

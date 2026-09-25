@@ -144,7 +144,7 @@ Free-response sets live in `src/content/data/papers/<courseId>/<courseId>-set-<n
 - Always use `\dfrac{a}{b}` (not `\frac{a}{b}`) so fractions render at full, readable size both inline and in display math.
 - Write currency amounts as plain text outside math (`£28`), not `£$28$` or `\pounds` — keeps the £ symbol in the same font as the surrounding sentence.
 - Do not end content lines with a single `\` (Markdown hard break) — the renderer does not interpret it and the audit flags it.
-- Inline `$...$` is rendered by KaTeX everywhere content is displayed: note bodies and headings, quiz stems, choices and explanations, flashcards, and topic descriptions. Display `$$...$$` is only supported in note bodies, on one line or as a multi-line block closed by a later `$$` line.
+- Inline `$...$` is rendered by KaTeX everywhere content is displayed: note bodies and headings, quiz stems, choices and explanations, flashcards, and topic descriptions. Display `$$...$$` is only supported in note bodies, in any of three forms: on its own line; embedded mid-line in a sentence or list item (`Solve $$3x + 5 = 20$$.`), which renders as a display block where it appears; or as a multi-line block closed by a later `$$` line. Mid-line display math only renders correctly since 2026-09-25 — before that the doubled delimiters leaked through the inline splitter as literal `$` text (64 lines across 14 topics were affected, all in note bodies).
 
 ## Bold
 

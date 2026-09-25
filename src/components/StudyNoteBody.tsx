@@ -19,6 +19,43 @@ function isTableSeparator(line: string | undefined): boolean {
   return !!line && /^\|[\s:|-]+\|$/.test(line.trim());
 }
 
+/** Display math embedded in a line of content: `$$...$$` (non-greedy, one line). */
+const EMBEDDED_DISPLAY_MATH = /(\$\$.+?\$\$)/;
+
+/**
+ * Renders one line (or list item) of content: prose, plus any display math it
+ * embeds mid-sentence ("Solve $$3x + 5 = 20$$.").
+ *
+ * WHY THIS EXISTS: the line branches below only recognise a line that IS a display
+ * block, so a `$$...$$` sitting inside a sentence fell through to the inline
+ * splitter, which splits on SINGLE `$` delimiters — the doubled pair then became
+ * literal text and the math rendered inline. Measured 2026-09-25 on the deployed
+ * site: 64 note lines across 14 topics showed students a visible "$ … $" wrapper,
+ * and two of them (phys-simple-machines-1, math-yr7-data) pushed the document wider
+ * than the viewport, because inline math cannot wrap.
+ *
+ * The display half renders through MathExpression, whose display mode is
+ * `block … overflow-x-auto` — so a wide formula scrolls inside the note body
+ * instead of scrolling the page. It stays a `<span>` with CSS `display: block`,
+ * which is what keeps it valid inside a `<p>`/`<li>` (a real block element there
+ * would make the browser close the paragraph during HTML parsing and desync
+ * hydration).
+ */
+function renderLineContent(text: string): React.ReactNode {
+  const segments = text.split(EMBEDDED_DISPLAY_MATH).filter((segment) => segment !== '');
+  return (
+    <>
+      {segments.map((segment, i) =>
+        segment.startsWith('$$') && segment.endsWith('$$') && segment.length > 4 ? (
+          <MathExpression key={i} latex={segment.slice(2, -2).trim()} display />
+        ) : (
+          <span key={i}>{renderInlineMath(segment)}</span>
+        ),
+      )}
+    </>
+  );
+}
+
 export default function StudyNoteBody({ body }: { body: string }) {
   const lines = body.split('\n');
   const elements: React.ReactNode[] = [];
@@ -33,7 +70,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
       elements.push(
         <ol key={`list-${key++}`} className={`${baseClass} list-decimal`}>
           {currentList.map((item, i) => (
-            <li key={i} className="leading-relaxed pl-1">{renderInlineMath(item)}</li>
+            <li key={i} className="leading-relaxed pl-1">{renderLineContent(item)}</li>
           ))}
         </ol>
       );
@@ -41,7 +78,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
       elements.push(
         <ul key={`list-${key++}`} className={`${baseClass} list-disc`}>
           {currentList.map((item, i) => (
-            <li key={i} className="leading-relaxed pl-1">{renderInlineMath(item)}</li>
+            <li key={i} className="leading-relaxed pl-1">{renderLineContent(item)}</li>
           ))}
         </ul>
       );
@@ -182,7 +219,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
           key={`code-${key++}`}
           className="font-mono text-sm text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-900 px-3 py-1.5 rounded-md my-1 border-l-4 border-blue-300 dark:border-blue-700"
         >
-          {renderInlineMath(trimmed)}
+          {renderLineContent(trimmed)}
         </div>
       );
       continue;
@@ -192,7 +229,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
     if (line.startsWith('  ')) {
       elements.push(
         <div key={`indent-${key++}`} className="text-sm text-gray-700 dark:text-gray-300 pl-4 leading-relaxed">
-          {renderInlineMath(trimmed)}
+          {renderLineContent(trimmed)}
         </div>
       );
       continue;
@@ -206,7 +243,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
           className="font-semibold text-gray-900 dark:text-gray-100 mt-4 mb-1 text-sm flex items-center gap-2"
         >
           <span>{trimmed.split(' ')[0]}</span>
-          <span>{renderInlineMath(trimmed.split(' ').slice(1).join(' '))}</span>
+          <span>{renderLineContent(trimmed.split(' ').slice(1).join(' '))}</span>
         </div>
       );
       continue;
@@ -215,7 +252,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
     // Default paragraph
     elements.push(
       <p key={`p-${key++}`} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-        {renderInlineMath(trimmed)}
+        {renderLineContent(trimmed)}
       </p>
     );
   }

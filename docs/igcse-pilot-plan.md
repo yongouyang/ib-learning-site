@@ -64,7 +64,9 @@ indexability (study leaves index, quiz/flashcards noindex+follow) comes from
 
 Per-topic standard (unchanged): **7 notes / 12 flashcards / 15 questions**, every question
 difficulty-tagged, no literal `$` outside KaTeX delimiters (math content: fullwidth `＄`
-for money), KaTeX `$$` blocks one per line (the `multi_display_math` audit rule).
+for money), KaTeX `$$` blocks one per line (mid-line `$$…$$` also renders, as a display
+block, since 2026-09-25 — the `multi_display_math` rule was deleted then; one block per
+line is still the tidier style).
 
 Proposed list (strand coverage 3/3/2/1/1; parent may swap a topic during Phase B if a
 swarm draft fails review — strand balance must survive):
@@ -162,8 +164,10 @@ Gate outputs from Phase C verbatim counts; UX pass result or waiver reason; dev 
 
 1. **The §2.2 ordering trap** (routes vs content same commit) — the only way
    `verify:sitemaps` stays green.
-2. **KaTeX `$$`-on-one-line** — the `multi_display_math` audit rule catches it; swarm
-   prompts must carry the rule or Phase B eats rework.
+2. **KaTeX `$$`-on-one-line** — was the `multi_display_math` audit rule, DELETED 2026-09-25
+   after `StudyNoteBody` learned to render display math embedded in a line; swarm prompts no
+   longer need to carry the rule (the render-time test in `tests/unit/study-note-body.test.tsx`
+   is the guard now).
 3. **`String.replaceAll` with `$$` in the replacement** corrupts content (2026-09-05
    incident) — parent scripts use function replacers.
 4. **Difficulty mix** — mocks sample `{easy:5, medium:9, hard:6}` per math paper from the

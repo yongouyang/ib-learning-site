@@ -21,7 +21,6 @@ export type IssueType =
   | "empty_flashcard"
   | "stray_backslash"
   | "unbalanced_bold"
-  | "multi_display_math"
   | "missing_difficulty"
   | "difficulty_distribution"
   | "variant_group"
@@ -183,25 +182,6 @@ export function findStrayBackslashes(text: string): string[] {
 // src/components/InlineMath.tsx). A valid segment is **...** on one line with
 // plain text inside — no nested "*", no "$" (bold must not span math). Empty
 // (****) and unpaired markers render literally, so they are flagged here.
-// Flags a line that crams two or more display-math ($$) blocks together.
-// StudyNoteBody (src/components/StudyNoteBody.tsx) treats a line that starts and
-// ends with $$ as ONE block and passes everything between them to KaTeX, so a
-// second $$...$$ on the same line lands inside the first block's LaTeX and the
-// whole thing renders as a ParseError (the 5 production notes fixed 2026-09-03:
-// math-dp-ai-complex-numbers, math-dp-ai-matrices x2, math-yr8-linear-equations,
-// physics-simple-machines-1). Inline $...$ carries no $$ delimiter, so it is not
-// flagged here. This is a real StudyNoteBody limitation, not a stale mirror of
-// the renderer — tests/unit/inline-math.test.tsx would catch it too, but only at
-// render time, so the rule stays for authors running audit:content.
-export function findMultiDisplayMath(text: string): string[] {
-  const flagged: string[] = [];
-  for (const line of text.split("\n")) {
-    const doubled = (line.match(/\$\$/g) || []).length;
-    if (doubled >= 4) flagged.push(line.trim().slice(0, 80));
-  }
-  return flagged;
-}
-
 export function findBoldIssues(text: string): string[] {
   const issues: string[] = [];
   // A pair whose content contains "$" spans math — the renderer can't bold it.
@@ -637,40 +617,6 @@ export function auditContent(input: AuditInput): AuditResult {
     }
   }
 
-  // Two display-math ($$) blocks on one line mis-pairs the renderer (ParseError)
-  for (const topic of topics) {
-    for (const field of extractTextFields(topic)) {
-      for (const line of findMultiDisplayMath(field.value)) {
-        issues.push({
-          type: "multi_display_math",
-          severity: "error",
-          location: `${location(topic)}/${field.path}`,
-          message: `Line crams two or more display-math ($$) blocks together — renders as a KaTeX ParseError; put each block on its own line: "${line}"`,
-        });
-      }
-    }
-  }
-  for (const paper of papers) {
-    const fields: TextField[] = [];
-    paper.questions.forEach((q, idx) => {
-      fields.push({ path: `questions[${idx}].stem`, value: q.stem });
-      fields.push({ path: `questions[${idx}].modelAnswer`, value: q.modelAnswer });
-      q.markscheme.forEach((point, pidx) => {
-        fields.push({ path: `questions[${idx}].markscheme[${pidx}]`, value: point });
-      });
-    });
-    for (const field of fields) {
-      for (const line of findMultiDisplayMath(field.value)) {
-        issues.push({
-          type: "multi_display_math",
-          severity: "error",
-          location: `papers/${paper.id}/${field.path}`,
-          message: `Line crams two or more display-math ($$) blocks together — renders as a KaTeX ParseError; put each block on its own line: "${line}"`,
-        });
-      }
-    }
-  }
-
   const totalQuestions = topics.reduce(
     (sum, topic) => sum + topic.questions.length,
     0,
@@ -821,8 +767,6 @@ function issueTypeLabel(type: IssueType): string {
       return "Lines ending with a stray backslash";
     case "unbalanced_bold":
       return "Unpaired or invalid ** bold markers";
-    case "multi_display_math":
-      return "Two display-math ($$) blocks on one line";
     case "missing_difficulty":
       return "Questions without a difficulty tag";
     case "difficulty_distribution":
