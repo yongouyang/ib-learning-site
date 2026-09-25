@@ -4,6 +4,36 @@
 
 ---
 
+## 2026-09-25 (session 14d) — report-only `audit:latex` shipped; the backslash repair promoted to PROD
+Git HEAD: `936baf6` (develop == main, tree clean; this entry is the docs commit on top)
+Done: **(1) `npm run audit:latex`** (`scripts/audit-latex.mjs`) — the missing-backslash auditor, as a
+  REPORT-ONLY tool by decision (it always exits 0): triage is per-hit judgement and a rule with false
+  positives would break `audit:content`'s 0-warning gate. It derives its 838-name command vocabulary
+  from the corpus itself, scans MATH SPANS only, and lists the known-benign hits separately instead of
+  dropping them (`min`/`max` subscript labels, `^nP_r` notation, `times` inside `\text{($n$ times)}`).
+  **(2) The backslash repair was promoted to PROD** (`main` `6493220` → `936baf6`) after DEV verified it
+  live, which is the third promotion of the session.
+Verified: **DEV and PROD, live, both 375px and 320px: the vectors page renders 237 KaTeX nodes with 0
+  `.katex-error`, no bare command word in visible text (KaTeX MathML stripped from the check), and no
+  overflow**; correlation page 0 errors with no visible `approx`. Locally: on the repaired corpus the
+  auditor reports none lost + 28 benign; un-fixing one known site makes it report exactly
+  `math-dp-ai-vectors — 1 site(s): sqrt×1` with context (so it demonstrably detects its target); lint
+  35w/0e.
+Next: the queue is unchanged from 14c — the reviewer's P2s (a too-wide embedded formula is clipped
+  with no scroll affordance at 375px on `phys-simple-machines-1` / `math-pythagoras-myp` /
+  `math-dp-ai-matrices`; the table-cell `$$` seam), C's residue (35 unwired topics), the support bot
+  S1 → S2 → S3 → S5 → S6, the rest of §2.E, and the legal chain (then delete `BILLING_DISABLED_ENVS`).
+Notes: **the auditor's first version was unusable and that is the lesson worth keeping:** scanning whole
+  note bodies instead of math spans produced **5,085 hits, almost all of them the English words `angle`,
+  `triangle`, `prime`, `bar`** — a reminder that a detector's false-positive rate decides whether anyone
+  will ever read its output. Also: a background deploy watcher pinned to an exact commit becomes a false
+  FAIL the moment a newer commit is pushed (it polls for a SHA the deploy will never serve — it happened
+  twice today); re-point it at the new HEAD or drop it. And `node scripts/*.mjs` checks MUST live inside
+  the repo, not `/tmp`: `playwright` cannot resolve from there, which silently cost two verification
+  runs today (the watcher reports "landed" and then the check dies with `ERR_MODULE_NOT_FOUND`).
+
+---
+
 ## 2026-09-25 (session 14c) — 129 lost LaTeX backslashes restored; the display-math fix promoted to PROD
 Git HEAD: `277e436` (develop, tree clean; this entry is the docs commit on top)
 Done: **(1) `math-dp-ai-vectors` was showing students the literal words `sqrt`, `mathbfi`,
