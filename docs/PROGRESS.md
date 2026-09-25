@@ -4,6 +4,45 @@
 
 ---
 
+## 2026-09-25 (session 14c) — 129 lost LaTeX backslashes restored; the display-math fix promoted to PROD
+Git HEAD: `277e436` (develop, tree clean; this entry is the docs commit on top)
+Done: **(1) `math-dp-ai-vectors` was showing students the literal words `sqrt`, `mathbfi`,
+  `overrightarrowAB`, `lambda`, `quad`, `checkmark` …** — 127 LaTeX commands had lost their leading
+  backslash inside math spans across notes 0/1/2/4/5, plus 2 × `\approx` in
+  `math-dp-ai-correlation-regression`. Note-body only; flashcards and questions are clean in both.
+  Candidates were derived from the CORPUS's own LaTeX vocabulary (838 names) instead of a hand-written
+  list, and each class was read in context before applying. **Rejected as false positives, not "fixed":**
+  `a_{min}`/`a_{max}` (subscript labels) and `^nP_r` (permutation notation) in
+  `math-igcse-bounds`/`math-dp-aa-probability`, and two `times` that are the English word inside
+  `\text{($n$ times)}`. **(2) The embedded display-math fix was promoted to PROD** (`main`
+  `90c5d84` → `6493220`) after DEV verification.
+Verified: vectors page renders **237 KaTeX nodes with 0 `.katex-error` at 1280px and 375px and no bare
+  command word in VISIBLE text** (the hidden KaTeX MathML copy is stripped from that check — it
+  legitimately contains the LaTeX source, which is what made a naive `includes('approx')` check
+  useless); correlation page renders `r≈0.794` with no bare `approx`; `audit:overflow` PASS at 375px
+  AND 320px across 735 pages; `build:static` green (leak gate HARD); validate:content, audit:content
+  **0/0**, check:registry, tsc clean. **DEV, live:** the three previously-broken study pages measured
+  **0 leaf nodes showing a `$`** and no overflow at 320px and 375px; PROD promoted on that basis (its
+  own live check was still running when this entry was written).
+Next: **(1) productionise the missing-backslash detector?** The class has now bitten twice (2026-09-05
+  and today), and the scanner exists — it flags bare command names from the corpus vocabulary inside
+  math spans. It is NOT a gate today only because of the hand-triaged false positives listed above; a
+  future session should either encode that exclusion list with tests or keep it as a report-only
+  script. **(2) The reviewer's P2s from 14b** (a too-wide embedded formula is clipped with no scroll
+  affordance at 375px on `phys-simple-machines-1` / `math-pythagoras-myp` / `math-dp-ai-matrices`; the
+  table-cell `$$` seam). **(3) C's residue — 35 unwired topics.** **(4) the support bot** S1 → S2 → S3 →
+  S5 → S6. **(5) the rest of §2.E.** **(6) the legal chain** → then delete `BILLING_DISABLED_ENVS`.
+Notes: **never edit escaped JSON text to fix content — transform DECODED strings and write back exact
+  JSON literals.** Two raw-text attempts broke the file (`Invalid \escape`, then `bad escape \o` from
+  `re.sub`'s replacement-template parsing) and were reverted; the working version round-trips
+  `json.dumps(…, ensure_ascii=False, indent=2)` byte-for-byte against the original, which is what keeps
+  the diff to 13 lines instead of a whole-file reformat. Check that round-trip BEFORE writing. Also: an
+  `include('word')` test on rendered text proves nothing about what a student sees, because KaTeX keeps
+  a clipped MathML copy of the LaTeX source in the DOM — strip `.katex-mathml` first (this is exactly
+  the trap that produced the misleading `hasApprox: true` on the first pass).
+
+---
+
 ## 2026-09-25 (session 14b) — “the two new defects” were ONE renderer gap leaking a literal "$" to students
 Git HEAD: `2e4e08e` (develop, tree clean; this entry is the docs commit on top)
 Done: **the two queued study-page overflows, root-caused — the symptom was bigger than the overflow.**
