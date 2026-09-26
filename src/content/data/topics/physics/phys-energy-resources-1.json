@@ -163,33 +163,36 @@
       ],
       "correctIndex": 2,
       "explanation": "Wind is renewable because moving air is naturally replenished. Coal, natural gas, and uranium are finite resources.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "resource-classification"
     },
     {
       "id": "phys-energy-resources-1-q2",
       "stem": "What is the main greenhouse gas released when fossil fuels are burned?",
       "choices": [
-        "Oxygen",
         "Carbon dioxide",
+        "Oxygen",
         "Nitrogen",
         "Argon"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Burning fossil fuels releases carbon dioxide, the main greenhouse gas contributing to global warming.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "fossil-fuel-emissions"
     },
     {
       "id": "phys-energy-resources-1-q3",
       "stem": "In a photovoltaic cell, what is converted directly into electricity?",
       "choices": [
         "Heat",
-        "Sunlight",
+        "Steam",
         "Wind",
-        "Steam"
+        "Sunlight"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Photovoltaic cells convert sunlight directly into electricity through the photovoltaic effect.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "solar-conversion"
     },
     {
       "id": "phys-energy-resources-1-q4",
@@ -202,7 +205,8 @@
       ],
       "correctIndex": 1,
       "explanation": "In hydroelectric power, flowing or falling water turns turbines connected to generators.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "turbine-driver"
     },
     {
       "id": "phys-energy-resources-1-q5",
@@ -215,7 +219,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Geothermal power uses heat from underground rocks to produce steam or hot water for electricity generation.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "resource-classification"
     },
     {
       "id": "phys-energy-resources-1-q6",
@@ -228,20 +233,22 @@
       ],
       "correctIndex": 0,
       "explanation": "Efficiency = (350 ÷ 1000) × 100 = 35%. The remaining energy is wasted, mostly as heat.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "efficiency-calculation"
     },
     {
       "id": "phys-energy-resources-1-q7",
       "stem": "Which statement best describes biomass as an energy source?",
       "choices": [
         "It releases no carbon dioxide at all",
-        "It is renewable because new plants or waste can be replaced, but burning still releases carbon dioxide",
+        "It only works in coastal areas",
         "It is a fossil fuel formed underground",
-        "It only works in coastal areas"
+        "It is renewable because new plants or waste can be replaced, but burning still releases carbon dioxide"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Biomass is renewable, but burning it still releases carbon dioxide and other pollutants into the atmosphere.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "low-carbon-nuance"
     },
     {
       "id": "phys-energy-resources-1-q8",
@@ -254,20 +261,22 @@
       ],
       "correctIndex": 1,
       "explanation": "Nuclear fission does not burn fossil fuels, so operational carbon dioxide emissions are very low.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "low-carbon-nuance"
     },
     {
       "id": "phys-energy-resources-1-q9",
       "stem": "What does the term 'intermittent' mean for solar and wind power?",
       "choices": [
         "They are very expensive to build",
-        "They do not produce electricity all the time because they depend on weather and time of day",
         "They produce radioactive waste",
+        "They do not produce electricity all the time because they depend on weather and time of day",
         "They require fossil fuels to start"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "Solar and wind are intermittent because they depend on sunlight and wind, which vary throughout the day and year.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "intermittency"
     },
     {
       "id": "phys-energy-resources-1-q10",
@@ -280,7 +289,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Renewables produce little or no greenhouse gas during operation and are naturally replenished.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "renewable-advantage"
     },
     {
       "id": "phys-energy-resources-1-q11",
@@ -293,46 +303,50 @@
       ],
       "correctIndex": 2,
       "explanation": "The generator converts kinetic energy into electrical energy through electromagnetic induction.",
-      "difficulty": "medium"
+      "difficulty": "hard",
+      "variantOf": "generator-role"
     },
     {
       "id": "phys-energy-resources-1-q12",
       "stem": "Which of these is a social or environmental concern about wind farms?",
       "choices": [
-        "They release large amounts of carbon dioxide",
         "They can have visual and noise impacts and may affect birds and bats",
+        "They release large amounts of carbon dioxide",
         "They use uranium fuel",
         "They produce acid rain"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "Wind farms have low carbon emissions but can create visual and noise concerns and may affect flying wildlife.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "wind-concerns"
     },
     {
       "id": "phys-energy-resources-1-q13",
       "stem": "What is meant by a country's energy security?",
       "choices": [
         "The total amount of electricity used each year",
-        "The ability to access reliable and affordable energy without depending too heavily on imports",
+        "The amount of renewable energy a country produces",
         "The efficiency of all power stations in the country",
-        "The amount of renewable energy a country produces"
+        "The ability to access reliable and affordable energy without depending too heavily on imports"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Energy security means having reliable, affordable energy supplies and reducing dependence on foreign fuel imports.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "energy-security"
     },
     {
       "id": "phys-energy-resources-1-q14",
       "stem": "Which energy resource is most likely to be described as reliable and able to provide continuous baseload power?",
       "choices": [
-        "Solar panels",
-        "Wind turbines",
         "Coal or nuclear power stations",
+        "Wind turbines",
+        "Solar panels",
         "Tidal barrages"
       ],
-      "correctIndex": 2,
+      "correctIndex": 0,
       "explanation": "Coal and nuclear power stations can run continuously, making them suitable for baseload electricity demand.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "baseload-reliability"
     },
     {
       "id": "phys-energy-resources-1-q15",
@@ -345,7 +359,204 @@
       ],
       "correctIndex": 1,
       "explanation": "Sustainability means balancing today's energy needs with protecting resources and the environment for the future.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "sustainability-goal"
+    },
+    {
+      "id": "phys-energy-resources-1-q16",
+      "stem": "Which of the following is a NON-renewable energy resource?",
+      "choices": [
+        "Uranium",
+        "Solar",
+        "Wind",
+        "Biomass"
+      ],
+      "correctIndex": 0,
+      "explanation": "Uranium is a finite nuclear fuel — once used it cannot be replaced on a human timescale. Solar, wind and biomass are all naturally replenished.",
+      "difficulty": "easy",
+      "variantOf": "resource-classification"
+    },
+    {
+      "id": "phys-energy-resources-1-q17",
+      "stem": "Burning coal, oil or natural gas in a power station releases which greenhouse gas?",
+      "choices": [
+        "Oxygen",
+        "Nitrogen",
+        "Argon",
+        "Carbon dioxide"
+      ],
+      "correctIndex": 3,
+      "explanation": "Fossil fuels contain carbon locked away for millions of years; burning them releases it as carbon dioxide, the main driver of climate change.",
+      "difficulty": "easy",
+      "variantOf": "fossil-fuel-emissions"
+    },
+    {
+      "id": "phys-energy-resources-1-q18",
+      "stem": "A solar thermal panel on a roof is used to:",
+      "choices": [
+        "Generate electricity directly from sunlight",
+        "Store electricity for use at night",
+        "Heat water using energy from sunlight",
+        "Reflect sunlight away from the house"
+      ],
+      "correctIndex": 2,
+      "explanation": "Solar thermal systems absorb sunlight to heat water (or another fluid) for taps and heating. It is photovoltaic (PV) cells that convert sunlight directly into electricity.",
+      "difficulty": "easy",
+      "variantOf": "solar-conversion"
+    },
+    {
+      "id": "phys-energy-resources-1-q19",
+      "stem": "In a coal-fired power station, what turns the turbine?",
+      "choices": [
+        "Moving water from a dam",
+        "High-pressure steam from boiling water",
+        "The wind",
+        "A flow of electric current"
+      ],
+      "correctIndex": 1,
+      "explanation": "Burning coal boils water to make high-pressure steam, which pushes the turbine blades around. The spinning turbine then drives the generator.",
+      "difficulty": "easy",
+      "variantOf": "turbine-driver"
+    },
+    {
+      "id": "phys-energy-resources-1-q20",
+      "stem": "A power station takes in 800 MJ of energy and produces 200 MJ of useful electrical energy. What is its efficiency?",
+      "choices": [
+        "75%",
+        "400%",
+        "20%",
+        "25%"
+      ],
+      "correctIndex": 3,
+      "explanation": "Efficiency = (useful output ÷ total input) × 100% = (200 ÷ 800) × 100% = 25%. The 75% option is the wasted fraction, and 400% comes from dividing input by output.",
+      "difficulty": "medium",
+      "variantOf": "efficiency-calculation"
+    },
+    {
+      "id": "phys-energy-resources-1-q21",
+      "stem": "A wind turbine takes in 500 MJ of kinetic energy from the wind and generates 150 MJ of electricity. What is its efficiency?",
+      "choices": [
+        "30%",
+        "70%",
+        "15%",
+        "3%"
+      ],
+      "correctIndex": 0,
+      "explanation": "Efficiency = (150 ÷ 500) × 100% = 30%. The 70% option is the wasted share, 15% comes from dividing by 1000 instead of 500, and 3% is a decimal-place slip from 0.3.",
+      "difficulty": "medium",
+      "variantOf": "efficiency-calculation"
+    },
+    {
+      "id": "phys-energy-resources-1-q22",
+      "stem": "Which statement about nuclear power is correct?",
+      "choices": [
+        "It is a renewable energy resource because uranium is natural",
+        "It releases large amounts of carbon dioxide during operation",
+        "It has very low operational carbon emissions but produces radioactive waste that needs long-term storage",
+        "It is intermittent because reactors must be switched off at night"
+      ],
+      "correctIndex": 2,
+      "explanation": "Nuclear fission releases heat without burning fuel, so operational carbon dioxide emissions are very low — but the spent fuel is radioactive waste that must be stored safely for thousands of years. Uranium is finite, so nuclear power is non-renewable.",
+      "difficulty": "hard",
+      "variantOf": "low-carbon-nuance"
+    },
+    {
+      "id": "phys-energy-resources-1-q23",
+      "stem": "Why does a country relying heavily on solar power also need backup generation or storage?",
+      "choices": [
+        "Solar panels are too expensive to run",
+        "Sunlight contains no usable energy at night",
+        "Solar panels cannot be connected to the grid",
+        "Solar output drops at night and on cloudy days, so supply does not always match demand"
+      ],
+      "correctIndex": 3,
+      "explanation": "Solar power is intermittent: output falls to zero at night and drops in cloudy weather, so storage or backup power stations are needed to keep supply matching demand.",
+      "difficulty": "easy",
+      "variantOf": "intermittency"
+    },
+    {
+      "id": "phys-energy-resources-1-q24",
+      "stem": "Which is a genuine environmental advantage of wind power over a coal-fired power station?",
+      "choices": [
+        "Wind turbines are cheaper to build than a power station",
+        "Wind power produces no carbon dioxide during operation and the fuel will never run out",
+        "Wind farms can be built without using any land or materials",
+        "Wind power is available at the same level all day, every day"
+      ],
+      "correctIndex": 1,
+      "explanation": "Wind generation releases no greenhouse gases and wind is naturally replenished. Wind farms still use land and materials, and wind is intermittent — it is not constant.",
+      "difficulty": "medium",
+      "variantOf": "renewable-advantage"
+    },
+    {
+      "id": "phys-energy-resources-1-q25",
+      "stem": "In a hydroelectric power station, what does the generator do?",
+      "choices": [
+        "It converts the kinetic energy of the spinning turbine into electrical energy",
+        "It pumps water back up behind the dam",
+        "It boils water to produce steam",
+        "It steps up the voltage for transmission"
+      ],
+      "correctIndex": 0,
+      "explanation": "The generator works by electromagnetic induction: a coil rotates inside a magnetic field to produce an electric current. Pumped storage uses pumps to move water uphill, and stepping up the voltage is the transformer's job.",
+      "difficulty": "hard",
+      "variantOf": "generator-role"
+    },
+    {
+      "id": "phys-energy-resources-1-q26",
+      "stem": "Some residents object to a planned wind farm near their village. Which is a genuine local concern?",
+      "choices": [
+        "The turbines will release carbon dioxide while generating",
+        "The turbines will produce radioactive waste",
+        "The noise and visual impact of the turbines, and possible harm to birds",
+        "The wind farm will cause acid rain"
+      ],
+      "correctIndex": 2,
+      "explanation": "Wind farms produce no operational carbon dioxide or radioactive waste, but the noise, visual impact and risk to birds and bats are real local concerns that planning must weigh up.",
+      "difficulty": "easy",
+      "variantOf": "wind-concerns"
+    },
+    {
+      "id": "phys-energy-resources-1-q27",
+      "stem": "Which action would most improve a country's energy security?",
+      "choices": [
+        "Importing more of its natural gas from a single supplier",
+        "Closing all of its renewable generation",
+        "Building fewer power stations to save money",
+        "Generating more electricity from its own resources, such as domestic wind and solar"
+      ],
+      "correctIndex": 3,
+      "explanation": "Energy security means having reliable, affordable supplies without depending heavily on imports. Producing more electricity at home — including renewables — reduces that dependence.",
+      "difficulty": "medium",
+      "variantOf": "energy-security"
+    },
+    {
+      "id": "phys-energy-resources-1-q28",
+      "stem": "A grid operator must supply a steady baseload of electricity day and night. Which pair of resources can do this most reliably on their own?",
+      "choices": [
+        "Solar and wind",
+        "Nuclear and gas",
+        "Tidal and solar",
+        "Wind and tidal"
+      ],
+      "correctIndex": 1,
+      "explanation": "Nuclear and fossil-fuel (gas) stations can run continuously whatever the weather. Solar and wind are intermittent — their output depends on sunlight and wind — so they cannot guarantee baseload power on their own.",
+      "difficulty": "hard",
+      "variantOf": "baseload-reliability"
+    },
+    {
+      "id": "phys-energy-resources-1-q29",
+      "stem": "Sustainable development in energy means:",
+      "choices": [
+        "Using energy as quickly as possible while it is cheap",
+        "Building only the largest possible power stations",
+        "Meeting today's needs by using up all finite resources first",
+        "Meeting present energy needs without reducing the ability of future generations to meet theirs"
+      ],
+      "correctIndex": 3,
+      "explanation": "Sustainability balances today's demand against the future: resources and the environment must be protected so that future generations can meet their own needs too.",
+      "difficulty": "medium",
+      "variantOf": "sustainability-goal"
     }
   ]
 }

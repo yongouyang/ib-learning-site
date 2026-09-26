@@ -35,7 +35,7 @@
     {
       "id": "math-dp-functions-fun-n5",
       "heading": "Piecewise Functions",
-      "body": "Piecewise functions use different formulas on different intervals. They model real-world situations where rules change at specific boundaries, like taxi fares or tax brackets.\n\n📌 Definition\nA piecewise function is defined by different expressions on different intervals.\n\n    $$f(x) = \\begin{cases} g(x) & \\text{for x in interval A} \\\\ h(x) & \\text{for x in interval B} \\end{cases}$$\n\n    The intervals must not overlap.\n\n🔑 Evaluating a Piecewise Function\n    1. Identify which interval contains the input value\n    2. Use the corresponding formula\n    3. The domain is the union of all intervals\n\n💡 Worked Example 1 — Evaluating a piecewise function\nFor the piecewise function\n\n    $$f(x) = \\begin{cases} 2x - 5 & \\text{for -10 <= x <= 10} \\\\ 3x + 1 & \\text{for x > 10} \\end{cases}$$\n\nFind $f(0)$, $f(10)$, and $f(20)$.\n\n  Step 1: Evaluate $f(0)$\n    $0$ is in $[-10, 10]$, so use $f(x) = 2x - 5$\n    $f(0) = 2(0) - 5 = -5$\n\n  Step 2: Evaluate $f(10)$\n    $10$ is in $[-10, 10]$, so use $f(x) = 2x - 5$\n    $f(10) = 2(10) - 5 = 15$\n\n  Step 3: Evaluate $f(20)$\n    $20$ is in $x > 10$, so use $f(x) = 3x + 1$\n    $f(20) = 3(20) + 1 = 61$\n\n  Step 4: State the domain\n    Domain: $x \\geq -10$\n\n💡 Worked Example 2 — A real-world piecewise model\nA taxi charges $3 for the first 2 km and $2 per additional km. Write $C(d)$ for distance $d$ km.\n\n  Step 1: Define the intervals\n    First 2 km: flat rate\n    Beyond 2 km: additional charge\n\n  Step 2: Write the function\n    $$C(d) = \\begin{cases} 3 & \\text{for 0 < d <= 2} \\\\ 3 + 2(d - 2) & \\text{for d > 2} \\end{cases}$$\n\n  Step 3: Simplify the second piece\n    $C(d) = 3 + 2d - 4 = 2d - 1$ for $d > 2$\n\n  Step 4: Verify at the boundary\n    At $d = 2$: first piece gives $3$\n    At $d = 2$: second piece gives $2(2) - 1 = 3$  ✓\n\n📎 Key Points to Remember\n• Always check which interval the input belongs to before substituting\n• Graphs of piecewise functions may have jumps at boundary points\n• For continuous piecewise functions, the pieces must meet at the boundary\n• The domain is the union of all individual intervals\n• Piecewise models are common in economics (tax brackets), transport (fares), and physics (motion)\n\n⚠️ Common Mistake\nUsing the wrong formula at the boundary point. Always check whether the boundary value is included in the first interval ($\\leq$ or $\\geq$) or the second interval ($<$ or $>$). Also, when writing piecewise models from word problems, forgetting to subtract the initial amount from the variable — the charge for additional km is per km BEYOND the initial distance, not per total km."
+      "body": "Piecewise functions use different formulas on different intervals. They model real-world situations where rules change at specific boundaries, like taxi fares or tax brackets.\n\n📌 Definition\nA piecewise function is defined by different expressions on different intervals.\n\n    $$f(x) = \\begin{cases} g(x) & \\text{for x in interval A} \\\\ h(x) & \\text{for x in interval B} \\end{cases}$$\n\n    The intervals must not overlap.\n\n🔑 Evaluating a Piecewise Function\n    1. Identify which interval contains the input value\n    2. Use the corresponding formula\n    3. The domain is the union of all intervals\n\n💡 Worked Example 1 — Evaluating a piecewise function\nFor the piecewise function\n\n    $$f(x) = \\begin{cases} 2x - 5 & \\text{for -10 <= x <= 10} \\\\ 3x + 1 & \\text{for x > 10} \\end{cases}$$\n\nFind $f(0)$, $f(10)$, and $f(20)$.\n\n  Step 1: Evaluate $f(0)$\n    $0$ is in $[-10, 10]$, so use $f(x) = 2x - 5$\n    $f(0) = 2(0) - 5 = -5$\n\n  Step 2: Evaluate $f(10)$\n    $10$ is in $[-10, 10]$, so use $f(x) = 2x - 5$\n    $f(10) = 2(10) - 5 = 15$\n\n  Step 3: Evaluate $f(20)$\n    $20$ is in $x > 10$, so use $f(x) = 3x + 1$\n    $f(20) = 3(20) + 1 = 61$\n\n  Step 4: State the domain\n    Domain: $x \\geq -10$\n\n💡 Worked Example 2 — A real-world piecewise model\nA taxi charges \\$3 for the first 2 km and \\$2 per additional km. Write $C(d)$ for distance $d$ km.\n\n  Step 1: Define the intervals\n    First 2 km: flat rate\n    Beyond 2 km: additional charge\n\n  Step 2: Write the function\n    $$C(d) = \\begin{cases} 3 & \\text{for 0 < d <= 2} \\\\ 3 + 2(d - 2) & \\text{for d > 2} \\end{cases}$$\n\n  Step 3: Simplify the second piece\n    $C(d) = 3 + 2d - 4 = 2d - 1$ for $d > 2$\n\n  Step 4: Verify at the boundary\n    At $d = 2$: first piece gives $3$\n    At $d = 2$: second piece gives $2(2) - 1 = 3$  ✓\n\n📎 Key Points to Remember\n• Always check which interval the input belongs to before substituting\n• Graphs of piecewise functions may have jumps at boundary points\n• For continuous piecewise functions, the pieces must meet at the boundary\n• The domain is the union of all individual intervals\n• Piecewise models are common in economics (tax brackets), transport (fares), and physics (motion)\n\n⚠️ Common Mistake\nUsing the wrong formula at the boundary point. Always check whether the boundary value is included in the first interval ($\\leq$ or $\\geq$) or the second interval ($<$ or $>$). Also, when writing piecewise models from word problems, forgetting to subtract the initial amount from the variable — the charge for additional km is per km BEYOND the initial distance, not per total km."
     },
     {
       "id": "math-dp-functions-fun-n6",
@@ -139,7 +139,8 @@
       ],
       "correctIndex": 2,
       "explanation": "First $g(2)=2^2=4$, then $f(4)=3(4)-2=10$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "composite-functions"
     },
     {
       "id": "math-dp-functions-fun-q2",
@@ -152,20 +153,22 @@
       ],
       "correctIndex": 1,
       "explanation": "$x-4\\geq 0 \\to x\\geq 4$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "domain-range-basics"
     },
     {
       "id": "math-dp-functions-fun-q3",
       "stem": "$f(x)=2x+5$. $f^{-1}(x)=?$",
       "choices": [
         "$\\dfrac{x+5}{2}$",
-        "$\\dfrac{x-5}{2}$",
         "$2x-5$",
-        "$\\dfrac{5-x}{2}$"
+        "$\\dfrac{5-x}{2}$",
+        "$\\dfrac{x-5}{2}$"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "$y=2x+5$, swap: $x=2y+5 \\to y=\\dfrac{x-5}{2}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "inverse-functions"
     },
     {
       "id": "math-dp-functions-fun-q4",
@@ -178,7 +181,8 @@
       ],
       "correctIndex": 1,
       "explanation": "For $f(x)=x^2+1$, substituting $-x$ gives $(-x)^2+1=x^2+1=f(x)$, so it is even.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "even-odd-functions"
     },
     {
       "id": "math-dp-functions-fun-q5",
@@ -191,7 +195,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Right: $x\\to x-3$; down: $-2$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "translation-rules"
     },
     {
       "id": "math-dp-functions-fun-q6",
@@ -204,7 +209,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$x^2\\geq 0 \\to x^2-4\\geq -4$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "domain-range-basics"
     },
     {
       "id": "math-dp-functions-fun-q7",
@@ -217,7 +223,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$(f \\circ g)(x)=\\sqrt{x-3}$. The output of $g$ must lie in the domain of $f$, so $x-3\\geq 0 \\to x\\geq 3$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "composite-domain"
     },
     {
       "id": "math-dp-functions-fun-q8",
@@ -230,20 +237,22 @@
       ],
       "correctIndex": 2,
       "explanation": "For $f(x)=\\dfrac{1}{x}$, solving $y=\\dfrac{1}{x}$ gives $x=\\dfrac{1}{y}$, so $f^{-1}(x)=\\dfrac{1}{x}=f(x)$. Its graph is also symmetric about $y=x$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "inverse-functions"
     },
     {
       "id": "math-dp-functions-fun-q9",
-      "stem": "A taxi charges $3 for the first 2 km and $2 per additional km. Which piecewise function gives the cost $C(d)$ in dollars for distance $d$ km?",
+      "stem": "A taxi charges \\$3 for the first 2 km and \\$2 per additional km. Which piecewise function gives the cost $C(d)$ in dollars for distance $d$ km?",
       "choices": [
         "$C(d)=3$ for $d\\leq 2$, $C(d)=2d$ for $d>2$",
-        "$C(d)=3$ for $d\\leq 2$, $C(d)=3+2(d-2)$ for $d>2$",
         "$C(d)=3d$ for $d\\leq 2$, $C(d)=2d$ for $d>2$",
+        "$C(d)=3$ for $d\\leq 2$, $C(d)=3+2(d-2)$ for $d>2$",
         "$C(d)=2$ for $d\\leq 2$, $C(d)=3+2d$ for $d>2$"
       ],
-      "correctIndex": 1,
-      "explanation": "The first 2 km cost a flat $3. Beyond that, each extra kilometre adds $2, so the cost is $3+2(d-2)$.",
-      "difficulty": "medium"
+      "correctIndex": 2,
+      "explanation": "The first 2 km cost a flat \\$3. Beyond that, each extra kilometre adds \\$2, so the cost is $3+2(d-2)$.",
+      "difficulty": "medium",
+      "variantOf": "piecewise-functions"
     },
     {
       "id": "math-dp-functions-fun-q10",
@@ -256,7 +265,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$(g \\circ f)(x)=g(f(x))=g(\\dfrac{1}{x+2})=\\dfrac{1}{x+2}-1=\\dfrac{1-x-2}{x+2}=\\dfrac{-x-1}{x+2}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "composite-functions"
     },
     {
       "id": "math-dp-functions-fun-q11",
@@ -269,20 +279,22 @@
       ],
       "correctIndex": 0,
       "explanation": "Complete the square: $f(x)=(x-2)^2+1$. With $x\\leq 2$, solving $y=(x-2)^2+1$ gives $x-2=-\\sqrt{y-1}$, so $x=2-\\sqrt{y-1}$. Hence $f^{-1}(x)=2-\\sqrt{x-1}$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "inverse-restricted-quadratic"
     },
     {
       "id": "math-dp-functions-fun-q12",
       "stem": "A cup of coffee cools from $90^\\circ\\text{C}$ according to $T(t)=70 \\times 0.9^t+20$, where $t$ is minutes. What temperature does it approach long-term?",
       "choices": [
-        "76.7°C",
         "20°C",
+        "76.7°C",
         "90°C",
         "0°C"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "As $t\\to\\infty$, $0.9^t\\to 0$, so $T\\to 20^\\circ\\text{C}$. This horizontal asymptote represents the room temperature the coffee approaches but never goes below.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "exponential-asymptote"
     },
     {
       "id": "math-dp-functions-fun-q13",
@@ -295,7 +307,8 @@
       ],
       "correctIndex": 2,
       "explanation": "$2x - 1 = 7$ gives $x = 4$, and $2x - 1 = -7$ gives $x = -3$. Both values satisfy the original equation.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "absolute-value-equation"
     },
     {
       "id": "math-dp-functions-fun-q14",
@@ -308,20 +321,22 @@
       ],
       "correctIndex": 1,
       "explanation": "As $x \\to \\infty$, $0.8^x \\to 0$, so $f(x) \\to 10$. The horizontal asymptote is therefore $y = 10$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "exponential-asymptote"
     },
     {
       "id": "math-dp-functions-fun-q15",
       "stem": "What is the vertex of $y = |x - 3| + 2$?",
       "choices": [
         "$(-3, 2)$",
-        "$(3, 2)$",
         "$(3, -2)$",
+        "$(3, 2)$",
         "$(2, 3)$"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "The graph of $y = |x - h| + k$ has vertex $(h, k)$. Here $h = 3$ and $k = 2$, so the vertex is $(3, 2)$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "absolute-value-vertex"
     },
     {
       "id": "math-dp-functions-fun-q16",
@@ -334,7 +349,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The expression under the square root must be positive because it is in the denominator: $x^{2} - 9 > 0$ → $(x - 3)(x + 3) > 0$ → $x < -3$ or $x > 3$. The values $x = \\pm 3$ are excluded because they make the denominator zero.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "domain-restrictions"
     },
     {
       "id": "math-dp-functions-fun-q17",
@@ -347,20 +363,22 @@
       ],
       "correctIndex": 3,
       "explanation": "$(f \\circ g)(x) = f(\\sqrt{x + 1}) = \\dfrac{1}{\\sqrt{x + 1} - 2}$. We need $x + 1 \\geq 0$ and $\\sqrt{x + 1} \\neq 2$. Thus $x \\geq -1$ and $x + 1 \\neq 4$, so $x \\neq 3$. Because $\\sqrt{x + 1} = 2$ is excluded, we write $x \\geq -1$, $x \\neq 3$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "domain-restrictions"
     },
     {
       "id": "math-dp-functions-fun-q18",
       "stem": "The function $f(x) = \\begin{cases} 2x + k & \\text{for } x < 2 \\\\ x^{2} - 3 & \\text{for } x \\geq 2 \\end{cases}$ is continuous at $x = 2$. Find $k$.",
       "choices": [
         "$-3$",
-        "$-1$",
         "$1$",
-        "$3$"
+        "$3$",
+        "$-1$"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "For continuity at $x = 2$, the left-hand limit must equal the right-hand limit. From the left: $2(2) + k = 4 + k$. From the right: $2^{2} - 3 = 1$. Setting them equal gives $4 + k = 1$, so $k = -3$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "piecewise-functions"
     },
     {
       "id": "math-dp-functions-fun-q19",
@@ -372,8 +390,9 @@
         "$9$"
       ],
       "correctIndex": 2,
-      "explanation": "$d = 4$ is in the second interval, so $C(4) = 3 + 2(4 - 2) = 3 + 4 = 7$. This represents a flat $3 for the first 2 km plus $2 for each additional km.",
-      "difficulty": "easy"
+      "explanation": "$d = 4$ is in the second interval, so $C(4) = 3 + 2(4 - 2) = 3 + 4 = 7$. This represents a flat \\$3 for the first 2 km plus \\$2 for each additional km.",
+      "difficulty": "easy",
+      "variantOf": "piecewise-evaluation"
     },
     {
       "id": "math-dp-functions-fun-q20",
@@ -386,7 +405,120 @@
       ],
       "correctIndex": 0,
       "explanation": "Inside the brackets, $x - 1$ means translate right 1 first. Then $-2f(x - 1)$ applies a vertical stretch by factor 2 and a reflection in the x-axis (the negative sign). Finally, $+3$ translates the graph up 3 units.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "transformation-order"
+    },
+    {
+      "id": "math-dp-functions-fun-q21",
+      "stem": "Which function is odd?",
+      "choices": [
+        "$x^2 - 1$",
+        "$x^2 + x$",
+        "$|x|$",
+        "$x^3 + x$"
+      ],
+      "correctIndex": 3,
+      "explanation": "For $f(x) = x^3 + x$, $f(-x) = -x^3 - x = -(x^3 + x) = -f(x)$, so the function is odd. $x^2 - 1$ and $|x|$ are even, and $x^2 + x$ is neither.",
+      "difficulty": "easy",
+      "variantOf": "even-odd-functions"
+    },
+    {
+      "id": "math-dp-functions-fun-q22",
+      "stem": "$y = f(x)$ → 2 left, 5 up:",
+      "choices": [
+        "$f(x - 2) + 5$",
+        "$f(x + 2) - 5$",
+        "$f(x - 2) - 5$",
+        "$f(x + 2) + 5$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Left: $x \\to x + 2$; up: $+5$.",
+      "difficulty": "medium",
+      "variantOf": "translation-rules"
+    },
+    {
+      "id": "math-dp-functions-fun-q23",
+      "stem": "$f(x) = \\sqrt{x}$ and $g(x) = x + 4$. What is the domain of $(f \\circ g)(x)$?",
+      "choices": [
+        "$x \\geq 0$",
+        "$x \\geq 4$",
+        "$x \\geq -4$",
+        "all real $x$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$(f \\circ g)(x) = \\sqrt{x + 4}$. The output of $g$ must lie in the domain of $f$, so $x + 4 \\geq 0 \\to x \\geq -4$.",
+      "difficulty": "medium",
+      "variantOf": "composite-domain"
+    },
+    {
+      "id": "math-dp-functions-fun-q24",
+      "stem": "$f(x) = x^2 - 6x + 10$ is restricted to $x \\geq 3$ so it has an inverse. What is $f^{-1}(x)$?",
+      "choices": [
+        "$3 + \\sqrt{x - 1}$",
+        "$3 - \\sqrt{x - 1}$",
+        "$\\sqrt{x - 1} - 3$",
+        "$3 + \\sqrt{x + 1}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Complete the square: $f(x) = (x - 3)^2 + 1$. With $x \\geq 3$, solving $y = (x - 3)^2 + 1$ gives $x - 3 = +\\sqrt{y - 1}$, so $x = 3 + \\sqrt{y - 1}$. Hence $f^{-1}(x) = 3 + \\sqrt{x - 1}$; the negative root is rejected because the domain was $x \\geq 3$.",
+      "difficulty": "hard",
+      "variantOf": "inverse-restricted-quadratic"
+    },
+    {
+      "id": "math-dp-functions-fun-q25",
+      "stem": "Solve $|2x + 3| = 9$.",
+      "choices": [
+        "$x = 3$ only",
+        "$x = 3$ or $x = -6$",
+        "$x = 6$ or $x = -6$",
+        "$x = -3$ or $x = 6$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$2x + 3 = 9$ gives $x = 3$, and $2x + 3 = -9$ gives $x = -6$. Both branches must be solved; forgetting the negative branch leaves only $x = 3$.",
+      "difficulty": "medium",
+      "variantOf": "absolute-value-equation"
+    },
+    {
+      "id": "math-dp-functions-fun-q26",
+      "stem": "What is the vertex of $y = |x + 4| - 1$?",
+      "choices": [
+        "$(4, -1)$",
+        "$(-4, 1)$",
+        "$(-1, -4)$",
+        "$(-4, -1)$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The graph of $y = |x - h| + k$ has vertex $(h, k)$. Here $h = -4$ (since $x + 4 = x - (-4)$) and $k = -1$, so the vertex is $(-4, -1)$.",
+      "difficulty": "easy",
+      "variantOf": "absolute-value-vertex"
+    },
+    {
+      "id": "math-dp-functions-fun-q27",
+      "stem": "A ferry charges £$5$ for the first 3 km and £$1$ per additional km. The cost is $C(d) = 5$ for $d \\leq 3$ and $C(d) = 5 + (d - 3)$ for $d > 3$. What is $C(6)$ in pounds?",
+      "choices": [
+        "$8$",
+        "$6$",
+        "$11$",
+        "$5$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$d = 6$ is in the second interval, so $C(6) = 5 + (6 - 3) = 8$. 11 charges the full 6 km at £$1$ per km on top of the flat fare without subtracting the first 3 km.",
+      "difficulty": "easy",
+      "variantOf": "piecewise-evaluation"
+    },
+    {
+      "id": "math-dp-functions-fun-q28",
+      "stem": "The graph of $y = f(x)$ is transformed to $y = 3f(x + 2) - 1$. Which description lists the transformations in the correct order?",
+      "choices": [
+        "Vertical stretch factor 3, translate left 2, translate down 1",
+        "Translate right 2, vertical stretch factor 3, translate down 1",
+        "Translate left 2, translate down 1, vertical stretch factor 3",
+        "Translate left 2, vertical stretch factor 3, translate down 1"
+      ],
+      "correctIndex": 3,
+      "explanation": "Inside the brackets, $x + 2$ means translate left 2 first. Then $3f(x + 2)$ applies a vertical stretch by factor 3. Finally, $-1$ translates the graph down 1 unit. $x + 2$ shifts left, not right.",
+      "difficulty": "hard",
+      "variantOf": "transformation-order"
     }
   ]
 }

@@ -134,7 +134,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The negative sign indicates negative correlation, and $|-0.92|$ is close to 1, so the correlation is strong.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "correlation-interpretation"
     },
     {
       "id": "math-dp-correlation-regression-q2",
@@ -147,20 +148,22 @@
       ],
       "correctIndex": 1,
       "explanation": "Exponential growth is monotonic (always increasing) but not linear. Spearman's rank tests for monotonicity, while Pearson's measures only linear correlation and would underestimate the relationship.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "pearson-vs-spearman"
     },
     {
       "id": "math-dp-correlation-regression-q3",
       "stem": "The regression line of y on x is $y = 4.2x + 7.5$. What is the interpretation of 4.2?",
       "choices": [
         "When $x = 0$, $y = 4.2$",
-        "For every 1-unit increase in x, y increases by 4.2",
         "The correlation coefficient is 4.2",
-        "The mean of x is 4.2"
+        "The mean of x is 4.2",
+        "For every 1-unit increase in x, y increases by 4.2"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "In $y = ax + b$, the gradient a represents the change in y for each 1-unit increase in x.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "gradient-interpretation"
     },
     {
       "id": "math-dp-correlation-regression-q4",
@@ -173,7 +176,8 @@
       ],
       "correctIndex": 3,
       "explanation": "$x = 40$ is far outside the original data range (5–25), making it extrapolation. The relationship may not hold beyond the observed range.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "extrapolation-reliability"
     },
     {
       "id": "math-dp-correlation-regression-q5",
@@ -186,7 +190,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Substitute $x = 6$: $y = 2.5(6) + 8 = 15 + 8 = 23$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "regression-prediction"
     },
     {
       "id": "math-dp-correlation-regression-q6",
@@ -199,7 +204,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Correlation does not imply causation. Wealthier countries may both consume more chocolate and invest more in research, creating a spurious correlation.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "correlation-not-causation"
     },
     {
       "id": "math-dp-correlation-regression-q7",
@@ -212,33 +218,36 @@
       ],
       "correctIndex": 1,
       "explanation": "For a linear model, $R^2 = r^2 = 0.7^2 = 0.49$. This means 49% of the variation in y is explained by the linear relationship with x.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "r-squared-from-r"
     },
     {
       "id": "math-dp-correlation-regression-q8",
       "stem": "A data point has $y = 15$. The regression model predicts $\\hat{y} = 12$. What is the residual?",
       "choices": [
-        "-3",
         "3",
+        "-3",
         "27",
         "1.25"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "residual $= 15 - 12 = 3$. A positive residual means the model underestimates the actual value.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "residual-computation"
     },
     {
       "id": "math-dp-correlation-regression-q9",
       "stem": "A hypothesis test for correlation uses $H_0: \\rho = 0$ and $H_1: \\rho \\neq 0$ at the 5% level. The p-value is 0.03. What is the conclusion?",
       "choices": [
         "Accept $H_0$; there is no correlation",
-        "Reject $H_0$; there is evidence of linear correlation",
         "Accept $H_0$; the correlation is perfect",
-        "Reject $H_0$; the correlation is causal"
+        "Reject $H_0$; the correlation is causal",
+        "Reject $H_0$; there is evidence of linear correlation"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Since p-value (0.03) < significance level (0.05), we reject $H_0$. There is sufficient evidence at the 5% level to suggest a linear correlation exists.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "hypothesis-test-pvalue"
     },
     {
       "id": "math-dp-correlation-regression-q10",
@@ -251,7 +260,8 @@
       ],
       "correctIndex": 2,
       "explanation": "A quadratic with a negative leading coefficient produces a downward-opening parabola, which increases to a maximum then decreases — matching the described behaviour.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "model-shape-selection"
     },
     {
       "id": "math-dp-correlation-regression-q11",
@@ -264,7 +274,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Tied values receive the mean of the ranks they would have taken, which preserves the total sum of the ranks.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "tied-ranks"
     },
     {
       "id": "math-dp-correlation-regression-q12",
@@ -277,20 +288,22 @@
       ],
       "correctIndex": 0,
       "explanation": "$y = \\hat{y} + \\text{residual} = 18.4 - 2.4 = 16$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "residual-computation"
     },
     {
       "id": "math-dp-correlation-regression-q13",
       "stem": "A quadratic model for a data set has $R^2 = 0.89$. What does this mean?",
       "choices": [
         "The correlation coefficient is 0.89",
-        "89% of the variation in y is explained by the model",
         "The sum of squared residuals is 0.89",
+        "89% of the variation in y is explained by the model",
         "11% of the data points are outliers"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "$R^2$ is the proportion of variation in the response variable explained by the model, so $R^2 = 0.89$ means 89% of the variation in y is explained.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "r-squared-interpretation"
     },
     {
       "id": "math-dp-correlation-regression-q14",
@@ -303,7 +316,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Because $|0.62| > 0.54$, the test statistic exceeds the critical value, so we reject $H_0$ at the 5% level.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "hypothesis-test-critical-value"
     },
     {
       "id": "math-dp-correlation-regression-q15",
@@ -316,7 +330,204 @@
       ],
       "correctIndex": 0,
       "explanation": "A patterned residual plot indicates the linear model is inappropriate; a transformation or non-linear model is likely needed.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "residual-plot-pattern"
+    },
+    {
+      "id": "math-dp-correlation-regression-q16",
+      "stem": "A scatter diagram gives $r = 0.35$. Which statement is correct?",
+      "choices": [
+        "Strong positive linear correlation",
+        "Strong negative linear correlation",
+        "No linear correlation",
+        "Weak positive linear correlation"
+      ],
+      "correctIndex": 3,
+      "explanation": "$r = 0.35$ is positive, and $|r|$ is closer to 0 than to 1, so the correlation is weak and positive.",
+      "difficulty": "easy",
+      "variantOf": "correlation-interpretation"
+    },
+    {
+      "id": "math-dp-correlation-regression-q17",
+      "stem": "A data set shows a steadily decreasing curved trend, like exponential decay. Which correlation coefficient best measures the association?",
+      "choices": [
+        "Spearman's rank, because the relationship is monotonic but not linear",
+        "Pearson's PMCC, because the trend is decreasing",
+        "Pearson's PMCC, because it is always more accurate",
+        "Neither coefficient can describe a curved trend"
+      ],
+      "correctIndex": 0,
+      "explanation": "Exponential decay is monotonic but not linear. Spearman's $r_s$ uses ranks, so it detects the monotonic trend; Pearson's $r$ measures only linear correlation and would underestimate it.",
+      "difficulty": "hard",
+      "variantOf": "pearson-vs-spearman"
+    },
+    {
+      "id": "math-dp-correlation-regression-q18",
+      "stem": "The regression line of y on x is $y = 1.8x + 12$. What is the interpretation of 1.8?",
+      "choices": [
+        "When $x = 0$, $y = 1.8$",
+        "The correlation coefficient is 1.8",
+        "For every 1-unit increase in x, y increases by 1.8",
+        "The mean of x is 1.8"
+      ],
+      "correctIndex": 2,
+      "explanation": "In $y = ax + b$, the gradient a is the change in y for each 1-unit increase in x. The intercept 12 is the value of y when $x = 0$.",
+      "difficulty": "easy",
+      "variantOf": "gradient-interpretation"
+    },
+    {
+      "id": "math-dp-correlation-regression-q19",
+      "stem": "A regression line is fitted to data where x ranges from 10 to 30. Which prediction is most reliable?",
+      "choices": [
+        "$x = 5$",
+        "$x = 20$",
+        "$x = 35$",
+        "$x = 45$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$x = 20$ lies inside the data range (interpolation), so it is the most reliable. The other values require extrapolation beyond the observed data.",
+      "difficulty": "medium",
+      "variantOf": "extrapolation-reliability"
+    },
+    {
+      "id": "math-dp-correlation-regression-q20",
+      "stem": "For a regression line $y = 3.2x + 5$, what is the predicted value of y when $x = 10$?",
+      "choices": [
+        "37",
+        "32",
+        "42",
+        "8.2"
+      ],
+      "correctIndex": 0,
+      "explanation": "Substitute $x = 10$: $y = 3.2(10) + 5 = 32 + 5 = 37$. 32 forgets the intercept; 42 adds it twice.",
+      "difficulty": "medium",
+      "variantOf": "regression-prediction"
+    },
+    {
+      "id": "math-dp-correlation-regression-q21",
+      "stem": "A study finds a strong negative correlation between weekly revision hours and errors made on a test. What can be concluded?",
+      "choices": [
+        "Revision has been proven to reduce errors",
+        "More errors cause students to revise more",
+        "The variables are unrelated because the correlation is negative",
+        "There is a negative association, but a third factor such as sleep may be involved"
+      ],
+      "correctIndex": 3,
+      "explanation": "Correlation does not imply causation. The association may be influenced by lurking variables such as sleep or prior knowledge, so we cannot claim revision alone causes the reduction.",
+      "difficulty": "easy",
+      "variantOf": "correlation-not-causation"
+    },
+    {
+      "id": "math-dp-correlation-regression-q22",
+      "stem": "A linear model has $r = -0.6$. What is the coefficient of determination?",
+      "choices": [
+        "0.6",
+        "-0.36",
+        "0.36",
+        "0.77"
+      ],
+      "correctIndex": 2,
+      "explanation": "$R^2 = r^2 = (-0.6)^2 = 0.36$. The coefficient of determination is never negative, even when the correlation is negative.",
+      "difficulty": "medium",
+      "variantOf": "r-squared-from-r"
+    },
+    {
+      "id": "math-dp-correlation-regression-q23",
+      "stem": "A data point has $y = 9$. The regression model predicts $\\hat{y} = 11.5$. What is the residual?",
+      "choices": [
+        "2.5",
+        "-2.5",
+        "20.5",
+        "0.78"
+      ],
+      "correctIndex": 1,
+      "explanation": "residual $= y - \\hat{y} = 9 - 11.5 = -2.5$. A negative residual means the model overestimates the actual value. 2.5 reverses the subtraction.",
+      "difficulty": "medium",
+      "variantOf": "residual-computation"
+    },
+    {
+      "id": "math-dp-correlation-regression-q24",
+      "stem": "A hypothesis test for correlation uses $H_0: \\rho = 0$ at the 5% level. The p-value is 0.07. What is the conclusion?",
+      "choices": [
+        "Reject $H_0$; there is evidence of linear correlation",
+        "Accept $H_1$; the correlation is significant",
+        "Reject $H_0$; the correlation is strong",
+        "Fail to reject $H_0$; there is insufficient evidence of linear correlation"
+      ],
+      "correctIndex": 3,
+      "explanation": "Since the p-value (0.07) > significance level (0.05), we fail to reject $H_0$. There is insufficient evidence at the 5% level of a linear correlation.",
+      "difficulty": "hard",
+      "variantOf": "hypothesis-test-pvalue"
+    },
+    {
+      "id": "math-dp-correlation-regression-q25",
+      "stem": "A data set decreases rapidly at first and then levels off towards a horizontal asymptote. Which model is most appropriate?",
+      "choices": [
+        "Linear model with negative gradient",
+        "Quadratic model with positive leading coefficient",
+        "Exponential decay model",
+        "Cubic model"
+      ],
+      "correctIndex": 2,
+      "explanation": "Exponential decay decreases quickly and then levels off towards an asymptote. A linear model never levels off, and a positive quadratic curves upwards to a minimum.",
+      "difficulty": "medium",
+      "variantOf": "model-shape-selection"
+    },
+    {
+      "id": "math-dp-correlation-regression-q26",
+      "stem": "In a ranking, two students tie for positions 3 and 4. What rank does each student receive?",
+      "choices": [
+        "3",
+        "4",
+        "3.5",
+        "2.5"
+      ],
+      "correctIndex": 2,
+      "explanation": "Tied values receive the average of the ranks they would occupy: $\\dfrac{3 + 4}{2} = 3.5$.",
+      "difficulty": "easy",
+      "variantOf": "tied-ranks"
+    },
+    {
+      "id": "math-dp-correlation-regression-q27",
+      "stem": "A regression model has $R^2 = 0.72$. What does this mean?",
+      "choices": [
+        "72% of the variation in y is explained by the model",
+        "The correlation coefficient is 0.72",
+        "72% of the points lie on the regression line",
+        "28% of the data points are outliers"
+      ],
+      "correctIndex": 0,
+      "explanation": "$R^2$ is the proportion of variation in the response variable explained by the model, so $R^2 = 0.72$ means 72% of the variation in y is explained.",
+      "difficulty": "easy",
+      "variantOf": "r-squared-interpretation"
+    },
+    {
+      "id": "math-dp-correlation-regression-q28",
+      "stem": "A correlation test uses $H_0: \\rho = 0$ at the 5% level. The sample gives $r = -0.48$ and the critical value is 0.42. What is the conclusion?",
+      "choices": [
+        "Fail to reject $H_0$; $r$ is negative",
+        "Reject $H_0$; $|-0.48| > 0.42$",
+        "Fail to reject $H_0$; $-0.48 < 0.42$",
+        "Reject $H_0$; the correlation is positive"
+      ],
+      "correctIndex": 1,
+      "explanation": "Compare $|r|$ with the critical value: $|-0.48| = 0.48 > 0.42$, so we reject $H_0$. Comparing the signed value $-0.48$ directly with 0.42 is the named error here.",
+      "difficulty": "medium",
+      "variantOf": "hypothesis-test-critical-value"
+    },
+    {
+      "id": "math-dp-correlation-regression-q29",
+      "stem": "A residual plot for a linear model shows a funnel shape: the spread of the residuals increases as x increases. What does this suggest?",
+      "choices": [
+        "The linear model is a perfect fit",
+        "The spread of the data changes with x, so the linear model may be inappropriate",
+        "The correlation coefficient must be zero",
+        "The sample size is too small to draw conclusions"
+      ],
+      "correctIndex": 1,
+      "explanation": "A funnel pattern in the residual plot means the variance is not constant, so the linear model may not be appropriate. A good model shows residuals randomly scattered around zero.",
+      "difficulty": "hard",
+      "variantOf": "residual-plot-pattern"
     }
   ]
 }

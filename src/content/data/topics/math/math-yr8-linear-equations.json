@@ -294,12 +294,12 @@
       "id": "math-yr8-linear-equations-le-q13",
       "stem": "Solve $5 - x \\ge 2$.",
       "choices": [
-        "$x \\le 3$",
         "$x \\ge 3$",
         "$x \\le 7$",
-        "$x \\ge 7$"
+        "$x \\ge 7$",
+        "$x \\le 3$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Subtract 5 to get -x ≥ -3, then multiply or divide by -1 and flip the sign to get x ≤ 3.",
       "difficulty": "hard",
       "variantOf": "solve-inequality-negative-flip"
@@ -336,12 +336,12 @@
       "id": "math-yr8-linear-equations-le-q16",
       "stem": "Solve $8x + 8 = 48$.",
       "choices": [
-        "$x = 5$",
         "$x = 6$",
         "$x = 7$",
+        "$x = 5$",
         "$x = 40$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Subtract 8 from both sides to get 8x = 40, then divide by 8 to get x = 5. Choosing 7 comes from adding 8 instead of subtracting, and 40 from forgetting to divide.",
       "difficulty": "easy",
       "variantOf": "solve-two-step-equation"
@@ -350,12 +350,12 @@
       "id": "math-yr8-linear-equations-le-q17",
       "stem": "Solve $\\dfrac{x}{4} - 3 = 1$.",
       "choices": [
-        "$x = 16$",
         "$x = 4$",
         "$x = -8$",
-        "$x = 7$"
+        "$x = 7$",
+        "$x = 16$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Add 3 to both sides to get x/4 = 4, then multiply by 4 to get x = 16. Choosing 4 forgets the final multiplication by 4.",
       "difficulty": "easy",
       "variantOf": "solve-fraction-equation"
@@ -380,10 +380,10 @@
       "choices": [
         "$x \\le 6$",
         "$x > 6$",
-        "$x < 6$",
-        "$x \\ge 6$"
+        "$x \\ge 6$",
+        "$x < 6$"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "explanation": "\"Fewer than 6\" means strictly less than 6, so 6 itself is not included and the correct symbol is <.",
       "difficulty": "easy",
       "variantOf": "translate-words-to-inequality"
@@ -392,12 +392,12 @@
       "id": "math-yr8-linear-equations-le-q20",
       "stem": "Solve $\\dfrac{x + 3}{2} = 5$.",
       "choices": [
-        "$x = 7$",
         "$x = 13$",
         "$x = 10$",
-        "$x = 4$"
+        "$x = 4$",
+        "$x = 7$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Multiply both sides by 2 to get x + 3 = 10, then subtract 3 to get x = 7. Choosing 13 adds 3 instead of subtracting, and 10 forgets the final subtraction.",
       "difficulty": "medium",
       "variantOf": "solve-grouped-expression-equation"
@@ -406,12 +406,12 @@
       "id": "math-yr8-linear-equations-le-q21",
       "stem": "Solve $5x - 4 = 3x + 10$.",
       "choices": [
-        "$x = 7$",
         "$x = 3$",
         "$x = 14$",
+        "$x = 7$",
         "$x = 2$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Subtract 3x from both sides to get 2x - 4 = 10, add 4 to get 2x = 14, then divide by 2 to get x = 7. Choosing 3 comes from subtracting 10 the wrong way.",
       "difficulty": "medium",
       "variantOf": "solve-variables-both-sides"
@@ -420,12 +420,12 @@
       "id": "math-yr8-linear-equations-le-q22",
       "stem": "Solve $10 - 4x = 2$.",
       "choices": [
-        "$x = 2$",
         "$x = -2$",
         "$x = 3$",
-        "$x = -3$"
+        "$x = -3$",
+        "$x = 2$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Subtract 10 from both sides to get -4x = -8, then divide by -4 to get x = 2. Choosing -2 is a sign slip when dividing by a negative.",
       "difficulty": "medium",
       "variantOf": "solve-negative-coefficient-equation"
@@ -448,12 +448,12 @@
       "id": "math-yr8-linear-equations-le-q24",
       "stem": "Solve $5x - 7 > 8$.",
       "choices": [
-        "$x > 3$",
         "$x < 3$",
         "$x > 15$",
-        "$x < 15$"
+        "$x < 15$",
+        "$x > 3$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Add 7 to both sides to get 5x > 15, then divide by 5 to get x > 3. The sign stays the same because you divide by a positive number.",
       "difficulty": "medium",
       "variantOf": "solve-inequality-positive"
@@ -462,12 +462,12 @@
       "id": "math-yr8-linear-equations-le-q25",
       "stem": "A number is doubled and then 7 is subtracted. The result is 11. What is the number?",
       "choices": [
-        "9",
         "2",
         "18",
+        "9",
         "4"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "The equation is 2x - 7 = 11. Add 7 to get 2x = 18, then divide by 2 to find x = 9. Choosing 2 comes from subtracting 7 the wrong way.",
       "difficulty": "medium",
       "variantOf": "word-problem-form-equation"
@@ -490,12 +490,12 @@
       "id": "math-yr8-linear-equations-le-q27",
       "stem": "Solve $3(2x + 1) = 5x + 7$.",
       "choices": [
-        "$x = 4$",
         "$x = 10$",
         "$x = 6$",
-        "$x = -2$"
+        "$x = -2$",
+        "$x = 4$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Expand to get 6x + 3 = 5x + 7, subtract 5x and subtract 3 to get x = 4. Choosing 10 moves the constant the wrong way, and 6 expands only the first term in the bracket.",
       "difficulty": "hard",
       "variantOf": "solve-brackets-both-sides"
@@ -504,15 +504,29 @@
       "id": "math-yr8-linear-equations-le-q28",
       "stem": "A rectangle's length is 3 cm more than twice its width. The perimeter is 36 cm. Find the width.",
       "choices": [
-        "5 cm",
         "6 cm",
         "11 cm",
+        "5 cm",
         "13 cm"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Let width be w, so length is 2w + 3. Then 2w + 2(2w + 3) = 36, which simplifies to 6w + 6 = 36, so 6w = 30 and w = 5 cm. Choosing 6 ignores the +6, and 13 cm is the length, not the width.",
       "difficulty": "hard",
       "variantOf": "perimeter-word-problem"
+    },
+    {
+      "id": "math-yr8-linear-equations-le-q29",
+      "stem": "Solve $6x + 1 = 4x + 9$.",
+      "choices": [
+        "$x = 5$",
+        "$x = 4$",
+        "$x = 2$",
+        "$x = 10$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Subtract 4x from both sides to get 2x + 1 = 9, subtract 1 to get 2x = 8, then divide by 2 to get x = 4. Choosing 5 adds 1 instead of subtracting it.",
+      "difficulty": "medium",
+      "variantOf": "solve-variables-both-sides"
     }
   ]
 }

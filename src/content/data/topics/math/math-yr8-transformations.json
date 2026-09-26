@@ -133,7 +133,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Reflecting in the $y$-axis changes the sign of the $x$-coordinate: $(x,y) \\to (-x,y)$. So $(4,5) \\to (-4,5)$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "reflect-in-axis"
     },
     {
       "id": "math-yr8-transformations-q2",
@@ -146,7 +147,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The rule for $90^\\circ$ clockwise about the origin is $(x,y) \\to (y,-x)$. Applying it to $(2,1)$ gives $(1,-2)$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "rotate-about-origin"
     },
     {
       "id": "math-yr8-transformations-q3",
@@ -159,7 +161,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Add the vector to the point: $-3 + 5 = 2$ and $4 + (-2) = 2$. The image is $(2,2)$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "translate-by-vector"
     },
     {
       "id": "math-yr8-transformations-q4",
@@ -172,7 +175,8 @@
       ],
       "correctIndex": 1,
       "explanation": "For an enlargement about the origin, multiply each coordinate by the scale factor: $(2 \\times 3,\\; 3 \\times 3) = (6,9)$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "enlarge-about-origin"
     },
     {
       "id": "math-yr8-transformations-q5",
@@ -185,7 +189,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Only enlargement changes size. Reflections, translations and rotations produce congruent images that keep the same size.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "transformation-size-change"
     },
     {
       "id": "math-yr8-transformations-q6",
@@ -198,7 +203,8 @@
       ],
       "correctIndex": 1,
       "explanation": "A square has $4$ lines of symmetry: two diagonals and the vertical and horizontal midlines.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "lines-of-symmetry"
     },
     {
       "id": "math-yr8-transformations-q7",
@@ -211,7 +217,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The distance from $x=6$ to $x=1$ is $5$ units. Moving $5$ units to the other side gives $x = 1 - 5 = -4$. The $y$-coordinate stays $2$, so the image is $(-4,2)$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "reflect-in-vertical-line"
     },
     {
       "id": "math-yr8-transformations-q8",
@@ -224,20 +231,22 @@
       ],
       "correctIndex": 2,
       "explanation": "A regular polygon with $n$ sides has rotational symmetry of order $n$. A regular hexagon has $6$ sides, so its order is $6$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "rotational-symmetry-order"
     },
     {
       "id": "math-yr8-transformations-q9",
       "stem": "Point $(-3,2)$ is rotated $180^\\circ$ around $(0,0)$. What are the new coordinates?",
       "choices": [
-        "$(3,-2)$",
         "$(-3,-2)$",
         "$(3,2)$",
-        "$(-2,3)$"
+        "$(-2,3)$",
+        "$(3,-2)$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "A $180^\\circ$ rotation about the origin reverses both coordinates: $(x,y) \\to (-x,-y)$. So $(-3,2) \\to (3,-2)$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "rotate-about-origin"
     },
     {
       "id": "math-yr8-transformations-q10",
@@ -250,7 +259,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Add the two vectors: $2 + (-3) = -1$ and $-1 + 4 = 3$. The single equivalent vector is $\\begin{pmatrix} -1 \\\\ 3 \\end{pmatrix}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "combine-translations"
     },
     {
       "id": "math-yr8-transformations-q11",
@@ -263,7 +273,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Reflecting $(x,y)$ in the $x$-axis gives $(x,-y)$, and reflecting that in the $y$-axis gives $(-x,-y)$. That is exactly the rule for a $180^\\circ$ rotation about the origin.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "combined-reflections"
     },
     {
       "id": "math-yr8-transformations-q12",
@@ -276,7 +287,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Reflections, rotations and translations preserve size and shape, so they always produce congruent images. Enlargements change size, so they produce similar images.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "congruent-image-transformations"
     },
     {
       "id": "math-yr8-transformations-q13",
@@ -289,7 +301,8 @@
       ],
       "correctIndex": 1,
       "explanation": "A negative scale factor multiplies each coordinate by $-2$ and places the image on the opposite side of the centre: $(1 \\times -2,\\; 1 \\times -2) = (-2,-2)$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "enlarge-negative-scale-factor"
     },
     {
       "id": "math-yr8-transformations-q14",
@@ -302,7 +315,8 @@
       ],
       "correctIndex": 1,
       "explanation": "A butterfly only maps onto itself after a full $360^\\circ$ turn, so its order of rotational symmetry is $1$. The minimum order for any shape is $1$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "rotational-symmetry-order-one"
     },
     {
       "id": "math-yr8-transformations-q15",
@@ -315,7 +329,162 @@
       ],
       "correctIndex": 0,
       "explanation": "Reflecting in $y=x$ swaps the coordinates: $(a,b) \\to (b,a)$. Reflecting in the $y$-axis changes the sign of the $x$-coordinate: $(b,a) \\to (-b,a)$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "combined-reflections"
+    },
+    {
+      "id": "math-yr8-transformations-q16",
+      "stem": "Point $(-2,7)$ is reflected in the $x$-axis. What are the new coordinates?",
+      "choices": [
+        "$(2,7)$",
+        "$(2,-7)$",
+        "$(-2,-7)$",
+        "$(7,-2)$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Reflecting in the $x$-axis keeps the $x$-coordinate and changes the sign of the $y$-coordinate: $(x,y) \\to (x,-y)$. So $(-2,7) \\to (-2,-7)$. Choosing $(2,7)$ reflects in the $y$-axis instead.",
+      "difficulty": "medium",
+      "variantOf": "reflect-in-axis"
+    },
+    {
+      "id": "math-yr8-transformations-q17",
+      "stem": "Point $(4,-1)$ is translated by the vector $\\begin{pmatrix} -6 \\\\ 3 \\end{pmatrix}$. What is the image?",
+      "choices": [
+        "$(10,2)$",
+        "$(-2,-4)$",
+        "$(-2,2)$",
+        "$(2,2)$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Add the vector to the point: $4 + (-6) = -2$ and $-1 + 3 = 2$. The image is $(-2,2)$. Choosing $(10,2)$ adds 6 instead of subtracting it.",
+      "difficulty": "medium",
+      "variantOf": "translate-by-vector"
+    },
+    {
+      "id": "math-yr8-transformations-q18",
+      "stem": "Point $(-3,5)$ is enlarged by scale factor $2$ about $(0,0)$. What are the new coordinates?",
+      "choices": [
+        "$(-1,7)$",
+        "$(6,-10)$",
+        "$(-6,7)$",
+        "$(-6,10)$"
+      ],
+      "correctIndex": 3,
+      "explanation": "For an enlargement about the origin, multiply each coordinate by the scale factor: $(-3 \\times 2,\\; 5 \\times 2) = (-6,10)$. Choosing $(-1,7)$ adds 2 to each coordinate instead of multiplying.",
+      "difficulty": "medium",
+      "variantOf": "enlarge-about-origin"
+    },
+    {
+      "id": "math-yr8-transformations-q19",
+      "stem": "Which of these transformations can produce an image that is NOT congruent to the original?",
+      "choices": [
+        "Reflection",
+        "Rotation",
+        "Enlargement",
+        "Translation"
+      ],
+      "correctIndex": 2,
+      "explanation": "Only an enlargement changes size, so it can produce an image that is similar rather than congruent. Reflections, rotations and translations always give congruent images.",
+      "difficulty": "easy",
+      "variantOf": "transformation-size-change"
+    },
+    {
+      "id": "math-yr8-transformations-q20",
+      "stem": "How many lines of symmetry does a rectangle (that is not a square) have?",
+      "choices": [
+        "$1$",
+        "$4$",
+        "$0$",
+        "$2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "A rectangle has $2$ lines of symmetry: the vertical and horizontal midlines. The diagonals are not lines of symmetry — choosing $4$ confuses it with a square.",
+      "difficulty": "easy",
+      "variantOf": "lines-of-symmetry"
+    },
+    {
+      "id": "math-yr8-transformations-q21",
+      "stem": "Point $(-5,3)$ is reflected in the line $x=-1$. What are the new coordinates?",
+      "choices": [
+        "$(-7,3)$",
+        "$(-5,-3)$",
+        "$(3,3)$",
+        "$(4,3)$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The distance from $x=-5$ to the mirror line $x=-1$ is $4$ units. Moving $4$ units to the other side gives $x = -1 + 4 = 3$. The $y$-coordinate stays $3$, so the image is $(3,3)$. Choosing $(-7,3)$ moves further away from the mirror line.",
+      "difficulty": "hard",
+      "variantOf": "reflect-in-vertical-line"
+    },
+    {
+      "id": "math-yr8-transformations-q22",
+      "stem": "What is the order of rotational symmetry of a regular pentagon?",
+      "choices": [
+        "$10$",
+        "$4$",
+        "$2$",
+        "$5$"
+      ],
+      "correctIndex": 3,
+      "explanation": "A regular polygon with $n$ sides has rotational symmetry of order $n$. A regular pentagon has $5$ sides, so the order is $5$.",
+      "difficulty": "easy",
+      "variantOf": "rotational-symmetry-order"
+    },
+    {
+      "id": "math-yr8-transformations-q23",
+      "stem": "A translation by vector $\\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix}$ is followed by a translation by vector $\\begin{pmatrix} -1 \\\\ -5 \\end{pmatrix}$. What is the single equivalent vector?",
+      "choices": [
+        "$\\begin{pmatrix} 5 \\\\ 7 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 3 \\\\ 3 \\end{pmatrix}$",
+        "$\\begin{pmatrix} -5 \\\\ -3 \\end{pmatrix}$",
+        "$\\begin{pmatrix} 3 \\\\ -3 \\end{pmatrix}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Add the two vectors: $4 + (-1) = 3$ and $2 + (-5) = -3$. The single equivalent vector is $\\begin{pmatrix} 3 \\\\ -3 \\end{pmatrix}$.",
+      "difficulty": "medium",
+      "variantOf": "combine-translations"
+    },
+    {
+      "id": "math-yr8-transformations-q24",
+      "stem": "A triangle is enlarged by scale factor $\\dfrac{1}{2}$ about its centre. How are the image and the original related?",
+      "choices": [
+        "Congruent — same shape and size",
+        "Neither similar nor congruent",
+        "Similar — same shape, sides in proportion",
+        "Congruent, because the angles are equal"
+      ],
+      "correctIndex": 2,
+      "explanation": "An enlargement with scale factor $\\dfrac{1}{2}$ halves every side but keeps the angles, so the image is similar to the original. It is not congruent, because the size has changed.",
+      "difficulty": "medium",
+      "variantOf": "congruent-image-transformations"
+    },
+    {
+      "id": "math-yr8-transformations-q25",
+      "stem": "Point $(4,-1)$ is enlarged by scale factor $-3$ about $(0,0)$. What are the new coordinates?",
+      "choices": [
+        "$(12,-3)$",
+        "$(-12,-3)$",
+        "$(-12,3)$",
+        "$(1,-4)$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Multiply each coordinate by $-3$: $(4 \\times -3,\\; -1 \\times -3) = (-12,3)$. The negative scale factor places the image on the opposite side of the centre. Choosing $(12,-3)$ forgets the sign change.",
+      "difficulty": "hard",
+      "variantOf": "enlarge-negative-scale-factor"
+    },
+    {
+      "id": "math-yr8-transformations-q26",
+      "stem": "A scalene triangle has no lines of symmetry. What is its order of rotational symmetry?",
+      "choices": [
+        "$0$",
+        "$3$",
+        "$1$",
+        "$2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A scalene triangle only maps onto itself after a full $360^\\circ$ turn, so its order of rotational symmetry is $1$. Choosing $0$ is the common mistake — every shape has order at least $1$.",
+      "difficulty": "medium",
+      "variantOf": "rotational-symmetry-order-one"
     }
   ]
 }

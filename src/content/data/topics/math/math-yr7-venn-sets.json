@@ -138,7 +138,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$A \\cap B$ is read \"$A$ intersection $B$\" and contains only the elements shared by both sets.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "set-symbols"
     },
     {
       "id": "math-yr7-venn-sets-q2",
@@ -151,7 +152,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$A \\cup B$ is read \"$A$ union $B$\" and contains every element that is in $A$, in $B$, or in both.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "set-symbols"
     },
     {
       "id": "math-yr7-venn-sets-q3",
@@ -164,7 +166,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$A'$ is the complement of $A$, meaning all elements in the universal set $U$ that are not in $A$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "complement-meaning"
     },
     {
       "id": "math-yr7-venn-sets-q4",
@@ -177,7 +180,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$A'$ contains every element of $U$ that is not in $A$, giving the odd numbers from $1$ to $9$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "complement-listing"
     },
     {
       "id": "math-yr7-venn-sets-q5",
@@ -190,7 +194,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The intersection contains only the elements that appear in both sets: $2$ and $3$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "intersection-listing"
     },
     {
       "id": "math-yr7-venn-sets-q6",
@@ -203,7 +208,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The union contains every element that is in $A$ or $B$, listed without duplication: $1, 2, 3, 4$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "union-listing"
     },
     {
       "id": "math-yr7-venn-sets-q7",
@@ -216,7 +222,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Disjoint sets have no common elements, so their intersection is the empty set.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "disjoint-intersection"
     },
     {
       "id": "math-yr7-venn-sets-q8",
@@ -229,7 +236,8 @@
       ],
       "correctIndex": 0,
       "explanation": "When $A$ is a subset of $B$, every element of $A$ is also in $B$, so circle $A$ lies inside circle $B$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "venn-relationships"
     },
     {
       "id": "math-yr7-venn-sets-q9",
@@ -242,7 +250,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Using $n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$ gives $10 + 6 - 2 = 14$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "inclusion-exclusion"
     },
     {
       "id": "math-yr7-venn-sets-q10",
@@ -255,7 +264,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Tennis only is $25 - 8 = 17$, hockey only is $18 - 8 = 10$, so $17 + 8 + 10 = 35$ play at least one sport. Therefore $40 - 35 = 5$ play neither.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "neither-count"
     },
     {
       "id": "math-yr7-venn-sets-q11",
@@ -268,7 +278,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$A \\cap B$ contains multiples of $6$: $6, 12, 18$. That is $3$ elements.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "intersection-count-multiples"
     },
     {
       "id": "math-yr7-venn-sets-q12",
@@ -281,7 +292,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The set contains natural numbers less than $6$, which are $1, 2, 3, 4, 5$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "set-builder-listing"
     },
     {
       "id": "math-yr7-venn-sets-q13",
@@ -294,7 +306,8 @@
       ],
       "correctIndex": 2,
       "explanation": "A set and its complement have no elements in common, so their intersection is the empty set.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "complement-laws"
     },
     {
       "id": "math-yr7-venn-sets-q14",
@@ -307,7 +320,8 @@
       ],
       "correctIndex": 2,
       "explanation": "If every element of $A$ is in $B$, then $A$ and $B$ overlap exactly on $A$, and their union is just $B$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "subset-properties"
     },
     {
       "id": "math-yr7-venn-sets-q15",
@@ -320,7 +334,190 @@
       ],
       "correctIndex": 1,
       "explanation": "Using inclusion-exclusion, $30 + 25 - 10 = 45$ people like tea, coffee, or both.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "inclusion-exclusion"
+    },
+    {
+      "id": "math-yr7-venn-sets-q16",
+      "stem": "Which symbol means \"is an element of\"?",
+      "choices": [
+        "$\\cap$",
+        "$\\cup$",
+        "$\\in$",
+        "$\\subset$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$2 \\in A$ means \"2 is an element of $A$\". The symbol $\\cap$ is intersection, $\\cup$ is union and $\\subset$ is subset.",
+      "difficulty": "easy",
+      "variantOf": "set-symbols"
+    },
+    {
+      "id": "math-yr7-venn-sets-q17",
+      "stem": "Which elements does the complement $A'$ contain?",
+      "choices": [
+        "All the elements of $A$",
+        "The elements in both $A$ and $B$",
+        "The elements of $A$ that are not in $U$",
+        "The elements of $U$ that are not in $A$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$A'$ is everything inside the universal set $U$ that lies outside set $A$, so it contains the elements of $U$ that are not in $A$.",
+      "difficulty": "easy",
+      "variantOf": "complement-meaning"
+    },
+    {
+      "id": "math-yr7-venn-sets-q18",
+      "stem": "Let $U = \\{1, 2, 3, \\dots, 8\\}$ and $B = \\{1, 3, 5, 7\\}$. What is $B'$?",
+      "choices": [
+        "$\\{1, 3, 5, 7\\}$",
+        "$\\{2, 4, 6, 8\\}$",
+        "$\\{2, 4, 6\\}$",
+        "$\\{8\\}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$B'$ contains every element of $U$ that is not in $B$, giving the even numbers $2, 4, 6, 8$.",
+      "difficulty": "medium",
+      "variantOf": "complement-listing"
+    },
+    {
+      "id": "math-yr7-venn-sets-q19",
+      "stem": "If $A = \\{2, 4, 6, 8\\}$ and $B = \\{4, 8, 12\\}$, what is $A \\cap B$?",
+      "choices": [
+        "$\\{2, 4, 6, 8, 12\\}$",
+        "$\\{2, 6\\}$",
+        "$\\{4, 8\\}$",
+        "$\\{12\\}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The intersection contains only the elements in both sets: $4$ and $8$. Listing every element (choice A) gives the union instead.",
+      "difficulty": "medium",
+      "variantOf": "intersection-listing"
+    },
+    {
+      "id": "math-yr7-venn-sets-q20",
+      "stem": "If $A = \\{1, 3, 5\\}$ and $B = \\{2, 3, 4\\}$, what is $A \\cup B$?",
+      "choices": [
+        "$\\{3\\}$",
+        "$\\{1, 5\\}$",
+        "$\\{1, 2, 3, 3, 4, 5\\}$",
+        "$\\{1, 2, 3, 4, 5\\}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The union contains every element in either set, each listed once: $1, 2, 3, 4, 5$. The shared element $3$ is not written twice, and choice A is the intersection.",
+      "difficulty": "medium",
+      "variantOf": "union-listing"
+    },
+    {
+      "id": "math-yr7-venn-sets-q21",
+      "stem": "Let $C = \\{1, 2\\}$ and $D = \\{3, 4\\}$. What is $C \\cap D$?",
+      "choices": [
+        "$\\{1, 2, 3, 4\\}$",
+        "$\\emptyset$",
+        "$\\{2, 3\\}$",
+        "$U$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The two sets share no elements — they are disjoint — so their intersection is the empty set. Choice A is the union.",
+      "difficulty": "easy",
+      "variantOf": "disjoint-intersection"
+    },
+    {
+      "id": "math-yr7-venn-sets-q22",
+      "stem": "In a Venn diagram, the circles for $A$ and $B$ do not overlap at all. What does this show?",
+      "choices": [
+        "$A \\subset B$",
+        "$A = B$",
+        "$A$ and $B$ are disjoint",
+        "$A \\cup B = \\emptyset$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Separate circles mean the sets have no elements in common, so $A$ and $B$ are disjoint. A subset would draw one circle inside the other.",
+      "difficulty": "easy",
+      "variantOf": "venn-relationships"
+    },
+    {
+      "id": "math-yr7-venn-sets-q23",
+      "stem": "$n(A) = 12$, $n(B) = 9$ and $n(A \\cap B) = 4$. What is $n(A \\cup B)$?",
+      "choices": [
+        "$21$",
+        "$13$",
+        "$25$",
+        "$17$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Using $n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$ gives $12 + 9 - 4 = 17$. Forgetting to subtract the overlap gives $21$.",
+      "difficulty": "medium",
+      "variantOf": "inclusion-exclusion"
+    },
+    {
+      "id": "math-yr7-venn-sets-q24",
+      "stem": "In a year group of $60$ students, $34$ study art, $27$ study music and $12$ study both. How many study neither subject?",
+      "choices": [
+        "$49$",
+        "$23$",
+        "$11$",
+        "$15$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Art only is $34 - 12 = 22$ and music only is $27 - 12 = 15$, so $22 + 12 + 15 = 49$ study at least one subject. Therefore $60 - 49 = 11$ study neither. Choice A answers the opposite question.",
+      "difficulty": "hard",
+      "variantOf": "neither-count"
+    },
+    {
+      "id": "math-yr7-venn-sets-q25",
+      "stem": "Let $U = \\{1, 2, 3, \\dots, 30\\}$. $A$ is the set of multiples of $3$ and $B$ is the set of multiples of $5$. How many elements are in $A \\cap B$?",
+      "choices": [
+        "$1$",
+        "$2$",
+        "$3$",
+        "$4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$A \\cap B$ contains multiples of $15$: $15$ and $30$. That is $2$ elements. Choice A forgets $30$; choice C wrongly includes $0$ or $45$.",
+      "difficulty": "hard",
+      "variantOf": "intersection-count-multiples"
+    },
+    {
+      "id": "math-yr7-venn-sets-q26",
+      "stem": "Which list represents $B = \\{x \\in \\mathbb{N} : x \\leq 4\\}$?",
+      "choices": [
+        "$\\{1, 2, 3\\}$",
+        "$\\{0, 1, 2, 3, 4\\}$",
+        "$\\{1, 2, 3, 4, 5\\}$",
+        "$\\{1, 2, 3, 4\\}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Natural numbers less than or equal to $4$ are $1, 2, 3, 4$. The symbol $\\leq$ includes $4$ itself, unlike choice A.",
+      "difficulty": "medium",
+      "variantOf": "set-builder-listing"
+    },
+    {
+      "id": "math-yr7-venn-sets-q27",
+      "stem": "What is $A \\cup A'$?",
+      "choices": [
+        "$\\emptyset$",
+        "$A$",
+        "$U$",
+        "$A'$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A set and its complement together contain every element of the universal set, so $A \\cup A' = U$. (Their intersection is $\\emptyset$.)",
+      "difficulty": "easy",
+      "variantOf": "complement-laws"
+    },
+    {
+      "id": "math-yr7-venn-sets-q28",
+      "stem": "If $A \\subset B$, $n(A) = 4$ and $n(B) = 9$, what is $n(A \\cap B)$?",
+      "choices": [
+        "$9$",
+        "$13$",
+        "$5$",
+        "$4$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Every element of $A$ is also in $B$, so the overlap is all of $A$: $n(A \\cap B) = n(A) = 4$. Adding the sizes (choice B) ignores the containment.",
+      "difficulty": "hard",
+      "variantOf": "subset-properties"
     }
   ]
 }

@@ -134,20 +134,22 @@
       ],
       "correctIndex": 0,
       "explanation": "$v = 6t^2 - 6t$; $v(2) = 24 - 12 = 12$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "velocity-from-displacement"
     },
     {
       "id": "math-dp-kinematics-kin-q2",
       "stem": "$v = 4t - 8$. When does particle change direction?",
       "choices": [
-        "t=2",
         "t=4",
         "t=8",
+        "t=2",
         "t=0"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "$v = 0 \\to t = 2$; $v$ changes sign there.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "direction-change"
     },
     {
       "id": "math-dp-kinematics-kin-q3",
@@ -160,33 +162,36 @@
       ],
       "correctIndex": 1,
       "explanation": "$a = 12t$; $a(3) = 36$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "acceleration-from-velocity"
     },
     {
       "id": "math-dp-kinematics-kin-q4",
       "stem": "$v = 3t^2 - 12t + 9$, $s(0) = 0$. $s$ at $t = 2$?",
       "choices": [
-        "2",
         "−2",
         "4",
-        "6"
+        "6",
+        "2"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "$s = t^3 - 6t^2 + 9t$; $s(2) = 8 - 24 + 18 = 2$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "integrate-motion"
     },
     {
       "id": "math-dp-kinematics-kin-q5",
       "stem": "$a = 6t$, $v(0) = 4$, $s(0) = 1$. $s(t) = $?",
       "choices": [
-        "t³+4t+1",
         "3t²+4t+1",
         "t³+4",
+        "t³+4t+1",
         "6t+4"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "$v = 3t^2 + 4$; $s = t^3 + 4t + 1$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "integrate-motion"
     },
     {
       "id": "math-dp-kinematics-kin-q6",
@@ -199,126 +204,320 @@
       ],
       "correctIndex": 1,
       "explanation": "$v = 19.6 - 9.8t = 0 \\to t = 2$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "suvat-max-height-time"
     },
     {
       "id": "math-dp-kinematics-kin-q7",
       "stem": "A particle has velocity $v = -5$ m/s and acceleration $a = 3$ m/s². Which statement is correct?",
       "choices": [
-        "The particle is slowing down and moving to the left",
         "The particle is speeding up and moving to the left",
         "The particle is slowing down and moving to the right",
+        "The particle is slowing down and moving to the left",
         "The particle is speeding up and moving to the right"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "Negative velocity means the particle is moving to the left. Positive acceleration acts to the right, which is opposite to the direction of motion. When velocity and acceleration have opposite signs, speed decreases — the particle is slowing down.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "speed-sign-rule"
     },
     {
       "id": "math-dp-kinematics-kin-q8",
       "stem": "A ball is thrown vertically upward from ground level with speed 24.5 m/s. Taking $g = 9.8$ m/s², what is the maximum height reached?",
       "choices": [
-        "30.6 m",
         "61.3 m",
         "2.5 s",
-        "24.5 m"
+        "24.5 m",
+        "30.6 m"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Using $v^2 = u^2 + 2as$ with final velocity $v = 0$: $0 = 24.5^2 - 2(9.8)s \\to s = \\dfrac{600.25}{19.6} \\approx 30.6$ m. 61.3 m comes from forgetting the deceleration ($s = ut$), 2.5 s is the time to max height, and 24.5 m is the initial speed.",
       "difficulty": "medium",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "suvat-max-height"
     },
     {
       "id": "math-dp-kinematics-kin-q9",
       "stem": "A particle moves with velocity $v(t) = 3t^2 - 12t + 9$ m/s. What is the total distance travelled in the first 4 seconds?",
       "choices": [
-        "12 m",
         "4 m",
         "0 m",
-        "16 m"
+        "16 m",
+        "12 m"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Factor: $v = 3(t-1)(t-3)$, so direction changes at $t = 1$ and $t = 3$. $s(t) = t^3 - 6t^2 + 9t$. $s(0) = 0$, $s(1) = 4$, $s(3) = 0$, $s(4) = 4$. Total distance $= |4-0| + |0-4| + |4-0| = 4 + 4 + 4 = 12$ m. 4 m is the net displacement, 0 m incorrectly assumes the particle returns to the start, and 16 m adds displacements without accounting for backtracking.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "total-distance"
     },
     {
       "id": "math-dp-kinematics-kin-q10",
       "stem": "A particle moves with displacement $s(t) = t^2 - 6t + 5$ metres. What is the average velocity during the first 5 seconds?",
       "choices": [
-        "−1 m/s",
         "0 m/s",
         "−5 m/s",
-        "5 m/s"
+        "5 m/s",
+        "−1 m/s"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "$\\text{Average velocity} = \\dfrac{s(5) - s(0)}{5 - 0} = \\dfrac{0 - 5}{5} = -1$ m/s. $s(5) = 25 - 30 + 5 = 0$ and $s(0) = 5$. 0 m/s would be the average speed if distances were equal, −5 m/s forgets to divide by time, and 5 m/s takes $s(0)$ without the sign change.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "average-velocity"
     },
     {
       "id": "math-dp-kinematics-kin-q11",
       "stem": "The acceleration of a particle is $a(t) = 4 - 2t$ m/s². Initially the particle is at rest at the origin. Find its displacement after 3 seconds.",
       "choices": [
-        "9 m",
         "3 m",
         "18 m",
-        "0 m"
+        "0 m",
+        "9 m"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Integrate: $v(t) = 4t - t^2 + C_1$. $v(0) = 0 \\to C_1 = 0$. Integrate again: $s(t) = 2t^2 - \\dfrac{t^3}{3} + C_2$. $s(0) = 0 \\to C_2 = 0$. At $t = 3$: $s(3) = 2(9) - \\dfrac{27}{3} = 18 - 9 = 9$ m. 3 m is the velocity at $t = 3$, 18 m forgets to divide the $t^3$ term by 3, and 0 m ignores the constants of integration.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "displacement-from-acceleration"
     },
     {
       "id": "math-dp-kinematics-kin-q12",
       "stem": "The displacement-time graph of a particle is a parabola opening downward. At the vertex of the parabola, which statement is true?",
       "choices": [
-        "The velocity is zero and the acceleration is negative",
         "The velocity is zero and the acceleration is positive",
         "The velocity is maximum and the acceleration is zero",
+        "The velocity is zero and the acceleration is negative",
         "The velocity is negative and the acceleration is zero"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "A downward-opening parabola has equation $s = -at^2 + bt + c$ with $a > 0$. The velocity $v = \\dfrac{ds}{dt} = -2at + b$ is zero at the vertex (turning point). The acceleration $a = \\dfrac{d^2s}{dt^2} = -2a$ is negative. Students often confuse $s$-$t$ graphs with $v$-$t$ graphs, which is why \"velocity is maximum\" is a tempting distractor.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "motion-graphs"
     },
     {
       "id": "math-dp-kinematics-kin-q13",
       "stem": "A particle moves with velocity $v = 2s$ m/s, where $s$ is displacement. Find the acceleration when $s = 3$ m.",
       "choices": [
-        "12 m/s²",
         "6 m/s²",
         "4 m/s²",
-        "2 m/s²"
+        "2 m/s²",
+        "12 m/s²"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Using $a = v \\dfrac{dv}{ds}$ with $v = 2s$, we get $\\dfrac{dv}{ds} = 2$ and $a = (2s)(2) = 4s$. At $s = 3$, $a = 12$ m/s².",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "acceleration-chain-rule"
     },
     {
       "id": "math-dp-kinematics-kin-q14",
       "stem": "A projectile is launched at 25 m/s at $30^\\circ$ to the horizontal. Find the range ($g = 9.8$ m/s²).",
       "choices": [
-        "55.2 m",
         "27.6 m",
         "110.4 m",
+        "55.2 m",
         "31.3 m"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "$R = \\dfrac{u^2 \\sin 2\\theta}{g} = \\dfrac{25^2 \\sin 60^\\circ}{9.8} = \\dfrac{625 \\times 0.866}{9.8} \\approx 55.2$ m. 27.6 m uses $\\sin 30^\\circ$, 110.4 m doubles the correct range, and 31.3 m uses the maximum-height formula.",
       "difficulty": "medium",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "projectile-range"
     },
     {
       "id": "math-dp-kinematics-kin-q15",
       "stem": "A particle moves with $s(t) = 2t^3 - 9t^2 + 12t$. Find the maximum distance from the origin in the first 3 seconds.",
       "choices": [
-        "9 m",
         "5 m",
+        "9 m",
         "4 m",
         "0 m"
       ],
-      "correctIndex": 0,
+      "correctIndex": 1,
       "explanation": "Find $v = 6t^2 - 18t + 12 = 6(t-1)(t-2)$. Turning points at $t = 1$ and $t = 2$. Evaluate $s(0) = 0$, $s(1) = 5$, $s(2) = 4$, $s(3) = 9$. The maximum distance from the origin is $|9| = 9$ m.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "turning-points-distance"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q16",
+      "stem": "$s = t^3 - 2t$. $v$ at $t = 2$?",
+      "choices": [
+        "4 m/s",
+        "12 m/s",
+        "10 m/s",
+        "6 m/s"
+      ],
+      "correctIndex": 2,
+      "explanation": "$v = 3t^2 - 2$; $v(2) = 12 - 2 = 10$.",
+      "difficulty": "easy",
+      "variantOf": "velocity-from-displacement"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q17",
+      "stem": "$v = 4t^2 + 3t$. $a$ at $t = 2$?",
+      "choices": [
+        "16 m/s²",
+        "22 m/s²",
+        "11 m/s²",
+        "19 m/s²"
+      ],
+      "correctIndex": 3,
+      "explanation": "$a = 8t + 3$; $a(2) = 16 + 3 = 19$. 22 m/s² is the velocity $v(2) = 16 + 6$, not the acceleration.",
+      "difficulty": "easy",
+      "variantOf": "acceleration-from-velocity"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q18",
+      "stem": "$v = 3t - 12$. When does the particle change direction?",
+      "choices": [
+        "t=3",
+        "t=6",
+        "t=4",
+        "t=12"
+      ],
+      "correctIndex": 2,
+      "explanation": "$v = 0 \\to t = 4$; $v$ changes sign there.",
+      "difficulty": "medium",
+      "variantOf": "direction-change"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q19",
+      "stem": "Ball thrown up at 14.7 m/s. Time to max height? ($g = 9.8$)",
+      "choices": [
+        "1.5 s",
+        "1 s",
+        "2 s",
+        "3 s"
+      ],
+      "correctIndex": 0,
+      "explanation": "$v = 14.7 - 9.8t = 0 \\to t = 1.5$ s.",
+      "difficulty": "easy",
+      "variantOf": "suvat-max-height-time"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q20",
+      "stem": "A particle has velocity $v = 6$ m/s and acceleration $a = -2$ m/s². Which statement is correct?",
+      "choices": [
+        "The particle is speeding up and moving to the right",
+        "The particle is slowing down and moving to the right",
+        "The particle is slowing down and moving to the left",
+        "The particle is speeding up and moving to the left"
+      ],
+      "correctIndex": 1,
+      "explanation": "Positive velocity means the particle is moving to the right. The acceleration acts to the left, opposite to the motion. When velocity and acceleration have opposite signs, speed decreases — the particle is slowing down.",
+      "difficulty": "medium",
+      "variantOf": "speed-sign-rule"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q21",
+      "stem": "A ball is thrown vertically upward from ground level with speed 19.6 m/s. Taking $g = 9.8$ m/s², what is the maximum height reached?",
+      "choices": [
+        "39.2 m",
+        "19.6 m",
+        "9.8 m",
+        "2 m"
+      ],
+      "correctIndex": 1,
+      "explanation": "Using $v^2 = u^2 + 2as$ with final velocity $v = 0$: $0 = 19.6^2 - 2(9.8)s \\to s = \\dfrac{384.16}{19.6} = 19.6$ m. 39.2 m forgets the factor of 2 in $2as$, and 2 m is the time to maximum height.",
+      "difficulty": "medium",
+      "calculator": true,
+      "variantOf": "suvat-max-height"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q22",
+      "stem": "A particle moves with velocity $v(t) = 2t - 6$ m/s. What is the total distance travelled in the first 5 seconds?",
+      "choices": [
+        "13 m",
+        "5 m",
+        "9 m",
+        "4 m"
+      ],
+      "correctIndex": 0,
+      "explanation": "$v = 0$ at $t = 3$, so split there. $s(t) = t^2 - 6t$, giving $s(0) = 0$, $s(3) = -9$, $s(5) = -5$. Total distance $= |-9 - 0| + |-5 - (-9)| = 9 + 4 = 13$ m. 5 m is the size of the net displacement, and 9 m or 4 m count only one piece.",
+      "difficulty": "hard",
+      "variantOf": "total-distance"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q23",
+      "stem": "A particle moves with displacement $s(t) = t^2 - 2t + 3$ metres. What is the average velocity during the first 4 seconds?",
+      "choices": [
+        "11 m/s",
+        "2 m/s",
+        "8 m/s",
+        "−2 m/s"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\text{Average velocity} = \\dfrac{s(4) - s(0)}{4 - 0} = \\dfrac{11 - 3}{4} = 2$ m/s. $s(4) = 16 - 8 + 3 = 11$ and $s(0) = 3$; 11 m/s forgets to subtract $s(0)$.",
+      "difficulty": "medium",
+      "variantOf": "average-velocity"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q24",
+      "stem": "The acceleration of a particle is $a(t) = 6 - 2t$ m/s². Initially the particle is at rest at the origin. Find its displacement after 3 seconds.",
+      "choices": [
+        "18 m",
+        "9 m",
+        "27 m",
+        "0 m"
+      ],
+      "correctIndex": 0,
+      "explanation": "Integrate: $v(t) = 6t - t^2 + C_1$, and $v(0) = 0 \\to C_1 = 0$. Integrate again: $s(t) = 3t^2 - \\dfrac{t^3}{3} + C_2$, and $s(0) = 0 \\to C_2 = 0$. At $t = 3$: $s(3) = 27 - \\dfrac{27}{3} = 27 - 9 = 18$ m. 9 m is the velocity at $t = 3$, and 0 m comes from dropping the $\\dfrac{1}{3}$ factor.",
+      "difficulty": "hard",
+      "variantOf": "displacement-from-acceleration"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q25",
+      "stem": "On a velocity-time graph, what does the gradient at any point represent?",
+      "choices": [
+        "Displacement",
+        "Acceleration",
+        "Total distance",
+        "Speed"
+      ],
+      "correctIndex": 1,
+      "explanation": "On a $v$-$t$ graph, the gradient is $\\dfrac{dv}{dt}$, which is the instantaneous acceleration. The signed area under the graph gives displacement, not the gradient.",
+      "difficulty": "medium",
+      "variantOf": "motion-graphs"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q26",
+      "stem": "A particle moves with velocity $v = 3s - 1$ m/s, where $s$ is displacement. Find the acceleration when $s = 2$ m.",
+      "choices": [
+        "15 m/s²",
+        "5 m/s²",
+        "3 m/s²",
+        "18 m/s²"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using $a = v \\dfrac{dv}{ds}$ with $v = 3s - 1$, we get $\\dfrac{dv}{ds} = 3$ and $a = (3s - 1)(3) = 9s - 3$. At $s = 2$, $a = 18 - 3 = 15$ m/s². 5 m/s² is the velocity at $s = 2$, not the acceleration.",
+      "difficulty": "hard",
+      "variantOf": "acceleration-chain-rule"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q27",
+      "stem": "A projectile is launched at 20 m/s at $60^\\circ$ to the horizontal. Find the range ($g = 9.8$ m/s²).",
+      "choices": [
+        "35.3 m",
+        "20.4 m",
+        "70.7 m",
+        "17.7 m"
+      ],
+      "correctIndex": 0,
+      "explanation": "$R = \\dfrac{u^2 \\sin 2\\theta}{g} = \\dfrac{20^2 \\sin 120^\\circ}{9.8} = \\dfrac{400 \\times 0.866}{9.8} \\approx 35.3$ m. 20.4 m leaves out the $\\sin 2\\theta$ factor ($\\dfrac{u^2}{2g}$), and 17.7 m halves the correct range.",
+      "difficulty": "medium",
+      "calculator": true,
+      "variantOf": "projectile-range"
+    },
+    {
+      "id": "math-dp-kinematics-kin-q28",
+      "stem": "A particle moves with $s(t) = t^3 - 6t^2 + 9t + 1$. Find the maximum distance from the origin in the first 4 seconds.",
+      "choices": [
+        "5 m",
+        "4 m",
+        "1 m",
+        "9 m"
+      ],
+      "correctIndex": 0,
+      "explanation": "Find $v = 3t^2 - 12t + 9 = 3(t - 1)(t - 3)$. Turning points at $t = 1$ and $t = 3$. Evaluate $s(0) = 1$, $s(1) = 5$, $s(3) = 1$, $s(4) = 5$. The maximum distance from the origin is $5$ m.",
+      "difficulty": "hard",
+      "variantOf": "turning-points-distance"
     }
   ]
 }

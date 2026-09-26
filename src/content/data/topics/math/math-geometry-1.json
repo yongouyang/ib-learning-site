@@ -133,7 +133,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Angles on a straight line add to $180^\\circ$, so $(2x + 20) + (3x - 10) = 180$. This gives $5x + 10 = 180$, so $5x = 170$ and $x = 34$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "straight-line-angle-algebra"
     },
     {
       "id": "math-geometry-1-geo-q2",
@@ -146,7 +147,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Angles around a point add to $360^\\circ$. So $95 + 110 + 3x + 5 = 360$, giving $210 + 3x = 360$, $3x = 150$, and $x = 50$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "around-point-angle-algebra"
     },
     {
       "id": "math-geometry-1-geo-q3",
@@ -159,7 +161,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Vertically opposite angles are equal. Therefore the angle opposite $48^\\circ$ is also $48^\\circ$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "vertically-opposite-angles"
     },
     {
       "id": "math-geometry-1-geo-q4",
@@ -172,7 +175,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Corresponding angles on parallel lines are equal, so $4x - 10 = 3x + 20$. Subtracting $3x$ gives $x - 10 = 20$, so $x = 30$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "parallel-lines-angle-algebra"
     },
     {
       "id": "math-geometry-1-geo-q5",
@@ -185,7 +189,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Angles in a triangle add to $180^\\circ$. The third angle is $180 - 55 - 75 = 50^\\circ$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "triangle-angle-sum"
     },
     {
       "id": "math-geometry-1-geo-q6",
@@ -198,7 +203,8 @@
       ],
       "correctIndex": 2,
       "explanation": "The two base angles are equal. Their total is $180 - 46 = 134^\\circ$, so each base angle is $134 \\div 2 = 67^\\circ$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "isosceles-base-angle"
     },
     {
       "id": "math-geometry-1-geo-q7",
@@ -211,7 +217,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Angles in a quadrilateral add to $360^\\circ$. So $x = 360 - 100 - 95 - 85 = 80$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "quadrilateral-angle-sum"
     },
     {
       "id": "math-geometry-1-geo-q8",
@@ -224,7 +231,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The exterior angle equals the sum of the two opposite interior angles: $38 + 52 = 90^\\circ$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "exterior-angle-of-triangle"
     },
     {
       "id": "math-geometry-1-geo-q9",
@@ -237,7 +245,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Using $C = 2\\pi r$, we get $C = 2 \\times \\dfrac{22}{7} \\times 14 = 88\\text{ cm}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "circle-circumference"
     },
     {
       "id": "math-geometry-1-geo-q10",
@@ -251,7 +260,8 @@
       "correctIndex": 2,
       "explanation": "The radius is $12 \\div 2 = 6\\text{ cm}$. Then $A = \\pi r^2 = 3.14 \\times 36 = 113.04\\text{ cm}^2$.",
       "difficulty": "medium",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "circle-area-from-diameter"
     },
     {
       "id": "math-geometry-1-geo-q11",
@@ -264,7 +274,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Rectangle area $= 10 \\times 6 = 60\\text{ cm}^2$. Square area $= 4 \\times 4 = 16\\text{ cm}^2$. Total area $= 60 + 16 = 76\\text{ cm}^2$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "compound-shape-area"
     },
     {
       "id": "math-geometry-1-geo-q12",
@@ -277,7 +288,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Using $A = \\dfrac{1}{2}bh$, we have $42 = \\dfrac{1}{2} \\times 12 \\times h = 6h$. Therefore $h = 42 \\div 6 = 7\\text{ cm}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "triangle-height-from-area"
     },
     {
       "id": "math-geometry-1-geo-q13",
@@ -290,7 +302,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The scale factor from small to large is $\\dfrac{7}{3}$. So the larger base is $9 \\times \\dfrac{7}{3} = 21\\text{ cm}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "similar-triangle-scale-factor"
     },
     {
       "id": "math-geometry-1-geo-q14",
@@ -304,7 +317,8 @@
       "correctIndex": 0,
       "explanation": "Total area $= 80 \\times 50 = 4\\,000\\text{ m}^2$. Inner dimensions are $80 - 4 = 76\\text{ m}$ and $50 - 4 = 46\\text{ m}$, so inner area $= 76 \\times 46 = 3\\,496\\text{ m}^2$. Path area $= 4\\,000 - 3\\,496 = 504\\text{ m}^2$.",
       "difficulty": "hard",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "path-around-rectangle"
     },
     {
       "id": "math-geometry-1-geo-q15",
@@ -317,7 +331,220 @@
       ],
       "correctIndex": 1,
       "explanation": "Reflecting in the $y$-axis changes the sign of the $x$-coordinate while keeping the $y$-coordinate the same, so $(x, y) \\to (-x, y)$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "transformation-recognition"
+    },
+    {
+      "id": "math-geometry-1-geo-q16",
+      "stem": "Two angles sit on a straight line. One is $(3x + 5)^\\circ$ and the other is $(2x + 35)^\\circ$. Find $x$.",
+      "choices": [
+        "$28$",
+        "$24$",
+        "$30$",
+        "$36$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Angles on a straight line add to $180^\\circ$, so $(3x + 5) + (2x + 35) = 180$. This gives $5x + 40 = 180$, so $5x = 140$ and $x = 28$.",
+      "difficulty": "hard",
+      "variantOf": "straight-line-angle-algebra"
+    },
+    {
+      "id": "math-geometry-1-geo-q17",
+      "stem": "Three angles meet at a point: $120^\\circ$, $85^\\circ$ and $(2x + 15)^\\circ$. Find $x$.",
+      "choices": [
+        "$55$",
+        "$140$",
+        "$65$",
+        "$70$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Angles around a point add to $360^\\circ$. So $120 + 85 + 2x + 15 = 360$, giving $220 + 2x = 360$, $2x = 140$ and $x = 70$. Choice B stops at $2x = 140$ without dividing.",
+      "difficulty": "hard",
+      "variantOf": "around-point-angle-algebra"
+    },
+    {
+      "id": "math-geometry-1-geo-q18",
+      "stem": "Two straight lines cross. One angle is $63^\\circ$. What is the size of the angle vertically opposite to it?",
+      "choices": [
+        "$27^\\circ$",
+        "$117^\\circ$",
+        "$63^\\circ$",
+        "$180^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Vertically opposite angles are equal, so the angle opposite $63^\\circ$ is also $63^\\circ$. The supplement $117^\\circ$ is the angle next to it, not opposite.",
+      "difficulty": "easy",
+      "variantOf": "vertically-opposite-angles"
+    },
+    {
+      "id": "math-geometry-1-geo-q19",
+      "stem": "Two parallel lines are crossed by a transversal. One alternate angle is $(5x - 12)^\\circ$ and the other alternate angle is $(3x + 28)^\\circ$. Find $x$.",
+      "choices": [
+        "$16$",
+        "$24$",
+        "$28$",
+        "$20$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Alternate angles on parallel lines are equal, so $5x - 12 = 3x + 28$. Subtracting $3x$ gives $2x - 12 = 28$, so $2x = 40$ and $x = 20$.",
+      "difficulty": "hard",
+      "variantOf": "parallel-lines-angle-algebra"
+    },
+    {
+      "id": "math-geometry-1-geo-q20",
+      "stem": "A triangle has angles $48^\\circ$ and $62^\\circ$. What is the size of the third angle?",
+      "choices": [
+        "$70^\\circ$",
+        "$110^\\circ$",
+        "$60^\\circ$",
+        "$80^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Angles in a triangle add to $180^\\circ$. The third angle is $180 - 48 - 62 = 70^\\circ$. Choice B just adds the two given angles.",
+      "difficulty": "easy",
+      "variantOf": "triangle-angle-sum"
+    },
+    {
+      "id": "math-geometry-1-geo-q21",
+      "stem": "An isosceles triangle has a vertex angle of $40^\\circ$. What is the size of each base angle?",
+      "choices": [
+        "$140^\\circ$",
+        "$40^\\circ$",
+        "$70^\\circ$",
+        "$110^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The two base angles are equal. Their total is $180 - 40 = 140^\\circ$, so each base angle is $140 \\div 2 = 70^\\circ$. Choice A forgets to halve.",
+      "difficulty": "medium",
+      "variantOf": "isosceles-base-angle"
+    },
+    {
+      "id": "math-geometry-1-geo-q22",
+      "stem": "A quadrilateral has angles $105^\\circ$, $88^\\circ$, $92^\\circ$ and $x^\\circ$. Find $x$.",
+      "choices": [
+        "$65$",
+        "$85$",
+        "$95$",
+        "$75$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Angles in a quadrilateral add to $360^\\circ$. So $x = 360 - 105 - 88 - 92 = 75$.",
+      "difficulty": "medium",
+      "variantOf": "quadrilateral-angle-sum"
+    },
+    {
+      "id": "math-geometry-1-geo-q23",
+      "stem": "A triangle has interior angles $44^\\circ$ and $58^\\circ$. One side is extended to form an exterior angle. What is its size?",
+      "choices": [
+        "$102^\\circ$",
+        "$78^\\circ$",
+        "$92^\\circ$",
+        "$122^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The exterior angle equals the sum of the two opposite interior angles: $44 + 58 = 102^\\circ$. Choice B is the third interior angle, $180 - 102 = 78^\\circ$, not the exterior angle.",
+      "difficulty": "medium",
+      "variantOf": "exterior-angle-of-triangle"
+    },
+    {
+      "id": "math-geometry-1-geo-q24",
+      "stem": "Find the circumference of a circle with radius $21\\text{ cm}$. Use $\\pi = \\dfrac{22}{7}$.",
+      "choices": [
+        "$66\\text{ cm}$",
+        "$1\\,386\\text{ cm}$",
+        "$132\\text{ cm}$",
+        "$264\\text{ cm}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Using $C = 2\\pi r$, we get $C = 2 \\times \\dfrac{22}{7} \\times 21 = 132\\text{ cm}$. Choice A uses $r$ instead of $2r$; choice B computes the area $\\pi r^2$.",
+      "difficulty": "medium",
+      "variantOf": "circle-circumference"
+    },
+    {
+      "id": "math-geometry-1-geo-q25",
+      "stem": "Find the area of a circle with diameter $8\\text{ cm}$. Use $\\pi = 3.14$.",
+      "choices": [
+        "$50.24\\text{ cm}^2$",
+        "$200.96\\text{ cm}^2$",
+        "$25.12\\text{ cm}^2$",
+        "$100.48\\text{ cm}^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The radius is $8 \\div 2 = 4\\text{ cm}$. Then $A = \\pi r^2 = 3.14 \\times 16 = 50.24\\text{ cm}^2$. Choice B uses the diameter as the radius; choice C is the circumference.",
+      "difficulty": "medium",
+      "calculator": true,
+      "variantOf": "circle-area-from-diameter"
+    },
+    {
+      "id": "math-geometry-1-geo-q26",
+      "stem": "A compound shape is made from a rectangle $9\\text{ cm}$ by $5\\text{ cm}$ joined to a square of side $3\\text{ cm}$. What is the total area?",
+      "choices": [
+        "$45\\text{ cm}^2$",
+        "$48\\text{ cm}^2$",
+        "$72\\text{ cm}^2$",
+        "$54\\text{ cm}^2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Rectangle area $= 9 \\times 5 = 45\\text{ cm}^2$. Square area $= 3 \\times 3 = 9\\text{ cm}^2$. Total area $= 45 + 9 = 54\\text{ cm}^2$. Choice B adds the side length $3$ instead of its area.",
+      "difficulty": "medium",
+      "variantOf": "compound-shape-area"
+    },
+    {
+      "id": "math-geometry-1-geo-q27",
+      "stem": "A triangle has area $36\\text{ cm}^2$ and base $9\\text{ cm}$. What is its perpendicular height?",
+      "choices": [
+        "$4\\text{ cm}$",
+        "$12\\text{ cm}$",
+        "$8\\text{ cm}$",
+        "$16\\text{ cm}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Using $A = \\dfrac{1}{2}bh$, we have $36 = \\dfrac{1}{2} \\times 9 \\times h = 4.5h$. Therefore $h = 36 \\div 4.5 = 8\\text{ cm}$. Choice A divides by $9$ without doubling the area first.",
+      "difficulty": "medium",
+      "variantOf": "triangle-height-from-area"
+    },
+    {
+      "id": "math-geometry-1-geo-q28",
+      "stem": "Two similar triangles have corresponding sides in the ratio $2:5$. The smaller triangle has base $8\\text{ cm}$. What is the base of the larger triangle?",
+      "choices": [
+        "$20\\text{ cm}$",
+        "$11\\text{ cm}$",
+        "$16\\text{ cm}$",
+        "$40\\text{ cm}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The scale factor from small to large is $\\dfrac{5}{2}$. So the larger base is $8 \\times \\dfrac{5}{2} = 20\\text{ cm}$. Choice B adds the difference $5 - 2 = 3$ instead of scaling.",
+      "difficulty": "medium",
+      "variantOf": "similar-triangle-scale-factor"
+    },
+    {
+      "id": "math-geometry-1-geo-q29",
+      "stem": "A rectangular garden is $60\\text{ m}$ long and $40\\text{ m}$ wide. A path $3\\text{ m}$ wide runs all the way around the inside edge. What is the area of the path?",
+      "choices": [
+        "$564\\text{ m}^2$",
+        "$600\\text{ m}^2$",
+        "$291\\text{ m}^2$",
+        "$402\\text{ m}^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Total area $= 60 \\times 40 = 2\\,400\\text{ m}^2$. Inner dimensions are $60 - 6 = 54\\text{ m}$ and $40 - 6 = 34\\text{ m}$, so inner area $= 54 \\times 34 = 1\\,836\\text{ m}^2$. Path area $= 2\\,400 - 1\\,836 = 564\\text{ m}^2$. Choice C subtracts the path width only once from each side.",
+      "difficulty": "hard",
+      "calculator": true,
+      "variantOf": "path-around-rectangle"
+    },
+    {
+      "id": "math-geometry-1-geo-q30",
+      "stem": "Which transformation maps every point $(x, y)$ to $(x, -y)$?",
+      "choices": [
+        "Reflection in the $y$-axis",
+        "Rotation $180^\\circ$ about the origin",
+        "Reflection in the line $y = x$",
+        "Reflection in the $x$-axis"
+      ],
+      "correctIndex": 3,
+      "explanation": "Reflecting in the $x$-axis keeps the $x$-coordinate the same and changes the sign of the $y$-coordinate, so $(x, y) \\to (x, -y)$.",
+      "difficulty": "easy",
+      "variantOf": "transformation-recognition"
     }
   ]
 }

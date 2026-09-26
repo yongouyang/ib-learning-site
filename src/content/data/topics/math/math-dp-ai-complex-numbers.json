@@ -134,20 +134,22 @@
       ],
       "correctIndex": 0,
       "explanation": "Expand: $2 - 2i + 3i - 3i^2 = 2 + i - 3(-1) = 5 + i$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "cartesian-multiplication"
     },
     {
       "id": "math-dp-complex-numbers-q2",
       "stem": "What is the modulus of $z = -5 + 12i$?",
       "choices": [
-        "$13$",
         "$\\sqrt{17}$",
         "$\\sqrt{119}$",
-        "$17$"
+        "$17$",
+        "$13$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "$|z| = \\sqrt{(-5)^2 + 12^2} = \\sqrt{25 + 144} = \\sqrt{169} = 13$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "modulus-computation"
     },
     {
       "id": "math-dp-complex-numbers-q3",
@@ -160,7 +162,8 @@
       ],
       "correctIndex": 3,
       "explanation": "$z$ lies in Q3. $\\tan^{-1}(1) = \\dfrac{\\pi}{4}$, so the angle is $-\\pi + \\dfrac{\\pi}{4} = -\\dfrac{3\\pi}{4}$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "argument-quadrant"
     },
     {
       "id": "math-dp-complex-numbers-q4",
@@ -173,7 +176,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$x = \\dfrac{-4 \\pm \\sqrt{16 - 52}}{2} = \\dfrac{-4 \\pm \\sqrt{-36}}{2} = \\dfrac{-4 \\pm 6i}{2} = -2 \\pm 3i$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "quadratic-complex-roots"
     },
     {
       "id": "math-dp-complex-numbers-q5",
@@ -186,20 +190,22 @@
       ],
       "correctIndex": 1,
       "explanation": "$z^* = 1 - 2i$. Using $zz^* = a^2 + b^2$, we get $1^2 + 2^2 = 5$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "conjugate-product"
     },
     {
       "id": "math-dp-complex-numbers-q6",
       "stem": "Express $2 - 2i$ in polar form $r \\operatorname{cis} \\theta$.",
       "choices": [
-        "$2\\sqrt{2} \\operatorname{cis}\\left(-\\dfrac{\\pi}{4}\\right)$",
         "$2\\sqrt{2} \\operatorname{cis}\\left(\\dfrac{\\pi}{4}\\right)$",
         "$4 \\operatorname{cis}\\left(-\\dfrac{\\pi}{4}\\right)$",
+        "$2\\sqrt{2} \\operatorname{cis}\\left(-\\dfrac{\\pi}{4}\\right)$",
         "$2 \\operatorname{cis}\\left(-\\dfrac{\\pi}{4}\\right)$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "$r = \\sqrt{4 + 4} = 2\\sqrt{2}$. The point $(2, -2)$ is in Q4, so $\\theta = -\\dfrac{\\pi}{4}$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "polar-euler-conversion"
     },
     {
       "id": "math-dp-complex-numbers-q7",
@@ -212,7 +218,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Multiply moduli: $3 \\times 2 = 6$. Add arguments: $\\dfrac{\\pi}{6} + \\dfrac{\\pi}{4} = \\dfrac{2\\pi}{12} + \\dfrac{3\\pi}{12} = \\dfrac{5\\pi}{12}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "polar-multiplication"
     },
     {
       "id": "math-dp-complex-numbers-q8",
@@ -225,7 +232,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Multiplying by $i$ rotates a complex number $90^\\circ$ counter-clockwise about the origin.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "multiply-by-i-rotation"
     },
     {
       "id": "math-dp-complex-numbers-q9",
@@ -238,7 +246,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Multiply top and bottom by $1 + i$: $\\dfrac{(2 + i)(1 + i)}{(1 - i)(1 + i)} = \\dfrac{2 + 2i + i + i^2}{1 + 1} = \\dfrac{1 + 3i}{2} = \\dfrac{1}{2} + \\dfrac{3}{2}i$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "complex-division"
     },
     {
       "id": "math-dp-complex-numbers-q10",
@@ -251,20 +260,22 @@
       ],
       "correctIndex": 1,
       "explanation": "Since $47 = 4 \\times 11 + 3$, we have $i^{47} = i^3 = -i$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "powers-of-i"
     },
     {
       "id": "math-dp-complex-numbers-q11",
       "stem": "Let $z = \\sqrt{2} \\operatorname{cis}\\left(\\dfrac{\\pi}{8}\\right)$. Find $z^4$.",
       "choices": [
-        "$4 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$",
         "$2 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$",
         "$4 \\operatorname{cis}\\left(\\dfrac{\\pi}{8}\\right)$",
-        "$2 \\operatorname{cis}\\left(\\dfrac{\\pi}{4}\\right)$"
+        "$2 \\operatorname{cis}\\left(\\dfrac{\\pi}{4}\\right)$",
+        "$4 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 3,
       "explanation": "Using De Moivre's theorem: $(\\sqrt{2})^4 = 4$ and $4 \\cdot \\dfrac{\\pi}{8} = \\dfrac{\\pi}{2}$, so $z^4 = 4 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "de-moivre-power"
     },
     {
       "id": "math-dp-complex-numbers-q12",
@@ -277,20 +288,22 @@
       ],
       "correctIndex": 0,
       "explanation": "$-4 = 4 \\operatorname{cis}(\\pi)$. Its square roots are $2 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right) = 2i$ and $2 \\operatorname{cis}\\left(\\dfrac{3\\pi}{2}\\right) = -2i$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "roots-of-negative"
     },
     {
       "id": "math-dp-complex-numbers-q13",
       "stem": "A real cubic polynomial has roots $1$ and $2 + i$. What is its third root?",
       "choices": [
-        "$2 - i$",
         "$-2 - i$",
         "$1 + i$",
+        "$2 - i$",
         "$-2 + i$"
       ],
-      "correctIndex": 0,
+      "correctIndex": 2,
       "explanation": "By the Conjugate Root Theorem, non-real roots of real polynomials occur in conjugate pairs, so the third root is $2 - i$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "conjugate-root-theorem"
     },
     {
       "id": "math-dp-complex-numbers-q14",
@@ -303,7 +316,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The equation $|z - a| = r$ represents a circle centred at $a$ with radius $r$. Here $a = 1 - i$ and $r = 2$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "locus-circle"
     },
     {
       "id": "math-dp-complex-numbers-q15",
@@ -316,7 +330,218 @@
       ],
       "correctIndex": 0,
       "explanation": "$r = \\sqrt{(\\sqrt{3})^2 + 1^2} = 2$ and $\\theta = \\tan^{-1}\\left(\\dfrac{1}{\\sqrt{3}}\\right) = \\dfrac{\\pi}{6}$, so $z = 2e^{i\\pi/6}$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "polar-euler-conversion"
+    },
+    {
+      "id": "math-dp-complex-numbers-q16",
+      "stem": "Simplify $(3 - 2i)(1 + 4i)$.",
+      "choices": [
+        "$-5 + 10i$",
+        "$3 + 10i$",
+        "$11 + 10i$",
+        "$11 + 14i$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Expand: $3 + 12i - 2i - 8i^2 = 3 + 10i + 8 = 11 + 10i$. $-5 + 10i$ uses $i^2 = 1$, and $3 + 10i$ drops the $i^2$ term.",
+      "difficulty": "medium",
+      "variantOf": "cartesian-multiplication"
+    },
+    {
+      "id": "math-dp-complex-numbers-q17",
+      "stem": "What is the modulus of $z = 8 - 6i$?",
+      "choices": [
+        "$14$",
+        "$\\sqrt{28}$",
+        "$100$",
+        "$10$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$|z| = \\sqrt{8^2 + (-6)^2} = \\sqrt{64 + 36} = \\sqrt{100} = 10$. $\\sqrt{28}$ comes from subtracting the squares.",
+      "difficulty": "medium",
+      "variantOf": "modulus-computation"
+    },
+    {
+      "id": "math-dp-complex-numbers-q18",
+      "stem": "Find $\\arg(z)$ for $z = -1 + i$, giving your answer in the range $-\\pi < \\theta \\leq \\pi$.",
+      "choices": [
+        "$\\dfrac{3\\pi}{4}$",
+        "$\\dfrac{\\pi}{4}$",
+        "$-\\dfrac{\\pi}{4}$",
+        "$-\\dfrac{3\\pi}{4}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$z$ lies in Q2. The reference angle is $\\tan^{-1}(1) = \\dfrac{\\pi}{4}$, so $\\arg(z) = \\pi - \\dfrac{\\pi}{4} = \\dfrac{3\\pi}{4}$. Using $\\tan^{-1}$ directly without the quadrant check gives $\\dfrac{\\pi}{4}$.",
+      "difficulty": "hard",
+      "variantOf": "argument-quadrant"
+    },
+    {
+      "id": "math-dp-complex-numbers-q19",
+      "stem": "Solve $x^2 - 6x + 25 = 0$.",
+      "choices": [
+        "$-3 \\pm 4i$",
+        "$3 \\pm 4i$",
+        "$6 \\pm 4i$",
+        "$3 \\pm 8i$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$x = \\dfrac{6 \\pm \\sqrt{36 - 100}}{2} = \\dfrac{6 \\pm 8i}{2} = 3 \\pm 4i$. $6 \\pm 4i$ divides only the root by 2.",
+      "difficulty": "medium",
+      "variantOf": "quadratic-complex-roots"
+    },
+    {
+      "id": "math-dp-complex-numbers-q20",
+      "stem": "If $z = 2 - 3i$, what is $z \\cdot z^*$?",
+      "choices": [
+        "$-5$",
+        "$\\sqrt{13}$",
+        "$13$",
+        "$4 - 9i$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$z^* = 2 + 3i$ and $zz^* = a^2 + b^2 = 2^2 + 3^2 = 13$. $\\sqrt{13}$ is the modulus $|z|$, not $zz^*$.",
+      "difficulty": "easy",
+      "variantOf": "conjugate-product"
+    },
+    {
+      "id": "math-dp-complex-numbers-q21",
+      "stem": "Express $-2 + 2i$ in polar form $r \\operatorname{cis} \\theta$.",
+      "choices": [
+        "$2\\sqrt{2} \\operatorname{cis}\\left(\\dfrac{\\pi}{4}\\right)$",
+        "$2\\sqrt{2} \\operatorname{cis}\\left(\\dfrac{3\\pi}{4}\\right)$",
+        "$2\\sqrt{2} \\operatorname{cis}\\left(-\\dfrac{3\\pi}{4}\\right)$",
+        "$4 \\operatorname{cis}\\left(\\dfrac{3\\pi}{4}\\right)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$r = \\sqrt{4 + 4} = 2\\sqrt{2}$. The point $(-2, 2)$ is in Q2, so $\\theta = \\pi - \\dfrac{\\pi}{4} = \\dfrac{3\\pi}{4}$.",
+      "difficulty": "hard",
+      "variantOf": "polar-euler-conversion"
+    },
+    {
+      "id": "math-dp-complex-numbers-q22",
+      "stem": "Express $1 - \\sqrt{3} \\, i$ in Euler form $r e^{i\\theta}$.",
+      "choices": [
+        "$2e^{i\\pi/3}$",
+        "$2e^{-i\\pi/6}$",
+        "$4e^{-i\\pi/3}$",
+        "$2e^{-i\\pi/3}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$r = \\sqrt{1 + 3} = 2$. The point $(1, -\\sqrt{3})$ is in Q4 with reference angle $\\tan^{-1}(\\sqrt{3}) = \\dfrac{\\pi}{3}$, so $z = 2e^{-i\\pi/3}$.",
+      "difficulty": "hard",
+      "variantOf": "polar-euler-conversion"
+    },
+    {
+      "id": "math-dp-complex-numbers-q23",
+      "stem": "Let $z_1 = 4 \\operatorname{cis}\\left(\\dfrac{\\pi}{3}\\right)$ and $z_2 = 2 \\operatorname{cis}\\left(\\dfrac{\\pi}{6}\\right)$. Find $z_1 z_2$ in polar form.",
+      "choices": [
+        "$6 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$",
+        "$8 \\operatorname{cis}\\left(\\dfrac{\\pi}{6}\\right)$",
+        "$8 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$",
+        "$2 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Multiply moduli: $4 \\times 2 = 8$. Add arguments: $\\dfrac{\\pi}{3} + \\dfrac{\\pi}{6} = \\dfrac{\\pi}{2}$. $6 \\operatorname{cis}\\left(\\dfrac{\\pi}{2}\\right)$ adds the moduli.",
+      "difficulty": "medium",
+      "variantOf": "polar-multiplication"
+    },
+    {
+      "id": "math-dp-complex-numbers-q24",
+      "stem": "Let $z = 3 + 2i$. Find $iz$.",
+      "choices": [
+        "$2 - 3i$",
+        "$-2 + 3i$",
+        "$3 - 2i$",
+        "$-3 - 2i$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$iz = i(3 + 2i) = 3i + 2i^2 = -2 + 3i$ — a $90^\\circ$ counter-clockwise rotation of $(3, 2)$.",
+      "difficulty": "easy",
+      "variantOf": "multiply-by-i-rotation"
+    },
+    {
+      "id": "math-dp-complex-numbers-q25",
+      "stem": "Simplify $\\dfrac{3 + i}{1 + i}$.",
+      "choices": [
+        "$2 + i$",
+        "$1 + 2i$",
+        "$4 - 2i$",
+        "$2 - i$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Multiply top and bottom by $1 - i$: $\\dfrac{(3 + i)(1 - i)}{2} = \\dfrac{4 - 2i}{2} = 2 - i$. $1 + 2i$ multiplies by $1 + i$ instead.",
+      "difficulty": "medium",
+      "variantOf": "complex-division"
+    },
+    {
+      "id": "math-dp-complex-numbers-q26",
+      "stem": "Simplify $i^{30}$.",
+      "choices": [
+        "$1$",
+        "$i$",
+        "$-1$",
+        "$-i$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Since $30 = 4 \\times 7 + 2$, we have $i^{30} = i^2 = -1$.",
+      "difficulty": "medium",
+      "variantOf": "powers-of-i"
+    },
+    {
+      "id": "math-dp-complex-numbers-q27",
+      "stem": "Let $z = 2 \\operatorname{cis}\\left(\\dfrac{\\pi}{9}\\right)$. Find $z^3$.",
+      "choices": [
+        "$8 \\operatorname{cis}\\left(\\dfrac{\\pi}{27}\\right)$",
+        "$8 \\operatorname{cis}\\left(\\dfrac{\\pi}{3}\\right)$",
+        "$6 \\operatorname{cis}\\left(\\dfrac{\\pi}{3}\\right)$",
+        "$8 \\operatorname{cis}\\left(\\dfrac{\\pi}{9}\\right)$"
+      ],
+      "correctIndex": 1,
+      "explanation": "By De Moivre's theorem: $2^3 = 8$ and $3 \\cdot \\dfrac{\\pi}{9} = \\dfrac{\\pi}{3}$, so $z^3 = 8 \\operatorname{cis}\\left(\\dfrac{\\pi}{3}\\right)$. $6 \\operatorname{cis}\\left(\\dfrac{\\pi}{3}\\right)$ multiplies the modulus by 3.",
+      "difficulty": "hard",
+      "variantOf": "de-moivre-power"
+    },
+    {
+      "id": "math-dp-complex-numbers-q28",
+      "stem": "Which of the following are the square roots of $-16$?",
+      "choices": [
+        "$4$ and $-4$",
+        "$8i$ and $-8i$",
+        "$4i$ and $-4i$",
+        "$2i$ and $-2i$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$(4i)^2 = 16i^2 = -16$, so the roots are $4i$ and $-4i$. $4$ and $-4$ give $+16$.",
+      "difficulty": "easy",
+      "variantOf": "roots-of-negative"
+    },
+    {
+      "id": "math-dp-complex-numbers-q29",
+      "stem": "A real cubic polynomial has roots $3$ and $1 - 2i$. What is its third root?",
+      "choices": [
+        "$-1 - 2i$",
+        "$-1 + 2i$",
+        "$1 + 2i$",
+        "$2 - i$"
+      ],
+      "correctIndex": 2,
+      "explanation": "By the Conjugate Root Theorem, non-real roots of real polynomials come in conjugate pairs, so the third root is $1 + 2i$. Only the sign of the imaginary part flips.",
+      "difficulty": "easy",
+      "variantOf": "conjugate-root-theorem"
+    },
+    {
+      "id": "math-dp-complex-numbers-q30",
+      "stem": "Describe the locus defined by $|z - (3 + 2i)| = 5$.",
+      "choices": [
+        "A circle centred at $-3 - 2i$ with radius $5$",
+        "A circle centred at $3 + 2i$ with radius $5$",
+        "A circle centred at $3 + 2i$ with radius $25$",
+        "The perpendicular bisector of $3$ and $2i$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The equation $|z - a| = r$ represents a circle centred at $a$ with radius $r$. Here $a = 3 + 2i$ and $r = 5$.",
+      "difficulty": "easy",
+      "variantOf": "locus-circle"
     }
   ]
 }

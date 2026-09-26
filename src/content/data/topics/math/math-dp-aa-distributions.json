@@ -134,7 +134,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$E(X) = 1(0.2) + 2(0.5) + 3(0.3) = 0.2 + 1 + 0.9 = 2.1$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "drv-expected-value"
     },
     {
       "id": "math-dp-aa-distributions-q2",
@@ -147,7 +148,8 @@
       ],
       "correctIndex": 1,
       "explanation": "A binomial model needs a fixed number of trials, two outcomes, a constant probability of success and independence between trials.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "binomial-conditions"
     },
     {
       "id": "math-dp-aa-distributions-q3",
@@ -160,7 +162,8 @@
       ],
       "correctIndex": 2,
       "explanation": "The normal curve is symmetric about its mean, so half the area lies above the mean: $P(X > \\mu) = 0.5$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "normal-symmetry"
     },
     {
       "id": "math-dp-aa-distributions-q4",
@@ -173,7 +176,8 @@
       ],
       "correctIndex": 3,
       "explanation": "$E(X) = np = 20 \\times 0.3 = 6$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "binomial-mean"
     },
     {
       "id": "math-dp-aa-distributions-q5",
@@ -186,7 +190,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$\\operatorname{Var}(X) = np(1-p) = 20(0.3)(0.7) = 4.2$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "binomial-variance"
     },
     {
       "id": "math-dp-aa-distributions-q6",
@@ -200,7 +205,8 @@
       "correctIndex": 1,
       "explanation": "With $X \\sim B(4, 0.5)$, $P(X = 2) = \\binom42 (0.5)^2(0.5)^2 = 6 \\times 0.0625 = 0.375$.",
       "difficulty": "medium",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "binomial-exact-probability"
     },
     {
       "id": "math-dp-aa-distributions-q7",
@@ -213,7 +219,8 @@
       ],
       "correctIndex": 2,
       "explanation": "The variance is 16, so $\\sigma = 4$. Then $z = \\dfrac{26 - 20}{4} = 1.5$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "standardising"
     },
     {
       "id": "math-dp-aa-distributions-q8",
@@ -227,7 +234,8 @@
       "correctIndex": 3,
       "explanation": "$\\sigma = 4$, so 24 is one standard deviation above the mean. $P(Z > 1) = 1 - 0.8413 = 0.159$ to 3 s.f.",
       "difficulty": "medium",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "normal-tail-probability"
     },
     {
       "id": "math-dp-aa-distributions-q9",
@@ -241,7 +249,8 @@
       "correctIndex": 0,
       "explanation": "$P(X = 0) = (0.9)^5 = 0.59049 \\approx 0.590$ to 3 s.f.",
       "difficulty": "medium",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "binomial-zero-probability"
     },
     {
       "id": "math-dp-aa-distributions-q10",
@@ -255,7 +264,8 @@
       "correctIndex": 1,
       "explanation": "Using the complement, $P(X \\ge 1) = 1 - P(X = 0) = 1 - 0.9^5 = 0.40951 \\approx 0.410$.",
       "difficulty": "hard",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "binomial-at-least-one"
     },
     {
       "id": "math-dp-aa-distributions-q11",
@@ -269,7 +279,8 @@
       "correctIndex": 2,
       "explanation": "$\\sigma = 8$ and the $z$-value with area 0.9 to its left is 1.2816, so $a = 50 + 1.2816(8) = 60.2528 \\approx 60.3$.",
       "difficulty": "hard",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "inverse-normal"
     },
     {
       "id": "math-dp-aa-distributions-q12",
@@ -283,7 +294,8 @@
       "correctIndex": 3,
       "explanation": "$P(X \\ge 8) = P(X = 8) + P(X = 9) + P(X = 10) = 0.010617 + 0.001573 + 0.000105 = 0.01229$, which is 0.0123 to 3 s.f.",
       "difficulty": "hard",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "binomial-upper-tail"
     },
     {
       "id": "math-dp-aa-distributions-q13",
@@ -296,7 +308,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = 5 - 2^2 = 1$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "variance-from-moments"
     },
     {
       "id": "math-dp-aa-distributions-q14",
@@ -310,7 +323,8 @@
       "correctIndex": 1,
       "explanation": "$\\sigma = 2$, so $x = 48$ and $x = 52$ correspond to $z = -1$ and $z = 1$. Then $P(-1 < Z < 1) = 0.6827 \\approx 0.683$.",
       "difficulty": "hard",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "normal-symmetric-interval"
     },
     {
       "id": "math-dp-aa-distributions-q15",
@@ -323,7 +337,225 @@
       ],
       "correctIndex": 2,
       "explanation": "The mean of a binomial is $np$, so $40p = 12$ and $p = 0.3$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "binomial-mean-inverse"
+    },
+    {
+      "id": "math-dp-aa-distributions-q16",
+      "stem": "A discrete random variable $X$ takes the values 0, 1 and 2 with probabilities $0.3$, $0.4$ and $0.3$. Find $E(X)$.",
+      "choices": [
+        "$1.1$",
+        "$1$",
+        "$0.9$",
+        "$1.5$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$E(X) = 0(0.3) + 1(0.4) + 2(0.3) = 0.4 + 0.6 = 1$.",
+      "difficulty": "easy",
+      "variantOf": "drv-expected-value"
+    },
+    {
+      "id": "math-dp-aa-distributions-q17",
+      "stem": "Which situation BREAKS the conditions for a binomial model?",
+      "choices": [
+        "Tossing a fair coin 10 times",
+        "Rolling a fair die 20 times and counting sixes",
+        "Testing 30 bulbs from a large production line",
+        "Drawing 5 cards without replacement and counting hearts"
+      ],
+      "correctIndex": 3,
+      "explanation": "Without replacement the probability of a heart changes after each draw, so $p$ is not constant. The other situations have a fixed $n$, two outcomes, constant $p$ and independence.",
+      "difficulty": "easy",
+      "variantOf": "binomial-conditions"
+    },
+    {
+      "id": "math-dp-aa-distributions-q18",
+      "stem": "For $X \\sim N(50, 9)$, find $P(X < 50)$.",
+      "choices": [
+        "$0.5$",
+        "$0.68$",
+        "$1$",
+        "$0.25$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The curve is symmetric about $\\mu = 50$, so half the area lies below the mean: $P(X < 50) = 0.5$.",
+      "difficulty": "easy",
+      "variantOf": "normal-symmetry"
+    },
+    {
+      "id": "math-dp-aa-distributions-q19",
+      "stem": "For $X \\sim B(40, 0.25)$, find $E(X)$.",
+      "choices": [
+        "$8$",
+        "$7.5$",
+        "$10$",
+        "$0.25$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$E(X) = np = 40 \\times 0.25 = 10$.",
+      "difficulty": "easy",
+      "variantOf": "binomial-mean"
+    },
+    {
+      "id": "math-dp-aa-distributions-q20",
+      "stem": "For $X \\sim B(30, 0.4)$, find $\\operatorname{Var}(X)$.",
+      "choices": [
+        "$12$",
+        "$1.2$",
+        "$4.8$",
+        "$7.2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\operatorname{Var}(X) = np(1-p) = 30(0.4)(0.6) = 7.2$. ($12$ is the mean $np$; $4.8$ squares the wrong factor.)",
+      "difficulty": "medium",
+      "variantOf": "binomial-variance"
+    },
+    {
+      "id": "math-dp-aa-distributions-q21",
+      "stem": "A fair die is rolled 3 times. Find the probability of exactly 2 sixes.",
+      "choices": [
+        "$0.0694$",
+        "$0.0231$",
+        "$0.421$",
+        "$0.116$"
+      ],
+      "correctIndex": 0,
+      "explanation": "With $X \\sim B\\left(3, \\dfrac16\\right)$, $P(X = 2) = \\binom32 \\left(\\dfrac16\\right)^2 \\left(\\dfrac56\\right) = 3 \\times \\dfrac{5}{216} = \\dfrac{15}{216} \\approx 0.0694$. ($0.0231$ forgets the factor $\\binom32$; $0.421$ is $P(X \\ge 1)$.)",
+      "difficulty": "medium",
+      "calculator": true,
+      "variantOf": "binomial-exact-probability"
+    },
+    {
+      "id": "math-dp-aa-distributions-q22",
+      "stem": "Given $X \\sim N(40, 9)$, find the standardised value $z$ corresponding to $x = 46$.",
+      "choices": [
+        "$0.667$",
+        "$2$",
+        "$6$",
+        "$1.5$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The variance is 9, so $\\sigma = 3$. Then $z = \\dfrac{46 - 40}{3} = 2$. (Using $\\sigma = 9$ gives the distractor $0.667$.)",
+      "difficulty": "medium",
+      "variantOf": "standardising"
+    },
+    {
+      "id": "math-dp-aa-distributions-q23",
+      "stem": "For $X \\sim N(100, 225)$, find $P(X > 130)$ to 3 significant figures.",
+      "choices": [
+        "$0.977$",
+        "$0.0456$",
+        "$0.0228$",
+        "$0.159$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\sigma = 15$, so $z = \\dfrac{130 - 100}{15} = 2$. Then $P(Z > 2) = 1 - 0.9772 = 0.0228$.",
+      "difficulty": "medium",
+      "calculator": true,
+      "variantOf": "normal-tail-probability"
+    },
+    {
+      "id": "math-dp-aa-distributions-q24",
+      "stem": "For $X \\sim B(4, 0.2)$, find $P(X = 0)$ to 3 significant figures.",
+      "choices": [
+        "$0.410$",
+        "$0.590$",
+        "$0.0016$",
+        "$0.200$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$P(X = 0) = (0.8)^4 = 0.4096 \\approx 0.410$ to 3 s.f. ($0.0016$ is $0.2^4$ — the wrong probability raised to the power.)",
+      "difficulty": "medium",
+      "calculator": true,
+      "variantOf": "binomial-zero-probability"
+    },
+    {
+      "id": "math-dp-aa-distributions-q25",
+      "stem": "For $X \\sim B(6, 0.15)$, find $P(X \\ge 1)$ to 3 significant figures.",
+      "choices": [
+        "$0.377$",
+        "$0.900$",
+        "$0.100$",
+        "$0.623$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Using the complement, $P(X \\ge 1) = 1 - P(X = 0) = 1 - 0.85^6 = 1 - 0.377 = 0.623$.",
+      "difficulty": "hard",
+      "calculator": true,
+      "variantOf": "binomial-at-least-one"
+    },
+    {
+      "id": "math-dp-aa-distributions-q26",
+      "stem": "Given $X \\sim N(80, 25)$ and $P(X < a) = 0.75$, find $a$ to 3 significant figures.",
+      "choices": [
+        "$76.6$",
+        "$85.0$",
+        "$83.4$",
+        "$88.4$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\sigma = 5$ and the $z$-value with area 0.75 to its left is $0.6745$, so $a = 80 + 0.6745(5) = 83.37 \\approx 83.4$. ($76.6$ comes from shading the wrong tail.)",
+      "difficulty": "hard",
+      "calculator": true,
+      "variantOf": "inverse-normal"
+    },
+    {
+      "id": "math-dp-aa-distributions-q27",
+      "stem": "For $X \\sim B(12, 0.3)$, find $P(X \\ge 6)$ to 3 significant figures.",
+      "choices": [
+        "$0.0792$",
+        "$0.118$",
+        "$0.276$",
+        "$0.882$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$P(X \\ge 6) = P(X = 6) + P(X = 7) + \\cdots + P(X = 12) = 0.0792 + 0.0291 + \\cdots = 0.1178 \\approx 0.118$ to 3 s.f. ($0.0792$ is only the single term $P(X = 6)$; $0.276$ wrongly starts the sum at 5.)",
+      "difficulty": "hard",
+      "calculator": true,
+      "variantOf": "binomial-upper-tail"
+    },
+    {
+      "id": "math-dp-aa-distributions-q28",
+      "stem": "A discrete random variable has $E(X) = 3$ and $E(X^2) = 11$. Find $\\operatorname{Var}(X)$.",
+      "choices": [
+        "$8$",
+        "$5.5$",
+        "$20$",
+        "$2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\operatorname{Var}(X) = E(X^2) - [E(X)]^2 = 11 - 3^2 = 11 - 9 = 2$. ($8$ forgets to square the mean.)",
+      "difficulty": "hard",
+      "variantOf": "variance-from-moments"
+    },
+    {
+      "id": "math-dp-aa-distributions-q29",
+      "stem": "Given $X \\sim N(30, 4)$, find $P(27 < X < 33)$ to 3 significant figures.",
+      "choices": [
+        "$0.866$",
+        "$0.933$",
+        "$0.683$",
+        "$0.433$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$\\sigma = 2$, so $27$ and $33$ correspond to $z = -1.5$ and $z = 1.5$. Then $P(-1.5 < Z < 1.5) = 2(0.9332) - 1 = 0.866$.",
+      "difficulty": "hard",
+      "calculator": true,
+      "variantOf": "normal-symmetric-interval"
+    },
+    {
+      "id": "math-dp-aa-distributions-q30",
+      "stem": "A binomial random variable $X \\sim B(60, p)$ has mean 15. Find $p$.",
+      "choices": [
+        "$0.15$",
+        "$0.75$",
+        "$0.25$",
+        "$4$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The mean of a binomial is $np$, so $60p = 15$ and $p = 0.25$.",
+      "difficulty": "hard",
+      "variantOf": "binomial-mean-inverse"
     }
   ]
 }

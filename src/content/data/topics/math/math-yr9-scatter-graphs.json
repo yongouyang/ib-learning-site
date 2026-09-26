@@ -133,7 +133,8 @@
       ],
       "correctIndex": 1,
       "explanation": "A scatter graph plots pairs of values, one point per item, to reveal a relationship between two variables. Time series use line graphs, proportions use pie charts, and frequencies use bar charts.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "scatter-graph-purpose"
     },
     {
       "id": "math-yr9-scatter-graphs-q2",
@@ -146,7 +147,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Bivariate data records two variables per item — here, revision time AND test score for each student. The other options record only one variable per item.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "bivariate-data-identification"
     },
     {
       "id": "math-yr9-scatter-graphs-q3",
@@ -159,7 +161,8 @@
       ],
       "correctIndex": 0,
       "explanation": "An upward drift means positive correlation, and points close to a straight line mean the correlation is strong.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "correlation-type-identification"
     },
     {
       "id": "math-yr9-scatter-graphs-q4",
@@ -172,7 +175,8 @@
       ],
       "correctIndex": 2,
       "explanation": "A downward drift indicates negative correlation; wide scatter makes it weak rather than strong. Real data always has variation, so the relationship is a tendency, not a rule.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "correlation-strength-judgement"
     },
     {
       "id": "math-yr9-scatter-graphs-q5",
@@ -185,7 +189,8 @@
       ],
       "correctIndex": 1,
       "explanation": "An outlier breaks the overall pattern by sitting far from the data cloud. Most points sit off the line of best fit without being outliers.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "outlier-identification"
     },
     {
       "id": "math-yr9-scatter-graphs-q6",
@@ -198,7 +203,8 @@
       ],
       "correctIndex": 2,
       "explanation": "A line of best fit is straight, follows the correlation, and balances points on either side. It need not go through the origin or any particular data point.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "line-of-best-fit-rule"
     },
     {
       "id": "math-yr9-scatter-graphs-q7",
@@ -211,7 +217,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The estimate is made inside the range of the recorded masses, which is interpolation — generally reliable when correlation is strong.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "interpolation-vs-extrapolation"
     },
     {
       "id": "math-yr9-scatter-graphs-q8",
@@ -224,7 +231,8 @@
       ],
       "correctIndex": 2,
       "explanation": "$5.0$ litres lies outside the $1.0$–$3.0$ range of the data, so the estimate is extrapolation; the relationship could change for much larger engines, making the prediction unreliable.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "interpolation-vs-extrapolation"
     },
     {
       "id": "math-yr9-scatter-graphs-q9",
@@ -237,7 +245,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Correlation is not causation: sunny weather is a lurking variable that raises both sales. Neither product plausibly causes purchases of the other.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "causation-lurking-variable"
     },
     {
       "id": "math-yr9-scatter-graphs-q10",
@@ -250,7 +259,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Strength measures how tightly points cluster around a straight line. Graph P's tight cluster is strong correlation; Graph Q's scatter with the same direction is weak positive correlation.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "correlation-strength-judgement"
     },
     {
       "id": "math-yr9-scatter-graphs-q11",
@@ -263,7 +273,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Weak positive correlation means a real but inconsistent tendency — heavier pumpkins tend to have more seeds with plenty of exceptions. \"Always\" overstates it, and correlation cannot establish causation.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "correlation-interpretation-conclusion"
     },
     {
       "id": "math-yr9-scatter-graphs-q12",
@@ -276,7 +287,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Week $4$ lies inside the data range (interpolation). All the others lie outside it (extrapolation), and week $16$ is furthest out — sunflowers stop growing, so the trend certainly breaks.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "estimate-reliability"
     },
     {
       "id": "math-yr9-scatter-graphs-q13",
@@ -289,7 +301,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Town size is a lurking variable: bigger towns need more police and also record more crime. The correlation is real, but it cannot by itself show that one variable causes the other.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "causation-flaw-analysis"
     },
     {
       "id": "math-yr9-scatter-graphs-q14",
@@ -302,7 +315,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Outliers are ignored when positioning the line of best fit because they distort the trend, but they should still be plotted and noted — they may be genuine unusual cases or errors worth investigating.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "outlier-handling"
     },
     {
       "id": "math-yr9-scatter-graphs-q15",
@@ -315,7 +329,162 @@
       ],
       "correctIndex": 1,
       "explanation": "Estimates come from the line, not individual points: move vertically from the $x$-value to the line of best fit, then horizontally to read the corresponding $y$-value.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "line-of-best-fit-reading"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q16",
+      "stem": "Why are the points on a scatter graph NOT joined up?",
+      "choices": [
+        "Because the axes use different scales",
+        "Because joining the points would take too long",
+        "Because there are too many points to join",
+        "Because each point is a separate item, not part of a sequence"
+      ],
+      "correctIndex": 3,
+      "explanation": "Each cross represents one item's pair of values, not a step in a sequence, so there is no meaningful order to join. Joining the dots is a line-graph habit that does not apply to scatter graphs.",
+      "difficulty": "easy",
+      "variantOf": "scatter-graph-purpose"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q17",
+      "stem": "Which of these is an example of bivariate data?",
+      "choices": [
+        "The shoe sizes of the students in a class",
+        "The daily rainfall recorded over a month",
+        "The colours of the cars in a car park",
+        "The age and the value of each car in a car park"
+      ],
+      "correctIndex": 3,
+      "explanation": "Bivariate data records two variables per item — here, each car's age AND its value. The other options record only one variable per item, so they are univariate.",
+      "difficulty": "easy",
+      "variantOf": "bivariate-data-identification"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q18",
+      "stem": "On a scatter graph, the points drift downward from left to right, fairly close to a straight line. How should the correlation be described?",
+      "choices": [
+        "Strong positive correlation",
+        "No correlation",
+        "Strong negative correlation",
+        "Weak negative correlation"
+      ],
+      "correctIndex": 2,
+      "explanation": "A downward drift means negative correlation, and points close to a straight line mean the correlation is strong.",
+      "difficulty": "easy",
+      "variantOf": "correlation-type-identification"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q19",
+      "stem": "On a scatter graph of height against arm span, one point sits far below the main cloud of points. What is this point called?",
+      "choices": [
+        "The mean point",
+        "A data pair",
+        "The intercept",
+        "An outlier"
+      ],
+      "correctIndex": 3,
+      "explanation": "A point that lies far from the pattern of the rest of the data is an outlier. It is noted and usually ignored when judging the trend and drawing the line of best fit.",
+      "difficulty": "easy",
+      "variantOf": "outlier-identification"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q20",
+      "stem": "Which statement about a line of best fit is TRUE?",
+      "choices": [
+        "It must pass through the origin",
+        "It should have roughly equal numbers of points above and below it",
+        "It must join the first point to the last point",
+        "It must pass through every data point"
+      ],
+      "correctIndex": 1,
+      "explanation": "A line of best fit is straight, follows the trend, and balances points on either side. It does not have to pass through the origin or through any particular data point.",
+      "difficulty": "easy",
+      "variantOf": "line-of-best-fit-rule"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q21",
+      "stem": "A graph shows strong positive correlation between umbrella sales and the number of people wearing boots. What is the best conclusion?",
+      "choices": [
+        "A third factor, such as rainy weather, probably increases both",
+        "Buying umbrellas causes people to wear boots",
+        "Wearing boots causes people to buy umbrellas",
+        "The two variables are completely unrelated"
+      ],
+      "correctIndex": 0,
+      "explanation": "Correlation is not causation: rainy weather is a lurking variable that raises both umbrella sales and boot wearing. Neither behaviour plausibly causes the other.",
+      "difficulty": "medium",
+      "variantOf": "causation-lurking-variable"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q22",
+      "stem": "A student plots weekly practice time for an instrument against the number of mistakes in a performance and finds weak negative correlation. Which conclusion is most reliable?",
+      "choices": [
+        "More practice always means fewer mistakes",
+        "Practice time and mistakes are unrelated",
+        "Making mistakes causes students to practise less",
+        "More practice tends to mean fewer mistakes, but with plenty of variation"
+      ],
+      "correctIndex": 3,
+      "explanation": "Weak negative correlation means a real but inconsistent tendency — more practice tends to come with fewer mistakes, with many exceptions. \"Always\" overstates it, and correlation alone cannot show causation.",
+      "difficulty": "hard",
+      "variantOf": "correlation-interpretation-conclusion"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q23",
+      "stem": "A line of best fit is drawn for a baby's mass recorded each month from month $1$ to month $12$. Which estimate is the MOST reliable?",
+      "choices": [
+        "The mass at month $18$",
+        "The mass at month $24$",
+        "The mass at month $0$",
+        "The mass at month $7$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Month $7$ lies inside the data range, so it is interpolation and generally reliable. The other values lie outside the range — extrapolation — and a baby's growth trend does not continue unchanged.",
+      "difficulty": "hard",
+      "variantOf": "estimate-reliability"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q24",
+      "stem": "A newspaper reports that people who eat breakfast daily earn higher salaries, and concludes that eating breakfast raises your salary. What is the flaw in this reasoning?",
+      "choices": [
+        "Correlation is not causation — a third factor, such as a steady job routine, could drive both",
+        "There is no correlation between the variables",
+        "The data must contain outliers, so the correlation is false",
+        "The line of best fit should have been a curve"
+      ],
+      "correctIndex": 0,
+      "explanation": "The correlation may be real, but it cannot by itself prove cause and effect: a lurking factor such as a steady job routine could raise both breakfast-eating and salary.",
+      "difficulty": "hard",
+      "variantOf": "causation-flaw-analysis"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q25",
+      "stem": "A scatter graph of revision time against test score has one point far above the rest: a student who revised very little but scored highly. How should this point be treated?",
+      "choices": [
+        "Remove it from the graph entirely",
+        "Draw the line of best fit through it, since it is part of the data",
+        "Keep it plotted and noted, but ignore it when placing the line of best fit",
+        "Move it onto the line of best fit"
+      ],
+      "correctIndex": 2,
+      "explanation": "Outliers are still plotted and investigated — they may be genuine or a recording error — but they are ignored when positioning the line of best fit, because they pull the line away from the main trend.",
+      "difficulty": "hard",
+      "variantOf": "outlier-handling"
+    },
+    {
+      "id": "math-yr9-scatter-graphs-q26",
+      "stem": "A scatter graph shows height on the $x$-axis and mass on the $y$-axis. How do you estimate the mass of a person $160$ cm tall from the line of best fit?",
+      "choices": [
+        "Find $160$ on the $y$-axis, go across to the line, then down to the $x$-axis",
+        "Go up from $160$ on the $x$-axis to the line of best fit, then across to the $y$-axis",
+        "Average the masses of the two people nearest to $160$ cm",
+        "Read the mass of the data point with the largest height"
+      ],
+      "correctIndex": 1,
+      "explanation": "Estimates come from the line, not from individual points: find $160$ on the horizontal axis, move vertically to the line of best fit, then read across to the mass on the vertical axis.",
+      "difficulty": "medium",
+      "variantOf": "line-of-best-fit-reading"
     }
   ]
 }

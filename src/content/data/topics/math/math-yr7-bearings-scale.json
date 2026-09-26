@@ -132,7 +132,8 @@
       ],
       "correctIndex": 1,
       "explanation": "South is a half-turn clockwise from north, which is $180^\\circ$. It is already three figures, so it is written as $180^\\circ$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "cardinal-direction-bearing"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q2",
@@ -145,7 +146,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Three-figure bearings use leading zeros. Therefore $7^\\circ$ is written as $007^\\circ$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "three-figure-notation"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q3",
@@ -158,7 +160,8 @@
       ],
       "correctIndex": 3,
       "explanation": "North-west is halfway between north ($000^\\circ$) and west ($270^\\circ$). The midpoint is $315^\\circ$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "intermediate-direction-bearing"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q4",
@@ -171,7 +174,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$1$ cm represents $25\\,000$ cm. Converting to metres gives $25\\,000 \\div 100 = 250$ m.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "scale-ratio-interpretation"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q5",
@@ -184,7 +188,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$3 \\times 50\\,000 = 150\\,000$ cm. Converting to kilometres: $150\\,000 \\div 100\\,000 = 1.5$ km.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "map-to-real-distance"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q6",
@@ -197,7 +202,8 @@
       ],
       "correctIndex": 0,
       "explanation": "With scale $1 : 20$, the model is $\\dfrac{1}{20}$ of the real length. So $80 \\div 20 = 4$ cm.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "model-scale-length"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q7",
@@ -210,7 +216,8 @@
       ],
       "correctIndex": 2,
       "explanation": "The reverse bearing is found by adding $180^\\circ$ because $050^\\circ$ is less than $180^\\circ$. So $050^\\circ + 180^\\circ = 230^\\circ$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "reverse-bearing-add"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q8",
@@ -223,7 +230,8 @@
       ],
       "correctIndex": 1,
       "explanation": "South-east is halfway between south ($180^\\circ$) and east ($090^\\circ$). The midpoint is $135^\\circ$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "intermediate-direction-bearing"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q9",
@@ -236,7 +244,8 @@
       ],
       "correctIndex": 2,
       "explanation": "$1$ km = $100\\,000$ cm. If $2$ cm represents $100\\,000$ cm, then $1$ cm represents $50\\,000$ cm, giving a scale of $1 : 50\\,000$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "real-to-scale-ratio"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q10",
@@ -249,7 +258,8 @@
       ],
       "correctIndex": 1,
       "explanation": "With scale $1 : 100$, drawing lengths are $\\dfrac{1}{100}$ of real lengths. So $5$ m = $500$ cm becomes $5$ cm, and $8$ m = $800$ cm becomes $8$ cm.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "scale-drawing-dimensions"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q11",
@@ -262,7 +272,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Real lengths are $2 \\times 5\\,000 = 10\\,000$ cm = $100$ m and $4 \\times 5\\,000 = 20\\,000$ cm = $200$ m. The real area is $100 \\times 200 = 20\\,000$ m$^2$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "scale-area-map-to-real"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q12",
@@ -275,7 +286,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The original bearing is greater than $180^\\circ$, so subtract $180^\\circ$. Thus $210^\\circ - 180^\\circ = 030^\\circ$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "reverse-bearing-subtract"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q13",
@@ -288,7 +300,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$1$ cm represents $100\\,000$ cm. Since $100\\,000$ cm = $1$ km, the answer is $1$ km.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "scale-ratio-interpretation"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q14",
@@ -301,7 +314,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$120^\\circ$ is between east ($090^\\circ$) and south ($180^\\circ$), so the ship is heading south-east.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "bearing-to-compass-direction"
     },
     {
       "id": "math-yr7-bearings-scale-bs-q15",
@@ -314,7 +328,190 @@
       ],
       "correctIndex": 3,
       "explanation": "Real dimensions convert to $10$ m = $1\\,000$ cm $\\rightarrow 1\\,000 \\div 200 = 5$ cm, and $20$ m = $2\\,000$ cm $\\rightarrow 2\\,000 \\div 200 = 10$ cm. The plan area is $5 \\times 10 = 50$ cm$^2$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "scale-area-real-to-plan"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q16",
+      "stem": "Which of these is the correct three-figure bearing for due west?",
+      "choices": [
+        "$270^\\circ$",
+        "$090^\\circ$",
+        "$180^\\circ$",
+        "$027^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "West is three-quarters of a full turn clockwise from north, which is $270^\\circ$. Choice B is east, the opposite direction, and choice D misplaces the zero.",
+      "difficulty": "easy",
+      "variantOf": "cardinal-direction-bearing"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q17",
+      "stem": "What is $52^\\circ$ written as a three-figure bearing?",
+      "choices": [
+        "$520^\\circ$",
+        "$502^\\circ$",
+        "$25^\\circ$",
+        "$052^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Three-figure bearings pad the front with zeros. Therefore $52^\\circ$ is written as $052^\\circ$.",
+      "difficulty": "easy",
+      "variantOf": "three-figure-notation"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q18",
+      "stem": "What is the bearing for north-east?",
+      "choices": [
+        "$045^\\circ$",
+        "$090^\\circ$",
+        "$135^\\circ$",
+        "$315^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "North-east is halfway between north ($000^\\circ$) and east ($090^\\circ$). The midpoint is $045^\\circ$.",
+      "difficulty": "easy",
+      "variantOf": "intermediate-direction-bearing"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q19",
+      "stem": "A map has scale $1 : 40\\,000$. How many metres does $1$ cm on the map represent?",
+      "choices": [
+        "$40$ m",
+        "$4\\,000$ m",
+        "$400$ m",
+        "$40\\,000$ m"
+      ],
+      "correctIndex": 2,
+      "explanation": "$1$ cm represents $40\\,000$ cm. Converting to metres gives $40\\,000 \\div 100 = 400$ m.",
+      "difficulty": "medium",
+      "variantOf": "scale-ratio-interpretation"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q20",
+      "stem": "On a $1 : 20\\,000$ map, two stations are $5$ cm apart. What is the real distance in kilometres?",
+      "choices": [
+        "$0.1$ km",
+        "$10$ km",
+        "$100$ km",
+        "$1$ km"
+      ],
+      "correctIndex": 3,
+      "explanation": "$5 \\times 20\\,000 = 100\\,000$ cm. Converting to kilometres: $100\\,000 \\div 100\\,000 = 1$ km.",
+      "difficulty": "hard",
+      "variantOf": "map-to-real-distance"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q21",
+      "stem": "A model boat is made with scale $1 : 25$. The real boat is $4$ m long. How long is the model in centimetres?",
+      "choices": [
+        "$8$ cm",
+        "$100$ cm",
+        "$16$ cm",
+        "$32$ cm"
+      ],
+      "correctIndex": 2,
+      "explanation": "With scale $1 : 25$, the model is $\\dfrac{1}{25}$ of the real length. Convert first: $4$ m = $400$ cm, then $400 \\div 25 = 16$ cm. Choice B multiplies instead of dividing.",
+      "difficulty": "medium",
+      "variantOf": "model-scale-length"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q22",
+      "stem": "The bearing of point $D$ from point $C$ is $075^\\circ$. What is the bearing of $C$ from $D$?",
+      "choices": [
+        "$075^\\circ$",
+        "$105^\\circ$",
+        "$285^\\circ$",
+        "$255^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The original bearing is less than $180^\\circ$, so add $180^\\circ$ for the reverse bearing: $075^\\circ + 180^\\circ = 255^\\circ$. Choice B subtracts from $180^\\circ$ instead.",
+      "difficulty": "hard",
+      "variantOf": "reverse-bearing-add"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q23",
+      "stem": "On a map, $5$ cm represents $2$ km. What is the scale written as a ratio?",
+      "choices": [
+        "$1 : 4\\,000$",
+        "$1 : 400\\,000$",
+        "$1 : 40\\,000$",
+        "$1 : 100\\,000$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$2$ km = $200\\,000$ cm. If $5$ cm represents $200\\,000$ cm, then $1$ cm represents $200\\,000 \\div 5 = 40\\,000$ cm, giving a scale of $1 : 40\\,000$.",
+      "difficulty": "hard",
+      "variantOf": "real-to-scale-ratio"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q24",
+      "stem": "A scale drawing uses scale $1 : 50$. A garage is $4$ m by $3$ m in real life. What are its dimensions on the drawing?",
+      "choices": [
+        "$4$ cm by $3$ cm",
+        "$80$ cm by $60$ cm",
+        "$16$ cm by $12$ cm",
+        "$8$ cm by $6$ cm"
+      ],
+      "correctIndex": 3,
+      "explanation": "With scale $1 : 50$, drawing lengths are $\\dfrac{1}{50}$ of real lengths. So $4$ m = $400$ cm becomes $8$ cm, and $3$ m = $300$ cm becomes $6$ cm. Choice B divides by $5$ instead of $50$.",
+      "difficulty": "medium",
+      "variantOf": "scale-drawing-dimensions"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q25",
+      "stem": "A lake is drawn as a rectangle $3$ cm by $5$ cm using scale $1 : 2\\,000$. What is the real area in square metres?",
+      "choices": [
+        "$6\\,000$ m$^2$",
+        "$600$ m$^2$",
+        "$60\\,000$ m$^2$",
+        "$12\\,000$ m$^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Real lengths are $3 \\times 2\\,000 = 6\\,000$ cm = $60$ m and $5 \\times 2\\,000 = 10\\,000$ cm = $100$ m. The real area is $60 \\times 100 = 6\\,000$ m$^2$.",
+      "difficulty": "hard",
+      "variantOf": "scale-area-map-to-real"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q26",
+      "stem": "The bearing of $M$ from $N$ is $290^\\circ$. What is the bearing of $N$ from $M$?",
+      "choices": [
+        "$470^\\circ$",
+        "$070^\\circ$",
+        "$110^\\circ$",
+        "$290^\\circ$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The original bearing is greater than $180^\\circ$, so subtract $180^\\circ$: $290^\\circ - 180^\\circ = 110^\\circ$. Adding instead gives $470^\\circ$, which is not a valid bearing.",
+      "difficulty": "medium",
+      "variantOf": "reverse-bearing-subtract"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q27",
+      "stem": "A walker hikes on a bearing of $300^\\circ$. In which compass direction is she heading most closely?",
+      "choices": [
+        "North-east",
+        "South-east",
+        "South-west",
+        "North-west"
+      ],
+      "correctIndex": 3,
+      "explanation": "$300^\\circ$ is between west ($270^\\circ$) and north ($360^\\circ$), so she is heading north-west.",
+      "difficulty": "medium",
+      "variantOf": "bearing-to-compass-direction"
+    },
+    {
+      "id": "math-yr7-bearings-scale-bs-q28",
+      "stem": "A plan uses scale $1 : 250$. A playground measures $15$ m by $10$ m in real life. What is its area on the plan?",
+      "choices": [
+        "$6\\,000$ cm$^2$",
+        "$12$ cm$^2$",
+        "$24$ cm$^2$",
+        "$2\\,400$ cm$^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Convert and scale: $15$ m = $1\\,500$ cm $\\to 1\\,500 \\div 250 = 6$ cm, and $10$ m = $1\\,000$ cm $\\to 1\\,000 \\div 250 = 4$ cm. The plan area is $6 \\times 4 = 24$ cm$^2$. Choice A scales the real area by $250$ instead of $250^2$.",
+      "difficulty": "hard",
+      "variantOf": "scale-area-real-to-plan"
     }
   ]
 }

@@ -133,7 +133,8 @@
       ],
       "correctIndex": 0,
       "explanation": "SSS needs the lengths of all three sides; these fix the triangle's size and shape uniquely.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "triangle-construction-cases"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q2",
@@ -146,7 +147,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The compass must be wider than half the segment so the arcs from both endpoints intersect.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "perpendicular-bisector-radius"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q3",
@@ -159,7 +161,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Any point on the perpendicular bisector is the same distance from both endpoints of the segment.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "perpendicular-bisector-property"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q4",
@@ -172,7 +175,8 @@
       ],
       "correctIndex": 1,
       "explanation": "An angle bisector divides the original angle into two congruent smaller angles.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "angle-bisector-definition"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q5",
@@ -185,7 +189,8 @@
       ],
       "correctIndex": 2,
       "explanation": "A compass keeps a fixed radius and is used to draw arcs and circles.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "construction-instruments"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q6",
@@ -198,7 +203,8 @@
       ],
       "correctIndex": 2,
       "explanation": "A circle is the path of all points at a fixed distance from its centre.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "locus-fixed-point"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q7",
@@ -211,7 +217,8 @@
       ],
       "correctIndex": 2,
       "explanation": "The perpendicular bisector contains all points that are the same distance from both endpoints.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "locus-two-points"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q8",
@@ -224,7 +231,8 @@
       ],
       "correctIndex": 3,
       "explanation": "The angle bisectors contain all points equidistant from the two lines; there are two bisectors for two intersecting lines.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "locus-two-intersecting-lines"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q9",
@@ -237,7 +245,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The perpendicular segment from the point to the line is the shortest possible distance.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "shortest-distance-point-line"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q10",
@@ -250,7 +259,8 @@
       ],
       "correctIndex": 2,
       "explanation": "SAS stands for Side-Angle-Side, where the angle is between the two known sides.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "triangle-construction-cases"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q11",
@@ -263,7 +273,8 @@
       ],
       "correctIndex": 2,
       "explanation": "ASA stands for Angle-Side-Angle, with the known side between the two known angles.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "asa-construction"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q12",
@@ -276,7 +287,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The angles in a triangle add to $180^\\circ$, so the third angle is $180^\\circ - 40^\\circ - 70^\\circ = 70^\\circ$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "third-angle-of-triangle"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q13",
@@ -289,7 +301,8 @@
       ],
       "correctIndex": 2,
       "explanation": "There are two lines, one on each side of the given line, each $4\\text{ cm}$ away from it.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "locus-fixed-line"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q14",
@@ -302,7 +315,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The two inner arcs must be drawn with the same radius so their crossing point is on the true bisector.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "angle-bisector-accuracy"
     },
     {
       "id": "math-yr7-constructions-loci-cl-q15",
@@ -315,7 +329,204 @@
       ],
       "correctIndex": 1,
       "explanation": "Visible arcs allow the reader to see how the construction was done and are needed for method marks.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "construction-arcs-visible"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q16",
+      "stem": "A triangle is constructed using the lengths of all three sides. Which construction method is this?",
+      "choices": [
+        "SSS",
+        "SAS",
+        "ASA",
+        "RHS"
+      ],
+      "correctIndex": 0,
+      "explanation": "SSS stands for Side-Side-Side: all three side lengths are known, and they fix the triangle uniquely.",
+      "difficulty": "easy",
+      "variantOf": "triangle-construction-cases"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q17",
+      "stem": "While constructing the perpendicular bisector of $AB$, a student opens the compass to less than half of $AB$. What goes wrong?",
+      "choices": [
+        "The bisector is not straight",
+        "The angle at the midpoint is not $90^\\circ$",
+        "The midpoint is in the wrong place",
+        "The arcs from $A$ and $B$ do not cross, so the bisector cannot be drawn"
+      ],
+      "correctIndex": 3,
+      "explanation": "The compass must be opened to more than half the segment so the arcs from the two endpoints intersect. With a smaller radius the arcs never meet.",
+      "difficulty": "medium",
+      "variantOf": "perpendicular-bisector-radius"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q18",
+      "stem": "Point $R$ lies on the perpendicular bisector of $PQ$, and $RP = 9\\text{ cm}$. What is $RQ$?",
+      "choices": [
+        "$9\\text{ cm}$",
+        "$4.5\\text{ cm}$",
+        "$18\\text{ cm}$",
+        "It cannot be found"
+      ],
+      "correctIndex": 0,
+      "explanation": "Every point on the perpendicular bisector is equidistant from the two endpoints, so $RQ = RP = 9\\text{ cm}$.",
+      "difficulty": "easy",
+      "variantOf": "perpendicular-bisector-property"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q19",
+      "stem": "An angle of $76^\\circ$ is split by its angle bisector. How big is each of the two new angles?",
+      "choices": [
+        "$76^\\circ$",
+        "$152^\\circ$",
+        "$19^\\circ$",
+        "$38^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "An angle bisector halves the angle: $76^\\circ \\div 2 = 38^\\circ$. Choice C halves it twice; choice B doubles it.",
+      "difficulty": "easy",
+      "variantOf": "angle-bisector-definition"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q20",
+      "stem": "Which instrument is used to measure the size of an angle after it has been constructed?",
+      "choices": [
+        "Protractor",
+        "Compass",
+        "Ruler",
+        "Set square"
+      ],
+      "correctIndex": 0,
+      "explanation": "A protractor measures angles in degrees. The compass and ruler draw the construction; the protractor checks the result.",
+      "difficulty": "easy",
+      "variantOf": "construction-instruments"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q21",
+      "stem": "Describe the locus of points that are exactly $5\\text{ cm}$ from a fixed point $C$.",
+      "choices": [
+        "The perpendicular bisector of a segment from $C$",
+        "Two lines parallel to $C$",
+        "The bisectors of the angles at $C$",
+        "A circle with centre $C$ and radius $5\\text{ cm}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "A circle is the set of all points at a fixed distance from its centre, so the locus is a circle of radius $5\\text{ cm}$ around $C$.",
+      "difficulty": "easy",
+      "variantOf": "locus-fixed-point"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q22",
+      "stem": "A dog moves so that it is always the same distance from two posts $P$ and $Q$. What is the locus of the dog?",
+      "choices": [
+        "The perpendicular bisector of $PQ$",
+        "A circle around the midpoint of $PQ$",
+        "The straight line through $P$ and $Q$",
+        "Two lines parallel to $PQ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Points equidistant from two fixed points lie on the perpendicular bisector of the segment joining them.",
+      "difficulty": "medium",
+      "variantOf": "locus-two-points"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q23",
+      "stem": "A path is designed so that every point on it is the same distance from two straight fences that cross each other. What is the locus of the path?",
+      "choices": [
+        "A single straight line",
+        "A circle",
+        "Two parallel lines",
+        "The pair of angle bisectors of the angles between the fences"
+      ],
+      "correctIndex": 3,
+      "explanation": "Points equidistant from two intersecting lines lie on the angle bisectors. Two crossing lines have two bisectors, one for each pair of angles.",
+      "difficulty": "hard",
+      "variantOf": "locus-two-intersecting-lines"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q24",
+      "stem": "Which segment gives the shortest distance from a point $P$ to a line $l$?",
+      "choices": [
+        "Any slanted segment from $P$ to $l$",
+        "The segment from $P$ to the nearest endpoint of $l$",
+        "The perpendicular segment from $P$ to $l$",
+        "The segment from $P$ to the midpoint of $l$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The shortest distance from a point to a line is always measured along the perpendicular, which meets the line at $90^\\circ$.",
+      "difficulty": "medium",
+      "variantOf": "shortest-distance-point-line"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q25",
+      "stem": "A triangle is constructed from a side of $8\\text{ cm}$ with angles of $35^\\circ$ and $65^\\circ$ drawn at its two ends. Which method is this?",
+      "choices": [
+        "SAS",
+        "SSS",
+        "RHS",
+        "ASA"
+      ],
+      "correctIndex": 3,
+      "explanation": "ASA stands for Angle-Side-Angle: the known side lies between the two known angles, and the two rays meet at the third vertex.",
+      "difficulty": "medium",
+      "variantOf": "asa-construction"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q26",
+      "stem": "A triangle has angles $55^\\circ$ and $60^\\circ$ at the two ends of a given side. What is the third angle?",
+      "choices": [
+        "$65^\\circ$",
+        "$115^\\circ$",
+        "$70^\\circ$",
+        "$55^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The angles in a triangle add to $180^\\circ$, so the third angle is $180^\\circ - 55^\\circ - 60^\\circ = 65^\\circ$. Choice B just adds the two given angles.",
+      "difficulty": "medium",
+      "variantOf": "third-angle-of-triangle"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q27",
+      "stem": "A point moves so that it is always $2\\text{ cm}$ from a long straight rail. What is its locus?",
+      "choices": [
+        "One line parallel to the rail",
+        "A circle around the rail",
+        "The perpendicular bisector of the rail",
+        "Two lines parallel to the rail, one on each side"
+      ],
+      "correctIndex": 3,
+      "explanation": "The point can be $2\\text{ cm}$ from the rail on either side, so the locus is two parallel lines, each $2\\text{ cm}$ away. Choice A forgets the second side.",
+      "difficulty": "hard",
+      "variantOf": "locus-fixed-line"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q28",
+      "stem": "In an angle bisector construction, the first arc from the vertex crosses the arms at $P$ and $Q$. What must be true of the two arcs drawn from $P$ and $Q$?",
+      "choices": [
+        "They must be drawn with the same compass radius",
+        "They must use different radii",
+        "They must have radius equal to $PQ$",
+        "They must be smaller than half of $PQ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Equal radii from $P$ and $Q$ make the crossing point equidistant from both arms, which is exactly what places it on the true bisector.",
+      "difficulty": "hard",
+      "variantOf": "angle-bisector-accuracy"
+    },
+    {
+      "id": "math-yr7-constructions-loci-cl-q29",
+      "stem": "After constructing a triangle, a student rubs out all the construction arcs. Why is this a problem?",
+      "choices": [
+        "The triangle disappears with the arcs",
+        "The measured angles change",
+        "The arcs show how the vertices were found — rubbing them out loses the method marks",
+        "The ruler can no longer measure the sides"
+      ],
+      "correctIndex": 2,
+      "explanation": "Construction arcs are the evidence of the method. Examiners award method marks for correct arcs, so they must be left visible.",
+      "difficulty": "medium",
+      "variantOf": "construction-arcs-visible"
     }
   ]
 }

@@ -134,7 +134,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Substituting $x = 5$: $3(5) - 2 = 15 - 2 = 13$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "function-evaluation"
     },
     {
       "id": "math-dp-aa-functions-q2",
@@ -147,7 +148,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The denominator is zero at $x = 4$, so that single value is excluded: the domain is all real $x$ with $x \\ne 4$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "domain-fraction"
     },
     {
       "id": "math-dp-aa-functions-q3",
@@ -160,7 +162,8 @@
       ],
       "correctIndex": 2,
       "explanation": "A square is never negative and every non-negative value is attained, so the range is $y \\ge 0$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "range-quadratic"
     },
     {
       "id": "math-dp-aa-functions-q4",
@@ -173,7 +176,8 @@
       ],
       "correctIndex": 3,
       "explanation": "The inner function acts first: $g(1) = 4$, then $f(4) = 2 \\times 4 = 8$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "composite-numeric"
     },
     {
       "id": "math-dp-aa-functions-q5",
@@ -186,7 +190,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Interchange $x$ and $y$ in $y = 4x - 7$ to get $x = 4y - 7$, then $y = \\dfrac{x+7}{4}$, so $f^{-1}(x) = \\dfrac{x+7}{4}$. Check: $f^{-1}(f(2)) = f^{-1}(1) = 2$ ✓",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "inverse-linear"
     },
     {
       "id": "math-dp-aa-functions-q6",
@@ -199,7 +204,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$(f \\circ g)(x) = f(x+1) = (x+1)^2 - 3 = x^2 + 2x + 1 - 3 = x^2 + 2x - 2$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "composite-expression"
     },
     {
       "id": "math-dp-aa-functions-q7",
@@ -212,7 +218,8 @@
       ],
       "correctIndex": 2,
       "explanation": "The expression under the square root must be non-negative: $2x - 6 \\ge 0$ gives $x \\ge 3$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "domain-root"
     },
     {
       "id": "math-dp-aa-functions-q8",
@@ -225,7 +232,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Replacing $x$ by $x - 2$ shifts the graph 2 units to the right: the new graph needs the larger input $x = 2$ to reuse the old value $f(0)$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "translation-direction"
     },
     {
       "id": "math-dp-aa-functions-q9",
@@ -238,7 +246,8 @@
       ],
       "correctIndex": 0,
       "explanation": "For $f(x) = \\dfrac{1}{x}$ the interchange step returns the same formula, so $f^{-1}(x) = \\dfrac{1}{x} = f(x)$. The others are not self-inverse.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "self-inverse"
     },
     {
       "id": "math-dp-aa-functions-q10",
@@ -251,7 +260,8 @@
       ],
       "correctIndex": 1,
       "explanation": "From $y = \\sqrt{x-1}$ we get $y^2 = x - 1$, so $x = y^2 + 1$ and $f^{-1}(x) = x^2 + 1$. Its domain is the range of $f$, which is $x \\ge 0$ (a square root is never negative).",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "inverse-with-domain"
     },
     {
       "id": "math-dp-aa-functions-q11",
@@ -264,7 +274,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Write $y = \\dfrac{x}{x-2}$, so $y(x-2) = x$, giving $yx - x = 2y$ and $x(y-1) = 2y$. Hence $x = \\dfrac{2y}{y-1}$ and $f^{-1}(x) = \\dfrac{2x}{x-1}$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "inverse-rational"
     },
     {
       "id": "math-dp-aa-functions-q12",
@@ -277,7 +288,8 @@
       ],
       "correctIndex": 3,
       "explanation": "The $x$-coordinate is unchanged because the transformation acts on the outside. The new $y$-coordinate is $2(4) + 1 = 9$, so the point is $(3, 9)$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "transformed-point"
     },
     {
       "id": "math-dp-aa-functions-q13",
@@ -290,7 +302,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Replacing $x$ by $\\dfrac{x}{2}$ stretches the graph horizontally with scale factor 2, so the $x$-coordinate doubles to 8 while the $y$-coordinate is unchanged: $(8, 7)$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "horizontal-stretch-point"
     },
     {
       "id": "math-dp-aa-functions-q14",
@@ -303,7 +316,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$(f \\circ g)(x) = \\dfrac{1}{\\sqrt{x+2}-2}$. The root requires $x \\ge -2$ and the denominator requires $\\sqrt{x+2} \\ne 2$, which squares to $x + 2 \\ne 4$ and hence $x \\ne 2$. Both restrictions apply, so the domain is $x \\ge -2$ with $x \\ne 2$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "composite-domain"
     },
     {
       "id": "math-dp-aa-functions-q15",
@@ -316,7 +330,218 @@
       ],
       "correctIndex": 2,
       "explanation": "Divide numerator and denominator by $x$: $\\dfrac{2 + \\frac1x}{1 - \\frac3x} \\to \\dfrac{2}{1} = 2$ as $x \\to \\infty$, so the horizontal asymptote is $y = 2$. (The vertical asymptote is $x = 3$.)",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "horizontal-asymptote"
+    },
+    {
+      "id": "math-dp-aa-functions-q16",
+      "stem": "The function $f$ is defined by $f(x) = x^2 + 2x$. Find $f(3)$.",
+      "choices": [
+        "$9$",
+        "$11$",
+        "$15$",
+        "$12$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Substituting $x = 3$: $3^2 + 2(3) = 9 + 6 = 15$.",
+      "difficulty": "easy",
+      "variantOf": "function-evaluation"
+    },
+    {
+      "id": "math-dp-aa-functions-q17",
+      "stem": "What is the domain of $f(x) = \\dfrac{3}{x+5}$?",
+      "choices": [
+        "$x \\ne -5$",
+        "$x \\ne 5$",
+        "$x > -5$",
+        "all real $x$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The denominator is zero at $x = -5$, so that single value is excluded: the domain is all real $x$ with $x \\ne -5$.",
+      "difficulty": "easy",
+      "variantOf": "domain-fraction"
+    },
+    {
+      "id": "math-dp-aa-functions-q18",
+      "stem": "The function $f(x) = x^2 - 6x + 11$ has domain $x \\in \\mathbb{R}$. State its range.",
+      "choices": [
+        "all real $y$",
+        "$y \\ge 3$",
+        "$y \\ge 11$",
+        "$y \\ge 2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Completing the square gives $f(x) = (x-3)^2 + 2$. The square is never negative, so the least value is $2$ and the range is $y \\ge 2$.",
+      "difficulty": "easy",
+      "variantOf": "range-quadratic"
+    },
+    {
+      "id": "math-dp-aa-functions-q19",
+      "stem": "Given $f(x) = x^2$ and $g(x) = x - 2$, find $g\\big(f(3)\\big)$.",
+      "choices": [
+        "$1$",
+        "$7$",
+        "$49$",
+        "$25$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The inner function acts first: $f(3) = 9$, then $g(9) = 9 - 2 = 7$. ($1$ applies the functions in the wrong order.)",
+      "difficulty": "easy",
+      "variantOf": "composite-numeric"
+    },
+    {
+      "id": "math-dp-aa-functions-q20",
+      "stem": "The function $f$ is defined by $f(x) = 2x + 3$. Find $f^{-1}(x)$.",
+      "choices": [
+        "$\\dfrac{x+3}{2}$",
+        "$2x-3$",
+        "$\\dfrac{x-3}{2}$",
+        "$\\dfrac{x}{2}-3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Interchange $x$ and $y$ in $y = 2x + 3$ to get $x = 2y + 3$, then $y = \\dfrac{x-3}{2}$, so $f^{-1}(x) = \\dfrac{x-3}{2}$. Check: $f^{-1}(f(1)) = f^{-1}(5) = 1$ ✓",
+      "difficulty": "medium",
+      "variantOf": "inverse-linear"
+    },
+    {
+      "id": "math-dp-aa-functions-q21",
+      "stem": "Given $f(x) = x^2 - 2$ and $g(x) = 2x + 1$, find $(f \\circ g)(x)$.",
+      "choices": [
+        "$4x^2 + 4x + 1$",
+        "$2x^2 - 3$",
+        "$4x^2 - 1$",
+        "$4x^2 + 4x - 1$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$(f \\circ g)(x) = f(2x+1) = (2x+1)^2 - 2 = 4x^2 + 4x + 1 - 2 = 4x^2 + 4x - 1$. ($2x^2 - 3$ is $g \\circ f$ — the wrong order.)",
+      "difficulty": "medium",
+      "variantOf": "composite-expression"
+    },
+    {
+      "id": "math-dp-aa-functions-q22",
+      "stem": "Find the domain of $f(x) = \\sqrt{12 - 3x}$.",
+      "choices": [
+        "$x \\le 4$",
+        "$x \\ge 4$",
+        "$x \\le 12$",
+        "$x < 4$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The expression under the square root must be non-negative: $12 - 3x \\ge 0$ gives $3x \\le 12$, so $x \\le 4$.",
+      "difficulty": "medium",
+      "variantOf": "domain-root"
+    },
+    {
+      "id": "math-dp-aa-functions-q23",
+      "stem": "The graph of $y = f(x + 3)$ is the graph of $y = f(x)$ translated",
+      "choices": [
+        "3 units right",
+        "3 units left",
+        "3 units up",
+        "3 units down"
+      ],
+      "correctIndex": 1,
+      "explanation": "Replacing $x$ by $x + 3$ shifts the graph 3 units to the LEFT: the new graph reuses the old value $f(0)$ at the smaller input $x = -3$.",
+      "difficulty": "medium",
+      "variantOf": "translation-direction"
+    },
+    {
+      "id": "math-dp-aa-functions-q24",
+      "stem": "Which of these functions is its own inverse?",
+      "choices": [
+        "$f(x) = x^2$",
+        "$f(x) = 3x$",
+        "$f(x) = 3 - x$",
+        "$f(x) = x + 3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "For $f(x) = 3 - x$ the interchange step gives $x = 3 - y$, so $y = 3 - x$ again: $f^{-1} = f$. Check: $f(f(1)) = f(2) = 1$ ✓",
+      "difficulty": "medium",
+      "variantOf": "self-inverse"
+    },
+    {
+      "id": "math-dp-aa-functions-q25",
+      "stem": "The function $f(x) = x^2 - 4$ has domain $x \\ge 0$. Find $f^{-1}(x)$, stating its domain.",
+      "choices": [
+        "$f^{-1}(x) = \\sqrt{x+4}$, $x \\in \\mathbb{R}$",
+        "$f^{-1}(x) = \\sqrt{x-4}$, $x \\ge 4$",
+        "$f^{-1}(x) = (x+4)^2$, $x \\ge 0$",
+        "$f^{-1}(x) = \\sqrt{x+4}$, $x \\ge -4$"
+      ],
+      "correctIndex": 3,
+      "explanation": "From $y = x^2 - 4$ we get $x = \\sqrt{y + 4}$ (positive root, since the domain of $f$ is $x \\ge 0$), so $f^{-1}(x) = \\sqrt{x+4}$. Its domain is the range of $f$, which is $y \\ge -4$.",
+      "difficulty": "hard",
+      "variantOf": "inverse-with-domain"
+    },
+    {
+      "id": "math-dp-aa-functions-q26",
+      "stem": "The function $f$ is defined by $f(x) = \\dfrac{x+1}{x-3}$, $x \\ne 3$. Find $f^{-1}(x)$.",
+      "choices": [
+        "$\\dfrac{x-3}{x+1}$",
+        "$\\dfrac{3x+1}{x-1}$",
+        "$\\dfrac{3x-1}{x+1}$",
+        "$\\dfrac{x+1}{x-3}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Write $y = \\dfrac{x+1}{x-3}$, so $y(x-3) = x+1$, giving $yx - x = 3y + 1$ and $x(y-1) = 3y+1$. Hence $x = \\dfrac{3y+1}{y-1}$ and $f^{-1}(x) = \\dfrac{3x+1}{x-1}$. Check: $f(0) = -\\dfrac13$ and $f^{-1}\\left(-\\dfrac13\\right) = 0$ ✓",
+      "difficulty": "hard",
+      "variantOf": "inverse-rational"
+    },
+    {
+      "id": "math-dp-aa-functions-q27",
+      "stem": "The graph of $y = f(x)$ passes through the point $(2, 5)$. Which point lies on the graph of $y = 3f(x) - 1$?",
+      "choices": [
+        "$(2, 14)$",
+        "$(6, 14)$",
+        "$(2, 16)$",
+        "$(2, 8)$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The transformation acts on the outside, so the $x$-coordinate is unchanged. The new $y$-coordinate is $3(5) - 1 = 14$, so the point is $(2, 14)$. ($16$ adds instead of subtracting; $(6, 14)$ wrongly scales $x$ too.)",
+      "difficulty": "hard",
+      "variantOf": "transformed-point"
+    },
+    {
+      "id": "math-dp-aa-functions-q28",
+      "stem": "The graph of $y = f(x)$ has a maximum point at $(6, 3)$. Find the maximum point of the graph of $y = f(3x)$.",
+      "choices": [
+        "$(18, 3)$",
+        "$(6, 9)$",
+        "$(2, 3)$",
+        "$(2, 9)$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Replacing $x$ by $3x$ compresses the graph horizontally with scale factor $\\dfrac13$, so the $x$-coordinate is divided by 3 while the $y$-coordinate is unchanged: $(2, 3)$.",
+      "difficulty": "hard",
+      "variantOf": "horizontal-stretch-point"
+    },
+    {
+      "id": "math-dp-aa-functions-q29",
+      "stem": "Given $f(x) = \\dfrac{1}{x-1}$ and $g(x) = \\sqrt{x-4}$, state the domain of the composite $f \\circ g$.",
+      "choices": [
+        "$x \\ge 4$",
+        "$x \\ne 5$ only",
+        "$x > 4$, $x \\ne 5$",
+        "$x \\ge 4$, $x \\ne 5$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$(f \\circ g)(x) = \\dfrac{1}{\\sqrt{x-4}-1}$. The root requires $x \\ge 4$ and the denominator requires $\\sqrt{x-4} \\ne 1$, which squares to $x \\ne 5$. Both restrictions apply.",
+      "difficulty": "hard",
+      "variantOf": "composite-domain"
+    },
+    {
+      "id": "math-dp-aa-functions-q30",
+      "stem": "State the horizontal asymptote of the graph of $y = \\dfrac{3x-2}{x+4}$.",
+      "choices": [
+        "$y = 3$",
+        "$x = -4$",
+        "$y = -\\dfrac{1}{2}$",
+        "$y = 0$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Divide numerator and denominator by $x$: $\\dfrac{3 - \\frac2x}{1 + \\frac4x} \\to 3$ as $x \\to \\infty$, so the horizontal asymptote is $y = 3$. ($x = -4$ is the vertical asymptote.)",
+      "difficulty": "hard",
+      "variantOf": "horizontal-asymptote"
     }
   ]
 }

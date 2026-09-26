@@ -134,7 +134,8 @@
       ],
       "correctIndex": 0,
       "explanation": "The complement rule gives $P(A') = 1 - 0.35 = 0.65$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "complement-rule"
     },
     {
       "id": "math-dp-aa-probability-q2",
@@ -147,7 +148,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The even scores are 2, 4 and 6, so the probability is $\\dfrac{3}{6} = \\dfrac12$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "equally-likely-probability"
     },
     {
       "id": "math-dp-aa-probability-q3",
@@ -160,7 +162,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Mutually exclusive events have no outcomes in common, so $P(A \\cap B) = 0$ and they cannot both happen.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "mutually-exclusive-meaning"
     },
     {
       "id": "math-dp-aa-probability-q4",
@@ -173,7 +176,8 @@
       ],
       "correctIndex": 3,
       "explanation": "For independent events, $P(A \\cap B) = P(A)P(B) = 0.5 \\times 0.4 = 0.2$.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "independent-intersection"
     },
     {
       "id": "math-dp-aa-probability-q5",
@@ -186,7 +190,8 @@
       ],
       "correctIndex": 0,
       "explanation": "By the addition rule, $P(A \\cup B) = 0.5 + 0.4 - 0.2 = 0.7$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "addition-rule"
     },
     {
       "id": "math-dp-aa-probability-q6",
@@ -199,7 +204,8 @@
       ],
       "correctIndex": 1,
       "explanation": "$n(M \\cup P) = 18 + 12 - 6 = 24$, so 6 students study neither, giving $\\dfrac{6}{30} = 0.2$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "venn-neither"
     },
     {
       "id": "math-dp-aa-probability-q7",
@@ -212,7 +218,8 @@
       ],
       "correctIndex": 2,
       "explanation": "$P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)} = \\dfrac{0.2}{0.5} = 0.4$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "conditional-formula"
     },
     {
       "id": "math-dp-aa-probability-q8",
@@ -225,7 +232,8 @@
       ],
       "correctIndex": 3,
       "explanation": "$P(A)P(B) = 0.4 \\times 0.5 = 0.2$, which equals $P(A \\cap B)$, so the events are independent.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "independence-test"
     },
     {
       "id": "math-dp-aa-probability-q9",
@@ -238,7 +246,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$^6C_2 = \\dfrac{6!}{2!\\,4!} = \\dfrac{6 \\times 5}{2} = 15$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "combinations-evaluation"
     },
     {
       "id": "math-dp-aa-probability-q10",
@@ -251,7 +260,8 @@
       ],
       "correctIndex": 1,
       "explanation": "The first draw is red with probability $\\dfrac35$; the second is then red with probability $\\dfrac24$. Multiplying gives $\\dfrac35 \\times \\dfrac24 = \\dfrac{6}{20} = \\dfrac{3}{10}$. (Using $\\dfrac35 \\times \\dfrac35$ would be wrong, because the draws are not independent.)",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "tree-without-replacement"
     },
     {
       "id": "math-dp-aa-probability-q11",
@@ -264,7 +274,8 @@
       ],
       "correctIndex": 2,
       "explanation": "$P(\\text{at least one}) = 1 - P(\\text{none}) = 1 - 0.9^3 = 1 - 0.729 = 0.271$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "at-least-one"
     },
     {
       "id": "math-dp-aa-probability-q12",
@@ -277,7 +288,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Conditioning on being male restricts the group to 40 people, 15 of whom wear glasses: $\\dfrac{15}{40} = 0.375$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "conditional-two-way"
     },
     {
       "id": "math-dp-aa-probability-q13",
@@ -291,7 +303,8 @@
       "correctIndex": 0,
       "explanation": "Order does not matter for a committee, so use combinations: $^8C_3 = \\dfrac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56$.",
       "difficulty": "hard",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "combinations-committee"
     },
     {
       "id": "math-dp-aa-probability-q14",
@@ -305,7 +318,8 @@
       "correctIndex": 1,
       "explanation": "Order matters, so use permutations: $^5P_3 = 5 \\times 4 \\times 3 = 60$. Choosing $^5C_3 = 10$ would count each code only once regardless of order.",
       "difficulty": "hard",
-      "calculator": true
+      "calculator": true,
+      "variantOf": "permutations-arrangement"
     },
     {
       "id": "math-dp-aa-probability-q15",
@@ -318,7 +332,220 @@
       ],
       "correctIndex": 2,
       "explanation": "Independence gives $P(A \\cap B) = 0.6 \\times 0.3 = 0.18$, so $P(A \\cup B) = 0.6 + 0.3 - 0.18 = 0.72$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "independent-union"
+    },
+    {
+      "id": "math-dp-aa-probability-q16",
+      "stem": "The probability that an event $A$ occurs is $0.28$. Find $P(A')$.",
+      "choices": [
+        "$0.28$",
+        "$1.28$",
+        "$0.72$",
+        "$0.62$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The complement rule gives $P(A') = 1 - 0.28 = 0.72$.",
+      "difficulty": "easy",
+      "variantOf": "complement-rule"
+    },
+    {
+      "id": "math-dp-aa-probability-q17",
+      "stem": "One card is drawn from a standard pack of 52 cards. Find the probability that it is a heart.",
+      "choices": [
+        "$\\dfrac{1}{4}$",
+        "$\\dfrac{1}{13}$",
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{1}{52}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "There are 13 hearts in 52 cards, so the probability is $\\dfrac{13}{52} = \\dfrac14$.",
+      "difficulty": "easy",
+      "variantOf": "equally-likely-probability"
+    },
+    {
+      "id": "math-dp-aa-probability-q18",
+      "stem": "Events $A$ and $B$ are mutually exclusive. What is $P(A \\cap B)$?",
+      "choices": [
+        "$1$",
+        "$P(A)\\,P(B)$",
+        "$P(A) + P(B)$",
+        "$0$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Mutually exclusive events cannot occur together, so their intersection is empty and $P(A \\cap B) = 0$.",
+      "difficulty": "easy",
+      "variantOf": "mutually-exclusive-meaning"
+    },
+    {
+      "id": "math-dp-aa-probability-q19",
+      "stem": "Events $A$ and $B$ are independent with $P(A) = 0.3$ and $P(B) = 0.6$. Find $P(A \\cap B)$.",
+      "choices": [
+        "$0.9$",
+        "$0.18$",
+        "$0.72$",
+        "$0.36$"
+      ],
+      "correctIndex": 1,
+      "explanation": "For independent events, $P(A \\cap B) = P(A)P(B) = 0.3 \\times 0.6 = 0.18$.",
+      "difficulty": "easy",
+      "variantOf": "independent-intersection"
+    },
+    {
+      "id": "math-dp-aa-probability-q20",
+      "stem": "Given $P(A) = 0.6$, $P(B) = 0.5$ and $P(A \\cap B) = 0.3$, find $P(A \\cup B)$.",
+      "choices": [
+        "$1.1$",
+        "$0.2$",
+        "$0.8$",
+        "$0.9$"
+      ],
+      "correctIndex": 2,
+      "explanation": "By the addition rule, $P(A \\cup B) = 0.6 + 0.5 - 0.3 = 0.8$. (Adding without subtracting the overlap gives $1.1$ — impossible for a probability.)",
+      "difficulty": "medium",
+      "variantOf": "addition-rule"
+    },
+    {
+      "id": "math-dp-aa-probability-q21",
+      "stem": "In a year group of 40 students, 25 play football, 18 play basketball and 10 play both. Find the probability that a randomly chosen student plays neither.",
+      "choices": [
+        "$0.825$",
+        "$0.25$",
+        "$0.075$",
+        "$0.175$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$n(F \\cup B) = 25 + 18 - 10 = 33$, so $40 - 33 = 7$ students play neither, giving $\\dfrac{7}{40} = 0.175$.",
+      "difficulty": "medium",
+      "variantOf": "venn-neither"
+    },
+    {
+      "id": "math-dp-aa-probability-q22",
+      "stem": "Given $P(A \\cap B) = 0.12$ and $P(B) = 0.4$, find $P(A \\mid B)$.",
+      "choices": [
+        "$0.3$",
+        "$0.048$",
+        "$0.52$",
+        "$0.12$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$P(A \\mid B) = \\dfrac{P(A \\cap B)}{P(B)} = \\dfrac{0.12}{0.4} = 0.3$. ($0.048$ multiplies instead of dividing.)",
+      "difficulty": "medium",
+      "variantOf": "conditional-formula"
+    },
+    {
+      "id": "math-dp-aa-probability-q23",
+      "stem": "Events $A$ and $B$ have $P(A) = 0.3$, $P(B) = 0.5$ and $P(A \\cap B) = 0.2$. Are the events independent?",
+      "choices": [
+        "yes, because $P(A \\cap B) \\ne 0$",
+        "no, because $P(A)P(B) = 0.15 \\ne 0.2$",
+        "yes, because both probabilities are positive",
+        "it cannot be determined"
+      ],
+      "correctIndex": 1,
+      "explanation": "$P(A)P(B) = 0.3 \\times 0.5 = 0.15$, which does not equal $P(A \\cap B) = 0.2$, so the events are not independent.",
+      "difficulty": "medium",
+      "variantOf": "independence-test"
+    },
+    {
+      "id": "math-dp-aa-probability-q24",
+      "stem": "Evaluate $^7C_3$.",
+      "choices": [
+        "$21$",
+        "$42$",
+        "$35$",
+        "$210$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$^7C_3 = \\dfrac{7!}{3!\\,4!} = \\dfrac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = 35$. ($210$ is $^7P_3$ — order wrongly counted.)",
+      "difficulty": "medium",
+      "variantOf": "combinations-evaluation"
+    },
+    {
+      "id": "math-dp-aa-probability-q25",
+      "stem": "A bag contains 4 red and 3 green counters. Two counters are drawn without replacement. Find the probability that both are green.",
+      "choices": [
+        "$\\dfrac{9}{49}$",
+        "$\\dfrac{3}{7}$",
+        "$\\dfrac{1}{49}$",
+        "$\\dfrac{1}{7}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The first draw is green with probability $\\dfrac37$; the second is then green with probability $\\dfrac26$. Multiplying gives $\\dfrac37 \\times \\dfrac26 = \\dfrac{6}{42} = \\dfrac17$. ($\\dfrac{9}{49}$ wrongly keeps the same denominator — that treats the draws as independent.)",
+      "difficulty": "hard",
+      "variantOf": "tree-without-replacement"
+    },
+    {
+      "id": "math-dp-aa-probability-q26",
+      "stem": "Four independent events each occur with probability $0.2$. Find the probability that at least one of them occurs.",
+      "choices": [
+        "$0.8$",
+        "$0.590$",
+        "$0.410$",
+        "$0.0016$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$P(\\text{at least one}) = 1 - P(\\text{none}) = 1 - 0.8^4 = 1 - 0.4096 = 0.590$. ($0.0016$ is $0.2^4$ — all four occurring.)",
+      "difficulty": "hard",
+      "variantOf": "at-least-one"
+    },
+    {
+      "id": "math-dp-aa-probability-q27",
+      "stem": "In a group of 80 students, 50 study a language, 35 play an instrument and 20 do both. Find the probability that a student studies a language, given that they play an instrument.",
+      "choices": [
+        "$0.571$",
+        "$0.25$",
+        "$0.4$",
+        "$0.7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Conditioning on playing an instrument restricts the group to 35 students, 20 of whom study a language: $\\dfrac{20}{35} = \\dfrac47 \\approx 0.571$. ($0.4$ uses the wrong conditioning group; $0.25$ divides by the whole 80.)",
+      "difficulty": "hard",
+      "variantOf": "conditional-two-way"
+    },
+    {
+      "id": "math-dp-aa-probability-q28",
+      "stem": "A committee of 4 is chosen from 10 students. How many different committees are possible?",
+      "choices": [
+        "$5040$",
+        "$24$",
+        "$210$",
+        "$40$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Order does not matter for a committee, so use combinations: $^{10}C_4 = \\dfrac{10 \\times 9 \\times 8 \\times 7}{4 \\times 3 \\times 2 \\times 1} = 210$. ($5040$ is $^{10}P_4$.)",
+      "difficulty": "hard",
+      "calculator": true,
+      "variantOf": "combinations-committee"
+    },
+    {
+      "id": "math-dp-aa-probability-q29",
+      "stem": "Eight athletes run a final. In how many ways can the gold, silver and bronze medals be awarded?",
+      "choices": [
+        "$56$",
+        "$24$",
+        "$512$",
+        "$336$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Order matters (different medals), so use permutations: $^8P_3 = 8 \\times 7 \\times 6 = 336$. ($56$ is $^8C_3$ — order wrongly ignored.)",
+      "difficulty": "hard",
+      "calculator": true,
+      "variantOf": "permutations-arrangement"
+    },
+    {
+      "id": "math-dp-aa-probability-q30",
+      "stem": "Events $A$ and $B$ are independent with $P(A) = 0.7$ and $P(B) = 0.4$. Find $P(A \\cup B)$.",
+      "choices": [
+        "$0.82$",
+        "$1.1$",
+        "$0.28$",
+        "$0.7$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Independence gives $P(A \\cap B) = 0.7 \\times 0.4 = 0.28$, so $P(A \\cup B) = 0.7 + 0.4 - 0.28 = 0.82$.",
+      "difficulty": "hard",
+      "variantOf": "independent-union"
     }
   ]
 }

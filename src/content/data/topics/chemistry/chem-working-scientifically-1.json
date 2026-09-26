@@ -126,12 +126,12 @@
       "id": "chem-working-scientifically-1-q1",
       "stem": "A student investigates how the temperature of hydrochloric acid affects the time taken for magnesium ribbon to disappear. Which is the independent variable?",
       "choices": [
-        "The time taken for the magnesium to disappear",
         "The temperature of the hydrochloric acid",
+        "The time taken for the magnesium to disappear",
         "The mass of the magnesium ribbon",
         "The volume of acid used"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "The independent variable is the one deliberately changed — here the temperature of the acid. The time is dependent (it is measured), while mass and volume are control variables.",
       "difficulty": "medium",
       "variantOf": "identify-variables"
@@ -174,7 +174,7 @@
         "Rate of reaction is an interesting topic"
       ],
       "correctIndex": 2,
-      "explanation": "A prediction states what you expect to happen to the dependent variable when the independent variable changes. The first option is background science, not a prediction.",
+      "explanation": "A prediction states what you expect to happen to the dependent variable when the independent variable changes. \"Chemical reactions happen when particles collide\" is background science, not a prediction.",
       "difficulty": "hard",
       "variantOf": "identify-prediction"
     },
@@ -184,10 +184,10 @@
       "choices": [
         "A list of the apparatus needed for an experiment",
         "The final statement of what the results showed",
-        "A testable idea, based on science, that explains how or why something happens",
-        "A guess that cannot be checked by an experiment"
+        "A guess that cannot be checked by an experiment",
+        "A testable idea, based on science, that explains how or why something happens"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "explanation": "A hypothesis is an explanation grounded in scientific knowledge that can be tested experimentally — it is much more than an uncheckable guess.",
       "difficulty": "easy",
       "variantOf": "hypothesis-definition"
@@ -282,10 +282,10 @@
       "choices": [
         "A pie chart",
         "A bar chart with gaps between the bars",
-        "A line graph",
-        "A written paragraph describing each result"
+        "A written paragraph describing each result",
+        "A line graph"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "explanation": "Both temperature and mass dissolved are continuous variables, so a line graph with a line of best fit is the correct choice.",
       "difficulty": "medium",
       "variantOf": "choose-graph"
@@ -366,10 +366,10 @@
       "choices": [
         "A hypothesis",
         "A conclusion",
-        "A prediction",
-        "A control variable"
+        "A control variable",
+        "A prediction"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "explanation": "The statement says how the dependent variable (volume of gas) will change when the independent variable (concentration) changes — that is a prediction. A hypothesis is the underlying explanation, and a conclusion comes after the results.",
       "difficulty": "hard",
       "variantOf": "identify-prediction"
@@ -422,10 +422,10 @@
       "choices": [
         "risk",
         "precaution",
-        "hazard",
-        "variable"
+        "variable",
+        "hazard"
       ],
-      "correctIndex": 2,
+      "correctIndex": 3,
       "explanation": "A hazard is something that can cause harm, such as the flame. The risk is the chance of it actually burning someone; standing up and tying back hair are precautions that reduce that risk.",
       "difficulty": "easy",
       "variantOf": "hazard-definition"
@@ -449,11 +449,11 @@
       "stem": "Which of these is an example of continuous data?",
       "choices": [
         "The number of drops of acid added",
-        "The mass of gas produced",
+        "The type of metal used",
         "The colour of the indicator at the end",
-        "The type of metal used"
+        "The mass of gas produced"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "Mass can take any value within a range, so it is continuous. A count of drops is discrete (whole numbers only), while colour and metal type are categoric.",
       "difficulty": "medium",
       "variantOf": "continuous-data"

@@ -128,13 +128,14 @@
       "stem": "In graph theory, what is the correct definition of an edge?",
       "choices": [
         "A point or node in a graph",
-        "A line joining two vertices",
         "The weight assigned to a vertex",
+        "A line joining two vertices",
         "A loop that starts and ends at different vertices"
       ],
-      "correctIndex": 1,
+      "correctIndex": 2,
       "explanation": "An edge is a line (or arc) that joins two vertices. A vertex is a point, a weight is a number on an edge, and a loop starts and ends at the same vertex.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "graph-vocabulary"
     },
     {
       "id": "math-dp-graph-theory-q2",
@@ -147,7 +148,8 @@
       ],
       "correctIndex": 0,
       "explanation": "Sum of degrees = $2 + 4 + 3 + 3 + 2 + 2 = 16$. By the handshaking lemma, $2|E| = 16$, so $|E| = 8$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "handshaking-lemma"
     },
     {
       "id": "math-dp-graph-theory-q3",
@@ -160,7 +162,8 @@
       ],
       "correctIndex": 1,
       "explanation": "A connected graph has an Eulerian circuit if and only if every vertex has even degree. Exactly two odd degrees gives an Eulerian trail, not a circuit.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "eulerian-conditions"
     },
     {
       "id": "math-dp-graph-theory-q4",
@@ -173,7 +176,8 @@
       ],
       "correctIndex": 0,
       "explanation": "$K_n$ has $\\dfrac{n(n-1)}{2}$ edges. For $n = 5$: $\\dfrac{5 \\times 4}{2} = 10$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "complete-graph-edges"
     },
     {
       "id": "math-dp-graph-theory-q5",
@@ -186,7 +190,8 @@
       ],
       "correctIndex": 0,
       "explanation": "A tree with $n$ vertices always has $n - 1$ edges. So $12 - 1 = 11$ edges.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "tree-edges"
     },
     {
       "id": "math-dp-graph-theory-q6",
@@ -199,7 +204,8 @@
       ],
       "correctIndex": 1,
       "explanation": "Dijkstra's algorithm finds the shortest path from a start vertex to all other reachable vertices in a weighted graph with non-negative edges.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "dijkstra-purpose"
     },
     {
       "id": "math-dp-graph-theory-q7",
@@ -212,20 +218,22 @@
       ],
       "correctIndex": 0,
       "explanation": "Kruskal's algorithm sorts edges by weight and always adds the smallest edge that does not create a cycle, regardless of where it is in the graph.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "kruskal-algorithm"
     },
     {
       "id": "math-dp-graph-theory-q8",
       "stem": "The Chinese Postman Problem asks for the shortest route that:",
       "choices": [
         "Visits every vertex exactly once and returns to the start",
-        "Uses every edge at least once and returns to the start",
         "Finds the minimum spanning tree of a graph",
-        "Finds the longest path between two vertices"
+        "Finds the longest path between two vertices",
+        "Uses every edge at least once and returns to the start"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "The Chinese Postman Problem requires every edge to be traversed at least once, returning to the start. Visiting every vertex is the Travelling Salesman Problem.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "chinese-postman"
     },
     {
       "id": "math-dp-graph-theory-q9",
@@ -238,20 +246,22 @@
       ],
       "correctIndex": 1,
       "explanation": "Exactly two odd-degree vertices means an Eulerian trail exists, starting at one odd vertex and ending at the other. An Eulerian circuit needs all even degrees.",
-      "difficulty": "easy"
+      "difficulty": "easy",
+      "variantOf": "eulerian-conditions"
     },
     {
       "id": "math-dp-graph-theory-q10",
       "stem": "Which statement about the Travelling Salesman Problem (TSP) is true?",
       "choices": [
         "TSP requires every edge to be traversed at least once",
-        "TSP seeks the shortest cycle visiting every vertex exactly once",
         "TSP can always be solved exactly in polynomial time",
-        "TSP is solved by Dijkstra's algorithm"
+        "TSP is solved by Dijkstra's algorithm",
+        "TSP seeks the shortest cycle visiting every vertex exactly once"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "explanation": "TSP asks for the shortest Hamiltonian cycle: a route that visits every vertex exactly once and returns to the start. It is computationally hard for large graphs.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "tsp-definition"
     },
     {
       "id": "math-dp-graph-theory-q11",
@@ -264,7 +274,8 @@
       ],
       "correctIndex": 2,
       "explanation": "Using Euler's formula $V - E + F = 2$, substitute $8 - 12 + F = 2$ to get $F = 6$, including the outer face.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "euler-formula"
     },
     {
       "id": "math-dp-graph-theory-q12",
@@ -277,7 +288,8 @@
       ],
       "correctIndex": 3,
       "explanation": "Trees are bipartite, so they are $2$-colourable and have chromatic number $2$. $K_3$ and $C_5$ need $3$ colours, while $K_4$ needs $4$.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "chromatic-number"
     },
     {
       "id": "math-dp-graph-theory-q13",
@@ -290,20 +302,22 @@
       ],
       "correctIndex": 2,
       "explanation": "$K_5$ is one of the two fundamental non-planar graphs. $K_3$, $K_4$ and any cycle $C_n$ can all be drawn without edge crossings.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "non-planar-graphs"
     },
     {
       "id": "math-dp-graph-theory-q14",
       "stem": "A connected graph contains a cycle of length $5$. What can you conclude?",
       "choices": [
-        "It must be planar",
         "It cannot be bipartite",
+        "It must be planar",
         "It has an Eulerian circuit",
         "It is a tree"
       ],
-      "correctIndex": 1,
+      "correctIndex": 0,
       "explanation": "A graph containing an odd cycle cannot be bipartite, because the two sets of a bipartition would force two adjacent vertices on the cycle to share the same set.",
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "variantOf": "bipartite-odd-cycle"
     },
     {
       "id": "math-dp-graph-theory-q15",
@@ -316,7 +330,204 @@
       ],
       "correctIndex": 1,
       "explanation": "The adjacency matrix of an undirected graph is symmetric, since an edge between vertices $i$ and $j$ contributes equally to entries $A_{ij}$ and $A_{ji}$.",
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "variantOf": "adjacency-matrix"
+    },
+    {
+      "id": "math-dp-graph-theory-q16",
+      "stem": "In graph theory, what is the order of a graph?",
+      "choices": [
+        "The number of edges in the graph",
+        "The number of vertices in the graph",
+        "The degree of the largest vertex",
+        "The number of regions the graph divides the plane into"
+      ],
+      "correctIndex": 1,
+      "explanation": "The order of a graph is its number of vertices; the size is its number of edges.",
+      "difficulty": "easy",
+      "variantOf": "graph-vocabulary"
+    },
+    {
+      "id": "math-dp-graph-theory-q17",
+      "stem": "A graph has degrees $3, 3, 3, 3, 4$. How many edges does it have?",
+      "choices": [
+        "$16$",
+        "$4$",
+        "$8$",
+        "$5$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sum of degrees = $3 + 3 + 3 + 3 + 4 = 16$. By the handshaking lemma, $2|E| = 16$, so $|E| = 8$. 16 forgets to divide by 2.",
+      "difficulty": "medium",
+      "variantOf": "handshaking-lemma"
+    },
+    {
+      "id": "math-dp-graph-theory-q18",
+      "stem": "A connected graph has degrees $4, 2, 2, 3, 3$. What does it have?",
+      "choices": [
+        "An Eulerian circuit",
+        "An Eulerian trail but not a circuit",
+        "No Eulerian trail, because the graph is not complete",
+        "A Hamiltonian cycle"
+      ],
+      "correctIndex": 1,
+      "explanation": "Exactly two vertices have odd degree (the two vertices of degree 3), so an Eulerian trail exists, starting at one odd vertex and ending at the other. A circuit would require all even degrees.",
+      "difficulty": "easy",
+      "variantOf": "eulerian-conditions"
+    },
+    {
+      "id": "math-dp-graph-theory-q19",
+      "stem": "How many edges does the complete graph $K_7$ have?",
+      "choices": [
+        "$14$",
+        "$21$",
+        "$42$",
+        "$49$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$K_n$ has $\\dfrac{n(n-1)}{2}$ edges. For $n = 7$: $\\dfrac{7 \\times 6}{2} = 21$. 42 forgets to divide by 2.",
+      "difficulty": "medium",
+      "variantOf": "complete-graph-edges"
+    },
+    {
+      "id": "math-dp-graph-theory-q20",
+      "stem": "A tree has $20$ vertices. How many edges does it have?",
+      "choices": [
+        "$20$",
+        "$21$",
+        "$19$",
+        "$10$"
+      ],
+      "correctIndex": 2,
+      "explanation": "A tree with $n$ vertices always has $n - 1$ edges. So $20 - 1 = 19$ edges.",
+      "difficulty": "easy",
+      "variantOf": "tree-edges"
+    },
+    {
+      "id": "math-dp-graph-theory-q21",
+      "stem": "A delivery app needs the fastest route from its depot to every customer in a road network where all travel times are positive. Which algorithm should it use?",
+      "choices": [
+        "Kruskal's algorithm",
+        "Prim's algorithm",
+        "The nearest neighbour heuristic",
+        "Dijkstra's algorithm"
+      ],
+      "correctIndex": 3,
+      "explanation": "Dijkstra's algorithm finds the shortest path from one start vertex to all other vertices in a weighted graph with non-negative edge weights. Kruskal's and Prim's build minimum spanning trees.",
+      "difficulty": "easy",
+      "variantOf": "dijkstra-purpose"
+    },
+    {
+      "id": "math-dp-graph-theory-q22",
+      "stem": "In Kruskal's algorithm, when is an edge skipped?",
+      "choices": [
+        "When it is not connected to the start vertex",
+        "When its weight is above the average weight",
+        "When adding it would create a cycle",
+        "When it joins two odd-degree vertices"
+      ],
+      "correctIndex": 2,
+      "explanation": "Kruskal's algorithm considers edges in increasing weight order and skips any edge that would create a cycle, because a spanning tree must contain no cycles.",
+      "difficulty": "hard",
+      "variantOf": "kruskal-algorithm"
+    },
+    {
+      "id": "math-dp-graph-theory-q23",
+      "stem": "A graph has odd-degree vertices $P, Q, R, S$. The shortest paths between them are $PQ = 4$, $RS = 3$, $PR = 6$, $QS = 5$, $PS = 7$, $QR = 6$. What total weight must be added for a Chinese postman route?",
+      "choices": [
+        "$7$",
+        "$11$",
+        "$13$",
+        "$20$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The three pairings are $PQ + RS = 4 + 3 = 7$, $PR + QS = 6 + 5 = 11$, and $PS + QR = 7 + 6 = 13$. The minimum added weight is 7, so the edges on the paths $PQ$ and $RS$ are doubled.",
+      "difficulty": "medium",
+      "variantOf": "chinese-postman"
+    },
+    {
+      "id": "math-dp-graph-theory-q24",
+      "stem": "A salesman must visit 8 cities, each exactly once, and return home by the shortest possible route. Which problem is this?",
+      "choices": [
+        "The Chinese postman problem",
+        "The minimum spanning tree problem",
+        "The travelling salesman problem",
+        "The shortest path problem"
+      ],
+      "correctIndex": 2,
+      "explanation": "Visiting every vertex exactly once and returning to the start is the Travelling Salesman Problem. The Chinese Postman Problem requires using every edge at least once instead.",
+      "difficulty": "medium",
+      "variantOf": "tsp-definition"
+    },
+    {
+      "id": "math-dp-graph-theory-q25",
+      "stem": "A connected planar graph has $V = 5$ vertices and $F = 6$ faces. How many edges does it have?",
+      "choices": [
+        "$9$",
+        "$13$",
+        "$3$",
+        "$11$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using Euler's formula $V - E + F = 2$: $5 - E + 6 = 2$, so $E = 9$. 13 comes from adding $V + F + 2$ instead of rearranging.",
+      "difficulty": "medium",
+      "variantOf": "euler-formula"
+    },
+    {
+      "id": "math-dp-graph-theory-q26",
+      "stem": "What is the chromatic number of a cycle $C_6$ (a cycle with 6 vertices)?",
+      "choices": [
+        "$3$",
+        "$4$",
+        "$6$",
+        "$2$"
+      ],
+      "correctIndex": 3,
+      "explanation": "An even cycle is bipartite: alternate the two colours around the cycle. Since the cycle contains edges, one colour is not enough, so $\\chi(C_6) = 2$. Odd cycles such as $C_5$ need 3 colours.",
+      "difficulty": "hard",
+      "variantOf": "chromatic-number"
+    },
+    {
+      "id": "math-dp-graph-theory-q27",
+      "stem": "Which of the following graphs is non-planar?",
+      "choices": [
+        "$K_4$",
+        "$C_5$",
+        "A tree with 6 vertices",
+        "$K_{3,3}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$K_{3,3}$ is one of the two fundamental non-planar graphs (with $K_5$). $K_4$, every cycle $C_n$, and every tree can all be drawn without crossings.",
+      "difficulty": "medium",
+      "variantOf": "non-planar-graphs"
+    },
+    {
+      "id": "math-dp-graph-theory-q28",
+      "stem": "Which of the following graphs is bipartite?",
+      "choices": [
+        "$K_3$",
+        "$K_4$",
+        "$K_{2,3}$",
+        "$C_7$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$K_{2,3}$ is a complete bipartite graph. $K_3$ and $C_7$ are odd cycles, and $K_4$ contains triangles — an odd cycle makes 2-colouring impossible.",
+      "difficulty": "hard",
+      "variantOf": "bipartite-odd-cycle"
+    },
+    {
+      "id": "math-dp-graph-theory-q29",
+      "stem": "In the adjacency matrix of a simple undirected graph, the entry $A_{ij}$ equals 1. What does this tell you?",
+      "choices": [
+        "Vertex $i$ has degree $j$",
+        "The graph has $i + j$ edges",
+        "Vertex $j$ is isolated",
+        "There is an edge between vertices $i$ and $j$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$A_{ij}$ counts the number of edges from vertex $i$ to vertex $j$. For a simple graph this is 0 or 1, so $A_{ij} = 1$ means an edge joins vertices $i$ and $j$.",
+      "difficulty": "medium",
+      "variantOf": "adjacency-matrix"
     }
   ]
 }
