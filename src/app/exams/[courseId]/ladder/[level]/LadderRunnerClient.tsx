@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import { useProgress } from '@/context/ProgressContext';
 import { useEntitlements } from '@/context/EntitlementsContext';
 import QuizGame from '@/components/QuizGame';
@@ -50,10 +52,31 @@ export default function LadderRunnerClient({ courseId, level, questions }: Ladde
   }
 
   const content = !isLevelUnlocked(ladderProgress, courseId, level) ? (
-    <div className="max-w-lg mx-auto px-4 py-8 text-center">
-      <p className="text-gray-500 dark:text-gray-400">
-        This level is locked — score {Math.round(LADDER_UNLOCK_SCORE * 100)}% or more on Level {level - 1} to unlock it.
-      </p>
+    // The locked wall is a real destination (the overview links score-locked
+    // free levels so crawlers can reach /ladder/2) — same chrome as the
+    // premium branch below: Breadcrumbs + h1 + the way forward.
+    <div className="max-w-lg mx-auto px-4 py-6">
+      <Breadcrumbs
+        items={[
+          { href: '/', label: 'Home' },
+          { href: '/exams', label: 'Mock Exams' },
+          { href: `/exams/${courseId}/ladder`, label: `${course.title} Ladder` },
+          { label: `Level ${level}` },
+        ]}
+      />
+      <div className="mb-4">
+        <h1 className="text-xl font-bold text-gray-900 dark:text-gray-50">{course.title} · {levelDef.title}</h1>
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+          This level is locked — score {Math.round(LADDER_UNLOCK_SCORE * 100)}% or more on Level {level - 1} to unlock it.
+        </p>
+      </div>
+      <Link
+        href={level > 1 ? `/exams/${courseId}/ladder/${level - 1}` : `/exams/${courseId}/ladder`}
+        className="inline-flex items-center gap-1.5 py-3 text-sm font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200"
+      >
+        <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+        {level > 1 ? `Go to Level ${level - 1}` : 'Back to the ladder'}
+      </Link>
     </div>
   ) : (
     <QuizGame

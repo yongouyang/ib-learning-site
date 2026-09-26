@@ -4,7 +4,31 @@
 
 ---
 
-## 2026-09-26 (session 17) — develop promoted to main; support bot v1 landed (S1–S3 + S5 + S6)
+## 2026-09-26 (session 18) — §2.E ladder/2 orphans fixed; indexable orphans 16 → 1 (/pricing only)
+Git HEAD: `643ff37` (develop, tree dirty at time of writing — committed with this entry)
+Done: the 15 orphaned `/exams/<course>/ladder/2` pages (docs/content-backlog-review.md §2.E
+  item 2). Root cause: `LadderOverviewClient` rendered score-locked rows as `<div>`, so the
+  prerendered ladder-hub HTML carried no href to level 2. Fix: score-locked FREE levels now
+  render as `<Link>` (lock icon + hint + opacity-70 unchanged); the bare locked wall in
+  `LadderRunnerClient` gained the premium branch's chrome (Breadcrumbs + h1 + "Go to Level
+  N-1" link) — a P1 the standing UX-review pass caught (the linked row made the wall a
+  first-class destination). Guards: `tests/e2e/ladder.spec.ts` (level-2 link on fresh profile
+  + click-through to the wall) and `tests/e2e/seo.spec.ts` (the href asserted in the RAW
+  prerendered HTML — the crawler view — for math-y7/math-igcse/math-dp-ai). `/pricing` stays
+  the one remaining orphan BY DECISION: footer link timed with `BILLING_DISABLED_ENVS` removal.
+Verified: **1735/1735** unit, tsc clean, e2e ladder+seo 21/21 (Desktop Chrome, workers=1),
+  `build:static` green (verify:sitemaps + leak gate HARD), **`audit:links`: "indexable pages
+  no page links to (1) — /pricing"** (16 → 1). UX-review subagent pass: SHIP after the P1
+  wall fix; two P2s formally WAIVED (locked-row contrast ~2–3.7:1, shadow-only dark-mode
+  hover — both pre-existing corpus patterns, unchanged by this diff; screenshots in
+  ux-screenshots/ladder-links/).
+Next: legal chain → re-open prod billing (footer /pricing link rides with it); support-bot
+  v1.1 backlog. Newly observed, unqueued: mobile breadcrumb's middle crumb clips under the
+  fixed account/theme pill (site-wide, pre-existing — seen on locked-wall shots).
+Notes: level 2 stays indexable by design (`noindex` would contradict the free-tier contract);
+  premium levels 3–5 stay inert divs inside the LockedFeature tease (noindex — no orphan).
+
+---
 Git HEAD: `7d5bcd0` (develop, tree dirty at time of writing — this change set is committed with this entry)
 Done: **promoted develop → main** (ff `2c4e3d4..7d5bcd0`, pushed) after dev verified
   (`dev.octavlearning.com/version.json` = `7d5bcd0`) — sessions 15–16 content + math

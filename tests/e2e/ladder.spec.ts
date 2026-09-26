@@ -9,9 +9,11 @@ test.describe('Revision ladder', () => {
     await page.goto('/exams/math-y7/ladder');
     await expect(page.getByRole('heading', { name: /Revision Ladder — Math — Year 7/, level: 1 })).toBeVisible();
 
-    // Free tiers: level 1 is a link; level 2 is score-locked with its hint.
+    // Free tiers: levels 1 AND 2 are links — level 2 stays linked while
+    // score-locked so the static HTML carries the href (audit:links found all
+    // 15 ladder/2 pages orphaned: indexable but unreachable by a crawler).
     await expect(page.getByRole('link', { name: /Level 1 — Warm-up/ })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Level 2/ })).toHaveCount(0);
+    await expect(page.getByRole('link', { name: /Level 2/ })).toBeVisible();
     await expect(page.getByText(/Score ≥60% on Level 1 to unlock/)).toBeVisible();
 
     // Levels 3–5 sit behind one premium tease card with a pricing link, and
@@ -21,6 +23,13 @@ test.describe('Revision ladder', () => {
     await expect(page.getByText(/Premium · unlock with ≥60% on Level 2/)).toBeVisible();
     // The upper-level rows are an inert preview — not real links.
     await expect(page.getByRole('link', { name: /Level [3-5]/ })).toHaveCount(0);
+  });
+
+  test('a score-locked free level links through to its locked wall', async ({ page }) => {
+    await page.goto('/exams/math-y7/ladder');
+    await page.getByRole('link', { name: /Level 2 — Getting going/ }).click();
+    await page.waitForURL('**/exams/math-y7/ladder/2');
+    await expect(page.getByText(/This level is locked — score 60% or more on Level 1 to unlock it/)).toBeVisible();
   });
 
   test('completing level 1 records a best score', async ({ page }) => {

@@ -125,6 +125,19 @@ test.describe('SEO metadata wiring', () => {
     }
   });
 
+  test('the ladder hub links level 2 in the prerendered HTML (crawler view)', async ({ request }) => {
+    // All 15 `/exams/<course>/ladder/2` pages were orphaned until 2026-09-26:
+    // indexable (levels 1–2 are free) but unreachable — the locked row rendered
+    // as a <div>, so no HTML carried the href. Assert the raw response body,
+    // not the hydrated DOM: the crawler never runs the progress store.
+    for (const courseId of ['math-y7', 'math-igcse', 'math-dp-ai']) {
+      const res = await request.get(`/exams/${courseId}/ladder`);
+      expect(res.status()).toBe(200);
+      const html = await res.text();
+      expect(html, `${courseId} ladder hub must link level 2`).toContain(`href="/exams/${courseId}/ladder/2"`);
+    }
+  });
+
   test('app and internal surfaces are noindex, follow', async ({ page }) => {
     for (const path of ['/login', '/mixed-review', '/leaderboard', '/account', '/progress', '/offline']) {
       const h = await head(page, path);

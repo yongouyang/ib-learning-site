@@ -60,11 +60,17 @@ export default function LadderOverviewClient({ courseId }: LadderOverviewClientP
       </>
     );
 
-    return unlocked ? (
+    // Free levels (1–2) stay LINKED even while score-locked: the static HTML
+    // must carry the href or /ladder/2 is orphaned for crawlers (audit:links),
+    // and the destination page renders its own locked wall for a visitor who
+    // hasn't unlocked it. Premium levels 3–5 stay inert inside the tease.
+    const navigable = unlocked || isFreeLadderLevel(level.level);
+
+    return navigable ? (
       <Link
         key={level.level}
         href={`/exams/${courseId}/ladder/${level.level}`}
-        className="card p-3.5 flex items-center gap-3 hover:shadow-md transition-shadow active:scale-[0.99]"
+        className={`card p-3.5 flex items-center gap-3 hover:shadow-md transition-shadow active:scale-[0.99]${unlocked ? '' : ' opacity-70'}`}
       >
         {inner}
       </Link>

@@ -318,13 +318,17 @@ one actually needs:
    independent of client state — but time it with the re-open of PROD: today the page says
    "Premium is coming soon", so the crawler would index a page with nothing to act on. **Decide
    at `BILLING_DISABLED_ENVS` removal, not now.**
-2. **15 × `/exams/<course>/ladder/2`** — indexable by design (ladder levels 1–2 are free, 3–5
-   are premium and `noindex`), but level 2 is only reachable by *completing* level 1, which is
-   client state a crawler never has. The current state is the worst of both worlds: indexable,
-   unlinked, and inconsistent with the level-3+ rule. Recommendation: **link it from the ladder
-   hub as a visible locked/next-step row** (the same lock-row pattern the exam pages already
-   use), which keeps the free tier discoverable and makes the sequence crawlable. `noindex` on
-   level 2 would contradict the "first two levels free" contract.
+2. **15 × `/exams/<course>/ladder/2`** — **FIXED 2026-09-26.** Was: indexable by design
+   (ladder levels 1–2 are free, 3–5 are premium and `noindex`), but level 2 was only reachable
+   by *completing* level 1 — the locked overview row rendered as a `<div>`, so the static HTML
+   carried no href. Fix: the score-locked FREE rows now render as `<Link>` (lock icon + hint +
+   `opacity-70` unchanged; `LadderOverviewClient.tsx`), and the destination's bare locked wall
+   gained the premium branch's chrome (Breadcrumbs + h1 + a "Go to Level N-1" link —
+   `LadderRunnerClient.tsx`), a P1 the UX-review pass caught: the linked row made the wall a
+   first-class destination. Guards: `tests/e2e/ladder.spec.ts` asserts the level-2 link on a
+   fresh profile + click-through to the wall; `tests/e2e/seo.spec.ts` asserts the href in the
+   RAW prerendered HTML (the crawler view) for three courses. Re-measured on the 2026-09-26
+   `build:static`: **`audit:links` reports 1 orphan — `/pricing` only** (16 → 1).
 
 **Fixed this session (18 → 16):** `/igcse` and `/igcse/math` — 16 topics, live in PROD since
 2026-09-07, indexable, in the sitemap, and **linked from nothing**, because `Hero.tsx` rendered
