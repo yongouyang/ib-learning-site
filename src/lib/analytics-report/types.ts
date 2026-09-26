@@ -1,4 +1,5 @@
 import type { AnalyticsAggregateItem } from '../analytics/types';
+import { ALERT_SEVERITIES, type Alert, type AlertSeverity, type AlertStatus } from '../support-bot/types';
 
 // Feature 1 — Daily Analytics Report (docs/supportability-features-plan.md).
 // A scheduled (EventBridge) Lambda that emails the key analytics metrics once
@@ -28,6 +29,74 @@ export const ANALYTICS_REPORT_TOP_PAGES = 10;
 export const ANALYTICS_REPORT_TOP_REFERRERS = 5;
 /** Prod hostname whose share the report highlights (host aggregates only). */
 export const ANALYTICS_REPORT_DEFAULT_HOST = 'octavlearning.com';
+
+// --- S6: Open Alerts section (docs/support-bot-plan.md §9 Q9 — decided YES) ---
+// The daily email gains an "Open Alerts" section: count by severity + the top
+// N newest unresolved alerts. Read from octav-support-alerts via the optional
+// OpenAlertsReader seam — wired only when SUPPORT_ALERTS_TABLE is set, so the
+// feature is absent (not an error) in dev/dummy/e2e.
+
+/** "Unresolved" per the report: open + acknowledged (resolved/muted are closed). */
+export const UNRESOLVED_ALERT_STATUSES: readonly AlertStatus[] = ['open', 'acknowledged'];
+
+/** How many of the newest unresolved alerts the email lists (plan: top 3). */
+export const OPEN_ALERTS_TOP = 3;
+
+/** The folded Open Alerts section — every value in the section derives from this. */
+export interface OpenAlertsSummary {
+  /** Total unresolved alerts (open + acknowledged). */
+  total: number;
+  /** Per-severity unresolved counts (all four severities, 0-filled). */
+  bySeverity: Record<AlertSeverity, number>;
+  /** The newest OPEN_ALERTS_TOP unresolved alerts, newest first. */
+  top: Array<{ severity: AlertSeverity; title: string; age: string }>;
+}
+
+/**
+ * Read-only seam over octav-support-alerts (S6). Wired from SUPPORT_ALERTS_TABLE
+ * in deps.ts; when the env var is absent the section no-ops silently.
+ */
+export interface OpenAlertsReader {
+  /** All alerts with status "open" or "acknowledged" (GSI1, newest-first). */
+  listUnresolvedAlerts(): Promise<Array<Pick<Alert, 'severity' | 'title' | 'status' | 'createdAt'>>>;
+}
+
+/** Compact age label for the email: "5m" / "7h" / "3d" (never negative). */
+export function formatAlertAge(ageMs: number): string {
+  const mins = Math.max(0, Math.floor(ageMs / 60_000));
+  if (mins < 60) return `${mins}m`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 48) return `${hours}h`;
+  return `${Math.floor(hours / 24)}d`;
+}
+
+/**
+ * Fold alert rows into the Open Alerts section. PURE (the buildReport
+ * discipline): it filters to the unresolved statuses itself, so an adapter
+ * handing it extra rows and one pre-filtering by GSI can never diverge.
+ */
+export function buildOpenAlertsSummary(
+  alerts: Array<Pick<Alert, 'severity' | 'title' | 'status' | 'createdAt'>>,
+  opts: { nowMs: number; top?: number }
+): OpenAlertsSummary {
+  const top = opts.top ?? OPEN_ALERTS_TOP;
+  const unresolved = alerts
+    .filter((a) => UNRESOLVED_ALERT_STATUSES.includes(a.status))
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt) || a.title.localeCompare(b.title));
+
+  const bySeverity = Object.fromEntries(ALERT_SEVERITIES.map((s) => [s, 0])) as Record<AlertSeverity, number>;
+  for (const a of unresolved) bySeverity[a.severity] += 1;
+
+  return {
+    total: unresolved.length,
+    bySeverity,
+    top: unresolved.slice(0, top).map((a) => ({
+      severity: a.severity,
+      title: a.title,
+      age: formatAlertAge(opts.nowMs - Date.parse(a.createdAt)),
+    })),
+  };
+}
 
 /** Human-readable event labels for the email (mirrors the dashboard's map). */
 export const ANALYTICS_REPORT_EVENT_LABELS: Record<string, string> = {

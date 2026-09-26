@@ -13,9 +13,11 @@
 # address, ANALYTICS_REPORT_HOST highlights the prod hostname in the split.
 #
 # IAM is READ-ONLY on the events table (Query only — the report never writes)
-# plus CloudWatch Logs. The Resend API key lives in the EMAIL_PROVIDER env var
-# (repo convention) — NOT SSM: the draft plan's SSM mention is deferred to the
-# standing "keys → SSM Parameter Store" backlog item.
+# plus, since S6, READ-ONLY Query on octav-support-alerts (+ GSI1) for the
+# report's "Open Alerts" section. The Resend API key lives in the
+# EMAIL_PROVIDER env var (repo convention) — NOT SSM: the draft plan's SSM
+# mention is deferred to the standing "keys → SSM Parameter Store" backlog
+# item.
 
 variable "name_prefix" {
   type    = string
@@ -35,7 +37,17 @@ variable "environment" {
 }
 
 variable "analytics_events_table_arn" {
-  description = "DynamoDB ARN of the analytics events table (octav-analytics-events) — the report's ONLY data source (aggregate rows, read-only)."
+  description = "DynamoDB ARN of the analytics events table (octav-analytics-events) — the report's primary data source (aggregate rows, read-only)."
+  type        = string
+}
+
+# S6 (docs/support-bot-plan.md §9 Q9): the report's "Open Alerts" section reads
+# open support-bot alerts via a Query on the octav-support-alerts GSI1
+# (status → createdAt). The matching SUPPORT_ALERTS_TABLE env var is wired in
+# envs/prod; the report code treats its absence as "feature off" (no-op), so
+# this grant is inert until the S6 code ships.
+variable "support_alerts_table_arn" {
+  description = "DynamoDB ARN of the support alerts table (octav-support-alerts) — READ-ONLY Query (table + GSI1) for the report's open-alerts section."
   type        = string
 }
 
@@ -78,9 +90,10 @@ resource "aws_iam_role_policy_attachment" "report_basic" {
 }
 
 # Least-privilege data policy — READ-ONLY on the events table: the report only
-# issues the aggregate BETWEEN Query (src/lib/analytics-report/dynamodb-storage.ts).
-# No users/sessions (no session validation — the report has no request), no
-# rate-limits, no SES.
+# issues the aggregate BETWEEN Query (src/lib/analytics-report/dynamodb-storage.ts),
+# plus (S6) a READ-ONLY Query on the support-alerts table + its GSI1 for the
+# "Open Alerts" email section. No users/sessions (no session validation — the
+# report has no request), no rate-limits, no SES.
 data "aws_iam_policy_document" "report" {
   statement {
     actions = [
@@ -88,6 +101,16 @@ data "aws_iam_policy_document" "report" {
     ]
     resources = [
       var.analytics_events_table_arn,
+    ]
+  }
+
+  statement {
+    actions = [
+      "dynamodb:Query",
+    ]
+    resources = [
+      var.support_alerts_table_arn,
+      "${var.support_alerts_table_arn}/index/GSI1",
     ]
   }
 }

@@ -4,8 +4,44 @@
 
 ---
 
+## 2026-09-26 (session 17) — develop promoted to main; support bot v1 landed (S1–S3 + S5 + S6)
+Git HEAD: `7d5bcd0` (develop, tree dirty at time of writing — this change set is committed with this entry)
+Done: **promoted develop → main** (ff `2c4e3d4..7d5bcd0`, pushed) after dev verified
+  (`dev.octavlearning.com/version.json` = `7d5bcd0`) — sessions 15–16 content + math
+  scroll-shadow now deploy to PROD. **Support bot v1** (docs/support-bot-plan.md, decisions
+  locked §9): `src/lib/support-bot/` (types, rule-based triage for all 8 §3.1/§3.2 signals,
+  day-keyed anomaly detection, DynamoDB + dummy storage, deps seam, `pollAndAlert` handler,
+  Resend delivery + escaped HTML/text email) + `lambda/support-bot/` EventBridge adapter +
+  terraform (new `octav-support-alerts` table — PK alertId === dedup key, GSI1
+  status→createdAt, TTL 90d, deletion-protected, NO PITR by design; new `support_bot`
+  module: iblearn-support-bot, nodejs24.x/arm64/256MB/60s, `rate(5 minutes)`, IAM:
+  GetItem/PutItem/UpdateItem on alerts, **Scan** on octav-contact — no GSI there, Query on
+  analytics-events) + CI (build-lambdas 10→11, `TF_VAR_support_bot_env`, `aws lambda
+  get-function` smoke in both deploy jobs) + **S6**: daily report email "Open alerts"
+  section (open+acknowledged, counts by severity + top 3, wired iff `SUPPORT_ALERTS_TABLE`
+  set, best-effort — a failed read never fails the report). Design deviations from the plan
+  doc, all deliberate: alertId = dedupKey (plan's GetItem-dedup impossible as drawn);
+  anomaly dedup day-bucketed not hour-bucketed (aggregates are day-keyed); error_spike +
+  ai_quota_exhaustion detectors implemented but DORMANT (ingest taxonomy has no such events);
+  traffic_drop uses prod-host event volume not DAU (anonymous aggregates can't compute DAU).
+  AGENTS.md gained the support-bot bullet + stale counts fixed (eight→nine tables,
+  10→11 functions).
+Verified: **1735/1735** unit tests (+108: support-bot 89 + analytics-report 19), tsc clean,
+  eslint clean on touched paths, terraform fmt + `validate` clean (envs/prod,
+  `-backend=false`), `npm run build:lambda` builds all 11 zips.
+Next: watch the develop deploy — first real bot proof is the `[support-bot] run:` log line
+  in `/aws/lambda/iblearn-support-bot` within 5 min of apply, and tomorrow's daily report
+  should carry the "Open alerts" section. Then: legal chain → re-open prod billing
+  (`BILLING_DISABLED_ENVS`); §2.E remainder (ladder/2 orphans, footer /pricing); v1.1 bot
+  backlog (CloudWatch polling, DeepSeek triage, webhook).
+Notes: no new secrets needed (EMAIL_PROVIDER/ANALYTICS_ADMIN_EMAILS reused; SUPPORT_BOT_ENV
+  optional). First apply creates table + Lambda together — no ordering hazard. If
+  EMAIL_PROVIDER is unset the bot fails closed loudly in CloudWatch, not silently.
+
+---
+
 ## 2026-09-26 (session 16) — C CLOSED: authored variant groups for the last 26 topics; 245/245 surface fresh variants
-Git HEAD: `39ae47d` (develop, tree dirty — this change set is uncommitted)
+Git HEAD: `39ae47d` (develop, tree dirty at time of writing — committed as `fffd432` + `7d5bcd0`)
 Done: **the 26 non-parameterizable topics got authored variant groups** (five parallel
   clusters, ~340 new questions, ~12–15 groups / 26–30 questions per topic, the chem-bonding-1
   shape): math-yr7 ×6, math-yr8/yr9 ×3, chem ×4 + phys-energy-resources-1, DP AI ×6, DP

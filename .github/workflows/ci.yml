@@ -281,6 +281,11 @@ jobs:
       # wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from the
       # shared secret/variable above).
       TF_VAR_contact_env: ${{ secrets.CONTACT_ENV || '{}' }}
+      # Support-bot Lambda env overrides (docs/support-bot-plan.md §13);
+      # optional — unset = base wiring (SUPPORT_BOT_STORAGE=dynamodb + the
+      # table names + the shared EMAIL_PROVIDER / ANALYTICS_ADMIN_EMAILS /
+      # SES_FROM_ADDRESS above). No new secret is required for the default.
+      TF_VAR_support_bot_env: ${{ secrets.SUPPORT_BOT_ENV || '{}' }}
       # Subscriptions Lambda STRIPE_ENV (E4.2): ONE single-line JSON carrying
       # both key sets. Unset/empty → billing answers 503 and the
       # /api/subscriptions/_health smoke probe goes RED by design, so a missing
@@ -448,6 +453,12 @@ jobs:
               # probe (missing table / missing GetItem grant / EMAIL_PROVIDER not
               # resend → 500; Feature 3).
               curl -fsS "$SITE_URL/api/contact/_health" | grep -q '"ok":true'
+              # The support bot (docs/support-bot-plan.md §7) has NO HTTP
+              # endpoint — it is EventBridge-scheduled, like the analytics
+              # report — so the deploy check is the non-HTTP equivalent:
+              # the function must exist post-apply. (AWS creds from the
+              # configure-aws-credentials step are still in effect.)
+              aws lambda get-function --function-name iblearn-support-bot --query 'Configuration.FunctionName' --output text | grep -q '^iblearn-support-bot$'
               # /api/subscriptions/_health asserts the STRIPE_ENV key set for the
               # configured mode is COMPLETE and performs a fixed-key GetItem on
               # octav-users (missing table/grant or a wiped secret → 500; E4.2).
@@ -546,6 +557,11 @@ jobs:
       # wiring (EMAIL_PROVIDER + ANALYTICS_ADMIN_EMAILS already come from the
       # shared secret/variable above).
       TF_VAR_contact_env: ${{ secrets.CONTACT_ENV || '{}' }}
+      # Support-bot Lambda env overrides (docs/support-bot-plan.md §13);
+      # optional — unset = base wiring (SUPPORT_BOT_STORAGE=dynamodb + the
+      # table names + the shared EMAIL_PROVIDER / ANALYTICS_ADMIN_EMAILS /
+      # SES_FROM_ADDRESS above). No new secret is required for the default.
+      TF_VAR_support_bot_env: ${{ secrets.SUPPORT_BOT_ENV || '{}' }}
       # Subscriptions Lambda STRIPE_ENV (E4.2): ONE single-line JSON carrying
       # both key sets. Unset/empty → billing answers 503 and the
       # /api/subscriptions/_health smoke probe goes RED by design, so a missing
@@ -715,6 +731,12 @@ jobs:
               # probe (missing table / missing GetItem grant / EMAIL_PROVIDER not
               # resend → 500; Feature 3).
               curl -fsS "$SITE_URL/api/contact/_health" | grep -q '"ok":true'
+              # The support bot (docs/support-bot-plan.md §7) has NO HTTP
+              # endpoint — it is EventBridge-scheduled, like the analytics
+              # report — so the deploy check is the non-HTTP equivalent:
+              # the function must exist post-apply. (AWS creds from the
+              # configure-aws-credentials step are still in effect.)
+              aws lambda get-function --function-name iblearn-support-bot --query 'Configuration.FunctionName' --output text | grep -q '^iblearn-support-bot$'
               # /api/subscriptions/_health proves the STRIPE_ENV key set and
               # performs a fixed-key GetItem on octav-users (missing table/grant or
               # a wiped secret → 500; E4.2). On PROD the requirement is the LIVE

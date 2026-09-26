@@ -1,4 +1,5 @@
-import { ANALYTICS_REPORT_EVENT_LABELS, type AnalyticsReportData } from './types';
+import { ALERT_SEVERITIES, type AlertSeverity } from '../support-bot/types';
+import { ANALYTICS_REPORT_EVENT_LABELS, type AnalyticsReportData, type OpenAlertsSummary } from './types';
 
 // HTML + plain-text rendering for the daily analytics email. Inline-styled
 // light theme (email clients strip <style> blocks), no external assets.
@@ -60,9 +61,40 @@ function trafficSplit(data: AnalyticsReportData, host: string): string {
   return `${headline}<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">${body}</table>`;
 }
 
+// S6: Open Alerts section (docs/support-bot-plan.md §9 Q9). Severity colours
+// follow email-ops convention; every alert title is escaped (bot-authored,
+// but the title embeds user-controlled contact-message text).
+const SEVERITY_COLORS: Record<AlertSeverity, string> = {
+  critical: '#dc2626',
+  high: '#d97706',
+  medium: '#2563eb',
+  low: '#6b7280',
+};
+
+function severityCounts(alerts: OpenAlertsSummary): string {
+  return ALERT_SEVERITIES.filter((s) => alerts.bySeverity[s] > 0)
+    .map((s) => `<strong style="color:${SEVERITY_COLORS[s]};">${alerts.bySeverity[s]} ${s}</strong>`)
+    .join(' · ');
+}
+
+function openAlertsSection(alerts: OpenAlertsSummary): string {
+  if (alerts.total === 0) {
+    return '<p style="margin:0;font-size:13px;color:#6b7280;">No unresolved alerts.</p>';
+  }
+  const headline = `<p style="margin:0 0 12px;font-size:13px;color:#374151;">${alerts.total} unresolved · ${severityCounts(alerts)}</p>`;
+  const rows = alerts.top
+    .map(
+      (a) =>
+        `<tr><td style="padding:8px 0;font-size:14px;color:#6b7280;border-bottom:1px solid #f3f4f6;">${esc(a.title)}</td><td style="padding:8px 0;text-align:right;font-size:13px;color:#374151;border-bottom:1px solid #f3f4f6;white-space:nowrap;"><strong style="color:${SEVERITY_COLORS[a.severity]};">${esc(a.severity.toUpperCase())}</strong> · ${esc(a.age)} old</td></tr>`
+    )
+    .join('');
+  return `${headline}<table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">${rows}</table>`;
+}
+
 /** Full HTML document for the email (inline styles only). `host` is the
- * prod hostname highlighted in the traffic split (deps.host). */
-export function renderReportHtml(data: AnalyticsReportData, host: string): string {
+ * prod hostname highlighted in the traffic split (deps.host). `alerts` is the
+ * S6 Open Alerts section — OMITTED ENTIRELY when undefined (feature off). */
+export function renderReportHtml(data: AnalyticsReportData, host: string, alerts?: OpenAlertsSummary): string {
   return `<!doctype html>
 <html lang="en">
 <body style="margin:0;padding:0;background:#f3f4f6;font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
@@ -74,6 +106,7 @@ export function renderReportHtml(data: AnalyticsReportData, host: string): strin
       </div>
       <div style="padding:24px;">
         ${headlineCards(data)}
+        ${alerts ? `<div style="margin-bottom:24px;">${cardTitle('Open alerts')}${openAlertsSection(alerts)}</div>` : ''}
         <div style="margin-bottom:24px;">${cardTitle('Events')}${eventsTable(data)}</div>
         <div style="margin-bottom:24px;">${cardTitle('Top pages')}${listRows(data.topPages.map((p) => ({ key: p.path, count: p.count })))}</div>
         <div style="margin-bottom:24px;">${cardTitle('Top referrers')}${listRows(data.topReferrers.map((r) => ({ key: r.referrer, count: r.count })))}</div>
@@ -89,8 +122,9 @@ export function renderReportHtml(data: AnalyticsReportData, host: string): strin
 }
 
 /** Plain-text fallback for clients that refuse HTML. `host` is the prod
- * hostname highlighted in the traffic split (deps.host). */
-export function renderReportText(data: AnalyticsReportData, host: string): string {
+ * hostname highlighted in the traffic split (deps.host). `alerts` is the S6
+ * Open Alerts section — omitted entirely when undefined. */
+export function renderReportText(data: AnalyticsReportData, host: string, alerts?: OpenAlertsSummary): string {
   const lines: string[] = [
     `Octav Analytics — ${data.toDate} (last 24h, daily aggregates)`,
     '',
@@ -99,6 +133,20 @@ export function renderReportText(data: AnalyticsReportData, host: string): strin
     `Papers marked with AI: ${data.totals.paper_marked_with_ai ?? 0}`,
     `Events (all types): ${Object.values(data.totals).reduce((a, b) => a + b, 0)}`,
     `Prod events (${host}, ${data.totalEvents > 0 ? Math.round((data.prodEvents / data.totalEvents) * 100) : 0}% of traffic): ${data.prodEvents}`,
+  ];
+  if (alerts) {
+    lines.push('', 'Open alerts:');
+    if (alerts.total === 0) {
+      lines.push('  No unresolved alerts.');
+    } else {
+      const counts = ALERT_SEVERITIES.filter((s) => alerts.bySeverity[s] > 0)
+        .map((s) => `${alerts.bySeverity[s]} ${s}`)
+        .join(' · ');
+      lines.push(`  ${alerts.total} unresolved · ${counts}`);
+      for (const a of alerts.top) lines.push(`  - [${a.severity.toUpperCase()}] ${a.title} (${a.age} old)`);
+    }
+  }
+  lines.push(
     '',
     'Events:',
     ...Object.entries(data.totals)
@@ -117,6 +165,6 @@ export function renderReportText(data: AnalyticsReportData, host: string): strin
       .map(([host, count]) => `  ${host || '(unknown)'}: ${count}`),
     '',
     'Sent automatically by Octav Learning · octavlearning.com · daily at 7pm HKT',
-  ];
+  );
   return lines.join('\n');
 }

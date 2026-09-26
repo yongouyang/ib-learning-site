@@ -79,11 +79,13 @@ export class InMemoryAnalyticsStorage extends InMemoryProgressStorage implements
 
   /**
    * Raw aggregate rows whose sort-key date is within [fromDate, toDate]
-   * (inclusive, UTC "YYYY-MM-DD") — the Feature 1 analytics-report read. The
-   * DynamoDB adapter pre-filters with BETWEEN; the dummy returns everything
-   * and the PURE buildReport filters — idempotent either way (parity).
+   * (inclusive, UTC "YYYY-MM-DD") — the Feature 1 analytics-report read (and
+   * the support bot's anomaly poll). The DynamoDB adapter pre-filters with
+   * BETWEEN; the dummy returns everything in the window — idempotent either
+   * way (parity). Async so subclasses can implement the Promise-returning
+   * storage contracts over it (the support-bot dummy's override).
    */
-  getAggregatesBetween(fromDate: string, toDate: string): Array<{ s: string; count: number }> {
+  async getAggregatesBetween(fromDate: string, toDate: string): Promise<Array<{ s: string; count: number }>> {
     return [...this.aggregates.entries()]
       .map(([s, count]) => ({ s, count }))
       .filter(({ s }) => {

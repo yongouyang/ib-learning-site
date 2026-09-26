@@ -191,6 +191,13 @@ variable "contact_env" {
   sensitive   = true
 }
 
+variable "support_bot_env" {
+  description = "Support-bot Lambda env overrides via CI TF_VAR_support_bot_env (SUPPORT_BOT_ENV secret — plan §13); empty = base wiring below (SUPPORT_BOT_STORAGE=dynamodb + the three table names + EMAIL_PROVIDER/ANALYTICS_ADMIN_EMAILS/SES_FROM_ADDRESS from the shared repo secret/variables). No new secret is required for the default wiring."
+  type        = map(string)
+  default     = {}
+  sensitive   = true
+}
+
 variable "stripe_env" {
   description = "The subscriptions Lambda's STRIPE_ENV value, via CI TF_VAR_stripe_env (STRIPE_ENV secret): ONE single-line JSON carrying BOTH key sets (SECRET_KEY_TEST / WEBHOOK_SECRET_TEST / PRICE_MONTHLY_TEST / PRICE_ANNUAL_TEST and the _LIVE equivalents). A JSON STRING, not an env-override map like contact_env — the secret's value IS the variable's value. Empty = billing answers 503 and _health returns 500, i.e. a missing/partial secret goes RED at deploy time rather than at the first real checkout (the FEEDBACK_ENV incident class). MUST be single-line with straight quotes: terraform parses it as HCL and rejects multi-line/curly quotes."
   type        = string
@@ -469,6 +476,10 @@ module "analytics_report" {
   zip_path = "${path.module}/../../../lambda/analytics-report/dist/analytics-report-lambda.zip"
 
   analytics_events_table_arn = module.dynamodb.analytics_events_table_arn
+  # S6 (docs/support-bot-plan.md §9 Q9): the daily report's "Open Alerts"
+  # section Query-reads octav-support-alerts (+ GSI1). The SUPPORT_ALERTS_TABLE
+  # env var below is the feature switch — absent, the section no-ops.
+  support_alerts_table_arn = module.dynamodb.support_alerts_table_arn
 
   environment = merge(
     {
@@ -476,6 +487,7 @@ module "analytics_report" {
       ANALYTICS_TABLE          = module.dynamodb.analytics_events_table_name
       EMAIL_PROVIDER           = var.email_provider
       ANALYTICS_ADMIN_EMAILS   = var.analytics_admin_emails
+      SUPPORT_ALERTS_TABLE     = module.dynamodb.support_alerts_table_name
     },
     var.analytics_report_env,
   )
@@ -515,6 +527,41 @@ module "contact_api" {
       SES_FROM_ADDRESS       = var.ses_from_address
     },
     var.contact_env,
+  )
+}
+
+# Support bot (docs/support-bot-plan.md §7/§13, phase S5): an EventBridge-
+# SCHEDULED Lambda (rate(5 minutes)), NOT an HTTP API — no Function URL, no
+# CloudFront behavior. It polls octav-contact (new messages, filtered Scan —
+# the table has no GSI) and octav-analytics-events (aggregate anomalies,
+# Query), dedups + persists alerts to octav-support-alerts and emails them via
+# Resend to every ANALYTICS_ADMIN_EMAILS recipient. EMAIL_PROVIDER (NAME must
+# be "resend" — the deps fail closed otherwise) + ANALYTICS_ADMIN_EMAILS come
+# from the SAME repo secret/variable the auth/contact/analytics-report Lambdas
+# use — no new secret. Base wiring below always selects the real dynamodb
+# implementation; var.support_bot_env (CI SUPPORT_BOT_ENV secret) can
+# override/add — leave it empty to use these defaults.
+module "support_bot" {
+  source = "../../modules/support_bot"
+
+  zip_path = "${path.module}/../../../lambda/support-bot/dist/support-bot-lambda.zip"
+
+  support_alerts_table_arn   = module.dynamodb.support_alerts_table_arn
+  contact_table_arn          = module.dynamodb.contact_table_arn
+  analytics_events_table_arn = module.dynamodb.analytics_events_table_arn
+
+  environment = merge(
+    {
+      SUPPORT_BOT_STORAGE    = "dynamodb"
+      SUPPORT_ALERTS_TABLE   = module.dynamodb.support_alerts_table_name
+      CONTACT_TABLE          = module.dynamodb.contact_table_name
+      ANALYTICS_TABLE        = module.dynamodb.analytics_events_table_name
+      SUPPORT_BOT_PROD_HOST  = "octavlearning.com"
+      EMAIL_PROVIDER         = var.email_provider
+      ANALYTICS_ADMIN_EMAILS = var.analytics_admin_emails
+      SES_FROM_ADDRESS       = var.ses_from_address
+    },
+    var.support_bot_env,
   )
 }
 
@@ -738,12 +785,13 @@ output "acm_dev_validation_records" {
 output "dynamodb_tables" {
   description = "Accounts-feature DynamoDB table names → ARNs."
   value = {
-    users       = { name = module.dynamodb.users_table_name, arn = module.dynamodb.users_table_arn }
-    sessions    = { name = module.dynamodb.sessions_table_name, arn = module.dynamodb.sessions_table_arn }
-    otp_codes   = { name = module.dynamodb.otp_codes_table_name, arn = module.dynamodb.otp_codes_table_arn }
-    progress    = { name = module.dynamodb.progress_table_name, arn = module.dynamodb.progress_table_arn }
-    leaderboard = { name = module.dynamodb.leaderboard_table_name, arn = module.dynamodb.leaderboard_table_arn }
-    contact     = { name = module.dynamodb.contact_table_name, arn = module.dynamodb.contact_table_arn }
+    users          = { name = module.dynamodb.users_table_name, arn = module.dynamodb.users_table_arn }
+    sessions       = { name = module.dynamodb.sessions_table_name, arn = module.dynamodb.sessions_table_arn }
+    otp_codes      = { name = module.dynamodb.otp_codes_table_name, arn = module.dynamodb.otp_codes_table_arn }
+    progress       = { name = module.dynamodb.progress_table_name, arn = module.dynamodb.progress_table_arn }
+    leaderboard    = { name = module.dynamodb.leaderboard_table_name, arn = module.dynamodb.leaderboard_table_arn }
+    contact        = { name = module.dynamodb.contact_table_name, arn = module.dynamodb.contact_table_arn }
+    support_alerts = { name = module.dynamodb.support_alerts_table_name, arn = module.dynamodb.support_alerts_table_arn }
   }
 }
 

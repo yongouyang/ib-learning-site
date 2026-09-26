@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { getAnalyticsReportDeps, parseRecipients } from '@/lib/analytics-report/deps';
 import { InMemoryAnalyticsReportStorage } from '@/lib/analytics-report/dummy';
 import { DummyReportSender } from '@/lib/analytics-report/dummy-sender';
+import { DynamoOpenAlertsReader } from '@/lib/analytics-report/dynamodb-alerts-reader';
 import { DynamoAnalyticsReportStorage } from '@/lib/analytics-report/dynamodb-storage';
 import { ResendReportSender } from '@/lib/analytics-report/resend-sender';
 import { getSharedDummyUniverse } from '@/lib/progress/deps';
@@ -74,6 +75,33 @@ describe('getAnalyticsReportDeps', () => {
 
   it('throws on an unknown storage kind', () => {
     expect(() => getAnalyticsReportDeps({ ANALYTICS_REPORT_STORAGE: 'postgres' })).toThrow(/ANALYTICS_REPORT_STORAGE/);
+  });
+
+  // --- S6: SUPPORT_ALERTS_TABLE gates the Open Alerts section ---------------
+
+  it('leaves alertsReader undefined when SUPPORT_ALERTS_TABLE is absent (section no-ops silently)', () => {
+    expect(getAnalyticsReportDeps({}).alertsReader).toBeUndefined();
+    // …in dynamodb mode too: the env var alone gates the feature.
+    expect(
+      getAnalyticsReportDeps({
+        ANALYTICS_REPORT_STORAGE: 'dynamodb',
+        ANALYTICS_TABLE: 'octav-analytics-events',
+        EMAIL_PROVIDER: '{"NAME":"resend","API_KEY":"re_123"}',
+      }).alertsReader
+    ).toBeUndefined();
+  });
+
+  it('wires a DynamoOpenAlertsReader when SUPPORT_ALERTS_TABLE is set, in either storage mode', () => {
+    const dummyMode = getAnalyticsReportDeps({ SUPPORT_ALERTS_TABLE: 'octav-support-alerts' });
+    expect(dummyMode.alertsReader).toBeInstanceOf(DynamoOpenAlertsReader);
+
+    const dynamoMode = getAnalyticsReportDeps({
+      ANALYTICS_REPORT_STORAGE: 'dynamodb',
+      ANALYTICS_TABLE: 'octav-analytics-events',
+      SUPPORT_ALERTS_TABLE: 'octav-support-alerts',
+      EMAIL_PROVIDER: '{"NAME":"resend","API_KEY":"re_123"}',
+    });
+    expect(dynamoMode.alertsReader).toBeInstanceOf(DynamoOpenAlertsReader);
   });
 
   describe('fail-closed guards in AWS Lambda', () => {

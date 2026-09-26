@@ -3,10 +3,11 @@ import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { getSharedDummyUniverse } from '../progress/deps';
 import { InMemoryAnalyticsReportStorage } from './dummy';
 import { DummyReportSender } from './dummy-sender';
+import { DynamoOpenAlertsReader } from './dynamodb-alerts-reader';
 import { DynamoAnalyticsReportStorage } from './dynamodb-storage';
 import { ResendReportSender } from './resend-sender';
 import { ANALYTICS_REPORT_DEFAULT_HOST } from './types';
-import type { AnalyticsReportStorage, ReportEmailSender } from './types';
+import type { AnalyticsReportStorage, OpenAlertsReader, ReportEmailSender } from './types';
 
 // Dependency wiring for the daily analytics report (mirrors the other feature
 // deps seams):
@@ -25,6 +26,16 @@ import type { AnalyticsReportStorage, ReportEmailSender } from './types';
 //                               split (default octavlearning.com).
 //   SES_FROM_ADDRESS          = from-address (default noreply@octavlearning.com
 //                               — the verified Resend domain).
+//   SUPPORT_ALERTS_TABLE      = octav-support-alerts (S6, docs/support-bot-plan
+//                               §9 Q9): when SET, the report gains an "Open
+//                               Alerts" section read through the GSI1 reader.
+//                               ABSENT = the section no-ops silently (feature
+//                               absent, not an error) — dev/dummy/e2e carry no
+//                               such env var and are unaffected. The reader is
+//                               a DynamoDB reader in EVERY storage mode: dummy
+//                               mode has no alerts universe, and setting the
+//                               table name is an explicit opt-in to the real
+//                               read.
 // Defaults are the dummies: local dev and tests run with zero AWS resources
 // and zero emails. The same fail-closed guards as every other deps seam apply:
 // dummy wiring and NODE_ENV=test are refused inside AWS Lambda unless
@@ -37,6 +48,12 @@ export interface AnalyticsReportDeps {
   recipients: string[];
   /** Prod hostname whose share the report highlights. */
   host: string;
+  /**
+   * S6: the open-alerts reader, present ONLY when SUPPORT_ALERTS_TABLE is set
+   * (absent = the "Open Alerts" section no-ops silently). Optional — unit
+   * tests pass a fake reader or omit it.
+   */
+  alertsReader?: OpenAlertsReader;
 }
 
 function requiredEnv(env: Record<string, string | undefined>, name: string): string {
@@ -105,18 +122,32 @@ export function getAnalyticsReportDeps(env: Record<string, string | undefined> =
     }
   }
 
+  // One lazily-built document client shared by the report storage and the S6
+  // alerts reader (created only when a DynamoDB-backed piece is wired).
+  let documentClient: DynamoDBDocumentClient | undefined;
+  const getDocumentClient = (): DynamoDBDocumentClient => {
+    documentClient ??= DynamoDBDocumentClient.from(
+      new DynamoDBClient({ region: env.AUTH_DYNAMODB_REGION ?? env.AWS_REGION ?? 'ap-east-1' }),
+      { marshallOptions: { removeUndefinedValues: true } }
+    );
+    return documentClient;
+  };
+
   let storage: AnalyticsReportStorage;
   if (kind === 'dummy') {
     storage = new InMemoryAnalyticsReportStorage(getSharedDummyUniverse());
   } else if (kind === 'dynamodb') {
-    const documentClient = DynamoDBDocumentClient.from(
-      new DynamoDBClient({ region: env.AUTH_DYNAMODB_REGION ?? env.AWS_REGION ?? 'ap-east-1' }),
-      { marshallOptions: { removeUndefinedValues: true } }
-    );
-    storage = new DynamoAnalyticsReportStorage(documentClient, requiredEnv(env, 'ANALYTICS_TABLE'));
+    storage = new DynamoAnalyticsReportStorage(getDocumentClient(), requiredEnv(env, 'ANALYTICS_TABLE'));
   } else {
     throw new Error(`[analytics-report] ANALYTICS_REPORT_STORAGE must be "dummy" or "dynamodb" (got "${kind}")`);
   }
+
+  // S6: the alerts reader is wired by the table env var ALONE (independent of
+  // the storage mode) — absent means the section no-ops silently, which keeps
+  // dev/dummy/e2e unaffected while prod terraform only has to add one env var.
+  const alertsReader: OpenAlertsReader | undefined = env.SUPPORT_ALERTS_TABLE
+    ? new DynamoOpenAlertsReader(getDocumentClient(), env.SUPPORT_ALERTS_TABLE)
+    : undefined;
 
   const provider = parseEmailProvider(env);
   let sender: ReportEmailSender;
@@ -144,5 +175,6 @@ export function getAnalyticsReportDeps(env: Record<string, string | undefined> =
     sender,
     recipients: parseRecipients(env.ANALYTICS_ADMIN_EMAILS),
     host: env.ANALYTICS_REPORT_HOST ?? ANALYTICS_REPORT_DEFAULT_HOST,
+    alertsReader,
   };
 }

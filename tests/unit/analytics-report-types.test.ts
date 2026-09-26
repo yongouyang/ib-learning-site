@@ -1,6 +1,15 @@
 import { describe, it, expect } from 'vitest';
-import { buildReport, ANALYTICS_REPORT_EVENT_LABELS, ANALYTICS_REPORT_TOP_PAGES } from '@/lib/analytics-report/types';
+import {
+  buildOpenAlertsSummary,
+  buildReport,
+  formatAlertAge,
+  ANALYTICS_REPORT_EVENT_LABELS,
+  ANALYTICS_REPORT_TOP_PAGES,
+  OPEN_ALERTS_TOP,
+  UNRESOLVED_ALERT_STATUSES,
+} from '@/lib/analytics-report/types';
 import type { AnalyticsAggregateItem } from '@/lib/analytics/types';
+import type { Alert } from '@/lib/support-bot/types';
 
 // PURE buildReport math — the parity anchor for the report (same discipline as
 // buildSummary in analytics-types.test.ts): deterministic folding, window
@@ -87,5 +96,70 @@ describe('ANALYTICS_REPORT_EVENT_LABELS', () => {
   it('mirrors the dashboard labels incl. the Phase D8 leaderboard events', () => {
     expect(ANALYTICS_REPORT_EVENT_LABELS.leaderboard_viewed).toBe('Leaderboard views');
     expect(ANALYTICS_REPORT_EVENT_LABELS.leaderboard_membership_changed).toBe('Leaderboard joins/leaves');
+  });
+});
+
+// --- S6: Open Alerts section (docs/support-bot-plan.md §9 Q9) ---------------
+
+function alertRow(
+  overrides: Partial<Pick<Alert, 'severity' | 'title' | 'status' | 'createdAt'>> = {}
+): Pick<Alert, 'severity' | 'title' | 'status' | 'createdAt'> {
+  return {
+    severity: 'low',
+    title: 'Something happened',
+    status: 'open',
+    createdAt: '2026-08-16T11:00:00.000Z',
+    ...overrides,
+  };
+}
+
+describe('buildOpenAlertsSummary', () => {
+  it('counts unresolved alerts by severity, treating open AND acknowledged as unresolved', () => {
+    const summary = buildOpenAlertsSummary(
+      [
+        alertRow({ severity: 'critical', status: 'open' }),
+        alertRow({ severity: 'high', status: 'acknowledged' }),
+        alertRow({ severity: 'high', status: 'open' }),
+        alertRow({ severity: 'low', status: 'resolved' }), // closed — excluded
+        alertRow({ severity: 'medium', status: 'muted' }), // closed — excluded
+      ],
+      { nowMs: NOW_MS }
+    );
+    expect(summary.total).toBe(3);
+    expect(summary.bySeverity).toEqual({ critical: 1, high: 2, medium: 0, low: 0 });
+    expect(UNRESOLVED_ALERT_STATUSES).toEqual(['open', 'acknowledged']);
+  });
+
+  it('lists the newest OPEN_ALERTS_TOP (3) unresolved alerts, newest first', () => {
+    const alerts = [4, 3, 2, 1, 0].map((hoursAgo) =>
+      alertRow({
+        title: `alert ${hoursAgo}h old`,
+        createdAt: new Date(NOW_MS - hoursAgo * 3_600_000).toISOString(),
+      })
+    );
+    const summary = buildOpenAlertsSummary(alerts, { nowMs: NOW_MS });
+    expect(OPEN_ALERTS_TOP).toBe(3);
+    expect(summary.total).toBe(5);
+    expect(summary.top.map((a) => a.title)).toEqual(['alert 0h old', 'alert 1h old', 'alert 2h old']);
+    expect(summary.top.map((a) => a.age)).toEqual(['0m', '1h', '2h']);
+  });
+
+  it('renders an empty summary for no alerts', () => {
+    const summary = buildOpenAlertsSummary([], { nowMs: NOW_MS });
+    expect(summary.total).toBe(0);
+    expect(summary.bySeverity).toEqual({ critical: 0, high: 0, medium: 0, low: 0 });
+    expect(summary.top).toEqual([]);
+  });
+});
+
+describe('formatAlertAge', () => {
+  it('labels minutes below 1h, hours below 48h, days beyond, and clamps negative ages', () => {
+    expect(formatAlertAge(0)).toBe('0m');
+    expect(formatAlertAge(59 * 60_000)).toBe('59m');
+    expect(formatAlertAge(60 * 60_000)).toBe('1h');
+    expect(formatAlertAge(47 * 3_600_000)).toBe('47h');
+    expect(formatAlertAge(48 * 3_600_000)).toBe('2d');
+    expect(formatAlertAge(9 * 86_400_000)).toBe('9d');
+    expect(formatAlertAge(-1)).toBe('0m'); // clock skew — never negative
   });
 });

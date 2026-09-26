@@ -1,5 +1,6 @@
 import { renderReportHtml, renderReportText } from './html';
-import { ANALYTICS_REPORT_WINDOW_MS, buildReport, utcDate } from './types';
+import { ANALYTICS_REPORT_WINDOW_MS, buildOpenAlertsSummary, buildReport, utcDate } from './types';
+import type { OpenAlertsSummary } from './types';
 import type { AnalyticsReportDeps } from './deps';
 
 // Feature 1 — daily analytics report handler (docs/supportability-features-plan.md
@@ -9,6 +10,10 @@ import type { AnalyticsReportDeps } from './deps';
 //   - computes the 24h aggregate window on the SERVER clock (never client
 //     input — there is none),
 //   - folds the aggregate rows with the PURE buildReport,
+//   - S6 (docs/support-bot-plan.md §9 Q9): when deps.alertsReader is wired
+//     (SUPPORT_ALERTS_TABLE set), folds unresolved octav-support-alerts rows
+//     with the PURE buildOpenAlertsSummary into an "Open Alerts" section —
+//     best-effort: a read failure omits the section, it never fails the send,
 //   - renders the HTML/text email,
 //   - sends it to every ANALYTICS_ADMIN_EMAILS recipient via the deps sender.
 // Error semantics for the EventBridge retry policy: hard config problems
@@ -58,12 +63,30 @@ export async function generateDailyReport(
     return { ...base, ok: false, error: 'no recipients configured (ANALYTICS_ADMIN_EMAILS)' };
   }
 
+  // S6: the "Open Alerts" section is best-effort ENRICHMENT — a broken alerts
+  // read must not suppress the daily analytics email (alerts still arrive via
+  // the support bot's own delivery path), so a failure logs and omits the
+  // section rather than throwing into an EventBridge retry. Read AFTER the
+  // recipients check: a report that will not be sent does not pay for the GSI
+  // read.
+  let openAlerts: OpenAlertsSummary | undefined;
+  if (deps.alertsReader) {
+    try {
+      openAlerts = buildOpenAlertsSummary(await deps.alertsReader.listUnresolvedAlerts(), { nowMs });
+    } catch (err) {
+      console.warn(
+        '[analytics-report] open-alerts read failed — section omitted:',
+        err instanceof Error ? err.message : err
+      );
+    }
+  }
+
   const subject = `Octav Analytics — ${data.toDate} (last 24h)`;
   await deps.sender.send({
     to: deps.recipients,
     subject,
-    html: renderReportHtml(data, deps.host),
-    text: renderReportText(data, deps.host),
+    html: renderReportHtml(data, deps.host, openAlerts),
+    text: renderReportText(data, deps.host, openAlerts),
   });
 
   return { ...base, ok: true };

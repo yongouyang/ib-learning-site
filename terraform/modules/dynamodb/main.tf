@@ -7,15 +7,17 @@
 # Data protection (2026-09-17). Two independent controls, two different
 # failure modes — deletion protection stops the TABLE being dropped,
 # point-in-time recovery (PITR) undoes bad writes and rogue deletes inside it:
-#   * `deletion_protection_enabled = true` on all EIGHT application tables, so
+#   * `deletion_protection_enabled = true` on all NINE application tables, so
 #     an accidental apply, a console slip or a `terraform destroy` cannot
 #     remove production data. Deliberately NOT set on the bootstrap
 #     state-lock table (iblearn-tfstate-lock) — protecting a lock table can
 #     obstruct bootstrap re-creation, and losing a lock is not a data loss.
 #   * PITR is on only where the contents are not regenerable: users,
-#     progress, analytics-events, leaderboard, contact. Sessions, OTP codes
-#     and rate-limit counters are TTL'd and recreate themselves, so paying to
-#     restore them would be paying to recover counters nobody wants back.
+#     progress, analytics-events, leaderboard, contact. Sessions, OTP codes,
+#     rate-limit counters and support alerts are TTL'd and recreate
+#     themselves (alerts re-derive from a bot re-run over the contact +
+#     analytics-events sources, which DO have PITR), so paying to restore
+#     them would be paying to recover rows nobody wants back.
 # Cost of the PITR five is ~$0.25/GB-month (ap-east-1) on ~227 KB of data —
 # effectively zero today.
 #
@@ -291,6 +293,58 @@ resource "aws_dynamodb_table" "contact" {
   }
 }
 
+# --- octav-support-alerts ------------------------------------------------------
+# Support bot (docs/support-bot-plan.md §4): one item per alert — PK alertId
+# (which IS the dedup key, so a conditional PutItem makes concurrent runs
+# idempotent), GSI1 status → createdAt lists alerts by status newest-first
+# (the dashboard + the daily report's open-alerts section), expiresAt TTLs
+# alerts at createdAt + 90 days. Deletion protection ON like every application
+# table; PITR deliberately OFF (the rate-limits class, not the contact class):
+# the rows are TTL'd operational data re-derivable by re-running the bot over
+# octav-contact + octav-analytics-events, which both have PITR.
+resource "aws_dynamodb_table" "support_alerts" {
+  name         = "${var.name_prefix}-support-alerts"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "alertId"
+
+  deletion_protection_enabled = true
+
+  attribute {
+    name = "alertId"
+    type = "S"
+  }
+
+  attribute {
+    name = "status"
+    type = "S"
+  }
+
+  attribute {
+    name = "createdAt"
+    type = "S"
+  }
+
+  global_secondary_index {
+    name            = "GSI1"
+    projection_type = "ALL"
+
+    key_schema {
+      attribute_name = "status"
+      key_type       = "HASH"
+    }
+
+    key_schema {
+      attribute_name = "createdAt"
+      key_type       = "RANGE"
+    }
+  }
+
+  ttl {
+    attribute_name = "expiresAt"
+    enabled        = true
+  }
+}
+
 # --- Outputs (table names + ARNs for the phase Lambdas' env vars) ---------------
 
 output "users_table_name" {
@@ -376,4 +430,14 @@ output "contact_table_name" {
 output "contact_table_arn" {
   description = "octav-contact table ARN."
   value       = aws_dynamodb_table.contact.arn
+}
+
+output "support_alerts_table_name" {
+  description = "octav-support-alerts table name."
+  value       = aws_dynamodb_table.support_alerts.name
+}
+
+output "support_alerts_table_arn" {
+  description = "octav-support-alerts table ARN."
+  value       = aws_dynamodb_table.support_alerts.arn
 }

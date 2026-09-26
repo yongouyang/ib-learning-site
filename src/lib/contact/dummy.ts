@@ -46,4 +46,13 @@ export class InMemoryContactStorage extends InMemoryLeaderboardStorage implement
     // The in-memory dummy has no IAM/table to fail — the probe is a no-op
     // (its DynamoDB counterpart performs the GetItem).
   }
+
+  /**
+   * All stored messages (dummy-only read path — the support-bot dummy polls
+   * new contact messages from the shared universe; production uses a filtered
+   * Scan on octav-contact, which has no equivalent on ContactStorage).
+   */
+  listContactMessages(): ContactMessage[] {
+    return [...this.messages.values()].map((m) => ({ ...m }));
+  }
 }
