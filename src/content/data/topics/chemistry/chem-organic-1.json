@@ -528,5 +528,62 @@
       "difficulty": "hard",
       "variantOf": "condensed-formula"
     }
+  ],
+  "templates": [
+    {
+      "generator": "chem-organic-series",
+      "params": {
+        "series": [
+          {
+            "id": "alkanes",
+            "general": "CₙH₂ₙ₊₂",
+            "hFactor": 2,
+            "hOffset": 2,
+            "names": [
+              { "n": 1, "name": "methane" },
+              { "n": 2, "name": "ethane" },
+              { "n": 3, "name": "propane" },
+              { "n": 4, "name": "butane" },
+              { "n": 5, "name": "pentane" },
+              { "n": 6, "name": "hexane" }
+            ]
+          },
+          {
+            "id": "alkenes",
+            "general": "CₙH₂ₙ",
+            "hFactor": 2,
+            "hOffset": 0,
+            "names": [
+              { "n": 2, "name": "ethene" },
+              { "n": 3, "name": "propene" },
+              { "n": 4, "name": "butene" },
+              { "n": 5, "name": "pentene" }
+            ]
+          },
+          {
+            "id": "alcohols",
+            "general": "CₙH₂ₙ₊₁OH",
+            "hFactor": 0,
+            "hOffset": 0,
+            "names": [
+              { "n": 1, "name": "methanol" },
+              { "n": 2, "name": "ethanol" },
+              { "n": 3, "name": "propanol" }
+            ]
+          },
+          {
+            "id": "carboxylic acids",
+            "general": "CₙH₂ₙ₊₁COOH",
+            "hFactor": 0,
+            "hOffset": 0,
+            "names": [
+              { "n": 1, "name": "methanoic acid" },
+              { "n": 2, "name": "ethanoic acid" },
+              { "n": 3, "name": "propanoic acid" }
+            ]
+          }
+        ]
+      }
+    }
   ]
 }

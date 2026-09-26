@@ -23,23 +23,23 @@ Read this with `docs/CONTENT_STYLE.md` (the authoring standard) and
 | Paper sets | **31** across 15 courses | 14 courses × 2 + `math-igcse` × 3 |
 | Free-response questions | **251** | 620 markscheme points; every set totals exactly 20 marks |
 | Illustrations | **430 SVG files**, **449 illustrated notes** | 0 orphans, 0 dangling references, **0 topics with no figure** |
-| Question generators | **55** in `src/content/generators/` | **all 55 are wired into content**, in **210 topics / 230 placements** |
+| Question generators | **64** in `src/content/generators/` | **all 64 are wired into content**, in **219 topics / 239 placements** (2026-09-26) |
 | Indexable / noindex pages | **352 / 580** | `verify:sitemaps` on the 2026-09-22 `build:static` (937 prerendered, 352 sitemap URLs all live + indexable, titles unique) |
 
-Per subject (topics / notes illustrated / templated):
+Per subject (topics / notes illustrated / templated — templated column re-measured 2026-09-26):
 
 | subject | topics | ill. notes | topics w/ 0 figures | templated |
 |---|---|---|---|---|
-| math | 104 | 68 (10%) | 0 | 69 |
-| english | 34 | 23 (10%) | 0 | 0 |
-| chinese | 20 | 0 | 0 | 0 |
-| chemistry | 13 | 71 (78%) | 0 | 5 |
-| physics | 14 | 78 (80%) | 0 | 10 |
-| biology | 14 | 91 (93%) | 0 | 0 |
-| german | 13 | 0 | 0 | 0 |
-| ict | 12 | 0 | 0 | 0 |
-| history | 11 | 0 | 0 | 0 |
-| geography | 10 | 0 | 0 | 0 |
+| math | 104 | 68 (10%) | 0 | 83 |
+| english | 34 | 23 (10%) | 0 | 34 |
+| chinese | 20 | 0 | 0 | 20 |
+| chemistry | 13 | 71 (78%) | 0 | 9 |
+| physics | 14 | 78 (80%) | 0 | 13 |
+| biology | 14 | 91 (93%) | 0 | 14 |
+| german | 13 | 0 | 0 | 13 |
+| ict | 12 | 0 | 0 | 12 |
+| history | 11 | 0 | 0 | 11 |
+| geography | 10 | 0 | 0 | 10 |
 
 **The gates are clean**: `validate:content` and `audit:content` both pass with zero
 warnings. So everything below is either a *coverage* gap (content that doesn't exist) or
@@ -105,7 +105,7 @@ Also note the language subjects are a genuine exception, not a backlog item: chi
 german are vocab-table notes plus bilingual flashcards — a picture per note buys less
 there than in history/geography/ICT.
 
-### C. Templates — 210 of 245 topics carry a template; the last 35 need more generators
+### C. Templates — 219 of 245 topics carry a template; the last 26 need more generators
 
 **Measured 2026-09-23, after five sessions of generator work** (the last batch: straight-line
 graphs, binomial, decimal arithmetic and whole-number/BIDMAS operations — 4 generators, 6 maths
@@ -115,11 +115,21 @@ now was an off-by-one** — the registry held 40 generators, never 41; the measu
 now **47** with these additions and the number-bases / factors-multiples / directed-numbers
 batch wired.
 
+**Updated 2026-09-26 — the residue batch closed every parameterizable row below** (9
+generators, 9 hosts, all KS3): `math-surds` and `math-quadratic-graphs` (a NEW generator rather
+than new modes on `math-quadratic`, whose three wired hosts keep their exact draws), the four
+chemistry tables (`chem-ion-tests`, `chem-separation`, `chem-organic-series`,
+`chem-gas-pressure` — states-of-matter's drillable content is Boyle's-law arithmetic, not a
+lookup table, so it got a numeric generator), and the three physics formulas
+(`phys-refraction`, `phys-weight`, `phys-transformer` — magnetism's drillable content is the
+transformer equation, not the "orbital period" the table row guessed). The registry now holds
+**64** generators (the pinned-list test title was stale at "44"; the list itself was correct).
+
 | | value |
 |---|---|
-| generators | **55**, every one wired |
-| topics with a template | **210 of 245** (230 placements) |
-| unwired topics | **35** — maths 23, chemistry 8, physics 4 |
+| generators | **64**, every one wired |
+| topics with a template | **219 of 245** (239 placements) |
+| unwired topics | **26** — maths 21, chemistry 4, physics 1 |
 
 **What closed in the last two sessions:**
 
@@ -156,6 +166,25 @@ batch wired.
    unit vector, and the missing component that makes two vectors perpendicular. Wired into the
    three vectors topics; perp-k is found by SEARCHING the param table for a divisible combination
    rather than dividing and hoping.
+8. **The residue batch (2026-09-26), 9 generators closing all four parameterizable rows of the
+   table below.** `math-surds` (simplify √n, multiply/divide, add/subtract like terms —
+   all built backwards from a√b with b square-free; divide dividends capped at 200)
+   into `math-yr9-surds`; `math-quadratic-graphs` (vertex, axis of symmetry, y-intercept, and
+   roots read as x-intercepts — a SEPARATE generator reusing the roots-based construction, so
+   `math-quadratic`'s three wired hosts keep their exact draws) into `math-yr9-quadratic-graphs`;
+   `chem-ion-tests` (test → observation and back, over a 13-row authored table) into
+   `chem-ion-tests-1`; `chem-separation` (mixture → technique, technique → mixture, plus an
+   exact-quotient Rf mode) into `chem-mixtures-1`; `chem-organic-series` (series ↔ general
+   formula, member → series, and molecular formulas CONSTRUCTED from each series' CnHm rule —
+   butane is C₄H₁₀ because 2n+2, not by lookup) into `chem-organic-1`; `chem-gas-pressure`
+   (Boyle's law both directions, exact divisions only) into `chem-states-1` — chosen over
+   `flashcard-match` because the topic's two authored calculation questions are exactly this;
+   `phys-refraction` (v = c/n with media whose index divides 3×10⁸ exactly, lens power
+   P = 1/f, reflection i = r) into `phys-light-1`; `phys-weight` (W = mg across Earth /
+   Moon / Mars / Jupiter, plus a trip mode drilling mass-vs-weight) into `phys-space-1`;
+   `phys-transformer` (Vs/Vp = Ns/Np both directions, step-up/step-down) into
+   `phys-magnetism-1` — the backlog row said "orbital period", but the host's questions drill
+   transformers, so that is what it got.
 
 Design rules the generators share (the reason the answers can be trusted):
 
@@ -172,7 +201,7 @@ Design rules the generators share (the reason the answers can be trusted):
   what lets a prose deck (174–210 character definitions, short terms) still drill in the
   definition→term direction.
 
-**What the last 35 topics need** (each row's hosts were checked by READING their question sets,
+**What the last 26 topics need** (each row's hosts were checked by READING their question sets,
 not inferred — an earlier version of this table lumped circle theorems in with angle facts and
 called surds unmechanizable, both wrong. The 2026-09-23 batch also showed the decimal row below
 was two different skills: `math-yr7-decimals` is decimal place value and computation, while
@@ -181,18 +210,17 @@ generators — `math-decimal-arithmetic` and `math-integer-operations`):
 
 | missing generator | host topics (verified) | topics |
 |---|---|---|
-| surds (simplify, multiply/divide, add like terms) | `math-yr9-surds` | 1 |
-| graph features of a quadratic (vertex, axis, roots) — extends the existing quadratic generator | `math-yr9-quadratic-graphs` | 1 |
-| table-driven chemistry (ion test → observation, mixture → separation method, homologous series formula) | `chem-ion-tests-1`, `chem-mixtures-1`, `chem-organic-1`, `chem-states-1` | 4 |
-| physics formulas still missing (refraction/snell, weight W = mg, orbital period) | `phys-light-1`, `phys-space-1`, `phys-magnetism-1` | 3 |
-| **not parameterizable** — constructions and loci, nets of 3-D shapes, describing a transformation, bearings and scale drawing, correlation description, Venn/set notation with prose, DP AA/AI specials (Voronoi, graph theory, Poisson, hypothesis testing, distributions, complex numbers, kinematics, correlation-regression, DP functions, DP trig identities) | the remaining topics | ~30 |
+| ~~surds (simplify, multiply/divide, add like terms)~~ — CLOSED 2026-09-26, `math-surds` | `math-yr9-surds` | 1 |
+| ~~graph features of a quadratic (vertex, axis, roots)~~ — CLOSED 2026-09-26, `math-quadratic-graphs` (separate generator; `math-quadratic`'s hosts keep their draws) | `math-yr9-quadratic-graphs` | 1 |
+| ~~table-driven chemistry (ion test → observation, mixture → separation method, homologous series formula)~~ — CLOSED 2026-09-26, `chem-ion-tests` / `chem-separation` / `chem-organic-series` / `chem-gas-pressure` | `chem-ion-tests-1`, `chem-mixtures-1`, `chem-organic-1`, `chem-states-1` | 4 |
+| ~~physics formulas still missing (refraction/snell, weight W = mg, orbital period)~~ — CLOSED 2026-09-26, `phys-refraction` / `phys-weight` / `phys-transformer` (the magnetism host drills transformers, not orbital period) | `phys-light-1`, `phys-space-1`, `phys-magnetism-1` | 3 |
+| **not parameterizable** — constructions and loci, nets of 3-D shapes, describing a transformation, bearings and scale drawing, correlation description, Venn/set notation with prose, DP AA/AI specials (Voronoi, graph theory, Poisson, hypothesis testing, distributions, complex numbers, kinematics, correlation-regression, DP functions, DP trig identities) | the remaining topics | 26 |
 
-So the honest position: **~12 of the last 35 topics are reachable by ~9 more generators of the
-same kind** — 2 maths rows (surds, quadratic graphs), the four chemistry tables and the three
-physics formulas — while **~23 are not parameterizable at all** (constructions, nets, diagram description,
-hypothesis testing, the DP AI specials) and are variant-group authoring work. Nothing here blocks
-promoting `develop`: the promotion is content, and C's product goal — a retake surfacing fresh
-variants — is already met for **198 of 245 topics**.
+So the honest position, updated 2026-09-26: **all 12 topics the table had judged reachable are
+now wired** (9 new generators), and the 26 that remain unwired are **not parameterizable at all**
+(constructions, nets, diagram description, hypothesis testing, the DP AI specials) — they are
+variant-group authoring work. Nothing here blocks promoting `develop`: the promotion is content,
+and C's product goal — a retake surfacing fresh variants — is now met for **207 of 245 topics**.
 
 ### D. Content defects the gates cannot see — **first pass MEASURED 2026-09-19**
 
@@ -319,12 +347,12 @@ That pass needs an export; it is not blocked by anything above and changes none 
    `M`/`A`/`B` prefix rule gated, the MC answer-key judgement measured (and found unfit for
    computational questions), the difficulty tags measured with a blind human pass, and the
    rubric contradiction resolved in `CONTENT_STYLE.md` (commit `39e36b6`).
-2. **C (templates) — 198 of 245 topics, 44 generators, all wired.** The quadratic solver, the
+2. **C (templates) — 219 of 245 topics, 64 generators, all wired.** The quadratic solver, the
    flashcard-fed drill, the angle-facts / probability / Pythagoras-trig / calculus / vectors
-   generators and the straight-line / binomial / decimal / whole-number batch closed the items
-   this section named. The last 35 topics are tabulated in §2.C with the host topics VERIFIED by
-   reading their questions: ~17 need ~10 more generators, ~30 are not parameterizable and need
-   authored variant groups.
+   generators, the straight-line / binomial / decimal / whole-number batch and the 2026-09-26
+   residue batch (surds, quadratic-graph features, the four chemistry tables, the three physics
+   formulas) closed every parameterizable item this section named. The last 26 topics are
+   tabulated in §2.C: none is parameterizable; all are authored-variant-group work.
 3. **B (illustrations) — DONE 2026-09-20.** Standard settled at **≥1 figure per topic**; no
    topic is bare and every subject has imagery. Density beyond that is not queued.
 4. **A (DP AA)** — **DONE 2026-09-21 at the committed SL-core scope** (12 topics, 9 figures, 2 paper

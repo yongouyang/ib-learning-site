@@ -294,7 +294,53 @@ import {
   paramsSchema as matrixSchema,
   type MatricesParams,
 } from '@/content/generators/math-matrices';
-import { chargeSuperscript, gcd } from '@/content/generators/utils';
+import {
+  draw as drawSurds,
+  build as buildSurds,
+  type SurdParams,
+} from '@/content/generators/math-surds';
+import {
+  draw as drawQuadGraphs,
+  build as buildQuadGraphs,
+  type QuadraticGraphsParams,
+} from '@/content/generators/math-quadratic-graphs';
+import {
+  draw as drawIonTests,
+  build as buildIonTests,
+  type IonTestsParams,
+} from '@/content/generators/chem-ion-tests';
+import {
+  draw as drawSeparation,
+  build as buildSeparation,
+  type SeparationParams,
+} from '@/content/generators/chem-separation';
+import {
+  draw as drawOrganicSeries,
+  build as buildOrganicSeries,
+  molecularFormula,
+  type OrganicSeriesParams,
+} from '@/content/generators/chem-organic-series';
+import {
+  draw as drawGasPressure,
+  build as buildGasPressure,
+  type GasPressureParams,
+} from '@/content/generators/chem-gas-pressure';
+import {
+  draw as drawRefraction,
+  build as buildRefraction,
+  type RefractionParams,
+} from '@/content/generators/phys-refraction';
+import {
+  draw as drawWeight,
+  build as buildWeight,
+  type WeightParams,
+} from '@/content/generators/phys-weight';
+import {
+  draw as drawTransformer,
+  build as buildTransformer,
+  type TransformerParams,
+} from '@/content/generators/phys-transformer';
+import { chargeSuperscript, gcd, toSubscript } from '@/content/generators/utils';
 import katex from 'katex';
 
 // The param tables wired into the pilot topic JSONs.
@@ -1122,14 +1168,18 @@ describe('chem-compound-naming', () => {
 });
 
 describe('registry', () => {
-  it('registers all 44 generators under kebab-case ids matching their module contract', () => {
+  it('registers all 64 generators under kebab-case ids matching their module contract', () => {
     expect(Object.keys(GENERATORS).sort()).toEqual([
       'chem-compound-naming',
       'chem-electron-config',
+      'chem-gas-pressure',
       'chem-half-life',
       'chem-ion-formation',
+      'chem-ion-tests',
       'chem-isotope-ram',
+      'chem-organic-series',
       'chem-ph-ratio',
+      'chem-separation',
       'flashcard-match',
       'math-algebra-manipulation',
       'math-angle-facts',
@@ -1153,6 +1203,7 @@ describe('registry', () => {
       'math-probability',
       'math-pythagoras-trig',
       'math-quadratic',
+      'math-quadratic-graphs',
       'math-ratio',
       'math-rounding',
       'math-shape-measure',
@@ -1161,6 +1212,7 @@ describe('registry', () => {
       'math-statistics',
       'math-straight-line',
       'math-substitution',
+      'math-surds',
       'math-trig-identities',
       'math-trig-rules',
       'math-vectors',
@@ -1173,12 +1225,15 @@ describe('registry', () => {
       'phys-kinetic-energy',
       'phys-power',
       'phys-pressure',
+      'phys-refraction',
       'phys-resistance-parallel',
       'phys-resistance-series',
       'phys-speed',
       'phys-thermal-energy',
+      'phys-transformer',
       'phys-v-ir',
       'phys-wave-speed',
+      'phys-weight',
     ]);
     for (const [key, gen] of Object.entries(GENERATORS)) {
       expect(gen.id).toBe(key);
@@ -3589,5 +3644,641 @@ describe('math-matrices', () => {
       const out = GENERATORS['math-matrices'].generate(params, createRng(`inv:${i}`));
       expect(out.correct).not.toMatch(/dfrac|\.\d/);
     }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// C's-residue batch (2026-09-26): the last parameterizable generators.
+
+const surdParams: SurdParams = {
+  modes: ['simplify', 'multiply', 'divide', 'add-subtract'],
+  squarefree: [2, 3, 5, 6, 7, 10, 11, 13, 15],
+  multipliers: [2, 3, 4, 5, 6],
+  coefficients: [1, 2, 3, 4, 5],
+};
+
+/** Independent renderer: `3\sqrt{2}` wrapped in one math span, coefficient 1 suppressed. */
+function surdStr(c: number, rad: number): string {
+  return c === 1 ? String.raw`$\sqrt{${rad}}$` : String.raw`$${c}\sqrt{${rad}}$`;
+}
+
+describe('math-surds', () => {
+  it('sweep: every mode is the construction it claims', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 200; i++) {
+      const rng = createRng(`sweep:math-surds:${i}`);
+      const v = drawSurds(surdParams, rng);
+      modes.add(v.mode);
+      const out = buildSurds(v, rng);
+      expectInvariants(out);
+      if (v.mode === 'simplify') {
+        expect(v.left).toBe(v.a * v.a * v.d);
+        expect(out.correct).toBe(surdStr(v.a, v.d));
+      } else if (v.mode === 'multiply') {
+        expect(v.left * v.right).toBe(v.a * v.a * v.d);
+        expect(out.correct).toBe(surdStr(v.p * v.q * v.a, v.d));
+      } else if (v.mode === 'divide') {
+        expect(v.left / v.right).toBe(v.a * v.a * v.d);
+        expect((v.p * v.a) % v.q).toBe(0);
+        expect(v.left).toBeLessThanOrEqual(200);
+        expect(out.correct).toBe(surdStr((v.p * v.a) / v.q, v.d));
+      } else if (v.reduce) {
+        const m = Math.sqrt(v.left / v.d);
+        const n = Math.sqrt(v.right / v.d);
+        expect(Number.isInteger(m)).toBe(true);
+        expect(Number.isInteger(n)).toBe(true);
+        const c = v.minus ? m - n : m + n;
+        expect(c).toBeGreaterThanOrEqual(1);
+        expect(out.correct).toBe(surdStr(c, v.d));
+      } else {
+        const c = v.minus ? v.p - v.q : v.p + v.q;
+        expect(c).toBeGreaterThanOrEqual(1);
+        expect(out.correct).toBe(surdStr(c, v.d));
+      }
+    }
+    expect(modes).toEqual(new Set(['simplify', 'multiply', 'divide', 'add-subtract']));
+  });
+
+  it('spot: sqrt(50) simplifies to 5*sqrt(2), with the coefficient swap as a distractor', () => {
+    const out = buildSurds(
+      { mode: 'simplify', reduce: false, d: 2, a: 5, left: 50, right: 0, p: 0, q: 0, minus: false },
+      createRng('spot:surd1')
+    );
+    expect(out.stem).toBe(String.raw`Simplify $\sqrt{50}$ fully.`);
+    expect(out.correct).toBe(String.raw`$5\sqrt{2}$`);
+    expect(out.distractors).toContain(String.raw`$2\sqrt{5}$`);
+    expectInvariants(out);
+  });
+
+  it('spot: sqrt(6) x sqrt(2) = 2*sqrt(3)', () => {
+    const out = buildSurds(
+      { mode: 'multiply', reduce: false, d: 3, a: 2, left: 6, right: 2, p: 1, q: 1, minus: false },
+      createRng('spot:surd2')
+    );
+    expect(out.stem).toBe(String.raw`Simplify $\sqrt{6} \times \sqrt{2}$.`);
+    expect(out.correct).toBe(String.raw`$2\sqrt{3}$`);
+    expectInvariants(out);
+  });
+
+  it('spot: sqrt(24)/sqrt(2) = 2*sqrt(3)', () => {
+    const out = buildSurds(
+      { mode: 'divide', reduce: false, d: 3, a: 2, left: 24, right: 2, p: 1, q: 1, minus: false },
+      createRng('spot:surd3')
+    );
+    expect(out.stem).toBe(String.raw`Simplify $\dfrac{\sqrt{24}}{\sqrt{2}}$.`);
+    expect(out.correct).toBe(String.raw`$2\sqrt{3}$`);
+    expectInvariants(out);
+  });
+
+  it('spot: like terms add, and reduce-first reaches a bare sqrt', () => {
+    const add = buildSurds(
+      { mode: 'add-subtract', reduce: false, d: 7, a: 0, left: 0, right: 0, p: 3, q: 4, minus: false },
+      createRng('spot:surd4')
+    );
+    expect(add.stem).toBe(String.raw`Simplify $3\sqrt{7} + 4\sqrt{7}$.`);
+    expect(add.correct).toBe(String.raw`$7\sqrt{7}$`);
+    const reduce = buildSurds(
+      { mode: 'add-subtract', reduce: true, d: 3, a: 0, left: 27, right: 12, p: 0, q: 0, minus: true },
+      createRng('spot:surd5')
+    );
+    expect(reduce.stem).toBe(String.raw`Simplify $\sqrt{27} - \sqrt{12}$.`);
+    expect(reduce.correct).toBe(String.raw`$\sqrt{3}$`);
+    expect(reduce.distractors).toContain(String.raw`$\sqrt{15}$`);
+    expectInvariants(add);
+    expectInvariants(reduce);
+  });
+
+  it('a subtraction never lands on zero', () => {
+    const oneCoef: SurdParams = { ...surdParams, coefficients: [3, 3] };
+    for (let i = 0; i < 40; i++) {
+      const out = GENERATORS['math-surds'].generate(oneCoef, createRng(`zero:${i}`));
+      expect(out.correct).not.toBe(String.raw`$0\sqrt{2}$`);
+      expectInvariants(out);
+    }
+  });
+});
+
+const quadGraphParams: QuadraticGraphsParams = {
+  modes: ['vertex', 'axis', 'y-intercept', 'roots'],
+  roots: [1, 2, 3, 4, 5, 6],
+  ks: [-9, -6, -4, -1, 0, 1, 4, 6, 9],
+  negatives: true,
+};
+
+describe('math-quadratic-graphs', () => {
+  it('sweep: the printed quadratic has exactly the features asked about', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 200; i++) {
+      const rng = createRng(`sweep:math-quadratic-graphs:${i}`);
+      const v = drawQuadGraphs(quadGraphParams, rng);
+      modes.add(v.mode);
+      const out = buildQuadGraphs(v, rng);
+      expectInvariants(out);
+      if (v.mode === 'roots') {
+        expect(v.b).toBe(-(v.r1 + v.r2));
+        expect(v.c).toBe(v.r1 * v.r2);
+        expect(v.r1).not.toBe(v.r2);
+        for (const root of [v.r1, v.r2]) expect(root * root + v.b * root + v.c).toBe(0);
+        expect(out.correct).toBe(`$x = ${v.r1}$ or $x = ${v.r2}$`);
+      } else {
+        expect(v.b).toBe(-2 * v.h);
+        expect(v.c).toBe(v.h * v.h + v.k);
+        if (v.mode === 'vertex') expect(out.correct).toBe(`$(${v.h}, ${v.k})$`);
+        if (v.mode === 'axis') expect(out.correct).toBe(`$x = ${v.h}$`);
+        if (v.mode === 'y-intercept') expect(out.correct).toBe(`$(0, ${v.c})$`);
+      }
+    }
+    expect(modes).toEqual(new Set(['vertex', 'axis', 'y-intercept', 'roots']));
+  });
+
+  it('spot: vertex of x^2 - 6x + 5 is (3, -4)', () => {
+    const out = buildQuadGraphs(
+      { mode: 'vertex', h: 3, k: -4, r1: 0, r2: 0, b: -6, c: 5 },
+      createRng('spot:qg1')
+    );
+    expect(out.stem).toBe('What is the turning point of the graph of $y = x^2 - 6x + 5$?');
+    expect(out.correct).toBe('$(3, -4)$');
+    expectInvariants(out);
+  });
+
+  it('spot: roots of x^2 - 4x + 3 are 1 and 3', () => {
+    const out = buildQuadGraphs(
+      { mode: 'roots', h: 0, k: 0, r1: 1, r2: 3, b: -4, c: 3 },
+      createRng('spot:qg2')
+    );
+    expect(out.stem).toContain('x^2 - 4x + 3');
+    expect(out.correct).toBe('$x = 1$ or $x = 3$');
+    expectInvariants(out);
+  });
+
+  it('spot: y-intercept reads the constant term', () => {
+    const out = buildQuadGraphs(
+      { mode: 'y-intercept', h: 2, k: 3, r1: 0, r2: 0, b: -4, c: 7 },
+      createRng('spot:qg3')
+    );
+    expect(out.correct).toBe('$(0, 7)$');
+    expectInvariants(out);
+  });
+
+  it('axis mode never prints 1x or a + 0 in the stem quadratic', () => {
+    for (let i = 0; i < 100; i++) {
+      const out = GENERATORS['math-quadratic-graphs'].generate(quadGraphParams, createRng(`render:qg:${i}`));
+      expect(out.stem).not.toMatch(/1x| \+ 0\$| - 0\$/);
+    }
+  });
+});
+
+const ionTestsParams: IonTestsParams = {
+  modes: ['test-to-observation', 'observation-to-ion'],
+  tests: [
+    { ion: 'sodium', procedure: 'a flame test is carried out', observation: 'a yellow flame is seen' },
+    { ion: 'potassium', procedure: 'a flame test is carried out', observation: 'a lilac flame is seen' },
+    { ion: 'copper(II)', procedure: 'sodium hydroxide solution is added', observation: 'a blue precipitate forms' },
+    { ion: 'iron(II)', procedure: 'sodium hydroxide solution is added', observation: 'a green precipitate forms' },
+    { ion: 'chloride', procedure: 'dilute nitric acid is added, then silver nitrate solution', observation: 'a white precipitate forms' },
+  ],
+};
+
+describe('chem-ion-tests', () => {
+  it('sweep: the answer is the table row, in both directions', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 100; i++) {
+      const rng = createRng(`sweep:chem-ion-tests:${i}`);
+      const v = drawIonTests(ionTestsParams, rng);
+      modes.add(v.mode);
+      const out = buildIonTests(v, rng);
+      expectInvariants(out);
+      if (v.mode === 'test-to-observation') {
+        expect(out.correct).toBe(v.observation.charAt(0).toUpperCase() + v.observation.slice(1));
+        expect(out.stem).toContain(v.ion);
+        expect(out.stem.toLowerCase()).toContain(v.procedure);
+      } else {
+        expect(out.correct).toBe(v.ion);
+        expect(out.stem).toContain(v.procedure);
+      }
+      // Every choice comes from the table or the fixed fallback lists.
+      for (const d of out.distractors) expect(d).not.toBe(out.correct);
+    }
+    expect(modes).toEqual(new Set(['test-to-observation', 'observation-to-ion']));
+  });
+
+  it('spot: sodium flame test gives a yellow flame', () => {
+    const out = buildIonTests(
+      {
+        mode: 'test-to-observation',
+        ion: 'sodium',
+        procedure: 'a flame test is carried out',
+        observation: 'a yellow flame is seen',
+        observationPool: ['A yellow flame is seen', 'A lilac flame is seen', 'A blue precipitate forms', 'A green precipitate forms'],
+        ionPool: ['sodium', 'potassium', 'copper(II)', 'iron(II)'],
+      },
+      createRng('spot:it1')
+    );
+    expect(out.stem).toBe('A compound contains sodium ions. A flame test is carried out. What is observed?');
+    expect(out.correct).toBe('A yellow flame is seen');
+    expectInvariants(out);
+  });
+
+  it('spot: the reverse question names the ion', () => {
+    const out = buildIonTests(
+      {
+        mode: 'observation-to-ion',
+        ion: 'copper(II)',
+        procedure: 'sodium hydroxide solution is added',
+        observation: 'a blue precipitate forms',
+        observationPool: ['A blue precipitate forms', 'A green precipitate forms'],
+        ionPool: ['sodium', 'potassium', 'copper(II)', 'iron(II)'],
+      },
+      createRng('spot:it2')
+    );
+    expect(out.correct).toBe('copper(II)');
+    expect(out.stem).toContain('A blue precipitate forms. Which ion is present?');
+    expectInvariants(out);
+  });
+});
+
+const separationParams: SeparationParams = {
+  modes: ['mixture-to-method', 'method-to-mixture', 'rf'],
+  cases: [
+    { mixture: 'sand mixed into water', method: 'filtration' },
+    { mixture: 'pure water from salt water', method: 'simple distillation' },
+    { mixture: 'salt crystals from a salt solution', method: 'crystallisation' },
+    { mixture: 'oil from water', method: 'a separating funnel' },
+  ],
+  fronts: [8, 10, 12],
+  spots: [2, 3, 4, 5, 6],
+};
+
+describe('chem-separation', () => {
+  it('sweep: methods/mixtures come from the table and Rf is spot/front', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 150; i++) {
+      const rng = createRng(`sweep:chem-separation:${i}`);
+      const v = drawSeparation(separationParams, rng);
+      modes.add(v.mode);
+      const out = buildSeparation(v, rng);
+      expectInvariants(out);
+      if (v.mode === 'rf') {
+        expect(v.spot).toBeLessThan(v.front);
+        expect(out.correct).toBe(fmtNumber(v.spot / v.front));
+        expectCleanNumbers(out);
+      } else if (v.mode === 'mixture-to-method') {
+        expect(out.correct).toBe(v.method);
+        expect(out.stem).toContain(v.mixture);
+      } else {
+        expect(out.correct).toBe(v.mixture);
+        expect(out.stem).toContain(v.method);
+      }
+    }
+    expect(modes).toEqual(new Set(['mixture-to-method', 'method-to-mixture', 'rf']));
+  });
+
+  it('spot: 3 cm out of 12 cm is Rf 0.25, with the inverted quotient as a distractor', () => {
+    const out = buildSeparation(
+      { mode: 'rf', mixture: '', method: '', spot: 3, front: 12, methodPool: [], mixturePool: [] },
+      createRng('spot:sep1')
+    );
+    expect(out.correct).toBe('0.25');
+    expect(out.distractors).toContain('4');
+    expectInvariants(out);
+  });
+
+  it('drops unclean Rf pairs from the draw rather than printing 0.333333', () => {
+    // 3/9 and 6/9 repeat; 3/10 and 6/10 are clean — the front of 9 must never be drawn.
+    const mixed: SeparationParams = { ...separationParams, modes: ['rf'], fronts: [9, 10], spots: [3, 6] };
+    for (let i = 0; i < 20; i++) {
+      const v = drawSeparation(mixed, createRng(`clean:rf:${i}`));
+      expect(v.front).toBe(10);
+    }
+    // 1/9 is unclean, so with no clean pair the mode falls out of the feasible set entirely.
+    const noClean: SeparationParams = { ...separationParams, modes: ['rf', 'mixture-to-method'], fronts: [9], spots: [1] };
+    for (let i = 0; i < 20; i++) {
+      const v = drawSeparation(noClean, createRng(`norfm:${i}`));
+      expect(v.mode).toBe('mixture-to-method');
+    }
+  });
+});
+
+const organicSeriesParams: OrganicSeriesParams = {
+  modes: ['series-to-formula', 'formula-to-series', 'molecular-formula', 'member-to-series'],
+  series: [
+    {
+      id: 'alkanes',
+      general: 'CₙH₂ₙ₊₂',
+      hFactor: 2,
+      hOffset: 2,
+      names: [
+        { n: 1, name: 'methane' },
+        { n: 3, name: 'propane' },
+        { n: 4, name: 'butane' },
+      ],
+    },
+    {
+      id: 'alkenes',
+      general: 'CₙH₂ₙ',
+      hFactor: 2,
+      hOffset: 0,
+      names: [
+        { n: 2, name: 'ethene' },
+        { n: 3, name: 'propene' },
+      ],
+    },
+    { id: 'alcohols', general: 'CₙH₂ₙ₊₁OH', hFactor: 0, hOffset: 0, names: [{ n: 2, name: 'ethanol' }] },
+    { id: 'carboxylic acids', general: 'CₙH₂ₙ₊₁COOH', hFactor: 0, hOffset: 0, names: [] },
+  ],
+};
+
+describe('chem-organic-series', () => {
+  it('molecularFormula builds house-style formulas', () => {
+    expect(molecularFormula(1, 2, 2)).toBe('CH₄');
+    expect(molecularFormula(4, 2, 2)).toBe('C₄H₁₀');
+    expect(molecularFormula(3, 2, 0)).toBe('C₃H₆');
+  });
+
+  it('sweep: formulas follow the series rule recomputed independently', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 150; i++) {
+      const rng = createRng(`sweep:chem-organic-series:${i}`);
+      const v = drawOrganicSeries(organicSeriesParams, rng);
+      modes.add(v.mode);
+      const out = buildOrganicSeries(v, rng);
+      expectInvariants(out);
+      if (v.mode === 'molecular-formula') {
+        // Only the series with a CnHm rule may be drawn.
+        expect(['alkanes', 'alkenes']).toContain(v.seriesId);
+        const h = v.seriesId === 'alkanes' ? 2 * v.n + 2 : 2 * v.n;
+        const expected = `C${v.n > 1 ? toSubscript(v.n) : ''}H${toSubscript(h)}`;
+        expect(out.correct).toBe(expected);
+      } else if (v.mode === 'member-to-series') {
+        expect(out.correct).toBe(`the ${v.seriesId}`);
+        expect(out.stem).toContain(v.name);
+      } else if (v.mode === 'series-to-formula') {
+        expect(out.correct).toBe(v.general);
+        expect(out.stem).toContain(v.seriesId);
+      } else {
+        expect(out.correct).toBe(`the ${v.seriesId}`);
+        expect(out.stem).toContain(v.general);
+      }
+    }
+    expect(modes).toEqual(new Set(['series-to-formula', 'formula-to-series', 'molecular-formula', 'member-to-series']));
+  });
+
+  it('spot: propane is C₃H₈, with the alkene-rule formula as a distractor', () => {
+    const out = buildOrganicSeries(
+      {
+        mode: 'molecular-formula',
+        seriesId: 'alkanes',
+        general: 'CₙH₂ₙ₊₂',
+        n: 3,
+        name: 'propane',
+        hFactor: 2,
+        hOffset: 2,
+        generalPool: ['CₙH₂ₙ₊₂', 'CₙH₂ₙ'],
+        seriesPool: ['the alkanes', 'the alkenes'],
+        formulaPool: ['CH₄', 'C₂H₄', 'C₃H₆', 'C₃H₈', 'C₄H₁₀'],
+      },
+      createRng('spot:org1')
+    );
+    expect(out.stem).toBe('What is the molecular formula of propane?');
+    expect(out.correct).toBe('C₃H₈');
+    expect(out.distractors).toContain('C₃H₆');
+    expectInvariants(out);
+  });
+});
+
+const gasPressureParams: GasPressureParams = {
+  modes: ['pressure', 'volume'],
+  pressures: [50, 100, 150, 200, 250, 300],
+  volumes: [20, 25, 30, 40, 50, 60, 80, 100],
+};
+
+describe('chem-gas-pressure', () => {
+  it('sweep: p1*V1 = p2*V2 exactly, in both directions', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 150; i++) {
+      const rng = createRng(`sweep:chem-gas-pressure:${i}`);
+      const v = drawGasPressure(gasPressureParams, rng);
+      modes.add(v.mode);
+      const out = buildGasPressure(v, rng);
+      expectInvariants(out);
+      expectCleanNumbers(out);
+      expect(v.p1 * v.v1).toBe(v.p2 * v.v2);
+      if (v.mode === 'pressure') {
+        expect(out.correct).toBe(`$${fmtNumber(v.p2)}$ kPa`);
+        expect(v.p1 * v.v1 % v.v2).toBe(0);
+      } else {
+        expect(out.correct).toBe(`$${fmtNumber(v.v2)}$ cm³`);
+        expect(v.p1 * v.v1 % v.p2).toBe(0);
+      }
+    }
+    expect(modes).toEqual(new Set(['pressure', 'volume']));
+  });
+
+  it('spot: 100 kPa x 50 cm3 compressed to 25 cm3 is 200 kPa', () => {
+    const out = buildGasPressure({ mode: 'pressure', p1: 100, v1: 50, v2: 25, p2: 200 }, createRng('spot:gp1'));
+    expect(out.stem).toContain('compressed to $25$ cm³');
+    expect(out.correct).toBe('$200$ kPa');
+    expect(out.distractors).toContain('$50$ kPa');
+    expectInvariants(out);
+  });
+
+  it('spot (inverse): 150 kPa x 40 cm3 at 100 kPa expands to 60 cm3', () => {
+    const out = buildGasPressure({ mode: 'volume', p1: 150, v1: 40, p2: 100, v2: 60 }, createRng('spot:gp2'));
+    expect(out.stem).toContain('falls to $100$ kPa');
+    expect(out.correct).toBe('$60$ cm³');
+    expectInvariants(out);
+  });
+
+  it('drops the mode when no triple divides exactly instead of throwing', () => {
+    const noExact: GasPressureParams = { modes: ['volume'], pressures: [51], volumes: [7] };
+    expect(() => drawGasPressure(noExact, createRng('gp:dead'))).toThrow(/chem-gas-pressure/);
+    const mixed: GasPressureParams = { modes: ['volume', 'pressure'], pressures: [100], volumes: [50, 25] };
+    for (let i = 0; i < 20; i++) {
+      const v = drawGasPressure(mixed, createRng(`gp:mix:${i}`));
+      expect(v.mode).toBe('pressure');
+    }
+  });
+});
+
+const refractionParams: RefractionParams = {
+  modes: ['speed-in-medium', 'index-from-speed', 'lens-power', 'reflection'],
+  media: [
+    { medium: 'glass', n: 1.5 },
+    { medium: 'diamond', n: 2.4 },
+    { medium: 'a clear plastic', n: 2 },
+    { medium: 'a dense crystal', n: 2.5 },
+  ],
+  focalLengths: [0.1, 0.2, 0.25, 0.5, 2, 4],
+  angles: [15, 20, 25, 30, 35, 40, 50, 60, 65, 70],
+};
+
+describe('phys-refraction', () => {
+  it('sweep: every answer is the exact formula applied to the drawn values', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 200; i++) {
+      const rng = createRng(`sweep:phys-refraction:${i}`);
+      const v = drawRefraction(refractionParams, rng);
+      modes.add(v.mode);
+      const out = buildRefraction(v, rng);
+      expectInvariants(out);
+      // (No expectCleanNumbers: the speed answers print as `m x 10^8 m/s`, which its
+      // digit-stripping parser cannot read; mantissa cleanliness is asserted below.)
+      if (v.mode === 'speed-in-medium') {
+        expect(v.mantissa).toBeCloseTo(3 / v.n, 9);
+        expect(out.correct).toBe(`$${fmtNumber(v.mantissa)} \\times 10^{8}$ m/s`);
+      } else if (v.mode === 'index-from-speed') {
+        expect(v.n).toBeCloseTo(3 / v.mantissa, 9);
+        expect(out.correct).toBe(`$${fmtNumber(v.n)}$`);
+      } else if (v.mode === 'lens-power') {
+        expect(out.correct).toBe(`$${fmtNumber(1 / v.f)}$ D`);
+      } else {
+        expect(out.correct).toBe(`$${v.angle}^{\\circ}$`);
+      }
+    }
+    expect(modes).toEqual(new Set(['speed-in-medium', 'index-from-speed', 'lens-power', 'reflection']));
+  });
+
+  it('spot: glass (n = 1.5) slows light to 2 x 10^8 m/s', () => {
+    const out = buildRefraction(
+      { mode: 'speed-in-medium', medium: 'glass', n: 1.5, mantissa: 2, f: 0, angle: 0, mantissaPool: [2, 1.25, 1.5, 1.2] },
+      createRng('spot:ref1')
+    );
+    expect(out.correct).toBe(String.raw`$2 \times 10^{8}$ m/s`);
+    expect(out.distractors).toContain(String.raw`$4.5 \times 10^{8}$ m/s`);
+    expectInvariants(out);
+  });
+
+  it('spot: a 0.25 m lens is 4 D', () => {
+    const out = buildRefraction(
+      { mode: 'lens-power', medium: '', n: 0, mantissa: 0, f: 0.25, angle: 0, mantissaPool: [] },
+      createRng('spot:ref2')
+    );
+    expect(out.correct).toBe('$4$ D');
+    expect(out.distractors).toContain('$0.25$ D');
+    expectInvariants(out);
+  });
+
+  it('drops a medium whose speed of light is not clean', () => {
+    const dirty: RefractionParams = {
+      ...refractionParams,
+      modes: ['speed-in-medium'],
+      media: [
+        { medium: 'water', n: 1.33 },
+        { medium: 'glass', n: 1.5 },
+      ],
+    };
+    for (let i = 0; i < 20; i++) {
+      const v = drawRefraction(dirty, createRng(`dirty:${i}`));
+      expect(v.medium).toBe('glass');
+    }
+  });
+});
+
+const weightParams: WeightParams = {
+  modes: ['weight', 'mass', 'trip'],
+  bodies: [
+    { body: 'Earth', g: 10 },
+    { body: 'the Moon', g: 1.6 },
+    { body: 'Mars', g: 3.7 },
+    { body: 'Jupiter', g: 25 },
+  ],
+  masses: [2, 4, 5, 8, 10, 12, 20, 25, 50],
+};
+
+describe('phys-weight', () => {
+  it('sweep: W = m g exactly, in all three modes', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 150; i++) {
+      const rng = createRng(`sweep:phys-weight:${i}`);
+      const v = drawWeight(weightParams, rng);
+      modes.add(v.mode);
+      const out = buildWeight(v, rng);
+      expectInvariants(out);
+      expectCleanNumbers(out);
+      expect(v.wB).toBeCloseTo(v.m * v.gB, 9);
+      if (v.mode === 'weight') {
+        expect(out.correct).toBe(`$${fmtNumber(v.m * v.gB)}$ N`);
+      } else if (v.mode === 'mass') {
+        expect(out.correct).toBe(`$${v.m}$ kg`);
+      } else {
+        expect(v.bodyA).not.toBe(v.bodyB);
+        expect(out.correct).toBe(`Mass $${v.m}$ kg, weight $${fmtNumber(v.m * v.gB)}$ N`);
+      }
+    }
+    expect(modes).toEqual(new Set(['weight', 'mass', 'trip']));
+  });
+
+  it('spot: 5 kg on the Moon weighs 8 N', () => {
+    const out = buildWeight(
+      { mode: 'weight', bodyA: 'Earth', gA: 10, bodyB: 'the Moon', gB: 1.6, m: 5, wB: 8 },
+      createRng('spot:w1')
+    );
+    expect(out.correct).toBe('$8$ N');
+    expect(out.distractors).toContain('$5$ N');
+    expectInvariants(out);
+  });
+
+  it('spot: the trip keeps the mass and re-derives the weight', () => {
+    const out = buildWeight(
+      { mode: 'trip', bodyA: 'Earth', gA: 10, bodyB: 'Mars', gB: 3.7, m: 20, wB: 74 },
+      createRng('spot:w2')
+    );
+    expect(out.correct).toBe('Mass $20$ kg, weight $74$ N');
+    expect(out.distractors).toContain('Mass $20$ kg, weight $200$ N');
+    expectInvariants(out);
+  });
+});
+
+const transformerParams: TransformerParams = {
+  modes: ['secondary-voltage', 'primary-voltage', 'step-type'],
+  turnPairs: [
+    [500, 50],
+    [200, 2000],
+    [1000, 100],
+    [230, 23],
+    [120, 240],
+    [600, 60],
+    [400, 1600],
+  ],
+  voltages: [230, 25, 12, 240, 24, 120],
+};
+
+describe('phys-transformer', () => {
+  it('sweep: Vs/Vp = Ns/Np exactly, and step-type follows the turns', () => {
+    const modes = new Set<string>();
+    for (let i = 0; i < 150; i++) {
+      const rng = createRng(`sweep:phys-transformer:${i}`);
+      const v = drawTransformer(transformerParams, rng);
+      modes.add(v.mode);
+      const out = buildTransformer(v, rng);
+      expectInvariants(out);
+      if (v.mode === 'secondary-voltage') {
+        expect(v.given * v.ns).toBe(v.answer * v.np);
+        expect(out.correct).toBe(`$${v.answer}$ V`);
+      } else if (v.mode === 'primary-voltage') {
+        expect(v.given * v.np).toBe(v.answer * v.ns);
+        expect(out.correct).toBe(`$${v.answer}$ V`);
+      } else {
+        expect(v.np).not.toBe(v.ns);
+        expect(out.correct.startsWith('A step-up')).toBe(v.ns > v.np);
+      }
+    }
+    expect(modes).toEqual(new Set(['secondary-voltage', 'primary-voltage', 'step-type']));
+  });
+
+  it('spot: 500:50 turns at 230 V in gives 23 V out', () => {
+    const out = buildTransformer(
+      { mode: 'secondary-voltage', np: 500, ns: 50, given: 230, answer: 23 },
+      createRng('spot:tr1')
+    );
+    expect(out.correct).toBe('$23$ V');
+    expect(out.distractors).toContain('$2300$ V');
+    expectInvariants(out);
+  });
+
+  it('spot: more secondary turns means step-up', () => {
+    const out = buildTransformer({ mode: 'step-type', np: 200, ns: 2000, given: 0, answer: 0 }, createRng('spot:tr2'));
+    expect(out.correct).toBe('A step-up transformer — the output voltage is higher than the input');
+    expectInvariants(out);
   });
 });

@@ -557,5 +557,24 @@
       "difficulty": "hard",
       "variantOf": "rf-interpretation"
     }
+  ],
+  "templates": [
+    {
+      "generator": "chem-separation",
+      "params": {
+        "cases": [
+          { "mixture": "sand mixed into water", "method": "filtration" },
+          { "mixture": "pure water from salt water", "method": "simple distillation" },
+          { "mixture": "salt crystals from a salt solution", "method": "crystallisation" },
+          { "mixture": "ethanol from a mixture of ethanol and water", "method": "fractional distillation" },
+          { "mixture": "oil from water", "method": "a separating funnel" },
+          { "mixture": "the dyes in a food colouring", "method": "paper chromatography" },
+          { "mixture": "iron filings from sulfur powder", "method": "a magnet" },
+          { "mixture": "salt from a mixture of sand and salt", "method": "dissolving in water, then filtering and crystallising" }
+        ],
+        "fronts": [8, 10, 12, 15],
+        "spots": [2, 3, 4, 5, 6]
+      }
+    }
   ]
 }

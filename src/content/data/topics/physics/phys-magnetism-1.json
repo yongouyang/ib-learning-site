@@ -344,5 +344,14 @@
       "explanation": "Only iron, cobalt, nickel (and their alloys) are magnetic. Aluminium, copper, gold, silver, and most other metals are non-magnetic.",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "phys-transformer",
+      "params": {
+        "turnPairs": [[500, 50], [200, 2000], [1000, 100], [230, 23], [120, 240], [600, 60], [400, 1600]],
+        "voltages": [230, 25, 12, 240, 24, 120]
+      }
+    }
   ]
 }

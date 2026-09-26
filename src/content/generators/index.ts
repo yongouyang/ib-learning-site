@@ -54,6 +54,15 @@ import { chemHalfLife } from './chem-half-life';
 import { chemIonFormation } from './chem-ion-formation';
 import { chemIsotopeRam } from './chem-isotope-ram';
 import { chemPhRatio } from './chem-ph-ratio';
+import { mathSurds } from './math-surds';
+import { mathQuadraticGraphs } from './math-quadratic-graphs';
+import { chemIonTests } from './chem-ion-tests';
+import { chemSeparation } from './chem-separation';
+import { chemOrganicSeries } from './chem-organic-series';
+import { chemGasPressure } from './chem-gas-pressure';
+import { physRefraction } from './phys-refraction';
+import { physWeight } from './phys-weight';
+import { physTransformer } from './phys-transformer';
 
 // Registry of parameterized question templates (docs/question-variations-plan.md,
 // Phase 2). Topic JSON `templates[].generator` values must be keys here —
@@ -115,6 +124,15 @@ const all: QuestionGenerator<unknown>[] = [
   mathSimilarShapes,
   mathLinearInequalities,
   mathMatrices,
+  mathSurds,
+  mathQuadraticGraphs,
+  chemIonTests,
+  chemSeparation,
+  chemOrganicSeries,
+  chemGasPressure,
+  physRefraction,
+  physWeight,
+  physTransformer,
 ];
 
 export const GENERATORS: Record<string, QuestionGenerator<unknown>> = Object.fromEntries(

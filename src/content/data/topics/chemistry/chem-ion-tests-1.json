@@ -317,5 +317,27 @@
       "explanation": "Fizzing plus milky limewater proves carbonate ions; the brick-red flame proves calcium. Sodium would burn yellow, copper blue-green, and sulfate does not fizz with acid.",
       "difficulty": "hard"
     }
+  ],
+  "templates": [
+    {
+      "generator": "chem-ion-tests",
+      "params": {
+        "tests": [
+          { "ion": "sodium", "procedure": "a flame test is carried out", "observation": "a yellow flame is seen" },
+          { "ion": "potassium", "procedure": "a flame test is carried out", "observation": "a lilac flame is seen" },
+          { "ion": "calcium", "procedure": "a flame test is carried out", "observation": "a brick-red flame is seen" },
+          { "ion": "lithium", "procedure": "a flame test is carried out", "observation": "a crimson flame is seen" },
+          { "ion": "copper(II)", "procedure": "sodium hydroxide solution is added", "observation": "a blue precipitate forms" },
+          { "ion": "iron(II)", "procedure": "sodium hydroxide solution is added", "observation": "a green precipitate forms" },
+          { "ion": "iron(III)", "procedure": "sodium hydroxide solution is added", "observation": "a brown precipitate forms" },
+          { "ion": "chloride", "procedure": "dilute nitric acid is added, then silver nitrate solution", "observation": "a white precipitate forms" },
+          { "ion": "bromide", "procedure": "dilute nitric acid is added, then silver nitrate solution", "observation": "a cream precipitate forms" },
+          { "ion": "iodide", "procedure": "dilute nitric acid is added, then silver nitrate solution", "observation": "a yellow precipitate forms" },
+          { "ion": "sulfate", "procedure": "dilute hydrochloric acid is added, then barium chloride solution", "observation": "a white precipitate forms" },
+          { "ion": "carbonate", "procedure": "dilute acid is added and the gas is bubbled into limewater", "observation": "the limewater turns milky" },
+          { "ion": "ammonium", "procedure": "sodium hydroxide solution is added and the mixture is warmed, and the gas is tested with damp red litmus paper", "observation": "the litmus paper turns blue" }
+        ]
+      }
+    }
   ]
 }

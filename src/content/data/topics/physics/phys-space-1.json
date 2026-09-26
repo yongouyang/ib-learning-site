@@ -347,5 +347,19 @@
       "explanation": "The correct answer is '13.8 billion years — from CMB and expansion rate measurements'. Universe age estimated at:",
       "difficulty": "easy"
     }
+  ],
+  "templates": [
+    {
+      "generator": "phys-weight",
+      "params": {
+        "bodies": [
+          { "body": "Earth", "g": 10 },
+          { "body": "the Moon", "g": 1.6 },
+          { "body": "Mars", "g": 3.7 },
+          { "body": "Jupiter", "g": 25 }
+        ],
+        "masses": [2, 4, 5, 8, 10, 12, 20, 25, 50]
+      }
+    }
   ]
 }

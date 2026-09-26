@@ -347,5 +347,20 @@
       "explanation": "Real image = light actually passes through the image point. Virtual image = light only appears to come from that point.",
       "difficulty": "medium"
     }
+  ],
+  "templates": [
+    {
+      "generator": "phys-refraction",
+      "params": {
+        "media": [
+          { "medium": "glass", "n": 1.5 },
+          { "medium": "diamond", "n": 2.4 },
+          { "medium": "a clear plastic", "n": 2 },
+          { "medium": "a dense crystal", "n": 2.5 }
+        ],
+        "focalLengths": [0.1, 0.2, 0.25, 0.5, 2, 4],
+        "angles": [15, 20, 25, 30, 35, 40, 50, 60, 65, 70]
+      }
+    }
   ]
 }
