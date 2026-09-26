@@ -4,6 +4,61 @@
 
 ---
 
+## 2026-09-26 (session 15) — review P2s closed (math scroll-shadow + table-cell seam); C's residue: 9 generators, 219/245 templated
+Git HEAD: `2c4e3d4` (develop, tree dirty — the whole change set is uncommitted)
+Done: **(1) The reviewer's P2 — clipped formulas with no scroll affordance.** Display math
+  (`MathExpression` display mode) now carries `math-scroll` (globals.css): a CSS-only
+  cover/shadow pair (`background-attachment: local, scroll`) that shows a right-edge gradient
+  iff the formula overflows and vanishes at scroll end — no JS, no false positives (a
+  full-edge sweep found none). Measured via new `scripts/measure-display-math.mjs`: 12 blocks
+  clipped at 320px on the three flagged topics. Two re-authored with `aligned` breaks so they
+  FIT: the pythagoras ladder worked example (its answer `≈ 4.27 m` was off-screen — now fully
+  visible at 320px) and the 3×3 determinant expansion (461px → 3 rows, fits). The rest rely on
+  the shadow. **(2) Table-cell `$$` seam:** `StudyNoteBody` th/td now route through
+  `renderLineContent` (a future `$$…$$` in a cell renders as display math instead of literal
+  `$`; no corpus instance today). **(3) Doc inconsistencies:** CONTENT_STYLE.md:145 rewritten
+  to the corpus convention (`£$78$`; `\$` for a literal dollar; fullwidth ＄ legacy);
+  typesafe-ai-reviewed.md's status note records `multi_display_math`'s deletion and marks §2
+  as dated history. **(4) C's residue — 9 new generators, all four shortlist rows CLOSED:**
+  `math-surds` → math-yr9-surds; `math-quadratic-graphs` → math-yr9-quadratic-graphs (a
+  SEPARATE generator, so the three existing `math-quadratic` hosts' draws are untouched);
+  `chem-ion-tests`/`chem-separation`/`chem-organic-series`/`chem-gas-pressure` (Boyle's-law
+  arithmetic, not a table — designed from the host's questions) → the four chem topics;
+  `phys-refraction` (n = c/v with exactly-dividing indices, no Snell numerics — off-level for
+  the KS3 host) / `phys-weight` (W = mg) / `phys-transformer` (the backlog's "orbital period"
+  pairing was wrong — the host drills turns ratios) → the three phys topics. **64 generators,
+  219 of 245 templated (239 placements)**; unwired 26 (maths 21, chem 4, phys 1 — all
+  non-parameterizable → authored variant groups). New repo scripts: `measure-display-math.mjs`,
+  `capture-study-notes.mjs` (targeted note capture; AGENTS.md updated).
+Verified: generate:registry + check:registry ✓, validate:content ✓ (245 topics / 3945
+  questions, 20-seed template sweeps), audit:content **0/0** ✓, **1627/1627** unit tests (+36:
+  per-generator suites with independently recomputed answers, the table-cell `$$` case, the
+  math-scroll class pin), tsc clean, lint **35w/0e (baseline)**, `build:static` green (leak gate
+  HARD, verify:sitemaps 352), audit:overflow PASS (99 pages, 375px), e2e mobile-navigation
+  iPhone SE 3/3. Browser spot-check of all 9 newly wired quizzes at 375px: 0 `.katex-error`, no
+  overflow. UX pass (fresh-context subagent, 14-shot sheet + 4 directed captures):
+  **SHIP WITH NOTES, no P0/P1** — the P1 (determinant note not on the sheet) was closed with a
+  directed capture at 375px both themes; the P2 (dark shadow too subtle) was fixed
+  (alpha 0.45 → 0.55) and re-verified.
+Next: C's residue is now ONLY the ~26 non-parameterizable topics (authored variant groups).
+  Then: the support bot (S1 → S2 → S3 → S5 → S6, §9 decided), the rest of §2.E (footer
+  `/pricing` when billing reopens, the 15 `ladder/2` orphans, orphan detection into
+  verify:sitemaps), and the legal chain → delete `BILLING_DISABLED_ENVS`. Open decisions
+  unchanged: difficulty-tag ruling (~950 retags), HKD presentment, analytics TTL vs PITR,
+  DeepSeek key → SSM.
+Notes: **Waivers:** (a) the remaining clipped formulas (phys moment 385px, several matrices
+  worked-example lines 283–346px) rely on the shadow rather than re-authoring — measured, and
+  the affordance is the point of the fix; (b) in LIGHT mode the shadow's cover is card-white
+  but display math inside an indented code block sits on gray-50 — an imperceptible halo
+  (#fff on #f9fafb), accepted rather than threading context through MathExpression (dark mode
+  agrees exactly); (c) "vanishes at scroll end" is verified by the CSS logic, not screenshots
+  (scroll-position-0 captures only). **The cover/shadow trick needs the cover OPAQUE over the
+  shadow's full width** (solid ≥ 1.25rem) or the shadow bleeds through at scroll end.
+  Two backlog rows were mislabelled (orbital period → phys-magnetism-1; chem-states-1 as a
+  "table") — reading the hosts' questions, as the backlog itself mandates, caught both.
+
+---
+
 ## 2026-09-25 (session 14d) — report-only `audit:latex` shipped; the backslash repair promoted to PROD
 Git HEAD: `936baf6` (develop == main, tree clean; this entry is the docs commit on top)
 Done: **(1) `npm run audit:latex`** (`scripts/audit-latex.mjs`) — the missing-backslash auditor, as a
