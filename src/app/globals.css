@@ -95,4 +95,32 @@
   .safe-area-bottom {
     padding-bottom: env(safe-area-inset-bottom);
   }
+
+  /* Horizontal-scroll hint for display math wider than its container (the
+     2026-09-25 review P2: a too-wide embedded formula was clipped at 375px with
+     nothing telling the student it scrolls — on math-pythagoras-myp the worked
+     example's ANSWER sat off-screen). Cover/shadow pair: the SHADOW
+     (scroll-attached, glued to the container's right edge) is always painted;
+     the COVER (local-attached, glued to the CONTENT's right edge) sits on top of
+     it exactly when the content's right edge reaches the container's — i.e. at
+     scroll end, and permanently when there is nothing to scroll. So the shadow
+     reads as "more this way" and vanishes on its own; no JS, no measuring.
+     Backgrounds paint behind the math, so the cover never hides glyphs — it
+     only occludes the shadow. The cover must be solid for at least the shadow's
+     width (35% of 3rem ≥ 1.25rem) or the shadow bleeds through at scroll end. */
+  .math-scroll {
+    --math-scroll-cover: #fff; /* .card light bg; the gray-50 code-block variant is imperceptibly close */
+    --math-scroll-shadow: rgb(0 0 0 / 0.18);
+    background-image:
+      linear-gradient(to left, var(--math-scroll-cover) 35%, transparent),
+      linear-gradient(to left, var(--math-scroll-shadow), transparent);
+    background-repeat: no-repeat;
+    background-position: right center, right center;
+    background-size: 3rem 100%, 1.25rem 100%;
+    background-attachment: local, scroll;
+  }
+  .dark .math-scroll {
+    --math-scroll-cover: rgb(17 24 39); /* gray-900 — .card AND the code-block branch agree in dark mode */
+    --math-scroll-shadow: rgb(0 0 0 / 0.55);
+  }
 }

@@ -182,7 +182,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
                       key={ci}
                       className="border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 px-2 py-1 text-left font-semibold text-gray-900 dark:text-gray-100"
                     >
-                      {renderInlineMath(cell)}
+                      {renderLineContent(cell)}
                     </th>
                   ))}
                 </tr>
@@ -196,7 +196,7 @@ export default function StudyNoteBody({ body }: { body: string }) {
                       key={ci}
                       className="border border-gray-200 dark:border-gray-700 px-2 py-1 align-top text-left text-gray-700 dark:text-gray-300"
                     >
-                      {renderInlineMath(row[ci] ?? '')}
+                      {renderLineContent(row[ci] ?? '')}
                     </td>
                   ))}
                 </tr>

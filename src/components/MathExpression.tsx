@@ -21,7 +21,7 @@ export default function MathExpression({ latex, display = false }: MathExpressio
     html = `<span class="text-red-500">${latex}</span>`;
   }
 
-  const className = display ? 'block my-3 overflow-x-auto' : 'inline';
+  const className = display ? 'block my-3 overflow-x-auto math-scroll' : 'inline';
   return (
     // Safe: html is katex.renderToString() output; latex comes from authored
     // content JSON (validated by validate:content), never user input.

@@ -63,6 +63,15 @@ describe('StudyNoteBody display math embedded in a line', () => {
     const html = render('Start $$x + 1 and keep going');
     expect(html).not.toContain('katex-display');
   });
+
+  it('marks display blocks with the math-scroll affordance class', () => {
+    // The scroll hint that replaced "clipped with no affordance" (2026-09-26):
+    // globals.css .math-scroll paints a right-edge shadow that vanishes at
+    // scroll end. If this class is dropped, wide formulas are clipped silently
+    // again at phone widths.
+    expect(render('$$x = 1$$')).toContain('math-scroll');
+    expect(render('Mid-line $$x = 1$$ block.')).toContain('math-scroll');
+  });
 });
 
 describe('StudyNoteBody ** bold', () => {
@@ -120,6 +129,16 @@ describe('StudyNoteBody Markdown pipe tables', () => {
     expect(html).toContain('>coefficient</strong>');
     expect(html).toContain('katex');
     expect(html).not.toContain('**');
+  });
+
+  it('renders embedded $$...$$ in a cell as display math, not literal $ wrappers', () => {
+    // Regression guard for the table-cell seam: cells used to go through
+    // renderInlineMath only, so a `$$...$$` in a cell printed literal "$ … $".
+    const body = '| Rule | Formula |\n|---|---|\n| Power | $$P = \\\\dfrac{E}{t}$$ |';
+    const html = renderToStaticMarkup(createElement(StudyNoteBody, { body }));
+    expect(html).toContain('<table');
+    expect(html).toContain('katex-display');
+    expect(html).not.toContain('$');
   });
 
   it('keeps content before and after the table as paragraphs', () => {
