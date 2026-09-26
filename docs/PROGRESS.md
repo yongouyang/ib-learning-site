@@ -4,6 +4,43 @@
 
 ---
 
+## 2026-09-26 (session 16) — C CLOSED: authored variant groups for the last 26 topics; 245/245 surface fresh variants
+Git HEAD: `39ae47d` (develop, tree dirty — this change set is uncommitted)
+Done: **the 26 non-parameterizable topics got authored variant groups** (five parallel
+  clusters, ~340 new questions, ~12–15 groups / 26–30 questions per topic, the chem-bonding-1
+  shape): math-yr7 ×6, math-yr8/yr9 ×3, chem ×4 + phys-energy-resources-1, DP AI ×6, DP
+  AA/AI ×6. Four chem topics turned out to be already group-expanded by the 2026-08-13 batch —
+  but with correctIndex clustered on position B (chem-earth-1 was **2/21/2/2**), which this
+  pass rotated to ~uniform everywhere (permuting choice ORDER only on existing questions whose
+  explanations name values, never positions). Two real defects found on the way: **(1)**
+  `math-yr7-nets-3d-shapes` q9 had THREE correct answers (two distractors were also non-nets)
+  — distractors replaced with genuine nets; **(2) a currency-literal class**: bare `$3 … $2`
+  prose pairs as math delimiters — 7 sites fixed with the `\\$` escape
+  (`math-dp-ai-functions` note + q9 stem/expl + q19 expl, `math-yr8-straight-line-graphs` q15
+  stem/expl, `math-statistics-1` q15 stem/expl — a corpus sweep for digit-leading multi-word
+  "spans" found all of them; the `$n$th …` hits are leftmost-pairing false positives).
+  **245 of 245 topics now surface fresh variants on retake** (219 templated + 26 grouped, 14
+  overlap); `docs/content-backlog-review.md` §2.C/§3 updated to CLOSED.
+Verified: generate:registry + check:registry ✓, validate:content ✓, audit:content **0/0** ✓ (245 topics / **4,221** questions), **1627/1627** unit tests, tsc clean, lint **35w/0e**
+  (baseline), `build:static` green (leak gate HARD — the authoritative run, since each
+  cluster's own build used a stale registry), audit:overflow PASS (375px), quiz-page render
+  spot-check on voronoi / chem-earth-1 / constructions at 375px: 0 `.katex-error`. Each
+  cluster hand-derived its numeric keys and re-verified with scratch `node -e` before writing;
+  ~12 choice-order permutations were confirmed safe by grepping explanations for positional
+  references.
+Next: **(1) promote develop → main** (generators + variant groups + the scroll-shadow fix are
+  all content-side; `BILLING_DISABLED_ENVS` untouched). (2) the support bot (S1 → S2 → S3 →
+  S5 → S6). (3) the rest of §2.E. (4) the legal chain → re-open prod. Open decisions
+  unchanged: difficulty-tag ruling, HKD presentment, analytics TTL vs PITR, DeepSeek key → SSM.
+Notes: **the five-agent swarm failed at launch on the 5-hour quota (403) and was RESUMED with
+  full briefs after reset — resuming with the original prompt works fine even when the agent
+  never started.** Gate numbers quoted by parallel subagents are NOT trustworthy (each saw a
+  mid-merge tree and a stale registry); the parent's post-merge run is the only authoritative
+  one. One pre-existing defect left as recorded, not fixed: none — both findings were fixed
+  this session.
+
+---
+
 ## 2026-09-26 (session 15) — review P2s closed (math scroll-shadow + table-cell seam); C's residue: 9 generators, 219/245 templated
 Git HEAD: `2c4e3d4` (develop, tree dirty — the whole change set is uncommitted)
 Done: **(1) The reviewer's P2 — clipped formulas with no scroll affordance.** Display math
