@@ -1,5 +1,10 @@
 # Content backlog review
 
+> **2026-09-27: backlogs A–E below are all CLOSED. The open improvement room (stage skew,
+> illustration density, paper depth, non-math practice variety) is now measured and sequenced
+> in `docs/content-gap-roadmap.md` — start there for new work; this doc remains the audit
+> trail for the closed backlogs.**
+
 **Measured 2026-09-19** at prod `354858c`, by reading `src/content/data/**` directly.
 **Re-measured 2026-09-23** on `develop` (245 topics): §1, §2.B and §2.C carry the current
 numbers; the closed sections keep their original audit trail.
