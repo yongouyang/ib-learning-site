@@ -114,7 +114,9 @@ describe('renderReportHtml — Open alerts section (S6)', () => {
   it('escapes hostile alert titles', () => {
     const hostile = buildOpenAlertsSummary(
       [alertRow({ title: '<script>alert("x")</script> & "quotes"' })],
-      { nowMs: NOW_MS }
+      // Deliberate XSS fixture: NOW_MS is a hardcoded test timestamp (never
+      // rendered), and the assertions below verify the report HTML escapes it.
+      { nowMs: NOW_MS } // nosemgrep: unknown-value-with-script-tag
     );
     const html = renderReportHtml(data(ROWS), 'octavlearning.com', hostile);
     expect(html).not.toContain('<script>alert("x")</script>');
