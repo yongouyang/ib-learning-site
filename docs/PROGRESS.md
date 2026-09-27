@@ -4,6 +4,51 @@
 
 ---
 
+## 2026-09-27 — Semgrep gate unblocked (deploys resume); support bot verified LIVE; breadcrumb/pill collision fixed
+Git HEAD: `24a5d50` (develop, pushed; tree clean)
+Done: **(1) found why dev/prod had been stuck on `7d5bcd0`: the Semgrep job failed on BOTH
+  `643ff37` and `1c909d1`** (one blocking finding, `unknown-value-with-script-tag` on
+  `tests/unit/analytics-report-html.test.ts:117` — a false positive: the hardcoded `NOW_MS`
+  timestamp sits next to the test's deliberate `<script>` XSS fixture). Suppressed with the
+  repo's standard `nosemgrep` + justification (the `contact-http-handler.test.ts:256`
+  precedent) → `fcb34a9`, CI green, deploy-dev ran. **Support bot is live and working:**
+  first run `{"ok":true,"polled":4,"newAlerts":4,"delivered":4}` and the 5-minute-later run
+  `polled:4, newAlerts:0, skipped:4` — the dedup key works. **(2) #5 — the mobile
+  breadcrumb/pill collision.** The fixed account/theme pill (layout.tsx, `fixed top-4
+  right-4`, measured 90px wide, so x=269 at 375px / x=214 at 320px) overlays the
+  breadcrumb's FIRST line on every mobile page; a long trail's crumb slid beneath it.
+  Fixed at the component: `Breadcrumbs` nav gains `max-sm:pr-28` (22px clearance at both
+  widths), so the first line wraps instead — no per-page `hideOnMobile` whack-a-mole, and
+  the linked middle crumbs stay in the prerendered HTML (the ladder SEO crawl links are
+  unaffected). Guard: `mobile-navigation.spec.ts` asserts every first-line crumb ends left
+  of the pill on study/quiz/flashcards of the corpus-derived longest title — proven failing
+  pre-fix (293 > 214) and passing post-fix; phones only (the pill is `md:hidden` — the first
+  version of the assertion hung 30s on iPad Pro waiting for a pill that does not exist).
+Verified: semgrep (the CI invocation, all 4 packs) **0 findings**; **1735/1735** unit; tsc
+  clean; eslint clean on touched paths; mobile-navigation **5 passed / 4 skipped / 0 failed**
+  across all three projects (`--workers=1`); `build:static` green (verify:sitemaps + leak
+  gate HARD); audit:overflow PASS (99 pages, 375px). UX-review pass (fresh-context subagent,
+  32 shots: corpus longest/shortest titles × study/quiz/flashcards + ladder wall/overview +
+  /progress, mobile+desktop × light+dark): **SHIP WITH NOTES, no P0/P1**.
+Next: (1) promote develop → main once the `24a5d50` deploy verifies on dev (carries the
+  support bot, ladder links, and this fix; the bot's Lambda/table are already live — the
+  dev deploy applies the shared terraform root). (2) legal chain → re-open prod billing
+  (`BILLING_DISABLED_ENVS`) + footer /pricing link (the last orphan). (3) support-bot v1.1
+  backlog (CloudWatch polling, DeepSeek triage, webhook). Open decisions unchanged:
+  difficulty-tag ruling, HKD presentment, analytics TTL vs PITR, DeepSeek key → SSM.
+Notes: **Waivers (UX pass):** (a) `max-sm:pr-28` also insets a `currentAsHeading` h1 line by
+  112px — invisible today (all such titles are short), revisit if a long-titled page adopts
+  `currentAsHeading`; (b) the breadcrumb/ capture sheet has no `control-study-*` (20 shots,
+  not 24) — trails are structurally identical across the three surfaces and the worst case
+  is covered; (c) the quiz difficulty chip row ends ~10px from the pill at 375px — not
+  clipped, untouched by this change, but a 4th chip on mobile would collide. **The
+  deploy-dev smoke already asserts `aws lambda get-function iblearn-support-bot`, and the
+  first-run proof is the `[support-bot] run:` log line — both now confirmed.** Playwright's
+  'iPhone SE' is the 320×568 first-gen device — the pre-fix failure measured at 320px, not
+  375.
+
+---
+
 ## 2026-09-26 (session 18) — §2.E ladder/2 orphans fixed; indexable orphans 16 → 1 (/pricing only)
 Git HEAD: `643ff37` (develop, tree dirty at time of writing — committed with this entry)
 Done: the 15 orphaned `/exams/<course>/ladder/2` pages (docs/content-backlog-review.md §2.E
