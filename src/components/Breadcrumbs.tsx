@@ -16,11 +16,17 @@ export interface BreadcrumbItem {
 // still wrap onto a second line (the caps are deliberately narrow enough to keep
 // the identifying part of a long crumb on the first line, which is where the
 // fixed top-right pill is not).
+// `max-sm:pr-28` reserves the floating account/theme pill's zone (two 44px
+// targets + border ≈ 90px at `fixed top-4 right-4` in layout.tsx) so the FIRST
+// crumb line wraps instead of sliding under the pill — measured on the ladder
+// locked wall, where the course-title crumb ended up clipped beneath it. The
+// cost: a currentAsHeading h1 on its own line below is inset by the same
+// amount; every page using it has a short title, and wrapping beats clipping.
 // `currentAsHeading` renders the current-page item as the page's <h1>, for
 // pages where a separate title would just duplicate the breadcrumb text.
 export function Breadcrumbs({ items, currentAsHeading = false }: { items: BreadcrumbItem[]; currentAsHeading?: boolean }) {
   return (
-    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm mb-4 min-w-0">
+    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm mb-4 min-w-0 max-sm:pr-28">
       {items.map((item, idx) => {
         const isLast = idx === items.length - 1;
         return (

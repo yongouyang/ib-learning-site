@@ -68,6 +68,47 @@ test.describe('Mobile / tablet navigation', () => {
         `${surface} scrolls horizontally: document is ${scrollWidth}px wide in a ${clientWidth}px viewport ` +
           `("${topic.title}")`,
       ).toBeLessThanOrEqual(clientWidth + 1);
+
+      // Regression guard for the pill collision recorded 2026-09-26: the fixed
+      // account/theme pill (layout.tsx, `fixed top-4 right-4`, ~90px wide) sits
+      // over the breadcrumb's FIRST line, and a long trail's crumb slid beneath
+      // it (seen on the ladder locked wall). Breadcrumbs reserves the zone with
+      // `max-sm:pr-28`, so every first-line crumb must end left of the pill.
+      // Phones only: the pill is `md:hidden`, so at >=768px (iPad) it does not
+      // exist and there is nothing to collide with.
+      const isPhone = (page.viewportSize()?.width ?? 1024) < 768;
+      if (isPhone) {
+        const pill = page
+          .getByRole('button', { name: /Current theme:/ })
+          .locator('xpath=ancestor::div[contains(@class,"fixed")][1]');
+        const pillBox = await pill.boundingBox();
+        expect(pillBox, 'the fixed account/theme pill is present on mobile').not.toBeNull();
+        const firstLine = await page.evaluate(() => {
+          const nav = document.querySelector('nav[aria-label="Breadcrumb"]');
+          if (!nav || nav.children.length === 0) return null;
+          const firstTop = nav.children[0].getBoundingClientRect().top;
+          let right = 0;
+          let bottom = 0;
+          for (const child of Array.from(nav.children)) {
+            const rect = child.getBoundingClientRect();
+            if (Math.abs(rect.top - firstTop) <= 1) {
+              right = Math.max(right, rect.right);
+              bottom = Math.max(bottom, rect.bottom);
+            }
+          }
+          return { top: firstTop, right, bottom };
+        });
+        expect(firstLine, 'breadcrumb has a measurable first line').not.toBeNull();
+        // Only when the line vertically shares the pill's band — a trail that
+        // starts below the pill may legitimately use the full width.
+        const overlapsPillBand = firstLine!.top < pillBox!.y + pillBox!.height && firstLine!.bottom > pillBox!.y;
+        if (overlapsPillBand) {
+          expect(
+            firstLine!.right,
+            `${surface} first crumb line ends at ${firstLine!.right}px, under the pill starting at ${pillBox!.x}px`,
+          ).toBeLessThanOrEqual(pillBox!.x + 1);
+        }
+      }
     }
   });
 
