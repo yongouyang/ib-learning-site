@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">A.c. generator and its e.m.f. output graph</title>
+  <desc id="desc">A coil rotating between north and south magnet poles with slip rings and brushes producing an alternating output, next to the e.m.f. against time graph with the peak and zero coil positions labelled.</desc>
+  <defs>
+    <style>
+      .heading { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #1e293b; }
+      .subhead { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; fill: #1e293b; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 600; fill: #374151; }
+      .small { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; fill: #475569; }
+      .wire { stroke: #334155; stroke-width: 2; fill: none; }
+      .fieldline { stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; marker-end: url(#arrG); }
+      .leader { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1; }
+      .chip { fill: #eff6ff; }
+      .axis { stroke: #334155; stroke-width: 1.5; fill: none; marker-end: url(#arrD); }
+      .curve { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="arrG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L8,5 L0,9" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrD" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L8,5 L0,9" fill="#334155"/>
+    </marker>
+    <marker id="arrRot" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L8,5 L0,9" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="440" fill="#f8fafc" rx="12"/>
+  <text x="450" y="34" text-anchor="middle" class="heading">The a.c. generator: slip rings give an alternating e.m.f.</text>
+
+  <!-- Left panel: the generator -->
+  <rect x="30" y="55" width="420" height="350" rx="10" class="panel"/>
+  <text x="240" y="82" text-anchor="middle" class="subhead">Coil rotating in a magnetic field</text>
+
+  <!-- magnet poles -->
+  <rect x="100" y="100" width="180" height="42" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="190" y="127" text-anchor="middle" class="label" fill="#dc2626">N</text>
+  <rect x="100" y="318" width="180" height="42" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="190" y="345" text-anchor="middle" class="label" fill="#2563eb">S</text>
+
+  <!-- field lines N to S -->
+  <line x1="130" y1="146" x2="130" y2="312" class="fieldline"/>
+  <line x1="190" y1="146" x2="190" y2="312" class="fieldline"/>
+  <line x1="250" y1="146" x2="250" y2="312" class="fieldline"/>
+
+  <!-- coil (edge view) -->
+  <rect x="150" y="196" width="80" height="56" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
+  <text x="120" y="228" text-anchor="end" class="small">coil</text>
+  <line x1="122" y1="224" x2="146" y2="224" class="leader"/>
+
+  <!-- rotation arrow -->
+  <path d="M256,184 A30,30 0 1 1 246,256" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arrRot)"/>
+
+  <!-- axle to slip rings -->
+  <line x1="230" y1="224" x2="330" y2="224" class="wire"/>
+  <circle cx="338" cy="224" r="9" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+  <circle cx="360" cy="224" r="9" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+  <!-- brushes -->
+  <rect x="332" y="206" width="12" height="9" fill="#64748b"/>
+  <rect x="354" y="206" width="12" height="9" fill="#64748b"/>
+  <!-- output wires to lamp -->
+  <path d="M338,206 L338,178 L396,178 L396,192" class="wire"/>
+  <path d="M360,206 L360,164 L418,164 L418,192" class="wire"/>
+  <circle cx="407" cy="206" r="14" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+  <line x1="397" y1="196" x2="417" y2="216" stroke="#334155" stroke-width="1.5"/>
+  <line x1="417" y1="196" x2="397" y2="216" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- labels -->
+  <text x="330" y="255" class="small">slip rings</text>
+  <line x1="349" y1="250" x2="349" y2="235" class="leader"/>
+  <text x="296" y="178" class="small">brushes</text>
+  <line x1="332" y1="182" x2="338" y2="203" class="leader"/>
+  <text x="376" y="238" class="small">a.c. output</text>
+
+  <rect x="52" y="374" width="376" height="22" rx="6" class="chip"/>
+  <text x="240" y="389" text-anchor="middle" class="small">Slip rings never swap connections, so the output reverses naturally.</text>
+
+  <!-- Right panel: the output graph -->
+  <rect x="470" y="55" width="400" height="350" rx="10" class="panel"/>
+  <text x="670" y="82" text-anchor="middle" class="subhead">e.m.f. against time</text>
+
+  <!-- axes -->
+  <line x1="520" y1="230" x2="520" y2="110" class="axis"/>
+  <line x1="520" y1="230" x2="850" y2="230" class="axis"/>
+  <text x="500" y="106" class="label">e.m.f.</text>
+  <text x="842" y="250" class="label">t</text>
+
+  <!-- sine curve: two cycles -->
+  <path d="M520,230 C547,150 574,150 601,230 C628,310 655,310 682,230 C709,150 736,150 763,230 C790,310 817,310 844,230" class="curve"/>
+
+  <!-- dashed guides at first peak and second zero -->
+  <line x1="560" y1="170" x2="560" y2="230" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <line x1="601" y1="170" x2="601" y2="230" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <!-- peak annotation -->
+  <rect x="588" y="100" width="262" height="36" rx="6" class="chip"/>
+  <text x="719" y="114" text-anchor="middle" class="small">peak — coil parallel to field:</text>
+  <text x="719" y="129" text-anchor="middle" class="small">sides cutting field lines fastest</text>
+  <line x1="640" y1="136" x2="566" y2="166" class="leader"/>
+
+  <!-- zero annotation -->
+  <rect x="540" y="300" width="290" height="36" rx="6" class="chip"/>
+  <text x="685" y="314" text-anchor="middle" class="small">zero — coil perpendicular to field:</text>
+  <text x="685" y="329" text-anchor="middle" class="small">sides move along the lines, none cut</text>
+  <line x1="660" y1="300" x2="610" y2="234" class="leader"/>
+
+  <text x="670" y="382" text-anchor="middle" class="small">Spinning faster raises BOTH the peak and the frequency.</text>
+</svg>

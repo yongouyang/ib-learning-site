@@ -285,7 +285,7 @@ describe('checkMarkschemePrefixes', () => {
   });
 
   it('holds for every markscheme point in the corpus (the measurement, pinned)', () => {
-    // 620 points across 31 sets: M 116 / A 156 / B 348 (2026-09-21, after the two DP AA sets).
+    // 660 points across 33 sets: M 135 / A 169 / B 356 (2026-09-28, after the IGCSE Physics sets).
     // If a future authoring pass breaks the convention, this fails here rather than in an
     // exam marker's prompt.
     const papersDir = path.join(process.cwd(), 'src/content/data/papers');
@@ -302,6 +302,6 @@ describe('checkMarkschemePrefixes', () => {
         expect(checkMarkschemePrefixes(parsed)).toEqual([]);
       }
     }
-    expect(points).toBe(620);
+    expect(points).toBe(660);
   });
 });

@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-thermal-particle-model",
+  "subjectId": "physics",
+  "title": "Particle Model, Gases & Temperature",
+  "description": "States of matter, the kinetic particle model, Brownian motion, absolute temperature, gas pressure and Boyle's law for IGCSE Physics 0625.",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-thermal-particle-model-n1",
+      "heading": "States of Matter and the Particle Model",
+      "body": "📌 Definition\nThe **kinetic particle model** pictures all matter as tiny particles in motion. The three states of matter differ in the arrangement and movement of their particles.\n\n🔑 How it works\n• **Solid** — particles touch in a fixed, regular arrangement and vibrate about fixed positions. A solid keeps its own shape and volume.\n• **Liquid** — particles touch but are arranged irregularly and slide past one another. A liquid keeps its volume but flows to fit its container.\n• **Gas** — particles are far apart and move rapidly in random directions. A gas expands to fill its container and can be compressed.\n\n📎 Key Points to Remember\n• Density falls from solid to liquid to gas mainly because the **spacing** of the particles increases.\n• The particles themselves do not change when the state changes — only their arrangement and motion.\n\n⚠️ Common Mistake\nDrawing liquid particles widely separated. Liquid particles are as close together as in the solid — they are just disordered and free to move past each other."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-n2",
+      "heading": "Explaining Properties with Particles",
+      "body": "🔑 How it works\nThe properties of each state follow from the **forces** between particles, their **distances** apart and their **motion** (the Supplement wording of the syllabus):\n• Solids: strong forces hold particles in fixed positions → fixed shape, cannot be compressed, high density.\n• Liquids: forces are still strong enough to keep particles close, but weak enough to let them move → flows, fixed volume, almost incompressible.\n• Gases: negligible forces between fast-moving, widely spaced particles → expands without limit, easily compressed, low density.\n\n💡 Worked Example\nWhy can a gas be compressed when a solid cannot? A gas is mostly empty space between particles, so the particles can be pushed closer together; solid particles are already touching.\n\n📎 Key Points to Remember\n• In the exam, explain with forces, distances AND motion of the particles — all three score marks.\n\n⚠️ Common Mistake\nSaying gas particles 'expand' when heated. The particles stay the same size; they move faster and spread further apart."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-n3",
+      "heading": "Brownian Motion — Evidence for the Model",
+      "body": "📌 Definition\n**Brownian motion** is the continuous, random, jerky movement of microscopic particles suspended in a fluid.\n\n🔑 The smoke-cell experiment\nSmoke is trapped in a small glass cell, brightly lit from the side and viewed through a microscope. The smoke specks appear as bright points that dart about randomly, never settling into a steady path.\n\n🔑 Explanation\nEach visible speck is bombarded **unevenly** by vast numbers of fast-moving, invisible air molecules; at any instant more molecules strike one side than the other, so the speck lurches. The observed motion of the specks is evidence for the unseen motion of the molecules.\n\n📎 Key Points to Remember\n• Brownian motion is evidence for the kinetic particle model: matter is made of tiny particles in continuous random motion.\n• The specks do not move because they are 'alive' or because of the light.\n\n⚠️ Common Mistake\nClaiming you see the air molecules. You see the **smoke particles**; the air molecules are far too small to see."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-n4",
+      "heading": "Temperature, Absolute Zero and the Kelvin Scale",
+      "body": "📌 Definition\nTemperature is a measure of the average kinetic energy of the particles. The **kelvin** (K) is the SI unit of temperature. **Absolute zero**, $0\\text{ K} = -273^{\\circ}\\text{C}$, is the temperature at which the particles have minimum possible kinetic energy.\n\n🔑 How it works\nTo convert between the scales, add 273: $T(\\text{K}) = \\theta(^{\\circ}\\text{C}) + 273$.\n• $0^{\\circ}\\text{C} = 273\\text{ K}$ and $100^{\\circ}\\text{C} = 373\\text{ K}$.\n• A temperature **change** of $1^{\\circ}\\text{C}$ is exactly the same as a change of $1\\text{ K}$.\n\n💡 Worked Example\nRoom temperature, $20^{\\circ}\\text{C}$, is $20 + 273 = 293\\text{ K}$.\n\n📎 Key Points to Remember\n• The kelvin scale starts at absolute zero, so kelvin temperatures are proportional to the particles' average kinetic energy.\n\n⚠️ Common Mistake\nWriting a kelvin temperature with a degree sign — it is $300\\text{ K}$, never $300^{\\circ}\\text{K}$."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-n5",
+      "heading": "Gas Pressure and the Particle Model",
+      "body": "📌 Definition\nA gas exerts pressure because its particles **collide with the walls** of the container. Each collision exerts a small force on the wall; billions of collisions per second spread over the wall's area give a steady pressure.\n\n🔑 How it works (Core, qualitative)\n• **Heat the gas at constant volume** — the particles move faster, so they hit the walls harder and more often → pressure increases.\n• **Squeeze the gas at constant temperature** — the same particles now have less space, so they hit the walls more often → pressure increases.\n\n💡 Worked Example\nAn aerosol can warns 'keep away from heat': the volume is fixed, so heating raises the pressure, and the can may burst.\n\n📎 Key Points to Remember\n• Always explain a pressure change in terms of the **rate and force of collisions** — those are the mark-scheme words.\n\n⚠️ Common Mistake\n'The pressure rises because the particles expand.' Particles do not expand; they collide harder and more frequently."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-n6",
+      "heading": "Boyle's Law — pV = constant (Supplement)",
+      "body": "📌 Definition\nSupplement content. For a **fixed mass of gas at constant temperature**, pressure is inversely proportional to volume:\n\n$$pV = \\text{constant} \\qquad p_1V_1 = p_2V_2$$\n\n💡 Worked Example\n$200\\text{ cm}^3$ of gas at $100\\text{ kPa}$ is compressed slowly to $50\\text{ cm}^3$ at constant temperature:\n\n$$p_2 = \\dfrac{p_1V_1}{V_2} = \\dfrac{100 \\times 200}{50} = 400\\text{ kPa}$$\n\n🔑 The two graphs\n• $p$ against $V$: a smooth curve that falls steeply and then flattens — the signature of an inverse relationship.\n• $p$ against $1/V$: a **straight line through the origin**, showing $p \\propto \\dfrac{1}{V}$.\n\n📎 Key Points to Remember\n• The law applies only if the mass and the temperature of the gas are fixed — quote that condition in the exam.\n• Halving the volume doubles the pressure; tripling the volume divides the pressure by three.\n\n⚠️ Common Mistake\nUsing Boyle's law while the gas is being heated. If the temperature changes, $pV$ is not constant.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-thermal-particle-model-boyles-law.svg",
+        "alt": "Two graphs for a fixed mass of gas at constant temperature: pressure against volume forms a falling curve, and pressure against 1 over volume forms a straight line through the origin.",
+        "caption": "For a fixed mass of gas at constant temperature, pV is constant — an inverse curve against V, a straight line through the origin against 1/V."
+      }
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-n7",
+      "heading": "Explaining Pressure Changes with Particles (Supplement)",
+      "body": "🔑 How it works\nSupplement content. Every pressure change can be explained by the **rate** and **force** of particle collisions with the walls:\n• **Smaller volume, same temperature** — the particles move at the same average speed but have less far to travel between wall collisions, so collisions are more **frequent** → higher pressure.\n• **Higher temperature, same volume** — the particles move faster, so collisions are more frequent **and** each collision exerts a greater force → higher pressure.\n• **Bigger volume, same temperature** — collisions become less frequent → lower pressure.\n\n💡 Worked Example\nA sealed syringe of air is pushed in slowly so the temperature stays constant. The same number of particles is confined to a smaller volume; each area of wall is struck more times per second, so the pressure rises until it balances your thumb.\n\n📎 Key Points to Remember\n• 'Particles hit the walls more often' scores the mark for a volume change; 'harder and more often' for a temperature change.\n\n⚠️ Common Mistake\nSaying heating 'makes more particles'. The number of particles in a sealed container is fixed."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-thermal-particle-model-f1",
+      "term": "Solid (particle model)",
+      "definition": "Particles touch in a fixed, regular arrangement and vibrate about fixed positions; a solid keeps its shape and volume.",
+      "example": "Ice keeps its own shape until it melts."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-f2",
+      "term": "Liquid (particle model)",
+      "definition": "Particles touch but are disordered and slide past one another; a liquid keeps its volume but flows to fit its container.",
+      "example": "Water poured from a jug takes the shape of the glass."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-f3",
+      "term": "Gas (particle model)",
+      "definition": "Particles are far apart and move rapidly at random; a gas fills its container and can be compressed.",
+      "example": "Air in a syringe can be squeezed to a smaller volume."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-f4",
+      "term": "Kinetic particle model",
+      "definition": "All matter is made of tiny particles in continuous motion; the states differ in the arrangement, spacing and motion of the particles.",
+      "example": "Solids, liquids and gases of the same substance contain identical particles."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-f5",
+      "term": "Brownian motion",
+      "definition": "The continuous, random, jerky motion of microscopic particles suspended in a fluid; evidence for the kinetic particle model.",
+      "example": "Pollen grains dancing in a drop of water under a microscope."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-f6",
+      "term": "Smoke-cell experiment",
+      "definition": "Lit smoke in a glass cell viewed under a microscope: bright specks dart randomly because invisible air molecules bombard them unevenly.",
+      "example": "The specks lurch because more molecules strike one side than the other at any instant."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-f7",
+      "term": "Absolute zero",
+      "definition": "0 K = −273 °C; the temperature at which particles have the minimum possible kinetic energy.",
+      "example": "An ideal gas would exert zero pressure at absolute zero — no particle motion, no wall collisions."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-f8",
+      "term": "Kelvin conversion",
+      "definition": "T(K) = θ(°C) + 273. A change of 1 K is exactly equal to a change of 1 °C.",
+      "example": "25 °C = 298 K; boiling water at 100 °C = 373 K."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-f9",
+      "term": "Gas pressure (cause)",
+      "definition": "Caused by gas particles colliding with the container walls; the pressure is the combined effect of billions of collisions per second.",
+      "example": "A balloon stays inflated because air particles keep striking its inner surface."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-f10",
+      "term": "Heating a gas at constant volume",
+      "definition": "Particles move faster → they collide with the walls harder and more often → the pressure increases.",
+      "example": "This is why a sealed aerosol can may burst on a hot windowsill."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-f11",
+      "term": "Boyle's law (Supplement)",
+      "definition": "For a fixed mass of gas at constant temperature, pV = constant, so p₁V₁ = p₂V₂.",
+      "example": "Halving the volume doubles the pressure."
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-f12",
+      "term": "Boyle's law graphs (Supplement)",
+      "definition": "p against V is a smooth falling curve; p against 1/V is a straight line through the origin.",
+      "example": "A straight line through the origin on the p–1/V graph proves p is proportional to 1/V."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-thermal-particle-model-q1",
+      "stem": "In a solid, the particles...",
+      "choices": [
+        "move freely in all directions",
+        "are far apart and move randomly",
+        "vibrate about fixed positions in a regular arrangement",
+        "are completely stationary"
+      ],
+      "correctIndex": 2,
+      "explanation": "Solid particles touch in a fixed, regular arrangement and vibrate about fixed positions — that is why a solid keeps its own shape. They are never completely still.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q2",
+      "stem": "Brownian motion is the observation that...",
+      "choices": [
+        "tiny particles suspended in a fluid move continuously and randomly",
+        "gases always expand when they are heated",
+        "liquids evaporate from their surface",
+        "solid particles vibrate when struck"
+      ],
+      "correctIndex": 0,
+      "explanation": "Brownian motion is the random jerky movement of suspended microscopic particles, caused by uneven bombardment from invisible molecules — evidence for the kinetic particle model.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q3",
+      "stem": "Convert 27 °C to kelvin.",
+      "choices": [
+        "246 K",
+        "273 K",
+        "327 K",
+        "300 K"
+      ],
+      "correctIndex": 3,
+      "explanation": "$T(\\text{K}) = \\theta(^{\\circ}\\text{C}) + 273 = 27 + 273 = 300\\text{ K}$. The 246 K option subtracts instead of adding.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q4",
+      "stem": "Absolute zero is...",
+      "choices": [
+        "0 °C, the freezing point of water",
+        "−273 °C (0 K), where particles have minimum possible kinetic energy",
+        "−100 °C, the coldest natural temperature on Earth",
+        "the temperature at which all gases liquefy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Absolute zero is $-273^{\\circ}\\text{C} = 0\\text{ K}$, the lower limit of temperature, where particle kinetic energy is at its minimum.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q5",
+      "stem": "A gas exerts pressure on its container because...",
+      "choices": [
+        "its particles collide with the walls",
+        "the gas has mass",
+        "the container is rigid",
+        "gravity pulls the gas downwards"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pressure is the combined effect of billions of particle collisions with the walls every second — each collision exerts a small force on the wall.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q6",
+      "stem": "Convert 373 K to degrees Celsius.",
+      "choices": [
+        "646 °C",
+        "373 °C",
+        "100 °C",
+        "0 °C"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\theta = 373 - 273 = 100^{\\circ}\\text{C}$ — the boiling point of water. The 646 °C option adds 273 instead of subtracting.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q7",
+      "stem": "A sealed rigid container of gas is heated. The pressure rises because the particles...",
+      "choices": [
+        "expand and push the walls harder",
+        "increase in number",
+        "become heavier",
+        "move faster, so they hit the walls harder and more frequently"
+      ],
+      "correctIndex": 3,
+      "explanation": "Heating raises the particles' kinetic energy: collisions with the walls become more frequent and each collision exerts a greater force, so pressure rises. Particles do not expand, multiply or gain mass.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q8",
+      "stem": "For a fixed mass of gas at constant temperature, a graph of pressure against 1/volume is...",
+      "choices": [
+        "a curve that bends away from the origin",
+        "a straight line through the origin",
+        "a horizontal line",
+        "a straight line that misses the origin"
+      ],
+      "correctIndex": 1,
+      "explanation": "Boyle's law gives $p \\propto \\dfrac{1}{V}$, so $p$ against $1/V$ is a straight line through the origin. It is $p$ against $V$ that is a curve.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q9",
+      "stem": "A gas occupies 200 cm³ at a pressure of 100 kPa. It is compressed slowly, so the temperature stays constant, to 50 cm³. What is the new pressure?",
+      "choices": [
+        "400 kPa",
+        "25 kPa",
+        "200 kPa",
+        "800 kPa"
+      ],
+      "correctIndex": 0,
+      "explanation": "Boyle's law: $p_2 = \\dfrac{p_1V_1}{V_2} = \\dfrac{100 \\times 200}{50} = 400\\text{ kPa}$. The volume is divided by 4, so the pressure is multiplied by 4.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q10",
+      "stem": "A temperature rise of 10 °C is the same as a rise of...",
+      "choices": [
+        "283 K",
+        "2730 K",
+        "10 K",
+        "0.1 K"
+      ],
+      "correctIndex": 2,
+      "explanation": "The kelvin and Celsius scales have identical step sizes: a **change** of $10^{\\circ}\\text{C}$ is a change of $10\\text{ K}$. The 283 K option adds 273, which only applies when converting an actual temperature, not a change.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q11",
+      "stem": "A gas at a pressure of 1.5 × 10⁵ Pa occupies 400 cm³. At constant temperature it is compressed to 250 cm³. What is the new pressure?",
+      "choices": [
+        "9.4 × 10⁴ Pa",
+        "1.5 × 10⁵ Pa",
+        "6.0 × 10⁵ Pa",
+        "2.4 × 10⁵ Pa"
+      ],
+      "correctIndex": 3,
+      "explanation": "$p_1V_1 = p_2V_2$ gives $p_2 = \\dfrac{1.5 \\times 10^5 \\times 400}{250} = 2.4 \\times 10^{5}\\text{ Pa}$. The $6.0 \\times 10^{5}\\text{ Pa}$ option multiplies the pressures instead of dividing by the volume ratio.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q12",
+      "stem": "A fixed mass of gas at constant temperature has a pressure of 120 kPa and a volume of 300 cm³. What is its volume when the pressure falls to 90 kPa?",
+      "choices": [
+        "225 cm³",
+        "400 cm³",
+        "360 cm³",
+        "480 cm³"
+      ],
+      "correctIndex": 1,
+      "explanation": "$V_2 = \\dfrac{p_1V_1}{p_2} = \\dfrac{120 \\times 300}{90} = 400\\text{ cm}^3$. The pressure has fallen, so the volume must have risen — 225 cm³ goes the wrong way.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q13",
+      "stem": "Using the particle model, why does the pressure of a gas fall when its container expands at constant temperature?",
+      "choices": [
+        "the particles travel further between wall collisions, so they strike the walls less frequently",
+        "the particles slow down because the container is bigger",
+        "the particles get smaller as they spread out",
+        "gravity acts on fewer of the particles"
+      ],
+      "correctIndex": 0,
+      "explanation": "At constant temperature the particles keep the same average speed, but in a larger volume each particle hits the walls less often, so the collision rate — and hence the pressure — falls. Particle size and speed are unchanged.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q14",
+      "stem": "A p–V graph for a fixed mass of gas at constant temperature passes through V = 2 m³, p = 100 kPa. Which other point lies on the same curve?",
+      "choices": [
+        "V = 4 m³, p = 100 kPa",
+        "V = 8 m³, p = 50 kPa",
+        "V = 8 m³, p = 25 kPa",
+        "V = 4 m³, p = 25 kPa"
+      ],
+      "correctIndex": 2,
+      "explanation": "Every point on the curve has $pV = 100 \\times 2 = 200$. Only $V = 8\\text{ m}^3$, $p = 25\\text{ kPa}$ gives $8 \\times 25 = 200$; the other pairings give 400 or 100.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-thermal-particle-model-q15",
+      "stem": "In the smoke-cell experiment, the bright specks seen through the microscope jerk about randomly because...",
+      "choices": [
+        "the smoke particles are alive",
+        "invisible air molecules bombard the smoke particles unevenly",
+        "the light shining on them pushes them around",
+        "the cell is heated from below"
+      ],
+      "correctIndex": 1,
+      "explanation": "At any instant more fast-moving air molecules strike one side of a speck than the other, so the speck lurches. This uneven bombardment by invisible molecules is the evidence for the kinetic particle model.",
+      "difficulty": "medium"
+    }
+  ]
+}

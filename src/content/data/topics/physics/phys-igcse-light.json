@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-light",
+  "subjectId": "physics",
+  "title": "Light, Optics & the Electromagnetic Spectrum",
+  "description": "Reflection and plane-mirror images, refraction and refractive index, critical angle and total internal reflection, lenses and ray diagrams, dispersion, and the uses and hazards of the electromagnetic spectrum (IGCSE 0625).",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-light-n1",
+      "heading": "Reflection and Plane Mirrors",
+      "body": "📌 Definition\nThe **normal** is a construction line drawn at $90^\\circ$ (perpendicular) to a surface at the point where a ray hits it. The **angle of incidence** $i$ and the **angle of reflection** $r$ are both measured between the ray and the normal.\n\n🔑 How it works\n**Law of reflection**: the angle of incidence equals the angle of reflection.\n\n$$i = r$$\n\nBoth rays and the normal lie in the same plane. Angles are always measured from the normal, never from the mirror surface.\n\n💡 Worked Example\nA ray strikes a mirror at $60^\\circ$ to the mirror surface. The angle of incidence is $90^\\circ - 60^\\circ = 30^\\circ$, so the ray reflects at $30^\\circ$ to the normal on the other side.\n\n🔑 The image in a plane mirror\nThe image formed by a plane mirror is:\n• **Virtual** — the rays only APPEAR to come from it; no light actually passes through the mirror.\n• **Upright** (not inverted top-to-bottom).\n• The **same size** as the object.\n• **As far behind the mirror** as the object is in front.\n• **Laterally inverted** — left and right are swapped (why ambulance lettering is reversed).\n\n📎 Key Points to Remember\n• To draw the reflected ray or image: mark the image position an equal distance behind the mirror, then draw rays as if they come from the image.\n• An observer sees the image where the reflected rays, extended BACKWARDS behind the mirror, meet."
+    },
+    {
+      "id": "phys-igcse-light-n2",
+      "heading": "Refraction and the Refractive Index",
+      "body": "📌 Definition\n**Refraction** is the change in direction of light as it passes from one medium into another, caused by a **change in speed**.\n\n🔑 How it works — the experiment (Core practical)\nPlace a rectangular glass block on paper and trace its outline. Shine a single ray from a ray box into one face at an angle (or use pins to mark the ray path). Trace the emergent ray, remove the block, join the entry and exit points, and measure the angles of incidence $i$ and refraction $r$ from the normal. Repeat for several angles. The ray bends **towards the normal** entering the glass (it slows down) and **away from the normal** leaving it (it speeds up). For a parallel-sided block the emergent ray is **parallel** to the incident ray, shifted sideways. A ray travelling ALONG the normal ($i = 0^\\circ$) passes through undeviated.\n\n🔑 The refractive index (Supplement)\nThe **refractive index** $n$ of a medium is defined by:\n\n$$n = \\dfrac{\\sin i}{\\sin r}$$\n\nwhere $i$ is the angle in air and $r$ the angle in the medium, both from the normal. Also $n = \\dfrac{\\text{speed of light in vacuum (or air)}}{\\text{speed of light in the medium}}$ — a bigger $n$ means slower light and more bending.\n\n💡 Worked Example\nA ray enters a plastic block with $\\sin i = 0.80$ and $\\sin r = 0.50$. $n = \\dfrac{0.80}{0.50} = 1.6$.\n\n⚠️ Common Mistake\nWriting $n = \\dfrac{\\sin r}{\\sin i}$ — upside down. Light bends TOWARDS the normal entering glass, so $i > r$ and $n > 1$. If your answer is less than 1, you inverted it.\n\n📎 Key Points to Remember\n• Angles from the normal, always.\n• Emergent ray from a parallel-sided block is parallel to the incident ray."
+    },
+    {
+      "id": "phys-igcse-light-n3",
+      "heading": "Critical Angle and Total Internal Reflection",
+      "body": "📌 Definition\nWhen light travels from a denser medium (glass, water) towards a less dense one (air), it refracts AWAY from the normal. As $i$ increases, the refracted ray approaches the boundary. The **critical angle** $c$ is the angle of incidence in the denser medium for which the angle of refraction is exactly $90^\\circ$ — the refracted ray runs along the boundary.\n\n🔑 How it works\n**Total internal reflection (TIR)** happens when BOTH conditions hold:\n1. The light is travelling from a denser to a less dense medium (e.g. glass to air).\n2. The angle of incidence is GREATER than the critical angle ($i > c$).\n\nThen no light refracts out — all of it is reflected back inside, obeying $i = r$.\n\n🔑 The critical angle equation (Supplement)\n\n$$n = \\dfrac{1}{\\sin c}$$\n\n💡 Worked Example\nFor glass with $n = 1.5$: $\\sin c = \\dfrac{1}{1.5} = 0.667$, so $c = 41.8^\\circ \\approx 42^\\circ$. For diamond, $n = 2.4$ gives $c \\approx 25^\\circ$ — its small critical angle is why diamond sparkles: most light entering is trapped by TIR until it exits at a facet.\n\n⚠️ Common Mistake\nApplying TIR to light going air → glass. TIR can NEVER happen entering a denser medium — the ray bends towards the normal and there is no critical angle.\n\n📎 Key Points to Remember\n• State BOTH conditions when explaining TIR in words: dense → less dense AND $i > c$.\n• Bigger $n$ → smaller $c$ → TIR happens more easily.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-light-critical-angle.svg",
+        "alt": "Three rays inside glass meeting the glass-air boundary: one below the critical angle refracting out, one at the critical angle travelling along the boundary, and one above it totally internally reflecting.",
+        "caption": "At i less than c light refracts out; at i = c it runs along the boundary; at i greater than c it is totally internally reflected."
+      }
+    },
+    {
+      "id": "phys-igcse-light-n4",
+      "heading": "Lenses and Ray Diagrams",
+      "body": "📌 Definition\nA **converging (convex) lens** is thicker at the centre and brings parallel rays together at a point. The **principal focus** $F$ is the point on the principal axis where rays parallel to the axis converge; the **focal length** $f$ is the distance from the centre of the lens to $F$.\n\n🔑 How it works — the two construction rays (Core)\nTo locate the image formed by a converging lens of an object beyond $F$:\n1. A ray parallel to the principal axis refracts to pass through $F$ on the far side.\n2. A ray through the centre of the lens passes straight through **undeviated**.\n\nWhere the refracted rays meet is the top of the image. For an object beyond $F$ the image is **real** (rays actually converge there, so it can be projected on a screen) and **inverted**; its size depends on the object distance.\n\n🔑 Supplement: virtual images, magnifiers and sight correction\n• A **diverging (concave) lens** is thinner at the centre and spreads parallel rays as if they came from the principal focus on the SAME side as the object; its image is always virtual, upright and diminished.\n• A converging lens used as a **magnifying glass** has the object INSIDE $F$: the rays diverge after the lens, but extended backwards they form a **virtual, upright, magnified** image on the same side as the object.\n• **Sight correction** (lenses only — the eye's structure is not in 0625): **short sight** (distant objects focus in front of the retina) is corrected with a **diverging** lens; **long sight** (near objects focus behind the retina) is corrected with a **converging** lens.\n\n⚠️ Common Mistake\nDrawing the through-focus ray and forgetting the undeviated central ray — the image position is found from where the two rays CROSS, so you need both.\n\n📎 Key Points to Remember\n• Real = rays converge, can be projected, inverted. Virtual = rays only appear to diverge from it, upright.\n• Diverging lens corrects short sight; converging lens corrects long sight."
+    },
+    {
+      "id": "phys-igcse-light-n5",
+      "heading": "Optical Fibres and Communications (Supplement)",
+      "body": "🔑 How it works\nAn **optical fibre** is a thin strand of glass that traps light by total internal reflection: the fibre is flexible, and wherever the light meets the inner surface the angle of incidence exceeds the critical angle, so the signal zig-zags along the fibre by repeated TIR with almost no loss.\n\n💡 Applications\n• **Endoscopy** — a bundle of fibres carries light down into a patient and the reflected image back up, letting doctors examine a stomach or throat without surgery.\n• **Communications** — telephone and internet signals travel as pulses of light in fibres: they carry far more information and lose far less strength per kilometre than electrical signals in copper wires.\n\n🔑 Digital vs analogue signals\nAn **analogue** signal varies continuously, like the sound wave it represents. A **digital** signal has only two states — on and off, 1 and 0 — representing the information as a coded sequence of pulses. Digital signals can be **regenerated** (pulses cleaned back to full size) to remove noise picked up in transmission, which is why long-distance communication is digital.\n\n🔑 Choosing the wave for the job\n• **Microwaves** — satellite television and mobile phones (they pass through the atmosphere to orbit).\n• **Infrared** — remote controls and short-range data links; also sent along optical fibres.\n• **Radio waves** — radio and television broadcasting (long wavelengths diffract around obstacles).\n\n📎 Key Points to Remember\n• In a fibre, say WHY the light stays in: at every reflection $i > c$, so TIR occurs.\n• Digital's exam keyword is REGENERATION of a noisy signal."
+    },
+    {
+      "id": "phys-igcse-light-n6",
+      "heading": "Dispersion of Light",
+      "body": "📌 Definition\n**Dispersion** is the splitting of white light into its spectrum of colours (red, orange, yellow, green, blue, indigo, violet) when it passes through a prism.\n\n🔑 How it works\nWhite light is a mixture of all the colours of the visible spectrum. Each colour has a different wavelength and travels at a slightly different speed in glass, so each refracts by a slightly different amount. **Violet deviates the most** (shortest wavelength, slowest in glass); **red deviates the least** (longest wavelength, fastest in glass). The spectrum fans out at both faces of the prism.\n\n💡 Worked Example\nTwo rays of white light enter a triangular prism. At the first face violet bends more towards the normal than red; at the second face, leaving the glass, violet again bends more away from the normal — so the emerging beam is a spectrum with red on top and violet at the bottom.\n\n⚠️ Common Mistake\nSwapping the order: red is deviated LEAST. Remember violet has the shortest wavelength and is bent most.\n\n📎 Key Points to Remember\n• Dispersion is a refraction effect — each colour has its own refractive index in the glass.\n• A rainbow is dispersion by water droplets.\n• Monochromatic light (a single colour) passes through a prism without splitting — it only refracts."
+    },
+    {
+      "id": "phys-igcse-light-n7",
+      "heading": "The Electromagnetic Spectrum",
+      "body": "📌 Definition\nThe **electromagnetic spectrum** is the family of transverse waves, all travelling at the speed of light in a vacuum:\n\n$$c = 3.0 \\times 10^{8}\\text{ m/s}$$\n\nIn order of increasing frequency (decreasing wavelength): **radio waves → microwaves → infrared → visible light → ultraviolet → X-rays → gamma rays**. (Supplement: know the value of $c$; Core: know all EM waves travel at the same speed in a vacuum.)\n\n🔑 How it works — uses matched to properties\n• **Radio waves**: broadcasting and radio astronomy (long wavelengths diffract around hills).\n• **Microwaves**: satellite TV, mobile phones, microwave ovens (absorbed by water molecules in food).\n• **Infrared**: remote controls, thermal-imaging cameras, heaters (all warm objects emit it).\n• **Visible light**: vision, photography, optical fibres.\n• **Ultraviolet**: security marking and sterilising — it fluoresces special inks and kills microbes.\n• **X-rays**: medical imaging of bones (absorbed by dense bone, pass through soft tissue) and airport security scanners.\n• **Gamma rays**: sterilising medical instruments and treating cancer (they kill cells).\n\n🔑 Hazards\nThe higher the frequency, the more energetic the wave. **UV damages skin cells and can cause skin cancer; X-rays and gamma rays are ionising** — they can knock electrons out of atoms, damaging DNA and causing cell mutation or death. Protection: limit exposure time, increase distance, use lead shielding. Microwave heating of body tissue is a hazard; infrared in large doses burns.\n\n⚠️ Common Mistake\nSaying X-rays are used to treat cancer — that is gamma rays (and carefully targeted X-rays); X-rays are the imaging answer in this course. Also: ALL EM waves travel at the same speed in a vacuum — radio is not \"slower light\".\n\n📎 Key Points to Remember\n• Order mnemonic: Radio Microwaves Infrared, Visible Ultraviolet, X-rays, Gamma (R-M-I-V-U-X-G).\n• Frequency rises towards gamma; wavelength rises towards radio."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-light-f1",
+      "term": "Normal",
+      "definition": "A line drawn perpendicular (at 90°) to a surface at the point where a ray strikes it; angles of incidence, reflection and refraction are measured from it.",
+      "example": "A ray hitting a mirror at 30° to the normal has i = 30°."
+    },
+    {
+      "id": "phys-igcse-light-f2",
+      "term": "Law of reflection",
+      "definition": "The angle of incidence equals the angle of reflection, both measured from the normal.",
+      "example": "A ray incident at 25° to the normal reflects at 25° to the normal."
+    },
+    {
+      "id": "phys-igcse-light-f3",
+      "term": "Image in a plane mirror",
+      "definition": "Virtual, upright, the same size as the object, the same distance behind the mirror as the object is in front, and laterally inverted.",
+      "example": "A person 2 m from a mirror sees an image 2 m behind it, 4 m away in total."
+    },
+    {
+      "id": "phys-igcse-light-f4",
+      "term": "Refraction",
+      "definition": "The change in direction of light as it passes between media, caused by a change in speed; towards the normal entering a denser medium, away from it entering a less dense one.",
+      "example": "A straw looks bent at the water surface because light from it speeds up entering the air."
+    },
+    {
+      "id": "phys-igcse-light-f5",
+      "term": "Refractive index (Supplement)",
+      "definition": "n = sin i / sin r, with i in air and r in the medium, measured from the normal; also equals (speed of light in vacuum) / (speed in the medium).",
+      "example": "sin i = 0.80, sin r = 0.50 gives n = 1.6."
+    },
+    {
+      "id": "phys-igcse-light-f6",
+      "term": "Critical angle",
+      "definition": "The angle of incidence in the denser medium at which the angle of refraction is exactly 90°, so the refracted ray runs along the boundary.",
+      "example": "For glass with n = 1.5, c ≈ 42°."
+    },
+    {
+      "id": "phys-igcse-light-f7",
+      "term": "Total internal reflection",
+      "definition": "When light travelling from a denser to a less dense medium strikes the boundary at an angle greater than the critical angle, all of it is reflected back inside (i = r).",
+      "example": "Light zig-zags along an optical fibre by repeated total internal reflection."
+    },
+    {
+      "id": "phys-igcse-light-f8",
+      "term": "n = 1/sin c (Supplement)",
+      "definition": "The link between refractive index and critical angle; larger n means a smaller critical angle.",
+      "example": "n = 2.0 gives sin c = 0.5, so c = 30°."
+    },
+    {
+      "id": "phys-igcse-light-f9",
+      "term": "Principal focus and focal length",
+      "definition": "The principal focus F of a converging lens is where rays parallel to the axis converge; the focal length f is the distance from the centre of the lens to F.",
+      "example": "Sunlight focused by a magnifying glass meets at the principal focus and can burn paper."
+    },
+    {
+      "id": "phys-igcse-light-f10",
+      "term": "Converging vs diverging lens",
+      "definition": "Converging (convex): thicker at the centre, focuses parallel rays to a point. Diverging (concave): thinner at the centre, spreads parallel rays as if from a focus on the same side as the object.",
+      "example": "Short sight is corrected with a diverging lens; long sight with a converging lens."
+    },
+    {
+      "id": "phys-igcse-light-f11",
+      "term": "Dispersion",
+      "definition": "The splitting of white light into the spectrum by a prism, because each colour refracts by a different amount; violet deviates most, red least.",
+      "example": "A rainbow is sunlight dispersed by raindrops."
+    },
+    {
+      "id": "phys-igcse-light-f12",
+      "term": "Digital vs analogue (Supplement)",
+      "definition": "Analogue signals vary continuously; digital signals have only two states (on/off, 1/0) and can be regenerated to remove noise.",
+      "example": "Fibre-optic internet sends data as digital pulses of light."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-light-q1",
+      "stem": "Which statement of the law of reflection is correct?",
+      "choices": [
+        "The angle of incidence is greater than the angle of reflection",
+        "The angle of reflection equals $90^\\circ$ minus the angle of incidence",
+        "The angle of incidence equals the angle of reflection, both measured from the normal",
+        "The angle of incidence equals the angle of reflection, both measured from the mirror surface"
+      ],
+      "correctIndex": 2,
+      "explanation": "The law is i = r with both angles measured from the normal — the line perpendicular to the surface. Measuring from the surface gives the complement, a common exam slip.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-light-q2",
+      "stem": "The image formed by a plane mirror is:",
+      "choices": [
+        "Virtual, upright, the same size as the object, and laterally inverted",
+        "Real, inverted and magnified",
+        "Virtual, upright and smaller than the object",
+        "Real, upright and the same size as the object"
+      ],
+      "correctIndex": 0,
+      "explanation": "A plane mirror image is virtual (rays only appear to come from it), upright, the same size, the same distance behind the mirror, and laterally inverted — left and right are swapped.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-light-q3",
+      "stem": "Which member of the electromagnetic spectrum has the longest wavelength?",
+      "choices": [
+        "Gamma rays",
+        "Radio waves",
+        "X-rays",
+        "Ultraviolet"
+      ],
+      "correctIndex": 1,
+      "explanation": "Wavelength increases towards the radio end of the spectrum: radio, microwaves, infrared, visible, ultraviolet, X-rays, gamma. Gamma rays have the shortest wavelength and highest frequency.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-light-q4",
+      "stem": "White light passes through a triangular glass prism. Which colour is deviated (bent) the most?",
+      "choices": [
+        "Red",
+        "Green",
+        "Yellow",
+        "Violet"
+      ],
+      "correctIndex": 3,
+      "explanation": "Dispersion occurs because each colour refracts by a different amount: violet, with the shortest wavelength, is slowed most in glass and deviated most; red is deviated least.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-light-q5",
+      "stem": "A ray of light strikes a plane mirror with an angle of incidence of $35^\\circ$. What is the angle between the incident ray and the reflected ray?",
+      "choices": [
+        "$70^\\circ$",
+        "$35^\\circ$",
+        "$55^\\circ$",
+        "$110^\\circ$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The reflected ray makes $35^\\circ$ with the normal on the other side, so the angle between the two rays is $35^\\circ + 35^\\circ = 70^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-light-q6",
+      "stem": "An object is placed $25\\text{ cm}$ in front of a plane mirror. What is the distance between the object and its image?",
+      "choices": [
+        "$25\\text{ cm}$",
+        "$12.5\\text{ cm}$",
+        "$50\\text{ cm}$",
+        "$75\\text{ cm}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The image is as far behind the mirror as the object is in front: $25\\text{ cm}$ in front plus $25\\text{ cm}$ behind gives $50\\text{ cm}$ between object and image.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-light-q7",
+      "stem": "A ray passes from air into a plastic block. Measurements give $\\sin i = 0.80$ and $\\sin r = 0.50$. What is the refractive index of the plastic? (Supplement)",
+      "choices": [
+        "$0.63$",
+        "$0.40$",
+        "$1.30$",
+        "$1.60$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$n = \\dfrac{\\sin i}{\\sin r} = \\dfrac{0.80}{0.50} = 1.6$. The $0.63$ option comes from inverting the ratio, and any answer below 1 is impossible for light entering a denser medium.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-light-q8",
+      "stem": "A transparent material has a refractive index of $2.0$. What is its critical angle with air? (Supplement)",
+      "choices": [
+        "$60^\\circ$",
+        "$30^\\circ$",
+        "$45^\\circ$",
+        "$90^\\circ$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\sin c = \\dfrac{1}{n} = \\dfrac{1}{2.0} = 0.5$, and the angle whose sine is $0.5$ is $30^\\circ$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-light-q9",
+      "stem": "A ray travelling inside glass (refractive index $1.5$, critical angle about $42^\\circ$) strikes the glass–air boundary at an angle of incidence of $50^\\circ$. What happens to the ray?",
+      "choices": [
+        "It refracts out of the glass, bending away from the normal",
+        "It slows down and is absorbed at the surface",
+        "It is totally internally reflected back into the glass",
+        "It passes out along the boundary without bending"
+      ],
+      "correctIndex": 2,
+      "explanation": "Both conditions for total internal reflection are met: the light is travelling from a denser medium towards air, and $50^\\circ$ exceeds the critical angle of about $42^\\circ$ — so no light refracts out; it all reflects with $i = r$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-light-q10",
+      "stem": "In a ray diagram for a thin converging lens, which ray passes through the lens undeviated?",
+      "choices": [
+        "The ray passing through the centre of the lens",
+        "The ray parallel to the principal axis",
+        "The ray passing through the principal focus",
+        "The ray striking the edge of the lens"
+      ],
+      "correctIndex": 0,
+      "explanation": "A ray through the optical centre of a thin lens is undeviated. The parallel ray refracts through the far principal focus, and a ray through the near focus emerges parallel — the other two construction rays.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-light-q11",
+      "stem": "Satellite television signals are carried between the ground and satellites in orbit by:",
+      "choices": [
+        "Infrared waves",
+        "Microwaves",
+        "Ultraviolet waves",
+        "X-rays"
+      ],
+      "correctIndex": 1,
+      "explanation": "Microwaves pass through the atmosphere and are used for satellite TV and mobile phone links; radio waves are used for terrestrial broadcasting, and infrared for remote controls and short-range links.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-light-q12",
+      "stem": "The refractive index of a sample of glass is $1.5$. What is its critical angle? (Supplement)",
+      "choices": [
+        "$30^\\circ$",
+        "$56^\\circ$",
+        "$48^\\circ$",
+        "$42^\\circ$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$\\sin c = \\dfrac{1}{n} = \\dfrac{1}{1.5} = 0.667$, and the angle whose sine is $0.667$ is $41.8^\\circ \\approx 42^\\circ$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-light-q13",
+      "stem": "A pulse of light travels the full length of a thin optical fibre even when the fibre is bent. What keeps the light inside the fibre? (Supplement)",
+      "choices": [
+        "Light travels faster in glass than in air",
+        "The fibre is coated in a reflective metal layer",
+        "At every point on the inner surface the angle of incidence exceeds the critical angle, so the light is totally internally reflected",
+        "The glass absorbs the light and re-emits it further along"
+      ],
+      "correctIndex": 2,
+      "explanation": "The fibre's curve is gentle enough that the light always meets the glass–air boundary at an angle of incidence greater than the critical angle, so it is totally internally reflected each time and zig-zags along with almost no loss. Optical fibres are not metal-coated.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-light-q14",
+      "stem": "Light travels at $3.0 \\times 10^{8}\\text{ m/s}$ in a vacuum. Glass has a refractive index of $1.5$. What is the speed of light in this glass? (Supplement)",
+      "choices": [
+        "$2.0 \\times 10^{8}\\text{ m/s}$",
+        "$4.5 \\times 10^{8}\\text{ m/s}$",
+        "$1.5 \\times 10^{8}\\text{ m/s}$",
+        "$3.0 \\times 10^{8}\\text{ m/s}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$n = \\dfrac{\\text{speed in vacuum}}{\\text{speed in medium}}$, so speed in glass $= \\dfrac{3.0 \\times 10^{8}}{1.5} = 2.0 \\times 10^{8}\\text{ m/s}$. The $4.5 \\times 10^{8}$ option multiplies instead of dividing — impossible, since light slows down in a denser medium.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-light-q15",
+      "stem": "A short-sighted person sees distant objects blurred because the eye focuses their light in front of the retina. Which lens corrects this? (Supplement)",
+      "choices": [
+        "A converging (convex) lens",
+        "A cylindrical lens",
+        "A plane glass plate",
+        "A diverging (concave) lens"
+      ],
+      "correctIndex": 3,
+      "explanation": "Short sight means the eye converges the rays too strongly, so a diverging lens spreads them slightly before they enter, moving the focus back onto the retina. A converging lens corrects long sight, where near objects would focus behind the retina.",
+      "difficulty": "hard"
+    }
+  ]
+}

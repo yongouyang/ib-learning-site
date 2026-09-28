@@ -3,7 +3,7 @@ import { getDiagnosticCourse, DIAGNOSTIC_LENGTH } from '@/lib/diagnostics';
 import { buildDiagnosticQuestions, getDiagnosticCourses } from '@/lib/diagnostics.server';
 
 describe('getDiagnosticCourses', () => {
-  it('exposes the 15 course groupings with topics and questions', () => {
+  it('exposes the 16 course groupings with topics and questions', () => {
     const courses = getDiagnosticCourses();
     expect(courses.map((c) => c.id)).toEqual([
       'math-y7',
@@ -16,6 +16,7 @@ describe('getDiagnosticCourses', () => {
       'bio-ks3',
       'chem-ks3',
       'phys-ks3',
+      'phys-igcse',
       'geog-ks3',
       'hist-ks3',
       'ict-ks3',

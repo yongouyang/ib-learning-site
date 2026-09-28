@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-moments-pressure",
+  "subjectId": "physics",
+  "title": "Moments, Centre of Gravity & Pressure",
+  "description": "Moments and the principle of moments, the conditions for equilibrium, centre of gravity and stability, and pressure in solids and liquids including the equation delta-p = rho g delta-h, for IGCSE Physics 0625.",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-moments-pressure-n1",
+      "heading": "The Moment of a Force",
+      "body": "📌 Definition\nThe **moment of a force** about a point (the pivot) is a measure of its turning effect:\n$$\\text{moment} = \\text{force} \\times \\text{perpendicular distance from the pivot}$$\nUnit: newton metre (N·m) — or N·cm if the distance is in centimetres.\n\n🔑 How it works\nTwo ways to get a bigger turning effect: apply a BIGGER force, or apply it FURTHER from the pivot. That is why a long spanner loosens a tight nut more easily than a short one, and why door handles are placed as far as possible from the hinges.\n\n💡 Worked Example\nA force of $20$ N acts at a perpendicular distance of $0.3$ m from a pivot:\n$$\\text{moment} = 20 \\times 0.3 = 6\\text{ N m}$$\n\n⚠️ Common Mistake\nUsing the distance ALONG the object when the force is applied at an angle. The distance in the formula must be measured PERPENDICULAR to the line of action of the force. If a spanner is pushed at an angle, the effective distance is shorter than the spanner.\n\n📎 Key Points to Remember\n• Moment is a turning effect, not a force — never quote it in newtons alone.\n• Zero perpendicular distance (force through the pivot) → zero moment."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-n2",
+      "heading": "The Principle of Moments and Equilibrium",
+      "body": "📌 The principle of moments\nWhen an object is in equilibrium (balanced, not rotating):\n$$\\text{total clockwise moment} = \\text{total anticlockwise moment}$$\nabout any chosen pivot.\n\n📌 The full equilibrium condition\nAn object is in equilibrium only when BOTH of these hold:\n1. there is **no resultant force** on it (it does not accelerate), and\n2. there is **no resultant moment** about any point (it does not start to rotate).\n\n💡 Worked Example\nOn a see-saw, a child weighing $300$ N sits $1.5$ m to the left of the pivot. An adult weighing $450$ N sits on the right. For balance: $450 \\times d = 300 \\times 1.5$, so $d = \\dfrac{450}{450} = 1.0$ m from the pivot.\n\n🔑 Extended tier — more than two forces\nWith several forces on each side, total up each direction separately: add all the clockwise moments, add all the anticlockwise moments, then compare the two totals.\n\n⚠️ Common Mistake\nComparing FORCES instead of MOMENTS. A small force far from the pivot can beat a large force close to it.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-moments-pressure-moments.svg",
+        "alt": "A balanced see-saw showing the principle of moments: a 300 N child 1.5 m from the pivot balances a 450 N adult 1.0 m from the pivot, because clockwise moment equals anticlockwise moment.",
+        "caption": "In equilibrium the total clockwise moment equals the total anticlockwise moment."
+      }
+    },
+    {
+      "id": "phys-igcse-moments-pressure-n3",
+      "heading": "Centre of Gravity",
+      "body": "📌 Definition\nThe **centre of gravity** of an object is the point at which the whole weight of the object may be considered to act. For a uniform (even) regular object it sits at the geometric centre — the 50 cm mark of a uniform metre ruler, the middle of a football.\n\n🔑 Finding it experimentally — the suspension method (for an irregular flat lamina)\n1. Make a small hole near one edge and hang the lamina from a pin so it can swing freely.\n2. Hang a plumb line (a weight on a string) from the same pin.\n3. When everything is still, draw the line of the string onto the lamina — the centre of gravity lies somewhere on this line.\n4. Repeat from a hole at a different edge. The centre of gravity is where the two lines CROSS.\n\n💡 Why it works\nA freely suspended object hangs with its centre of gravity directly below the support — otherwise the weight would create a moment that swings it until it is.\n\n⚠️ Common Mistake\nAssuming the centre of gravity must lie INSIDE the material. A ring, a boomerang or a high jumper arching over the bar can all have their centre of gravity in empty space.\n\n📎 Key Points to Remember\n• Weight acts through the centre of gravity — always draw the weight arrow from that point.\n• 'Centre of mass' and 'centre of gravity' coincide in a uniform gravitational field; 0625 uses centre of gravity."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-n4",
+      "heading": "Stability and Toppling",
+      "body": "🔑 What makes an object stable\nStability — the resistance to being toppled — is improved by:\n1. a **LOW centre of gravity**, and\n2. a **WIDE base**.\nThat is why racing cars are low and wide, why a Bunsen burner has a heavy broad base, and why cranes carry concrete counterweights.\n\n📌 The toppling rule\nTilt an object and watch the vertical line of action of its weight (drawn downwards from the centre of gravity):\n• If the line falls INSIDE the base, the weight creates a moment that pulls the object BACK upright — it is stable.\n• If the line falls OUTSIDE the base, the moment tips it OVER — it topples.\nThe critical position is when the line of action passes exactly through the EDGE (corner) of the base.\n\n💡 Worked Example\nA double-decker bus is tested on a tilting platform. With passengers only on the lower deck, the centre of gravity is low and the bus can lean through a large angle before the weight's line of action passes outside the wheelbase — so it stays stable. Load the top deck only, and it topples at a much smaller angle.\n\n⚠️ Common Mistake\nSaying a wide object 'has more friction so it cannot topple'. Toppling is a turning effect — a moment problem — not a friction problem.\n\n📎 Key Points to Remember\n• Low centre of gravity + wide base = stable.\n• Toppling begins the moment the weight's line of action leaves the base."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-n5",
+      "heading": "Pressure in Solids: p = F/A",
+      "body": "📌 Definition\n$$\\text{pressure} = \\dfrac{\\text{force}}{\\text{area}} \\qquad p = \\dfrac{F}{A}$$\nThe force must be PERPENDICULAR (normal) to the surface. Units: force in N and area in m² give pressure in pascals (Pa). $1\\text{ Pa} = 1\\text{ N/m}^2$.\n\n🔑 How it works\nThe same force spread over a SMALLER area gives a LARGER pressure — that is why knives are sharp (tiny edge area → huge pressure → cuts easily) and drawing pins have sharp points. The same force over a LARGER area gives a SMALLER pressure — snowshoes, camel feet and caterpillar tracks all stop heavy things sinking into soft ground.\n\n💡 Worked Example\nA crate weighs $600$ N and rests on a base of area $0.02\\text{ m}^2$:\n$$p = \\dfrac{F}{A} = \\dfrac{600}{0.02} = 30000\\text{ Pa}$$\n\n⚠️ Common Mistake\nArea in cm² used directly in the formula. Convert to m² first: $1\\text{ m}^2 = 10000\\text{ cm}^2$, so divide the cm² value by $10000$.\n\n📎 Key Points to Remember\n• Pressure is force PER UNIT AREA — the same force can be gentle or destructive depending on the area.\n• The force here is often a weight: compute $W = mg$ first if you are given a mass."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-n6",
+      "heading": "Pressure in Liquids",
+      "body": "🔑 The qualitative facts (Core)\n• Pressure in a liquid **increases with depth** — the deeper you go, the greater the weight of liquid above pushing down. This is why dam walls are built thicker at the bottom.\n• Pressure **increases with the density** of the liquid — seawater pushes harder than fresh water at the same depth.\n• At a given depth the pressure is the SAME in all directions and does NOT depend on the shape of the container.\n\n📌 The equation (Extended tier)\n$$\\Delta p = \\rho g \\Delta h$$\nthe change in pressure due to a column of liquid of density $\\rho$ and depth difference $\\Delta h$, with $g = 9.8$ N/kg.\n\n💡 Worked Example\nAt a depth of $5.0$ m in water ($\\rho = 1000\\text{ kg/m}^3$):\n$$\\Delta p = 1000 \\times 9.8 \\times 5.0 = 49000\\text{ Pa}$$\n\n⚠️ Common Mistake\nUsing the depth of the CONTAINER instead of the depth BELOW THE SURFACE. What matters is the vertical distance from the free surface of the liquid down to the point — nothing else.\n\n📎 Key Points to Remember\n• Same liquid, same depth → same pressure, whatever the container's shape.\n• $g = 9.8$ N/kg is the same value as the acceleration of free fall."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-n7",
+      "heading": "Exam Technique — Solving Moment Problems",
+      "body": "Moment questions are methodical. Follow the same four steps every time and they become reliable marks.\n\n🔑 The method\n1. **Identify the pivot.** Everything is measured from it. (If the beam is balanced on a support, the pivot is the support; a force AT the pivot has zero moment.)\n2. **Mark every force** and its PERPENDICULAR distance from the pivot — including the weight of the beam itself, which acts at its centre of gravity (the midpoint for a uniform beam).\n3. **Split into clockwise and anticlockwise** and total each side: moment $=$ force $\\times$ perpendicular distance.\n4. **Apply the principle of moments**: set the totals equal and solve for the unknown force or distance.\n\n💡 Worked Example (Extended tier — several forces)\nA beam is pivoted at its centre. On the left: $10$ N at $0.4$ m and $5$ N at $0.2$ m. On the right: $8$ N at $0.5$ m.\nAnticlockwise total: $10 \\times 0.4 + 5 \\times 0.2 = 4.0 + 1.0 = 5.0$ N·m.\nClockwise total: $8 \\times 0.5 = 4.0$ N·m.\nThe totals are NOT equal ($5.0 > 4.0$), so the beam is not in equilibrium — it rotates anticlockwise.\n\n⚠️ Common Mistake\nForgetting the beam's own weight when the pivot is not at its centre — the weight acts at the midpoint and contributes a moment like any other force.\n\n📎 Key Points to Remember\n• Distances from the PIVOT, not from the end.\n• Check units: N·m if metres, N·cm if centimetres — never mix."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-moments-pressure-f1",
+      "term": "Moment of a force",
+      "definition": "The turning effect of a force about a pivot: moment = force x perpendicular distance from the pivot.",
+      "example": "20 N at 0.3 m gives a moment of 6 N·m."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-f2",
+      "term": "Unit of moment",
+      "definition": "Newton metre (N·m), or N·cm if distances are in centimetres. Never quote a moment in newtons alone.",
+      "example": "A spanner force of 50 N at 0.2 m produces 10 N·m."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-f3",
+      "term": "Perpendicular distance",
+      "definition": "The shortest distance from the pivot to the line of action of the force — the only distance that counts in a moment.",
+      "example": "A force pushing through the pivot has zero perpendicular distance, so zero moment."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-f4",
+      "term": "Principle of moments",
+      "definition": "For an object in equilibrium, the total clockwise moment equals the total anticlockwise moment about any pivot.",
+      "example": "300 N at 1.5 m balances 450 N at 1.0 m: both sides give 450 N·m."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-f5",
+      "term": "Equilibrium conditions",
+      "definition": "An object is in equilibrium only when there is no resultant force AND no resultant moment about any point.",
+      "example": "A balanced see-saw: forces balance (it does not sink or rise) and moments balance (it does not rotate)."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-f6",
+      "term": "Centre of gravity",
+      "definition": "The point at which the whole weight of an object may be considered to act; at the geometric centre of a uniform regular object.",
+      "example": "A uniform metre ruler balances at the 50 cm mark."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-f7",
+      "term": "Suspension method",
+      "definition": "Finding the centre of gravity of a flat lamina: hang it from a hole with a plumb line, draw the line, repeat from another hole — the lines cross at the centre of gravity.",
+      "example": "A cardboard shape hangs with its centre of gravity directly below the pin."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-f8",
+      "term": "Stability",
+      "definition": "Improved by a low centre of gravity and a wide base.",
+      "example": "Racing cars are built low and wide so they corner without rolling over."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-f9",
+      "term": "Toppling rule",
+      "definition": "An object topples when the vertical line of action of its weight (from the centre of gravity) falls outside its base.",
+      "example": "A tilted bus is safe until the line through its centre of gravity passes outside the wheelbase."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-f10",
+      "term": "Pressure",
+      "definition": "Force per unit area: p = F/A, with the force perpendicular to the surface. Unit: pascal (Pa) = N/m².",
+      "example": "600 N on 0.02 m² gives 30 000 Pa."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-f11",
+      "term": "Pressure in a liquid",
+      "definition": "Increases with depth and with the density of the liquid; at the same depth it is equal in all directions and independent of container shape.",
+      "example": "Dam walls are built thicker at the bottom because pressure grows with depth."
+    },
+    {
+      "id": "phys-igcse-moments-pressure-f12",
+      "term": "Liquid pressure equation (Extended)",
+      "definition": "delta-p = rho g delta-h: pressure difference = density x gravitational field strength x depth difference.",
+      "example": "5.0 m down in water: 1000 x 9.8 x 5.0 = 49 000 Pa."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-moments-pressure-q1",
+      "stem": "Which expression correctly gives the moment of a force about a pivot?",
+      "choices": [
+        "Force $\\times$ perpendicular distance from the pivot",
+        "Force $\\div$ perpendicular distance from the pivot",
+        "Force $\\times$ total length of the object",
+        "Force $\\times$ mass of the object"
+      ],
+      "correctIndex": 0,
+      "explanation": "Moment $=$ force $\\times$ perpendicular distance from the pivot. The total length of the object only counts if the force acts at the far end at right angles — it is the perpendicular distance that matters.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q2",
+      "stem": "A force of $20$ N acts at a perpendicular distance of $0.3$ m from a pivot. What is the moment?",
+      "choices": [
+        "$66.7\\text{ N m}$",
+        "$6\\text{ N m}$",
+        "$60\\text{ N m}$",
+        "$0.015\\text{ N m}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Moment $= F \\times d = 20 \\times 0.3 = 6\\text{ N m}$. $66.7\\text{ N m}$ comes from dividing instead of multiplying.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q3",
+      "stem": "A child weighing $300$ N sits $1.5$ m to the left of a see-saw pivot. Where must an adult weighing $450$ N sit on the right to balance it?",
+      "choices": [
+        "$2.25$ m from the pivot",
+        "$0.68$ m from the pivot",
+        "$1.0$ m from the pivot",
+        "$1.5$ m from the pivot"
+      ],
+      "correctIndex": 2,
+      "explanation": "By the principle of moments: $450 \\times d = 300 \\times 1.5 = 450\\text{ N m}$, so $d = \\dfrac{450}{450} = 1.0$ m. The heavier person must sit closer — $1.5$ m would tip the adult's side down.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q4",
+      "stem": "A beam is pivoted at its centre. On the left, $10$ N acts at $0.4$ m and $5$ N acts at $0.2$ m from the pivot. On the right, $8$ N acts at $0.5$ m. What happens to the beam?",
+      "choices": [
+        "It balances — the forces on both sides add to $15$ N and $8$ N, which is close enough",
+        "It balances — clockwise and anticlockwise moments are equal",
+        "It rotates clockwise — the $8$ N force is at the greatest distance",
+        "It rotates anticlockwise — the left moments total $5.0\\text{ N m}$ against $4.0\\text{ N m}$ on the right"
+      ],
+      "correctIndex": 3,
+      "explanation": "Anticlockwise moments: $10 \\times 0.4 + 5 \\times 0.2 = 4.0 + 1.0 = 5.0\\text{ N m}$. Clockwise moment: $8 \\times 0.5 = 4.0\\text{ N m}$. The anticlockwise total wins, so the beam rotates anticlockwise. Comparing forces instead of moments is the classic error.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q5",
+      "stem": "Which pair of conditions must BOTH hold for an object to be in equilibrium?",
+      "choices": [
+        "No resultant force AND no resultant moment",
+        "No weight AND no friction",
+        "Equal forces on both sides AND equal distances from the pivot",
+        "Constant speed AND constant direction"
+      ],
+      "correctIndex": 0,
+      "explanation": "Equilibrium requires no resultant force (so it does not accelerate) AND no resultant moment (so it does not start rotating). Equal forces at unequal distances would still leave a resultant moment.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q6",
+      "stem": "In the suspension experiment to find the centre of gravity of an irregular card shape, which extra piece of apparatus is essential?",
+      "choices": [
+        "A measuring cylinder",
+        "A plumb line (a small weight on a string)",
+        "A stopwatch",
+        "A newtonmeter"
+      ],
+      "correctIndex": 1,
+      "explanation": "The plumb line marks the vertical line through the support; the centre of gravity lies on it. Repeating from a second hole gives two lines that cross at the centre of gravity.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q7",
+      "stem": "A tall crate is slowly tilted on one edge. At what point does it topple over?",
+      "choices": [
+        "As soon as its centre of gravity starts to rise",
+        "When the tilt angle reaches $45^\\circ$, whatever its shape",
+        "When the vertical line of action of its weight passes outside the edge of its base",
+        "When friction at the base is overcome"
+      ],
+      "correctIndex": 2,
+      "explanation": "Toppling is decided by moments: while the weight's line of action falls inside the base, the weight pulls the crate back; once the line passes outside the supporting edge, the weight's moment tips it over. The critical tilt angle depends on the shape, so $45^\\circ$ is not a rule.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q8",
+      "stem": "Which equation correctly defines pressure?",
+      "choices": [
+        "$p = F \\times A$",
+        "$p = \\dfrac{A}{F}$",
+        "$p = F + A$",
+        "$p = \\dfrac{F}{A}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Pressure is force divided by the area over which it acts: $p = \\dfrac{F}{A}$, with $F$ perpendicular to the surface. Multiplying $F \\times A$ would grow with area — the opposite of what pressure does.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q9",
+      "stem": "A crate exerts a force of $600$ N on the ground over an area of $0.02\\text{ m}^2$. What is the pressure on the ground?",
+      "choices": [
+        "$30000\\text{ Pa}$",
+        "$12\\text{ Pa}$",
+        "$3000\\text{ Pa}$",
+        "$0.000033\\text{ Pa}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$p = \\dfrac{F}{A} = \\dfrac{600}{0.02} = 30000\\text{ Pa}$. $12\\text{ Pa}$ comes from multiplying $600 \\times 0.02$ — pressure DIVIDES by area.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q10",
+      "stem": "Why do snowshoes stop a walker sinking into soft snow?",
+      "choices": [
+        "They reduce the walker's weight",
+        "They spread the same force over a larger area, reducing the pressure",
+        "They increase the friction between boot and snow",
+        "They are made of a material lighter than snow"
+      ],
+      "correctIndex": 1,
+      "explanation": "The walker's weight (the force) is unchanged; snowshoes spread it over a much larger area, so $p = \\dfrac{F}{A}$ is smaller and the snow is not compacted enough to break. Weight and friction are irrelevant here.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q11",
+      "stem": "What is the pressure difference between the surface and a point $5.0$ m deep in water? (Density of water $= 1000\\text{ kg/m}^3$, $g = 9.8\\text{ N/kg}$.)",
+      "choices": [
+        "$1960\\text{ Pa}$",
+        "$9800\\text{ Pa}$",
+        "$49000\\text{ Pa}$",
+        "$510\\text{ Pa}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\Delta p = \\rho g \\Delta h = 1000 \\times 9.8 \\times 5.0 = 49000\\text{ Pa}$. Using the wrong power of ten (forgetting one factor) gives $9800$ or $1960$ Pa — multiply all three quantities.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q12",
+      "stem": "Why are dam walls built thicker at the bottom than at the top?",
+      "choices": [
+        "To make the dam heavier so it cannot float away",
+        "To give the wall a wider base for stability against wind",
+        "Because concrete is cheaper at ground level",
+        "Because water pressure increases with depth, so the bottom of the wall must withstand the greatest force"
+      ],
+      "correctIndex": 3,
+      "explanation": "Liquid pressure increases with depth ($\\Delta p = \\rho g \\Delta h$), so the water pushes hardest near the base of the dam, and that is where the wall needs the most strength. It has nothing to do with the wall's own weight or wind.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q13",
+      "stem": "Two connected containers of very different shapes are filled with the same liquid to the same height. How do the pressures at their bases compare?",
+      "choices": [
+        "They are equal — pressure depends only on depth and density, not on the container's shape",
+        "The wider container has the greater pressure, because it holds more liquid",
+        "The narrower container has the greater pressure, because the liquid is squeezed",
+        "It is impossible to tell without weighing the liquid"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pressure at a given depth depends only on the density of the liquid and the depth below the free surface ($\\Delta p = \\rho g \\Delta h$) — never on the shape of the vessel or the total volume of liquid. This surprises students and is a favourite exam trap.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q14",
+      "stem": "A box weighing $240$ N rests on a rectangular base measuring $0.4\\text{ m} \\times 0.15\\text{ m}$. What pressure does it exert on the floor?",
+      "choices": [
+        "$96\\text{ Pa}$",
+        "$4000\\text{ Pa}$",
+        "$600\\text{ Pa}$",
+        "$1600\\text{ Pa}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "First find the area: $A = 0.4 \\times 0.15 = 0.06\\text{ m}^2$. Then $p = \\dfrac{F}{A} = \\dfrac{240}{0.06} = 4000\\text{ Pa}$. Dividing $240$ by just one side length skips the area step.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-moments-pressure-q15",
+      "stem": "Why is a long spanner more effective than a short one at loosening a tight nut?",
+      "choices": [
+        "A longer spanner is always stronger",
+        "A longer spanner increases the friction on the nut",
+        "The same force acts further from the pivot, producing a greater moment",
+        "A longer spanner weighs more, adding to the force"
+      ],
+      "correctIndex": 2,
+      "explanation": "Moment $=$ force $\\times$ perpendicular distance from the pivot. A longer spanner increases that distance, so the same hand force produces a larger turning effect on the nut. The spanner's own weight is negligible compared with the applied force.",
+      "difficulty": "medium"
+    }
+  ]
+}

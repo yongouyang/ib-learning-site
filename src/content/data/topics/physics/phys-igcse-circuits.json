@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-circuits",
+  "subjectId": "physics",
+  "title": "Circuits, Components & Mains Safety",
+  "description": "Circuit symbols, series and parallel circuit rules, the parallel-resistance formula, potential dividers with sensors, and mains electricity hazards, fuses and double insulation for IGCSE Physics 0625.",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-circuits-n1",
+      "heading": "Circuit Symbols and Diagrams",
+      "body": "📌 Definition\nA **circuit diagram** uses standard symbols joined by straight lines for wires. Core symbols to recognise and draw: cell (a long and a short parallel line), battery (several cells), switch, lamp (a circle with a cross), fixed resistor (a rectangle), variable resistor (a rectangle with a diagonal arrow), ammeter (a circle containing A, connected in series), voltmeter (a circle containing V, connected in parallel) and fuse.\n\nSupplement symbols: a **diode** conducts in one direction only — conventional current flows in the direction of its arrow; an **LED** (light-emitting diode) lights up when it conducts; a **thermistor** has a resistance that falls as its temperature rises; an **LDR** (light-dependent resistor) has a resistance that falls as the light intensity rises.\n\n🔑 How it works\nDraw wires as straight lines with right-angle corners. The meters never change the circuit logic: an ammeter measures the current THROUGH its position, and a voltmeter compares the p.d. between two points.\n\n⚠️ Common Mistake\nDrawing the voltmeter in series. A voltmeter has a very high resistance and would nearly stop the current — ammeter in series, voltmeter in parallel, every time.\n\n📎 Key Points to Remember\n• Resistor = rectangle; lamp = circle with a cross; cell = long/short pair of lines.\n• Thermistor: hotter → lower resistance. LDR: brighter → lower resistance. Diode: one-way conduction.\n\n✅ Check\nWhich component would you use as the sensor in a temperature alarm? (A thermistor.)"
+    },
+    {
+      "id": "phys-igcse-circuits-n2",
+      "heading": "Series Circuits",
+      "body": "📌 Definition\nComponents in **series** form a single loop — the same current flows through each of them in turn.\n\n🔑 The rules\n• Current: the SAME at every point in the loop.\n• Voltage: the p.d.s across the components add up to the supply e.m.f.\n• Resistance: the resistances add: $R_{\\text{total}} = R_1 + R_2 + \\ldots$\n• Combined e.m.f.: cells in series (all pointing the same way) add their e.m.f.s — three 1.5 V cells make a 4.5 V battery. Reversing one cell SUBTRACTS its e.m.f.\n\n💡 Worked Example\nA 4 Ω and an 8 Ω resistor in series across a 12 V battery: $R_{\\text{total}} = 4 + 8 = 12\\ \\Omega$, so $I = \\dfrac{V}{R} = \\dfrac{12}{12} = 1\\text{ A}$ at every point in the loop.\n\n⚠️ Common Mistake\nThinking the current gets 'used up' as it goes round — the same charge flows past every point each second. Adding resistors in series raises the total resistance and so REDUCES the current; it does not share the current out.\n\n📎 Key Points to Remember\n• One loop: same current everywhere, p.d.s add, resistances add.\n• Series cells: e.m.f.s add if they all point the same way.\n\n✅ Check\nTwo 6 Ω resistors in series on a 6 V battery: $R = 12\\ \\Omega$ and $I = 0.5\\text{ A}$."
+    },
+    {
+      "id": "phys-igcse-circuits-n3",
+      "heading": "Parallel Circuits",
+      "body": "📌 Definition\nComponents in **parallel** sit on separate branches connected across the same two points of the circuit.\n\n🔑 The rules (Core, qualitative)\n• Voltage: the p.d. across EVERY branch equals the supply p.d.\n• Current: the current from the supply SPLITS at a junction and recombines afterwards — the supply current equals the sum of the branch currents.\n• Resistance: adding a branch gives the charge another path, so the total resistance FALLS and the total current from the supply RISES.\n• Branches are independent: one can be switched off, or fail, without affecting the others.\n\n💡 Worked Example\nTwo branches connected across a 12 V supply carry 2 A and 3 A: each branch has the full 12 V across it, and the supply delivers $2 + 3 = 5\\text{ A}$.\n\nThis is why homes are wired in parallel: every appliance receives the full mains p.d., each can be switched independently, and a fault in one does not cut the others.\n\n⚠️ Common Mistake\nAssuming the branch currents must be equal — they are equal only for identical branches. It is the p.d. across each branch that must be equal.\n\n📎 Key Points to Remember\n• Same p.d. across every branch; branch currents add; total resistance falls as branches are added.\n\n✅ Check\nA 4 A branch and a 1 A branch in parallel draw 5 A from the supply."
+    },
+    {
+      "id": "phys-igcse-circuits-n4",
+      "heading": "Junction and Loop Rules, and the Parallel Resistance Formula (Supplement)",
+      "body": "Supplement — the quantitative rules the exam tests.\n\n🔑 Current at a junction (conservation of charge)\nThe total current INTO a junction equals the total current OUT. Current is a flow of charge, and charge is never created, destroyed or stored at a junction.\n\n🔑 Voltage round a loop (conservation of energy)\nRound any series loop, the sum of the p.d.s across the components equals the sum of the e.m.f.s of the sources. Each coulomb leaves the source carrying energy from the e.m.f. and drops exactly that energy across the components.\n\n🔑 Resistors in parallel\n\n$$\\dfrac{1}{R} = \\dfrac{1}{R_1} + \\dfrac{1}{R_2}$$\n\nFor two resistors this rearranges to $R = \\dfrac{R_1 R_2}{R_1 + R_2}$ ('product over sum'). The combined resistance is always LESS than the smallest branch.\n\n💡 Worked Example\n6 Ω and 12 Ω in parallel: $R = \\dfrac{6 \\times 12}{6 + 12} = \\dfrac{72}{18} = 4\\ \\Omega$ — less than 6 Ω, as it must be.\n\n⚠️ Common Mistake\nForgetting the final reciprocal: $\\dfrac{1}{R} = \\dfrac{1}{4}$ means $R = 4\\ \\Omega$, not $\\dfrac{1}{4}\\ \\Omega$. Sanity-check: the answer must be smaller than the smallest branch.\n\n📎 Key Points to Remember\n• Junction: currents in = currents out. Loop: component p.d.s add up to the supply e.m.f.\n• Parallel: product over sum for two resistors; the answer is below the smallest branch.\n\n✅ Check\nIf 3 A and 2 A leave a junction along two branches, 5 A entered it."
+    },
+    {
+      "id": "phys-igcse-circuits-n5",
+      "heading": "Potential Dividers (Supplement)",
+      "body": "Supplement.\n\n📌 Definition\nA **potential divider** is two resistors in series across a supply, used to tap off a chosen fraction of the p.d.\n\n🔑 How it works\nThe same current flows through both resistors, so the p.d.s share the supply in the ratio of the resistances:\n\n$$\\dfrac{V_1}{V_2} = \\dfrac{R_1}{R_2} \\quad \\text{and} \\quad V_{\\text{out}} = V_{\\text{in}} \\times \\dfrac{R_2}{R_1 + R_2}$$\n\nThe BIGGER resistor takes the BIGGER share of the voltage.\n\n💡 Worked Example\n200 Ω and 100 Ω in series across a 12 V supply, with the output taken across the 100 Ω resistor: $V_{\\text{out}} = 12 \\times \\dfrac{100}{300} = 4\\text{ V}$.\n\n🔑 Sensors\nReplace one resistor with an LDR or a thermistor and the output p.d. responds to the environment: in the dark an LDR's resistance rises, so if the output is across the LDR the output p.d. RISES at night. This is the basis of automatic lighting and temperature alarms — the output feeds an electronic switch or relay.\n\n⚠️ Common Mistake\nPutting the WRONG resistor on top of the fraction: for the output across $R_2$, the numerator is $R_2$. Check the answer: the output p.d. can never exceed the supply voltage.\n\n📎 Key Points to Remember\n• The supply splits in the ratio of the resistances: $\\dfrac{V_1}{V_2} = \\dfrac{R_1}{R_2}$.\n• Sensors turn light or temperature changes into p.d. changes.\n\n✅ Check\nTwo equal resistors split the supply in half: 100 Ω and 100 Ω across 9 V give 4.5 V across each.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-circuits-potential-divider.svg",
+        "alt": "A potential divider circuit with a battery and two series resistors, a voltmeter measuring the output across the second resistor, and the output formula with a worked example.",
+        "caption": "The supply voltage splits between the two resistors in the ratio of their resistances — the bigger resistor takes the bigger share."
+      }
+    },
+    {
+      "id": "phys-igcse-circuits-n6",
+      "heading": "Mains Electricity and Its Hazards",
+      "body": "📌 Definition\nMains electricity is an **a.c.** supply (for example about 230 V at 50 Hz in the UK; the values vary between countries). A mains cable contains three wires with distinct jobs: the **live** wire carries the alternating p.d. from the supply; the **neutral** wire completes the circuit and stays close to 0 V relative to earth; the **earth** wire is a safety wire connected to the ground through the building. (UK colours: live brown, neutral blue, earth green-and-yellow — colours vary between countries, so learn the FUNCTIONS.)\n\n🔑 The hazards (Core)\n• **Damaged insulation** can expose the live wire — touch it and current passes through your body to earth: an electric shock.\n• **Overheated cables**: too much current (overloaded sockets, tightly coiled extension leads) heats the wire, melting insulation and starting fires.\n• **Damp conditions**: water lowers the electrical resistance of skin, so the same p.d. drives a much larger — potentially fatal — current through the body. Never handle mains appliances with wet hands.\n\n⚠️ Common Mistake\nSaying the earth wire 'carries the current during normal use'. The earth wire carries current only during a FAULT; in normal operation the neutral wire completes the circuit.\n\n📎 Key Points to Remember\n• Live = carries the supply p.d.; neutral ≈ 0 V and completes the circuit; earth = safety only.\n• The three exam hazards: damaged insulation, overheating of cables, damp conditions.\n\n✅ Check\nWhich wire makes a metal case dangerous if it comes loose inside the appliance and touches it? (The live wire.)"
+    },
+    {
+      "id": "phys-igcse-circuits-n7",
+      "heading": "Fuses, Trip Switches and Double Insulation",
+      "body": "📌 Definition\nA **fuse** is a thin wire fitted in the LIVE wire that melts and breaks the circuit if the current exceeds its rating. A **trip switch** (circuit breaker / RCCB) is a switch that turns the supply off automatically when it detects a fault current — and can simply be reset afterwards. **Double insulation** means the live parts are enclosed in an insulating (plastic) case so that no exposed part can become live.\n\n🔑 How it works\nChoosing a fuse rating: calculate the normal operating current ($I = \\dfrac{P}{V}$) and fit the next standard rating ABOVE it (3 A or 13 A in UK plugs). A fuse rated below the operating current melts in normal use; one rated far above gives no protection. Earthing: if a fault connects the live wire to a metal case, a large current flows down the earth wire, the fuse blows (or the trip switch trips) and the case is made safe. A double-insulated appliance has a plastic case that cannot become live, so it needs no earth wire — its symbol is a square inside a square.\n\n💡 Worked Example\nA 1150 W heater on 230 V mains: $I = \\dfrac{P}{V} = \\dfrac{1150}{230} = 5\\text{ A}$, so fit a 13 A fuse — a 3 A fuse would melt in normal use.\n\n⚠️ Common Mistake\nPutting the fuse in the neutral or earth wire. The circuit would still break, but the appliance would stay connected to the live p.d. and remain dangerous — the fuse belongs in the live wire.\n\n📎 Key Points to Remember\n• Fuse in the live wire, rated just above the normal current; trip switches act faster and are resettable.\n• Earth wire + fuse protect metal-cased appliances; double insulation removes the need for an earth wire.\n\n✅ Check\nA 460 W appliance on 230 V draws $I = \\dfrac{460}{230} = 2\\text{ A}$ — fit a 3 A fuse, the next standard rating above 2 A."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-circuits-f1",
+      "term": "Series circuit",
+      "definition": "One loop: the current is the same everywhere, the p.d.s add up to the supply e.m.f., and the resistances add.",
+      "example": "4 Ω + 8 Ω in series = 12 Ω; on a 12 V battery the current is 1 A everywhere."
+    },
+    {
+      "id": "phys-igcse-circuits-f2",
+      "term": "Parallel circuit",
+      "definition": "Separate branches: the p.d. is the same across every branch, branch currents add, and total resistance falls as branches are added.",
+      "example": "Home wiring: every appliance gets the full mains p.d. and switches independently."
+    },
+    {
+      "id": "phys-igcse-circuits-f3",
+      "term": "Cells in series (combined e.m.f.)",
+      "definition": "The e.m.f.s of cells in series add when all point the same way; reversing a cell subtracts its e.m.f.",
+      "example": "Three 1.5 V cells in series give a 4.5 V battery."
+    },
+    {
+      "id": "phys-igcse-circuits-f4",
+      "term": "Junction rule",
+      "definition": "Total current into a junction = total current out (charge is conserved at a junction).",
+      "example": "5 A flows in and 2 A leaves by one branch, so 3 A leaves by the other."
+    },
+    {
+      "id": "phys-igcse-circuits-f5",
+      "term": "Parallel resistance formula",
+      "definition": "$\\dfrac{1}{R} = \\dfrac{1}{R_1} + \\dfrac{1}{R_2}$; for two resistors $R = \\dfrac{R_1 R_2}{R_1 + R_2}$. Always less than the smallest branch.",
+      "example": "6 Ω and 12 Ω in parallel: $R = \\dfrac{72}{18} = 4\\ \\Omega$."
+    },
+    {
+      "id": "phys-igcse-circuits-f6",
+      "term": "Potential divider",
+      "definition": "Two series resistors split the supply in the ratio of the resistances: $\\dfrac{V_1}{V_2} = \\dfrac{R_1}{R_2}$; the bigger resistor takes the bigger share.",
+      "example": "200 Ω and 100 Ω across 12 V: the 100 Ω resistor takes $12 \\times \\dfrac{100}{300} = 4\\text{ V}$."
+    },
+    {
+      "id": "phys-igcse-circuits-f7",
+      "term": "Thermistor",
+      "definition": "A resistor whose resistance FALLS as its temperature rises; used in temperature-sensing potential dividers.",
+      "example": "A fire-alarm circuit: the thermistor heats up, its resistance drops, and the p.d. shifts to trigger the alarm."
+    },
+    {
+      "id": "phys-igcse-circuits-f8",
+      "term": "LDR (light-dependent resistor)",
+      "definition": "A resistor whose resistance FALLS as the light intensity rises; used in light-sensing potential dividers.",
+      "example": "Automatic night light: in the dark the LDR's resistance rises, raising the output p.d. that switches the lamp on."
+    },
+    {
+      "id": "phys-igcse-circuits-f9",
+      "term": "Live wire",
+      "definition": "The mains wire that carries the alternating p.d. from the supply to the appliance. Fuses and switches go in the live wire.",
+      "example": "Touching an exposed live wire drives current through the body to earth — an electric shock."
+    },
+    {
+      "id": "phys-igcse-circuits-f10",
+      "term": "Neutral and earth wires",
+      "definition": "Neutral completes the circuit and stays near 0 V; earth is a safety wire that carries current only in a fault.",
+      "example": "Live touching a metal case sends a large current down the earth wire, blowing the fuse."
+    },
+    {
+      "id": "phys-igcse-circuits-f11",
+      "term": "Fuse and trip switch",
+      "definition": "A fuse melts when the current exceeds its rating; a trip switch turns the supply off automatically and can be reset. Rating: just above the normal current.",
+      "example": "A 1150 W appliance on 230 V draws 5 A, so fit a 13 A fuse."
+    },
+    {
+      "id": "phys-igcse-circuits-f12",
+      "term": "Double insulation",
+      "definition": "Live parts enclosed in an insulating plastic case, so no exposed part can become live and no earth wire is needed. Symbol: a square inside a square.",
+      "example": "A hairdryer with a plastic case has only live and neutral wires in its cable."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-circuits-q1",
+      "stem": "Which component is designed to melt and break the circuit if the current rises above a safe value?",
+      "choices": [
+        "Resistor",
+        "Fuse",
+        "Thermistor",
+        "Diode"
+      ],
+      "correctIndex": 1,
+      "explanation": "A fuse contains a thin wire that melts when the current exceeds its rating, breaking the circuit before the cable overheats. It is fitted in the live wire. A thermistor changes resistance with temperature and a diode conducts one way only — neither protects against excess current.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-circuits-q2",
+      "stem": "A 4 Ω resistor and an 8 Ω resistor are connected in series to a 12 V battery. What current flows?",
+      "choices": [
+        "0.5 A",
+        "3 A",
+        "1 A",
+        "12 A"
+      ],
+      "correctIndex": 2,
+      "explanation": "In series the resistances add: $R_{\\text{total}} = 4 + 8 = 12\\ \\Omega$. Then $I = \\dfrac{V}{R} = \\dfrac{12}{12} = 1\\text{ A}$, and this current is the same at every point in the loop.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-circuits-q3",
+      "stem": "Three 1.5 V cells are connected in series, all pointing the same way, to make a battery. What is the total e.m.f.?",
+      "choices": [
+        "4.5 V",
+        "1.5 V",
+        "0.5 V",
+        "3.0 V"
+      ],
+      "correctIndex": 0,
+      "explanation": "Cells in series pointing the same way add their e.m.f.s: $3 \\times 1.5 = 4.5\\text{ V}$. The 0.5 V trap divides instead of multiplying.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-circuits-q4",
+      "stem": "A 12 Ω resistor and a 4 Ω resistor are connected in parallel. What is their combined resistance?",
+      "choices": [
+        "16 Ω",
+        "8 Ω",
+        "0.33 Ω",
+        "3 Ω"
+      ],
+      "correctIndex": 3,
+      "explanation": "Product over sum: $R = \\dfrac{12 \\times 4}{12 + 4} = \\dfrac{48}{16} = 3\\ \\Omega$. The 16 Ω trap is the series sum; 0.33 Ω forgets the final reciprocal. A parallel combination is always less than the smallest branch (here less than 4 Ω).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-circuits-q5",
+      "stem": "Which quantity is the same for each branch of a parallel circuit?",
+      "choices": [
+        "The potential difference across each branch",
+        "The current in each branch",
+        "The resistance of each branch",
+        "The power of each branch"
+      ],
+      "correctIndex": 0,
+      "explanation": "Every branch is connected across the same two points, so the p.d. across each branch equals the supply p.d. The currents are equal only for identical branches; the currents, not the voltages, split.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-circuits-q6",
+      "stem": "At a junction, 5 A flows in from the supply and 2 A leaves along one branch. How much current leaves along the other branch?",
+      "choices": [
+        "7 A",
+        "3 A",
+        "2.5 A",
+        "10 A"
+      ],
+      "correctIndex": 1,
+      "explanation": "Charge is conserved at a junction: the total current in equals the total current out, so $I = 5 - 2 = 3\\text{ A}$. The 7 A trap adds instead of subtracting.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-circuits-q7",
+      "stem": "A 200 Ω resistor and a 100 Ω resistor are connected in series across a 12 V supply to make a potential divider. What is the p.d. across the 100 Ω resistor?",
+      "choices": [
+        "8 V",
+        "6 V",
+        "4 V",
+        "12 V"
+      ],
+      "correctIndex": 2,
+      "explanation": "The supply splits in the ratio of the resistances: the 100 Ω resistor is one third of the 300 Ω total, so it takes $V = 12 \\times \\dfrac{100}{300} = 4\\text{ V}$. The 8 V trap is the p.d. across the 200 Ω resistor; 6 V wrongly splits the supply equally.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-circuits-q8",
+      "stem": "A potential divider has an LDR in series with a fixed resistor, and the output voltage is taken across the LDR. What happens to the output voltage when the light level falls?",
+      "choices": [
+        "It falls, because the LDR's resistance falls in the dark",
+        "It stays the same, because the supply voltage is unchanged",
+        "It falls to zero immediately",
+        "It rises, because the LDR's resistance rises in the dark and takes a larger share of the supply"
+      ],
+      "correctIndex": 3,
+      "explanation": "An LDR's resistance INCREASES as the light level falls. The divider splits the supply in the ratio of the resistances, so the LDR's share of the voltage grows and the output across it rises — exactly how a light-triggered switch senses darkness.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-circuits-q9",
+      "stem": "Which wire in a mains cable completes the circuit and stays at about 0 V relative to earth?",
+      "choices": [
+        "Live wire",
+        "Earth wire",
+        "Neutral wire",
+        "Fuse wire"
+      ],
+      "correctIndex": 2,
+      "explanation": "The neutral wire completes the circuit back to the supply and sits close to 0 V relative to earth. The live wire carries the alternating p.d., and the earth wire carries current only in a fault.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-circuits-q10",
+      "stem": "A 1150 W appliance runs on a 230 V mains supply. Which fuse rating should be fitted?",
+      "choices": [
+        "13 A — the normal current is 5 A, and the fuse rating should be just above it",
+        "3 A — the smallest fuse is always the safest",
+        "Either rating — the fuse value does not matter",
+        "No fuse — an appliance of this power does not need one"
+      ],
+      "correctIndex": 0,
+      "explanation": "$I = \\dfrac{P}{V} = \\dfrac{1150}{230} = 5\\text{ A}$, so fit the next standard rating above the normal current: 13 A. A 3 A fuse would melt in normal use, and every mains appliance needs a correctly rated fuse in the live wire.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-circuits-q11",
+      "stem": "A hairdryer has a plastic case and is double insulated. Which statement is correct?",
+      "choices": [
+        "It must still have an earth wire connected to its case",
+        "It does not need an earth wire, because its case cannot become live",
+        "It needs two fuses instead of one",
+        "It can be handled safely with wet hands"
+      ],
+      "correctIndex": 1,
+      "explanation": "Double insulation means the live parts are separated from the user by an insulating case, so no exposed part can become live and the earth wire is unnecessary (symbol: a square inside a square). Water still conducts electricity, so wet hands remain dangerous with any appliance.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-circuits-q12",
+      "stem": "Two identical resistors have a combined resistance of 18 Ω when connected in series. What is their combined resistance in parallel?",
+      "choices": [
+        "18 Ω",
+        "9 Ω",
+        "36 Ω",
+        "4.5 Ω"
+      ],
+      "correctIndex": 3,
+      "explanation": "In series each resistor is $18 \\div 2 = 9\\ \\Omega$. Two equal resistors in parallel halve: $R = \\dfrac{9 \\times 9}{9 + 9} = \\dfrac{81}{18} = 4.5\\ \\Omega$. The 9 Ω trap forgets the parallel step.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-circuits-q13",
+      "stem": "What is one advantage of a trip switch (circuit breaker) over a fuse?",
+      "choices": [
+        "It makes the appliances on the circuit use less energy",
+        "It raises the mains voltage to a safer level",
+        "It can be reset after it trips, and it usually switches off faster than a fuse can melt",
+        "It works even when no current is flowing"
+      ],
+      "correctIndex": 2,
+      "explanation": "A trip switch detects the fault current and cuts the supply in a fraction of a second — faster than a fuse wire can melt — and afterwards it is simply reset rather than replaced. It does not change the energy use or the voltage.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-circuits-q14",
+      "stem": "What happens to the resistance of a thermistor as its temperature rises?",
+      "choices": [
+        "It decreases",
+        "It increases",
+        "It stays constant",
+        "It becomes zero"
+      ],
+      "correctIndex": 0,
+      "explanation": "A thermistor's resistance falls as its temperature rises — that is what makes it useful as the sensor in a temperature-controlled potential divider. An LDR shows the same pattern but with light intensity.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-circuits-q15",
+      "stem": "A 12 V battery drives a series circuit containing three components. The p.d. across two of them is 3 V and 4 V. What is the p.d. across the third component?",
+      "choices": [
+        "12 V",
+        "7 V",
+        "19 V",
+        "5 V"
+      ],
+      "correctIndex": 3,
+      "explanation": "Round a series loop the component p.d.s add up to the supply e.m.f. (energy per coulomb is conserved), so the third p.d. is $12 - 3 - 4 = 5\\text{ V}$. The 7 V trap adds the two known p.d.s; 19 V adds everything.",
+      "difficulty": "medium"
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-electromagnetism",
+  "subjectId": "physics",
+  "title": "Magnetism & Electromagnetic Effects",
+  "description": "Magnetic fields and induced magnetism, fields of wires and solenoids, relays and loudspeakers, the motor effect, the d.c. motor, electromagnetic induction, the a.c. generator, and transformers with high-voltage transmission for IGCSE Physics 0625.",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-electromagnetism-n1",
+      "heading": "Magnets, Poles and Induced Magnetism",
+      "body": "📌 Definition\nA magnet has two **poles**, north (N) and south (S): like poles repel, unlike poles attract. A **magnetic field** is a region where a magnetic pole or a magnetic material experiences a force.\n\n🔑 How it works\nOnly iron, steel, cobalt and nickel (and their alloys) are magnetic materials. **Induced magnetism**: an unmagnetised piece of iron placed near a magnet becomes a temporary magnet — the end nearest the magnet gains the opposite pole, which is why the two attract. **Soft** iron magnetises and demagnetises easily; **hard** steel keeps its magnetism. That is why electromagnet and transformer cores are soft iron, while permanent magnets are steel.\n\nPlotting a field: sprinkle iron filings on paper over a bar magnet and tap — the filings line up along the field — or walk a small **plotting compass** around the magnet, marking the needle's position dot by dot. Field lines run from N to S OUTSIDE the magnet and never cross. Supplement: lines drawn closest together show where the field is STRONGEST — at the poles.\n\n⚠️ Common Mistake\nAssuming all metals are magnetic — aluminium, copper and gold are not. And the pole near the Earth's geographic north is magnetically a SOUTH pole: a compass needle's N is attracted towards it.\n\n📎 Key Points to Remember\n• Like poles repel, unlike attract; field lines run N → S outside the magnet.\n• Soft iron = temporary (induced) magnetism; steel = permanent magnetism.\n• Closer field lines = stronger field.\n\n✅ Check\nTwo magnets attract each other. What can you say about the facing poles? (They are unlike — one N and one S.)"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-n2",
+      "heading": "The Magnetic Field of a Current",
+      "body": "📌 Definition\nEvery electric current produces a magnetic field around itself — the magnetic effect of a current.\n\n🔑 How it works\nAround a long straight wire the field forms **concentric circles** centred on the wire. Direction: grip the wire with your RIGHT hand, thumb pointing along the CONVENTIONAL current — your curled fingers show the field direction. Reversing the current reverses the field; the field strengthens with current and weakens with distance from the wire.\n\nA **solenoid** (a coil of wire) produces a field shaped like a bar magnet's, running along its axis, with ends that behave as N and S poles. Find the N pole with the right-hand grip rule for coils: curl the fingers of your right hand in the direction of the conventional current round the loops — your thumb points to the N pole. An **electromagnet** is a solenoid wound on a soft iron core, which concentrates the field. Its strength increases with more turns on the coil, a larger current, and the soft iron core.\n\n💡 Worked Example\nA scrapyard crane: current on → the iron core is magnetised → scrap iron is lifted; current off → the soft iron demagnetises instantly → the load is released. A steel core would stay magnetised and never drop the load.\n\n⚠️ Common Mistake\nUsing the LEFT hand, or pointing the thumb along the electron flow. These rules use conventional current (+ to −), which is opposite to the electron motion.\n\n📎 Key Points to Remember\n• Straight wire: circular field, right-hand grip rule. Solenoid: bar-magnet field, thumb points to the N pole.\n• Stronger electromagnet: more turns, larger current, soft iron core.\n\n✅ Check\nThe current in a solenoid is reversed. What happens to its poles? (They swap over.)"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-n3",
+      "heading": "Relays and Loudspeakers",
+      "body": "📌 Definition\nA **relay** is a switch operated by an electromagnet: a small current in one circuit closes the contacts of a SEPARATE circuit that can carry a much larger current. A **loudspeaker** turns a varying electrical signal into sound using the motor effect.\n\n🔑 Relay\nCurrent in the coil → the soft iron core is magnetised → the iron armature is attracted and pivots → the contacts close → the second circuit is completed. Car starter motors and central-heating controls use relays so that a low-voltage, low-current switch (safe, thin wires) controls a high-current device.\n\n🔑 Loudspeaker\nThe signal current flows through a coil sitting in the field of a permanent magnet. The motor-effect force on the coil depends on the size and direction of the current, so an alternating signal pushes and pulls the coil in time with the signal; the attached cone vibrates the air and produces sound. The frequency of the sound matches the frequency of the signal.\n\n⚠️ Common Mistake\nSaying the relay 'amplifies the current'. The relay supplies no energy to the second circuit — it only switches a separate, more powerful supply.\n\n📎 Key Points to Remember\n• Relay: a small current switches a large one, via an electromagnet and an armature.\n• Loudspeaker: a.c. in the coil → alternating force → the cone vibrates.\n\n✅ Check\nWhich two ideas earn the marks in a loudspeaker explanation? (A current in a magnetic field experiences a force; the force alternates because the current alternates.)"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-n4",
+      "heading": "The Motor Effect: Force on a Current-Carrying Conductor",
+      "body": "📌 Definition\nA current-carrying conductor placed across a magnetic field experiences a **force** — the **motor effect**. The force is perpendicular to BOTH the current and the field; it is greatest when the conductor is at 90° to the field lines and zero when the conductor runs parallel to them.\n\n🔑 How it works\nThe force comes from the interaction of two magnetic fields: the magnet's and the current's. Reversing the current OR the field reverses the force; reversing BOTH leaves the force direction unchanged. The force increases with the current, the strength of the magnetic field, and the length of conductor sitting in the field.\n\nSupplement — **Fleming's left-hand rule**: hold the left hand with the first finger, second finger and thumb all at right angles. First finger = Field (N to S), seCond finger = Current (+ to −), thuMb = Motion (the thrust on the conductor).\n\nSupplement — charged-particle beams: a beam of electrons travelling through a vacuum tube IS an electric current, so a magnetic field deflects the beam. Apply the left-hand rule with the conventional current pointing OPPOSITE to the electrons' motion.\n\n💡 Worked Example\nA wire runs left-to-right between magnet poles with the field pointing into the page. Second finger along the current, first finger into the page — the thumb gives the force, say upwards. Reverse the battery connections and the wire kicks downwards.\n\n⚠️ Common Mistake\nPointing the field finger along the WIRE. The three directions are mutually perpendicular — check that each finger is genuinely at 90° to the other two.\n\n📎 Key Points to Remember\n• Force ⊥ current ⊥ field; zero force when the wire is parallel to the field.\n• Bigger current, stronger field or longer conductor → bigger force.\n• Left-hand rule: Field, Current, Motion.\n\n✅ Check\nReverse both the current and the field: the force direction is unchanged."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-n5",
+      "heading": "The d.c. Motor and the Split-Ring Commutator",
+      "body": "📌 Definition\nA simple d.c. **motor** is a coil of wire free to rotate in a magnetic field. Opposite sides of the coil carry current in opposite directions, so the motor effect pushes one side up and the other down — producing a turning effect.\n\n🔑 How it works\nIncrease the turning effect by: increasing the current, adding more turns to the coil, using a stronger magnet, and winding the coil on a soft iron core.\n\nSupplement — the **split-ring commutator**: once the coil passes the vertical position, the forces on its sides would line up and then act to turn it BACK. The split ring — two half-rings with carbon brushes pressing on them — swaps the coil's connections every half turn, so the current in each side of the coil is always in the direction that keeps the coil rotating the same way. Without it, the coil would swing to the vertical and stop.\n\n💡 Worked Example\nExam phrasing: 'The commutator reverses the current in side AB every half-turn, so the force on AB is always upward and the force on CD always downward — the coil keeps rotating in the same direction.'\n\n⚠️ Common Mistake\nCrediting the BRUSHES with reversing the current — brushes only maintain sliding contact; the SPLIT RING does the reversing. Slip rings (on an a.c. generator) do NOT reverse the connections at all.\n\n📎 Key Points to Remember\n• Opposite currents on opposite sides → opposite forces → rotation.\n• The commutator reverses the current every half turn; the brushes only keep contact.\n\n✅ Check\nDoubling the current doubles the force on each side of the coil — the motor turns with more turning effect."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-n6",
+      "heading": "Electromagnetic Induction and the a.c. Generator",
+      "body": "📌 Definition\nWhen the magnetic field linking a conductor CHANGES — a magnet moved into or out of a coil, or a conductor moved across field lines — an e.m.f. is **induced** across the conductor. In a complete circuit this drives an induced current. This is **electromagnetic induction**.\n\n🔑 How it works\nThe induced e.m.f. increases with faster relative motion, a stronger magnet, and more turns on the coil. Reversing the motion or the pole reverses the direction of the e.m.f. and the current. No change means no induction — a stationary magnet inside a coil induces nothing.\n\nSupplement — **Fleming's right-hand rule** gives the direction of the induced current (thumb = Motion, first finger = Field, second finger = Current — the generator hand).\n\nSupplement — the **a.c. generator**: a coil rotated in a magnetic field with **slip rings** and brushes (which do NOT reverse the connections) produces an alternating e.m.f. On the e.m.f.–time graph: the e.m.f. is ZERO each time the plane of the coil is PERPENDICULAR to the field (the sides move along the field lines, cutting none) and at its PEAK when the plane of the coil is PARALLEL to the field (the sides cut through the field lines at the greatest rate). Spinning the coil faster raises BOTH the peak value and the frequency.\n\n💡 Worked Example\nA bicycle dynamo: a spinning magnet sweeps its field past a coil → an alternating e.m.f. is induced → the lamp brightness pulses with wheel speed. A faster wheel means a brighter light and a higher flicker rate.\n\n⚠️ Common Mistake\nSaying the e.m.f. is greatest when the coil's plane is perpendicular to the field. Think 'rate of cutting': perpendicular means the sides move ALONG the lines, cut none, and the e.m.f. is zero.\n\n📎 Key Points to Remember\n• Induced e.m.f. grows with speed of motion, field strength and number of turns.\n• Generator: slip rings → a.c.; peak e.m.f. with the coil plane parallel to the field, zero when perpendicular.\n\n✅ Check\nThe magnet is pulled OUT of the coil instead of pushed in: the meter deflects the opposite way.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-electromagnetism-ac-generator.svg",
+        "alt": "An a.c. generator coil rotating between magnet poles with slip rings and brushes, next to the alternating e.m.f. against time graph showing peak and zero positions of the coil.",
+        "caption": "The induced e.m.f. peaks when the coil's plane is parallel to the field (sides cutting field lines fastest) and is zero when the plane is perpendicular (no lines cut)."
+      }
+    },
+    {
+      "id": "phys-igcse-electromagnetism-n7",
+      "heading": "Transformers and High-Voltage Transmission",
+      "body": "📌 Definition\nA **transformer** changes the size of an alternating p.d. It consists of a **primary coil** and a **secondary coil** wound on a soft iron core, which links the magnetic field between the coils. It works on a.c. ONLY: the alternating primary current produces a continuously changing magnetic field in the core, and that changing field induces an alternating e.m.f. in the secondary coil.\n\n🔑 The turns ratio (Core)\n\n$$\\dfrac{V_p}{V_s} = \\dfrac{N_p}{N_s}$$\n\nStep-up transformer: $N_s > N_p$, so $V_s > V_p$. Step-down: $N_s < N_p$, so $V_s < V_p$.\n\n💡 Worked Example\n600 primary turns, 60 secondary turns and a 240 V input: $V_s = 240 \\times \\dfrac{60}{600} = 24\\text{ V}$ — a step-down by a factor of 10.\n\nSupplement — current and efficiency: for a 100% efficient transformer, power in equals power out, so $I_p V_p = I_s V_s$ — stepping the voltage UP steps the current DOWN by the same factor. The power wasted heating a transmission cable is $P = I^2 R$, which is why the grid transmits at very high voltage: for a given power, a higher voltage means a much lower current, and the $I^2 R$ loss falls with the SQUARE of the current. Step-up transformers sit at the power station; step-down transformers near homes.\n\n⚠️ Common Mistake\nApplying the turns ratio to d.c. — a steady current makes a steady field, and a steady field induces NOTHING in the secondary coil. Transformers need a.c.\n\n📎 Key Points to Remember\n• $\\dfrac{V_p}{V_s} = \\dfrac{N_p}{N_s}$; a.c. only; the soft iron core links the coils.\n• High-voltage transmission: lower current → much lower $I^2 R$ heating loss in the cables.\n\n✅ Check\nA 100% efficient step-up transformer doubles the voltage: the output current halves."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-electromagnetism-f1",
+      "term": "Magnetic field",
+      "definition": "A region where a magnetic pole or magnetic material experiences a force. Lines run N to S outside a magnet; closer lines mean a stronger field.",
+      "example": "Iron filings cluster most densely around the poles of a bar magnet — the field is strongest there."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-f2",
+      "term": "Induced magnetism",
+      "definition": "Temporary magnetism gained by iron in a magnetic field. Soft iron loses it easily; hard steel retains it and makes permanent magnets.",
+      "example": "An iron nail held near a magnet attracts paper clips; remove the magnet and the nail drops them."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-f3",
+      "term": "Right-hand grip rule (solenoid)",
+      "definition": "Curl the fingers of the right hand in the direction of the conventional current round the coil; the thumb points to the solenoid's N pole.",
+      "example": "Reverse the current and the solenoid's N and S poles swap over."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-f4",
+      "term": "Strengthening an electromagnet",
+      "definition": "Use more turns on the coil, a larger current, and a soft iron core.",
+      "example": "A scrapyard crane electromagnet drops its load the instant the current is switched off — soft iron demagnetises."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-f5",
+      "term": "Relay",
+      "definition": "An electromagnetic switch: a small current in the coil pulls an armature that closes the contacts of a separate, higher-current circuit.",
+      "example": "A car's ignition switch uses a relay to control the large starter-motor current."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-f6",
+      "term": "Motor effect",
+      "definition": "A current-carrying conductor across a magnetic field experiences a force perpendicular to both. Greatest at 90° to the field; zero when parallel.",
+      "example": "A wire between magnet poles jumps when the current is switched on."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-f7",
+      "term": "Fleming's left-hand rule",
+      "definition": "For the motor effect: First finger = Field (N to S), seCond finger = Current (+ to −), thuMb = Motion (force). All three mutually perpendicular.",
+      "example": "Reverse the current OR the field to reverse the force; reversing both leaves it unchanged."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-f8",
+      "term": "Split-ring commutator",
+      "definition": "Two half-rings in a d.c. motor that swap the coil's connections every half turn, so the forces always turn the coil the same way. Brushes only maintain contact.",
+      "example": "Without the commutator the coil would swing to the vertical position and stop."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-f9",
+      "term": "Electromagnetic induction",
+      "definition": "A changing magnetic field through a conductor induces an e.m.f. across it. Bigger e.m.f.: faster motion, stronger magnet, more turns.",
+      "example": "Pushing a magnet into a coil deflects a connected meter; pulling it out deflects the meter the other way."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-f10",
+      "term": "a.c. generator",
+      "definition": "A coil rotated in a magnetic field with slip rings produces an alternating e.m.f. Peak e.m.f. when the coil's plane is parallel to the field; zero when perpendicular.",
+      "example": "Spinning the coil faster raises both the peak e.m.f. and the frequency of the output."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-f11",
+      "term": "Transformer equation",
+      "definition": "$\\dfrac{V_p}{V_s} = \\dfrac{N_p}{N_s}$. Step-up: more secondary turns, higher voltage. Works on a.c. only.",
+      "example": "600 primary turns and 60 secondary turns at 240 V give $V_s = 24\\text{ V}$ — step-down by 10."
+    },
+    {
+      "id": "phys-igcse-electromagnetism-f12",
+      "term": "High-voltage transmission",
+      "definition": "For a given power, higher voltage means lower current ($P = IV$), and cable heating $P = I^2 R$ falls with the square of the current.",
+      "example": "Doubling the transmission voltage halves the current and quarters the power lost as heat in the cables."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-electromagnetism-q1",
+      "stem": "In which direction do magnetic field lines run OUTSIDE a bar magnet?",
+      "choices": [
+        "From the south pole to the north pole",
+        "In straight lines directly between the poles",
+        "From the north pole to the south pole",
+        "In circles around the middle of the magnet"
+      ],
+      "correctIndex": 2,
+      "explanation": "Field lines show the direction of the force on a north pole, so outside the magnet they run from N to S, curving between the poles. (Inside the magnet they complete the loop from S to N.)",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q2",
+      "stem": "Why is soft iron, rather than steel, used for the core of an electromagnet?",
+      "choices": [
+        "Iron magnetises and demagnetises easily, so the magnetism can be switched on and off",
+        "Iron is a permanently magnetic material",
+        "Steel is not attracted to magnets",
+        "Iron is a better electrical insulator"
+      ],
+      "correctIndex": 0,
+      "explanation": "Soft iron gains and loses induced magnetism easily, so the electromagnet turns on with the current and off again instantly. Steel keeps its magnetism — ideal for permanent magnets but useless where the magnetism must be switched.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q3",
+      "stem": "What does the spacing of magnetic field lines tell you about the field?",
+      "choices": [
+        "Widely spaced lines mean a stronger field",
+        "Field-line spacing tells you nothing about strength",
+        "The field is strongest where the lines cross each other",
+        "Closely spaced lines mean a stronger field — which is why the field is strongest at the poles"
+      ],
+      "correctIndex": 3,
+      "explanation": "The convention is that field-line density represents field strength: lines packed closest together mark the strongest field, which for a bar magnet is at its poles. Field lines never cross — a crossing would mean the field points two ways at once.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q4",
+      "stem": "A current flows through a solenoid. Using the right-hand grip rule, if your fingers curl in the direction of the conventional current, your thumb points to:",
+      "choices": [
+        "The south pole of the solenoid",
+        "The north pole of the solenoid",
+        "The direction of the electron flow",
+        "The nearest end of the iron core"
+      ],
+      "correctIndex": 1,
+      "explanation": "For a solenoid, grip the coil so the right-hand fingers follow the conventional current round the loops; the extended thumb points along the axis to the north pole. Reversing the current swaps the poles over.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q5",
+      "stem": "Why is a relay used between a low-voltage switch and a car's starter motor?",
+      "choices": [
+        "It makes the starter motor spin faster",
+        "It steps up the battery voltage",
+        "A small current in the switch circuit magnetises a coil that closes contacts carrying the large starter current",
+        "It converts d.c. into a.c. for the motor"
+      ],
+      "correctIndex": 2,
+      "explanation": "The relay's electromagnet needs only a small current to pull the armature and close the contacts of the separate starter circuit, so the driver-side switch and wiring stay low-current and safe. The relay supplies no energy itself — it switches the battery's own high-current path.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q6",
+      "stem": "A loudspeaker produces sound because:",
+      "choices": [
+        "An alternating current in the coil makes the motor-effect force on the coil vary, so the cone vibrates",
+        "The permanent magnet vibrates the paper cone directly",
+        "Sound waves are induced in the magnet",
+        "The coil heats up and pushes the air"
+      ],
+      "correctIndex": 0,
+      "explanation": "The coil sits in the field of a permanent magnet, so the motor effect exerts a force on it. Because the signal is alternating, the force alternates in size and direction, driving the cone back and forth at the signal frequency — producing sound waves in the air.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q7",
+      "stem": "A current-carrying wire in a magnetic field experiences an upward force. The current is reversed AND the magnetic field is reversed. The force on the wire now acts:",
+      "choices": [
+        "Downwards",
+        "To the left",
+        "To the right",
+        "Upwards — reversing both leaves the force direction unchanged"
+      ],
+      "correctIndex": 3,
+      "explanation": "Reversing the current alone OR the field alone reverses the force. Reversing both applies two reversals, so the force is unchanged — confirm with Fleming's left-hand rule by swapping the first two fingers together.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q8",
+      "stem": "In Fleming's left-hand rule, what does the second finger represent?",
+      "choices": [
+        "The direction of the magnetic field",
+        "The direction of the conventional current",
+        "The direction of the resulting motion",
+        "The direction of the electron flow"
+      ],
+      "correctIndex": 1,
+      "explanation": "First finger = Field (N to S), seCond finger = Current (+ to −), thuMb = Motion (thrust). Note that the rule uses CONVENTIONAL current — opposite to the direction electrons actually drift.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q9",
+      "stem": "A beam of electrons travels through a magnetic field in a vacuum tube. What happens to the beam, and why?",
+      "choices": [
+        "Nothing — electrons carry no charge in a vacuum",
+        "The beam speeds up along the field lines",
+        "The beam is deflected — a moving charge is an electric current, so the motor effect applies",
+        "The beam splits into separate positive and negative streams"
+      ],
+      "correctIndex": 2,
+      "explanation": "A beam of moving electrons is an electric current, so it experiences a motor-effect force in a magnetic field and the beam curves. Use Fleming's left-hand rule with the conventional current pointing OPPOSITE to the electrons' motion, since electrons are negative.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q10",
+      "stem": "What would the coil of a simple d.c. motor do WITHOUT its split-ring commutator?",
+      "choices": [
+        "Stop turning after half a turn — past the vertical, the forces would act to push it back",
+        "Spin twice as fast",
+        "Turn steadily in the opposite direction",
+        "Spin normally, just more noisily"
+      ],
+      "correctIndex": 0,
+      "explanation": "Once the coil passes the vertical, an unchanged current would produce forces turning it BACK the way it came, so it would swing to the vertical and stop. The commutator swaps the connections every half turn so the force on each side of the coil keeps pointing the same way — continuous rotation.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q11",
+      "stem": "Which change would DECREASE the e.m.f. induced when a magnet is pushed into a coil?",
+      "choices": [
+        "Using a stronger magnet",
+        "Winding more turns on the coil",
+        "Moving the magnet faster",
+        "Moving the magnet more slowly"
+      ],
+      "correctIndex": 3,
+      "explanation": "The induced e.m.f. depends on how quickly the magnetic field through the coil changes. A stronger magnet, more turns and faster motion all increase it; moving the magnet more slowly reduces the rate of change and so reduces the e.m.f.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q12",
+      "stem": "The output e.m.f. of an a.c. generator is at its MAXIMUM when the plane of the rotating coil is:",
+      "choices": [
+        "Perpendicular to the field lines — that is where the sides move along the lines",
+        "Parallel to the field lines — the sides are cutting through the field at the greatest rate",
+        "At 45° to the field lines",
+        "Irrelevant — the e.m.f. stays constant through the whole cycle"
+      ],
+      "correctIndex": 1,
+      "explanation": "The induced e.m.f. depends on how fast the coil's sides cut across the field lines. With the plane parallel to the field, the sides sweep straight through the lines — maximum cutting rate, peak e.m.f. With the plane perpendicular, the sides move along the lines, cut none, and the e.m.f. is zero.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q13",
+      "stem": "A transformer has 600 turns on its primary coil and 60 turns on its secondary coil. The primary is connected to a 240 V a.c. supply. What is the secondary voltage?",
+      "choices": [
+        "2400 V",
+        "240 V",
+        "24 V",
+        "2.4 V"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\dfrac{V_p}{V_s} = \\dfrac{N_p}{N_s}$, so $V_s = 240 \\times \\dfrac{60}{600} = 24\\text{ V}$. Fewer secondary turns than primary turns means a step-DOWN transformer; the 2400 V trap inverts the turns ratio.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q14",
+      "stem": "A 100% efficient transformer steps 12 V up to 120 V. The primary current is 5 A. What is the secondary current?",
+      "choices": [
+        "50 A",
+        "5 A",
+        "1.2 A",
+        "0.5 A"
+      ],
+      "correctIndex": 3,
+      "explanation": "For a 100% efficient transformer $I_p V_p = I_s V_s$, so $I_s = \\dfrac{5 \\times 12}{120} = 0.5\\text{ A}$. Stepping the voltage up by a factor of 10 steps the current down by a factor of 10 — power in equals power out. The 50 A trap multiplies the current by 10 instead of dividing.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-electromagnetism-q15",
+      "stem": "A transmission line delivers the same amount of power at twice the voltage. What happens to the power wasted as heat in the cables?",
+      "choices": [
+        "It falls to a quarter of its previous value",
+        "It halves",
+        "It stays the same",
+        "It doubles"
+      ],
+      "correctIndex": 0,
+      "explanation": "The same power at double the voltage means half the current, since $P = IV$. The heating loss in the cables is $P = I^2 R$, so halving the current quarters the loss: $\\left(\\dfrac{1}{2}\\right)^2 = \\dfrac{1}{4}$. This is exactly why the grid transmits at hundreds of kilovolts.",
+      "difficulty": "hard"
+    }
+  ]
+}

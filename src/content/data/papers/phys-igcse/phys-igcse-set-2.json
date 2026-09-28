@@ -1,0 +1,100 @@
+{
+  "id": "phys-igcse-set-2",
+  "courseId": "phys-igcse",
+  "title": "Practice Set 2",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "phys-igcse-set-2-q1",
+      "stem": "A car of mass $1500$ kg accelerates uniformly from rest to $20\\text{ m/s}$ in $8.0$ s. Calculate the resultant force on the car.",
+      "marks": 2,
+      "markscheme": [
+        "M1: acceleration $a = \\dfrac{\\Delta v}{t} = \\dfrac{20}{8.0} = 2.5\\text{ m/s}^2$",
+        "A1: $F = ma = 1500 \\times 2.5 = 3750\\text{ N}$"
+      ],
+      "modelAnswer": "First find the acceleration: $a = \\dfrac{\\Delta v}{t} = \\dfrac{20 - 0}{8.0} = 2.5\\text{ m/s}^2$. Then Newton's second law gives $F = ma = 1500 \\times 2.5 = 3750\\text{ N}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-set-2-q2",
+      "stem": "A trolley of mass $3.0$ kg moving at $4.0\\text{ m/s}$ collides with a stationary trolley of mass $1.0$ kg. The trolleys stick together after the collision. Use conservation of momentum to calculate their common velocity after the collision.",
+      "marks": 4,
+      "markscheme": [
+        "M1: momentum before $= mv = 3.0 \\times 4.0 = 12\\text{ kg m/s}$",
+        "M1: total mass after $= 3.0 + 1.0 = 4.0$ kg",
+        "M1: applies conservation of momentum ($12 = 4.0v$)",
+        "A1: $v = 3.0\\text{ m/s}$"
+      ],
+      "modelAnswer": "Total momentum is conserved. Before the collision only the moving trolley carries momentum: $p = 3.0 \\times 4.0 = 12\\text{ kg m/s}$. After the collision the combined mass is $4.0$ kg, so $12 = 4.0v$, giving $v = 3.0\\text{ m/s}$ in the original direction of motion.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-set-2-q3",
+      "stem": "A uniform beam is balanced on a pivot. A force of $200\\text{ N}$ acts $0.30\\text{ m}$ to the left of the pivot. What force, applied $0.50\\text{ m}$ to the right of the pivot, keeps the beam in equilibrium?",
+      "marks": 3,
+      "markscheme": [
+        "M1: moment $= F \\times$ perpendicular distance $= 200 \\times 0.30 = 60\\text{ N m}$",
+        "M1: applies the principle of moments (clockwise moment = anticlockwise moment, $0.50F = 60$)",
+        "A1: $F = 120\\text{ N}$"
+      ],
+      "modelAnswer": "For equilibrium the total anticlockwise moment equals the total clockwise moment about the pivot. The $200\\text{ N}$ force gives a moment of $200 \\times 0.30 = 60\\text{ N m}$. So the balancing force satisfies $0.50F = 60$, hence $F = 120\\text{ N}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-set-2-q4",
+      "stem": "A transformer has $1150$ turns on its primary coil and $50$ turns on its secondary coil. The primary is connected to a $230\\text{ V}$ a.c. supply. Calculate the secondary p.d., assuming $100\\%$ efficiency.",
+      "marks": 2,
+      "markscheme": [
+        "M1: uses $\\dfrac{V_p}{V_s} = \\dfrac{N_p}{N_s}$ ($V_s = 230 \\times \\dfrac{50}{1150}$ seen)",
+        "A1: $V_s = 10\\text{ V}$"
+      ],
+      "modelAnswer": "For an ideal transformer $\\dfrac{V_p}{V_s} = \\dfrac{N_p}{N_s}$, so $V_s = V_p \\times \\dfrac{N_s}{N_p} = 230 \\times \\dfrac{50}{1150} = 10\\text{ V}$. This is a step-down transformer.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-set-2-q5",
+      "stem": "A radioactive isotope has a half-life of $6$ hours. A sample has a corrected count rate of $800$ counts/min. What is the corrected count rate after $18$ hours?",
+      "marks": 2,
+      "markscheme": [
+        "M1: $18$ h $= 3$ half-lives ($800 \\to 400 \\to 200 \\to 100$ seen)",
+        "A1: $100$ counts/min"
+      ],
+      "modelAnswer": "The count rate halves every $6$ hours. $18$ hours is three half-lives, so $800 \\to 400 \\to 200 \\to 100$. After $18$ hours the corrected count rate is $100$ counts/min.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-set-2-q6",
+      "stem": "The Moon orbits the Earth in an approximately circular orbit of radius $3.84 \\times 10^{8}\\text{ m}$ with a period of $27.3$ days. Calculate the Moon's orbital speed. ($1$ day $= 8.64 \\times 10^{4}$ s.)",
+      "marks": 3,
+      "markscheme": [
+        "M1: uses $v = \\dfrac{2\\pi r}{T}$",
+        "M1: converts the period to seconds ($27.3 \\times 8.64 \\times 10^{4} = 2.36 \\times 10^{6}$ s)",
+        "A1: $v \\approx 1.02 \\times 10^{3}\\text{ m/s}$ (accept $1.0$ to $1.03 \\times 10^{3}$)"
+      ],
+      "modelAnswer": "For circular motion $v = \\dfrac{2\\pi r}{T}$. Convert the period: $T = 27.3 \\times 8.64 \\times 10^{4} = 2.36 \\times 10^{6}$ s. Then $v = \\dfrac{2\\pi \\times 3.84 \\times 10^{8}}{2.36 \\times 10^{6}} = \\dfrac{2.41 \\times 10^{9}}{2.36 \\times 10^{6}} \\approx 1.02 \\times 10^{3}\\text{ m/s}$, about $1$ km/s.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-set-2-q7",
+      "stem": "A ball of mass $0.050$ kg travelling at $12\\text{ m/s}$ hits a wall and rebounds at $8\\text{ m/s}$ in the opposite direction. The impact lasts $0.020$ s. Calculate the average force exerted on the ball by the wall.",
+      "marks": 2,
+      "markscheme": [
+        "M1: $\\Delta p = m\\Delta v = 0.050 \\times (12 - (-8)) = 1.0\\text{ kg m/s}$ (rebound sign change handled)",
+        "A1: $F = \\dfrac{\\Delta p}{\\Delta t} = \\dfrac{1.0}{0.020} = 50\\text{ N}$"
+      ],
+      "modelAnswer": "Taking the initial direction as positive, the velocity changes from $+12$ to $-8\\text{ m/s}$, so $\\Delta v = 20\\text{ m/s}$ and $\\Delta p = 0.050 \\times 20 = 1.0\\text{ kg m/s}$. The average force is $F = \\dfrac{\\Delta p}{\\Delta t} = \\dfrac{1.0}{0.020} = 50\\text{ N}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-set-2-q8",
+      "stem": "A radium nucleus decays by alpha emission: $^{226}_{88}\\text{Ra} \\rightarrow {}^{a}_{b}\\text{Rn} + {}^{4}_{2}\\text{He}$. Determine the values of $a$ and $b$.",
+      "marks": 2,
+      "markscheme": [
+        "B1: $a = 222$ (nucleon number conserved: $226 - 4$)",
+        "B1: $b = 86$ (proton number conserved: $88 - 2$)"
+      ],
+      "modelAnswer": "In any nuclear equation both nucleon number and proton number are conserved. The alpha particle carries away $4$ nucleons and $2$ protons, so $a = 226 - 4 = 222$ and $b = 88 - 2 = 86$. The daughter nucleus is $^{222}_{86}\\text{Rn}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

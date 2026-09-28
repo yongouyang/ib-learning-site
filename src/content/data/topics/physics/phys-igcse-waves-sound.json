@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-waves-sound",
+  "subjectId": "physics",
+  "title": "General Wave Properties & Sound",
+  "description": "Wave features and the wave equation, transverse and longitudinal waves, the ripple-tank practical, sound production, the hearing range, echoes and ultrasound (IGCSE 0625).",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-waves-sound-n1",
+      "heading": "Describing Waves",
+      "body": "📌 Definition\nA **wave** transfers energy from one place to another **without transferring matter**. The particles of the medium oscillate about fixed positions; only the disturbance travels.\n\n🔑 How it works — the five exam quantities\n• **Amplitude** — the maximum displacement of a point on the wave from its rest (undisturbed) position, in metres. Greater amplitude means more energy.\n• **Wavelength** $\\lambda$ — the distance between two consecutive points in phase, e.g. crest to crest or trough to trough, in metres.\n• **Frequency** $f$ — the number of complete waves passing a fixed point per second, in hertz (Hz). $1\\text{ Hz} = 1$ wave per second.\n• **Period** $T$ — the time for one complete oscillation: $T = \\dfrac{1}{f}$, in seconds.\n• **Wavefront** — a line joining all adjacent points in phase (all the crests, for instance). Rays are drawn at $90^\\circ$ to wavefronts and show the direction of travel.\n\n💡 Worked Example\nA wave on a rope makes 3 complete oscillations every 2 seconds. $f = \\dfrac{3}{2} = 1.5\\text{ Hz}$ and $T = \\dfrac{1}{1.5} = 0.67\\text{ s}$.\n\n📎 Key Points to Remember\n• Amplitude is measured from the rest position to a crest — NOT crest to trough (that is twice the amplitude).\n• Wavelength is crest to **consecutive** crest, not just any two crests.\n• In an exam, state the unit with every quantity: m, Hz, s."
+    },
+    {
+      "id": "phys-igcse-waves-sound-n2",
+      "heading": "The Wave Equation",
+      "body": "📌 Definition\nThe speed of a wave links its frequency and wavelength:\n\n$$v = f\\lambda$$\n\n$v$ = wave speed (m/s), $f$ = frequency (Hz), $\\lambda$ = wavelength (m). This one equation applies to **every** wave — water ripples, sound, light, seismic waves.\n\n🔑 How it works\nRearrange it for the quantity you need: $f = \\dfrac{v}{\\lambda}$ and $\\lambda = \\dfrac{v}{f}$. The speed is fixed by the **medium**, not by the source — so if the frequency of a wave in a given medium doubles, the wavelength halves, because $v$ cannot change.\n\n💡 Worked Example 1\nSound of frequency $250\\text{ Hz}$ has wavelength $1.4\\text{ m}$ in air. $v = f\\lambda = 250 \\times 1.4 = 350\\text{ m/s}$.\n\n💡 Worked Example 2\nA water wave travels at $2.0\\text{ m/s}$ with wavelength $0.50\\text{ m}$. $f = \\dfrac{v}{\\lambda} = \\dfrac{2.0}{0.50} = 4.0\\text{ Hz}$.\n\n⚠️ Common Mistake\nDividing $f$ by $v$ to get wavelength. Check your rearrangement with units: $\\text{m/s} \\div \\text{Hz} = \\text{m/s} \\times \\text{s} = \\text{m}$ — a length, as required.\n\n📎 Key Points to Remember\n• Learn the triangle: $v$ on top, $f$ and $\\lambda$ below.\n• Same medium, same speed — changing $f$ changes $\\lambda$ in inverse proportion."
+    },
+    {
+      "id": "phys-igcse-waves-sound-n3",
+      "heading": "Transverse and Longitudinal Waves",
+      "body": "📌 Definition\n**Transverse wave**: the oscillations are **perpendicular** to the direction of energy transfer. **Longitudinal wave**: the oscillations are **parallel** to the direction of energy transfer.\n\n🔑 How it works\n• Transverse waves have **crests and troughs**. Examples: all electromagnetic waves (light, radio, X-rays), ripples on water, waves on a stretched rope, seismic **S-waves**.\n• Longitudinal waves have **compressions** (particles crowded together, high pressure) and **rarefactions** (particles spread apart, low pressure). Examples: sound in air, a push–pull wave along a slinky, seismic **P-waves**.\n• Wavelength on a longitudinal wave is measured compression to compression (or rarefaction to rarefaction).\n\n💡 Worked Example — the seismic distinction\nEarthquakes generate both types. **P-waves are longitudinal** and can travel through solids AND liquids, so they pass through Earth's liquid outer core. **S-waves are transverse** and cannot travel through liquid — the S-wave shadow zone on the far side of the Earth is evidence that the outer core is liquid. P-waves also travel faster, so they arrive at detectors first (P = primary, S = secondary).\n\n⚠️ Common Mistake\nSaying the particles travel along with the wave. In both types the particles only oscillate about fixed positions; the **energy** moves on, the medium does not.\n\n📎 Key Points to Remember\n• Exam phrasing: \"oscillations perpendicular to the direction of energy transfer\" — say energy transfer, not just \"wave direction\".\n• Sound is the standard longitudinal example; light the standard transverse one."
+    },
+    {
+      "id": "phys-igcse-waves-sound-n4",
+      "heading": "The Ripple-Tank Practical",
+      "body": "🔑 How it works\nA **ripple tank** is a shallow glass-bottomed tray of water used to make wave behaviour visible. A straight bar (dipper) touching the surface is vibrated by a small electric motor, producing **plane (straight) wavefronts** at a steady frequency. A lamp above the tank casts shadows of the wavefronts — the crests act as lenses, forming bright lines — onto a white screen below.\n\n💡 What the experiment shows\n• **Measuring wavelength**: use a **stroboscope** (flashing light or slotted disc) at the right flash rate to \"freeze\" the pattern, then measure the distance across several wavelengths on the screen and divide — measuring $10\\lambda$ and dividing by $10$ reduces uncertainty. (A photo with a ruler in shot does the same job.)\n• **Measuring speed**: time a wavefront over a measured distance with the pattern frozen, or use $v = f\\lambda$ with $f$ set by the motor and $\\lambda$ from the screen.\n• **Reflection**: place a straight barrier in the tank — wavefronts bounce off with the angle of reflection equal to the angle of incidence.\n• **Refraction**: rest a flat glass plate in the water to make a **shallower** region. Waves travel slower in shallow water, so the wavefronts bunch closer together ($\\lambda$ decreases) and change direction at the boundary — frequency stays fixed because the motor sets it.\n• **Diffraction**: place two barriers with a gap — wavefronts spread into the region beyond the gap.\n\n📎 Key Points to Remember\n• The lamp and screen are how the pattern is OBSERVED; the vibrating bar is how it is PRODUCED. Naming both earns the marks.\n• Frequency is decided by the source; speed by the depth (medium); wavelength is the result, $\\lambda = \\dfrac{v}{f}$.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-waves-sound-ripple-tank.svg",
+        "alt": "Ripple tank apparatus: a lamp above a shallow water tank, a vibrating bar making straight wavefronts, and their shadows on a screen below, plus a top view of wavefronts diffracting through a gap between two barriers.",
+        "caption": "A ripple tank makes water wavefronts visible so reflection, refraction and diffraction can be demonstrated and wavelength measured."
+      }
+    },
+    {
+      "id": "phys-igcse-waves-sound-n5",
+      "heading": "Diffraction and Gap Size (Supplement)",
+      "body": "📌 Definition\n**Diffraction** is the spreading of waves as they pass through a gap or around the edge of an obstacle.\n\n🔑 How it works\nThe amount of spreading depends on the size of the gap **compared with the wavelength**:\n• Gap width **approximately equal to** the wavelength (or smaller) → strong diffraction, the emerging wavefronts are nearly semicircular.\n• Gap width **much larger than** the wavelength → little diffraction; wavefronts pass through almost straight, curving only at the edges.\n• The wavelength itself is **unchanged** by diffraction — the crest spacing looks the same before and after the gap.\n\n💡 Worked Example\nA harbour wall has a $4\\text{ m}$ entrance. Sea waves of wavelength $4\\text{ m}$ spread through it in semicircles and reach boats anywhere inside; waves of wavelength $0.4\\text{ m}$ pass through as a narrow beam and leave a \"shadow\" of calm water behind the walls.\n\n⚠️ Common Mistake\nThinking a smaller gap always helps regardless of wavelength. The comparison is between gap width and wavelength — the SAME gap diffracts long waves strongly and short waves weakly. This is why long-wavelength radio waves bend around hills but short-wavelength light does not bend round a doorway noticeably.\n\n📎 Key Points to Remember\n• Draw it: parallel wavefronts in, curved wavefronts out, wavelength constant.\n• Maximum effect when gap $\\approx \\lambda$."
+    },
+    {
+      "id": "phys-igcse-waves-sound-n6",
+      "heading": "Sound Waves",
+      "body": "📌 Definition\n**Sound** is produced by **vibrating objects** and travels as a **longitudinal** wave: the vibrations push and pull the surrounding particles, creating a series of **compressions** and **rarefactions** that carry energy outwards.\n\n🔑 How it works\n• Sound needs a **medium** — it cannot travel through a vacuum. Demonstration: an electric bell inside a bell jar is audible until the air is pumped out; the bell is still seen vibrating, but the sound fades away because there are no particles left to carry it.\n• The **range of human hearing** is approximately $20\\text{ Hz}$ to $20\\text{ kHz}$ ($20\\,000\\text{ Hz}$). Sound above this range is **ultrasound**.\n• **Amplitude ↔ loudness**: a larger amplitude means a louder sound (more energy).\n• **Frequency ↔ pitch**: a higher frequency means a higher-pitched note.\n• The **speed of sound in air** is about $330$–$350\\text{ m/s}$ — memorise $\\approx 340\\text{ m/s}$. Sound travels faster in liquids and faster still in solids, because the particles are closer together and pass the vibration on more quickly.\n\n💡 Worked Example\nA tuning fork vibrates at $512\\text{ Hz}$ in air where sound travels at $340\\text{ m/s}$. Its wavelength is $\\lambda = \\dfrac{v}{f} = \\dfrac{340}{512} = 0.66\\text{ m}$ — one compression is followed by the next about two-thirds of a metre away.\n\n⚠️ Common Mistake\nConfusing loudness with pitch. \"Louder\" means bigger amplitude; \"higher\" means bigger frequency. They are independent quantities and exams test that you keep them separate.\n\n📎 Key Points to Remember\n• Longitudinal, compressions/rarefactions, needs a medium, $20\\text{ Hz}$–$20\\text{ kHz}$ — four facts that earn four separate marks."
+    },
+    {
+      "id": "phys-igcse-waves-sound-n7",
+      "heading": "Echoes, Measuring Sound Speed, and Ultrasound",
+      "body": "📌 Definition\nAn **echo** is a reflected sound heard separately from the original sound because the reflection has travelled further and arrives later.\n\n🔑 How it works — measuring the speed of sound in air (Core experiment)\nStand a measured distance $d$ (e.g. $100\\text{ m}$) from a large flat wall. Make a sharp sound (clap, or two blocks of wood) and time the interval $t$ until the echo returns. The sound travels there AND back:\n\n$$v = \\dfrac{2d}{t}$$\n\nRepeat and average, and choose a still day — wind adds to or subtracts from the true speed. Clapping in rhythm so each clap coincides with the previous echo lets you time many round trips at once, reducing timing uncertainty.\n\n🔑 How it works — echoes measure depth (Supplement)\nAny echo calculation uses the **round trip**: the pulse covers the distance twice, so\n\n$$d = \\dfrac{vt}{2}$$\n\n💡 Worked Example\nA ship's sonar pulse returns from the seabed after $0.80\\text{ s}$. Sound travels at $1500\\text{ m/s}$ in seawater. Depth $d = \\dfrac{1500 \\times 0.80}{2} = 600\\text{ m}$.\n\n🔑 Ultrasound (Supplement)\n**Ultrasound** is sound of frequency above $20\\text{ kHz}$, beyond human hearing. Uses: **medical scanning** (pulses reflect off boundaries between tissues to build an image of a foetus), **sonar** (seabed depth and shoals of fish), **cleaning** delicate mechanisms, and **non-destructive testing** (pulses reflect off hidden cracks inside metal castings).\n\n⚠️ Common Mistake\nForgetting the factor of 2. The measured time is for the journey out AND back — halve it (or double the distance) before applying $v = \\dfrac{d}{t}$."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-waves-sound-f1",
+      "term": "Amplitude",
+      "definition": "The maximum displacement of a point on a wave from its rest position, in metres. Larger amplitude = more energy (louder sound, brighter light).",
+      "example": "Doubling the amplitude of a speaker's vibration makes the note louder but does not change its pitch."
+    },
+    {
+      "id": "phys-igcse-waves-sound-f2",
+      "term": "Wavelength (λ)",
+      "definition": "The distance between two consecutive points in phase — crest to crest, or compression to compression — in metres.",
+      "example": "Ripples with crests 0.25 m apart have λ = 0.25 m."
+    },
+    {
+      "id": "phys-igcse-waves-sound-f3",
+      "term": "Frequency (f)",
+      "definition": "The number of complete waves passing a fixed point per second, measured in hertz (Hz). Period T = 1/f.",
+      "example": "A 50 Hz wave has 50 crests passing each second and a period of 0.02 s."
+    },
+    {
+      "id": "phys-igcse-waves-sound-f4",
+      "term": "Wavefront",
+      "definition": "A line joining adjacent points on a wave that are in phase (e.g. all the crests). Rays are drawn at right angles to wavefronts.",
+      "example": "In a ripple tank, the bright lines on the screen are the wavefronts."
+    },
+    {
+      "id": "phys-igcse-waves-sound-f5",
+      "term": "Wave equation",
+      "definition": "v = fλ: wave speed = frequency × wavelength. Applies to all waves; speed is fixed by the medium.",
+      "example": "f = 250 Hz, λ = 1.4 m gives v = 350 m/s."
+    },
+    {
+      "id": "phys-igcse-waves-sound-f6",
+      "term": "Transverse wave",
+      "definition": "Oscillations perpendicular to the direction of energy transfer; has crests and troughs.",
+      "example": "Light, radio waves, water ripples and seismic S-waves are transverse."
+    },
+    {
+      "id": "phys-igcse-waves-sound-f7",
+      "term": "Longitudinal wave",
+      "definition": "Oscillations parallel to the direction of energy transfer; consists of compressions and rarefactions.",
+      "example": "Sound in air and seismic P-waves are longitudinal."
+    },
+    {
+      "id": "phys-igcse-waves-sound-f8",
+      "term": "Compression and rarefaction",
+      "definition": "Compression: region where particles are crowded together (high pressure). Rarefaction: region where particles are spread apart (low pressure).",
+      "example": "A loudspeaker cone moving out creates a compression; moving back creates a rarefaction."
+    },
+    {
+      "id": "phys-igcse-waves-sound-f9",
+      "term": "Ripple tank",
+      "definition": "A shallow tray of water with a vibrating bar producing plane wavefronts; a lamp casts shadows of the wavefronts onto a screen so reflection, refraction and diffraction can be seen and wavelength measured.",
+      "example": "A glass plate makes a shallow region where waves slow down and refract."
+    },
+    {
+      "id": "phys-igcse-waves-sound-f10",
+      "term": "Diffraction (Supplement)",
+      "definition": "The spreading of waves through a gap or around an edge. Greatest when the gap width is about equal to the wavelength; wavelength is unchanged.",
+      "example": "Waves of λ = 2 cm spread almost semicircularly through a 2 cm gap but pass nearly straight through a 2 m gap."
+    },
+    {
+      "id": "phys-igcse-waves-sound-f11",
+      "term": "Range of human hearing",
+      "definition": "Approximately 20 Hz to 20 000 Hz (20 kHz). Above 20 kHz is ultrasound.",
+      "example": "A dog whistle at 25 kHz is inaudible to humans because it is ultrasound."
+    },
+    {
+      "id": "phys-igcse-waves-sound-f12",
+      "term": "Echo depth equation",
+      "definition": "For a reflected pulse, d = vt/2 — the time t covers the journey out and back, so halve it before using d = vt.",
+      "example": "Sonar echo after 0.8 s at 1500 m/s gives a depth of 600 m."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-waves-sound-q1",
+      "stem": "What is the wavelength of a wave?",
+      "choices": [
+        "The distance from a crest to the next trough",
+        "The distance between two consecutive crests (or two consecutive troughs)",
+        "The number of complete waves passing a point per second",
+        "The maximum displacement from the rest position"
+      ],
+      "correctIndex": 1,
+      "explanation": "Wavelength is crest to consecutive crest (or any two consecutive points in phase). Crest to trough is half a wavelength, waves per second is frequency, and maximum displacement is amplitude.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q2",
+      "stem": "Which quantity is measured in hertz (Hz)?",
+      "choices": [
+        "Amplitude",
+        "Wavelength",
+        "Wave speed",
+        "Frequency"
+      ],
+      "correctIndex": 3,
+      "explanation": "Frequency is measured in hertz: 1 Hz = 1 complete wave per second. Amplitude and wavelength are in metres; speed is in m/s.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q3",
+      "stem": "Sound travels through air as:",
+      "choices": [
+        "A longitudinal wave of compressions and rarefactions",
+        "A transverse wave of crests and troughs",
+        "An electromagnetic wave",
+        "A wave that needs no medium"
+      ],
+      "correctIndex": 0,
+      "explanation": "Sound is longitudinal: air particles oscillate parallel to the direction of travel, producing compressions and rarefactions. It is mechanical, so it requires a medium.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q4",
+      "stem": "The range of frequencies a healthy young human ear can detect is approximately:",
+      "choices": [
+        "2 Hz to 2 kHz",
+        "200 Hz to 2 kHz",
+        "20 Hz to 20 kHz",
+        "20 kHz to 20 MHz"
+      ],
+      "correctIndex": 2,
+      "explanation": "The audible range is 20 Hz to 20 000 Hz (20 kHz). Frequencies above 20 kHz are ultrasound, which humans cannot hear.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q5",
+      "stem": "A water wave has a frequency of $250\\text{ Hz}$ and a wavelength of $1.2\\text{ m}$. What is its speed?",
+      "choices": [
+        "$300\\text{ m/s}$",
+        "$208\\text{ m/s}$",
+        "$30\\text{ m/s}$",
+        "$251.2\\text{ m/s}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Using $v = f\\lambda$: $v = 250 \\times 1.2 = 300\\text{ m/s}$. The $208\\text{ m/s}$ option comes from mistakenly dividing $250$ by $1.2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q6",
+      "stem": "A sound wave travels through air at $340\\text{ m/s}$ with a frequency of $170\\text{ Hz}$. What is its wavelength?",
+      "choices": [
+        "$0.5\\text{ m}$",
+        "$340\\text{ m}$",
+        "$2.0\\text{ m}$",
+        "$57\\text{ m}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Rearranging $v = f\\lambda$: $\\lambda = \\dfrac{v}{f} = \\dfrac{340}{170} = 2.0\\text{ m}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q7",
+      "stem": "$60$ complete waves pass a fixed buoy in $12\\text{ s}$. What is the frequency of the waves?",
+      "choices": [
+        "$720\\text{ Hz}$",
+        "$5\\text{ Hz}$",
+        "$0.2\\text{ Hz}$",
+        "$12\\text{ Hz}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Frequency is the number of waves per second: $f = \\dfrac{60}{12} = 5\\text{ Hz}$. The $0.2\\text{ Hz}$ option is the period, $T = \\dfrac{1}{f}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q8",
+      "stem": "An earthquake produces P-waves and S-waves. Which statement about them is correct?",
+      "choices": [
+        "P-waves are transverse and cannot pass through the liquid outer core",
+        "S-waves are longitudinal and travel faster than P-waves",
+        "Both P-waves and S-waves are longitudinal",
+        "P-waves are longitudinal and can pass through the liquid outer core; S-waves are transverse and cannot"
+      ],
+      "correctIndex": 3,
+      "explanation": "P-waves are longitudinal and travel through both solids and liquids, arriving first. S-waves are transverse: transverse oscillations cannot be sustained in a liquid, so S-waves are stopped by the outer core — evidence that it is liquid.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q9",
+      "stem": "In a ripple tank, a straight bar dipping into the water is vibrated by a motor. What does the bar produce?",
+      "choices": [
+        "Circular wavefronts",
+        "Plane (straight) wavefronts of constant frequency",
+        "Longitudinal waves on the water surface",
+        "Standing waves that do not travel"
+      ],
+      "correctIndex": 1,
+      "explanation": "Every point of the straight bar dips together, so all points along each crest are in phase — the wavefronts are straight lines travelling away from the bar, at the frequency the motor sets. A single pointed dipper would give circular wavefronts.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q10",
+      "stem": "A loudspeaker makes a note that becomes louder but stays at exactly the same pitch. What has changed?",
+      "choices": [
+        "The amplitude has increased; the frequency is unchanged",
+        "The frequency has increased; the amplitude is unchanged",
+        "Both the amplitude and the frequency have increased",
+        "The wavelength has increased; the speed is unchanged"
+      ],
+      "correctIndex": 0,
+      "explanation": "Loudness depends on amplitude and pitch depends on frequency. Louder at the same pitch means a larger amplitude with the frequency fixed.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q11",
+      "stem": "Plane water waves of wavelength $2.0\\text{ cm}$ reach a barrier containing a gap. Which gap width produces the greatest diffraction? (Supplement)",
+      "choices": [
+        "$20\\text{ cm}$",
+        "$2.0\\text{ m}$",
+        "$2.0\\text{ cm}$",
+        "$20\\text{ m}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Diffraction is greatest when the gap width is about equal to the wavelength — here $2.0\\text{ cm}$, so the emerging wavefronts are nearly semicircular. Gaps many wavelengths wide let the wave through almost straight.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q12",
+      "stem": "A ship sends an ultrasound pulse straight down and the echo from the seabed returns $0.80\\text{ s}$ later. Sound travels at $1500\\text{ m/s}$ in seawater. How deep is the water?",
+      "choices": [
+        "$1200\\text{ m}$",
+        "$750\\text{ m}$",
+        "$375\\text{ m}$",
+        "$600\\text{ m}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The $0.80\\text{ s}$ covers the journey down AND back, so the one-way time is $0.40\\text{ s}$: $d = vt = 1500 \\times 0.40 = 600\\text{ m}$. The $1200\\text{ m}$ option forgets to halve the round trip.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q13",
+      "stem": "A student stands $170\\text{ m}$ from a large flat wall, claps once, and hears the echo $1.0\\text{ s}$ later. What value does this give for the speed of sound in air?",
+      "choices": [
+        "$340\\text{ m/s}$",
+        "$170\\text{ m/s}$",
+        "$680\\text{ m/s}$",
+        "$85\\text{ m/s}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "The sound travels twice the distance to the wall: $v = \\dfrac{2d}{t} = \\dfrac{2 \\times 170}{1.0} = 340\\text{ m/s}$, matching the accepted value of $330$–$350\\text{ m/s}$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q14",
+      "stem": "In a medical scan, an ultrasound pulse returns from an organ boundary $100\\,\\mu\\text{s}$ ($1.0 \\times 10^{-4}\\text{ s}$) after it is emitted. Ultrasound travels at $1500\\text{ m/s}$ in tissue. How deep inside the body is the boundary? (Supplement)",
+      "choices": [
+        "$0.15\\text{ m}$",
+        "$0.075\\text{ m}$",
+        "$0.30\\text{ m}$",
+        "$0.038\\text{ m}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The pulse makes a round trip, so $d = \\dfrac{vt}{2} = \\dfrac{1500 \\times 1.0 \\times 10^{-4}}{2} = 0.075\\text{ m}$ — about $7.5\\text{ cm}$. The $0.15\\text{ m}$ option uses the full round-trip distance without halving.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-waves-sound-q15",
+      "stem": "An electric bell rings inside a sealed glass jar. As the air is pumped out, the ringing fades away, although the bell can still be seen vibrating. Why?",
+      "choices": [
+        "The vacuum absorbs the sound energy",
+        "The glass blocks the vibrations from leaving",
+        "Sound needs a medium — with no air particles left, there is nothing to carry the compressions",
+        "The bell's hammer slows down in a vacuum"
+      ],
+      "correctIndex": 2,
+      "explanation": "Sound is a longitudinal wave carried by particle oscillations; removing the air removes the medium, so no sound crosses the jar even though the source still vibrates. Light still passes — it needs no medium — which is why the bell stays visible.",
+      "difficulty": "medium"
+    }
+  ]
+}

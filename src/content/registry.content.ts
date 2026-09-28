@@ -193,6 +193,20 @@ import phys_pressure_1_json from './data/topics/physics/phys-pressure-1.json';
 import phys_simple_machines_1_json from './data/topics/physics/phys-simple-machines-1.json';
 import phys_radioactivity_1_json from './data/topics/physics/phys-radioactivity-1.json';
 import phys_energy_resources_1_json from './data/topics/physics/phys-energy-resources-1.json';
+import phys_igcse_motion_json from './data/topics/physics/phys-igcse-motion.json';
+import phys_igcse_forces_json from './data/topics/physics/phys-igcse-forces.json';
+import phys_igcse_moments_pressure_json from './data/topics/physics/phys-igcse-moments-pressure.json';
+import phys_igcse_dynamics_momentum_json from './data/topics/physics/phys-igcse-dynamics-momentum.json';
+import phys_igcse_energy_work_power_json from './data/topics/physics/phys-igcse-energy-work-power.json';
+import phys_igcse_thermal_particle_model_json from './data/topics/physics/phys-igcse-thermal-particle-model.json';
+import phys_igcse_thermal_properties_json from './data/topics/physics/phys-igcse-thermal-properties.json';
+import phys_igcse_waves_sound_json from './data/topics/physics/phys-igcse-waves-sound.json';
+import phys_igcse_light_json from './data/topics/physics/phys-igcse-light.json';
+import phys_igcse_nuclear_json from './data/topics/physics/phys-igcse-nuclear.json';
+import phys_igcse_space_json from './data/topics/physics/phys-igcse-space.json';
+import phys_igcse_electrical_quantities_json from './data/topics/physics/phys-igcse-electrical-quantities.json';
+import phys_igcse_circuits_json from './data/topics/physics/phys-igcse-circuits.json';
+import phys_igcse_electromagnetism_json from './data/topics/physics/phys-igcse-electromagnetism.json';
 // Geography topics
 import geo_yr7_what_is_geography_json from './data/topics/geography/geo-yr7-what-is-geography.json';
 import geo_yr7_weather_climate_intro_json from './data/topics/geography/geo-yr7-weather-climate-intro.json';
@@ -444,6 +458,20 @@ const phys_pressure_1: Topic = topicSchema.parse(phys_pressure_1_json);
 const phys_simple_machines_1: Topic = topicSchema.parse(phys_simple_machines_1_json);
 const phys_radioactivity_1: Topic = topicSchema.parse(phys_radioactivity_1_json);
 const phys_energy_resources_1: Topic = topicSchema.parse(phys_energy_resources_1_json);
+const phys_igcse_motion: Topic = topicSchema.parse(phys_igcse_motion_json);
+const phys_igcse_forces: Topic = topicSchema.parse(phys_igcse_forces_json);
+const phys_igcse_moments_pressure: Topic = topicSchema.parse(phys_igcse_moments_pressure_json);
+const phys_igcse_dynamics_momentum: Topic = topicSchema.parse(phys_igcse_dynamics_momentum_json);
+const phys_igcse_energy_work_power: Topic = topicSchema.parse(phys_igcse_energy_work_power_json);
+const phys_igcse_thermal_particle_model: Topic = topicSchema.parse(phys_igcse_thermal_particle_model_json);
+const phys_igcse_thermal_properties: Topic = topicSchema.parse(phys_igcse_thermal_properties_json);
+const phys_igcse_waves_sound: Topic = topicSchema.parse(phys_igcse_waves_sound_json);
+const phys_igcse_light: Topic = topicSchema.parse(phys_igcse_light_json);
+const phys_igcse_nuclear: Topic = topicSchema.parse(phys_igcse_nuclear_json);
+const phys_igcse_space: Topic = topicSchema.parse(phys_igcse_space_json);
+const phys_igcse_electrical_quantities: Topic = topicSchema.parse(phys_igcse_electrical_quantities_json);
+const phys_igcse_circuits: Topic = topicSchema.parse(phys_igcse_circuits_json);
+const phys_igcse_electromagnetism: Topic = topicSchema.parse(phys_igcse_electromagnetism_json);
 const geo_yr7_what_is_geography: Topic = topicSchema.parse(geo_yr7_what_is_geography_json);
 const geo_yr7_weather_climate_intro: Topic = topicSchema.parse(geo_yr7_weather_climate_intro_json);
 const geo_yr7_rivers_landforms: Topic = topicSchema.parse(geo_yr7_rivers_landforms_json);
@@ -557,7 +585,7 @@ const physicsSubject: Subject = {
   name: physicsMeta.name,
   icon: physicsMeta.icon,
   accentColor: physicsMeta.accentColor,
-  topics: [phys_working_scientifically_1, phys_energy_1, phys_forces_1, phys_forces_action_1, phys_waves_1, phys_light_1, phys_magnetism_1, phys_space_1, phys_particles_1, phys_electricity_1, phys_pressure_1, phys_simple_machines_1, phys_radioactivity_1, phys_energy_resources_1],
+  topics: [phys_working_scientifically_1, phys_energy_1, phys_forces_1, phys_forces_action_1, phys_waves_1, phys_light_1, phys_magnetism_1, phys_space_1, phys_particles_1, phys_electricity_1, phys_pressure_1, phys_simple_machines_1, phys_radioactivity_1, phys_energy_resources_1, phys_igcse_motion, phys_igcse_forces, phys_igcse_moments_pressure, phys_igcse_dynamics_momentum, phys_igcse_energy_work_power, phys_igcse_thermal_particle_model, phys_igcse_thermal_properties, phys_igcse_waves_sound, phys_igcse_light, phys_igcse_nuclear, phys_igcse_space, phys_igcse_electrical_quantities, phys_igcse_circuits, phys_igcse_electromagnetism],
 };
 const geographySubject: Subject = {
   id: geographyMeta.id as SubjectId,

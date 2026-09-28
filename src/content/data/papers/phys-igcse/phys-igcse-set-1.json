@@ -1,0 +1,100 @@
+{
+  "id": "phys-igcse-set-1",
+  "courseId": "phys-igcse",
+  "title": "Practice Set 1",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "phys-igcse-set-1-q1",
+      "stem": "A cyclist covers $240$ m in $30$ s at a steady speed. Calculate her speed.",
+      "marks": 2,
+      "markscheme": [
+        "M1: uses $v = s/t$ ($240/30$ seen)",
+        "A1: $8\\text{ m/s}$"
+      ],
+      "modelAnswer": "Speed is distance divided by time: $v = \\dfrac{s}{t} = \\dfrac{240}{30} = 8\\text{ m/s}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-set-1-q2",
+      "stem": "A bag of flour has a mass of $12$ kg. Calculate its weight. Take $g = 9.8\\text{ N/kg}$.",
+      "marks": 2,
+      "markscheme": [
+        "M1: uses $W = mg$ ($12 \\times 9.8$ seen)",
+        "A1: $117.6\\text{ N}$ (accept $118\\text{ N}$)"
+      ],
+      "modelAnswer": "Weight is mass times gravitational field strength: $W = mg = 12 \\times 9.8 = 117.6\\text{ N}$, which rounds to about $118\\text{ N}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-set-1-q3",
+      "stem": "A lamp has a p.d. of $6\\text{ V}$ across it and carries a current of $0.25\\text{ A}$. Calculate its resistance.",
+      "marks": 2,
+      "markscheme": [
+        "M1: uses $R = V/I$ ($6/0.25$ seen)",
+        "A1: $24\\ \\Omega$"
+      ],
+      "modelAnswer": "Resistance is p.d. divided by current: $R = \\dfrac{V}{I} = \\dfrac{6}{0.25} = 24\\ \\Omega$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-set-1-q4",
+      "stem": "A bimetallic strip is made of brass and steel bonded together. When heated, the strip bends. Explain why it bends, state which way it bends, and give one practical use of a bimetallic strip.",
+      "marks": 3,
+      "markscheme": [
+        "B1: brass expands more than steel for the same temperature rise (different rates of thermal expansion)",
+        "B1: the strip bends with brass on the outside of the curve (towards the steel side)",
+        "B1: any one valid use, e.g. thermostat, temperature switch, fire alarm"
+      ],
+      "modelAnswer": "Brass and steel expand by different amounts when heated: brass expands more than steel for the same temperature rise. Because the two metals are bonded, this difference forces the strip to curve, with the more-expanding brass on the outside of the bend. This bending is used to open or close a contact in a thermostat, so heaters switch off at a set temperature.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-set-1-q5",
+      "stem": "An object stands $4\\text{ m}$ in front of a plane mirror. State how far behind the mirror its image is formed, and give one other property of the image.",
+      "marks": 2,
+      "markscheme": [
+        "B1: image is $4\\text{ m}$ behind the mirror",
+        "B1: any one of: virtual, same size as the object, laterally inverted, upright"
+      ],
+      "modelAnswer": "In a plane mirror the image is as far behind the mirror as the object is in front, so the image forms $4\\text{ m}$ behind the mirror. The image is also virtual (no light actually passes through it), the same size as the object, and laterally inverted.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-set-1-q6",
+      "stem": "A train travels at a constant speed of $15\\text{ m/s}$ for $20$ s. Using a speed–time graph, show how the distance travelled is found and calculate it.",
+      "marks": 3,
+      "markscheme": [
+        "M1: states that distance is the area under a speed–time graph",
+        "M1: area $= 15 \\times 20$ (rectangle under the line)",
+        "A1: $300\\text{ m}$"
+      ],
+      "modelAnswer": "On a speed–time graph the distance travelled equals the area between the line and the time axis. Here that area is a rectangle of height $15\\text{ m/s}$ and width $20\\text{ s}$, so distance $= 15 \\times 20 = 300\\text{ m}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-set-1-q7",
+      "stem": "A crane lifts a load of weight $500\\text{ N}$ through a height of $8\\text{ m}$ in $20$ s. Calculate the work done on the load and the useful power output of the crane.",
+      "marks": 3,
+      "markscheme": [
+        "M1: work done $= F \\times d = 500 \\times 8$",
+        "M1: power $= W/t$ ($4000/20$ seen)",
+        "A1: $W = 4000\\text{ J}$ and $P = 200\\text{ W}$ (both correct with units)"
+      ],
+      "modelAnswer": "Work done $= F \\times d = 500 \\times 8 = 4000\\text{ J}$. Power is work done per unit time: $P = \\dfrac{W}{t} = \\dfrac{4000}{20} = 200\\text{ W}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-set-1-q8",
+      "stem": "A force of $800\\text{ N}$ acts on an area of $0.02\\text{ m}^2$. Calculate the pressure. Then state how the pressure changes if the same force acts on twice the area.",
+      "marks": 3,
+      "markscheme": [
+        "M1: uses $p = F/A$",
+        "A1: $p = 800/0.02 = 40\\,000\\text{ Pa}$",
+        "B1: doubling the area halves the pressure (to $20\\,000\\text{ Pa}$)"
+      ],
+      "modelAnswer": "Pressure $= \\dfrac{F}{A} = \\dfrac{800}{0.02} = 40\\,000\\text{ Pa}$. Pressure is inversely proportional to area for a fixed force, so doubling the area to $0.04\\text{ m}^2$ halves the pressure to $20\\,000\\text{ Pa}$.",
+      "difficulty": "medium"
+    }
+  ]
+}

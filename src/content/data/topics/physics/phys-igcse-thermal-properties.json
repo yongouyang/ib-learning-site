@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-thermal-properties",
+  "subjectId": "physics",
+  "title": "Thermal Properties & Heat Transfer",
+  "description": "Thermal expansion, internal energy, evaporation, conduction, convection and radiation experiments, specific heat capacity and Earth's energy balance for IGCSE Physics 0625.",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-thermal-properties-n1",
+      "heading": "Thermal Expansion",
+      "body": "📌 Definition\nSolids, liquids and gases almost all **expand when heated**. Gases expand the most and solids the least. The particle explanation (Supplement): heated particles gain kinetic energy and push further apart against the forces between them.\n\n🔑 Applications and consequences\n• **Bimetallic strip** — two different metals bonded together bend when heated because one expands more than the other; used in thermostats and fire alarms.\n• **Expansion gaps** are left in bridges and between railway rails so that hot-day expansion does not buckle the structure.\n• Overhead cables are hung with slack so they can contract safely in winter; a tight jar lid loosens under hot water as the metal expands.\n\n💡 Worked Example\nA bimetallic strip of brass and steel is heated: brass expands more, so the strip bends with the brass on the **outside** of the curve.\n\n⚠️ Common Mistake\nSaying the metal's particles themselves get bigger. The particles stay the same size — they move further apart."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-n2",
+      "heading": "Internal Energy and Changes of State",
+      "body": "📌 Definition\nThe **internal energy** of a body is the total of the **kinetic** and **potential** energies of all its particles. Heating a body raises its internal energy.\n\n🔑 How it works\n• Heating a body in a single state raises the particles' kinetic energy → the temperature rises.\n• During a **change of state** (melting or boiling) the temperature stays constant: the energy supplied increases the particles' **potential** energy as they are pulled apart against intermolecular forces.\n• Melting is solid → liquid at the melting point. Boiling is liquid → gas at the boiling point, throughout the liquid, with bubbles forming. Condensation and solidification release the same energy back.\n\n📎 Key Points to Remember\n• Temperature measures the average kinetic energy of the particles; internal energy also includes their potential energy — that is why energy can enter a body without its temperature rising.\n\n⚠️ Common Mistake\n'The temperature cannot rise during melting because heating has stopped.' Heating continues — the energy goes into separating particles, not raising the temperature."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-n3",
+      "heading": "Evaporation",
+      "body": "📌 Definition\n**Evaporation** is the escape of particles from the **surface** of a liquid to become a gas; it happens at **any temperature**, not just the boiling point.\n\n🔑 How it works — why it cools\nThe fastest-moving (most energetic) particles are the ones that escape, so the average kinetic energy of the remaining particles falls and the liquid left behind is **cooler**. This is why sweating cools you and why a wet hand feels cold in a breeze.\n\n🔑 Rate factors\nEvaporation is faster with: higher temperature, larger surface area, a draught of air across the surface, and drier air (lower humidity).\n\n📎 Boiling vs evaporation\nBoiling: one definite temperature, throughout the liquid, bubbles form. Evaporation: any temperature, at the surface only, no bubbles.\n\n⚠️ Common Mistake\nSaying evaporation needs the liquid to reach its boiling point. Puddles evaporate on cool days — surface particles escape at any temperature."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-n4",
+      "heading": "Conduction — Experiment and Mechanism",
+      "body": "📌 Definition\n**Conduction** is the transfer of thermal energy through a substance **without any net movement of the substance itself** — the energy is passed from particle to particle.\n\n🔑 The named experiment\nRods of different materials (copper, aluminium, iron, glass) are fixed into a bath of hot water, each with a drawing pin stuck to its cool end by wax. The wax on the best conductor melts first, so its pin drops first: copper, then aluminium, then iron — and not at all for the glass rod. Water is also a poor conductor: in the classic demonstration, ice wrapped in gauze stays frozen at the bottom of a tube while the water at the top is boiled.\n\n🔑 Mechanism (Supplement)\nIn any solid, heated particles vibrate more vigorously and pass the extra energy to their neighbours — **lattice vibration**. In **metals**, free electrons also move through the structure, colliding with particles and carrying energy much further and faster. This is why metals are far better conductors than non-metals.\n\n📎 Key Points to Remember\n• Metals are good conductors; non-metals (wood, plastic, glass, air) are poor conductors — that is, good **insulators**.\n\n⚠️ Common Mistake\nSaying 'heat particles move through the metal'. Nothing material moves along the rod — vibrations, plus free electrons in metals, carry the energy.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-thermal-properties-conduction-experiment.svg",
+        "alt": "Rods of copper, aluminium, iron and glass project from a heated water bath, each with a drawing pin stuck on by wax; the pin on the copper rod has fallen because copper conducted the heat to the wax first.",
+        "caption": "The wax melts and the pin drops first on the best conductor: copper first, then aluminium, then iron — the glass pin never falls."
+      }
+    },
+    {
+      "id": "phys-igcse-thermal-properties-n5",
+      "heading": "Convection",
+      "body": "📌 Definition\n**Convection** is the transfer of thermal energy by the **bulk movement of a fluid** (liquid or gas): heated fluid expands, becomes less dense and rises; cooler, denser fluid sinks to take its place, setting up a **convection current**.\n\n🔑 The named experiment\nDrop a small crystal of potassium permanganate into a beaker of water and heat the water gently just below the crystal. A coloured stream rises above the heater, crosses the surface and sinks on the far side — the convection current made visible. The equivalent demonstration for air uses smoke rising over a hot plate in a convection box.\n\n📎 Key Points to Remember\n• Convection needs a fluid that can flow: it cannot happen in a solid (the particles are fixed) or in a vacuum.\n• Room heating, sea breezes and the circulation in a hot-water tank all work by convection currents.\n\n⚠️ Common Mistake\nSaying 'heat rises'. It is the heated **fluid** that rises, because its density falls when it expands."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-n6",
+      "heading": "Radiation and Surface Effects",
+      "body": "📌 Definition\nAll bodies emit **infrared radiation**; it is the only transfer mechanism that needs no medium — energy from the Sun crosses the vacuum of space this way.\n\n🔑 Surface effects and the named experiments\nDull, **matt black** surfaces are the best emitters **and** the best absorbers of infrared; shiny white or silvered surfaces are the worst at both. **Emission (Leslie's cube):** a cube with four different faces (matt black, dull dark, shiny light, shiny silver) is filled with hot water, and an infrared detector measures the greatest emission from the matt black face. **Absorption:** black and shiny plates are placed the same distance from a heater — wax on the black plate melts first.\n\n🔑 Rate factors (Supplement)\nThe rate of emission or absorption is greater for: a higher surface temperature, a larger surface area, and a duller, darker surface.\n\n⚠️ Common Mistake\nThinking shiny surfaces absorb better because they 'get hot' in the sun. Shiny surfaces **reflect** infrared — they are poor absorbers and poor emitters."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-n7",
+      "heading": "Specific Heat Capacity and Earth's Energy Balance (Supplement)",
+      "body": "📌 Definition\nSupplement content. The **specific heat capacity** $c$ of a material is the energy needed to raise the temperature of $1\\text{ kg}$ of it by $1^{\\circ}\\text{C}$:\n\n$$\\Delta E = mc\\Delta\\theta \\qquad c = \\dfrac{\\Delta E}{m\\Delta\\theta}$$\n\nwith units $\\text{J/(kg}^{\\circ}\\text{C)}$. Water's very high value, $4200\\text{ J/(kg}^{\\circ}\\text{C)}$, is why it heats and cools slowly.\n\n🔑 The named experiment\nPlace an immersion heater and a thermometer into holes drilled in a weighed metal block, lag the block with insulation, and record the temperature rise after a measured time. The energy supplied is $\\Delta E = VIt$ (or read directly from a joulemeter); then $c = \\dfrac{VIt}{m\\Delta\\theta}$.\n\n⚠️ Common Mistake (and the main error source)\nHeat loss to the surroundings makes the measured value of $c$ too **high** — some of the measured energy never reaches the block, but the calculation assumes it all did. Lagging the block reduces this error.\n\n🌍 Earth's energy balance\nThe temperature of the Earth depends on the **balance of rates**: the rate at which the surface absorbs radiation from the Sun versus the rate at which it emits infrared radiation back into space. If the absorption rate exceeds the emission rate, the temperature rises — and a warmer surface emits faster, until the two rates balance again. The everyday example: greenhouse gases such as carbon dioxide and methane reduce the rate at which the surface loses energy to space."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-thermal-properties-f1",
+      "term": "Thermal expansion",
+      "definition": "Solids, liquids and gases expand when heated — gases most, solids least. The particles gain kinetic energy and move further apart.",
+      "example": "Expansion gaps stop railway rails buckling on hot days."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-f2",
+      "term": "Bimetallic strip",
+      "definition": "Two bonded metals with different expansions; it bends when heated, with the higher-expansion metal on the outside of the curve.",
+      "example": "Used in thermostats and fire alarms to make or break a circuit."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-f3",
+      "term": "Internal energy",
+      "definition": "The total kinetic and potential energies of all the particles of a body.",
+      "example": "Heating raises internal energy; during melting the extra energy raises only the potential part, so temperature stays constant."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-f4",
+      "term": "Evaporation",
+      "definition": "Escape of the most energetic particles from a liquid's surface at any temperature; it cools the liquid left behind.",
+      "example": "Sweat evaporating from skin removes energy and cools the body."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-f5",
+      "term": "Speeding up evaporation",
+      "definition": "Higher temperature, larger surface area, a draught across the surface, and lower humidity all increase the rate of evaporation.",
+      "example": "Wet clothes dry fastest on a warm, windy, dry day."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-f6",
+      "term": "Boiling vs evaporation",
+      "definition": "Boiling: one definite temperature, throughout the liquid, bubbles form. Evaporation: any temperature, at the surface only, no bubbles.",
+      "example": "A simmering pot boils at 100 °C; a puddle evaporates at 15 °C."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-f7",
+      "term": "Conduction",
+      "definition": "Thermal energy transfer through a substance with no net movement of the substance; metals conduct best, non-metals are insulators.",
+      "example": "A metal spoon in hot soup quickly warms along its whole length."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-f8",
+      "term": "Conduction mechanism (Supplement)",
+      "definition": "Lattice vibrations pass energy between neighbouring particles; in metals, free electrons also carry energy further and faster.",
+      "example": "Copper conducts faster than iron partly because of its free electrons."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-f9",
+      "term": "Convection",
+      "definition": "Transfer by bulk movement of a fluid: heated fluid expands, becomes less dense and rises; cooler fluid sinks — a convection current.",
+      "example": "A purple stream of potassium permanganate rises in a heated beaker of water."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-f10",
+      "term": "Infrared radiation",
+      "definition": "Thermal transfer needing no medium. Dull matt black surfaces are the best emitters and absorbers; shiny white or silvered surfaces the worst.",
+      "example": "A Leslie's cube filled with hot water emits most from its matt black face."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-f11",
+      "term": "Specific heat capacity (Supplement)",
+      "definition": "c = ΔE/(mΔθ): the energy needed to raise 1 kg of a material by 1 °C. Units: J/(kg °C). Water: 4200.",
+      "example": "Raising 1 kg of water by 2 °C needs 8400 J."
+    },
+    {
+      "id": "phys-igcse-thermal-properties-f12",
+      "term": "Earth's energy balance (Supplement)",
+      "definition": "The surface temperature is set by the balance between the rate of absorbing solar radiation and the rate of emitting infrared; an imbalance changes the temperature until balance is restored.",
+      "example": "Greenhouse gases reduce the emission rate to space, so the surface warms until the rates match again."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-thermal-properties-q1",
+      "stem": "Which method of thermal energy transfer does NOT need a medium (particles)?",
+      "choices": [
+        "conduction",
+        "convection",
+        "both conduction and convection",
+        "radiation (infrared)"
+      ],
+      "correctIndex": 3,
+      "explanation": "Infrared radiation is an electromagnetic wave and needs no particles — it crosses the vacuum of space from the Sun. Conduction and convection both require matter.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q2",
+      "stem": "Which surface is the best absorber of infrared radiation?",
+      "choices": [
+        "shiny white",
+        "dull (matt) black",
+        "shiny silver",
+        "transparent"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dull, matt black surfaces are the best absorbers — and also the best emitters. Shiny, light-coloured surfaces reflect infrared instead.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q3",
+      "stem": "A bimetallic strip bends when heated because...",
+      "choices": [
+        "the two metals expand by different amounts",
+        "one metal melts before the other",
+        "heating makes one of the metals magnetic",
+        "the strip contracts on one side only"
+      ],
+      "correctIndex": 0,
+      "explanation": "The two bonded metals expand by different amounts for the same temperature rise, so the strip curves with the higher-expansion metal on the outside.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q4",
+      "stem": "Convection currents can only occur in...",
+      "choices": [
+        "solids",
+        "a vacuum",
+        "fluids (liquids and gases)",
+        "metals"
+      ],
+      "correctIndex": 2,
+      "explanation": "Convection is the bulk movement of heated fluid rising and cooler fluid sinking — it requires a material that can flow, so it cannot happen in solids or a vacuum.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q5",
+      "stem": "The internal energy of a body is...",
+      "choices": [
+        "the total kinetic and potential energies of all its particles",
+        "the kinetic energy of its fastest particle",
+        "the energy stored at its centre",
+        "the total energy it has absorbed since it was made"
+      ],
+      "correctIndex": 0,
+      "explanation": "Internal energy is defined as the sum of the kinetic and potential energies of every particle in the body — that is why energy can enter during melting without the temperature rising.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q6",
+      "stem": "Why does evaporation cool the liquid that is left behind?",
+      "choices": [
+        "the coldest particles escape first",
+        "evaporation releases energy back into the liquid",
+        "the liquid contracts as it loses mass",
+        "the most energetic particles escape, lowering the average kinetic energy of the rest"
+      ],
+      "correctIndex": 3,
+      "explanation": "The fastest particles escape from the surface, so the average kinetic energy of the remaining particles falls — and temperature measures that average kinetic energy.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q7",
+      "stem": "In the experiment where rods of different metals project from a bath of hot water with drawing pins stuck on by wax, what is observed?",
+      "choices": [
+        "all the pins fall at the same time",
+        "the pin on the copper rod falls first — copper is the best conductor",
+        "the pins only fall from the glass rod",
+        "the wax evaporates without melting"
+      ],
+      "correctIndex": 1,
+      "explanation": "Conduction carries thermal energy along the rods at different rates: the wax melts first on copper, then aluminium, then iron — the order of their thermal conductivities. Glass conducts so poorly that its pin does not fall.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q8",
+      "stem": "Calculate the energy needed to raise the temperature of a 2 kg aluminium block by 5 °C. (c = 900 J/(kg °C))",
+      "choices": [
+        "4500 J",
+        "18 000 J",
+        "9000 J",
+        "900 J"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\Delta E = mc\\Delta\\theta = 2 \\times 900 \\times 5 = 9000\\text{ J}$. The 4500 J option uses a mass of 1 kg; 18 000 J doubles the temperature change.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q9",
+      "stem": "Which change would increase the rate at which a hot object emits infrared radiation?",
+      "choices": [
+        "giving it a larger surface area",
+        "painting it shiny silver",
+        "cooling its surface",
+        "wrapping it in shiny foil"
+      ],
+      "correctIndex": 0,
+      "explanation": "The emission rate increases with surface area, surface temperature and a dull, dark finish. Shiny silver and foil are poor emitters, and a cooler surface emits more slowly.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q10",
+      "stem": "Which statement about boiling and evaporation is correct?",
+      "choices": [
+        "evaporation only happens at the boiling point",
+        "boiling only happens at the surface",
+        "evaporation produces bubbles throughout the liquid",
+        "boiling happens at one definite temperature throughout the liquid, while evaporation happens at the surface at any temperature"
+      ],
+      "correctIndex": 3,
+      "explanation": "Boiling occurs at a definite temperature with bubbles forming throughout the liquid; evaporation is a surface-only process at any temperature, with no bubbles.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q11",
+      "stem": "A heater supplies 16 800 J to 0.5 kg of a liquid and raises its temperature by 8 °C. What is the specific heat capacity of the liquid?",
+      "choices": [
+        "2100 J/(kg °C)",
+        "4200 J/(kg °C)",
+        "8400 J/(kg °C)",
+        "1050 J/(kg °C)"
+      ],
+      "correctIndex": 1,
+      "explanation": "$c = \\dfrac{\\Delta E}{m\\Delta\\theta} = \\dfrac{16800}{0.5 \\times 8} = \\dfrac{16800}{4} = 4200\\text{ J/(kg}^{\\circ}\\text{C)}$ — the value for water. The 2100 option forgets the mass factor of 0.5.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q12",
+      "stem": "A 50 W immersion heater runs for 200 s inside a 2 kg metal block, whose temperature rises by 5 °C. Assuming no heat loss, what is the specific heat capacity of the metal?",
+      "choices": [
+        "500 J/(kg °C)",
+        "2000 J/(kg °C)",
+        "1000 J/(kg °C)",
+        "100 J/(kg °C)"
+      ],
+      "correctIndex": 2,
+      "explanation": "Energy supplied: $\\Delta E = Pt = 50 \\times 200 = 10\\,000\\text{ J}$; then $c = \\dfrac{10000}{2 \\times 5} = 1000\\text{ J/(kg}^{\\circ}\\text{C)}$. The 2000 J/(kg °C) option misses the mass; 500 misses the temperature rise.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q13",
+      "stem": "Why do metals conduct thermal energy much better than non-metals?",
+      "choices": [
+        "they contain free electrons that carry energy through the structure, in addition to lattice vibrations",
+        "their particles are always closer together than in any non-metal",
+        "their particles vibrate, while non-metal particles cannot vibrate",
+        "they are always denser than non-metals"
+      ],
+      "correctIndex": 0,
+      "explanation": "All solids conduct by lattice vibrations, but metals have a second, faster mechanism: free electrons move through the structure and carry energy over long distances. Density alone does not explain conductivity — dense glass is a poor conductor.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q14",
+      "stem": "The temperature of the Earth's surface stays roughly constant when...",
+      "choices": [
+        "it absorbs no radiation from the Sun",
+        "it emits no infrared radiation",
+        "greenhouse gases block all radiation",
+        "the rate at which it absorbs radiation equals the rate at which it emits radiation"
+      ],
+      "correctIndex": 3,
+      "explanation": "This is the energy-balance rate argument: a constant temperature means the absorption rate equals the emission rate. If absorption exceeds emission, the surface warms until the faster emission from the warmer surface restores the balance.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-thermal-properties-q15",
+      "stem": "In the electrical experiment to measure the specific heat capacity of a metal block, the measured value of c is usually too HIGH because...",
+      "choices": [
+        "the thermometer always reads low",
+        "the block loses mass during heating",
+        "some of the measured energy heats the surroundings instead of the block",
+        "the heater always produces less power than stated"
+      ],
+      "correctIndex": 2,
+      "explanation": "The calculation assumes all the measured electrical energy ($VIt$) stays in the block, but some leaks to the surroundings — so the energy used is too large and $c = \\dfrac{\\Delta E}{m\\Delta\\theta}$ comes out too high. Lagging the block reduces this error.",
+      "difficulty": "medium"
+    }
+  ]
+}

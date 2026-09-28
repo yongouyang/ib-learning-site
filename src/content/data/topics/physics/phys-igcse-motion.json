@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-motion",
+  "subjectId": "physics",
+  "title": "Motion, Graphs & Measurement",
+  "description": "Measuring length, time and volume; average speed; distance-time and speed-time graphs; acceleration, free fall, scalars and vectors, and terminal velocity for IGCSE Physics 0625.",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-motion-n1",
+      "heading": "Measuring Length, Time and Volume",
+      "body": "0625 expects you to describe HOW a measurement is made, not just quote a value.\n\n📌 Definitions and instruments\n• **Length**: measure with a rule (short lengths) or a measuring tape (longer lengths). Read the scale at eye level to avoid parallax error.\n• **Volume of a liquid**: pour into a measuring cylinder and read the BOTTOM of the meniscus at eye level.\n• **Volume of an irregular solid**: the displacement method — part-fill a measuring cylinder with water, record the level, lower the object in on a thread, record the new level. The rise in level equals the object's volume.\n• **Time intervals**: use a stopwatch. For a short repeated event such as a pendulum swing, time MANY swings and divide.\n\n💡 Worked Example\nA stopwatch records $25$ s for $20$ complete swings of a pendulum. The period (time for one swing) is $T = \\dfrac{25}{20} = 1.25$ s — far more accurate than timing one swing, because the reaction-time error is shared between all 20 swings.\n\n⚠️ Common Mistake\nTiming a single swing. Human reaction time (~$0.2$ s) is a large fraction of one swing but a small fraction of twenty.\n\n📎 Key Points to Remember\n• Check for a zero error before using any scale.\n• Volume of displaced water = volume of the submerged object.\n• More repetitions + division = smaller percentage error in timing."
+    },
+    {
+      "id": "phys-igcse-motion-n2",
+      "heading": "Average Speed: v = s/t",
+      "body": "📌 Definition\n$$\\text{average speed} = \\dfrac{\\text{total distance travelled}}{\\text{total time taken}} \\qquad v = \\dfrac{s}{t}$$\nUnits: metres per second (m/s) when distance is in metres and time in seconds. This is the syllabus phrase 'recall and use' — you must be able to rearrange it: $s = vt$ and $t = \\dfrac{s}{v}$.\n\n🔑 How it works\n'Average' matters: a journey may include stops and changes of speed, but the average uses only the TOTAL distance and TOTAL time, including any time spent stopped.\n\n💡 Worked Example\nA car travels $150$ m in $10$ s: $v = \\dfrac{150}{10} = 15$ m/s.\nA train covers $120$ m at $30$ m/s: $t = \\dfrac{120}{30} = 4.0$ s.\n\n⚠️ Common Mistake\nMixing units. Convert km/h to m/s by dividing by $3.6$: $72$ km/h $= \\dfrac{72}{3.6} = 20$ m/s. Convert BEFORE substituting into $v = s/t$.\n\n📎 Key Points to Remember\n• Speed is how fast; it says nothing about direction.\n• A speedometer shows instantaneous speed; the exam almost always wants average speed."
+    },
+    {
+      "id": "phys-igcse-motion-n3",
+      "heading": "Distance-Time Graphs",
+      "body": "A distance-time graph plots distance travelled (y-axis) against time (x-axis). The SHAPE of the line tells you the motion.\n\n🔑 How to read it\n• **Straight line sloping up**: constant speed. Steeper line = greater speed.\n• **Horizontal line**: the object is stationary (distance is not changing).\n• **Curved line**: the speed is changing — curving steeper means speeding up, flattening means slowing down.\n\n📌 The gradient IS the speed\n$$\\text{speed} = \\text{gradient} = \\dfrac{\\text{change in distance}}{\\text{change in time}}$$\nTo calculate a gradient, pick two points on the line that are FAR APART and sit on grid crossings, then divide the rise by the run.\n\n💡 Worked Example\nA straight line passes through $(0, 0)$ and $(10\\text{ s}, 60\\text{ m})$: speed $= \\dfrac{60}{10} = 6$ m/s.\n\n⚠️ Common Mistake\nReading the VALUE off the y-axis instead of computing the GRADIENT. At $t = 10$ s the distance is $60$ m, but the speed is $6$ m/s.\n\n📎 Key Points to Remember\n• Distance-time graphs can never slope downwards — distance travelled cannot decrease.\n• A return journey needs a DISPLACEMENT-time graph, which can go negative."
+    },
+    {
+      "id": "phys-igcse-motion-n4",
+      "heading": "Speed-Time Graphs",
+      "body": "A speed-time graph plots speed (y-axis) against time (x-axis). It carries MORE information than a distance-time graph.\n\n🔑 How to read it\n• **Straight line sloping up**: constant acceleration. Steeper = greater acceleration.\n• **Horizontal line**: constant speed (zero acceleration).\n• **Straight line sloping down**: constant deceleration (negative acceleration).\n\n📌 Two exam skills\n1. The **gradient** is the acceleration (Extended tier): $a = \\dfrac{\\text{change in speed}}{\\text{time taken}}$.\n2. The **area under the line** is the distance travelled. Split the area into rectangles and triangles: rectangle area $= \\text{base} \\times \\text{height}$, triangle area $= \\dfrac{1}{2} \\times \\text{base} \\times \\text{height}$.\n\n💡 Worked Example\nA cyclist speeds up from $0$ to $10$ m/s in $5$ s, then holds $10$ m/s for $10$ s. Distance $= \\dfrac{1}{2} \\times 5 \\times 10 + 10 \\times 10 = 25 + 100 = 125$ m.\n\n⚠️ Common Mistake\nUsing 'distance = speed x time' for the speeding-up section. That formula needs CONSTANT speed; during acceleration you must use the triangle area (or the average speed, which is half the final speed when starting from rest).\n\n📎 Key Points to Remember\n• Gradient of a speed-time graph = acceleration; area = distance.\n• A line ON the time axis means the object is at rest.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-motion-graphs.svg",
+        "alt": "Two exam-style motion graphs: a distance-time graph showing that gradient equals speed, and a speed-time graph showing that gradient equals acceleration and the shaded area equals distance travelled.",
+        "caption": "Distance-time: gradient = speed. Speed-time: gradient = acceleration, area = distance."
+      }
+    },
+    {
+      "id": "phys-igcse-motion-n5",
+      "heading": "Acceleration and Free Fall",
+      "body": "📌 Definition (Extended tier)\nAcceleration is the change in velocity per unit time:\n$$a = \\dfrac{\\Delta v}{\\Delta t} = \\dfrac{v - u}{t}$$\nwhere $u$ is the initial velocity, $v$ the final velocity and $t$ the time taken. Unit: metres per second squared (m/s$^2$). A negative value is a deceleration.\n\n🔑 Free fall\nAny object falling near the Earth's surface, with air resistance ignored, accelerates downwards at the **acceleration of free fall** $g \\approx 9.8$ m/s$^2$. This value is the same for every object, heavy or light — a hammer and a feather fall together on the Moon.\n\n💡 Worked Example\nA stone is dropped from rest. After $3.0$ s its speed is $v = u + at = 0 + 9.8 \\times 3.0 = 29.4$ m/s downwards.\n\n⚠️ Common Mistake\nWriting acceleration in m/s. An acceleration of $9.8$ m/s$^2$ means the speed GAINS $9.8$ m/s every second.\n\n📎 Key Points to Remember\n• $g \\approx 9.8$ m/s$^2$ — quote this value in the exam.\n• Deceleration is just acceleration with a negative sign.\n• In free fall the speed-time graph is a straight line of gradient $g$ (until air resistance matters)."
+    },
+    {
+      "id": "phys-igcse-motion-n6",
+      "heading": "Scalars and Vectors",
+      "body": "📌 Definitions (Extended tier)\nA **scalar** has magnitude (size) only: distance, speed, mass, time, energy, temperature.\nA **vector** has magnitude AND direction: displacement, velocity, acceleration, force, weight, momentum.\n\n🔑 How it works\nVelocity is speed in a stated direction, so an object moving in a circle at constant speed still has a changing velocity. Distance measures the total path; displacement is the straight-line distance from start to finish in a stated direction — walk once around a 400 m track and your distance is $400$ m but your displacement is $0$ m.\n\n💡 Worked Example — combining perpendicular vectors\nTwo forces act at right angles on a boat: $3$ N east and $4$ N north. The resultant is found by drawing the vectors head-to-tail and completing the right-angled triangle:\n$$R = \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5\\text{ N}$$\nThe same scale-drawing or Pythagoras method gives the resultant of any two perpendicular vectors.\n\n⚠️ Common Mistake\nAdding vectors as if they were scalars: $3$ N + $4$ N is NOT $7$ N when the forces are perpendicular. $7$ N would only be correct if they acted along the same line in the same direction.\n\n📎 Key Points to Remember\n• Speed: scalar. Velocity: vector. Distance: scalar. Displacement: vector.\n• At right angles, use Pythagoras for the resultant."
+    },
+    {
+      "id": "phys-igcse-motion-n7",
+      "heading": "Terminal Velocity",
+      "body": "Falling through air is a competition between weight (constant) and air resistance (grows with speed). Describing this motion on a speed-time graph is a classic Extended-tier question.\n\n🔑 The skydiver story — stage by stage\n1. **Just after leaving the aircraft**: weight exceeds air resistance, so there is a downward resultant force and the skydiver accelerates at nearly $g$.\n2. **Speed builds**: air resistance increases with speed, so the resultant force (and the acceleration) DECREASES. The speed-time line curves and flattens.\n3. **Terminal velocity**: air resistance has grown until it EQUALS the weight. The resultant force is zero, acceleration is zero, and the skydiver falls at a constant speed — the terminal velocity.\n4. **Parachute opens**: the large area makes air resistance suddenly greater than weight, so the skydiver decelerates until a new, LOWER terminal velocity is reached.\n\n📎 Key Points to Remember\n• Terminal velocity means ZERO resultant force, not zero force: weight and drag are balanced.\n• A larger surface area (parachute) or a smaller weight gives a lower terminal velocity.\n• On the speed-time graph, terminal velocity is the horizontal section.\n\n⚠️ Common Mistake\nSaying the skydiver 'stops accelerating because the forces disappear'. The forces do not disappear — they balance."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-motion-f1",
+      "term": "Average speed",
+      "definition": "Total distance travelled divided by total time taken: v = s/t. Units m/s.",
+      "example": "150 m in 10 s gives an average speed of 15 m/s."
+    },
+    {
+      "id": "phys-igcse-motion-f2",
+      "term": "Displacement method",
+      "definition": "Volume of an irregular solid = rise in water level when the object is fully submerged in a measuring cylinder.",
+      "example": "Water rises from 50 cm³ to 72 cm³, so the stone's volume is 22 cm³."
+    },
+    {
+      "id": "phys-igcse-motion-f3",
+      "term": "Timing a pendulum",
+      "definition": "Time many complete swings (e.g. 20) with a stopwatch, then divide by the number of swings to get the period.",
+      "example": "20 swings in 25 s gives a period of 1.25 s."
+    },
+    {
+      "id": "phys-igcse-motion-f4",
+      "term": "Distance-time graph: gradient",
+      "definition": "The gradient of a distance-time graph equals the speed. Steeper line = greater speed.",
+      "example": "A line through (0, 0) and (10 s, 60 m) shows a speed of 6 m/s."
+    },
+    {
+      "id": "phys-igcse-motion-f5",
+      "term": "Distance-time graph: horizontal section",
+      "definition": "A horizontal line means the object is stationary — distance is not changing with time.",
+      "example": "A runner resting at the 100 m mark for 5 s."
+    },
+    {
+      "id": "phys-igcse-motion-f6",
+      "term": "Speed-time graph: gradient",
+      "definition": "The gradient of a speed-time graph equals the acceleration (Extended). A downward slope is a deceleration.",
+      "example": "Speed rises 0 to 12 m/s in 6 s: acceleration = 2 m/s²."
+    },
+    {
+      "id": "phys-igcse-motion-f7",
+      "term": "Speed-time graph: area",
+      "definition": "The area under a speed-time graph equals the distance travelled.",
+      "example": "A triangle (25 m) plus a rectangle (100 m) gives 125 m travelled."
+    },
+    {
+      "id": "phys-igcse-motion-f8",
+      "term": "Acceleration",
+      "definition": "Change in velocity per unit time: a = (v - u)/t. Unit m/s² (Extended).",
+      "example": "From 4 m/s to 16 m/s in 3 s: a = 12/3 = 4 m/s²."
+    },
+    {
+      "id": "phys-igcse-motion-f9",
+      "term": "Acceleration of free fall (g)",
+      "definition": "The downward acceleration of any object falling near Earth with air resistance ignored: g is approximately 9.8 m/s².",
+      "example": "A dropped stone reaches about 29.4 m/s after 3.0 s."
+    },
+    {
+      "id": "phys-igcse-motion-f10",
+      "term": "Scalar",
+      "definition": "A quantity with magnitude only (Extended). Examples: distance, speed, mass, time, energy, temperature.",
+      "example": "A mass of 5 kg needs no direction."
+    },
+    {
+      "id": "phys-igcse-motion-f11",
+      "term": "Vector",
+      "definition": "A quantity with magnitude AND direction (Extended). Examples: displacement, velocity, acceleration, force, weight.",
+      "example": "A velocity of 20 m/s due north is a vector; 20 m/s alone is a speed."
+    },
+    {
+      "id": "phys-igcse-motion-f12",
+      "term": "Terminal velocity",
+      "definition": "The constant maximum falling speed reached when air resistance has grown to equal the weight, so the resultant force is zero (Extended).",
+      "example": "A skydiver falls at terminal velocity before the parachute opens; opening it gives a new, lower terminal velocity."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-motion-q1",
+      "stem": "Which equation correctly defines average speed?",
+      "choices": [
+        "$v = s \\times t$",
+        "$v = \\dfrac{s}{t}$",
+        "$v = \\dfrac{t}{s}$",
+        "$v = s + t$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Average speed is total distance divided by total time, $v = \\dfrac{s}{t}$. Multiplying $s \\times t$ has no physical meaning here, and $\\dfrac{t}{s}$ is the reciprocal — time per metre.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-motion-q2",
+      "stem": "A car travels $150$ m in $10$ s. What is its average speed?",
+      "choices": [
+        "$0.067\\text{ m/s}$",
+        "$150\\text{ m/s}$",
+        "$15\\text{ m/s}$",
+        "$1500\\text{ m/s}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Average speed $v = \\dfrac{s}{t} = \\dfrac{150}{10} = 15\\text{ m/s}$. $0.067$ m/s comes from calculating $\\dfrac{t}{s}$ — the equation upside down.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-motion-q3",
+      "stem": "A measuring cylinder contains $50\\text{ cm}^3$ of water. A stone is lowered in and the level rises to $72\\text{ cm}^3$. What is the volume of the stone?",
+      "choices": [
+        "$50\\text{ cm}^3$",
+        "$72\\text{ cm}^3$",
+        "$122\\text{ cm}^3$",
+        "$22\\text{ cm}^3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "By the displacement method the stone's volume is the rise in water level: $72 - 50 = 22\\text{ cm}^3$. Reading $72\\text{ cm}^3$ alone gives the combined volume, not the stone's.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-motion-q4",
+      "stem": "A student times $20$ complete swings of a pendulum as $25$ s. What is the period of one swing?",
+      "choices": [
+        "$1.25$ s",
+        "$0.80$ s",
+        "$5.0$ s",
+        "$45$ s"
+      ],
+      "correctIndex": 0,
+      "explanation": "The period is the total time divided by the number of swings: $T = \\dfrac{25}{20} = 1.25$ s. $0.80$ s comes from dividing the swings by the time — the wrong way round.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-motion-q5",
+      "stem": "On a distance-time graph, what does a horizontal section of the line show?",
+      "choices": [
+        "The object is moving at constant speed",
+        "The object is accelerating",
+        "The object is stationary",
+        "The object is returning to its start point"
+      ],
+      "correctIndex": 2,
+      "explanation": "On a horizontal section the distance is not changing as time passes, so the object is stationary. Constant speed would be a sloping straight line; a distance-time graph can never show a return journey because distance cannot decrease.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-motion-q6",
+      "stem": "A distance-time graph is a straight line from $(0, 0)$ to $(10\\text{ s}, 60\\text{ m})$. What is the speed?",
+      "choices": [
+        "$0.17\\text{ m/s}$",
+        "$60\\text{ m/s}$",
+        "$600\\text{ m/s}$",
+        "$6\\text{ m/s}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Speed is the gradient: $\\dfrac{60\\text{ m}}{10\\text{ s}} = 6\\text{ m/s}$. $60$ m/s is the distance value misread as a speed, and $0.17$ m/s is $\\dfrac{t}{s}$ inverted.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-motion-q7",
+      "stem": "A cyclist's speed-time graph is a straight line from $0$ to $12\\text{ m/s}$ in $6$ s. What is the acceleration?",
+      "choices": [
+        "$2\\text{ m/s}^2$",
+        "$0.5\\text{ m/s}^2$",
+        "$12\\text{ m/s}^2$",
+        "$72\\text{ m/s}^2$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Acceleration is the gradient of a speed-time graph: $a = \\dfrac{\\Delta v}{\\Delta t} = \\dfrac{12 - 0}{6} = 2\\text{ m/s}^2$. $72\\text{ m/s}^2$ comes from multiplying instead of dividing.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-motion-q8",
+      "stem": "A speed-time graph rises in a straight line from $0$ to $10\\text{ m/s}$ over $5$ s, then stays at $10\\text{ m/s}$ for the next $10$ s. What total distance is travelled?",
+      "choices": [
+        "$25$ m",
+        "$125$ m",
+        "$100$ m",
+        "$75$ m"
+      ],
+      "correctIndex": 1,
+      "explanation": "Distance is the area under the graph: triangle $\\dfrac{1}{2} \\times 5 \\times 10 = 25$ m, plus rectangle $10 \\times 10 = 100$ m, total $125$ m. $100$ m forgets the triangle; $25$ m forgets the constant-speed section.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-motion-q9",
+      "stem": "What is the approximate value of the acceleration of free fall near the Earth's surface?",
+      "choices": [
+        "$1.6\\text{ m/s}^2$",
+        "$3.7\\text{ m/s}^2$",
+        "$9.8\\text{ m/s}^2$",
+        "$25\\text{ m/s}^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The acceleration of free fall on Earth is $g \\approx 9.8\\text{ m/s}^2$. $1.6\\text{ m/s}^2$ is the Moon's value — a deliberate distractor.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-motion-q10",
+      "stem": "A stone is dropped from rest. Ignoring air resistance, what is its speed $3.0$ s later? (Take $g = 9.8\\text{ m/s}^2$.)",
+      "choices": [
+        "$3.3\\text{ m/s}$",
+        "$9.8\\text{ m/s}$",
+        "$88\\text{ m/s}$",
+        "$29.4\\text{ m/s}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "In free fall the speed gains $9.8$ m/s every second: $v = u + gt = 0 + 9.8 \\times 3.0 = 29.4\\text{ m/s}$. $3.3$ m/s comes from dividing $g$ by the time.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-motion-q11",
+      "stem": "Which of these quantities is a vector?",
+      "choices": [
+        "Velocity",
+        "Speed",
+        "Distance",
+        "Mass"
+      ],
+      "correctIndex": 0,
+      "explanation": "A vector has magnitude and direction. Velocity is speed in a stated direction, so it is a vector; speed, distance and mass have magnitude only and are scalars.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-motion-q12",
+      "stem": "A boat experiences a force of $3$ N due east from the current and $4$ N due north from the wind. What is the magnitude of the resultant force?",
+      "choices": [
+        "$1$ N",
+        "$5$ N",
+        "$7$ N",
+        "$12$ N"
+      ],
+      "correctIndex": 1,
+      "explanation": "The forces are perpendicular, so use Pythagoras on the head-to-tail triangle: $R = \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$ N. $7$ N would only be right if both forces acted along the same line.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-motion-q13",
+      "stem": "On a speed-time graph, a straight line sloping DOWNWARDS shows an object that is:",
+      "choices": [
+        "Stationary",
+        "Decelerating at a constant rate",
+        "Moving at constant speed",
+        "Accelerating at a constant rate"
+      ],
+      "correctIndex": 1,
+      "explanation": "A downward slope means the speed is decreasing steadily — a constant deceleration (negative acceleration). A horizontal line, not a sloping one, shows constant speed; a stationary object lies on the time axis.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-motion-q14",
+      "stem": "A train travels at $72$ km/h. What is this speed in m/s?",
+      "choices": [
+        "$20\\text{ m/s}$",
+        "$259\\text{ m/s}$",
+        "$72\\text{ m/s}$",
+        "$7.2\\text{ m/s}$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Divide km/h by $3.6$: $72 \\div 3.6 = 20\\text{ m/s}$ (equivalently $72000\\text{ m} \\div 3600\\text{ s}$). $259\\text{ m/s}$ comes from multiplying by $3.6$ instead of dividing.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-motion-q15",
+      "stem": "A skydiver is falling at terminal velocity. Which statement correctly describes the forces on her?",
+      "choices": [
+        "Her weight is zero because she is no longer accelerating",
+        "Air resistance is greater than her weight, slowing her down",
+        "Air resistance equals her weight, so the resultant force is zero",
+        "She is accelerating downwards at $9.8\\text{ m/s}^2$"
+      ],
+      "correctIndex": 2,
+      "explanation": "At terminal velocity air resistance has grown to equal the weight, so the resultant force is zero and the speed is constant. Her weight is unchanged, and acceleration is zero — not $9.8\\text{ m/s}^2$.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-labelledby="title desc">
+  <title id="title">Potential divider circuit</title>
+  <desc id="desc">A circuit with a 12 V battery and two series resistors, R1 200 ohms and R2 100 ohms, with a voltmeter across R2 measuring the 4 V output, plus the output formula and a sensor note.</desc>
+  <defs>
+    <style>
+      .heading { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #1e293b; }
+      .subhead { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; fill: #1e293b; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 600; fill: #374151; }
+      .small { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; fill: #475569; }
+      .wire { stroke: #334155; stroke-width: 2; fill: none; }
+      .resistor { fill: #fef3c7; stroke: #b45309; stroke-width: 2; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1; }
+      .chip { fill: #eff6ff; }
+      .formula { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; fill: #1d4ed8; }
+    </style>
+  </defs>
+
+  <rect width="900" height="400" fill="#f8fafc" rx="12"/>
+  <text x="450" y="34" text-anchor="middle" class="heading">A potential divider taps off a fraction of the supply voltage</text>
+
+  <!-- Left panel: the circuit -->
+  <rect x="30" y="55" width="470" height="310" rx="10" class="panel"/>
+  <text x="265" y="82" text-anchor="middle" class="subhead">Divider circuit</text>
+
+  <!-- wires -->
+  <path d="M80,110 L80,196" class="wire"/>
+  <path d="M80,224 L80,330 L400,330 L400,262" class="wire"/>
+  <path d="M400,186 L400,110 L276,110" class="wire"/>
+  <path d="M204,110 L80,110" class="wire"/>
+
+  <!-- battery -->
+  <line x1="60" y1="200" x2="100" y2="200" stroke="#334155" stroke-width="2"/>
+  <line x1="68" y1="220" x2="92" y2="220" stroke="#334155" stroke-width="6"/>
+  <text x="42" y="205" class="label">+</text>
+  <text x="42" y="228" class="label">−</text>
+  <text x="110" y="235" class="small">Vin = 12 V</text>
+
+  <!-- R1 on top wire -->
+  <rect x="204" y="94" width="72" height="32" class="resistor"/>
+  <text x="240" y="140" text-anchor="middle" class="label">R1 = 200 Ω</text>
+
+  <!-- R2 on right wire -->
+  <rect x="384" y="186" width="32" height="76" class="resistor"/>
+  <text x="370" y="230" text-anchor="end" class="label">R2 = 100 Ω</text>
+
+  <!-- voltmeter across R2 -->
+  <path d="M400,196 L452,205" class="wire"/>
+  <path d="M400,252 L452,231" class="wire"/>
+  <circle cx="470" cy="218" r="20" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+  <text x="470" y="224" text-anchor="middle" class="label">V</text>
+  <text x="455" y="270" class="label">Vout</text>
+
+  <!-- Right panel: the rule -->
+  <rect x="520" y="55" width="350" height="310" rx="10" class="panel"/>
+  <text x="695" y="82" text-anchor="middle" class="subhead">The output rule</text>
+  <text x="695" y="118" text-anchor="middle" class="formula">Vout = Vin × R2 / (R1 + R2)</text>
+  <text x="695" y="146" text-anchor="middle" class="small">The bigger resistor takes the bigger share.</text>
+
+  <text x="545" y="186" class="small">Worked example: 12 V across 200 Ω + 100 Ω,</text>
+  <text x="545" y="206" class="small">output across R2:</text>
+  <text x="695" y="238" text-anchor="middle" class="formula">Vout = 12 × 100/300 = 4 V</text>
+
+  <text x="545" y="282" class="small">Sensor trick: swap R2 for an LDR or a</text>
+  <text x="545" y="302" class="small">thermistor and Vout follows light or heat.</text>
+
+  <rect x="545" y="322" width="300" height="24" rx="6" class="chip"/>
+  <text x="695" y="338" text-anchor="middle" class="small">Check: Vout can never exceed Vin.</text>
+</svg>

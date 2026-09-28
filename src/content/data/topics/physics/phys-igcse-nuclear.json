@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-nuclear",
+  "subjectId": "physics",
+  "title": "Nuclear Physics & Radioactivity",
+  "description": "The nuclear atom, nuclide notation and isotopes, background radiation and detectors, alpha/beta/gamma radiation, radioactive decay and half-life, and the safe use of radioisotopes (IGCSE 0625).",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-nuclear-n1",
+      "heading": "The Nuclear Atom",
+      "body": "📌 Definition\nAn atom has a tiny central **nucleus** containing **protons** (charge $+1$, relative mass $1$) and **neutrons** (no charge, relative mass $1$), surrounded by orbiting **electrons** (charge $-1$, relative mass about $\\dfrac{1}{1840}$ — negligible). Almost all the mass is in the nucleus.\n\n🔑 How it works\n• The nucleus is positively charged; a neutral atom has equal numbers of protons and electrons.\n• The nucleus is about $10^{-5}$ times the diameter of the atom — most of the atom is empty space.\n\n🔑 The alpha-scattering experiment (Supplement)\nRutherford's team fired a beam of **alpha particles** at very thin gold foil and observed where they were detected:\n• **Most alpha particles passed straight through** — the atom is mostly empty space.\n• **Some were deflected through small angles** — repelled by a concentrated positive charge.\n• **A very few bounced back** through more than $90^\\circ$ — nearly all the mass and all the positive charge is packed into a tiny nucleus.\n\n💡 Why it matters\nThese three observations overthrew the earlier \"plum pudding\" model (a uniform ball of positive matter) and established the nuclear atom. In the exam, link each observation to its conclusion — that pairing is where the marks are.\n\n📎 Key Points to Remember\n• Like charges repel: alpha particles are positive, so only a positive nucleus can deflect them.\n• The foil had to be extremely thin so a particle typically met at most one nucleus."
+    },
+    {
+      "id": "phys-igcse-nuclear-n2",
+      "heading": "Nuclide Notation and Isotopes",
+      "body": "📌 Definition\nA **nuclide** is one particular type of nucleus, written in standard notation:\n\n$${}^{A}_{Z}\\text{X}$$\n\n• $Z$ = **proton number** (atomic number) — the number of protons, which defines the element.\n• $A$ = **nucleon number** (mass number) — the total number of protons PLUS neutrons (nucleons).\n• Number of neutrons $= A - Z$.\n\n💡 Worked Example\nFor ${}^{235}_{92}\\text{U}$: protons $= 92$, nucleons $= 235$, neutrons $= 235 - 92 = 143$.\n\n🔑 How it works — isotopes\n**Isotopes** are atoms of the SAME element (same $Z$) with different numbers of neutrons (different $A$). Examples: ${}^{12}_{6}\\text{C}$ and ${}^{14}_{6}\\text{C}$; ${}^{235}_{92}\\text{U}$ and ${}^{238}_{92}\\text{U}$.\n\n• Isotopes have identical chemical properties (chemistry depends on the electrons, fixed by $Z$).\n• They have different nuclear stability — some isotopes are stable, others are radioactive. ${}^{14}_{6}\\text{C}$ decays; ${}^{12}_{6}\\text{C}$ does not.\n\n⚠️ Common Mistake\nReading $A$ as the neutron number. Neutrons $= A - Z$ — always subtract the proton number.\n\n📎 Key Points to Remember\n• Same $Z$ = same element, isotopes; different $Z$ = different element.\n• In decay equations, the total $A$ and total $Z$ must balance on both sides — this is your checking tool."
+    },
+    {
+      "id": "phys-igcse-nuclear-n3",
+      "heading": "Background Radiation and Detectors",
+      "body": "📌 Definition\n**Background radiation** is the low-level ionising radiation that is always present around us. Sources: **cosmic rays** from space, **radioactive rocks and soil** (radon gas seeping from granite), **food and drink** (trace potassium-40), **buildings**, and medical procedures.\n\n🔑 How it works — detection\n• **Geiger–Müller (GM) tube connected to a counter/ratemeter**: each ionising particle or photon entering the tube triggers an electrical pulse. The **count rate** is the number of counts per second (or per minute) — it is proportional to the activity of the source but smaller, because the detector only intercepts some of the radiation.\n• **Photographic film badge**: worn by radiation workers; radiation darkens the film, and the degree of darkening measures the dose received.\n\n🔑 Corrected count rate (Supplement)\nThe background contributes to every reading, so a source's true count rate is:\n\n$$\\text{corrected count rate} = \\text{measured count rate} - \\text{background count rate}$$\n\nMeasure the background with the source removed FIRST. Half-life calculations must use corrected counts — the background does not decay away with the source.\n\n💡 Worked Example\nA counter reads $320$ counts/min near a source and $20$ counts/min with the source removed. The corrected count rate is $320 - 20 = 300$ counts/min.\n\n📎 Key Points to Remember\n• Count rate ≠ activity: the detector samples only the fraction of emissions that enter the tube.\n• Background varies with location (more at altitude, more on granite) — always measure it locally."
+    },
+    {
+      "id": "phys-igcse-nuclear-n4",
+      "heading": "Alpha, Beta and Gamma Radiation",
+      "body": "📌 Definitions\n• **Alpha (α)**: a helium nucleus, ${}^{4}_{2}\\text{He}$ — 2 protons + 2 neutrons, charge $+2$, relative mass $4$.\n• **Beta (β⁻)**: a fast electron, ${}^{0}_{-1}\\text{e}$, charge $-1$, emitted when a neutron in the nucleus changes into a proton (Supplement: $\\text{n} \\rightarrow \\text{p} + \\text{e}^{-}$).\n• **Gamma (γ)**: a high-frequency electromagnetic wave — no mass, no charge, pure energy.\n\n🔑 How it works — ionising and penetrating power\n• **Ionising power**: α strongest, β middle, γ weakest. Alpha's large charge and mass let it knock electrons off many atoms per millimetre.\n• **Penetrating power** is the reverse: α is stopped by a **sheet of paper** or a few cm of air; β passes through paper but is stopped by about **5 mm of aluminium**; γ is only **reduced** (never fully stopped) by **thick lead or concrete**.\n• Strong ioniser = short range: alpha spends its energy quickly, gamma spreads its energy thinly over a long path.\n\n🔑 Deflection in electric and magnetic fields (Supplement)\nIn an electric field between charged plates: **α deflects towards the negative plate** (positive charge), **β deflects towards the positive plate** — and MORE sharply than α because it is about $8000$ times lighter for a similar speed — and **γ is not deflected** (no charge). Magnetic fields deflect α and β in opposite directions too; γ passes straight.\n\n📎 Key Points to Remember\n• Order to memorise — ionising: α > β > γ; penetrating: γ > β > α.\n• Gamma is part of the EM spectrum; alpha and beta are particles.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-nuclear-radiation-penetration.svg",
+        "alt": "A radioactive source emitting alpha, beta and gamma radiation towards a sheet of paper, an aluminium plate and a lead block; alpha stops at the paper, beta stops at the aluminium, gamma is reduced by the lead.",
+        "caption": "Penetrating power: paper stops alpha, a few mm of aluminium stops beta, and thick lead only reduces gamma."
+      }
+    },
+    {
+      "id": "phys-igcse-nuclear-n5",
+      "heading": "Radioactive Decay and Decay Equations",
+      "body": "📌 Definition\nRadioactive decay is **spontaneous** (it cannot be started, stopped or changed by temperature, pressure or chemical combination) and **random** (you cannot predict which nucleus decays next, only the fraction that will decay in a given time). The nucleus emits α, β or γ and often becomes a different element — a **transmutation**.\n\n🔑 How it works — balancing decay equations\nConservation rules: total $A$ (top) and total $Z$ (bottom) balance on both sides.\n\n• **Alpha decay** — $A$ falls by $4$, $Z$ falls by $2$:\n\n$${}^{238}_{92}\\text{U} \\rightarrow {}^{234}_{90}\\text{Th} + {}^{4}_{2}\\text{He}$$\n\n• **Beta decay** — $A$ unchanged, $Z$ rises by $1$ (a neutron becomes a proton and the electron is expelled):\n\n$${}^{14}_{6}\\text{C} \\rightarrow {}^{14}_{7}\\text{N} + {}^{0}_{-1}\\text{e}$$\n\n• **Gamma emission** — no change to $A$ or $Z$; the nucleus just sheds surplus energy, usually straight after an α or β decay.\n\n💡 Worked Example\nFind $A$ and $Z$ for the product of alpha decay of ${}^{226}_{88}\\text{Ra}$. Top: $226 - 4 = 222$. Bottom: $88 - 2 = 86$ — element 86 is radon: ${}^{222}_{86}\\text{Rn}$. Check: $226 = 222 + 4$ and $88 = 86 + 2$. ✓\n\n⚠️ Common Mistake\nIn beta decay, writing $Z$ one LOWER. The emitted electron is ${}^{0}_{-1}\\text{e}$, so to balance the bottom numbers the daughter must rise by 1: $6 = 7 + (-1)$.\n\n📎 Key Points to Remember\n• Always verify: tops balance, bottoms balance.\n• \"Random\" and \"spontaneous\" are the two syllabus adjectives — learn both meanings."
+    },
+    {
+      "id": "phys-igcse-nuclear-n6",
+      "heading": "Half-Life",
+      "body": "📌 Definition\nThe **half-life** of a radioactive isotope is the time taken for half of the nuclei of that isotope in a sample to decay — equivalently, the time for the activity (or corrected count rate) to fall to half its value.\n\n🔑 How it works\nAfter each half-life the activity halves: after 1 half-life $\\dfrac{1}{2}$ remains; after 2, $\\dfrac{1}{4}$; after $n$, $\\left(\\dfrac{1}{2}\\right)^n$. Half-life is constant for a given isotope and is unaffected by any physical or chemical condition.\n\n💡 Worked Example 1 — from activity values\nA sample's corrected count rate falls from $800$ to $100$ counts/min in $24$ minutes. Halvings: $800 \\rightarrow 400 \\rightarrow 200 \\rightarrow 100$ = 3 half-lives, so half-life $= \\dfrac{24}{3} = 8$ minutes.\n\n💡 Worked Example 2 — from a decay curve (graph)\nRead the time for the corrected count rate to halve — e.g. from $400$ counts/s down to $200$ counts/s. Better: take the times for two successive halvings ($400\\rightarrow200$ and $200\\rightarrow100$) and average them, which smooths out reading errors.\n\n⚠️ Common Mistake\nApplying the halving to the MEASURED count rate when background is present. Subtract background first: measured $320$, background $20$ → corrected $300$; after two half-lives the corrected count is $75$, so the counter reads $75 + 20 = 95$ counts/min, not $80$.\n\n📎 Key Points to Remember\n• \"Half of the nuclei\" and \"half the activity\" are equivalent — both definitions earn the mark.\n• The number of undecayed nuclei can never reach exactly zero; the curve just keeps halving."
+    },
+    {
+      "id": "phys-igcse-nuclear-n7",
+      "heading": "Safety, Applications, Fission and Fusion",
+      "body": "🔑 Safe handling (Core)\nIonising radiation damages living cells and can cause cancers, so: keep exposure **time** short; keep **distance** large (use tongs, never point a source at people); use **shielding** matched to the radiation (lead for γ, and never handle sources directly); store sources in lead-lined boxes, labelled. Radioactive waste with long half-lives is sealed and stored securely until its activity is negligible.\n\n🔑 Choosing an isotope for a job (Supplement)\nMatch BOTH the radiation type and the half-life:\n• **Medical tracer** (e.g. technetium-99m): **gamma emitter** (escapes the body to be detected) with a **short half-life** (activity falls quickly, limiting the dose).\n• **Sterilising medical instruments / treating tumours**: **gamma** — it penetrates and kills microbes/cells.\n• **Thickness control** of paper or foil in a rolling mill: **beta** source with a **long half-life** — alpha would be stopped by the sheet itself, gamma passes through unaffected by thickness, and a long half-life keeps the source output steady so the gauge stays calibrated.\n• **Smoke alarms**: a weak **alpha** source (americium-241) with a long half-life; smoke absorbs the alpha ions and the current drop triggers the alarm.\n\n🔑 Fission and fusion nuclide equations (Supplement)\n**Fission**: a heavy nucleus absorbs a neutron and splits into two lighter nuclei, more neutrons and energy, e.g.\n\n$${}^{235}_{92}\\text{U} + {}^{1}_{0}\\text{n} \\rightarrow {}^{144}_{56}\\text{Ba} + {}^{89}_{36}\\text{Kr} + 3{}^{1}_{0}\\text{n}$$\n\n**Fusion**: two light nuclei join to form a heavier nucleus, releasing energy, e.g.\n\n$${}^{2}_{1}\\text{H} + {}^{3}_{1}\\text{H} \\rightarrow {}^{4}_{2}\\text{He} + {}^{1}_{0}\\text{n}$$\n\nCheck both balance: fission tops $235+1 = 144+89+3$ ✓, bottoms $92 = 56+36$ ✓. Fusion is the Sun's energy source and needs extreme temperature and pressure to overcome the repulsion of the positive nuclei.\n\n📎 Key Points to Remember\n• Application questions are won on the pairing: penetration depth + half-life length + why the alternatives fail.\n• Fission splits heavy nuclei (nuclear power stations); fusion joins light nuclei (stars)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-nuclear-f1",
+      "term": "Proton number (Z)",
+      "definition": "The number of protons in a nucleus; it defines the element and equals the number of electrons in a neutral atom.",
+      "example": "Every carbon nucleus has Z = 6."
+    },
+    {
+      "id": "phys-igcse-nuclear-f2",
+      "term": "Nucleon number (A)",
+      "definition": "The total number of protons and neutrons (nucleons) in a nucleus. Neutrons = A − Z.",
+      "example": "Uranium-235 has A = 235, Z = 92, so 143 neutrons."
+    },
+    {
+      "id": "phys-igcse-nuclear-f3",
+      "term": "Isotopes",
+      "definition": "Atoms of the same element (same Z) with different numbers of neutrons (different A); same chemical properties, different nuclear stability.",
+      "example": "Carbon-12 is stable; carbon-14 is radioactive."
+    },
+    {
+      "id": "phys-igcse-nuclear-f4",
+      "term": "Background radiation",
+      "definition": "The low-level ionising radiation always present in the environment — from cosmic rays, rocks and soil (radon), food, buildings and medical sources.",
+      "example": "A GM counter clicks about 20 times a minute with no source present."
+    },
+    {
+      "id": "phys-igcse-nuclear-f5",
+      "term": "Count rate",
+      "definition": "The number of ionising events a detector registers per second (or per minute); proportional to, but smaller than, the source activity.",
+      "example": "A GM tube near a source reads 300 counts per minute."
+    },
+    {
+      "id": "phys-igcse-nuclear-f6",
+      "term": "Alpha particle (α)",
+      "definition": "A helium nucleus (2 protons + 2 neutrons), charge +2, mass 4. Strongest ioniser, least penetrating — stopped by paper or a few cm of air.",
+      "example": "In alpha decay A falls by 4 and Z falls by 2."
+    },
+    {
+      "id": "phys-igcse-nuclear-f7",
+      "term": "Beta particle (β⁻)",
+      "definition": "A fast electron emitted when a neutron in the nucleus changes into a proton. Moderately ionising; stopped by a few mm of aluminium.",
+      "example": "In beta decay A stays the same and Z rises by 1."
+    },
+    {
+      "id": "phys-igcse-nuclear-f8",
+      "term": "Gamma ray (γ)",
+      "definition": "A high-frequency electromagnetic wave with no mass or charge. Weakest ioniser, most penetrating — only reduced by thick lead or concrete.",
+      "example": "Gamma emission changes neither A nor Z; the nucleus just loses energy."
+    },
+    {
+      "id": "phys-igcse-nuclear-f9",
+      "term": "Half-life",
+      "definition": "The time for half of the nuclei of an isotope in a sample to decay — equivalently for the activity (corrected count rate) to halve. Constant for each isotope.",
+      "example": "800 → 400 → 200 → 100 counts/min takes 3 half-lives."
+    },
+    {
+      "id": "phys-igcse-nuclear-f10",
+      "term": "Corrected count rate (Supplement)",
+      "definition": "Measured count rate minus background count rate. Always subtract background before any half-life calculation.",
+      "example": "Measured 320, background 20 → corrected 300 counts/min."
+    },
+    {
+      "id": "phys-igcse-nuclear-f11",
+      "term": "Alpha-scattering experiment (Supplement)",
+      "definition": "Alpha particles fired at thin gold foil: most passed straight through (atom mostly empty space), a few deflected strongly or bounced back (tiny, dense, positive nucleus).",
+      "example": "Rutherford's result replaced the plum-pudding model with the nuclear atom."
+    },
+    {
+      "id": "phys-igcse-nuclear-f12",
+      "term": "Fission vs fusion (Supplement)",
+      "definition": "Fission: a heavy nucleus splits into lighter nuclei plus neutrons and energy (nuclear reactors). Fusion: two light nuclei join, releasing energy (the Sun).",
+      "example": "U-235 + n splits into two fragments + 3 neutrons; two hydrogen isotopes fuse to helium + a neutron."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-nuclear-q1",
+      "stem": "The nuclide ${}^{235}_{92}\\text{U}$ has which nucleon number?",
+      "choices": [
+        "$92$",
+        "$143$",
+        "$327$",
+        "$235$"
+      ],
+      "correctIndex": 3,
+      "explanation": "The nucleon number $A$ is the upper figure, $235$ — the total of protons and neutrons. $92$ is the proton number $Z$, and $143$ is the number of neutrons ($235 - 92$).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-nuclear-q2",
+      "stem": "An alpha particle is:",
+      "choices": [
+        "A fast-moving electron",
+        "A helium nucleus — 2 protons and 2 neutrons",
+        "A high-frequency electromagnetic wave",
+        "A free neutron"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alpha radiation consists of helium nuclei, ${}^{4}_{2}\\text{He}$, with charge $+2$ and relative mass $4$. The electron describes beta, and the EM wave describes gamma.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-nuclear-q3",
+      "stem": "Which type of radiation is the most penetrating?",
+      "choices": [
+        "Alpha",
+        "Beta",
+        "Gamma",
+        "All three penetrate equally"
+      ],
+      "correctIndex": 2,
+      "explanation": "Gamma rays are the most penetrating: only thick lead or concrete reduces them. Alpha is stopped by paper and beta by a few millimetres of aluminium.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-nuclear-q4",
+      "stem": "Two nuclei are isotopes of the same element. What do they have in common?",
+      "choices": [
+        "The same number of protons, but different numbers of neutrons",
+        "The same number of neutrons, but different numbers of protons",
+        "The same nucleon number",
+        "Different proton numbers and different elements"
+      ],
+      "correctIndex": 0,
+      "explanation": "Isotopes share the proton number $Z$ (which defines the element) and differ in neutron number, so their nucleon numbers $A$ differ too — e.g. ${}^{12}_{6}\\text{C}$ and ${}^{14}_{6}\\text{C}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-nuclear-q5",
+      "stem": "How many neutrons are in a nucleus of ${}^{235}_{92}\\text{U}$?",
+      "choices": [
+        "$92$",
+        "$235$",
+        "$143$",
+        "$327$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Neutrons $= A - Z = 235 - 92 = 143$. The $92$ option is the proton count and $235$ is the total nucleon count.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-nuclear-q6",
+      "stem": "${}^{238}_{92}\\text{U}$ decays by emitting an alpha particle, producing thorium. What are the nucleon number $A$ and proton number $Z$ of the thorium nucleus?",
+      "choices": [
+        "$A = 234$, $Z = 90$",
+        "$A = 238$, $Z = 92$",
+        "$A = 232$, $Z = 88$",
+        "$A = 234$, $Z = 92$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Alpha emission removes ${}^{4}_{2}\\text{He}$: $A$ falls by $4$ ($238 - 4 = 234$) and $Z$ falls by $2$ ($92 - 2 = 90$). Balanced check: $238 = 234 + 4$ and $92 = 90 + 2$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-nuclear-q7",
+      "stem": "Which type of radiation is stopped by a single sheet of paper?",
+      "choices": [
+        "Gamma",
+        "Beta",
+        "X-rays",
+        "Alpha"
+      ],
+      "correctIndex": 3,
+      "explanation": "Alpha particles ionise so strongly that they lose all their energy within a few centimetres of air — a sheet of paper stops them. Beta needs a few millimetres of aluminium and gamma needs thick lead.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-nuclear-q8",
+      "stem": "The corrected count rate from a radioactive sample falls from $800$ counts/min to $100$ counts/min in $24$ minutes. What is the half-life of the isotope?",
+      "choices": [
+        "$6$ minutes",
+        "$8$ minutes",
+        "$3$ minutes",
+        "$12$ minutes"
+      ],
+      "correctIndex": 1,
+      "explanation": "Count the halvings: $800 \\rightarrow 400 \\rightarrow 200 \\rightarrow 100$ is 3 half-lives in $24$ minutes, so one half-life is $\\dfrac{24}{3} = 8$ minutes.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-nuclear-q9",
+      "stem": "Radioactive decay is described as spontaneous and random. What does this mean?",
+      "choices": [
+        "Decay can be started by heating the source",
+        "Every nucleus decays after exactly one half-life",
+        "It cannot be influenced by external conditions, and it is impossible to predict which nucleus will decay next",
+        "Decay only occurs when the isotope is chemically combined"
+      ],
+      "correctIndex": 2,
+      "explanation": "Spontaneous = unaffected by temperature, pressure or chemistry; random = only the fraction decaying in a given time is predictable, never which nucleus or when. The half-life is a statistical average, not a per-nucleus timer.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-nuclear-q10",
+      "stem": "A Geiger–Müller tube connected to a counter is used to measure:",
+      "choices": [
+        "The count rate — the number of ionising events detected each second or minute",
+        "The energy of each individual gamma photon",
+        "The half-life of the source directly",
+        "The charge carried by each radioactive nucleus"
+      ],
+      "correctIndex": 0,
+      "explanation": "Each particle or photon entering the GM tube triggers one electrical pulse, so the counter registers a count rate. Half-life must be found from how the count rate changes over time, not read directly.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-nuclear-q11",
+      "stem": "${}^{14}_{6}\\text{C}$ decays by beta emission. What are the nucleon number $A$ and proton number $Z$ of the daughter nucleus? (Supplement)",
+      "choices": [
+        "$A = 16$, $Z = 8$",
+        "$A = 14$, $Z = 7$",
+        "$A = 14$, $Z = 5$",
+        "$A = 10$, $Z = 4$"
+      ],
+      "correctIndex": 1,
+      "explanation": "In beta decay a neutron changes into a proton and the electron (${}^{0}_{-1}\\text{e}$) is expelled, so $A$ stays at $14$ and $Z$ rises by $1$ to $7$ — nitrogen. Balance check: $14 = 14 + 0$ and $6 = 7 + (-1)$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-nuclear-q12",
+      "stem": "A detector near a source reads $320$ counts/min; with the source removed it reads $20$ counts/min. After TWO half-lives, what does the detector read near the source? (Supplement)",
+      "choices": [
+        "$80$ counts/min",
+        "$75$ counts/min",
+        "$300$ counts/min",
+        "$95$ counts/min"
+      ],
+      "correctIndex": 3,
+      "explanation": "First correct for background: $320 - 20 = 300$ counts/min from the source. After two half-lives this is $300 \\rightarrow 150 \\rightarrow 75$. The background still registers, so the detector reads $75 + 20 = 95$ counts/min. The $80$ option halves the measured value without subtracting background.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-nuclear-q13",
+      "stem": "A mixed beam of alpha, beta and gamma radiation passes between two charged plates. Which component is deflected TOWARDS the positive plate? (Supplement)",
+      "choices": [
+        "Alpha",
+        "Gamma",
+        "Beta",
+        "None — all travel straight"
+      ],
+      "correctIndex": 2,
+      "explanation": "Beta particles are electrons (charge $-1$), so they are attracted to the positive plate — and deflected sharply, being far lighter than alpha particles. Alpha (charge $+2$) deflects weakly towards the negative plate; gamma carries no charge and passes straight.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-nuclear-q14",
+      "stem": "In the alpha-scattering experiment, most alpha particles passed straight through thin gold foil while a very few rebounded through more than $90^\\circ$. What did this show about the atom? (Supplement)",
+      "choices": [
+        "The atom is mostly empty space, with almost all its mass and positive charge concentrated in a tiny nucleus",
+        "Atoms are solid spheres of uniform density",
+        "Alpha particles are repelled by orbiting electrons",
+        "The nucleus occupies most of the atom's volume"
+      ],
+      "correctIndex": 0,
+      "explanation": "Straight-through paths mean almost all of the atom is empty space; rare large rebounds mean a small, massive, positively charged nucleus repelled the positively charged alpha particles. This evidence replaced the uniform plum-pudding model.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-nuclear-q15",
+      "stem": "A rolling mill continuously monitors the thickness of aluminium foil: a source on one side fires radiation through the foil at a detector, and thicker foil gives a lower count rate. Which source is suitable? (Supplement)",
+      "choices": [
+        "An alpha emitter with a short half-life",
+        "A beta emitter with a long half-life",
+        "A gamma emitter with a short half-life",
+        "An alpha emitter with a long half-life"
+      ],
+      "correctIndex": 1,
+      "explanation": "Alpha is stopped completely by the foil itself and gamma passes through almost unaffected by small thickness changes — only beta is absorbed by an amount that varies usefully with thickness. A long half-life keeps the source output steady so the gauge does not need constant recalibration.",
+      "difficulty": "hard"
+    }
+  ]
+}

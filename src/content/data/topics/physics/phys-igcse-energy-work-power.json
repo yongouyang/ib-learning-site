@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-energy-work-power",
+  "subjectId": "physics",
+  "title": "Energy, Work, Power & Resources",
+  "description": "Energy stores and transfers, conservation of energy, work done, power, kinetic and gravitational potential energy, efficiency, Sankey diagrams and energy resources for IGCSE Physics 0625.",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-energy-work-power-n1",
+      "heading": "Energy Stores and Transfer Pathways",
+      "body": "📌 Definition\nEnergy is held in different **energy stores**. The 0625 list: **kinetic** (moving objects), **gravitational potential** (raised objects), **chemical** (fuels, food, batteries), **elastic (strain)** (stretched or compressed objects), **nuclear** (atomic nuclei), **electrostatic** (separated charges) and **internal** (the thermal energy of the particles of a substance).\n\n🔑 How it works\nEnergy moves between stores by four transfer **pathways**: **mechanical working** (a force moving through a distance), **electrical working** (a current), **heating** (a temperature difference) and **waves** (sound and light, including all electromagnetic radiation).\n\n💡 Worked Example\nA battery-powered fan: the chemical store of the battery empties, and energy is transferred by electrical working to the kinetic store of the blades and, because the air warms slightly, to internal stores. Describe the transfer, never the 'creation', of energy.\n\n📎 Key Points to Remember\n• Learn the seven stores and the four pathways — exam questions ask you to name both.\n• A 'system' is just the object or group of objects you are considering.\n\n⚠️ Common Mistake\nSaying energy is 'used up' or 'lost'. Energy is never destroyed; it is transferred to other stores, often the internal store of the surroundings."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-n2",
+      "heading": "Conservation of Energy",
+      "body": "📌 Definition\nThe **principle of conservation of energy**: energy cannot be created or destroyed; it can only be transferred from one store to another. The total energy of a closed system is constant.\n\n🔑 How it works\nIn every process, the energy leaving one store equals the energy arriving in the others. Energy transferred to the internal store of the surroundings is called **dissipated** energy — it still exists, but it is spread too thinly to do useful work.\n\n💡 Worked Example\nA falling stone: gravitational potential → kinetic. If air resistance matters, some energy is also transferred to the internal store of the air — the total is unchanged either way.\n\n📎 Key Points to Remember\n• 'Energy is conserved' means the total never changes, not that it stays useful.\n\n⚠️ Common Mistake\n'A swinging pendulum's energy ran out.' No — friction and air resistance dissipated it to the surroundings; the energy is conserved, just no longer useful."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-n3",
+      "heading": "Work Done and Energy Transferred",
+      "body": "📌 Definition\n**Work done** is the energy transferred when a force moves an object through a distance:\n\n$$W = \\Delta E = Fd$$\n\nwhere $F$ is the force in newtons and $d$ is the distance moved **in the direction of the force** in metres. The joule is defined from this equation: $1\\text{ J}$ is the work done when a force of $1\\text{ N}$ moves through $1\\text{ m}$.\n\n💡 Worked Example\nA worker pushes a crate with a steady force of $50\\text{ N}$ over $4\\text{ m}$:\n\n$$W = Fd = 50 \\times 4 = 200\\text{ J}$$\n\n📎 Key Points to Remember\n• Work done = energy transferred — the two phrases are interchangeable in 0625.\n• The distance must be measured in the direction of the force.\n\n⚠️ Common Mistake\nCarrying a bag at constant height while walking: the upward force does no work on the bag, because the bag does not move in the direction of the force."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-n4",
+      "heading": "Power — the Rate of Transferring Energy",
+      "body": "📌 Definition\n**Power** is the rate at which work is done, or the rate at which energy is transferred:\n\n$$P = \\dfrac{W}{t} = \\dfrac{\\Delta E}{t}$$\n\nThe unit is the **watt** ($\\text{W}$): $1\\text{ W} = 1\\text{ J/s}$.\n\n💡 Worked Example\nA weightlifter raises a $1000\\text{ N}$ barbell by $2\\text{ m}$ in $4\\text{ s}$. Work done: $W = Fd = 1000 \\times 2 = 2000\\text{ J}$. Power: $P = \\dfrac{2000}{4} = 500\\text{ W}$.\n\n📎 Key Points to Remember\n• The same work done faster means more power.\n• Appliances are rated in watts or kilowatts: a $100\\text{ W}$ lamp transfers $100\\text{ J}$ of energy every second.\n\n⚠️ Common Mistake\nConfusing power with energy. A powerful device transfers energy **quickly** — it does not necessarily transfer more energy in total."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-n5",
+      "heading": "Energy Resources (Recap)",
+      "body": "📌 Definition\nEnergy resources split into **renewable** (replenished naturally: solar, wind, hydroelectric, tidal, geothermal, biomass) and **non-renewable** (finite: coal, oil, natural gas, and nuclear fuels such as uranium).\n\n🔑 How it works\nMost resources generate electricity through the same chain: energy source → **turbine** → **generator**. Fossil fuels, biomass and nuclear fission heat water to make steam to drive the turbine; wind, hydro and tidal drive it directly; solar cells convert light to electricity with no turbine at all.\n\n📎 Key Points to Remember\n• Fossil fuels: reliable, but release carbon dioxide and will run out.\n• Nuclear: reliable and low-carbon in operation, but produces radioactive waste that needs long-term storage.\n• Wind and solar: no fuel cost and no emissions in operation, but **intermittent** — output depends on the weather and time of day.\n\n⚠️ Common Mistake\nSaying renewable energy has no environmental impact — manufacturing, land use and effects on wildlife still count. (The full advantage/disadvantage treatment is the KS3 topic Energy Resources and Sustainability; at IGCSE the exam focus is comparing resources with power, energy and efficiency calculations.)"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-n6",
+      "heading": "Kinetic and Gravitational Potential Energy (Supplement)",
+      "body": "📌 Definition\nSupplement content. The kinetic energy of a moving object and the change in gravitational potential energy of a raised object:\n\n$$E_k = \\dfrac{1}{2}mv^2 \\qquad \\Delta E_p = mg\\Delta h$$\n\nwith mass $m$ in kg, speed $v$ in m/s, gravitational field strength $g$ in N/kg and height change $\\Delta h$ in m.\n\n💡 Worked Example 1 — Kinetic energy\nAn $800\\text{ kg}$ car at $10\\text{ m/s}$: $E_k = \\dfrac{1}{2} \\times 800 \\times 10^2 = 40\\,000\\text{ J}$.\n\n💡 Worked Example 2 — Gravitational potential energy\nA $2\\text{ kg}$ book raised $1.5\\text{ m}$ (taking $g = 9.8\\text{ N/kg}$): $\\Delta E_p = 2 \\times 9.8 \\times 1.5 = 29.4\\text{ J}$.\n\n🔑 Multi-stage conservation\nFor a falling object with no air resistance, the $\\Delta E_p$ lost equals the $E_k$ gained: $mg\\Delta h = \\dfrac{1}{2}mv^2$. The mass cancels, so $v = \\sqrt{2g\\Delta h}$ — every object reaches the same speed from the same height.\n\n📎 Key Points to Remember\n• $E_k$ depends on $v^2$: doubling the speed quadruples the kinetic energy.\n• Use $g = 9.8\\text{ N/kg}$ unless the question says otherwise.\n\n⚠️ Common Mistake\nForgetting to square the speed. $E_k$ at $20\\text{ m/s}$ is four times — not twice — the value at $10\\text{ m/s}$."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-n7",
+      "heading": "Efficiency, Sankey Diagrams and the Sun (Supplement)",
+      "body": "📌 Definition\nSupplement content. **Efficiency** compares useful output with total input, as an energy ratio or as a power ratio:\n\n$$\\text{efficiency} = \\dfrac{\\text{useful energy output}}{\\text{total energy input}} \\times 100\\% = \\dfrac{\\text{useful power output}}{\\text{total power input}} \\times 100\\%$$\n\n🔑 Sankey diagrams\nA **Sankey diagram** shows an energy transfer with arrows whose **widths are drawn to scale**: the input band splits into useful and wasted outputs, so efficiency can be read straight off a to-scale diagram.\n\n💡 Worked Example\nA power station takes in $1000\\text{ MJ}$ and wastes $650\\text{ MJ}$. Useful output $= 1000 - 650 = 350\\text{ MJ}$, so efficiency $= \\dfrac{350}{1000} \\times 100\\% = 35\\%$.\n\n☀ Energy from the Sun\nThe Sun releases energy by the **nuclear fusion of hydrogen nuclei into helium nuclei**. Some of that energy reaches Earth as electromagnetic radiation — the input for solar cells, solar heating panels, wind and biomass.\n\n⚠️ Common Mistake\nAn efficiency above $100\\%$ or below $0\\%$ is impossible — if your calculation gives one, you have divided the wrong way round.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-energy-work-power-sankey.svg",
+        "alt": "Sankey diagram for a petrol car: a 100 J chemical energy input band splits into a 25 J useful kinetic output arrow and a 75 J wasted thermal and sound output arrow, with the efficiency formula.",
+        "caption": "In a Sankey diagram the width of each arrow is drawn to scale with the energy it carries: useful output plus wasted output equals the input."
+      }
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-energy-work-power-f1",
+      "term": "Energy store",
+      "definition": "A way energy is held. The 0625 list: kinetic, gravitational potential, chemical, elastic (strain), nuclear, electrostatic, internal.",
+      "example": "A stretched spring holds energy in an elastic (strain) store."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-f2",
+      "term": "Energy transfer pathways",
+      "definition": "The four ways energy moves between stores: mechanical working, electrical working, heating, and waves.",
+      "example": "A lamp is supplied by electrical working and transfers energy onwards by waves (light) and heating."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-f3",
+      "term": "Principle of conservation of energy",
+      "definition": "Energy cannot be created or destroyed; it can only be transferred between stores. The total energy of a closed system is constant.",
+      "example": "A falling stone transfers gravitational potential energy to kinetic energy — none is created or destroyed."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-f4",
+      "term": "Work done",
+      "definition": "W = Fd — the energy transferred when a force moves through a distance in its own direction. Unit: joule (J).",
+      "example": "A 20 N force pushing 3 m does W = 20 × 3 = 60 J of work."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-f5",
+      "term": "Power",
+      "definition": "P = W/t = ΔE/t — the rate of doing work or transferring energy. Unit: watt (W); 1 W = 1 J/s.",
+      "example": "600 J transferred in 30 s is a power of 20 W."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-f6",
+      "term": "Kinetic energy (Supplement)",
+      "definition": "E_k = ½mv². The energy of a moving object; it depends on the square of the speed.",
+      "example": "A 3 kg ball at 4 m/s: E_k = ½ × 3 × 16 = 24 J."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-f7",
+      "term": "Gravitational potential energy (Supplement)",
+      "definition": "ΔE_p = mgΔh. The energy gained when a mass is raised in a gravitational field.",
+      "example": "2 kg raised 5 m (g = 9.8 N/kg): ΔE_p = 2 × 9.8 × 5 = 98 J."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-f8",
+      "term": "Efficiency (Supplement)",
+      "definition": "Useful energy output ÷ total energy input × 100% — equivalently with power output and input. Always between 0% and 100%.",
+      "example": "1000 MJ in, 350 MJ useful out: efficiency = 35%."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-f9",
+      "term": "Sankey diagram (Supplement)",
+      "definition": "An energy transfer diagram whose arrow widths are drawn to scale; the input band splits into useful and wasted outputs.",
+      "example": "A 100 J input splitting into 25 J useful and 75 J wasted is drawn with band widths in the ratio 100:25:75."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-f10",
+      "term": "Dissipated energy",
+      "definition": "Energy transferred to the internal store of the surroundings; still conserved, but no longer useful.",
+      "example": "Brakes dissipate a car's kinetic energy as thermal energy in the discs and the air."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-f11",
+      "term": "Renewable vs non-renewable",
+      "definition": "Renewable (replenished naturally): solar, wind, hydro, tidal, geothermal, biomass. Non-renewable (finite): coal, oil, natural gas, nuclear fuels.",
+      "example": "Natural gas is non-renewable; wind is renewable."
+    },
+    {
+      "id": "phys-igcse-energy-work-power-f12",
+      "term": "Energy from the Sun (Supplement)",
+      "definition": "Released by the nuclear fusion of hydrogen nuclei into helium nuclei; it reaches Earth as electromagnetic radiation.",
+      "example": "Solar cells convert a small part of this radiation directly into electricity."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-energy-work-power-q1",
+      "stem": "In physics, work is done when...",
+      "choices": [
+        "a force is applied to an object, whether or not it moves",
+        "a force moves an object through a distance in the direction of the force, transferring energy",
+        "an object has mass and velocity",
+        "energy is stored in an object for a long time"
+      ],
+      "correctIndex": 1,
+      "explanation": "Work done = energy transferred when a force moves through a distance in its own direction: $W = Fd$. A force that does not move anything does no work.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q2",
+      "stem": "Which unit is equivalent to 1 watt?",
+      "choices": [
+        "1 newton per metre",
+        "1 joule per newton",
+        "1 joule per second",
+        "1 newton per second"
+      ],
+      "correctIndex": 2,
+      "explanation": "Power is the rate of energy transfer: $P = \\dfrac{\\Delta E}{t}$, so $1\\text{ W} = 1\\text{ J/s}$.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q3",
+      "stem": "The principle of conservation of energy states that energy...",
+      "choices": [
+        "cannot be created or destroyed, only transferred between stores or dissipated",
+        "is always transferred into useful stores",
+        "is created whenever fuel burns",
+        "decreases every time it is transferred"
+      ],
+      "correctIndex": 0,
+      "explanation": "Energy is never created or destroyed. Dissipated energy spreads to the internal store of the surroundings, but the total is unchanged.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q4",
+      "stem": "A stretched catapult stores energy in which energy store?",
+      "choices": [
+        "kinetic",
+        "chemical",
+        "internal",
+        "elastic potential"
+      ],
+      "correctIndex": 3,
+      "explanation": "A stretched or compressed object holds energy in an elastic (strain) store. The energy transfers to kinetic only when the catapult is released.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q5",
+      "stem": "Which of these energy resources is non-renewable?",
+      "choices": [
+        "natural gas",
+        "wind",
+        "solar",
+        "hydroelectric"
+      ],
+      "correctIndex": 0,
+      "explanation": "Natural gas is a finite fossil fuel. Wind, solar and hydroelectric are replenished naturally on a human timescale.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q6",
+      "stem": "A worker pushes a crate with a steady force of 50 N over a distance of 4 m. How much work is done?",
+      "choices": [
+        "12.5 J",
+        "54 J",
+        "200 J",
+        "0.08 J"
+      ],
+      "correctIndex": 2,
+      "explanation": "$W = Fd = 50 \\times 4 = 200\\text{ J}$. The 12.5 J option divides force by distance and 54 J adds them — neither is a multiplication.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q7",
+      "stem": "A motor does 200 J of useful work in 10 s. What is its useful power output?",
+      "choices": [
+        "0.05 W",
+        "20 W",
+        "2000 W",
+        "210 W"
+      ],
+      "correctIndex": 1,
+      "explanation": "$P = \\dfrac{W}{t} = \\dfrac{200}{10} = 20\\text{ W}$. The 2000 W option multiplies instead of dividing; 0.05 W is $t/W$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q8",
+      "stem": "A 4 kg ball moves at 3 m/s. What is its kinetic energy?",
+      "choices": [
+        "6 J",
+        "12 J",
+        "36 J",
+        "18 J"
+      ],
+      "correctIndex": 3,
+      "explanation": "$E_k = \\dfrac{1}{2}mv^2 = \\dfrac{1}{2} \\times 4 \\times 3^2 = 18\\text{ J}$. The 36 J option forgets the half; 12 J forgets to square the speed.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q9",
+      "stem": "A student of weight 500 N climbs 4 m of stairs in 10 s. What is her average power output?",
+      "choices": [
+        "200 W",
+        "125 W",
+        "2000 W",
+        "50 W"
+      ],
+      "correctIndex": 0,
+      "explanation": "Work done against gravity: $W = Fd = 500 \\times 4 = 2000\\text{ J}$; then $P = \\dfrac{W}{t} = \\dfrac{2000}{10} = 200\\text{ W}$. The 2000 W option stops after the first step.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q10",
+      "stem": "A machine takes in 500 J of energy and transfers 150 J usefully. What is its efficiency?",
+      "choices": [
+        "70%",
+        "33%",
+        "30%",
+        "3.3%"
+      ],
+      "correctIndex": 2,
+      "explanation": "Efficiency $= \\dfrac{150}{500} \\times 100\\% = 30\\%$. The 70% option is the wasted share; 33% divides input by output.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q11",
+      "stem": "A 5 kg mass is raised through a height of 10 m. Taking g = 9.8 N/kg, what is the increase in its gravitational potential energy?",
+      "choices": [
+        "49 J",
+        "490 J",
+        "980 J",
+        "4.9 J"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\Delta E_p = mg\\Delta h = 5 \\times 9.8 \\times 10 = 490\\text{ J}$. The 980 J option uses $2g$; 49 J misses a factor of 10.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q12",
+      "stem": "A ball is dropped from rest from a height of 20 m. Ignoring air resistance and taking g = 10 N/kg, what is its speed just before it hits the ground?",
+      "choices": [
+        "10 m/s",
+        "14 m/s",
+        "200 m/s",
+        "20 m/s"
+      ],
+      "correctIndex": 3,
+      "explanation": "Conservation of energy: $mg\\Delta h = \\dfrac{1}{2}mv^2$, so $v = \\sqrt{2g\\Delta h} = \\sqrt{2 \\times 10 \\times 20} = \\sqrt{400} = 20\\text{ m/s}$. The mass cancels — it is not needed.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q13",
+      "stem": "A power station takes in 1000 MJ of chemical energy and wastes 650 MJ as thermal energy. What is its efficiency?",
+      "choices": [
+        "35%",
+        "65%",
+        "30%",
+        "53%"
+      ],
+      "correctIndex": 0,
+      "explanation": "Useful output is $1000 - 650 = 350\\text{ MJ}$, so efficiency $= \\dfrac{350}{1000} \\times 100\\% = 35\\%$. The 65% option divides the wasted energy by the input instead.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q14",
+      "stem": "A car doubles its speed from 15 m/s to 30 m/s. By what factor does its kinetic energy change?",
+      "choices": [
+        "×2",
+        "×3",
+        "×4",
+        "×8"
+      ],
+      "correctIndex": 2,
+      "explanation": "$E_k = \\dfrac{1}{2}mv^2$ depends on the square of the speed: $\\dfrac{30^2}{15^2} = \\dfrac{900}{225} = 4$. This is why braking distances grow so fast with speed.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-energy-work-power-q15",
+      "stem": "The Sun releases its energy by...",
+      "choices": [
+        "burning hydrogen as a fuel in oxygen",
+        "nuclear fusion of hydrogen nuclei into helium nuclei",
+        "nuclear fission of heavy nuclei",
+        "chemical reactions between hot gases"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Sun is powered by nuclear fusion — hydrogen nuclei join to form helium nuclei, releasing energy that reaches Earth as electromagnetic radiation. Fission powers nuclear reactors, not the Sun.",
+      "difficulty": "medium"
+    }
+  ]
+}

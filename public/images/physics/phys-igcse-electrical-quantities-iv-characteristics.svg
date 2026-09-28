@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" role="img" aria-labelledby="title desc">
+  <title id="title">I-V characteristics of a resistor, a filament lamp and a diode</title>
+  <desc id="desc">Three current against voltage graphs: a straight line through the origin for a fixed resistor, a curve that flattens for a filament lamp, and a one-direction curve for a diode.</desc>
+  <defs>
+    <style>
+      .heading { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #1e293b; }
+      .subhead { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 600; fill: #1e293b; }
+      .axislabel { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 600; fill: #374151; }
+      .small { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; fill: #475569; }
+      .axis { stroke: #334155; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+      .curve { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1; }
+      .chip { fill: #eff6ff; }
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L8,5 L0,9" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="400" fill="#f8fafc" rx="12"/>
+  <text x="450" y="34" text-anchor="middle" class="heading">I-V characteristics: the graph shape identifies the component</text>
+
+  <!-- Panel 1: fixed resistor -->
+  <rect x="30" y="55" width="250" height="310" rx="10" class="panel"/>
+  <text x="155" y="82" text-anchor="middle" class="subhead">Fixed resistor (ohmic)</text>
+  <line x1="80" y1="310" x2="245" y2="310" class="axis"/>
+  <line x1="80" y1="310" x2="80" y2="120" class="axis"/>
+  <text x="68" y="115" class="axislabel">I</text>
+  <text x="248" y="326" class="axislabel">V</text>
+  <text x="73" y="326" class="small">0</text>
+  <line x1="80" y1="310" x2="230" y2="140" class="curve"/>
+  <rect x="48" y="338" width="214" height="22" rx="6" class="chip"/>
+  <text x="155" y="353" text-anchor="middle" class="small">straight line: R stays constant</text>
+
+  <!-- Panel 2: filament lamp -->
+  <rect x="325" y="55" width="250" height="310" rx="10" class="panel"/>
+  <text x="450" y="82" text-anchor="middle" class="subhead">Filament lamp</text>
+  <line x1="375" y1="310" x2="540" y2="310" class="axis"/>
+  <line x1="375" y1="310" x2="375" y2="120" class="axis"/>
+  <text x="363" y="115" class="axislabel">I</text>
+  <text x="543" y="326" class="axislabel">V</text>
+  <text x="368" y="326" class="small">0</text>
+  <path d="M375,310 C388,205 430,145 525,138" class="curve"/>
+  <rect x="333" y="338" width="234" height="22" rx="6" class="chip"/>
+  <text x="450" y="353" text-anchor="middle" class="small">flattens: R rises as filament heats up</text>
+
+  <!-- Panel 3: diode -->
+  <rect x="620" y="55" width="250" height="310" rx="10" class="panel"/>
+  <text x="745" y="82" text-anchor="middle" class="subhead">Diode</text>
+  <line x1="650" y1="310" x2="840" y2="310" class="axis"/>
+  <line x1="720" y1="310" x2="720" y2="120" class="axis"/>
+  <text x="708" y="115" class="axislabel">I</text>
+  <text x="843" y="326" class="axislabel">V</text>
+  <text x="713" y="326" class="small">0</text>
+  <path d="M655,310 L765,310 C775,305 780,220 783,128" class="curve"/>
+  <text x="650" y="290" class="small">reverse: zero</text>
+  <text x="790" y="150" class="small">forward</text>
+  <rect x="638" y="338" width="214" height="22" rx="6" class="chip"/>
+  <text x="745" y="353" text-anchor="middle" class="small">conducts in one direction only</text>
+</svg>

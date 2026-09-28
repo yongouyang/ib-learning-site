@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" role="img" aria-labelledby="title desc">
+  <title id="title">Measuring density</title>
+  <desc id="desc">Three standard experiments for measuring density: a regular block measured with a rule and weighed on a balance, a liquid weighed in a measuring cylinder, and an irregular stone measured by water displacement.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .leader { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+      .glass { fill: none; stroke: #6b7280; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="800" height="430" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Measuring Density — Three Experiments</text>
+
+  <!-- Panel 1: regular solid -->
+  <rect x="20" y="50" width="240" height="300" rx="10" class="panel"/>
+  <text x="140" y="75" text-anchor="middle" class="label">1. Regular solid</text>
+  <rect x="80" y="120" width="120" height="70" fill="#cbd5e1" stroke="#64748b" stroke-width="2"/>
+  <line x1="80" y1="108" x2="200" y2="108" class="leader"/>
+  <line x1="80" y1="103" x2="80" y2="113" class="leader"/>
+  <line x1="200" y1="103" x2="200" y2="113" class="leader"/>
+  <text x="140" y="102" text-anchor="middle" class="sublabel">measure l, w, h with a rule</text>
+  <rect x="105" y="225" width="70" height="40" rx="4" fill="#e5e7eb" stroke="#64748b" stroke-width="2"/>
+  <rect x="115" y="232" width="50" height="12" rx="2" fill="#f8fafc" stroke="#94a3b8"/>
+  <rect x="112" y="203" width="56" height="18" fill="#cbd5e1" stroke="#64748b" stroke-width="2"/>
+  <text x="140" y="290" text-anchor="middle" class="sublabel">weigh on a balance</text>
+  <text x="140" y="325" text-anchor="middle" class="label">V = l × w × h</text>
+
+  <!-- Panel 2: liquid -->
+  <rect x="280" y="50" width="240" height="300" rx="10" class="panel"/>
+  <text x="400" y="75" text-anchor="middle" class="label">2. Liquid</text>
+  <rect x="370" y="95" width="60" height="170" rx="6" class="glass"/>
+  <rect x="373" y="160" width="54" height="102" rx="4" fill="#bfdbfe"/>
+  <line x1="360" y1="160" x2="440" y2="160" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="336" y="164" text-anchor="end" class="sublabel">meniscus</text>
+  <line x1="348" y1="168" x2="369" y2="162" class="leader"/>
+  <text x="400" y="290" text-anchor="middle" class="sublabel">mass of liquid = m2 − m1</text>
+  <text x="400" y="308" text-anchor="middle" class="sublabel">(weigh cylinder empty, then full)</text>
+  <text x="400" y="325" text-anchor="middle" class="label">read V at the meniscus</text>
+
+  <!-- Panel 3: irregular solid -->
+  <rect x="540" y="50" width="240" height="300" rx="10" class="panel"/>
+  <text x="660" y="75" text-anchor="middle" class="label">3. Irregular solid</text>
+  <rect x="575" y="120" width="50" height="145" rx="6" class="glass"/>
+  <rect x="578" y="200" width="44" height="62" rx="4" fill="#bfdbfe"/>
+  <line x1="565" y1="200" x2="635" y2="200" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="600" y="110" text-anchor="middle" class="sublabel">V1</text>
+  <rect x="665" y="120" width="50" height="145" rx="6" class="glass"/>
+  <rect x="668" y="180" width="44" height="82" rx="4" fill="#bfdbfe"/>
+  <line x1="655" y1="180" x2="725" y2="180" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <ellipse cx="690" cy="240" rx="14" ry="10" fill="#94a3b8" stroke="#64748b" stroke-width="1.5"/>
+  <text x="690" y="110" text-anchor="middle" class="sublabel">V2</text>
+  <text x="660" y="290" text-anchor="middle" class="sublabel">volume of stone = V2 − V1</text>
+  <text x="660" y="325" text-anchor="middle" class="label">displacement method</text>
+
+  <!-- Bottom summary strip -->
+  <rect x="20" y="365" width="760" height="48" rx="8" class="panel"/>
+  <text x="400" y="386" text-anchor="middle" class="label">density = mass ÷ volume</text>
+  <text x="400" y="404" text-anchor="middle" class="sublabel">Each experiment measures the mass and the volume, then divides. Watch the units: g and cm³, or kg and m³.</text>
+</svg>

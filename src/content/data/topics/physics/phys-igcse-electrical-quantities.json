@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-electrical-quantities",
+  "subjectId": "physics",
+  "title": "Charge, Current, Resistance & Power",
+  "description": "Electrostatics and the electron model, current and charge, e.m.f. versus potential difference, resistance and its measurement, I–V characteristics, electrical power, energy and the kilowatt-hour for IGCSE Physics 0625.",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-electrical-quantities-n1",
+      "heading": "Charge, Electrostatics and the Electron Model",
+      "body": "📌 Definition\nElectric **charge** is a property of matter measured in **coulombs (C)**. There are two types — positive and negative: like charges repel, unlike charges attract. An object becomes charged by gaining or losing **electrons**.\n\n🔑 How it works\nRubbing a polythene rod with a cloth transfers electrons from the cloth onto the rod: the rod becomes negative and the cloth is left equally positive. Only electrons ever move in a solid — the positive nuclei stay fixed in place, so an object that LOSES electrons becomes positive. A charged object can also attract a neutral one by inducing a charge separation in it (why a rubbed balloon sticks to a wall). Earthing — connecting an object to the ground — lets excess charge flow away safely.\n\nConductors (metals, graphite) contain **free (delocalised) electrons** that can drift through the material. Insulators (plastic, glass, rubber, dry air) have no free electrons, so charge stays where it is put.\n\nSupplement: an **electric field** is a region where an electric charge experiences a force. Field lines point in the direction of the force on a positive charge (from + towards −). Around a point charge the pattern is radial; between oppositely charged parallel plates the lines are straight, parallel and evenly spaced — a uniform field.\n\n⚠️ Common Mistake\nWriting 'positive charge flows onto the rod'. In solids only electrons move; the exam mark is for naming electrons and stating their direction of transfer.\n\n📎 Key Points to Remember\n• Charge is measured in coulombs; like charges repel, unlike attract.\n• Friction transfers electrons only; charge is conserved, never created.\n• Conductors have free electrons; insulators do not.\n\n✅ Check\nA glass rod rubbed with silk becomes positive. Which way did the electrons move? (From the rod onto the silk — the rod lost electrons.)"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-n2",
+      "heading": "Electric Current: I = Q/t, d.c. and a.c.",
+      "body": "📌 Definition\nAn **electric current** is the rate of flow of charge (the Core definition — learn it word for word). Current is measured in **amperes (A)** with an ammeter connected in series. Supplement: the defining equation is\n\n$$I = \\dfrac{Q}{t}$$\n\nwhere $Q$ is the charge in coulombs and $t$ the time in seconds, so $1\\text{ A} = 1\\text{ C/s}$.\n\n🔑 How it works\nIn a metal wire the current is a drift of free electrons from the negative terminal towards the positive. **Conventional current** is defined the other way — from positive to negative — and this is the direction used in circuit rules and on circuit diagrams. **Direct current (d.c.)** flows in one direction only (cells, batteries). **Alternating current (a.c.)** repeatedly reverses direction (mains supply).\n\n💡 Worked Example\nA charge of 90 C passes a point in a wire in 30 s: $I = \\dfrac{Q}{t} = \\dfrac{90}{30} = 3\\text{ A}$.\n\n⚠️ Common Mistake\nLeaving the time in minutes. The $t$ in $I = \\dfrac{Q}{t}$ must be in seconds — convert before dividing.\n\n📎 Key Points to Remember\n• Current = charge per unit time; the unit is the ampere.\n• Electron flow is − to +; conventional current is + to −.\n• d.c. flows one way; a.c. reverses repeatedly.\n\n✅ Check\nRearranged, $Q = It$: a 2 A current for 10 s delivers 20 C."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-n3",
+      "heading": "e.m.f. and Potential Difference",
+      "body": "📌 Definition\nThe **electromotive force (e.m.f.)** of a source is the electrical energy supplied per unit charge in driving charge round the complete circuit. The **potential difference (p.d.)** between two points is the energy transferred per unit charge between those two points. Both are measured in volts, and $1\\text{ V} = 1\\text{ J/C}$. Supplement equations: e.m.f. $E = \\dfrac{W}{Q}$ and p.d. $V = \\dfrac{W}{Q}$, where $W$ is the energy in joules and $Q$ the charge in coulombs.\n\n🔑 How it works\nThe e.m.f. belongs to the SOURCE (cell, battery, generator) — it is the 'push' given to each coulomb. A p.d. belongs to a COMPONENT — it is the energy converted per coulomb as charge passes through it. Measure a p.d. with a voltmeter connected **in parallel** across the component; measure the e.m.f. with a voltmeter across the source terminals.\n\n💡 Worked Example\nA 6 V battery supplies 6 J of energy to every coulomb it drives round the circuit. If the p.d. across a lamp is 6 V, that lamp converts 6 J of electrical energy for every coulomb that passes through it.\n\n⚠️ Common Mistake\nWriting 'energy per second' — that is power, not voltage. Both exam definitions say **per unit charge**. And e.m.f. is not a force in newtons: it is measured in volts.\n\n📎 Key Points to Remember\n• e.m.f. = energy supplied per coulomb by the source; p.d. = energy transferred per coulomb between two points.\n• In a simple circuit the p.d.s across the components add up to the e.m.f.\n\n✅ Check\nA battery transfers 300 J while driving 50 C round a circuit: its e.m.f. is $\\dfrac{300}{50} = 6\\text{ V}$."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-n4",
+      "heading": "Resistance and the Voltmeter–Ammeter Practical",
+      "body": "📌 Definition\n**Resistance** is the opposition to the flow of current, defined by\n\n$$R = \\dfrac{V}{I}$$\n\nand measured in **ohms (Ω)**. A component has a resistance of $1\\ \\Omega$ if a p.d. of 1 V drives a current of 1 A through it.\n\n🔑 How it works — the Core practical\nTo measure the resistance of a wire or component: connect it with an **ammeter in series** and a **voltmeter in parallel** across it, and include a variable resistor (rheostat) so the current can be changed without rebuilding the circuit. Record several pairs of V and I values, then calculate $R = \\dfrac{V}{I}$ for each pair (or take the gradient of a V–I graph).\n\n💡 Worked Example\nThe voltmeter reads 6.0 V and the ammeter 0.5 A: $R = \\dfrac{6.0}{0.5} = 12\\ \\Omega$.\n\nWhat changes a wire's resistance (qualitative, Core): a **longer** wire has more resistance; a **thinner** wire has more resistance; the **material** matters (nichrome has far more resistance than the same size of copper); and a metal wire's resistance **rises as it gets hotter**.\n\n⚠️ Common Mistake\nInverting the ratio: $R = \\dfrac{V}{I}$, never $\\dfrac{I}{V}$. Sanity-check the answer: 12 Ω at 6 V should return the 0.5 A you started with.\n\n📎 Key Points to Remember\n• $R = \\dfrac{V}{I}$; ammeter in series, voltmeter in parallel, rheostat to vary the current.\n• Longer, thinner or hotter metal wires resist more.\n\n✅ Check\nDoubling the p.d. across a fixed resistor doubles the current — the ratio $R$ stays constant."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-n5",
+      "heading": "Resistance Rules and I–V Characteristics (Supplement)",
+      "body": "Supplement — quantifying resistance and reading I–V graphs.\n\n🔑 Length and area\nFor a wire of a given material, $R \\propto L$ (double the length, double the resistance) and $R \\propto \\dfrac{1}{A}$ (double the cross-sectional area, halve the resistance). Both changes together multiply: a wire twice as long with half the area has FOUR times the resistance.\n\n🔑 I–V characteristics\nPlot current against p.d. for each component:\n• **Fixed resistor** — a straight line through the origin: the resistance is constant (an **ohmic conductor**).\n• **Filament lamp** — a curve that gets flatter as V rises: the filament heats up, its resistance increases, so the current rises less and less steeply.\n• **Diode** — conducts strongly in the forward direction once a small threshold voltage is passed, but carries almost no current in reverse: a one-way valve for current.\n\n💡 Worked Example\nWire A has resistance 4 Ω. Wire B is the same material and thickness but three times as long: $R_B = 3 \\times 4 = 12\\ \\Omega$.\n\n⚠️ Common Mistake\nReading the filament lamp's flattening curve as 'resistance decreasing'. A flatter I–V line means LESS current per volt — the resistance has INCREASED.\n\n📎 Key Points to Remember\n• $R \\propto L$ and $R \\propto \\dfrac{1}{A}$.\n• Straight line = ohmic resistor; flattening curve = filament lamp; one-way = diode.\n\n✅ Check\nWhich has the greater resistance: 2 m of a nichrome wire, or 1 m of the identical wire? (The 2 m length — exactly double.)",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-electrical-quantities-iv-characteristics.svg",
+        "alt": "Three I–V characteristic graphs: a straight line through the origin for a fixed resistor, a flattening curve for a filament lamp, and a one-way curve for a diode.",
+        "caption": "The shape of an I–V graph identifies the component: straight line = constant resistance, flattening curve = filament lamp heating up, one-way = diode."
+      }
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-n6",
+      "heading": "Electrical Power and Energy: P = IV and E = IVt",
+      "body": "📌 Definition\n**Electrical power** is the rate at which energy is transferred:\n\n$$P = IV$$\n\nmeasured in **watts (W)**, where $1\\text{ W} = 1\\text{ J/s}$. The energy transferred in time $t$ is\n\n$$E = IVt$$\n\nin joules, with $t$ in seconds.\n\n🔑 How it works\nA component with a p.d. $V$ across it and a current $I$ through it converts $IV$ joules every second. This is why appliance ratings tell you their power: a '230 V, 10 A' shower is a $P = 230 \\times 10 = 2300\\text{ W}$ device.\n\n💡 Worked Example\nA 12 V lamp draws 0.5 A for 100 s: $E = IVt = 0.5 \\times 12 \\times 100 = 600\\text{ J}$.\n\n⚠️ Common Mistake\nUsing $P = \\dfrac{V}{I}$, or forgetting to convert minutes to seconds in $E = IVt$ — 5 minutes is 300 s, not 5 s.\n\n📎 Key Points to Remember\n• $P = IV$ in watts; $E = IVt$ in joules with $t$ in seconds.\n• Power is energy transferred per second.\n\n✅ Check\nA 230 V, 2 A kettle element: $P = 2 \\times 230 = 460\\text{ W}$, transferring 460 J every second."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-n7",
+      "heading": "The Kilowatt-hour and Electricity Bills",
+      "body": "📌 Definition\nThe **kilowatt-hour (kWh)** is the energy transferred by a 1 kW appliance running for 1 hour:\n\n$$1\\text{ kWh} = 1000\\text{ W} \\times 3600\\text{ s} = 3.6 \\times 10^{6}\\text{ J}$$\n\nElectricity companies bill per kWh — the 'unit' on a bill. Cost = energy used in kWh × price per kWh.\n\n🔑 How it works\nConvert the power to kilowatts, multiply by the hours of use, then by the price per kWh. High-power appliances (heaters, kettles, ovens) dominate a bill because it is power, not just time, that multiplies the cost.\n\n💡 Worked Example\nA 2 kW heater runs for 3 hours with electricity at 30 p per kWh: energy $= 2 \\times 3 = 6\\text{ kWh}$, cost $= 6 \\times 30\\text{ p} = 180\\text{ p} =$ £$1.80$.\n\n⚠️ Common Mistake\nForgetting to convert watts to kilowatts: a 500 W appliance is 0.5 kW, not 500 kW. Household answers should come out in pennies or a few pounds — thousands of pounds means the kilowatt step was skipped.\n\n📎 Key Points to Remember\n• The kWh is an ENERGY unit: power in kW × time in h.\n• Cost = kWh used × price per kWh.\n\n✅ Check\nA 100 W lamp (0.1 kW) left on for 10 h uses exactly 1 kWh — one 'unit' of electricity."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-electrical-quantities-f1",
+      "term": "Electric charge",
+      "definition": "A property of matter measured in coulombs (C). Two types: like charges repel, unlike charges attract.",
+      "example": "A rubbed balloon carries a static charge and attracts small pieces of paper."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-f2",
+      "term": "Charging by friction",
+      "definition": "Rubbing transfers ELECTRONS between two insulators. The one gaining electrons becomes negative; the other is left equally positive.",
+      "example": "Polythene rubbed with cloth gains electrons → negative rod, positive cloth."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-f3",
+      "term": "Conductor",
+      "definition": "A material containing free (delocalised) electrons that can move through it, so charge flows.",
+      "example": "Copper, all metals and graphite conduct; wiring uses copper."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-f4",
+      "term": "Insulator",
+      "definition": "A material with no free electrons, so charge cannot flow through it and stays where it is put.",
+      "example": "Plastic, glass, rubber and dry air insulate — cable coatings are plastic."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-f5",
+      "term": "Electric current",
+      "definition": "The rate of flow of charge: $I = \\dfrac{Q}{t}$, measured in amperes (A). $1\\text{ A} = 1\\text{ C/s}$.",
+      "example": "90 C passing in 30 s gives $I = \\dfrac{90}{30} = 3\\text{ A}$."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-f6",
+      "term": "d.c. and a.c.",
+      "definition": "Direct current flows in one direction only (cells, batteries); alternating current repeatedly reverses direction (mains supply).",
+      "example": "A torch runs on d.c. from cells; a desk lamp runs on a.c. from the mains."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-f7",
+      "term": "Electromotive force (e.m.f.)",
+      "definition": "The electrical energy supplied per unit charge by a source in driving charge round the complete circuit. Measured in volts.",
+      "example": "A 6 V battery gives each coulomb 6 J of energy — e.m.f. $E = \\dfrac{W}{Q}$."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-f8",
+      "term": "Potential difference (p.d.)",
+      "definition": "The energy transferred per unit charge between two points in a circuit. $1\\text{ V} = 1\\text{ J/C}$; measured with a voltmeter in parallel.",
+      "example": "A lamp with 6 V across it converts 6 J for every coulomb that passes."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-f9",
+      "term": "Resistance",
+      "definition": "Opposition to current: $R = \\dfrac{V}{I}$, measured in ohms (Ω). Longer, thinner, hotter metal wires have more resistance.",
+      "example": "6.0 V across a component with 0.5 A through it: $R = 12\\ \\Omega$."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-f10",
+      "term": "I–V characteristics",
+      "definition": "Fixed resistor: straight line through the origin (constant R). Filament lamp: curve flattens (R rises as it heats). Diode: conducts in one direction only.",
+      "example": "A straight I–V line through the origin identifies an ohmic conductor."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-f11",
+      "term": "Electrical power and energy",
+      "definition": "$P = IV$ in watts ($1\\text{ W} = 1\\text{ J/s}$); energy transferred $E = IVt$ in joules, with $t$ in seconds.",
+      "example": "230 V and 2 A give $P = 460\\text{ W}$ — 460 J converted every second."
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-f12",
+      "term": "Kilowatt-hour (kWh)",
+      "definition": "The energy used by a 1 kW appliance in 1 hour: $3.6 \\times 10^{6}\\text{ J}$. Bills charge per kWh: cost = kW × hours × price.",
+      "example": "2 kW for 3 h = 6 kWh; at 30 p per kWh the cost is £$1.80$."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-electrical-quantities-q1",
+      "stem": "Which particles move through a metal wire to carry the electric current?",
+      "choices": [
+        "Protons in the metal nuclei",
+        "Positive metal ions",
+        "Free (delocalised) electrons",
+        "Neutrons"
+      ],
+      "correctIndex": 2,
+      "explanation": "In a solid metal only electrons are free to move — the positive ions are locked in the lattice and protons and neutrons sit in the nuclei. A current in a wire is a drift of free electrons from the negative terminal towards the positive.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q2",
+      "stem": "A polythene rod is rubbed with a dry cloth and becomes negatively charged. Which statement explains this?",
+      "choices": [
+        "Electrons are transferred from the cloth onto the rod",
+        "Protons are transferred from the rod onto the cloth",
+        "Electrons are transferred from the rod onto the cloth",
+        "The friction creates new negative charge"
+      ],
+      "correctIndex": 0,
+      "explanation": "Charging by friction moves electrons only. Electrons transferred onto the rod leave it with more electrons than protons, so it is negative; the cloth is left equally positive. Charge is conserved — it is transferred, never created.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q3",
+      "stem": "What is the unit of electric charge?",
+      "choices": [
+        "Ampere (A)",
+        "Coulomb (C)",
+        "Volt (V)",
+        "Ohm (Ω)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Charge is measured in coulombs. The ampere is the unit of current (1 A = 1 C/s), the volt is energy per coulomb, and the ohm is the unit of resistance.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q4",
+      "stem": "A steady current of 2 A flows through a lamp for 30 s. How much charge passes through the lamp?",
+      "choices": [
+        "15 C",
+        "32 C",
+        "0.067 C",
+        "60 C"
+      ],
+      "correctIndex": 3,
+      "explanation": "Rearranging $I = \\dfrac{Q}{t}$: $Q = It = 2 \\times 30 = 60\\text{ C}$. The 15 C trap divides $t$ by $I$; 0.067 C is $\\dfrac{I}{t}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q5",
+      "stem": "Which statement correctly compares direct current (d.c.) and alternating current (a.c.)?",
+      "choices": [
+        "d.c. repeatedly reverses direction; a.c. flows in one direction only",
+        "d.c. flows in one direction only; a.c. repeatedly reverses direction",
+        "d.c. is always a larger current than a.c.",
+        "a.c. can only be produced by a battery"
+      ],
+      "correctIndex": 1,
+      "explanation": "A cell or battery supplies d.c. — charge flows one way round the circuit. The mains supply is a.c. — the current reverses direction many times per second (50 times per second at 50 Hz).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q6",
+      "stem": "What is meant by the electromotive force (e.m.f.) of a battery?",
+      "choices": [
+        "The force the battery exerts on each electron, measured in newtons",
+        "The energy transferred per unit charge across a component in the circuit",
+        "The electrical energy supplied per unit charge in driving charge round the complete circuit",
+        "The maximum current the battery can supply"
+      ],
+      "correctIndex": 2,
+      "explanation": "The e.m.f. is a property of the SOURCE: the energy it supplies per coulomb to drive charge round the whole circuit, measured in volts. 'Energy transferred per unit charge across a component' is the potential difference — keeping the two definitions apart is what the exam marks.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q7",
+      "stem": "A student must measure the current through a resistor and the potential difference across it. How should the two meters be connected?",
+      "choices": [
+        "Ammeter in series with the resistor; voltmeter in parallel across it",
+        "Ammeter in parallel across the resistor; voltmeter in series with it",
+        "Both meters in series with the resistor",
+        "Both meters in parallel across the resistor"
+      ],
+      "correctIndex": 0,
+      "explanation": "An ammeter measures the charge flowing through a point each second, so it sits in series in the same loop. A voltmeter compares the energy per coulomb at two points, so it connects in parallel across the component.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q8",
+      "stem": "A battery drives 60 C of charge round a circuit, transferring 240 J of chemical energy in doing so. What is the e.m.f. of the battery?",
+      "choices": [
+        "0.25 V",
+        "14400 V",
+        "300 V",
+        "4 V"
+      ],
+      "correctIndex": 3,
+      "explanation": "e.m.f. $E = \\dfrac{W}{Q} = \\dfrac{240}{60} = 4\\text{ V}$ — four joules supplied per coulomb. The 0.25 V trap divides $Q$ by $W$; 14400 V multiplies them.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q9",
+      "stem": "In a resistance experiment the voltmeter across a fixed resistor reads 6.0 V when the ammeter reads 0.5 A. What is the resistance?",
+      "choices": [
+        "3.0 Ω",
+        "0.083 Ω",
+        "12 Ω",
+        "6.5 Ω"
+      ],
+      "correctIndex": 2,
+      "explanation": "$R = \\dfrac{V}{I} = \\dfrac{6.0}{0.5} = 12\\ \\Omega$. The 3.0 Ω trap multiplies $V$ by $I$; 0.083 Ω inverts the ratio. Check: 12 Ω at 6 V gives 0.5 A — the original readings.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q10",
+      "stem": "The I–V characteristic of a filament lamp is a curve that gets flatter as the voltage increases. Why does it have this shape?",
+      "choices": [
+        "The filament obeys Ohm's law more closely as it heats up",
+        "The filament heats up as the current rises, so its resistance increases and the current rises less steeply",
+        "The lamp conducts in one direction only",
+        "The resistance falls because the filament gets hotter"
+      ],
+      "correctIndex": 1,
+      "explanation": "As the current grows, the filament gets hotter; the metal ions vibrate more and obstruct the drifting electrons, so the resistance rises. A higher resistance means less current per volt, so the I–V curve bends towards the voltage axis (flatter). The one-way description belongs to a diode.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q11",
+      "stem": "A mains lamp operates at 230 V and draws a current of 2 A. What is its power?",
+      "choices": [
+        "460 W",
+        "115 W",
+        "232 W",
+        "0.0087 W"
+      ],
+      "correctIndex": 0,
+      "explanation": "$P = IV = 2 \\times 230 = 460\\text{ W}$. The 115 W trap computes $\\dfrac{V}{I}$ — that is the resistance formula $R$, not power.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q12",
+      "stem": "Wire X has a resistance of 12 Ω. Wire Y is made of the same material but is twice as long and has half the cross-sectional area. What is the resistance of wire Y?",
+      "choices": [
+        "12 Ω",
+        "24 Ω",
+        "48 Ω",
+        "6 Ω"
+      ],
+      "correctIndex": 2,
+      "explanation": "Resistance is proportional to length (twice as long → ×2) and inversely proportional to area (half the area → ×2). The effects multiply: $R = 12 \\times 2 \\times 2 = 48\\ \\Omega$. The 24 Ω trap applies only the length change.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q13",
+      "stem": "A current of 0.5 A flows through a component with 12 V across it for 2 minutes. How much energy is transferred?",
+      "choices": [
+        "12 J",
+        "6 J",
+        "360 J",
+        "720 J"
+      ],
+      "correctIndex": 3,
+      "explanation": "Convert 2 minutes to 120 s first: $E = IVt = 0.5 \\times 12 \\times 120 = 720\\text{ J}$. The 12 J trap uses $t = 2$ instead of 120 s; 6 J is just the power $IV$ in watts.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q14",
+      "stem": "A 2 kW heater is used for 3 hours. Electricity costs 30 p per kWh. What is the total cost?",
+      "choices": [
+        "60 p",
+        "£$1.80$",
+        "£$6.00$",
+        "£$18.00$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Energy used $= 2\\text{ kW} \\times 3\\text{ h} = 6\\text{ kWh}$. Cost $= 6 \\times 30\\text{ p} = 180\\text{ p} =$ £$1.80$. The 60 p trap multiplies power by price without the time.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-electrical-quantities-q15",
+      "stem": "Two oppositely charged parallel metal plates produce an electric field between them. What does the field pattern look like?",
+      "choices": [
+        "Radial lines spreading outwards from each plate",
+        "Lines running from the negative plate to the positive plate",
+        "Closed loops circulating between the plates",
+        "Straight, parallel, evenly spaced lines directed from the positive plate to the negative plate"
+      ],
+      "correctIndex": 3,
+      "explanation": "Between parallel plates the field is uniform: straight, parallel, evenly spaced lines. Field direction is defined as the direction of the force on a POSITIVE charge, so the lines run from the positive plate to the negative plate. Radial lines belong to a point charge, and electric field lines are never closed loops.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "id": "phys-igcse-forces",
+  "subjectId": "physics",
+  "title": "Forces, Mass, Weight & Density",
+  "description": "Weight as W = mg, density and how to measure it, floating and sinking, resultant forces and Newton's first law, friction and drag, and load-extension graphs for IGCSE Physics 0625.",
+  "stage": "igcse",
+  "course": "0625",
+  "notes": [
+    {
+      "id": "phys-igcse-forces-n1",
+      "heading": "Mass and Weight",
+      "body": "📌 Definitions\n**Mass** is a measure of the quantity of matter in an object — it resists changes in motion. Unit: kilogram (kg). Mass is the same everywhere in the universe.\n**Weight** is the gravitational force acting on a mass. Unit: newton (N). Weight changes with the strength of gravity.\n\n🔑 The link between them\n$$W = mg$$\nwhere $g$ is the **gravitational field strength** — the force of gravity per kilogram. On Earth $g \\approx 9.8$ N/kg (the same number as the acceleration of free fall, $9.8$ m/s²). On the Moon $g \\approx 1.6$ N/kg, so the same astronaut weighs about six times less there, while her mass is unchanged.\n\n💡 Worked Example\nA $4$ kg bag of flour on Earth weighs $W = mg = 4 \\times 9.8 = 39.2$ N.\n\n⚠️ Common Mistake\nQuoting a weight in kilograms. Kilograms measure mass; weight is a force and must be in newtons. In the exam, 'the weight of the 4 kg bag' must become $39.2$ N before you use it in any force calculation.\n\n📎 Key Points to Remember\n• Mass: kg, constant, measured with a balance.\n• Weight: N, varies with $g$, measured with a (calibrated) spring balance / newtonmeter."
+    },
+    {
+      "id": "phys-igcse-forces-n2",
+      "heading": "Density: ρ = m/V",
+      "body": "📌 Definition\n$$\\text{density} = \\dfrac{\\text{mass}}{\\text{volume}} \\qquad \\rho = \\dfrac{m}{V}$$\nUnits: kg/m³ or g/cm³. Converting: $1\\text{ g/cm}^3 = 1000\\text{ kg/m}^3$ — multiply g/cm³ by $1000$ to get kg/m³. Water has density $1000\\text{ kg/m}^3 = 1.0\\text{ g/cm}^3$; learn this value, it is the reference for floating questions.\n\n🔑 How it works\nDensity compares how much mass is packed into the same volume. Rearrange as needed: $m = \\rho V$ and $V = \\dfrac{m}{\\rho}$.\n\n💡 Worked Example\nA metal cube of side $0.10$ m has mass $27$ kg. Volume $= 0.10^3 = 0.001\\text{ m}^3$, so $\\rho = \\dfrac{27}{0.001} = 27000\\text{ kg/m}^3$ — the cube is a dense metal.\n\n⚠️ Common Mistake\nMixing the units: a mass in grams with a volume in m³. Convert everything to one system (kg and m³, OR g and cm³) before dividing.\n\n📎 Key Points to Remember\n• Density is a property of the MATERIAL, not the object — every pure copper object has the same density.\n• For a regular solid, $V = l \\times w \\times h$ from ruler measurements."
+    },
+    {
+      "id": "phys-igcse-forces-n3",
+      "heading": "Measuring Density — The Practical",
+      "body": "0625 loves 'describe an experiment' questions on density. Learn all three standard methods.\n\n🔑 Method 1 — regular solid\nMeasure the length, width and height with a rule and calculate $V = lwh$. Measure the mass on an electronic balance. Then $\\rho = \\dfrac{m}{V}$.\n\n🔑 Method 2 — liquid\nWeigh an empty measuring cylinder ($m_1$). Pour in the liquid and read the volume $V$ from the cylinder (bottom of the meniscus, at eye level). Weigh cylinder + liquid ($m_2$). Mass of liquid $= m_2 - m_1$; then $\\rho = \\dfrac{m_2 - m_1}{V}$.\n\n🔑 Method 3 — irregular solid (displacement)\nWeigh the object. Part-fill a measuring cylinder with water and record $V_1$. Lower the object in fully on a thread and record $V_2$. Volume of object $= V_2 - V_1$; then $\\rho = \\dfrac{m}{V_2 - V_1}$.\n\n💡 Worked Example\nA stone of mass $250$ g raises the water level from $60\\text{ cm}^3$ to $85\\text{ cm}^3$: $V = 25\\text{ cm}^3$, so $\\rho = \\dfrac{250}{25} = 10\\text{ g/cm}^3$.\n\n⚠️ Common Mistake\nForgetting to subtract — the cylinder reading with the object in is the COMBINED volume, not the object's volume; and the second weighing is cylinder PLUS liquid.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-forces-density-practical.svg",
+        "alt": "Three experiments for measuring density: a regular block measured with a rule and balance, a liquid weighed in a measuring cylinder, and an irregular stone measured by water displacement.",
+        "caption": "Density = mass / volume. The practical skill is measuring each of mass and volume correctly."
+      }
+    },
+    {
+      "id": "phys-igcse-forces-n4",
+      "heading": "Floating and Sinking",
+      "body": "📌 The floating rule\nCompare the density of the object with the density of the liquid:\n• $\\rho_{\\text{object}} < \\rho_{\\text{liquid}}$ → the object **floats**\n• $\\rho_{\\text{object}} > \\rho_{\\text{liquid}}$ → the object **sinks**\n• Equal densities → the object stays suspended, neither rising nor sinking.\n\n🔑 Why it works\nAn iceberg (density about $920\\text{ kg/m}^3$) floats in seawater (about $1025\\text{ kg/m}^3$). A steel nail ($7800\\text{ kg/m}^3$) sinks in water but would float on mercury ($13600\\text{ kg/m}^3$). Density is the whole story — a tiny lead pellet sinks while a giant log floats, because size does not change density.\n\n💡 Worked Example\nA block has mass $200$ g and volume $250\\text{ cm}^3$: $\\rho = \\dfrac{200}{250} = 0.8\\text{ g/cm}^3 < 1.0\\text{ g/cm}^3$ (water), so it floats.\n\n⚠️ Common Mistake\nUsing the object's MASS or WEIGHT to decide. A supertanker has an enormous mass but its average density (steel hull + mostly air) is less than water, so it floats.\n\n📎 Key Points to Remember\n• Compute the density FIRST, then compare with the liquid's density.\n• Watch the units: compare like with like (both in g/cm³ or both in kg/m³)."
+    },
+    {
+      "id": "phys-igcse-forces-n5",
+      "heading": "Resultant Forces and Newton's First Law",
+      "body": "📌 Definitions\nThe **resultant force** is the single force that has the same effect as all the individual forces acting on an object. For forces along the same straight line: add forces in one direction, subtract forces in the opposite direction, and state the direction of the winner.\n\n🔑 Newton's first law — the exam phrasing\nIf there is NO resultant force on an object, then:\n• an object at rest STAYS at rest, and\n• a moving object continues at CONSTANT VELOCITY (constant speed in a straight line).\n'Balanced forces' and 'no resultant force' mean the same thing. Constant velocity requires zero resultant force — not a forward force.\n\n💡 Worked Example\nA crate is pushed right with $12$ N while friction acts left with $5$ N. Resultant $= 12 - 5 = 7$ N to the right, so the crate accelerates to the right.\n\n⚠️ Common Mistake\nThinking a car cruising at constant speed needs a resultant forward force. It does not: the driving force exactly balances drag, the resultant is zero, and that is WHY the speed is constant.\n\n📎 Key Points to Remember\n• Zero resultant force → zero acceleration → constant velocity (which may be zero).\n• A non-zero resultant force always changes the motion: speeding up, slowing down or changing direction."
+    },
+    {
+      "id": "phys-igcse-forces-n6",
+      "heading": "Friction and Drag",
+      "body": "📌 Definitions\n**Friction** is the force between two solid surfaces that opposes sliding (or the tendency to slide). **Drag** (air resistance or water resistance) is the frictional force exerted by a fluid on an object moving through it.\n\n🔑 How it works\n• Friction acts parallel to the surfaces, opposing relative motion — it always points AGAINST the direction of sliding.\n• Drag INCREASES with speed: this is why falling objects reach a terminal velocity and why fuel consumption rises steeply at motorway speeds.\n• Friction is not always a nuisance: it lets shoes grip the ground, brakes stop wheels, and nails hold in wood. But in machines it wastes energy as heat and wears surfaces, so we reduce it with lubrication, bearings and streamlining.\n\n💡 Worked Example\nA cyclist speeds up until the backward drag grows to equal her forward driving force. The resultant force is then zero, so she travels at constant speed — Newton's first law in action.\n\n⚠️ Common Mistake\nDrawing drag in the direction of motion. Resistance forces always oppose the motion.\n\n📎 Key Points to Remember\n• Friction: solid on solid. Drag: object through a fluid (liquid or gas).\n• Drag depends on speed and on shape (streamlining reduces it)."
+    },
+    {
+      "id": "phys-igcse-forces-n7",
+      "heading": "Stretching Springs — the Load-Extension Graph",
+      "body": "This is both a core practical and a core graph for 0625. (The equation $F = kx$ and the limit of proportionality are Extended-tier and are covered in Dynamics & Momentum.)\n\n🔑 The experiment\nHang a spring beside a vertical ruler. Record its unstretched length. Add slotted masses one at a time, recording the new length each time. The **extension** = stretched length − original length. Plot load (weight of the masses, in N) against extension.\n\n🔑 The graph\n• The first section is a STRAIGHT LINE THROUGH THE ORIGIN: extension is directly proportional to load — doubling the load doubles the extension.\n• Beyond a certain load the line CURVES: the spring is stretched more than proportionally and has passed its limit of proportionality.\n\n💡 Worked Example\nA spring extends $4$ cm under a load of $2$ N. Within the straight-line region the extension per newton is $2$ cm/N, so a $5$ N load gives $5 \\times 2 = 10$ cm of extension.\n\n⚠️ Common Mistake\nPlotting (or quoting) total length instead of extension. A spring of original length $5$ cm that extends $2$ cm per newton reaches $13$ cm under $4$ N — the extension is $8$ cm, the total length is $13$ cm.\n\n📎 Key Points to Remember\n• Extension, not length, goes on the axis.\n• Straight line through the origin ⇔ proportional. The straight-line region is where the spring obeys the proportional rule."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-forces-f1",
+      "term": "Mass",
+      "definition": "A measure of the quantity of matter in an object, in kilograms. It resists changes in motion and is the same everywhere.",
+      "example": "A 4 kg bag of flour has a mass of 4 kg on Earth and on the Moon."
+    },
+    {
+      "id": "phys-igcse-forces-f2",
+      "term": "Weight",
+      "definition": "The gravitational force on a mass: W = mg, in newtons. It changes with gravitational field strength.",
+      "example": "On Earth a 4 kg mass weighs 4 x 9.8 = 39.2 N."
+    },
+    {
+      "id": "phys-igcse-forces-f3",
+      "term": "Gravitational field strength (g)",
+      "definition": "The force of gravity per kilogram of mass: about 9.8 N/kg on Earth (numerically equal to the acceleration of free fall).",
+      "example": "On the Moon g is about 1.6 N/kg, so weights there are about six times smaller."
+    },
+    {
+      "id": "phys-igcse-forces-f4",
+      "term": "Density",
+      "definition": "Mass per unit volume: rho = m/V, in kg/m³ or g/cm³. It is a property of the material.",
+      "example": "240 g in 30 cm3 gives 8 g/cm³."
+    },
+    {
+      "id": "phys-igcse-forces-f5",
+      "term": "Density unit conversion",
+      "definition": "1 g/cm³ = 1000 kg/m³. Water is 1000 kg/m³ = 1.0 g/cm³.",
+      "example": "Petrol at 0.8 g/cm³ is 800 kg/m³."
+    },
+    {
+      "id": "phys-igcse-forces-f6",
+      "term": "Density of an irregular solid",
+      "definition": "Weigh the object, then find its volume by water displacement in a measuring cylinder; rho = m / (V2 - V1).",
+      "example": "250 g stone, water rises 60 to 85 cm3: density = 250/25 = 10 g/cm³."
+    },
+    {
+      "id": "phys-igcse-forces-f7",
+      "term": "Floating rule",
+      "definition": "An object floats in a liquid if its density is less than the liquid's density; it sinks if greater.",
+      "example": "Ice (about 920 kg/m³) floats on water (1000 kg/m³); a steel nail sinks."
+    },
+    {
+      "id": "phys-igcse-forces-f8",
+      "term": "Resultant force",
+      "definition": "The single force equivalent to all the forces acting on an object. Along a line: add same-direction forces, subtract opposite ones.",
+      "example": "12 N right and 5 N left give a resultant of 7 N to the right."
+    },
+    {
+      "id": "phys-igcse-forces-f9",
+      "term": "Newton's first law",
+      "definition": "With no resultant force, a stationary object stays at rest and a moving object keeps constant velocity (constant speed in a straight line).",
+      "example": "A puck gliding on frictionless ice keeps the same speed and direction forever."
+    },
+    {
+      "id": "phys-igcse-forces-f10",
+      "term": "Friction",
+      "definition": "The force between two solid surfaces that opposes sliding, acting parallel to the surfaces against the motion.",
+      "example": "Brake pads grip the wheel — friction converts motion energy into heat."
+    },
+    {
+      "id": "phys-igcse-forces-f11",
+      "term": "Drag (air resistance)",
+      "definition": "The frictional force on an object moving through a fluid; it increases with speed and is reduced by streamlining.",
+      "example": "Drag grows until it balances the driving force — the vehicle then moves at constant speed."
+    },
+    {
+      "id": "phys-igcse-forces-f12",
+      "term": "Extension of a spring",
+      "definition": "Extension = stretched length - original length. Within the proportional region, extension is directly proportional to load.",
+      "example": "A spring 5 cm long reaching 13 cm under load has an extension of 8 cm."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-forces-q1",
+      "stem": "Which equation links weight $W$, mass $m$ and gravitational field strength $g$?",
+      "choices": [
+        "$W = mg$",
+        "$W = \\dfrac{m}{g}$",
+        "$W = \\dfrac{g}{m}$",
+        "$W = m + g$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Weight is mass multiplied by gravitational field strength: $W = mg$. Dividing by $g$ would give mass, not weight.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-forces-q2",
+      "stem": "What is the weight of a $4$ kg bag of flour on Earth? (Take $g = 9.8\\text{ N/kg}$.)",
+      "choices": [
+        "$0.41$ N",
+        "$39.2$ N",
+        "$4$ N",
+        "$13.8$ N"
+      ],
+      "correctIndex": 1,
+      "explanation": "$W = mg = 4 \\times 9.8 = 39.2$ N. Quoting $4$ N confuses mass with weight — kilograms measure mass, not force.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-forces-q3",
+      "stem": "A sample of oil has mass $240$ g and volume $30\\text{ cm}^3$. What is its density?",
+      "choices": [
+        "$0.125\\text{ g/cm}^3$",
+        "$7200\\text{ g/cm}^3$",
+        "$8\\text{ g/cm}^3$",
+        "$270\\text{ g/cm}^3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "$\\rho = \\dfrac{m}{V} = \\dfrac{240}{30} = 8\\text{ g/cm}^3$. $0.125\\text{ g/cm}^3$ is $\\dfrac{V}{m}$ — the equation inverted.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-forces-q4",
+      "stem": "A metal block measures $0.5\\text{ m} \\times 0.2\\text{ m} \\times 0.1\\text{ m}$ and has mass $27$ kg. What is its density?",
+      "choices": [
+        "$0.0037\\text{ kg/m}^3$",
+        "$270\\text{ kg/m}^3$",
+        "$27\\text{ kg/m}^3$",
+        "$2700\\text{ kg/m}^3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Volume $= 0.5 \\times 0.2 \\times 0.1 = 0.01\\text{ m}^3$, so $\\rho = \\dfrac{27}{0.01} = 2700\\text{ kg/m}^3$ (the density of aluminium). Using a single side as the volume is the classic error here.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-forces-q5",
+      "stem": "Which instrument is used to measure the mass of an object in a school laboratory?",
+      "choices": [
+        "An electronic balance",
+        "A measuring cylinder",
+        "A metre rule",
+        "A stopwatch"
+      ],
+      "correctIndex": 0,
+      "explanation": "Mass is measured with a balance. A measuring cylinder measures volume, a rule measures length and a stopwatch measures time.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-forces-q6",
+      "stem": "A stone of mass $250$ g is lowered into a measuring cylinder, raising the water level from $60\\text{ cm}^3$ to $85\\text{ cm}^3$. What is the density of the stone?",
+      "choices": [
+        "$4.2\\text{ g/cm}^3$",
+        "$10\\text{ g/cm}^3$",
+        "$2.9\\text{ g/cm}^3$",
+        "$25\\text{ g/cm}^3$"
+      ],
+      "correctIndex": 1,
+      "explanation": "The stone's volume is the displacement $85 - 60 = 25\\text{ cm}^3$, so $\\rho = \\dfrac{250}{25} = 10\\text{ g/cm}^3$. Using $60$ or $85\\text{ cm}^3$ as the volume is the classic mistake.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-forces-q7",
+      "stem": "An object has a density of $700\\text{ kg/m}^3$. What happens when it is placed in water (density $1000\\text{ kg/m}^3$)?",
+      "choices": [
+        "It sinks, because it is solid",
+        "It floats half-submerged then sinks slowly",
+        "It floats, because its density is less than the water's",
+        "It sinks, because $700\\text{ kg/m}^3$ is a large density"
+      ],
+      "correctIndex": 2,
+      "explanation": "The floating rule compares densities: $700 < 1000\\text{ kg/m}^3$, so the object floats. Absolute size of the density is irrelevant — only the comparison with the liquid matters.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-forces-q8",
+      "stem": "A block has mass $200$ g and volume $250\\text{ cm}^3$. Will it float or sink in water (density $1.0\\text{ g/cm}^3$)?",
+      "choices": [
+        "Sink — its volume is greater than its mass",
+        "Float — its density is $1.25\\text{ g/cm}^3$, above water",
+        "Sink — its density is $1.25\\text{ g/cm}^3$",
+        "Float — its density is $0.8\\text{ g/cm}^3$, below water"
+      ],
+      "correctIndex": 3,
+      "explanation": "First find the density: $\\rho = \\dfrac{200}{250} = 0.8\\text{ g/cm}^3$. Since $0.8 < 1.0\\text{ g/cm}^3$, the block floats. $1.25\\text{ g/cm}^3$ comes from dividing volume by mass.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-forces-q9",
+      "stem": "A crate is pushed to the right with $12$ N while friction acts to the left with $5$ N. What is the resultant force?",
+      "choices": [
+        "$7$ N to the right",
+        "$17$ N to the right",
+        "$7$ N to the left",
+        "$2.4$ N to the right"
+      ],
+      "correctIndex": 0,
+      "explanation": "The forces are along the same line in opposite directions, so subtract: $12 - 5 = 7$ N in the direction of the larger force — to the right. $17$ N would be adding them as if both acted the same way.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-forces-q10",
+      "stem": "A car travels along a straight road at a constant $20\\text{ m/s}$. What is the resultant force on the car?",
+      "choices": [
+        "A forward force equal to the weight of the car",
+        "Zero — the driving force and the drag are balanced",
+        "A forward force, because the car is moving forwards",
+        "A backward force, because drag always acts backwards"
+      ],
+      "correctIndex": 1,
+      "explanation": "By Newton's first law, constant velocity means zero resultant force: the forward driving force exactly balances the backward drag. A forward resultant would make the car speed up.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-forces-q11",
+      "stem": "A cyclist rides faster and faster along a straight, level road. What happens to the drag on the cyclist?",
+      "choices": [
+        "It stays the same — drag depends only on shape",
+        "It decreases as the air thins out",
+        "It increases — drag increases with speed",
+        "It becomes zero once the speed is constant"
+      ],
+      "correctIndex": 2,
+      "explanation": "Drag increases with speed, which is why a vehicle eventually reaches a top speed where drag balances the driving force. Shape matters too, but at a given shape more speed means more drag.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-forces-q12",
+      "stem": "A spring extends $4$ cm when a load of $2$ N is hung from it. Assuming it stays within the proportional region, what extension does a $5$ N load produce?",
+      "choices": [
+        "$2.5$ cm",
+        "$6$ cm",
+        "$20$ cm",
+        "$10$ cm"
+      ],
+      "correctIndex": 3,
+      "explanation": "In the proportional region, extension is directly proportional to load: $4$ cm per $2$ N is $2$ cm/N, so $5$ N gives $5 \\times 2 = 10$ cm. $2.5$ cm comes from inverting the ratio.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-forces-q13",
+      "stem": "A spring has an unstretched length of $5$ cm and extends $2$ cm for every newton of load. What is its TOTAL length under a load of $4$ N?",
+      "choices": [
+        "$13$ cm",
+        "$8$ cm",
+        "$9$ cm",
+        "$11$ cm"
+      ],
+      "correctIndex": 0,
+      "explanation": "Extension $= 4 \\times 2 = 8$ cm, so total length $= 5 + 8 = 13$ cm. Answering $8$ cm quotes the extension when the question asks for the total length — read the question.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-forces-q14",
+      "stem": "An astronaut travels from Earth to the Moon, where $g$ is about $1.6\\text{ N/kg}$. What happens to her mass and her weight?",
+      "choices": [
+        "Both decrease, because there is less gravity",
+        "Mass unchanged; weight decreases",
+        "Mass decreases; weight unchanged",
+        "Both unchanged, because she is the same person"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mass — the quantity of matter — is the same everywhere. Weight $W = mg$ is a force and shrinks with the weaker gravitational field, so she weighs about six times less on the Moon.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-forces-q15",
+      "stem": "A block is pulled to the right so that it slides along a table. In which direction does the friction on the block act?",
+      "choices": [
+        "To the right, helping the motion",
+        "Vertically downwards",
+        "To the left, opposing the sliding",
+        "Vertically upwards"
+      ],
+      "correctIndex": 2,
+      "explanation": "Friction always opposes the relative sliding of the surfaces, so on a rightward-sliding block it acts to the left. Friction never pushes an object along in its direction of sliding.",
+      "difficulty": "easy"
+    }
+  ]
+}

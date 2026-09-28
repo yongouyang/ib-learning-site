@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 355" role="img" aria-labelledby="title desc">
+  <title id="title">Principle of moments</title>
+  <desc id="desc">A balanced see-saw: a 300 N child 1.5 m left of the pivot produces an anticlockwise moment of 450 newton metres, balanced by a 450 N adult 1.0 m right of the pivot producing a clockwise moment of 450 newton metres.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .leader { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+      .force { stroke: #dc2626; stroke-width: 2.5; fill: none; }
+    </style>
+  </defs>
+  <rect width="800" height="355" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">The Principle of Moments</text>
+
+  <rect x="20" y="50" width="760" height="245" rx="10" class="panel"/>
+
+  <!-- Beam and pivot -->
+  <rect x="120" y="160" width="560" height="14" rx="4" fill="#fbbf24" stroke="#b45309" stroke-width="2"/>
+  <polygon points="384,240 416,240 400,176" fill="#9ca3af" stroke="#6b7280" stroke-width="2"/>
+  <text x="400" y="262" text-anchor="middle" class="sublabel">pivot</text>
+
+  <!-- Child, 1.5 m left (180 px left of pivot, to scale) -->
+  <rect x="205" y="136" width="30" height="22" fill="#2563eb" stroke="#1e40af" stroke-width="1.5"/>
+  <line x1="220" y1="92" x2="220" y2="128" class="force"/>
+  <polygon points="220,138 214,124 226,124" fill="#dc2626"/>
+  <text x="220" y="84" text-anchor="middle" class="label">child, 300 N</text>
+
+  <!-- Adult, 1.0 m right (120 px right of pivot, to scale) -->
+  <rect x="505" y="136" width="30" height="22" fill="#16a34a" stroke="#166534" stroke-width="1.5"/>
+  <line x1="520" y1="92" x2="520" y2="128" class="force"/>
+  <polygon points="520,138 514,124 526,124" fill="#dc2626"/>
+  <text x="520" y="84" text-anchor="middle" class="label">adult, 450 N</text>
+
+  <!-- Distance dimensions -->
+  <line x1="220" y1="205" x2="400" y2="205" class="leader" stroke-dasharray="4,2"/>
+  <line x1="220" y1="199" x2="220" y2="211" class="leader"/>
+  <line x1="400" y1="199" x2="400" y2="211" class="leader"/>
+  <text x="310" y="198" text-anchor="middle" class="sublabel">1.5 m</text>
+  <line x1="400" y1="225" x2="520" y2="225" class="leader" stroke-dasharray="4,2"/>
+  <line x1="400" y1="219" x2="400" y2="231" class="leader"/>
+  <line x1="520" y1="219" x2="520" y2="231" class="leader"/>
+  <text x="460" y="218" text-anchor="middle" class="sublabel">1.0 m</text>
+
+  <!-- Moment calculations -->
+  <text x="180" y="285" text-anchor="middle" class="sublabel">anticlockwise moment: 300 × 1.5 = 450 N·m</text>
+  <text x="620" y="285" text-anchor="middle" class="sublabel">clockwise moment: 450 × 1.0 = 450 N·m</text>
+
+  <!-- Bottom summary strip -->
+  <rect x="20" y="305" width="760" height="38" rx="8" class="panel"/>
+  <text x="400" y="329" text-anchor="middle" class="sublabel">Balanced: total anticlockwise moment = total clockwise moment. The heavier person sits closer to the pivot.</text>
+</svg>

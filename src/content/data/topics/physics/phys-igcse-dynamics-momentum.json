@@ -1,0 +1,322 @@
+{
+  "id": "phys-igcse-dynamics-momentum",
+  "subjectId": "physics",
+  "title": "Dynamics & Momentum",
+  "description": "Hooke's law and the spring constant, F = ma, circular motion, momentum, impulse and the conservation of momentum in one dimension — the Extended-tier mechanics of IGCSE Physics 0625.",
+  "stage": "igcse",
+  "course": "0625",
+  "level": "extended",
+  "notes": [
+    {
+      "id": "phys-igcse-dynamics-momentum-n1",
+      "heading": "Hooke's Law: F = kx",
+      "body": "📌 Definition\nBelow its **limit of proportionality**, the force needed to stretch a spring is directly proportional to the extension:\n$$F = kx$$\nwhere $x$ is the extension (stretched length − original length, in metres) and $k$ is the **spring constant**, in N/m. A larger $k$ means a STIFFER spring — more force per metre of extension.\n\n🔑 How it works\nThe spring constant is the gradient of the load-extension graph's straight-line section. Past the limit of proportionality the graph curves, $F = kx$ no longer holds, and the spring may be permanently stretched.\n\n💡 Worked Example\nA force of $6$ N extends a spring by $0.03$ m:\n$$k = \\dfrac{F}{x} = \\dfrac{6}{0.03} = 200\\text{ N/m}$$\nConversely, a force of $7$ N on a spring with $k = 50\\text{ N/m}$ extends it by $x = \\dfrac{F}{k} = \\dfrac{7}{50} = 0.14\\text{ m} = 14$ cm.\n\n⚠️ Common Mistake\nSubstituting the extension in centimetres. $k$ is in N/m, so convert $x$ to metres first — $3$ cm is $0.03$ m.\n\n📎 Key Points to Remember\n• $F = kx$ holds ONLY below the limit of proportionality.\n• Extension, not total length, goes into the equation."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-n2",
+      "heading": "Newton's Second Law: F = ma",
+      "body": "📌 Definition\nThe acceleration of an object is proportional to the resultant force on it and inversely proportional to its mass:\n$$F = ma$$\n$F$ in newtons, $m$ in kilograms, $a$ in m/s². $F$ is the RESULTANT force — the single force equivalent to everything acting.\n\n🔑 How it works\nThe same force accelerates a light object more than a heavy one; the same object accelerates more under a bigger force. If forces partly cancel, subtract first, then apply $F = ma$ to the resultant.\n\n💡 Worked Example\nAn $800$ kg car speeds up from $10\\text{ m/s}$ to $22\\text{ m/s}$ in $4$ s. First the acceleration: $a = \\dfrac{22 - 10}{4} = 3\\text{ m/s}^2$. Then the force: $F = ma = 800 \\times 3 = 2400$ N.\n\n⚠️ Common Mistake\nApplying $F = ma$ to a single force when others act. If an engine provides $3000$ N against $600$ N of drag, the resultant is $2400$ N — and $2400$ N is what goes into $F = ma$.\n\n📎 Key Points to Remember\n• Resultant force → acceleration. Zero resultant → zero acceleration (Newton's first law).\n• Weight is just $F = ma$ with $a = g$: $W = mg$."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-n3",
+      "heading": "Circular Motion",
+      "body": "📌 The key idea\nAn object moving in a circle at CONSTANT SPEED is still accelerating, because its velocity — a vector — is changing direction continuously. Acceleration requires a resultant force, so circular motion always needs an inward force.\n\n🔑 How it works\nThe force acts PERPENDICULAR to the motion, towards the centre of the circle (it is called a centripetal force, though it is always provided by something real): gravity for a satellite or the Moon, friction between tyres and road for a cornering car, tension in the string for a whirled ball. The force changes the DIRECTION of the velocity, not its size.\n\n🔑 Qualitative dependencies (exam favourites)\nThe force needed is GREATER for: a greater mass, a greater speed, or a SMALLER radius (a tighter circle). This is why a car can skid off a bend taken too fast, and why passengers feel 'thrown outwards' — in reality their bodies try to keep going straight while the car turns.\n\n⚠️ Common Mistake\nClaiming an outward 'centrifugal force' pushes the object. There is no outward force on the circling object — if the string breaks, the ball flies off along a TANGENT, continuing in the direction it was moving at that instant (Newton's first law).\n\n📎 Key Points to Remember\n• Constant speed ≠ constant velocity when the direction changes.\n• The force points to the centre; the object would fly off tangentially without it."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-n4",
+      "heading": "Momentum: p = mv",
+      "body": "📌 Definition\n$$\\text{momentum} = \\text{mass} \\times \\text{velocity} \\qquad p = mv$$\nUnit: kg·m/s. Momentum is a VECTOR — it has the direction of the velocity, which makes signs matter in collision questions: choose one direction as positive and stick to it.\n\n🔑 How it works\nMomentum measures 'how much motion' something has and how hard it is to stop. A heavy lorry at walking pace has more momentum than a sprinting cyclist; a bullet is light but its enormous velocity gives it serious momentum.\n\n💡 Worked Example\nA $60$ kg runner moving at $3\\text{ m/s}$ has momentum $p = 60 \\times 3 = 180\\text{ kg m/s}$ in the direction of running.\n\n⚠️ Common Mistake\nUsing SPEED when the direction has reversed. If a ball rebounds, its velocity changes sign, and its momentum changes by MORE than the two magnitudes suggest — see the impulse note.\n\n📎 Key Points to Remember\n• $p = mv$; the unit kg·m/s is the same as N·s.\n• Zero velocity → zero momentum, whatever the mass."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-n5",
+      "heading": "Impulse and F = Δp/Δt",
+      "body": "📌 Definition\nForce is the rate of change of momentum:\n$$F = \\dfrac{\\Delta p}{\\Delta t} = \\dfrac{\\Delta(mv)}{\\Delta t} \\qquad\\text{so}\\qquad F\\Delta t = \\Delta p$$\nThe product $F\\Delta t$ is called the **impulse** — it equals the change in momentum produced.\n\n🔑 How it works — and why it saves lives\nFor a FIXED change in momentum (stopping a passenger in a crash, catching a fast ball), the force is smaller when the collision takes LONGER: $F = \\dfrac{\\Delta p}{\\Delta t}$. Crumple zones, seatbelts, airbags, crash mats and bending your knees on landing all EXTEND the impact time $\\Delta t$ and so reduce the peak force.\n\n💡 Worked Example\nA $0.05$ kg ball approaches a wall at $8\\text{ m/s}$ and rebounds at $6\\text{ m/s}$. Taking the initial direction as positive: $\\Delta p = 0.05 \\times (-6 - 8) = -0.7\\text{ kg m/s}$ — magnitude $0.7\\text{ kg m/s}$. If the contact lasts $0.02$ s:\n$$F = \\dfrac{0.7}{0.02} = 35\\text{ N}$$\n\n⚠️ Common Mistake\nComputing $\\Delta p$ as $0.05 \\times (8 - 6) = 0.1\\text{ kg m/s}$. On a rebound the velocity changes sign, so the magnitudes ADD: the change is $8 - (-6) = 14\\text{ m/s}$, not $2\\text{ m/s}$.\n\n📎 Key Points to Remember\n• Longer impact time → smaller force, same $\\Delta p$.\n• Rebounds: add the speeds when finding $\\Delta v$."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-n6",
+      "heading": "Conservation of Momentum in One Dimension",
+      "body": "📌 The principle\nWhen no external resultant force acts on a system, the **total momentum before an event equals the total momentum after it**:\n$$m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2$$\nThis applies to collisions (objects hitting and sticking or bouncing) and to explosions (one object flying apart).\n\n🔑 Two standard situations\n• **Collision with sticking**: the objects move off together with one combined mass and one shared velocity.\n• **Explosion from rest**: total momentum starts at zero, so the two momenta afterwards must be EQUAL in size and OPPOSITE in direction — a fired bullet and its recoiling rifle.\n\n💡 Worked Example\nA $2$ kg trolley moving at $3\\text{ m/s}$ hits a stationary $1$ kg trolley and they stick together:\n$$2 \\times 3 + 1 \\times 0 = (2 + 1) \\times v \\implies 6 = 3v \\implies v = 2\\text{ m/s}$$\n\n💡 Worked Example 2 — recoil\nA $4$ kg rifle fires a $0.02$ kg bullet at $300\\text{ m/s}$. Momentum before $= 0$, so afterwards: $4 \\times v + 0.02 \\times 300 = 0$, giving recoil speed $v = \\dfrac{6}{4} = 1.5\\text{ m/s}$ backwards.\n\n⚠️ Common Mistake\nForgetting that momentum is a vector — in an explosion the two momenta have opposite signs, which is what makes the total stay zero.",
+      "illustration": {
+        "src": "/images/physics/phys-igcse-dynamics-momentum-collision.svg",
+        "alt": "Conservation of momentum: a 2 kg trolley at 3 m/s hits a stationary 1 kg trolley; they stick and move together at 2 m/s, because total momentum stays 6 kg·m/s before and after.",
+        "caption": "Total momentum before = total momentum after, in collisions and in explosions."
+      }
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-n7",
+      "heading": "Choosing the Right Equation",
+      "body": "Extended mechanics questions reward recognising WHICH relationship applies. Use this decision guide.\n\n🔑 Match the clue to the tool\n• **A spring, with load and extension** → $F = kx$ (below the limit of proportionality).\n• **Mass and acceleration, or a force changing a speed** → $F = ma$, finding $a = \\dfrac{v - u}{t}$ first if speeds and a time are given.\n• **A collision or explosion, masses and velocities** → conservation of momentum, $m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2$.\n• **A force acting for a stated TIME, or an impact time** → impulse, $F\\Delta t = \\Delta(mv)$.\n• **Circular motion** → qualitative: resultant force towards the centre; more force for more mass, more speed, tighter radius.\n\n💡 Worked Example\n'A $0.5$ kg ball at rest is struck by a bat with an average force of $60$ N for $0.2$ s. Find its final speed.' The force-and-time clue says impulse: $\\Delta p = 60 \\times 0.2 = 12\\text{ kg m/s}$, so $v = \\dfrac{12}{0.5} = 24\\text{ m/s}$.\n\n⚠️ Common Mistake\nReaching for $F = ma$ when the question gives an impact time rather than an acceleration. Force × time gives the momentum change directly — no acceleration needed.\n\n📎 Key Points to Remember\n• Write down what is GIVEN and what is ASKED; the equation that connects them is usually unique.\n• Momentum questions always need a chosen positive direction — state it."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "phys-igcse-dynamics-momentum-f1",
+      "term": "Spring constant (k)",
+      "definition": "The stiffness of a spring: the force per unit extension in F = kx, measured in N/m. Found from the gradient of the load-extension graph.",
+      "example": "6 N producing 0.03 m of extension means k = 200 N/m."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-f2",
+      "term": "Limit of proportionality",
+      "definition": "The point beyond which extension is no longer proportional to load — the load-extension graph stops being straight and F = kx no longer applies.",
+      "example": "Below the limit, doubling the load doubles the extension; above it, a small extra load stretches the spring far more."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-f3",
+      "term": "Newton's second law",
+      "definition": "Resultant force = mass x acceleration: F = ma, with F in N, m in kg and a in m/s².",
+      "example": "2400 N on 800 kg produces an acceleration of 3 m/s²."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-f4",
+      "term": "Resultant force",
+      "definition": "The single force equivalent to all forces acting; only the RESULTANT goes into F = ma.",
+      "example": "3000 N of thrust against 600 N of drag gives a resultant of 2400 N."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-f5",
+      "term": "Circular motion force",
+      "definition": "An object moving in a circle needs a resultant force directed towards the centre of the circle (a centripetal force), perpendicular to its motion.",
+      "example": "Tension in the string keeps a whirled ball circling; cut the string and it flies off along a tangent."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-f6",
+      "term": "Why circular motion is acceleration",
+      "definition": "Velocity is a vector: at constant speed in a circle the direction changes continuously, so the velocity — and hence the momentum — is changing.",
+      "example": "The Moon at steady orbital speed is still accelerating towards the Earth."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-f7",
+      "term": "Momentum",
+      "definition": "Mass x velocity: p = mv. A vector, in kg·m/s (equivalent to N·s).",
+      "example": "A 60 kg runner at 3 m/s has 180 kg·m/s of momentum."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-f8",
+      "term": "Momentum as a vector",
+      "definition": "Momentum has the direction of the velocity: choose a positive direction and give reverse motion a negative sign.",
+      "example": "A ball rebounding at 6 m/s after approaching at 8 m/s changes velocity by 14 m/s, not 2 m/s."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-f9",
+      "term": "Impulse",
+      "definition": "Force x time for which it acts: F x delta-t = change in momentum, in N·s (= kg·m/s).",
+      "example": "60 N applied for 0.2 s gives a momentum change of 12 kg·m/s."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-f10",
+      "term": "F = Δp/Δt",
+      "definition": "Force equals the rate of change of momentum. For a fixed momentum change, a longer impact time means a smaller force.",
+      "example": "Crumple zones lengthen a crash's impact time, reducing the force on passengers."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-f11",
+      "term": "Conservation of momentum",
+      "definition": "With no external resultant force, total momentum before an event equals total momentum after — for collisions and explosions in one dimension.",
+      "example": "2 kg at 3 m/s sticking to a stationary 1 kg trolley: 6 = 3v, so v = 2 m/s."
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-f12",
+      "term": "Explosion momentum",
+      "definition": "An explosion from rest keeps total momentum at zero: the two parts fly off with equal and opposite momenta.",
+      "example": "A 4 kg rifle firing a 0.02 kg bullet at 300 m/s recoils at 1.5 m/s."
+    }
+  ],
+  "questions": [
+    {
+      "id": "phys-igcse-dynamics-momentum-q1",
+      "stem": "Which equation correctly defines momentum?",
+      "choices": [
+        "$p = mv$",
+        "$p = \\dfrac{m}{v}$",
+        "$p = \\dfrac{1}{2}mv^2$",
+        "$p = ma$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Momentum is mass multiplied by velocity, $p = mv$. $\\dfrac{1}{2}mv^2$ is kinetic energy — a different quantity with different units.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q2",
+      "stem": "A $60$ kg runner moves at $3\\text{ m/s}$. What is her momentum?",
+      "choices": [
+        "$20\\text{ kg m/s}$",
+        "$180\\text{ kg m/s}$",
+        "$63\\text{ kg m/s}$",
+        "$180\\text{ kg m}^2\\text{/s}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$p = mv = 60 \\times 3 = 180\\text{ kg m/s}$ in the direction of running. $20\\text{ kg m/s}$ comes from dividing mass by velocity, and the unit is kg·m/s — no squared metres.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q3",
+      "stem": "A resultant force accelerates a $5$ kg mass at $2.4\\text{ m/s}^2$. What is the force?",
+      "choices": [
+        "$0.48$ N",
+        "$7.4$ N",
+        "$12$ N",
+        "$2.1$ N"
+      ],
+      "correctIndex": 2,
+      "explanation": "$F = ma = 5 \\times 2.4 = 12$ N. $2.1$ N ($\\dfrac{5}{2.4}$) and $0.48$ N ($\\dfrac{2.4}{5}$) are the division done the wrong way round.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q4",
+      "stem": "An $800$ kg car speeds up from $10\\text{ m/s}$ to $22\\text{ m/s}$ in $4.0$ s. What resultant force is needed?",
+      "choices": [
+        "$9600$ N",
+        "$4400$ N",
+        "$1600$ N",
+        "$2400$ N"
+      ],
+      "correctIndex": 3,
+      "explanation": "Two steps: $a = \\dfrac{v - u}{t} = \\dfrac{22 - 10}{4.0} = 3.0\\text{ m/s}^2$, then $F = ma = 800 \\times 3.0 = 2400$ N. $4400$ N comes from $a = \\dfrac{22}{4.0}$ — using the final speed instead of the CHANGE in speed — and $9600$ N is $800 \\times 12$, the speed change without dividing by time.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q5",
+      "stem": "A force of $6$ N extends a spring by $3$ cm. What is the spring constant?",
+      "choices": [
+        "$2\\text{ N/m}$",
+        "$200\\text{ N/m}$",
+        "$18\\text{ N/m}$",
+        "$0.5\\text{ N/m}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$k = \\dfrac{F}{x} = \\dfrac{6}{0.03} = 200\\text{ N/m}$. The extension must be converted to metres first — leaving it in centimetres gives the wrong answer $2\\text{ N/m}$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q6",
+      "stem": "A spring has a spring constant of $50\\text{ N/m}$. What extension does a $7$ N force produce (within the limit of proportionality)?",
+      "choices": [
+        "$7.1$ cm",
+        "$0.14$ cm",
+        "$350$ cm",
+        "$14$ cm"
+      ],
+      "correctIndex": 3,
+      "explanation": "$x = \\dfrac{F}{k} = \\dfrac{7}{50} = 0.14\\text{ m} = 14$ cm. $0.14$ cm forgets the metres-to-centimetres conversion, and $350$ cm multiplies instead of dividing.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q7",
+      "stem": "What is the limit of proportionality of a spring?",
+      "choices": [
+        "The maximum load the spring can support without falling off the stand",
+        "The point at which the spring breaks",
+        "The point beyond which extension is no longer proportional to load",
+        "The load at which the spring reaches its natural length"
+      ],
+      "correctIndex": 2,
+      "explanation": "Below the limit of proportionality, extension is directly proportional to load ($F = kx$, the graph is a straight line through the origin); beyond it the graph curves and the proportional rule fails. The spring may still return to shape — the limit is not the breaking point.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q8",
+      "stem": "A ball is whirled on a string in a horizontal circle. In which direction does the force keeping it in the circle act?",
+      "choices": [
+        "Towards the centre of the circle",
+        "In the direction of the ball's motion",
+        "Directly outwards, away from the centre",
+        "Vertically downwards"
+      ],
+      "correctIndex": 0,
+      "explanation": "The tension acts along the string towards the centre — an inward (centripetal) resultant force is what curves the path. There is no outward force on the ball; without the string it would fly off along a tangent.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q9",
+      "stem": "A satellite orbits the Earth at constant speed. Why is it nonetheless accelerating?",
+      "choices": [
+        "Gravity is increasing its speed steadily",
+        "Its velocity is changing because its direction is changing, and velocity is a vector",
+        "Its mass is gradually increasing as it burns fuel",
+        "It is not accelerating — constant speed means zero acceleration"
+      ],
+      "correctIndex": 1,
+      "explanation": "Velocity has direction as well as size. Moving in a circle changes the direction continuously, so the velocity changes and the satellite accelerates towards the Earth even though the speed never changes.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q10",
+      "stem": "A $0.5$ kg ball at rest is struck with an average force of $60$ N for $0.2$ s. What speed does it leave with?",
+      "choices": [
+        "$6\\text{ m/s}$",
+        "$150\\text{ m/s}$",
+        "$24\\text{ m/s}$",
+        "$12\\text{ m/s}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Impulse gives the momentum change: $\\Delta p = F\\Delta t = 60 \\times 0.2 = 12\\text{ kg m/s}$. Starting from rest, $v = \\dfrac{\\Delta p}{m} = \\dfrac{12}{0.5} = 24\\text{ m/s}$. $12\\text{ m/s}$ stops halfway — that is the momentum change, not the speed.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q11",
+      "stem": "A $0.05$ kg ball hits a wall at $8\\text{ m/s}$ and rebounds at $6\\text{ m/s}$. The contact lasts $0.02$ s. What is the average force on the ball?",
+      "choices": [
+        "$5$ N",
+        "$20$ N",
+        "$0.07$ N",
+        "$35$ N"
+      ],
+      "correctIndex": 3,
+      "explanation": "The velocity reverses, so the change is $8 - (-6) = 14\\text{ m/s}$: $\\Delta p = 0.05 \\times 14 = 0.7\\text{ kg m/s}$, and $F = \\dfrac{0.7}{0.02} = 35$ N. $5$ N comes from the wrong change $0.05 \\times (8 - 6) = 0.1\\text{ kg m/s}$ — on a rebound the speeds ADD.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q12",
+      "stem": "How does a crumple zone reduce the force on car passengers in a crash?",
+      "choices": [
+        "It increases the time over which the momentum changes, and $F = \\dfrac{\\Delta p}{\\Delta t}$",
+        "It absorbs the passengers' kinetic energy as heat",
+        "It reduces the momentum of the car before impact",
+        "It increases the mass of the car, spreading the force"
+      ],
+      "correctIndex": 0,
+      "explanation": "The passengers' momentum change $\\Delta p$ is fixed by the crash. Crumpling lengthens the stopping time $\\Delta t$, and since $F = \\dfrac{\\Delta p}{\\Delta t}$, a larger $\\Delta t$ means a smaller peak force.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q13",
+      "stem": "A $2$ kg trolley moving at $3\\text{ m/s}$ collides with a stationary $1$ kg trolley and they stick together. What is their shared velocity?",
+      "choices": [
+        "$3\\text{ m/s}$",
+        "$2\\text{ m/s}$",
+        "$6\\text{ m/s}$",
+        "$1.5\\text{ m/s}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "Momentum is conserved: $2 \\times 3 + 1 \\times 0 = (2 + 1)v$, so $6 = 3v$ and $v = 2\\text{ m/s}$. $6\\text{ m/s}$ uses only the moving trolley's mass on the right-hand side.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q14",
+      "stem": "A stationary $4$ kg rifle fires a $0.02$ kg bullet at $300\\text{ m/s}$. What is the rifle's recoil speed?",
+      "choices": [
+        "$6\\text{ m/s}$",
+        "$300\\text{ m/s}$",
+        "$1.5\\text{ m/s}$",
+        "$0.67\\text{ m/s}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "Total momentum is zero before firing, so afterwards the two momenta must be equal and opposite: $4 \\times v = 0.02 \\times 300 = 6\\text{ kg m/s}$, giving $v = \\dfrac{6}{4} = 1.5\\text{ m/s}$. $6\\text{ m/s}$ is the bullet's momentum, not the recoil speed.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "phys-igcse-dynamics-momentum-q15",
+      "stem": "What is the SI unit of momentum?",
+      "choices": [
+        "$\\text{kg/s}$",
+        "$\\text{N/m}$",
+        "$\\text{J}$",
+        "$\\text{kg m/s}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Momentum $p = mv$ has units kg × m/s $=$ kg·m/s, which is identical to N·s. N/m is the spring constant's unit and J (joule) is the unit of energy.",
+      "difficulty": "easy"
+    }
+  ]
+}
