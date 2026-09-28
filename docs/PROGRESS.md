@@ -4,7 +4,41 @@
 
 ---
 
-## 2026-09-27 — Semgrep gate unblocked (deploys resume); support bot verified LIVE; breadcrumb/pill collision fixed
+## 2026-09-28 — IGCSE wave 3a: Physics 0625 (14 topics + 2 paper sets) shipped
+Git HEAD: `2ff2895` (develop, pushed; tree clean)
+Done: executed `docs/igcse-wave3-plan.md` §3a. **14 new physics topics**
+  (`phys-igcse-*`, stage igcse, course 0625) authored by a 4-agent swarm resumed after the
+  2026-09-27 quota 403: motion/forces/moments-pressure/dynamics-momentum, energy-work-power/
+  thermal-particle-model/thermal-properties, waves-sound/light/nuclear/space,
+  electrical-quantities/circuits/electromagnetism — each 7 notes/12 flashcards/15 questions
+  (≥3 hard, correctIndex ~4/4/4/3), one SVG figure per topic, all numeric keys hand-derived +
+  `node -e` re-verified by the children AND spot-verified by the parent. Level tag only on
+  `phys-igcse-dynamics-momentum` (extended) per the locked convention. Overlap guards held (no
+  hydraulics/Archimedes/latent heat/dark matter). Papers: `phys-igcse-set-1` (Core, free) +
+  `set-2` (Extended, premium), 20 marks each. Integration: order.json 14→28, `phys-igcse` in
+  courses.ts after phys-ks3. Count churn: physics 14→28, papers 31→33, topicCount 245→259,
+  markscheme points 620→660 (M135/A169/B356), course pins 15→16 in exams/papers/diagnostics
+  specs. **Docs commit `16cdfdc` (content-gap-roadmap.md + igcse-wave3-plan.md + backlog pointer)
+  had no entry of its own** — recorded here.
+Verified: generate:registry + check:registry ✓, validate:content ✓, audit:content **0/0** (259
+  topics / 4,431 questions), validate:illustrations + layout ✓, **1735/1735** unit tests, tsc ✓,
+  lint 35w/0e (baseline), build:static incl. verify:sitemaps + audit:leaks ✓, audit:overflow
+  --all (777 pages) PASS, e2e:static ×3 projects (401/388/389 passed, `--workers=1`). UX pass
+  WAIVED (content-JSON-only); 4 spot screenshots `ux-screenshots/content/wave3a/` (hub, study
+  mobile light, study desktop dark, quiz mobile) all clean.
+Next: **wave 3b — Chemistry 0620 (14 topics + 2 sets)** per plan §3b; then 3c Biology 0610,
+  3d English 0500. Roadmap afterwards: illustration-density pass (math+english first),
+  paper set 3 per course, difficulty-calibration advisory.
+Notes: parent-side fix needed post-swarm — 61 audit:content errors from non-ASCII inside math
+  spans (`°`→`^\circ`, `kg·m/s`→`kg m/s` in `\text{}`); children had checked KaTeX-parses but
+  not the ASCII rule. Add to future authoring prompts: run the audit's non-ASCII check, and note
+  my simple `$`-toggle fixer mis-tracks `$$` display spans (caught the last one by hand).
+  Topic URLs are `/subjects/physics/<id>/study` (NOT tier-qualified) — first screenshot pass
+  404'd on guessed `/igcse/physics/...` paths. Two child-reported syllabus ambiguities to
+  spot-check against the syllabus PDF at 3b kickoff: exact H₀ value Cambridge quotes (used
+  2.2e-18 s⁻¹) and whether Kelvin conversion is Core or Supplement (plan said Core).
+
+---
 Git HEAD: `24a5d50` (develop, pushed; tree clean)
 Done: **(1) found why dev/prod had been stuck on `7d5bcd0`: the Semgrep job failed on BOTH
   `643ff37` and `1c909d1`** (one blocking finding, `unknown-value-with-script-tag` on
