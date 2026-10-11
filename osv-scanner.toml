@@ -1,4 +1,9 @@
 # OSV-Scanner configuration — docs/security-scanning-plan.md
-# No active ignores. (The 2026-08-08 ignores for next@15.5.x's nested
-# postcss@8.4.31 / sharp@0.34.5 pins were cleared by the Next.js 16 upgrade —
-# next@16.3.0 pins postcss@8.5.23 and sharp@0.35.3.)
+# (History: the 2026-08-08 ignores for next@15.5.x's nested postcss@8.4.31 /
+# sharp@0.34.5 pins were cleared by the Next.js 16 upgrade. The 2026-10-11 sweep
+# bumped next@16.3.3 -> 16.3.8, katex@0.17.0 -> 0.18.2 and the transitive
+# lockfile entries; the postcss-selector-parser override moved to ^7.1.6.)
+
+[[IgnoredVulns]]
+id = "GHSA-vfj7-8cjw-p6xm"
+reason = "braces 3.0.3 has no fixed release. It is a build-time-only transitive (tailwindcss's chokidar + micromatch) and the DoS needs attacker-controlled glob patterns; every glob in this repo comes from our own config, never from user input. Re-check on each tailwindcss upgrade."
