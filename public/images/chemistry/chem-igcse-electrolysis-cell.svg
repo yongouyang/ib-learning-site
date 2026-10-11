@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Electrolysis cell: ion movement</title>
+  <desc id="desc">A labelled electrolysis cell: a d.c. battery connected to two inert electrodes in a beaker of electrolyte. Cations (positive ions) move towards the negative cathode and anions (negative ions) move towards the positive anode.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .ion { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #ffffff; }
+      .wire { stroke: #374151; stroke-width: 2.5; fill: none; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="36" text-anchor="middle" class="title">Electrolysis: How Ions Move in the Cell</text>
+
+  <!-- Battery -->
+  <rect x="315" y="56" width="170" height="22" rx="4" fill="#f9fafb"/>
+  <text x="400" y="71" text-anchor="middle" class="label">d.c. battery</text>
+  <line x1="380" y1="92" x2="380" y2="118" class="wire"/>
+  <line x1="420" y1="97" x2="420" y2="113" stroke="#374151" stroke-width="6"/>
+  <text x="364" y="110" text-anchor="middle" class="label">+</text>
+  <text x="438" y="110" text-anchor="middle" class="label">−</text>
+
+  <!-- Wires -->
+  <path d="M380 105 H279 V142" class="wire"/>
+  <path d="M420 105 H521 V142" class="wire"/>
+
+  <!-- Beaker -->
+  <path d="M200 172 V450 H600 V172" stroke="#374151" stroke-width="3" fill="none"/>
+  <rect x="203" y="212" width="394" height="235" fill="#dbeafe"/>
+
+  <!-- Electrodes -->
+  <rect x="270" y="140" width="18" height="248" fill="#6b7280" rx="2"/>
+  <rect x="512" y="140" width="18" height="248" fill="#6b7280" rx="2"/>
+
+  <!-- Electrode labels -->
+  <rect x="48" y="150" width="122" height="24" rx="4" fill="#f9fafb"/>
+  <text x="109" y="167" text-anchor="middle" class="label">anode (+)</text>
+  <line x1="170" y1="166" x2="262" y2="176" class="line"/>
+  <rect x="630" y="150" width="130" height="24" rx="4" fill="#f9fafb"/>
+  <text x="695" y="167" text-anchor="middle" class="label">cathode (−)</text>
+  <line x1="630" y1="166" x2="538" y2="176" class="line"/>
+
+  <!-- Anions (upper row, moving left to anode) -->
+  <circle cx="490" cy="252" r="12" fill="#2563eb"/>
+  <text x="490" y="257" text-anchor="middle" class="ion">−</text>
+  <circle cx="430" cy="252" r="12" fill="#2563eb"/>
+  <text x="430" y="257" text-anchor="middle" class="ion">−</text>
+  <circle cx="370" cy="252" r="12" fill="#2563eb"/>
+  <text x="370" y="257" text-anchor="middle" class="ion">−</text>
+  <line x1="352" y1="252" x2="304" y2="252" class="line" marker-end="url(#arr)"/>
+  <rect x="370" y="220" width="120" height="20" rx="4" fill="#f9fafb"/>
+  <text x="430" y="234" text-anchor="middle" class="sublabel">anions (−)</text>
+
+  <!-- Cations (lower row, moving right to cathode) -->
+  <circle cx="310" cy="330" r="12" fill="#f97316"/>
+  <text x="310" y="335" text-anchor="middle" class="ion">+</text>
+  <circle cx="370" cy="330" r="12" fill="#f97316"/>
+  <text x="370" y="335" text-anchor="middle" class="ion">+</text>
+  <circle cx="430" cy="330" r="12" fill="#f97316"/>
+  <text x="430" y="335" text-anchor="middle" class="ion">+</text>
+  <line x1="448" y1="330" x2="496" y2="330" class="line" marker-end="url(#arr)"/>
+  <rect x="310" y="350" width="120" height="20" rx="4" fill="#f9fafb"/>
+  <text x="370" y="364" text-anchor="middle" class="sublabel">cations (+)</text>
+
+  <!-- Electrolyte label -->
+  <rect x="285" y="404" width="230" height="24" rx="4" fill="#f9fafb"/>
+  <text x="400" y="421" text-anchor="middle" class="label">electrolyte (ions free to move)</text>
+
+  <!-- Bottom rule -->
+  <rect x="180" y="478" width="440" height="24" rx="4" fill="#f9fafb"/>
+  <text x="400" y="495" text-anchor="middle" class="sublabel">cations (+) to the cathode (−)  ·  anions (−) to the anode (+)</text>
+</svg>

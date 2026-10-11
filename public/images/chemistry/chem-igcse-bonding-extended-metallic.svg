@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" role="img" aria-labelledby="title desc">
+  <title id="title">Metallic Bonding: Positive Ions in a Sea of Electrons</title>
+  <desc id="desc">A regular lattice of positive metal ions surrounded by small dots representing delocalised electrons that are free to move, with an arrow showing electron flow when a voltage is applied and a panel listing the properties this structure explains.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .cation { fill: #f97316; }
+      .electron { fill: #3b82f6; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="480" fill="#f9fafb" rx="12"/>
+  <text x="450" y="34" text-anchor="middle" class="title">Metallic Bonding: Positive Ions + a Sea of Delocalised Electrons</text>
+
+  <!-- Lattice area -->
+  <rect x="50" y="95" width="570" height="300" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+
+  <!-- Cation grid -->
+  <g>
+    <circle cx="110" cy="130" r="26" class="cation"/><text x="110" y="135" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="210" cy="130" r="26" class="cation"/><text x="210" y="135" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="310" cy="130" r="26" class="cation"/><text x="310" y="135" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="410" cy="130" r="26" class="cation"/><text x="410" y="135" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="510" cy="130" r="26" class="cation"/><text x="510" y="135" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="110" cy="230" r="26" class="cation"/><text x="110" y="235" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="210" cy="230" r="26" class="cation"/><text x="210" y="235" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="310" cy="230" r="26" class="cation"/><text x="310" y="235" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="410" cy="230" r="26" class="cation"/><text x="410" y="235" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="510" cy="230" r="26" class="cation"/><text x="510" y="235" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="110" cy="330" r="26" class="cation"/><text x="110" y="335" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="210" cy="330" r="26" class="cation"/><text x="210" y="335" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="310" cy="330" r="26" class="cation"/><text x="310" y="335" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="410" cy="330" r="26" class="cation"/><text x="410" y="335" text-anchor="middle" class="label" fill="#ffffff">+</text>
+    <circle cx="510" cy="330" r="26" class="cation"/><text x="510" y="335" text-anchor="middle" class="label" fill="#ffffff">+</text>
+  </g>
+
+  <!-- Delocalised electrons -->
+  <g class="electron">
+    <circle cx="160" cy="180" r="5"/>
+    <circle cx="260" cy="180" r="5"/>
+    <circle cx="360" cy="180" r="5"/>
+    <circle cx="460" cy="180" r="5"/>
+    <circle cx="160" cy="280" r="5"/>
+    <circle cx="260" cy="280" r="5"/>
+    <circle cx="360" cy="280" r="5"/>
+    <circle cx="460" cy="280" r="5"/>
+    <circle cx="85" cy="180" r="5"/>
+    <circle cx="535" cy="180" r="5"/>
+    <circle cx="85" cy="280" r="5"/>
+    <circle cx="535" cy="280" r="5"/>
+    <circle cx="160" cy="105" r="5"/>
+    <circle cx="360" cy="105" r="5"/>
+    <circle cx="260" cy="370" r="5"/>
+    <circle cx="460" cy="370" r="5"/>
+  </g>
+
+  <!-- Labels with leader lines -->
+  <rect x="70" y="52" width="270" height="28" rx="4" class="label-bg"/>
+  <text x="205" y="70" text-anchor="middle" class="label">positive metal ions (fixed lattice)</text>
+  <line x1="205" y1="82" x2="210" y2="102" stroke="#6b7280" stroke-width="1.5"/>
+
+  <rect x="370" y="52" width="290" height="28" rx="4" class="label-bg"/>
+  <text x="515" y="70" text-anchor="middle" class="label">delocalised electrons — free to move</text>
+  <line x1="480" y1="82" x2="462" y2="172" stroke="#6b7280" stroke-width="1.5"/>
+
+  <!-- Electron flow arrow -->
+  <line x1="90" y1="415" x2="530" y2="415" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="150" y="432" width="320" height="26" rx="4" class="label-bg"/>
+  <text x="310" y="449" text-anchor="middle" class="sublabel">electron flow when a voltage is applied</text>
+
+  <!-- Properties panel -->
+  <rect x="650" y="95" width="230" height="300" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+  <text x="765" y="126" text-anchor="middle" class="label">Properties explained</text>
+  <rect x="665" y="145" width="200" height="52" rx="6" class="label-bg" stroke="#e5e7eb"/>
+  <text x="765" y="168" text-anchor="middle" class="sublabel">Conducts electricity —</text>
+  <text x="765" y="186" text-anchor="middle" class="sublabel">electrons flow freely</text>
+  <rect x="665" y="215" width="200" height="52" rx="6" class="label-bg" stroke="#e5e7eb"/>
+  <text x="765" y="238" text-anchor="middle" class="sublabel">Malleable — layers slide,</text>
+  <text x="765" y="256" text-anchor="middle" class="sublabel">electron sea stays bonded</text>
+  <rect x="665" y="285" width="200" height="52" rx="6" class="label-bg" stroke="#e5e7eb"/>
+  <text x="765" y="308" text-anchor="middle" class="sublabel">High melting point —</text>
+  <text x="765" y="326" text-anchor="middle" class="sublabel">strong ion–electron attraction</text>
+</svg>

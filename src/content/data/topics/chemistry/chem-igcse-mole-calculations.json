@@ -1,0 +1,321 @@
+{
+  "id": "chem-igcse-mole-calculations",
+  "subjectId": "chemistry",
+  "title": "The Mole & Chemical Calculations",
+  "description": "Relative atomic and formula masses, reacting masses, concentration, the mole and Avogadro constant, molar gas volume, stoichiometry, titrations, empirical formulae, yield and purity calculations for IGCSE Chemistry 0620 — Core and Extended tier.",
+  "stage": "igcse",
+  "course": "0620",
+  "notes": [
+    {
+      "id": "chem-igcse-mole-calculations-n1",
+      "heading": "Relative Atomic Mass from Isotopes (Aᵣ)",
+      "body": "📌 Definition\nThe relative atomic mass (Aᵣ) of an element is the weighted mean mass of its naturally occurring isotopes, compared to 1/12 of the mass of a carbon-12 atom. 'Weighted' means abundant isotopes count for more.\n\n🔑 The calculation\nWith $m$ = isotope mass and $x$ = its percentage abundance:\n$$A_r = \\dfrac{m_1 x_1 + m_2 x_2}{100}$$\n\n💡 Worked Example — chlorine\nChlorine is 75% ³⁵Cl and 25% ³⁷Cl:\n$$\\begin{aligned} A_r &= \\dfrac{(75 \\times 35) + (25 \\times 37)}{100} \\\\ &= \\dfrac{2625 + 925}{100} = 35.5 \\end{aligned}$$\nThis is why the Periodic Table value for chlorine is not a whole number.\n\n⚠️ Common Mistake\nTaking a plain average of the isotope masses ($(35 + 37)/2 = 36$). That ignores the abundances — the answer must lie CLOSER to the more abundant isotope, which is a quick sanity check.\n\n📎 Key Points to Remember\n• Aᵣ has no units — it is a ratio ('relative').\n• For boron (20% ¹⁰B, 80% ¹¹B): $A_r = \\dfrac{(20 \\times 10) + (80 \\times 11)}{100} = 10.8$."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-n2",
+      "heading": "Relative Formula Mass (Mᵣ)",
+      "body": "📌 Definition\nThe relative formula mass (Mᵣ) is the sum of the relative atomic masses of all the atoms in the formula. (For molecules you may also see it called relative molecular mass — same calculation.)\n\n🔑 How to do it\nAdd up every atom, multiplying by the subscripts — and a subscript outside a bracket multiplies EVERYTHING inside it.\n• H₂O: $(2 \\times 1) + 16 = 18$\n• CO₂: $12 + (2 \\times 16) = 44$\n• CaCO₃: $40 + 12 + (3 \\times 16) = 100$\n• MgCl₂: $24 + (2 \\times 35.5) = 95$\n• Ca(OH)₂: $40 + 2 \\times (16 + 1) = 74$\n\n💡 Worked Example — NaOH\n$M_r = 23 + 16 + 1 = 40$. These values (NaOH = 40, CaCO₃ = 100, CO₂ = 44) come up so often they are worth memorising.\n\n⚠️ Common Mistake\nIn MgCl₂, forgetting to double the chlorine: $24 + 35.5 = 59.5$ is wrong; the subscript 2 gives $24 + 71 = 95$.\n\n📎 Key Points to Remember\n• Use the Aᵣ values given in the question or on the Periodic Table (H = 1, C = 12, O = 16, Na = 23, Mg = 24, Cl = 35.5, Ca = 40).\n• Mᵣ, like Aᵣ, has no units."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-n3",
+      "heading": "Reacting Masses — the Ratio Method (Core)",
+      "body": "Core tier reacting-mass questions can be done WITHOUT the mole, using the mass ratio read from the balanced equation.\n\n🔑 The method\n1. Write the balanced equation.\n2. Under each substance you care about, write its total mass using Mᵣ (multiply Mᵣ by the big number in front).\n3. Scale the ratio up or down to the mass in the question.\n\n💡 Worked Example 1 — burning magnesium\n$$2\\text{Mg} + \\text{O}_2 \\rightarrow 2\\text{MgO}$$\nMasses: $2 \\times 24 = 48$ g Mg gives $2 \\times 40 = 80$ g MgO. So 12 g of magnesium gives $12 \\times \\dfrac{80}{48} = 20$ g of MgO.\n\n💡 Worked Example 2 — thermal decomposition of limestone\n$$\\text{CaCO}_3 \\rightarrow \\text{CaO} + \\text{CO}_2$$\nMasses: $100$ g → $56$ g + $44$ g. Heating 50 g of CaCO₃ gives $50 \\times \\dfrac{44}{100} = 22$ g of CO₂ (and 28 g of CaO — mass is conserved).\n\n⚠️ Common Mistake\nUsing the Mᵣ without the big number: for 2MgO you must use 80, not 40. The big number multiplies the whole formula.\n\n📎 Key Points to Remember\n• Total mass of reactants = total mass of products — check your answers add up.\n• Set the ratio out in a column under the equation; examiners award method marks for it."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-n4",
+      "heading": "Concentration (Core)",
+      "body": "📌 Definitions\nConcentration is the amount of solute per unit volume of solution — mass per volume in g/dm³, or moles per volume in mol/dm³:\n$$c = \\dfrac{m}{V}\\text{ g/dm}^3$$\n$$c = \\dfrac{n}{V}\\text{ mol/dm}^3$$\n1 dm³ = 1000 cm³ — divide cm³ by 1000 before substituting.\n\n💡 Worked Example 1\n20 g of NaOH dissolved in 2.0 dm³ of solution: $\\dfrac{20}{2.0} = 10$ g/dm³.\n\n💡 Worked Example 2 — converting between the two units\nDivide g/dm³ by Mᵣ to get mol/dm³: a solution of NaOH (Mᵣ = 40) at 40 g/dm³ is $\\dfrac{40}{40} = 1.0$ mol/dm³. Multiply to go the other way.\n\n⚠️ Common Mistake\nForgetting to convert cm³ to dm³. 250 cm³ is 0.25 dm³, not 250 — an answer 1000 times too big is the giveaway.\n\n📎 Key Points to Remember\n• g/dm³ = grams per litre; mol/dm³ = moles per litre (also written M).\n• g/dm³ → mol/dm³: divide by Mᵣ. mol/dm³ → g/dm³: multiply by Mᵣ."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-n5",
+      "heading": "The Mole, Avogadro and Formulae (Extended tier)",
+      "body": "📌 Definitions\nOne **mole** of any substance contains the Avogadro constant of particles: $6.02 \\times 10^{23}$ atoms, molecules or ions. One mole of a substance is its Mᵣ in grams — one mole of H₂O has a mass of 18 g.\n\n🔑 The key equation\n$$n = \\dfrac{m}{M_r}$$\nIn words: moles = mass in grams ÷ relative formula mass.\nRearrange it as needed: $m = n \\times M_r$ and $M_r = \\dfrac{m}{n}$.\n\n💡 Worked Example\nMoles in 8 g of CH₄ (Mᵣ = 16): $n = \\dfrac{8}{16} = 0.5$ mol. Mass of 0.25 mol of CO₂ (Mᵣ = 44): $m = 0.25 \\times 44 = 11$ g.\n\n🔑 Empirical and molecular formulae (Extended)\nThe EMPIRICAL formula is the simplest whole-number ratio of atoms: divide each element's mass (or percentage) by its Aᵣ to get moles, then divide through by the smallest. The MOLECULAR formula is a whole-number multiple of the empirical formula — find which multiple by comparing $M_r$ values.\n\n💡 Worked Example — empirical formula\nA hydrocarbon contains 24 g of carbon and 8 g of hydrogen: $n(\\text{C}) = \\dfrac{24}{12} = 2$ mol, $n(\\text{H}) = \\dfrac{8}{1} = 8$ mol → ratio 2 : 8 = 1 : 4 → CH₄.\n\n⚠️ Common Mistake\nDividing by the atomic mass of the MOLECULE. For hydrogen divide by 1, not 2 — the Aᵣ, not the formula of H₂.\n\n📎 Key Points to Remember\n• The mole triangle: mass on top, moles and Mᵣ on the bottom.\n• Empirical = simplest ratio; molecular = actual numbers (e.g. empirical CH₂, molecular C₂H₄).",
+      "illustration": {
+        "src": "/images/chemistry/chem-igcse-mole-calculations-triangles.svg",
+        "alt": "Three formula triangles for mole calculations: mass over moles times relative formula mass, moles over concentration times volume, and gas volume over moles times 24 dm3 at room temperature and pressure.",
+        "caption": "Cover the quantity you want: n = m/Mᵣ, c = n/V, and gas volume = n × 24 dm³ at r.t.p. (Extended tier)."
+      }
+    },
+    {
+      "id": "chem-igcse-mole-calculations-n6",
+      "heading": "Molar Gas Volume and Limiting Reactants (Extended tier)",
+      "body": "📌 Molar gas volume\nOne mole of ANY gas occupies 24 dm³ (24 000 cm³) at room temperature and pressure (r.t.p.):\n$$V = n \\times 24\\text{ dm}^3$$\n0.5 mol of any gas occupies $0.5 \\times 24 = 12$ dm³ at r.t.p.\n\n🔑 Stoichiometry — moles from the equation\nThe big numbers in a balanced equation are MOLE ratios: $2\\text{H}_2 + \\text{O}_2 \\rightarrow 2\\text{H}_2\\text{O}$ means 2 mol of H₂ react with 1 mol of O₂ to give 2 mol of H₂O. Convert masses to moles, use the ratio, convert back.\n\n🔑 Limiting reactants\nWhen both starting amounts are given, the **limiting reactant** is the one that runs out first — it alone decides how much product forms.\n\n💡 Worked Example\n4 g of H₂ with 48 g of O₂: $n(\\text{H}_2) = \\dfrac{4}{2} = 2$ mol, $n(\\text{O}_2) = \\dfrac{48}{32} = 1.5$ mol. 2 mol of H₂ needs only 1 mol of O₂ — so H₂ is limiting (O₂ is in excess by 0.5 mol). Water formed: 2 mol × 18 g/mol = 36 g.\n\n⚠️ Common Mistake\nPicking the reactant with the SMALLER MASS as limiting. Compare mole amounts against the equation ratio, not grams — here O₂ has the bigger mass but is in excess.\n\n📎 Key Points to Remember\n• 24 dm³ per mole of gas at r.t.p. — works for every gas.\n• Convert BOTH reactants to moles, divide each by its equation coefficient, and the smaller result is limiting."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-n7",
+      "heading": "Titrations, Yield, Purity and Ionic Equations (Extended tier)",
+      "body": "🔑 Titration calculations\nMoles from a solution: $n = c \\times V$ with V in dm³ (divide cm³ by 1000). Use the equation ratio to move between acid and alkali, then $c = \\dfrac{n}{V}$.\n\n💡 Worked Example\n25.0 cm³ of 0.100 mol/dm³ NaOH is neutralised by 20.0 cm³ of HCl (ratio 1 : 1): $n(\\text{NaOH}) = 0.100 \\times \\dfrac{25.0}{1000} = 0.00250$ mol, so $c(\\text{HCl}) = \\dfrac{0.00250}{0.0200} = 0.125$ mol/dm³.\n\n🔑 Percentage yield and percentage purity\n$$\\text{yield} = \\dfrac{\\text{actual}}{\\text{theoretical}} \\times 100\\%$$\n$$\\text{purity} = \\dfrac{\\text{pure}}{\\text{sample}} \\times 100\\%$$\nYield is lost to incomplete reactions, side reactions and practical losses; a 25 g limestone sample containing 20 g of CaCO₃ is 80% pure.\n\n🔑 Ionic equations with state symbols\nAn ionic equation shows only the species that CHANGE — spectator ions are cancelled, and atoms AND charge must balance:\n• Any strong acid + alkali: H⁺(aq) + OH⁻(aq) → H₂O(l)\n• Precipitation of silver chloride: Ag⁺(aq) + Cl⁻(aq) → AgCl(s)\nState symbols: (s) solid, (l) liquid, (g) gas, (aq) aqueous.\n\n⚠️ Common Mistake\nLeaving Na⁺ and Cl⁻ in a neutralisation ionic equation — they are spectators and cancel. If it is unchanged on both sides, delete it from both sides.\n\n📎 Key Points to Remember\n• Convert cm³ to dm³ FIRST.\n• Yield and purity are always part ÷ whole × 100.\n• Ionic equation: cancel spectators, balance charge, add state symbols."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-igcse-mole-calculations-f1",
+      "term": "Relative atomic mass (Aᵣ)",
+      "definition": "The weighted mean mass of an element's isotopes compared to 1/12 of the mass of a carbon-12 atom; multiply each isotope's mass by its abundance, sum, and divide by 100.",
+      "example": "Chlorine (75% ³⁵Cl, 25% ³⁷Cl): Aᵣ = (75 × 35 + 25 × 37)/100 = 35.5."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-f2",
+      "term": "Relative formula mass (Mᵣ)",
+      "definition": "The sum of the relative atomic masses of all the atoms in the formula; subscripts multiply, including outside brackets.",
+      "example": "CaCO₃: 40 + 12 + (3 × 16) = 100. Ca(OH)₂: 40 + 2 × 17 = 74."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-f3",
+      "term": "Reacting mass ratio method (Core)",
+      "definition": "Write masses under the balanced equation using Mᵣ (times the big numbers), then scale the ratio to the mass given in the question.",
+      "example": "2Mg + O₂ → 2MgO: 48 g Mg gives 80 g MgO, so 12 g Mg gives 20 g MgO."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-f4",
+      "term": "Concentration (g/dm³)",
+      "definition": "Mass of solute in grams divided by the volume of solution in dm³ (1 dm³ = 1000 cm³).",
+      "example": "20 g in 2.0 dm³ gives a concentration of 10 g/dm³."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-f5",
+      "term": "Concentration (mol/dm³)",
+      "definition": "Moles of solute divided by volume of solution in dm³. Convert from g/dm³ by dividing by Mᵣ.",
+      "example": "NaOH at 40 g/dm³ is 40 ÷ 40 = 1.0 mol/dm³."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-f6",
+      "term": "The mole and the Avogadro constant (Extended)",
+      "definition": "One mole contains 6.02 × 10²³ particles; one mole of any substance is its Mᵣ in grams.",
+      "example": "1 mol of H₂O = 18 g and contains 6.02 × 10²³ molecules."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-f7",
+      "term": "n = m/Mᵣ (Extended)",
+      "definition": "Moles = mass in grams divided by relative formula mass; rearrange as m = n × Mᵣ or Mᵣ = m/n.",
+      "example": "8 g of CH₄ (Mᵣ 16) is 8/16 = 0.5 mol."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-f8",
+      "term": "Molar gas volume (Extended)",
+      "definition": "One mole of any gas occupies 24 dm³ (24 000 cm³) at room temperature and pressure.",
+      "example": "0.5 mol of CO₂ occupies 0.5 × 24 = 12 dm³ at r.t.p."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-f9",
+      "term": "Limiting reactant (Extended)",
+      "definition": "The reactant that runs out first, found by comparing mole amounts with the equation ratio; it alone fixes the amount of product.",
+      "example": "2 mol H₂ + 1.5 mol O₂: H₂ needs only 1 mol O₂, so H₂ is limiting and 36 g of water forms."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-f10",
+      "term": "Titration calculation (Extended)",
+      "definition": "n = c × V (V in dm³), then apply the equation mole ratio, then c = n/V for the unknown.",
+      "example": "25.0 cm³ of 0.100 mol/dm³ NaOH needs 20.0 cm³ of HCl → c(HCl) = 0.00250/0.0200 = 0.125 mol/dm³."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-f11",
+      "term": "Empirical and molecular formulae (Extended)",
+      "definition": "Empirical = simplest whole-number mole ratio of the atoms (divide each mass by Aᵣ, then by the smallest); molecular = a whole-number multiple matching the Mᵣ.",
+      "example": "24 g C and 8 g H: 2 mol : 8 mol = CH₄. Empirical CH₂ with Mᵣ 42 is C₃H₆."
+    },
+    {
+      "id": "chem-igcse-mole-calculations-f12",
+      "term": "Percentage yield and purity (Extended)",
+      "definition": "% yield = actual mass ÷ theoretical mass × 100; % purity = mass of pure substance ÷ mass of sample × 100.",
+      "example": "Obtaining 15 g when 20 g was expected is a 75% yield; 20 g of CaCO₃ in a 25 g sample is 80% pure."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-igcse-mole-calculations-q1",
+      "stem": "What is the relative formula mass of water, H₂O? (Aᵣ: H = 1, O = 16)",
+      "choices": [
+        "18",
+        "17",
+        "16",
+        "34"
+      ],
+      "correctIndex": 0,
+      "explanation": "$M_r = (2 \\times 1) + 16 = 18$. The subscript 2 doubles the hydrogen contribution; 17 comes from forgetting it.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q2",
+      "stem": "What is the value of the Avogadro constant — the number of particles in one mole?",
+      "choices": [
+        "$6.02 \\times 10^{21}$",
+        "$6.02 \\times 10^{22}$",
+        "$1.60 \\times 10^{-19}$",
+        "$6.02 \\times 10^{23}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "One mole contains $6.02 \\times 10^{23}$ particles. $1.60 \\times 10^{-19}$ is the electron charge in coulombs — a different constant entirely.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q3",
+      "stem": "What does the empirical formula of a compound show?",
+      "choices": [
+        "The actual number of atoms of each element in one molecule",
+        "The simplest whole-number ratio of atoms of each element",
+        "The percentage by mass of each element",
+        "The arrangement of the atoms in space"
+      ],
+      "correctIndex": 1,
+      "explanation": "Empirical = simplest ratio (CH₂ for ethene); the molecular formula gives the actual numbers (C₂H₄) and is a whole-number multiple of the empirical formula.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q4",
+      "stem": "What volume is occupied by one mole of any gas at room temperature and pressure?",
+      "choices": [
+        "$2.4\\text{ dm}^3$",
+        "$22.4\\text{ dm}^3$",
+        "$24\\text{ dm}^3$",
+        "$240\\text{ dm}^3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The molar gas volume at r.t.p. is $24\\text{ dm}^3$ (24 000 cm³) for ANY gas. 22.4 dm³ is the value at standard temperature and pressure — 0620 uses 24 dm³ at r.t.p.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q5",
+      "stem": "Boron has two isotopes: 20% ¹⁰B and 80% ¹¹B. What is its relative atomic mass?",
+      "choices": [
+        "$10.0$",
+        "$10.5$",
+        "$11.0$",
+        "$10.8$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$A_r = \\dfrac{(20 \\times 10) + (80 \\times 11)}{100} = \\dfrac{200 + 880}{100} = 10.8$. Choice 10.5 is the plain average of the two masses, which ignores the abundances.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q6",
+      "stem": "What is the relative formula mass of calcium carbonate, CaCO₃? (Aᵣ: Ca = 40, C = 12, O = 16)",
+      "choices": [
+        "$100$",
+        "$68$",
+        "$84$",
+        "$116$"
+      ],
+      "correctIndex": 0,
+      "explanation": "$M_r = 40 + 12 + (3 \\times 16) = 40 + 12 + 48 = 100$. Choice 68 forgets to multiply the oxygen by 3; 116 adds an extra oxygen.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q7",
+      "stem": "CaCO₃ → CaO + CO₂ (Mᵣ: CaCO₃ = 100, CaO = 56, CO₂ = 44). What mass of carbon dioxide is produced when 50 g of calcium carbonate is completely decomposed?",
+      "choices": [
+        "$44\\text{ g}$",
+        "$50\\text{ g}$",
+        "$22\\text{ g}$",
+        "$28\\text{ g}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The equation ratio says 100 g of CaCO₃ gives 44 g of CO₂, so 50 g gives $50 \\times \\dfrac{44}{100} = 22$ g. 28 g is the mass of CaO produced; 44 g needs 100 g of CaCO₃.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q8",
+      "stem": "How many moles are there in 8 g of methane, CH₄ (Mᵣ = 16)?",
+      "choices": [
+        "$2\\text{ mol}$",
+        "$0.5\\text{ mol}$",
+        "$16\\text{ mol}$",
+        "$8\\text{ mol}$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$n = \\dfrac{m}{M_r} = \\dfrac{8}{16} = 0.5$ mol. Choice 2 mol comes from inverting the formula ($\\dfrac{16}{8}$).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q9",
+      "stem": "A solution contains 0.5 mol of solute dissolved in 2.0 dm³ of solution. What is its concentration?",
+      "choices": [
+        "$1.0\\text{ mol/dm}^3$",
+        "$4.0\\text{ mol/dm}^3$",
+        "$2.5\\text{ mol/dm}^3$",
+        "$0.25\\text{ mol/dm}^3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Concentration $= \\dfrac{n}{V} = \\dfrac{0.5}{2.0} = 0.25$ mol/dm³. Choice 4.0 comes from dividing volume by moles instead of moles by volume.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q10",
+      "stem": "What volume does 0.5 mol of carbon dioxide occupy at room temperature and pressure?",
+      "choices": [
+        "$12\\text{ dm}^3$",
+        "$48\\text{ dm}^3$",
+        "$24\\text{ dm}^3$",
+        "$0.5\\text{ dm}^3$"
+      ],
+      "correctIndex": 0,
+      "explanation": "Volume $= n \\times 24 = 0.5 \\times 24 = 12\\text{ dm}^3$. Choice 24 dm³ is the volume of a whole mole; 48 dm³ is 2 mol.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q11",
+      "stem": "Which ionic equation, with correct state symbols, describes the neutralisation of any strong acid by any strong alkali?",
+      "choices": [
+        "Na⁺(aq) + Cl⁻(aq) → NaCl(aq)",
+        "H⁺(aq) + OH⁻(aq) → H₂O(l)",
+        "HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)",
+        "OH⁻(aq) → H⁺(aq) + O²⁻(aq)"
+      ],
+      "correctIndex": 1,
+      "explanation": "Only the H⁺ and OH⁻ ions change — the spectator ions cancel from both sides. Water is a liquid, so (l); choice 3 is the full symbol equation, not the ionic equation.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q12",
+      "stem": "2H₂ + O₂ → 2H₂O. A mixture of 4 g of hydrogen and 48 g of oxygen reacts completely as far as possible (Aᵣ: H = 1, O = 16). Which reactant is limiting, and what mass of water forms?",
+      "choices": [
+        "O₂ is limiting; 54 g of water",
+        "O₂ is limiting; 27 g of water",
+        "H₂ is limiting; 36 g of water",
+        "H₂ is limiting; 72 g of water"
+      ],
+      "correctIndex": 2,
+      "explanation": "$n(\\text{H}_2) = \\dfrac{4}{2} = 2$ mol and $n(\\text{O}_2) = \\dfrac{48}{32} = 1.5$ mol. 2 mol of H₂ needs only 1 mol of O₂, so H₂ is limiting (O₂ is in excess). Water: 2 mol × 18 g/mol = 36 g. Comparing masses instead of moles wrongly makes O₂ look limiting.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q13",
+      "stem": "A hydrocarbon contains 24 g of carbon and 8 g of hydrogen (Aᵣ: C = 12, H = 1). What is its empirical formula?",
+      "choices": [
+        "CH₄",
+        "CH₂",
+        "C₂H₈",
+        "C₂H₄"
+      ],
+      "correctIndex": 0,
+      "explanation": "$n(\\text{C}) = \\dfrac{24}{12} = 2$ mol; $n(\\text{H}) = \\dfrac{8}{1} = 8$ mol; ratio 2 : 8 simplifies to 1 : 4, giving CH₄. C₂H₈ is the same ratio NOT simplified to its smallest whole numbers.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q14",
+      "stem": "25.0 cm³ of 0.100 mol/dm³ NaOH is exactly neutralised by 20.0 cm³ of HCl (the reaction ratio is 1 : 1). What is the concentration of the HCl?",
+      "choices": [
+        "$0.0800\\text{ mol/dm}^3$",
+        "$0.100\\text{ mol/dm}^3$",
+        "$0.0625\\text{ mol/dm}^3$",
+        "$0.125\\text{ mol/dm}^3$"
+      ],
+      "correctIndex": 3,
+      "explanation": "$n(\\text{NaOH}) = 0.100 \\times \\dfrac{25.0}{1000} = 0.00250$ mol, so $n(\\text{HCl}) = 0.00250$ mol too, and $c = \\dfrac{0.00250}{0.0200} = 0.125$ mol/dm³. Forgetting the cm³ → dm³ conversion is the classic error here.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-mole-calculations-q15",
+      "stem": "A reaction should theoretically produce 20 g of product, but a student obtains 15 g. What is the percentage yield?",
+      "choices": [
+        "$133\\%$",
+        "$75\\%$",
+        "$25\\%$",
+        "$15\\%$"
+      ],
+      "correctIndex": 1,
+      "explanation": "$\\text{\\% yield} = \\dfrac{\\text{actual}}{\\text{theoretical}} \\times 100 = \\dfrac{15}{20} \\times 100 = 75\\%$. Choice 133% inverts the ratio — a yield above 100% is impossible and should ring alarm bells.",
+      "difficulty": "hard"
+    }
+  ]
+}

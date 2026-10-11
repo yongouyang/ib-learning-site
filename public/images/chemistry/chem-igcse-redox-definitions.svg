@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-labelledby="title desc">
+  <title id="title">Oxidation and reduction definitions</title>
+  <desc id="desc">Two panels compare oxidation and reduction by oxygen transfer (Core) and electron transfer (Extended), with the OILRIG mnemonic summarised in a banner below.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .head { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 15px; font-weight: 700; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .note { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; fill: #4b5563; }
+    </style>
+  </defs>
+
+  <rect width="800" height="440" fill="#f9fafb" rx="12"/>
+  <text x="400" y="36" text-anchor="middle" class="title">Oxidation and Reduction: Two Ways to Define Them</text>
+  <text x="400" y="58" text-anchor="middle" class="note">They always happen together — that is a redox reaction</text>
+
+  <!-- Oxidation panel -->
+  <rect x="60" y="80" width="330" height="240" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="225" y="110" text-anchor="middle" class="head" fill="#c2410c">OXIDATION</text>
+  <text x="85" y="142" class="label">gain of oxygen (Core)</text>
+  <text x="85" y="172" class="label">loss of electrons (Extended)</text>
+  <text x="85" y="202" class="label">oxidation number rises (Extended)</text>
+  <line x1="85" y1="222" x2="365" y2="222" stroke="#fdba74" stroke-width="1.5"/>
+  <text x="85" y="248" class="label">Mg → Mg²⁺ + 2e⁻</text>
+  <text x="85" y="272" class="sublabel">magnesium loses electrons — it is oxidised</text>
+
+  <!-- Reduction panel -->
+  <rect x="410" y="80" width="330" height="240" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="575" y="110" text-anchor="middle" class="head" fill="#1d4ed8">REDUCTION</text>
+  <text x="435" y="142" class="label">loss of oxygen (Core)</text>
+  <text x="435" y="172" class="label">gain of electrons (Extended)</text>
+  <text x="435" y="202" class="label">oxidation number falls (Extended)</text>
+  <line x1="435" y1="222" x2="715" y2="222" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="435" y="248" class="label">Cu²⁺ + 2e⁻ → Cu</text>
+  <text x="435" y="272" class="sublabel">copper(II) ions gain electrons — they are reduced</text>
+
+  <!-- OILRIG banner -->
+  <rect x="150" y="345" width="500" height="58" rx="8" fill="#111827"/>
+  <text x="400" y="369" text-anchor="middle" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 15px; font-weight: 700; fill: #ffffff;">OIL RIG</text>
+  <text x="400" y="390" text-anchor="middle" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; fill: #e5e7eb;">Oxidation Is Loss  ·  Reduction Is Gain  (of electrons)</text>
+</svg>

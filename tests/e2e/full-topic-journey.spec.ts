@@ -17,7 +17,7 @@ test.setTimeout(120000);
 async function completeTopicJourney(page: Page, subjectId: string, topicId: string, title: string) {
   // 1. Subject page -> click Study for the chosen topic
   await page.goto(`/subjects/${subjectId}`);
-  await expect(page.getByRole('heading', { name: title, level: 3 })).toBeVisible();
+  await expect(page.getByRole('heading', { name: title, level: 3, exact: true })).toBeVisible();
 
   const studyLink = page.locator(`a[href="/subjects/${subjectId}/${topicId}/study"]`).filter({ hasText: 'Study' });
   await expect(studyLink).toBeVisible();

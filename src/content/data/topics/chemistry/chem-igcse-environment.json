@@ -1,0 +1,321 @@
+{
+  "id": "chem-igcse-environment",
+  "subjectId": "chemistry",
+  "title": "Chemistry of the Environment",
+  "description": "Testing water for purity, the stages of water treatment, NPK fertilisers, and the sources and effects of air pollutants with strategies to reduce them — Core content for Cambridge IGCSE Chemistry 0620.",
+  "stage": "igcse",
+  "course": "0620",
+  "notes": [
+    {
+      "id": "chem-igcse-environment-n1",
+      "heading": "Pure Water vs Potable Water — and the Purity Test",
+      "body": "📌 Two different ideas\n• **Pure water** (a single chemical, H₂O, nothing dissolved in it) is what chemists mean by 'pure'.\n• **Potable water** is water that is safe to drink. It is NOT pure — it contains dissolved minerals and must have very low levels of microbes.\n\n📌 The chemical test for purity\nA pure substance has SHARP, fixed melting and boiling points. Pure water melts at exactly **0 °C** and boils at exactly **100 °C** (at atmospheric pressure). Impurities LOWER the melting point and RAISE the boiling point, and make melting/boiling happen over a range instead of sharply.\n\n💡 Worked Example\nA sample of 'water' melts at −3 °C and boils over the range 100-103 °C. It is impure: dissolved substances have pushed the melting point down and the boiling point up.\n\n⚠️ Common Mistake\nWriting 'boil it and see if it evaporates' or 'taste it'. The exam wants the fixed-points test: melts at exactly 0 °C and boils at exactly 100 °C. Clear, colourless water is not necessarily safe or pure — many dissolved substances and microbes are invisible.\n\n📎 Key Points to Remember\n• Potable = safe to drink; pure = only H₂O.\n• Purity test: melting point 0 °C and boiling point 100 °C, both sharp."
+    },
+    {
+      "id": "chem-igcse-environment-n2",
+      "heading": "Treating Water: From Reservoir to Tap",
+      "body": "Fresh water from rivers, lakes and reservoirs is treated before supply. Know each stage AND what it removes.\n\n🔑 The stages in order\n1. **Screening** — water passes through grids that remove large debris (leaves, litter).\n2. **Sedimentation** — the water stands in large tanks so that suspended particles settle to the bottom.\n3. **Filtration** — the water passes through beds of sand (and gravel) that trap the remaining fine solids.\n4. **Chlorination** — chlorine is added to kill bacteria and other microbes.\nThe treated water is then stored and pumped to homes.\n\n🔑 Why every stage earns its place\nScreens and sand remove only SOLIDS — they cannot touch dissolved substances or microbes. That is why chlorination is essential: it is the stage that makes the water microbiologically safe.\n\n⚠️ Common Mistake\nClaiming the treatment makes the water 'pure'. It makes it POTABLE — dissolved minerals stay in, and that is fine (they give taste). Only distillation or reverse osmosis would remove dissolved substances, and that is not part of the standard treatment.\n\n📎 Key Points to Remember\n• Order: screening → sedimentation → filtration → chlorination.\n• Chlorination kills microbes; filtration only removes solids.",
+      "illustration": {
+        "src": "/images/chemistry/chem-igcse-environment-water-treatment.svg",
+        "alt": "Flow diagram of water treatment: screening removes large debris, sedimentation lets particles settle, filtration through sand beds traps fine solids, chlorination kills microbes, and the potable water is supplied to homes.",
+        "caption": "Screens and sand remove solids; only chlorination kills the microbes — the water is potable, not pure."
+      }
+    },
+    {
+      "id": "chem-igcse-environment-n3",
+      "heading": "NPK Fertilisers",
+      "body": "📌 Why fertilisers exist\nCrops strip mineral ions from the soil. Fertilisers replace the three elements plants need most — nitrogen, phosphorus and potassium — as soluble compounds the roots can absorb. That is why bags of fertiliser are labelled 'NPK'.\n\n📌 What each element does\n• **N — nitrogen**: for healthy **leaf growth** (plants use nitrate ions to make proteins, and proteins drive growth).\n• **P — phosphorus**: for strong **root growth**.\n• **K — potassium**: for **flowers and fruit** and general disease resistance.\n\n💡 Worked Example\nA lawn fertiliser is high in N (leaves are the crop); a tomato feed is high in K (fruit is the crop); a 'rooting' feed for young plants is high in P.\n\n🔑 The exam angle\nYou may be asked which compound supplies which element — read the formula: ammonium nitrate NH₄NO₃ supplies nitrogen; potassium chloride KCl supplies potassium; a phosphate rock supplies phosphorus. A compound only 'counts' for an element if it is SOLUBLE, so the ions can reach the roots.\n\n⚠️ Common Mistake\nSwapping N and P: nitrogen = leaves, phosphorus = roots. Mnemonic: N is for the bits you see greeN (leaves); P for the parts Planted in the ground (roots); K for the crop (flowers and fruit).\n\n📎 Key Points to Remember\n• N → leaves, P → roots, K → flowers/fruit and disease resistance.\n• The nutrient must be in soluble form to be absorbed."
+    },
+    {
+      "id": "chem-igcse-environment-n4",
+      "heading": "Air Pollutants I: Carbon Monoxide and Sulfur Dioxide",
+      "body": "📌 Carbon monoxide, CO\n• **Source**: INCOMPLETE combustion of carbon-containing fuels — engines, fires and boilers starved of enough oxygen to make CO₂.\n• **Effect**: CO is **toxic**. It is colourless and odourless, and it binds to haemoglobin in the blood in place of oxygen, so the blood carries less oxygen around the body.\n\n📌 Sulfur dioxide, SO₂\n• **Source**: burning fossil fuels (especially coal and heavy oil) that contain **sulfur impurities**.\n• **Effect**: SO₂ dissolves in rainwater to form **acid rain**, which damages plants, acidifies lakes so fish die, and corrodes buildings and statues made of limestone or marble.\n\n💡 Exam framing\n0620 loves a source-effect pair: 'State the source and one effect of sulfur dioxide.' One mark each — write a full sentence linking them, e.g. 'SO₂ from burning sulfur-containing fossil fuels dissolves in rain to give acid rain, which kills fish in acidified lakes.'\n\n⚠️ Common Mistake\nConfusing CO with CO₂. CO₂ is the product of COMPLETE combustion and harms through climate change; CO comes from INCOMPLETE combustion and is directly toxic. The names differ by one letter and the answers differ completely.\n\n📎 Key Points to Remember\n• CO: incomplete combustion → toxic, binds haemoglobin.\n• SO₂: sulfur impurities in fuels → acid rain."
+    },
+    {
+      "id": "chem-igcse-environment-n5",
+      "heading": "Air Pollutants II: Oxides of Nitrogen and Particulates",
+      "body": "📌 Oxides of nitrogen, NOₓ\n• **Source**: the high temperatures inside vehicle engines make the nitrogen and oxygen in the AIR react together. (The fuels contain little nitrogen — it is the heat that matters.)\n• **Effects**: like SO₂, NOₓ dissolve in rain to give **acid rain**, and they irritate the lungs and worsen breathing problems such as asthma.\n\n📌 Particulates\n• **Source**: tiny solid particles of soot and ash, again mainly from incomplete combustion — diesel engines are a major source.\n• **Effect**: breathed deep into the lungs, particulates increase the risk of **respiratory problems** and other lung diseases; they also reduce visibility and blacken buildings.\n\n💡 Exam framing\n'Explain why NOₓ levels are highest near busy roads even though the fuel contains almost no nitrogen' — because engine temperatures are high enough to make the N₂ and O₂ in the air itself react.\n\n⚠️ Common Mistake\nSaying NOₓ comes 'from the nitrogen in petrol'. It comes from the AIR, driven by the engine's high temperature.\n\n📎 Key Points to Remember\n• NOₓ: hot engines → acid rain + breathing irritation.\n• Particulates: incomplete combustion → lung damage."
+    },
+    {
+      "id": "chem-igcse-environment-n6",
+      "heading": "Greenhouse Gases: Carbon Dioxide and Methane",
+      "body": "📌 Carbon dioxide, CO₂\n• **Source**: the COMPLETE combustion of carbon-containing fossil fuels, made worse by deforestation (fewer trees absorbing CO₂).\n\n📌 Methane, CH₄\n• **Sources**: digestion in livestock (cattle), decomposition of plant waste in rice fields and landfill sites.\n\n📌 The shared effect\nBoth are **greenhouse gases**: rising levels strengthen the natural greenhouse effect, leading to **global warming and climate change**. Methane is the more potent greenhouse gas per molecule, but CO₂ is emitted in far greater quantities.\n\n🔑 Cross-link, don't re-learn\nYou studied the greenhouse mechanism and the evidence for climate change at KS3 in chem-earth-1 — the 0620 Core requirement here is the SOURCES and EFFECTS of these two gases, not the radiation mechanism (that mechanism is Extended tier anyway). Revise the KS3 topic for the 'how', learn this note for the 'which and why'.\n\n⚠️ Common Mistake\nCalling CO a greenhouse gas or calling methane 'the main product of car engines'. CO is toxic, not a greenhouse gas; methane's headline sources are cattle, rice fields and landfill.\n\n📎 Key Points to Remember\n• CO₂: complete combustion + deforestation → global warming.\n• CH₄: livestock, rice fields, landfill → a potent greenhouse gas."
+    },
+    {
+      "id": "chem-igcse-environment-n7",
+      "heading": "Reducing Air Pollution",
+      "body": "For each pollutant, know at least one reduction strategy — 0620 asks 'suggest how emissions of X can be reduced'.\n\n📌 The strategies\n• **Catalytic converters** (vehicle exhausts): convert carbon monoxide and oxides of nitrogen into much less harmful gases — carbon dioxide and nitrogen — before they leave the exhaust. (The converter as a concept is Core; the equation is Extended.)\n• **Low-sulfur fuels and flue-gas desulfurisation**: using fuels with little sulfur, or scrubbing the waste gases of power stations, cuts SO₂ and therefore acid rain.\n• **Burning less fossil fuel overall**: switching to renewable or nuclear electricity, using public transport, and improving engine efficiency cut CO₂, CO, NOₓ and particulates together.\n• **Managing methane**: capturing the gas given off by landfill sites (it can be burned as a fuel) and changing farming practices reduce CH₄ emissions.\n\n💡 Exam framing\n'Suggest AND explain': name the strategy, then say which pollutant falls and why. 'Catalytic converters reduce CO and NOₓ because they convert them to CO₂ and N₂ inside the exhaust' earns both marks.\n\n⚠️ Common Mistake\nOffering a strategy that doesn't match the pollutant — a catalytic converter cannot remove CO₂, and fitting filters to chimneys cannot stop CO₂ either. Match the fix to the source.\n\n📎 Key Points to Remember\n• Catalytic converter: CO and NOₓ → CO₂ and N₂ (concept only).\n• Low-sulfur fuels / scrubbers: cut SO₂.\n• Less fossil fuel: cuts everything at once."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-igcse-environment-f1",
+      "term": "Chemical test for pure water",
+      "definition": "Pure water melts at exactly 0 °C and boils at exactly 100 °C (at atmospheric pressure). Impurities lower the melting point and raise the boiling point.",
+      "example": "A sample melting at −2 °C and boiling over a range is impure."
+    },
+    {
+      "id": "chem-igcse-environment-f2",
+      "term": "Potable water",
+      "definition": "Water that is safe to drink: very low levels of microbes, but NOT chemically pure — it still contains dissolved minerals.",
+      "example": "Tap water is potable; distilled water is pure but not what comes out of the tap."
+    },
+    {
+      "id": "chem-igcse-environment-f3",
+      "term": "Water treatment order",
+      "definition": "Screening → sedimentation → filtration (through sand beds) → chlorination.",
+      "example": "Screens catch litter, sedimentation tanks settle particles, sand traps fine solids, chlorine kills microbes."
+    },
+    {
+      "id": "chem-igcse-environment-f4",
+      "term": "Chlorination",
+      "definition": "Adding chlorine to treated water to kill bacteria and other microbes — the stage that makes water microbiologically safe.",
+      "example": "Filtration alone cannot make river water safe; it removes solids but not microbes."
+    },
+    {
+      "id": "chem-igcse-environment-f5",
+      "term": "Nitrogen (N) in fertilisers",
+      "definition": "Promotes healthy leaf growth — plants use nitrate ions to make proteins.",
+      "example": "Lawn fertiliser is high in nitrogen because the leaves are the crop."
+    },
+    {
+      "id": "chem-igcse-environment-f6",
+      "term": "Phosphorus (P) in fertilisers",
+      "definition": "Promotes strong root growth.",
+      "example": "Rooting feeds for young plants are high in phosphorus."
+    },
+    {
+      "id": "chem-igcse-environment-f7",
+      "term": "Potassium (K) in fertilisers",
+      "definition": "Promotes flowers and fruit and improves disease resistance.",
+      "example": "Tomato feed is high in potassium because the fruit is the crop."
+    },
+    {
+      "id": "chem-igcse-environment-f8",
+      "term": "Carbon monoxide (CO)",
+      "definition": "From incomplete combustion of fuels. Toxic: binds to haemoglobin so the blood carries less oxygen.",
+      "example": "Faulty boilers and car exhausts in closed spaces are classic CO hazards — it is colourless and odourless."
+    },
+    {
+      "id": "chem-igcse-environment-f9",
+      "term": "Sulfur dioxide (SO₂)",
+      "definition": "From burning fossil fuels containing sulfur impurities. Dissolves in rainwater to cause acid rain.",
+      "example": "Acid rain acidifies lakes, harms plants and corrodes limestone buildings."
+    },
+    {
+      "id": "chem-igcse-environment-f10",
+      "term": "Oxides of nitrogen (NOₓ)",
+      "definition": "Form when high temperatures in vehicle engines make the N₂ and O₂ in the air react. Cause acid rain and irritate the lungs.",
+      "example": "NOₓ levels are highest beside busy roads because the heat, not the fuel, creates them."
+    },
+    {
+      "id": "chem-igcse-environment-f11",
+      "term": "Particulates",
+      "definition": "Tiny solid particles (soot) from incomplete combustion; increase the risk of respiratory problems.",
+      "example": "Diesel exhaust soot lodges deep in the lungs."
+    },
+    {
+      "id": "chem-igcse-environment-f12",
+      "term": "Methane (CH₄)",
+      "definition": "A potent greenhouse gas from livestock digestion, rice fields and decomposing waste in landfill sites.",
+      "example": "Capturing landfill gas and burning it as fuel reduces methane emissions."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-igcse-environment-q1",
+      "stem": "At atmospheric pressure, at what temperature does pure water boil?",
+      "choices": [
+        "90 °C",
+        "98 °C",
+        "100 °C",
+        "110 °C"
+      ],
+      "correctIndex": 2,
+      "explanation": "Pure water has a sharp boiling point of exactly 100 °C at atmospheric pressure. Impurities raise the boiling point and spread it over a range, so a sample boiling above 100 °C is not pure.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-environment-q2",
+      "stem": "What is the purpose of chlorination in water treatment?",
+      "choices": [
+        "To kill bacteria and other microbes",
+        "To remove dissolved minerals",
+        "To make the water taste of chlorine",
+        "To trap fine solid particles"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chlorine is added to kill microbes — it is the stage that makes the water microbiologically safe. Solids are removed by screening, sedimentation and filtration; dissolved minerals are not removed at all.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-environment-q3",
+      "stem": "Which part of a plant does the nitrogen in an NPK fertiliser mainly promote?",
+      "choices": [
+        "Strong roots",
+        "Flowers and fruit",
+        "Resistance to disease",
+        "Healthy leaf growth"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nitrogen (as nitrate ions) is used to make proteins for growth, and its visible effect is healthy leaves. Phosphorus promotes roots; potassium promotes flowers, fruit and disease resistance.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-environment-q4",
+      "stem": "What is the main source of the sulfur dioxide that causes acid rain?",
+      "choices": [
+        "Vehicle engines running at high temperature",
+        "Burning fossil fuels that contain sulfur impurities",
+        "Decomposing waste in landfill sites",
+        "Complete combustion of natural gas"
+      ],
+      "correctIndex": 1,
+      "explanation": "Coal and heavy oils contain sulfur impurities that burn to SO₂. Hot engines produce NOₓ, landfill produces methane, and complete combustion produces CO₂ — each pollutant has its own source.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-environment-q5",
+      "stem": "Why is carbon monoxide toxic to humans?",
+      "choices": [
+        "It dissolves in moisture to form an acid in the lungs",
+        "It binds to haemoglobin in the blood, so less oxygen can be carried around the body",
+        "It damages the ozone layer",
+        "It has a sharp smell that burns the throat"
+      ],
+      "correctIndex": 1,
+      "explanation": "CO binds to haemoglobin in place of oxygen, starving the body of O₂. It is colourless and odourless, which is why it gives no warning — and it has nothing to do with the ozone layer.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-environment-q6",
+      "stem": "Which of these is NOT a stage in the treatment of fresh water for drinking?",
+      "choices": [
+        "Screening",
+        "Sedimentation",
+        "Distillation",
+        "Chlorination"
+      ],
+      "correctIndex": 2,
+      "explanation": "The treatment sequence is screening → sedimentation → filtration → chlorination. Distillation would remove dissolved substances, but it is energy-intensive and is only used for desalination, not in standard water treatment.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-environment-q7",
+      "stem": "A tomato grower wants a fertiliser high in potassium (K). What does potassium promote?",
+      "choices": [
+        "Flowers and fruit, plus disease resistance",
+        "Leaf growth",
+        "Root growth",
+        "Seed germination"
+      ],
+      "correctIndex": 0,
+      "explanation": "K promotes flowers and fruit and general disease resistance — exactly what a fruiting crop like tomatoes needs. N is for leaves and P is for roots.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-environment-q8",
+      "stem": "Where do the oxides of nitrogen (NOₓ) in vehicle exhausts come from?",
+      "choices": [
+        "Nitrogen impurities in the petrol",
+        "The breakdown of the catalytic converter",
+        "Fertiliser spray drifting onto roads",
+        "The high temperature in the engine makes nitrogen and oxygen from the air react together"
+      ],
+      "correctIndex": 3,
+      "explanation": "Fuels contain almost no nitrogen — it is the heat of the engine that forces the N₂ and O₂ in the intake air to combine. This is why NOₓ is worst beside busy roads.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-environment-q9",
+      "stem": "Which pair gives major sources of methane, a potent greenhouse gas?",
+      "choices": [
+        "Car exhausts and power stations",
+        "Burning coal and burning oil",
+        "Deforestation and aerosol sprays",
+        "Digestion in livestock and decomposition of waste in rice fields and landfill sites"
+      ],
+      "correctIndex": 3,
+      "explanation": "Methane comes from cattle digestion and from plant matter rotting without oxygen in rice paddies and landfill. Exhausts and power stations are mainly CO₂, CO, SO₂ and NOₓ sources.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-environment-q10",
+      "stem": "A sample of colourless water melts at −2 °C and boils over the range 100-103 °C. What can you conclude?",
+      "choices": [
+        "The sample is impure — dissolved impurities lower the melting point below 0 °C and raise the boiling point above 100 °C",
+        "The sample is pure — colourless liquids are always pure",
+        "The thermometer must be broken",
+        "The sample is potable, therefore pure"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pure water melts sharply at 0 °C and boils sharply at 100 °C. A melting point below 0 °C and a boiling range above 100 °C are the classic signs of dissolved impurities — and potable (safe to drink) water is not chemically pure anyway.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-environment-q11",
+      "stem": "What does a catalytic converter in a car exhaust do?",
+      "choices": [
+        "It filters out carbon dioxide before it leaves the exhaust",
+        "It cools the exhaust gases so they do not warm the atmosphere",
+        "It converts carbon monoxide and oxides of nitrogen into much less harmful carbon dioxide and nitrogen",
+        "It removes sulfur from the fuel as the car runs"
+      ],
+      "correctIndex": 2,
+      "explanation": "The converter's catalyst turns the toxic CO and NOₓ into CO₂ and N₂. It cannot remove CO₂ (a product it actually makes) and it has no effect on sulfur in the fuel.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-environment-q12",
+      "stem": "Which set lists genuine effects of acid rain?",
+      "choices": [
+        "Depletion of the ozone layer and skin cancer",
+        "Acidified lakes that kill fish, damaged plants, and corroded limestone buildings",
+        "Global warming and rising sea levels",
+        "Smog that makes the air taste sweet"
+      ],
+      "correctIndex": 1,
+      "explanation": "Acid rain (from SO₂ and NOₓ) acidifies lakes so fish die, damages vegetation, and attacks limestone and marble buildings. Ozone depletion and global warming are different problems with different gases.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-environment-q13",
+      "stem": "A power station wants to cut its SO₂ emissions. Which strategy directly targets this pollutant?",
+      "choices": [
+        "Switching to low-sulfur fuel or scrubbing the flue gases to remove the SO₂",
+        "Fitting catalytic converters to the chimneys",
+        "Capturing methane from the fuel store",
+        "Filtering out particulates from the smoke"
+      ],
+      "correctIndex": 0,
+      "explanation": "SO₂ comes from sulfur in the fuel, so burning low-sulfur fuel prevents it and flue-gas desulfurisation (scrubbing) removes it afterwards. Catalytic converters target CO and NOₓ in vehicle exhausts, and particulate filters do not touch SO₂ gas.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-environment-q14",
+      "stem": "River water is filtered through sand but NOT chlorinated. Why is it still unsafe to drink?",
+      "choices": [
+        "Sand adds silicon compounds to the water",
+        "Filtering makes the water too cold",
+        "River water always contains too much salt to drink",
+        "Filtration removes only solid particles — bacteria and other microbes (and dissolved substances) remain in the water"
+      ],
+      "correctIndex": 3,
+      "explanation": "Sand filtration traps fine solids but cannot remove microbes, which are far too small and not solid debris. Only chlorination (or another sterilising step) kills them — that is why the full treatment ends with chlorine.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-environment-q15",
+      "stem": "Particulates from diesel engines are harmful mainly because they:",
+      "choices": [
+        "cause acid rain",
+        "are breathed deep into the lungs, increasing the risk of respiratory problems",
+        "are a potent greenhouse gas",
+        "poison the blood like carbon monoxide"
+      ],
+      "correctIndex": 1,
+      "explanation": "Particulates are tiny solid particles (soot) that lodge deep in the lungs and are linked to respiratory problems. Acid rain is SO₂/NOₓ, and blood poisoning describes CO.",
+      "difficulty": "easy"
+    }
+  ]
+}

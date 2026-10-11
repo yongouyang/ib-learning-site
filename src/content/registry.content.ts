@@ -178,6 +178,21 @@ import chem_rates_1_json from './data/topics/chemistry/chem-rates-1.json';
 import chem_organic_1_json from './data/topics/chemistry/chem-organic-1.json';
 import chem_ion_tests_1_json from './data/topics/chemistry/chem-ion-tests-1.json';
 import chem_earth_1_json from './data/topics/chemistry/chem-earth-1.json';
+import chem_igcse_atomic_structure_json from './data/topics/chemistry/chem-igcse-atomic-structure.json';
+import chem_igcse_bonding_json from './data/topics/chemistry/chem-igcse-bonding.json';
+import chem_igcse_bonding_extended_json from './data/topics/chemistry/chem-igcse-bonding-extended.json';
+import chem_igcse_mole_calculations_json from './data/topics/chemistry/chem-igcse-mole-calculations.json';
+import chem_igcse_electrolysis_json from './data/topics/chemistry/chem-igcse-electrolysis.json';
+import chem_igcse_redox_json from './data/topics/chemistry/chem-igcse-redox.json';
+import chem_igcse_energetics_json from './data/topics/chemistry/chem-igcse-energetics.json';
+import chem_igcse_rates_json from './data/topics/chemistry/chem-igcse-rates.json';
+import chem_igcse_equilibrium_json from './data/topics/chemistry/chem-igcse-equilibrium.json';
+import chem_igcse_acids_bases_salts_json from './data/topics/chemistry/chem-igcse-acids-bases-salts.json';
+import chem_igcse_metals_json from './data/topics/chemistry/chem-igcse-metals.json';
+import chem_igcse_environment_json from './data/topics/chemistry/chem-igcse-environment.json';
+import chem_igcse_organic_fuels_json from './data/topics/chemistry/chem-igcse-organic-fuels.json';
+import chem_igcse_organic_reactions_json from './data/topics/chemistry/chem-igcse-organic-reactions.json';
+import chem_igcse_organic_extended_json from './data/topics/chemistry/chem-igcse-organic-extended.json';
 // Physics topics
 import phys_working_scientifically_1_json from './data/topics/physics/phys-working-scientifically-1.json';
 import phys_energy_1_json from './data/topics/physics/phys-energy-1.json';
@@ -444,6 +459,21 @@ const chem_rates_1: Topic = topicSchema.parse(chem_rates_1_json);
 const chem_organic_1: Topic = topicSchema.parse(chem_organic_1_json);
 const chem_ion_tests_1: Topic = topicSchema.parse(chem_ion_tests_1_json);
 const chem_earth_1: Topic = topicSchema.parse(chem_earth_1_json);
+const chem_igcse_atomic_structure: Topic = topicSchema.parse(chem_igcse_atomic_structure_json);
+const chem_igcse_bonding: Topic = topicSchema.parse(chem_igcse_bonding_json);
+const chem_igcse_bonding_extended: Topic = topicSchema.parse(chem_igcse_bonding_extended_json);
+const chem_igcse_mole_calculations: Topic = topicSchema.parse(chem_igcse_mole_calculations_json);
+const chem_igcse_electrolysis: Topic = topicSchema.parse(chem_igcse_electrolysis_json);
+const chem_igcse_redox: Topic = topicSchema.parse(chem_igcse_redox_json);
+const chem_igcse_energetics: Topic = topicSchema.parse(chem_igcse_energetics_json);
+const chem_igcse_rates: Topic = topicSchema.parse(chem_igcse_rates_json);
+const chem_igcse_equilibrium: Topic = topicSchema.parse(chem_igcse_equilibrium_json);
+const chem_igcse_acids_bases_salts: Topic = topicSchema.parse(chem_igcse_acids_bases_salts_json);
+const chem_igcse_metals: Topic = topicSchema.parse(chem_igcse_metals_json);
+const chem_igcse_environment: Topic = topicSchema.parse(chem_igcse_environment_json);
+const chem_igcse_organic_fuels: Topic = topicSchema.parse(chem_igcse_organic_fuels_json);
+const chem_igcse_organic_reactions: Topic = topicSchema.parse(chem_igcse_organic_reactions_json);
+const chem_igcse_organic_extended: Topic = topicSchema.parse(chem_igcse_organic_extended_json);
 const phys_working_scientifically_1: Topic = topicSchema.parse(phys_working_scientifically_1_json);
 const phys_energy_1: Topic = topicSchema.parse(phys_energy_1_json);
 const phys_forces_1: Topic = topicSchema.parse(phys_forces_1_json);
@@ -578,7 +608,7 @@ const chemistrySubject: Subject = {
   name: chemistryMeta.name,
   icon: chemistryMeta.icon,
   accentColor: chemistryMeta.accentColor,
-  topics: [chem_working_scientifically_1, chem_states_1, chem_mixtures_1, chem_acids_1, chem_changes_1, chem_periodic_1, chem_metals_1, chem_atomic_1, chem_bonding_1, chem_rates_1, chem_organic_1, chem_ion_tests_1, chem_earth_1],
+  topics: [chem_working_scientifically_1, chem_states_1, chem_mixtures_1, chem_acids_1, chem_changes_1, chem_periodic_1, chem_metals_1, chem_atomic_1, chem_bonding_1, chem_rates_1, chem_organic_1, chem_ion_tests_1, chem_earth_1, chem_igcse_atomic_structure, chem_igcse_bonding, chem_igcse_bonding_extended, chem_igcse_mole_calculations, chem_igcse_electrolysis, chem_igcse_redox, chem_igcse_energetics, chem_igcse_rates, chem_igcse_equilibrium, chem_igcse_acids_bases_salts, chem_igcse_metals, chem_igcse_environment, chem_igcse_organic_fuels, chem_igcse_organic_reactions, chem_igcse_organic_extended],
 };
 const physicsSubject: Subject = {
   id: physicsMeta.id as SubjectId,

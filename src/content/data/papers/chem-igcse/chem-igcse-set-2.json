@@ -1,0 +1,100 @@
+{
+  "id": "chem-igcse-set-2",
+  "courseId": "chem-igcse",
+  "title": "Practice Set 2",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "chem-igcse-set-2-q1",
+      "stem": "A sample of nitrogen gas, N₂, has a mass of $14$ g. Calculate the amount of nitrogen in moles, and the volume this amount occupies at room temperature and pressure. ($M_r$(N₂) $= 28$; molar gas volume at r.t.p. $= 24\\text{ dm}^3$)",
+      "marks": 2,
+      "markscheme": [
+        "M1: $n = \\dfrac{14}{28} = 0.50\\text{ mol}$",
+        "A1: $V = 0.50 \\times 24 = 12\\text{ dm}^3$"
+      ],
+      "modelAnswer": "Moles of nitrogen $= \\dfrac{14}{28} = 0.50$ mol. One mole of any gas fills $24\\text{ dm}^3$ at r.t.p., so $0.50$ mol fills $0.50 \\times 24 = 12\\text{ dm}^3$.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-set-2-q2",
+      "stem": "$20.0\\text{ cm}^3$ of sodium hydroxide solution of concentration $0.150\\text{ mol/dm}^3$ is exactly neutralised by $25.0\\text{ cm}^3$ of dilute sulfuric acid. The equation is 2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O. Calculate the concentration of the sulfuric acid in $\\text{mol/dm}^3$.",
+      "marks": 3,
+      "markscheme": [
+        "M1: $n$(NaOH) $= 0.0200 \\times 0.150 = 0.00300\\text{ mol}$",
+        "M1: $n$(H₂SO₄) $= \\dfrac{0.00300}{2} = 0.00150\\text{ mol}$",
+        "A1: $c = \\dfrac{0.00150}{0.0250} = 0.0600\\text{ mol/dm}^3$"
+      ],
+      "modelAnswer": "Convert volumes to dm³ and find the moles of alkali: $0.0200 \\times 0.150 = 0.00300$ mol. The equation shows two moles of NaOH neutralise one mole of H₂SO₄, so the acid amount is $\\dfrac{0.00300}{2} = 0.00150$ mol. That amount sat in $0.0250\\text{ dm}^3$, giving $c = \\dfrac{0.00150}{0.0250} = 0.0600\\text{ mol/dm}^3$.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-set-2-q3",
+      "stem": "For the reaction 2H₂ + O₂ → 2H₂O, use the bond energies H–H $= 436$, O=O $= 496$ and O–H $= 463\\text{ kJ/mol}$ to calculate the enthalpy change $\\Delta H$, and state whether the reaction is exothermic or endothermic.",
+      "marks": 3,
+      "markscheme": [
+        "M1: energy taken in to break bonds $= 2 \\times 436 + 496 = 1368\\text{ kJ/mol}$",
+        "M1: energy released forming bonds $= 4 \\times 463 = 1852\\text{ kJ/mol}$",
+        "A1: $\\Delta H = 1368 - 1852 = -484\\text{ kJ/mol}$; negative, so exothermic"
+      ],
+      "modelAnswer": "Breaking $2$ H–H bonds and $1$ O=O bond absorbs $2 \\times 436 + 496 = 1368\\text{ kJ/mol}$. Forming the $4$ O–H bonds in two water molecules releases $4 \\times 463 = 1852\\text{ kJ/mol}$. $\\Delta H = 1368 - 1852 = -484\\text{ kJ/mol}$ — forming the new bonds pays out more energy than breaking the old ones costs, so heat is given out: exothermic.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-set-2-q4",
+      "stem": "In the Haber process, ammonia is made from the equilibrium N₂(g) + 3H₂(g) ⇌ 2NH₃(g), which is exothermic in the forward direction. Explain why the industrial process uses a high pressure, and why a temperature of about $450\\,^{\\circ}\\text{C}$ is chosen rather than a much lower one.",
+      "marks": 3,
+      "markscheme": [
+        "B1: four moles of gas react to give two, so raising the pressure pushes the equilibrium towards ammonia",
+        "B1: a low temperature would favour the yield but would make the reaction too slow",
+        "B1: $450\\,^{\\circ}\\text{C}$ is a compromise — acceptable yield at a commercially viable rate"
+      ],
+      "modelAnswer": "The forward change converts 4 moles of gas into 2, so compressing the mixture drives the equilibrium towards the ammonia side. Cooling would improve the equilibrium yield because the forward reaction releases heat, but at a low temperature the particles collide too slowly for economical production. Around $450\\,^{\\circ}\\text{C}$ balances a decent yield against a fast enough rate, with the iron catalyst keeping the rate high at that temperature.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-set-2-q5",
+      "stem": "A solution containing Fe²⁺ ions is added to acidified potassium manganate(VII) solution. State the colour change observed, and explain the role of the Fe²⁺ ions in terms of electron transfer.",
+      "marks": 2,
+      "markscheme": [
+        "B1: the purple manganate(VII) solution turns colourless",
+        "B1: Fe²⁺ acts as the reducing agent — it loses electrons (Fe²⁺ → Fe³⁺) and is itself oxidised"
+      ],
+      "modelAnswer": "The deep purple colour of the manganate(VII) disappears as MnO₄⁻ is reduced. Each Fe²⁺ ion donates an electron to become Fe³⁺, so Fe²⁺ is the reducing agent and is oxidised in the process.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-set-2-q6",
+      "stem": "But-1-ene and but-2-ene are both alkenes with the molecular formula C₄H₈. Explain why they are described as isomers.",
+      "marks": 2,
+      "markscheme": [
+        "B1: they share the same molecular formula (C₄H₈)",
+        "B1: but their structures differ — the C=C double bond sits between different carbon atoms"
+      ],
+      "modelAnswer": "Both molecules contain four carbons and eight hydrogens, giving the identical molecular formula C₄H₈. In but-1-ene the double bond joins carbons 1 and 2, while in but-2-ene it joins carbons 2 and 3 — a different arrangement of the same atoms, which is exactly what isomers are.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-set-2-q7",
+      "stem": "During the electrolysis of concentrated aqueous sodium chloride, chlorine gas forms at the anode. Write the ionic half-equation for this anode reaction.",
+      "marks": 2,
+      "markscheme": [
+        "M1: 2Cl⁻ → Cl₂ + 2e⁻ (species correct)",
+        "A1: equation balanced for both atoms and charge"
+      ],
+      "modelAnswer": "Two chloride ions each give up one electron to form a chlorine molecule: 2Cl⁻ → Cl₂ + 2e⁻. The equation balances with two chlorines and a charge of −2 on each side.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-set-2-q8",
+      "stem": "Nylon is made by condensation polymerisation, whereas poly(ethene) is made by addition polymerisation. Describe two differences between these types of polymerisation.",
+      "marks": 3,
+      "markscheme": [
+        "B1: addition polymerisation uses one monomer containing a C=C double bond; condensation uses monomers with two reactive functional groups",
+        "B1: condensation releases a small molecule (such as water) every time a link forms; addition produces no by-product",
+        "B1: addition polymers have a backbone of carbon atoms only, while condensation polymers (nylon, PET) contain amide or ester links in the chain"
+      ],
+      "modelAnswer": "In addition polymerisation, many copies of a single unsaturated monomer such as ethene join across their double bonds, and nothing else is produced. In condensation polymerisation, monomers carrying two functional groups react and each new link expels a small molecule such as water. The chains differ too: poly(ethene) is all carbon down the backbone, whereas nylon and PET carry amide or ester linkages along the chain.",
+      "difficulty": "hard"
+    }
+  ]
+}

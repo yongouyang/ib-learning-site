@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-labelledby="title desc">
+  <title id="title">Three Triangles for Mole Calculations</title>
+  <desc id="desc">Three formula triangles used in IGCSE mole calculations: mass over moles times relative formula mass; moles over concentration times volume; and gas volume over moles times 24 cubic decimetres at room temperature and pressure.</desc>
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .big { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 20px; font-weight: 700; fill: #1f2937; }
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .tri { fill: #ffffff; stroke: #6b7280; stroke-width: 1.5; }
+      .divider { stroke: #6b7280; stroke-width: 1.5; }
+      .label-bg { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="900" height="440" fill="#f9fafb" rx="12"/>
+  <text x="450" y="34" text-anchor="middle" class="title">Three Triangles for Mole Calculations (Extended)</text>
+  <text x="450" y="58" text-anchor="middle" class="sublabel">Cover the quantity you want to find — the other two give you the formula.</text>
+
+  <!-- Triangle 1: mass / moles x Mr -->
+  <g>
+    <polygon class="tri" points="180,90 80,280 280,280"/>
+    <line class="divider" x1="138" y1="170" x2="222" y2="170"/>
+    <line class="divider" x1="180" y1="170" x2="180" y2="280"/>
+    <text x="180" y="125" text-anchor="middle" class="big">m</text>
+    <text x="180" y="145" text-anchor="middle" class="sublabel">mass (g)</text>
+    <text x="157" y="225" text-anchor="middle" class="label">n</text>
+    <text x="157" y="243" text-anchor="middle" class="sublabel">moles</text>
+    <text x="203" y="225" text-anchor="middle" class="label">Mᵣ</text>
+    <text x="203" y="243" text-anchor="middle" class="sublabel">(g/mol)</text>
+    <rect x="80" y="300" width="200" height="30" rx="6" class="label-bg" stroke="#e5e7eb"/>
+    <text x="180" y="319" text-anchor="middle" class="sublabel">moles = mass ÷ Mᵣ</text>
+  </g>
+
+  <!-- Triangle 2: moles / concentration x volume -->
+  <g>
+    <polygon class="tri" points="450,90 350,280 550,280"/>
+    <line class="divider" x1="408" y1="170" x2="492" y2="170"/>
+    <line class="divider" x1="450" y1="170" x2="450" y2="280"/>
+    <text x="450" y="125" text-anchor="middle" class="big">n</text>
+    <text x="450" y="145" text-anchor="middle" class="sublabel">moles</text>
+    <text x="427" y="225" text-anchor="middle" class="label">c</text>
+    <text x="427" y="243" text-anchor="middle" class="sublabel">(mol/dm³)</text>
+    <text x="473" y="225" text-anchor="middle" class="label">V</text>
+    <text x="473" y="243" text-anchor="middle" class="sublabel">(dm³)</text>
+    <rect x="335" y="300" width="230" height="30" rx="6" class="label-bg" stroke="#e5e7eb"/>
+    <text x="450" y="319" text-anchor="middle" class="sublabel">moles = conc (mol/dm³) × V (dm³)</text>
+  </g>
+
+  <!-- Triangle 3: gas volume / moles x 24 -->
+  <g>
+    <polygon class="tri" points="720,90 620,280 820,280"/>
+    <line class="divider" x1="678" y1="170" x2="762" y2="170"/>
+    <line class="divider" x1="720" y1="170" x2="720" y2="280"/>
+    <text x="720" y="125" text-anchor="middle" class="big">V</text>
+    <text x="720" y="145" text-anchor="middle" class="sublabel">gas (dm³)</text>
+    <text x="697" y="225" text-anchor="middle" class="label">n</text>
+    <text x="697" y="243" text-anchor="middle" class="sublabel">moles</text>
+    <text x="743" y="225" text-anchor="middle" class="label">24</text>
+    <text x="743" y="243" text-anchor="middle" class="sublabel">dm³/mol</text>
+    <rect x="620" y="300" width="200" height="30" rx="6" class="label-bg" stroke="#e5e7eb"/>
+    <text x="720" y="319" text-anchor="middle" class="sublabel">gas vol = moles × 24 dm³</text>
+  </g>
+
+  <!-- Bottom reminder chips -->
+  <rect x="250" y="365" width="180" height="28" rx="6" class="label-bg" stroke="#e5e7eb"/>
+  <text x="340" y="383" text-anchor="middle" class="sublabel">1 dm³ = 1000 cm³</text>
+  <rect x="460" y="365" width="260" height="28" rx="6" class="label-bg" stroke="#e5e7eb"/>
+  <text x="590" y="383" text-anchor="middle" class="sublabel">24 dm³ per mole of gas at r.t.p.</text>
+</svg>

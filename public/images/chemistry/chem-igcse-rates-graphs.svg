@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Rate graphs comparing two reactions</title>
+  <desc id="desc">A graph of gas volume against time. A steep curve for a fast reaction (powder, concentrated acid) levels off early; a gentle curve for a slow reaction (lumps, dilute acid) levels off later. Both plateau at the same final volume.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .axis { stroke: #374151; stroke-width: 2; }
+      .grid { stroke: #e5e7eb; stroke-width: 1; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="36" text-anchor="middle" class="title">Rate Graphs: Comparing Two Reactions</text>
+
+  <!-- Axes -->
+  <line x1="100" y1="440" x2="700" y2="440" class="axis"/>
+  <line x1="100" y1="440" x2="100" y2="80" class="axis"/>
+  <text x="400" y="474" text-anchor="middle" class="label">Time (s)</text>
+  <text x="48" y="260" text-anchor="middle" class="label" transform="rotate(-90 48 260)">Volume of gas (cm³)</text>
+
+  <!-- Gridlines -->
+  <line x1="100" y1="380" x2="700" y2="380" class="grid"/>
+  <line x1="100" y1="320" x2="700" y2="320" class="grid"/>
+  <line x1="100" y1="260" x2="700" y2="260" class="grid"/>
+  <line x1="100" y1="200" x2="700" y2="200" class="grid"/>
+  <line x1="250" y1="440" x2="250" y2="100" class="grid"/>
+  <line x1="400" y1="440" x2="400" y2="100" class="grid"/>
+  <line x1="550" y1="440" x2="550" y2="100" class="grid"/>
+
+  <!-- Fast curve (drawn first) -->
+  <path d="M100 440 C115 350 140 180 200 143 L700 143" fill="none" stroke="#f97316" stroke-width="3"/>
+  <!-- Slow curve (approaches the same plateau at the right edge) -->
+  <path d="M100 440 C200 430 400 245 520 165 C580 148 650 144 700 143" fill="none" stroke="#2563eb" stroke-width="3"/>
+
+  <!-- Fast label -->
+  <rect x="255" y="105" width="240" height="18" rx="4" fill="#f9fafb"/>
+  <text x="375" y="118" text-anchor="middle" class="sublabel">fast reaction: powder, concentrated acid</text>
+  <line x1="290" y1="123" x2="215" y2="148" class="line"/>
+
+  <!-- Slow label -->
+  <rect x="330" y="270" width="230" height="18" rx="4" fill="#f9fafb"/>
+  <text x="445" y="283" text-anchor="middle" class="sublabel">slow reaction: lumps, dilute acid</text>
+  <line x1="475" y1="270" x2="497" y2="190" class="line"/>
+
+  <!-- Plateau label -->
+  <rect x="520" y="105" width="240" height="18" rx="4" fill="#f9fafb"/>
+  <text x="640" y="118" text-anchor="middle" class="sublabel">plateau: reaction finished, same final volume</text>
+  <line x1="600" y1="123" x2="600" y2="140" class="line"/>
+</svg>

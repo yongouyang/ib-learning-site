@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 430" role="img" aria-labelledby="title desc">
+  <title id="title">Haber process conditions</title>
+  <desc id="desc">The Haber process reaction nitrogen plus three hydrogen in equilibrium with two ammonia, forward reaction exothermic, above three panels justifying the chosen conditions: about 450 degrees Celsius as a compromise between rate and yield, about 200 atmospheres shifting the equilibrium towards fewer gas molecules but limited by cost, and an iron catalyst that speeds up reaching equilibrium without changing the yield.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .eqn { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 17px; font-weight: 700; fill: #1d4ed8; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .chip { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 700; fill: #ffffff; }
+      .panel { fill: #ffffff; stroke: #e5e7eb; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect width="800" height="430" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">The Haber Process: Choosing the Conditions</text>
+
+  <!-- Equation banner -->
+  <rect x="20" y="52" width="760" height="58" rx="10" class="panel"/>
+  <text x="400" y="77" text-anchor="middle" class="eqn">N₂ + 3H₂ ⇌ 2NH₃</text>
+  <text x="400" y="98" text-anchor="middle" class="sublabel">forward reaction exothermic · nitrogen from the air, hydrogen from natural gas</text>
+
+  <!-- Panel 1: temperature -->
+  <rect x="20" y="128" width="245" height="196" rx="10" class="panel"/>
+  <rect x="32" y="140" width="132" height="24" rx="12" fill="#2563eb"/>
+  <text x="98" y="156" text-anchor="middle" class="chip">≈ 450 °C</text>
+  <text x="34" y="186" class="label">Temperature: a compromise</text>
+  <text x="34" y="210" class="sublabel">Lower temperature: higher yield</text>
+  <text x="34" y="226" class="sublabel">(forward is exothermic)</text>
+  <text x="34" y="242" class="sublabel">but the rate is too slow.</text>
+  <text x="34" y="266" class="sublabel">Higher temperature: fast but</text>
+  <text x="34" y="282" class="sublabel">lower yield. 450 °C balances both.</text>
+
+  <!-- Panel 2: pressure -->
+  <rect x="278" y="128" width="245" height="196" rx="10" class="panel"/>
+  <rect x="290" y="140" width="132" height="24" rx="12" fill="#2563eb"/>
+  <text x="356" y="156" text-anchor="middle" class="chip">≈ 200 atm</text>
+  <text x="292" y="186" class="label">Pressure: shifts the position</text>
+  <text x="292" y="210" class="sublabel">4 moles of gas → 2 moles,</text>
+  <text x="292" y="226" class="sublabel">so high pressure shifts the</text>
+  <text x="292" y="242" class="sublabel">position towards NH₃.</text>
+  <text x="292" y="266" class="sublabel">But compression costs energy</text>
+  <text x="292" y="282" class="sublabel">and stronger, safer plant.</text>
+
+  <!-- Panel 3: catalyst -->
+  <rect x="536" y="128" width="245" height="196" rx="10" class="panel"/>
+  <rect x="548" y="140" width="132" height="24" rx="12" fill="#2563eb"/>
+  <text x="614" y="156" text-anchor="middle" class="chip">iron catalyst</text>
+  <text x="550" y="186" class="label">Catalyst: speed only</text>
+  <text x="550" y="210" class="sublabel">Equilibrium is reached faster,</text>
+  <text x="550" y="226" class="sublabel">so the plant produces sooner.</text>
+  <text x="550" y="250" class="sublabel">It does NOT change the</text>
+  <text x="550" y="266" class="sublabel">position of equilibrium</text>
+  <text x="550" y="282" class="sublabel">or the yield.</text>
+
+  <!-- Bottom summary strip -->
+  <rect x="20" y="344" width="760" height="62" rx="8" class="panel"/>
+  <text x="400" y="369" text-anchor="middle" class="label">The ammonia is cooled, liquefied and removed as it forms.</text>
+  <text x="400" y="391" text-anchor="middle" class="sublabel">Removing a product pulls the position of equilibrium towards the products — more NH₃ per pass.</text>
+</svg>

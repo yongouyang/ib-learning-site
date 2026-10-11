@@ -1,0 +1,321 @@
+{
+  "id": "chem-igcse-acids-bases-salts",
+  "subjectId": "chemistry",
+  "title": "Acids, Bases and Salts",
+  "description": "The reactions of acids with metals, bases and carbonates; indicator colours and the pH scale; the neutralisation ionic equation; preparing a pure soluble salt; and the solubility rules — Core content for Cambridge IGCSE Chemistry 0620.",
+  "stage": "igcse",
+  "course": "0620",
+  "notes": [
+    {
+      "id": "chem-igcse-acids-bases-salts-n1",
+      "heading": "The Three Reactions of Acids",
+      "body": "You met these at KS3; at 0620 you must name the salt product and state the observations precisely.\n\n📌 The three general reactions\n• acid + **metal** → salt + hydrogen\n• acid + **base** (metal oxide or hydroxide) → salt + water\n• acid + **carbonate** → salt + water + carbon dioxide\n\n🔑 Naming the salt\nThe ACID decides the second word of the salt's name: hydrochloric acid → a **chloride**, sulfuric acid → a **sulfate**, nitric acid → a **nitrate**. The metal supplies the first word.\n\n💡 Worked Examples\n• Mg + H₂SO₄ → MgSO₄ + H₂ (magnesium sulfate; bubbles of hydrogen)\n• CuO + 2HCl → CuCl₂ + H₂O (copper(II) chloride; black solid dissolves)\n• CaCO₃ + 2HNO₃ → Ca(NO₃)₂ + H₂O + CO₂ (calcium nitrate; effervescence)\n\n⚠️ Common Mistake\nWriting 'salt + hydrogen + water' for a metal reaction. Metals give salt + hydrogen ONLY — no water. Water appears with bases (neutralisation) and carbonates.\n\n📎 Key Points to Remember\n• Only metals ABOVE hydrogen in the reactivity series react with dilute acids (Cu, Ag, Au do not).\n• Gas tests: H₂ gives a squeaky pop with a lighted splint; CO₂ turns limewater milky."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-n2",
+      "heading": "Indicators: Litmus, Methyl Orange, Thymolphthalein",
+      "body": "0620 requires the colours of three named indicators in acidic and alkaline solutions — learn them as a table.\n\n📌 The required colours\n• **Litmus**: red in acid, blue in alkali.\n• **Methyl orange**: red in acid, yellow in alkali.\n• **Thymolphthalein**: colourless in acid, blue in alkali.\n\n🔑 What an indicator result proves\nA single indicator only tells you acid-or-alkali, not HOW acidic. Two different acids both turn litmus red, whether pH 1 or pH 6. To pin down a pH value you need universal indicator (next note).\n\n💡 Worked Example\nA solution turns methyl orange red and thymolphthalein colourless. Both results say 'acidic' — consistent, but you still cannot tell a strong acid from a weak one without universal indicator or a pH meter.\n\n⚠️ Common Mistake\nMixing up the two 'blue' alkalis: litmus goes BLUE in alkali, thymolphthalein also goes BLUE in alkali — but in ACID litmus is red while thymolphthalein is colourless. 'Colourless' is not the same as 'white' or 'no change recorded' — always write the word colourless.\n\n📎 Key Points to Remember\n• Litmus: red/blue. Methyl orange: red/yellow. Thymolphthalein: colourless/blue.\n• One indicator = acid or alkali only; it cannot measure pH."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-n3",
+      "heading": "Universal Indicator and the pH Scale",
+      "body": "📌 The pH scale\nThe pH scale runs from 0 to 14 and measures how acidic or alkaline an aqueous solution is:\n• pH below 7 → acidic (the lower, the more acidic)\n• pH 7 → neutral (pure water)\n• pH above 7 → alkaline (the higher, the more alkaline)\n\n🔑 Universal indicator\nUniversal indicator is a mixture of indicators that gives a different colour at each part of the scale: red/orange for strong and weak acids, green at pH 7, blue to purple for increasingly strong alkalis. It can be used as a solution or as indicator paper.\n\n🔑 Measuring pH\n• **Universal indicator** (paper or solution): compare the colour with a chart — quick but only to the nearest pH unit.\n• **pH meter**: a probe giving an exact digital reading, e.g. pH 4.6.\n\n⚠️ Common Mistake\nDipping indicator paper into the test solution. That contaminates the whole sample — put a drop of the solution onto the paper with a clean glass rod instead.\n\n📎 Key Points to Remember\n• pH < 7 acid, pH 7 neutral, pH > 7 alkali.\n• Universal indicator estimates pH; a pH meter measures it exactly."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-n4",
+      "heading": "Acids, Bases and Alkalis: The Ions",
+      "body": "📌 Definitions\n• An **acid** is a substance that releases **hydrogen ions, H⁺(aq)**, when it dissolves in water. The (aq) matters — acids only show their acidic behaviour in aqueous solution.\n• A **base** is a metal oxide or metal hydroxide that reacts with an acid to form a salt and water (it 'accepts' the acid's H⁺). Most bases are insoluble in water.\n• An **alkali** is a base that IS soluble in water. In solution it releases **hydroxide ions, OH⁻(aq)**. Examples: sodium hydroxide NaOH, potassium hydroxide KOH, calcium hydroxide Ca(OH)₂, aqueous ammonia NH₃(aq).\n\n🔑 How it works\nEvery alkali is a base, but not every base is an alkali: copper(II) oxide CuO is a base (it neutralises acids) but it is insoluble, so it is not an alkali. Solubility is the whole difference.\n\n💡 Worked Example\nClassify NaOH and CuO: both neutralise acids so both are bases; only NaOH dissolves in water releasing OH⁻, so only NaOH is an alkali.\n\n⚠️ Common Mistake\nCalling every base an alkali. If the oxide or hydroxide does not dissolve, there is no OH⁻(aq) in solution and 'alkali' is the wrong word.\n\n📎 Key Points to Remember\n• Acids are a source of H⁺(aq); alkalis are a source of OH⁻(aq).\n• Alkali = soluble base."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-n5",
+      "heading": "Neutralisation: H⁺ + OH⁻ → H₂O",
+      "body": "📌 The ionic equation — this IS Core\nEvery acid-alkali neutralisation is the same reaction at the ionic level:\n**H⁺(aq) + OH⁻(aq) → H₂O(l)**\nWhatever the acid and whatever the alkali, the hydrogen ions and hydroxide ions combine to form water. The other ions are spectators — they stay in solution and form the salt when the water is evaporated.\n\n💡 Worked Example\nHCl + NaOH → NaCl + H₂O and H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O look different, but the essential change in both is H⁺(aq) + OH⁻(aq) → H₂O(l).\n\n🔑 Why the state symbols matter\n0620 mark schemes award the state symbols: (aq) for the ions dissolved in water, (l) for the water formed. Writing H⁺ + OH⁻ → H₂O without them can cost the mark.\n\n⚠️ Common Mistake\nWriting H⁺ + OH⁻ → H₂ + O₂ or H₂O₂. The ions join to make WATER — one H⁺ plus one OH⁻ gives exactly one H₂O.\n\n📎 Key Points to Remember\n• Neutralisation: H⁺(aq) + OH⁻(aq) → H₂O(l).\n• The salt comes from the ions left over (the spectators)."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-n6",
+      "heading": "Preparing a Pure Soluble Salt (Excess-Solid Method)",
+      "body": "When the base or carbonate is INSOLUBLE, you cannot use an indicator to judge the endpoint — so you use excess solid instead. This method (acid + excess insoluble base or carbonate) is Core practical chemistry.\n\n🔑 The method, step by step (making copper(II) sulfate from CuO + dilute H₂SO₄)\n1. Measure the dilute acid into a beaker and **warm** it (warming speeds the reaction).\n2. **Add the insoluble base in excess** — keep adding with stirring until no more dissolves and solid remains at the bottom. Excess guarantees ALL the acid has reacted, so the product is not contaminated with leftover acid.\n3. **Filter** to remove the unreacted excess solid. The filtrate is a pure solution of the salt.\n4. **Heat the filtrate to evaporate most of the water** until the solution is saturated (a drop cooled on a cold glass rod forms crystals).\n5. **Leave to cool so crystals form**, then filter them off and dry between filter papers.\n\n💡 Why not evaporate to dryness?\nBoiling the solution dry would decompose or powder the crystals; stopping at saturation and cooling slowly gives large, pure crystals.\n\n⚠️ Common Mistake\nForgetting the filtration step, or adding the salt 'until the indicator changes'. There is no indicator step in this method — the excess solid and the filter paper do that job.\n\n📎 Key Points to Remember\n• Excess solid → all acid used up → filter → evaporate to saturation → cool and crystallise.\n• Works because the base/carbonate is insoluble, so the excess is easily removed.",
+      "illustration": {
+        "src": "/images/chemistry/chem-igcse-acids-salts-prep.svg",
+        "alt": "Five-step flow diagram for preparing a pure soluble salt from an acid and an excess of an insoluble base: warm the acid, add excess base until some remains undissolved, filter off the unreacted solid, evaporate the filtrate to saturation, then cool so pure crystals form.",
+        "caption": "Excess insoluble base uses up all the acid; filtration removes the leftover solid; crystallisation gives the pure salt."
+      }
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-n7",
+      "heading": "Solubility Rules for Common Salts",
+      "body": "Whether a salt is soluble decides which preparation method is possible and which observations you should predict. The Core rules:\n\n📌 Always soluble\n• ALL sodium, potassium and ammonium salts.\n• ALL nitrates.\n\n📌 Mostly soluble — learn the exceptions\n• **Chlorides** are soluble EXCEPT silver chloride AgCl and lead(II) chloride PbCl₂.\n• **Sulfates** are soluble EXCEPT barium sulfate BaSO₄, lead(II) sulfate PbSO₄ (and calcium sulfate CaSO₄ is only sparingly soluble).\n\n📌 Mostly insoluble — learn the exceptions\n• **Carbonates** are insoluble EXCEPT sodium, potassium and ammonium carbonates.\n• **Hydroxides** are insoluble EXCEPT sodium and potassium hydroxides (calcium hydroxide is sparingly soluble).\n\n💡 Worked Example\nPredict the solubility of KNO₃, AgCl and MgCO₃: KNO₃ — soluble (all nitrates and all potassium salts); AgCl — insoluble (the named chloride exception); MgCO₃ — insoluble (carbonates are insoluble unless Na/K/NH₄).\n\n⚠️ Common Mistake\nThinking 'insoluble' means 'does not react'. Insoluble carbonates still react with acids — insolubility only describes whether the solid dissolves in water.\n\n📎 Key Points to Remember\n• Na⁺/K⁺/NH₄⁺ salts and nitrates: always soluble.\n• Chloride exceptions: AgCl, PbCl₂. Sulfate exceptions: BaSO₄, PbSO₄ (CaSO₄ sparingly).\n• Carbonates and hydroxides: insoluble except Na/K/NH₄."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-igcse-acids-bases-salts-f1",
+      "term": "Acid + metal",
+      "definition": "Gives a salt + hydrogen. Only metals above hydrogen in the reactivity series react with dilute acids.",
+      "example": "Mg + H₂SO₄ → MgSO₄ + H₂; test the H₂ with a lighted splint — squeaky pop."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-f2",
+      "term": "Acid + base",
+      "definition": "Gives a salt + water. Bases are metal oxides or metal hydroxides.",
+      "example": "CuO + 2HCl → CuCl₂ + H₂O (black copper(II) oxide dissolves in the warm acid)."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-f3",
+      "term": "Acid + carbonate",
+      "definition": "Gives a salt + water + carbon dioxide. Effervescence is the observation.",
+      "example": "CaCO₃ + 2HNO₃ → Ca(NO₃)₂ + H₂O + CO₂; the CO₂ turns limewater milky."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-f4",
+      "term": "Naming salts",
+      "definition": "The acid decides the salt name: hydrochloric → chloride, sulfuric → sulfate, nitric → nitrate. The metal gives the first word.",
+      "example": "Zinc + sulfuric acid → zinc sulfate; zinc + hydrochloric acid → zinc chloride."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-f5",
+      "term": "Litmus colours",
+      "definition": "Red in acidic solution, blue in alkaline solution.",
+      "example": "Vinegar turns blue litmus paper red."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-f6",
+      "term": "Methyl orange colours",
+      "definition": "Red in acidic solution, yellow in alkaline solution.",
+      "example": "Sodium hydroxide solution turns methyl orange yellow."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-f7",
+      "term": "Thymolphthalein colours",
+      "definition": "Colourless in acidic solution, blue in alkaline solution.",
+      "example": "In dilute hydrochloric acid thymolphthalein is colourless; in limewater it is blue."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-f8",
+      "term": "pH scale",
+      "definition": "Runs 0-14: below 7 is acidic, 7 is neutral, above 7 is alkaline. Measured with universal indicator or a pH meter.",
+      "example": "Universal indicator is green at pH 7; a pH meter reads exact values like 4.6."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-f9",
+      "term": "Acid (ionic definition)",
+      "definition": "A source of hydrogen ions, H⁺(aq), in aqueous solution.",
+      "example": "HCl dissolves in water releasing H⁺(aq) and Cl⁻(aq)."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-f10",
+      "term": "Alkali",
+      "definition": "A soluble base — a source of hydroxide ions, OH⁻(aq), in aqueous solution.",
+      "example": "NaOH, KOH and aqueous ammonia are alkalis; insoluble CuO is a base but not an alkali."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-f11",
+      "term": "Neutralisation ionic equation",
+      "definition": "H⁺(aq) + OH⁻(aq) → H₂O(l) — the essential reaction in every acid-alkali neutralisation.",
+      "example": "In HCl + NaOH → NaCl + H₂O, the Na⁺ and Cl⁻ are spectators; the real change is H⁺ + OH⁻ → H₂O."
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-f12",
+      "term": "Solubility rules",
+      "definition": "All Na/K/NH₄ salts and all nitrates are soluble; chlorides except AgCl/PbCl₂; sulfates except BaSO₄/PbSO₄; carbonates insoluble except Na/K/NH₄.",
+      "example": "AgCl is an insoluble chloride; K₂CO₃ is a soluble carbonate."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-igcse-acids-bases-salts-q1",
+      "stem": "What colour is litmus in an acidic solution?",
+      "choices": [
+        "Red",
+        "Blue",
+        "Yellow",
+        "Colourless"
+      ],
+      "correctIndex": 0,
+      "explanation": "Litmus is red in acid and blue in alkali. Yellow belongs to methyl orange in alkali and colourless to thymolphthalein in acid.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q2",
+      "stem": "Dilute hydrochloric acid is added to sodium carbonate. What are the products?",
+      "choices": [
+        "Sodium chloride + hydrogen",
+        "Sodium chloride + water only",
+        "Sodium chloride + water + carbon dioxide",
+        "Sodium hydroxide + carbon dioxide"
+      ],
+      "correctIndex": 2,
+      "explanation": "Acid + carbonate → salt + water + carbon dioxide: 2HCl + Na₂CO₃ → 2NaCl + H₂O + CO₂. Hydrogen is only made when an acid reacts with a metal.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q3",
+      "stem": "A solution has a pH of 1. The solution is:",
+      "choices": [
+        "Neutral",
+        "Weakly alkaline",
+        "Weakly acidic",
+        "Strongly acidic"
+      ],
+      "correctIndex": 3,
+      "explanation": "pH 1 is far below 7, so the solution is strongly acidic. Weak acids sit closer to 7 (pH 4-6); pH 7 is neutral.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q4",
+      "stem": "A few drops of methyl orange are added to sodium hydroxide solution. What colour is seen?",
+      "choices": [
+        "Red",
+        "Yellow",
+        "Blue",
+        "Colourless"
+      ],
+      "correctIndex": 1,
+      "explanation": "Sodium hydroxide is an alkali, and methyl orange is yellow in alkali (red in acid). Blue would be litmus or thymolphthalein in alkali — not methyl orange.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q5",
+      "stem": "Black copper(II) oxide powder is stirred into warm dilute sulfuric acid until no more dissolves. What is in the solution?",
+      "choices": [
+        "Copper(II) chloride and hydrogen",
+        "Copper(II) nitrate and water",
+        "Copper(II) sulfate and carbon dioxide",
+        "Copper(II) sulfate and water"
+      ],
+      "correctIndex": 3,
+      "explanation": "Acid + base (metal oxide) → salt + water: CuO + H₂SO₄ → CuSO₄ + H₂O. Sulfuric acid gives a sulfate; no gas is made because CuO is a base, not a metal or a carbonate.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q6",
+      "stem": "What colour is thymolphthalein in dilute hydrochloric acid?",
+      "choices": [
+        "Blue",
+        "Colourless",
+        "Red",
+        "Purple"
+      ],
+      "correctIndex": 1,
+      "explanation": "Thymolphthalein is colourless in acid and blue in alkali. Do not confuse it with litmus, which is red in acid.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q7",
+      "stem": "Which ionic equation summarises every acid-alkali neutralisation?",
+      "choices": [
+        "H⁺(aq) + OH⁻(aq) → H₂O(l)",
+        "H₂(g) + O₂(g) → H₂O(l)",
+        "H⁺(aq) + Cl⁻(aq) → HCl(aq)",
+        "Na⁺(aq) + OH⁻(aq) → NaOH(aq)"
+      ],
+      "correctIndex": 0,
+      "explanation": "In every neutralisation the hydrogen ions from the acid and the hydroxide ions from the alkali form water: H⁺(aq) + OH⁻(aq) → H₂O(l). The other ions are spectators and form the salt.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q8",
+      "stem": "In the excess-solid method for making copper(II) sulfate crystals from copper(II) oxide and dilute sulfuric acid, why is the copper(II) oxide added in excess?",
+      "choices": [
+        "To make the reaction mixture turn blue",
+        "To neutralise the carbon dioxide produced",
+        "To make sure all the acid reacts, so no acid is left to contaminate the salt — the unreacted solid is then removed by filtration",
+        "To increase the concentration of the sulfuric acid"
+      ],
+      "correctIndex": 2,
+      "explanation": "Excess insoluble base guarantees the acid is completely used up. Because CuO is insoluble, the leftover solid is simply filtered off, leaving a pure copper(II) sulfate solution to crystallise.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q9",
+      "stem": "Universal indicator turns green when added to a solution. What is the pH of the solution?",
+      "choices": [
+        "3",
+        "7",
+        "10",
+        "14"
+      ],
+      "correctIndex": 1,
+      "explanation": "Universal indicator is green at pH 7 — neutral. Reds and oranges show acids; blues and purples show alkalis.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q10",
+      "stem": "Which of these salts is INSOLUBLE in water?",
+      "choices": [
+        "Potassium nitrate",
+        "Sodium carbonate",
+        "Copper(II) chloride",
+        "Barium sulfate"
+      ],
+      "correctIndex": 3,
+      "explanation": "All nitrates, all sodium salts and most chlorides are soluble. Barium sulfate is one of the named insoluble sulfate exceptions (with lead(II) sulfate).",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q11",
+      "stem": "All aqueous acids show acidic behaviour because they release which ion in solution?",
+      "choices": [
+        "O²⁻",
+        "OH⁻",
+        "H⁺",
+        "Cl⁻"
+      ],
+      "correctIndex": 2,
+      "explanation": "Acids are a source of hydrogen ions, H⁺(aq). OH⁻ is the ion released by alkalis — the opposite class.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q12",
+      "stem": "A student has warmed dilute sulfuric acid and stirred in excess copper(II) oxide until solid remains undissolved. What is the correct NEXT step in preparing pure copper(II) sulfate crystals?",
+      "choices": [
+        "Filter off the unreacted copper(II) oxide",
+        "Add universal indicator to check for neutralisation",
+        "Boil the mixture until all the water has evaporated",
+        "Add more dilute sulfuric acid"
+      ],
+      "correctIndex": 0,
+      "explanation": "Once excess solid remains, all the acid has reacted. The next step is filtration to remove the unreacted CuO; only then is the filtrate evaporated to saturation and left to crystallise. Boiling to dryness ruins the crystals.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q13",
+      "stem": "Which statement about bases and alkalis is correct?",
+      "choices": [
+        "All bases are alkalis",
+        "Alkalis are insoluble bases",
+        "An alkali is a soluble base that releases OH⁻(aq) in water; insoluble bases such as CuO are not alkalis",
+        "Alkalis release H⁺ ions in solution"
+      ],
+      "correctIndex": 2,
+      "explanation": "Bases (metal oxides and hydroxides) neutralise acids, but only the soluble ones — the alkalis — release hydroxide ions in solution. CuO neutralises acids but is insoluble, so it is a base, not an alkali.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q14",
+      "stem": "Which of the following is an alkali?",
+      "choices": [
+        "Sodium hydroxide",
+        "Copper(II) oxide",
+        "Calcium carbonate",
+        "Iron(III) oxide"
+      ],
+      "correctIndex": 0,
+      "explanation": "An alkali is a SOLUBLE base. Sodium hydroxide dissolves in water releasing OH⁻(aq). Copper(II) oxide and iron(III) oxide are insoluble bases; calcium carbonate is a carbonate, not a hydroxide base-alkali.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-acids-bases-salts-q15",
+      "stem": "A gas produced when an acid reacts with a carbonate is bubbled through limewater. What result confirms the gas is carbon dioxide?",
+      "choices": [
+        "The limewater goes blue",
+        "A squeaky pop is heard",
+        "The limewater turns milky",
+        "The limewater stays colourless"
+      ],
+      "correctIndex": 3,
+      "explanation": "CO₂ turns limewater milky (cloudy) — the standard test. A squeaky pop is the test for hydrogen, which comes from acid + metal, not acid + carbonate.",
+      "difficulty": "easy"
+    }
+  ]
+}

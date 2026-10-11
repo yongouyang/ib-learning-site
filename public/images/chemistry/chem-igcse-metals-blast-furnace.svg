@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 545" role="img" aria-labelledby="title desc">
+  <title id="title">The blast furnace</title>
+  <desc id="desc">A labelled blast furnace. Iron ore, coke and limestone are added at the top. In the upper zone carbon monoxide reduces the iron oxide to iron; in the middle zone carbon dioxide reacts with more hot coke to form carbon monoxide; near the base coke burns in the hot air blast. Slag and molten iron are tapped off at the bottom.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .leader { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .arrow { stroke: #6b7280; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#6b7280"/>
+    </marker>
+  </defs>
+  <rect width="800" height="545" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">The Blast Furnace: Extracting Iron</text>
+
+  <!-- Top input -->
+  <text x="400" y="72" text-anchor="middle" class="label">iron ore + coke + limestone added at the top</text>
+  <line x1="400" y1="80" x2="400" y2="96" class="arrow"/>
+
+  <!-- Furnace body -->
+  <polygon points="350,100 450,100 505,340 485,440 315,440 295,340" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
+  <line x1="328" y1="205" x2="472" y2="205" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="298" y1="340" x2="502" y2="340" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+  <!-- Left: zones, positioned to match where each reaction happens -->
+  <rect x="20" y="112" width="240" height="52" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="32" y="134" class="label">Upper zone: CO reduces the</text>
+  <text x="32" y="152" class="sublabel">iron oxide to molten iron</text>
+  <line x1="262" y1="138" x2="336" y2="150" class="leader"/>
+
+  <rect x="20" y="232" width="240" height="52" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="32" y="254" class="label">Middle: CO₂ + more coke → CO</text>
+  <text x="32" y="272" class="sublabel">carbon monoxide = the reducer</text>
+  <line x1="262" y1="258" x2="308" y2="270" class="leader"/>
+
+  <rect x="20" y="352" width="240" height="52" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="32" y="374" class="label">Base: coke burns in the hot air</text>
+  <text x="32" y="392" class="sublabel">CO₂ forms, releasing the heat</text>
+  <line x1="262" y1="378" x2="302" y2="386" class="leader"/>
+
+  <!-- Right: hot air in -->
+  <text x="612" y="392" class="label">hot air blasted in</text>
+  <text x="612" y="410" class="sublabel">near the base</text>
+  <line x1="604" y1="398" x2="498" y2="398" class="arrow"/>
+
+  <!-- Right: slag tap -->
+  <line x1="487" y1="425" x2="556" y2="446" class="arrow"/>
+  <text x="564" y="438" class="label">slag tapped off</text>
+  <text x="564" y="456" class="sublabel">limestone removes sandy impurities;</text>
+  <text x="564" y="472" class="sublabel">slag floats on the iron</text>
+
+  <!-- Bottom: iron tap -->
+  <line x1="400" y1="442" x2="400" y2="500" class="arrow"/>
+  <text x="400" y="524" text-anchor="middle" class="label">molten iron tapped off</text>
+</svg>

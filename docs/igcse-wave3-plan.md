@@ -1,7 +1,10 @@
 # IGCSE Wave 3 — new subjects (0610 Biology, 0620 Chemistry, 0625 Physics, 0500 English)
 
-Status: **DECISIONS LOCKED 2026-09-27 (user-confirmed, §0) — ready to execute, one subject
-per wave, starting with 3a Physics.** Follows the shipped pilot (`docs/igcse-pilot-plan.md`)
+Status: **3a Physics SHIPPED 2026-09-28; 3b Chemistry SHIPPED 2026-10-11 (15 topics — the
+flagged topic-14 split was executed: `chem-igcse-organic-reactions` Core +
+`chem-igcse-organic-extended` Extended; Phase-0 PDF check reclassified mole-calculations,
+redox and energetics as MIXED → untagged). Next: 3c Biology 0610, then 3d English 0500.**
+Follows the shipped pilot (`docs/igcse-pilot-plan.md`)
 and wave 2 (`docs/igcse-wave2-plan.md`); every mechanism (hubs, courses, paper gating,
 validator hardening, count-churn checklist) is inherited. Part of
 `docs/content-gap-roadmap.md` gap 1.

@@ -1,0 +1,321 @@
+{
+  "id": "chem-igcse-bonding",
+  "subjectId": "chemistry",
+  "title": "Ionic & Covalent Bonding",
+  "description": "Ionic bonding by electron transfer between Group I/II metals and Group VI/VII non-metals, covalent bonding in simple molecules, dot-and-cross diagrams, and linking structure type to properties — Core tier of IGCSE Chemistry 0620.",
+  "stage": "igcse",
+  "course": "0620",
+  "notes": [
+    {
+      "id": "chem-igcse-bonding-n1",
+      "heading": "Two Routes to a Full Outer Shell",
+      "body": "0620 questions usually open by asking you to STATE the type of bonding from the elements involved — so make the decision rule automatic.\n\n📌 Definitions\n• **Ionic bond**: formed when a METAL atom transfers electrons to a NON-METAL atom; the oppositely charged ions then attract each other strongly.\n• **Covalent bond**: a pair of electrons SHARED between two NON-METAL atoms.\n\n🔑 How to decide (the exam rule)\n• Metal + non-metal → ionic.\n• Non-metal + non-metal → covalent.\nBoth routes give each atom a full outer shell — the electron configuration of a noble gas — which is why atoms bond at all.\n\n⚠️ Common Mistake\nDescribing ionic bonding as 'sharing'. Transfer = ionic; sharing = covalent. Mark schemes reject 'sharing' in an ionic answer even if the rest is correct.\n\n📎 Key Points to Remember\n• Metals are on the left of the Periodic Table (Groups I, II); the reactive non-metals are on the right (Groups VI, VII).\n• After bonding, every atom involved has a full outer shell."
+    },
+    {
+      "id": "chem-igcse-bonding-n2",
+      "heading": "Ionic Bonding: Electron Transfer",
+      "body": "Core 0620 expects ionic bonding between Group I or II metals and Group VI or VII non-metals — work from the electronic configurations every time.\n\n🔑 How it works — sodium chloride\nNa (2,8,1) loses its 1 outer electron → Na⁺ (2,8). Cl (2,8,7) gains that electron → Cl⁻ (2,8,8). The strong ELECTROSTATIC ATTRACTION between the oppositely charged ions is the ionic bond.\n\n🔑 Getting the ratio right\nThe total positive charge must balance the total negative charge:\n• Mg (2,8,2) has 2 electrons to give away, but each Cl can only take 1 → one Mg bonds with TWO Cl atoms → MgCl₂.\n• Two Na atoms are needed to supply the 2 electrons one O atom wants → Na₂O.\n• Ca (2,8,8,2) gives 2 electrons to one O atom → CaO.\n\n💡 Worked Example\nMagnesium + chlorine: Mg → Mg²⁺ + 2e⁻; each Cl + e⁻ → Cl⁻. One Mg²⁺ balances two Cl⁻, formula MgCl₂.\n\n⚠️ Common Mistake\nWriting MgCl or NaO. Count the electrons that must be transferred, then match donors to acceptors.\n\n📎 Key Points to Remember\n• Metal loses, non-metal gains; both end with a full outer shell.\n• Charges on the ions tell you the formula: balance + and − to zero."
+    },
+    {
+      "id": "chem-igcse-bonding-n3",
+      "heading": "Dot-and-Cross Diagrams for Ionic Compounds",
+      "body": "You will be asked to DRAW these, so learn the marking conventions exactly.\n\n🔑 The rules\n• Show the OUTER SHELL only (inner shells are not drawn).\n• Use dots for one element's electrons and crosses for the other's.\n• Draw each ion inside square brackets and write its charge OUTSIDE the bracket, top right: [Na]⁺ and [Cl]⁻.\n• The transferred electron keeps its original symbol, so the diagram shows where every electron came from.\n\n💡 Worked Example — NaCl\nNa starts with 1 outer electron (a cross); Cl starts with 7 outer electrons (dots). After transfer, [Na]⁺ has an empty outer shell position (its new outer shell is full at 8) and [Cl]⁻ shows 7 dots + 1 cross = 8 electrons. For MgCl₂ draw TWO chloride ions, each having gained one of magnesium's electrons — and write no charge on the Mg²⁺ bracket other than 2+.\n\n⚠️ Common Mistake\nForgetting the brackets and charges — without them the diagram shows atoms, not ions, and scores zero for the diagram mark.\n\n📎 Key Points to Remember\n• Outer shell only, dots and crosses, brackets, charges.\n• Every ion shown must have a full outer shell.",
+      "illustration": {
+        "src": "/images/chemistry/chem-igcse-bonding-ionic-dot-cross.svg",
+        "alt": "Dot-and-cross diagram of a sodium atom transferring its outer electron to a chlorine atom, forming bracketed Na+ and Cl- ions with full outer shells.",
+        "caption": "The transferred electron keeps its own symbol: Cl⁻ shows chlorine's 7 crosses plus sodium's dot, inside brackets with the charge outside."
+      }
+    },
+    {
+      "id": "chem-igcse-bonding-n4",
+      "heading": "Covalent Bonding: Sharing Pairs of Electrons",
+      "body": "📌 Definition\nA covalent bond is a SHARED PAIR of electrons between two non-metal atoms. Each atom contributes one electron to the pair, and both atoms count the shared pair towards their outer shell.\n\n🔑 The Core molecule set — learn to draw each one\n• **H₂**: each H shares 1 electron → 1 shared pair; each H now has a full shell of 2.\n• **Cl₂**: each Cl (2,8,7) shares 1 electron → 1 shared pair; each Cl now has 8 in its outer shell.\n• **HCl**: H shares with Cl → 1 shared pair; H has 2, Cl has 8.\n\n💡 Worked Example — counting electrons in Cl₂\nEach chlorine brings 7 outer electrons. One electron from each is shared (the bonding pair), leaving 3 unshared pairs — called LONE PAIRS — on each Cl. Total around each Cl: 3 lone pairs + 1 bonding pair = 8 electrons.\n\n⚠️ Common Mistake\nCounting the shared pair for only one of the two atoms. A shared pair belongs to BOTH atoms' outer shells at the same time — that is the whole point of sharing.\n\n📎 Key Points to Remember\n• One shared pair = one covalent bond (a single bond).\n• Hydrogen is full with 2 electrons; the other atoms in this topic aim for 8."
+    },
+    {
+      "id": "chem-igcse-bonding-n5",
+      "heading": "Covalent Molecules: H₂O, CH₄ and NH₃",
+      "body": "🔑 How to build each dot-and-cross diagram\nCount the outer electrons each atom must gain to fill its shell — that is the number of bonds it forms.\n• **H₂O**: O (2,6) needs 2 → forms 2 bonds, one with each H. Oxygen ends with 2 bonding pairs + 2 lone pairs = 8 outer electrons.\n• **CH₄**: C (2,4) needs 4 → forms 4 bonds, one with each H. Carbon has 4 bonding pairs, no lone pairs.\n• **NH₃**: N (2,5) needs 3 → forms 3 bonds, one with each H. Nitrogen ends with 3 bonding pairs + 1 lone pair = 8 outer electrons.\n\n💡 Worked Example — checking NH₃\nTotal electrons shown around N: 3 shared pairs (6 electrons, counted for N) + 1 lone pair (2 electrons) = 8 ✓. Each H sees its 1 shared pair = 2 electrons ✓.\n\n⚠️ Common Mistake\nDrawing NH₃ with a fourth bond or H₂O with the two lone pairs missing. The lone pairs still belong in the diagram — examiners check for them.\n\n📎 Key Points to Remember\n• Bonds formed = electrons needed to complete the outer shell: H needs 1, O needs 2, N needs 3, C needs 4.\n• Check: every atom (except H, which wants 2) should reach 8 outer electrons."
+    },
+    {
+      "id": "chem-igcse-bonding-n6",
+      "heading": "Properties: Ionic vs Simple Covalent",
+      "body": "0620 Core asks you to STATE properties from the structure type — learn the table and the two key explanations.\n\n📌 Ionic compounds (e.g. NaCl, MgCl₂)\n• HIGH melting and boiling points — the strong electrostatic forces between oppositely charged ions act throughout the whole structure, so a lot of energy is needed to separate the ions.\n• Do NOT conduct electricity when SOLID — the ions are held in fixed positions.\n• DO conduct when MOLTEN or DISSOLVED in water (aqueous) — the ions are free to move and carry the charge.\n• Usually soluble in water.\n\n📌 Simple covalent substances (e.g. CH₄, H₂O, Cl₂)\n• LOW melting and boiling points — only the weak forces BETWEEN the small molecules need to be overcome; the covalent bonds inside each molecule are not broken.\n• Do NOT conduct electricity in any state — no ions and no free electrons.\n• Usually insoluble in water (some exceptions, e.g. sugar).\n\n⚠️ Common Mistake\nSaying 'the covalent bonds are weak' to explain a low melting point. The covalent bonds are STRONG; melting or boiling a simple molecular substance never breaks them — it separates the molecules from each other.\n\n📎 Key Points to Remember\n• Conduction always needs charged particles that can MOVE: mobile ions (molten/aqueous ionic) or delocalised electrons (metals, graphite).\n• High melting point + conducts when molten but not solid → ionic. Low melting point + never conducts → simple covalent."
+    },
+    {
+      "id": "chem-igcse-bonding-n7",
+      "heading": "Diamond and Graphite",
+      "body": "Diamond and graphite are both pure carbon — giant covalent structures whose different bonding arrangements give opposite properties. Relating each property to the structure is the exam skill.\n\n🔑 Diamond\nEach carbon atom forms 4 covalent bonds to 4 other carbon atoms, building a rigid 3D tetrahedral network.\n• VERY HARD — every bond must be broken to scratch it (used in cutting tools and drill tips).\n• Very high melting point.\n• Does NOT conduct electricity — all 4 outer electrons of every carbon are locked in bonds; there are no free charge carriers.\n\n🔑 Graphite\nEach carbon atom forms only 3 covalent bonds, giving flat layers of hexagons; the 4th outer electron of each carbon is DELOCALISED between the layers.\n• SOFT and slippery — the layers can slide over each other (used as a lubricant and in pencil 'lead').\n• CONDUCTS electricity — the delocalised electrons can move along the layers (used for electrodes).\n\n⚠️ Common Mistake\nSaying graphite is soft 'because its bonds are weak'. The covalent bonds within the layers are just as strong as diamond's; it is the forces BETWEEN the layers that are weak.\n\n📎 Key Points to Remember\n• Diamond: 4 bonds per carbon, hard, non-conductor. Graphite: 3 bonds per carbon, slippery, conductor.\n• Same element, different structure, different properties — always link the property to the bonding."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-igcse-bonding-f1",
+      "term": "Ionic bond",
+      "definition": "The strong electrostatic attraction between oppositely charged ions, formed when a metal transfers electrons to a non-metal.",
+      "example": "Na (2,8,1) gives 1 electron to Cl (2,8,7), forming Na⁺ and Cl⁻."
+    },
+    {
+      "id": "chem-igcse-bonding-f2",
+      "term": "Covalent bond",
+      "definition": "A shared pair of electrons between two non-metal atoms; each atom contributes one electron to the pair.",
+      "example": "In Cl₂ each chlorine shares one electron, so both reach 8 outer electrons."
+    },
+    {
+      "id": "chem-igcse-bonding-f3",
+      "term": "Dot-and-cross diagram (ionic)",
+      "definition": "Shows outer shells only, with dots for one element's electrons and crosses for the other's; ions drawn in brackets with the charge outside.",
+      "example": "[Na]⁺ and [Cl]⁻ — the chloride shows 7 crosses plus the 1 dot it gained from sodium."
+    },
+    {
+      "id": "chem-igcse-bonding-f4",
+      "term": "Ionic formula from charges",
+      "definition": "The total positive charge must equal the total negative charge, giving the ratio of ions in the formula.",
+      "example": "Mg²⁺ needs two Cl⁻, so magnesium chloride is MgCl₂."
+    },
+    {
+      "id": "chem-igcse-bonding-f5",
+      "term": "Lone pair",
+      "definition": "A pair of outer-shell electrons not involved in bonding.",
+      "example": "In NH₃, nitrogen has 3 bonding pairs and 1 lone pair; in H₂O, oxygen has 2 of each."
+    },
+    {
+      "id": "chem-igcse-bonding-f6",
+      "term": "Why ionic compounds have high melting points",
+      "definition": "Strong electrostatic forces act between oppositely charged ions throughout the structure, so a lot of energy is needed to separate them.",
+      "example": "NaCl melts at 801 °C, while methane melts at −182 °C."
+    },
+    {
+      "id": "chem-igcse-bonding-f7",
+      "term": "Ionic conductivity rule",
+      "definition": "Ionic compounds conduct electricity only when molten or aqueous, because then the ions are free to move; in the solid the ions are fixed.",
+      "example": "Solid NaCl does not conduct; molten NaCl does."
+    },
+    {
+      "id": "chem-igcse-bonding-f8",
+      "term": "Simple covalent substance",
+      "definition": "A substance made of small molecules with strong covalent bonds inside the molecules but only weak forces between them.",
+      "example": "CH₄, H₂O and Cl₂ — low melting points and no electrical conduction."
+    },
+    {
+      "id": "chem-igcse-bonding-f9",
+      "term": "Why simple covalent substances have low melting points",
+      "definition": "Only the weak forces between the molecules need to be overcome; the strong covalent bonds inside the molecules are not broken.",
+      "example": "Boiling water separates H₂O molecules — the O–H bonds stay intact."
+    },
+    {
+      "id": "chem-igcse-bonding-f10",
+      "term": "Diamond",
+      "definition": "Giant covalent form of carbon: each carbon bonded to 4 others in a tetrahedral network. Very hard, very high melting point, does not conduct electricity.",
+      "example": "Used in cutting tools and drill tips because it is the hardest natural substance."
+    },
+    {
+      "id": "chem-igcse-bonding-f11",
+      "term": "Graphite",
+      "definition": "Giant covalent form of carbon: each carbon bonded to 3 others in hexagonal layers, with delocalised electrons between the layers.",
+      "example": "Soft and slippery (lubricant, pencil lead) and conducts electricity (electrodes)."
+    },
+    {
+      "id": "chem-igcse-bonding-f12",
+      "term": "Why graphite conducts electricity",
+      "definition": "Each carbon bonds to only 3 others, leaving one outer electron per atom delocalised and free to move along the layers.",
+      "example": "In diamond all 4 outer electrons are held in bonds, so diamond cannot conduct."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-igcse-bonding-q1",
+      "stem": "What is an ionic bond?",
+      "choices": [
+        "The strong electrostatic attraction between oppositely charged ions",
+        "A shared pair of electrons between two atoms",
+        "The attraction between metal ions and delocalised electrons",
+        "A weak force between two molecules"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ionic bonding is the electrostatic attraction between the positive and negative ions formed by electron transfer. A shared pair of electrons describes a covalent bond.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-bonding-q2",
+      "stem": "Which pair of elements reacts to form an ionic compound?",
+      "choices": [
+        "Hydrogen and chlorine",
+        "Carbon and oxygen",
+        "Nitrogen and hydrogen",
+        "Sodium and chlorine"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ionic bonding forms between a metal and a non-metal: sodium is a Group I metal and chlorine a Group VII non-metal. The other three pairs are non-metal + non-metal, so they bond covalently.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-bonding-q3",
+      "stem": "What is a covalent bond?",
+      "choices": [
+        "The transfer of electrons from one atom to another",
+        "A pair of electrons shared between two non-metal atoms",
+        "The attraction between two oppositely charged ions",
+        "A sea of delocalised electrons around positive ions"
+      ],
+      "correctIndex": 1,
+      "explanation": "A covalent bond is a shared pair of electrons; each non-metal atom contributes one electron and both count the pair towards a full outer shell. Transfer describes ionic bonding.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-bonding-q4",
+      "stem": "Which form of carbon conducts electricity?",
+      "choices": [
+        "Diamond",
+        "Neither diamond nor graphite",
+        "Graphite",
+        "Both diamond and graphite equally"
+      ],
+      "correctIndex": 2,
+      "explanation": "In graphite each carbon forms only 3 bonds, leaving one delocalised electron per atom free to move along the layers. In diamond all 4 outer electrons are locked in covalent bonds, so it cannot conduct.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-bonding-q5",
+      "stem": "When magnesium (2,8,2) reacts with chlorine (2,8,7), how many electrons does each magnesium atom lose, and how many chlorine atoms does it supply?",
+      "choices": [
+        "1 electron; 1 chlorine atom",
+        "2 electrons; 2 chlorine atoms",
+        "2 electrons; 1 chlorine atom",
+        "1 electron; 2 chlorine atoms"
+      ],
+      "correctIndex": 1,
+      "explanation": "Mg loses both its outer electrons to reach 2,8, but each Cl atom can accept only one (to reach 2,8,8). So one Mg supplies two Cl atoms, giving MgCl₂.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-bonding-q6",
+      "stem": "In a dot-and-cross diagram of sodium chloride, how many electrons are shown in the outer shell of the chloride ion?",
+      "choices": [
+        "1",
+        "2",
+        "7",
+        "8"
+      ],
+      "correctIndex": 3,
+      "explanation": "Chlorine's 7 outer electrons plus the 1 electron gained from sodium give a full shell of 8 — 7 crosses and 1 dot, drawn inside brackets with a − charge.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-bonding-q7",
+      "stem": "How many shared pairs of electrons are there in a molecule of methane, CH₄?",
+      "choices": [
+        "4",
+        "2",
+        "1",
+        "8"
+      ],
+      "correctIndex": 0,
+      "explanation": "Carbon (2,4) needs 4 electrons, so it shares one pair with each of the 4 hydrogen atoms — 4 shared pairs (4 single bonds). Carbon reaches 8 outer electrons; each H reaches 2.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-bonding-q8",
+      "stem": "In a dot-and-cross diagram of water, H₂O, how many bonding pairs and how many lone pairs are on the oxygen atom?",
+      "choices": [
+        "1 bonding pair and 3 lone pairs",
+        "2 bonding pairs and 1 lone pair",
+        "2 bonding pairs and 2 lone pairs",
+        "4 bonding pairs and no lone pairs"
+      ],
+      "correctIndex": 2,
+      "explanation": "Oxygen (2,6) forms 2 bonds (one with each H) and keeps 4 of its own electrons as 2 lone pairs: 2 bonding pairs + 2 lone pairs = 8 outer electrons. The lone pairs must be drawn for full marks.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-bonding-q9",
+      "stem": "Why does solid sodium chloride NOT conduct electricity, while molten sodium chloride does?",
+      "choices": [
+        "In the solid the ions are held in fixed positions; when molten the ions are free to move and carry the charge",
+        "Molten NaCl contains a sea of free electrons",
+        "Solid NaCl contains no charged particles",
+        "Heating converts the ionic bonds into covalent bonds"
+      ],
+      "correctIndex": 0,
+      "explanation": "Conduction needs charged particles that can move. The ions exist in the solid but are locked in place; melting releases them to flow towards the electrodes. Metals conduct with electrons — ionic compounds conduct with ions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-bonding-q10",
+      "stem": "In an ammonia molecule, NH₃, how many electrons in total are in the outer shell of the nitrogen atom (counting shared electrons)?",
+      "choices": [
+        "6",
+        "4",
+        "7",
+        "8"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nitrogen forms 3 bonding pairs (shared with the 3 H atoms, all counted for N) and keeps 1 lone pair: 6 + 2 = 8 outer electrons — a full shell.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-bonding-q11",
+      "stem": "Sodium chloride melts at 801 °C but methane, CH₄, melts at −182 °C. What explains this difference?",
+      "choices": [
+        "NaCl contains strong covalent bonds while the bonds in CH₄ are weak",
+        "CH₄ is ionic, so it melts more easily",
+        "Strong electrostatic forces act between the ions throughout NaCl, whereas only weak forces between the small CH₄ molecules need to be overcome",
+        "NaCl molecules are larger than CH₄ molecules"
+      ],
+      "correctIndex": 2,
+      "explanation": "Melting NaCl means separating ions held by strong electrostatic forces throughout the structure; melting methane only separates molecules from each other — the strong C–H covalent bonds inside each molecule are untouched.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-bonding-q12",
+      "stem": "Graphite conducts electricity but diamond does not, even though both are pure carbon. Why?",
+      "choices": [
+        "Graphite has weaker covalent bonds than diamond",
+        "In graphite each carbon bonds to only 3 others, leaving delocalised electrons free to move; in diamond all 4 outer electrons per carbon are held in covalent bonds",
+        "Diamond is held together by ionic bonds",
+        "Graphite contains metal ions between its layers"
+      ],
+      "correctIndex": 1,
+      "explanation": "Conduction needs mobile charge carriers. Graphite's 4th outer electron per carbon is delocalised between the layers and can flow; diamond has no free electrons because every outer electron is locked in a bond.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-bonding-q13",
+      "stem": "A white solid melts at about 800 °C. It does not conduct electricity when solid, but its aqueous solution conducts. What type of bonding does it contain?",
+      "choices": [
+        "Ionic",
+        "Simple covalent",
+        "Giant covalent",
+        "Metallic"
+      ],
+      "correctIndex": 0,
+      "explanation": "High melting point plus the solid/molten conductivity switch is the fingerprint of an ionic compound: ions fixed when solid, mobile when molten or dissolved. Simple covalent substances melt far lower and never conduct; metals conduct when solid.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-bonding-q14",
+      "stem": "In a dot-and-cross diagram of a chlorine molecule, Cl₂, how many lone pairs are there on EACH chlorine atom?",
+      "choices": [
+        "1",
+        "2",
+        "4",
+        "3"
+      ],
+      "correctIndex": 3,
+      "explanation": "Each Cl starts with 7 outer electrons: 1 is used in the shared bonding pair, leaving 6 electrons = 3 lone pairs per atom. Total around each Cl: 3 lone pairs + 1 bonding pair = 8.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-bonding-q15",
+      "stem": "Calcium (2,8,8,2) reacts with oxygen (2,6) to form calcium oxide, CaO. Which statement describes the bonding correctly?",
+      "choices": [
+        "Calcium gains 2 electrons to form Ca²⁺",
+        "Calcium loses 2 electrons to form Ca²⁺ (2,8,8) and oxygen gains them to form O²⁻ (2,8)",
+        "Calcium and oxygen share 2 pairs of electrons in a double covalent bond",
+        "Calcium loses 1 electron to form Ca⁺"
+      ],
+      "correctIndex": 1,
+      "explanation": "Metal + non-metal → electron transfer. Ca loses both its outer electrons (2,8,8) and O needs exactly 2 to complete its shell (2,8): one Ca²⁺ balances one O²⁻, giving the formula CaO.",
+      "difficulty": "hard"
+    }
+  ]
+}

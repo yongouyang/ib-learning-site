@@ -1,0 +1,100 @@
+{
+  "id": "chem-igcse-set-1",
+  "courseId": "chem-igcse",
+  "title": "Practice Set 1",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "chem-igcse-set-1-q1",
+      "stem": "Molten lead(II) bromide is electrolysed using inert graphite electrodes. Name the product formed at the cathode and at the anode.",
+      "marks": 2,
+      "markscheme": [
+        "B1: cathode product is lead",
+        "B1: anode product is bromine"
+      ],
+      "modelAnswer": "The melt contains only Pb²⁺ and Br⁻ ions. Pb²⁺ ions are attracted to the cathode, where they gain electrons and form molten lead. Br⁻ ions move to the anode, where they lose electrons and bromine gas is released.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-set-1-q2",
+      "stem": "A student tips marble chips (calcium carbonate) into excess dilute hydrochloric acid on a top-pan balance and records the total mass every 30 seconds. Explain why the recorded mass falls, and describe how the rate of the reaction changes as time passes.",
+      "marks": 3,
+      "markscheme": [
+        "B1: carbon dioxide gas is produced and escapes from the flask",
+        "B1: the rate is greatest at the start",
+        "B1: the rate falls as the acid is used up (the reaction stops when the acid is gone, and the mass then stays constant)"
+      ],
+      "modelAnswer": "Carbon dioxide is made and leaves the open flask, so the balance reads less. The reaction is fastest at the beginning when the acid is most concentrated, then slows as the acid is consumed; once the acid has run out the mass no longer changes.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-set-1-q3",
+      "stem": "Outline how a pure sample of zinc sulfate crystals can be prepared in the laboratory from zinc oxide (an insoluble base) and dilute sulfuric acid.",
+      "marks": 3,
+      "markscheme": [
+        "B1: add zinc oxide to the warm acid a little at a time until it is in excess (solid stops disappearing)",
+        "B1: filter off the leftover unreacted zinc oxide",
+        "B1: heat the filtrate to evaporate some water, then leave the concentrated solution to crystallise"
+      ],
+      "modelAnswer": "Stir zinc oxide into warm dilute sulfuric acid until a little solid remains undissolved, which guarantees all the acid has reacted. Filter to remove the spare oxide, then evaporate the filtrate partway and let it stand so that crystals of zinc sulfate grow. Because zinc sulfate is a soluble salt, it must be recovered from solution by crystallisation rather than by filtering.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-set-1-q4",
+      "stem": "Separate samples of magnesium ribbon and copper foil are each added to dilute hydrochloric acid. State what is observed in each tube.",
+      "marks": 2,
+      "markscheme": [
+        "B1: magnesium: rapid effervescence (bubbles of hydrogen), ribbon dissolves",
+        "B1: copper: no visible change"
+      ],
+      "modelAnswer": "Magnesium sits above hydrogen in the reactivity series, so it displaces hydrogen from the acid: bubbles of gas appear quickly and the ribbon is consumed. Copper sits below hydrogen and cannot displace it, so nothing happens in the copper tube.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-set-1-q5",
+      "stem": "Sulfur dioxide is an air pollutant. State one source of sulfur dioxide emissions and one harm it causes.",
+      "marks": 2,
+      "markscheme": [
+        "B1: source: burning fossil fuels that contain sulfur compounds (e.g. in power stations)",
+        "B1: harm: forms acid rain, which damages plants, buildings and aquatic life (or: irritates the lungs)"
+      ],
+      "modelAnswer": "Sulfur impurities in coal and oil burn to give sulfur dioxide. In the atmosphere it contributes to acid rain, which harms vegetation, corrodes stonework and acidifies lakes; it can also aggravate breathing problems.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-set-1-q6",
+      "stem": "Iron is extracted from its ore in a blast furnace. Name the three solid raw materials loaded into the top of the furnace, and state the purpose of the limestone.",
+      "marks": 3,
+      "markscheme": [
+        "B1: iron ore (haematite) and coke",
+        "B1: limestone (all three solids named for both B marks)",
+        "B1: limestone breaks down and reacts with sandy impurities (silicon dioxide), forming slag that can be tapped off"
+      ],
+      "modelAnswer": "Haematite (iron ore), coke and limestone are charged in at the top while hot air is blown in near the base. The limestone's job is to remove impurities: it decomposes and combines with silicon dioxide to form molten slag, which floats on the iron and is removed separately.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-set-1-q7",
+      "stem": "Hydrogen peroxide decomposes over a manganese(IV) oxide catalyst and the oxygen is collected in a gas syringe. $44\\text{ cm}^3$ of gas is collected in the first $20\\text{ s}$. Calculate the mean rate of gas production over this period, giving the unit. Also state the role of the manganese(IV) oxide.",
+      "marks": 3,
+      "markscheme": [
+        "M1: rate = volume of gas collected / time taken ($44 \\div 20$)",
+        "A1: $2.2\\text{ cm}^3\\text{/s}$",
+        "B1: manganese(IV) oxide is a catalyst — it speeds the reaction up and is not consumed"
+      ],
+      "modelAnswer": "Mean rate $= \\dfrac{44}{20} = 2.2\\text{ cm}^3$ of gas per second. The manganese(IV) oxide acts as a catalyst: it provides a faster route for the decomposition and is chemically unchanged at the end.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-set-1-q8",
+      "stem": "River water is treated before it reaches homes as drinking water. Describe the purpose of the filtration and chlorination stages.",
+      "marks": 2,
+      "markscheme": [
+        "B1: filtration removes insoluble solid particles",
+        "B1: chlorination kills bacteria (microorganisms)"
+      ],
+      "modelAnswer": "Passing the water through filters takes out suspended solids, and adding chlorine disinfects it by killing microbes.",
+      "difficulty": "medium"
+    }
+  ]
+}

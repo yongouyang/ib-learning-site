@@ -40,15 +40,16 @@ export const credentialFor = (t: TopicTaxonomy): string | null => tierMeta(t).cr
 
 /**
  * Derivable, stable, never hand-written: `MATH-KS3-Y7-ANGLES`, `CHEM-KS3-Y7-STATES-1`,
- * `MATH-IBDP-AI-SEQUENCES`. Structural tokens (subject abbrev, year, stage, course, level)
+ * `MATH-IBDP-AI-SEQUENCES`. Structural tokens (subject abbrev, year, stage, course)
  * are encoded once in the prefix, so they are stripped from the slug half — but numeric
- * discriminators are KEPT, because `bio-body-1` and `bio-body-2` must not collapse.
+ * discriminators and level tokens are KEPT, because `bio-body-1` and `bio-body-2` (and
+ * `chem-igcse-bonding` vs `chem-igcse-bonding-extended`) must not collapse.
  * Uniqueness across the whole registry is asserted in tests/unit/seo.test.ts.
  */
 export function courseCodeFor(t: TopicTaxonomy & { id: string }): string {
   const tier = tierMeta(t);
   const subject = t.subjectId.slice(0, 4).toUpperCase();
-  const stageToken = [t.subjectId, `yr${t.year ?? ''}`, `y${t.year ?? ''}`, tier.segment, 'dp', 'igcse', t.course, t.level]
+  const stageToken = [t.subjectId, `yr${t.year ?? ''}`, `y${t.year ?? ''}`, tier.segment, 'dp', 'igcse', t.course]
     .filter(Boolean)
     .map((x) => String(x).toLowerCase());
   const slug = t.id

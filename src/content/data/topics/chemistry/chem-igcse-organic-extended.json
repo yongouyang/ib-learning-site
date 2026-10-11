@@ -1,0 +1,322 @@
+{
+  "id": "chem-igcse-organic-extended",
+  "subjectId": "chemistry",
+  "title": "Organic Chemistry: Isomers, Substitution & Condensation Polymers",
+  "description": "Supplement (Extended tier) content for Cambridge IGCSE Chemistry 0620: isomers, structural formulae and naming up to C4 including but-1-ene, but-2-ene and esters, substitution of alkanes with chlorine, addition reactions of alkenes, fermentation versus hydration, oxidation of ethanol to ethanoic acid, esterification, and condensation polymerisation including nylon, PET and proteins.",
+  "stage": "igcse",
+  "course": "0620",
+  "level": "extended",
+  "notes": [
+    {
+      "id": "chem-igcse-organic-extended-n1",
+      "heading": "Isomers: Same Formula, Different Structure",
+      "body": "Extended-tier questions love isomers because they test whether you can draw structures, not just count atoms.\n\n📌 Definition\n**Isomers** are different compounds that have the SAME molecular formula but DIFFERENT structural formulae (the atoms are connected in a different order). Because their structures differ, isomers have different physical and chemical properties.\n\n🔑 How it works\nTake C₄H₁₀. The four carbons can be connected in one straight chain — **butane**, CH₃CH₂CH₂CH₃ — or as a three-carbon chain with a one-carbon branch — **methylpropane**, CH₃CH(CH₃)CH₃. Both drawings contain 4 carbons and 10 hydrogens, but no amount of rotating one structure turns it into the other: they are genuinely different compounds with different boiling points.\n\n💡 Worked Example\nHow many structural isomers does C₄H₁₀ have? Draw the possibilities systematically: (1) a chain of 4 carbons; (2) a chain of 3 carbons with a methyl branch on the middle carbon. A 2-carbon chain with two branches just re-draws structure (2), so there are exactly **2** isomers.\n\n⚠️ Common Mistake\nCounting the same molecule twice because it was drawn bent or rotated. If you can trace one structure onto the other by bending the chain, it is NOT a new isomer — check which carbon each atom is bonded to, not where it sits on the page.\n\n📎 Key Points to Remember\n• Isomers: same molecular formula, different structural formula.\n• C₄H₁₀ has 2 isomers: butane and methylpropane.",
+      "illustration": {
+        "src": "/images/chemistry/chem-igcse-extended-isomers.svg",
+        "alt": "Displayed formulae of the two isomers of C4H10: butane drawn as a straight chain of four carbons each fully bonded to hydrogens, and methylpropane drawn as three carbons in a row with the middle carbon also bonded to a fourth carbon branch.",
+        "caption": "The two isomers of C₄H₁₀: butane (straight chain) and methylpropane (branched). Same atoms, different connections."
+      }
+    },
+    {
+      "id": "chem-igcse-organic-extended-n2",
+      "heading": "Structural Formulae and Naming up to C4",
+      "body": "Extended tier asks you to draw and name unbranched alkanes, alkenes, alcohols, carboxylic acids AND esters containing up to four carbon atoms — including pinpointing where a double bond sits.\n\n📌 Numbering the chain\nFor alkenes a number in the name fixes the position of the C=C bond, counting from whichever end gives the lower number:\n• **but-1-ene**: the double bond starts at carbon 1 — CH₂=CH–CH₂–CH₃.\n• **but-2-ene**: the double bond starts at carbon 2 — CH₃–CH=CH–CH₃.\nBoth are C₄H₈, so but-1-ene and but-2-ene are isomers of each other.\n\n📌 Esters\nEsters are named in TWO parts: the alcohol-derived part first (ending -yl), then the acid-derived part (ending -anoate). Ethanol + ethanoic acid gives **ethyl ethanoate**. In the structure CH₃COOCH₂CH₃, the C=O carbon and its two-oxygen bridge (–COO–) mark the ester link.\n\n💡 Worked Example\nName CH₃CH₂CH₂COOH. Count the carbons including the –COOH carbon: 4, so the stem is but-; the functional group is a carboxylic acid, so the name is **butanoic acid**.\n\n⚠️ Common Mistake\nForgetting that the –COOH carbon counts in the chain. CH₃COOH has TWO carbons (ethanoic acid), not one — the carboxyl carbon is carbon 1.\n\n📎 Key Points to Remember\n• The number in but-1-ene / but-2-ene locates the double bond.\n• Ester name = alcohol part (-yl) + acid part (-anoate)."
+    },
+    {
+      "id": "chem-igcse-organic-extended-n3",
+      "heading": "Substitution: Alkanes Reacting with Chlorine",
+      "body": "Alkanes are unreactive towards most reagents — but under the right conditions a hydrogen atom can be swapped out.\n\n📌 Definition\nA **substitution reaction** is one in which an atom (or group of atoms) in a molecule is replaced by another atom or group. Alkanes undergo substitution with halogens such as chlorine.\n\n🔑 How it works\nMethane and chlorine react in **ultraviolet light** (the reaction is photochemical — UV supplies the energy to start it):\n**methane + chlorine → chloromethane + hydrogen chloride**\nCH₄ + Cl₂ → CH₃Cl + HCl\nOne C–H bond breaks, one H atom is replaced by a Cl atom, and the displaced hydrogen leaves as HCl. Further substitution can continue: CH₃Cl can lose another hydrogen to give CH₂Cl₂, and so on, so the product is often a mixture.\n\n💡 Worked Example\nA question shows ethane and chlorine in sunlight and asks for the products of the first substitution step. Replace one H of ethane with Cl: **chloroethane (C₂H₅Cl) and hydrogen chloride (HCl)**.\n\n⚠️ Common Mistake\nWriting CH₅Cl as the product — simply adding chlorine without removing hydrogen. Substitution SWAPS atoms: one H leaves the molecule, so methane (4 H) becomes chloromethane (3 H).\n\n📎 Key Points to Remember\n• Alkane + chlorine, UV light → chloroalkane + HCl.\n• Photochemical: no UV, no reaction."
+    },
+    {
+      "id": "chem-igcse-organic-extended-n4",
+      "heading": "Addition Reactions of Alkenes",
+      "body": "The C=C double bond is a store of reactivity: it can open up and add small molecules across it. Extended tier expects three named additions.\n\n📌 Definition\nAn **addition reaction** is one in which a molecule adds across a C=C double bond so that the double bond becomes a single bond and only ONE product forms.\n\n🔑 The three additions of ethene\n1. **Bromine**: C₂H₄ + Br₂ → C₂H₄Br₂ (1,2-dibromoethane, colourless). This is the chemistry behind the bromine-water test — the orange colour vanishes because the bromine is consumed.\n2. **Hydrogen**: C₂H₄ + H₂ → C₂H₆ (ethane), using a **nickel catalyst**. Adding hydrogen across a double bond is called hydrogenation.\n3. **Steam (water)**: C₂H₄ + H₂O → C₂H₅OH (ethanol), over a catalyst — this is the industrial hydration route to ethanol.\nIn every case the product is saturated: the double bond is gone.\n\n💡 Worked Example\nPropene (C₃H₆) is bubbled through bromine water. Predict the result: the orange colour disappears as Br₂ adds across the C=C bond, forming colourless C₃H₆Br₂.\n\n⚠️ Common Mistake\nWriting TWO products for an addition reaction (e.g. C₂H₄ + H₂ → C₂H₆ + H₂). Addition means everything ends up in one molecule — if you have atoms left over, check the equation again.\n\n📎 Key Points to Remember\n• Br₂ → dibromoalkane (the test); H₂/Ni → alkane; steam/catalyst → alcohol.\n• One double bond in, one saturated product out."
+    },
+    {
+      "id": "chem-igcse-organic-extended-n5",
+      "heading": "Fermentation versus Hydration: Choosing a Route to Ethanol",
+      "body": "Extended tier expects you to COMPARE the two methods of making ethanol — the classic 4-mark 'discuss' question. Compare under four headings.\n\n📌 The comparison\n1. **Rate**: fermentation is slow (days for the yeast to work); hydration of ethene is fast (a continuous industrial flow).\n2. **Purity**: fermentation gives a dilute, impure solution (a few percent ethanol) that needs distillation; hydration gives a much purer product.\n3. **Raw material and renewability**: fermentation uses sugar from crops — a **renewable** resource; hydration uses ethene from cracking petroleum — a **finite, non-renewable** resource.\n4. **Energy and conditions**: fermentation runs gently at about 30 °C; hydration needs high temperature and pressure with a catalyst, so it uses more energy.\n\n💡 Worked Example\nA country with large sugar-cane harvests but no oil reserves is best served by fermentation: the raw material is renewable and home-grown, the equipment is simple, and the gentle conditions keep energy costs down — accepting the slower rate and the need to distil the product.\n\n⚠️ Common Mistake\nClaiming fermentation is 'better' or hydration is 'better' without qualification. Marks come from matched pairs: faster BUT non-renewable; renewable BUT slow and dilute.\n\n📎 Key Points to Remember\n• Fermentation: renewable, low energy, but slow and impure.\n• Hydration: fast and pure, but non-renewable and energy-hungry."
+    },
+    {
+      "id": "chem-igcse-organic-extended-n6",
+      "heading": "Ethanoic Acid and Esterification",
+      "body": "Ethanol is not the end of the road — oxidise it and you get an acid; react that acid with an alcohol and you get an ester.\n\n📌 Making ethanoic acid\nEthanoic acid forms when ethanol is **oxidised** — for example when wine is left open to the air and bacteria oxidise the ethanol, turning the wine sour (vinegar is dilute ethanoic acid). In the laboratory, ethanol is oxidised by heating with an oxidising agent such as acidified potassium manganate(VII).\n**ethanol + oxygen (from the oxidising agent) → ethanoic acid + water**\n\n📌 Esterification\nA carboxylic acid reacts with an alcohol to give an **ester and water**. The reaction is reversible and uses an acid catalyst:\n**carboxylic acid + alcohol ⇌ ester + water**\nCH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O\nethanoic acid + ethanol ⇌ ethyl ethanoate + water\nThe ⇌ sign matters: the reaction does not go to completion, so the mixture contains all four substances at equilibrium.\n\n📌 Esters in daily life\nEsters have sweet, fruity smells, so they are used in **perfumes and food flavourings**, and as **solvents** (e.g. in glues and nail-varnish remover).\n\n💡 Worked Example\nName the ester made from propanoic acid and ethanol. The alcohol gives the first half (ethyl-), the acid the second (-anoate): **ethyl propanoate**.\n\n⚠️ Common Mistake\nReversing the ester name. Ethanol + ethanoic acid makes ethyl ethanoate — alcohol part FIRST, acid part second.\n\n📎 Key Points to Remember\n• Oxidation of ethanol → ethanoic acid.\n• Acid + alcohol ⇌ ester + water (reversible, acid catalyst); esters are fruity-smelling flavourings, perfumes and solvents."
+    },
+    {
+      "id": "chem-igcse-organic-extended-n7",
+      "heading": "Condensation Polymerisation: Nylon, PET and Proteins",
+      "body": "Addition polymerisation (poly(ethene)) uses monomers with one C=C bond. Condensation polymerisation is different — and the difference is the exam question.\n\n📌 Definition\nIn **condensation polymerisation**, monomers with TWO functional groups (one at each end) join together, and a SMALL MOLECULE — usually **water** — is eliminated every time a new link forms. This is the opposite of addition polymerisation, where nothing is lost.\n\n🔑 The two synthetic examples\n• **Nylon** is a **polyamide**: its monomers link through **amide links** (–CO–NH–), formed when a –COOH group reacts with an –NH₂ group and water is lost. Nylon is used for ropes, clothing fibres and fishing line.\n• **PET** is a **polyester**: its monomers link through **ester links** (–COO–), formed when a –COOH group reacts with an –OH group, again losing water. PET is used for drinks bottles and polyester fabric.\nEach repeat unit of the chain contains the characteristic link, which is how you recognise the polymer type from a structure.\n\n📌 Proteins — nature's polyamides\n**Proteins are natural polyamides**: they are built from amino acid monomers joined by the same amide (peptide) link found in nylon, with water eliminated at each link. This is why nylon's chemistry is described as a synthetic copy of protein chemistry.\n\n💡 Worked Example\nA chain section shows repeating –CO–NH– links. Identify the polymer type: amide links mean a polyamide — nylon if synthetic, a protein if natural. Repeating –COO– links would instead mean a polyester such as PET.\n\n⚠️ Common Mistake\nSaying condensation polymers form 'by adding monomers together'. The defining feature is the ELIMINATION of a small molecule (water) at each link — no water lost, not condensation.\n\n📎 Key Points to Remember\n• Condensation = monomers with two functional groups + water eliminated per link.\n• Amide link → polyamide (nylon; proteins); ester link → polyester (PET)."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-igcse-organic-extended-f1",
+      "term": "Isomers",
+      "definition": "Different compounds that have the same molecular formula but different structural formulae.",
+      "example": "Butane and methylpropane are both C₄H₁₀ but their atoms are connected differently."
+    },
+    {
+      "id": "chem-igcse-organic-extended-f2",
+      "term": "but-1-ene vs but-2-ene",
+      "definition": "Isomers of C₄H₈ in which the number locates the C=C bond: but-1-ene is CH₂=CH–CH₂–CH₃, but-2-ene is CH₃–CH=CH–CH₃.",
+      "example": "The chain is numbered from the end that gives the double bond the lower number."
+    },
+    {
+      "id": "chem-igcse-organic-extended-f3",
+      "term": "Substitution reaction",
+      "definition": "A reaction in which an atom or group in a molecule is replaced by another atom or group.",
+      "example": "CH₄ + Cl₂ → CH₃Cl + HCl in ultraviolet light: one H of methane is replaced by Cl."
+    },
+    {
+      "id": "chem-igcse-organic-extended-f4",
+      "term": "Photochemical reaction",
+      "definition": "A reaction that needs light energy (ultraviolet) to proceed.",
+      "example": "The substitution of alkanes with chlorine only happens in UV light, not in the dark."
+    },
+    {
+      "id": "chem-igcse-organic-extended-f5",
+      "term": "Addition reaction",
+      "definition": "A reaction in which a small molecule adds across a C=C double bond, converting it to a single bond and forming only one product.",
+      "example": "C₂H₄ + Br₂ → C₂H₄Br₂ — the reaction behind the bromine-water test."
+    },
+    {
+      "id": "chem-igcse-organic-extended-f6",
+      "term": "Hydrogenation",
+      "definition": "The addition of hydrogen across a C=C double bond using a nickel catalyst, converting an alkene into an alkane.",
+      "example": "C₂H₄ + H₂ → C₂H₆ with a Ni catalyst."
+    },
+    {
+      "id": "chem-igcse-organic-extended-f7",
+      "term": "Fermentation vs hydration of ethene",
+      "definition": "Fermentation is slow and gives a dilute product but uses renewable crops and little energy; catalytic hydration is fast and gives a purer product but uses finite petroleum and more energy.",
+      "example": "A country rich in sugar cane but poor in oil would choose fermentation."
+    },
+    {
+      "id": "chem-igcse-organic-extended-f8",
+      "term": "Oxidation of ethanol",
+      "definition": "Ethanol is oxidised to ethanoic acid — by bacteria in air (vinegar formation) or by heating with an oxidising agent such as acidified potassium manganate(VII).",
+      "example": "Wine left open to the air turns sour as its ethanol oxidises to ethanoic acid."
+    },
+    {
+      "id": "chem-igcse-organic-extended-f9",
+      "term": "Esterification",
+      "definition": "The reversible reaction of a carboxylic acid with an alcohol to form an ester and water, using an acid catalyst.",
+      "example": "CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O (ethyl ethanoate)."
+    },
+    {
+      "id": "chem-igcse-organic-extended-f10",
+      "term": "Naming an ester",
+      "definition": "The alcohol-derived part comes first (ending -yl), then the acid-derived part (ending -anoate).",
+      "example": "Ethanol + propanoic acid → ethyl propanoate."
+    },
+    {
+      "id": "chem-igcse-organic-extended-f11",
+      "term": "Condensation polymerisation",
+      "definition": "Monomers with two functional groups join into a polymer chain, eliminating a small molecule such as water every time a link forms.",
+      "example": "Nylon forms when –COOH and –NH₂ groups link, losing water at each amide link."
+    },
+    {
+      "id": "chem-igcse-organic-extended-f12",
+      "term": "Nylon, PET and proteins",
+      "definition": "Nylon is a polyamide (amide links, –CO–NH–); PET is a polyester (ester links, –COO–); proteins are natural polyamides built from amino acids.",
+      "example": "PET is used for drinks bottles; nylon for ropes and fibres; proteins are nature's version of nylon chemistry."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-igcse-organic-extended-q1",
+      "stem": "What are isomers?",
+      "choices": [
+        "Compounds with the same structural formula but different molecular formulae",
+        "Atoms of the same element with different numbers of neutrons",
+        "Long-chain molecules built from repeating units",
+        "Different compounds with the same molecular formula but different structural formulae"
+      ],
+      "correctIndex": 3,
+      "explanation": "Isomers share a molecular formula but differ in how the atoms are connected. Same element with different neutrons describes isotopes — a common mix-up.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q2",
+      "stem": "How many structural isomers does the molecular formula C₄H₁₀ have?",
+      "choices": [
+        "One",
+        "Two",
+        "Three",
+        "Four"
+      ],
+      "correctIndex": 1,
+      "explanation": "Draw the possibilities: a straight chain of four carbons (butane) and a three-carbon chain with a methyl branch on the middle carbon (methylpropane). Any other drawing traces onto one of these, so there are exactly two isomers.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q3",
+      "stem": "In but-2-ene, where is the C=C double bond located?",
+      "choices": [
+        "Between carbon 2 and carbon 3",
+        "Between carbon 1 and carbon 2",
+        "Between carbon 3 and carbon 4",
+        "On every carbon in the chain"
+      ],
+      "correctIndex": 0,
+      "explanation": "The number names the carbon where the double bond STARTS, counting from the end that gives the lower number: but-2-ene is CH₃–CH=CH–CH₃. Numbering from the other end would make the same molecule but-2-ene again, never but-3-ene.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q4",
+      "stem": "Methane reacts with chlorine to form chloromethane and hydrogen chloride. Which conditions are required, and what type of reaction is it?",
+      "choices": [
+        "A nickel catalyst; addition",
+        "High pressure; cracking",
+        "Ultraviolet light; substitution",
+        "Yeast enzymes; fermentation"
+      ],
+      "correctIndex": 2,
+      "explanation": "Alkanes undergo substitution with halogens only in ultraviolet light — the reaction is photochemical. One hydrogen of CH₄ is replaced by Cl, giving CH₃Cl + HCl.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q5",
+      "stem": "Ethene reacts with hydrogen in the presence of a nickel catalyst. What is the product?",
+      "choices": [
+        "Ethanol",
+        "Ethanoic acid",
+        "Poly(ethene)",
+        "Ethane"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hydrogen adds across the C=C double bond (hydrogenation), converting the alkene into the saturated alkane: C₂H₄ + H₂ → C₂H₆.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q6",
+      "stem": "The reaction of ethene with steam over a catalyst to produce ethanol is best described as:",
+      "choices": [
+        "A substitution reaction",
+        "An addition reaction",
+        "A combustion reaction",
+        "A neutralisation reaction"
+      ],
+      "correctIndex": 1,
+      "explanation": "The water molecule adds across the C=C double bond — H to one carbon, OH to the other — giving a single saturated product, ethanol. That is the definition of an addition reaction.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q7",
+      "stem": "Which statement is an ADVANTAGE of making ethanol by fermentation rather than by hydration of ethene?",
+      "choices": [
+        "It uses sugar from crops, a renewable raw material",
+        "It is a much faster process",
+        "It produces ethanol of higher purity",
+        "It runs as a continuous industrial process"
+      ],
+      "correctIndex": 0,
+      "explanation": "Fermentation's raw material is renewable plant sugar. Its disadvantages are the flip side: it is slow, batch-based, and gives a dilute solution needing distillation — the areas where hydration wins.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q8",
+      "stem": "Which statement is an ADVANTAGE of the catalytic hydration of ethene over fermentation for manufacturing ethanol?",
+      "choices": [
+        "It uses a renewable feedstock",
+        "It operates at low temperature, saving energy",
+        "It is fast and produces a purer product",
+        "It requires no catalyst"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hydration is a rapid, continuous process giving relatively pure ethanol. Its drawbacks are the non-renewable ethene feedstock from petroleum and the energy needed for high temperature and pressure.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q9",
+      "stem": "A country has abundant natural gas and petroleum but little farmland and a warm climate unsuited to sugar crops. Which ethanol route should it choose, and why?",
+      "choices": [
+        "Fermentation, because it is faster",
+        "Fermentation, because sugar can be imported cheaply",
+        "Either route — the choice makes no difference",
+        "Hydration of ethene, because ethene is available from cracking its petroleum, and the process is fast and continuous"
+      ],
+      "correctIndex": 3,
+      "explanation": "Hydration matches the country's resources: petroleum can be cracked to ethene, and the fast, continuous, purer process suits industrial scale. Fermentation would need imported or unavailable sugar crops.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q10",
+      "stem": "A bottle of wine is left open to the air for several weeks and turns sour. What has happened chemically?",
+      "choices": [
+        "The sugar has fermented into ethanol",
+        "The ethanol has been oxidised to ethanoic acid",
+        "The water has evaporated, concentrating the acid",
+        "The ethanol has polymerised"
+      ],
+      "correctIndex": 1,
+      "explanation": "Bacteria in the air oxidise the ethanol to ethanoic acid — the sour taste of vinegar. This is the standard example of ethanoic acid formation by oxidation of ethanol.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q11",
+      "stem": "What are the products when a carboxylic acid reacts with an alcohol in the presence of an acid catalyst?",
+      "choices": [
+        "A salt and water",
+        "An alkene and hydrogen",
+        "An ester and water",
+        "An ethanoate and carbon dioxide"
+      ],
+      "correctIndex": 2,
+      "explanation": "Esterification: carboxylic acid + alcohol ⇌ ester + water. The reaction is reversible (note the ⇌), unlike the irreversible neutralisation of an acid with a base.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q12",
+      "stem": "Ethanoic acid reacts with ethanol. What is the name of the ester formed?",
+      "choices": [
+        "Ethyl ethanoate",
+        "Ethanoic ethanol",
+        "Ethyl ethanoic",
+        "Ethanol ethanoate"
+      ],
+      "correctIndex": 0,
+      "explanation": "Ester names put the ALCOHOL part first (ethyl-, from ethanol) and the ACID part second (-ethanoate, from ethanoic acid): ethyl ethanoate.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q13",
+      "stem": "How does condensation polymerisation differ from addition polymerisation?",
+      "choices": [
+        "Condensation requires monomers containing C=C double bonds",
+        "Addition polymerisation eliminates water at each link; condensation does not",
+        "Addition polymerisation needs two functional groups per monomer",
+        "Condensation joins monomers with two functional groups and eliminates a small molecule such as water at each link; addition joins C=C monomers with nothing lost"
+      ],
+      "correctIndex": 3,
+      "explanation": "In condensation polymerisation each new link forms by ejecting a small molecule (usually water), so the monomers need a functional group at each end. Addition polymerisation opens C=C bonds and produces the polymer as the only product.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q14",
+      "stem": "Which row correctly identifies the polymer types?",
+      "choices": [
+        "Nylon — polyamide; PET — polyester; protein — natural polyamide",
+        "Nylon — polyester; PET — polyamide; protein — polysaccharide",
+        "Nylon — polyamide; PET — polyamide; protein — polyester",
+        "Nylon — polyester; PET — polyester; protein — protein"
+      ],
+      "correctIndex": 0,
+      "explanation": "Nylon's –CO–NH– amide links make it a polyamide; PET's –COO– links make it a polyester; proteins are natural polyamides, their amino acids joined by the same amide (peptide) links as nylon.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-organic-extended-q15",
+      "stem": "Proteins are described as natural polyamides. Which statement explains why?",
+      "choices": [
+        "They contain C=C double bonds that join in long chains",
+        "They are synthetic polymers made in chemical plants",
+        "They are made from amino acid monomers joined by amide links, with water eliminated at each link",
+        "They contain ester links identical to those in PET"
+      ],
+      "correctIndex": 2,
+      "explanation": "Proteins form by condensation polymerisation of amino acids: the –COOH of one amino acid reacts with the –NH₂ of the next, eliminating water and leaving an amide (peptide) link — the same link that defines nylon.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "id": "chem-igcse-redox",
+  "subjectId": "chemistry",
+  "title": "Redox Reactions",
+  "description": "Oxidation and reduction as oxygen transfer and (Extended tier) electron transfer, Roman-numeral names, oxidation numbers, oxidising and reducing agents with the KMnO₄ and KI tests, and electrode half-equations for IGCSE Chemistry 0620.",
+  "stage": "igcse",
+  "course": "0620",
+  "notes": [
+    {
+      "id": "chem-igcse-redox-n1",
+      "heading": "Oxidation and Reduction: Oxygen Transfer",
+      "body": "📌 Definitions\n• **Oxidation** is the GAIN of oxygen by a substance.\n• **Reduction** is the LOSS of oxygen from a substance.\n\n🔑 Redox means both at once\nA **redox reaction** is one in which oxidation and reduction happen SIMULTANEOUSLY — if one substance gains oxygen, another must lose it. The oxygen has to come from somewhere.\n\n💡 Worked Example\nCuO + H₂ → Cu + H₂O\n• Copper(II) oxide loses oxygen → it is **reduced** to copper.\n• Hydrogen gains oxygen → it is **oxidised** to water.\nBoth happen in the same reaction, so this is a redox reaction.\n\n💡 Another Example\n2Mg + O₂ → 2MgO — magnesium gains oxygen, so it is oxidised to magnesium oxide.\n\n⚠️ Common Mistake\nDescribing a reaction as 'just oxidation'. If magnesium is oxidised, the oxygen is reduced — name BOTH changes when the question asks about redox.\n\n📎 Key Points to Remember\n• Oxidation = gain of O; reduction = loss of O.\n• They always happen together — that is what 'redox' means."
+    },
+    {
+      "id": "chem-igcse-redox-n2",
+      "heading": "Roman Numerals in Names",
+      "body": "📌 What the numeral means\nSome metals form ions with different charges. The Roman numeral in a name is the **oxidation number** of the metal in that compound:\n• **iron(II)** compounds contain Fe²⁺ — e.g. iron(II) chloride, FeCl₂; iron(II) oxide, FeO.\n• **iron(III)** compounds contain Fe³⁺ — e.g. iron(III) chloride, FeCl₃; iron(III) oxide, Fe₂O₃.\n• **copper(II)** compounds contain Cu²⁺ — e.g. copper(II) sulfate, CuSO₄.\n\n🔑 How it works\nThe numeral tells you the charge on the metal ion, which lets you write the formula. Iron(III) oxide: Fe³⁺ pairs with O²⁻, and the charges balance as 2 × (+3) + 3 × (−2) = 0, giving Fe₂O₃.\n\n⚠️ Common Mistake\nReading the numeral as a NUMBER OF ATOMS. Iron(III) chloride is FeCl₃ not because of the (III) — the three chlorides come from balancing Fe³⁺ with three Cl⁻. The (III) describes the iron's oxidation number, and it happens that three Cl⁻ balance it.\n\n📎 Key Points to Remember\n• (II) = +2, (III) = +3 — the numeral is the metal ion's charge/oxidation number.\n• Use the numeral + charge balance to build the formula."
+    },
+    {
+      "id": "chem-igcse-redox-n3",
+      "heading": "Electron Transfer: OILRIG (Extended tier)",
+      "body": "📌 Definitions (Extended tier)\n• **Oxidation Is Loss** of electrons.\n• **Reduction Is Gain** of electrons.\nThe mnemonic is **OILRIG**.\n\n🔑 How it works\nWhen magnesium reacts: Mg → Mg²⁺ + 2e⁻. Magnesium LOSES two electrons, so it is oxidised. When copper(II) ions are displaced: Cu²⁺ + 2e⁻ → Cu. The ions GAIN electrons, so they are reduced. The electrons lost by one species are gained by another — electron transfer is why oxidation and reduction always happen together.\n\n💡 Worked Example\nZn + Cu²⁺ → Zn²⁺ + Cu\n• Zn → Zn²⁺ + 2e⁻ (loss of electrons = oxidation)\n• Cu²⁺ + 2e⁻ → Cu (gain of electrons = reduction)\n\n⚠️ Common Mistake\nMixing the signs: electrons are NEGATIVE, so Losing the negative electrons makes a species MORE positive (Zn → Zn²⁺). If the charge goes up, electrons were lost — oxidation.\n\n📎 Key Points to Remember\n• OILRIG: Oxidation Is Loss, Reduction Is Gain of electrons.\n• Charge becoming more positive = oxidation; more negative/less positive = reduction.",
+      "illustration": {
+        "src": "/images/chemistry/chem-igcse-redox-definitions.svg",
+        "alt": "Two-panel summary of oxidation and reduction showing the oxygen-transfer and electron-transfer definitions, with the OILRIG mnemonic.",
+        "caption": "OILRIG: Oxidation Is Loss of electrons, Reduction Is Gain — plus the Core oxygen-transfer definitions."
+      }
+    },
+    {
+      "id": "chem-igcse-redox-n4",
+      "heading": "Assigning Oxidation Numbers (Extended tier)",
+      "body": "📌 The rules\n1. An uncombined **element** has oxidation number **0** (Na, O₂, Cl₂).\n2. In a compound or ion, the oxidation numbers **add up to the overall charge** (0 for a neutral compound).\n3. **Oxygen** is usually **−2**.\n4. **Hydrogen** is usually **+1**.\n5. Group 1 metals are +1, Group 2 metals are +2 in compounds.\n\n💡 Worked Examples\n• Sulfur in SO₂: S + 2 × (−2) = 0, so S = **+4**.\n• Nitrogen in NO₃⁻: N + 3 × (−2) = −1 (the ion's charge), so N = **+5**.\n• Chlorine in ClO⁻: Cl + (−2) = −1, so Cl = **+1**.\n\n🔑 Why it matters\nOxidation numbers tell you what is oxidised and what is reduced WITHOUT needing electron bookkeeping:\n• oxidation number **increases** → the species has been **oxidised**;\n• oxidation number **decreases** → the species has been **reduced**.\n\n⚠️ Common Mistake\nForgetting rule 2 for IONS: the numbers sum to the ion's charge, not zero. In NO₃⁻ the sum is −1, which is why N = +5 and not +6.\n\n📎 Key Points to Remember\n• Element = 0; sum = overall charge; O = −2; H = +1.\n• Rise = oxidation; fall = reduction."
+    },
+    {
+      "id": "chem-igcse-redox-n5",
+      "heading": "Oxidising and Reducing Agents (Extended tier)",
+      "body": "📌 Definitions\n• An **oxidising agent** oxidises another substance — and is itself REDUCED in the process.\n• A **reducing agent** reduces another substance — and is itself OXIDISED.\n\n🔑 The two colour-change tests you must know\n1. **Acidified potassium manganate(VII), KMnO₄** — deep PURPLE solution. If a substance turns it **colourless**, the substance is a **reducing agent** (it reduces the manganate(VII)).\n2. **Potassium iodide, KI** — colourless solution. If a substance turns it **brown** (iodine, I₂, is formed), the substance is an **oxidising agent** (it oxidises I⁻ to I₂).\n\n💡 Worked Example\nCl₂ + 2KI → 2KCl + I₂: the colourless solution turns brown. Chlorine oxidises I⁻ to I₂, so chlorine is the oxidising agent — and Cl₂ (oxidation number 0) is itself reduced to Cl⁻ (−1).\n\n⚠️ Common Mistake\nNaming the agent by what happens to IT. Name it by what it DOES to the other substance: the oxidising agent is the one that gets reduced.\n\n📎 Key Points to Remember\n• KMnO₄ purple → colourless = reducing agent present.\n• KI colourless → brown = oxidising agent present.\n• The agent is itself changed in the OPPOSITE way to its name."
+    },
+    {
+      "id": "chem-igcse-redox-n6",
+      "heading": "Half-Equations at Electrodes (Extended tier)",
+      "body": "📌 Definition\nA **half-equation** shows what happens at ONE electrode (or to ONE species), with electrons written in explicitly. The electrolysis topic gives you the products; here you write how they form.\n\n🔑 The method\n1. Write the species before and after (atoms balanced).\n2. Balance the CHARGE by adding electrons (e⁻) to the more positive side.\n\n💡 Worked Examples\n• **Cathode (reduction — gain of electrons):** Cu²⁺ + 2e⁻ → Cu. Check the charge: left side +2 − 2 = 0, right side 0 ✓.\n• **Cathode:** 2H⁺ + 2e⁻ → H₂ ✓.\n• **Anode (oxidation — loss of electrons):** 2Cl⁻ → Cl₂ + 2e⁻. Charge: left −2, right −2 ✓.\n• **Anode:** 2O²⁻ → O₂ + 4e⁻ ✓.\n\n🔑 Link to the electrodes\nReduction (gain of electrons) always happens at the **cathode**; oxidation (loss of electrons) at the **anode**.\n\n⚠️ Common Mistake\nElectrons on the wrong side. Gained electrons go on the LEFT (with the reactant); lost electrons go on the RIGHT (as a product). Then check that the total charge balances on both sides.\n\n📎 Key Points to Remember\n• Balance atoms first, then charge with e⁻.\n• Cathode = reduction; anode = oxidation."
+    },
+    {
+      "id": "chem-igcse-redox-n7",
+      "heading": "Spotting Redox in the Exam",
+      "body": "0620 loves an 'explain why this is a redox reaction' question. This is the reliable method.\n\n🔑 The method\n1. Assign oxidation numbers to the key elements on BOTH sides.\n2. Look for a species whose number RISES (oxidised) and one whose number FALLS (reduced).\n3. State both changes — that pairing is what makes it redox.\n\n💡 Worked Example\nZn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s)\n• Zn: 0 → +2 — oxidation number rises, zinc is **oxidised** (loses electrons).\n• Cu: +2 → 0 — oxidation number falls, copper(II) ions are **reduced** (gain electrons).\n• Zinc is the reducing agent; Cu²⁺ is the oxidising agent.\n\n🔑 Where redox appears\n• **Rusting:** iron is oxidised (0 → +3 in Fe₂O₃).\n• **Displacement:** the more reactive metal is oxidised.\n• **Metal extraction:** the metal oxide is reduced to the metal.\n• **Electrolysis:** reduction at the cathode, oxidation at the anode.\n\n⚠️ Common Mistake\nAnswering 'in terms of electron transfer' with an oxygen-transfer answer (or vice versa). Read the command words: 'in terms of electrons' needs gain/loss of e⁻; 'in terms of oxidation number' needs the numbers quoted.\n\n📎 Key Points to Remember\n• Quote the oxidation-number change OR the electron transfer — whichever the question asks for.\n• Always name both the oxidised and the reduced species."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-igcse-redox-f1",
+      "term": "Oxidation (oxygen definition)",
+      "definition": "The gain of oxygen by a substance.",
+      "example": "2Mg + O₂ → 2MgO: magnesium is oxidised."
+    },
+    {
+      "id": "chem-igcse-redox-f2",
+      "term": "Reduction (oxygen definition)",
+      "definition": "The loss of oxygen from a substance.",
+      "example": "CuO + H₂ → Cu + H₂O: copper(II) oxide is reduced to copper."
+    },
+    {
+      "id": "chem-igcse-redox-f3",
+      "term": "Redox reaction",
+      "definition": "A reaction in which oxidation and reduction happen simultaneously — one species is oxidised while another is reduced.",
+      "example": "Zn + CuO → ZnO + Cu: zinc is oxidised and copper(II) oxide is reduced."
+    },
+    {
+      "id": "chem-igcse-redox-f4",
+      "term": "Roman numeral in a name",
+      "definition": "The oxidation number (charge) of the metal ion in the compound: iron(II) = Fe²⁺, iron(III) = Fe³⁺, copper(II) = Cu²⁺.",
+      "example": "Iron(III) chloride is FeCl₃; iron(II) chloride is FeCl₂."
+    },
+    {
+      "id": "chem-igcse-redox-f5",
+      "term": "OILRIG",
+      "definition": "Oxidation Is Loss of electrons, Reduction Is Gain of electrons (Extended).",
+      "example": "Mg → Mg²⁺ + 2e⁻ is oxidation; Cu²⁺ + 2e⁻ → Cu is reduction."
+    },
+    {
+      "id": "chem-igcse-redox-f6",
+      "term": "Oxidation number rules",
+      "definition": "Uncombined element = 0; the numbers in a species sum to its overall charge; oxygen is usually −2 and hydrogen +1 (Extended).",
+      "example": "In SO₂: S + 2(−2) = 0, so sulfur is +4."
+    },
+    {
+      "id": "chem-igcse-redox-f7",
+      "term": "Oxidising agent",
+      "definition": "A substance that oxidises another substance and is itself reduced (Extended).",
+      "example": "Cl₂ is the oxidising agent in Cl₂ + 2KI → 2KCl + I₂."
+    },
+    {
+      "id": "chem-igcse-redox-f8",
+      "term": "Reducing agent",
+      "definition": "A substance that reduces another substance and is itself oxidised (Extended).",
+      "example": "Zn is the reducing agent in Zn + Cu²⁺ → Zn²⁺ + Cu."
+    },
+    {
+      "id": "chem-igcse-redox-f9",
+      "term": "Acidified KMnO₄ test",
+      "definition": "Acidified potassium manganate(VII) is purple; it turns colourless in the presence of a reducing agent (Extended).",
+      "example": "Purple → colourless shows the added substance is a reducing agent."
+    },
+    {
+      "id": "chem-igcse-redox-f10",
+      "term": "Potassium iodide test",
+      "definition": "Colourless potassium iodide solution turns brown (iodine forms) in the presence of an oxidising agent (Extended).",
+      "example": "Colourless → brown shows the added substance is an oxidising agent."
+    },
+    {
+      "id": "chem-igcse-redox-f11",
+      "term": "Half-equation",
+      "definition": "An equation for one electrode process with electrons shown explicitly; balance atoms, then balance charge with e⁻ (Extended).",
+      "example": "Cathode: Cu²⁺ + 2e⁻ → Cu. Anode: 2Cl⁻ → Cl₂ + 2e⁻."
+    },
+    {
+      "id": "chem-igcse-redox-f12",
+      "term": "Cathode process",
+      "definition": "Reduction (gain of electrons) always happens at the cathode; oxidation (loss of electrons) at the anode (Extended).",
+      "example": "2H⁺ + 2e⁻ → H₂ is the cathode half-equation in the electrolysis of dilute sulfuric acid."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-igcse-redox-q1",
+      "stem": "In terms of oxygen transfer, what is oxidation?",
+      "choices": [
+        "The gain of oxygen by a substance",
+        "The loss of oxygen from a substance",
+        "The breakdown of a compound by heat",
+        "The release of oxygen gas"
+      ],
+      "correctIndex": 0,
+      "explanation": "Oxidation is the gain of oxygen; reduction is the loss of oxygen. The two always happen together in a redox reaction.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-redox-q2",
+      "stem": "What does the (III) in the name iron(III) chloride tell you?",
+      "choices": [
+        "The formula contains three iron atoms",
+        "The iron has oxidation number +3 (Fe³⁺ ions)",
+        "The compound contains exactly three chloride ions per formula unit",
+        "The iron has gained three oxygen atoms"
+      ],
+      "correctIndex": 1,
+      "explanation": "The Roman numeral is the metal's oxidation number — iron(III) means Fe³⁺. The formula FeCl₃ follows from balancing Fe³⁺ with three Cl⁻; the numeral itself describes the iron, not the atom count.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-redox-q3",
+      "stem": "In the reaction Mg + CuO → MgO + Cu, which substance is oxidised?",
+      "choices": [
+        "Copper(II) oxide, because it contains oxygen",
+        "Copper, because it is a product",
+        "Magnesium, because it gains oxygen",
+        "No substance — this is not a redox reaction"
+      ],
+      "correctIndex": 2,
+      "explanation": "Magnesium gains oxygen to become MgO, so magnesium is oxidised. Copper(II) oxide loses oxygen to become Cu, so it is reduced — oxidation and reduction happen together.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-redox-q4",
+      "stem": "In terms of electron transfer (Extended tier), oxidation is:",
+      "choices": [
+        "The gain of electrons",
+        "The gain of oxygen",
+        "The gain of protons",
+        "The loss of electrons"
+      ],
+      "correctIndex": 3,
+      "explanation": "OILRIG: Oxidation Is Loss, Reduction Is Gain of electrons. Gain of oxygen is the Core definition of oxidation, not the electron-transfer one.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-redox-q5",
+      "stem": "What is the oxidation number of sulfur in SO₂? (Extended tier)",
+      "choices": [
+        "+4",
+        "+2",
+        "−2",
+        "+6"
+      ],
+      "correctIndex": 0,
+      "explanation": "Oxygen is −2 and the molecule is neutral, so S + 2 × (−2) = 0, giving S = +4. +6 is sulfur's oxidation number in SO₃ or SO₄²⁻.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-redox-q6",
+      "stem": "What is the oxidation number of nitrogen in the nitrate ion, NO₃⁻? (Extended tier)",
+      "choices": [
+        "+3",
+        "+5",
+        "−3",
+        "−1"
+      ],
+      "correctIndex": 1,
+      "explanation": "The oxidation numbers must sum to the ion's charge, −1: N + 3 × (−2) = −1, so N = +5. Summing to zero instead of −1 wrongly gives +6.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-redox-q7",
+      "stem": "In Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s), which species is the reducing agent? (Extended tier)",
+      "choices": [
+        "Cu²⁺, because it gains electrons",
+        "Cu, because it is the metal product",
+        "Zn, because it loses electrons and reduces Cu²⁺",
+        "Zn²⁺, because its charge is higher"
+      ],
+      "correctIndex": 2,
+      "explanation": "The reducing agent reduces the OTHER species and is itself oxidised. Zn goes from oxidation number 0 to +2 — it loses electrons (is oxidised) and reduces Cu²⁺ to Cu. Cu²⁺ is the oxidising agent.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-redox-q8",
+      "stem": "A colourless solution turns acidified potassium manganate(VII) from purple to colourless. What does this show? (Extended tier)",
+      "choices": [
+        "The solution contains an oxidising agent",
+        "The solution is acidic",
+        "The solution contains a transition-metal compound",
+        "The solution contains a reducing agent"
+      ],
+      "correctIndex": 3,
+      "explanation": "Purple acidified KMnO₄ is decolourised when it is reduced, so the added solution must be a reducing agent. The reverse test — KI turning brown — detects an oxidising agent.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-redox-q9",
+      "stem": "What is the formula of iron(III) oxide?",
+      "choices": [
+        "Fe₂O₃",
+        "FeO",
+        "Fe₃O₂",
+        "FeO₃"
+      ],
+      "correctIndex": 0,
+      "explanation": "Iron(III) means Fe³⁺, and oxide is O²⁻. Balancing charges: 2 × (+3) + 3 × (−2) = 0, so the formula is Fe₂O₃. FeO is iron(II) oxide.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-redox-q10",
+      "stem": "What is observed when an oxidising agent is added to colourless potassium iodide solution? (Extended tier)",
+      "choices": [
+        "The solution turns purple",
+        "The solution turns brown as iodine forms",
+        "A white precipitate forms",
+        "Bubbles of gas are seen"
+      ],
+      "correctIndex": 1,
+      "explanation": "An oxidising agent oxidises iodide ions to iodine (2I⁻ → I₂ + 2e⁻), and the iodine colours the solution brown. Purple → colourless is the KMnO₄ test for a REDUCING agent — do not mix the two up.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-redox-q11",
+      "stem": "Which is the correct half-equation for the reduction of iron(III) ions to iron(II) ions at a cathode? (Extended tier)",
+      "choices": [
+        "Fe³⁺ → Fe²⁺ + e⁻",
+        "Fe²⁺ + e⁻ → Fe³⁺",
+        "Fe³⁺ + e⁻ → Fe²⁺",
+        "Fe³⁺ + 3e⁻ → Fe²⁺"
+      ],
+      "correctIndex": 2,
+      "explanation": "Reduction is GAIN of electrons, so e⁻ appears on the left with the reactant: Fe³⁺ + e⁻ → Fe²⁺. Check: atoms balance (1 Fe each side) and charge balances (+3 − 1 = +2 on both sides). The other options either put electrons on the wrong side or fail to balance charge.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-redox-q12",
+      "stem": "During electrolysis, the process at the cathode is always: (Extended tier)",
+      "choices": [
+        "Oxidation — ions lose electrons",
+        "Neutralisation",
+        "Precipitation",
+        "Reduction — ions gain electrons"
+      ],
+      "correctIndex": 3,
+      "explanation": "The cathode is the negative electrode, so positive ions arrive there and GAIN electrons — gain of electrons is reduction (OILRIG). Oxidation happens at the anode.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-redox-q13",
+      "stem": "Chlorine reacts with potassium iodide: Cl₂ + 2KI → 2KCl + I₂. Which species is the oxidising agent? (Extended tier)",
+      "choices": [
+        "Cl₂ — it oxidises I⁻ to I₂ and is itself reduced to Cl⁻",
+        "KI — because it contains the iodine",
+        "KCl — because it is the salt product",
+        "I₂ — because it is the coloured product"
+      ],
+      "correctIndex": 0,
+      "explanation": "Chlorine takes electrons from the iodide ions (2I⁻ → I₂ + 2e⁻), so it oxidises them; chlorine's own oxidation number falls from 0 to −1, so it is reduced. The agent that does the oxidising — Cl₂ — is the oxidising agent.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-redox-q14",
+      "stem": "What is the oxidation number of chlorine in the hypochlorite ion, ClO⁻? (Extended tier)",
+      "choices": [
+        "−1",
+        "+1",
+        "+2",
+        "−2"
+      ],
+      "correctIndex": 1,
+      "explanation": "The numbers sum to the ion's charge: Cl + (−2) = −1, so Cl = +1. The familiar −1 is chlorine's oxidation number in chloride ions such as Cl⁻ — in ClO⁻ the oxygen 'uses up' the −2.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-redox-q15",
+      "stem": "Iron(II) ions react with chlorine: 2Fe²⁺ + Cl₂ → 2Fe³⁺ + 2Cl⁻. Which statement is correct? (Extended tier)",
+      "choices": [
+        "Cl₂ is oxidised to Cl⁻",
+        "Fe²⁺ is reduced to Fe³⁺",
+        "Fe²⁺ is oxidised — its oxidation number rises from +2 to +3",
+        "The oxidation number of chlorine rises from 0 to −1"
+      ],
+      "correctIndex": 2,
+      "explanation": "Fe²⁺ → Fe³⁺ is a rise in oxidation number (+2 to +3) — loss of an electron — so iron(II) is oxidised. Chlorine falls from 0 to −1, so Cl₂ is reduced. Note that a fall to −1 is a DECREASE, so the last option misreads the sign.",
+      "difficulty": "hard"
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "id": "chem-igcse-rates",
+  "subjectId": "chemistry",
+  "title": "Rates of Reaction",
+  "description": "Measuring reaction rates by mass loss and gas collection, the factors that change rate, interpreting rate graphs, and reversible reactions with the copper(II) sulfate and cobalt(II) chloride water tests for IGCSE Chemistry 0620.",
+  "stage": "igcse",
+  "course": "0620",
+  "notes": [
+    {
+      "id": "chem-igcse-rates-n1",
+      "heading": "What 'Rate' Means in the Exam",
+      "body": "📌 Definition\nThe **rate of reaction** is how quickly reactants are turned into products — measured as a change in a quantity PER UNIT TIME:\n$$\\text{rate} = \\dfrac{\\text{amount of product}}{\\text{time taken}}$$\n(Equivalently: amount of reactant used ÷ time taken.)\nTypical units: cm³ of gas per second, or grams per second.\n\n🔑 What the examiner wants\n'It reacts faster' scores nothing on its own. A rate answer needs a MEASURED quantity changing with time: volume of gas collected each 10 seconds, or the mass of the flask each minute.\n\n💡 Worked Example\n$44\\text{ cm}^3$ of gas collects in the first $20$ s of an experiment. The average rate over that interval is $\\dfrac{44}{20} = 2.2$ cm³/s.\n\n⚠️ Common Mistake\nQuoting a total volume as a rate. $44\\text{ cm}^3$ is an amount; $\\dfrac{44}{20} = 2.2$ cm³/s is a rate. Rate answers must divide by time.\n\n📎 Key Points to Remember\n• Rate = change ÷ time.\n• Pick a quantity you can actually measure: gas volume or mass."
+    },
+    {
+      "id": "chem-igcse-rates-n2",
+      "heading": "Practical Method 1: Mass Loss on a Balance",
+      "body": "The classic 0620 experiment: calcium carbonate reacting with hydrochloric acid, CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂.\n\n🔑 The method — the detail that earns marks\n1. Stand a conical flask containing the acid on a digital balance.\n2. Add the calcium carbonate and loosely plug the flask with **cotton wool**.\n3. Record the balance reading at REGULAR intervals (e.g. every 30 s) until the reading stops changing.\n4. Plot mass against time — the mass FALLS as carbon dioxide gas escapes.\n\n🔑 Why the cotton wool?\nIt lets the CO₂ escape (so the mass loss can be measured) while stopping acid spray from spitting out of the flask, which would make the mass loss too big and the results inaccurate.\n\n⚠️ Common Mistake\nSaying the mass falls because 'the reaction uses up the carbonate'. The SOLID is used up but its mass stays in the flask as products — only the ESCAPING GAS lowers the balance reading.\n\n📎 Key Points to Remember\n• Balance + cotton wool plug; record mass at regular times.\n• The falling mass tracks the escaping CO₂."
+    },
+    {
+      "id": "chem-igcse-rates-n3",
+      "heading": "Practical Method 2: Collecting the Gas",
+      "body": "🔑 The method — gas syringe\n1. Put the acid in a conical flask connected by a delivery tube (or directly) to a **gas syringe**.\n2. Add the solid (e.g. magnesium ribbon or marble chips), replace the bung IMMEDIATELY and start the timer.\n3. Record the syringe volume at regular intervals (e.g. every 10–20 s) until it stops rising.\n4. Plot volume of gas against time.\n\n🔑 The alternative\nAn **inverted measuring cylinder** full of water, standing in a trough — the gas bubbles in and pushes the water down. Fine for gases that are not very soluble in water.\n\n🔑 Making it valid\n• Same volume and concentration of acid, same mass of solid each run.\n• Change only ONE factor per comparison (e.g. temperature).\n• Repeat and check the curves agree.\n\n⚠️ Common Mistake\nLosing the first few seconds of gas. If the bung goes on slowly, the initial gas escapes and every reading is too low — the whole curve shifts down.\n\n📎 Key Points to Remember\n• Gas syringe = direct volume readings at regular times.\n• Airtight apparatus and a fast bung are the accuracy marks."
+    },
+    {
+      "id": "chem-igcse-rates-n4",
+      "heading": "The Five Factors That Change the Rate",
+      "body": "📌 The factors (0620 Core)\n• **Concentration** (solutions): more particles in the same volume → collisions happen more often → faster.\n• **Pressure** (gases only): squeezing gas particles closer together → collisions more often → faster. Pressure has NO effect on reactions between solids or liquids.\n• **Temperature**: particles move faster → they collide more often → faster. A small temperature rise can make a big difference.\n• **Surface area** (solids): a powder exposes far more particles to the other reactant than a lump → collisions more often → faster.\n• **Catalyst**: speeds a reaction up without being used up; it can be recovered chemically unchanged at the end. **Enzymes** are biological catalysts (e.g. in digestion and in washing powders).\n\n🔑 How to phrase the explanation\n'Increasing the concentration increases the rate, because there are more particles per unit volume, so collisions between reacting particles happen more frequently.' Name the factor, then the particles, then the collisions. (Extended tier adds the activation-energy side of collision theory — that detail is covered with the equilibrium topic.)\n\n⚠️ Common Mistake\nWriting 'the particles have more energy and collide more' for every factor. Concentration, pressure and surface area change HOW OFTEN particles collide; temperature also changes how fast they move. Match the explanation to the factor.\n\n📎 Key Points to Remember\n• Five factors: concentration, pressure, temperature, surface area, catalyst.\n• Catalysts are not used up; enzymes are biological catalysts."
+    },
+    {
+      "id": "chem-igcse-rates-n5",
+      "heading": "Interpreting Rate Graphs",
+      "body": "A graph of product amount (gas volume or mass lost) against time is the standard 0620 data question.\n\n🔑 Reading one curve\n• **Steepest at the START** — the reactants are at their most concentrated, so collisions are most frequent.\n• **Flattens as it goes** — reactants are being used up, so collisions become less frequent.\n• **Horizontal plateau** — the reaction has finished; a reactant has run out.\n\n🔑 Comparing two curves\n• The FASTER reaction has the STEEPER initial gradient.\n• Same amounts of the same reactants → SAME final amount: both curves level off at the same height, just at different times.\n• A catalyst or higher concentration makes the curve steeper but does NOT raise the plateau.\n\n💡 Worked Example\nPowdered marble vs marble chips in the same excess of acid: the powder curve rises steeply and plateaus early; the chips curve rises gently and plateaus later — both at the same final volume, because the same mass of CaCO₃ reacted.\n\n⚠️ Common Mistake\nClaiming the faster reaction 'makes more product'. Speed and AMOUNT are different: with the same reactant amounts, the final volume is identical — only the steepness changes.\n\n📎 Key Points to Remember\n• Steep start, gentle middle, flat end.\n• Steeper = faster; same reactants = same plateau.",
+      "illustration": {
+        "src": "/images/chemistry/chem-igcse-rates-graphs.svg",
+        "alt": "A graph of gas volume against time comparing a fast reaction (steep curve, powder) with a slow reaction (gentle curve, lumps), both levelling off at the same final volume.",
+        "caption": "Same reactants, same plateau: the steeper curve is the faster reaction, and both flatten when a reactant runs out."
+      }
+    },
+    {
+      "id": "chem-igcse-rates-n6",
+      "heading": "Reversible Reactions: The Copper(II) Sulfate Cycle",
+      "body": "📌 Definition\nA **reversible reaction** can go in BOTH directions, shown by the ⇌ symbol: the products can react to re-form the reactants when the conditions change.\n\n🔑 The 0620 example\n**CuSO₄·5H₂O (blue) ⇌ CuSO₄ (white) + 5H₂O**\n• **Forward (heat):** blue hydrated copper(II) sulfate crystals are heated → water is driven off → WHITE anhydrous copper(II) sulfate powder.\n• **Reverse (add water):** water is added to the white powder → it turns BLUE again (and gets warm).\n\n🔑 Why it matters: the test for water\nWhite anhydrous copper(II) sulfate turning BLUE is a chemical test for water — it works even when the water is mixed with other liquids (unlike boiling-point checks, which test purity).\n\n⚠️ Common Mistake\nReversing the colours. Hydrated = BLUE (the familiar crystals); anhydrous = WHITE. Heating drives the colour OUT with the water.\n\n📎 Key Points to Remember\n• ⇌ means the reaction runs both ways.\n• Blue ⇌ white for CuSO₄; white → blue tests for water."
+    },
+    {
+      "id": "chem-igcse-rates-n7",
+      "heading": "Cobalt(II) Chloride and Exam Technique",
+      "body": "📌 The second reversible colour change\nHydrated cobalt(II) chloride is PINK; anhydrous cobalt(II) chloride is BLUE:\n**CoCl₂·6H₂O (pink) ⇌ CoCl₂ (blue) + 6H₂O**\n• Heating the pink crystals drives off water → blue.\n• Adding water to the blue form → pink.\n\n🔑 The test for water\n**Cobalt chloride paper** is blue; it turns PINK in the presence of water — the alternative chemical test to anhydrous copper(II) sulfate (white → blue).\n\n🔑 Exam technique for this topic\n• 'Describe the graph' → quote gradient changes and the plateau, with values from the axes.\n• 'Explain the rate change' → factor + particles + collision frequency, in that order.\n• 'Describe a test for water' → name the reagent AND give both colours (start and finish).\n\n⚠️ Common Mistake\nSwapping the two tests: copper(II) sulfate is WHITE → BLUE; cobalt(II) chloride is BLUE → PINK. Both end up coloured when water is present, but the colours differ — learn the pair.\n\n📎 Key Points to Remember\n• CoCl₂: blue ⇌ pink; blue paper → pink = water present.\n• A reversible-reaction answer should say what changes AND what reverses it."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-igcse-rates-f1",
+      "term": "Rate of reaction",
+      "definition": "The change in amount of a reactant or product per unit time — rate = change ÷ time.",
+      "example": "44 cm³ of gas in 20 s gives an average rate of 2.2 cm³/s."
+    },
+    {
+      "id": "chem-igcse-rates-f2",
+      "term": "Mass-loss method",
+      "definition": "React on a balance with a cotton-wool plug and record mass at regular intervals; the mass falls as gas escapes.",
+      "example": "CaCO₃ + HCl in a flask on a balance — the falling mass tracks the CO₂ leaving."
+    },
+    {
+      "id": "chem-igcse-rates-f3",
+      "term": "Cotton wool plug",
+      "definition": "Lets the gas escape so mass loss is measurable, but stops acid spray leaving the flask.",
+      "example": "Without it, spitting acid would make the mass loss too large."
+    },
+    {
+      "id": "chem-igcse-rates-f4",
+      "term": "Gas syringe method",
+      "definition": "Collect the gas in a gas syringe (or inverted measuring cylinder over water) and record the volume at regular times.",
+      "example": "Magnesium + acid: record H₂ volume every 10 s and plot volume against time."
+    },
+    {
+      "id": "chem-igcse-rates-f5",
+      "term": "Concentration",
+      "definition": "More concentrated solution → more particles per unit volume → collisions more frequent → faster rate.",
+      "example": "2 mol/dm³ acid reacts faster with marble chips than 0.5 mol/dm³ acid."
+    },
+    {
+      "id": "chem-igcse-rates-f6",
+      "term": "Pressure (gases)",
+      "definition": "Higher pressure pushes gas particles closer together → collisions more frequent → faster rate. No effect on solids or liquids.",
+      "example": "Reacting gases at high pressure react faster than at atmospheric pressure."
+    },
+    {
+      "id": "chem-igcse-rates-f7",
+      "term": "Temperature",
+      "definition": "Higher temperature → particles move faster → collisions more frequent → faster rate.",
+      "example": "Milk goes off faster out of the fridge; warm acid reacts faster with magnesium."
+    },
+    {
+      "id": "chem-igcse-rates-f8",
+      "term": "Surface area",
+      "definition": "Smaller pieces expose more surface to the other reactant → collisions more frequent → faster rate.",
+      "example": "Powdered marble reacts much faster than marble chips in acid."
+    },
+    {
+      "id": "chem-igcse-rates-f9",
+      "term": "Catalyst",
+      "definition": "A substance that increases the rate of a reaction without being used up; it is chemically unchanged at the end.",
+      "example": "Manganese(IV) oxide speeds up the decomposition of hydrogen peroxide."
+    },
+    {
+      "id": "chem-igcse-rates-f10",
+      "term": "Enzyme",
+      "definition": "A biological catalyst.",
+      "example": "Enzymes in biological washing powders speed up the breakdown of stains."
+    },
+    {
+      "id": "chem-igcse-rates-f11",
+      "term": "Copper(II) sulfate water test",
+      "definition": "White anhydrous CuSO₄ turns BLUE when water is added; heating the blue hydrated crystals reverses it (a reversible reaction).",
+      "example": "CuSO₄·5H₂O (blue) ⇌ CuSO₄ (white) + 5H₂O."
+    },
+    {
+      "id": "chem-igcse-rates-f12",
+      "term": "Cobalt(II) chloride water test",
+      "definition": "Blue cobalt chloride paper turns PINK when water is present; heating reverses it.",
+      "example": "CoCl₂·6H₂O (pink) ⇌ CoCl₂ (blue) + 6H₂O."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-igcse-rates-q1",
+      "stem": "Which piece of apparatus is used to collect and measure the volume of gas given off in a rate experiment?",
+      "choices": [
+        "A balance",
+        "A thermometer",
+        "A burette",
+        "A gas syringe"
+      ],
+      "correctIndex": 3,
+      "explanation": "A gas syringe collects the gas and reads its volume directly (an inverted measuring cylinder over water is the alternative). A balance tracks mass loss, and a thermometer measures temperature — neither measures gas volume.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-rates-q2",
+      "stem": "How does increasing the temperature affect the rate of a reaction?",
+      "choices": [
+        "It increases the rate — the particles move faster and collide more often",
+        "It decreases the rate — the particles spread out",
+        "It has no effect on the rate",
+        "It stops the reaction completely"
+      ],
+      "correctIndex": 0,
+      "explanation": "Heating makes particles move faster, so collisions between reacting particles happen more frequently and the rate rises. This is why reactions are often warmed in the lab.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-rates-q3",
+      "stem": "Powdered calcium carbonate reacts faster with hydrochloric acid than the same mass of marble chips. Why?",
+      "choices": [
+        "The powder contains more calcium carbonate",
+        "The powder has a larger surface area exposed to the acid",
+        "The powder is a catalyst",
+        "The chips are impure"
+      ],
+      "correctIndex": 1,
+      "explanation": "Grinding breaks the solid into tiny pieces, exposing far more particles at the surface where collisions with acid particles can happen — so collisions are more frequent and the rate rises. The mass (and final gas volume) is unchanged.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-rates-q4",
+      "stem": "Two rate experiments are plotted as gas volume against time. How can you tell from the graph which reaction was faster?",
+      "choices": [
+        "The faster reaction's curve reaches a higher final volume",
+        "The faster reaction's curve starts above the origin",
+        "The faster reaction's curve has the steeper initial gradient",
+        "The faster reaction's curve is always a straight line"
+      ],
+      "correctIndex": 2,
+      "explanation": "Gradient = rate, so the faster reaction has the steeper start. With the same reactant amounts the curves plateau at the SAME final volume — height tells you how much, steepness tells you how fast.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-rates-q5",
+      "stem": "Why does a rate curve (product formed against time) gradually flatten as the reaction proceeds?",
+      "choices": [
+        "The product starts to decompose",
+        "The temperature falls during the reaction",
+        "The catalyst runs out",
+        "The reactants are being used up, so collisions become less frequent"
+      ],
+      "correctIndex": 3,
+      "explanation": "As reactants are consumed their concentrations fall, so reacting particles collide less often and the rate drops — the curve flattens. It goes horizontal only when a reactant is completely used up.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-rates-q6",
+      "stem": "In the mass-loss experiment for CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂, why does the balance reading fall?",
+      "choices": [
+        "Carbon dioxide gas escapes from the flask",
+        "The calcium carbonate is used up",
+        "Water evaporates from the acid",
+        "The cotton wool absorbs some product"
+      ],
+      "correctIndex": 0,
+      "explanation": "Only the escaping CO₂ leaves the flask, so the measured mass falls by exactly the mass of gas produced. The carbonate being 'used up' does not itself change the reading — its atoms remain in the flask as products.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-rates-q7",
+      "stem": "The same mass of marble chips is added to an excess of hydrochloric acid in two experiments, one using concentrated acid and one dilute. What is TRUE of the two gas-volume curves?",
+      "choices": [
+        "The dilute acid curve is steeper and plateaus higher",
+        "Both curves level off at the same final volume, but the concentrated acid curve is steeper",
+        "The concentrated acid curve plateaus at a higher final volume",
+        "The two curves are identical"
+      ],
+      "correctIndex": 1,
+      "explanation": "More concentrated acid → more particles per unit volume → more frequent collisions → steeper curve. But the marble mass (the limiting reactant, since acid is in excess) is the same, so both reactions produce the same final volume of CO₂.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-rates-q8",
+      "stem": "White anhydrous copper(II) sulfate turns blue when water is added to it. What is this reaction used for?",
+      "choices": [
+        "Measuring the pH of water",
+        "Purifying water",
+        "Testing for the presence of water",
+        "Making copper metal"
+      ],
+      "correctIndex": 2,
+      "explanation": "The white → blue colour change is the chemical test for water. It detects water even in a mixture; checking purity (that a liquid is ONLY water) needs a boiling-point measurement.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-rates-q9",
+      "stem": "In a gas-collection experiment, $44\\text{ cm}^3$ of gas is produced in the first $20$ s. What is the average rate of reaction over this time?",
+      "choices": [
+        "$0.45\\text{ cm}^3\\text{/s}$",
+        "$880\\text{ cm}^3\\text{/s}$",
+        "$24\\text{ cm}^3\\text{/s}$",
+        "$2.2\\text{ cm}^3\\text{/s}$"
+      ],
+      "correctIndex": 3,
+      "explanation": "Rate = change ÷ time $= \\dfrac{44}{20} = 2.2\\text{ cm}^3\\text{/s}$. $0.45\\text{ cm}^3\\text{/s}$ is time ÷ volume — the calculation inverted; $880$ multiplies instead of dividing.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-rates-q10",
+      "stem": "Enzymes are best described as:",
+      "choices": [
+        "Biological catalysts",
+        "Biological reactants that are used up",
+        "A type of acid",
+        "Proteins that lower the pressure in cells"
+      ],
+      "correctIndex": 0,
+      "explanation": "Enzymes are the catalysts of living systems — they speed up reactions (digestion, respiration, stain breakdown in washing powders) without being used up, exactly like other catalysts.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-rates-q11",
+      "stem": "Which change would DECREASE the rate of the reaction between magnesium ribbon and hydrochloric acid?",
+      "choices": [
+        "Powdering the magnesium",
+        "Using a more dilute hydrochloric acid",
+        "Warming the acid",
+        "Adding a catalyst"
+      ],
+      "correctIndex": 1,
+      "explanation": "Diluting the acid means fewer acid particles per unit volume, so collisions with the magnesium surface happen less often and the rate falls. Powdering raises the surface area, and warming or catalysing speeds the reaction up — all three INCREASE the rate.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-rates-q12",
+      "stem": "A flask on a balance reads $95.60\\text{ g}$ at the start of a reaction and $94.20\\text{ g}$ after two minutes. What mass of gas has escaped?",
+      "choices": [
+        "$0.60\\text{ g}$",
+        "$189.80\\text{ g}$",
+        "$1.40\\text{ g}$",
+        "$1.20\\text{ g}$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The mass of escaped gas is the fall in the balance reading: $95.60 - 94.20 = 1.40\\text{ g}$. $189.80\\text{ g}$ adds the readings; $0.60\\text{ g}$ mis-subtracts the decimal parts.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-rates-q13",
+      "stem": "A rate experiment is repeated with everything identical except that a catalyst is added. How does the gas-volume-against-time curve change?",
+      "choices": [
+        "The curve is identical — a catalyst only works once",
+        "The curve reaches a higher final volume",
+        "The curve reaches a lower final volume because the catalyst absorbs some product",
+        "The initial gradient is steeper but the final volume is the same"
+      ],
+      "correctIndex": 3,
+      "explanation": "A catalyst speeds the reaction up (steeper start) but is not a reactant, so it cannot change the amounts: with the same reactants the plateau stays at the same final volume.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-rates-q14",
+      "stem": "What is observed when blue hydrated copper(II) sulfate is heated?",
+      "choices": [
+        "It turns white as water is driven off",
+        "It turns pink as water is driven off",
+        "It melts and stays blue",
+        "It turns black and gives off oxygen"
+      ],
+      "correctIndex": 0,
+      "explanation": "Heating drives the water out of the blue hydrated crystals, leaving white anhydrous copper(II) sulfate — the forward direction of CuSO₄·5H₂O (blue) ⇌ CuSO₄ (white) + 5H₂O. Blue → PINK is the cobalt(II) chloride change in reverse — do not mix the two tests up.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-rates-q15",
+      "stem": "Blue cobalt chloride paper is used to test a colourless liquid. What is the positive result for water?",
+      "choices": [
+        "The paper turns white",
+        "The paper turns pink",
+        "The paper turns blue-black",
+        "The paper stays blue"
+      ],
+      "correctIndex": 1,
+      "explanation": "Blue anhydrous cobalt(II) chloride takes up water to form the pink hydrate — blue → pink means water is present. The companion test is white anhydrous copper(II) sulfate turning blue.",
+      "difficulty": "medium"
+    }
+  ]
+}

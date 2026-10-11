@@ -1,0 +1,321 @@
+{
+  "id": "chem-igcse-electrolysis",
+  "subjectId": "chemistry",
+  "title": "Electrolysis",
+  "description": "Principles of electrolysis, the three named cells (molten lead(II) bromide, concentrated aqueous sodium chloride, dilute sulfuric acid), predicting products, electroplating and the hydrogen-oxygen fuel cell for IGCSE Chemistry 0620.",
+  "stage": "igcse",
+  "course": "0620",
+  "notes": [
+    {
+      "id": "chem-igcse-electrolysis-n1",
+      "heading": "Electrolysis: The Key Vocabulary",
+      "body": "📌 Definitions\n• **Electrolysis** is the breakdown of an ionic compound, when molten or in aqueous solution, by passing electricity through it.\n• The **electrolyte** is the molten compound or solution that conducts electricity and is decomposed by it. It must contain ions that are FREE TO MOVE.\n• The **electrodes** are the two conductors dipping into the electrolyte. The **anode** is the positive electrode; the **cathode** is the negative electrode.\n• **Inert electrodes** (graphite or platinum) carry the current into the electrolyte but do not take part in the reactions.\n\n🔑 How it works\nPositive ions (**cations**) are attracted to the cathode; negative ions (**anions**) are attracted to the anode. At each electrode, ions lose their charge and turn into neutral atoms or molecules — new substances appear, so electrolysis is a chemical change, not just conduction.\n\n⚠️ Common Mistake\nSaying a SOLID ionic compound conducts electricity. Solid PbBr₂ does not conduct — its ions are locked in the lattice. Melt it or dissolve it in water so the ions can move.\n\n📎 Key Points to Remember\n• Anode = positive, cathode = negative.\n• Cations move to the cathode; anions move to the anode.\n• No mobile ions → no current → no electrolysis.",
+      "illustration": {
+        "src": "/images/chemistry/chem-igcse-electrolysis-cell.svg",
+        "alt": "Labelled electrolysis cell showing a battery, an anode and cathode dipping into an electrolyte, with cations moving towards the cathode and anions towards the anode.",
+        "caption": "In electrolysis, cations (positive ions) move to the negative cathode and anions (negative ions) move to the positive anode."
+      }
+    },
+    {
+      "id": "chem-igcse-electrolysis-n2",
+      "heading": "Named Cell 1: Molten Lead(II) Bromide",
+      "body": "0620 names this cell explicitly — learn the products AND the observations.\n\n📌 Setup\nSolid lead(II) bromide (PbBr₂) is melted so its ions (Pb²⁺ and Br⁻) are free to move. Inert graphite electrodes dip into the melt.\n\n🔑 The products\n• **Cathode (negative):** lead(II) ions are attracted here and **molten lead** forms — observed as a shiny grey liquid metal collecting beneath the cathode.\n• **Anode (positive):** bromide ions are attracted here and **bromine** is released — observed as orange-brown fumes.\n\n💡 Why this cell is the model\nA molten binary compound contains only ONE cation and ONE anion, so there is no competition: the metal always forms at the cathode and the non-metal at the anode.\n\n⚠️ Common Mistake\nWriting that lead forms at the anode. Lead(II) ions are POSITIVE (Pb²⁺), so they are cations — and cations move to the cathode.\n\n📎 Key Points to Remember\n• Molten PbBr₂ → lead at the cathode, bromine at the anode.\n• Observations score marks: grey liquid metal (cathode), orange-brown gas (anode)."
+    },
+    {
+      "id": "chem-igcse-electrolysis-n3",
+      "heading": "Named Cell 2: Concentrated Aqueous Sodium Chloride",
+      "body": "Concentrated aqueous sodium chloride (brine) contains Na⁺ and Cl⁻ from the salt, plus H⁺ and OH⁻ from the water — so the products are different from a molten salt.\n\n🔑 The products\n• **Cathode (negative):** **hydrogen** gas — bubbles of a colourless gas that burns with a pop.\n• **Anode (positive):** **chlorine** gas — bubbles of a greenish gas that bleaches damp litmus paper.\n• **Left in solution:** the ions NOT discharged are Na⁺ and OH⁻, so the solution gradually becomes **sodium hydroxide** (NaOH).\n\n🔑 Why the products matter\nAll three are industrially useful: chlorine for treating water and making plastics, sodium hydroxide for making soap and paper, hydrogen as a fuel.\n\n⚠️ Common Mistake\nPredicting sodium metal at the cathode. Sodium is far too reactive: in an AQUEOUS solution, hydrogen from the water is discharged at the cathode instead. Sodium metal only forms when MOLTEN sodium chloride is electrolysed.\n\n📎 Key Points to Remember\n• Conc. NaCl(aq): H₂ at the cathode, Cl₂ at the anode, NaOH left in solution.\n• The solution becomes alkaline as NaCl is used up."
+    },
+    {
+      "id": "chem-igcse-electrolysis-n4",
+      "heading": "Named Cell 3: Dilute Sulfuric Acid",
+      "body": "📌 Setup\nDilute sulfuric acid (H₂SO₄) is electrolysed between inert electrodes (graphite or platinum). The acid provides H⁺ and SO₄²⁻ ions, and the water provides H⁺ and OH⁻.\n\n🔑 The products\n• **Cathode (negative):** **hydrogen** gas — gives a squeaky pop with a lighted splint.\n• **Anode (positive):** **oxygen** gas — relights a glowing splint.\n\n🔑 The 2:1 volume ratio\nTwice as much hydrogen as oxygen is collected, because the process is effectively the decomposition of water: 2H₂O → 2H₂ + O₂. For every 2 volumes of H₂ at the cathode, 1 volume of O₂ forms at the anode. The acid is not used up — it becomes steadily MORE concentrated as the water is decomposed.\n\n💡 Worked Example\nIf $60\\text{ cm}^3$ of hydrogen collects at the cathode, the oxygen volume is $\\dfrac{60}{2} = 30\\text{ cm}^3$.\n\n⚠️ Common Mistake\nReversing the ratio. The HYDROGEN volume is the bigger one (2:1 in favour of H₂, not O₂).\n\n📎 Key Points to Remember\n• Dilute H₂SO₄: H₂ at the cathode, O₂ at the anode, ratio 2:1 by volume.\n• Concentration of the acid INCREASES during the experiment."
+    },
+    {
+      "id": "chem-igcse-electrolysis-n5",
+      "heading": "Predicting Products: The General Rules",
+      "body": "0620 asks you to predict products for cells you have never seen. Two rules cover the Core cases.\n\n📌 Rule 1 — molten binary compounds\nA molten compound of a metal and one non-metal gives:\n• **metal at the cathode** (the cation is the metal ion),\n• **non-metal at the anode** (the anion is the non-metal ion).\n\n💡 Worked Examples\n• Molten KBr → potassium at the cathode, bromine at the anode.\n• Molten MgCl₂ → magnesium at the cathode, chlorine at the anode.\n\n📌 Rule 2 — aqueous solutions (Core level)\nWater adds H⁺ and OH⁻ ions, so there is competition at each electrode:\n• **Cathode:** hydrogen forms UNLESS the metal is low in reactivity (e.g. copper or silver), in which case the metal is deposited.\n• **Anode:** a CONCENTRATED halide solution gives the halogen (e.g. chlorine); otherwise oxygen (from the water) forms.\n\n⚠️ Common Mistake\nApplying the aqueous rules to a MOLTEN compound. Molten means no water, so no hydrogen or oxygen can form — the metal and non-metal are the only possible products.\n\n📎 Key Points to Remember\n• Molten binary → metal + non-metal, every time.\n• Aqueous → ask: is the metal reactive (H₂ at cathode) or unreactive (metal at cathode)? Is the halide concentrated (halogen at anode) or dilute (O₂ at anode)?"
+    },
+    {
+      "id": "chem-igcse-electrolysis-n6",
+      "heading": "Electroplating",
+      "body": "📌 Definition\n**Electroplating** uses electrolysis to coat a metal object with a thin layer of a different metal.\n\n🔑 The setup — three things to name in the exam\n1. The **object to be plated** is made the **cathode** (negative electrode) — metal cations in the solution are attracted to it and coat it.\n2. The **electrolyte** is a solution containing ions of the plating metal — for silver plating, silver nitrate solution supplies Ag⁺ ions.\n3. The **anode** is often a bar of the plating metal, which dissolves to replace the ions used up, keeping their concentration constant.\n\n🔑 Why electroplate?\n• To improve **appearance** (silver- or gold-plated jewellery and cutlery).\n• To protect the object from **corrosion** (tin-plated steel food cans, chromium-plated taps and bicycle parts).\n\n💡 Worked Example\nTo silver-plate a steel spoon: spoon = cathode, pure silver = anode, electrolyte = silver nitrate solution. A shiny, even layer of silver builds up on the spoon.\n\n⚠️ Common Mistake\nMaking the object the anode. Metal ions are POSITIVE, so the object must be the negative cathode to attract them onto its surface.\n\n📎 Key Points to Remember\n• Object at the cathode; plating-metal ions in the electrolyte.\n• Reasons: appearance and corrosion resistance."
+    },
+    {
+      "id": "chem-igcse-electrolysis-n7",
+      "heading": "The Hydrogen-Oxygen Fuel Cell",
+      "body": "📌 Definition\nA **fuel cell** produces electricity directly from a chemical reaction between a fuel and oxygen. In the hydrogen-oxygen fuel cell, hydrogen is the fuel.\n\n🔑 How it works\nHydrogen and oxygen are fed continuously to the cell, where they react:\n$$2\\text{H}_2 + \\text{O}_2 \\rightarrow 2\\text{H}_2\\text{O}$$\nThe reaction releases energy as an electric current rather than as a flame — chemical energy is converted directly into electrical energy. The ONLY product is water.\n\n🔑 Where it is used\nHydrogen fuel cells power some spacecraft and vehicles. Because the only product is water, no carbon dioxide is produced at the point of use.\n\n⚠️ Common Mistake\nConfusing a fuel cell with electrolysis — they run in OPPOSITE directions. Electrolysis USES electricity to break water (and other compounds) apart; a fuel cell USES the reaction of hydrogen with oxygen to MAKE electricity.\n\n📎 Key Points to Remember\n• Hydrogen + oxygen → water + electrical energy.\n• Water is the only product.\n• (The advantages-and-disadvantages evaluation of fuel cells is Extended tier — you only need the basics here.)"
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-igcse-electrolysis-f1",
+      "term": "Electrolysis",
+      "definition": "The breakdown of an ionic compound, when molten or in aqueous solution, by passing electricity through it.",
+      "example": "Passing current through molten PbBr₂ splits it into lead and bromine."
+    },
+    {
+      "id": "chem-igcse-electrolysis-f2",
+      "term": "Electrolyte",
+      "definition": "The molten compound or solution that conducts electricity and is decomposed during electrolysis. Its ions must be free to move.",
+      "example": "Concentrated aqueous sodium chloride (brine)."
+    },
+    {
+      "id": "chem-igcse-electrolysis-f3",
+      "term": "Anode",
+      "definition": "The positive electrode in electrolysis; anions (negative ions) are attracted to it.",
+      "example": "Bromine forms at the anode when molten lead(II) bromide is electrolysed."
+    },
+    {
+      "id": "chem-igcse-electrolysis-f4",
+      "term": "Cathode",
+      "definition": "The negative electrode in electrolysis; cations (positive ions) are attracted to it.",
+      "example": "Lead forms at the cathode when molten lead(II) bromide is electrolysed."
+    },
+    {
+      "id": "chem-igcse-electrolysis-f5",
+      "term": "Cation",
+      "definition": "A positively charged ion; attracted to the cathode (negative electrode).",
+      "example": "Pb²⁺, Na⁺ and H⁺ are cations."
+    },
+    {
+      "id": "chem-igcse-electrolysis-f6",
+      "term": "Anion",
+      "definition": "A negatively charged ion; attracted to the anode (positive electrode).",
+      "example": "Br⁻, Cl⁻ and OH⁻ are anions."
+    },
+    {
+      "id": "chem-igcse-electrolysis-f7",
+      "term": "Inert electrode",
+      "definition": "An electrode that conducts electricity but does not react with the electrolyte or products — usually graphite or platinum.",
+      "example": "Graphite rods used to electrolyse dilute sulfuric acid."
+    },
+    {
+      "id": "chem-igcse-electrolysis-f8",
+      "term": "Molten lead(II) bromide products",
+      "definition": "Lead at the cathode (shiny grey liquid metal) and bromine at the anode (orange-brown gas).",
+      "example": "PbBr₂(l) → Pb at cathode + Br₂ at anode."
+    },
+    {
+      "id": "chem-igcse-electrolysis-f9",
+      "term": "Concentrated aqueous NaCl products",
+      "definition": "Hydrogen at the cathode, chlorine at the anode, and sodium hydroxide solution left behind.",
+      "example": "Brine electrolysis supplies Cl₂ for water treatment and NaOH for soap making."
+    },
+    {
+      "id": "chem-igcse-electrolysis-f10",
+      "term": "Dilute sulfuric acid products",
+      "definition": "Hydrogen at the cathode and oxygen at the anode, in a 2:1 volume ratio (water is decomposed).",
+      "example": "60 cm³ of H₂ collected means 30 cm³ of O₂ forms at the anode."
+    },
+    {
+      "id": "chem-igcse-electrolysis-f11",
+      "term": "Electroplating",
+      "definition": "Coating a metal object with a thin layer of another metal by electrolysis: the object is the cathode and the electrolyte contains ions of the plating metal.",
+      "example": "Silver-plating a spoon using silver nitrate solution."
+    },
+    {
+      "id": "chem-igcse-electrolysis-f12",
+      "term": "Hydrogen-oxygen fuel cell",
+      "definition": "A cell that produces electricity from the reaction of hydrogen with oxygen; the only product is water.",
+      "example": "2H₂ + O₂ → 2H₂O, used to power spacecraft and some vehicles."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-igcse-electrolysis-q1",
+      "stem": "What is an electrolyte?",
+      "choices": [
+        "A metal rod that conducts electricity",
+        "A molten compound or solution that conducts electricity and is decomposed by it",
+        "The negative electrode in the cell",
+        "Any substance containing electrons"
+      ],
+      "correctIndex": 1,
+      "explanation": "The electrolyte is the molten ionic compound or aqueous solution whose mobile ions carry the current and are decomposed. The rods are electrodes, and conduction by electrons alone (as in a metal) involves no decomposition.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q2",
+      "stem": "In an electrolysis cell, which statement about the anode is correct?",
+      "choices": [
+        "It is the negative electrode",
+        "It attracts cations",
+        "It is the positive electrode",
+        "It is always made of graphite"
+      ],
+      "correctIndex": 2,
+      "explanation": "The anode is the positive electrode and attracts anions (negative ions). The cathode is the negative electrode. Electrodes are often graphite or platinum because they are inert, but the anode does not have to be graphite.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q3",
+      "stem": "During electrolysis, to which electrode do anions move?",
+      "choices": [
+        "The cathode, because it is negative",
+        "The cathode, because it is positive",
+        "They do not move; only cations move",
+        "The anode, because it is positive"
+      ],
+      "correctIndex": 3,
+      "explanation": "Anions are negatively charged ions, so they are attracted to the positive electrode — the anode. Cations (positive ions) move the opposite way, to the cathode.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q4",
+      "stem": "Molten lead(II) bromide is electrolysed using inert electrodes. What are the products?",
+      "choices": [
+        "Lead at the cathode and bromine at the anode",
+        "Bromine at the cathode and lead at the anode",
+        "Hydrogen at the cathode and oxygen at the anode",
+        "Lead at the cathode and oxygen at the anode"
+      ],
+      "correctIndex": 0,
+      "explanation": "Molten PbBr₂ contains only Pb²⁺ and Br⁻ ions. The Pb²⁺ cations move to the cathode and form molten lead; the Br⁻ anions move to the anode and form bromine gas. Hydrogen and oxygen are impossible — there is no water in a molten electrolyte.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q5",
+      "stem": "Why must an ionic compound be molten or in aqueous solution before it can be electrolysed?",
+      "choices": [
+        "To make the compound melt at a lower temperature",
+        "So that its ions are free to move and carry the current",
+        "So that electrons can flow through the electrolyte",
+        "To stop the electrodes reacting with the compound"
+      ],
+      "correctIndex": 1,
+      "explanation": "In a solid ionic lattice the ions are locked in fixed positions and cannot move, so no current flows. Melting or dissolving frees the ions to move to the electrodes. The current through the electrolyte is carried by IONS, not electrons.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q6",
+      "stem": "Concentrated aqueous sodium chloride is electrolysed with inert electrodes. What forms at each electrode?",
+      "choices": [
+        "Sodium at the cathode and chlorine at the anode",
+        "Oxygen at the cathode and hydrogen at the anode",
+        "Hydrogen at the cathode and chlorine at the anode",
+        "Chlorine at the cathode and hydrogen at the anode"
+      ],
+      "correctIndex": 2,
+      "explanation": "In brine the cathode product is hydrogen (from the water — sodium is too reactive to be discharged in aqueous solution) and the anode product is chlorine, because the chloride solution is concentrated. The Na⁺ and OH⁻ ions left behind make the solution sodium hydroxide.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q7",
+      "stem": "Dilute sulfuric acid is electrolysed using platinum electrodes. Which row shows the products?",
+      "choices": [
+        "Cathode: sulfur; anode: oxygen",
+        "Cathode: hydrogen; anode: sulfur dioxide",
+        "Cathode: oxygen; anode: hydrogen",
+        "Cathode: hydrogen; anode: oxygen"
+      ],
+      "correctIndex": 3,
+      "explanation": "In dilute H₂SO₄ the water is effectively decomposed: hydrogen forms at the cathode and oxygen at the anode, in a 2:1 volume ratio. Neither sulfur nor sulfur dioxide is produced.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q8",
+      "stem": "Why are graphite and platinum commonly used as electrodes in electrolysis?",
+      "choices": [
+        "They conduct electricity but do not react — they are inert",
+        "They are cheap metals",
+        "They dissolve slowly to keep the ion concentration constant",
+        "They attract both anions and cations"
+      ],
+      "correctIndex": 0,
+      "explanation": "Inert electrodes carry the current into the electrolyte without taking part in the reactions, so the products come only from the electrolyte. Neither graphite nor platinum is a metal, and an inert electrode does not dissolve.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q9",
+      "stem": "Molten potassium bromide (KBr) is electrolysed. Which products are predicted?",
+      "choices": [
+        "Hydrogen at the cathode and oxygen at the anode",
+        "Potassium at the cathode and bromine at the anode",
+        "Bromine at the cathode and potassium at the anode",
+        "Potassium at the cathode and oxygen at the anode"
+      ],
+      "correctIndex": 1,
+      "explanation": "For a molten binary compound the rule is always: metal at the cathode, non-metal at the anode. K⁺ is the cation (→ cathode, forms potassium) and Br⁻ is the anion (→ anode, forms bromine). No water is present, so hydrogen and oxygen cannot form.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q10",
+      "stem": "When concentrated aqueous sodium chloride is electrolysed until much of the salt has been used up, what does the remaining solution contain?",
+      "choices": [
+        "Hydrochloric acid",
+        "Sodium chloride only",
+        "Sodium hydroxide",
+        "Chlorine dissolved in water only"
+      ],
+      "correctIndex": 2,
+      "explanation": "Hydrogen is discharged from the water at the cathode and chlorine leaves at the anode, so the ions remaining in solution are Na⁺ and OH⁻ — sodium hydroxide. This is why the process is an important industrial source of NaOH.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q11",
+      "stem": "In electroplating, the object to be plated is connected as:",
+      "choices": [
+        "The positive electrode (anode)",
+        "Part of the electrolyte",
+        "Either electrode — it makes no difference",
+        "The negative electrode (cathode)"
+      ],
+      "correctIndex": 3,
+      "explanation": "Metal ions in the electrolyte are positive cations, so they are attracted to, and deposited on, the negative electrode. The object must therefore be the cathode. The anode is often a bar of the plating metal that dissolves to replace the ions.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q12",
+      "stem": "What is the only product of the reaction in a hydrogen-oxygen fuel cell?",
+      "choices": [
+        "Water",
+        "Carbon dioxide",
+        "Hydrogen peroxide",
+        "Steam and carbon monoxide"
+      ],
+      "correctIndex": 0,
+      "explanation": "Hydrogen reacts with oxygen to form water: 2H₂ + O₂ → 2H₂O. Water is the sole product, so the cell releases no carbon dioxide at the point of use.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q13",
+      "stem": "A student wants to silver-plate a steel spoon. Which electrolyte should be used?",
+      "choices": [
+        "Distilled water",
+        "A solution containing silver ions, such as silver nitrate solution",
+        "Concentrated sodium chloride solution",
+        "Dilute sulfuric acid"
+      ],
+      "correctIndex": 1,
+      "explanation": "The electrolyte must supply ions of the PLATING metal so they can be deposited on the object (the cathode). Silver nitrate solution provides Ag⁺ ions; the spoon is the cathode and the anode can be pure silver. The other solutions contain no silver ions, so no silver could be deposited.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q14",
+      "stem": "In the electrolysis of dilute sulfuric acid, $60\\text{ cm}^3$ of hydrogen is collected at the cathode. What volume of oxygen forms at the anode?",
+      "choices": [
+        "$60\\text{ cm}^3$",
+        "$120\\text{ cm}^3$",
+        "$30\\text{ cm}^3$",
+        "$15\\text{ cm}^3$"
+      ],
+      "correctIndex": 2,
+      "explanation": "The gases form in a 2:1 ratio of hydrogen to oxygen (2H₂O → 2H₂ + O₂), so the oxygen volume is half the hydrogen volume: $\\dfrac{60}{2} = 30\\text{ cm}^3$. $120\\text{ cm}^3$ reverses the ratio.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-electrolysis-q15",
+      "stem": "Which statement correctly contrasts electrolysis with a hydrogen-oxygen fuel cell?",
+      "choices": [
+        "Both use electricity to decompose water",
+        "Both produce water as the only product",
+        "Electrolysis produces electricity; a fuel cell uses it",
+        "Electrolysis uses electricity to drive a reaction; a fuel cell uses a reaction to produce electricity"
+      ],
+      "correctIndex": 3,
+      "explanation": "The two run in opposite directions: electrolysis consumes electrical energy to break compounds apart (e.g. water → hydrogen + oxygen), while a fuel cell converts the chemical energy of hydrogen reacting with oxygen directly into electrical energy.",
+      "difficulty": "medium"
+    }
+  ]
+}

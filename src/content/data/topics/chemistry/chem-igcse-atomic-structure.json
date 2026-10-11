@@ -1,0 +1,321 @@
+{
+  "id": "chem-igcse-atomic-structure",
+  "subjectId": "chemistry",
+  "title": "Atomic Structure & Isotopes",
+  "description": "Subatomic particles, proton and nucleon numbers, electronic configurations of atoms and their ions for elements 1–20, deducing group and period, and isotopes — with the exam traps Cambridge IGCSE Chemistry 0620 sets on each.",
+  "stage": "igcse",
+  "course": "0620",
+  "notes": [
+    {
+      "id": "chem-igcse-atomic-structure-n1",
+      "heading": "The Three Subatomic Particles",
+      "body": "0620 marks the particle table almost every year — learn the exact words 'relative charge' and 'relative mass'.\n\n📌 Definitions\n• **Proton**: in the nucleus, relative charge +1, relative mass 1.\n• **Neutron**: in the nucleus, relative charge 0 (no charge), relative mass 1.\n• **Electron**: in shells (energy levels) around the nucleus, relative charge −1, relative mass about 1/1836 — so small it is taken as NEGLIGIBLE (effectively zero).\n\n🔑 How it works\nAlmost all the mass of an atom is concentrated in the tiny central nucleus (protons + neutrons); the electrons contribute essentially nothing to the mass. In a NEUTRAL atom the number of electrons equals the number of protons, so the charges cancel.\n\n⚠️ Common Mistake\nSaying the electron has 'no mass'. The mark scheme wants 'negligible mass' or 'about 1/1836' — an electron does have mass, it is just far too small to affect the mass number.\n\n📎 Key Points to Remember\n• Proton: +1, mass 1, nucleus. Neutron: 0, mass 1, nucleus. Electron: −1, negligible mass, shells.\n• Neutral atom: protons = electrons."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-n2",
+      "heading": "Proton Number and Nucleon Number",
+      "body": "📌 Definitions\n• **Proton (atomic) number** = the number of protons in the nucleus. This DEFINES the element — every sodium atom has 11 protons.\n• **Nucleon (mass) number** = protons + neutrons in the nucleus (protons and neutrons are collectively called nucleons).\n\n🔑 Reading the notation\nCambridge writes an element as $^{A}_{Z}\\text{X}$ — nucleon number A on top, proton number Z below, e.g. ²³₁₁Na. For ²³₁₁Na: protons = 11, neutrons = 23 − 11 = 12, electrons = 11 (neutral atom).\n\n💡 Worked Example\n³⁹₁₉K: protons = 19, electrons = 19, neutrons = 39 − 19 = 20.\n\n⚠️ Common Mistake\nSubtracting the wrong way round. Neutrons = nucleon number − proton number (top minus bottom). For ³⁹₁₉K the answer is 20, not 19 + 39 = 58.\n\n📎 Key Points to Remember\n• Top number = protons + neutrons; bottom number = protons.\n• The proton number is the only count that NEVER changes for an element — ions change electrons, isotopes change neutrons."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-n3",
+      "heading": "Electronic Configurations of Atoms (Z = 1–20)",
+      "body": "0620 uses the phrase 'electronic configuration' for the arrangement of electrons in shells — write it as a comma-separated list, e.g. 2,8,1.\n\n🔑 The filling rules (first 20 elements)\n• Shell 1 holds a maximum of 2 electrons.\n• Shell 2 holds a maximum of 8.\n• Shell 3 takes up to 8 (for the first 20 elements).\n• Fill each shell completely before starting the next.\nFor potassium (19) and calcium (20) the third shell stops at 8 and the fourth begins: K is 2,8,8,1 and Ca is 2,8,8,2.\n\n💡 Worked Example\nChlorine, proton number 17, has 17 electrons in a neutral atom: 2 in shell 1, 8 in shell 2, leaving 7 → electronic configuration 2,8,7.\n\n⚠️ Common Mistake\nWriting 2,7,8 or 8,2,7 — the electrons count OUTWARDS from the nucleus, and the shell nearest the nucleus fills first.\n\n📎 Key Points to Remember\n• In a neutral atom, total electrons = proton number.\n• Check your answer: the digits must add up to the proton number (2 + 8 + 7 = 17 ✓)."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-n4",
+      "heading": "Deducing Group and Period",
+      "body": "A favourite 0620 deduction question shows you an electronic configuration and asks for the element's position in the Periodic Table.\n\n📌 The two rules\n• **Group number** = number of electrons in the OUTER shell.\n• **Period number** = number of OCCUPIED shells.\n\n💡 Worked Example\nConfiguration 2,8,6: outer shell has 6 electrons → Group VI; three shells are occupied → Period 3. The element is sulfur (proton number 2 + 8 + 6 = 16).\n\n🔑 The noble gas check\nNoble gases (Group VIII, also called Group 0) have FULL outer shells — 2 for helium, then 2,8 for neon and 2,8,8 for argon. A full outer shell is why they are unreactive, and it is the configuration other atoms are trying to reach when they react.\n\n⚠️ Common Mistake\nSwapping the rules — reading 2,8,6 as 'Group III, Period 6'. Group comes from the outer ELECTRONS (the last digit); Period comes from the number of SHELLS (how many digits).\n\n📎 Key Points to Remember\n• Last digit → group; count of digits → period.\n• Full outer shell → Group VIII noble gas → unreactive."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-n5",
+      "heading": "Electronic Configurations of Ions",
+      "body": "This is the single most-lost mark in this topic: the configuration of an ION is not the configuration of its atom.\n\n🔑 How it works\n• A metal atom LOSES its whole outer shell: Na (2,8,1) loses 1 electron → Na⁺ is **2,8** — NOT 2,8,1. Mg (2,8,2) loses 2 → Mg²⁺ is 2,8.\n• A non-metal atom GAINS electrons to complete its outer shell: Cl (2,8,7) gains 1 → Cl⁻ is 2,8,8. O (2,6) gains 2 → O²⁻ is 2,8.\n• The ion always ends with the configuration of the nearest noble gas (a full outer shell).\n\n💡 Worked Example\nCa (2,8,8,2) → Ca²⁺: both outer electrons are lost, so Ca²⁺ is 2,8,8 — the same configuration as argon.\n\n⚠️ Common Mistake\nLeaving the lost electron on the ion (writing Na⁺ as 2,8,1) or changing the PROTON count. Only electrons move; the nucleus is untouched, which is why the element stays the same.\n\n📎 Key Points to Remember\n• Positive ion: electrons = proton number − charge. Negative ion: electrons = proton number + charge.\n• Every simple ion in 0620 questions has a noble-gas configuration.",
+      "illustration": {
+        "src": "/images/chemistry/chem-igcse-atomic-structure-ions.svg",
+        "alt": "Shell diagrams showing a sodium atom (2,8,1) losing its outer electron to become Na+ (2,8) and a chlorine atom (2,8,7) gaining one electron to become Cl- (2,8,8).",
+        "caption": "Metals lose their whole outer shell — Na⁺ is 2,8, not 2,8,1. Non-metals gain electrons to complete their outer shell — Cl⁻ is 2,8,8."
+      }
+    },
+    {
+      "id": "chem-igcse-atomic-structure-n6",
+      "heading": "Isotopes",
+      "body": "📌 Definition\nIsotopes are atoms of the SAME element that have the same number of protons but DIFFERENT numbers of neutrons. Learn this sentence exactly — it is the standard 2-mark answer.\n\n🔑 What is the same and what is different\n• Same: proton number, electron number, electronic configuration — so isotopes have IDENTICAL chemical properties.\n• Different: nucleon number, mass — so physical properties (such as density or radioactivity) can differ.\nExamples: ¹²₆C and ¹⁴₆C (carbon has 6 protons; the nucleon numbers differ because ¹⁴C has 8 neutrons, not 6). ³⁵₁₇Cl and ³⁷₁₇Cl.\n\n💡 Worked Example\n³⁷₁₇Cl: protons = 17, electrons = 17, neutrons = 37 − 17 = 20 — two more neutrons than ³⁵₁₇Cl (18 neutrons).\n\n⚠️ Common Mistake\nSaying isotopes have different numbers of electrons or different chemical properties. Chemistry is controlled by the outer electrons, and those are identical.\n\n📎 Key Points to Remember\n• Same protons, different neutrons.\n• The mass on the Periodic Table is a weighted average over the isotopes — the calculation is covered in The Mole & Chemical Calculations."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-n7",
+      "heading": "Exam Technique: Deducing Everything from One Symbol",
+      "body": "0620 structured questions often give one nuclide symbol and ask for a chain of deductions. Practise the full routine in a fixed order.\n\n🔑 The five-step routine for $^{A}_{Z}\\text{X}$\n1. Protons = Z (the bottom number).\n2. Neutrons = A − Z (top minus bottom).\n3. Electrons = Z for a neutral atom; adjust by the charge for an ion.\n4. Write the electronic configuration (2,8,8 rule for Z ≤ 20).\n5. Read off group (last digit) and period (number of digits) — or noble gas if the outer shell is full.\n\n💡 Worked Example — ³⁷₁₇Cl⁻\nProtons = 17; neutrons = 37 − 17 = 20; the ion has charge 1−, so electrons = 17 + 1 = 18; configuration 2,8,8 (full outer shell — the same as argon). The ATOM would be Group VII, Period 3.\n\n⚠️ Common Mistake\nForgetting the charge when counting electrons: Cl⁻ has 18 electrons, not 17. And never 'adjust' the proton number — 17 protons is what keeps it chlorine.\n\n📎 Key Points to Remember\n• Write each particle count down before answering — most slips come from doing it mentally.\n• If the question gives an ion, the configuration it wants is the ion's, not the atom's."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-igcse-atomic-structure-f1",
+      "term": "Proton",
+      "definition": "Subatomic particle in the nucleus with relative charge +1 and relative mass 1. Its number (the proton number) defines the element.",
+      "example": "Every sodium atom has 11 protons."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-f2",
+      "term": "Neutron",
+      "definition": "Subatomic particle in the nucleus with no charge (relative charge 0) and relative mass 1.",
+      "example": "²³₁₁Na has 23 − 11 = 12 neutrons."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-f3",
+      "term": "Electron",
+      "definition": "Subatomic particle in shells around the nucleus with relative charge −1 and negligible relative mass (about 1/1836).",
+      "example": "A neutral chlorine atom has 17 electrons, arranged 2,8,7."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-f4",
+      "term": "Proton (atomic) number",
+      "definition": "The number of protons in the nucleus of an atom; it defines which element the atom is.",
+      "example": "Oxygen's proton number is 8 — any atom with 8 protons is oxygen."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-f5",
+      "term": "Nucleon (mass) number",
+      "definition": "The total number of protons and neutrons (nucleons) in the nucleus; written above the proton number in nuclide notation.",
+      "example": "In ³⁹₁₉K the nucleon number is 39 and the proton number is 19."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-f6",
+      "term": "Electronic configuration",
+      "definition": "The arrangement of electrons in shells, written as a comma-separated list filling 2, then 8, then 8 for the first 20 elements.",
+      "example": "Magnesium (12 electrons) is 2,8,2; calcium (20) is 2,8,8,2."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-f7",
+      "term": "Group number from configuration",
+      "definition": "The group number equals the number of electrons in the outer shell of the atom.",
+      "example": "2,8,6 has 6 outer electrons, so the element is in Group VI."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-f8",
+      "term": "Period number from configuration",
+      "definition": "The period number equals the number of occupied electron shells.",
+      "example": "2,8,8,2 occupies four shells, so calcium is in Period 4."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-f9",
+      "term": "Noble gas configuration",
+      "definition": "A full outer electron shell — 2 for helium, 2,8 for neon, 2,8,8 for argon — which makes Group VIII elements unreactive.",
+      "example": "Argon (2,8,8) never needs to gain, lose or share electrons."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-f10",
+      "term": "Electronic configuration of an ion",
+      "definition": "Metal atoms lose their outer shell; non-metal atoms gain electrons to complete theirs. Every simple ion ends with a noble-gas configuration.",
+      "example": "Na (2,8,1) → Na⁺ (2,8); Cl (2,8,7) → Cl⁻ (2,8,8)."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-f11",
+      "term": "Isotopes",
+      "definition": "Atoms of the same element with the same number of protons but different numbers of neutrons.",
+      "example": "¹²₆C (6 neutrons) and ¹⁴₆C (8 neutrons) are isotopes of carbon."
+    },
+    {
+      "id": "chem-igcse-atomic-structure-f12",
+      "term": "Properties of isotopes",
+      "definition": "Isotopes have identical chemical properties (same electronic configuration) but can have different physical properties (different masses).",
+      "example": "³⁵Cl and ³⁷Cl react identically, but ³⁷Cl atoms are heavier."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-igcse-atomic-structure-q1",
+      "stem": "Which subatomic particle has a relative charge of −1 and negligible mass?",
+      "choices": [
+        "Proton",
+        "Neutron",
+        "Electron",
+        "Nucleon"
+      ],
+      "correctIndex": 2,
+      "explanation": "The electron has relative charge −1 and relative mass about 1/1836, taken as negligible. A nucleon is any particle in the nucleus (proton or neutron), both of which have mass 1.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q2",
+      "stem": "In the nuclide symbol ²³₁₁Na, what does the number 23 represent?",
+      "choices": [
+        "The nucleon number — protons + neutrons",
+        "The proton number — the number of protons",
+        "The number of neutrons only",
+        "The number of electrons"
+      ],
+      "correctIndex": 0,
+      "explanation": "The top number is the nucleon (mass) number = protons + neutrons. The bottom number, 11, is the proton number; the neutrons are found by subtraction (23 − 11 = 12).",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q3",
+      "stem": "What is the electronic configuration of a sodium atom (proton number 11)?",
+      "choices": [
+        "2,8",
+        "2,8,8",
+        "8,2,1",
+        "2,8,1"
+      ],
+      "correctIndex": 3,
+      "explanation": "A neutral sodium atom has 11 electrons: 2 fill shell 1, 8 fill shell 2, and 1 starts shell 3 → 2,8,1. The digits must add up to 11.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q4",
+      "stem": "Isotopes of an element have the same number of protons but different numbers of:",
+      "choices": [
+        "Electrons",
+        "Neutrons",
+        "Electron shells",
+        "Protons"
+      ],
+      "correctIndex": 1,
+      "explanation": "Isotopes differ only in neutron count, which changes the nucleon number but not the element. Same proton number, same electronic configuration, identical chemistry.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q5",
+      "stem": "How many neutrons are in an atom of ³⁹₁₉K?",
+      "choices": [
+        "19",
+        "39",
+        "58",
+        "20"
+      ],
+      "correctIndex": 3,
+      "explanation": "Neutrons = nucleon number − proton number = 39 − 19 = 20. Choice 19 is the proton number; 58 comes from adding instead of subtracting.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q6",
+      "stem": "What is the electronic configuration of a chlorine atom (proton number 17)?",
+      "choices": [
+        "2,8,8",
+        "2,8,7",
+        "2,7,8",
+        "7,8,2"
+      ],
+      "correctIndex": 1,
+      "explanation": "17 electrons fill as 2 + 8 + 7 = 17, so 2,8,7. 2,8,8 is the chloride ION Cl⁻ — the atom is one electron short of a full outer shell.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q7",
+      "stem": "A sodium atom (2,8,1) forms a sodium ion, Na⁺. What is the electronic configuration of Na⁺?",
+      "choices": [
+        "2,8,1",
+        "2,8,2",
+        "2,8",
+        "2,8,8"
+      ],
+      "correctIndex": 2,
+      "explanation": "The metal atom loses its ENTIRE outer shell: Na loses its single outer electron, leaving 2,8 — the same configuration as neon. Writing 2,8,1 for Na⁺ is the classic lost mark.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q8",
+      "stem": "An element has the electronic configuration 2,8,6. In which group and period of the Periodic Table is it found?",
+      "choices": [
+        "Group VI, Period 3",
+        "Group III, Period 6",
+        "Group II, Period 3",
+        "Group VI, Period 2"
+      ],
+      "correctIndex": 0,
+      "explanation": "Group = outer-shell electrons = 6 → Group VI. Period = number of occupied shells = 3 → Period 3. (The element is sulfur, proton number 16.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q9",
+      "stem": "What is the electronic configuration of a chloride ion, Cl⁻ (chlorine has proton number 17)?",
+      "choices": [
+        "2,8,7",
+        "2,8,6",
+        "3,8,8",
+        "2,8,8"
+      ],
+      "correctIndex": 3,
+      "explanation": "Cl⁻ has 17 + 1 = 18 electrons, filling as 2,8,8 — the argon configuration. 2,8,7 is the chlorine ATOM; the ion has completed its outer shell.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q10",
+      "stem": "An ion of calcium, ⁴⁰₂₀Ca²⁺, has which number of electrons and which electronic configuration?",
+      "choices": [
+        "20 electrons — 2,8,8,2",
+        "18 electrons — 2,8,8",
+        "18 electrons — 2,8,1",
+        "22 electrons — 2,8,8,4"
+      ],
+      "correctIndex": 1,
+      "explanation": "Ca²⁺ has 20 − 2 = 18 electrons. The atom (2,8,8,2) loses its whole outer shell, giving 2,8,8 — the same configuration as argon. Only electrons change; the nucleus keeps 20 protons and 20 neutrons.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q11",
+      "stem": "Why do all isotopes of an element have identical chemical properties?",
+      "choices": [
+        "They have the same mass number",
+        "They contain the same number of neutrons",
+        "They have the same electronic configuration, and chemical behaviour depends on the outer electrons",
+        "They have identical physical properties"
+      ],
+      "correctIndex": 2,
+      "explanation": "Chemical reactions involve only the outer electrons. Isotopes share proton number and electronic configuration, so they behave identically in reactions; it is their masses (physical properties) that differ.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q12",
+      "stem": "An ion X³⁺ has the electronic configuration 2,8. What is the proton number of element X?",
+      "choices": [
+        "13",
+        "10",
+        "7",
+        "3"
+      ],
+      "correctIndex": 0,
+      "explanation": "The ion has 2 + 8 = 10 electrons. X³⁺ means the atom LOST 3 electrons, so the neutral atom had 10 + 3 = 13 electrons and therefore 13 protons. X is aluminium.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q13",
+      "stem": "A chloride ion Cl⁻ and an argon atom both contain 18 electrons. Which statement is correct?",
+      "choices": [
+        "They are isotopes of the same element",
+        "Cl⁻ has 17 protons but Ar has 18 — having the same number of electrons does not make them the same element",
+        "Both particles carry a negative charge",
+        "Cl⁻ has the same proton number as argon"
+      ],
+      "correctIndex": 1,
+      "explanation": "Element identity comes from the proton number, which never changes when an ion forms: Cl⁻ still has 17 protons, argon has 18. They are isoelectronic (same electron count) but different elements, and argon is neutral.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q14",
+      "stem": "³⁵₁₇Cl and ³⁷₁₇Cl are isotopes. Which statement about them is correct?",
+      "choices": [
+        "They have different proton numbers",
+        "³⁷₁₇Cl has two more electrons than ³⁵₁₇Cl",
+        "They have the same proton number and electronic configuration, but ³⁷₁₇Cl has two more neutrons",
+        "They have different chemical properties"
+      ],
+      "correctIndex": 2,
+      "explanation": "Both have 17 protons and 17 electrons (2,8,7), so identical chemistry. The nucleon numbers differ by 2 because ³⁷Cl has 20 neutrons against 18 in ³⁵Cl.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-atomic-structure-q15",
+      "stem": "An atom has a nucleon number of 31 and contains 16 neutrons. What is its proton number, and which element is it?",
+      "choices": [
+        "16 — sulfur",
+        "47 — silver",
+        "31 — gallium",
+        "15 — phosphorus"
+      ],
+      "correctIndex": 3,
+      "explanation": "Proton number = nucleon number − neutrons = 31 − 16 = 15, which is phosphorus. Choice 16 is the neutron count misread as the proton number.",
+      "difficulty": "hard"
+    }
+  ]
+}

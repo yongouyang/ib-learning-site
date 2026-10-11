@@ -1,0 +1,322 @@
+{
+  "id": "chem-igcse-equilibrium",
+  "subjectId": "chemistry",
+  "title": "Reversible Reactions at Equilibrium (Extended)",
+  "description": "Dynamic equilibrium in closed systems, predicting how temperature, pressure and concentration shift the position of equilibrium, and the chosen conditions for the Haber and Contact processes — Supplement (Extended-only) content for Cambridge IGCSE Chemistry 0620.",
+  "stage": "igcse",
+  "course": "0620",
+  "level": "extended",
+  "notes": [
+    {
+      "id": "chem-igcse-equilibrium-n1",
+      "heading": "Dynamic Equilibrium in a Closed System",
+      "body": "Reversible reactions themselves are Core (see the 0620 rates topic). This topic starts where Core stops: what happens when a reversible reaction settles down.\n\n📌 Definition\nA reversible reaction in a **closed system** reaches **equilibrium** when the forward reaction and the reverse reaction are happening at exactly the **same rate**. At that point the concentrations of reactants and products no longer change.\n\n🔑 How it works\n• **Closed system**: nothing can enter or leave — in particular, no gas can escape and no product is removed. An open beaker that lets CO₂ escape can never reach equilibrium.\n• **Dynamic**: the reaction has NOT stopped. Both directions keep running at the same speed, so the mixture looks unchanged while chemistry continues at the particle level.\n• The position of equilibrium describes how far the mixture lies towards products (a 'high yield') or towards reactants.\n\n💡 Worked Example\nIn the Haber reaction N₂ + 3H₂ ⇌ 2NH₃ in a sealed converter, ammonia is being made and broken down at the same rate once equilibrium is reached — the measured percentage of ammonia stays constant.\n\n⚠️ Common Mistake\nWriting 'the reaction stops at equilibrium' or 'the concentrations become equal'. Neither is true: the RATES become equal; the concentrations become CONSTANT (and are usually very different from each other).\n\n📎 Key Points to Remember\n• Same forward and reverse rate + constant concentrations + closed system = equilibrium.\n• Constant does not mean equal."
+    },
+    {
+      "id": "chem-igcse-equilibrium-n2",
+      "heading": "Predicting Shifts: Temperature",
+      "body": "0620 Extended questions give you a reversible reaction, tell you which direction is exothermic, and ask you to predict the direction of shift. There is one rule to apply.\n\n📌 The rule\n• **Increase the temperature** → the position of equilibrium shifts in the **endothermic** direction (the direction that absorbs the added heat).\n• **Decrease the temperature** → the position of equilibrium shifts in the **exothermic** direction (the direction that releases heat to replace what was removed).\n\n🔑 How to apply it in the exam\n1. Identify which direction is exothermic (the question tells you, or 'ΔH is negative' for the forward reaction means forward is exothermic).\n2. Read the temperature change.\n3. State the shift direction AND what happens to the yield of the named product — both are usually needed for the marks.\n\n💡 Worked Example\nFor N₂ + 3H₂ ⇌ 2NH₃ the forward reaction is exothermic. Heating the equilibrium mixture shifts the position to the LEFT (endothermic direction), so the yield of ammonia falls. Cooling shifts it right and the yield rises.\n\n⚠️ Common Mistake\nConfusing RATE with POSITION. A higher temperature always makes the reaction reach equilibrium FASTER, whatever it does to the position. A question that says 'the temperature was increased, so more product formed' has mixed the two ideas up.\n\n📎 Key Points to Remember\n• Heat up → shift in the endothermic direction. Cool down → shift in the exothermic direction.\n• Always state the effect on yield, not just the direction."
+    },
+    {
+      "id": "chem-igcse-equilibrium-n3",
+      "heading": "Predicting Shifts: Pressure and Concentration",
+      "body": "📌 Pressure (gases only)\n• **Increase the pressure** → the position of equilibrium shifts towards the side with **fewer moles (molecules) of gas**.\n• **Decrease the pressure** → it shifts towards the side with **more moles of gas**.\n• If both sides have the SAME number of moles of gas, a pressure change has **no effect** on the position.\n\n🔑 Count the gas moles before you answer\nFor N₂ + 3H₂ ⇌ 2NH₃: left side has 1 + 3 = 4 moles of gas, right side has 2. Increasing the pressure shifts the position to the RIGHT and the yield of ammonia rises. For 2SO₂ + O₂ ⇌ 2SO₃: 3 moles on the left, 2 on the right, so higher pressure also shifts right.\n\n📌 Concentration\n• **Add more of a reactant** → the position shifts to use it up: towards the PRODUCTS.\n• **Remove a product** as it forms → the position shifts to replace it: towards the PRODUCTS. This is why industry continuously removes the product (ammonia is liquefied and drained off in the Haber process).\n\n⚠️ Common Mistake\nApplying the pressure rule to a reaction with no gases, or forgetting to count moles on BOTH sides. Pressure only matters when the two sides have different numbers of gas molecules.\n\n📎 Key Points to Remember\n• Pressure up → shift to the side with fewer gas moles.\n• Add reactant or remove product → shift towards products.\n• Same gas moles both sides → no pressure effect."
+    },
+    {
+      "id": "chem-igcse-equilibrium-n4",
+      "heading": "What a Catalyst Does — and Does Not Do",
+      "body": "This is the single most tested misconception in this topic, and 0620 sets it as a discrimination question almost every year.\n\n📌 The facts\nA catalyst speeds up the forward reaction AND the reverse reaction **equally**. Because both rates rise together:\n• the mixture **reaches equilibrium faster**, but\n• the **position of equilibrium is unchanged**, and\n• the **yield at equilibrium is unchanged**.\n\n🔑 How it works\nThe catalyst provides a reaction pathway with lower activation energy for BOTH directions. It changes how quickly the system settles, never where it settles. So a catalyst cannot rescue a poor yield — that is a job for temperature, pressure or concentration changes.\n\n💡 Worked Example\nAdding iron to the Haber converter does not increase the equilibrium percentage of ammonia. It makes the plant reach that percentage in far less time — which is exactly what a factory paying by the hour wants.\n\n⚠️ Common Mistake\n'A catalyst increases the yield because it speeds up the reaction.' Wrong — rate and yield are separate ideas. Any answer that credits a catalyst with changing the position of equilibrium scores zero for that point.\n\n📎 Key Points to Remember\n• Catalyst: faster to equilibrium, same position, same yield.\n• In exam answers write all three: faster attainment, no change in position, no change in yield."
+    },
+    {
+      "id": "chem-igcse-equilibrium-n5",
+      "heading": "The Haber Process: Ammonia",
+      "body": "The Haber process makes ammonia for fertilisers: **N₂ + 3H₂ ⇌ 2NH₃**, forward reaction exothermic. Raw materials: nitrogen from the **air**, hydrogen from **natural gas** (methane).\n\n📌 The chosen conditions and their justifications\n• **Temperature ≈ 450 °C** — a COMPROMISE. A low temperature would give a higher equilibrium yield (forward is exothermic), but the reaction would be far too slow. A high temperature is fast but gives a poor yield. 450 °C is the trade-off between rate and yield.\n• **Pressure ≈ 200 atm** — also a compromise. High pressure shifts the position right (4 moles of gas → 2 moles) and speeds up the reaction, so higher would be better chemically — but compressing gases further costs more in energy and stronger, safer plant. 200 atm is the economic limit.\n• **Catalyst: iron** — makes the mixture reach equilibrium quickly. It does NOT change the yield.\n• The ammonia formed is cooled and **liquefied**, then removed — pulling the position of equilibrium towards the products.\n\n💡 Exam framing\n'Explain why a temperature of 450 °C is used' is answered with BOTH halves of the trade-off: lower temperature → higher yield but rate too slow; higher temperature → faster but lower yield. One half alone usually earns only part of the marks.\n\n⚠️ Common Mistake\nSaying the 200 atm pressure 'increases the yield because the reaction is faster'. Pressure raises the yield because it shifts the POSITION towards fewer gas moles — the rate increase is a separate benefit.",
+      "illustration": {
+        "src": "/images/chemistry/chem-igcse-equilibrium-haber.svg",
+        "alt": "The Haber process reaction N2 + 3H2 in equilibrium with 2NH3, with three panels justifying the chosen conditions: 450 degrees Celsius as a rate-versus-yield compromise, 200 atmospheres shifting the equilibrium towards fewer gas molecules, and an iron catalyst that speeds up attainment of equilibrium without changing the yield.",
+        "caption": "Haber conditions are a three-way compromise between rate, equilibrium yield and cost."
+      }
+    },
+    {
+      "id": "chem-igcse-equilibrium-n6",
+      "heading": "The Contact Process: Sulfuric Acid",
+      "body": "The Contact process makes the SO₃ needed for sulfuric acid: **2SO₂ + O₂ ⇌ 2SO₃**, forward reaction exothermic. Raw materials: **sulfur** (burned in air to make SO₂) and **air** (the source of O₂).\n\n📌 The chosen conditions and their justifications\n• **Temperature ≈ 450 °C** — the same rate-versus-yield compromise as Haber: the forward reaction is exothermic, so lower temperatures favour yield but are too slow.\n• **Pressure ≈ 2 atm** — only slightly above atmospheric. Higher pressure would shift the position right (3 moles of gas → 2 moles), but at 450 °C the yield is ALREADY around 96-98%, so expensive high-pressure plant would buy almost nothing. The chemical gain does not justify the cost.\n• **Catalyst: vanadium(V) oxide, V₂O₅** — reaches equilibrium quickly; no effect on the yield.\n• The SO₃ is then converted into sulfuric acid, H₂SO₄ — the reason the whole process exists.\n\n💡 Exam framing\n'Why is the Contact process run at only about 2 atm when higher pressure increases the yield?' — because the yield at 2 atm is already very high, so the extra cost of compression and high-pressure equipment is not justified. That contrast with Haber's 200 atm is a favourite comparison question.\n\n⚠️ Common Mistake\nQuoting Haber's pressure (200 atm) for Contact, or assuming every equilibrium process should use the highest possible pressure. Justify conditions from the ACTUAL yield and cost, not from a generic 'higher is better'.\n\n📎 Key Points to Remember\n• 2SO₂ + O₂ ⇌ 2SO₃, exothermic; 450 °C, 2 atm, V₂O₅.\n• Low pressure is chosen because the yield is already excellent — cost decides."
+    },
+    {
+      "id": "chem-igcse-equilibrium-n7",
+      "heading": "Justifying Conditions: The Exam Framework",
+      "body": "0620 Extended 'justify the conditions' questions are worth 3-5 marks and follow a fixed shape. Learn the framework and apply it to any reversible industrial process, familiar or not.\n\n🔑 The three-mark pattern for each condition\n1. **State the rule** — e.g. 'a lower temperature favours the exothermic direction'.\n2. **Apply it to THIS reaction** — 'the forward reaction is exothermic, so a lower temperature would give a higher yield of product'.\n3. **State the compromise** — 'but the rate would be too slow, so a moderate temperature of X is used'.\n\n📌 The checklist of arguments\n• **Temperature**: yield (equilibrium direction) versus rate.\n• **Pressure**: yield (count the gas moles) versus the cost and danger of high-pressure plant.\n• **Catalyst**: rate of reaching equilibrium only — never yield.\n• **Economics**: energy for heating and compression, plant strength, safety.\n\n💡 Worked Example\nJustify 450 °C and a catalyst for an exothermic reversible reaction: 'A lower temperature would shift the position of equilibrium towards the products and raise the yield, but the reaction would be too slow. 450 °C is a compromise giving a fast enough rate with an acceptable yield, and the catalyst makes the mixture reach equilibrium faster without changing the yield.'\n\n⚠️ Common Mistake\nWriting only 'it is a compromise' with no chemistry. The marks are for naming the two opposing effects (yield and rate, or yield and cost), not for the word 'compromise' itself.\n\n📎 Key Points to Remember\n• Every condition = rule + applied to this reaction + trade-off.\n• Yield arguments come from equilibrium; speed arguments come from rate; catalysts only do speed."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "chem-igcse-equilibrium-f1",
+      "term": "Dynamic equilibrium",
+      "definition": "The state a reversible reaction reaches in a closed system when the forward and reverse reactions run at the same rate, so concentrations stay constant.",
+      "example": "In a sealed Haber converter the percentage of ammonia stops changing even though N₂ + 3H₂ ⇌ 2NH₃ continues in both directions."
+    },
+    {
+      "id": "chem-igcse-equilibrium-f2",
+      "term": "Closed system",
+      "definition": "A system where no substances can enter or leave — required for a reversible reaction to reach equilibrium.",
+      "example": "A sealed reaction vessel; an open beaker losing CO₂ gas can never reach equilibrium."
+    },
+    {
+      "id": "chem-igcse-equilibrium-f3",
+      "term": "Effect of increasing temperature",
+      "definition": "The position of equilibrium shifts in the endothermic direction. For an exothermic forward reaction, heating lowers the product yield.",
+      "example": "Heating N₂ + 3H₂ ⇌ 2NH₃ shifts the position left and the ammonia yield falls."
+    },
+    {
+      "id": "chem-igcse-equilibrium-f4",
+      "term": "Effect of increasing pressure",
+      "definition": "The position of equilibrium shifts towards the side with fewer moles of gas. No effect if both sides have equal moles of gas.",
+      "example": "N₂ + 3H₂ ⇌ 2NH₃: 4 moles of gas → 2 moles, so higher pressure shifts the position right."
+    },
+    {
+      "id": "chem-igcse-equilibrium-f5",
+      "term": "Effect of changing concentration",
+      "definition": "Adding a reactant (or removing a product) shifts the position of equilibrium towards the products.",
+      "example": "Liquefying and removing ammonia as it forms pulls the Haber equilibrium towards the products."
+    },
+    {
+      "id": "chem-igcse-equilibrium-f6",
+      "term": "Catalyst at equilibrium",
+      "definition": "Speeds up forward and reverse reactions equally: equilibrium is reached faster, but the position of equilibrium and the yield are unchanged.",
+      "example": "Iron in the Haber process shortens the time to equilibrium but does not raise the ammonia percentage."
+    },
+    {
+      "id": "chem-igcse-equilibrium-f7",
+      "term": "Haber process reaction",
+      "definition": "N₂ + 3H₂ ⇌ 2NH₃ — the forward reaction is exothermic. Makes ammonia for fertilisers.",
+      "example": "Nitrogen comes from the air; hydrogen comes from natural gas."
+    },
+    {
+      "id": "chem-igcse-equilibrium-f8",
+      "term": "Haber process conditions",
+      "definition": "About 450 °C (rate-yield compromise), about 200 atm pressure, and an iron catalyst.",
+      "example": "200 atm shifts the position towards NH₃ (4 moles of gas → 2) but higher pressure costs too much."
+    },
+    {
+      "id": "chem-igcse-equilibrium-f9",
+      "term": "Contact process reaction",
+      "definition": "2SO₂ + O₂ ⇌ 2SO₃ — the forward reaction is exothermic. The SO₃ is used to make sulfuric acid.",
+      "example": "SO₂ is made by burning sulfur in air; O₂ comes from the air."
+    },
+    {
+      "id": "chem-igcse-equilibrium-f10",
+      "term": "Contact process conditions",
+      "definition": "About 450 °C, about 2 atm pressure, and a vanadium(V) oxide (V₂O₅) catalyst.",
+      "example": "Only 2 atm is used because the yield at 450 °C is already very high — extra pressure is not worth the cost."
+    },
+    {
+      "id": "chem-igcse-equilibrium-f11",
+      "term": "Compromise conditions",
+      "definition": "Industrial conditions chosen by balancing equilibrium yield against reaction rate and against cost/safety.",
+      "example": "450 °C in both Haber and Contact: a lower temperature would raise the yield but be too slow."
+    },
+    {
+      "id": "chem-igcse-equilibrium-f12",
+      "term": "Position of equilibrium",
+      "definition": "How far the equilibrium mixture lies towards products or reactants; shifting it changes the yield.",
+      "example": "Removing a product as it forms shifts the position towards the products and raises the yield."
+    }
+  ],
+  "questions": [
+    {
+      "id": "chem-igcse-equilibrium-q1",
+      "stem": "A reversible reaction in a closed system has reached equilibrium. Which statement is correct?",
+      "choices": [
+        "The forward and reverse reactions have both stopped",
+        "The forward and reverse reactions are happening at the same rate",
+        "The concentrations of reactants and products are equal",
+        "All of the reactants have been used up"
+      ],
+      "correctIndex": 1,
+      "explanation": "At equilibrium the two rates are equal, so concentrations stay constant — but both reactions continue (dynamic) and the concentrations are constant, not equal. The reaction never stops and reversible reactions never go to completion.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q2",
+      "stem": "Which catalyst is used in the Haber process?",
+      "choices": [
+        "Vanadium(V) oxide",
+        "Nickel",
+        "Platinum",
+        "Iron"
+      ],
+      "correctIndex": 3,
+      "explanation": "The Haber process uses an iron catalyst. Vanadium(V) oxide (V₂O₅) is the Contact process catalyst — the classic mix-up distractor.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q3",
+      "stem": "For N₂ + 3H₂ ⇌ 2NH₃ the forward reaction is exothermic. What happens to the position of equilibrium and the yield of ammonia when the temperature is increased?",
+      "choices": [
+        "Shifts to the left; the yield of ammonia decreases",
+        "Shifts to the right; the yield of ammonia increases",
+        "Shifts to the right; the yield of ammonia decreases",
+        "No shift; only the rate changes"
+      ],
+      "correctIndex": 0,
+      "explanation": "Increasing the temperature shifts the position in the endothermic direction — here the reverse direction — so the position moves left and the yield of ammonia falls. The reaction does reach equilibrium faster, but that is a rate effect, not a position effect.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q4",
+      "stem": "Why does increasing the pressure raise the equilibrium yield of ammonia in N₂ + 3H₂ ⇌ 2NH₃?",
+      "choices": [
+        "High pressure makes the forward reaction less exothermic",
+        "High pressure makes the iron catalyst more effective",
+        "The product side has fewer moles of gas (2) than the reactant side (4), so the position shifts to the right",
+        "High pressure removes ammonia from the mixture"
+      ],
+      "correctIndex": 2,
+      "explanation": "The left side has 1 + 3 = 4 moles of gas and the right side has 2. Increasing pressure shifts the position of equilibrium towards the side with fewer moles of gas — the product side — so the yield of ammonia rises.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q5",
+      "stem": "Which catalyst and approximate temperature are used in the Contact process?",
+      "choices": [
+        "Iron at about 450 °C",
+        "Vanadium(V) oxide at about 1000 °C",
+        "Vanadium(V) oxide at about 450 °C",
+        "Iron at about 200 °C"
+      ],
+      "correctIndex": 2,
+      "explanation": "The Contact process (2SO₂ + O₂ ⇌ 2SO₃) uses vanadium(V) oxide, V₂O₅, at about 450 °C. Iron belongs to the Haber process — same compromise temperature, different catalyst.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q6",
+      "stem": "Why is the Haber process run at about 450 °C rather than at a lower temperature, which would give a higher yield?",
+      "choices": [
+        "A lower temperature would give a higher equilibrium yield but the rate of reaction would be too slow, so 450 °C is a compromise",
+        "The iron catalyst only works above 400 °C",
+        "A lower temperature would make the reaction endothermic",
+        "Nitrogen is inert below 400 °C"
+      ],
+      "correctIndex": 0,
+      "explanation": "Lower temperature favours the exothermic forward direction (higher yield) but slows the reaction so much that the plant would produce ammonia uneconomically slowly. 450 °C trades some yield for a workable rate.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q7",
+      "stem": "For the equilibrium H₂(g) + I₂(g) ⇌ 2HI(g), what is the effect of increasing the pressure on the position of equilibrium?",
+      "choices": [
+        "It shifts towards HI because products are always favoured by pressure",
+        "There is no shift because both sides have the same number of moles of gas (2 on each side)",
+        "It shifts towards H₂ and I₂",
+        "It shifts towards HI because HI is the smaller molecule"
+      ],
+      "correctIndex": 1,
+      "explanation": "Count the gas moles: 1 + 1 = 2 on the left and 2 on the right. With equal moles of gas on both sides, a pressure change cannot favour either direction, so the position of equilibrium does not move.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q8",
+      "stem": "A catalyst is added to a reversible reaction already at equilibrium in a closed system. What happens?",
+      "choices": [
+        "The position of equilibrium shifts towards the products",
+        "The yield of product increases",
+        "The forward reaction speeds up but the reverse reaction does not",
+        "Nothing shifts — forward and reverse rates increase equally, so the position and yield are unchanged"
+      ],
+      "correctIndex": 3,
+      "explanation": "A catalyst lowers the activation energy for BOTH directions equally, so both rates rise together. The position of equilibrium and the yield are unchanged — a catalyst only changes how quickly equilibrium is reached.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q9",
+      "stem": "In the Contact process, higher pressure would shift 2SO₂ + O₂ ⇌ 2SO₃ further towards SO₃. Why is the process still run at only about 2 atm?",
+      "choices": [
+        "High pressure would make the reaction too fast to control",
+        "V₂O₅ is destroyed by high pressure",
+        "SO₃ liquefies at high pressure and blocks the converter",
+        "The yield at 450 °C and 2 atm is already very high, so the extra cost and danger of high-pressure plant are not justified"
+      ],
+      "correctIndex": 3,
+      "explanation": "At 450 °C with the catalyst, the equilibrium already gives a very high yield of SO₃ at near-atmospheric pressure. The small extra yield from compression cannot pay for the energy and the stronger, safer plant that high pressure demands.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q10",
+      "stem": "In the Haber process the ammonia produced is cooled, liquefied and removed from the converter. What effect does this have on the position of equilibrium?",
+      "choices": [
+        "No effect — only temperature and pressure can shift an equilibrium",
+        "It shifts the position towards the products, because removing a product makes the equilibrium replace it",
+        "It shifts the position towards the reactants",
+        "It stops the reverse reaction permanently"
+      ],
+      "correctIndex": 1,
+      "explanation": "Removing a product lowers its concentration, so the position of equilibrium shifts to the right to replace it. Continuously draining off ammonia keeps pulling the reaction towards the products — a concentration effect, not a temperature or pressure one.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q11",
+      "stem": "Why can a reversible reaction only reach equilibrium in a closed system?",
+      "choices": [
+        "Because catalysts only work in sealed vessels",
+        "Because equilibrium needs high pressure, which only a closed vessel can hold",
+        "Because in an open system products or reactants can escape or be added, so the forward and reverse rates can never settle to equality",
+        "Because oxygen from the air would otherwise react with the catalyst"
+      ],
+      "correctIndex": 2,
+      "explanation": "Equilibrium requires constant concentrations, which is impossible if substances leave or enter. A reaction in an open beaker that loses a gas simply keeps going in the forward direction until a reactant runs out.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q12",
+      "stem": "For the Contact process equilibrium 2SO₂ + O₂ ⇌ 2SO₃, how many moles of gas are on each side, and which way does increased pressure shift the position?",
+      "choices": [
+        "3 moles on the left and 2 on the right; increased pressure shifts the position towards SO₃",
+        "2 moles on each side; pressure has no effect",
+        "2 moles on the left and 3 on the right; increased pressure shifts the position towards SO₂ and O₂",
+        "3 moles on each side; pressure has no effect"
+      ],
+      "correctIndex": 0,
+      "explanation": "Left side: 2 + 1 = 3 moles of gas; right side: 2 moles. Increased pressure shifts the position of equilibrium towards the side with fewer moles of gas — the right, towards SO₃.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q13",
+      "stem": "Which change will make an equilibrium mixture reach equilibrium FASTER without changing the yield?",
+      "choices": [
+        "Adding a catalyst",
+        "Removing some of the product",
+        "Adding more of a reactant",
+        "Changing the temperature"
+      ],
+      "correctIndex": 0,
+      "explanation": "Only a catalyst speeds up attainment of equilibrium while leaving the position (and yield) unchanged. Adding reactant or removing product shifts the position and changes the yield; changing the temperature changes both the rate and the position.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q14",
+      "stem": "Where does the nitrogen used in the Haber process come from?",
+      "choices": [
+        "Natural gas",
+        "Fertiliser plants",
+        "Nitrate rocks",
+        "The air"
+      ],
+      "correctIndex": 3,
+      "explanation": "Nitrogen is obtained from the air (which is about 78% N₂). Hydrogen is the raw material that comes from natural gas — do not swap the two.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "chem-igcse-equilibrium-q15",
+      "stem": "For a reversible reaction whose forward direction is exothermic, what is the effect of DECREASING the temperature?",
+      "choices": [
+        "The position shifts in the endothermic direction and the yield falls",
+        "The position shifts in the exothermic (forward) direction and the yield of product increases",
+        "The position is unchanged but the rate falls",
+        "The position shifts in the endothermic direction and the yield rises"
+      ],
+      "correctIndex": 1,
+      "explanation": "Cooling removes heat, so the position of equilibrium shifts in the direction that releases heat — the exothermic direction. That is the forward direction here, so the yield of product increases (though the reaction reaches equilibrium more slowly).",
+      "difficulty": "medium"
+    }
+  ]
+}
