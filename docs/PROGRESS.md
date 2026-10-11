@@ -4,6 +4,65 @@
 
 ---
 
+## 2026-10-11 — IGCSE wave 3b: Chemistry 0620 (15 topics + 2 paper sets) shipped
+Git HEAD: `75b95e8` (develop; content commit — this entry rides on top)
+Done: executed `docs/igcse-wave3-plan.md` §3b. **Phase 0 (parent duty, new this wave):
+  every 0620 Core/Supplement badge cross-checked against the official Cambridge PDF**
+  (2026–2028, Version 2 Aug 2026 — `Images/697205-…-syllabus.pdf`). Verdicts: 9 predictions
+  held; `mole-calculations`, `redox`, `energetics` are **MIXED** (Aᵣ/Mᵣ, O₂-transfer redox
+  and exo/endothermic definitions are Core in 2026–2028) → `level` omitted per the
+  never-tag-a-mixed-topic rule; topic 14 confirmed MIXED → **split executed**:
+  `chem-igcse-organic-reactions` (Core) + `chem-igcse-organic-extended` (Extended). 15
+  topics, `level` only on bonding-extended/equilibrium/organic-extended. **3a leftovers
+  closed**: H₀ = 2.2×10⁻¹⁸ s⁻¹ confirmed verbatim (6.2.3 Supp 10); Kelvin↔°C conversion
+  confirmed Core (2.1.3 Core 2) — no physics fixes needed. **Phase A**: 4-agent swarm;
+  quota 403 killed 3 agents mid-run, resumed cleanly after reset (agent-4's finding: the
+  brief's checker snippet had a `yield`-in-`forEach` syntax bug — fixed to `yield*`, worth
+  fixing in the template). Each topic 7/12/15 + 1 SVG, correctIndex ~4/4/4/3, keys
+  hand-derived + node-verified by children, spot-verified by parent. **Phase B (parent)**:
+  papers `chem-igcse-set-1` (Core-leaning, free) + `set-2` (Extended-leaning, premium),
+  8 q / 20 marks each, all keys node-verified; leak pre-check via the audit's own window
+  primitives caught ONE collision (set-2 q3's "more energy is released than absorbed" vs
+  the energetics note) — reworded on the premium side, re-checked 0. Integration:
+  order.json 13→28, `chem-igcse` in courses.ts after chem-ks3, registry 274 topics / 35
+  papers. Count churn: chemistry 13→28, papers 33→35, topicCount 259→274, markscheme
+  660→700 (M142/A174/B384), courses 16→17 — the AGENTS.md list missed `exams.spec.ts:104`
+  and the unit diagnostics/exams course lists (grep the old number, as it says).
+  **Two parent-side fixes**: (1) `courseCodeFor` stripped `t.level` from the slug, so
+  `chem-igcse-bonding` and `-bonding-extended` both derived `CHEM-IGCSE-0620-BONDING` —
+  level tokens now KEPT (verified: only the two new ids carried one, so nothing existing
+  changes); (2) **13 display-math blocks clipped at 320px** (caught by the 4-shot UX spot
+  review, measured with `measure-display-math.mjs`) — re-authored to FIT (symbolic forms +
+  prose labels, two `aligned` breaks, the two hydration equations moved to unicode prose
+  per the chem corpus convention); re-measured 0 clipped.
+Verified: generate:registry + check:registry ✓, validate:content ✓, audit:content **0/0**
+  (274 topics / 4,656 questions), validate:illustrations + layout ✓, **1735/1735** unit
+  tests (exit-code-checked log, not tail-piped), tsc ✓, eslint clean on touched paths,
+  `build:static` ✓ (leak gate HARD, verify:sitemaps **393 URLs** all live+indexable, 648
+  noindex excluded), audit:overflow --all PASS (822 pages, 375px), measure-display-math
+  320px: 0 clipped on the three math-heavy topics, 45-page sweep (15 topics × 3 surfaces)
+  0 `.katex-error` / 0 overflow, e2e churned specs 12/12 + seo 14/14 (Desktop Chrome,
+  `--workers=1`), **`test:e2e:static` Desktop Chrome `--workers=1`: 400 passed / 4 skipped,
+  2 failed → both re-run green in isolation (283 passed)**: one was a real defect fixed
+  (`full-topic-journey`'s h3 substring locator matched both "Atomic Structure" and the new
+  "Atomic Structure & Isotopes" → `exact: true`), the other a load flake (illustrations
+  serial chain scroll timeout on a chinese topic; the "14 did not run" was its cascade).
+Next: **wave 3c — Biology 0610 (14 topics + 2 sets)** per plan §3c (its topic-14 swap is
+  already resolved in the plan); then 3d English 0500. Roadmap afterwards:
+  illustration-density pass (math+english first), paper set 3 per course. The plan doc's
+  status line now records 3a+3b.
+Notes: **UX pass WAIVED** (content-JSON-only wave) — 4 spot screenshots in
+  `ux-screenshots/content/wave3b/` (igcse/chemistry hub mobile — picks up the subject
+  automatically; study mobile light; study desktop dark; quiz mobile) all clean after the
+  display-math fixes. The `/tmp/check-topic.mjs` self-check snippet (KaTeX-parse +
+  non-ASCII-in-math + rotation/counts) caught everything pre-merge this wave — **zero
+  parent-side LaTeX fixes needed, vs 61 in 3a**. Cluster D flagged one optional recheck
+  (older 0620 versions listed a "lubricating fraction" — omitted per the verified 2026–2028
+  list). Full-page Playwright screenshots composite fixed elements oddly — the blank bands
+  in one capture were an artifact; viewport screenshots + span counts are the real check.
+
+---
+
 ## 2026-09-28 — IGCSE wave 3a: Physics 0625 (14 topics + 2 paper sets) shipped
 Git HEAD: `2ff2895` (develop, pushed; tree clean)
 Done: executed `docs/igcse-wave3-plan.md` §3a. **14 new physics topics**
