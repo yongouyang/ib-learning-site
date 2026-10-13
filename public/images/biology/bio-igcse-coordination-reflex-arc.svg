@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">The reflex arc: five components</title>
+  <desc id="desc">A reflex arc. Heat from a pin stimulates a receptor in the skin of a finger (1). A sensory neurone (2) carries the impulse to the spinal cord, where a relay neurone (3) links to a motor neurone (4), which carries the impulse to an effector muscle (5) that contracts and pulls the finger away. A dashed line shows the impulse also travelling to the brain, which is informed afterwards.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .num { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #ffffff; }
+      .leader { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">The Reflex Arc: Five Components</text>
+  <text x="400" y="56" text-anchor="middle" class="sublabel">The brain is informed afterwards — the response does not wait for a conscious decision</text>
+
+  <!-- Finger (skin) -->
+  <rect x="60" y="340" width="130" height="70" rx="18" fill="#fde68a" stroke="#d97706" stroke-width="3"/>
+
+  <!-- Stimulus: hot pin -->
+  <path d="M95 435 C 86 448 84 458 95 466 C 106 458 104 448 95 435 Z" fill="#ef4444"/>
+  <rect x="37" y="478" width="116" height="18" rx="4" fill="#f9fafb"/>
+  <text x="95" y="491" text-anchor="middle" class="sublabel">stimulus: heat</text>
+  <line x1="95" y1="478" x2="95" y2="468" class="leader"/>
+
+  <!-- 1 Receptor -->
+  <circle cx="125" cy="345" r="9" fill="#ffffff" stroke="#7c3aed" stroke-width="3"/>
+  <circle cx="125" cy="316" r="11" fill="#7c3aed"/>
+  <text x="125" y="320" text-anchor="middle" class="num">1</text>
+  <rect x="160" y="482" width="140" height="18" rx="4" fill="#f9fafb"/>
+  <text x="230" y="495" text-anchor="middle" class="sublabel">receptor (in skin)</text>
+  <line x1="205" y1="482" x2="130" y2="352" class="leader"/>
+
+  <!-- 2 Sensory neurone -->
+  <path d="M134 338 C 210 300 290 262 352 236" fill="none" stroke="#2563eb" stroke-width="4"/>
+  <polygon points="352,236 344.8,244.5 340.8,235.3" fill="#2563eb"/>
+  <circle cx="240" cy="296" r="11" fill="#2563eb"/>
+  <text x="240" y="300" text-anchor="middle" class="num">2</text>
+  <rect x="100" y="100" width="120" height="20" rx="4" fill="#f9fafb"/>
+  <text x="160" y="114" text-anchor="middle" class="label">sensory neurone</text>
+  <line x1="190" y1="120" x2="248" y2="288" class="leader"/>
+
+  <!-- Spinal cord -->
+  <circle cx="420" cy="225" r="72" fill="#f3f4f6" stroke="#6b7280" stroke-width="4"/>
+  <path d="M420 192 C 402 198 400 214 414 221 C 400 228 402 246 420 252 C 438 246 440 228 426 221 C 440 214 438 198 420 192 Z" fill="#9ca3af"/>
+  <rect x="405" y="78" width="150" height="20" rx="4" fill="#f9fafb"/>
+  <text x="480" y="92" text-anchor="middle" class="label">spinal cord (CNS)</text>
+  <line x1="480" y1="98" x2="436" y2="158" class="leader"/>
+
+  <!-- 3 Relay neurone -->
+  <path d="M408 221 L434 229" fill="none" stroke="#ea580c" stroke-width="4"/>
+  <circle cx="408" cy="221" r="4" fill="#ea580c"/>
+  <circle cx="434" cy="229" r="4" fill="#ea580c"/>
+  <circle cx="455" cy="225" r="11" fill="#ea580c"/>
+  <text x="455" y="229" text-anchor="middle" class="num">3</text>
+  <rect x="565" y="106" width="110" height="20" rx="4" fill="#f9fafb"/>
+  <text x="620" y="120" text-anchor="middle" class="label">relay neurone</text>
+  <line x1="578" y1="126" x2="436" y2="224" class="leader"/>
+
+  <!-- Brain (dashed link) -->
+  <circle cx="300" cy="105" r="26" fill="#f3f4f6" stroke="#6b7280" stroke-width="3"/>
+  <line x1="322" y1="122" x2="388" y2="158" stroke="#6b7280" stroke-width="2" stroke-dasharray="5 4"/>
+  <rect x="85" y="64" width="170" height="18" rx="4" fill="#f9fafb"/>
+  <text x="170" y="77" text-anchor="middle" class="sublabel">brain (told afterwards)</text>
+  <line x1="252" y1="76" x2="278" y2="92" class="leader"/>
+
+  <!-- 4 Motor neurone -->
+  <path d="M490 242 C 545 258 585 278 622 296" fill="none" stroke="#059669" stroke-width="4"/>
+  <polygon points="622,296 610.8,296.1 615.2,287.1" fill="#059669"/>
+  <circle cx="556" cy="268" r="11" fill="#059669"/>
+  <text x="556" y="272" text-anchor="middle" class="num">4</text>
+  <rect x="602" y="170" width="115" height="20" rx="4" fill="#f9fafb"/>
+  <text x="660" y="184" text-anchor="middle" class="label">motor neurone</text>
+  <line x1="640" y1="190" x2="562" y2="262" class="leader"/>
+
+  <!-- 5 Effector muscle -->
+  <ellipse cx="680" cy="330" rx="62" ry="36" fill="#fca5a5" stroke="#dc2626" stroke-width="3"/>
+  <circle cx="648" cy="308" r="11" fill="#dc2626"/>
+  <text x="648" y="312" text-anchor="middle" class="num">5</text>
+  <rect x="580" y="410" width="200" height="18" rx="4" fill="#f9fafb"/>
+  <text x="680" y="423" text-anchor="middle" class="sublabel">effector (muscle contracts)</text>
+  <line x1="680" y1="410" x2="680" y2="368" class="leader"/>
+</svg>

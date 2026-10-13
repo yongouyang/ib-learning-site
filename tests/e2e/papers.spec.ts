@@ -10,18 +10,18 @@ test.describe('Practice papers', () => {
     await expect(setLink).toBeVisible();
     await expect(setLink.getByText(/30 min · 8 questions · 20 marks/)).toBeVisible();
     await expect(setLink.getByText('Not attempted')).toBeVisible();
-    // 17 courses × 2 sets, plus IGCSE Maths' third set (wave 2) — 35 set rows
+    // 18 courses × 2 sets, plus IGCSE Maths' third set (wave 2) — 37 set rows
     // in the DOM.
-    await expect(page.locator('a[href^="/papers/"]')).toHaveCount(35);
+    await expect(page.locator('a[href^="/papers/"]')).toHaveCount(37);
 
     // Set 2 renders as a locked row for anonymous visitors: the preview links
     // exist in the DOM (one per course) but are inert/aria-hidden, so they are
     // NOT accessible links. ONE page-level premium card makes the pitch
     // (copy voice: say it once); each course gets a compact lock row.
-    await expect(page.locator('a[href$="-set-2"]')).toHaveCount(17);
+    await expect(page.locator('a[href$="-set-2"]')).toHaveCount(18);
     await expect(page.getByRole('link', { name: /Practice Set 2/ })).toHaveCount(0);
     await expect(page.getByRole('link', { name: 'See Premium plans' })).toHaveCount(1);
-    await expect(page.getByRole('link', { name: /Premium · Full exam sets/ })).toHaveCount(17);
+    await expect(page.getByRole('link', { name: /Premium · Full exam sets/ })).toHaveCount(18);
   });
 
   // Phase 1b (docs/premium-content-protection-plan.md §4): a premium set's questions and mark

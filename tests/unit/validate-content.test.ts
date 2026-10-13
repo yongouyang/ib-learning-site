@@ -285,7 +285,7 @@ describe('checkMarkschemePrefixes', () => {
   });
 
   it('holds for every markscheme point in the corpus (the measurement, pinned)', () => {
-    // 700 points across 35 sets: M 142 / A 174 / B 384 (2026-10-11, after the IGCSE Chemistry sets).
+    // 740 points across 37 sets: M 144 / A 176 / B 420 (2026-10-13, after the IGCSE Biology sets).
     // If a future authoring pass breaks the convention, this fails here rather than in an
     // exam marker's prompt.
     const papersDir = path.join(process.cwd(), 'src/content/data/papers');
@@ -302,6 +302,6 @@ describe('checkMarkschemePrefixes', () => {
         expect(checkMarkschemePrefixes(parsed)).toEqual([]);
       }
     }
-    expect(points).toBe(700);
+    expect(points).toBe(740);
   });
 });

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Xylem and phloem positions in root, stem and leaf</title>
+  <desc id="desc">Three diagrams of a non-woody dicotyledonous plant. Root section: blue star-shaped xylem in the centre with orange phloem between its arms, and a root hair cell on the surface. Stem section: vascular bundles in a ring, each with xylem on the inside and phloem on the outside. Leaf midrib: xylem above phloem.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .chip { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="36" text-anchor="middle" class="title">Xylem and Phloem: Root, Stem and Leaf</text>
+
+  <!-- ROOT section -->
+  <circle cx="150" cy="230" r="80" fill="#f0fdf4" stroke="#22c55e" stroke-width="2.5"/>
+  <ellipse cx="150" cy="230" rx="32" ry="10" transform="rotate(45 150 230)" fill="#3b82f6"/>
+  <ellipse cx="150" cy="230" rx="32" ry="10" transform="rotate(-45 150 230)" fill="#3b82f6"/>
+  <g fill="#f97316">
+    <circle cx="180" cy="230" r="8"/>
+    <circle cx="120" cy="230" r="8"/>
+    <circle cx="150" cy="200" r="8"/>
+    <circle cx="150" cy="260" r="8"/>
+  </g>
+  <!-- Root hair cell -->
+  <rect x="145" y="112" width="10" height="44" rx="5" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5"/>
+
+  <text x="150" y="340" text-anchor="middle" class="label">Root</text>
+
+  <line x1="145" y1="242" x2="80" y2="362" class="line"/>
+  <rect x="30" y="360" width="64" height="18" rx="4" class="chip"/>
+  <text x="36" y="373" class="label">Xylem</text>
+
+  <line x1="182" y1="234" x2="205" y2="362" class="line"/>
+  <rect x="180" y="360" width="72" height="18" rx="4" class="chip"/>
+  <text x="186" y="373" class="label">Phloem</text>
+
+  <line x1="152" y1="112" x2="208" y2="104" class="line"/>
+  <rect x="210" y="95" width="110" height="18" rx="4" class="chip"/>
+  <text x="216" y="108" class="label">Root hair cell</text>
+
+  <!-- STEM section -->
+  <circle cx="400" cy="230" r="80" fill="#f0fdf4" stroke="#22c55e" stroke-width="2.5"/>
+  <!-- Six vascular bundles in a ring: xylem inner (blue), phloem outer (orange) -->
+  <g fill="#3b82f6">
+    <circle cx="400" cy="192" r="7"/>
+    <circle cx="367" cy="211" r="7"/>
+    <circle cx="367" cy="249" r="7"/>
+    <circle cx="400" cy="268" r="7"/>
+    <circle cx="433" cy="249" r="7"/>
+    <circle cx="433" cy="211" r="7"/>
+  </g>
+  <g fill="#f97316">
+    <circle cx="400" cy="178" r="7"/>
+    <circle cx="355" cy="204" r="7"/>
+    <circle cx="355" cy="256" r="7"/>
+    <circle cx="400" cy="282" r="7"/>
+    <circle cx="445" cy="256" r="7"/>
+    <circle cx="445" cy="204" r="7"/>
+  </g>
+
+  <text x="400" y="340" text-anchor="middle" class="label">Stem</text>
+
+  <line x1="397" y1="273" x2="295" y2="362" class="line"/>
+  <rect x="255" y="360" width="64" height="18" rx="4" class="chip"/>
+  <text x="261" y="373" class="label">Xylem</text>
+
+  <line x1="403" y1="287" x2="455" y2="362" class="line"/>
+  <rect x="435" y="360" width="72" height="18" rx="4" class="chip"/>
+  <text x="441" y="373" class="label">Phloem</text>
+
+  <line x1="447" y1="207" x2="525" y2="158" class="line"/>
+  <rect x="520" y="150" width="150" height="18" rx="4" class="chip"/>
+  <text x="526" y="163" class="label">Vascular bundle (ring)</text>
+
+  <!-- LEAF midrib -->
+  <ellipse cx="660" cy="230" rx="105" ry="22" fill="#bbf7d0" stroke="#22c55e" stroke-width="2.5"/>
+  <circle cx="660" cy="221" r="9" fill="#3b82f6"/>
+  <circle cx="660" cy="239" r="9" fill="#f97316"/>
+
+  <text x="660" y="340" text-anchor="middle" class="label">Leaf midrib</text>
+
+  <line x1="655" y1="224" x2="590" y2="362" class="line"/>
+  <rect x="545" y="360" width="64" height="18" rx="4" class="chip"/>
+  <text x="551" y="373" class="label">Xylem</text>
+
+  <line x1="667" y1="244" x2="710" y2="362" class="line"/>
+  <rect x="690" y="360" width="72" height="18" rx="4" class="chip"/>
+  <text x="696" y="373" class="label">Phloem</text>
+
+  <!-- Legend -->
+  <rect x="200" y="458" width="16" height="16" rx="3" fill="#3b82f6"/>
+  <text x="224" y="471" class="label">Xylem — water and mineral ions</text>
+  <rect x="480" y="458" width="16" height="16" rx="3" fill="#f97316"/>
+  <text x="504" y="471" class="label">Phloem — sucrose and amino acids</text>
+
+  <text x="400" y="505" text-anchor="middle" class="sublabel">Root: xylem central · Stem: bundles in a ring, xylem inside, phloem outside · Leaf: xylem above phloem</text>
+</svg>

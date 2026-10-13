@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Osmosis in a plant cell at three external concentrations</title>
+  <desc id="desc">Three panels show the same plant cell in distilled water (water enters, cell firm), in a solution matching the cell contents (no net movement), and in concentrated salt solution (water leaves, cell limp). Arrows show the direction of net water movement through the partially permeable cell membrane.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #1f2937; }
+      .panelsub { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .water { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="warr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Osmosis in a Plant Cell at Three External Concentrations</text>
+
+  <!-- Panel headers -->
+  <rect x="30" y="52" width="220" height="46" rx="8" fill="#d1fae5" stroke="#059669"/>
+  <text x="140" y="72" text-anchor="middle" class="panel">Distilled water</text>
+  <text x="140" y="89" text-anchor="middle" class="panelsub">higher water concentration outside</text>
+
+  <rect x="295" y="52" width="220" height="46" rx="8" fill="#e5e7eb" stroke="#9ca3af"/>
+  <text x="405" y="72" text-anchor="middle" class="panel">Matching concentration</text>
+  <text x="405" y="89" text-anchor="middle" class="panelsub">same water concentration as the cells</text>
+
+  <rect x="560" y="52" width="220" height="46" rx="8" fill="#fee2e2" stroke="#ef4444"/>
+  <text x="670" y="72" text-anchor="middle" class="panel">Concentrated salt solution</text>
+  <text x="670" y="89" text-anchor="middle" class="panelsub">lower water concentration outside</text>
+
+  <!-- Panel A: water enters -->
+  <line x1="52" y1="200" x2="80" y2="200" class="water" marker-end="url(#warr)"/>
+  <line x1="140" y1="108" x2="140" y2="138" class="water" marker-end="url(#warr)"/>
+  <line x1="228" y1="200" x2="200" y2="200" class="water" marker-end="url(#warr)"/>
+  <rect x="85" y="145" width="130" height="110" rx="14" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+  <rect x="93" y="153" width="114" height="94" rx="10" fill="#f0fdf4" stroke="#34d399" stroke-width="2"/>
+  <rect x="106" y="170" width="88" height="60" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="140" y="292" text-anchor="middle" class="label">water enters by osmosis</text>
+  <text x="140" y="312" text-anchor="middle" class="sublabel">cell firm — pressure on the wall</text>
+
+  <!-- Panel B: no net movement -->
+  <line x1="300" y1="188" x2="334" y2="188" class="water" marker-end="url(#warr)"/>
+  <line x1="476" y1="212" x2="510" y2="212" class="water" marker-end="url(#warr)"/>
+  <rect x="340" y="145" width="130" height="110" rx="14" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+  <rect x="348" y="153" width="114" height="94" rx="10" fill="#f0fdf4" stroke="#34d399" stroke-width="2"/>
+  <rect x="361" y="170" width="88" height="60" rx="10" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="405" y="292" text-anchor="middle" class="label">water in = water out</text>
+  <text x="405" y="312" text-anchor="middle" class="sublabel">no net movement — cell unchanged</text>
+
+  <!-- Panel C: water leaves -->
+  <line x1="602" y1="188" x2="566" y2="188" class="water" marker-end="url(#warr)"/>
+  <line x1="670" y1="138" x2="670" y2="108" class="water" marker-end="url(#warr)"/>
+  <line x1="738" y1="212" x2="774" y2="212" class="water" marker-end="url(#warr)"/>
+  <rect x="605" y="145" width="130" height="110" rx="14" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+  <rect x="622" y="162" width="96" height="76" rx="10" fill="#f0fdf4" stroke="#34d399" stroke-width="2"/>
+  <rect x="632" y="178" width="66" height="42" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="670" y="292" text-anchor="middle" class="label">water leaves by osmosis</text>
+  <text x="670" y="312" text-anchor="middle" class="sublabel">cell limp — the plant may wilt</text>
+
+  <!-- Explanation band -->
+  <rect x="60" y="360" width="680" height="112" rx="10" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="400" y="394" text-anchor="middle" class="label">Water always moves towards the lower water concentration,</text>
+  <text x="400" y="420" text-anchor="middle" class="sublabel">through the partially permeable cell membrane: in when the surroundings are dilute,</text>
+  <text x="400" y="440" text-anchor="middle" class="sublabel">out when they are concentrated, and equally in both directions when concentrations match.</text>
+</svg>

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title desc">
+  <title id="title">The alimentary canal and associated organs</title>
+  <desc id="desc">A labelled diagram of the human digestive system. Food passes through the mouth, oesophagus, stomach, small intestine (duodenum then ileum) and large intestine (colon, rectum, anus). The associated organs — salivary glands, liver, gall bladder and pancreas — sit beside the canal and secrete into it.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .line { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+      .chip { fill: #f9fafb; }
+    </style>
+  </defs>
+
+  <rect width="800" height="560" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">The Alimentary Canal and Associated Organs</text>
+
+  <!-- Mouth -->
+  <circle cx="150" cy="78" r="13" fill="#fca5a5" stroke="#ef4444" stroke-width="2"/>
+
+  <!-- Salivary glands -->
+  <g fill="#f9a8d4" stroke="#db2777" stroke-width="1.5">
+    <circle cx="182" cy="60" r="7"/>
+    <circle cx="190" cy="74" r="6"/>
+    <circle cx="178" cy="86" r="5"/>
+  </g>
+
+  <!-- Oesophagus -->
+  <rect x="143" y="90" width="14" height="120" rx="7" fill="#fecaca" stroke="#ef4444" stroke-width="1.5"/>
+
+  <!-- Liver and gall bladder -->
+  <ellipse cx="218" cy="200" rx="42" ry="20" fill="#dc2626" stroke="#991b1b" stroke-width="2"/>
+  <ellipse cx="230" cy="226" rx="11" ry="8" fill="#4ade80" stroke="#16a34a" stroke-width="2"/>
+
+  <!-- Stomach -->
+  <ellipse cx="150" cy="245" rx="40" ry="32" fill="#fca5a5" stroke="#ef4444" stroke-width="2"/>
+
+  <!-- Pancreas -->
+  <ellipse cx="225" cy="262" rx="24" ry="8" fill="#fde047" stroke="#ca8a04" stroke-width="1.5"/>
+
+  <!-- Large intestine frame (colon, border then inner) -->
+  <path d="M190,447 C140,447 66,445 62,395 V320 Q62,300 82,300 H238 Q258,300 258,320 V445 Q258,468 235,468 H170 Q150,468 150,484 V508" fill="none" stroke="#ea580c" stroke-width="24" stroke-linecap="round"/>
+  <path d="M190,447 C140,447 66,445 62,395 V320 Q62,300 82,300 H238 Q258,300 258,320 V445 Q258,468 235,468 H170 Q150,468 150,484 V508" fill="none" stroke="#fdba74" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- Small intestine serpentine (duodenum into ileum, border then inner) -->
+  <path d="M176,268 C210,280 237,292 237,315 H125 Q103,315 103,337 Q103,359 125,359 H215 Q237,359 237,381 Q237,403 215,403 H125 Q103,403 103,425 Q103,447 125,447 H190" fill="none" stroke="#f59e0b" stroke-width="18" stroke-linecap="round"/>
+  <path d="M176,268 C210,280 237,292 237,315 H125 Q103,315 103,337 Q103,359 125,359 H215 Q237,359 237,381 Q237,403 215,403 H125 Q103,403 103,425 Q103,447 125,447 H190" fill="none" stroke="#fcd34d" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Anus -->
+  <circle cx="150" cy="512" r="5" fill="#9a3412"/>
+
+  <!-- Labels -->
+  <line x1="163" y1="74" x2="423" y2="67" class="line"/>
+  <rect x="425" y="58" width="196" height="18" rx="4" class="chip"/>
+  <text x="431" y="71" class="label">Mouth — ingestion begins</text>
+
+  <line x1="197" y1="72" x2="423" y2="102" class="line"/>
+  <rect x="425" y="93" width="260" height="18" rx="4" class="chip"/>
+  <text x="431" y="106" class="label">Salivary glands — secrete amylase</text>
+
+  <line x1="157" y1="140" x2="423" y2="137" class="line"/>
+  <rect x="425" y="128" width="238" height="18" rx="4" class="chip"/>
+  <text x="431" y="141" class="label">Oesophagus — carries food down</text>
+
+  <line x1="260" y1="198" x2="423" y2="172" class="line"/>
+  <rect x="425" y="163" width="62" height="18" rx="4" class="chip"/>
+  <text x="431" y="176" class="label">Liver</text>
+
+  <line x1="241" y1="226" x2="423" y2="207" class="line"/>
+  <rect x="425" y="198" width="104" height="18" rx="4" class="chip"/>
+  <text x="431" y="211" class="label">Gall bladder</text>
+
+  <line x1="188" y1="248" x2="423" y2="242" class="line"/>
+  <rect x="425" y="233" width="296" height="18" rx="4" class="chip"/>
+  <text x="431" y="246" class="label">Stomach — churns food, protease + acid</text>
+
+  <line x1="249" y1="262" x2="423" y2="277" class="line"/>
+  <rect x="425" y="268" width="214" height="18" rx="4" class="chip"/>
+  <text x="431" y="281" class="label">Pancreas — secretes enzymes</text>
+
+  <line x1="242" y1="296" x2="423" y2="315" class="line"/>
+  <rect x="425" y="306" width="310" height="18" rx="4" class="chip"/>
+  <text x="431" y="319" class="label">Duodenum — first part of small intestine</text>
+
+  <line x1="150" y1="447" x2="423" y2="347" class="line"/>
+  <rect x="425" y="338" width="250" height="18" rx="4" class="chip"/>
+  <text x="431" y="351" class="label">Ileum — where absorption happens</text>
+
+  <line x1="258" y1="322" x2="423" y2="382" class="line"/>
+  <rect x="425" y="373" width="206" height="18" rx="4" class="chip"/>
+  <text x="431" y="386" class="label">Colon — absorbs some water</text>
+
+  <line x1="160" y1="495" x2="423" y2="417" class="line"/>
+  <rect x="425" y="408" width="176" height="18" rx="4" class="chip"/>
+  <text x="431" y="421" class="label">Rectum — stores faeces</text>
+
+  <line x1="150" y1="516" x2="423" y2="452" class="line"/>
+  <rect x="425" y="443" width="126" height="18" rx="4" class="chip"/>
+  <text x="431" y="456" class="label">Anus — egestion</text>
+
+  <!-- Caption -->
+  <text x="400" y="545" text-anchor="middle" class="sublabel">Enzymes act at: mouth and small intestine (amylase) · stomach (protease, in acid) · small intestine (lipase)</text>
+</svg>

@@ -1,0 +1,321 @@
+{
+  "id": "bio-igcse-classification",
+  "subjectId": "biology",
+  "title": "Characteristics of Life & Classification",
+  "description": "The seven characteristics of living organisms, classifying by shared features, the species concept and binomial naming, constructing dichotomous keys, and the vertebrate and arthropod groups for IGCSE Biology 0610.",
+  "stage": "igcse",
+  "course": "0610",
+  "notes": [
+    {
+      "id": "bio-igcse-classification-n1",
+      "heading": "The Seven Characteristics of Living Organisms",
+      "body": "📌 Definitions (learn these syllabus-worded definitions — 'state' questions expect them)\n• **Movement** — an action by an organism or part of an organism causing a change of position or place.\n• **Respiration** — the chemical reactions in cells that break down nutrient molecules and release energy for metabolism.\n• **Sensitivity** — the ability to detect and respond to changes in the internal or external environment.\n• **Growth** — a permanent increase in size and dry mass.\n• **Reproduction** — the processes that make more of the same kind of organism.\n• **Excretion** — the removal of waste products of metabolism and substances in excess of requirements.\n• **Nutrition** — the taking in of materials for energy, growth and development.\n\n🔑 What the examiner wants\nThe mnemonic MRS GREN helps you list all seven, but a list alone is not the answer — definition questions want the full syllabus sentence. 'All seven' means ALL seven: an organism that shows only some of them (like a flame, which 'grows' and 'moves') is not living.\n\n⚠️ Common Mistake\nTwo classic losses of marks: (1) writing 'breathing' for respiration — respiration is the release of energy from nutrient molecules IN CELLS, not the movement of air; (2) calling faeces an excretory product — undigested food never entered metabolism, so removing it is egestion, not excretion. CO₂ and urea ARE excretory products because they are made by metabolism.\n\n📎 Key Points to Remember\n• Seven characteristics: movement, respiration, sensitivity, growth, reproduction, excretion, nutrition.\n• Respiration happens in cells; growth must be permanent (size AND dry mass).\n• Excretion = waste of metabolism + substances in excess."
+    },
+    {
+      "id": "bio-igcse-classification-n2",
+      "heading": "Classifying Organisms and the Species Concept",
+      "body": "📌 Definitions\n**Classification** is the sorting of organisms into groups based on their **shared features** — the more features two organisms share, the more closely they are placed together.\nA **species** is a group of organisms that can reproduce to produce **fertile offspring**.\n\n🔑 Why classify at all?\nWith millions of known organisms, grouping by shared features lets biologists IDENTIFY an unknown organism from a few observations and PREDICT its other features from the group it falls into. At Core level you classify using observable features; classification using DNA sequences is Supplement content and is not needed here.\n\n💡 Worked Example\nA horse and a donkey can mate and produce a mule, but the mule is infertile — it cannot reproduce. Because the offspring is not fertile, the horse and the donkey are DIFFERENT species. The same logic separates lions and tigers (their hybrid, the liger, is infertile).\n\n⚠️ Common Mistake\nDefining a species as 'organisms that look the same'. Appearance is not the test — members of one species can look very different (all breeds of dog are Canis familiaris). The test is whether they can reproduce to give fertile offspring.\n\n📎 Key Points to Remember\n• Classification groups organisms by shared features.\n• Species = can reproduce to produce fertile offspring.\n• Infertile hybrids (mule, liger) prove the parents are different species."
+    },
+    {
+      "id": "bio-igcse-classification-n3",
+      "heading": "The Binomial System of Naming",
+      "body": "📌 Definition\nThe **binomial system** gives every species an internationally agreed two-part name: the **genus** name followed by the **species** name. The genus begins with a capital letter, the species with a lower-case letter, and both are written in italics (or underlined when hand-written): Homo sapiens, Panthera leo.\n\n🔑 How it works\nThe first name groups close relatives: Panthera leo (lion) and Panthera tigris (tiger) share the genus Panthera because they are closely related — but the different second names show they are different species. The name acts like a family name plus a personal name.\n\n🔑 What the examiner wants\n• Know the ORDER: genus first, species second.\n• Know the CONVENTION: capital genus, lower-case species, italics.\n• Know WHY it is used: one species, one name, understood by scientists in every country — common names vary between languages and regions (a 'robin' is a different bird in Europe and North America).\n\n⚠️ Common Mistake\nWriting both names with capitals, or putting the species name first. Homo Sapiens and Sapiens homo both lose the mark — it is Homo sapiens.\n\n📎 Key Points to Remember\n• Binomial = genus + species; genus capitalised, species lower case, both italic.\n• Shared genus = closely related species.\n• The system exists to avoid common-name confusion worldwide."
+    },
+    {
+      "id": "bio-igcse-classification-n4",
+      "heading": "Dichotomous Keys: Using and Constructing Them",
+      "body": "📌 Definition\nA **dichotomous key** identifies an unknown organism through a series of paired, contrasting statements ('dichotomous' means branching into two). At each step you choose the statement that matches the specimen and follow the instruction until the organism is named.\n\n🔑 Using a key\nAlways start at step 1, read BOTH statements, and pick the one that matches a feature you can actually see on the specimen — then follow the 'go to' instruction exactly.\n\n🔑 Constructing a key — what earns the marks\n• Use **easily identifiable, observable features**: numbers of legs or wings, presence of a backbone, type of body covering.\n• Each pair of statements must be MUTUALLY EXCLUSIVE — a specimen fits one branch, never both.\n• Every branch must end at exactly ONE organism.\n• Start with the feature that splits the set most evenly.\n\n💡 Worked Example\nThe illustration shows a working key for six organisms. Follow it for a spider: no backbone → no more than four pairs of legs → eight legs → arachnid. Each choice is a yes/no on a countable feature.\n\n⚠️ Common Mistake\nUsing vague or comparative features — 'is quite large' or 'is greenish' — which two observers could answer differently. Use YES/NO features and COUNTS: 'has six legs' beats 'has few legs'.\n\n📎 Key Points to Remember\n• Two contrasting choices per step; follow to a single identification.\n• Construct keys from observable, countable, unambiguous features.",
+      "illustration": {
+        "src": "/images/biology/bio-igcse-classification-key.svg",
+        "alt": "A branching dichotomous key that identifies six organisms — eagle, salmon, centipede, crab, ant and spider — through yes/no questions about a backbone, feathers, number of legs and body segments.",
+        "caption": "Each numbered choice splits the organisms into two groups; following the matching branches ends at exactly one organism."
+      }
+    },
+    {
+      "id": "bio-igcse-classification-n5",
+      "heading": "The Animal and Plant Kingdoms",
+      "body": "📌 Main features used to place organisms in the two kingdoms (0610 Core)\n**Animals** — organisms that are multicellular; their cells contain a nucleus but no cell walls and no chloroplasts; they feed on organic substances made by other living things.\n**Plants** — organisms that are multicellular; their cells contain a nucleus, cellulose cell walls and (usually) chloroplasts containing chlorophyll; they feed by photosynthesis, making their own organic nutrients.\n\n🔑 How it works\nAsk three questions in order: one cell or many? Cell walls and chloroplasts present? How does it feed? An unknown multicellular organism with chlorophyll that makes its own food is a plant; one with no cell walls that eats other organisms is an animal.\n\n⚠️ Common Mistake\nClassifying by whether the organism can move. Movement is NOT the criterion — sponges and corals do not move but are animals, because they are multicellular, lack cell walls and chloroplasts, and feed on other organisms. Classify by cell structure and nutrition, not behaviour.\n\n📎 Key Points to Remember\n• Animals: no cell walls, no chloroplasts, eat other organisms.\n• Plants: cellulose cell walls, chlorophyll, photosynthesis.\n• Classify by structure and nutrition — not by movement.\n• Classification beyond these kingdoms (and viruses) is Supplement content — not required at Core."
+    },
+    {
+      "id": "bio-igcse-classification-n6",
+      "heading": "The Five Vertebrate Groups",
+      "body": "📌 Vertebrates are animals with a backbone. The five groups are separated mainly by body covering, gas-exchange surfaces and reproduction.\n• **Fish** — scaly skin, gills for gas exchange, fins for movement.\n• **Amphibians** — moist skin; young stages (tadpoles) live in water and breathe with gills; adults usually live on land and breathe with lungs.\n• **Reptiles** — dry, scaly skin; breathe with lungs throughout life.\n• **Birds** — feathers, a beak, wings, and hard-shelled eggs.\n• **Mammals** — hair or fur, external ear flaps (pinnae), and females with mammary glands that produce milk for the young; most give birth to live young.\n\n🔑 What the examiner wants\n'Classify this organism' questions give you a feature list — match it feature by feature rather than jumping at one clue. The two unique markers worth memorising: FEATHERS occur only in birds; MILK from mammary glands (and hair) occurs only in mammals.\n\n💡 Worked Example\nAn animal has moist skin, lays shell-less eggs in water, and its larvae have gills while the adults have lungs. Moist skin + aquatic gilled larvae + terrestrial lunged adult = amphibian.\n\n⚠️ Common Mistake\nAssuming flight means bird — bats are mammals (hair, milk) and many birds cannot fly (penguins, ostriches). Feathers, not flight, define birds. Likewise a whale is a mammal, not a fish: it has lungs, hair and mammary glands.\n\n📎 Key Points to Remember\n• Fish: scales, gills, fins. Amphibians: moist skin, gilled larvae. Reptiles: dry scaly skin, lungs.\n• Birds: only group with feathers. Mammals: only group with hair and mammary glands."
+    },
+    {
+      "id": "bio-igcse-classification-n7",
+      "heading": "The Four Arthropod Groups",
+      "body": "📌 All arthropods share three features: a hard **exoskeleton**, **jointed legs** and a **segmented body**. The four groups are separated by body divisions, leg count and antennae.\n• **Insects** — three body parts (head, thorax, abdomen), three pairs of legs, one pair of antennae; often one or two pairs of wings. Examples: ant, butterfly, beetle.\n• **Arachnids** — two body parts, four pairs of legs, no wings, no antennae. Examples: spider, scorpion, tick.\n• **Crustaceans** — more than four pairs of jointed legs and two pairs of antennae; mostly aquatic. Examples: crab, prawn, woodlouse.\n• **Myriapods** — a long body of many similar segments, one pair of antennae, and many pairs of legs (one or two pairs per segment). Examples: centipede, millipede.\n\n🔑 How it works — the counting method\nCount legs first: 6 legs = insect; 8 legs = arachnid; more than 8 → decide between crustacean (fewer, thicker body regions, two pairs of antennae, often in water) and myriapod (many similar segments, one pair of antennae).\n\n⚠️ Common Mistake\nMixing up the leg counts — insects have SIX, arachnids have EIGHT — and calling a centipede an insect because it has antennae. Leg count and body segmentation come first.\n\n📎 Key Points to Remember\n• Arthropods: exoskeleton + jointed legs + segmented body.\n• Insect 6 legs/3 body parts; arachnid 8 legs/2 body parts; crustacean over 4 pairs of legs/2 pairs of antennae; myriapod many segments and legs."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "bio-igcse-classification-f1",
+      "term": "Sensitivity",
+      "definition": "The ability of an organism to detect and respond to changes in its internal or external environment.",
+      "example": "A plant shoot growing towards light is responding to a change in its external environment."
+    },
+    {
+      "id": "bio-igcse-classification-f2",
+      "term": "Respiration",
+      "definition": "The chemical reactions in cells that break down nutrient molecules and release energy for metabolism. Not the same as breathing.",
+      "example": "Glucose is broken down in muscle cells to release energy for contraction."
+    },
+    {
+      "id": "bio-igcse-classification-f3",
+      "term": "Growth",
+      "definition": "A permanent increase in size and dry mass — one of the seven characteristics of living organisms.",
+      "example": "A seedling gaining mass as it develops into a tree is growth; a dry sponge swelling with water is not."
+    },
+    {
+      "id": "bio-igcse-classification-f4",
+      "term": "Excretion",
+      "definition": "The removal of the waste products of metabolism and substances in excess of requirements.",
+      "example": "Removing carbon dioxide (from respiration) and urea (from excess amino acids); removing faeces is egestion, not excretion."
+    },
+    {
+      "id": "bio-igcse-classification-f5",
+      "term": "Nutrition",
+      "definition": "The taking in of materials for energy, growth and development.",
+      "example": "A lion eating prey and a plant absorbing carbon dioxide and minerals are both carrying out nutrition."
+    },
+    {
+      "id": "bio-igcse-classification-f6",
+      "term": "Species",
+      "definition": "A group of organisms that can reproduce to produce fertile offspring.",
+      "example": "All dogs are one species; a horse and donkey are two species because their offspring, the mule, is infertile."
+    },
+    {
+      "id": "bio-igcse-classification-f7",
+      "term": "Binomial system",
+      "definition": "The internationally agreed two-part naming of species: genus (capital letter) + species (lower case), written in italics.",
+      "example": "Homo sapiens — Homo is the genus, sapiens is the species."
+    },
+    {
+      "id": "bio-igcse-classification-f8",
+      "term": "Dichotomous key",
+      "definition": "An identification tool built from paired, contrasting statements about easily observable features; each choice leads to the next pair until one organism remains.",
+      "example": "1a backbone present — go to 2; 1b backbone absent — go to 3."
+    },
+    {
+      "id": "bio-igcse-classification-f9",
+      "term": "Mammal (features)",
+      "definition": "A vertebrate with hair or fur, external ear flaps (pinnae) and mammary glands in females that produce milk; most give birth to live young.",
+      "example": "A whale is a mammal — lungs, hair and milk — despite living in water like a fish."
+    },
+    {
+      "id": "bio-igcse-classification-f10",
+      "term": "Amphibian (features)",
+      "definition": "A vertebrate with moist skin whose larvae live in water with gills while adults usually live on land with lungs.",
+      "example": "A frog: the tadpole breathes with gills in water; the adult breathes with lungs on land."
+    },
+    {
+      "id": "bio-igcse-classification-f11",
+      "term": "Insect (features)",
+      "definition": "An arthropod with three body parts (head, thorax, abdomen), three pairs of legs and one pair of antennae; often winged.",
+      "example": "Ants, butterflies and beetles; a spider is not an insect — it has eight legs."
+    },
+    {
+      "id": "bio-igcse-classification-f12",
+      "term": "Myriapod vs crustacean",
+      "definition": "Both have more than four pairs of legs; myriapods have a long body of many similar segments and one pair of antennae, crustaceans have fewer body regions, two pairs of antennae and are mostly aquatic.",
+      "example": "Centipede = myriapod; crab = crustacean."
+    }
+  ],
+  "questions": [
+    {
+      "id": "bio-igcse-classification-q1",
+      "stem": "Which statement is the correct definition of respiration?",
+      "choices": [
+        "The chemical reactions in cells that break down nutrient molecules and release energy for metabolism",
+        "The movement of air into and out of the lungs",
+        "The taking in of materials for energy, growth and development",
+        "The removal of waste products of metabolism from the body"
+      ],
+      "correctIndex": 0,
+      "explanation": "Respiration happens inside cells and releases energy from nutrient molecules. Breathing is only the movement of air; the other two options define nutrition and excretion.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-classification-q2",
+      "stem": "Which process is an example of excretion?",
+      "choices": [
+        "Releasing faeces from the gut after digestion",
+        "Removing carbon dioxide produced by respiration from the body",
+        "Absorbing mineral ions from the soil into a root",
+        "Shedding dead skin cells from the body surface"
+      ],
+      "correctIndex": 1,
+      "explanation": "Excretion removes waste products of metabolism, and carbon dioxide is made by respiration in cells. Faeces are undigested food that never entered metabolism — their removal is egestion, not excretion.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-classification-q3",
+      "stem": "A horse and a donkey can mate to produce a mule, but the mule is infertile. What does this show about the horse and the donkey?",
+      "choices": [
+        "They are the same species because they can mate",
+        "They are the same genus so they must be one species",
+        "They are different species, because members of one species reproduce to produce fertile offspring",
+        "The mule is a new species because it cannot reproduce"
+      ],
+      "correctIndex": 2,
+      "explanation": "The species test is fertile offspring: the mule cannot reproduce, so the parents fail the test and are different species. Mating alone is not enough — the offspring must be fertile.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-classification-q4",
+      "stem": "The lion is Panthera leo and the tiger is Panthera tigris. What does the shared name Panthera tell you?",
+      "choices": [
+        "They are the same species",
+        "They can breed to produce fertile offspring",
+        "One evolved into the other recently",
+        "They belong to the same genus and are therefore closely related, but are different species"
+      ],
+      "correctIndex": 3,
+      "explanation": "The first part of a binomial name is the genus: sharing it means close relationship. The different second names (leo, tigris) mark them as different species — and their hybrid, the liger, is infertile.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-classification-q5",
+      "stem": "In the scientific name Homo sapiens, which part is the species name and how should it be written?",
+      "choices": [
+        "Homo — with a capital letter and in italics",
+        "sapiens — lower case and in italics",
+        "Homo sapiens together form the genus name",
+        "sapiens — with a capital letter, not in italics"
+      ],
+      "correctIndex": 1,
+      "explanation": "The second word is the species name: lower case, italic, following the capitalised genus name. Homo alone is the genus, shared with extinct relatives such as Homo neanderthalensis.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-classification-q6",
+      "stem": "Use this key: 1a body covered with feathers — bird; 1b body not covered with feathers — go to 2. 2a has hair — mammal; 2b has dry scaly skin — reptile. An animal with dry scaly skin and no hair or feathers is identified as a:",
+      "choices": [
+        "Bird",
+        "Mammal",
+        "Reptile",
+        "Amphibian"
+      ],
+      "correctIndex": 2,
+      "explanation": "Following the key: no feathers sends you to step 2; no hair sends you to 2b, which names a reptile. Amphibian is not reachable because the key branches on scaly skin, which amphibians lack.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-classification-q7",
+      "stem": "A student is constructing a dichotomous key for six pond invertebrates. Which statement would be a POOR choice to use in the key?",
+      "choices": [
+        "Has six legs",
+        "Has a shell",
+        "Has one pair of antennae",
+        "Is quite large"
+      ],
+      "correctIndex": 3,
+      "explanation": "'Is quite large' is vague and comparative — two observers could judge the same specimen differently, so a specimen might fit both branches. Good key statements use observable yes/no features or exact counts such as leg number.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-classification-q8",
+      "stem": "Which set of features places an organism in the animal kingdom?",
+      "choices": [
+        "Multicellular; cells have a nucleus but no cell walls or chloroplasts; feeds on organic substances made by other organisms",
+        "Multicellular; cells have cellulose cell walls and chloroplasts; feeds by photosynthesis",
+        "Unicellular; DNA free in the cytoplasm; no nucleus",
+        "Able to move from place to place; has a backbone"
+      ],
+      "correctIndex": 0,
+      "explanation": "Animals are defined by cell structure and nutrition: no walls, no chloroplasts, eating other organisms. Movement is not the criterion — corals and sponges are animals that do not move, and backbone separates vertebrates, not animals from plants.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-classification-q9",
+      "stem": "Which features are used to place an organism in the plant kingdom?",
+      "choices": [
+        "It is green and rooted in soil",
+        "It cannot move from place to place",
+        "Its cells have cellulose cell walls and chloroplasts containing chlorophyll, and it feeds by photosynthesis",
+        "Its cells contain a nucleus"
+      ],
+      "correctIndex": 2,
+      "explanation": "Cellulose walls, chlorophyll and photosynthetic nutrition are the defining plant features. Colour and immobility are unreliable (fungi are immobile but not plants), and animal cells also contain a nucleus.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-classification-q10",
+      "stem": "An animal has dry, scaly skin and breathes with lungs throughout its life. To which vertebrate group does it belong?",
+      "choices": [
+        "Amphibian",
+        "Fish",
+        "Mammal",
+        "Reptile"
+      ],
+      "correctIndex": 3,
+      "explanation": "Dry scaly skin plus lifelong lung breathing is the reptile combination. Amphibians have moist skin and gilled larvae; fish have gills; mammals have hair rather than scales.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-classification-q11",
+      "stem": "A newly described animal has feathers, a beak and wings, but it cannot fly and it swims to catch fish. How should it be classified?",
+      "choices": [
+        "As a bird, because feathers occur only in birds",
+        "As a mammal, because some mammals swim",
+        "As a fish, because it swims to catch food",
+        "It cannot be classified from this information"
+      ],
+      "correctIndex": 0,
+      "explanation": "Feathers are the unique bird feature — no other vertebrate group has them. Flight is NOT required: penguins and ostriches are birds. Swimming does not make an animal a fish.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-classification-q12",
+      "stem": "An arthropod has a body divided into two parts and four pairs of legs. To which group does it belong?",
+      "choices": [
+        "Insect",
+        "Arachnid",
+        "Crustacean",
+        "Myriapod"
+      ],
+      "correctIndex": 1,
+      "explanation": "Two body parts plus eight legs (four pairs) is the arachnid plan — spiders, scorpions, ticks. Insects have six legs and three body parts; crustaceans and myriapods have more than four pairs of legs.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-classification-q13",
+      "stem": "An organism has an exoskeleton, a long body of many similar segments each bearing legs, and one pair of antennae. To which group does it belong?",
+      "choices": [
+        "Crustacean, because it has many legs",
+        "Insect, because it has antennae",
+        "Annelid, because its body is segmented",
+        "Myriapod, because of the many similar leg-bearing segments and single pair of antennae"
+      ],
+      "correctIndex": 3,
+      "explanation": "The exoskeleton makes it an arthropod; the long chain of similar leg-bearing segments with one pair of antennae is the myriapod pattern (centipedes, millipedes). Crustaceans have fewer body regions and two pairs of antennae; insects have exactly three body parts and six legs.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-classification-q14",
+      "stem": "Which features are shared by ALL arthropods?",
+      "choices": [
+        "An exoskeleton, jointed legs and a segmented body",
+        "Six legs and wings",
+        "Two pairs of antennae and an aquatic lifestyle",
+        "A backbone and an internal skeleton"
+      ],
+      "correctIndex": 0,
+      "explanation": "Exoskeleton, jointed legs and body segmentation define the whole arthropod group. Wings and six legs apply only to insects, two pairs of antennae only to crustaceans, and a backbone would make an animal a vertebrate.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-classification-q15",
+      "stem": "A prawn and a spider are both arthropods. Which feature of the prawn places it with the crustaceans rather than the arachnids?",
+      "choices": [
+        "It has an exoskeleton",
+        "It has jointed legs",
+        "It has more than four pairs of legs and two pairs of antennae, and lives in water",
+        "Its body is segmented"
+      ],
+      "correctIndex": 2,
+      "explanation": "Exoskeleton, jointed legs and segmentation are shared by all arthropods, so they cannot separate the groups. The crustacean markers are more than four pairs of legs, two pairs of antennae and a mainly aquatic habit; arachnids have four pairs of legs and no antennae.",
+      "difficulty": "hard"
+    }
+  ]
+}

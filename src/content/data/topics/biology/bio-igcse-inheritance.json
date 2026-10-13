@@ -1,0 +1,321 @@
+{
+  "id": "bio-igcse-inheritance",
+  "subjectId": "biology",
+  "title": "Inheritance, Variation & Selection",
+  "description": "Genes, alleles and sex chromosomes, monohybrid crosses with Punnett squares and pedigree diagrams, continuous and discontinuous variation, mutation, adaptive features, natural selection and selective breeding for IGCSE Biology 0610.",
+  "stage": "igcse",
+  "course": "0610",
+  "notes": [
+    {
+      "id": "bio-igcse-inheritance-n1",
+      "heading": "Chromosomes, Genes and Alleles — the 0610 Definitions",
+      "body": "📌 Definitions (learn these word for word — they are direct recall marks)\n• A **chromosome** is a thread-like structure of DNA, carrying genetic information in the form of genes. Chromosomes sit in the nucleus; a human body cell has 46, in 23 pairs.\n• A **gene** is a length of DNA that codes for a protein.\n• An **allele** is an alternative form of a gene — for example, the flower-colour gene in pea plants has a purple allele (P) and a white allele (p).\n\n🔑 What the examiner wants\n• 'Gene' must be linked to a PROTEIN, not to 'a characteristic'. The protein produced then determines the characteristic (e.g. an enzyme that makes purple pigment).\n• Every genetic diagram starts by stating what your letters stand for — an undefined P and p earns nothing.\n\n⚠️ Common Mistake\nCalling an allele 'a type of chromosome'. Alleles are versions of ONE gene; a chromosome carries MANY genes.\n\n📎 Key Points to Remember\n• Chromosome → thread of DNA → carries genes.\n• Gene = a length of DNA coding for a protein; allele = an alternative form of a gene."
+    },
+    {
+      "id": "bio-igcse-inheritance-n2",
+      "heading": "Inheriting Sex: X and Y Chromosomes",
+      "body": "📌 The sex chromosomes\nOne of the 23 pairs of chromosomes is the sex chromosomes: **XX = female, XY = male**. The other 22 pairs look the same in both sexes.\n\n🔑 The genetic diagram (the marks are in the GAMETES)\n• The mother (XX) can make only one kind of egg: every egg carries **X**.\n• The father (XY) makes two kinds of sperm: half carry **X**, half carry **Y**.\n• Fertilisation: X-egg + X-sperm → XX (female); X-egg + Y-sperm → XY (male).\n\n💡 Worked Example\nOffspring genotypes: XX, XY, XX, XY — a **1:1 ratio**. The probability of a child being male is 50% (1 in 2), and it is the SAME for every pregnancy, whatever the family already has. The SPERM determines the sex, because only the sperm can carry a Y.\n\n⚠️ Common Mistake\nSaying a family with three daughters is 'due a son'. Each fertilisation is an independent 50:50 event — the genetic diagram predicts probability per child, not family totals.\n\n📎 Key Points to Remember\n• Female XX, male XY; eggs always carry X; sperm carry X or Y.\n• Sex ratio 1:1 — a 50% chance of each sex per pregnancy."
+    },
+    {
+      "id": "bio-igcse-inheritance-n3",
+      "heading": "The Vocabulary of Genetic Crosses",
+      "body": "📌 Definitions\n• **Inheritance** = the transmission of genetic information from generation to generation.\n• **Genotype** = the alleles an organism has, written as letters (e.g. Pp).\n• **Phenotype** = the observable feature that results (e.g. purple flowers).\n• **Homozygous** = two identical alleles (PP or pp). A homozygous organism is **pure-breeding**: crossed with another of the same genotype, all offspring show its trait.\n• **Heterozygous** = two different alleles (Pp).\n• A **dominant** allele is expressed in the phenotype even when only one copy is present (P shows in Pp).\n• A **recessive** allele is expressed ONLY when two copies are present (p shows only in pp).\n\n🔑 Letter conventions\nUse ONE letter per gene: capital = dominant, lower case = recessive (P/p, not P/w). Pick letters whose upper and lower cases look clearly different in handwriting.\n\n⚠️ Common Mistake\nTreating 'recessive' as meaning rare, weak or harmful. It means only one thing: masked in a heterozygote.\n\n📎 Key Points to Remember\n• Genotype = the letters; phenotype = what you see.\n• Homozygous (pure-breeding) = same alleles; heterozygous = different alleles."
+    },
+    {
+      "id": "bio-igcse-inheritance-n4",
+      "heading": "Genetic Diagrams and Punnett Squares",
+      "body": "🔑 The method — every cross, every time\n1. State the letters and what they stand for (P = purple flowers, p = white flowers).\n2. Write the parental phenotypes and genotypes (purple Pp × purple Pp).\n3. Write the GAMETES — each gamete carries ONE allele (P or p).\n4. Draw the Punnett square and fill in the four offspring genotypes.\n5. State the ratio AND name the phenotypes.\n\n💡 Worked Example (Pp × Pp)\nThe square gives 1 PP : 2 Pp : 1 pp. Because P is dominant, PP and Pp are BOTH purple: the phenotype ratio is **3 purple : 1 white** (3:1). The other ratio you must predict: heterozygous × homozygous recessive (Pp × pp) gives 1 Pp : 1 pp — a **1:1** phenotype ratio.\n\n🔑 What the examiner wants\nThe gamete row and column earn a mark on their own — never jump straight to offspring. For 'explain the ratio' questions, name the dominant allele and link each genotype to its phenotype.\n\n⚠️ Common Mistake\nQuoting 1:2:1 as the PHENOTYPE ratio for Pp × Pp — that is the GENOTYPE ratio. The phenotypes merge PP with Pp, giving 3:1.\n\n📎 Key Points to Remember\n• Heterozygote × heterozygote → 3:1; heterozygote × homozygous recessive → 1:1.\n• Ratios are probabilities per offspring, not guaranteed family sizes.",
+      "illustration": {
+        "src": "/images/biology/bio-igcse-inheritance-punnett.svg",
+        "alt": "A Punnett square for the cross Pp × Pp in pea plants, giving offspring genotypes 1 PP : 2 Pp : 1 pp and a phenotype ratio of 3 purple flowers to 1 white.",
+        "caption": "Heterozygote × heterozygote: one white-flowered (pp) plant in four — the classic 3:1 phenotype ratio."
+      }
+    },
+    {
+      "id": "bio-igcse-inheritance-n5",
+      "heading": "Reading Pedigree Diagrams",
+      "body": "📌 The symbols\n• Square = male, circle = female; a FILLED shape shows the trait/condition, an unfilled shape is unaffected.\n• A horizontal line joins a mating pair; a vertical line drops to their children.\n\n🔑 The method for interpreting one\n1. Look for two UNAFFECTED parents with an AFFECTED child. If that happens, the allele must be **recessive** — a dominant allele would have shown in at least one parent.\n2. The affected child must be homozygous recessive (bb), so EACH parent donated a b allele → both unaffected parents are **heterozygous carriers (Bb)**.\n3. An affected (bb) individual passes a b allele to EVERY child, so any unaffected child of an affected parent must be Bb.\n\n💡 Worked Example\nTwo unaffected parents have an affected son: the parents are Bb × Bb, so every further child has a 1 in 4 (25%) chance of being bb — the same Bb × Bb cross as the Punnett square in the previous note.\n\n⚠️ Common Mistake\nAssuming an unaffected person must be homozygous dominant (BB). Unaffected can be BB OR Bb — only the family pattern (an affected child, or an affected parent) proves which.\n\n📎 Key Points to Remember\n• Trait appears from unaffected × unaffected parents → recessive; both parents are carriers.\n• A carrier is heterozygous and shows nothing."
+    },
+    {
+      "id": "bio-igcse-inheritance-n6",
+      "heading": "Variation and Mutation",
+      "body": "📌 Definitions\n• **Variation** = differences between individuals of the same species.\n• **Continuous variation** = a feature that can take any value within a range — e.g. human body length and body mass.\n• **Discontinuous variation** = a feature falling into distinct categories with no intermediates — e.g. the ABO blood group (A, B, AB or O) and seed shape (round or wrinkled) or seed colour (yellow or green) in peas.\n\n🔑 Causes — the comparison the examiner asks for\n• Discontinuous variation is usually caused by **genes only**.\n• Continuous variation is usually caused by **genes AND environment** — your height potential is inherited, but your diet affects how tall you actually grow.\n\n🔑 Investigating variation\nMeasure a sample (e.g. the lengths of 30 leaves from one species), group the results and plot them: continuous data give a bell-shaped distribution, discontinuous data give separate bars.\n\n📌 Mutation\nA **mutation** is a genetic change. Mutations form **new alleles** — the source of all new variation. The rate of mutation is increased by **ionising radiation** (e.g. X-rays) and **some chemicals**.\n\n⚠️ Common Mistake\nSaying blood group is continuous 'because there are four types'. Four distinct CATEGORIES with no in-between values is exactly what discontinuous means.\n\n📎 Key Points to Remember\n• Continuous = a range, genes + environment; discontinuous = categories, usually genes only.\n• Mutation = genetic change → new alleles; rate raised by ionising radiation and some chemicals."
+    },
+    {
+      "id": "bio-igcse-inheritance-n7",
+      "heading": "Adaptive Features, Natural Selection and Selective Breeding",
+      "body": "📌 Definitions\n• An **adaptive feature** is an inherited feature that helps an organism to survive and reproduce in its environment.\n• **Natural selection** = the greater chance of better-adapted individuals surviving and reproducing, so their alleles are passed to the next generation.\n• **Selective breeding** = humans choosing which organisms breed, to develop desirable features over many generations.\n\n🔑 Natural selection — the sequence that earns the marks\n1. There is **variation** within the population (ultimately from mutations forming new alleles).\n2. More offspring are produced than can survive → a **struggle for survival / competition** for resources.\n3. Individuals with adaptive features survive and **reproduce more**.\n4. Their **alleles are passed on**; over many generations these alleles become more common in the population.\n\n🔑 Selective breeding — the steps\n1. Select parents showing the desirable feature (e.g. high milk yield or disease resistance).\n2. Cross them.\n3. Select the best offspring and breed from those.\n4. Repeat over many generations.\n\n🔑 Interpreting images\nWhen a question shows a photo or drawing, LINK the visible feature to survival or reproduction: 'thick fur is an adaptive feature — it reduces heat loss, so the animal survives the cold season and reproduces'.\n\n⚠️ Common Mistake\nWriting 'the animal adapted during its lifetime and passed the adaptation on'. Adaptive features are INHERITED as alleles — individuals do not evolve; the POPULATION changes over generations as alleles are selected.\n\n📎 Key Points to Remember\n• Natural selection: variation → competition → the better adapted survive and reproduce → alleles passed on.\n• Selective breeding = the same idea, with humans doing the selecting."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "bio-igcse-inheritance-f1",
+      "term": "Chromosome",
+      "definition": "A thread-like structure of DNA, carrying genetic information in the form of genes.",
+      "example": "A human body cell has 46 chromosomes in 23 pairs, all inside the nucleus."
+    },
+    {
+      "id": "bio-igcse-inheritance-f2",
+      "term": "Gene",
+      "definition": "A length of DNA that codes for a protein.",
+      "example": "A pea plant's flower-colour gene codes for a protein involved in making purple pigment."
+    },
+    {
+      "id": "bio-igcse-inheritance-f3",
+      "term": "Allele",
+      "definition": "An alternative form of a gene.",
+      "example": "P (purple) and p (white) are two alleles of the flower-colour gene."
+    },
+    {
+      "id": "bio-igcse-inheritance-f4",
+      "term": "Inheritance",
+      "definition": "The transmission of genetic information from generation to generation.",
+      "example": "A child inherits one allele of each gene from each parent."
+    },
+    {
+      "id": "bio-igcse-inheritance-f5",
+      "term": "Genotype",
+      "definition": "The alleles an organism has for a gene, written as letters.",
+      "example": "PP, Pp and pp are three possible genotypes for flower colour."
+    },
+    {
+      "id": "bio-igcse-inheritance-f6",
+      "term": "Phenotype",
+      "definition": "The observable feature of an organism that results from its genotype.",
+      "example": "Purple flowers is the phenotype produced by both PP and Pp genotypes."
+    },
+    {
+      "id": "bio-igcse-inheritance-f7",
+      "term": "Homozygous / pure-breeding",
+      "definition": "Having two identical alleles of a gene (e.g. PP or pp); a pure-breeding organism is homozygous and always passes the same allele to its offspring.",
+      "example": "A pure-breeding white pea plant is pp and can only make p gametes."
+    },
+    {
+      "id": "bio-igcse-inheritance-f8",
+      "term": "Heterozygous",
+      "definition": "Having two different alleles of a gene.",
+      "example": "A Pp plant is heterozygous and makes two kinds of gamete: P and p."
+    },
+    {
+      "id": "bio-igcse-inheritance-f9",
+      "term": "Dominant allele",
+      "definition": "An allele that is expressed in the phenotype even when only one copy is present.",
+      "example": "P is dominant, so Pp plants have purple flowers."
+    },
+    {
+      "id": "bio-igcse-inheritance-f10",
+      "term": "Recessive allele",
+      "definition": "An allele that is only expressed in the phenotype when two copies are present.",
+      "example": "p is recessive — only pp plants have white flowers."
+    },
+    {
+      "id": "bio-igcse-inheritance-f11",
+      "term": "Mutation",
+      "definition": "A genetic change. Mutations form new alleles; the mutation rate is increased by ionising radiation and some chemicals.",
+      "example": "Exposure to X-rays raises the rate at which new alleles appear."
+    },
+    {
+      "id": "bio-igcse-inheritance-f12",
+      "term": "Natural selection",
+      "definition": "The greater chance of individuals with adaptive features surviving and reproducing, so their alleles are passed on and become more common over generations.",
+      "example": "Better-camouflaged insects are eaten less, breed more, and pass on their camouflage alleles."
+    }
+  ],
+  "questions": [
+    {
+      "id": "bio-igcse-inheritance-q1",
+      "stem": "Which statement is the correct syllabus definition of a gene?",
+      "choices": [
+        "A thread-like structure of DNA carrying genetic information",
+        "An alternative form of a chromosome",
+        "A length of DNA that codes for a protein",
+        "A chromosome found only in gametes"
+      ],
+      "correctIndex": 2,
+      "explanation": "A gene is a length of DNA that codes for a protein — the protein then determines the characteristic. 'Thread-like structure of DNA' defines a chromosome, and an alternative form of a gene is an allele.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-inheritance-q2",
+      "stem": "What is an allele?",
+      "choices": [
+        "An alternative form of a gene",
+        "A protein made by a gene",
+        "A pair of chromosomes",
+        "The observable feature of an organism"
+      ],
+      "correctIndex": 0,
+      "explanation": "An allele is an alternative form of a gene — e.g. the purple (P) and white (p) versions of the flower-colour gene. 'The observable feature' is the phenotype, not the allele.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-inheritance-q3",
+      "stem": "A couple are expecting a child. What is the probability that the child will be male?",
+      "choices": [
+        "25%",
+        "50%",
+        "75%",
+        "It depends on the sexes of their previous children"
+      ],
+      "correctIndex": 1,
+      "explanation": "The mother (XX) makes only X eggs; the father (XY) makes half X and half Y sperm. Offspring are XX or XY in a 1:1 ratio, so each pregnancy has an independent 50% chance of a boy — previous children do not change it.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-q4",
+      "stem": "In pea plants, purple flowers (P) are dominant to white flowers (p). Two heterozygous plants (Pp × Pp) are crossed. What proportion of the offspring are expected to have white flowers?",
+      "choices": [
+        "1 in 2 (50%)",
+        "3 in 4 (75%)",
+        "All of them (100%)",
+        "1 in 4 (25%)"
+      ],
+      "correctIndex": 3,
+      "explanation": "Pp × Pp gives 1 PP : 2 Pp : 1 pp. White is recessive, so only pp plants are white: 1 in 4 = 25%. The other three quarters (PP and Pp) are purple — a 3:1 phenotype ratio.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-q5",
+      "stem": "In pea plants, tall stems (T) are dominant to short stems (t). A heterozygous tall plant is crossed with a short plant (Tt × tt). What phenotypic ratio is expected in the offspring?",
+      "choices": [
+        "3 tall : 1 short",
+        "All tall",
+        "1 tall : 1 short",
+        "1 tall : 3 short"
+      ],
+      "correctIndex": 2,
+      "explanation": "The tall parent makes T and t gametes; the short parent (tt) makes only t gametes. Offspring: Tt, Tt, tt, tt — half tall (Tt) and half short (tt), a 1:1 ratio. The 3:1 ratio comes from Tt × Tt, not Tt × tt.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-q6",
+      "stem": "White flowers in peas are recessive. Which genotype describes a pure-breeding white-flowered plant?",
+      "choices": [
+        "pp",
+        "PP",
+        "Pp",
+        "p"
+      ],
+      "correctIndex": 0,
+      "explanation": "Pure-breeding means homozygous (two identical alleles), and white is recessive, so the plant must be pp. A single allele (p) is a gamete, not a plant genotype; Pp is heterozygous and would be purple.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-q7",
+      "stem": "In a pedigree diagram, two unaffected parents have a daughter who shows a genetic condition. What can be concluded?",
+      "choices": [
+        "The condition is caused by a dominant allele",
+        "The daughter must be heterozygous",
+        "The parents cannot pass on any allele for the condition",
+        "The condition is recessive and both parents are heterozygous carriers"
+      ],
+      "correctIndex": 3,
+      "explanation": "If the allele were dominant, at least one parent would show the condition — so it must be recessive. The daughter is bb, meaning each parent supplied a b allele while remaining unaffected: both are Bb carriers.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-inheritance-q8",
+      "stem": "A homozygous dominant plant (BB) is crossed with a heterozygous plant (Bb). What proportion of the offspring are expected to be homozygous?",
+      "choices": [
+        "0%",
+        "50%",
+        "75%",
+        "100%"
+      ],
+      "correctIndex": 1,
+      "explanation": "The BB parent makes only B gametes; the Bb parent makes half B and half b. Offspring: BB, Bb, BB, Bb — half (50%) are homozygous BB. Note all offspring show the dominant phenotype, but only half are homozygous.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-inheritance-q9",
+      "stem": "In a pedigree, an unaffected couple have a child with a recessive condition. Both parents are therefore carriers (Bb). They already have one affected child — what is the probability that their NEXT child will have the condition?",
+      "choices": [
+        "0% — they have already had their affected child",
+        "50%",
+        "25%",
+        "100%"
+      ],
+      "correctIndex": 2,
+      "explanation": "Each fertilisation is independent: Bb × Bb always gives 1 BB : 2 Bb : 1 bb, so every child has a 1 in 4 (25%) chance of being bb. Having had an affected child does not use up or reduce the probability.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-inheritance-q10",
+      "stem": "Which of these shows discontinuous variation?",
+      "choices": [
+        "ABO blood group",
+        "Body mass",
+        "Body length",
+        "Hand span"
+      ],
+      "correctIndex": 0,
+      "explanation": "Blood group falls into distinct categories (A, B, AB or O) with no intermediates — discontinuous variation, usually caused by genes only. Body mass, length and hand span can take any value in a range: continuous variation.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-inheritance-q11",
+      "stem": "Human body mass is an example of continuous variation because it:",
+      "choices": [
+        "falls into distinct categories with no intermediates",
+        "can take any value within a range and is influenced by the environment as well as genes",
+        "is controlled by a single gene with two alleles",
+        "cannot be measured accurately"
+      ],
+      "correctIndex": 1,
+      "explanation": "Continuous variation means any value within a range (e.g. 52.4 kg), and it is usually caused by genes AND environment — diet and exercise shift body mass on top of the inherited tendency. Distinct categories would make it discontinuous.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-q12",
+      "stem": "Which factor increases the rate of mutation?",
+      "choices": [
+        "Eating a balanced diet",
+        "Regular exercise",
+        "Asexual reproduction",
+        "Exposure to ionising radiation"
+      ],
+      "correctIndex": 3,
+      "explanation": "Ionising radiation (e.g. X-rays) and some chemicals damage DNA and so increase the mutation rate. Diet, exercise and asexual reproduction do not alter the rate at which new alleles form.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-inheritance-q13",
+      "stem": "What is an adaptive feature?",
+      "choices": [
+        "An inherited feature that helps an organism survive and reproduce in its environment",
+        "Any feature an organism develops during its lifetime",
+        "A feature caused only by the environment",
+        "A mutation that is always harmful"
+      ],
+      "correctIndex": 0,
+      "explanation": "An adaptive feature must be INHERITED (carried by alleles) and must improve survival or reproduction — e.g. thick fur reducing heat loss. Features acquired during a lifetime, like a scar or a suntan, are not inherited and not adaptive features.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-inheritance-q14",
+      "stem": "Which sequence correctly describes natural selection?",
+      "choices": [
+        "Competition → variation appears → reproduction stops → alleles are lost",
+        "The environment causes mutations → organisms adapt during their lifetimes → acquired features are inherited",
+        "Variation exists in the population → more offspring are produced than can survive → struggle/competition → better-adapted individuals survive and reproduce → their alleles are passed on",
+        "All offspring survive → no competition → allele frequencies stay constant forever"
+      ],
+      "correctIndex": 2,
+      "explanation": "Natural selection starts from EXISTING variation (mutations are random, not caused by need), proceeds through overproduction and competition, and ends with the better adapted reproducing more and passing on their alleles. Individuals do not adapt during their lifetimes.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-inheritance-q15",
+      "stem": "A farmer wants cattle that produce more milk. Which process is selective breeding?",
+      "choices": [
+        "Inserting a milk-production gene from another species into the cattle",
+        "Repeatedly choosing and crossing the highest-yielding cows and bulls, then selecting the best offspring, over many generations",
+        "Letting the cattle breed at random and hoping yield improves",
+        "Feeding the cattle a richer diet so they yield more milk"
+      ],
+      "correctIndex": 1,
+      "explanation": "Selective breeding = select parents with the desirable feature → cross them → select the best offspring → repeat over generations. Inserting a gene is genetic modification, and a richer diet is an environmental change that is not inherited.",
+      "difficulty": "medium"
+    }
+  ]
+}

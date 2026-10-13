@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">DNA structure: two strands with paired bases</title>
+  <desc id="desc">A DNA ladder diagram. Two strands run vertically and are joined by paired bases: A pairs with T and C pairs with G. Dashed bonds between the base pairs hold the strands together. The two strands are coiled into a double helix.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .base { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #1f2937; }
+      .leader { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="36" text-anchor="middle" class="title">DNA: Two Strands, Paired Bases, One Double Helix</text>
+
+  <!-- The two strands -->
+  <path d="M300 95 C285 140 315 175 300 220 C285 265 315 300 300 345 C290 375 305 400 300 425" fill="none" stroke="#0d9488" stroke-width="4"/>
+  <path d="M420 95 C435 140 405 175 420 220 C435 265 405 300 420 345 C430 375 415 400 420 425" fill="none" stroke="#0d9488" stroke-width="4"/>
+
+  <!-- Rung 1: A-T (y=120) -->
+  <line x1="300" y1="120" x2="318" y2="120" stroke="#9ca3af" stroke-width="2"/>
+  <line x1="424" y1="120" x2="420" y2="120" stroke="#9ca3af" stroke-width="2"/>
+  <rect x="318" y="107" width="50" height="26" rx="4" fill="#fcd34d"/>
+  <text x="343" y="125" text-anchor="middle" class="base">A</text>
+  <rect x="374" y="107" width="50" height="26" rx="4" fill="#93c5fd"/>
+  <text x="399" y="125" text-anchor="middle" class="base">T</text>
+  <line x1="371" y1="112" x2="371" y2="128" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- Rung 2: C-G (y=175) -->
+  <line x1="300" y1="175" x2="318" y2="175" stroke="#9ca3af" stroke-width="2"/>
+  <line x1="424" y1="175" x2="420" y2="175" stroke="#9ca3af" stroke-width="2"/>
+  <rect x="318" y="162" width="50" height="26" rx="4" fill="#86efac"/>
+  <text x="343" y="180" text-anchor="middle" class="base">C</text>
+  <rect x="374" y="162" width="50" height="26" rx="4" fill="#f9a8d4"/>
+  <text x="399" y="180" text-anchor="middle" class="base">G</text>
+  <line x1="371" y1="167" x2="371" y2="183" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- Rung 3: T-A (y=230) -->
+  <line x1="300" y1="230" x2="318" y2="230" stroke="#9ca3af" stroke-width="2"/>
+  <line x1="424" y1="230" x2="420" y2="230" stroke="#9ca3af" stroke-width="2"/>
+  <rect x="318" y="217" width="50" height="26" rx="4" fill="#93c5fd"/>
+  <text x="343" y="235" text-anchor="middle" class="base">T</text>
+  <rect x="374" y="217" width="50" height="26" rx="4" fill="#fcd34d"/>
+  <text x="399" y="235" text-anchor="middle" class="base">A</text>
+  <line x1="371" y1="222" x2="371" y2="238" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- Rung 4: G-C (y=285) -->
+  <line x1="300" y1="285" x2="318" y2="285" stroke="#9ca3af" stroke-width="2"/>
+  <line x1="424" y1="285" x2="420" y2="285" stroke="#9ca3af" stroke-width="2"/>
+  <rect x="318" y="272" width="50" height="26" rx="4" fill="#f9a8d4"/>
+  <text x="343" y="290" text-anchor="middle" class="base">G</text>
+  <rect x="374" y="272" width="50" height="26" rx="4" fill="#86efac"/>
+  <text x="399" y="290" text-anchor="middle" class="base">C</text>
+  <line x1="371" y1="277" x2="371" y2="293" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- Rung 5: A-T (y=340) -->
+  <line x1="300" y1="340" x2="318" y2="340" stroke="#9ca3af" stroke-width="2"/>
+  <line x1="424" y1="340" x2="420" y2="340" stroke="#9ca3af" stroke-width="2"/>
+  <rect x="318" y="327" width="50" height="26" rx="4" fill="#fcd34d"/>
+  <text x="343" y="345" text-anchor="middle" class="base">A</text>
+  <rect x="374" y="327" width="50" height="26" rx="4" fill="#93c5fd"/>
+  <text x="399" y="345" text-anchor="middle" class="base">T</text>
+  <line x1="371" y1="332" x2="371" y2="348" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- Left labels -->
+  <rect x="70" y="110" width="130" height="20" rx="4" fill="#f9fafb"/>
+  <text x="135" y="124" text-anchor="middle" class="label">A pairs with T</text>
+  <line x1="200" y1="120" x2="314" y2="120" class="leader"/>
+
+  <rect x="70" y="165" width="130" height="20" rx="4" fill="#f9fafb"/>
+  <text x="135" y="179" text-anchor="middle" class="label">C pairs with G</text>
+  <line x1="200" y1="175" x2="314" y2="175" class="leader"/>
+
+  <rect x="30" y="212" width="240" height="40" rx="4" fill="#f9fafb"/>
+  <text x="150" y="228" text-anchor="middle" class="sublabel">bonds between the base pairs</text>
+  <text x="150" y="244" text-anchor="middle" class="sublabel">hold the strands together</text>
+  <line x1="270" y1="232" x2="366" y2="230" class="leader"/>
+
+  <!-- Right labels -->
+  <rect x="560" y="105" width="120" height="20" rx="4" fill="#f9fafb"/>
+  <text x="620" y="119" text-anchor="middle" class="label">DNA strand</text>
+  <line x1="560" y1="115" x2="428" y2="112" class="leader"/>
+
+  <rect x="545" y="160" width="230" height="40" rx="4" fill="#f9fafb"/>
+  <text x="660" y="176" text-anchor="middle" class="sublabel">the two strands coil around</text>
+  <text x="660" y="192" text-anchor="middle" class="sublabel">each other: a double helix</text>
+  <line x1="545" y1="182" x2="430" y2="180" class="leader"/>
+
+  <rect x="575" y="330" width="90" height="20" rx="4" fill="#f9fafb"/>
+  <text x="620" y="344" text-anchor="middle" class="label">base</text>
+  <line x1="575" y1="340" x2="428" y2="340" class="leader"/>
+
+  <!-- Bottom note -->
+  <rect x="100" y="455" width="600" height="34" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="400" y="477" text-anchor="middle" class="label">the sequence of bases in a gene codes for the sequence of amino acids in a protein</text>
+</svg>

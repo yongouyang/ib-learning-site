@@ -164,6 +164,20 @@ import bio_genetics_1_json from './data/topics/biology/bio-genetics-1.json';
 import bio_ecology_1_json from './data/topics/biology/bio-ecology-1.json';
 import bio_microorganisms_1_json from './data/topics/biology/bio-microorganisms-1.json';
 import bio_reproduction_1_json from './data/topics/biology/bio-reproduction-1.json';
+import bio_igcse_classification_json from './data/topics/biology/bio-igcse-classification.json';
+import bio_igcse_cells_json from './data/topics/biology/bio-igcse-cells.json';
+import bio_igcse_diffusion_osmosis_json from './data/topics/biology/bio-igcse-diffusion-osmosis.json';
+import bio_igcse_molecules_enzymes_json from './data/topics/biology/bio-igcse-molecules-enzymes.json';
+import bio_igcse_photosynthesis_json from './data/topics/biology/bio-igcse-photosynthesis.json';
+import bio_igcse_human_nutrition_json from './data/topics/biology/bio-igcse-human-nutrition.json';
+import bio_igcse_plant_transport_json from './data/topics/biology/bio-igcse-plant-transport.json';
+import bio_igcse_plant_physiology_json from './data/topics/biology/bio-igcse-plant-physiology.json';
+import bio_igcse_heart_circulation_json from './data/topics/biology/bio-igcse-heart-circulation.json';
+import bio_igcse_coordination_json from './data/topics/biology/bio-igcse-coordination.json';
+import bio_igcse_homeostasis_extended_json from './data/topics/biology/bio-igcse-homeostasis-extended.json';
+import bio_igcse_inheritance_json from './data/topics/biology/bio-igcse-inheritance.json';
+import bio_igcse_genetics_extended_json from './data/topics/biology/bio-igcse-genetics-extended.json';
+import bio_igcse_circulation_extended_json from './data/topics/biology/bio-igcse-circulation-extended.json';
 // Chemistry topics
 import chem_working_scientifically_1_json from './data/topics/chemistry/chem-working-scientifically-1.json';
 import chem_states_1_json from './data/topics/chemistry/chem-states-1.json';
@@ -446,6 +460,20 @@ const bio_genetics_1: Topic = topicSchema.parse(bio_genetics_1_json);
 const bio_ecology_1: Topic = topicSchema.parse(bio_ecology_1_json);
 const bio_microorganisms_1: Topic = topicSchema.parse(bio_microorganisms_1_json);
 const bio_reproduction_1: Topic = topicSchema.parse(bio_reproduction_1_json);
+const bio_igcse_classification: Topic = topicSchema.parse(bio_igcse_classification_json);
+const bio_igcse_cells: Topic = topicSchema.parse(bio_igcse_cells_json);
+const bio_igcse_diffusion_osmosis: Topic = topicSchema.parse(bio_igcse_diffusion_osmosis_json);
+const bio_igcse_molecules_enzymes: Topic = topicSchema.parse(bio_igcse_molecules_enzymes_json);
+const bio_igcse_photosynthesis: Topic = topicSchema.parse(bio_igcse_photosynthesis_json);
+const bio_igcse_human_nutrition: Topic = topicSchema.parse(bio_igcse_human_nutrition_json);
+const bio_igcse_plant_transport: Topic = topicSchema.parse(bio_igcse_plant_transport_json);
+const bio_igcse_plant_physiology: Topic = topicSchema.parse(bio_igcse_plant_physiology_json);
+const bio_igcse_heart_circulation: Topic = topicSchema.parse(bio_igcse_heart_circulation_json);
+const bio_igcse_coordination: Topic = topicSchema.parse(bio_igcse_coordination_json);
+const bio_igcse_homeostasis_extended: Topic = topicSchema.parse(bio_igcse_homeostasis_extended_json);
+const bio_igcse_inheritance: Topic = topicSchema.parse(bio_igcse_inheritance_json);
+const bio_igcse_genetics_extended: Topic = topicSchema.parse(bio_igcse_genetics_extended_json);
+const bio_igcse_circulation_extended: Topic = topicSchema.parse(bio_igcse_circulation_extended_json);
 const chem_working_scientifically_1: Topic = topicSchema.parse(chem_working_scientifically_1_json);
 const chem_states_1: Topic = topicSchema.parse(chem_states_1_json);
 const chem_mixtures_1: Topic = topicSchema.parse(chem_mixtures_1_json);
@@ -601,7 +629,7 @@ const biologySubject: Subject = {
   name: biologyMeta.name,
   icon: biologyMeta.icon,
   accentColor: biologyMeta.accentColor,
-  topics: [bio_practical_1, bio_cell_1, bio_body_1, bio_nutrition_1, bio_photosynthesis_1, bio_respiration_1, bio_plants_1, bio_health_1, bio_human_reproduction_1, bio_classification_1, bio_genetics_1, bio_ecology_1, bio_microorganisms_1, bio_reproduction_1],
+  topics: [bio_practical_1, bio_cell_1, bio_body_1, bio_nutrition_1, bio_photosynthesis_1, bio_respiration_1, bio_plants_1, bio_health_1, bio_human_reproduction_1, bio_classification_1, bio_genetics_1, bio_ecology_1, bio_microorganisms_1, bio_reproduction_1, bio_igcse_classification, bio_igcse_cells, bio_igcse_diffusion_osmosis, bio_igcse_molecules_enzymes, bio_igcse_photosynthesis, bio_igcse_human_nutrition, bio_igcse_plant_transport, bio_igcse_plant_physiology, bio_igcse_heart_circulation, bio_igcse_coordination, bio_igcse_homeostasis_extended, bio_igcse_inheritance, bio_igcse_genetics_extended, bio_igcse_circulation_extended],
 };
 const chemistrySubject: Subject = {
   id: chemistryMeta.id as SubjectId,

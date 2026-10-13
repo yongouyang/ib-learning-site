@@ -1,0 +1,100 @@
+{
+  "id": "bio-igcse-set-1",
+  "courseId": "bio-igcse",
+  "title": "Practice Set 1",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "bio-igcse-set-1-q1",
+      "stem": "Define the term diffusion.",
+      "marks": 2,
+      "markscheme": [
+        "B1: (net) movement of particles from a region of their higher concentration to a region of their lower concentration (down a concentration gradient)",
+        "B2: as a result of their random movement"
+      ],
+      "modelAnswer": "Diffusion is the net movement of particles from a region of their higher concentration to a region of their lower concentration — that is, down a concentration gradient — as a result of their random movement.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-set-1-q2",
+      "stem": "A diagram of a palisade cell is 60 mm long. The actual cell is 0.12 mm long. Calculate the magnification of the diagram. Show your working.",
+      "marks": 2,
+      "markscheme": [
+        "M1: magnification $= \\dfrac{\\text{image size}}{\\text{actual size}} = \\dfrac{60}{0.12}$",
+        "A1: $\\times 500$"
+      ],
+      "modelAnswer": "Magnification $= \\dfrac{\\text{image size}}{\\text{actual size}} = \\dfrac{60}{0.12} = \\times 500$. Both sizes are already in millimetres, so no unit conversion is needed.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-set-1-q3",
+      "stem": "Describe what happens to the coronary arteries in coronary heart disease (CHD), and state two possible risk factors for CHD.",
+      "marks": 3,
+      "markscheme": [
+        "B1: the coronary arteries become blocked (or narrowed)",
+        "B2: one valid risk factor — e.g. poor diet / lack of exercise / stress / smoking",
+        "B3: a second valid risk factor — genetic predisposition / age / sex (or a second from B2's list)"
+      ],
+      "modelAnswer": "In coronary heart disease the coronary arteries — the vessels supplying the heart muscle itself — become blocked or narrowed, so less oxygen-rich blood reaches the heart muscle. Any two risk factors from: poor diet, lack of exercise, stress, smoking, genetic predisposition, age and sex.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-set-1-q4",
+      "stem": "A student mixes amylase with starch suspension and keeps the mixture at 80 °C. After ten minutes, the mixture still turns iodine solution blue-black. Explain this result using the active-site model of enzyme action.",
+      "marks": 3,
+      "markscheme": [
+        "B1: the high temperature denatures the amylase",
+        "B2: the active site changes (loses) its shape, so starch no longer fits (binds)",
+        "B3: starch is therefore not broken down, and starch turns iodine blue-black"
+      ],
+      "modelAnswer": "At 80 °C the amylase is denatured: the shape of its active site is changed, so starch molecules can no longer fit into it and bind. The starch is therefore not broken down, and since starch is still present after ten minutes, the iodine solution turns blue-black.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-set-1-q5",
+      "stem": "A variegated leaf, with green and white regions, is destarched and then left in bright light for several hours. When tested with iodine solution, only the green regions turn blue-black. (a) Explain why the leaf was destarched at the start. (b) State the conclusion from this result. (c) State why the whole leaf was given the same light intensity and exposure time.",
+      "marks": 3,
+      "markscheme": [
+        "B1: destarching removes any stored starch, so starch found at the end must have been made during the experiment",
+        "B2: chlorophyll is needed for photosynthesis (starch is made only in the green regions)",
+        "B3: they are control variables — only the presence of chlorophyll differs, so the comparison is valid"
+      ],
+      "modelAnswer": "The leaf was destarched first so that any starch detected at the end must have been produced during the experiment, not stored earlier. Only the green regions turn blue-black, so photosynthesis happened only where chlorophyll was present — chlorophyll is needed for photosynthesis. The light intensity and exposure time are kept the same across the leaf as control variables, so that the presence of chlorophyll is the only difference being tested.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-set-1-q6",
+      "stem": "Name the enzyme that digests starch, and state the product starch is broken down into.",
+      "marks": 2,
+      "markscheme": [
+        "B1: amylase",
+        "B2: (simple) reducing sugars"
+      ],
+      "modelAnswer": "The enzyme is amylase, and it breaks starch down into simple reducing sugars. (Amylase is secreted by the salivary glands and the pancreas, and acts in the mouth and the small intestine.)",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-set-1-q7",
+      "stem": "List, in order, the structures water passes through on its way from the soil to a mesophyll cell in a leaf.",
+      "marks": 2,
+      "markscheme": [
+        "B1: root hair cells, then root cortex cells",
+        "B2: xylem, then mesophyll cells"
+      ],
+      "modelAnswer": "Water enters the root hair cells from the soil, passes across the root cortex cells, travels up the plant in the xylem, and finally reaches the mesophyll cells in the leaf.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-set-1-q8",
+      "stem": "In pea plants, the allele for purple flowers (P) is dominant to the allele for white flowers (p). Two heterozygous plants are crossed. Draw a genetic diagram (Punnett square) for this cross and use it to predict the probability that an offspring has white flowers.",
+      "marks": 3,
+      "markscheme": [
+        "B1: parental genotypes Pp and Pp, with gametes P and p from each parent",
+        "B2: Punnett square completed correctly — offspring genotypes 1 PP : 2 Pp : 1 pp",
+        "B3: probability of white flowers (pp) $= \\dfrac{1}{4} = 25\\%$"
+      ],
+      "modelAnswer": "Both parents are heterozygous, Pp, so each produces gametes P and p. The Punnett square gives offspring genotypes 1 PP : 2 Pp : 1 pp. Only pp plants have white flowers, so the probability of a white-flowered offspring is $\\dfrac{1}{4}$, or $25\\%$.",
+      "difficulty": "hard"
+    }
+  ]
+}

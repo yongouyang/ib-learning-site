@@ -1,0 +1,100 @@
+{
+  "id": "bio-igcse-set-2",
+  "courseId": "bio-igcse",
+  "title": "Practice Set 2",
+  "durationMinutes": 30,
+  "questions": [
+    {
+      "id": "bio-igcse-set-2-q1",
+      "stem": "Define the terms source and sink as they are used when describing translocation.",
+      "marks": 2,
+      "markscheme": [
+        "B1: a source is a part of the plant that releases sucrose or amino acids",
+        "B2: a sink is a part of the plant that uses or stores sucrose or amino acids"
+      ],
+      "modelAnswer": "In translocation, sucrose and amino acids are moved in the phloem from sources to sinks. A source is a part of the plant that releases sucrose or amino acids, such as a photosynthesising leaf. A sink is a part that uses or stores them, such as a growing fruit, a new shoot or a root.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-set-2-q2",
+      "stem": "State two ways in which meiosis differs from mitosis.",
+      "marks": 2,
+      "markscheme": [
+        "B1: meiosis halves the chromosome number (diploid to haploid); mitosis maintains the chromosome number",
+        "B2: meiosis produces genetically different cells; mitosis produces genetically identical cells"
+      ],
+      "modelAnswer": "Meiosis is a reduction division: it halves the chromosome number from diploid to haploid, whereas mitosis maintains the chromosome number in each daughter cell. The four cells formed by meiosis are all genetically different, whereas mitosis gives daughter cells that are exact genetic copies of the parent cell.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-set-2-q3",
+      "stem": "Describe the events by which a nerve impulse is transmitted across a synapse from one neurone to the next.",
+      "marks": 2,
+      "markscheme": [
+        "B1: an impulse stimulates the release of neurotransmitter molecules from vesicles into the synaptic gap",
+        "B2: the neurotransmitter diffuses across the gap and binds to receptor proteins on the next neurone, stimulating an impulse in it"
+      ],
+      "modelAnswer": "When an impulse arrives at the synapse, it stimulates vesicles to release neurotransmitter molecules into the synaptic gap. These molecules cross the gap by diffusion and attach to receptor proteins on the next neurone, triggering a new impulse there.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-set-2-q4",
+      "stem": "A micrograph shows a cell nucleus with an image width of 45 mm at a magnification of $\\times 3000$. Calculate the actual width of the nucleus, giving your answer in micrometres. Show your working.",
+      "marks": 2,
+      "markscheme": [
+        "M1: actual size $= \\dfrac{45}{3000} = 0.015\\text{ mm}$",
+        "A1: $0.015\\text{ mm} = 15$ µm"
+      ],
+      "modelAnswer": "Actual size $= \\dfrac{\\text{image size}}{\\text{magnification}} = \\dfrac{45}{3000} = 0.015\\text{ mm}$. Converting to micrometres: $0.015 \\times 1000 = 15$ µm.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-set-2-q5",
+      "stem": "A plant cell is immersed in a strong solution of table salt. Describe and explain what happens to the cell. Use the term water potential in your answer.",
+      "marks": 3,
+      "markscheme": [
+        "B1: the surrounding solution is at a lower water potential than the cell sap",
+        "B2: water leaves the cell by osmosis — net movement down the water potential gradient, across the partially permeable membrane",
+        "B3: the vacuole shrinks and the membrane separates from the wall — the cell is plasmolysed"
+      ],
+      "modelAnswer": "The strong salt solution is at a lower water potential than the cell sap, so there is a net movement of water out of the cell by osmosis, down the water potential gradient, across the partially permeable membrane. As the vacuole loses water it shrinks, and the cell surface membrane comes away from the wall: the cell is plasmolysed (flaccid).",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-set-2-q6",
+      "stem": "Explain the mechanism by which water moves upwards in the xylem from the roots to the leaves.",
+      "marks": 3,
+      "markscheme": [
+        "B1: transpiration — water vapour is lost from the leaf (evaporation into the leaf's air spaces, then diffusion out through the stomata)",
+        "B2: this creates a transpiration pull, which draws a column of water up the xylem",
+        "B3: the column holds together because of cohesion (forces of attraction) between water molecules"
+      ],
+      "modelAnswer": "In the leaf, water turns to vapour inside the spongy mesophyll and escapes through the stomata — transpiration. Losing water from the leaf in this way creates a transpiration pull, which draws a continuous column of water upwards through the xylem. The column does not break, because the water molecules attract one another — cohesion.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-set-2-q7",
+      "stem": "After a meal rich in carbohydrate, a person's blood glucose concentration rises above the set point. Describe how the body returns the blood glucose concentration to normal.",
+      "marks": 3,
+      "markscheme": [
+        "B1: the pancreas secretes insulin",
+        "B2: the liver takes up glucose from the blood",
+        "B3: the liver converts the glucose to glycogen for storage, so the blood glucose concentration falls back to the set point"
+      ],
+      "modelAnswer": "The rise in blood glucose is detected and the pancreas secretes the hormone insulin. In response, the liver takes up glucose from the blood and converts it to glycogen for storage. With glucose being removed from the blood, the blood glucose concentration falls back towards the set point — an example of negative feedback.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-set-2-q8",
+      "stem": "Describe the double circulation of a mammal, and explain two advantages it has compared with the single circulation of a fish.",
+      "marks": 3,
+      "markscheme": [
+        "B1: blood passes through the heart twice for each complete circuit — a pulmonary circulation to the lungs and a systemic circulation to the body",
+        "B2: oxygenated and deoxygenated blood are kept separate (no mixing)",
+        "B3: blood is pumped to the body tissues at high pressure, giving fast (efficient) delivery of oxygen, while blood to the lungs stays at lower pressure"
+      ],
+      "modelAnswer": "In a mammal's double circulation, the blood passes through the heart twice for every complete circuit of the body: once in the pulmonary circulation to the lungs and once in the systemic circulation to the rest of the body. One advantage is that oxygenated and deoxygenated blood are kept completely separate, meaning the systemic circuit always delivers fully oxygenated blood to respiring tissues. A second advantage is that the left ventricle can pump blood to the body tissues at high pressure — delivering oxygen quickly and efficiently — while the right side sends blood to the delicate lungs at lower pressure.",
+      "difficulty": "hard"
+    }
+  ]
+}

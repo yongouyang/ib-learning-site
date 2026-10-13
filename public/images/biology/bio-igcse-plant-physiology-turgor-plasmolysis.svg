@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Osmosis in plant cells: turgid, flaccid and plasmolysed</title>
+  <desc id="desc">Three plant cells side by side. When the outside solution has a higher water potential, water enters and the cell is turgid, with the vacuole pressing on the cell wall. When the water potentials are equal, there is no net movement and the cell is flaccid. When the outside solution has a lower water potential, water leaves and the membrane pulls away from the wall: the cell is plasmolysed.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+    </style>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Osmosis in Plant Cells: Water Potential Decides the Direction</text>
+  <text x="400" y="58" text-anchor="middle" class="sublabel">outer green layer = cell wall · pale fill = cytoplasm and cell membrane · inner ellipse = vacuole · blue arrows = water movement</text>
+
+  <!-- Panel 1: turgid -->
+  <text x="140" y="98" text-anchor="middle" class="label">1 · Turgid</text>
+  <rect x="70" y="120" width="140" height="220" rx="6" fill="#ecfdf5" stroke="#059669" stroke-width="5"/>
+  <rect x="76" y="126" width="128" height="208" rx="6" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+  <ellipse cx="140" cy="230" rx="52" ry="84" fill="#d1fae5" stroke="#047857" stroke-width="1.5"/>
+  <line x1="22" y1="230" x2="58" y2="230" stroke="#2563eb" stroke-width="3"/>
+  <polygon points="62,230 52,225 52,235" fill="#2563eb"/>
+  <rect x="8" y="196" width="66" height="16" rx="4" fill="#f9fafb"/>
+  <text x="41" y="208" text-anchor="middle" class="sublabel">water in</text>
+  <text x="140" y="372" text-anchor="middle" class="sublabel">outside: HIGHER water potential</text>
+  <text x="140" y="390" text-anchor="middle" class="sublabel">water enters by osmosis</text>
+  <text x="140" y="408" text-anchor="middle" class="sublabel">vacuole presses on the wall</text>
+  <text x="140" y="426" text-anchor="middle" class="sublabel">firm cell — turgor pressure</text>
+
+  <!-- Panel 2: flaccid -->
+  <text x="400" y="98" text-anchor="middle" class="label">2 · Flaccid</text>
+  <rect x="330" y="120" width="140" height="220" rx="6" fill="#ecfdf5" stroke="#059669" stroke-width="5"/>
+  <rect x="344" y="134" width="112" height="192" rx="6" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+  <ellipse cx="400" cy="230" rx="38" ry="60" fill="#d1fae5" stroke="#047857" stroke-width="1.5"/>
+  <line x1="282" y1="215" x2="312" y2="215" stroke="#2563eb" stroke-width="3"/>
+  <polygon points="318,215 308,210 308,220" fill="#2563eb"/>
+  <line x1="318" y1="245" x2="288" y2="245" stroke="#2563eb" stroke-width="3"/>
+  <polygon points="282,245 292,240 292,250" fill="#2563eb"/>
+  <text x="400" y="372" text-anchor="middle" class="sublabel">water potentials EQUAL</text>
+  <text x="400" y="390" text-anchor="middle" class="sublabel">no net movement of water</text>
+  <text x="400" y="408" text-anchor="middle" class="sublabel">limp cell — turgor lost</text>
+
+  <!-- Panel 3: plasmolysed -->
+  <text x="660" y="98" text-anchor="middle" class="label">3 · Plasmolysed</text>
+  <rect x="590" y="120" width="140" height="220" rx="6" fill="#ecfdf5" stroke="#059669" stroke-width="5"/>
+  <rect x="616" y="146" width="88" height="168" rx="6" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+  <ellipse cx="660" cy="230" rx="26" ry="44" fill="#d1fae5" stroke="#047857" stroke-width="1.5"/>
+  <line x1="688" y1="230" x2="752" y2="230" stroke="#2563eb" stroke-width="3"/>
+  <polygon points="758,230 748,225 748,235" fill="#2563eb"/>
+  <rect x="706" y="196" width="72" height="16" rx="4" fill="#f9fafb"/>
+  <text x="742" y="208" text-anchor="middle" class="sublabel">water out</text>
+  <text x="660" y="372" text-anchor="middle" class="sublabel">outside: LOWER water potential</text>
+  <text x="660" y="390" text-anchor="middle" class="sublabel">water leaves by osmosis</text>
+  <text x="660" y="408" text-anchor="middle" class="sublabel">membrane pulls away from the wall</text>
+  <text x="660" y="426" text-anchor="middle" class="sublabel">cell plasmolysed</text>
+</svg>

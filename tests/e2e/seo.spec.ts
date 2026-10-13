@@ -111,7 +111,7 @@ test.describe('SEO metadata wiring', () => {
       expect(h.robots, `${path} must be indexable`).not.toContain('noindex');
     }
     // a subject with no igcse topics still has no hub route
-    expect((await request.get('/igcse/biology')).status()).toBe(404);
+    expect((await request.get('/igcse/geography')).status()).toBe(404);
   });
 
   test('every indexable tier hub is linked from the homepage', async ({ page }) => {

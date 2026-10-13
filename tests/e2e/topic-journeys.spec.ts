@@ -18,7 +18,7 @@ function sessionSize(topic: ReturnType<typeof getAllContentTopics>[number]): num
 const runSweep = !!process.env.RUN_TOPIC_SWEEP;
 test.skip(!runSweep, 'Topic sweep disabled by default; set RUN_TOPIC_SWEEP=1 to enable');
 
-// 10 min, not the 5-min default: the sweep walks EVERY topic (274 as of 2026-10-11)
+// 10 min, not the 5-min default: the sweep walks EVERY topic (288 as of 2026-10-13)
 // and the corpus has outgrown the old cap — at 233 topics it finished in 4.6 min, so
 // the DP AA batch pushed it past 300s and the run died mid-sweep with an
 // aggregate-timeout cascade, not a real page failure.

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title desc">
+  <title id="title">Front section of the heart</title>
+  <desc id="desc">A front section of the human heart. The heart's right side is on the left of the diagram and carries deoxygenated blood (blue); the left side carries oxygenated blood (red). Labelled: muscular wall, septum, left and right atria, left and right ventricles, one-way valves, coronary arteries, vena cava, aorta, pulmonary artery and pulmonary vein.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .leader { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="800" height="560" fill="#f9fafb" rx="12"/>
+  <text x="400" y="32" text-anchor="middle" class="title">The Heart: Front Section</text>
+  <text x="400" y="54" text-anchor="middle" class="sublabel">Viewed from the front, the heart's right side is on the LEFT of the diagram — blue = deoxygenated blood, red = oxygenated blood</text>
+
+  <!-- Outer muscular wall -->
+  <path d="M400 100 C 268 100 246 196 254 296 C 262 378 330 418 400 424 C 470 418 538 378 546 296 C 554 196 532 100 400 100 Z" fill="#f3f4f6" stroke="#374151" stroke-width="5"/>
+
+  <!-- Chambers -->
+  <ellipse cx="320" cy="185" rx="58" ry="44" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+  <ellipse cx="480" cy="185" rx="58" ry="44" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
+  <ellipse cx="320" cy="320" rx="66" ry="58" fill="#dbeafe" stroke="#2563eb" stroke-width="4"/>
+  <ellipse cx="480" cy="320" rx="70" ry="62" fill="#fee2e2" stroke="#dc2626" stroke-width="8"/>
+
+  <!-- Septum -->
+  <rect x="392" y="120" width="16" height="280" fill="#e5e7eb" stroke="#6b7280" stroke-width="2"/>
+
+  <!-- Vena cava (into right atrium) -->
+  <rect x="292" y="58" width="28" height="86" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+
+  <!-- Pulmonary artery (out of right ventricle, in front) -->
+  <path d="M348 270 L348 92" fill="none" stroke="#1e40af" stroke-width="26"/>
+  <path d="M348 270 L348 92" fill="none" stroke="#2563eb" stroke-width="18"/>
+
+  <!-- Aorta (out of left ventricle, in front) -->
+  <path d="M482 262 L482 96 Q482 66 512 66 L610 66" fill="none" stroke="#991b1b" stroke-width="30"/>
+  <path d="M482 262 L482 96 Q482 66 512 66 L610 66" fill="none" stroke="#dc2626" stroke-width="22"/>
+
+  <!-- Pulmonary vein (into left atrium) -->
+  <rect x="530" y="170" width="100" height="26" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
+
+  <!-- One-way valves between atria and ventricles -->
+  <path d="M312 232 L332 252 L352 232" fill="none" stroke="#374151" stroke-width="3"/>
+  <path d="M448 232 L468 252 L488 232" fill="none" stroke="#374151" stroke-width="3"/>
+
+  <!-- Coronary arteries on the heart surface -->
+  <path d="M476 268 C 458 292 450 312 448 336" fill="none" stroke="#b91c1c" stroke-width="3"/>
+  <path d="M464 290 C 476 302 490 310 502 320" fill="none" stroke="#b91c1c" stroke-width="3"/>
+  <path d="M330 268 C 318 290 312 306 310 330" fill="none" stroke="#b91c1c" stroke-width="3"/>
+
+  <!-- Left-side labels -->
+  <rect x="52" y="74" width="86" height="20" rx="4" fill="#f9fafb"/>
+  <text x="95" y="88" text-anchor="middle" class="label">vena cava</text>
+  <line x1="138" y1="86" x2="290" y2="95" class="leader"/>
+
+  <rect x="35" y="160" width="130" height="20" rx="4" fill="#f9fafb"/>
+  <text x="100" y="174" text-anchor="middle" class="label">pulmonary artery</text>
+  <line x1="165" y1="170" x2="334" y2="152" class="leader"/>
+
+  <rect x="45" y="240" width="100" height="20" rx="4" fill="#f9fafb"/>
+  <text x="95" y="254" text-anchor="middle" class="label">right atrium</text>
+  <line x1="145" y1="248" x2="264" y2="198" class="leader"/>
+
+  <rect x="39" y="320" width="112" height="20" rx="4" fill="#f9fafb"/>
+  <text x="95" y="334" text-anchor="middle" class="label">right ventricle</text>
+  <line x1="151" y1="330" x2="252" y2="318" class="leader"/>
+
+  <!-- Right-side labels -->
+  <rect x="655" y="60" width="70" height="20" rx="4" fill="#f9fafb"/>
+  <text x="690" y="74" text-anchor="middle" class="label">aorta</text>
+  <line x1="655" y1="70" x2="612" y2="66" class="leader"/>
+
+  <rect x="636" y="120" width="118" height="20" rx="4" fill="#f9fafb"/>
+  <text x="695" y="134" text-anchor="middle" class="label">pulmonary vein</text>
+  <line x1="636" y1="132" x2="632" y2="182" class="leader"/>
+
+  <rect x="642" y="205" width="95" height="20" rx="4" fill="#f9fafb"/>
+  <text x="690" y="219" text-anchor="middle" class="label">left atrium</text>
+  <line x1="642" y1="213" x2="540" y2="196" class="leader"/>
+
+  <rect x="583" y="290" width="210" height="20" rx="4" fill="#f9fafb"/>
+  <text x="688" y="304" text-anchor="middle" class="label">left ventricle — thicker wall</text>
+  <line x1="583" y1="300" x2="552" y2="310" class="leader"/>
+
+  <rect x="620" y="355" width="140" height="20" rx="4" fill="#f9fafb"/>
+  <text x="690" y="369" text-anchor="middle" class="label">coronary arteries</text>
+  <line x1="620" y1="365" x2="452" y2="330" class="leader"/>
+
+  <rect x="633" y="435" width="110" height="20" rx="4" fill="#f9fafb"/>
+  <text x="688" y="449" text-anchor="middle" class="label">muscular wall</text>
+  <line x1="633" y1="445" x2="545" y2="392" class="leader"/>
+
+  <!-- Bottom labels -->
+  <rect x="360" y="490" width="80" height="20" rx="4" fill="#f9fafb"/>
+  <text x="400" y="504" text-anchor="middle" class="label">septum</text>
+  <line x1="400" y1="490" x2="400" y2="402" class="leader"/>
+
+  <rect x="160" y="490" width="150" height="20" rx="4" fill="#f9fafb"/>
+  <text x="235" y="504" text-anchor="middle" class="label">one-way valves</text>
+  <line x1="285" y1="490" x2="332" y2="256" class="leader"/>
+  <line x1="300" y1="490" x2="468" y2="256" class="leader"/>
+</svg>

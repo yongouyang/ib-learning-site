@@ -3,7 +3,11 @@
 Status: **3a Physics SHIPPED 2026-09-28; 3b Chemistry SHIPPED 2026-10-11 (15 topics — the
 flagged topic-14 split was executed: `chem-igcse-organic-reactions` Core +
 `chem-igcse-organic-extended` Extended; Phase-0 PDF check reclassified mole-calculations,
-redox and energetics as MIXED → untagged). Next: 3c Biology 0610, then 3d English 0500.**
+redox and energetics as MIXED → untagged); 3c Biology SHIPPED 2026-10-13 (14 topics —
+Phase-0 PDF check held all 3 extended tags and confirmed `bio-igcse-plant-physiology`
+MIXED → untagged: it teaches Core 14.5 tropisms alongside Supplement mechanisms; mitosis
+incl. stem cells is Supplement-only in 2026–2028, a change from older versions).
+Next: 3d English 0500.**
 Follows the shipped pilot (`docs/igcse-pilot-plan.md`)
 and wave 2 (`docs/igcse-wave2-plan.md`); every mechanism (hubs, courses, paper gating,
 validator hardening, count-churn checklist) is inherited. Part of
@@ -185,7 +189,11 @@ sets + AI marking.
   Extended tails; possibly `chem-igcse-formulae-equations` (Core).
 - **Biology**: §11–13 gas exchange/respiration/excretion; §16 reproduction; §19–20 ecology;
   §10 Core + §15 disease/drugs (+ the deferred immunity Extended topic); §21 biotechnology;
-  inheritance Supp (codominance, ABO, sex linkage). Wave-2 rule: per area, verify the IGCSE
+  inheritance Supp (codominance, ABO, sex linkage). **Added at 3c review (2026-10-13):**
+  Extended digestion (Supp 7.4.6–8 pepsin/trypsin/maltase/bile, 7.5.3–5 villi/lacteals) and
+  the remaining inheritance/selection Supp (17.4.13–18 test cross/codominance/ABO/sex
+  linkage, 18.1.9–10, 18.3.4–6) have no topic home — a `bio-igcse-digestion-extended` /
+  `bio-igcse-inheritance-extended` pair would close both. Wave-2 rule: per area, verify the IGCSE
   treatment is genuinely deeper than the KS3 topic before authoring.
 - **English**: speaking & listening (Component 4) is out of scope permanently; coursework
   route is served but not guided.

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-labelledby="title desc">
+  <title id="title">The five food tests</title>
+  <desc id="desc">A table of the five food tests. Starch: iodine solution, no heating, brown to blue-black. Reducing sugar: Benedict's solution, heated, blue to brick-red. Protein: biuret reagent, no heating, blue to purple. Fat or oil: shaken with ethanol and poured into water, cloudy white emulsion. Vitamin C: DCPIP, blue to colourless.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .head { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #ffffff; }
+      .nutrient { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 700; fill: #064e3b; }
+      .cell { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 12px; font-weight: 600; fill: #1f2937; }
+      .cellsub { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+    </style>
+  </defs>
+
+  <rect width="800" height="560" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">The Five Food Tests</text>
+
+  <!-- Header row -->
+  <rect x="30" y="56" width="140" height="30" rx="6" fill="#065f46"/>
+  <text x="100" y="76" text-anchor="middle" class="head">Nutrient</text>
+  <rect x="178" y="56" width="140" height="30" rx="6" fill="#065f46"/>
+  <text x="248" y="76" text-anchor="middle" class="head">Reagent</text>
+  <rect x="326" y="56" width="220" height="30" rx="6" fill="#065f46"/>
+  <text x="436" y="76" text-anchor="middle" class="head">Method</text>
+  <rect x="554" y="56" width="216" height="30" rx="6" fill="#065f46"/>
+  <text x="662" y="76" text-anchor="middle" class="head">Positive result</text>
+
+  <!-- Row 1: starch -->
+  <rect x="24" y="94" width="752" height="78" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="38" y="139" text-anchor="start" class="nutrient">Starch</text>
+  <text x="186" y="128" text-anchor="start" class="cell">iodine solution</text>
+  <text x="186" y="148" text-anchor="start" class="cellsub">starts brown</text>
+  <text x="334" y="128" text-anchor="start" class="cell">add a few drops;</text>
+  <text x="334" y="148" text-anchor="start" class="cellsub">no heating</text>
+  <rect x="562" y="123" width="20" height="20" rx="4" fill="#172554"/>
+  <text x="592" y="138" text-anchor="start" class="cell">blue-black</text>
+
+  <!-- Row 2: reducing sugar -->
+  <rect x="24" y="178" width="752" height="78" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="38" y="223" text-anchor="start" class="nutrient">Reducing sugar</text>
+  <text x="186" y="212" text-anchor="start" class="cell">Benedict's</text>
+  <text x="186" y="232" text-anchor="start" class="cellsub">starts blue</text>
+  <text x="334" y="212" text-anchor="start" class="cell">heat in a water bath</text>
+  <text x="334" y="232" text-anchor="start" class="cellsub">at about 80 °C</text>
+  <rect x="562" y="207" width="20" height="20" rx="4" fill="#9a3412"/>
+  <text x="592" y="222" text-anchor="start" class="cell">brick-red</text>
+
+  <!-- Row 3: protein -->
+  <rect x="24" y="262" width="752" height="78" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="38" y="307" text-anchor="start" class="nutrient">Protein</text>
+  <text x="186" y="296" text-anchor="start" class="cell">biuret reagent</text>
+  <text x="186" y="316" text-anchor="start" class="cellsub">starts blue</text>
+  <text x="334" y="296" text-anchor="start" class="cell">add a few drops;</text>
+  <text x="334" y="316" text-anchor="start" class="cellsub">no heating</text>
+  <rect x="562" y="291" width="20" height="20" rx="4" fill="#7c3aed"/>
+  <text x="592" y="306" text-anchor="start" class="cell">purple</text>
+
+  <!-- Row 4: fat -->
+  <rect x="24" y="346" width="752" height="78" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="38" y="391" text-anchor="start" class="nutrient">Fat or oil</text>
+  <text x="186" y="380" text-anchor="start" class="cell">ethanol emulsion</text>
+  <text x="186" y="400" text-anchor="start" class="cellsub">starts colourless</text>
+  <text x="334" y="380" text-anchor="start" class="cell">shake with ethanol,</text>
+  <text x="334" y="400" text-anchor="start" class="cellsub">then pour into water</text>
+  <rect x="562" y="375" width="20" height="20" rx="4" fill="#f8fafc" stroke="#9ca3af"/>
+  <text x="592" y="390" text-anchor="start" class="cell">cloudy white emulsion</text>
+
+  <!-- Row 5: vitamin C -->
+  <rect x="24" y="430" width="752" height="78" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="38" y="475" text-anchor="start" class="nutrient">Vitamin C</text>
+  <text x="186" y="464" text-anchor="start" class="cell">DCPIP</text>
+  <text x="186" y="484" text-anchor="start" class="cellsub">starts blue</text>
+  <text x="334" y="464" text-anchor="start" class="cell">add the sample</text>
+  <text x="334" y="484" text-anchor="start" class="cellsub">drop by drop</text>
+  <rect x="562" y="459" width="20" height="20" rx="4" fill="#ffffff" stroke="#9ca3af"/>
+  <text x="592" y="474" text-anchor="start" class="cell">colourless</text>
+
+  <text x="400" y="540" text-anchor="middle" class="cellsub">Learn each test as reagent + conditions + colour change, with both the starting and finishing colours.</text>
+</svg>

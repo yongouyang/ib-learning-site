@@ -78,9 +78,11 @@ test.describe('Subject pages', () => {
 
   test('biology subject page should show enriched topics', async ({ page }) => {
     await page.goto('/subjects/biology');
-    await expect(page.getByText('Cell Structure')).toBeVisible();
-    await expect(page.getByText('Genetics')).toBeVisible();
-    await expect(page.getByText('Ecology')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Cell Structure & Microscopy' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Genetics, Inheritance & Variation' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Ecology & Ecosystems' })).toBeVisible();
+    // The IGCSE 0610 block (wave 3c) renders alongside the KS3 topics.
+    await expect(page.getByRole('heading', { name: 'Cell Structure, Specialisation & Magnification' })).toBeVisible();
     // Should now show 11 topics after enrichment (was 5)
     const topicLinks = page.locator('a[href*="/biology/"]');
     await expect(topicLinks.first()).toBeVisible();

@@ -50,6 +50,11 @@ export const COURSES: Course[] = [
     matches: (t) => t.subjectId === 'biology' && t.stage === 'ks3',
   },
   {
+    id: 'bio-igcse',
+    title: 'Biology — IGCSE 0610',
+    matches: (t) => t.subjectId === 'biology' && t.stage === 'igcse' && t.course === '0610',
+  },
+  {
     id: 'chem-ks3',
     title: 'Chemistry — KS3',
     matches: (t) => t.subjectId === 'chemistry' && t.stage === 'ks3',

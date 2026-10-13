@@ -1,0 +1,321 @@
+{
+  "id": "bio-igcse-molecules-enzymes",
+  "subjectId": "biology",
+  "title": "Biological Molecules & Enzymes",
+  "description": "The elements in carbohydrates, fats and proteins, how large molecules are built from smaller ones, the five food tests, and how enzymes work with the effects of temperature and pH for IGCSE Biology 0610.",
+  "stage": "igcse",
+  "course": "0610",
+  "notes": [
+    {
+      "id": "bio-igcse-molecules-enzymes-n1",
+      "heading": "The Chemical Elements in Food Molecules",
+      "body": "📌 The 0610 Core list\n• **Carbohydrates** — contain carbon, hydrogen and oxygen (C, H, O) only.\n• **Fats and oils** — contain carbon, hydrogen and oxygen (C, H, O) only.\n• **Proteins** — contain carbon, hydrogen, oxygen and nitrogen (C, H, O, N); some also contain sulfur.\n\n🔑 What the examiner wants\nThe single most tested contrast: proteins contain NITROGEN; carbohydrates and fats do not. That is why a protein-free diet cannot be fixed by eating more carbohydrate — the body has no dietary source of nitrogen to build proteins from except protein itself.\n\n⚠️ Common Mistake\nAssuming fats must contain 'something extra' because they store more energy than carbohydrates. They do not — both are C, H, O. The difference is the arrangement of atoms, not the element list.\n\n📎 Key Points to Remember\n• Carbohydrate = CHO; fat = CHO; protein = CHON (sometimes S).\n• Nitrogen is the element that marks out protein."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-n2",
+      "heading": "Building Large Molecules from Smaller Ones",
+      "body": "📌 The 0610 Core building blocks\n• **Starch, glycogen and cellulose** are all large carbohydrates built by joining many **glucose** molecules into long chains. Starch is the storage carbohydrate of plants, glycogen is the storage carbohydrate of animals and fungi, and cellulose builds plant cell walls.\n• **Proteins** are long chains of **amino acids**.\n• **Fats and oils** are built from **fatty acids and glycerol** (one glycerol joined to three fatty acids).\n\n🔑 How it works\nSmall, soluble molecules are linked into large, insoluble ones. Insolubility is exactly why starch and glycogen make good stores: a stored molecule must not dissolve, diffuse away, or upset the water balance of the cell.\n\n🔑 What the examiner wants\nMatch each large molecule to its small units: starch/glycogen/cellulose → glucose; protein → amino acids; fat → fatty acids + glycerol. Digestion later runs the same list in reverse (amylase breaks starch to sugars, protease breaks protein to amino acids, lipase breaks fat to fatty acids and glycerol).\n\n⚠️ Common Mistake\nWriting that 'fats are made of glucose'. Glucose builds CARBOHYDRATE chains only — fats come from fatty acids and glycerol.\n\n📎 Key Points to Remember\n• Glucose → starch, glycogen, cellulose. Amino acids → proteins. Fatty acids + glycerol → fats and oils.\n• Starch stores in plants; glycogen stores in animals; cellulose builds cell walls."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-n3",
+      "heading": "Food Tests 1: Iodine and Benedict's",
+      "body": "📌 Starch test\nReagent: **iodine solution** (brown). Method: add a few drops to the sample — no heating. Positive result: brown → **blue-black**.\n\n📌 Reducing sugar test (e.g. glucose)\nReagent: **Benedict's solution** (blue). Method: add the reagent and HEAT in a water bath (about 80 °C for a few minutes — heating is essential). Positive result: blue → **brick-red** (through green and yellow as the sugar concentration rises).\n\n🔑 What the examiner wants\nAlways give THREE things for full marks: the reagent, the CONDITIONS (heat or no heat), and the colour CHANGE with both colours — 'goes brick-red' without the starting blue is often only half the marks.\n\n⚠️ Common Mistake\nTwo frequent errors: testing for sugar with Benedict's but forgetting to heat (the colour change simply does not happen cold), and saying the iodine result is 'black' alone or 'purple'. The accepted phrase is blue-black. Note also that Benedict's detects REDUCING sugars such as glucose — it does not give a positive result with every sweet-tasting substance.\n\n📎 Key Points to Remember\n• Iodine: brown → blue-black = starch; no heat.\n• Benedict's + heat: blue → brick-red = reducing sugar."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-n4",
+      "heading": "Food Tests 2: Biuret, Ethanol Emulsion and DCPIP",
+      "body": "📌 Protein test\nReagent: **biuret reagent** (blue). Method: add to the sample — no heating. Positive result: blue → **purple (violet)**.\n\n📌 Fat and oil test — the ethanol emulsion test\nMethod: shake the sample with **ethanol** to dissolve any fat, then pour the ethanol into **water**. Positive result: a **cloudy white emulsion** forms (the fat comes out of solution as tiny droplets).\n\n📌 Vitamin C test\nReagent: **DCPIP** (blue). Method: add the sample to DCPIP drop by drop. Positive result: blue → **colourless** — vitamin C decolourises DCPIP, and the LESS sample needed to decolourise it, the MORE vitamin C the sample contains.\n\n🔑 What the examiner wants\nLearn all five tests as one table: nutrient — reagent — conditions — positive result (the illustration lays them out side by side). Unknown-sample questions give you a set of results and ask which nutrients are present; a sample can test positive for more than one.\n\n⚠️ Common Mistake\nSwapping the two blue reagents: Benedict's + HEAT → brick-red = reducing sugar; biuret, NO heat → purple = protein. And for the fat test, the ethanol is poured INTO WATER — the emulsion appears in the water, not in the ethanol.\n\n📎 Key Points to Remember\n• Biuret: blue → purple = protein.\n• Ethanol emulsion: cloudy white in water = fat/oil.\n• DCPIP: blue → colourless = vitamin C.",
+      "illustration": {
+        "src": "/images/biology/bio-igcse-food-tests.svg",
+        "alt": "A table of the five food tests: starch with iodine turning blue-black, reducing sugar with heated Benedict's turning brick-red, protein with biuret turning purple, fat with the ethanol emulsion test turning cloudy white, and vitamin C decolourising blue DCPIP.",
+        "caption": "Learn each test as reagent + conditions + colour change, with both the starting and finishing colours."
+      }
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-n5",
+      "heading": "Catalysts and Enzymes",
+      "body": "📌 Definitions\nA **catalyst** is a substance that increases the rate of a chemical reaction and is **not changed** by the reaction — it can be used again and again.\n**Enzymes** are **proteins** that function as **biological catalysts**.\n\n🔑 Why enzymes matter\nEnzymes are involved in ALL metabolic reactions — digestion, respiration, photosynthesis, protein synthesis and hundreds more. Left uncatalysed, these reactions would run far too slowly to keep a cell alive: enzymes raise the rate to the speed needed to sustain life. Because each enzyme is unchanged by its reaction, a small number of enzyme molecules can process a huge number of substrate molecules.\n\n🔑 What the examiner wants\nTwo facts worded precisely: enzymes are PROTEINS (not 'living things', not cells), and they are CATALYSTS (they speed reactions up without being used up). Being proteins explains why heat and pH damage them — the next two notes.\n\n⚠️ Common Mistake\nSaying an enzyme 'is used up' or 'becomes part of the product'. A catalyst emerges unchanged; if the enzyme were consumed it could not be a catalyst.\n\n📎 Key Points to Remember\n• Catalyst: speeds a reaction up, unchanged at the end.\n• Enzyme = protein + biological catalyst; involved in all metabolic reactions; needed because life-sustaining rates are otherwise too slow."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-n6",
+      "heading": "How Enzymes Work: The Active Site",
+      "body": "📌 The describe-level model (0610 Core)\nEvery enzyme has a region called the **active site**, whose shape is **complementary to** (matches) the shape of its **substrate** — the molecule the enzyme acts on. The substrate fits into the active site, the reaction takes place, and the **products** are released, leaving the enzyme unchanged and ready to work again.\n\n🔑 Specificity\nBecause the fit depends on shape, each enzyme acts on ONE substrate (or one small family of similar molecules). Amylase fits starch, not protein; protease fits protein, not starch. The usual analogy is a lock and its key — only the right key shape fits.\n\n💡 Worked Example\nSaliva contains amylase, which acts on starch but not on the protein in the same mouthful of food: starch has the complementary shape for amylase's active site, protein does not. Protein digestion waits for protease enzymes further down the gut.\n\n⚠️ Common Mistake\nSaying 'the enzyme and substrate have the same shape'. Complementary shapes FIT each other like a lock and key — they are not identical. (The enzyme-substrate complex and the kinetic detail behind this are Supplement content — the description above is all Core requires.)\n\n📎 Key Points to Remember\n• Active site shape is complementary to the substrate; products are released; the enzyme is reused.\n• One enzyme, one substrate — specificity by shape."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-n7",
+      "heading": "Temperature, pH and Denaturation",
+      "body": "📌 Temperature\nAs temperature rises, an enzyme-catalysed reaction speeds up (the molecules move faster, so substrate meets active site more often) up to an **optimum temperature** — in human enzymes around 37–40 °C. Above the optimum the rate falls steeply: the heat changes the shape of the enzyme's active site so the substrate no longer fits. The enzyme is then **denatured** — and because the protein's shape is permanently damaged, denaturation is usually irreversible.\n\n📌 pH\nEach enzyme also has an **optimum pH** at which it works fastest; away from it the active site shape is distorted and the rate falls. Optima differ between enzymes: stomach protease works best around pH 2 (acidic), while intestinal enzymes work best near pH 7–8.\n\n🔑 Investigating them\nFor temperature: set up amylase + starch in water baths at different temperatures and time how long each takes to stop giving a blue-black result with iodine (starch gone = reaction complete). For pH: repeat with buffer solutions of different pH. Keep all other variables constant.\n\n⚠️ Common Mistake\nSaying high temperature 'kills' the enzyme — enzymes are proteins, not living things, so they are DENATURED, not killed. And cold does NOT denature: at low temperature the molecules simply move slowly, so the reaction is slow but recovers when warmed.\n\n📎 Key Points to Remember\n• Rate rises to an optimum temperature, then falls as the enzyme denatures.\n• Denatured = active site shape changed = substrate no longer fits.\n• Each enzyme has its own optimum pH; cold slows but does not denature."
+    }
+  ],
+  "flashcards": [
+    {
+      "id": "bio-igcse-molecules-enzymes-f1",
+      "term": "Elements in carbohydrates and fats",
+      "definition": "Carbon, hydrogen and oxygen only — both food groups share the same three elements.",
+      "example": "Glucose and olive oil both contain only C, H and O."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-f2",
+      "term": "Elements in proteins",
+      "definition": "Carbon, hydrogen, oxygen and nitrogen — the nitrogen is what distinguishes protein from carbohydrate and fat. Some proteins also contain sulfur.",
+      "example": "The body cannot make protein from carbohydrate because it lacks a nitrogen source."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-f3",
+      "term": "Starch, glycogen and cellulose",
+      "definition": "Three large carbohydrates each built from long chains of glucose: starch stores energy in plants, glycogen in animals, and cellulose forms plant cell walls.",
+      "example": "A potato stores glucose as starch; your liver stores it as glycogen."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-f4",
+      "term": "Building blocks of fats and proteins",
+      "definition": "Fats and oils are built from fatty acids and glycerol; proteins are built from amino acids.",
+      "example": "Lipase digestion reverses the building: fat → fatty acids + glycerol."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-f5",
+      "term": "Iodine test for starch",
+      "definition": "Add brown iodine solution to the sample (no heating); a blue-black colour is a positive result for starch.",
+      "example": "A potato slice turns blue-black with iodine; a slice of apple stays brown."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-f6",
+      "term": "Benedict's test for reducing sugar",
+      "definition": "Add blue Benedict's solution and HEAT in a water bath; a colour change from blue to brick-red is positive for a reducing sugar such as glucose.",
+      "example": "Without heating, no colour change happens even if glucose is present."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-f7",
+      "term": "Biuret test for protein",
+      "definition": "Add blue biuret reagent to the sample (no heating); a purple (violet) colour is a positive result for protein.",
+      "example": "Milk turns purple with biuret reagent."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-f8",
+      "term": "Ethanol emulsion test for fat",
+      "definition": "Shake the sample with ethanol, then pour the ethanol into water; a cloudy white emulsion is a positive result for fat or oil.",
+      "example": "The emulsion forms because the fat dissolved in ethanol comes out of solution in the water as tiny droplets."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-f9",
+      "term": "DCPIP test for vitamin C",
+      "definition": "Add the sample to blue DCPIP drop by drop; vitamin C decolourises it (blue to colourless). The less sample needed, the more vitamin C it contains.",
+      "example": "Fresh orange juice decolourises DCPIP in fewer drops than long-stored juice."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-f10",
+      "term": "Catalyst",
+      "definition": "A substance that increases the rate of a chemical reaction and is not changed by the reaction, so it can be used again.",
+      "example": "A single catalase molecule can split thousands of hydrogen peroxide molecules."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-f11",
+      "term": "Enzyme",
+      "definition": "A protein that functions as a biological catalyst, involved in all metabolic reactions; essential because uncatalysed reactions would be too slow to sustain life.",
+      "example": "Amylase, protease and lipase are enzymes of digestion."
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-f12",
+      "term": "Active site",
+      "definition": "The region of an enzyme whose shape is complementary to its substrate; the substrate fits, reacts, and the products are released. Heat or wrong pH changes the shape — the enzyme is denatured.",
+      "example": "Amylase's active site fits starch but not protein, which is why enzymes are specific."
+    }
+  ],
+  "questions": [
+    {
+      "id": "bio-igcse-molecules-enzymes-q1",
+      "stem": "Which chemical elements are found in carbohydrates and in fats?",
+      "choices": [
+        "Carbon, hydrogen and oxygen",
+        "Carbon, hydrogen, oxygen and nitrogen",
+        "Carbon and oxygen only",
+        "Carbon, nitrogen and sulfur"
+      ],
+      "correctIndex": 0,
+      "explanation": "Carbohydrates and fats share the same three elements: C, H and O. The nitrogen appears in proteins — that difference is the classic exam discriminator.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q2",
+      "stem": "Which element is found in proteins but NOT in carbohydrates or fats?",
+      "choices": [
+        "Carbon",
+        "Nitrogen",
+        "Oxygen",
+        "Hydrogen"
+      ],
+      "correctIndex": 1,
+      "explanation": "Proteins contain C, H, O and N (sometimes S); carbohydrates and fats contain only C, H and O. Nitrogen is the distinguishing element — which is why protein cannot be made from carbohydrate in the diet.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q3",
+      "stem": "Starch, glycogen and cellulose are all large carbohydrates built from which smaller molecule?",
+      "choices": [
+        "Amino acids",
+        "Fatty acids",
+        "Glucose",
+        "Glycerol"
+      ],
+      "correctIndex": 2,
+      "explanation": "All three are chains of glucose units — starch stores energy in plants, glycogen in animals, and cellulose builds plant cell walls. Amino acids build proteins; fatty acids and glycerol build fats.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q4",
+      "stem": "Fats and oils are large molecules built from which smaller molecules?",
+      "choices": [
+        "Glucose and glycerol",
+        "Amino acids",
+        "Glucose chains coiled into globules",
+        "Fatty acids and glycerol"
+      ],
+      "correctIndex": 3,
+      "explanation": "A fat molecule is one glycerol joined to three fatty acids. Glucose builds carbohydrates only, and amino acids build proteins — mixing these up is the common error.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q5",
+      "stem": "A few drops of iodine solution are added to a food sample. Which colour change is a positive result for starch?",
+      "choices": [
+        "Blue to purple",
+        "Brown to blue-black",
+        "Blue to brick-red",
+        "Blue to colourless"
+      ],
+      "correctIndex": 1,
+      "explanation": "Iodine solution starts brown and turns blue-black with starch. Blue to brick-red is Benedict's (with heat) for reducing sugar, blue to purple is biuret for protein, and blue to colourless is DCPIP for vitamin C.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q6",
+      "stem": "In the Benedict's test for reducing sugar, why must the mixture be heated in a water bath?",
+      "choices": [
+        "Heating kills bacteria that would otherwise eat the sugar",
+        "Heating dissolves the Benedict's reagent",
+        "The colour change from blue to brick-red only occurs when the mixture is heated with a reducing sugar",
+        "Heating converts the starch in the sample into sugar"
+      ],
+      "correctIndex": 2,
+      "explanation": "The reaction between Benedict's reagent and a reducing sugar needs heat; without the water bath the solution stays blue even when sugar is present. A water bath is used because it heats gently and safely.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q7",
+      "stem": "Biuret reagent is added to a food sample and the mixture turns purple. Which nutrient is present?",
+      "choices": [
+        "Starch",
+        "Reducing sugar",
+        "Fat",
+        "Protein"
+      ],
+      "correctIndex": 3,
+      "explanation": "Biuret reagent changes from blue to purple in the presence of protein, with no heating needed. Starch gives blue-black with iodine and reducing sugar gives brick-red with heated Benedict's.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q8",
+      "stem": "In the ethanol emulsion test, a sample is shaken with ethanol and the ethanol is then poured into water. What is the positive result, and what does it show?",
+      "choices": [
+        "A cloudy white emulsion forms, showing fat or oil is present",
+        "The water turns blue-black, showing starch is present",
+        "The ethanol turns purple, showing protein is present",
+        "Bubbles of gas form, showing vitamin C is present"
+      ],
+      "correctIndex": 0,
+      "explanation": "Fat dissolves in ethanol but not in water, so pouring the ethanol into water throws the fat out of solution as tiny droplets — the cloudy white emulsion. The other colours belong to the iodine and biuret tests.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q9",
+      "stem": "Which substance decolourises blue DCPIP solution, turning it from blue to colourless?",
+      "choices": [
+        "Protein",
+        "Starch",
+        "Vitamin C",
+        "Fat"
+      ],
+      "correctIndex": 2,
+      "explanation": "DCPIP is the test for vitamin C: the more vitamin C in the sample, the fewer drops are needed to turn the blue DCPIP colourless. This makes the test semi-quantitative as well as qualitative.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q10",
+      "stem": "What is a catalyst?",
+      "choices": [
+        "A substance that is used up to make a reaction start",
+        "A living cell that carries out reactions",
+        "A substance that stores energy for reactions",
+        "A substance that increases the rate of a chemical reaction and is not changed by the reaction"
+      ],
+      "correctIndex": 3,
+      "explanation": "The definition has two halves: speeding the reaction up AND remaining unchanged at the end, so the same molecule can catalyse again. Enzymes are the biological catalysts — proteins with this property.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q11",
+      "stem": "Why are enzymes essential for sustaining life?",
+      "choices": [
+        "Without enzymes, metabolic reactions would run too slowly to keep cells alive; enzymes raise the rate to life-sustaining speeds without being used up",
+        "Enzymes provide the energy that metabolic reactions need",
+        "Enzymes store nutrients until the cell needs them",
+        "Enzymes carry genetic information between cells"
+      ],
+      "correctIndex": 0,
+      "explanation": "Digestion, respiration, photosynthesis and every other metabolic reaction depend on enzyme catalysis to proceed fast enough. Enzymes do not supply energy — they increase the rate, and as catalysts they emerge unchanged.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q12",
+      "stem": "Amylase and protease are both present in the small intestine, yet amylase digests only starch and never protein. What is the reason?",
+      "choices": [
+        "Amylase is destroyed by protein molecules",
+        "The shape of amylase's active site is complementary to starch, so protein cannot fit into it",
+        "Protein molecules are too large to enter any cell",
+        "Amylase only works at very low pH, where protein is insoluble"
+      ],
+      "correctIndex": 1,
+      "explanation": "Enzymes are specific because the active site has a shape complementary to its own substrate. Protein does not match amylase's active site, so no reaction occurs — protease, with a different active site, handles the protein.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q13",
+      "stem": "An enzyme-controlled reaction is fastest at 37 °C and almost stops above 50 °C. What explains the fall in rate at high temperature?",
+      "choices": [
+        "The substrate is used up more quickly at high temperature",
+        "The enzyme molecules are killed by the heat",
+        "The molecules move too fast to collide at all",
+        "The high temperature changes the shape of the enzyme's active site, so the substrate no longer fits — the enzyme is denatured"
+      ],
+      "correctIndex": 3,
+      "explanation": "Above the optimum, heat alters the active site's shape permanently; with no complementary fit, catalysis stops. Enzymes are proteins, not living things, so 'killed' is the wrong word — and the substrate is not the limiting factor here.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q14",
+      "stem": "What is meant by the optimum temperature of an enzyme?",
+      "choices": [
+        "The temperature at which the enzyme works fastest",
+        "The temperature at which the enzyme is denatured",
+        "The lowest temperature at which the reaction starts",
+        "The temperature of the room where the enzyme is stored"
+      ],
+      "correctIndex": 0,
+      "explanation": "The optimum is the peak of the rate-temperature curve — about 37–40 °C for human enzymes. Below it the reaction is slow but recoverable; far above it the enzyme denatures and the rate collapses.",
+      "difficulty": "easy"
+    },
+    {
+      "id": "bio-igcse-molecules-enzymes-q15",
+      "stem": "A food sample is tested: iodine stays brown; heated Benedict's turns brick-red; biuret reagent turns purple; DCPIP stays blue. What does the sample contain?",
+      "choices": [
+        "Starch and vitamin C only",
+        "Reducing sugar and protein, but no starch and no vitamin C",
+        "Starch, reducing sugar, protein and vitamin C",
+        "Protein only"
+      ],
+      "correctIndex": 1,
+      "explanation": "Read each test separately: brown iodine = no starch; brick-red Benedict's = reducing sugar present; purple biuret = protein present; blue DCPIP = no vitamin C. A sample can test positive for several nutrients at once.",
+      "difficulty": "hard"
+    }
+  ]
+}

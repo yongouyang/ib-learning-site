@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Single circulation of a fish versus double circulation of a mammal</title>
+  <desc id="desc">Two circulation diagrams. Left: a fish has a single circulation — heart to gills to body and back to the heart, so blood passes through the heart once per circuit. Right: a mammal has a double circulation — a pulmonary loop (heart to lungs to heart) and a systemic loop (heart to body to heart), so blood passes through the heart twice per circuit. Red arrows carry oxygenated blood, blue arrows carry deoxygenated blood.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .panel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 14px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+      .leader { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arrR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Single vs Double Circulation</text>
+
+  <!-- Panel divider -->
+  <line x1="400" y1="110" x2="400" y2="400" stroke="#e5e7eb" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- Fish panel -->
+  <text x="200" y="72" text-anchor="middle" class="panel">Fish — single circulation</text>
+  <text x="200" y="94" text-anchor="middle" class="sublabel">blood passes through the heart ONCE per circuit</text>
+
+  <rect x="55" y="140" width="110" height="40" rx="8" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <text x="110" y="165" text-anchor="middle" class="label">GILLS</text>
+  <rect x="235" y="140" width="110" height="40" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="290" y="165" text-anchor="middle" class="label">BODY</text>
+  <rect x="145" y="350" width="110" height="40" rx="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="200" y="375" text-anchor="middle" class="label">HEART</text>
+
+  <line x1="170" y1="350" x2="115" y2="182" stroke="#2563eb" stroke-width="3" marker-end="url(#arrB)"/>
+  <line x1="165" y1="160" x2="235" y2="160" stroke="#dc2626" stroke-width="3" marker-end="url(#arrR)"/>
+  <line x1="275" y1="182" x2="215" y2="348" stroke="#2563eb" stroke-width="3" marker-end="url(#arrB)"/>
+
+  <rect x="90" y="415" width="220" height="22" rx="4" fill="#f9fafb"/>
+  <text x="200" y="430" text-anchor="middle" class="sublabel">heart → gills → body → heart</text>
+
+  <!-- Mammal panel -->
+  <text x="600" y="72" text-anchor="middle" class="panel">Mammal — double circulation</text>
+  <text x="600" y="94" text-anchor="middle" class="sublabel">blood passes through the heart TWICE per circuit</text>
+
+  <rect x="545" y="140" width="110" height="40" rx="8" fill="#e0e7ff" stroke="#4338ca" stroke-width="2"/>
+  <text x="600" y="165" text-anchor="middle" class="label">LUNGS</text>
+  <rect x="545" y="240" width="110" height="40" rx="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="600" y="265" text-anchor="middle" class="label">HEART</text>
+  <rect x="545" y="340" width="110" height="40" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="600" y="365" text-anchor="middle" class="label">BODY</text>
+
+  <line x1="572" y1="240" x2="572" y2="182" stroke="#2563eb" stroke-width="3" marker-end="url(#arrB)"/>
+  <line x1="628" y1="180" x2="628" y2="238" stroke="#dc2626" stroke-width="3" marker-end="url(#arrR)"/>
+  <line x1="628" y1="280" x2="628" y2="338" stroke="#dc2626" stroke-width="3" marker-end="url(#arrR)"/>
+  <line x1="572" y1="340" x2="572" y2="282" stroke="#2563eb" stroke-width="3" marker-end="url(#arrB)"/>
+
+  <rect x="668" y="200" width="110" height="20" rx="4" fill="#f9fafb"/>
+  <text x="723" y="214" text-anchor="middle" class="sublabel">pulmonary loop</text>
+  <line x1="668" y1="210" x2="660" y2="210" class="leader"/>
+  <rect x="668" y="300" width="110" height="20" rx="4" fill="#f9fafb"/>
+  <text x="723" y="314" text-anchor="middle" class="sublabel">systemic loop</text>
+  <line x1="668" y1="310" x2="660" y2="310" class="leader"/>
+
+  <!-- Legend -->
+  <rect x="480" y="412" width="240" height="24" rx="4" fill="#f9fafb"/>
+  <rect x="492" y="418" width="12" height="12" fill="#dc2626"/>
+  <text x="510" y="428" class="sublabel">oxygenated</text>
+  <rect x="588" y="418" width="12" height="12" fill="#2563eb"/>
+  <text x="606" y="428" class="sublabel">deoxygenated</text>
+
+  <!-- Advantage band -->
+  <rect x="90" y="455" width="620" height="34" rx="8" fill="#ffffff" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="400" y="477" text-anchor="middle" class="label">advantage of double circulation: blood is re-pressurised after the lungs and never mixes</text>
+</svg>

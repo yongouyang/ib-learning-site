@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Negative feedback control of blood glucose</title>
+  <desc id="desc">A negative feedback loop. When blood glucose rises above the set point, the pancreas releases insulin and the liver converts glucose to glycogen, so blood glucose falls back. When blood glucose falls below the set point, the pancreas releases glucagon and the liver breaks glycogen down to glucose, so blood glucose rises back.</desc>
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 18px; font-weight: 700; fill: #111827; }
+      .label { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 13px; font-weight: 600; fill: #1f2937; }
+      .sublabel { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; fill: #4b5563; }
+    </style>
+  </defs>
+
+  <rect width="800" height="520" fill="#f9fafb" rx="12"/>
+  <text x="400" y="34" text-anchor="middle" class="title">Negative Feedback: Blood Glucose Control</text>
+  <text x="400" y="56" text-anchor="middle" class="sublabel">A change away from the set point triggers a response that REVERSES the change</text>
+
+  <!-- Central set-point bar -->
+  <rect x="170" y="240" width="520" height="44" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+  <text x="430" y="267" text-anchor="middle" class="label">Blood glucose held at the set point</text>
+
+  <!-- Top loop: glucose rises (insulin, green) -->
+  <rect x="160" y="110" width="185" height="60" rx="6" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+  <text x="252" y="137" text-anchor="middle" class="label">Blood glucose RISES</text>
+  <text x="252" y="155" text-anchor="middle" class="sublabel">(after a meal)</text>
+
+  <rect x="365" y="110" width="170" height="60" rx="6" fill="#ecfdf5" stroke="#059669" stroke-width="2.5"/>
+  <text x="450" y="137" text-anchor="middle" class="label">Pancreas releases</text>
+  <text x="450" y="155" text-anchor="middle" class="label">INSULIN</text>
+
+  <rect x="555" y="110" width="195" height="60" rx="6" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+  <text x="652" y="137" text-anchor="middle" class="label">Liver converts glucose</text>
+  <text x="652" y="155" text-anchor="middle" class="sublabel">to glycogen (stored)</text>
+
+  <line x1="345" y1="140" x2="360" y2="140" stroke="#059669" stroke-width="3"/>
+  <polygon points="365,140 356,135 356,145" fill="#059669"/>
+  <line x1="535" y1="140" x2="550" y2="140" stroke="#059669" stroke-width="3"/>
+  <polygon points="555,140 546,135 546,145" fill="#059669"/>
+
+  <line x1="265" y1="240" x2="265" y2="176" stroke="#059669" stroke-width="3"/>
+  <polygon points="265,170 260,180 270,180" fill="#059669"/>
+  <rect x="280" y="196" width="118" height="16" rx="4" fill="#f9fafb"/>
+  <text x="339" y="208" text-anchor="middle" class="sublabel">above the set point</text>
+
+  <line x1="665" y1="170" x2="665" y2="234" stroke="#059669" stroke-width="3"/>
+  <polygon points="665,240 660,230 670,230" fill="#059669"/>
+  <rect x="676" y="196" width="90" height="16" rx="4" fill="#f9fafb"/>
+  <text x="721" y="208" text-anchor="middle" class="sublabel">falls back</text>
+
+  <!-- Bottom loop: glucose falls (glucagon, amber) -->
+  <rect x="160" y="350" width="185" height="60" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="2.5"/>
+  <text x="252" y="377" text-anchor="middle" class="label">Blood glucose FALLS</text>
+  <text x="252" y="395" text-anchor="middle" class="sublabel">(fasting or exercise)</text>
+
+  <rect x="365" y="350" width="170" height="60" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="2.5"/>
+  <text x="450" y="377" text-anchor="middle" class="label">Pancreas releases</text>
+  <text x="450" y="395" text-anchor="middle" class="label">GLUCAGON</text>
+
+  <rect x="555" y="350" width="195" height="60" rx="6" fill="#ffffff" stroke="#d97706" stroke-width="2.5"/>
+  <text x="652" y="377" text-anchor="middle" class="label">Liver breaks glycogen</text>
+  <text x="652" y="395" text-anchor="middle" class="sublabel">down to glucose (released)</text>
+
+  <line x1="345" y1="380" x2="360" y2="380" stroke="#d97706" stroke-width="3"/>
+  <polygon points="365,380 356,375 356,385" fill="#d97706"/>
+  <line x1="535" y1="380" x2="550" y2="380" stroke="#d97706" stroke-width="3"/>
+  <polygon points="555,380 546,375 546,385" fill="#d97706"/>
+
+  <line x1="265" y1="284" x2="265" y2="344" stroke="#d97706" stroke-width="3"/>
+  <polygon points="265,350 260,340 270,340" fill="#d97706"/>
+  <rect x="280" y="296" width="118" height="16" rx="4" fill="#f9fafb"/>
+  <text x="339" y="308" text-anchor="middle" class="sublabel">below the set point</text>
+
+  <line x1="665" y1="350" x2="665" y2="290" stroke="#d97706" stroke-width="3"/>
+  <polygon points="665,284 660,294 670,294" fill="#d97706"/>
+  <rect x="676" y="296" width="90" height="16" rx="4" fill="#f9fafb"/>
+  <text x="721" y="308" text-anchor="middle" class="sublabel">rises back</text>
+
+  <text x="400" y="460" text-anchor="middle" class="sublabel">Insulin lowers blood glucose; glucagon raises it — both hormones act on the liver</text>
+</svg>
