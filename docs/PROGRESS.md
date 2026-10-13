@@ -4,6 +4,62 @@
 
 ---
 
+## 2026-10-13 — IGCSE wave 3c: Biology 0610 (14 topics + 2 paper sets) shipped
+Git HEAD: `bfd823f` (develop; content commit — this entry rides on top)
+Done: executed `docs/igcse-wave3-plan.md` §3c. **Found Phase A already complete on disk
+  from an unrecorded prior session** (14 untracked topic JSONs + 14 SVGs, structurally
+  sound: 7/12/15, correctIndex ~4/4/4/3, ≥3 hard each) and continued from there. **Phase 0
+  (parent duty): every badge cross-checked against the official Cambridge PDF** (0610
+  2026–2028, Version 1 — `/tmp/0610-syllabus.pdf`, layout-mode column extraction — the
+  plain-text "Core Supplement" merged header means single-column, NOT all-Core; column
+  position decides). Verdicts: all 3 extended tags HOLD (circulation-extended = §9.1–9.4
+  Supp; genetics-extended = §4.1.4 + §17.1–17.3 Supp — **mitosis incl. stem cells is
+  Supplement-only in 2026–2028**, a change from older versions; homeostasis-extended =
+  §14.1.8–10 / 14.2.5–9 / 14.3.5–6 / 14.4.3–8 Supp); `bio-igcse-plant-physiology`
+  correctly UNTAGGED (teaches Core 14.5 tropism definitions → MIXED). **Parent review
+  (3-agent swarm, 210 keys hand-re-derived): 1 wrong key found + fixed**
+  (molecules-enzymes q15 correctIndex 2→1 — key contradicted its own explanation) + 14
+  minors fixed (Supplement-2.2.3 label on cells n7, syllabus-citation offsets in
+  photosynthesis/homeostasis/heart-circulation, dangling cross-ref to a nonexistent
+  Extended digestion topic, 1 difficulty tag, "red blood cells never leave the blood").
+  One swarm claim REJECTED (translocation 8.4 = Supplement-only, confirmed by column
+  position). **Phase B (parent)**: papers `bio-igcse-set-1` (Core, free) + `set-2`
+  (Extended, premium), 8 q / 20 marks each; leak pre-check via the audit's window
+  primitives caught 66 collisions across 5 questions (mostly vs bio-ks3-set-1 + the new
+  free topics) — reworded on the premium side, re-checked 0. **3 display-math blocks
+  clipped at 320px** (cells formula + worked example, photosynthesis symbol equation) —
+  re-authored to FIT (syllabus-worded labels; the equation to unicode prose per the
+  bio-photosynthesis-1 corpus convention); re-measured 0. Integration: order.json 14→28,
+  `bio-igcse` in courses.ts after bio-ks3, registry 288 topics / 37 papers. Count churn:
+  biology 14→28, papers 35→37, topicCount 274→288, markscheme 700→740 (M144/A176/B420),
+  courses 17→18 — plus a NEW churn class: `seo.spec.ts`'s no-hub negative case
+  (biology→geography) and `app.spec.ts`'s biology-page substring locators (strict-mode
+  collision with the new topic titles → role+exact locators); both recorded in AGENTS.md.
+Verified: generate:registry + check:registry ✓, validate:content ✓, audit:content **0/0**
+  (288 topics / 4,866 questions), validate:illustrations + layout ✓, **1735/1735** unit
+  tests, tsc ✓, eslint clean on touched paths, `build:static` ✓ (leak gate HARD,
+  verify:sitemaps **413 URLs** all live+indexable, 681 noindex excluded),
+  audit:overflow --all PASS (864 pages, 375px), measure-display-math 320px: 0 clipped,
+  42-page sweep (14 topics × 3 surfaces) 0 `.katex-error` / 0 overflow, e2e churned specs
+  12/12 + seo 14/14 (Desktop Chrome, `--workers=1`), **`test:e2e:static` Desktop Chrome
+  `--workers=1`: 429 passed / 4 skipped / 1 failed → the failure was the app.spec.ts
+  locator defect above (real test bug, not content), fixed and re-run 20/20 green**.
+Next: **wave 3d — English 0500 (10 topics + 2 sets)** per plan §3d (last wave-3 subject;
+  its strand field and 2027–2029 window are settled in §1). Roadmap afterwards:
+  illustration-density pass (math+english first), paper set 3 per course. Biology wave-2
+  additions recorded in plan §4: Extended digestion (Supp 7.4.6–8, 7.5.3–5) and Extended
+  inheritance (17.4.13–18, 18.1.9–10, 18.3.4–6) have no topic home.
+Notes: **UX pass WAIVED** (content-JSON-only wave) — 4 spot screenshots in
+  `ux-screenshots/content/wave3c/` (igcse/biology hub mobile — picks up the subject
+  automatically; study cells mobile light; study homeostasis-extended desktop dark; quiz
+  inheritance mobile) all clean. New capture script `scripts/capture-wave3c-ux.mjs`
+  (42-page sweep + spots, against the built export). Illustration visual review: 4 of 14
+  new SVGs eyeballed (heart, reflex arc, DNA, Punnett) — accurate. The 0610 PDF +
+  extracted text are in /tmp — re-download for any recheck (URL in the wave plan's
+  research notes; cambridgeinternational.org/Images/697203-2026-2028-syllabus.pdf).
+
+---
+
 ## 2026-10-11 — IGCSE wave 3b: Chemistry 0620 (15 topics + 2 paper sets) shipped
 Git HEAD: `75b95e8` (develop; content commit — this entry rides on top)
 Done: executed `docs/igcse-wave3-plan.md` §3b. **Phase 0 (parent duty, new this wave):
