@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" role="img" aria-labelledby="title desc">
+  <title id="title">Question 4 bullet-mining flow</title>
+  <desc id="desc">A four-step flow for the extended response: the task's bullet points lead to evidence underlined in Text C, then to developed points written in the assigned role, and finally into the frame of the assigned text type. A bar below shows the even split between 10 reading marks and 10 writing marks.</desc>
+
+  <rect x="0" y="0" width="920" height="380" fill="#f8fafc"/>
+
+  <!-- Step 1: task bullets -->
+  <rect x="20" y="40" width="185" height="210" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <text x="35" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1e293b">1 - TASK BULLETS</text>
+  <text x="35" y="84" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">each = required content</text>
+  <rect x="35" y="100" width="155" height="34" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="112" y="122" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#334155">bullet 1 - must cover</text>
+  <rect x="35" y="142" width="155" height="34" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="112" y="164" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#334155">bullet 2 - must cover</text>
+  <rect x="35" y="184" width="155" height="34" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="112" y="206" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#334155">bullet 3 - must cover</text>
+
+  <!-- Arrow 1 to 2 -->
+  <line x1="205" y1="145" x2="241" y2="145" stroke="#64748b" stroke-width="2"/>
+  <polygon points="237,138 237,152 249,145" fill="#64748b"/>
+
+  <!-- Step 2: text evidence -->
+  <rect x="245" y="40" width="185" height="210" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <text x="260" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1e293b">2 - TEXT EVIDENCE</text>
+  <text x="260" y="84" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">one line per bullet</text>
+  <rect x="260" y="106" width="140" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="260" y="122" width="120" height="8" rx="4" fill="#cbd5e1"/>
+  <line x1="260" y1="134" x2="380" y2="134" stroke="#f59e0b" stroke-width="2.5"/>
+  <rect x="260" y="146" width="145" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="260" y="162" width="110" height="8" rx="4" fill="#cbd5e1"/>
+  <line x1="260" y1="174" x2="370" y2="174" stroke="#f59e0b" stroke-width="2.5"/>
+  <text x="260" y="206" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#b45309">amber = underlined proof</text>
+
+  <!-- Arrow 2 to 3 -->
+  <line x1="430" y1="145" x2="466" y2="145" stroke="#64748b" stroke-width="2"/>
+  <polygon points="462,138 462,152 474,145" fill="#64748b"/>
+
+  <!-- Step 3: developed points -->
+  <rect x="470" y="40" width="185" height="210" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <text x="485" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1e293b">3 - DEVELOP POINTS</text>
+  <text x="485" y="84" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">one paragraph per bullet</text>
+  <rect x="485" y="100" width="155" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="562" y="120" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#334155">bullet 1 + your view</text>
+  <rect x="485" y="138" width="155" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="562" y="158" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#334155">bullet 2 + your view</text>
+  <rect x="485" y="176" width="155" height="30" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="562" y="196" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#334155">bullet 3 + your view</text>
+
+  <!-- Arrow 3 to 4 -->
+  <line x1="655" y1="145" x2="691" y2="145" stroke="#64748b" stroke-width="2"/>
+  <polygon points="687,138 687,152 699,145" fill="#64748b"/>
+
+  <!-- Step 4: assigned form -->
+  <rect x="695" y="40" width="205" height="210" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <text x="710" y="66" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1e293b">4 - ASSIGNED FORM</text>
+  <text x="710" y="84" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">conventions on the outside</text>
+  <text x="710" y="112" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#334155">letter report journal</text>
+  <text x="710" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#334155">speech interview article</text>
+  <rect x="710" y="150" width="170" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="710" y="166" width="160" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="710" y="182" width="165" height="8" rx="4" fill="#cbd5e1"/>
+
+  <!-- Mark split bar -->
+  <rect x="20" y="290" width="430" height="52" rx="8" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+  <text x="235" y="312" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#0c4a6e">10 READING marks</text>
+  <text x="235" y="330" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#0c4a6e">every bullet covered, evidence from Text C</text>
+  <rect x="470" y="290" width="430" height="52" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="685" y="312" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#78350f">10 WRITING marks</text>
+  <text x="685" y="330" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#78350f">voice, structure, the form's conventions</text>
+</svg>

@@ -149,6 +149,16 @@ import eng_punctuation_1_json from './data/topics/english/eng-punctuation-1.json
 import eng_speaking_1_json from './data/topics/english/eng-speaking-1.json';
 import eng_spoken_language_1_json from './data/topics/english/eng-spoken-language-1.json';
 import eng_persuasive_speaking_1_json from './data/topics/english/eng-persuasive-speaking-1.json';
+import eng_igcse_0500_overview_json from './data/topics/english/eng-igcse-0500-overview.json';
+import eng_igcse_p1_comprehension_json from './data/topics/english/eng-igcse-p1-comprehension.json';
+import eng_igcse_p1_summary_json from './data/topics/english/eng-igcse-p1-summary.json';
+import eng_igcse_p1_language_analysis_json from './data/topics/english/eng-igcse-p1-language-analysis.json';
+import eng_igcse_p1_extended_response_json from './data/topics/english/eng-igcse-p1-extended-response.json';
+import eng_igcse_directed_writing_json from './data/topics/english/eng-igcse-directed-writing.json';
+import eng_igcse_descriptive_composition_json from './data/topics/english/eng-igcse-descriptive-composition.json';
+import eng_igcse_narrative_composition_json from './data/topics/english/eng-igcse-narrative-composition.json';
+import eng_igcse_audience_register_form_json from './data/topics/english/eng-igcse-audience-register-form.json';
+import eng_igcse_accuracy_style_json from './data/topics/english/eng-igcse-accuracy-style.json';
 // Biology topics
 import bio_practical_1_json from './data/topics/biology/bio-practical-1.json';
 import bio_cell_1_json from './data/topics/biology/bio-cell-1.json';
@@ -446,6 +456,16 @@ const eng_punctuation_1: Topic = topicSchema.parse(eng_punctuation_1_json);
 const eng_speaking_1: Topic = topicSchema.parse(eng_speaking_1_json);
 const eng_spoken_language_1: Topic = topicSchema.parse(eng_spoken_language_1_json);
 const eng_persuasive_speaking_1: Topic = topicSchema.parse(eng_persuasive_speaking_1_json);
+const eng_igcse_0500_overview: Topic = topicSchema.parse(eng_igcse_0500_overview_json);
+const eng_igcse_p1_comprehension: Topic = topicSchema.parse(eng_igcse_p1_comprehension_json);
+const eng_igcse_p1_summary: Topic = topicSchema.parse(eng_igcse_p1_summary_json);
+const eng_igcse_p1_language_analysis: Topic = topicSchema.parse(eng_igcse_p1_language_analysis_json);
+const eng_igcse_p1_extended_response: Topic = topicSchema.parse(eng_igcse_p1_extended_response_json);
+const eng_igcse_directed_writing: Topic = topicSchema.parse(eng_igcse_directed_writing_json);
+const eng_igcse_descriptive_composition: Topic = topicSchema.parse(eng_igcse_descriptive_composition_json);
+const eng_igcse_narrative_composition: Topic = topicSchema.parse(eng_igcse_narrative_composition_json);
+const eng_igcse_audience_register_form: Topic = topicSchema.parse(eng_igcse_audience_register_form_json);
+const eng_igcse_accuracy_style: Topic = topicSchema.parse(eng_igcse_accuracy_style_json);
 const bio_practical_1: Topic = topicSchema.parse(bio_practical_1_json);
 const bio_cell_1: Topic = topicSchema.parse(bio_cell_1_json);
 const bio_body_1: Topic = topicSchema.parse(bio_body_1_json);
@@ -622,7 +642,7 @@ const englishSubject: Subject = {
   name: englishMeta.name,
   icon: englishMeta.icon,
   accentColor: englishMeta.accentColor,
-  topics: [eng_reading_1, eng_figurative_1, eng_myths_legends, eng_yr7_graphic_novels, eng_yr7_short_story, eng_novel_study_1, eng_nonfiction_1, eng_media_visual_literacy, eng_drama_shakespeare, eng_yr8_modern_drama, eng_poetry_1, eng_poetry_2, eng_critical_reading_1, eng_yr9_close_reading, eng_yr9_war_poetry, eng_creative_1, eng_yr7_identity_autobiography, eng_narrative_1, eng_yr8_short_story_writing, eng_yr9_descriptive_writing, eng_creative_2, eng_persuasive_1, eng_nonfiction_writing_1, eng_yr9_letters_interviews, eng_essay_1, eng_essay_2, eng_poetry_writing_1, eng_spelling_1, eng_grammar_1, eng_grammar_2, eng_punctuation_1, eng_speaking_1, eng_spoken_language_1, eng_persuasive_speaking_1],
+  topics: [eng_reading_1, eng_figurative_1, eng_myths_legends, eng_yr7_graphic_novels, eng_yr7_short_story, eng_novel_study_1, eng_nonfiction_1, eng_media_visual_literacy, eng_drama_shakespeare, eng_yr8_modern_drama, eng_poetry_1, eng_poetry_2, eng_critical_reading_1, eng_yr9_close_reading, eng_yr9_war_poetry, eng_creative_1, eng_yr7_identity_autobiography, eng_narrative_1, eng_yr8_short_story_writing, eng_yr9_descriptive_writing, eng_creative_2, eng_persuasive_1, eng_nonfiction_writing_1, eng_yr9_letters_interviews, eng_essay_1, eng_essay_2, eng_poetry_writing_1, eng_spelling_1, eng_grammar_1, eng_grammar_2, eng_punctuation_1, eng_speaking_1, eng_spoken_language_1, eng_persuasive_speaking_1, eng_igcse_0500_overview, eng_igcse_p1_comprehension, eng_igcse_p1_summary, eng_igcse_p1_language_analysis, eng_igcse_p1_extended_response, eng_igcse_directed_writing, eng_igcse_descriptive_composition, eng_igcse_narrative_composition, eng_igcse_audience_register_form, eng_igcse_accuracy_style],
 };
 const biologySubject: Subject = {
   id: biologyMeta.id as SubjectId,

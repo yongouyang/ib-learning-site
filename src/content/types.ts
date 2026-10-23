@@ -14,7 +14,7 @@ export type Stage = 'ks3' | 'igcse' | 'dp';
 
 export type CourseLevel = 'core' | 'extended' | 'sl' | 'hl';
 
-/** KS3 English only: UK statutory strand grouping (subject page groups by strand when present). */
+/** English only: strand grouping (KS3 statutory strands; IGCSE 0500 topics reuse reading/writing). Subject page groups KS3 by strand when present. */
 export type EnglishStrand = 'reading' | 'writing' | 'grammar-vocabulary' | 'spoken-english';
 
 export interface Illustration {

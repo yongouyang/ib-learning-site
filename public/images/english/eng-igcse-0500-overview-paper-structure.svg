@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+  <title id="title">IGCSE First Language English 0500 exam structure: Paper 1 and Paper 2</title>
+  <desc id="desc">Two panels side by side. Paper 1 Reading lists its four compulsory 20-mark questions with their texts and word limits. Paper 2 Directed Writing and Composition shows Section A with question 1(a) and 1(b) and Section B with the composition choice. A strip below notes the coursework alternative and the optional speaking test.</desc>
+
+  <rect x="0" y="0" width="900" height="600" fill="#f8fafc"/>
+
+  <!-- Paper 1 panel -->
+  <rect x="30" y="30" width="400" height="430" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <rect x="45" y="45" width="370" height="54" rx="6" fill="#3b82f6"/>
+  <text x="230" y="70" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Paper 1 — Reading</text>
+  <text x="230" y="89" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#dbeafe">2 hours · 80 marks · 50% of the grade</text>
+  <text x="230" y="122" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#475569">3 texts, about 1400 words · about 15 min reading</text>
+
+  <!-- Q1 row -->
+  <rect x="45" y="136" width="370" height="64" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="57" y="150" width="44" height="32" rx="6" fill="#3b82f6"/>
+  <text x="79" y="171" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Q1</text>
+  <text x="117" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Comprehension — Text A</text>
+  <text x="117" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">short-answer sub-questions · R1–R5 · 20 marks</text>
+
+  <!-- Q2 row -->
+  <rect x="45" y="210" width="370" height="64" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="57" y="224" width="44" height="32" rx="6" fill="#10b981"/>
+  <text x="79" y="245" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Q2</text>
+  <text x="117" y="234" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Summary task — Text B</text>
+  <text x="117" y="254" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">2(a) summary, max 120 words + 2(b) · 20 marks</text>
+
+  <!-- Q3 row -->
+  <rect x="45" y="284" width="370" height="64" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="57" y="298" width="44" height="32" rx="6" fill="#f59e0b"/>
+  <text x="79" y="319" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Q3</text>
+  <text x="117" y="308" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Short answers + language task — Text C</text>
+  <text x="117" y="328" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">language task 200–250 words · 20 marks</text>
+
+  <!-- Q4 row -->
+  <rect x="45" y="358" width="370" height="64" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="57" y="372" width="44" height="32" rx="6" fill="#6366f1"/>
+  <text x="79" y="393" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Q4</text>
+  <text x="117" y="382" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Extended response — Text C</text>
+  <text x="117" y="402" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">250–300 words · six text types · 20 marks</text>
+
+  <!-- Paper 2 panel -->
+  <rect x="470" y="30" width="400" height="430" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <rect x="485" y="45" width="370" height="54" rx="6" fill="#0f766e"/>
+  <text x="670" y="70" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Paper 2 — Directed Writing &amp; Composition</text>
+  <text x="670" y="89" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#ccfbf1">2 hours · 80 marks · 50% of the grade</text>
+  <text x="670" y="122" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="#475569">two questions: one from each section</text>
+
+  <!-- Section A box -->
+  <rect x="485" y="136" width="370" height="172" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="497" y="148" width="26" height="24" rx="5" fill="#0f766e"/>
+  <text x="510" y="165" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#ffffff">A</text>
+  <text x="533" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Directed Writing · 40 marks</text>
+  <text x="497" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">based on one or two texts totalling 550–650 words</text>
+
+  <rect x="497" y="200" width="346" height="42" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="509" y="217" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1e293b">Q1(a) — analyse and evaluate the text(s)</text>
+  <text x="509" y="233" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#475569">5 marks · R3, R4 · new for 2027</text>
+
+  <rect x="497" y="250" width="346" height="48" rx="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="509" y="268" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#1e293b">Q1(b) — speech, letter, article or report</text>
+  <text x="509" y="286" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="400" fill="#475569">250–350 words · 10 reading + 25 writing marks</text>
+
+  <!-- Section B box -->
+  <rect x="485" y="322" width="370" height="100" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="497" y="334" width="26" height="24" rx="5" fill="#0f766e"/>
+  <text x="510" y="351" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#ffffff">B</text>
+  <text x="533" y="351" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="600" fill="#1e293b">Composition · 40 marks</text>
+  <text x="497" y="378" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">one of four titles — two descriptive, two narrative</text>
+  <text x="497" y="398" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="400" fill="#475569">350–450 words · all 40 marks are writing (W1–W5)</text>
+
+  <!-- Bottom strip -->
+  <rect x="30" y="478" width="840" height="104" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="50" y="506" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1e293b">Also on the syllabus</text>
+  <text x="50" y="532" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Component 3 Coursework Portfolio — three assignments (30 + 25 + 25 marks); the alternative to Paper 2</text>
+  <text x="50" y="556" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="400" fill="#334155">Component 4 Speaking and Listening Test — optional, separately endorsed (grades 1–5); never part of the written grade</text>
+</svg>

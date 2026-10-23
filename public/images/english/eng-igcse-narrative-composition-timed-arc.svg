@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">The composition hour: a tension arc mapped onto exam minutes</title>
+  <desc id="desc">A horizontal timeline of the Section B composition hour split into plan (0 to 5 minutes), write (5 to 45 minutes) and check (45 to 55 minutes) blocks. Above the writing block, a tension curve rises through four labelled stages: late opening, rising tension, climax and resonant ending, each with a word budget.</desc>
+
+  <rect x="0" y="0" width="960" height="620" fill="#f8fafc"/>
+
+  <text x="480" y="42" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1e293b">ONE COMPLETE STORY, MAPPED TO THE COMPOSITION HOUR</text>
+
+  <!-- Stage label groups -->
+  <g font-family="system-ui, -apple-system, sans-serif">
+    <rect x="100" y="64" width="180" height="52" rx="4" fill="#f1f5f9"/>
+    <text x="190" y="88" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">1 · LATE OPENING</text>
+    <text x="190" y="107" text-anchor="middle" font-size="12" fill="#475569">in the action · ~60 words</text>
+
+    <rect x="290" y="64" width="180" height="52" rx="4" fill="#f1f5f9"/>
+    <text x="380" y="88" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">2 · RISING TENSION</text>
+    <text x="380" y="107" text-anchor="middle" font-size="12" fill="#475569">withhold · ~180 words</text>
+
+    <rect x="488" y="64" width="174" height="52" rx="4" fill="#f1f5f9"/>
+    <text x="575" y="88" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">3 · CLIMAX</text>
+    <text x="575" y="107" text-anchor="middle" font-size="12" fill="#475569">short, sharp · ~80 words</text>
+
+    <rect x="670" y="64" width="170" height="52" rx="4" fill="#f1f5f9"/>
+    <text x="755" y="88" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">4 · RESONANT ENDING</text>
+    <text x="755" y="107" text-anchor="middle" font-size="12" fill="#475569">land it · ~60 words</text>
+  </g>
+
+  <!-- Tension axis hint -->
+  <line x1="120" y1="300" x2="120" y2="170" stroke="#94a3b8" stroke-width="1.5"/>
+  <polygon points="115,170 125,170 120,158" fill="#94a3b8"/>
+  <text x="120" y="150" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#64748b">tension</text>
+
+  <!-- Dashed stage separators: t=12, t=30, t=38 -->
+  <line x1="260" y1="140" x2="260" y2="466" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="515" y1="140" x2="515" y2="466" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="629" y1="140" x2="629" y2="466" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+  <!-- Tension arc over the writing block -->
+  <path d="M 170 332 C 280 326 380 306 452 258 C 500 226 540 176 572 152 C 600 168 650 224 688 262 C 706 280 718 292 726 298" fill="none" stroke="#3b82f6" stroke-width="3"/>
+  <circle cx="572" cy="152" r="5" fill="#3b82f6"/>
+
+  <!-- Leader lines from labels to the arc -->
+  <line x1="190" y1="118" x2="212" y2="320" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="380" y1="118" x2="388" y2="290" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="575" y1="118" x2="573" y2="144" stroke="#6b7280" stroke-width="1.5"/>
+  <line x1="755" y1="118" x2="682" y2="250" stroke="#6b7280" stroke-width="1.5"/>
+
+  <!-- Timeline blocks: PLAN 0-5, WRITE 5-45, CHECK 45-55 -->
+  <rect x="90" y="470" width="71" height="44" rx="4" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="161" y="470" width="566" height="44" rx="4" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="727" y="470" width="143" height="44" rx="4" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1e293b">
+    <text x="125" y="497" text-anchor="middle">PLAN</text>
+    <text x="444" y="497" text-anchor="middle">WRITE — about 350-450 words</text>
+    <text x="798" y="497" text-anchor="middle">CHECK</text>
+  </g>
+
+  <!-- Minute ticks -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#64748b">
+    <text x="90" y="540" text-anchor="middle">0</text>
+    <text x="161" y="540" text-anchor="middle">5 min</text>
+    <text x="727" y="540" text-anchor="middle">45</text>
+    <text x="870" y="540" text-anchor="middle">55 min</text>
+  </g>
+
+  <text x="480" y="582" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#475569">One conflict · few characters · compressed timeframe — plan it before you write it.</text>
+</svg>

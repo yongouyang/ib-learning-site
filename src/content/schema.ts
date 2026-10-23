@@ -19,7 +19,8 @@ export const yearSchema = z.union([z.literal(7), z.literal(8), z.literal(9)]);
 
 export const courseLevelSchema = z.enum(['core', 'extended', 'sl', 'hl']);
 
-// KS3 English only — see docs/CONTENT_STYLE.md ("Stage & course tagging").
+// English only (KS3 statutory strands, reused for IGCSE 0500 reading/writing) —
+// see docs/CONTENT_STYLE.md ("Stage & course tagging").
 export const englishStrandSchema = z.enum([
   'reading',
   'writing',

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="title desc">
+  <title id="title">Directed writing: the develop lane and the challenge lane</title>
+  <desc id="desc">The source text's claims, opinions and evidence feed two lanes: a develop lane, where ideas are extended with your own examples and applied more widely, and a challenge lane, where weak evidence is spotted and rebutted. Both lanes converge into your 250 to 350 word response, which must stay centred on the source without copying it.</desc>
+
+  <rect x="0" y="0" width="900" height="500" fill="#f8fafc"/>
+
+  <!-- Source box -->
+  <rect x="30" y="170" width="210" height="140" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <text x="45" y="196" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1e293b">SOURCE TEXT</text>
+  <text x="45" y="214" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">550-650 words</text>
+  <rect x="45" y="222" width="180" height="24" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="135" y="239" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#334155">claims</text>
+  <rect x="45" y="250" width="180" height="24" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="135" y="267" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#334155">opinions</text>
+  <rect x="45" y="278" width="180" height="24" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="135" y="295" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#334155">evidence (weak?)</text>
+
+  <!-- Arrow: source to develop lane -->
+  <line x1="242" y1="212" x2="326" y2="122" stroke="#64748b" stroke-width="2"/>
+  <polygon points="326,122 323.2,133.1 315.2,125.6" fill="#64748b"/>
+
+  <!-- Arrow: source to challenge lane -->
+  <line x1="242" y1="278" x2="326" y2="368" stroke="#64748b" stroke-width="2"/>
+  <polygon points="326,368 323.2,357 315.2,364.5" fill="#64748b"/>
+
+  <!-- Develop lane -->
+  <rect x="330" y="50" width="270" height="140" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="350" y="76" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#14532d">DEVELOP LANE</text>
+  <text x="350" y="104" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#14532d">+ extend the logic further</text>
+  <text x="350" y="126" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#14532d">+ add your own example</text>
+  <text x="350" y="148" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#14532d">+ apply it somewhere new</text>
+
+  <!-- Challenge lane -->
+  <rect x="330" y="300" width="270" height="140" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="350" y="326" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#7f1d1d">CHALLENGE LANE</text>
+  <text x="350" y="354" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#7f1d1d">- spot the weak evidence</text>
+  <text x="350" y="376" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#7f1d1d">- name what is ignored</text>
+  <text x="350" y="398" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#7f1d1d">- rebut with your reasons</text>
+
+  <!-- Arrow: develop lane to response -->
+  <line x1="602" y1="122" x2="688" y2="212" stroke="#64748b" stroke-width="2"/>
+  <polygon points="688,212 685.1,201 677.1,208.6" fill="#64748b"/>
+
+  <!-- Arrow: challenge lane to response -->
+  <line x1="602" y1="368" x2="688" y2="278" stroke="#64748b" stroke-width="2"/>
+  <polygon points="688,278 685.1,289 677.1,281.4" fill="#64748b"/>
+
+  <!-- Response box -->
+  <rect x="690" y="170" width="180" height="140" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <text x="705" y="196" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1e293b">YOUR RESPONSE</text>
+  <text x="705" y="214" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">1(b) - 250-350 words</text>
+  <rect x="705" y="232" width="140" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="705" y="248" width="120" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="705" y="264" width="135" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="705" y="282" width="150" height="20" rx="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="780" y="296" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#5b21b6">source + your thinking</text>
+
+  <!-- Bottom rule bar -->
+  <rect x="30" y="456" width="560" height="28" rx="6" fill="#f1f5f9"/>
+  <text x="310" y="475" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#1e293b">Rule: the source stays central, but the thinking is yours - never copy chunks</text>
+</svg>

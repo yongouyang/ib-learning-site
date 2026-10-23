@@ -14,7 +14,7 @@ const EXPECTED_TOPIC_COUNTS: Partial<Record<SubjectId, number>> = {
   math: 104,
   biology: 28,
   chemistry: 28,
-  english: 34,
+  english: 44,
   physics: 28,
   geography: 10,
   history: 11,
@@ -72,7 +72,7 @@ describe('content-registry', () => {
 
     it('registry.papers exposes papers with their mark schemes', () => {
       const papers = getAllPapersContent();
-      expect(papers).toHaveLength(37);
+      expect(papers).toHaveLength(39);
       const set = getPaperContent('math-y9', 'math-y9-set-2')!;
       expect(set.questions.length).toBeGreaterThan(0);
       expect(set.questions[0].markscheme.length).toBe(set.questions[0].marks);

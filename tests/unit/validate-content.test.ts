@@ -88,8 +88,13 @@ describe('checkStageConsistency', () => {
     expect(errors[0]).toContain('strand');
   });
 
-  it('rejects a strand on non-KS3 english topics', () => {
+  it('accepts a strand on IGCSE english topics (0500 wave reused the field)', () => {
     const topic = makeTopic({ subjectId: 'english', stage: 'igcse', course: '0500', strand: 'writing' });
+    expect(checkStageConsistency(topic)).toEqual([]);
+  });
+
+  it('rejects a strand on non-english topics at any stage', () => {
+    const topic = makeTopic({ subjectId: 'math', stage: 'igcse', course: '0580', strand: 'writing' });
     const errors = checkStageConsistency(topic);
     expect(errors).toHaveLength(1);
     expect(errors[0]).toContain('strand');
@@ -285,7 +290,7 @@ describe('checkMarkschemePrefixes', () => {
   });
 
   it('holds for every markscheme point in the corpus (the measurement, pinned)', () => {
-    // 740 points across 37 sets: M 144 / A 176 / B 420 (2026-10-13, after the IGCSE Biology sets).
+    // 780 points across 39 sets: M 144 / A 176 / B 460 (2026-10-23, after the IGCSE English sets).
     // If a future authoring pass breaks the convention, this fails here rather than in an
     // exam marker's prompt.
     const papersDir = path.join(process.cwd(), 'src/content/data/papers');
@@ -302,6 +307,6 @@ describe('checkMarkschemePrefixes', () => {
         expect(checkMarkschemePrefixes(parsed)).toEqual([]);
       }
     }
-    expect(points).toBe(740);
+    expect(points).toBe(780);
   });
 });

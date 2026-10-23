@@ -16,9 +16,9 @@ export function checkStageConsistency(topic: ValidatedTopic): string[] {
   const errors: string[] = [];
   const { stage, year, course, level, strand } = topic;
 
-  if (strand !== undefined && (stage !== 'ks3' || topic.subjectId !== 'english')) {
+  if (strand !== undefined && topic.subjectId !== 'english') {
     errors.push(
-      `strand is set ("${strand}") but strand is KS3-english-only (stage "${stage}", subjectId "${topic.subjectId}")`
+      `strand is set ("${strand}") but strand is english-only (stage "${stage}", subjectId "${topic.subjectId}")`
     );
   }
 

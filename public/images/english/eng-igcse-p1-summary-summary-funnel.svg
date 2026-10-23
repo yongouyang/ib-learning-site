@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 530" role="img" aria-labelledby="title desc">
+  <title id="title">The Question 2(a) summary funnel</title>
+  <desc id="desc">A funnel of four narrowing stages: read the whole of Text B, select only the points matching the question's focus, paraphrase each point in your own words, and write the result as continuous prose of no more than 120 words, with a word counter chip showing 112 out of 120.</desc>
+
+  <rect x="0" y="0" width="800" height="530" fill="#f8fafc"/>
+
+  <!-- Stage 1: read the whole text -->
+  <rect x="60" y="30" width="560" height="100" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <text x="80" y="56" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1e293b">1 - READ: the whole of Text B</text>
+  <rect x="80" y="70" width="300" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="80" y="86" width="340" height="8" rx="4" fill="#cbd5e1"/>
+  <line x1="76" y1="90" x2="424" y2="90" stroke="#ef4444" stroke-width="2"/>
+  <rect x="80" y="102" width="280" height="8" rx="4" fill="#cbd5e1"/>
+
+  <!-- Arrow 1 to 2 -->
+  <line x1="340" y1="130" x2="340" y2="154" stroke="#64748b" stroke-width="2"/>
+  <polygon points="332,150 348,150 340,162" fill="#64748b"/>
+
+  <!-- Stage 2: select focus-matching points -->
+  <rect x="60" y="166" width="440" height="92" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <text x="80" y="192" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1e293b">2 - SELECT: focus-matching points only</text>
+  <rect x="80" y="206" width="220" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="80" y="222" width="240" height="8" rx="4" fill="#cbd5e1"/>
+
+  <!-- Arrow 2 to 3 -->
+  <line x1="280" y1="258" x2="280" y2="282" stroke="#64748b" stroke-width="2"/>
+  <polygon points="272,278 288,278 280,290" fill="#64748b"/>
+
+  <!-- Stage 3: paraphrase -->
+  <rect x="60" y="294" width="330" height="92" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <text x="80" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1e293b">3 - PARAPHRASE: own words</text>
+  <rect x="80" y="334" width="180" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="80" y="350" width="160" height="8" rx="4" fill="#cbd5e1"/>
+
+  <!-- Arrow 3 to 4 -->
+  <line x1="225" y1="386" x2="225" y2="410" stroke="#64748b" stroke-width="2"/>
+  <polygon points="217,406 233,406 225,418" fill="#64748b"/>
+
+  <!-- Stage 4: write the summary -->
+  <rect x="60" y="422" width="230" height="96" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+  <text x="80" y="446" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700" fill="#1e293b">4 - WRITE: prose</text>
+  <rect x="80" y="460" width="150" height="8" rx="4" fill="#cbd5e1"/>
+  <rect x="80" y="478" width="110" height="26" rx="13" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="135" y="496" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#166534">112 / 120</text>
+
+  <!-- Side labels with leader lines -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#1e293b">
+    <rect x="636" y="78" width="156" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="714" y="95" text-anchor="middle">Off-focus lines cut</text>
+    <line x1="636" y1="90" x2="621" y2="90" stroke="#6b7280" stroke-width="1.5"/>
+
+    <rect x="536" y="200" width="228" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="650" y="217" text-anchor="middle">One point per mark - aim for ten</text>
+    <line x1="536" y1="212" x2="502" y2="212" stroke="#6b7280" stroke-width="1.5"/>
+
+    <rect x="416" y="328" width="222" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="527" y="345" text-anchor="middle">Lifting loses the writing marks</text>
+    <line x1="416" y1="340" x2="392" y2="340" stroke="#6b7280" stroke-width="1.5"/>
+
+    <rect x="316" y="458" width="196" height="24" rx="4" fill="#f1f5f9" opacity="0.95"/>
+    <text x="414" y="475" text-anchor="middle">Hard ceiling: 120 words max</text>
+    <line x1="316" y1="470" x2="292" y2="470" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+</svg>

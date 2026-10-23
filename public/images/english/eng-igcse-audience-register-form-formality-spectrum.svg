@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+  <title id="title">The register dial: 0500 text types on a formality spectrum</title>
+  <desc id="desc">A horizontal spectrum running from informal on the left to formal on the right. Six 0500 text types are positioned along it: journal and speech to classmates towards the informal end, article and interview near the middle, letter to the editor and formal report towards the formal end. Below, five register levers are listed: vocabulary, contractions, sentence length, direct address, and jargon or slang.</desc>
+
+  <rect x="0" y="0" width="800" height="480" fill="#f8fafc"/>
+
+  <defs>
+    <linearGradient id="reggrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fb923c"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <text x="60" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1e293b">The register dial: match the formality to the form</text>
+
+  <!-- Spectrum bar -->
+  <rect x="100" y="200" width="600" height="26" rx="13" fill="url(#reggrad)"/>
+  <text x="100" y="256" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#c2410c">INFORMAL</text>
+  <text x="700" y="256" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1d4ed8">FORMAL</text>
+
+  <!-- Markers on the bar -->
+  <g fill="#ffffff" stroke="#1e293b" stroke-width="2">
+    <circle cx="150" cy="213" r="7"/>
+    <circle cx="265" cy="213" r="7"/>
+    <circle cx="390" cy="213" r="7"/>
+    <circle cx="505" cy="213" r="7"/>
+    <circle cx="600" cy="213" r="7"/>
+    <circle cx="662" cy="213" r="7"/>
+  </g>
+
+  <!-- Labels above the bar -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#1e293b" text-anchor="middle">
+    <rect x="112" y="142" width="76" height="26" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="150" y="160">Journal</text>
+    <line x1="150" y1="168" x2="150" y2="204" stroke="#6b7280" stroke-width="1.5"/>
+
+    <rect x="352" y="142" width="76" height="26" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="390" y="160">Article</text>
+    <line x1="390" y1="168" x2="390" y2="204" stroke="#6b7280" stroke-width="1.5"/>
+
+    <rect x="525" y="142" width="150" height="26" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="600" y="160">Letter to the editor</text>
+    <line x1="600" y1="168" x2="600" y2="204" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+
+  <!-- Labels below the bar -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#1e293b" text-anchor="middle">
+    <rect x="190" y="288" width="150" height="26" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="265" y="306">Speech to classmates</text>
+    <line x1="265" y1="222" x2="265" y2="286" stroke="#6b7280" stroke-width="1.5"/>
+
+    <rect x="464" y="288" width="82" height="26" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="505" y="306">Interview</text>
+    <line x1="505" y1="222" x2="505" y2="286" stroke="#6b7280" stroke-width="1.5"/>
+
+    <rect x="614" y="288" width="108" height="26" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="668" y="306">Formal report</text>
+    <line x1="662" y1="222" x2="662" y2="286" stroke="#6b7280" stroke-width="1.5"/>
+  </g>
+
+  <!-- Levers panel -->
+  <rect x="60" y="356" width="680" height="100" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="80" y="384" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1e293b">Turn the dial with five levers</text>
+
+  <g font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">
+    <rect x="74" y="398" width="124" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="136" y="416" font-size="12" font-weight="700" fill="#1e293b">Vocabulary</text>
+    <text x="136" y="432" font-size="11" fill="#475569">slang or precise</text>
+
+    <rect x="206" y="398" width="124" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="268" y="416" font-size="12" font-weight="700" fill="#1e293b">Contractions</text>
+    <text x="268" y="432" font-size="11" fill="#475569">don't or do not</text>
+
+    <rect x="338" y="398" width="124" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="400" y="416" font-size="12" font-weight="700" fill="#1e293b">Sentence length</text>
+    <text x="400" y="432" font-size="11" fill="#475569">short or varied</text>
+
+    <rect x="470" y="398" width="124" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="532" y="416" font-size="12" font-weight="700" fill="#1e293b">Direct address</text>
+    <text x="532" y="432" font-size="11" fill="#475569">you or impersonal</text>
+
+    <rect x="602" y="398" width="124" height="44" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="664" y="416" font-size="12" font-weight="700" fill="#1e293b">Jargon, slang</text>
+    <text x="664" y="432" font-size="11" fill="#475569">insiders only</text>
+  </g>
+</svg>

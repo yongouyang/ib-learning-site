@@ -8,6 +8,9 @@ export interface TopicGroup<T> {
 
 // KS3 English strand grouping (statutory strands); only applied when topics carry
 // `strand` — subjects without it (math, science) fall through to the plain KS3 group.
+// IGCSE English topics also carry `strand` (0500 reading/writing) but are NOT
+// strand-grouped here: they sit in the single IGCSE group, which order.json already
+// arranges reading-first.
 const STRAND_ORDER: { strand: EnglishStrand; label: string }[] = [
   { strand: 'reading', label: 'Reading' },
   { strand: 'writing', label: 'Writing' },
