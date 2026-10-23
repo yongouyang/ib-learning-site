@@ -4,6 +4,40 @@
 
 ---
 
+## 2026-10-23 — Security sweep: 10 OSV findings cleared (next 16.4.2, vitest 4.1.12, vite 8.3.5)
+Git HEAD: `1517719` (develop; dep-bump commit — this entry rides on top)
+Done: nightly Security Scan was red 2026-10-21/22/23 (OSV-Scanner job; Semgrep green).
+  Bumped next ^16.3.8→^16.4.2 (GHSA-2464-fhr4-w9xw + GHSA-673q-mjm6-r5xr 9.5 RCEs,
+  GHSA-p3m5-59mp-jv5r 8.2 DoS — all server-runtime, no exposure in the static export,
+  but the gate doesn't care), vitest + @vitest/coverage-v8 →^4.1.12 (@vitest/mocker
+  2 CVEs), transitive vite 8.0.16→8.3.5 (5 CVEs), eslint-config-next →^16.4.2 to track.
+  Removed the stale GHSA-vfj7-8cjw-p6xm braces ignore — advisory re-scoped upstream
+  (modified 2026-10-02), no longer matches braces@3.0.3; scanner flagged it as an
+  unused ignore. npm 10.9.8 arborist crashes (edgesOut null) on vitest 4.1.12's
+  optional peer @vitest/browser-playwright@5.0.5 — workaround: --legacy-peer-deps,
+  then plain `npm install` to restore peer-only lock entries (npm ci verified);
+  recorded in AGENTS.md.
+Verified: in a CLEAN worktree at HEAD+changes (working tree holds the in-flight
+  English 0500 wave): osv-scanner clean; npm ci from scratch ✓; unit 1735/1735 ✓;
+  next build ✓ (16.4.2 Turbopack, 1128 pages); lint 0 errors (35 pre-existing
+  warnings; react-hooks plugin unchanged 7.1.1); e2e --workers=1 per project:
+  Desktop Chrome 434/434 ✓. iPhone SE 3 failed / iPad Pro 2 failed, chased:
+  2 were load flakes (pass in isolation); the deterministic one (mobile-navigation
+  breadcrumb strict-mode — 2 navs transiently during dev cold-compile hydration)
+  reproduces IDENTICALLY at the same commit with OLD deps → pre-existing local
+  dev-mode race, not the bump; CI green at this commit (CI retries: 2, local 0).
+Next: **wave 3d — English 0500 (10 topics + 2 sets) is IN FLIGHT in the working
+  tree** (10 topic JSONs + 10 SVGs + schema/courses/order edits; registry NOT yet
+  regenerated → topic-order/diagnostics/exams unit specs fail on the dirty tree
+  until `generate:registry` + count churn run). Then: illustration-density pass
+  (math+english first), paper set 3 per course. Biology wave-2 additions in plan §4.
+Notes: new local e2e flake class — mobile-navigation "long topic titles" strict-mode
+  (duplicate breadcrumb nav during dev-mode hydration under cold compile; SSR HTML
+  has 1 nav, warm server never reproduces, static export unaffected). Not user-facing.
+  Watch tonight's nightly scan (03:17 UTC) for green.
+
+---
+
 ## 2026-10-13 — IGCSE wave 3c: Biology 0610 (14 topics + 2 paper sets) shipped
 Git HEAD: `bfd823f` (develop; content commit — this entry rides on top)
 Done: executed `docs/igcse-wave3-plan.md` §3c. **Found Phase A already complete on disk
