@@ -4,6 +4,45 @@
 
 ---
 
+## 2026-10-23 — IGCSE wave 3d: English 0500 (10 topics + 2 skill-drill sets) shipped
+Git HEAD: `aef1098` (develop; content commit — this entry rides on top)
+Done: completed the in-flight wave 3d per `docs/igcse-wave3-plan.md` §3d (Phase A's 10
+  topic JSONs + 10 SVGs + strand plumbing found on disk from an unrecorded prior session).
+  **Parent review (3-agent swarm, all 150 MC keys independently re-derived, exam facts
+  verified against the official 0500 2027–2029 syllabus PDF): 0 wrong keys**; fixed
+  3 wrong-exam-fact prose claims (directed-writing "largest tariff" superlative — Section B
+  composition is 40 marks > 1(b)'s 35; extended-response q2 "poetry belongs to Section B";
+  accuracy-style P1 2(a) objectives are W1–W3 not W1–W4), 1 ambiguous-key stem
+  (comprehension q5 now asks the "most economical quotation"), 8 difficulty retags
+  (all topics still 3–5 hard), 1 KS3-ref nit. **Phase B (parent): papers
+  `eng-igcse-set-1` (P1-flavoured, free) + `set-2` (P2-flavoured, premium)** — original
+  passages (rooftop beekeeper ~210w; "In praise of boredom" ~215w, the UCLan boredom
+  research is real), 8 q / 20 marks each, point-based B-markschemes, skill-drill copy
+  (never "mock paper"); leak pre-check via audit-leaks window primitives: **0 collisions**
+  vs the 345-file corpus. Integration: `eng-igcse` in courses.ts, order.json 34→44,
+  registry 298 topics / 39 papers, strand ⇒ english in validate-content (AGENTS.md
+  taxonomy + CONTENT_STYLE strand rows updated to match). Count churn: english 34→44,
+  papers 37→39, topicCount 288→298, markscheme 740→780 (M144/A176/B460), courses 18→19,
+  exams paper links 24→25 + free-response links 37→39, papers set rows/lock rows 37/18→39/19.
+Verified: generate:registry + check:registry ✓, validate:content ✓, audit:content **0/0**
+  (298 topics / 5,016 questions), validate:illustrations + layout ✓, **1736/1736** unit,
+  tsc ✓, eslint clean on touched paths, build:static ✓ (leak HARD+TIGHTENED,
+  verify:sitemaps **429 URLs**, +16 indexable incl. the new /igcse/english hub),
+  audit:overflow --all PASS (894 pages, 375px), churned e2e (exams/papers/diagnostics/
+  seo/app) **46/46** Desktop Chrome `--workers=1`, **test:e2e:static Desktop Chrome
+  `--workers=1`: 440 passed / 4 skipped / 0 failed**.
+Next: illustration-density pass (math+english first), paper set 3 per course. Biology
+  wave-2 additions recorded in plan §4. Promotion develop→main pending user decision.
+Notes: **UX pass WAIVED** (content-JSON-only wave) — 4 spot screenshots in
+  `ux-screenshots/content/wave3d/` (igcse/english hub mobile; p1-summary study mobile
+  light; directed-writing study desktop dark; narrative quiz mobile) + 4 of 10 new SVGs
+  eyeballed (paper-structure, summary-funnel, timed-arc, formality-spectrum) — all
+  clean/accurate. The ≥5-distinct-topics paper convention bends for English skill drills
+  (plan §3d positions the sets by exam skill, not topic). No `$` anywhere in the new
+  content, so no display-math measuring needed.
+
+---
+
 ## 2026-10-23 — Security sweep: 10 OSV findings cleared (next 16.4.2, vitest 4.1.12, vite 8.3.5)
 Git HEAD: `1517719` (develop; dep-bump commit — this entry rides on top)
 Done: nightly Security Scan was red 2026-10-21/22/23 (OSV-Scanner job; Semgrep green).
