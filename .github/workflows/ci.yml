@@ -70,7 +70,7 @@ jobs:
     if: ${{ inputs.deploy_only != true }}
     runs-on: ubuntu-latest
     needs: build-and-test
-    # Normally ~12 min per device. The 8-min cap on the Playwright install step
+    # Normally ~12 min per device. The 15-min cap on the Playwright install step
     # below guards the specific hang seen 2026-09-18; this caps the whole job.
     timeout-minutes: 40
     strategy:
@@ -108,7 +108,7 @@ jobs:
         # Actions API — a step frozen at in_progress with a null conclusion). The
         # install normally takes ~1-2 min, so cap it and fail fast instead of
         # blocking a deploy on a dead runner.
-        timeout-minutes: 8
+        timeout-minutes: 15
 
       - name: Run e2e tests (${{ matrix.project }})
         run: npx playwright test --project="${{ matrix.project }}"
@@ -155,7 +155,7 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
         # See the e2e job: this is the step that hung for 45 minutes on 2026-09-18.
-        timeout-minutes: 8
+        timeout-minutes: 15
 
       - name: Validate illustrations
         # Both commands run even if the first fails, and the findings are echoed as

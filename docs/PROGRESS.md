@@ -4,6 +4,22 @@
 
 ---
 
+## 2026-10-25 — CI security findings and Playwright install timeout fixed
+Git HEAD: `038d238` (develop, tree dirty)
+Done: bumped zod 4.4.3→4.6.7 and transitive undici 7.30.0→7.30.1, clearing
+  four new OSV findings without suppressions; raised both Chromium install step
+  timeouts from 8→15 min after apt mirror downloads timed out Desktop Chrome CI.
+Verified: npm ci + npm audit 0; osv-scanner clean (root + tools); Semgrep 0;
+  validate:content + audit:content 0/0; illustrations + layout PASS; unit
+  1736/1736; lint 0 errors (35 pre-existing warnings); next build PASS;
+  Desktop Chrome e2e --workers=1: 434 passed / 10 skipped / 0 failed.
+Next: push and confirm the GitHub OSV + all-device e2e gates, then promote
+  develop→main. Resume paper set 3 / illustration-density / Biology wave 2.
+Notes: the Ubuntu apt timeout cannot be exercised locally; 15 min remains a
+  bounded install step. Static e2e was not rerun in this session.
+
+---
+
 ## 2026-10-23 — IGCSE wave 3d: English 0500 (10 topics + 2 skill-drill sets) shipped
 Git HEAD: `aef1098` (develop; content commit — this entry rides on top)
 Done: completed the in-flight wave 3d per `docs/igcse-wave3-plan.md` §3d (Phase A's 10
